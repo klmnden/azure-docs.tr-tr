@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 12/10/2018
+ms.date: 12/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 448ef296af3ceaffffa1a4a69060916afd9abdc4
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6ec3ca7c1323b342612293c5ea3ca1443370c9b4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185690"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386394"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar. Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar. Bu makalede kullanım koşulları ile çalışmaya başlama işlemini açıklamaktadır.
@@ -313,6 +313,8 @@ Koşullu erişim ilkeleri hemen etkili olur. Bu durumda, yönetici "Üzgün Bulu
 ## <a name="b2b-guests-preview"></a>B2B Konukları (Önizleme)
 
 Çoğu kuruluş, çalışanlarının, kuruluşlarının koşullarını kullanımı ve gizlilik bildirimlerini kabul yürürlükte olan bir işlem var. Ancak nasıl zorunlu aynı bir onayları için Azure AD iş işletmeden işletmeye (B2B) konukların, SharePoint veya Teams eklenen? Koşullu erişim ve kullanım koşullarını kullanarak, B2B Konuk kullanıcıları doğrudan doğru bir ilke uygulayabilir. Davet kullanım akışı sırasında kullanıcı kullanım koşullarını sunulur. Bu destek, şu anda Önizleme aşamasındadır.
+
+Kullanım koşulları, yalnızca kullanıcının Azure AD'de bir Konuk hesabı olduğunda görüntülenir. SharePoint Online şu anda sahip bir [geçici dış paylaşım alıcı deneyimi](/sharepoint/what-s-new-in-sharing-in-targeted-release) bir belge veya kullanıcının bir Konuk hesabı gerektirmeyen bir klasör paylaşma. Bu durumda, kullanım koşulları görüntülenmez.
 
 ![Tüm konuk kullanıcılar](./media/active-directory-tou/b2b-guests.png)
 

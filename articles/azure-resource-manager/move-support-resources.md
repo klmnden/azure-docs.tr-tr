@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 770f8261b3036e847111d2181a4c843374da7d60
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6f1869b83f46f97d0c54eb874a8879521a43b1e2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969745"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387072"
 ---
 # <a name="move-operation-support-for-resources"></a>İşlem desteği kaynakları Taşı
 
@@ -89,14 +89,6 @@ Kaynak sağlayıcısı hem de kaynak türünü bulduktan sonra kaynak türü ta�
 | Kaynak türü | Kaynak grubu | Abonelik |
 | ------------- | -------------- | ------------ |
 | batchaccounts | Evet | Evet |
-
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-| Kaynak türü | Kaynak grubu | Abonelik |
-| ------------- | -------------- | ------------ |
-| Kümeleri | Hayır | Hayır |
-| fileservers | Hayır | Hayır |
-| işler | Hayır | Hayır |
-| çalışma alanı | Hayır | Hayır |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Kaynak türü | Kaynak grubu | Abonelik |

@@ -1,18 +1,19 @@
 ---
-title: 'Yönlendirme (için ExpressRoute eşdüzey hizmet sağlama) devreyi yapılandırma: Azure: Klasik | Microsoft Docs'
+title: 'Bir bağlantı hattı için - ExpressRoute eşlemesi yapılandırın: Azure: Klasik | Microsoft Docs'
 description: Bu makalede, bir ExpressRoute bağlantı hattı için özel, ortak ve Microsoft eşlemesinin nasıl oluşturulduğu ve sağlandığı adım adım anlatılmaktadır. Bu makalede ayrıca bağlantı hattınızın durumunu denetleme, bağlantı hattını güncelleştirme veya silme işlemlerinin nasıl yapıldığı da anlatılmaktadır.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/27/2018
-ms.author: cherylmc;ganesr
-ms.openlocfilehash: 6e099d0cdf659aa6ed2ccbef1381021ae55c72c2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/11/2018
+ms.author: cherylmc
+ms.custom: seodec18
+ms.openlocfilehash: fbf97c984a00d6bdd7f79c26094ae36348e00236
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261851"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342043"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Bir ExpressRoute bağlantı hattı için (Klasik) eşlemesi oluşturma ve değiştirme
 > [!div class="op_single_selector"]
@@ -25,7 +26,7 @@ ms.locfileid: "51261851"
 > * [PowerShell (klasik)](expressroute-howto-routing-classic.md)
 > 
 
-Bu makalede PowerShell ve klasik dağıtım modeli kullanarak ExpressRoute devresi için yönlendirme yapılandırması oluşturma ve yönetme için adımlarında size kılavuzluk eder. Aşağıdaki adımlarda ayrıca bir ExpressRoute bağlantı hattının durumunu denetleme, güncelleştirme veya bağlantı hattını silme ve eşlemelerin sağlamasını kaldırma işlemleri de anlatılmaktadır. Bir, iki veya üç eşlemenin tamamını (Azure özel, Azure genel ve Microsoft) bir ExpressRoute bağlantı hattı için yapılandırabilirsiniz. Eşlemeleri seçtiğiniz herhangi bir sırayla yapılandırabilirsiniz. Ancak, her eşlemenin yapılandırmasını birer birer tamamladığınızdan emin olmanız gerekir. 
+Bu makalede PowerShell ve klasik dağıtım modeli kullanarak ExpressRoute bağlantı hattı için eşleme/yönlendirme yapılandırması oluşturma ve yönetme için adımlarında size kılavuzluk eder. Aşağıdaki adımlarda ayrıca bir ExpressRoute bağlantı hattının durumunu denetleme, güncelleştirme veya bağlantı hattını silme ve eşlemelerin sağlamasını kaldırma işlemleri de anlatılmaktadır. Bir, iki veya üç eşlemenin tamamını (Azure özel, Azure genel ve Microsoft) bir ExpressRoute bağlantı hattı için yapılandırabilirsiniz. Eşlemeleri seçtiğiniz herhangi bir sırayla yapılandırabilirsiniz. Ancak, her eşlemenin yapılandırmasını birer birer tamamladığınızdan emin olmanız gerekir. 
 
 Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıcıları ile oluşturulan bağlantı hatları için geçerlidir. Yönetilen sunan bir hizmet sağlayıcısı kullanıyorsanız, Katman 3 Hizmetleri (genellikle gibi bir IPVPN MPLS), bağlantı sağlayıcınız yapılandıracak ve yönlendirmeyi sizin için yönetme.
 
@@ -33,7 +34,7 @@ Bu yönergeler yalnızca Katman 2 bağlantı hizmetleri sunan hizmet sağlayıc�
 
 **Azure dağıtım modelleri hakkında**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Yapılandırma önkoşulları
 
@@ -328,9 +329,9 @@ Bu bölümde bir ExpressRoute bağlantı hattı için Microsoft eşleme yapılan
    * İkincil bağlantı için bir /30 alt ağı. Bu size ait ve bir RIR / IRR içinde kayıtlı bir geçerli ortak IPv4 ön eki olmalıdır.
    * Bu eşlemenin kurulacağı geçerli bir VLAN kimliği. Hiçbir bağlantı diğer eşlemesi aynı VLAN kimliğini kullanmadığından emin olun
    * Eşleme için AS numarası. 2 bayt ve 4 bayt AS numaralarını kullanabilirsiniz.
-   * Tanıtılan önekler: BGP oturumunda tanıtmayı planladığınız tüm öneklerin bir listesini sağlamanız gerekir. Yalnızca ortak IP adresi ön ekleri kabul edilir. Ön ek kümesi göndermeyi planlıyorsanız, virgülle ayrılmış bir liste gönderebilirsiniz. Bu ön ekler size bir RIR / IRR içinde kaydedilmiş olmalıdır.
-   * Müşteri ASN’si: Eşleme AS numarasına kayıtlı olmayan önekler tanıtıyorsanız, kayıtlı oldukları AS numarasını belirtebilirsiniz. **İsteğe bağlı**.
-   * Yönlendirme Kayıt Defteri Adı: AS numarası ve öneklerinin kaydedildiği RIR / IRR’yi belirtebilirsiniz.
+   * Tanıtılan önekler: BGP oturumunda tanıtmayı planladığınız tüm ön eklerin listesini sağlamanız gerekir. Yalnızca ortak IP adresi ön ekleri kabul edilir. Ön ek kümesi göndermeyi planlıyorsanız, virgülle ayrılmış bir liste gönderebilirsiniz. Bu ön ekler size bir RIR / IRR içinde kaydedilmiş olmalıdır.
+   * Müşteri ASN'si: Eşleme AS numarasına kayıtlı olmayan önekler tanıtıyorsanız, kayıtlı oldukları AS numarasını belirtebilirsiniz. **İsteğe bağlı**.
+   * Yönlendirme kayıt defteri adı: Belirtebileceğiniz RIR / IRR'yi AS numarası ve öneklerinin kaydedildiği rır.
    * Kullanmayı seçerseniz bir MD5 karma değeri. **İsteğe bağlı.**
      
   Microsoft, bağlantı hattı için eşleme yapılandırmak üzere aşağıdaki cmdlet'i çalıştırın:

@@ -1,21 +1,22 @@
 ---
-title: Hızlı Başlangıç - Azure Depolama Gezgini kullanarak nesne depolamada blob oluşturma | Microsoft Docs
-description: Bu hızlı başlangıçta, Azure Depolama Gezgini bir dizin ve dosya oluşturmak için nasıl kullanılacağını öğrenin. Ardından, dosyayı yerel bilgisayarınıza indirmek nasıl yanı sıra, bir dizindeki tüm dosyayı görüntüleme öğrenin. Ayrıca bir dosyanın anlık görüntüsünü oluşturma, dizin erişim ilkelerini yönetmenize ve bir paylaşılan erişim imzası oluşturma konusunda bilgi edinin.
+title: 'Hızlı Başlangıç: Azure Depolama Gezgini ile Azure Data Lake depolama Gen2 nesne depolamada blob oluşturma için kullanım etkin'
+description: Bu hızlı başlangıçta, Azure Depolama Gezgini bir Azure Data Lake depolama Gen2 hesabı hem de bir dizin ve dosya bir dosya sistemi oluşturmak için kullanmayı öğrenin. Ardından, dosyayı yerel bilgisayarınıza indirmek nasıl yanı sıra, bir dizindeki tüm dosyayı görüntüleme öğrenin.
 services: storage
 author: tamram
+ms.component: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: c5b674a33b400a1e920b10c839d4708897120a31
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e556dbe377f5bba6cbd727ac69c3d4fb9127a2c9
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975973"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385627"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Hızlı Başlangıç - Azure Depolama Gezgini kullanarak nesne depolamada blob oluşturma | Microsoft Docs
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Hızlı Başlangıç: Nesne depolamada blob oluşturma için Azure Depolama Gezgini'ni kullanma
 
 Bu hızlı başlangıçta nasıl kullanılacağını öğrenin [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) bir dizin ve blob oluşturmak için. Ardından, nasıl blob yerel bilgisayarınıza indirin ve tüm blobların bir dizinde görüntüleme öğrenin. Ayrıca bir blobun anlık görüntüsünü oluşturma, dizin erişim ilkelerini yönetmenize ve paylaşılan erişim imzası oluşturma hakkında bilgi edinin.
 

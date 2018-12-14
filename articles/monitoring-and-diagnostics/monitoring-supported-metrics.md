@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 0bb79c9d85e56308d9872baeb10868be8eaf7a5a
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 6ed4d0911dad8f8e36f941c4fa55622c49722377
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824923"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344406"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyici ile desteklenen ölçümler
 Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümler tam listesi ile Azure İzleyicisi'nin ölçüm ardışık düzen şu anda kullanılabilir. Diğer ölçümleri portalı veya eski API'leri kullanarak mevcut olabilir. Bu listede yalnızca birleştirilmiş Azure İzleyici ölçüm ardışık düzeni'ni kullanarak mevcut olan ölçümler içerir. Sorgulamak ve erişmek için bu ölçümleri lütfen [2018-01-01 API sürümü](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -21,7 +21,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 > [!NOTE]
 > Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
 >
-> *Örneğin*: Bir Olay Hub'ındaki 'Gelen İletiler' ölçümü, kuyruk düzeyi temelinde araştırılıp grafiği oluşturulabilir. Ancak, tanılama ayarları aracılığıyla dışarı aktarılan ölçüm, Olay Hub’ındaki tüm kuyruklarda tüm gelen iletiler halinde ifade edilir.
+> *Örneğin*: Bir olay Hub'ındaki 'Gelen iletiler' ölçümü temelinde araştırılıp bir kuyruk düzeyi. Ancak, tanılama ayarları aracılığıyla dışarı aktarılan ölçüm, Olay Hub’ındaki tüm kuyruklarda tüm gelen iletiler halinde ifade edilir.
 >
 >
 
@@ -42,7 +42,7 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |CleanerCurrentPrice|Bellek: Temizleyici geçerli fiyatı|Sayı|Ortalama|Geçerli fiyat, bellek $/ bayt/zaman normalleştirilmiş 1000.|ServerResourceType|
 |CleanerMemoryShrinkable|Bellek: Temizleyici belleği daraltılabilir|Bayt|Ortalama|Tarafından arka plan Temizleyicisi temizleme bayt cinsinden bellek miktarı.|ServerResourceType|
 |CleanerMemoryNonshrinkable|Bellek: Temizleyici belleği daraltılamaz|Bayt|Ortalama|Tarafından arka plan Temizleyicisi kapsamında olmayan bayt cinsinden bellek miktarı.|ServerResourceType|
-|MemoryUsage|Bellek: Bellek kullanımı|Bayt|Ortalama|Temizleyici bellek fiyatı hesaplanırken kullanılan sunucu işlemi bellek kullanımı. Process\PrivateBytes artı eşlenmiş veya ve xVelocity altyapısı bellek sınırını xVelocity bellek içi analiz altyapısı (VertiPaq) tarafından ayrılan herhangi bir bellek yok sayılıyor, bellekle eşlenen verilerin boyutunu sayaç eşittir.|ServerResourceType|
+|MemoryUsage|Bellek: Bellek Kullanımı|Bayt|Ortalama|Temizleyici bellek fiyatı hesaplanırken kullanılan sunucu işlemi bellek kullanımı. Process\PrivateBytes artı eşlenmiş veya ve xVelocity altyapısı bellek sınırını xVelocity bellek içi analiz altyapısı (VertiPaq) tarafından ayrılan herhangi bir bellek yok sayılıyor, bellekle eşlenen verilerin boyutunu sayaç eşittir.|ServerResourceType|
 |MemoryLimitHard|Bellek: Bellek sınırı sabit|Bayt|Ortalama|Yapılandırma dosyasından sabit bellek sınırı.|ServerResourceType|
 |Memoryhighlimit değeri|Bellek: Bellek sınırı yüksek|Bayt|Ortalama|Yapılandırma dosyasından yüksek bellek sınırı.|ServerResourceType|
 |MemoryLimitLow|Bellek: Bellek sınırı düşük|Bayt|Ortalama|Yapılandırma dosyasından düşük bellek sınırı.|ServerResourceType|
@@ -51,24 +51,24 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |QuotaBlocked|Bellek: Kota engellendi|Sayı|Ortalama|Diğer bellek kotaları serbest bırakılana kadar engellenen kota isteklerinin geçerli sayısı.|ServerResourceType|
 |VertiPaqNonpaged|Bellek: Disk belleği olmayan VertiPaq|Bayt|Ortalama|Bayt bellek kullanımı için bellek içi altyapısı tarafından belirlenen çalışma kilitli.|ServerResourceType|
 |VertiPaqPaged|Bellek: Disk belleği olan VertiPaq|Bayt|Ortalama|Bellek içi veriler için disk belleğine alınan bellek bayt sayısı.|ServerResourceType|
-|RowsReadPerSec|İşleme: Satır sayısı / sn okuyun.|CountPerSecond|Ortalama|Satır oranı tüm ilişkisel veritabanlarından okunan.|ServerResourceType|
-|RowsConvertedPerSec|İşleme: Satır sayısı / sn dönüştürülür.|CountPerSecond|Ortalama|İşleme sırasında dönüştürülen bir satır oranı.|ServerResourceType|
-|RowsWrittenPerSec|İşleme: saniye yazılan satır|CountPerSecond|Ortalama|İşleme sırasında yazılan satır oranı.|ServerResourceType|
+|RowsReadPerSec|İşleniyor: Satır sayısı / sn okuyun|CountPerSecond|Ortalama|Satır oranı tüm ilişkisel veritabanlarından okunan.|ServerResourceType|
+|RowsConvertedPerSec|İşleniyor: Satır sayısı / sn dönüştürüldü|CountPerSecond|Ortalama|İşleme sırasında dönüştürülen bir satır oranı.|ServerResourceType|
+|RowsWrittenPerSec|İşleniyor: Saniye yazılan satır|CountPerSecond|Ortalama|İşleme sırasında yazılan satır oranı.|ServerResourceType|
 |CommandPoolBusyThreads|İş parçacıkları: Komut havuzu meşgul iş parçacıkları|Sayı|Ortalama|Komut iş parçacığı havuzundaki meşgul iş parçacığı sayısı.|ServerResourceType|
 |CommandPoolIdleThreads|İş parçacıkları: Komut havuzu boşta iş parçacıkları|Sayı|Ortalama|Komut iş parçacığı havuzundaki boşta iş parçacığı sayısı.|ServerResourceType|
-|LongParsingBusyThreads|İş parçacıkları: uzun ayrıştırma meşgul iş parçacıkları|Sayı|Ortalama|Uzun iş parçacığı İnceleme havuzundaki meşgul iş parçacığı sayısı.|ServerResourceType|
-|LongParsingIdleThreads|İş parçacıkları: uzun ayrıştırma boşta iş parçacıkları|Sayı|Ortalama|Uzun iş parçacığı İnceleme havuzundaki boşta iş parçacığı sayısı.|ServerResourceType|
+|LongParsingBusyThreads|İş parçacıkları: Uzun ayrıştırma meşgul iş parçacıkları|Sayı|Ortalama|Uzun iş parçacığı İnceleme havuzundaki meşgul iş parçacığı sayısı.|ServerResourceType|
+|LongParsingIdleThreads|İş parçacıkları: Uzun ayrıştırma boşta iş parçacıkları|Sayı|Ortalama|Uzun iş parçacığı İnceleme havuzundaki boşta iş parçacığı sayısı.|ServerResourceType|
 |LongParsingJobQueueLength|İş parçacıkları: Uzun ayrıştırma iş kuyruğu uzunluğu|Sayı|Ortalama|Uzun ayrıştırma iş parçacığı havuzu kuyruğundaki iş sayısı.|ServerResourceType|
-|ProcessingPoolBusyIOJobThreads|İş parçacıkları: işleme havuzu meşgul g/ç işi iş parçacıkları|Sayı|Ortalama|İşleme iş parçacığı havuzunda g/ç işleri çalıştıran iş parçacığı sayısı.|ServerResourceType|
-|ProcessingPoolBusyNonIOThreads|İş parçacıkları: işleme havuzu meşgul/ç olmayan iş parçacıkları|Sayı|Ortalama|İşleme iş parçacığı havuzunda olmayan g/Ç işleri çalıştıran iş parçacığı sayısı.|ServerResourceType|
-|ProcessingPoolIOJobQueueLength|İş parçacıkları: işleme havuzu g/ç iş kuyruğu uzunluğu|Sayı|Ortalama|İşleme iş parçacığı havuzu kuyruğundaki g/ç iş sayısı.|ServerResourceType|
-|ProcessingPoolIdleIOJobThreads|İş parçacıkları: işleme havuzu boşta g/ç işi iş parçacıkları|Sayı|Ortalama|İşleme iş parçacığı havuzundaki g/ç işleri için boşta iş parçacığı sayısı.|ServerResourceType|
-|ProcessingPoolIdleNonIOThreads|İş parçacıkları: işleme havuzu boşta/ç olmayan iş parçacıkları|Sayı|Ortalama|/ Ç olmayan işler için ayrılan işleme iş parçacığı havuzundaki boşta iş parçacığı sayısı.|ServerResourceType|
+|ProcessingPoolBusyIOJobThreads|İş parçacıkları: İşleme havuzu meşgul g/ç işi iş parçacıkları|Sayı|Ortalama|İşleme iş parçacığı havuzunda g/ç işleri çalıştıran iş parçacığı sayısı.|ServerResourceType|
+|ProcessingPoolBusyNonIOThreads|İş parçacıkları: İşleme havuzu meşgul/ç olmayan iş parçacıkları|Sayı|Ortalama|İşleme iş parçacığı havuzunda olmayan g/Ç işleri çalıştıran iş parçacığı sayısı.|ServerResourceType|
+|ProcessingPoolIOJobQueueLength|İş parçacıkları: İşleme havuzu g/ç iş kuyruğu uzunluğu|Sayı|Ortalama|İşleme iş parçacığı havuzu kuyruğundaki g/ç iş sayısı.|ServerResourceType|
+|ProcessingPoolIdleIOJobThreads|İş parçacıkları: İşleme havuzu boşta g/ç işi iş parçacıkları|Sayı|Ortalama|İşleme iş parçacığı havuzundaki g/ç işleri için boşta iş parçacığı sayısı.|ServerResourceType|
+|ProcessingPoolIdleNonIOThreads|İş parçacıkları: İşleme havuzu boşta/ç olmayan iş parçacıkları|Sayı|Ortalama|/ Ç olmayan işler için ayrılan işleme iş parçacığı havuzundaki boşta iş parçacığı sayısı.|ServerResourceType|
 |QueryPoolIdleThreads|İş parçacıkları: Sorgu havuzu boşta iş parçacıkları|Sayı|Ortalama|İşleme iş parçacığı havuzundaki g/ç işleri için boşta iş parçacığı sayısı.|ServerResourceType|
 |QueryPoolJobQueueLength|İş parçacıkları: Sorgu havuzu iş kuyruğu uzunluğu|Sayı|Ortalama|Sorgu iş parçacığı havuzu kuyruğundaki iş sayısı.|ServerResourceType|
-|ShortParsingBusyThreads|İş parçacıkları: kısa ayrıştırma meşgul iş parçacıkları|Sayı|Ortalama|Kısa ayrıştırma iş parçacığı havuzundaki meşgul iş parçacığı sayısı.|ServerResourceType|
-|ShortParsingIdleThreads|İş parçacıkları: kısa ayrıştırma boşta iş parçacıkları|Sayı|Ortalama|Kısa ayrıştırma iş parçacığı havuzundaki boşta iş parçacığı sayısı.|ServerResourceType|
-|ShortParsingJobQueueLength|İş parçacıkları: kısa ayrıştırma iş kuyruğu uzunluğu|Sayı|Ortalama|Kısa ayrıştırma iş parçacığı havuzu kuyruğundaki iş sayısı.|ServerResourceType|
+|ShortParsingBusyThreads|İş parçacıkları: Kısa ayrıştırma meşgul iş parçacıkları|Sayı|Ortalama|Kısa ayrıştırma iş parçacığı havuzundaki meşgul iş parçacığı sayısı.|ServerResourceType|
+|ShortParsingIdleThreads|İş parçacıkları: Kısa ayrıştırma boşta iş parçacıkları|Sayı|Ortalama|Kısa ayrıştırma iş parçacığı havuzundaki boşta iş parçacığı sayısı.|ServerResourceType|
+|ShortParsingJobQueueLength|İş parçacıkları: Kısa ayrıştırma iş kuyruğu uzunluğu|Sayı|Ortalama|Kısa ayrıştırma iş parçacığı havuzu kuyruğundaki iş sayısı.|ServerResourceType|
 |memory_thrashing_metric|Bellek çok yavaş|Yüzde|Ortalama|Ortalama bellek temizleme.|ServerResourceType|
 |mashup_engine_qpu_metric|M altyapı QPU'su|Sayı|Ortalama|Karma altyapısı işlemleri tarafından kullanılan qpu|ServerResourceType|
 |mashup_engine_memory_metric|M altyapı belleği|Bayt|Ortalama|Karma altyapısı işlemleri tarafından bellek kullanımı|ServerResourceType|
@@ -1068,16 +1068,16 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |outgoing.allpns.badorexpiredchannel|Hatalı veya Süresi Dolmuş Kanal Hataları|Sayı|Toplam|Kayıttaki kanal/belirteç/registrationId geçersiz olduğundan veya süresi dolduğundan başarısız olan gönderim sayısı.|Boyut yok|
 |outgoing.WNS.Success|WNS Başarılı Bildirimler|Sayı|Toplam|Başarılı olan tüm bildirimlerin sayısı.|Boyut yok|
 |outgoing.WNS.invalidcredentials|WNS Yetkilendirme Hataları (Geçersiz Kimlik Bilgileri)|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği veya kimlik bilgileri engellendiği için başarısız olan gönderim sayısı. (Windows Live kimlik bilgilerini tanımıyor).|Boyut yok|
-|outgoing.WNS.badchannel|WNS Geçersiz Kanal Hatası|Sayı|Toplam|Kayıttaki ChannelURI tanınmadığı için başarısız olan gönderim sayısı (WNS durumu: 404 bulunamadı).|Boyut yok|
-|outgoing.wns.expiredchannel|WNS Süresi Dolan Kanal Hatası|Sayı|Toplam|ChannelURI'nin süresi dolduğu için başarısız olan gönderim sayısı (WNS durumu: 410 Kaybedildi).|Boyut yok|
-|outgoing.WNS.throttled|WNS Kısıtlanan Bildirimler|Sayı|Toplam|WNS bu uygulamayı kısıtladığı için başarısız olan gönderim sayısı (WNS durumu: 406 Kabul Edilemez).|Boyut yok|
+|outgoing.WNS.badchannel|WNS Geçersiz Kanal Hatası|Sayı|Toplam|Kayıttaki Channelurı tanınmadığı için başarısız olan gönderim sayısı (WNS durumu: (404 bulunamadı).|Boyut yok|
+|outgoing.wns.expiredchannel|WNS Süresi Dolan Kanal Hatası|Sayı|Toplam|Channelurı'nin süresi dolduğu için başarısız olan gönderim sayısı (WNS durumu: 410 Gone).|Boyut yok|
+|outgoing.WNS.throttled|WNS Kısıtlanan Bildirimler|Sayı|Toplam|WNS bu uygulamayı kısıtladığı için başarısız olan gönderim sayısı (WNS durumu: 406 Kabul edilemez).|Boyut yok|
 |outgoing.WNS.tokenproviderunreachable|WNS Yetkilendirme Hataları (Ulaşılamıyor)|Sayı|Toplam|Windows Live hizmetine erişilemiyor.|Boyut yok|
 |outgoing.WNS.invalidtoken|WNS Yetkilendirme Hataları (Geçersiz Belirteç)|Sayı|Toplam|WNS'ye sağlanan belirteç geçerli değil (WNS durumu: 401 Yetkisiz).|Boyut yok|
 |outgoing.WNS.wrongtoken|WNS Yetkilendirme Hataları (Yanlış Belirteç)|Sayı|Toplam|WNS'ye sağlanan belirteç geçerli, ancak başka bir uygulama için (WNS durumu: 403 Yasak). Kayıttaki Channelurı başka bir uygulama ile ilişkili ise bu durum oluşabilir. İstemci uygulaması bildirim hub'ında kimlik bilgileri bulunan uygulamayla ilişkili olup olmadığını denetleyin.|Boyut yok|
 |outgoing.WNS.invalidnotificationformat|WNS Geçersiz Bildirim Biçimi|Sayı|Toplam|Bildirimin biçimi geçersiz (WNS durumu: 400). WNS tüm geçersiz reddetmediğini olduğunu unutmayın.|Boyut yok|
-|outgoing.WNS.invalidnotificationsize|WNS Geçersiz Bildirim Boyutu Hatası|Sayı|Toplam|Bildirim yükü fazla büyük (WNS durumu: 413).|Boyut yok|
-|outgoing.WNS.channelthrottled|WNS Kanal Kısıtlandı|Sayı|Toplam|Bildirim, kayıttaki ChannelURI kısıtlandığı için bırakıldı (WNS yanıt üst bilgisi: X-WNS-NotificationStatus:channelThrottled).|Boyut yok|
-|outgoing.wns.channeldisconnected|WNS Kanal Bağlantısı Kesildi|Sayı|Toplam|Bildirim, kayıttaki ChannelURI kısıtlandığı için bırakıldı (WNS yanıt üst bilgisi: X-WNS-DeviceConnectionStatus: bağlantısı kesildi).|Boyut yok|
+|outgoing.WNS.invalidnotificationsize|WNS Geçersiz Bildirim Boyutu Hatası|Sayı|Toplam|Bildirim yükü çok büyük (WNS durumu: 413).|Boyut yok|
+|outgoing.WNS.channelthrottled|WNS Kanal Kısıtlandı|Sayı|Toplam|Bildirim, kayıttaki Channelurı kısıtlandığı için bırakıldı (WNS yanıt üst bilgisi: x - WNS - Channelthrottled).|Boyut yok|
+|outgoing.wns.channeldisconnected|WNS Kanal Bağlantısı Kesildi|Sayı|Toplam|Bildirim, kayıttaki Channelurı kısıtlandığı için bırakıldı (WNS yanıt üst bilgisi: X-WNS-DeviceConnectionStatus: bağlantısı kesildi).|Boyut yok|
 |outgoing.WNS.dropped|WNS Bırakılan Bildirimler|Sayı|Toplam|Bildirim, kayıttaki ChannelURI kısıtlandığı için bırakıldı (X-WNS-NotificationStatus: bırakıldı, ancak X-WNS-DeviceConnectionStatus: bağlantısı kesildi durumda değil).|Boyut yok|
 |outgoing.wns.pnserror|WNS Hataları|Sayı|Toplam|Bildirim, WNS ile iletişim kurulurken oluşan hatalardan dolayı teslim edilemedi.|Boyut yok|
 |outgoing.wns.authenticationerror|WNS Kimlik Doğrulaması Hataları|Sayı|Toplam|Bildirim, Windows Live ile iletişim kurulurken oluşan hatalardan, geçersiz kimlik bilgilerinden veya yanlış belirteçten dolayı teslim edilemedi.|Boyut yok|
@@ -1089,21 +1089,21 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 |outgoing.apns.pnserror|APNS Hataları|Sayı|Toplam|APNS ile iletişim kurulurken oluşan hatalardan dolayı başarısız olan gönderim sayısı.|Boyut yok|
 |outgoing.GCM.Success|GCM Başarılı Bildirimler|Sayı|Toplam|Başarılı olan tüm bildirimlerin sayısı.|Boyut yok|
 |outgoing.GCM.invalidcredentials|GCM Yetkilendirme Hataları (Geçersiz Kimlik Bilgileri)|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği veya kimlik bilgileri engellendiği için başarısız olan gönderim sayısı.|Boyut yok|
-|outgoing.GCM.badchannel|GCM Geçersiz Kanal Hatası|Sayı|Toplam|Kayıttaki registrationId tanınmadığı için başarısız olan gönderim sayısı (GCM sonucu: Invalid Registration).|Boyut yok|
-|outgoing.GCM.expiredchannel|GCM Süresi Dolan Kanal Hatası|Sayı|Toplam|Kayıttaki registrationId geçersiz olduğu veya süresi dolduğu için başarısız olan gönderim sayısı (GCM sonucu: NotRegistered).|Boyut yok|
-|outgoing.GCM.throttled|GCM Kısıtlanan Bildirimler|Sayı|Toplam|GCM bu uygulamayı kısıtladığı için başarısız olan gönderim sayısı (GCM durum kodu: 501-599 veya sonucu: Unavailable).|Boyut yok|
-|outgoing.GCM.invalidnotificationformat|GCM Geçersiz Bildirim Biçimi|Sayı|Toplam|Yük doğru bir şekilde biçimlendirilmediği için başarısız olan gönderim sayısı (GCM sonucu: InvalidDataKey veya InvalidTtl).|Boyut yok|
+|outgoing.GCM.badchannel|GCM Geçersiz Kanal Hatası|Sayı|Toplam|Kayıttaki RegistrationId tanınmadığı için başarısız olan gönderim sayısı (GCM sonucu: Geçersiz kayıt).|Boyut yok|
+|outgoing.GCM.expiredchannel|GCM Süresi Dolan Kanal Hatası|Sayı|Toplam|Kayıttaki RegistrationId süresi dolduğu için başarısız olan gönderim sayısı (GCM sonucu: NotRegistered).|Boyut yok|
+|outgoing.GCM.throttled|GCM Kısıtlanan Bildirimler|Sayı|Toplam|GCM bu uygulamayı kısıtladığı için başarısız olan gönderim sayısı (GCM durum kodu: 501-599 veya sonucu: kullanılamaz).|Boyut yok|
+|outgoing.GCM.invalidnotificationformat|GCM Geçersiz Bildirim Biçimi|Sayı|Toplam|Yük doğru bir şekilde biçimlendirilmediği için başarısız olan gönderim sayısı (GCM sonucu: Invaliddatakey veya Invalidttl).|Boyut yok|
 |outgoing.GCM.invalidnotificationsize|GCM Geçersiz Bildirim Boyutu Hatası|Sayı|Toplam|Yük fazla büyük olduğu için başarısız olan gönderim sayısı (GCM sonucu: MessageTooBig).|Boyut yok|
-|outgoing.gcm.wrongchannel|GCM Yanlış Kanal Hatası|Sayı|Toplam|Kayıttaki registrationId geçerli uygulamayla ilişkili olmadığı için başarısız olan gönderim sayısı (GCM sonucu: InvalidPackageName).|Boyut yok|
+|outgoing.gcm.wrongchannel|GCM Yanlış Kanal Hatası|Sayı|Toplam|Kayıttaki RegistrationId geçerli uygulamayla ilişkili olmadığı için başarısız olan gönderim sayısı (GCM sonucu: Invalidpackagename).|Boyut yok|
 |outgoing.gcm.pnserror|GCM Hataları|Sayı|Toplam|GCM ile iletişim kurulurken oluşan hatalardan dolayı başarısız olan gönderim sayısı.|Boyut yok|
-|outgoing.GCM.authenticationerror|GCM Kimlik Doğrulaması Hataları|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği, kimlik bilgileri engellendiği veya SenderId uygulamada doğru bir şekilde yapılandırılmadığı için başarısız olan gönderim sayısı (GCM sonucu: MismatchedSenderId).|Boyut yok|
+|outgoing.GCM.authenticationerror|GCM Kimlik Doğrulaması Hataları|Sayı|Toplam|PNS belirtilen kimlik kimlik bilgilerini kabul etmediği için başarısız olan gönderim sayısı engellendiği veya Senderıd uygulamada doğru yapılandırılmamış (GCM sonucu: Mismatchedsenderıd).|Boyut yok|
 |outgoing.mpns.Success|MPNS Başarılı Bildirimler|Sayı|Toplam|Başarılı olan tüm bildirimlerin sayısı.|Boyut yok|
 |outgoing.mpns.invalidcredentials|MPNS Geçersiz Kimlik Bilgileri|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği veya kimlik bilgileri engellendiği için başarısız olan gönderim sayısı.|Boyut yok|
-|outgoing.mpns.badchannel|MPNS Geçersiz Kanal Hatası|Sayı|Toplam|Kayıttaki ChannelURI tanınmadığı için başarısız olan gönderim sayısı (MPNS durumu: 404 bulunamadı).|Boyut yok|
-|outgoing.mpns.throttled|MPNS Kısıtlanan Bildirimler|Sayı|Toplam|MPNS bu uygulamayı kısıtladığı için başarısız olan gönderim sayısı (WNS MPNS: 406 Kabul Edilemez).|Boyut yok|
+|outgoing.mpns.badchannel|MPNS Geçersiz Kanal Hatası|Sayı|Toplam|Kayıttaki Channelurı tanınmadığı için başarısız olan gönderim sayısı (MPNS durumu: (404 bulunamadı).|Boyut yok|
+|outgoing.mpns.throttled|MPNS Kısıtlanan Bildirimler|Sayı|Toplam|MPNS bu uygulamayı kısıtladığı için başarısız olan gönderim sayısı (WNS MPNS: 406 Kabul edilemez).|Boyut yok|
 |outgoing.mpns.invalidnotificationformat|MPNS Geçersiz Bildirim Biçimi|Sayı|Toplam|Bildirimin yükü fazla büyük olduğu için başarısız olan gönderim sayısı.|Boyut yok|
-|outgoing.mpns.channeldisconnected|MPNS Kanalın Bağlantısı Kesildi|Sayı|Toplam|Kayıttaki ChannelURI'nin bağlantısı kesildiği için başarısız olan gönderim sayısı (MPNS durumu: 412 bulunamadı).|Boyut yok|
-|outgoing.mpns.dropped|MPNS Bırakılan Bildirimler|Sayı|Toplam|MPNS tarafından bırakılan gönderim sayısı (MPNS yanıt üst bilgisi: X-NotificationStatus: QueueFull veya Suppressed).|Boyut yok|
+|outgoing.mpns.channeldisconnected|MPNS Kanalın Bağlantısı Kesildi|Sayı|Toplam|Kayıttaki Channelurı'nin bağlantısı kesildiği için başarısız olan gönderim sayısı (MPNS durumu: 412) bulunamadı.|Boyut yok|
+|outgoing.mpns.dropped|MPNS Bırakılan Bildirimler|Sayı|Toplam|MPNS tarafından bırakılan gönderim sayısı (MPNS yanıt üst bilgisi: X-NotificationStatus: QueueFull veya gizlenen).|Boyut yok|
 |outgoing.mpns.pnserror|MPNS Hataları|Sayı|Toplam|MPNS ile iletişim kurulurken oluşan hatalardan dolayı başarısız olan gönderim sayısı.|Boyut yok|
 |outgoing.mpns.authenticationerror|MPNS Kimlik Doğrulaması Hataları|Sayı|Toplam|PNS belirtilen kimlik bilgilerini kabul etmediği veya kimlik bilgileri engellendiği için başarısız olan gönderim sayısı.|Boyut yok|
 |notificationhub.pushes|Tüm Giden Bildirimler|Sayı|Toplam|Bildirim hub'ındaki tüm giden bildirimler|Boyut yok|
@@ -1571,5 +1571,5 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure İzleyici'de ölçümleri hakkında bilgi edinin](../azure-monitor/platform/data-collection.md)
-* [Ölçümler üzerinde uyarı oluşturma](monitoring-overview-alerts.md)
+* [Ölçümler üzerinde uyarı oluşturma](../azure-monitor/platform/alerts-overview.md)
 * [Depolama, olay hub'ı veya Log Analytics ölçümleri dışarı aktarma](monitoring-overview-of-diagnostic-logs.md)

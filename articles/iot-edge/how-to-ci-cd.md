@@ -4,37 +4,35 @@ description: Sürekli tümleştirme ve sürekli dağıtım - Azure IOT Edge ile 
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 11/29/2018
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4db5fce89df0b5974261788608b785cf16917f1a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a714cec5ce05473887f9f06d47c75563bf878081
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074808"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386834"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Sürekli tümleştirme ve sürekli dağıtım için Azure IOT Edge
 
-Azure IOT Edge uygulamalarınızı Azure işlem hatları yerleşik Azure IOT Edge görevleri ile DevOps kolayca benimseyebilirsiniz veya [Jenkins için Azure IOT Edge eklentisi](https://plugins.jenkins.io/azure-iot-edge) Jenkins sunucunuzda. Bu makalede, sürekli tümleştirme nasıl kullanabileceğinizi gösterir ve sürekli dağıtım özelliklerini Azure işlem hatları ve Azure DevOps sunucusu oluşturmak için test ve uygulamaları hızla ve verimli bir şekilde dağıtmak için Azure IOT Edge. 
+Azure IOT Edge uygulamalarınızı Azure işlem hatları yerleşik Azure IOT Edge görevleri ile DevOps kolayca benimseyebilirsiniz veya [Jenkins için Azure IOT Edge eklentisi](https://plugins.jenkins.io/azure-iot-edge) Jenkins sunucunuzda. Bu makalede, derleme, test etme ve uygulamaları, Azure IOT Edge için hızlı ve verimli bir şekilde dağıtmak için sürekli tümleştirme ve sürekli dağıtım özellikleri Azure işlem hatlarını nasıl kullanabileceğinizi gösterir. 
 
 Bu makalede, öğreneceksiniz nasıl yapılır:
 * Oluşturun ve IOT Edge çözümü bir örnek denetleyin.
 * Sürekli Tümleştirme (CI) çözümü derlemek için yapılandırın.
 * Çözümü dağıtmak ve yanıtları görüntülemek için sürekli dağıtım (CD) yapılandırın.
 
-Bu makaledeki adımları tamamlayabilmeniz için 20 dakika sürer.
-
 ![Geliştirme ve üretim için diyagram - CI ve CD dallar](./media/how-to-ci-cd/cd.png)
 
 
 ## <a name="create-a-sample-azure-iot-edge-solution-using-visual-studio-code"></a>Visual Studio Code kullanarak örnek bir Azure IOT Edge çözüm oluşturma
 
-Bu bölümde, yapı işleminin bir parçası olarak yürütebilen çözüm birim testleri içeren örnek bir IOT Edge oluşturacaksınız. Bu bölümdeki yönergeleri izlemeden önce bölümündeki adımları tamamlamanız [bir IOT Edge çözümü Visual Studio code'da birden çok modül ile geliştirme](tutorial-multiple-modules-in-vscode.md).
+Bu bölümde, yapı işleminin bir parçası olarak yürütebilen çözüm birim testleri içeren örnek bir IOT Edge oluşturacaksınız. Bu bölümdeki yönergeleri izlemeden önce bölümündeki adımları tamamlamanız [bir IOT Edge çözümü Visual Studio code'da birden çok modül ile geliştirme](how-to-develop-multiple-modules-vscode.md).
 
-1. VS Code komut paleti yazın ve şu komutu çalıştırın **Azure IOT Edge: IOT Edge yeni çözüm**. Çalışma alanı klasörünüzde'ı seçin, çözüm adı sağlayın (varsayılan ad **EdgeSolution**) ve bir C# modülü oluşturun (**FilterModule**) Bu çözümdeki ilk kullanıcı modülü olarak. İlk modülünüz için Docker görüntü deposunu da belirtmeniz gerekir. Varsayılan görüntü deposu yerel bir Docker kayıt defteri bağlıdır (`localhost:5000/filtermodule`). Azure Container Registry'ye değiştirme (`<your container registry address>/filtermodule`) veya daha fazla sürekli tümleştirme için Docker hub'ı.
+1. VS Code komut paleti yazın ve şu komutu çalıştırın **Azure IOT Edge: Yeni bir IOT Edge çözüm**. Çalışma alanı klasörünüzde'ı seçin, çözüm adı sağlayın (varsayılan ad **EdgeSolution**) ve bir C# modülü oluşturun (**FilterModule**) Bu çözümdeki ilk kullanıcı modülü olarak. İlk modülünüz için Docker görüntü deposunu da belirtmeniz gerekir. Varsayılan görüntü deposu yerel bir Docker kayıt defteri bağlıdır (`localhost:5000/filtermodule`). Azure Container Registry'ye değiştirme (`<your container registry address>/filtermodule`) veya daha fazla sürekli tümleştirme için Docker hub'ı.
 
     ![Azure kapsayıcı kayıt defterini ayarlayın](./media/how-to-ci-cd/acr.png)
 
@@ -42,7 +40,7 @@ Bu bölümde, yapı işleminin bir parçası olarak yürütebilen çözüm birim
 
 3. Artık IOT Edge çözüm örneğinizi hazırdır. Varsayılan C# modülü kanal iletisi modül olarak görev yapar. İçinde `deployment.template.json`, bu çözümü içeren iki modül görürsünüz. İleti kaynaklandığı `tempSensor` modülü ve aracılığıyla doğrudan yöneltilen `FilterModule`, ardından IOT hub'ına gönderilen.
 
-4. Bu projeler kaydettikten sonra Azure depoları veya Azure DevOps sunucusu depoya denetleyin.
+4. Bu projeler kaydettikten sonra Azure Depolarınızı işleyin.
     
 > [!NOTE]
 > Azure depoları kullanma hakkında daha fazla bilgi için bkz. [Visual Studio ve Azure depoları ile kodunuzu paylaşmaya](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
@@ -59,7 +57,7 @@ Bu bölümde, IOT Edge çözüm örnek değişiklikleri iade ettiğinizde otomat
 
     ![Yeni derleme işlem hattı oluşturma](./media/how-to-ci-cd/add-new-build.png)
 
-1. İstenirse, seçin **Azure DevOps Git** kaynak türü. Ardından, proje, depo ve dal kodunuzu bulunduğu seçin. Seçin **devam**.
+1. İstenirse Azure depoları için kaynağınızı seçin. Ardından, proje, depo ve dal kodunuzu bulunduğu seçin. Seçin **devam**.
 
     ![Azure depoları Git seçin](./media/how-to-ci-cd/select-vsts-git.png)
 
@@ -101,7 +99,7 @@ Bu bölümde, IOT Edge çözüm örnek değişiklikleri iade ettiğinizde otomat
 ## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Azure işlem hatları için sürekli dağıtımı yapılandırma
 Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak çalışacak şekilde yapılandırılmış bir yayın işlem hattı oluşturacaksınız ve Azure işlem hatlarında dağıtım günlükleri gösterilir.
 
-1. İçinde **yayınlar** sekmesini, **+ yeni işlem hattı**. Veya, yayın işlem hatları zaten varsa, seçin **+ yeni** düğmesi.  
+1. İçinde **yayınlar** sekmesini, **+ yeni işlem hattı**. Veya, yayın işlem hatları zaten varsa, seçin **+ yeni** düğmesini tıklatın ve tıklatın **+ yeni yayın işlem**.  
 
     ![Yayın işlem hattı ekleyin](./media/how-to-ci-cd/add-release-pipeline.png)
 
@@ -109,7 +107,7 @@ Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak �
 
     ![Boş bir işlemle Başlat](./media/how-to-ci-cd/start-with-empty-job.png)
 
-2. Ardından, yayın ardışık düzeni ile tek bir aşamada başlatmak: **Aşama 1**. Yeniden adlandırma **Aşama 1** için **QA** ve test ortamı olarak değerlendir. Tipik sürekli dağıtım işlem hattında, genellikle birden çok aşama yok, fazla DevOps uygulamanıza dayalı oluşturabilirsiniz.
+2. Ardından yayın ardışık düzeni ile tek bir aşamada başlatmak: **1. Aşama**. Yeniden adlandırma **Aşama 1** için **QA** ve test ortamı olarak değerlendir. Tipik sürekli dağıtım işlem hattında, genellikle birden çok aşama yok, fazla DevOps uygulamanıza dayalı oluşturabilirsiniz.
 
     ![Test ortamı aşama oluşturun](./media/how-to-ci-cd/QA-env.png)
 

@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7df61cad250663d4b08c8c8d32257718e2f37db
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a88d4b09178ea32526cb8d035b47e1aef9c19dc3
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012862"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384250"
 ---
-# <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Windows tabanlı HDInsight (Hadoop) ile HBase kullanan Java uygulamaları oluşturmak için Maven kullanma
-Öğrenin ve oluşturmak bir [Apache HBase](http://hbase.apache.org/) Apache Maven kullanarak Java uygulaması. Ardından uygulama, Azure HDInsight (Hadoop) ile kullanın.
+# <a name="use-apache-maven-to-build-java-applications-that-use-apache-hbase-with-windows-based-hdinsight-apache-hadoop"></a>Windows tabanlı HDInsight (Apache Hadoop) ile Apache HBase kullanan Java uygulamaları oluşturmak için Apache Maven kullanma
+Öğrenin ve oluşturmak bir [Apache HBase](http://hbase.apache.org/) Apache Maven kullanarak Java uygulaması. Ardından uygulama, Azure HDInsight (Apache Hadoop) ile kullanın.
 
-[Maven](http://maven.apache.org/) yazılım, belgelere ve Java projeleri için raporlar oluşturmanıza olanak tanıyan bir yazılım proje yönetimi ve içeriği kavrama aracıdır. Bu makalede, sorgular, oluşturur ve bir Azure HDInsight kümesindeki bir HBase tablosu siler temel bir Java uygulaması oluşturmak için bunu kullanın öğrenin.
+[Apache Maven](http://maven.apache.org/) yazılım, belgelere ve Java projeleri için raporlar oluşturmanıza olanak tanıyan bir yazılım proje yönetimi ve içeriği kavrama aracıdır. Bu makalede, sorgular, oluşturur ve bir Azure HDInsight kümesindeki bir HBase tablosu siler temel bir Java uygulaması oluşturmak için bunu kullanın öğrenin.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgedeki adımlarda Windows kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Gereksinimler
 * [Java platformu JDK](https://aka.ms/azure-jdks) 7 veya üzeri
-* [Maven](http://maven.apache.org/)
+* [Apache Maven](http://maven.apache.org/)
 * HBase ile bir Windows tabanlı HDInsight kümesi
 
-    > [!NOTE]
+    > [!NOTE]  
     > Bu belgedeki adımlarda HDInsight kümesi sürüm 3.2 ve 3.3 ile test edilmiştir. Örneklerde sağlanan varsayılan 3.3 HDInsight kümesi için değerler.
 
 ## <a name="create-the-project"></a>Proje oluşturma
@@ -40,8 +40,8 @@ ms.locfileid: "51012862"
 
     Bu komut bir dizin tarafından belirtilen ada sahip geçerli konumda oluşturur **Artifactıd** parametre (**hbaseapp** Bu örnekte.) Bu dizin, aşağıdaki öğeleri içerir:
 
-   * **pom.xml**: Proje nesne modeli ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) projeyi oluşturmak için kullanılan bilgiler ve yapılandırma ayrıntılarını içerir.
-   * **src**: içeren dizine **main\java\com\microsoft\examples** burada geliştirdiğiniz uygulama dizini.
+   * **pom.xml**:  Proje nesne modeli ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) projeyi oluşturmak için kullanılan bilgiler ve yapılandırma ayrıntılarını içerir.
+   * **src**: İçeren dizine **main\java\com\microsoft\examples** burada geliştirdiğiniz uygulama dizini.
 3. Silme **src\test\java\com\microsoft\examples\apptest.java** Bu örnekte kullanılmadığından dosya.
 
 ## <a name="update-the-project-object-model"></a>Proje nesne modeli güncelleştirme
@@ -53,9 +53,9 @@ ms.locfileid: "51012862"
           <version>1.1.2</version>
         </dependency>
 
-    Bu bölümde Maven proje gerektirdiğini belirten **hbase istemci** sürüm **1.1.2**. Bu bağımlılık, derleme zamanında varsayılan Maven deposundan yüklenir. Kullanabileceğiniz [Maven merkezi depo arama](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) bu bağımlılık hakkında daha fazla bilgi edinmek için.
+    Bu bölümde Maven proje gerektirdiğini belirten **hbase istemci** sürüm **1.1.2**. Bu bağımlılık, derleme zamanında varsayılan Maven deposundan yüklenir. Kullanabileceğiniz [Apache Maven merkezi depo arama](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) bu bağımlılık hakkında daha fazla bilgi edinmek için.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Sürüm numarası, HDInsight kümenizle sağlanan HBase sürümü aynı olmalıdır. Doğru sürüm numarasını bulmak için aşağıdaki tabloyu kullanın.
    >
    >
@@ -65,7 +65,7 @@ ms.locfileid: "51012862"
    | 3.2 |0.98.4-hadoop2 |
    | 3.3 |1.1.2 |
 
-    HDInsight sürümleri ve bileşenleri hakkında daha fazla bilgi için bkz. [HDInsight ile kullanılabilen farklı Hadoop bileşenlerinin nelerdir](hdinsight-component-versioning.md).
+    HDInsight sürümleri ve bileşenleri hakkında daha fazla bilgi için bkz. [HDInsight ile kullanılabilen farklı Apache Hadoop bileşenlerinin nelerdir](hdinsight-component-versioning.md).
 2. Bir HDInsight 3.3 kümesi kullanıyorsanız, aşağıdaki da eklemelisiniz `<dependencies>` bölümü:
 
         <dependency>
@@ -122,12 +122,12 @@ ms.locfileid: "51012862"
 
     `<resources>` Bölümü, bir kaynak yapılandırır (**conf\hbase-site.xml**), HBase için yapılandırma bilgilerini içerir.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Ayrıca, kod aracılığıyla yapılandırma değerlerini ayarlayabilirsiniz. Bölümündeki yorumlara bakın **CreateTable** nasıl yapılacağı aşağıdaki örnek.
    >
    >
 
-    Bu `<plugins>` bölümü yapılandırır [Maven derleme eklentisini](http://maven.apache.org/plugins/maven-compiler-plugin/) ve [Maven gölge eklentisi](http://maven.apache.org/plugins/maven-shade-plugin/). Eklenti derleyici topoloji derlemek için kullanılır. Eklenti gölge Maven tarafından oluşturulan JAR paketi lisans yinelenmesini önlemek için kullanılır. Bu nedeni, yinelenen lisans dosyaları üzerinde HDInsight kümesi çalışma zamanında hataya neden olmasıdır. Gölge maven plugin ile kullanarak `ApacheLicenseResourceTransformer` uygulama bu hatayı önler.
+    Bu `<plugins>` bölümü yapılandırır [Apache Maven derleme eklentisini](http://maven.apache.org/plugins/maven-compiler-plugin/) ve [Apache Maven gölge eklentisi](http://maven.apache.org/plugins/maven-shade-plugin/). Eklenti derleyici topoloji derlemek için kullanılır. Eklenti gölge Maven tarafından oluşturulan JAR paketi lisans yinelenmesini önlemek için kullanılır. Bu nedeni, yinelenen lisans dosyaları üzerinde HDInsight kümesi çalışma zamanında hataya neden olmasıdır. Gölge maven plugin ile kullanarak `ApacheLicenseResourceTransformer` uygulama bu hatayı önler.
 
     Maven gölge eklentisi uber jar dosyasını (veya fat jar) üretir uygulamanın gerektirdiği tüm bağımlılıkları içerir.
 4. **Pom.xml** dosyasını kaydedin.
@@ -173,7 +173,7 @@ ms.locfileid: "51012862"
 
     Bu dosya, bir HDInsight kümesi için HBase Yapılandırması'nı yüklemek için kullanılır.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Bir minimal hbase-site.xml dosyasının budur ve HDInsight kümesi için tam minimum ayarları içerir.
 
 6. Kaydet **hbase-site.xml** dosya.
@@ -357,11 +357,11 @@ ms.locfileid: "51012862"
     Bu herhangi bir önceki derleme yapıtları temizler, zaten yüklü tüm bağımlılıkları indirir, sonra oluşturur ve uygulama paketleri.
 3. Komut tamamlandığında, **hbaseapp\target** dizin adlı dosyayı içeren **hbaseapp 1.0 SNAPSHOT.jar**.
 
-   > [!NOTE]
+   > [!NOTE]  
    > **Hbaseapp 1.0 SNAPSHOT.jar** dosyasıdır bir uber uygulamayı çalıştırmak için gerekli tüm bağımlılıklarını içeren jar (fat bir jar denir).
 
 ## <a name="upload-the-jar-file-and-start-a-job"></a>JAR dosyasını karşıya yükleyin ve bir proje başlatın
-HDInsight kümenize bir dosyayı karşıya yüklemek için birçok yolu vardır açıklandığı [HDInsight Hadoop işleri için verileri karşıya yükleme](hdinsight-upload-data.md). Aşağıdaki adımlar, Azure PowerShell kullanırsınız.
+HDInsight kümenize bir dosyayı karşıya yüklemek için birçok yolu vardır açıklandığı [HDInsight Apache Hadoop işleri için verileri karşıya yükleme](hdinsight-upload-data.md). Aşağıdaki adımlar, Azure PowerShell kullanırsınız.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 

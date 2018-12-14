@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 427c3601d6a4ca65407a98d54b0206cde9af4235
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 18c35070707408f43fd0e5dfc5e3330ef62a914d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643281"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343165"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Dayanıklı işlevler Web işleri çalıştırma
 
@@ -35,7 +35,7 @@ Bu makaledeki adımları tamamlayabilmeniz için:
 
 * [Visual Studio 2017 sürüm 15.6 veya üzerini yükleyin](https://docs.microsoft.com/visualstudio/install/) ile **Azure geliştirme** iş yükü.
 
-  Zaten Visual Studio yüklü ancak bu iş yükü yüklü değilse, iş yükü seçerek ekleyin **Araçlar > araçları ve özellikleri Al**. 
+  Zaten Visual Studio yüklü ancak bu iş yükü yüklü değilse, iş yükü seçerek ekleyin **Araçlar > araçları ve özellikleri Al**.
 
   (Kullanabilirsiniz [Visual Studio Code](https://code.visualstudio.com/) bunun yerine, ancak alan yönergelerden bazılarını Visual Studio'ya özgüdür.)
 
@@ -43,7 +43,7 @@ Bu makaledeki adımları tamamlayabilmeniz için:
 
 ## <a name="webjobs-sdk-versions"></a>WebJobs SDK sürümleri
 
-Bu makalede, WebJobs SDK 2.x projeyi geliştirmek üzere açıklanmaktadır (Azure işlevleri sürüm eşdeğer 1.x). Sürümü hakkında daha fazla bilgi için 3.x bkz [WebJobs SDK 3.x](#webjobs-sdk-3x) bu makalenin ilerleyen bölümlerinde. 
+Bu makalede, WebJobs SDK 2.x projeyi geliştirmek üzere açıklanmaktadır (Azure işlevleri sürüm eşdeğer 1.x). Sürümü hakkında daha fazla bilgi için 3.x bkz [WebJobs SDK 3.x](#webjobs-sdk-3x) bu makalenin ilerleyen bölümlerinde.
 
 ## <a name="create-console-app"></a>Konsol uygulaması oluşturma
 
@@ -190,9 +190,9 @@ Bu bölüm, nasıl çalıştırılacağı hakkında genel bakış sağlar. [kodu
 
 1. Yerel olarak çalıştırdığınızda, Application Insights günlüklerine görmek istiyorsanız:
 
-  a. Uygulama türü bir Application Insights kaynağı oluşturma **genel**.
+    a. Uygulama türü bir Application Insights kaynağı oluşturma **genel**.
 
-  b. İzleme anahtarını kaydetmek *App.config* dosya.
+    b. İzleme anahtarını kaydetmek *App.config* dosya.
 
 1. Projeyi çalıştırın.
 
@@ -216,8 +216,8 @@ Bu bölüm, nasıl çalıştırılacağı hakkında genel bakış sağlar. [kodu
 
 1. Yayın öncesi sürümü seçin şu paketlerin 3.x:
 
-  * `Microsoft.Azure.WebJobs.Extensions`
-  * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
+    * `Microsoft.Azure.WebJobs.Extensions`
+    * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
 1. Değişiklik `Main` yöntemi kod depolama bağlantı dizesini ve Application Insights izleme anahtarını almak için bir *appsettings.json* dosya, .NET Core yapılandırma çerçevesini kullanarak.  Bir örneği aşağıda verilmiştir:
 
@@ -235,7 +235,7 @@ Bu bölüm, nasıl çalıştırılacağı hakkında genel bakış sağlar. [kodu
            var config = new JobHostConfiguration();
 
            config.DashboardConnectionString = "";
-           config.StorageConnectionString = 
+           config.StorageConnectionString =
                appSettingsConfig.GetConnectionString("AzureWebJobsStorage");
            var instrumentationKey =
                appSettingsConfig["APPINSIGHTS_INSTRUMENTATIONKEY"];
@@ -258,4 +258,3 @@ Bu bölüm, nasıl çalıştırılacağı hakkında genel bakış sağlar. [kodu
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Web işleri SDK'sı hakkında daha fazla bilgi için bkz. [Web işleri SDK'sını kullanmayı](../../app-service/webjobs-sdk-how-to.md).
-

@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 727ecdb06f9a43bf3722f82fa10b7a3304cf4958
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22b9a63ab595b4d0b003d999bcd0f131e50aeabf
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255311"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383944"
 ---
 # <a name="monitor-cluster-performance"></a>Küme performansını izleme
 
 Bir HDInsight kümesinin performans ve sistem durumu izleme, en iyi performans ve kaynak kullanımını bakımı için gereklidir. İzleme algılamanıza ve bu küme yapılandırması hataları ve kullanıcı kod sorunlarını ele da yardımcı olabilir.
 
-Aşağıdaki bölümlerde, izlemek ve YARN kuyrukları kümelerinizi üzerindeki yükü en iyi duruma getirme açıklar ve depolama azaltma sorunları tespit edin.
+Aşağıdaki bölümlerde, izlemek ve kümelerinizi Apache Hadoop YARN kuyrukları üzerindeki yükü en iyi duruma getirmek ve depolama azaltma sorunları algılamak nasıl açıklanmaktadır.
 
 ## <a name="monitor-cluster-load"></a>İzleyici küme yük
 
@@ -43,7 +43,7 @@ Ayrıntılı bilgi barındıran ve bunların ölçümler üzerinde çalışan bi
 
 ![ana bilgisayar ayrıntıları](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
 
-Bkz: [yönetme HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanarak](hdinsight-hadoop-manage-ambari.md) uyarılar ayarlanması ve ölçümleri görüntüleme hakkında bilgi.
+Bkz: [yönetme HDInsight kümeleri Apache Ambari Web kullanıcı arabirimini kullanarak](hdinsight-hadoop-manage-ambari.md) uyarılar ayarlanması ve ölçümleri görüntüleme hakkında bilgi.
 
 ## <a name="yarn-queue-configuration"></a>YARN sıra yapılandırması
 
@@ -79,14 +79,14 @@ Azure depolama, depolama ile ilgili sorunları izleme hakkında bilgi kullanıyo
 
 Azure Data Lake Store (ADLS) kümenizin yedekleme deposu ise, azaltma nedeniyle bant genişliği sınırlarını kaynaklanıyor olabilir. Azaltma bu durumda görevi günlüklerde gözlemci azaltma hataları tarafından tanımlanabilir. ADLS için şu makalelere uygun hizmet için azaltma bölümüne bakın:
 
-* [Azure Data Lake Store ve HDInsight’ta Hive için performans ayarlama kılavuzu](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [Apache Hive HDInsight ve Azure Data Lake Store için performans ayarlama Kılavuzu](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Azure Data Lake Store ve HDInsight’ta MapReduce için performans ayarlama kılavuzu](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [Azure Data Lake Store ve HDInsight’ta Storm için performans ayarlama kılavuzu](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [HDInsight ve Azure Data Lake Store üzerinde Apache Storm için performans ayarlama Kılavuzu](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Kümeleri izleme ve sorun giderme hakkında daha fazla bilgi için aşağıdaki bağlantıları ziyaret edin:
 
 * [HDInsight günlüklerini çözümleme](hdinsight-debug-jobs.md)
-* [YARN günlükleri ile uygulama hatalarını ayıklama](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Linux tabanlı HDInsight üzerinde Hadoop Hizmetleri için yığın dökümlerini etkinleştirme](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Apache Hadoop YARN günlükleri ile uygulama hatalarını ayıklama](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Linux tabanlı HDInsight üzerinde Apache Hadoop Hizmetleri için yığın dökümlerini etkinleştirme](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

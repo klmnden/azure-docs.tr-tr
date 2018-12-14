@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: b552918f6b415bcd55c7c27c80ff721df77ca99f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 4a9f9c2592c7bf27e1caeb09dd492e4700768117
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276086"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383485"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure İzleyici ölçüm uyarılarını kaynakları desteklenir
 
-Azure İzleyicisi'ni destekler bir [yeni ölçüm uyarı türü](monitoring-overview-alerts.md) olduğu önemli avantajlar eski [Klasik ölçüm uyarıları](../azure-monitor/platform/alerts-classic.overview.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](monitoring-supported-metrics.md). Yeni uyarılarda kaynak türlerini (artan) kümesini destekler. Bu makalede, bu alt listeler.
+Azure İzleyicisi'ni destekler bir [yeni ölçüm uyarı türü](../azure-monitor/platform/alerts-overview.md) olduğu önemli avantajlar eski [Klasik ölçüm uyarıları](../azure-monitor/platform/alerts-classic.overview.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](monitoring-supported-metrics.md). Yeni uyarılarda kaynak türlerini (artan) kümesini destekler. Bu makalede, bu alt listeler.
 
 
-Yeni ölçüm uyarılarının, ölçümler olarak ayıklanan popüler Log Analytics günlükleri üzerinde de uygulayabilirsiniz. Daha fazla bilgi için görüntüleme [günlükleri için ölçüm uyarıları](monitoring-metric-alerts-logs.md).
+Yeni ölçüm uyarılarının, ölçümler olarak ayıklanan popüler Log Analytics günlükleri üzerinde de uygulayabilirsiniz. Daha fazla bilgi için görüntüleme [günlükleri için ölçüm uyarıları](../azure-monitor/platform/alerts-metric-logs.md).
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, destek PowerShell, CLI, REST
-Şu anda yalnızca Azure portalında yeni ölçüm uyarılarının oluşturabilirsiniz [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/), veya [Resource Manager şablonları](monitoring-create-metric-alerts-with-templates.md). PowerShell ve Azure CLI Sürüm 2.0 ve daha yüksek kullanarak yeni uyarılar yapılandırma desteği yakında sunulacaktır.
+Şu anda yalnızca Azure portalında yeni ölçüm uyarılarının oluşturabilirsiniz [REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts/), veya [Resource Manager şablonları](../azure-monitor/platform/alerts-metric-create-templates.md). PowerShell ve Azure CLI Sürüm 2.0 ve daha yüksek kullanarak yeni uyarılar yapılandırma desteği yakında sunulacaktır.
 
 ## <a name="metrics-and-dimensions-supported"></a>Ölçümler ve desteklenen boyutlar
-Yeni ölçüm uyarılarının boyutlar kullanmak için ölçümleri uyarı destekler. Ölçümünüzün doğru düzeyine filtrelemek için boyutları kullanabilirsiniz. Geçerli boyut yanı sıra tüm desteklenen ölçümler incelediniz ve gelen görselleştirilmiş [Azure İzleyici - ölçüm Gezgini](monitoring-metric-charts.md).
+Yeni ölçüm uyarılarının boyutlar kullanmak için ölçümleri uyarı destekler. Ölçümünüzün doğru düzeyine filtrelemek için boyutları kullanabilirsiniz. Geçerli boyut yanı sıra tüm desteklenen ölçümler incelediniz ve gelen görselleştirilmiş [Azure İzleyici - ölçüm Gezgini](../azure-monitor/platform/metrics-charts.md).
 
 Yeni uyarıları ile desteklenen Azure İzleyici ölçüm kaynağı tam listesi aşağıda verilmiştir:
 
@@ -121,6 +121,6 @@ Yeni ölçüm uyarılarının uygun şekilde yapılandırılmış, neredeyse tü
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Yeni hakkında daha fazla bilgi [uyarı deneyimi](monitoring-overview-alerts.md).
+* Yeni hakkında daha fazla bilgi [uyarı deneyimi](../azure-monitor/platform/alerts-overview.md).
 * Hakkında bilgi edinin [günlük uyarıları Azure'da](../azure-monitor/platform/alerts-unified-log.md).
-* Hakkında bilgi edinin [azure'daki uyarıları](monitoring-overview-alerts.md).
+* Hakkında bilgi edinin [azure'daki uyarıları](../azure-monitor/platform/alerts-overview.md).

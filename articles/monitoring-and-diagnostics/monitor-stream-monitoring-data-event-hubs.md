@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 3bf2135e7d4cb0e34d6e38e8673d5d69f262979c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a65611c1e84bdd01bac525012553e6cd7c7fc4e4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322406"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386868"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure harici bir aracı tarafından veri tüketimi için olay hub'ına izleme
 
@@ -58,7 +58,7 @@ Bir Event Hubs ad alanına Azure Active Directory günlüğünden veri gönderme
 
 ## <a name="azure-subscription-monitoring-data"></a>İzleme verileri bir azure aboneliği
 
-İzleme verileri bir azure aboneliği kullanılabilir [Azure etkinlik günlüğü](./monitoring-overview-activity-logs.md). Bu oluşturma içerir, güncelleştirme ve silme işlemleri Kaynak Yöneticisi'nden yapılan değişiklikler [Azure hizmet durumu](../service-health/service-health-overview.md) , aboneliğinizdeki kaynaklar etkileyebilir [kaynak durumu](../service-health/resource-health-overview.md) durumu geçişleri ve diğer birçok abonelik düzeyindeki olayların türde. [Bu makalede, Azure etkinlik günlüğü'nde görüntülenen olaylar tüm kategorileri ayrıntılı](./monitoring-activity-log-schema.md).
+İzleme verileri bir azure aboneliği kullanılabilir [Azure etkinlik günlüğü](./monitoring-overview-activity-logs.md). Bu oluşturma içerir, güncelleştirme ve silme işlemleri Kaynak Yöneticisi'nden yapılan değişiklikler [Azure hizmet durumu](../service-health/service-health-overview.md) , aboneliğinizdeki kaynaklar etkileyebilir [kaynak durumu](../service-health/resource-health-overview.md) durumu geçişleri ve diğer birçok abonelik düzeyindeki olayların türde. [Bu makalede, Azure etkinlik günlüğü'nde görüntülenen olaylar tüm kategorileri ayrıntılı](./../azure-monitor/platform/activity-log-schema.md).
 
 ### <a name="activity-log-data"></a>Etkinlik günlüğü verileri
 
@@ -117,7 +117,7 @@ Bir olay hub'ına Azure İzleyici ile izleme verilerinizi yönlendirme, iş orta
 * **Syslog sunucusu** - stream Azure İzleyici verileri doğrudan bir syslog sunucusuna göz atabilirsiniz isterseniz [bu GitHub deposunu](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* [Bir depolama hesabı için Etkinlik günlüğünü arşivleme](monitoring-archive-activity-log.md)
+* [Bir depolama hesabı için Etkinlik günlüğünü arşivleme](../azure-monitor/platform/archive-activity-log.md)
 * [Azure etkinlik günlüğüne genel bakış okuyun](monitoring-overview-activity-logs.md)
 * [Bir etkinlik günlüğü olayı temel alan bir uyarı ayarlama](../azure-monitor/platform/alerts-log-webhook.md)
 

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7af8015e424b4a9169a9b80ed5e7070a8fa6de1c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4322841f126e4aa017b4d901cbfb1afd39e5bccf
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643323"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342581"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Dayanıklı işlevler - hava durumu İzleyicisi örnek senaryoda izleyin
 
@@ -32,7 +32,7 @@ Bu örnek, bir konumun geçerli hava koşulları izler ve bir kullanıcı taraf�
 * Bazı koşullar karşılanması veya başka bir işlem tarafından sonlandırılacak izleyiciler sonlandırabilirsiniz.
 * İzleyiciler, parametre alabilir. Tüm istenen konumu ve telefon numarası aynı hava durumu izleme işlemini nasıl uygulanabileceğini örnek gösterir.
 * İzleyiciler ölçeklenebilir. Her bir izleyici bir düzenleme örneği olduğundan, birden çok monitör yeni işlevler oluşturun veya daha fazla kod tanımlamak zorunda kalmadan oluşturulabilir.
-* İzleyiciler, daha büyük iş akışlarınızla kolayca tümleştirin. Bir izleyici daha karmaşık bir düzenleme işlevinin bir bölümü olabilir veya [alt düzenleme](https://docs.microsoft.com/azure/azure-functions/durable-functions-sub-orchestrations).
+* İzleyiciler, daha büyük iş akışlarınızla kolayca tümleştirin. Bir izleyici daha karmaşık bir düzenleme işlevinin bir bölümü olabilir veya [alt düzenleme](durable-functions-sub-orchestrations.md).
 
 ## <a name="configuring-twilio-integration"></a>Twilio tümleştirmesi yapılandırma
 
@@ -55,11 +55,11 @@ Bir API anahtarı aldıktan sonra aşağıdaki ekleyin **uygulama ayarı** işle
 Bu makalede örnek uygulama aşağıdaki işlevler açıklanmaktadır:
 
 * `E3_Monitor`: Çağıran bir düzenleyici işlevi `E3_GetIsClear` düzenli aralıklarla. Çağrı `E3_SendGoodWeatherAlert` varsa `E3_GetIsClear` true değerini döndürür.
-* `E3_GetIsClear`: Bir konum için geçerli hava koşulları denetler bir etkinlik işlevi.
-* `E3_SendGoodWeatherAlert`: Twilio aracılığıyla SMS iletisi gönderir bir etkinlik işlevi.
+* `E3_GetIsClear`: Bir konum için geçerli hava koşulları denetler etkinlik işlevi.
+* `E3_SendGoodWeatherAlert`: Twilio aracılığıyla SMS iletisi gönderen bir etkinlik işlev.
 
 Aşağıdaki bölümlerde, betik C# ve JavaScript için kullanılan kod ve yapılandırma açıklanmaktadır. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
- 
+
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>Düzenleme (Visual Studio Code ve Azure portalı örnek kodu) izleme hava durumu
 
 **E3_Monitor** işlevini kullanan standart *function.json* orchestrator işlevleri için.
@@ -72,7 +72,7 @@ Aşağıdaki bölümlerde, betik C# ve JavaScript için kullanılan kod ve yapı
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
@@ -83,7 +83,7 @@ Bu orchestrator işlevi aşağıdaki eylemleri gerçekleştirir:
 3. Çağrıları **E3_GetIsClear** istenen konuma Temizle skies olup olmadığını belirlemek için.
 4. Hava durumu, boş olduğunda, çağıran **E3_SendGoodWeatherAlert** istenen telefon numarasına SMS bildirimi göndermek için.
 5. Sonraki yoklama aralığı sırasında orchestration sürdürmek için kalıcı bir zamanlayıcı oluşturur. Örnek, bir sabit kodlu değer konuyu uzatmamak amacıyla kullanır.
-6. Kadar çalışmaya devam eder [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) geçişleri izleyicinin sona erme saati veya SMS uyarı gönderilir.
+6. Kadar çalışmaya devam eder [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (C#) veya `currentUtcDateTime` geçirir izleyicinin sona erme saati (JavaScript) veya SMS uyarı gönderilir.
 
 Birden çok orchestrator örnekleri aynı anda birden çok göndererek çalışabilir **MonitorRequests**. İzlemek istediğiniz konumu ve telefon numarası için SMS uyarısı göndermek için belirtilebilir.
 
@@ -107,7 +107,7 @@ Ve burada uygulamasıdır. Veri aktarımı için kullanılan POCOs gibi API işl
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
@@ -121,7 +121,7 @@ Ve SMS mesajı gönderir kod aşağıdaki gibidir:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
@@ -134,8 +134,9 @@ POST https://{host}/orchestrators/E3_Monitor
 Content-Length: 77
 Content-Type: application/json
 
-{ "Location": { "City": "Redmond", "State": "WA" }, "Phone": "+1425XXXXXXX" }
+{ "location": { "city": "Redmond", "state": "WA" }, "phone": "+1425XXXXXXX" }
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Type: application/json; charset=utf-8
@@ -144,9 +145,6 @@ RetryAfter: 10
 
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
-
-   > [!NOTE]
-   > Şu anda, JavaScript düzenleme başlangıç işlevleri örnek Yönetimi URI'ler döndüremez. Bu özellik, bir sonraki sürümde eklenecek.
 
 **E3_Monitor** örneği başlatır ve istenilen konum için geçerli hava koşulları sorgular. Hava durumu boş olduğunda bir uyarı göndermek için bir etkinlik işlevi çağırır; Aksi takdirde, bir zamanlayıcı olarak ayarlar. Süreölçerdeki Süre dolduğunda düzenleme devam edecek.
 
@@ -168,7 +166,7 @@ Azure işlevleri portalda konumundaki işlev bakarak düzenleme ait etkinlik gü
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-Orchestration olacak [sonlandırmak](durable-functions-instance-management.md#terminating-instances) , zaman aşımı ulaşıldığında veya açık olduğunda skies algılanır. Ayrıca `TerminateAsync` iç işlev veya çağırma **terminatePostUri** yukarıda değiştirerek 202 yanıtının başvurulan bir HTTP POST Web kancası `{text}` sonlandırma nedenini ile:
+Orchestration olacak [sonlandırmak](durable-functions-instance-management.md#terminating-instances) , zaman aşımı ulaşıldığında veya açık olduğunda skies algılanır. Ayrıca `TerminateAsync` (.NET) veya `terminate` (JavaScript) içinde başka bir işlev veya çağırma **terminatePostUri** yukarıda değiştirerek 202 yanıtının başvurulan bir HTTP POST Web kancası `{text}` nedeni ile sonlandırma:
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

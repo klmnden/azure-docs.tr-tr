@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0dc942b7e1779efab5b9fb2477b8358554bbb31d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 7d579bfdaf38b6c06b26cfa7b36f8e4d2ac5a1f2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310105"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386273"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Hızlı Başlangıç: Bilişsel arama yetenekleri ve örnek verileri kullanarak işlem hattı oluşturma
 
@@ -90,7 +90,7 @@ Bu senaryoda özel olarak Azure hizmetleri kullanılır. İhtiyaç duyduğunuz h
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob hizmetini ayarlama ve örnek veriler yükleme
 
-Zenginleştirme işlem hattı, [Azure Search dizin oluşturucuları](search-indexer-overview.md) tarafından desteklenen Azure veri kaynaklarından çekme işlemi yapar. Bu alıştırmada, birden çok içerik türünü göstermek için blob depolama kullanırız.
+Zenginleştirme işlem hattı, [Azure Search dizin oluşturucuları](search-indexer-overview.md) tarafından desteklenen Azure veri kaynaklarından çekme işlemi yapar. Azure tablo depolaması için bilişsel arama desteklenmediğini unutmayın. Bu alıştırmada, birden çok içerik türünü göstermek için blob depolama kullanırız.
 
 1. Farklı türlerden oluşan küçük bir dosya kümesini içeren [örnek verileri indirin](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). 
 
@@ -129,7 +129,7 @@ Bazen tarayıcı tarafından oluşturulan bir PDF gibi çoğunlukla taranmış g
 
 Doğal dil işleme becerileri, örnek veri kümesindeki metin içeriği üzerinde çalışır. Herhangi bir görüntü işleme seçeneği belirlemediysek, örnek veri kümesinde bulunan JPEG dosyaları bu hızlı başlangıçta işlenmeyecektir. 
 
-### <a name="step-3-configure-the-index"></a>3. adım: Dizini yapılandırma
+### <a name="step-3-configure-the-index"></a>3. Adım: Dizini yapılandırma
 
 Veri kaynağıyla oluşturulan dizini hatırlıyor musunuz? Bu adımda, bunun şemasını görüntüleyebilir ve olası tüm ayarları düzeltebilirsiniz. 
 

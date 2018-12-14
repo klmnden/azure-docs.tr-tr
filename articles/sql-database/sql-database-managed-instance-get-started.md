@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
 ms.date: 11/28/2018
-ms.openlocfilehash: c45c4476bbe8d825071e335bfab9e7b73fc31d51
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 4b8c67cfff89b54b4776ebc8b4586cd8f52950b3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256494"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342621"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Hızlı Başlangıç: Azure SQL Veritabanı Yönetilen Örneği oluşturma
 
@@ -48,7 +48,7 @@ Aşağıdaki adımlar Yönetilen Örneğin nasıl oluşturulacağını gösterir
    |**Yönetilen örnek yöneticisi oturum açma**|Geçerli bir kullanıcı adı|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Ayrılmış bir sunucu düzeyindeki rolüdür gibi "serveradmin" kullanmayın.|
    |**Parola**|Geçerli bir parola|Parola en az 16 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
    |**Konum**|Yönetilen Örneği oluşturmak istediğiniz konum|Bölgeler hakkında bilgi için bkz. [Azure Bölgeleri](https://azure.microsoft.com/regions/).|
-   |**Sanal ağ**|Şunlardan birini seçin **yeni sanal ağ oluştur** veya geçerli sanal ağ ve alt ağ.| Ağ/alt ağ gri ise gereken olduğu olması [ağ gereksinimlerini karşılamak için değişiklik](sql-database-managed-instance-vnet-configuration.md#modify-an-existing-virtual-network-for-managed-instances) yeni yönetilen örneği için bir hedef olarak seçebilmeniz. Yönetilen örneği için ağ ortamını yapılandırma gereksinimleriyle ilgili daha fazla bilgi için bkz: [Azure SQL veritabanı yönetilen örneği için bir sanal ağ yapılandırma](sql-database-managed-instance-vnet-configuration.md). |
+   |**Sanal ağ**|Şunlardan birini seçin **yeni sanal ağ oluştur** veya geçerli sanal ağ ve alt ağ.| Ağ/alt ağ gri ise gereken olduğu olması [ağ gereksinimlerini karşılamak için değişiklik](sql-database-managed-instance-configure-vnet-subnet.md) yeni yönetilen örneği için bir hedef olarak seçebilmeniz. Yönetilen örneği için ağ ortamını yapılandırma gereksinimleriyle ilgili daha fazla bilgi için bkz: [Azure SQL veritabanı yönetilen örneği için bir sanal ağ yapılandırma](sql-database-managed-instance-connectivity-architecture.md). |
    |**Kaynak grubu**|Yeni veya mevcut bir kaynak grubu|Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
 
    ![yönetilen örnek formu](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

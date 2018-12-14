@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: 110f487d486ccd2f1a26065aa225838a3a83c197
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6fc3fc0b7717242b6949d93f0668d7c56525ac49
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167231"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342830"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure sanal makineler Red Hat Enterprise Linux üzerinde SAP NetWeaver için yüksek kullanılabilirlik
 
@@ -157,10 +157,10 @@ Bu küme için sanal makineler oluşturmak önce gerekir. Ardından, yük dengel
 1. Kullanılabilirlik kümesi oluşturma  
    Kümesi en çok güncelleştirme etki alanı
 1. 1 sanal makine oluşturma  
-   En azından bu Red Hat Enterprise Linux 7.4 örnek görüntüsünde, RHEL 7 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   En azından bu Red Hat Enterprise Linux 7.4 örnek görüntüsünde, RHEL 7 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin  
 1. 2 sanal makine oluşturma  
-   En azından bu Red Hat Enterprise Linux 7.4 örnek görüntüsünde, RHEL 7 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   En azından bu Red Hat Enterprise Linux 7.4 örnek görüntüsünde, RHEL 7 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin  
 1. Her iki sanal makine için en az bir veri diski ekleme  
    Veri disklerini / usr/sap/için kullanılan`<SAPSID`> dizini

@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: c5677dc07326fa16960e0d748f88e26f259c0485
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d158f14afa305dd547392722abb5f81380de31f
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262291"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384794"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
 
 Azure Key Vault, Microsoft Azure uygulamalarını ve birden fazla gizli dizi/anahtar verileri depolamak ve kullanıcılar sağlar:
 
-- Şifreleme anahtarları: birden çok anahtar türleri ve algoritmalarını destekler ve yüksek değerli anahtarlar donanım güvenlik modülleri (HSM) kullanılmasına olanak tanır. 
-- Gizli diziler: parola ve veritabanı bağlantı dizeleri gibi gizli anahtarlarının güvenli depolama sağlar.
-- Sertifikaları: anahtarları ve gizli anahtarları üzerine yapılandırılmıştır ve otomatik yenileme özelliğini ekleyin destekler sertifikaları.
-- Azure Depolama: sizin için bir Azure depolama hesabı anahtarlarını yönetebilirsiniz. Dahili olarak, anahtar kasası bir Azure depolama hesabı ile (eşitleme) anahtarları listeleme ve (döndürme) yeniden anahtarlarını düzenli aralıklarla. 
+- Şifreleme anahtarları: Birden çok anahtar türleri ve algoritmalarını destekler ve yüksek değerli anahtarlar donanım güvenlik modülleri (HSM) kullanılmasına olanak tanır. 
+- Gizli diziler: Parola ve veritabanı bağlantı dizeleri gibi gizli dizileri güvenli olarak depolanmasını sağlar.
+- Sertifikaları: Anahtarları ve gizli anahtarları üzerine yapılandırılmıştır ve otomatik yenileme özelliğini ekleyin sertifikalarını da destekler.
+- Azure Depolama: Bir Azure depolama hesabı anahtarları, sizin için yönetebilir. Dahili olarak, anahtar kasası bir Azure depolama hesabı ile (eşitleme) anahtarları listeleme ve (döndürme) yeniden anahtarlarını düzenli aralıklarla. 
 
 Key Vault hakkında daha fazla genel bilgi için bkz. [Azure anahtar kasası nedir?](/azure/key-vault/key-vault-whatis)
 
@@ -89,8 +89,8 @@ Konumlar:
 
 Şifreleme anahtarları Key vault'ta JSON Web anahtarı [JWK] nesneler olarak temsil edilir. Temel belirtimler JWK/JWA da anahtar kasası uygulama için benzersiz anahtar türleri etkinleştirmek için genişletilir. Örneğin, anahtarları HSM satıcıya özgü paketleme kullanarak içeri aktarma, anahtar kasası Hsm'lerde yalnızca kullanılan anahtarların güvenli taşıma sağlar.  
 
-- **"Soft" anahtarları**: bir anahtar, anahtar kasası tarafından yazılımda işlenir ancak bir HSM'de bir sistem anahtarı kullanılarak, bekleme sırasında şifrelenir. İstemciler mevcut bir RSA veya EC (Eliptik Eğri) anahtarını içeri aktarın veya Key Vault bir oluşturma isteği.
-- **"Sabit" anahtarları**: anahtar bir HSM (donanım güvenlik modülü) işlenir. Bu anahtarlar, anahtar kasası HSM güvenlik Dünyaları birinde korunur (bir güvenlik yalıtımı sağlamak dünya Coğrafya başına yoktur). İstemciler, bir RSA veya EC anahtarı, esnek bir biçimde veya uyumlu bir HSM CİHAZDAN vererek alabilirsiniz. İstemciler, bir anahtar oluşturmak için Key Vault ayrıca isteyebilir. Bu anahtar türü T öznitelik ekler HSM anahtar malzemesi yürütmek için için JWK edinin.
+- **"Soft" anahtarları**: Bir anahtarı anahtar kasası tarafından yazılımda işlenir ancak bir HSM'de bir sistem anahtarı kullanılarak, bekleme sırasında şifrelenir. İstemciler mevcut bir RSA veya EC (Eliptik Eğri) anahtarını içeri aktarın veya Key Vault bir oluşturma isteği.
+- **"Sabit" anahtarları**: Bir anahtar bir HSM (donanım güvenlik modülü) işlenir. Bu anahtarlar, anahtar kasası HSM güvenlik Dünyaları birinde korunur (bir güvenlik yalıtımı sağlamak dünya Coğrafya başına yoktur). İstemciler, bir RSA veya EC anahtarı, esnek bir biçimde veya uyumlu bir HSM CİHAZDAN vererek alabilirsiniz. İstemciler, bir anahtar oluşturmak için Key Vault ayrıca isteyebilir. Bu anahtar türü T öznitelik ekler HSM anahtar malzemesi yürütmek için için JWK edinin.
 
      Coğrafi sınırlar hakkında daha fazla bilgi için bkz. [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
@@ -105,7 +105,7 @@ Key Vault, 2048, 3072 ve 4096 boyuttaki RSA anahtarlarını destekliyor. Key Vau
 
 ### <a name="cryptographic-protection"></a>Şifreleme koruma
 
-Anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılım, FIPS doğrulanmış (Federal Bilgi işleme standartları) olduğunu belirtir. FIPS modunda çalışacak şekilde özel herhangi bir şey yapmanız gerekmez. Anahtarları **oluşturulan** veya **içeri** HSM korumalı olan işlenen FIPS doğrulanmış HSM'nin içinde 140-2 Düzey 2 veya üzeri. Anahtarları **oluşturulan** veya **içeri** doğrulanmış FIPS 140-2 Düzey 1 veya daha yüksek şifreleme modüllerine içinde yazılım korumalı olarak işlenir. Daha fazla bilgi için [anahtarları ve anahtar türleri](#keys-and-key-types).
+Anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılım, FIPS doğrulanmış (Federal Bilgi işleme standartları) olduğunu belirtir. FIPS modunda çalışacak şekilde özel herhangi bir şey yapmanız gerekmez. Anahtarları **oluşturulan** veya **içeri** HSM korumalı olan 140-2 Düzey 2 FIPS doğrulanmış HSM'nin içinde işlenir. Anahtarları **oluşturulan** veya **içeri** doğrulanmış FIPS 140-2 Düzey 1 şifreleme modüllerine içinde yazılım korumalı olarak işlenir. Daha fazla bilgi için [anahtarları ve anahtar türleri](#keys-and-key-types).
 
 ###  <a name="ec-algorithms"></a>EC algoritmaları
  Aşağıdaki algoritması tanımlayıcıları EC ve EC-HSM anahtarları Key vault'ta desteklenir. 
@@ -113,7 +113,7 @@ Anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılı
 #### <a name="curve-types"></a>Eğri türleri
 
 -   **P-256** -p-256, tanımlanan NIST eğrisi [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256_K** -sn eğri SECP256K1, tanımlanan [sn 2: önerilen Eliptik Eğri Domain parametreleri](http://www.secg.org/sec2-v2.pdf).
+-   **P-256_K** -sn eğri SECP256K1, tanımlanan [sn 2: Eliptik Eğri Domain parametreleri önerilen](http://www.secg.org/sec2-v2.pdf).
 -   **P-384** -p-384 tanımlanan NIST eğrisi [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521** -p-521 tanımlanan NIST eğrisi [DSS FIPS PUB 186 4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -143,21 +143,21 @@ Anahtar Kasası'nı kullandığından, şifreleme modüllerini HSM veya yazılı
 
 Key Vault anahtar nesneler üzerinde aşağıdaki işlemleri destekler:  
 
--   **Oluşturma**: anahtar Kasası'nda bir anahtar oluşturmak bir istemci sağlar. Anahtar değerini Key Vault tarafından oluşturulan ve tutulan ve istemciye serbest değil. Asimetrik anahtarlar, anahtar Kasası'nda oluşturulabilir.  
--   **İçeri aktarma**: mevcut bir anahtarı anahtar Kasası'na içeri aktarmak bir istemci sağlar. Asimetrik anahtarlar, farklı paketleme yöntemler JWK yapısı içinde bir dizi kullanarak Key Vault alınabilir. 
--   **Güncelleştirme**: daha önce Key Vault içinde depolanan bir anahtar ile ilişkili meta verileri (anahtar öznitelikleri) değiştirmek için yeterli izinlere sahip bir istemci sağlar.  
+-   **Oluşturma**: Anahtar Kasası'nda bir anahtar oluşturmak bir istemci sağlar. Anahtar değerini Key Vault tarafından oluşturulan ve tutulan ve istemciye serbest değil. Asimetrik anahtarlar, anahtar Kasası'nda oluşturulabilir.  
+-   **İçeri aktarma**: Mevcut bir anahtarı anahtar Kasası'na içeri aktarmak bir istemci sağlar. Asimetrik anahtarlar, farklı paketleme yöntemler JWK yapısı içinde bir dizi kullanarak Key Vault alınabilir. 
+-   **Güncelleştirme**: Key Vault içinde daha önce depolanan bir anahtar ile ilişkili meta verileri (anahtar öznitelikleri) değiştirmek için yeterli izinlere sahip bir istemci sağlar.  
 -   **Silme**: Key Vault'tan bir anahtar silmek için yeterli izinlere sahip bir istemci sağlar.  
--   **Liste**: bir istemci belirli bir anahtar Kasası'nda tüm anahtarların listelenmesi sağlar.  
--   **Sürümleri Listele**: tüm belirli bir anahtar Kasası'nda belirli bir anahtarın sürümlerini listeleme istemciye sağlar.  
--   **Alma**: belirli bir anahtarı bir anahtar Kasası'nda genel bölümlerini almak bir istemci sağlar.  
--   **Yedekleme**: korumalı bir formda bir anahtar verir.  
--   **Geri yükleme**: daha önce yedeklenen bir anahtarı içeri aktarır.  
+-   **Liste**: Bir istemci belirli bir anahtar Kasası'nda tüm anahtarların listelenmesi sağlar.  
+-   **Sürümleri Listele**: Tüm belirli bir anahtar Kasası'nda belirli bir anahtarın sürümlerini listeleme istemciye sağlar.  
+-   **Alma**: Belirli bir anahtarı bir anahtar Kasası'nda genel bölümlerini almak bir istemci sağlar.  
+-   **Yedekleme**: Korumalı bir form anahtarında dışarı aktarır.  
+-   **Geri yükleme**: Daha önce yedeklenen bir anahtarı içeri aktarır.  
 
 Daha fazla bilgi için [anahtarı anahtar kasası REST API Başvurusu işlemlerinde](/rest/api/keyvault).  
 
 Bir anahtarı anahtar Kasası'nda oluşturulduktan sonra aşağıdaki şifreleme işlemleri anahtar kullanılarak gerçekleştirilebilir:  
 
--   **Oturum ve Doğrula**: Key Vault içeriğini imza oluşturmanın bir parçası karma desteklemediğinden kesinlikle, bu "imza karması" veya "karma doğrulama", bir işlemdir. Uygulamalar verileri yerel olarak imzalanmasını karma ardından bu Key Vault oturum karma istek. İmzalı karmalarının doğrulama [genel] anahtar malzemesi için erişiminiz olmayabilir uygulamalar için bir kolaylık işlemi olarak desteklenir. En iyi uygulama performansını işlemlerini yerel olarak gerçekleştirildiğinden emin olun.  
+-   **Oturum açın ve doğrulama**: Kesinlikle, Key Vault içeriğini imza oluşturmanın bir parçası karma desteklemediğinden bu işlem "imza karması" veya "karma doğrulama" olur. Uygulamalar verileri yerel olarak imzalanmasını karma ardından bu Key Vault oturum karma istek. İmzalı karmalarının doğrulama [genel] anahtar malzemesi için erişiminiz olmayabilir uygulamalar için bir kolaylık işlemi olarak desteklenir. En iyi uygulama performansını işlemlerini yerel olarak gerçekleştirildiğinden emin olun.  
 -   **Anahtar şifreleme / kaydırma**: Key Vault'ta depolanan bir anahtar, başka bir anahtar, bir simetrik içerik şifreleme anahtarı (CEK) genellikle korumak için kullanılabilir. Anahtar şifreleme anahtarı anahtar Kasası'nda asimetrik olduğunda kullanılır. Örneğin, RSA OAEP ve WRAPKEY/UNWRAPKEY işlemleri için şifreleme/şifre çözme eşdeğerdir. Simetrik anahtarı anahtar Kasası'nda, sarmalama anahtar kullanılır. Örneğin, AES-KW. WRAPKEY işlemi [genel] anahtar malzemesi için erişiminiz olmayabilir uygulamalar için bir kolaylık olarak desteklenir. En iyi uygulama performansını WRAPKEY işlemlerini yerel olarak gerçekleştirilmelidir.  
 -   **Şifreleme ve şifre çözme**: Key Vault'ta depolanan bir anahtar şifreleme veya tek bir blok verilerin şifresini çözmek için kullanılabilir. Blok boyutu, seçilen şifreleme algoritması ve anahtar türü tarafından belirlenir. Şifreleme işlemi [genel] anahtar malzemesi için erişiminiz olmayabilir uygulamalar için bir kolaylık olması için sağlanmıştır. En iyi uygulama performansı için şifreleme işlemlerini yerel olarak gerçekleştirilmelidir.  
 
@@ -174,8 +174,8 @@ JWK nesneleri hakkında daha fazla bilgi için bkz. [JSON Web anahtarı (JWK)](h
 Anahtar malzemesi ek olarak, aşağıdaki öznitelikleri belirtilebilir. Bir JSON isteği, öznitelikleri anahtar sözcüğü ve küme ayraçları, ' {' '}', belirtilen öznitelikleri olsa bile gereklidir.  
 
 - *Etkin*: Boole, isteğe bağlı, varsayılan **true**. Anahtarın etkin ve şifreleme işlemleri için kullanılabilir olup olmadığını belirtir. *Etkin* özniteliği ile birlikte kullanılır *nbf* ve *exp*. Bir işlemi oluştuğunda arasında *nbf* ve *exp*, varsa yalnızca verilmez *etkin* ayarlanır **true**. İşlemler dışındaki *nbf* / *exp* penceresi otomatik olarak izin verilmez, belirli işlem türleri altında dışında [belirli koşullar](#date-time-controlled-operations).
-- *NBF*: IntDate, isteğe bağlı, varsayılan sunuldu. *Nbf* (değil önce) öznitelik tanımlar, önce anahtarı değil kullanılmalıdır altında belirli işlem türlerini hariç şifreleme işlemleri için zaman [belirli koşullar](#date-time-controlled-operations). İşlenmesini *nbf* özniteliği gerektirir geçerli tarih/saat sonra olmanız gerekir veya eşit olmayan-listelenen tarih/saat önce *nbf* özniteliği. Bazı küçük leeway için Key Vault sağlayabilir, normalde saati hesap için en fazla birkaç dakika eğme. Değerini IntDate değerini içeren bir sayı olmalıdır.  
-- *exp*: IntDate, isteğe bağlı, varsayılan değer "sonsuz". *Exp* (süre) öznitelik tanımlar ve sonrasında, bu anahtar gerekir altında belirli işlem türlerini hariç şifreleme işlemi için kullanılan süre sonu zamanı [belirli koşullar](#date-time-controlled-operations). İşlenmesini *exp* özniteliği gerektirir süre sonu tarihi/saati listelenen önce geçerli tarih/saat olmalıdır *exp* özniteliği. Bazı küçük leeway için Key Vault sağlayabilir, genellikle saat için hesap için en fazla birkaç dakika eğme. Değerini IntDate değerini içeren bir sayı olmalıdır.  
+- *NBF*: IntDate, isteğe bağlı, varsayılan sunulmuştur. *Nbf* (değil önce) öznitelik tanımlar, önce anahtarı değil kullanılmalıdır altında belirli işlem türlerini hariç şifreleme işlemleri için zaman [belirli koşullar](#date-time-controlled-operations). İşlenmesini *nbf* özniteliği gerektirir geçerli tarih/saat sonra olmanız gerekir veya eşit olmayan-listelenen tarih/saat önce *nbf* özniteliği. Bazı küçük leeway için Key Vault sağlayabilir, normalde saati hesap için en fazla birkaç dakika eğme. Değerini IntDate değerini içeren bir sayı olmalıdır.  
+- *exp*: IntDate, isteğe bağlı, varsayılan "sonsuz" dir. *Exp* (süre) öznitelik tanımlar ve sonrasında, bu anahtar gerekir altında belirli işlem türlerini hariç şifreleme işlemi için kullanılan süre sonu zamanı [belirli koşullar](#date-time-controlled-operations). İşlenmesini *exp* özniteliği gerektirir süre sonu tarihi/saati listelenen önce geçerli tarih/saat olmalıdır *exp* özniteliği. Bazı küçük leeway için Key Vault sağlayabilir, genellikle saat için hesap için en fazla birkaç dakika eğme. Değerini IntDate değerini içeren bir sayı olmalıdır.  
 
 Anahtar öznitelikleri içeren bir yanıta dahil ek salt okunur özniteliği vardır:  
 
@@ -206,23 +206,23 @@ Key Vault tarafından yönetilen anahtarlar için erişim denetimi, anahtar kaps
 Aşağıdaki izinleri, üzerinde verilebilecek bir kullanıcı / hizmet sorumlusu aralıklarla bir kasasındaki anahtarları erişim denetim girişi. Bu izinleri bir anahtar nesnesi üzerinde izin verilen işlemleri yakından yansıtabilirsiniz:  
 
 - Anahtar yönetimi işlemleri için izinleri
-  - *Alma*: bir anahtar yanı sıra, özniteliklerini ortak bölümünü okuyun
-  - *Liste*: anahtar kasasında depolanan bir anahtarın sürümlerini ve anahtarlar listesi
-  - *Güncelleştirme*: anahtarı için öznitelikleri güncelleştir
-  - *oluşturma*: yeni anahtarları oluşturma
-  - *içeri aktarma*: bir anahtar kasasına bir anahtar aktarma
-  - *silme*: anahtar nesnesini silme
-  - *Kurtarma*: silinen bir anahtar kurtarma
-  - *Yedekleme*: anahtar kasasında bir anahtarı yedekleme
-  - *geri yükleme*: yedeklenen bir key vault için anahtarı geri yükleme
+  - *Alma*: Bir anahtar yanı sıra, özniteliklerini ortak bölümünü okuyun
+  - *Liste*: Bir anahtar Kasası'nda depolanan bir anahtarın sürümlerini ve anahtarlar listesi
+  - *Güncelleştirme*: Bir anahtar için öznitelikleri güncelleştir
+  - *oluşturma*: Yeni anahtarlar oluşturun
+  - *İçeri aktarma*: Bir anahtar kasasına bir anahtar aktarma
+  - *Silme*: Anahtar nesnesi Sil
+  - *Kurtarma*: Silinen bir anahtar kurtarma
+  - *Yedekleme*: Bir anahtarı bir anahtar kasasına yedekleme
+  - *geri yükleme*: Yedeklenen bir key vault için anahtarı geri yükleme
 
 - Şifreleme işlemleri için izinleri
-  - *şifre çözme*: bayt dizisini korumasını kaldırmak için kullanma
-  - *şifreleme*: anahtar bir rastgele bayt dizisini korumak için kullanılır
-  - *unwrapKey*: korumasını kaldırmak için anahtar kullanımı sarmalanmış simetrik anahtarlar
-  - *wrapKey*: anahtar bir simetrik anahtar korumak için kullanılır
-  - *doğrulama*: anahtar özetler doğrulamak için kullanılır  
-  - *oturum*: özetleyen imzalamak için anahtar kullanımı
+  - *şifre çözme*: Bayt dizisi korumasını kaldırmak için kullanma
+  - *şifreleme*: Bir rastgele bayt dizisini korunacak anahtarını kullanın
+  - *unwrapKey*: Sarmalanan simetrik anahtarlar korumasını kaldırmak için kullanma
+  - *wrapKey*: Simetrik anahtar korumak için anahtarı kullanın.
+  - *doğrulama*: Anahtar özetler doğrulamak için kullanılır  
+  - *oturum*: Özetler imzalamak için anahtar kullanın.
     
 - Ayrıcalıklı işlemleri için izinleri
   - *Temizleme*: Temizle (kalıcı) silinen bir anahtar
@@ -265,13 +265,13 @@ Anahtar Kasası'nda yönetilen gizli dizileri için erişim denetimi, bu gizli d
 Aşağıdaki izinleri, bir asıl başına temelinde bir kasasındaki gizli dizileri erişim denetim girişi ve kullanılabilir bir gizli dizi nesnesinde izin verilen işlemleri yakından yansıtma:  
 
 - Gizli dizi yönetimi işlemleri için izinleri
-  - *Alma*: gizli dizi okumak  
-  - *Liste*: gizli dizileri ya da Key Vault'ta depolanan bir gizli anahtarın sürümlerini listeler.  
-  - *ayarlama*: gizli dizi oluşturma  
-  - *silme*: gizli anahtarı silme  
-  - *Kurtarma*: silinen bir gizli dizi Kurtar
-  - *Yedekleme*: bir anahtar kasasındaki gizli dizi yedekleyin
-  - *geri yükleme*: yedeklenen bir gizli bir anahtar kasası için yedekleme geri yükleme
+  - *Alma*: Gizli dizi okumak  
+  - *Liste*: Gizli dizileri ya da Key Vault'ta depolanan bir gizli anahtarın sürümlerini listeler.  
+  - *ayarlama*: Gizli anahtar oluşturma  
+  - *Silme*: Gizli anahtarı silme  
+  - *Kurtarma*: Silinen bir gizli dizi Kurtar
+  - *Yedekleme*: Bir anahtar kasasındaki gizli dizi yedekleyin
+  - *geri yükleme*: Yedeklenen bir gizli bir anahtar kasası için yedekleme geri yükleme
 
 - Ayrıcalıklı işlemleri için izinleri
   - *Temizleme*: Temizle (kalıcı) silinen bir gizli dizi
@@ -327,7 +327,7 @@ Bir Key Vault sertifika aşağıdaki özniteliklere sahiptir:
 
 Yanıta dahil ek salt okunur özniteliği vardır:
 
--   *oluşturulan*: IntDate: sertifikayı bu sürüm ne zaman oluşturulduğunu gösterir.  
+-   *oluşturulan*: IntDate: Bu sürüm sertifikanın oluşturulduğu gösterir.  
 -   *güncelleştirilmiş*: IntDate: sertifikayı bu sürüm ne zaman güncelleştirildiği gösterir.  
 -   *exp*: IntDate: x509 sona erme tarihi değerini içeren sertifika.  
 -   *NBF*: IntDate: x509 tarih değerini içeren sertifika.  
@@ -350,7 +350,7 @@ Anahtar kasası sertifikası sıfırdan oluşturulduğunda, bir ilke sağlanmas�
 
 Bir sertifika ilkesi, yüksek düzeyde, aşağıdaki bilgileri içerir:  
 
--   Sertifika Özellikleri X509: konu adı ve konu alternatif adlarını x x509 oluşturmak için kullanılan diğer özellikleri içeren sertifika isteği.  
+-   X509 özellikleri sertifika: Konu adı ve konu alternatif adlarını x x509 oluşturmak için kullanılan diğer özellikleri içeren sertifika isteği.  
 -   Anahtar özellikleri: anahtar türü içeren anahtar dışarı aktarılabilir, uzunluğu ve anahtar alanları yeniden kullanabilirsiniz. Bu alanlar, anahtar kasasına bir anahtar oluşturmak nasıl isteyin.  
 -   Gizli dizi özellikleri: içerik türünü gizli dizi olarak sertifika almak için gizli değer üretmek için adreslenebilir gizli gibi gizli dizi özelliklerini içerir.  
 -   Yaşam süresi eylemler: KV sertifika ömrü eylemleri içerir. Her yaşam süresi eylem içerir:  
@@ -422,21 +422,21 @@ Ardından bir sertifika ilkesi için otomatik yenileme ayarlarsanız, aşağıda
  Bir asıl başına temelinde, gizli dizileri erişim denetim girişi bir key vault ile yakından yansıtmalar bir gizli dizi nesnesinde izin verilen işlemleri üzerinde aşağıdaki izinlere kullanılabilir:  
 
 - Sertifika yönetimi işlemleri için izinleri
-  - *Alma*: geçerli sertifika sürümü veya herhangi bir sürümünü bir sertifika alın 
-  - *Liste*: geçerli bir sertifika veya sertifika sürümleri listesi  
-  - *Güncelleştirme*: sertifika güncelleştirmesi
-  - *oluşturma*: bir anahtar kasası sertifikası oluşturma
-  - *içeri aktarma*: sertifika malzemeleri bir Key Vault sertifikası alma
-  - *silme*: bir sertifikanın, ilke ve tüm sürümlerini Sil  
-  - *Kurtarma*: silinen bir sertifika Kurtar
-  - *Yedekleme*: bir sertifika bir anahtar kasasına yedekleme
-  - *geri yükleme*: yedeklenen sertifika bir anahtar Kasası'na geri yükleme
-  - *managecontacts*: anahtar Kasası'nı yönetmek için sertifika kişileri  
-  - *manageissuers*: Key Vault yönetme sertifika yetkilileri/verenler
-  - *getissuers*: bir sertifika yetkilileri/verenler Al
-  - *listissuers*: bir sertifika yetkilileri/verenler listesi  
-  - *setissuers*: bir Key Vault sertifika yetkilileri/verenler güncelle  
-  - *deleteissuers*: bir Key Vault sertifika yetkilileri/verenler Sil  
+  - *Alma*: Geçerli sertifika sürümü veya herhangi bir sürümünü bir sertifika alın 
+  - *Liste*: Geçerli bir sertifika veya sertifika sürümleri listesi  
+  - *Güncelleştirme*: Bir sertifikayı güncelleştirmek
+  - *oluşturma*: Bir anahtar kasası sertifikası oluşturma
+  - *İçeri aktarma*: Sertifika malzemeleri bir Key Vault sertifikayı içeri aktarma
+  - *Silme*: Bir sertifikanın, ilke ve tüm sürümlerini Sil  
+  - *Kurtarma*: Silinen bir sertifika Kurtar
+  - *Yedekleme*: Sertifikayı key vault'ta yedekleme
+  - *geri yükleme*: Bir anahtar kasasına bir yedeklediğiniz sertifikayı geri
+  - *managecontacts*: Key Vault sertifika kişileri Yönet  
+  - *manageissuers*: Key Vault sertifika yetkilileri/verenler yönetme
+  - *getissuers*: Bir sertifika yetkilileri/verenler Al
+  - *listissuers*: Bir sertifika yetkilileri/verenler listesi  
+  - *setissuers*: Bir Key Vault sertifika yetkilileri/verenler güncelle  
+  - *deleteissuers*: Bir Key Vault sertifika yetkilileri/verenler Sil  
  
 - Ayrıcalıklı işlemleri için izinleri
   - *Temizleme*: Temizle (kalıcı) bir sertifika silindi
@@ -459,19 +459,19 @@ Daha fazla bilgi için [Azure Key Vault depolama hesabı anahtarları](key-vault
 Aşağıdaki izinleri, kullanıcı veya uygulama asıl yetkilendirirken yönetilen bir depolama hesabı üzerinde işlem gerçekleştirmek için kullanılabilir:  
 
 - Yönetilen depolama hesabı ve SaS tanımı işlemleri için izinleri
-  - *Alma*: bir depolama hesabıyla ilgili bilgileri alır 
-  - *Liste*: Key Vault tarafından yönetilen depolama hesapları Listele
-  - *Güncelleştirme*: bir depolama hesabı güncelleştirme
-  - *silme*: bir depolama hesabını Sil  
-  - *Kurtarma*: silinen depolama hesabını Kurtar
-  - *Yedekleme*: yedekleme depolama hesabı
-  - *geri yükleme*: yedekleme depolama hesabı, bir anahtar Kasası'na geri yükleme
-  - *ayarlama*: oluşturun veya bir depolama hesabı güncelleştirin
-  - *üretir*: bir depolama hesabı için belirtilen bir anahtar değeri yeniden oluştur
-  - *getsas*: bir depolama hesabı için bir SAS tanımı hakkında bilgi alma
-  - *listsas*: listesinde bir depolama hesabı için depolama SAS tanımları
-  - *deletesas*: bir depolama hesabından bir SAS tanımını sil
-  - *setsas*: bir yeni SAS tanımı/öznitelikler için bir depolama hesabı güncelle
+  - *Alma*: Bir depolama hesabı bilgilerini alır 
+  - *Liste*: Key Vault tarafından yönetilen depolama hesapları listeleme
+  - *Güncelleştirme*: Bir depolama hesabı güncelleştirme
+  - *Silme*: Bir depolama hesabını silme  
+  - *Kurtarma*: Silinen bir depolama hesabı Kurtar
+  - *Yedekleme*: Bir depolama hesabı yedekleme
+  - *geri yükleme*: Bir yedekleme depolama hesabı, bir anahtar Kasası'na geri yükleme
+  - *ayarlama*: Bir depolama hesabı güncelle
+  - *üretir*: Bir depolama hesabı için belirtilen bir anahtar değeri yeniden oluştur
+  - *getsas*: Bir depolama hesabı için bir SAS tanımı hakkında bilgi alın
+  - *listsas*: Bir depolama hesabı için depolama SAS tanımları listesi
+  - *deletesas*: Bir depolama hesabından bir SAS tanımını sil
+  - *setsas*: Bir yeni SAS tanımı/öznitelikler için bir depolama hesabı güncelle
 
 - Ayrıcalıklı işlemleri için izinleri
   - *Temizleme*: Temizle (kalıcı) yönetilen bir depolama hesabı

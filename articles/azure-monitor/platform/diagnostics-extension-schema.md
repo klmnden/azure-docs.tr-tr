@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b4191bcc70ff25dc71f469c587627098cd8ef98f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 42ed050606dd242e43903ed980a5670b4aa6f3df
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326264"
+ms.locfileid: "53343182"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure tanılama uzantısı yapılandırma şeması sürümleri ve geçmişi
 Bu sayfa dizinlerinin Azure tanılama Uzantı Şeması sürümleri, Microsoft Azure SDK'sı bir parçası olarak gönderildiğini.  
@@ -67,7 +67,7 @@ Azure Tanılama'nün farklı sürümlerini farklı yapılandırma şemaları kul
 ### <a name="diagnostics-extension-111"></a>Tanılama uzantısı 1.11
 Azure İzleyici havuz desteği eklendi. Bu havuz yalnızca performans sayaçları için geçerlidir. VM, VMSS veya Bulut hizmeti üzerinde özel ölçümleriniz Azure İzleyici için toplanan performans sayaçlarının gönderilmesini sağlar. Azure Monitor havuzu destekler:
 * Azure İzleyici aracılığıyla gönderilen tüm performans sayaçlarını alınırken [Azure İzleyici ölçümleri API'leri.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
-* Tüm performans sayaçlarını uyarı gönderilen Azure İzleyici ile [uyarı deneyimi birleşik](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) Azure İzleyici'de
+* Tüm performans sayaçlarını uyarı gönderilen Azure İzleyici ile [uyarı deneyimi birleşik](../../azure-monitor/platform/alerts-overview.md) Azure İzleyici'de
 * Joker karakter işleci, performans sayaçları "Örnek" boyutu, ölçüm olarak ele alınıyor. Örneğin, toplanan "LogicalDisk (\*) / DiskWrites/sn" filtre olması ve için her Mantıksal Disk (C:, D:, vb.) bölme "Örnek" boyutta çizim ya da uyarı Disk Yazma/sn sayacı
 
 Azure İzleyici tanılama uzantısı yapılandırmanız yeni bir havuz olarak tanımlayın

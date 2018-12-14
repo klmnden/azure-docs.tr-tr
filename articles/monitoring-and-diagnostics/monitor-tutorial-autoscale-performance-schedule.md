@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.component: autoscale
-ms.openlocfilehash: b63e1fa316e9ebeaa564731b8bb0bc3ed5ba9036
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
-ms.translationtype: HT
+ms.openlocfilehash: adf3fdf694216353c5e6a0df8726cb5cd337ddf8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264070"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386001"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Azure kaynakları için performans verilerini veya bir zamanlamayı temel alan bir Otomatik Ölçeklendirme Ayarı oluşturma
 
@@ -181,7 +181,7 @@ Bu öğreticide şunları yaptınız:
 > * Kaynaklarınızı temizlediniz
 
 
-Otomatik ölçeklendirme ayarları hakkında daha fazla bilgi edinmek için [otomatik ölçeklendirmeye genel bakış](monitoring-overview-autoscale.md) konusuna geçin.
+Otomatik ölçeklendirme ayarları hakkında daha fazla bilgi edinmek için [otomatik ölçeklendirmeye genel bakış](../azure-monitor/platform/autoscale-overview.md) konusuna geçin.
 
 > [!div class="nextstepaction"]
 > [İzleme verilerinizi arşivleme](monitor-tutorial-archive-monitoring-data.md)

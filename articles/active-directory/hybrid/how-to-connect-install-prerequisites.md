@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 12/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5205d7797e7d45266a4f54b842ad56f353abc6d6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a36868e5bab64883036e0f93352bea5341ff7fe7
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252998"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384080"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect önkoşulları
 Bu konu ön koşullar ve Azure AD Connect için donanım gereksinimlerini açıklar.
@@ -41,7 +41,7 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 
 ### <a name="on-premises-active-directory"></a>Şirket içi Active Directory
 * AD şema sürümü ve orman işlev düzeyi Windows Server 2003 veya üstü olmalıdır. Etki alanı denetleyicileri, şema ve orman düzeyinde gereksinimlerin karşılanıp karşılanmadığından sürece herhangi bir sürümü çalıştırabilirsiniz.
-* Özelliğini kullanmayı planlıyorsanız **parola geri yazma**, etki alanı denetleyicileri (en son SP ile) Windows Server 2008 veya üzeri olmalıdır. 2008'de (pre-R2), DC'leri olan sonra uygulamanız gerekir [düzeltme KB2386717](https://support.microsoft.com/kb/2386717).
+* Özelliğini kullanmayı planlıyorsanız **parola geri yazma**, etki alanı denetleyicilerini Windows Server 2008 R2 veya üzeri olmalıdır.
 * Azure AD tarafından kullanılan etki alanı denetleyicisi yazılabilir olmalıdır. Bu **desteklenmiyor** RODC (salt okunur etki alanı denetleyicisi) ve Azure AD Connect tüm yazma yeniden yönlendirmeleri izlemez.
 * Bu **desteklenmiyor** şirket içi ormanlar / "noktalı" kullanarak etki alanı kullanmak için (adında nokta ".") NetBIOS adları.
 * Önerilir [Active Directory geri dönüşüm kutusunu etkinleştirme](how-to-connect-sync-recycle-bin.md).
@@ -49,8 +49,8 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect sunucusu
 * Azure AD Connect yüklenemez Small Business Server veya Windows Server Essentials 2019 önce (Windows Server Essentials 2019 desteklenir). Sunucu Windows Server standard veya daha iyi kullanıyor olmanız gerekir.
 * Azure AD Connect sunucusu tam GUI yüklü olması gerekir. Bu **desteklenmiyor** sunucu Çekirdeğinde yüklemek için.
-* Azure AD Connect, Windows Server 2008 veya üzeri yüklü olmalıdır. Hızlı ayarları kullanarak, bu sunucu bir etki alanı denetleyicisi veya üye sunucu olabilir. Özel ayarları kullanırsanız, sunucunun tek başına olabilir ve bir etki alanına katılması gerekmez.
-* Windows Server 2008 veya Windows Server 2008 R2'de Azure AD Connect'i yüklemek, Windows Update'ten en son düzeltmeler uyguladığınızdan emin olun. Yükleme yüklenmemiş bir sunucuyla başlatmanız mümkün değil.
+* Azure AD Connect, Windows Server 2008 R2 veya üzeri yüklü olmalıdır. Hızlı ayarları kullanarak, bu sunucu bir etki alanı denetleyicisi veya üye sunucu olabilir. Özel ayarları kullanırsanız, sunucunun tek başına olabilir ve bir etki alanına katılması gerekmez.
+* Windows Server 2008 R2'de Azure AD Connect'i yüklemek, Windows Update'ten en son düzeltmeler uyguladığınızdan emin olun. Yükleme yüklenmemiş bir sunucuyla başlatmanız mümkün değil.
 * Özelliğini kullanmayı planlıyorsanız **parola eşitleme**, Azure AD Connect sunucusu, Windows Server 2008 R2 SP1 veya üstü olmalıdır.
 * Kullanmayı planlıyorsanız bir **Grup yönetilen hizmet hesabı**, Azure AD Connect sunucusu, Windows Server 2012 veya üzeri olmalıdır.
 * Azure AD Connect sunucusu olmalıdır [.NET Framework 4.5.1](#component-prerequisites) veya üzeri ve [Microsoft PowerShell 3.0](#component-prerequisites) veya sonraki bir sürümü yüklü.
@@ -77,7 +77,7 @@ Azure AD Connect'i yüklemeden önce gereken birkaç şey vardır.
 * Güvenlik duvarları, Intranet üzerinde sahip olduğunuz ve Azure AD Connect sunucuları ve etki alanı denetleyicilerinizin arasında bağlantı noktalarını açın ve ardından görmek gerekiyorsa [Azure AD Connect bağlantı noktaları](reference-connect-ports.md) daha fazla bilgi için.
 * Ara sunucunuzda veya güvenlik duvarı sınırlamak hangi URL'leri erişilebilir sonra URL'leri belirtilmiştir [Office 365 URL'leri ve IP adresi aralıkları](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) açılması gerekir.
   * Microsoft Cloud Almanya'da veya Microsoft Azure kamu Bulutu kullanıyorsanız, daha sonra bkz [Azure AD Connect eşitleme hizmeti örnekleri konuları](reference-connect-instances.md) URL'ler için.
-* Azure AD Connect'i (sürüm 1.1.614.0 ve sonrası) varsayılan olarak TLS 1.2 eşitleme altyapısı ve Azure AD arasındaki iletişimi şifrelemek için kullanır. TLS 1.2 temel alınan işletim sisteminde kullanılabilir durumda değilse, Azure AD Connect artımlı olarak geri eski protokollere (TLS 1.1 ve TLS 1.0) döner. Örneğin, Windows Server 2008, TLS 1.1 veya TLS 1.2 desteklemediği için Azure AD Connect'in, Windows Server 2008'de TLS 1.0 kullanır.
+* Azure AD Connect'i (sürüm 1.1.614.0 ve sonrası) varsayılan olarak TLS 1.2 eşitleme altyapısı ve Azure AD arasındaki iletişimi şifrelemek için kullanır. TLS 1.2 temel alınan işletim sisteminde kullanılabilir durumda değilse, Azure AD Connect artımlı olarak geri eski protokollere (TLS 1.1 ve TLS 1.0) döner.
 * Sürüm 1.1.614.0 önce Azure AD Connect varsayılan olarak TLS 1.0 eşitleme altyapısı ve Azure AD arasındaki iletişimi şifrelemek için kullanır. TLS 1.2 değiştirmek için adımları izleyin. [Azure AD Connect için "etkinleştir" TLS 1.2](#enable-tls-12-for-azure-ad-connect).
 * İnternet'e, aşağıdaki ayarı bağlamak için bir giden bağlantı proxy'si kullanıyorsanız **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** Yükleme Sihirbazı'nı ve Azure AD için dosya eklenmelidir İnternet'e ve Azure AD connect için eşitleme bağlanın. Bu metin, dosyanın sonunda girilmelidir. Bu kodda, &lt;PROXYADRESS&gt; gerçek Ara sunucu IP adresi veya ana bilgisayar adını temsil eder.
 
@@ -113,7 +113,7 @@ Daha fazla bilgi için MSDN görecekleri [proxy öğesi varsayılan](https://msd
 Bağlantı sorunlarınız olduğunda, daha fazla bilgi için bkz. [bağlantı sorunlarını giderme](tshoot-connect-connectivity.md).
 
 ### <a name="other"></a>Diğer
-* İsteğe bağlı: eşitleme doğrulamak için bir test kullanıcı hesabı.
+* İsteğe bağlı: Eşitleme doğrulamak için bir test kullanıcı hesabı.
 
 ## <a name="component-prerequisites"></a>Bileşen önkoşulları
 ### <a name="powershell-and-net-framework"></a>PowerShell ve .net Framework
@@ -122,18 +122,16 @@ Azure AD Connect, Microsoft PowerShell ve .NET Framework 4.5.1 bağlıdır. Bu s
 * Windows Server 2012R2
   * Microsoft PowerShell varsayılan olarak yüklenir. Eylem gerekmiyor.
   * .NET framework 4.5.1 ve sonraki sürümleri, Windows Update aracılığıyla sunulur. Denetim Masası'nda Windows Server için en son güncelleştirmeleri yüklediğinizden emin olun.
-* Windows Server 2008R2 ve Windows Server 2012
+* Windows Server 2008 R2 ve Windows Server 2012
   * Microsoft PowerShell'in en son sürümünü kullanılabilir **Windows Management Framework 4.0**üzerinden [Microsoft Download Center](https://www.microsoft.com/downloads).
   * .NET framework 4.5.1 ve sonraki sürümlerde kullanılabilir [Microsoft Download Center](https://www.microsoft.com/downloads).
-* Windows Server 2008
-  * PowerShell'in desteklenen son sürümü kullanılabilir **Windows Management Framework 3.0**üzerinden [Microsoft Download Center](https://www.microsoft.com/downloads).
-  * .NET framework 4.5.1 ve sonraki sürümlerde kullanılabilir [Microsoft Download Center](https://www.microsoft.com/downloads).
+
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Azure AD Connect için TLS 1.2 etkinleştir
 Sürüm 1.1.614.0 önce Azure AD Connect varsayılan olarak TLS 1.0 eşitleme altyapısı sunucusu ve Azure AD arasındaki iletişimi şifrelemek için kullanır. .Net uygulamalarını sunucu üzerinde varsayılan olarak TLS 1.2 kullanmak için yapılandırarak bunu değiştirebilirsiniz. TLS 1.2 hakkında daha fazla bilgi bulunabilir [Microsoft Güvenlik Danışma 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
-1. Windows Server 2008'de TLS 1.2 etkinleştirilemez. Windows Server 2008R2 gerekir veya üzeri. İşletim sisteminiz için .net 4.5.1 düzeltme Bkz emin [Microsoft Güvenlik Danışma 2960358](https://technet.microsoft.com/security/advisory/2960358). Bu düzeltme veya sonraki bir sürümü sunucuda zaten yüklü olabilir.
-2. Windows Server 2008R2 kullanırsanız, TLS 1.2 etkin olduğundan emin olun. Sunucu Windows Server 2012 ve sonraki sürümlerinde, TLS 1.2 zaten etkinleştirilmiş olmalıdır.
+1. TLS 1.2, önce Windows Server 2008 R2 veya üzeri etkinleştirilemez. İşletim sisteminiz için .net 4.5.1 düzeltme Bkz emin [Microsoft Güvenlik Danışma 2960358](https://technet.microsoft.com/security/advisory/2960358). Bu düzeltme veya sonraki bir sürümü sunucuda zaten yüklü olabilir.
+2. Windows Server 2008 R2 kullanıyorsanız, TLS 1.2 etkin olduğundan emin olun. Sunucu Windows Server 2012 ve sonraki sürümlerinde, TLS 1.2 zaten etkinleştirilmiş olmalıdır.
    ```
    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
@@ -204,9 +202,9 @@ Azure AD Connect eşitleme bilgisayarın en düşük gereksinimleri aşağıdaki
 
 AD FS ve Web uygulama sunucuları çalıştıran bilgisayarlar için en düşük gereksinimler aşağıda verilmiştir:
 
-* CPU: Çekirdek çift 1,6 GHz veya üzeri
-* Bellek: 2 GB veya üzeri
-* Azure VM: A2 yapılandırması veya üzeri
+* CPU: Çift çekirdek 1,6 GHz veya üzeri
+* BELLEK: 2 GB veya üzeri
+* Azure VM: A2 yapılandırma veya üzeri
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md) hakkında daha fazla bilgi edinin.

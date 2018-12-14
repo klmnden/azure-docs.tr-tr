@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/7/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5ca551c3d85f4f68de4169653452b3cd6faa4c35
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 14e959e4aa26b04ec70cbb03ea3feaf0e93f31c1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643393"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344185"
 ---
 # <a name="durable-functions-overview"></a>Dayanıklı işlevler genel bakış
 
@@ -32,7 +32,7 @@ Uzantı çağrılan işlev yeni bir tür durum bilgisi olan iş akışları tan�
 
 Dayanıklı işlevler için birincil kullanım durumu, sunucusuz uygulamalar karmaşık, durum bilgisi olan koordinasyon sorunlarını basitleştirme olduğu. Aşağıdaki bölümlerde, dayanıklı işlevlerden yararlanabilirsiniz bazı tipik uygulama desenleri açıklanmaktadır.
 
-## <a name="pattern-1-function-chaining"></a>Desen #1: zincirleme işlevi
+## <a name="pattern-1-function-chaining"></a>Desen #1: İşlev zinciri oluşturma
 
 *İşlev zincirleme* işlevler bir dizi belirli bir sırayla yürütülmesi deseni ifade eder. Genellikle, bir işlevin çıktısı başka bir işlev girişi uygulanması gerekir.
 
@@ -40,17 +40,17 @@ Dayanıklı işlevler için birincil kullanım durumu, sunucusuz uygulamalar kar
 
 Dayanıklı İşlevler, bu düzen kısaca koda uygulanması olanak verir.
 
-#### <a name="c-script"></a>C# betiği
+### <a name="c-script"></a>C# betiği
 
 ```cs
-public static async Task<object> Run(DurableOrchestrationContext ctx)
+public static async Task<object> Run(DurableOrchestrationContext context)
 {
     try
     {
-        var x = await ctx.CallActivityAsync<object>("F1");
-        var y = await ctx.CallActivityAsync<object>("F2", x);
-        var z = await ctx.CallActivityAsync<object>("F3", y);
-        return  await ctx.CallActivityAsync<object>("F4", z);
+        var x = await context.CallActivityAsync<object>("F1");
+        var y = await context.CallActivityAsync<object>("F2", x);
+        var z = await context.CallActivityAsync<object>("F3", y);
+        return  await context.CallActivityAsync<object>("F4", z);
     }
     catch (Exception)
     {
@@ -58,27 +58,31 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
     }
 }
 ```
+
 > [!NOTE]
 > Önceden derlenmiş bir kalıcı işlevi C# vs'de C# betik örneği önce gösterilen yazılırken küçük farklılıklar vardır. C# önceden derlenmiş işlevi sürekli parametreleri ilgili öznitelikleri ile donatılmış gerekir. Bir örnek `[OrchestrationTrigger]` özniteliğini `DurableOrchestrationContext` parametresi. Parametreleri doğru donatılmış değil, çalışma zamanı değişkenleri işleve eklemesine mümkün olmaz ve hata verirsiniz. Lütfen [örnek](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples) daha fazla örnek için.
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 ```js
 const df = require("durable-functions");
 
-module.exports = df.orchestrator(function*(ctx) {
-    const x = yield ctx.df.callActivity("F1");
-    const y = yield ctx.df.callActivity("F2", x);
-    const z = yield ctx.df.callActivity("F3", y);
-    return yield ctx.df.callActivity("F4", z);
+module.exports = df.orchestrator(function*(context) {
+    const x = yield context.df.callActivity("F1");
+    const y = yield context.df.callActivity("F2", x);
+    const z = yield context.df.callActivity("F3", y);
+    return yield context.df.callActivity("F4", z);
 });
 ```
 
 "F1", "F2", "F3" ve "F4" değerlerini işlev uygulamasına diğer işlevlerin adlarıdır. Denetim akışı yapılarını kodlama normal zorunlu uygulanır. Diğer bir deyişle, kod yukarıdan aşağıya yürütür ve mevcut dil denetim akışı semantiğini koşullular ve döngüler gibi içerebilir.  Hata işleme mantığı, try/catch/finally bloklarında eklenebilir.
 
-`ctx` Parametre ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) adı, parametreleri geçirme, diğer işlevler çağırma ve işlev çıkış döndüren yöntemler sağlar. Her zaman kod çağrıları `await`, dayanıklı işlevler framework *kontrol noktaları* ilerleme durumunu geçerli işlev örneği. Sanal makine ve işlem sürecin yarısında yürütme dönüştürülürse, işlev örneği önceki sürdürür `await` çağırın. Bunun hakkında daha fazla daha sonra yeniden başlatma davranışı.
+`context` Parametre ([DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)) (.NET) ve `context.df` nesnesi (JavaScript) adı, parametreleri geçirme, diğer işlevler çağırma ve işlev çıkış döndüren yöntemler sağlar. Her zaman kod çağrıları `await` (C#) veya `yield` (JavaScript) dayanıklı işlevler framework *kontrol noktaları* ilerleme durumunu geçerli işlev örneği. Sanal makine ve işlem sürecin yarısında yürütme dönüştürülürse, işlev örneği önceki sürdürür `await` veya `yield` çağırın. Bunun hakkında daha fazla daha sonra yeniden başlatma davranışı.
 
-## <a name="pattern-2-fan-outfan-in"></a>Desen #2: Fan-dışarı/fan-arada
+> [!NOTE]
+> `context` JavaScript nesneyi temsil eder [işlevi bağlamı bir bütün olarak] DurableOrchestrationContext. (.. / işlevleri başvuru node.md #context nesnesi).
+
+## <a name="pattern-2-fan-outfan-in"></a>Desen #2: Yelpaze dışarı/yelpaze içeri
 
 *Fan-dışarı/fan-arada* birden çok işlevleri paralel olarak yürütülen ve tüm tamamlanması bekleniyor deseni ifade eder.  Genellikle bazı toplama iş işlevlerini döndürülen sonuçlar üzerinde gerçekleştirilir.
 
@@ -86,54 +90,54 @@ module.exports = df.orchestrator(function*(ctx) {
 
 Normal işlevlerde olduğu fanning sahip birden fazla ileti bir kuyruğa gönderebilirsiniz işlevi tarafından yapılabilir. Ancak geri fanning çok daha zor olabilir. Kuyruk ile tetiklenen işlev sonlandırmak ve işlev çıktılarının depolanması ne zaman açtıklarını izlemek için kod yazmanız gerekir. Bu düzen görece basit kod ile dayanıklı işlevler uzantısını işler.
 
-#### <a name="c-script"></a>C# betiği
+### <a name="c-script"></a>C# betiği
 
 ```cs
-public static async Task Run(DurableOrchestrationContext ctx)
+public static async Task Run(DurableOrchestrationContext context)
 {
     var parallelTasks = new List<Task<int>>();
- 
+
     // get a list of N work items to process in parallel
-    object[] workBatch = await ctx.CallActivityAsync<object[]>("F1");
+    object[] workBatch = await context.CallActivityAsync<object[]>("F1");
     for (int i = 0; i < workBatch.Length; i++)
     {
-        Task<int> task = ctx.CallActivityAsync<int>("F2", workBatch[i]);
+        Task<int> task = context.CallActivityAsync<int>("F2", workBatch[i]);
         parallelTasks.Add(task);
     }
- 
+
     await Task.WhenAll(parallelTasks);
- 
+
     // aggregate all N outputs and send result to F3
     int sum = parallelTasks.Sum(t => t.Result);
-    await ctx.CallActivityAsync("F3", sum);
+    await context.CallActivityAsync("F3", sum);
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 ```js
 const df = require("durable-functions");
 
-module.exports = df.orchestrator(function*(ctx) {
+module.exports = df.orchestrator(function*(context) {
     const parallelTasks = [];
 
     // get a list of N work items to process in parallel
-    const workBatch = yield ctx.df.callActivity("F1");
+    const workBatch = yield context.df.callActivity("F1");
     for (let i = 0; i < workBatch.length; i++) {
-        parallelTasks.push(ctx.df.callActivity("F2", workBatch[i]));
+        parallelTasks.push(context.df.callActivity("F2", workBatch[i]));
     }
 
-    yield ctx.df.task.all(parallelTasks);
+    yield context.df.Task.all(parallelTasks);
 
     // aggregate all N outputs and send result to F3
     const sum = parallelTasks.reduce((prev, curr) => prev + curr, 0);
-    yield ctx.df.callActivity("F3", sum);
+    yield context.df.callActivity("F3", sum);
 });
 ```
 
-Yaygın iş işlevinin birden fazla örneğe dağıtılmış `F2`, ve dinamik görevlerinin listesini kullanarak iş izlenir. .NET `Task.WhenAll` API tüm çağrılan işlevlerin tamamlanması için beklenecek çağrılır. Ardından `F2`çıkışları dinamik görev listesinden toplanır ve geçirilen üzerinde işlevi `F3` işlevi.
+Yaygın iş işlevinin birden fazla örneğe dağıtılmış `F2`, ve dinamik görevlerinin listesini kullanarak iş izlenir. .NET `Task.WhenAll` API veya JavaScript `context.df.Task.all` API tüm çağrılan işlevlerin tamamlanması için beklenecek çağrılır. Ardından `F2` çıkışları dinamik görev listesinden toplanır ve geçirilen üzerinde işlevi `F3` işlevi.
 
-Sırasında gerçekleşen otomatik denetim noktası `await` çağırmak `Task.WhenAll` herhangi bir kilitlenme veya yeniden başlatma sürecin yarısında zaten tamamlanan görevler herhangi bir yeniden başlatma gerektirmez sağlar.
+Sırasında gerçekleşen otomatik denetim noktası `await` veya `yield` çağırmak `Task.WhenAll` veya `context.df.Task.all` herhangi bir kilitlenme veya yeniden başlatma sürecin yarısında zaten tamamlanan görevler herhangi bir yeniden başlatma gerektirmez sağlar.
 
 ## <a name="pattern-3-async-http-apis"></a>#3. Desen: Zaman uyumsuz HTTP API'leri
 
@@ -141,7 +145,7 @@ Tüm dış istemcilerle uzun süren işlemlerin durumunu koordine sorununu üç�
 
 ![HTTP API'si diyagramı](./media/durable-functions-overview/async-http-api.png)
 
-Dayanıklı İşlevler, uzun süre çalışan işlev yürütmelerini ile etkileşim kurmak için yazdığınız kodu kolaylaştıran yerleşik API'ler sağlar. [Hızlı başlangıç örnek](durable-functions-create-first-csharp.md) yeni orchestrator işlevi örneklerini başlatmak için kullanılan basit bir REST komutu göstermektedir. Uzantı örneği başlatıldıktan sonra Web kancası HTTP API'lerini orchestrator işlevi durumunu sorgulayan kullanıma sunar. Aşağıdaki örnek, bir orchestrator başlatmak ve durumunu sorgulamak için REST komutları gösterir. Anlaşılsın diye, bazı ayrıntılar örnekten göz ardı edilir.
+Dayanıklı İşlevler, uzun süre çalışan işlev yürütmelerini ile etkileşim kurmak için yazdığınız kodu kolaylaştıran yerleşik API'ler sağlar. Hızlı Başlangıç örnekleri ([C#](durable-functions-create-first-csharp.md), [JavaScript](quickstart-js-vscode.md)) yeni orchestrator işlevi örneklerini başlatmak için kullanılan basit bir REST komutu göster. Uzantı örneği başlatıldıktan sonra Web kancası HTTP API'lerini orchestrator işlevi durumunu sorgulayan kullanıma sunar. Aşağıdaki örnek, bir orchestrator başlatmak ve durumunu sorgulamak için REST komutları gösterir. Anlaşılsın diye, bazı ayrıntılar örnekten göz ardı edilir.
 
 ```
 > curl -X POST https://myfunc.azurewebsites.net/orchestrators/DoWork -H "Content-Length: 0" -i
@@ -168,7 +172,9 @@ Content-Type: application/json
 
 Dayanıklı işlevler çalışma zamanı tarafından yönetilen durumu olduğundan, kendi durumunu izleme mekanizması uygulamak zorunda değilsiniz.
 
-Dayanıklı işlevler uzantısını uzun süre çalışan düzenlemeleri yönetmek için yerleşik Web kancaları olmasına rağmen bu düzen kendi işlevi tetikleyicilerini (örneğin, HTTP, kuyruk veya olay hub'ı) kullanarak kendiniz uygulayabileceğiniz ve `orchestrationClient` bağlama. Örneğin, bir kuyruk iletisi sonlandırma tetiklemek için kullanabilirsiniz.  Veya yerleşik Web kancaları kimlik doğrulaması için oluşturulmuş bir anahtar kullanmak yerine bir Azure Active Directory kimlik doğrulama İlkesi tarafından korunan bir HTTP tetikleyicisi kullanabilir. 
+Dayanıklı işlevler uzantısını uzun süre çalışan düzenlemeleri yönetmek için yerleşik Web kancaları olmasına rağmen bu düzen kendi işlevi tetikleyicilerini (örneğin, HTTP, kuyruk veya olay hub'ı) kullanarak kendiniz uygulayabileceğiniz ve `orchestrationClient` bağlama. Örneğin, bir kuyruk iletisi sonlandırma tetiklemek için kullanabilirsiniz.  Veya yerleşik Web kancaları kimlik doğrulaması için oluşturulmuş bir anahtar kullanmak yerine bir Azure Active Directory kimlik doğrulama İlkesi tarafından korunan bir HTTP tetikleyicisi kullanabilir.
+
+### <a name="c"></a>C#
 
 ```cs
 // HTTP-triggered function to start a new orchestrator function instance.
@@ -182,18 +188,43 @@ public static async Task<HttpResponseMessage> Run(
     // Function input comes from the request content.
     dynamic eventData = await req.Content.ReadAsAsync<object>();
     string instanceId = await starter.StartNewAsync(functionName, eventData);
-    
+
     log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
-    
+
     return starter.CreateCheckStatusResponse(req, instanceId);
 }
 ```
 
-[DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parametredir arasında bir değer `orchestrationClient` dayanıklı işlevler uzantısını parçası olan bağlama, çıktı. Bunun için başlangıç gönderen olaylar için sonlandırılması ve yeni veya var olan orchestrator işlevi örnekleri için sorgulama yöntemleri sağlar. Önceki örnekte, bir HTTP ile tetiklenen-işlev alır bir `functionName` değerini gelen URL ve değerini geçişleri [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Bu bağlama API ardından içeren bir yanıt döndürür bir `Location` üstbilgi ve daha sonra aramak için kullanılabilecek örneği hakkında ek bilgi kullanmaya başlama örneği durumu yukarı ya da sonlandırın.
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
-## <a name="pattern-4-monitoring"></a>Desen #4: izleme
+```javascript
+// HTTP-triggered function to start a new orchestrator function instance.
+const df = require("durable-functions");
 
-İzleyici deseni esnek bir başvuruyor *yinelenen* bir iş akışında - Örneğin, belirli koşulların karşılanması kadar yoklama işlemi. Normal bir zamanlayıcı tetikleyicisi bir düzenli temizleme işini gibi basit bir senaryoyu ele ancak kendi aralığı, statik ve örnek yaşam süreleri yönetme karmaşık hale gelir. Dayanıklı işlevler esnek yineleme aralıkları, görevin ömrü yönetimi ve birden çok İzleyici, tek bir düzenleme işlemleri oluşturma olanağı sağlar.
+module.exports = async function (context, req) {
+    const client = df.getClient(context);
+
+    // Function name comes from the request URL.
+    // Function input comes from the request content.
+    const eventData = req.body;
+    const instanceId = await client.startNew(req.params.functionName, undefined, eventData);
+
+    context.log(`Started orchestration with ID = '${instanceId}'.`);
+
+    return client.createCheckStatusResponse(req, instanceId);
+};
+```
+
+> [!WARNING]
+> JavaScript içinde yerel olarak geliştirirken, ortam değişkenini ayarlamak gerekir `WEBSITE_HOSTNAME` için `localhost:<port>`, örn. `localhost:7071` yöntemleri kullanmak üzere `DurableOrchestrationClient`. Bu gereksinim hakkında daha fazla bilgi için bkz. [GitHub sorunu](https://github.com/Azure/azure-functions-durable-js/issues/28).
+
+. NET'te, [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` parametredir arasında bir değer `orchestrationClient` dayanıklı işlevler uzantısını parçası olan bağlama, çıktı. JavaScript'te çağırarak bu nesne döndürülür `df.getClient(context)`. Bu nesneler için başlangıç gönderen olaylar için sonlandırılması ve yeni veya var olan orchestrator işlevi örnekleri için sorgulama yöntemler sağlar.
+
+Önceki örnekte, bir HTTP ile tetiklenen-işlev alır bir `functionName` değerini gelen URL ve değerini geçişleri [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) API ardından bağlama içeren bir yanıt döndürür bir `Location` üstbilgi ve daha sonra aramak için kullanılabilecek örneği hakkında ek bilgi yukarı kullanmaya başlama örneği durumu veya sonlandırma .
+
+## <a name="pattern-4-monitoring"></a>Desen #4: İzleme
+
+İzleyici deseni esnek bir başvuruyor *yinelenen* bir iş akışında - Örneğin, belirli koşulların karşılanması kadar yoklama işlemi. Normal [Zamanlayıcı tetikleyicisi](../functions-bindings-timer.md) adresini bir düzenli temizleme işini gibi basit bir senaryo ancak kendi aralığı statik ve örnek ömrü Yönetimi karmaşık olur. Dayanıklı işlevler esnek yineleme aralıkları, görevin ömrü yönetimi ve birden çok İzleyici, tek bir düzenleme işlemleri oluşturma olanağı sağlar.
 
 Bir örnek, önceki zaman uyumsuz HTTP API senaryosu ters. Uzun süreli bir işlemi izlemek bir dış istemci için bir uç nokta kullanıma sunmak yerine, bazı durum değişikliği için bekleyen dış uç noktası, uzun süre çalışan İzleyicisi'ni kullanır.
 
@@ -201,63 +232,63 @@ Bir örnek, önceki zaman uyumsuz HTTP API senaryosu ters. Uzun süreli bir işl
 
 Dayanıklı işlevler kullanarak, birkaç kod satırıyla rastgele uç noktaları inceleyin birden çok monitör oluşturulabilir. Bazı koşullar karşılanması veya tarafından sonlandırılacak izleyiciler yürütme sona erdirebilirsiniz [DurableOrchestrationClient](durable-functions-instance-management.md), ve bunların bekleme aralığının bazı koşullar (yani üstel geri alma.) göre değiştirilebilir. Aşağıdaki kod, temel bir izleyici uygular.
 
-#### <a name="c-script"></a>C# betiği
+### <a name="c-script"></a>C# betiği
 
 ```cs
-public static async Task Run(DurableOrchestrationContext ctx)
+public static async Task Run(DurableOrchestrationContext context)
 {
-    int jobId = ctx.GetInput<int>();
+    int jobId = context.GetInput<int>();
     int pollingInterval = GetPollingInterval();
     DateTime expiryTime = GetExpiryTime();
-    
-    while (ctx.CurrentUtcDateTime < expiryTime) 
+
+    while (context.CurrentUtcDateTime < expiryTime)
     {
-        var jobStatus = await ctx.CallActivityAsync<string>("GetJobStatus", jobId);
+        var jobStatus = await context.CallActivityAsync<string>("GetJobStatus", jobId);
         if (jobStatus == "Completed")
         {
             // Perform action when condition met
-            await ctx.CallActivityAsync("SendAlert", machineId);
+            await context.CallActivityAsync("SendAlert", machineId);
             break;
         }
 
         // Orchestration will sleep until this time
-        var nextCheck = ctx.CurrentUtcDateTime.AddSeconds(pollingInterval);
-        await ctx.CreateTimer(nextCheck, CancellationToken.None);
+        var nextCheck = context.CurrentUtcDateTime.AddSeconds(pollingInterval);
+        await context.CreateTimer(nextCheck, CancellationToken.None);
     }
 
     // Perform further work here, or let the orchestration end
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 ```js
 const df = require("durable-functions");
 const moment = require("moment");
 
-module.exports = df.orchestrator(function*(ctx) {
-    const jobId = ctx.df.getInput();
+module.exports = df.orchestrator(function*(context) {
+    const jobId = context.df.getInput();
     const pollingInternal = getPollingInterval();
     const expiryTime = getExpiryTime();
 
-    while (moment.utc(ctx.df.currentUtcDateTime).isBefore(expiryTime)) {
-        const jobStatus = yield ctx.df.callActivity("GetJobStatus", jobId);
+    while (moment.utc(context.df.currentUtcDateTime).isBefore(expiryTime)) {
+        const jobStatus = yield context.df.callActivity("GetJobStatus", jobId);
         if (jobStatus === "Completed") {
             // Perform action when condition met
-            yield ctx.df.callActivity("SendAlert", machineId);
+            yield context.df.callActivity("SendAlert", machineId);
             break;
         }
 
         // Orchestration will sleep until this time
-        const nextCheck = moment.utc(ctx.df.currentUtcDateTime).add(pollingInterval, 's');
-        yield ctx.df.createTimer(nextCheck.toDate());
+        const nextCheck = moment.utc(context.df.currentUtcDateTime).add(pollingInterval, 's');
+        yield context.df.createTimer(nextCheck.toDate());
     }
 
     // Perform further work here, or let the orchestration end
 });
 ```
 
-Bir istek alındığında, iş kimliği için yeni bir düzenleme örneği oluşturulur Örnek, bir koşul karşılandığında ve döngü çıkıldı kadar durumu yoklar. Dayanıklı bir Zamanlayıcı, yoklama aralığını denetlemek için kullanılır. Daha fazla iş gerçekleştirilebilir veya orchestration sonlandırabilirsiniz. Zaman `ctx.CurrentUtcDateTime` aşıyor `expiryTime`, İzleyici sona erer.
+Bir istek alındığında, iş kimliği için yeni bir düzenleme örneği oluşturulur Örnek, bir koşul karşılandığında ve döngü çıkıldı kadar durumu yoklar. Dayanıklı bir Zamanlayıcı, yoklama aralığını denetlemek için kullanılır. Daha fazla iş gerçekleştirilebilir veya orchestration sonlandırabilirsiniz. Zaman `context.CurrentUtcDateTime` (.NET) veya `context.df.currentUtcDateTime` (JavaScript) aşıyor `expiryTime`, İzleyici sona erer.
 
 ## <a name="pattern-5-human-interaction"></a>Desen #5: İnsan etkileşimi
 
@@ -269,54 +300,54 @@ Bir iş sürecini insan etkileşimi içeren bir onay işlemi örneğidir. Örne�
 
 Bu düzen bir düzenleyici işlevi kullanılarak uygulanır. Orchestrator kullanacağınız bir [dayanıklı Zamanlayıcı](durable-functions-timers.md) onay isteyin ve zaman aşımı oluşması halinde ilerletebilirsiniz. İçin beklemeniz gerekir bir [dış olay](durable-functions-external-events.md), bazı insan etkileşimi tarafından oluşturulan bildirim olacaktır.
 
-#### <a name="c-script"></a>C# betiği
+### <a name="c-script"></a>C# betiği
 
 ```cs
-public static async Task Run(DurableOrchestrationContext ctx)
+public static async Task Run(DurableOrchestrationContext context)
 {
-    await ctx.CallActivityAsync("RequestApproval");
+    await context.CallActivityAsync("RequestApproval");
     using (var timeoutCts = new CancellationTokenSource())
     {
-        DateTime dueTime = ctx.CurrentUtcDateTime.AddHours(72);
-        Task durableTimeout = ctx.CreateTimer(dueTime, timeoutCts.Token);
+        DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
+        Task durableTimeout = context.CreateTimer(dueTime, timeoutCts.Token);
 
-        Task<bool> approvalEvent = ctx.WaitForExternalEvent<bool>("ApprovalEvent");
+        Task<bool> approvalEvent = context.WaitForExternalEvent<bool>("ApprovalEvent");
         if (approvalEvent == await Task.WhenAny(approvalEvent, durableTimeout))
         {
             timeoutCts.Cancel();
-            await ctx.CallActivityAsync("ProcessApproval", approvalEvent.Result);
+            await context.CallActivityAsync("ProcessApproval", approvalEvent.Result);
         }
         else
         {
-            await ctx.CallActivityAsync("Escalate");
+            await context.CallActivityAsync("Escalate");
         }
     }
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 ```js
 const df = require("durable-functions");
 const moment = require('moment');
 
-module.exports = df.orchestrator(function*(ctx) {
-    yield ctx.df.callActivity("RequestApproval");
+module.exports = df.orchestrator(function*(context) {
+    yield context.df.callActivity("RequestApproval");
 
-    const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
-    const durableTimeout = ctx.df.createTimer(dueTime.toDate());
+    const dueTime = moment.utc(context.df.currentUtcDateTime).add(72, 'h');
+    const durableTimeout = context.df.createTimer(dueTime.toDate());
 
-    const approvalEvent = ctx.df.waitForExternalEvent("ApprovalEvent");
-    if (approvalEvent === yield ctx.df.Task.any([approvalEvent, durableTimeout])) {
+    const approvalEvent = context.df.waitForExternalEvent("ApprovalEvent");
+    if (approvalEvent === yield context.df.Task.any([approvalEvent, durableTimeout])) {
         durableTimeout.cancel();
-        yield ctx.df.callActivity("ProcessApproval", approvalEvent.result);
+        yield context.df.callActivity("ProcessApproval", approvalEvent.result);
     } else {
-        yield ctx.df.callActivity("Escalate");
+        yield context.df.callActivity("Escalate");
     }
 });
 ```
 
-Dayanıklı Zamanlayıcı çağrılarak oluşturulan `ctx.CreateTimer`. Bildirim tarafından alınan `ctx.WaitForExternalEvent`. Ve `Task.WhenAny` İlerlet karar vermek için çağrılır (ilk zaman aşımı gerçekleşir) veya işlem onay (zaman aşımından önce onay aldı).
+Dayanıklı Zamanlayıcı çağrılarak oluşturulan `context.CreateTimer` (.NET) veya `context.df.createTimer`(JavaScript). Bildirim tarafından alınan `context.WaitForExternalEvent` (.NET) veya `context.df.waitForExternalEvent` (JavaScript). Ve `Task.WhenAny` (.NET) veya `context.df.Task.any` (JavaScript) İlerlet karar vermek için çağırılır (ilk zaman aşımı gerçekleşir) veya işlem onay (zaman aşımından önce onay aldı).
 
 Dış bir istemci kullanarak bekleyen orchestrator işlevi için olay bildirimi sunabilir [yerleşik HTTP API'lerini](durable-functions-http-api.md#raise-event) kullanarak veya [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) API'SİNDEN başka bir işlev:
 
@@ -328,6 +359,16 @@ public static async Task Run(string instanceId, DurableOrchestrationClient clien
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const isApproved = true;
+    await client.raiseEvent(instanceId, "ApprovalEvent", isApproved);
+};
+```
+
 ## <a name="the-technology"></a>Teknoloji
 
 Arka planda üst kısmındaki dayanıklı işlevler uzantısını oluşturulmuştur [dayanıklı görev Framework](https://github.com/Azure/durabletask), dayanıklı görev düzenlemeleri oluşturmak için bir GitHub üzerinde açık kaynak kitaplığı. Çok nasıl Azure işlevleri Azure WebJobs sunucusuz gelişimi gibi dayanıklı işlevler dayanıklı görev Framework sunucusuz gelişimi yükledik. Dayanıklı görev Framework yoğun olarak Microsoft içinde ve dışında da kritik işlemleri otomatik hale getirmek için kullanılır. Bu sunucusuz Azure işlevleri ortam için uygun bir kullanımdır olur.
@@ -336,7 +377,7 @@ Arka planda üst kısmındaki dayanıklı işlevler uzantısını oluşturulmuş
 
 Orchestrator İşlevler, yürütme durumlarını olarak bilinen bir tasarım desenini kullanarak güvenilir bir şekilde korumak [olay kaynağını belirleme](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Doğrudan depolamak yerine *geçerli* düzenleme, dayanıklı uzantısı durumunu kaydetmek için bir yalnızca ekleme deposu kullanan *tam Eylemler dizisi* işlevi düzenleme tarafından gerçekleştirilen. Bu performansı, ölçeklenebilirliği ve yanıt hızını "tam çalışma zamanı durumunu dökme" karşılaştırıldığında iyileştirme de dahil olmak üzere birçok avantaj sunar. Diğer avantajları işlem verilerinde nihai tutarlılık sağlayan ve tam denetim kayıtlarını ve geçmişini içerir. Denetim kayıtlarını güvenilir telafi eylemlerine olanak.
 
-Olay kaynağını belirleme kullanımını bu uzantı tarafından saydamdır. Kapak altında `await` orchestrator işlevde işlecini verir orchestrator iş parçacığının denetim dayanıklı görev Framework dağıtıcısıyla. Dağıtıcı, orchestrator işlevi (bir veya daha fazla alt işlevlerini çağırma veya kalıcı bir zamanlayıcı zamanlama) planlanan yeni eylemler ardından depolama alanına kaydeder. Bu saydam işleme eylemi ekler *yürütme geçmişini* düzenleme örneği. Geçmiş depolama tablosunda depolanır. İşleme işlem iletileri asıl işi zamanlamak için bir kuyruk ekler. Bu noktada, orchestrator işlevi bellekten olabilir. Azure işlevleri tüketim planı kullanıyorsanız, bunu faturalandırması durdurur.  Yapmak için daha fazla iş olduğunda işlevi yeniden başlatılır ve durumunu yeniden düzenlenir.
+Olay kaynağını belirleme kullanımını bu uzantı tarafından saydamdır. Kapak altında `await` (C#) veya `yield` bir düzenleyici işlevi (JavaScript) işlecinde dayanıklı görev Framework dağıtıcısıyla orchestrator iş parçacığının denetim verir. Dağıtıcı, orchestrator işlevi (bir veya daha fazla alt işlevlerini çağırma veya kalıcı bir zamanlayıcı zamanlama) planlanan yeni eylemler ardından depolama alanına kaydeder. Bu saydam işleme eylemi ekler *yürütme geçmişini* düzenleme örneği. Geçmiş depolama tablosunda depolanır. İşleme işlem iletileri asıl işi zamanlamak için bir kuyruk ekler. Bu noktada, orchestrator işlevi bellekten olabilir. Azure işlevleri tüketim planı kullanıyorsanız, bunu faturalandırması durdurur.  Yapmak için daha fazla iş olduğunda işlevi yeniden başlatılır ve durumunu yeniden düzenlenir.
 
 Daha fazla iş yapmak için bir düzenleme işlevi verildikten sonra (örneğin, bir yanıt iletisi alındı veya sağlam bir süreölçerin süresi), orchestrator yeniden uyanır ve tüm işlevi en başından itibaren yerel durumu yeniden oluşturmak için yeniden yürütür. Bu yeniden yürütme sırasında bir işlevi çağırmak kod çalışırsa (veya diğer zaman uyumsuz iş), dayanıklı görev Framework ile danışır *yürütme geçmişini* geçerli düzenleme. Bu, bulunursa [etkinlik işlevi](durable-functions-types-features-overview.md#activity-functions) yürütülen ve veriyor bazı sonucu zaten, bu işlevin sonucu başlayarak yeniden oynatılır ve orchestrator kod çalışmaya devam eder. Bu işlev kodunu alır burada tamamlandıktan veya zamanlanmış yeni zaman uyumsuz çalışma sahip bir noktaya kadar'olmuyor devam eder.
 
@@ -346,7 +387,7 @@ Yeniden yürütme davranışını kısıtlamaları bir orchestrator işlevinde y
 
 ## <a name="language-support"></a>Dil desteği
 
-Şu anda C# (v1 ve v2 çalışır), F# ve JavaScript (yalnızca işlevler v2) için desteklenen diller yalnızca dayanıklı işlevlerdir. Bu, orchestrator işlevlerini ve etkinlik işlevlerini içerir. Gelecekte, Azure işlevleri desteklediği tüm dilleri için destek ekleyeceğiz. Azure işlevleri [GitHub depo sorunlar listesini](https://github.com/Azure/azure-functions-durable-extension/issues) iş destek sayfamızı ek dil en son durumunu görmek için.
+Şu anda C# (1.x ve 2.x'i çalışır), F# ve JavaScript (işlevleri yalnızca 2.x dayanıklı işlevler 1.7.0 veya üzeri) için desteklenen diller yalnızca dayanıklı işlevlerdir. Bu, orchestrator işlevlerini ve etkinlik işlevlerini içerir. Gelecekte, Azure işlevleri desteklediği tüm dilleri için destek ekleyeceğiz. Azure işlevleri [GitHub depo sorunlar listesini](https://github.com/Azure/azure-functions-durable-extension/issues) iş destek sayfamızı ek dil en son durumunu görmek için.
 
 ## <a name="monitoring-and-diagnostics"></a>İzleme ve tanılama
 
@@ -368,7 +409,7 @@ Dayanıklı işlevler uzantısını, yürütme geçmişini durumu ve tetikleyici
 
 Orchestrator işlevleri, etkinlik işlevlerini zamanlayabilir ve yanıtlarını iç iletileri aracılığıyla alırsınız. Bir işlev uygulaması Azure işlevleri tüketim planında çalıştığında, bu kuyruk tarafından izlenen [Azure işlevlerini ölçeklendirme denetleyicisi](../functions-scale.md#how-the-consumption-plan-works) ve yeni örnekleri, gerektikçe eklenir işlem. Çağrı etkinlik işlevlere birkaç farklı Vm'lere çalıştırırken bir düzenleyici işlevi için birden çok VM ölçeği, bir VM üzerinde çalıştırabilirsiniz. Dayanıklı işlevler ölçek davranışı üzerinde daha fazla ayrıntı bulabilirsiniz [performansı ve ölçeği](durable-functions-perf-and-scale.md).
 
-Tablo depolama, orchestrator hesapları için yürütme geçmişi depolamak için kullanılır. Belirli bir VM örneği rehydrates olduğunda, böylece yerel durumunu yeniden oluşturabilirsiniz, yürütme geçmişini tablo Depolama'yı getirir. Geçmiş tablo depolamada kullanılabilir olması hakkında kullanışlı şeylerden biri olduğundan göz atın ve gibi araçları kullanarak, düzenlemeleri geçmişini görebilir [Microsoft Azure Depolama Gezgini](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+Tablo depolama, orchestrator hesapları için yürütme geçmişi depolamak için kullanılır. Belirli bir VM örneği rehydrates olduğunda, böylece yerel durumunu yeniden oluşturabilirsiniz, yürütme geçmişini tablo Depolama'yı getirir. Geçmiş tablo depolamada kullanılabilir olması hakkında kullanışlı şeylerden biri olduğundan göz atın ve gibi araçları kullanarak, düzenlemeleri geçmişini görebilir [Microsoft Azure Depolama Gezgini](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Depolama BLOB'ları orchestration örneklerinin genişleme birden çok VM arasında koordine etmek için öncelikle bir kiralama mekanizmasının kullanılır. Bunlar doğrudan tabloları veya Kuyrukları depolanamaz büyük iletiler için verileri tutmak için kullanılır.
 

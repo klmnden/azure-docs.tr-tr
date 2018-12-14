@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 7a11cc42c3d7fa8cd48de9338d0269d41cbc63f9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a2f654043146536ecf543ae2a0aa49537c2223e1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190603"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344049"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>VM'ler (Önizleme) için Azure İzleyici ile Azure sanal makinelerinizin durumunu anlama
 Azure İzleme alanı ayrı ayrı bir spesifik rol ya da görev gerçekleştiren birden çok hizmet içerir, ancak bir Azure sanal makinelerinde barındırılan işletim sistemi ayrıntılı sistem durumu açısından sağlama kullanılabilir değildi.  Log Analytics veya Azure İzleyicisi'ni kullanarak için farklı koşullar izleyebilir olsa da bunlar model ve sistem durumunu temel bileşenler veya genel sanal makine durumunu temsil eden üzere tasarlanmamıştır.  VM sistem durumu özelliği için Azure İzleyici ile proaktif olarak Windows veya Linux konuk işletim sistemi ile anahtar bileşenleri ve bu durumunu ölçmek nasıl belirten ölçütleri ilişkilerini temsil eden bir model performansını ve kullanılabilirliğini izler bileşenleri ve iyi durumda olmayan bir koşul algılandığında sizi uyarır.  
@@ -118,7 +118,7 @@ Gelen **abonelik** ve **kaynak grubu** açılan listeler, sanal makineleri içer
 * Kaç tane Vm'niz bir işlemci, disk, bellek veya ağ bağdaştırıcısı, sistem durumuna göre kategorilere algılanan bir sorun nedeniyle sağlıksız misiniz?  
 * Kaç tane Vm'niz hizmetiyle sistem durumuna göre kategorilere ayrılmış bir çekirdek işletim sistemi, algılanan bir sorun nedeniyle sağlıksız misiniz?
 
-Burada hızlı, proaktif olarak VM izleme durumu ölçütlerini tarafından algılanan en kritik sorunları belirlemek ve VM sistem durumu uyarı ayrıntılarını gözden geçirin ve tanılama ve düzeltme sorunun yardımcı olmak ilişkili Bilgi Bankası makalesi yöneliktir.  Açmak için önem derecelerinin birini seçin [tüm uyarıları](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) sayfası, önem derecesine göre filtrelendi.
+Burada hızlı, proaktif olarak VM izleme durumu ölçütlerini tarafından algılanan en kritik sorunları belirlemek ve VM sistem durumu uyarı ayrıntılarını gözden geçirin ve tanılama ve düzeltme sorunun yardımcı olmak ilişkili Bilgi Bankası makalesi yöneliktir.  Açmak için önem derecelerinin birini seçin [tüm uyarıları](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) sayfası, önem derecesine göre filtrelendi.
 
 **İşletim sistemine göre VM Dağıtım** listede Windows sürümünü veya sürümlerini birlikte Linux dağıtımı tarafından listelenen VM'ler gösterilmektedir. Her işletim sistemi kategorisinde, Vm'leri başka ayrılmıştır VM Durumu'na göre. 
 
@@ -246,7 +246,7 @@ Yukarıdaki örnekte bir seçtiğinde **/mnt (Mantıksal Disk)**, durumu ölçü
 Güncelleştirilmiş durumunu görmek için sistem durumu tanılama sayfası tıklayarak yenileyebilirsiniz **Yenile** bağlantı.  Önceden tanımlanmış bir yoklama aralığı temel sistem durumu ölçütü'nın sistem durumu için bir güncelleştirme varsa, bu görevi bekleme sürelerinden kurtulun sağlar ve en son sistem durumu yansıtır.  **Durumu ölçütlerini** filtre vermektir - seçili sistem durumuna bağlıdır sonuçları kapsam için sağlam, uyarı ve kritik, bilinmeyen ve tüm.  **Son güncelleştirilen** sağ üst köşedeki zaman sistem durumu tanılama sayfası ne zaman yenilendiğini son zamanı temsil eder.  
 
 ## <a name="alerting-and-alert-management"></a>Uyarı ve uyarı Yönetimi 
-VM sistem durumu özelliği için Azure İzleyici ile tümleştirilir [Azure uyarıları](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) ve koşul algılandığında önceden tanımlanmış durumu ölçütlerini sağlıklıdan için kötü bir durum değiştiğinde bir uyarı başlatır. Uyarı önem derecesi - önem derecesi 0 ile 4, önem derecesi en yüksek önem derecesine temsil eden 0 ile tarafından kategorilere ayrılmıştır.  
+VM sistem durumu özelliği için Azure İzleyici ile tümleştirilir [Azure uyarıları](../../azure-monitor/platform/alerts-overview.md) ve koşul algılandığında önceden tanımlanmış durumu ölçütlerini sağlıklıdan için kötü bir durum değiştiğinde bir uyarı başlatır. Uyarı önem derecesi - önem derecesi 0 ile 4, önem derecesi en yüksek önem derecesine temsil eden 0 ile tarafından kategorilere ayrılmıştır.  
 
 VM sistem durumu Uyarıları önem derecesine göre kategorilere toplam sayısı, üzerinde kullanılabilir **sistem durumu** bölümünde Pano **uyarılar**. Toplam uyarı sayısını veya bir önem derecesi düzeyine karşılık gelen sayısı seçtiğinizde **uyarılar** sayfası açılır ve seçiminizi eşleşen tüm uyarıları listeler.  Örneğin, satır karşılık gelen seçtiyseniz, **önem derecesi düzeyi 1**, aşağıdaki görmek sonra:
 
@@ -254,7 +254,7 @@ VM sistem durumu Uyarıları önem derecesine göre kategorilere toplam sayısı
 
 Üzerinde **uyarılar** sayfası, yalnızca sizin seçiminiz eşleşen uyarıları göstermek için kapsamında değil, ancak göre filtrelenir **kaynak türü** yalnızca sanal makine kaynak tarafından gerçekleştirilen sistem durumu uyarılarını göstermek için.  Bu sütunu altında bir uyarı listesinden yansıtılan **hedef kaynak**, burada Azure uyarı tetiklendi için özel durumu ölçütlerini 's sağlıksız koşul sağlandığında VM gösterir.  
 
-Bu görünümde dahil edilecek diğer kaynak türlerini veya hizmetler uyarılardan amaçlanmayan, günlük uyarıları bağlı Log Analytics temelinde sorguları veya ölçüm uyarıları gibi Azure İzleyici varsayılan olarak normal şekilde görüntülediğiniz [tüm uyarıları](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) sayfası. 
+Bu görünümde dahil edilecek diğer kaynak türlerini veya hizmetler uyarılardan amaçlanmayan, günlük uyarıları bağlı Log Analytics temelinde sorguları veya ölçüm uyarıları gibi Azure İzleyici varsayılan olarak normal şekilde görüntülediğiniz [tüm uyarıları](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) sayfası. 
 
 Bu görünümde, sayfanın üst kısmındaki açılan menüler, değerleri seçerek filtreleyebilirsiniz.
 

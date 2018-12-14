@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 4b8547435293f26c7f22ed6d5181c64fbabcd574
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0ab496b884506b013c6a4abb2dff1e1feff4fc72
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285042"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342995"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure İzleyici uyarılarıyla karmaşık eylemleri tetiklemek nasıl
 
@@ -295,6 +295,6 @@ Azure hizmet durumu girişleri etkinlik günlüğü bir parçasıdır. Uyarı ol
 Logic Apps tetikleyici eylemlere uygulamaları ve veritabanlarının geniş bir aralıktaki izin farklı bağlayıcıları birçok vardır. Slack, SQL Server, Oracle, Salesforce, yalnızca bazı örnekler verilmiştir. Bağlayıcılar hakkında daha fazla bilgi için bkz. [Logic App bağlayıcıları](../../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Alma bir [Azure etkinlik günlüğü uyarılarına genel bakış](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) ve uyarıları alma hakkında bilgi edinin.  
+* Alma bir [Azure etkinlik günlüğü uyarılarına genel bakış](../../azure-monitor/platform/alerts-overview.md) ve uyarıları alma hakkında bilgi edinin.  
 * Bilgi edinmek için nasıl [bir Azure hizmet durumu bildirimi gönderildiğinde uyarıları yapılandırma](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 * Daha fazla bilgi edinin [Eylem grupları](../../azure-monitor/platform/action-groups.md).

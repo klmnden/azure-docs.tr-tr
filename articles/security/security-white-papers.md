@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
 ms.author: tomsh
-ms.openlocfilehash: 214598291e69acfec2064738f798a48180ad05a6
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: bb23dd98768c4aaa343082bbc2caae43071a5e1f
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323004"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385678"
 ---
 # <a name="azure-security-white-papers"></a>Azure güvenlik teknik incelemeler
 | | |
@@ -41,3 +41,5 @@ ms.locfileid: "53323004"
 |[Azure genel bulutta yalıtım](azure-isolation.md)|Azure'nın kötü amaçlı ve kötü amaçlı olmayan kullanıcılara karşı yalıtım nasıl sağladığını açıklar. Mimarlar için çeşitli yalıtım seçenekleri sunarak bulut çözümleri oluşturma için bir kılavuz olarak görev yapar. Birincil odak noktası, müşteriye dönük güvenlik denetimleri ve fiyatlandırma modelleri ve DevOps yöntem değerlendirmeleri adresi SLA için çalışmaz.|
 |[Azure uyumluluk genel bakış](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|Bu indirilebilir belgede, Azure uyumluluk teklifleri, biçimsel sertifikaları, karşıladığımızı, doğrulama, yetkilendirme ve bağımsız üçüncü taraf denetim firmaları yanı sıra tarafından sözleşmeye dayalı tarihli amendments üretilen değerlendirmeleri dahil olmak üzere açıklanır, kendi kendine yapılan değerlendirmelerin ve Microsoft tarafından üretilen müşteri Kılavuzu belgeleri. <br/> Her teklif açıklaması durumları müşterilere yönelik Azure Hizmetleri değerlendirmesi için kapsamda ve kendi uyumluluğunu yükümlülükler ile müşterilerine yardımcı olmak için indirilebilir kaynaklara bağlantılar sağlanmaktadır.|
 |[Azure'da güvenlik yönetimi](azure-security-management.md)|Azure kaynaklarınızın uzaktan erişim sorunları açıklar. Bulut taleplerini uzaktan erişim yönetimi ve bu nedenle, güvenlik doğasını üst düzey öneme sahiptir. Genel güvenlik yönergeleri, istemci yapılandırması, en iyi yöntemler ve işletimsel ilkeleri ve yordamlar yer almaktadır. |
+|[Azure Active Directory güvenlik konuları](https://aka.ms/aaddatawhitepaper) | İndirilebilir belgede, Azure Active Directory ve bunların birbiriyle etkileşim farklı bileşenleri açıklanmaktadır. Bunu nasıl çeşitli bileşenleri korumak, güvenli, şifrelemek veya bunların Aktarımdaki verileri (örneğin, Internet üzerinden) karma ve bekleme sırasında nasıl korunduğunu açıklar. Bunu çeşitli Azure AD veri merkezi konumlarını ve bunların akışlar yanı sıra şirket içi dizinlere etkileşim için ve Azure AD'den açıklanmaktadır. Son olarak, yönetmek ve hizmeti güvenli hale getirme için Azure AD mühendislik ekibi tarafından kullanılan işletim yordamları açıklar.|
+

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7b633b1787fc34658a84a2810de6673f9530cbf3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5e6d7dffb831e4e6541b5ef91cfc4ae4bbe88167
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310659"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343148"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde bir web uygulaması güvenlik duvarı ekleme
 Azure Güvenlik Merkezi bir web uygulaması Güvenlik Duvarı (WAF) eklemek, bir Microsoft iş ortağından, web uygulamalarınızın güvenliğini sağlamak için önerebilir. Bu belge, bu öneriyi uygulamak nasıl bir örnek üzerinden açıklanmaktadır.
@@ -46,7 +46,9 @@ Güvenlik Merkezi, sanal makinelerde ve üzerinde dış App Service ortamları (
 
 6. **Yeni Web uygulaması güvenlik duvarı** yapabileceğiniz açıldığında **VM Yapılandırması** sağlayın ve adımlarını **WAF bilgileri**. Seçin **VM Yapılandırması**.
 7. Altında **VM Yapılandırması**, WAF çalışan sanal makineyi çalıştırmak için gereken bilgileri girin.
+
    ![VM yapılandırması][4]
+   
 8. Geri dönüp **yeni Web uygulaması güvenlik duvarı** seçip **WAF bilgileri**. Altında **WAF bilgileri**, WAF yapılandırın. 7. adım yapılandırmanıza olanak tanır, WAF sağlama WAF çalıştırır ve 8. adım bir sanal makine sağlar.
 
 ## <a name="finalize-application-protection"></a>Uygulama korumasını sonlandırma
@@ -73,7 +75,7 @@ Bu belgede Güvenlik Merkezi önerisini "Add bir web uygulaması." uygulama nas�
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.

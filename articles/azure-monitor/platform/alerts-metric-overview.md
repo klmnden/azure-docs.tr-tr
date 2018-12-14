@@ -7,16 +7,16 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 8eb23528391ffeccdad6ba92345d28b31e18f0a3
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: cf315718377210e13a6634c0eaf8caab158bcc4d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322116"
+ms.locfileid: "53342230"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Nasıl iş ölçüm uyarıları anlamak Azure İzleyici'de
 
-Azure İzleyici ölçüm uyarıları çok boyutlu ölçümler üzerinde çalışır. Bu ölçümler platform ölçümleri olabilir [özel ölçümler](../../azure-monitor/platform/metrics-custom-overview.md), [Log Analytics popüler günlüklerinden dönüştürülen ölçümlerini](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md), Application Insights standart ölçümler. Ölçüm uyarıları olmadığını denetlemek için düzenli aralıklarla değerlendirin koşullara göre bir veya daha fazla ölçüm zaman serisi doğruysa ve değerlendirmeleri karşılandığında size bildirir. Ölçüm Uyarıları durum bilgisi olan, durumu değiştiğinde diğer bir deyişle, bunlar yalnızca bildirimleri gönderin.
+Azure İzleyici ölçüm uyarıları çok boyutlu ölçümler üzerinde çalışır. Bu ölçümler platform ölçümleri olabilir [özel ölçümler](../../azure-monitor/platform/metrics-custom-overview.md), [Log Analytics popüler günlüklerinden dönüştürülen ölçümlerini](../../azure-monitor/platform/alerts-metric-logs.md), Application Insights standart ölçümler. Ölçüm uyarıları olmadığını denetlemek için düzenli aralıklarla değerlendirin koşullara göre bir veya daha fazla ölçüm zaman serisi doğruysa ve değerlendirmeleri karşılandığında size bildirir. Ölçüm Uyarıları durum bilgisi olan, durumu değiştiğinde diğer bir deyişle, bunlar yalnızca bildirimleri gönderin.
 
 ## <a name="how-do-metric-alerts-work"></a>Ölçüm uyarıları nasıl çalışır
 
@@ -85,7 +85,7 @@ Tek bir ölçüm uyarısı üç yoldan biriyle göre izleme kapsamını belirley
 - bir Abonelikteki bir veya daha fazla kaynak gruplarındaki tüm sanal makineler (bir Azure bölgesinde)
 - bir Abonelikteki tüm sanal makineler (bir Azure bölgesinde)
 
-Birden çok kaynak izleme ölçüm uyarı kuralları oluşturma, Azure portalından şu anda desteklenmiyor. Bu kuralları ile oluşturabileceğiniz [Azure Resource Manager şablonları](../../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). Her sanal makine için ayrı bildirim alırsınız. 
+Birden çok kaynak izleme ölçüm uyarı kuralları oluşturma, Azure portalından şu anda desteklenmiyor. Bu kuralları ile oluşturabileceğiniz [Azure Resource Manager şablonları](../../azure-monitor/platform/alerts-metric-create-templates.md#resource-manager-template-for-metric-alert-that-monitors-multiple-resources). Her sanal makine için ayrı bildirim alırsınız. 
 
 ## <a name="typical-latency"></a>Tipik bir gecikme süresi
 
@@ -134,5 +134,5 @@ Bugün Klasik ölçüm uyarıları kullanarak ve ölçüm uyarıları tüm kayna
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Oluşturun, görüntüleyin ve azure'da ölçüm Uyarıları yönetme hakkında bilgi edinin](alerts-metric.md)
-- [Ölçüm uyarıları Azure Resource Manager şablonlarını kullanarak dağıtma hakkında bilgi edinin](../../monitoring-and-diagnostics/monitoring-create-metric-alerts-with-templates.md)
+- [Ölçüm uyarıları Azure Resource Manager şablonlarını kullanarak dağıtma hakkında bilgi edinin](../../azure-monitor/platform/alerts-metric-create-templates.md)
 - [Eylem grupları hakkında daha fazla bilgi edinin](action-groups.md)

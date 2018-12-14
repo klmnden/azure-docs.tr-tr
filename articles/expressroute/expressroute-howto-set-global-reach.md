@@ -5,15 +5,15 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 12/13/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: eafb37f9bd54e0928e2f6c7615fc7fe365897620
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3df107f8854469b50c5e8483515388b5c93fb244
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250612"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383281"
 ---
 # <a name="configure-expressroute-global-reach-preview"></a>ExpressRoute Global erişim (Önizleme) yapılandırma
 Bu makalede PowerShell kullanarak ExpressRoute Global erişim yapılandırmanıza yardımcı olur. Daha fazla bilgi için [ExpressRouteRoute Global erişim](expressroute-global-reach.md).
@@ -66,22 +66,18 @@ $ckt_1 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGro
 $ckt_2 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
 ```
 
-1 bağlantı hattı karşı aşağıdaki komutu çalıştırın ve 2 numaralı bağlantı hattının özel eşleme kimliği geçirebilirsiniz.
+1 bağlantı hattı karşı aşağıdaki komutu çalıştırın ve 2 numaralı bağlantı hattının özel eşleme kimliği geçirebilirsiniz. Komutu çalıştırdığınızda aşağıdakilere dikkat edin:
 
-> [!NOTE]
-> Özel Eşleme Kimliği aşağıdaki gibi görünür: */subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/ Azureprivatepeering'in*
-> 
->
+* Özel Eşleme Kimliği, aşağıdaki örneğe benzer: 
+
+  ```
+  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
+  ```
+* *-AddressPrefix* bir/29 IPv4 olmalıdır alt ağ, örneğin, "10.0.0.0/29". IP adreslerini bu alt ağda iki ExpressRoute bağlantı hatları arasında bağlantı kurmak için kullanırız. Azure sanal ağlarınıza veya şirket içi ağınızdaki bu alt ağda adresleri kullanmamalısınız.
 
 ```powershell
 Add-AzureRmExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'
 ```
-
-> [!IMPORTANT]
-> *-AddressPrefix* bir/29 IPv4 olmalıdır alt ağ, örneğin, "10.0.0.0/29". IP adreslerini bu alt ağda iki ExpressRoute bağlantı hatları arasında bağlantı kurmak için kullanırız. Azure sanal ağlarınıza veya şirket içi ağınızdaki bu alt ağda adresleri kullanmamalısınız.
-> 
-
-
 
 Yapılandırma 1 bağlantı hattı üzerinde şu şekilde kaydedin:
 ```powershell

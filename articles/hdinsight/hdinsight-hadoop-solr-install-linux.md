@@ -9,28 +9,28 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1c8c63e10e62af60e09af729b115cc675dae7205
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3500a29c1cdd8b1997f67a3cf1918090dc4ca812
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009411"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383604"
 ---
-# <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Yükleme ve HDInsight Hadoop kümeler üzerinde Solr kullanma
+# <a name="install-and-use-apache-solr-on-hdinsight-hadoop-clusters"></a>Yükleme ve HDInsight Hadoop kümeleri üzerinde Apache Solr kullanma
 
-Betik eylemi kullanarak Azure HDInsight üzerinde Solr yüklemeyi öğrenin. Solr Hadoop tarafından yönetilen veri çubuğunda Kurumsal düzeyde arama özellikleri sağlar ve bir güçlü arama platformudur.
+Betik eylemi kullanarak Azure HDInsight üzerinde Apache Solr yüklemeyi öğrenin. Solr Hadoop tarafından yönetilen veri çubuğunda Kurumsal düzeyde arama özellikleri sağlar ve bir güçlü arama platformudur.
 
-> [!IMPORTANT]
-    > Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> [!IMPORTANT]  
+> Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgede kullanılan örnek betik, belirli bir yapılandırmayla Solr 4.9 yükler. Farklı koleksiyonlar, parçalar, şemalar, çoğaltmalar, vb. ile Solr kümesini yapılandırmak, Solr ikili dosyaları ve komut dosyasını değiştirmeniz gerekir.
 
 ## <a name="whatis"></a>Solr nedir
 
 [Apache Solr](http://lucene.apache.org/solr/features.html) veriler üzerinde güçlü tam metin araması sağlayan bir kurumsal arama platformudur. Hadoop depolamak ve yönetmek çok büyük miktarda veri etkinleştirse bile, Apache Solr hızlıca veri almak için arama özellikleri sağlar.
 
-> [!WARNING]
+> [!WARNING]   
 > HDInsight kümesi ile sağlanan bileşenler tamamen Microsoft tarafından desteklenir.
 >
 > Özel bileşenler, Solr gibi daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Microsoft Destek, özel bileşenlerle sorunlarını çözmek mümkün olmayabilir. Yardım almak için açık kaynak topluluklar ilgisini gerekebilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
@@ -54,7 +54,7 @@ Solr yüklü olan bir küme oluşturmak için adımları kullanın. [oluşturma 
 
 1. Gelen __küme özeti__ bölümü, ardından select__Advanced settings__ __betik eylemlerini__. Formun doldurulması için aşağıdaki bilgileri kullanın:
 
-   * **AD**: betik eylemi için bir kolay ad girin.
+   * **AD**: Betik eylemi için bir kolay ad girin.
    * **BETİK URI'Sİ**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: Bu seçeneği işaretleyin
    * **ÇALIŞAN**: Bu seçeneği işaretleyin
@@ -67,7 +67,7 @@ Solr yüklü olan bir küme oluşturmak için adımları kullanın. [oluşturma 
 
 ## <a name="usesolr"></a>HDInsight Solr nasıl kullanabilirim
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu bölümdeki adımları temel Solr işlevlerini göstermektedir. Solr kullanma hakkında daha fazla bilgi için bkz. [Apache Solr site](http://lucene.apache.org/solr/).
 
 ### <a name="index-data"></a>Verilerin dizinini oluşturma
@@ -76,7 +76,7 @@ Solr için örnek verileri eklemek için aşağıdaki adımları kullanın ve ar
 
 1. SSH kullanarak HDInsight kümesine bağlanma:
 
-    > [!NOTE]
+    > [!NOTE]  
     > Değiştirin `sshuser` SSH kullanıcısı ile küme için. Değiştirin `clustername` ile kümesinin adı.
 
     ```bash
@@ -85,7 +85,7 @@ Solr için örnek verileri eklemek için aşağıdaki adımları kullanın ve ar
 
     Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-     > [!IMPORTANT]
+     > [!IMPORTANT]  
      > Daha sonra bu belgedeki adımlarda bir SSH tüneli Solr web kullanıcı Arabirimine bağlamak için kullanın. Bu adımları kullanabilmek için bir SSH tüneli ve daha sonra kullanmak için tarayıcınızı yapılandırmanız gerekir.
      >
      > Daha fazla bilgi için [SSH tünel oluşturmayı kullanma HDInsight ile](hdinsight-linux-ambari-ssh-tunnel.md) belge.
@@ -316,11 +316,11 @@ Varsayılan depolama kümenizin Solr verileri yedeklemek için aşağıdaki adı
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Solr yedekleme ve geri yükleme ile çalışma hakkında daha fazla bilgi için bkz. [ https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups ](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
+Apache Solr yedekleme ve geri yükleme ile çalışma hakkında daha fazla bilgi için bkz. [ https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups ](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [HDInsight kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install-linux.md). Küme özelleştirmesi, HDInsight Hadoop kümelerinde Giraph'ı yüklemek için kullanın. Giraph grafik Hadoop kullanarak işleme yapmanıza olanak tanır ve Azure HDInsight ile kullanılabilir.
+* [HDInsight kümeleri üzerinde Apache Giraph yükleme](hdinsight-hadoop-giraph-install-linux.md). Küme özelleştirmesi, HDInsight Hadoop kümelerinde Giraph'ı yüklemek için kullanın. Giraph grafik Hadoop kullanarak işleme yapmanıza olanak tanır ve Azure HDInsight ile kullanılabilir.
 
 * [HDInsight kümelerinde Hue yüklemek](hdinsight-hadoop-hue-linux.md). Küme özelleştirmesi, HDInsight Hadoop kümeleri üzerinde Hue yüklemek için kullanın. Hue Web uygulamalarının bir Hadoop kümesi ile etkileşim kurmak için kullanılan bir kümesidir.
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4f5b0661f67dd63177309905079ee68716e9e721
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4b78675de2902736b90afa1df9ad66e2df2b0f77
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315749"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386239"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Öğretici: Bilişsel arama öğrenin arama API'lerini (Önizleme)
 
@@ -79,7 +79,7 @@ Azure Search’e REST çağrıları yapmak için PowerShell veya Telerik Fiddler
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Azure Blob hizmetini ayarlama ve örnek veriler yükleme
 
-Zenginleştirme işlem hattı, Azure veri kaynaklarından çekme işlemi yapar. Kaynak veriler, [Azure Search dizin oluşturucunun](search-indexer-overview.md) desteklenen bir veri kaynağı türünden gelmelidir. Bu alıştırmada, birden çok içerik türünü göstermek için blob depolama kullanırız.
+Zenginleştirme işlem hattı, Azure veri kaynaklarından çekme işlemi yapar. Kaynak veriler, [Azure Search dizin oluşturucunun](search-indexer-overview.md) desteklenen bir veri kaynağı türünden gelmelidir. Azure tablo depolaması için bilişsel arama desteklenmediğini unutmayın. Bu alıştırmada, birden çok içerik türünü göstermek için blob depolama kullanırız.
 
 1. [Örnek veri indirin](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Örnek veriler, farklı türlerde küçük bir dosya kümesinden oluşur. 
 

@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: da486b25a9a35cb4f00d6e5a4689d5be3d270e36
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a8b0884486f86f66ae02c7e7a82fecee43d5ffed
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013284"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386910"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>ScaleR ve SparkR HDInsight içinde birleştirin
 
 Bu belge, uçuş varış gecikmeler kullanarak tahmin etmek gösterilmiştir bir **ScaleR** Lojistik regresyon modeli. Uçuş gecikme ve hava durumu verilerini kullanılarak, örnekte **SparkR**.
 
-Her iki paketi de Hadoop'ın Spark yürütme altyapısının çalıştırmasına rağmen bellek içi verileri kendi ilgili Spark oturumlarında gereksinim duydukları her gibi paylaşım engellenir. ML Server gelecek bir sürümünde bu sorun giderilinceye kadar çakışmayan Spark oturumlar kullanan ve Ara dosyaları veri değişimi için çözüm olabilir. Buradaki yönergeleri Bu gereksinimleri elde etmek basit olduğunu gösterir.
+Apache Hadoop'ın Spark yürütme altyapısının iki paketi de çalıştırmasına rağmen bellek içi verileri kendi ilgili Spark oturumlarında gereksinim duydukları her gibi paylaşım engellenir. ML Server gelecek bir sürümünde bu sorun giderilinceye kadar çakışmayan Spark oturumlar kullanan ve Ara dosyaları veri değişimi için çözüm olabilir. Buradaki yönergeleri Bu gereksinimleri elde etmek basit olduğunu gösterir.
 
 Bu örnek başlangıçta bir konuşması konumundaki Strata 2016 içinde Roni Burd Mario Inchiosa ile paylaşıldı. Bu konuşmada, bulabilirsiniz [R ile ölçeklenebilir bir veri bilimi platformu oluşturmayı](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
@@ -506,7 +506,7 @@ plot(logitRoc)
 
 ## <a name="scoring-elsewhere"></a>Başka bir yerde Puanlama
 
-Ayrıca model Puanlama verileri başka bir platform için kullanabiliriz. Bir RDS dosyasına kaydediliyor aktarmak ve bir hedef SQL Server R Services gibi ortam Puanlama, RDS alma tarafından. Faktörü düzeyleri puanlanması veri modeli üzerinde oluşturulmuş eşleştiğinden emin olmak önemlidir. Eşleşen ayıklayarak ve modelleme verileri ScaleR'ın aracılığıyla ilişkili sütun bilgileri kaydedilirken ulaşılabilecek `rxCreateColInfo()` işlevi ve tahmin için giriş veri kaynağı, sütun bilgileri uygulamak. Aşağıdaki biz birkaç test veri satırlarını kaydetmek ve ayıklayın ve tahmin betikte bu örnekten sütun bilgileri kullanın:
+Ayrıca model Puanlama verileri başka bir platform için kullanabiliriz. Bir RDS dosyasına kaydediliyor aktarmak ve puanlama ortama MIcrosoft SQL Server R Services gibi bir hedef, RDS alma tarafından. Faktörü düzeyleri puanlanması veri modeli üzerinde oluşturulmuş eşleştiğinden emin olmak önemlidir. Eşleşen ayıklayarak ve modelleme verileri ScaleR'ın aracılığıyla ilişkili sütun bilgileri kaydedilirken ulaşılabilecek `rxCreateColInfo()` işlevi ve tahmin için giriş veri kaynağı, sütun bilgileri uygulamak. Aşağıdaki biz birkaç test veri satırlarını kaydetmek ve ayıklayın ve tahmin betikte bu örnekten sütun bilgileri kullanın:
 
 ```
 # save the model and a sample of the test dataset 
@@ -535,7 +535,7 @@ Bu makalede, biz nasıl SparkR kullanımı için Hadoop Spark model geliştirme 
 
 ## <a name="next-steps-and-more-information"></a>Sonraki adımlar ve daha fazla bilgi
 
-- Spark ML sunucuda kullanımı hakkında daha fazla bilgi için bkz. [Başlarken Kılavuzu](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Apache Spark ML sunucuda kullanımı hakkında daha fazla bilgi için bkz. [Başlarken Kılavuzu](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
 - ML Server hakkında genel bilgi için bkz. [R ile çalışmaya başlama](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) makalesi.
 

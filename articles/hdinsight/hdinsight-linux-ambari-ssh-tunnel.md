@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0be2895bf08cc7d6aa0b2e55b62b2d6705b27725
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: eb407a1026ab62fa719600a3992dc3b4653f1583
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007305"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383927"
 ---
-# <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Ambari web kullanıcı Arabirimi, JobHistory, NameNode, Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel oluşturmayı kullanma
+# <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Apache Ambari web kullanıcı Arabirimi, JobHistory, NameNode, Apache Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel oluşturmayı kullanma
 
-HDInsight kümeleri Ambari web kullanıcı Arabirimi Internet üzerinden erişmeyi, ancak bazı özellikler bir SSH tüneli gerektirir. Örneğin, web kullanıcı Arabirimi Oozie hizmeti için bir SSh tüneli olmaksızın internet üzerinden erişilemez.
+HDInsight kümeleri Internet üzerinden erişebilmesi için Apache Ambari web kullanıcı Arabirimi, ancak bazı özellikler bir SSH tüneli gerektirir. Örneğin, web kullanıcı Arabirimi Apache Oozie hizmeti için bir SSh tüneli olmaksızın internet üzerinden erişilemez.
 
 ## <a name="why-use-an-ssh-tunnel"></a>Neden bir SSH tüneli kullanma
 
@@ -34,7 +34,7 @@ Aşağıdaki Web kullanıcı arabirimleri SSH tüneli gerektirir:
 
 Betik eylemleri, kümenizin özelleştirmek için kullandığınız herhangi bir hizmet veya bir web hizmeti kullanıma sunmak, yüklediğiniz yardımcı programları SSH tüneli gerektirir. Örneğin, bir betik eylemi kullanarak Hue yüklemek, Hue web kullanıcı arabirimini erişmek için bir SSH tüneli kullanmanız gerekir.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight için bir sanal ağ üzerinden doğrudan erişimi varsa, SSH tünelleri kullanın gerekmez. HDInsight üzerinden bir sanal ağa doğrudan erişim ilişkin bir örnek için bkz [HDInsight'ı şirket içi ağınıza bağlama](connect-on-premises-network.md) belge.
 
 ## <a name="what-is-an-ssh-tunnel"></a>SSH tüneli nedir
@@ -100,14 +100,14 @@ Komut bittikten sonra yerel bilgisayarda 9876 numaralı bağlantı noktasına g�
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Tarayıcınızdan tüneli kullanma
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Aynı proxy ayarları tüm platformlarda sağladığı gibi Mozilla FireFox tarayıcısı bu bölümdeki adımları kullanın. Google Chrome gibi modern tarayıcılar gibi FoxyProxy tünel ile çalışmak için bir uzantı gerektirebilir.
 
 1. Kullanılacak tarayıcı yapılandırma **localhost** ve ne zaman kullanılan bağlantı noktası olarak tünel oluşturma bir **SOCKS v5** proxy. İşte Firefox ayarları şöyle görünür. Farklı bir bağlantı noktasıyla 9876 kullandıysanız, kullandığınız bir bağlantı noktasını değiştirin:
    
     ![Firefox ayarlarının görüntüsü](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > Seçme **uzak DNS** HDInsight kümesi kullanarak etki alanı adı sistemi (DNS) istekleri giderir. Bu ayar kümesinin baş düğümünü kullanarak DNS çözümleniyor.
 
 2. Tünel bir siteyi ziyaret ederek gibi çalıştığını doğrulamak [ http://www.whatismyip.com/ ](http://www.whatismyip.com/). Döndürülen IP, bir Microsoft Azure veri merkezi tarafından kullanılan olmalıdır.
@@ -118,7 +118,7 @@ Küme oluşturulduktan sonra Ambari Web hizmeti web kullanıcı arabirimleri eri
 
 1. Tarayıcınızda, Git http://headnodehost:8080. `headnodehost` Adresi çözümleme Ambari çalıştıran baş düğüme ve küme tüneli üzerinden gönderilir. İstendiğinde, kümeniz için yönetici kullanıcı adını (Yönetici) ve parolasını girin. Ambari web kullanıcı arabirimini ikinci kez istenebilir. Öyleyse, bilgileri yeniden girin.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Kullanırken http://headnodehost:8080 Tünel üzerinden bağlanıyorsanız, kümeye bağlanmak için adres. SSH tüneli yerine HTTPS kullanarak iletişim sağlanır. İnternet üzerinden HTTPS kullanarak bağlanmak için https://clustername.azurehdinsight.netburada **clustername** kümenin adıdır.
 
 2. Ambari Web kullanıcı arabirimini HDFS sayfasının sol taraftaki listeden seçin.
@@ -129,7 +129,7 @@ Küme oluşturulduktan sonra Ambari Web hizmeti web kullanıcı arabirimleri eri
 
     ![Genişletilmiş QuickLinks menüsünde görüntü](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Seçtiğinizde, __hızlı bağlantılar__, bekleme göstergesi alabilirsiniz. Yavaş bir internet bağlantınız varsa bu durum ortaya çıkabilir. Bir veya iki sunucudan alınacak veri için dakika bekleyin ve listeyi yeniden deneyin.
    >
    > Bazı girişleri **hızlı bağlantılar** menü ekranın sağ tarafındaki tarafından kesilmiş. Bu durumda, farenizi kullanarak menüsünü genişletin ve ekran menü kalanını görmek için sağa kaydırmak için sağ ok tuşunu kullanın.
@@ -138,14 +138,14 @@ Küme oluşturulduktan sonra Ambari Web hizmeti web kullanıcı arabirimleri eri
 
     ![Görüntü NameNode kullanıcı arabirimi](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Bu sayfa URL'si dikkat edin. aşağıdakine benzer olmalıdır **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Bu URI düğümünün dahili tam etki alanı adı (FQDN) kullanıyor ve bir SSH tüneli kullanırken yalnızca erişilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Oluşturma ve bir SSH tüneli kullanma öğrendiniz, aşağıdaki belge Ambari kullanılacak diğer yolları için bkz:
 
-* [Ambari kullanarak HDInsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari kullanarak HDInsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md)
 
 HDInsight ile SSH kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 

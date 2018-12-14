@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 19eef82aeeddef166e9843f00d14282316a0fe34
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: cf766997cf416ed201c76c6110641006b7dab41d
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020099"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386256"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Azure önbelleği için Redis izleme
 Azure önbelleği için Redis kullandığı [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) önbelleği örneklerinizin izlemek için çeşitli seçenekler sağlayacak. Ölçümleri görüntüleyin, ölçüm grafikleri başlangıç panosuna sabitlemek, tarih ve saat aralığı grafikleri izleme özelleştirme, ekleyin ve ölçümleri grafikten kaldırabileceğiniz ve belirli koşullar karşılandığında uyarılar ayarlayın. Bu araçlar, Azure önbelleği için Redis örneği ve önbelleğe alma uygulamalarınızı yönetmenize yardımcı durumunu izlemenize olanak tanır.
@@ -61,7 +61,7 @@ Azure İzleyicisi'ni kullanarak ölçümleri ile çalışma hakkında daha fazla
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Önbellek ölçümleri dışarı aktarma
-Varsayılan olarak, Azure İzleyici'de önbellek ölçümleridir [30 gün saklanan](../azure-monitor/platform/data-collection.md#metrics) ve ardından silinir. Kalıcı önbellek ölçümlerinizi 30 günden daha uzun bir süre için [bir depolama hesabı atamak](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) belirtin bir **bekletme (gün)** önbellek ölçümlerinizi ilkesi. 
+Varsayılan olarak, Azure İzleyici'de önbellek ölçümleridir [30 gün saklanan](../azure-monitor/platform/data-collection.md#metrics) ve ardından silinir. Kalıcı önbellek ölçümlerinizi 30 günden daha uzun bir süre için [bir depolama hesabı atamak](../azure-monitor/platform/archive-diagnostic-logs.md) belirtin bir **bekletme (gün)** önbellek ölçümlerinizi ilkesi. 
 
 Önbellek ölçümlerinizi için bir depolama hesabı yapılandırmak için:
 

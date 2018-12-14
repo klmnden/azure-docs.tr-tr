@@ -7,14 +7,14 @@ manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994811"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387055"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Ölçüm ve günlükleri izlemek için Linux tanılama uzantısı kullanma
 
@@ -38,9 +38,7 @@ Bu uzantı, her iki Azure dağıtım modeli ile çalışır.
 
 ## <a name="installing-the-extension-in-your-vm"></a>Sanal uzantısı yükleniyor
 
-Bu uzantı, Azure PowerShell cmdlet'lerini, Azure CLI betikleri veya Azure dağıtım şablonları kullanarak etkinleştirebilirsiniz. Daha fazla bilgi için [uzantıları özelliklerinin](features-linux.md).
-
-Azure portalında etkinleştirin veya LAD 3.0 yapılandırmak için kullanılamaz. Bunun yerine, yükler ve 2.3 sürümü yapılandırır. Azure portal grafikleri ve Uyarıları iki sürümü de uzantı verilerle çalışır.
+Bu uzantı, Azure PowerShell cmdlet'lerini, Azure CLI betikleri, ARM şablonları veya Azure portalı kullanarak etkinleştirebilirsiniz. Daha fazla bilgi için [uzantıları özelliklerinin](features-linux.md).
 
 Bu yükleme yönergeleri ve [indirilebilir örnek yapılandırma](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) LAD 3.0 yapılandırın:
 
@@ -55,7 +53,7 @@ Bu yükleme yönergeleri ve [indirilebilir örnek yapılandırma](https://raw.gi
 
 * **Azure Linux Aracısı sürümü 2.2.0 veya üzeri**. Çoğu Azure VM Linux galeri görüntüleri sürümünü 2.2.7 içerir veya üzeri. Çalıştırma `/usr/sbin/waagent -version` sanal makinede yüklü olan sürümünü onaylamak için. VM Konuk aracısının eski bir sürümünü çalıştırıyorsa izleyin [bu yönergeleri](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) güncelleştirmek için.
 * **Azure CLI**. [Azure CLI'yı ayarlama](https://docs.microsoft.com/cli/azure/install-azure-cli) makinenizde ortam.
-* Zaten sahip değilseniz wget komutu: çalıştırma `sudo apt-get install wget`.
+* Zaten sahip değilseniz wget komutu: `sudo apt-get install wget` öğesini çalıştırın.
 * Mevcut bir Azure aboneliği ve var olan bir depolama hesabı içindeki verileri depolamak için.
 * Desteklenen Linux dağıtımları listesi açıktır https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
@@ -316,7 +314,7 @@ Bu isteğe bağlı bir bölüm ölçüm toplanmasını denetler. Ham örnekleri 
 havuzlar | (isteğe bağlı) Havuzlar için hangi LAD gönderdiği toplu ölçüm sonuçları adlarını virgülle ayrılmış listesi. Tüm toplanan ölçümler için listelenen her havuz yayımlanır. Bkz: [sinksConfig](#sinksconfig). Örnek: `"EHsink1, myjsonsink"`.
 type | Ölçüm gerçek sağlayıcısı tanımlar.
 sınıf | Sağlayıcının ad alanındaki belirli ölçüm "sayaç" ile birlikte tanımlar.
-Sayaç | "Class" ile birlikte, belirli bir ölçüm sağlayıcının ad alanı içinde tanımlar.
+counter | "Class" ile birlikte, belirli bir ölçüm sağlayıcının ad alanı içinde tanımlar.
 counterSpecifier | Azure ölçümleri ad alanındaki belirli ölçüm tanımlar.
 koşul | (isteğe bağlı) Belirli bir ölçüm uygular veya toplama söz konusu nesne tüm örneklerinde seçer nesne örneğini seçer. Daha fazla bilgi için [ `builtin` ölçüm tanımlarını](#metrics-supported-by-builtin).
 sampleRate | Bu ölçüm için ham örnekleri toplanan oranı ayarlayan 8601 ARALIĞIDIR. Ayarlı değil, toplama aralığı değeri olarak ayarlanıp ayarlanmadığını [sampleRateInSeconds](#ladcfg). Kısa desteklenen Örnek 15 saniye (PT15S) oranıdır.
@@ -425,14 +423,14 @@ Yerleşik ölçüm sağlayıcısı bir ölçüm en çok sayıda kullanıcı içi
 * İşlemci
 * Bellek
 * Ağ
-* dosya sistemi
+* Dosya sistemi
 * Disk
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>Yerleşik ölçümleri işlemci sınıfı
 
 Ölçüm işlemci sınıf VM işlemci kullanımı hakkında bilgi sağlar. Yüzde toplanırken ortalama tüm CPU'lar arasında oluşur. İki vCPU VM ile bir vCPU % 100 meşgul olduğu ve diğer %100 boşta olduğu bildirilen PercentIdleTime 50 olacaktır. Her vCPU %50 aynı dönem için meşgul olursa, bildirilen sonucu ayrıca 50 olur. Bir vCPU %100 meşgul ve diğerleri boş bir dört vCPU VM içinde bildirilen PercentIdleTime 75 olacaktır.
 
-Sayaç | Anlamı
+counter | Anlamı
 ------- | -------
 PercentIdleTime | İşlemci çekirdeği boşta döngü yürütme toplama penceresi sırasında sürenin yüzdesi
 percentProcessorTime | Boş olmayan bir iş parçacığı yürütme süresi yüzdesi
@@ -450,7 +448,7 @@ Tüm işlemciler arasında toplanmış tek bir ölçüm elde etmek için ayarlam
 
 Bellek sınıf ölçüm, disk belleği ve değiştirmeyi bellek kullanımı hakkında bilgi sağlar.
 
-Sayaç | Anlamı
+counter | Anlamı
 ------- | -------
 AvailableMemory | MIB'deki kullanılabilir fiziksel bellek
 PercentAvailableMemory | Toplam belleğin yüzdesi olarak kullanılabilir fiziksel bellek
@@ -470,7 +468,7 @@ PercentUsedSwap | Değiştirme alanının toplam değiştirme yüzdesi olarak ku
 
 Ağ sınıf ölçüm, önyüklemeden bir tek tek ağ arabirimleri üzerinde ağ etkinliğiyle ilgili bilgi sağlar. LAD konak ölçümleri alınabilir bant genişliği ölçümler, kullanıma sunmuyor.
 
-Sayaç | Anlamı
+counter | Anlamı
 ------- | -------
 BytesTransmitted | Önyüklemeden gönderilen toplam bayt sayısı
 BytesReceived | Önyüklemeden alınan toplam bayt sayısı
@@ -487,7 +485,7 @@ TotalCollisions | Önyüklemeden ağ bağlantı noktaları tarafından bildirile
 
 Dosya sistemi sınıf ölçüm dosya sistemi kullanımı hakkında bilgi sağlar. Mutlak ve yüzde değerleri, normal bir kullanıcı (kök değil) görüntülenmekteydi olarak bildirilir.
 
-Sayaç | Anlamı
+counter | Anlamı
 ------- | -------
 FreeSpace | Bayt cinsinden kullanılabilir disk alanı
 UsedSpace | Kullanılan disk alanı bayt
@@ -508,7 +506,7 @@ Tüm dosya sistemleri arasında toplanmış değerler elde edilebilir ayarlayara
 
 Disk sınıf ölçüm, disk cihaz kullanımı hakkında bilgi sağlar. Bu istatistikler sürücünün tamamını uygulayın. Bir cihazda birden çok dosya sistemleri varsa, bu cihaz için etkili bir şekilde, tüm bunların arasında toplanmış sayaçlarıdır.
 
-Sayaç | Anlamı
+counter | Anlamı
 ------- | -------
 ReadsPerSecond | Saniye başına okuma işlemleri
 WritesPerSecond | Yazma işlemi / saniye

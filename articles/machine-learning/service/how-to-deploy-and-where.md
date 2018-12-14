@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e7840bb3ac6449009b843bb74cc19b960b492205
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 649086c6c3279652b3708b5968969570801ebbc1
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310156"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385355"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -140,7 +140,7 @@ Dağıtıma aldığınızda, dağıttığınız işlem hedef bağlı olarak bira
 * [Azure Container Instances](#aci)
 * [Azure Kubernetes hizmeti](#aks)
 * [Project Brainwave (alanda programlanabilir kapı dizileri)](#fpga)
-* [Azure IOT Edge cihazları](#iot)
+* [Azure IOT Edge cihazları](#iotedge)
 
 ### <a id="aci"></a> Azure Container Instances'a dağıtma
 
@@ -259,27 +259,102 @@ Azure IOT Edge cihazı, bir Linux veya Azure IOT Edge çalışma zamanı çalı�
 
 Azure IOT Edge modülleri, bir kapsayıcı kayıt defterinden cihazınıza dağıtılır. Görüntü modelinizden oluşturduğunuzda, çalışma alanınız için kapsayıcı kayıt defterinde depolanır.
 
-Kapsayıcı, Azure Machine Learning hizmeti çalışma alanınız için kayıt defteri kimlik bilgilerini almak için aşağıdaki adımları kullanın:
+#### <a name="set-up-your-environment"></a>Ortamınızı ayarlama
 
-1. [Azure Portal](https://portal.azure.com/signin/index) oturum açın.
+* Bir geliştirme ortamı. Daha fazla bilgi için [bir geliştirme ortamı yapılandırma](how-to-configure-environment.md) belge.
 
-1. Azure Machine Learning hizmeti çalışma alanınıza gidin ve seçin __genel bakış__. Kapsayıcı kayıt defteri ayarları'na gidin, seçin __kayıt defteri__ bağlantı.
+* Bir [Azure IOT hub'ı](../../iot-hub/iot-hub-create-through-portal.md) Azure aboneliğinizdeki. 
 
-    ![Bir kapsayıcı kayıt defteri girdisinin görüntüsü](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+* Eğitilen bir modeli. Bir model eğitip ilişkin bir örnek için bkz: [bir Azure Machine Learning ile görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md) belge. Üzerinde önceden eğitilen bir modelin kullanılabilir [Azure IOT Edge GitHub deposunda için AI Toolkit](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
-1. Kapsayıcı kayıt defterinde seçmek **erişim anahtarlarını** ve yönetici kullanıcıyı etkinleştirin.
+#### <a name="prepare-the-iot-device"></a>IOT cihazı hazırlama
+IOT hub'ı oluşturmalı ve bir cihazı kaydetmek veya sahip olduğunuz bir yeniden [bu betik](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister).
 
-    ![Erişim anahtarları ekran görüntüsü](./media/how-to-deploy-and-where/findaccesskey.png)
+``` bash
+ssh <yourusername>@<yourdeviceip>
+sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
+sudo chmod +x createNregister
+sudo ./createNregister <The Azure subscriptionID you wnat to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
+```
 
-1. İçin değerleri kaydedin **oturum açma sunucusu**, **kullanıcıadı**, ve **parola**. 
+"Cs" sonra elde edilen bağlantı dizesini kaydedin: "{Bu dizeyi kopyalayın}".
 
-Kimlik bilgilerini aldıktan sonra içindeki adımları kullanın [dağıtma Azure IOT Edge modülleri Azure portalından](../../iot-edge/how-to-deploy-modules-portal.md) cihazınıza görüntüsünü dağıtmak üzere belge. Yapılandırırken __kayıt defteri ayarları__ aygıtı için __oturum açma sunucusu__, __kullanıcıadı__, ve __parola__ çalışma alanınız için kapsayıcı kayıt defteri.
+Cihazınızı indirerek başlatmak [bu betik](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) bir UbuntuX64 IOT edge düğüm veya aşağıdaki komutları çalıştırmak için DSVM:
+
+```bash
+ssh <yourusername>@<yourdeviceip>
+sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge
+sudo chmod +x installIoTEdge
+sudo ./installIoTEdge
+```
+
+IOT Edge düğüm, IOT Hub'ınız için bağlantı dizesini almak hazırdır. Satır için konum ```device_connection_string:``` ve teklifler arası üst bağlantı dizesini yapıştırın.
+
+Cihazınızı kaydedemedik ve izleyerek IOT çalışma zamanı adım adım yükleme konusunda da bilgi alabilirsiniz [hızlı başlangıç: Bir Linux x64 cihaza, ilk IOT Edge modülü dağıtmak](../../iot-edge/quickstart-linux.md) belge.
+
+
+#### <a name="get-the-container-registry-credentials"></a>Kapsayıcı kayıt defteri kimlik bilgilerini alma
+Cihazınız için IOT Edge modülü dağıtmak için Azure IOT kapsayıcı kayıt defterine docker görüntüleri depolayan Azure Machine Learning hizmeti için kimlik bilgileri gerekir.
+
+Kolayca gerekli kapsayıcı kayıt defteri kimlik bilgilerini iki yolla alabilir:
+
++ **Azure portalında**:
+
+  1. [Azure Portal](https://portal.azure.com/signin/index) oturum açın.
+
+  1. Azure Machine Learning hizmeti çalışma alanınıza gidin ve seçin __genel bakış__. Kapsayıcı kayıt defteri ayarları'na gidin, seçin __kayıt defteri__ bağlantı.
+
+     ![Bir kapsayıcı kayıt defteri girdisinin görüntüsü](./media/how-to-deploy-and-where/findregisteredcontainer.png)
+
+  1. Kapsayıcı kayıt defterinde seçmek **erişim anahtarlarını** ve yönetici kullanıcıyı etkinleştirin.
+ 
+     ![Erişim anahtarları ekran görüntüsü](./media/how-to-deploy-and-where/findaccesskey.png)
+
+  1. İçin değerleri kaydedin **oturum açma sunucusu**, **kullanıcıadı**, ve **parola**. 
+
++ **Bir Python betiği ile**:
+
+  1. Bir kapsayıcı oluşturmak için yukarıda çalıştırılan koddan sonra aşağıdaki Python betiği kullanın:
+
+     ```python
+     # Getting your container details
+     container_reg = ws.get_details()["containerRegistry"]
+     reg_name=container_reg.split("/")[-1]
+     container_url = "\"" + image.image_location + "\","
+     subscription_id = ws.subscription_id
+     from azure.mgmt.containerregistry import ContainerRegistryManagementClient
+     from azure.mgmt import containerregistry
+     client = ContainerRegistryManagementClient(ws._auth,subscription_id)
+     result= client.registries.list_credentials(resource_group_name, reg_name, custom_headers=None, raw=False)
+     username = result.username
+     password = result.passwords[0].value
+     print('ContainerURL{}'.format(image.image_location))
+     print('Servername: {}'.format(reg_name))
+     print('Username: {}'.format(username))
+     print('Password: {}'.format(password))
+     ```
+  1. ContainerURL, servername, kullanıcı adı ve parola için değerleri kaydedin. 
+
+     IOT Edge cihaz özel kapsayıcı kayıt defterinizde görüntülerine erişim sağlamak bu kimlik bilgileri gereklidir.
+
+#### <a name="deploy-the-model-to-the-device"></a>Cihaz için model dağıtma
+
+Bir model çalıştırarak kolayca dağıtım yapabilir [bu betik](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel) Yukarıdaki adımlarda aşağıdaki bilgileri sağlayarak: kapsayıcı kayıt defteri adı, kullanıcı adı, parola, görüntü konumu URL'si, istenen dağıtım adı, IOT hub'ı adı ve oluşturduğunuz cihaz kimliği. Bu sanal Makineye aşağıdaki adımları izleyerek yapabilirsiniz: 
+
+```bash 
+wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/deploymodel
+sudo chmod +x deploymodel
+sudo ./deploymodel <ContainerRegistryName> <username> <password> <imageLocationURL> <DeploymentID> <IoTHubname> <DeviceID>
+```
+
+Alternatif olarak, adımları izleyebilirsiniz [dağıtma Azure IOT Edge modülleri Azure portalından](../../iot-edge/how-to-deploy-modules-portal.md) cihazınıza görüntüsünü dağıtmak üzere belge. Yapılandırırken __kayıt defteri ayarları__ aygıtı için __oturum açma sunucusu__, __kullanıcıadı__, ve __parola__ çalışma alanınız için kapsayıcı kayıt defteri.
 
 > [!NOTE]
 > Azure IOT ile bilmiyorsanız, hizmeti ile çalışmaya başlama bilgi için aşağıdaki belgelere bakın:
 >
 > * [Hızlı Başlangıç: İlk IOT Edge modülü bir Linux cihazına dağıtma](../../iot-edge/quickstart-linux.md)
 > * [Hızlı Başlangıç: İlk IOT Edge modülü bir Windows cihazına dağıtma](../../iot-edge/quickstart.md)
+
 
 ## <a name="testing-web-service-deployments"></a>Web hizmeti dağıtımları test etme
 

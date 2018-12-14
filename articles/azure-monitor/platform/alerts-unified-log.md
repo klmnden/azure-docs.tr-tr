@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: d638c9d2805d903247c5dbe615602ee8474096a7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6a1b9c110c79e428ab0cc182d0da370e59bc4f30
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285392"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386222"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure İzleyici'de günlük uyarıları
-Bu makalede, günlük uyarı ayrıntıları, bir içinde desteklenen uyarı türleri sağlanır [Azure uyarıları](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) ve kullanıcıların uyarmak için temel olarak Azure'nın analiz platformu kullanmasına izin verir.
+Bu makalede, günlük uyarı ayrıntıları, bir içinde desteklenen uyarı türleri sağlanır [Azure uyarıları](../../azure-monitor/platform/alerts-overview.md) ve kullanıcıların uyarmak için temel olarak Azure'nın analiz platformu kullanmasına izin verir.
 
 Günlük araması kuralları için oluşturulan günlük uyarı oluşur [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) veya [Application Insights](../../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Kullanımı hakkında daha fazla bilgi için bkz. [Azure'da günlüğü uyarıları oluşturma](../../azure-monitor/platform/alerts-log.md)
 
 > [!NOTE]
-> Popüler günlük verilerini [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) şimdi de Azure İzleyici ölçüm platformda kullanılabilir. Ayrıntılar görünümü için [günlükleri için ölçüm Uyarısı](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md)
+> Popüler günlük verilerini [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) şimdi de Azure İzleyici ölçüm platformda kullanılabilir. Ayrıntılar görünümü için [günlükleri için ölçüm Uyarısı](../../azure-monitor/platform/alerts-metric-logs.md)
 
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Günlük araması uyarı kuralı - tanım ve türleri
@@ -32,7 +32,7 @@ Günlük arama kuralları aşağıdaki ayrıntıları tarafından tanımlanır:
 - **Oturum sorgu**.  Uyarı kural her çalıştığında sorgu tetikler.  Bu sorgu tarafından döndürülen kayıtları, bir uyarı oluşturulup oluşturulmayacağını belirlemek için kullanılır. Analiz sorgusu de bulunabilir [çapraz uygulama çağrıları](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), [çalışma alanı çağrıları, platformlar arası ve [kaynaklar arası aramalar](../../azure-monitor/log-query/cross-workspace-query.md) sağlanan kullanıcının dış uygulama için erişim haklarına sahip. 
 
     > [!IMPORTANT]
-    > Kullanıcı olmalıdır [Azure izleme katılımcı](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md) rol oluşturma, değiştirme ve güncelleştirme birlikte erişim; Azure İzleyici'de günlük uyarıları & Sorgu analytics hedefleri uyarı kuralı ya da uyarı sorgusu yürütme hakları. Kullanıcı oluşturma uyarı kuralı ya da uyarı sorgusu - tüm analytics hedeflere erişiminiz yoksa, kural oluşturma işlemi başarısız olabilir veya günlük uyarı kuralı ile kısmi sonuçlar yürütülür.
+    > Kullanıcı olmalıdır [Azure izleme katılımcı](../../azure-monitor/platform/roles-permissions-security.md) rol oluşturma, değiştirme ve güncelleştirme birlikte erişim; Azure İzleyici'de günlük uyarıları & Sorgu analytics hedefleri uyarı kuralı ya da uyarı sorgusu yürütme hakları. Kullanıcı oluşturma uyarı kuralı ya da uyarı sorgusu - tüm analytics hedeflere erişiminiz yoksa, kural oluşturma işlemi başarısız olabilir veya günlük uyarı kuralı ile kısmi sonuçlar yürütülür.
 
 - **Dönem**.  Sorgu için zaman aralığını belirtir. Sorgu yalnızca bu geçerli zaman aralığı içinde oluşturulmuş olan kayıtları döndürür. Süre kötüye kullanımı önlemek günlük sorgusu için alınan verileri sınırlar ve hiçbir zaman komut bozar (önce ister) günlük sorguda kullanılan. <br>*Örneğin, zaman aralığı 60 dakika olarak ayarlanmıştır ve sorguyu, 13: 15'te çalıştırmak, 12:15 PM arasında 13: 15'te oluşturulan kayıtları döndürülür günlük sorgusu yürütülemedi. Günlük sorgusu komutu gibi önce zaman kullanıyorsa, şimdi (7 g), günlük sorgusu çalıştırılması yalnızca 1:15 PM - 12:15 PM arasında verileri için veri yalnızca son 60 dakika için varmış gibi. Yedi günün verilerini günlük sorgusu belirtildiği için değil.*
 - **Sıklık**.  Sorgunun ne sıklıkta çalıştırılması gerektiğini belirtir. Herhangi bir değer 5 dakika ile 24 saat arasında olabilir. Eşittir veya süre değerinden küçük olmalıdır.  Değer süre büyük ise, eksik kayıtları riski oluşur.<br>*Örneğin, 30 dakikalık bir süre ve 60 dakikalık bir sıklık göz önünde bulundurun.  Sorgu 1: 00'da çalışıyorsa, 12:30 ve 1:00 arasında kayıtları döndürür.  Sorgu çalıştıracağınız sonraki 2:00 kayıtlar 1:30 ve 2:00 arasında zaman döndürecekti zamandır.  1:30 ile 1:00 arasında oluşturulan kayıtları hiç hesaplanmadı.*
@@ -120,6 +120,6 @@ Günlük uyarıları fiyatlandırması geçerli belirtildikten adresindeki [Azur
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [azure'da günlüğü uyarıları oluşturma](../../azure-monitor/platform/alerts-log.md).
 * Anlamak [günlük uyarıları azure'da Web kancalarıyla](alerts-log-webhook.md).
-* Hakkında bilgi edinin [Azure uyarıları](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+* Hakkında bilgi edinin [Azure uyarıları](../../azure-monitor/platform/alerts-overview.md).
 * Daha fazla bilgi edinin [Application Insights](../../application-insights/app-insights-analytics.md).
 * Daha fazla bilgi edinin [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    

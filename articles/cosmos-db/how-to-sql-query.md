@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 4f2a8431e353246b1f7304e7bfe30d13a7b4af4b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: fb8e2b11ce6178c10fb9dc7d13c5c7d817ece821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139308"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344117"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>Azure Cosmos DB'den verileri sorgulamak için SQL sorgu örnekleri
 
@@ -1411,14 +1411,14 @@ Tür denetimi işlevleri SQL sorgusu içindeki bir ifadenin türü denetlemenizi
 
 | **Kullanım** | **Açıklama** |
 |-----------|------------|
-| [IS_ARRAY (ifade)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array) | Değer türü bir dizi olup olmadığını gösteren bir Boole değeri döndürür. |
-| [IS_BOOL (ifade)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool) | Bir Boolean değer türü olup olmadığını gösteren bir Boole değeri döndürür. |
-| [IS_NULL (ifade)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null) | Değerin türü null olup olmadığını gösteren bir Boole değeri döndürür. |
-| [IS_NUMBER (ifade)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number) | Değerin türü, bir sayı olup olmadığını gösteren bir Boole değeri döndürür. |
-| [IS_OBJECT (ifade)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object) | Değerin türü, bir JSON nesnesi olup olmadığını gösteren bir Boole değeri döndürür. |
-| [IS_STRING (ifade)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string) | Bir dize değerinin türü olup olmadığını gösteren bir Boole değeri döndürür. |
-| [IS_DEFINED (ifade)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined) | Özellik değeri atanıp atanmadığını gösteren bir Boole değeri döndürür. |
-| [IS_PRIMITIVE (ifade)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive) | Değer türü bir dize, sayı, Boole veya null olup olmadığını gösteren bir Boole değeri döndürür. |
+| [IS_ARRAY (ifade)](sql-api-query-reference.md#bk_is_array) | Değer türü bir dizi olup olmadığını gösteren bir Boole değeri döndürür. |
+| [IS_BOOL (ifade)](sql-api-query-reference.md#bk_is_bool) | Bir Boolean değer türü olup olmadığını gösteren bir Boole değeri döndürür. |
+| [IS_NULL (ifade)](sql-api-query-reference.md#bk_is_null) | Değerin türü null olup olmadığını gösteren bir Boole değeri döndürür. |
+| [IS_NUMBER (ifade)](sql-api-query-reference.md#bk_is_number) | Değerin türü, bir sayı olup olmadığını gösteren bir Boole değeri döndürür. |
+| [IS_OBJECT (ifade)](sql-api-query-reference.md#bk_is_object) | Değerin türü, bir JSON nesnesi olup olmadığını gösteren bir Boole değeri döndürür. |
+| [IS_STRING (ifade)](sql-api-query-reference.md#bk_is_string) | Bir dize değerinin türü olup olmadığını gösteren bir Boole değeri döndürür. |
+| [IS_DEFINED (ifade)](sql-api-query-reference.md#bk_is_defined) | Özellik değeri atanıp atanmadığını gösteren bir Boole değeri döndürür. |
+| [IS_PRIMITIVE (ifade)](sql-api-query-reference.md#bk_is_primitive) | Değer türü bir dize, sayı, Boole veya null olup olmadığını gösteren bir Boole değeri döndürür. |
 
 Bu işlevlerin kullanılması, artık sorguları aşağıdaki örnekte gösterildiği gibi çalıştırabilirsiniz:
 
@@ -1440,22 +1440,22 @@ Aşağıdaki skaler İşlevler, bir dize giriş değeri bir işlem gerçekleşti
 
 | Kullanım | Açıklama |
 | --- | --- |
-| [UZUNLUK (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) | Belirtilen dize ifadesinin karakter sayısını döndürür |
-| [CONCAT (str_expr str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) | İki veya daha fazla dize değerlerini birleştirirken sonucu olan bir dize döndürür. |
-| [Alt dize (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) | Parçası olan bir dize ifadesi döndürür. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) | Boole döndürüp döndüremeyeceğini belirten döndürür ilk dize ifade olup olmadığını ve ikinci başlatır |
-| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) | Boole döndürüp döndüremeyeceğini belirten döndürür ilk dize ifade olup olmadığını ve ikinci sona erer |
-| [İÇERİR (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) | Döndürür bir Boolean gösteren ikinci ilk dize ifade olup olmadığını içerir. |
-| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) | İkinci dizenin başlangıç konumunu döndürür dize bulunamazsa, ilk belirtilen dize ifadesi veya -1 içindeki ifadenin dize. |
-| [Sol (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) | Belirtilen sayıda karakteri içeren bir dize sol bölümünü döndürür. |
-| [SAĞ (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) | Belirtilen sayıda karakteri içeren bir dize sağ bölümünü döndürür. |
-| [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) | Baştaki boşluklar kaldırdıktan sonra bir dize ifadesi döndürür. |
-| [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) | Sonundaki tüm boşlukları kesilmesi sonrasında bir dize ifadesi döndürür. |
-| [DÜŞÜK (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) | Büyük harf karakter verileri küçük harfe dönüştürmenin sonra bir dize ifadesi döndürür. |
-| [ÜST (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) | Küçük harf karakter verileri büyük harfe dönüştürmenin sonra bir dize ifadesi döndürür. |
-| [Değiştir (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) | Belirtilen dize değeri tüm oluşumlarını başka bir dize değeri ile değiştirir. |
+| [UZUNLUK (str_expr)](sql-api-query-reference.md#bk_length) | Belirtilen dize ifadesinin karakter sayısını döndürür |
+| [CONCAT (str_expr str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | İki veya daha fazla dize değerlerini birleştirirken sonucu olan bir dize döndürür. |
+| [Alt dize (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | Parçası olan bir dize ifadesi döndürür. |
+| [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | Boole döndürüp döndüremeyeceğini belirten döndürür ilk dize ifade olup olmadığını ve ikinci başlatır |
+| [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | Boole döndürüp döndüremeyeceğini belirten döndürür ilk dize ifade olup olmadığını ve ikinci sona erer |
+| [İÇERİR (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | Döndürür bir Boolean gösteren ikinci ilk dize ifade olup olmadığını içerir. |
+| [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | İkinci dizenin başlangıç konumunu döndürür dize bulunamazsa, ilk belirtilen dize ifadesi veya -1 içindeki ifadenin dize. |
+| [Sol (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | Belirtilen sayıda karakteri içeren bir dize sol bölümünü döndürür. |
+| [SAĞ (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | Belirtilen sayıda karakteri içeren bir dize sağ bölümünü döndürür. |
+| [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | Baştaki boşluklar kaldırdıktan sonra bir dize ifadesi döndürür. |
+| [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | Sonundaki tüm boşlukları kesilmesi sonrasında bir dize ifadesi döndürür. |
+| [DÜŞÜK (str_expr)](sql-api-query-reference.md#bk_lower) | Büyük harf karakter verileri küçük harfe dönüştürmenin sonra bir dize ifadesi döndürür. |
+| [ÜST (str_expr)](sql-api-query-reference.md#bk_upper) | Küçük harf karakter verileri büyük harfe dönüştürmenin sonra bir dize ifadesi döndürür. |
+| [Değiştir (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | Belirtilen dize değeri tüm oluşumlarını başka bir dize değeri ile değiştirir. |
 | [Çoğaltma (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) | Bir dize değeri, belirtilen sayıda yineler. |
-| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) | Bir dize değerinin ters sırada döndürür. |
+| [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | Bir dize değerinin ters sırada döndürür. |
 
 Bu işlevlerin kullanılması, artık aşağıdakiler gibi sorguları çalıştırabilirsiniz. Örneğin, aile adı büyük harfle yazılmış şu şekilde döndürebilirsiniz:
 
@@ -1522,10 +1522,10 @@ Aşağıdaki skaler işlevler bir dizi giriş değeri ve dönüş sayısal, Bool
 
 | Kullanım | Açıklama |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Belirtilen bir dizi ifadesinin öğelerin sayısını döndürür. |
-| [ARRAY_CONCAT (arr_expr arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |İki veya daha fazla dizi değerlerini birleştirirken sonucu olan bir dizi döndürür. |
-| [ARRAY_CONTAINS (arr_expr, ifade [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Dizi belirtilen değeri içerip içermediğini gösteren bir Boole değeri döndürür. Tam veya kısmi eşleşme olup olmadığını belirtebilirsiniz. |
-| [ARRAY_SLICE (arr_expr num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Bir dizi ifadesi bölümünü döndürür. |
+| [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |Belirtilen bir dizi ifadesinin öğelerin sayısını döndürür. |
+| [ARRAY_CONCAT (arr_expr arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |İki veya daha fazla dizi değerlerini birleştirirken sonucu olan bir dizi döndürür. |
+| [ARRAY_CONTAINS (arr_expr, ifade [, bool_expr])](sql-api-query-reference.md#bk_array_contains) |Dizi belirtilen değeri içerip içermediğini gösteren bir Boole değeri döndürür. Tam veya kısmi eşleşme olup olmadığını belirtebilirsiniz. |
+| [ARRAY_SLICE (arr_expr num_expr [, num_expr])](sql-api-query-reference.md#bk_array_slice) |Bir dizi ifadesi bölümünü döndürür. |
 
 Dizi işlevleri dizileri JSON içinde işlemek için kullanılabilir. Örneğin, tüm öğeler "Robin Wakefield" olduğu üst birini döndüren bir sorgu aşağıdadır. 
 

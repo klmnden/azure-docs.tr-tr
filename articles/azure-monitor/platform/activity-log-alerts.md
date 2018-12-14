@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 7b210a774cfdb9b7f33ec08cc75886c77e3e6cc0
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 412ec0a7d2cd8574aadf6e9f104407792ddb29ed
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285553"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341534"
 ---
 # <a name="alerts-on-activity-log"></a>Etkinlik günlüğü uyarıları 
 
@@ -61,7 +61,7 @@ Eylem grupları hakkında daha fazla bilgi için bkz: [oluştur ve Eylem gruplar
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Alma bir [uyarılara genel bakış](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+- Alma bir [uyarılara genel bakış](../../azure-monitor/platform/alerts-overview.md).
 - Hakkında bilgi edinin [etkinlik günlüğü uyarıları oluşturup](../../azure-monitor/platform/alerts-activity-log.md).
 - Gözden geçirme [etkinlik günlüğü uyarısı Web kancası şeması](activity-log-alerts-webhook.md).
 - Hakkında bilgi edinin [hizmet durumu bildirimlerini](../../monitoring-and-diagnostics/monitoring-service-notifications.md).

@@ -6,12 +6,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.openlocfilehash: 1951b6d6815f5ca0e6f17fda0d6eb8e7d2dd4aca
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6b74d83de0495e3436c9bef623a827e8a1496767
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276477"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343317"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Klasik ölçüm uyarılarını yönetme
 
@@ -129,5 +129,5 @@ Bu bölüm, komutları oluşturun, görüntüleyin ve klasik ölçüm uyarılar�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Resource Manager şablonu ile klasik ölçüm uyarısı oluşturma](../../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md).
+- [Resource Manager şablonu ile klasik ölçüm uyarısı oluşturma](../../azure-monitor/platform/alerts-enable-template.md).
 - [Web kancası kullanarak bir Azure sistem bilgisini Klasik ölçüm uyarısı sahip](../../azure-monitor/platform/alerts-webhooks.md).

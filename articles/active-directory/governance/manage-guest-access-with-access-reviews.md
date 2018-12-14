@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 06/21/2018
+ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 7d3361b44d47fd97c14f677e5e4bbc6c1ee5ad3f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: d3cc5f5a7642ba827a46ab5cbc2b0da2cda38731
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45608301"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385134"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD ile konuk erişimini yönetme erişim gözden geçirmeleri
 
@@ -39,7 +39,7 @@ Ayrıca, konuk kullanıcıların uygun erişime sahip kolayca sağlayabilirsiniz
 
 Erişim gözden geçirmeleri, Azure AD’nin Microsoft Enterprise Mobility + Security, E5’e dahil olan Premium P2 sürümü ile kullanılabilir. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](../fundamentals/active-directory-whatis.md). Bir gözden geçirme oluşturmak, gözden geçirme tamamlamak veya erişimlerini doğrulamak üzere bu özellikle etkileşimde bulunan her kullanıcının bir lisansı olması gerekir. 
 
-Kendi erişimini gözden geçirmek için konuk kullanıcılara sor planlıyorsanız, Konuk kullanıcı lisanslama hakkında okuyun. Daha fazla bilgi için [Azure AD B2B işbirliği lisanslama](../b2b/licensing-guidance.md).
+Ayrıca kendi erişimini gözden geçirmek için konuk kullanıcıları sorabilir. Kendi kuruluşunuzun kullanıcılardan birinin atadığınız her Ücretli Azure AD Premium P2 lisansı için B2B, dış kullanıcı indirimi altında en fazla beş Konuk kullanıcıları davet etmek için kullanabilirsiniz. Bu konuk kullanıcılara Azure AD Premium P2 özellikleri de kullanabilirsiniz. Daha fazla bilgi için [Azure AD B2B işbirliği lisanslama](../b2b/licensing-guidance.md).
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Oluşturma ve konuklar için erişim gözden geçirmesi gerçekleştirme
 

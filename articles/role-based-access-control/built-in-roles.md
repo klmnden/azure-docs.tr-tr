@@ -15,12 +15,12 @@ ms.date: 12/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: f2143d15156c8f69430610eac2f467c5a6887300
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d6696d9bdd69b085b9c9ac0804da68cd91612f35
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017826"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386970"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 [Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcılara, gruplara veya hizmet sorumluları için atayabileceğiniz birkaç yerleşik rol tanımlarına sahiptir. Rol atamaları, azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi [özel rollerinizi](custom-roles.md) oluşturabilirsiniz.
@@ -76,8 +76,8 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [DevTest Labs kullanıcısı](#devtest-labs-user) | Azure DevTest Labs'teki tüm sanal makinelerinize bağlanmanıza, bu makineleri başlatmanıza, yeniden başlatmanıza ve kapatmanıza izin verir. |
 | [DNS bölgesi katkıda bulunanı](#dns-zone-contributor) | Azure DNS'te, DNS bölgelerini ve kayıt kümelerini yönetmenize izin verir, ancak bunlara kimlerin erişebildiğini denetlemenize izin vermez. |
 | [DocumentDB hesabı Katılımcısı](#documentdb-account-contributor) | Azure Cosmos DB hesapları yönetebilirsiniz. Azure Cosmos DB, eski adıyla DocumentDB bilinir. |
-| [EventGrid EventSubscription katkıda bulunan (Önizleme)](#eventgrid-eventsubscription-contributor-preview) | EventGrid olay aboneliği işlemleri yönetmenizi sağlar. |
-| [EventGrid EventSubscription Okuyucu (Önizleme)](#eventgrid-eventsubscription-reader-preview) | Olay abonelikleri EventGrid okumanıza olanak tanır. |
+| [EventGrid EventSubscription katkıda bulunan (Önizleme)](#eventgrid-eventsubscription-contributor-preview) | EventGrid olay aboneliği işlemlerini yönetmenize olanak sağlar. |
+| [EventGrid EventSubscription Okuyucu (Önizleme)](#eventgrid-eventsubscription-reader-preview) | EventGrid olay aboneliklerini okumanıza olanak sağlar. |
 | [HDInsight etki alanı Hizmetleri katkıda bulunan](#hdinsight-domain-services-contributor) | Okuyabilir oluşturma, değiştirme ve etki alanı Hizmetleri Sil ilgili işlemler için HDInsight Kurumsal Güvenlik Paketi için gereken Etki Alanı Hizmetleriyle ilgili işlemleri Okuyabilir, Oluşturabilir, Değiştirebilir ve Silebilir |
 | [Akıllı sistemler hesap Katılımcısı](#intelligent-systems-account-contributor) | Akıllı Sistemler hesaplarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Key Vault katkıda bulunanı](#key-vault-contributor) | Anahtar kasalarını yönetmenize izin verir, ancak bunlara erişmenize izin vermez. |
@@ -92,9 +92,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Yönetilen kimlik işleci](#managed-identity-operator) | Kullanıcı Tarafından Atanan Kimliği Oku ve Ata |
 | [Yönetim grubu katkıda bulunan](#management-group-contributor) | Yönetim Grubu Katkıda Bulunanı Rolü |
 | [Yönetim grubu okuyucusu](#management-group-reader) | Yönetim Grubu Okuyucusu Rolü |
-| [İzleme katkıda bulunanı](#monitoring-contributor) | Tüm izleme verilerini okuyabilir ve izleme ayarlarını düzenleyin. Ayrıca bkz: [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [İzleme katkıda bulunanı](#monitoring-contributor) | Tüm izleme verilerini okuyabilir ve izleme ayarlarını düzenleyin. Ayrıca bkz: [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 | [İzleme ölçümlerini yayımcı](#monitoring-metrics-publisher) | Azure kaynaklarına karşı ölçümleri yayımlamayı etkinleştirir |
-| [İzleme okuyucusu](#monitoring-reader) | (Ölçümler, günlükler, vb.) tüm izleme verilerini okuyabilir. Ayrıca bkz: [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [İzleme okuyucusu](#monitoring-reader) | (Ölçümler, günlükler, vb.) tüm izleme verilerini okuyabilir. Ayrıca bkz: [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 | [Ağ Katılımcısı](#network-contributor) | Ağları yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Yeni Relic APM hesap Katılımcısı](#new-relic-apm-account-contributor) | New Relic Application Performance Management hesaplarını ve uygulamalarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Okuyucu ve veri erişimi](#reader-and-data-access) | Sağlayan her şeyi görüntüleyebilir, ancak bir depolama hesabı ya da kapsanan kaynak oluşturma veya silemezsiniz izin vermez. Depolama hesabı anahtarları erişimi üzerinden bir depolama hesabında kapsanan tüm verilere okuma/yazma erişimi de izin verir. |
@@ -102,9 +102,9 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Kaynak ilkesine katkıda bulunan (Önizleme)](#resource-policy-contributor-preview) | (Önizleme) Kaynak ilkesi oluşturma/değiştirme, destek bileti oluşturma ve kaynakları/hiyerarşiyi okuma haklarıyla EA’dan kullanıcılar geri dolduruldu. |
 | [Scheduler iş koleksiyonları Katılımcısı](#scheduler-job-collections-contributor) | Zamanlayıcı iş koleksiyonlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Search Hizmeti Katılımcısı](#search-service-contributor) | Search hizmetlerini yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
-| [Güvenlik Yöneticisi](#security-admin) | Yalnızca Güvenlik Merkezi'ndeki: güvenlik ilkelerini görüntüleyin, güvenlik durumlarını görüntülemek, güvenlik ilkeleri, uyarıları görüntüleme ve öneriler düzenleme, uyarıları ve öneriler Kapat |
+| [Güvenlik Yöneticisi](#security-admin) | Güvenlik Merkezi'nde yalnızca: Güvenlik ilkelerini görüntüleyin, güvenlik durumlarını görüntülemek, güvenlik ilkeleri, uyarıları görüntüleme ve öneriler düzenleme, uyarıları ve öneriler Kapat |
 | [Güvenlik Yöneticisi'ni (eski)](#security-manager-legacy) | Bu eski bir roldür. Lütfen bunun yerine Güvenlik Yöneticisi kullanın |
-| [Güvenlik okuyucusu](#security-reader) | Yalnızca Güvenlik Merkezi'ndeki: önerileri ve uyarılar, güvenlik ilkeleri, güvenlik durumlarını görüntüleyebilir ancak değişiklik yapamaz görünüm görüntüleyebilirsiniz. |
+| [Güvenlik okuyucusu](#security-reader) | Güvenlik Merkezi'nde yalnızca: Öneriler ve uyarılar, güvenlik ilkeleri, güvenlik durumlarını görüntüleyebilir ancak değişiklik yapamaz görünüm görüntüleyebilirsiniz. |
 | [Site Recovery katkıda bulunanı](#site-recovery-contributor) | Kasa oluşturma ve rol atama işlemleri dışında Site Recovery hizmetini yönetmenize imkan sağlar |
 | [Site Recovery operatörü](#site-recovery-operator) | Yük devretme ve yeniden çalışma dışındaki Site Recovery yönetimi işlemlerini gerçekleştirmenize izin vermez |
 | [Site Recovery okuyucusu](#site-recovery-reader) | Site Recovery durumunu görüntülemenize izin verir, ancak diğer yönetim işlemlerini gerçekleştirmenize izin vermez |
@@ -114,7 +114,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Depolama Hesabı Katılımcısı](#storage-account-contributor) | Depolama hesaplarını yönetmenize izin verir ancak bunlara yönelik erişimi yönetmenize izin vermez. |
 | [Depolama hesabı anahtarı işleci hizmet rolü](#storage-account-key-operator-service-role) | Depolama Hesabı Anahtarı İşleçlerine, Depolama Hesaplarında anahtarları listeleme ve yeniden oluşturma izni verilir |
 | [Depolama Blob verileri katkıda bulunan (Önizleme)](#storage-blob-data-contributor-preview) | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma, yazma ve silme erişimi verir |
-| [Depolama Blob verileri sahibi (Önizleme)](#storage-blob-data-owner-preview) | Okuma, yazma, silme ve Azure depolama blob kapsayıcılarına ve verilerine POSIX süper kullanıcı erişimi verir |
+| [Depolama Blob verileri sahibi (Önizleme)](#storage-blob-data-owner-preview) | Azure Depolama blob kapsayıcılarına ve verilerine yönelik olarak okuma, yazma, silme ve POSIX süper kullanıcı erişimi izni verilir |
 | [Depolama Blob verileri Okuyucu (Önizleme)](#storage-blob-data-reader-preview) | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma erişimi verir |
 | [Depolama kuyruk verileri katkıda bulunan (Önizleme)](#storage-queue-data-contributor-preview) | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma, yazma ve silme erişimi verir |
 | [Depolama kuyruk verileri Okuyucu (Önizleme)](#storage-queue-data-reader-preview) | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma erişimi verir |
@@ -149,8 +149,8 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Authorization/*/Delete | Rolleri ve rol ataması silinemiyor |
 > | Microsoft.Authorization/*/Write | Rolleri ve rol atamalarını oluşturulamıyor |
 > | Microsoft.Authorization/elevateAccess/Action | Çağırana kiracı kapsamında Kullanıcı Erişim Yöneticisi erişimi verir |
-> | Microsoft.Blueprint/blueprintAssignments/write | Herhangi bir blueprint yapıtları güncelle |
-> | Microsoft.Blueprint/blueprintAssignments/delete | Herhangi bir blueprint yapıtlarını silin |
+> | Microsoft.Blueprint/blueprintAssignments/write | Herhangi bir şema yapıtını oluşturun veya güncelleştirin |
+> | Microsoft.Blueprint/blueprintAssignments/delete | Herhangi bir şema yapıtını silin |
 
 ## <a name="reader"></a>Okuyucu
 > [!div class="mx-tableFixed"]
@@ -348,7 +348,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **Açıklama** | Küme yöneticisi kimlik bilgileri eylemini listele. |
 > | **Kimlik** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Eylemler** |  |
-> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Yönetilen bir küme clusterAdmin kimlik listesi |
+> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Yönetilen bir kümenin clusterAdmin kimlik bilgilerini listele |
 
 ## <a name="azure-kubernetes-service-cluster-user-role"></a>Azure Kubernetes Hizmet Kümesi Kullanıcı Rolü
 > [!div class="mx-tableFixed"]
@@ -357,7 +357,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | **Açıklama** | Küme kullanıcısı kimlik bilgileri eylemini listele. |
 > | **Kimlik** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | **Eylemler** |  |
-> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Yönetilen bir küme clusterUser kimlik listesi |
+> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Yönetilen bir kümenin clusterUser kimlik bilgilerini listele |
 
 ## <a name="azure-stack-registration-owner"></a>Azure Stack Kayıt Sahibi
 > [!div class="mx-tableFixed"]
@@ -940,11 +940,11 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
-## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription katkıda bulunan (Önizleme)
+## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription Katkıda Bulunanı (Önizleme)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | EventGrid olay aboneliği işlemleri yönetmenizi sağlar. |
+> | **Açıklama** | EventGrid olay aboneliği işlemlerini yönetmenize olanak sağlar. |
 > | **Kimlik** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -957,11 +957,11 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
-## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription Okuyucu (Önizleme)
+## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription Okuyucusu (Önizleme)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Olay abonelikleri EventGrid okumanıza olanak tanır. |
+> | **Açıklama** | EventGrid olay aboneliklerini okumanıza olanak sağlar. |
 > | **Kimlik** | 2414bbcf-6497-4FAF-8c65-045460748405 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -1194,7 +1194,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Tüm izleme verilerini okuyabilir ve izleme ayarlarını düzenleyin. Ayrıca bkz: [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+> | **Açıklama** | Tüm izleme verilerini okuyabilir ve izleme ayarlarını düzenleyin. Ayrıca bkz: [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Kimlik** | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | **Eylemler** |  |
 > | * / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
@@ -1221,7 +1221,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
 
-## <a name="monitoring-metrics-publisher"></a>Ölçüm Yayımcısını İzleme
+## <a name="monitoring-metrics-publisher"></a>İzleme Ölçüm Yayımcısı
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1238,7 +1238,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | (Ölçümler, günlükler, vb.) tüm izleme verilerini okuyabilir. Ayrıca bkz: [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+> | **Açıklama** | (Ölçümler, günlükler, vb.) tüm izleme verilerini okuyabilir. Ayrıca bkz: [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). |
 > | **Kimlik** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | **Eylemler** |  |
 > | * / Okuma | Gizli dizileri dışında tüm türler kaynakları okuyun. |
@@ -1348,7 +1348,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Yalnızca Güvenlik Merkezi'ndeki: güvenlik ilkelerini görüntüleyin, güvenlik durumlarını görüntülemek, güvenlik ilkeleri, uyarıları görüntüleme ve öneriler düzenleme, uyarıları ve öneriler Kapat |
+> | **Açıklama** | Güvenlik Merkezi'nde yalnızca: Güvenlik ilkelerini görüntüleyin, güvenlik durumlarını görüntülemek, güvenlik ilkeleri, uyarıları görüntüleme ve öneriler düzenleme, uyarıları ve öneriler Kapat |
 > | **Kimlik** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -1394,7 +1394,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Yalnızca Güvenlik Merkezi'ndeki: önerileri ve uyarılar, güvenlik ilkeleri, güvenlik durumlarını görüntüleyebilir ancak değişiklik yapamaz görünüm görüntüleyebilirsiniz. |
+> | **Açıklama** | Güvenlik Merkezi'nde yalnızca: Öneriler ve uyarılar, güvenlik ilkeleri, güvenlik durumlarını görüntüleyebilir ancak değişiklik yapamaz görünüm görüntüleyebilirsiniz. |
 > | **Kimlik** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -1470,7 +1470,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | Tüm korunabilir öğelerin okuyun |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Kurtarma noktası Uygula |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Yük devretme işlemesi |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Planlı yük devretme |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Planlanan Yük Devretme |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Tüm korumalı öğeleri okuma |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Tüm çoğaltma kurtarma noktaları okuyun |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Çoğaltmayı Onar |
@@ -1697,11 +1697,11 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Bir blobu veya blob listesini döndürür |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Bir blobu yazmanın sonucunu döndürür |
 
-## <a name="storage-blob-data-owner-preview"></a>Depolama Blob verileri sahibi (Önizleme)
+## <a name="storage-blob-data-owner-preview"></a>Depolama Blob Verileri Sahibi (Önizleme)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Okuma, yazma, silme ve Azure depolama blob kapsayıcılarına ve verilerine POSIX süper kullanıcı erişimi verir |
+> | **Açıklama** | Azure Depolama blob kapsayıcılarına ve verilerine yönelik olarak okuma, yazma, silme ve POSIX süper kullanıcı erişimi izni verilir |
 > | **Kimlik** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Eylemler** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Bir kapsayıcının silinmesinin sonucunu döndürür |

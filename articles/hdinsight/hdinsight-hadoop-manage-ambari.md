@@ -9,35 +9,35 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1e17412636a904508352370bc7292a7d64bac6bc
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: eee37f5a77331b78aa587ba2e3eb61132d7d6adc
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280446"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385576"
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>HDInsight kümeleri Ambari Web kullanıcı arabirimini kullanarak yönetme
+# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web kullanıcı arabirimini kullanarak HDInsight kümelerini yönetme
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari, yönetim ve bir kolayca web UI ve REST API'si kullanma sağlayarak bir Hadoop kümesini izleme basitleştirir. Ambari, Linux tabanlı HDInsight kümelerine dahil ve küme izleme ve yapılandırma değişiklikleri yapmak için kullanılır.
+Apache Ambari, yönetim ve bir kolayca web UI ve REST API'si kullanma sağlayarak bir Apache Hadoop kümesini izleme basitleştirir. Ambari, Linux tabanlı HDInsight kümelerine dahil ve küme izleme ve yapılandırma değişiklikleri yapmak için kullanılır.
 
 Bu belgede, Ambari Web kullanıcı arabirimini bir HDInsight kümesi ile kullanma konusunda bilgi edinin.
 
-## <a id="whatis"></a>Ambari nedir?
+## <a id="whatis"></a>Apache Ambari nedir?
 
 [Apache Ambari](http://ambari.apache.org) bir kolayca kullanıma web kullanıcı Arabirimi sağlayarak Hadoop yönetimini basitleştirir. Ambari, yönetmek ve Hadoop kümeleri izlemek için kullanabilirsiniz. Geliştiriciler tümleştirilebilir yeteneklere uygulamalarına kullanarak [Ambari REST API'lerini](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari Web kullanıcı Arabirimi, varsayılan olarak Linux işletim sistemini HDInsight kümeleri ile sağlanır.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 
 ## <a name="connectivity"></a>Bağlantı
 
 Ambari Web kullanıcı arabirimini konumunda HDInsight kümenize kullanılabilir HTTPS://CLUSTERNAME.azurehdinsight.netburada **CLUSTERNAME** kümenizin adıdır.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight üzerinde Ambari bağlanma HTTPS gerektirir. Kimlik doğrulaması için istendiğinde, yönetici hesabı adını ve kümeyi oluştururken belirttiğiniz parolayı kullanın.
 
 ## <a name="ssh-tunnel-proxy"></a>SSH tüneli (proxy)
@@ -46,7 +46,7 @@ Kümeniz için Ambari doğrudan Internet üzerinden erişilebilir olsa da, bazı
 
 ## <a name="ambari-web-ui"></a>Ambari Web UI
 
-> [!WARNING]
+> [!WARNING]  
 > Ambari Web kullanıcı arabirimi tüm özellikleri, HDInsight üzerinde desteklenir. Daha fazla bilgi için [desteklenmeyen işlem](#unsupported-operations) bu belgenin bölüm.
 
 Ambari Web kullanıcı Arabirimine bağlanırken sayfasına kimlik doğrulaması istenir. Kümenin yönetici kullanıcı (varsayılan Yönetici) ve küme oluşturma sırasında kullandığınız parolayı kullanın.
@@ -120,7 +120,7 @@ Küme içindeki düğümler hakkında daha fazla bilgi için seçin **konakları
 
 ![Hizmetleri kenar çubuğu](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Görüntülenen Hizmetleri, HDInsight küme türleri ve sürümleri arasında farklılık gösterir. Burada görüntülenen Hizmetleri kümeniz için görüntülenen hizmetler farklı olabilir.
 
 Bir hizmeti seçtiğinizde, hizmette daha ayrıntılı bilgileri görüntüler.
@@ -138,7 +138,7 @@ Bazı hizmetler görünen bir **hızlı bağlantılar** sayfanın üstündeki ba
 
 Bu bağlantılardan birini seçerek seçili sayfasını görüntüler, tarayıcınızda yeni bir sekmede açılır.
 
-> [!NOTE]
+> [!NOTE]  
 > Seçme **hızlı bağlantılar** girişi için bir hizmet, "Sunucu bulunamadı" hatası döndürebilir. Bu hatayla karşılaşırsanız, kullanırken bir SSH tüneli kullanmalısınız **hızlı bağlantılar** bu hizmet için giriş. Bilgi için [SSH tünel oluşturmayı kullanma HDInsight ile](hdinsight-linux-ambari-ssh-tunnel.md)
 
 ## <a name="management"></a>Yönetim
@@ -147,7 +147,7 @@ Bu bağlantılardan birini seçerek seçili sayfasını görüntüler, tarayıc�
 
 Kullanıcıları, grupları ve izinleri ile çalışma kullanırken desteklenen bir [etki alanına katılmış](./domain-joined/apache-domain-joined-introduction.md) HDInsight kümesi. Etki alanına katılmış bir küme üzerinde yönetim Ambari UI'ı kullanma hakkında daha fazla bilgi için bkz. [etki alanına katılmış HDInsight kümelerini yönetme](./domain-joined/apache-domain-joined-introduction.md).
 
-> [!WARNING]
+> [!WARNING]  
 > Linux tabanlı HDInsight kümenizdeki Ambari bekçi (hdinsightwatchdog) parolasını değiştirmeyin. Parola değiştirme betik eylemlerini kullanın veya kümenizle ölçeklendirme işlemleri gerçekleştirme olanağı keser.
 
 ### <a name="hosts"></a>Ana bilgisayarlar
@@ -156,7 +156,7 @@ Kullanıcıları, grupları ve izinleri ile çalışma kullanırken desteklenen 
 
 ![ana sayfa](./media/hdinsight-hadoop-manage-ambari/hosts.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Ekleme, kullanımdan kaldırma ve ana bilgisayar recommissioning HDInsight kümeleri ile kullanılmamalıdır.
 
 1. Yönetmek istediğiniz konağı seçin.
@@ -195,7 +195,7 @@ Gelen **Pano** veya **Hizmetleri** sayfasında **eylemleri** altındaki tüm hiz
 
 ![Hizmet eylemleri](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [!WARNING]
+> [!WARNING]  
 > Sırada **Hizmet Ekle** listelenen bu menüde, hizmetleri, HDInsight kümesine eklemek için kullanılmamalıdır. Küme hazırlama sırasında bir betik eylemi kullanarak yeni hizmetler eklenmesi gerekir. Betik eylemlerini kullanarak daha fazla bilgi için bkz: [özelleştirme HDInsight kümelerini betik eylemlerini kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
 
 Sırada **eylemleri** düğmesi tüm hizmetleri yeniden başlatın, genellikle başlatma, durdurma veya belirli bir hizmeti yeniden istiyor. Bir bireysel hizmet eylemleri gerçekleştirmek için aşağıdaki adımları kullanın:
@@ -206,12 +206,12 @@ Sırada **eylemleri** düğmesi tüm hizmetleri yeniden başlatın, genellikle b
 
     ![hizmet eylemi](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Küme çalışırken bazı hizmetlerin yeniden uyarılar oluşturabilir. Uyarıları önlemek için kullanabileceğiniz **hizmet eylemleri** etkinleştirmek için düğmeye **Bakım modu** hizmeti yeniden başlatmayı gerçekleştirmeden önce.
 
 3. Bir eylem seçildikten sonra **# op** giriş üst arka plan işlemi oluştuğunu göstermek için sayfa artırır. Arka plan işlemleri listesini görüntülemek için yapılandırılmışsa görüntülenir.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Etkinleştirilirse, **Bakım modu** kullanarak devre dışı bırakmak için hizmete unutmayın **hizmet eylemleri** işlemi tamamlandıktan sonra düğme.
 
 Bir hizmeti yapılandırmak için aşağıdaki adımları kullanın:
@@ -226,12 +226,12 @@ Bir hizmeti yapılandırmak için aşağıdaki adımları kullanın:
 
 ## <a name="ambari-views"></a>Ambari görünümleri
 
-Ambari görünümlerini izin Ambari Web kullanıcı arabirimini kullanarak kullanıcı Arabirimi öğeleri takın geliştiricilerin [Ambari görünümleri Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight Hadoop küme türleri ile aşağıdaki görünümleri sağlar:
+Ambari görünümlerini izin Ambari Web kullanıcı arabirimini kullanarak kullanıcı Arabirimi öğeleri takın geliştiricilerin [Apache Ambari görünümleri Framework](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight Hadoop küme türleri ile aşağıdaki görünümleri sağlar:
 
 
-* Hive görünümünü: Hive görünümü doğrudan web tarayıcınızdan Hive sorguları çalıştırmanıza olanak sağlar. Sorguları kaydedebilir, sonuçları görüntülemek, sonuçları küme depolama alanına kaydedin veya sonuçları, yerel bir sisteme indirme. Hive görünümleri kullanma hakkında daha fazla bilgi için bkz. [kullanım HDInsight ile Hive görünümleri](hadoop/apache-hadoop-use-hive-ambari-view.md).
+* Hive görünümü: Hive görünümü doğrudan web tarayıcınızdan Hive sorguları çalıştırmanıza olanak sağlar. Sorguları kaydedebilir, sonuçları görüntülemek, sonuçları küme depolama alanına kaydedin veya sonuçları, yerel bir sisteme indirme. Hive görünümleri kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile kullanmak Apache Hive görünümleri](hadoop/apache-hadoop-use-hive-ambari-view.md).
 
-* Tez görünümü: Tez View daha iyi anlamanıza ve iyileştirme işleri olanak sağlar. Tez işlerinde nasıl yürütülür ve hangi kaynakların kullanılan bilgileri görüntüleyebilirsiniz.
+* Tez görünümü: Tez görünümü daha iyi anlamanıza ve iyileştirme işleri olanak sağlar. Tez işlerinde nasıl yürütülür ve hangi kaynakların kullanılan bilgileri görüntüleyebilirsiniz.
 
 ## <a name="unsupported-operations"></a>Desteklenmeyen işlemleri
 
@@ -241,4 +241,4 @@ HDInsight üzerinde aşağıdaki Ambari işlemleri desteklenmez:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Nasıl kullanacağınızı öğrenin [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) HDInsight ile.
+Nasıl kullanacağınızı öğrenin [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) HDInsight ile.

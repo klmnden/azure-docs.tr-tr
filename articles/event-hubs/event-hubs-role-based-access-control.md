@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: c7d38538b3876ae91c0ae3794e14ab11f08993c6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 1324700445aebe672b2c5ae2b55ad9bc0bab13b2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162894"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384267"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Etkin Directory Role-Based erişim denetimi (Önizleme)
 
@@ -68,6 +68,8 @@ Ayrıntılı kayıt adımları açıklanmıştır [Bu öğreticide](../active-di
 - Uygulamanıza, önceki adımlarda belirtilen yeniden yönlendirme URI'si.
  
 Konsol uygulamasını çalıştırdığınızda, bir senaryo seçmek istenir; tıklayın **etkileşimli kullanıcı oturum açma** sayısı yazıp ENTER tuşuna basın. Uygulama oturum açma penceresinde görüntülenir, Event Hubs erişmeye için izninizi isteyen ve ardından hizmeti oturum açma kimliğini kullanarak gönderme ve alma senaryosunu çalıştırın için kullanır.
+
+Uygulamanın kullandığı `ServiceAudience.EventHubsAudience` belirteç hedef kitlesi olarak. İzleyici bir sabit olarak kullanılabilir olduğu diğer bir dil ya da SDK'ları kullanarak kullanmak için doğru değeri olur `https://eventhubs.azure.net/`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

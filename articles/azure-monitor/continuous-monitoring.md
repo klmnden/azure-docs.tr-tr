@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 88a4c6dbe9311a054c6ed93df0005d32e6d21672
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: fa5c3d65daa86a678ec278bc49759e1de7da7f0c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271802"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386545"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Sürekli Azure İzleyici ile izleme
 
@@ -64,13 +64,13 @@ Sürekli Tümleştirme / sürekli dağıtım sayesinde otomatik olarak tümleşt
 
 - Kullanım [Azure işlem hatları](/azure/devops/pipelines) sürekli dağıtımı uygulamak ve, kod tamamlama kadar tüm süreci, CI/CD testleri temel üretime otomatikleştirmek için.
 - Kullanım [kalite kapıları](/devops/pipelines/release/approvals/gates) , dağıtım öncesi veya dağıtım sonrası izleme tümleştirmek için. Bu, temel sistem durumu/performans ölçümlerini (KPI'ler) uygulamalarınızı, üretim ve farkları altyapı ortamında geliştirme taşıdığınızda veya ölçek olumsuz Kpı'lerinizi etkileyen değil ulaşmanızı sağlar.
-- [Ayrı izleme örnekleri korumak](../application-insights/app-insights-separate-resources.md) , geliştirme, Test, Kanarya ve üretim gibi farklı dağıtım ortamları arasında. Bu, toplanan veriler ilişkili uygulama ve altyapı arasında uygun olmasını sağlar. Ortamlar arasında verilerin bağıntısını gerekiyorsa, kullanabileceğiniz [ölçüm Gezgini'nde birden çok kaynak grafikleri](../monitoring-and-diagnostics/monitoring-metric-charts.md) veya oluşturma [kaynaklar arası sorgular Log analytics'te](log-query/cross-workspace-query.md).
+- [Ayrı izleme örnekleri korumak](../application-insights/app-insights-separate-resources.md) , geliştirme, Test, Kanarya ve üretim gibi farklı dağıtım ortamları arasında. Bu, toplanan veriler ilişkili uygulama ve altyapı arasında uygun olmasını sağlar. Ortamlar arasında verilerin bağıntısını gerekiyorsa, kullanabileceğiniz [ölçüm Gezgini'nde birden çok kaynak grafikleri](../azure-monitor/platform/metrics-charts.md) veya oluşturma [kaynaklar arası sorgular Log analytics'te](log-query/cross-workspace-query.md).
 
 
 ## <a name="create-actionable-alerts-with-actions"></a>Eyleme dönüştürülebilir uyarı eylemleri ile oluşturma
 İzleme önemli bir özelliği, geçerli ve tahmin edilen sorunları yöneticileri proaktif olarak bildirme. 
 
-- Oluşturma [Azure İzleyici'de uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) günlükleri ve tahmin edilebilir hata durumlarını tanımlamak için ölçümleri temel alan. Tüm uyarılar eyleme dönüştürülebilir gerçek kritik koşulları temsil eder ve hatalı pozitif sonuçları azaltmak arama yapma bir hedefi olmalıdır. Kullanım [dinamik eşikler](platform/alerts-dynamic-thresholds.md) temelleri kendi statik eşikler tanımlamak yerine ölçüm verileri otomatik olarak hesaplamak için. 
+- Oluşturma [Azure İzleyici'de uyarılar](../azure-monitor/platform/alerts-overview.md) günlükleri ve tahmin edilebilir hata durumlarını tanımlamak için ölçümleri temel alan. Tüm uyarılar eyleme dönüştürülebilir gerçek kritik koşulları temsil eder ve hatalı pozitif sonuçları azaltmak arama yapma bir hedefi olmalıdır. Kullanım [dinamik eşikler](platform/alerts-dynamic-thresholds.md) temelleri kendi statik eşikler tanımlamak yerine ölçüm verileri otomatik olarak hesaplamak için. 
 - Yöneticilerinize bildiren en etkili yolu kullanmak uyarılar için eylemleri tanımlayın. Kullanılabilir [bildirim eylemlerinde](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) SMS, e-postalar, anında iletme bildirimleri veya sesli çağrı.
 - Eylemler için daha gelişmiş [, ITSM aracına bağlanma](platform/itsmc-overview.md) veya diğer uyarı yönetim sistemleri ile [Web kancaları](platform/activity-log-alerts-webhook.md).
 - Uyarılarla de tanımlanan durumlar düzeltme [Azure Otomasyonu runbook'ları](../automation/automation-webhooks.md) veya [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) Web kancalarını kullanan bir uyarıdan başlatılabilir. 

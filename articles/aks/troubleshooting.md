@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 1fd8f7c8499b7f9223939b8d426f274e79fd190e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c20f2cc03565ce861dfc6317be8459fdafeef0bf
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025359"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384114"
 ---
 # <a name="aks-troubleshooting"></a>AKS sorunlarını giderme
 Oluşturduğunuz veya NLB Yöneticisi'ni AKS, bazen sorunlarla karşılaşabilirsiniz. Bu makalede bazı yaygın sorunlar ve sorun giderme adımları ayrıntılı olarak açıklanmaktadır.
@@ -59,8 +59,31 @@ Kubernetes panosunu görmüyorsanız, kube-proxy pod kube-system ad alanında ç
 
 Varsayılan NSG değiştirilmez ve bağlantı noktası 22 olduğundan bağlantı API sunucusu için açık emin olun. Tunnelfront pod kube-system ad alanında çalışıp çalışmadığını denetleyin. Yüklü değilse, onu zorla silin ve yeniden başlatılır.
 
-### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>Yükseltme veya ölçeklendirme hale getirmeye çalışıyorum ve "ileti" alıyorum: "'Imagereference' özelliğinin değiştirilmesine verilmez." Hata.  Bu sorunu nasıl düzeltebilirim?
+### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>Ölçeğini veya yükseltme yapmaya çalışıyorum ve "ileti" alıyorum bildirimi: "'Imagereference' özelliğinin değiştirilmesine izin verilmiyor." Hata.  Bu sorunu nasıl düzeltebilirim?
 
 AKS kümesi içindeki aracı düğümleri etiketleri değiştiğinden bu hatayı alıyorsanız mümkündür. Değiştirme ve silme etiketleri ve diğer özellikleri MC_ * kaynak grubundaki kaynakların beklenmeyen sonuçlara neden olabilir. MC_ * AKS kümesinde kaynaklarınıza değiştirme SLO keser.
 
+### <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>My AKS kümesinde hizmet sorumlusu gizli anahtarı nasıl yenileyebilirim?
 
+Varsayılan olarak, AKS Küme hizmeti ile bir yıl süre olan asıl oluşturulur. Ek bir süre için hizmet sorumlusu genişletmek için kimlik bilgilerini, yakın bir yıllık sona erme tarihi sıfırlayabilirsiniz.
+
+Aşağıdaki örnek, aşağıdaki adımları gerçekleştirir:
+
+1. Hizmet sorumlusu kimliği kümesi kullanma alır [az aks show](/cli/azure/aks#az-aks-show) komutu.
+1. Hizmet sorumlusu istemci gizli listeleri kullanma [az ad sp kimlik bilgileri listesi](/cli/azure/ad/sp/credential#az-ad-sp-credential-list)
+1. Başka bir yıl kullanmak için hizmet sorumlusu genişletir [az ad sp reset kimlik bilgisi](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) komutu. Hizmet sorumlusu istemci parolası düzgün şekilde çalışması AKS kümesi için aynı kalmalıdır.
+
+```azurecli
+# Get the service principal ID of your AKS cluster
+sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
+
+# Get the existing service principal client secret
+key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
+
+# Reset the credentials for your AKS service principal and extend for 1 year
+az ad sp credential reset \
+    --name $sp_id \
+    --password $key_secret \
+    --years 1
+```

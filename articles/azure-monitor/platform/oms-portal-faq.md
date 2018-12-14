@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 108b6cafa185788a66689a4d16bbfba7f30da6c3
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6b76249c85f9b8c64435043a75e39601d445ab0c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271479"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384726"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS portalından Log Analytics kullanıcılar için Azure portalına geçiş için sık sorulan sorular
 Log Analytics, OMS portalında adı verilen kendi portalı başlangıçta yapılandırmasını yönetmek ve toplanan verileri analiz etmek için kullanılır.  Bu Portalı'ndan tüm işlevselliği Azure portalında nerede geliştirilecek sürdürecektir taşındı.
@@ -33,7 +33,7 @@ Hayır. Bu yüzden geçirilmesi gereken bir şey Log Analytics'e kendisine yapı
 ![Log Analytics çalışma alanı](media/oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>İzinleri nasıl yönetebilirim?
-Azure portalında Log Analytics çalışma alanınıza erişimi yoksa, izinlerinizi kullanarak yapılandırmak gereken [Azure rol tabanlı erişim](../../role-based-access-control/role-assignments-portal.md). Çalışma alanı izinlerini yönetme hakkında daha fazla bilgi için bkz [çalışma alanlarını yönetme](manage-access.md#manage-accounts-and-users). Uyarılarla ilgili izinleri yönetme hakkında daha fazla bilgi için bkz. [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+Azure portalında Log Analytics çalışma alanınıza erişimi yoksa, izinlerinizi kullanarak yapılandırmak gereken [Azure rol tabanlı erişim](../../role-based-access-control/role-assignments-portal.md). Çalışma alanı izinlerini yönetme hakkında daha fazla bilgi için bkz [çalışma alanlarını yönetme](manage-access.md#manage-accounts-and-users). Uyarılarla ilgili izinleri yönetme hakkında daha fazla bilgi için bkz. [Azure İzleyici ile güvenlik rolleri ve izinleri ile çalışmaya başlama](../../azure-monitor/platform/roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Yeni bir çalışma alanı nasıl oluşturulur? 
 Azure portalında çalışma alanlarını listesinden tıklayın **Ekle** çalışma alanları listesinde.  Tüm Ayrıntılar için bkz. [Azure portalında Log Analytics çalışma alanı oluşturma](../learn/quick-create-workspace.md).

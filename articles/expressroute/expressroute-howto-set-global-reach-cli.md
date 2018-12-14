@@ -1,19 +1,19 @@
 ---
-title: Azure ExpressRoute Global Azure CLI kullanarak erişim yapılandırma | Microsoft Docs
+title: 'ExpressRoute küresel erişim yapılandırın: Azure CLI | Microsoft Docs'
 description: Bu makalede, yardımcı birlikte özel ağ arasında şirket içi ağlarınız ve Global erişim etkinleştirme yapmak için ExpressRoute bağlantı hattına bağlayın.
-documentationcenter: na
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 12/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9d41ab26876d464187466f566bbfafc4861c799d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 9a8e0a5df9383d8e3d7159aa916b0e4fbfeea948
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333304"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384079"
 ---
 # <a name="configure-expressroute-global-reach-using-azure-cli-preview"></a>Azure CLI (Önizleme) kullanarak ExpressRoute küresel erişim yapılandırma
 Bu makalede Azure CLI kullanarak ExpressRoute Global erişim yapılandırmanıza yardımcı olur. Daha fazla bilgi için [ExpressRouteRoute Global erişim](expressroute-global-reach.md).
@@ -55,24 +55,22 @@ ExpressRoute Global erişim herhangi iki ExpressRoute bağlantı hatları arası
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Şirket içi ağlarınızı arasındaki bağlantıyı etkinleştir
 
-İki ExpressRoute bağlantı hatları bağlanmak için aşağıdaki CLI çalıştırın.
+Bağlantıyı etkinleştirmek için komutu çalıştırırken, aşağıdaki değerleri göz önünde bulundurun:
 
-> [!NOTE]
-> *Eş devre* tam kaynak kimliği, örneğin olmalıdır
-> ```
-> */subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}*
-> ```
-> 
+* *Eş devre* tam kaynak kimliği olmalıdır Örneğin: 
+
+  ```
+  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
+  ```
+* *-AddressPrefix* bir/29 IPv4 olmalıdır alt ağ, örneğin "10.0.0.0/29". IP adreslerini bu alt ağda iki ExpressRoute bağlantı hatları arasında bağlantı kurmak için kullanacağız. Adresleri bu alt ağda Azure Vnet'ler veya şirket içi ağlarınızı kullanmamanız gerekir.
+
+İki ExpressRoute bağlantı hatları bağlanmak için aşağıdaki CLI çalıştırın. Aşağıdaki örnek komut kullanın:
 
 ```azurecli
 az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29>
 ```
 
-> [!IMPORTANT]
-> *-AddressPrefix* bir/29 IPv4 olmalıdır alt ağ, örneğin "10.0.0.0/29". IP adreslerini bu alt ağda iki ExpressRoute bağlantı hatları arasında bağlantı kurmak için kullanacağız. Adresleri bu alt ağda Azure Vnet'ler veya şirket içi ağlarınızı kullanmamanız gerekir.
-> 
-
-CLI çıktı aşağıdaki gibi görünür.
+CLI çıktıyı aşağıdaki örnekteki gibi görünür:
 
 ```azurecli
 {

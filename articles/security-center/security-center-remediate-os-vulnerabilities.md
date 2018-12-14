@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5de0c975b21131b50155a6e86f5710f741a3c7f7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317509"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344151"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik yapılandırmalarını düzeltme
 Azure Güvenlik Merkezi, sanal makineleri (VM'ler) ve Vm'leri hale getirebilecek yapılandırması için ve saldırı karşısında daha savunmasız bilgisayarları işletim sistemi (OS) günlük analiz eder. Güvenlik Merkezi, işletim sistemi yapılandırması önerilen güvenlik yapılandırması kurallarını eşleşmiyor ve bu güvenlik açıklarına değinen yapılandırma değişiklikleri önerir, güvenlik açıklarını gidermek önerir.
@@ -42,23 +42,23 @@ Bu örnekte, "güvenlik yapılandırmalarını düzeltme" önerinin altında ele
 
   Üst kısmında Pano görüntüler:
 
-  - **Önem derecesine göre başarısız olan kurallar**: işletim sistemi yapılandırması kullanarak Vm'lerinizdeki ve bilgisayarlarınızdaki, önem derecesine göre ayrıştırılmış arasında başarısız kuralları toplam sayısı.
-  - **Başarısız olan kurallar türüne göre**: işletim sistemi yapılandırması kullanarak Vm'lerinizdeki ve bilgisayarlarınızdaki, türüne göre ayrıştırılmış arasında başarısız kuralları toplam sayısı.
-  - **Başarısız olan Windows kurallar**: başarısız Windows işletim sistemi yapılandırmalarınızı kurallarının toplam sayısı.
-  - **Başarısız olan Linux kurallar**: Linux işletim sistemi yapılandırmalarınızı başarısız kurallarının toplam sayısı.
+  - **Önem derecesine göre başarısız olan kurallar**: İşletim sistemi yapılandırması kullanarak Vm'lerinizdeki ve bilgisayarlarınızdaki, önem derecesine göre ayrıştırılmış arasında başarısız kuralları toplam sayısı.
+  - **Başarısız olan kurallar türüne göre**: İşletim sistemi yapılandırması kullanarak Vm'lerinizdeki ve bilgisayarlarınızdaki, türüne göre ayrıştırılmış arasında başarısız kuralları toplam sayısı.
+  - **Başarısız olan Windows kurallar**: Windows işletim sistemi yapılandırmalarınızı başarısız kuralları toplam sayısı.
+  - **Başarısız olan Linux kurallar**: Linux işletim sistemi yapılandırmalarınızı başarısız kuralları toplam sayısı.
 
   Panonun alt bölümünde başarısız olan tüm kurallar, VM'ler ve bilgisayarlar ve eksik güncelleştirmenin önem derecesi için listeler. Listeye aşağıdaki öğeleri içerir:
 
-  - **CCEID**: CCE kuralı için benzersiz tanımlayıcı. Güvenlik Merkezi, benzersiz tanımlayıcıları için yapılandırma kuralları atamak üzere Common Configuration Enumeration (CCE) kullanır.
-  - **Ad**: başarısız olan kuralın adı.
-  - **Kural türü**: *kayıt defteri anahtarı*, *Güvenlik İlkesi*, *Denetim İlkesi*, veya *IIS* kural türü.
-  - **Hayır VM'ler ve bilgisayarların**: sanal makineleri ve başarısız kuralın uygulanacağı bilgisayarların toplam sayısı.
-  - **Kural önem derecesi**: CCE değer *kritik*, *önemli*, veya *uyarı*.
-  - **Durum**: önerinin geçerli durumu:
+  - **CCEID**: Kural CCE benzersiz tanımlayıcısı. Güvenlik Merkezi, benzersiz tanımlayıcıları için yapılandırma kuralları atamak üzere Common Configuration Enumeration (CCE) kullanır.
+  - **Ad**: Başarısız kural adı.
+  - **Kural türü**: *Kayıt defteri anahtarı*, *Güvenlik İlkesi*, *Denetim İlkesi*, veya *IIS* kural türü.
+  - **Hayır VM'ler ve bilgisayarların**: VM'ler ve başarısız olan kuralın uygulanacağı bilgisayarların toplam sayısı.
+  - **Kural önem derecesi**: CCE değeri *kritik*, *önemli*, veya *uyarı*.
+  - **Durum**: Önerinin geçerli durumu:
 
     - **Açık**: Öneri henüz ele alınmadı.
-    - **Devam eden**: öneri şu anda kaynaklara uygulanıyor ve herhangi bir işlem yapmanıza gerek yoktur.
-    - **Çözümlenen**: öneri uygulandı. Sorun çözüldüğünde girdi soluklaşır.
+    - **Devam eden**: Kaynakları şu anda öneri uygulanıyor ve herhangi bir işlem yapmanıza gerek yoktur.
+    - **Çözümlenen**: Öneri uygulandı. Sorun çözüldüğünde girdi soluklaşır.
 
 3. Başarısız bir kurala ayrıntılarını görüntülemek için listeden seçin.
 
@@ -66,17 +66,17 @@ Bu örnekte, "güvenlik yapılandırmalarını düzeltme" önerinin altında ele
 
    Ayrıntılı görünümde, aşağıdaki bilgileri görüntüler:
 
-   - **Ad**: kuralın adı.
-   - **CCIED**: CCE kuralı için benzersiz tanımlayıcı.
-   - **İşletim sistemi sürümü**: sanal makine veya bilgisayar işletim sistemi sürümü.
-   - **Kural önem derecesi**: CCE değer *kritik*, *önemli*, veya *uyarı*.
+   - **Ad**: Kuralın adı.
+   - **CCIED**: Kural CCE benzersiz tanımlayıcısı.
+   - **İşletim sistemi sürümü**: Sanal makine veya bilgisayar işletim sistemi sürümü.
+   - **Kural önem derecesi**: CCE değeri *kritik*, *önemli*, veya *uyarı*.
    - **Tam açıklama**: Kural açıklaması.
-   - **Güvenlik Açığı**: güvenlik açığı veya kuralı uygulanmaz, risk açıklaması.
+   - **Güvenlik Açığı**: Güvenlik Açığı veya kuralı uygulanmaz, risk açıklaması.
    - **Olası etkisini**: Kural uygulandığında iş etkisi.
-   - **Karşı önlem**: düzeltme adımları.
+   - **Karşı önlem**: Düzeltme adımları.
    - **Beklenen değer**: Güvenlik Merkezi, sanal makine işletim sistemi yapılandırması kural karşı analiz edilirken beklenen değer.
-   - **Gerçek değer**: VM'nin işletim sistemi yapılandırma kuralı karşı analizini kayıttan sonra döndürülen değer.
-   - **Kural işlemi**: VM'nin işletim sistemi yapılandırma kuralı karşı analiz sırasında Güvenlik Merkezi tarafından kullanılan kural işlemi.
+   - **Gerçek değer**: VM işletim sistemi yapılandırma kuralı karşı analizini kayıttan sonra döndürülen değer.
+   - **Kural işlemi**: VM işletim sistemi yapılandırma kuralı karşı analiz sırasında Güvenlik Merkezi tarafından kullanılan kural işlemi.
 
 4. Ayrıntılı Görünüm penceresinin en üstünde seçin **arama**.  
   Arama, Vm'leri ve seçili güvenlik yapılandırmalarını uyumsuzluğu bilgisayarlarla olan çalışma alanlarının bir listesini açar. Çalışma alanı seçimi yalnızca seçilen kuralı farklı çalışma alanına bağlı olan birden çok VM için geçerli olup olmadığını gösterilir.
@@ -101,7 +101,7 @@ Bu makalede Güvenlik Merkezi'nin önerisini "Düzelt güvenlik yapılandırmala
 Güvenlik Merkezi hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * Desteklenen Windows ve Linux Vm'leri listesi için bkz. [desteklenen platformlar Azure Güvenlik Merkezi'nde](security-center-os-coverage.md).
-* Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinmek için [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md).
+* Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinmek için [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md).
 * Öneriler, Azure kaynaklarınızı korumanıza nasıl yardımcı bilgi edinmek için [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md).
 * Azure kaynaklarınızın durumunu izlemek öğrenmek için bkz: [güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md).
 * Yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinmek için [yönetme ve Azure Güvenlik Merkezi'nde güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md).

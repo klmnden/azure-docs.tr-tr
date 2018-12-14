@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b763da25fb5a707e6a0c0cee1aabbe3eda03ee4c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8dae593dea36944f8db037803c0dfac68cbac7c8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312383"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384913"
 ---
 # <a name="indexers-in-azure-search"></a>Azure Search'te dizin oluşturucular
 
@@ -47,7 +47,8 @@ Dizin oluşturucular veri depoları Azure'da gezinin.
 * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Depolama](search-howto-indexing-azure-blob-storage.md)
-* [Azure Tablo Depolama](search-howto-indexing-azure-tables.md)
+* [Azure Tablo Depolama](search-howto-indexing-azure-tables.md) 
+    * Azure tablo depolaması için desteklenmediğini unutmayın [bilişsel arama](cognitive-search-concept-intro.md)
 
 
 ## <a name="basic-configuration-steps"></a>Temel yapılandırma adımları
@@ -64,7 +65,7 @@ Dizin oluşturucu veri alımıyla ilgili bazı görevleri otomatikleştirir, anc
 > [!Tip]
 > Dizin oluşturucular sizin için dizin oluşturamasa da, portaldaki **Verileri içeri aktarma** sihirbazı bu işlem için size yardımcı olabilir. Çoğu durumda, sihirbaz, kaynaktaki mevcut meta verilerden dizin şeması çıkarsayarak, sihirbaz etkin olduğunda satır içinde düzenleyebileceğiniz geçici bir dizin şeması sunar. Hizmet için sihirbaz oluşturulduğunda, portalda yapılabilecek ayrıntılı düzenlemeler, genellikle yeni alanlar eklemeyle sınırlıdır. Sihirbaz dizin oluşturmak için uygun olsa da, düzenlemek için uygun değildir. Uygulama yaparak öğrenmek için, [portal kılavuzundaki](search-get-started-portal.md) adımları izleyin.
 
-### <a name="step-3-create-and-schedule-the-indexer"></a>3. adım: Oluşturma ve zamanlama dizin oluşturucu
+### <a name="step-3-create-and-schedule-the-indexer"></a>3. Adım: Oluşturma ve zamanlama dizin oluşturucu
 Dizin oluşturucu tanımı dizini, veri kaynağını ve bir zamanlamayı belirten bir yapıdır. Bir dizin oluşturucu, aynı abonelikten olduğu sürece başka bir hizmetteki bir veri kaynağına başvurabilir. Bir dizin oluşturucuyu yapılandırma konusunda daha fazla bilgi için bkz. [Dizin Oluşturucu Oluşturma (Azure Search REST API’si)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
 ## <a name="next-steps"></a>Sonraki adımlar

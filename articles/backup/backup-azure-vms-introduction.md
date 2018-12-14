@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
 ms.author: raynew
-ms.openlocfilehash: 7ebb71c6c5968f8f3548f1accd8d659039e6b545
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e38f245197f2b1bdb22a2866028ad10f4ec39ec1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871651"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343507"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure’da sanal makine yedekleme altyapınızı planlama
 Bu makalede, performans ve sanal makine yedekleme altyapınızı planlama yapmanıza yardımcı olması için kaynak önerileri sağlar. Ayrıca, yedekleme hizmeti önemli yönlerini tanımlar; Bu görünüşler Mimarinizi, belirlemede önemli kapasite planlaması ve zamanlama. Belirttiyseniz [ortamınızı hazırladığınız](backup-azure-arm-vms-prepare.md), planlama, sonraki adıma başlamadan önce [Vm'lerini yedekleme](backup-azure-arm-vms.md). Azure sanal makineleri hakkında daha fazla bilgiye ihtiyacınız varsa bkz [sanal makineler belgeleri](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -99,16 +99,16 @@ Toplam yedek süresi 24 saatten az, artımlı yedeklemeler için geçerlidir, an
 Yedekleme iki aşamadan oluşur: anlık görüntü alma ve anlık görüntüleri kasasına aktarma. Backup hizmeti, depolama için iyileştirir. Anlık görüntü verileri bir kasaya aktarırken hizmeti, yalnızca artımlı değişiklikler önceki anlık görüntüden aktarır.  Artımlı değişiklikleri belirlemek için hizmet bloğu sağlama toplamını hesaplar. Bir blok değiştirilirse, blok kasaya gönderilecek bir blok olarak tanımlanır. Ardından hizmet tatbikatları her veri aktarmak için en aza indirmek fırsatlar arar tanımlanan blokları, daha fazla. Hizmet, tüm değiştirilen blokları değerlendirme sonra değişiklikleri birleştirir ve bunları kasaya gönderir. Bazı eski uygulamalarda parçalanmış, küçük yazma işlemlerini depolama için uygun değildir. Anlık görüntü birçok küçük, parçalanmış yazma içeriyorsa, hizmet uygulamaları tarafından yazılan verilerin işlenmesi ek zaman harcadığı. Sanal makine içinde çalışan uygulamalar için önerilen uygulama yazma işlemlerini blok en az 8 KB'tır. Uygulamanız değerinden 8 KB'lik bir blok kullanıyorsa, yedekleme performansı parametreden etkilenir. Uygulamanızın performansını artırmak için ayarlama hakkında bilgi için bkz: [uygulamalarını Azure depolama ile en iyi performans için ayarlama](../virtual-machines/windows/premium-storage-performance.md). Makaleyi yedekleme performansı Premium depolama örnekler kullansa standart depolama diskleri için geçerli bir kılavuzdur.<br>
 Yedekleme uzun süre çeşitli nedenlerle olabilir:
   1. **Yeni eklenen bir disk zaten korumalı bir VM için ilk yedekleme** <br>
-    Bir VM zaten varsa, yeni diskler sonra yedekleme eklendiğinde aşamasında artımlı yedekleme, yeni disk boyutuna bağlı olarak 1 gün SLA kaçırabilirsiniz.
+    Varsa bir sanal makine ilk yedekleme gerçekleştirilene ve artımlı yedekleme gerçekleştiriyor. Yeni diskler eklemeyi yeni disk boyutuna bağlı olarak 1 gün SLA'sı eksik.
   2. **Parçalanma** <br>
-    Müşteri uygulama küçük parçalanmış yazma alan hatalı yapılandırılmışsa.<br>
-  3. **Aşırı müşteri depolama hesabı** <br>
-      a. Yedekleme sırasında müşterinin üretim uygulama süresi zamanlanırsa.  
+    Sanal makinede çalışan iş yüklerini (uygulama) parçalanmış küçük yazma işlemlerini gerçekleştirir, ardından, olumsuz yedekleme performansı etkileyebilir. <br>
+  3. **Aşırı depolama hesabı** <br>
+      a. Yedekleme sırasında uygulama kullanımının Özet zamanlanırsa.  
       b. Birden fazla 5-10 diskleri aynı depolama hesabından barındırılır.<br>
   4. **Tutarlılık Check(CC) modu** <br>
       > 1 TB için yedekleme nedenlerden dolayı CC modunda durumda diskler, aşağıda belirtilen:<br>
-        a. Yönetilen disk müşteri VM yeniden başlatma işleminin bir parçası olarak taşır.<br>
-        b. Müşteri temel blob anlık görüntüye yükseltir.<br>
+        a. Yönetilen diskin VM yeniden başlatma işleminin bir parçası olarak taşır.<br>
+        b. Temel blob anlık görüntüye tanıtın.<br>
 
 ## <a name="total-restore-time"></a>Toplam geri yükleme süresi
 

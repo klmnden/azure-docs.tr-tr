@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: e3dfbc4fc4d7ed40ebac7de6fe78398b13eafd58
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b24e10abd7c0d4dd5a20f8f85c340de03dae696a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316557"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343828"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi (Önizleme) SQL bilgi koruması ilkesinde özelleştirme
  
@@ -86,7 +86,7 @@ Bu makalede, Azure Güvenlik Merkezi'nde bir SQL bilgi koruması ilkesi tanımla
 Güvenlik ilkeleri ve Azure Güvenlik Merkezi veri güvenliği hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
  
 - [Güvenlik ilkelerine genel bakış](security-center-policies-overview.md): Güvenlik Merkezi'nde güvenlik ilkelerini genel bir bakış edinin
-- [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md): Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin
-- [Azure Güvenlik Merkezi veri güvenliği](security-center-data-security.md): Güvenlik Merkezi'nin nasıl yönetir ve verileri koruyan öğrenin
+- [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md): Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin
+- [Azure Güvenlik Merkezi veri güvenliği](security-center-data-security.md): Güvenlik Merkezi nasıl yönetir ve verileri koruyan öğrenin
 
 

@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/07/2018
+ms.date: 12/13/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55226204d148239b7c32d1abc6f61fddcfc5b913
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 116f1f0a93c09ed751f0720ae74a2c24df7541eb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104994"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342519"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure Disk şifrelemesi önkoşulları
 
@@ -37,7 +37,7 @@ Azure Disk şifrelemesi, aşağıdaki işletim sistemlerinde desteklenir:
 ## <a name="bkmk_LinuxPrereq"></a> Linux Iaas sanal makineleri için ek Önkoşullar 
 
 - Linux için Azure Disk şifrelemesi, 7 GB işletim sistemi disk şifrelemeyi etkinleştirmek için VM üzerindeki RAM gerektirir [desteklenen resimler](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). İşletim sistemi disk şifreleme işlemi tamamlandıktan sonra VM ile daha az bellek çalıştırmak için yapılandırılabilir.
-- Şifreleme etkinleştirilmeden önce şifrelenmiş veri diskleri düzgün /etc/fstab içinde listelenmesi gerekir. Kalıcı blok cihaz adı bu giriş için "/ dev/sdX" biçimindeki adlarını sırasında özellikle şifreleme uygulandıktan sonra yeniden başlatmaları arasında aynı disk ile ilişkilendirilmesi dayanan olamaz cihazı olarak kullanın. Bu davranışı hakkında daha fazla ayrıntı için bkz: [Linux VM sorunlarını giderme cihaz adı değişiklikleri](../virtual-machines/linux/troubleshoot-device-names-problems.md)
+- Şifreleme etkinleştirilmeden önce şifrelenmiş veri diskleri düzgün /etc/fstab içinde listelenmesi gerekir. Kalıcı blok cihaz adı bu giriş için "/ dev/sdX" biçimindeki adlarını sırasında özellikle şifreleme uygulandıktan sonra yeniden başlatmaları arasında aynı disk ile ilişkilendirilmesi dayanan olamaz cihazı olarak kullanın. Bu davranışı hakkında daha fazla ayrıntı için bkz: [Linux VM cihaz adı değişikliklerle ilgili sorunları giderme](../virtual-machines/linux/troubleshoot-device-names-problems.md)
 - /Etc/fstab ayarlarını, bağlama için düzgün şekilde yapılandırıldığından emin olun. Bu ayarları yapılandırmak için bağlama - bir komut çalıştırın veya VM'yi yeniden başlatın ve bu şekilde onarılmasının tetikleyin. Bu işlem tamamlandıktan sonra sürücüyü yine de bağlandığını doğrulamak için lsblk komutunun çıkışını kontrol edin. 
     - Azure Disk şifrelemesi, /etc/fstab dosya sürücünün doğru şifreleme etkinleştirilmeden önce değil bağlarsanız, düzgün bir şekilde bağlamak mümkün olmayacaktır.
     - Azure Disk şifreleme işlemi /etc/fstab dışında ve kendi yapılandırma dosyasına bağlama bilgilerini şifreleme işleminin bir parçası olarak taşınır. Tamamlandıktan sonra veri Sürücü Şifrelemesi /etc/fstab eksik giriş görmek için alarmed çekinmeyin.
@@ -58,7 +58,7 @@ Veri diskleri bağlayın ve gerekli/etc/fstab girişleri oluşturmak için kulla
 **Grup İlkesi:**
  - Azure Disk şifrelemesi çözümü, BitLocker dış anahtar koruyucusu Windows Iaas Vm'leri için kullanır. Etki alanına katılmış sanal makineleri, TPM koruyucusu zorlamak için tüm grup ilkeleri anında iletme yok. "Uyumlu TPM'siz BitLocker izin ver" için Grup İlkesi hakkında bilgi için bkz: [BitLocker Grup İlkesi başvurusu](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup).
 
--  Özel Grup İlkesi ile etki alanına katılmış sanal makinelerde BitLocker'ı İlkesi şu ayar içermelidir: [bitlocker kurtarma bilgilerinin kullanıcı depolamasını yapılandırma -> izin 256 bitlik kurtarma anahtarı](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk şifrelemesi, Bitlocker için özel Grup İlkesi ayarları uyumsuz olduğunda başarısız olur. Doğru ilkeyi gerekmedi makinelerde yeni ilkeyi uygulamak, (gpupdate.exe/Force) güncelleştirmek için yeni ilke zorlayın ve daha sonra yeniden başlatmak gerekli olabilir.  
+-  Özel Grup İlkesi ile etki alanına katılmış sanal makinelerde BitLocker'ı İlkesi şu ayar eklemeniz gerekir: [Kullanıcı depolama alanını yapılandırmak bitlocker kurtarma bilgilerinin -> izin 256 bitlik kurtarma anahtarı](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk şifrelemesi, Bitlocker için özel Grup İlkesi ayarları uyumsuz olduğunda başarısız olur. Doğru ilkeyi gerekmedi makinelerde yeni ilkeyi uygulamak, (gpupdate.exe/Force) güncelleştirmek için yeni ilke zorlayın ve daha sonra yeniden başlatmak gerekli olabilir.  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
@@ -195,40 +195,40 @@ Azure platform şifreleme anahtarları veya gizli anahtar kasanızı önyükleme
 ### <a name="bkmk_KVperPSH"></a> Gelişmiş erişim ilkeleri Azure PowerShell ile anahtar kasası ayarlama
  Anahtar kasası PowerShell cmdlet'ini kullanın [Set-AzureRmKeyVaultAccessPolicy](/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) anahtar kasası disk şifrelemeyi etkinleştirmek için.
 
-  - **Anahtar kasası disk şifrelemesi için etkinleştir:** EnabledForDiskEncryption Azure Disk şifrelemesi için gereklidir.
+  - **Anahtar kasası disk şifrelemesi için etkinleştir:** Azure Disk şifrelemesi için EnabledForDiskEncryption gereklidir.
       
      ```azurepowershell-interactive 
      Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForDiskEncryption
      ```
 
-  - **Key Vault gerekirse dağıtım için etkinleştir:** bu anahtar kasası kaynak oluşturma, örneğin bir sanal makine oluşturulurken başvurulduğundan olduğunda bu anahtar kasasından gizli dizilerini alma Microsoft.Compute kaynak sağlayıcısına sağlar.
+  - **Key Vault, gerekirse dağıtım için etkinleştir:** Bu anahtar kasası kaynak oluşturma, örneğin bir sanal makine oluşturulurken başvurulduğundan olduğunda bu anahtar kasasından gizli dizilerini alma Microsoft.Compute kaynak sağlayıcısına sağlar.
 
      ```azurepowershell-interactive
       Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForDeployment
      ```
 
-  - **Key Vault şablon dağıtımı için gerekirse etkinleştirme:** bu anahtar kasasına bir şablon dağıtımında başvuru olduğunda bu anahtar kasasından gizli dizileri almak üzere Azure Resource Manager sağlar.
+  - **Key Vault şablon dağıtımı için gerekirse etkinleştir:** Bu anahtar kasasına bir şablon dağıtımında başvuru olduğunda bu anahtar kasasından gizli dizileri almak üzere Azure Resource Manager sağlar.
 
      ```azurepowershell-interactive             
-     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment`
+     Set-AzureRmKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MySecureRG' -EnabledForTemplateDeployment
      ```
 
 ### <a name="bkmk_KVperCLI"></a> Gelişmiş erişim ilkeleri Azure CLI kullanarak anahtar kasası ayarlama
 Kullanım [az keyvault update](/cli/azure/keyvault#az-keyvault-update) anahtar kasası disk şifrelemeyi etkinleştirmek için. 
 
- - **Anahtar kasası disk şifrelemesi için etkinleştir:** etkin için disk şifrelemesi gereklidir. 
+ - **Anahtar kasası disk şifrelemesi için etkinleştir:** Etkin-için-disk şifreleme gerekli değildir. 
 
      ```azurecli-interactive
      az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-disk-encryption "true"
      ```  
 
- - **Key Vault gerekirse dağıtım için etkinleştir:** bu anahtar kasası kaynak oluşturma, örneğin bir sanal makine oluşturulurken başvurulduğundan olduğunda bu anahtar kasasından gizli dizilerini alma Microsoft.Compute kaynak sağlayıcısına sağlar.
+ - **Key Vault, gerekirse dağıtım için etkinleştir:** Bu anahtar kasası kaynak oluşturma, örneğin bir sanal makine oluşturulurken başvurulduğundan olduğunda bu anahtar kasasından gizli dizilerini alma Microsoft.Compute kaynak sağlayıcısına sağlar.
 
      ```azurecli-interactive
      az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-deployment "true"
      ``` 
 
- - **Key Vault şablon dağıtımı için gerekirse etkinleştirme:** gizli dizileri kasadan almak için Resource Manager izin verin.
+ - **Key Vault şablon dağıtımı için gerekirse etkinleştir:** Resource Manager'ın gizli dizileri kasadan almak için izin verin.
      ```azurecli-interactive  
      az keyvault update --name "MySecureVault" --resource-group "MySecureRG" --enabled-for-template-deployment "true"
      ```

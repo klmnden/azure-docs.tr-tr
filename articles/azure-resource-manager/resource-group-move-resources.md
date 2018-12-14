@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 36cdb8a84c7ec7e05917be1144ae008f90cad03a
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: c589d1a11903f761fa791f36014fe235c1973514
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321144"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386919"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıma
 
@@ -245,7 +245,6 @@ Aşağıdaki listede, bir yeni kaynak grubu ve abonelik taşınamaz Azure hizmet
 * Azure veritabanı geçişi
 * Azure Databricks
 * Azure Geçişi
-* Batch AI
 * Sertifikalar - App Service sertifikaları taşınabilir, ancak karşıya yüklenen Sertifikalar [sınırlamaları](#app-service-limitations).
 * Container Instances
 * Kapsayıcı Hizmeti

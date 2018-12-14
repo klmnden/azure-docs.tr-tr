@@ -1,27 +1,31 @@
 ---
-title: Media Encoder Standard biçimleri ve codec bileşenleri
+title: Media Encoder Standard biçimleri ve codec bileşenleri - Azure
 description: Bu konu, Media Encoder Standard biçimleri ve codec bileşenleri hakkında genel bir bakış sağlar.
 services: media-services
 documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 9c6e26b082fb52f7d23bb1a827af30483f7fbd4f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fe1d681fa5f9ab49fec9112398ed03c87c975176
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255719"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384743"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard Biçimleri ve Kodlayıcılar
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [Sürüm 2](media-services-media-encoder-standard-formats.md)
+> * [Sürüm 3](../latest/media-encoder-standard-formats.md)
+
 Bu belge, en yaygın alma ve Medya Kodlayıcısı standart ile kullanabileceğiniz dışarı aktarma dosya biçimlerinin listesini içerir.
 
 ## <a name="input-containerfile-formats"></a>Giriş kapsayıcısı/dosya biçimleri
@@ -52,8 +56,6 @@ Media Encoder Standard giriş kapsayıcılarında aşağıdaki ses biçimlerinin
 or
 
 * Burada sesin ayrı PCM parçaları yürütülür, ancak kanal eşlemesinin (stero'ya veya 5. 1) dosya meta verilerinden çıkarılabildiği MXF, GXF ve QuickTime dosyaları
-
-Açık/kullanıcı tarafından sağlanan kanal eşlemesine yönelik destek yakın gelecekte sağlanır.
 
 ## <a name="input-video-codecs"></a>Giriş video codec bileşenleri
 | Giriş video codec bileşenleri | Desteklenen |

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7bc9341d7e078b0ae69cc9a734c02f257df6d96a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: beb6650125bdf7526b8167ba0f076b079e4e84a8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643358"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342876"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Dayanıklı işlevler - telefon doğrulama örneği, insan etkileşimi
 
@@ -45,8 +45,8 @@ Bu makalede örnek uygulama aşağıdaki işlevler anlatılmaktadır:
 * **E4_SendSmsChallenge**
 
 Aşağıdaki bölümlerde, betik C# ve JavaScript için kullanılan kod ve yapılandırma açıklanmaktadır. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
- 
-## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS doğrulama düzenleme (Visual Studio Code ve Azure portalı örnek kodu) 
+
+## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS doğrulama düzenleme (Visual Studio Code ve Azure portalı örnek kodu)
 
 **E4_SmsPhoneVerification** işlevini kullanan standart *function.json* orchestrator işlevleri için.
 
@@ -58,7 +58,7 @@ Aşağıdaki bölümlerde, betik C# ve JavaScript için kullanılan kod ve yapı
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
@@ -72,7 +72,7 @@ Başladıktan sonra bu Düzenleyici işlevi şunları yapar:
 Kullanıcı dört rakamlı bir kod içeren bir SMS iletisi alır. Doğrulama sürecini tamamlamanız için geri orchestrator işlevi örneğine, aynı 4 rakamlı bir kod gönderilecek 90 saniye sahiptirler. Bunlar yanlış kod gönderirseniz, bunlar sağ (aynı 90 saniyelik pencereye) almak için ek bir üç deneme alın.
 
 > [!NOTE]
-> İlk, ancak bu orchestrator belirgin olmayabilir işlevi belirleyici tamamen. Bunun nedeni, `CurrentUtcDateTime` özelliği Zamanlayıcı sona erme zamanını hesaplamak için kullanılır ve bu özellik, her yeniden yürütme bu noktada orchestrator kod üzerinde aynı değeri döndürür. Bu aynı emin olmak önemlidir `winner` sonuçları yinelenen her çağrıdan `Task.WhenAny`.
+> İlk, ancak bu orchestrator belirgin olmayabilir işlevi belirleyici tamamen. Bunun nedeni, `CurrentUtcDateTime` (.NET) ve `currentUtcDateTime` (JavaScript) özellikleri, Zamanlayıcı sona erme zamanını hesaplamak için kullanılır ve bu özellikler, her yeniden yürütme bu noktada orchestrator kod üzerinde aynı değeri döndürür. Bu aynı emin olmak önemlidir `winner` sonuçları yinelenen her çağrıdan `Task.WhenAny` (.NET) veya `context.df.Task.any` (JavaScript).
 
 > [!WARNING]
 > Önemlidir [zamanlayıcılar iptal](durable-functions-timers.md) artık bunları ne zaman bir sınama yanıtı kabul yukarıdaki örnekte olduğu gibi süresi dolacak şekilde ihtiyacınız varsa.
@@ -89,7 +89,7 @@ Ve 4 basamaklı sınama kodu oluşturur ve SMS mesajı gönderir kod aşağıdak
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
@@ -106,6 +106,7 @@ Content-Type: application/json
 
 "+1425XXXXXXX"
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Length: 695
@@ -115,12 +116,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
-   > [!NOTE]
-   > Şu anda, JavaScript düzenleme başlangıç işlevleri örnek Yönetimi URI'ler döndüremez. Bu özellik, bir sonraki sürümde eklenecek.
-
 Orchestrator işlevi sağlanan telefon numarasını alır ve rastgele oluşturulmuş 4 basamaklı doğrulama kodunu içeren bir SMS iletisi gönderir hemen &mdash; gibi *2168*. İşlev yanıt 90 saniye bekler.
 
-Koduyla yanıt vermek için kullanabileceğiniz `RaiseEventAsync` iç işlev veya çağırma **sendEventUrl** yukarıda değiştirerek 202 yanıtının başvurulan bir HTTP POST Web kancası `{eventName}` olay adıyla `SmsChallengeResponse`:
+Kodu ile yanıt vermek için kullanabileceğiniz [ `RaiseEventAsync` (.NET) veya `raiseEvent` (JavaScript)](durable-functions-instance-management.md#sending-events-to-instances) iç işlev veya çağırma **sendEventUrl** yukarıdaki 202 yanıt olarak başvurulan bir HTTP POST Web kancası , değiştirme `{eventName}` olay adıyla `SmsChallengeResponse`:
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -135,6 +133,7 @@ Zamanlayıcı süresi dolmadan önce bu gönderirseniz, orchestration tamamland�
 ```
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
+
 ```
 HTTP/1.1 200 OK
 Content-Length: 144

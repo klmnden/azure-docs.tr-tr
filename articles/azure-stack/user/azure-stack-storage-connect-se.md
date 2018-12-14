@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ab498a108eba39088aa610188918934dd4ec1d3e
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6ab2d92e2a3c62719af1c8ab6d6eda935fc49505
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078962"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386783"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Depolama Gezgini'ni Azure Stack aboneliğine veya bir depolama hesabına bağlama
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bu makalede, Azure Stack aboneliklerini ve Depolama Gezgini'ni kullanarak depolama hesapları nasıl bağlayacağınızı öğreneceksiniz. Azure Depolama Gezgini Windows, macOS ve Linux'ta Azure Stack depolama verilerle kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
 
@@ -45,9 +45,16 @@ Azure Stack Geliştirme Seti için Azure Stack yetkili kök sertifikasını dı�
 
 2. İçinde **dosya**seçin **Ekle/Kaldır ek bileşenini**ve ardından eklemek **sertifikaları** yönetmek için **kullanıcı hesabım**.
 
-3. Altında **konsol kökü\sertifikalı (yerel bilgisayar) \Trusted Root Certification Authorities\Certificates** Bul **AzureStackSelfSignedRootCert**.
+3.  Altında **konsol kökü\sertifikalı (yerel bilgisayar) \Trusted kök sertifika Yetkilileri\Sertifikalar**.
 
-    ![mmc.exe dosyası ile Azure Stack kök sertifikasını yükleme](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+    - ASDK için bulma **AzureStackSelfSignedRootCert**.
+
+        ![mmc.exe dosyası ile Azure Stack kök sertifikasını yükleme](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+
+    - Tümleşik bir sistem için dış sertifikalarınız kök sertifikayı bulun. 
+    
+        ![mmc.exe dosyası ile Azure Stack kök sertifikasını yükleme](./media/azure-stack-storage-connect-se/azure-stack-storage-cert-location-is.png)
+        
 
 4. Sertifikaya sağ tıklayın, **tüm görevler** > **dışarı**ve ardından olan sertifikayı dışarı aktarmak için yönergeleri izleyin **Base-64 ile kodlanmış X.509 (. CER)**.
 

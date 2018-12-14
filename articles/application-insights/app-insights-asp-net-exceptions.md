@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: f36d0ec4446ee6591798c0d8926f41a4e177d81d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 21c1a92a71ac52a47a8b9d73d5e715afb6dc73d0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997048"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343420"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights ile web uygulamalarınızda özel durumları tanılama
 Canlı web uygulamanızdaki özel durumları tarafından bildirilen [Application Insights](app-insights-overview.md). Böylece hızla nedenlerini tanılayabilirsiniz başarısız istekler, özel durumlar ve diğer olaylarla hem istemci hem de sunucu ilişkilendirebilirsiniz.
@@ -25,9 +25,9 @@ Canlı web uygulamanızdaki özel durumları tarafından bildirilen [Application
 ## <a name="set-up-exception-reporting"></a>Set up reporting özel durumu
 * Rapor sunucusu uygulamanızdan özel durumlar için:
   * Yükleme [Application Insights SDK'sı](app-insights-asp-net.md) uygulama kodunuzda veya
-  * IIS web sunucularının: çalıştırma [Application Insights Aracısı](app-insights-monitor-performance-live-website-now.md); veya
-  * Azure web apps: ekleme [Application Insights uzantısı](app-insights-azure-web-apps.md)
-  * Java web uygulaması: yükleme [Java aracı](app-insights-java-agent.md)
+  * IIS web sunucuları: Çalıştırma [Application Insights Aracısı](app-insights-monitor-performance-live-website-now.md); veya
+  * Azure web uygulamaları: Ekleme [Application Insights uzantısı](app-insights-azure-web-apps.md)
+  * Java web uygulamaları: Yükleme [Java aracı](app-insights-java-agent.md)
 * Yükleme [JavaScript kod parçacığını](app-insights-javascript.md) tarayıcı özel durumları yakalamak için web sayfalarınızda.
 * Bazı uygulama çerçeveleri veya bazı ayarları ile daha fazla özel durumları yakalamak için bazı fazladan adımlar uygulamanız gerekir:
   * [Web formları](#web-forms)
@@ -50,14 +50,15 @@ Yalnızca özel durumları göstermek için raporu filtreleyebilirsiniz dikkat e
 *Özel durumları gösteriliyor? Bkz: [özel durumları yakalama](#exceptions).*
 
 Bir özel durum raporu, yığın izlemesi göstermek için tıklayın.
-İlgili kod dosyasını açmak için yığın izlemesi satır başvuru tıklayın.  
+İlgili kod dosyasını açmak için yığın izlemesi satır başvuru tıklayın.
 
 Kod içinde özel olarak CodeLens özel durumları hakkında daha fazla veri gösterdiğine dikkat edin:
 
 ![CodeLens özel durum bildirimi.](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>Azure portalını kullanarak hataları tanılama
-Application Insights, izlenen uygulamalardaki hataları tanılamanıza yardımcı olmak için seçkin bir APM deneyimi ile gelir. Başlamak için Araştır bölümünde bulunan ve Application Insights kaynak menüsünde hataları seçeneğini tıklayın. Hata oranı eğilimleri isteklerinizi, kaç tanesinin başarısız olduğunu ve kaç kullanıcının etkilendiğini gösteren bir tam ekran görünümüyle görmeniz gerekir. Sağ tarafta, bazı faydalı dağıtımlar seçili belirli görürsünüz ilk 3 yanıt kodları, ilk 3 özel durum türleri ve en üst 3 başarısız bağımlılık türleri de dahil olmak üzere, işlem başarısız. 
+Application Insights, izlenen uygulamalardaki hataları tanılamanıza yardımcı olmak için seçkin bir APM deneyimi ile gelir. Başlamak için Araştır bölümünde bulunan ve Application Insights kaynak menüsünde hataları seçeneğini tıklayın.
+Hata oranı eğilimleri isteklerinizi, kaç tanesinin başarısız olduğunu ve kaç kullanıcının etkilendiğini gösteren bir tam ekran görünümüyle görmeniz gerekir. Sağ tarafta, bazı faydalı dağıtımlar seçili belirli görürsünüz ilk 3 yanıt kodları, ilk 3 özel durum türleri ve en üst 3 başarısız bağımlılık türleri de dahil olmak üzere, işlem başarısız.
 
 ![Hataları önceliklendirme (işlemler sekmesi) görünümü](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
@@ -98,7 +99,7 @@ Bu olayları görmek için [arama](app-insights-diagnostic-search.md), filtre a�
 
 * [SDK yükleme](app-insights-asp-net.md) uygulama projesinde.
 * Çağırmak için uygulamanıza kod eklemek [Microsoft.ApplicationInsights.TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace). Gönderme verisi ileti parametreyi gönderin. Yalnızca gerekli veri göndermeye şekilde bir izin verilen boyut sınırı yoktur.
-* Başarısız istek araştırırken, ilişkili izlemeleri bulun.  
+* Başarısız istek araştırırken, ilişkili izlemeleri bulun.
 
 ![Detaylandırma](./media/app-insights-asp-net-exceptions/060-req-related.png)
 
@@ -178,7 +179,7 @@ Ancak, etkin yeniden yönlendirmeleri varsa Global.asax.cs uygulama_hatası işl
 ```csharp
     void Application_Error(object sender, EventArgs e)
     {
-      if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError  () != null)
+      if (HttpContext.Current.IsCustomErrorEnabled && Server.GetLastError () != null)
       {
          var ai = new TelemetryClient(); // or re-use an existing instance
 
@@ -199,12 +200,13 @@ Bir özel durum filtreleri işleyemiyor sayısını vardır. Örneğin:
 * Uygulama başlatma sırasında özel bir durum oluştu.
 * Arka plan görevlerinin özel bir durum oluştu.
 
-Tüm özel durumları *işlenen* uygulama tarafından yine de el ile izlenmesi gerekir. İşlenmeyen özel durumlar genellikle denetleyicilerinden kaynaklanan 500 "İç sunucu hatası" yanıt olarak neden. Bu tür yanıt sonucu olarak işlenen özel durum (veya hiç özel durum) el ile oluşturulursa karşılık gelen istek telemetrisi ile izlenen `ResultCode` 500, ancak Application Insights SDK'sı karşılık gelen bir özel durum izleyemiyor.
+Tüm özel durumları *işlenen* uygulama tarafından yine de el ile izlenmesi gerekir.
+İşlenmeyen özel durumlar genellikle denetleyicilerinden kaynaklanan 500 "İç sunucu hatası" yanıt olarak neden. Bu tür yanıt sonucu olarak işlenen özel durum (veya hiç özel durum) el ile oluşturulursa karşılık gelen istek telemetrisi ile izlenen `ResultCode` 500, ancak Application Insights SDK'sı karşılık gelen bir özel durum izleyemiyor.
 
 ### <a name="prior-versions-support"></a>Önceki sürümleri desteği
 Application Insights Web SDK 2.5 (ve öncesi), MVC 4 (ve öncesi) kullanırsanız, özel durumları izlemek için aşağıdaki örneklere bakın.
 
-Varsa [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) yapılandırma `Off`, özel durumlar için kullanılabilecek sonra [HTTP modülü](https://msdn.microsoft.com/library/ms178468.aspx) toplanacak. Ancak, bu ise `RemoteOnly` (varsayılan), veya `On`, özel durum temizlenir ve Application Insights'ı otomatik olarak toplamak için kullanılabilir olmayacaktır. Bunu geçersiz kılarak düzeltelim [System.Web.Mvc.HandleErrorAttribute sınıfı](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)ve farklı MVC sürümleri için aşağıda gösterildiği gibi geçersiz kılınan sınıf uygulama ([github kaynak](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
+Varsa [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) yapılandırma `Off`, özel durumlar için kullanılabilecek sonra [HTTP modülü](https://msdn.microsoft.com/library/ms178468.aspx) toplanacak. Ancak, bu ise `RemoteOnly` (varsayılan), veya `On`, özel durum temizlenir ve Application Insights'ı otomatik olarak toplamak için kullanılabilir olmayacaktır. Bunu geçersiz kılarak düzeltelim [System.Web.Mvc.HandleErrorAttribute sınıfı](https://msdn.microsoft.com/library/system.web.mvc.handleerrorattribute.aspx)ve farklı MVC sürümleri için aşağıda gösterildiği gibi geçersiz kılınan sınıf uygulama ([GitHub kaynak](https://github.com/AppInsightsSamples/Mvc2UnhandledExceptions/blob/master/MVC2App/Controllers/AiHandleErrorAttribute.cs)):
 
 ```csharp
     using System;
@@ -222,7 +224,7 @@ Varsa [CustomErrors](https://msdn.microsoft.com/library/h0hfz6fc.aspx) yapıland
             {
                 //If customError is Off, then AI HTTPModule will report the exception
                 if (filterContext.HttpContext.IsCustomErrorEnabled)
-                {   //or reuse instance (recommended!). see note above  
+                {   //or reuse instance (recommended!). see note above
                     var ai = new TelemetryClient();
                     ai.TrackException(filterContext.Exception);
                 }
@@ -239,9 +241,9 @@ Yeni özniteliğinizi denetleyicilerinizi HandleError özniteliği değiştirin.
 ```csharp
     namespace MVC2App.Controllers
     {
-       [AiHandleError]
-       public class HomeController : Controller
-       {
+        [AiHandleError]
+        public class HomeController : Controller
+        {
     ...
 ```
 
@@ -290,7 +292,8 @@ Bir özel durum filtreleri işleyemiyor sayısını vardır. Örneğin:
 * Uygulama başlatma sırasında özel bir durum oluştu.
 * Arka plan görevlerinin özel bir durum oluştu.
 
-Tüm özel durumları *işlenen* uygulama tarafından yine de el ile izlenmesi gerekir. İşlenmeyen özel durumlar genellikle denetleyicilerinden kaynaklanan 500 "İç sunucu hatası" yanıt olarak neden. Bu tür yanıt sonucu olarak işlenen özel durum (veya hiç özel durum) el ile oluşturulursa karşılık gelen bir istek telemetrisi ile izlenen `ResultCode` 500, ancak Application Insights SDK'sı karşılık gelen bir özel durum izleyemiyor.
+Tüm özel durumları *işlenen* uygulama tarafından yine de el ile izlenmesi gerekir.
+İşlenmeyen özel durumlar genellikle denetleyicilerinden kaynaklanan 500 "İç sunucu hatası" yanıt olarak neden. Bu tür yanıt sonucu olarak işlenen özel durum (veya hiç özel durum) el ile oluşturulursa karşılık gelen bir istek telemetrisi ile izlenen `ResultCode` 500, ancak Application Insights SDK'sı karşılık gelen bir özel durum izleyemiyor.
 
 ### <a name="prior-versions-support"></a>Önceki sürümleri desteği
 Application Insights Web SDK 2.5 (ve önceki) Webapı 1'i (ve öncesi) kullanırsanız, özel durumları izlemek için aşağıdaki örneklere bakın.
@@ -311,7 +314,7 @@ System.Web.Http.Filters.ExceptionFilterAttribute geçersiz kıl:
             if (actionExecutedContext != null && actionExecutedContext.Exception != null)
             {  //or reuse instance (recommended!). see note above
                 var ai = new TelemetryClient();
-                ai.TrackException(actionExecutedContext.Exception);    
+                ai.TrackException(actionExecutedContext.Exception);
             }
             base.OnException(actionExecutedContext);
         }
@@ -481,7 +484,7 @@ Bu Application Insights portalında TrackException raporları sayım tarafından
 
 ## <a name="video"></a>Video
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player] 
+> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [REST, SQL ve diğer bağımlılıklara yapılan çağrıları izleme](app-insights-asp-net-dependencies.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 56234562f64073e2b772f6ebf302ddba9ea56188
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a006e9a9eb3fe4d9dc049e29eb404e5edf8f35c9
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189550"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342145"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surface hub'lar durumlarını izlemek için Log Analytics ile izleme
 
@@ -82,8 +82,8 @@ Surface hub'ları izleme Log Analytics gibi diğer kaydedilen cihazların izleme
 
    ![Surface Hub Panosu](./media/surface-hubs/surface-hub-dashboard.png)
 
-Oluşturabileceğiniz [uyarılar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) mevcut veya özel günlük aramaları göre. Log Analytics, Surface hub'larından toplar. veriler kullanılarak, sorunlar ve cihazlarınız için tanımladığınız koşulların uyarısında için arama yapabilirsiniz.
+Oluşturabileceğiniz [uyarılar](../../azure-monitor/platform/alerts-overview.md) mevcut veya özel günlük aramaları göre. Log Analytics, Surface hub'larından toplar. veriler kullanılarak, sorunlar ve cihazlarınız için tanımladığınız koşulların uyarısında için arama yapabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kullanım [Log Analytics'te günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı Surface Hub verilerini görüntülemek için.
-* Oluşturma [uyarılar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) Surface hub'larıyla sorunları ortaya çıktığında bunu size bildirecek.
+* Oluşturma [uyarılar](../../azure-monitor/platform/alerts-overview.md) Surface hub'larıyla sorunları ortaya çıktığında bunu size bildirecek.

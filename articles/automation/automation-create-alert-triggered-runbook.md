@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32fdafc01f90b687f6fb7bcd147710e0122338ad
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6a099fe371198da7d3cda3146bbd9668c4d49285
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278177"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343658"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Azure Otomasyonu runbook'u tetiklemek için bir uyarı kullanın
 
@@ -211,7 +211,7 @@ Bildirim eylemi içinde eylem grubunu oluşturmak için:
    ![Eylem grubu Sayfası Ekle](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 1. Eylem grubunu oluşturmak için Seç **Tamam**.
 
-Bu eylem grubuna kullanabileceğiniz [etkinlik günlüğü uyarıları](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) ve [neredeyse gerçek zamanlı uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) oluşturduğunuz.
+Bu eylem grubuna kullanabileceğiniz [etkinlik günlüğü uyarıları](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json) ve [neredeyse gerçek zamanlı uyarılar](../azure-monitor/platform/alerts-overview.md?toc=%2fazure%2fautomation%2ftoc.json) oluşturduğunuz.
 
 ## <a name="classic-alert"></a>Klasik bir uyarı
 

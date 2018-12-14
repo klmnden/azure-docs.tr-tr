@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 82fb2241b5988bae9587807c03e7bec50e7c1677
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f76c1676e21e1abdc3f23e2e2c4a7f6f721fefdb
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955397"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386579"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Azure'da Office 365'ten veri kopyalama 
 
@@ -34,7 +34,7 @@ Bu makalede, kopyalama etkinliği Azure Data Factory'de Office 365'ten veri kopy
 >- Veri fabrikasını ve havuz veri deposu içeren Azure aboneliğinin, Office 365 kiracısı olarak aynı Azure Active Directory (Azure AD) kiracısı altında olması gerekir.
 >- Kopyalama etkinliği için kullanılan Azure Integration Runtime bölge sağlamak hem de Office 365 Kiracı kullanıcının posta kutusuna bulunduğu bölgede hedefi olan. Başvuru [burada](concepts-integration-runtime.md#integration-runtime-location) Azure IR konumu nasıl belirlendiğini öğrenmek. Başvurmak [burada tablo](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions) desteklenen Office bölgeleri ve karşılık gelen Azure bölgelerinin listesi için.
 >-  Office 365 verilerini yüklüyorsanız **Azure Blob Depolama** hedef olarak kullandığınızdan emin olun **[hizmet sorumlusu kimlik doğrulaması](connector-azure-blob-storage.md#service-principal-authentication)** bağlı tanımlarken Azure Blob depolama alanına hizmet ve kullanmayan [hesap anahtarı](connector-azure-blob-storage.md#account-key-authentication), [paylaşılan erişim imzası](connector-azure-blob-storage.md#shared-access-signature-authentication) veya [kimliklerini Azure kaynakları için yönetilen](connector-azure-blob-storage.md#managed-identity) kimlik doğrulamaları.
->-  Office 365 verilerini yüklüyorsanız **Azure Data Lake depolama Gen1** hedef olarak kullandığınızdan emin olun [ **hizmet sorumlusu kimlik doğrulaması** ](connector-azure-data-lake-store.md#using-service-principal-authentication) tanımlarken Azure Data Lake depolama Gen1 ve kullanmayan bağlı hizmeti [yönetilen Azure kaynaklarında kimlik doğrulaması için kimlik](connector-azure-data-lake-store.md#managed-identity).
+>-  Office 365 verilerini yüklüyorsanız **Azure Data Lake depolama Gen1** hedef olarak kullandığınızdan emin olun [ **hizmet sorumlusu kimlik doğrulaması** ](connector-azure-data-lake-store.md#use-service-principal-authentication) tanımlarken Azure Data Lake depolama Gen1 ve kullanmayan bağlı hizmeti [yönetilen Azure kaynaklarında kimlik doğrulaması için kimlik](connector-azure-data-lake-store.md#managed-identity).
 
 ## <a name="prerequisites"></a>Önkoşullar
 

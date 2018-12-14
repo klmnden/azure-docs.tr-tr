@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a0fdab06606a88fafa803a9a112c05452578cfeb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3dcaba9c0512cbe2c4cf1cd14338a88209a80e85
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252873"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385321"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>İşletim sistemi ve Azure App Service'te çalışma zamanı düzeltme eki uygulama
 
@@ -81,7 +81,7 @@ Eski bir sürümü kullanım dışıdır, böylece, çalışma zamanı sürümü
 
 ## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Nasıl miyim işletim sistemi ve çalışma zamanı güncelleştirme durumu Örneklerim üzerinde sorgulama yapabilirsiniz?  
 
-Kritik işletim sistemi bilgileri aşağı erişimden kilitliyken (bkz [Azure App Service üzerindeki işletim sistemi işlevi](web-sites-available-operating-system-functionality.md)), [Kudu konsolunu](https://github.com/projectkudu/kudu/wiki/Kudu-console) App Service örneğinizin işletim sistemi ile ilgili sorgu sağlar Sürüm ve çalışma zamanı sürümleri. 
+Kritik işletim sistemi bilgileri aşağı erişimden kilitliyken (bkz [Azure App Service üzerindeki işletim sistemi işlevi](operating-system-functionality.md)), [Kudu konsolunu](https://github.com/projectkudu/kudu/wiki/Kudu-console) App Service örneğinizin işletim sistemi ile ilgili sorgu sağlar Sürüm ve çalışma zamanı sürümleri. 
 
 Aşağıdaki tabloda nasıl uygulamalarınızı çalıştıran ve sürümleri için Windows dil çalışma zamanı:
 

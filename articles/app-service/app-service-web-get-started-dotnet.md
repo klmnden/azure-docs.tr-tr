@@ -1,6 +1,6 @@
 ---
 title: Oluşturma C# ASP.NET Core web uygulaması - Azure App Service | Microsoft Docs
-description: Varsayılan C# ASP.NET web uygulamasını dağıtarak Azure App Service'te web uygulamalarını çalıştırma hakkında bilgi edinin.
+description: Varsayılan dağıtarak Azure App Service'te Web uygulamalarını çalıştırma hakkında bilgi edinin C# ASP.NET Core web uygulaması.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 806af0c83f34a09d849f4440ffd609764bf9bec1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 70c24b8aef1672696c0e7d7289e23b98b6b49dfe
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250968"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341448"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Azure’da ASP.NET Core web uygulaması oluşturma
 

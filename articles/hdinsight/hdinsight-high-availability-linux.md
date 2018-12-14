@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: d3326ef4bba5649f5420c1d92b6117d44edba47b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 41c8315bab1b716f79b47afb77c6d371a757691d
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281991"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386452"
 ---
-# <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği
+# <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Kullanılabilirliği ve güvenilirliği HDInsight Apache Hadoop kümelerini
 
-HDInsight kümeleri, kullanılabilirliği ve güvenilirliği Hadoop Hizmetleri ve çalışan işleri artırmak için iki baş düğümü sağlar.
+HDInsight kümeleri, kullanılabilirlik ve Apache Hadoop Hizmetleri ve çalışan işleri güvenilirliğini artırmak için iki baş düğümü sağlar.
 
 Hadoop Hizmetleri ve veri kümesindeki birden çok düğüm arasında çoğaltarak yüksek kullanılabilirlik ve güvenilirlik elde eder. Ancak standardı dağıtımlarla hadoop genellikle yalnızca tek bir baş düğüm gerekir. Herhangi bir kesinti tek bir baş düğüm, küme çalışmayı durdurmasına neden olabilir. HDInsight, Hadoop'ın kullanılabilirliği ve güvenilirliği iyileştirmek için iki baş sağlar.
 
@@ -29,23 +29,23 @@ Hadoop Hizmetleri ve veri kümesindeki birden çok düğüm arasında çoğaltar
 
 Azure sanal Makineler'i kullanarak bir HDInsight kümesindeki düğümlere uygulanır. Aşağıdaki bölümlerde, HDInsight ile kullanılan tek tek düğüm türleri açıklanmaktadır. 
 
-> [!NOTE]
+> [!NOTE]  
 > Tüm düğüm türleri, bir küme türü için kullanılır. Örneğin, bir Hadoop küme türü, herhangi bir Nimbus düğümü yok. HDInsight küme türleri tarafından kullanılan düğümler hakkında daha fazla bilgi için küme türleri bölümüne bakın. [oluşturma Linux tabanlı Hadoop kümeleri HDInsight](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) belge.
 
 ### <a name="head-nodes"></a>Baş düğümler
 
-Hadoop Hizmetleri yüksek kullanılabilirliğini sağlamak için iki baş düğüm HDInsight sağlar. İki baş düğüm, aynı anda etkin ve HDInsight kümesi içinde çalışır. HDFS veya YARN, gibi bazı hizmetler, belirli bir zamanda yalnızca 'bir baş düğüm üzerinde etkin'. HiveServer2 ya da Hive meta veri deposu gibi diğer hizmetleri aynı anda iki baş düğümler üzerinde etkindir.
+Hadoop Hizmetleri yüksek kullanılabilirliğini sağlamak için iki baş düğüm HDInsight sağlar. İki baş düğüm, aynı anda etkin ve HDInsight kümesi içinde çalışır. Apache HDFS veya Apache Hadoop YARN gibi bazı hizmetler, belirli bir zamanda yalnızca 'bir baş düğüm üzerinde etkin'. HiveServer2 ya da Hive meta veri deposu gibi diğer hizmetleri aynı anda iki baş düğümler üzerinde etkindir.
 
 Baş düğüm (ve diğer düğümleri HDInsight) ana bilgisayar adı düğümün bir parçası olarak sayısal bir değer var. Örneğin, `hn0-CLUSTERNAME` veya `hn4-CLUSTERNAME`.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Sayısal değer, bir düğüm birincil veya ikincil ile ilişkilendirmeyin. Sayısal değer yalnızca her düğüm için benzersiz bir ad sağlamak için mevcuttur.
 
 ### <a name="nimbus-nodes"></a>Nimbus Düğümleri
 
-Nimbus düğümleri Storm kümeleri ile kullanılabilir. Nimbus düğümleri dağıtma ve çalışan düğümleri arasında işleme izleme Hadoop Jobtracker'a benzer bir işlevsellik sağlar. HDInsight için Storm kümeleri iki Nimbus düğümü sağlar.
+Nimbus düğümleri ile Apache Storm kümelerini mevcuttur. Nimbus düğümleri dağıtma ve çalışan düğümleri arasında işleme izleme Hadoop Jobtracker'a benzer bir işlevsellik sağlar. HDInsight için Storm kümeleri iki Nimbus düğümü sağlar.
 
-### <a name="zookeeper-nodes"></a>Zookeeper düğümleri
+### <a name="apache-zookeeper-nodes"></a>Apache Zookeeper düğümleri
 
 [ZooKeeper](http://zookeeper.apache.org/) düğümleri öncü seçimi baş düğümlere ana Hizmetleri için kullanılır. Hizmetler, veri (çalışan) düğümleri ve ağ geçitleri hangi baş düğüm ana hizmet etkin olduğunu bilmeniz sağlamak için de kullanılır. Varsayılan olarak, HDInsight üç ZooKeeper düğümü sağlar.
 
@@ -63,7 +63,7 @@ Bir kenar düğümü diğer küme türleri ile kullanma hakkında daha fazla bil
 
 ## <a name="accessing-the-nodes"></a>Düğümleri erişme
 
-Genel bir ağ geçidi üzerinden kümeye internet üzerinden erişim sağlanır. Baş düğümlerine bağlanmak için erişim sınırlıdır ve (varsa varsa) kenar düğümüne. Baş düğümler üzerinde çalışan hizmetlere erişimi birden çok baş düğüm sağlayarak parametreden değil. Ortak ağ geçidi istekleri istenen hizmeti barındıran baş düğüme yönlendirir. Ambari şu anda ikincil baş düğüm üzerinde barındırılıyorsa, örneğin, ağ geçidi gelen istekleri için Ambari bu düğüme yönlendirir.
+Genel bir ağ geçidi üzerinden kümeye internet üzerinden erişim sağlanır. Baş düğümlerine bağlanmak için erişim sınırlıdır ve (varsa varsa) kenar düğümüne. Baş düğümler üzerinde çalışan hizmetlere erişimi birden çok baş düğüm sağlayarak parametreden değil. Ortak ağ geçidi istekleri istenen hizmeti barındıran baş düğüme yönlendirir. Apache Ambari şu anda ikincil baş düğüm üzerinde barındırılıyorsa, örneğin, ağ geçidi gelen istekleri için Ambari bu düğüme yönlendirir.
 
 Ortak ağ geçidi üzerinden erişim bağlantı noktası 443 (HTTPS), 22 ve 23 sınırlıdır.
 
@@ -79,7 +79,7 @@ SSH kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](
 
 Bir iç IP adresi ve kümeden erişilebilir yalnızca FQDN bir HDInsight kümesindeki düğümlere sahip. İç FQDN veya IP adresini kullanarak kümedeki hizmetlerin erişirken, IP veya FQDN hizmeti erişirken kullanılacak doğrulamak için Ambari kullanmanız gerekir.
 
-Örneğin, Oozie hizmet yalnızca bir baş düğüm ve kullanarak çalışabilen `oozie` komutu bir SSH oturumundan hizmetin URL'sini gerektirir. Bu URL, aşağıdaki komutu kullanarak Ambari'den alınabilir:
+Örneğin, Apache Oozie hizmet yalnızca bir baş düğüm ve kullanarak çalışabilen `oozie` komutu bir SSH oturumundan hizmetin URL'sini gerektirir. Bu URL, aşağıdaki komutu kullanarak Ambari'den alınabilir:
 
     curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 
@@ -87,17 +87,17 @@ Bu komut bir değer ile kullanmak üzere iç URL içeren aşağıdaki komutu ben
 
     "oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
-Ambari REST API'si ile çalışma hakkında daha fazla bilgi için bkz. [izleme ve yönetme Ambari REST API'yi kullanarak HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md).
+Ambari REST API'si ile çalışma hakkında daha fazla bilgi için bkz. [izleme ve yönetme Apache Ambari REST API'yi kullanarak HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 ### <a name="accessing-other-node-types"></a>Diğer düğüm türleri erişme
 
 İnternet üzerinden aşağıdaki yöntemler kullanılarak doğrudan erişilebilir olmayan düğüm bağlanabilirsiniz:
 
-* **SSH**: bir baş düğüm için SSH kullanarak bağlandıktan sonra SSH baş düğümünden kümedeki diğer düğümlere bağlanmak için kullanabilirsiniz. Daha fazla bilgi için [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md) belgesine bakın.
+* **SSH**: Bir baş düğüm için SSH kullanarak bağlandıktan sonra SSH baş düğümünden kümedeki diğer düğümlere bağlanmak için kullanabilirsiniz. Daha fazla bilgi için [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md) belgesine bakın.
 
-* **SSH tüneli**: internet'e açık değil düğümlerinden biri üzerinde barındırılan bir web hizmetine erişmek gerekiyorsa, bir SSH tüneli kullanmanız gerekir. Daha fazla bilgi için [HDInsight ile SSH tüneli kullanma](hdinsight-linux-ambari-ssh-tunnel.md) belge.
+* **SSH tüneli**: İnternet'e açık değil düğümlerinden biri üzerinde barındırılan bir web hizmetine erişmesi gerekiyorsa, bir SSH tüneli kullanmanız gerekir. Daha fazla bilgi için [HDInsight ile SSH tüneli kullanma](hdinsight-linux-ambari-ssh-tunnel.md) belge.
 
-* **Azure sanal ağı**: HDInsight kümenizin bir Azure sanal ağının parçası ise, aynı sanal ağdaki herhangi bir kaynağa kümedeki tüm düğümlere doğrudan erişebilirsiniz. Daha fazla bilgi için [Azure sanal ağ kullanarak HDInsight genişletmek](hdinsight-extend-hadoop-virtual-network.md) belge.
+* **Azure sanal ağı**: HDInsight kümenizi Azure sanal ağının parçası ise, aynı sanal ağdaki herhangi bir kaynağa kümedeki tüm düğümlere doğrudan erişebilirsiniz. Daha fazla bilgi için [Azure sanal ağ kullanarak HDInsight genişletmek](hdinsight-extend-hadoop-virtual-network.md) belge.
 
 ## <a name="how-to-check-on-a-service-status"></a>Bir hizmet durumunu kontrol etme
 
@@ -121,7 +121,7 @@ Baş düğümlerinden biri için bağlantıyı seçerek ilgili düğümde çalı
 
 ![Bileşen Durumu](./media/hdinsight-high-availability-linux/nodeservices.png)
 
-Ambari kullanarak daha fazla bilgi için bkz: [İzleyici ve Ambari Web kullanıcı arabirimini kullanarak HDInsight'ı yönetme](hdinsight-hadoop-manage-ambari.md).
+Ambari kullanarak daha fazla bilgi için bkz: [İzleyici ve HDInsight Apache Ambari Web kullanıcı arabirimini kullanarak yönetme](hdinsight-hadoop-manage-ambari.md).
 
 ### <a name="ambari-rest-api"></a>Ambari REST API
 
@@ -158,7 +158,7 @@ Hangi hizmetlerin kümeye yüklü bilmiyorsanız listesini almak için aşağıd
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services
 
-Ambari REST API'si ile çalışma hakkında daha fazla bilgi için bkz. [izleme ve yönetme Ambari REST API'yi kullanarak HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md).
+Ambari REST API'si ile çalışma hakkında daha fazla bilgi için bkz. [izleme ve yönetme Apache Ambari REST API'yi kullanarak HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 #### <a name="service-components"></a>Hizmet bileşenleri
 
@@ -191,12 +191,12 @@ Bağlantı kurulduktan sonra ile sunulan bir `sftp>` istemi. Bu İstemi'nden diz
 
 Kullanılabilir komutların listesini girin `help` adresindeki `sftp>` istemi.
 
-> [!NOTE]
+> [!NOTE]  
 > SFTP kullanarak bağlı dosya sistemi görselleştirmenize olanak tanıyan grafik arabirimleri vardır. Örneğin, [MobaXTerm](http://mobaxterm.mobatek.net/) Windows Gezgini için benzer bir arabirim kullanarak dosya sistemine göz atmanızı sağlar.
 
 ### <a name="ambari"></a>Ambari
 
-> [!NOTE]
+> [!NOTE]  
 > Ambari kullanarak günlük dosyalarına erişmek için bir SSH tüneli kullanmanız gerekir. Bireysel hizmet web arabirimleri Internet üzerinde herkese açık değildir. SSH tüneli kullanma hakkında daha fazla bilgi için bkz. [SSH tünel oluşturmayı kullanma](hdinsight-linux-ambari-ssh-tunnel.md) belge.
 
 Ambari Web kullanıcı arabirimini (örneğin, YARN için) günlüklerini görüntülemek istediğiniz hizmeti seçin. Ardından **hızlı bağlantılar** hangi baş düğüm için günlükleri görüntülemek için seçin.
@@ -209,22 +209,22 @@ Bir düğümün boyutu yalnızca küme oluşturma sırasında seçilir. HDInsigh
 
 Bir küme oluştururken, düğümlerin boyutunu belirtebilirsiniz. Aşağıdaki bilgileri boyutu kullanarak belirleme konusunda rehberlik sağlar [Azure portalında][preview-portal], [Azure PowerShell][azure-powershell]ve [Azure Klasik CLI][azure-cli]:
 
-* **Azure portalında**: bir küme oluştururken, küme tarafından kullanılan düğümlerin boyutu ayarlayabileceğiniz:
+* **Azure portalında**: Bir küme oluştururken, küme tarafından kullanılan düğümlerin boyutu ayarlayabileceğiniz:
 
     ![Düğüm boyutu seçimi ile küme oluşturma Sihirbazı'nı görüntüsü](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure Klasik CLI**: kullanırken `azure hdinsight cluster create` komutunu kullanarak baş, çalışan ve ZooKeeper düğümleri boyutu ayarlayabileceğiniz `--headNodeSize`, `--workerNodeSize`, ve `--zookeeperNodeSize` parametreleri.
+* **Azure Klasik CLI**: Kullanırken `azure hdinsight cluster create` komutunu kullanarak baş, çalışan ve ZooKeeper düğümleri boyutu ayarlayabileceğiniz `--headNodeSize`, `--workerNodeSize`, ve `--zookeeperNodeSize` parametreleri.
 
-* **Azure PowerShell**: kullanırken `New-AzureRmHDInsightCluster` cmdlet'ini kullanarak baş, çalışan ve ZooKeeper düğümleri boyutunu ayarlayabilirsiniz `-HeadNodeVMSize`, `-WorkerNodeSize`, ve `-ZookeeperNodeSize` parametreleri.
+* **Azure PowerShell**: Kullanırken `New-AzureRmHDInsightCluster` cmdlet'ini kullanarak baş, çalışan ve ZooKeeper düğümleri boyutunu ayarlayabilirsiniz `-HeadNodeVMSize`, `-WorkerNodeSize`, ve `-ZookeeperNodeSize` parametreleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu belgede belirtilen noktalar hakkında daha fazla bilgi için aşağıdaki bağlantıları kullanın.
 
-* [Ambari REST başvurusu](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
+* [Apache Ambari REST başvurusu](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Azure Klasik CLI'yi yükleme ve yapılandırma](../cli-install-nodejs.md)
 * [için Notification Hubs .NET API](/powershell/azure/overview)
-* [Ambari kullanarak HDInsight'ı yönetme](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari kullanarak HDInsight'ı yönetme](hdinsight-hadoop-manage-ambari.md)
 * [Linux tabanlı HDInsight kümeleri hazırlama](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/

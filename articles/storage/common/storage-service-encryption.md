@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: c6001b0c95186dff53f33c73833b4cea30688db2
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a19cdac54fff641f72d0628c7b0d47060baba9b4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094901"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384131"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Bekleyen veri için Azure depolama hizmeti şifrelemesi
 Azure depolama hizmeti şifrelemesi bekleyen veriler için Kurumsal güvenlik ve uyumluluk taahhütlerinizi yerine verilerinizi korumanıza yardımcı olur. Bu özellik, Azure depolama platformu, verilerinizi otomatik olarak şifreler önce Azure yönetilen diskler, Azure Blob, kuyruk veya tablo depolama veya Azure dosyaları için kalıcı ve alma önce verilerin şifresini çözer. Şifreleme, rest, şifre çözme ve anahtar yönetimi, depolama hizmeti şifrelemesi şifreleme işlenmesini kullanıcılara saydamdır. Azure depolama platformu için yazılan tüm veriler, 256 bit şifrelenir [AES şifreleme](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), aşağıdakilerden birini en güçlü blok şifreleme özelliklerinden kullanılabilir.
@@ -33,7 +33,7 @@ Bu özellik, verileri otomatik olarak şifreler:
 
 Depolama hizmeti şifrelemesi, Azure depolama hizmetleri performansını etkilemez.
 
-Depolama hizmeti şifrelemesi ile kullanabileceğiniz Microsoft tarafından yönetilen bir şifreleme anahtarları veya kendi şifreleme anahtarlarınızı kullanabilirsiniz. Kendi anahtarlarınızı kullanma hakkında daha fazla bilgi için bkz. [Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanılarak depolama hizmeti şifrelemesi](storage-service-encryption-customer-managed-keys.md).
+Depolama Hizmeti Şifrelemesi ile Microsoft tarafından yönetilen şifreleme anahtarlarını veya kendi şifreleme anahtarlarınızı kullanabilirsiniz. Kendi anahtarlarınızı kullanma hakkında daha fazla bilgi için bkz. [Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanılarak depolama hizmeti şifrelemesi](storage-service-encryption-customer-managed-keys.md).
 
 ## <a name="view-encryption-settings-in-the-azure-portal"></a>Azure portalında görünümü şifreleme ayarları
 Depolama hizmeti şifrelemesi ayarlarını görüntülemek için oturum açın [Azure portalında](https://portal.azure.com) ve bir depolama hesabı seçin. İçinde **ayarları** bölmesinde **şifreleme** ayarı.
@@ -81,7 +81,7 @@ Evet, depolama hesabını tüm kopyalarını şifrelenir. Seçenek desteklenmez-
 Depolama hizmeti şifrelemesi tüm bölgelerde kullanılabilir.
 
 **Depolama hizmeti şifrelemesi FIPS 140-2 uyumlu mu?**  
-Evet, depolama hizmeti şifrelemesi FIPS 140-2 ile uyumlu olan.
+Evet, depolama hizmeti şifrelemesi FIPS 140-2 ile uyumlu olan. Şifreleme modüllerini temel alınan depolama hizmeti şifrelemesi hakkında daha fazla bilgi için bkz. [şifreleme API'si: Yeni nesil](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
 **Herhangi bir sorun veya geri bildirim sağlamak isterseniz nasıl birisi başvurmam gerekir?**  
 İlgili kişi [ ssediscussions@microsoft.com ](mailto:ssediscussions@microsoft.com) herhangi bir sorun ya da depolama hizmeti şifrelemesi için ilgili geri bildirim için.

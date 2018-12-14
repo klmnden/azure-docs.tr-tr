@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023756"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342247"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Otomasyonu’nda kaynak denetimi tümleştirmesi
 
@@ -51,7 +51,7 @@ Uygulama isteği izinleri sayfasında gözden geçirin ve tıklayın **kabul**.
 |---------|---------|
 |Kaynak denetimi adı     | Kaynak denetimi için bir kolay ad        |
 |Kaynak Denetim türü     | Kaynak denetimi türü. Kullanılabilen seçenekler:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
-|Havuz     | Depo veya projenin adı. Bu değer, kaynak denetimi deposundan alınır. Örnek: $/ ContosoFinanceTFVCExample         |
+|Depo     | Depo veya projenin adı. Bu değer, kaynak denetimi deposundan alınır. Örnek: $/ ContosoFinanceTFVCExample         |
 |Dal     | Kaynak dosyalarını çekmek için dal. Dal hedefleyen TFVC kaynak denetimi türü için kullanılamıyor.          |
 |Klasör yolu     | Eşitleme için runbook'ları içeren klasör. Örnek: /Runbooks         |
 |Otomatik eşitleme     | Açar veya kaynak denetim deposunda bir işleme yapıldığında otomatik eşitleme devre dışı         |
@@ -62,7 +62,7 @@ Uygulama isteği izinleri sayfasında gözden geçirin ve tıklayın **kabul**.
 
 ## <a name="syncing"></a>Eşitleniyor
 
-Kaynak denetimi tümleştirmesini yapılandırırken autosync yapılandırmak, ilk eşitleme otomatik olarak başlar. Otomatik eşitleme ayarlı değil, kaynak tablosundan seçin **kaynak denetimi (Önizleme)** sayfası. Tıklayın **Eşitlemeyi Başlat** eşitleme işlemini başlatmak için.  
+Kaynak denetimi tümleştirmesini yapılandırırken autosync yapılandırmak, ilk eşitleme otomatik olarak başlar. Otomatik eşitleme ayarlı değil, kaynak tablosundan seçin **kaynak denetimi (Önizleme)** sayfası. Tıklayın **Eşitlemeyi Başlat** eşitleme işlemini başlatmak için.
 
 Geçerli eşitleme işi veya öncekilerle tıklayarak durumu görüntüleyebilir **Eşitleme işleri** sekmesi. Üzerinde **kaynak denetimi** açılan listesinde, kaynak denetimi seçin.
 

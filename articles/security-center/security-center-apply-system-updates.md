@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a0d0cbacfa03080d519e5d9e3592ad01ed58b933
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f3c055d55da06e6410520084a1c96baa78b91496
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316592"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341721"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde sistem güncelleştirmelerini uygulayın
 Azure Güvenlik Merkezi günlük Windows ve Linux sanal makineleri (VM'ler) ve işletim sistemi güncelleştirmeleri eksik bilgisayarlar izler. Güvenlik Merkezi bir Windows bilgisayarda yapılandırılmış hizmet bağlı olarak Windows Update veya Windows Server Update Services (WSUS) kullanılabilir güvenlik güncelleştirmeleri ve kritik güncelleştirmeler listesini alır. Güvenlik Merkezi, ayrıca Linux sistemlerinde en son güncelleştirmeleri denetler. Sistem Güncelleştirmesi VM'de veya bilgisayarda bulunmuyorsa, Güvenlik Merkezi sistem güncelleştirmelerini uygulayın önerir.
@@ -45,15 +45,15 @@ Bu örnekte, kullanacağız **işlem**.
 
   Pano altındaki tüm eksik güncelleştirmeler Vm'lerinizi ve bilgisayarlar ve eksik güncelleştirmenin önem arasında listelenir.  Liste aşağıdakileri içerir:
 
-    - Ad: Eksik güncelleştirmenin adıdır.
-    - HAYIR VM'ler ve BİLGİSAYARLARIN: sanal makineleri ve bu güncelleştirmenin eksik olduğu bilgisayarların toplam sayısı.
-    - DURUMU: Önerinin geçerli durumu:
+    - ADI: Eksik güncelleştirmenin adıdır.
+    - HAYIR VM ve bilgisayarlar: VM'ler ve bu güncelleştirmenin eksik olduğu bilgisayarların toplam sayısı.
+    - DURUM: Önerinin geçerli durumu:
 
       - Açık: Öneri henüz ele alınmadı.
       - Devam eden: Öneri şu anda bu kaynaklara uygulanıyor ve herhangi bir işlem yapmanıza gerek yoktur.
-      - Çözümlendi: Öneri önce tamamlandı. (Sorun çözüldüğünde girdi soluklaşır).
+      - Çözümlendi: Öneri zaten tamamlandı. (Sorun çözüldüğünde girdi soluklaşır).
 
-    - Önem DERECESİ: belirli bir önerinin önem açıklanmaktadır:
+    - ÖNEM DERECESİ: Belirli bir önerinin önem açıklanmaktadır:
 
       - Yüksek: Bir güvenlik açığı, anlamlı bir kaynakta (uygulama, sanal makine veya ağ güvenlik grubu) var ve ilgilenilmesi gerekiyor.
       - Orta: Bir işlemin tamamlanması veya bir güvenlik açığını ortadan kaldırmak için kritik olmayan veya ek adımlar gerekir.
@@ -84,7 +84,7 @@ Bu örnekte, kullanacağız **işlem**.
 ## <a name="next-steps"></a>Sonraki adımlar
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
 * [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.

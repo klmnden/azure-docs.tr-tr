@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 242eb906c95b373b2edd538be5f06756cac1e8c9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 47949ca5cd0fad498f3d383f4c530e75787387e2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256527"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344029"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service için Yerel Git Dağıtımı
 
@@ -48,7 +48,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 Kudu derleme sunucusu ile uygulamanıza yönelik yerel Git dağıtımını etkinleştirmek için en kolay yolu, Cloud Shell'i kullanmaktır.
 
-### <a name="create-a-deployment-user"></a>Dağıtım kullanıcısı oluşturma
+### <a name="configure-a-deployment-user"></a>Dağıtım kullanıcısı yapılandırma
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
@@ -86,7 +86,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 
 ### <a name="deploy-your-project"></a>Projenizi dağıtın
 
-_Yerel terminal penceresine_ dönüp yerel Git deponuza bir Azure uzak deposu ekleyin. Değiştirin  _\<url >_ aldığınız Git uzak URL'si ile [uygulamanızın Git etkinleştirme](#enable-git-for-you-app).
+_Yerel terminal penceresine_ dönüp yerel Git deponuza bir Azure uzak deposu ekleyin. Değiştirin  _\<url >_ aldığınız Git uzak URL'si ile [uygulamanızın Git etkinleştirme](#enable-local-git-with-kudu).
 
 ```bash
 git remote add azure <url>

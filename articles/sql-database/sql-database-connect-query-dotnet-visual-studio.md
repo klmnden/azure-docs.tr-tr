@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Veritabanı’nı sorgulamak için Visual Studio ve .NET kullanma | Microsoft Docs
-description: Bu konu başlığı altında, Visual Studio kullanarak Azure SQL Veritabanına bağlanan ve Transact-SQL deyimleriyle veritabanını sorgulayan bir program oluşturma işlemi gösterilir.
+title: Visual Studio .NET ile kullanma ve C# Azure SQL veritabanı sorgulamak için | Microsoft Docs
+description: Visual Studio oluşturulacağı bir C# bir Azure SQL veritabanına bağlanan ve Transact-SQL deyimleriyle veri sorgulayan bir uygulama.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,127 +11,121 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 5b458c881496a887d1415e115bf2b94c674be029
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.date: 12/11/2018
+ms.openlocfilehash: 04a0abd0fba7ec53aebeb481ac80d36653d118b6
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50911770"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384947"
 ---
-# <a name="quickstart-use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Hızlı Başlangıç: Visual Studio ile .NET (C#) kullanarak Azure SQL veritabanına bağlanma ve veritabanını sorgulama
+# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Hızlı Başlangıç: .NET kullanın ve C# bağlanmak ve bir Azure SQL veritabanını sorgulamak için Visual Studio
 
-Bu hızlı başlangıçta, [.NET framework](https://www.microsoft.com/net/) kullanarak Visual Studio ile Azure SQL veritabanına bağlanan ve Transact-SQL deyimleriyle veri sorgulayan bir C# programı oluşturma işleminin nasıl yapılacağı açıklanır.
+Bu hızlı başlangıçta nasıl kullanılacağını gösterir [.NET framework](https://www.microsoft.com/net/) ve C# Transact-SQL deyimleri ile bir Azure SQL veritabanı sorgulamak için Visual Studio'da kodu.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için aşağıdakilere sahip olduğunuzdan emin olun:
+Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+  
+- A [sunucu düzeyinde güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md) kullanacağınız bilgisayarın genel IP adresini izin vermek için.
+  
+- [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community, Professional veya Enterprise edition.
 
-- Bu hızlı başlangıçta kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md).
-
-- [Visual Studio Community 2017, Visual Studio Professional 2017 veya Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/) yüklemesi.
-
-## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
+## <a name="get-sql-server-connection-information"></a>SQL server bağlantı bilgilerini alma
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-#### <a name="for-adonet"></a>ADO.NET için
+## <a name="create-code-to-query-the-sql-database"></a>SQL veritabanı sorgulamak için kod oluşturun
 
-1. **Veritabanı bağlantı dizelerini göster**’e tıklayarak devam edin.
-
-2. Tam **ADO.NET** bağlantı dizesini gözden geçirin.
-
-    ![ADO.NET bağlantı dizesi](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
-
-> [!IMPORTANT]
-> Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için bir güvenlik duvarı kuralınız olmalıdır. Farklı bir bilgisayar kullanıyorsanız veya farklı bir genel IP adresiniz varsa [Azure portal kullanarak bir sunucu düzeyi güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md) oluşturun. 
->
-  
-## <a name="create-a-new-visual-studio-project"></a>Yeni Visual Studio projesi oluşturma
-
-1. Visual Studio'da **Dosya**, **Yeni**, **Proje**’yi seçin. 
-2. **Yeni Proje** iletişim kutusunda **Visual C#** öğesini genişletin.
-3. **Konsol Uygulaması**’nı seçin ve projenin adı için *sqltest* girin.
-4. Visual Studio’da yeni projeyi oluşturmak ve açmak için **Tamam**’a tıklayın.
-4. Çözüm Gezgini'nde, **sqltest**'e sağ tıklayın ve **NuGet Paketlerini Yönet**'e tıklayın. 
-5. **Gözat** sekmesinde ```System.Data.SqlClient``` öğesini arayın ve bulduğunuzda seçin.
-6. **System.Data.SqlClient** sayfasında **Yükle**’ye tıklayın.
-7. Yükleme tamamlandığında değişiklikleri gözden geçirin ve **Önizleme** penceresini kapamak için **Tamam**’a tıklayın. 
-8. **Lisans Kabulü** penceresi gösterilirse **Kabul Ediyorum**’a tıklayın.
-
-## <a name="insert-code-to-query-sql-database"></a>SQL veritabanını sorgulamak için kod girme
-1. **Program.cs**’ye geçin (veya gerekiyorsa açın)
-
-2. **Program.cs** dosyasının içeriğini aşağıdaki kodla değiştirin ve sunucunuz, veritabanınız, kullanıcınız ve parolanız için uygun değerleri ekleyin.
-
-```csharp
-using System;
-using System.Data.SqlClient;
-using System.Text;
-
-namespace sqltest
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            try 
-            { 
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "your_server.database.windows.net"; 
-                builder.UserID = "your_user";            
-                builder.Password = "your_password";     
-                builder.InitialCatalog = "your_database";
-
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    Console.WriteLine("\nQuery data example:");
-                    Console.WriteLine("=========================================\n");
-                    
-                    connection.Open();       
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
-                    sb.Append("FROM [SalesLT].[ProductCategory] pc ");
-                    sb.Append("JOIN [SalesLT].[Product] p ");
-                    sb.Append("ON pc.productcategoryid = p.productcategoryid;");
-                    String sql = sb.ToString();
-
-                    using (SqlCommand command = new SqlCommand(sql, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            while (reader.Read())
-                            {
-                                Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetString(1));
-                            }
-                        }
-                    }                    
-                }
-            }
-            catch (SqlException e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-            Console.ReadLine();
-        }
-    }
-}
-```
+1. Visual Studio'da **dosya** > **yeni** > **proje**. 
+   
+1. İçinde **yeni proje** iletişim kutusunda **Visual C#** ve ardından **konsol uygulaması (.NET Framework)**.
+   
+1. Girin *sqltest* proje adı ve ardından **Tamam**. Yeni Proje oluşturulur. 
+   
+1. Seçin **proje** > **NuGet paketlerini Yönet**. 
+   
+1. İçinde **NuGet Paket Yöneticisi**seçin **Gözat** sekmesine, ardından aramak ve seçmek **System.Data.SqlClient**.
+   
+1. Üzerinde **System.Data.SqlClient** sayfasında **yükleme**. 
+   - İstenirse, seçin **Tamam** yüklemeye devam etmek için. 
+   - Varsa bir **lisans kabulü** penceresi görüntülenirse, seçin **kabul ediyorum**.
+   
+1. Yükleme tamamlandığında, kapatabilirsiniz **NuGet Paket Yöneticisi**. 
+   
+1. Kod Düzenleyicisi'nde değiştirin **Program.cs** içeriğini aşağıdaki kodla. Kendi değerlerinizi yerleştirin `<server>`, `<username>`, `<password>`, ve `<database>`.
+   
+   >[!IMPORTANT]
+   >Bu örnekteki kod kaynağı olarak veritabanınızı oluştururken seçebilirsiniz AdventureWorksLT örnek verileri kullanır. Farklı veri veritabanınız varsa kendi veritabanından tablolar SELECT sorgusunda kullanın. 
+   
+   ```csharp
+   using System;
+   using System.Data.SqlClient;
+   using System.Text;
+   
+   namespace sqltest
+   {
+       class Program
+       {
+           static void Main(string[] args)
+           {
+               try 
+               { 
+                   SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                   builder.DataSource = "<server>.database.windows.net"; 
+                   builder.UserID = "<username>";            
+                   builder.Password = "<password>";     
+                   builder.InitialCatalog = "<database>";
+   
+                   using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
+                   {
+                       Console.WriteLine("\nQuery data example:");
+                       Console.WriteLine("=========================================\n");
+                       
+                       connection.Open();       
+                       StringBuilder sb = new StringBuilder();
+                       sb.Append("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName ");
+                       sb.Append("FROM [SalesLT].[ProductCategory] pc ");
+                       sb.Append("JOIN [SalesLT].[Product] p ");
+                       sb.Append("ON pc.productcategoryid = p.productcategoryid;");
+                       String sql = sb.ToString();
+   
+                       using (SqlCommand command = new SqlCommand(sql, connection))
+                       {
+                           using (SqlDataReader reader = command.ExecuteReader())
+                           {
+                               while (reader.Read())
+                               {
+                                   Console.WriteLine("{0} {1}", reader.GetString(0), reader.GetString(1));
+                               }
+                           }
+                       }                    
+                   }
+               }
+               catch (SqlException e)
+               {
+                   Console.WriteLine(e.ToString());
+               }
+               Console.ReadLine();
+           }
+       }
+   }
+   ```
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
-1. Uygulamayı çalıştırmak için **F5**'e basın.
-2. En üst 20 satırın döndürüldüğünü doğrulayın ve sonra uygulama penceresini kapatın.
+1. Uygulamayı çalıştırmak için seçin **hata ayıklama** > **hata ayıklamayı Başlat**, ya da seçin **Başlat** basın veya araç **F5**.
+1. İlk 20 kategori/ürün satırları veritabanınızdan döndürülür ve sonra uygulama penceresini kapatın doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Windows/Linus/macOS’ta [.NET Core kullanarak Azure SQL veritabanını bağlamayı ve sorgulamayı](sql-database-connect-query-dotnet-core.md) öğrenin.  
+- Bilgi edinmek için nasıl [bağlanmak ve .NET Core kullanarak Azure SQL veritabanını sorgulamak](sql-database-connect-query-dotnet-core.md) Windows/Linus/macos'ta.  
 - [Komut satırını kullanarak Windows/Linus/macOS’ta .NET Core ile çalışmaya başlama](/dotnet/core/tutorials/using-with-xplat-cli) hakkında bilgi edinin.
 - [SSMS kullanarak ilk Azure SQL veritabanınızı tasarlamayı](sql-database-design-first-database.md) veya [.NET kullanarak ilk Azure SQL veritabanınızı tasarlamayı](sql-database-design-first-database-csharp.md) öğrenin.
 - .NET hakkında daha fazla bilgi edinmek için [.NET belgelerine](https://docs.microsoft.com/dotnet/) bakın.
-- [Yeniden deneme mantığı örneği: ADO.NET ile dayanıklı SQL bağlantısı kurma][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- Yeniden deneme mantığı örneği: [Dayanıklı ADO.NET ile SQL bağlantısı kurma][step-4-connect-resiliently-to-sql-with-ado-net-a78n].
 
 
 <!-- Link references. -->

@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Veritabanı sorgulamak için .NET Core kullanma | Microsoft Docs
-description: Bu konu başlığı altında, .NET Core kullanarak Azure SQL Veritabanına bağlanan ve Transact-SQL deyimleriyle veritabanını sorgulayan bir program oluşturma işlemi gösterilir.
+description: Bu konuda, .NET Core kullanarak Azure SQL veritabanına bağlanan ve Transact-SQL deyimlerini kullanarak sorgulayan bir program oluşturmak için nasıl kullanılacağını gösterir.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,65 +11,73 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 646b75e845e1940a87a9a2f45aecda2840a96d81
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.date: 12/10/2018
+ms.openlocfilehash: 471d2b0b8d98651d4b9ef4e88df0e863715b0c88
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913079"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341788"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: .NET Core (C#) kullanarak Azure SQL veritabanı sorgulama
 
-Bu hızlı başlangıçta, Windows/Linux/macOS’ta [.NET Core](https://www.microsoft.com/net/) kullanarak Azure SQL veritabanına bağlanan ve Transact-SQL deyimleriyle veri sorgulayan bir C# programı oluşturma işleminin nasıl yapılacağı açıklanır.
+Bu hızlı başlangıçta nasıl kullanılacağını gösterir [.NET Core](https://www.microsoft.com/net/) ve C# kod kullanarak Azure SQL veritabanına bağlanan ve Transact-SQL deyimiyle verileri sorgulamak çalıştırın.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için aşağıdakilere sahip olduğunuzdan emin olun:
+Bu öğretici için şunlar gerekir:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- Bu hızlı başlangıçta kullanacağınız bilgisayarın genel IP adresi için [sunucu düzeyinde bir güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md).
+- A [sunucu düzeyinde güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md) bilgisayarınızın genel IP adresi için.
 
-- [İşletim sisteminiz için .NET Core](https://www.microsoft.com/net/core) yüklediniz. 
+- [İşletim sisteminiz için .NET core](https://www.microsoft.com/net/core) yüklü. 
 
-## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
+> [!NOTE]
+> Bu hızlı başlangıçta kullanılmaktadır *mySampleDatabase* veritabanı. Farklı bir veritabanı kullanmak istiyorsanız, veritabanı başvuruları değiştirin ve değiştirmek ihtiyacınız olacak `SELECT` içinde sorgu C# kod.
+
+
+## <a name="get-sql-server-connection-information"></a>SQL server bağlantı bilgilerini alma
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-#### <a name="for-adonet"></a>ADO.NET için
+#### <a name="get-adonet-connection-information-optional"></a>(İsteğe bağlı) ADO.NET bağlantı bilgilerini alma
 
-1. **Veritabanı bağlantı dizelerini göster**’e tıklayarak devam edin.
+1. Gidin **mySampleDatabase** sayfayı ve altındaki **ayarları**seçin **bağlantı dizeleri**.
 
 2. Tam **ADO.NET** bağlantı dizesini gözden geçirin.
 
-    ![ADO.NET bağlantı dizesi](./media/sql-database-connect-query-dotnet/adonet-connection-string.png)
+    ![ADO.NET bağlantı dizesi](./media/sql-database-connect-query-dotnet/adonet-connection-string2.png)
 
-> [!IMPORTANT]
-> Bu hızlı başlangıç öğreticisinde kullanacağınız bilgisayarın genel IP adresi için bir güvenlik duvarı kuralınız olmalıdır. Farklı bir bilgisayar kullanıyorsanız veya farklı bir genel IP adresiniz varsa [Azure portal kullanarak bir sunucu düzeyi güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md) oluşturun. 
->
+3. Kopyalama **ADO.NET** kullanmak istiyorsanız, bağlantı dizesi.
   
-## <a name="create-a-new-net-project"></a>Yeni bir .NET projesi oluşturma
+## <a name="create-a-new-net-core-project"></a>Yeni bir .NET Core projesi oluşturma
 
-1. Komut istemini açın ve *sqltest* adlı bir klasör oluşturun. Oluşturduğunuz klasöre gidin ve aşağıdaki komutu çalıştırın:
+1. Komut istemini açın ve **sqltest** adlı bir klasör oluşturun. Bu klasöre gidin ve aşağıdaki komutu çalıştırın.
 
-    ```
+    ```cmd
     dotnet new console
     ```
+    Bu proje dosyaları, bir ilk dahil olmak üzere yeni bir uygulama oluşturur C# kod dosyası (**Program.cs**), bir XML yapılandırma dosyasını (**sqltest.csproj**) ve ikili dosyaları gerekli.
 
-2. Sık kullandığınız metin düzenleyicisinde ***sqltest.csproj*** dosyasını açın ve aşağıdaki kodu kullanarak System.Data.SqlClient’ı bağımlılık olarak ekleyin:
+2. Bir metin düzenleyicisinde açın **sqltest.csproj** arasında aşağıdaki XML Yapıştır `<Project>` etiketler. Bu ekler `System.Data.SqlClient` bağımlılık olarak.
 
     ```xml
     <ItemGroup>
-        <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
     </ItemGroup>
     ```
 
 ## <a name="insert-code-to-query-sql-database"></a>SQL veritabanını sorgulamak için kod girme
 
-1. Geliştirme ortamınızda veya sık kullandığınız metin düzenleyicisinde **Program.cs** dosyasını açın.
+1. Bir metin düzenleyicisinde açın **Program.cs**.
 
-2. İçeriğini aşağıdaki kod ile değiştirin ve sunucunuz, veritabanınız, kullanıcınız ve parolanız için uygun değerleri ekleyin.
+2. İçeriğini aşağıdaki kodla değiştirin ve sunucu, veritabanı, kullanıcı adı ve parola için uygun değerleri ekleyin.
+
+> [!NOTE]
+> Bir ADO.NET bağlantı dizesini kullanmak için sunucu, veritabanı, kullanıcı adı ve parola ile aşağıdaki satırı ayarı kod 4 satırları değiştirin. Dize, kullanıcı adı ve parola ayarlayın.
+>
+>    `builder.ConnectionString="<your_ado_net_connection_string>";`
 
 ```csharp
 using System;
@@ -85,11 +93,12 @@ namespace sqltest
             try 
             { 
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "your_server.database.windows.net"; 
-                builder.UserID = "your_user";            
-                builder.Password = "your_password";     
-                builder.InitialCatalog = "your_database";
 
+                builder.DataSource = "<your_server.database.windows.net>"; 
+                builder.UserID = "<your_username>";            
+                builder.Password = "<your_password>";     
+                builder.InitialCatalog = "<your_database>";
+         
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
                     Console.WriteLine("\nQuery data example:");
@@ -119,7 +128,8 @@ namespace sqltest
             {
                 Console.WriteLine(e.ToString());
             }
-            Console.ReadLine();
+            Console.WriteLine("\nDone. Press enter.");
+            Console.ReadLine(); 
         }
     }
 }
@@ -127,19 +137,47 @@ namespace sqltest
 
 ## <a name="run-the-code"></a>Kodu çalıştırma
 
-1. Komut isteminde aşağıdaki komutları çalıştırın:
+1. İsteminde aşağıdaki komutları çalıştırın.
 
-   ```csharp
+   ```cmd
    dotnet restore
    dotnet run
    ```
 
-2. En üst 20 satırın döndürüldüğünü doğrulayın ve sonra uygulama penceresini kapatın.
+2. En üst 20 satırın döndürüldüğünü doğrulayın.
 
+   ```text
+   Query data example:
+   =========================================
+
+   Road Frames HL Road Frame - Black, 58
+   Road Frames HL Road Frame - Red, 58
+   Helmets Sport-100 Helmet, Red
+   Helmets Sport-100 Helmet, Black
+   Socks Mountain Bike Socks, M
+   Socks Mountain Bike Socks, L
+   Helmets Sport-100 Helmet, Blue
+   Caps AWC Logo Cap
+   Jerseys Long-Sleeve Logo Jersey, S
+   Jerseys Long-Sleeve Logo Jersey, M
+   Jerseys Long-Sleeve Logo Jersey, L
+   Jerseys Long-Sleeve Logo Jersey, XL
+   Road Frames HL Road Frame - Red, 62
+   Road Frames HL Road Frame - Red, 44
+   Road Frames HL Road Frame - Red, 48
+   Road Frames HL Road Frame - Red, 52
+   Road Frames HL Road Frame - Red, 56
+   Road Frames LL Road Frame - Black, 58
+   Road Frames LL Road Frame - Black, 60
+   Road Frames LL Road Frame - Black, 62
+
+   Done. Press enter.
+   ```
+3. Tuşuna **Enter** uygulama penceresini kapatın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Komut satırını kullanarak Windows/Linus/macOS’ta .NET Core ile çalışmaya başlama](/dotnet/core/tutorials/using-with-xplat-cli).
-- [.NET framework ve Visual Studio kullanarak Azure SQL veritabanını bağlamayı ve sorgulamayı](sql-database-connect-query-dotnet-visual-studio.md) öğrenin.  
-- [SSMS kullanarak ilk Azure SQL veritabanınızı tasarlamayı](sql-database-design-first-database.md) veya [.NET kullanarak ilk Azure SQL veritabanınızı tasarlamayı](sql-database-design-first-database-csharp.md) öğrenin.
+- Bilgi edinmek için nasıl [bağlanmak ve .NET Framework ve Visual Studio kullanarak Azure SQL veritabanını sorgulamak](sql-database-connect-query-dotnet-visual-studio.md).  
+- Bilgi nasıl [SSMS kullanarak ilk Azure SQL veritabanınızı tasarlamayı](sql-database-design-first-database.md) veya [ ile bağlanma ve bir Azure SQL veritabanı tasarlama C# ve ADO.NET](sql-database-design-first-database-csharp.md).
 - .NET hakkında daha fazla bilgi edinmek için [.NET belgelerine](https://docs.microsoft.com/dotnet/) bakın.

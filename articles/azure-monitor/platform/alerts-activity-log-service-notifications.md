@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: b5c11517209b9dfea8a28ce09084abd76d789d78
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: bb427575d7cff69f0db778c5eb0e0bdf0671d8dd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270952"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343306"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Etkinlik günlüğü uyarıları hizmet bildirimlerinde oluşturma
 ## <a name="overview"></a>Genel Bakış
@@ -197,7 +197,7 @@ Bir uyarı oluşturduktan sonra görünür **uyarılar** bölümünü **İzleyic
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bilgi edinmek için nasıl [mevcut sorun yönetim sistemleri için Web kancası bildirimleri yapılandırma](../../service-health/service-health-alert-webhook-guide.md).
 - Hakkında bilgi edinin [hizmet durumu bildirimlerini](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
-- Hakkında bilgi edinin [bildirim hız sınırlaması](../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md).
+- Hakkında bilgi edinin [bildirim hız sınırlaması](../../azure-monitor/platform/alerts-rate-limiting.md).
 - Gözden geçirme [etkinlik günlüğü uyarısı Web kancası şeması](../../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Alma bir [etkinlik günlüğü uyarılarına genel bakış](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)ve uyarıları alma hakkında bilgi edinin. 
+- Alma bir [etkinlik günlüğü uyarılarına genel bakış](../../azure-monitor/platform/alerts-overview.md)ve uyarıları alma hakkında bilgi edinin. 
 - Daha fazla bilgi edinin [Eylem grupları](../../azure-monitor/platform/action-groups.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: c8a932ac06b58a8e683e326f082a3a2c038dba66
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ac3b87f8db89df4b766fee1a27707877a2d12ba3
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273723"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383366"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure etkinlik günlüğünün Event Hubs'a Stream
 Akış [Azure etkinlik günlüğü](monitoring-overview-activity-logs.md) neredeyse gerçek zamanlı olarak ya da herhangi bir uygulama için:
@@ -99,7 +99,7 @@ Günlük profilini zaten varsa önce mevcut günlük profilini kaldırın ve ard
 Etkinlik günlüğü için şema kullanılabilir [Azure etkinlik günlüğü ile abonelik etkinliğini İzle](monitoring-overview-activity-logs.md). JSON bloblarını adlı bir dizide her olaydır *kayıtları*.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Bir depolama hesabı için Etkinlik günlüğünü arşivleme](monitoring-archive-activity-log.md)
+* [Bir depolama hesabı için Etkinlik günlüğünü arşivleme](../azure-monitor/platform/archive-activity-log.md)
 * [Azure etkinlik günlüğüne genel bakış okuyun](monitoring-overview-activity-logs.md)
 * [Bir etkinlik günlüğü olayı temel alan bir uyarı ayarlama](../azure-monitor/platform/alerts-log-webhook.md)
 

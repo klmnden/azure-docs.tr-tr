@@ -1,5 +1,5 @@
 ---
-title: Azure CLI betik örneği - Azure depoları için sürekli dağıtım ile uygulama oluşturma | Microsoft Docs
+title: Azure CLI betik örneği - uygulama oluşturma ve Azure depoları sürekli dağıtım | Microsoft Docs
 description: Azure CLI betik örneği - Azure depoları için sürekli dağıtım ile bir web uygulaması oluşturma
 services: app-service\web
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: jeconnoc
 ms.custom: seodec18
-ms.openlocfilehash: cb2e427163d4a39c9286126b1774e09610fc328f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 9331f23b93d2493295d63486ffbef14f04c29466
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308490"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342978"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-using-azure-cli"></a>Azure CLI kullanarak sürekli dağıtım ile bir web uygulaması oluşturma
 

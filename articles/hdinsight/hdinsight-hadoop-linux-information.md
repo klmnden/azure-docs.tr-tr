@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: 89f2178af3f1a1a6ede9b97d79568798a25985b1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: abaf69136fbed577095b3efba2ec6d4383907255
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015698"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385219"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux’ta HDInsight kullanma ile ilgili bilgiler
 
-Azure HDInsight kümeleri, Hadoop Azure bulutunda çalışan tanıdık bir Linux ortamı sağlar. Çoğu işlemler için tam olarak diğer Linux üzerinde Hadoop yükleme çalışması gerekir. Bu belge farkında olmanız gereken belirli farklılıkları çağırır.
+Azure HDInsight kümeleri Apache Hadoop Azure bulutunda çalışan tanıdık bir Linux ortamı sağlar. Çoğu işlemler için tam olarak diğer Linux üzerinde Hadoop yükleme çalışması gerekir. Bu belge farkında olmanız gereken belirli farklılıkları çağırır.
 
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -27,9 +27,9 @@ Azure HDInsight kümeleri, Hadoop Azure bulutunda çalışan tanıdık bir Linux
 
 Bu belgedeki adımlarda birçoğu, sisteminizde yüklü olması gereken aşağıdaki yardımcı programlar, kullanın.
 
-* [cURL](https://curl.haxx.se/) - web tabanlı hizmetler ile iletişim kurmak için kullanılır
-* [jq](https://stedolan.github.io/jq/) - JSON belgelerini ayrıştırmak için kullanılır
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) - uzaktan Azure hizmetlerini yönetmek için kullanılır
+* [cURL](https://curl.haxx.se/) - web tabanlı hizmetler ile iletişim kurmak için kullanılır.
+* [jq](https://stedolan.github.io/jq/) - JSON belgelerini ayrıştırmak için kullanılır.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) - uzaktan Azure hizmetlerini yönetmek için kullanılır.
 
 ## <a name="users"></a>Kullanıcılar
 
@@ -64,7 +64,7 @@ Bu komut service açıklayan bir JSON belgesini döndürür ve ardından jq yaln
     > [!IMPORTANT]
     > Bazı web kullanıcı arabirimleri Ambari kullanılabilir iç etki alanı adını kullanarak düğümlerin içerik modelini erişin. İç etki alanı adları internet üzerinden genel olarak erişilebilir değildir. Bazı özellikler Internet üzerinden erişmeye çalışırken "Sunucu bulunamadı" hatası alabilirsiniz.
     >
-    > Ambari web kullanıcı Arabirimi tam işlevselliğini kullanmak için bir SSH tüneli küme baş düğümü için proxy web trafiği için kullanın. Bkz: [kullanım Ambari web kullanıcı Arabirimi, ResourceManager, JobHistory, NameNode, Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel](hdinsight-linux-ambari-ssh-tunnel.md)
+    > Ambari web kullanıcı Arabirimi tam işlevselliğini kullanmak için bir SSH tüneli küme baş düğümü için proxy web trafiği için kullanın. Bkz: [kullanım Apache Ambari web kullanıcı Arabirimi, ResourceManager, JobHistory, NameNode, Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername >.azurehdinsight.net/ambari
 
@@ -80,21 +80,21 @@ Bu komut service açıklayan bir JSON belgesini döndürür ve ardından jq yaln
     >
     > Düz metin kimlik doğrulama - bağlantının güvenli olduğundan emin olmak için her zaman HTTPS kullanın.
 
-* **SSH** - &lt;clustername >-ssh.azurehdinsight.net bağlantı noktası 22 veya 23. Bağlantı noktası 22 ikincil veritabanına bağlanmak için 23 kullanılırken birincil baş düğüme bağlanmak için kullanılır. Baş düğümler hakkında daha fazla bilgi için bkz. [HDInsight’ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği](hdinsight-high-availability-linux.md).
+* **SSH** - &lt;clustername >-ssh.azurehdinsight.net bağlantı noktası 22 veya 23. Bağlantı noktası 22 ikincil veritabanına bağlanmak için 23 kullanılırken birincil baş düğüme bağlanmak için kullanılır. Baş düğümler hakkında daha fazla bilgi için bkz. [içinde HDInsight kümelerinin kullanılabilirliği ve güvenilirliği Apache hadoop'un](hdinsight-high-availability-linux.md).
 
     > [!NOTE]
     > Yalnızca bir istemci makinesinden SSH küme baş düğümleri erişebilir. Bağlantı kurulduktan sonra bir baş düğümüne SSH kullanarak çalışan düğümlerinin ardından erişebilirsiniz.
 
-Daha fazla bilgi için [HDInsight üzerindeki Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](hdinsight-hadoop-port-settings-for-services.md) belge.
+Daha fazla bilgi için [HDInsight üzerinde Apache Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](hdinsight-hadoop-port-settings-for-services.md) belge.
 
 ## <a name="file-locations"></a>Dosya konumları
 
 Hadoop ile ilgili dosyaları küme düğümlerinde bulunabilir `/usr/hdp`. Bu dizin, aşağıdaki alt dizinleri içerir:
 
-* **2.2.4.9-1**: HDInsight tarafından kullanılan Hortonworks Data Platform sürümü dizin adı değil. Kümenizi sayısına, burada listelenen farklı olabilir.
+* **2.2.4.9-1**: Dizin adı Hortonworks Data Platform HDInsight tarafından kullanılan sürümüdür. Kümenizi sayısına, burada listelenen farklı olabilir.
 * **Geçerli**: Bu dizin alt dizinler bağlantılar içeren **2.2.4.9-1** dizin. Bu dizinin var olduğundan, sürüm numarasını hatırlamak zorunda kalmazsınız.
 
-Hadoop dağıtılmış dosya sistemi üzerinde örnek verileri ve JAR dosyaları bulunabilir `/example` ve `/HdiSamples`
+Hadoop dağıtılmış dosya sistemi üzerinde örnek verileri ve JAR dosyaları bulunabilir `/example` ve `/HdiSamples`.
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, Azure depolama ve Data Lake Store
 
@@ -102,9 +102,9 @@ Hadoop dağıtılmış dosya sistemi üzerinde örnek verileri ve JAR dosyaları
 
 HDInsight'ı kullanırken, veri dosyalarını Azure Blob Depolama ve isteğe bağlı olarak Azure Data Lake Store kullanarak bulutta dayanıklı ve ölçeklenebilir bir şekilde depolanır. Bu hizmetler, aşağıdaki avantajları sağlar:
 
-* Ucuz uzun süreli depolama
-* Web siteleri, dosya karşıya yükleme/indirme yardımcı programlar, çeşitli dil SDK'ları ve web tarayıcıları gibi dış hizmetlerden erişilebilirlik
-* Büyük dosya kapasite ve büyük ölçeklenebilir depolama
+* Uzun vadeli depolama ucuz.
+* Web siteleri, dosya karşıya yükleme/indirme yardımcı programlar, çeşitli dil SDK'ları ve web tarayıcıları gibi dış hizmetlerden erişilebilirlik.
+* Büyük dosya kapasite ve büyük ölçeklenebilir depolama.
 
 Daha fazla bilgi için [anlama blobları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) ve [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
@@ -120,17 +120,17 @@ Bazı komutlar düzeni URI'ın bir parçası olarak bir dosyaya erişirken belir
 
 Kullanırken __Azure depolama__, aşağıdaki URI düzenleri birini kullanın:
 
-* `wasb:///`: Şifrelenmemiş iletişimin kullanma erişim varsayılan depolama alanı.
+* `wasb:///`: Şifrelenmemiş iletişimin kullanarak erişim varsayılan depolama alanı.
 
-* `wasbs:///`: Şifreli iletişim kullanma erişim varsayılan depolama alanı.  Wasbs şeması yalnızca HDInsight sürümü 3.6 veya sonraki sürümleri ' desteklenir.
+* `wasbs:///`: Şifreli iletişim kullanarak erişim varsayılan depolama alanı.  Wasbs şeması yalnızca HDInsight sürümü 3.6 veya sonraki sürümleri ' desteklenir.
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Bir varsayılan olmayan depolama hesabı ile iletişim kurarken kullanılır. Örneğin, ek bir depolama hesabı veya ne zaman ortak olarak erişilebilen bir depolama hesabında depolanan verilere erişme olduğunda.
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Varsayılan olmayan depolama hesabıyla iletişimde kullanılacak. Örneğin, ek bir depolama hesabı veya ne zaman ortak olarak erişilebilen bir depolama hesabında depolanan verilere erişme olduğunda.
 
 Kullanırken __Data Lake Store__, aşağıdaki URI düzenleri birini kullanın:
 
 * `adl:///`: Küme için varsayılan Data Lake Store erişim.
 
-* `adl://<storage-name>.azuredatalakestore.net/`: Bir varsayılan olmayan Data Lake Store ile iletişim kurarken kullanılır. Ayrıca, HDInsight kümenizin kök dizininin dışındaki verilere erişmek için kullanılır.
+* `adl://<storage-name>.azuredatalakestore.net/`: Varsayılan olmayan Data Lake Store ile iletişim kurarken kullanılan. Ayrıca, HDInsight kümenizin kök dizininin dışındaki verilere erişmek için kullanılır.
 
 > [!IMPORTANT]
 > HDInsight için varsayılan depolama olarak Data Lake Store kullanırken HDInsight depolama kökü olarak kullanılacak bir depo içindeki bir yol belirtmeniz gerekir. Varsayılan yol `/clusters/<cluster-name>/`.
@@ -143,7 +143,7 @@ Ambari, kümenin varsayılan depolama yapılandırmasını almak için kullanabi
 
 ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
 
-> [!NOTE]
+> [!NOTE]  
 > Bu komut sunucuya uygulanan ilk yapılandırmayı döndürür (`service_config_version=1`), bu bilgileri içerir. En son olanı bulmak için tüm yapılandırma sürümlerini listesinde gerekebilir.
 
 Bu komut, aşağıdaki URI benzer bir değer döndürür:
@@ -176,8 +176,8 @@ HDInsight küme dışından verileri erişmek için bir çeşitli yolları vard�
 
 Kullanıyorsanız __Azure depolama__, verilerinize erişebilirsiniz yolları için aşağıdaki bağlantılara bakın:
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): komut satırı arabirimi, Azure ile çalışmak için komutları. Yükledikten sonra `az storage` depolama kullanma hakkında Yardım için komut veya `az storage blob` blob özgü komutlar için.
-* [blobxfer.PY](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): bir python betiği Azure depolama blobları ile çalışmak için.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Azure ile çalışmaya yönelik komut satırı arabirimi komutları. Yükledikten sonra `az storage` depolama kullanma hakkında Yardım için komut veya `az storage blob` blob özgü komutlar için.
+* [blobxfer.PY](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): Azure Depolama'daki blobları ile çalışmak için python betiği.
 * Çeşitli SDK'lar:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
@@ -205,8 +205,8 @@ Küme ölçeklendirme özelliği, küme tarafından kullanılan veri düğümü 
 
 Farklı küme türü, şu şekilde ölçeklendirerek etkilenir:
 
-* **Hadoop**: kümedeki düğüm sayısını aşağı ölçeklendirme, kümedeki hizmetlerinden bazılarını yeniden başlatılır. Ölçeklendirme işlemlerinin işleri çalıştırma veya bekleyen ölçeklendirme işleminin tamamlanması sırasında başarısız olmasına neden olabilir. İşlem tamamlandığında, işleri yeniden gönderebilirsiniz.
-* **HBase**: bölgesel sunucuları otomatik olarak ölçeklendirme işlemi tamamlandıktan sonra birkaç dakika içinde dengelenir. El ile bölgesel sunucular dengelemek için aşağıdaki adımları kullanın:
+* **Hadoop**: Bir kümedeki düğüm sayısını aşağı ölçeklendirme, kümedeki hizmetlerinden bazılarını yeniden başlatılır. Ölçeklendirme işlemlerinin işleri çalıştırma veya bekleyen ölçeklendirme işleminin tamamlanması sırasında başarısız olmasına neden olabilir. İşlem tamamlandığında, işleri yeniden gönderebilirsiniz.
+* **HBase**: Bölge sunucuları ölçeklendirme işlemi tamamlandıktan sonra birkaç dakika içinde otomatik olarak dengelenir. El ile bölgesel sunucular dengelemek için aşağıdaki adımları kullanın:
 
     1. HDInsight kümesine SSH kullanarak bağlanın. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -218,9 +218,9 @@ Farklı küme türü, şu şekilde ölçeklendirerek etkilenir:
 
             balancer
 
-* **Storm**: bir ölçeklendirme işlemi gerçekleştirildikten sonra tüm çalışan Storm topolojilerini yeniden dengelemeniz gerekir. Yeniden Dengeleme paralellik ayarları yeni kümedeki düğümlere göre yeniden ayarlayın imkan tanır. Çalışan topolojileri yeniden dengelemeniz için aşağıdaki seçeneklerden birini kullanın:
+* **Storm**: Bir ölçeklendirme işlemi gerçekleştirildikten sonra tüm çalışan Storm topolojilerini yeniden dengelemeniz gerekir. Yeniden Dengeleme paralellik ayarları yeni kümedeki düğümlere göre yeniden ayarlayın imkan tanır. Çalışan topolojileri yeniden dengelemeniz için aşağıdaki seçeneklerden birini kullanın:
 
-    * **SSH**: sunucuya bağlanın ve bir topolojiyi yeniden dengelemek için aşağıdaki komutu kullanın:
+    * **SSH**: Sunucuya bağlanın ve bir topolojiyi yeniden dengelemek için aşağıdaki komutu kullanın:
 
             storm rebalance TOPOLOGYNAME
 
@@ -231,12 +231,12 @@ Farklı küme türü, şu şekilde ölçeklendirerek etkilenir:
         1. Açık **https://CLUSTERNAME.azurehdinsight.net/stormui** web tarayıcısında, burada CLUSTERNAME Storm kümenizin adıdır. İstenirse, HDInsight Küme Yöneticisi (Yönetici) adı ve kümeyi oluştururken belirttiğiniz parolayı girin.
         2. Topolojiyi yeniden dengelemek ve ardından istediğiniz seçin **yeniden dengelemek** düğmesi. Yeniden Dengeleme işleminin gerçekleştirilmeden önce gecikme süresini girin.
 
-* **Kafka**: ölçeklendirme işlemlerinden sonra bölüm çoğaltmalarını yeniden dengelemeniz gerekir. Daha fazla bilgi için [HDInsight üzerinde Kafka ile verilerinizin yüksek kullanılabilirliği](./kafka/apache-kafka-high-availability.md) belge.
+* **Kafka**: Bölüm çoğaltmalarını ölçeklendirme işlemlerinden sonra yeniden dengelemeniz gerekir. Daha fazla bilgi için [HDInsight üzerinde Apache Kafka ile verilerinizin yüksek kullanılabilirliği](./kafka/apache-kafka-high-availability.md) belge.
 
 HDInsight kümenizi ölçeklendirme ile ilgili ayrıntılı bilgi için bkz:
 
-* [Azure portalını kullanarak HDInsight Hadoop kümelerini yönetme](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Azure PowerShell kullanarak HDInsight Hadoop kümelerini yönetme](hdinsight-administer-use-command-line.md#scale-clusters)
+* [Azure portalını kullanarak HDInsight Apache Hadoop kümelerini yönetme](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Azure PowerShell kullanarak HDInsight Apache Hadoop kümelerini yönetme](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Hue (veya diğer Hadoop bileşenleri) nasıl yüklerim?
 
@@ -247,8 +247,8 @@ HDInsight yönetilen bir hizmettir. Azure küme ile ilgili bir sorun algılarsa,
 
 Betik eylemleri, Bash betikleridir. Komut dosyaları, küme oluşturma sırasında çalıştırmak ve ek bileşenlerini yükleme ve yapılandırma için kullanılır. Örnek betikler aşağıdaki bileşenleri yüklemek için sağlanmıştır:
 
-* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Solr](hdinsight-hadoop-solr-install-linux.md)
+* [Apache giraph'ı](hdinsight-hadoop-giraph-install-linux.md)
+* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 Kendi Betik Eylemlerinizi geliştirme hakkında daha fazla bilgi için bkz. [HDInsight ile Betik Eylemi geliştirme](hdinsight-hadoop-script-actions-linux.md).
 
@@ -275,6 +275,6 @@ Bir bileşen farklı bir sürümünü kullanmanız gerekir ve işlerinizde kulla
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Linux tabanlı Windows tabanlı HDInsight ' geçiş](hdinsight-migrate-from-windows-to-linux.md)
-* [HDInsight ile Hive kullanma](hadoop/hdinsight-use-hive.md)
-* [HDInsight ile Pig kullanma](hadoop/hdinsight-use-pig.md)
+* [Apache Hive, HDInsight ile kullanma](hadoop/hdinsight-use-hive.md)
+* [Apache Pig, HDInsight ile kullanma](hadoop/hdinsight-use-pig.md)
 * [HDInsight ile MapReduce işleri kullanma](hadoop/hdinsight-use-mapreduce.md)

@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 202a68d219bec3a70e50afa68228cbc6bf453518
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6cedc269e279a9154e63bae241f02e766e06ec96
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011672"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383910"
 ---
-# <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>HDInsight Hadoop kümelerinde Giraph'ı yükleyin ve büyük ölçekli grafikleri işlemek için Giraph kullanma
+# <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>HDInsight Hadoop kümeleri üzerinde Apache giraph'ı yükleyin ve büyük ölçekli grafikleri işlemek için Giraph kullanma
 
 Bir HDInsight kümesi üzerinde Apache giraph'ı yüklemeyi öğrenin. HDInsight betik eylemi özelliği, bir bash betiğini çalıştırarak kümeniz özelleştirmenizi sağlar. Betikler, sırasında ve Küme oluşturulduktan sonra kümeleri özelleştirmek için kullanılabilir.
 
@@ -33,7 +33,7 @@ Bir HDInsight kümesi üzerinde Apache giraph'ı yüklemeyi öğrenin. HDInsight
 
 * Web sayfalarının sayfası boyut hesaplanıyor.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight kümesi ile sağlanan bileşenler tam olarak desteklenir: Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
 >
 > Giraph gibi özel bileşenler daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Microsoft Support ve sorunu çözmek için mümkün olabilir. Aksi durumda, bu teknoloji için derin bir uzmanlık bulunduğu açık kaynaklı topluluklar başvurmalısınız. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
@@ -68,17 +68,17 @@ Bu bölümde, örnek betik Azure portalını kullanarak kümeyi oluştururken ku
 
 2. İçinde **isteğe bağlı yapılandırma** bölümünden **betik eylemleri**ve aşağıdaki bilgileri sağlayın:
 
-   * **AD**: betik eylemi için bir kolay ad girin.
+   * **AD**: Betik eylemi için bir kolay ad girin.
 
    * **BETİK URI'Sİ**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-   * **HEAD**: Bu girdi denetleyin
+   * **HEAD**: Bu giriş kontrol edin.
 
-   * **ÇALIŞAN**: Bu girdi işaretlemeden bırakın
+   * **ÇALIŞAN**: Bu giriş işaretlemeden bırakın.
 
-   * **ZOOKEEPER**: Bu girdi işaretlemeden bırakın
+   * **ZOOKEEPER**: Bu giriş işaretlemeden bırakın.
 
-   * **PARAMETRELERİ**: Bu alanı boş bırakın
+   * **PARAMETRELERİ**: Bu alanı boş bırakın.
 
 3. Sayfanın alt kısmında **betik eylemleri**, kullanın **seçin** yapılandırmayı kaydetmek için düğme. Son olarak, **seçin** düğme alttaki **isteğe bağlı yapılandırma** isteğe bağlı yapılandırma bilgilerini kaydetmek için bölümü.
 
@@ -172,4 +172,4 @@ Küme oluşturulduktan sonra Giraph dahil SimpleShortestPathsComputation örneğ
 
 * [Yükleme ve HDInsight kümelerinde Hue kullanma](hdinsight-hadoop-hue-linux.md).
 
-* [HDInsight kümelerinde Solr yükleme](hdinsight-hadoop-solr-install-linux.md).
+* [HDInsight kümeleri üzerinde Apache Solr yükleme](hdinsight-hadoop-solr-install-linux.md).

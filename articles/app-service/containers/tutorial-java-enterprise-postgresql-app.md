@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 2b8151117a9093cb58ffe6db45bc5ee1a9abd54b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2a38b117cde6d6b51b101f6b0ef0eb3a19b42ba3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259265"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344236"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>Öğretici: Azure'da bir Java EE ve Postgres web uygulaması oluşturma
 
-Bu öğreticide, Azure App Service'te bir Java Enterprise Edition (EE) web uygulaması oluşturma ve Postgres veritabanına bağlanmak nasıl gösterilmektedir. İşlemi tamamladığınızda, olacaktır bir [WildFly](http://www.wildfly.org/about/) veri depolarken uygulama [Postgres için Azure veritabanı](https://azure.microsoft.com/services/postgresql/) Azure üzerinde çalışan [Linux için App Service](app-service-linux-intro.md).
+Bu öğreticide, Azure App Service'te bir Java Enterprise Edition (EE) web uygulaması oluşturma ve Postgres veritabanına bağlanmak nasıl gösterilmektedir. İşlemi tamamladığınızda, olacaktır bir [WildFly](https://www.wildfly.org/about/) veri depolarken uygulama [Postgres için Azure veritabanı](https://azure.microsoft.com/services/postgresql/) Azure üzerinde çalışan [Linux için App Service](app-service-linux-intro.md).
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]

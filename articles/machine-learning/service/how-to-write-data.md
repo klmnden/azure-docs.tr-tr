@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 18c74a701da77ca06d3084a6f4af64dd4cc32628
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: a6abdaff986df3c457a0118f6e143fe4ff0daf49
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186030"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384352"
 ---
 # <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>Azure Machine Learning veri hazırlığı SDK'sını kullanarak veri yazma
 
@@ -52,7 +52,7 @@ Bu örnekte, bir veri akışına veri yükleyerek başlayın. Bu farklı biçiml
 
 ```python
 import azureml.dataprep as dprep
-t = dprep.smart_read_file('./data/fixed_width_file.txt')
+t = dprep.auto_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
 t.head(10)
 ```

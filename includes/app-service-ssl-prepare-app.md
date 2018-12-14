@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 858d098f18604d1360af8509eb8a0cec6fa7d0c7
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.openlocfilehash: ecdd419331c88e712644851f9213861f882cf0f6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354586"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53381724"
 ---
 ## <a name="prepare-your-web-app"></a>Web uygulamanızı hazırlama
 
@@ -41,7 +41,7 @@ Web uygulamanızın **F1** veya **D1** katmanında olmadığından emin olun. We
 
 ![Fiyatlandırma katmanını denetleyin](./media/app-service-ssl-prepare-app/check-pricing-tier.png)
 
-**F1** veya **D1** katmanında özel SSL desteklenmez. Ölçeği artırmanız gerekirse sonraki bölümde verilen adımları izleyin. Aksi takdirde, **Ölçeği artırın** sayfasını kapatıp [SSL sertifikanızı karşıya yükleme ve bağlama](#upload) bölümüne atlayın.
+**F1** veya **D1** katmanında özel SSL desteklenmez. Ölçeği artırmanız gerekirse sonraki bölümde verilen adımları izleyin. Aksi halde, kapatmak **ölçeği** sayfasında ve atlama [App Service planınızın ölçeğini](#scale-up-your-app-service-plan) bölümü.
 
 ### <a name="scale-up-your-app-service-plan"></a>App Service planınızın ölçeğini artırma
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: c9929149c029d15d496eac0eb530371418e1e1f2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3795db2928e23b16d93e544c4f148b049eccfdef
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323516"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384845"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure İzleyici tarafından toplanan verileri izleme
 [Azure İzleyici](../overview.md) yardımcı olan bir hizmeti izlemek, uygulamalarınızın ve bunların bağımlı kaynakları olduğundan. Telemetri ve diğer verileri izlenen kaynaklardan bu işleve merkezi depolamadır. Bu makalede, Azure İzleyici tarafından kullanılan bu veriler nasıl depolanır ve kapsamlı bir açıklama sağlar.
@@ -96,9 +96,9 @@ Azure İzleyici tarafından toplanan ölçümleri üç temel kaynakları vardır
 ### <a name="what-can-you-do-with-metrics"></a>Ölçümler ile neler?
 Ölçümler ile gerçekleştirebileceğiniz görevler aşağıdakileri içerir:
 
-- Kullanım [ölçüm Gezgini](../../monitoring-and-diagnostics/monitoring-metric-charts.md) toplanan ölçümlerin analiz etmek ve bunları bir vykreslit v grafu için. Grafiklere sabitleyerek (örneğin, bir sanal makine, Web sitesi veya mantıksal uygulama) kaynak performansını izleyen bir [Azure panosuna](../../azure-portal/azure-portal-dashboards.md).
+- Kullanım [ölçüm Gezgini](../../azure-monitor/platform/metrics-charts.md) toplanan ölçümlerin analiz etmek ve bunları bir vykreslit v grafu için. Grafiklere sabitleyerek (örneğin, bir sanal makine, Web sitesi veya mantıksal uygulama) kaynak performansını izleyen bir [Azure panosuna](../../azure-portal/azure-portal-dashboards.md).
 - Yapılandırma bir [ölçüm uyarısı kuralının](alerts-metric.md) bildirim gönderen veya alan [eylemi otomatik](action-groups.md) ne zaman bir eşiği aştığında ölçümü.
-- Kullanım [otomatik ölçeklendirme](../../monitoring-and-diagnostics/monitoring-overview-autoscale.md) artırabilir veya azaltabilirsiniz bir Eşiği aşan bir ölçüme göre kaynakları.
+- Kullanım [otomatik ölçeklendirme](../../azure-monitor/platform/autoscale-overview.md) artırabilir veya azaltabilirsiniz bir Eşiği aşan bir ölçüme göre kaynakları.
 - Yol ölçümlerinin Log analytics'e günlük verileriyle birlikte ölçüm verilerini analiz etmek ve ölçüm değerleri 93 günden daha uzun süre saklamak için. 
 - Stream için ölçümleri bir [olay hub'ı](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) kendisine yönlendirmek için [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) veya harici sistemlere bağlanma.
 - [Arşiv](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) kaynağınızın denetim ya da çevrimdışı raporlamaya uyumluluk, performans veya sistem durumu geçmişi.
@@ -109,7 +109,7 @@ Azure İzleyici tarafından toplanan ölçümleri üç temel kaynakları vardır
 ### <a name="viewing-metrics"></a>Ölçümleri görüntüleme
 Azure İzleyici ölçümleri veritabanında azure'da ölçümleri toplanır. Bu, zaman serisi veritabanı 93 gün boyunca hızlı alma ve depoları ölçüm değerleri için en iyi duruma getirilmiş. Ölçümler için Log Analytics uzun süreli analiz ve eğilimler için kopyalayın.
 
-Ölçüm verilerini yukarıda açıklandığı gibi çeşitli şekillerde kullanılır. Kullanım [ölçüm Gezgini](../../monitoring-and-diagnostics/monitoring-metric-charts.md) doğrudan ölçüm mağazanızdaki verileri analiz etmek ve zaman içinde birden çok ölçüm değerleri grafik. Etkileşimli olarak grafikleri görüntülemek veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin. Ölçümleri kullanarak da alabilirsiniz [Azure REST API izleme](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Ölçüm verilerini yukarıda açıklandığı gibi çeşitli şekillerde kullanılır. Kullanım [ölçüm Gezgini](../../azure-monitor/platform/metrics-charts.md) doğrudan ölçüm mağazanızdaki verileri analiz etmek ve zaman içinde birden çok ölçüm değerleri grafik. Etkileşimli olarak grafikleri görüntülemek veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin. Ölçümleri kullanarak da alabilirsiniz [Azure REST API izleme](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 ![Ölçüm Gezgini](media/data-collection/metrics-explorer.png)
 
@@ -174,7 +174,7 @@ Azure kaynaklardan ölçümleri toplamaya yönelik rehberlik alabilirsiniz [topl
 ### <a name="logs-to-metrics"></a>Ölçümler için günlükleri
 Daha düşük gecikme süresi ve daha düşük bir maliyetle uyarılar oluşturmak için yukarıda açıklandığı gibi günlükleri, daha hızlı yanıt ölçümleridir. Log Analytics önemli ölçüde ölçümler için uygun olabilir, ancak Azure ölçümleri veritabanında saklanmaz sayısal veri toplar.  Aracılar ve yönetim çözümlerinden toplanan performans verilerini buna yaygın bir örnektir. Bu değerlerden bazıları, ölçüm Gezgini ile analizi ve Uyarılar için kullanılabilir olduğu ölçüm veritabanına kopyalanabilir.
 
-Bu özellik açıklaması kullanılabilir [Azure İzleyici günlükler için ölçüm uyarıları oluşturma](../../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). Değerleri destek listesi kullanılabilir [Azure İzleyici ile desteklenen ölçümler](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
+Bu özellik açıklaması kullanılabilir [Azure İzleyici günlükler için ölçüm uyarıları oluşturma](../../azure-monitor/platform/alerts-metric-logs.md). Değerleri destek listesi kullanılabilir [Azure İzleyici ile desteklenen ölçümler](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 
 ## <a name="stream-data-to-external-systems"></a>Stream veri harici sistemlere bağlanma
 İzleme verilerini analiz etmek için Azure'da araçlarını kullanabilmenin yanı sıra güvenlik bilgileri ve Olay yönetimi (SIEM) ürün gibi bir dış araç iletmek için bir gereksinim olabilir. Bu iletme genellikle doğrudan izlenen kaynakları üzerinden yapılır [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 

@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: cb14a23fbffb5ca9b7d3240a42e14aa17060f935
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 30d0818b57057785784c1fbda1c67ca0be10d769
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820316"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384777"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure dosyaları'na veri almak için Azure içeri/dışarı aktarma hizmetini kullanma
 
@@ -29,7 +29,7 @@ Azure dosyalarına veri aktarmak için içeri aktarma işine oluşturmadan önce
 - En az bir Azure depolama hesabına sahip. Listesine bakın [desteklenen depolama hesapları ve depolama türleri için içeri/dışarı aktarma hizmeti](storage-import-export-requirements.md). Yeni bir depolama hesabı oluşturma hakkında daha fazla bilgi için bkz. [bir depolama hesabının nasıl oluşturulacağını](storage-quickstart-create-account.md).
 - Diskleri yeterli sayıda [desteklenen türleri](storage-import-export-requirements.md#supported-disks). 
 - Çalıştıran bir Windows sistemine sahip bir [desteklenen işletim sistemi sürümü](storage-import-export-requirements.md#supported-operating-systems).
-- [' % S'WAImportExport sürüm 2 indirme](https://www.microsoft.com/download/details.aspx?id=55280) Windows sistem üzerinde. Varsayılan klasöre çıkartın `waimportexport`. Örneğin, `C:\WaImportExport`.
+- [' % S'WAImportExport sürüm 2 indirme](https://aka.ms/waiev2) Windows sistem üzerinde. Varsayılan klasöre çıkartın `waimportexport`. Örneğin, `C:\WaImportExport`.
 - Bir FedEx/DHL hesabınız vardır. 
     - Hesabın geçerli olmalıdır, Bakiye olmalıdır ve iade sevkiyat özelliklerine sahip olmalı.
     - İzleme numarası için dışarı aktarma işi oluşturur.
@@ -40,7 +40,7 @@ Azure dosyalarına veri aktarmak için içeri aktarma işine oluşturmadan önce
  
 
 
-## <a name="step-1-prepare-the-drives"></a>1. adım: sürücüleri hazırlama
+## <a name="step-1-prepare-the-drives"></a>1. Adım: Sürücüleri hazırlama
 
 Bu adım, bir günlük dosyası oluşturur. Günlük dosyası sürücü seri numarası, şifreleme anahtarını ve depolama hesabı ayrıntıları gibi temel bilgileri depolar.
 
@@ -57,7 +57,7 @@ Sürücüleri hazırlamak için aşağıdaki adımları gerçekleştirin.
             "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
         ```
-    - **Bir klasörü içeri aktarmak için**: tüm dosya ve klasörlerin altındaki *MyFolder2* yinelemeli dosya paylaşımına kopyalanır. Klasör yapısı korunur.
+    - **Bir klasörü içeri aktarmak için**: Tüm dosya ve klasörlerin altındaki *MyFolder2* yinelemeli dosya paylaşımına kopyalanır. Klasör yapısı korunur.
 
         ```
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
@@ -77,14 +77,14 @@ Sürücüleri hazırlamak için aşağıdaki adımları gerçekleştirin.
 
     Bu örnekte, iki disk eklenir ve temel NTFS birimleri G:\ ve H:\ oluşturduğunuz varsayılır. H:\is G: zaten şifrelendiyse ancak şifrelenmez. Aracı biçimlendirir ve yalnızca H:\ barındıran disk şifreler (ve değil G:\).
 
-    - **Şifrelenmemiş bir disk için**: belirtin *şifrele* diskte BitLocker şifrelemesini etkinleştirmek için.
+    - **Şifrelenmemiş bir disk için**: Belirtin *şifrele* diskte BitLocker şifrelemesini etkinleştirmek için.
 
         ```
         DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
         H,Format,SilentMode,Encrypt,
         ```
     
-    - **Zaten şifrelenmiş bir disk için**: belirtin *AlreadyEncrypted* ve BitLocker anahtarı sağlayın.
+    - **Zaten şifrelenmiş bir disk için**: Belirtin *AlreadyEncrypted* ve BitLocker anahtarı sağlayın.
 
         ```
         DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -112,7 +112,7 @@ Sürücüleri hazırlamak için aşağıdaki adımları gerçekleştirin.
 
 Ek örnekler için Git [günlük dosyaları için örnekleri](#samples-for-journal-files).
 
-## <a name="step-2-create-an-import-job"></a>2. adım: bir içeri aktarma işi oluşturma 
+## <a name="step-2-create-an-import-job"></a>2. Adım: İçeri aktarma işi oluşturma 
 
 Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları gerçekleştirin.
 1. Oturum https://portal.azure.com/.
@@ -137,7 +137,7 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
 
 3. İçinde **iş ayrıntıları**:
     
-    - Önceki sırasında oluşturulan günlük dosyalarını karşıya yükleme [1. adım: sürücüleri hazırlamak](#step-1-prepare-the-drives). 
+    - Önceki sırasında oluşturulan günlük dosyalarını karşıya yükleme [1. adım: Sürücüleri hazırlamak](#step-1-prepare-the-drives). 
     - Verileri içeri aktarılan depolama hesabını seçin. 
     - Dropoff konum seçili depolama hesabının bölgeye göre otomatik olarak doldurulur.
    
@@ -162,15 +162,15 @@ Azure portalında içeri aktarma işi oluşturmak için aşağıdaki adımları 
 
         ![4. adım - içeri aktarma işi oluşturma](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
-## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>3. adım: Azure veri merkezine bir sürücü gönderin 
+## <a name="step-3-ship-the-drives-to-the-azure-datacenter"></a>3. Adım: Sürücüleri Azure veri merkezine gönderin 
 
 [!INCLUDE [storage-import-export-ship-drives](../../../includes/storage-import-export-ship-drives.md)]
 
-## <a name="step-4-update-the-job-with-tracking-information"></a>4. adım: işi izleme bilgilerini güncelleştir
+## <a name="step-4-update-the-job-with-tracking-information"></a>4. adım: İş izleme bilgilerini güncelleştir
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-## <a name="step-5-verify-data-upload-to-azure"></a>5. adım: Azure için verileri karşıya yükleme doğrulayın
+## <a name="step-5-verify-data-upload-to-azure"></a>5. adım: Azure'a verilerin yüklendiğini doğrulama
 
 İş tamamlanana kadar izleyin. İş tamamlandıktan sonra verilerinizi Azure'a karşıya yüklendiğini doğrulayın. Yalnızca, karşıya yükleme başarılı olduğunu doğruladıktan sonra şirket içi verileri silin.
 

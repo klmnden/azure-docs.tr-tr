@@ -9,31 +9,28 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 21c7b94f694e8a2cfe6abfd74bbc616ade5dad82
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f0d6c22d54de0486ad679f93343f0e7b208f21f4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008360"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384078"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Betik eylemi betikleri HDInsight Windows tabanlı kümeler için geliştirme
 HDInsight için betik eylemi betikleri yazmayı öğrenin. Betik eylemi betikleri kullanma hakkında daha fazla bilgi için bkz. [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md). Linux tabanlı HDInsight kümeleri için yazılmış aynı makalesi için bkz [HDInsight için betik eylemi geliştirme betikleri](hdinsight-hadoop-script-actions-linux.md).
 
 
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgede yer alan adımlar, yalnızca Windows tabanlı HDInsight kümeleri için çalışır. HDInsight yalnızca Windows üzerinde HDInsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Betik eylemleri ile Linux tabanlı kümeler hakkında daha fazla bilgi için bkz. [(Linux) HDInsight ile betik eylemi geliştirme](hdinsight-hadoop-script-actions-linux.md).
->
->
 
 
+Betik eylemi, bir Apache Hadoop kümesinde çalışan ek yazılımlar yüklemek veya bir kümeye yüklü uygulamaların yapılandırmasını değiştirmek için kullanılabilir. Betik eylemleri HDInsight kümeleri dağıtırken, küme düğümleri üzerinde çalışan betikleridir ve kümedeki düğümlerin HDInsight yapılandırmasını tamamladıktan sonra yürütülür. Betik eylemi sistem Yönetici hesap ayrıcalığı altında yürütülür ve küme düğümleri için tam erişim hakları sağlar. Her küme içinde belirtildikleri sırada yürütülecek betik eylemleri listesiyle sağlanabilir.
 
-Betik eylemi, bir Hadoop kümesinde çalışan ek yazılımlar yüklemek veya bir kümeye yüklü uygulamaların yapılandırmasını değiştirmek için kullanılabilir. Betik eylemleri HDInsight kümeleri dağıtırken, küme düğümleri üzerinde çalışan betikleridir ve kümedeki düğümlerin HDInsight yapılandırmasını tamamladıktan sonra yürütülür. Betik eylemi sistem Yönetici hesap ayrıcalığı altında yürütülür ve küme düğümleri için tam erişim hakları sağlar. Her küme içinde belirtildikleri sırada yürütülecek betik eylemleri listesiyle sağlanabilir.
-
-> [!NOTE]
+> [!NOTE]  
 > Aşağıdaki hata iletisini karşılaşırsanız:
 >
-> System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Adının yazımını denetleyin veya bir yol varsa, yolun doğru olduğundan emin olun ve yeniden deneyin.
+> System.Management.Automation.CommandNotFoundException; ExceptionMessage: ' % S'terim 'HDIFile Kaydet' cmdlet'i, işlev, komut dosyası veya çalıştırılabilir program adı olarak tanınmıyor. Adının yazımını denetleyin veya bir yol varsa, yolun doğru olduğundan emin olun ve yeniden deneyin.
+> 
 > Yardımcı yöntemler eklemediğiniz olmasıdır.  Bkz: [özel komut dosyaları için yardımcı yöntemler](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 >
 >
@@ -98,16 +95,16 @@ HDInsight, HDInsight kümelerinde ek bileşenleri yüklemek için birkaç komut 
 
 | Ad | Betik |
 | --- | --- |
-| **Spark'ı yükleme** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Bkz: [yükleme ve kullanma, HDInsight üzerinde Spark kümeleri][hdinsight-install-spark]. |
+| **Spark'ı yükleme** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1`. Bkz: [yükleme ve kullanma, HDInsight üzerinde Apache Spark kümeleri][hdinsight-install-spark]. |
 | **R yükleme** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1`. Bkz: [yükleme ve HDInsight kümelerinde R kullanma](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster). |
-| **Solr yükleme** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Bkz: [HDInsight üzerinde Solr yükleme ve kullanma kümeleri](hdinsight-hadoop-solr-install.md). |
-| **Giraph yükleme** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Bkz: [HDInsight üzerinde Giraph yükleme ve kullanma kümeleri](hdinsight-hadoop-giraph-install.md). |
-| **Hive kitaplıklarını önceden yükleme** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Bkz: [HDInsight kümelerinde ekleme Hive kitaplıkları](hdinsight-hadoop-add-hive-libraries.md) |
+| **Solr yükleme** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1`. Bkz: [HDInsight üzerinde Apache Solr yükleme ve kullanma kümeleri](hdinsight-hadoop-solr-install.md). |
+| **Giraph yükleme** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1`. Bkz: [HDInsight üzerinde Apache giraph'ı yükleme ve kullanma kümeleri](hdinsight-hadoop-giraph-install.md). |
+| **Hive kitaplıklarını önceden yükleme** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1`. Bkz: [HDInsight kümelerinde kitaplıkları Apache Hive Ekle](hdinsight-hadoop-add-hive-libraries.md) |
 
 
 Betik eylemi, Azure portalı, Azure PowerShell veya HDInsight .NET SDK'sı kullanılarak dağıtılabilir.  Daha fazla bilgi için [özelleştirme HDInsight kümelerini betik eylemi kullanarak][hdinsight-cluster-customize].
 
-> [!NOTE]
+> [!NOTE]  
 > Örnek betikler yalnızca HDInsight kümesi sürüm 3.1 veya üstünde çalışır. HDInsight küme sürümleri hakkında daha fazla bilgi için bkz. [HDInsight küme sürümleri](hdinsight-component-versioning.md).
 >
 >
@@ -157,25 +154,25 @@ Bu komut dosyası tarafından sağlanan yardımcı yöntemler şunlardır:
 ## <a name="best-practices-for-script-development"></a>Betik geliştirme için en iyi uygulamalar
 Bir HDInsight kümesi için özel bir betik geliştirirken akılda tutulması gereken birkaç en iyi uygulama vardır:
 
-* Hadoop sürüm denetleme
+* Hadoop sürüm kontrol edin.
 
     Yalnızca HDInsight (Hadoop 2.4) 3.1 sürümünü ve yukarıda bir kümede özel bileşenleri yüklemek için betik eylemi kullanarak destek. Özel betiğinizde kullanmalısınız **Get-HDIHadoopVersion** betikte diğer görevleri gerçekleştirme ile devam etmeden önce Hadoop sürümü denetlemek için yardımcı yöntemi.
-* Betik kaynakların kararlı bağlantıları sağlayın
+* Komut dosyası kaynakları kararlı bağlantıları verilmektedir.
 
     Kullanıcılar tüm betikleri ve bir küme özelleştirmesinde kullanılan diğer yapılar kümenin kullanım ömrü boyunca kullanılabilir kalmasını ve bu dosyaların sürümleri süresince değiştirmeyin emin olmanız gerekir. Bu kaynaklar, kümedeki düğümlerin yeniden görüntü gerekliyse gereklidir. İndirmek ve her şeyi kullanıcı denetimleri bir depolama hesabında arşivlemek için en iyi yöntem olacaktır. Bu hesap, varsayılan depolama hesabı veya özelleştirilmiş bir küme için dağıtım zamanında belirtilen ek depolama hesabı olabilir.
     Belgelerde, örneğin, sağlanmış bu depolama hesabındaki kaynaklara yerel bir kopyasını Spark ve R küme örnekleri özelleştirilmiş: https://hdiconfigactions.blob.core.windows.net/.
-* Küme özelleştirmesi betiğini kez etkili olduğundan emin olun
+* Küme özelleştirmesi betiğini kez etkili olduğundan emin olun.
 
     Bir HDInsight kümesi düğümleri kümenin kullanım süresi boyunca başlatıldığında, beklediğiniz gerekir. Bir küme başlatıldığı zaman küme özelleştirme betik çalıştırılır. Bu betik, yalnızca küme başlangıçta oluşturulduğu ilk kez betiği çalıştırdıktan sonra bunu durumu yeniden görüntü üzerinde komut kümesi aynı döndürülür emin olması anlamında ıdempotent özelleştirilmiş olacak şekilde tasarlanmalıdır. Özel bir komut dosyası ilk çalıştırılmasında D:\AppLocation uygulama yüklü değilse, örneğin, ardından görüntüsü yeniden oluşturuluyor, bağlı her sonraki alıştırmada, betik adımları diğer devam etmeden önce uygulama D:\AppLocation konumda var olup olmadığını denetlemelisiniz komut dosyası.
-* En uygun konuma özel bileşenler yükleme
+* Özel bileşenler en uygun konuma yükler.
 
     Küme düğümleri başlatıldığı zaman kaynak sürücü C:\ ve D:\ sistem sürücüsünün, veri kaybına ve bu sürücüleri yüklü uygulamaların výsledek yeniden biçimlendirildi. Kümenin parçası olan bir Azure sanal makinesi (VM) düğüm arıza ve yeni bir düğüm tarafından değiştirilirse bu kayıp da meydana gelmiş olabilir. D:\ sürücüsüne veya C:\apps konumu kümedeki bileşenleri yükleyebilirsiniz. Diğer tüm konumlara C:\ sürücüsüne ayrılmıştır. Burada uygulamaları veya kitaplıkları küme özelleştirme betikte yüklenecek konumu belirtin.
-* Yüksek kullanılabilirlik kümesi mimarisi
+* Yüksek kullanılabilirlik kümesi mimarisi emin olun.
 
     HDInsight, yüksek kullanılabilirlik, bir baş düğüm (HDInsight Hizmetleri çalıştırdığınız) etkin moda ve bir baş düğüm (içinde hangi HDInsight Hizmetleri çalışmıyor) bekleme modunda olduğu için bir Aktif-Pasif mimari vardır. HDInsight Hizmetleri kesilirse düğümleri etkin ve Pasif modlar arasında geçiş yapma. Yüksek kullanılabilirlik için iki baş düğümüne hizmetlerini yüklemek için betik eylemi kullandıysanız, HDInsight yük devretmeyi mekanizması otomatik olarak bu kullanıcı tarafından yüklenen Hizmetleri'nde başarısız mümkün olmadığını unutmayın. Bu nedenle kullanıcı tarafından yüklenen hizmetleri üzerinde yüksek oranda kullanılabilir olması beklenen bir HDInsight baş düğümü Aktif-Pasif modda, kendi yük devretme mekanizmasına sahip veya etkin-etkin modda olmalıdır.
 
     Baş düğüm rolü bir değer olarak belirtildiğinde her iki baş düğüm üzerinde bir HDInsight betik eylemi komutu çalıştırır *ClusterRoleCollection* parametresi. Özel bir betik tasarlarken, bu nedenle betiğinizi bu kurulumu farkında olduğundan emin olun. Burada aynı hizmetleri yüklenir ve her iki baş düğümü üzerinde çalışmaya ve birbiriyle rekabet son sorunlar çalıştırmamalısınız. Betik eylemi yüklenen yazılım böyle olaylara dayanıklı olacak şekilde bu Ayrıca, yeniden görüntüleme sırasında veri kaybı olduğunu unutmayın. Uygulamalar birçok düğümüne dağıtılmış yüksek oranda kullanılabilir verilerle çalışmak için tasarlanmış olmalıdır. Adede kadar 1/5 kümedeki düğümlerin aynı anda görüntüsü yeniden oluşturulabildiği.
-* Azure Blob depolamayı kullanmak için özel bileşenlerini yapılandırma
+* Azure Blob depolamayı kullanmak için özel bileşenler yapılandırın.
 
     Hadoop dağıtılmış dosya sistemi (HDFS) depolama kullanmak için varsayılan yapılandırma, küme düğümleri üzerinde yüklediğiniz özel bileşenler olabilir. Bunun yerine Azure Blob depolamayı kullanmak için yapılandırmayı değiştirmeniz gerekir. Bir küme reimage HDFS dosya sistemi ile biçimlendirilmiş ve burada depolanan tüm verileri kaybedersiniz. Azure Blob Depolama kullanan, bunun yerine verileriniz korunur sağlar.
 
@@ -297,9 +294,9 @@ Bir yürütme hatası oluştuğunda, olay, onu tanımlayan çıkış Ayrıca bu 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [HDInsight kümelerini betik eylemi kullanarak özelleştirme][hdinsight-cluster-customize]
-* [Yükleme ve HDInsight kümelerine Spark kullanma][hdinsight-install-spark]
-* [Yükleme ve HDInsight kümelerinde Solr kullanma](hdinsight-hadoop-solr-install.md).
-* [Yükleme ve HDInsight kümelerinde Giraph kullanma](hdinsight-hadoop-giraph-install.md).
+* [Yükleme ve Apache Spark HDInsight kümeleri kullanma][hdinsight-install-spark]
+* [Yükleme ve HDInsight kümeleri üzerinde Apache Solr kullanma](hdinsight-hadoop-solr-install.md).
+* [Yükleme ve HDInsight kümeleri üzerinde Apache giraph'ı kullanma](hdinsight-hadoop-giraph-install.md).
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

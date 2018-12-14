@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 56ad4fdf781d9ed94a082ab5eb352803c70e52ef
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a2fd26d110e7bf1ce7ac365b83659e5d33a037df
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996238"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383553"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure İzleyici verilerini Görselleştirme
 Bu makalede, Azure İzleyici'de depolanan verileri görselleştirmek için kullanılabilen yöntemler bir özetini sağlar. Bu içerir [Azure ölçümleri depolama ölçümleri](../azure-monitor/platform/data-collection.md#metrics) ve [Log Analytics'te günlük verilerini](../azure-monitor/platform/data-collection.md#logs). 
@@ -29,10 +29,10 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 
 ![Pano](media/visualizations/dashboard.png)
 
-### <a name="advantages"></a>Avantajları
+### <a name="advantages"></a>Yararları
 - Azure kapsamlı tümleştirme. Görselleştirmeler, ölçüm Gezgini, Log Analytics ve Application Insights da dahil olmak üzere birden çok Azure sayfalarından panolara sabitlenebilir.
 - Ölçüm ve günlükleri hem destekler.
-- Çıkışı dahil olmak üzere birden çok kaynaktan alınan verileri birleştirin [ölçüm Gezgini](../monitoring-and-diagnostics/monitoring-metric-charts.md), [Log Analytics sorguları](../azure-monitor/log-query/log-query-overview.md), ve [eşler](../application-insights/app-insights-app-map.md) ve [kullanılabilirlik]()Application ınsights.
+- Çıkışı dahil olmak üzere birden çok kaynaktan alınan verileri birleştirin [ölçüm Gezgini](../azure-monitor/platform/metrics-charts.md), [Log Analytics sorguları](../azure-monitor/log-query/log-query-overview.md), ve [eşler](../application-insights/app-insights-app-map.md) ve [kullanılabilirlik]()Application ınsights.
 - Kişisel veya paylaşılan panolar için seçenek. Azure ile tümleşik [rol tabanlı kimlik doğrulaması (RBAC)](../role-based-access-control/overview.md).
 - Otomatik yenileme. Ölçümleri Yenile zaman aralığı en az beş dakika ile bağlıdır. Günlükleri bir dakikada yenileyin.
 - Zaman damgası ve özel parametrelerle parametreli ölçümleri panolar.
@@ -53,7 +53,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 
 ![Görünüm](media/visualizations/view.png)
 
-### <a name="advantages"></a>Avantajları
+### <a name="advantages"></a>Yararları
 - Log Analytics verilerini için zengin görselleştirmeler.
 - Dışarı aktarma ve diğer kaynak gruplarında ve Aboneliklerde aktarmak için görünümler içeri aktarın.
 - Çalışma alanları ve izleme çözümlerinin günlük analitik yönetim modeliyle tümleştirir.
@@ -75,7 +75,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 
 ![Çalışma Kitabı](media/visualizations/workbook.png)
 
-### <a name="advantages"></a>Avantajları
+### <a name="advantages"></a>Yararları
 - Ölçüm ve günlükleri hem destekler.
 - İlişkili grafikler ve görselleştirmeler etkileşimli raporları nereye bir tablodaki bir öğe seçtiğinizde dinamik olarak olacak etkinleştirme destekler parametreleri güncelleştirin.
 - Belge benzeri akış.
@@ -93,7 +93,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 
 ![Power BI](media/visualizations/power-bi.png)
 
-### <a name="advantages"></a>Avantajları
+### <a name="advantages"></a>Yararları
 - Zengin görselleştirmeler.
 - Yakınlaştırma da dahil olmak üzere etkileşim ve çapraz filtreleme kapsamlı.
 - Kuruluşunuz genelinde paylaşmak kolaylaşır.
@@ -113,7 +113,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 
 ![Grafana](media/visualizations/grafana.png)
 
-### <a name="advantages"></a>Avantajları
+### <a name="advantages"></a>Yararları
 - Zengin görselleştirmeler.
 - Veri kaynakları oluşan zengin ekosistem.
 - Etkileşimli veriler dahil olmak üzere yakınlaştırın.
@@ -128,7 +128,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 ## <a name="build-your-own-custom-application"></a>Kendi özel uygulamanızı oluşturun
 Kendi özel Web siteleri ve uygulamalar oluşturmanıza olanak sağlayan bir REST istemcisi kullanarak kendi API aracılığıyla Azure ölçümleri ve Log Analytics verilerine erişebilir.
 
-### <a name="advantages"></a>Avantajları
+### <a name="advantages"></a>Yararları
 - Kullanıcı Arabirimi, görselleştirme, etkileşim ve özelliklerin tam esneklik sağlar.
 - Ölçümleri birleştirin ve diğer veri kaynaklarıyla verilerini günlüğe kaydedebilirsiniz.
 

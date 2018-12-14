@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 6df707f0315603d30446a17bf941d5ab6028dde4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f6d343d42bf9d918bf23c9f5f442d977a5caca96
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270476"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343726"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli bir arka plan işlemleri için Azure Web işleri SDK'sını kullanma
 
@@ -450,7 +450,7 @@ Kuyruk ve blob Tetikleyicileri otomatik olarak bir işleve bir kuyruk iletisi i�
 
 Belirli bir zamanlanan saatte çalıştıran birden fazla işlev örneği elde Zamanlayıcı tetikleyicisi otomatik olarak Zamanlayıcıyı çalıştıran, yalnızca bir örneğini sağlar.
 
-Bu yalnızca bir örneğini sağlamak istiyorsanız bile konak web uygulamasının birden fazla örneği bulunduğunda, bir işlevi çalıştırır, kullanabileceğiniz [Singleton](#singleton) özniteliği.
+Bu yalnızca bir örneğini sağlamak istiyorsanız bile konak web uygulamasının birden fazla örneği bulunduğunda, bir işlevi çalıştırır, kullanabileceğiniz [tekil özniteliği](#singleton-attribute).
     
 ## <a name="filters"></a>Filtreler 
 

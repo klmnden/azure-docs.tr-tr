@@ -4,17 +4,17 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 2e6697b07f305a78ef4cc3f462c76804160a9d12
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 67b9c0ba2566206b0e70db51844b21e5d5d3c261
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572874"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344604"
 ---
 Etki alanı adınız için kayıtları yayıldıktan sonra özel etki alanı adınızı Azure App Service'te web uygulamanıza erişmek için kullanılabilir olduğunu doğrulamak için tarayıcınızı kullanmayı başlatabilmeniz gerekir.
 
 > [!NOTE]
-> Bu, CNAME DNS sistem üzerinden yayılması biraz zaman alabilir. Bir hizmet gibi kullanabileceğiniz <a href="http://www.digwebinterface.com/"> http://www.digwebinterface.com/ </a> CNAME kullanılabilir olduğunu doğrulayın.
+> Bu, CNAME DNS sistem üzerinden yayılması biraz zaman alabilir. Bir hizmet gibi kullanabileceğiniz <a href="https://www.digwebinterface.com/"> https://www.digwebinterface.com/ </a> CNAME kullanılabilir olduğunu doğrulayın.
 > 
 > 
 

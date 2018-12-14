@@ -13,168 +13,132 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 12/5/2018
 ms.author: rkarlin
-ms.openlocfilehash: 682291cfe0e7a06aca1d4b1bef48ba36c72f48d9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 88aa9a9003363f86db9214c62adff962bbd345cf
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839883"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344168"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Güvenlik Merkezi nedir?
-Azure Güvenlik Merkezi, hibrit bulut iş yükleri arasında birleşik güvenlik yönetimi ve gelişmiş tehdit koruması sağlar. Güvenlik Merkezi ile, iş yüklerinize güvenlik ilkeleri uygulayabilir, tehditlere maruz kalma riskinizi sınırlayabilir ve saldırıları algılayıp onlara yanıt verebilirsiniz.
 
-Güvenlik Merkezi neden kullanılır?
+Azure Güvenlik Merkezi, Azure'da değil - ister veri merkezlerinizdeki güvenlik duruşunu güçlendirir ve hibrit iş yüklerinizi bulutta - genelinde Gelişmiş tehdit koruması sağlayan bir birleşik Altyapı güvenliği yönetim sistemi olan yanı Şirket içi.
 
-- **Merkezi ilke yönetimi** – Tüm hibrit bulut iş yüklerinizde güvenlik ilkelerini merkezi şekilde yöneterek şirket veya yasal güvenlik gereksinimleriyle uyumluluk sağlayın.
-- **Sürekli güvenlik değerlendirmesi** – Olası güvenlik sorunlarını keşfetmek için makinelerin, ağların, depolama ve veri hizmetlerinin güvenlik durumunu izleyin.
-- **Eyleme dönüştürülebilir öneriler** – Önceliği belirlenmiş ve eyleme dönüştürülebilir güvenlik önerileri sayesinde saldırganlar yararlanmadan önce güvenlik açıklarını düzeltin.
-- **Önceliği belirlenmiş uyarılar ve olaylar** - Önceliği belirlenmiş güvenlik uyarıları ve olaylar sayesinde öncelikle en kritik tehditlere odaklanın.
-- **Gelişmiş bulut savunması** – Sanal makinelerinizde çalıştırılan yönetim bağlantı noktalarına ve uyarlamalı uygulama denetimlerine tam zamanında erişim sayesinde tehditleri azaltın.
-- **Tümleşik güvenlik çözümleri** - Bağlantı halindeki iş ortağı çözümleri gibi farklı kaynaklardan güvenlik verileri toplayın, bunlar üzerinde arama ve analiz gerçekleştirin.
+Kaynaklarınızın güvenliğini sağlama bir çabasıdır bulut sağlayıcısı, Azure ve sizin, müşteri var. İş yüklerinizi buluta ve aynı zamanda Iaas (hizmet olarak altyapı) için PaaS (hizmet olarak platform) ve SaaS (hizmet olarak yazılım) oluştu çok daha fazla müşteri sorumluluğu yoktur taşıdığınızda, taşıma olarak güvenli olduğundan emin olmanız gerekir. Azure Güvenlik Merkezi ağınıza sağlamlaştırmak hizmetlerinizin güvenliğini ve güvenlik duruşunuzu üzerine olduğunuzdan emin olmak için gereken araçları sağlar.
 
-**Güvenlik Merkezi - Genel Bakış**, Azure ve Azure olmayan iş yüklerinizin güvenlik durumuna yönelik hızlı bir görünüm sağlayarak iş yüklerinizin güvenliğini keşfedip değerlendirmenize ve riski belirleyip azaltmanıza olanak verir. Yerleşik pano, dikkat gerektiren güvenlik uyarılarına ve güvenlik açıklarına yönelik anında öngörüler sağlar.
+Azure Güvenlik Merkezi, üç en Acil güvenlik sorunlarını ele alır:
 
-![Genel Bakış][1]
+-   **İş yüklerini hızla değişen** – hem bir gücü, hem de bulut için kimlik doğrulaması. Bir yandan, son kullanıcılara daha fazlasını yetkisine sahiptir. Diğer, nasıl, sürekli değişen hizmetlerini kullandığını ve oluşturma, güvenlik standartlarınıza kadar olduğundan emin olun ve en iyi güvenlik uygulamalarını izleyin?
 
-## <a name="centralized-policy-management"></a>Merkezi ilke yönetimi
-**İlke ve uyumluluk** bölümünde (yukarıda gösterilmiştir), abonelik kapsamınız, ilke uyumluluğunuz ve güvenlik duruşunuzla ilgili hızlı bilgiler sağlar.
+-   **Saldırıları'giderek daha karmaşık** - iş yüklerinizi çalıştırmak, saldırıları daha fazla almaya devam her yerde karmaşık. Geçerli olan genel bulut iş yüklerinizi korumak sahip olduğunuz, güvenlik izlerseniz yoksa daha savunmasız en iyi bırakabilirsiniz bir İnternet'e yönelik iş yükü yöntemler.
 
-### <a name="subscription-coverage"></a>Abonelik kapsamı
-Bu bölümde, erişimine (okuma veya yazma) sahip olduğunuz toplam abonelik sayısı ve bir aboneliğin çalıştırıldığı Güvenlik Merkezi kapsamı düzeyi (Standart veya Ücretsiz) görüntülenmektedir:
+-   **Güvenlik yetenekleri olan kısa tedarik** -güvenlik uyarıları ve uyarı sistemleri sayısı kadar ortamlarınızda korunmasını emin olmak için yönetici deneyimi ve gerekli arka plan sayısı kadar outnumbers. En son saldırıları ile güncel kalma güvenlik dünyasına sürekli değişen bir ön olsa da, yerinde kalmasını olanaksız hale sabit, zordur.
 
-- **Kapsanan (Standart)** – Kapsanan abonelikler, Güvenlik Merkezi tarafından sunulan maksimum koruma düzeyi kapsamında çalıştırılmaktadır
-- **Kapsanan (Ücretsiz)** – Kapsanan abonelikler, Güvenlik Merkezi tarafından sunulan sınırlı, ücretsiz koruma düzeyi kapsamında çalıştırılmaktadır
-- **Kapsanmayan** – Bu durumdaki abonelikler, Güvenlik Merkezi tarafından izlenmez
+Bu zorluklar karşı korunmanıza yardımcı olmak için Güvenlik Merkezi, araçlar sağlar:
 
-Grafik seçildiğinde **Kapsam** penceresi açılır. Bir sekme (**Kapsanmayan**, **Temel kapsam** veya **Standart kapsam**) seçildiğinde her bir durumda aboneliklerin listesi sağlanır. Sekmelerin birinde bir abonelik seçildiğinde, abonelikle ilgili ek bilgi sağlanır. Bu bilgiler, Güvenlik Merkezi’ni etkinleştirmek veya abonelik kapsamını artırmak için bir abonelik sahibini belirlemenize ve onunla iletişim kurmanıza olanak sağlar.
+-   **Güvenlik duruşunu güçlendirin**: Güvenlik Merkezi ortamınızın değerlendirir ve kaynaklarınızın durumunu anlama sayesinde, güvenli olsalar da?
 
-![Güvenlik Merkezi kapsamı][9]
+-   **Tehditlere karşı koruma**: Güvenlik Merkezi, iş yüklerinizi değerlendirir ve tehdit önleme öneriler ve tehdit algılama uyarıları başlatır.
 
-### <a name="policy-compliance"></a>İlke uyumluluğu
-İlke uyumluluğu, atanan tüm ilkelerin uyumluluk faktörleri tarafından belirlenir. Bir yönetim grubu, abonelik veya çalışma alanı için genel uyumluluk puanı, atamaların ağırlıklı ortalamasıdır. Ağırlıklı ortalama, tek bir atamadaki ilke sayısını ve atamanın uygulandığı kaynak sayısını etkiler.
+-   **Güvenli hızlı**: Güvenlik Merkezi'nde, bulut hızı her şeyi gerçekleştirilir. Yerel olarak tümleşik olduğundan, Güvenlik Merkezi dağıtımının autoprovisioning ve Azure Hizmetleri ile koruma sağlama, kolay bir işlemdir.
 
-Örneğin aboneliğinizde iki sanal makine ve atanmış beş ilkeli bir girişim varsa aboneliğinizde on değerlendirme olur. Sanal makinelerin biri ilkelerin ikisiyle uyumlu değilse abonelik atamanızın genel uyumluluk puanı %80 olur.
+## <a name="architecture"></a>Mimari
 
-Bu bölümde, genel uyumluluk oranınız ve en az uyumlu abonelikleriniz görüntülenir. **Ortamınızın ilke uyumluluğunu gösterin** seçeneği belirlendiğinde **İlke Yönetimi** penceresi açılır. **İlke Yönetimi** bölümünde, yönetim gruplarının, aboneliklerin ve çalışma alanlarının hiyerarşik yapısı görüntülenir. Burada bir abonelik veya yönetim grubu seçerek güvenlik ilkelerinizi yönetirsiniz.
+Güvenlik Merkezi, yerel olarak Azure, Azure - Service Fabric gibi PaaS hizmetlerine bir parçası olduğundan SQL veritabanları ve depolama hesapları - izlenen ve Güvenlik Merkezi tarafından herhangi bir dağıtıma araya olmadan korumalı.
 
-![İlke yönetimi][10]
+Ayrıca, Güvenlik Merkezi Azure dışı sunucular ve sanal makineleri bulutta veya şirket içinde hem Windows hem de Linux sunucuları için Microsoft Monitoring Agent yükleyerek korur. Azure sanal makineleri otomatik olarak sağlanan Güvenlik Merkezi'nde.
 
-Güvenlik ilkesi iş yüklerinizin istenen yapılandırmasını tanımlar ve şirketin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanmasına yardımcı olur. Güvenlik Merkezi’nde, ilkeleri tanımlar ve Güvenlik Merkezi’nin hangi denetimleri izleyip önerdiğini belirleyerek bunları iş yükünüzün türüne veya verilerinizin duyarlılığına göre uyarlarsınız. Bir yönetim grubuna veya aboneliğe tıklayarak Güvenlik Merkezi’nde güvenlik ilkesini düzenleyebilirsiniz. Yeni tanımlar oluşturmak, ek ilkeler tanımlamak ve yönetim grupları genelinde ilkeler atamak için de Azure İlkesi’ni kullanabilirsiniz.
+Aracılardan gelen ve azure'dan toplanan olayları, iş yüklerinizi güvenli olduğundan emin olmak için izleyin ve tehdit algılama uyarıları (görevleri sağlamlaştırma) öneriler, uyarlanmış sağlamak için güvenlik analiz altyapısı bağıntılı olan. Olabildiğince çabuk kötü amaçlı saldırıları, iş yükleriniz üzerinde gerçekleşen olmayan emin olmak için bu tür uyarılar araştırmanız gerekir.
 
-Abonelik, yönetim grubu, kaynak grubu veya çalışma alanı düzeyinde aşağıdaki Güvenlik Merkezi ayarlarını düzenlemek için **Ayarları düzenle >** seçeneğini belirleyin:
+## <a name="strengthen-security-posture"></a>Güvenlik duruşunu güçlendirme
 
-- **Veri toplama**: Aracı sağlama ve güvenlik için [veri toplama](security-center-enable-data-collection.md) ayarlarını belirler.
-- **E-posta bildirimleri**: Güvenlik ilgili kişilerini ve [e-posta bildirimi](security-center-provide-security-contact-details.md) ayarlarını belirler.
-- **Fiyatlandırma katmanı**: Ücretsiz veya Standart [fiyatlandırma seçimini](security-center-pricing.md) tanımlar. Seçtiğiniz katman, kapsam dahilindeki kaynaklar için hangi Güvenlik Merkezi özelliklerinin kullanılabilir olduğunu belirler.
-- **Güvenlik yapılandırmalarını düzenle**: Olası güvenlik açıklarını belirlemek için Güvenlik Merkezi tarafından değerlendirilen işletim sistemi yapılandırmalarını görüntülemenize ve değiştirmenize olanak sağlar.
+Azure Güvenlik Merkezi, güvenlik duruşunuzu güçlendirin olanak tanır. Başka bir deyişle, en iyi güvenlik uygulamaları önerilen sağlamlaştırma görevlerini gerçekleştirmek ve bunları makineler, veri hizmetleri ve uygulamaları arasında uygulama yardımcı olur. Bu yönetme ve güvenlik ilkelerini zorunlu içerir ve emin olun, Azure sanal makineler, Azure dışı sunucular ve Azure PaaS hizmetlerine uyumludur. Güvenlik Merkezi, ağ güvenlik Emlak üzerinde odaklı görünürlük ile iş yüklerinizi kuş göz görünümünde sağlamak için ihtiyacınız olan araçları sağlar.
 
-Daha fazla bilgi için bkz. [Azure İlkesi ile Güvenlik Merkezi güvenlik ilkelerini tümleştirme](security-center-azure-policy.md).
+### <a name="manage-organization-security-policy-and-compliance"></a>Kuruluşunuzun güvenlik ilkesi ve uyumluluğunu yönetmek
 
-### <a name="manage-and-govern-your-security-posture"></a>Güvenlik duruşunuzu yönetme ve düzenleme
-Panonun sağ tarafında **İlke ve uyumluluk** bölümünde size genel güvenlik duruşunuzu iyileştirmek için hemen harekete geçebileceğiniz öngörüler sağlanır. Örnekler şunlardır:
+Bu, bildiğiniz ve iş yüklerinizi güvenlidir ve güvenlik ilkeleri uyarlanmış ile başlayan emin olmak için temel bir güvenlik olur. Tüm ilkeler Güvenlik Merkezi'nde Azure İlkesi denetimler üzerine yerleşik olduğundan tam aralığıdır ve esnekliğini karşılaşacağınız bir **birinci sınıf ilke çözüm**. Güvenlik Merkezi'nde, abonelikler arasında ve tüm Kiracı için bile yönetim grubu üzerinde çalıştırılacak ilkelerini ayarlayabilirsiniz.
 
-- Güvenlik standartlarına uyumluluğu gözden geçirmek ve izlemek için Güvenlik Merkezi ilkelerini tanımlama ve atama
-- Güvenlik Merkezi güvenlik uyarılarını SIEM bağlayıcı için kullanılabilir yapma
-- Zaman içindeki ilke uyumluluğu
+![Güvenlik Merkezi panosu](media/security-center-intro/sc-dashboard.png)
 
-## <a name="continuous-security-assessment"></a>Sürekli güvenlik değerlendirmesi
-**Güvenlik Merkezi - Genel Bakış** bölümündeki Kaynak güvenliği durumu kısmında, kaynaklarınızın güvenlik durumunun hızlı bir görünümü sunularak her bir kaynak türü için güvenlik durumu ve belirlenen sorun sayısı görüntülenir. Sürekli değerlendirme, güvenlik güncelleştirmeleri eksik olan sistemler veya güvenlik açığı olan ağ bağlantı noktaları gibi olası güvenlik sorunlarını keşfetmenize yardımcı olur.
+Güvenlik Merkezi, size yardımcı olur **gölge BT abonelikleri belirleyin**. Etiketlenmiş abonelikler bakarak **kapsanmayan** Panonuzda, hemen var. yeni abonelikler oluşturulduğunda bildiğiniz ve bunlar kendi ilkeleri tarafından kapsanan ve Azure Güvenlik Merkezi tarafından korunan emin olun.
 
-### <a name="secure-score"></a>Güvenlik puanı
-Azure Güvenlik Merkezi güvenli puanı, güvenlik önerilerinizi gözden geçirir ve bunları sizin için önceliklendirir; böylece önce hangi önerilerin gerçekleştirileceğini bilirsiniz ve araştırmayı önceliklendirebilmeniz için en ciddi güvenlik açıklarını bulmanız kolaylaşır. Güvenli puan, güvenli bir iş yükü elde etmek için güvenliğinizi güçlendirmenize yardımcı olan bir ölçüm aracıdır. Daha fazla bilgi için bkz. [Azure Güvenlik Merkezi’nde güvenli puan](security-center-secure-score.md).
+![Güvenlik Merkezi ilke Panosu](media/security-center-intro/sc-policy-dashboard.png)
 
-### <a name="health-monitoring"></a>Sistem durumunu izleme
-**Kaynak durumu izleme** bölümünden bir kaynak türü seçildiğinde, kaynakların ve belirlenen güvenlik açıklarının bir listesi sağlanır. Kaynak türleri; işlem ve uygulamalar, ağ iletişimi, veri ve depolama, ve kimlik ve erişim şeklindedir.
+Güvenlik Merkezi'nde Gelişmiş izleme özellikleri da olanak **uyumluluk ve zaman içinde idare yönetmek ve izlemek**.  **Genel uyumluluk** ne kadar aboneliklerinizi yükünüz ilişkili ilkeleriyle uyumlu bir ölçü sağlar. 
 
-**İşlem ve uygulamalar**’ı seçtik. **İşlem** bölümünde dört sekme vardır:
+![Güvenlik Merkezi ilke zamanla](media/security-center-intro/sc-policy-time.png)
 
-- **Genel Bakış**: Güvenlik Merkezi tarafından belirlenen izleme ve öneriler.
-- **Sanal makineler ve bilgisayarlar**: Sanal makinelerinizin, bilgisayarlarınızın ve her birinin geçerli güvenlik durumunun listesi.
-- **Cloud Services**: Güvenlik Merkezi tarafından izlenen web ve çalışan rollerinizin listesi.
-- **Uygulama hizmetleri (Önizleme)**: Web uygulamalarınızın, Uygulama hizmeti ortamlarınızın ve her birinin geçerli güvenlik durumunun listesi.
+### <a name="continuous-assessments"></a>Devamlı değerlendirmelerle
 
-![Güvenlik durumunu izleme][3]
+Güvenlik Merkezi sürekli olarak, bir yüklerinde dağıtılan yeni kaynaklar bulur ve bunların güvenlik en iyi yöntemlere göre yapılandırıldığından yoksa, bayrak ve Önceliklendirilmiş öneriler nelerin listesini almak olup olmadığını değerlendirir. makinelerinizi korumak için düzeltme gerekir.
 
-Daha fazla bilgi için bkz. [Güvenlik durumu izleme](security-center-monitoring.md).
+Güvenlik Merkezi sağlar, sürekli olarak ağınızın güvenlik durumunu izleme için en güçlü araçlardan birini **ağ eşlemesi**. Haritayı, her düğüm düzgün yapılandırılıp yapılandırılmadığını görmek için iş yüklerinizi topolojisini görmek sağlar. Nasıl düğümlerinizi, olası bir saldırganın ağınızda katlamayı kolaylaştırmak istenmeyen bağlantıları engelle yardımcı olan bağlandığını görebilirsiniz.
 
-## <a name="actionable-recommendations"></a>Eyleme dönüştürülebilir öneriler
-Güvenlik Merkezi, olası güvenlik açıklarını belirlemek için Azure ve Azure olmayan kaynaklarınızın güvenlik durumunu analiz eder. **Kaynaklar** bölümünde **Öneriler** seçildiğinde, güvenlik sorunlarına yanıt verme süreci boyunca size yol gösteren, önceliği belirlenmiş güvenlik önerileri listesi sağlanır.
+![Güvenlik Merkezi ağ eşlemesi](media/security-center-intro/sc-net-map.png)
 
-![Öneriler][4]
+Güvenliğiniz için Azaltıcı Güvenlik Merkezi hale ekleyerek bir adım daha kolay, uyarılar bir **güvenli puanı**. Güvenli puanları sunulmuştur aldığınız her önerinin genel güvenlik duruşunuzu ne kadar önemli olduğunu anlamanıza yardımcı olması için her bir öneri ile ilişkili. Bu, etkinleştirme önemlidir **güvenlik işinizin önceliğini belirlemeye**.
 
-Daha fazla bilgi için bkz. [Güvenlik önerilerini yönetme](security-center-recommendations.md).
+![Güvenlik Merkezi güvenli puanı](media/security-center-intro/sc-secure-score.png)
 
-### <a name="most-prevalent-recommendations"></a>En yaygın öneriler
-Panonun sağ tarafındaki **Kaynaklar** bölümünde, size en çok sayıda kaynak için mevcut olan en yaygın önerilerin bir listesi sağlanır. En yaygın öneriler, odaklanmanız gereken yerleri vurgular. Sağ ok seçildiğinde, en yüksek etkili öneri sağlanır.
+### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>En iyi duruma getirmek ve önerilen denetimleri yapılandırarak güvenliğini artırın
 
-![En yaygın öneriler][11]
+Kendi önerilerini Azure Güvenlik Merkezi'nin değeri kalbi arasındadır. Öneriler, iş yükleriniz üzerinde bulunan belirli güvenlik konuları için uyarlanabilir ve Güvenlik Merkezi Güvenlik Yöneticisi, yalnızca, güvenlik açıklarının, ancak bunları kurtulmak belirli yönergeleri ile sağlayarak çalışır.
 
-Bu, ortamınızda bulunan en etkili tek öneridir. Bu öneri çözümlendiğinde en çok uyumluluğunuz iyileştirilir. Bu örnekte öneri, “disk şifrelemesi uygulama” şeklindedir. **Uyumluluğunuzu artırın** seçeneği belirlendiğinde, önerinin bir açıklaması ve etkilenen kaynakların listesi sağlanır.
+![Güvenlik Merkezi önerileri](media/security-center-intro/sc-recommendations.png)
 
-![Disk şifrelemesi uygulayın][12]
+Bu şekilde, Güvenlik Merkezi, yalnızca güvenlik ilkelerini ayarlamak için ancak güvenli yapılandırma standartları kaynaklarınız genelinde uygulamak için sağlar.
 
-## <a name="threat-protection"></a>Tehdit koruması
-Bu alan, kaynaklarınızda algılanan güvenlik uyarılarına ve bu uyarıların önem düzeyine yönelik görünürlük sağlar.
+Öneriler her kaynaklarınızı saldırı yüzeyini azaltmanıza yardımcı olur. Azure sanal makineleri, Azure dışı sunucuları ve SQL ve depolama hesapları gibi Azure PaaS Hizmetleri ve daha fazla - burada kaynak türlerinin farklı değerlendirilir ve kendi standartlarına sahip içeren.
 
-### <a name="prioritized-alerts-and-incidents"></a>Önceliği belirlenmiş uyarılar ve olaylar
-Güvenlik Merkezi, gelen saldırıları ve ihlal sonrası etkinliği algılamak için gelişmiş analiz ve genel tehdit bilgilerini kullanır. Uyarıların öncelikleri belirlenir ve sonra uyarılar, olaylar halinde gruplanır. Böylece en kritik tehditlere en önce odaklanmanız sağlanır. Kendi özel güvenlik uyarılarınızı da oluşturabilirsiniz.
+![Güvenlik Merkezi önerisini örneği](media/security-center-intro/sc-recommendation-example.png)
 
-**Önem derecesine göre güvenlik uyarıları** veya **Zaman içindeki güvenlik uyarıları** seçeneği belirlendiğinde, uyarılarla ilgili ayrıntılı bilgi sağlanır.
+## <a name="protect-against-threats"></a>Tehditlere karşı koruma sağlayın
 
-![Önceliği belirlenmiş uyarılar ve olaylar][7]
+Güvenlik Merkezi'nin tehdit koruması, algılamak ve Azure'da olarak hizmet (Iaas) katmanı, Azure dışı sunucuları yanı platformlar hizmet (PaaS) olarak olduğu gibi altyapı tehditlerini önlemek sağlar.
 
-Görsel ve etkileşimli bir araştırma deneyiminin kapsamını ve etkisini hızlı şekilde değerlendirebilir ve güvenlik verilerinin daha ayrıntılı keşfi için önceden tanımlanmış veya geçici sorgular kullanabilirsiniz.
+Güvenlik Merkezi'nin tehdit koruması otomatik olarak uyarıları hikayenin başlattığınız yerde, saldırı kampanyasını ve hangi daha iyi anlamanıza yardımcı olması için siber sonlandırma zinciri Analizine, göre ortamınızdaki karşılık gelen fusion sonlandırma zinciri analizi içerir. tür bir etkisi, kaynaklarınız üzerinde vardı.
 
-Daha fazla bilgi için bkz. [Güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md).
 
-Panonun sağ tarafında, önce hangi uyarıların ele alınacağını önceliklendirmenize ve genel güvenlik açıklarının nerede olduğunu anlamanıza yardımcı olacak bilgiler sağlanır:
 
-- **En fazla saldırıya uğrayan kaynaklar**: En yüksek sayıda uyarı içeren belirli kaynaklar
-- **En yaygın uyarılar**: En yüksek sayıda kaynakları etkileyen uyarı türleri
+![Güvenlik Merkezi saldırı önerisi](media/security-center-intro/sc-attack-recommendation.png)
 
-## <a name="just-in-time-vm-access"></a>Tam zamanında VM erişimi
-Azure VM’lerdeki yönetim bağlantı noktalarına tam zamanında, denetimli erişim sayesinde deneme yanılma ve diğer ağ saldırılarına maruz kalma oranını büyük ölçüde düşürerek ağ saldırısına maruz kalan yüzey alanını azaltın.
+### <a name="advanced-threat-protection"></a>Gelişmiş tehdit koruması
 
-![Tam zamanında VM erişimi][5]
+Güvenlik Merkezi ile Windows Defender Gelişmiş tehdit koruması ile yerel tümleştirme hazır olursunuz. Bu, herhangi bir yapılandırma sunucuları ve Windows sanal makineleri tam olarak Güvenlik Merkezi önerileri ve değerlendirme ile tümleştirildiğinden anlamına gelir. Gelişmiş tehdit algılama ayrıca Linux sanal makineleri ve sunucular için hazır olarak sunulur.
 
-Kullanıcıların sanal makinelere nasıl bağlanabileceğine ilişkin kuralları belirtin. Gerektiğinde, Güvenlik Merkezi'nden veya PowerShell aracılığıyla erişim istenebilir. İstek kurallara uygun olduğu sürece, istenen süre boyunca otomatik olarak erişim izni verilir.
+Ayrıca, Güvenlik Merkezi sunucu ortamlarında uygulama denetim ilkelerini otomatikleştirmenizi sağlar. Güvenlik Merkezi'ndeki Uyarlamalı uygulama denetimleri Windows sunucularınız genelinde uçtan uca uygulama beyaz listeye ekleme özelliğini etkinleştirin. Kurallar oluşturabilir ve ihlalleri denetleyin gerekmez, bunu tüm otomatik olarak sizin yerinize yapılır.
 
-Daha fazla bilgi için bkz. [Tam zamanında özelliğini kullanarak sanal makine erişimini yönetme](security-center-just-in-time.md).
+### <a name="protect-paas"></a>PaaS koruyun
 
-## <a name="adaptive-application-controls"></a>Uyarlamalı uygulama denetimleri
-Kendi Azure iş yüklerinize göre uyarlanmış ve makine öğrenmesi tarafından desteklenen beyaz listeye alma önerilerini uygulayarak kötü amaçlı yazılımları ve diğer istenmeyen uygulamaları engelleyin.
+Güvenlik Merkezi Azure PaaS hizmetlerinde tehditleri algılamanıza yardımcı olur. Azure App Service, Azure SQL, Azure depolama hesabı dahil olmak üzere Azure Hizmetleri ve daha fazla veri hizmetlerini hedefleyen tehditleri algılayabilir. Ayrıca Microsoft Cloud App Security'nin kullanıcı ve varlık davranış analizi (UEBA) anomali algılama, Azure etkinlik günlüklerini gerçekleştirmek için yerel tümleştirme yararlanabilirsiniz.
 
-![Uyarlamalı uygulama denetimleri][6]
+### <a name="block-brute-force-attacks"></a>Blok deneme yanılma saldırıları zorla
 
-Güvenlik Merkezi tarafından oluşturulan önerilen uygulama beyaz listeye alma kurallarını uygulamak veya önceden yapılandırılmış kuralları düzenlemek için gözden geçirin ve tıklayın.
+Güvenlik Merkezi, deneme yanılma saldırılarına maruz kalma riskinizi sınırlandırmanıza yardımcı olur. Sanal makine bağlantı noktalarına tam zamanında VM erişimi kullanarak erişim azaltarak gereksiz erişim engelleyerek, ağ sağlamlaştırma. Seçili bağlantı noktaları üzerinde sınırlı bir süre ve kaynak IP adresi aralıkları veya IP adreslerine izin yalnızca yetkili kullanıcılar için güvenli erişim ilkeleri ayarlayabilirsiniz.
 
-Daha fazla bilgi için bkz. [Uyarlamalı uygulama denetimleri](security-center-adaptive-application.md).
+![Güvenlik Merkezi deneme yanılma](media/security-center-intro/sc-brute-force.png)
 
-## <a name="integrate-your-security-solutions"></a>Güvenlik çözümlerinizi tümleştirmenize
-Güvenlik Merkezi’nde, ağ güvenlik duvarları ve diğer Microsoft hizmetleri gibi bağlantı halindeki iş ortağı çözümlerini kapsayan çeşitli kaynaklardan güvenlik verileri toplayabilir, bunlar üzerinde arama ve analiz gerçekleştirebilirsiniz.
+### <a name="protect-data-services"></a>Veri Hizmetleri koruyun
 
-![Güvenlik çözümlerini tümleştirme][8]
+Güvenlik Merkezi yardımcı olan özellikler içeren Azure SQL'de verileriniz otomatik sınıflandırma gerçekleştirin. Ayrıca, Azure SQL ve depolama hizmetleri ve bunların etkisini öğrenmek için öneriler değerlendirmeleri için olası güvenlik açıklarını elde edebilirsiniz.
 
-Daha fazla bilgi için bkz. [Güvenlik çözümlerini tümleştirme](security-center-partner-integration.md).
+## <a name="get-secure-faster"></a>Daha hızlı, güvenli alın
+
+Microsoft Cloud App Security ve Windows Defender Gelişmiş tehdit koruması gibi güvenlik çözümlerini güvenlik emin olmak için diğer Microsoft ile sorunsuz tümleştirme (Azure İlkesi ve Log Analytics de dahil olmak üzere) yerel Azure tümleştirme birlikte Çözüm, kapsamlı olarak eklemek için basit ve kullanıma.
+
+Ayrıca, şirket içi veri merkezleri ve diğer bulutlarda çalışan iş yükleri için Azure dışında tam çözüm genişletebilirsiniz.
+
+### <a name="automatically-discover-and-onboard-azure-resources"></a>Otomatik olarak bulmak ve yerleşik Azure kaynakları
+
+Güvenlik Merkezi, Azure ve Azure ile sorunsuz ve yerel tümleştirme sağlar kaynakları. Azure İlkesi ile yerleşik Güvenlik Merkezi ilkeleri, tüm Azure kaynaklarınız genelinde arasındaki tüm güvenlik Öykü birlikte çekeceği ve oluştururken tamamı yeni bulunan kaynaklar için otomatik olarak uygulanan emin anlamına gelir Azure'da.
+
+Kapsamlı günlük toplama - Windows ve Linux günlükleri tüm güvenlik analiz altyapısında çevrelerini ve öneriler ve Uyarılar oluşturmak için kullanılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Güvenlik Merkezi ile çalışmaya başlamak için bir Microsoft Azure aboneliğinizin olması gerekir. Aboneliğiniz yoksa [ücretsiz deneme sürümü](https://azure.microsoft.com/free/) için kaydolabilirsiniz.
 - Güvenlik Merkezi’nin Ücretsiz fiyatlandırma katmanı, Azure aboneliğiniz ile etkinleştirilir. Gelişmiş güvenlik yönetimi ve tehdit algılama yeteneklerinden yararlanmak için Standart fiyatlandırma katmanına yükseltmeniz gerekir. Standart katmanında ücretsiz girişiminde bulunulur. Daha fazla bilgi için [Güvenlik Merkezi fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/security-center/) bakın.
-- Şimdi Güvenlik Merkezi Standart katmanını etkinleştirmeye hazırsanız, [Hızlı Başlangıç: Azure aboneliğinizi Güvenlik Merkezi Standart katmanına ekleme](security-center-get-started.md) başlıklı konuda işlem adım adım açıklanmıştır.
+- Şimdi, Güvenlik Merkezi standart etkinleştirmek için hazır olduğunuzda [hızlı başlangıç: Yerleşik Azure aboneliğinizi Güvenlik Merkezi standart](security-center-get-started.md) adımlarında size kılavuzluk eder.
 
-
-<!--Image references-->
-[1]: ./media/security-center-intro/overview.png
-[3]: ./media/security-center-intro/compute.png
-[4]: ./media/security-center-intro/recommendations.png
-[5]: ./media/security-center-intro/just-in-time-vm-access.png
-[6]: ./media/security-center-intro/adaptive-app-controls.png
-[7]: ./media/security-center-intro/security-alerts.png
-[8]: ./media/security-center-intro/security-solutions.png
-[9]: ./media/security-center-intro/coverage.png
-[10]: ./media/security-center-intro/policy-management.png
-[11]: ./media/security-center-intro/highest-impact.png
-[12]: ./media/security-center-intro/apply-disk-encryption.png

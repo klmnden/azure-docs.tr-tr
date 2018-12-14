@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: c80c7a075b8a7735a4e9d2438c94eaac89f2b50e
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a522d436328a3aeb1ed365baa2ec1e3b9d3387ed
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006976"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385032"
 ---
-# <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Bir Windows bilgisayardan HDInsight üzerinde Hadoop ekosistemindeki çalışma
+# <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Bir Windows bilgisayardan HDInsight üzerinde Apache Hadoop ekosistemindeki çalışma
 
-Geliştirme ve HDInsight üzerinde Hadoop ekosistemindeki çalışmak için Windows PC yönetimi seçenekleri hakkında bilgi edinin. 
+Geliştirme ve HDInsight üzerinde Apache Hadoop ekosistemindeki çalışmak için Windows PC yönetimi seçenekleri hakkında bilgi edinin. 
 
 HDInsight Apache Hadoop ve Hadoop bileşenleri, Linux üzerinde geliştirilen bir açık kaynak teknolojilerini temel alır. HDInsight sürüm 3.4 ve üzeri, Ubuntu Linux dağıtımı küme için temel işletim sistemi kullanır. Ancak, bir Windows istemci ya da Windows geliştirme ortamı kullanarak HDInsight ile çalışabilirsiniz.
 
@@ -27,7 +27,7 @@ Azure PowerShell, denetlemek ve dağıtım ve HDInsight Windows gelen yönetim g
 PowerShell ile yapmak görev örnekleri:
 
 * [PowerShell kullanarak küme oluşturma](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [PowerShell kullanarak Hive sorguları çalıştırma](hadoop/apache-hadoop-use-hive-powershell.md)
+* [PowerShell kullanarak Apache Hive sorguları çalıştırma](hadoop/apache-hadoop-use-hive-powershell.md)
 * [PowerShell ile küme yönetme](hdinsight-administer-use-powershell.md)
 
 Adımlarını izleyin [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) en son sürümünü almak için. Azure Resource Manager için yeni cmdlet'ler kullanmak üzere değiştirilmesi için gereken komut dosyalarınız varsa [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçiş](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -35,10 +35,10 @@ Adımlarını izleyin [Azure PowerShell'i yükleme ve yapılandırma](https://do
 ## <a name="utilities-you-can-run-in-a-browser"></a>Yardımcı programlar bir tarayıcıda çalıştırabilirsiniz.
 Aşağıdaki yardımcı programlar, bir web tarayıcıda çalışan kullanıcı Arabirimi vardır:
 * **[Azure Cloud Shell (Önizleme)](https://docs.microsoft.com/azure/cloud-shell/quickstart)**  tarayıcınızda ve içinden çalışır bir etkileşimli, komut satırı kabuğu olan Azure portalı.
-* **[Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md)**  yönetim ve izleme yardımcı programı gibi çeşitli işlemler yönetmek için kullanılan Azure portalında kullanılabilir:
-    * [Ambari REST API ile kullanma](hdinsight-hadoop-manage-ambari-rest-api.md)
-    * [Ambari, Hive görünümü](hadoop/apache-hadoop-use-hive-ambari-view.md)
-    * [Ambari Tez görünümü](hdinsight-debug-ambari-tez-view.md)
+* **[Apache Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md)**  yönetim ve izleme yardımcı programı gibi çeşitli işlemler yönetmek için kullanılan Azure portalında kullanılabilir:
+    * [Apache Ambari REST API ile kullanma](hdinsight-hadoop-manage-ambari-rest-api.md)
+    * [Görünüm Apache Ambari, Apache Hive](hadoop/apache-hadoop-use-hive-ambari-view.md)
+    * [Apache Ambari, Apache Tez görüntüle](hdinsight-debug-ambari-tez-view.md)
 
 ## <a name="data-lake-hadoop-tools-for-visual-studio"></a>Visual Studio için Data Lake (Hadoop) araçları
 Storm topolojilerini dağıtma ve yönetme için Visual Studio için Data Lake Araçları'nı kullanın. Data Lake araçları, SCP.NET Visual Studio ile C# Storm topolojileri geliştirme olanak tanıyan SDK'yı da yükler.
@@ -55,10 +55,11 @@ Visual Studio, .NET SDK'sı ile kümeleri yönetme ve büyük veri uygulamaları
 
 Visual Studio'da .NET SDK'sı ile gerçekleştirebileceğiniz görevler örnekleri:
 * [Kümeleri oluşturma ve bir .NET Framework uygulamasından HDInsight içinde çalışma](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-* [.NET SDK kullanarak Hive sorguları çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Hive ve Pig, Hadoop'ta akış ile kullanıcı tanımlı C# işlevlerini kullanma](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [.NET SDK kullanarak Apache Hive sorguları çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [Kullanım C# Apache Hive ve Apache Hadoop akış Apache Pig ile kullanıcı tanımlı işlevler](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-> İpucu Windows tabanlı HDInsight kümeleriyle .NET çözümlerini çalıştırıyorsanız, Linux tabanlı kümeler için bir geçiş planı için zamanı geldi. Daha fazla bilgi için [geçirme .NET çözüm için Linux tabanlı HDInsight için Windows tabanlı HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).
+> İPUCU   
+> .NET çözümlerini Windows tabanlı HDInsight kümeleriyle çalıştırıyorsanız, Linux tabanlı kümeler için bir geçiş planı için iyi bir zamandır. Daha fazla bilgi için [geçirme .NET çözüm için Linux tabanlı HDInsight için Windows tabanlı HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Intellij Idea ve Eclipse IDE için Spark kümeleri
 Her ikisi de [Intellij Idea](https://www.jetbrains.com/idea/download) ve [Eclipse IDE'yi](https://www.eclipse.org/downloads/) yapmak için kullanılabilir:
@@ -67,15 +68,15 @@ Her ikisi de [Intellij Idea](https://www.jetbrains.com/idea/download) ve [Eclips
 * Geliştirin ve yerel olarak Scala Spark uygulamasını çalıştırın.
 
 Bu makaleler Göster nasıl: 
-* Intellij Idea: [eklentisi Intellij için Azure araç takımı ve Scala SDK'sını kullanarak oluşturma Spark uygulamaları.](spark/apache-spark-intellij-tool-plugin.md)
-* IDE veya Scala IDE için Eclipse eclipse: [oluşturma Spark uygulamaları ve Eclipse için Azure Araç Seti](spark/apache-spark-eclipse-tool-plugin.md) 
+* Intellij Idea: [Eklenti Intellij için Azure araç takımı ve Scala SDK'sını kullanarak Apache Spark uygulamaları oluşturun.](spark/apache-spark-intellij-tool-plugin.md)
+* IDE veya Scala IDE için Eclipse eclipse: [Apache Spark uygulamaları ve Eclipse için Azure araç takımı oluşturun](spark/apache-spark-eclipse-tool-plugin.md) 
 
 
 ## <a name="notebooks-on-spark-for-data-scientists"></a>Not defterlerini Spark üzerinde veri uzmanları için 
-HDInsight için Apache Spark kümelerinde Zeppelin not defterlerini ve Jupyter not defterleri ile kullanılabilen çekirdekler içerir. 
+Apache Spark kümeleri, HDInsight, Apache Zeppelin not defterlerini ve Jupyter not defterleri ile kullanılabilen çekirdekler içerir. 
 
-* [Çekirdekler üzerinde Spark kümeleri ile Jupyter not defterlerini Spark uygulamaları test etmek için nasıl kullanılacağını öğrenin](spark/apache-spark-zeppelin-notebook.md)
-* [Zeppelin not defterlerini Spark işlerini çalıştırmak için Spark kümelerinde kullanmayı öğrenin](spark/apache-spark-jupyter-notebook-kernels.md) 
+* [Çekirdekler üzerinde Apache Spark kümeleri ile Jupyter not defterlerini Spark uygulamaları test etmek için nasıl kullanılacağını öğrenin](spark/apache-spark-zeppelin-notebook.md)
+* [Spark işlerini çalıştırmak için Apache Spark kümeleri üzerinde Apache Zeppelin not defterlerini kullanma hakkında bilgi edinin](spark/apache-spark-jupyter-notebook-kernels.md) 
 
 
 ## <a name="run-linux-based-tools-and-technologies-on-windows"></a>Windows üzerinde Linux tabanlı araçlar ve teknolojiler çalıştırın
@@ -88,5 +89,5 @@ Burada bir aracı veya yalnızca Linux üzerinde kullanılabilir teknolojisi kul
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Linux tabanlı kümelerde çalışmaya yeni başladıysanız aşağıdaki makalelere bakın:
-* [Hadoop, Kafka, Spark veya diğer kümeler ayarlama](hdinsight-hadoop-provision-linux-clusters.md)
+* [Apache Hadoop, Apache Kafka, Apache Spark veya diğer kümeler ayarlama](hdinsight-hadoop-provision-linux-clusters.md)
 * [HDInsight kümelerinde Linux için ipuçları](hdinsight-hadoop-linux-information.md)

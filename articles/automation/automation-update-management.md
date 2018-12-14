@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ccccad1cb510c4988092467c723e117a47456aaf
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 06006456a08c5eb499eff504fea5dcffdc11d662
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277514"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342400"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
 Azure, şirket içi ortamlarda veya diğer bulut sağlayıcılarında dağıtılmış Windows ve Linux bilgisayarlarınızın işletim sistemi güncelleştirmelerini yönetmek için Azure Otomasyonu'nda güncelleştirme yönetimi çözümü kullanabilirsiniz. Tüm aracı bilgisayarlardaki kullanılabilir güncelleştirmelerin durumunu hızla değerlendirebilir ve sunucular için gerekli güncelleştirmeleri yükleme işlemini yönetebilirsiniz.
 
-Doğrudan Azure Otomasyonu hesabınızdan sanal makineler için güncelleştirme yönetimini etkinleştirebilirsiniz. Otomasyon hesabınızdan sanal makineler için güncelleştirme yönetimini etkinleştirme hakkında bilgi için bkz: [birden çok sanal makine için güncelleştirmeleri yönetme](manage-update-multi.md). Ayrıca, Azure portalında sanal makine bölmesinden tek bir sanal makine için güncelleştirme yönetimini etkinleştirebilirsiniz. Bu senaryo için kullanılabilir [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) ve [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) sanal makineler.
+Doğrudan Azure Otomasyonu hesabınızdan sanal makineler için güncelleştirme yönetimini etkinleştirebilirsiniz. Otomasyon hesabınızdan sanal makineler için güncelleştirme yönetimini etkinleştirme hakkında bilgi için bkz: [birden çok sanal makine için güncelleştirmeleri yönetme](manage-update-multi.md). Ayrıca, sanal makine sayfasından Azure portalında sanal makine için güncelleştirme yönetimini etkinleştirebilirsiniz. Bu senaryo için kullanılabilir [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) ve [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) sanal makineler.
 
 ## <a name="solution-overview"></a>Çözüme genel bakış
 
@@ -41,7 +41,7 @@ Bir CVE kullanıma sunulduğunda, Linux makineleri değerlendirme için gösteri
 
 Bilgisayar güncelleştirme uyumluluğu taraması tamamlandıktan sonra aracıyı Azure Log Analytics'e toplu bilgiler iletir. Bir Windows bilgisayarda Uyumluluk taraması varsayılan olarak her 12 saatte bir çalıştırılır.
 
-Tarama zamanlamasına ek olarak, MMA'yı yeniden başlatılması durumunda 15 dakika içinde güncelleştirme yükleme öncesinde ve güncelleştirme yüklemesi sonrasında, güncelleştirme uyumluluğu için tarama başlatılır.
+Tarama zamanlamasına ek olarak, güncelleştirme yüklemesi öncesinde ve güncelleştirme yüklemesi sonrasında yeniden başlatılmadan MMA 15 dakika içinde güncelleştirme uyumluluğu için tarama başlatılır.
 
 Bir Linux bilgisayar için Uyumluluk taraması varsayılan olarak her 3 saatte bir gerçekleştirilir. MMA aracısını yeniden başlatılması durumunda 15 dakika içinde Uyumluluk taraması başlatılır.
 
@@ -148,7 +148,7 @@ Bir Windows bilgisayarda, Log Analytics ile aracı bağlantısını doğrulamak 
 1. Denetim Masası'nda açın **Microsoft Monitoring Agent**. Üzerinde **Azure Log Analytics** sekmesinde aracı şu iletiyi görüntüler: **Log Analytics'e Microsoft Monitoring Agent başarıyla bağlantı kurdu**.
 2. Windows olay günlüğünü açın. Git **uygulama ve hizmet günlükleri\operations Manager** ve olay kimliği 3000 ve kaynak Olay Kimliği 5002 arama **hizmet Bağlayıcısı**. Bu olaylar bilgisayarın Log Analytics çalışma alanına kaydolduğunu ve yapılandırmayı aldığını gösterir.
 
-Aracı bir güvenlik duvarı veya Ara sunucu üzerinden internet ile iletişim kurmak için yapılandırılmış ve aracının Log Analytics ile iletişim kuramıyor, güvenlik duvarı veya Ara sunucunun düzgün yapılandırıldığını onaylayın. Güvenlik Duvarı veya Ara sunucunun düzgün yapılandırıldığını doğrulama hakkında bilgi edinmek için [Windows aracısı için ağ yapılandırması](../azure-monitor/platform/agent-windows.md) veya [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md).
+Aracının Log Analytics ve aracı ile iletişim kuramıyorsa yapılandırılmış bir güvenlik duvarı veya Ara sunucu üzerinden internet ile iletişim kurmak için güvenlik duvarı veya Ara sunucunun düzgün yapılandırıldığını onaylayın. Güvenlik Duvarı veya Ara sunucunun düzgün yapılandırıldığını doğrulama hakkında bilgi edinmek için [Windows aracısı için ağ yapılandırması](../azure-monitor/platform/agent-windows.md) veya [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Linux sistemleriniz bir ara sunucu ile iletişim kurmak için yapılandırılmış olan veya Log Analytics Gateway ve kullandığınız ekleme, bu çözüm, güncelleştirme *proxy.conf* izinlerini, omi kullanıcı grubuna vermek için okuma izni dosya çubuğunda kullanarak Aşağıdaki komutlar:
@@ -297,7 +297,7 @@ $WUSettings.Save()
 
 ### <a name="enable-updates-for-other-microsoft-products"></a>Diğer Microsoft ürünleri için güncelleştirmeleri etkinleştirecek
 
-Varsayılan olarak, Windows Update, güncelleştirmeleri yalnızca Windows için sağlar. Etkinleştirirseniz **sağla güncelleştirmeleri diğer Microsoft ürünleri için Windows güncelleştirebilirim olduğunda**, güncelleştirmeleri ile diğer ürünler için sağlanan şeyler güvenlik düzeltme ekleri gibi SQL Server veya diğer birinci taraf yazılımlar gibi. Bu seçenek, Grup İlkesi tarafından yapılandırılamaz. Aşağıdaki PowerShell, diğer birinci taraf düzeltme ekleri üzerinde etkinleştirmek istediğiniz sistemlerinde çalıştırın ve güncelleştirme yönetimi, bu ayar ne uygun olacaktır.
+Varsayılan olarak, Windows Update, güncelleştirmeleri yalnızca Windows için sağlar. Etkinleştirirseniz **sağla güncelleştirmeleri diğer Microsoft ürünleri için Windows güncelleştirebilirim olduğunda**, diğer ürünler için güncelleştirmelerin ile sağlanan şeyler güvenlik düzeltme ekleri gibi SQL Server veya diğer birinci taraf yazılımlar gibi. Bu seçenek, Grup İlkesi tarafından yapılandırılamaz. Aşağıdaki PowerShell, diğer birinci taraf düzeltme ekleri üzerinde etkinleştirmek istediğiniz sistemlerinde çalıştırın ve güncelleştirme yönetimi, bu ayar ne uygun olacaktır.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -305,6 +305,11 @@ $ServiceManager.Services
 $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
 $ServiceManager.AddService2($ServiceId,7,"")
 ```
+
+## <a name="third-party"></a> Windows üzerinde üçüncü taraf düzeltme ekleri
+
+WSUS güncelleştirme yönetimi kullanır veya Windows sistemlerini Windows güncelleştirmesi düzeltme eki desteklenmiyor. Gibi araçları [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) WSUS özel güncelleştirmeleri yayımlamanıza olanak sağlar. Bu senaryo, WSUS, üçüncü taraf yazılım güncelleştirme deposu olarak kullanma düzeltme eki makinelere güncelleştirme yönetimi sağlar. Updates Publisher yapılandırma konusunda bilgi için bkz: [yükleme Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Ağ planlama
 
@@ -325,7 +330,7 @@ Karma Runbook çalışanı gereken bağlantı noktaları hakkında daha fazla bi
 
 Azure portalında sağlanan Ayrıntılar ek olarak, günlükler karşı aramalar yapabilirsiniz. Çözüm sayfasında seçtiğiniz **Log Analytics**. **Günlük araması** bölmesi açılır.
 
-Ayrıca sorguları özelleştirebilir veya farklı istemcilerin ve daha devam ederek kullanın öğrenebilirsiniz:  [Günlük analizi arama API'si belgeleri](
+Ayrıca sorguları özelleştirebilir veya farklı istemcilerin ve daha devam ederek kullanın öğrenebilirsiniz:  [Log Analytics arama API'si belgeleri](
 https://dev.loganalytics.io/).
 
 ### <a name="sample-queries"></a>Örnek sorgular
@@ -584,7 +589,7 @@ Güncelleştirme yönetimi, güncelleştirme zenginleştirme, bulutta gerçekle�
 
 Ancak, güncelleştirme yönetimi, ilgili güncelleştirme hakkında ek bilgi içerdiğinden olarak uyumlu söz konusu makine hala bildirebilir.
 
-Güncelleştirme sınıflandırmasına göre güncelleştirmeler dağıtma CentOS üzerinde kullanıma hazır çalışmaz. SUSE için seçme *yalnızca* sınıflandırma bazı güvenlik neden olabileceğinden ' diğer ' güvenlik güncelleştirmeleri, ayrıca yüklenen güncelleştirmeler zypper (Paket Yöneticisi) için ilgili veya bağımlılıklarından ilk gereklidir. Zypper ile ilgili bir sınırlama budur. Bazı durumlarda, onay doğrulamak için Güncelleştirme dağıtımı güncelleştirme günlüğü yeniden çalıştırmak için gerekli olabilir.
+Güncelleştirme sınıflandırmasına göre güncelleştirmeler dağıtma CentOS üzerinde kullanıma hazır çalışmaz. SUSE için seçme *yalnızca* sınıflandırma bazı güvenlik neden olabileceğinden ' diğer ' güvenlik güncelleştirmeleri, ayrıca yüklenen güncelleştirmeler zypper (Paket Yöneticisi) için ilgili veya bağımlılıklarından ilk gereklidir. Bu davranış, zypper kısıtlamasıdır. Bazı durumlarda, güncelleştirme dağıtımının yeniden çalıştırmanız gerekebilir. Doğrulamak için update günlüğünü denetleyin.
 
 ## <a name="troubleshoot"></a>Sorun giderme
 

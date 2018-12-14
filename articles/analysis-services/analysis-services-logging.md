@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a7098e5ee5f6a7f45507f93771409595f79debf5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f3a3261fa1b7aa2075a05d7b87ea3fc29c5b9fab
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083691"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385882"
 ---
 # <a name="setup-diagnostic-logging"></a>Tanılama günlüğüne kaydetmeyi ayarlama
 
@@ -140,7 +140,7 @@ Bilgi edinmek için nasıl [Azure İzleyici REST API'sini kullanarak tanılama a
 
 ### <a name="resource-manager-template"></a>Resource Manager şablonu
 
-Bilgi edinmek için nasıl [Resource Manager şablonu kullanarak kaynak oluşturma sırasında tanılama ayarlarını etkinleştirme](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md). 
+Bilgi edinmek için nasıl [Resource Manager şablonu kullanarak kaynak oluşturma sırasında tanılama ayarlarını etkinleştirme](../azure-monitor/platform/diagnostic-logs-stream-template.md). 
 
 ## <a name="manage-your-logs"></a>Günlüklerinizi yönetme
 

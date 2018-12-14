@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6855521475e24b7243a391abdc6e6cf707991159
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 9b1d3506c400a3a2d8002feed0181deac39b3821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320701"
+ms.locfileid: "53344100"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Çoklu müşteri mimarisi için sağlama 
 
@@ -139,7 +139,7 @@ Kolay bir şekilde, bu Vm'lere temizleme yapmak için oluşturulmuş olan IOT hu
     ```azurecli-interactive
     az vm create \
     --resource-group contoso-us-resource-group \
-    --name ContosoSimDeviceEest \
+    --name ContosoSimDeviceEast \
     --location eastus \
     --image Canonical:UbuntuServer:18.04-LTS:18.04.201809110 \
     --admin-username contosoadmin \
@@ -327,28 +327,28 @@ Bu bölümde, her iki bölgesel Vm'leri için sağlama örnek Azure IOT C SDK's�
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-
-1. Açık **~/azure-iot-sdk-c/provisioning\_bağdaştırıcıları/istemci/hsm\_istemci\_key.c** iki VM'nin de. 
-
-    ```bash
-     vi ~/azure-iot-sdk-c/provisioning_client/adapters/hsm_client_key.c
-    ```
-
-1. `REGISTRATION_NAME` ve `SYMMETRIC_KEY_VALUE` sabitlerinin bildirimini bulun. Her iki bölgesel sanal makinelerdeki dosyaları için aşağıdaki değişiklikleri yapın ve dosyaları kaydedin.
-
-    Değerini güncelleştirin `REGISTRATION_NAME` ile sabit **cihazınız için benzersiz kayıt kimliği**.
-    
-    Değerini güncelleştirin `SYMMETRIC_KEY_VALUE` ile sabit, **cihaz anahtarı türetilmiş**.
+1. İki VM'de de çağrısını bulmak `prov_dev_set_symmetric_key_info()` içinde **prov\_geliştirme\_istemci\_sample.c** hangi dışında bırakılır.
 
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-east";
-    static const char* const SYMMETRIC_KEY_VALUE = "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
+    İşlev çağrıları açıklamasını kaldırın ve benzersiz kayıt kimlikleri ve her cihaz için türetilen cihaz anahtarları (açılı ayraçlar dahil) yer tutucu değerlerini değiştirin. Aşağıda gösterildiği gibi yalnızca anahtarlarıdır. Daha önce oluşturulan tuşlarını kullanın.
+
+    Doğu ABD:
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-west";
-    static const char* const SYMMETRIC_KEY_VALUE = "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-east", "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=");
     ```
+
+    Batı ABD:
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-west", "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=");
+    ```
+
+    Dosyaları kaydedin.
 
 1. İki VM'nin de, aşağıda gösterilen örnek klasörüne gidin ve örnek oluşturun.
 
@@ -358,6 +358,13 @@ Bu bölümde, her iki bölgesel Vm'leri için sağlama örnek Azure IOT C SDK's�
     ```
 
 1. Derleme başarılı olduktan sonra Çalıştır **prov\_geliştirme\_istemci\_sample.exe** iki VM'nin de her bölgeye bir kiracı CİHAZDAN benzetimini yapmak için. Her bir cihaz IOT hub'a sanal cihazın bölgesine en yakın kiracıya ayrılan dikkat edin.
+
+    Benzetim çalıştırın:
+    ```bash
+    ~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample
+    ```
+
+    Örnek: ABD Doğu VM'den çıkış
 
     ```bash
     contosoadmin@ContosoSimDeviceEast:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
@@ -374,6 +381,7 @@ Bu bölümde, her iki bölgesel Vm'leri için sağlama örnek Azure IOT C SDK's�
 
     ```
 
+    Örnek: ABD Batı VM'den çıkış
     ```bash
     contosoadmin@ContosoSimDeviceWest:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
     Provisioning API Version: 1.2.9

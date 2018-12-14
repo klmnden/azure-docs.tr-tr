@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 4b8908809cca23fb270494cc736f4b65aa9d1ca2
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: c5035356d9d55298d5b060a3ac2fd3a7cd41f8df
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186200"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385559"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure İzleyici'de veri kaynakları
 Bu makalede, durumunu ve performansını, kaynakları ve bunlar üzerinde çalışan uygulamaları izlemek için Azure İzleyici tarafından toplanan veri kaynaklarını açıklar. Bu kaynaklara başka bir bulut ya da şirket içi azure'da olabilir.  Bkz: [Azure İzleyici tarafından toplanan veriler](data-collection.md) nasıl görüntüleyebilirsiniz ve bu verilerin nasıl depolandığı ile ilgili ayrıntılar için.
@@ -43,7 +43,7 @@ Telemetri, durumunu ve işlem için ilgili Azure kendi Azure aboneliğinizin yö
 [Azure hizmet durumu](../../monitoring-and-diagnostics/monitoring-service-notifications.md) uygulama ve kaynakları kullanır, aboneliğinizdeki Azure hizmetlerinin durumu hakkında bilgi sağlar. Uygulamanızı etkileyebilecek geçerli ve beklenen kritik sorunları size bildirilmesini sağlamak üzere uyarılar oluşturabilirsiniz. Hizmet durumu kayıtları depolanır [Azure etkinlik günlüğü](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), bunları etkinlik günlüğü Gezgini'nde görüntüleyebilir ve bunları Log Analytics'e kopyalayın.
 
 ### <a name="azure-activity-log"></a>Azure etkinlik günlüğü
-[Azure etkinlik günlüğü](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) yapılandırma değişiklikleri Azure kaynaklarınıza kayıtları ile birlikte hizmet sistem durumu kayıtları içerir. Etkinlik günlüğü, tüm Azure kaynaklarını ve temsil kullanılabilir kendi _dış_ görünümü. Belirli tür etkinlik günlüğünde kayıt açıklanan [Azure etkinlik günlüğü olay şeması](../../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
+[Azure etkinlik günlüğü](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) yapılandırma değişiklikleri Azure kaynaklarınıza kayıtları ile birlikte hizmet sistem durumu kayıtları içerir. Etkinlik günlüğü, tüm Azure kaynaklarını ve temsil kullanılabilir kendi _dış_ görünümü. Belirli tür etkinlik günlüğünde kayıt açıklanan [Azure etkinlik günlüğü olay şeması](../../azure-monitor/platform/activity-log-schema.md).
 
 Belirli bir kaynak için etkinlik günlüğü kendi içinde birden çok kaynaktan Azure portalı veya Görünüm günlükleri sayfasında görüntüleyebilirsiniz [etkinlik günlüğü Gezgini](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). İle diğer izleme verilerini birleştirmek için Log Analytics günlük girişlerini kopyalamak özellikle yararlıdır. Ayrıca bunları kullanarak diğer konumlara gönderebilirsiniz [Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
 
@@ -60,9 +60,9 @@ Belirli bir kaynak için etkinlik günlüğü kendi içinde birden çok kaynakta
 
 
 ### <a name="resource-diagnostic-logs"></a>Kaynak tanılama günlükleri
-Etkinlik günlüğü kaynak düzeyinde bir Azure kaynak gerçekleştirilen işlemler hakkında bilgi sağlarken [tanılama günlükleri](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) kaynağının işlemi hakkında ayrıntılı bilgiler sağlar.   Bu günlükler içeriği ve yapılandırma gereksinimleri [kaynak türüne göre değişir](../../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+Etkinlik günlüğü kaynak düzeyinde bir Azure kaynak gerçekleştirilen işlemler hakkında bilgi sağlarken [tanılama günlükleri](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) kaynağının işlemi hakkında ayrıntılı bilgiler sağlar.   Bu günlükler içeriği ve yapılandırma gereksinimleri [kaynak türüne göre değişir](../../azure-monitor/platform/tutorial-dashboards.md).
 
-Tanılama günlüklerinin Azure portalında doğrudan görüntüleyemiyorum, ancak yapabilecekleriniz [Azure depolama, arşivleme şirketlerde](../../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) ve bunları dışarı aktarma [olay hub'ı](../../event-hubs/event-hubs-about.md) diğer hizmetlere yönelik yeniden yönlendirme veya [günlüğüne Analytics](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) analiz. Başkalarının edilmeden önce bir depolama hesabına yazma sırasında bazı kaynaklar doğrudan Log Analytics'e yazabilirsiniz [Log Analytics'e içeri](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
+Tanılama günlüklerinin Azure portalında doğrudan görüntüleyemiyorum, ancak yapabilecekleriniz [Azure depolama, arşivleme şirketlerde](../../azure-monitor/platform/archive-diagnostic-logs.md) ve bunları dışarı aktarma [olay hub'ı](../../event-hubs/event-hubs-about.md) diğer hizmetlere yönelik yeniden yönlendirme veya [günlüğüne Analytics](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) analiz. Başkalarının edilmeden önce bir depolama hesabına yazma sırasında bazı kaynaklar doğrudan Log Analytics'e yazabilirsiniz [Log Analytics'e içeri](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### <a name="monitoring-solutions"></a>İzleme Çözümleri
  [İzleme çözümleri](../../azure-monitor/insights/solutions.md) toplama işleminin belirli bir hizmet veya uygulamanın ek Öngörüler sağlar. Bunlar burada olabilir Log Analytics'e veri toplama kullanılarak analiz [sorgu dilini](../../azure-monitor/log-query/log-query-overview.md) veya [görünümleri](../../azure-monitor/platform/view-designer.md) genellikle çözümüne eklenmiş.
@@ -92,7 +92,7 @@ Uygulamanız konuk işletim sistemine yazabilirsiniz telemetri yanı sıra ayrı
 ### <a name="application-data"></a>Uygulama verileri
 Bir izleme paketi yükleyerek bir uygulama için Application ınsights'ı etkinleştirdiğinizde, ölçüm ve günlükleri performans ve uygulama işlemi ilgili toplar. Bu sayfa görüntülemeleri, uygulama isteklerini ve özel durumları hakkında ayrıntılı bilgi içerir. Application Insights, Azure ölçümleri ve Log Analytics topladığı verileri depolar. Bu verileri analiz etmek için kapsamlı araçlar içerir, ancak, aynı zamanda, ölçüm Gezgini ve günlük aramaları gibi araçları kullanarak diğer kaynaklardan verileri analiz edebilirsiniz.
 
-Application ınsights'ı da kullanabilirsiniz [özel bir ölçü oluşturma](../../application-insights/app-insights-api-custom-events-metrics.md).  Bu sayede bir sayısal değer hesaplamak ve ardından bu değeri Ölçüm Gezgini'nde erişilebilen ve kullanılan diğer ölçümlerle saklamak için kendi mantığını tanımlamak üzere [otomatik ölçeklendirme](../../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md) ve ölçüm uyarıları.
+Application ınsights'ı da kullanabilirsiniz [özel bir ölçü oluşturma](../../application-insights/app-insights-api-custom-events-metrics.md).  Bu sayede bir sayısal değer hesaplamak ve ardından bu değeri Ölçüm Gezgini'nde erişilebilen ve kullanılan diğer ölçümlerle saklamak için kendi mantığını tanımlamak üzere [otomatik ölçeklendirme](../../azure-monitor/platform/autoscale-custom-metric.md) ve ölçüm uyarıları.
 
 ### <a name="dependencies"></a>Bağımlılıklar
 Bir uygulamanın farklı mantıksal işlemleri izlemeniz için yapmanız gerekenler [birden çok bileşenlerinde telemetri toplamak](../../application-insights/app-insights-transaction-diagnostics.md). Application Insights'ı destekleyen [dağıtılmış telemetri bağıntısı](../../application-insights/application-insights-correlation.md) birlikte analiz etmenize imkan sağlar bileşenleri arasındaki bağımlılıkları tanımlar.

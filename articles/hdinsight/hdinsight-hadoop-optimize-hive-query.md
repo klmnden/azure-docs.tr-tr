@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: e9e92254db37edbd978b5799b13e63652e227f86
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 57e23c55342ee397ecb8590dd6da639ba766f351
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014523"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385440"
 ---
-# <a name="optimize-hive-queries-in-azure-hdinsight"></a>Azure HDInsight Hive sorguları en iyi duruma getirme
+# <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Azure HDInsight, Apache Hive sorgularını en iyi duruma getirme
 
 Azure HDInsight çeşitli küme türleri ve Apache Hive sorguları çalıştırabilirsiniz teknolojiler vardır. HDInsight kümenizi oluşturmak, performans, iş yükü ihtiyaçları için en iyi duruma getirmek için uygun küme türü seçin. 
 
@@ -38,7 +38,7 @@ Daha fazla Eşleyici ve azaltıcının paralel olarak genişletin yararlanmak i�
 
 HDInsight'ı ölçeklendirme hakkında daha fazla bilgi için bkz. [ölçek HDInsight kümeleri](hdinsight-scaling-best-practices.md)
 
-## <a name="use-tez-instead-of-map-reduce"></a>Map Reduce yerine Tez kullanma
+## <a name="use-apache-tez-instead-of-map-reduce"></a>Map Reduce yerine Apache Tez kullanma
 
 [Apache Tez](https://hortonworks.com/hadoop/tez/) MapReduce motorunun alternatif bir yürütme altyapısıdır. Linux tabanlı HDInsight kümeleri varsayılan olarak etkin Tez vardır.
 
@@ -124,16 +124,16 @@ Daha fazla bilgi için [bölümlenmiş tabloları](https://cwiki.apache.org/conf
 ## <a name="use-the-orcfile-format"></a>ORCFile biçimini kullanın
 Hive farklı dosya biçimlerini destekler. Örneğin:
 
-* **Metin**: çoğu senaryo ile çalışır ve varsayılan dosya biçimi
-* **Avro**: iyi birlikte çalışabilirlik senaryolarında çalışır
-* **ORC/Parquet**: performans için en uygun
+* **Metin**: varsayılan dosya biçimi ve çoğu senaryoda ile çalışır.
+* **Avro**: iyi birlikte çalışabilirlik senaryolarında çalışır.
+* **ORC/Parquet**: performans için idealdir.
 
 (En iyi duruma getirilmiş satır sütunlu) ORC biçimi Hive verilerini depolamak için son derece etkili bir yoludur. ORC diğer biçimlere kıyasla aşağıdaki avantajlara sahiptir:
 
-* DateTime ve karmaşık ve yarı yapılandırılmış türleri gibi karmaşık türler için destek
-* en fazla % 70'in sıkıştırma
-* satırları atlanmasına izin her 10.000 satırları dizinler
-* çalışma zamanı yürütme ciddi bir düşüş
+* DateTime ve karmaşık ve yarı yapılandırılmış türleri gibi karmaşık türler için destek.
+* en fazla % 70'in sıkıştırma.
+* satırları atlanmasına izin her 10.000 satır dizinini oluşturur.
+* çalışma zamanı yürütme ciddi bir düşüş.
 
 ORC biçimi etkinleştirmek için öncelikle bir tablo yan tümcesiyle oluşturmanız *ORC depolanan*:
 
@@ -171,7 +171,7 @@ Ardından, veri hazırlama tablosundan ORC tablosuna ekleyin. Örneğin:
     FROM lineitem;
    ```
    
-Daha fazla bilgi edinebilirsiniz ORC biçime [Hive dil el ile](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
+Daha fazla bilgi edinebilirsiniz ORC biçime [Apache Hive dil el ile](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
 ## <a name="vectorization"></a>Vektörleştirme
 
@@ -196,10 +196,10 @@ Daha fazla bilgi için [sorgu yürütme Vektörleştirildi](https://cwiki.apache
 Bu makalede, birkaç ortak Hive sorgu iyileştirme yöntemleri öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [HDInsight, Apache Hive kullanma](hadoop/hdinsight-use-hive.md)
-* [HDInsight Hive kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data.md)
-* [HDInsight Hive kullanarak Twitter verilerini çözümleme](hdinsight-analyze-twitter-data.md)
-* [HDInsight Hadoop Hive sorgu Konsolu kullanarak sensör verilerini çözümleme](hadoop/apache-hive-analyze-sensor-data.md)
-* [Web sitesi günlüklerini çözümlemek için HDInsight ile Hive kullanma](hadoop/apache-hive-analyze-website-log.md)
+* [Apache Hive, HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data.md)
+* [Apache Hive, HDInsight kullanarak Twitter verilerini çözümleme](hdinsight-analyze-twitter-data.md)
+* [HDInsight, Apache Hadoop üzerinde Apache Hive sorgu konsolunu kullanarak sensör verilerini çözümleme](hadoop/apache-hive-analyze-sensor-data.md)
+* [Apache Hive Web sitesi günlüklerini çözümlemek için HDInsight ile kullanma](hadoop/apache-hive-analyze-website-log.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
 [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png

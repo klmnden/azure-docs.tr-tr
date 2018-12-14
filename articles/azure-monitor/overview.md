@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 2d1f96359512a3c2135909ebf69ec9ec3b801d61
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8b5b96f7a67dfbb33f470825b8ba4cabd3469dfc
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190569"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385202"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
@@ -35,11 +35,11 @@ Aşağıdaki diyagram, Azure İzleyici üst düzey bir görünümünü sağlar. 
 ## <a name="monitoring-data-platform"></a>İzleme veri platformu
 Azure İzleyici tarafından toplanan tüm verileri iki temel türlerinden birine uyan [ölçümlerini ve günlüklerini](../azure-monitor/platform/data-collection.md). [Ölçümleri](../azure-monitor/platform/data-collection.md#metrics) zaman içinde belirli bir noktada bir sistem bazı yönlerini açıklayan bir sayısal değerler. Bunlar, basit ve gerçek zamanlı senaryoları destekleme yeteneği. [Günlükleri](../azure-monitor/platform/data-collection.md#logs) farklı türde kayıtlarını her türü için farklı özellik kümeleri ile düzenlenir ve verileri içerir. Olaylarla ve izlemelerle gibi telemetri depolanır günlükleri olarak ayrıca performans verilerini ve böylece tüm analiz için birleştirilebilir.
 
-Birçok Azure kaynağı için kendi genel bakış sayfasında Azure portalında Azure İzleyicisi'ni sağ tarafından toplanan verileri görürsünüz. Herhangi bir sanal makineye bir göz gibi sahip ve performans ölçümlerini görüntüleme, birden fazla grafik görürsünüz. Tüm Grafik verileri açmak için tıklayın [ölçüm Gezgini](../monitoring-and-diagnostics/monitoring-metric-charts.md) Azure portalında, zaman içinde birden çok ölçüm değerleri grafik olanak tanıyan.  Etkileşimli olarak grafikleri görüntülemek veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin.
+Birçok Azure kaynağı için kendi genel bakış sayfasında Azure portalında Azure İzleyicisi'ni sağ tarafından toplanan verileri görürsünüz. Herhangi bir sanal makineye bir göz gibi sahip ve performans ölçümlerini görüntüleme, birden fazla grafik görürsünüz. Tüm Grafik verileri açmak için tıklayın [ölçüm Gezgini](../azure-monitor/platform/metrics-charts.md) Azure portalında, zaman içinde birden çok ölçüm değerleri grafik olanak tanıyan.  Etkileşimli olarak grafikleri görüntülemek veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin.
 
 ![Ölçümler](media/overview/metrics.png)
 
-Azure İzleyici tarafından toplanan günlük verilerini içeren Log Analytics'e depolanan bir [zengin sorgu dili](../azure-monitor/log-query/log-query-overview.md) hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek için.  Oluşturma ve test sorguları kullanarak [Log Analytics sayfa](../azure-monitor/log-query/portals.md) ile kullanılmak üzere sorguları kaydedebilir ya da doğrudan Azure portalını sonra da bu araçları kullanarak verileri analiz ederek [görselleştirmeler](visualizations.md) veya [ Uyarı kuralları](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+Azure İzleyici tarafından toplanan günlük verilerini içeren Log Analytics'e depolanan bir [zengin sorgu dili](../azure-monitor/log-query/log-query-overview.md) hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek için.  Oluşturma ve test sorguları kullanarak [Log Analytics sayfa](../azure-monitor/log-query/portals.md) ile kullanılmak üzere sorguları kaydedebilir ya da doğrudan Azure portalını sonra da bu araçları kullanarak verileri analiz ederek [görselleştirmeler](visualizations.md) veya [ Uyarı kuralları](../azure-monitor/platform/alerts-overview.md).
 
 Log Analytics sorgu dili basit günlük sorguları için uygundur, ancak ayrıca toplamalar, birleştirmeler ve akıllı analiz gibi gelişmiş işlevleri içerir. Sorgu dilini kullanarak hızla edinebilirsiniz [birden çok dersleri](../azure-monitor/log-query/get-started-queries.md) kullanılabilir.  [SQL](../azure-monitor/log-query/sql-cheatsheet.md) ve [Splunk](../azure-monitor/log-query/splunk-cheatsheet.md)’u önceden bilen kullanıcılara belirli yönergeler sağlanır.
 
@@ -94,7 +94,7 @@ Azure İzleyici VM içgörüler izler, Azure sanal makineleri (VM) uygun ölçek
 
 
 ### <a name="alerts"></a>Uyarılar
-[Azure İzleyici'de uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md) kritik koşulları proaktif olarak bildiren ve olası düzeltici dener. Neredeyse gerçek zamanlı uyarı kuralları günlüklerine göre birden çok kaynaktan veri üzerinde karmaşık mantık için izin verirken, sayısal değerlerine göre ölçümlere göre uyarı kuralları sağlar.
+[Azure İzleyici'de uyarılar](../azure-monitor/platform/alerts-overview.md) kritik koşulları proaktif olarak bildiren ve olası düzeltici dener. Neredeyse gerçek zamanlı uyarı kuralları günlüklerine göre birden çok kaynaktan veri üzerinde karmaşık mantık için izin verirken, sayısal değerlerine göre ölçümlere göre uyarı kuralları sağlar.
 
 Uyarı kuralları Azure İzleyici kullanımda [Eylem grupları](../azure-monitor/platform/action-groups.md), benzersiz alıcı ve birden çok kural arasında paylaşılabilir Eylemler kümesi bulunur. Gereksinimlerinize göre Eylem grupları olarak uyarıları dış eylemleri başlatmak veya ITSM araçlarınıza ile tümleştirmek için Web kancalarını kullanma gibi işlemleri gerçekleştirebilirsiniz.
 

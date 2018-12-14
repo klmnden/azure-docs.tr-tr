@@ -11,14 +11,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/11/2018
+ms.date: 12/12/2018
 ms.author: kumud
-ms.openlocfilehash: d3e0fd510968abed55e0e3fea2a8689027713a2b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8ffc2a84850254451bb8356ceb0c08cd56823afd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310411"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344219"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer sistem durumu araştırmaları
 
@@ -56,6 +56,9 @@ Kullanırken [HA bağlantı noktaları Yük Dengeleme kuralları](load-balancer-
 NAT veya proxy bir sistem durumu araştırma bu sizin senaryonuzda zincirleme hatalara neden olabileceğinden, başka bir örneği için sistem durumu araştırması ağınızda alır örnek üzerinden gerekir.
 
 Bir sistem durumu araştırma hatası test veya tek bir örneğini işaretlemek istiyorsanız, bir güvenlik grubuna açık blok durum araştırması kullanabilirsiniz (hedef veya [kaynak](#probesource)).
+
+>[!IMPORTANT]
+> Etkinleştirmeyin [TCP zaman damgaları](https://tools.ietf.org/html/rfc1323).  TCP zaman damgaları etkinleştirme, sistem durumu araştırmaları sanal makinenin konuk işletim sistemi TCP yığını, yük dengeleyici ilgili uç noktayı işaretlemek sonuçlanır tarafından bırakılan TCP paketleri nedeniyle başarısız olmasına neden olur.
 
 ### <a name="tcpprobe"></a> TCP araştırma
 

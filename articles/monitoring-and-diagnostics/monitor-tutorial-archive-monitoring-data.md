@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: ab91ac3eb115504727e5ee9e912d070262027cc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: eb99718fb2b39ded01abb075990fccb25a482cab
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834086"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386138"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Azure Depolama’yı kullanarak Azure ölçümlerini ve günlük verilerini arşivleme
 
@@ -103,7 +103,7 @@ Kaynağınızdaki izleme verileri artık depolama hesabına akar.
 > [!NOTE]
 > Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
 >
-> *Örneğin*: Bir Olay Hub'ındaki 'Gelen İletiler' ölçümü, kuyruk düzeyi temelinde araştırılıp grafiği oluşturulabilir. Ancak, tanılama ayarları aracılığıyla dışarı aktarılan ölçüm, Olay Hub’ındaki tüm kuyruklarda tüm gelen iletiler halinde ifade edilir.
+> *Örneğin*: Bir olay Hub'ındaki 'Gelen iletiler' ölçümü temelinde araştırılıp bir kuyruk düzeyi. Ancak, tanılama ayarları aracılığıyla dışarı aktarılan ölçüm, Olay Hub’ındaki tüm kuyruklarda tüm gelen iletiler halinde ifade edilir.
 >
 >
 
@@ -150,7 +150,7 @@ Sanal makinelerinizdeki izleme verileri artık depolama hesabına akar.
 
 Yukarıdaki adımları izlediyseniz, veriler depolama hesabınıza akmaya başlamıştır.
 
-1. Bazı veri türleri için (örneğin, Etkinlik Günlüğü), depolama hesabında olay oluşturan bazı etkinliklerin olması gerekir. Etkinlik Günlüğünde etkinlik oluşturmak için [bu yönergeleri](./monitor-quick-audit-notify-action-in-subscription.md) takip edin. Olayın depolama hesabında görünmesi için beş dakikaya kadar beklemeniz gerekebilir.
+1. Bazı veri türleri için (örneğin, Etkinlik Günlüğü), depolama hesabında olay oluşturan bazı etkinliklerin olması gerekir. Etkinlik Günlüğünde etkinlik oluşturmak için [bu yönergeleri](./../azure-monitor/platform/quick-audit-notify-action-subscription.md) takip edin. Olayın depolama hesabında görünmesi için beş dakikaya kadar beklemeniz gerekebilir.
 
 2. Portalda, sol gezinti çubuğundaki **Depolama Hesapları** bölümüne gidin.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 36724c0934a68fa8b19b7fc69581275192f4ed36
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 2347d82b8c2f5a08b944577e5b06cde3b68617b3
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321332"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385015"
 ---
 # <a name="understand-autoscale-settings"></a>Otomatik Ölçeklendirme ayarlarını anlama
 Otomatik ölçeklendirme ayarları, uygulamanızın dalgalı yükü işlemek için çalışan kaynakları doğru miktarda sahip olduğunuzdan emin olun yardımcı olur. Yük veya performans ölçümleri temelinde veya Tetiklenmiş bir zamanlanan tarih ve saatte tetiklenmesi için otomatik ölçeklendirme ayarlarını yapılandırabilirsiniz. Bu makalede, bir otomatik ölçeklendirme ayarı anatomisi ayrıntılı bilgi alır. Makale bir ayarın özelliklerini ve şema ile başlar ve yapılandırılabilir farklı profil türleri aracılığıyla size yol gösterir. Son olarak, bu makalede, azure'da otomatik ölçeklendirme özelliği belirli bir zamanda yürütmek için hangi profilin nasıl değerlendirir ele alınmaktadır.
@@ -305,7 +305,7 @@ Otomatik ölçeklendirme hesaplar tarafından belirlenen yeni kapasite **scaleAc
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki başvurarak otomatik ölçeklendirme hakkında daha fazla bilgi edinin:
 
-* [Otomatik Ölçeklendirmeye Genel Bakış](monitoring-overview-autoscale.md)
+* [Otomatik Ölçeklendirmeye Genel Bakış](../azure-monitor/platform/autoscale-overview.md)
 * [Azure İzleyici otomatik ölçeklendirme ortak ölçümleri](../azure-monitor/platform/autoscale-common-metrics.md)
 * [Azure İzleyici otomatik ölçeklendirme için en iyi yöntemler](../azure-monitor/platform/autoscale-best-practices.md)
 * [E-posta ve Web kancası uyarı bildirimleri göndermek için otomatik ölçeklendirme eylemleri kullanın](../azure-monitor/platform/autoscale-webhook-email.md)

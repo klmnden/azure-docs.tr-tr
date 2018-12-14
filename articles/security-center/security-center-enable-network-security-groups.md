@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2ac1baea3c4ef677f9c0927a038e15828683b851
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f10365f4acf62ba4719e89932f18433e70925ebf
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308758"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341771"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde ağ güvenlik gruplarını etkinleştirme
 Azure Güvenlik Merkezi bir zaten etkin değilse, bir ağ güvenlik grubu (NSG) etkinleştirmenizi önerir. Nsg'ler izin veren veya bir sanal ağ, sanal makine örneklerine trafiği reddeden erişim denetimi listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. NSG bir alt ağ ile ilişkili olduğunda ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerli olur. Ayrıca, tekil bir VM trafik kısıtlanabilir NSG'yi doğrudan bu VM ile ilişkilendirme tarafından daha fazla. Daha fazla bilgi edinmek için [bir ağ güvenlik grubu (NSG) nedir?](../virtual-network/security-overview.md)
 
-Nsg'ler etkin değilse, Güvenlik Merkezi iki Öneriler size sunar: alt ağlar ve sanal makinelerde ağ güvenlik gruplarını etkinleştirme üzerindeki ağ güvenlik gruplarının etkinleştirin. Hangi düzeyi, alt ağ veya Nsg uygulamak için VM seçin.
+Nsg'ler etkin değilse, Güvenlik Merkezi, iki önerileri sunar: Ağ güvenlik grupları, sanal makinelerde alt ağlar ve ağ güvenlik gruplarını etkinleştirme etkinleştirin. Hangi düzeyi, alt ağ veya Nsg uygulamak için VM seçin.
 
 > [!NOTE]
 > Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır.  Bu, adım adım ilerleyen bir kılavuz değildir.
@@ -53,7 +53,7 @@ Bu makalede "Ağ güvenlik gruplarını etkinleştir" alt ağlar ve sanal makine
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
 * [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.

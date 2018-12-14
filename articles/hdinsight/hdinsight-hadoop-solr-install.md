@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6a3f9928fa685c36a0495ba5d423c3be7bff2bea
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3f382aab5a00030b922fb890e82110454e7f3839
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009179"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384505"
 ---
-# <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Yükleme ve Windows tabanlı HDInsight kümelerinde Solr kullanma
+# <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>Yükleme ve Windows tabanlı HDInsight kümeleri üzerinde Apache Solr kullanma
 
-Windows tabanlı HDInsight kümesi ile Solr betik eylemi kullanarak özelleştirme ve Solr veri aramak için nasıl kullanılacağını öğrenin.
+Windows tabanlı HDInsight kümesi Apache Solr betik eylemi kullanarak özelleştirme ve Solr veri aramak için nasıl kullanılacağını öğrenin.
 
-> [!IMPORTANT]
-> Bu belgede yer alan adımlar, yalnızca Windows tabanlı HDInsight kümeleri ile çalışır. HDInsight yalnızca Windows üzerinde HDInsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı küme ile Solr kullanma hakkında daha fazla bilgi için bkz: [yükleme ve Hdınsight Hadoop kümeleri (Linux) üzerinde Solr kullanma](hdinsight-hadoop-solr-install-linux.md).
+> [!IMPORTANT]  
+> Bu belgede yer alan adımlar, yalnızca Windows tabanlı HDInsight kümeleri ile çalışır. HDInsight yalnızca Windows üzerinde HDInsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı küme ile Solr kullanma hakkında daha fazla bilgi için bkz: [yükleme ve (Linux) Hdınsight Hadoop kümeleri üzerinde Apache Solr kullanma](hdinsight-hadoop-solr-install-linux.md).
 
 
 Kullanarak Azure HDInsight (Hadoop, Storm, HBase, Spark) kümesinde herhangi bir türde üzerinde Solr yükleyebilirsiniz *betik eylemi*. Solr'ın bir HDInsight kümesine yüklemek için örnek betik salt okunur bir Azure depolama blob'nden kullanılabilir [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
@@ -32,7 +32,7 @@ Bu konuda kullanılan örnek betik, belirli bir yapılandırma ile bir Windows t
 
 **İlgili makaleler**
 
-* [Yükleme ve (Linux) Hdınsight Hadoop kümelerinde Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
+* [Yükleme ve (Linux) Hdınsight Hadoop kümeleri üzerinde Apache Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
 * [HDInsight Hadoop kümeleri oluşturma](hdinsight-provision-clusters.md): HDInsight kümeleri oluşturma hakkında genel bilgi.
 * [Betik eylemi kullanarak HDInsight kümesi özelleştirme][hdinsight-cluster-customize]: HDInsight kümelerini betik eylemi kullanarak özelleştirme hakkında genel bilgiler.
 * [HDInsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions.md).
@@ -41,7 +41,7 @@ Bu konuda kullanılan örnek betik, belirli bir yapılandırma ile bir Windows t
 <a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> veriler üzerinde güçlü tam metin araması sağlayan bir kurumsal arama platformudur. Hadoop depolamak ve yönetmek çok büyük miktarda veri etkinleştirse bile, Apache Solr hızlıca veri almak için arama özellikleri sağlar.
 
 ## <a name="install-solr-using-portal"></a>Portalı kullanarak Solr yükleme
-1. Kullanarak bir küme oluşturmaya başlayın **özel Oluştur** anlatıldığı gibi seçeneği [Hadoop kümeleri oluşturma HDInsight](hdinsight-provision-clusters.md).
+1. Kullanarak bir küme oluşturmaya başlayın **özel Oluştur** anlatıldığı gibi seçeneği [Apache Hadoop kümeleri oluşturma HDInsight](hdinsight-provision-clusters.md).
 2. Üzerinde **betik eylemleri** Sayfası Sihirbazı'nın **betik eylemi ekleme** aşağıda gösterildiği gibi bir betik eylemi ayrıntılarını sağlamak için:
 
     ![Bir küme özelleştirmek için betik eylemi kullanmanız](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "küme özelleştirmek için betik eylemini kullanın")
@@ -137,7 +137,7 @@ Solr ile bazı veri dosyalarının dizinini oluşturarak ile başlamalıdır. So
                  }
                ]
              }
-4. **Önerilen: dizinli Solr HDInsight kümesi ile ilişkili Azure Blob Depolama yedekleme**. İyi bir yöntem olarak, Azure Blob Depolama üzerine Solr küme düğümlerinden dizinlenmiş verileri yedeklemelisiniz. Bunu yapmak için aşağıdaki adımları gerçekleştirin:
+4. **Önerilen: Solr dizinlenmiş verileri Azure Blob Depolama, HDInsight kümesi ile ilişkili yedekleme**. İyi bir yöntem olarak, Azure Blob Depolama üzerine Solr küme düğümlerinden dizinlenmiş verileri yedeklemelisiniz. Bunu yapmak için aşağıdaki adımları gerçekleştirin:
 
    1. RDP oturumundan, Internet Explorer'ı açın ve aşağıdaki URL'ye noktası:
 
@@ -167,18 +167,18 @@ Solr ile bazı veri dosyalarının dizinini oluşturarak ile başlamalıdır. So
    Bu komut anlık görüntü /example/data/kapsayıcı içinde ' % s'varsayılan kümeyle ilişkili depolama hesabı altında kopyalar.
 
 ## <a name="install-solr-using-aure-powershell"></a>Azure PowerShell kullanarak Solr yükleme
-Bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Örnek Azure PowerShell kullanarak Spark'ı yüklemek nasıl gösterir. Kullanılacak betiği dosyasını özelleştirmeniz gerektiğini [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Örnek Azure PowerShell kullanarak Apache Spark'ı yüklemek nasıl gösterir. Kullanılacak betiği dosyasını özelleştirmeniz gerektiğini [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## <a name="install-solr-using-net-sdk"></a>.NET SDK kullanarak Solr yükleme
-Bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Örnek .NET SDK kullanarak Spark'ı yüklemek nasıl gösterir. Kullanılacak betiği dosyasını özelleştirmeniz gerektiğini [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
+Bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Örnek .NET SDK kullanarak Apache Spark'ı yüklemek nasıl gösterir. Kullanılacak betiği dosyasını özelleştirmeniz gerektiğini [ https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1 ](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Yükleme ve (Linux) Hdınsight Hadoop kümelerinde Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
-* [HDInsight Hadoop kümeleri oluşturma](hdinsight-provision-clusters.md): HDInsight kümeleri oluşturma hakkında genel bilgi.
+* [Yükleme ve (Linux) Hdınsight Hadoop kümeleri üzerinde Apache Solr kullanma](hdinsight-hadoop-solr-install-linux.md)
+* [HDInsight Apache Hadoop kümeleri oluşturma](hdinsight-provision-clusters.md): HDInsight kümeleri oluşturma hakkında genel bilgi.
 * [Betik eylemi kullanarak HDInsight kümesi özelleştirme][hdinsight-cluster-customize]: HDInsight kümelerini betik eylemi kullanarak özelleştirme hakkında genel bilgiler.
 * [HDInsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions.md).
-* [Yükleme ve HDInsight kümelerine Spark kullanma][hdinsight-install-spark]: Spark'ı yükleme hakkında daha fazla örnek betik eylemi.
-* [HDInsight kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install.md): Giraph yükleme hakkında daha fazla örnek betik eylemi.
+* [Yükleme ve Apache Spark HDInsight kümelerinde kullanma][hdinsight-install-spark]: Spark'ı yükleme hakkında daha fazla betik eylemi örneği.
+* [HDInsight kümeleri üzerinde Apache Giraph yükleme](hdinsight-hadoop-giraph-install.md): Giraph yükleme hakkında daha fazla betik eylemi örneği.
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: fe096efba5419b283981f27e16c3e30a791412da
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322679"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387004"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Yapılandırma ve yönetim sorunları Azure bulut Hizmetleri için: Sık sorulan sorular (SSS)
 
@@ -242,7 +242,7 @@ Bir bulut hizmeti için bellek ölçümlere göre otomatik ölçeklendirme şu a
 
 Bu sorunu çözmek için Application ınsights'ı kullanabilirsiniz. Otomatik ölçeklendirme, ölçüm kaynağı olarak Application ınsights'ı destekler ve rol örneği sayısı "Bellek" gibi Konuk ölçüme göre ölçeklendirebilir.  Bulut hizmeti projesi paket dosyanızda (dosyanın *.cspkg) Application Insights'ı yapılandırın ve hizmeti bu feat uygulamak için Azure tanılama uzantısını etkinleştirme gerekir.
 
-Özel ölçüm Application Insights'ın bulut hizmetleri üzerinde otomatik ölçeklendirmeyi yapılandırma yoluyla nasıl hakkında daha fazla ayrıntı için bkz. [otomatik ölçeklendirme ile azure'da özel bir ölçü olarak kullanmaya başlayın](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+Özel ölçüm Application Insights'ın bulut hizmetleri üzerinde otomatik ölçeklendirmeyi yapılandırma yoluyla nasıl hakkında daha fazla ayrıntı için bkz. [otomatik ölçeklendirme ile azure'da özel bir ölçü olarak kullanmaya başlayın](../azure-monitor/platform/autoscale-custom-metric.md)
 
 Azure Tanılama, Cloud Services için Application Insights ile tümleştirme hakkında daha fazla bilgi için bkz. [Application ınsights'a Gönder bulut hizmeti, sanal makine ya da Service Fabric Tanılama verileri](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 

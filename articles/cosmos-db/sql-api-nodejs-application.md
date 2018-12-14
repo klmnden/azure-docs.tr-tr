@@ -1,22 +1,22 @@
 ---
-title: Azure Cosmos DB SQL API verileri yönetmek için JavaScript SDK'sını kullanarak bir Node.js web uygulaması derleme
-description: Bu Node.js öğreticisi, Azure Web Siteleri'nde barındırılan bir Node.js Express web uygulamasında verileri depolamak ve bunlara erişmek için Microsoft Azure Cosmos DB'nin nasıl kullanılacağını açıklar.
-services: cosmos-db
+title: "Öğretici: Azure Cosmos DB SQL API verileri yönetmek için JavaScript SDK'sını kullanarak bir Node.js web uygulaması derleme"
+description: Bu Node.js Öğreticisi üzerinde Microsoft Azure App Service'in Web Apps özelliğinde barındırılan bir Node.js Express web uygulamasında erişim verileri ve depolamak için Microsoft Azure Cosmos DB kullanmayı açıklar.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 12/10/2018
 ms.author: sngun
-ms.openlocfilehash: f2e18f07748801e50db644588146e7867ba84095
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
+ms.openlocfilehash: 5d1ff0a40b9924af2d789c5bbc755080c1c783ed
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081515"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383436"
 ---
-# <a name="tutorial-build-a-nodejs-web-app-using-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Öğretici: Azure Cosmos DB SQL API verilerini yönetmek için JavaScript SDK’sını kullanarak bir Node.js web uygulaması derleme
+# <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Öğretici: Bir Azure Cosmos DB SQL API hesabı yönetmek için JavaScript SDK'sını kullanarak bir Node.js web uygulaması derleme 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -26,11 +26,9 @@ ms.locfileid: "53081515"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
-Bu Node.js öğreticisi, Azure Web Siteleri'nde barındırılan bir Node.js Express uygulamasını kullanarak Azure Cosmos DB'nin SQL API hesabından veri depolama ve bu verilere erişme adımlarını göstermektedir. Bu öğreticide görev oluşturmanızı, almanızı ve tamamlamanızı sağlayan bir web tabanlı uygulama (Todo uygulaması) derleyeceksiniz. Görevler, JSON belgeleri olarak Azure Cosmos DB'de depolanır. 
+Bir geliştirici olarak, NoSQL belge verileri kullanan uygulamalar olabilir. Azure Cosmos DB SQL API hesabı, depolamak ve bu belge verilere erişmek için kullanabilirsiniz. Bu Node.js Öğreticisi, SQL API hesabı erişim verileri ve depolamak nasıl Azure Cosmos DB'de barındırılan bir Node.js Express uygulaması Microsoft Azure App Service'in Web Apps özelliğini kullanarak gösterir. Bu öğreticide, oluşturmak, almak ve görevleri tamamlamak izin veren bir web tabanlı uygulama (Todo uygulaması) oluşturacaksınız. Görevler, JSON belgeleri olarak Azure Cosmos DB'de depolanır. 
 
-Bu öğreticide Azure portalı kullanarak bir Azure Cosmos DB SQL API hesabını oluşturma işlemi gösterilmektedir. Bu işlemin ardından veritabanını ve kapsayıcıyı oluşturup kapsayıcıya öğe eklemek için Node.js SDK'sı ile bir web uygulaması derleyecek ve oluşturacaksınız. Bu öğreticide JavaScript SDK sürüm 2.0 kullanılmaktadır.
-
-İsterseniz tamamlanmış örneği [GitHub][GitHub] üzerinden edinebilir ve uygulamayı çalıştırma yönergelerini içeren [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) dosyasını inceleyebilirsiniz.
+Bu öğreticide, Azure portalını kullanarak Azure Cosmos DB SQL API hesabı oluşturma gösterilmektedir. Ardından oluşturun ve bir veritabanı ve kapsayıcı oluşturmak için Node.js SDK'üzerinde oluşturulan bir web uygulamasını çalıştırmak ve öğeleri kapsayıcıya ekleyin. Bu öğreticide JavaScript SDK sürüm 2.0 kullanılmaktadır.
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
@@ -52,15 +50,15 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdaki kaynaklara sahip olduğu
 * [Express oluşturucu](https://www.expressjs.com/starter/generator.html) (Express'i `npm install express-generator -g` aracılığıyla yükleyebilirsiniz)
 * [Git][Git]'i yerel iş istasyonunuza yükleyin.
 
-## <a name="_Toc395637761"></a>1. Adım: Azure Cosmos DB hesabı oluşturma
-İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya bu öğretici için Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız [2. Adım: Yeni Node.js uygulaması oluşturma](#_Toc395783178) adımına atlayabilirsiniz.
+## <a name="_Toc395637761"></a>Bir Azure Cosmos DB hesabı oluşturma
+İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya Bu öğretici için Azure Cosmos DB öykünücüsü'nü kullanıyorsanız, adımına atlayabilirsiniz [2. adım: Yeni bir Node.js uygulaması oluşturma](#_Toc395783178).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
-## <a name="_Toc395783178"></a>2. Adım: Yeni bir Node.js uygulaması oluşturma
-Şimdi [Express](https://expressjs.com/) altyapısını kullanarak temel bir Hello World Node.js projesi oluşturmayı öğrenelim.
+## <a name="_Toc395783178"></a>Yeni bir Node.js uygulaması oluşturma
+Artık Express framework kullanarak basit bir Hello World Node.js projesi oluşturmak öğrenelim.
 
 1. Node.js komut istemi gibi istediğiniz bir terminal uygulamasını açın.
 
@@ -89,13 +87,13 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdaki kaynaklara sahip olduğu
    
    ![Node.js öğrenin - Bir tarayıcı penceresinde Hello World uygulamasının ekran görüntüsü](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
- Uygulamayı durdurmak için terminal penceresinde CTRL+C tuşlarına basın ve ardından toplu işlemi sonlandırmak için **y** öğesini seçin.
+ Terminal penceresinde CTRL + C tuşlarını kullanarak uygulamayı durdurun ve seçin **y** toplu işlemi sonlandırmak için.
 
-## <a name="_Toc395783179"></a>3. Adım: Gerekli modülleri yükleme
+## <a name="_Toc395783179"></a>Gerekli modülleri yükleme
 
 **Package.json** dosyası, projenin kökünde oluşturulan dosyalardan biridir. Bu dosya, Node.js uygulamanız için gerekli olan ek modüllerin listesini içerir. Bu uygulamayı Azure'a dağıttığınızda uygulamanızı desteklemek amacıyla Azure'a hangi modüllerin yüklenmesi gerektiğini belirlemek için bu dosya kullanılır. Bu öğretici için iki paket daha yükleyeceksiniz.
 
-1. Terminali açın, npm aracılığıyla **async** modülünü yükleyin.
+1. Terminali açın ve yükleme **zaman uyumsuz** npm aracılığıyla modülü.
 
    ```bash
    npm install async --save
@@ -107,15 +105,15 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdaki kaynaklara sahip olduğu
    npm install @azure/cosmos
    ```
 
-## <a name="_Toc395783180"></a>4. Adım: Node.js uygulamasını Azure Cosmos DB'ye bağlama
+## <a name="_Toc395783180"></a>Node.js uygulamasını Azure Cosmos DB'ye bağlanma
 İlk kurulum ve yapılandırma adımlarını tamamladığınıza göre yapılacak işler uygulamasının Azure Cosmos DB ile iletişim kurması için gereken kodu yazabilirsiniz.
 
 ### <a name="create-the-model"></a>Modeli oluşturma
-1. Projenizin kök dizininde **models** adlı yeni bir dizin oluşturun.  
+1. Proje dizininizin kökünde adlı yeni bir dizin oluşturma **modelleri**.  
 
-2. **models** dizininde **taskDao.js** adında yeni bir dosya oluşturun. Bu dosya veritabanını ve kapsayıcıyı oluşturmak için gereken kodların yanı sıra Azure Cosmos DB'de görev okuma, güncelleştirme, oluşturma ve bulma metotlarını tanımlar. 
+2. **models** dizininde **taskDao.js** adında yeni bir dosya oluşturun. Bu dosya, veritabanı ve kapsayıcı oluşturmak için gereken kodu içerir. Ayrıca, okuma, güncelleştirme, oluşturma ve Azure Cosmos DB'de görevleri bulmak için yöntemleri tanımlar. 
 
-3. Aşağıdaki kodu **taskDao.js** dosyasına kopyalayın
+3. Aşağıdaki kodu kopyalayın **taskDao.js** dosyası:
 
    ```nodejs
    // @ts-check
@@ -277,7 +275,7 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdaki kaynaklara sahip olduğu
    module.exports = config;
    ```
 
-3. **config.js** dosyasında [Microsoft Azure portalındaki](https://portal.azure.com) Azure Cosmos DB hesabınızın Anahtarlar sayfasında bulunan değerleri kullanarak HOST ve AUTH_KEY değerlerini güncelleştirin. 
+3. İçinde **config.js** dosya, HOST ve auth_key değerlerini penceresinde Azure Cosmos DB hesabınızın anahtarlar sayfasında bulunan değerleri kullanarak güncelleştirin [Azure portalında](https://portal.azure.com). 
 
 4. **config.js** dosyasını kaydedin ve kapatın.
 
@@ -360,11 +358,11 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdaki kaynaklara sahip olduğu
 
 3. Son olarak, **app.js** dosyasını kaydedip kapatın.
 
-## <a name="_Toc395783181"></a>5. Adım: Kullanıcı arabirimi oluşturma
+## <a name="_Toc395783181"></a>Kullanıcı arabirimi oluşturma
 
-Şimdi kullanıcının uygulamayla etkileşim kurabilmesi için kullanıcı arabirimini oluşturalım. Önceki bölümlerde oluşturduğumuz Express uygulaması, görüntüleme altyapısı olarak **Jade**'i kullanır. Jade hakkında daha fazla bilgi için bkz. [Jade dili](http://jade-lang.com/).
+Şimdi kullanıcının uygulamayla etkileşim kurabilmesi için kullanıcı arabirimini oluşturalım. Önceki bölümlerde oluşturduğumuz Express uygulaması, görüntüleme altyapısı olarak **Jade**'i kullanır.
 
-1. **views** dizinindeki **layout.jade** dosyası diğer **.jade** dosyaları için genel bir şablon olarak kullanılır. Bu adımda, web sitesi tasarlamak için kullanılan bir araç seti olan [Twitter Bootstrap](https://github.com/twbs/bootstrap)'i kullanmak için bu dosyayı değiştireceksiniz.  
+1. **views** dizinindeki **layout.jade** dosyası diğer **.jade** dosyaları için genel bir şablon olarak kullanılır. Bu adımda, bir Web sitesi tasarlamak için kullanılan bir araç takımıdır Twitter Bootstrap kullanacak şekilde değiştirir.  
 
 2. **views** klasöründe bulunan **layout.jade** dosyasını açın ve içeriğini aşağıdaki kodla değiştirin:
 
@@ -384,7 +382,7 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdaki kaynaklara sahip olduğu
        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
    ```
 
-    Bu kod, **Jade** altyapısına uygulamamız için bazı HTML'leri işlemesini söyler ve içerik sayfalarımıza düzeni sağlayabileceğimiz **content** adlı bir **blok** oluşturur. **layout.jade** dosyasını kaydedin ve kapatın.
+    Bu kod söyler **Jade** uygulamamız için bazı HTML HTML'leri ve oluşturur bir **blok** adlı **içeriği** burada biz sağlayabilirler düzeni için içerik sayfalarımızın. **layout.jade** dosyasını kaydedin ve kapatın.
 
 3. Şimdi uygulamamız tarafından kullanılacak görünüm olan **index.jade** dosyasını açın ve dosyanın içeriğini aşağıdaki kodla değiştirin:
 
@@ -436,30 +434,34 @@ Bu kod, düzeni genişletir ve daha önce **layout.jade** dosyasında gördüğ�
     
 İkinci form, yeni bir öğeyi denetleyicinin **/addtask** yöntemine göndererek oluşturmanızı sağlayan bir düğmeyi ve iki giriş alanını içerir. Bunlar uygulamayı çalıştırmak için yeterli olacaktır.
 
-## <a name="_Toc395783181"></a>6. Adım: Uygulamanızı yerel olarak çalıştırma
+## <a name="_Toc395783181"></a>Uygulamanızı yerel olarak çalıştırma
 
-1. Uygulamayı yerel bilgisayarınızda test etmek için terminalde `npm start` komutunu çalıştırarak uygulamanızı başlatın ve ardından [http://localhost:3000](http://localhost:3000) tarayıcı sayfasını yenileyin. Sayfa, aşağıdaki ekran görüntüsünde gösterildiği gibi görünmelidir:
+Bir uygulama geliştirdim, aşağıdaki adımları kullanarak yerel olarak çalıştırabilirsiniz:  
+
+1. Yerel makinenizde uygulamayı test etmek için çalıştırın `npm start` uygulamanızı başlatın ve ardından yenilemek için terminalde [ http://localhost:3000 ](http://localhost:3000) tarayıcı sayfası. Sayfa, aşağıdaki ekran görüntüsünde gösterildiği gibi görünmelidir:
    
     ![Bir tarayıcı penceresinde Yapılacaklar Listem uygulamasının ekran görüntüsü](./media/sql-api-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
-    > layout.jade veya index.jade dosyasındaki girintilerle ilgili bir hata alırsanız iki dosyanın da ilk iki satırının sola dayalı olduğundan ve öncesinde boşluk bulunmadığından emin olun. İlk iki satırdan önce boşluk varsa silin, iki dosyayı da kaydedin ve tarayıcı pencerenizi yenileyin. 
+    > Layout.jade veya index.jade dosya içinde ilgili bir hata alırsanız, her iki dosyada ilk iki satırının sola dayalı, boşluk olmadan olduğundan emin olun. İlk iki satırdan önce boşluk varsa, bunları kaldırmanız, her iki dosyayı kaydedin ve ardından tarayıcı pencerenizi yenileyin. 
 
-2. Öğe, Öğe Adı ve Kategori alanlarını kullanarak yeni bir görev girin ve ardından **Öğe Ekle**'yi seçin. Bu işlem, Azure Cosmos DB içinde bu özelliklere sahip bir belge oluşturur. 
+2. Yeni bir görev girin ve ardından için öğe, öğe adı ve kategori alanlarını kullanın **Öğe Ekle**. Bu işlem, Azure Cosmos DB içinde bu özelliklere sahip bir belge oluşturur. 
 
 3. Sayfa, Yapılacaklar listesinde yeni oluşturulan öğeyi görüntülemek üzere güncelleştirilmelidir.
    
     ![Yapılacaklar listesinde yeni bir öğeyi içeren uygulamanın ekran görüntüsü](./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png)
 
-4. Bir görevi tamamlamak için Tamamla sütunundaki onay kutusunu işaretleyin ve ardından **Görevleri güncelleştir**'i seçin. Bu işlem önceden oluşturduğunuz belgeyi güncelleştirir ve görünümden kaldırır.
+4. Bir görevi tamamlamak için tam sütununda onay kutusunu işaretleyin ve ardından **görevleri Güncelleştir**. Bu işlem önceden oluşturduğunuz belgeyi güncelleştirir ve görünümden kaldırır.
 
 5. Uygulamayı durdurmak için terminal penceresinde CTRL+C tuşlarına basın ve ardından toplu işlemi sonlandırmak için **Y** öğesini seçin.
 
-## <a name="_Toc395783182"></a>7. Adım: Java uygulamanızı Azure Web Siteleri'ne dağıtma
+## <a name="_Toc395783182"></a>Web Apps uygulamanızı dağıtma
 
-1. Daha önce yapmadıysanız Azure Web Siteniz için bir git deposunu etkinleştirin. git deposu etkinleştirme yönergelerini [Azure App Service'te Yerel Git Dağıtımı](../app-service/app-service-deploy-local-git.md) konu başlığında bulabilirsiniz.
+Uygulamanızı yerel olarak başarılı olduktan sonra aşağıdaki adımları kullanarak Azure'a dağıtabilirsiniz:
 
-2. Azure Web Sitenizi bir git uzak öğesi olarak ekleyin.
+1. Zaten yapmadıysanız, Web Apps uygulamanız için bir git deposunu etkinleştirin.
+
+2. Web Apps uygulamanızı git remote olarak ekleyin.
    
    ```bash
    git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git
@@ -473,11 +475,11 @@ Bu kod, düzeni genişletir ve daha önce **layout.jade** dosyasında gördüğ�
 
 4. Web uygulamanız birkaç saniye içinde yayımlanır ve bir tarayıcıda başlatılır.
 
-Bu öğreticinin başvuru uygulamasının tamamını indirmek veya incelemek isterseniz [GitHub][GitHub]'dan indirebilirsiniz.
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Bu kaynaklar artık gerekli olmadığında kaynak grubunu, Azure Cosmos DB hesabı ve tüm ilgili kaynakları silin. Bunu yapmak için Azure Cosmos DB hesabı için select kullandığınız kaynak grubunu seçin. **Sil**ve ardından silmek için kaynak grubunun adını onaylayın.
 
 ## <a name="_Toc395637775"></a>Sonraki adımlar
-
-Bu öğreticide Azure Cosmos DB SQL API verilerini yönetmek için JavaScript SDK’sını kullanarak bir Node.js web uygulaması derlemeyi öğrendiniz. Şimdi bir sonraki makaleye geçebilirsiniz:
 
 > [!div class="nextstepaction"]
 > [Xamarin ve Azure Cosmos DB ile mobil uygulamalar derleme](mobile-apps-with-xamarin.md)

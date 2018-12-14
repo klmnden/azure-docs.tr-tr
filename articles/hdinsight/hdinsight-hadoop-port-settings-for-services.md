@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e6204933d6b9a4a6b296a141520fc8887c9181f1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 22e15f58f3d4e7f4db3ac3bd519dbb286a36ef95
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279735"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384148"
 ---
-# <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight üzerindeki Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları
+# <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight üzerinde Apache Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları
 
-Bu belge, Linux tabanlı HDInsight kümelerinde çalışan Hadoop Hizmetleri tarafından kullanılan bağlantı noktalarının bir listesini sağlar. SSH kullanarak kümeye bağlanmak için kullanılan bağlantı noktaları hakkında bilgi de sağlar.
+Bu belge, Linux tabanlı HDInsight kümelerinde çalışan Apache Hadoop Hizmetleri tarafından kullanılan bağlantı noktalarının bir listesini sağlar. SSH kullanarak kümeye bağlanmak için kullanılan bağlantı noktaları hakkında bilgi de sağlar.
 
 ## <a name="public-ports-vs-non-public-ports"></a>Ortak bağlantı noktası ve genel olmayan bağlantı noktaları
 
@@ -26,7 +26,7 @@ Linux tabanlı HDInsight kümeleri yalnızca üç bağlantı noktalarını inter
 
 HDInsight tarafından birden fazla Azure sanal makineler (küme içindeki düğümler) dahili olarak uygulanan bir Azure sanal ağ üzerinde çalışıyor. Sanal ağ içinde bağlantı noktaları internet üzerinden gösterilmeyen erişebilirsiniz. SSH kullanarak baş düğümlerinden biri için bağlarsanız, örneğin, baş düğümünden daha sonra doğrudan küme düğümleri üzerinde çalışan hizmetleri erişebilirsiniz.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight için bir yapılandırma seçeneği bir Azure sanal ağı belirtmezseniz bir otomatik olarak oluşturulur. Ancak, diğer makineler (örneğin, diğer Azure sanal makinelerini veya istemci geliştirme makinenizde) bu sanal ağa katılamaz.
 
 
@@ -41,20 +41,20 @@ Bir HDInsight kümesindeki tüm düğümler, bir Azure sanal ağında bulunur ve
 | sshd |22 |SSH |İstemcileri birincil baş düğümdeki sshd bağlanır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |22 |SSH |İstemciler kenar düğümündeki sshd bağlanır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |23 |SSH |İstemciler sshd üzerinde ikincil baş düğümüne bağlanır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). |
-| Ambari |443 |HTTPS |Ambari web kullanıcı Arabirimi. Bkz: [Ambari Web kullanıcı arabirimini kullanarak HDInsight yönetme](hdinsight-hadoop-manage-ambari.md) |
-| Ambari |443 |HTTPS |Ambari REST API. Bkz: [Ambari REST API'yi kullanarak HDInsight yönetme](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API. Bkz: [Curl ile Hive kullanma](hadoop/apache-hadoop-use-pig-curl.md), [Curl ile Pig kullanma](hadoop/apache-hadoop-use-pig-curl.md), [Curl ile MapReduce kullanma](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| Ambari |443 |HTTPS |Ambari web kullanıcı Arabirimi. Bkz: [Apache Ambari Web kullanıcı arabirimini kullanarak HDInsight yönetme](hdinsight-hadoop-manage-ambari.md) |
+| Ambari |443 |HTTPS |Ambari REST API. Bkz: [Apache Ambari REST API'yi kullanarak HDInsight yönetme](hdinsight-hadoop-manage-ambari-rest-api.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API. Bkz: [Curl ile Apache Hive kullanma](hadoop/apache-hadoop-use-pig-curl.md), [Curl ile Apache Pig kullanma](hadoop/apache-hadoop-use-pig-curl.md), [Curl ile MapReduce kullanma](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |İçin Hive ODBC kullanarak bağlanır. Bkz: [bağlanmak Excel için Microsoft ODBC sürücüsü ile HDInsight](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
-| HiveServer2 |443 |JDBC |İçin Hive JDBC kullanarak bağlanır. Bkz: [Hive JDBC sürücüsü kullanarak HDInsight üzerindeki Hive'a bağlanma](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
+| HiveServer2 |443 |JDBC |İçin ApacheHive JDBC kullanarak bağlanır. Bkz: [Hive JDBC sürücüsü kullanarak HDInsight üzerinde Apache Hive Bağlan](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 Belirli küme türlerinin için şunlar kullanılabilir:
 
 | Hizmet | Bağlantı noktası | Protokol | Küme türü | Açıklama |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |HBase |HBase REST API. Bkz: [HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |Spark REST API. Bkz: [uzaktan Livy kullanarak Spark gönderme işleri](spark/apache-spark-livy-rest-interface.md) |
-| Spark Thrift sunucusu |443 |HTTPS |Spark |Spark Thrift sunucusu Hive sorguları göndermek için kullanılır. Bkz: [HDInsight üzerinde Hive ile Beeline kullanma](hadoop/apache-hadoop-use-hive-beeline.md) |
-| Storm |443 |HTTPS |Storm |Storm web kullanıcı Arabirimi. Bkz: [Dağıt HDInsight üzerinde Storm topolojilerini ve yönetme](storm/apache-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |HBase |HBase REST API. Bkz: [Apache HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |Spark REST API. Bkz: [gönderme Apache Spark işleri Apache Livy kullanarak uzaktan](spark/apache-spark-livy-rest-interface.md) |
+| Spark Thrift sunucusu |443 |HTTPS |Spark |Spark Thrift sunucusu Hive sorguları göndermek için kullanılır. Bkz: [HDInsight üzerinde Apache Hive ile Beeline kullanma](hadoop/apache-hadoop-use-hive-beeline.md) |
+| Storm |443 |HTTPS |Storm |Storm web kullanıcı Arabirimi. Bkz: [Dağıt ve HDInsight üzerinde Apache Storm topolojilerini yönetme](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
 
@@ -67,10 +67,10 @@ Belirli küme türlerinin için şunlar kullanılabilir:
 
 ## <a name="non-public-ports"></a>Genel olmayan bağlantı noktaları
 
-> [!NOTE]
+> [!NOTE]  
 > Bazı hizmetler, yalnızca belirli küme türlerinin üzerinde kullanılabilir. HBase gibi yalnızca üzerinde HBase küme türleri olarak kullanılabilir.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bazı hizmetler, aynı anda yalnızca bir baş düğüm üzerinde çalıştırın. Birincil baş düğümdeki hizmetine bağlanın ve bir hata alırsanız çalışırsanız, ikincil baş düğümüne kullanarak yeniden deneyin.
 
 ### <a name="ambari"></a>Ambari

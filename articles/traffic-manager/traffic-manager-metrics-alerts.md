@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: a85ec0bf126aa7a25edffdaaf7c7f8a16a370c40
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d0b2ac54f70fedc409c386243e1755704c1c332c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014353"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386375"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Traffic Manager ölçümleri ve Uyarıları
 
@@ -34,13 +34,13 @@ Aşağıdaki örnekte, Şekil 1 Traffic Manager profili tarafından döndürüle
   
 ![Traffic Manager ölçümleri - tüm sorguların toplam görüntüleme](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*Şekil 1: tüm sorgularla görünümü toplama*
+*Şekil 1: Tüm sorguları birleşik görünüm*
   
 Şekil 2 aynı bilgileri gösterir, ancak uç noktaları tarafından ayrılır. Sonuç olarak, birimin belirli bir uç noktaya döndürülen sorgu yanıtlarının görebilirsiniz.
 
 ![Traffic Manager ölçümleri - Bölünmüş Görünüm sorgu birimin uç noktası başına](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 
-*Şekil 2: uç nokta başına döndürülen gösterilen sorgu birimle Bölünmüş Görünüm*
+*Şekil 2: Uç nokta başına döndürülen gösterilen sorgu birimle Bölünmüş Görünüm*
 
 ## <a name="endpoint-status-by-endpoint"></a>Uç nokta olarak uç nokta durumu
 Kullanım [Bu ölçüm](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) profilinde bir uç nokta sistem durumunu anlamak için. Bu iki değerleri alır:
@@ -57,7 +57,7 @@ Bu ölçüm tüm ölçümler (Şekil 3) durumunu temsil eden bir toplam değer o
 
 ![Traffic Manager ölçümleri - Bölünmüş Görünüm uç nokta durumu](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*Şekil 4: Bölünmüş Görünüm uç nokta durum ölçümleri*
+*Şekil 4: Uç nokta durum ölçümlerinin Bölünmüş Görünüm*
 
 Bu ölçümleri aracılığıyla tüketebileceği [Azure İzleyici hizmeti](../monitoring-and-diagnostics/monitoring-supported-metrics.md)ın portal [REST API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), ve [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), veya Traffic Manager'ın portal deneyimi ölçümleri bölümü.
 
@@ -66,4 +66,4 @@ Azure İzleyici, işleme ve trafik Yöneticisi'nden ölçümü görüntüleniyor
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinin [Azure İzleyici hizmeti](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-- Bilgi edinmek için nasıl [Azure İzleyicisi'ni kullanarak yeni bir grafik oluşturun](../monitoring-and-diagnostics/monitoring-metric-charts.md#create-a-new-chart)
+- Bilgi edinmek için nasıl [Azure İzleyicisi'ni kullanarak yeni bir grafik oluşturun](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)

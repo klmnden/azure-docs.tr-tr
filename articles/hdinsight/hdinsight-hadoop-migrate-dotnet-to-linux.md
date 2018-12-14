@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: dc7cfb4df768fb7554bc7b5c772a6a778a8a793a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3681f87780f1ef2a6b42e33bcd6fc2d761994d5c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008122"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384216"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>.NET çözümlerini Linux tabanlı HDInsight için Windows tabanlı HDInsight için geçirme
 
@@ -26,7 +26,7 @@ HDInsight sürümü 3.6 ile Mono sürüm 4.2.1 dahildir. HDInsight ile dahil Mon
 
 Mono ve .NET uyumluluğu hakkında daha fazla bilgi için bkz. [Mono uyumluluğu (http://www.mono-project.com/docs/about-mono/compatibility/) ](http://www.mono-project.com/docs/about-mono/compatibility/) belge.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > SCP.NET çerçevesi, Mono ile uyumludur. SCP.NET Mono ile kullanma hakkında daha fazla bilgi için bkz. [HDInsight üzerinde Apache Storm için C# topolojileri geliştirme için Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="automated-portability-analysis"></a>Otomatik taşınabilirlik analizi
@@ -47,7 +47,7 @@ Mono ve .NET uyumluluğu hakkında daha fazla bilgi için bkz. [Mono uyumluluğu
 
     ![Taşınabilirlik Çözümleyicisi sonuçları iletişim](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Çözümünüzü her sorun Çözümleyicisi yakalayamaz. Örneğin, bir dosya yolu `c:\temp\file.txt` Mono Windows üzerinde çalışıyorsa Tamam olarak değerlendirilir. Aynı yol bir Linux platformunda geçerli değil.
 
 ## <a name="manual-portability-analysis"></a>El ile Taşınabilirlik analizi
@@ -64,12 +64,12 @@ Visual Studio için HDInsight .NET çözümlerinizi oluşturmak için kullanmaya
 
 Günlüklerine erişme hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
-* [Linux tabanlı HDInsight’ta YARN uygulama günlüklerine erişme](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Linux tabanlı HDInsight üzerinde erişim Apache Hadoop YARN uygulama günlüklerine](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [HDInsight MapReduce ile C# kullanma](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Hive ve Pig ile kullanıcı tanımlı C# işlevlerini kullanma](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Kullanım C# Apache Hive ve Apache Pig ile kullanıcı tanımlı işlevler](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [HDInsight üzerinde Storm için C# topolojileri geliştirme](storm/apache-storm-develop-csharp-visual-studio-topology.md)
+* [Geliştirme C# HDInsight üzerinde Apache Storm topolojileri](storm/apache-storm-develop-csharp-visual-studio-topology.md)

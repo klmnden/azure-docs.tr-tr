@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ce1e82971f10541bf3a67d46b48c5fc93b5432b4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 4285c633062386657cbea478f327c9a1b088f16a
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687087"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383825"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Yükleme ve Presto HDInsight Hadoop kümelerini kullanma
 
@@ -22,13 +22,13 @@ Bu belgede, Script Action kullanarak HDInsight Hadoop kümelerini Presto yüklem
 
 HDInsight için Apache Hadoop kümelerini Presto Yıldız Yağmuru uygulama de sunar. Daha fazla bilgi için [Azure HDInsight üzerinde üçüncü taraf uygulamaları yükleme](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgedeki adımlarda gerektiren bir **HDInsight 3.5 Hadoop kümesi** , Linux kullanır. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight sürümleri](hdinsight-component-versioning.md).
 
 ## <a name="what-is-presto"></a>Presto nedir?
 [Presto](https://prestodb.io/overview.html) bir hızlı dağıtılmış SQL sorgu alt için büyük veri yapısıdır. Presto, petabaytlarca verinin etkileşimli sorgulama için uygundur. Presto ve nasıl çalıştıkları bileşenler hakkında daha fazla bilgi için bkz. [Presto kavramları](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst).
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight kümesi ile sağlanan bileşenler tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
 > 
 > Özel bileşenler, Presto gibi daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Bu sorunu çözümlemek ya da bu teknoloji için derin bir uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları etkileşim kurmak isteyen neden olabilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
@@ -50,19 +50,19 @@ Bu bölümde, örnek betik Azure portalını kullanarak yeni bir küme oluşturu
 
 2. Üzerinde **Gelişmiş ayarlar** alanında **betik eylemleri**ve aşağıdaki bilgileri sağlayın. Ayrıca, komut dosyası türü "Presto yükleme" seçeneğini de tercih edebilirsiniz.
    
-   * **AD**: betik eylemi için bir kolay ad girin.
+   * **AD**: Betik eylemi için bir kolay ad girin.
    * **Bash betiği URI’si**: `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`
-   * **HEAD**: Bu seçeneği işaretleyin
-   * **ÇALIŞAN**: Bu seçeneği işaretleyin
-   * **ZOOKEEPER**: Bu onay kutusunu boş bırakın
-   * **PARAMETRELERİ**: Bu alanı boş bırakın
+   * **HEAD**: Bu seçeneği işaretleyin.
+   * **ÇALIŞAN**: Bu seçeneği işaretleyin.
+   * **ZOOKEEPER**: Bu onay kutusunu boş bırakın.
+   * **PARAMETRELERİ**: Bu alanı boş bırakın.
 
 
 3. Sayfanın alt kısmında **betik eylemleri** alanı tıklayın **seçin** yapılandırmayı kaydetmek için düğme. Son olarak, tıklayın **seçin** düğme alttaki **Gelişmiş ayarlar** yapılandırmasını kaydetmek üzere alan.
 
 4. Açıklandığı gibi küme sağlama devam [sağlama Linux tabanlı HDInsight kümeleri](hdinsight-hadoop-create-linux-clusters-portal.md).
 
-    > [!NOTE]
+    > [!NOTE]  
     > Azure PowerShell, Azure Klasik CLI, HDInsight .NET SDK veya Azure Resource Manager şablonları betik eylemleri uygulamak için de kullanılabilir. Betik eylemleri zaten kümelerini çalıştırmak için de uygulayabilirsiniz. Daha fazla bilgi için [özelleştirme HDInsight kümeleri ile betik eylemleri](hdinsight-hadoop-customize-cluster-linux.md).
     > 
     > 
@@ -86,7 +86,7 @@ Presto bir HDInsight kümesinde çalışmak için aşağıdaki adımları kullan
    
         select count (*) from hivesampletable;
    
-    Varsayılan olarak, [Hive](https://prestodb.io/docs/current/connector/hive.html) ve [TPCH](https://prestodb.io/docs/current/connector/tpch.html) bağlayıcılar Presto için zaten yapılandırılmış. Hive bağlayıcı Hive tüm tabloları, Presto otomatik olarak görünür olacak varsayılan olarak yüklenen Hive yüklemeyi kullanmak üzere yapılandırılmış.
+    Varsayılan olarak, [Apache Hive](https://prestodb.io/docs/current/connector/hive.html) ve [TPCH](https://prestodb.io/docs/current/connector/tpch.html) bağlayıcılar Presto için zaten yapılandırılmış. Hive bağlayıcı Hive tüm tabloları, Presto otomatik olarak görünür olacak varsayılan olarak yüklenen Hive yüklemeyi kullanmak üzere yapılandırılmış.
 
     Daha fazla bilgi için [Presto belgeleri](https://prestodb.io/docs/current/index.html).
 
@@ -168,11 +168,11 @@ TPC-DS birçok karar destek sistemleri, büyük veri sistemlerini dahil performa
 
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Yükleme ve HDInsight kümelerinde Hue kullanma](hdinsight-hadoop-hue-linux.md). Hue web kullanıcı Arabirimi oluşturmak Çalıştır kolaylaştırır ve Pig ve Hive işlerini ' dir.
+* [Yükleme ve HDInsight kümelerinde Hue kullanma](hdinsight-hadoop-hue-linux.md). Hue, oluşturma, çalıştırma ve Apache Pig ve Hive işlerini kaydetmek kolay kullanıcı Arabirimi bir web tarayıcısı uygulamasıdır.
 
-* [HDInsight kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install-linux.md). Küme özelleştirmesi, HDInsight Hadoop kümelerinde Giraph'ı yüklemek için kullanın. Giraph grafik Hadoop kullanarak işleme yapmanıza olanak tanır ve Azure HDInsight ile kullanılabilir.
+* [HDInsight kümeleri üzerinde Apache Giraph yükleme](hdinsight-hadoop-giraph-install-linux.md). Küme özelleştirmesi, HDInsight Hadoop kümelerinde Giraph'ı yüklemek için kullanın. Giraph grafik Hadoop kullanarak işleme yapmanıza olanak tanır ve Azure HDInsight ile kullanılabilir.
 
-* [HDInsight kümelerinde Solr yükleme](hdinsight-hadoop-solr-install-linux.md). Küme özelleştirmesi, HDInsight Hadoop kümelerinde Solr'ı yüklemek için kullanın. Solr depolanan veriler üzerinde güçlü arama işlemleri yapmanıza olanak tanır.
+* [HDInsight kümeleri üzerinde Apache Solr yükleme](hdinsight-hadoop-solr-install-linux.md). Küme özelleştirmesi, HDInsight Hadoop kümelerinde Solr'ı yüklemek için kullanın. Solr depolanan veriler üzerinde güçlü arama işlemleri yapmanıza olanak tanır.
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

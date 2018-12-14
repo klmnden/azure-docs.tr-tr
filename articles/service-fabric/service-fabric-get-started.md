@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
 ms.openlocfilehash: 968c9f2455269cf41a701de685e4f47255b46847
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726517"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386438"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows üzerinde geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]

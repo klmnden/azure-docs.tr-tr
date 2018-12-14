@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 48295a48700ee8b7331ae9811b7dd43a0ec8fa69
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1d580e6468044f14b6a206911c4da237f774af3b
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959895"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386528"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Azure İzleyici tanılama günlükleri bir depolama hesabına arşivlenmiş biçimi değişiklik için hazırlama
 
 > [!WARNING]
-> Gönderiyorsanız [Azure kaynak tanılama günlükleri veya kaynak tanılama ayarlarını kullanarak depolama hesabı ölçümleri](./monitoring-archive-diagnostic-logs.md) veya [kullanarak bir depolama hesabı için etkinlik günlüklerini günlük profilleri](./monitoring-archive-activity-log.md), veri biçimi Depolama hesabı JSON satırlarına 1 Kasım 2018 tarihinde değişecektir. Etki ve nasıl yeni biçime işlemek için araçlarınızı güncelleştirmek aşağıdaki yönergeleri açıklanmaktadır. 
+> Gönderiyorsanız [Azure kaynak tanılama günlükleri veya kaynak tanılama ayarlarını kullanarak depolama hesabı ölçümleri](./../azure-monitor/platform/archive-diagnostic-logs.md) veya [kullanarak bir depolama hesabı için etkinlik günlüklerini günlük profilleri](./../azure-monitor/platform/archive-activity-log.md), veri biçimi Depolama hesabı JSON satırlarına 1 Kasım 2018 tarihinde değişecektir. Etki ve nasıl yeni biçime işlemek için araçlarınızı güncelleştirmek aşağıdaki yönergeleri açıklanmaktadır. 
 >
 > 
 
@@ -31,9 +31,9 @@ Azure İzleyici kaynak tanılama verilerini ve etkinlik günlüğü verileri bir
 * 1 Kasım tarihine kadar geçerli biçimde veri yaymak tanılama ayarını arasındaki 1 Kasım devam eder.
 * Bu değişiklik, tek seferde tüm genel bulut bölgeler arasında oluşur. Değişiklik henüz Azure Çin'de, Azure Almanya ve Azure kamu bulutlarında gerçekleşmez.
 * Bu değişiklik aşağıdaki veri türlerini etkiler:
-  * [Azure kaynak tanılama günlükleri](./monitoring-archive-diagnostic-logs.md) ([burada kaynakların listesini görmek](./monitoring-diagnostic-logs-schema.md))
+  * [Azure kaynak tanılama günlükleri](./../azure-monitor/platform/archive-diagnostic-logs.md) ([burada kaynakların listesini görmek](./../azure-monitor/platform/tutorial-dashboards.md))
   * [Tanılama ayarları tarafından dışarı aktarılan bir azure kaynak ölçümleri](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)
-  * [Günlük profilleri tarafından dışarı aktarılan azure etkinlik günlüğü verileri](./monitoring-archive-activity-log.md)
+  * [Günlük profilleri tarafından dışarı aktarılan azure etkinlik günlüğü verileri](./../azure-monitor/platform/archive-activity-log.md)
 * Bu değişiklik etkilemez:
   * Ağ akışı günlükleri
   * Azure Hizmet Günlükleri'ni (örneğin, Azure App Service tanılama günlükleri, depolama analizi günlüklerinde) henüz Azure İzleyici kullanılabilir değil
@@ -135,5 +135,5 @@ Yalnızca daha fazla işleme için bu günlük dosyaları alan özel bir araç v
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Hakkında bilgi edinin [kaynak tanılama günlükleri bir depolama hesabına arşivleme](./monitoring-archive-diagnostic-logs.md)
-* Hakkında bilgi edinin [etkinlik günlüğü verileri bir depolama hesabına arşivleme](./monitoring-archive-activity-log.md)
+* Hakkında bilgi edinin [kaynak tanılama günlükleri bir depolama hesabına arşivleme](./../azure-monitor/platform/archive-diagnostic-logs.md)
+* Hakkında bilgi edinin [etkinlik günlüğü verileri bir depolama hesabına arşivleme](./../azure-monitor/platform/archive-activity-log.md)

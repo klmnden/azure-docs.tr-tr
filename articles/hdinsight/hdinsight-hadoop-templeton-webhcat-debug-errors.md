@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2c4730b3ec84ca14bcc3e93ed82faf37b15970d7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0d27b16690516becc586678f8cf3edea234feeea
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010380"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383409"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>HDInsight üzerinde WebHCat alınan hatalarını anlama ve çözme
 
@@ -22,18 +22,18 @@ WebHCat HDInsight ve bunların nasıl çözüleceğine kullanırken alınan hata
 
 ## <a name="what-is-webhcat"></a>WebHCat nedir
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) bir REST API için [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), tablo ve Hadoop için Depolama Yönetimi katmanı. WebHCat HDInsight kümelerinde varsayılan olarak etkindir ve çeşitli araçlarla işleri göndermek, küme oturum açmadan vb. iş durumunu almak için kullanılır.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) bir REST API için [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), tablo ve Apache Hadoop için Depolama Yönetimi katmanı. WebHCat HDInsight kümelerinde varsayılan olarak etkindir ve çeşitli araçlarla işleri göndermek, küme oturum açmadan vb. iş durumunu almak için kullanılır.
 
 ## <a name="modifying-configuration"></a>Yapılandırmasını değiştirme
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgede listelenen hataların bazıları, yapılandırılan en fazla aşıldığından oluşur. Bir değeri değiştirebilirsiniz. çözüm adım bahsetmeleri, aşağıdakilerden birini değişiklik yapmak için kullanmanız gerekir:
 
-* İçin **Windows** kümeleri: küme oluşturma sırasında değerini yapılandırmak için betik eylemi kullanın. Daha fazla bilgi için [betik eylemleri geliştirme](hdinsight-hadoop-script-actions.md).
+* İçin **Windows** kümeleri: Küme oluşturma sırasında değerini yapılandırmak için betik eylemi kullanın. Daha fazla bilgi için [betik eylemleri geliştirme](hdinsight-hadoop-script-actions.md).
 
-* İçin **Linux** kümeleri: kullanım Ambari (web veya REST API) değerini değiştirin. Daha fazla bilgi için [Ambari kullanarak HDInsight yönetme](hdinsight-hadoop-manage-ambari.md)
+* İçin **Linux** kümeleri: Apache Ambari (web veya REST API) değerini değiştirmek için kullanın. Daha fazla bilgi için [Apache Ambari kullanarak HDInsight yönetme](hdinsight-hadoop-manage-ambari.md)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ### <a name="default-configuration"></a>Varsayılan yapılandırma
@@ -62,7 +62,7 @@ Aşağıdaki varsayılan değerler aşılırsa, WebHCat performansı düşebilir
 | --- | --- |
 | Bu durum kodu küme için birincil ve ikincil baş düğümüne arasında yük devretme sırasında genellikle gerçekleşir. |İki dakika bekleyin. ardından işlemi yeniden deneyin |
 
-## <a name="bad-request-content-could-not-find-job"></a>Hatalı istek içeriği: Proje bulunamadı
+## <a name="bad-request-content-could-not-find-job"></a>Hatalı istek içeriği: İş bulunamadı
 
 **HTTP durum kodu**: 400
 

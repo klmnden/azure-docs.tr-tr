@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 79e4d15c79a7f905a33fe471bcfda3e7ca367b01
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0d2b7a5e3239cf46c41db0a086b804c34df5d6e2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996465"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386953"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Azure Logic Apps için uyarılarını Aç durumunu izleme ve tanılama günlük kaydını ayarlama
 
@@ -155,7 +155,7 @@ Bir filtre ekleyerek sorgunuzu iyileştirmek için seçin **+ Ekle**.
 
 Azure Log Analytics ile birlikte mantıksal uygulamanızın tanılama verilerini diğer Azure hizmetleriyle örneğin kullanma genişletebilirsiniz: 
 
-* [Azure depolama alanında Azure tanılama günlüklerini arşivleme](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [Azure depolama alanında Azure tanılama günlüklerini arşivleme](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Azure Event hubs'a Stream Azure tanılama günlükleri](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
 İzleme telemetri ve diğer hizmetlerden analytics kullanarak gerçek zamanlı Get ister sonra yapabilecekleriniz [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) ve [Power BI](../azure-monitor/platform/powerbi.md). Örneğin:
@@ -174,7 +174,7 @@ Ayarlamak istediğiniz seçenekleri bağlı olarak, emin olun, ilk [bir Azure de
 
 ## <a name="set-up-alerts-for-your-logic-app"></a>Mantıksal uygulamanız için uyarıları ayarlama
 
-Belirli ölçümleri veya mantıksal uygulamanızın aşıldı eşikleri izlemek üzere ayarlanan sahte [azure'daki uyarıları](../monitoring-and-diagnostics/monitoring-overview-alerts.md). Hakkında bilgi edinin [ölçümleri azure'da](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
+Belirli ölçümleri veya mantıksal uygulamanızın aşıldı eşikleri izlemek üzere ayarlanan sahte [azure'daki uyarıları](../azure-monitor/platform/alerts-overview.md). Hakkında bilgi edinin [ölçümleri azure'da](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
 Uyarılar olmadan ayarlamak için [Azure Log Analytics](../log-analytics/log-analytics-overview.md), şu adımları izleyin. Daha gelişmiş uyarı ölçütleri ve eylemleri için [Log Analytics'i ayarlama](#azure-diagnostics) çok.
 
@@ -245,7 +245,7 @@ Her mantıksal uygulamanızı ve bu olay, örneğin durumu hakkında ayrıntıl�
 }
 ```
 
-* `clientTrackingId`: Değilse tüm iç içe geçmiş iş akışları dahil olmak üzere, Azure otomatik olarak bu kimliği oluşturur ve olayları karşılık gelen bir mantıksal uygulama çalıştırması, sağlanan mantıksal uygulamadan denir. Bu kimliği bir tetikleyici geçirerek el ile belirtebilirsiniz bir `x-ms-client-tracking-id` üstbilgi tetikleyici isteğinde, özel kimlik değerine sahip. Bir istek tetikleyicisi, HTTP tetikleyicisi veya Web kancasını tetikleyici olarak kullanabilirsiniz.
+* `clientTrackingId`: Aksi durumda tüm iç içe geçmiş iş akışları dahil olmak üzere, Azure otomatik olarak bu kimliği oluşturur ve olayları karşılık gelen bir mantıksal uygulama çalıştırması, sağlanan mantıksal uygulamadan denir. Bu kimliği bir tetikleyici geçirerek el ile belirtebilirsiniz bir `x-ms-client-tracking-id` üstbilgi tetikleyici isteğinde, özel kimlik değerine sahip. Bir istek tetikleyicisi, HTTP tetikleyicisi veya Web kancasını tetikleyici olarak kullanabilirsiniz.
 
 * `trackedProperties`: Giriş veya çıkış tanılama veri izlemek için mantıksal uygulamanızın JSON tanımında eylemler için izlenen özellikler ekleyebilirsiniz. İzlenen özellikler yalnızca tek bir eylemin girişler ve çıkışlar izleyebilirsiniz, ancak kullanabileceğiniz `correlation` çalıştırmada eylemler arasında ilişkilendirmek için olay özellikleri.
 

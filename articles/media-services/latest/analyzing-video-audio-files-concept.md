@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 6d2e87c50eba293df7c5130ea6bf192ed7f83277
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 95d3f0aac4acdfbd70dcadd8db5c13456e83a7e7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679826"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344321"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Video ve ses dosyalarını analiz etme
 
 Azure Media Services v3 Video Indexer AMS v3 Çözümleyicisi hazır (Bu makalede açıklanan) aracılığıyla, video ve ses dosyalarını içgörü sağlar. Daha ayrıntılı içgörüler istiyorsanız doğrudan Video Indexer’ı kullanın. Video Indexer’ı ve Media Services çözümleyicisinin önceden belirlenmiş ayarlarını hangi durumlarda kullanacağınızı anlamak için [karşılaştırma belgesine](../video-indexer/compare-video-indexer-with-media-services-presets.md) bakın.
 
-İçeriğinizi Media Services v3 hazır kullanarak çözümlemek için oluşturduğunuz bir **dönüştürme** ve gönderme bir **iş** bu hazır birini kullanır: **AudioAnalyzerPreset** veya **VideoAnalyzerPreset**. Aşağıdaki makalede nasıl yapılacağı açıklanır **VideoAnalyzerPreset**: [öğretici: Azure Media Services ile videoları analiz etme](analyze-videos-tutorial-with-api.md).
+İçeriğinizi Media Services v3 hazır kullanarak çözümlemek için oluşturduğunuz bir **dönüştürme** ve gönderme bir **iş** bu hazır birini kullanır: **AudioAnalyzerPreset** veya **VideoAnalyzerPreset**. Aşağıdaki makalede nasıl yapılacağı açıklanır **VideoAnalyzerPreset**: [Öğretici: Azure Media Services ile videoları analiz etme](analyze-videos-tutorial-with-api.md).
 
 > [!NOTE]
 > Video veya Ses Çözümleyicisi önayarlarını kullanırken, hesabınızı 10 S3 Medya Ayrılmış Birimine sahip olacak şekilde ayarlamak için Azure portalı kullanın. Daha fazla bilgi için bkz. [Medya işlemeyi ölçeklendirme](../previous/media-services-scale-media-processing-overview.md).
@@ -33,8 +33,7 @@ Media Services şu anda aşağıdaki yerleşik Çözümleyicisi hazır destekler
 
 |**Önceden tanımlı ayar adı**|**Senaryo**|**Ayrıntılar**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Ses analizi|Yapay ZEKA tabanlı analiz işlemleri konuşma transkripsiyonu dahil olmak üzere, önceden tanımlı bir dizi hazır geçerlidir. Şu anda hazır içerik tek bir ses kaydı ile işlenmesini destekler.<br/>Ses yükü dilini girişinde 'dil etiketi-region' BCP-47 biçimi kullanarak belirtebilirsiniz (örneğin, ' en-US'). 'en-US', 'en-GB', 'es-ES', 'es-MX'
-"fr-FR", 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN', 'de-DE', 'ar-ÖRN', 'ru-RU', 'Merhaba-ın'. Dil belirtilmemişse veya Null olarak ayarlamak, otomatik dil algılama işe. Otomatik dil algılama özelliği, şu anda İngilizce, Çince, Fransızca, Almanca, İtalyanca, Japonca, İspanyolca, Rusça ve Portekizce destekler. Otomatik dil algılama özelliğini açıkça ölçek Konuşmayla sesli kayıtlar ile en iyi çalışır. Dil bulmak otomatik dil algılama başarısız olursa, döküm İngilizce için geri dönüş olur.|
+|**AudioAnalyzerPreset**|Ses analizi|Yapay ZEKA tabanlı analiz işlemleri konuşma transkripsiyonu dahil olmak üzere, önceden tanımlı bir dizi hazır geçerlidir. Şu anda hazır içerik tek bir ses kaydı ile işlenmesini destekler. Ses yükü için dil giriş 'dil etiketi-region' BCP-47 biçimi kullanarak belirtebilirsiniz. Desteklenen bir dil olan İngilizce ('en-US' ve 'en-GB'), İspanyolca ('es-ES ' ve 'es-MX'), Fransızca ("fr-FR"), İtalyanca ('it-IT'), Japonca ('ja-JP'), Portekizce ('pt-BR'), Çince ('zh-CN'), Almanca ('de-DE'), Arapça ('ar-ÖRN'), Rusça ('ru-RU'), Hintçe ('Merhaba-IN' ) ve Kore dili ('ko-KR').<br/><br/> Dil değilse veya belirtilen için null değerler, otomatik dil algılama ayarlarsanız işe. Otomatik dil algılama özelliği, şu anda İngilizce, Çince, Fransızca, Almanca, İtalyanca, Japonca, İspanyolca, Rusça ve Portekizce destekler. Otomatik dil algılama özelliğini açıkça ölçek Konuşmayla sesli kayıtlar ile en iyi çalışır. Dil bulmak otomatik dil algılama başarısız olursa, döküm İngilizce'ye döner.|
 |**VideoAnalyzerPreset**|Ses ve video analiz etme|Ses hem video öngörüleri (zengin meta veriler) ayıklar ve çıkaran bir JSON biçim dosyası. Yalnızca ses video dosyası işlenirken içgörü isteyip istemediğinizi belirtebilirsiniz. Daha fazla bilgi için [Çözümle video](analyze-videos-tutorial-with-api.md).|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
@@ -438,4 +437,4 @@ Yetişkinlere yönelik veya müstehcen içerikleri bulunan videoları yalnızca 
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Öğretici: Azure Media Services ile videoları analiz edin](analyze-videos-tutorial-with-api.md)
+[Öğretici: Azure Media Services ile videoları analiz etme](analyze-videos-tutorial-with-api.md)

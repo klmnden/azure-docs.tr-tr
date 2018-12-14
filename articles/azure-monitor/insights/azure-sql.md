@@ -11,12 +11,12 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/26/2018
 ms.author: v-daljep
-ms.openlocfilehash: 7c567cc70a87e7856f511112d3bff692f5af3993
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bf2cbdb57276fccd31af61f2df1b76eeba816e66
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194020"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341635"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL Analytics (Önizleme) kullanarak Azure SQL veritabanı izleme
 
@@ -299,4 +299,4 @@ AzureDiagnostics
 
 - Kullanım [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) ayrıntılı Azure SQL veri görüntülemek için Log analytics'te.
 - [Kendi panolarınızı oluşturun](../../azure-monitor/platform/dashboards.md) Azure SQL veri gösteriliyor.
-- [Uyarı oluşturma](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) belirli bir Azure SQL olaylar gerçekleştiğinde.
+- [Uyarı oluşturma](../../azure-monitor/platform/alerts-overview.md) belirli bir Azure SQL olaylar gerçekleştiğinde.

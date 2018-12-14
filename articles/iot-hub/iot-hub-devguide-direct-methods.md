@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 750c184dfc0adb92f26114d1911f27bc741ceb23
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 17402911fee5363d707547e73df7da30be6dcd0e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265271"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343811"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Anlama ve IOT Hub'ından doğrudan metotları çağırma
 
@@ -36,7 +36,7 @@ Doğrudan yöntemler cihazda uygulandı ve sıfır veya daha fazla giriş doğru
 > Bir cihazda doğrudan yöntem çağırdığınızda, özellik adları ve değerleri yalnızca US-ASCII yazdırılabilir içerebilir alfasayısal karakterler, aşağıdaki, tüm hariç: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``
 > 
 
-Doğrudan yöntemleri zaman uyumludur ve ya da başarılı olması veya zaman aşımı süresinden sonra başarısız (varsayılan: 3600 saniye olarak ayarlanabilir yukarı 30 saniye). Doğrudan yöntemler, cihaz çevrimiçi ve alıcı komutları adıdır ve yalnızca, yapacak bir cihaz istediğiniz etkileşimli senaryolarda yararlıdır. Örneğin, bir ışık telefonda açmak. Bu senaryolarda, bulut hizmeti sonucuna olabildiğince çabuk davranabilir bir anında başarı veya başarısızlık görmek istiyorsunuz. Cihaz yöntemi sonucunda bazı ileti gövdesini döndürebilir, ancak bu yöntem Bunu yapmak gerekli değildir. Üzerinde sıralama garantisi veya yöntem çağrılarının tüm eşzamanlılık semantiği yoktur.
+Doğrudan yöntemleri zaman uyumludur ve ya da başarılı veya başarısız zaman aşımı süresinden sonra (varsayılan: 30 saniye, 3600 saniye olarak ayarlanabilir yukarı). Doğrudan yöntemler, cihaz çevrimiçi ve alıcı komutları adıdır ve yalnızca, yapacak bir cihaz istediğiniz etkileşimli senaryolarda yararlıdır. Örneğin, bir ışık telefonda açmak. Bu senaryolarda, bulut hizmeti sonucuna olabildiğince çabuk davranabilir bir anında başarı veya başarısızlık görmek istiyorsunuz. Cihaz yöntemi sonucunda bazı ileti gövdesini döndürebilir, ancak bu yöntem Bunu yapmak gerekli değildir. Üzerinde sıralama garantisi veya yöntem çağrılarının tüm eşzamanlılık semantiği yoktur.
 
 Doğrudan yöntemler yalnızca HTTPS bulut yan ve MQTT veya AMQP cihaz tarafındaki.
 
@@ -203,4 +203,4 @@ Doğrudan yöntemler kullanmayı öğrendiniz. artık aşağıdaki IOT Hub Geli�
 Bu makalede açıklanan kavramları bazıları denemek istiyorsanız, aşağıdaki IOT hub'ı öğreticide ilginizi çekebilir:
 
 * [Doğrudan yöntemler kullanma](quickstart-control-device-node.md)
-* [VS Code için Azure IOT araç seti ile cihaz Yönetimi](iot-hub-device-management-iot-toolkit.md)
+* [VS Code için Azure IOT hub'ı araç seti ile cihaz Yönetimi](iot-hub-device-management-iot-toolkit.md)

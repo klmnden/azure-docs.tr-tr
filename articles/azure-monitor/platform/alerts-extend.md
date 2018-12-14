@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 7896a205cd281f0d11724f6f549b9aa247180bac
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2028b9555ec20fc5e97511a2a908351b66aec216
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285021"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385508"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Azure uyarıları log Analytics uyarıları genişletme
 
@@ -27,7 +27,7 @@ Oluşturma ve Azure portalında, uyarılar gibi yönetme çeşitli avantajları 
 
 - Farklı Azure uyarıları burada yalnızca 250 uyarı oluşturulan görüntülenebilir ve, Operations Management Suite portalında, böyle bir kısıtlama vardır.
 - Azure Uyarıları'ndan yönetebilir, listeleme ve tüm uyarı türlerinizi görüntüleyebilirsiniz. Daha önce yalnızca Log Analytics uyarılarını için bunu.
-- Yalnızca izleme ve uyarı, kullanarak kullanıcıların erişimini sınırlayabilirsiniz [Azure İzleyici rol](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+- Yalnızca izleme ve uyarı, kullanarak kullanıcıların erişimini sınırlayabilirsiniz [Azure İzleyici rol](../../azure-monitor/platform/roles-permissions-security.md).
 - Azure Uyarıları'nda kullanabileceğiniz [Eylem grupları](../../azure-monitor/platform/action-groups.md). Bu, her uyarı için birden fazla eyleme sahip olmanızı sağlar. Yapabilecekleriniz SMS, sesli çağrı gönderme, Azure Otomasyonu runbook'u çağırma, bir Web kancası çağırma ve BT Hizmet Yönetimi (ITSM) bağlayıcısını yapılandırın. 
 
 ## <a name="process-of-extending-your-alerts"></a>Uyarılarınızı genişletme işlemi
@@ -52,7 +52,7 @@ Azure Uyarıları'na uyarılarınızı genişletilmektedir sonra Hayır daha ön
 Var olan bir uyarı düzenleme veya yeni bir uyarı Operations Management Suite portalında denediğinizde, Azure Uyarıları'na otomatik olarak yönlendirilir.  
 
 > [!NOTE]
-> Uyarıları eklemek veya düzenlemek için gereken kişiler için atanan izinler Azure'da düzgün bir şekilde atandığından emin olun. Hangi izinleri vermek için gereksinim duyduğunuz anlamak için bkz: [Azure İzleyici ve uyarı kullanarak izinlerini](../../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).  
+> Uyarıları eklemek veya düzenlemek için gereken kişiler için atanan izinler Azure'da düzgün bir şekilde atandığından emin olun. Hangi izinleri vermek için gereksinim duyduğunuz anlamak için bkz: [Azure İzleyici ve uyarı kullanarak izinlerini](../../azure-monitor/platform/roles-permissions-security.md).  
 > 
 
 Uyarıları oluşturmaya devam edebilirsiniz [Log Analytics API](../../azure-monitor/platform/api-alerts.md) ve [Log Analytics kaynak şablonu](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Bunu yaptığınızda Eylem grupları içermelidir.
@@ -60,5 +60,5 @@ Uyarıları oluşturmaya devam edebilirsiniz [Log Analytics API](../../azure-mon
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Araçlar hakkında bilgi edinin [başlatma uyarıları Log Analytics'ten Azure'a genişletme](alerts-extend-tool.md).
-* Daha fazla bilgi edinin [Azure Uyarıları'deneyimi](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+* Daha fazla bilgi edinin [Azure Uyarıları'deneyimi](../../azure-monitor/platform/alerts-overview.md).
 * Oluşturmayı [uyarılar Azure Uyarıları'nda oturum](alerts-unified-log.md).

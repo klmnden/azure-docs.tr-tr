@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: bbb0bbc6ddbbabb37932edc6946394b020631231
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 484a0043b9b5eefa5491dee75e87244d1c001620
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45637467"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342332"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>Azure vm'lerinde SAP NetWeaver için Red Hat Enterprise Linux üzerinde GlusterFS
 
@@ -110,10 +110,10 @@ Bu küme için sanal makineler oluşturmak önce gerekir. Ardından, yük dengel
 1. Kullanılabilirlik kümesi oluşturma  
    Kümesi en çok güncelleştirme etki alanı
 1. 1 sanal makine oluşturma  
-   En azından bu Red Hat Enterprise Linux 7.4 örnek görüntüsünde, RHEL 7 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   En azından bu Red Hat Enterprise Linux 7.4 örnek görüntüsünde, RHEL 7 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin  
 1. 2 sanal makine oluşturma  
-   En azından bu Red Hat Enterprise Linux 7.4 örnek görüntüsünde, RHEL 7 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   En azından bu Red Hat Enterprise Linux 7.4 örnek görüntüsünde, RHEL 7 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin  
 1. Her iki sanal makinelere her SAP sistemi için bir veri diski ekleyin.
 

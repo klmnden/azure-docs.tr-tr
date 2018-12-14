@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 5e18a4690eacaaeaa4422379fc8a4e3d2a02e717
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 89e9b7190a3c419c256513e477f85313e4f9f3bd
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134174"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384896"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplama ve Azure kaynaklarınızdan günlük verilerini kullanma
 
@@ -31,14 +31,14 @@ Bu günlükler farklı [etkinlik günlüğü](monitoring-overview-activity-logs.
 
 Bu günlükler de konuk işletim sistemi düzeyinde tanılama günlüklerinden farklıdır. Konuk işletim sistemi tanılama günlükleri, bu sanal makine içinde çalışan bir aracının tarafından toplanan veya diğer desteklenen kaynak türü ' dir. Konuk işletim sistemi düzeyinde tanılama günlükleri, işletim sistemi ve bir sanal makinede çalışan uygulamalardan veri yakalama işlemi sırasında kaynak düzeyinde tanılama günlükleri, Azure platformu kendisine hiçbir aracı ve yakalama kaynağa özgü veri gerektirir.
 
-Tüm hizmetler burada açıklanan tanılama günlükleri'ni destekler. [Bu makalede hangi hizmetlerin Desteği Tanılama günlükleri bir bölüm listesi içeriyor](./monitoring-diagnostic-logs-schema.md).
+Tüm hizmetler burada açıklanan tanılama günlükleri'ni destekler. [Bu makalede hangi hizmetlerin Desteği Tanılama günlükleri bir bölüm listesi içeriyor](./../azure-monitor/platform/tutorial-dashboards.md).
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>Tanılama günlükleri ile yapabilecekleriniz
 Tanılama günlükleri ile yapabileceklerinizden bazıları şunlardır:
 
 ![Mantıksal yerleşimini tanılama günlükleri](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
-* Kaydetmek için bir [ **depolama hesabı** ](monitoring-archive-diagnostic-logs.md) denetim veya el ile İnceleme. Bekletme süresi (gün cinsinden) kullanarak belirtebilirsiniz **kaynak tanılama ayarlarını**.
+* Kaydetmek için bir [ **depolama hesabı** ](../azure-monitor/platform/archive-diagnostic-logs.md) denetim veya el ile İnceleme. Bekletme süresi (gün cinsinden) kullanarak belirtebilirsiniz **kaynak tanılama ayarlarını**.
 * [Bunları Stream **Event Hubs** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) alımı üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
 * Bunları analiz [Log Analytics](../azure-monitor/platform/collect-azure-metrics-logs.md), verileri hemen Log Analytics'e ilk veri depolama alanına yazma gerek yazıldığı.  
 
@@ -68,13 +68,13 @@ Bu ayarlar portal, Azure PowerShell ve CLI komutlarıyla veya kullanarak tanıla
 > [!NOTE]
 > Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
 >
-> *Örneğin*: Bir Olay Hub'ındaki 'Gelen İletiler' ölçümü, kuyruk düzeyi temelinde araştırılıp grafiği oluşturulabilir. Ancak, tanılama ayarları aracılığıyla dışarı aktarılan ölçüm, Olay Hub’ındaki tüm kuyruklarda tüm gelen iletiler halinde ifade edilir.
+> *Örneğin*: Bir olay Hub'ındaki 'Gelen iletiler' ölçümü temelinde araştırılıp bir kuyruk düzeyi. Ancak, tanılama ayarları aracılığıyla dışarı aktarılan ölçüm, Olay Hub’ındaki tüm kuyruklarda tüm gelen iletiler halinde ifade edilir.
 >
 >
 
 ## <a name="how-to-enable-collection-of-diagnostic-logs"></a>Tanılama günlükleri koleksiyonunu etkinleştirme
 
-Tanılama günlükleri koleksiyonunu etkinleştirilebilir [bir kaynak bir Resource Manager şablonu oluşturma işleminin parçası olarak](./monitoring-enable-diagnostic-logs-using-template.md) veya o kaynağın sayfasından portalında bir kaynak oluşturulduktan sonra. Azure PowerShell veya CLI komutlarını kullanarak veya Azure İzleyici REST API'sini kullanarak herhangi bir noktada koleksiyonu da etkinleştirebilirsiniz.
+Tanılama günlükleri koleksiyonunu etkinleştirilebilir [bir kaynak bir Resource Manager şablonu oluşturma işleminin parçası olarak](./../azure-monitor/platform/diagnostic-logs-stream-template.md) veya o kaynağın sayfasından portalında bir kaynak oluşturulduktan sonra. Azure PowerShell veya CLI komutlarını kullanarak veya Azure İzleyici REST API'sini kullanarak herhangi bir noktada koleksiyonu da etkinleştirebilirsiniz.
 
 > [!TIP]
 > Bu yönergeler, doğrudan her kaynak için geçerli olmayabilir. Belirli kaynak türlerine uygulanabilir özel adımları anlamak için bu sayfanın alt kısmındaki şema bağlantılara bakın.
@@ -229,7 +229,7 @@ Tanılama ayarı ekleme nerede etkinleştirebilir, devre dışı bırakmak veya 
 
 ## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Desteklenen hizmetler, kategoriler ve şemalar tanılama günlükleri
 
-[Bu makaleye bakın](monitoring-diagnostic-logs-schema.md) desteklenen hizmetler ve günlük kategorileri ve bu hizmetler tarafından kullanılan şemalar tam listesi için.
+[Bu makaleye bakın](../azure-monitor/platform/tutorial-dashboards.md) desteklenen hizmetler ve günlük kategorileri ve bu hizmetler tarafından kullanılan şemalar tam listesi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

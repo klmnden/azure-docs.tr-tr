@@ -9,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/04/2018
-ms.openlocfilehash: d255894b7b9673f3a7d27414b4fb0c114d821747
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/12/2018
+ms.openlocfilehash: b3509917f0473795ec204c6672a630b2857ff37c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962156"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343930"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti nedir?
 Azure veritabanı geçiş hizmeti, birden çok veritabanı kaynağını Azure data platformlarına çok az kesinti (çevrimiçi geçiş) ile sorunsuz geçişleri sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir.
@@ -33,7 +33,9 @@ Bölgesel kullanılabilirlik Azure veritabanı geçiş hizmeti hakkında güncel
 Azure veritabanı geçiş hizmeti fiyatlandırması hakkında güncel bilgi için bkz. [Azure veritabanı geçiş hizmeti fiyatlandırma](https://azure.microsoft.com/pricing/details/database-migration/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+- [Azure veritabanı geçiş hizmeti tarafından desteklenen geçiş senaryoları durumunu](resource-scenario-status.md).
 - [Azure portalını kullanarak Azure veritabanı geçiş hizmeti örneği oluşturma](quickstart-create-data-migration-service-portal.md).
 - [SQL Server'ı Azure SQL veritabanı'na geçirme](tutorial-sql-server-to-azure-sql.md).
 - [Azure veritabanı geçiş hizmeti kullanma önkoşulları bakış](pre-reqs.md).
 - [Azure veritabanı geçiş hizmeti ile ilgili SSS](faq.md).
+- [Hizmetleri ve veri geçişi senaryoları için kullanılabilen Araçlar](dms-tools-matrix.md).

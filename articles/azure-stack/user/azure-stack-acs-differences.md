@@ -14,22 +14,22 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: efdc1cda9b52b6b79a3ccdcfd16542f7cb4b891a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1d1811549978d78a8dddad8e89895fdf605ed02b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838557"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341907"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Depolama: farklılıklar ve dikkat edilmesi gerekenler
+# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Depolama: Farklılıklar ve dikkat edilmesi gerekenler
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Azure Stack depolama Microsoft Azure stack'teki depolama bulut hizmetleri kümesidir. Azure Stack depolama, blob, tablo, kuyruk ve Azure ile tutarlı semantiğine sahip hesabı yönetimi işlevselliğini sağlar.
 
 Bu makalede, Azure depolama hizmetlerinde bilinen Azure Stack depolama farklar özetlenmektedir. Ayrıca, Azure Stack dağıtırken göz önünde bulundurulması gerekenler listelenir. Global Azure ve Azure Stack arasında üst düzey farklılıklar hakkında bilgi edinmek için bkz. [anahtar konuları](azure-stack-considerations.md) makalesi.
 
-## <a name="cheat-sheet-storage-differences"></a>Kopya kağıdı: depolama farkları
+## <a name="cheat-sheet-storage-differences"></a>Kopya kağıdı: Depolama farkları
 
 | Özellik | Azure (Genel) | Azure Stack |
 | --- | --- | --- |
@@ -41,6 +41,7 @@ Bu makalede, Azure depolama hizmetlerinde bilinen Azure Stack depolama farklar �
 |Yönetilen diskler|Premium ve standart desteklenir|1808 veya sonraki bir sürümü kullandığınızda desteklenir.
 |Blob adı|1024 karakter (2.048 bayt)|880 karakterleri (1,760 bayt)
 |Blok blobu en büyük boyutu|4,75 TB (100 MB X 50.000 blok)|1802 güncelleştirme veya yeni bir sürümü için 4,75 TB (100 MB x 50.000 blok). Önceki sürümler için 50.000 x 4 MB (yaklaşık 195 GB).
+|Sayfa blob anlık görüntü kopyalama|Desteklenen çalışan bir VM'ye bağlı yedekleme Azure yönetilmeyen VM diskleri|Henüz desteklenmiyor.
 |Sayfa blob artımlı anlık görüntü kopyalama|Premium ve standart Azure sayfa blobları desteklenir|Henüz desteklenmiyor.
 |Blob depolama için depolama katmanları|Sık erişimli, seyrek erişimli ve Arşiv depolama katmanları.|Henüz desteklenmiyor.
 Blob depolama için geçici silme|Önizleme|Henüz desteklenmiyor.
@@ -62,21 +63,21 @@ Azure depolama API Hizmetleri:
 
 Güncelleştirme 1802 ya da daha yeni:
 
- - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+- [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Önceki sürümler:
 
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+- [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure depolama hizmet yönetimi API'ları:
 
- - [2015-05-01-Önizleme](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-Önizleme](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
 ## <a name="sdk-versions"></a>SDK sürümleri
 
@@ -86,7 +87,7 @@ Azure Stack depolama aşağıdaki istemci kitaplıklardan destekler:
 |----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET           | 8.7.0 için 6.2.0.          | NuGet paketi:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>GitHub sürüm:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | app.config dosyası              |
 | Java           | 4.1.0 6.1.0 için           | Maven paketi:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>GitHub sürüm:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Bağlantı dizesi kurulumu      |
-| Node.js        | 1.1.0 2.7.0 için           | NPM bağlantısı:<br>https://www.npmjs.com/package/azure-storage<br>(Örneğin: Çalıştır "npm yükleme azure-storage@2.7.0")<br> <br>Github sürüm:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Hizmet örneği bildirimi |
+| Node.js        | 1.1.0 2.7.0 için           | NPM bağlantısı:<br>https://www.npmjs.com/package/azure-storage<br>(Örneğin: Çalıştır "npm yükleme azure-storage@2.7.0")<br> <br>GitHub sürüm:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Hizmet örneği bildirimi |
 | C++            | 2.4.0 3.1.0 için           | NuGet paketi:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub sürüm:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Bağlantı dizesi kurulumu      |
 | PHP            | 0.15.0 1.0.0 için          | GitHub sürüm:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Oluşturucusu yükleyin (aşağıdaki ayrıntılara bakın)                                                                                                                                                                                                                  | Bağlantı dizesi kurulumu      |
 | Python         | 0.30.0 1.0.0 için          | GitHub sürüm:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Hizmet örneği bildirimi |

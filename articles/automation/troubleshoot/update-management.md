@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 7339592833db148acb38ce378fe4cf261977dd72
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 87edc2911a48aea1ff0d7ac826439fe547c7cd86
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275661"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342894"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Güncelleştirme yönetimi ile ilgili sorunları giderme
 
@@ -73,6 +73,20 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+### <a name="nologs"></a>Senaryo: Güncelleştirme yönetimi verilerini log Analytics'te bir makine için gösterilmiyor
+
+#### <a name="issue"></a>Sorun
+
+Gösterme makineler sahip **değerlendirilmeyen** altında **Uyumluluk**, ancak bir karma Runbook çalışanı ancak güncelleştirme yönetimi için Log analytics'te sinyal verileri görürsünüz.
+
+#### <a name="cause"></a>Nedeni
+
+Karma Runbook çalışanı yeniden kayıtlı ve yeniden gerekebilir.
+
+#### <a name="resolution"></a>Çözüm
+
+Bölümündeki adımları [Windows karma Runbook çalışanı dağıtma](../automation-windows-hrw-install.md) için karma çalışan Windows yeniden veya [Linux karma Runbook çalışanı dağıtma](../automation-linux-hrw-install.md) Linux için.
 
 ## <a name="windows"></a>Windows
 
@@ -141,20 +155,6 @@ Karma Runbook çalışanı otomatik olarak imzalanan bir sertifika oluşturmak m
 #### <a name="resolution"></a>Çözüm
 
 Sistem hesabı, klasöre okuma erişimi olduğunu doğrulayın **C:\ProgramData\Microsoft\Crypto\RSA** ve yeniden deneyin.
-
-### <a name="nologs"></a>Senaryo: Güncelleştirme yönetimi verilerini log Analytics'te bir makine için gösterilmiyor
-
-#### <a name="issue"></a>Sorun
-
-Gösterme makineler sahip **değerlendirilmeyen** altında **Uyumluluk**, ancak bir karma Runbook çalışanı ancak güncelleştirme yönetimi için Log analytics'te sinyal verileri görürsünüz.
-
-#### <a name="cause"></a>Nedeni
-
-Karma Runbook çalışanı yeniden kayıtlı ve yeniden gerekebilir.
-
-#### <a name="resolution"></a>Çözüm
-
-Bölümündeki adımları [Windows karma Runbook çalışanı dağıtma](../automation-windows-hrw-install.md) karma çalışanı yeniden yüklemek için.
 
 ### <a name="hresult"></a>Senaryo: Makine değerlendirilmeyen ve bir HResult özel durum gösterir gösterir.
 
