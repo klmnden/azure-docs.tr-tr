@@ -115,7 +115,7 @@ Bir A kaydı oluşturmak için sanal IP adresi bulut hizmetinizin bulmalıdır. 
      Bir A kaydı oluştururken ihtiyacınız olacağı IP adresini kaydedin.
 2. DNS kaydedicinizin Web sitesinde oturum açın ve DNS Yönetme sayfasına gidin. Bağlantılar veya alanları olarak etiketlenmiş sitenin arayın **etki alanı adı**, **DNS**, veya **ad sunucusu yönetimi**.
 3. Şimdi burada seçin veya bir kaydın girin bulun. Aşağı açılan bir kayıt türü seçin veya bir Gelişmiş ayarlar sayfasına gitmek zorunda kalabilirsiniz.
-4. Etki alanı ya da bu A kaydını kullanacak bir alt etki alanı girin veya seçin. Örneğin, **www** için bir diğer ad oluşturmak istiyorsanız **www.customdomain.com**. Tüm alt etki alanları için bir joker karakter girişi oluşturmak isterseniz, girin ' ***'. Bu gibi tüm alt etki alanlarını kapsar **mail.customdomain.com**, **login.customdomain.com**, ve **www.customdomain.com**.
+4. Etki alanı ya da bu A kaydını kullanacak bir alt etki alanı girin veya seçin. Örneğin, **www** için bir diğer ad oluşturmak istiyorsanız **www.customdomain.com**. Tüm alt etki alanları için bir joker karakter girişi oluşturmak isterseniz, girin ' *****'. Bu gibi tüm alt etki alanlarını kapsar **mail.customdomain.com**, **login.customdomain.com**, ve **www.customdomain.com**.
    
     Kök etki alanı için bir A kaydı oluşturmak istiyorsanız, bunu olarak listelenebilir '**@**' sembol kayıt şirketinizin DNS araçlar.
 5. Sağlanan alana, bulut hizmetinin IP adresini girin. Bu, bulut hizmeti dağıtımı IP adresi ile A kaydı kullanılan etki alanı giriş ilişkilendirir.
@@ -126,7 +126,7 @@ Bir A kaydı oluşturmak için sanal IP adresi bulut hizmetinizin bulmalıdır. 
 | --- | --- |
 | \@ |137.135.70.239 |
 
-Bu örnekte, kök etki alanı için bir A kaydı oluşturma gösterilmektedir. Tüm alt etki alanlarını kapsayan bir joker karakter giriş oluşturmak istiyorsanız, şunu yazarsınız: ' ***' alt etki alanı olarak.
+Bu örnekte, kök etki alanı için bir A kaydı oluşturma gösterilmektedir. Tüm alt etki alanlarını kapsayan bir joker karakter giriş oluşturmak istiyorsanız, şunu yazarsınız: ' *****' alt etki alanı olarak.
 
 > [!WARNING]
 > Azure'da IP adresleri, varsayılan olarak dinamiktir. Büyük olasılıkla kullanmak istersiniz bir [ayrılmış IP adresi](../virtual-network/virtual-networks-reserved-public-ip.md) IP adresiniz değişmez emin olmak için.

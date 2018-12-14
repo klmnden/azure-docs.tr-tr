@@ -177,8 +177,8 @@
 ### [Content Moderator ile işleme](media-services-content-moderation.md)
 
 ## [Telemetri yapılandırma](media-services-telemetry-overview.md)
-###[.NET](media-services-dotnet-telemetry.md)
-###[REST](media-services-rest-telemetry.md)
+### [.NET](media-services-dotnet-telemetry.md)
+### [REST](media-services-rest-telemetry.md)
 
 ## Ölçek
 ### [Medya İşleme](media-services-scale-media-processing-overview.md)

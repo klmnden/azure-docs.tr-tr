@@ -1668,7 +1668,7 @@ Aşağıdaki tabloda tipik SAP iletişim bağlantı noktaları listelenir. Temel
 
 *) nn = SAP örnek sayısı
 
-*) SID SAP sistem kimliği =
+**) SID SAP sistem kimliği =
 
 SAP ürünleri tarafından Hizmetleri şurada bulunabilir ya da farklı SAP ürünleri için gerekli bağlantı noktaları hakkında daha ayrıntılı bilgi <http://scn.sap.com/docs/DOC-17124>.
 Bu belge, belirli SAP ürününü ve senaryosunu için gerekli olan VPN cihaz ayrılmış bağlantı noktaları açmanız mümkün olması gerekir.

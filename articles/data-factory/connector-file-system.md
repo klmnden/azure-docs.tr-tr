@@ -63,8 +63,8 @@ Dosya sistemi bağlantılı hizmeti için aşağıdaki özellikleri destekler:
 
 | Senaryo | bağlı hizmet tanımında "ana" | veri kümesi tanımında "folderPath" |
 |:--- |:--- |:--- |
-| Tümleştirme çalışma zamanı makinesinde yerel klasör: <br/><br/>Örnek: D:\\ \* veya D:\folder\subfolder\\* |JSON'da: `D:\\`<br/>Kullanıcı Arabirimi üzerindeki: `D:\` |Giriş JSON: `.\\` veya `folder\\subfolder`<br>Üzerinde kullanıcı Arabirimi: `.\` veya `folder\subfolder` |
-| Paylaşılan uzak klasör: <br/><br/>Örnekler: \\ \\myserver\\paylaşmak\\ \* veya \\ \\myserver\\paylaşmak\\klasör\\alt\\* |JSON'da: `\\\\myserver\\share`<br/>Kullanıcı Arabirimi üzerindeki: `\\myserver\share` |Giriş JSON: `.\\` veya `folder\\subfolder`<br/>Üzerinde kullanıcı Arabirimi: `.\` veya `folder\subfolder` |
+| Tümleştirme çalışma zamanı makinesinde yerel klasör: <br/><br/>Örnek: D:\\ \* veya D:\folder\subfolder\\ * |JSON'da: `D:\\`<br/>Kullanıcı Arabirimi üzerindeki: `D:\` |Giriş JSON: `.\\` veya `folder\\subfolder`<br>Üzerinde kullanıcı Arabirimi: `.\` veya `folder\subfolder` |
+| Paylaşılan uzak klasör: <br/><br/>Örnekler: \\ \\myserver\\paylaşmak\\ \* veya \\ \\myserver\\paylaşmak\\klasör\\alt\\ * |JSON'da: `\\\\myserver\\share`<br/>Kullanıcı Arabirimi üzerindeki: `\\myserver\share` |Giriş JSON: `.\\` veya `folder\\subfolder`<br/>Üzerinde kullanıcı Arabirimi: `.\` veya `folder\subfolder` |
 
 >[!NOTE]
 >Kullanıcı Arabirimi yazılırken çift ters eğik çizgi giriş gerekmez (`\\`) gibi JSON erişmek için tek bir ters eğik çizgi belirtin.

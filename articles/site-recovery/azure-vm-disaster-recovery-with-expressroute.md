@@ -93,7 +93,7 @@ Kuruluş dağıtımları genellikle iş yükleri merkezi bağlantı hub için İ
 - **Hub vNet**. Bir hub vNet yok **kaynak Hub vNet**: 10.10.10.0/24.
     - Bu hub sanal ağ geçidi davranır.
     - Bu hub'ı aracılığıyla alt ağlar arasındaki tüm iletişimler gidin.
- - ****Merkez sanal ağ alt ağları**. Hub sanal ağı iki alt ağa sahip:
+ - ** Merkez sanal ağ alt ağları**. Hub sanal ağı iki alt ağa sahip:
      - **NVA alt ağı**: 10.10.10.0/25. Bu alt ağ bir NVA (10.10.10.10) içerir.
      - **Ağ geçidi alt ağı**: 10.10.10.128/25. Bu alt ağı bir ExpressRoute ağ geçidi aracılığıyla özel bir eşleme Yönlendirme etki alanı şirket içi siteye yönlendiren bir ExpressRoute bağlantısı bağlı içerir.
 - Şirket içi veri merkezi, Hong Kong iş ortağı edge'de aracılığıyla bir ExpressRoute bağlantı hattı bağlantısı vardır.
