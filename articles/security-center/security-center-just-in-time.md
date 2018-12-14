@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2018
+ms.date: 12/4/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6281b79e374db164bbd11b602e92336162cae089
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5c42c0d5597e1e14bbb7814ad635abcd086db804
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841770"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339051"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında kullanarak sanal makine erişimini yönetme
 
@@ -49,7 +49,11 @@ Bir kullanıcı bir sanal makine erişimine izin istediğinde, Güvenlik Merkezi
 >
 >
 
-## <a name="using-jit-access-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde JIT erişim kullanma
+JIT üzerinden erişebilirsiniz:
+- [Azure Güvenlik Merkezi'nde JIT erişim kullanma](#jit-asc)
+- [Bir Azure VM dikey penceresinde JIT erişim kullanma](#jit-vm)
+
+## Azure Güvenlik Merkezi'nde JIT erişim kullanma <a name="jit-asc"></a>
 
 1. **Güvenlik Merkezi** panosunu açın.
 
@@ -121,7 +125,7 @@ Bir sanal makinenin mevcut just-ın-time ilkesini düzenlemek için:
 3. Altında **JIT VM erişimi Yapılandırması**, mevcut zaten korumalı olan bir bağlantı noktası ayarlarını düzenleyebilir veya yeni bir özel bağlantı noktasını ekleyin. Daha fazla bilgi için [tam zamanında erişim ilkesini yapılandırma](#jit-config). 
   ![JIT vm erişimi](./media/security-center-just-in-time/edit-policy.png)
 
-## <a name="using-jit-access-in-an-azure-vm-blade"></a>Bir Azure VM dikey penceresinde JIT erişim kullanma
+## Bir Azure VM dikey penceresinde JIT erişim kullanma <a name="jit-vm"></a>
 
 Kolaylık olması için VM dikey penceresinde Azure içinde JIT doğrudan kullanarak bir sanal makineye bağlanabilirsiniz.
 
@@ -187,7 +191,7 @@ Bu atama *eylemleri* rolü:
 -    Bir abonelik veya kaynak grubu veya VM üzerinde kapsamı:
    - Microsoft.Compute/virtualMachines/write 
 
-Bir kullanıcının başarıyla JIT VM erişimi istemek üzere etkinleştirmek için bu ayrıcalıkların ayarlayın: atayabilirsiniz *eylemleri* kullanıcı:
+Bir kullanıcının başarıyla JIT VM erişimi istemek üzere etkinleştirmek için bu ayrıcalıkların ayarlayın: Bu atama *eylemleri* kullanıcı:
 -   VM ile ilişkili bir abonelik veya kaynak grubunun kapsamına:
    - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ Başlat/eylem
 -    Bir abonelik veya kaynak grubu veya VM üzerinde kapsamı:
@@ -264,7 +268,7 @@ Bu makalede, Güvenlik Merkezi yardımcı nasıl tam zamanında VM erişimini de
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-- [Güvenlik ilkelerini ayarlama](security-center-azure-policy.md) — Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+- [Güvenlik ilkelerini ayarlama](tutorial-security-policy.md) — Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 - [Güvenlik önerilerini yönetme](security-center-recommendations.md) -önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
 - [Güvenlik durumunu izleme](security-center-monitoring.md) — Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 - [Yönetme ve güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md) — yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinin.

@@ -8,23 +8,26 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0c3c2fdddada3b90c84b3f06f8639bde7db50f95
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f6a2d6a35200bc4dec169aae72415c1c2904c465
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073559"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341142"
 ---
 # <a name="speech-synthesis-markup-language"></a>Konuşma sentezi biçimlendirme dili
 
-Konuşma sentezi işaretleme dili (SSML'yi) söylenişi denetlemek için bir yol sağlayan bir XML-tabanlı işaretleme dilidir ve *prosody* metin okuma. Konuşma aralığını ve Ritim prosody ifade eder —, müzik, gerçekleştirir. Sözcükleri fonetik olarak belirtin, sayıları yorumlanması için ipuçları sağlar, duraklatır, Denetim aralık, birim ve oranı ve daha ekleyin.
+Konuşma sentezi işaretleme dili (SSML'yi) söylenişi denetlemek için bir yol sağlayan bir XML-tabanlı işaretleme dilidir ve *prosody* metin okuma. Konuşma aralığını ve Ritim prosody ifade eder —, müzik, gerçekleştirir. Sözcükleri fonetik olarak belirtin, sayıları yorumlanması için ipuçları sağlar, duraklatır, Denetim aralık, birim ve oranı ve daha ekleyin. Daha fazla bilgi için [konuşma sentezi işaretleme dili (SSML'yi) sürüm 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/).
 
-Daha fazla bilgi için [konuşma sentezi işaretleme dili (SSML'yi) sürüm 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) W3C konumunda.
+Desteklenen diller, yerel ayarlar ve sesler (sinir ve standart) tam listesi için bkz: [dil desteği](language-support.md#text-to-speech).
 
-Aşağıdaki örneklerde SSML'yi ortak konuşma sentezi gereksinimleri için kullanma gösterilmektedir:
+Aşağıdaki bölümlerde, yaygın konuşma sentezi görevler örnekleri sağlar.
+
+>[!IMPORTANT]
+> Şu anda prosody etiketleme yalnızca standart ses için kullanılabilir.
 
 ## <a name="add-a-break"></a>Bir Sonu Ekle
 ```xml
@@ -90,5 +93,4 @@ Aşağıdaki örneklerde SSML'yi ortak konuşma sentezi gereksinimleri için kul
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Konuşma deneme aboneliğinizi alın](https://azure.microsoft.com/try/cognitive-services/)
-* [C# ' de Konuşma tanıma öğrenin](quickstart-csharp-dotnet-windows.md)
+* [Dil desteği: sesleri, yerel ayarlar, dilleri](language-support.md)

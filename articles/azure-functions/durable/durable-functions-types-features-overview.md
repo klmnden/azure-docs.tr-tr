@@ -8,18 +8,18 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/04/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 265314ebf2568bd586934d371e1e6c1d74e0b9bb
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642315"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336536"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>İşlev türleri ve dayanıklı işlevler (Azure işlevleri) için özelliklerine genel bakış
 
-Azure dayanıklı İşlevler, işlevi yürütme durum bilgisi olan düzenleme sağlar. Dayanıklı bir işlev, farklı Azure işlevleri'ni oluşan bir çözümdür. Bu işlevlerin her biri farklı rolleri düzenleme bir parçası olarak yürütebilirsiniz. Aşağıdaki belge işlevleri bir kalıcı işlevi düzenleme İlgili türdeki genel bir bakış sağlar. Ayrıca, bazı ortak desenleri'nin birbirine bağlama işlevleri içerir.  Hemen kullanmaya başlamak için dayanıklı ilk işlevinizi oluşturma [ C# ](durable-functions-create-first-csharp.md) veya [JavaScript](quickstart-js-vscode.md).
+Dayanıklı İşlevler, işlevi yürütme durum bilgisi olan düzenleme sağlar. Dayanıklı bir işlev, farklı Azure işlevleri'ni oluşan bir çözümdür. Bu işlevlerin her biri farklı rolleri düzenleme bir parçası olarak yürütebilirsiniz. Aşağıdaki belge işlevleri bir kalıcı işlevi düzenleme İlgili türdeki genel bir bakış sağlar. Ayrıca, bazı ortak desenleri'nin birbirine bağlama işlevleri içerir.  Hemen kullanmaya başlamak için dayanıklı ilk işlevinizi oluşturma [ C# ](durable-functions-create-first-csharp.md) veya [JavaScript](quickstart-js-vscode.md).
 
 ![Dayanıklı işlevler türleri][1]  
 
@@ -27,9 +27,11 @@ Azure dayanıklı İşlevler, işlevi yürütme durum bilgisi olan düzenleme sa
 
 ### <a name="activity-functions"></a>Etkinlik işlevleri
 
-Etkinlik, temel birim dayanıklı bir düzenleme iş işlevlerdir.  Etkinlik işlevler ve işlemde düzenlenmiş görevleri işlevlerdir.  Örneğin, müşteri sipariş işleme - Stok Kontrolü Ücret için kalıcı bir işlev oluşturun ve Sevkiyat oluşturma.  Bu görevlerin her biri bir etkinlik işlevi olacaktır.  Etkinlik işlevleri bunları yapabileceğini işler türünde herhangi bir kısıtlama yoktur.  Azure işlevleri tarafından desteklenen herhangi bir dilde yazılabilir.  Dayanıklı görev framework çağrılan etkinlik her işlevi en az bir kez düzenleme sırasında yürütülecek garanti eder.
+Etkinlik, temel birim dayanıklı bir düzenleme iş işlevlerdir.  Etkinlik işlevler ve işlemde düzenlenmiş görevleri işlevlerdir.  Örneğin, müşteri sipariş işleme - Stok Kontrolü Ücret için kalıcı bir işlev oluşturun ve Sevkiyat oluşturma.  Bu görevlerin her biri bir etkinlik işlevi olacaktır.  Etkinlik işlevleri bunları yapabileceğini işler türünde herhangi bir kısıtlama yoktur.  Bunlar, tüm yazılabilir [dayanıklı işlevler tarafından desteklenen dil](durable-functions-overview.md#language-support). Dayanıklı görev Framework her çağrılan etkinlik işlevi düzenleme sırasında en az bir kez yürütülür garanti eder.
 
-Bir etkinlik işlevi tarafından tetiklenmesi gerekir bir [etkinlik tetikleyici](durable-functions-bindings.md#activity-triggers).  Bu işlev alacak bir [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) bir parametre olarak. Ayrıca, tetikleyici girişlerinde işlevine geçirmek için başka bir nesne bağlayabilirsiniz.  Etkinlik işlevinizi orchestrator değerleri geri dönebilirsiniz.  Gönderme veya birden fazla değer döndüren bir etkinlik işlevden varsa [yararlanarak diziler veya diziler](durable-functions-bindings.md#passing-multiple-parameters).  Etkinlik işlevleri yalnızca bir düzenleme örneğinden tetiklenebilir.  Bazı kod etkinliği işlevi ve başka bir işlev (gibi HTTP ile tetiklenen bir işlev) arasında paylaşılabilir, ancak her işlevi yalnızca bir tetikleyici olabilir.
+Bir etkinlik işlevi tarafından tetiklenmesi gerekir bir [etkinlik tetikleyici](durable-functions-bindings.md#activity-triggers).  .NET işlevleri alacak bir [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) bir parametre olarak. Ayrıca, tetikleyici girişlerinde işlevine geçirmek için başka bir nesne bağlayabilirsiniz. JavaScript'te, giriş aracılığıyla erişilebilir `<activity trigger binding name>` özelliği [ `context.bindings` nesne](../functions-reference-node.md#bindings).
+
+Etkinlik işlevinizi orchestrator değerleri geri dönebilirsiniz.  Gönderme veya birden fazla değer döndüren bir etkinlik işlevden varsa [yararlanarak diziler veya diziler](durable-functions-bindings.md#passing-multiple-parameters).  Etkinlik işlevleri yalnızca bir düzenleme örneğinden tetiklenebilir.  Bazı kod etkinliği işlevi ve başka bir işlev (gibi HTTP ile tetiklenen bir işlev) arasında paylaşılabilir, ancak her işlevi yalnızca bir tetikleyici olabilir.
 
 Daha fazla bilgi ve örnekler bulunabilir [dayanıklı işlevler bağlama makale](durable-functions-bindings.md#activity-triggers).
 
@@ -79,7 +81,9 @@ Daha fazla bilgi ve örnekler bulunabilir [hata işleme makale](durable-function
 
 Dayanıklı bir düzenleme genellikle tek bir işlev uygulaması bağlamında yaşar, ancak sağlamak düzenlemeleri arasında birçok işlev uygulamaları koordine etmek desenler vardır.  Uygulamalar arası iletişimi, HTTP üzerinden geçekleşmiş olabileceğini olsa da, her etkinlik için dayanıklı framework kullanarak iki uygulama arasında dayanıklı bir işlemi yine de koruyabilir anlamına gelir.
 
-C# dilinde bir çapraz işlev uygulaması düzenleme örneği aşağıda verilmiştir.  Bir etkinlik dış düzenleme başlar. Başka bir etkinlik, ardından almak ve dönüş durumu.  Orchestrator, devam etmeden önce tamamlanması durum bekler.
+İçinde bir çapraz işlev uygulaması düzenleme örnekleri C# ve JavaScript aşağıda verilmiştir.  Bir etkinlik dış düzenleme başlar. Başka bir etkinlik, ardından almak ve dönüş durumu.  Orchestrator, devam etmeden önce tamamlanması durum bekler.
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("OrchestratorA")]
@@ -128,6 +132,64 @@ public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUr
         return response.StatusCode == HttpStatusCode.OK;
     }
 }
+```
+
+#### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    // Do some work...
+
+    // Call a remote orchestration
+    const statusUrl = yield context.df.callActivity("StartRemoteOrchestration", "OrchestratorB");
+
+    // Wait for the remote orchestration to complete
+    while (true) {
+        const isComplete = yield context.df.callActivity("CheckIsComplete", statusUrl);
+        if (isComplete) {
+            break;
+        }
+
+        const waitTime = moment(context.df.currentUtcDateTime).add(1, "m").toDate();
+        yield context.df.createTimer(waitTime);
+    }
+
+    // B is done. Now go do more work...
+});
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, orchestratorName) {
+    const options = {
+        method: "POST",
+        uri: `https://appB.azurewebsites.net/orchestrations/${orchestratorName}`,
+        body: ""
+    };
+
+    const statusUrl = await request(options);
+    return statusUrl;
+};
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, statusUrl) {
+    const options = {
+        method: "GET",
+        uri: statusUrl,
+        resolveWithFullResponse: true,
+    };
+
+    const response = await request(options);
+    // 200 = Complete, 202 = Running
+    return response.statusCode === 200;
+};
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

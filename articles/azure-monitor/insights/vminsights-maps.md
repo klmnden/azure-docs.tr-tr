@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 3f485d2e7c2aefaede7d0334fd89ce3bea9e3f3a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f460c063ded489c8ec0ef23b35ab304c62943a98
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187917"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337079"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uygulama bileşenleri anlamak için Vm'leri (Önizleme) Map için Azure İzleyicisi'ni kullanma
 Windows ve Linux ortamınızı Azure İzleyici ile iki şekilde VM'ler için doğrudan bir sanal makineden veya Azure İzleyici'den VM grupları arasında gösterilebilir azure'da çalışan sanal makineler üzerinde bulunan uygulama bileşenlerini görüntüleme. 
@@ -51,7 +51,7 @@ Kapat *günlükleri** ve geri dönüp **özellikleri** bölmesi ve select **uyar
 - Bilgisayar tarafından bir yan tümce grubuna ekleyin (örneğin, **bilgisayar aralığı 1 dakika**).
 - Uyarı için ölçüm ölçüsü üzerinde temel'ı seçin.
 
-Azure uyarıları ve uyarı oluşturma kuralları hakkında daha fazla bilgi için bkz. [birleşik uyarılar Azure İzleyici'de](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+Azure uyarıları ve uyarı oluşturma kuralları hakkında daha fazla bilgi için bkz. [birleşik uyarılar Azure İzleyici'de](../../azure-monitor/platform/alerts-overview.md)
 
 **Gösterge** sağ üst köşede seçeneğinde, bir haritada semboller ve rolleri açıklar.  Haritanızı daha yakından göz atmak için yakınlaştırın ve alt kısmında BT etrafında yakınlaştırma denetimleri taşımak için sayfanın sağ tarafındaki yakınlaştırma seviyesini ayarlar ve geçerli sayfa boyutunu Sayfaya Sığdır.  
 

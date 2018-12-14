@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: e853ea6d05585fa764ad6e019a3a4390ed840263
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: de9186faa9c6228f1938a94016ef449ce8bb1899
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313456"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335940"
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde izinler
 
@@ -29,8 +29,8 @@ Güvenlik Merkezi, güvenlik sorunlarını ve güvenlik açıklarını tanımlam
 
 Bu rollere ek olarak iki özel Güvenlik Merkezi rolü vardır:
 
-* **Güvenlik okuyucusu**: Güvenlik Merkezi'ne hakları görüntüleme, bu role ait kullanıcı vardır. Kullanıcı, öneriler, uyarılar, bir güvenlik ilkesi ve güvenlik durumları görüntüleyebilir ancak değişiklik yapamaz.
-* **Güvenlik Yöneticisi**: Bu role ait bir kullanıcı güvenlik okuyucu aynı haklarına sahiptir ve güvenlik ilkesini güncelleştirme da uyarıları ve öneriler kapat.
+* **Güvenlik okuyucusu**: Bu role ait bir kullanıcı, Güvenlik Merkezi hakları görüntüleme sahiptir. Kullanıcı, öneriler, uyarılar, bir güvenlik ilkesi ve güvenlik durumları görüntüleyebilir ancak değişiklik yapamaz.
+* **Güvenlik Yöneticisi**: Bu role ait bir kullanıcı güvenlik okuyucu aynı haklarına sahiptir ve güvenlik ilkesini güncelleştirme da uyarıları ve öneriler yok sayın.
 
 > [!NOTE]
 > Güvenlik rollerini, güvenlik okuyucu ve Güvenlik Yöneticisi, yalnızca Güvenlik Merkezi'ndeki erişebilir. Güvenlik rolleri, Azure depolama, Web ve mobil veya nesnelerin interneti gibi diğer hizmet alanlarına erişimi yoktur.
@@ -59,7 +59,7 @@ Aşağıdaki tabloda rollerini görüntüler ve Güvenlik Merkezi'nde eylemlerin
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede RBAC Güvenlik Merkezi kullanıcılara izinler atamak için nasıl kullandığı açıklanmıştır ve her rol için izin verilen eylemleri belirledik. Aboneliğiniz güvenlik durumunu izlemek için gereken rol atamaları ile ilgili bilgi sahibi olduğunuz, güvenlik ilkelerini düzenleme ve öneriler geçerlidir, öğrenme nasıl yapılır:
 
-- [Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md)
+- [Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md)
 - [Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md)
 - [Azure kaynaklarınızın güvenlik durumunu izleme](security-center-monitoring.md)
 - [Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md)

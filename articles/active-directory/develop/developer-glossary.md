@@ -17,12 +17,12 @@ ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: 7ce11b3e54a8770a2b3d53e335afc57f52d3d14e
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b74c3d355a720948c22e90b1792dcd6139c101ea
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425318"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338218"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory Geliştirici sözlüğü
 
@@ -41,7 +41,7 @@ Bkz: [Azure AD belirteç başvurusu] [ AAD-Tokens-Claims] daha fazla ayrıntı i
 
 ## <a name="application-id-client-id"></a>Uygulama Kimliği (istemci kimliği)
 
-Belirli bir uygulamayı ve ilişkili yapılandırmaları tanımlayan bir uygulama kaydı için benzersiz tanımlayıcı Azure AD'ye sorunları. Bu uygulama kimliğini ([istemci kimliği](https://tools.ietf.org/html/rfc6749#page-15)) kimlik doğrulaması gerçekleştirme ve istekleri olduğunda kullanılan kimlik doğrulama kitaplıkları için sağlanan geliştirme zamanında. Uygulama Kimliği (istemci kimliği) bir gizli dizi değil. 
+Belirli bir uygulamayı ve ilişkili yapılandırmaları tanımlayan bir uygulama kaydı için benzersiz tanımlayıcı Azure AD'ye sorunları. Bu uygulama kimliğini ([istemci kimliği](https://tools.ietf.org/html/rfc6749#page-15)) kimlik doğrulaması gerçekleştirme ve istekleri olduğunda kullanılan kimlik doğrulama kitaplıkları için sağlanan geliştirme zamanında. Uygulama Kimliği (istemci kimliği) bir gizli dizi değil.
 
 ## <a name="application-manifest"></a>Uygulama bildirimi
 
@@ -102,7 +102,7 @@ Bkz: [Azure AD belirteç başvurusu] [ AAD-Tokens-Claims] daha fazla ayrıntı i
 
 ## <a name="client-application"></a>İstemci uygulaması
 
-Tarafından tanımlandığı gibi [OAuth2 yetkilendirme Framework][OAuth2-Role-Def], yapan bir uygulamada korunan kaynak isteklerini adına [kaynak sahibi](#resource-owner). "İstemci" terimini (örneği için olup olmadığını uygulama bir sunucu, masaüstü veya diğer cihazlar üzerinde çalıştırılır) belirli donanım uygulama özelliklerinin göstermez. 
+Tarafından tanımlandığı gibi [OAuth2 yetkilendirme Framework][OAuth2-Role-Def], yapan bir uygulamada korunan kaynak isteklerini adına [kaynak sahibi](#resource-owner). "İstemci" terimini (örneği için olup olmadığını uygulama bir sunucu, masaüstü veya diğer cihazlar üzerinde çalıştırılır) belirli donanım uygulama özelliklerinin göstermez.
 
 Bir istemci uygulamanın istekleri [yetkilendirme](#authorization) katılmak için bir kaynak sahibinden bir [OAuth2 yetkilendirme verme](#authorization-grant) akış ve kaynak sahibinin adınıza API'leri/verilerine erişebilir. OAuth2 yetkilendirme Framework [iki türde istemci tanımlar][OAuth2-Client-Types], "gizli" ve "Genel", istemcinin, kimlik bilgilerinin gizliliğini yeteneği göre. Uygulamaları uygulayabilirsiniz bir [web istemcisi (gizli)](#web-client) bir web sunucusunda çalışan bir [yerel istemci (Genel)](#native-client) bir cihazda yüklü veya [istemci kullanıcı aracısı tabanlı (Genel)](#user-agent-based-client)bir cihazın tarayıcısında çalışır.
 
@@ -151,7 +151,7 @@ Tarafından tanımlandığı gibi [OAuth2 yetkilendirme Framework][OAuth2-Role-D
 
 Tarafından tanımlandığı gibi [OAuth2 yetkilendirme Framework][OAuth2-Role-Def], ana bilgisayar kaynakları, kabul etme ve yanıtlama özellikli korumalı bir sunucusu korunan kaynak isteklerini tarafından [istemci uygulamaları](#client-application) bulunandan bir [erişim belirteci](#access-token). Olarak da bilinen bir korumalı kaynak sunucuda veya kaynağı uygulama.
 
-Kaynak sunucuda API'lerini kullanıma sunar ve kendi korumalı kaynaklara erişimini zorunlu kılar [kapsamları](#scopes) ve [rolleri](#roles), OAuth 2.0 yetkilendirme Framework kullanarak. Azure AD kiracısına ilişkin veriler erişim sağlayan bir Azure AD Graph API'si ve e-posta ve takvim gibi veri erişim sağlayan Office 365 API'lerini verilebilir. Bunların her ikisi de aynı zamanda aracılığıyla erişilebilir [Microsoft Graph API][Microsoft-Graph]. 
+Kaynak sunucuda API'lerini kullanıma sunar ve kendi korumalı kaynaklara erişimini zorunlu kılar [kapsamları](#scopes) ve [rolleri](#roles), OAuth 2.0 yetkilendirme Framework kullanarak. Azure AD kiracısına ilişkin veriler erişim sağlayan bir Azure AD Graph API'si ve e-posta ve takvim gibi veri erişim sağlayan Office 365 API'lerini verilebilir. Bunların her ikisi de aynı zamanda aracılığıyla erişilebilir [Microsoft Graph API][Microsoft-Graph].
 
 Yalnızca bir istemci uygulaması gibi kaynak uygulamanın kimlik yapılandırması aracılığıyla kurulur [kayıt](#application-registration) bir Azure AD kiracısında uygulama ve hizmet sorumlusu nesnesi sağlar. Bazı Microsoft tarafından sağlanan API'leri, Azure AD Graph API'si gibi tüm kiracılar sağlama sırasında sunulan hizmet sorumluları önceden kayıtlı.
 
@@ -219,7 +219,7 @@ Bir tür [istemci uygulaması](#client-application) sunucuda kimlik bilgilerini 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Azure AD Geliştirici Kılavuzu] [ AAD-Dev-Guide] genel bir bakış da dahil olmak üzere tüm Azure AD geliştirme ile ilgili konular için kullanılacak giriş sayfasıdır [uygulama tümleştirmesi] [ AAD-How-To-Integrate] ve temelleri [Azure AD kimlik doğrulama ve desteklenen kimlik doğrulama senaryoları][AAD-Auth-Scenarios]. Kod örnekleri ve öğreticiler çalışmaya hızlıca almak nasıl da bulabilirsiniz [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+[Azure AD Geliştirici Kılavuzu] [ AAD-Dev-Guide] genel bir bakış da dahil olmak üzere tüm Azure AD geliştirme ile ilgili konular için kullanılacak giriş sayfasıdır [uygulama tümleştirmesi] [ AAD-How-To-Integrate] ve temelleri [Azure AD kimlik doğrulama ve desteklenen kimlik doğrulama senaryoları][AAD-Auth-Scenarios]. Kod örnekleri ve öğreticiler çalışmaya hızlıca almak nasıl da bulabilirsiniz [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
 Geri bildirim sağlamak ve geliştirmek ve istekleri yeni tanımları dahil olmak üzere veya var olanları güncelleştirme bu içeriği biçimlendirmek için yardımcı olmak için aşağıdaki Açıklamalar bölümüne kullanın!
 

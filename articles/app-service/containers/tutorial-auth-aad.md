@@ -1,6 +1,6 @@
 ---
 title: Kimlik doğrulama ve yetkilendirme kullanıcılar için uçtan uca Linux'ta - Azure App Service | Microsoft Docs
-description: Uzak API’lere erişim de dahil olmak üzere App Service uygulamalarınızın güvenliğini sağlamak için App Service kimlik doğrulama ve yetkilendirmesini nasıl kullanacağınızı öğrenin.
+description: App Service kimlik doğrulaması ve yetkilendirme çalıştıran uzak API'lere erişim de dahil olmak üzere, Linux üzerinde App Service uygulamalarınızın güvenliğini sağlamak için kullanmayı öğrenin.
 keywords: app service, azure app service, authN, authZ, güvenli, güvenlik, çok katmanlı, azure active directory, azure ad
 services: app-service\web
 documentationcenter: dotnet
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: aa57e6198050b7e250c42f4bb019009e59ca4ba7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9ceb6d388bd4ff3c21b7c3c85e83fea2940b69af
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254097"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337658"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca Linux üzerinde Azure App Service'te yetkilendirme
 

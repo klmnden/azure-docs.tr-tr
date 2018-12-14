@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 54a88188a432a23476af6a1670635a23fb72eea7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643148"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341177"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performans ve ölçek dayanıklı işlevler (Azure işlevleri)
 
@@ -33,7 +33,7 @@ Orchestration örneği çalıştırmak gerektiğinde, geçmiş tablodaki uygun s
 
 **Örnekleri** bir görev hub'ındaki tüm düzenleme örneklerinin durumları içeren başka bir Azure depolama tablosuna bir tablodur. Örneklerin oluşturulduğu gibi bu tabloya yeni satır eklenir. Orchestration örnek kimliği bu tablonun bölüm anahtarı olduğu ve satır anahtarı sabit bir sabittir. Orchestration örneği başına bir satır var.
 
-Bu tabloda örnek sorgu istekleri karşılamak için kullanılan [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API yanı sıra [durum sorgusu HTTP API](https://docs.microsoft.com/azure/azure-functions/durable-functions-http-api#get-instance-status). İçeriğiyle birlikte sonunda tutarlı tutulur **geçmişi** tablo daha önce bahsedilen. Tarafından bu şekilde örnek sorgu işlemleri verimli bir şekilde karşılamak için ayrı bir Azure depolama tablo kullanımını etkileyen [komut ve sorgu sorumluluğu ayrımı (CQRS) düzeni](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
+Bu tabloda örnek sorgu istekleri karşılamak için kullanılan [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) (.NET) ve `getStatus` (JavaScript) API'lerini hem de [durum sorgusu HTTP API](durable-functions-http-api.md#get-instance-status). İçeriğiyle birlikte sonunda tutarlı tutulur **geçmişi** tablo daha önce bahsedilen. Tarafından bu şekilde örnek sorgu işlemleri verimli bir şekilde karşılamak için ayrı bir Azure depolama tablo kullanımını etkileyen [komut ve sorgu sorumluluğu ayrımı (CQRS) düzeni](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>İç sıra Tetikleyiciler
 
@@ -53,10 +53,24 @@ Denetim kuyrukları çeşitli düzenleme yaşam döngüsü ileti türlerini içe
 
 Kuyruklar, tablolar ve dayanıklı işlevler tarafından kullanılan BLOB'ları tarafından yapılandırılmış bir Azure depolama hesabı oluşturulur. Kullanılacak hesabı kullanılarak belirtilebilir. `durableTask/azureStorageConnectionStringName` ayarı **host.json** dosya.
 
+### <a name="functions-1x"></a>İşlevler 1.x
+
 ```json
 {
   "durableTask": {
     "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+  }
+}
+```
+
+### <a name="functions-2x"></a>İşlevler 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+    }
   }
 }
 ```
@@ -67,6 +81,8 @@ Belirtilmezse, varsayılan `AzureWebJobsStorage` depolama hesabı kullanılır. 
 
 Etkinlik otomatik olarak ekleyerek durum bilgisiz ve genişletilmiş işlevlerdir. Orchestrator, diğer taraftan, işlevlerdir *bölümlenmiş* arasında bir veya daha fazla denetim sıralar. Denetim sıraların sayısı tanımlanan **host.json** dosya. Aşağıdaki örnek host.json kod parçacığı kümeleri `durableTask/partitionCount` özelliğini `3`.
 
+### <a name="functions-1x"></a>İşlevler 1.x
+
 ```json
 {
   "durableTask": {
@@ -74,6 +90,19 @@ Etkinlik otomatik olarak ekleyerek durum bilgisiz ve genişletilmiş işlevlerdi
   }
 }
 ```
+
+### <a name="functions-2x"></a>İşlevler 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "partitionCount": 3
+    }
+  }
+}
+```
+
 Bir görev hub'ı 1 ile 16 bölümler arasında yapılandırılabilir. Belirtilmezse, varsayılan bölüm sayısı olan **4**.
 
 (Genellikle üzerinde farklı VM) birden çok işlev konak örneğe genişletme, her örnek bir denetim kuyrukların kilit alır. Bu kilitleri, blob depolama kiraları gibi dahili olarak uygulanır ve düzenleme örneği aynı anda yalnızca tek bir ana bilgisayar örneği üzerinde çalıştığından emin olun. Görev hub üç denetim kuyrukları ile yapılandırılmışsa, orchestration örnekleri üç adede kadar sanal makineler arasında Yük Dengelemesi yapılmış olabilir. Etkinlik işlevi yürütme için kapasiteyi artırmak için ek Vm'lere eklenebilir.
@@ -106,11 +135,26 @@ Azure işlevleri, tek bir uygulama örneği içinde eşzamanlı olarak birden ç
 
 Her iki etkinlik işlevi ve orchestrator işlevi Eş zamanlılık limitlerine yapılandırılabilir **host.json** dosya. İlgili ayarlar `durableTask/maxConcurrentActivityFunctions` ve `durableTask/maxConcurrentOrchestratorFunctions` sırasıyla.
 
+### <a name="functions-1x"></a>İşlevler 1.x
+
 ```json
 {
   "durableTask": {
     "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10
+  }
+}
+```
+
+### <a name="functions-2x"></a>İşlevler 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10
+    }
   }
 }
 ```
@@ -121,15 +165,31 @@ Her iki etkinlik işlevi ve orchestrator işlevi Eş zamanlılık limitlerine ya
 > Bu ayarlar, bellek ve CPU kullanımını tek bir VM'de yönetmenize yardımcı olmak faydalıdır. Ancak, ölçeği birden çok VM arasında her VM sınırları kendi kümesine sahiptir. Bu ayarlar, genel düzeyde eşzamanlılık denetimi için kullanılamaz.
 
 ## <a name="orchestrator-function-replay"></a>Orchestrator işlevi yeniden yürütme
+
 Daha önce belirtildiği gibi orchestrator işlevleri içeriğini kullanarak yeniden oynatılır **geçmişi** tablo. Toplu iletiler sıradan çıkarılan her zaman bir denetim kuyruktan varsayılan olarak, orchestrator işlev kodunu tekrarlanır.
 
 Bu agresif yeniden yürütme davranışı etkinleştirerek devre dışı bırakılabilir **oturumları Genişletilmiş**. Genişletilmiş Oturumlar etkinleştirildiğinde, orchestrator işlevi örnekleri uzun ve yeni iletileri tam bir yeniden yürütme işlenebilir bellekte tutulur. Genişletilmiş oturumları etkin ayarlayarak `durableTask/extendedSessionsEnabled` için `true` içinde **host.json** dosya. `durableTask/extendedSessionIdleTimeoutInSeconds` Ayarı ne kadar boşta olan bir oturum bellekte tutulan denetlemek için kullanılır:
+
+### <a name="functions-1x"></a>İşlevler 1.x
 
 ```json
 {
   "durableTask": {
     "extendedSessionsEnabled": true,
     "extendedSessionIdleTimeoutInSeconds": 30
+  }
+}
+```
+
+### <a name="functions-2x"></a>İşlevler 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "extendedSessionsEnabled": true,
+      "extendedSessionIdleTimeoutInSeconds": 30
+    }
   }
 }
 ```
@@ -150,8 +210,8 @@ Ancak, bu özelliği olası bir dezavantajı örnekleri uzun bellekte kalır, bo
 
 Dayanıklı işlevler bir üretim uygulaması için kullanmak planlama yaparken planlama sürecinin başlarında performansı gereksinimleri dikkate almak önemlidir. Bu bölüm, bazı temel kullanım senaryoları ve beklenen en yüksek aktarım numaraları kapsar.
 
-* **Sıralı Etkinlik yürütme**: etkinlik işlevler bir dizi art arda çalıştırılan bir düzenleyici işlevi bu senaryoyu açıklar. En çok benzeyen [işlevi zincirleme](durable-functions-sequence.md) örnek.
-* **Paralel Etkinlik yürütme**: Bu senaryo, birçok etkinlik işlevleri kullanılarak paralel yürüten bir düzenleyici işlevi açıklamaktadır [yayma, Clustered](durable-functions-cloud-backup.md) deseni.
+* **Sıralı Etkinlik yürütme**: Bu senaryoda, bir etkinlik işlevler bir dizi art arda çalıştırılan bir düzenleyici işlevi açıklanmaktadır. En çok benzeyen [işlevi zincirleme](durable-functions-sequence.md) örnek.
+* **Paralel Etkinlik yürütme**: Birçok etkinlik işlevleri kullanılarak paralel yürüten bir düzenleyici işlevi bu senaryoyu açıklar [yayma, Clustered](durable-functions-cloud-backup.md) deseni.
 * **Paralel işleme yanıt**: Bu senaryo, ikinci yarısında olan [yayma, Clustered](durable-functions-cloud-backup.md) deseni. Bunu Clustered performansı üzerinde odaklanır. Yayma, aksine Clustered tek orchestrator işlevi örneği tarafından yapılır ve bu nedenle yalnızca tek bir sanal makine üzerinde çalıştırılabilir dikkat edin önemlidir.
 * **Dış olay işleme**: Bu senaryo, üzerinde bekleyen bir tek orchestrator işlevi örneği temsil eder [dış olayları](durable-functions-external-events.md), bir kerede.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ce410e69427f29ce70f8b2136a08bd7e6d00113c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ecfab15860ffc690d341069b626e5d7579c00da4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249734"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340377"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell kullanarak Azure Güvenlik Merkezi'nin ekleme otomatikleştirin
 
@@ -40,7 +40,7 @@ Bu örnekte Güvenlik Merkezi kimliği bir Abonelikteki etkinleştiririz: d07c00
 
 5. Kuruluşun ayarlamak [ASC uyarıları ve önemli olayları güvenlik ilgili kişisi olarak CISO](security-center-provide-security-contact-details.md).
 
-6. Ata Güvenlik Merkezi'nin [varsayılan güvenlik ilkeleri](security-center-azure-policy.md).
+6. Ata Güvenlik Merkezi'nin [varsayılan güvenlik ilkeleri](tutorial-security-policy.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -111,6 +111,6 @@ Güvenlik Merkezi'ne ekleme otomatikleştirmek için PowerShell nasıl kullanabi
 
 Güvenlik Merkezi hakkında daha fazla bilgi için şu makaleye bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.

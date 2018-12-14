@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 95fd44d5865eb804cb91d7adc2cc17bb5f957b5c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 034f182cc282f50eb3a4a1de05331f42957f49fe
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275219"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339816"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli arka planda işleme için Azure WebJobs SDK ile çalışmaya başlama
 
@@ -396,7 +396,7 @@ Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama 
 
 Bu bölümde, yerel olarak yeniden Konsolu için de Application Insights, günlük verilerini artık geçiyor doğrulamak için çalıştırın.
 
-1. Kullanım **Sunucu Gezgini** aynı şekilde Visual bir kuyruk iletisi oluşturmak üzere Studio'da yaptığınız [önceki](#trigger-the-function)girin dışında *Hello App Insights!* ileti metni.
+1. Kullanım **Sunucu Gezgini** aynı şekilde Visual bir kuyruk iletisi oluşturmak üzere Studio'da yaptığınız [önceki](#trigger-the-function-in-azure)girin dışında *Hello App Insights!* ileti metni.
 
 1. Projeyi çalıştırın.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3e8333b521832579a942d3fffb06103ad0431acc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d0c61f6e905ca109f3f178996a08f353c36e7880
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316626"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337215"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme
 Bu belge, Azure kaynaklarınızı korumanıza yardımcı olması için Azure Güvenlik Merkezi'nde öneriler kullanma hakkında bilgi vermektedir.
@@ -34,13 +34,13 @@ Güvenlik Merkezi düzenli aralıklarla Azure kaynaklarınızın güvenlik durum
 
 ## <a name="implementing-security-recommendations"></a>Güvenlik önerilerini uygulama
 ### <a name="set-recommendations"></a>Ayarlama önerileri
-İçinde [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md), şunların nasıl yapıldığını öğrenirsiniz:
+İçinde [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md), şunların nasıl yapıldığını öğrenirsiniz:
 
 * Güvenlik ilkeleri yapılandırın.
 * Veri toplamayı etkinleştir.
 * Güvenlik ilkenizin bir parçası olarak görmek için hangi önerilerin seçin.
 
-Geçerli ilke önerileri Merkezi sistem güncelleştirmeleri, temel kurallar, kötü amaçlı yazılımdan koruma programları etrafında [ağ güvenlik grupları](../virtual-network/security-overview.md) alt ağları ve ağ arabirimleri, SQL veritabanı denetimi, SQL veritabanı saydam veri şifrelemesi, ve web uygulaması güvenlik duvarları.  [Güvenlik ilkelerini ayarlama](security-center-azure-policy.md) her öneri seçeneği açıklamasını sağlar.
+Geçerli ilke önerileri Merkezi sistem güncelleştirmeleri, temel kurallar, kötü amaçlı yazılımdan koruma programları etrafında [ağ güvenlik grupları](../virtual-network/security-overview.md) alt ağları ve ağ arabirimleri, SQL veritabanı denetimi, SQL veritabanı saydam veri şifrelemesi, ve web uygulaması güvenlik duvarları.  [Güvenlik ilkelerini ayarlama](tutorial-security-policy.md) her öneri seçeneği açıklamasını sağlar.
 
 ### <a name="monitor-recommendations"></a>İzleme önerileri
 Bir güvenlik ilkesi tanımladıktan sonra, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak için kaynaklarınızın güvenlik durumunu analiz eder. **Önerileri** altında kutucuğuna **genel bakış** Güvenlik Merkezi tarafından tanımlanan öneriler toplam sayısı bildiğiniz sağlar.
@@ -55,16 +55,16 @@ Her önerinin ayrıntıları görmek için seçin **önerileri kutucuğuna** alt
 
 Öneriler her satırın belirli bir öneriyi temsil ettiği bir tablo biçiminde gösterilir. Bu tablonun sütunlarının şunlardır:
 
-* **Açıklama**: öneri ve çözmek için yapılması gerekenler açıklanmaktadır.
-* **Kaynak**: Bu önerinin geçerli olduğu kaynakları listeler.
-* **Durum**: önerinin geçerli durumu açıklar:
-  * **Açık**: öneri henüz ele edilmemiş.
-  * **Devam eden**: öneri şu anda kaynaklara uygulanıyor ve herhangi bir işlem yapmanıza gerek yoktur.
-  * **Çözümlenen**: öneri zaten tamamlandı (Bu durumda, çizgi gri renkte görüntülenir).
-* **ÖNEM DERECESİ**: Belirli bir önerinin önem derecesini açıklar:
-  * **Yüksek**: bir güvenlik açığı anlamlı bir kaynakta (örneğin, bir uygulama, bir VM veya ağ güvenlik grubu) ile var ve ilgilenilmesi gerekiyor.
-  * **Orta**: bir güvenlik açığı var ve kritik olmayan veya ek adımlar bunu ortadan kaldırmak için veya bir işlemi tamamlamak için gerekli.
-  * **Düşük**: mevcut olan bir güvenlik açığının ele alınması gerekiyor ancak hemen ilgilenilmesi gerekmiyor. (Varsayılan olarak, düşük öneriler almazsınız ancak bunları görüntülemek istiyorsanız düşük öneriler filtresini kullanabilirsiniz.)
+* **AÇIKLAMA**: Öneri ve çözmek için yapılması gerekenler açıklanmaktadır.
+* **KAYNAK**: Bu önerinin geçerli olduğu kaynakları listeler.
+* **DURUM**: Önerinin geçerli durumu açıklar:
+  * **Açık**: Öneri henüz ele edilmemiş.
+  * **Devam eden**: Kaynakları şu anda öneri uygulanıyor ve herhangi bir işlem yapmanıza gerek yoktur.
+  * **Çözümlenen**: Öneri zaten tamamlandı (Bu durumda, çizgi gri renkte görüntülenir).
+* **ÖNEM DERECESİ**: Belirli bir önerinin önem açıklanmaktadır:
+  * **Yüksek**: Bir güvenlik açığı anlamlı bir kaynakta (örneğin, bir uygulama, bir VM veya ağ güvenlik grubu) ile var ve ilgilenilmesi gerekiyor.
+  * **Orta**: Bir güvenlik açığı var ve bunu ortadan kaldırmak için veya bir işlemi tamamlamak için kritik olmayan veya ek adımlar gereklidir.
+  * **Düşük**: Mevcut bir güvenlik açığı olan ele alınması gerekiyor ancak hemen ilgilenilmesi gerekmiyor. (Varsayılan olarak, düşük öneriler almazsınız ancak bunları görüntülemek istiyorsanız düşük öneriler filtresini kullanabilirsiniz.)
 
 Aşağıdaki tabloda kullanılabilir öneriler ve uygulamanız durumunda her birinin yaptığı anlamanıza yardımcı olması için bir başvuru olarak kullanın.
 
@@ -135,7 +135,7 @@ Tüm önerileri gözden geçirdikten sonra bir önce uygulamanız karar verebili
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu belgede, Güvenlik Merkezi'nde güvenlik önerilerini yaptınız. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) — Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md) — Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
 * [Yönetme ve Azure Güvenlik Merkezi'nde güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md) — yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.

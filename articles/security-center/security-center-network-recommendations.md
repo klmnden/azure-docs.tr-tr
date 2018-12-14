@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 449fdbceeb0b64d58c589fe5dbde61302ee27afb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3bb8d4796d23b84f815d28efa45af619efe19af3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309217"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338242"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde ağ kaynaklarınızı koruma
 Azure Güvenlik Merkezi, ağ güvenliği için en iyi uygulamalar, Azure kaynaklarınızın güvenlik durumunu sürekli olarak analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde sağlamlaştırmak ve kaynaklarınızı korumak için gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur.
@@ -72,9 +72,9 @@ Ağ eşlemesi, Azure kaynaklarınızı gösterebilirsiniz bir **topolojisi** gö
 Haritanın etkileşimli ve dinamik olduğundan, her düğüm tıklanabilir ve görünümü değiştirebilirsiniz filtrelere göre:
 
 1. Ağ haritanın en üstünde filtreleri kullanarak gördüğünüz değiştirebilirsiniz. Harita üzerinde odaklanın:
-   -  **Güvenlik durumu**: eşleme önem derecesine, Azure kaynaklarınızın (yüksek, Orta, düşük) göre filtreleyebilirsiniz.
-   - **Öneriler**: hangi önerileri üzerinde bu kaynakları etkin olmasına göre hangi kaynakların görüntülenen seçebilirsiniz. Örneğin, yalnızca ağ güvenlik gruplarını etkinleştirmek için Güvenlik Merkezi önerir kaynakları görüntüleyebilirsiniz.
-   - **Ağ alanları**: kaynakları Internet'e iç VM'ler de seçebilirsiniz. yalnızca varsayılan olarak, haritada görüntüler.
+   -  **Güvenlik durumu**: Harita önem derecesine, Azure kaynaklarınızın (yüksek, Orta, düşük) göre filtreleyebilirsiniz.
+   - **Öneriler**: Hangi önerileri üzerinde bu kaynakları etkin olmasına göre hangi kaynakların görüntülenen seçebilirsiniz. Örneğin, yalnızca ağ güvenlik gruplarını etkinleştirmek için Güvenlik Merkezi önerir kaynakları görüntüleyebilirsiniz.
+   - **Ağ alanları**: Varsayılan olarak, iç VM'ler de seçebilir, harita yalnızca Internet'e yönelik kaynakları görüntüler.
  
 2. Tıklayabilirsiniz **sıfırlama** sol üst köşedeki eşleme varsayılan durumuna geri döndürmek için dilediğiniz zaman içinde.
 
@@ -149,6 +149,6 @@ Diğer Azure kaynak türü için geçerli öneriler hakkında daha fazla bilgi i
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.

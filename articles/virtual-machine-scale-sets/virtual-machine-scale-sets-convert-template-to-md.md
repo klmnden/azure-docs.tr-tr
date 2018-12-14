@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
-ms.openlocfilehash: be56fd80229010090216413a7c1833d94e8bac25
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739575"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339884"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Bir ölçek kümesi şablonunun bir yönetilen disk ölçüm kümesi şablonuna dönüştürme
 
@@ -126,7 +126,7 @@ Aşağıdaki Farklarda kaldırıyoruz olduğunu görebiliriz depolama hesapları
 
 ## <a name="data-disks"></a>Veri diskleri
 
-Yukarıdaki değişiklikler ile ölçek kümesi yönetilen diskleri kullan işletim sistemi için veri diskleri ancak disk? Veri diskleri eklemek için "osDisk" ile aynı düzeyde "Datadisks" altındaki "Storageprofile" özelliğini ekleyin. Özelliğinin değeri her biri "(hangi veri diski üzerinde bir VM başına benzersiz olması gerekir) lun" özellikleri vardır, JSON nesneleri listesidir "createOption" ("boş" şu anda desteklenen tek seçenek olan) ve "diskSizeGB" (gigabayt olarak; disk boyutunu değerinden büyük olmalıdır 0 ile 1024'ten küçük) aşağıdaki örnekte olduğu gibi: 
+Yukarıdaki değişiklikler ile ölçek kümesi yönetilen diskleri kullan işletim sistemi için veri diskleri ancak disk? Veri diskleri eklemek için "osDisk" ile aynı düzeyde "Datadisks" altındaki "Storageprofile" özelliğini ekleyin. Özelliğinin değeri her biri "(hangi veri diski üzerinde bir VM başına benzersiz olması gerekir) lun" özellikleri vardır, JSON nesneleri listesidir "createOption" ("boş" şu anda desteklenen tek seçenek olan) ve "diskSizeGB" (gigabayt olarak; disk boyutunu değerinden büyük olmalıdır 0 ile 1024'ten küçük) aşağıdaki örnekte olduğu gibi:
 
 ```
 "dataDisks": [
@@ -144,7 +144,7 @@ Veri disklerini ölçek kümeleri ile kullanma hakkında daha fazla bilgi için 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Örneğin Resource Manager şablonları kullanarak ölçek kümeleri, arama "vmss için" içinde [Azure hızlı başlangıç şablonları github deposunda](https://github.com/Azure/azure-quickstart-templates).
+Örneğin Resource Manager şablonları kullanarak ölçek kümeleri, arama "vmss için" içinde [Azure hızlı başlangıç şablonları GitHub deposunda](https://github.com/Azure/azure-quickstart-templates).
 
 Genel bilgiler için kullanıma [ölçek kümeleri için ana giriş sayfası](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

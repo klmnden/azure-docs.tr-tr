@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: 5c32b90c8a291ff744b4894af12f8d623cb95137
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 09231ab69276f3b4763f07c51230921d15333f63
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391413"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339442"
 ---
 # <a name="export-and-view-your-top-level-subscription-information"></a>Dışarı aktarma ve üst düzey abonelik bilgilerinizi görüntüleyin
 Abonelik kimliklerini, kullanıcı kimlik bilgileriyle ilişkili kümesini görüntülemek istiyorsanız [abonelik bilgilerinizi içeren bir .json dosyası Azure hesap Merkezi'nden](http://account.azure.com/subscriptions/download).
@@ -28,12 +28,13 @@ Abonelik kimliklerini, kullanıcı kimlik bilgileriyle ilişkili kümesini gör�
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 İndirilen bir .json dosyası, aşağıdaki bilgileri sağlar:
-- E-posta: hesabınızla ilişkili e-posta adresi.
-- PUID: fatura hesabınızla ilişkilendirilmiş benzersiz tanımlayıcısı.
+- E-posta: Hesabınızla ilişkili e-posta adresi.
+- PUID: Fatura hesabınızla ilişkilendirilmiş benzersiz tanımlayıcısı.
 - Subscriptionıds: Abonelik kimliğine göre listelenmiş hesabınıza ait aboneliklerin listesi
 
 ### <a name="subscriptionsjson-sample"></a>Subscriptions.JSON örnek
-~~~~
+
+```json
 {
   "Email":"admin@contoso.com",
   "Puid":"00052xxxxxxxxxxx",
@@ -46,4 +47,4 @@ Abonelik kimliklerini, kullanıcı kimlik bilgileriyle ilişkili kümesini gör�
     "90757cdc-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   ]
 }
-~~~~
+```

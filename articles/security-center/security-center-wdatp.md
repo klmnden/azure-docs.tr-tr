@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 1109e72d00ccddd6fc0f120ee71c88adaae72fed
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316999"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337606"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Gelişmiş tehdit koruması ile Azure Güvenlik Merkezi
 
@@ -27,15 +27,15 @@ Bu değişiklik, kapsamlı uç nokta algılama ve yanıt (EDR) özellikleri suna
 
 Azure Güvenlik Merkezi müşteriler artık Windows Defender ATP özelliklerini kullanabilirsiniz:
 
-- **Yeni nesil post ihlali algılama sensörlerden**: Windows sunucuları için Windows Defender ATP algılayıcı davranış sinyalleri birçok çeşit toplayın.
+- **Yeni nesil post ihlali algılama sensörlerden**: Windows Defender ATP algılayıcı Windows sunucuları için birçok çeşit davranış sinyalleri toplayın.
 
-- **Analytics tabanlı, bulut destekli post ihlali algılama**: Windows Defender ATP hızla uyum sağlayan tehditleri değiştirmek için. Gelişmiş analiz ve büyük veri kullanır. Windows Defender ATP gücünü sinyallerle Intelligent Security Graph tarafından Windows, Azure ve Office arasında bilinmeyen tehditleri algılamak için yükseltilmiş. Bu eyleme dönüştürülebilir uyarıları sağlar ve hızlı yanıt vermesini sağlar.
+- **Analytics tabanlı, bulut destekli post ihlali algılama**: Windows Defender ATP, tehditleri değiştirmek için hızlı bir şekilde uyum sağlar. Gelişmiş analiz ve büyük veri kullanır. Windows Defender ATP gücünü sinyallerle Intelligent Security Graph tarafından Windows, Azure ve Office arasında bilinmeyen tehditleri algılamak için yükseltilmiş. Bu eyleme dönüştürülebilir uyarıları sağlar ve hızlı yanıt vermesini sağlar.
 
 - **Tehdit bilgileri**: Windows Defender ATP, saldırgan araçları, teknikleri ve yordamları tanımlar. Bunlar algıladığında uyarılar oluşturur. Microsoft tehdit arayanlar tarafından oluşturulan verileri ve iş ortakları tarafından sağlanan zeka tarafından Genişletilmiş Güvenlik takımlar kullanır.
 
 Bu özellikler Azure Güvenlik Merkezi'nde artık kullanılabilir:
 
-- **Otomatik ekleme**: Windows Defender ATP algılayıcısını eklenen Azure Güvenlik Merkezi'ne Windows sunucuları için otomatik olarak etkinleştirilir.
+- **Otomatik ekleme**: Windows Defender ATP algılayıcı, Azure Güvenlik Merkezi'ne eklenen Windows sunucuları için otomatik olarak etkinleştirilir.
 
 - **Tek cam bölmeyle**: Azure Güvenlik Merkezi Konsolu, Windows Defender ATP uyarıları görüntüler.
 
@@ -105,6 +105,6 @@ Zararsız bir Windows Defender ATP test uyarı oluşturmak için:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md): Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
-- [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md): önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
-- [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md): Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
+- [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md): Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerini yapılandırmayı öğrenin.
+- [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md): Öneriler, Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
+- [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md): Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.

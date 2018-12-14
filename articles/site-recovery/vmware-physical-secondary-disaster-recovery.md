@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 2829055c6bb9cc848b2e0a2e997e6a5541d4aba7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2198d7520d660904423eabbec8df71e55e3011dd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839662"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338643"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Şirket içi VMware sanal makinelerini veya fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarmayı ayarlama
 
@@ -28,8 +28,8 @@ Azure Site kurtarma senaryosu için şirket içi VMware veya fiziksel veri merke
 
 2018 ve 2019 sırasında iki güncelleştirmeleri kullanıma sunulacaktır: 
 
--   Güncelleştirme 7: ağ yapılandırması ve uyumluluk sorunları giderir ve TLS 1.2 desteği sağlar.
--   Güncelleştirme 8: SUSE 12 ve Linux işletim sistemleri RHEL/CentOS 7.3/7.4/7.5 için destek ekler.
+-   Güncelleştirme 7: Ağ yapılandırma ve uyumluluk sorunları giderir ve TLS 1.2 desteği sağlar.
+-   Güncelleştirme 8: SUSE 12 ve Linux işletim sistemleri RHEL/CentOS 7.3/7.4/7.5 için destek ekler
 
 Güncelleştirme 8'den sonra başka güncelleştirmeleri kullanıma sunulacaktır. Sınırlı bir düzeltme desteği güncelleştirme 8'de eklenen işletim sistemleri ve hata düzeltmeleri en iyi çaba bağlı olacaktır.
 
@@ -99,16 +99,16 @@ Güncelleştirmeleri gibi yükleyin:
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
   - UA update4 BITS RHEL5 OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. .Zip dosyalarını ayıklayın.
-2. **RX sunucu**: kopyalama **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** RX sunucuya ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.
-3. **Yapılandırma sunucusu ve işlem sunucusu**: kopyalama **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** yapılandırma sunucusu ve işlem sunucusu. Çalıştırmak için çift tıklayın.<br>
+2. **RX sunucu**: Kopyalama **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** RX sunucuya ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.
+3. **Yapılandırma sunucusu ve işlem sunucusu**: Kopyalama **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** yapılandırma sunucusu ve işlem sunucusu. Çalıştırmak için çift tıklayın.<br>
 4. **Windows ana hedef sunucusu**: Birleşik aracıyı güncelleştirin, kopyalayın **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** sunucu. Çalıştırmak için çift tıklayın. Ayrıca, kaynak sunucu için aynı birleşik aracı güncelleştirme geçerlidir. Kaynak güncelleştirme 4'e güncelleştirilmemişse birleşik aracı güncelleştirmeniz.
   Güncelleştirme, ana uygulama gerekmez. hedef hazırlanmış ile **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** en son değişiklikleri yeni GA yükleyici olarak.
-5. **vContinuum sunucusu**: kopyalama **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** sunucu.  VContinuum sihirbazını kapattığınız emin olun. Çalıştırmak için dosyaya çift tıklayın.
+5. **vContinuum sunucusu**:  Kopyalama **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** sunucu.  VContinuum sihirbazını kapattığınız emin olun. Çalıştırmak için dosyaya çift tıklayın.
     Güncelleştirme ile hazırladığınız ana hedef uygulamak gerekmez **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** en son değişiklikleri yeni GA yükleyici olarak.
 6. **Linux ana hedef sunucusu**: Birleşik aracıyı güncelleştirin, kopyalayın **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** ana hedef sunucu ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.
 7. **Kaynak sunucu Windows**: Birleşik aracıyı güncelleştirin, kopyalayın **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** kaynak sunucuya. Çalıştırmak için dosyaya çift tıklayın. 
     Kaynak sunucuda, güncelleştirme 4'e zaten güncelleştirildi veya kaynak aracısının en son temel Yükleyici ile yüklü güncelleştirme 5 Aracısı'nı yüklemeniz gerekmez **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-8. **Linux kaynak sunucu**: Birleşik Aracı'nı güncelleştirmek için birleşik aracı dosyasını ilgili sürümünü Linux sunucuya kopyalayın ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.  Örnek: RHEL 6.7 için 64 bit sunucu, kopyalama **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sunucuya ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.
+8. **Linux kaynak sunucu**: Birleşik Aracı'nı güncelleştirmek için birleşik aracı dosyasını ilgili sürümünü Linux sunucusuna kopyalayın ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.  Örnek: RHEL 6.7 için 64 bit sunucu, kopyalama **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sunucuya ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.
 
 ## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
 
@@ -142,7 +142,7 @@ Scout güncelleştirme 6 toplu bir güncelleştirmesidir. Bu güncelleştirme 1 
 > [!NOTE]
 > * Windows için temel Agent(UA) birleştirilmiş yükleyici, Windows Server 2016'yı desteklemek için yenilendi. Yeni yükleyici **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** temel Scout GA paket ile paketlenmiştir (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Aynı yükleyici, tüm desteklenen Windows sürümü için kullanılır. 
 > * Temel Windows vContinuum & ana hedef Yükleyicisi için destek Windows Server 2016 yenilenmiş meydana geldi. Yeni yükleyici **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** temel Scout GA paket ile paketlenmiştir (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Aynı yükleyici Windows 2016 ana hedef ve Windows 2012 R2 ana hedef dağıtmak için kullanılır.
-> * Açıklanan şekilde portaldan GA paketi indirmek [kasa oluşturma](#create-a-vault).
+> * Itanium tabanlı sistemler için Windows server 2016 fiziksel sunucuda ASR Scout tarafından desteklenmiyor. Bu, yalnızca Windows Server 2016 VMware VM destekler. 
 >
 
 #### <a name="bug-fixes-and-enhancements"></a>Hata düzeltmeleri ve geliştirmeleri
@@ -246,17 +246,17 @@ Güncelleştirme 3, aşağıdaki sorunları giderir:
   * CentOS 6, 7 güncelleştir
 * Yapılandırma sunucusu ve RX konsolları artık bit eşlem moduna girer çifti için bildirimleri göster.
 * Aşağıdaki güvenlik düzeltmeleri RX eklenmiştir:
-    * Yetkilendirme atlama parametresi oynama aracılığıyla: geçerli olmayan kullanıcılar için kısıtlı erişim.
-    * Siteler arası istek sahteciliğini: sayfa belirteci kavramı uygulanmıştır ve her sayfa için rasgele oluşturur. Bu, yalnızca tek bir oturum açma örneği aynı kullanıcı için yoktur ve sayfa yenileme işe yaramazsa anlamına gelir. Bunun yerine, panoya yönlendirir.
-    * Kötü amaçlı dosya karşıya yükleme: dosyalar için belirli uzantılara kısıtlı: z AIFF, asf, AVI, bmp, csv, doc, docx, bayra, flv, GIF, gz, gzip, jpeg, jpg, günlüğü, Orta, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, RMI, rmvb, rtf , sdc, sitd, swf, sxc, sxw, hedefi, tgz, TIF, TIFF, txt, vsd, wav, wma, wmv, xls, xlsx, xml ve zip.
-    * Kalıcı siteler arası betik: Giriş doğrulamaları eklendi.
+    * Yetkilendirme parametresi oynama aracılığıyla atla: Geçerli olmayan kullanıcılar için kısıtlı erişim.
+    * Siteler arası istek sahteciliğini: Sayfa belirteci kavramı uygulanmıştır ve her sayfa için rasgele oluşturur. Bu, yalnızca tek bir oturum açma örneği aynı kullanıcı için yoktur ve sayfa yenileme işe yaramazsa anlamına gelir. Bunun yerine, panoya yönlendirir.
+    * Kötü amaçlı dosya karşıya yükleme: Dosyaları belirli uzantılar için Yasak: z AIFF, asf, AVI, bmp, csv, doc, docx, bayra, flv, GIF, gz, gzip, jpeg, jpg, günlüğü, Orta, mov, mp3, mp4, mpc, mpeg, mpg, ods, odt, pdf, png, ppt, pptx, pxd, qt, ram, rar, rm, RMI, rmvb, rtf, sdc, sitd, swf , sxc, sxw, hedefi, tgz, TIF, TIFF, txt, vsd, wav, wma, wmv, xls, xlsx, xml ve zip.
+    * Kalıcı siteler arası betik: Girişi doğrulama eklendi.
 
 ### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site kurtarma Scout 8.0.1 güncelleştirme 2 (03 Ara 15 güncelleştirmesi)
 
 Güncelleştirme 2'deki düzeltmeler şunları içerir:
 
-* **Yapılandırma sunucusu**: 31 gün ücretsiz kullanım ölçümü engelleyen sorunları, yapılandırma sunucusundan Azure Site Recovery Kasası'na kaydedildiğinde, beklendiği gibi çalışmasını özelliği.
-* **Birleşik aracı**: ana hedef sunucusunda 8.0 için 8.0.1 sürümünden yükseltme sırasında yüklenen değil güncelleştirmede sonuçlandı güncelleştirme 1'deki bir sorun düzeltildi.
+* **Yapılandırma sunucusu**: 31 gün ücretsiz kullanım ölçümü özelliği yapılandırma sunucusundan Azure Site Recovery Kasası'na kaydedildiğinde, beklendiği gibi çalışmasını önleyen sorunları.
+* **Birleşik aracı**: Ana hedef sunucusunda 8.0 için 8.0.1 sürümünden yükseltme sırasında yüklenen değil güncelleştirmede sonuçlandı güncelleştirme 1'deki bir sorun düzeltildi.
 
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site kurtarma Scout 8.0.1 güncelleştirme 1
 Güncelleştirme 1, aşağıdaki hata düzeltmeleri ve yeni özellikler içerir:

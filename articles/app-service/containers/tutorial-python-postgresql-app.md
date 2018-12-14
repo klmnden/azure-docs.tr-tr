@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: dda5a0cda284effdb795d4fb1960ac5fb94799cc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 8846ec386ad1776172ae1949b5e0f26e03ddf1df
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276392"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337999"
 ---
 # <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Azure App Service'te bir Python ve PostgreSQL web uygulaması derleme
 
@@ -205,7 +205,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 > [!NOTE]
 > Bu ayar, Azure ağ içindeki tüm IP’lerden ağ bağlantılarına izin verir. Üretim kullanımı için, [yalnızca uygulamanızın kullandığı giden IP adreslerini kullanarak](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips) en kısıtlayıcı güvenlik duvarı kurallarını yapılandırmayı deneyin.
 
-Cloud Shell'de *\<your_ip_address>* yerine [yerel IPv4 IP adresinizi](http://www.whatsmyip.org/) yazdıktan sonra komutu tekrar çalıştırarak yerel bilgisayarınızdan erişim izni verin.
+Cloud Shell'de *\<your_ip_address>* yerine [yerel IPv4 IP adresinizi](https://www.whatsmyip.org/) yazdıktan sonra komutu tekrar çalıştırarak yerel bilgisayarınızdan erişim izni verin.
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address> --name AllowLocalClient
@@ -287,7 +287,7 @@ Django doğrular `HTTP_HOST` üst bilgisinde gelen istekler. Django uygulamanız
 ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
 ```
 
-Ardından, Django desteklemiyor [üretimde statik dosyaları sunma](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), bu nedenle bu el ile etkinleştirmeniz gerekir. Bu öğretici için kullandığınız [WhiteNoise](http://whitenoise.evans.io/en/stable/). WhiteNoise paket zaten yer aldığı _requirements.txt_. Django kullanmak için yapılandırmanız yeterlidir. 
+Ardından, Django desteklemiyor [üretimde statik dosyaları sunma](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), bu nedenle bu el ile etkinleştirmeniz gerekir. Bu öğretici için kullandığınız [WhiteNoise](https://whitenoise.evans.io/en/stable/). WhiteNoise paket zaten yer aldığı _requirements.txt_. Django kullanmak için yapılandırmanız yeterlidir. 
 
 İçinde _azuresite/settings.py_, bulma `MIDDLEWARE` ayarlama ve ekleme `whitenoise.middleware.WhiteNoiseMiddleware` ara yazılım listesine hemen altına `django.middleware.security.SecurityMiddleware` ara yazılım. `MIDDLEWARE` Ayarı şöyle görünmelidir:
 
@@ -307,7 +307,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ```
 
-WhiteNoise yapılandırma hakkında daha fazla bilgi için bkz. [WhiteNoise belgeleri](http://whitenoise.evans.io/en/stable/).
+WhiteNoise yapılandırma hakkında daha fazla bilgi için bkz. [WhiteNoise belgeleri](https://whitenoise.evans.io/en/stable/).
 
 > [!IMPORTANT]
 > Veritabanı ayarları bölümü zaten ortam değişkenlerini kullanarak en iyi güvenlik uygulamalarını takip eder. Tam dağıtım önerileri için bkz: [Django belgeleri: dağıtım denetim listesi](https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/).

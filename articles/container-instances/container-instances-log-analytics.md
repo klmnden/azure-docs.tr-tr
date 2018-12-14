@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 06123944072142187bfd5b875cbadd36b4d47bd2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4dbcccc1a4b23ca37918495dc536df08a70cade7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958909"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337895"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Azure Log Analytics ile kapsayıcı örneği
 
@@ -44,7 +44,7 @@ Log Analytics çalışma alanı kimliği ve birincil anahtarını almak için:
 
 Log Analytics Log Analytics kimliği ve birincil anahtarına sahip olduğunuza göre, günlüğe kaydetme etkin bir kapsayıcı grubu oluşturmak için hazırsınız demektir.
 
-Aşağıdaki örnekler kapsayıcı grubunu tek bir [fluentd][fluentd] kapsayıcısıyla oluşturmak için iki yöntem gösterir: Azure CLI ve YAML şablonuyla Azure CLI. Fluentd kapsayıcısı varsayılan yapılandırmasında birkaç çıkış satırı üretir. Bu çıkış Log Analytics çalışma alanınıza gönderileceğinden, günlükleri görüntüleme ve sorgulamayı göstermek için kullanışlıdır.
+Aşağıdaki örnekler tek bir kapsayıcı grubu oluşturmanın iki yolunu gösterir [fluentd] [ fluentd] kapsayıcı: Azure CLI ve Azure CLI ile bir YAML şablonu. Fluentd kapsayıcısı varsayılan yapılandırmasında birkaç çıkış satırı üretir. Bu çıkış Log Analytics çalışma alanınıza gönderileceğinden, günlükleri görüntüleme ve sorgulamayı göstermek için kullanışlıdır.
 
 ### <a name="deploy-with-azure-cli"></a>Azure CLI ile dağıtma
 
@@ -135,7 +135,7 @@ ContainerInstanceLog_CL
 Azure Log Analytics’te günlükleri sorgulama ve uyarıları yapılandırma hakkında daha fazla bilgi için bkz.
 
 * [Log Analytics’te günlük aramalarını anlama](../log-analytics/log-analytics-log-search.md)
-* [Azure İzleyici’de birleştirilmiş uyarılar](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+* [Azure İzleyici’de birleştirilmiş uyarılar](../azure-monitor/platform/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>Kapsayıcı CPU ve belleğini izleme

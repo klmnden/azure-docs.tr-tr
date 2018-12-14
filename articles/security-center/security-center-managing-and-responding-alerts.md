@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50fa467a6405fdc6b99c78a8f57411abf3be6336
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 782e655edcb7cbac1965131bce4431dc5599328e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836636"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340638"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama
 Bu belge, güvenlik uyarılarını yönetmeniz ve yanıtlamanız için Azure Güvenlik Merkezi’ni kullanmanıza yardımcı olur.
 
 > [!NOTE]
-> Gelişmiş algılamaları etkinleştirmek için Azure Güvenlik Merkezi Standart sürümüne yükseltme yapın. Ücretsiz bir deneme sürümü mevcuttur. Yükseltmek için [Güvenlik İlkesi](security-center-azure-policy.md)’nde Fiyatlandırma Katmanı’nı seçin. Daha fazla bilgi için bkz. [Azure Güvenlik Merkezi fiyatlandırması](security-center-pricing.md).
+> Gelişmiş algılamaları etkinleştirmek için Azure Güvenlik Merkezi Standart sürümüne yükseltme yapın. Ücretsiz bir deneme sürümü mevcuttur. Yükseltmek için [Güvenlik İlkesi](tutorial-security-policy.md)’nde Fiyatlandırma Katmanı’nı seçin. Daha fazla bilgi için bkz. [Azure Güvenlik Merkezi fiyatlandırması](security-center-pricing.md).
 >
 >
 
@@ -51,14 +51,14 @@ Güvenlik Merkezi, gerçek tehditleri algılamak ve hatalı pozitif sonuçları 
 
 Bu sayfanın alt bölümünde her bir uyarı için ayrıntılar bulunur. Sıralamak için hangi sütuna göre sıralamak istediğinizi belirtin. Her sütunun tanımı aşağıda verilmiştir:
 
-* **Açıklama**: Uyarının kısa bir açıklaması.
-* **Sayı**: Belirtilmiş türün belirli bir günde algılanan tüm uyarılarının listesi.
-* **Algılayan**: Uyarıyı tetiklemekten sorumlu hizmet.
-* **Tarih**: Olayın gerçekleştiği tarih
-* **Durum**: Bu uyarı için geçerli durum. İki tür durum mevcuttur:
-  * **Etkin**: Güvenlik uyarısı algılandı.
-  * **Kapatıldı**: Güvenlik uyarısı kullanıcı tarafından kapatıldı. Bu durum genellikle, araştırılan uyarılar için kullanılır ve gerçek bir saldırı olarak azaltılan ya da değil.
-* **Önem derecesi**: Yüksek, orta veya düşük önem düzeyi.
+* **Açıklama**: Uyarının kısa bir açıklama.
+* **Sayısı**: Belirli bir günde algılanan bu belirli türdeki tüm uyarıların bir listesi.
+* **Tarafından algılanan**: Uyarıyı tetiklemekten sorumlu hizmet.
+* **Tarih**: Olayın gerçekleştiği tarih.
+* **Durum**: Bu uyarı için geçerli durumu. İki tür durum mevcuttur:
+  * **Etkin**: Güvenlik Uyarısı algılandı.
+  * **Kapatıldı**: Güvenlik Uyarısı, kullanıcı tarafından kapatıldı. Bu durum genellikle, araştırılan uyarılar için kullanılır ve gerçek bir saldırı olarak azaltılan ya da değil.
+* **Önem derecesi**: Önem düzeyi yüksek, Orta veya düşük olabilir.
 
 > [!NOTE]
 > Güvenlik Merkezi tarafından oluşturulan güvenlik uyarıları, Azure Etkinlik Günlüğü altında ayrıca görünür. Azure Etkinlik Günlüğü’ne erişim hakkında daha fazla bilgi için bkz. [Kaynaklara uygulanan eylemleri denetlemek için etkinlik günlüklerini görüntüle](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
@@ -70,13 +70,13 @@ Bu sayfanın alt bölümünde her bir uyarı için ayrıntılar bulunur. Sırala
 > [!NOTE]
 > Uyarı önem derecesi, portalı ve REST API farklı şekilde görüntülenir, farklar aşağıda belirtilmiştir.
 
--   **Yüksek**: kaynağınızın tehlikeye girmemesini yüksek olasılık yoktur. İçine hemen görünmelidir. Güvenlik Merkezi, hem kötü amaçlı bir eyleme ve uyarı vermek üzere kullanılan bulguları yüksek güvenilirliğe sahip. Örneğin, mimikatz'ı kimlik bilgisi hırsızlığı için kullanılan genel bir aracı gibi bilinen bir kötü amaçlı araç yürütülmesini algılarsa bir uyarı. 
--   **Orta (REST API'de düşük)**: kaynak tehlikede olduğunu gösterebilecek kuşkulu bir etkinlik büyük olasılıkla budur.
+-   **Yüksek**: Kaynağınızın tehlikeye girmemesini yüksek olasılık yoktur. İçine hemen görünmelidir. Güvenlik Merkezi, hem kötü amaçlı bir eyleme ve uyarı vermek üzere kullanılan bulguları yüksek güvenilirliğe sahip. Örneğin, mimikatz'ı kimlik bilgisi hırsızlığı için kullanılan genel bir aracı gibi bilinen bir kötü amaçlı araç yürütülmesini algılarsa bir uyarı. 
+-   **Orta (REST API'de düşük)**: Bir kaynak tehlikede olduğunu gösterebilecek kuşkulu bir etkinlik büyük olasılıkla budur.
 Güvenlik Merkezi'nin ellerde analitik veya arama Orta ve kötü amaçlı güvenini Orta Yüksek. Bunlar genellikle machine learning'e ya da tabanlı anomali algılama olur. Örneğin, bir oturum açma denemesi, anormal bir konumdan.
--   **Düşük (REST API'si bilgileri)**: Bu zararsız pozitif ya da engellenen bir saldırı olabilir. 
+-   **Düşük (REST API'si bilgileri)**: Bu, zararsız pozitif ya da engellenen bir saldırı olabilir. 
     - Güvenlik Merkezi amaç kötü amaçlı ve etkinlik zararsız başarılara yeterli değil. Örneğin, günlük Temizle izlerini gizlemek bir saldırgan çalışır, ancak çoğu durumda, sıradan bir işlem yöneticileri tarafından gerçekleştirilir, bu sorunla karşılaşabilirsiniz bir eylemdir.
     - İçine bak öneririz ilgi çekici bir durum değilse Güvenlik Merkezi genellikle zaman saldırıları engellendi, sunmayacaktır. 
--   **Bilgilendirici (REST API'de sessiz)**: yalnızca bir güvenlik olayı altında ayrıntıya ya da kimliği ile belirli bir REST API kullanıyorsanız, uyarı bilgilendirici uyarılar görürsünüz Olay uyarıları, bazıları, yalnızca bilgilendirici olacak şekilde kendi görünebilir, ancak diğer uyarılar bağlamında daha yakından bakın bu durum bir dizi genellikle oluşur. 
+-   **Bilgilendirici (sessiz) REST API'de**: Bir güvenlik olayı altında ayrıntıya veya belirli bir uyarı kimliği ile REST API kullanıyorsanız, yalnızca bilgilendirici uyarılar görürsünüz Olay uyarıları, bazıları, yalnızca bilgilendirici olacak şekilde kendi görünebilir, ancak diğer uyarılar bağlamında daha yakından bakın bu durum bir dizi genellikle oluşur. 
 
 ### <a name="filtering-alerts"></a>Uyarıları filtreleme
 Tarihe, duruma ve önem derecesine göre uyarıları filtreleyebilirsiniz. Filtreleme uyarıları, güvenlik uyarıları gösterimi kapsamını daraltmanızın gerektiği senaryolar için faydalı olabilir. Örneğin, sistemde olası bir ihlali araştırdığınız için son 24 saatte oluşan güvenlik uyarılarını ele almak isteyebilirsiniz.

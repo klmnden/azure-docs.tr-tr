@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 03/07/2018
-ms.openlocfilehash: d5de908166e8de1d45a36f97aee8934653e59623
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e488fc7e568fc94f9a0744c12122b605f37f8152
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163190"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339680"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Azure App Service barındırma planı için ağ yapılandırmayı eşitleyemedi
 
@@ -47,4 +47,4 @@ Bunu yapmak için şu adımları uygulayın:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Yönetilen örnek için sanal ağ yapılandırma hakkında daha fazla bilgi için bkz: [yönetilen örnek sanal ağ yapılandırması](sql-database-managed-instance-vnet-configuration.md).
+- Yönetilen örnek için sanal ağ yapılandırma hakkında daha fazla bilgi için bkz: [mimarisi yönetilen örnek VNet](sql-database-managed-instance-connectivity-architecture.md) ve [mevcut bir VNet yapılandırma](sql-database-managed-instance-configure-vnet-subnet.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9d75195656581021253b5787a8bfd46639cc1754
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 0229b83a1b19e422954879ea9660373a34b18002
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323141"
+ms.locfileid: "53340070"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Özel ayırma ilkelerini kullanma
 
@@ -449,20 +449,24 @@ Bu örnek kod, cihaz sağlama hizmeti örneğinizi sağlama isteği gönderdiği
 
 6. **prov\_dev\_client\_sample** projesine sağ tıklayın ve **Başlangıç Projesi Olarak Ayarla**’yı seçin. 
 
+
 #### <a name="simulate-the-contoso-toaster-device"></a>Contoso toaster cihazının simülasyonunu gerçekleştirme
 
-1. Visual Studio *Çözüm Gezgini* penceresinde, **hsm\_security\_client** projesine gidip projeyi genişletin. **Kaynak Dosyalar**’ı genişletin ve **hsm\_client\_key.c** dosyasını açın. 
-
-    `REGISTRATION_NAME` ve `SYMMETRIC_KEY_VALUE` sabitlerinin bildirimini bulun. Dosyada aşağıdaki değişiklikleri yapıp dosyayı kaydedin.
-
-    Değerini güncelleştirin `REGISTRATION_NAME` toaster cihaz için kayıt kimliği ile sabit **contoso tstrsd 007 breakroom499**.
-    
-    Değerini güncelleştirin `SYMMETRIC_KEY_VALUE` toaster cihaz için oluşturduğunuz cihaz anahtarı ile sabit. Değer **JC8F96eayuQwwz + PkE7IzjH2lIAjCUnAa61tDigBnSs =** yalnızca örnek olarak verilmiştir.
+1. Toaster cihaz benzetimini yapmak için çağrı Bul `prov_dev_set_symmetric_key_info()` içinde **prov\_geliştirme\_istemci\_sample.c** hangi dışında bırakılır.
 
     ```c
-    static const char* const REGISTRATION_NAME = "breakroom499-contoso-tstrsd-007";
-    static const char* const SYMMETRIC_KEY_VALUE = "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
+
+    İşlev çağrısının açıklamasını kaldırın ve (açılı ayraçlar dahil) yer tutucu değerlerini toaster kayıt kimliği ve daha önce oluşturulan türetilen cihaz anahtarı ile değiştirin. Anahtar değeri **JC8F96eayuQwwz + PkE7IzjH2lIAjCUnAa61tDigBnSs =** gösterilen aşağıda yalnızca örnek olarak verilmiştir.
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("breakroom499-contoso-tstrsd-007", "JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=");
+    ```
+   
+    Dosyayı kaydedin.
 
 2. Çözümü çalıştırmak için Visual Studio menüsünde **Hata Ayıkla** > **Hata ayıklama olmadan başlat**'ı seçin. Projeyi yeniden derleme isteminde **Evet**'e tıklayarak, çalıştırmadan önce projeyi yeniden derleyin.
 
@@ -485,20 +489,16 @@ Bu örnek kod, cihaz sağlama hizmeti örneğinizi sağlama isteği gönderdiği
 
 #### <a name="simulate-the-contoso-heat-pump-device"></a>Contoso ısı pompa cihazının simülasyonunu gerçekleştirme
 
-1. Visual Studio'nun içinde tekrar *Çözüm Gezgini* penceresinde gidin **hsm\_güvenlik\_istemci** proje ve genişletin. **Kaynak Dosyalar**’ı genişletin ve **hsm\_client\_key.c** dosyasını açın. 
-
-    `REGISTRATION_NAME` ve `SYMMETRIC_KEY_VALUE` sabitlerinin bildirimini bulun. Dosyada aşağıdaki değişiklikleri yapıp dosyayı kaydedin.
-
-    Değerini güncelleştirin `REGISTRATION_NAME` ısı pompa cihaz için kayıt kimliği ile sabit **contoso hpsd 088 mainbuilding167**.
-    
-    Değerini güncelleştirin `SYMMETRIC_KEY_VALUE` toaster cihaz için oluşturduğunuz cihaz anahtarı ile sabit. Değer **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg =** yalnızca örnek olarak verilmiştir.
+1. Isı pompa cihaz benzetimini yapmak için çağrı güncelleştirme `prov_dev_set_symmetric_key_info()` içinde **prov\_geliştirme\_istemci\_sample.c** yeniden ısı pompa kayıt kimliği ve türetilen cihaz anahtarı ile daha önce oluşturulan . Anahtar değeri **6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg =** gösterilen aşağıda ayrıca yalnızca bir örnek olarak verilmiştir.
 
     ```c
-    static const char* const REGISTRATION_NAME = "mainbuilding167-contoso-hpsd-088";
-    static const char* const SYMMETRIC_KEY_VALUE = "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("mainbuilding167-contoso-hpsd-088", "6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=");
     ```
+   
+    Dosyayı kaydedin.
 
-7. Çözümü çalıştırmak için Visual Studio menüsünde **Hata Ayıkla** > **Hata ayıklama olmadan başlat**'ı seçin. Projeyi yeniden derleme isteminde **Evet**'e tıklayarak, çalıştırmadan önce projeyi yeniden derleyin.
+2. Çözümü çalıştırmak için Visual Studio menüsünde **Hata Ayıkla** > **Hata ayıklama olmadan başlat**'ı seçin. Projeyi yeniden derleme isteminde **Evet**'e tıklayarak, çalıştırmadan önce projeyi yeniden derleyin.
 
     Aşağıdaki çıktı, Yedekleme başarıyla önyüklenmesini ve özel ayırma ilkesi tarafından Contoso ısı pompalara IOT hub'ına atanacak sağlama hizmeti örneğine bağlanan sanal ısı pompa cihaz örneğidir:
 
@@ -515,8 +515,6 @@ Bu örnek kod, cihaz sağlama hizmeti örneğinizi sağlama isteği gönderdiği
 
     Press enter key to exit:
     ```
-
-
 
 
 ## <a name="troubleshooting-custom-allocation-policies"></a>Özel ayırma ilkeleri sorunlarını giderme

@@ -1,5 +1,5 @@
 ---
-title: 'Klasik sanal ağlar Azure Resource Manager sanal ağlarına bağlama: PowerShell | Microsoft Docs'
+title: 'Klasik sanal ağlar, Azure Resource Manager sanal ağlarına bağlama: PowerShell | Microsoft Docs'
 description: Klasik sanal ağlar ile Resource Manager VPN Gateway ve PowerShell kullanarak sanal ağlar arasında VPN bağlantısı oluşturun.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5f133af5ec077821607bf3e942c8a931808d34fc
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d515363e1413634d8222e043fff0b91aa464002c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953596"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337547"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>PowerShell kullanarak farklı dağıtım modellerindeki sanal ağları birbirine bağlama
 
@@ -34,7 +34,7 @@ Aşağıdaki adımlar, her sanal ağ için dinamik ya da rota tabanlı ağ geçi
 
 ### <a name="pre"></a>Önkoşullar
 
-* Her iki Vnet'in zaten oluşturdunuz. Resource manager sanal ağı oluşturmak için ihtiyacınız varsa bkz [sanal ağ oluşturma](../virtual-network/quick-create-powershell.md#create-a-virtual-network). Klasik bir sanal ağ oluşturmak için bkz [Klasik sanal ağ oluşturma](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
+* Her iki Vnet'in zaten oluşturdunuz. Resource manager sanal ağı oluşturmak için ihtiyacınız varsa bkz [bir kaynak grubunu ve sanal ağ oluşturma](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Klasik bir sanal ağ oluşturmak için bkz [Klasik sanal ağ oluşturma](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic).
 * Sanal ağlar için adres aralıklarını değil birbiriyle çakışma veya ağ geçitlerinin bağlı diğer bağlantılar aralıklardan herhangi biriyle çakışıyor.
 * En son PowerShell cmdlet'leri yüklediniz. Bkz: [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview) daha fazla bilgi için. Hizmet Yönetimi (SM) hem de kaynak yöneticisi (RM) cmdlet'leri yüklediğinizden emin olun. 
 
@@ -263,7 +263,7 @@ Bu bölümde, Klasik VNet ile birlikte çalışır. Resource Manager sanal ağ g
 ## <a name="connect"></a>4. bölüm - ağ geçitleri arasında bağlantı oluşturma
 Ağ geçitleri arasında bağlantı oluşturma PowerShell gerektirir. Azure Klasik PowerShell cmdlet'lerini kullanmanız için hesabınızı eklemeniz gerekebilir. Bunu yapmak için **Add-AzureAccount**.
 
-1. PowerShell konsolunda paylaşılan anahtarınızın ayarlayın. Cmdlet'leri çalıştırmadan önce indirdiğiniz ağ yapılandırma dosyasını görmek için Azure bekliyor tam adları için bakın. Boşluk içeren bir Vnet'in adı belirtirken, değeri tek tırnak işaretleri kullanın.<br><br>Aşağıdaki örnekte, **- VNetName** Klasik VNet adıdır ve **- LocalNetworkSiteName** yerel ağ alanı için belirtilen adı. **- SharedKey** sizin oluşturup belirttiğiniz bir değerdir. Örnekte 'abc123' kullandık, ancak oluşturabilir ve daha karmaşık. Önemli olan, burada belirttiğiniz değerin bağlantınızı oluştururken sonraki adımda belirttiğiniz değerle aynı olması gerekliliğidir. Dönüş göstermelidir **durumu: başarılı**.
+1. PowerShell konsolunda paylaşılan anahtarınızın ayarlayın. Cmdlet'leri çalıştırmadan önce indirdiğiniz ağ yapılandırma dosyasını görmek için Azure bekliyor tam adları için bakın. Boşluk içeren bir Vnet'in adı belirtirken, değeri tek tırnak işaretleri kullanın.<br><br>Aşağıdaki örnekte, **- VNetName** Klasik VNet adıdır ve **- LocalNetworkSiteName** yerel ağ alanı için belirtilen adı. **- SharedKey** sizin oluşturup belirttiğiniz bir değerdir. Örnekte 'abc123' kullandık, ancak oluşturabilir ve daha karmaşık. Önemli olan, burada belirttiğiniz değerin bağlantınızı oluştururken sonraki adımda belirttiğiniz değerle aynı olması gerekliliğidir. Dönüş göstermelidir **durumu: Başarılı**.
 
   ```azurepowershell
   Set-AzureVNetGatewayKey -VNetName ClassicVNet `

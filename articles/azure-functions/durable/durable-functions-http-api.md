@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a5e3bd655e0780861f4bf70c247df72e6acedd09
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 577147ad91c6a35a45fd40ca9e6424863ea196d6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642364"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340792"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) HTTP API'leri
 
@@ -24,7 +24,6 @@ Dayanıklı görev uzantısı kullanıma sunan bir dizi HTTP API'si, aşağıdak
 * Orchestration örneği durumu getirilemedi.
 * Bir olay bir bekleyen düzenleme örneğine gönderin.
 * Çalışan bir düzenleme örneği sonlandırın.
-
 
 Her biri bu HTTP API'lerini doğrudan dayanıklı görev uzantısı tarafından işlenen bir Web kancası bir işlemdir. Bunlar herhangi bir işleve işlev uygulamasına özel değildir.
 
@@ -35,9 +34,15 @@ Her biri bu HTTP API'lerini doğrudan dayanıklı görev uzantısı tarafından 
 
 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıfı kullanıma sunan bir [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_) desteklenen tüm işlemler için bağlantılar içeren bir HTTP yanıtı yükü oluşturmak için kullanılan API. Bu API kullanımı gösterilmiştir HTTP tetikleyici işlevi bir örnek aşağıda verilmiştir:
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
-Bu örnek işlevi aşağıdaki JSON yanıt verilerini oluşturur. Tüm alanlar veri türü `string`.
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
+
+Bu örnek işlevleri aşağıdaki JSON yanıt verilerini oluşturur. Tüm alanlar veri türü `string`.
 
 | Alan             |Açıklama                           |
 |-------------------|--------------------------------------|
@@ -63,8 +68,9 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
+
 > [!NOTE]
-> Web kancası URL'leri biçimi, Azure işlevleri ana bilgisayarın hangi sürümünün kullanmakta olduğunuz bağlı olarak farklı olabilir. Yukarıdaki örnek için Azure işlevleri 2.0 ana bilgisayardır.
+> Web kancası URL'leri biçimi, Azure işlevleri ana bilgisayarın hangi sürümünün kullanmakta olduğunuz bağlı olarak farklı olabilir. Yukarıdaki örnek için Azure işlevleri 2.x yöneticisidir.
 
 ## <a name="async-operation-tracking"></a>Zaman uyumsuz işlem izleme
 
@@ -86,13 +92,13 @@ Tüm HTTP API'lerini aşağıdaki parametreleri uzantısı sınav zamanı taraf�
 
 | Parametre  | Parametre türü  | Açıklama |
 |------------|-----------------|-------------|
-| InstanceId | URL'si             | Orchestration örneği kimliği. |
+| instanceId | URL'si             | Orchestration örneği kimliği. |
 | taskHub    | Sorgu dizesi    | Adını [görev hub](durable-functions-task-hubs.md). Belirtilmezse, geçerli işlevi uygulamanın görev hub adı varsayılır. |
 | bağlantı | Sorgu dizesi    | **Adı** depolama hesabı için bağlantı dizesi. Belirtilmemişse, işlev uygulaması için varsayılan bağlantı dizesini kabul edilir. |
 | systemKey  | Sorgu dizesi    | API'yi çağırmak için gereken yetkilendirme anahtar. |
 | showInput  | Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `false`, yürütme giriş dahil edilmeyecek yanıt yükünde.|
-| showHistory| Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, orchestration yürütme geçmişini yanıt yükünde dahil edilir.| 
-| showHistoryOutput| Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, etkinlik çıkışı dahil edilecek düzenleme yürütme geçmişi.| 
+| showHistory| Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, orchestration yürütme geçmişini yanıt yükünde dahil edilir.|
+| showHistoryOutput| Sorgu dizesi    | İsteğe bağlı parametre. Varsa kümesine `true`, etkinlik çıkışı dahil edilecek düzenleme yürütme geçmişi.|
 | createdTimeFrom  | Sorgu dizesi    | İsteğe bağlı parametre. Belirtildiğinde, sırasında veya belirtilen ISO8601 zaman damgasından sonra oluşturulan döndürülen örneklerinin listesini filtreler.|
 | createdTimeTo    | Sorgu dizesi    | İsteğe bağlı parametre. Bu seçenek belirtildiğinde, sırasında veya belirtilen ISO8601 zaman damgasından önce oluşturulan döndürülen örneklerinin listesini filtreler.|
 | runtimeStatus    | Sorgu dizesi    | İsteğe bağlı parametre. Bu seçenek belirtildiğinde, filtreleri döndürülen örneklerinin listesini çalışma zamanı durumlarına göre. Olası çalışma zamanı durum değerlerinin listesini görmek için bkz: [örnekleri sorgulama](durable-functions-instance-management.md) konu. |
@@ -124,11 +130,11 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&conne
 
 Birkaç olası durum kodu değeri döndürülür.
 
-* **200 (Tamam) HTTP**: Belirtilen örnek tamamlanmış bir durumda.
-* **202 (kabul edildi) HTTP**: belirtilen örneği devam ediyor.
+* **200 (TAMAM) HTTP**: Belirtilen örnek tamamlanmış bir durumda.
+* **202 (kabul edildi) HTTP**: Belirtilen örneği işlemi devam ediyor.
 * **HTTP 400 (Hatalı istek)**: Belirtilen örnek başarısız oldu veya sonlandırıldı.
-* **HTTP 404 (bulunamadı)**: Belirtilen örnek yok ya da çalışan başlatılmadı.
-* **HTTP 500 (iç sunucu hatası)**: belirtilen örneği işlenmeyen bir özel durumla başarısız oldu.
+* **HTTP 404 (bulunamadı)**: Belirtilen örnek yok veya çalışan başlatılmadı.
+* **HTTP 500 (iç sunucu hatası)**: Belirtilen örneği işlenmeyen bir özel durumla başarısız oldu.
 
 Yanıt yükü **HTTP 200** ve **HTTP 202** durumda şu alanlara sahip bir JSON nesnesi:
 
@@ -140,7 +146,7 @@ Yanıt yükü **HTTP 200** ve **HTTP 202** durumda şu alanlara sahip bir JSON n
 | çıkış          | JSON      | Örnek JSON çıkışı. Bu alan `null` örneği tamamlanmış durumda değilse. |
 | oluşturulma zamanı     | dize    | Örneği oluşturulduğu zaman. ISO 8601 genişletilmiş gösterimi kullanır. |
 | lastUpdatedTime | dize    | Hangi örneğinin son kalıcı saat. ISO 8601 genişletilmiş gösterimi kullanır. |
-| historyEvents   | JSON      | Orchestration yürütme geçmişini içeren bir JSON dizisi. Bu alan `null` sürece `showHistory` sorgu dizesi parametresi ayarlandığında `true`.  | 
+| historyEvents   | JSON      | Orchestration yürütme geçmişini içeren bir JSON dizisi. Bu alan `null` sürece `showHistory` sorgu dizesi parametresi ayarlandığında `true`.  |
 
 Orchestration yürütme geçmişini ve etkinlik çıktıları (okunabilmesi için biçimlendirilmiştir) dahil olmak üzere bir örnek yanıt yükü şu şekildedir:
 
@@ -199,10 +205,9 @@ Orchestration yürütme geçmişini ve etkinlik çıktıları (okunabilmesi içi
 
 **HTTP 202** yanıt da içeren bir **konumu** aynı URL'ye başvuran yanıt üst bilgisi `statusQueryGetUri` alan daha önce bahsedilen.
 
-
 ### <a name="get-all-instances-status"></a>Tüm örnekleri durumunu Al
 
-Ayrıca, tüm örnekleri durumu sorgulayabilirsiniz. Kaldırma `instanceId` 'örneği durumunu Al' istek. Parametreleri 'Get örneği durumu.' ile aynıdır 
+Ayrıca, tüm örnekleri durumu sorgulayabilirsiniz. Kaldırma `instanceId` 'örneği durumunu Al' istek. Parametreleri 'Get örneği durumu.' ile aynıdır
 
 Unutmayın, bir şey olduğunu `connection` ve `code` isteğe bağlıdır. İşlev anonim kimlik doğrulaması varsa kod gerekli değildir.
 AzureWebJobsStorage uygulama ayarı dışında tanımlanan farklı bir blob depolama bağlantı dizesini kullanmak istemiyorsanız, bağlantı sorgu dizesi parametresi güvenle yoksayabilirsiniz.
@@ -215,7 +220,7 @@ AzureWebJobsStorage uygulama ayarı dışında tanımlanan farklı bir blob depo
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
-İşlevler 2.0 aynı parametreleri ancak biraz farklı bir URL ön eki biçimdedir: 
+İşlevler 2.0 aynı parametreleri ancak biraz farklı bir URL ön eki biçimdedir:
 
 ```http
 GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
@@ -231,7 +236,7 @@ GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={conne
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
-İşlevler 2.0 aynı parametreleri ancak biraz farklı bir URL ön eki biçimdedir: 
+İşlevler 2.0 aynı parametreleri ancak biraz farklı bir URL ön eki biçimdedir:
 
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
@@ -291,8 +296,8 @@ Yanıt yükü düzenleme durumu (okunabilmesi için biçimlendirilmiştir) dahil
 ```
 
 > [!NOTE]
-> Çok sayıda örnek tablosundaki satırları varsa bu işlem Azure depolama g/ç açısından çok pahalı olabilir. Örnek tablo hakkında daha fazla ayrıntı bulunabilir [performansı ve ölçeği dayanıklı işlevler (Azure işlevleri) içinde](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) belgeleri.
-> 
+> Çok sayıda örnek tablosundaki satırları varsa bu işlem Azure depolama g/ç açısından çok pahalı olabilir. Örnek tablo hakkında daha fazla ayrıntı bulunabilir [performansı ve ölçeği dayanıklı işlevler (Azure işlevleri) içinde](durable-functions-perf-and-scale.md#instances-table) belgeleri.
+>
 
 #### <a name="request-with-paging"></a>Disk belleği ile istek
 
@@ -304,7 +309,7 @@ Ayarlayabileceğiniz `top` sorgunun sonuçlarını sayfalara bölmek için param
 GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
 ```
 
-İşlevler 2.0 aynı parametreleri ancak biraz farklı bir URL ön eki biçimdedir: 
+İşlevler 2.0 aynı parametreleri ancak biraz farklı bir URL ön eki biçimdedir:
 
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
@@ -313,7 +318,6 @@ GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={conne
 Sonraki sayfaya varsa, bir devamlılık belirteci yanıt üst bilgisinde döndürülür.  Üst bilgi adı `x-ms-continuation-token`.
 
 Sonraki istek üst bilgisinde devamlılık belirteci değeri ayarlarsanız, sonraki sayfaya alabilirsiniz.  Bu anahtar istek üst `x-ms-continuation-token`.
-
 
 ### <a name="raise-event"></a>Olayı
 
@@ -344,10 +348,10 @@ Aşağıdaki benzersiz parametreleri yanı sıra daha önce bahsedilen varsayıl
 
 Birkaç olası durum kodu değeri döndürülür.
 
-* **202 (kabul edildi) HTTP**: oluşturulan olay işleme için kabul edildi.
+* **202 (kabul edildi) HTTP**: Oluşturulan olay işleme için kabul edildi.
 * **HTTP 400 (Hatalı istek)**: İstek içeriği türünde değildi `application/json` veya geçerli bir JSON değildi.
 * **HTTP 404 (bulunamadı)**: Belirtilen örnek bulunamadı.
-* **HTTP (Gone) 410**: Belirtilen örnek tamamlandı veya başarısız ve yükseltilmiş meydana gelen olayları işlenemiyor.
+* **HTTP (Geçmiş) 410**: Belirtilen örnek tamamlandı veya başarısız ve yükseltilmiş meydana gelen olayları işlenemiyor.
 
 JSON dizesi gönderen bir örnek istek işte `"incr"` adlı bir olay bekleniyor örneğine **işlemi**:
 
@@ -389,9 +393,9 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate?reason={reas
 
 Birkaç olası durum kodu değeri döndürülür.
 
-* **202 (kabul edildi) HTTP**: sonlandırma isteği işleme için kabul edildi.
+* **202 (kabul edildi) HTTP**: Sonlandırma isteği, işleme için kabul edildi.
 * **HTTP 404 (bulunamadı)**: Belirtilen örnek bulunamadı.
-* **HTTP (Gone) 410**: Belirtilen örnek tamamlandı veya başarısız oldu.
+* **HTTP (Geçmiş) 410**: Belirtilen örnek tamamlandı veya başarısız oldu.
 
 Çalışan bir örneği sona erer ve bir nedenini belirten bir örnek istek işte **buggy**:
 
@@ -405,7 +409,7 @@ Bu API için yanıtlar herhangi bir içerik içermez.
 
 En son başarısız işlemleri yeniden yürüterek çalışır duruma başarısız düzenleme örneğine yükler.
 
-#### <a name="request"></a>İstek
+### <a name="request"></a>İstek
 
 İşlevleri 1.0 için istek biçimi aşağıdaki gibidir:
 
@@ -425,13 +429,13 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind?reason={reason}
 |-------------|-----------------|-----------|-------------|
 | reason      | Sorgu dizesi    | dize    | İsteğe bağlı. Orchestration örneği geri sarma nedeni. |
 
-#### <a name="response"></a>Yanıt
+### <a name="response"></a>Yanıt
 
 Birkaç olası durum kodu değeri döndürülür.
 
 * **202 (kabul edildi) HTTP**: Geri Sar istek işleme için kabul edildi.
 * **HTTP 404 (bulunamadı)**: Belirtilen örnek bulunamadı.
-* **HTTP (Gone) 410**: Belirtilen örnek tamamlandı veya sonlandırıldı.
+* **HTTP (Geçmiş) 410**: Belirtilen örnek tamamlandı veya sonlandırıldı.
 
 Başarısız bir olayı geri sarar ve bir nedenini belirten bir örnek istek işte **sabit**:
 

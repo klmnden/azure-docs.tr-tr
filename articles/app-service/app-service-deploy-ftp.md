@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: f48dc4d91fd5fafda88f518c27c79e151e5b1ebe
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3b8c97fa772467d1e0aff830eec51d212045be39
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260081"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339714"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Uygulamanızı FTP/S kullanarak Azure App Service'e dağıtma
 
@@ -96,7 +96,7 @@ Bir çalışma zamanı sorununu genellikle, uygulama, ancak yanlış uygulama da
 Dağıtım veya çalışma zamanı sorunu belirlemek için bkz: [çalışma zamanı sorunlarına ve dağıtım](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>FTP mümkün değil ve kodum yayımlama bildirimi. Sorunu çözmek ne?
-Doğru ana bilgisayar adı girdiğiniz denetleyin ve [kimlik bilgilerini](#step-1--set-deployment-credentials). Ayrıca, makinenizde aşağıdaki FTP bağlantı noktalarını güvenlik duvarı tarafından engellenmediğinden kontrol edin:
+Doğru ana bilgisayar adı girdiğiniz denetleyin ve [kimlik bilgilerini](#open-ftp-dashboard). Ayrıca, makinenizde aşağıdaki FTP bağlantı noktalarını güvenlik duvarı tarafından engellenmediğinden kontrol edin:
 
 - FTP denetim bağlantı noktası: 21
 - FTP veri bağlantı noktası: 989, 10001-10300

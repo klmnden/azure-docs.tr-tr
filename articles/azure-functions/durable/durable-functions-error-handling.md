@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 61496d91c9ec2cd1dcf498df04d2dab6629e009c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7a55e28f34f36cd02b67e56c6262b9e1f06dde8f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642665"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338201"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) hataları işleme
 
@@ -27,7 +27,7 @@ Bir etkinlik işlevinde oluşturulan herhangi bir özel durum orchestrator işle
 
 Örneğin, bir hesaptan para aktarımı aşağıdaki orchestrator işlevi göz önünde bulundurun:
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -38,16 +38,16 @@ public static async Task Run(DurableOrchestrationContext context)
 
     await context.CallActivityAsync("DebitAccount",
         new
-        { 
+        {
             Account = transferDetails.SourceAccount,
             Amount = transferDetails.Amount
         });
 
     try
     {
-        await context.CallActivityAsync("CreditAccount",         
+        await context.CallActivityAsync("CreditAccount",
             new
-            { 
+            {
                 Account = transferDetails.DestinationAccount,
                 Amount = transferDetails.Amount
             });
@@ -56,9 +56,9 @@ public static async Task Run(DurableOrchestrationContext context)
     {
         // Refund the source account.
         // Another try/catch could be used here based on the needs of the application.
-        await context.CallActivityAsync("CreditAccount",         
+        await context.CallActivityAsync("CreditAccount",
             new
-            { 
+            {
                 Account = transferDetails.SourceAccount,
                 Amount = transferDetails.Amount
             });
@@ -66,7 +66,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 ```javascript
 const df = require("durable-functions");
@@ -108,7 +108,7 @@ module.exports = df.orchestrator(function*(context) {
 
 Etkinlik işlevlerini veya alt düzenleme işlevler çağırdığınızda, otomatik yeniden deneme ilkesi belirtebilirsiniz. Aşağıdaki örnek, en fazla üç kez bir işlevi çağırmak çalışır ve her yeniden deneme arasındaki 5 saniye bekler:
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -118,41 +118,41 @@ public static async Task Run(DurableOrchestrationContext context)
         maxNumberOfAttempts: 3);
 
     await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
-    
+
     // ...
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 ```javascript
 const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const retryOptions = new df.RetryOptions(5000, 3);
-    
+
     yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
 
     // ...
 });
 ```
 
-`CallActivityWithRetryAsync` (C#) Veya `callActivityWithRetry` (JS) API alır bir `RetryOptions` parametresi. Suborchestration çağrıları kullanarak `CallSubOrchestratorWithRetryAsync` (C#) veya `callSubOrchestratorWithRetry` (JS) API'si aynı bu yeniden deneme ilkelerini kullanabilirsiniz.
+`CallActivityWithRetryAsync` (.NET) veya `callActivityWithRetry` (JavaScript) API götüren bir `RetryOptions` parametresi. Suborchestration çağrıları kullanarak `CallSubOrchestratorWithRetryAsync` (.NET) veya `callSubOrchestratorWithRetry` (JavaScript) API'si aynı bu yeniden deneme ilkelerini kullanabilirsiniz.
 
 Otomatik yeniden deneme ilkesi özelleştirmek için birkaç seçenek vardır. Bu ülkelere şunlar dahildir:
 
-* **En fazla deneme sayısı**: yeniden deneme sayısı.
-* **İlk yeniden deneme aralığı**: ilk yeniden denemeden önce beklenecek süre.
-* **Geri alma katsayısı**: geri alma sayısında artış oranını belirlemek için kullanılan katsayısı. Varsayılan olarak 1.
-* **En fazla yeniden deneme aralığı**: yeniden denemeler arasında beklenecek en uzun süreyi.
-* **Yeniden deneme zaman aşımının**: harcama yapmak için en uzun süreyi yeniden dener. Süresiz olarak yeniden denemek için varsayılan davranıştır.
-* **Tanıtıcı**: bir işlev çağrısı denenen olup olmadığını belirleyen kullanıcı tanımlı bir geri çağırma belirtilebilir.
+* **En fazla deneme sayısı**: Yeniden deneme sayısı.
+* **İlk yeniden deneme aralığı**: İlk yeniden deneme girişiminden önce beklenecek süre miktarı.
+* **Geri alma katsayısı**: Geri alma sayısında artış oranını belirlemek için kullanılan katsayısı. Varsayılan olarak 1.
+* **En fazla yeniden deneme aralığı**: Yeniden denemeler arasında beklenecek en uzun süreyi.
+* **Yeniden deneme zaman aşımının**: Bunun yapılması harcayabileceğiniz en uzun süreyi yeniden dener. Süresiz olarak yeniden denemek için varsayılan davranıştır.
+* **Tanıtıcı**: Kullanıcı tanımlı bir geri çağırma, işlev çağrısı denenen olup olmadığını belirleyen belirtilebilir.
 
 ## <a name="function-timeouts"></a>İşlevi zaman aşımları
 
-Bir düzenleyici işlevi içinde bir işlev çağrısının tamamlanması çok uzun sürüyorsa bırakmasını isteyebilirsiniz. Bugün Bunu yapmak için uygun yolu oluşturmaktır bir [dayanıklı Zamanlayıcı](durable-functions-timers.md) kullanarak `context.CreateTimer` birlikte `Task.WhenAny`, aşağıdaki örnekte olduğu gibi:
+Bir düzenleyici işlevi içinde bir işlev çağrısının tamamlanması çok uzun sürüyorsa bırakmasını isteyebilirsiniz. Bugün Bunu yapmak için uygun yolu oluşturmaktır bir [dayanıklı Zamanlayıcı](durable-functions-timers.md) kullanarak `context.CreateTimer` (.NET) veya `context.df.createTimer` (JavaScript) ile birlikte `Task.WhenAny` (.NET) veya `context.df.Task.any` (JavaScript) aşağıdaki örnekte olduğu gibi:
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -181,7 +181,7 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 ```javascript
 const df = require("durable-functions");

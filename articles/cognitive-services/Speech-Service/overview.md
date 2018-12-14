@@ -1,38 +1,37 @@
 ---
 title: Konuşma Tanıma Hizmeti nedir?
 titleSuffix: Azure Cognitive Services
-description: "Azure Bilişsel Hizmetler'in bir parçası olan Konuşma Tanıma Hizmeti, daha önce ayrı olarak sunulan şu birkaç konuşma hizmetini bir araya getirmektedir: Bing Konuşma (konuşma tanıma ve metin okumayı içerir), Özel Konuşma Tanıma ve Konuşma Çevirisi."
+description: "Konuşma hizmeti, Azure Bilişsel Hizmetler'in bir parçası, ayrı olarak önceden kullanılabilen çeşitli konuşma Hizmetleri sahip: Bing konuşma (metin okuma ve konuşma tanıma kapsayan), özel konuşma tanıma ve konuşma çevirisi."
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: ba4204c23f3467ff07940fd6a72464e67604dde1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: e86adfd4e832e6b9514e4813ddd4a942b07ca624
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470455"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336603"
 ---
-# <a name="what-is-the-speech-service"></a>Konuşma Tanıma Hizmeti nedir?
+# <a name="what-is-speech-services"></a>Konuşma Hizmetleri nedir?
 
+Diğer Azure konuşma Hizmetleri gibi konuşma Hizmetleri, Cortana ve Microsoft Office gibi ürünlerinde kullanılan konuşma teknolojileri tarafından desteklenir.
 
-Konuşma tanıma hizmeti, diğer Azure konuşma tanıma hizmetleriyle aynı şekilde Cortana ve Microsoft Office gibi ürünlerde kullanılan konuşma tanıma teknolojileri ile kullanıma sunulmuştur.
+Konuşma Hizmetleri Azure konuşma tanıma özelliği ile önceden kullanılabilen birleştiren [Bing konuşma API'si](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator konuşma çevirisi](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [özel konuşma](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home), ve [özel Ses](http://customvoice.ai/) Hizmetleri. Artık bu özelliklerin tümüne tek bir abonelikle erişim sağlanabilir.
 
-Konuşma tanıma hizmeti, daha önce [Bing Konuşma API'si](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Konuşma Çevirisi](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Özel Konuşma Tanıma](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home) ve [Özel Ses](http://customvoice.ai/) hizmetleriyle kullanılabilen Azure konuşma tanıma özelliklerini bir araya getirmektedir. Artık bu özelliklerin tümüne tek bir abonelikle erişim sağlanabilir.
+## <a name="main-speech-services-functions"></a>Ana konuşma hizmetleri işlevleri
 
-## <a name="main-speech-service-functions"></a>Konuşma tanıma hizmetinin ana işlevleri
-
-Konuşma tanıma hizmetinin birincil işlevleri şunlardır: Konuşmayı Metne Dönüştürme (konuşma tanıma veya transkripsiyon olarak da adlandırılır), Metin Okuma (konuşma birleştirme) ve Konuşma Çevirisi.
+Birincil işlevler konuşma Hizmetleri, Konuşmayı metne dönüştürme (Ayrıca çağrılan konuşma tanıma veya döküm), metin okuma (konuşma sentezi) ve konuşma çevirisi içindedir.
 
 |İşlev|Özellikler|
 |-|-|
-|[Konuşmayı Metne Dönüştürme](speech-to-text.md)| <li>Sürekli, gerçek zamanlı konuşmaları metne dönüştürür.<li>Ses kayıtlarından toplu konuşma dökümü alabilir. <li>Ara sonuçların yanı sıra konuşma sonu algılama, otomatik metin biçimlendirme ve küfür maskeleme özelliklerini destekler. <li>Dökümü alınmış bir konuşmadan kullanıcının amacını anlamak üzere [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/)'de (LUIS) çağrı yapabilir.\*|
-|[Metin Okuma](text-to-speech.md)| <li>Metni, doğal sesli konuşmaya dönüştürür. <li>Desteklenen birçok dil için birden fazla cinsiyet ve/veya diyalekt sunar. <li>Düz metin girişini veya Konuşma Birleştirme İşaretleme Dilini (SSML) destekler. |
-|[Konuşma Çevirisi](speech-translation.md)| <li>Ses akışını neredeyse gerçek zamanlı olarak çevirir.<li> Kaydedilen konuşmaları da işleyebilir.<li>Sonuçları metin veya birleştirilmiş konuşma olarak sunar. |
+|[Konuşmayı metne dönüştürme](speech-to-text.md)| <li>Sürekli, gerçek zamanlı konuşmaları metne dönüştürür.<li>Ses kayıtlarından toplu konuşma dökümü alabilir. <li>Ara sonuçların yanı sıra konuşma sonu algılama, otomatik metin biçimlendirme ve küfür maskeleme özelliklerini destekler. <li>Dökümü alınmış bir konuşmadan kullanıcının amacını anlamak üzere [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/)'de (LUIS) çağrı yapabilir.\*|
+|[Metin okuma](text-to-speech.md)| <li>**YENİ**: Metin okuma sinir seslerini İnsan konuşma (İngilizce) neredeyse ayırt sağlar. <li>Metni, doğal sesli konuşmaya dönüştürür. <li>Desteklenen birçok dil için birden fazla cinsiyet ve/veya diyalekt sunar. <li>Düz metin girişini veya Konuşma Birleştirme İşaretleme Dilini (SSML) destekler. |
+|[Konuşma çevirisi](speech-translation.md)| <li>Ses akışını neredeyse gerçek zamanlı olarak çevirir.<li> Kaydedilen konuşmaları da işleyebilir.<li>Sonuçları metin veya birleştirilmiş konuşma olarak sunar. |
 
 
 ## <a name="customize-speech-features"></a>Konuşma tanıma özelliklerini özelleştirme
@@ -44,7 +43,7 @@ Konuşma tanıma hizmetinin Konuşmayı Metne Dönüştürme ve Metin Okuma öze
 |Konuşmayı Metne Dönüştürme|[Akustik model](how-to-customize-acoustic-models.md)|Belirli konuşmacıların ve ortamların (arabalar veya fabrikalar gibi) konuşma dökümünü almanıza yardımcı olur.|
 ||[Dil modeli](how-to-customize-language-model.md)|Alana özgü sözlük ve dil bilgisi (tıp veya BT jargonu) transkriptini almanıza yardımcı olur.|
 ||[Söyleniş modeli](how-to-customize-pronunciation.md)|Kısaltmaların (örneğin, "Avrupa Birliği" için "AB") transkriptini almanıza yardımcı olur. |
-|Metin Okuma|[Ses tipi](how-to-customize-voice-font.md)|Modeli insan konuşması örneklerine dayalı olarak eğiterek uygulamanızın kendisine özgü bir sese sahip olmasını sağlar.|
+|Metin okuma|[Ses tipi](how-to-customize-voice-font.md)|Modeli insan konuşması örneklerine dayalı olarak eğiterek uygulamanızın kendisine özgü bir sese sahip olmasını sağlar.|
 
 Özel modellerinizi, uygulamanızın Konuşmayı Metne Dönüştürme veya Metin Okuma işlevleriyle standart modelleri kullandığınız her yerde kullanabilirsiniz.
 
@@ -52,18 +51,18 @@ Konuşma tanıma hizmetinin Konuşmayı Metne Dönüştürme ve Metin Okuma öze
 
 Microsoft, konuşma özellikli uygulamaların geliştirilmesini basitleştirmek için Konuşma tanıma hizmetiyle kullanılmak üzere [Konuşma SDK'sını](speech-sdk.md) kullanıma sunmuştur. Konuşma SDK'sı C#, C++ ve Java için tutarlı, yerel Konuşmayı Metne Dönüştürme ve Konuşma Çevirisi API'leri sağlar. Bu dillerden biriyle geliştirme yapıyorsanız, Konuşma SDK'sı ağ ayrıntılarını sizin yerinize ele alarak geliştirmeyi daha kolay hale getirir.
 
-Ayrıca Konuşma tanıma hizmeti, HTTP isteği oluşturabilen tüm programlama dilleriyle çalışan bir [REST API](rest-apis.md)'ye sahiptir. REST arabirimi SDK'nın akıcı, gerçek zamanlı işlevselliğini sunmaz.
+Konuşma hizmetleri de sahip bir [REST API](rest-apis.md) HTTP isteği yapabilen programlama dili ile çalışır. REST arabirimi SDK'nın akıcı, gerçek zamanlı işlevselliğini sunmaz.
 
 |<br>Yöntem|Konuşma<br>Metne Dönüştürme|Metin<br>Konuşma|Konuşma<br>Çeviri|<br>Açıklama|
 |-|-|-|-|-|
-|[Konuşma SDK'sı](speech-sdk.md)|Yes|Hayır|Yes|Geliştirme işlemini basitleştirmeye yönelik yerel C#, C++ ve Java API'leri.|
-|[REST](rest-apis.md)|Yes|Yes|Hayır|Uygulamalarınıza konuşma eklemeyi kolay hale getiren HTTP tabanlı, basit bir API.|
+|[Konuşma SDK'sı](speech-sdk.md)|Evet|Hayır|Evet|Geliştirme işlemini basitleştirmeye yönelik yerel C#, C++ ve Java API'leri.|
+|[REST API'ler](rest-apis.md)|Evet|Evet|Hayır|Uygulamalarınıza konuşma eklemeyi kolay hale getiren HTTP tabanlı, basit bir API.|
 
 ### <a name="websockets"></a>WebSockets
 
-Konuşma tanıma hizmetinde, Konuşmayı Metne Dönüştürme ve Konuşma Çevirisi akışları için WebSocket protokolleri de vardır. Konuşma SDK'ları, Konuşma tanıma hizmetiyle iletişim kurmak için bu protokolleri kullanır. Konuşma tanıma hizmetiyle kendi WebSocket iletişiminizi uygulamaya çalışmak yerine Konuşma SDK'sını kullanın.
+Konuşma Hizmetleri WebSocket Protokolü akış konuşma metin ve konuşma çevirisi için de destekler. Konuşma SDK'ları, Konuşma tanıma hizmetiyle iletişim kurmak için bu protokolleri kullanır. Konuşma tanıma hizmetiyle kendi WebSocket iletişiminizi uygulamaya çalışmak yerine Konuşma SDK'sını kullanın.
 
-Zaten WebSockets aracılığıyla Bing Konuşma'yı veya Translator Konuşma Çevirisi'ni kullanan bir kodunuz varsa, bunu Konuşma tanıma hizmetini kullanacak şekilde güncelleştirebilirsiniz. WebSocket protokolleri uyumludur, yalnızca uç noktalar farklıdır.
+Bing konuşma veya Translator konuşma çevirisi WebSockets üzerinden kullanan kodu zaten varsa, konuşma hizmetleri kullanacak şekilde güncelleştirebilirsiniz. WebSocket protokolleri uyumludur, ancak uç noktalar farklıdır.
 
 ### <a name="speech-devices-sdk"></a>Konuşma Cihazları SDK’sı
 
@@ -72,7 +71,7 @@ Zaten WebSockets aracılığıyla Bing Konuşma'yı veya Translator Konuşma Çe
 
 ## <a name="speech-scenarios"></a>Konuşma tanıma senaryoları
 
-Konuşma tanıma hizmeti için kullanım örnekleri arasında şunlar yer almaktadır:
+Konuşma Hizmetleri için kullanım örnekleri şunlardır:
 
 > [!div class="checklist"]
 > * Ses ile tetiklenen uygulamalar oluşturma
@@ -85,15 +84,15 @@ Ses girişi; uygulamanızı esnek, eller serbest özellikli ve kullanımı kolay
 
 Uygulamanız genel kullanıma yönelikse, varsayılan konuşma tanıma modellerini kullanabilirsiniz. Bunlar genel ortamlarda çok çeşitli konuşmacıları tanır.
 
-Uygulamanız belirli bir etki alanında (tıp veya BT gibi) kullanılıyorsa, [dil modeli](how-to-customize-language-model.md) oluşturabilirsiniz. Bu modeli kullanarak Konuşma tanıma hizmetini uygulamanız tarafından kullanılan özel terminoloji hakkında eğitebilirsiniz.
+Uygulamanız belirli bir etki alanında (tıp veya BT gibi) kullanılıyorsa, [dil modeli](how-to-customize-language-model.md) oluşturabilirsiniz. Bu model, uygulamanız tarafından kullanılan özel terimleri hakkında konuşma Hizmetleri öğretmeyi kullanabilirsiniz.
 
-Uygulamanız gürültülü bir ortamda örneğin fabrikada kullanılıyorsa, özel bir [akustik modeli](how-to-customize-acoustic-models.md) oluşturabilirsiniz. Bu model Konuşma tanıma hizmetinin konuşmayı gürültüden ayırt etmesine yardımcı olur.
+Uygulamanız gürültülü bir ortamda örneğin fabrikada kullanılıyorsa, özel bir [akustik modeli](how-to-customize-acoustic-models.md) oluşturabilirsiniz. Bu model, konuşma paraziti ayırt etmek için konuşma Hizmetleri yardımcı olur.
 
 ### <a name="call-center-transcription"></a>Çağrı merkezi transkripsiyonu
 
 Çağrı merkezi kayıtlarına genellikle yalnızca, bir aramayla ilgili sorun ortaya çıktığında başvurulur. Konuşma tanıma hizmeti ile her bir kayıt kolayca metne dönüştürülebilir. Metinleri [tam metin araması](https://docs.microsoft.com/azure/search/search-what-is-azure-search) için dizinleyebilir veya yaklaşımı, dili ve anahtar ifadeleri algılamak için [Metin Analizi](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/) uygulayabilirsiniz.
 
-Çağrı merkezi kayıtlarınız özel terminoloji (ürün adları veya BT jargonu gibi) içeriyorsa Konuşma tanıma hizmetine bu sözlüğü öğretmek için bir [dil modeli](how-to-customize-language-model.md) oluşturabilirsiniz. Özel bir [akustik model](how-to-customize-acoustic-models.md), Konuşma tanıma hizmetinin optimum seviyenin altındaki telefon bağlantılarını anlamasına yardımcı olabilir.
+Çağrı merkezi kayıtlarınızı ürün adları veya BT terminolojisinin özel terimleri kapsıyorsa oluşturabileceğiniz bir [dil modeli](how-to-customize-language-model.md) sözlük konuşma Hizmetleri öğretmeyi. Özel bir [akustik model](how-to-customize-acoustic-models.md) Yardım konuşma Hizmetleri daha az-en iyi telefon bağlantıları anlayabilirsiniz.
 
 Bu senaryoyla ilgili olarak daha fazlasını öğrenmek için Konuşma tanıma hizmeti ile [toplu iş transkripsiyonu](batch-transcription.md) hakkında daha fazla bilgi edinin.
 
@@ -105,7 +104,7 @@ Ses özellikli botunuza benzersiz bir kişilik eklemek için kendisine ait bir s
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Konuşma tanıma hizmeti için bir abonelik anahtarı edinin.
+Konuşma Hizmetleri için bir abonelik anahtarı edinirler.
 
 > [!div class="nextstepaction"]
-> [Konuşma tanıma hizmetini ücretsiz olarak deneyin](get-started.md)
+> [Konuşma Hizmetleri ücretsiz olarak deneyin](get-started.md)

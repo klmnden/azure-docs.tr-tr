@@ -1,0 +1,118 @@
+---
+title: Azure uyarıları yönetim olayları etkinlik günlüğü uyarılarına geçirme
+description: 1 Ekim yönetim olayları ile ilgili uyarılar kaldırılacak. Geçirme varolan uyarıları göre hazırlayın.
+author: johnkemnetz
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 08/14/2017
+ms.author: johnkem
+ms.component: alerts
+ms.openlocfilehash: e3159ac4074e7ff437e052e0e2c1ae7d31378abe
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53346504"
+---
+# <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Azure uyarıları yönetim olayları etkinlik günlüğü uyarılarına geçirme
+
+
+> [!WARNING]
+> Tarihinde veya sonrasında 1 Ekim yönetim olayları ile ilgili uyarılar kapatılır. Bu uyarılar ve bu durumda geçiş anlamak için aşağıdaki yönergeleri kullanın.
+>
+> 
+
+## <a name="what-is-changing"></a>Ne değişiyor
+
+Azure İzleyici (eski adıyla Azure öngörüleri) yönetimi olaylarını dışına tetiklenir ve bir Web kancası URL'si veya e-posta adreslerine bildirim oluşturulan bir uyarı oluşturmak için bir özellik sunuluyor. Oluşturmuş olabileceğiniz bunlardan birine uyarılarını şu adımlardan herhangi birini:
+* Bazı kaynak türleri için Azure portalında izleme bölümünden -> Uyarılar -> Ekle "Uyarısı" ayarlandığı "Olaylar" için uyarı,
+* Add-AzureRmLogAlertRule PowerShell cmdlet'ini çalıştırarak
+* Doğrudan kullanarak [uyarı REST API'si](https://docs.microsoft.com/rest/api/monitor/alertrules) odata.type ile "ManagementEventRuleCondition" ve dataSource.odata.type = "RuleManagementEventDataSource" =
+ 
+Aşağıdaki PowerShell betiğini tüm uyarıların bir listesi, aboneliğinizin yanı sıra her bir uyarı koşullara sahip yönetim olayları döndürür.
+
+```powershell
+Connect-AzureRmAccount
+$alerts = $null
+foreach ($rg in Get-AzureRmResourceGroup ) {
+  $alerts += Get-AzureRmAlertRule -ResourceGroup $rg.ResourceGroupName
+}
+foreach ($alert in $alerts) {
+  if($alert.Properties.Condition.DataSource.GetType().Name.Equals("RuleManagementEventDataSource")) {
+    "Alert Name: " + $alert.Name
+    "Alert Resource ID: " + $alert.Id
+    "Alert conditions:"
+    $alert.Properties.Condition.DataSource
+    "---------------------------------"
+  }
+} 
+```
+
+Uyarı Yönetimi olayları varsa, PowerShell cmdlet'i yukarıdaki uyarı iletilerini bunun gibi bir dizi çıkarır:
+
+`WARNING: The output of this cmdlet will be flattened, i.e. elimination of the properties field, in a future release to improve the user experience.`
+
+Bu uyarı iletilerini yoksayılabilir. Yönetim olaylarına uyarılar varsa, bu PowerShell cmdlet'in çıktısı şuna benzeyecektir:
+
+```
+Alert Name: webhookEvent1
+Alert Resource ID: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/alertrules/webhookEvent1
+Alert conditions:
+
+EventName            : 
+EventSource          : 
+Level                : 
+OperationName        : microsoft.web/sites/start/action
+ResourceGroupName    : 
+ResourceProviderName : 
+Status               : succeeded
+SubStatus            : 
+Claims               : Microsoft.Azure.Management.Monitor.Management.Models.RuleManagementEventClaimsDataSource
+ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Web/sites/samplealertapp
+
+---------------------------------
+Alert Name: someclilogalert
+Alert Resource ID: /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/microsoft.insights/alertrules/someclilogalert
+Alert conditions:
+
+EventName            : 
+EventSource          : 
+Level                : 
+OperationName        : Start
+ResourceGroupName    : 
+ResourceProviderName : 
+Status               : 
+SubStatus            : 
+Claims               : Microsoft.Azure.Management.Monitor.Management.Models.RuleManagementEventClaimsDataSource
+ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resourcegroup-name>/providers/Microsoft.Compute/virtualMachines/Seaofclouds
+
+---------------------------------
+```
+
+Her bir uyarı tarafından kesikli çizgiye ayrılır ve ayrıntıları, uyarı ve izlenmekte olan belirli bir kuralın kaynak Kimliğini içerir.
+
+Bu işlev için geçirileceğini [Azure etkinlik günlüğü uyarıları izleme](../../azure-monitor/platform/activity-log-alerts.md). Bu yeni uyarılar, etkinlik günlüğü olayları bir koşul ayarlamaya ve yeni bir olay koşul eşleştiğinde bir bildirim almak etkinleştirin. Bunlar ayrıca uyarılar yönetim olayları ile ilgili çeşitli geliştirmeler sağlar:
+* Grubunuzun bildirim alıcıları ("Eylemler") kullanarak çok sayıda uyarı yeniden [Eylem grupları](../../azure-monitor/platform/action-groups.md), bir uyarı almanız gerekir değiştirme karmaşıklığı azaltır.
+* Doğrudan SMS ile Eylem grupları kullanarak telefonunuza bir bildirim alabilir.
+* Yapabilecekleriniz [Resource Manager şablonları ile etkinlik günlüğü uyarıları oluşturma](../../azure-monitor/platform/alerts-activity-log.md).
+* Daha fazla esneklik ve belirli ihtiyaçlarınızı karşılamak için karmaşıklık koşulları oluşturabilirsiniz.
+* Bildirimleri daha hızlı teslim edilir.
+ 
+## <a name="how-to-migrate"></a>Geçiş yapma
+ 
+Yeni Etkinlik günlüğü uyarısı oluşturmak için şunlardan birini yapabilirsiniz:
+* İzleyin [kılavuzumuza Azure portalında uyarı oluşturma](../../azure-monitor/platform/activity-log-alerts.md)
+* Bilgi edinmek için nasıl [Resource Manager şablonu kullanarak bir uyarı oluştur](../../azure-monitor/platform/alerts-activity-log.md)
+ 
+Daha önce oluşturduğunuz yönetim olayları ile ilgili uyarılar, etkinlik günlüğü uyarılarına otomatik olarak geçirilmez. Şu anda yapılandırdıysanız ve bunları el ile etkinlik günlüğü uyarısı yeniden Yönetimi olayları ile ilgili uyarılar listelemek için yukarıdaki PowerShell Betiği kullanmanız gerekir. Bu yönetim olayları ile ilgili uyarılar artık Azure aboneliğinizde görünür olacak 1 Ekim önce yapılmalıdır. Azure uyarıları, Azure İzleyici ölçüm uyarıları, Application Insights uyarıları ve Log Analytics uyarılarını gibi diğer türleri, bu değişiklikten etkilenmez. Herhangi bir sorunuz varsa aşağıdaki yorumları gönderin.
+
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Daha fazla bilgi edinin [etkinlik günlüğü](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+* Yapılandırma [Azure portal aracılığıyla etkinlik günlüğü uyarıları](../../azure-monitor/platform/activity-log-alerts.md)
+* Yapılandırma [etkinlik günlüğü uyarıları Resource Manager aracılığıyla](../../azure-monitor/platform/alerts-activity-log.md)
+* Gözden geçirme [etkinlik günlüğü uyarısı Web kancası şeması](../../azure-monitor/platform/activity-log-alerts-webhook.md)
+* Daha fazla bilgi edinin [hizmet bildirimleri](../../monitoring-and-diagnostics/monitoring-service-notifications.md)
+* Daha fazla bilgi edinin [Eylem grupları](../../azure-monitor/platform/action-groups.md)

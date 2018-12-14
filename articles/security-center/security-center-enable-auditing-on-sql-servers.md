@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5b185486ee1adfc3e9acc12aeb15162094ab6424
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 21d261fc82e7aec6d3d4a8ae0c98d71a686be201
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310982"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335972"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-servers-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde SQL sunucularında denetim ve tehdit algılamayı etkinleştirme
 Azure Güvenlik Merkezi, denetimi açın ve tehdit algılama, Azure SQL sunucularında denetimi, tüm veritabanları için zaten etkin önerir. Denetim ve tehdit algılama, mevzuatla uyumluluk, veritabanı etkinliğini anlama ve ifade eden tutarsızlıklar ve anomaliler, elde yardımcı olabilir işletme sorunlarını veya şüpheli güvenlik ihlallerini.
@@ -52,7 +52,7 @@ Bu makalede Güvenlik Merkezi önerisini "etkin denetim ve tehdit algılamayı S
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
 * [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.

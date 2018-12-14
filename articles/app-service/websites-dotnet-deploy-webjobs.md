@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: aa1d5a4fc29b6fa5fc751edfd40e61d8762f6bd7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 300ccf5da3528be63ae618338b8953d05b0e799d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965351"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337470"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Geliştirme ve Visual Studio - Azure App Service kullanarak Web işleri dağıtma
 
@@ -142,7 +142,7 @@ Bir konsol uygulaması Web işleri dağıtımı için yapılandırdığınızda,
           "runMode": "Continuous"
         }
 
-Visual Studio IntelliSense sağlar ve bu dosyayı doğrudan düzenleyebilirsiniz. Dosya şeması depolandı [ http://schemastore.org ](http://schemastore.org/schemas/json/webjob-publish-settings.json) ve orada görüntülenebilir.  
+Visual Studio IntelliSense sağlar ve bu dosyayı doğrudan düzenleyebilirsiniz. Dosya şeması depolandı [ https://schemastore.org ](https://schemastore.org/schemas/json/webjob-publish-settings.json) ve orada görüntülenebilir.  
 
 ## <a id="webjobslist"></a>webjobs-list.json
 WebJobs'ın etkinleştirilmiş bir proje için bir web projesi bağladığınızda, Visual Studio WebJobs projenin adını depolar. bir *webjobs list.json* web proje dosyasında *özellikleri* klasör. Liste, aşağıdaki örnekte gösterildiği gibi birden çok Web işleri proje içerebilir:
@@ -159,7 +159,7 @@ WebJobs'ın etkinleştirilmiş bir proje için bir web projesi bağladığınız
           ]
         }
 
-Visual Studio IntelliSense sağlar ve bu dosyayı doğrudan düzenleyebilirsiniz. Dosya şeması depolandı [ http://schemastore.org ](http://schemastore.org/schemas/json/webjobs-list.json) ve orada görüntülenebilir.
+Visual Studio IntelliSense sağlar ve bu dosyayı doğrudan düzenleyebilirsiniz. Dosya şeması depolandı [ https://schemastore.org ](https://schemastore.org/schemas/json/webjobs-list.json) ve orada görüntülenebilir.
 
 ## <a id="deploy"></a>WebJobs projesini dağıtma
 Bir web projesine bağlı bir WebJobs proje web projesi ile otomatik olarak dağıtır. Web projesi dağıtımı hakkında daha fazla bilgi için bkz. **nasıl yapılır kılavuzları** > **Dağıt uygulama** sol gezinti bölmesinde.

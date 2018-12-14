@@ -8,19 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8cdcdd6c5e0201f8f6af39faab0a67a68920e568
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094585"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342108"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Konuşma hizmeti API'sini dil ve bölge desteği
 
-Farklı diller için farklı bir konuşma hizmeti işlevleri desteklenir. Aşağıdaki tablolarda, dil desteği özetler.
+Farklı diller için farklı bir konuşma hizmetleri işlevleri desteklenir. Aşağıdaki tablolarda, dil desteği özetler.
 
 ## <a name="speech-to-text"></a>Konuşmayı Metne Dönüştürme
 
@@ -60,9 +60,26 @@ Microsoft konuşma tanıma API'si aşağıdaki dilleri desteklemektedir. Farklı
  TH TH | Tayca (Tayland) | Hayır | Hayır | Hayır
 
 
-## <a name="text-to-speech"></a>Metin Okuma
+## <a name="text-to-speech"></a>Metin okuma
 
-Konuşma sentezi API'si her biri belirli bir dil ve yerel ayar tarafından tanımlanan diyalekti, destekleyen aşağıdaki sesi sunar.
+Her biri belirli bir dil ve yerel ayar tarafından tanımlanan diyalekti, destekler, bu seslerle metin okuma REST API destekler.
+
+### <a name="neural-voices-preview"></a>Sinir sesleri (Önizleme)
+
+Sinir metin okuma, konuşma sentezi derin sinir ağı tarafından desteklenen yeni bir türdür. Sinir sesli Sentezlenen konuşma neredeyse İnsan sonuçlarından ayırt olur.
+
+Sinir sesleri etkileşimleri sohbet robotları ve sanal Yardımcıları ile daha doğal yapmasına ve ilgi çekici, e-kitapları gibi dijital metinleri audiobooks dönüştürmek ve içi navigasyon sistemleri geliştirir kullanılabilir. Kullanıcıların yapay ZEKA sistemlerle etkileşim kurduğunuzda İnsan benzeri doğal prosody ve sözcük Temizle articulation sinir sesleri dinleme yorulma ciddi ölçüde düşürün.
+
+Sinir seslerle ve bölgesel kullanılabilirlik tam listesi için bkz: [bölgeleri](regions.md#neural-voices).
+
+| Yerel Ayar | Dil | Cinsiyet | Hizmet adı eşleme|
+|--------|----------|---------|--------------------|
+| en-US | English (US) | Erkek | "Microsoft Server Konuşma metin konuşma ses (en-US, GuyNeural)" |
+| en-US | English (US) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, JessaNeural)" |
+
+### <a name="standard-voices"></a>Standart sesler
+
+75'den fazla standart sesleri üzerinde 45 diller ve Sentezlenen konuşmaya metin dönüştürmenize olanak sağlayan yerel ayarlar kullanılabilir. Bölgesel kullanılabilirlik hakkında daha fazla bilgi için bkz: [bölgeleri](regions.md#standard-voices).
 
 Yerel Ayar | Dil | Cinsiyet | Hizmet adı eşleme
 -------|----------|---------|--------------------
@@ -157,7 +174,7 @@ Ses özelleştirme bizim için İngilizce (en-US), ana kara Çince (zh-CN), Fran
 > [!NOTE]
 > Almanca ve İtalyanca üslup eğitimi Fransızca, 2. 000 + ile bir veri kümesi konuşma başlatır. Çince-İngilizce dilli modelleri da bir ilk konuşma 2000'den fazla veri kümesi ile desteklenir.
 
-## <a name="speech-translation"></a>Konuşma Çevirisi
+## <a name="speech-translation"></a>Konuşma çevirisi
 
 **Konuşma çevirisi** API, konuşma tanıma ve konuşma tanıma ve konuşma metin çevirisi için farklı dilleri destekler. Kaynak dili her zaman aşağıdaki konuşma dilini tablodan olmalıdır. Hedef diller Çeviri hedef konuşma veya metin olmasına göre değişir. Gelen konuşmaya Çevir birden fazla [60 diller](https://www.microsoft.com/translator/business/languages/). Bu dillerin bir alt kümesi için kullanılabilir [konuşma sentezi](language-support.md#text-languages).
 

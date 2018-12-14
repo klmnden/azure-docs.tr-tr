@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 5e2599c2089cbd9961b54966df5f0f98d6badcce
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3808511e588ba4284dee16cf7ca88bfd5a382c3a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274675"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337487"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği SQL Server örneği geçirme
 
@@ -60,7 +60,7 @@ Yönetilen örnek buluta taşımak için planlama şirket içi iş yükleri içi
 Sanal ağ altyapısı ve yönetilen örneğe nasıl oluşturulacağını öğrenmek için bkz: [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
-> Hedef sanal ağ ve alt ağ her zaman içinde belge tutmak önemlidir [yönetilen örnek sanal ağ gereksinimleri](sql-database-managed-instance-vnet-configuration.md#requirements). Hiçbir uyumsuzluk yeni kopyalarını oluşturmak veya önceden oluşturulmuş bu kullanarak engelleyebilirsiniz.
+> Hedef sanal ağ ve alt ağ her zaman içinde belge tutmak önemlidir [yönetilen örnek sanal ağ gereksinimleri](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Hiçbir uyumsuzluk yeni kopyalarını oluşturmak veya önceden oluşturulmuş bu kullanarak engelleyebilirsiniz. Daha fazla bilgi edinin [yeni oluşturma](sql-database-managed-instance-create-vnet-subnet.md) ve [mevcut yapılandırma](sql-database-managed-instance-configure-vnet-subnet.md) ağlar.
 
 ## <a name="select-migration-method-and-migrate"></a>Geçiş yöntemi seçin ve geçirme
 

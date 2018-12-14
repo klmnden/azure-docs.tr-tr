@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 98380cc5b9daff314283ac4e45e5edf7b5601e1b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: fefbdffdeb3db86447038a3b3d4d24e8c7cd3803
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642301"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340445"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) dış olayları işleme
 
@@ -25,7 +25,7 @@ Orchestrator işlevleri bekleyin ve dış olaylarını dinleyecek seçeneğine s
 
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) yöntemi zaman uyumsuz olarak bekleyin ve bir dış olay dinlemek bir düzenleyici işlevi sağlar. Dinleme orchestrator işlev bildirir *adı* olayın ve *verinin şeklini* almak bekliyor.
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BudgetApproval")]
@@ -44,7 +44,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 ```javascript
 const df = require("durable-functions");
@@ -90,7 +90,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 ```javascript
 const df = require("durable-functions");
@@ -133,7 +133,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+#### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 ```javascript
 const df = require("durable-functions");
@@ -155,15 +155,17 @@ module.exports = df.orchestrator(function*(context) {
 [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) bazı giriş süresiz olarak bekler.  İşlev uygulaması, bekleme sırasında güvenli bir şekilde yüklenmemiş olabilir. Bu düzenleme örneği için bir olay ulaşan durumunda otomatik olarak sunucuyu uyandırdı ve hemen olayını işler.
 
 > [!NOTE]
-> İşlev uygulamanızın bir tüketim planı kullanıyorsa, bir düzenleyici işlevi bir görevden bekliyor. ancak faturalandırma ücret uygulanmaz `WaitForExternalEvent`, ne kadar süre bekleyeceğini ne olursa olsun.
+> İşlev uygulamanızın bir tüketim planı kullanıyorsa, bir düzenleyici işlevi bir görevden bekliyor. ancak faturalandırma ücret uygulanmaz `WaitForExternalEvent` (.NET) veya `waitForExternalEvent` (JavaScript) ne kadar süre bekleyeceğini ne olursa olsun.
 
 . NET'te olay yükü beklenen türe dönüştürülürse, `T`, bir özel durum oluşturulur.
 
 ## <a name="send-events"></a>Olayları gönderme
 
-[RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) yöntemi [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıfı, olayları gönderir `WaitForExternalEvent` bekler.  `RaiseEventAsync` Yöntemi *eventName* ve *eventData* parametre olarak. Olay verileri, JSON seri hale getirilebilir olması gerekir.
+[RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) yöntemi [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) sınıfı, olayları gönderir `WaitForExternalEvent` (.NET) veya `waitForExternalEvent` (JavaScript) bekler.  `RaiseEventAsync` Yöntemi *eventName* ve *eventData* parametre olarak. Olay verileri, JSON seri hale getirilebilir olması gerekir.
 
 Orchestrator işlevi örneğine "Onay" olay gönderen bir örnek kuyruk ile tetiklenen bir işlev aşağıda verilmiştir. Kuyruk iletisi gövdesinden düzenleme örnek kimliği gelir.
+
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("ApprovalQueueProcessor")]
@@ -175,38 +177,24 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
-JavaScript'te bir rest çağrılacak sahibiz bir olay için dayanıklı işlevi bekliyor tetiklemek için API.
-Aşağıdaki kod, "istek" paketini kullanır. Aşağıdaki yöntem, herhangi bir olay için dayanıklı işlevi herhangi bir örneğine yükseltmek için kullanılabilir
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
-```js
-function raiseEvent(instanceId, eventName) {
-        var url = `<<BASE_URL>>/runtime/webhooks/durabletask/instances/${instanceId}/raiseEvent/${eventName}?taskHub=DurableFunctionsHub`;
-        var body = <<BODY>>
-            
-        return new Promise((resolve, reject) => {
-            request({
-                url,
-                json: body,
-                method: "POST"
-            }, (e, response) => {
-                if (e) {
-                    return reject(e);
-                }
+```javascript
+const df = require("durable-functions");
 
-                resolve();
-            })
-        });
-    }
+module.exports = async function(context, instanceId) {
+    const client = df.getClient(context);
+    await client.raiseEvent(instanceId, "Approval", true);
+};
 ```
 
-<< BASE_URL >> temel URL'si olacaktır, işlev uygulaması. Kodu yerel olarak çalıştırıyorsanız sonra aşağıdakine benzer görünecektir http://localhost:7071 veya https://< olarak azure'da<functionappname>>. azurewebsites.net
-
-
-Dahili olarak `RaiseEventAsync` kaybolmamasının bekleme Düzenleyici işlevi tarafından toplanmış bir ileti.
+Dahili olarak `RaiseEventAsync` (.NET) veya `raiseEvent` (JavaScript) kaybolmamasının bekleme Düzenleyici işlevi tarafından toplanmış bir ileti.
 
 > [!WARNING]
 > Belirtilen orchestration örneği yok ise *kimliği örnek* veya örneği belirtilen beklemiyorsa *olay adı*, olay iletisi göz ardı edilir. Bu davranış hakkında daha fazla bilgi için bkz. [GitHub sorunu](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+
+> [!WARNING]
+> JavaScript içinde yerel olarak geliştirirken, ortam değişkenini ayarlamak gerekir `WEBSITE_HOSTNAME` için `localhost:<port>`, örn. `localhost:7071` yöntemleri kullanmak üzere `DurableOrchestrationClient`. Bu gereksinim hakkında daha fazla bilgi için bkz. [GitHub sorunu](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -218,4 +206,3 @@ Dahili olarak `RaiseEventAsync` kaybolmamasının bekleme Düzenleyici işlevi t
 
 > [!div class="nextstepaction"]
 > [İnsan etkileşimi için bekleyen bir örneği çalıştırma](durable-functions-phone-verification.md)
-

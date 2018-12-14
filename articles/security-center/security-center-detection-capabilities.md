@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 922e0afb77a9f1e42f014770ccc51d2a356d112b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e9aacdd75d35a714a9f878d059514fd8aa65f50d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843742"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340751"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Azure Güvenlik Merkezi algılama özellikleri
 Bu belge - hem Windows hem de Linux - Microsoft Azure kaynaklarınızı hedefleyen etkin tehditleri belirlemenize yardımcı olur ve hızlı bir şekilde yanıt vermek için gereken bilgileri sağlayan Azure Güvenlik Merkezi'nin Gelişmiş algılama özelliklerini ele alınmaktadır.
 
-Gelişmiş algılamalar Azure Güvenlik Merkezi'nin Standart Katmanında mevcuttur. Ücretsiz bir deneme sürümü mevcuttur. [Güvenlik İlkesi](security-center-azure-policy.md) bölümündeki Fiyatlandırma Katmanı’ndan yükseltme yapabilirsiniz. Fiyatlandırma hakkında daha fazla bilgi almak için [Güvenlik Merkezi sayfasını](https://azure.microsoft.com/pricing/details/security-center/) ziyaret edin.
+Gelişmiş algılamalar Azure Güvenlik Merkezi'nin Standart Katmanında mevcuttur. Ücretsiz bir deneme sürümü mevcuttur. [Güvenlik İlkesi](tutorial-security-policy.md) bölümündeki Fiyatlandırma Katmanı’ndan yükseltme yapabilirsiniz. Fiyatlandırma hakkında daha fazla bilgi almak için [Güvenlik Merkezi sayfasını](https://azure.microsoft.com/pricing/details/security-center/) ziyaret edin.
 
 
 ## <a name="responding-to-todays-threats"></a>Günümüzün tehditlerine yanıt verme
@@ -58,23 +58,23 @@ Davranış analizi, verileri analiz eden ve bilinen modeller koleksiyonuyla kar�
 Ayrıca, yaygın bir kampanyanın kanıtını desteklemek üzere denetlenmesi gereken diğer sinyallerle bir bağlantı vardır. Bu bağıntı yerleşik tehlike göstergeleriyle tutarlı olayları tanımlamaya yardımcı olur. Bazı örnekler:
 
 * **Şüpheli işlem yürütme**: Saldırganlar tespit edilmeden kötü amaçlı yazılım yürütmeye yönelik çeşitli teknikler kullanmaktadır. Örneğin, bir saldırgan kötü amaçlı yazılıma yasal sistem dosyalarıyla aynı adı verip, bu dosyaları alternatif konumlara yerleştirebilir, iyi amaçlı bir dosyaya çok benzer bir ad kullanabilir ya da dosyanın gerçek uzantısını maskeleyebilir. Güvenlik Merkezi modelleri, davranışları işler ve işlem yürütmeleri izleyerek bunlar gibi aykırı değerleri algılar.  
-* **Gizli kötü amaçlı yazılım ve güvenlik açığından yararlanma girişimleri**: Karmaşık kötü amaçlı yazılımlar diske hiçbir zaman yazmayarak veya diske depolanmış yazılım bileşenlerini şifreleyerek geleneksel kötü amaçlı yazılımdan koruma ürünlerini atlatabilir.  Ancak, bu tür kötü amaçlı yazılımlar çalışmak için bellekte iz bırakmak zorunda olduğundan bellek analizi kullanılarak algılanabilir. Yazılım kilitlendiğinde bir kilitlenme dökümü kilitlenme sırasında belleğin bir kısmını yakalar.  Kilitlenme dökümündeki belleği analiz eden Azure Güvenlik Merkezi, yazılımdaki açıklardan yararlanmak, gizli verilere erişmek ve makinenizin performansını etkilemeden tehlikeye giren bir makineye gizlice sızmak için kullanılan teknikleri algılayabilir.
-* **Yana hareket ve iç keşif**: Tehlikeye giren bir ağda kalıcı olmak ve değerli verileri bulmak/toplamak için saldırganlar genellikle riskli makineden aynı ağdaki diğer makinelere yana doğru hareket etmeye çalışır. Güvenlik Merkezi bir saldırganın ağda kapladığı yeri genişletme denemelerini bulmak için uzaktan komut yürütme, ağ araştırma ve hesap numaralandırma gibi işlem ve oturum açma etkinliklerini izler.
-* **Kötü Amaçlı PowerShell Komut Dosyaları**: PowerShell çeşitli amaçlarla hedef sanal makinelerde kötü amaçlı kod yürütmek üzere saldırganlar tarafından kullanılmaktadır. Güvenlik Merkezi şüpheli etkinliklerin kanıtı için PowerShell etkinliğini inceler.
+* **Gizli kötü amaçlı yazılım ve istismarı denemeleri**: Karmaşık kötü amaçlı yazılımlar diske hiçbir zaman yazmayarak veya diske depolanmış yazılım bileşenlerini şifreleyerek geleneksel kötü amaçlı yazılımdan koruma ürünlerini atlatabilir.  Ancak, bu tür kötü amaçlı yazılımlar çalışmak için bellekte iz bırakmak zorunda olduğundan bellek analizi kullanılarak algılanabilir. Yazılım kilitlendiğinde bir kilitlenme dökümü kilitlenme sırasında belleğin bir kısmını yakalar.  Kilitlenme dökümündeki belleği analiz eden Azure Güvenlik Merkezi, yazılımdaki açıklardan yararlanmak, gizli verilere erişmek ve makinenizin performansını etkilemeden tehlikeye giren bir makineye gizlice sızmak için kullanılan teknikleri algılayabilir.
+* **Yana hareket ve iç keşif**: İçinde güvenliği aşılmış bir ağ ve bulmak/toplamak değerli verileri kalıcı hale getirmek için saldırganlar genellikle riskli makineden başkalarının aynı ağdaki hareket etmeye çalışır. Güvenlik Merkezi bir saldırganın ağda kapladığı yeri genişletme denemelerini bulmak için uzaktan komut yürütme, ağ araştırma ve hesap numaralandırma gibi işlem ve oturum açma etkinliklerini izler.
+* **Kötü amaçlı PowerShell betikleri**: PowerShell çeşitli amaçlarla hedef sanal makinelerde kötü amaçlı kod yürütmek üzere saldırganlar tarafından kullanılıyor. Güvenlik Merkezi şüpheli etkinliklerin kanıtı için PowerShell etkinliğini inceler.
 * **Giden saldırılar**: Saldırganlar genellikle bulut kaynaklarını ek saldırılar yerleştirmek üzere kullanma amacıyla bulut kaynaklarını hedefler. Örneğin, diğer sanal makinelere karşı deneme yanılma saldırıları başlatmak, istenmeyen posta göndermek veya açık bağlantı noktalarını ya da internet üzerindeki diğer cihazları taramak için riskli sanal makineler kullanılabilir. Ağ trafiğine machine learning uygulayan Güvenlik Merkezi giden ağ iletişimlerinin normu aştığını algılayabilir. İstenmeyen posta durumunda Güvenlik Merkezi, Office 365’ten alınan bilgilerle olağandışı e-posta trafiğini ilişkilendirerek, postanın kötü amaçlı ya da yasal bir e-posta kampanyasının sonucu olup olmadığını belirler.  
 
 ### <a name="anomaly-detection"></a>Anormallik algılama
 Azure Güvenlik Merkezi, tehditleri tanımlamak için anormallik algılamayı da kullanır. Davranış analizinden (büyük veri kümelerinden türetilmiş bilinen modellere bağlıdır) farklı olarak anormallik algılama daha fazla “kişiselleştirilmiştir” ve dağıtımlarınıza özel taban çizgilerine odaklanır. Dağıtımlarınızın normal etkinliğini belirlemek için machine learning uygulanır ve sonra bir güvenlik olayını gösterebilecek aykırı değer koşullarını tanımlamak üzere kurallar oluşturulur. Bir örneği aşağıda verilmiştir:
 
-* **Gelen RDP/SSH deneme yanılma saldırıları**: Dağıtımlarınız her gün çok sayıda oturumun açıldığı yoğun sanal makineler ve çok az oturumun açıldığı ya da hiç oturum açılmayan sanal makineler içerebilir. Azure Güvenlik Merkezi bu sanal makineler için taban çizgisi oturum açma etkinliğini belirler ve machine learning kullanarak normal oturum açma etkinliğinin dışındaki olayları belirler. Oturum açma sayısı, oturum açma saati, oturum açmanın istendiği konum veya oturum açmayla ilgili diğer özellikler taban çizgisine göre oldukça farklı ise bir uyarı oluşturulabilir. Yine machine learning neyin önemli olduğunu belirler.
+* **Gelen RDP/SSH deneme yanılma saldırıları**: Dağıtımlarınız her gün ve çok az olan sanal makinelerin çok sayıda oturum açılmayan sanal makineler olabilir ya da hiç oturum. Azure Güvenlik Merkezi bu sanal makineler için taban çizgisi oturum açma etkinliğini belirler ve machine learning kullanarak normal oturum açma etkinliğinin dışındaki olayları belirler. Oturum açma sayısı, oturum açma saati, oturum açmanın istendiği konum veya oturum açmayla ilgili diğer özellikler taban çizgisine göre oldukça farklı ise bir uyarı oluşturulabilir. Yine machine learning neyin önemli olduğunu belirler.
 
 ## <a name="continuous-threat-intelligence-monitoring"></a>Sürekli tehdit bilgisi izleme
 Azure Güvenlik Merkezi, tehdit kapsamındaki değişiklikleri sürekli olarak izleyen güvenlik araştırması ve veri bilimi ekipleri çalıştırır. Buna aşağıdaki girişimler dahildir:
 
-* **Tehdit bilgisi izleme**: Tedit bilgileri, var olan veya yeni ortaya çıkan tehditlere ilişkin mekanizma, gösterge, etkiler ve uygulanabilir öneriler içerir. Bu bilgileri güvenlik topluluğu içinde paylaşılır ve Microsoft, iç ve dış kaynaklardan gelen tehdit bilgisi akışlarını sürekli olarak izler.
-* **Sinyal paylaşımı**: Microsoft'un bulut ve şirket içi hizmetler, sunucular ve istemci uç noktası cihazları içeren geniş portföyünde güvenlik ekiplerinden alınan bilgiler paylaşılır ve analiz edilir.
-* **Microsoft güvenlik uzmanları**: Microsoft’ta hukuk ve web saldırıcı algılama gibi uzman güvenlik alanlarında çalışan ekiplerle sürekli iletişim.
-* **Algılama ayarı**: Gerçek müşteri veri kümelerine göre algoritmalar çalıştırılır ve güvenlik araştırmacıları, sonuçları doğrulamak üzere müşterilerle işbirliği yapar. Doğru ve yanlış pozitifler kullanılarak machine learning algoritmaları iyileştirilir.
+* **Tehdit bilgisi izleme**: Tehdit zekası mekanizmaları, Göstergeler, uygulamaları ve var olan veya yeni ortaya çıkan tehditlere eyleme dönüştürülebilir öneriler içerir. Bu bilgileri güvenlik topluluğu içinde paylaşılır ve Microsoft, iç ve dış kaynaklardan gelen tehdit bilgisi akışlarını sürekli olarak izler.
+* **Sinyal paylaşımı**: Güvenlik Öngörüler takımlar arasında Microsoft'un geniş Portföyünde Bulut ve şirket içi hizmetler, sunucular ve istemci uç noktası cihazları paylaşılan ve analiz.
+* **Microsoft Güvenlik uzmanları**: Devamlı etkileşim hukuk ve web saldırıcı algılama gibi Uzman güvenlik alanlarında çalışan ekiplerle Microsoft arasında.
+* **Algılama ayarı**: Gerçek müşteri veri kümelerine göre algoritmalar çalıştırılır ve güvenlik Araştırmacıları sonuçları doğrulamak üzere müşterilerle. Doğru ve yanlış pozitifler kullanılarak machine learning algoritmaları iyileştirilir.
 
 Bu birleşik çabalar yeni ve geliştirilmiş algılamalarla sonuçlanır ve sizin hiçbir şey yapmanıza gerek kalmaz.
 

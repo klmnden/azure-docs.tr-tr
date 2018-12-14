@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: c8bee6902fb74cb77c34395fd05c1c861b4f630e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 349d3a6eacf22a0ce3f842dd30df19964cdf7f23
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166143"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337334"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir OData kaynaktan veri kopyalama
 
@@ -35,7 +35,7 @@ Bir OData kaynağından tüm desteklenen havuz veri deposuna veri kopyalayabilir
 Özellikle, bu OData bağlayıcısını destekler:
 
 - OData sürüm 3.0 ve 4.0.
-- Aşağıdaki kimlik doğrulama kullanarak veri kopyalama: **anonim**, **temel**, veya **Windows**.
+- Aşağıdaki kimlik doğrulama kullanarak veri kopyalama: **Anonim**, **temel**, **Windows**, **AAD hizmet sorumlusu**, ve **yönetilen hizmet kimliği**.
 
 ## <a name="get-started"></a>başlarken
 
@@ -51,12 +51,19 @@ Bir OData bağlı hizmeti için aşağıdaki özellikler desteklenir:
 |:--- |:--- |:--- |
 | type | **Türü** özelliği ayarlanmalıdır **OData**. |Evet |
 | url | OData hizmet kök URL'si. |Evet |
-| authenticationType | OData kaynağına bağlanmak için kullanılan kimlik doğrulama türü. İzin verilen değerler **anonim**, **temel**, ve **Windows**. OAuth desteklenmez. | Evet |
+| authenticationType | OData kaynağına bağlanmak için kullanılan kimlik doğrulama türü. İzin verilen değerler **anonim**, **temel**, **Windows**, **AadServicePrincipal**, ve **ManagedServiceIdentity** . Kullanıcı tabanlı OAuth desteklenmiyor. | Evet |
 | Kullanıcı adı | Belirtin **kullanıcıadı** temel veya Windows kimlik doğrulamasını kullanır. | Hayır |
 | password | Belirtin **parola** , belirtilen kullanıcı için hesap **userName**. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için türü. Ayrıca [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
+| servicePrincipalId | Azure Active Directory Uygulama istemci kimliği belirtin. | Hayır |
+| aadServicePrincipalCredentialType | Hizmet sorumlusu kimlik doğrulaması için kullanılacak kimlik bilgisi türü belirtin. İzin verilen değerler: `ServicePrincipalKey` veya `ServicePrincipalCert`. | Hayır |
+| serviceprincipalkey değerleri | Azure Active Directory Uygulama anahtarını belirtin. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
+| servicePrincipalEmbeddedCert | Uygulamanızın Azure Active Directory'de kayıtlı base64 olarak kodlanmış sertifika belirtin. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
+| servicePrincipalEmbeddedCertPassword | Sertifikanızı bir parolayla korunuyorsa, sertifika parolasını belirtin. Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md).  | Hayır|
+| kiracı | Kiracı bilgileri (etki alanı adı veya Kiracı kimliği), uygulamanızın bulunduğu altında belirtin. Bu, Azure portalının sağ üst köşedeki fare gelerek alın. | Hayır |
+| aadResourceId | İçin yetkilendirmesi AAD kaynağı belirtin.| Hayır |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel bir ağda yer alıyorsa) Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı seçebilirsiniz. Belirtilmezse, varsayılan Azure tümleştirme çalışma zamanı kullanılır. |Hayır |
 
-**Örnek 1: Anonim kimlik doğrulamasını kullanma**
+**Örnek 1: Anonim kimlik doğrulaması**
 
 ```json
 {
@@ -123,6 +130,64 @@ Bir OData bağlı hizmeti için aşağıdaki özellikler desteklenir:
 }
 ```
 
+**Örnek 4: Hizmet sorumlusu anahtarı kimlik doğrulaması kullanma**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of on-premises OData source>",
+            "authenticationType": "AadServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "aadServicePrincipalCredentialType": "ServicePrincipalKey",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "aadResourceId": "<AAD resource>"
+        }
+    },
+    "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
+    }
+}
+```
+
+**Örnek 5: Hizmet sorumlusu sertifika kimlik doğrulaması kullanma**
+
+```json
+{
+    "name": "ODataLinkedService",
+    "properties": {
+        "type": "OData",
+        "typeProperties": {
+            "url": "<endpoint of on-premises OData source>",
+            "authenticationType": "AadServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "aadServicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalEmbeddedCert": { 
+                "type": "SecureString", 
+                "value": "<base64 encoded string of (.pfx) certificate data>"
+            },
+            "servicePrincipalEmbeddedCertPassword": { 
+                "type": "SecureString", 
+                "value": "<password of your certificate>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "aadResourceId": "<AAD resource e.g. https://tenant.sharepoint.com>"
+        }
+    },
+    "connectVia": {
+        "referenceName": "<name of Integration Runtime>",
+        "type": "IntegrationRuntimeReference"
+    }
+}
+```
+
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
 Bu bölümde, OData veri kümesini destekleyen özelliklerin bir listesini sağlar.
@@ -169,7 +234,7 @@ OData veri kopyalamak için ayarlanmış **kaynak** türü için kopyalama etkin
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği kaynak özelliği ayarlanmalıdır **RelationalSource**. | Evet |
-| sorgu | Verileri filtreleme için OData sorgu seçenekleri. Örnek: `"?$select=Name,Description&$top=5"`.<br/><br/>**Not**: OData Bağlayıcısı birleşik URL'den veri kopyalar: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Daha fazla bilgi için [OData URL'si bileşenleri](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Hayır |
+| sorgu | Verileri filtreleme için OData sorgu seçenekleri. Örnek: `"?$select=Name,Description&$top=5"`.<br/><br/>**Not**: OData Bağlayıcısı verileri birleşik URL'den kopyalar: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Daha fazla bilgi için [OData URL'si bileşenleri](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Hayır |
 
 **Örnek**
 
@@ -213,7 +278,7 @@ OData veri kopyaladığınızda, aşağıdaki eşlemeler OData veri türleri ve 
 | Edm.Boolean | bool |
 | Edm.Byte | Bayt] |
 | Edm.DateTime | DateTime |
-| Edm.Decimal | Ondalık |
+| Edm.Decimal | Onluk |
 | Edm.Double | çift |
 | Edm.Single | Tek |
 | Edm.Guid | Guid |

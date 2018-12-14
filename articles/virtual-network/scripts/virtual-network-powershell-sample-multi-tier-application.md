@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 03/20/2018
+ms.date: 12/13/2018
 ms.author: jdial
-ms.openlocfilehash: 3a57827616e4722b8520dcddb64e4e67fa8c79c9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: HT
+ms.openlocfilehash: ebc0e18ecea61705ea8cb925a25d4233bfc9a2cb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599909"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340513"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Çok katmanlı uygulamalar için ağ oluşturma betiği örneği
 
@@ -32,10 +32,11 @@ Azure [Cloud Shell](https://shell.azure.com/powershell)’den veya yerel bir Pow
 
 ## <a name="sample-script"></a>Örnek betik
 
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 --> Bir sanal ağ oluşturduktan sonra bir alt ağ kimliği atanır; özellikle New-AzureRmVirtualNetwork cmdlet'ini kullanarak seçeneğiyle - alt ağ. New-AzureRmVirtualNetwork çağırdıktan sonra New-AzureRmVirtualNetwork çağırmadan önce New-AzureRmVirtualNetworkSubnetConfig cmdlet'ini kullanarak alt yapılandırırsanız, alt ağ Kimliğini kadar görmezsiniz.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 
-## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
+## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
 Kaynak grubunu, sanal makineyi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın:
 

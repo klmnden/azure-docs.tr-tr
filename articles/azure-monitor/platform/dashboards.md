@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.openlocfilehash: 271d7518094982dcd1e973a7d51b231beae92b78
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 613001c8495ba6c6a259063b8d8d3bce21b66960
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185913"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336433"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Log Analytics'te kullanım için özel bir pano oluşturma
 
@@ -68,7 +68,7 @@ Döşeme görselleştirmeleri aralarından seçim yapabileceğiniz üç tür var
 
 | grafik türü | Ne işe yarar |
 | --- | --- |
-| ![Çubuk grafik](./media/dashboards/oms-dashboards-bar-chart.png) |Günlük arama veya bir alana göre sonuçları toplar, kaydedilmiş log search'ün sonuçları belirli bir zaman çizelgesi çubuk grafik veya bağlı olarak bir alana göre sonuçları listesi olarak görüntüler. |
+| ![Çubuk Grafiği](./media/dashboards/oms-dashboards-bar-chart.png) |Günlük arama veya bir alana göre sonuçları toplar, kaydedilmiş log search'ün sonuçları belirli bir zaman çizelgesi çubuk grafik veya bağlı olarak bir alana göre sonuçları listesi olarak görüntüler. |
 | ![ölçüm](./media/dashboards/oms-dashboards-metric.png) |Toplam günlük arama sonucu isabet sayısı bir döşeme içindeki bir sayı olarak görüntüler. Ölçüm kutucukları Eşiğe ulaşıldığında, kutucuğu vurgular bir eşiği ayarlamanıza olanak sağlar. |
 | ![satır](./media/dashboards/oms-dashboards-line.png) |Bir zaman çizelgesi, kayıtlı günlük arama sonucu isabet değerleriyle bir çizgi grafik görüntüler. |
 
@@ -86,4 +86,4 @@ Bir kutucuğu kaldırmak için Panom'u görünümüne gidin ve **Özelleştir** 
 ![Bir kutucuğu Kaldır](./media/dashboards/oms-dashboards-remove-tile.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Oluşturma [uyarılar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) Log analytics'te bildirimleri oluşturmak için ve sorunları düzeltin.
+* Oluşturma [uyarılar](../../azure-monitor/platform/alerts-overview.md) Log analytics'te bildirimleri oluşturmak için ve sorunları düzeltin.

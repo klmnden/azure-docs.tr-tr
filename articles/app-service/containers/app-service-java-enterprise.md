@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: e473326e9f337bfb2fd1202bc3b76e468dd6015e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 34506266ed4a2103f0d3bd7a8014b9a038b25491
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315086"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338048"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Enterprise Kılavuzu
 
-Linux üzerinde Azure App Service'te Java geliştiricilerinin oluşturmanızı, dağıtmanızı ve Linux tabanlı tam olarak yönetilen bir hizmet üzerinde Java Enterprise (JEE) uygulama ölçeklendirme sağlar.  Temel Kurumsal Java Çalışma zamanı ortamı olan açık kaynaklı [Wildfly](http://wildfly.org/) uygulama sunucusu.
+Linux üzerinde Azure App Service'te Java geliştiricilerinin oluşturmanızı, dağıtmanızı ve Linux tabanlı tam olarak yönetilen bir hizmet üzerinde Java Enterprise (JEE) uygulama ölçeklendirme sağlar.  Temel Kurumsal Java Çalışma zamanı ortamı olan açık kaynaklı [Wildfly](https://wildfly.org/) uygulama sunucusu.
 
 Bu kılavuzu temel kavramları ve Linux için App Service kullanarak kurumsal Java geliştiricilerine yönelik yönergeler sağlar. Linux için Azure App Service ile Java uygulamalarını hiçbir zaman dağıttıysanız, tamamlamanız gereken [Java Hızlı Başlangıç](quickstart-java.md) ilk. Linux için App Service için Java Enterprise özgü olmayan soruları yanıtlanır [Java Geliştirici Kılavuzu](app-service-linux-java.md) ve [App Service Linux SSS](app-service-linux-faq.md).
 
@@ -115,5 +115,5 @@ Varsayılan olarak, App Service'te web yuvalarını etkinleştirilir. Uygulaman�
 App Service, uygulamanızdaki sorunları gidermenize yardımcı olacak araçlar sağlar.
 
 -   Tıklayarak günlük özelliğini açar **tanılama günlükleri** sol taraftaki gezinti bölmesinde. Tıklayın **dosya sistemi** depolama kotası ve Bekletme dönemi ayarlayın ve değişikliklerinizi kaydedin. Bu günlükleri altında bulabilirsiniz `/home/LogFiles/`.
--   [Uygulama örneğine bağlanmak için SSH kullanın](/app-service-linux-ssh-support) uygulamaları çalıştırmaya yönelik günlükleri görüntülemek için.
+-   [Uygulama örneğine bağlanmak için SSH kullanın](app-service-linux-ssh-support.md) uygulamaları çalıştırmaya yönelik günlükleri görüntülemek için.
 -   Onay tanılama günlükleri **tanılama günlükleri** paneli Portal veya Azure CLI komutunu kullanarak: ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `

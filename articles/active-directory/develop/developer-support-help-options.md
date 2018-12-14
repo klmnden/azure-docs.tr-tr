@@ -17,14 +17,14 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 60186d44437a866793b40c9d6f0263235803475f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7374b3f71474cb4d4e59e9d81ab1de7bea265483
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422448"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337147"
 ---
-# <a name="support-and-help-options-for-developers"></a>Geliştiriciler için destek ve Yardım seçenekleri 
+# <a name="support-and-help-options-for-developers"></a>Geliştiriciler için destek ve Yardım seçenekleri
 
 Bağımsız olarak yalnızca Azure Active Directory ile Microsoft kimlikleri veya Microsoft Graph API, tümleştirme başlatıyorsanız veya uygulamanız için yeni bir özellik uygularken topluluktan Yardım almak veya anlamak için ihtiyacınız olan zamanlar vardır bir geliştirici olarak sahip olduğunuz seçeneklerini destekler. Bu makalede bir özeti aşağıda bu seçenekleri anlamanıza yardımcı olur:
 
@@ -38,7 +38,7 @@ Bağımsız olarak yalnızca Azure Active Directory ile Microsoft kimlikleri vey
 
 ## <a name="search"></a>Arama
 
-Geliştirme ile ilgili bir sorunuz varsa, belgelerimize üzerinde ihtiyacınız yanıt bulmak mümkün olabilir bizim [github örneklerine](https://github.com/azure-samples), veya yanıtlarını [Stack Overflow](https://www.stackoverflow.com) sorular.
+Geliştirme ile ilgili bir sorunuz varsa, belgelerimize üzerinde ihtiyacınız yanıt bulmak mümkün olabilir bizim [GitHub örneklerine](https://github.com/azure-samples), veya yanıtlarını [Stack Overflow](https://www.stackoverflow.com) sorular.
 
 ### <a name="scoped-search"></a>Kapsamlı arama
 Aşağıdakileri kullanarak aramanızı Stack Overflow, belgelerimize ve kod örneklerimizi daha hızlı sonuçlar için kapsam, [sık kullanılan arama motorunuz](https://bing.com):
@@ -76,7 +76,7 @@ Bir arama ile sorununuzun yanıtını bulamazsanız, yeni Stack Overflow soru g�
 |Herhangi bir alan için kimlik doğrulama veya yetkilendirme ilgili konular |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
-> Stack Overflow aşağıdaki gönderilerinden sorular yapma konusunda ipuçları içerir ve bu yönergeleri izleyerek kaynak kodu - ekleme ipuçları topluluk üyelerinin değerlendirmek ve sorularınıza hızla yanıt olasılığını artırmaya yardımcı olabilir:  
+> Stack Overflow aşağıdaki gönderilerinden sorular yapma konusunda ipuçları içerir ve bu yönergeleri izleyerek kaynak kodu - ekleme ipuçları topluluk üyelerinin değerlendirmek ve sorularınıza hızla yanıt olasılığını artırmaya yardımcı olabilir:
 > - [İyi bir soru nasıl miyim](https://stackoverflow.com/help/how-to-ask)
 > - [En az, tam ve doğrulanabilir örnek oluşturma](https://stackoverflow.com/help/mcve)
 

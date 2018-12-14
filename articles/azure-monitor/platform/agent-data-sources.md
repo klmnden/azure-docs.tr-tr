@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 3bebdfea34cea9d0b0b5c19489ce51bf25f60af9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 152b9a7fdac91865baa8a2c20c632e7a228be62f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189736"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340768"
 ---
 # <a name="data-sources-in-log-analytics"></a>Log analytics'te veri kaynakları
 Log Analytics bağlı kaynaklardan veri toplar ve Log Analytics çalışma alanınızda depolar.  Her birinden toplanan veriler, yapılandırdığınız veri kaynakları tarafından tanımlanır.  Log analytics'te verileri, bir kayıt kümesi depolanır.  Her veri kaynağı kendi özellikler kümesini sahip her türüyle belli bir türdeki kayıtları oluşturur.
@@ -67,4 +67,4 @@ Log Analytics tarafından toplanan tüm veriler, çalışma alanında kayıt ola
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [çözümleri](../../azure-monitor/insights/solutions.md) Log Analytics'e işlev eklemek ve ayrıca çalışma alanına veri toplayın.
 * Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.  
-* Yapılandırma [uyarılar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) proaktif olarak size, veri kaynakları ve çözümlerinden toplanan kritik veri bildirmek için.
+* Yapılandırma [uyarılar](../../azure-monitor/platform/alerts-overview.md) proaktif olarak size, veri kaynakları ve çözümlerinden toplanan kritik veri bildirmek için.

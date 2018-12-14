@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 73e95f6259c916b06fe61cb47fd36beac4c7a427
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 212e45a7b593a9607aa19a10efdf2aaf61c78d17
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572857"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344603"
 ---
 Etki alanı adı sistemi (DNS), internet'te şeyler bulmak için kullanılır. Örneğin, tarayıcınızda bir adres girin veya bir web sayfası bağlantısına tıklayın, etki alanı bir IP adresine çevirmek için DNS kullanır. IP adresi, bir açık adres gibi tür olmakla birlikte çok İnsan kolay değil. Örneğin, bir DNS adı gibi çok kolay olan **contoso.com** 192.168.1.88 veya 2001:0:4137:1f67:24a2:3888:9cce:fea3 gibi bir IP adresi hatırlamak yerine.
 
@@ -32,7 +32,7 @@ Eşleyen bir CNAME kaydı bir *belirli* DNS adı, örneğin **mail.contoso.com**
 Trafik Traffic Manager, geldikten sonra trafik Yük Dengeleme için yapılandırılan yöntemini kullanarak Web sitenizi yönlendirir. Bu Web sitenizi ziyaret edenler için tamamen saydamdır. Yalnızca özel etki alanı adı tarayıcısında görürler.
 
 > [!NOTE]
-> Bazı etki alanı kayıt yalnızca bir CNAME kaydı kullanarak alt etki alanları eşleyin izin **www.contoso.com**ve değil kök adları gibi **contoso.com**. CNAME kayıtları hakkında daha fazla bilgi için bkz: şirketiniz tarafından sağlanan belgelere <a href="http://en.wikipedia.org/wiki/CNAME_record">CNAME kaydı Wikipedia girdiye</a>, veya <a href="http://tools.ietf.org/html/rfc1035">IETF etki alanı adları - uygulama ve belirtimi</a> belge.
+> Bazı etki alanı kayıt yalnızca bir CNAME kaydı kullanarak alt etki alanları eşleyin izin **www.contoso.com**ve değil kök adları gibi **contoso.com**. CNAME kayıtları hakkında daha fazla bilgi için bkz: şirketiniz tarafından sağlanan belgelere <a href="https://en.wikipedia.org/wiki/CNAME_record">CNAME kaydı Wikipedia girdiye</a>, veya <a href="https://tools.ietf.org/html/rfc1035">IETF etki alanı adları - uygulama ve belirtimi</a> belge.
 > 
 > 
 

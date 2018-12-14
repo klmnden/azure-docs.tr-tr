@@ -8,26 +8,26 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 12/07/2018
 ms.author: glenga
-ms.openlocfilehash: 00735293d8fa8c6056f1ecf89fd312fe4b90bcac
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 78011e799fb4ddaf89fb1fd24c1f2a313ef49ba5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642707"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338116"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Azure Event Grid'e (Önizleme) yayımlama dayanıklı İşlevler
 
-Bu makalede, Azure dayanıklı İşlevler ' için özel bir düzenleme yaşam döngüsü olayları (gibi tamamlanan ve hatalı oluşturulmuş) yayımlamak için ayarlama işlemi gösterilmektedir [Azure Event Grid konusu](https://docs.microsoft.com/azure/event-grid/overview). 
+Bu makalede, özel bir düzenleme yaşam döngüsü olayları (gibi tamamlanan ve hatalı oluşturulmuş) yayımlamak için dayanıklı işlevler ayarlama işlemi gösterilmektedir [Azure Event Grid konusu](https://docs.microsoft.com/azure/event-grid/overview).
 
 Bu özellik yararlı olduğu bazı senaryolar aşağıda verilmiştir:
 
-* **Mavi/yeşil dağıtımları gibi DevOps senaryolar**: uygulamadan önce herhangi bir görevi çalışıp çalışmadığını bilmek isteyebilirsiniz [yan yana dağıtım stratejisini](https://docs.microsoft.com/azure/azure-functions/durable-functions-versioning#side-by-side-deployments).
+* **Mavi/yeşil dağıtımları gibi DevOps senaryolar**: Herhangi bir görevi uygulamadan önce çalışıp çalışmadığını bilmek isteyebilirsiniz [yan yana dağıtım stratejisini](durable-functions-versioning.md#side-by-side-deployments).
 
 * **Gelişmiş izleme ve tanılama desteği**: SQL veritabanı veya CosmosDB gibi sorgular için en iyi duruma getirilmiş bir dış deposunda düzenleme durum bilgileri takip.
 
-* **Uzun süre çalışan arka plan etkinliği**: uzun süre çalışan arka plan etkinliği için dayanıklı işlevler kullanırsanız, bu özellik, geçerli durumunu öğrenmek için yardımcı olur.
+* **Uzun süre çalışan arka plan etkinliği**: Dayanıklı işlevler için bir uzun süre çalışan arka plan etkinliği kullanırsanız, bu özellik, geçerli durumunu öğrenmek için yardımcı olur.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -39,12 +39,12 @@ Bu özellik yararlı olduğu bazı senaryolar aşağıda verilmiştir:
 
 Dayanıklı işlevler olayları göndermek için bir Event Grid konusu oluşturun. Aşağıdaki yönergeler, Azure CLI kullanarak bir konu oluşturmak nasıl göstermektedir. PowerShell veya Azure portalını kullanarak nasıl yapılacağı hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [EventGrid hızlı başlangıç: özel olay - PowerShell oluşturma](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
-* [EventGrid hızlı başlangıç: özel olay - Azure portalında oluşturma](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
+* [EventGrid hızlı Başlangıçlar: Özel olay - PowerShell oluşturma](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-powershell)
+* [EventGrid hızlı Başlangıçlar: Özel olay - Azure portalında oluşturma](https://docs.microsoft.com/azure/event-grid/custom-event-quickstart-portal)
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-`az group create` komutuyla bir kaynak grubu oluşturun. Event Grid, tüm bölgeler şu anda desteklemiyor. Hangi bölgeler desteklenir daha fazla bilgi için bkz: [Event Grid genel bakış](https://docs.microsoft.com/azure/event-grid/overview). 
+`az group create` komutuyla bir kaynak grubu oluşturun. Event Grid, tüm bölgeler şu anda desteklemiyor. Hangi bölgeler desteklenir daha fazla bilgi için bkz: [Event Grid genel bakış](https://docs.microsoft.com/azure/event-grid/overview).
 
 ```bash
 az group create --name eventResourceGroup --location westus2
@@ -55,7 +55,7 @@ az group create --name eventResourceGroup --location westus2
 Bir Event Grid konusu, için olay gönderdiği bir kullanıcı tanımlı bir uç nokta sağlar. `<topic_name>` değerini konunuz için benzersiz bir adla değiştirin. Bir DNS girişi haline geldiğinden, konu adı benzersiz olmalıdır.
 
 ```bash
-az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup 
+az eventgrid topic create --name <topic_name> -l westus2 -g eventResourceGroup
 ```
 
 ## <a name="get-the-endpoint-and-key"></a>Uç nokta ve anahtarını alma
@@ -119,7 +119,7 @@ Bir işlev uygulaması oluşturun. Olay Kılavuzu konusu aynı bölgede bulmak i
 
 ### <a name="create-an-event-grid-trigger-function"></a>Bir Event Grid tetikleme işlevi oluşturma
 
-Yaşam döngüsü olaylarını almak için bir işlev oluşturun. Seçin **özel işlev**. 
+Yaşam döngüsü olaylarını almak için bir işlev oluşturun. Seçin **özel işlev**.
 
 ![Bir özel işlev Oluştur'u seçin.](./media/durable-functions-event-publishing/functions-portal.png)
 
@@ -131,7 +131,7 @@ Olay Kılavuzu tetikleyicisi seçip `C#`.
 
 ![Olay Kılavuzu tetikleyicisi oluşturun.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
 
-Aşağıdaki kod ile bir işlev oluşturulur: 
+Aşağıdaki kod ile bir işlev oluşturulur:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -153,11 +153,11 @@ Seçin `Event Grid Topics` için **konu türü**. Event Grid konusu için oluşt
 
 ![Event Grid aboneliği oluşturun.](./media/durable-functions-event-publishing/eventsubscription.png)
 
-Yaşam döngüsü olaylarını almak artık hazırsınız. 
+Yaşam döngüsü olaylarını almak artık hazırsınız.
 
-## <a name="create-durable-functions-to-send-the-events"></a>Olayları göndermek için dayanıklı işlevler oluşturun.
+## <a name="create-durable-functions-to-send-the-events"></a>Olayları göndermek için dayanıklı işlevler oluşturma
 
-Dayanıklı işlevler projenizde, yerel makinenizde hata ayıklamayı başlatın.  Aşağıdaki kodu şablon kodunu dayanıklı işlevler için aynıdır. Zaten yapılandırmış `host.json` ve `local.settings.json` yerel makinenizde. 
+Dayanıklı işlevler projenizde, yerel makinenizde hata ayıklamayı başlatın.  Aşağıdaki kodu şablon kodunu dayanıklı işlevler için aynıdır. Zaten yapılandırmış `host.json` ve `local.settings.json` yerel makinenizde.
 
 ```csharp
 using System.Collections.Generic;
@@ -217,7 +217,7 @@ Azure portalında oluşturduğunuz işlevden günlüklerine bakın.
 ```
 2018-04-20T09:28:21.041 [Info] Function started (Id=3301c3ef-625f-40ce-ad4c-9ba2916b162d)
 2018-04-20T09:28:21.104 [Info] {
-    "id": "054fe385-c017-4ce3-b38a-052ac970c39d",    
+    "id": "054fe385-c017-4ce3-b38a-052ac970c39d",
     "subject": "durable/orchestrator/Running",
     "data": {
         "hubName": "DurableFunctionsHub",
@@ -259,17 +259,17 @@ Azure portalında oluşturduğunuz işlevden günlüklerine bakın.
 Yaşam döngüsü olayları Şeması aşağıdaki listede açıklanmıştır:
 
 * **Kimliği**: Event Grid olayı için benzersiz tanımlayıcı.
-* **konu**: olay konu yolu. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` olacaktır `Running`, `Completed`, `Failed`, ve `Terminated`.  
-* **veri**: dayanıklı işlevler belirli parametreleri.
-    * **hubName**: [TaskHub](https://docs.microsoft.com/azure/azure-functions/durable-functions-task-hubs) adı.
-    * **functionName**: Orchestrator işlev adı.
-    * **InstanceId**: dayanıklı işlevler InstanceId.
-    * **neden**: izleme olay ile ilişkili ek veriler. Daha fazla bilgi için [Tanılama'da dayanıklı işlevler (Azure işlevleri)](https://docs.microsoft.com/azure/azure-functions/durable-functions-diagnostics)
-    * **runtimeStatus**: düzenleme çalışma zamanı durumu. , Çalışan tamamlandı, başarısız, iptal edildi. 
+* **Konu**: Olay konu yolu. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` olacaktır `Running`, `Completed`, `Failed`, ve `Terminated`.  
+* **Veri**: Dayanıklı işlevler belirli parametreler.
+  * **hubName**: [TaskHub](durable-functions-task-hubs.md) adı.
+  * **functionName**: Orchestrator işlev adı.
+  * **InstanceId**: Dayanıklı işlevler InstanceId.
+  * **neden**: İzleme olayı ile ilgili ek veriler. Daha fazla bilgi için [Tanılama'da dayanıklı işlevler (Azure işlevleri)](durable-functions-diagnostics.md)
+  * **runtimeStatus**: Düzenleme çalışma zamanı durumu. , Çalışan tamamlandı, başarısız, iptal edildi.
 * **eventType**: "orchestratorEvent"
 * **eventTime**: Olay saati (UTC).
-* **dataVersion**: yaşam döngüsü olay şeması sürümü.
-* **metadataVersion**: meta veri sürümü.
+* **dataVersion**: Yaşam döngüsü olay şeması sürümü.
+* **metadataVersion**:  Meta veri sürümü.
 * **konu**: EventGrid konu kaynak.
 
 ## <a name="how-to-test-locally"></a>Yerel olarak test etme

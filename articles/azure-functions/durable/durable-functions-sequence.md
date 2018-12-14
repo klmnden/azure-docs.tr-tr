@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ca6eefa6ccba3fabebd125d88010817c66db52ab
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 14d50a17cf7816cb8e792128f8dd3965781657e5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642679"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339595"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Dayanıklı işlevler - Hello dizisi örnek zincirleme işlevi
 
@@ -28,14 +28,15 @@ ms.locfileid: "52642679"
 Bu makalede örnek uygulama aşağıdaki işlevler açıklanmaktadır:
 
 * `E1_HelloSequence`: Çağıran bir düzenleyici işlevi `E1_SayHello` içinde birden çok kez bir dizisi. Çıkışları depolar `E1_SayHello` çağırır ve sonuçlarını kaydeder.
-* `E1_SayHello`: "Hello" ile bir dize ekler bir etkinlik işlevi.
+* `E1_SayHello`: "Hello" ile bir dize ekler etkinlik işlevi.
 
 Aşağıdaki bölümlerde, betik C# ve JavaScript için kullanılan kod ve yapılandırma açıklanmaktadır. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
 
 > [!NOTE]
-> Dayanıklı işlevler v2 işlevler çalışma zamanı içinde yalnızca JavaScript'te mevcut değildir.
+> Dayanıklı işlevler JavaScript işlevleri 2.x çalışma zamanı için yalnızca kullanılabilir.
 
 ## <a name="e1hellosequence"></a>E1_HelloSequence
+
 ### <a name="functionjson-file"></a>Function.JSON dosyası
 
 Geliştirme için Visual Studio Code veya Azure portalını kullanıyorsanız, içeriğini işte *function.json* dosyası için bir düzenleyici işlevi. Çoğu orchestrator *function.json* dosyaları neredeyse şöyle bakın.
@@ -47,7 +48,7 @@ En önemli şey `orchestrationTrigger` bağlama türü. Tüm orchestrator İşle
 > [!WARNING]
 > Orchestrator işlevleri "hiçbir g/ç" kuralı tarafından uymayı için olmayan herhangi bir giriş kullanın veya çıktı bağlaması kullanırken `orchestrationTrigger` bağlama tetikleyin.  Diğer giriş veya çıkış bağlamaları gereklidir, bunlar bunun yerine bağlamında kullanılmalıdır `activityTrigger` orchestrator tarafından çağrılan işlevleri.
 
-### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C# betiği (Visual Studio Code ve Azure portalı örnek kodu) 
+### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C# betiği (Visual Studio Code ve Azure portalı örnek kodu)
 
 Kaynak kodu verilmiştir:
 
@@ -63,15 +64,16 @@ Kaynak kodu verilmiştir:
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-Tüm JavaScript düzenleme işlevleri içermelidir `durable-functions` modülü. İşlem dışı diller için dayanıklı'nın yürütme Protokolü düzenleme işlevin eylemlere çeviren bir JavaScript kitaplığı budur. Bir düzenleme işlevi ve diğer JavaScript işlevleri arasında üç önemli farklar vardır:
+Tüm JavaScript düzenleme işlevleri içermelidir [ `durable-functions` Modülü](https://www.npmjs.com/package/durable-functions). Bu JavaScript'te, dayanıklı işlevler yazmanıza olanak tanıyan bir kitaplıktır. Bir düzenleme işlevi ve diğer JavaScript işlevleri arasında üç önemli farklar vardır:
 
 1. İşlev, bir [oluşturucu işlevi.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
-2. İşlev çağrısında sarmalandıktan `durable-functions` Modülü (burada `df`).
-3. Çağırarak işlev sona `return`değil `context.done`.
+2. İşlev çağrısında sarmalandıktan `durable-functions` modülün `orchestrator` yöntemi (burada `df`).
+3. İşlevi zaman uyumlu olmalıdır. 'Orchestrator' yöntemi çağıran 'context.done' gerçekleştirdiğinden, işlevi yalnızca 'döndürmelidir'.
 
-`context` Nesnesini içeren bir `df` nesne sayesinde diğer çağrı *etkinlik* işlevleri ve giriş parametreleri kullanarak kendi `callActivityAsync` yöntemi. Kod çağrıları `E1_SayHello` dizisi kullanarak, farklı parametre değerleri ile üç kez içinde `yield` yürütme döndürülecek zaman uyumsuz etkinlik işlev çağrılarında beklemesi gereken belirtmek için. Her çağrının dönüş değeri eklenen `outputs` işlevi sonunda verilen listesi.
+`context` Nesnesini içeren bir `df` nesne sayesinde diğer çağrı *etkinlik* işlevleri ve giriş parametreleri kullanarak kendi `callActivity` yöntemi. Kod çağrıları `E1_SayHello` dizisi kullanarak, farklı parametre değerleri ile üç kez içinde `yield` yürütme döndürülecek zaman uyumsuz etkinlik işlev çağrılarında beklemesi gereken belirtmek için. Her çağrının dönüş değeri eklenen `outputs` işlevi sonunda verilen listesi.
 
 ## <a name="e1sayhello"></a>E1_SayHello
+
 ### <a name="functionjson-file"></a>Function.JSON dosyası
 
 *Function.json* etkinlik işlevi için dosya `E1_SayHello` ilkesindekine benzer `E1_HelloSequence` da kullanması hariç, bir `activityTrigger` bağlama türü yerine bir `orchestrationTrigger` bağlama türü.
@@ -93,7 +95,7 @@ Bu işlev türünde bir parametreye sahip [DurableActivityContext](https://azure
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-JavaScript düzenleme işlevinden farklı olarak, hiçbir özel kurulum JavaScript etkinlik işlevi gerekir. Düzenleyici işlevi tarafından geçirilen giriş bulunan `context.bindings` nesne adının altında `activitytrigger` bağlama - bu durumda, `context.bindings.name`. Örnek kodun ne yaptığını olduğu bağlama adı dışarı aktarılan işlevin parametre olarak ayarlanmış olabilir ve doğrudan erişilebilir.
+JavaScript düzenleme işlevinden farklı olarak, bir etkinlik işlevin özel kurulum gerekir. Düzenleyici işlevi tarafından geçirilen giriş bulunan `context.bindings` nesne adının altında `activityTrigger` bağlama - bu durumda, `context.bindings.name`. Örnek kodun ne yaptığını olduğu bağlama adı dışarı aktarılan işlevin parametre olarak ayarlanmış olabilir ve doğrudan erişilebilir.
 
 ## <a name="run-the-sample"></a>Örneği çalıştırma
 
@@ -150,7 +152,7 @@ Tek bir C# dosyası olarak Visual Studio projesi içinde düzenleme şu şekilde
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu örnek, basit bir işlevi zincirleme düzenleme gösterilmiştir. Sonraki örnek fan-dışarı/fan-arada düzeni nasıl uygulayacağınıza karar gösterir. 
+Bu örnek, basit bir işlevi zincirleme düzenleme gösterilmiştir. Sonraki örnek fan-dışarı/fan-arada düzeni nasıl uygulayacağınıza karar gösterir.
 
 > [!div class="nextstepaction"]
 > [Fan-dışarı/fan-arada örneği çalıştırma](durable-functions-cloud-backup.md)

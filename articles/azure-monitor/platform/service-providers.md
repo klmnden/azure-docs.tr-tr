@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.openlocfilehash: 6ac34df87c3138aa667e57f7112d31b306e4d9f5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ac34cc467cc8ff7d231551683da130c0f7565800
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191232"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340547"
 ---
 # <a name="log-analytics-for-service-providers"></a>Hizmet sağlayıcıları için log Analytics
 Log Analytics, yönetilen hizmet sağlayıcılarına (msp), büyük kuruluşlar, bağımsız yazılım satıcılarına (ISV) ve müşterinin şirket içi veya Bulut altyapı sunucularını izleme ve yönetme barındırma hizmeti sağlayıcılarına yardımcı olabilir. 
@@ -80,6 +80,6 @@ Log Analytics'te merkezi bir konum uygulamak için iki seçenek vardır:
 ## <a name="next-steps"></a>Sonraki Adımlar
 * Oluşturma ve kullanarak çalışma yapılandırılmasını otomatikleştirmek [Resource Manager şablonları](template-workspace-configuration.md)
 * Çalışma alanlarını kullanarak oluşturulmasını otomatikleştirin [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md) 
-* Kullanım [uyarılar](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) var olan sistemlerle tümleştirmek için
+* Kullanım [uyarılar](../../azure-monitor/platform/alerts-overview.md) var olan sistemlerle tümleştirmek için
 * Özet raporları kullanarak oluşturmak [Power BI](../../azure-monitor/platform/powerbi.md)
 * Gözden geçirme sürecini [birden çok CSP müşterileri izlemek için Log Analytics ve Power BI'ı yapılandırma](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)

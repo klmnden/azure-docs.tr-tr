@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 1219090c4608d5c87bfe967444122b61d7fdbf5f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3b7b06b7ab9076b992e6e3349763d633f9b255ef
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326258"
+ms.locfileid: "53338167"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure tanılama uzantısı nedir
 Azure tanılama uzantısı, azure'da dağıtılan bir uygulamada tanılama verilerinin toplanmasını etkinleştiren aracısıdır. Bir dizi farklı kaynaktan tanılama uzantısını kullanabilirsiniz. Şu anda desteklenen olan Azure bulut hizmeti (Klasik) Web ve çalışan rolleri, sanal makineler, sanal makine ölçek kümeleri ve Service Fabric. Diğer Azure Hizmetleri tanılama farklı yöntemleri vardır. Bkz: [Azure'da izlemeye genel bakış](../../azure-monitor/overview.md).
@@ -47,7 +47,7 @@ Buna da gönderebilirsiniz [Application Insights](../../application-insights/app
 ### <a name="azure-monitor"></a>Azure İzleyici
 Ayrıca, Azure İzleyici, veri gönderme seçeneğiniz de vardır. Şu anda bu havuz yalnızca performans sayaçları için geçerlidir. VM'NİZDE VMSS, toplanan performans sayaçlarını göndermek veya Bulut hizmeti için özel ölçümleriniz Azure İzleyici olanak tanır. Azure Monitor havuzu destekler:
 * Azure İzleyici aracılığıyla gönderilen tüm performans sayaçlarını alınırken [Azure İzleyici ölçümleri API'leri.](https://docs.microsoft.com/rest/api/monitor/)
-* Tüm performans sayaçlarını uyarı gönderilen Azure İzleyici ile [uyarı deneyimi birleşik](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) Azure İzleyici'de
+* Tüm performans sayaçlarını uyarı gönderilen Azure İzleyici ile [uyarı deneyimi birleşik](../../azure-monitor/platform/alerts-overview.md) Azure İzleyici'de
 * Joker karakter işleci, performans sayaçları "Örnek" boyutu, ölçüm olarak ele alınıyor.  Örneğin, toplanan "LogicalDisk (\*) / DiskWrites/sn" filtre olması ve her Mantıksal Disk (C:, D:, vb.) sanal makine için bölme çizim veya Disk Yazma/sn uyarısında "Örnek" boyutta sayacı
 
 Bu havuz yapılandırma hakkında daha fazla bilgi için lütfen başvurmak [Azure tanılama şeması belgeleri.](diagnostics-extension-schema-1dot3.md)

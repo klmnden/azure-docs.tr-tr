@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9cd89d861a758d51788dc4180af10882f0144977
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a4072e71d1e4ee54c4cffc3d16aa7c9b8e265cb8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317373"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337675"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde işletim sistemi sürümünü güncelleştirme
 Sanal makinelerine (VM) bulut hizmetlerinde, Azure Güvenlik Merkezi, daha yeni bir sürümü kullanılabilir işletim sistemi (OS) güncelleştirilmesi önerilir.  Yuva izlenen üretimde çalışan web ve çalışan rolleri yalnızca bulut Hizmetleri.
@@ -43,7 +43,7 @@ Bu makalede Güvenlik Merkezi'nin önerisini "Güncelleştirme işletim sistemi 
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı olduğunu öğrenin.
 * [Güvenlik durumunu, Azure Güvenlik Merkezi'nde izleme](security-center-monitoring.md) --Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.

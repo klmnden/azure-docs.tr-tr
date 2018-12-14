@@ -9,14 +9,14 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 460dfb168894d28d5fbc5e5585a6054917127931
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 984a027a1fe2f9c894701058452490bdf12b66c4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633573"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338745"
 ---
-# <a name="example-how-to-detect-language-in-text-analytics"></a>Örnek: Metin Analizi’nde dili algılama
+# <a name="example-how-to-detect-language-in-text-analytics"></a>Örnek: Metin analizi dil tespit etme
 
 [Dil Algılama API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7), metin girişini değerlendirir ve her bir belge için analizin gücünü belirten bir puan ile dil tanımlayıcılarını döndürür. Metin Analizi 120’ye kadar dili tanır.
 
@@ -52,17 +52,17 @@ Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyo
             },                
             {
                 "id": "5",
-                "text": "Этот документ находится на английском языке."
+                "text": "Этот документ на английском языке."
             }
         ]
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>1. Adım: İsteği yapılandırma
+## <a name="step-1-structure-the-request"></a>1. Adım: Yapı isteği
 
 İstek tanımıyla ilgili ayrıntılara [Metin Analizi API’sini çağırma](text-analytics-how-to-call-api.md) bölümünden erişilebilir. Kolaylık olması için aşağıdaki noktalar yeniden belirtilmektedir:
 
-+ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Dil Algılama API’si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
++ Bir **POST** isteği oluşturun. Bu istek için API belgelerini gözden geçirin: [Dil algılama API'si](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 
 + Dil algılama, Azure veya bir örneklenmiş bir metin analizi kaynak kullanarak HTTP uç noktasına ayarlayın [metin analizi kapsayıcı](text-analytics-how-to-install-containers.md). `/languages` kaynağını içermelidir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
 
@@ -73,7 +73,7 @@ Belge boyutu, belge başına 5.000 karakterden küçük olmalıdır ve koleksiyo
 > [!Tip]
 > İsteği yapılandırmak ve hizmete GÖNDERMEK için [Postman](text-analytics-how-to-call-api.md) kullanın veya [belgelerdeki](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) **API testi konsolu**’nu açın.
 
-## <a name="step-2-post-the-request"></a>2. Adım: İsteği gönderme
+## <a name="step-2-post-the-request"></a>2. Adım: POST isteği
 
 İstek alındığında analiz gerçekleştirilir. Hizmet dakikada en fazla 100 istek kabul eder. Her istek maksimum 1 MB olabilir.
 

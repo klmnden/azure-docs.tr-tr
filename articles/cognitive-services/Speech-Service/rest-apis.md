@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5a3c160fcb550fc4f0c92145733aa993b95bd112
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089353"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338899"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
@@ -34,7 +34,7 @@ Ya da Konuşmayı metne veya metinden konuşmaya REST API'sine yapılan her iste
 | Desteklenen yetkilendirme üstbilgileri | Konuşmayı Metne Dönüştürme | Metin okuma |
 |------------------------|----------------|----------------|
 | Ocp-Apim-Subscription-Key | Evet | Hayır |
-| Yetkilendirme: taşıyıcı | Evet | Evet |
+| Yetkilendirme: Taşıyıcı | Evet | Evet |
 
 Kullanırken `Ocp-Apim-Subscription-Key` üst bilgi, yalnızca abonelik anahtarınızı girin isteniyor. Örneğin:
 
@@ -322,9 +322,20 @@ Her yanıt için HTTP durum kodu, başarı veya sık karşılaşılan hataları 
 Bu kod örneği, nasıl öbekler halinde ses gönderileceğini gösterir. Yalnızca ilk öbekte ses dosyanın üst bilgisi içermelidir. `request` HTTPWebRequest nesneyi uygun REST uç noktasına bağlanır. `audioFile` ses dosyası diskte yoludur.
 
 ```csharp
+
+    HttpWebRequest request = null;
+    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+    request.SendChunked = true;
+    request.Accept = @"application/json;text/xml";
+    request.Method = "POST";
+    request.ProtocolVersion = HttpVersion.Version11;
+    request.Host = host;
+    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
+    request.AllowWriteStreamBuffering = false;
+
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-
     /*
     * Open a request stream and write 1024 byte chunks in the stream one at a time.
     */
@@ -424,20 +435,10 @@ Bu tipik bir yanıt için olan `detailed` tanıma.
 
 ## <a name="text-to-speech-api"></a>Metin okuma API'si
 
-Bu bölgeler, REST API kullanarak metin okuma için desteklenir. Eşleşen abonelik bölgenizi uç nokta seçtiğinizden emin olun.
+Her biri belirli bir dil ve yerel ayar tarafından tanımlanan diyalekti, destekleyen sinir ve standart metinden konuşmaya seslerle metin okuma REST API'sini destekler.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-Konuşma hizmeti, Bing konuşma tarafından desteklenen 16 Khz çıkışları birlikte 24-KHz ses çıkış destekler. Dört 24-KHz Çıkış biçimleri ve iki 24-KHz sesleri desteklenir.
-
-### <a name="voices"></a>Sesler
-
-| Yerel Ayar | Dil   | Cinsiyet | Eşleme |
-|--------|------------|--------|---------|
-| en-US  | İngilizce (ABD) | Kadın | "Microsoft Server Konuşma metin konuşma ses (en-US, Jessa24kRUS)" |
-| en-US  | İngilizce (ABD) | Erkek   | "Microsoft Server Konuşma metin konuşma ses (en-US, Guy24kRUS)" |
-
-Kullanılabilir seslerini tam listesini görmek [desteklenen diller](language-support.md#text-to-speech).
+* Sesler tam bir listesi için bkz. [dil desteği](language-support.md#text-to-speech).
+* Bölgesel kullanılabilirlik hakkında daha fazla bilgi için bkz. [bölgeleri](regions.md#text-to-speech).
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 
@@ -452,7 +453,7 @@ Bu tablo, Konuşmayı metne istekler için gerekli ve isteğe bağlı üst bilgi
 
 ### <a name="audio-outputs"></a>Ses çıkarır
 
-Bu, her isteği olarak gönderilir ve ses desteklenen biçimler listesini `X-Microsoft-OutputFormat` başlığı. Her bir bit hızı ve kodlama türünü içerir.
+Bu, her isteği olarak gönderilir ve ses desteklenen biçimler listesini `X-Microsoft-OutputFormat` başlığı. Her bir bit hızı ve kodlama türünü içerir. Konuşma hizmeti 24-KHz ve 16-KHz ses çıkış destekler.
 
 |||
 |-|-|

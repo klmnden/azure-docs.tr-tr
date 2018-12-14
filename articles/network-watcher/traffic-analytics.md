@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 0338ffa13d1b141bb40deaf43fd04fe37bfaf5d2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252125"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338592"
 ---
 # <a name="traffic-analytics"></a>Trafik analizi
 
@@ -291,7 +291,7 @@ Trafik analizi tam olarak yapılandırdıktan sonra elde etmek isteyebileceğini
     ![Sanal ağ dağıtım vitrini Panosu](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - Üst Şerit için bir sanal ağın (Inter sanal ağ bağlantıları/Active/Inactive) gibi parametrelerin seçimi, dış bağlantılar, etkin akışlar ve kötü amaçlı akışlar sanal ağın sanal ağ topolojisini gösterir.
-- Sanal ağ topolojisini Abonelikleri, çalışma alanları, resouece grupları ve zaman aralığına göre filtreleyebilirsiniz. Akış yardımcı olan ek filtreler anlayın: Akış türü (sanal ağlar arası, IntraVNET vb.), akış yönünü (gelen, giden), akış durumu (izin verilen, engellenen) sanal ağlar (hedeflenen ve bağlı), bağlantı türü (eşlemesi veya ağ geçidi - P2S ve S2S) ve NSG. Bu filtreler, ayrıntılı olarak incelemek istediğiniz sanal ağlar odaklanmak için kullanın.
+- Sanal ağ topolojisini Abonelikleri, çalışma alanları, kaynak grupları ve zaman aralığına göre filtreleyebilirsiniz. Akış yardımcı olan ek filtreler anlayın: Akış türü (sanal ağlar arası, IntraVNET vb.), akış yönünü (gelen, giden), akış durumu (izin verilen, engellenen) sanal ağlar (hedeflenen ve bağlı), bağlantı türü (eşlemesi veya ağ geçidi - P2S ve S2S) ve NSG. Bu filtreler, ayrıntılı olarak incelemek istediğiniz sanal ağlar odaklanmak için kullanın.
 - Örneğin, sanal ağ topolojisini bakımından akışlar (izin verilen/engellenen/gelen/giden/Benign/kötü amaçlı), uygulama protokolü ve ağ güvenlik grupları, sanal ağa trafik dağılımı gösterir:
 
     ![Trafik dağıtım ve akış ayrıntıları vitrini sanal ağ topolojisi](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)

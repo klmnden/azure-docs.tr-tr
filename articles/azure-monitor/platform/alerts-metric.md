@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: b05fd9571494dfc3680e2d56fabb02de17920378
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3a106b0fe570fe44f96529d830271dfe4912437f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197409"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336502"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve ölçüm uyarıları Azure İzleyicisi'ni kullanarak yönetme
 
-Azure İzleyici ölçüm uyarılarını bildirim almak için bir yol sağlar bir eşiği ölçümlerinizi birini çapraz zaman. Ölçüm uyarıları, bir dizi platform çok boyutlu ölçümler, özel ölçümler, Application Insights standart ve özel ölçümler üzerinde çalışır. Bu makalede, biz oluşturun, görüntüleyin ve Azure portalı ve Azure CLI aracılığıyla ölçüm uyarı kurallarını yönetme konusunda açıklanmıştır. Ölçüm uyarı kuralları açıklanan Azure Resource Manager şablonlarını kullanarak da oluşturabilirsiniz [ayrı bir makale](../../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md).
+Azure İzleyici ölçüm uyarılarını bildirim almak için bir yol sağlar bir eşiği ölçümlerinizi birini çapraz zaman. Ölçüm uyarıları, bir dizi platform çok boyutlu ölçümler, özel ölçümler, Application Insights standart ve özel ölçümler üzerinde çalışır. Bu makalede, biz oluşturun, görüntüleyin ve Azure portalı ve Azure CLI aracılığıyla ölçüm uyarı kurallarını yönetme konusunda açıklanmıştır. Ölçüm uyarı kuralları açıklanan Azure Resource Manager şablonlarını kullanarak da oluşturabilirsiniz [ayrı bir makale](../../azure-monitor/platform/alerts-enable-template.md).
 
 Daha fazla hakkında nasıl ölçüm uyarıları çalıştığınızın edinebilirsiniz [ölçüm uyarıları genel bakış](alerts-metric-overview.md).
 
@@ -128,6 +128,6 @@ Görüntüleyebilir ve ölçüm uyarı kuralları altında uyarı kurallarını 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Resource Manager şablonlarını kullanarak ölçüm uyarıları oluşturma](../../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md).
+- [Azure Resource Manager şablonlarını kullanarak ölçüm uyarıları oluşturma](../../azure-monitor/platform/alerts-enable-template.md).
 - [Nasıl iş ölçüm uyarıları anlamak](alerts-metric-overview.md).
 - [Ölçüm uyarıları için web kancası şeması anlama](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#payload-schema)

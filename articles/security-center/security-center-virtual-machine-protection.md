@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 53a6ae828009db24b56a11b1fdcbea19842191f4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 454478fa02b8f4e71bc4efb61e1b8c194b927bc6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106626"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340836"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Makineleri ve Azure Güvenlik Merkezi'nde uygulamalarınızı koruma
 Azure Güvenlik Merkezi, Azure kaynaklarınızın güvenlik durumunu analiz eder. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması işlemi boyunca size rehberlik öneriler oluşturur. Öneriler, Azure kaynak türleri için geçerlidir: sanal makineleri (VM'ler) ve bilgisayarlar, uygulamalar, ağ, SQL ve kimlik ve erişim.
@@ -75,19 +75,19 @@ Her önerinin gerçekleştirebileceğiniz bir eylemler kümesi bulunur seçtikte
 **Sistem güncelleştirmelerini uygulayın** grafik biçiminde, bir Windows ve Linux için kritik güncelleştirmelerin özeti vardır. İkinci bölümde, aşağıdaki bilgileri içeren bir tablo vardır:
 
 - **AD**: Eksik güncelleştirmenin adıdır.
-- **VM’LER VE BİLGİSAYARLARIN SAYISI**: Bu güncelleştirmenin eksik olduğu VM'ler ve bilgisayarların toplam sayısı.
-- **Güncelleştirme önem DERECESİ**: belirli bir önerinin önem açıklar:
+- **VM VM'ler ve BİLGİSAYARLARIN**: VM'ler ve bu güncelleştirmenin eksik olduğu bilgisayarların toplam sayısı.
+- **GÜNCELLEŞTİRME ÖNEM DERECESİ**: Belirli bir önerinin önem açıklanmaktadır:
 
-    - **Kritik**: bir güvenlik açığı anlamlı bir kaynakta (uygulama, sanal makine veya ağ güvenlik grubu) var ve ilgilenilmesi gerekiyor.
-    - **Önemli**: kritik olmayan veya ek adımlar, bir işlemin tamamlanması veya bir güvenlik açığını ortadan kaldırmak için gereklidir.
-    - **Orta**: bir güvenlik açığının ele alınması gerekiyor ancak hemen ilgilenilmesi gerekmiyor. (Varsayılan olarak, düşük öneriler sunulmaz ancak bunları görüntülemek istiyorsanız düşük öneriler filtresini kullanabilirsiniz.)
+    - **Kritik**: Bir güvenlik açığı, anlamlı bir kaynakta (uygulama, sanal makine veya ağ güvenlik grubu) var ve ilgilenilmesi gerekiyor.
+    - **Önemli**: Bir işlemin tamamlanması veya bir güvenlik açığını ortadan kaldırmak için kritik olmayan veya ek adımlar gerekir.
+    - **Orta**: Bir güvenlik açığının ele alınması gerekiyor ancak hemen ilgilenilmesi gerekmiyor. (Varsayılan olarak, düşük öneriler sunulmaz ancak bunları görüntülemek istiyorsanız düşük öneriler filtresini kullanabilirsiniz.)
 
 
 - **DURUM**: Önerinin geçerli durumu:
 
     - **Açık**: Öneri henüz ele alınmadı.
-    - **Devam Ediyor**: Öneri şu anda bu kaynaklara uygulanıyor; sizin bir eylem yapmanıza gerek yok.
-    - **Çözüldü**: Öneri daha önce tamamlandı. (Sorun çözüldüğünde girdi soluklaşır).
+    - **Devam eden**: Öneri şu anda bu kaynaklara uygulanıyor ve herhangi bir işlem yapmanıza gerek yoktur.
+    - **Çözümlenen**: Öneri zaten tamamlandı. (Sorun çözüldüğünde girdi soluklaşır).
 
 Öneri ayrıntılarını görüntülemek için listeden eksik güncelleştirmenin adına tıklayın.
 
@@ -249,7 +249,7 @@ Diğer Azure kaynak türü için geçerli öneriler hakkında daha fazla bilgi i
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-azure-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](tutorial-security-policy.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 

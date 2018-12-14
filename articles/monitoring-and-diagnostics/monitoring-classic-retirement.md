@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 04dbc5c60e802e7861b9e2a98c51446281b7ae3f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: da866145f9c1ad39987b0f9a4449d4e5ff7f18f5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320616"
+ms.locfileid: "53337130"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Birleştirilmiş uyarılar ve Azure İzleyici'de izleme Klasik uyarı ve izleme değiştirir.
 
@@ -53,7 +53,7 @@ Azure kaynakları için yeni ölçümler olarak kullanılabilir:
 - Eski (Klasik) platformu ve özel ölçümler için Application Insights yanı sıra olarak bunlar üzerinde şu anda aracılığıyla kullanılabilen uyarı [uyarılar (Klasik) bölümünde](../azure-monitor/platform/alerts-classic.overview.md) Azure portal ve olarak erişilebilir [microsoft.insights/ alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) kaynak
 - Eski (Klasik) hata Anomalileri uyarı şu anda kullanılabilir olarak [Application Insights içinde akıllı algılama](../application-insights/app-insights-proactive-diagnostics.md) yapılandırılan uyarı; Azure portalında gösterilen [uyarılar (Klasik) bölümünde](../azure-monitor/platform/alerts-classic.overview.md) Azure Portal
 
-Tüm Klasik izleme ve sistemlerle ilgili uyarı [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../azure-monitor/platform/alerts-classic-portal.md), [CLI](../azure-monitor/platform/alerts-classic-portal.md), [Azure portal sayfasındaki](../azure-monitor/platform/alerts-classic-portal.md)ve [ Kaynak şablonu](monitoring-enable-alerts-using-template.md) Haziran 2019 sonuna kadar kullanılabilir kalır. 
+Tüm Klasik izleme ve sistemlerle ilgili uyarı [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../azure-monitor/platform/alerts-classic-portal.md), [CLI](../azure-monitor/platform/alerts-classic-portal.md), [Azure portal sayfasındaki](../azure-monitor/platform/alerts-classic-portal.md)ve [ Kaynak şablonu](../azure-monitor/platform/alerts-enable-template.md) Haziran 2019 sonuna kadar kullanılabilir kalır. 
 
 Azure İzleyici'de, Haziran 2019 sonunda:
 
@@ -76,4 +76,4 @@ Bu makalede, sürekli güncelleştirilen olacak bağlantılar ve yeni Azure izle
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Hakkında bilgi edinin [yeni birleşik Azure İzleyici](../azure-monitor/overview.md).
-* Yeni hakkında daha fazla bilgi [Azure uyarıları](monitoring-overview-alerts.md).
+* Yeni hakkında daha fazla bilgi [Azure uyarıları](../azure-monitor/platform/alerts-overview.md).

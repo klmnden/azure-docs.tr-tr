@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8806f10cff10ea7c2fc9888fac204841be4d37b4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 41f27782ab9bc6b0c72ef817472779ccca0e0d3e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263704"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337232"
 ---
 # <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>Öğretici: Spring ve Azure Cosmos DB'yi kullanarak bir Java web uygulaması derleme
 
@@ -35,7 +35,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* [Azure CLI](http://docs.microsoft.com/cli/azure/overview), kendi bilgisayarınızda yüklü. 
+* [Azure CLI](https://docs.microsoft.com/cli/azure/overview), kendi bilgisayarınızda yüklü. 
 * [Git](https://git-scm.com/)
 * [Java JDK](https://aka.ms/azure-jdks)
 * [Maven](https://maven.apache.org)

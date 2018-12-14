@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 3381939e296009b0fd58366f7fff410ea01d1206
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a79faa1dc5a28e5e2ac37ea164c341b855b3bb80
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864035"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339731"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Dayanıklı işlevler Azure portalını kullanarak oluşturma
 
@@ -24,17 +24,43 @@ ms.locfileid: "52864035"
 >[!NOTE]
 >
 >* Dayanıklı işlevler geliştiriyorsanız C#, bunun yerine dikkate almanız gereken [Visual Studio 2017 geliştirme](durable-functions-create-first-csharp.md).
-* Dayanıklı işlevler javascript'teki geliştiriyorsanız bunun yerine dikkate almanız gereken **Visual Studio Code geliştirme**.
->
->Dayanıklı işlevler oluşturma JavaScript kullanarak henüz portalda desteklenmiyor. Visual Studio Code'u kullanın.
+* Dayanıklı işlevler javascript'teki geliştiriyorsanız bunun yerine dikkate almanız gereken [Visual Studio Code geliştirme](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>İşlev uygulaması oluşturma
 
-Herhangi bir işlevin yürütülmesini barındıran bir işlev uygulamasına sahip olmalıdır. Bir işlev uygulaması, işlevlerinizin daha kolay yönetilmesi, dağıtım ve kaynakların paylaşımı için bir mantıksal birim olarak grubu sağlar. Oluşturmalısınız bir C# işlev uygulaması, bu yana JavaScript şablonları için dayanıklı işlevler henüz desteklenmemektedir.  
+Herhangi bir işlevin yürütülmesini barındıran bir işlev uygulamasına sahip olmalıdır. Bir işlev uygulaması, işlevlerinizin daha kolay yönetilmesi, dağıtım ve kaynakların paylaşımı için bir mantıksal birim olarak grubu sağlar. Bir .NET veya JavaScript uygulaması oluşturabilirsiniz.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
-Varsayılan olarak, oluşturulan işlev uygulaması sürümünü kullanır. Azure işlevleri çalışma zamanı 2.x. Dayanıklı işlevler uzantısını her iki sürümlerinde çalışır 1.x ve 2.x'i Azure işlevleri çalışma zamanı. Ancak, şablonları yalnızca sürüm hedeflenirken kullanılabilir 2.x çalışma zamanı.
+Varsayılan olarak, oluşturulan işlev uygulaması sürümünü kullanır. Azure işlevleri çalışma zamanı 2.x. Dayanıklı işlevler uzantısını her iki sürümlerinde çalışır 1.x ve 2.x'i Azure işlevleri çalışma zamanı içinde C#ve sürüm 2.x JavaScript içinde. Ancak, şablonları yalnızca sürüm hedeflenirken kullanılabilir 2.x çalışma zamanı seçtiğiniz dili ne olursa olsun.
+
+## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Dayanıklı işlevler npm paketini (yalnızca JavaScript) yükleme
+
+Dayanıklı işlevler JavaScript oluşturuyorsanız yüklemeniz gerekir [ `durable-functions` npm paket](https://www.npmjs.com/package/durable-functions).
+
+1. Ardından, işlev uygulamanızın adını seçin **Platform özellikleri**, ardından **Gelişmiş araçlar (Kudu)**.
+
+   ![Kudu işlevleri platform özellikleri seçin](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
+
+2. Kudu konsolu içinde seçin **hata ayıklama konsoluna** ardından **CMD**.
+
+   ![Kudu hata ayıklama konsoluna](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+
+3. İşlev uygulamanızın dosya dizin yapısının görüntülemelidir. `site/wwwroot` klasörüne gidin. Burada, yüklediğiniz bir `package.json` dosya dizini penceresine bırakarak dosya. Bir örnek `package.json` aşağıda verilmiştir:
+
+    ```json
+    {
+      "dependencies": {
+        "durable-functions": "^1.1.2"
+      }
+    }
+    ```
+
+   ![Kudu package.json karşıya yükleme](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+
+4. Bir kez, `package.json` yüklenir, çalıştırma `npm install` Kudu uzak yürütme konsolundan komutu.
+
+   ![Kudu npm yükleme çalıştırma](./media/durable-functions-create-portal/kudu-npm-install.png)
 
 ## <a name="create-an-orchestrator-function"></a>Bir düzenleyici işlevi oluşturma
 
@@ -92,7 +118,7 @@ Varsayılan olarak, oluşturulan işlev uygulaması sürümünü kullanır. Azur
         }
     ```
 
-1. Arama devam `statusQueryGetUri` durum olana kadar uç nokta **tamamlandı**, aşağıdaki örneğe benzer bir yanıt görürsünüz: 
+1. Arama devam `statusQueryGetUri` durum olana kadar uç nokta **tamamlandı**, aşağıdaki örneğe benzer bir yanıt görürsünüz:
 
     ```json
     {

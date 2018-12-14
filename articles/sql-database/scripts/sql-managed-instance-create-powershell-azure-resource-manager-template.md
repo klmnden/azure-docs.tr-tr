@@ -12,12 +12,12 @@ ms.author: jovanpop-msft
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 3c91323e0fcf03b5ae05702ea473536739d37e26
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7df94a465cac03a65bd1df15bf5c1cabda315551
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998791"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336480"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-an-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği oluşturmak için Azure Resource Manager şablonu ile PowerShell kullanma
 
@@ -39,7 +39,7 @@ Azure PowerShell komutları, önceden tanımlanmış Azure Resource Manager şab
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu örnek, sahibi olduğunuzu varsayar [geçerli ağ ortamını oluşturan](../sql-database-managed-instance-vnet-configuration.md#create-a-new-virtual-network-for-a-managed-instance) yönetilen Örneğiniz için. Örnek commandlet'ler kullanır [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) ve [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) bu nedenle, aşağıdaki PowerShell modüllerine yüklendiğinden emin olun:
+Bu örnek, sahibi olduğunuzu varsayar [geçerli ağ ortamını oluşturan](../sql-database-managed-instance-create-vnet-subnet.md) veya [mevcut bir VNet değiştiren](../sql-database-managed-instance-configure-vnet-subnet.md) yönetilen Örneğiniz için. Örnek commandlet'ler kullanır [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) ve [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork) bu nedenle, aşağıdaki PowerShell modüllerine yüklendiğinden emin olun:
 
 ```
 Install-Module AzureRM.Network

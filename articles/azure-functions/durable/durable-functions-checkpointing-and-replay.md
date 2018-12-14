@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ce930adc4cb2c635b54b3d41ea4a3ac272541698
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5d2cf4d76ce6f44cb31f05d45f2ccbceccbe9c10
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643169"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339374"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>Kontrol noktalarına ve yeniden yürütme içinde dayanıklı işlevler (Azure işlevleri)
 
@@ -27,7 +27,7 @@ Bu rağmen güvenilir bir biçimde yürütülmesini düzenlemeleri dayanıklı i
 
 Aşağıdaki orchestrator işlevi olduğunu varsayalım:
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -45,7 +45,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (yalnızca işlevler v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (yalnızca 2.x işlevleri)
 
 ```javascript
 const df = require("durable-functions");
@@ -56,6 +56,7 @@ module.exports = df.orchestrator(function*(context) {
     output.push(yield context.df.callActivity("E1_SayHello", "Seattle"));
     output.push(yield context.df.callActivity("E1_SayHello", "London"));
 
+    // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
     return output;
 });
 ```
@@ -77,47 +78,48 @@ Denetim noktası işlemi tamamlandıktan sonra orchestrator işlevi oluncaya kad
 
 Tamamlandığında, daha önce gösterilen işlev geçmişini aşağıdaki Azure tablo depolama (gösterim amacıyla kısaltılır) şuna benzer:
 
-| PartitionKey (InstanceId)                     | EventType             | Zaman damgası               | Girdi | Ad             | Sonuç                                                    | Durum | 
-|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | Null  | E1_HelloSequence |                                                           |                     | 
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     | 
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     | 
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     | 
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201Z |       |                  | "" "Merhaba Tokyo!" ""                                        |                     | 
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     | 
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435Z |       |                  |                                                           |                     | 
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     | 
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | "" "Seattle Merhaba!" ""                                      |                     | 
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     | 
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     | 
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     | 
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | "" "Merhaba Londra!" ""                                       |                     | 
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Tokyo Merhaba!" ",""Merhaba Seattle!" ",""Merhaba Londra!" "]" | Tamamlandı           | 
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     | 
+| PartitionKey (InstanceId)                     | EventType             | Zaman damgası               | Girdi | Ad             | Sonuç                                                    | Durum |
+|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------|
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null   | E1_HelloSequence |                                                           |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201Z |       |                  | "" "Merhaba Tokyo!" ""                                        |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | "" "Seattle Merhaba!" ""                                      |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | "" "Merhaba Londra!" ""                                       |                     |
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Tokyo Merhaba!" ",""Merhaba Seattle!" ",""Merhaba Londra!" "]" | Tamamlandı           |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
 
 Sütun değerleri birkaç Notlar:
-* **PartitionKey**: düzenleme örneği Kimliğini içerir.
-* **EventType**: olay türünü temsil eder. Şu türlerden biri olabilir:
-    * **OrchestrationStarted**: orchestrator işlevi ilk kez çalıştırma veya bir await sürdürülemez. `Timestamp` Sütunu belirleyici değerini doldurmak için kullanılır [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API.
-    * **ExecutionStarted**: orchestrator işlevi ilk kez çalıştırma başlatıldı. Bu olay işlevi girişinde de içeren `Input` sütun.
-    * **TaskScheduled**: etkinlik işlevi zamanlandı. Etkinlik işlevin adını yakalanan `Name` sütun.
-    * **TaskCompleted**: bir etkinlik işlev tamamlandı. İşlevin sonucu bulunduğu `Result` sütun.
-    * **TimerCreated**: kalıcı bir zamanlayıcı oluşturuldu. `FireAt` Sütun Zamanlayıcı süresinin dolma zamanlanmış UTC saati içerir.
-    * **TimerFired**: kalıcı bir zamanlayıcı tetiklendi.
-    * **EventRaised**: dış bir olaya düzenleme örneğine gönderildi. `Name` Sütunu olayın adını yakalar ve `Input` sütunu olayın yükünü yakalar.
-    * **OrchestratorCompleted**: bekleniyor Düzenleyici işlevi.
-    * **ContinueAsNew**: orchestrator işlevi tamamlandı ve kendisini yeni durumuyla yeniden başlatıldı. `Result` Sütunu yeniden örneğinde girdi olarak kullanılan değeri içerir.
-    * **ExecutionCompleted**: orchestrator işlev tamamlanana kadar çalıştırıldı (veya başarısız). İşlev veya hata ayrıntılarını çıkışlarına depolanan `Result` sütun.
-* **Zaman damgası**: geçmiş olayın UTC zaman damgası.
-* **Ad**: çağrıldı işlevin adı.
-* **Giriş**: işlevin giriş JSON ile biçimlendirilmiş.
-* **Sonuç**: işlev çıkışı; diğer bir deyişle, dönüş değeri.
+
+* **PartitionKey**: Orchestration örneği Kimliğini içerir.
+* **EventType**: Olay türünü temsil eder. Şu türlerden biri olabilir:
+  * **OrchestrationStarted**: Orchestrator işlevi bir await sürdürüldü veya ilk kez çalışıyor. `Timestamp` Sütunu belirleyici değerini doldurmak için kullanılır [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API.
+  * **ExecutionStarted**: Orchestrator işlevi ilk kez çalıştırma başlatıldı. Bu olay işlevi girişinde de içeren `Input` sütun.
+  * **TaskScheduled**: Bir etkinlik işlevi zamanlandı. Etkinlik işlevin adını yakalanan `Name` sütun.
+  * **TaskCompleted**: Bir etkinlik işlev tamamlandı. İşlevin sonucu bulunduğu `Result` sütun.
+  * **TimerCreated**: Dayanıklı bir zamanlayıcı oluşturuldu. `FireAt` Sütun Zamanlayıcı süresinin dolma zamanlanmış UTC saati içerir.
+  * **TimerFired**: Dayanıklı bir zamanlayıcı tetiklenir.
+  * **EventRaised**: Dış bir olaya düzenleme örneğine gönderildi. `Name` Sütunu olayın adını yakalar ve `Input` sütunu olayın yükünü yakalar.
+  * **OrchestratorCompleted**: Orchestrator işlev bekleniyor.
+  * **ContinueAsNew**: Orchestrator işlevi tamamlandı ve kendisini yeni durumuyla yeniden başlatıldı. `Result` Sütunu yeniden örneğinde girdi olarak kullanılan değeri içerir.
+  * **ExecutionCompleted**: Orchestrator işlev tamamlanana kadar çalıştırıldı (veya başarısız). İşlev veya hata ayrıntılarını çıkışlarına depolanan `Result` sütun.
+* **Zaman damgası**: Geçmiş olay UTC zaman damgası.
+* **Ad**: Çağrıldığı işlev adı.
+* **Giriş**: JSON biçimli giriş işlevin.
+* **Sonuç**: İşlev çıkışı; diğer bir deyişle, dönüş değeri.
 
 > [!WARNING]
 > Bir hata ayıklama aracı kullanışlı olsa da, bu tabloyu temel bağımlılığın almaz. Dayanıklı işlevler uzantısını geliştikçe değişebilir.
 
-Gelen işlevin sürdürür her zaman bir `await`, dayanıklı görev Framework orchestrator işlevi sıfırdan yeniden çalıştırır. Geçerli zaman uyumsuz işlem alınması olup olmadığını belirlemek için yürütme geçmişini danışır her yeniden çalıştırmada yerleştirin.  Framework işlemi gerçekleşen, bu işlemin çıktısı hemen yeniden yürütür ve diğerine geçer `await`. Bu işlem, tüm geçmişi, bu noktada orchestrator işlevindeki tüm yerel değişkenlerin önceki değerlere geri yüklenir durumdayken kadar devam eder.
+Gelen işlevin sürdürür her zaman bir `await` (C#) veya `yield` (JavaScript) dayanıklı görev Framework orchestrator işlevi sıfırdan yeniden çalıştırır. Geçerli zaman uyumsuz işlem alınması olup olmadığını belirlemek için yürütme geçmişini danışır her yeniden çalıştırmada yerleştirin.  Framework işlemi gerçekleşen, bu işlemin çıktısı hemen yeniden yürütür ve diğerine geçer `await` (C#) veya `yield` (JavaScript). Bu işlem, tüm geçmişi, bu noktada orchestrator işlevindeki tüm yerel değişkenlerin önceki değerlere geri yüklenir durumdayken kadar devam eder.
 
 ## <a name="orchestrator-code-constraints"></a>Orchestrator kod kısıtlamaları
 
@@ -125,26 +127,36 @@ Yeniden yürütme davranışını bir düzenleyici işlevi içinde yazılan kod 
 
 * Orchestrator kod olmalıdır **belirleyici**. Bu, birden çok kez yeniden yürütülmesi gereken ve her zaman aynı sonucu gerekir. Örneğin, geçerli tarih/saat almak, rastgele sayılar alın, rastgele bir GUID oluşturun veya uzak uç noktalarına çağrı için hiçbir doğrudan çağırır.
 
-  Orchestrator kodunun geçerli tarih/saat almak gerekiyorsa, bunu kullanmalısınız [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API yeniden yürütme için güvenlidir.
+  Orchestrator kodunun geçerli tarih/saat almak gerekiyorsa, bunu kullanmalısınız [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (.NET) veya `currentUtcDateTime` (JavaScript) API yeniden yürütme için güvenlidir.
 
-  Orchestrator kod, rastgele bir GUID oluşturun yapması gerekiyorsa, bunu kullanmalısınız [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) API yeniden yürütme için güvenlidir.
+  Orchestrator kod, rastgele bir GUID oluşturun yapması gerekiyorsa, bunu kullanmalısınız [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) gibi bu örnekte yeniden yürütme ya da bir etkinlik işlevi (JavaScript) için temsilci GUID oluşturma için güvenli olan (.NET) API'si:
+
+  ```javascript
+  const uuid = require("uuid/v1");
+
+  module.exports = async function(context) {
+    return uuid();
+  }
+  ```
 
   Etkinlik işlevlerde belirleyici olmayan işlemleri yapılması gerekir. Bu, diğer giriş veya çıkış bağlamaları herhangi bir etkileşim içerir. Bu, belirleyici olmayan değerleri üzerinde ilk yürütme kez oluşturulur ve yürütme geçmişine kaydedilir, sağlar. Sonraki yürütmeleri sonra otomatik olarak kaydedilen değer kullanır.
 
-* Orchestrator kod olmalıdır **engelleyici olmayan**. Örneğin, yani hiçbir g/ç ve çağrı `Thread.Sleep` veya eşdeğer API'ler.
+* Orchestrator kod olmalıdır **engelleyici olmayan**. Örneğin, yani hiçbir g/ç ve çağrı `Thread.Sleep` (.NET) veya eşdeğer API'ler.
 
-  Bir orchestrator gecikmesi gerekiyorsa kullanabilirsiniz [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) API.
+  Bir orchestrator gecikmesi gerekiyorsa kullanabilirsiniz [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) (.NET) veya `createTimer` (JavaScript) API.
 
-* Orchestrator kod gerekir **hiçbir zaman herhangi bir zaman uyumsuz işlemi başlatmak** dışındaki kullanarak [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API. Örneğin, Hayır `Task.Run`, `Task.Delay` veya `HttpClient.SendAsync`. Dayanıklı görev Framework tek bir iş parçacığı üzerinde orchestrator kodu yürütür ve diğer zaman uyumsuz API'leri tarafından zamanlanabilir diğer tüm iş parçacıkları ile etkileşime giremezler.
+* Orchestrator kod gerekir **hiçbir zaman herhangi bir zaman uyumsuz işlemi başlatmak** dışındaki kullanarak [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API veya `context.df` nesnenin API. Örneğin, Hayır `Task.Run`, `Task.Delay` veya `HttpClient.SendAsync` . NET'te, veya `setTimeout()` ve `setInterval()` JavaScript içinde. Dayanıklı görev Framework tek bir iş parçacığı üzerinde orchestrator kodu yürütür ve diğer zaman uyumsuz API'leri tarafından zamanlanabilir diğer tüm iş parçacıkları ile etkileşime giremezler.
 
-* **Sonsuz döngüler kaçınılmalıdır** orchestrator kod. Dayanıklı görev Framework yürütme geçmişi orchestration işlevi ilerledikçe kaydettiğinden, sonsuz bir döngüye belleğin tükenmek üzere orchestrator örneği neden olabilir. Sonsuz döngü senaryoları için API'leri gibi kullanan [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) işlevi yürütme yeniden başlatın ve önceki yürütme geçmişini atmak için.
+* **Sonsuz döngüler kaçınılmalıdır** orchestrator kod. Dayanıklı görev Framework yürütme geçmişi orchestration işlevi ilerledikçe kaydettiğinden, sonsuz bir döngüye belleğin tükenmek üzere orchestrator örneği neden olabilir. Sonsuz döngü senaryoları için API'leri gibi kullanan [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.NET) veya `continueAsNew` işlevi yürütme yeniden başlatın ve önceki yürütme geçmişini atmak (JavaScript).
+
+* JavaScript orchestrator işlevleri olamaz `async`. Zaman uyumlu bir oluşturucu işlevleri bildirilmelidir.
 
 Bu kısıtlamaları, ilk olarak, bunlar izlemek sabit olmayan uygulamada göz korkutucu görünse olsa da. Dayanıklı görev Framework yukarıdaki kuralları ihlalleri saptamaya çalışır ve oluşturur bir `NonDeterministicOrchestrationException`. Ancak, bu algılama en yüksek çaba, davranıştır ve ona bağlı olmaması gerekir.
 
 > [!NOTE]
 > Tüm bu kurallar tarafından tetiklenen işlevler uygulamak `orchestrationTrigger` bağlama. Etkinlik işlevleri tarafından tetiklenen `activityTrigger` bağlama ve kullanan işlevler `orchestrationClient` bağlama, bu bir sınırlamalara sahip.
 
-## <a name="durable-tasks"></a>Kalıcı görevleri
+## <a name="durable-tasks-net"></a>Kalıcı görevleri (.NET)
 
 > [!NOTE]
 > Bu bölümde, dayanıklı görev çerçevesi iç uygulama ayrıntıları açıklanmaktadır. Bu bilgiler bilmeden dayanıklı işlevler kullanabilirsiniz. Yalnızca yeniden yürütme davranışını anlamanıza yardımcı olmak için tasarlanmıştır.

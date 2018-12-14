@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: edfd2e9e03aefa4833c8472a43d4857f08b95780
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495471"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339408"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineler üzerinde çalışan SQL Server için sık sorulan sorular
 
@@ -112,7 +112,7 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 1. **SQL VM kaynak sağlayıcısı ile şirket içinde dağıtılmış SQL Server Vm'leri kaydetmek mümkündür?**
 
-   Evet. SQL Server'ı kendi medyadan dağıttıysanız, SQL Iaas uzantısı tarafından sağlanan yönetilebilirlik avantajlarından yararlanabilmek için kaynak sağlayıcısı ile SQL sanal makinenize kaydedin. Ancak, şirket içinde dağıtılan bir SQL VM için PAYG dönüştürülemiyor. 
+   Evet. SQL Server'ı kendi medyadan dağıtılan ve SQL Iaas uzantısı yüklü değilse, SQL Server VM'nize SQL Iaas uzantısı tarafından sağlanan yönetilebilirlik avantajlarından yararlanabilmek için kaynak sağlayıcısı ile kaydedebilirsiniz. Ancak, şirket içinde dağıtılan bir SQL VM Kullandıkça Öde aboneliğine dönüştürülemiyor.  
 
 ## <a name="administration"></a>Yönetim
 
@@ -122,7 +122,7 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 1. **SQL Server varsayılan örneğini kaldırabilirim?**
 
-   Evet, ancak burada noktalardır. Önceki yanıt belirtildiği gibi özellikler, bağımlı [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md) yalnızca varsayılan örnek üzerinde çalışır. Varsayılan örnek kaldırırsanız, uzantı için görünür olmaya devam eder ve olay günlüğünü hatalara neden. Aşağıdaki iki kaynaklarından bu hatalardır: **Microsoft SQL Server kimlik bilgileri yönetimi** ve **Microsoft SQL Server Iaas Aracısı**. Hatalardan biri, aşağıdakine benzer olabilir:
+   Evet, ancak burada noktalardır. Önceki yanıt belirtildiği gibi özellikler, bağımlı [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md) yalnızca varsayılan örnek üzerinde çalışır. Varsayılan örnek kaldırırsanız, uzantı için görünür olmaya devam eder ve olay günlüğünü hatalara neden. Bu hatalar, aşağıdaki iki kaynaktan kaynaklanır: **Microsoft SQL Server kimlik bilgileri yönetimi** ve **Microsoft SQL Server Iaas Aracısı**. Hatalardan biri, aşağıdakine benzer olabilir:
 
       Bir SQL Server bağlantısı kurulurken ağla ilgili veya örneğe özel bir hata oluştu. Sunucu bulunamadı veya erişilebilir durumda değildi.
 
@@ -153,7 +153,7 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
 
 1. **SQL veritabanı hizmeti SQL VM'ler arasındaki fark nedir?**
 
-   Kavramsal olarak, SQL Server değil, SQL Server'ı uzak bir veri merkezinde çalışan farklı bir Azure sanal makinesi üzerinde çalışıyor. Buna karşılık, [SQL veritabanı](../../../sql-database/sql-database-technical-overview.md) hizmet olarak veritabanı sağlar. SQL veritabanı ile veritabanlarınızı barındıran makinelerin erişiminiz yok. Tam bir karşılaştırması için bkz. [bir bulut SQL Server seçeneği seçin: Azure SQL (PaaS) veritabanı ya da (Iaas) Azure vm'lerde SQL Server](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
+   Kavramsal olarak, SQL Server değil, SQL Server'ı uzak bir veri merkezinde çalışan farklı bir Azure sanal makinesi üzerinde çalışıyor. Buna karşılık, [SQL veritabanı](../../../sql-database/sql-database-technical-overview.md) hizmet olarak veritabanı sağlar. SQL veritabanı ile veritabanlarınızı barındıran makinelerin erişiminiz yok. Tam bir karşılaştırması için bkz. [bir bulut SQL Server seçeneği seçin: Azure SQL (PaaS) veritabanı ya da (Iaas) Azure vm'lerinde SQL Server](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md).
 
 1. **SQL veri araçları Azure VM'deki uygulamalarımdan birine nasıl yüklerim?**
 

@@ -12,16 +12,19 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/23/2018
-ms.openlocfilehash: f26ea763d48d03fe7e981b7abbbe64e573ec0b3a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7ad3b81b792b37d2c3667dd554d41319a5727045
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224282"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336423"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Özel DNS yapılandırma için Azure SQL veritabanı yönetilen örneği
 
-Azure SQL veritabanı yönetilen örneği, bir Azure dağıtılmalıdır [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md). Yönetilen örnek çözülmesi özel konak adlarını gerektiren bazı senaryolar (yani, Bulut veya karma ortamınızdaki diğer SQL örneklerine bağlı sunucular) vardır. Bu durumda, Azure içinde özel bir DNS yapılandırmanız gerekir. Yönetilen örneği için kendi iç işleyişini aynı DNS kullandığından, sanal ağ DNS yapılandırmasını yönetilen örneği ile uyumlu olması gerekir. 
+Azure SQL veritabanı yönetilen örneği, bir Azure dağıtılmalıdır [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md). Yönetilen örnek çözülmesi özel konak adlarını gerektiren birkaç senaryo vardır (örneğin, db posta, Bulut veya karma ortamınızdaki diğer SQL örneklerine bağlı sunucular). Bu durumda, Azure içinde özel bir DNS yapılandırmanız gerekir. Yönetilen örneği için kendi iç işleyişini aynı DNS kullandığından, sanal ağ DNS yapılandırmasını yönetilen örneği ile uyumlu olması gerekir. 
+
+   > [!IMPORTANT]
+   > Özel DNS bölgenizdeki olsalar bile her zaman posta sunucuları, SQL sunucuları ve diğer hizmetler için tam etki alanı adlarını (FQDN) kullanın. Örneğin `smtp.contoso.com` posta sunucusu için olduğundan basit `smtp` düzgün şekilde çözümlenen olmayacaktır.
 
 Özel bir DNS yapılandırmasını yapmak için yönetilen örneği ile uyumludur, şunları yapmanız gerekir: 
 - Genel etki alanı adlarını çözümlemek için bu nedenle özel DNS sunucusunu yapılandırma 
@@ -38,10 +41,10 @@ Azure SQL veritabanı yönetilen örneği, bir Azure dağıtılmalıdır [sanal 
    ![Özel dns seçeneği](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
-   > Azure'nın yinelemeli çözümleyici DNS listesinde ayarlanmaması, herhangi bir nedenden dolayı özel DNS sunucuları kullanılamaz bir hatalı durumuna geçilmesidir yönetilen örneğe neden olabilir. Gelen durum yeni bir örneğini bir sanal ağ ile uyumlu ağ ilkeleri oluşturmanıza olanak gerektirebilir kurtarma, örnek düzeyinde veri oluşturun ve veritabanlarınızı geri yüklemek. Tüm özel DNS sunucuları bile başarısız olursa, DNS listedeki son girişi sağlar olarak Azure'nın yinelemeli çözümleyici ayarlama, ortak adları hala çözülebilir. Bkz: [VNet yapılandırmasını](sql-database-managed-instance-vnet-configuration.md).
+   > Azure'nın yinelemeli çözümleyici DNS listesinde ayarlanmaması, herhangi bir nedenden dolayı özel DNS sunucuları kullanılamaz bir hatalı durumuna geçilmesidir yönetilen örneğe neden olabilir. Gelen durum yeni bir örneğini bir sanal ağ ile uyumlu ağ ilkeleri oluşturmanıza olanak gerektirebilir kurtarma, örnek düzeyinde veri oluşturun ve veritabanlarınızı geri yüklemek. Tüm özel DNS sunucuları bile başarısız olursa, DNS listedeki son girişi sağlar olarak Azure'nın yinelemeli çözümleyici ayarlama, ortak adları hala çözülebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Genel bakış için bkz. [yönetilen örnek nedir](sql-database-managed-instance.md)
 - Yeni bir yönetilen örneğin nasıl oluşturulacağını gösteren bir öğretici için bkz [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md).
-- Bir yönetilen örnek için bir VNet yapılandırma hakkında daha fazla bilgi için bkz: [yönetilen örnekleri için sanal ağ yapılandırması](sql-database-managed-instance-vnet-configuration.md)
+- Bir yönetilen örnek için bir VNet yapılandırma hakkında daha fazla bilgi için bkz: [yönetilen örnekleri için sanal ağ yapılandırması](sql-database-managed-instance-connectivity-architecture.md)

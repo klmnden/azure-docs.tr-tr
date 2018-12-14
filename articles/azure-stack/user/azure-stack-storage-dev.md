@@ -9,23 +9,23 @@ ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a914a95831176a51cc6b5e2c5bf69ef1ad60bcc0
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a218cf9b3d89236128c83d8b879691940e432a55
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035943"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341567"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack depolama geliştirme araçları ile çalışmaya başlama
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Microsoft Azure Stack blob, tablo ve kuyruk depolama içeren depolama hizmetleri kümesi sağlar.
 
 Bu makalede, Azure Stack depolama geliştirme araçları ile çalışmaya başlamak için bir kılavuz olarak kullanın. Daha ayrıntılı bilgi ve örnek kod, karşılık gelen Azure depolama eğitimler bulabilirsiniz.
 
-> [!NOTE]  
-> Azure Stack depolama ve her platform için belirli gereksinimleri dahil olmak üzere Azure depolama arasındaki farklar bilinen vardır. Örneğin, belirli istemci kitaplıkları ve Azure Stack için belirli bir uç nokta son eki gereksinimleri vardır. Daha fazla bilgi için [Azure Stack Depolama: farklılıklar ve dikkat edilmesi gerekenler](azure-stack-acs-differences.md).
+> [!NOTE]
+> Azure Stack depolama ve her platform için belirli gereksinimleri dahil olmak üzere Azure depolama arasındaki farklar bilinen vardır. Örneğin, belirli istemci kitaplıkları ve Azure Stack için belirli bir uç nokta son eki gereksinimleri vardır. Daha fazla bilgi için [Azure Stack Depolama: Farklılıklar ve dikkat edilmesi gerekenler](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Azure istemci kütüphaneleri
 
@@ -37,7 +37,7 @@ Desteklenen REST API'si için Azure Stack depolama 2017-04-17, 2016-05-31, 2015-
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 8.7.0 | Nuget paketi:<br>https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0<br> <br>GitHub sürüm:<br>https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0 | app.config dosyası |
 | Java | 6.1.0 | Maven paketi:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0<br> <br>GitHub sürüm:<br>https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0 | Bağlantı dizesi kurulumu |
-| Node.js | 2.7.0 | NPM bağlantısı:<br>https://www.npmjs.com/package/azure-storage<br>(Çalıştırın: `npm install azure-storage@2.7.0`)<br> <br>Github sürüm:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | Hizmet örneği bildirimi |
+| Node.js | 2.7.0 | NPM bağlantısı:<br>https://www.npmjs.com/package/azure-storage<br>(Çalıştırın: `npm install azure-storage@2.7.0`)<br> <br>GitHub sürüm:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | Hizmet örneği bildirimi |
 | C++ | 3.1.0 | Nuget paketi:<br>https://www.nuget.org/packages/wastorage.v140/3.1.0<br> <br>GitHub sürüm:<br>https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0 | Bağlantı dizesi kurulumu |
 | PHP | 1.0.0 | GitHub sürüm:<br>Ortak: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>Kuyruk:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>Tablo: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>Oluşturucusu yükleyin (daha fazla bilgi edinmek için [aşağıdaki ayrıntılara göz atın](#install-php-client-via-composer---current).) | Bağlantı dizesi kurulumu |
 | Python | 1.0.0 | GitHub sürüm:<br>Ortak:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>BLOB:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>Kuyruk:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | Hizmet örneği bildirimi |
@@ -66,7 +66,7 @@ Oluşturucusu yüklemek için: (örnek olarak blob Al).
 |---------|---------|---------|---------|
 |.NET     |6.2.0|Nuget paketi:<br>[https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0](https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0)<br><br>GitHub sürüm:<br>[https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1](https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1)|app.config dosyası|
 |Java|4.1.0|Maven paketi:<br>[http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0)<br><br>GitHub sürüm:<br> [https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0](https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0)|Bağlantı dizesi kurulumu|
-|Node.js     |1.1.0|NPM bağlantısı:<br>[https://www.npmjs.com/package/azure-storage](https://www.npmjs.com/package/azure-storage)<br>(çalıştırın: `npm install azure-storage@1.1.0)`<br><br>Github sürüm:<br>[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|Hizmet örneği bildirimi||C++|2.4.0|Nuget paketi:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub sürüm:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Bağlantı dizesi kurulumu|
+|Node.js     |1.1.0|NPM bağlantısı:<br>[https://www.npmjs.com/package/azure-storage](https://www.npmjs.com/package/azure-storage)<br>(çalıştırın: `npm install azure-storage@1.1.0)`<br><br>GitHub sürüm:<br>[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|Hizmet örneği bildirimi||C++|2.4.0|Nuget paketi:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub sürüm:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Bağlantı dizesi kurulumu|
 |C++|2.4.0|Nuget paketi:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub sürüm:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Bağlantı dizesi kurulumu|
 |PHP|0.15.0|GitHub sürüm:<br>[https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0](https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0)<br><br>Oluşturucusu yükleyin (aşağıdaki ayrıntılara bakın)|Bağlantı dizesi kurulumu|
 |Python     |0.30.0|PIP paket:<br> [https://pypi.python.org/pypi/azure-storage/0.30.0](https://pypi.python.org/pypi/azure-storage/0.30.0)<br>(Çalıştırın: `pip install -v azure-storage==0.30.0)`<br><br>GitHub sürüm:<br> [https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|Hizmet örneği bildirimi|

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 558bf0eb6ab4abb4ad16910ebe36fdb7c1e19374
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7f66c87322aadafaa7167dff4190de6d08e5d18d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310938"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338422"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Anlama ve IOT Hub'ında cihaz ikizlerini kullanma
 
@@ -382,4 +382,4 @@ Bu makalede açıklanan kavramları bazıları denemek için aşağıdaki öğre
 
 * [Cihaz ikizi kullanma](iot-hub-node-node-twin-getstarted.md)
 * [Cihaz ikizi özelliklerini kullanma](tutorial-device-twins.md)
-* [VS Code için Azure IOT araç seti ile cihaz Yönetimi](iot-hub-device-management-iot-toolkit.md)
+* [VS Code için Azure IOT hub'ı araç seti ile cihaz Yönetimi](iot-hub-device-management-iot-toolkit.md)

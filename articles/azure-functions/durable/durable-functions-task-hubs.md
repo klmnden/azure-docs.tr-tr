@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 68771362c1b3904453eb7c32f58d28122e8660c3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869476"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336909"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri), görev hub'ları
 
@@ -27,7 +27,7 @@ Her işlev uygulaması ayrı görev hub sahiptir. Depolama hesabı, birden fazla
 
 ## <a name="azure-storage-resources"></a>Azure Storage kaynakları
 
-Bir görev hub'ı aşağıdaki depolama kaynaklarını oluşur: 
+Bir görev hub'ı aşağıdaki depolama kaynaklarını oluşur:
 
 * Bir veya daha fazla denetim sıralar.
 * Bir iş öğesi kuyruk.
@@ -41,7 +41,8 @@ Orchestrator veya etkinlik işlevlerini çalıştırdığınızda veya çalışt
 
 Görev merkezleri içinde bildirilen bir ad tarafından tanımlanır *host.json* aşağıdaki örnekte gösterildiği gibi dosya:
 
-### <a name="hostjson-functions-v1"></a>Host.JSON (işlevler v1)
+### <a name="hostjson-functions-1x"></a>host.json (1.x işlevleri)
+
 ```json
 {
   "durableTask": {
@@ -49,7 +50,9 @@ Görev merkezleri içinde bildirilen bir ad tarafından tanımlanır *host.json*
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>Host.JSON (işlevler v2)
+
+### <a name="hostjson-functions-2x"></a>host.json (2.x işlevleri)
+
 ```json
 {
   "version": "2.0",
@@ -60,9 +63,11 @@ Görev merkezleri içinde bildirilen bir ad tarafından tanımlanır *host.json*
   }
 }
 ```
+
 Görev merkezleri yapılandırılabilir uygulama ayarlarını kullanarak aşağıda gösterildiği gibi *host.json* dosyası örneği:
 
-### <a name="hostjson-functions-v1"></a>Host.JSON (işlevler v1)
+### <a name="hostjson-functions-1x"></a>host.json (1.x işlevleri)
+
 ```json
 {
   "durableTask": {
@@ -70,7 +75,9 @@ Görev merkezleri yapılandırılabilir uygulama ayarlarını kullanarak aşağ�
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>Host.JSON (işlevler v2)
+
+### <a name="hostjson-functions-2x"></a>host.json (2.x işlevleri)
+
 ```json
 {
   "version": "2.0",
@@ -81,13 +88,14 @@ Görev merkezleri yapılandırılabilir uygulama ayarlarını kullanarak aşağ�
   }
 }
 ```
+
 Görev hub adı değeri olarak ayarlanır `MyTaskHub` uygulama ayarı. Aşağıdaki `local.settings.json` nasıl tanımlanacağını gösterir `MyTaskHub` olarak ayarlama `samplehubname`:
 
 ```json
 {
   "IsEncrypted": false,
   "Values": {
-    "MyTaskHub" :  "samplehubname" 
+    "MyTaskHub" : "samplehubname"
   }
 }
 ```
@@ -111,9 +119,10 @@ public static async Task<HttpResponseMessage> Run(
     return starter.CreateCheckStatusResponse(req, instanceId);
 }
 ```
+
 Ve JavaScript için gerekli yapılandırma aşağıda verilmiştir. Görev hub özelliğinde `function.json` dosyası uygulama ayarı ayarlayın:
 
-```javascript
+```json
 {
     "name": "input",
     "taskHub": "%MyTaskHub%",

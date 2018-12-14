@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
+ms.date: 12/11/2018
 ms.author: rkarlin
-ms.openlocfilehash: 08a16285a6e3e52fc9e2ddce6b6936dfd4639ba8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d0cdda4553808d1197d764d0a50e535515527443
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835582"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336450"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Güvenlik Merkezi'nin Gelişmiş güvenlik için standart katmana yükseltin
 Azure Güvenlik Merkezi, Azure’da, şirket içinde ve diğer bulutlarda çalışan iş yükleri için birleşik güvenlik yönetimi ve gelişmiş tehdit koruması sağlar. Bu, hibrit bulut iş yükleri, hızla gelişen siber saldırı ile uydurmanıza yardımcı olmak için tehditleri ve akıllı algılama maruz kalma riskinizi azaltmak etkin savunmaları üzerinde görünürlük ve denetim sunar.
@@ -33,8 +33,8 @@ Güvenlik Merkezi iki katmanda sunulur:
 
 Daha fazla bilgi için bkz: Güvenlik Merkezi [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="try-standard-free-for-60-days"></a>Standart 60 gün boyunca ücretsiz deneyin
-Standart katman ilk 60 gün boyunca ücretsizdir. 60 gün sonunda, hizmeti kullanmaya devam etmeyi tercih ederseniz otomatik olarak kullanım için başlarız.
+## <a name="try-standard-free-for-30-days"></a>Standart 30 gün boyunca ücretsiz deneyin
+Standart katman, ilk 30 gün boyunca ücretsizdir. 30 günün sonunda, hizmeti kullanmaya devam etmeyi tercih ederseniz otomatik olarak kullanım için başlarız.
 
 Tüm Azure aboneliğinin, abonelik içindeki tüm kaynaklar tarafından devralınır standart katmana yükseltebilirsiniz.
 

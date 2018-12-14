@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: d3183353cbadb821ac7f84c81f4da747be823e4f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 432f1a89979829bd43596d0d6a3ab7a2a3bfb996
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276732"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336491"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında Eylem grupları oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -29,7 +29,7 @@ Her eylem aşağıdaki özelliklerinden oluşur:
 * **Eylem türü**: Gerçekleştirilecek eylem. Bir ses araması, SMS, e-posta gönderme verilebilir; veya otomatik eylemler çeşitli türlerde tetikleniyor. Bu makalenin devamındaki türleri bakın. 
 * **Ayrıntılar**: Göre değişiklik gösteren ilgili ayrıntıları *eylem türü*. 
 
-Eylem grupları yapılandırmak için Azure Resource Manager şablonlarını kullanma hakkında daha fazla bilgi için bkz: [eylem grubu Resource Manager şablonları](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+Eylem grupları yapılandırmak için Azure Resource Manager şablonlarını kullanma hakkında daha fazla bilgi için bkz: [eylem grubu Resource Manager şablonları](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>Azure portalını kullanarak bir eylem grubu oluşturma ##
 1. İçinde [portalı](https://portal.azure.com)seçin **İzleyici**. **İzleyici** dikey penceresinde, tüm izleme ayarlarınızı ve tek bir görünümde verileri birleştirir.
@@ -73,7 +73,7 @@ Bir eylem grubu oluşturduktan sonra görünür **Eylem grupları** bölümünü
    - azureemail-noreply@microsoft.com
    - alerts-noreply@mail.windowsazure.com
 
-Bir eylem grubu 1000 adede kadar e-posta eylemleri olabilir. Bkz: [bilgileri sınırlama oranı](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) makale
+Bir eylem grubu 1000 adede kadar e-posta eylemleri olabilir. Bkz: [bilgileri sınırlama oranı](./../../azure-monitor/platform/alerts-rate-limiting.md) makale
 
 **ITSM** -en fazla 10 olabilir bir eylem grubu ITSM eylem ITSM eylemleri bir ITSM bağlantısı gerektirir. Oluşturmayı bir [ITSM bağlantısı](../../azure-monitor/platform/itsmc-overview.md).
 
@@ -83,10 +83,10 @@ Bir eylem grubu 1000 adede kadar e-posta eylemleri olabilir. Bkz: [bilgileri sı
 
 **Runbook** -bir eylem grubu başvuru için en fazla 10 Runbook eylemleri olabilir [Azure abonelik hizmeti limitleri](../../azure-subscription-service-limits.md) sınırları üzerinde Runbook yükler
 
-**SMS** -görebileceği bir eylem grubu en fazla 10 SMS eylemler olabilir [bilgileri sınırlama oranı](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) bakın makalesi [SMS uyarısı davranışı](../../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md) makale
+**SMS** -görebileceği bir eylem grubu en fazla 10 SMS eylemler olabilir [bilgileri sınırlama oranı](./../../azure-monitor/platform/alerts-rate-limiting.md) bakın makalesi [SMS uyarısı davranışı](../../azure-monitor/platform/alerts-sms-behavior.md) makale
 
 **Ses** -10 adede kadar ses eylemleri bir eylem grubu içinde olabilir</dd>
-Bkz: [bilgileri sınırlama oranı](./../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) makale</dd>
+Bkz: [bilgileri sınırlama oranı](./../../azure-monitor/platform/alerts-rate-limiting.md) makale</dd>
 
 **Web kancası** -10 adede kadar Web kancası eylemleri bir eylem grubu içinde olabilir. Yanıt 10 saniyedir logic - zaman aşımı süresi yeniden deneyin. Web kancası çağrısı olacaktır, 2 katı şu HTTP durum kodları, döndürülen en fazla yeniden deneme: 408, 429, 503, 504 veya HTTP uç noktasına yanıt vermiyor. İlk yeniden deneme 10 saniye sonra gerçekleşir. İkinci ve son yeniden deneme 100 saniye sonra gerçekleşir.
 
@@ -102,9 +102,9 @@ Değişiklikler yapılandırdığınız öneririz bu IP adresleri için güncell
 
 
 ## <a name="next-steps"></a>Sonraki adımlar ##
-* Daha fazla bilgi edinin [SMS uyarısı davranışı](../../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md).  
+* Daha fazla bilgi edinin [SMS uyarısı davranışı](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Geçirmesine bir [etkinlik günlüğü uyarısı Web kancası şeması anlama](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * Daha fazla bilgi edinin [ITSM Bağlayıcısı](../../azure-monitor/platform/itsmc-overview.md)
-* Daha fazla bilgi edinin [hız sınırlaması](../../monitoring-and-diagnostics/monitoring-alerts-rate-limiting.md) Uyarılardaki.
-* Alma bir [etkinlik günlüğü uyarılarına genel bakış](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)ve uyarıları alma hakkında bilgi edinin.  
+* Daha fazla bilgi edinin [hız sınırlaması](../../azure-monitor/platform/alerts-rate-limiting.md) Uyarılardaki.
+* Alma bir [etkinlik günlüğü uyarılarına genel bakış](../../azure-monitor/platform/alerts-overview.md)ve uyarıları alma hakkında bilgi edinin.  
 * Bilgi edinmek için nasıl [hizmet durumu bildirimi gönderilen her uyarıları yapılandırma](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).

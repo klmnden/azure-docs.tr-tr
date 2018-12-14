@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 97f1c9e16ae6be9e6bece69d0923f6290a8cd072
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 73eda631d43da87b4472615c2b6a28244372c613
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024724"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339272"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C için Azure IOT cihaz SDK'sı
 
@@ -75,11 +75,11 @@ IOT hub'ınıza yönetmenize yardımcı olmak üzere çeşitli açık kaynak ara
 
 * Adlı bir Windows uygulaması [cihaz Gezgini](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-* Platformlar arası Visual Studio Code uzantısı adlı [Azure IOT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+* Platformlar arası Visual Studio Code uzantısı adlı [Azure IOT hub'ı Araç Seti](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (eski adıyla Azure IOT Araç Seti).
 
 * Platformlar arası Python CLI adlı [Azure CLI için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension).
 
-Bu öğreticide grafik *cihaz Gezgini* aracı. Kullanabileceğiniz *VS Code için Azure IOT Toolkit uzantısını* VS Code'da geliştirme yapıyorsanız. Ayrıca *Azure CLI 2.0 için IOT uzantısı* CLI aracını kullanmayı tercih ederseniz aracı.
+Bu öğreticide grafik *cihaz Gezgini* aracı. Kullanabileceğiniz *VS Code için Azure IOT hub'ı Toolkit uzantısını* VS Code'da geliştirme yapıyorsanız. Ayrıca *Azure CLI 2.0 için IOT uzantısı* CLI aracını kullanmayı tercih ederseniz aracı.
 
 Device explorer aracı, IOT Hub cihaz ekleme dahil olmak üzere, çeşitli işlevleri gerçekleştirmek için Azure IOT hizmeti kitaplıklarını kullanır. Bir cihaz eklemek için device explorer aracı kullanırsanız, cihazınız için bir bağlantı dizesini alın. Örnek uygulamaları çalıştırmak için bu bağlantı dizesi gerekir.
 
@@ -410,7 +410,7 @@ END_NAMESPACE(WeatherStation);
 
 **Başlamak\_ad alanı** ve **son\_ad alanı** makroları her iki ad alanı modeli bir bağımsız değişken olarak alın. Bu makrolar arasında herhangi bir şey tanımını modelinizi veya modelleri ve modelleri kullanan veri yapıları olan beklenmektedir.
 
-Bu örnekte, adlı tek bir model yok **ContosoAnemometer**. Bu model Cihazınızı IOT Hub'ına gönderebilirsiniz veri iki parçasını tanımlar: **DeviceID** ve **WindSpeed**. Ayrıca, cihaz alabilir üç eylem (iletiler) tanımlar: **TurnFanOn**, **TurnFanOff**, ve **SetAirResistance**. Her veri öğesini bir tür varsa ve her eylem bir ad (ve isteğe bağlı olarak bir parametre kümesi).
+Bu örnekte, adlı tek bir model yok **ContosoAnemometer**. Bu model, cihazınızın IOT Hub'ına gönderebilirsiniz veri iki parçasını tanımlar: **DeviceID** ve **WindSpeed**. Ayrıca, cihaz alabilir üç eylem (iletiler) tanımlar: **TurnFanOn**, **TurnFanOff**, ve **SetAirResistance**. Her veri öğesini bir tür varsa ve her eylem bir ad (ve isteğe bağlı olarak bir parametre kümesi).
 
 IOT Hub'ına ileti göndermek için kullanın ve cihaza gönderilen iletilere yanıt veren bir API yüzeyi veri ve modelde tanımlı eylemleri tanımlayın. Bu model kullanımını en iyi bir örnek anlaşılır.
 

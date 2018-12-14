@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute için ağ yapılandırma ayrıntıları
+title: Azure ExpressRoute - App Service için ağ yapılandırma ayrıntıları
 description: Yapılandırma ayrıntıları, bir Azure ExpressRoute bağlantı hattına bağlı sanal ağlarda bulunan PowerApps için App Service ortamı için ağ.
 services: app-service
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 8dc6f595f312326f4082af9f875fefddc3a5fb8d
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: a9af97bcd85833a140d6c668fe4c757c85d7447a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320718"
+ms.locfileid: "53337181"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Azure ExpressRoute ile PowerApps için App Service ortamı için ağ yapılandırma ayrıntıları
 
@@ -127,7 +127,7 @@ Alternatif olarak, Azure tarafından kullanılan CIDR aralıkları geçerli, kap
 > Tek bir UDR 100 yolların varsayılan bir üst sınırı vardır. "Azure IP adresi aralığı içinde 100-route sınırını aşmayacak şekilde özetlemek" gerekir. UDR tanımlı yollar, ExpressRoute bağlantınızı tarafından tanıtılan rotaları daha belirli gerekecektir.
 > 
 
-### <a name="step-3-associate-the-table-to-the-subnet"></a>3. adım: Alt ağa tablosunu ilişkilendirme
+### <a name="step-3-associate-the-table-to-the-subnet"></a>3. Adım: Alt ağa tablosunu ilişkilendirme
 
 Burada, App Service ortamı dağıtmak istediğiniz alt ağ için rota tablosu ilişkilendirin. Bu komut ilişkilendirir **DirectInternetRouteTable** tablo **ASESubnet** App Service ortamını içeren alt ağ.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
-ms.openlocfilehash: 4535b141d177e49567d99a88d0c3883f5ddf746a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 839c8bfe6748c1aeaf7c8804ef4388cf8a623bdb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956815"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337844"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Güvenlik Merkezi ve Azure SQL veritabanı hizmeti
 [Azure Güvenlik Merkezi](https://azure.microsoft.com/documentation/services/security-center/), tehditleri önlemenize, algılamanıza ve yanıtlamanıza yardımcı olur. Aboneliklerinizde, tümleşik güvenlik izleme ve ilke yönetimi sağlar; normal koşullarda gözden kaçabilecek tehditleri algılamaya yardımcı olur ve güvenlik çözümlerinin geniş ekosistemiyle çalışır.
@@ -60,7 +60,7 @@ SQL denetimi ve SQL saydam veri şifrelemesi (TDE) için öneriler göstermek i�
 Güvenlik İlkesi ayarlamak için seçin **ilke** Güvenlik Merkezi Dikey Döşe. Üzerinde **Güvenlik İlkesi** dikey penceresinde, güvenlik ilkesini etkinleştirmek istediğiniz aboneliği seçin. Seçin **önleme İlkesi** ve **üzerinde** bu abonelikte kullanmak istediğiniz güvenlik önerilerini.
 ![Güvenlik ilkesi][3]
 
-Daha fazla bilgi için bkz. [güvenlik ilkelerini ayarlama](security-center-azure-policy.md).
+Daha fazla bilgi için bkz. [güvenlik ilkelerini ayarlama](tutorial-security-policy.md).
 
 ## <a name="manage-security-recommendation"></a>Güvenlik önerisi yönetme
 Güvenlik Merkezi düzenli aralıklarla Azure kaynaklarınızın güvenlik durumunu çözümler. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde öneriler oluşturur. Gerekli denetimlerin yapılandırılması işlemi boyunca öneriler size rehberlik eder.
@@ -85,7 +85,7 @@ Bağlantısındaki [Azure portalında SQL veritabanı tehdit algılama](../sql-d
 Öneriler hakkında daha fazla bilgi edinmek için [güvenlik önerilerini yönetme](security-center-recommendations.md).
 
 ## <a name="monitor-security-health"></a>Güvenlik durumunu izleme
-Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-azure-policy.md) etkinleştirmenizin ardından, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak amacıyla kaynaklarınızın güvenliğini analiz eder.  İçinde kaynaklarınızın güvenlik durumunu görüntüleyebileceğiniz **kaynak güvenlik durumu** Döşe. Tıkladığınızda **veri** içinde **kaynak güvenlik durumu** kutucuğunda **veri kaynakları** dikey penceresi denetim ve saydam veri gibi sorunlar için SQL önerilerle birlikte açılır şifrelemesinin etkinleştirilmemiş olması. Ayrıca, veritabanının genel sağlık durumu için öneriler içerir.
+Bir aboneliğin kaynakları için [güvenlik ilkelerini](tutorial-security-policy.md) etkinleştirmenizin ardından, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak amacıyla kaynaklarınızın güvenliğini analiz eder.  İçinde kaynaklarınızın güvenlik durumunu görüntüleyebileceğiniz **kaynak güvenlik durumu** Döşe. Tıkladığınızda **veri** içinde **kaynak güvenlik durumu** kutucuğunda **veri kaynakları** dikey penceresi denetim ve saydam veri gibi sorunlar için SQL önerilerle birlikte açılır şifrelemesinin etkinleştirilmemiş olması. Ayrıca, veritabanının genel sağlık durumu için öneriler içerir.
 ![Kaynak güvenlik durumu][6]
 
 Daha fazla bilgi için bkz. [güvenlik durumunu izleme](security-center-monitoring.md).
