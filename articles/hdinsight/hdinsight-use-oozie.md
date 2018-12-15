@@ -10,17 +10,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: f585a9d89418f15d9e5c08ae36b70791eca54219
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: bbe61477a9841173fb47267b53da1b5cf75d9924
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017159"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410304"
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Tanımlamak ve HDInsight içinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma
+# <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Tanımlamak ve iş akışı çalıştırma HDInsight için Apache Hadoop ile Apache Oozie kullanma
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Bir iş akışını tanımlayabilir ve iş akışını HDInsight üzerinde çalıştırmak için Apache Oozie kullanmayı öğrenin. Oozie Düzenleyicisi hakkında bilgi edinmek için [HDInsight ile zamana dayalı Hadoop Oozie Düzenleyici kullanma][hdinsight-oozie-coordinator-time]. Azure Data Factory bilgi edinmek için [kullanım Pig ve Hive ile veri fabrikası][azure-data-factory-pig-hive].
+Bir iş akışını tanımlayabilir ve iş akışını HDInsight üzerinde çalıştırmak için Apache Oozie kullanmayı öğrenin. Oozie Düzenleyicisi hakkında bilgi edinmek için [HDInsight ile zamana dayalı Apache Oozie Düzenleyici kullanma][hdinsight-oozie-coordinator-time]. Azure Data Factory bilgi edinmek için [kullanım Apache Pig ve Apache Hive ile veri fabrikası][azure-data-factory-pig-hive].
 
 Apache Oozie, Hadoop işlerini yöneten bir iş akışı/koordinasyon sistemidir. Bu Hadoop yığını ile tümleştirilir ve Apache MapReduce, Apache Pig, Apache Hive ve Apache Sqoop için Hadoop işlerini destekler. Ayrıca, Java programları veya kabuk betikleri gibi sisteme özel işleri planlamak için de kullanılabilir.
 
@@ -28,7 +28,7 @@ Bu öğreticide yönergeleri takip ederek uygulama iş akışı iki eylemleri i�
 
 ![İş akışı diyagramı][img-workflow-diagram]
 
-1. Bir Hive eylem log4j dosyasını her günlük düzeyi türünün sayısını için HiveQL betiğini çalıştırır. Her log4j dosyasını türünün ve önem gösterir, örneğin bir [günlük düzeyi] alan içeren bir dizi alanlarının oluşur:
+1. Bir Hive eylemi bir Apache Log4j dosyasını her günlük düzeyi türünün sayısını için HiveQL betiğini çalıştırır. Her log4j dosyasını türünün ve önem gösterir, örneğin bir [günlük düzeyi] alan içeren bir dizi alanlarının oluşur:
    
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -44,11 +44,11 @@ Bu öğreticide yönergeleri takip ederek uygulama iş akışı iki eylemleri i�
         [TRACE] 816
         [WARN]  4
    
-    Hive hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma][hdinsight-use-hive].
-2. Sqoop eylem HiveQL çıktı Azure SQL veritabanındaki tabloya dışarı aktarır. Sqoop hakkında daha fazla bilgi için bkz: [HDInsight ile Hadoop Sqoop kullanma][hdinsight-use-sqoop].
+    Hive hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma Apache][hdinsight-use-hive].
+2. Sqoop eylem HiveQL çıktı Azure SQL veritabanındaki tabloya dışarı aktarır. Sqoop hakkında daha fazla bilgi için bkz: [HDInsight ile Apache Sqoop'u kullanma][hdinsight-use-sqoop].
 
-> [!NOTE]
-> HDInsight kümelerinde desteklenen Oozie sürümleri için bkz: [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler nelerdir?] [hdinsight-versions].
+> [!NOTE]  
+> HDInsight kümelerinde desteklenen Oozie sürümleri için bkz: [HDInsight tarafından sağlanan Apache Hadoop küme sürümlerindeki yenilikler nelerdir?] [hdinsight-versions].
 > 
 > 
 
@@ -613,16 +613,16 @@ Aşağıda, kullanabileceğiniz örnek bir PowerShell Betiği verilmiştir:
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, bir Oozie iş akışının tanımlayın ve PowerShell kullanarak bir Oozie işi çalıştırmak nasıl öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
+Bu öğreticide, bir Apache Oozie iş akışının tanımlayın ve PowerShell kullanarak bir Oozie işi çalıştırmak nasıl öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [HDInsight ile zamana dayalı Oozie düzenleyicisi kullanın][hdinsight-oozie-coordinator-time]
-* [Mobil ahize kullanımı çözümlemek için Hive, HDInsight ile Hadoop kullanmaya başlama][hdinsight-get-started]
+* [HDInsight ile zamana dayalı Apache Oozie düzenleyicisini kullanma][hdinsight-oozie-coordinator-time]
+* [Apache Hadoop mobil ahize kullanımını analiz etme Apache Hive, HDInsight kullanmaya başlama][hdinsight-get-started]
 * [HDInsight ile Azure Blob Depolama kullanma][hdinsight-storage]
 * [HDInsight PowerShell kullanarak yönetme][hdinsight-admin-powershell]
-* [HDInsight Hadoop işleri için veri yükleme][hdinsight-upload-data]
-* [HDInsight, Hadoop ile Sqoop kullanma][hdinsight-use-sqoop]
-* [HDInsight üzerinde Hadoop ile Hive kullanma][hdinsight-use-hive]
-* [HDInsight üzerinde Hadoop ile Pig kullanma][hdinsight-use-pig]
+* [HDInsight, Apache Hadoop işleri için veri yükleme][hdinsight-upload-data]
+* [HDInsight, Apache Hadoop ile Apache Sqoop'u kullanma][hdinsight-use-sqoop]
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma][hdinsight-use-hive]
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma][hdinsight-use-pig]
 * [HDInsight için Java MapReduce programları geliştirme][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563

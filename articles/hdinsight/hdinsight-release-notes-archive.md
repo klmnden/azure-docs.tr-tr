@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5e70a92b4a0de633f88012d756276cef07226c82
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 43acf5f59667f45e67156b33e31d28160ba47c13
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037715"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408817"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Azure HDInsight için arşivlenmiş yayın notları
 
 İçin **en son** Azure HDInsight sürüm güncelleştirmeleri görmek [HDInsight sürüm notları](hdinsight-release-notes.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight sürüm makale](hdinsight-component-versioning.md).
 
 ## <a name="notes-for-06272018---release-of-new-open-source-versions-adls-gen2-etc-on-hdinsight-36"></a>Yeni açık kaynak sürümlerinin çıkmasıyla, HDInsight 3.6 üzerinde ADLS Gen2 vb. 06/27/2018 için-Notlar
@@ -28,7 +28,7 @@ HDInsight'ın Haziran 2018 sürümünden yeni güncelleştirmeleri ve müşteril
 
 Öne çıkan özellikleri aşağıda verilmiştir. Ayrıntılı sürüm notları için bilinen sorunlar, vs. düzeltilen okuyun [için Azure HDInsight sürüm notları](hdinsight-release-notes.md).
 
-- **Hadoop ve diğer açık kaynaklı projelerin güncelleştirme** – 1000'den fazla hata düzeltmeleri ek olarak 20'den fazla açık kaynak projeler arasında bu güncelleştirme (2.3) Spark ve Kafka (1.0) yeni bir sürümünü içerir.
+- **Apache Hadoop ve diğer açık kaynaklı projelerin güncelleştirme** – 1000'den fazla hata düzeltmeleri ek olarak 20'den fazla açık kaynak projeler arasında bu güncelleştirme (2.3) Apache Spark ve Apache Kafka (1.0) yeni bir sürümünü içerir.
 - **Machine Learning Hizmetleri 9.3 için R Server 9.1 güncelleştirme** – bu sürümle birlikte, veri Bilim insanlarının ve mühendislerin algoritmik yeniliklerini ve kullanıma hazır hale getirme, tüm kullanılabilir kolaylığı ile geliştirilmiş açık kaynaklı en iyi şekilde ile sağlıyoruz, tercih edilen dili ile Apache Spark'ın hızı. Bu sürüm, Python, R Server ML Hizmetleri için gelen küme adı değişikliği baştaki desteği eklendi ile R Server'da sunulan üzerine genişletir. 
 - **Azure Data Lake depolama 2. nesil için destek** – HDInsight Azure Data Lake depolama Gen2 önizleme sürümünü destekler. Kullanılabilir bölgelerde, müşterilerin kendi HDInsight kümeleri için deposu olarak bir ADLS Gen2 hesap seçmek mümkün olacaktır.
 - **HDInsight Kurumsal güvenlik paketi güncelleştirmeleri (Önizleme)** – (Önizleme) sanal ağ hizmet uç noktaları için Azure blob depolama, ADLS Gen1, Cosmos DB ve Azure DB destekler. 
@@ -43,11 +43,11 @@ HDInsight'ın Haziran 2018 sürümünden yeni güncelleştirmeleri ve müşteril
 | Unvan | Açıklama | Etkilenen alan  | Küme Türü  | 
 | --- | --- | --- | --- | --- |
 | HDInsight üzerinde Microsoft R Server 9.1 sürümünde |HDInsight, HDInsight üzerinde R Server 9.1 kümeleri sağlama artık desteklemektedir. Microsoft R Server 9.1 sürüm hakkında daha fazla bilgi için bkz. [bu blog](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |Hizmet |R Server |
-| HDInsight 3.6 Hadoop yığını'nın daha yeni sürümleri artık içerir.|<ul><li>Güncelleştirilmiş sürümleri ayrıntılı bir listesi için bkz. [Hadoop bileşen sürümü HDInsight kullanılabilir](hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).</li><li>En son sürümlerini Hadoop yığını düzeltilen hataların listesi için bkz. [Apache düzeltme eki bilgileri](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>(Bu HDInsight 3.6 sunuldu) 2.6.1 HDP arasında yeni değişiklikler bir listesi için bkz [ https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html ](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>2.6.1 HDP bilinen sorunların bir listesi için bkz. [bilinen sorunlar](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Hizmet |Tümü |Yok |
-| Interactive Hive (Önizleme) kümeleri güncelleştirmeleri |<ul><li><b>Özellik geliştirme.</b> Meta verileri önbelleğe alarak SQL arka uç yükü azaltır ve tüm meta veriler işlemler için performansı artıran önbelleğe alınan meta veri deposu uygulaması.  Bu geliştirme, Interactive Hive tüm kümelerde varsayılan sunulmuştur. Daha fazla bilgi için bkz. [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Özellik geliştirme.</b> Dinamik bölüm yüklenmesi İyileştirildi. Daha fazla bilgi için bkz. [https://issues.apache.org/jira/browse/HIVE-14204](https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Özellik geliştirme.</b> Linux üzerinde HDInsight için yapılandırma iyileştirmeleri.</li><li><b>Hata düzeltmesi.</b> `CredentialProviderFactory$getProviders` iş parçacığı açısından güvenli değildir. Bu sorunu artık düzeltildi. Daha fazla bilgi için bkz. [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Hata düzeltmesi.</b> Yüksek CPU kullanımı WASB sürücüsüyle `liststatus` API hatalı ATS performansıyla sonuçlanır. Bu sorunu artık düzeltildi. Daha fazla bilgi için bkz. [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Hizmet |Etkileşimli Hive (Önizleme) |
+| HDInsight 3.6 Hadoop yığını'nın daha yeni sürümleri artık içerir.|<ul><li>Güncelleştirilmiş sürümleri ayrıntılı bir listesi için bkz. [HDInsight içinde kullanılabilir bir Apache Hadoop bileşen sürümü](hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).</li><li>En son sürümlerini Hadoop yığını düzeltilen hataların listesi için bkz. [Apache düzeltme eki bilgileri](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>(Bu HDInsight 3.6 sunuldu) 2.6.1 HDP arasında yeni değişiklikler bir listesi için bkz [ https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html ](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>2.6.1 HDP bilinen sorunların bir listesi için bkz. [bilinen sorunlar](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Hizmet |Tümü |Yok |
+| Interactive Hive (Önizleme) kümeleri güncelleştirmeleri |<ul><li><b>Özellik geliştirme.</b> Meta verileri önbelleğe alarak SQL arka uç yükü azaltır ve tüm meta veriler işlemler için performansı artıran önbelleğe alınan meta veri deposu uygulaması.  Bu geliştirme, varsayılan tüm kümelerde Apache Interactive Hive sunulmuştur. Daha fazla bilgi için bkz. [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Özellik geliştirme.</b> Dinamik bölüm yüklenmesi İyileştirildi. Daha fazla bilgi için bkz. [https://issues.apache.org/jira/browse/HIVE-14204](https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Özellik geliştirme.</b> Linux üzerinde HDInsight için yapılandırma iyileştirmeleri.</li><li><b>Hata düzeltmesi.</b> `CredentialProviderFactory$getProviders` iş parçacığı açısından güvenli değildir. Bu sorunu artık düzeltildi. Daha fazla bilgi için bkz. [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Hata düzeltmesi.</b> Yüksek CPU kullanımı WASB sürücüsüyle `liststatus` API hatalı ATS performansıyla sonuçlanır. Bu sorunu artık düzeltildi. Daha fazla bilgi için bkz. [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Hizmet |Etkileşimli Hive (Önizleme) |
 | Hadoop kümeleri güncelleştirmeleri |Templeton da iş işlemi güvenilirliği artırıldı. Daha fazla bilgi için bkz. [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |Hizmet |Hadoop |
 | YARN güncelleştirmeleri | HDInsight artık müşteriler için daha iyi bir deneyimle sonuçlanır (olmadan maliyet artırma), bir 250 GB Ambari veritabanı oluşturur. Bu değişiklik ATS doldurulmuş engellemek ve büyük olasılıkla daha iyi bir performans olması gerekir. |Hizmet |Tümü |
-| Spark güncelleştirmeleri | Spark 2.1.1 sürümü. Daha fazla bilgi için [Spark sürüm 2.1.1](https://spark.apache.org/releases/spark-release-2-1-1.html). | Hizmet | Spark |
+| Spark güncelleştirmeleri | Spark 2.1.1 sürümü. Daha fazla bilgi için [Apache Spark sürüm 2.1.1](https://spark.apache.org/releases/spark-release-2-1-1.html). | Hizmet | Spark |
 
   
 
@@ -69,15 +69,15 @@ HDInsight'ın Haziran 2018 sürümünden yeni güncelleştirmeleri ve müşteril
 
 * **Hive yeni özellikler**. Bkz: [Hortonworks belgeleri](https://hortonworks.com/apache/hive/#section_4).
 
-* **CLI kullanımdan kaldırma hive**: Hive CLI kullanım dışı bırakılıyor ve müşteriler için bunun yerine Beeline kullanmanız önerilir. Daha fazla bilgi için [Apache dokümantasyonunda](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). HDInsight ile Beeline kullanma hakkında yönergeler için bkz: [kullanın Beeline ile HDInsight Hadoop kümeleri](hadoop/apache-hadoop-use-hive-beeline.md).
+* **CLI kullanımdan kaldırma hive**: Hive CLI kullanım dışı ve müşterilerin Beeline kullanmanız önerilir. Daha fazla bilgi için [Apache dokümantasyonunda](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline). HDInsight ile Beeline kullanma hakkında yönergeler için bkz: [kullanın Beeline ile HDInsight Hadoop kümeleri](hadoop/apache-hadoop-use-hive-beeline.md).
 
 * **Apache Phoenix ve HBase yeni özelliklerini**.
     * Depolama kotası desteği: Sınırlı depolama alanı üzerinde izin vererek, çok kiracılı ortamlarda yaygın olarak kullanılan bir ad alanı düzeyi ve tablo başına.
-    * Phoenix geliştirmeleri dizin oluşturma: Artımlı dizin oluşturma ve yeniden oluşturma/sürdürme önceki hatalardan dizin oluşturma.
-    * Phoenix veri bütünlüğü aracı: şema, dizin ve diğer meta veri doğrulama destekler.
+    * Phoenix dizinleme iyileştirmeleri: Artımlı dizin oluşturma ve yeniden oluşturma/sürdürme önceki hatalardan dizin oluşturma.
+    * Phoenix veri bütünlüğü aracı: Şema, dizin ve diğer meta veri doğrulama destekler.
 
 
-* **HBase sorun**: çalıştırılırken bir CSV toplu karşıya yükleme MapReduce işi, aşağıdaki söz dizimini hataya neden.
+* **HBase sorun**: Aşağıdaki söz dizimini bir MapReduce işi CSV toplu karşıya yükleme çalıştırılırken hataya neden.
 
         HADOOP_CLASSPATH=$(hbase mapredcp):/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
 
@@ -98,7 +98,7 @@ HDInsight'ın Haziran 2018 sürümünden yeni güncelleştirmeleri ve müşteril
 Spark 2.0.1 Spark kümelerinde (HDInsight sürüm 3.5) kullanıma sunulmuştur.
 
 ## <a name="11162016---release-of-r-server-90-on-hdinsight-35-spark-20"></a>16/11/2016 - HDInsight 3.5 üzerinde R Server 9.0 sürümü (Spark 2.0)
-*   R Server kümeleri artık iki sürümü seçeneği içerir: HDI 3.5 (Spark 2.0) ve HDI 3.4 (Spark 1.6) üzerinde R Server 8.0 üzerinde R Server 9.0.
+*   R Server kümeleri artık iki sürümü seçeneği içerir: R Server 9.0 HDI 3.5 (Spark 2.0) ve R Server 8.0 üzerinde HDI 3.4 (Spark 1.6).
 *   HDI 3.5 (Spark 2.0) üzerindeki R Server 9.0 R 3.3.2 yerleşiktir ve veri Hive ve Parquet doğrudan analizi için Spark veri çerçevelerini yükleme için ScaleR tarafından RxHiveData ve RxParquetData adlı yeni ScaleR veri kaynağı işlevleri içerir. Daha fazla bilgi için bkz. Bu R işlevleri aracılığıyla Yardım satır içi **? RxHiveData** ve **? RxParquetData** komutları.
 *   RStudio Server topluluk sürümünü artık varsayılan olarak (geri çevirme seçeneğiyle) küme yapılandırma dikey penceresinde sağlama akışının parçası olarak yüklenir.
 

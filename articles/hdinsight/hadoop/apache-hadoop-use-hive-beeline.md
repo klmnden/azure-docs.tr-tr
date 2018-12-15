@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5b4798b183b44ef33b24a61c4f995b3ae7b3b9d0
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c1c4637bf3b71ade6cceb4427180edf8bc408670
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014122"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408111"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive ile Apache Beeline istemcisini kullanma
 
@@ -27,7 +27,7 @@ Beeline HDInsight kümenizin baş düğümlerine dahil edilmiş bir Hive istemci
 * __HDInsight için bir Azure sanal ağ üzerinden bağlanan bir istemci, Beeline kullanma__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
 * __HDInsight için genel internet üzerinden bağlanan bir istemci, Beeline kullanma__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
-> [!NOTE]
+> [!NOTE]  
 > Değiştirin `admin` kümeniz için küme oturum açma hesabı ile.
 >
 > Değiştirin `password` ile küme oturum açma hesabı için parola.
@@ -40,7 +40,7 @@ Beeline HDInsight kümenizin baş düğümlerine dahil edilmiş bir Hive istemci
 
 * Linux tabanlı Hadoop HDInsight kümesi sürüm 3.4 üzerindeki.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Bir SSH istemcisi veya yerel Beeline istemci. Bu belgedeki adımlarda çoğunu Beeline kümeye bir SSH oturumundan kullandığınız varsayılır. Kümenin dışından gelen Beeline çalıştırma hakkında daha fazla bilgi için bkz: [Beeline'ı uzaktan kullanma](#remote) bölümü.
@@ -139,7 +139,7 @@ Beeline HDInsight kümenizin baş düğümlerine dahil edilmiş bir Hive istemci
 
     * `INPUT__FILE__NAME LIKE '%.log'` -Hive, dizindeki tüm dosyaları şema uygulamak çalışır. Bu durumda, dizin şemasını eşleşmeyen dosyalarını içerir. Çöp veri sonuçları engellemek için bu bildirimi Hive, yalnızca veri sonu dosyalarından dönmesi gerektiğini söyler. günlük.
 
-  > [!NOTE]
+  > [!NOTE]  
   > Dış tablolar, temel alınan veriler dış bir kaynak tarafından güncelleştirilmesi beklediğiniz kullanılmalıdır. Örneğin, bir otomatik veri karşıya yükleme işlemi veya MapReduce işlemi.
   >
   > Bir dış tablo bırakılırken mu **değil** verileri, yalnızca tablo tanımını silin.
@@ -193,7 +193,7 @@ Bir dosya oluşturun ve ardından Beeline kullanarak çalıştırmak için aşa�
     * **DEPOLANAN AS ORC** -en iyi duruma getirilmiş satır sütunlu (ORC) biçiminde veri depolar. ORC biçimi, Hive verilerini depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimidir.
     * **INSERT ÜZERİNE... SEÇİN** -satırları seçer **log4jLogs** içeren tablo **[Hata]**, ardından verileri ekler **günlüklerini** tablo.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Dış tablolar, iç tablo bırakılırken, temel alınan verileri de siler.
 
 3. Dosyayı kaydetmek için kullanın **Ctrl**+**_X**, enter **Y**ve son olarak **Enter**.
@@ -204,7 +204,7 @@ Bir dosya oluşturun ve ardından Beeline kullanarak çalıştırmak için aşa�
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i query.hql
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > `-i` Parametre Beeline başlar ve ifadeleri çalıştırır `query.hql` dosya. Sorgu tamamlandıktan sonra ulaşırsınız `jdbc:hive2://headnodehost:10001/>` istemi. Kullanarak bir dosyaya da çalıştırabilirsiniz `-f` sorgu tamamlandıktan sonra Beeline çıkar parametresi.
 
 5. Doğrulamak için **günlüklerini** tablonun oluşturulma, bulunan tüm satırlar döndürülecek aşağıdaki deyimini **günlüklerini**:
@@ -242,11 +242,11 @@ Beeline yerel olarak yüklü olması ve bir Azure sanal ağ üzerinden bağlanma
 
 * __Bağlantı dizesi__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
 
-Bir baş düğüm tam etki alanı adını bulmak için yer alan bilgileri kullanın. [Ambari REST API'yi kullanarak HDInsight yönetme](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) belge.
+Bir baş düğüm tam etki alanı adını bulmak için yer alan bilgileri kullanın. [Apache Ambari REST API'yi kullanarak HDInsight yönetme](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) belge.
 
-## <a id="sparksql"></a>Beeline ile Spark kullanma
+## <a id="sparksql"></a>Beeline ile Apache Spark kullanma
 
-Spark, Spark Thrift sunucusu bazen denir HiveServer2 kendi uygulamasını sağlar. Bu hizmet, Spark SQL sorguları Hive yerine çözümlemek için kullanır ve sorgunuzu bağlı olarak daha iyi performans sağlayabilir.
+Apache Spark, Spark Thrift sunucusu bazen denir HiveServer2 kendi uygulamasını sağlar. Bu hizmet, Spark SQL sorguları Hive yerine çözümlemek için kullanır ve sorgunuzu bağlı olarak daha iyi performans sağlayabilir.
 
 __Bağlantı dizesi__ internet üzerinden bağlanma biraz farklı olduğunda kullanılır. İçeren yerine `httpPath=/hive2` olduğu `httpPath/sparkhive2`. İnternet üzerinden bağlanan bir örnek verilmiştir:
 
@@ -264,17 +264,17 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 HDInsight Hive hakkında daha fazla genel bilgi için aşağıdaki belgesine bakın:
 
-* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](hdinsight-use-hive.md)
 
 HDInsight üzerinde Hadoop kullanmaya çalışabilir diğer yollar hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
-* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
-* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Apache Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
 Tez Hive'ı kullanıyorsanız, aşağıdaki belgelere bakın:
 
-* [Tez kullanıcı Arabirimi, Windows tabanlı HDInsight üzerinde kullanma](../hdinsight-debug-tez-ui.md)
-* [Linux tabanlı HDInsight üzerinde Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md)
+* [Windows tabanlı HDInsight üzerinde Apache Tez kullanıcı Arabirimi kullanma](../hdinsight-debug-tez-ui.md)
+* [Linux tabanlı HDInsight üzerinde Apache Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md)
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/

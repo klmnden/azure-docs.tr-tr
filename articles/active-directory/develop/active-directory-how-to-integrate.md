@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fcc0badc17675c1c8923c744afd3fa46e98fef32
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d3b2edefd602a90ff28b8e0645d3c48932ba44dd
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954717"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410321"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory ile tümleştirme
 
@@ -36,7 +36,7 @@ Uygulamanızın Azure AD ile tümleştirmek birkaç yol vardır. Birçok veya uy
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Azure AD oturum açma, uygulamanız için bir yol olarak desteği
 **Oturum açma uyuşmazlıkları azaltın ve destek maliyetlerini azaltır.** Uygulamanıza oturum açmak için Azure AD'yi kullanarak, kullanıcılarınızın bir daha fazla ad olmaz ve parolayı unutmayın. Bir geliştirici olarak depolamak ve korumak için daha az bir parola gerekir. Unutulmuş parola sıfırlama işlemlerini işlemek zorunda değil, tek başına bir önemli ölçüde tasarruf olabilir. Azure AD oturum açma bazı Office 365 ve Microsoft Azure dahil olmak üzere dünyanın en popüler bulut uygulamaları için güçlendirir. Yüz milyonlarca ile kullanıcılara kuruluşları milyonlarca olasılığı olan kullanıcı zaten işaretli Azure AD'ye. Daha fazla bilgi edinin [Azure AD oturum açma desteği eklendi](authentication-scenarios.md).
 
-**Oturum, uygulamanız için yedekleme basitleştirin.**  Böylece form kaydolma önceden doldurun veya tamamen ortadan kaydolma sırasında uygulamanız için Azure AD kullanıcı hakkındaki temel bilgileri gönderebilirsiniz. Kullanıcıların uygulamanızı sosyal medya ve mobil uygulamalarda bulunan benzer bir tanıdık onayı deneyimi aracılığıyla kendi Azure AD hesabını kullanarak kaydolabilirsiniz. Herhangi bir kullanıcı, kaydolma ve BT'ye gerek kalmadan Azure AD ile tümleştirilmiş bir uygulama için oturum açın. Daha fazla bilgi edinin [uygulamanız Azure AD hesap oturum açma için imzalama-yukarı](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+**Oturum, uygulamanız için yedekleme basitleştirin.**  Böylece form kaydolma önceden doldurun veya tamamen ortadan kaydolma sırasında uygulamanız için Azure AD kullanıcı hakkındaki temel bilgileri gönderebilirsiniz. Kullanıcıların uygulamanızı sosyal medya ve mobil uygulamalarda bulunan benzer bir tanıdık onayı deneyimi aracılığıyla kendi Azure AD hesabını kullanarak kaydolabilirsiniz. Herhangi bir kullanıcı, kaydolma ve BT'ye gerek kalmadan Azure AD ile tümleştirilmiş bir uygulama için oturum açın. Daha fazla bilgi edinin [uygulamanız Azure AD hesap oturum açma için imzalama-yukarı](../../app-service/configure-authentication-provider-aad.md).
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>Kullanıcılar için göz, kullanıcı sağlamayı yönetme ve uygulamanıza erişimi denetleme
 **Dizininde yer alan kullanıcılar için göz atın.**  Arama ve diğer davet ettiğinizde kuruluşlarındaki diğer kişiler için Gözat kullanıcılara yardımcı olmak için Graph API'sini kullanın veya e-posta türü için gerek yerine erişim verme yöneliktir. Kullanıcılar, kuruluş hiyerarşisini ayrıntılarını görüntüleme dahil olmak üzere bir tanıdık adres defteri stili arabirimini kullanarak göz atabilirsiniz. Daha fazla bilgi edinin [Graph API'si](active-directory-graph-api.md).

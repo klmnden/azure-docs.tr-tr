@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 988d61d6db867c33a2dd9998d675f40f49e71332
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: e2e6742fb3eda0523c7333451e836beb069e57ca
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341754"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410372"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>SQL Server veritabanlarını Azure'a yedekleme
 
@@ -298,7 +298,7 @@ Bir SQL veritabanı için korumayı yapılandırmak için:
 
     ![Seçin yedeklemeyi yapılandırma](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-    Azure Backup hizmeti tek başına veritabanları ve SQL Server Always On kullanılabilirlik grupları ile tüm SQL Server örneğini gösterir. Tek başına veritabanları SQL Server örneğinde görüntülemek için örnek adının solundaki köşeli çift ayracı seçin. Benzer şekilde, veritabanlarının listesini görüntülemek için Always On kullanılabilirlik grubu solundaki köşeli çift ayracı seçin. Aşağıdaki resimde, bir tek başına bir örneğini ve Always On kullanılabilirlik grubu örneğidir.
+    Azure Backup hizmeti tek başına veritabanları ve SQL Server her zaman kullanılabilirlik grupları ile tüm SQL Server örneğini gösterir. Tek başına veritabanları SQL Server örneğinde görüntülemek için örnek adının solundaki köşeli çift ayracı seçin. Benzer şekilde, veritabanlarının listesini görüntülemek için her zaman üzerinde kullanılabilirlik grubu solundaki köşeli çift ayracı seçin. Aşağıdaki resimde, bir tek başına bir örneğini ve her zaman üzerinde kullanılabilirlik grubu örneğidir.
 
       ![Tek başına veritabanları ile tüm SQL Server örneklerini görüntüleme](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -312,7 +312,7 @@ Bir SQL veritabanı için korumayı yapılandırmak için:
     > Yedekleme yüklerini en iyi duruma getirmek için Azure Backup büyük yedekleme işleri birden çok toplu iş ayırır. Bir yedekleme işi veritabanlarında sayısı 50'dir.
     >
 
-      Alternatif olarak, etkinleştirebilirsiniz [otomatik korumayı](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) tüm örneği veya seçerek Always On kullanılabilirlik grubu **ON** seçeneği karşılık gelen açılır penceresinde **AUTOPROTECT**  sütun. [Otomatik korumayı](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) özellik yalnızca tek bir seferde tüm var olan veritabanları korumasını sağlar, ancak gelecekte bu örneği veya kullanılabilirlik grubuna eklenecek yeni veritabanlarını da otomatik olarak korur.  
+      Alternatif olarak, etkinleştirebilirsiniz [otomatik korumayı](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) tüm örneği veya her zaman üzerinde kullanılabilirlik grubu seçerek **ON** seçeneği karşılık gelen açılır penceresinde **AUTOPROTECT**  sütun. [Otomatik korumayı](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) özellik yalnızca tek bir seferde tüm var olan veritabanları korumasını sağlar, ancak gelecekte bu örneği veya kullanılabilirlik grubuna eklenecek yeni veritabanlarını da otomatik olarak korur.  
 
       ![Always On kullanılabilirlik grubunda otomatik korumayı etkinleştir](./media/backup-azure-sql-database/enable-auto-protection.png)
 
@@ -347,9 +347,7 @@ Bir SQL veritabanı için korumayı yapılandırmak için:
 
 ## <a name="auto-protect-sql-server-in-azure-vm"></a>Azure VM'de SQL Server otomatik olarak koruma  
 
-Otomatik koruma, bir tek başına SQL Server örneğine veya SQL Server Always On kullanılabilirlik grubu eklersiniz gelecekteki veritabanlarının yanı sıra tüm mevcut veritabanlarıyla otomatik olarak korumanıza olanak sağlayan bir özelliktir.
-
-Örneği veya bir kullanılabilirlik grubunda zaten korunan veritabanlarını bazıları olması durumunda, yine de etkinleştirebilirsiniz **ON** auto-protect seçeneği. Zaten korunan veritabanlarını ilgili ilkelerini ile korunacak devam edecek, ancak bu durumda, bu nedenle tanımlanan yedekleme ilkesi yalnızca korumasız veritabanlarını geçerli olacaktır.
+Otomatik koruma, mevcut tüm veritabanlarını ve gelecekte bir tek başına SQL Server örneği veya SQL Server her zaman kullanılabilirlik grubuna eklersiniz veritabanları otomatik olarak korumanıza olanak sağlar. Kapatma **ON** otomatik koruma ve yedekleme İlkesi'ni seçerek yeni korunan veritabanları için geçerli, var olan korumalı veritabanlarını önceki ilke kullanmaya devam eder.
 
 ![Always On kullanılabilirlik grubunda otomatik korumayı etkinleştir](./media/backup-azure-sql-database/enable-auto-protection.png)
 
@@ -479,7 +477,7 @@ Belirli bir zaman yerine belirli bir kurtarma noktasını geri yüklemek için b
     - **Üzerine yaz**: Verilerin, özgün kaynak aynı SQL Server örneğine geri yükleyin. Bu seçenek, özgün veritabanının üzerine yazmak için etkisidir.
 
     > [!Important]
-    > Seçilen veritabanı bir Always On kullanılabilirlik grubuna dahilse, SQL Server veritabanı üzerine yazılmasına izin vermez. Bu durumda, yalnızca **alternatif bir konuma** seçeneği etkinleştirilir.
+    > Seçilen veritabanı bir her zaman üzerinde kullanılabilirlik grubuna dahilse, SQL Server veritabanı üzerine yazılmasına izin vermez. Bu durumda, yalnızca **alternatif bir konuma** seçeneği etkinleştirilir.
     >
 
     ![Yapılandırma menü geri yükleme](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)

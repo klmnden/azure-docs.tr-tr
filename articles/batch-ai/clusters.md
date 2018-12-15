@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 61294d8b6b84b03b1e0c8d79b4d2855452c7f0e6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9af8ce84805e48dd3c91dd7fb4fcf0b136fbfc60
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057288"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410100"
 ---
 # <a name="work-with-batch-ai-clusters"></a>Batch AI kümeleri ile çalışma 
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Bu makalede, Azure Batch AI kümeleri ile nasıl çalışılacağı açıklanmaktadır. Bu kümeler, olası yapılandırmalar ve örnekler türlerini kavramını sunar. Bu makalede bir küme oluşturma ve yönetme için örneklerin çoğu Azure CLI'yı kullanın. Ancak, kümeleriyle çalışmak için Azure portalı ve Azure Batch AI SDK'ları da dahil olmak üzere diğer araçları kullanabilirsiniz.
 
@@ -152,7 +155,7 @@ az batchai cluster show \
 }
 ```
 
-### <a name="list-cluster-nodes"></a>Liste küme düğümleri
+### <a name="list-cluster-nodes"></a>Küme düğümlerini listeleme
 
 Küme düğümlerine bağlanmak istiyorsanız, aşağıdaki komutu düğüm ve bağlantı bilgilerini listesini alır.  
 

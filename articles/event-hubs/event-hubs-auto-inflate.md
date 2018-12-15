@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: cf0c7a5339d2880bbed01fc95b54038d15f1c2ce
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083543"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408174"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Azure Event Hubs işleme birimleri otomatik olarak ölçeklendirme
 Azure Event Hubs akış platformu yüksek düzeyde ölçeklenebilir bir veridir. Bu nedenle, Event Hubs kullanımı genellikle başlattıktan sonra hizmeti kullanmak üzere artırır. Önceden tanımlanmış artan tür kullanımı gerektirir [üretilen iş birimleri](event-hubs-features.md#throughput-units) Event Hubs ölçeklendirip daha büyük aktarım hızlarını işleyebilme. **Otomatik şişme** özellik Event Hubs'ın otomatik olarak ölçeklendirilebilir üretilen iş birimi sayısını artırarak, kullanım karşılaması gerekir. Üretilen iş birimleri artırma engeller azaltma senaryoları, burada:
@@ -47,15 +47,25 @@ Etkinleştirebilir veya otomatik şişme bir Event Hubs ad alanı üzerinde aşa
 
 ### <a name="enable-auto-inflate-through-the-portal"></a>Otomatik şişme portal aracılığıyla etkinleştirme
 
-Otomatik şişme özelliği, bir Event Hubs ad alanını oluştururken etkinleştirebilirsiniz:
+
+#### <a name="enable-at-the-time-of-creation"></a>Oluşturma sırasında etkinleştir 
+Otomatik şişme özelliğini etkinleştirebilirsiniz **bir Event Hubs ad alanını oluştururken**:
  
 ![Otomatik etkinleştirme zaman olay hub'ı oluşturma sırasında Şişir](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
 Bu seçenek etkinleştirildiğinde, işleme birimleri ile küçükten başlayabilir ve kullanım artışı gereksinimleriniz değiştikçe ölçeği artırma. Üst sınırını Enflasyon hemen fiyatlandırması, saat başına kullanılan aktarım hızı birimi sayısı bağımlı olduğu etkilemez.
 
-Otomatik şişme kullanarak etkinleştirebilirsiniz **ölçek** portalında ayarlar bölmesini seçeneği:
+#### <a name="enable-auto-inflate-for-an-existing-event-hub"></a>Otomatik şişme etkinleştirilsin mevcut bir olay hub'için
+Otomatik şişme özelliği etkinleştirmek ve aşağıdaki yönergeleri kullanarak ayarlarını değiştirin: 
  
-![Otomatik etkinleştirme ölçek seçeneğini kullanarak Şişir](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+1. Üzerinde **olay hub'ları Namespace** sayfasında **devre dışı bırakılmış** altında **otomatik şişme, işleme birimleri**.  
+
+    ![Event Hubs ad alanı sayfasında aktarım hızı birimlerini seçin](./media/event-hubs-auto-inflate/select-throughput-units.png)
+2. İçinde **ölçek ayarları** sayfasında, onay kutusunu seçip **etkinleştirme** (otomatik ölçeklendirme özelliği etkin durumda değilse).
+
+    ![Etkinleştir'i seçin](./media/event-hubs-auto-inflate/scale-settings.png)
+3. Girin **maksimum** sayısı değeri ayarlamak için üretilen iş birimleri veya kaydırma çubuğunu kullanın. 
+4. (isteğe bağlı) Güncelleştirme **minimum** bu sayfanın üst işleme birimi sayısı. 
 
 
 > [!NOTE]

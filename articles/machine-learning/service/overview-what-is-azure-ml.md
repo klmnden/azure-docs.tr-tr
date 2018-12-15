@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f0860982da6a06a3529539768179f9bc28a0695a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a9e91a2c11dbef3b3d9b887bfd6bb4b3372f3523
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272992"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408621"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Azure Machine Learning hizmeti nedir?
 
@@ -91,6 +91,8 @@ Azure hizmetlerinde harcayabileceğiniz krediler alırsınız. Krediler bittikte
 - Eksiksiz öğreticide izleyin [eğitme ve bir Azure Machine Learning ile görüntü sınıflandırma modeli dağıtma](tutorial-train-models-with-aml.md).
 
 - [Otomatik olarak oluşturmak için Azure Machine Learning ve Otomatik Ayarla bir model](tutorial-auto-train-models.md).
+
+- Kullanım [Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk) verilerinizi hazırlamak için.
 
 - Makine öğrenmesi senaryolarınızı derlemek, iyileştirmek ve yönetmek için [makine öğrenmesi işlem hatları](/azure/machine-learning/service/concept-ml-pipelines) hakkında bilgi edinin.
 

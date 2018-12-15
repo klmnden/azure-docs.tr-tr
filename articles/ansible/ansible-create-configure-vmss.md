@@ -8,17 +8,17 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: f3b08c41d3bf083c7cca5897cee11a1a4b9c9092
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
-ms.translationtype: HT
+ms.openlocfilehash: 8dacfb054a36801c076435037a530daa87c4a89c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918584"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409424"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible kullanarak Azure'da sanal makine ölçek kümesi oluşturma
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Azure'da sanal makine ölçek kümenizi (VMSS) yönetmek için, tıpkı diğer Azure kaynaklarını yönettiğiniz gibi Ansible kullanabilirsiniz. Bu makalede Ansible'ın sanal makine ölçek kümesi oluşturmak ve ölçeklendirmek için nasıl kullanıldığı gösterilmektedir. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 - **Azure aboneliği** - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
@@ -37,7 +37,7 @@ Bu bölüm, aşağıdaki kaynakları tanımlayan bir örnek Ansible playbook sun
 
 *admin_password* değeri için kendi parolanızı girin.
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -141,7 +141,7 @@ Ansible playbook'u çalıştırmak için **ansible-playbook** komutunu aşağıd
 
 Playbook'u çalıştırdıktan sonra, aşağıdaki örneğe benzeyen çıktı sanal makine ölçek kümesinin başarıyla oluşturulduğunu gösterir:
 
-  ```bash
+  ```Output
   PLAY [localhost] ***********************************************************
 
   TASK [Gathering Facts] *****************************************************
@@ -190,7 +190,7 @@ Aşağıdaki çıktıya benzer sonuçlar göreceksiniz:
 
 Şimdi, iki örnekten üç örneğe ölçeklendirelim. Aşağıdaki Ansible playbook kodu sanal makine ölçeği hakkındaki bilgileri alır ve kapasitesini ikiden üçe değiştirir. 
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -225,7 +225,7 @@ Aşağıdaki komut playbook'u çalıştırır:
 
 Ansible playbook'un çalıştırılması sonucu oluşan çıktı sanal makine ölçek kümesi ölçeğinin başarıyla genişletildiğini gösterir:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -275,4 +275,6 @@ Komutun Cloud Shell'de çalıştırılmasının sonucu artık üç örneğin mev
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"] 
-> [VMSS için Ansible örnek playbook'u](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Ansible'ı kullanarak sanal makine ölçek kümeleri uygulamalarını dağıtma](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
+
+> [Ansible'ı kullanarak bir sanal makine ölçek kümesi otomatik olarak ölçeklendirme](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

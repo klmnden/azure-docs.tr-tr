@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 08/01/2018
 ms.author: danlep
-ms.openlocfilehash: 98497812e75d07fc153e0e351331c05484164fdd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 37f1bf5dc20d097f7f5f560e3bf1fdd25dc38045
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052708"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408060"
 ---
 # <a name="what-is-azure-batch-ai"></a>Azure Batch AI nedir?
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Azure Batch AI, veri bilimcilerinin ve yapay zeka araştırmacılarının karmaşık bir altyapıyı yönetmek zorunda kalmadan Azure’da makine öğrenimi ve yapay zeka modellerini uygun ölçekte eğitmelerine ve test etmelerine yardımcı olmak için tasarlanmış bir yönetilen hizmettir. İşlem kaynaklarını, çalıştırmak istediğiniz işleri ve model girişleri ile çıkışların depolanmasını istediğiniz konumu tanımladığınızda, Batch AI geri kalan her şeyi sizin için yapar.
 
@@ -37,7 +40,7 @@ Makine öğrenimi modellerinin yanı sıra derin sinir ağları (derin öğrenme
 
 Sorunun görüldüğü alanı belirleyip verilerinizi hazırladıktan sonra, model fikirlerini test etmek için Batch AI ile etkileşimli olarak çalışın. Ölçekte deneme yapmak için hazır olduğunuzda, MPI veya diğer iletişim kitaplıkları ile birden çok GPU üzerinde işleri başlatın ve paralel olarak daha fazla deneme çalıştırın.
 
-Batch AI çeşitli yollarla uygun ölçekte modeller eğitmenize yardımcı olur. Örnek: 
+Batch AI çeşitli yollarla uygun ölçekte modeller eğitmenize yardımcı olur. Örneğin: 
 
 |  |  |
 |---------|---------|
@@ -49,13 +52,13 @@ Bir modeli eğittiğinizde, eğitim betiğinizin bir parçası olarak yapmadıys
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-AI eğitimi ve testi için işlem kaynaklarını yönetmek ve işleri zamanlamak için Batch AI SDK’ları, komut satırı betikleri veya Azure portalı kullanın: 
+AI eğitimi ve testi için işlem kaynaklarını yönetmek ve işleri zamanlamak için Batch AI SDK’ları, komut satırı betikleri veya Azure portalı kullanın: 
 
 * **VM kümelerini sağlama ve ölçeklendirme** - Düğüm (VM) sayısını seçin ve bir GPU özellikli VM’yi veya eğitim ihtiyaçlarınızı karşılayan başka bir VM’yi seçin. Kaynakları yalnızca onlara ihtiyacınız olduğunda kullanmak için, düğüm sayısını otomatik olarak veya el ile artırın veya azaltın. 
 
 * **Bağımlılıkları ve kapsayıcıları yönetme** - Varsayılan olarak, Batch AI kümeleri GPU veya CPU’lar üzerinde kapsayıcı tabanlı eğitim çerçevelerini çalıştırmak için önceden yüklenmiş bağımlılıklara sahip olan run Linux VM görüntülerini çalıştırır. Ek yapılandırma için, özel görüntüler kullanabilir veya başlangıç betikleri çalıştırabilirsiniz.
 
-* **Verileri dağıtma** - Giriş verileri ve betikleri ile iş çıkışını yönetmek için şu depolama seçeneklerinden birini belirleyin: Azure Files, Azure Blob depolama veya yönetilen bir NFS sunucusu. Batch AI yüksek performanslı paralel dosya sistemleri dahil özel depolama çözümlerini de destekler. Basit yapılandırma dosyalarını kullanarak depolama dosya sistemlerini küme düğümleri ve iş kapsayıcılarına bağlayın.
+* **Verileri dağıtma** -girdi verilerini ve betikleri yönetin ve proje çıkış için bir veya birden çok depolama seçenekleri seçin: Azure dosyaları, Azure Blob Depolama veya yönetilen NFS sunucusu. Batch AI yüksek performanslı paralel dosya sistemleri dahil özel depolama çözümlerini de destekler. Basit yapılandırma dosyalarını kullanarak depolama dosya sistemlerini küme düğümleri ve iş kapsayıcılarına bağlayın.
 
 * **İşleri zamanlama** - Küme kaynaklarını paylaşmak ve düşük öncelikli sanal makinelerden ve ayrılmış örneklerden yararlanmak için işleri öncelik tabanlı bir iş kuyruğuna gönderin.
 

@@ -11,12 +11,12 @@ ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73f4aeb77124c21a07771ab080b88a56231e50da
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 34d084bc4115d0abf8f57c576c16330611f3a21b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185724"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409879"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning hizmeti sürüm notları
 
@@ -35,7 +35,6 @@ Azure Machine Learning işlem, Azure portal veya CLI kullanarak Python'da oluşt
 > Azure Machine Learning işlem kullanmak için yeni bir çalışma alanı oluşturmanızı öneririz. Kullanıcılar Azure Machine Learning işlem mevcut bir çalışma alanından oluşturulmaya çalışılırken bir hata görebilirsiniz uzak bir fırsat yoktur. Mevcut işlem çalışma alanınızdaki etkilenmeyen çalışmaya devam etmesi gerekir.
 
 ### <a name="azure-machine-learning-sdk-for-python-v102"></a>Azure Machine SDK için Python v1.0.2 Learning
-
 + **Bozucu değişiklikler**
   + Bu sürümle birlikte, Azure Machine Learning ile VM oluşturmaya yönelik destek kaldırıyoruz. Veya uzak bir şirket içi sunucusu hala var olan bir buluta VM ekleyebilirsiniz. 
   + Ayrıca, tüm Azure Machine Learning işlem artık desteklenmelidir BatchAI, desteği kaldırıyoruz.
@@ -56,7 +55,6 @@ Azure Machine Learning işlem, Azure portal veya CLI kullanarak Python'da oluşt
 <!--+ **Bugs fixed**-->
 
 ### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning veri hazırlama SDK v0.5.2
-
 + **Bozucu değişiklikler** 
   * `SummaryFunction.N` yeniden adlandırıldı `SummaryFunction.Count`.
   
@@ -66,6 +64,9 @@ Azure Machine Learning işlem, Azure portal veya CLI kullanarak Python'da oluşt
   * Spark Kryo serileştirme kullandığında to_spark_dataframe() artık kilitlenir
   * Inspector değer sayısı 1000'den fazla benzersiz değerler artık gösterebilirsiniz
   * Özgün veri akışı bir adı yoksa rastgele bir bölünmüş artık başarısız  
+
++ **Daha fazla bilgi**
+  * [Azure Machine Learning Veri Hazırlama SDK'sı](https://aka.ms/data-prep-sdk)
 
 ### <a name="docs-and-notebooks"></a>Belgeleri ve Not Defterleri
 + ML işlem hatları

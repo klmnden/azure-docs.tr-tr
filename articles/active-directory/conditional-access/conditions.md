@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eb7d5dc2d38d814625e904d1270446f5f1671624
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 90b9a1104dd387c857e4955cabfb121773aedcca
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321110"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410083"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları nelerdir? 
 
@@ -74,7 +74,7 @@ Seçin:
 
 - **Tüm bulut uygulamaları** kuruluş genelinde uygulamak için temel ilkeleri. Oturum açma riski algılandığında herhangi bir bulut uygulamasında için çok faktörlü kimlik doğrulaması gerektiren ilkeleri için bu seçimi kullanın. Uygulanan bir ilke **tüm bulut uygulamaları** erişim için geçerli tüm Web siteleri ve Hizmetleri. Bu ayar görünen bulut uygulamalarına sınırlı değildir **uygulamaları Seç** listesi. 
 
-- İlkesi tarafından hedef belirli hizmetler için tek bulut uygulamaları. Örneğin, kullanıcıların gerektirebilir bir [uyumlu cihaz](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) SharePoint Online'a erişmek için. SharePoint içeriği eriştiklerinde Bu ilke, diğer hizmetlere de uygulanır. Microsoft Teams buna bir örnektir. 
+- **SPP'ler seçin** ilkeniz tarafından hedef belirli hizmetler için. Örneğin, kullanıcıların gerektirebilir bir [uyumlu cihaz](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) SharePoint Online'a erişmek için. SharePoint içeriği eriştiklerinde Bu ilke, diğer hizmetlere de uygulanır. Microsoft Teams buna bir örnektir. 
 
 Bir ilkenin belirli uygulamaları hariç tutabilirsiniz. Ancak, bu uygulamalar yine de erişim hizmetleri için uygulanan ilkelerle tabidir. 
 
@@ -137,16 +137,16 @@ Daha fazla bilgi için [konum koşulu Azure Active Directory koşullu erişim ne
 
 Varsayılan olarak, şu uygulamalar için koşullu erişim ilkesi uygular:
 
-- [Tarayıcı uygulamaları](technical-reference.md#supported-browsers) -tarayıcı uygulamalarıdır SAML kullanarak Web siteleri WS-Federation ve Openıd Connect web SSO protokoller. Bu bir OAuth gizli istemci kayıtlı herhangi bir Web sitesi veya web hizmeti için de geçerlidir. Örneğin, Office 365 SharePoint Web sitesi. 
+- **[Tarayıcı uygulamaları](technical-reference.md#supported-browsers)**  -tarayıcı uygulamalarıdır SAML kullanarak Web siteleri WS-Federation ve Openıd Connect web SSO protokoller. Bu bir OAuth gizli istemci kayıtlı herhangi bir Web sitesi veya web hizmeti için de geçerlidir. Örneğin, Office 365 SharePoint Web sitesi. 
 
-- [Mobil ve Masaüstü uygulamaları modern kimlik doğrulaması kullanan](technical-reference.md#supported-mobile-applications-and-desktop-clients) -bu uygulamaları, telefon uygulamaları ve Office Masaüstü uygulamalarını içerir. 
+- **[Mobil ve Masaüstü uygulamaları modern kimlik doğrulaması kullanan](technical-reference.md#supported-mobile-applications-and-desktop-clients)**  -bu uygulamaları, telefon uygulamaları ve Office Masaüstü uygulamalarını içerir. 
 
 
 Ayrıca, bir modern kimlik doğrulaması, örneğin kullanmayan belirli istemci uygulamalarında ilkeyi hedef alabilirsiniz:
 
-- Microsoft Exchange ActiveSync protokolü kullanan istemci uygulamalar. Exchange ActiveSync kullanarak bir ilke blokları, etkilenen kullanıcılar tek bir karantina e-posta ile neden engellenen hakkında bilgi alın. Gerekirse, e-posta, cihazlarını ıntune'a kaydetme yönergelerini içerir.
+- **[Exchange ActiveSync istemcileri](conditions.md#exchange-activesync-clients)**  - Exchange ActiveSync kullanarak bir ilke blokları, etkilenen kullanıcılar engellenen neden hakkında bilgi içeren bir tek karantina e-posta alın. Gerekirse, e-posta, cihazlarını ıntune'a kaydetme yönergelerini içerir.
 
-- Diğer istemciler. Temel kimlik doğrulaması IMAP, MAPI, POP, SMTP ve modern kimlik doğrulama kullanmayan eski Office uygulamaları gibi posta protokollerini kullanan istemciler bu uygulamaları içerir. Daha fazla bilgi için [Office 2013 ve Office 2016 istemci uygulamaları için nasıl modern kimlik doğrulaması çalıştığı](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
+- **[Diğer istemciler](block-legacy-authentication.md)**  -posta protokollerini IMAP MAPI, POP, SMTP ve gibi modern kimlik doğrulama kullanmayan eski Office uygulamaları ile temel kimlik doğrulaması kullanan istemciler bu uygulamaları içerir. Daha fazla bilgi için [Office 2013 ve Office 2016 istemci uygulamaları için nasıl modern kimlik doğrulaması çalıştığı](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016).
 
 ![İstemci uygulamaları](./media/conditions/41.png)
 
@@ -154,7 +154,7 @@ Bu koşul için yaygın kullanım örnekleri aşağıdaki gereksinimlere sahip i
 
 - **[Yönetilen bir cihazı gerektiren](require-managed-devices.md)**  verileri indirmek için bir cihaz mobil ve Masaüstü uygulamaları için. Aynı zamanda, tüm cihazlardan tarayıcı erişimi izin verin. Bu senaryo için yönetilmeyen bir cihazı kaydetme ve eşitleme belgeleri engeller. Cihaz kaybolur veya çalınırsa, bu yöntem ile veri kaybı için olasılık azaltabilir.
 
-- **[Yönetilen bir cihazı gerektiren](require-managed-devices.md)**  Exchange Online'a erişmek için ActiveSync kullanan uygulamalar.
+- **[Yönetilen bir cihazı gerektiren](require-managed-devices.md)**  Exchange Online'a erişmek için ActiveSync kullanarak uygulamalar için.
 
 - **[Eski bir kimlik doğrulama bloğu](block-legacy-authentication.md)**  Azure AD'ye (diğer istemciler)
 

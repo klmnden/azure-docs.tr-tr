@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
-ms.openlocfilehash: a44a7aa3048094f6e21a2670e4a495343624249a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 3ba4105fccda8948b953b2dc8c790b66c691eb4d
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47044176"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53430059"
 ---
-> [!NOTE] 
-> Çözümün tamamı ve örnek bir `utterances.json` dosyası [**LUIS-Samples** Github deposunda](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/change-model/) mevcuttur.
+> [!NOTE]
+> Bir örnek içeren eksiksiz çözüm `utterances.json` dosya web'da [ **LUIS-Samples** GitHub deposu](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/change-model/).

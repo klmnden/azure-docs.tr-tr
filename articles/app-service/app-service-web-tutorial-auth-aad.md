@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5f593acc024863bc9ab1d17700766abe5049fea6
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 7c1e07d73d110d5ef7f681486479ec65ff436b19
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262387"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408863"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca Azure App Service'te yetkilendirme
 
@@ -214,7 +214,7 @@ git push frontend master
 
 Bu adımda, iki uygulama için kimlik doğrulama ve yetkilendirmeyi etkinleştireceksiniz. Ayrıca, arka uç uygulamasına kimliği doğrulanmış çağrılar yapmak için kullanabileceğiniz bir erişim belirteci oluşturacak şekilde ön uç uygulamasını yapılandıracaksınız.
 
-Azure Active Directory’yi kimlik sağlayıcısı olarak kullanacaksınız. Daha fazla bilgi için bkz. [Azure Active Directory kimlik doğrulamasını App Service uygulamanız için yapılandırma](app-service-mobile-how-to-configure-active-directory-authentication.md).
+Azure Active Directory’yi kimlik sağlayıcısı olarak kullanacaksınız. Daha fazla bilgi için bkz. [Azure Active Directory kimlik doğrulamasını App Service uygulamanız için yapılandırma](configure-authentication-provider-aad.md).
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Arka uç uygulaması için kimlik doğrulama ve yetkilendirmeyi etkinleştirme
 

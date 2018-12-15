@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 9f2ed9c9059fa76a55ebd26fa3175605e89a4cdd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090285"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409550"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Azure Cosmos veritabanı, kapsayıcıları ve öğeleri ile çalışma
 
@@ -26,10 +26,10 @@ Bir veya daha fazla Azure Cosmos veritabanı hesabınız kapsamında oluşturabi
 
 | **Azure Cosmos varlığı** | **SQL API'Sİ** | **Cassandra API'si** | **MongoDB API’si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos veritabanı | Database | Keyspace | Database | NA | NA |
+|Azure Cosmos veritabanı | Database | Keyspace | Database | Database | NA |
 
 > [!NOTE]
-> Tablo API ile Gremlin ile hesapları, ilk grafiğinizin oluşturduğunuzda veya varsayılan bir veritabanı tablosuna otomatik olarak Azure Cosmos hesabınızdaki oluşturulur.
+> Tablo API hesaplarıyla, varsayılan veritabanı tablonuzun ilk oluşturduğunuzda, Azure Cosmos hesabınızdaki otomatik olarak oluşturulur.
 
 ### <a name="operations-on-an-azure-cosmos-database"></a>Bir Azure Cosmos veritabanı üzerinde işlemler
 
@@ -49,9 +49,9 @@ Bir Azure Cosmos ölçeklenebilirlik için hem sağlanan aktarım hızı birimi 
 
 Bir Azure Cosmos kapsayıcı oluştururken, aktarım hızı şu modlardan birini yapılandırın:
 
-* **Adanmış sağlanan aktarım hızı** modu: bir kapsayıcı sağlanan aktarım hızı özel olarak ayrılmış için ve SLA'lar ile desteklenir. Daha fazla bilgi için bkz. [nasıl sağlanacağı bir Azure Cosmos kapsayıcısında aktarım hızını](how-to-provision-container-throughput.md).
+* **Adanmış sağlanan aktarım hızı** modu: Bir kapsayıcı sağlanan aktarım hızı için özel olarak ayrılır ve SLA'lar ile desteklenir. Daha fazla bilgi için bkz. [nasıl sağlanacağı bir Azure Cosmos kapsayıcısında aktarım hızını](how-to-provision-container-throughput.md).
 
-* **Paylaşılan sağlanan aktarım hızı** modu: sağlanan aktarım hızı bu kapsayıcıların diğer kapsayıcıları (adanmış sağlanan aktarım hızı ile yapılandırılmış kapsayıcıların dışında) aynı veritabanında paylaşın. Diğer bir deyişle, veritabanı sağlanan aktarım hızını "paylaşılan" tüm kapsayıcılar arasında paylaşılır. Daha fazla bilgi için bkz. [nasıl bir Azure Cosmos veritabanı'nda sağlanan aktarım hızı yapılandırma](how-to-provision-database-throughput.md).
+* **Paylaşılan sağlanan aktarım hızı** modu: Bu kapsayıcıların sağlanan aktarım hızı (adanmış sağlanan aktarım hızı ile yapılandırılmış kapsayıcıların dışında) aynı veritabanında diğer kapsayıcılar ile paylaşın. Diğer bir deyişle, veritabanı sağlanan aktarım hızını "paylaşılan" tüm kapsayıcılar arasında paylaşılır. Daha fazla bilgi için bkz. [nasıl bir Azure Cosmos veritabanı'nda sağlanan aktarım hızı yapılandırma](how-to-provision-database-throughput.md).
 
 Bir Azure Cosmos kapsayıcı ölçeklendirebilir, aktarım hızı modları, kapsayıcılar ile ya da "paylaşılan" veya "ayrılmış" oluşturduğunuz sağlanan.
 
@@ -69,7 +69,7 @@ Bir Azure Cosmos kapsayıcı API özel varlıklara gibi özelleştirilmiş:
 
 | **Azure Cosmos varlığı** | **SQL API'Sİ** | **Cassandra API'si** | **MongoDB API’si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos kapsayıcı | Kapsayıcı | Tablo | Koleksiyon | Graf | Tablo |
+|Azure Cosmos kapsayıcı | Koleksiyon | Tablo | Koleksiyon | Graf | Tablo |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Bir Azure Cosmos kapsayıcı özellikleri
 
@@ -105,7 +105,7 @@ API seçime bağlı olarak, bir Azure Cosmos öğesi ya da bir belge bir koleksi
 
 | **Cosmos varlık** | **SQL API'Sİ** | **Cassandra API'si** | **MongoDB API’si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos öğesi | Öğe | Satır | Belge | Düğüm veya kenar | Öğe |
+|Azure Cosmos öğesi | Belge | Satır | Belge | Düğüm veya kenar | Öğe |
 
 ### <a name="properties-of-an-item"></a>Bir öğenin özellikleri
 

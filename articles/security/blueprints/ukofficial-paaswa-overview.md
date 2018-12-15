@@ -8,14 +8,14 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1cef5f8f77a11dad605d9758296c9632f5d30ab8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321997"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409029"
 ---
-# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure güvenlik ve uyumluluk planı: PaaS Web UK resmi iş yükleri için uygulama barındırma
+# <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure güvenlik ve uyumluluk planı: UK resmi iş yükleri için barındırma PaaS Web uygulaması
 
 ## <a name="azure-security-and-compliance-blueprints"></a>Azure Güvenlik ve Uyumluluk Şemaları
 
@@ -39,7 +39,7 @@ Kullanarak [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resou
 
 Bu şema foundation mimaridir. Müşterilerimiz, bu şema resmi sınıflandırma web tabanlı iş yüklerini için temel olarak kullanın ve şablonları ve kaynakları kendi gereksinimler ile genişletin. Bu şema yapıları ilkeleri üzerinde [UK OFFICAL üç katmanlı Iaas Web uygulamaları blueprint](https://aka.ms/ukofficial-iaaswa) müşterilerimize hem sunmaya [altyapı (ıaas) olarak](https://azure.microsoft.com/overview/what-is-iaas/) ve PaaS uygulama seçenekleri Web tabanlı iş yüklerini barındırmak için.
 
-Bu şema dağıtmak için bir Azure aboneliği gereklidir. Azure aboneliğiniz yoksa, hızlı ve kolay bir şekilde ücretsiz olarak kaydolabilirsiniz: Azure ile çalışmaya başlama. Tıklayın [burada](https://aka.ms/ukofficial-paaswa-repo/) dağıtım yönergeleri.
+Bu şema dağıtmak için bir Azure aboneliği gereklidir. Azure aboneliğiniz yoksa, hızlı ve kolay bir şekilde ücretsiz olarak kaydolabilirsiniz: Azure'u kullanmaya başlayın. Tıklayın [burada](https://aka.ms/ukofficial-paaswa-repo/) dağıtım yönergeleri.
 
 ## <a name="architecture-and-components"></a>Mimarisi ve bileşenleri
 
@@ -104,14 +104,14 @@ Veriler aktarım sırasında dışında ve Azure bileşenleri arasında kullanı
 
 Azure Web Apps barındırma ortamı altyapıyı yönetmek zorunda kalmadan, Java, PHP, Node.js, Python, HTML ve C# içinde geliştirilen web uygulaması için tam olarak yönetilen bir web sunar. Otomatik ölçeklendirme sunar ve yüksek kullanılabilirlik, hem Windows hem de Linux destekler ve otomatik dağıtımlar sağlar [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) veya herhangi bir Git tabanlı deposundan.
 
-App Service, [ISO, SOC ve PCI uyumlu](https://www.microsoft.com/TrustCenter/) ve ile kullanıcıların kimliklerini doğrulayabilirsiniz [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) veya sosyal oturum açma ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication), ve [Microsoft kimlik doğrulama](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
+App Service, [ISO, SOC ve PCI uyumlu](https://www.microsoft.com/TrustCenter/) ve ile kullanıcıların kimliklerini doğrulayabilirsiniz [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) veya sosyal oturum açma ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter), ve [Microsoft kimlik doğrulama](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft).
 
 Temel, standart ve Premium planlar, üretim iş yüklerine yöneliktir ve adanmış sanal makine örneklerinde çalıştırılır. Her örnek, birden çok uygulama ve etki alanlarını destekleyebilir. Uygulama Hizmetleri ayrıca Destek [IP adresi sınırlamaları](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) gerekirse güvenilen IP adreslerine trafiği güvenli hale getirmek için ve ayrıca [kimliklerini Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) güvenli bağlantı için diğer PaaS Hizmetleri gibi [anahtar kasası](https://azure.microsoft.com/services/key-vault/) ve [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/). Ek güvenlik gerekli olduğu yalıtılmış planımız, uygulamaları özel, adanmış bir Azure ortamında barındırır ve şirket içi ağa veya ek performans ve ölçek ile güvenli bağlantılar gerektiren uygulamalar için idealdir.
 
 Bu şablon, aşağıdaki App Service özellikleri dağıtır:
 
 - [Standart](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) App Service planı katmanı
-- Birden çok Web uygulaması [dağıtım yuvalarını](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): geliştirme, Önizleme, QA, UAT ve Elbette üretim (varsayılan yuva).
+- Birden çok Web uygulaması [dağıtım yuvalarını](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): Geliştirme, Önizleme, QA, UAT ve Elbette üretim (varsayılan yuva).
 - [Kimlikler Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) bağlanmak için [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) (Bu erişimi sağlamak için de kullanılabilir [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) 
 - İle tümleştirme [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) performansını izlemek için
 - [Tanılama Günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
@@ -230,7 +230,7 @@ Azure güvenlik ve uyumluluk şema Otomasyon JSON yapılandırma dosyaları ve k
 Dağıtım için üç yaklaşımları sağlanmadı; Basit bir "express" [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) hızla bir test oluşturmak için uygun ortam; bir parametreli [Azure CLI 2](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) yaklaşım ve bir Azure portalında iş yükü ortamlarında için; büyük yapılandırması sağlama Azure portal aracılığıyla dağıtım parametreleri işleci belirleyebileceğiniz dağıtım temel. 
 
 1.  Kopyala veya indir [bu](https://aka.ms/ukofficial-paaswa-repo) yerel iş istasyonunuzu GitHub deposuna.
-2.  Gözden geçirme [yöntem 1: Azure CLI 2 (Express sürüm)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) ve sağlanan komutları yürütün.
+2.  Gözden geçirme [1. yöntem: Azure CLI 2 (Express sürüm)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) ve sağlanan komutları yürütün.
 3.  Gözden geçirme [yöntemi 1a: Azure CLI (komut bağımsız değişkenleri yoluyla dağıtımı yapılandırma) 2](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) ve sağlanan komutları yürütme
 4.  Gözden geçirme [yöntem 2: Azure portalında dağıtım işlemi](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process) ve listelenen komutları yürütme
 

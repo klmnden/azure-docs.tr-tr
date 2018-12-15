@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 34db8900d285baa7e9c4f97874023bbb52d5e864
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d5582038c35ba3b599be89b7b7939e644d55ea78
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087907"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408839"
 ---
-# <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak YARN sorunlarını giderme
+# <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak Apache Hadoop YARN sorunlarını giderme
 
 Apache Ambari, Apache Hadoop YARN yükü ile çalışırken sık karşılaşılan sorunlar ve çözümleri hakkında bilgi edinin.
 
@@ -59,7 +59,7 @@ Bu değişiklikler hemen YARN Zamanlayıcı UI görülebilir.
 
 ### <a name="additional-reading"></a>Ek okuma
 
-- [YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
+- [Apache Hadoop YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
 ## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Bir kümeden YARN günlüklerini nasıl indiririm?
@@ -131,7 +131,7 @@ Bu değişiklikler hemen YARN Zamanlayıcı UI görülebilir.
 
 ### <a name="additional-reading-2"></a>Ek okuma
 
-- [HDInsight (Hadoop) için SSH kullanarak bağlanın.](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
+- [SSH kullanarak HDInsight için (Apache Hadoop) bağlanma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN kavramları ve uygulamaları](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)
 
 

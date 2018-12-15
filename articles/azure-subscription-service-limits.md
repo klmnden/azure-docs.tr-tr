@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: 2ee5eca6f138d9aaa1a2b7cebb61b56fd26e17cc
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: eb93dfae91ee84400c32af7b662c69aefda979d2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017218"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409182"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge Ayrıca bazen kota olarak da adlandırılır en yaygın Microsoft Azure sınırları bazıları listelenmiştir. Bu belge, şu anda tüm Azure Hizmetleri ele alınmamıştır. Zamanla, listenin genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -54,10 +54,9 @@ Aşağıdaki sınırlar yeni bir tablo, Azure Resource Manager kullanırken fark
 * [Azure Haritalar](#azure-maps-limits)
 * [Azure İzleyici](#monitor-limits)
 * [Azure İlkesi](#azure-policy-limits)
-* [Azure önbelleği için Redis](#azure-redis-cache-limits)
+* [Redis için Azure Önbelleği](#azure-redis-cache-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
-* [Batch AI](#batch-ai-limits)
 * [BizTalk Hizmetleri](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [Cloud Services](#cloud-services-limits)
@@ -219,9 +218,6 @@ Aşağıdaki App Service limitleri, Web Apps, Mobile Apps ve API Apps sınırlar
 
 ### <a name="batch-limits"></a>Batch sınırları
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
-
-### <a name="batch-ai-limits"></a>Batch AI sınırları
-[!INCLUDE [azure-batch-ai-limits](../includes/azure-batch-ai-limits.md)]
 
 ### <a name="biztalk-services-limits"></a>BizTalk Hizmetleri sınırları
 Aşağıdaki tabloda, Azure Biztalk Hizmetleri için sınırlar gösterilmektedir.

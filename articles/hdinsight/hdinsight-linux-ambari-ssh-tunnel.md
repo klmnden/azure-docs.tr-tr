@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: eb407a1026ab62fa719600a3992dc3b4653f1583
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ace025f096b756259d25ca2adb347dd23a12a910
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383927"
+ms.locfileid: "53409533"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Apache Ambari web kullanıcı Arabirimi, JobHistory, NameNode, Apache Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel oluşturmayı kullanma
 
@@ -78,9 +78,19 @@ Komut bittikten sonra yerel bilgisayarda 9876 numaralı bağlantı noktasına g�
 
 ## <a name="useputty"></a>PuTTY kullanarak tünel oluşturma
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) grafiksel bir SSH istemcisi Windows için. PuTTY kullanarak SSH tüneli oluşturmak için aşağıdaki adımları kullanın:
+[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) grafiksel bir SSH istemcisi Windows için. PuTTY ile ilgili bilgi sahibi değilseniz bkz [PuTTY belgeleri](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). PuTTY kullanarak SSH tüneli oluşturmak için aşağıdaki adımları kullanın:
 
-1. Putty'yi açın ve bağlantı bilgilerinizi girin. PuTTY ile ilgili bilgi sahibi değilseniz bkz [PuTTY belgeleri (http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html)](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html).
+### <a name="create-or-load-a-session"></a>Veya bir oturum yüklenemiyor
+
+1. Putty'yi açın ve olun **oturumu** sol taraftaki menüde seçilir. Zaten bir oturumu kaydettiyseniz, oturumunun adını seçin **kayıtlı oturumlar** listelemek ve tıklayın **yük**.
+
+1. Kaydedilen bir oturum zaten yoksa, bağlantı bilgilerinizi girin:
+    * **Ana bilgisayar adı (veya IP adresi)** -HDInsight kümesi için SSH adresi. Örneğin, **mycluster-ssh.azurehdinsight.net**
+    * **Bağlantı noktası** - 22
+    * **Bağlantı türü** - SSH
+1. **Kaydet**’e tıklayın
+
+    ![SSH oturumu oluşturmak](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-create-putty-session.png)
 
 2. İçinde **kategori** için iletişim kutusunun sol bölümünde, genişletmek **bağlantı**, genişletme **SSH**ve ardından **tüneller**.
 
@@ -88,7 +98,7 @@ Komut bittikten sonra yerel bilgisayarda 9876 numaralı bağlantı noktasına g�
    
    * **Kaynak bağlantı noktası** - İletmek istediğiniz istemci üzerindeki bağlantı noktası. Örneğin, **9876**.
 
-   * **Hedef** -Linux tabanlı HDInsight kümesi için SSH adresi. Örneğin, **mycluster-ssh.azurehdinsight.net**.
+   * **Hedef** -HDInsight kümesi için SSH adresi. Örneğin, **mycluster-ssh.azurehdinsight.net**.
 
    * **Dinamik** - Dinamik SOCKS proxy yönlendirmesini etkinleştirir.
      

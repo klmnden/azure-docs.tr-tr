@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 0e9203f5b4e2a9043e242b804c82017cf6fc3ee1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 55a1d16ce1617ecf7bc28c7c62de8557ceeea311
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010812"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412920"
 ---
 # <a name="set-up-a-capacity-pool"></a>Kapasite havuzunu ayarlama
 Kapasite havuzu ayarlamak, içinde birim oluşturmanıza olanak tanır.  
@@ -51,10 +51,10 @@ Kapasite havuzu ayarlamak, içinde birim oluşturmanıza olanak tanır.
       
       ![Yeni kapasite havuzu](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
-4. **Tamam**’a tıklayın.
+4. **Tamam** düğmesine tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar 
 
-1. [Azure NetApp Files için birim oluşturma](azure-netapp-files-create-volumes.md)
-2. [Birim için dışarı aktarma ilkesini yapılandırma (isteğe bağlı)](azure-netapp-files-configure-export-policy.md)
+[Temsilci bir alt ağ Azure NetApp dosyaları](azure-netapp-files-delegate-subnet.md)
+
 

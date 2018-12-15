@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: Görüntü analiz etme - C# SDK'sı - Görüntü İşleme"
+title: "Hızlı Başlangıç: Bir resmi - SDK'sı, çözümleme C# -görüntü işleme"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Görüntü İşleme Windows C# istemci kitaplığını kullanarak bir görüntüyü analiz edeceksiniz.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: 7de7a87c73c2dabddf2268a6a0bc2992d6017e4d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 0983978221e9872e92ca366edd3bd3f2bfd9c3f4
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853940"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413328"
 ---
-# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Görüntü İşleme SDK'sını ve C# dilini kullanarak bir görüntüyü analiz etme
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Bilgisayar işleme SDK'sını kullanarak bir resmi çözümleme veC#
 
 Bu hızlı başlangıçta, Görüntü İşleme Windows istemci kitaplığını kullanarak görsel özellikleri ayıklamak için yerel ve uzak bir görüntüyü analiz edeceksiniz.
 
@@ -162,7 +162,7 @@ namespace ImageAnalyze
 
 Başarılı bir yanıtta her görüntü için en ilgili resim yazısı görüntülenecektir.
 
-Ham JSON çıktısı örneği için bkz. [API Hızlı Başlangıçları: C# ile yerel görüntü analizi](../QuickStarts/CSharp-analyze.md#examine-the-response).
+Bkz: [API'si hızlı başlangıç: Yerel bir görüntü ile analiz C# ](../QuickStarts/CSharp-analyze.md#examine-the-response) ham JSON örneği için çıktı.
 
 ```
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg

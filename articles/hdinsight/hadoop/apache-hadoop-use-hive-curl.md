@@ -9,36 +9,36 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 637ce81f2e2ef4c7271e26bd4e9dfe36da524e27
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c5bf69a2ac6a70410339a5696da53169ca87170f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012751"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407227"
 ---
-# <a name="run-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>REST kullanarak HDInsight, Apache Hadoop ile Hive sorguları çalıştırma
+# <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>REST kullanarak HDInsight, Apache Hadoop ile Apache Hive sorguları çalıştırma
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Azure HDInsight kümesi üzerinde Apache Hadoop ile Hive sorguları çalıştırmak için WebHCat REST API'sini kullanmayı öğrenin.
+Azure HDInsight kümesinde Apache Hadoop ile Apache Hive sorguları çalıştırma için WebHCat REST API'sini kullanmayı öğrenin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Linux tabanlı Hadoop HDInsight kümesi sürüm 3.4 üzerindeki.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Bir REST istemcisi. Bu belge Windows PowerShell'i kullanır ve [Curl](https://curl.haxx.se/) örnekler.
 
-    > [!NOTE]
-    > Azure PowerShell, HDInsight üzerinde Hive ile çalışmak için adanmış cmdlet'leri sağlar. Daha fazla bilgi için [Azure PowerShell ile Hive kullanma](apache-hadoop-use-hive-powershell.md) belge.
+    > [!NOTE]  
+    > Azure PowerShell, HDInsight üzerinde Hive ile çalışmak için adanmış cmdlet'leri sağlar. Daha fazla bilgi için [Azure PowerShell ile Hive kullanma Apache](apache-hadoop-use-hive-powershell.md) belge.
 
 Bu belge de Windows PowerShell kullanır ve [Jq](https://stedolan.github.io/jq/) JSON verilerini REST isteklerinden döndürülen işlem.
 
 ## <a id="curl"></a>Bir Hive sorgusu çalıştırma
 
-> [!NOTE]
+> [!NOTE]  
 > WebHCat ile cURL veya başka bir REST iletişimini kullanırken HDInsight küme yöneticisinin kullanıcı adını ve parolasını sağlayarak isteklerin kimliğini doğrulaması gerekir.
 >
 > REST API’sinin güvenliği [temel kimlik doğrulaması](https://en.wikipedia.org/wiki/Basic_access_authentication) ile sağlanır. Kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderilir emin olmak için her zaman güvenli HTTP (HTTPS) kullanarak istekleri olun.
@@ -135,7 +135,7 @@ Bu belge de Windows PowerShell kullanır ve [Jq](https://stedolan.github.io/jq/)
    * `DROP TABLE` -Tablo zaten var, silinir.
    * `CREATE EXTERNAL TABLE` -Hive 'dış' yeni bir tablo oluşturur. Dış tablolar yalnızca tablo tanımı kovanında depolayın. Verileri özgün konumunda bırakılır.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Dış tablolar, temel alınan veriler dış bir kaynak tarafından güncelleştirilmesi beklediğiniz kullanılmalıdır. Örneğin, bir otomatik veri karşıya yükleme işlemi veya başka bir MapReduce işlem.
      >
      > Bir dış tablo bırakılırken mu **değil** verileri, yalnızca tablo tanımını silin.
@@ -144,7 +144,7 @@ Bu belge de Windows PowerShell kullanır ve [Jq](https://stedolan.github.io/jq/)
    * `STORED AS TEXTFILE LOCATION` -Verilerin depolandığı (örnek/veri dizini) ve metin olarak depolanır.
    * `SELECT` -Tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]**. Bu bildirimi bir değeri döndürür **3** olarak bu değeri içeren üç satır.
 
-     > [!NOTE]
+     > [!NOTE]  
      > HiveQL ifadelerini arasındaki boşluklar değiştirilir bildirimi `+` Curl ile kullanılan karakter. Sınırlayıcı gibi bir alanı içeren tırnak içine alınmış değerler değil yerine `+`.
 
       Bu komut, iş durumunu denetlemek için kullanılan bir iş kimliği döndürür.
@@ -177,16 +177,16 @@ Bu belge de Windows PowerShell kullanır ve [Jq](https://stedolan.github.io/jq/)
 
 HDInsight ile Hive hakkında genel bilgi için:
 
-* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](hdinsight-use-hive.md)
 
 Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
-* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Apache Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
 Tez Hive'ı kullanıyorsanız, hata ayıklama bilgileri için aşağıdaki belgelere bakın:
 
-* [Linux tabanlı HDInsight üzerinde Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md)
+* [Linux tabanlı HDInsight üzerinde Apache Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md)
 
 Bu belgede kullanılan REST API hakkında daha fazla bilgi için bkz. [WebHCat başvuru](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) belge.
 

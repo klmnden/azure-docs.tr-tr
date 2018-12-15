@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: afc24d75b128c192efe14af061ac1df7521c7ef2
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2fe5c44e834826f9dc62acd30e853c3736b432ee
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621274"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412444"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Azure AD’nin birden çok örneğini tek bir AD FS örneği ile birleştirme
 
@@ -39,13 +39,13 @@ Aralarında iki yönlü güven varsa, tek bir yüksek kullanılabilirlikli AD FS
 
 contoso.onmicrosoft.com adresli Azure Active Directory’deki contoso.com etki alanının zaten contoso.com’da şirket içi Active Directory ortamında yüklü şirket içi AD FS ile birleştirildiğini göz önünde bulundurun. Fabrikam.com, fabrikam.onmicrosoft.com adresli Azure Active Directory’de bir etki alanıdır.
 
-## <a name="step-1-establish-a-two-way-trust"></a>1. Adım: İki yönlü güven kurma
+## <a name="step-1-establish-a-two-way-trust"></a>1. Adım: Çift yönlü bir güven
  
 contoso.com’daki AD FS’nin fabrikam.com’da kullanıcıların kimliklerini doğrulayabilmesi için contoso.com ile fabrikam.com arasında iki yönlü bir güven gerekir. İki yönlü güveni oluşturmak için bu [makaledeki](https://technet.microsoft.com/library/cc816590.aspx) kılavuzu izleyin.
  
-## <a name="step-2-modify-contosocom-federation-settings"></a>2. Adım: contoso.com federasyon ayarlarını değiştirme 
+## <a name="step-2-modify-contosocom-federation-settings"></a>2. Adım: Contoso.com Federasyon ayarlarını değiştirme 
  
-AD FS ile birleştirilmiş tek bir etki alanı için ayarlanan varsayılan veren şudur: "http://ADFSServiceFQDN/adfs/services/trust". Örneğin,"http://fs.contoso.com/adfs/services/trust". Azure Active Directory, federasyona eklenen her etki alanı için benzersiz bir veren gerektirir. İki etki alanı aynı AD FS tarafından federasyona ekleneceğinden, AD FS’nin Azure Active Directory ile birleştirdiği her etki alanında benzersiz olması için veren değerinin değiştirilmesi gerekir. 
+AD FS ile birleştirilmiş tek bir etki alanı için varsayılan veren ayarlama "http://ADFSServiceFQDN/adfs/services/trust" Örneğin, `http://fs.contoso.com/adfs/services/trust`. Azure Active Directory, federasyona eklenen her etki alanı için benzersiz bir veren gerektirir. İki etki alanı aynı AD FS tarafından federasyona ekleneceğinden, AD FS’nin Azure Active Directory ile birleştirdiği her etki alanında benzersiz olması için veren değerinin değiştirilmesi gerekir. 
  
 AD FS sunucusunda Azure AD PowerShell'i açın (MSOnline modülünün yüklendiğinden emin olun) ve aşağıdaki adımları gerçekleştirin:
  
@@ -53,9 +53,9 @@ contoso.com etki alanını içeren Azure Active Directory’ye bağlanın: Conne
  
 Etki alanı federasyon ayarındaki veren "http://contoso.com/adfs/services/trust" olarak değiştirilir ve Azure AD Bağlı Olan Taraf Güveni’nin UPN son ekine bağlı olarak doğru issuerId değerini vermesi için bir verme talebi kuralı eklenir.
  
-## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>3. adım: fabrikam.com’u AD FS ile birleştirin
+## <a name="step-3-federate-fabrikamcom-with-ad-fs"></a>3. Adım: AD FS ile Federasyonu kullanan fabrikam.com
  
-Azure AD powershell oturumunda şu adımları gerçekleştirin: fabrikam.com etki alanını içeren Azure Active Directory’ye bağlanın
+Azure AD powershell oturumunda, aşağıdaki adımları gerçekleştirin: Azure Active Directory ile Fabrikam.com etki alanını içeren bağlanma
 
     Connect-MsolService
 fabrikam.com yönetilen etki alanını federasyon etki alanına dönüştürün:

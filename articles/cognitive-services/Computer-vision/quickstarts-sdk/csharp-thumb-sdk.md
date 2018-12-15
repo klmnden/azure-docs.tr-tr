@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: Küçük resim oluşturma - C# SDK'sı - Görüntü İşleme"
+title: "Hızlı Başlangıç: Küçük resim - SDK'sı oluşturma C# -görüntü işleme"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Görüntü İşleme Windows C# istemci kitaplığını kullanarak bir görüntüden küçük resim oluşturacaksınız.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: 8c8a15af39972b79086a3eb2d392fdc4e7635323
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a4a6dac4ca42f98bd03da022aaed79db094a9ed6
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959436"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413294"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Görüntü İşleme SDK'sını ve C# dilini kullanarak küçük resim oluşturma
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Bilgisayar işleme SDK'sını kullanarak küçük resim oluşturma veC#
 
 Bu hızlı başlangıçta, Görüntü İşleme Windows istemci kitaplığını kullanarak bir görüntüden küçük resim oluşturacaksınız.
 

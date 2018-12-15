@@ -9,44 +9,44 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 96c51bb30f76ffe4d5efb3bb616c00554b7aab62
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b00982cbc30b2345d9eacea376e3c5164ce1b078
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011513"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408689"
 ---
-# <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Hadoop MapReduce örneklerini Windows tabanlı HDInsight içinde çalıştırma
+# <a name="run-apache-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Windows tabanlı HDInsight Apache Hadoop MapReduce örneklerini çalıştırma
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Örnekler kümesi, Azure HDInsight'ı kullanarak Hadoop kümelerini kullanmaya başlama çalışan MapReduce işleri almanıza yardımcı olması için sağlanmıştır. Bu örneklerin her oluşturduğunuz yönetilen HDInsight kümeleri kullanıma sunulur. Bu örnekleri çalıştırmaya tanıyın, Hadoop kümelerinde işlerini çalıştırmak için Azure PowerShell cmdlet'lerini kullanarak ile.
+Örnekler kümesi, Azure HDInsight'ı kullanarak Apache Hadoop kümelerini kullanmaya başlama çalışan MapReduce işleri almanıza yardımcı olması için sağlanmıştır. Bu örneklerin her oluşturduğunuz yönetilen HDInsight kümeleri kullanıma sunulur. Bu örnekleri çalıştırmaya tanıyın, Hadoop kümelerinde işlerini çalıştırmak için Azure PowerShell cmdlet'lerini kullanarak ile.
 
-* [**Sözcük sayısı**][hdinsight-sample-wordcount]: bir metin dosyasındaki sözcük sayısını sayar.
-* [**C# akış sözcük sayımı**][hdinsight-sample-csharp-streaming]: Hadoop akış arabirimini kullanarak bir metin dosyasındaki sözcük sayısını sayar.
-* [**Pi estimator**][hdinsight-sample-pi-estimator]: bir istatistik kullanır (yarı-Monte Carlo) pi değerini tahmin etmek için yöntemi.
-* [**10 GB Graysort**][hdinsight-sample-10gb-graysort]: HDInsight'ı kullanarak bir 10 GB dosya bir genel amaçlı GraySort çalıştırın. Çalıştırmak için üç işi vardır: Teragen verileri sıralamak için Terasort ve Teravalidate verileri düzgün bir şekilde sıralanmış olduğunu onaylamak için verileri oluşturmak için.
+* [**Sözcük sayısı**][hdinsight-sample-wordcount]: Bir metin dosyasındaki sözcük sayısını sayar.
+* [**C#sözcük sayısını akış**][hdinsight-sample-csharp-streaming]: Hadoop akış arabirimini kullanarak bir metin dosyasındaki sözcük sayısını sayar.
+* [**Pi estimator**][hdinsight-sample-pi-estimator]: Bir istatistik kullanır (yarı-Monte Carlo) pi değerini tahmin etmek için yöntemi.
+* [**10 GB Graysort**][hdinsight-sample-10gb-graysort]: Genel amaçlı GraySort, HDInsight'ı kullanarak bir 10 GB dosya çalıştırın. Çalıştırmak için üç işi vardır: Verileri sıralamak için Terasort ve Teravalidate verileri düzgün bir şekilde sıralanmış olduğunu onaylamak için verileri oluşturmak için Teragen.
 
-> [!NOTE]
+> [!NOTE]  
 > Kaynak kodu ekte bulunabilir.
 
 Java tabanlı MapReduce programlama ve akış ve Windows PowerShell'de kullanılan cmdlet'ler hakkında belgeler gibi Hadoop ile ilgili teknolojileri için web üzerinde çok fazla ek belgeleri var. betik oluşturma. Bu kaynaklar hakkında daha fazla bilgi için bkz:
 
-* [HDInsight, Hadoop için Java MapReduce programları geliştirme](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-* [HDInsight'ta Hadoop işlerini gönderme](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [HDInsight, Apache Hadoop için Java MapReduce programları geliştirme](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [HDInsight, Apache Hadoop işlerini gönderme](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Azure HDInsight giriş][hdinsight-introduction]
 
-Günümüzde, birçok kişi Hive veya Pig MapReduce seçin.  Daha fazla bilgi için bkz.
+Günümüzde, birçok kişi Apache Hive ve Apache Pig MapReduce seçin.  Daha fazla bilgi için bkz.
 
-* [HDInsight Hive kullanma](hadoop/hdinsight-use-hive.md)
-* [HDInsight pig kullanma](hadoop/hdinsight-use-pig.md)
+* [HDInsight, Apache Hive kullanma](hadoop/hdinsight-use-hive.md)
+* [HDInsight Apache Pig kullanma](hadoop/hdinsight-use-pig.md)
 
 **Önkoşullar**:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Bir HDInsight kümesi**. İçinde bu tür kümeler oluşturulabilir çeşitli yollar hakkında yönergeler için bkz: [Hadoop kümeleri oluşturma HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* **Bir HDInsight kümesi**. İçinde bu tür kümeler oluşturulabilir çeşitli yollar hakkında yönergeler için bkz: [Apache Hadoop kümeleri oluşturma HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **Azure PowerShell içeren bir iş istasyonu**.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışıdır** ve 1 Ocak 2017 tarihine kadar kaldırılacaktır. Bu belgede yer alan adımlar, Azure Resource Manager ile çalışan yeni HDInsight cmdlet'lerini kullanır.
     >
     > Bağlantısındaki [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs) Azure PowerShell'in en son sürümünü yüklemek için. Azure Resource Manager ile çalışan yeni cmdlet'lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, bkz: [için HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -56,7 +56,7 @@ MapReduce proje göndermek için önce bir MapReduce işi tanımı oluşturun. �
 
 Kaynak kodu bulunabilir [ek A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
-Yordam için Java MapReduce geliştirme programı, bakın - [geliştirme Java MapReduce programları HDInsight Hadoop için](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+Yordam için Java MapReduce geliştirme programı, bakın - [geliştirme Java MapReduce programları HDInsight, Apache Hadoop için](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
 **Bir sözcük sayımı MapReduce işi göndermek için**
 
@@ -120,7 +120,7 @@ Yordam için Java MapReduce geliştirme programı, bakın - [geliştirme Java Ma
 ## <a name="hdinsight-sample-csharp-streaming"></a>Sözcük sayısı - C# akış
 Hadoop harita yazma ve Java dışındaki dillerde işlevleri azaltmak sağlayan bir MapReduce bir akış API'sini sağlar.
 
-> [!NOTE]
+> [!NOTE]  
 > Bu öğreticideki adımlar, yalnızca Windows tabanlı HDInsight kümeleri için geçerlidir. Linux tabanlı HDInsight kümeleri için akış örneği için bkz: [akış programları HDInsight için Python geliştirme](hadoop/apache-hadoop-streaming-python.md).
 
 Örnekte, Eşleyici ve azaltıcı girdiden okunan yürütülebilir dosyalar [stdin] [ stdin-stdout-stderr] (satır satır) ve çıktıyı yayma [stdout] [ stdin-stdout-stderr]. Program tüm metindeki sözcükleri sayar.
@@ -207,10 +207,10 @@ Bu örnek, üç adet MapReduce programlarını kullanır:
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede ve her örnekleri makaleler, Azure PowerShell kullanarak HDInsight kümeleriyle dahil örneklerini çalıştırma hakkında bilgi edindiniz. HDInsight ile Pig, Hive ve MapReduce kullanma hakkında daha fazla öğreticiler için aşağıdaki konulara bakın:
 
-* [Mobil ahize kullanımı çözümlemek için Hive, HDInsight ile Hadoop kullanmaya başlama][hdinsight-get-started]
-* [HDInsight üzerinde Hadoop ile Pig kullanma][hdinsight-use-pig]
-* [HDInsight üzerinde Hadoop ile Hive kullanma][hdinsight-use-hive]
-* [HDInsight, Hadoop işlerini gönderme][hdinsight-submit-jobs]
+* [Apache Hadoop mobil ahize kullanımını analiz etme Apache Hive, HDInsight kullanmaya başlama][hdinsight-get-started]
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma][hdinsight-use-pig]
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma][hdinsight-use-hive]
+* [HDInsight, Apache Hadoop işlerini gönderme][hdinsight-submit-jobs]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>Ek A - sözcük sayısı kaynak kodu
 

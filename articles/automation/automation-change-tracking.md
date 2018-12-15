@@ -10,12 +10,12 @@ ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167010"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408927"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Değişiklik izleme çözümüyle ortamınızdaki Değişiklikleri İzle
 
@@ -63,7 +63,7 @@ Bu, automation hesabınız için bir çözüm sağlar. Çözümü etkinleştirme
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Değişiklik izleme ve stok yapılandırma
 
-Bilgi edinmek için nasıl çözüme bilgisayarları ekleme ziyaret edin: [ekleme Otomasyon çözümleri](automation-onboard-solutions-from-automation-account.md). Değişiklik izleme ve stok çözümü ile bir makine ekleme oluşturduktan sonra öğelerini izlemek için yapılandırabilirsiniz. Yeni bir dosya veya kayıt defteri anahtarı izlemek için etkinleştirdiğinizde, değişiklik izleme ve stok için etkinleştirilir.
+Bilgi edinmek için nasıl çözüme bilgisayarları ekleme ziyaret edin: [Onboarding Otomasyon çözümleri](automation-onboard-solutions-from-automation-account.md). Değişiklik izleme ve stok çözümü ile bir makine ekleme oluşturduktan sonra öğelerini izlemek için yapılandırabilirsiniz. Yeni bir dosya veya kayıt defteri anahtarı izlemek için etkinleştirdiğinizde, değişiklik izleme ve stok için etkinleştirilir.
 
 Hem Windows hem de Linux dosyalarda değişiklik izleme için MD5 karmaları dosyaları kullanılır. Bu karmalar, daha sonra son Envanter beri bir değişiklik yapılıp yapılmadığını belirlemek için kullanılır.
 
@@ -85,7 +85,7 @@ Linux Bilgisayarları'nda dosyaları izlemeyi yapılandırmak için aşağıdaki
 |Özyineleme     | İzlenecek öğe aranırken özyinelemenin kullanılıp kullanılmadığını belirler.        |
 |Sudo Kullan     | Bu ayar, öğe denetlenirken sudonun kullanılıp kullanılmadığını belirler.         |
 |Bağlantılar     | Bu ayar, dizinleri dolaşırken sembolik bağlantıların nasıl ele alındığını belirler.<br> **Yoksay** - sembolik bağlantıları yoksayar ve başvurulan dosyaları veya dizinleri içermez.<br>**İzleyin** - özyineleme sırasında sembolik bağlantıları izler ve başvurulan dosyaları veya dizinleri de içerir.<br>**Yönetme** - sembolik bağlantıları izler ve döndürülen içeriğin değiştirilmesine izin verir.     |
-|Dosya içeriğini tüm ayarlar için karşıya yükleme| İzlenen değişikliklerin dosya içeriği karşıya yükleme işlemini açar veya kapatır. Kullanılabilir seçenekler: **True** veya **False**.|
+|Dosya içeriğini tüm ayarlar için karşıya yükleme| İzlenen değişikliklerin dosya içeriği karşıya yükleme işlemini açar veya kapatır. Mevcut seçenekler: **Doğru** veya **False**.|
 
 > [!NOTE]
 > “Yönet” bağlantıları seçeneği önerilmez. Dosya içeriğini alma desteklenmiyor.
@@ -105,7 +105,7 @@ Windows bilgisayarlarda izlemeye dosyaları yapılandırmak için aşağıdaki a
 |Grup     | Dosyaları mantıksal olarak gruplamak için bir grup adı.        |
 |Yolu Gir     | Dosyayı denetlemek için kullanılacak yol (örneğin, "c:\temp\\\*.txt")<br>"%winDir%\System32\\\*.*" gibi ortam değişkenleri de kullanabilirsiniz       |
 |Özyineleme     | İzlenecek öğe aranırken özyinelemenin kullanılıp kullanılmadığını belirler.        |
-|Dosya içeriğini tüm ayarlar için karşıya yükleme| İzlenen değişikliklerin dosya içeriği karşıya yükleme işlemini açar veya kapatır. Kullanılabilir seçenekler: **True** veya **False**.|
+|Dosya içeriğini tüm ayarlar için karşıya yükleme| İzlenen değişikliklerin dosya içeriği karşıya yükleme işlemini açar veya kapatır. Mevcut seçenekler: **Doğru** veya **False**.|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Joker karakter, özyineleme ve ortam ayarları
 
@@ -171,6 +171,17 @@ Aşağıdaki tabloda değişiklik türleri için veri toplama sıklığı göste
 | Linux Daemon'ları | 5 dakika |
 | Windows yazılım | 30 dakika |
 | Linux yazılım | 5 dakika |
+
+Aşağıdaki tablo, değişiklik izleme için makine başına izlenen öğe sınırları gösterir.
+
+| **Kaynak** | **Sınırı**| **Notlar** |
+|---|---|---|
+|Dosya|500||
+|Kayıt Defteri|250||
+|Windows yazılım|250|Yazılım güncelleştirmeleri dahil değildir|
+|Linux paketleri|1250||
+|Hizmetler|250||
+|Program|250||
 
 ### <a name="windows-service-tracking"></a>Windows hizmeti izleme
 

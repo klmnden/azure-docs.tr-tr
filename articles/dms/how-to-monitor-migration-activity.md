@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 1725be4209bfc9335654c574098c43102eca5a2d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/14/2018
+ms.openlocfilehash: a315e8b42ab8e0df659a3388a50fedf5dd3a54d2
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961187"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413073"
 ---
 # <a name="monitor-migration-activity"></a>Geçiş etkinliğini izleme
 Bu makalede, bir veritabanı ve tablo düzeyindeki hem bir geçiş işleminin ilerleme durumunu izlemek nasıl öğrenin.
@@ -136,7 +136,7 @@ Aşağıdaki tabloda, tablo düzeyi geçiş sürüyor gösterilen alanlar açık
 | **Güncelleştirme** | CDC güncelleştirmeleri hedefe uygulanması satırların sayısı.      |
 | **Silme**      | CDC sayısı hedefe uygulanması satırlarını siler. |
 | **Toplam uygulanan**      | CDC toplamı, ekler, güncelleştirir ve hedefe uygulanması satırlarda siler. |
-| **Veri hataları** | Bu tabloda veri hatası oluştu. Bazı örnekler hataların *511: 8114 %d, izin verilen en büyük satır boyutundan büyük olan %d boyutunda bir satır oluşturulamaz: %ls için veri türü %ls dönüştürülürken hata oluştu.*  Hata ayrıntılarını görmek için Azure hedef attms_apply_exceptions tablosundan müşteri sorgu.    |
+| **Veri hataları** | Bu tabloda veri hatası oluştu. Bazı örnekler hataların *511: 8114 %d, izin verilen en büyük satır boyutundan büyük olan %d boyutunda bir satır oluşturulamıyor: Verileri dönüştürme hatası % ls. %ls yazın.*  Hata ayrıntılarını görmek için Azure hedef dms_apply_exceptions tablosundan müşteri sorgu.    |
 
 > [!NOTE]
 > INSERT, Update ve Delete ve toplam uygulanan CDC değerlerini veritabanı tam geçişi veya geçiş yeniden düşebilir.

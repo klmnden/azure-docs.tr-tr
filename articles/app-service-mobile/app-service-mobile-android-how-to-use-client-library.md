@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: 5acc9bfdd674d6677ad6da69b87bb8053cc43a19
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5052ec73114c040a4c140d258b197fdde58f6667
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972227"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409335"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android için Azure Mobile Apps SDK'sını kullanma
 
@@ -189,14 +189,14 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Mobile Apps arka ucunuzu ek tablolar oluşturmayı öğrenmek için bkz: [nasıl yapılır: Tablo denetleyicisi tanımlamak] [ 15] (.NET arka ucu) veya [dinamik şemayı kullanarak tablolar tanımlama] [ 16] (Node.js arka ucu).
+Mobile Apps arka ucunuzu ek tablolar oluşturmayı öğrenmek için bkz: [nasıl yapılır: Bir tablo denetleyicisi tanımlamak] [ 15] (.NET arka ucu) veya [dinamik şemayı kullanarak tablolar tanımlama] [ 16] (Node.js arka ucu).
 
 Bir Azure Mobile Apps arka uç tablosu, biri dört istemciler için kullanılabilir beş özel alanlar tanımlar:
 
-* `String id`: Kayıt genel olarak benzersiz kimliği.  En iyi uygulama, dize gösterimi kimliği olun bir [UUID] [ 17] nesne.
-* `DateTimeOffset updatedAt`: Son tarih/saat güncelleştirin.  UpdatedAt alan, sunucu tarafından ayarlanır ve hiçbir zaman istemci kodunuz tarafından ayarlanması gerekir.
+* `String id`: Kayıt için genel olarak benzersiz kimliği.  En iyi uygulama, dize gösterimi kimliği olun bir [UUID] [ 17] nesne.
+* `DateTimeOffset updatedAt`: Son güncelleştirme tarih/saat.  UpdatedAt alan, sunucu tarafından ayarlanır ve hiçbir zaman istemci kodunuz tarafından ayarlanması gerekir.
 * `DateTimeOffset createdAt`: Nesne oluşturulduğu tarih.  CreatedAt alan, sunucu tarafından ayarlanır ve hiçbir zaman istemci kodunuz tarafından ayarlanması gerekir.
-* `byte[] version`: Genellikle dize olarak temsil edilen, sürüm sunucu tarafından ayarlanır.
+* `byte[] version`: Normalde bir dize olarak temsil edilen, sürüm sunucu tarafından ayarlanır.
 * `boolean deleted`: Kayıt silindi ancak henüz temizleneceği değil olduğunu gösterir.  Kullanmayın `deleted` sınıfınıza özelliği olarak.
 
 `id` alanı gereklidir.  `updatedAt` Alan ve `version` çevrimdışı eşitleme için kullanılan alan (Artımlı eşitleme ve Çakışma çözümlemesi için sırasıyla).  `createdAt` Alanı bir başvuru alan olup, istemci tarafından kullanılmaz.  Adları "arasında hat" özellik adlarının ve ayarlanabilir değildir.  Ancak, nesnenizin kullanarak "arasında hat" adları arasında bir eşleme oluşturabilirsiniz [gson] [ 3] kitaplığı.  Örneğin:
@@ -446,7 +446,7 @@ Bu yöntemi kullanarak tüm kayıtlar için bir istek, iki isteği Mobile Apps a
 > [!TIP]
 > Sağ bir sayfa boyutunu belirlemek, isteğin gerçekleştiği sırada bellek kullanımı, bant genişliği kullanımını ve veri tamamen alma gecikme arasında bir denge değerdir.  Varsayılan (50 kayıt), tüm cihazlar için uygundur.  Özel olarak daha büyük bellek cihazlarda çalışır, en fazla 500 artırın.  Kabul edilebilir gecikme ve büyük bellek sorunlarını 500 kayıt sonuçlarında ötesinde sayfa boyutunu artırma bulduk.
 
-### <a name="chaining"></a>Nasıl yapılır: birleştirme sorgu yöntemleri
+### <a name="chaining"></a>Nasıl Yapılır: Sorgu yöntemleri birleştirme
 
 Arka uç tabloları sorgularken kullanılan yöntemleri birleştirilebilir. Sorgu yöntemleri zincirleme sıralanmış ve disk belleğine alınan bir filtrelenen satırlar belirli sütunları seçmenizi sağlar. Karmaşık mantıksal filtreler oluşturabilirsiniz.  Her sorgu yöntemine, bir sorgu nesnesi döndürür. Bir dizi yöntem bitirmek ve gerçekten sorguyu çalıştırmak için çağrı **yürütme** yöntemi. Örneğin:
 
@@ -672,7 +672,7 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Nasıl yapılır: yazılmamış verileri ile çalışma
+## <a name="untyped"></a>Nasıl Yapılır: Yazılmamış verileri ile çalışma
 
 Yazılmamış bir programlama modeli, JSON seri hale getirme üzerinde tam denetim sağlar.  Burada yazılmamış bir programlama modeli kullanmak isteyebilir, sık karşılaşılan bazı senaryolar vardır. Örneğin, arka uç tablonuzun birçok sütun içeren ve yalnızca bir sütun alt kümesi başvuru gerekir.  Belirlenmiş model Mobile Apps arka uç veri Sınıfınız içinde tanımlanan tüm sütunları tanımlamanızı gerektirir.  Çoğu verilerine erişmek için API çağrıları, yazılan programlama çağrıları benzerdir. Ana fark yazılmamış modelinde, yöntemleri üzerinde çağırma **MobileServiceJsonTable** nesnesi yerine **MobileServiceTable** nesne.
 
@@ -767,10 +767,10 @@ Filtreleme aynı kümesi, filtreleme ve sayfalama belirlenmiş model için kulla
 
 Azure Mobile Apps istemci SDK'sı bir kopyasını sunucu verilerini yerel olarak depolamak için bir SQLite veritabanı kullanarak çevrimdışı veri eşitlemeyi de uygular.  Çevrimdışı bir tablo üzerinde gerçekleştirilen işlemler, iş için mobil bağlantısı gerektirmez.  Çevrimdışı eşitleme, esneklik ve performansı çakışmaları çözümlemek için daha karmaşık mantık çoğaltamaz kolaylık sağlar.  Azure Mobile Apps istemci SDK'sı aşağıdaki özellikler uygular:
 
-* Artımlı eşitleme: Bant genişliği ve bellek tüketimi kaydetme yalnızca güncelleştirilmiş ve yeni kayıt indirilir.
-* İyimser eşzamanlılık: İşlemlerinin başarılı olması için kabul edilir.  Çakışma, sunucu üzerinde güncelleştirme yapıldığında kadar ertelenir.
-* Çakışma: çakışan değişiklik sunucuda yapılan ve kullanıcıyı uyarmak için hooks sağlayan SDK algılar.
-* Geçici silme: Silinen kayıtlar, çevrimdışı önbelleklerini güncelleştirmek diğer cihazlara izin verme, silinmiş olarak işaretlenir.
+* Artımlı eşitleme: Yalnızca güncelleştirilmiş ve yeni kayıt bant genişliği ve bellek tüketimi kaydetme indirilir.
+* İyimser eşzamanlılık: İşlem başarılı olması için kabul edilir.  Çakışma, sunucu üzerinde güncelleştirme yapıldığında kadar ertelenir.
+* Çakışma çözümü: Çakışan bir değişiklik sunucuda yapılan ve kullanıcıyı uyarmak için hooks sağlayan SDK algılar.
+* Geçici silme: Silinmiş kayıtlar, çevrimdışı önbelleklerini güncelleştirmek diğer cihazlara izin verme, silinen işaretlenir.
 
 ### <a name="initialize-offline-sync"></a>Çevrimdışı eşitleme başlatın
 
@@ -892,7 +892,7 @@ public void completeItem(View view) {
 
 Öğreticiler, bu özellikler ekleme zaten ayrıntılı olarak açıklanmaktadır.
 
-App Service destekler [uygulama kullanıcıların kimliğini doğrulama](app-service-mobile-android-get-started-users.md) çeşitli dış kimlik sağlayıcısı kullanarak: Facebook, Google, Microsoft Account, Twitter ve Azure Active Directory. Tablolarda yalnızca kimliği doğrulanmış kullanıcılar için belirli işlemler için erişimi sınırlandırmak için izinleri ayarlayabilirsiniz. Kimliği doğrulanmış kullanıcıların kimliğini, yetkilendirme kuralları arka ucunuzu uygulamak için de kullanabilirsiniz.
+App Service destekler [uygulama kullanıcıların kimliğini doğrulama](app-service-mobile-android-get-started-users.md) çeşitli dış kimlik sağlayıcısı kullanarak: Facebook, Google, Microsoft hesabı, Twitter ve Azure Active Directory. Tablolarda yalnızca kimliği doğrulanmış kullanıcılar için belirli işlemler için erişimi sınırlandırmak için izinleri ayarlayabilirsiniz. Kimliği doğrulanmış kullanıcıların kimliğini, yetkilendirme kuralları arka ucunuzu uygulamak için de kullanabilirsiniz.
 
 İki kimlik doğrulama akışı desteklenir: bir **sunucu** akış ve **istemci** akış. Kimlik sağlayıcıları web arabirimi olmasına olduğundan sunucu akışı Basit kimlik doğrulaması deneyimi sağlar.  Ek SDK, kimlik doğrulaması akışını uygulamak için gereklidir. Akış doğrulaması, mobil cihaz kapsamlı bir tümleştirme sağlamaz ve yalnızca senaryoları kavram kanıtı için önerilir.
 
@@ -907,7 +907,7 @@ Dört adımı, uygulamanızda kimlik doğrulamasını etkinleştirmek için gere
 
 Tablolarda yalnızca kimliği doğrulanmış kullanıcılar için belirli işlemler için erişimi sınırlandırmak için izinleri ayarlayabilirsiniz. Kimliği doğrulanmış bir kullanıcının SID, değiştirme isteklerini için de kullanabilirsiniz.  Daha fazla bilgi için gözden [kimlik doğrulamayı kullanmaya başlama] ve sunucu SDK'sını nasıl yapılır belgeleri.
 
-### <a name="caching"></a>Kimlik doğrulama: Sunucu akışı
+### <a name="caching"></a>Kimlik doğrulaması: Sunucu akışı
 
 Aşağıdaki kod, Google Sağlayıcısı'nı kullanarak bir sunucu akışı oturum açma işlemi başlatır.  Ek yapılandırma, güvenlik gereksinimlerini Google sağlayıcısı nedeniyle gereklidir:
 
@@ -1314,6 +1314,6 @@ Bu kod, bir mobil istemci başvurusu kullanarak oluşturmadan önce yürütülme
 [19]: https://www.odata.org/documentation/odata-version-3-0/
 [20]: https://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[22]: ../app-service/configure-authentication-provider-aad.md
 [Future]: https://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: https://developer.android.com/reference/android/os/AsyncTask.html

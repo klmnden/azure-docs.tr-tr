@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 1136d97ad1c1d02320331e6d2013b68526d5abb4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f76dfc8499d294c2c682c4d9c4cf2cd2f858432f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277911"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408873"
 ---
-# <a name="use-spark-to-read-and-write-hbase-data"></a>HBase verilerini okuyup yazmak için Spark kullanma
+# <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Apache HBase verilerini okuyup yazmak için Apache Spark kullanma
 
-Apache HBase, genellikle düşük düzey API'si (taramaları, alır ve puts) veya Phoenix kullanarak bir SQL söz dizimi sorgulanır. Apache, uygun bir Spark HBase Bağlayıcısı ve yüksek performanslı alternatif HBase tarafından depolanan verileri sorgulamak ve değiştirmek için de sağlar.
+Apache HBase, genellikle düşük düzey API'si (taramaları, alır ve puts) veya Apache Phoenix kullanarak bir SQL söz dizimi sorgulanır. Apache, uygun bir Apache Spark HBase Bağlayıcısı ve yüksek performanslı alternatif HBase tarafından depolanan verileri sorgulamak ve değiştirmek için de sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -38,9 +38,9 @@ HDInsight kümenizi sorgulamak Spark kümenizin etkinleştirmek için üst düze
 5. HBase için Spark şemadan eşleyen bir katalog tanımlayın.
 6. RDD ya da veri çerçevesi API'lerini kullanarak HBase verilerle etkileşim kurun.
 
-## <a name="prepare-sample-data-in-hbase"></a>HBase örnek verileri hazırlama
+## <a name="prepare-sample-data-in-apache-hbase"></a>Apache HBase, örnek verileri hazırlama
 
-Bu adımda, oluşturun ve ardından Spark kullanarak sorgulayabilirsiniz HBase basit bir tablodaki doldurun.
+Bu adımda, oluşturun ve Apache HBase, Spark'ı kullanarak ardından sorgulayabilirsiniz basit bir tablodaki doldurun.
 
 1. SSH kullanarak HBase kümenizin baş düğümüne bağlanın. Daha fazla bilgi için [SSH kullanarak HDInsight Bağlan](hdinsight-hadoop-linux-use-ssh-unix.md).
 2. HBase kabuğunu çalıştırın:
@@ -132,7 +132,7 @@ Bu adımda, oluşturun ve ardından Spark kullanarak sorgulayabilirsiniz HBase b
 
 ## <a name="define-a-catalog-and-query"></a>Katalog ve sorgu tanımlama
 
-Bu adımda, Spark şemadan HBase için eşleşen bir katalog nesnesi tanımlayın. 
+Bu adımda, Apache HBase için Apache Spark şemadan eşleyen bir katalog nesnesi tanımlayın. 
 
 1. Açık, Spark Shell'de aşağıdaki komutu çalıştırın. `import` ifadeleri:
 
@@ -244,4 +244,4 @@ Bu adımda, Spark şemadan HBase için eşleşen bir katalog nesnesi tanımlayı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Spark, HBase Bağlayıcısı](https://github.com/hortonworks-spark/shc)
+* [HBase bağlayıcı Apache Spark](https://github.com/hortonworks-spark/shc)

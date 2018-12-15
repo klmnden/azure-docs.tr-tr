@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2018
+ms.date: 12/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 2f9075cef671128cacc37f16e8bf29bf0f60401d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 46dfb96df7b16fe03bd5c2c69fd9e2e33b04bbd2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619648"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408587"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -179,22 +179,29 @@ Bu ayar, aşağıdaki mobil uygulamalar ve masaüstü istemciler yapılan erişi
 |---|---|---|
 |Azure RemoteApp|Azure RemoteApp hizmeti|Windows 10, Windows 8.1, Windows 7, iOS, Android ve Mac OS X|
 |Dynamics CRM uygulaması|Dynamics CRM|Windows 10, Windows 8.1, iOS ve Android|
-|Takvim/posta/kişiler uygulaması, Outlook 2016'ın (modern kimlik doğrulaması ile) Outlook 2013|Office 365 Exchange Online|Windows 10|
+|Takvim/posta/kişiler uygulaması, Outlook 2016'ın, Outlook 2013 |Office 365 Exchange Online|Windows 10|
 |Uygulamalar için MFA ve konum ilkesi. Cihaz tabanlı ilkeler desteklenmez. |Herhangi bir uygulamalarım uygulama hizmeti|Android ve iOS|
 |Microsoft Teams Hizmetleri - bu, Microsoft Teams ve tüm istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android ve macOS |
-|Office 2016 uygulamaları, Office 2013 (modern kimlik doğrulaması ile) OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Office 2016 uygulamaları, Evrensel Office uygulamaları, Office 2013 (modern kimlik doğrulaması ile), OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan|Office 365 SharePoint Online|Windows 10|
+|Office 2016 uygulamaları, Office 2013, OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Office 2016 uygulamaları, Evrensel Office uygulamaları, Office 2013, OneDrive eşitleme istemcisini (bkz [notları](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan|Office 365 SharePoint Online|Windows 10|
 |MacOS (Word, Excel, PowerPoint ve OneNote yalnızca) için Office 2016. OneDrive for Business desteği gelecek için planlanan|Office 365 SharePoint Online|Mac OS X|
 |Office mobil uygulamaları|Office 365 SharePoint Online|Android, iOS|
 |Office Yammer uygulaması|Office 365 Yammer|Windows 10, iOS, Android|
 |Outlook 2016'ın (macOS için Office)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016, Outlook 2013 (modern kimlik doğrulaması ile) Skype Kurumsal'a (ile modern kimlik doğrulaması)|Office 365 Exchange Online|Windows 8.1, Windows 7|
+|Outlook 2016'ın, Outlook 2013, Skype Kurumsal|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Outlook mobil uygulaması|Office 365 Exchange Online|Android, iOS|
 |Power BI uygulaması|Power BI hizmeti|Windows 10, Windows 8.1, Windows 7, Android ve iOS|
 |Skype Kurumsal|Office 365 Exchange Online|Android, IOS |
 |Azure DevOps uygulama|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS ve Android|
 
 
+## <a name="support-for-legacy-authentication"></a>Eski kimlik doğrulaması için destek
+
+Seçerek **diğer istemcilerin**, IMAP, MAPI, POP, SMTP ve modern kimlik doğrulama kullanmayan eski Office uygulamaları gibi posta protokollerini ile temel kimlik doğrulaması kullanan uygulamalar etkileyen bir koşul belirtebilirsiniz.  
+
+![Diğer istemciler](./media/technical-reference/11.png)
+
+Daha fazla bilgi için [istemci uygulamaları](conditions.md#client-apps).
 
 ## <a name="approved-client-app-requirement"></a>Onaylı istemci uygulama gereksinimi 
 

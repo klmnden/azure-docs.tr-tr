@@ -14,14 +14,17 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 07/26/2018
 ms.author: danlep
-ms.openlocfilehash: 10f3444f81dfaeac4331f0b7798ade7eefbd29fb
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 643d2a5a600d018912f09d01f2e018100767f147
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058194"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410134"
 ---
-# <a name="cli-example-create-and-manage-a-batch-ai-cluster-of-dedicated-nodes"></a>CLI örneği: Adanmış düğümlerin Batch AI kümesini oluşturma ve yönetme
+# <a name="cli-example-create-and-manage-a-batch-ai-cluster-of-dedicated-nodes"></a>CLI örneği: Adanmış düğümler, bir Batch AI küme oluşturma ve yönetme
+
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
 
 Bu betik, adanmış düğümlerden (sanal makineler) oluşan bir Batch AI kümesi oluşturmak ve yönetmek için Azure CLI’sinde bulunan bazı komutları gösterir.
 

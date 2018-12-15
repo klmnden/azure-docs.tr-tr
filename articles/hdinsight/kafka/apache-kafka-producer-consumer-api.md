@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Apache Kafka Üretici ve Tüketici API’lerini kullanma - Azure HDInsight '
+title: "Öğretici: Apache Kafka üretici ve tüketici API'lerini - Azure HDInsight'ı kullanın "
 description: HDInsight’ta Apache Kafka Üretici ve Tüketici API’lerini kullanmayı öğrenin. Bu öğreticide, bu API’leri HDInsight üzerinde Kafka ile kullanmayı öğreneceksiniz.
 services: hdinsight
 author: dhgoelmsft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 947eb76f84f865135e87803b53fa94e20eecb78c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dd4c077e23170a295a29a75df08cf8f29f8ba3e4
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313846"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413362"
 ---
-# <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Öğretici: Apache Kafka Üretici ve Tüketici API’lerini kullanma
+# <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Öğretici: Apache Kafka üretici ve tüketici API'lerini kullanma
 
 HDInsight’ta Apache Kafka Üretici ve Tüketici API’lerini kullanmayı öğrenin.
 
@@ -49,7 +49,7 @@ Dağıtım iş istasyonunuza Java ve JDK yüklerken aşağıdaki ortam değişke
 
 * `JAVA_HOME` - JDK’nın yüklendiği dizine işaret etmelidir.
 * `PATH` - aşağıdaki yolları içermelidir:
-  
+
     * `JAVA_HOME` (veya eşdeğer yol).
     * `JAVA_HOME\bin` (veya eşdeğer yol).
     * Maven'ın yüklendiği dizin.
@@ -62,16 +62,16 @@ Bu öğreticide HDInsight 3.6 üzerinde Apache Kafka kullanılması gerekir. HDI
 
 Örnek uygulama, [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) konumunda `Producer-Consumer` alt dizininde bulunur. Uygulama öncelikli olarak dört dosyadan oluşur:
 
-* `pom.xml`: Bu dosya, proje bağımlılıklarını, Java sürümünü ve paketleme yöntemlerini tanımlar.
-* `Producer.java`: Bu dosya, üretici API’sini kullanarak Kafka’ya rastgele tümceler gönderir.
-* `Consumer.java`: Bu dosya, tüketici API’sini kullanarak Kafka’dan verileri okur ve STDOUT’a yayar.
-* `Run.java`: Üretici ve tüketici kodunu çalıştırmak için kullanılan komut satırı arabirimi.
+* `pom.xml`: Bu dosya, proje bağımlılıkları, Java sürümü ve paketleme yöntemleri tanımlar.
+* `Producer.java`: Bu dosya, rastgele tümceler producer API kullanarak Kafka'ya gönderir.
+* `Consumer.java`: Bu dosya, Kafka'dan veri okumak ve STDOUT yaymak için tüketici API kullanır.
+* `Run.java`: Üretici ve tüketici kodu çalıştırmak için kullanılan komut satırı arabirimi.
 
 ### <a name="pomxml"></a>Pom.xml
 
 `pom.xml` dosyasında aşağıdaki önemli şeyler anlaşılır:
 
-* Bağımlılıklar: Bu proje, `kafka-clients` paketi tarafından sağlanan Kafka üretici ve tüketici API’lerini kullanır. Aşağıdaki XML kodu, bu bağımlılığı tanımlar:
+* Bağımlılıklar: Kafka üretici ve tüketici API'lerini tarafından sağlanan bu proje dayanan `kafka-clients` paket. Aşağıdaki XML kodu, bu bağımlılığı tanımlar:
 
     ```xml
     <!-- Kafka client for producer/consumer operations -->
@@ -85,14 +85,14 @@ Bu öğreticide HDInsight 3.6 üzerinde Apache Kafka kullanılması gerekir. HDI
     > [!NOTE]
     > `${kafka.version}` girişi, `pom.xml` dosyasının `<properties>..</properties>` bölümünde bildirilir ve HDInsight kümesinin Kafka sürümüne yapılandırılır.
 
-* Eklentiler: Maven eklentileri çeşitli özellikler sağlar. Bu projede aşağıdaki eklentiler kullanılır:
+* Eklentiler: Maven eklentileri çeşitli özellikler sunar. Bu projede aşağıdaki eklentiler kullanılır:
 
-    * `maven-compiler-plugin`: Proje tarafından kullanılan Java sürümünü 8 olarak ayarlamak için kullanılır. HDInsight 3.6 tarafından kullanılan Java sürümüdür.
-    * `maven-shade-plugin`: Bu uygulamayı ve tüm bağımlılıkları içeren bir uber jar oluşturmak için kullanılır. Ana sınıfı belirtmek zorunda olmadan doğrudan Jar dosyasını çalıştırabilmeniz için uygulamanın giriş noktasını ayarlamak için de kullanılır.
+    * `maven-compiler-plugin`: 8 proje tarafından kullanılan Java sürümünü ayarlamak için kullanılır. HDInsight 3.6 tarafından kullanılan Java sürümüdür.
+    * `maven-shade-plugin`: Herhangi bir bağımlılığın yanı sıra bu uygulamayı içeren bir uber jar oluşturmak için kullanılır. Ana sınıfı belirtmek zorunda olmadan doğrudan Jar dosyasını çalıştırabilmeniz için uygulamanın giriş noktasını ayarlamak için de kullanılır.
 
 ### <a name="producerjava"></a>Producer.java
 
-Üretici, Kafka aracı konakları (çalışan düğümleri) ile iletişim kurar ve verileri bir Kafka konusuna gönderir. Aşağıdaki kod parçacığı [github deposundaki](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) dosyasında yer alır ve üretici özelliklerinin nasıl ayarlanacağını gösterir:
+Üretici, Kafka aracı konakları (çalışan düğümleri) ile iletişim kurar ve verileri bir Kafka konusuna gönderir. Aşağıdaki kod parçacığı dandır [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) dosya [GitHub deposu](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) ve üretici özelliklerini ayarlama işlemi gösterilmektedir:
 
 ```java
 Properties properties = new Properties();
@@ -145,11 +145,11 @@ Bu kodda tüketici, konu başlangıcından okumak üzere yapılandırılmıştı
     Bu komut, `kafka-producer-consumer-1.0-SNAPSHOT.jar` adlı dosyayı içeren `target` adlı bir dizin oluşturur.
 
 3. `kafka-producer-consumer-1.0-SNAPSHOT.jar` dosyasını HDInsight kümenize kopyalamak için aşağıdaki komutları kullanın:
-   
+
     ```bash
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
-   
+
     **SSHUSER** değerini kümenizin SSH kullanıcısı ile, **CLUSTERNAME** değerini kümenizin adıyla değiştirin. İstendiğinde, SSH kullanıcısının parolasını girin.
 
 ## <a id="run"></a> Örneği çalıştırma
@@ -190,11 +190,11 @@ Bu kodda tüketici, konu başlangıcından okumak üzere yapılandırılmıştı
     ```
 
 4. Üretici tamamlandıktan sonra, konu başlığından okumak için aşağıdaki komutu kullanın:
-   
+
     ```bash
     java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS
     ```
-   
+
     Okunan kayıtlar, kayıt sayısıyla birlikte gösterilir.
 
 5. Tüketiciden çıkış yapmak için __Ctrl + C__ tuşlarını kullanın.
@@ -204,7 +204,7 @@ Bu kodda tüketici, konu başlangıcından okumak üzere yapılandırılmıştı
 Kafka tüketicileri kayıtları okurken bir tüketici grubu kullanır. Birden çok tüketiciyle aynı grubun kullanılması, konu başlığından yük dengeli okuma yapılmasına neden olur. Gruptaki her bir tüketici, kayıtların bir kısmını alır.
 
 Tüketici uygulaması, grup kimliği olarak kullanılan bir parametre kabul eder Örneğin, aşağıdaki komut bir `mygroup` grup kimliği kullanarak tüketiciyi başlatır:
-   
+
 ```bash
 java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup
 ```

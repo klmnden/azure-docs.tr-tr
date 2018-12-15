@@ -8,17 +8,17 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: c1e38064e8abe53c96a70fb189b3d9e4cc4bc4e4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414004"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408383"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible kullanarak Azure’da sanal makine ölçek kümelerine uygulama dağıtma
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Uygulamalarınızı Azure'a dağıtmak için Ansible kullanabilirsiniz. Bu makalede bir Azure sanal makine ölçek kümesine (VMSS) bir Java uygulamasının nasıl dağıtılacağı gösterilmektedir.  
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 - **Azure aboneliği** - Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Sanal makine ölçek kümesi** - Sanal makine ölçek kümeniz yoksa, [Ansible kullanarak bir sanal makine ölçek kümesi oluşturabilirsiniz](ansible-create-configure-vmss.md). 
@@ -35,7 +35,7 @@ Bu bölümde, bir Azure sanal makine grubu için ana bilgisayar bilgilerini alma
 
 Aşağıdaki örnek playbook'u `get-hosts-tasks.yml` olarak kaydedin: 
 
-  ```yaml
+  ```yml
   - name: Get facts for all Public IPs within a resource groups
     azure_rm_publicipaddress_facts:
       resource_group: "{{ resource_group }}"
@@ -63,7 +63,7 @@ Aşağıdaki örnek playbook'u `get-hosts-tasks.yml` olarak kaydedin:
 
 Bu bölümde, git kullanarak GitHub'dan bir Java örnek projesi kopyalayacak ve projeyi derleyeceksiniz. Aşağıdaki playbook'u `app.yml` olarak kaydedin:
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       repo_url: https://github.com/spring-guides/gs-spring-boot.git
@@ -87,7 +87,7 @@ Bu bölümde, git kullanarak GitHub'dan bir Java örnek projesi kopyalayacak ve 
 
 Ansible-playbook komutunun çıktısı aşağıdakine benzer şekilde görüntülenir, burada GitHub'dan kopyalanan örnek uygulamanın derlendiğini görebilirsiniz:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -110,7 +110,7 @@ Ansible playbook'un aşağıdaki bölümü JRE'yi (Java Runtime Environment) **s
 
 (`admin_password` öğesini kendi parolanız ile değiştirin.)
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -167,7 +167,7 @@ Playbook'u aşağıdaki komut ile çalıştırın:
 
 Ansible-playbook komutunun çalıştırılması sonucu oluşan çıktı, örnek Java uygulamasının sanal makine ölçek kümesinin ana bilgisayar grubuna yüklendiğini belirtir:
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -208,4 +208,4 @@ Tebrikler! Uygulamanız artık Azure'da çalışıyor. Artık sanal makine ölç
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"] 
-> [VMSS için Ansible örnek playbook'u](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Ansible'ı kullanarak bir sanal makine ölçek kümesi otomatik olarak ölçeklendirme](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

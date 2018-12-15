@@ -14,14 +14,17 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: danlep
-ms.openlocfilehash: 01281c0328fab85814ff93c73f9ea25e0d4c1b08
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 41a3a801214ff00c01397034e26fde6946ab97f0
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232809"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407822"
 ---
-# <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>CLI örneği: Bir küme yapılandırma dosyası kullanarak Batch AI kümesi oluşturun
+# <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>CLI örneği: Bir küme yapılandırma dosyası kullanarak bir Batch AI kümesi oluşturma
+
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
 
 Bu betik, Batch AI kümesinin ayarlarını belirtmek için JSON yapılandırma dosyasının nasıl kullanılacağını gösterir. `az batchai cluster create` için ilgili komut satırı parametreleri yerine bu ayarları kullanın. Küme düğümlerine birden çok dosya sistemi bağlamanız gerektiğinde veya birkaç kümede özdeş yapılandırma kullanmak istediğinizde bir yapılandırma dosyası yararlıdır.
 

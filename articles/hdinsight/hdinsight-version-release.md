@@ -7,22 +7,22 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: overview
 ms.date: 10/04/2018
-ms.openlocfilehash: ade162d0261b765336cbff9ea8a6429f9bd2d871
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 34582e66dec3b2f97efba7856ccfbf678f8f1f63
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801852"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408094"
 ---
 # <a name="hdinsight-40-overview-preview"></a>HDInsight 4.0 sürümüne genel bakış (Önizleme)
 
-Azure HDInsight, Azure'da açık kaynak Hadoop ve Spark analizi için kurumsal müşteriler tarafından en çok tercih edilen hizmetlerden biridir. HDInsight (HDI) 4.0, [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html) tarafından sağlanan Hadoop bileşenlerinin bulut dağıtımıdır. Bu makalede en güncel Azure HDInsight sürümü hakkında bilgiler verilmekte ve yükseltme yöntemleri anlatılmaktadır.
+Azure HDInsight, Azure üzerinde açık kaynaklı Apache Hadoop ve Apache Spark analiz için en popüler hizmetler Kurumsal müşteriler arasında biridir. HDInsight (HDI) 4.0 Apache Hadoop bileşenlerinin bulut dağıtımıdır [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). Bu makalede en güncel Azure HDInsight sürümü hakkında bilgiler verilmekte ve yükseltme yöntemleri anlatılmaktadır.
 
 ## <a name="whats-new-in-hdi-40"></a>HDI 4.0'daki yenilikler nelerdir?
 
-### <a name="hive-30-and-llap"></a>Hive 3.0 ve LLAP
+### <a name="apache-hive-30-and-llap"></a>3.0 Apache Hive ve LLAP
 
-Hive düşük gecikme süresine sahip analitik işlem (LLAP) özelliği uzak bulut depolama alanlarındaki verilerde hızlı SQL sorgusu sonucu sunmak için kalıcı sorgu sunucuları ve bellek için önbellek kullanır. Hive LLAP, Hive sorgularını parçalar halinde yürüten bir dizi kalıcı daemon'lardan faydalanır. LLAP üzerinde sorgu yürütme LLAP kullanılmayan Hive ile benzerdir ve çalışan görevleri kapsayıcıların değil LLAP daemon'larının içinde çalışır.
+Apache Hive düşük gecikme süreli analitik işlem (LLAP) kalıcı sorgu sonuçları uzak bulut depolama alanında veriler üzerinde sorgu sunucuları ve bellek içi önbelleğe alma hızlı SQL sunmak için kullanır. Hive LLAP, Hive sorgularını parçalar halinde yürüten bir dizi kalıcı daemon'lardan faydalanır. LLAP üzerinde sorgu yürütme LLAP kullanılmayan Hive ile benzerdir ve çalışan görevleri kapsayıcıların değil LLAP daemon'larının içinde çalışır.
 
 Hive LLAP hizmetinin avantajları şunlardır:
 
@@ -72,7 +72,7 @@ Artık Hive işlem tablolarına yanlışlıkla doğrudan Spark'tan erişmeye ça
 [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html) hakkında daha fazla bilgi edinin.
 
 
-### <a name="oozie"></a>Oozie
+### <a name="apache-oozie"></a>Apache Oozie
 
 HDI 4.0 sürümünde bulunan Apache Oozie 4.3.1'de aşağıdaki değişiklikler yapılmıştır:
 
@@ -90,7 +90,7 @@ Tüm ana sürümlerde olduğu gibi son sürümü üretim ortamına uygulamadan �
 
 ## <a name="limitations"></a>Sınırlamalar
 
-* HDI 4.0, MapReduce desteği sunmaz. Bunun yerine Tez kullanabilirsiniz. [Apache Tez](https://tez.apache.org/) hakkında daha fazla bilgi edinin.
+* HDI 4.0, MapReduce desteği sunmaz. Apache Tez kullanın. [Apache Tez](https://tez.apache.org/) hakkında daha fazla bilgi edinin.
 
 * Hive View, HDI 4.0 sürümünde mevcut değildir. 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 8f43edfe468958bbc4a6fde14e8e03e5b4d4e0f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88aeaf1246583345d1d28218e8e91b3ecbcd166b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264055"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53430056"
 ---
 Kuruluşların büyük ölçekli bilgi işlem gereksinimlerini vardır. Bu Big Compute iş yükleri, mühendislik tasarımı ve analizi, finansal risk hesaplamaları, görüntü işleme, karmaşık modelleme, Monte Carlo simülasyonları ve daha fazlasını içerir. 
 
@@ -86,7 +86,6 @@ Ziyaret [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/) Lin
 
 ### <a name="ai-and-deep-learning"></a>Yapay ZEKA ve derin öğrenme
 
-* [Batch AI](../articles/batch-ai/overview.md) ayrıntılı öğrenme modelleri için eğitim
 * [Microsoft Bilişsel Araç Seti](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
 * [Derin öğrenme](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Derin öğrenme için Batch Shipyard tarifleri](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
@@ -168,7 +167,6 @@ Azure sanal makineler, sanal makine ölçek kümeleri, Batch ve ilgili bilgi iş
 
 ### <a name="ai-and-machine-learning"></a>Yapay zeka ve makine öğrenmesi
 * [Machine Learning Hizmetleri](../articles/machine-learning/service/overview-what-is-azure-ml.md)
-* [Batch AI](../articles/batch-ai/overview.md)
 * [Genomiks](../articles/genomics/overview-what-is-genomics.md)
 
 ### <a name="networking"></a>Ağ

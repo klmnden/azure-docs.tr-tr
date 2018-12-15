@@ -9,14 +9,25 @@ ms.component: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a4b6b1d267e9c86a03644129ee639b74ed214d88
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901337"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408366"
 ---
 # <a name="custom-vision-service-release-notes"></a>Özel görüntü işleme hizmeti sürüm notları
+
+
+## <a name="december-12-2018"></a>12 Aralık 2018'e
+- Dışarı aktarma nesne algılama modelleri (sunulan nesne algılama Compact etki alanı) için destek.
+- Birkaç geliştirilmiş ekran okuyucu ve klavye gezintisi desteği için erişilebilirlik sorun düzeltildi. 
+- Resim Görüntüleyici ve daha hızlı etiketleme deneyimi etiketleme geliştirilmiş nesne algılama işlemleri için UX güncelleştirmeler.  
+- Daha iyi kalite nesne algılama için nesne algılama etki alanı için güncelleştirilmiş temel modeli. 
+- Hata düzeltmeleri.
+
+## <a name="november-6-2018"></a>6 Kasım 2018
+- Nesne algılama logosu etki alanı için destek eklendi.
 
 ## <a name="october-9-2018"></a>9 Ekim 2018
 - Nesne algılama Ücretli Önizleme girer. Bu gibi durumlarda, nesne algılama projeleri artık bir Azure kaynağı ile oluşturabilirsiniz.
@@ -24,12 +35,11 @@ ms.locfileid: "48901337"
 - Windows ML Windows 2018 Ekim güncelleştirme sürümünü destekleyecek şekilde ONNX 1.2 aktarma eklendi.
 Hata düzeltmeleri için ONNX dahil olmak üzere, özel karakterler ile dışarı aktarın. 
 
-
 ## <a name="august-14-2018"></a>14 Ağustos 2018
 - Eklenen "Başlarken" pencere öğesi customvision.ai sitesine proje eğitimi aracılığıyla kullanıcı kılavuzu. 
 - Daha fazla multilabel projeleri (yeni kaybı katman) yararlanmak için makine öğrenimi işlem hattı iyileştirmeleri.
 
-## <a name="june-28-2018"></a>28 Haziran 2018'e
+## <a name="june-28-2018"></a>28 Haziran 2018
 - Hata düzeltmeleri ve arka uç geliştirmeleri.
 - Görüntüleri tam olarak bir etiketi bulunduğu projeler için çok sınıflı sınıflandırma etkin. Çok sınıflı modu için Öngörüler içinde olasılıklar birine nüfuslarını toplayacağız (tüm görüntüleri belirtilen etiketlerinizi arasında sınıflandırılan).
 

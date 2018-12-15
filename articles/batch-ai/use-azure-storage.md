@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1e9a4c6355c60b18bb78aae362c1e2f142e2d864
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615612"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408009"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Batch AI işi girdi ve çıktı Azure depolama ile Store
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Bu kılavuz, bir iş çalışırken giriş ve Çıkış dosyalarını depolamak için Azure depolama kullanmayı açıklar. Azure depolama, Batch AI tarafından desteklenen çeşitli depolama seçenekleri biridir. Batch AI, bulutta depolanan dosyalar için sorunsuz erişim veren bir Batch AI işi veya küme dosya sistemi, Azure depolama sistemine bağlayarak Azure depolama ile tümleştirilir. 
 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: fd0b58d85631c437a71ad86b23e4d3a99965b331
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 872bfdfdef28dbb88861b723bd3186faea461cad
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101029"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410015"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Coğrafi yapay zeka veri bilimi sanal makinesi kullanma
 
@@ -43,11 +43,11 @@ Arcgıs R köprüsüne adlı bir R kitaplık olarak yüklü [arcgisbinding](http
 ML ve derin öğrenme temel veri bilimi sanal makinesi örneklerini framework tabanlı ek olarak, Jeo-uzamsal örnekler kümesi de coğrafi AI veri bilimi sanal makinesi bir parçası olarak sağlanır. Bu örnekler, Jeo-uzamsal veri ile Arcgıs yazılım yapay ZEKA uygulamaları geliştirme hemen başlayabileceğiniz yardımcı olabilir. 
 
 
-1. [Python ile Jeo-uzamsal analiz ile belirtilen](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): tanıtıcı bir örnek tarafından sağlanan Arcgıs Python arabirimi kullanarak Jeo-uzamsal veri ile nasıl çalışılacağını gösteren [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) kitaplığı. Ayrıca, geleneksel makine öğrenimi Jeo-uzamsal verilerle birleştirmek ve içinde Arcgıs harita üzerinde sonucun görselleştirilmesi nasıl gösterir. 
+1. [Python ile Jeo-uzamsal analiz ile belirtilen](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): Tarafından sağlanan Arcgıs Python arabirimi kullanarak Jeo-uzamsal veri ile nasıl çalışılacağını gösteren bir tanıtıcı örnek [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) kitaplığı. Ayrıca, geleneksel makine öğrenimi Jeo-uzamsal verilerle birleştirmek ve içinde Arcgıs harita üzerinde sonucun görselleştirilmesi nasıl gösterir. 
 
 2. [R ile Jeo-uzamsal analiz ile belirtilen](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): R tarafından sağlanan Arcgıs arabirimi kullanarak Jeo-uzamsal veri ile nasıl çalışılacağını gösteren bir tanıtım örnek [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) kitaplığı. 
 
-3. [Piksel düzeyinde land kullanmak sınıflandırma](https://github.com/Azure/pixel_level_land_classification): havadan bir girdi olarak kabul edip land kapak etiketi döndürür derin sinir ağı modelinin nasıl oluşturulacağını gösteren bir öğretici. "Forested" veya "su" örnekler land kapak etiketleri Model görüntüdeki gibi her piksel etiketini döndürür. Microsoft'un açık kaynaklı kullanarak oluşturulmuş model [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) derin öğrenme. Örnek ayrıca eğitimle ölçeği genişletme işlemini gösterir [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) ve Arcgıs Pro yazılım model tahminlerini kullanabilir. 
+3. [Piksel düzeyinde land kullanmak sınıflandırma](https://github.com/Azure/pixel_level_land_classification): Havadan bir girdi olarak kabul edip land kapak etiketi döndürür derin sinir ağı modelinin nasıl oluşturulacağını gösteren öğretici. "Forested" veya "su" örnekler land kapak etiketleri Model görüntüdeki gibi her piksel etiketini döndürür. Microsoft'un açık kaynaklı kullanarak oluşturulmuş model [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) derin öğrenme. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

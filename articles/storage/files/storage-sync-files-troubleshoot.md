@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 6ee16a0483b13471f12654f82ef6972b41ace634
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 0f6075bcbaae14fc60df6f33f4e65cd4abcec731
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316961"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409471"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -468,20 +468,17 @@ Bu kayıt defteri değeri ayarlandığında Azure Dosya Eşitleme aracısı, ver
 | **Hata dizesi** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Düzeltme gerekli** | Evet |
 
-Bu hata genellikle sunucu saatinin yanlış veya kimlik doğrulaması için kullanılan sertifikanın süresi dolmuş oluşur. Sunucu saatinin doğru ise, süresi dolan sertifikanın (süresinin dolması) silmek için aşağıdaki adımları uygulayın ve sunucu kaydı durumunu sıfırlayın:
+Bu hata genellikle sunucu saatinin yanlış veya kimlik doğrulaması için kullanılan sertifikanın süresi dolmuş oluşur. Sunucu saatinin doğru ise, süresi dolmuş bir sertifikayı yenilemek için aşağıdaki adımları gerçekleştirin:
 
 1. Sertifikalar MMC ek bileşenini açın, bilgisayar hesabını seçin ve sonra da için sertifikalar (yerel bilgisayar) \Personal\Certificates gidin.
-2. İstemci kimlik doğrulama sertifikası süresinin dolması silin ve sertifikalar MMC ek bileşenini kapatın.
-3. Regedit'i açın ve kayıt defteri ServerSetting anahtarı silin: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
-4. Azure portalında depolama eşitleme hizmeti kayıtlı sunucuların bölümüne gidin. Süresi dolan sertifikanın sunucuya sağ tıklayın ve "Unregister sunucuya" tıklayın
-5. Sunucuda aşağıdaki PowerShell komutlarını çalıştırın:
+2. İstemci kimlik doğrulama sertifikasının süresi doldu, kontrol edin. Sertifikanın süresi dolmuş sertifikalar MMC ek bileşenini ve kalan adımlarla proceeed kapatın. 
+3. Azure dosya eşitleme Aracısı sürüm 4.0.1.0 doğrulayın veya üstü yüklü.
+4. Sunucuda aşağıdaki PowerShell komutlarını çalıştırın:
 
     ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Reset-StorageSyncServer
+    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-6. Sunucu (varsayılan konum C:\Program Files\Azure\StorageSyncAgent olduğu) ServerRegistration.exe çalıştırarak yeniden kaydettirin.
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**Sunucu uç noktasını bulunduğu birim üzerinde disk alanı düşüktür.**  
 | | |

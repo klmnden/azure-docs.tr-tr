@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 5998396faf746bd54d4f2dbd9c633ad3b4003878
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7184a5e1e9b41653cfe23aa863f8e4e4ea86c620
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193408"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409250"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM ürünler/hizmetler BT Hizmet Yönetimi Bağlayıcısı ile bağlanma
 Bu makalede, iş öğeleri merkezi olarak yönetmek için Log Analytics'te ITSM ürününüz/hizmetiniz ve BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) arasındaki bağlantıyı yapılandırmak hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](../../azure-monitor/platform/itsmc-overview.md).
@@ -291,7 +291,7 @@ Aşağıdaki önkoşulların karşılandığından emin olun:
 
 
 - ITSMC yüklü. Daha fazla bilgi: [Ekleme BT Hizmet Yönetimi bağlayıcı çözümü](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Azure AD ile - provance uygulama kaydedilmelidir ve istemci kimliği kullanımına sunulur. Ayrıntılı bilgi için bkz. [active directory kimlik doğrulamasını yapılandırma](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- Azure AD ile - provance uygulama kaydedilmelidir ve istemci kimliği kullanımına sunulur. Ayrıntılı bilgi için bkz. [active directory kimlik doğrulamasını yapılandırma](../../app-service/configure-authentication-provider-aad.md).
 
 - Kullanıcı rolü:  Yönetici.
 
@@ -319,7 +319,7 @@ Provance bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 | **Kullanıcı Adı**   | İçin ITSMC bağlanan kullanıcı adını yazın.    |
 | **Parola**   | Bu kullanıcı adıyla ilişkili parolayı yazın. **Not:** Kullanıcı adı ve parola yalnızca kimlik doğrulama belirteçleri oluşturmak için kullanılır ve her yerde ITSMC hizmet içinde depolanmaz. _|
 | **Sunucu URL'si**   | ITSMC için bağlanmak istediğiniz Provance örneğinizin URL'sini yazın. |
-| **İstemci kimliği**   | Provance Örneğinizde oluşturulan Bu bağlantı kimliğini doğrulamak için istemci kimliği yazın.  İstemci kimliği, daha fazla bilgi bkz [active directory kimlik doğrulamasını yapılandırma](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
+| **İstemci kimliği**   | Provance Örneğinizde oluşturulan Bu bağlantı kimliğini doğrulamak için istemci kimliği yazın.  İstemci kimliği, daha fazla bilgi bkz [active directory kimlik doğrulamasını yapılandırma](../../app-service/configure-authentication-provider-aad.md). |
 | **Veri Eşitleme kapsamı**   | Azure Log analytics'e ITSMC aracılığıyla eşitlemek istediğiniz Provance çalışma öğelerini seçin.  Bu iş öğeleri, log analytics'e aktarılır.   **Seçenekler:**   Olaylar, değişiklik istekleri'ni tıklatın.|
 | **Veri Eşitleme** | Verilerden istediğiniz geçen gün sayısını yazın. **Üst sınır**: 120 gün. |
 | **ITSM çözümüne yeni yapılandırma öğesi oluşturma** | ITSM ürününde yapılandırma öğelerini oluşturmak istiyorsanız bu seçeneği belirleyin. Seçili olduğunda, ITSMC etkilenen CIS desteklenen ITSM sistemi içinde yapılandırma öğeleri (durumunda, mevcut olmayan CIS) oluşturur. **Varsayılan**: devre dışı.|

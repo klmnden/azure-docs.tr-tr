@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f27ced5c67c5124d0792c5ce3884c88473fba056
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 1c61286a24c3562e32cb4c734ea081526d38837a
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604204"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413165"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Hızlı Başlangıç: Azure Active Directory koşullu erişimiyle belirli uygulamalar için MFA gerektirme 
 
@@ -79,17 +79,17 @@ Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmekted
 
 **Koşullu erişim ilkenizi yapılandırmak için:**
 
-1. Oturum açın, [Azure portalında](https://portal.azure.com) genel yönetici, güvenlik yöneticisi veya koşullu erişim Yöneticisi olarak.
+1. [Azure portalınızda](https://portal.azure.com) genel yönetici, güvenlik yöneticisi veya koşullu erişim yöneticisi olarak oturum açın.
 
 2. Azure portalında sol gezinti çubuğunda tıklatın **Azure Active Directory**. 
 
     ![Azure Active Directory](./media/app-based-mfa/02.png)
 
-3. Üzerinde **Azure Active Directory** sayfasında **Yönet** bölümünde **koşullu erişim**.
+3. Üzerinde **Azure Active Directory** sayfasında **güvenlik** bölümünde **koşullu erişim**.
 
     ![Koşullu erişim](./media/app-based-mfa/03.png)
  
-4. Üzerinde **koşullu erişim** sayfasında, üstteki araç çubuğunda tıklatın **Ekle**.
+4. Üzerinde **koşullu erişim** sayfasında, üstteki araç çubuğunda tıklatın **yeni ilke**.
 
     ![Ekle](./media/app-based-mfa/04.png)
 
@@ -153,7 +153,7 @@ Bu bölümde, gerekli koşullu erişim ilkesi oluşturma işlemi gösterilmekted
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Bir sanal oturum değerlendir
 
-Koşullu erişim ilkenizi yapılandırdığınıza göre büyük olasılıkla beklenen şekilde çalışıp çalışmadığını bilmek ister. İlk adım, koşullu erişim ilkesi durum aracı bir oturum açma, test kullanıcının benzetimini yapmak için kullanın. Benzetim etkisi bu oturum açma ilkelerinizi üzerinde sahip ve bir simülasyon rapor oluşturan tahmin eder.  
+Koşullu erişim ilkenizi yapılandırdığınıza göre şimdi beklenen şekilde çalışıp çalışmadığını kontrol etmek isteyebilirsiniz. İlk adım, koşullu erişim ilkesi durum aracı bir oturum açma, test kullanıcının benzetimini yapmak için kullanın. Benzetim, bu oturum açma işleminin ilkeleriniz üzerindeki etkisini tahmin eder ve bir benzetim raporu oluşturur.  
 
 İlke değerlendirmesi aracı, ayarlarsanız ne başlatmak için:
 
@@ -196,7 +196,7 @@ Koşullu erişim ilkenizi yapılandırdığınıza göre büyük olasılıkla be
 3. Tıklayın **ne**.
 
 
-## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test
+## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test etme
 
 Önceki bölümde, bir sanal oturum değerlendirilecek öğrendiniz. Bir simülasyon ek olarak, koşullu erişim ilkenizi, beklendiği gibi çalıştığından emin olmak için sınamalısınız. 
 

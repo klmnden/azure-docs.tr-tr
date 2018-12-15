@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: cade124cefbd4e2e63ab4cb6fa4f22b3bd672ad0
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 16032ec5ba1e613462f92b86281ce93153b70923
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391819"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409726"
 ---
 # <a name="batch-ai-service-quotas-and-limits"></a>Batch AI hizmet kotaları ve limitleri
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Olarak diğer Azure hizmetleriyle sınırı yoktur Batch AI hizmeti ile ilişkili belirli kaynaklar. Batch AI bu sınırları hizmeti, her bölge için abonelik düzeyinde uygulanan varsayılan kotalardır [kullanılabilir](https://azure.microsoft.com/global-infrastructure/services/). Bu makalede bu Varsayılanları açıklar ve kota isteğinde bulunabilirsiniz nasıl artırır.
 
@@ -74,7 +77,7 @@ Kota isteği için şu adımları artırmak için Batch AI aboneliğinden izleyi
    
     d. **Destek planınız** > Destek planını seçin.
 
-    **İleri**’ye tıklayın.
+    **İleri**'ye tıklayın.
 4. İçinde **sorun**:
    
     a. Seçin bir **önem derecesi** göre [iş etkisi][support_sev].
@@ -83,7 +86,7 @@ Kota isteği için şu adımları artırmak için Batch AI aboneliğinden izleyi
 
     c. İsteğe bağlı - nedeninizi artırmak için ilgili daha fazla bilgi ile ilgili tüm dosyaları karşıya yükleme.
    
-    **İleri**’ye tıklayın.
+    **İleri**'ye tıklayın.
 5. İçinde **iletişim bilgilerini**:
    
     a. Seçin bir **tercih edilen iletişim yöntemi**.

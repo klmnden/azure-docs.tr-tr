@@ -9,14 +9,17 @@ ms.topic: tutorial
 ms.date: 09/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: de19b20865127fd37cd7bc1ac854288a95a68091
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 45255845d8645391ee33471830ac2ef27870a40d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058195"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408638"
 ---
-# <a name="tutorial-train-a-distributed-model-with-horovod"></a>Öğretici: Horovod ile dağıtılmış bir modeli eğitme
+# <a name="tutorial-train-a-distributed-model-with-horovod"></a>Öğretici: Horovod ile dağıtılmış bir model eğitip
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Bu öğreticide, dağıtılmış bir derin öğrenme modelini bir Batch AI kümesinde birden fazla düğüm üzerinde paralel olarak çalıştırarak eğitirsiniz. Batch AI, Azure GPU’ları üzerinde makine öğrenimi ve yapay zeka modellerini uygun ölçekte eğitmek için yönetilen bir hizmettir. 
 
@@ -86,7 +89,7 @@ Küme durumunu görmek için `az batchai cluster show` komutunu çalıştırın.
 az batchai cluster show --name nc6cluster --workspace batchaidev --resource-group batchai.horovod --output table
 ```
 
-Küme oluşturmanın erken aşamalarında, küme `resizing` durumundadır. Küme durumu değiştirilirken aşağıdaki adımlarla devam edin. Durum `steady` olduğunda ve düğümler `idle` olduğunda küme eğitim işini çalıştırmak için hazırdır. Örnek:
+Küme oluşturmanın erken aşamalarında, küme `resizing` durumundadır. Küme durumu değiştirilirken aşağıdaki adımlarla devam edin. Durum `steady` olduğunda ve düğümler `idle` olduğunda küme eğitim işini çalıştırmak için hazırdır. Örneğin:
 
 ```
 Name        Resource Group    Workspace    VM Size       State      Idle    Running    Preparing    Leaving    Unusable

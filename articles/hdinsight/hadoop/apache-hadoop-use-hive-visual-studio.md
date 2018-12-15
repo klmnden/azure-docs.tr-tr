@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2b059c9a8808db3b2426db0d997df15196be604d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: ae2b06f266ef19d9558511284ba94c77cdca1955
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012088"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409692"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları kullanarak Apache Hive sorguları çalıştırma
 
@@ -24,7 +24,7 @@ Sorgu Apache Hive Visual Studio için Data Lake araçları kullanmayı öğrenin
 
 * Bir Azure HDInsight (HDInsight üzerinde Apache Hadoop) kümesi
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Visual Studio (aşağıdaki sürümlerinden biri):
@@ -37,7 +37,7 @@ Sorgu Apache Hive Visual Studio için Data Lake araçları kullanmayı öğrenin
 
 * Visual Studio için HDInsight araçları veya Visual Studio için Azure Data Lake araçları. Bkz: [HDInsight için Visual Studio Hadoop araçlarını kullanmaya başlama](apache-hadoop-visual-studio-tools-get-started.md) yükleme ve yapılandırma araçları hakkında bilgi.
 
-## <a id="run"></a> Visual Studio kullanarak Hive sorguları çalıştırma
+## <a id="run"></a> Visual Studio kullanarak Apache Hive sorguları çalıştırma
 
 1. Açık **Visual Studio** seçip **yeni** > **proje** > **Azure Data Lake**  >   **HIVE** > **Hive uygulaması**. Bu proje için bir ad sağlayın.
 
@@ -58,16 +58,16 @@ Sorgu Apache Hive Visual Studio için Data Lake araçları kullanmayı öğrenin
 
    * `CREATE EXTERNAL TABLE`: Yeni bir 'dış' tablosu, Hive oluşturur. Dış tablolar yalnızca tablo tanımı Hive (verileri özgün konumunda bırakılır) depolayın.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Dış tablolar, temel alınan veriler dış bir kaynak tarafından güncelleştirilmesi beklediğiniz kullanılmalıdır. Örneğin, bir MapReduce işi veya Azure hizmeti.
      >
      > Bir dış tablo bırakılırken mu **değil** verileri, yalnızca tablo tanımını silin.
 
-   * `ROW FORMAT`: Veri nasıl biçimlendirildiğini Hive söyler. Bu durumda, her günlük alanlar boşlukla ayrılır.
+   * `ROW FORMAT`: Hive verileri nasıl biçimlendirildiğini söyler. Bu durumda, her günlük alanlar boşlukla ayrılır.
 
-   * `STORED AS TEXTFILE LOCATION`: Hive veriler örnek/veri dizininde depolanır ve metin olarak depolandığını belirtir.
+   * `STORED AS TEXTFILE LOCATION`: Hive veri örnek/veri dizininde depolanır ve metin olarak depolandığını belirtir.
 
-   * `SELECT`: Tüm satırların sayımını seçme Burada sütun `t4` değeri içeren `[ERROR]`. Bu bildirimi bir değeri döndürür `3` olmadığı için bu değeri içeren üç satır.
+   * `SELECT`: Tüm satırların sayımını seçin burada sütun `t4` değeri içeren `[ERROR]`. Bu bildirimi bir değeri döndürür `3` olmadığı için bu değeri içeren üç satır.
 
    * `INPUT__FILE__NAME LIKE '%.log'` -Hive biz yalnızca veri sonu dosyalarından dönmesi gerektiğini söyler. günlük. Bu yan tümce arama verileri içeren sample.log dosyasına kısıtlar.
 
@@ -95,10 +95,10 @@ Sorgu Apache Hive Visual Studio için Data Lake araçları kullanmayı öğrenin
 
    * `CREATE TABLE IF NOT EXISTS`: Zaten yoksa, bir tablo oluşturur. Çünkü `EXTERNAL` anahtar sözcüğü kullanılmazsa, bu deyimi iç tablo oluşturur. İç tablolar Hive veri ambarı'nda depolanır ve Hive ile yönetilir.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Farklı `EXTERNAL` Ayrıca iç tablo bırakılırken tablolar, temel alınan verileri siler.
 
-   * `STORED AS ORC`: Veri en iyi duruma getirilmiş satır irdelemenizde (ORC) depolar. ORC Hive verilerini depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimidir.
+   * `STORED AS ORC`: En iyi duruma getirilmiş satır irdelemenizde (ORC) verileri depolar. ORC Hive verilerini depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimidir.
 
    * `INSERT OVERWRITE ... SELECT`: Satırları seçer `log4jLogs` içeren tablo `[ERROR]`, ardından verileri ekler `errorLogs` tablo.
 
@@ -112,13 +112,13 @@ Gördüğünüz gibi Visual Studio için HDInsight araçları Hive sorguları il
 
 HDInsight Hive hakkında genel bilgi için:
 
-* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](hdinsight-use-hive.md)
 
 Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md)
 
-* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Apache Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
 Visual Studio için HDInsight araçları hakkında daha fazla bilgi için:
 

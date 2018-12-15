@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 86c1d9adc3b4ff66e2f02617df551e496a5482c8
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6e0641f2d9427133f951ef63720b4efdac4defe5
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014625"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409063"
 ---
 # <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Uzak Masaüstü kullanarak HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Bu makalede, Uzak Masaüstü kullanarak bir HDInsight kümesine bağlanma hakkında bilgi almak ve ardından Hive komut satırı arabirimi (CLI) kullanarak Hive sorguları çalıştırın.
+Bu makalede, Uzak Masaüstü kullanarak bir HDInsight kümesine bağlanma hakkında bilgi almak ve ardından Hive komut satırı arabirimi (CLI) kullanarak Apache Hive sorguları çalıştırın.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Uzak Masaüstü, yalnızca Windows işletim sistemi olarak kullandığınız HDInsight kümelerinde kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
-> HDInsight 3.4 veya büyük bkz [HDInsight ve Beeline ile Hive kullanma](apache-hadoop-use-hive-beeline.md) doğrudan küme üzerinde bir komut satırından Hive sorguları çalıştırma hakkında bilgi.
+> HDInsight 3.4 veya büyük bkz [Apache Hive ile HDInsight ve Beeline kullanma](apache-hadoop-use-hive-beeline.md) doğrudan küme üzerinde bir komut satırından Hive sorguları çalıştırma hakkında bilgi.
 
 ## <a id="prereq"></a>Önkoşullar
 Bu makaledeki adımları tamamlamak için aşağıdakiler gerekir:
@@ -55,18 +55,18 @@ HDInsight kümesi için masaüstüne bağladığınızda, Hive ile çalışmak i
 
     Bu deyimler, aşağıdaki eylemleri gerçekleştirin:
 
-   * **DROP TABLE**: Tablo zaten varsa ve tablodan veri dosyası siler.
-   * **CREATE EXTERNAL TABLE**: Hive 'dış' yeni bir tablo oluşturur. Dış tablolar yalnızca tablo tanımı Hive (verileri özgün konumunda bırakılır) depolar.
+   * **TABLO BIRAKMA**: Tablo zaten varsa ve tablodan veri dosyası siler.
+   * **CREATE EXTERNAL TABLE**: Yeni bir 'dış' tablosu, Hive oluşturur. Dış tablolar yalnızca tablo tanımı Hive (verileri özgün konumunda bırakılır) depolar.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Dış tablolar, temel alınan verileri (örneğin, bir otomatik veri karşıya yükleme işlemi) bir dış kaynaktan veya başka bir MapReduce işlem güncelleştirilecek beklediğiniz kullanılmalıdır, ancak her zaman en son verileri kullanmak için Hive sorguları istiyor.
      >
      > Bir dış tablo bırakılırken mu **değil** verileri, yalnızca tablo tanımını silin.
      >
      >
-   * **SATIR biçimi**: verileri nasıl biçimlendirildiğini Hive söyler. Bu durumda, her günlük alanlar boşlukla ayrılır.
-   * **AS TEXTFILE konumu DEPOLANAN**: (örnek/veri dizini) depolanan verilerin Hive bildirir ve metin olarak depolanır.
-   * **SEÇİN**: tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]**. Bu değeri döndürmelidir **3** olmadığı için bu değeri içeren üç satır.
+   * **SATIR BİÇİMİ**: Hive verileri nasıl biçimlendirildiğini söyler. Bu durumda, her günlük alanlar boşlukla ayrılır.
+   * **TEXTFILE KONUMU OLARAK DEPOLANAN**: Verilerin depolandığı Hive bildirir (örnek/veri dizini) ve metin olarak depolanır.
+   * **SEÇİN**: Tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]**. Bu değeri döndürmelidir **3** olmadığı için bu değeri içeren üç satır.
    * **INPUT__FILE__NAME gibi '%.log'** -Hive biz yalnızca veri sonu dosyalarından döndürmesi söyler. günlük. Bu, arama verilerini içeren ve verileri diğer örneklerden tanımladığımız şemayla eşleşmiyor veri dosyalarını döndürmesini tutar sample.log dosyasına kısıtlar.
 4. Adlı yeni bir 'internal' tablo oluşturmak için aşağıdaki deyimleri kullanın **günlüklerini**:
 
@@ -75,14 +75,14 @@ HDInsight kümesi için masaüstüne bağladığınızda, Hive ile çalışmak i
 
     Bu deyimler, aşağıdaki eylemleri gerçekleştirin:
 
-   * **OLUŞTURMA IF NOT TABLOSUNUN VAROLDUĞUNU**: zaten yoksa, bir tablo oluşturur. Çünkü **dış** anahtar sözcüğü kullanılmazsa, Hive veri ambarı'nda depolanır ve Hive ile tamamen yönetilen bir iç tablo budur.
+   * **MEVCUT DEĞİLSE, TABLO OLUŞTURMA**: Zaten yoksa, bir tablo oluşturur. Çünkü **dış** anahtar sözcüğü kullanılmazsa, Hive veri ambarı'nda depolanır ve Hive ile tamamen yönetilen bir iç tablo budur.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Farklı **dış** Ayrıca iç tablo bırakılırken tablolar, temel alınan verileri siler.
      >
      >
-   * **DEPOLANAN AS ORC**: en iyi duruma getirilmiş satır irdelemenizde (ORC) verileri depolar. Hive veri depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimde budur.
-   * **INSERT ÜZERİNE... SEÇİN**: satırları seçer **log4jLogs** içeren tablo **[Hata]**, ardından verileri ekler **günlüklerini** tablo.
+   * **ORC DEPOLANAN**: En iyi duruma getirilmiş satır irdelemenizde (ORC) verileri depolar. Hive veri depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimde budur.
+   * **INSERT ÜZERİNE... SEÇİN**: Satırları seçer **log4jLogs** içeren tablo **[Hata]**, ardından verileri ekler **günlüklerini** tablo.
 
      Yalnızca satırlar içeren doğrulamak için **[Hata]** sütununda t4 saklı **günlüklerini** tablo, bulunan tüm satırlar döndürülecek aşağıdaki deyimini **günlüklerini**:
 
@@ -96,17 +96,17 @@ Gördüğünüz gibi Hive komut etkileşimli bir HDInsight kümesinde Hive sorgu
 ## <a id="nextsteps"></a>Sonraki adımlar
 HDInsight Hive hakkında genel bilgi için:
 
-* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](hdinsight-use-hive.md)
 
 Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
-* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Apache Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
 Tez Hive'ı kullanıyorsanız, hata ayıklama bilgileri için aşağıdaki belgelere bakın:
 
-* [Tez kullanıcı Arabirimi, Windows tabanlı HDInsight üzerinde kullanma](../hdinsight-debug-tez-ui.md)
-* [Linux tabanlı HDInsight üzerinde Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md)
+* [Windows tabanlı HDInsight üzerinde Apache Tez kullanıcı Arabirimi kullanma](../hdinsight-debug-tez-ui.md)
+* [Linux tabanlı HDInsight üzerinde Apache Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

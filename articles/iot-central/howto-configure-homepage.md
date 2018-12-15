@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 39223f49d315e722b13b734b3424d61f630834b1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6a86b5db5e5c79916325ebb547d65c9a30bf3e6a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966153"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410151"
 ---
-## <a name="configuring-homepage"></a>Giriş sayfası yapılandırma
+# <a name="configuring-homepage"></a>Giriş sayfası yapılandırma
 
 Giriş sayfası uygulamaya erişimi olan kullanıcılar uygulamanın URL'ye gittiğinizde, sayfasıdır. Uygulamanızı oluştururken "Örnek Contoso" veya "Örnek Devkits" Uygulama şablonları seçtiyseniz, uygulamanızın ana sayfalar önceden tanımlanmış. Diğer taraftan "Özel uygulama" uygulama şablonu seçtiyseniz, giriş sayfası boş olacaktır.
 

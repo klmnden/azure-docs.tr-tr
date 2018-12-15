@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 1544d60d94a73326d2cd0430de8a1f61aaefe373
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 7b6fefd575901648a99bb3a67a05e705622bb74a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343981"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407873"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>İşlemci SDK'sı .NET değişiklik akışı: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -45,7 +45,6 @@ ms.locfileid: "53343981"
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Paylaşılan veritabanı aktarım hızını kullanan koleksiyonlardaki bölünmüş işlemek için destek eklendi.
   * Bu sürüm ne zaman sonucu oluşturulan, iki yerine yalnızca bir alt bölüm anahtar aralığı ile yeniden Dengeleme bölümü Böl paylaşılan veritabanı aktarım hızını kullanarak koleksiyonlardaki bölünmüş sırasında oluşabilecek bir sorunu giderir. Bu durumda, değişiklik akışı işlemci eski bölüm anahtar aralığı için Kiranın silinmesi ve yeni kiraları oluşturmama takılabilir. Bu sürümde olan sorun çözüldüğünde.
-  * Küçük değişiklik: yeni bir yöntem koleksiyon ayrılmış işleme atanmış veya diğer koleksiyon veritabanında aktarım hızı paylaşır denetlemek için kullanılan IChangeFeedDocumentClient.ReadOffersFeedAsync eklendi. Özel uygulanışı IChangeFeedDocumentClient Gelişmiş bir senaryodur ve izlemek için kullanılan sağlayan tüm çağrıları değişiklik akışı işlemci tarafından izlenen ve koleksiyonları kira. Bu değişiklik, yeni yöntem uygulanarak IChangeFeedDocumentClient uygulama değiştirilmelidir.
 
 ### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
 * Eklenen yeni özellik başlangıç değişikliğini destekleyecek şekilde ChangeFeedProcessorOptions.StartContinuation isteği devamlılık belirteci akış. Bu, kira koleksiyonu boş olduğunda veya bir kira ContinuationToken kümesi yok. yalnızca kullanılır. Ayarlama ContinuationToken sahip kira kira koleksiyondaki ContinuationToken kullanılır ve ChangeFeedProcessorOptions.StartContinuation göz ardı edilir.
@@ -159,6 +158,10 @@ Cosmos DB devre dışı bırakılan bir SDK'sını kullanarak yapılan tüm iste
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.2.5](#2.2.5) |13 Aralık 2018'e |--- |
+| [2.2.4](#2.2.4) |29 Kasım 2018 |--- |
+| [2.2.3](#2.2.3) |19 Kasım 2018 |--- |
+| [2.2.2](#2.2.2) |31 Ekim 2018 |--- |
 | [2.2.1](#2.2.1) |24 Ekim 2018 |--- |
 | [1.3.3](#1.3.3) |08 Mayıs 2018 |--- |
 | [1.3.2](#1.3.2) |18 Nisan 2018 |--- |

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: cshoe
-ms.openlocfilehash: 44d2960d9cf5828af588f9392667553c18dedb0f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 90eac2fda46dc5fbfff791e1fc0afb9858aa27a4
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103464"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408043"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Kodunuzu Azure işlevleri'nde test stratejileri
 
@@ -93,9 +93,9 @@ namespace Functions.Tests
 
 `ListLogger` Sınıfın uyguladığı aşağıdaki üyeleri tarafından sözleşmeleri yapılır gibi `ILogger` arabirimi:
 
-- **BeginScope**: kapsamları, günlüğe kaydetme için bağlam ekleyin. Bu durumda, test yalnızca statik örneğine noktaları [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) test işlevine izin veren sınıfı.
+- **BeginScope**: Kapsamları, günlüğe kaydetme için bağlam ekleyin. Bu durumda, test yalnızca statik örneğine noktaları [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) test işlevine izin veren sınıfı.
 
-- **IsEnabled**: varsayılan değerini `false` sağlanır.
+- **IsEnabled**: Varsayılan değer olarak `false` sağlanır.
 
 - **Günlük**: Bu yöntem sağlanan kullanan `formatter` iletiyi biçimlendirmek için işlev ve ortaya çıkan metni ekler `Logs` koleksiyonu.
 
@@ -231,7 +231,7 @@ Bu sınıfta uygulanır üyeleri şunlardır:
 
 - **Http_trigger_should_return_known_string**: Bu test bir istek sorgu dizesi değerlerini oluşturur `name=Bill` HTTP işlevi ve beklenen yanıt verilir denetimleri.
 
-- **Http_trigger_should_return_string_from_member_data**: HTTP işlevi örnek verilerini sağlamak için bu test xUnit öznitelikleri kullanır.
+- **Http_trigger_should_return_string_from_member_data**: Bu test xUnit öznitelikleri HTTP işlevi örnek verilerini sağlamak için kullanır.
 
 - **Timer_should_log_message**: Bu test örneği oluşturur `ListLogger` ve Zamanlayıcı işleve geçirir. İşlevi çalıştırıldığında, günlük, beklenen bir ileti mevcut olduğundan emin olmak için denetlenir.
 
@@ -357,6 +357,6 @@ Ardından, test ve basın bir kesme noktası ayarlamak **F5**.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 İşlevleriniz için otomatik testler yazmak öğrendiniz, bu kaynakları ile devam edin:
-
+- [El ile olmayan HTTP ile tetiklenen bir işlev çalıştırın](./functions-manually-run-non-http.md)
 - [Azure işlevleri hata işleme](./functions-bindings-error-pages.md)
 - [Azure işlevi olay Kılavuzu tetikleyicisi yerel hata ayıklama](./functions-debug-event-grid-trigger-local.md)

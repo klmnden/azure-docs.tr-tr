@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08ffc3a9eb4942cb21c0a800d493b87b016d7f87
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016200"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409930"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>HDInsight ile verilere erişimi kısıtlamak için Azure depolama paylaşılan erişim imzaları kullanma
 
 HDInsight kümesi ile ilişkili Azure depolama hesaplarında veri tam erişimi vardır. Blob kapsayıcı paylaşılan erişim imzaları, verilere erişimi kısıtlamak için kullanabilirsiniz. Paylaşılan erişim imzaları (SAS), verilere erişimi sınırlamanıza olanak sağlayan bir Azure depolama hesapları özelliğidir. Örneğin, verilere yalnızca okuma erişimi sağlama.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Apache Ranger'ı kullanarak bir çözüm için etki alanına katılmış HDInsight kullanmayı düşünün. Daha fazla bilgi için [etki alanına katılmış HDInsight yapılandırma](./domain-joined/apache-domain-joined-configure.md) belge.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight, küme için varsayılan depolama alanı için tam erişimi olmalıdır.
 
 ## <a name="requirements"></a>Gereksinimler
@@ -34,9 +34,9 @@ HDInsight kümesi ile ilişkili Azure depolama hesaplarında veri tam erişimi v
   * Visual Studio 2013, 2015 veya 2017 sürümü olmalıdır
   * Python sürüm 2.7 veya üstü olmalıdır
 
-* Linux tabanlı HDInsight kümesi veya [Azure PowerShell] [ powershell] -var olan bir Linux tabanlı küme varsa, bir paylaşılan erişim imzası kümeye eklemek için Ambari kullanabilirsiniz. Aksi durumda, küme oluşturma ve küme oluşturma sırasında bir paylaşılan erişim imzası eklemek için Azure PowerShell kullanabilirsiniz.
+* Linux tabanlı HDInsight kümesi veya [Azure PowerShell] [ powershell] -var olan bir Linux tabanlı küme varsa, bir paylaşılan erişim imzası kümeye eklemek için Apache Ambari kullanabilirsiniz. Aksi durumda, küme oluşturma ve küme oluşturma sırasında bir paylaşılan erişim imzası eklemek için Azure PowerShell kullanabilirsiniz.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Örnek dosyaları [ https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature ](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Bu depo, aşağıdaki öğeleri içerir:
@@ -49,9 +49,9 @@ HDInsight kümesi ile ilişkili Azure depolama hesaplarında veri tam erişimi v
 
 Paylaşılan erişim imzaları iki tür vardır:
 
-* Geçici: başlangıç zamanı, süre sonu ve SAS izinlerini tüm SAS URI öğesinde belirtilir.
+* Geçici: Başlangıç zamanı, süre sonu ve SAS izinlerini tüm SAS URI öğesinde belirtilir.
 
-* Depolanmış erişim ilkesini: bir depolanmış erişim ilkesini bir blob kapsayıcısı gibi bir kaynak kapsayıcısı üzerinde tanımlanır. Bir ilke kısıtlamaları bir veya daha fazla paylaşılan erişim imzalarını yönetmek için kullanılabilir. Bir SAS bir depolanmış erişim ilkesini ile ilişkilendirdiğinizde, SAS kısıtlamaları - başlangıç zamanı, süre sonu ve izinleri için depolanmış erişim ilkesini tanımlanan - devralır.
+* Depolanmış erişim ilkesini: Bir depolanmış erişim ilkesini bir blob kapsayıcısı gibi bir kaynak kapsayıcısı üzerinde tanımlanır. Bir ilke kısıtlamaları bir veya daha fazla paylaşılan erişim imzalarını yönetmek için kullanılabilir. Bir SAS bir depolanmış erişim ilkesini ile ilişkilendirdiğinizde, SAS kısıtlamaları - başlangıç zamanı, süre sonu ve izinleri için depolanmış erişim ilkesini tanımlanan - devralır.
 
 Bir anahtar senaryosu için iki biçim arasındaki fark önemlidir: iptal etme. Bir SAS URL olduğundan herkes SAS alır, kimin başlangıç istendiğinde bağımsız olarak kullanabilirsiniz. Bir SAS yayımlandığını, herkes tarafından kullanılabilir. Dağıtılan bir SAS dört şeylerden biri oluşuncaya kadar geçerlidir:
 
@@ -66,7 +66,7 @@ Bir anahtar senaryosu için iki biçim arasındaki fark önemlidir: iptal etme. 
 
 4. SAS oluşturmak için kullanılan hesap anahtarı yeniden oluşturuldu. Anahtarı yeniden kimlik doğrulaması başarısız önceki anahtar kullanan tüm uygulamalar neden olur. Tüm bileşenler için yeni anahtarı güncelleştirin.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Paylaşılan erişim imzası URI'si imza oluşturmak için kullanılan hesap anahtarı ile ilişkilidir, ve ilişkili erişim ilkesi (varsa) depolanır. Hiçbir depolanmış erişim ilkesini belirtilirse, paylaşılan erişim imzası iptal etmek için tek yolu hesap anahtarını değiştirmektir.
 
 Saklı erişim ilkeleri her zaman kullanmanızı öneririz. Saklı ilkeler kullanıldığında imzaları iptal veya sona erme tarihi gerektiği şekilde genişletin. Bu belgeyi kullanmak adımda SAS oluşturmak için erişim ilkeleri depolanır.
@@ -81,13 +81,13 @@ Paylaşılan erişim imzaları ile ilgili daha fazla bilgi için bkz [SAS modeli
 
 3. Seçin **ayarları** ve aşağıdaki girdileri için değerleri ekleyin:
 
-   * StorageConnectionString: Depolanan ilke ve için SAS oluşturmak istediğiniz depolama hesabı bağlantı dizesi. Biçim olmalıdır `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` burada `myaccount` depolama hesabınızın adı ve `mykey` depolama hesabı için anahtar.
+   * StorageConnectionString: Depolanan ilke ve için SAS oluşturmak istediğiniz depolama hesabı için bağlantı dizesi. Biçim olmalıdır `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` burada `myaccount` depolama hesabınızın adı ve `mykey` depolama hesabı için anahtar.
 
-   * ContainerName: Depolama hesabındaki erişimi kısıtlamak istediğiniz kapsayıcı.
+   * Kapsayıcı adı: Erişimi kısıtlamak istediğiniz depolama hesabındaki kapsayıcı.
 
-   * SASPolicyName: saklı ilkesi oluşturmak için kullanılacak ad.
+   * SASPolicyName: Saklı ilkesi oluşturmak için kullanılacak ad.
 
-   * FileToUpload: Kapsayıcıya karşıya bir dosya yolu.
+   * FileToUpload: Kapsayıcı için karşıya bir dosya yolu.
 
 4. Projeyi çalıştırın. SAS oluşturulduktan sonra aşağıdaki metne benzer bilgiler görüntülenir:
 
@@ -99,15 +99,15 @@ Paylaşılan erişim imzaları ile ilgili daha fazla bilgi için bkz [SAS modeli
 
 1. SASToken.py dosyasını açın ve aşağıdaki değerleri değiştirin:
 
-   * İlke\_adı: saklı ilkesi oluşturmak için kullanılacak ad.
+   * İlke\_adı: Saklı ilkesi oluşturmak için kullanılacak ad.
 
-   * Depolama\_hesabı\_adı: depolama hesabınızın adı.
+   * Depolama\_hesabı\_adı: Depolama hesabınızın adı.
 
-   * Depolama\_hesabı\_anahtarı: depolama hesabı anahtarı.
+   * Depolama\_hesabı\_anahtarı: Depolama hesabı anahtarı.
 
-   * Depolama\_kapsayıcı\_adı: erişimi kısıtlamak istediğiniz depolama hesabında bir kapsayıcı.
+   * Depolama\_kapsayıcı\_adı: Erişimi kısıtlamak istediğiniz depolama hesabındaki kapsayıcı.
 
-   * örnek\_dosya\_yolu: kapsayıcıya karşıya yüklenen dosyanın yolu.
+   * örnek\_dosya\_yolu: Kapsayıcı için karşıya bir dosya yolu.
 
 2. Betiği çalıştırın. Betik tamamlandığında aşağıdaki metne benzer bir SAS belirteci görüntüler:
 
@@ -177,7 +177,7 @@ SAS'ı kullanan bir HDInsight kümesi oluşturmanın bir örneği yer aldığı 
 
     Linux tabanlı bir küme oluştururken bir SSH kullanıcı hesabı adı ve parola istenir. Bu hesap, kümeye uzaktan oturum açmak için kullanılır.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > HTTP/s veya SSH kullanıcı adı ve parola istendiğinde, aşağıdaki ölçütlere uyan bir parola sağlamanız gerekir:
    >
    > * En az 10 karakter uzunluğunda olmalıdır
@@ -200,7 +200,7 @@ Var olan bir Linux tabanlı küme varsa SAS'ye ekleyebilirsiniz **çekirdek site
 4. Genişletin **özel çekirdek-site** bölümüne ve ardından seçin ve son gidin **Özellik Ekle...**  bağlantı. İçin aşağıdaki değerleri kullanın **anahtarı** ve **değer** alanlar:
 
    * **Anahtar**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
-   * **Değer**: SAS, daha önce çalıştırdığınız C# veya Python uygulaması tarafından döndürülen
+   * **Değer**: SAS tarafından döndürülen C# ya da daha önce çalıştırdığınız Python uygulaması
 
      Değiştirin **CONTAINERNAME** kapsayıcı adı ile C# veya SAS uygulamayla birlikte kullanılır. Değiştirin **STORAGEACCOUNTNAME** ile kullanılan depolama hesabı adı.
 
@@ -208,7 +208,7 @@ Var olan bir Linux tabanlı küme varsa SAS'ye ekleyebilirsiniz **çekirdek site
 
     Tıklayın **Tamam** zaman değişiklikleri tamamlanmıştır.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Değişikliğin etkili olmadan önce birkaç hizmeti yeniden başlatmanız gerekir.
 
 6. Ambari web kullanıcı Arabirimi, seçin **HDFS** sol taraftaki listeden seçip **yeniden tüm etkilenen** gelen **hizmet eylemleri** listesi sağdaki aşağı açılır. Sorulduğunda, __tüm yeniden onaylayın__.
@@ -286,9 +286,9 @@ Kümeye bağlandıktan sonra SAS depolama hesabına yalnızca okuma ve liste ö�
         + CategoryInfo          : NotSpecified: (:) [New-AzureRmHDInsightCluster], CloudException
         + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
 
-**Neden**: bir parola (için Linux tabanlı kümeler) veya küme için yönetici/HTTP kullanıcısı için SSH kullanıcısı kullanıyorsanız bu hata oluşabilir.
+**Neden**: Bir parola (için Linux tabanlı kümeler) veya küme için yönetici/HTTP kullanıcısı için SSH kullanıcısı kullanıyorsanız bu hata oluşabilir.
 
-**Çözüm**: aşağıdaki ölçütlere uyan bir parola kullanın:
+**Çözüm**: Aşağıdaki ölçütlere uyan bir parola kullanın:
 
 * En az 10 karakter uzunluğunda olmalıdır
 * En az bir rakam içermelidir
@@ -299,8 +299,8 @@ Kümeye bağlandıktan sonra SAS depolama hesabına yalnızca okuma ve liste ö�
 
 Sınırlı erişimli depolama, HDInsight kümenize eklemek öğrendiniz, kümenizde verilerle çalışmak için yollar öğrenin:
 
-* [HDInsight ile Hive kullanma](hadoop/hdinsight-use-hive.md)
-* [HDInsight ile Pig kullanma](hadoop/hdinsight-use-pig.md)
+* [Apache Hive, HDInsight ile kullanma](hadoop/hdinsight-use-hive.md)
+* [Apache Pig, HDInsight ile kullanma](hadoop/hdinsight-use-pig.md)
 * [HDInsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

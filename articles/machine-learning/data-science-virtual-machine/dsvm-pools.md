@@ -14,36 +14,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 12/10/2018
 ms.author: gokuma
-ms.openlocfilehash: acae59922f5a46f059e19db6865491f5186139f7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 648b0818f07aca8763fa4af01380076ae307b0a2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103413"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408961"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Veri bilimi sanal makineleri paylaşılan havuz oluşturma
 
 Bu makalede, paylaşılan bir havuz, veri bilimi sanal makineleri kullanır (Dsvm'leri) bir takım için nasıl oluşturabileceğiniz açıklanır. Paylaşılan bir havuz kullanmanın avantajlarını daha iyi kaynak kullanımı, paylaşma ve işbirliği dönüştüğünde, yönetim ve DSVM kaynaklarının daha etkin yönetim var. 
 
-Dsvm'leri havuzu oluşturmak için birçok yöntem ve teknolojileri kullanabilirsiniz. Bu makalede, toplu işlem ve etkileşimli VM'ler için havuzları odaklanır.
-
-## <a name="batch-processing-pool"></a>Toplu işlem havuzu
-Esas olarak çevrimdışı bir toplu işte işlerini çalıştırmak için bir Dsvm'leri havuz ölçeğini ayarlamak istiyorsanız, kullanabileceğiniz [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) veya [Azure Batch](https://docs.microsoft.com/azure/batch/) hizmeti. Bu makalede, Azure Batch AI üzerinde odaklanır.
-
-Ubuntu DSVM sürümü, Azure Batch AI görüntüleri biri olarak desteklenir. Azure CLI veya Python oluşturduğunuz Azure Batch AI kümesi, SDK'sını belirtebilirsiniz `image` parametresi ve `UbuntuDSVM`. Ne tür bir işlem düğümleri istediğinizi seçebilirsiniz: GPU tabanlı örnekler yalnızca CPU örnekler, CPU ve bellek sayısı yerine bir [VM örneklerinin geniş seçenek](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) Azure üzerinde kullanılabilir. 
-
-Batch AI GPU tabanlı düğümleri Ubuntu DSVM görüntüsü kullandığınızda, gerekli GPU sürücüleri ve derin öğrenme çerçeveleri makineleridir. Önceden batch düğümleri hazırlamak için önemli ölçüde zaman kazandırır. Aslında, bir Ubuntu DSVM üzerinde etkileşimli olarak geliştiriyorsanız, Batch AI düğümlerin tam olarak aynı kurulumu ve ortamın yapılandırması olduğunu fark edeceksiniz. 
-
-Genellikle, bir Batch AI kümesi oluşturduğunuzda, ayrıca tüm düğümler tarafından oluşturulmuş bir dosya paylaşımı oluşturun. Dosya Paylaşımı, giriş ve çıkış verileri, ek olarak toplu iş kod/betikleri depolamak için kullanılır. 
-
-Bir Batch AI kümesi oluşturduktan sonra çalıştırılacak işleri göndermek için aynı CLI veya Python SDK'sını kullanabilirsiniz. Yalnızca batch işlerini çalıştırmak için kullanılan süre için ödeme yaparsınız. 
-
-Daha fazla bilgi için bkz.
-* Kullanmaya yönelik adım adım kılavuz [Azure CLI](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) Batch AI'ı yönetmek için
-* Kullanmaya yönelik adım adım kılavuz [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) Batch AI'ı yönetmek için
-* [Batch AI tarifleri](https://github.com/Azure/BatchAI) çeşitli yapay ZEKA ve derin öğrenme çerçeveleri Batch AI ile nasıl kullanılacağı gösterilmektedir
+Dsvm'leri havuzu oluşturmak için birçok yöntem ve teknolojileri kullanabilirsiniz. Bu makalede, etkileşimli VM'ler için havuzlarında odaklanır. Azure Machine Learning işlem bir alternatif yönetilen bilgi işlem altyapısıdır. Bkz: [işlem hedefleri kümesi](../service/how-to-set-up-training-targets.md#amlcompute) daha fazla bilgi için.
 
 ## <a name="interactive-vm-pool"></a>Etkileşimli VM havuzu
 

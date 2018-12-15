@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 99d864a5d519ce56a559bea4db7fe89a113e47b9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 979253021f5503295e0572759b510e074ceb1a6b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157931"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408077"
 ---
-# <a name="quickstart-train-a-deep-learning-model-with-batch-ai"></a>Hızlı Başlangıç: Batch AI ile bir derin öğrenme modeli eğitme
+# <a name="quickstart-train-a-deep-learning-model-with-batch-ai"></a>Hızlı Başlangıç: Bir Batch AI ile ayrıntılı öğrenme modeli eğitme
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Bu hızlı başlangıçta, Batch AI tarafından yönetilen GPU özellikli bir sanal makine üzerinde örnek bir derin öğrenme modelini eğitme gösterilmektedir. Batch AI, veri bilimcilerinin ve yapay zeka araştırmacılarının Azure sanal makine kümelerindeki yapay zeka ve makine öğrenimi modellerini ölçeğe uygun olarak eğitmesini sağlayan bir yönetilen hizmettir. 
 
@@ -275,7 +278,7 @@ stderr-wk-0.txt              1527  file
 stdout-wk-0.txt             11027  file
 ```
 
-Bir veya daha fazla dosyayı yerel çalışma dizininize indirmek için `az storage file download` komutunu kullanın. Örnek:
+Bir veya daha fazla dosyayı yerel çalışma dizininize indirmek için `az storage file download` komutunu kullanın. Örneğin:
 
 ```azurecli-interactive
 az storage file download \
