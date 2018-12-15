@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 8adff94a4cb536c3d8dbf7382b8acb69184030b5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 327bc964f8dedeee03220e7cd7db1ef7c1e00de6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325852"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435778"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Bilişsel hizmetler isteklerine kimlik doğrulaması
 
@@ -23,6 +23,10 @@ Her bir Azure Bilişsel hizmet isteğine bir kimlik doğrulama üst bilgisi içe
 * [Bir tek hizmet abonelik anahtarı ile kimlik doğrulaması](#authenticate-with-a-single-service-subscription-key)
 * [Bir hizmet birden çok abonelik anahtarı ile kimlik doğrulaması](#authenticate-with-a-multi-service-subscription-key)
 * [Bir belirteç ile kimlik doğrulaması](#authenticate-with-an-authentication-token)
+
+## <a name="prerequisites"></a>Önkoşullar
+
+Bir isteği yapmadan önce bir Azure hesabı ve Azure Bilişsel hizmetler abonelik gerekir. Zaten bir hesabınız varsa, devam edin ve sonraki bölüme atlayın. Bir hesabınız yoksa, dakikalar içinde ayarlayın, almak için bir kılavuz sunuyoruz: [Bilişsel Hizmetler hesabı oluşturmak için Azure](cognitive-services-apis-create-account.md).
 
 ## <a name="authentication-headers"></a>Kimlik doğrulama üst bilgileri
 

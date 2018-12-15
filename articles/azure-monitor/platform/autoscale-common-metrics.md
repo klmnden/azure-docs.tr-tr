@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: f17d2d1cf25f533fb37d44da2890b6ad8741be82
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d12edc2023deb69118d7c02e053cd2525f6ae684
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326377"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437733"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure İzleyici otomatik ölçeklendirme ortak ölçümleri
 Azure İzleyici otomatik ölçeklendirmesini (ölçüler) telemetri verilerini temel alarak çalışan örnek sayısı yukarı veya aşağı ölçeklendirmenize olanak tanıyor. Bu belgede kullanmak isteyebileceğiniz ortak ölçümler açıklanmıştır. Azure portalında göre ölçeklendirmek için kaynak ölçüm seçebilirsiniz. Ancak, göre ölçeklendirmek için farklı bir kaynaktan herhangi bir ölçüm seçebilirsiniz.
@@ -34,8 +34,8 @@ Yukarıdaki her iki durumda da true ise, daha sonra gözden [PowerShell kullanar
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Resource Manager tabanlı Windows ve Linux VM'ler için konak ölçümleri
 Aşağıdaki konak düzeyinde ölçümler, varsayılan olarak Azure VM ve VMSS için hem Windows hem de Linux örnekleri gönderilir. Bu ölçümler Azure VM açıklamaktadır, ancak Azure VM konağı yerine Konuk sanal Makinede yüklü bir aracı üzerinden toplanır. Otomatik ölçeklendirme kuralları, bu ölçümleri kullanabilirsiniz.
 
-- [Resource Manager tabanlı Windows ve Linux VM'ler için konak ölçümleri](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachines)
-- [Resource Manager tabanlı Windows ve Linux VM ölçek kümeleri için ana ölçümleri](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)
+- [Resource Manager tabanlı Windows ve Linux VM'ler için konak ölçümleri](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
+- [Resource Manager tabanlı Windows ve Linux VM ölçek kümeleri için ana ölçümleri](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Konuk işletim sistemi ölçümleri Resource Manager tabanlı Windows Vm'leri
 Azure'da bir VM oluşturduğunuzda, tanılama tanılama uzantısını kullanarak etkinleştirilir. Tanılama uzantısını VM içinde alınan ölçümleri bir dizi yayar. Başka bir deyişle, varsayılan olarak yayılan değil ölçümleri dışına otomatik ölçeklendirme yapabilirsiniz.

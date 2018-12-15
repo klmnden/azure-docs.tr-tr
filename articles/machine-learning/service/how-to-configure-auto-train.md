@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 67995b4cc9c212f1798a37b54873bd349ac36576
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3dedf5de1ac2c88a9a00fd5f62e0663b840c0fd9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384931"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438532"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Otomatik makine öğrenimi denemelerini yapılandırın
 
@@ -171,7 +171,7 @@ Daha sonra modeli eğitimi burada belirleyin. Bir otomatik machine learning eği
 *   Yerel makinenizde yerel Masaüstü veya dizüstü – gibi genel olarak küçük veri kümesi olduğunda ve hala keşif aşamasında demektir.
 *   Buluttaki – uzak bir makine [Azure Machine Learning işlem yönetilen](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) kümelerinde Azure sanal makineler, makine öğrenimi modellerini eğitmenize olanağı sağlayan yönetilen bir hizmettir.
 
-Bkz: [Github site](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) örneğin Not Defterleri ile yerel ve uzak hedef işlem.
+Bkz: [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) örneğin Not Defterleri ile yerel ve uzak hedef işlem.
 
 <a name='configure-experiment'/>
 

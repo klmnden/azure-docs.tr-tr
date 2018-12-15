@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 12/14/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf05c59bceab2294f5675944d3aea022b4f4312c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0508e6418a5095ed9ee27baf045f655d66ea9b58
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968484"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435353"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Barındırma ve SAP iş yükü senaryoları çalıştırmak için Azure'ı kullanma
 
@@ -73,7 +73,7 @@ Belgelerinin bu bölümü, SAP HANA farklı yönlerini kapsar. Bir önkoşul ola
 
 Azure'da HANA için özel belgelere Bu makaleler ve bunların subarticles listesinden oluşur:
 
-- [Hızlı Başlangıç: Azure sanal makinelerinde tek örnek SAP hana el ile yükleme](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
+- [Hızlı Başlangıç: Tek örnek SAP hana Azure vm'lerde el ile yükleme](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
 - [SAP S/4HANA veya BW/4hana'yı azure'da dağıtın](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)
 - [Azure'da SAP HANA altyapısı yapılandırmaları ve işlemleri](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 - [Azure sanal makineler için SAP HANA yüksek kullanılabilirlik](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
@@ -117,7 +117,7 @@ Giriş belgesi, çeşitli diğer mimari ve senaryo belgelere işaret eder. Sonra
 
 Azure Active Directory (AAD) ile SAP hizmetleri arasında tümleştirme için ve çoklu oturum açma, gibi belgelerin listesi:
 
-- [Öğretici: Müşteri için SAP bulut Azure Active Directory Tümleştirme](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Öğretici: Müşteri için SAP Cloud ile Azure Active Directory Tümleştirme](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 - [Öğretici: SAP Cloud Platform kimlik doğrulaması ile Azure Active Directory Tümleştirme](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 - [Öğretici: SAP Cloud Platform ile Azure Active Directory Tümleştirme](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 - [Öğretici: SAP NetWeaver ile Azure Active Directory Tümleştirme](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)

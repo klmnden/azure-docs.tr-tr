@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 87edc2911a48aea1ff0d7ac826439fe547c7cd86
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d0d6ed03b6e28df9767e24170ebf5ec92bb9fe9a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342894"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434741"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Güncelleştirme yönetimi ile ilgili sorunları giderme
 
@@ -164,7 +164,7 @@ Gösterme makineler sahip **değerlendirilmeyen** altında **Uyumluluk**, ve bun
 
 #### <a name="cause"></a>Nedeni
 
-Windows update makinede doğru yapılandırılmamış.
+Windows Update veya WSUS makinede doğru şekilde yapılandırılmamış. Güncelleştirme yönetimi, Windows Update veya gerekli olan güncelleştirmeleri sağlamak üzere düzeltme eki ve düzeltme eklerini dağıtılan sonuçlarını durumunu WSUS kullanır. Güncelleştirme yönetimi, bu bilgiler olmadan gerekli veya yüklü düzeltme ekleri doğru rapor.
 
 #### <a name="resolution"></a>Çözüm
 

@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 09d4ef0b6a3455728ddab0484db4c701c6764214
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7e55304fb02078c71b91b2904475a4bee4bcc018
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270935"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436968"
 ---
 # <a name="what-is-automated-machine-learning"></a>Nedir, makine öğrenimi otomatik?
 
@@ -53,7 +53,14 @@ Eğitim sırasında Azure Machine Learning hizmetinde bir dizi farklı algoritma
 
 ## <a name="model-explainability"></a>Model explainability
 
-Ortak bir durumu otomatik machine Learning, uçtan uca işlemi görmek için bağlanamama sorunudur. Azure Machine Learning modelleri arka uçta çalıştıran içine saydamlığı artırma hakkında ayrıntılı bilgi görüntülemek sağlar. Çıktı genel özellik önem modeli ayarlamak için özellikler tarafından sonuçları sıralama modelinizi en çok etkileyen gösterir. Ayrıca, sınıflandırma sorunları sınıfı başına özellik önem ve sıralamasını görebilirsiniz.
+Ortak bir durumu otomatik machine Learning, uçtan uca işlemi görmek için bağlanamama sorunudur. Azure Machine Learning modelleri arka uçta çalıştıran içine saydamlığı artırma hakkında ayrıntılı bilgi görüntülemek sağlar. Doğrusal regresyon gibi bazı modelleri oldukça açık ve bu nedenle anlaşılması kolay olarak değerlendirilir. Ancak daha fazla özellik ekleyin ve daha karmaşık makine öğrenimi modellerini kullanma gibi bunları anlama daha zor alır. Machine learning'de saydamlık için iki temel unsur vardır:
+
+1. Makine öğrenimi işlem hattı ve tüm adımları bilincini söz konusu veri ön işleme/özellik kazandırma sayesinde ve hiper parametre değerleri dahil.
+1. Girdi değişkenleri (diğer adıyla "Özellikler") ve model çıktısını arasındaki ilişkiyi anlama.  Büyüklük ve tahmin edilen değer üzerindeki her bir özellik etkisini yönünü bilmek daha iyi anlamanıza ve modeli açıklayan yardımcı olur. Bu özellik önem olarak bilinir.
+
+İşlem hattı, tercih ettiğiniz için genel özellik önem üzerine gönderi eğitim etkinleştirebilir veya otomatik ML eğitim bir parçası olarak tüm işlem hatları için etkinleştirin.  Bu bir önizleme özelliğidir ve biz, ML modelleri daha iyi anlamanıza yardımcı olması için daha zengin bilgi sağlama konusunda yatırım yapmaya devam eder.  
+
+İzleyin [örnek not defteri](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) Azure Machine learning'de model açıklamaları denemek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

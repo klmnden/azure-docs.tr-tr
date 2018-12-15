@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: dox
-ms.openlocfilehash: 38e8c0c16c51ee1885187263c9016c1411e4e95b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: dd095328f8ba4cc22eea21133e7c8600a2cd64e1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874065"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438668"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tablosu .NET standart API: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -32,16 +32,18 @@ ms.locfileid: "52874065"
 
 ## <a name="release-notes"></a>Sürüm notları
 
+### <a name="a-name0100-preview0100-preview"></a><a name="0.10.0-preview"/>0.10.0-Preview
+* Azure depolama tablo uç noktalarına karşı temel CRUD, batch ve sorgu işlemleri için destek eklendi. [!NOTE] Önceki Azure depolama tablo SDK'ları, bazı işlevler henüz, istemci tarafı şifreleme gibi desteklenmez.
+
 ### <a name="a-name091-preview091-preview"></a><a name="0.9.1-preview"/>0.9.1-Preview
-* Azure Cosmos DB tablosu .NET standart SDK Cosmos DB tablo veri modeline etkili erişim sağlayan bir platformlar arası .NET kitaplıktır. Bu ilk sürümde eksiksiz bir tablo ve varlık CRUD + benzer API'leri ile sorgu işlevlerini destekler [.NET Framework için Cosmos DB tablosu SDK](table-sdk-dotnet.md).
-[!NOTE]
-Azure tablo depolama uç noktaları 0.9.1-preview sürümü henüz desteklenmiyor.
+* Azure Cosmos DB tablosu .NET standart SDK Cosmos DB tablo veri modeline etkili erişim sağlayan bir platformlar arası .NET kitaplıktır. Bu ilk sürümde eksiksiz bir tablo ve varlık CRUD + benzer API'leri ile sorgu işlevlerini destekler [.NET Framework için Cosmos DB tablosu SDK](table-sdk-dotnet.md). [!NOTE] Azure tablo depolama uç noktaları 0.9.1-preview sürümü henüz desteklenmiyor.
 
 ## <a name="release-and-retirement-dates"></a>Yayın ve sona erme tarihleri
 Microsoft'un sağladığı bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş hafifletmek için bir SDK'yı devre dışı bırakmadan önce.
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [0.10.0-Preview](#0.10.0-preview) |18 Aralık 2018'e |--- |
 | [0.9.1-Preview](#0.9.1-preview) |18 Ekim 2018 |--- |
 
 

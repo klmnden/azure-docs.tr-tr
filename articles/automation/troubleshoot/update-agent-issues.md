@@ -4,25 +4,25 @@ description: Güncelleştirme yönetimi Aracısı ile ilgili sorunları giderme 
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 68bac54de4f6a9f16f54032b10031bcf7222c676
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969320"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434775"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Windows Aracısı onay sonuçları güncelleştirme yönetimini anlama
 
-Neden Azure makinesi göstermeyebilir birçok neden vardır bir **hazır** Azure güncelleştirme yönetimi durumu. Ortamında güncelleştirme yönetimi, arka plandaki sorunu belirlemek için bir karma çalışanı aracı durumunu kontrol edebilirsiniz. Bu makalede, Azure portalından ve çevrimdışı senaryolarda güncelleştirme yönetimi sorun gidericisini çalıştırmak açıklar.
+Makinenizde görüntülenmiyorsa birçok nedeni olabilir **hazır** güncelleştirme yönetimi. Ortamında güncelleştirme yönetimi, arka plandaki sorunu belirlemek için bir karma çalışanı aracı durumunu kontrol edebilirsiniz. Bu makalede Azure portalı ve Azure olmayan makineler Azure makineler için sorun giderici çalıştırın anlatılmaktadır [çevrimdışı senaryosu](#troubleshoot-offline).
 
 ## <a name="start-the-troubleshooter"></a>Sorun Gidericisi
 
-Azure portalında **Güncelleştirme Aracısı sorunlarını giderme** sayfasında, aracı ile ilgili sorunlar görüntülenir. Sayfasında, sorunları gidermeye yardımcı olması için bu makalede bir bağlantı yoktur. Gitmek için **Güncelleştirme Aracısı sorunlarını giderme** sayfasında **sorun giderme** bağlantısını **Güncelleştirme Aracısı hazırlığı** sütun.
+Tıklayarak Azure makineler için **sorun giderme** altında bağlantı **Güncelleştirme Aracısı hazırlığı** portal başlatır sütununda **Güncelleştirme Aracısı sorunlarını giderme** sayfası. Azure olmayan makineler için bağlantıyı bu makaleye getirir. Bkz: [çevrimdışı yönergeleri](#troubleshoot-offline) Azure olmayan makine giderilir.
 
 ![Sanal makine yönetim listesini güncelleştirme](../media/update-agent-issues/vm-list.png)
 

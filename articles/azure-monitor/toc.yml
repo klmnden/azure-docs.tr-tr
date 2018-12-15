@@ -137,7 +137,7 @@ items:
   - name: Verileri görselleştirme
     href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: İş ortağı tümleştirmeleri
-    href: ../monitoring-and-diagnostics/monitoring-partners.md?toc=/azure/azure-monitor/toc.json
+    href: platform/partners.md
   - name: SSS
     items:
     - name: Log Analytics
@@ -219,7 +219,7 @@ items:
         - name: Tanılama Ayarlarını Kaynak Yöneticisi şablonlarıyla etkinleştirme
           href: platform/diagnostic-logs-stream-template.md
         - name: JSON Satır tanılama günlükleri biçimine hazırlanma
-          href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostic-logs-append-blobs.md
         - name: Ölçüm deposu için konuk VM
           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
         - name: Ölçüm deposu için konuk VM ölçüm kümesi
@@ -651,7 +651,7 @@ items:
       - name: Uygulama verilerini dışarı aktarma
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
     - name: Grafana'ya veri gönderme
-      href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
+      href: platform/grafana-plugin.md
   - name: Verileri çözümleme
     items:
     - name: Ölçüm Gezgini’nde ölçüm grafikleri oluşturma
@@ -798,7 +798,7 @@ items:
     - name: Otomatik Ölçeklendirme
       items:
       - name: Otomatik ölçeklendirmeyle ilgili adım adım kılavuz
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-get-started.md
       - name: Otomatik Ölçeklendirme ayarlarını anlama
         href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
       - name: En iyi uygulamalar
@@ -806,7 +806,7 @@ items:
       - name: Ortak ölçümler
         href: platform/autoscale-common-metrics.md
       - name: Ortak desenler
-        href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-common-scale-patterns.md
       - name: Özel ölçüm kullanarak otomatik ölçekleme
         href: platform/autoscale-custom-metric.md
       - name: Resource Manager şablonlarını kullanarak VM ölçek kümelerini otomatik ölçeklendirme
@@ -832,7 +832,7 @@ items:
   - name: Kullanım ve maliyetleri yönetme
     items:
     - name: Kullanım ve tahmini maliyetler
-      href: ../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md?toc=/azure/azure-monitor/toc.json
+      href: platform/usage-estimated-costs.md
     - name: Uygulama veri hacmi ve saklama
       href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
     - name: Uygulama kurumsal plan ayrıntıları
@@ -866,7 +866,7 @@ items:
     - name: API
       items:
       - name: REST API’sini kullanma hakkında kılavuz
-        href: ../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md?toc=/azure/azure-monitor/toc.json
+        href: platform/rest-api-walkthrough.md
       - name: Uyarı API’si
         href: platform/api-alerts.md
     - name: Uygulamalar
@@ -952,7 +952,7 @@ items:
   - name: Ölçümler
     items:
     - name: Desteklenen ölçümler
-      href: ../monitoring-and-diagnostics/monitoring-supported-metrics.md?toc=/azure/azure-monitor/toc.json
+      href: platform/metrics-supported.md
     - name: Yeni uyarılarda desteklenen ölçümler
       href: ../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=/azure/azure-monitor/toc.json
   - name: Şemalar
@@ -1010,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kod örnekleri
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 037ec2d246e30725448fb3da98263b557e11186d
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9be0566a2e0fddc61d5c7028e9ecc7a24930b2f2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384438"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438396"

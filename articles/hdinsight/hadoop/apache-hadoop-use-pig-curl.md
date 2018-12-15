@@ -9,34 +9,35 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 65d94c4df3111e1ffe5a5340bba1db454681bb5e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 855ee1b7396be97c6529480b8fa8200bb8167ee6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53016019"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434027"
 ---
-# <a name="run-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Pig işleri, REST kullanarak HDInsight üzerinde Apache Hadoop ile çalıştırın
+# <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Apache Pig işleri, REST kullanarak HDInsight üzerinde Apache Hadoop ile çalıştırın
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
 Bir Azure HDInsight kümesi için REST istekleri yaparak Apache Pig Latin işleri çalıştırmayı öğrenin. Curl WebHCat REST API'yi kullanarak HDInsight ile nasıl etkileşim kurabileceğine göstermek için kullanılır.
 
-> [!NOTE]
+> [!NOTE]  
 > Zaten Linux tabanlı Apache Hadoop sunucularını kullanma ile ilgili bilgi sahibi olduğunuz, ancak yeni HDInsight için, bkz. [Linux tabanlı HDInsight ipuçları](../hdinsight-hadoop-linux-information.md).
 
 ## <a id="prereq"></a>Önkoşullar
 
 * Bir Azure HDInsight (Hadoop HDInsight üzerinde) kümesi (Linux tabanlı veya Windows tabanlı)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [Curl](https://curl.haxx.se/)
 
 * [jq](https://stedolan.github.io/jq/)
 
-## <a id="curl"></a>Pig işleri Curl kullanarak çalıştırma
+## <a id="curl"></a>Apache Pig işleri Curl kullanarak çalıştırma
+
 
 > [!NOTE]
 > REST API aracılığıyla güvenli [temel erişimi kimlik doğrulaması](https://en.wikipedia.org/wiki/Basic_access_authentication). Her zaman güvenli HTTP (HTTPS) kullanarak kimlik bilgilerinizin sunucuya güvenli bir şekilde gönderildiğinden emin olmak için istekleri olun.
@@ -57,7 +58,7 @@ Bir Azure HDInsight kümesi için REST istekleri yaparak Apache Pig Latin işler
 
     Bu komutta kullanılan parametreler aşağıdaki gibidir:
 
-    * **-u**: kullanıcı adı ve istek kimliğini doğrulamak için kullanılan parola
+    * **-u**: Kullanıcı adı ve istek kimliğini doğrulamak için kullanılan parola
     * **-G**: Bu isteği bir GET isteği olduğunu belirtir
 
      URL'nin başına **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, tüm istekler için aynıdır. Yol **/status**, sunucu için istek WebHCat (Ayrıca templeton olarak da bilinir) durumunu döndürmek üzere olduğunu gösterir.
@@ -70,13 +71,13 @@ Bir Azure HDInsight kümesi için REST istekleri yaparak Apache Pig Latin işler
 
     Bu komutta kullanılan parametreler aşağıdaki gibidir:
 
-    * **-d**: çünkü `-G` kullanılmıyorsa, varsayılan POST yöntemine istek. `-d` istekle beraber gönderilen veri değerleri belirtir.
+    * **-d**: Çünkü `-G` kullanılmıyorsa, varsayılan POST yöntemine istek. `-d` istekle beraber gönderilen veri değerleri belirtir.
 
-    * **User.Name**: komutu çalıştıran kullanıcının
-    * **yürütme**: yürütmek için Pig Latin açıklamaları
+    * **User.Name**: Komutu çalıştıran kullanıcının
+    * **yürütme**: Yürütmek için Pig Latin açıklamaları
     * **statusdir**: Bu görev için durum yazılan dizini
 
-    > [!NOTE]
+    > [!NOTE]  
     > Pig Latin açıklamaları boşluk tarafından değiştirilen uyarı `+` Curl ile kullanılan karakter.
 
     Bu komut, örneğin, iş durumunu denetlemek için kullanılan bir iş kimliği döndürülmesi gerekir:
@@ -93,14 +94,14 @@ Bir Azure HDInsight kümesi için REST istekleri yaparak Apache Pig Latin işler
 
     İş bitip bitmediğini durumudur **başarılı**.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Bu Curl isteği bir JavaScript nesne gösterimi (JSON) belge ile iş hakkındaki bilgileri döndürür ve jq yalnızca durum değeri almak için kullanılır.
 
 ## <a id="results"></a>Sonuçları Görüntüle
 
 İş durumunu değiştiği için **başarılı**, iş sonuçları alabilir. `statusdir` Sorguyla geçirilen parametre içerir; bu durumda, çıkış dosyasının konumu `/example/pigcurl`.
 
-HDInsight, Azure depolama veya Azure Data Lake Store varsayılan veri deposu olarak kullanabilirsiniz. Hangisinin bağlı olarak, kullandığınız veri almanın çeşitli yolları vardır. Daha fazla bilgi için bkz. depolama bölümünü [Linux tabanlı HDInsight bilgi](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) belge.
+HDInsight, Azure depolama veya Azure Data Lake Storage varsayılan veri deposu olarak kullanabilirsiniz. Hangisinin bağlı olarak, kullandığınız veri almanın çeşitli yolları vardır. Daha fazla bilgi için bkz. depolama bölümünü [Linux tabanlı HDInsight bilgi](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) belge.
 
 ## <a id="summary"></a>Özet
 
@@ -112,9 +113,9 @@ Bu makalede kullanılan REST arabirimi hakkında daha fazla bilgi için bkz. [We
 
 HDInsight Pig hakkında genel bilgi için:
 
-* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md)
 
 Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
-* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Apache Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)

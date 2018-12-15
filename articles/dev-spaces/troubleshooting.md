@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
-ms.openlocfilehash: d3fbc8e5b6595b52fe5ab9e766a108d271f2f448
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9973635593f7a8143ac1f3980b6e09caba44710b
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104603"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413617"
 ---
 # <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
 
@@ -138,6 +138,18 @@ Hata, o azds.exe yol ortam değişkeninde değil VS Code'da görüldüğü anlam
 
 VS Code, PATH ortam değişkenine düzgün olarak ayarlandığı bir komut isteminden başlatın.
 
+## <a name="error-required-tools-to-build-and-debug-projectname-are-out-of-date"></a>Hata "oluşturup 'projectname' hata ayıklama için gerekli araçları güncel."
+
+Azure geliştirme alanları, ancak Azure geliştirme alanları CLI'ın eski bir sürümü için VS Code uzantısı'nın daha yeni bir sürümü varsa, bu hatayı Visual Studio code'da görürsünüz.
+
+### <a name="try"></a>Deneme
+
+İndirin ve en son Azure geliştirme alanları CLI sürümünü yükleyin:
+
+* [Windows](http://aka.ms/get-azds-windows)
+* [Mac](http://aka.ms/get-azds-mac)
+* [Linux](https://aka.ms/get-azds-linux)
+
 ## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>Hata 'azds' iç ya da dış komut, çalıştırılabilir program veya toplu iş dosyası tanınmıyor
  
 Bu hata azds.exe yüklü değil veya doğru bir şekilde yapılandırıldığını görebilirsiniz.
@@ -172,8 +184,8 @@ Kapsayıcı bağlantı noktası kullanılamaz. Bu sorun nedeniyle oluşabilir:
 ### <a name="try"></a>Deneyin:
 1. Kapsayıcı yerleşik/dağıtılan aşamasında olan 2-3 saniye bekleyin ve hizmete tekrar erişmeyi deneyin. 
 1. Bağlantı noktası yapılandırmanızı denetleyin. Belirtilen bağlantı noktası numaralarını olmalıdır **aynı** aşağıdaki tüm varlıkları içinde:
-    * **Dockerfile:** tarafından belirtilen `EXPOSE` yönergesi.
-    * **[Helm grafiği](https://docs.helm.sh):** tarafından belirtilen `externalPort` ve `internalPort` değerleri bir hizmet için (genellikle bulunan bir `values.yml` dosyası),
+    * **Dockerfile:** Tarafından belirtilen `EXPOSE` yönergesi.
+    * **[Helm grafiği](https://docs.helm.sh):** Tarafından belirtilen `externalPort` ve `internalPort` değerleri bir hizmet için (genellikle bulunan bir `values.yml` dosyası),
     * Örneğin, Node.js içinde uygulama kodunda açılan tüm bağlantı noktaları: `var server = app.listen(80, function () {...}`
 
 
@@ -187,7 +199,7 @@ Kapsayıcı bağlantı noktası kullanılamaz. Bu sorun nedeniyle oluşabilir:
 1. Geçerli dizin hizmeti kodunuzu içeren kök klasöre değiştirin. 
 1. Yoksa bir _azds.yaml_ çalıştırın kod klasörü dosyasında `azds prep` Docker, Kubernetes ve Azure Dev alanları varlıklar oluşturmak için.
 
-## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Hata: 'kanal programına '126 koduyla beklenmedik bir şekilde çıkıldı azds'.'
+## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Hata: '' Azds' kanal programı 126 koduyla beklenmedik şekilde çıkıldı.'
 VS Code hata ayıklayıcı başlatılıyor, bazen bu hataya neden olabilir.
 
 ### <a name="try"></a>Deneyin:

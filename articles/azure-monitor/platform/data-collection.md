@@ -1,6 +1,6 @@
 ---
 title: Azure İzleyici tarafından toplanan izleme verilerinin | Microsoft Docs
-description: İzleme verilerine Azure İzleyicisi tarafından toplanan basit ve neredeyse gerçek zamanlı senaryoları ve Gelişmiş analiz için Log Analytics'te depolanır günlükleri destekleme özelliğine sahip olan ölçümleri ayrılır.
+description: İzleme verilerine Azure İzleyicisi tarafından toplanan, basit ve gerçek zamanlı senaryoları destekleme özelliğine sahip olan ölçümleri ve Gelişmiş analiz için kullanılan günlükleri ayrılır.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -9,14 +9,14 @@ ms.service: monitoring
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: 3795db2928e23b16d93e544c4f148b049eccfdef
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: fdf8d8977651c868c9f534dc61e3d1a77a43e672
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384845"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435965"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Azure İzleyici tarafından toplanan verileri izleme
 [Azure İzleyici](../overview.md) yardımcı olan bir hizmeti izlemek, uygulamalarınızın ve bunların bağımlı kaynakları olduğundan. Telemetri ve diğer verileri izlenen kaynaklardan bu işleve merkezi depolamadır. Bu makalede, Azure İzleyici tarafından kullanılan bu veriler nasıl depolanır ve kapsamlı bir açıklama sağlar.
@@ -34,7 +34,7 @@ Azure'da ölçüm belirli öznitelikler aşağıdaki gibidir:
 
 * Ölçüm 's tanımında aksi belirtilmediği sürece bir dakikalık sıklığında toplanmadı.
 * Bir ölçüm adı ve kategori olarak davranan bir ad alanı tarafından benzersiz şekilde tanımlanır.
-* 93 gün boyunca depolanır. Uzun vadeli eğilimleri belirleme için Log Analytics ölçümleri kopyalayabilirsiniz.
+* 93 gün boyunca depolanır. Uzun vadeli eğilimleri belirlemek için günlüklere ölçümleri kopyalayabilirsiniz.
 
 Her bir ölçüm değeri aşağıdaki özelliklere sahiptir:
 * Değer toplandığı zaman.
@@ -81,7 +81,7 @@ Tek tek ölçüler genellikle küçük hakkında fikir, kendi sağlar. Basit eş
 ### <a name="sources-of-metric-data"></a>Ölçüm veri kaynakları
 Azure İzleyici tarafından toplanan ölçümleri üç temel kaynakları vardır. Tüm Bu ölçümler nerede bunlar birlikte kaynaklarını bağımsız olarak değerlendirilebilen ölçüm Mağazası'nda mevcuttur.
 
-**Platform ölçümleri** Azure kaynakları tarafından oluşturulur ve bunların sistem durumu ve performans görünürlük sağlar. Her kaynak türünü oluşturur bir [farklı ölçüm kümesini](../../monitoring-and-diagnostics/monitoring-supported-metrics.md) gerekli herhangi bir yapılandırma olmadan. 
+**Platform ölçümleri** Azure kaynakları tarafından oluşturulur ve bunların sistem durumu ve performans görünürlük sağlar. Her kaynak türünü oluşturur bir [farklı ölçüm kümesini](../../azure-monitor/platform/metrics-supported.md) gerekli herhangi bir yapılandırma olmadan. 
 
 **Uygulama ölçümleri** performans sorunları tespit edin ve eğilimler, uygulamanızın nasıl kullanıldığını izlemenize yardımcı olur ve izlenen uygulamalar için Application Insights tarafından oluşturulur. Bu tür değerleri olarak içerir _sunucu yanıt süresi_ ve _tarayıcı özel durumları_.
 
@@ -102,14 +102,14 @@ Azure İzleyici tarafından toplanan ölçümleri üç temel kaynakları vardır
 - Yol ölçümlerinin Log analytics'e günlük verileriyle birlikte ölçüm verilerini analiz etmek ve ölçüm değerleri 93 günden daha uzun süre saklamak için. 
 - Stream için ölçümleri bir [olay hub'ı](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) kendisine yönlendirmek için [Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md) veya harici sistemlere bağlanma.
 - [Arşiv](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) kaynağınızın denetim ya da çevrimdışı raporlamaya uyumluluk, performans veya sistem durumu geçmişi.
-- Bir komut satırı veya özel bir uygulama kullanarak ölçüm değerleri erişim [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) veya [REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+- Bir komut satırı veya özel bir uygulama kullanarak ölçüm değerleri erişim [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) veya [REST API](../../azure-monitor/platform/rest-api-walkthrough.md).
 
 
 
 ### <a name="viewing-metrics"></a>Ölçümleri görüntüleme
-Azure İzleyici ölçümleri veritabanında azure'da ölçümleri toplanır. Bu, zaman serisi veritabanı 93 gün boyunca hızlı alma ve depoları ölçüm değerleri için en iyi duruma getirilmiş. Ölçümler için Log Analytics uzun süreli analiz ve eğilimler için kopyalayın.
+Azure İzleyici'de ölçümleri bir zaman serisi içinde depolanan veritabanı 93 gün boyunca hızlı alma ve depoları ölçüm değerleri için en iyi duruma getirilmiş. Uzun süreli analiz ve eğilimler için günlükleri ölçümleri kopyalayın.
 
-Ölçüm verilerini yukarıda açıklandığı gibi çeşitli şekillerde kullanılır. Kullanım [ölçüm Gezgini](../../azure-monitor/platform/metrics-charts.md) doğrudan ölçüm mağazanızdaki verileri analiz etmek ve zaman içinde birden çok ölçüm değerleri grafik. Etkileşimli olarak grafikleri görüntülemek veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin. Ölçümleri kullanarak da alabilirsiniz [Azure REST API izleme](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Ölçüm verilerini yukarıda açıklandığı gibi çeşitli şekillerde kullanılır. Kullanım [ölçüm Gezgini](../../azure-monitor/platform/metrics-charts.md) doğrudan ölçüm mağazanızdaki verileri analiz etmek ve zaman içinde birden çok ölçüm değerleri grafik. Etkileşimli olarak grafikleri görüntülemek veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin. Ölçümleri kullanarak da alabilirsiniz [Azure REST API izleme](../../azure-monitor/platform/rest-api-walkthrough.md).
 
 ![Ölçüm Gezgini](media/data-collection/metrics-explorer.png)
 
@@ -126,18 +126,11 @@ Günlükler, çeşitli kaynaklardan alınan verilerin birleştirilmesi için kar
 
 
 
-### <a name="log-analytics"></a>Log Analytics
-Azure İzleyici tarafından toplanan günlükler, çeşitli kaynaklardan telemetri ve diğer verileri toplayan Log analytics'te depolanır. Bu, zengin bir sorgu dili ve uygulamalarınızın ve kaynaklarınızın çalışmasını Öngörüler sunan bir analiz altyapısı sağlar. Diğer Azure Hizmetleri gibi [Azure Güvenlik Merkezi](../../security-center/security-center-intro.md) Azure Yönetimi genelinde ortak bir veri platformu sağlamak amacıyla Log Analytics'te verilerini depolar.
-
-> [!IMPORTANT]
-> Ayrı bir bölümde depolanır dışında Application Insights verileri gibi diğer günlük verileri Log Analytics'te depolanır. Bu, diğer Log Analytics verilerini aynı işlevselliği destekler, ancak kullanmalısınız [Application Insights konsol](../../application-insights/app-insights-analytics.md) veya [Application Insights API](https://dev.applicationinsights.io/) bu verilere erişmek için. Kullanabileceğiniz bir [kaynaklar arası sorgu](../log-query/cross-workspace-query.md) diğer günlük verileriyle birlikte uygulama verilerini analiz etmek için.
-
-
 ### <a name="sources-of-log-data"></a>Günlük verisi kaynakları
-Log Analytics, çeşitli kaynaklardan hem Azure içindeki ve şirket içi kaynaklardan veri toplayabilir. Log Analytics'e yazılan veri kaynakları şunları içerir:
+Azure İzleyici, çeşitli kaynaklardan hem de azure'daki ve şirket içi kaynaklardan gelen günlük verilerini toplayabilir. Günlük veri kaynakları şunları içerir:
 
 - [Etkinlik günlükleri](collect-activity-logs.md) Azure kaynaklarından, yapılandırmaları ve sistem durumu hakkında bilgiler içerir ve [tanılama günlükleri](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) işleyişlerini Öngörüler sağlayın.
-- Aracılarda [Windows](../../log-analytics/log-analytics-windows-agent.md) ve [Linux](../learn/quick-collect-linux-computer.md) konuk işletim sistemi ve uygulamaları şunlara göre Log analytics'e telemetri gönderen sanal makineler [veri kaynakları](agent-data-sources.md) , siz yapılandırırsınız.
+- Aracılarda [Windows](agent-windows.md) ve [Linux](../learn/quick-collect-linux-computer.md) konuk işletim sistemi ve uygulamaları için Azure İzleyici'ayarına göre telemetri gönderen sanal makineler [veri kaynakları](data-sources.md) , siz yapılandırırsınız.
 - Uygulama verileri tarafından toplanan [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Belirli bir uygulama veya hizmetten Öngörüler sağlayan veri [izleme çözümleri](../insights/solutions.md) veya kapsayıcı öngörüleri, VM Insights veya kaynak grubu Insights gibi özellikleri.
 - Tarafından toplanan güvenlik verileri [Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/).
@@ -145,7 +138,7 @@ Log Analytics, çeşitli kaynaklardan hem Azure içindeki ve şirket içi kaynak
 - Yazılan telemetri [Azure depolama](azure-storage-iis-table.md).
 - Özel verileri kullanarak herhangi bir REST API istemcisi [HTTP veri toplayıcı API'sini](data-collector-api.md) istemci veya bir [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/) iş akışı.
 
-![Log Analytics bileşenleri](media/data-collection/logs-overview.png)
+![Günlükleri genel bakış](media/data-collection/logs-overview.png)
 
 
 
@@ -153,28 +146,32 @@ Log Analytics, çeşitli kaynaklardan hem Azure içindeki ve şirket içi kaynak
 ### <a name="what-can-you-do-with-logs"></a>Günlükleri ile neler?
 Günlükleri ile gerçekleştirebileceğiniz görevler aşağıdakileri içerir:
 
-- Kullanım [Log Analytics sayfa](../log-query/get-started-portal.md) Azure portalında günlük verilerini analiz sorguları yazma.  Sabitleme, tablolar veya grafikler için çizilir sonuçları bir [Azure panosuna](../../azure-portal/azure-portal-dashboards.md).
+- Kullanım [Log Analytics](../log-query/get-started-portal.md) Azure portalında günlük verilerini analiz sorguları yazma.  Sabitleme, tablolar veya grafikler için çizilir sonuçları bir [Azure panosuna](../../azure-portal/azure-portal-dashboards.md).
 - Yapılandırma bir [günlük uyarı kuralı](alerts-log.md) bildirim gönderen veya alan [eylemi otomatik](action-groups.md) zaman sorgunun sonuçlarını eşleşen belirli bir sonuç.
-- Log Analytics kullanarak verileri temel alan bir iş akışı derleme [Logic Apps](~/articles/logic-apps/index.yml).
+- Günlük veri kullanımına dayalı bir iş akışı derleme [Logic Apps](~/articles/logic-apps/index.yml).
 - Sorgu sonuçlarını dışarı aktarma [Power BI](powerbi.md) farklı görselleştirme kullanın ve Azure dışındaki kullanıcılarla paylaşmak için.
 - Bir komut satırı veya özel bir uygulama kullanarak ölçüm değerleri erişim [PowerShell cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) veya [REST API](https://dev.loganalytics.io/).
 
 ### <a name="viewing-log-data"></a>Günlük verilerini görüntüleme
-Tüm verileri Log Analytics kullanarak alınır bir [günlük sorgusu](../log-query/log-query-overview.md) belirli bir veri kümesini belirtir. Sorguları kullanarak yazılır [Log Analytics sorgu diline](../log-query/get-started-queries.md) hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek için zengin bir sorgu dili olan. Kullanım [Log Analytics sayfa](../log-query/portals.md) doğrudan analiz etmek için Azure portalında, ölçüm verileri depolamak ve zaman içinde birden çok ölçüm değerleri grafik. Etkileşimli olarak grafikleri görüntülemek veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin. Ölçümleri kullanarak da alabilirsiniz [Azure REST API izleme](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+Azure İzleyici'de tüm günlük verilerini kullanarak alınır bir [günlük sorgusu](../log-query/log-query-overview.md) ile yazılmış [Veri Gezgini sorgu dili](../log-query/get-started-queries.md), hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek yapmanıza olanak tanıyan. Kullanım [Log Analytics](../log-query/portals.md) yazma ve sorgular Azure Portalı'nda test etmek için. İş sonuçları ile etkileşimli olarak veya bunları diğer görselleştirmeler ile bunları görüntülemek için panoya sabitleyin. Günlükleri kullanarak da alabilirsiniz [Azure REST API izleme](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+
+> [!IMPORTANT]
+> Application Insights verilerini diğer günlük verilerini Azure İzleyici'de ayrı bir bölümden depolanır. Bu, diğer günlük verilerini aynı işlevselliği destekler, ancak kullanmalısınız [Application Insights konsol](/application-insights/app-insights-analytics.md) veya [Application Insights API](https://dev.applicationinsights.io/) bu verilere erişmek için. Kullanabileceğiniz bir [kaynaklar arası sorgu](../log-query/cross-workspace-query.md) diğer günlük verileriyle birlikte uygulama verilerini analiz etmek için.
 
 ![Günlükler](media/data-collection/logs.png)
+
 
 ## <a name="convert-monitoring-data"></a>İzleme verileri dönüştürme
 
 ### <a name="metrics-to-logs"></a>Günlükler için ölçümleri
-Zengin sorgu dilini kullanarak diğer veri türlerine sahip karmaşık bir analiz gerçekleştirmek için Log Analytics ölçümleri kopyalayabilirsiniz. Ayrıca, zaman içinde eğilim gerçekleştirmenize olanak tanıyan ölçümleri daha uzun süre günlük verileri koruyabilirsiniz. Zaman ölçümleri veya diğer herhangi bir performans verilerini verileri bir günlük olarak davranan Log analytics'te depolanır. Neredeyse gerçek zamanlı analiz ve eğilim ve analiz diğer verilerle için günlükleri kullanırken uyarı desteklemek için ölçümleri kullanın.
+Azure İzleyici'nın zengin bir sorgu dilini kullanarak diğer veri türleri ile karmaşık bir analiz gerçekleştirmek için günlükleri ölçümleri kopyalayabilirsiniz. Ayrıca, zaman içinde eğilim gerçekleştirmenize olanak tanıyan ölçümleri daha uzun süre günlük verileri koruyabilirsiniz. Neredeyse gerçek zamanlı analiz ve eğilim ve analiz diğer verilerle için günlükleri kullanırken uyarı desteklemek için ölçümleri kullanın.
 
-Azure kaynaklardan ölçümleri toplamaya yönelik rehberlik alabilirsiniz [toplamak Azure hizmeti günlükleri ve Log analytics'teki kullanım ölçümlerini](collect-azure-metrics-logs.md). Azure PaaS kaynakları'ndan kaynakları ölçümleri toplamaya ilişkin yönergeler almak [Log Analytics ile Azure PaaS kaynak ölçümleri toplamayı yapılandırmak](collect-azurepass-posh.md).
+Azure kaynaklardan ölçümleri toplamaya yönelik rehberlik alabilirsiniz [toplamak Azure hizmeti günlükleri ve ölçümleri kullanılmak üzere Azure İzleyici](collect-azure-metrics-logs.md). Azure PaaS kaynakları'ndan kaynakları ölçümleri toplamaya ilişkin yönergeler almak [Azure İzleyici ile Azure PaaS kaynak ölçümleri toplamayı yapılandırmak](collect-azurepass-posh.md).
 
 ### <a name="logs-to-metrics"></a>Ölçümler için günlükleri
-Daha düşük gecikme süresi ve daha düşük bir maliyetle uyarılar oluşturmak için yukarıda açıklandığı gibi günlükleri, daha hızlı yanıt ölçümleridir. Log Analytics önemli ölçüde ölçümler için uygun olabilir, ancak Azure ölçümleri veritabanında saklanmaz sayısal veri toplar.  Aracılar ve yönetim çözümlerinden toplanan performans verilerini buna yaygın bir örnektir. Bu değerlerden bazıları, ölçüm Gezgini ile analizi ve Uyarılar için kullanılabilir olduğu ölçüm veritabanına kopyalanabilir.
+Daha düşük gecikme süresi ve daha düşük bir maliyetle uyarılar oluşturmak için yukarıda açıklandığı gibi günlükleri, daha hızlı yanıt ölçümleridir. Sayısal veri önemli ölçüde, ölçümler için uygun olabilir ancak ölçümleriniz Azure İzleyici'de depolanan değil günlükleri olarak depolanır.  Aracılar ve yönetim çözümlerinden toplanan performans verilerini buna yaygın bir örnektir. Bu değerlerden bazıları burada ölçüm Gezgini ile analizi ve Uyarılar için kullanılabilir ölçümleri, kopyalanabileceği.
 
-Bu özellik açıklaması kullanılabilir [Azure İzleyici günlükler için ölçüm uyarıları oluşturma](../../azure-monitor/platform/alerts-metric-logs.md). Değerleri destek listesi kullanılabilir [Azure İzleyici ile desteklenen ölçümler](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
+Bu özellik açıklaması kullanılabilir [Azure İzleyici günlükler için ölçüm uyarıları oluşturma](../../azure-monitor/platform/alerts-metric-logs.md). Değerleri destek listesi kullanılabilir [Azure İzleyici ile desteklenen ölçümler](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces).
 
 ## <a name="stream-data-to-external-systems"></a>Stream veri harici sistemlere bağlanma
 İzleme verilerini analiz etmek için Azure'da araçlarını kullanabilmenin yanı sıra güvenlik bilgileri ve Olay yönetimi (SIEM) ürün gibi bir dış araç iletmek için bir gereksinim olabilir. Bu iletme genellikle doğrudan izlenen kaynakları üzerinden yapılır [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 

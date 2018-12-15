@@ -1,6 +1,6 @@
 ---
-title: Azure SQL veritabanı bağlantı mimarisi | Microsoft Docs
-description: Bu belge, Azure SQL veritabanı bağlantısı mimariden veya azure'daki açıklar Azure dışında.
+title: Azure SQL veritabanı ve SQL veri ambarı için Azure trafiği yönlendiren | Microsoft Docs
+description: Bu belge, Azure SQL veritabanı ve SQL veri ambarı bağlantı mimariden veya azure'daki açıklar Azure dışında.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,17 +11,17 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/02/2018
-ms.openlocfilehash: 986741a68113da00800a18cb58648ac66b1de116
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.date: 12/13/2018
+ms.openlocfilehash: eeb1ae2904a9b132ed1de8e66cad83d5ff5144b8
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322031"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435727"
 ---
-# <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL veritabanı bağlantı mimarisi
+# <a name="azure-sql-connectivity-architecture"></a>Azure SQL bağlantı mimarisi
 
-Bu makalede, Azure SQL veritabanı örneğiniz trafiği yönlendirmek için farklı bileşenleri işlev nasıl de Azure SQL veritabanı bağlantı mimarisi açıklanmaktadır. Ağ trafiği için Azure veritabanı Azure dışında bağlanırken istemcilerle içinden Azure bağlanan istemcileri ile yönlendirmek için bu Azure SQL veritabanı bağlantısı bileşenleri işlevi. Bu makalede ayrıca bağlantı nasıl gerçekleştirildiğini değiştirmek için kod örnekleri ve varsayılan bağlantı ayarlarını değiştirmek için ilgili konuları sağlar.
+Bu makalede, Azure SQL Örneğiniz için trafiği farklı bileşenleri işlevi nasıl Azure SQL veritabanı ve SQL veri ambarı bağlantı mimarisi de açıklanmaktadır. İçinden Azure bağlanan istemcileri ve Azure dışında bağlanırken istemcileri ile Azure SQL veritabanı veya SQL veri ambarı ağ trafiğini yönlendirmek için bu bağlantı bileşenleri işlevi. Bu makalede ayrıca bağlantı nasıl gerçekleştirildiğini değiştirmek için kod örnekleri ve varsayılan bağlantı ayarlarını değiştirmek için ilgili konuları sağlar.
 
 > [!IMPORTANT]
 > **[Gelecek değişiklik] Azure SQL sunucuları için hizmet uç noktası bağlantıları için bir `Default` bağlantı davranış değişiklikleri `Redirect`.**
@@ -36,7 +36,10 @@ Bu makalede, Azure SQL veritabanı örneğiniz trafiği yönlendirmek için fark
 > - Bizim telemetri uygulamalarla ilgili bilgileri yakalamak yaramadı şekilde uygulama mevcut bir sunucuyu seyrek bağlanır 
 > - Otomatik dağıtım logic hizmet uç noktası bağlantıları için varsayılan davranışı olduğunu varsayarsak bir mantıksal sunucu oluşturur. `Proxy` 
 >
-> Azure SQL sunucusuna bağlantılara hizmet uç noktası kurulamadı ve bu değişiklikten etkilenen suspecting, bağlantı türü açıkça değerine ayarlandığını doğrulayın `Redirect`. Bu durumda, Sql ait tüm Azure IP adreslerine bölgedeki VM Güvenlik duvarı kuralları ve ağ güvenlik grupları (NSG) açmanız gerekir [hizmet etiketi](../virtual-network/security-overview.md#service-tags). Bu, sizin için bir seçenek değilse, sunucu açıkça geçiş `Proxy`.
+> Azure SQL sunucusuna bağlantılara hizmet uç noktası kurulamadı ve bu değişiklikten etkilenen suspecting, bağlantı türü açıkça değerine ayarlandığını doğrulayın `Redirect`. Bu durumda, Sql ait tüm Azure IP adreslerine bölgedeki VM Güvenlik duvarı kuralları ve ağ güvenlik grupları (NSG) açmanız gerekir [hizmet etiketi](../virtual-network/security-overview.md#service-tags) 11000 12000 bağlantı noktaları. Bu, sizin için bir seçenek değilse, sunucu açıkça geçiş `Proxy`.
+
+> [!NOTE]
+> Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
 
 ## <a name="connectivity-architecture"></a>Bağlantı mimarisi
 
@@ -54,7 +57,7 @@ Aşağıdaki adımlar, bir bağlantının bir Azure SQL veritabanına nasıl kur
 
 Azure SQL veritabanı, SQL veritabanı sunucusu bağlantı İlkesi ayarı için aşağıdaki üç seçenekten destekler:
 
-- **Yeniden yönlendirme (önerilen):** İstemciler veritabanını barındıran düğüme doğrudan bağlantı kurar. Bağlantıyı etkinleştirmek için istemcileri ile ağ güvenlik grupları (NSG) kullanarak bölgedeki tüm Azure IP adreslerine giden güvenlik duvarı kuralları izin [hizmet etiketleri](../virtual-network/security-overview.md#service-tags)), yalnızca Azure SQL veritabanı ağ geçidi IP adresi. Paketler, doğrudan veritabanına gidin olduğundan, gecikme süresi ve aktarım hızı performansı geliştirdik.
+- **Yeniden yönlendirme (önerilen):** İstemciler veritabanını barındıran düğüme doğrudan bağlantı kurar. Bağlantıyı etkinleştirmek için istemcileri ile ağ güvenlik grupları (NSG) kullanarak bölgedeki tüm Azure IP adreslerine giden güvenlik duvarı kuralları izin [hizmet etiketleri](../virtual-network/security-overview.md#service-tags)) bağlantı noktaları 11000 12000, yalnızca Azure SQL veritabanı ağ geçidi IP 1433 numaralı bağlantı noktasında adresleri. Paketler, doğrudan veritabanına gidin olduğundan, gecikme süresi ve aktarım hızı performansı geliştirdik.
 - **Proxy:** Bu modda, tüm bağlantılar, Azure SQL veritabanı ağ geçitleri taşınır. Bağlantıyı etkinleştirmek için istemci yalnızca Azure SQL veritabanı ağ geçidi IP adresleri (genellikle iki IP adresi bölge başına) izin giden güvenlik duvarı kurallarınız olmalıdır. Bu modu seçme, daha yüksek gecikme süresi ve iş yükü doğasına bağlı olarak daha düşük aktarım hızı, sonuçlanabilir. Öneririz `Redirect` bağlantı ilkesi üzerine `Proxy` düşük gecikme süresi ve yüksek aktarım hızı için bağlantı ilkesi.
 - **Varsayılan:** Açıkça ya da bağlantı İlkesi yapmadığınız sürece bu bağlantı geçerli tüm sunucularda oluşturulduktan sonra ilkedir `Proxy` veya `Redirect`. Etkin ilke olup bağlantıları Azure içinde kaynaklanan üzerinde bağlıdır (`Redirect`) veya Azure dışında (`Proxy`).
 

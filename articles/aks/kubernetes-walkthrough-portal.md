@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 0b4e334ea9a423ed4eb9a0830d68ad7f4b843a88
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6075086b390a14e807e493bd574ac889b81272bf
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833659"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437359"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Hızlı Başlangıç: Azure Kubernetes Hizmeti (AKS) kümesini dağıtma
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Hızlı Başlangıç: Azure Kubernetes Service (AKS) kümesini dağıtma
 
 Bu hızlı başlangıçta, Azure portalını kullanarak bir AKS kümesi dağıtırsınız. Ardından web ön ucu ve bir Redis örneğinden oluşan çok kapsayıcılı bir uygulama küme üzerinde çalıştırılır. Tamamlandığında, uygulamaya İnternet üzerinden erişilebilir.
 
@@ -36,27 +36,27 @@ Azure portalının sol üst köşesinde bulunan **Create a resource** (Kaynak ol
 AKS kümesi oluşturmak için aşağıdaki adımları tamamlayın:
 
 1. **Temel**: Aşağıdaki seçenekleri yapılandırın:
-    - *PROJE AYRINTILARI*: Bir Azure aboneliği seçtikten sonra bir Azure kaynak grubu seçin veya *myResourceGroup* adıyla yeni bir tane oluşturun. **Kubernetes kümesi adı** alanına *myAKSCluster* gibi bir ad girin.
-    - *KÜME AYRINTILARI*: AKS kümesi için bölge, Kubernetes sürümü ve DNS adı ön eki seçin.
-    - *ÖLÇEK*: AKS düğümleri için bir sanal makine boyutu seçin. AKS kümesi dağıtıldıktan sonra, sanal makine boyutu **değiştirilemez**.
+    - *PROJE AYRINTILARINI*: Bir Azure aboneliği seçin sonra seçin veya bir Azure kaynak grubu gibi oluşturma *myResourceGroup*. **Kubernetes kümesi adı** alanına *myAKSCluster* gibi bir ad girin.
+    - *KÜME AYRINTILARI*: Bölge, Kubernetes sürümü ve DNS adı ön eki için AKS kümesi seçin.
+    - *ÖLÇEK*: AKS düğümleri için VM boyutunu seçin. AKS kümesi dağıtıldıktan sonra, sanal makine boyutu **değiştirilemez**.
         - Kümeye dağıtılacak düğüm sayısını seçin. Bu hızlı başlangıç **Düğüm sayısı** değerini *1* olarak belirleyin. Küme dağıtıldıktan sonra düğüm sayısı **ayarlanabilir**.
     
     ![AKS kümesi oluşturma - temel bilgileri sağlama](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    Tamamladığınızda **İleri: Kimlik doğrulaması**'nı seçin.
+    Seçin **sonraki: Kimlik doğrulaması** tamamlandığında.
 
-1. **Kimlik Doğrulaması**: Aşağıdaki seçenekleri yapılandırın:
+1. **Kimlik doğrulaması**: Aşağıdaki seçenekleri yapılandırın:
     - Yeni bir hizmet sorumlusu oluşturun veya *Yapılandır* seçeneğiyle mevcut bir hizmet sorumlusunu kullanın. Mevcut bir SPN kullanırken, SPN istemci kimliğini ve gizli dizisini sağlamanız gerekir.
     - Kubernetes rol tabanlı erişim denetimleri (RBAC) seçeneğini etkinleştirin. Bu denetimler AKS kümenize dağıtılmış olan Kubernetes kaynakları üzerinde daha ayrıntılı denetim sunar.
 
-    Tamamlandığında, **Sonraki: Ağ** seçeneğini belirleyin.
+    Seçin **sonraki: Ağ** tamamlandığında.
 
-1. **Ağ**: Aşağıdaki ağ seçeneklerini yapılandırın, bu değerlerin varsayılan olarak aşağıdaki şekilde ayarlanmış olması gerekir:
+1. **Ağ**: Aşağıdaki ağ seçeneklerini yapılandırın:
     
     - **Http uygulama yönlendirme**: Otomatik genel DNS adı oluşturma işlemiyle tümleşik bir giriş denetleyicisini yapılandırmak için **Evet**'i seçin. Http yönlendirme hakkında daha fazla bilgi için bkz. [AKS HTTP yönlendirme ve DNS][http-routing].
     - **Ağ yapılandırması**: [Azure CNI][azure-cni] ile gelişmiş ağ yapılandırması yerine [kubenet][kubenet] Kubernetes eklentisini kullanan **Temel** ağ iletişimini seçin. Ağ seçenekleri hakkında daha fazla bilgi için bkz. [AKS ağına genel bakış][aks-network].
     
-    Tamamlandığında, **Sonraki: Ağ** seçeneğini belirleyin.
+    Seçin **sonraki: İzleme** tamamlandığında.
 
 1. AKS kümesi dağıtılırken kapsayıcılar için Azure İzleyici, AKS kümesinin ve kümede çalıştırılan pod’ların durumunu izlemek için yapılandırılabilir. Küme durumu izleme hakkında daha fazla bilgi için bkz. [Azure Kubernetes Hizmeti durumunu izleme][aks-monitor].
 
@@ -88,7 +88,7 @@ Kümenize bağlantıyı doğrulamak için [kubectl get][kubectl-get] komutunu ku
 kubectl get nodes
 ```
 
-Aşağıdaki örnekte önceki adımlarda oluşturulan tek düğüm gösterilmiştir.
+Aşağıdaki örnekte önceki adımlarda oluşturulan tek düğüm gösterilmiştir. Düğüm durumunun "Hazır" olduğundan emin olun.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION

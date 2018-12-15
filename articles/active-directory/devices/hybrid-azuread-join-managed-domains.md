@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 292247ae2881bd60616728ad857fab58c8ed7fd5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b8d45e72e15ff86b53f7355634e8f197b94260bd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309552"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435438"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Öğretici: Yönetilen etki alanları için hibrit Azure Active Directory katılımını Yapılandır
 
@@ -53,7 +53,11 @@ Bu öğreticide, şu konularda bilgi sahibi olduğunuz varsayılır:
 -  [Cihazlarınızın hibrit Azure AD'ye katılımını denetleme](hybrid-azuread-join-control.md)
   
 
-Bu makaledeki senaryoyu yapılandırmak için, [en yeni Azure AD Connect sürümünün](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 veya sonraki) yüklü olması gerekir. 
+Bu makaledeki senaryoda yapılandırmak için gerekir:
+
+- Bir şirket içi Active Directory (AD) ile bir şema düzeyinde 85 veya sonraki sürümüne yükseltilmesi. Daha fazla bilgi için [Active Directory şemanızı yükseltme](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
+
+- [Azure AD Connect'in en son sürümünü](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 veya üzeri) yüklü. 
 
 Azure AD Connect'in hibrit Azure AD'ye katılmış olmasını istediğiniz cihazların bilgisayar nesnelerini Azure AD'ye eşitlediğini doğrulayın. Bilgisayar nesneleri belirli kuruluş birimlerine (OU) aitse bu kuruluş birimlerinin Azure AD Connect'te eşitleme için de yapılandırılmış olması gerekir.
 

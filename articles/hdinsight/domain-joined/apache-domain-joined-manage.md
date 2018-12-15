@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: a995f99f7baa8d6f9476f852aa47ce239c921a50
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 4df96d0c3d1ec9cb64f2394fb97d46178906d916
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634473"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434826"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Kurumsal güvenlik paketi ile HDInsight kümelerini yönetme
 Kullanıcılar ve roller HDInsight Kurumsal güvenlik paketi (ESP) ve ESP kümelerini nasıl yöneteceğinizi öğrenin.
@@ -22,7 +22,7 @@ Kullanıcılar ve roller HDInsight Kurumsal güvenlik paketi (ESP) ve ESP kümel
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>Etki alanına katılmış kümeye bağlamak için VSCode kullanma
 
 Yönetilen Apache Ambari kullanıcı adı kullanarak normal bir küme bağlantısını, ayrıca etki alanı kullanıcı adı kullanarak bir güvenlik Apache Hadoop kümesi bağlantı (örneğin: user1@contoso.com).
-1. Seçerek komut paletini açın **CTRL + SHIFT + P**yazıp enter **HDInsight: küme bağlantı**.
+1. Seçerek komut paletini açın **CTRL + SHIFT + P**yazıp enter **HDInsight: Küme bağlantı**.
 
    ![bağlantı kümesi komutu](./media/apache-domain-joined-manage/link-cluster-command.png)
 
@@ -30,14 +30,14 @@ Yönetilen Apache Ambari kullanıcı adı kullanarak normal bir küme bağlantı
    
    ![bağlantı kümesi iletişim kutusu](./media/apache-domain-joined-manage/link-cluster-process.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Küme hem Azure aboneliğinizde oturum ve bir kümeye bağlı bağlı kullanıcı adı ve parola kullanılır. 
    
 3. Komutunu kullanarak bir bağlı küme görebilirsiniz **listesi küme**. Artık bağlantılı bu küme için bir komut gönderebilirsiniz.
 
    ![bağlı küme](./media/apache-domain-joined-manage/linked-cluster.png)
 
-4. Ayrıca, girişini yaparak tarafından bir küme kesebilir **HDInsight: küme bağlantısını** komut paletinden.
+4. Ayrıca, girişini yaparak tarafından bir küme kesebilir **HDInsight: Bir küme bağlantısını** komut paletinden.
 
 ## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>Etki alanına katılmış kümeye bağlamak için IntelliJ kullanma
 
@@ -50,7 +50,7 @@ Ambari yönetilen kullanıcı adı kullanarak normal bir küme bağlantısını,
    
    ![bağlantı kümesi iletişim kutusu](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Küme hem Azure aboneliğinizde oturum ve bir kümeye bağlı bağlantılı depolama anahtarı, kullanıcı adı ve parola kullanın.
    > ![Depolama Gezgini'nde Intellij](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
 
@@ -74,7 +74,7 @@ Ambari yönetilen kullanıcı adı kullanarak normal bir küme bağlantısını,
    
    ![bağlantı kümesi iletişim kutusu](./media/apache-domain-joined-manage/link-cluster-dialog.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > Küme hem Azure aboneliğinizde oturum ve bir kümeye bağlı bağlantılı depolama anahtarı, kullanıcı adı ve parola kullanın.
    > ![Depolama Gezgini'nde Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
 
@@ -94,13 +94,13 @@ Güvenlik ve kullanıcı yalıtımı Kurumsal güvenlik paketi ile bir HDInsight
 
 |İş yükü|Senaryo|Erişim yöntemi|
 |--------|--------|-------------|
-|Hadoop|Hive – etkileşimli iş/sorgular |<ul><li>[Beeline](#beeline)</li><li>[Hive görünümü](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Araçları](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Spark|Etkileşimli iş/sorgular, PySpark etkileşimli|<ul><li>[Beeline](#beeline)</li><li>[Livy ile Zeppelin](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive görünümü](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Araçları](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Spark|Spark gönderme, PySpark batch senaryoları|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Apache Hadoop|Hive – etkileşimli iş/sorgular  |<ul><li>[Beeline](#beeline)</li><li>[Hive görünümü](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Araçları](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|Etkileşimli iş/sorgular, PySpark etkileşimli|<ul><li>[Beeline](#beeline)</li><li>[Livy ile Zeppelin](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive görünümü](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Araçları](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|Spark gönderme, PySpark batch senaryoları|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
 |Etkileşimli sorgu (LLAP)|Etkileşimli|<ul><li>[Beeline](#beeline)</li><li>[Hive görünümü](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Araçları](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Herhangi biri|Özel uygulama yükleme|<ul><li>[Betik eylemleri](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
-   > [!NOTE]
+   > [!NOTE]  
    > Jupyter yüklü/desteklenir Kurumsal güvenlik paketi değil.
 
 Standart API'lerini kullanarak, güvenlik açısından yardımcı olur. Ayrıca, aşağıdaki avantajlardan yararlanabilirsiniz:
@@ -147,8 +147,8 @@ ESP HDInsight küme, küme oluşturma sırasında oluşturulan iki kullanıcı h
 
 Bir HDInsight kümesi ile ESP Ambari Yöneticisi ek olarak üç yeni kullanıcıları içeren
 
-* **Ranger yönetici**: Bu hesap yerel Apache Ranger yönetici hesabıdır. Bir active directory etki alanı kullanıcısı değil. Bu hesap ilkeleri ayarlayın ve (söz konusu kullanıcıların ilkeleri yönetebilmeniz için) diğer kullanıcılara yönetici veya yönetici temsilcileri yapmak için kullanılabilir. Varsayılan olarak, kullanıcı adı: *yönetici* ve parola Ambari Yöneticisi parolasını ile aynıdır. Parola ayarları sayfasından Ranger güncelleştirilebilir.
-* **Küme Yöneticisi etki alanı kullanıcısı**: Bu hesap, Ambari ve Ranger gibi Hadoop Küme Yöneticisi olarak atanmış bir active directory etki alanı kullanıcısı. Küme oluşturma sırasında bu kullanıcının kimlik bilgilerini sağlamanız gerekir. Bu kullanıcıya aşağıdaki ayrıcalıklara sahiptir:
+* **Ranger yönetici**:  Bu hesap yerel Apache Ranger yönetici hesabıdır. Bir active directory etki alanı kullanıcısı değil. Bu hesap ilkeleri ayarlayın ve (söz konusu kullanıcıların ilkeleri yönetebilmeniz için) diğer kullanıcılara yönetici veya yönetici temsilcileri yapmak için kullanılabilir. Varsayılan olarak, kullanıcı adı: *yönetici* ve parola Ambari Yöneticisi parolasını ile aynıdır. Parola ayarları sayfasından Ranger güncelleştirilebilir.
+* **Küme Yöneticisi etki alanı kullanıcısı**: Ambari ve Ranger gibi Hadoop Küme Yöneticisi olarak atanmış bir active directory etki alanı kullanıcı hesabıdır. Küme oluşturma sırasında bu kullanıcının kimlik bilgilerini sağlamanız gerekir. Bu kullanıcıya aşağıdaki ayrıcalıklara sahiptir:
 
   * Makine etki alanına ve küme oluşturma sırasında belirttiğiniz OU içinde yerleştirin.
   * Küme oluşturma sırasında belirttiğiniz OU içinde hizmet sorumluları oluşturma.
@@ -157,7 +157,7 @@ Bir HDInsight kümesi ile ESP Ambari Yöneticisi ek olarak üç yeni kullanıcı
     Diğer AD kullanıcılar da bu ayrıcalıklara sahip olmadığını unutmayın.
 
     Ranger tarafından yönetilmez ve bu nedenle güvenli olmayan bazı uç noktalar (örneğin, templeton olarak da) kümesi içinde vardır. Bu uç noktaları, Küme Yöneticisi etki alanı kullanıcısı dışındaki tüm kullanıcılar için kilitlendiğini.
-* **Normal**: küme oluşturma sırasında birden çok active directory grupları sağlayabilirsiniz. Bu gruplardaki kullanıcılar için Ranger'ı ve Ambari eşitlenir. Bu kullanıcılar, etki alanı kullanıcıları olan ve yalnızca Ranger yönetilen uç noktalar (örneğin, Hiveserver2) erişebilir. RBAC ilkelerini ve bu kullanıcılar için uygun denetim sağlar.
+* **Normal**: Küme oluşturma sırasında birden çok active directory grupları sağlayabilirsiniz. Bu gruplardaki kullanıcılar için Ranger'ı ve Ambari eşitlenir. Bu kullanıcılar, etki alanı kullanıcıları olan ve yalnızca Ranger yönetilen uç noktalar (örneğin, Hiveserver2) erişebilir. RBAC ilkelerini ve bu kullanıcılar için uygun denetim sağlar.
 
 ## <a name="roles-of-hdinsight-clusters-with-esp"></a>HDInsight kümeleri ESP ile roller
 Kurumsal güvenlik paketi HDInsight aşağıdaki roller vardır:
@@ -223,4 +223,4 @@ Kurumsal güvenlik paketi HDInsight aşağıdaki roller vardır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Kurumsal güvenlik paketi ile bir HDInsight kümesi yapılandırmak için bkz: [yapılandırma HDInsight kümeleri ile ESP](apache-domain-joined-configure.md).
-* Hive ilkelerini ve Hive sorgularını çalıştırmak için bkz [Hive ilkelerini için HDInsight kümeleri ile ESP](apache-domain-joined-run-hive.md).
+* Hive ilkelerini ve Hive sorgularını çalıştırmak için bkz [HDInsight için Apache Hive ilkelerini kümeleri ile ESP](apache-domain-joined-run-hive.md).

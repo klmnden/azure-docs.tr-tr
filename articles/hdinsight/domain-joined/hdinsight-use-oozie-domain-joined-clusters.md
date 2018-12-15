@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d0bc48e07efeaf8f09f177367da0570cf3c250ec
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0ab225d3579ed6a56c753f0c581709408c65f358
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165155"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436288"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Apache Oozie HDInsight Hadoop kümeleri Kurumsal güvenlik paketi ile çalıştırın.
 
@@ -30,8 +30,8 @@ Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlam
 
 - Azure HDInsight Hadoop kümesi ile Kurumsal güvenlik paketi (ESP). Bkz: [yapılandırma HDInsight kümeleri ile ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
-    > [!NOTE]
-    > ESP olmayan kümelerinde Oozie kullanma hakkında ayrıntılı yönergeler için bkz. [Azure HDInsight Linux tabanlı Hadoop Oozie kullanma akışlarında](../hdinsight-use-oozie-linux-mac.md).
+    > [!NOTE]  
+    > ESP olmayan kümelerinde Oozie kullanma hakkında ayrıntılı yönergeler için bkz. [Azure HDInsight Linux tabanlı kullanım Apache Oozie iş akışlarında](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="connect-to-an-esp-cluster"></a>ESP bir kümeye bağlanma
 
@@ -52,7 +52,7 @@ ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
     Durum yanıt kodu **200 Tamam** başarılı kayıt gösterir. Gibi 401 Yetkisiz bir yanıt alınmazsa kullanıcı adı ve parolayı kontrol edin.
 
 ## <a name="define-the-workflow"></a>İş akışı tanımlama
-Oozie iş akışı tanımları Hadoop işlem tanım dili (hPDL) yazılır. hPDL XML işlem tanımı dilidir. İş akışını tanımlamak için aşağıdaki adımları uygulayın:
+Oozie iş akışı tanımları, Apache Hadoop işlem tanım dili (hPDL) yazılır. hPDL XML işlem tanımı dilidir. İş akışını tanımlamak için aşağıdaki adımları uygulayın:
 
 1.  Bir etki alanı kullanıcısının çalışma ayarlayın:
  ```bash
@@ -243,7 +243,7 @@ Hive server 1 ve Hive server 2 Aşağıdaki bölümlerde gösterildiği gibi iki
     select devicemake from hivesampletable limit 2;
     ```
 
-3.  Hadoop dağıtılmış dosya sistemi (HDFS için) dosyayı kaydedin:
+3.  Apache Hadoop dağıtılmış dosya sistemi (HDFS için) dosyayı kaydedin:
     ```bash
     hdfs dfs -put countrowshive1.hql countrowshive1.hql
     ```
@@ -271,11 +271,11 @@ Hive server 1 ve Hive server 2 Aşağıdaki bölümlerde gösterildiği gibi iki
 
 ESP kümeleri için Oozie işlerini göndermenin ESP olmayan kümelerinde Oozie işleri gönderme gibi olur.
 
-Daha fazla bilgi için [tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma](../hdinsight-use-oozie-linux-mac.md).
+Daha fazla bilgi için [tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Apache Hadoop ile Apache Oozie kullanma](../hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="results-from-an-oozie-job-submission"></a>Bir Oozie iş gönderme sonuçları
+Oozie işleri, kullanıcı için çalıştırılır. Bu nedenle hem Apache Hadoop YARN ve Apache Ranger günlükleri göster başkasının kimliğine bürünülerek gerçekleştirilen bir kullanıcı olarak çalıştırılan işler denetim. Oozie iş komut satırı arabirimi çıktısı şu kod gibi görünür:
 
-Oozie işleri, kullanıcı için çalıştırılır. Bu nedenle hem Apache YARN ve Apache Ranger günlükleri göster başkasının kimliğine bürünülerek gerçekleştirilen bir kullanıcı olarak çalıştırılan işler denetim. Oozie iş komut satırı arabirimi çıktısı şu kod gibi görünür:
 
 
 ```bash
@@ -315,7 +315,7 @@ Hive server 2 Eylemler Ranger denetim günlüklerini çalıştıran kullanıcı 
 
 Oozie kendisi tarafından kullanıcıların durdurma veya diğer kullanıcıların işlerini silme engelleyebilen bir kullanıcı yetkilendirme yapılandırması vardır. Bu yapılandırma etkinleştirmek için `oozie.service.AuthorizationService.security.enabled` için `true`. 
 
-Daha fazla bilgi için [Oozie yükleme ve yapılandırma](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
+Daha fazla bilgi için [Apache Oozie yükleme ve yapılandırma](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
 
 Hive server burada eklenti Ranger desteklenen veya kullanılabilir değil 1 gibi bileşenleri için parçalı HDFS yetkilendirme mümkündür. Ayrıntılı yetkilendirme yalnızca Ranger eklentileri kullanılabilir.
 
@@ -328,6 +328,6 @@ Oozie web kullanıcı Arabirimi, küme üzerinde Oozie işlerin durumunu web tab
 2. İzleyin [Oozie web kullanıcı Arabirimi](../hdinsight-use-oozie-linux-mac.md) kenar düğümüne SSH tüneli etkinleştirmek ve web kullanıcı Arabirimine erişip adımları.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Hadoop ile Oozie kullanma](../hdinsight-use-oozie-linux-mac.md).
-* [Zaman tabanlı Oozie Düzenleyici kullanma](../hdinsight-use-oozie-coordinator-time.md).
-* [SSH kullanarak HDInsight (Hadoop) için bağlama](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* [Tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Apache Hadoop ile Apache Oozie kullanma](../hdinsight-use-oozie-linux-mac.md).
+* [Zamana bağlı Apache Oozie Düzenleyici kullanma](../hdinsight-use-oozie-coordinator-time.md).
+* [SSH kullanarak HDInsight için (Apache Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

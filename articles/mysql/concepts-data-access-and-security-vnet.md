@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: f18f52fc409df769d164607a128caaf02ead5e4b
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 1c159e5c86f713f1f7dbce5cd96cd2ce5d3c22fb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060991"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437988"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Sanal ağ hizmet uç noktaları ve kuralları için Azure veritabanı için MySQL kullanır.
 
@@ -31,9 +31,9 @@ Bir sanal ağ kuralı oluşturmak için öncelikle olmalıdır bir [sanal ağ] [
 
 ## <a name="terminology-and-description"></a>Terminoloji ve açıklaması
 
-**Sanal ağ:** Azure aboneliğinizle ilişkili sanal ağı olabilir.
+**Sanal ağ:** Azure aboneliğinizle ilişkili sanal ağları olabilir.
 
-**Alt ağı:** içeren bir sanal ağ **alt ağlar**. Tüm Azure sahip olduğunuz sanal makinelerin (VM'ler), alt ağa atanır. Bir alt ağ, birden çok VM veya başka bir işlem düğümünde içerebilir. Sanal ağınızın dışında düğümleri erişime izin vermek için güvenlik yapılandırmadığınız sürece, sanal ağınızın erişemiyor işlem.
+**Alt ağı:** Bir sanal ağ içeren **alt ağlar**. Tüm Azure sahip olduğunuz sanal makinelerin (VM'ler), alt ağa atanır. Bir alt ağ, birden çok VM veya başka bir işlem düğümünde içerebilir. Sanal ağınızın dışında düğümleri erişime izin vermek için güvenlik yapılandırmadığınız sürece, sanal ağınızın erişemiyor işlem.
 
 **Sanal ağ hizmet uç noktası:** A [sanal ağ hizmet uç noktası] [ vm-virtual-network-service-endpoints-overview-649d] özellik değerleri içeren bir veya daha fazla biçimsel Azure hizmet türü adları bir alt ağ. Bu makalede şu tür adı ile ilgilenen **Microsoft.Sql**, adlandırılmış SQL veritabanı, Azure hizmetini ifade eder. Bu hizmet etiketi, hizmetleri, MySQL ve PostgreSQL için Azure veritabanı için de geçerlidir. Uygularken dikkate almak önemlidir **Microsoft.Sql** hizmet etiketi bir sanal ağ hizmet uç noktası için tüm Azure SQL veritabanı, MySQL için Azure veritabanı ve PostgreSQL sunucuları için Azure veritabanı için hizmet uç noktası trafiğini yapılandırın alt ağda. 
 
@@ -91,8 +91,8 @@ Her sanal ağ kuralı, tüm Azure veritabanınızı MySQL sunucusuna, yalnızca 
 
 Sanal ağ hizmet uç noktaları Yönetim güvenlik rollerini ayrımı yoktur. Eylem her aşağıdaki roller gereklidir:
 
-- **Ağ Yöneticisi:** &nbsp; uç noktada açın.
-- **Veritabanı Yöneticisi:** &nbsp; erişim denetim listesi (ACL) belirli alt MySQL sunucusu için Azure veritabanı eklemek için güncelleştirin.
+- **Ağ Yöneticisi:** &nbsp; Uç noktada bırakın.
+- **Veritabanı Yöneticisi:** &nbsp; Erişim denetimi listesi (ACL) belirli alt MySQL sunucusu için Azure veritabanı eklemek için güncelleştirin.
 
 *RBAC alternatif:*
 
@@ -115,7 +115,7 @@ MySQL için Azure veritabanı için sanal ağ kuralları özelliği aşağıdaki
 
 - Sanal ağ kuralları yalnızca Azure Resource Manager sanal ağlara uygulanır. ve değil [Klasik dağıtım modeli] [ arm-deployment-model-568f] ağlar.
 
-- Kullanarak MySQL için kapatma şirket sanal ağ hizmet uç noktaları için Azure veritabanı **Microsoft.Sql** hizmet etiketi, aynı zamanda uç noktaları tüm Azure veritabanı hizmetleri sağlar: MySQL, PostgreSQL için Azure veritabanı için Azure veritabanı Azure SQL veritabanı ve Azure SQL veri ambarı.
+- Kullanarak MySQL için kapatma şirket sanal ağ hizmet uç noktaları için Azure veritabanı **Microsoft.Sql** hizmet etiketi, aynı zamanda uç noktaları tüm Azure veritabanı hizmetleri sağlar: MySQL için Azure veritabanı, PostgreSQL için Azure veritabanı, Azure SQL veritabanı ve Azure SQL veri ambarı.
 
 - Yalnızca genel amaçlı ve bellek için iyileştirilmiş sunucuları için sanal ağ hizmet uç noktaları desteğidir.
 
@@ -144,7 +144,7 @@ Sanal ağ kuralları oluşturma hakkında makaleler için bkz:
 - [Oluşturma ve Azure portalını kullanarak MySQL sanal ağ kuralları için Azure veritabanı'nı yönetme](howto-manage-vnet-using-portal.md)
 - [Oluşturma ve Azure CLI kullanarak MySQL sanal ağ kuralları için Azure veritabanı'nı yönetme](howto-manage-vnet-using-cli.md)
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

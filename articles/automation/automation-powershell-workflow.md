@@ -6,21 +6,21 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/04/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b60e1639a1c32763c4759720fe61b0e571fc9dd1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239432"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437104"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Otomasyon runbook'ları için temel Windows PowerShell iş akışı kavramları öğrenme
 
 Azure automation'daki Runbook'lar Windows PowerShell iş akışları olarak uygulanır.  Bir Windows PowerShell iş akışı bir Windows PowerShell betiğiyle aynıdır, ancak yeni bir kullanıcı için kafa karıştırıcı olabilir bazı önemli farklılıklar vardır.  Bu makalede PowerShell iş akışı kullanarak runbook'ları yazmanıza yardımcı olmak için tasarlanmıştır ancak denetim noktaları gerekmedikçe PowerShell kullanarak runbook'ları yazma öneririz.  PowerShell iş akışı runbook'ları yazma sırasında birkaç söz dizimi farkları olan ve bu farklar etkin iş akışları yazmak için biraz daha fazla iş gerektirir.
 
-Bir iş akışı, uzun süre çalışan görevleri gerçekleştiren veya birden çok aygıttaki veya yönetilen düğümlerdeki birden çok adımın koordinasyonu programlanmış, bağlantılı adımlardan dizisidir. Bir iş akışının normal betiğe aynı anda birden çok cihaz üzerinde eylem gerçekleştirmenize olanak ve hatadan otomatik olarak kurtarma becerisi avantajına sahip olur. Bir Windows PowerShell iş akışı Windows Workflow Foundation kullanan bir Windows PowerShell betiğidir. İş akışı Windows PowerShell sözdizimi kullanılarak yazılsa ve Windows PowerShell tarafından başlatılsa karşın, Windows Workflow Foundation tarafından işlenir.
+İş akışı uzun süre çalışan görevleri gerçekleştiren veya birden çok aygıttaki veya yönetilen düğümlerdeki birden çok adımın koordinasyonu için gereken programlanmış, bağlantılı adımlardan oluşan bir dizidir. İş akışının normal betiğe göre avantajları bir eylemi birden çok aygıtta aynı anda gerçekleştirebilme ve hatadan otomatik olarak kurtarma yetenekleridir. Bir Windows PowerShell iş akışı Windows Workflow Foundation kullanan bir Windows PowerShell betiğidir. İş akışı Windows PowerShell sözdizimi kullanılarak yazılsa ve Windows PowerShell tarafından başlatılsa da, Windows Workflow Foundation tarafından işlenir.
 
 Bu makaledeki konular hakkında tüm ayrıntılar için bkz. [Windows PowerShell iş akışı ile çalışmaya başlama](https://technet.microsoft.com/library/jj134242.aspx).
 
@@ -45,9 +45,9 @@ PowerShell iş akışı kod PowerShell komut dosyası kodu dışında birkaç ö
 
 ### <a name="activities"></a>Etkinlikler
 
-Bir etkinlik bir iş akışındaki belirli bir görevdir. Yalnızca bir betik, bir veya daha çok komuttan oluşmasına benzer şekilde, bir iş akışı bir sırayla yürütülen bir veya daha fazla etkinlik oluşur. Bir iş akışı çalıştığında Windows PowerShell Workflow birçok Windows PowerShell cmdlet'leri otomatik olarak etkinliklere dönüştürür. Biri, bu cmdlet'leri runbook'unuza belirttiğinizde, Windows Workflow Foundation tarafından karşılık gelen etkinlik çalıştırılır. Karşılık gelen bir etkinliği olmayan cmdlet'ler için Windows PowerShell iş akışı cmdlet'i otomatik olarak çalışan bir [Inlinescript](#inlinescript) etkinlik. Hariç tutulan ve bir iş akışında açıkça bunları bir Inlinescript bloğunda eklemediğiniz sürece kullanılamaz cmdlet'ler kümesi yok. Bu kavramlarla ilgili daha fazla bilgi için bkz. [betik iş akışlarındaki aktiviteler kullanarak](https://technet.microsoft.com/library/jj574194.aspx).
+Etkinlik bir iş akışındaki belirli bir görevdir. Betiğin bir veya daha çok komuttan oluşmasına benzer şekilde, iş akışı da belirli bir sırayla yürütülen bir veya daha çok etkinlikten oluşur. Windows PowerShell Workflow birçok Windows PowerShell cmdlet'ini bir iş akışı içinde çalıştıklarında otomatik olarak etkinliklere dönüştürür. Biri, bu cmdlet'leri runbook'unuza belirttiğinizde, Windows Workflow Foundation tarafından karşılık gelen etkinlik çalıştırılır. Karşılık gelen bir etkinliği olmayan cmdlet'ler için, Windows PowerShell İş Akışı cmdlet'i bir [InlineScript](#inlinescript) etkinliğinde otomatik olarak çalıştırır. Hariç tutulan ve bir iş akışında açıkça bunları bir Inlinescript bloğunda eklemediğiniz sürece kullanılamaz cmdlet'ler kümesi yok. Bu kavramlarla ilgili daha fazla bilgi için bkz. [Betik İş Akışlarında Etkinlikleri Kullanma](https://technet.microsoft.com/library/jj574194.aspx).
 
-İş akışı etkinlikleri çalışmalarını yapılandıran ortak parametreler kümesini paylaşır. İş akışı ortak parametreleri hakkında daha fazla ayrıntı için bkz: [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
+İş akışı etkinlikleri çalışmalarını yapılandıran ortak parametreler kümesini paylaşır. Ortak iş akışı parametreleriyle ilgili daha ayrıntılı bilgi için bkz. [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
 
 ### <a name="positional-parameters"></a>Konumsal Parametreler
 
@@ -101,9 +101,9 @@ Workflow Stop-MyService
 }
 ```
 
-## <a name="inlinescript"></a>Inlinescript
+## <a name="inlinescript"></a>InlineScript
 
-**Inlinescript** etkinlik, bir veya daha fazla komut yerine PowerShell iş akışı gibi geleneksel PowerShell betiğini çalıştırmak ihtiyacınız olduğunda yararlıdır.  Bir iş akışındaki komutları için Windows Workflow Foundation için işlem gönderilirken, bir Inlinescript bloğundaki komutlar Windows PowerShell tarafından işlenir.
+**Inlinescript** etkinlik, bir veya daha fazla komut yerine PowerShell iş akışı gibi geleneksel PowerShell betiğini çalıştırmak ihtiyacınız olduğunda yararlıdır.  Bir iş akışındaki komutlar işlenmek üzere Windows Workflow Foundation'a gönderilirken, bir InlineScript bloğundaki komutlar Windows PowerShell tarafından işlenir.
 
 Inlinescript, aşağıda gösterilen aşağıdaki sözdizimini kullanır.
 
@@ -156,7 +156,7 @@ Inlinescript kullanma hakkında daha fazla bilgi için bkz. [bir iş akışında
 
 ## <a name="parallel-processing"></a>Paralel işleme
 
-Windows PowerShell iş akışlarının bir avantajı, bir komut kümesi yerine paralel sıralı olarak tipik bir betikteki gibi ile gerçekleştirmek için yeteneğidir.
+Windows PowerShell İş Akışlarının bir avantajı da bir komutlar kümesini tipik bir betikteki gibi sırayla yürütmek yerine paralel olarak gerçekleştirebilmesidir.
 
 Kullanabileceğiniz **paralel** eşzamanlı olarak çalışan birden çok komut içeren bir betik bloğu oluşturmak için anahtar sözcüğü. Bu, aşağıda gösterilen aşağıdaki sözdizimini kullanır. Bu durumda, Activity1 ve Activity2 aynı anda başlatır. Activity3 ancak Activity1 ve Activity2 yalnızca tamamladıktan sonra başlar.
 
@@ -193,10 +193,10 @@ Workflow Copy-Files
 }
 ```
 
-Kullanabileceğiniz **ForEach-Parallel** eşzamanlı olarak bir koleksiyondaki her öğe için komutları işlemek üzere yapısı. Betik bloğundaki komutlar sırayla yürütülürken koleksiyondaki öğeler paralel olarak işlenir. Bu, aşağıda gösterilen aşağıdaki sözdizimini kullanır. Bu durumda, Activity1 koleksiyondaki tüm öğeler için aynı anda başlatır. Her öğe için Activity2, Activity1 tamamlandıktan sonra başlar. Activity3 ancak yalnızca tüm öğeler için Activity1 ve Activity2 tamamlandığında başlar.
+Kullanabileceğiniz **ForEach-Parallel** eşzamanlı olarak bir koleksiyondaki her öğe için komutları işlemek üzere yapısı. Betik bloğundaki komutlar sırayla yürütülürken koleksiyondaki öğeler paralel olarak işlenir. Bu, aşağıda gösterilen aşağıdaki sözdizimini kullanır. Bu durumda, Activity1 koleksiyondaki tüm öğeler için aynı anda başlatır. Her öğe için Activity2, Activity1 tamamlandıktan sonra başlar. Activity3 ancak yalnızca tüm öğeler için Activity1 ve Activity2 tamamlandığında başlar. Kullandığımız `ThrottleLimit` sınırlamak için parametre. Çok yüksek bir `ThrottleLimit` sorunlara neden olabilir. İdeal değeri `ThrottleLimit` parametresi, ortamınızdaki birçok faktöre bağlıdır. Düşük bir değerle başlangıç deneyin ve farklı artan değerleri için belirli durumda çalışan bulana kadar deneyin gerekir.
 
 ```powershell
-ForEach -Parallel ($<item> in $<collection>)
+ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
 {
     <Activity1>
     <Activity2>
@@ -211,7 +211,7 @@ Workflow Copy-Files
 {
     $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
 
-    ForEach -Parallel ($File in $Files)
+    ForEach -Parallel -ThrottleLimit 10 ($File in $Files)
     {
         Copy-Item -Path $File -Destination \\NetworkPath
         Write-Output "$File copied."
@@ -226,7 +226,7 @@ Workflow Copy-Files
 
 ## <a name="checkpoints"></a>Kontrol noktaları
 
-A *denetim noktası* değişkenlerin geçerli değerlerini ve bu noktaya kadar üretilen herhangi bir çıktı içeren iş akışının geçerli durumu anlık görüntüsüdür. Bir iş akışı hata sona erer veya askıya alındı, ardından sonraki çalıştırıldığında, iş akışının başlangıç yerine en son denetim noktasından başlayacaktır.  İle bir iş akışında denetim noktası ayarlayabilirsiniz **Checkpoint-Workflow** etkinlik.
+A *denetim noktası* değişkenlerin geçerli değerlerini ve bu noktaya kadar üretilen herhangi bir çıktı içeren iş akışının geçerli durumu anlık görüntüsüdür. Bir iş akışı hata sona erer veya askıya alındı, ardından sonraki çalıştırıldığında, iş akışının başlangıç yerine en son denetim noktasından başlayacaktır.  **Checkpoint-Workflow** etkinliğini kullanarak bir iş akışında denetim noktası ayarlayabilirsiniz.
 
 Aşağıdaki örnek kodda Activity2 bir özel durum oluşur. sonlandırmak iş akışı neden olur. İş akışını yeniden çalıştırdığınızda, yalnızca son denetim noktasından ayarladıktan sonra bu yana Activity2 çalıştırarak başlatır.
 
@@ -238,7 +238,7 @@ Checkpoint-Workflow
 <Activity3>
 ```
 
-Özel durum yatkın olabilir ve gereken etkinlikleri iş akışı devam ettirildiğinde tekrarlanmaması sonra bir iş akışında denetim noktası ayarlamanız gerekir. Örneğin, iş akışınızı bir sanal makine oluşturabilirsiniz. Önce ve sonra sanal makine oluşturmak için komutları bir denetim noktası ayarlayabilirsiniz. Oluşturulması başarısız olursa, iş akışını yeniden başlatılırsa, ardından komutları yinelenmesi. Oluşturma başarılı olduktan sonra iş akışı başarısız olursa, iş akışı sürdürüldüğünde ardından sanal makineyi yeniden oluşturulmaz.
+Özel durum yatkın olabilir ve gereken etkinlikleri iş akışı devam ettirildiğinde tekrarlanmaması sonra bir iş akışında denetim noktası ayarlamanız gerekir. Örneğin, iş akışınızı bir sanal makine oluşturabilirsiniz. Sanal makine oluşturma komutlarının öncesinde ve sonrasında bir denetim noktası ayarlayabilirsiniz. Oluşturulması başarısız olursa, iş akışını yeniden başlatılırsa, ardından komutları yinelenmesi. Oluşturma başarılı olduktan sonra iş akışı başarısız olursa, iş akışı sürdürüldüğünde ardından sanal makineyi yeniden oluşturulmaz.
 
 Aşağıdaki örnek, birden çok dosyalarını bir ağ konumuna kopyalar ve sonra her bir dosyayı bir denetim noktası ayarlar.  Ağ konumu kaybolursa, iş akışı hata sona erer.  Yeniden başlatıldığında, yalnızca şimdiye kadar kopyalanmış olan dosyaları atlanır anlamına son denetim noktasından devam edecek.
 
@@ -258,7 +258,7 @@ Workflow Copy-Files
 }
 ```
 
-Çağırdıktan sonra kullanıcı adı kimlik bilgilerini kalıcı değildir çünkü [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) etkinlik veya son denetim noktasından sonra null ve daha sonra bunları yeniden sonra varlık Mağazası'ndan almak için kimlik bilgilerini ayarlamanız gerekir.  **Suspend-Workflow** veya denetim noktası çağrılır.  Aksi takdirde, aşağıdaki hata iletisini alabilirsiniz: *Kalıcılık veri tamamen kaydedilmeyecek, veya kaydedilen çünkü kalıcı veri ya da bozulmuş, iş akışının devam ettirilemiyor. İş akışını yeniden başlatmanız gerekir.*
+Çağırdıktan sonra kullanıcı adı kimlik bilgilerini kalıcı değildir çünkü [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) etkinlik veya son denetim noktasından sonra null ve daha sonra bunları yeniden sonra varlık Mağazası'ndan almak için kimlik bilgilerini ayarlamanız gerekir.  **Suspend-Workflow** veya denetim noktası çağrılır.  Aksi takdirde, aşağıdaki hata iletisini alabilirsiniz: *İş akışı işini devam ettirilemiyor, ya da kalıcı veri tamamen kaydedilmeyecek, veya Kalıcılık verileri kaydedildi nedeniyle bozulmuş. İş akışını yeniden başlatmanız gerekir.*
 
 Aşağıdaki aynı kod bu PowerShell iş akışı runbook'larınızı nasıl ele alınacağını gösterir.
 
@@ -291,7 +291,7 @@ workflow CreateTestVms
 
 Hizmet sorumlusuyla yapılandırılmış bir farklı çalıştır hesabını kullanarak kimlik doğrulama yapıyorsunuz, bu gerekli değildir.
 
-Denetim noktalarıyla ilgili daha fazla bilgi için bkz. [betik iş akışına denetim noktaları ekleme](https://technet.microsoft.com/library/jj574114.aspx).
+Denetim noktalarıyla ilgili daha fazla bilgi için bkz. [Betik İş Akışına Denetim Noktaları Ekleme](https://technet.microsoft.com/library/jj574114.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

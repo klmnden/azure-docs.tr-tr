@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: kgremban
-ms.openlocfilehash: b173336b7655b0a76e868177aff61c2cf5db422b
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: b22b2f5ce9e08b3ee345d6e614c82b7dc8330453
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385780"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438702"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IOT Hub durumunu izleyin ve sorunları hızla tanılayın
 
@@ -401,7 +401,7 @@ Sistem Durumu verileri nasıl yorumlayacağınız hakkında daha fazla bilgi iç
 [lnk-ARH]: ../service-health/resource-health-overview.md
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-migrate]: iot-hub-migrate-to-diagnostics-settings.md
-[lnk-AM-metrics]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md
+[lnk-AM-metrics]: ../azure-monitor/platform/metrics-supported.md
 [lnk-AM-schemas]: ../azure-monitor/platform/tutorial-dashboards.md
 [lnk-ARH-checks]: ../service-health/resource-health-checks-resource-types.md
 [lnk-monitoring-notifications]: iot-hub-monitoring-notifications-with-azure-logic-apps.md

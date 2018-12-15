@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5e5b8320459561ac2dbbf72a812e29e837e08cd6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ced7964fc96138ad7b18ab72d6c479e8db7eab8a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166668"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436237"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services'ı kullanarak bir HDInsight kümesi Kurumsal güvenlik paketi ile yapılandırma
 
@@ -22,13 +22,13 @@ Kurumsal güvenlik paketi (ESP) kümeleri, Azure HDInsight kümelerinde birden �
 
 Bu makalede, Azure Active Directory etki alanı Hizmetleri (Azure AD DS) kullanarak bir HDInsight kümesi ile ESP yapılandırma konusunda bilgi edinin.
 
->[!NOTE]
->ESP HDI 3.6 için Spark, etkileşimli ve Apache Hadoop, genel kullanım ' dir. ESP HBase ve Kafka küme türleri için Önizleme aşamasındadır.
+>[!NOTE]  
+>ESP HDI 3.6 için Apache Spark, etkileşimli ve Apache Hadoop, genel kullanım ' dir. ESP Apache HBase ve Apache Kafka kümesi türleri için Önizleme aşamasındadır.
 
 ## <a name="enable-azure-ad-ds"></a>Azure'ı etkinleştirme AD DS
 
-> [!NOTE]
-> Kiracı yöneticileri yalnızca Azure AD DS'yi etkinleştirme için ayrıcalıklara sahip. Küme depolama, Azure Data Lake Store (ADLS) olup olmadığını Gen1 veya 2. nesil, devre dışı multi-Factor Authentication (MFA) kümeye erişmek için ihtiyaç duyan kullanıcılar için. Küme depolama alanı Azure Blob Storage (WASB) ise, mfa'yı devre dışı bırakmayın.
+> [!NOTE]  
+> Kiracı yöneticileri yalnızca Azure AD DS'yi etkinleştirme için ayrıcalıklara sahip. Küme depolama, Azure Data Lake Storage (ADLS) olup olmadığını Gen1 veya 2. nesil, devre dışı multi-Factor Authentication (MFA) kümeye erişmek için ihtiyaç duyan kullanıcılar için. Küme depolama alanı Azure Blob Storage (WASB) ise, mfa'yı devre dışı bırakmayın.
 
 Bir HDInsight kümesi ile ESP oluşturabilmeniz için önce AzureAD DS etkinleştirme önkoşuldur. Daha fazla bilgi için [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
@@ -66,7 +66,7 @@ Yönetilen kimlik oluşturup doğru rolü verilmiş olan bu yönetilen kimlik ku
 
 ## <a name="networking-considerations"></a>Ağ konusunda dikkat edilmesi gerekenler
 
-> [!NOTE]
+> [!NOTE]  
 > Azure AD DS, bir Azure Resource Manager (ARM) tabanlı sanal ağda dağıtılmalıdır. Klasik sanal ağlar için Azure AD DS desteklenmez. Lütfen [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-network) daha fazla ayrıntı için.
 
 Azure AD DS'yi etkinleştirdikten sonra yerel bir etki alanı adı hizmeti (DNS) sunucusu AD sanal makinelerde (VM) çalışır. Azure AD DS sanal ağ (Bu özel DNS sunucuları kullanılacak sanal) yapılandırın. Doğru IP adreslerini bulmak için seçin **özellikleri** altında **Yönet** kategorisi ve IP adreslerini göz listelenen altındaki **sanal ağdaki IP adresi**.
@@ -114,5 +114,5 @@ Oluşturduğunuz yönetilen kimlik olarak kullanıcı tarafından atanan yöneti
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hive ilkelerini yapılandırma ve Hive sorguları çalıştırmak için bkz: [Hive ilkelerini için HDInsight kümeleri ile ESP](apache-domain-joined-run-hive.md).
-* ESP ile HDInsight kümelerine bağlanmak için SSH kullanarak için bkz: [HDInsight Linux, Unix ya da OS X üzerinde Linux tabanlı Hadoop ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* Hive ilkelerini yapılandırma ve Hive sorguları çalıştırmak için bkz: [HDInsight için Apache Hive ilkelerini kümeleri ile ESP](apache-domain-joined-run-hive.md).
+* ESP ile HDInsight kümelerine bağlanmak için SSH kullanarak için bkz: [HDInsight Linux, Unix ya da OS X üzerinde Linux tabanlı Apache Hadoop ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

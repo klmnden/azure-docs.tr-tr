@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 7fca4adf8130a6a60e4a89edf129a73562289c5e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2979cdd0184e287ba83ae8a254722b64decce83d
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837503"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413702"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve test için Azure Cosmos DB Öykünücüsünü kullanma
 
@@ -28,15 +28,15 @@ ms.locfileid: "52837503"
 </tr>
 <tr>
   <td><strong>Docker kaynağı</strong></td>
-  <td>[Github](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
+  <td>[GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)</td>
 </tr>
 </table>
-  
-Azure Cosmos DB Öykünücüsü, geliştirme amaçlı olarak Azure Cosmos DB hizmetine öykünen yerel bir ortam sağlar. Azure Cosmos DB Öykünücüsü’nü kullanarak Azure aboneliği oluşturmadan veya masraf yapmadan uygulamanızı yerel ortamda geliştirip test edebilirsiniz. Uygulamanızın Azure Cosmos DB Öykünücüsü’ndeki performansından memnun olduğunuzda bulut üzerinde Azure Cosmos DB hesabı kullanmaya başlayabilirsiniz. 
 
-Şu anda öykünücüdeki Veri Gezgini yalnızca SQL API koleksiyonlarını ve MongoDB koleksiyonlarını tam olarak destekler. Tablo, Graph ve Cassandra kapsayıcıları tam olarak desteklenmez. 
+Azure Cosmos DB Öykünücüsü, geliştirme amaçlı olarak Azure Cosmos DB hizmetine öykünen yerel bir ortam sağlar. Azure Cosmos DB Öykünücüsü’nü kullanarak Azure aboneliği oluşturmadan veya masraf yapmadan uygulamanızı yerel ortamda geliştirip test edebilirsiniz. Uygulamanızın Azure Cosmos DB Öykünücüsü’ndeki performansından memnun olduğunuzda bulut üzerinde Azure Cosmos DB hesabı kullanmaya başlayabilirsiniz.
 
-Bu makale aşağıdaki görevleri kapsar: 
+Şu anda öykünücüdeki Veri Gezgini yalnızca SQL API koleksiyonlarını ve MongoDB koleksiyonlarını tam olarak destekler. Tablo, Graph ve Cassandra kapsayıcıları tam olarak desteklenmez.
+
+Bu makale aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
 > * Öykünücüyü yükleme
@@ -54,11 +54,11 @@ Azure Cosmos DB Öykünücüsü, Azure Cosmos DB hizmetinin aslına çok uygun b
 
 Azure Cosmos DB hizmetinin öykünmesi aslına sadık olsa da, öykünücünün uygulaması hizmetten farklıdır. Örneğin öykünücü, kalıcılık için yerel dosya sistemi gibi standart işletim sistemi bileşenlerini ve bağlantı için HTTPS protokolü yığınını kullanır. Genel çoğaltma, okuma/yazma için tek basamaklı milisaniyelik gecikme süresi ve ayarlanabilir tutarlılık düzeyleri gibi Azure altyapısına dayalı olan bazı işlevler kullanılamaz.
 
-## <a name="differences-between-the-emulator-and-the-service"></a>Öykünücü ile hizmet arasındaki farklar 
+## <a name="differences-between-the-emulator-and-the-service"></a>Öykünücü ile hizmet arasındaki farklar
 Azure Cosmos DB Öykünücüsü, yerel geliştirici iş istasyonunda çalıştırılan öykünmüş bir ortam sağladığından, öykünücü ile buluttaki bir Azure Cosmos DB hesabı arasında bazı işlev farkları vardır:
 
-* Şu anda öykünücüdeki Veri Gezgini yalnızca SQL API koleksiyonlarını ve MongoDB koleksiyonlarını destekler. Tablo, Graph ve Cassandra API’leri henüz desteklenmemektedir.  
-* Azure Cosmos DB Öykünücüsü yalnızca tek bir sabit hesabı ve iyi bilinen bir ana anahtarı destekler.  Azure Cosmos DB Öykünücüsü’nde anahtar yeniden oluşturma mümkün değildir.
+* Şu anda öykünücüdeki Veri Gezgini yalnızca SQL API koleksiyonlarını ve MongoDB koleksiyonlarını destekler. Tablo, Graph ve Cassandra API’leri henüz desteklenmemektedir.
+* Azure Cosmos DB Öykünücüsü yalnızca tek bir sabit hesabı ve iyi bilinen bir ana anahtarı destekler. Azure Cosmos DB Öykünücüsü’nde anahtar yeniden oluşturma mümkün değildir.
 * Azure Cosmos DB Öykünücüsü, ölçeklenebilir bir hizmet değildir ve çok sayıda koleksiyonu desteklemez.
 * Azure Cosmos DB Öykünücüsü, farklı [Azure Cosmos DB tutarlılık düzeyinin](consistency-levels.md) benzetimini yapmaz.
 * Azure Cosmos DB Öykünücüsü, [çok bölgeli çoğaltma](distribute-data-globally.md) benzetimini yapmaz.
@@ -75,14 +75,14 @@ Azure Cosmos DB Öykünücüsü aşağıdaki donanım ve yazılım gereksinimler
   * 10 GB kullanılabilir sabit disk alanı
 
 ## <a name="installation"></a>Yükleme
-[Microsoft İndirme Merkezi](https://aka.ms/cosmosdb-emulator)’nden Azure Cosmos DB Öykünücüsü’nü indirip yükleyebilir veya Docker for Windows’da öykünücüyü çalıştırabilirsiniz. Öykünücüyü Docker for Windows'da kullanmaya ilişkin yönergeler için bkz. [Docker üzerinde çalıştırma](#running-on-docker). 
+[Microsoft İndirme Merkezi](https://aka.ms/cosmosdb-emulator)’nden Azure Cosmos DB Öykünücüsü’nü indirip yükleyebilir veya Docker for Windows’da öykünücüyü çalıştırabilirsiniz. Öykünücüyü Docker for Windows'da kullanmaya ilişkin yönergeler için bkz. [Docker üzerinde çalıştırma](#running-on-docker).
 
 > [!NOTE]
 > Azure Cosmos DB Öykünücüsü’nü yüklemek, yapılandırmak ve çalıştırmak için bilgisayarda yönetici ayrıcalıklarına sahip olmanız gerekir.
 
 ## <a name="running-on-windows"></a>Windows’da çalıştırma
 
-Azure Cosmos DB Öykünücüsü’nü başlatmak için Başlat düğmesini seçin veya Windows tuşuna basın. **Azure Cosmos DB Öykünücüsü** yazmaya başlayın ve uygulama listesinden öykünücüyü seçin. 
+Azure Cosmos DB Öykünücüsü’nü başlatmak için Başlat düğmesini seçin veya Windows tuşuna basın. **Azure Cosmos DB Öykünücüsü** yazmaya başlayın ve uygulama listesinden öykünücüyü seçin.
 
 ![Başlat düğmesini seçin veya Windows tuşuna basın, **Azure Cosmos DB Öykünücüsü** yazmaya başlayın ve uygulama listesinden öykünücüyü seçin.](./media/local-emulator/database-local-emulator-start.png)
 
@@ -99,10 +99,10 @@ Azure Cosmos DB Öykünücüsü başlatıldığında otomatik olarak tarayıcın
 ![Azure Cosmos DB yerel öykünücüsü veri gezgini başlatıcısı](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
 ## <a name="checking-for-updates"></a>Güncelleştirmeleri denetleme
-Veri Gezgini, indirilebilir yeni bir güncelleştirme olup olmadığını belirtir. 
+Veri Gezgini, indirilebilir yeni bir güncelleştirme olup olmadığını belirtir.
 
 > [!NOTE]
-> Azure Cosmos DB Öykünücüsü’nün bir sürümünde oluşturulan verilerin farklı bir sürüm kullanılırken erişilebilir olması garanti edilmez. Verilerinizin uzun vadeli kalıcı olması gerekiyorsa, verileri Azure Cosmos DB Öykünücüsü’nde değil, bir Azure Cosmos DB hesabında depolamanız önerilir. 
+> Azure Cosmos DB Öykünücüsü’nün bir sürümünde oluşturulan verilerin farklı bir sürüm kullanılırken erişilebilir olması garanti edilmez. Verilerinizin uzun vadeli kalıcı olması gerekiyorsa, verileri Azure Cosmos DB Öykünücüsü’nde değil, bir Azure Cosmos DB hesabında depolamanız önerilir.
 
 ## <a name="authenticating-requests"></a>İsteklerin kimliğini doğrulama
 Bulutta Azure Cosmos DB ile olduğu gibi, Azure Cosmos DB Öykünücüsü’ne karşı yaptığınız her isteğin kimliği doğrulanmalıdır. Azure Cosmos DB Öykünücüsü, ana anahtar kimlik doğrulaması için iyi bilinen bir kimlik doğrulaması anahtarını ve tek bir sabit hesabı destekler. Azure Cosmos DB Öykünücüsü ile kullanılmasına izin verilen kimlik bilgileri yalnızca bu hesap ve anahtardır. Bunlar:
@@ -111,25 +111,25 @@ Bulutta Azure Cosmos DB ile olduğu gibi, Azure Cosmos DB Öykünücüsü’ne k
     Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
 
 > [!NOTE]
-> Azure Cosmos DB Öykünücüsü tarafından desteklenen yalnızca öykünücü ile kullanılmak üzere tasarlanmıştır. Üretim Azure Cosmos DB hesabınızı ve anahtarınızı Azure Cosmos DB Öykünücüsü ile kullanamazsınız. 
+> Azure Cosmos DB Öykünücüsü tarafından desteklenen yalnızca öykünücü ile kullanılmak üzere tasarlanmıştır. Üretim Azure Cosmos DB hesabınızı ve anahtarınızı Azure Cosmos DB Öykünücüsü ile kullanamazsınız.
 
-> [!NOTE] 
+> [!NOTE]
 > Öykünücüyü /Key seçeneğiyle başlattıysanız, "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==" yerine oluşturulan anahtarı kullanın
 
 Tıpkı Azure Cosmos DB hizmeti gibi Azure Cosmos DB Öykünücüsü de yalnızca SSL aracılığıyla güvenli iletişimi destekler.
 
 ## <a name="running-on-a-local-network"></a>Yerel ağ üzerinde çalışma
 
-Yerel bir ağ üzerinde öykünücüyü çalıştırabilirsiniz. Ağ erişimini etkinleştirmek için, [komut satırında](#command-line-syntax) /Key=key_string veya /KeyFile=file_name belirtmenizi de gerektiren /AllowNetworkAccess seçeneğini belirtin. Rastgele anahtar yenileme siparişi ile dosya oluşturmak için /GenKeyFile=file_name kullanabilirsiniz.  Daha sonra bunu /KeyFile=file_name veya /Key=contents_of_file öğesine geçirebilirsiniz.
+Yerel bir ağ üzerinde öykünücüyü çalıştırabilirsiniz. Ağ erişimini etkinleştirmek için, [komut satırında](#command-line-syntax) /Key=key_string veya /KeyFile=file_name belirtmenizi de gerektiren /AllowNetworkAccess seçeneğini belirtin. Rastgele anahtar yenileme siparişi ile dosya oluşturmak için /GenKeyFile=file_name kullanabilirsiniz. Daha sonra bunu /KeyFile=file_name veya /Key=contents_of_file öğesine geçirebilirsiniz.
 
 İlk kez ağ erişimini etkinleştirmek için kullanıcı, öykünücüyü kapatmalı ve öykünücünün veri dizinini (C:\Users\user_name\AppData\Local\CosmosDBEmulator) silmelidir.
 
 ## <a name="developing-with-the-emulator"></a>Öykünücü ile geliştirme
-Azure Cosmos DB Öykünücüsü masaüstünüzde çalışmaya başladıktan sonra, Öykünücü ile etkileşim kurmak için desteklenen [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)'larından veya [Azure Cosmos DB REST API](/rest/api/cosmos-db/)'lerinden birini kullanabilirsiniz. Azure Cosmos DB Öykünücüsü, herhangi bir kod yazmadan belgeleri görüntüleyip düzenlemenize ve SQL ve MongoDB API’leri için koleksiyonlar oluşturmanıza olanak sağlayan yerleşik bir Veri Gezgini de içerir.   
+Azure Cosmos DB Öykünücüsü masaüstünüzde çalışmaya başladıktan sonra, Öykünücü ile etkileşim kurmak için desteklenen [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)'larından veya [Azure Cosmos DB REST API](/rest/api/cosmos-db/)'lerinden birini kullanabilirsiniz. Azure Cosmos DB Öykünücüsü, herhangi bir kod yazmadan belgeleri görüntüleyip düzenlemenize ve SQL ve MongoDB API’leri için koleksiyonlar oluşturmanıza olanak sağlayan yerleşik bir Veri Gezgini de içerir.
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
-        new Uri("https://localhost:8081"), 
+        new Uri("https://localhost:8081"),
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 [MongoDB için Azure Cosmos DB protokol desteği](mongodb-introduction.md) kullanıyorsanız aşağıdaki bağlantı dizesini kullanın:
@@ -138,7 +138,7 @@ Azure Cosmos DB Öykünücüsü masaüstünüzde çalışmaya başladıktan sonr
 
 Azure Cosmos DB Öykünücüsü’ne bağlanmak için [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) gibi mevcut araçları kullanabilirsiniz. [Azure Cosmos DB Veri Geçişi Aracı](https://github.com/azure/azure-documentdb-datamigrationtool)’nı kullanarak Azure Cosmos DB Öykünücüsü ile Azure Cosmos DB hizmeti arasında verileri de geçirebilirsiniz.
 
-> [!NOTE] 
+> [!NOTE]
 > Öykünücüyü /Key seçeneğiyle başlattıysanız, "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==" yerine oluşturulan anahtarı kullanın
 
 Azure Cosmos DB Öykünücüsü'nü kullanırken varsayılan olarak en çok tek bölümlü 25 koleksiyon veya bölümlenmiş 1 koleksiyon oluşturabilirsiniz. Bu değeri değiştirme hakkında daha fazla bilgi için bkz. [PartitionCount değerini ayarlama](#set-partitioncount).
@@ -185,7 +185,7 @@ Seçenek listesini görüntülemek için komut satırına `CosmosDB.Emulator.exe
 </tr>
 <tr>
   <td>GetStatus</td>
-  <td>Azure Cosmos DB Öykünücüsü’nün durumunu alır. Durum, çıkış kodu tarafından belirtilir: 1 = Başlatılıyor, 2 = Çalıştırılıyor, 3 = Durduruldu. Negatif çıkış kodu, bir hata oluştuğunu gösterir. Başka bir çıktı üretilmez.</td>
+  <td>Azure Cosmos DB Öykünücüsü’nün durumunu alır. Durum, çıkış kodu tarafından belirtilir: 1 = başlangıç, 2 çalışan, 3 = = durduruldu. Negatif çıkış kodu, bir hata oluştuğunu gösterir. Başka bir çıktı üretilmez.</td>
   <td>CosmosDB.Emulator.exe /GetStatus</td>
   <td></td>
 <tr>
@@ -198,13 +198,13 @@ Seçenek listesini görüntülemek için komut satırına `CosmosDB.Emulator.exe
   <td>DataPath</td>
   <td>Veri dosyalarının depolanacağı yolu belirtir. Varsayılan: %LocalAppdata%\CosmosDBEmulator.</td>
   <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
-  <td>&lt;datapath&gt;: Erişilebilir bir yol</td>
+  <td>&lt;DataPath&gt;: Erişilebilir bir yol</td>
 </tr>
 <tr>
   <td>Bağlantı noktası</td>
-  <td>Öykünücü için kullanılacak bağlantı noktası numarasını belirtir.  Varsayılan: 8081.</td>
+  <td>Öykünücü için kullanılacak bağlantı noktası numarasını belirtir. Varsayılan: 8081.</td>
   <td>CosmosDB.Emulator.exe /Port=&lt;port&gt;</td>
-  <td>&lt;port&gt;: Tek bir bağlantı noktası numarası</td>
+  <td>&lt;Bağlantı noktası&gt;: Tek bir bağlantı noktası numarası</td>
 </tr>
 <tr>
   <td>MongoPort</td>
@@ -216,13 +216,13 @@ Seçenek listesini görüntülemek için komut satırına `CosmosDB.Emulator.exe
   <td>DirectPorts</td>
   <td>Doğrudan bağlantı için kullanılacak bağlantı noktalarını belirtir. Varsayılan değerler: 10251,10252,10253,10254.</td>
   <td>CosmosDB.Emulator.exe /DirectPorts:&lt;directports&gt;</td>
-  <td>&lt;directports&gt;: 4 bağlantı noktasından oluşan virgülle ayrılmış liste</td>
+  <td>&lt;directports&gt;: 4 bağlantı noktalarının virgülle ayrılmış listesi</td>
 </tr>
 <tr>
   <td>Anahtar</td>
   <td>Öykünücü için yetkilendirme anahtarı. Anahtar, 64 bayt vektörün base 64 kodlaması olmalıdır.</td>
   <td>CosmosDB.Emulator.exe /Key:&lt;key&gt;</td>
-  <td>&lt;key&gt;: Anahtar, 64 bayt vektörün base 64 kodlaması olmalıdır</td>
+  <td>&lt;Anahtar&gt;: Anahtarı bir 64-bayt vektörü base-64 kodlama olmalıdır</td>
 </tr>
 <tr>
   <td>EnableRateLimiting</td>
@@ -252,7 +252,7 @@ Seçenek listesini görüntülemek için komut satırına `CosmosDB.Emulator.exe
   <td>PartitionCount</td>
   <td>Maksimum bölümlenmiş koleksiyon sayısını belirtir. Daha fazla bilgi için bkz. [Koleksiyon sayısını değiştirme](#set-partitioncount).</td>
   <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
-  <td>&lt;partitioncount&gt;: Maksimum izin verilen tekli bölüm koleksiyonu sayısı. Varsayılan: 25. Maksimum izin verilen: 250.</td>
+  <td>&lt;bölüm sayısı&gt;: İzin verilen tek bölüm koleksiyonlarını maksimum sayısı. Varsayılan: 25. Maksimum izin verilen: 250.</td>
 </tr>
 <tr>
   <td>DefaultPartitionCount</td>
@@ -275,14 +275,14 @@ Seçenek listesini görüntülemek için komut satırına `CosmosDB.Emulator.exe
 <tr>
   <td>GenKeyFile</td>
   <td>Yeni bir yetkilendirme anahtarı oluşturun ve belirtilen dosyaya kaydedin. Oluşturulan anahtar, /Key veya /KeyFile seçenekleri ile kullanılabilir.</td>
-  <td>CosmosDB.Emulator.exe  /GenKeyFile=&lt;anahtar dosyasının yolu&gt;</td>
+  <td>CosmosDB.Emulator.exe /GenKeyFile =&lt;anahtar dosyasının yolu&gt;</td>
   <td></td>
 </tr>
 <tr>
   <td>Tutarlılık</td>
   <td>Hesap için varsayılan tutarlılık düzeyini ayarlayın.</td>
   <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
-  <td>&lt;consistency&gt;: Değer, şu [tutarlılık düzeylerinden](consistency-levels.md) biri olmalıdır: Oturum, Güçlü, Son veya Sınırlanmış Eskime Durumu.  Varsayılan değer: Oturum.</td>
+  <td>&lt;Tutarlılık&gt;: Değer şunlardan biri olmalıdır [tutarlılık düzeyleri](consistency-levels.md): Oturum, güçlü ve nihai, veya BoundedStaleness. Varsayılan değer: Oturum.</td>
 </tr>
 <tr>
   <td>?</td>
@@ -298,9 +298,9 @@ Azure Cosmos DB Öykünücüsü'nü kullanırken varsayılan olarak en çok tek 
 
 Geçerli bölüm sayısı aşıldıktan sonra bir koleksiyon oluşturmaya çalışırsanız öykünücü aşağıdaki iletiyle bir ServiceUnavailable istisnası oluşturur.
 
-    Sorry, we are currently experiencing high demand in this region, 
-    and cannot fulfill your request at this time. We work continuously 
-    to bring more and more capacity online, and encourage you to try again. 
+    Sorry, we are currently experiencing high demand in this region,
+    and cannot fulfill your request at this time. We work continuously
+    to bring more and more capacity online, and encourage you to try again.
     Please do not hesitate to email askcosmosdb@microsoft.com at any time or
     for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
 
@@ -337,13 +337,13 @@ Aşağıda, PowerShell’den öykünücüyü denetlemeye ilişkin komutların ö
 
 #### <a name="remarks"></a>Açıklamalar
 
-Şu ServiceControllerStatus değerlerinden birini döndürür: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running veya ServiceControllerStatus.Stopped.
+Bu ServiceControllerStatus değerlerden birini döndürür: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running veya ServiceControllerStatus.Stopped.
 
 ### `Start-CosmosDbEmulator`
 
 #### <a name="syntax"></a>Sözdizimi
 
-`Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>]  [<CommonParameters>]`
+`Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
 #### <a name="remarks"></a>Açıklamalar
 
@@ -378,21 +378,21 @@ Azure Cosmos DB Öykünücüsü, Docker for Windows üzerinde çalıştırılabi
 
 Daha sonra sık kullandığınız kabuktan aşağıdaki komutu çalıştırarak Docker Hub'dan Öykünücü görüntüsünü çekin.
 
-```     
-docker pull microsoft/azure-cosmosdb-emulator 
+```
+docker pull microsoft/azure-cosmosdb-emulator
 ```
 Görüntüyü başlatmak için aşağıdaki komutları çalıştırın.
 
 Komut satırından:
-```cmd 
+```cmd
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>null
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
 ```
 
 PowerShell’den:
 ```powershell
 md $env:LOCALAPPDATA\CosmosDBEmulatorCert 2>null
-docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
+docker run -v $env:LOCALAPPDATA\CosmosDBEmulatorCert:C:\CosmosDB.Emulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator
 ```
 
 Yanıt şuna benzer:
@@ -407,12 +407,12 @@ cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
 --------------------------------------------------------------------------------------------------
 Starting interactive shell
-``` 
+```
 
 Şimdi istemcinizdeki yanıttan uç noktayı ve ana anahtar girişini kullanın ve SSL sertifikasını ana bilgisayarınıza içeri aktarın. SSL sertifikasını içeri aktarmak için, yönetici komut isteminden aşağıdakileri yapın:
 
 Komut satırından:
-```cmd 
+```cmd
 cd %LOCALAPPDATA%\CosmosDBEmulatorCert
 powershell .\importcert.ps1
 ```
@@ -438,7 +438,7 @@ Azure Cosmos DB Öykünücüsü ile karşılaştığınız sorunları gidermeye 
 
 - Azure Cosmos DB Öykünücüsü kilitlenirse, C:\Users\kullanici_adi\AppData\Local\CrashDumps klasöründen döküm dosyalarını toplayın, sıkıştırın ve bir e-postaya ekleyip [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) adresine gönderin.
 
-- CosmosDB.StartupEntryPoint.exe dosyasında kilitlenmelerle karşılaşırsanız bir yönetici komut isteminden şu komutu çalıştırın: `lodctr /R` 
+- CosmosDB.StartupEntryPoint.exe dosyasında kilitlenmelerle karşılaşırsanız bir yönetici komut isteminden şu komutu çalıştırın: `lodctr /R`
 
 - Bir bağlantı sorunu yaşarsanız [izleme dosyalarını toplayın](#trace-files), sıkıştırın ve bir e-postaya ekleyip [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) adresine gönderin.
 
@@ -464,7 +464,7 @@ Hata ayıklama izlemelerini toplamak için bir yönetici komut isteminden aşağ
 1. Sistem tepsisindeki Azure Cosmos DB Öykünücüsü simgesine sağ tıklayıp Çıkış'a tıklayarak yerel öykünücünün tüm açık örneklerinden çıkın. Tüm örneklerin çıkması bir dakika sürebilir.
 2. Windows arama kutusuna **Uygulamalar ve özellikler** yazın ve **Uygulamalar ve özellikler (Sistem ayarları)** sonucuna tıklayın.
 3. Uygulamalar listesinde **Azure Cosmos DB Öykünücüsü**’ne gidip bunu seçin, **Kaldır**’a tıklayın, daha sonra onaylayıp yeniden **Kaldır**’a tıklayın.
-4. Uygulama kaldırıldığında `C:\Users\<user>\AppData\Local\CosmosDBEmulator` klasörüne gidip klasörü silin. 
+4. Uygulama kaldırıldığında `C:\Users\<user>\AppData\Local\CosmosDBEmulator` klasörüne gidip klasörü silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -479,7 +479,7 @@ Bu öğreticide aşağıdakileri yaptınız:
 > * Komut satırından Öykünücüyü çağırdınız
 > * İzleme dosyalarını topladınız
 
-Bu öğreticide ücretsiz yerel geliştirme için yerel öykünücünün nasıl kullanılacağını öğrendiniz. Artık sonraki öğreticiye devam edebilir ve öykünücü SSL sertifikalarının nasıl dışarı aktarılacağını öğrenebilirsiniz. 
+Bu öğreticide ücretsiz yerel geliştirme için yerel öykünücünün nasıl kullanılacağını öğrendiniz. Artık sonraki öğreticiye devam edebilir ve öykünücü SSL sertifikalarının nasıl dışarı aktarılacağını öğrenebilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB Öykünücüsü sertifikalarını dışarı aktarma](local-emulator-export-ssl-certificates.md)

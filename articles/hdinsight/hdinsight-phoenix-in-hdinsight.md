@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: d86600dd000d3e9c71a38b632aa75e82239401dd
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104588"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435557"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>HDInsight üzerinde Apache Phoenix
 
-[Apache Phoenix](http://phoenix.apache.org/) yüksek düzeyde paralel ilişkisel veritabanı katmanı üzerinde oluşturulan bir açık kaynak [HBase](hbase/apache-hbase-overview.md). Phoenix, HBase üzerinde SQL benzeri sorguları kullanmanıza olanak sağlar. Phoenix, oluştur, Sil, SQL tabloları, dizinleri, görünümleri ve dizileri ve upsert satırları ayrı ayrı ve toplu değiştirme olanağı altında JDBC sürücüleri kullanır. Phoenix, HBase üzerinde düşük gecikme süreli uygulamaları oluşturmayı etkinleştirme sorgular derlemek için MapReduce kullanmak yerine noSQL yerel derleme kullanır. Phoenix, verilerle birlikte kod yürüten sunucu adres alanında istemci tarafından sağlanan kod çalıştırılmasını desteklemek üzere coprocessors ekler. Bu yaklaşım istemci/sunucu veri aktarımını en aza indirir.
+[Apache Phoenix](http://phoenix.apache.org/) yüksek düzeyde paralel ilişkisel veritabanı katmanı üzerinde oluşturulan bir açık kaynak [Apache HBase](hbase/apache-hbase-overview.md). Phoenix, HBase üzerinde SQL benzeri sorguları kullanmanıza olanak sağlar. Phoenix, oluştur, Sil, SQL tabloları, dizinleri, görünümleri ve dizileri ve upsert satırları ayrı ayrı ve toplu değiştirme olanağı altında JDBC sürücüleri kullanır. Phoenix, HBase üzerinde düşük gecikme süreli uygulamaları oluşturmayı etkinleştirme sorgular derlemek için MapReduce kullanmak yerine noSQL yerel derleme kullanır. Phoenix, verilerle birlikte kod yürüten sunucu adres alanında istemci tarafından sağlanan kod çalıştırılmasını desteklemek üzere coprocessors ekler. Bu yaklaşım istemci/sunucu veri aktarımını en aza indirir.
 
-Apache Phoenix, olmayan-SQL benzeri bir sözdizimi kullanan geliştiricilerin büyük veri sorgularını açılır programlama yerine. Phoenix yüksek oranda optimize HBase için diğer araçları gibi [Hive](hadoop/hdinsight-use-hive.md) ve Spark SQL. Geliştiriciler için en büyük avantajı yüksek performansa sahip sorgular çok daha az kod yazıyor.
+Apache Phoenix, olmayan-SQL benzeri bir sözdizimi kullanan geliştiricilerin büyük veri sorgularını açılır programlama yerine. Phoenix yüksek oranda optimize HBase için diğer araçları gibi [Hive](hadoop/hdinsight-use-hive.md) ve Apache Spark SQL. Geliştiriciler için en büyük avantajı yüksek performansa sahip sorgular çok daha az kod yazıyor.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Bir SQL sorgusu gönderdiğiniz zaman, Phoenix sorgu HBase yerel çağrıları derler ve iyileştirme paralel tarama (veya planı) çalıştırır. Bu Soyutlama Katmanı iş mantığını ve iş akışını kendi uygulamasına Phoenix'ın büyük veri depolama ve bunun yerine odaklanmak için MapReduce işleri yazmasını Geliştirici serbest bırakır.
@@ -122,7 +122,7 @@ CREATE TABLE Saltedweblogs (
     shippingamount DOUBLE NULL) SALT_BUCKETS=4;
 ```
 
-## <a name="enable-and-tune-phoenix-with-ambari"></a>Etkinleştirme ve Phoenix Ambari ile ayarlama
+## <a name="enable-and-tune-phoenix-with-apache-ambari"></a>Etkinleştirme ve Phoenix Apache Ambari ile ayarlama
 
 HDInsight HBase kümesi içeren [Ambari UI](hdinsight-hadoop-manage-ambari.md) yapılandırma değişiklikleri yapmak için.
 

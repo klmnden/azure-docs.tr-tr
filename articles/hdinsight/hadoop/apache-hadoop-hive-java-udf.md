@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: f027b4c827fd7afe1a9cd2f8f31839b092345728
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6e31062e3965c9ed5a0b24e822f0ec14234cec1c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012496"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435081"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Bir Java kullanma UDF ile Apache Hive HDInsight
 
@@ -213,7 +213,7 @@ Apache Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) 
     ```
 
     > [!NOTE]
-    > Bu örnek, Azure depolama kümesi için varsayılan depolama alanı olduğunu varsayar. Bunun yerine, küme Data Lake Store kullanıyorsa, Değiştir `wasb:///` değerini `adl:///`.
+    > Bu örnek, Azure depolama kümesi için varsayılan depolama alanı olduğunu varsayar. Bunun yerine, küme Data Lake Storage kullanıyorsa, Değiştir `wasb:///` değerini `adl:///`.
 
 3. UDF küçük dizeleri bir tablodan alınan değerlerini dönüştürmek için kullanın.
 
@@ -240,6 +240,6 @@ Apache Hive ile çalışan bir Java tabanlı kullanıcı tanımlı işlev (UDF) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hive ile çalışmak diğer yolları için bkz. [HDInsight ile Hive kullanma](hdinsight-use-hive.md).
+Hive ile çalışmak diğer yolları için bkz. [HDInsight ile Hive kullanma Apache](hdinsight-use-hive.md).
 
-Hive User-Defined işlevleri hakkında daha fazla bilgi için bkz. [Hive işleçleri ve kullanıcı tanımlı işlevler](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) Apache.org Hive wiki bölümü.
+Hive User-Defined işlevleri hakkında daha fazla bilgi için bkz. [Apache Hive işleçleri ve kullanıcı tanımlı işlevler](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) Apache.org Hive wiki bölümü.

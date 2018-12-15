@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: a4a94ac4deee90bf0aea5fafbddff0105680cb4b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c9cbea913a86a681620eea4adc0a5c99cc84f920
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013160"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433874"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Özel MapReduce programlarını çalıştırma
 
 Apache Hadoop tabanlı büyük veri sistemlerini HDInsight gibi çok çeşitli araçlar ve teknolojiler kullanarak veri işleme etkinleştirin. Aşağıdaki tabloda ana avantajları ve her biri için ilgili önemli noktalar açıklanmaktadır.
 
-| Sorgu mekanizması | Avantajları | Dikkat edilmesi gerekenler |
+| Sorgu mekanizması | Yararları | Dikkat edilmesi gerekenler |
 | --- | --- | --- |
 | **HiveQL kullanarak Apache Hive** | <ul><li>Toplu işleme ve analizi, büyük miktarda sabit veri, veri özetleme ve için mükemmel bir çözüm üzerinde sorgulama isteğe bağlı. Tanıdık SQL benzeri bir sözdizimi kullanır.</li><li>Kalıcı kolayca bölümlenmiş ve dizine veri tabloları oluşturmak için kullanılabilir.</li><li>Birden çok dış tablolar ve görünümler, aynı veriler üzerinde oluşturulabilir.</li><li>Bu, veri depolama ve işleme için büyük ölçeklendirme ve dayanıklılık özellikleri sağlayan basit bir veri ambarı uygulaması destekler.</li></ul> | <ul><li>Kaynak veri en azından bazı tanımlanabilen yapısı gerektirir.</li><li>Gerçek zamanlı sorgular ve satır düzeyinde güncelleştirmeler için uygun değil. Büyük veri kümelerinde toplu işlemler için en iyi şekilde kullanılır.</li><li>Karmaşık bir işlem görevlerin bazı türleri gerçekleştirmek mümkün olmayabilir.</li></ul> |
 | **Apache Pig Latin kullanarak Pig** | <ul><li>Mükemmel çözümünü ayarlar gibi veri işleme, birleştirme ve veri kümeleri kayıtları veya kayıt gruplarını işlevleri uygularken, filtreleme ve veri sütunları tanımlayarak, gruplama değerleri veya sütunları satırlara dönüştürerek alanlarını yeniden yapılandırma.</li><li>İş akışı tabanlı bir yaklaşım, veriler üzerinde işlem öğesinin bir dizisi olarak kullanabilirsiniz.</li></ul> | <ul><li>SQL kullanıcıları, Pig Latin daha az bildiğiniz ve HiveQL kullanmayı daha zor bulabilirsiniz.</li><li>Varsayılan çıkış, genellikle bir metin dosyasıdır ve bu nedenle Excel gibi görselleştirme araçlarıyla kullanmak daha zor olabilir. Genellikle bir Hive tablosu çıkışı üzerinden Katman.</li></ul> |
@@ -74,8 +74,8 @@ En yaygın MapReduce programlarını Java dilinde yazılmış ve bir jar dosyas�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [C# üzerinde HDInsight Hadoop akışı MapReduce ile kullanma](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-* [HDInsight üzerinde Hadoop için Java MapReduce programları geliştirme](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [Kullanım C# üzerindeki HDInsight, Apache Hadoop akışı MapReduce ile](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [HDInsight üzerinde Apache Hadoop için Java MapReduce programları geliştirme](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 * [Python için HDInsight akış MapReduce programları geliştirme](apache-hadoop-streaming-python.md)
-* [Spark uygulamaları için bir HDInsight kümesi oluşturmak için Eclipse için Azure Araç Seti'ni kullanma](../spark/apache-spark-eclipse-tool-plugin.md)
-* [HDInsight içinde kullanım Python kullanıcı tanımlı işlevler (UDF) Hive ve Pig ile](python-udf-hdinsight.md)
+* [Bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak için Eclipse için Azure Araç Seti'ni kullanma](../spark/apache-spark-eclipse-tool-plugin.md)
+* [Apache Hive ve Apache Pig, HDInsight ile kullanmak Python kullanıcı tanımlı işlevler (UDF)](python-udf-hdinsight.md)

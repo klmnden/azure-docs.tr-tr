@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8da2309a16c07440158c1de324eea1fa05b1c98b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 15aa80c5291854c937bdc128a597ed5bebd608a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189080"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437444"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX ve Azure Machine Learning: Oluşturma ve birlikte çalışabilen yapay ZEKA modelleri dağıtma
 
@@ -69,7 +69,7 @@ Azure Machine Learning hizmeti ile dağıtma, yönetme ve ONNX modellerinizle iz
 
 ### <a name="install-and-configure-onnx-runtime"></a>Yükleme ve yapılandırma ONNX çalışma zamanı
 
-Bir açık kaynak yüksek performanslı çıkarımı altyapısının ONNX modelleri için ONNX çalışma zamanıdır. Hem CPU hem de Python için kullanılabilen API'ler ile bir GPU donanım hızlandırmasını sağlar C#, ve C. ONNX çalışma zamanını destekleyen ONNX 1.2 + modeller ve Linux, Windows ve Mac üzerinde çalışır Python paketlerini kullanılabilir [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), ve [ C# paket](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) açıktır [Nuget.org](https://www.nuget.org). Proje hakkında daha fazla bakın [Github](https://github.com/Microsoft/onnxruntime). 
+Bir açık kaynak yüksek performanslı çıkarımı altyapısının ONNX modelleri için ONNX çalışma zamanıdır. Hem CPU hem de Python için kullanılabilen API'ler ile bir GPU donanım hızlandırmasını sağlar C#, ve C. ONNX çalışma zamanını destekleyen ONNX 1.2 + modeller ve Linux, Windows ve Mac üzerinde çalışır Python paketlerini kullanılabilir [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), ve [ C# paket](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) açıktır [Nuget.org](https://www.nuget.org). Proje hakkında daha fazla bakın [GitHub](https://github.com/Microsoft/onnxruntime). 
 
 Python için ONNX çalışma zamanı yüklemek için kullanın:
 ```python
@@ -202,6 +202,6 @@ ONNX hakkında daha fazla bilgi edinin veya projeye katkıda:
 + [Github'da ONNX kod](https://github.com/onnx/onnx)
 
 ONNX çalışma zamanı hakkında daha fazla bilgi edinin veya projeye katkıda:
-+ [ONNX çalışma zamanı Github deposu](https://github.com/Microsoft/onnxruntime)
++ [ONNX çalışma zamanı GitHub deposu](https://github.com/Microsoft/onnxruntime)
 
 

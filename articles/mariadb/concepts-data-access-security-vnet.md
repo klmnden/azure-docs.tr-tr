@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 31eec9e146c64e2310ab27414952593140f11cb2
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 8c4f14849c39414217837a3c86fb6e067cd87c90
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277332"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434350"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Sanal ağ hizmet uç noktaları ve kuralları için Azure veritabanı, MariaDB için kullanın.
 
@@ -33,13 +33,13 @@ Bir sanal ağ kuralı oluşturmak için öncelikle olmalıdır bir [sanal ağ] [
 
 ## <a name="terminology-and-description"></a>Terminoloji ve açıklaması
 
-**Sanal ağ:** Azure aboneliğinizle ilişkili sanal ağı olabilir.
+**Sanal ağ:** Azure aboneliğinizle ilişkili sanal ağları olabilir.
 
-**Alt ağı:** içeren bir sanal ağ **alt ağlar**. Tüm Azure sahip olduğunuz sanal makinelerin (VM'ler), alt ağa atanır. Bir alt ağ, birden çok VM veya başka bir işlem düğümünde içerebilir. Sanal ağınızın dışında düğümleri erişime izin vermek için güvenlik yapılandırmadığınız sürece, sanal ağınızın erişemiyor işlem.
+**Alt ağı:** Bir sanal ağ içeren **alt ağlar**. Tüm Azure sahip olduğunuz sanal makinelerin (VM'ler), alt ağa atanır. Bir alt ağ, birden çok VM veya başka bir işlem düğümünde içerebilir. Sanal ağınızın dışında düğümleri erişime izin vermek için güvenlik yapılandırmadığınız sürece, sanal ağınızın erişemiyor işlem.
 
 **Sanal ağ hizmet uç noktası:** A [sanal ağ hizmet uç noktası] [ vm-virtual-network-service-endpoints-overview-649d] özellik değerleri içeren bir veya daha fazla biçimsel Azure hizmet türü adları bir alt ağ. Bu makalede şu tür adı ile ilgilenen **Microsoft.Sql**, adlandırılmış SQL veritabanı, Azure hizmetini ifade eder. Bu hizmet etiketi Hizmetleri MariaDB, MySQL ve PostgreSQL için Azure veritabanı için de geçerlidir. Uygularken dikkate almak önemlidir **Microsoft.Sql** hizmet etiketi sanal ağ hizmet uç noktası, hizmet uç noktası trafiğini tüm Azure SQL veritabanı, MariaDB için Azure veritabanı, Azure veritabanı için MySQL ve Azure için yapılandırır Veritabanı alt ağ üzerinde PostgreSQL sunucuları için.
 
-**Sanal ağ kuralı:** MariaDB için Azure veritabanı sunucunuza erişim denetimi listesi (ACL) listelenen bir alt ağ bir sanal ağ kuralı MariaDB için Azure veritabanı sunucunuza için önemlidir. MariaDB için Azure veritabanı sunucunuza ACL'si olması için alt ağ içermelidir **Microsoft.Sql** tür adı.
+**Sanal ağ kuralı:** MariaDB için Azure veritabanı sunucunuza için bir sanal ağ kuralı MariaDB için Azure veritabanı sunucunuza erişim denetimi listesi (ACL) listelenen bir alt ağ önemlidir. MariaDB için Azure veritabanı sunucunuza ACL'si olması için alt ağ içermelidir **Microsoft.Sql** tür adı.
 
 Bir alt ağda bulunan her düğüme gelen iletişimleri kabul etmek için Azure veritabanı MariaDB sunucusu için bir sanal ağ kuralı söyler.
 
@@ -93,8 +93,8 @@ Her sanal ağ kuralı MariaDB için tam Azure veritabanı sunucunuza, yalnızca 
 
 Sanal ağ hizmet uç noktaları Yönetim güvenlik rollerini ayrımı yoktur. Eylem her aşağıdaki roller gereklidir:
 
-- **Ağ Yöneticisi:** &nbsp; uç noktada açın.
-- **Veritabanı Yöneticisi:** &nbsp; erişim denetim listesi (ACL) verilen alt MariaDB için Azure veritabanı eklemek için güncelleştirin.
+- **Ağ Yöneticisi:** &nbsp; Uç noktada bırakın.
+- **Veritabanı Yöneticisi:** &nbsp; Erişim denetimi listesi (ACL) verilen alt MariaDB için Azure veritabanı eklemek için güncelleştirin.
 
 *RBAC alternatif:*
 
@@ -117,7 +117,7 @@ MariaDB için Azure veritabanı için sanal ağ kuralları özelliği aşağıda
 
 - Sanal ağ kuralları yalnızca Azure Resource Manager sanal ağlara uygulanır. ve değil [Klasik dağıtım modeli] [ resource-manager-deployment-model-568f] ağlar.
 
-- MariaDB kullanmak için kapatma şirket sanal ağ hizmet uç noktaları için Azure veritabanı **Microsoft.Sql** hizmet etiketi, aynı zamanda uç noktaları tüm Azure veritabanı hizmetleri sağlar: MariaDB için Azure veritabanı, MySQL, Azure için Azure veritabanı PostgreSQL, Azure SQL veritabanı ve Azure SQL veri ambarı için veritabanı.
+- MariaDB kullanmak için kapatma şirket sanal ağ hizmet uç noktaları için Azure veritabanı **Microsoft.Sql** hizmet etiketi, aynı zamanda uç noktaları tüm Azure veritabanı hizmetleri sağlar: MariaDB için Azure veritabanı, MySQL için Azure veritabanı, PostgreSQL için Azure veritabanı, Azure SQL veritabanı ve Azure SQL veri ambarı.
 
 - Yalnızca genel amaçlı ve bellek için iyileştirilmiş sunucuları için sanal ağ hizmet uç noktaları desteğidir.
 
@@ -149,7 +149,7 @@ Sanal ağ kuralları oluşturma hakkında makaleler için bkz:
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
 -->
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

@@ -5,14 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/27/2018
+ms.date: 12/14/2018
 ms.author: victorh
-ms.openlocfilehash: 467e8242ffeec435976f3f8fa5740908ea93d262
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
+ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260914"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435574"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Öğretici: Azure PowerShell kullanarak hibrit bir ağda Azure Güvenlik Duvarı'nı dağıtma ve yapılandırma
 
@@ -54,6 +55,12 @@ Bu senaryonun doğru çalışması için üç önemli gereksinimi vardır:
 - VNet-Hub'ı VNet-Spoke'a eşlerken **AllowGatewayTransit** ayarladığınızdan ve VNet-Spoke'u VNet-Hub'a eşlerken de **UseRemoteGateways** ayarladığınızdan emin olun.
 
 Bu yolların nasıl oluşturulduğunu görmek için [Yolları Oluşturma](#create-routes) bölümüne bakın.
+
+>[!NOTE]
+>Azure güvenlik duvarı, doğrudan internet bağlantısı olması gerekir. Şirket içi ExpressRoute veya uygulama ağ geçidi aracılığıyla zorlamalı tünel etkinleştirdiyseniz, UDR 0.0.0.0/0 ile yapılandırmanız gerekiyor **NextHopType** değer kümesini olarak **Internet**, için atayın **AzureFirewallSubnet**.
+
+>[!NOTE]
+>Azure Güvenlik Duvarı varsayılan ağ geçidi için Opyalanan işaret ediyor olsa bile doğrudan eşlenmiş sanal ağlar arasındaki trafiği doğrudan yönlendirilir. Bu senaryoda bir güvenlik duvarı alt ağ için alt ağ trafiği göndermek için UDR her iki alt ağ üzerinde açıkça hedef alt ağ ön eki içermesi gerekir.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -309,9 +316,6 @@ Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -Re
 
 - Güvenlik duvarı IP adresi üzerinden hub ağ geçidi alt ağından uç alt ağına giden bir yol
 - Güvenlik duvarı IP adresi üzerinden uç alt ağından gelen varsayılan yol
-
->[!NOTE]
->Azure güvenlik duvarı, doğrudan internet bağlantısı olması gerekir. Şirket içi ExpressRoute veya uygulama ağ geçidi aracılığıyla zorlamalı tünel etkinleştirdiyseniz, UDR 0.0.0.0/0 ile yapılandırmanız gerekiyor **NextHopType** değer kümesini olarak **Internet**, için atayın **AzureFirewallSubnet**.
 
 ```azurepowershell
 #Create a route table

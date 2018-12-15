@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 02029170046e3c70965e2f607aa6c00c7ca131e3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 48f178b7a94e8989f8a0154bea6195834b1ec35f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389054"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438685"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Otomatik olarak bir Resource Manager şablonu kullanarak kaynak oluşturma sırasında tanılama ayarlarını etkinleştirme
 Bu makalede size nasıl kullanabileceğinizi gösterir. bir [Azure Resource Manager şablonu](../../azure-resource-manager/resource-group-authoring-templates.md) oluşturulduğunda kaynak tanılama ayarlarını yapılandırmak için. Bu, otomatik olarak tanılama günlükleri ve ölçümleri Event Hubs, bunları bir depolama hesabında arşivlemek veya bir kaynak oluşturulduğunda bunları Log Analytics'e göndermek için akış başlatmanıza olanak sağlar.
 
 > [!WARNING]
-> Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./../../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md) 
+> Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 
@@ -116,7 +116,7 @@ Aşağıda bir örnek işlem olmayan ve işlem kaynakları için oluşturmak ist
     ]
     ```
 
-Aşağıdaki özellikler blob için tanılama ayarını [bu makalede açıklanan biçimde](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Ekleme `metrics` özelliği de kaynak ölçümleri koşuluyla bu aynı çıktıları göndermek edebileceksiniz [kaynak Azure İzleyici ölçümleri destekliyor](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+Aşağıdaki özellikler blob için tanılama ayarını [bu makalede açıklanan biçimde](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Ekleme `metrics` özelliği de kaynak ölçümleri koşuluyla bu aynı çıktıları göndermek edebileceksiniz [kaynak Azure İzleyici ölçümleri destekliyor](../../azure-monitor/platform/metrics-supported.md).
 
 Mantıksal uygulama oluşturan ve olay hub'larına ve bir depolama hesabında depolama akışı kapatır tam bir örnek aşağıda verilmiştir.
 

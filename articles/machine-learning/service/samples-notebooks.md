@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f7affc60e3504b9b43d7663a4b7799c52fef79e7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0d74f731d0a7eca25238344e36838dc6c806c788
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082790"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434537"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Azure Machine Learning hizmeti keşfetmek için Jupyter not defterleri kullanma
 
@@ -98,7 +98,7 @@ Yukarıdaki seçeneklerden herhangi birini kullanabilirsiniz, ancak ortamını y
    >[!NOTE]
    >Mevcut bir conda olarak sürüm 4.4.10 olması veya üzeri kullanabilirsiniz. Kullanım `conda -V` sürümünü görüntülemek için. Conda sürüm komutuyla güncelleştirebilirsiniz: `conda update conda`. Mini conda özellikle yüklemek için gerek yoktur.
 
-1. Örnek Not defterlerinden indirme [Github](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
+1. Örnek Not defterlerinden indirme [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
 ) zip olarak ve içeriğini yerel bir dizine ayıklayın. Otomatik makine öğrenimi not defterlerini bulunan `how-to-use-azureml/automated-machine-learning` klasör.
 
 1. Yeni bir Conda ortamı ayarlayın. 
@@ -116,9 +116,10 @@ Yukarıdaki seçeneklerden herhangi birini kullanabilirsiniz, ancak ortamını y
       + Pencere öğesini yapılandırır
       + Jupyter not defteri başlatır
       
-      Komut dosyası conda ortam adı, isteğe bağlı bir parametre olarak alır. Varsayılan conda ortam adı `azure_automl`. Tam komut, işletim sistemine bağlıdır. 
+   >[!NOTE]
+   > Komut dosyası conda ortam adı, isteğe bağlı bir parametre olarak alır. Varsayılan conda ortam adı `azure_automl`. Tam komut, işletim sistemine bağlıdır. Bu, yeni bir ortam oluşturuyorsanız veya yeni bir sürümüne yükseltmeniz yararlı olur. Örneğin, bir ortamından adı azure_automl_sandbox oluşturmak için 'automl_setup.cmd azure_automl_sandbox' kullanabilirsiniz. 
       
-      Betik tamamlandıktan sonra tarayıcınızda bir Jupyter not defteri giriş sayfasını görürsünüz.
+1. Betik tamamlandıktan sonra tarayıcınızda bir Jupyter not defteri giriş sayfasını görürsünüz.
 
 1. Not defterlerini kaydettiğiniz yoluna gidin. 
 

@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: d52a9411863962528eb0693f735ca0c4ee4c9991
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 86dbb6137964c00f6b98365e4891538751f17922
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166515"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438821"
 ---
-# <a name="analyze-hadoop-logs"></a>Hadoop günlüklerini analiz etme
+# <a name="analyze-apache-hadoop-logs"></a>Apache Hadoop günlüklerini analiz etme
 
-Her Azure HDInsight Apache Hadoop kümesinin varsayılan dosya sistemi olarak kullanılan bir Azure depolama hesabına sahiptir. Depolama hesabı varsayılan depolama hesabı olarak adlandırılır. Küme, günlükleri depolamak için varsayılan depolama hesabı Azure tablo depolama ve Blob Depolama kullanır.  Kümeniz için varsayılan depolama hesabını öğrenmek için bkz: [yönetme Hadoop kümeleri HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Hatta kümesi silindikten sonra depolama hesabında günlükleri korur.
+Her Azure HDInsight Apache Hadoop kümesinin varsayılan dosya sistemi olarak kullanılan bir Azure depolama hesabına sahiptir. Depolama hesabı varsayılan depolama hesabı olarak adlandırılır. Küme, günlükleri depolamak için varsayılan depolama hesabı Azure tablo depolama ve Blob Depolama kullanır.  Kümeniz için varsayılan depolama hesabını öğrenmek için bkz: [yönetme Apache Hadoop HDInsight kümeleri](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Hatta kümesi silindikten sonra depolama hesabında günlükleri korur.
 
 ## <a name="logs-written-to-azure-tables"></a>Azure tabloları yazılan günlükleri
 
@@ -101,9 +101,11 @@ Artık, filtreleme ve sıralama gerektiği için Excel kullanabilirsiniz. Sorun 
 ## <a name="logs-written-to-azure-blob-storage"></a>Azure Blob depolama alanına yazılan günlükleri
 [Azure tabloları yazılan günlükler](#log-written-to-azure-tables) bir düzeyde bir HDInsight kümesi ile neler Öngörüler sağlar. Görev düzeyinde günlükleri, ayrıntılara yararlı olabilir ancak, bu tablolar sağlamaz daha da ortaya çıkan sorunlar. Bu sonraki ayrıntı düzeyini sağlamak için Blob Depolama hesabınıza templeton da gönderilen herhangi bir iş için görev günlüklerini yazma izni HDInsight kümeleri yapılandırılır. Pratikte, bu Microsoft Azure PowerShell cmdlet'lerini veya .NET iş gönderme API'leri, RDP/komut satırı erişim kümesine gönderilen işler kullanılarak gönderilen bir iş anlamına gelir. 
 
-Günlükleri görüntülemek için bkz: [erişim YARN uygulama günlüklerine üzerinde Linux tabanlı HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
+Günlükleri görüntülemek için bkz: [erişim Apache Hadoop YARN uygulama günlüklerine üzerinde Linux tabanlı HDInsight](../hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
-Uygulama günlükleri hakkında daha fazla bilgi için bkz. [günlükleri kullanıcı yönetimi ve erişim yarn'da basitleştirme](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+
+Uygulama günlükleri hakkında daha fazla bilgi için bkz. [günlükleri kullanıcı yönetimi ve Apache Hadoop YARN erişimi basitleştirme](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/).
+
 
 ## <a name="view-cluster-health-and-job-logs"></a>Küme durumunu ve iş günlüklerini görüntüleme
 ### <a name="access-the-ambari-ui"></a>Ambari UI erişim
@@ -313,6 +315,6 @@ HDInsight kümelerini yönetmek için kullanıldığında bu hata iletileri baz�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [HDInsight üzerinde Tez işlerinin hatalarını ayıklamak için Ambari görünümlerini kullanma](../hdinsight-debug-ambari-tez-view.md)
-* [Linux tabanlı HDInsight üzerinde Hadoop Hizmetleri için yığın dökümlerini etkinleştirme](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [HDInsight kümelerini Ambari Web arabiriminden yönetme](../hdinsight-hadoop-manage-ambari.md)
+* [HDInsight üzerinde Apache Tez işlerinin hatalarını ayıklamak için Apache Ambari görünümlerini kullanma](../hdinsight-debug-ambari-tez-view.md)
+* [Linux tabanlı HDInsight üzerinde Apache Hadoop Hizmetleri için yığın dökümlerini etkinleştirme](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Apache Ambari Web kullanıcı arabirimini kullanarak HDInsight kümelerini yönetme](../hdinsight-hadoop-manage-ambari.md)

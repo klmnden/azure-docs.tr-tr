@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 95f01c9338afbf2ab5381001e4ab480185cedaeb
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636892"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436934"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Dijital İkizlerini nesne modelleri ve uzamsal zeka graf anlama
 
@@ -48,11 +48,11 @@ Diğer nesnelerin kategorileri şunlardır:
 - **Rolleri** kullanıcılara ve cihazlara uzamsal grafiğinde, örneğin, atanan izinleri gruplarıdır `Space Administrator`, `User Administrator`, ve `Device Administrator`.
 - **Rol atamaları** olan rol ve uzamsal grafikteki bir nesne arasındaki ilişki. Örneğin, bir kullanıcı veya hizmet sorumlusu uzamsal grafik alanında yönetme izni verilebilir.
 - **Güvenlik anahtarı depoları** cihazın güvenli bir şekilde dijital çiftleri ile iletişim kurmasına izin vermek için belirtilen alanı nesnesi altında hiyerarşideki tüm cihazlar için güvenlik anahtarları sağlar.
-- **Kullanıcı tanımlı işlevleri** (UDF) izin içinde uzamsal grafik işleme özelleştirilebilir algılayıcı telemetri. Örneğin, bir UDF yapabilirsiniz: 
-    - Bir algılayıcı değere ayarlayın. 
-    - Özel mantığı üzerinde sensör okumaları tabanlı gerçekleştirmek ve çıkış için bir alanı ayarlayın. 
-    - Meta veriler için bir alanı ekleyin. 
-    - Önceden tanımlanmış koşullar karşılandığında bildirimleri gönderin. Şu anda, UDF'ler JavaScript dilinde yazılabilir.
+- **Kullanıcı tanımlı işlevleri** (UDF) izin içinde uzamsal grafik işleme özelleştirilebilir algılayıcı telemetri. Örneğin, bir UDF yapabilirsiniz:
+  - Bir algılayıcı değere ayarlayın.
+  - Özel mantığı üzerinde sensör okumaları tabanlı gerçekleştirmek ve çıkış için bir alanı ayarlayın.
+  - Meta veriler için bir alanı ekleyin.
+  - Önceden tanımlanmış koşullar karşılandığında bildirimleri gönderin. Şu anda, UDF'ler JavaScript dilinde yazılabilir.
 - **Matchers** olan hangi UDF'ler belirlemek nesneleri için belirli bir telemetri iletisi yürütülür.
 - **Uç noktaları** burada telemetri iletilerini ve dijital İkizlerini olayları yönlendirilir, örneğin, konumlar `Event Hub`, `Service Bus`, ve `Event Grid`.
 
@@ -103,9 +103,9 @@ Tüm API çağrıları kullanarak SSO'yu [OAuth](https://docs.microsoft.com/azur
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Cihaz bağlantısı ve telemetri iletilerini göndermek için dijital İkizleri hakkında bilgi edinmek için [Azure dijital İkizlerini cihaz bağlantısı ve telemetri girişi](concepts-device-ingress.md).
+- Cihaz bağlantısı ve telemetri iletilerini göndermek için dijital İkizleri hakkında bilgi edinmek için [Azure dijital İkizlerini cihaz bağlantısı ve telemetri girişi](concepts-device-ingress.md).
 
-* Yönetim API sınırlamaları ve kısıtlamalar hakkında bilgi edinmek için [Azure dijital İkizlerini API yönetimi ve sınırlamalar](concepts-service-limits.md).
+- Yönetim API sınırlamaları ve kısıtlamalar hakkında bilgi edinmek için [Azure dijital İkizlerini API yönetimi ve sınırlamalar](concepts-service-limits.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

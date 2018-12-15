@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: f9ae9b374e97c0f4be32d6c6a7d47fd803a1a0e5
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 062925f7e072651f4b4189cec7ca73144c0cf994
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011530"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436339"
 ---
-# <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Ambari API'sini kullanarak HDInsight'ta Hadoop kümelerini izleme
-HDInsight kümeleri Ambari API'lerini kullanarak izlemeyi öğrenin.
+# <a name="monitor-apache-hadoop-clusters-in-hdinsight-using-the-apache-ambari-api"></a>Apache Ambari API'sini kullanarak HDInsight Apache Hadoop kümelerini izleme
+Apache Ambari API'lerini kullanarak HDInsight kümelerini izleme hakkında bilgi edinin.
 
-> [!NOTE]
-> Bu makalede, Ambari REST API'yi salt okunur bir sürümünü sağlayın. öncelikle Windows tabanlı HDInsight kümeleri için bilgilerdir. Linux tabanlı kümeler için bkz: [yönetme Hadoop kümeleri Ambari kullanarak](hdinsight-hadoop-manage-ambari.md).
+> [!NOTE]  
+> Bu makalede, Ambari REST API'yi salt okunur bir sürümünü sağlayın. öncelikle Windows tabanlı HDInsight kümeleri için bilgilerdir. Linux tabanlı kümeler için bkz: [Apache Ambari kullanarak yönetme Apache Hadoop kümelerini](hdinsight-hadoop-manage-ambari.md).
 > 
 > 
 
@@ -36,7 +36,7 @@ Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 * **Azure PowerShell içeren bir iş istasyonu**.
 * (İsteğe bağlı) [cURL][curl]. Yüklemek için bkz: [sürümleri ve indirmeler cURL][curl-download].
   
-  > [!NOTE]
+  > [!NOTE]  
   > Ne zaman Windows, seçenek değerlerinin tek tırnak işaretleri yerine çift tırnak işaretleri kullan cURL komutunu kullanın.
   > 
   > 
@@ -120,7 +120,7 @@ Aşağıdaki örnek, cURL kullanarak küme bilgileri alır:
 Ambari uç noktası, kullanıldığında "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}" *host_name* alan ana bilgisayar adı yerine düğüm tam etki alanı adını (FQDN) döndürür. 8/10/2014 yayınlanmadan önce bu örnek döndürülen yalnızca "**headnode0**". 8/10/2014 sürümünden sonra FQDN Al "**headnode0. { ClusterDNS} .azurehdinsight .net**", bir önceki örnekte gösterildiği gibi. Bu değişikliğin nerede birden çok küme türleri (örneğin, HBase ve Hadoop gibi) bir sanal ağ (VNET) içinde dağıtılabilir senaryoları kolaylaştırmak için gereklidir. Bu, örneğin, Hadoop için bir arka uç platform HBase kullanırken gerçekleşir.
 
 ## <a name="ambari-monitoring-apis"></a>Ambari API izleme
-Aşağıdaki tabloda en yaygın Ambari API çağrıları izleme bazıları listelenmektedir. API hakkında daha fazla bilgi için bkz. [Ambari API Başvurusu][ambari-api-reference].
+Aşağıdaki tabloda en yaygın Ambari API çağrıları izleme bazıları listelenmektedir. API hakkında daha fazla bilgi için bkz. [Apache Ambari API Başvurusu][ambari-api-reference].
 
 | İzleyici API çağrısı | URI | Açıklama |
 | --- | --- | --- |
@@ -138,7 +138,7 @@ Aşağıdaki tabloda en yaygın Ambari API çağrıları izleme bazıları liste
 | Yapılandırma bilgilerini alın. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |Yapılandırma türü: çekirdek site, hdfs site, site mapred, hive-site |
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Artık Ambari API çağrıları izleme kullanmayı öğrendiniz. Daha fazla bilgi için bkz:
+Artık Apache Ambari izleme API çağrılarının nasıl kullanılacağını öğrendiniz. Daha fazla bilgi için bkz:
 
 * [Azure portalını kullanarak HDInsight kümelerini yönetme][hdinsight-admin-portal]
 * [Azure PowerShell kullanarak HDInsight kümelerini yönetme][hdinsight-admin-powershell]

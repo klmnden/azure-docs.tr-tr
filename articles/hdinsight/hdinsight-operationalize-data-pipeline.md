@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 93c2808dc244a86f7a58aa65d649e9c3e8c17f7c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251717"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436169"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Veri analizi işlem hattını kullanıma hazır hale getirme
 
@@ -30,13 +30,13 @@ Aşağıdaki senaryoda, girdi verilerini bir ay için bir dizi uçuş verileri i
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-Örnek işlem hattı, bir yeni dönemin uçuş verileri ulaşır ve ardından Hive veri ambarınıza yönelik uzun vadeli analizleri ayrıntılı uçuş bilgileri depolar kadar bekler. İşlem hattı yalnızca günlük uçuş verileri özetleyen bir çok daha küçük veri kümesi de oluşturur. Bu günlük uçuş Özet veriler, raporlar gibi bir Web sitesi için sağlamak için bir SQL veritabanı'na gönderilir.
+Örnek işlem hattı, bir yeni dönemin uçuş verileri ulaşır ve uzun vadeli analizleri için Apache Hive, veri ambarı'na, ayrıntılı uçuş bilgilerini depolar kadar bekler. İşlem hattı yalnızca günlük uçuş verileri özetleyen bir çok daha küçük veri kümesi de oluşturur. Bu günlük uçuş Özet veriler, raporlar gibi bir Web sitesi için sağlamak için bir SQL veritabanı'na gönderilir.
 
 Aşağıdaki diyagramda, örnek işlem hattı gösterilmektedir.
 
 ![Uçuş veri işlem hattı](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## <a name="oozie-solution-overview"></a>Oozie çözümüne genel bakış
+## <a name="apache-oozie-solution-overview"></a>Apache Oozie çözümüne genel bakış
 
 Bu işlem hattı, bir HDInsight Hadoop küme üzerinde çalışan Apache Oozie kullanır.
 
@@ -139,7 +139,7 @@ Azure SQL veritabanı artık hazırdır.
 
 Düzenleyici ve iş akışı örnekleri durumunu görüntülemek için Oozie Web konsolunu kullanmak için HDInsight kümenize SSH tüneli ayarlayın. Daha fazla bilgi için [SSH tüneli](hdinsight-linux-ambari-ssh-tunnel.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Chrome ile de kullanabileceğiniz [Foxy Proxy](https://getfoxyproxy.org/) SSH tüneli üzerinden kümenizin web kaynaklarına göz atmak için uzantı. Proxy konağı üzerinden tüm istekleri yapılandırmak `localhost` tünelin bağlantı 9876. Bu yaklaşım, Windows 10 üzerinde Bash olarak da bilinen, Linux için Windows alt sistemi ile uyumludur.
 
 1. SSH tüneli kümenize açmak için aşağıdaki komutu çalıştırın:
@@ -430,7 +430,7 @@ Aşağıdaki tabloda, özelliklerin her birini özetler ve kendi ortamınızı d
 | ay | Ay bileşeninin günün hangi uçuş için özetleri hesaplanır. Olduğu gibi bırakın. |
 | gün | Ayın günü bileşenini günün hangi uçuş için özetleri hesaplanır. Olduğu gibi bırakın. |
 
-> [!NOTE]
+> [!NOTE]  
 > Kopyanızı güncelleştirdiğinizden emin olun `job.properties` dağıtabilir ve Oozie iş akışınızı çalıştırma önce sizin ortamınıza özgü değerlerle dosya.
 
 ### <a name="deploy-and-run-the-oozie-workflow"></a>Dağıtma ve Oozie iş akışı çalıştırma

@@ -1,6 +1,6 @@
 ---
-title: Toplama ve çözümleme OMS Log Analytics, Syslog iletileri | Microsoft Docs
-description: Syslog Linux için ortak olan olay günlüğü protokolüdür. Bu makale, Log Analytics ve OMS deposunda oluşturdukları kayıtları ayrıntılarını Syslog iletileri koleksiyonu yapılandırmak açıklamaktadır.
+title: Toplama ve Syslog iletileri Azure İzleyici'de çözümleme | Microsoft Docs
+description: Syslog Linux için ortak olan olay günlüğü protokolüdür. Bu makalede, Azure İzleyici ve oluşturdukları kayıtları ayrıntılarını Syslog iletileri koleksiyonu yapılandırma açıklanır.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,30 +11,30 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: c47f96a91d312eea1748b00e4272a7c9a11d5c1e
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 263f9dcd038bd9ec20036983e273f56191e9a300
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186642"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436730"
 ---
-# <a name="syslog-data-sources-in-log-analytics"></a>Syslog Log analytics'te veri kaynakları
-Syslog Linux için ortak olan olay günlüğü protokolüdür.  Uygulamaları, yerel makinede depolanan veya bir Syslog Toplayıcıya teslim olabilir iletileri gönderir.  Linux için OMS aracısı yüklü olduğunda, aracıya ileti iletmek için yerel Syslog daemon'u yapılandırır.  Aracı bu durumda OMS deposunda karşılık gelen bir kaydın oluşturulduğu Log Analytics ileti gönderir.  
+# <a name="syslog-data-sources-in-azure-monitor"></a>Azure İzleyici'de Syslog veri kaynakları
+Syslog Linux için ortak olan olay günlüğü protokolüdür.  Uygulamaları, yerel makinede depolanan veya bir Syslog Toplayıcıya teslim olabilir iletileri gönderir.  Linux için Log Analytics aracısını yüklendiğinde, aracıya ileti iletmek için yerel Syslog daemon'u yapılandırır.  Aracı, ardından ilgili kaydın oluşturulduğu Azure İzleyici için ileti gönderir.  
 
 > [!NOTE]
-> Log Analytics'e toplama rsyslog varsayılan arka plan programı olduğu rsyslog veya syslog-ng tarafından gönderilen iletilerin destekler. Red Hat Enterprise Linux, CentOS ve Oracle Linux sürümü (sysklog) 5 sürümünde varsayılan syslog daemon'u syslog olay toplaması için desteklenmiyor. Bu dağıtımları sürümünden Syslog verilerini toplamak için [rsyslog daemon](http://rsyslog.com) yüklenmeli ve sysklog değiştirmek için yapılandırılmış.
+> Azure İzleyici, koleksiyon rsyslog varsayılan arka plan programı olduğu rsyslog veya syslog-ng tarafından gönderilen iletilerin destekler. Red Hat Enterprise Linux, CentOS ve Oracle Linux sürümü (sysklog) 5 sürümünde varsayılan syslog daemon'u syslog olay toplaması için desteklenmiyor. Bu dağıtımları sürümünden Syslog verilerini toplamak için [rsyslog daemon](http://rsyslog.com) yüklenmeli ve sysklog değiştirmek için yapılandırılmış.
 >
 >
 
 ![Syslog koleksiyonu](media/data-sources-syslog/overview.png)
 
 ## <a name="configuring-syslog"></a>Syslog yapılandırma
-Linux için OMS Aracısı yalnızca yapılandırmasında belirtilen önem dereceleri ve olanakları ile olayları toplar.  Azure portalı üzerinden ya da Linux aracıları yapılandırma dosyalarını yönetme, Syslog yapılandırabilirsiniz.
+Linux için Log Analytics aracısını yalnızca yapılandırmasında belirtilen önem dereceleri ve olanakları ile olayları toplar.  Azure portalı üzerinden ya da Linux aracıları yapılandırma dosyalarını yönetme, Syslog yapılandırabilirsiniz.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Azure portalında Syslog yapılandırma
-Syslog gelen yapılandırma [Log Analytics Gelişmiş ayarlar veri menüde](agent-data-sources.md#configuring-data-sources).  Bu yapılandırma her bir Linux aracı yapılandırma dosyasını teslim edilir.
+Syslog gelen yapılandırma [Gelişmiş ayarlar veri menüde](agent-data-sources.md#configuring-data-sources).  Bu yapılandırma her bir Linux aracı yapılandırma dosyasını teslim edilir.
 
 Yeni bir özellik adını yazarak ve tıklayarak ekleyebilirsiniz **+**.  Her özellik için yalnızca seçilen önem dereceleri iletilerle toplanacak.  Toplamak istediğiniz belirli bir özellik için önem derecelerini işaretleyin.  İletilerine filtre uygulamak için herhangi bir ek ölçüt sağlayamaz.
 
@@ -43,7 +43,7 @@ Yeni bir özellik adını yazarak ve tıklayarak ekleyebilirsiniz **+**.  Her ö
 Varsayılan olarak, tüm yapılandırma değişiklikleri tüm aracılara otomatik olarak gönderilir.  Syslog her Linux aracısını el ile yapılandırmak istiyorsanız, kutunun işaretini kaldırın *aşağıdaki yapılandırmayı Linux makinelerime Uygula*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Syslog Linux Aracısı'nı yapılandırma
-Zaman [OMS aracısı yüklü bir Linux istemcide](../../azure-monitor/learn/quick-collect-linux-computer.md), tesis ve önem derecesi toplanan tüm iletileri tanımlayan bir varsayılan syslog yapılandırma dosyası yükler.  Yapılandırmasını değiştirmek için bu dosyayı değiştirebilirsiniz.  Yapılandırma dosyası, istemcinin yüklediği Syslog daemon'u bağlı olarak farklılık gösterir.
+Zaman [Log Analytics aracısını bir Linux istemcide yüklü](../../azure-monitor/learn/quick-collect-linux-computer.md), tesis ve önem derecesi toplanan tüm iletileri tanımlayan bir varsayılan syslog yapılandırma dosyası yükler.  Yapılandırmasını değiştirmek için bu dosyayı değiştirebilirsiniz.  Yapılandırma dosyası, istemcinin yüklediği Syslog daemon'u bağlı olarak farklılık gösterir.
 
 > [!NOTE]
 > Syslog yapılandırmasını düzenlerseniz, değişikliklerin etkili olması syslog daemon'u başlatmak gerekir.
@@ -136,7 +136,7 @@ Kendi yapılandırma dosyası bölümünü kaldırarak bir özelliğini kaldıra
 
 
 ### <a name="collecting-data-from-additional-syslog-ports"></a>Ek Syslog bağlantı noktalarından verileri toplama
-OMS Aracısı bağlantı noktası 25224 yerel istemcide Syslog iletileri dinler.  Aracı yüklendiğinde varsayılan syslog yapılandırması uygulanır ve şu konumda bulundu:
+Log Analytics aracısını Syslog iletileri yerel istemcide 25224 numaralı bağlantı noktasında dinler.  Aracı yüklendiğinde varsayılan syslog yapılandırması uygulanır ve şu konumda bulundu:
 
 * Rsyslog: `/etc/rsyslog.d/95-omsagent.conf`
 * Syslog-ng: `/etc/syslog-ng/syslog-ng.conf`
@@ -178,7 +178,7 @@ OMS Aracısı bağlantı noktası 25224 yerel istemcide Syslog iletileri dinler.
         destination d_custom_dest { udp("127.0.0.1" port(%SYSLOG_PORT%)); };
         log { source(s_src); filter(f_custom_filter); destination(d_custom_dest); };
 
-Değişiklikler, Syslog ve OMS Aracısı'nı tamamladıktan sonra hizmet yapılandırma değişikliklerinin etkinleşmesi emin olmak için yeniden başlatılması gerekiyor.   
+Değişiklikleri tamamladıktan sonra Syslog ve Log Analytics Aracısı hizmeti yapılandırma değişikliklerini emin olmak için yeniden başlatılması gerektiğinde etkili olur.   
 
 ## <a name="syslog-record-properties"></a>Syslog kayıt özellikleri
 Syslog kayıtları sahip bir tür **Syslog** ve aşağıdaki tabloda gösterilen özelliklere sahiptir.
@@ -205,6 +205,6 @@ Aşağıdaki tabloda, Syslog kayıtları almak günlük sorguları farklı örne
 | Syslog &#124; Summarize aggregatedvalue = count() tesis tarafından |Syslog kayıtlarını Say tesis tarafından. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
+* Hakkında bilgi edinin [queriesi oturum](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
 * Kullanım [özel alanlar](../../azure-monitor/platform/custom-fields.md) syslog kayıtları verilerinden ayrı ayrı alanlara ayrıştırılamıyor.
 * [Linux aracıları yapılandırma](../../azure-monitor/learn/quick-collect-linux-computer.md) diğer veri türlerini, toplanacak.

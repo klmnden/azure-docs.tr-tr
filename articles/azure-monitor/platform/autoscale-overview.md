@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: bf3105201f8eac8bebfe06320ab477cf0b7011e2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: adeb2d1f1268ed3f933a340c184a531510a7ff88
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389025"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437461"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure sanal makineleri, bulut Hizmetleri ve Web uygulamalarını otomatik ölçeklendirmeye genel bakış
 Bu makalede, hangi Microsoft Azure otomatik ölçeklendirme, aboneliğin avantajları olduğu ve nasıl kullanmaya başlayacağınızı açıklar.  
@@ -96,7 +96,7 @@ Daha fazla bilgi için [Azure Otomasyonu ile Azure sanal makine dikey olarak öl
 ## <a name="methods-of-access"></a>Erişim yöntemi
 Otomatik ölçeklendirme ayarlayabilirsiniz.
 
-* [Azure portal](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md)
+* [Azure portal](../../azure-monitor/platform/autoscale-get-started.md)
 * [PowerShell](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings)
 * [Platformlar arası Komut Satırı Arabirimi (CLI)](../../azure-monitor/platform/cli-samples.md#autoscale)
 * [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
@@ -104,7 +104,7 @@ Otomatik ölçeklendirme ayarlayabilirsiniz.
 ## <a name="supported-services-for-autoscale"></a>Desteklenen hizmetler için otomatik ölçeklendirme
 | Hizmet | Şema ve belgeler |
 | --- | --- |
-| Web Apps |[Web uygulamaları ölçeklendirme](../../monitoring-and-diagnostics/monitoring-autoscale-get-started.md) |
+| Web Apps |[Web uygulamaları ölçeklendirme](../../azure-monitor/platform/autoscale-get-started.md) |
 | Cloud Services |[Otomatik ölçeklendirme bir bulut hizmeti](../../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Sanal Makineler: Klasik |[Klasik sanal makine kullanılabilirlik kümeleri ölçeklendirme](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
 | Sanal Makineler: Windows ölçek kümeleri |[Sanal makine ölçeğini artırma veya azaltma Windows ayarlar](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |

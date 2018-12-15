@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: cf2dd013b0d6f8867129d2d53311af21af5a1fe2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4c32d6eccc996bf1a3670a521a7a86394a2f866f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385338"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434520"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Azure izleme verilerini kullanma
 
@@ -23,7 +23,7 @@ Azure platformu üzerinde size izleme verilerini tek bir yerde Azure İzleyici i
 
 | Veri türü | Kategori | Desteklenen hizmetler | Erişim yöntemi |
 | --- | --- | --- | --- |
-| Azure platform düzeyi ölçümlerini izleme | Ölçümler | [Listesine buradan bakın](monitoring-supported-metrics.md) | <ul><li>**REST API:** [Azure İzleyici ölçüm API'si](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**Depolama blobu veya olay hub'ı:** [Tanılama ayarları](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
+| Azure platform düzeyi ölçümlerini izleme | Ölçümler | [Listesine buradan bakın](../azure-monitor/platform/metrics-supported.md) | <ul><li>**REST API:** [Azure İzleyici ölçüm API'si](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**Depolama blobu veya olay hub'ı:** [Tanılama ayarları](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)</li></ul> |
 | Konuk işletim sistemi ölçümleri (ör. işlem performans sayaçları) | Ölçümler | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) ve Linux sanal makineleri (v2) [bulut Hizmetleri](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Depolama tablo veya blob:** [Windows veya Linux Azure tanılama](../azure-monitor/platform/diagnostics-extension-to-storage.md)</li><li>**Olay hub'ı:** [Windows Azure tanılama](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)</li></ul> |
 | Özel veya uygulama ölçümleri | Ölçümler | Application Insights ile izlenen herhangi bir uygulama | <ul><li>**REST API:** [Application Insights REST API](https://dev.applicationinsights.io/reference)</li></ul> |
 | Depolama ölçümleri | Ölçümler | Azure Storage | <ul><li>**Depolama tablosu:** [Depolama Analizi](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
@@ -37,7 +37,7 @@ Azure platformu üzerinde size izleme verilerini tek bir yerde Azure İzleyici i
 | Active Directory raporlama | Olaylar | Azure Active Directory | <ul><li>**REST API:** [Azure Active Directory graph API'si](../active-directory/reports-monitoring/concept-reporting-api.md)</li></ul> |
 | Güvenlik Merkezi kaynak durumu | Durum | [Desteklenen tüm kaynaklar](https://msdn.microsoft.com/library/mt704041.aspx#Anchor_1) | <ul><li>**REST API:** [Güvenlik durumları](https://msdn.microsoft.com/library/mt704041.aspx)</li></ul> |
 | Kaynak Durumu | Durum | Desteklenen hizmetler | <ul><li>**REST API:** [Kaynak durumu REST API](https://azure.microsoft.com/blog/reduce-troubleshooting-time-with-azure-resource-health/)</li></ul> |
-| Azure İzleyici ölçüm uyarıları | Bildirimler | [Listesine buradan bakın](monitoring-supported-metrics.md) | <ul><li>**Web kancası:** [Azure ölçüm uyarıları](../azure-monitor/platform/alerts-webhooks.md)</li></ul> |
+| Azure İzleyici ölçüm uyarıları | Bildirimler | [Listesine buradan bakın](../azure-monitor/platform/metrics-supported.md) | <ul><li>**Web kancası:** [Azure ölçüm uyarıları](../azure-monitor/platform/alerts-webhooks.md)</li></ul> |
 | Azure İzleyici etkinlik günlüğü uyarıları | Bildirimler | Tüm Azure Hizmetleri | <ul><li>**Web kancası:** Azure etkinlik günlüğü uyarıları</li></ul> |
 | Otomatik ölçeklendirme bildirimleri | Bildirimler | [Listesine buradan bakın](../azure-monitor/platform/autoscale-overview.md#supported-services-for-autoscale) | <ul><li>**Web kancası:** [Otomatik ölçeklendirme bildirim Web kancası yükü şeması](../azure-monitor/platform/autoscale-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
 | Günlük arama sorgusu uyarıları | Bildirimler | Log Analytics | <ul><li>**Web kancası:** [Günlük uyarı kuralları için Web kancası eylemi](../monitoring-and-diagnostics/../azure-monitor/platform/alerts-log-webhook.md)</li></ul> |

@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: aa6702ccf00faa3d63d5458cfbd77ac15fbfbeaa
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0d9ad11ab9a53cf5de51dd3f262dc16054be5d85
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633057"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438617"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Öğretici: HDInsight, Kurumsal güvenlik paketi (Önizleme) ile Apache Kafka ilkeleri yapılandırma
 
@@ -39,7 +39,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 1. Bir tarayıcıdan, `https://<ClusterName>.azurehdinsight.net/Ranger/` URL’sini kullanarak Ranger Yönetici kullanıcı arabirimine bağlanın. `<ClusterName>` öğesini Kafka kümenizin adıyla değiştirmeyi unutmayın.
 
-    > [!NOTE] 
+    > [!NOTE]  
     > Ranger kimlik bilgileri Hadoop kümesi kimlik bilgileriyle aynı değildir. Tarayıcıların ön belleğe alınmış Hadoop kimlik bilgilerini kullanmasını önlemek için Ranger Yönetici Arabirimine yeni bir InPrivate tarayıcı penceresinden bağlanın.
 
 2. Azure Active Directory (AD) yönetici kimlik bilgilerinizi kullanarak oturum açın. Azure AD yönetici kimlik bilgileri HDInsight küme kimlik bilgileri veya Linux HDInsight düğümü SSH kimlik bilgileriyle aynı değildir.
@@ -74,7 +74,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
    ![Apache Ranger Yönetici Arabirimi Oluşturma İlkesi](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
 
-   >[!NOTE] 
+   >[!NOTE]   
    >**Select User** için bir etki alanı kullanıcısı otomatik olarak doldurulmazsa, Ranger’ın Azure AD ile eşitlenmesi için birkaç dakika bekleyin.
 
 4. **Add**’e tıklayarak ilkeyi kaydedin.
@@ -113,17 +113,17 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
    ```
 
-3. Kafka aracısı ana bilgisayarlarını ve Zookeeper ana bilgisayarlarını almak için aşağıdaki komutları kullanın. İstendiğinde, küme yöneticisi hesabı için parolayı girin.
+3. Kafka aracısı ve Apache Zookeeper konakları almak için aşağıdaki komutları kullanın. İstendiğinde, küme yöneticisi hesabı için parolayı girin.
 
    ```bash
    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
-> [!Note]
+> [!Note]  
 > Devam etmeden önce henüz ayarlamadıysanız geliştirme ortamınızı ayarlamanız gerekebilir. Java JDK, Apache Maven ve scp desteğine sahip bir SSH istemcisine ihtiyacınız olacaktır. Ayrıntılı bilgi için bu [kurulum yönergelerini](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer) inceleyin.
 1. [Apache Kafka etki alanına katılmış üretici tüketici örneklerini](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer) indirin.
 
-1. [Öğretici: Apache Kafka Üretici ve Tüketici API’lerini kullanma](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example) sayfasının **Örneği derleme ve dağıtma** bölümündeki 2 ve 3 numaralı adımları izleyin.
+1. Adım 2 ve 3 altında izleyin **oluşturun ve örnek dağıtın** içinde [Öğreticisi: Apache Kafka üretici ve tüketici API'lerini kullanma](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example)
 
 1. Aşağıdaki komutları çalıştırın:
 
@@ -132,7 +132,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 
-   >[!NOTE] 
+   >[!NOTE]   
    >Yalnızca kök gibi Kafka hizmetinin süreç sahibi Zookeeper znodes `/config/topics` öğesine yazabilir. Ayrıcalıklı olmayan bir kullanıcı bir konu oluşturduğunda Ranger ilkeleri zorlanmaz. Bunun nedeni, `kafka-topics.sh` betiğinin konuyu oluşturmak için Zookeeper ile doğrudan iletişim kurmasıdır. Girdiler Zookeeper düğümlerine eklenir ve aracı tarafındaki izleyiciler konuları buna göre izler ve oluşturur. Yetkilendirme Ranger eklentisi aracılığıyla yapılamaz ve yukarıdaki komut Kafka aracısı üzerinden `sudo` kullanılarak yürütülür.
 
 
@@ -210,5 +210,5 @@ Yapılandırılan Ranger ilkelerine bağlı olarak, **sales_user** **salesevents
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Kafka’ya kendi anahtarınızı getirin](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
-* [Kurumsal Güvenlik Paketi ile Hadoop güvenliğine giriş](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+* [Apache Kafka için kendi anahtarını Getir](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
+* [Kurumsal güvenlik paketi ile Apache Hadoop güvenliğine giriş](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)

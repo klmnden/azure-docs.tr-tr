@@ -3,18 +3,18 @@ title: Azure Digital Twins'e genel bakış | Microsoft Docs
 description: Uzamsal zekaya yönelik bir Azuer IoT çözümü olan Azure Digital Twins hakkında daha fazla bilgi edinin.
 author: julieseto
 ms.author: jseto
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 84f329c0a97d0f79a5f612fb3054b82a182e4da9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287379"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437121"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Azure Digital Twins'e genel bakış
 
@@ -27,12 +27,12 @@ Azure ile dijital İkizlerini, fiziksel bir boşluk yerine birçok farklı sens�
 - Office için kullanılabilir alan kullanımı iyileştirin.
 
 Azure dijital İkizlerini ortamları tüm türleri için geçerlidir. Ambar, ofisleri, okullar, hastaneler ve bankalar bunun yalnızca birkaç örnektir. Hatta kurucular, fabrikaları, park, parka, Akıllı Kılavuzlar ve şehir için kullanılabilir. Azure dijital çiftleri için aşağıdaki örnek senaryolarda kullanılabilir:
- 
-- Günlük sıcaklık arasında çeşitli durumları izler. 
+
+- Günlük sıcaklık arasında çeşitli durumları izler.
 - Meşgul bir insansız hava aracı yolları izleyin.
-- Otonom taşıtlardan belirleyin. 
-- Bir yapı için sahiplik düzeyleri analiz edin. 
-- En yoğun saatinde Yazar Kasa deponuzda bulun. 
+- Otonom taşıtlardan belirleyin.
+- Bir yapı için sahiplik düzeyleri analiz edin.
+- En yoğun saatinde Yazar Kasa deponuzda bulun.
 
 Gerçek dünyadaki iş senaryonuz ne olursa olsun Azure Digital Twins ile uygun bir dijital örnek sağlanabilir.
 
@@ -94,7 +94,7 @@ Azure dijital İkizlerini Fiziksel dünyadaki ve birçok ilişkilerini temsil et
 
 Azure Digital Twins, verileri fiziksel dünyayla eşitlemek için Azure IoT Hub'ı kullanarak IoT cihazlarına ve sensörlerine bağlanır. Aşağıdaki diyagramda Azure dijital çiftleri için diğer Azure IOT Hizmetleri ilişkisini gösterir.
 
-![Azure Digital Twins, Azure IoT Hub üzerinde geliştirilmiş olan bir hizmettir](./media/overview/azure-digital-twins-in-iot-ecosystem.png)
+![Azure Digital Twins, Azure IoT Hub üzerinde geliştirilmiş olan bir hizmettir][1]
 
 IOT hakkında daha fazla bilgi için bkz: [Azure IOT teknolojilerini ve çözümlerini](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies).
 
@@ -102,15 +102,18 @@ IOT hakkında daha fazla bilgi için bkz: [Azure IOT teknolojilerini ve çözüm
 
 Azure dijital İkizleri hakkında kısa bir tanıtım gidin:
 
-> [!div class="nextstepaction"]
-> [Hızlı Başlangıç: Azure dijital İkizlerini kullanarak kullanılabilir odaları bulun.](./quickstart-view-occupancy-dotnet.md)
+>[!div class="nextstepaction"]
+>[Hızlı Başlangıç: Azure dijital İkizlerini kullanarak kullanılabilir odaları Bul](./quickstart-view-occupancy-dotnet.md)
 
 Azure dijital İkizlerini kullanarak yakından tesis yönetimi uygulaması bakın:
 
-> [!div class="nextstepaction"]
-> [Öğretici: Azure Digital Twins'i dağıtma ve uzamsal graf yapılandırma](./tutorial-facilities-setup.md)
+>[!div class="nextstepaction"]
+>[Öğretici: Azure dijital İkizlerini dağıtma ve uzamsal graph'ı yapılandırma](./tutorial-facilities-setup.md)
 
 Temel Azure Digital Twins kavramları hakkında bilgi edinin:
 
-> [!div class="nextstepaction"]
-> [Dijital İkizlerini nesne modeli ve uzamsal zeka graf anlama](./concepts-objectmodel-spatialgraph.md)
+>[!div class="nextstepaction"]
+>[Dijital İkizlerini nesne modeli ve uzamsal zeka graf anlama](./concepts-objectmodel-spatialgraph.md)
+
+<!-- Images -->
+[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png

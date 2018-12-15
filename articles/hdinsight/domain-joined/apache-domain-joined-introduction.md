@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ed735b8344c301be413dfe998ccf7f44bd686115
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b120d50b6b0f72b5977d238866cfdf26fd9be5ff
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011242"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436900"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Kurumsal güvenlik paketi ile Apache Hadoop güvenliğine giriş
 
@@ -24,8 +24,8 @@ Kurumsal güvenlik paketi'ile (ESP), bir Active Directory etki alanına katılm�
 
 Kuruluş yöneticisi rol tabanlı erişim denetimi (RBAC) için güvenlik Apache Hive kullanarak yapılandırabilirsiniz [Apache Ranger](https://hortonworks.com/apache/ranger/). RBAC yapılandırma, yalnızca gerekli olanla veri erişimi kısıtlar. Son olarak yönetici çalışanlara ve erişim denetim ilkelerinde yapılan değişiklikler göre veri erişimi denetleyebilirsiniz. Yönetici daha sonra bir yüksek düzeyde kurumsal kaynakların elde edebilirsiniz.
 
-> [!NOTE]
-> Oozie ESP kümelerinde şimdi etkinleştirildi. Oozie web kullanıcı Arabirimi erişmek için kullanıcıların etkinleştirmelisiniz [tünel](../hdinsight-linux-ambari-ssh-tunnel.md).
+> [!NOTE]  
+> Apache Oozie ESP kümelerinde şimdi etkinleştirildi. Oozie web kullanıcı Arabirimi erişmek için kullanıcıların etkinleştirmelisiniz [tünel](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 Kuruluş güvenliği dört temel yapı taşları içerir: çevre güvenliği, kimlik doğrulaması, yetkilendirme ve şifreleme.
 
@@ -39,7 +39,7 @@ HDInsight çevre güvenliği sanal ağlar ve Azure VPN ağ geçidi hizmeti sağl
 ## <a name="authentication"></a>Kimlik Doğrulaması
 Kuruluş Yöneticileri ESP içeren bir HDInsight kümesi oluşturma bir [sanal ağ](https://azure.microsoft.com/services/virtual-network/). HDInsight kümesinin tüm düğümlerine kuruluş tarafından yönetilen etki alanına katılır. Bu kullanımının sağlanır [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). 
 
-Bu kurulum sayesinde kuruluş çalışanları küme düğümlerinde etki alanı kimlik bilgilerini kullanarak oturum açabilir. Bunlar ayrıca, etki alanı kimlik Ambari Views, ODBC, JDBC, PowerShell ve REST API'leri kümeyle etkileşimde gibi diğer onaylanmış uç noktaların kimlik doğrulaması yapmak için kullanabilirsiniz. Yönetici Bu uç noktalar üzerinden kümeyle etkileşime geçen kullanıcının sayısını sınırlama üzerinde tam denetime sahiptir.
+Bu kurulum sayesinde kuruluş çalışanları küme düğümlerinde etki alanı kimlik bilgilerini kullanarak oturum açabilir. Bunlar ayrıca Apache Ambari Views, ODBC, JDBC, PowerShell ve REST API'leri kümeyle etkileşimde gibi diğer onaylanmış uç noktaların kimlik doğrulaması yapmak için etki alanı kimlik bilgilerini kullanabilirsiniz. Yönetici Bu uç noktalar üzerinden kümeyle etkileşime geçen kullanıcının sayısını sınırlama üzerinde tam denetime sahiptir.
 
 ## <a name="authorization"></a>Yetkilendirme
 Çoğu kuruluş izleyen en iyi uygulama her çalışana kuruluş kaynakları erişimi olduğundan emin olmak. Benzer şekilde, yönetici küme kaynakları için rol tabanlı erişim denetimi ilkeleri tanımlayabilirsiniz. 
@@ -63,6 +63,6 @@ HDInsight kümeleri--Azure Blob Depolama ve Azure Data Lake depolama Gen1--deste
 * [ESP ile HDInsight kümeleri planlama](apache-domain-joined-architecture.md)
 * [ESP ile HDInsight kümelerini yapılandırma](apache-domain-joined-configure.md)
 * [ESP ile HDInsight kümelerini yönetme](apache-domain-joined-manage.md)
-* [ESP ile HDInsight kümeleri için Hive ilkelerini yapılandırma](apache-domain-joined-run-hive.md)
+* [ESP ile HDInsight kümeleri için Apache Hive ilkelerini yapılandırma](apache-domain-joined-run-hive.md)
 * [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
 

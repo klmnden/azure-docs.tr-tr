@@ -1,6 +1,6 @@
 ---
 title: Azure İzleyici verilerini Görselleştirme | Microsoft Docs
-description: Azure İzleyici ölçümleri deposu ve Log Analytics verilerini dahil olmak üzere depolanan verileri görselleştirmek için kullanılabilen yöntemler bir özetini sağlar.
+description: Ölçüm görselleştirin ve Azure İzleyici'de depolanan verileri günlüğe kaydetmek için kullanılabilen yöntemler bir özetini sağlar.
 author: bwren
 manager: carmonm
 editor: ''
@@ -10,17 +10,17 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/15/2018
+ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: a2fd26d110e7bf1ce7ac365b83659e5d33a037df
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 76e3a219d440bab4c6e277887aabb1e01f5e1d9c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383553"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435455"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure İzleyici verilerini Görselleştirme
-Bu makalede, Azure İzleyici'de depolanan verileri görselleştirmek için kullanılabilen yöntemler bir özetini sağlar. Bu içerir [Azure ölçümleri depolama ölçümleri](../azure-monitor/platform/data-collection.md#metrics) ve [Log Analytics'te günlük verilerini](../azure-monitor/platform/data-collection.md#logs). 
+Bu makalede, günlük ve ölçüm verilerini Azure İzleyici'de depolanan görselleştirmek için kullanılabilen yöntemler bir özetini sağlar.
 
 Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanımlamak için izleme verilerinizi analiz etmenize yardımcı olabilir. Kullandığınız araç bağlı olarak, görselleştirmeler içinde hem de kuruluşunuz dışındaki diğer kullanıcılarla paylaşmak için seçenek olabilir.
 
@@ -30,7 +30,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 ![Pano](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Yararları
-- Azure kapsamlı tümleştirme. Görselleştirmeler, ölçüm Gezgini, Log Analytics ve Application Insights da dahil olmak üzere birden çok Azure sayfalarından panolara sabitlenebilir.
+- Azure kapsamlı tümleştirme. Görselleştirmeler, ölçümleri analiz, log analytics ve Application Insights da dahil olmak üzere birden çok Azure sayfalarından panolara sabitlenebilir.
 - Ölçüm ve günlükleri hem destekler.
 - Çıkışı dahil olmak üzere birden çok kaynaktan alınan verileri birleştirin [ölçüm Gezgini](../azure-monitor/platform/metrics-charts.md), [Log Analytics sorguları](../azure-monitor/log-query/log-query-overview.md), ve [eşler](../application-insights/app-insights-app-map.md) ve [kullanılabilirlik]()Application ınsights.
 - Kişisel veya paylaşılan panolar için seçenek. Azure ile tümleşik [rol tabanlı kimlik doğrulaması (RBAC)](../role-based-access-control/overview.md).
@@ -41,23 +41,23 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 
 
 ### <a name="limitations"></a>Sınırlamalar
-- Log Analytics görselleştirmeler veri tablolarının desteği olmadan denetime sınırlı. Veri serisi toplam sayısı 10'a sınırlı altında gruplandırılmış daha fazla veri serisi ile bir _diğer_ demet.
-- Özel parametre için Log Analytics grafikleri destekler.
-- Log Analytics grafikleri, son 30 gün için sınırlıdır.
-- Log Analytics grafikler yalnızca paylaşılan panolara sabitlenebilir.
+- Sınırlı günlük görselleştirmeler veri tablolarının desteği olmadan denetime. Veri serisi toplam sayısı 10'a sınırlı altında gruplandırılmış daha fazla veri serisi ile bir _diğer_ demet.
+- Özel parametre için günlük grafikleri destekler.
+- Son 30 gün için günlük grafikleri sınırlıdır.
+- Günlük grafikler yalnızca paylaşılan panolara sabitlenebilir.
 - Pano verileriyle etkileşim yok.
 - Sınırlı bağlamsal detaya gitme.
 
 ## <a name="azure-monitor-views"></a>Azure İzleyici görünümleri
-[Azure İzleyici görünümlerde](../azure-monitor/platform/view-designer.md) günlük verileri Log Analytics içinde depolanan özel görselleştirmeler oluşturmanıza imkan tanır. Tarafından kullanılan [izleme çözümleri](../azure-monitor/insights/solutions.md) bunlar topladığı verileri sunmak için.
+[Azure İzleyici görünümlerde](../log-analytics/log-analytics-view-designer.md) günlük verileri ile özel görselleştirmeler oluşturmanıza imkan tanır. Tarafından kullanılan [izleme çözümleri](insights/solutions.md) bunlar topladığı verileri sunmak için.
 
 ![Görünüm](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Yararları
-- Log Analytics verilerini için zengin görselleştirmeler.
+- Günlük verileri için zengin görselleştirmeler.
 - Dışarı aktarma ve diğer kaynak gruplarında ve Aboneliklerde aktarmak için görünümler içeri aktarın.
 - Çalışma alanları ve izleme çözümlerinin günlük analitik yönetim modeliyle tümleştirir.
-- [Filtreler](../azure-monitor/platform/view-designer-filters.md) özel parametreler için.
+- [Filtreler](platform/view-designer-filters.md) özel parametreler için.
 - Etkileşimli, destekleyen çok düzeyli ayrıntıya içinde (başka bir görünüme ayrıntılı açıklanmıştır görünümü)
 
 ### <a name="limitations"></a>Sınırlamalar
@@ -65,7 +65,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 - Kişisel Görünüm yok. Çalışma alanına erişimi olan tüm kullanıcılar için kullanılabilir.
 - Otomatik Yenile yoktur.
 - Düzen Seçenekleri sınırlıdır.
-- Log Analytics çalışma alanları ve Application Insights uygulamaları arasında sorgulama için destek yok.
+- Birden çok çalışma alanında veya Application Insights uygulamaları'nı sorgulamak için destek yok.
 - Sorgular, yanıt boyutu 110 saniye 8 MB ve sorgu yürütme süresini sınırlıdır.
 
 
@@ -89,7 +89,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 
 
 ## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) iş odaklı panolar ve raporların yanı sıra, uzun vadeli KPI eğilimlerini çözümleme raporları oluşturmak için özellikle yararlıdır. Yapabilecekleriniz [bir Log Analytics sorgusunun sonuçları içe](../azure-monitor/platform/powerbi.md) Power BI kümesine böylece farklı kaynaklardan verileri birleştirme ve raporları Web'de ve mobil cihazlarda paylaşma gibi özelliklerinden yararlanabilir.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) iş odaklı panolar ve raporların yanı sıra, uzun vadeli KPI eğilimlerini çözümleme raporları oluşturmak için özellikle yararlıdır. Yapabilecekleriniz [günlük sorgusu sonuçlarını alma](../log-analytics/log-analytics-powerbi.md) Power BI kümesine böylece farklı kaynaklardan verileri birleştirme ve raporları Web'de ve mobil cihazlarda paylaşma gibi özelliklerinden yararlanabilir.
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -109,7 +109,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 
 
 ## <a name="grafana"></a>Grafana
-[Grafana](https://grafana.com/) işletimsel panolar excels açık bir platformdur. Algılama ve yalıtma ve işletimsel olaylar önceliklendirmek için özellikle yararlıdır. Ekleyebileceğiniz [Grafana Azure İzleyicisi veri kaynağı eklentisi](../monitoring-and-diagnostics/monitor-send-to-grafana.md) Azure aboneliğinizde Azure ölçüler verilerinizi görselleştirmek için.
+[Grafana](https://grafana.com/) işletimsel panolar excels açık bir platformdur. Algılama ve yalıtma ve işletimsel olaylar önceliklendirmek için özellikle yararlıdır. Ekleyebileceğiniz [Grafana Azure İzleyicisi veri kaynağı eklentisi](../azure-monitor/platform/grafana-plugin.md) Azure aboneliğinizde Azure ölçüler verilerinizi görselleştirmek için.
 
 ![Grafana](media/visualizations/grafana.png)
 
@@ -126,7 +126,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 
 
 ## <a name="build-your-own-custom-application"></a>Kendi özel uygulamanızı oluşturun
-Kendi özel Web siteleri ve uygulamalar oluşturmanıza olanak sağlayan bir REST istemcisi kullanarak kendi API aracılığıyla Azure ölçümleri ve Log Analytics verilerine erişebilir.
+Kendi özel Web siteleri ve uygulamalar oluşturmanıza olanak sağlayan bir REST istemcisi kullanarak API'leri verileri günlük ve ölçüm verilerini Azure İzleyici'de erişebilirsiniz.
 
 ### <a name="advantages"></a>Yararları
 - Kullanıcı Arabirimi, görselleştirme, etkileşim ve özelliklerin tam esneklik sağlar.
@@ -137,9 +137,10 @@ Kendi özel Web siteleri ve uygulamalar oluşturmanıza olanak sağlayan bir RES
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Hakkında bilgi edinin [Azure İzleyici tarafından toplanan veriler](../azure-monitor/platform/data-collection.md).
+- Hakkında bilgi edinin [Azure İzleyici tarafından toplanan veriler](platform/data-collection.md).
 - Hakkında bilgi edinin [Azure panoları](../azure-portal/azure-portal-dashboards.md).
-- Hakkında bilgi edinin [Azure İzleyici görünümlerde](../azure-monitor/platform/view-designer.md).
+- Hakkında bilgi edinin [Azure İzleyici görünümlerde](platform/view-designer.md).
 - Hakkında bilgi edinin [Application Insights çalışma kitaplarında](../application-insights/app-insights-usage-workbooks.md).
 - Hakkında bilgi edinin [günlük verilerini Power BI'a aktarma](../azure-monitor/platform/powerbi.md).
-- Hakkında bilgi edinin [Grafana Azure İzleyicisi veri kaynağı eklentisi](../monitoring-and-diagnostics/monitor-send-to-grafana.md).
+- Hakkında bilgi edinin [Grafana Azure İzleyicisi veri kaynağı eklentisi](../azure-monitor/platform/grafana-plugin.md).
+

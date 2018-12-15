@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 4af4cae07f4e02bc8306c0b317da3a58e4586494
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 2bc0579d3dd60d66a23a29dabff7e43ca8dfee76
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578358"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435404"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Azure Kubernetes Hizmeti (AKS) ile hizmet sorumluları
 
@@ -113,6 +113,10 @@ Başka bir kaynak grubunda mevcut Disk kaynaklarına erişmek gerekebilir. Rol i
   - *Microsoft.Compute/disks/read*
   - *Microsoft.Compute/disks/write*
 - Veya atama [depolama hesabı Katılımcısı] [ rbac-storage-contributor] kaynak grubunda yerleşik rol
+
+### <a name="azure-container-instances"></a>Azure Container Instances
+
+AKS ile tümleştirin ve kaynak grubunda AKS kümesi için ayrı Azure Container Instances'a (ACI) çalıştırmayı tercih Virtual Kubelet kullanırsanız, hizmet sorumlusu AKS verilmelidir *katkıda bulunan* ACI kaynakta izinleri Grup.
 
 ## <a name="additional-considerations"></a>Diğer konular
 

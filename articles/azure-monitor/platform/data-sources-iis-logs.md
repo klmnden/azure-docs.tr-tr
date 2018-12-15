@@ -1,6 +1,6 @@
 ---
-title: IIS günlüklerini Azure Log Analytics'te | Microsoft Docs
-description: Internet Information Services (IIS) kullanıcı etkinliği Log Analytics tarafından toplanan günlük dosyalarını depolar.  Bu makalede, IIS günlükler koleksiyonunu ve ayrıntıları Log Analytics çalışma alanında oluşturdukları kayıtlarının nasıl yapılandırılacağı açıklanır.
+title: Azure İzleyici'de IIS günlüklerini | Microsoft Docs
+description: Internet Information Services (IIS) kullanıcı etkinliği Azure İzleyici tarafından toplanan günlük dosyalarını depolar.  Bu makalede, IIS günlükler koleksiyonunu ve ayrıntıları Azure İzleyicisi'nde oluşturdukları kayıtlarının nasıl yapılandırılacağı açıklanır.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,31 +11,30 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/12/2018
+ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 42509f98126ebb489fe17c58e6d58b37d7451cf0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: cd28eef249ae6b07b9e3f74b80c32a4b53370215
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189090"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436749"
 ---
-# <a name="iis-logs-in-log-analytics"></a>Log Analytics'te IIS günlükleri
-Internet Information Services (IIS) kullanıcı etkinliği Log Analytics tarafından toplanan günlük dosyalarını depolar.  
+# <a name="collect-iis-logs-in-azure-monitor"></a>Azure İzleyici'de toplama IIS Günlükler
+Internet Information Services (IIS), Azure İzleyici tarafından toplanan ve depolanan günlük dosyalarında kullanıcı etkinliğini depolar [günlük verilerini](data-collection.md).
 
 ![IIS günlükleri](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>IIS yapılandırma günlükleri
-Log Analytics, girdileri gerekir, böylece IIS tarafından oluşturulan günlük dosyalarını toplar [IIS için günlüğe kaydetmeyi yapılandırma](https://technet.microsoft.com/library/hh831775.aspx).
+Azure İzleyici girdileri gerekir, böylece IIS tarafından oluşturulan günlük dosyalarını toplar [IIS için günlüğe kaydetmeyi yapılandırma](https://technet.microsoft.com/library/hh831775.aspx).
 
-Log Analytics, yalnızca depolanan W3C biçiminde IIS günlük dosyalarını destekler ve özel alanlar veya Gelişmiş IIS günlüğü desteklemez.  
-Log Analytics, Günlükleri NCSA veya IIS yerel biçiminde toplamaz.
+Azure İzleyici, yalnızca depolanan W3C biçiminde IIS günlük dosyalarını destekler ve özel alanlar veya Gelişmiş IIS günlüğü desteklemez. NCSA veya IIS yerel biçiminde günlükleri toplamaz.
 
-IIS günlükleri Log Analytics'ten yapılandırmak [günlük analizi ayarları veri menüde](agent-data-sources.md#configuring-data-sources).  Yapılandırma gerekli seçerek dışındaki yoktur **toplamak W3C biçiminde IIS dosya günlükleri**.
+Azure İzleyici'den IIS günlükler yapılandırmak [Gelişmiş Ayarlar menüsünden](agent-data-sources.md#configuring-data-sources).  Yapılandırma gerekli seçerek dışındaki yoktur **toplamak W3C biçiminde IIS dosya günlükleri**.
 
 
 ## <a name="data-collection"></a>Veri toplama
-Log Analytics günlük her kapatıldığında ve yeni bir tane oluşturulur her Aracıdan IIS günlük girişi toplar. Bu sıklığı tarafından denetlenir **günlük dosyası aktarma zamanlaması** varsayılan olarak günde bir kez olan IIS sitesi ayarlama. Örneğin, ayarları ise **saatlik**, sonra Log Analytics günlük her saat toplar.  Ayar **günlük**, ardından Log Analytics günlük 24 saatte bir toplar.
+Azure İzleyici, IIS günlük girişi günlüğü her kapatıldığında ve yeni bir tane oluşturulur. her Aracıdan toplar. Bu sıklığı tarafından denetlenir **günlük dosyası aktarma zamanlaması** varsayılan olarak günde bir kez olan IIS sitesi ayarlama. Örneğin, ayarları ise **saatlik**, sonra Azure İzleyici her saat bir günlük toplar.  Ayar **günlük**, ardından Azure izleyici günlüğü 24 saatte bir toplar.
 
 
 ## <a name="iis-log-record-properties"></a>IIS günlük kaydı özellikleri
@@ -65,7 +64,7 @@ IIS günlük kayıtları sahip bir tür **w3cııslog** ve aşağıdaki tabloda 
 | TimeGenerated |Tarih ve saat giriş günlüğe kaydedildi. |
 | timeTaken |Süreyi milisaniye cinsinden İstek işlenemedi. |
 
-## <a name="log-searches-with-iis-logs"></a>IIS günlükleri ile günlük aramaları
+## <a name="log-queries-with-iis-logs"></a>IIS günlükleri ile günlük sorguları
 Aşağıdaki tabloda IIS günlük kayıtları almak günlük sorguları farklı örnekler sağlar.
 
 | Sorgu | Açıklama |
@@ -77,6 +76,5 @@ Aşağıdaki tabloda IIS günlük kayıtları almak günlük sorguları farklı 
 | W3cııslog &#124; sum(csBytes) bilgisayara göre özetlemek &#124; 500000 Al |Her IIS bilgisayarına göre alınan toplam bayt sayısı. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Diğer toplamak için log Analytics'i yapılandırma [veri kaynakları](agent-data-sources.md) analiz.
-* Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
-* Log analytics'te, IIS günlükleri bulunan önemli koşulları proaktif olarak bildirmek için uyarıları yapılandırın.
+* Azure İzleyici'nın diğer toplamak için yapılandırma [veri kaynakları](agent-data-sources.md) analiz.
+* Hakkında bilgi edinin [oturum sorguları](../../log-analytics/log-analytics-queries.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.

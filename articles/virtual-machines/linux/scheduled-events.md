@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: f18892d32a385b41f3325623e21da1dd25af7253
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: fc9ceb06eb51d1e88306f0971ad055facd05f9fb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744716"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437274"
 ---
-# <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure meta veri hizmetine: Linux VM'ler zamanlanmış olaylar
+# <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure meta veri hizmeti: Linux VM'ler için zamanlanmış olaylar
 
 Zamanlanmış olaylar, sanal makine (VM) bakım için hazırlamak için uygulama süresi sunan Azure meta veri hizmetidir. Yaklaşan bakımın olaylar hakkında bilgi sağlar (örneğin, yeniden başlatma) böylece uygulamanız için hazırlama ve sınırlamak kesilme. PaaS ve Iaas hem Windows hem de Linux da dahil olmak üzere tüm Azure sanal makine türleri için kullanılabilir. 
 
@@ -126,7 +126,7 @@ Bu durumda Zamanlanmış olaylar olduğunda, bir dizi olay yanıtı içerir.
 |Özellik  |  Açıklama |
 | - | - |
 | EventID | Bu olay için genel benzersiz tanımlayıcı. <br><br> Örnek: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: Birkaç saniye için duraklatır VM planlanmaktadır. CPU askıya alındı, ancak bellek, açık dosyalar ve ağ bağlantıları üzerinde hiçbir etkisi yoktur. <li>`Reboot`: Sanal makine için yeniden başlatma zamanlanır. (Kalıcı bellek kaybolur.) <li>`Redeploy`: VM, başka bir düğüme taşımak için zamanlandı. (Kısa ömürlü diskleri kaybolur.) |
+| EventType | Bu olaya neden olan etkisi. <br><br> Değerler: <br><ul><li> `Freeze`: VM, birkaç saniye için duraklatır şekilde zamanlanır. CPU askıya alındı, ancak bellek, açık dosyalar ve ağ bağlantıları üzerinde hiçbir etkisi yoktur. <li>`Reboot`: Sanal makine için yeniden başlatma zamanlanır. (Kalıcı bellek kaybolur.) <li>`Redeploy`: VM, başka bir düğüme taşımak için zamanlandı. (Kısa ömürlü diskleri kaybolur.) |
 | ResourceType | Bu olayın etkileyen kaynak türü. <br><br> Değerler: <ul><li>`VirtualMachine`|
 | Kaynaklar| Bu olayın etkileyen kaynakların listesi. Listenin en fazla bir makinelerden içeren garanti [güncelleme etki alanı](manage-availability.md), ancak tüm makinelerde UD içermeyebilir. <br><br> Örnek: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Bu olay durumu. <br><br> Değerler: <ul><li>`Scheduled`: Bu olay, belirtilen süre geçtikten sonra başlatmak için zamanlanmış `NotBefore` özelliği.<li>`Started`: Bu olayı başlatıldı.</ul> Hayır `Completed` veya benzer durum hiç olmadığı kadar sağlanır. Olay, olay sona erdiğinde artık döndürülür.
@@ -211,6 +211,6 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Sonraki adımlar 
 - İzleme [zamanlanmış olaylar Azure Friday'de](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) tanıtımını görmek için. 
-- Zamanlanmış olaylar kod örnekleri gözden [Azure örnek meta veri zamanlanmış olayları Github deposu](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
+- Zamanlanmış olaylar kod örnekleri gözden [Azure örnek meta veri zamanlanmış olayları GitHub deposu](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm).
 - Daha fazla kullanılabilir API'leri hakkında bilgi edinin [örnek meta veri hizmeti](instance-metadata-service.md).
 - Hakkında bilgi edinin [azure'da Linux sanal makineleri için planlı Bakımı](planned-maintenance.md).

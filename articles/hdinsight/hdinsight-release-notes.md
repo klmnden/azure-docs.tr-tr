@@ -9,23 +9,23 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 663cf6ba2eec4b2abbc6ab4a37e05b756ee67ee9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1f0ff7bef5c1d30eb6920eaab3767de1dea6b94a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016820"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438872"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight için sürüm notları
 
 Bu makalede, hakkında bilgi sağlar. **en son** Azure HDInsight sürüm güncelleştirmeleri. Önceki sürümler hakkında daha fazla bilgi için bkz: [HDInsight sürüm notları arşiv](hdinsight-release-notes-archive.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight sürüm makale](hdinsight-component-versioning.md).
 
 ## <a name="summary"></a>Özet
 
-Azure HDInsight, Azure'da açık kaynak Hadoop ve Spark analizi için kurumsal müşteriler tarafından en çok tercih edilen hizmetlerden biridir. İle [ayrıca HDInsight üzerinde kesin yüzde 50 fiyat](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), müşterilerin buluta taşıma konusunda her zamankinden daha fazla tasarruf yararlanın.
+Azure HDInsight, Azure üzerinde açık kaynaklı Apache Hadoop ve Apache Spark analiz için en popüler hizmetler Kurumsal müşteriler arasında biridir. İle [ayrıca HDInsight üzerinde kesin yüzde 50 fiyat](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), müşterilerin buluta taşıma konusunda her zamankinden daha fazla tasarruf yararlanın.
 
 ## <a name="new-features"></a>Yeni Özellikler
 
@@ -33,9 +33,9 @@ En yeni güncelleştirmeleri ve özellikleri aşağıdaki kategorilere ayrılır
 
 1.  ***Hadoop ve diğer açık kaynaklı projelerin güncelleştirme*** – 20 + açık kaynak projeleri, bu güncelleştirmeyi içeren yeni bir sürümü arasında hata düzeltmeleri 1000 + yanı sıra **Spark (2.3)** ve **Kafka (1.0)**.
 
-    a.  [**Spark 2.3 yeni özellikler**](https://spark.apache.org/releases/spark-release-2-3-0.html)
+    a.  [**Apache Spark 2.3 yeni özellikler**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    b.  [**Kafka 1.0 yeni özellikler**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
+    b.  [**Apache Kafka 1.0 yeni özellikler**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
 
 2.  ***Machine Learning Hizmetleri 9.3 için R Server 9.1 güncelleştirme*** – bu sürümle birlikte, veri Bilim insanlarının ve mühendislerin en iyi algoritmik yeniliklerini ve kullanıma hazır hale getirme, tüm kullanılabilir kolaylığı ile geliştirilmiş açık kaynak ile sağlıyoruz, tercih edilen dili ile Apache Spark'ın hızı. Bu sürüm, Python, R Server ML Hizmetleri için gelen küme adı değişikliği baştaki desteği eklendi ile R Server'da sunulan üzerine genişletir. 
 
@@ -89,19 +89,19 @@ Sonraki sürümlerinde birkaç Apache bileşenleri yukarıda listelenen sürüml
 
 Bu sürüm, Hadoop ortak 2.7.3 ve aşağıdaki Apache düzeltme ekleri sağlar:
 
--   [HADOOP 13190](https://issues.apache.org/jira/browse/HADOOP-13190): KMS HA belgelerinde LoadBalancingKMSClientProvider bahsedebilirsiniz.
+-   [HADOOP 13190](https://issues.apache.org/jira/browse/HADOOP-13190): KMS HA belgelerindeki LoadBalancingKMSClientProvider bahsedebilirsiniz.
 
--   [HADOOP 13227](https://issues.apache.org/jira/browse/HADOOP-13227): zaman uyumsuz çağrıları işlemek için olay denetimli bir mimari AsyncCallHandler kullanmalıdır.
+-   [HADOOP 13227](https://issues.apache.org/jira/browse/HADOOP-13227): Olay denetimli bir mimari, AsyncCallHandler zaman uyumsuz çağrıları işlemek için kullanmanız gerekir.
 
--   [HADOOP 14104](https://issues.apache.org/jira/browse/HADOOP-14104): istemci her zaman sor namenode için kms sağlayıcı yolu.
+-   [HADOOP 14104](https://issues.apache.org/jira/browse/HADOOP-14104): İstemci her zaman için kms sağlayıcı yolu namenode istemeniz gerekir.
 
--   [HADOOP 14799](https://issues.apache.org/jira/browse/HADOOP-14799): nimbus jose jwt 4.41.1 için güncelleştirin.
+-   [HADOOP 14799](https://issues.apache.org/jira/browse/HADOOP-14799): Nimbus jose jwt 4.41.1 için güncelleştirin.
 
--   [HADOOP 14814](https://issues.apache.org/jira/browse/HADOOP-14814): uyumsuz API değişiklik şirket için HADOOP 14104 FsServerDefaults düzeltin.
+-   [HADOOP 14814](https://issues.apache.org/jira/browse/HADOOP-14814): Şirket için HADOOP 14104 FsServerDefaults uyumsuz API değişiklik düzeltin.
 
--   [HADOOP 14903](https://issues.apache.org/jira/browse/HADOOP-14903): json akıllı açıkça pom.xml dosyanıza ekleyin.
+-   [HADOOP 14903](https://issues.apache.org/jira/browse/HADOOP-14903): JSON akıllı açıkça pom.xml dosyanıza ekleyin.
 
--   [HADOOP 15042](https://issues.apache.org/jira/browse/HADOOP-15042): numberOfPagesRemaining 0 olduğunda Azure PageBlobInputStream.skip() negatif bir değer döndürebilir.
+-   [HADOOP 15042](https://issues.apache.org/jira/browse/HADOOP-15042): NumberOfPagesRemaining 0 olduğunda azure PageBlobInputStream.skip() negatif bir değer döndürebilir.
 
 -   [HADOOP 15255](https://issues.apache.org/jira/browse/HADOOP-15255): LdapGroupsMapping grubu adları için büyük/küçük büyük/küçük harfe dönüştürme desteği.
 
@@ -109,63 +109,63 @@ Bu sürüm, Hadoop ortak 2.7.3 ve aşağıdaki Apache düzeltme ekleri sağlar:
 
 -   [HDFS 7922](https://issues.apache.org/jira/browse/HDFS-7922): ShortCircuitCache\#ScheduledThreadPoolExecutors Kapat serbest değil.
 
--   [HDFS 8496](https://issues.apache.org/jira/browse/HDFS-8496): arama stopWriter() tutulan FSDatasetImpl kilit ile diğer iş parçacıkları (cmccabe) engelliyor olabilir.
+-   [HDFS 8496](https://issues.apache.org/jira/browse/HDFS-8496): Arama stopWriter() tutulan FSDatasetImpl kilit ile diğer iş parçacıkları (cmccabe) engelleyebilir.
 
--   [HDFS 10267](https://issues.apache.org/jira/browse/HDFS-10267): fazladan "eşitlenmiş FsDatasetImpl üzerinde"\#recoverAppend ve FsDatasetImpl\#recoverClose.
+-   [HDFS 10267](https://issues.apache.org/jira/browse/HDFS-10267): Fazladan "eşitleme" FsDatasetImpl üzerinde\#recoverAppend ve FsDatasetImpl\#recoverClose.
 
--   [HDFS 10489](https://issues.apache.org/jira/browse/HDFS-10489): dfs.encryption.key.provider.uri HDFS şifreleme bölgeler için kullanımdan kaldırma.
+-   [HDFS 10489](https://issues.apache.org/jira/browse/HDFS-10489): HDFS şifreleme bölgelerinin DFS.Encryption.Key.Provider.Uri kullanımdan.
 
--   [HDFS 11384](https://issues.apache.org/jira/browse/HDFS-11384): dağılmasına getBlocks çağrıları NameNode'nın rpc önlemek dengeleyici seçeneğini ekleyin. CallQueueLength ani artış gerçekleşti.
+-   [HDFS 11384](https://issues.apache.org/jira/browse/HDFS-11384): Dağılmasına getBlocks çağrıları NameNode'nın rpc önlemek dengeleyici seçeneğini ekleyin. CallQueueLength ani artış gerçekleşti.
 
--   [HDFS 11689](https://issues.apache.org/jira/browse/HDFS-11689): hacky hive kod tarafından DFSClient % isHDFSEncryptionEnabled yeni özel durum kesildi.
+-   [HDFS 11689](https://issues.apache.org/jira/browse/HDFS-11689): Hacky hive kod tarafından DFSClient % isHDFSEncryptionEnabled yeni özel durum kesildi.
 
 -   [HDFS 11711](https://issues.apache.org/jira/browse/HDFS-11711): DN silemediğini blok üzerinde "çok fazla açık dosya" özel durum.
 
 -   [HDFS 12347](https://issues.apache.org/jira/browse/HDFS-12347): TestBalancerRPCDelay\#testBalancerRPCDelay çok sık başarısız olur.
 
--   [HDFS 12781](https://issues.apache.org/jira/browse/HDFS-12781): sonra Datanode, Namenode UI Datanode sekmesinde uyarı iletisi yanlamasına ivme kazanmaz.
+-   [HDFS 12781](https://issues.apache.org/jira/browse/HDFS-12781): Sonra Datanode, Namenode UI Datanode sekmesinde uyarı iletisi yanlamasına ivme kazanmaz.
 
--   [HDFS 13054](https://issues.apache.org/jira/browse/HDFS-13054): işleme PathIsNotEmptyDirectoryException DFSClient içinde çağrı silin.
+-   [HDFS 13054](https://issues.apache.org/jira/browse/HDFS-13054): PathIsNotEmptyDirectoryException DFSClient silme çağrısında işleme.
 
--   [HDFS 13120](https://issues.apache.org/jira/browse/HDFS-13120): anlık görüntü fark sonra concat bozuk.
+-   [HDFS 13120](https://issues.apache.org/jira/browse/HDFS-13120): Anlık görüntü fark sonra concat bozulmuş olabilir.
 
--   [YARN 3742](https://issues.apache.org/jira/browse/YARN-3742): YARN RM kapatma ZKClient oluşturma zaman aşımına uğraması halinde.
+-   [YARN 3742](https://issues.apache.org/jira/browse/YARN-3742): YARN RM ZKClient oluşturma zaman aşımına uğrarsa kapanır.
 
--   [YARN 6061](https://issues.apache.org/jira/browse/YARN-6061): kritik iş parçacıkları için bir UncaughtExceptionHandler RM Ekle
+-   [YARN 6061](https://issues.apache.org/jira/browse/YARN-6061): Kritik iş parçacıkları için bir UncaughtExceptionHandler RM Ekle
 
 -   [YARN 7558](https://issues.apache.org/jira/browse/YARN-7558): yarn günlüklerini UI kimlik doğrulamasını etkinleştirdiyseniz, kapsayıcıları çalıştırmak için günlüklerini almak için komutu başarısız oluyor.
 
--   [YARN 7697](https://issues.apache.org/jira/browse/YARN-7697): günlük toplama tamamlansa bile başarısız tamamlanmış uygulamanın günlükler getiriliyor.
+-   [YARN 7697](https://issues.apache.org/jira/browse/YARN-7697): Günlük toplama tamamlansa bile günlükleri için tamamlanmış uygulamayı başarısız getiriliyor.
 
 2.6.4 Hadoop ortak 2.7.3 ve aşağıdaki Apache düzeltme ekleri sağlanan HDP:
 
--   [HADOOP 13700](https://issues.apache.org/jira/browse/HADOOP-13700): unthrown Ioexception TrashPolicy kaldırmak\#başlatmak ve \#GetInstance imzalar.
+-   [HADOOP 13700](https://issues.apache.org/jira/browse/HADOOP-13700): Unthrown Ioexception TrashPolicy kaldırmak\#başlatmak ve \#GetInstance imzalar.
 
--   [HADOOP 13709](https://issues.apache.org/jira/browse/HADOOP-13709): işlem çıktığında kökenli Kabuk tarafından alt işlemden temizleme olanağı.
+-   [HADOOP 13709](https://issues.apache.org/jira/browse/HADOOP-13709): İşlem çıktığında Kabuk tarafından üretilen alt işlemden temizleme olanağı.
 
 -   [HADOOP 14059](https://issues.apache.org/jira/browse/HADOOP-14059): yanlış mı yazdınız s3a yeniden adlandır (kendi kendine, alt dizin) hata iletisi.
 
--   [HADOOP 14542](https://issues.apache.org/jira/browse/HADOOP-14542): ekleme slf4j Günlükçü API kabul eden IOUtils.cleanupWithLogger.
+-   [HADOOP 14542](https://issues.apache.org/jira/browse/HADOOP-14542): Slf4j Günlükçü API kabul eden IOUtils.cleanupWithLogger ekleyin.
 
--   [HDFS 9887](https://issues.apache.org/jira/browse/HDFS-9887): WebHdfs yuva zaman aşımı yapılandırılabilir.
+-   [HDFS 9887](https://issues.apache.org/jira/browse/HDFS-9887): WebHdfs yuva zaman aşımı yapılandırılabilir olması gerekir.
 
--   [HDFS 9914](https://issues.apache.org/jira/browse/HDFS-9914): düzeltme yapılandırılabilir WebhDFS bağlama/okuma zaman aşımı.
+-   [HDFS 9914](https://issues.apache.org/jira/browse/HDFS-9914): Zaman aşımı bağlama/okuma yapılandırılabilir WebhDFS düzeltin.
 
 -   [MAPREDUCE 6698](https://issues.apache.org/jira/browse/MAPREDUCE-6698): TestUnnecessaryBlockingOnHist oryFileInfo.testTwoThreadsQueryingDifferentJobOfSameUser zaman aşımını artırın.
 
 -   [YARN 4550](https://issues.apache.org/jira/browse/YARN-4550): İngilizce olmayan yerel ortamda TestContainerLanch bazı testler başarısız.
 
--   [YARN 4717](https://issues.apache.org/jira/browse/YARN-4717): TestResourceLocalizationService.testPublicResourceInitializesLocalDir başarısız aralıklı olarak ağından temizlenmeyi IllegalArgumentException nedeniyle.
+-   [YARN 4717](https://issues.apache.org/jira/browse/YARN-4717): TestResourceLocalizationService.testPublicResourceInitializesLocalDir ağından temizlenmeyi aralıklı olarak IllegalArgumentException nedeniyle başarısız olur.
 
--   [YARN 5042](https://issues.apache.org/jira/browse/YARN-5042): bağlama/sys/fs/cgroup salt okunur bağlama olarak Docker kapsayıcılarına.
+-   [YARN 5042](https://issues.apache.org/jira/browse/YARN-5042): Bağlama/sys/fs/cgroup Docker kapsayıcılarına salt okunur bağlama olarak.
 
--   [YARN 5318](https://issues.apache.org/jira/browse/YARN-5318): düzeltme TestRMAdminService, aralıklı test hatası\#metin stRefreshNodesResourceWithFileSystemBasedConfigurationProvider.
+-   [YARN 5318](https://issues.apache.org/jira/browse/YARN-5318): Aralıklı test hatası TestRMAdminService, düzeltme\#metin stRefreshNodesResourceWithFileSystemBasedConfigurationProvider.
 
--   [YARN 5641](https://issues.apache.org/jira/browse/YARN-5641): yerelleştiriciye tarballs kapsayıcı tamamlandıktan sonra bırakır.
+-   [YARN 5641](https://issues.apache.org/jira/browse/YARN-5641): Kapsayıcı işlemi tamamlandıktan sonra yerelleştiriciye tarballs bırakır.
 
--   [YARN 6004](https://issues.apache.org/jira/browse/YARN-6004): yeniden düzenleme TestResourceLocalizationService\#BT'nin 150'den daha az satır olacak şekilde testDownloadingResourcesOnContainer.
+-   [YARN 6004](https://issues.apache.org/jira/browse/YARN-6004): Yeniden düzenleme TestResourceLocalizationService\#BT'nin 150'den daha az satır olacak şekilde testDownloadingResourcesOnContainer.
 
--   [YARN 6078](https://issues.apache.org/jira/browse/YARN-6078): kapsayıcıları takılı durumu yerelleştirme içinde.
+-   [YARN 6078](https://issues.apache.org/jira/browse/YARN-6078): Kapsayıcıları Localizing durumda takılmasına neden olabilir.
 
 -   [YARN 6805](https://issues.apache.org/jira/browse/YARN-6805): NPE LinuxContainerExecutor null PrivilegedOperationException nedeniyle, çıkış kodu.
 
@@ -173,59 +173,59 @@ Bu sürüm, Hadoop ortak 2.7.3 ve aşağıdaki Apache düzeltme ekleri sağlar:
 
 Bu sürüm, HBase 1.1.2 ve aşağıdaki Apache düzeltme sağlar.
 
--   [HBASE 13376](https://issues.apache.org/jira/browse/HBASE-13376): yük dengeleyici Stochastic geliştirmeleri.
+-   [HBASE 13376](https://issues.apache.org/jira/browse/HBASE-13376): Stokastik yük dengeleyici iyileştirmeleri.
 
--   [HBASE 13716](https://issues.apache.org/jira/browse/HBASE-13716): Hadoop'ın FSConstants kullanmayı durdurabilirsiniz.
+-   [HBASE 13716](https://issues.apache.org/jira/browse/HBASE-13716): Hadoop'ın FSConstants kullanarak durdurun.
 
--   [HBASE 13848](https://issues.apache.org/jira/browse/HBASE-13848): kimlik bilgisi sağlayıcısı API aracılığıyla erişim InfoServer SSL parola.
+-   [HBASE 13848](https://issues.apache.org/jira/browse/HBASE-13848): Kimlik bilgisi sağlayıcısı API aracılığıyla erişim InfoServer SSL şifrelerini.
 
--   [HBASE 13947](https://issues.apache.org/jira/browse/HBASE-13947): AssignmentManager sunucusu yerine MasterServices kullanın.
+-   [HBASE 13947](https://issues.apache.org/jira/browse/HBASE-13947): MasterServices AssignmentManager sunucusu yerine kullanın.
 
--   [HBASE 14135](https://issues.apache.org/jira/browse/HBASE-14135): HBase yedekleme/geri yükleme aşaması 3: yedek görüntüleri birleştirin.
+-   [HBASE 14135](https://issues.apache.org/jira/browse/HBASE-14135): HBase yedekleme/geri yükleme aşaması 3: Yedekleme görüntüleri birleştirin.
 
--   [HBASE 14473](https://issues.apache.org/jira/browse/HBASE-14473): paralel işlem bölge konumu.
+-   [HBASE 14473](https://issues.apache.org/jira/browse/HBASE-14473): Bölge yeri paralel işlem.
 
--   [HBASE 14517](https://issues.apache.org/jira/browse/HBASE-14517): ana durumu sayfasında regionserver'ın sürümü gösterir.
+-   [HBASE 14517](https://issues.apache.org/jira/browse/HBASE-14517): Regionserver'ın sürümü, ana durumu sayfasında göster.
 
--   [HBASE 14606](https://issues.apache.org/jira/browse/HBASE-14606): Yapı üzerinde apache TestSecureLoadIncrementalHFiles testleri santral zaman aşımına uğradı.
+-   [HBASE 14606](https://issues.apache.org/jira/browse/HBASE-14606): Santral zaman aşımına uğradı TestSecureLoadIncrementalHFiles testleri üzerinde apache oluşturun.
 
--   [HBASE 15210](https://issues.apache.org/jira/browse/HBASE-15210): on satır milisaniye sayısı agresif bir yük dengeleyici günlük kaydı geri alma.
+-   [HBASE 15210](https://issues.apache.org/jira/browse/HBASE-15210): Satır başına milisaniye onlarca agresif bir yük dengeleyici günlük kaydı geri alın.
 
--   [HBASE 15515](https://issues.apache.org/jira/browse/HBASE-15515): dengeleyicide LocalityBasedCandidateGenerator geliştirin.
+-   [HBASE 15515](https://issues.apache.org/jira/browse/HBASE-15515): Dengeleyicide LocalityBasedCandidateGenerator geliştirin.
 
--   [HBASE 15615](https://issues.apache.org/jira/browse/HBASE-15615): yanlış bekleme süresini RegionServerCallable gerektiğinde yeniden deneyin.
+-   [HBASE 15615](https://issues.apache.org/jira/browse/HBASE-15615): RegionServerCallable gerektiğinde yeniden deneme bekleme süresini yanlış.
 
 -   [HBASE 16135](https://issues.apache.org/jira/browse/HBASE-16135): PeerClusterZnode kaldırılan eş rs altında hiçbir zaman silinebilir.
 
--   [HBASE 16570](https://issues.apache.org/jira/browse/HBASE-16570): başlangıçta paralel işlem bölge konumu.
+-   [HBASE 16570](https://issues.apache.org/jira/browse/HBASE-16570): Bölge yeri başlangıçta paralel işlem.
 
 -   [HBASE 16810](https://issues.apache.org/jira/browse/HBASE-16810): HBase dengeleyici regionservers /hbase/draining znode içinde olduğunda ArrayIndexOutOfBoundsException oluşturur ve kaldırıldı.
 
 -   [HBASE 16852](https://issues.apache.org/jira/browse/HBASE-16852): TestDefaultCompactSelection dal 1.3 üzerinde başarısız oldu.
 
--   [HBASE 17387](https://issues.apache.org/jira/browse/HBASE-17387): RegionActionResult MULTI() için özel durum raporunda yükü azaltın.
+-   [HBASE 17387](https://issues.apache.org/jira/browse/HBASE-17387): Özel Durum raporunda RegionActionResult MULTI() için yükü azaltın.
 
--   [HBASE 17850](https://issues.apache.org/jira/browse/HBASE-17850): Yedekleme sistem onarma yardımcı programı.
+-   [HBASE 17850](https://issues.apache.org/jira/browse/HBASE-17850): Yedekleme sisteminin Onarım yardımcı programı.
 
--   [HBASE 17931](https://issues.apache.org/jira/browse/HBASE-17931): sistem tablolarını en yüksek sürüm sunucularıyla atayın.
+-   [HBASE 17931](https://issues.apache.org/jira/browse/HBASE-17931): Sistem tabloları en yüksek sürüm sunucularıyla atayın.
 
--   [HBASE 18083](https://issues.apache.org/jira/browse/HBASE-18083): olun büyük/küçük dosya temizleme iş parçacığı numarası HFileCleaner içinde yapılandırılabilir.
+-   [HBASE 18083](https://issues.apache.org/jira/browse/HBASE-18083): İş parçacığı numarası HFileCleaner içinde yapılandırılabilir temiz büyük/küçük dosya oluşturun.
 
--   [HBASE 18084](https://issues.apache.org/jira/browse/HBASE-18084): CleanerChore dizinden daha fazla disk alanı kullanan temizlemek için geliştirin.
+-   [HBASE 18084](https://issues.apache.org/jira/browse/HBASE-18084): Daha fazla disk alanı kullanır, dizinden temizlemek için CleanerChore geliştirin.
 
--   [HBASE 18164](https://issues.apache.org/jira/browse/HBASE-18164): çok daha hızlı yerleşim yeri maliyet işlevi ve aday Oluşturucu.
+-   [HBASE 18164](https://issues.apache.org/jira/browse/HBASE-18164): Çok daha hızlı yerleşim yeri maliyet işlevi ve aday Oluşturucusu.
 
--   [HBASE 18212](https://issues.apache.org/jira/browse/HBASE-18212): yerel dosya sistemi HBase ile de tek başına modu günlükleri uyarı iletisi: 'unbuffer' sınıf sınıf org.apache.hadoop.fs.FSDataInputStream yöntemi çağrılamadı.
+-   [HBASE 18212](https://issues.apache.org/jira/browse/HBASE-18212): Yerel dosya sistemi ile tek başına modunda uyarı iletisi HBase kaydeder: Sınıf sınıf org.apache.hadoop.fs.FSDataInputStream 'unbuffer' yöntemini çağırmak başarısız oldu.
 
 -   [HBASE 18808](https://issues.apache.org/jira/browse/HBASE-18808): BackupLogCleaner etkisiz config iade\#getDeletableFiles().
 
--   [HBASE 19052](https://issues.apache.org/jira/browse/HBASE-19052): FixedFileTrailer dal 1.x CellComparatorImpl sınıfında tanıması.
+-   [HBASE 19052](https://issues.apache.org/jira/browse/HBASE-19052): Dal 1.x CellComparatorImpl sınıfında FixedFileTrailer tanıması gerekir.
 
 -   [HBASE 19065](https://issues.apache.org/jira/browse/HBASE-19065): HRegion\#bulkLoadHFiles() eşzamanlı bölge için beklemesi gereken\#flush() tamamlanması.
 
 -   [HBASE 19285](https://issues.apache.org/jira/browse/HBASE-19285): Tablo başına gecikme histogramlar ekleyin.
 
--   [HBASE 19393](https://issues.apache.org/jira/browse/HBASE-19393): HBase SSL kullanarak UI erişirken 413 tam HTTP head.
+-   [HBASE 19393](https://issues.apache.org/jira/browse/HBASE-19393): HTTP 413 HBase SSL kullanarak UI erişirken tam head.
 
 -   [HBASE 19395](https://issues.apache.org/jira/browse/HBASE-19395): \[dal 1\] TestEndToEndSplitTransaction.testMasterOpsWhileSplitting NPE ile başarısız olur.
 
@@ -245,47 +245,47 @@ Bu sürümde Hive 1.2.1 ve aşağıdaki düzeltme ekleri yanı sıra Hive 2.1.0 
 
 -   [*HIVE 11266*](https://issues.apache.org/jira/browse/HIVE-11266): sayısı (\*) yanlış dış tablolar için tablo istatistikleri göre sonuç.
 
--   [*HIVE 12245*](https://issues.apache.org/jira/browse/HIVE-12245): HBase için destek sütun açıklamaları yedeklenen tablo.
+-   [*HIVE 12245*](https://issues.apache.org/jira/browse/HIVE-12245): HBase için destek sütun açıklamaları tablo desteklenir.
 
--   [*HIVE 12315*](https://issues.apache.org/jira/browse/HIVE-12315): düzeltme Vektörleştirildi çift sıfıra.
+-   [*HIVE 12315*](https://issues.apache.org/jira/browse/HIVE-12315): Vectorized çift bölme sıfıra düzeltin.
 
--   [*HIVE 12360*](https://issues.apache.org/jira/browse/HIVE-12360): hatalı arama koşul itme ile sıkıştırılmamış ORC içinde.
+-   [*HIVE 12360*](https://issues.apache.org/jira/browse/HIVE-12360): Koşul itme ile sıkıştırılmamış ORC içinde hatalı arama.
 
--   [*HIVE 12378*](https://issues.apache.org/jira/browse/HIVE-12378): HBaseSerDe.serialize ikili bir alan üzerinde özel durum.
+-   [*HIVE 12378*](https://issues.apache.org/jira/browse/HIVE-12378): Özel durum HBaseSerDe.serialize ikili alanı.
 
--   [*HIVE 12785*](https://issues.apache.org/jira/browse/HIVE-12785): birleşim türü görünümüyle ve struct UDF bozulur.
+-   [*HIVE 12785*](https://issues.apache.org/jira/browse/HIVE-12785): Birleşim türü görünümüyle ve struct UDF bozulur.
 
--   [*HIVE 14013*](https://issues.apache.org/jira/browse/HIVE-14013): açıklayan tablo değil Göster unicode düzgün şekilde.
+-   [*HIVE 14013*](https://issues.apache.org/jira/browse/HIVE-14013): Açıklamak tablo değil Göster unicode düzgün şekilde.
 
--   [*HIVE 14205*](https://issues.apache.org/jira/browse/HIVE-14205): Hive AVRO dosya biçimine sahip birleşim türü desteklemiyor.
+-   [*HIVE 14205*](https://issues.apache.org/jira/browse/HIVE-14205): Hive AVRO dosya biçimine sahip birleşim türünü desteklemiyor.
 
 -   [*HIVE 14421*](https://issues.apache.org/jira/browse/HIVE-14421): FS.deleteOnExit başvuru tutan \_tmp\_space.db dosyaları.
 
--   [*HIVE 15563*](https://issues.apache.org/jira/browse/HIVE-15563): yoksay geçersiz işlem durumu geçiş SQLOperation.runQuery gerçek özel durum ortaya çıkarmak için özel durum.
+-   [*HIVE 15563*](https://issues.apache.org/jira/browse/HIVE-15563): Geçersiz işlem durumu geçiş SQLOperation.runQuery gerçek özel durum ortaya çıkarmak için özel durum yoksayın.
 
--   [*HIVE 15680*](https://issues.apache.org/jira/browse/HIVE-15680): hatalı sonuçlar zaman hive.optimize.index.filter=true ve aynı ORC tablo, sorguda MR modu, iki kez başvuruluyor.
+-   [*HIVE 15680*](https://issues.apache.org/jira/browse/HIVE-15680): Hatalı sonuçlar zaman hive.optimize.index.filter=true ve aynı ORC tablo, sorguda MR modu, iki kez başvuruluyor.
 
--   [*HIVE 15883*](https://issues.apache.org/jira/browse/HIVE-15883): HBase, Hive ekleme başarısız ondalık için tabloda eşlenmiş.
+-   [*HIVE 15883*](https://issues.apache.org/jira/browse/HIVE-15883): HBase ekleme başarısız için ondalık bir Hive tablosuna eşlendi.
 
--   [*HIVE 16232*](https://issues.apache.org/jira/browse/HIVE-16232): istatistikleri hesaplama QuotedIdentifier sütunlar için destek.
+-   [*HIVE 16232*](https://issues.apache.org/jira/browse/HIVE-16232): QuotedIdentifier sütunlar için istatistik hesaplama destekler.
 
--   [*HIVE 16828*](https://issues.apache.org/jira/browse/HIVE-16828): ile BHA etkin, bölünmüş görünümleri sorgu IndexOutOfBoundException oluşturur.
+-   [*HIVE 16828*](https://issues.apache.org/jira/browse/HIVE-16828): Etkin BHA ile bölümlenmiş bir görünüm üzerinde sorgu IndexOutOfBoundException oluşturur.
 
--   [*HIVE 17013*](https://issues.apache.org/jira/browse/HIVE-17013): silme isteği ile Seç bir görünüm üzerinden bağlı bir alt sorgu.
+-   [*HIVE 17013*](https://issues.apache.org/jira/browse/HIVE-17013): Üzerinden bir görünüm seçin dayalı bir alt sorgu ile istek silin.
 
 -   [*HIVE 17063*](https://issues.apache.org/jira/browse/HIVE-17063): bir dış tablo başarısız üzerine üzerine yaz Bölüm Ekle Bölüm ilk zaman bırakın.
 
--   [*HIVE 17259*](https://issues.apache.org/jira/browse/HIVE-17259): Hive JDBC UNIONTYPE sütunları algılamıyor.
+-   [*HIVE 17259*](https://issues.apache.org/jira/browse/HIVE-17259): Hive JDBC UNIONTYPE sütunları algılamaz.
 
 -   [*HIVE 17419*](https://issues.apache.org/jira/browse/HIVE-17419): ANALİZ tablo... işlem İSTATİSTİKLERİ için sütunları komut maskelenmiş tablolar için hesaplanan istatistikleri gösterir.
 
--   [*HIVE 17530*](https://issues.apache.org/jira/browse/HIVE-17530): uniontype dönüştürülürken ClassCastException.
+-   [*HIVE 17530*](https://issues.apache.org/jira/browse/HIVE-17530): Uniontype dönüştürülürken ClassCastException.
 
--   [*HIVE 17621*](https://issues.apache.org/jira/browse/HIVE-17621): Hive site ayarları HCatInputFormat bölünmüş-hesaplama sırasında dikkate alınmaz.
+-   [*HIVE 17621*](https://issues.apache.org/jira/browse/HIVE-17621): Hive site ayarları HCatInputFormat bölünmüş-hesaplama sırasında yok sayılır.
 
--   [*HIVE 17636*](https://issues.apache.org/jira/browse/HIVE-17636): birden çok ekleme\_agg.q test blobstores için.
+-   [*HIVE 17636*](https://issues.apache.org/jira/browse/HIVE-17636): Birden çok ekleme\_agg.q test blobstores için.
 
--   [*HIVE 17729*](https://issues.apache.org/jira/browse/HIVE-17729): veritabanı ekleme ve açıklama ilgili blobdeposu testleri.
+-   [*HIVE 17729*](https://issues.apache.org/jira/browse/HIVE-17729): Veritabanı ve Açıklama Ekle ilgili blobdeposu testleri.
 
 -   [*HIVE 17731*](https://issues.apache.org/jira/browse/HIVE-17731): HIVE 11985 için bir dış kullanıcılar için geriye dönük uyumluluk seçeneği ekleyin.
 
@@ -297,21 +297,21 @@ Bu sürümde Hive 1.2.1 ve aşağıdaki düzeltme ekleri yanı sıra Hive 2.1.0 
 
 -   [*HIVE 17900*](https://issues.apache.org/jira/browse/HIVE-17900): tarafından tetiklenen sütunlarındaki istatistikleri analiz Sıkıştırıcı oluşturur hatalı SQL ile &gt; 1 bölüm sütunu.
 
--   [*HIVE 18026*](https://issues.apache.org/jira/browse/HIVE-18026): Hive webhcat asıl yapılandırma iyileştirme.
+-   [*HIVE 18026*](https://issues.apache.org/jira/browse/HIVE-18026): Webhcat asıl yapılandırma iyileştirme hive.
 
--   [*HIVE 18031*](https://issues.apache.org/jira/browse/HIVE-18031): Destek çoğaltma için Alter Database işlemi.
+-   [*HIVE 18031*](https://issues.apache.org/jira/browse/HIVE-18031): Çoğaltma için Alter Database işlemini destekler.
 
 -   [*HIVE 18090*](https://issues.apache.org/jira/browse/HIVE-18090): meta veri deposu hadoop kimlik bilgisi bağlı olduğunda ACID sinyal başarısız olur.
 
--   [*HIVE 18189*](https://issues.apache.org/jira/browse/HIVE-18189): yanlış sonuçlar döndüren bir Hive sorgusu hive.groupby.orderby.position.alias true olarak ayarlandığında.
+-   [*HIVE 18189*](https://issues.apache.org/jira/browse/HIVE-18189): Hive sorgusu yanlış sonuçlar döndüren hive.groupby.orderby.position.alias true olarak ayarlandığında.
 
--   [*HIVE 18258*](https://issues.apache.org/jira/browse/HIVE-18258): Vektörleştirme: tarafından küçültmek tarafındaki grubu MERGEPARTIAL yinelenen sütunlar içeren bozulur.
+-   [*HIVE 18258*](https://issues.apache.org/jira/browse/HIVE-18258): Vektörleştirme: TARAFINDAN küçültmek tarafındaki grubu MERGEPARTIAL yinelenen sütunlar içeren bozulur.
 
--   [*HIVE 18293*](https://issues.apache.org/jira/browse/HIVE-18293): Hive HiveMetaStore çalıştırma kimliği tarafından ait değil bir klasörde yer alan tabloları sıkıştırmak başarısız.
+-   [*HIVE 18293*](https://issues.apache.org/jira/browse/HIVE-18293): Hive HiveMetaStore çalıştırma kimliği tarafından ait değil bir klasörde yer alan tabloları sıkıştırmak başarısız oluyor.
 
--   [*HIVE 18327*](https://issues.apache.org/jira/browse/HIVE-18327): MiniHiveKdc için gereksiz HiveConf bağımlılığı kaldırın.
+-   [*HIVE 18327*](https://issues.apache.org/jira/browse/HIVE-18327): Gereksiz HiveConf bağımlılık için MiniHiveKdc kaldırın.
 
--   [*HIVE 18341*](https://issues.apache.org/jira/browse/HIVE-18341): "ham" ad alanı ile aynı şifreleme anahtarları için TDE ekleme repl yükleme desteği eklendi.
+-   [*HIVE 18341*](https://issues.apache.org/jira/browse/HIVE-18341): "Ham" ad alanı ile aynı şifreleme anahtarları için TDE ekleme repl yükleme desteği eklendi.
 
 -   [*HIVE 18352*](https://issues.apache.org/jira/browse/HIVE-18352): diğer araçların entegrasyonlara izin vermenize REPL dökümü yaparken bir METADATAONLY seçeneği sunar.
 
@@ -319,37 +319,37 @@ Bu sürümde Hive 1.2.1 ve aşağıdaki düzeltme ekleri yanı sıra Hive 2.1.0 
 
 -   [*HIVE 18390*](https://issues.apache.org/jira/browse/HIVE-18390): IndexOutOfBoundsException ColumnPruner bölümlenmiş bir görünümle sorgulanırken.
 
--   [*HIVE 18429*](https://issues.apache.org/jira/browse/HIVE-18429): sıkıştırma herhangi bir çıktı üretmez, servis talebi işlemek.
+-   [*HIVE 18429*](https://issues.apache.org/jira/browse/HIVE-18429): Sıkıştırma, herhangi bir çıktı üretmez, servis talebi işlemesi gerekir.
 
--   [*HIVE 18447*](https://issues.apache.org/jira/browse/HIVE-18447): JDBC: bağlantı dizesi tanımlama bilgisi bilgilerini geçirmek JDBC kullanıcılar için bir yol sağlar.
+-   [*HIVE 18447*](https://issues.apache.org/jira/browse/HIVE-18447): JDBC: Tanımlama bilgisi bağlantı dizesi geçirmek JDBC kullanıcılar için bir yol sağlar.
 
--   [*HIVE 18460*](https://issues.apache.org/jira/browse/HIVE-18460): Sıkıştırıcı Orc yazıcısına tablo özelliklerini geçirmeniz değil.
+-   [*HIVE 18460*](https://issues.apache.org/jira/browse/HIVE-18460): Sıkıştırıcı tablo özelliklerini Orc yazıcısına geçmiyor.
 
 -   [*HIVE 18467*](https://issues.apache.org/jira/browse/HIVE-18467): destekleyen tüm ambar dökümü / yük + veritabanı olayları (Anishek Agarwal, Sankar Hariappan tarafından gözden) oluşturma/bırak.
 
--   [*HIVE 18551*](https://issues.apache.org/jira/browse/HIVE-18551): Vektörleştirme: VectorMapOperator çok karma yetkisiz kullanım için birçok vektör sütunları yazma dener.
+-   [*HIVE 18551*](https://issues.apache.org/jira/browse/HIVE-18551): Vektörleştirme: Karma kullanım için vektör sütun sayısı çok fazla yazma VectorMapOperator çalışır.
 
 -   [*HIVE 18587*](https://issues.apache.org/jira/browse/HIVE-18587): Ekle DML olayını dizinlerde sağlama toplamı hesaplamak çalışabilir.
 
--   [*HIVE 18613*](https://issues.apache.org/jira/browse/HIVE-18613): JsonSerDe ikili tür destekleyecek şekilde genişletir.
+-   [*HIVE 18613*](https://issues.apache.org/jira/browse/HIVE-18613): İKİLİ tür desteklemek için JsonSerDe genişletin.
 
--   [*HIVE 18626*](https://issues.apache.org/jira/browse/HIVE-18626): "ile" yan tümcesi Repl yük değil geçirmek yapılandırma görevleri için.
+-   [*HIVE 18626*](https://issues.apache.org/jira/browse/HIVE-18626): "İle" yan tümcesi REPL yükleme yapılandırma görevleri için geçmez.
 
--   [*HIVE 18660*](https://issues.apache.org/jira/browse/HIVE-18660): bölüm ve sanal sütunları PCR ayırt değil.
+-   [*HIVE 18660*](https://issues.apache.org/jira/browse/HIVE-18660): PCR bölüm sanal sütunlar arasında ayrım yoktur.
 
--   [*HIVE 18754*](https://issues.apache.org/jira/browse/HIVE-18754): çoğaltma durumu 'with' yan tümcesi desteklemelidir.
+-   [*HIVE 18754*](https://issues.apache.org/jira/browse/HIVE-18754): Çoğaltma durumu 'with' yan tümcesi desteklemelidir.
 
--   [*HIVE 18754*](https://issues.apache.org/jira/browse/HIVE-18754): çoğaltma durumu 'with' yan tümcesi desteklemelidir.
+-   [*HIVE 18754*](https://issues.apache.org/jira/browse/HIVE-18754): Çoğaltma durumu 'with' yan tümcesi desteklemelidir.
 
--   [*HIVE 18788*](https://issues.apache.org/jira/browse/HIVE-18788): JDBC PreparedStatement girişlerinde temizleme.
+-   [*HIVE 18788*](https://issues.apache.org/jira/browse/HIVE-18788): JDBC PreparedStatement girişlerinde temizleyin.
 
--   [*HIVE 18794*](https://issues.apache.org/jira/browse/HIVE-18794): "ile" yan tümcesi Repl yük değil geçer yapılandırma bölümü olmayan tablolar için görevler.
+-   [*HIVE 18794*](https://issues.apache.org/jira/browse/HIVE-18794): REPL yük "ile" yan tümcesi bölüm olmayan tablolar için görevleri için yapılandırma geçmez.
 
--   [*HIVE 18808*](https://issues.apache.org/jira/browse/HIVE-18808): olun sıkıştırma daha sağlam istatistikleri güncelleştir başarısız olduğunda.
+-   [*HIVE 18808*](https://issues.apache.org/jira/browse/HIVE-18808): İstatistikleri güncelleştir başarısız olduğunda sıkıştırma daha sağlam hale.
 
--   [*HIVE 18817*](https://issues.apache.org/jira/browse/HIVE-18817): ACID tablonun okuma sırasında özel durum ArrayIndexOutOfBounds.
+-   [*HIVE 18817*](https://issues.apache.org/jira/browse/HIVE-18817): ArrayIndexOutOfBounds özel durum sırasında ACID tablosu okuyun.
 
--   [*HIVE 18833*](https://issues.apache.org/jira/browse/HIVE-18833): otomatik birleştirme, başarısız olduğunda "orcfile olarak dizine eklemek".
+-   [*HIVE 18833*](https://issues.apache.org/jira/browse/HIVE-18833): Otomatik birleştirme başarısız "orcfile olarak dizine eklemek".
 
 -   [*HIVE 18879*](https://issues.apache.org/jira/browse/HIVE-18879): UDFXPathUtil ihtiyaçları çözmek için katıştırılmış öğesinde izin verme xercesImpl.jar sınıf içinde.
 
@@ -357,43 +357,43 @@ Bu sürümde Hive 1.2.1 ve aşağıdaki düzeltme ekleri yanı sıra Hive 2.1.0 
 
 **Hive 2.1.0 Apache yamaları:**
 
--   [*HIVE 14013*](https://issues.apache.org/jira/browse/HIVE-14013): açıklayan tablo değil Göster unicode düzgün şekilde.
+-   [*HIVE 14013*](https://issues.apache.org/jira/browse/HIVE-14013): Açıklamak tablo değil Göster unicode düzgün şekilde.
 
--   [*HIVE 14205*](https://issues.apache.org/jira/browse/HIVE-14205): Hive AVRO dosya biçimine sahip birleşim türü desteklemiyor.
+-   [*HIVE 14205*](https://issues.apache.org/jira/browse/HIVE-14205): Hive AVRO dosya biçimine sahip birleşim türünü desteklemiyor.
 
--   [*HIVE 15563*](https://issues.apache.org/jira/browse/HIVE-15563): yoksay geçersiz işlem durumu geçiş SQLOperation.runQuery gerçek özel durum ortaya çıkarmak için özel durum.
+-   [*HIVE 15563*](https://issues.apache.org/jira/browse/HIVE-15563): Geçersiz işlem durumu geçiş SQLOperation.runQuery gerçek özel durum ortaya çıkarmak için özel durum yoksayın.
 
--   [*HIVE 15680*](https://issues.apache.org/jira/browse/HIVE-15680): hatalı sonuçlar zaman hive.optimize.index.filter=true ve aynı ORC tablo, sorguda MR modu, iki kez başvuruluyor.
+-   [*HIVE 15680*](https://issues.apache.org/jira/browse/HIVE-15680): Hatalı sonuçlar zaman hive.optimize.index.filter=true ve aynı ORC tablo, sorguda MR modu, iki kez başvuruluyor.
 
--   [*HIVE 15883*](https://issues.apache.org/jira/browse/HIVE-15883): HBase, Hive ekleme başarısız ondalık için tabloda eşlenmiş.
+-   [*HIVE 15883*](https://issues.apache.org/jira/browse/HIVE-15883): HBase ekleme başarısız için ondalık bir Hive tablosuna eşlendi.
 
--   [*HIVE 16757*](https://issues.apache.org/jira/browse/HIVE-16757): kullanım dışı AbstractRelNode.getRows çağrılarını kaldırın.
+-   [*HIVE 16757*](https://issues.apache.org/jira/browse/HIVE-16757): Kullanım dışı AbstractRelNode.getRows kaldırın.
 
--   [*HIVE 16828*](https://issues.apache.org/jira/browse/HIVE-16828): ile BHA etkin, bölünmüş görünümleri sorgu IndexOutOfBoundException oluşturur.
+-   [*HIVE 16828*](https://issues.apache.org/jira/browse/HIVE-16828): Etkin BHA ile bölümlenmiş bir görünüm üzerinde sorgu IndexOutOfBoundException oluşturur.
 
 -   [*HIVE 17063*](https://issues.apache.org/jira/browse/HIVE-17063): bir dış tablo başarısız üzerine üzerine yaz Bölüm Ekle Bölüm ilk zaman bırakın.
 
--   [*HIVE 17259*](https://issues.apache.org/jira/browse/HIVE-17259): Hive JDBC UNIONTYPE sütunları algılamıyor.
+-   [*HIVE 17259*](https://issues.apache.org/jira/browse/HIVE-17259): Hive JDBC UNIONTYPE sütunları algılamaz.
 
--   [*HIVE 17530*](https://issues.apache.org/jira/browse/HIVE-17530): uniontype dönüştürülürken ClassCastException.
+-   [*HIVE 17530*](https://issues.apache.org/jira/browse/HIVE-17530): Uniontype dönüştürülürken ClassCastException.
 
--   [*HIVE 17600*](https://issues.apache.org/jira/browse/HIVE-17600): olun OrcFile'nın enforceBufferSize kullanıcı ayarlanabilir.
+-   [*HIVE 17600*](https://issues.apache.org/jira/browse/HIVE-17600): Kullanıcı ayarlanabilir OrcFile'nın enforceBufferSize olun.
 
 -   [*HIVE 17601*](https://issues.apache.org/jira/browse/HIVE-17601): hata işleme LlapServiceDriver içinde geliştirin.
 
 -   [*HIVE 17613*](https://issues.apache.org/jira/browse/HIVE-17613): kısa, aynı iş parçacığı ayırma için nesne havuzları kaldırın.
 
--   [*HIVE 17617*](https://issues.apache.org/jira/browse/HIVE-17617): boş bir sonuç kümesi, toplama, gruplandırma boş gruplandırma kümesi içermelidir.
+-   [*HIVE 17617*](https://issues.apache.org/jira/browse/HIVE-17617): Boş bir sonuç kümesi toplaması boş gruplandırma kümesi gruplandırması içermelidir.
 
--   [*HIVE 17621*](https://issues.apache.org/jira/browse/HIVE-17621): Hive site ayarları HCatInputFormat bölünmüş-hesaplama sırasında dikkate alınmaz.
+-   [*HIVE 17621*](https://issues.apache.org/jira/browse/HIVE-17621): Hive site ayarları HCatInputFormat bölünmüş-hesaplama sırasında yok sayılır.
 
--   [*HIVE 17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: bir beyaz liste/kara liste config seçmeli tablolar/bölümlerini önbelleğe alma ve okuma sırasında prewarming verin gerekir.
+-   [*HIVE 17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: Beyaz liste/kara liste config seçmeli tablolar/bölümlerini önbelleğe alma ve okuma sırasında prewarming verin gerekir.
 
--   [*HIVE 17636*](https://issues.apache.org/jira/browse/HIVE-17636): birden çok ekleme\_agg.q test blobstores için.
+-   [*HIVE 17636*](https://issues.apache.org/jira/browse/HIVE-17636): Birden çok ekleme\_agg.q test blobstores için.
 
 -   [*HIVE 17702*](https://issues.apache.org/jira/browse/HIVE-17702): yanlış isRepeating ORC ondalık okuyucusunda işleme.
 
--   [*HIVE 17729*](https://issues.apache.org/jira/browse/HIVE-17729): veritabanı ekleme ve açıklama ilgili blobdeposu testleri.
+-   [*HIVE 17729*](https://issues.apache.org/jira/browse/HIVE-17729): Veritabanı ve Açıklama Ekle ilgili blobdeposu testleri.
 
 -   [*HIVE 17731*](https://issues.apache.org/jira/browse/HIVE-17731): HIVE 11985 için bir dış kullanıcılar için geriye dönük uyumluluk seçeneği ekleyin.
 
@@ -403,31 +403,31 @@ Bu sürümde Hive 1.2.1 ve aşağıdaki düzeltme ekleri yanı sıra Hive 2.1.0 
 
 -   [*HIVE 17900*](https://issues.apache.org/jira/browse/HIVE-17900): tarafından tetiklenen sütunlarındaki istatistikleri analiz Sıkıştırıcı oluşturur hatalı SQL ile &gt; 1 bölüm sütunu.
 
--   [*HIVE 18006*](https://issues.apache.org/jira/browse/HIVE-18006): bellek kullanım HLLDenseRegister iyileştirin.
+-   [*HIVE 18006*](https://issues.apache.org/jira/browse/HIVE-18006): Bellek kullanım HLLDenseRegister iyileştirin.
 
--   [*HIVE 18026*](https://issues.apache.org/jira/browse/HIVE-18026): Hive webhcat asıl yapılandırma iyileştirme.
+-   [*HIVE 18026*](https://issues.apache.org/jira/browse/HIVE-18026): Webhcat asıl yapılandırma iyileştirme hive.
 
--   [*HIVE 18031*](https://issues.apache.org/jira/browse/HIVE-18031): Destek çoğaltma için Alter Database işlemi.
+-   [*HIVE 18031*](https://issues.apache.org/jira/browse/HIVE-18031): Çoğaltma için Alter Database işlemini destekler.
 
 -   [*HIVE 18090*](https://issues.apache.org/jira/browse/HIVE-18090): meta veri deposu hadoop kimlik bilgisi bağlı olduğunda ACID sinyal başarısız olur.
 
 -   [*HIVE 18189*](https://issues.apache.org/jira/browse/HIVE-18189): BHA devre dışı bırakıldığında konumu sıralama çalışmaz.
 
--   [*HIVE 18258*](https://issues.apache.org/jira/browse/HIVE-18258): Vektörleştirme: tarafından küçültmek tarafındaki grubu MERGEPARTIAL yinelenen sütunlar içeren bozulur.
+-   [*HIVE 18258*](https://issues.apache.org/jira/browse/HIVE-18258): Vektörleştirme: TARAFINDAN küçültmek tarafındaki grubu MERGEPARTIAL yinelenen sütunlar içeren bozulur.
 
--   [*HIVE 18269*](https://issues.apache.org/jira/browse/HIVE-18269): LLAP: hızlı llap yavaş bir işlem hattıyla GÇ OOM için yol açabilir.
+-   [*HIVE 18269*](https://issues.apache.org/jira/browse/HIVE-18269): LLAP: Hızlı llap yavaş bir işlem hattıyla GÇ OOM için yol açabilir.
 
--   [*HIVE 18293*](https://issues.apache.org/jira/browse/HIVE-18293): Hive HiveMetaStore çalıştırma kimliği tarafından ait değil bir klasörde yer alan tabloları sıkıştırmak başarısız.
+-   [*HIVE 18293*](https://issues.apache.org/jira/browse/HIVE-18293): Hive HiveMetaStore çalıştırma kimliği tarafından ait değil bir klasörde yer alan tabloları sıkıştırmak başarısız oluyor.
 
--   [*HIVE 18318*](https://issues.apache.org/jira/browse/HIVE-18318): LLAP kayıt okuyucu olduğunda bile engellenmemesi kesme kontrol etmelidir.
+-   [*HIVE 18318*](https://issues.apache.org/jira/browse/HIVE-18318): LLAP kayıt okuyucu olduğunda bile engellenmemesi kesme denetlemeniz gerekir.
 
 -   [*HIVE 18326*](https://issues.apache.org/jira/browse/HIVE-18326): LLAP Tez Zamanlayıcı - varsa bir bağımlılık aralarında görevleri yalnızca etkisiz hale.
 
--   [*HIVE 18327*](https://issues.apache.org/jira/browse/HIVE-18327): MiniHiveKdc için gereksiz HiveConf bağımlılığı kaldırın.
+-   [*HIVE 18327*](https://issues.apache.org/jira/browse/HIVE-18327): Gereksiz HiveConf bağımlılık için MiniHiveKdc kaldırın.
 
 -   [*HIVE 18331*](https://issues.apache.org/jira/browse/HIVE-18331): TGT sona erdiğinde relogin ve bazı günlük/lambda ekleyin.
 
--   [*HIVE 18341*](https://issues.apache.org/jira/browse/HIVE-18341): "ham" ad alanı ile aynı şifreleme anahtarları için TDE ekleme repl yükleme desteği eklendi.
+-   [*HIVE 18341*](https://issues.apache.org/jira/browse/HIVE-18341): "Ham" ad alanı ile aynı şifreleme anahtarları için TDE ekleme repl yükleme desteği eklendi.
 
 -   [*HIVE 18352*](https://issues.apache.org/jira/browse/HIVE-18352): diğer araçların entegrasyonlara izin vermenize REPL dökümü yaparken bir METADATAONLY seçeneği sunar.
 
@@ -437,63 +437,63 @@ Bu sürümde Hive 1.2.1 ve aşağıdaki düzeltme ekleri yanı sıra Hive 2.1.0 
 
 -   [*HIVE 18390*](https://issues.apache.org/jira/browse/HIVE-18390): IndexOutOfBoundsException ColumnPruner bölümlenmiş bir görünümle sorgulanırken.
 
--   [*HIVE 18447*](https://issues.apache.org/jira/browse/HIVE-18447): JDBC: bağlantı dizesi tanımlama bilgisi bilgilerini geçirmek JDBC kullanıcılar için bir yol sağlar.
+-   [*HIVE 18447*](https://issues.apache.org/jira/browse/HIVE-18447): JDBC: Tanımlama bilgisi bağlantı dizesi geçirmek JDBC kullanıcılar için bir yol sağlar.
 
--   [*HIVE 18460*](https://issues.apache.org/jira/browse/HIVE-18460): Sıkıştırıcı Orc yazıcısına tablo özelliklerini geçirmeniz değil.
+-   [*HIVE 18460*](https://issues.apache.org/jira/browse/HIVE-18460): Sıkıştırıcı tablo özelliklerini Orc yazıcısına geçmiyor.
 
--   [*HIVE 18462*](https://issues.apache.org/jira/browse/HIVE-18462): (harita birleştirme sorgular için columnExprMap biçimlendirilmemiş sütun adıyla biçimlendirilmiş açıklama).
+-   [*HIVE 18462*](https://issues.apache.org/jira/browse/HIVE-18462): (Harita birleştirme sorgular için columnExprMap biçimlendirilmemiş sütun adıyla biçimlendirilmiş açıklayın).
 
 -   [*HIVE 18467*](https://issues.apache.org/jira/browse/HIVE-18467): destekleyen tüm ambar dökümü / yük + veritabanı olayları oluşturma/bırak.
 
--   [*HIVE 18488*](https://issues.apache.org/jira/browse/HIVE-18488): LLAP ORC okuyucular, bazı null denetimleri eksik.
+-   [*HIVE 18488*](https://issues.apache.org/jira/browse/HIVE-18488): Bazı null denetimleri LLAP ORC okuyucular eksik.
 
 -   [*HIVE 18490*](https://issues.apache.org/jira/browse/HIVE-18490): Sorgu EXISTS ve NOT EXISTS ile eş olmayan koşul yanlış sonuç verebilir.
 
 -   [*HIVE 18506*](https://issues.apache.org/jira/browse/HIVE-18506): LlapBaseInputFormat - negatif dizi dizini.
 
--   [*HIVE-18517*](https://issues.apache.org/jira/browse/HIVE-18517): Vektörleştirme: VectorMapOperator VRBs kabul edin ve denetlemek için düzeltme vektörleştirildi bayrağı doğru LLAP önbelleğe alma işlemini desteklemek için).
+-   [*HIVE 18517*](https://issues.apache.org/jira/browse/HIVE-18517): Vektörleştirme: VRBs kabul edin ve denetlemek için düzeltme VectorMapOperator bayrağı doğru LLAP önbelleğe alma desteği için vektörleştirildi).
 
 -   [*HIVE 18523*](https://issues.apache.org/jira/browse/HIVE-18523): Giriş olasılığına özet satırı düzeltin.
 
--   [*HIVE 18528*](https://issues.apache.org/jira/browse/HIVE-18528): Toplu istatistikleri ObjectStore içinde yanlış sonucu alın.
+-   [*HIVE 18528*](https://issues.apache.org/jira/browse/HIVE-18528): Yanlış bir sonuca ObjectStore içinde toplu istatistikleri alın.
 
--   [*HIVE 18530*](https://issues.apache.org/jira/browse/HIVE-18530): çoğaltma MM tablo Atla (şimdilik).
+-   [*HIVE 18530*](https://issues.apache.org/jira/browse/HIVE-18530): Çoğaltma (şimdilik) aa tablo atlayın.
 
--   [*HIVE 18548*](https://issues.apache.org/jira/browse/HIVE-18548): log4j alma düzeltin.
+-   [*HIVE 18548*](https://issues.apache.org/jira/browse/HIVE-18548): Log4j alma düzeltin.
 
--   [*HIVE 18551*](https://issues.apache.org/jira/browse/HIVE-18551): Vektörleştirme: VectorMapOperator çok karma yetkisiz kullanım için birçok vektör sütunları yazma dener.
+-   [*HIVE 18551*](https://issues.apache.org/jira/browse/HIVE-18551): Vektörleştirme: Karma kullanım için vektör sütun sayısı çok fazla yazma VectorMapOperator çalışır.
 
 -   [*HIVE 18577*](https://issues.apache.org/jira/browse/HIVE-18577): SemanticAnalyzer.validate bazı anlamsız meta veri deposu çağrıları vardır.
 
 -   [*HIVE 18587*](https://issues.apache.org/jira/browse/HIVE-18587): Ekle DML olayını dizinlerde sağlama toplamı hesaplamak çalışabilir.
 
--   [*HIVE 18597*](https://issues.apache.org/jira/browse/HIVE-18597): LLAP: her zaman için org.apache.log4j log4j2 API jar paketi.
+-   [*HIVE 18597*](https://issues.apache.org/jira/browse/HIVE-18597): LLAP: Her zaman için org.apache.log4j log4j2 API jar paketi.
 
--   [*HIVE 18613*](https://issues.apache.org/jira/browse/HIVE-18613): JsonSerDe ikili tür destekleyecek şekilde genişletir.
+-   [*HIVE 18613*](https://issues.apache.org/jira/browse/HIVE-18613): İKİLİ tür desteklemek için JsonSerDe genişletin.
 
--   [*HIVE 18626*](https://issues.apache.org/jira/browse/HIVE-18626): "ile" yan tümcesi Repl yük değil geçirmek yapılandırma görevleri için.
+-   [*HIVE 18626*](https://issues.apache.org/jira/browse/HIVE-18626): "İle" yan tümcesi REPL yükleme yapılandırma görevleri için geçmez.
 
 -   [*HIVE 18643*](https://issues.apache.org/jira/browse/HIVE-18643): arşivlenen bölümleri için ACID ops seçeneğini işaretlemeyin.
 
--   [*HIVE 18660*](https://issues.apache.org/jira/browse/HIVE-18660): bölüm ve sanal sütunları PCR ayırt değil.
+-   [*HIVE 18660*](https://issues.apache.org/jira/browse/HIVE-18660): PCR bölüm sanal sütunlar arasında ayrım yoktur.
 
--   [*HIVE 18754*](https://issues.apache.org/jira/browse/HIVE-18754): çoğaltma durumu 'with' yan tümcesi desteklemelidir.
+-   [*HIVE 18754*](https://issues.apache.org/jira/browse/HIVE-18754): Çoğaltma durumu 'with' yan tümcesi desteklemelidir.
 
--   [*HIVE 18788*](https://issues.apache.org/jira/browse/HIVE-18788): JDBC PreparedStatement girişlerinde temizleme.
+-   [*HIVE 18788*](https://issues.apache.org/jira/browse/HIVE-18788): JDBC PreparedStatement girişlerinde temizleyin.
 
--   [*HIVE 18794*](https://issues.apache.org/jira/browse/HIVE-18794): "ile" yan tümcesi Repl yük değil geçer yapılandırma bölümü olmayan tablolar için görevler.
+-   [*HIVE 18794*](https://issues.apache.org/jira/browse/HIVE-18794): REPL yük "ile" yan tümcesi bölüm olmayan tablolar için görevleri için yapılandırma geçmez.
 
--   [*HIVE 18808*](https://issues.apache.org/jira/browse/HIVE-18808): olun sıkıştırma daha sağlam istatistikleri güncelleştir başarısız olduğunda.
+-   [*HIVE 18808*](https://issues.apache.org/jira/browse/HIVE-18808): İstatistikleri güncelleştir başarısız olduğunda sıkıştırma daha sağlam hale.
 
--   [*HIVE 18815*](https://issues.apache.org/jira/browse/HIVE-18815): HPL/SQL kullanılmayan Özellik Kaldır.
+-   [*HIVE 18815*](https://issues.apache.org/jira/browse/HIVE-18815): Kullanılmayan özellik HPL/SQL kaldırın.
 
--   [*HIVE 18817*](https://issues.apache.org/jira/browse/HIVE-18817): ACID tablonun okuma sırasında özel durum ArrayIndexOutOfBounds.
+-   [*HIVE 18817*](https://issues.apache.org/jira/browse/HIVE-18817): ArrayIndexOutOfBounds özel durum sırasında ACID tablosu okuyun.
 
--   [*HIVE 18833*](https://issues.apache.org/jira/browse/HIVE-18833): otomatik birleştirme, başarısız olduğunda "orcfile olarak dizine eklemek".
+-   [*HIVE 18833*](https://issues.apache.org/jira/browse/HIVE-18833): Otomatik birleştirme başarısız "orcfile olarak dizine eklemek".
 
 -   [*HIVE 18879*](https://issues.apache.org/jira/browse/HIVE-18879): UDFXPathUtil ihtiyaçları çözmek için katıştırılmış öğesinde izin verme xercesImpl.jar sınıf içinde.
 
--   [*HIVE 18944*](https://issues.apache.org/jira/browse/HIVE-18944): Groupping kümeleri konumu yanlış DPP sırasında ayarlanır.
+-   [*HIVE 18944*](https://issues.apache.org/jira/browse/HIVE-18944): GroupPing kümeleri konumu yanlış DPP sırasında ayarlanır.
 
 ### <a name="kafka"></a>Kafka
 
@@ -501,33 +501,33 @@ Bu sürüm, Kafka 1.0.0 ve aşağıdaki Apache düzeltme sağlar.
 
 -   [KAFKA 4827](https://issues.apache.org/jira/browse/KAFKA-4827): Kafka bağlanın: bağlayıcı adı özel karakterler hata.
 
--   [KAFKA 6118](https://issues.apache.org/jira/browse/KAFKA-6118): kafka.api.SaslScramSslEndToEndAuthorizationTest.testTwoConsumersWithDifferentSaslCredentials geçici hatası.
+-   [KAFKA 6118](https://issues.apache.org/jira/browse/KAFKA-6118): Geçici hata kafka.api.SaslScramSslEndToEndAuthorizationTest.testTwoConsumersWithDifferentSaslCredentials içinde.
 
--   [KAFKA 6156](https://issues.apache.org/jira/browse/KAFKA-6156): JmxReporter windows stili dizin yolları işleyemez.
+-   [KAFKA 6156](https://issues.apache.org/jira/browse/KAFKA-6156): Windows stili dizin yolları JmxReporter işleyemiyor.
 
--   [KAFKA 6164](https://issues.apache.org/jira/browse/KAFKA-6164): günlükleri yüklenirken bir hata ile karşılaşıldığında ClientQuotaManager iş parçacığı engelleme kapatma.
+-   [KAFKA 6164](https://issues.apache.org/jira/browse/KAFKA-6164): ClientQuotaManager iş parçacıkları, günlükleri yüklenirken bir hata ile karşılaşıldığında kapatma engelleyin.
 
--   [KAFKA 6167](https://issues.apache.org/jira/browse/KAFKA-6167): zaman damgası akışları dizininde geçersiz bir karakter olan bir iki nokta üst üste, içerir.
+-   [KAFKA 6167](https://issues.apache.org/jira/browse/KAFKA-6167): Zaman damgası akışları dizininde geçersiz bir karakter olan bir virgül içerir.
 
 -   [KAFKA 6179](https://issues.apache.org/jira/browse/KAFKA-6179): RecordQueue.clear() işaretini MinTimestampTracker listesi korunan.
 
--   [KAFKA 6185](https://issues.apache.org/jira/browse/KAFKA-6185): yüksektir OOM durumunda, dönüştürme aşağı ile Seçici bellek sızıntısı.
+-   [KAFKA 6185](https://issues.apache.org/jira/browse/KAFKA-6185): Seçici bellek sızıntısı yüksektir OOM durumunda, dönüştürme aşağı ile.
 
--   [KAFKA 6190](https://issues.apache.org/jira/browse/KAFKA-6190): GlobalKTable bitmiyor işlem iletileri tüketildiğinde geri yükleniyor.
+-   [KAFKA 6190](https://issues.apache.org/jira/browse/KAFKA-6190): GlobalKTable işlem iletileri tüketildiğinde geri bitmez.
 
--   [KAFKA 6210](https://issues.apache.org/jira/browse/KAFKA-6210): 1.0.0 inter.broker.protocol.version veya log.message.format.version kullanılıyorsa IllegalArgumentException.
+-   [KAFKA 6210](https://issues.apache.org/jira/browse/KAFKA-6210): IllegalArgumentException 1.0.0 inter.broker.protocol.version veya log.message.format.version için kullanılıyorsa.
 
--   [KAFKA 6214](https://issues.apache.org/jira/browse/KAFKA-6214): bir bellek içi bekleme Çoğaltmalarla kullanarak durum deposu akışları çökmesine neden olur.
+-   [KAFKA 6214](https://issues.apache.org/jira/browse/KAFKA-6214): Bekleme yinelemeler bir bellek ile durum depolama alanını akışları çökmesine neden olur.
 
 -   [KAFKA 6215](https://issues.apache.org/jira/browse/KAFKA-6215): KafkaStreamsTest santral başarısız olur.
 
--   [KAFKA 6238](https://issues.apache.org/jira/browse/KAFKA-6238): sıralı yükseltme için 1.0.0 uygularken protokol sürümü ile ilgili sorunlar.
+-   [KAFKA 6238](https://issues.apache.org/jira/browse/KAFKA-6238): Sıralı yükseltme için 1.0.0 uygularken protokol sürümü ile ilgili sorunlar.
 
 -   [KAFKA 6260](https://issues.apache.org/jira/browse/KAFKA-6260): AbstractCoordinator değil açıkça NULL özel durumu işler.
 
--   [KAFKA 6261](https://issues.apache.org/jira/browse/KAFKA-6261): günlük özel durum oluşturursa, istek ack'lerini gösteriyor = 0.
+-   [KAFKA 6261](https://issues.apache.org/jira/browse/KAFKA-6261): Günlük özel durum oluşturursa, istek ack'lerini gösteriyor = 0.
 
--   [KAFKA 6274](https://issues.apache.org/jira/browse/KAFKA-6274): geliştirmek KTable kaynak durumu adları otomatik olarak oluşturulan depolama.
+-   [KAFKA 6274](https://issues.apache.org/jira/browse/KAFKA-6274): Otomatik olarak oluşturulan KTable kaynak durum deposu adları geliştirin.
 
 ### <a name="mahout"></a>Mahout
 
@@ -549,57 +549,57 @@ Bu sürüm aşağıdaki Apache düzeltme ekleri ile Oozie 4.2.0 sağlar.
 
 -   [OOZIE 2571](https://issues.apache.org/jira/browse/OOZIE-2571): Scala 2.11 kullanılabilir spark.scala.binary.version Maven özelliği ekleyin.
 
--   [OOZIE 2606](https://issues.apache.org/jira/browse/OOZIE-2606): spark.yarn.jars Oozie ile Spark 2.0 düzeltmek için ayarlayın.
+-   [OOZIE 2606](https://issues.apache.org/jira/browse/OOZIE-2606): Oozie ile Spark 2.0 düzeltmek için spark.yarn.jars ayarlayın.
 
 -   [OOZIE 2658](https://issues.apache.org/jira/browse/OOZIE-2658):--sürücü sınıf yolu SparkMain sınıf üzerine yazabilirsiniz.
 
 -   [OOZIE 2787](https://issues.apache.org/jira/browse/OOZIE-2787): Oozie iki kez spark işi başarısız hale uygulama jar dağıtır.
 
--   [OOZIE 2792](https://issues.apache.org/jira/browse/OOZIE-2792): Hive2 eylem değil ayrıştırma günlük dosyasından Spark uygulama kimliği düzgün Spark, Hive olduğunda.
+-   [OOZIE 2792](https://issues.apache.org/jira/browse/OOZIE-2792): Spark, Hive olduğunda Hive2 eylem günlük dosyasından Spark uygulama kimliği düzgün ayrıştırmaya değil.
 
--   [OOZIE 2799](https://issues.apache.org/jira/browse/OOZIE-2799): spark sql üzerinde hive için ayar günlük konumu.
+-   [OOZIE 2799](https://issues.apache.org/jira/browse/OOZIE-2799): Spark sql üzerinde hive için ayar günlük konumu.
 
--   [OOZIE 2802](https://issues.apache.org/jira/browse/OOZIE-2802): eylem başarısızlığı nedeniyle yinelenen sharelibs 2.1.0 Spark üzerinde Spark.
+-   [OOZIE 2802](https://issues.apache.org/jira/browse/OOZIE-2802): Eylem başarısızlığı nedeniyle yinelenen sharelibs 2.1.0 Spark üzerinde spark.
 
--   [OOZIE 2923](https://issues.apache.org/jira/browse/OOZIE-2923): ayrıştırma geliştirmek Spark seçenekleri.
+-   [OOZIE 2923](https://issues.apache.org/jira/browse/OOZIE-2923): Ayrıştırma Spark seçenekleri artırır.
 
--   [OOZIE 3109](https://issues.apache.org/jira/browse/OOZIE-3109): SCA: siteler arası betik: yansıtılır.
+-   [OOZIE 3109](https://issues.apache.org/jira/browse/OOZIE-3109): SKA: Siteler arası betik: Yansıtılır.
 
 -   [OOZIE 3139](https://issues.apache.org/jira/browse/OOZIE-3139): Oozie iş akışının yanlış doğrular.
 
--   [OOZIE 3167](https://issues.apache.org/jira/browse/OOZIE-3167): Oozie 4.3 dal yükseltme tomcat sürümü.
+-   [OOZIE 3167](https://issues.apache.org/jira/browse/OOZIE-3167): Oozie 4.3 dal tomcat sürümüne yükseltin.
 
 ### <a name="phoenix"></a>Phoenix
 
 Bu sürüm, Phoenix 4.7.0 ve aşağıdaki Apache düzeltme ekleri sağlar:
 
--   [PHOENIX 1751](https://issues.apache.org/jira/browse/PHOENIX-1751): toplamalar, sıralama, vb. yerine postScannerOpen preScannerNext içinde gerçekleştirin.
+-   [PHOENIX 1751](https://issues.apache.org/jira/browse/PHOENIX-1751): Toplamalar, sıralama, vb. yerine postScannerOpen preScannerNext içinde gerçekleştirin.
 
--   [PHOENIX 2714](https://issues.apache.org/jira/browse/PHOENIX-2714): doğru bayt BaseResultIterators tahmin etmek ve arabirimi olarak kullanıma sunar.
+-   [PHOENIX 2714](https://issues.apache.org/jira/browse/PHOENIX-2714): Bayt tahmine BaseResultIterators düzeltin ve arabirimi olarak kullanıma sunar.
 
--   [PHOENIX 2724](https://issues.apache.org/jira/browse/PHOENIX-2724): hiçbir istatistikleri için sorgu çok fazla sayıda guideposts ile karşılaştırıldığında daha yavaş.
+-   [PHOENIX 2724](https://issues.apache.org/jira/browse/PHOENIX-2724): Sorgu çok fazla sayıda guideposts ile hiçbir istatistikleri için daha yavaş karşılaştırılır.
 
--   [PHOENIX 2855](https://issues.apache.org/jira/browse/PHOENIX-2855): geçici artış TimeRange için HBase 1.2 serileştirilen değil.
+-   [PHOENIX 2855](https://issues.apache.org/jira/browse/PHOENIX-2855): Geçici çözüm artırma TimeRange için HBase 1.2 serileştirilen değil.
 
--   [PHOENIX 3023](https://issues.apache.org/jira/browse/PHOENIX-3023): yavaş performans sınırı sorguları varsayılan olarak paralel olarak yürütüldüğünde.
+-   [PHOENIX 3023](https://issues.apache.org/jira/browse/PHOENIX-3023): Sınırı sorguları varsayılan olarak paralel olarak yürütüldüğünde yavaş performans.
 
--   [PHOENIX 3040](https://issues.apache.org/jira/browse/PHOENIX-3040): guideposts seri olarak sorguları yürütmek için kullanmayın.
+-   [PHOENIX 3040](https://issues.apache.org/jira/browse/PHOENIX-3040): Guideposts seri olarak sorguları yürütmek için kullanmayın.
 
 -   [PHOENIX 3112](https://issues.apache.org/jira/browse/PHOENIX-3112): Kısmi satır tarama doğru işlenmedi.
 
--   [PHOENIX 3240](https://issues.apache.org/jira/browse/PHOENIX-3240): ClassCastException Pig Yükleyicisi'nden.
+-   [PHOENIX 3240](https://issues.apache.org/jira/browse/PHOENIX-3240): Pig Yükleyicisi'nden ClassCastException.
 
--   [PHOENIX 3452](https://issues.apache.org/jira/browse/PHOENIX-3452): null DEĞERLERE FIRST/NULL son durum GROUP BY sırası olup olmadığını korur.
+-   [PHOENIX 3452](https://issues.apache.org/jira/browse/PHOENIX-3452): Null DEĞERLERE FIRST/NULL son durum GROUP BY sırası olup olmadığını korur.
 
--   [PHOENIX 3469](https://issues.apache.org/jira/browse/PHOENIX-3469): DESC birincil için hatalı bir sıralama düzeni için null değerler son anahtar / ilk null.
+-   [PHOENIX 3469](https://issues.apache.org/jira/browse/PHOENIX-3469): Hatalı bir sıralama düzeni DESC birincil site için null değerler için son anahtar / ilk null.
 
--   [PHOENIX 3789](https://issues.apache.org/jira/browse/PHOENIX-3789): çapraz bölge dizin bakım postBatchMutateIndispensably çağrılarında yürütün.
+-   [PHOENIX 3789](https://issues.apache.org/jira/browse/PHOENIX-3789): Bölgeler arası dizin bakım çağrıları postBatchMutateIndispensably içinde yürütün.
 
--   [PHOENIX 3865](https://issues.apache.org/jira/browse/PHOENIX-3865): IS NULL döndürmez doğru sonuçlar ilk sütun ailesi karşı filtrelenmediğinden olduğunda.
+-   [PHOENIX 3865](https://issues.apache.org/jira/browse/PHOENIX-3865): OLAN ilk sütun ailesi karşı filtrelenmediğinden olduğunda NULL doğru sonuçlar döndürmez.
 
--   [PHOENIX 4290](https://issues.apache.org/jira/browse/PHOENIX-4290): tam tablo tarama işlemi için silme sabit dizini olan tablo.
+-   [PHOENIX 4290](https://issues.apache.org/jira/browse/PHOENIX-4290): Tam tablo taraması sabit dizini olan tablo için silme gerçekleştirdi.
 
--   [PHOENIX 4373](https://issues.apache.org/jira/browse/PHOENIX-4373): yerel dizin değişken uzunluklu anahtarı sondaki upserting çalışırken null değerlere sahip olabilir.
+-   [PHOENIX 4373](https://issues.apache.org/jira/browse/PHOENIX-4373): Yerel dizin değişken uzunluklu anahtarı sondaki upserting çalışırken null değerlere sahip olabilir.
 
 -   [PHOENIX 4466](https://issues.apache.org/jira/browse/PHOENIX-4466): java.lang.RuntimeException: yanıt kodu 500 - phoenix sorgu sunucusu ve yük verilere bağlanmak için bir spark işi çalıştırma.
 
@@ -607,39 +607,39 @@ Bu sürüm, Phoenix 4.7.0 ve aşağıdaki Apache düzeltme ekleri sağlar:
 
 -   [PHOENIX 4525](https://issues.apache.org/jira/browse/PHOENIX-4525): GroupBy yürütme tamsayı taşması.
 
--   [PHOENIX 4560](https://issues.apache.org/jira/browse/PHOENIX-4560): GROUP BY ile ORDER BY işe yaramazsa pk sütununda WHERE ise.
+-   [PHOENIX 4560](https://issues.apache.org/jira/browse/PHOENIX-4560): GROUP BY ile ORDER BY pk sütununda WHERE varsa çalışmaz.
 
--   [PHOENIX 4586](https://issues.apache.org/jira/browse/PHOENIX-4586): UPSERT seçin değil olur alt sorgular için hesap Karşılaştırma işleçleri.
+-   [PHOENIX 4586](https://issues.apache.org/jira/browse/PHOENIX-4586): UPSERT seçin alt sorgular için hesap karşılaştırma işleçlerinden almaz.
 
--   [PHOENIX 4588](https://issues.apache.org/jira/browse/PHOENIX-4588): alt Determinism.PER varsa ifade ayrıca kopyalama\_ÇAĞIRMA.
+-   [PHOENIX 4588](https://issues.apache.org/jira/browse/PHOENIX-4588): Alt Determinism.PER varsa ifade ayrıca kopyalama\_ÇAĞIRMA.
 
 ### <a name="pig"></a>Pig
 
 Bu sürüm aşağıdaki Apache düzeltme ekleri ile Pig 0.16.0 sağlar.
 
--   [PIG 5159](https://issues.apache.org/jira/browse/PIG-5159): grunt geçmişi kaydetmeden Pig düzeltin.
+-   [PIG 5159](https://issues.apache.org/jira/browse/PIG-5159): Grunt geçmişi kaydetmeden Pig düzeltin.
 
--   [PIG 5175](https://issues.apache.org/jira/browse/PIG-5175): jruby ile 1.7.26 için yükseltin.
+-   [PIG 5175](https://issues.apache.org/jira/browse/PIG-5175): Jruby ile 1.7.26 için yükseltin.
 
 ### <a name="ranger"></a>Ranger
 
 Bu sürüm, Ranger 0.7.0 ve aşağıdaki Apache düzeltme ekleri sağlar:
 
--   [RANGER 1805](https://issues.apache.org/jira/browse/RANGER-1805): kod js en iyi uygulamaları izlemesi için geliştirme.
+-   [RANGER 1805](https://issues.apache.org/jira/browse/RANGER-1805): Js en iyi uygulamaları izlemesi için kod geliştirme.
 
--   [RANGER 1960](https://issues.apache.org/jira/browse/RANGER-1960): anlık görüntünün tablo adı silme işlemi için dikkate alın.
+-   [RANGER 1960](https://issues.apache.org/jira/browse/RANGER-1960): Anlık görüntünün tablo adı silme işlemi için dikkate alın.
 
--   [RANGER 1982](https://issues.apache.org/jira/browse/RANGER-1982): Analytics Ölçüm Ranger yönetici ve Ranger KMS için hata geliştirme.
+-   [RANGER 1982](https://issues.apache.org/jira/browse/RANGER-1982): Ranger yönetici ve Ranger KMS Analytics Ölçüm için hata geliştirme.
 
--   [RANGER 1984](https://issues.apache.org/jira/browse/RANGER-1984): Hbase günlük kaydı erişilen sütunla ilişkili tüm etiketleri göstermeyebilir.
+-   [RANGER 1984](https://issues.apache.org/jira/browse/RANGER-1984): Hbase günlük kaydı erişilen sütunla ilişkili tüm etiketleri gösterilmeyebilir.
 
--   [RANGER 1988](https://issues.apache.org/jira/browse/RANGER-1988): giderin güvensiz rastgele olma durumu.
+-   [RANGER 1988](https://issues.apache.org/jira/browse/RANGER-1988): Güvenli olmayan doğrulukla düzeltin.
 
--   [RANGER 1990](https://issues.apache.org/jira/browse/RANGER-1990): Ranger yönetici ekleme One-way SSL MySQL desteği
+-   [RANGER 1990](https://issues.apache.org/jira/browse/RANGER-1990): Ranger yönetici One-Way SSL MySQL desteği eklendi
 
--   [RANGER 2006](https://issues.apache.org/jira/browse/RANGER-2006): ldap eşitleme kaynağı için ranger usersync statik kod analizi tarafından algılanan sorunları düzeltin.
+-   [RANGER 2006](https://issues.apache.org/jira/browse/RANGER-2006): Ranger usersync ldap eşitleme kaynağı için statik kod analizi tarafından algılanan sorunları giderin.
 
--   [RANGER 2008](https://issues.apache.org/jira/browse/RANGER-2008): çok satırlı ilkesi koşulları ilke değerlendirmesi başarısız oluyor.
+-   [RANGER 2008](https://issues.apache.org/jira/browse/RANGER-2008): İlke değerlendirmesi, çok satırlı ilkesi koşulları başarısız oluyor.
 
 ### <a name="slider"></a>Kaydırıcı
 
@@ -649,77 +649,77 @@ Bu sürüm, kaydırıcı ile ek bir Apache düzeltme eklerini 0.92.0 sağlar.
 
 Bu sürüm, Spark 2.3.0 ve aşağıdaki Apache düzeltme ekleri sağlar:
 
--   [SPARK 13587](https://issues.apache.org/jira/browse/SPARK-13587): Destek virtualenv pyspark içinde.
+-   [SPARK 13587](https://issues.apache.org/jira/browse/SPARK-13587): İçinde bir pyspark virtualenv destekler.
 
--   [SPARK 19964](https://issues.apache.org/jira/browse/SPARK-19964): Uzak depolarda SparkSubmitSuite okumaya kaçının.
+-   [SPARK 19964](https://issues.apache.org/jira/browse/SPARK-19964): Uzak depolarda SparkSubmitSuite okumaya özen gösterin.
 
--   [SPARK 22882](https://issues.apache.org/jira/browse/SPARK-22882): ML test için yapılandırılmış akış: ml.classification.
+-   [SPARK 22882](https://issues.apache.org/jira/browse/SPARK-22882): Yapılandırılmış akış için test ML: ml.classification.
 
--   [SPARK 22915](https://issues.apache.org/jira/browse/SPARK-22915): N-z'den bir spark.ml.feature için testleri akış.
+-   [SPARK 22915](https://issues.apache.org/jira/browse/SPARK-22915): Spark.ml.feature, Z N gelen akış sınar.
 
--   [SPARK 23020](https://issues.apache.org/jira/browse/SPARK-23020): başka bir yarış işlem içi Başlatıcısı testinde düzeltin.
+-   [SPARK 23020](https://issues.apache.org/jira/browse/SPARK-23020): Başka bir yarış işlem içi Başlatıcısı testinde düzeltin.
 
--   [SPARK 23040](https://issues.apache.org/jira/browse/SPARK-23040): shuffle Okuyucu için kesilebilir yineleyici döndürür.
+-   [SPARK 23040](https://issues.apache.org/jira/browse/SPARK-23040): Shuffle okuyucu kesilebilir yineleyici döndürür.
 
--   [SPARK 23173](https://issues.apache.org/jira/browse/SPARK-23173): veri JSON'dan yüklenirken bozuk parquet dosyalarını oluşturmaktan kaçının.
+-   [SPARK 23173](https://issues.apache.org/jira/browse/SPARK-23173): JSON'dan verileri yüklenirken bozuk parquet dosyalarını oluşturmaktan kaçının.
 
--   [SPARK 23264](https://issues.apache.org/jira/browse/SPARK-23264): scala düzeltin. MatchError literals.sql.out içinde.
+-   [SPARK 23264](https://issues.apache.org/jira/browse/SPARK-23264): Scala düzeltin. MatchError literals.sql.out içinde.
 
--   [SPARK 23288](https://issues.apache.org/jira/browse/SPARK-23288): düzeltme parquet havuz Ölçümleriyle çıktı.
+-   [SPARK 23288](https://issues.apache.org/jira/browse/SPARK-23288): Çıkış ölçümleri ile parquet havuz düzeltin.
 
--   [SPARK 23329](https://issues.apache.org/jira/browse/SPARK-23329): trigonometrik işlevler belgelerine düzeltin.
+-   [SPARK 23329](https://issues.apache.org/jira/browse/SPARK-23329): Trigonometrik işlevler belgeleri düzeltildi.
 
--   [SPARK 23406](https://issues.apache.org/jira/browse/SPARK-23406): etkinleştirme akışı-stream kendinden birleştirmeler için dal 2.3.
+-   [SPARK 23406](https://issues.apache.org/jira/browse/SPARK-23406): Etkinleştirme akışı-stream kendinden birleştirmeler için dal 2.3.
 
 -   [SPARK 23434](https://issues.apache.org/jira/browse/SPARK-23434): Spark değil uyar \`meta dizin\` HDFS dosya yolu.
 
--   [SPARK 23436](https://issues.apache.org/jira/browse/SPARK-23436): yalnızca tarih Integer olabilir, bölüm tarih tanım Çıkarsama.
+-   [SPARK 23436](https://issues.apache.org/jira/browse/SPARK-23436): Yalnızca bu tarih Integer olarak bölüm tarih tanım Çıkarsama.
 
--   [SPARK 23457](https://issues.apache.org/jira/browse/SPARK-23457): görev tamamlama dinleyicileri ParquetFileFormat içinde ilk kaydedin.
+-   [SPARK 23457](https://issues.apache.org/jira/browse/SPARK-23457): Görev tamamlama dinleyicileri ilk ParquetFileFormat kaydedin.
 
 -   [SPARK 23462](https://issues.apache.org/jira/browse/SPARK-23462): eksik alan hata iletisinde geliştirmek \`StructType\`.
 
--   [SPARK 23490](https://issues.apache.org/jira/browse/SPARK-23490): storage.locationUri CreateTable mevcut tablosu ile denetleyin.
+-   [SPARK 23490](https://issues.apache.org/jira/browse/SPARK-23490): Storage.locationUri CreateTable mevcut tablosu ile denetleyin.
 
--   [SPARK 23524](https://issues.apache.org/jira/browse/SPARK-23524): büyük yerel shuffle blokları bozulma değil işaretlenmelidir.
+-   [SPARK 23524](https://issues.apache.org/jira/browse/SPARK-23524): Büyük yerel shuffle blokları bozulma işaretlenmemelidir.
 
--   [SPARK 23525](https://issues.apache.org/jira/browse/SPARK-23525): dış hive tablosu için destek ALTER tablo değişiklik sütun açıklaması.
+-   [SPARK 23525](https://issues.apache.org/jira/browse/SPARK-23525): Dış bir hive tablosu için tablo değişiklik sütun YORUMU ALTER destekler.
 
--   [SPARK 23553](https://issues.apache.org/jira/browse/SPARK-23553): testleri varsayılan değerini değil varsayar \`spark.sql.sources.default\`.
+-   [SPARK 23553](https://issues.apache.org/jira/browse/SPARK-23553): Testleri varsayılan değerini değil varsayar \`spark.sql.sources.default\`.
 
--   [SPARK 23569](https://issues.apache.org/jira/browse/SPARK-23569): pandas izin\_türü açıklamalı python3 style işlevleri ile çalışmaya udf.
+-   [SPARK 23569](https://issues.apache.org/jira/browse/SPARK-23569): Pandas izin\_türü açıklamalı python3 style işlevleri ile çalışmaya udf.
 
 -   [SPARK 23570](https://issues.apache.org/jira/browse/SPARK-23570): Spark 2.3.0 HiveExternalCatalogVersionsSuite ekleyin.
 
--   [SPARK 23598](https://issues.apache.org/jira/browse/SPARK-23598): yöntemleri BufferedRowIterator büyük bir sorgu için çalışma zamanı hatası kaçınmak için genel hale.
+-   [SPARK 23598](https://issues.apache.org/jira/browse/SPARK-23598): Yöntemleri BufferedRowIterator büyük bir sorgu için çalışma zamanı hatası kaçınmak için genel olarak yapın.
 
 -   [SPARK 23599](https://issues.apache.org/jira/browse/SPARK-23599): UUID Oluşturucusu Pseudo-Random numaralarını ekleyin.
 
--   [SPARK 23599](https://issues.apache.org/jira/browse/SPARK-23599): UUID ifadesinde RandomUUIDGenerator kullanın.
+-   [SPARK 23599](https://issues.apache.org/jira/browse/SPARK-23599): RandomUUIDGenerator UUID ifadesinde kullanın.
 
--   [SPARK 23601](https://issues.apache.org/jira/browse/SPARK-23601): .md5 dosyaları yayından kaldırın.
+-   [SPARK 23601](https://issues.apache.org/jira/browse/SPARK-23601): .MD5 dosyaları yayından Kaldır.
 
--   [SPARK 23608](https://issues.apache.org/jira/browse/SPARK-23608): eşitleme Jetty işleyicileri için eş zamanlı değişiklik sorunu önlemek için attachSparkUI ve detachSparkUI işlevleri arasında SHS içinde ekleyin.
+-   [SPARK 23608](https://issues.apache.org/jira/browse/SPARK-23608): Eşitleme SHS Jetty işleyicileri için eş zamanlı değişiklik sorunu önlemek için attachSparkUI ve detachSparkUI işlevleri arasında ekleyin.
 
--   [SPARK 23614](https://issues.apache.org/jira/browse/SPARK-23614): önbelleğe alma kullanıldığında yanlış yeniden exchange düzeltin.
+-   [SPARK 23614](https://issues.apache.org/jira/browse/SPARK-23614): Önbelleğe alma kullanıldığında yanlış yeniden exchange düzeltin.
 
--   [SPARK 23623](https://issues.apache.org/jira/browse/SPARK-23623): eş zamanlı CachedKafkaConsumer (dal 2.3) önbelleğe alınan tüketicilerinizin kullanmaktan kaçının.
+-   [SPARK 23623](https://issues.apache.org/jira/browse/SPARK-23623): Eş zamanlı CachedKafkaConsumer (dal 2.3) önbelleğe alınan tüketicilerinizin kullanmaktan kaçının.
 
--   [SPARK 23624](https://issues.apache.org/jira/browse/SPARK-23624): yöntemi pushFilters Datasource V2'de, gözden geçirme belge.
+-   [SPARK 23624](https://issues.apache.org/jira/browse/SPARK-23624): Belge yöntemi pushFilters Datasource V2'de, gözden geçirin.
 
 -   [SPARK 23628](https://issues.apache.org/jira/browse/SPARK-23628): 1 + num ifadelerin calculateParamLength döndürmemelidir.
 
--   [SPARK 23630](https://issues.apache.org/jira/browse/SPARK-23630): kullanıcının hadoop etkili olması conf uzantılarıdır.
+-   [SPARK 23630](https://issues.apache.org/jira/browse/SPARK-23630): Kullanıcının hadoop conf özelleştirmeleri etkili olmasını sağlar.
 
--   [SPARK 23635](https://issues.apache.org/jira/browse/SPARK-23635): Spark Yürütücü env değişkeni aynı adı AM env değişkeni tarafından üzerine yazılır.
+-   [SPARK 23635](https://issues.apache.org/jira/browse/SPARK-23635): Spark Yürütücü env değişken aynı adla AM env değişkenin üzerine yazılır.
 
--   [SPARK 23637](https://issues.apache.org/jira/browse/SPARK-23637): birden çok kez aynı Yürütücü sonlandırılırsa, Yarn daha fazla kaynak ayırma.
+-   [SPARK 23637](https://issues.apache.org/jira/browse/SPARK-23637): Birden çok kez aynı Yürütücü sonlandırılırsa yarn daha fazla kaynak ayırabilir.
 
--   [SPARK 23639](https://issues.apache.org/jira/browse/SPARK-23639): init meta veri deposu SparkSQL CLI istemcisinde önce belirteç edinme.
+-   [SPARK 23639](https://issues.apache.org/jira/browse/SPARK-23639): İnit meta veri deposu SparkSQL CLI istemcisinde önce belirteci alın.
 
 -   [SPARK 23642](https://issues.apache.org/jira/browse/SPARK-23642): AccumulatorV2 alt IsZero scaladoc düzeltme.
 
--   [SPARK 23644](https://issues.apache.org/jira/browse/SPARK-23644): SHS içinde REST çağrısı için mutlak yol kullanın.
+-   [SPARK 23644](https://issues.apache.org/jira/browse/SPARK-23644): REST çağrısı SHS içinde mutlak yol kullanın.
 
 -   [SPARK 23645](https://issues.apache.org/jira/browse/SPARK-23645): RE docs ekleme \`pandas\_udf\` anahtar sözcüğü args ile.
 
@@ -727,49 +727,49 @@ Bu sürüm, Spark 2.3.0 ve aşağıdaki Apache düzeltme ekleri sağlar:
 
 -   [SPARK 23658](https://issues.apache.org/jira/browse/SPARK-23658): InProcessAppHandle getLogger içinde yanlış sınıfı kullanır.
 
--   [SPARK 23660](https://issues.apache.org/jira/browse/SPARK-23660): uygulama hızlı bir şekilde sonlandırıldığında gerçekleştirilecek özel durum yarn küme modunda düzeltin.
+-   [SPARK 23660](https://issues.apache.org/jira/browse/SPARK-23660): Uygulama hızlı bir şekilde sonlandırıldığında gerçekleştirilecek özel durum yarn küme modunda düzeltin.
 
--   [SPARK 23670](https://issues.apache.org/jira/browse/SPARK-23670): SparkPlanGraphWrapper üzerinde düzeltme bellek sızıntısı.
+-   [SPARK 23670](https://issues.apache.org/jira/browse/SPARK-23670): Bellek sızıntısı SparkPlanGraphWrapper üzerinde düzeltin.
 
--   [SPARK 23671](https://issues.apache.org/jira/browse/SPARK-23671): koşul SHS iş parçacığı havuzu genişletmeyi etkinleştirme Düzelt.
+-   [SPARK 23671](https://issues.apache.org/jira/browse/SPARK-23671): Koşul SHS iş parçacığı havuzu genişletmeyi etkinleştirme Düzelt.
 
--   [SPARK 23691](https://issues.apache.org/jira/browse/SPARK-23691): sql kullanan\_mümkün olduğunda conf util PySpark olarak sınar.
+-   [SPARK 23691](https://issues.apache.org/jira/browse/SPARK-23691): SQL kullanmak\_mümkün olduğunda conf util PySpark olarak sınar.
 
--   [SPARK 23695](https://issues.apache.org/jira/browse/SPARK-23695): Kinesis testleri akış için hata iletisi düzeltildi.
+-   [SPARK 23695](https://issues.apache.org/jira/browse/SPARK-23695): Hata iletisi için testleri akış Kinesis düzeltin.
 
 -   [SPARK 23706](https://issues.apache.org/jira/browse/SPARK-23706): spark.conf.get (varsayılan değer = None) hiçbiri PySpark üretmelidir.
 
--   [SPARK 23728](https://issues.apache.org/jira/browse/SPARK-23728): ML düzeltme akış testler beklenen özel durum ile birlikte sınar.
+-   [SPARK 23728](https://issues.apache.org/jira/browse/SPARK-23728): ML testleri akış testler beklenen özel durumlar ile düzeltin.
 
--   [SPARK 23729](https://issues.apache.org/jira/browse/SPARK-23729): eğik çizgi genelleştirmeler çözülürken saygı URI parçası.
+-   [SPARK 23729](https://issues.apache.org/jira/browse/SPARK-23729): Eğik çizgi genelleştirmeler çözülürken saygı URI parçası.
 
--   [SPARK 23759](https://issues.apache.org/jira/browse/SPARK-23759): belirli bir ana bilgisayar adı için Spark UI bağlanamıyor / IP.
+-   [SPARK 23759](https://issues.apache.org/jira/browse/SPARK-23759): Belirli bir ana bilgisayar adı için Spark UI bağlanamıyor / IP.
 
--   [SPARK 23760](https://issues.apache.org/jira/browse/SPARK-23760): CodegenContext.withSubExprEliminationExprs kaydedilemiyor/geri CSE durumu doğru.
+-   [SPARK 23760](https://issues.apache.org/jira/browse/SPARK-23760): CodegenContext.withSubExprEliminationExprs kaydetme/CSE durumu doğru şekilde geri yüklemesi.
 
--   [SPARK 23769](https://issues.apache.org/jira/browse/SPARK-23769): gereksiz yere Scalastyle denetimini devre dışı bırak açıklamaları kaldırın.
+-   [SPARK 23769](https://issues.apache.org/jira/browse/SPARK-23769): Gereksiz yere Scalastyle denetimini devre dışı bırak açıklamaları kaldırın.
 
--   [SPARK 23788](https://issues.apache.org/jira/browse/SPARK-23788): düzeltme yarış StreamingQuerySuite içinde.
+-   [SPARK 23788](https://issues.apache.org/jira/browse/SPARK-23788): Yarış StreamingQuerySuite içinde düzeltin.
 
--   [SPARK 23802](https://issues.apache.org/jira/browse/SPARK-23802): PropagateEmptyRelation sorgu planı kararsız bir durumda bırakabilir.
+-   [SPARK 23802](https://issues.apache.org/jira/browse/SPARK-23802): PropagateEmptyRelation sorgu planı çözümlenmemiş durumda kalabilir.
 
--   [SPARK 23806](https://issues.apache.org/jira/browse/SPARK-23806): Broadcast.unpersist dinamik ayırma ile kullanıldığında önemli bir özel durum neden olabilir.
+-   [SPARK 23806](https://issues.apache.org/jira/browse/SPARK-23806): BROADCAST.unpersist dinamik ayırma ile kullanıldığında önemli bir özel durum neden olabilir.
 
--   [SPARK 23808](https://issues.apache.org/jira/browse/SPARK-23808): varsayılan Spark oturumunun yalnızca test spark oturumlarda ayarlayın.
+-   [SPARK 23808](https://issues.apache.org/jira/browse/SPARK-23808): Varsayılan Spark oturumunun yalnızca test spark oturumlarda ayarlayın.
 
--   [SPARK 23809](https://issues.apache.org/jira/browse/SPARK-23809): etkin SparkSession getOrCreate tarafından ayarlanması gerekir.
+-   [SPARK 23809](https://issues.apache.org/jira/browse/SPARK-23809): Etkin SparkSession getOrCreate tarafından ayarlanması gerekir.
 
--   [SPARK 23816](https://issues.apache.org/jira/browse/SPARK-23816): sonlandırılan görev FetchFailures yoksay.
+-   [SPARK 23816](https://issues.apache.org/jira/browse/SPARK-23816): Sonlandırılan görev FetchFailures yok saymanız gerekir.
 
--   [SPARK 23822](https://issues.apache.org/jira/browse/SPARK-23822): Parquet şema uyuşmazlıkları için hata iletisini geliştirin.
+-   [SPARK 23822](https://issues.apache.org/jira/browse/SPARK-23822): Hata iletisi için şema uyuşmazlıkları Parquet geliştirin.
 
--   [SPARK 23823](https://issues.apache.org/jira/browse/SPARK-23823): kaynak transformExpression içinde tutun.
+-   [SPARK 23823](https://issues.apache.org/jira/browse/SPARK-23823): Kaynak transformExpression içinde kalmasını sağlayın.
 
--   [SPARK 23827](https://issues.apache.org/jira/browse/SPARK-23827): StreamingJoinExec giriş verileri belirli bölüm sayısı bölümlenen olmak.
+-   [SPARK 23827](https://issues.apache.org/jira/browse/SPARK-23827): Giriş verileri belirli bölüm sayısı bölümlenen StreamingJoinExec emin olmanız gerekir.
 
--   [SPARK 23838](https://issues.apache.org/jira/browse/SPARK-23838): çalışan bir SQL sorgusu, "SQL sekmede tamamlandı olarak" görüntülenir.
+-   [SPARK 23838](https://issues.apache.org/jira/browse/SPARK-23838): Çalışan bir SQL sorgusu, "SQL sekmede tamamlandı olarak" görüntülenir.
 
--   [SPARK 23881](https://issues.apache.org/jira/browse/SPARK-23881): düzeltme güvenilir olmayan test JobCancellationSuite. " kesilebilir yineleyicisi shuffle okuyucu".
+-   [SPARK 23881](https://issues.apache.org/jira/browse/SPARK-23881): Güvenilir olmayan test JobCancellationSuite düzeltin." kesilebilir yineleyicisi shuffle okuyucu".
 
 ### <a name="sqoop"></a>Sqoop
 
@@ -779,13 +779,13 @@ Bu sürüm ile ek bir Apache düzeltme eklerini 1.4.6 Sqoop sağlar.
 
 Bu sürüm, 1.1.1 Storm ve aşağıdaki Apache düzeltme ekleri sağlar:
 
--   [STORM 2652](https://issues.apache.org/jira/browse/STORM-2652): JmsSpout açık yöntemde özel durum oluştu.
+-   [STORM 2652](https://issues.apache.org/jira/browse/STORM-2652): JmsSpout açık yöntemde özel bir durum oluştu.
 
 -   [STORM-2841](https://issues.apache.org/jira/browse/STORM-2841): testNoAcksIfFlushFails UT NullPointerException ile başarısız olur.
 
--   [STORM 2854](https://issues.apache.org/jira/browse/STORM-2854): olay günlüğü takılabilir hale getirmek için IEventLogger kullanıma sunar.
+-   [STORM 2854](https://issues.apache.org/jira/browse/STORM-2854): Olay günlüğü takılabilir hale getirmek için IEventLogger kullanıma sunar.
 
--   [STORM 2870](https://issues.apache.org/jira/browse/STORM-2870): FileBasedEventLogger sızıntıları olmayan ExecutorService, bir işlemin tamamlanmasını engeller.
+-   [STORM 2870](https://issues.apache.org/jira/browse/STORM-2870): İşlem tamamlanacak önleyen olmayan ExecutorService FileBasedEventLogger yayılır.
 
 -   [STORM 2960](https://issues.apache.org/jira/browse/STORM-2960): Storm süreçleri için önemini uygun işletim sistemi hesabı kurarak stres testi uygulamak daha iyi.
 
@@ -799,9 +799,9 @@ Bu sürümde, Tez 0.7.0 ve aşağıdaki Apache düzeltme ekleri sağlar:
 
 Bu sürüm ile additionalApache yama yok 0.7.3 Zeppelin sağlar.
 
--   [ZEPPELIN 3072](https://issues.apache.org/jira/browse/ZEPPELIN-3072): Zeppelin UI yanıt vermeyi yavaş/çok fazla not defterlerini varsa.
+-   [ZEPPELIN 3072](https://issues.apache.org/jira/browse/ZEPPELIN-3072): Zeppelin UI yavaş/çok fazla not defterlerini varsa yanıt vermemeye başlıyor.
 
--   [ZEPPELIN 3129](https://issues.apache.org/jira/browse/ZEPPELIN-3129): Zeppelin UI olmayan oturumunuzu IE'de.
+-   [ZEPPELIN 3129](https://issues.apache.org/jira/browse/ZEPPELIN-3129): Zeppelin UI IE'de oturumunuzu değil.
 
 -   [ZEPPELIN 903](https://issues.apache.org/jira/browse/ZEPPELIN-903): CXF Jersey2 ile değiştirin.
 
@@ -813,11 +813,11 @@ Bu sürüm, ZooKeeper 3.4.6 ve aşağıdaki Apache düzeltme ekleri sağlar:
 
 -   [ZOOKEEPER 1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901): \[JDK8\] sıralama alt AsyncOps testlerinde karşılaştırma için.
 
--   [ZOOKEEPER 2423](https://issues.apache.org/jira/browse/ZOOKEEPER-2423): Güvenlik Açığı (CVE-2014-3488) nedeniyle yükseltme Netty sürümü.
+-   [ZOOKEEPER 2423](https://issues.apache.org/jira/browse/ZOOKEEPER-2423): Güvenlik Açığı (CVE-2014-3488) nedeniyle Netty sürümüne yükseltin.
 
--   [ZOOKEEPER 2693](https://issues.apache.org/jira/browse/ZOOKEEPER-2693): DOS saldırısı wchp/wchc dört harf sözcüklere (4lw).
+-   [ZOOKEEPER 2693](https://issues.apache.org/jira/browse/ZOOKEEPER-2693): DOS wchp/wchc dört harfli sözcüklere (4lw) saldırı.
 
--   [ZOOKEEPER 2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726): olası yarış durumu için düzeltme eki tanıtır.
+-   [ZOOKEEPER 2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726): Düzeltme eki için olası yarış durumu ortaya çıkarır.
 
 ## <a name="fixed-common-vulnerabilities-and-exposures"></a>Yaygın güvenlik açıklarına ve exposures'ı sabit
 
@@ -878,7 +878,7 @@ Bu bölüm, tüm yaygın güvenlik açıklarına ve bu sürümde giderilen expos
 | **Sürümleri etkilenen:** Apache ranger'ın sürümleri 0.6.0/0.6.1/0.6.2 dahil olmak üzere tüm HDP 2.5 sürümleri                                         |
 | **Etkilenen kullanıcılar:** ranger İlkesi Yönetim Aracı'nın tüm kullanıcılar.                                                                         |
 | **Etkisi:** Ranger İlkesi altyapısı bir ilke joker karakterler ve özyinelemeli bayrak içerdiğinde yolları bazı durumlarda yanlış eşleşir. |
-| **Ayrıntı düzeltin:** ilke değerlendirme mantığı düzeltildi                                                                                          |
+| **Ayrıntı düzeltin:** Düzeltildi: ilke değerlendirme mantığı                                                                                          |
 | **Önerilen eylem:** kullanıcılar HDP 2.5.4+ (ile Apache Ranger 0.6.3+) yükseltme veya HDP 2.6 + (ile Apache Ranger 0.7.0+)         |
 
 ### <a name="cve-2016-8751"></a>**CVE 2016 8751**
@@ -907,12 +907,12 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 | HATA-88774              | [HIVE 17617](https://issues.apache.org/jira/browse/HIVE-17617), [HIVE 18413](https://issues.apache.org/jira/browse/HIVE-18413), [HIVE 18523](https://issues.apache.org/jira/browse/HIVE-18523)                                                                                 | query36 başarısız, satır sayısı uyumsuzluğu                                                                                    |
 | HATA-89765              | [HIVE 17702](https://issues.apache.org/jira/browse/HIVE-17702)                                                                                                                                                                                                                 | yanlış isRepeating ORC ondalık okuyucusunda işleme                                                                |
 | HATA-92293              | [HADOOP 15042](https://issues.apache.org/jira/browse/HADOOP-15042)                                                                                                                                                                                                             | NumberOfPagesRemaining 0 olduğunda azure PageBlobInputStream.skip() negatif bir değer döndürebilir                            |
-| HATA-92345              | [ATLAS 2285](https://issues.apache.org/jira/browse/ATLAS-2285)                                                                                                                                                                                                                 | Kullanıcı Arabirimi: Yeniden adlandırılan kayıtlı arama tarihi özniteliğine sahip.                                                                         |
+| HATA-92345              | [ATLAS 2285](https://issues.apache.org/jira/browse/ATLAS-2285)                                                                                                                                                                                                                 | KULLANICI ARABİRİMİ: Kayıtlı arama tarihi özniteliğine sahip olarak yeniden adlandırıldı.                                                                         |
 | HATA-92563              | [HIVE 17495](https://issues.apache.org/jira/browse/HIVE-17495), [HIVE 18528](https://issues.apache.org/jira/browse/HIVE-18528)                                                                                                                                                 | Toplu istatistikleri ObjectStore içinde yanlış sonucunu Al                                                                        |
 | HATA-92957              | [HIVE 11266](https://issues.apache.org/jira/browse/HIVE-11266)                                                                                                                                                                                                                 | Count (\*) yanlış dış tablolar için tablo istatistikleri göre sonuç                                                   |
 | HATA-93097              | [RANGER 1944](https://issues.apache.org/jira/browse/RANGER-1944)                                                                                                                                                                                                               | Eylem filtresi için yönetici denetim çalışmıyor                                                                           |
 | HATA-93335              | [HIVE 12315](https://issues.apache.org/jira/browse/HIVE-12315)                                                                                                                                                                                                                 | vektörleştirme\_kısa\_regress.q sahip bir çift hesaplaması için yanlış bir sonuca sorunu                                      |
-| HATA-93415              | [HIVE 18258](https://issues.apache.org/jira/browse/HIVE-18258), [HIVE 18310](https://issues.apache.org/jira/browse/HIVE-18310)                                                                                                                                                 | Vektörleştirme: Yinelenen sütunlar içeren küçültmek tarafındaki grubu BY MERGEPARTIAL bozuk                                      |
+| HATA-93415              | [HIVE 18258](https://issues.apache.org/jira/browse/HIVE-18258), [HIVE 18310](https://issues.apache.org/jira/browse/HIVE-18310)                                                                                                                                                 | Vektörleştirme: TARAFINDAN küçültmek tarafındaki grubu MERGEPARTIAL yinelenen sütunlar içeren bozuk                                      |
 | HATA-93939              | [ATLAS 2294](https://issues.apache.org/jira/browse/ATLAS-2294)                                                                                                                                                                                                                 | Ekstra parametresiyle "description" bir tür oluştururken eklendi                                                               |
 | HATA-94007              | [PHOENIX 1751](https://issues.apache.org/jira/browse/PHOENIX-1751), [PHOENIX 3112](https://issues.apache.org/jira/browse/PHOENIX-3112)                                                                                                                                         | Phoenix sorgu HBase kısmi nedeniyle Null değer satırlarını döndürür.                                                          |
 | HATA-94266              | [HIVE 12505](https://issues.apache.org/jira/browse/HIVE-12505)                                                                                                                                                                                                                 | INSERT üzerine şifrelenmiş aynı bölge sessizce başarısız bazı dosyaları kaldırmak                                   |
@@ -940,11 +940,11 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 | HATA-93159              | [OOZIE 3139](https://issues.apache.org/jira/browse/OOZIE-3139)                                                                         | Oozie iş akışının yanlış doğrular                                                                                                       |
 | HATA-93936              | [ATLAS 2289](https://issues.apache.org/jira/browse/ATLAS-2289)                                                                         | KafkaNotification uygulama dışına taşınacak katıştırılmış kafka/zookeeper sunucusu başlatma/durdurma kodu                                        |
 | HATA-93942              | [ATLAS 2312](https://issues.apache.org/jira/browse/ATLAS-2312)                                                                         | Eşzamanlı kullanım birden çok iş parçacığından önlemek için ThreadLocal DateFormat nesneleri kullanma                                                         |
-| HATA-93946              | [ATLAS 2319](https://issues.apache.org/jira/browse/ATLAS-2319)                                                                         | Kullanıcı Arabirimi: Etiket listesi hem sabit hem de ağaç yapısında yerleştirin, 25 + bir etiketi silme etiketi listeden kaldırmak için yenileme gerekiyor. |
+| HATA-93946              | [ATLAS 2319](https://issues.apache.org/jira/browse/ATLAS-2319)                                                                         | KULLANICI ARABİRİMİ: Etiket listesi hem sabit hem de ağaç yapısında yerleştirin, 25 + bir etiketi silme etiketi listeden kaldırmak için yenileme gerekiyor. |
 | HATA-94618              | [YARN 5037](https://issues.apache.org/jira/browse/YARN-5037), [YARN 7274](https://issues.apache.org/jira/browse/YARN-7274)             | Esneklik yaprak kuyruk düzeyinde devre dışı bırakma olanağı                                                                                          |
 | HATA-94901              | [HBASE 19285](https://issues.apache.org/jira/browse/HBASE-19285)                                                                       | Tablo başına gecikme histogramlar Ekle                                                                                                           |
 | HATA-95259              | [HADOOP 15185](https://issues.apache.org/jira/browse/HADOOP-15185), [HADOOP 15186](https://issues.apache.org/jira/browse/HADOOP-15186) | ADLS SDK'ın geçerli sürümü kullanılacak adls bağlayıcıyı güncelleştir                                                                               |
-| HATA-95619              | [HIVE 18551](https://issues.apache.org/jira/browse/HIVE-18551)                                                                         | Vektörleştirme: VectorMapOperator karma yetkisiz kullanım için vektör sütun sayısı çok fazla yazmak çalışır.                                                   |
+| HATA-95619              | [HIVE 18551](https://issues.apache.org/jira/browse/HIVE-18551)                                                                         | Vektörleştirme: Karma kullanım için vektör sütun sayısı çok fazla yazma VectorMapOperator çalışır                                                   |
 | HATA-97223              | [SPARK 23434](https://issues.apache.org/jira/browse/SPARK-23434)                                                                       | Spark değil uyar \`meta dizin\` HDFS dosya yolu                                                                          |
 
 **Performans**
@@ -958,14 +958,14 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 | HATA-93577              | [RANGER 1938](https://issues.apache.org/jira/browse/RANGER-1938)                                                                                                                                                                                                                                                                                                                                                                                                             | Solr denetim kurulumu için etkili bir şekilde DocValues kullanmaz                                                                              |
 | HATA-93910              | [HIVE 18293](https://issues.apache.org/jira/browse/HIVE-18293)                                                                                                                                                                                                                                                                                                                                                                                                               | Hive HiveMetaStore çalıştırma kimliği tarafından ait değil bir klasörde yer alan tabloları sıkıştırmak başarısız oluyor                     |
 | HATA-94345              | [HIVE 18429](https://issues.apache.org/jira/browse/HIVE-18429)                                                                                                                                                                                                                                                                                                                                                                                                               | Herhangi bir çıktı üretmez, sıkıştırma bir durumu işlemek                                                                          |
-| HATA-94381              | [HADOOP 13227](https://issues.apache.org/jira/browse/HADOOP-13227), [HDFS 13054](https://issues.apache.org/jira/browse/HDFS-13054)                                                                                                                                                                                                                                                                                                                                           | RequestHedgingProxyProvider RetryAction siparişi işleyen: başarısız &lt; yeniden &lt; yük DEVRETME\_ve\_yeniden deneyin.                                  |
+| HATA-94381              | [HADOOP 13227](https://issues.apache.org/jira/browse/HADOOP-13227), [HDFS 13054](https://issues.apache.org/jira/browse/HDFS-13054)                                                                                                                                                                                                                                                                                                                                           | RequestHedgingProxyProvider RetryAction siparişi işleyen: BAŞARISIZ &lt; YENİDEN &lt; YÜK DEVRETME\_VE\_YENİDEN DENEYİN.                                  |
 | HATA-94432              | [HIVE 18353](https://issues.apache.org/jira/browse/HIVE-18353)                                                                                                                                                                                                                                                                                                                                                                                                               | Tetikleyici temizleme jobclient.close() CompactorMR çağırmalıdır                                                                        |
 | HATA-94869              | [PHOENIX 4290](https://issues.apache.org/jira/browse/PHOENIX-4290), [PHOENIX 4373](https://issues.apache.org/jira/browse/PHOENIX-4373)                                                                                                                                                                                                                                                                                                                                       | Satır je mimo rozsah HRegion üzerinde GET için yerel dizinli salted phoenix tablo istedi.                                               |
 | HATA-94928              | [HDFS 11078](https://issues.apache.org/jira/browse/HDFS-11078)                                                                                                                                                                                                                                                                                                                                                                                                               | İçinde LazyPersistFileScrubber NPE Düzelt                                                                                                  |
 | HATA-94964              | [HIVE 18269](https://issues.apache.org/jira/browse/HIVE-18269), [HIVE 18318](https://issues.apache.org/jira/browse/HIVE-18318), [HIVE 18326](https://issues.apache.org/jira/browse/HIVE-18326)                                                                                                                                                                                                                                                                               | Birden çok LLAP düzeltmeleri                                                                                                                 |
 | HATA-95669              | [HIVE 18577](https://issues.apache.org/jira/browse/HIVE-18577), [HIVE 18643](https://issues.apache.org/jira/browse/HIVE-18643)                                                                                                                                                                                                                                                                                                                                               | Çalıştırma güncelleştirme/silme sorgusu ACID tablo bölümlenmiş, HS2 her tüm bölümleri okuyun.                                               |
 | HATA-96390              | [HDFS 10453](https://issues.apache.org/jira/browse/HDFS-10453)                                                                                                                                                                                                                                                                                                                                                                                                               | ReplicationMonitor iş parçacığı arasında çoğaltma yarış nedeniyle uzun süre takılı olabilir ve büyük bir küme aynı dosyanın silin. |
-| HATA-96625              | [HIVE 16110](https://issues.apache.org/jira/browse/HIVE-16110)                                                                                                                                                                                                                                                                                                                                                                                                               | Geri döndürme "Vektörleştirme: Destek 2 değeri çalışması düşme OLDUĞUNDA VectorUDFAdaptor dön yerine"                                       |
+| HATA-96625              | [HIVE 16110](https://issues.apache.org/jira/browse/HIVE-16110)                                                                                                                                                                                                                                                                                                                                                                                                               | Geri döndürme "Vektörleştirme: Destek 2 değer OLAYI düşme OLDUĞUNDA VectorUDFAdaptor dön yerine"                                       |
 | HATA-97109              | [HIVE 16757](https://issues.apache.org/jira/browse/HIVE-16757)                                                                                                                                                                                                                                                                                                                                                                                                               | Kullanım dışı getRows() yeni estimateRowCount(RelMetadataQuery...) yerine kullanımını önemli performans etkisi                      |
 | HATA-97110              | [PHOENIX 3789](https://issues.apache.org/jira/browse/PHOENIX-3789)                                                                                                                                                                                                                                                                                                                                                                                                           | Bölgeler arası dizin bakım çağrıları postBatchMutateIndispensably içinde Yürüt                                                        |
 | HATA-98833              | [YARN 6797](https://issues.apache.org/jira/browse/YARN-6797)                                                                                                                                                                                                                                                                                                                                                                                                                 | GÖNDERİ yanıtı TimelineWriter tamamen tüketmez                                                                             |
@@ -1020,7 +1020,7 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 | HATA-95349              | [ZOOKEEPER 1256](https://issues.apache.org/jira/browse/ZOOKEEPER-1256), [ZOOKEEPER 1901](https://issues.apache.org/jira/browse/ZOOKEEPER-1901)                                                             | Netty yükseltme                                                                                                         |
 | HATA-95483              | Yok                                                                                                                                                                                                        | CVE-2017-15713 yönelik düzeltme                                                                                                |
 | HATA-95646              | [OOZIE 3167](https://issues.apache.org/jira/browse/OOZIE-3167)                                                                                                                                             | Oozie 4.3 dal tomcat sürümüne yükseltme                                                                            |
-| HATA-95823              | Yok                                                                                                                                                                                                        | Knox: Yükseltme Beanutils                                                                                               |
+| HATA-95823              | Yok                                                                                                                                                                                                        | Knox: Beanutils yükseltme                                                                                               |
 | HATA-95908              | [RANGER 1960](https://issues.apache.org/jira/browse/RANGER-1960)                                                                                                                                           | HBase auth tablo ad alanını anlık görüntüsünü silmek için dikkate almaz                                     |
 | HATA-96191              | [FALCON 2322](https://issues.apache.org/jira/browse/FALCON-2322), [FALCON 2323](https://issues.apache.org/jira/browse/FALCON-2323)                                                                         | Güvenlik açıklarını önlemek için yükseltme Jackson ve Spring sürümleri                                                 |
 | HATA-96502              | [RANGER 1990](https://issues.apache.org/jira/browse/RANGER-1990)                                                                                                                                           | Ranger yönetici One-Way SSL MySQL desteği eklendi                                                                         |
@@ -1052,11 +1052,11 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 | HATA-100073             | Yok                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | çok fazla kapatmak\_veri düğümü hiveserver bağlantılara bekleyin                                                                                   |
 | HATA-100319             | [HIVE 19248](https://issues.apache.org/jira/browse/HIVE-19248)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Dosya kopyalama başarısız olursa çoğaltma yük hata oluşturmaz.                                                                                              |
 | HATA-100352             | Yok                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Çok sık /registry znode kopya - RM temizleme mantıksal taramalar                                                                                  |
-| HATA-100427             | [HIVE 19249](https://issues.apache.org/jira/browse/HIVE-19249)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Çoğaltma: yan TÜMCESİYLE yapılandırma görevi doğru her durumda geçmiyor                                                       |
+| HATA-100427             | [HIVE 19249](https://issues.apache.org/jira/browse/HIVE-19249)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Çoğaltma: Yan tümcesi ile yapılandırma görevi doğru her durumda geçmiyor                                                       |
 | HATA-100430             | [HIVE 14483](https://issues.apache.org/jira/browse/HIVE-14483)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | java.lang.ArrayIndexOutOfBoundsException org.apache.orc.impl.TreeReaderFactory\$BytesColumnVectorUtil.commonReadByteArrays                     |
 | HATA-100432             | [HIVE 19219](https://issues.apache.org/jira/browse/HIVE-19219)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Artımlı REPL dökümü temizlenmiş olaylardır istenmesi halinde hata oluşturması gerekir.                                                                   |
 | HATA-100448             | [SPARK 23637](https://issues.apache.org/jira/browse/SPARK-23637), [SPARK 23802](https://issues.apache.org/jira/browse/SPARK-23802), [SPARK 23809](https://issues.apache.org/jira/browse/SPARK-23809), [SPARK 23816](https://issues.apache.org/jira/browse/SPARK-23816), [SPARK 23822](https://issues.apache.org/jira/browse/SPARK-23822), [ SPARK 23823](https://issues.apache.org/jira/browse/SPARK-23823), [SPARK 23838](https://issues.apache.org/jira/browse/SPARK-23838), [SPARK 23881](https://issues.apache.org/jira/browse/SPARK-23881)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Spark2 2.3.0+ için güncelleştirme (4/11)                                                                                                                 |
-| HATA-100740             | [HIVE 16107](https://issues.apache.org/jira/browse/HIVE-16107)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | JDBC: HttpClient NoHttpResponseException üzerinde bir kez daha yeniden denemelidir                                                                         |
+| HATA-100740             | [HIVE 16107](https://issues.apache.org/jira/browse/HIVE-16107)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | JDBC: HttpClient NoHttpResponseException üzerinde bir kez daha yeniden deneyin                                                                         |
 | HATA-100810             | [HIVE 19054](https://issues.apache.org/jira/browse/HIVE-19054)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Hive işlevleri çoğaltması başarısız                                                                                                               |
 | HATA-100937             | [MAPREDUCE 6889](https://issues.apache.org/jira/browse/MAPREDUCE-6889)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | İş Ekle\#kapatma MR İstemci Hizmetleri için API kapatın.                                                                                             |
 | HATA-101065             | [ATLAS 2587](https://issues.apache.org/jira/browse/ATLAS-2587)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Kümesini okuma ACL için /apache\_atlas/etkin\_sunucu\_bilgisi znode okumak Knox proxy'si için HA içinde.                                                       |
@@ -1074,7 +1074,7 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 | HATA-87624              | Yok                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Storm olay'ı sürekli olarak öldürmüş nedenleri çalışanlarının günlüğünü etkinleştirme                                                                                |
 | HATA-88929              | [HBASE 15615](https://issues.apache.org/jira/browse/HBASE-15615)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | RegionServerCallable gerektiğinde yeniden deneme bekleme süresini yanlış                                                                                          |
 | HATA-89628              | [HIVE 17613](https://issues.apache.org/jira/browse/HIVE-17613)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Nesne havuzları için kısa, aynı iş parçacığı ayırma kaldırma                                                                                         |
-| HATA-89813              | Yok                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | SKA: Kod doğruluğu: eşzamanlı olmayan yöntemi eşitlenen metodu geçersiz kılar                                                                  |
+| HATA-89813              | Yok                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | SKA: Kodun doğruluğunu: Eşzamanlı olmayan yöntemi eşitlenen yöntemini geçersiz kılar                                                                  |
 | HATA-90437              | [ZEPPELIN 3072](https://issues.apache.org/jira/browse/ZEPPELIN-3072)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Zeppelin UI yavaş/çok fazla not defterlerini varsa yanıt vermemeye başlıyor                                                                          |
 | HATA-90640              | [HBASE 19065](https://issues.apache.org/jira/browse/HBASE-19065)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | HRegion\#bulkLoadHFiles() eşzamanlı bölge için beklemesi gereken\#flush() tamamlamak için                                                                 |
 | HATA-91202              | [HIVE 17013](https://issues.apache.org/jira/browse/HIVE-17013)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Üzerinden bir görünüm seçin dayalı bir alt sorgu ile isteğini silme                                                                                     |
@@ -1094,7 +1094,7 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 | HATA-93361              | [HIVE 12360](https://issues.apache.org/jira/browse/HIVE-12360)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Koşul itme ile sıkıştırılmamış ORC içinde hatalı arama                                                                                           |
 | HATA-93426              | [CALCITE 2086](https://issues.apache.org/jira/browse/CALCITE-2086)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | HTTP/413 büyük yetkilendirme üstbilgileri nedeniyle bazı durumlarda                                                                           |
 | HATA-93429              | [PHOENIX 3240](https://issues.apache.org/jira/browse/PHOENIX-3240)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Pig Yükleyicisi'nden ClassCastException                                                                                                             |
-| HATA-93485              | Yok                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Tablo mytestorg.apache.hadoop.hive.ql.metadata.InvalidTableException alınamıyor: çalıştırırken bulunamadı tablo LLAP sütunlarında tablosunda analiz edin |
+| HATA-93485              | Yok                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Tablo mytestorg.apache.hadoop.hive.ql.metadata.InvalidTableException alınamıyor: Tablo çalıştırırken bulunamadı LLAP sütunlarında tablosunda analiz edin |
 | HATA-93512              | [PHOENIX 4466](https://issues.apache.org/jira/browse/PHOENIX-4466)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | java.lang.RuntimeException: yanıt kodu 500 - phoenix sorgu sunucusu ve yük verilere bağlanmak için bir spark işi çalıştırma                         |
 | HATA-93550              | Yok                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Zeppelin %spark.r scala sürüm uyuşmazlığı nedeniyle spark1 ile çalışmıyor                                                                      |
 | HATA-93910              | [HIVE 18293](https://issues.apache.org/jira/browse/HIVE-18293)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Hive HiveMetaStore çalıştırma kimliği tarafından ait değil bir klasörde yer alan tabloları sıkıştırmak başarısız oluyor                                |
@@ -1110,7 +1110,7 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 | HATA-94330              | [HADOOP 13190](https://issues.apache.org/jira/browse/HADOOP-13190), [HADOOP 14104](https://issues.apache.org/jira/browse/HADOOP-14104), [HADOOP 14814](https://issues.apache.org/jira/browse/HADOOP-14814), [HDFS 10489](https://issues.apache.org/jira/browse/HDFS-10489), [HDFS 11689](https://issues.apache.org/jira/browse/HDFS-11689)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Birden çok KMS URI'ler için HDFS desteklemelidir                                                                                                      |
 | HATA-94345              | [HIVE 18429](https://issues.apache.org/jira/browse/HIVE-18429)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Herhangi bir çıktı üretmez, sıkıştırma bir durumu işlemek                                                                                     |
 | HATA-94372              | [ATLAS 2229](https://issues.apache.org/jira/browse/ATLAS-2229)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | DSL sorgu: hive\_tablo adı = \["t1", "t2"\] geçersiz DSL sorgu özel durum oluşturur                                                                |
-| HATA-94381              | [HADOOP 13227](https://issues.apache.org/jira/browse/HADOOP-13227), [HDFS 13054](https://issues.apache.org/jira/browse/HDFS-13054)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | RequestHedgingProxyProvider RetryAction siparişi işleyen: başarısız &lt; yeniden &lt; yük DEVRETME\_ve\_yeniden deneyin.                                             |
+| HATA-94381              | [HADOOP 13227](https://issues.apache.org/jira/browse/HADOOP-13227), [HDFS 13054](https://issues.apache.org/jira/browse/HDFS-13054)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | RequestHedgingProxyProvider RetryAction siparişi işleyen: BAŞARISIZ &lt; YENİDEN &lt; YÜK DEVRETME\_VE\_YENİDEN DENEYİN.                                             |
 | HATA-94432              | [HIVE 18353](https://issues.apache.org/jira/browse/HIVE-18353)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Tetikleyici temizleme jobclient.close() CompactorMR çağırmalıdır                                                                                   |
 | HATA-94575              | [SPARK 22587](https://issues.apache.org/jira/browse/SPARK-22587)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Fs.defaultFS ve uygulama jar dosyasını farklı bir url varsa Spark işi başarısız olur.                                                                          |
 | HATA-94791              | [SPARK 22793](https://issues.apache.org/jira/browse/SPARK-22793)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Spark Thrift sunucusu bellek sızıntısı                                                                                                             |
@@ -1183,7 +1183,7 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 | **Hortonworks hata kimliği** | **Apache JIRA**                                                                                                                | **Özet**                                                                 |
 |------------------------|--------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
 | HATA-100134             | [SPARK 22919](https://issues.apache.org/jira/browse/SPARK-22919)                                                               | "Kabartma Apache httpclient sürümleri" Geri Al                                 |
-| HATA-95823              | Yok                                                                                                                            | Knox: Yükseltme Beanutils                                                     |
+| HATA-95823              | Yok                                                                                                                            | Knox: Beanutils yükseltme                                                     |
 | HATA-96751              | [KNOX 1076](https://issues.apache.org/jira/browse/KNOX-1076)                                                                   | Nimbus jose jwt 4.41.2 için güncelleştirme                                            |
 | HATA-97864              | [HIVE 18833](https://issues.apache.org/jira/browse/HIVE-18833)                                                                 | Otomatik birleştirme başarısız "orcfile olarak dizine ekleme"                    |
 | HATA-99056              | [HADOOP 13556](https://issues.apache.org/jira/browse/HADOOP-13556)                                                             | Yineleyici yerine getProps kullanılacak Configuration.getPropsWithPrefix değiştirme |
@@ -1199,8 +1199,8 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 | HATA-100646             | [ATLAS 2102](https://issues.apache.org/jira/browse/ATLAS-2102)                                                                                                                                                                                                                 | Atlas kullanıcı Arabirimi geliştirmeleri: Arama sonuçları sayfası                                                                                                                   |
 | HATA-100737             | [HIVE 19049](https://issues.apache.org/jira/browse/HIVE-19049)                                                                                                                                                                                                                 | Druid için sütunları ALTER tablo eklemek için destek eklendi                                                                                                            |
 | HATA-100750             | [KNOX 1246](https://issues.apache.org/jira/browse/KNOX-1246)                                                                                                                                                                                                                   | Knox için ranger'ın en son yapılandırmaları desteklemek için hizmet yapılandırması güncelleştirin.                                                                                   |
-| HATA-100965             | [ATLAS 2581](https://issues.apache.org/jira/browse/ATLAS-2581)                                                                                                                                                                                                                 | Kanca bildirimleri V2 Hive regresyonla: taşıma farklı bir veritabanı tablosuna                                                                            |
-| HATA-84413              | [ATLAS 1964](https://issues.apache.org/jira/browse/ATLAS-1964)                                                                                                                                                                                                                 | Kullanıcı Arabirimi: Arama tablosunda sütun sırası desteği                                                                                                                |
+| HATA-100965             | [ATLAS 2581](https://issues.apache.org/jira/browse/ATLAS-2581)                                                                                                                                                                                                                 | Regresyon V2 Hive kanca bildirimler: Taşıma farklı bir veritabanı tablosuna                                                                            |
+| HATA-84413              | [ATLAS 1964](https://issues.apache.org/jira/browse/ATLAS-1964)                                                                                                                                                                                                                 | KULLANICI ARABİRİMİ: Arama tablosunda sütun sırası için destek                                                                                                                |
 | HATA-90570              | [HDFS 11384](https://issues.apache.org/jira/browse/HDFS-11384), [HDFS 12347](https://issues.apache.org/jira/browse/HDFS-12347)                                                                                                                                                 | Dağılmasına getBlocks çağrıları NameNode'nın rpc önlemek dengeleyici seçeneğini ekleyin. CallQueueLength depo                                                            |
 | HATA-90584              | [HBASE 19052](https://issues.apache.org/jira/browse/HBASE-19052)                                                                                                                                                                                                               | Dal 1.x CellComparatorImpl sınıfında FixedFileTrailer tanıması gerekir                                                                                     |
 | HATA-90979              | [KNOX 1224](https://issues.apache.org/jira/browse/KNOX-1224)                                                                                                                                                                                                                   | Atlas HA desteklemek için Proxy HADispatcher Knox.                                                                                                              |
@@ -1221,15 +1221,15 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 | HATA-93933              | [ATLAS 2286](https://issues.apache.org/jira/browse/ATLAS-2286)                                                                                                                                                                                                                 | Tür önceden oluşturulmuş ' kafka\_konu ' 'konu' özniteliği benzersiz olarak bildirmemelidir                                                                                 |
 | HATA-93938              | [ATLAS 2283](https://issues.apache.org/jira/browse/ATLAS-2283), [ATLAS 2295](https://issues.apache.org/jira/browse/ATLAS-2295)                                                                                                                                                 | Sınıflandırmaları için kullanıcı Arabirimi güncelleştirmeleri                                                                                                                               |
 | HATA-93941              | [ATLAS 2296](https://issues.apache.org/jira/browse/ATLAS-2296), [ATLAS 2307](https://issues.apache.org/jira/browse/ATLAS-2307)                                                                                                                                                 | İsteğe bağlı olarak alt türü varlıkları ve alt türleri classification hariç tutmak için temel arama geliştirmesi                                                                |
-| HATA-93944              | [ATLAS 2318](https://issues.apache.org/jira/browse/ATLAS-2318)                                                                                                                                                                                                                 | Kullanıcı Arabirimi: iki kez alt etiketine tıkladığınızda, üst etiket seçildi                                                                                                    |
-| HATA-93946              | [ATLAS 2319](https://issues.apache.org/jira/browse/ATLAS-2319)                                                                                                                                                                                                                 | Kullanıcı Arabirimi: Etiket listesi hem sabit hem de ağaç yapısında yerleştirin, 25 + bir etiketi silme etiketi listeden kaldırmak için yenileme gerekiyor.                   |
+| HATA-93944              | [ATLAS 2318](https://issues.apache.org/jira/browse/ATLAS-2318)                                                                                                                                                                                                                 | KULLANICI ARABİRİMİ: Üst etiket alt etiketine iki kez tıkladığınızda, seçili                                                                                                    |
+| HATA-93946              | [ATLAS 2319](https://issues.apache.org/jira/browse/ATLAS-2319)                                                                                                                                                                                                                 | KULLANICI ARABİRİMİ: Etiket listesi hem sabit hem de ağaç yapısında yerleştirin, 25 + bir etiketi silme etiketi listeden kaldırmak için yenileme gerekiyor.                   |
 | HATA-93977              | [HIVE 16232](https://issues.apache.org/jira/browse/HIVE-16232)                                                                                                                                                                                                                 | QuotedIdentifier sütunda istatistikleri hesaplama desteği                                                                                                     |
 | HATA-94030              | [ATLAS 2332](https://issues.apache.org/jira/browse/ATLAS-2332)                                                                                                                                                                                                                 | Koleksiyon veri türü iç içe öznitelikleriyle türünün oluşturulması başarısız                                                                                     |
 | HATA-94099              | [ATLAS 2352](https://issues.apache.org/jira/browse/ATLAS-2352)                                                                                                                                                                                                                 | Atlas sunucu için Kerberos DelegationToken geçerlilik belirtmek için yapılandırma sağlamalıdır                                                                   |
 | HATA-94280              | [HIVE 12785](https://issues.apache.org/jira/browse/HIVE-12785)                                                                                                                                                                                                                 | Birleşim türü ve UDF için görünümüyle \`atama\` struct bozuk                                                                                                |
 | HATA-94332              | [SQOOP 2930](https://issues.apache.org/jira/browse/SQOOP-2930)                                                                                                                                                                                                                 | Kaydedilen işin genel özelliklerini geçersiz kılma değil Sqoop iş yürütme                                                                                               |
 | HATA-94428              | Yok                                                                                                                                                                                                                                                                            | Veri düzlemi Profiler Aracısı REST API Knox desteği                                                                                                               |
-| HATA-94514              | [ATLAS 2339](https://issues.apache.org/jira/browse/ATLAS-2339)                                                                                                                                                                                                                 | Kullanıcı Arabirimi: Değişiklikler temel arama sonucu görünümü "sütunlarında" etkiler DSL de.                                                                                |
+| HATA-94514              | [ATLAS 2339](https://issues.apache.org/jira/browse/ATLAS-2339)                                                                                                                                                                                                                 | KULLANICI ARABİRİMİ: Temel arama sonucu görünümünde "sütun" değişikliklerini DSL de etkiler.                                                                                |
 | HATA-94515              | [ATLAS 2169](https://issues.apache.org/jira/browse/ATLAS-2169)                                                                                                                                                                                                                 | İstek başarısız silmenin yapılandırıldığında Sil                                                                                                          |
 | HATA-94518              | [ATLAS 2329](https://issues.apache.org/jira/browse/ATLAS-2329)                                                                                                                                                                                                                 | Kullanıcı yanlış olan başka bir etiket tıklarsanız Atlas birden çok UI gezinen görünür.                                                                             |
 | HATA-94519              | [ATLAS 2272](https://issues.apache.org/jira/browse/ATLAS-2272)                                                                                                                                                                                                                 | Sürüklenen sütunları arama API'sini kullanarak durumu kaydedin.                                                                                                     |
@@ -1238,7 +1238,7 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 | HATA-94793              | [HIVE 14013](https://issues.apache.org/jira/browse/HIVE-14013)                                                                                                                                                                                                                 | Açıklamak tablo değil Göster unicode düzgün                                                                                                                 |
 | HATA-94900              | [OOZIE 2606](https://issues.apache.org/jira/browse/OOZIE-2606), [OOZIE 2658](https://issues.apache.org/jira/browse/OOZIE-2658), [OOZIE 2787](https://issues.apache.org/jira/browse/OOZIE-2787), [OOZIE 2802](https://issues.apache.org/jira/browse/OOZIE-2802)                 | Oozie ile Spark 2.0 düzeltmek için spark.yarn.jars ayarlayın                                                                                                              |
 | HATA-94901              | [HBASE 19285](https://issues.apache.org/jira/browse/HBASE-19285)                                                                                                                                                                                                               | Tablo başına gecikme histogramlar Ekle                                                                                                                             |
-| HATA-94908              | [ATLAS 1921](https://issues.apache.org/jira/browse/ATLAS-1921)                                                                                                                                                                                                                 | Kullanıcı Arabirimi: Varlık ve ayırt edici nitelik öznitelikleri kullanarak ara: kullanıcı Arabirimi aralık denetimi gerçekleştirmez ve integral ve kayan nokta veri türleri için sınır değerleri dışına sağlamaya izin verir.  |
+| HATA-94908              | [ATLAS 1921](https://issues.apache.org/jira/browse/ATLAS-1921)                                                                                                                                                                                                                 | KULLANICI ARABİRİMİ: Varlık ve ayırt edici nitelik öznitelikleri kullanarak ara: Kullanıcı Arabirimi aralık denetimi gerçekleştirmez ve integral ve kayan nokta veri türleri için sınır değerleri dışına sağlamaya izin verir.  |
 | HATA-95086              | [RANGER 1953](https://issues.apache.org/jira/browse/RANGER-1953)                                                                                                                                                                                                               | Kullanıcı grubu sayfa listesi üzerinde iyileştirme                                                                                                                       |
 | HATA-95193              | [KAYDIRICI 1252](https://issues.apache.org/jira/browse/SLIDER-1252)                                                                                                                                                                                                               | Kaydırıcı aracı python 2.7.5-58 SSL doğrulama hatalarıyla başarısız oluyor                                                                                           |
 | HATA-95314              | [YARN 7699](https://issues.apache.org/jira/browse/YARN-7699)                                                                                                                                                                                                                   | queueUsagePercentage getApp REST API çağrısı INF geliyor                                                                                               |
@@ -1248,9 +1248,9 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 | HATA-95512              | [HIVE 18467](https://issues.apache.org/jira/browse/HIVE-18467)                                                                                                                                                                                                                 | tüm ambar döküm destekleyen / yük + veritabanı olayları oluşturma/bırak                                                                                            |
 | HATA-95593              | Yok                                                                                                                                                                                                                                                                            | Oozie DB utils Spark2 sharelib oluşturmayı destekleyecek şekilde genişletme                                                                                                    |
 | HATA-95595              | [HIVE 15563](https://issues.apache.org/jira/browse/HIVE-15563)                                                                                                                                                                                                                 | Geçersiz işlem durumu geçiş SQLOperation.runQuery gerçek özel durum ortaya çıkarmak için özel durum yoksayın.                                                       |
-| HATA-95685              | [ATLAS 2422](https://issues.apache.org/jira/browse/ATLAS-2422)                                                                                                                                                                                                                 | Dışarı aktarma: Destek türüne göre dışarı aktarma                                                                                                                            |
+| HATA-95685              | [ATLAS 2422](https://issues.apache.org/jira/browse/ATLAS-2422)                                                                                                                                                                                                                 | Dışarı aktarma: Destek türü tabanlı dışarı aktarma                                                                                                                            |
 | HATA-95798              | [PHOENIX 2714](https://issues.apache.org/jira/browse/PHOENIX-2714), [PHOENIX 2724](https://issues.apache.org/jira/browse/PHOENIX-2724), [PHOENIX 3023](https://issues.apache.org/jira/browse/PHOENIX-3023), [PHOENIX 3040](https://issues.apache.org/jira/browse/PHOENIX-3040) | Sorgular yürütme için seri olarak guideposts kullanmayın                                                                                                          |
-| HATA-95969              | [HIVE 16828](https://issues.apache.org/jira/browse/HIVE-16828), [HIVE 17063](https://issues.apache.org/jira/browse/HIVE-17063), [HIVE 18390](https://issues.apache.org/jira/browse/HIVE-18390)                                                                                 | Bölümlenmiş görünümü başarısız ile başarısız oldu: IndexOutOfBoundsException dizini: 1, boyut: 1                                                                              |
+| HATA-95969              | [HIVE 16828](https://issues.apache.org/jira/browse/HIVE-16828), [HIVE 17063](https://issues.apache.org/jira/browse/HIVE-17063), [HIVE 18390](https://issues.apache.org/jira/browse/HIVE-18390)                                                                                 | Bölümlenmiş görünümü başarısız ile başarısız olur: IndexOutOfBoundsException dizini: 1, boyut: 1                                                                              |
 | HATA-96019              | [HIVE 18548](https://issues.apache.org/jira/browse/HIVE-18548)                                                                                                                                                                                                                 | Log4j alma Düzelt                                                                                                                                             |
 | HATA-96288              | [HBASE 14123](https://issues.apache.org/jira/browse/HBASE-14123), [HBASE 14135](https://issues.apache.org/jira/browse/HBASE-14135), [HBASE 17850](https://issues.apache.org/jira/browse/HBASE-17850)                                                                           | Backport Hbase yedekleme/geri yükleme 2.0                                                                                                                            |
 | HATA-96313              | [KNOX-1119](https://issues.apache.org/jira/browse/KNOX-1119)                                                                                                                                                                                                                   | Pac4J OAuth/Openıd asıl yapılandırılabilir olması gerekir                                                                                                        |
@@ -1301,11 +1301,11 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 |**Apache bileşeni**|**Apache JIRA**|**Özet**|**Ayrıntılar**|
 |--|--|--|--|
 |**Spark 2.3** |**Yok** |**Apache Spark ile belirtildiği gibi değişiklikler sürüm notları** |-Var olan bir "Kullanım dışı bırakma" belge ve "Davranış değişikliği" Kılavuzu https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-SQL bölüm için (kadar 2.2 2.3 için), başka bir ayrıntılı "geçiş" kılavuzu yoktur http://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
-|Spark |[**HIVE 12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark işi başarıyla tamamlanır ancak HDFS disk kotası tam hata oluşuyor |**Senaryo:** çalıştıran **INSERT üzerine** komutu çalıştıran kullanıcının Çöp Kutusu klasöründe bir kota ayarlandığında.<br /><br />**Önceki davranışı:** verileri çöp kutusuna taşımak başarısız olsa bile iş başarılı. Sonuç tablosunda daha önce mevcut verilerin bazıları yanlış içerebilir.<br /><br />**Yeni davranış:** taşımak için Çöp Kutusu klasörüne başarısız olduğunda, dosyaların kalıcı olarak silinir.|
+|Spark |[**HIVE 12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark işi başarıyla tamamlanır ancak HDFS disk kotası tam hata oluşuyor |**Senaryo:** Çalışan **INSERT üzerine** komutu çalıştıran kullanıcının Çöp Kutusu klasöründe bir kota ayarlandığında.<br /><br />**Önceki davranışı:** İş verileri çöp kutusuna taşımak başarısız olsa bile başarılı olur. Sonuç tablosunda daha önce mevcut verilerin bazıları yanlış içerebilir.<br /><br />**Yeni davranışı:** Çöp Kutusu klasörüne taşıma başarısız olduğunda, dosyaların kalıcı olarak silinir.|
 |**Kafka 1.0**|**Yok**|**Apache Spark ile belirtildiği gibi değişiklikler sürüm notları** |http://kafka.apache.org/10/documentation.html#upgrade_100_notable|
-|**Hive / Ranger** | |INSERT üzerine yazmak için gerekli ek ranger hive İlkesi |**Senaryo:** için gerekli ek ranger hive ilkelerini **üzerine Ekle**<br /><br />**Önceki davranışı:** Hive **Ekle üzerine** sorguları zamanki başarılı.<br /><br />**Yeni davranış:** Hive **Ekle üzerine** sorguları beklenmedik şekilde başarısız hatasıyla HDP-2.6.x yükselttikten sonra:<br /><br />İfade derlenirken hata oluştu: başarısız oldu: HiveAccessControlException izni reddedildi: kullanıcı jdoe /tmp/ üzerinde yazma ayrıcalık yok\*(durum 42000, kod = 40000 =)<br /><br />HDP 2.6.0 itibariyle, Hive **Ekle üzerine** sorguları yazma ayrıcalık HDFS İlkesi ile verilen kullanıcı olsa bile yazma işlemleri, izin vermek için bir URI Ranger İlkesi gerektirir.<br /><br />**Geçici çözüm ve beklenen müşteri eylemi:**<br /><br />1. Hive deposu altındaki yeni bir ilke oluşturun.<br />2. Veritabanı gördüğünüz açılır menüde, URI seçin.<br />3. Yol Güncelleştirmesi (örnek: / tmp / *)<br />4. Kullanıcılar ve grupları ekleyin ve kaydedin.<br />5. Ekleme sorgusu yeniden deneyin.|
+|**Hive / Ranger** | |INSERT üzerine yazmak için gerekli ek ranger hive İlkesi |**Senaryo:** İçin gerekli ek ranger hive ilkelerini **üzerine Ekle**<br /><br />**Önceki davranışı:** Hive **Ekle üzerine** sorguları zamanki başarılı.<br /><br />**Yeni davranışı:** Hive **Ekle üzerine** sorguları beklenmedik şekilde başarısız hatasıyla HDP-2.6.x yükselttikten sonra:<br /><br />Bildirimi derleme hatası oluştu: BAŞARISIZ OLDU: HiveAccessControlException izni reddedildi: kullanıcı jdoe /tmp/ üzerinde yazma ayrıcalık yok\*(durum = 42000, kod 40000 =)<br /><br />HDP 2.6.0 itibariyle, Hive **Ekle üzerine** sorguları yazma ayrıcalık HDFS İlkesi ile verilen kullanıcı olsa bile yazma işlemleri, izin vermek için bir URI Ranger İlkesi gerektirir.<br /><br />**Geçici çözüm ve beklenen müşteri eylemi:**<br /><br />1. Hive deposu altındaki yeni bir ilke oluşturun.<br />2. Veritabanı gördüğünüz açılır menüde, URI seçin.<br />3. Yol Güncelleştirmesi (örnek: / tmp / *)<br />4. Kullanıcılar ve grupları ekleyin ve kaydedin.<br />5. Ekleme sorgusu yeniden deneyin.|
 |**HDFS**|**Yok** |Birden çok KMS URI'ler için HDFS desteklemelidir |**Önceki davranışı:** dfs.encryption.key.provider.uri özelliği KMS sağlayıcı yolu yapılandırmak için kullanıldı.<br /><br />**Yeni davranış:** dfs.encryption.key.provider.uri KMS sağlayıcı yolu yapılandırmak için hadoop.security.key.provider.path yerine artık kullanım dışı.|
-|**Zeppelin**|[**ZEPPELIN 3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Zamanlayıcı'yı devre dışı bırakmaya yönelik seçenek |**Etkilenen bileşeni:** Zeppelin-sunucu<br /><br />**Önceki davranışı:** Zeppelin önceki sürümlerde Zamanlayıcı devre dışı bırakma seçeneği bulunmamaktadır.<br /><br />**Yeni davranış:** varsayılan olarak devre dışı olarak varsayılan olarak, kullanıcılar artık, Zamanlayıcı görürsünüz.<br /><br />**Geçici çözüm/beklenen müşteri eylemi:** Zamanlayıcı etkinleştirmek istiyorsanız, Ambari Zeppelin ayarlarında özel zeppelin site altında true değeriyle azeppelin.notebook.cron.enable eklemeniz gerekir.|
+|**Zeppelin**|[**ZEPPELIN 3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Zamanlayıcı'yı devre dışı bırakmaya yönelik seçenek |**Etkilenen bileşeni:** Zeppelin-sunucu<br /><br />**Önceki davranışı:** Zeppelin önceki sürümlerde, Zamanlayıcı'yı devre dışı bırakma seçeneği bulunmamaktadır.<br /><br />**Yeni davranışı:** Varsayılan olarak, kullanıcılar varsayılan olarak devre dışı olarak Zamanlayıcı, artık görür.<br /><br />**Geçici çözüm ve beklenen müşteri eylemi:** Zamanlayıcı'yı etkinleştirmek istiyorsanız, Ambari Zeppelin ayarlarında özel zeppelin site altında true değeriyle azeppelin.notebook.cron.enable eklemeniz gerekir.|
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 
@@ -1328,11 +1328,11 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 
 -   **Geçici çözüm için Ranger hizmet denetimi hatası**
 
-    -   [RANGER 1607](https://issues.apache.org/jira/browse/RANGER-1607): geçici çözüm için Ranger 2.6.2 HDP için önceki HDP sürümlerinden yükseltme sırasında hizmet denetimi hatası.
+    -   [RANGER 1607](https://issues.apache.org/jira/browse/RANGER-1607): Geçici çözüm için Ranger 2.6.2 HDP için önceki HDP sürümlerinden yükseltme sırasında hizmet denetimi hatası.
 
-        >[!NOTE]
-        >SSL etkin yalnızca Ranger olduğunda. 
-    
+        > [!NOTE]  
+        > SSL etkin yalnızca Ranger olduğunda. 
+     
     Bu sorun, Ambari aracılığıyla önceki HDP sürümlerden HDP-2.6.1 yükseltmeye çalışırken ortaya çıkar. Ambari curl çağrı Ambari Ranger hizmetine bir hizmet denetimi yapmak için kullanır. Curl çağrı başarısız olur Ambari tarafından kullanılan JDK sürüm JDK 1.7 ise, aşağıdaki hatayı:
     
     `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
@@ -1353,10 +1353,10 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
             
             SSL\_RSA\_İLE\_RC4\_128\_MD5, SSL\_RSA\_İLE\_RC4\_128\_SHA, TLS\_RSA\_ İLE\_AES\_128\_CBC\_SHA, SSL\_RSA\_İLE\_3DES\_EDE\_CBC\_SHA
     
-    >[!NOTE]
+    >[!NOTE]  
     >Not ettiğiniz değerleri ortamınız göstergesi olmayabilir ve örnekler çalışıyoruz. Bu özellikleri ayarlama şekilde ortamınızı nasıl yapılandırıldığını eşleştiğinden emin olun.   
 
--   **RangerUI: İlke formunda girilen ilke koşulu metin çıkış**
+-   **RangerUI: İlke formunda girilen ilke koşulu metin kaçış**
     
     **Etkilenen bileşeni:** Ranger
     
@@ -1374,7 +1374,7 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
     
     **Geçici çözüm**
     
-    - **Seçenek \#1: oluşturma/güncelleştirme ilkesi Ranger Rest API aracılığıyla**
+    - **Seçenek \#1: Ranger Rest API aracılığıyla ilkesi oluştur/güncelleştir**
         
         REST URL: http://&lt;konak&gt;: 6080/service/plugins/ilkeler
         
@@ -1396,7 +1396,7 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
         
         `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
         
-    - **Seçenek \#2: geçerli Javascript değiştirir**
+    - **Seçenek \#2: JavaScript Değişiklikleri Uygula**
         
         JS dosyasını güncelleştirmek için adımlar:
         
@@ -1412,7 +1412,7 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 
 ## <a name="deprecation"></a>Kullanımdan kaldırma
 
--   **OMS portalı:** bağlantısını OMS Portalı'na işaret ettiği HDInsight kaynak sayfasından kaldırdık. Log Analytics, OMS portalında adı verilen kendi portalı başlangıçta yapılandırmasını yönetmek ve toplanan verileri analiz etmek için kullanılır. Bu Portalı'ndan tüm işlevselliği Azure portalında nerede geliştirilecek sürdürecektir taşındı. HDInsight OMS portalı için desteği kullanım dışı. Müşteriler, Azure portalında HDInsight Log Analytics tümleştirmesi kullanır.
+-   **OMS portalı:** OMS Portalı'na işaret ettiği HDInsight kaynak sayfasından bağlantıyı kaldırdık. Log Analytics, OMS portalında adı verilen kendi portalı başlangıçta yapılandırmasını yönetmek ve toplanan verileri analiz etmek için kullanılır. Bu Portalı'ndan tüm işlevselliği Azure portalında nerede geliştirilecek sürdürecektir taşındı. HDInsight OMS portalı için desteği kullanım dışı. Müşteriler, Azure portalında HDInsight Log Analytics tümleştirmesi kullanır.
 
 -   **Spark 2.3**
 

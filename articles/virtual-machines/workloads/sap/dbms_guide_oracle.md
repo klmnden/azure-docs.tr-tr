@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/07/2018
+ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e2d0d5073ffbeaed1c0215386a0c2c9f22a67d9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8686130e3b10ece605a6e648badf9aa1dae5e071
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288654"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435693"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>SAP iş yükü için Oracle Azure sanal makineleri DBMS dağıtım
 
@@ -321,12 +321,12 @@ Aşağıdaki SAP notları bu belgede ele alınan alanıyla ilgili Azure üzerind
 
 | Not numarası | Unvan |
 | --- | --- |
-| [1928533] |Azure'da SAP uygulamaları: desteklenen ürünler ve Azure VM türleri |
+| [1928533] |Azure'da SAP uygulamaları: Desteklenen Ürünler ve Azure VM türleri |
 | [2015553] |Microsoft Azure üzerinde SAP: Destek önkoşulları |
 | [1999351] |SAP için Gelişmiş Azure izleme sorunlarını giderme |
 | [2178632] |Microsoft Azure üzerinde SAP için ölçümleri izleme anahtarı |
 | [2191498] |Azure ile Linux üzerinde SAP: Gelişmiş izleme |
-| [2039619] |Oracle veritabanı'nı kullanarak Microsoft Azure üzerinde SAP uygulamaları: desteklenen ürünler ve sürümler |
+| [2039619] |Oracle veritabanı'nı kullanarak Microsoft Azure üzerinde SAP uygulamaları: Desteklenen ürünleri ve sürümleri |
 | [2243692] |Linux üzerinde Microsoft Azure (Iaas) sanal makine: SAP lisans sorunları |
 | [2069760] |Oracle Linux 7.x SAP yükleme ve yükseltme |
 | [1597355] |Linux için takas alanı önerisi |
@@ -428,7 +428,9 @@ SAP yükleme kılavuzlarını uygun, Oracle ile ilgili dosyaları değil yüklen
 
 ### <a name="storage-configuration"></a>Depolama yapılandırması
 
-Ext4, xfs veya Oracle ASMOnly dosya sistemleri, azure'da Oracle veritabanı dosyaları için desteklenir. Tüm veritabanı dosyaları, VHD'leri veya yönetilen diskleri temel alan bu dosya sistemlerine depolanmalıdır. Bu diskler Azure VM'sine bağlanmış ve Azure sayfa BLOB depolama alanına dayalı (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) veya [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+Dosya sistemleri, ext4 xfs veya Oracle ASM, azure'da Oracle veritabanı dosyaları için desteklenir. Tüm veritabanı dosyaları, VHD'leri veya yönetilen diskleri temel alan bu dosya sistemlerine depolanmalıdır. Bu diskler Azure VM'sine bağlanmış ve Azure sayfa BLOB depolama alanına dayalı (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) veya [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). 
+
+Oracle Linux UEK çekirdekleri için en az sürüm 4 UEK desteklemek için gereken [Azure Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms).
 
 Kullanılacak önemle tavsiye edilir [Azure yönetilen diskler](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview). Ayrıca kullanarak önerilir [Azure Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) Oracle veritabanı dağıtımlarınız için.
 
@@ -454,7 +456,7 @@ En düşük yapılandırma:
 | /Oracle/<SID>/oraarch | Standart | None | Gerekli değil |
 | Oracle giriş, saptrace... | İşletim sistemi diski | | Gerekli değil |
 
-* Şeridi oluşturma: LVM'yi stripe veya RADI0 kullanarak MDADM
+* Şeridi oluşturma: LVM'yi stripe veya MDADM RADI0 kullanma
 
 Oracle'nın çevrimiçi Yinele günlükleri barındırmak için disk seçimi tarafından IOPS gereksinimleri dikkate alınmalıdır. Tüm sapdata1... depolamak olası bir tek diskte takılı birim, IOPS ve aktarım hızı gereksinimlerini yerine getirdiğinizden sürece n (açabilmek). 
 
@@ -470,7 +472,7 @@ Performans yapılandırması:
 | /Oracle/<SID>/oraarch* | Premium | None | Gerekli değil |
 | Oracle giriş, saptrace... | İşletim sistemi diski | Gerekli değil |
 
-* Çıkarma: LVM stripe veya RADI0 *(n+1) kullanarak - sistem TEMP ve geri alma açabilmek barındırma MDADM. Sistem ve geri alma açabilmek he g/ç deseni uygulama verilerini barındıran diğer açabilmek farklı. Önbelleğe alma sistemi ve geri alma açabilmek performansını en iyi seçenektir.
+* Şeridi oluşturma: LVM'yi stripe veya RADI0 *(n+1) kullanarak - sistem TEMP ve geri alma açabilmek barındırma MDADM. Sistem ve geri alma açabilmek he g/ç deseni uygulama verilerini barındıran diğer açabilmek farklı. Önbelleğe alma sistemi ve geri alma açabilmek performansını en iyi seçenektir.
 * oraarch - depolama havuzu performans görünümünden gerekli değildir. Daha fazla alan elde etme için kullanılabilir.
 
 
@@ -493,7 +495,7 @@ Oracle Data Guard, yüksek kullanılabilirlik ve olağanüstü durum kurtarma am
 Azure'da Oracle veritabanları için olağanüstü durum kurtarma özelliklerini makalesinde sunulur [Azure ortamınızda bir Oracle Database 12c veritabanı için olağanüstü durum kurtarma](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
 ### <a name="accelerated-networking"></a>Hızlandırılmış Ağ
-Destek Azure hızlandırılmış ağ Oracle Linux'ta Oracle Linux 7 güncelleştirme 5 (Oracle Linux 7.5) sağlanır. En son Oracle Linux 7.5 sürüme yükseltemiyorsanız olabilir geçici bir çözüm yerine Oracle UEK çekirdek RedHat uyumlu çekirdek (RHCK) kullanarak. Oracle Linux içinde RHEL çekirdek kullanarak SAP notu göre desteklenen [#1565179](https://launchpad.support.sap.com/#/notes/1565179). Azure hızlandırılmış ağ için en düşük RHCKL çekirdek sürüm 3.10.0-862.13.1.el7 olması gerekir.
+Destek Azure hızlandırılmış ağ Oracle Linux'ta Oracle Linux 7 güncelleştirme 5 (Oracle Linux 7.5) sağlanır. En son Oracle Linux 7.5 sürüme yükseltemiyorsanız olabilir geçici bir çözüm yerine Oracle UEK çekirdek RedHat uyumlu çekirdek (RHCK) kullanarak. Oracle Linux içinde RHEL çekirdek kullanarak SAP notu göre desteklenen [#1565179](https://launchpad.support.sap.com/#/notes/1565179). Azure hızlandırılmış ağ için en düşük RHCKL çekirdek sürüm 3.10.0-862.13.1.el7 olması gerekir. Oracle Linux'ta UEK çekirdek ile birlikte kullanmak için [Azure hızlandırılmış ağ](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), Oracle UEK 5 çekirdek sürümünü kullanmanız gerekir.
 
 Vm'leri Azure Marketi'nde dayalı olmayan görüntüden değil dağıtıyorsanız, yürüterek VM kopyalanacak ek yapılandırma dosyalarını gerekir: 
 <pre><code># Copy settings from github to correct place in VM

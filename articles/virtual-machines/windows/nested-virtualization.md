@@ -11,12 +11,12 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: e9b05751166ac200f4a9cdab4c7fe3ed797f2a10
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d1381ff16d0de382634b06fd081f1827588f8ee9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465257"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435115"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM'de iç içe sanallaştırmayı etkinleştirme
 
@@ -51,10 +51,10 @@ Sanal makine ile bir uzak masaüstü bağlantısı oluşturun.
 ## <a name="enable-the-hyper-v-feature-on-the-azure-vm"></a>Azure VM üzerindeki Hyper-V özelliğini etkinleştir
 Bu ayarları yapılandırabileceğiniz el ile veya yapılandırma otomatikleştirmek için bir PowerShell komut dosyası sağladık.
 
-### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>1. seçenek: iç içe sanallaştırma yapılandırmak için bir PowerShell betiğini kullanın.
+### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>1. seçenek: İç içe sanallaştırma yapılandırmak için bir PowerShell betiğini kullanın
 Bir Windows Server 2016 konağında iç içe sanallaştırmayı etkinleştirmek için bir PowerShell Betiği edinilebilir [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested). Betik, önkoşulları denetler ve sonra Azure sanal makinesinde iç içe sanallaştırma yapılandırır. Yapılandırmayı tamamlamak Azure VM yeniden başlatma gereklidir. Bu betik, diğer ortamlarda çalışabilir ancak garanti edilmez. Azure üzerinde çalışan iç içe sanallaştırma üzerinde canlı video gösterimi ile Azure blog gönderisine göz atın! https://aka.ms/AzureNVblog.
 
-### <a name="option-2-configure-nested-virtualization-manually"></a>2. seçenek: iç içe sanallaştırma el ile yapılandırma
+### <a name="option-2-configure-nested-virtualization-manually"></a>2. seçenek: İç içe sanallaştırma el ile yapılandırma
 
 1. Azure sanal makinesinde PowerShell'i yönetici olarak açın. 
 
@@ -134,7 +134,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 Konuk sanal makineye el ile Konuk sanal makinede statik bir IP adresi ayarlama veya IP adresi dinamik olarak atamak için Azure sanal makinesinde DHCP yapılandırma, bir IP adresi atayabilirsiniz.
 
-###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>1. seçenek: dinamik olarak Konuk sanal makineye bir IP adresi atamak için DHCP yapılandırma
+###  <a name="option-1-configure-dhcp-to-dynamically-assign-an-ip-address-to-the-guest-virtual-machine"></a>1. seçenek: Dinamik olarak Konuk sanal makineye bir IP adresi atamak için DHCP yapılandırma
 DHCP ana bilgisayar sanal makine dinamik adres ataması için yapılandırmak için aşağıdaki adımları izleyin.
 
 #### <a name="install-dchp-server-on-the-azure-vm"></a>Azure sanal makinesine DHCP sunucusu yükleme
@@ -157,11 +157,11 @@ DHCP ana bilgisayar sanal makine dinamik adres ataması için yapılandırmak i�
   
 4. Bir IP aralığı DHCP sunucunuz için (örneğin, 192.168.0.100 için 192.168.0.200) tanımlayın.
   
-5. Tıklayın **sonraki** varsayılan ağ geçidi sayfasının kadar. Daha önce (örneğin, 192.168.0.1) oluşturduğunuz IP adresini varsayılan ağ geçidi olarak girin.
+5. Tıklayın **sonraki** varsayılan ağ geçidi sayfasının kadar. Varsayılan ağ geçidi olarak daha önce (örneğin, 192.168.0.1) oluşturduğunuz IP adresini girin, ardından tıklatın **Ekle**.
   
 6. Tıklayın **sonraki** sihirbaz tamamlanana kadar tüm varsayılan değerleri bırakın ardından **son**.
     
-### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>2. seçenek: Konuk sanal makinede statik bir IP adresi el ile ayarlayın.
+### <a name="option-2-manually-set-a-static-ip-address-on-the-guest-virtual-machine"></a>2. seçenek: El ile Konuk sanal makinede statik bir IP adresi ayarlama
 Dinamik olarak Konuk sanal makineye bir IP adresi atamak için DHCP yapılandırmadıysanız, statik bir IP adresi ayarlamak için aşağıdaki adımları izleyin.
 
 1. Azure sanal makinesinde PowerShell'i yönetici olarak açın.

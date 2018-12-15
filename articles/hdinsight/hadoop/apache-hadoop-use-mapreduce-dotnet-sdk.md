@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: a93d504af925c0082c1141c8f291c4325620428f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 67738a810968024e9006c142f5d8b1a975870c54
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632909"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436832"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>HDInsight .NET SDK kullanarak MapReduce işleri çalıştırma
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 HDInsight .NET SDK kullanarak MapReduce işleri göndermeyi öğrenin. HDInsight kümeleri bazı MapReduce örnekleri içeren bir jar dosyası ile birlikte geldiğinden. Jar dosyası */example/jars/hadoop-mapreduce-examples.jar*.  Örneklerden biridir *wordcount*. Wordcount işi göndermek için bir C# konsol uygulaması geliştirme.  İş okur */example/data/gutenberg/davinci.txt* dosya ve sonuçları çıkarır */example/data/davinciwordcount*.  Uygulamayı yeniden çalıştırmak isterseniz, çıktı klasörü temizlemek gerekir.
 
-> [!NOTE]
+> [!NOTE]  
 > Bu makaledeki adımlarda, bir Windows istemcisinden gerçekleştirilmelidir. Hive ile çalışmak için Linux, OS X veya UNIX istemcisi kullanma hakkında daha fazla bilgi için gösterilen makalenin üst kısmındaki sekme seçicisini kullanın.
 > 
 > 
@@ -29,7 +29,7 @@ HDInsight .NET SDK kullanarak MapReduce işleri göndermeyi öğrenin. HDInsight
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makaleye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
-* **Bir HDInsight Hadoop kümesinde**. Bkz: [HDInsight içinde Linux tabanlı Hadoop kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md).
+* **Bir HDInsight Hadoop kümesinde**. Bkz: [Linux tabanlı Apache Hadoop HDInsight kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md).
 * **Visual Studio 2013/2015/2017**.
 
 ## <a name="submit-mapreduce-jobs-using-hdinsight-net-sdk"></a>HDInsight .NET SDK kullanarak MapReduce işlerini gönderme
@@ -171,9 +171,9 @@ HDInsight .NET SDK'sı .NET istemci kitaplıkları, .NET HDInsight kümeleriyle 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, bir HDInsight kümesi oluşturmanın birkaç yolu öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* Bir Hive işi göndermek için bkz: [HDInsight .NET SDK kullanarak Hive sorgularını çalıştırma](apache-hadoop-use-hive-dotnet-sdk.md).
-* HDInsight kümeleri oluşturmak için bkz: [oluşturma Linux tabanlı Hadoop kümeleri HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
-* HDInsight kümelerini yönetmek için bkz: [yönetme Hadoop kümeleri HDInsight](../hdinsight-administer-use-portal-linux.md).
+* Bir Hive işi göndermek için bkz: [HDInsight .NET SDK kullanarak Apache Hive sorgularını çalıştırma](apache-hadoop-use-hive-dotnet-sdk.md).
+* HDInsight kümeleri oluşturmak için bkz: [oluşturma Linux tabanlı Apache Hadoop HDInsight kümeleri](../hdinsight-hadoop-provision-linux-clusters.md).
+* HDInsight kümelerini yönetmek için bkz: [yönetme Apache Hadoop HDInsight kümeleri](../hdinsight-administer-use-portal-linux.md).
 * HDInsight .NET SDK'sı öğrenmek için bkz: [HDInsight .NET SDK başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 * İçin etkileşimli olmayan Azure'a kimliğini doğrulamak için bkz: [etkileşimli olmayan kimlik doğrulaması .NET HDInsight uygulamaları oluşturma](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 

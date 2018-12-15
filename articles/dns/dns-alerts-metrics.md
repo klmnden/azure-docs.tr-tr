@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: victorh
-ms.openlocfilehash: 707a23cbd04db9a0420c7776a24eb568a3483b0b
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0f50ecb086b45cffb4ff27135a26f962c92926bf
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385865"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434470"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS ölçümleri ve Uyarıları
 Azure DNS, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlayan bir barındırma DNS etki alanları için hizmetidir. Bu makalede, Ölçümler ve Uyarılar için Azure DNS hizmeti açıklanır.
@@ -32,7 +32,7 @@ Azure DNS, müşterilerin belirli yönlerini olanları hizmette barındırılan 
 -   RecordSetCount
 -   RecordSetCapacityUtilization
 
-Ayrıca bkz [Bu ölçümler tanımını](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkdnszones) Azure İzleyici belgeleri sayfasında.
+Ayrıca bkz [Bu ölçümler tanımını](../azure-monitor/platform/metrics-supported.md#microsoftnetworkdnszones) Azure İzleyici belgeleri sayfasında.
 >[!NOTE]
 > Şu anda bu ölçümler yalnızca Azure DNS'de barındırılan bir ortak DNS bölgeleri için kullanılabilir. Azure DNS'de barındırılan özel bölgeleri varsa, bu ölçümleri veri bölgeleri için sağlamaz. Ayrıca, Ölçümler ve uyarı özelliği yalnızca desteklenir Azure genel bulutunda. Bağımsız Bulutlar için destek, daha sonraki bir zamanda izler. 
 

@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 274de7ac63df0afc1a59e197deebeb7929cf1ef8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b65972b79fd16b912abfbd2e35642ef5d9f5adc4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854689"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438481"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Öğretici: Jenkins sürekli tümleştirme ve dağıtım ile Github'dan Azure App Service'e dağıtma
 
@@ -43,7 +43,7 @@ Bu öğreticiyi tamamlamak için bu öğeler gerekir:
 
 * A [Jenkins](https://jenkins.io/) sunucusu ile bir Azure Linux VM'de yüklü Java Development Kit (JDK) ve Maven araçları
 
-  Bir Jenkins sunucusu yoksa, şimdi Azure portalında aşağıdaki adımları tamamlayın: [oluşturma Jenkins sunucusunun Azure Linux VM'de](/azure/jenkins/install-jenkins-solution-template)
+  Bir Jenkins sunucusu yoksa, şimdi Azure portalında aşağıdaki adımları tamamlayın: [Azure Linux VM'de bir Jenkins sunucusu oluşturma](/azure/jenkins/install-jenkins-solution-template)
 
 * A [GitHub](https://github.com) çalışan bir kopya alabilmeniz için hesap ([çatal](#fork)) için örnek Java web uygulaması. 
 
@@ -92,7 +92,7 @@ Jenkins, GitHub'ı izleme ve web uygulamanıza GitHub çatalınızdaki yeni işl
 > 
 > Bu adımları kişisel erişim belirteci Jenkins, GitHub kullanıcı adınızı ve parolanızı kullanarak, GitHub ile çalışmak kimlik bilgilerini oluşturun. 
 > Ancak, GitHub hesabınızda iki öğeli kimlik doğrulaması kullanıyorsa, Github'da belirtecinizi oluşturmak ve bu belirteci kullanmayı Jenkins'i ayarlama. 
-> Daha fazla bilgi için [Jenkins GitHub eklentisi](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) belgeleri.
+> Daha fazla bilgi için [Jenkins GitHub eklentisi](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin) belgeleri.
 
 1. Gelen **Jenkins'i Yönet** sayfasında **yapılandırma sistemi**. 
 

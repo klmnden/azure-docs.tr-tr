@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 5f75ada1d37f6bd5cb2d870dd5169de7a4844eb3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fa4e6aa1274609ebf990a02d41f63541668d3b37
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869067"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438719"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Power BI Bağlayıcısı'nı kullanarak Azure Cosmos DB verileri Görselleştir
 
@@ -34,7 +34,19 @@ Power BI öğreticideki yönergeleri izlemeden önce aşağıdaki kaynaklara eri
 
 * İndirme [örnek volkan verileri](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json) github'dan.
 
-* [Bir Azure Cosmos DB veritabanı hesabı oluşturma](https://azure.microsoft.com/documentation/articles/create-account/) ve volkan verileri kullanarak içeri aktarma [Azure Cosmos DB veri geçiş aracı](import-data.md).
+* [Bir Azure Cosmos DB veritabanı hesabı oluşturma](https://azure.microsoft.com/documentation/articles/create-account/) ve volkan verileri kullanarak içeri aktarma [Azure Cosmos DB veri geçiş aracı](import-data.md). Veriler içeri aktarılırken, kaynak ve veri Geçiş Aracı'nda hedefleri için aşağıdaki ayarları göz önünde bulundurun:
+
+   * **Kaynak parametreleri** 
+
+       * **İçeri aktarın:** JSON dosyaları
+
+   * **Hedef parametreleri** 
+
+      * **Bağlantı dizesi:** `AccountEndpoint=<Your_account_endpoint>;AccountKey=<Your_primary_or_secondary_key>;Database= <Your_database_name>` 
+
+      * **Bölüm anahtarı:**  /ülkeyi 
+
+      * **Koleksiyon aktarım hızı:** 1000 
 
 PowerBI.com raporlarınızda paylaşmak için Powerbı.com'daki hesabınız olmalıdır.  Power BI ve Power BI Pro hakkında daha fazla bilgi için bkz: [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).
 

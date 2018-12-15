@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3cb403b7f2ac529c79af5f83a1cbe436dc670a25
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901898"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413379"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Hızlı Başlangıç: Bulut uygulamaları erişmeden önce kabul edilmesi için kullanım koşullarını gerektirir 
 
@@ -72,13 +72,13 @@ Bu bölümde örnek bir ToU oluşturma adımlarını sağlar. İçin bir değer 
 
 2. Tür **My kullanım koşullarını**ve belge olarak bilgisayarınıza kaydedin **mytou.pdf**.
 
-3. Oturum açın, [Azure portalında](https://portal.azure.com) genel yönetici, güvenlik yöneticisi veya koşullu erişim Yöneticisi olarak.
+3. [Azure portalınızda](https://portal.azure.com) genel yönetici, güvenlik yöneticisi veya koşullu erişim yöneticisi olarak oturum açın.
 
 4. Azure portalında sol gezinti çubuğunda tıklatın **Azure Active Directory**. 
 
     ![Azure Active Directory](./media/require-tou/02.png)
 
-5. Üzerinde **Azure Active Directory** sayfasında **Yönet** bölümünde **koşullu erişim**.
+5. Üzerinde **Azure Active Directory** sayfasında **güvenlik** bölümünde **koşullu erişim**.
 
     ![Koşullu erişim](./media/require-tou/03.png) 
 
@@ -237,7 +237,7 @@ Tıklayarak **ne** gösteren bir simülasyon raporu oluşturur:
 3. Tıklayın **ne**.
 
 
-## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test
+## <a name="test-your-conditional-access-policy"></a>Koşullu erişim ilkenizi test etme
 
 Önceki bölümde, bir sanal oturum değerlendirilecek öğrendiniz. Bir simülasyon ek olarak, koşullu erişim ilkenizi, beklendiği gibi çalıştığından emin olmak için sınamalısınız. 
 

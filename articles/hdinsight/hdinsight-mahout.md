@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5c12a84610d09b7557f0beb177273deba4468cc0
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 06181eaf4a44a00ddeeedcd9c40edeae9157abd9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014829"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438557"
 ---
-# <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>(PowerShell) HDInsight Hadoop ile Apache Mahout kullanarak film önerileri oluşturma
+# <a name="generate-movie-recommendations-by-using-apache-mahout-with-apache-hadoop-in-hdinsight-powershell"></a>HDInsight (PowerShell), Apache Hadoop ile Apache Mahout kullanarak film önerileri oluşturma
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
@@ -26,27 +26,27 @@ Nasıl kullanacağınızı öğrenin [Apache Mahout](http://mahout.apache.org) m
 
 * Bir Linux tabanlı HDInsight kümesi. Bir oluşturma hakkında daha fazla bilgi için bkz: [HDInsight içinde Linux tabanlı Hadoop kullanmaya başlama][getstarted].
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [Azure PowerShell](/powershell/azure/overview)
 
 ## <a name="recommendations"></a>Azure PowerShell kullanarak önerileri oluşturma
 
-> [!WARNING]
+> [!WARNING]  
 > Bu bölümdeki işi, Azure PowerShell kullanarak çalışır. Mahout ile sağlanan sınıfları birçoğu Azure PowerShell ile şu anda çalışmıyor. Azure PowerShell ile çalışmayan sınıfların listesi için bkz. [sorun giderme](#troubleshooting) bölümü.
 >
-> HDInsight kümesi üzerinde doğrudan çalışma Mahout örnekler bağlanmak için SSH kullanarak bir örnek için bkz: [Mahout ve HDInsight (SSH) kullanarak film önerileri oluşturma](hadoop/apache-hadoop-mahout-linux-mac.md).
+> HDInsight kümesi üzerinde doğrudan çalışma Mahout örnekler bağlanmak için SSH kullanarak bir örnek için bkz: [Apache Mahout ve HDInsight (SSH) kullanarak film önerileri oluşturma](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 Mahout tarafından sağlanan işlevlerden birini bir öneri altyapısıdır. Bu altyapı, veri biçimi kabul `userID`, `itemId`, ve `prefValue` (kullanıcıların tercih öğesi için). Mahout, verileri öneriler yapmak için kullanılan benzer öğe tercihleri, kullanıcılarla belirlemek için kullanır.
 
 Aşağıdaki örnek, öneri işleminin nasıl çalıştığı, Basitleştirilmiş bir gözden geçirme:
 
-* **Ortak oluşum**: Ali'nin, Alice ve Bob bağlanan tüm *Star Wars*, *geri Empire durumda*, ve *Jedi dönüşü*. Ayrıca bu filmler herhangi biri gibi kullanıcılar diğer iki ister mahout belirler.
+* **Ortak oluşum**: ALi, Alice ve Bob tüm bağlanan *Star Wars*, *geri Empire durumda*, ve *Jedi dönüşü*. Ayrıca bu filmler herhangi biri gibi kullanıcılar diğer iki ister mahout belirler.
 
 * **Ortak oluşum**: Bob ve Gamze ayrıca beğenmediğinizi *hayali İstilası*, *kopyaları saldırısını*, ve *Sith, Revenge*. Önceki üç filmler ayrıca beğenmediğinizi kullanıcılar bu filmler ister mahout belirler.
 
-* **Benzerlik öneri**: çünkü Ali'nin ilk üç filmler beğenmediğinizi Mahout beğenmediğinizi benzer tercihleri, başkalarıyla filmleri görünür, ancak Joe olmayan izlenen (beğenmediğinizi/derecelendirilmiş). Bu durumda, Mahout önerir *hayali İstilası*, *kopyaları saldırısını*, ve *Sith, Revenge*.
+* **Benzerlik öneri**: Ali'nin ilk üç filmler beğenmediğinizi çünkü Mahout filmleri beğenmediğinizi benzer tercihleri, başkalarıyla görünür, ancak Joe (beğenmediğinizi/derecelendirilmiş) izlenen değil. Bu durumda, Mahout önerir *hayali İstilası*, *kopyaları saldırısını*, ve *Sith, Revenge*.
 
 ### <a name="understanding-the-data"></a>Verileri anlama
 
@@ -66,12 +66,12 @@ Kullanıcı-ratings.txt içerdiği veri yapısını sahip `userID`, `movieID`, `
 
 Mahout öneri altyapısının film verileri kullanan bir işi çalıştırmak için aşağıdaki Windows PowerShell betiğini kullanın:
 
-> [!NOTE]
+> [!NOTE]  
 > Bu dosya, HDInsight kümenize bağlanın ve işleri çalıştırmak için kullanılan bilgileri ister. Bu, işleri tamamlayın ve çýktý.txt dosyasını indirmeniz için birkaç dakika sürebilir.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
 
-> [!NOTE]
+> [!NOTE]  
 > Mahout işleri iş işlenirken oluşan geçici veri kaldırmayın. `--tempDir` Geçici dosyaları belirli bir dizine yalıtmak için örnek işteki parametresi belirtildi.
 
 Mahout iş çıktısını STDOUT'a döndürmez. Bunun yerine, belirtilen çıkış dizinde depoladığı **bölümü r 00000**. Betiği bu dosyaya indirir **çýktý.txt** istasyonunuzda geçerli dizin.
@@ -202,14 +202,14 @@ Aşağıdaki sınıfları kullanan mahout işleri Windows Powershell'den kullan�
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-Bu sınıfların kullanan işleri çalıştırmak için HDInsight kümesine SSH kullanarak bağlanın ve işleri komut satırından çalıştırın. Mahout işlerini çalıştırmak için SSH kullanarak bir örnek için bkz: [Mahout ve HDInsight (SSH) kullanarak film önerileri oluşturma](hadoop/apache-hadoop-mahout-linux-mac.md).
+Bu sınıfların kullanan işleri çalıştırmak için HDInsight kümesine SSH kullanarak bağlanın ve işleri komut satırından çalıştırın. Mahout işlerini çalıştırmak için SSH kullanarak bir örnek için bkz: [Apache Mahout ve HDInsight (SSH) kullanarak film önerileri oluşturma](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Mahout kullanmayı öğrendiniz, HDInsight üzerinde verilerle çalışma için diğer yöntemler keşfedin:
+Apache Mahout kullanmayı öğrendiniz, HDInsight üzerinde verilerle çalışma için diğer yöntemler keşfedin:
 
-* [HDInsight ile hive](hadoop/hdinsight-use-hive.md)
-* [HDInsight ile pig](hadoop/hdinsight-use-pig.md)
+* [Apache Hive ile HDInsight](hadoop/hdinsight-use-hive.md)
+* [HDInsight ile Apache Pig](hadoop/hdinsight-use-pig.md)
 * [HDInsight ile MapReduce](hadoop/hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html

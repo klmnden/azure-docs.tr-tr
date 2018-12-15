@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 54741bd2d76a7ba414613a40e07c47be703aa033
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994398"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433432"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Azure HDInsight - veri geçişi en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -25,7 +25,7 @@ Bu makalede, Azure HDInsight için veri geçiş için öneriler sunar. Geçirme 
 Verileri şirket içinden Azure ortamına geçirmek için iki ana seçeneğiniz vardır:
 
 1.  TLS ile ağ üzerinden veri aktarımı
-    1. -İnternet üzerinden veri için Azure depolama gibi çeşitli araçları herhangi biri kullanılarak normal bir internet bağlantısı üzerinden aktarabilirsiniz: Azure Depolama Gezgini, AzCopy, Azure Powershell ve Azure CLI.  Bkz: [için ve Azure Depolama'dan veri taşıma](../../storage/common/storage-moving-data.md) daha fazla bilgi için.
+    1. -İnternet üzerinden Azure depolama gibi çeşitli araçları herhangi biri kullanılarak normal bir internet bağlantısı üzerinden veri aktarabilirsiniz: Azure Depolama Gezgini, AzCopy, Azure Powershell ve Azure CLI.  Bkz: [için ve Azure Depolama'dan veri taşıma](../../storage/common/storage-moving-data.md) daha fazla bilgi için.
     2. Express Route - ExpressRoute, Microsoft veri merkezleri ve şirket içindeki veya ortak yerleşim tesisinizden altyapınız arasında özel bağlantılar oluşturmanızı sağlayan bir Azure hizmetidir. ExpressRoute bağlantıları değil genel Internet üzerinden gidin ve daha yüksek güvenlik, güvenilirlik ve hız tipik daha düşük gecikme süreleriyle Internet üzerinden sunar. Daha fazla bilgi için [oluşturun ve bir ExpressRoute bağlantı hattını değiştirme](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md).
     1. Veri kutusu çevrimiçi veri aktarımı - veri kutusu Edge ve veri kutusu ağ geçidi olan çevrimiçi veri aktarımı ağ ile Azure arasında verileri yönetmek için depolama ağ geçitleri gibi davranan bir ürün. Şirket içi bir ağ cihazı olan Data Box Edge, Azure’ın içine ve dışına veri aktarımı gerçekleştirmesinin yanı sıra verileri işlemek için yapay zeka (AI) özellikli uç işlemini kullanır. Data Box Gateway, depolama ağ geçidi özelliklerine sahip sanal bir gereçtir. Daha fazla bilgi için [Azure veri kutusu belgeleri - Online aktarım](https://docs.microsoft.com/azure/databox-online/).
 1.  Çevrimdışı veri aktarma
@@ -47,9 +47,11 @@ Aşağıdaki tabloda veri birimi ve ağ bant genişliğine göre yaklaşık veri
 |1 PB|6 yıl|3 yıl|97 gün|10 gün|
 |2 PB|12 yıl|5 yıl|194 gün|19 gün|
 
-Araçlar azure'a DistCp ve Azure Data Factory AzureCp, gibi yerel ağ üzerinden veri aktarmak için kullanılabilir. Üçüncü taraf aracı WANDisco, aynı amaçla da kullanılabilir. Kafka Mirrormaker ve Sqoop için Azure depolama sistemleri şirket içi devam eden veri aktarımı için kullanılabilir.
+Araçlar AzureCp, Apache Hadoop DistCp ve Azure Data Factory gibi Azure yerel ağ üzerinden veri aktarmak için kullanılabilir. Üçüncü taraf aracı WANDisco, aynı amaçla da kullanılabilir. Apache Kafka Mirrormaker ve Apache Sqoop, Azure depolama sistemleri için şirket içi devam eden veri aktarımı için kullanılabilir.
 
-## <a name="performance-considerations-with-apache-distcp"></a>Apache DistCp ile performans konuları
+
+## <a name="performance-considerations-when-using-apache-hadoop-distcp"></a>Apache Hadoop DistCp kullanırken performans konuları
+
 
 DistCp bir harita MapReduce işi veri aktarımı, hataları işleme ve bu hatalardan kurtarmak için kullandığı bir Apache projesidir. Kaynak dosyaların listesini her eşleme göreve atar. Harita görev sonra tüm atanan dosyaları hedefe kopyalar. Var olan çeşitli teknikler DistCp performansını geliştirebilir.
 
@@ -86,7 +88,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 ## <a name="metadata-migration"></a>Meta veri geçişi
 
-### <a name="hive"></a>Hive
+### <a name="apache-hive"></a>Apache Hive
 
 Hive meta veri deposu, komut dosyalarını kullanarak veya veritabanı çoğaltma kullanılarak geçirilebilir.
 
@@ -106,7 +108,7 @@ Hive meta veri deposu, komut dosyalarını kullanarak veya veritabanı çoğaltm
 ./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 ```
 
-### <a name="ranger"></a>Ranger
+### <a name="apache-ranger"></a>Apache Ranger
 
 - Şirket içi Ranger ilkelerini xml dosyasına dışarı aktarın.
 - Şirket içi belirli HDFS tabanlı yollara WASB/ADLS XSLT gibi bir araç kullanarak dönüştürün.

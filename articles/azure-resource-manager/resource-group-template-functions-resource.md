@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2018
+ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5f2f086dbe5056ee3d83be2d8725f49fd502d1b2
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 72b0aba4d2bf9cb666d1cb7ae30d0cbdefe3045b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139238"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438422"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için kaynak işlevleri
 
@@ -509,6 +509,8 @@ Döndürülen nesne aşağıdaki biçimdedir:
 
 ### <a name="remarks"></a>Açıklamalar
 
+`resourceGroup()` Olan bir şablon işlevi kullanılamaz [abonelik düzeyinde dağıtılan](deploy-to-subscription.md). Yalnızca bir kaynak grubuna dağıtıldığını şablonlarındaki de kullanılabilir.
+
 Bir ortak resourceGroup işlevin kaynak grubu ile aynı konumda kaynakları oluşturmak için kullanılır. Aşağıdaki örnek, bir web sitesi için konum atamak için kaynak grubu konumu kullanır.
 
 ```json
@@ -593,9 +595,9 @@ Tanımlayıcısı şu biçimde döndürülür:
 
 ### <a name="remarks"></a>Açıklamalar
 
-Belirttiğiniz parametre değerlerini kaynak geçerli dağıtım aynı abonelik ve kaynak grubunda olmasına göre değişir.
+İle kullanıldığında bir [abonelik düzeyinde dağıtım](deploy-to-subscription.md), `resourceId()` işlevi yalnızca o seviyede dağıtılan kaynakların Kimliğini alın. Örneğin, bir ilke tanımı veya rol tanımı kimliği, ancak bir depolama hesabı kimliği değil alabilirsiniz. Bir kaynak grubu için dağıtımlar için bunun tersi de geçerlidir. Abonelik düzeyinde dağıtılan kaynakların kaynak kimliği alınamıyor.
 
-Bir depolama hesabı aynı abonelikte ve kaynak grubu için kaynak Kimliğini almak için kullanın:
+Belirttiğiniz parametre değerlerini kaynak geçerli dağıtım aynı abonelik ve kaynak grubunda olmasına göre değişir. Bir depolama hesabı aynı abonelikte ve kaynak grubu için kaynak Kimliğini almak için kullanın:
 
 ```json
 "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
@@ -617,6 +619,12 @@ Farklı bir kaynak grubuna bir veritabanı için kaynak Kimliğini almak için k
 
 ```json
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
+```
+
+Abonelik kapsamında dağıtırken bir abonelik düzeyinde kaynak kaynak Kimliğini almak için kullanın:
+
+```json
+"[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
 ```
 
 Genellikle, bu işlev bir alternatif bir kaynak grubuna bir depolama hesabı veya sanal ağ kullanılırken kullanmanız gerekir. Aşağıdaki örnek, bir dış kaynak grubundan kaynak kolayca nasıl kullanılabileceğini gösterir:

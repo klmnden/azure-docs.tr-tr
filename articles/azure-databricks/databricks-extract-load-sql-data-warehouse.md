@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Databricks kullanarak ETL işlemleri yapma'
+title: 'Öğretici: Azure Databricks kullanarak ETL işlemleri gerçekleştirme'
 description: Data Lake Store'dan Azure Databricks'e veri ayıklamayı, verileri dönüştürmeyi ve sonra da Azure SQL Veri Ambarı'na yüklemeyi öğrenin.
 services: azure-databricks
 author: mamccrea
@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 11/19/2018
-ms.openlocfilehash: 748eefd78f8235a906d0e87874b29432b4b869c7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 48b2cdb26994d01dfced8216bb70493802f672a7
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106796"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413685"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak verileri ayıklama, dönüştürme ve yükleme
 
@@ -44,9 +44,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiye başlamadan önce aşağıdaki gereksinimlerin karşılandığından emin olun:
-- Bir Azure SQL Veri Ambarı oluşturun, sunucu düzeyi güvenlik duvarı kuralı oluşturun ve sunucu yöneticisi olarak sunucuya bağlanın. [Hızlı başlangıç: Azure SQL Veri Ambarı oluşturma](../sql-data-warehouse/create-data-warehouse-portal.md) başlığı altındaki yönergeleri izleyin
+- Bir Azure SQL Veri Ambarı oluşturun, sunucu düzeyi güvenlik duvarı kuralı oluşturun ve sunucu yöneticisi olarak sunucuya bağlanın. Konumundaki yönergeleri [hızlı başlangıç: Bir Azure SQL Data Warehouse oluşturma](../sql-data-warehouse/create-data-warehouse-portal.md)
 - Azure SQL Veri Ambarı için veritabanı ana anahtarı oluşturun. [Veritabanı Ana Anahtarı oluşturma](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key) başlığı altındaki yönergeleri izleyin.
-- Azure Blob depolama hesabı ve bu hesabın içinde bir kapsayıcı oluşturun. Ayrıca, depolama hesabına erişmek için erişim anahtarını alın. [Hızlı başlangıç: Azure Blob depolama hesabı oluşturma](../storage/blobs/storage-quickstart-blobs-portal.md) başlığı altındaki yönergeleri izleyin.
+- Azure Blob depolama hesabı ve bu hesabın içinde bir kapsayıcı oluşturun. Ayrıca, depolama hesabına erişmek için erişim anahtarını alın. Konumundaki yönergeleri [hızlı başlangıç: Bir Azure Blob Depolama hesabı oluşturma](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
@@ -54,7 +54,7 @@ Bu öğreticiye başlamadan önce aşağıdaki gereksinimlerin karşılandığı
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks çalışma alanı oluşturma
 
-Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı oluşturursunuz. 
+Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı oluşturursunuz.
 
 1. Azure portalında **Kaynak oluşturun** > **Veri ve Analiz** > **Azure Databricks** seçeneklerini belirleyin.
 
@@ -65,7 +65,7 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
     ![Azure Databricks çalışma alanı oluşturma](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
     Aşağıdaki değerleri sağlayın:
-     
+    
     |Özellik  |Açıklama  |
     |---------|---------|
     |**Çalışma alanı adı**     | Databricks çalışma alanınız için bir ad sağlayın        |
@@ -106,11 +106,11 @@ Bu bölümde, Azure Data Lake Store hesabı oluşturur ve bir Azure Active Direc
 
 1. [Azure portalında](https://portal.azure.com) **Kaynak oluşturun** > **Depolama** > **Data Lake Store**'u seçin.
 3. **Yeni Data Lake Store** dikey penceresinde, aşağıdaki ekran görüntüsünde gösterilen değerleri sağlayın:
-   
+
     ![Yeni bir Azure Data Lake Store hesabı oluşturma](./media/databricks-extract-load-sql-data-warehouse/create-new-datalake-store.png "Create a new Azure Data Lake account")
 
-    Aşağıdaki değerleri sağlayın: 
-     
+    Aşağıdaki değerleri sağlayın:
+    
     |Özellik  |Açıklama  |
     |---------|---------|
     |**Ad**     | Data Lake Store hesabı için benzersiz bir ad girin.        |
@@ -125,7 +125,7 @@ Bu bölümde, Azure Data Lake Store hesabı oluşturur ve bir Azure Active Direc
 Şimdi Azure Active Directory hizmet sorumlusu oluşturur ve bunu daha önce oluşturduğunuz Data Lake Store hesabıyla ilişkilendirirsiniz.
 
 ### <a name="create-an-azure-active-directory-service-principal"></a>Azure Active Directory hizmet sorumlusu oluşturma
-   
+
 1. [Azure portalında](https://portal.azure.com) **Tüm hizmetler**'i seçin ve ardından **Azure Active Directory** için arama yapın.
 
 2. **Uygulama kayıtları**'nı seçin.
@@ -193,7 +193,7 @@ Programlamayla oturum açılırken, kimlik doğrulama isteğinizle birlikte kira
 
 ## <a name="upload-data-to-data-lake-store"></a>Data Lake Store'a veri yükleme
 
-Bu bölümde, örnek veri dosyasını Data Lake Store'a yüklersiniz. Bu filtreyi daha sonra Azure Databricks'te bazı dönüştürmeleri çalıştırmak için kullanacaksınız. Bu öğreticide kullandığınız örnek veriler (**small_radio_json.json**) bu [Github deposunda](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) bulunabilir.
+Bu bölümde, örnek veri dosyasını Data Lake Store'a yüklersiniz. Bu filtreyi daha sonra Azure Databricks'te bazı dönüştürmeleri çalıştırmak için kullanacaksınız. Örnek veriler (**small_radio_json.json**) Bu öğreticide kullandığınız bu kullanılabilir [GitHub deposunu](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 
 1. [Azure portalında](https://portal.azure.com), oluşturduğunuz Data Lake Store hesabını seçin.
 
@@ -378,7 +378,7 @@ Bu bölümde, dönüştürülen verileri Azure SQL Veri Ambarı'na yüklersiniz.
 
 Daha önce bahsedildiği gibi SQL veri ambarı Bağlayıcısı verileri Azure Databricks ve Azure SQL veri ambarı arasında yüklemek için geçici depolama konumu olarak Azure Blob Depolama kullanır. Bu nedenle, depolama hesabına bağlanmak için kullanılacak yapılandırmayı sağlayarak başlarsınız. Bu makalenin önkoşullarından biri olarak hesabı önceden oluşturmuş olmalısınız.
 
-1. Azure Databricks'ten Azure Depolama hesabına erişmek için yapılandırmayı sağlayın. URL için blob depolama alanınızın portalından kopyalarsanız kaldırdığınızdan emin olun *https://* baştan. 
+1. Azure Databricks'ten Azure Depolama hesabına erişmek için yapılandırmayı sağlayın. URL için blob depolama alanınızın portalından kopyalarsanız kaldırdığınızdan emin olun *https://* baştan.
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
@@ -410,7 +410,7 @@ Daha önce bahsedildiği gibi SQL veri ambarı Bağlayıcısı verileri Azure Da
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
-        
+    
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall)

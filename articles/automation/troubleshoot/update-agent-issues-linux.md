@@ -4,25 +4,25 @@ description: Güncelleştirme yönetimi Aracısı ile ilgili sorunları giderme 
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/06/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 028a06a7fb627fd69bdd2f0a2084bbdef11eaed4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 491f60b55843957bf9ec904f7310ef67219ba3c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077254"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438651"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Güncelleştirme yönetimi Linux Aracısı onay sonuçlarında anlama
 
-Azure makinenize göstermiyorsa birçok nedeni olabilir **hazır** güncelleştirme yönetimi. Ortamında güncelleştirme yönetimi, arka plandaki sorunu belirlemek için bir karma çalışanı aracı durumunu kontrol edebilirsiniz. Bu makalede, Azure portalından ve çevrimdışı senaryolarda sorun gidericisini çalıştırmak anlatılmaktadır.
+Makinenizde görüntülenmiyorsa birçok nedeni olabilir **hazır** güncelleştirme yönetimi. Ortamında güncelleştirme yönetimi, arka plandaki sorunu belirlemek için bir karma çalışanı aracı durumunu kontrol edebilirsiniz. Bu makalede Azure portalı ve Azure olmayan makineler Azure makineler için sorun giderici çalıştırın anlatılmaktadır [çevrimdışı senaryosu](#troubleshoot-offline).
 
 ## <a name="start-the-troubleshooter"></a>Sorun Gidericisi
 
-Tıklayarak **sorun giderme** altında bağlantı **Güncelleştirme Aracısı hazırlığı** sütun Portalı'nda, başlatma **Güncelleştirme Aracısı sorunlarını giderme** sayfası. Bu sayfa, aracı ve bu makalede bir bağlantı sorunları gidermeye yardımcı olması için sorunları gösterir.
+Tıklayarak Azure makineler için **sorun giderme** altında bağlantı **Güncelleştirme Aracısı hazırlığı** portal başlatır sütununda **Güncelleştirme Aracısı sorunlarını giderme** sayfası. Azure olmayan makineler için bağlantıyı bu makaleye getirir. Bkz: [çevrimdışı yönergeleri](#offline) Azure olmayan makine giderilir.
 
 ![VM Listesi Sayfası](../media/update-agent-issues-linux/vm-list.png)
 
@@ -54,12 +54,12 @@ Tamamlandığında, sonuçları penceresinde döndürülür. [Bölümleri işare
 
 ### <a name="oms-agent"></a>OMS Aracısı
 
-Bu denetimler sağlar Linux için OMS Aracısı yüklenir. Nasıl yükleneceği hakkında yönergeler için bkz [Linux için aracıyı yükleme](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
+Bu onay, Linux için OMS aracısı yüklü olduğunu sağlar. Nasıl yükleneceği hakkında yönergeler için bkz [Linux için aracıyı yükleme](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 ).
 
 ### <a name="oms-agent-status"></a>OMS Aracısı durumu
 
-Bu onay, Linux için OMS Aracısı çalıştığını sağlar. Aracının çalışır durumda değilse, yeniden denemek için aşağıdaki komutu çalıştırabilirsiniz. Aracı sorunlarını giderme hakkında ek bilgi için bkz: [Linux karma Runbook çalışanı sorunlarını giderme](hybrid-runbook-worker.md#linux)
+Bu onay, Linux için OMS Aracısı çalıştığını sağlar. Aracıyı çalışmıyorsa, yeniden denemek için aşağıdaki komutu çalıştırabilirsiniz. Aracı sorunlarını giderme hakkında daha fazla bilgi için bkz. [Linux karma Runbook çalışanı sorunlarını giderme](hybrid-runbook-worker.md#linux)
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -71,7 +71,7 @@ Bu onay, aracıyı birden çok çalışma alanına raporlama olmadığını beli
 
 ### <a name="hybrid-runbook-worker"></a>Karma Runbook Çalışanı
 
-Linux için OMS Aracısı karma Runbook çalışanı paket sahip olduğundan emin olmak denetler. Bu paket çalışacak şekilde güncelleştirme yönetimi için gereklidir.
+Bu denetim, Linux için OMS Aracısı karma Runbook çalışanı paket olup olmadığını doğrular. Bu paket çalışacak şekilde güncelleştirme yönetimi için gereklidir.
 
 ### <a name="hybrid-runbook-worker-status"></a>Karma Runbook çalışanı durumu
 

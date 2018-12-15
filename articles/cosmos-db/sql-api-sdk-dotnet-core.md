@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 040b0ae80defcd6d1c737851edd5a7dc16273fc6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d947974575cf996ed880f2c1b5f8f7700b81ffd3
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340411"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413515"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -54,9 +54,9 @@ Azure Cosmos DB .NET Core SDK'sı özellik eşliği ile en son sürümüne sahip
 ### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-Preview
 * 1 önizlemesi [sürüm 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) genel önizlemesi için .NET SDK'sının.
 * Hedef .NET framework 4.6.1+ .NET ve .NET Core 2.0 + destekleyen standardı
-* Yeni nesne modeli, üst düzey CosmosClient ve yöntemleri ile ilgili CosmosDatabases ve CosmosContainers CosmosItems sınıflar arasında bölün. 
-* Akışları için destek. 
-* Durum kodu döndürür ve yanıt döndürüldüğünde yalnızca durum sunucudan CosmosResponseMessage güncelleştirildi. 
+* Yeni nesne modeli, üst düzey CosmosClient ve yöntemleri ile ilgili CosmosDatabases ve CosmosContainers CosmosItems sınıflar arasında bölün.
+* Akışları için destek.
+* Durum kodu döndürür ve yanıt döndürüldüğünde yalnızca durum sunucudan CosmosResponseMessage güncelleştirildi.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -136,7 +136,7 @@ Azure Cosmos DB .NET Core SDK'sı özellik eşliği ile en son sürümüne sahip
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
  
- * Azure Cosmos DB API Başvurusu'ndaki Azure documentdb'den bir değişiklik, belgeler, meta veri bilgilerini derlemelerde ve NuGet paketini marka. 
+ * Azure Cosmos DB API Başvurusu'ndaki Azure documentdb'den bir değişiklik, belgeler, meta veri bilgilerini derlemelerde ve NuGet paketini marka.
  * Tanılama bilgileri ve gecikme süresi ile doğrudan bağlantı modunu gönderilen isteklerin yanıtından kullanıma sunar. Özellik adlarını, ResourceResponse sınıfı üzerinde RequestDiagnosticsString ve RequestLatency bulunur.
  * Bu SDK sürüm Merkezi'nden Azure Cosmos DB Emulator kullanılabilir en son sürümünü gerektirir. https://aka.ms/cosmosdb-emulator.
  
@@ -150,8 +150,8 @@ Azure Cosmos DB .NET Core SDK'sı özellik eşliği ile en son sürümüne sahip
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
 
-* Sorgu Sonuçları belirli bir bölüm anahtar aralığı değeri için kapsam için bir FeedOption olarak PartitionKeyRangeId desteği eklendi. 
-* Bundan sonra değişikliklerin bakmaya başlamak için bir ChangeFeedOption olarak StartTime desteği eklendi. 
+* Sorgu Sonuçları belirli bir bölüm anahtar aralığı değeri için kapsam için bir FeedOption olarak PartitionKeyRangeId desteği eklendi.
+* Bundan sonra değişikliklerin bakmaya başlamak için bir ChangeFeedOption olarak StartTime desteği eklendi.
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
@@ -216,12 +216,12 @@ Azure Cosmos DB .NET Core SDK'sı hızlı, platformlar arası oluşturmanıza ol
 Azure Cosmos DB .NET Core Önizleme SDK'sı hızlı, platformlar arası oluşturmanıza olanak sağlayan [ASP.NET Core](https://www.asp.net/core) ve [.NET Core](https://www.microsoft.com/net/core#windows) uygulamaları Windows, Mac ve Linux üzerinde çalıştırılacak.
 
 Azure Cosmos DB .NET Core Önizleme SDK'sı özellik eşliği ile en son sürümüne sahip [Azure Cosmos DB .NET SDK'sı](sql-api-sdk-dotnet.md) ve aşağıdakileri destekler:
-* Tüm [bağlantı modları](performance-tips.md#networking): Ağ geçidi modu, doğrudan TCP ve doğrudan HTTPs. 
+* Tüm [bağlantı modları](performance-tips.md#networking): Ağ geçidi modu, doğrudan TCP ve doğrudan HTTPs.
 * Tüm [tutarlılık düzeyleri](consistency-levels.md): Sınırlanmış eskime durumu, güçlü, oturum ve nihai.
-* [Bölümlenmiş koleksiyonları](partition-data.md). 
+* [Bölümlenmiş koleksiyonları](partition-data.md).
 * [Çoklu bölge veritabanı hesapları ve coğrafi çoğaltma](distribute-data-globally.md).
 
-Bu SDK ilgili sorularınız varsa postalayabilir [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), veya bir sorunu bildirin [github deposu](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+Bu SDK ilgili sorularınız varsa postalayabilir [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), veya bir sorunu bildirin [GitHub deposu](https://github.com/Azure/azure-documentdb-dotnet/issues).
 
 ## <a name="release--retirement-dates"></a>Yayın ve sona erme tarihlerini
 
@@ -256,5 +256,5 @@ Bu SDK ilgili sorularınız varsa postalayabilir [StackOverflow](https://stackov
 | [0.1.0-Preview](#0.1.0-preview) |15 Kasım 2016 |31 Aralık 2016 |
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-Cosmos DB hakkında daha fazla bilgi için bkz: [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hizmeti sayfası. 
+Cosmos DB hakkında daha fazla bilgi için bkz: [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hizmeti sayfası.
 

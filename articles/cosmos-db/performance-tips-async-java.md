@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 8cfc62948df679fa900099c0e5dbb33a60e42b08
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 440dc13e2c6f4d9acc270b644cc549280e6d91be
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876258"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413583"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Azure Cosmos DB ile Async Java için performans ipuçları
 
@@ -35,7 +35,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
     Mümkün olduğunda, Azure Cosmos DB veritabanı ile aynı bölgede Azure Cosmos DB çağırma herhangi bir uygulama yerleştirin. Yaklaşık bir karşılaştırması için aynı bölgedeki Azure Cosmos DB için çağrılar 1-2 ms içinde tamamlayın, ancak ABD'nin Doğu Yakası ve Batı arasındaki gecikme süresi > 50 ms. Bu gecikme süresi, Azure veri merkezi sınırına istemciden geçerken istek tarafından gerçekleştirilen rota bağlı olarak istemek için büyük olasılıkla farklılık gösterebilir. En düşük gecikmeyi çağıran uygulama için aynı Azure bölgesindeki sağlanan Azure Cosmos DB uç nokta olarak bulunduğu sağlayarak gerçekleştirilir. Kullanılabilir bölgelerin listesi için bkz. [Azure bölgeleri](https://azure.microsoft.com/regions/#services).
 
     ![Azure Cosmos DB bağlantı İlkesi gösterimi](./media/performance-tips/same-region.png)
-   
+
 ## <a name="sdk-usage"></a>SDK kullanımı
 1. **En son SDK'sını yükleyin**
 
@@ -54,17 +54,17 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 
     Azure Cosmos DB SQL Async Java SDK bölünmüş bir koleksiyona paralel sorgu sağlayan paralel sorguları destekler. Daha fazla bilgi için [kod örnekleri](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) SDK'ları ile çalışmayla ilgili. Paralel sorgular seri kendi karşılığı sorgunun gecikme süresi ve aktarım hızı artırmak için tasarlanmıştır.
 
-    (a) ***setMaxDegreeOfParallelism ayarlama\:***  paralel iş birden çok bölümü paralel sorgulayarak sorgular. Ancak, verileri ayrı bölünmüş bir koleksiyona göre sorgu seri olarak getirilir. Bu nedenle, diğer tüm sistem koşulları sağlanan en yüksek performanslı sorgu başarmaya maksimum olasılığını olan bölüm sayısı ayarlanacak kullanım setMaxDegreeOfParallelism aynı kalır. Bölüm sayısı bilmiyorsanız, setMaxDegreeOfParallelism yüksek bir sayı ayarlamak için kullanabileceğiniz ve sistem (bölüm, kullanıcı tarafından sağlanan giriş sayısı) en düşük maksimum paralellik derecesi seçer. 
+    (a) ***setMaxDegreeOfParallelism ayarlama\:***  paralel iş birden çok bölümü paralel sorgulayarak sorgular. Ancak, verileri ayrı bölünmüş bir koleksiyona göre sorgu seri olarak getirilir. Bu nedenle, diğer tüm sistem koşulları sağlanan en yüksek performanslı sorgu başarmaya maksimum olasılığını olan bölüm sayısı ayarlanacak kullanım setMaxDegreeOfParallelism aynı kalır. Bölüm sayısı bilmiyorsanız, setMaxDegreeOfParallelism yüksek bir sayı ayarlamak için kullanabileceğiniz ve sistem (bölüm, kullanıcı tarafından sağlanan giriş sayısı) en düşük maksimum paralellik derecesi seçer.
 
     Sorgu ile ilgili tüm bölümler arasında verileri eşit olarak dağıtılmış, paralel sorgular en iyi avantajları oluşturduğunun dikkat edin önemlidir. Bölünmüş bir koleksiyona birkaç bölümlerde (bir bölüm en kötü durumda) tüm veya bir sorgu tarafından döndürülen verilerin çoğunu yoğunlaşmıştır ve ardından sorgu performansını bu bölümler tarafından performansı düşürdüğünü gösterir şekilde bölümlenmiş durumunda.
 
     (b) ***setMaxBufferedItemCount ayarlama\:***  paralel sorgu sonuçları istemci tarafından sonuçlarının geçerli toplu iş işlenirken önceden getirme için tasarlanmıştır. Önceden getirme, bir sorgunun toplam gecikme süresi gelişme yardımcı olur. setMaxBufferedItemCount önceden getirilen sonuç sayısını sınırlar. Döndürülen sonuçlar beklenen sayıda setMaxBufferedItemCount (veya daha yüksek bir sayı) ayarlamak, önceden getirme en büyük avantajı almak sorgu sağlar.
 
-    Önceden getirme Maxanalyticsunits bağımsız olarak aynı şekilde çalışır ve tüm bölümleri veriler için tek bir arabellek yoktur.  
+    Önceden getirme Maxanalyticsunits bağımsız olarak aynı şekilde çalışır ve tüm bölümleri veriler için tek bir arabellek yoktur.
 
 5. **Geri alma getRetryAfterInMilliseconds aralıklarla uygulayın**
 
-    Performans testi sırasında istekleri küçük bir oranını kısıtlanan kadar yük yükseltmeniz gerekir. Kısıtlanmış, istemci uygulamasına geri alma için sunucu tarafından belirtilen yeniden deneme aralığı gerekir. Geri alma uyarak bekleme süresi yeniden denemeler arasındaki en az miktarda harcama sağlar. 
+    Performans testi sırasında istekleri küçük bir oranını kısıtlanan kadar yük yükseltmeniz gerekir. Kısıtlanmış, istemci uygulamasına geri alma için sunucu tarafından belirtilen yeniden deneme aralığı gerekir. Geri alma uyarak bekleme süresi yeniden denemeler arasındaki en az miktarda harcama sağlar.
 6. **İstemci iş yükü ölçeklendirin**
 
     Yüksek performans düzeylerinde sınıyorsanız (> 50.000 RU/sn), istemci uygulama makine kullanıma CPU veya ağ kullanımı capping nedeniyle performans sorunu hale gelebilir. Bu noktaya ulaşın, istemci uygulamalarınızı birden çok sunucu arasında ölçeklendirme gerçekleştirerek Azure Cosmos DB hesabı daha fazla göndermeye devam edebilirsiniz.
@@ -81,7 +81,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
     Sayısını azaltmak için ağ gidiş dönüşleri yürürlükteki tüm sonuçları almak için gereken, sayfa boyutu kullanarak artırabilirsiniz [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) en fazla 1000 istek üstbilgisi. Yalnızca birkaç sonuçları görüntülemek için gerek duyduğunuz durumlarda Örneğin, kullanıcı arabirimi veya uygulama API'nizi yalnızca 10 döndürürse birer sonuçları, 10 okuma ve sorgular için kullanılan aktarım hızını azaltmak için sayfa boyutunu da azaltabilirsiniz.
 
     Sayfa boyutu setMaxItemCount yöntemi kullanarak da ayarlayabilir.
-    
+
 9. **Uygun Zamanlayıcısı'nı (olay döngüsü GÇ Netty iş parçacıkları çalarak kaçının)**
 
     Async Java SDK'sını kullanan [netty](https://netty.io/) engelleyici olmayan g/ç için. SDK'sı, g/ç işlemleri yürütmek için sabit sayıda GÇ netty olay döngüsü iş parçacıkları (makinenizde var. kadar CPU çekirdeği) kullanır. Observable API'si tarafından döndürülen sonuç paylaşılan GÇ olay döngüsü netty iş parçacıklarından yayar. Bu nedenle paylaşılan GÇ olay döngüsü netty iş parçacıklarının engellemediğinizden önemlidir. CPU kullanımı yoğun iş yapıyor veya GÇ olay döngüsü netty iş parçacığı üzerindeki işlemi engelleyen kilitlenmeye neden veya SDK aktarım hızını önemli ölçüde azaltabilir.
@@ -123,7 +123,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 
     İş türüne göre uygun mevcut RxJava Zamanlayıcı iş için kullanmanız gerekir. Burada okuma [ ``Schedulers`` ](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
 
-    Daha fazla bilgi için lütfen bakmak [Github sayfasına](https://github.com/Azure/azure-cosmosdb-java) Async Java SDK'sı.
+    Daha fazla bilgi için lütfen bakmak [GitHub sayfasına](https://github.com/Azure/azure-cosmosdb-java) Async Java SDK'sı.
 
 10. **Netty'nın günlüğünü devre dışı** Netty kitaplığı günlük geveze ve kapatılması gerekiyor (oturum yapılandırmasında gizleme olmayabilir yeterli) ek CPU maliyetleri önlemek için. Hata ayıklama modunda değilse, kaydetme işlemini tamamen devre dışı bırakma netty'nın günlüğe kaydetme. Log4j tarafından ek CPU maliyetleri kaldırmak için kullanıyorsanız, bunu ``org.apache.log4j.Category.callAppenders()`` netty kod temelinizde yapılan aşağıdaki satırı ekleyin:
 
@@ -175,7 +175,7 @@ Diğer platformlar için (Red Hat, Windows, Mac, vb.) başvurmak için bu yöner
  
 1. **Kullanılmayan yolları daha hızlı yazmalar için dizine elmadan hariç tut**
 
-    Azure Cosmos DB'nin dizin oluşturma ilkesini dahil etmek veya dizin yolları (setIncludedPaths ve setExcludedPaths) yararlanarak dizine elmadan hariç tutmak için hangi belge yolları belirtmenizi sağlar. Dizin oluşturma maliyetleri doğrudan dizini benzersiz yollara sayısını bağıntılı olan gibi dizin yolları kullanımını geliştirilmiş yazma performansını ve sorgu desenleri önceden bilinmektedir senaryoları için daha düşük dizin depolaması sunabilir.  Örneğin, aşağıdaki kod belgeleri bölümünün tamamını (diğer adıyla) hariç tutmak nasıl gösterir bir alt ağacı) dizin oluşturma kullanarak "*" joker karakter.
+    Azure Cosmos DB'nin dizin oluşturma ilkesini dahil etmek veya dizin yolları (setIncludedPaths ve setExcludedPaths) yararlanarak dizine elmadan hariç tutmak için hangi belge yolları belirtmenizi sağlar. Dizin oluşturma maliyetleri doğrudan dizini benzersiz yollara sayısını bağıntılı olan gibi dizin yolları kullanımını geliştirilmiş yazma performansını ve sorgu desenleri önceden bilinmektedir senaryoları için daha düşük dizin depolaması sunabilir. Örneğin, aşağıdaki kod belgeleri bölümünün tamamını (diğer adıyla) hariç tutmak nasıl gösterir bir alt ağacı) dizin oluşturma kullanarak "*" joker karakter.
 
     ```Java
     Index numberIndex = Index.Range(DataType.Number);
@@ -196,7 +196,7 @@ Diğer platformlar için (Red Hat, Windows, Mac, vb.) başvurmak için bu yöner
 
     Azure Cosmos DB veritabanı işlemleri UDF'ler, saklı yordamlar ve tetikleyicilerle bir veritabanı koleksiyonu içindeki belgeler üzerinde ilişkisel ve hiyerarşik sorgular da dahil olmak üzere zengin bir özellik kümesi sunar. Bu işlemlerden her biriyle ilişkilendirilmiş maliyet, CPU, GÇ ve işlemi tamamlamak için gerekli belleğe göre değişir. Hakkında düşünmek ve donanım kaynaklarını yönetmek yerine, bir istek Birimi'ni (RU), çeşitli veritabanı işlemlerini gerçekleştirmek ve uygulama isteğine hizmet sağlamak için gereken kaynaklar için tek ölçü olarak düşünebilirsiniz.
 
-    Üretilen iş sayısına göre hazırlanır [istek birimi](request-units.md) her kapsayıcı için ayarlayın. İstek birimi tüketimini Saniyedeki oranı olarak değerlendirilir. Kendi kapsayıcı için sağlanan istek birimi hızı aşan uygulamaları oranı kapsayıcı için sağlanan düzeyinin altına düşene kadar sınırlıdır. Uygulamanıza daha yüksek bir üretilen iş düzeyi gerekiyorsa, ek istek birimi sağlayarak aktarım hızınızı artırabilirsiniz. 
+    Üretilen iş sayısına göre hazırlanır [istek birimi](request-units.md) her kapsayıcı için ayarlayın. İstek birimi tüketimini Saniyedeki oranı olarak değerlendirilir. Kendi kapsayıcı için sağlanan istek birimi hızı aşan uygulamaları oranı kapsayıcı için sağlanan düzeyinin altına düşene kadar sınırlıdır. Uygulamanıza daha yüksek bir üretilen iş düzeyi gerekiyorsa, ek istek birimi sağlayarak aktarım hızınızı artırabilirsiniz.
 
     Kaç tane istek birimi bir işlem için kullanılan bir sorgu karmaşıklığı etkiler. Sorgu işlemlerinin maliyetini doğrulamaları sayısı, koşullarına, UDF'ler sayısı ve boyutu, kaynak veri kümesinin tüm genel yapısını etkiler.
 
@@ -206,7 +206,7 @@ Diğer platformlar için (Red Hat, Windows, Mac, vb.) başvurmak için bu yöner
     ResourceResponse<Document> response = asyncClient.createDocument(collectionLink, documentDefinition, null,
                                                      false).toBlocking.single();
     response.getRequestCharge();
-    ```             
+    ```
 
     Bu üst bilgisinde döndürülen istek hızınız sağladığınız aktarım avantajlarının ücrettir. Örneğin, 2000 varsa sağlanan RU/s ve işlem maliyeti önceki sorgunun 1000 1 KB-belgeler döndürürse, 1000'dir. Bu nedenle, bir saniye içinde sonraki istekleri hız sınırı önce yalnızca iki tür isteklere sunucunun geliştirir. Daha fazla bilgi için [istek birimi](request-units.md) ve [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
@@ -222,7 +222,7 @@ Diğer platformlar için (Red Hat, Windows, Mac, vb.) başvurmak için bu yöner
 
     Üst üste istek hızı tutarlı bir şekilde çalışan birden fazla istemciniz varsa, 9 istemci tarafından dahili olarak ayarlanmış varsayılan yeniden deneme sayısı yeterli değil; Bu durumda, istemci uygulamanın 429 durum koduyla bir DocumentClientException oluşturur. Varsayılan yeniden deneme sayısı ConnectionPolicy örneğinde setRetryOptions kullanılarak değiştirilebilir. İstek, istek hızı üzerinde çalışmaya devam ederse varsayılan olarak, durum kodu 429 DocumentClientException 30 saniye sonra bir toplam bekleme süresi döndürülür. Bu geçerli bir yeniden deneme sayısı en fazla yeniden deneme sayısından daha az olduğunda bile oluşur, varsayılan 9 veya kullanıcı tanımlı bir değer olmalıdır.
 
-    Dayanıklılık ve kullanılabilirlik uygulamalarının çoğu için iyileştirmek için otomatik yeniden deneme davranışı yardımcı olsa da, bu performans kıyaslamaları, özellikle gecikme süresini ölçme olduğunda yaparken at odds gelebilir.  Denemeyi sunucu kısıtlama denk gelir ve istemci SDK'sı sessiz bir şekilde yeniden denemek için neden olan istemci gözlemlenen gecikme çıkmasına. Ani gecikme süresi artışlarına sırasında performans denemelerini önlemek için her bir işlem tarafından döndürülen ücret ölçün ve istekleri ayrılmış istek hızı altında çalıştığından emin olun. Daha fazla bilgi için [istek birimi](request-units.md).
+    Dayanıklılık ve kullanılabilirlik uygulamalarının çoğu için iyileştirmek için otomatik yeniden deneme davranışı yardımcı olsa da, bu performans kıyaslamaları, özellikle gecikme süresini ölçme olduğunda yaparken at odds gelebilir. Denemeyi sunucu kısıtlama denk gelir ve istemci SDK'sı sessiz bir şekilde yeniden denemek için neden olan istemci gözlemlenen gecikme çıkmasına. Ani gecikme süresi artışlarına sırasında performans denemelerini önlemek için her bir işlem tarafından döndürülen ücret ölçün ve istekleri ayrılmış istek hızı altında çalıştığından emin olun. Daha fazla bilgi için [istek birimi](request-units.md).
 3. **Daha yüksek verimliğe yönelik daha küçük belgeleri için Tasarım**
 
     Belirli bir işlemi istek ücreti (istek işleme maliyeti) doğrudan belge boyutunu ilişkilendirilir. Büyük belgelerin işlemleri daha küçük belgeleri işlemlerinde daha fazla maliyet.

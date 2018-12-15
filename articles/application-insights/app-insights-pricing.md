@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: a81cb9041b905cfb00183981036116fbc61f376a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8a0acbfa18053b6b50bd872d109b02d556a6f5f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000885"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436072"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Application ınsights fiyatlandırma ve veri hacmini yönetme
 
 > [!NOTE]
 > Bu makalede, Application Insights veri kullanımını çözümleme açıklar.  İlgili bilgiler için aşağıdaki makalelere göz atın.
-> - [Kullanım ve Tahmini maliyetler izleme](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) çoklu Azure İzleme özelliklerini farklı fiyatlandırma modelleri için tahmini maliyetleri ve kullanım görüntülemeyi açıklar. Ayrıca, uygulamanızın fiyatlandırma modelinin değiştirilmesi nasıl açıklar.
+> - [Kullanım ve Tahmini maliyetler izleme](../azure-monitor/platform/usage-estimated-costs.md) çoklu Azure İzleme özelliklerini farklı fiyatlandırma modelleri için tahmini maliyetleri ve kullanım görüntülemeyi açıklar. Ayrıca, uygulamanızın fiyatlandırma modelinin değiştirilmesi nasıl açıklar.
 
 Fiyatlandırma [Azure Application Insights] [ start] uygulama başına veri hacmine dayanır. Her bir Application Insights kaynağı ayrı bir hizmet ücretlendirilir ve Azure aboneliğiniz için fatura katkıda.
 
-Application Insights, iki fiyatlandırma planı içeriyor: temel ve kurumsal. Temel fiyatlandırma planı varsayılan plandır. Bu, ek maliyet olmadan, tüm kurumsal plan özellikleri içerir. Temel plan faturalandırılır öncelikle alınan veri hacmi. 
+Application Insights, iki fiyatlandırma planı bulunur: Temel ve kurumsal. Temel fiyatlandırma planı varsayılan plandır. Bu, ek maliyet olmadan, tüm kurumsal plan özellikleri içerir. Temel plan faturalandırılır öncelikle alınan veri hacmi. 
 
 Kurumsal plan bir düğüm başına ücret vardır ve her düğüm günlük veri kullanım hakkı alır. Kurumsal fiyatlandırma planını, bulunan indirimi alınan veriler için ücretlendirilirsiniz. Operations Management Suite kullanırsanız, Kurumsal plan seçmeniz gerekir. 
 
@@ -86,14 +86,14 @@ Application Insights ücretleri Azure faturanızı eklenir. Azure, fatura ayrın
 ## <a name="data-rate"></a>Veri oranı
 Gönderdiğiniz veri hacmi üç şekilde sınırlıdır:
 
-* **Örnekleme**: örnekleme ölçüm en az bozulma ile sunucu ve istemci uygulamalardan gönderilen telemetri miktarını azaltmak için kullanabilirsiniz. Örnekleme, gönderdiğiniz veri miktarını ayarlamak için kullanabileceğiniz birincil araçtır. Daha fazla bilgi edinin [özellikleri örnekleme](app-insights-sampling.md). 
-* **Günlük üst sınır**: Azure portalında bir Application Insights kaynağı oluşturduğunuzda, günlük üst sınır 100 GB/gün olarak ayarlanır. Visual Studio'da Application Insights kaynağı oluşturduğunuzda, varsayılan küçüktür (yalnızca fazla 32,3 MB/gün). Günlük sınır varsayılan test edilmesini kolaylaştırmak için ayarlanır. Uygulamayı üretim ortamına dağıtmadan önce kullanıcı günlük üst sınır oluşturacak yöneliktir. 
+* **Örnekleme**: Örnekleme, sunucu ve istemci uygulamalarıyla en az bozulma ölçüm gönderilen telemetri miktarını azaltmak için kullanabilirsiniz. Örnekleme, gönderdiğiniz veri miktarını ayarlamak için kullanabileceğiniz birincil araçtır. Daha fazla bilgi edinin [özellikleri örnekleme](app-insights-sampling.md). 
+* **Günlük üst sınır**: Azure portalında bir Application Insights kaynağı oluşturduğunuzda, 100 GB/gün için günlük üst sınır ayarlanır. Visual Studio'da Application Insights kaynağı oluşturduğunuzda, varsayılan küçüktür (yalnızca fazla 32,3 MB/gün). Günlük sınır varsayılan test edilmesini kolaylaştırmak için ayarlanır. Uygulamayı üretim ortamına dağıtmadan önce kullanıcı günlük üst sınır oluşturacak yöneliktir. 
 
     Yüksek trafik uygulama için daha yüksek bir maksimum istek sürece, üst sınır 1000 GB/gün olur. 
 
     Günlük üst sınır ayarlarken dikkatli olun. Amacınız olmalıdır *günlük üst sınır hiç isabet*. Günlük üst sınır ulaşırsanız, günün geri kalanında için veri kaybı ve uygulamanızı izleyemez. Günlük üst sınırını değiştirmek için kullanın **günlük hacim üst sınırını** seçeneği. Bu seçenekte erişebileceğiniz **kullanım ve Tahmini maliyetler** bölmesi (Bu açıklanan makalenin ilerleyen bölümlerinde daha ayrıntılı).
     Kısıtlama için Application Insights kullanılamadı alacak olan bazı abonelik türleri üzerinde kaldırdık. Daha önce abonelik bir harcama limiti varsa, günlük sınır iletişim 32,3 MB/gün oluşturulması günlük üst sınırını etkinleştirebilir ve harcama sınırını kaldırmak için yönergeleri sahiptir.
-* **Azaltma**: veri hızı 32.000 olayları, saniyede ortalama azaltma sınırları izleme anahtarı başına 1 dakika içinde.
+* **Azaltma**: Azaltma sınırları veri hızı, saniyede 32.000 olayları izleme anahtarı başına 1 dakika içinde ortalanır.
 
 *Uygulamamı azaltma oranı aşarsa ne olur?*
 

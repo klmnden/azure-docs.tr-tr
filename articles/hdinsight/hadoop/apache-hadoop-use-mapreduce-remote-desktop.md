@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b8cd389bee98058e5362a217268fb53d6aaf3424
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c0040958cbf748d3eafb3ee60806b064e4e0b1ba
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634490"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435795"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>Uzak Masaüstü kullanarak HDInsight üzerinde Apache Hadoop MapReduce kullanma
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 Bu makalede, HDInsight kümesinde bir Apache Hadoop için Uzak Masaüstü kullanarak bağlanmak ve ardından Hadoop komutunu kullanarak MapReduce işleri çalıştırmak öğreneceksiniz.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Uzak Masaüstü, yalnızca Windows tabanlı HDInsight kümelerinde kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 > HDInsight 3.4 veya büyük bkz [SSH ile MapReduce kullanma](apache-hadoop-use-mapreduce-ssh.md) HDInsight kümesine bağlanma ve MapReduce işleri çalıştırma hakkında bilgi.
@@ -40,7 +40,7 @@ HDInsight kümesi için Masaüstü bağlandığınızda Hadoop komutunu kullanar
 
 1. HDInsight masaüstünden başlatmak **Hadoop komut satırı**. Bu yeni bir komut istemi'nde açılır **c:\apps\dist\hadoop-&lt;sürüm numarası >** dizin.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Hadoop güncelleştirildikçe sürüm numarasını değiştirir. **HADOOP_HOME** ortam değişkeni yolunu bulmak için kullanılabilir. Örneğin, `cd %HADOOP_HOME%` sürüm numarasını bilmeniz gerek kalmadan Hadoop dizinine dizinleri değiştirir.
    >
    >
@@ -94,5 +94,5 @@ HDInsight MapReduce işleri hakkında genel bilgi için:
 
 Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
-* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md)

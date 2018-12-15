@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b429f9dab0411dba599fd696dff3d424916007e0
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4da64f01f3b4f39bd10fd3cb1b67910ffca886b8
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635178"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413277"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure işlevleri için Host.JSON başvurusu 2.x  
 
@@ -96,7 +96,23 @@ Bu makalenin aşağıdaki bölümlerde, her bir üst düzey özellik açıklanma
 
 Bu ayar bir alt öğesidir [günlüğü](#logging).
 
-[!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+Denetimleri [Application ınsights'ta örnekleme özelliği](./functions-monitoring.md#configure-sampling).
+
+```json
+{
+    "applicationInsights": {
+        "samplingSettings": {
+          "isEnabled": true,
+          "maxTelemetryItemsPerSecond" : 5
+        }
+    }
+}
+```
+
+|Özellik  |Varsayılan | Açıklama |
+|---------|---------|---------| 
+|IsEnabled|true|Etkinleştirir veya örnekleme devre dışı bırakır.| 
+|maxTelemetryItemsPerSecond|5|Hangi örnekleme eşiğine başlar.| 
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -185,7 +201,28 @@ Application Insights da dahil olmak üzere, bir işlev uygulaması günlük davr
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Dosya günlük düzeyini etkin tanımlar.  Seçenekler `never`, `always`, `debugOnly`. |
 |LogLevel|yok|Uygulama işlevler için filtreleme günlük kategoriyi tanımlayan nesne. Sürüm 2.x günlük kategorisi filtreleme için ASP.NET Core düzenini izler. Bu sayede belirli işlevleri günlüğünü filtreleyin. Daha fazla bilgi için [günlük filtreleme](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) ASP.NET Core belgelerindeki. |
+|console|yok| [Konsol](#console) günlüğü ayarı. |
 |Applicationınsights|yok| [Applicationınsights](#applicationinsights) ayarı. |
+
+## <a name="console"></a>console
+
+Bu ayar bir alt öğesidir [günlüğü](#logging). Bu, hata ayıklama modunda değil, oturum konsol denetler.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": "false"
+        },
+    ...
+    }
+}
+```
+
+|Özellik  |Varsayılan | Açıklama |
+|---------|---------|---------| 
+|IsEnabled|false|Etkinleştirir veya konsol günlüğü devre dışı bırakır.| 
 
 ## <a name="queues"></a>Kuyruklar
 
