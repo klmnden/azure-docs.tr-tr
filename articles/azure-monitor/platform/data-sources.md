@@ -6,17 +6,18 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: monitoring
+ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: c5035356d9d55298d5b060a3ac2fd3a7cd41f8df
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 1612c2d47f88b6d065e5307be5ff3c99d8f6d405
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385559"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433449"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure İzleyici'de veri kaynakları
 Bu makalede, durumunu ve performansını, kaynakları ve bunlar üzerinde çalışan uygulamaları izlemek için Azure İzleyici tarafından toplanan veri kaynaklarını açıklar. Bu kaynaklara başka bir bulut ya da şirket içi azure'da olabilir.  Bkz: [Azure İzleyici tarafından toplanan veriler](data-collection.md) nasıl görüntüleyebilirsiniz ve bu verilerin nasıl depolandığı ile ilgili ayrıntılar için.
@@ -31,7 +32,7 @@ Azure Active Directory gibi Kiracı genelinde hizmetlerden olmak üzere Azure ki
 ![Azure Kiracı koleksiyonu](media/data-sources/tenant-collection.png)
 
 ### <a name="azure-active-directory-audit-logs"></a>Azure Active Directory denetim günlüklerini
-[Azure Active Directory raporlama](../../active-directory/reports-monitoring/overview-reports.md) oturum açma etkinlik ve denetim izi belirli bir kiracıda yapılan değişikliklerin geçmişini içerir. Bu denetim günlükleri ile diğer günlük verileri çözümlemek için Log analytics'e yazılabilir.
+[Azure Active Directory raporlama](../../active-directory/reports-monitoring/overview-reports.md) oturum açma etkinlik ve denetim izi belirli bir kiracıda yapılan değişikliklerin geçmişini içerir. Bu denetim günlükleri ile diğer günlük verileri çözümlemek için Azure İzleyici günlüklerine yazılır.
 
 
 ## <a name="azure-platform"></a>Azure platformu
@@ -40,12 +41,12 @@ Telemetri, durumunu ve işlem için ilgili Azure kendi Azure aboneliğinizin yö
 ![Azure aboneliği koleksiyon](media/data-sources/azure-collection.png)
 
 ### <a name="azure-service-health"></a>Azure Hizmet Durumu
-[Azure hizmet durumu](../../monitoring-and-diagnostics/monitoring-service-notifications.md) uygulama ve kaynakları kullanır, aboneliğinizdeki Azure hizmetlerinin durumu hakkında bilgi sağlar. Uygulamanızı etkileyebilecek geçerli ve beklenen kritik sorunları size bildirilmesini sağlamak üzere uyarılar oluşturabilirsiniz. Hizmet durumu kayıtları depolanır [Azure etkinlik günlüğü](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), bunları etkinlik günlüğü Gezgini'nde görüntüleyebilir ve bunları Log Analytics'e kopyalayın.
+[Azure hizmet durumu](../../monitoring-and-diagnostics/monitoring-service-notifications.md) uygulama ve kaynakları kullanır, aboneliğinizdeki Azure hizmetlerinin durumu hakkında bilgi sağlar. Uygulamanızı etkileyebilecek geçerli ve beklenen kritik sorunları size bildirilmesini sağlamak üzere uyarılar oluşturabilirsiniz. Hizmet durumu kayıtları depolanır [Azure etkinlik günlüğü](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), bunları etkinlik günlüğü Gezgini'nde görüntüleyebilir ve bunları Azure İzleyici günlüklerine kopyalayın.
 
 ### <a name="azure-activity-log"></a>Azure etkinlik günlüğü
 [Azure etkinlik günlüğü](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) yapılandırma değişiklikleri Azure kaynaklarınıza kayıtları ile birlikte hizmet sistem durumu kayıtları içerir. Etkinlik günlüğü, tüm Azure kaynaklarını ve temsil kullanılabilir kendi _dış_ görünümü. Belirli tür etkinlik günlüğünde kayıt açıklanan [Azure etkinlik günlüğü olay şeması](../../azure-monitor/platform/activity-log-schema.md).
 
-Belirli bir kaynak için etkinlik günlüğü kendi içinde birden çok kaynaktan Azure portalı veya Görünüm günlükleri sayfasında görüntüleyebilirsiniz [etkinlik günlüğü Gezgini](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). İle diğer izleme verilerini birleştirmek için Log Analytics günlük girişlerini kopyalamak özellikle yararlıdır. Ayrıca bunları kullanarak diğer konumlara gönderebilirsiniz [Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
+Belirli bir kaynak için etkinlik günlüğü kendi içinde birden çok kaynaktan Azure portalı veya Görünüm günlükleri sayfasında görüntüleyebilirsiniz [etkinlik günlüğü Gezgini](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Azure İzleyici ile diğer izleme verilerini birleştirmek için günlük girişlerini kopyalamak özellikle yararlıdır. Ayrıca bunları kullanarak diğer konumlara gönderebilirsiniz [Event Hubs](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md).
 
 
 
@@ -56,7 +57,7 @@ Belirli bir kaynak için etkinlik günlüğü kendi içinde birden çok kaynakta
 
 
 ### <a name="metrics"></a>Ölçümler
-Çoğu Azure hizmeti oluşturacağını [platform ölçümleri](data-collection.md#metrics) performans ve işlem yansıtır. Belirli [ölçümleri, her kaynak türü için değişir](../../monitoring-and-diagnostics/monitoring-supported-metrics.md).  Bunlar ölçümleri Explorer'dan erişilebilir ve Log Analytics'e eğilim ve analiz için kopyalanabilir.
+Çoğu Azure hizmeti oluşturacağını [platform ölçümleri](data-collection.md#metrics) performans ve işlem yansıtır. Belirli [ölçümleri, her kaynak türü için değişir](../../azure-monitor/platform/metrics-supported.md).  Bunlar ölçümleri Explorer'dan erişilebilir ve Log Analytics'e eğilim ve analiz için kopyalanabilir.
 
 
 ### <a name="resource-diagnostic-logs"></a>Kaynak tanılama günlükleri
@@ -65,7 +66,7 @@ Etkinlik günlüğü kaynak düzeyinde bir Azure kaynak gerçekleştirilen işle
 Tanılama günlüklerinin Azure portalında doğrudan görüntüleyemiyorum, ancak yapabilecekleriniz [Azure depolama, arşivleme şirketlerde](../../azure-monitor/platform/archive-diagnostic-logs.md) ve bunları dışarı aktarma [olay hub'ı](../../event-hubs/event-hubs-about.md) diğer hizmetlere yönelik yeniden yönlendirme veya [günlüğüne Analytics](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) analiz. Başkalarının edilmeden önce bir depolama hesabına yazma sırasında bazı kaynaklar doğrudan Log Analytics'e yazabilirsiniz [Log Analytics'e içeri](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 
 ### <a name="monitoring-solutions"></a>İzleme Çözümleri
- [İzleme çözümleri](../../azure-monitor/insights/solutions.md) toplama işleminin belirli bir hizmet veya uygulamanın ek Öngörüler sağlar. Bunlar burada olabilir Log Analytics'e veri toplama kullanılarak analiz [sorgu dilini](../../azure-monitor/log-query/log-query-overview.md) veya [görünümleri](../../azure-monitor/platform/view-designer.md) genellikle çözümüne eklenmiş.
+ [İzleme çözümleri](../insights/solutions.md) toplama işleminin belirli bir hizmet veya uygulamanın ek Öngörüler sağlar. Bunlar Azure İzleyici günlüklerine burada olabilir toplamak kullanılarak analiz [sorgu dilini](../log-query/log-query-overview.md) veya [görünümleri](view-designer.md) genellikle çözümüne eklenmiş.
 
 ## <a name="guest-operating-system"></a>Konuk işletim sistemi
 Azure, diğer bulutlarda ve şirket içi bilgi işlem kaynaklarının izlemek için bir konuk işletim sistemi vardır. Bir veya daha fazla aracı yüklemesi ile aynı izleme araçları Azure Hizmetleri ile Konuk telemetri toplayabilir.
@@ -76,10 +77,10 @@ Azure, diğer bulutlarda ve şirket içi bilgi işlem kaynaklarının izlemek i�
 Azure tanılama uzantısı ile günlükleri toplayarak izleme temel bir düzeyde sağlar ve performans verilerini istemci işletim sisteminde Azure işlem kaynakları.   
 
 ### <a name="log-analytics-agent"></a>Log Analytics Aracısı
-Kapsamlı izleme ve yönetim, Windows veya Linux sanal makineleri veya fiziksel bilgisayar ile Log Analytics aracısını teslim. Sanal makineyi Azure, başka bir bulutta veya şirket içinde çalışan ve aracının Log Analytics'e bağlayan doğrudan ya da System Center Operations Manager ile ve veri toplamanızı sağlar [veri kaynakları](../../azure-monitor/platform/agent-data-sources.md) , yapılandırma veya [izleme çözümleri](../../azure-monitor/insights/solutions.md) sanal makinede çalışan uygulamaların ek Öngörüler sağlar.
+Kapsamlı izleme ve yönetim, Windows veya Linux sanal makineleri veya fiziksel bilgisayar ile Log Analytics aracısını teslim. Sanal makineyi Azure, başka bir bulutta veya şirket içinde çalışan ve aracıyı Azure'a bağlar, verileri toplamanıza olanak tanır ve doğrudan ya da System Center Operations Manager ile izleme [veri kaynakları](agent-data-sources.md) , yapılandırma veya [izleme çözümleri](../insights/solutions.md) sanal makinede çalışan uygulamaların ek Öngörüler sağlar.
 
 ### <a name="dependency-agent"></a>Bağımlılık aracısı
-[Hizmet eşlemesi](../insights/service-map.md) ve [VM'ler için Azure İzleyici](../../azure-monitor/insights/vminsights-overview.md) bir bağımlılık aracısını Windows ve Linux sanal makinelerinde gerektirir. Bu topladığı için Log Analytics aracısını dış işlem bağımlılıklarını ve sanal makine üzerinde çalışan işlemler hakkında bulunan verileri tümleşir. Bu veriler, Log Analytics'te depolar ve bulunan birbirine bağlı bileşenleri görselleştirir.  
+[Hizmet eşlemesi](../insights/service-map.md) ve [VM'ler için Azure İzleyici](../insights/vminsights-overview.md) bir bağımlılık aracısını Windows ve Linux sanal makinelerinde gerektirir. Bu topladığı için Log Analytics aracısını dış işlem bağımlılıklarını ve sanal makine üzerinde çalışan işlemler hakkında bulunan verileri tümleşir. Azure İzleyici'de bu verileri depolar ve bulunan birbirine bağlı bileşenleri görselleştirir.  
 
 Ek aracılar ve izleme gereksinimlerinize bağlı olarak kullanmak istediğiniz arasındaki farkları anlamak için bkz [izleme aracıları görünümü](agents-overview.md).
 
@@ -90,7 +91,7 @@ Uygulamanız konuk işletim sistemine yazabilirsiniz telemetri yanı sıra ayrı
 
 
 ### <a name="application-data"></a>Uygulama verileri
-Bir izleme paketi yükleyerek bir uygulama için Application ınsights'ı etkinleştirdiğinizde, ölçüm ve günlükleri performans ve uygulama işlemi ilgili toplar. Bu sayfa görüntülemeleri, uygulama isteklerini ve özel durumları hakkında ayrıntılı bilgi içerir. Application Insights, Azure ölçümleri ve Log Analytics topladığı verileri depolar. Bu verileri analiz etmek için kapsamlı araçlar içerir, ancak, aynı zamanda, ölçüm Gezgini ve günlük aramaları gibi araçları kullanarak diğer kaynaklardan verileri analiz edebilirsiniz.
+Bir izleme paketi yükleyerek bir uygulama için Application ınsights'ı etkinleştirdiğinizde, ölçüm ve günlükleri performans ve uygulama işlemi ilgili toplar. Bu sayfa görüntülemeleri, uygulama isteklerini ve özel durumları hakkında ayrıntılı bilgi içerir. Application Insights, Azure İzleyici'de topladığı verileri depolar. Bu verileri analiz etmek için kapsamlı araçlar içerir, ancak, de, ölçüm analytics ve log analytics gibi araçları kullanarak diğer kaynaklardan verileri analiz edebilirsiniz.
 
 Application ınsights'ı da kullanabilirsiniz [özel bir ölçü oluşturma](../../application-insights/app-insights-api-custom-events-metrics.md).  Bu sayede bir sayısal değer hesaplamak ve ardından bu değeri Ölçüm Gezgini'nde erişilebilen ve kullanılan diğer ölçümlerle saklamak için kendi mantığını tanımlamak üzere [otomatik ölçeklendirme](../../azure-monitor/platform/autoscale-custom-metric.md) ve ölçüm uyarıları.
 
@@ -106,7 +107,7 @@ Standart bir uygulama katmanlarına ek olarak, diğer veri kaynaklarıyla toplan
 ![Özel veri toplama](media/data-sources/custom-collection.png)
 
 ### <a name="data-collector-api"></a>Veri Toplayıcı API’si
-Azure İzleyicisi'ni kullanarak herhangi bir REST istemcisinden günlük verilerini toplayabilir [veri toplayıcı API'sini](../../azure-monitor/platform/data-collector-api.md). Bu, özel izleme senaryoları oluşturmanıza ve diğer kaynakları aracılığıyla telemetri sunmayın kaynaklara izleme genişletmek sağlar.
+Azure İzleyicisi'ni kullanarak herhangi bir REST istemcisinden günlük verilerini toplayabilir [veri toplayıcı API'sini](data-collector-api.md). Bu, özel izleme senaryoları oluşturmanıza ve diğer kaynakları aracılığıyla telemetri sunmayın kaynaklara izleme genişletmek sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

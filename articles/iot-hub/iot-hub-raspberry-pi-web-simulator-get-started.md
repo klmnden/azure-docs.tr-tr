@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: a2d067f71b7b68944e479cfd27c1dbf414762af8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 6844fb9b6e85e77ad9c7a869a989214fffd05ece
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514885"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438753"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Raspberry Pi çevrimiçi simülatör (Node.js) Azure IOT hub'a bağlama
 
@@ -71,7 +71,7 @@ Web benzetici üç alan vardır.
    * **Katlama/genişletme** -sağ tarafta, konsol penceresinde Katlama/genişletmek bir düğme vardır.
 
 > [!NOTE] 
-Raspberry Pi web simülatörü artık Önizleme sürümünde kullanılabilir. Sesinizi de duymak istiyoruz [Gitter odası](https://gitter.im/Microsoft/raspberry-pi-web-simulator). Kaynak kodu public [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
+Raspberry Pi web simülatörü artık Önizleme sürümünde kullanılabilir. Sesinizi de duymak istiyoruz [Gitter odası](https://gitter.im/Microsoft/raspberry-pi-web-simulator). Kaynak kodu public [GitHub](https://github.com/Azure-Samples/raspberry-pi-web-simulator).
 
 ![Pi çevrimiçi simülatör'ne genel bakış](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 

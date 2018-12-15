@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5d64aa8b50cdde23d1bb8980510cfac202204f9a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 11c68b61802f6c7b3755da71c176ea777f171e4c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262463"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409845"
 ---
 # <a name="query-containers-in-azure-cosmos-db"></a>Azure Cosmos DB'de kapsayıcıları sorgulama
 
@@ -20,7 +20,7 @@ Bu makalede bir Azure Cosmos DB’deki kapsayıcının (koleksiyon, grafik, tabl
 
 ## <a name="in-partition-query"></a>Bölüm içi sorgu
 
-Kapsayıcılardaki verileri sorguladığınızda, Azure Cosmos DB sorguyu otomatik olarak filtrede belirtilen bölüm anahtarı değerlerine (varsa) karşılık gelen bölümlere yönlendirir. Örneğin, bu sorgu doğrudan "XMS-0001" bölüm anahtarını içeren bölüme yönlendirilir.
+Belirtilen bir bölüm anahtarı filtresi sorgu varsa, kapsayıcılar, verileri sorguladığınızda, Azure Cosmos DB sorguyu otomatik olarak filtrede belirtilen bölüm anahtarı değerlerine karşılık gelen bölümlere yönlendirir. Örneğin, aşağıdaki sorgu, bölüm anahtarı değeri "XMS-0001" karşılık gelen tüm belgelerin tutan DeviceID bölüme yönlendirilir.
 
 ```csharp
 // Query using partition key into a class called, DeviceReading
@@ -58,9 +58,9 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 
 Aşağıdaki parametreleri ayarlayarak paralel sorgu yürütme işlemini yönetebilirsiniz:
 
-- **MaxDegreeOfParallelism**: Kapsayıcının bölümlerine yönelik eşzamanlı ağ bağlantıları sayısı üst sınırını ayarlar. Bu özelliği -1 olarak ayarlarsanız, paralellik derecesi SDK tarafından yönetilir. MaxDegreeOfParallelism belirtilmezse veya 0 olarak ayarlanırsa, kapsayıcının bölümlerine tek ağ bağlantısı kurulur.
+- **Maxanalyticsunits**: Kapsayıcının bölümleri için en fazla eşzamanlı ağ bağlantı sayısını ayarlar. Bu özelliği -1 olarak ayarlarsanız, paralellik derecesi SDK tarafından yönetilir. MaxDegreeOfParallelism belirtilmezse veya 0 olarak ayarlanırsa, kapsayıcının bölümlerine tek ağ bağlantısı kurulur.
 
-- **MaxBufferedItemCount**: Sorgu gecikme süresiyle istemci tarafı bellek kullanımı arasında denge kurar. Bu seçenek atlanırsa veya -1 olarak ayarlanırsa, paralel sorgu yürütme işlemi sırasında arabelleğe alınan öğelerin sayısı SDK tarafından yönetilir.
+- **MaxBufferedItemCount**: Gecikme süresi ile istemci tarafı bellek kullanımı başardı sorgulayın. Bu seçenek atlanırsa veya -1 olarak ayarlanırsa, paralel sorgu yürütme işlemi sırasında arabelleğe alınan öğelerin sayısı SDK tarafından yönetilir.
 
 Koleksiyonun durumu aynı olduğunda, paralel sorgu sonuçları seri yürütme ile aynı sırada döndürür. Sıralama işleçleri (ORDER BY ve/veya TOP) içeren bir bölümler arası sorgu gerçekleştirirken, Azure Cosmos DB SDK'sı sorguyu bölümler arasında paralel olarak gönderir ve genel olarak sıralanmış sonuçları oluşturmak için sunucu tarafında kısmen sıralanmış sonuçları birleştirir.
 

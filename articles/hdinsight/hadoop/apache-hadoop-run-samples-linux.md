@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: bf1fa41abe1c1f9b0d07ee7d77fe1c819e88ddc1
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f9bafec093a3ad6e26eb12cfdb321945353b4d08
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017629"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434146"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Dahil HDInsight MapReduce örneklerini çalıştırma
 
@@ -25,41 +25,41 @@ HDInsight üzerinde Apache Hadoop ile sunulan MapReduce örneklerini çalıştı
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Bir HDInsight kümesi**: bkz [Linux'ta HDInsight Hive ile Hadoop kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md)
+* **Bir HDInsight kümesi**: Bkz: [Linux'ta HDInsight, Apache Hive, Apache Hadoop kullanmaya başlama](apache-hadoop-linux-tutorial-get-started.md)
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* **Bir SSH istemcisi**: daha fazla bilgi için [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Bir SSH istemcisi**: Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="the-mapreduce-examples"></a>MapReduce örnekleri
 
-**Konum**: örnekleri HDInsight kümesinde bulunan `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
+**Konum**: Örnekleri HDInsight kümesinde bulunan `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
 
-**İçeriği**: Aşağıdaki örnekleri bu Arşiv'de yer alır:
+**İçeriği**: Aşağıdaki örnekler, bu Arşiv'de yer almaktadır:
 
-* `aggregatewordcount`: Bir toplama giriş dosyaları sözcükleri sayar mapreduce programını temel.
-* `aggregatewordhist`: Bir toplama giriş dosyaları bir kelimelerin histogram hesaplayan bir mapreduce programını temel.
-* `bbp`: Pi sayısının tam basamak sayısını hesaplamak için Bailey Borwein Plouffe kullanır bir mapreduce programını.
-* `dbcount`Bir veritabanında depolanan sayfa görüntülemesi günlükleri sayar örnek proje.
-* `distbbp`: Pi sayısının tam BITS hesaplamak için BBP türü formül kullanır bir mapreduce programını.
-* `grep`: Girişteki bir regex eşleşmeleri sayar bir mapreduce programını.
-* `join`: Üzerinde birleştirme gerçekleştirir bir işin sıralanmış, eşit veri kümeleri bölümlenmiş.
-* `multifilewc`: Birden fazla dosyalardan sözcükleri sayar bir proje.
+* `aggregatewordcount`: Toplam giriş dosyaları sözcükleri sayar mapreduce programını temel.
+* `aggregatewordhist`: Toplam giriş dosyaları bir kelimelerin histogram hesaplayan bir mapreduce programını temel.
+* `bbp`: Pi sayısının tam basamak sayısını hesaplamak için Bailey Borwein Plouffe kullanan bir mapreduce programını.
+* `dbcount`: Bir veritabanında depolanan sayfa görüntülemesi günlükleri sayan bir örnek iş.
+* `distbbp`: Pi tam bitlerini işlem BBP türü formülü kullanan bir mapreduce programını.
+* `grep`: Girişteki bir regex eşleşmeleri sayan bir mapreduce programını.
+* `join`: Bir işi sıralanmış, eşit olarak bölünmüş veri kümeleri üzerinde birleştirme gerçekleştirir.
+* `multifilewc`: Bir iş birden fazla dosyalardan sözcükleri sayar.
 * `pentomino`: Bir mapreduce pentomino sorunlara çözümler bulmak için program yerleştirme Döşe.
 * `pi`: Pi benzeri bir Monte kullanarak tahminleri bir mapreduce programını Carlo yöntemi.
-* `randomtextwriter`: Rastgele metin verileri düğüm başına 10 GB Yazar bir mapreduce programını.
-* `randomwriter`: Düğüm başına rastgele veri 10 GB Yazar bir mapreduce programını.
-* `secondarysort`: İkincil bir sıralama azaltın aşamasına tanımlama bir örnek.
-* `sort`: Rastgele yazıcı tarafından yazılan veriler sıralar bir mapreduce programını.
+* `randomtextwriter`: Rastgele metin verileri düğüm başına 10 GB Yazar mapreduce programını.
+* `randomwriter`: Düğüm başına rastgele veri 10 GB Yazar mapreduce programını.
+* `secondarysort`: Bir örnek azaltma aşamasına ikincil sıralama tanımlama.
+* `sort`: Rastgele yazıcı tarafından yazılan veri sıralayan bir mapreduce programını.
 * `sudoku`: Bir sudoku Çözücü.
 * `teragen`: Terasort için veriler oluşturur.
 * `terasort`: Terasort çalıştırın.
 * `teravalidate`: Terasort sonuçlarını denetleniyor.
-* `wordcount`: Giriş dosyaları sözcükleri sayar bir mapreduce programını.
-* `wordmean`: Giriş dosyaları bir kelimelerin ortalama süresi sayar bir mapreduce programını.
-* `wordmedian`: Giriş dosyaları bir kelimelerin ORTANCA uzunluğu sayar bir mapreduce programını.
-* `wordstandarddeviation`: Giriş dosyaları bir kelimelerin uzunluğu standart sapmasını sayar bir mapreduce programını.
+* `wordcount`: Giriş dosyaları sözcükleri sayar mapreduce programını.
+* `wordmean`: Giriş dosyaları bir kelimelerin ortalama süresi sayan bir mapreduce programını.
+* `wordmedian`: Giriş dosyaları bir kelimelerin ORTANCA uzunluğu sayan bir mapreduce programını.
+* `wordstandarddeviation`: Giriş dosyaları bir kelimelerin uzunluğu standart sapmasını hesaplar mapreduce programını.
 
 **Kaynak kodu**: Bu örnekler için kaynak kodu dahil HDInsight kümesinde `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
@@ -95,7 +95,7 @@ HDInsight üzerinde Apache Hadoop ile sunulan MapReduce örneklerini çalıştı
 
     Bu iş öğesinden okumak için giriş `/example/data/gutenberg/davinci.txt`. Bu örnekte depolanan çıktısı `/example/data/davinciwordcount`. Yerel dosya sistemine değil küme için varsayılan depolama alanı her iki yol bulunur.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Wordcount örneği için Yardım'a belirtildiği gibi birden fazla giriş dosyası da belirtebilirsiniz. Örneğin, `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` davinci.txt hem ulysses.txt sözcükleri sayar.
 
 5. İş tamamlandığında, çıkışı görüntülemek için aşağıdaki komutu kullanın:
@@ -171,13 +171,13 @@ Bu örnek, oldukça hızlı bir şekilde çalıştırılabilir böylece büyükl
 
 Bu örnek, üç adet MapReduce programlarını kullanır:
 
-* **TeraGen**: sıralamak için veri satırlarını oluşturan bir MapReduce programını
+* **TeraGen**: Sıralanacak veri satırlarını oluşturan bir MapReduce programını
 
-* **TeraSort**: giriş verileri örnekler ve MapReduce toplam sıralamaya verileri sıralamak için kullanılır
+* **TeraSort**: Giriş verileri örnekler ve MapReduce toplam sıralamaya verileri sıralamak için kullanılır
 
     Özel bir bölümleyici dışında standart MapReduce sıralama TeraSort olur. Her azaltma için anahtar aralığını tanımlamak örneklenen N-1 anahtarların sıralanmış bir bölümleyici kullanır. Özellikle, örneği [i-1] tüm anahtarlar gibi < key = < örnek [i] i azaltmak için gönderilir. Bu bölümleyici çıktısını azaltmak i + 1 değerinden çıkışlarına i azaltmak garanti tüm.
 
-* **TeraValidate**: çıkış genel olarak sıralanmış doğrulayan bir MapReduce programını
+* **TeraValidate**: Çıkış genel olarak sıralanmış doğrulayan bir MapReduce programını
 
     Çıktı dizininde dosya başına bir harita oluşturur ve her eşleme her anahtar Öncekine küçük veya eşit olmasını sağlar. Harita işlevi, her bir dosyanın ilk ve son anahtarların kayıtları oluşturur. Reduce işlevi dosya ilk anahtarını dosyası i-1 son anahtardan daha büyük olmasını sağlar. Herhangi bir sorunu sıralamaya anahtarları ile azaltma aşaması çıkış olarak raporlanır.
 
@@ -209,9 +209,9 @@ Aşağıdaki adımlar, verileri oluşturmak için sıralama ve ardından çıkt�
 
 Bu makalede, Linux tabanlı HDInsight kümeleriyle dahil örneklerini çalıştırma öğrendiniz. HDInsight ile Pig, Hive ve MapReduce kullanma hakkında daha fazla öğreticiler için aşağıdaki konulara bakın:
 
-* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
-* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
-* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Apache Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:apache-hadoop-introduction.md

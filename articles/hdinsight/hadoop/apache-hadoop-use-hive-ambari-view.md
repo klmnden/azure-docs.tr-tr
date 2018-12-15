@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1328119917276b8135c4a6d4188b67bcff2fc069
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632756"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407856"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight, Apache Hadoop ile Apache Ambari Hive görünümünü kullanırsınız.
 
@@ -26,7 +26,7 @@ Apache Ambari Hive görünümünü kullanarak Hive sorguları çalıştırmayı 
 
 * Bir Linux tabanlı Apache Hadoop üzerine HDInsight kümesi sürüm 3.4.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Bir web tarayıcısı
@@ -70,18 +70,18 @@ Apache Ambari Hive görünümünü kullanarak Hive sorguları çalıştırmayı 
 
     Bu deyimler, aşağıdaki eylemleri gerçekleştirin:
 
-   * `DROP TABLE`: Tablo ve veri dosyası siler durumda tablo zaten mevcut.
+   * `DROP TABLE`: Tablo zaten mevcut durumda tablo ve veri dosyalarını siler.
 
    * `CREATE EXTERNAL TABLE`: Yeni bir "dış" Tablo kovanında oluşturur.
    Dış tablolar yalnızca tablo tanımı kovanında depolayın. Verileri özgün konumunda bırakılır.
 
-   * `ROW FORMAT`: Veri nasıl biçimlendirildiğini gösterir. Bu durumda, her günlük alanlar boşlukla ayrılır.
+   * `ROW FORMAT`: Verilerin nasıl biçimlendirildiğini gösterir. Bu durumda, her günlük alanlar boşlukla ayrılır.
 
    * `STORED AS TEXTFILE LOCATION`: Verilerin depolandığı ve metin olarak depolandığını gösterir.
 
    * `SELECT`: Burada ' % s'değeri [Hata] sütunu t4 içeren tüm satırların sayımını seçer.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Bırakın __veritabanı__ seçimde __varsayılan__. Bu belgedeki örneklerde, HDInsight ile dahil varsayılan veritabanı kullanın.
 
 5. Sorgu başlatmak için **yürütme** düğmesinin altında çalışma sayfası. Düğme turuncu olur ve metin değişikliklerini **Durdur**.
@@ -93,7 +93,7 @@ Apache Ambari Hive görünümünü kullanarak Hive sorguları çalıştırmayı 
 
     Kullanabileceğiniz **günlükleri** iş oluşturulan günlük bilgilerini görüntülemek için sekmesinde.
 
-   > [!TIP]
+   > [!TIP]  
    > İndirme veya sonuçlarını kaydetmek **sonuçlarını kaydetmek** üst kısımdaki açılan iletişim kutusunda sol üst **sorgu işleminin sonuçları** bölümü.
 
 ### <a name="visual-explain"></a>Visual açıklayın
@@ -106,7 +106,7 @@ Bir sorgu planı görselleştirmesini görüntülemek için seçin **Visual aç�
 
 Tez kullanıcı Arabirimi için sorguyu görüntülemek için seçin **Tez** sekmesi altında çalışma sayfası.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Tez tüm sorguları çözümlemek için kullanılmaz. Çok sayıda sorgu Tez kullanmadan çözebilirsiniz. 
 
 Tez sorgusunu çözümlemek için kullanıldıysa, yönlendirilmiş Çevrimsiz graf (DAG) görüntülenir. Geçmişte çalıştırma sorgular için DAG görüntülemek istiyorsanız veya Tez işlemde hata ayıklamak isterseniz kullanın [Tez görünümü](../hdinsight-debug-ambari-tez-view.md) yerine.
@@ -129,7 +129,7 @@ Gelen **sorgu** sekmesinde sorguları isteğe bağlı olarak kaydedebilir. Bir s
 
 ![Kaydedilmiş Sorgular sekmesinin resmi](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
-> [!TIP]
+> [!TIP]  
 > Kaydedilmiş Sorgular varsayılan küme depolama alanında depolanır. Kaydedilmiş Sorgular yolunda bulabilirsiniz `/user/<username>/hive/scripts`. Bunlar düz metin depolanır `.hql` dosyaları.
 >
 > Kümeyi silmek, ancak depolama tutmak gibi bir yardımcı program kullanabilirsiniz [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) veya Data Lake Depolama Gezgini (gelen [Azure portalı](https://portal.azure.com)) sorguları alınamıyor.
@@ -165,8 +165,8 @@ Bu gibi durumlarda, UDF ardından sorgunuza kullanabilirsiniz. Örneğin, `SELEC
 
 HDInsight üzerindeki Hive'a UDF'ler kullanarak daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* [Hive ve Pig, HDInsight ile Python kullanma](python-udf-hdinsight.md)
-* [HDInsight için özel bir Hive UDF ekleme](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [Apache Hive ve HDInsight, Apache Pig ile Python kullanma](python-udf-hdinsight.md)
+* [HDInsight için özel bir Apache Hive UDF ekleme](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## <a name="hive-settings"></a>Hive ayarları
 
@@ -176,9 +176,9 @@ Yürütme altyapısı (varsayılan) Tez kovana MapReduce değiştirme gibi çeş
 
 HDInsight üzerindeki Hive'a hakkında genel bilgi için:
 
-* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](hdinsight-use-hive.md)
 
 Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
-* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Apache Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)

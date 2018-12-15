@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 6588d65a4f19c06e3ee4990aba226dbd11119c91
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a86902d772226be136778d200a37c451b7b7e9a5
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016259"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407261"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight’ta ölçeğe göre akış
 
 İçinde hareket olan veriler üzerinde gerçek zamanlı büyük veri çözümleri işlevi görür. Genellikle, bu verileri kendi varış sırasındaki çok değerlidir. Gelen veri akışını o an işlenebilecek miktardan daha büyük hale gelirse, kaynakları kısıtlama gerekebilir. Alternatif olarak, bir HDInsight kümesi isteğe bağlı düğümleri ekleyerek akış çözümünüzü karşılamak için ölçeği artırabilirsiniz.
 
-Akış bir uygulamada, bir veya daha fazla veri kaynağı hızla herhangi yararlı bilgiler bırakmadan alınan gereken olayları (bazen saniye başına milyonlarca) oluşturduğunuzdan. Gelen olayları ile işlenir *akışı arabelleğe alma*ayrıca adlı *olay sıraya alma*, gibi bir hizmet tarafından [Kafka](kafka/apache-kafka-introduction.md) veya [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Ardından olayları topladıktan sonra gerçek zamanlı analiz sisteminde kullanarak verileri çözümleyebilir *akış işleme* gibi katman [Storm](storm/apache-storm-overview.md) veya [Spark akışı](spark/apache-spark-streaming-overview.md). İşlenen verilerin uzun vadeli depolama sistemlerinde gibi depolanabilir [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)ve gibi gerçek zamanlı bir iş zekası Panosu üzerinde görüntülenen [Power BI](https://powerbi.microsoft.com), Tableau veya özel bir web sayfası .
+Akış bir uygulamada, bir veya daha fazla veri kaynağı hızla herhangi yararlı bilgiler bırakmadan alınan gereken olayları (bazen saniye başına milyonlarca) oluşturduğunuzdan. Gelen olayları ile işlenir *akışı arabelleğe alma*ayrıca adlı *olay sıraya alma*, gibi bir hizmet tarafından [Apache Kafka](kafka/apache-kafka-introduction.md) veya [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Ardından olayları topladıktan sonra gerçek zamanlı analiz sisteminde kullanarak verileri çözümleyebilir *akış işleme* gibi katman [Apache Storm](storm/apache-storm-overview.md) veya [Apache Spark akışı](spark/apache-spark-streaming-overview.md). İşlenen verilerin uzun vadeli depolama sistemlerinde gibi depolanabilir [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)ve gibi gerçek zamanlı bir iş zekası Panosu üzerinde görüntülenen [Power BI](https://powerbi.microsoft.com), Tableau veya özel bir web sayfası .
 
 ![HDInsight akış desenleri](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
@@ -39,7 +39,7 @@ Daha fazla bilgi için [Azure HDInsight üzerinde Apache Storm nedir?](storm/apa
 
 Spark Streaming, toplu işlem için kullandığınız aynı kodu yeniden olanak tanıyan Spark uzantısıdır. Batch ve aynı uygulamada etkileşimli sorguları birleştirebilir. Storm farklı olarak, Spark Streaming durum bilgisi olan tam olarak sağlar-bir kez semantiği işlenmesini. İle birlikte kullanıldığında [Kafka doğrudan API](http://spark.apache.org/docs/latest/streaming-kafka-integration.html), hangi tüm Kafka veri alındığında Spark akışı tarafından tam olarak bir kez sağlar, uçtan uca tam olarak elde etmek mümkündür-bir kez garanti eder. Spark akışı'nın güçlü biri kurtarma özelliklerini hataya dayanıklı hatalı düğümleri hızla birden çok düğüm kümede kullanıldığında.
 
-Daha fazla bilgi için [Spark Streaming nedir?](hdinsight-spark-streaming-overview.md).
+Daha fazla bilgi için [Apache Spark Streaming nedir?](hdinsight-spark-streaming-overview.md).
 
 ## <a name="scaling-a-cluster"></a>Küme ölçeklendirme
 
@@ -65,5 +65,5 @@ Apache Spark, uygulama gereksinimlerine bağlı olarak, ortamı yapılandırmak 
 
 * [HDInsight üzerinde Apache Storm ile çalışmaya başlama](storm/apache-storm-tutorial-get-started-linux.md)
 * [HDInsight üzerinde Apache Storm için örnek topolojiler](storm/apache-storm-example-topology.md)
-* [HDInsight üzerinde Spark giriş](spark/apache-spark-overview.md)
+* [HDInsight üzerinde Apache Spark'a giriş](spark/apache-spark-overview.md)
 * [HDInsight üzerinde Apache kafka'yı kullanmaya başlayın](kafka/apache-kafka-get-started.md)

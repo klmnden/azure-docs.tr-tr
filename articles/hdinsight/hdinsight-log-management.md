@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 339d5d39c637369420e197acf65df802cefd5cb9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988504"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434894"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight kümesi için günlükleri yönetme
 
@@ -24,13 +24,13 @@ HDInsight küme günlüklerini yönetme küme ortamında tüm yönleri hakkında
 
 HDInsight günlük Yönetimi'ndeki tipik adımlar şunlardır:
 
-* 1. adım: Belirlemek günlük bekletme ilkeleri
-* 2. adım: Küme hizmeti sürümleri yapılandırma günlüklerini yönetme
-* 3. adım: küme iş yürütme günlük dosyalarını yönetme
-* 4. adım: günlük birim depolama boyutları ve maliyetleri tahmin edin
+* 1. Adım: Günlük bekletme ilkeleri belirleme
+* 2. Adım: Küme hizmeti sürümleri yapılandırma günlüklerini yönetme
+* 3. Adım: Küme iş yürütme günlük dosyalarını yönetme
+* 4. adım: Günlük birim depolama boyutları ve maliyetleri tahmin edin
 * 5. adım: Günlük arşiv ilkeleri ve işlemlerini belirleyin
 
-## <a name="step-1-determine-log-retention-policies"></a>1. adım: Belirlemek günlük bekletme ilkeleri
+## <a name="step-1-determine-log-retention-policies"></a>1. Adım: Günlük bekletme ilkeleri belirleme
 
 Bir HDInsight kümesi günlük yönetimi stratejisi oluşturmanın ilk adımı, iş senaryoları ve iş yürütme geçmişi depolama alanı gereksinimleri hakkında bilgi toplamak sağlamaktır.
 
@@ -51,7 +51,7 @@ Azure portalını kullanarak bu üst düzey bilgilerin çoğunu elde edebilirsin
 ```
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-Bu bilgileri görüntülemek için PowerShell de kullanabilirsiniz.  Daha fazla bilgi için [yönetme Hadoop, Azure PowerShell kullanarak HDInsight kümeleri](hdinsight-administer-use-powershell.md).
+Bu bilgileri görüntülemek için PowerShell de kullanabilirsiniz.  Daha fazla bilgi için [yönetme Apache Hadoop, Azure PowerShell kullanarak HDInsight kümeleri](hdinsight-administer-use-powershell.md).
 
 ### <a name="understand-the-workloads-running-on-your-clusters"></a>Kümeleriniz üzerinde çalışan iş yüklerini anlama
 
@@ -69,9 +69,9 @@ Tasarım uygun stratejiler her türü için günlüğe kaydetme, HDInsight küme
 
 * Nasıl, günlükleri, birden fazla küme veya küme toplayabilir ve bunları denetim, izleme, planlama ve uyarı verme gibi amaçlar için harmanlama göz önünde bulundurun. Erişim ve düzenli olarak, günlük dosyalarını indirin ve birleştirin ve Pano görünen sağlamak için bunları çözümlemek için özel bir çözüm kullanabilirsiniz. Ayrıca, güvenlik veya hata algılama için uyarı vermek için ek özellikler de ekleyebilirsiniz. PowerShell, HDInsight SDK veya Azure Klasik dağıtım modeli erişen bir kod kullanarak bu yardımcı programlar oluşturabilirsiniz.
 
-* İzleme bir çözüm ya da hizmet yararlı bir yararı olup göz önünde bulundurun. Microsoft System Center sağlayan bir [HDInsight Yönetim Paketi](https://www.microsoft.com/download/details.aspx?id=42521). Ayrıca, toplamak ve günlükleri merkezileştirmek için Chukwa ve Ganglia gibi üçüncü taraf araçları da kullanabilirsiniz. Birçok şirket, Hadoop tabanlı büyük veri çözümleri, örneğin Centerity, Compuware APM Sematext SPM ve Zettaset Orchestrator'ı izlemek için hizmetleri sunar.
+* İzleme bir çözüm ya da hizmet yararlı bir yararı olup göz önünde bulundurun. Microsoft System Center sağlayan bir [HDInsight Yönetim Paketi](https://www.microsoft.com/download/details.aspx?id=42521). Ayrıca, toplamak ve günlükleri merkezileştirmek için Apache Chukwa ve Ganglia gibi üçüncü taraf araçları da kullanabilirsiniz. Birçok şirket, Hadoop tabanlı büyük veri çözümleri, örneğin izlemek için hizmetleri sunar: Centerity, Compuware APM, Sematext SPM ve Zettaset Orchestrator.
 
-## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>Adım 2: Küme hizmeti sürümleri yönetmek ve betik eylemi günlüklerini görüntüleme
+## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>2. Adım: Küme hizmeti sürümleri yönetmek ve betik eylemi günlüklerini görüntüleme
 
 Tipik bir HDInsight kümesi, çeşitli hizmetler ve açık kaynak yazılım paketleri (örneğin, Apache HBase, Apache Spark ve diğerleri) kullanır. Bioinformatics gibi bazı iş yükleri için hizmet yapılandırması günlük geçmişi ek iş yürütme günlükleri tutmak için gerekebilir.
 
@@ -91,7 +91,7 @@ Ambari UI kullanarak, belirli bir ana bilgisayar (veya düğüm) kümede çalı�
 
 HDInsight [betik eylemlerini](hdinsight-hadoop-customize-cluster-linux.md) komut dosyaları el ile veya ne zaman belirtilen bir kümede çalışır. Örneğin, betik eylemleri, küme üzerinde ek yazılım yüklemeniz veya varsayılan değerleri aracılığıyla yapılandırma ayarlarınızı değiştirmek için kullanılabilir. Betik Eylem günlükleri, Küme kurulumu sırasında oluşan hataları ve küme performansı ve kullanılabilirliği etkileyebilecek yapılandırma ayarları değişiklikleri öngörü sağlayabilir.  Bir betik eyleminin durumunu görmek için seçin **ops** Ambari UI veya erişim durumu varsayılan depolama hesabında oturum düğmesi. Depolama günlüklerini kullanılabilir `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
 
-## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>3. adım: küme iş yürütme günlük dosyalarını yönetme
+## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>3. Adım: Küme iş yürütme günlük dosyalarını yönetme
 
 Sonraki adım, çeşitli hizmetler için iş yürütme günlük dosyalarını'gözden geçirme.  Apache HBase, Apache Spark ve birçok diğer hizmetleri içerebilir. Hangi günlüklerin yararlıdır (ve desteklenmeyen) belirleyen zaman alıcı olabilir çok sayıda ayrıntılı günlükleri, bir Hadoop kümesi oluşturur.  Günlük sisteminin anlamak için hedeflenen yönetim günlük dosyalarının önemlidir.  Bir örnek günlük dosyası verilmiştir.
 
@@ -136,7 +136,7 @@ YARN ResourceManager kullanıcı Arabirimi, küme baş düğümü üzerinde çal
 2. YARN Hizmetleri soldaki listeden seçin.
 3. Hızlı bağlantılar açılan listeden, küme baş düğümleri seçin ve ardından **ResourceManager günlükleri**. YARN günlükleri yönelik bağlantıların bir listesi sunulur.
 
-## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>4. adım: günlük birim depolama boyutları ve maliyetleri tahmin edin
+## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>4. adım: Günlük birim depolama boyutları ve maliyetleri tahmin edin
 
 Önceki adımları tamamladıktan sonra türleri bir anlayış ve birimler, HDInsight kümesi oluşturmayı günlük dosyalarının vardır.
 
@@ -177,5 +177,5 @@ Günlükler için tek bir merkezi konumda tüm düğümleri toplamak için tüm 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [İzleme ve HDInsight için uygulama günlüğe kaydetme](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Linux tabanlı HDInsight üzerindeki erişim YARN uygulama günlüğü](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Çeşitli Hadoop bileşenleri için günlük dosyalarının boyutunu kontrol etme](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)
+* [Linux tabanlı HDInsight Apache Hadoop YARN uygulama günlüğüne erişimi](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Çeşitli Apache Hadoop bileşenleri için günlük dosyalarının boyutunu kontrol etme](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

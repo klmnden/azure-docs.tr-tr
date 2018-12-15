@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/12/2018
+ms.date: 12/14/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f0c852b0b3de4edcf894d80ae397eae6c8980d49
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 9589281654b74df8527bb7bcf58b0700482c3fed
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240418"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408978"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services'a bağlanmak için istemci kitaplıkları
 
@@ -23,10 +23,10 @@ ms.locfileid: "50240418"
 
 |İndirme  |Ürün sürümü  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.2.39      |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.2.39      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.7.0.2    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.7.0.2     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.2.183      |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.2.183      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.8.0.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.8.0.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO ve ADOMD (NuGet paketlerini)
 
@@ -34,10 +34,10 @@ Analysis Services Management Objects'in (AMO) ve ADOMD istemci kitaplıkları va
 
 |Paket  | Ürün sürümü  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.7.0.2    |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.7.02     |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.8.0.0    |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.8.0.0     |
 
-NuGet paket bütünleştirilmiş kodlarının AssemblyVersion semantic versioning izleyin: önemli. KÜÇÜK. DÜZELTME EKİ. Olsa bile farklı bir sürümünü (MSI yükle sonuçlanır) GAC'deki NuGet başvuruları beklenen sürüm yükleyin. Her sürüm için düzeltme eki artırılır. AMO veya ADOMD sürümleri eşitlenmiş olarak tutulur.
+NuGet paket bütünleştirilmiş kodlarının AssemblyVersion semantic versioning izleyin: BÜYÜK. KÜÇÜK. DÜZELTME EKİ. Olsa bile farklı bir sürümünü (MSI yükle sonuçlanır) GAC'deki NuGet başvuruları beklenen sürüm yükleyin. Her sürüm için düzeltme eki artırılır. AMO veya ADOMD sürümleri eşitlenmiş olarak tutulur.
 
 ## <a name="understanding-client-libraries"></a>İstemci kitaplıkları anlama
 
@@ -55,7 +55,7 @@ Power BI Desktop ve Excel gibi Microsoft istemci uygulamaları, istemci kitaplı
   
  Analysis Services OLE DB sağlayıcısı, araçları ve Analiz Hizmetleri veritabanları erişmek için kullanılan istemci uygulamaları tarafından otomatik olarak yüklenir. Analysis Services verilerine erişmek için kullanılan bilgisayarlara yüklenmesi gerekir.  
   
- OLE DB sağlayıcıları, genellikle bağlantı dizelerini belirtilir. OLE DB sağlayıcısı için başvuruda bulunmak için farklı bir terminoloji bir Analysis Services bağlantı dizesini kullanır: MSOLAP. \<sürüm > .dll.
+ OLE DB sağlayıcıları, genellikle bağlantı dizelerini belirtilir. Bir Analysis Services bağlantı dizesi, OLE DB sağlayıcısı için başvuruda bulunmak için farklı bir terminoloji kullanır: MSOLAP. \<sürüm > .dll.
 
 ### <a name="amo"></a>AMO  
 

@@ -9,26 +9,26 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d29199c5e1534e3f98fbdbb73799840cf9c9e75f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 8bd754533758d2c736e3951e5c7a10f63bb72bd8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633120"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410185"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>PowerShell kullanarak Apache Hive sorguları çalıştırma
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 Bu belgede, HDInsight kümesinde bir Apache Hadoop Hive sorguları çalıştırmak için Azure kaynak grubu moduna Azure PowerShell kullanarak bir örnek sağlar.
 
-> [!NOTE]
-> Bu belgede ayrıntılı açıklamasını örneklerde kullanılan HiveQL ifadelerini ne sağlamaz. Bu örnekte kullanılan HiveQL hakkında daha fazla bilgi için bkz: [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md).
+> [!NOTE]  
+> Bu belgede ayrıntılı açıklamasını örneklerde kullanılan HiveQL ifadelerini ne sağlamaz. Bu örnekte kullanılan HiveQL hakkında daha fazla bilgi için bkz: [HDInsight üzerinde Apache Hadoop ile Hive kullanma Apache](hdinsight-use-hive.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Bir Linux tabanlı Apache Hadoop üzerine HDInsight kümesi sürüm 3.4.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Azure PowerShell ile bir istemci.
@@ -41,13 +41,13 @@ Azure PowerShell sağlar *cmdlet'leri* uzaktan üzerinde HDInsight Hive sorgular
 
 Bir uzak HDInsight kümesinde Hive sorgularının çalıştırılması aşağıdaki cmdlet'ler kullanılır:
 
-* `Connect-AzureRmAccount`: Azure PowerShell, Azure aboneliğiniz için kimlik doğrulaması yapar.
+* `Connect-AzureRmAccount`: Azure PowerShell, Azure aboneliğinize kimliğini doğrular.
 * `New-AzureRmHDInsightHiveJobDefinition`: Oluşturur bir *iş tanımı* belirtilen HiveQL ifadelerini kullanarak.
-* `Start-AzureRmHDInsightJob`: İş tanımı için HDInsight gönderir ve bir iş başlatılır. A *iş* nesne döndürülür.
+* `Start-AzureRmHDInsightJob`: HDInsight için iş tanımını gönderir ve bir iş başlatılır. A *iş* nesne döndürülür.
 * `Wait-AzureRmHDInsightJob`: İş nesnesi, iş durumunu denetlemek için kullanır. Bekleme süresi aşılırsa veya iş tamamlanana kadar bekler.
-* `Get-AzureRmHDInsightJobOutput`: Tanımlı işlemin çıktısını almak için kullanılır.
+* `Get-AzureRmHDInsightJobOutput`: İşin çıktısını almak için kullanılır.
 * `Invoke-AzureRmHDInsightHiveJob`: HiveQL ifadelerini çalıştırmak için kullanılır. Bu cmdlet blokları sorgu tamamlandıktan sonra sonuçları döndürür.
-* `Use-AzureRmHDInsightCluster`: Ayarlar için kullanılacak geçerli küme `Invoke-AzureRmHDInsightHiveJob` komutu.
+* `Use-AzureRmHDInsightCluster`: Geçerli Küme için kullanılacak ayarlar `Invoke-AzureRmHDInsightHiveJob` komutu.
 
 Aşağıdaki adımlarda, HDInsight kümenizin bir işi çalıştırmak için bu cmdlet'leri kullanma gösterilmektedir:
 
@@ -59,7 +59,7 @@ Aşağıdaki adımlarda, HDInsight kümenizin bir işi çalıştırmak için bu 
 
         .\hivejob.ps1
 
-    Komut dosyası çalıştığında, küme için küme adına ve HTTPS/yönetici hesabı kimlik bilgilerini girmeniz istenir. Azure aboneliğinizde oturum açmak için ayrıca istenebilir.
+    Komut dosyası çalıştığında, küme adınızı ve HTTPS/küme yönetici hesabı kimlik bilgilerini girmeniz istenir. Azure aboneliğinizde oturum açmak için ayrıca istenebilir.
 
 3. İş tamamlandığında, bilgileri aşağıdaki metne benzer döndürür:
 
@@ -78,7 +78,7 @@ Aşağıdaki adımlarda, HDInsight kümenizin bir işi çalıştırmak için bu 
         2012-02-03    18:55:54    SampleClass1    [ERROR]    incorrect    id
         2012-02-03    19:25:27    SampleClass4    [ERROR]    incorrect    id
 
-   > [!NOTE]
+   > [!NOTE]  
    > Uzun HiveQL sorgular için Azure PowerShell kullanabilirsiniz **burada dizeler** cmdlet veya HiveQL komut dosyaları. Aşağıdaki kod parçacığını nasıl kullanılacağını gösterir `Invoke-Hive` cmdlet'ini HiveQL komut dosyasını çalıştırın. Wasb için HiveQL komut dosyası karşıya yüklenmelidir: / /.
    >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
@@ -108,9 +108,9 @@ Gördüğünüz gibi Azure PowerShell, bir HDInsight kümesinde Hive sorguları 
 
 HDInsight Hive hakkında genel bilgi için:
 
-* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](hdinsight-use-hive.md)
 
 Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
-* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Apache Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)

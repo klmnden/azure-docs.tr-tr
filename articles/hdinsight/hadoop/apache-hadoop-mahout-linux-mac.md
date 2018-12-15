@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 9e0f614344372d08974bc7592ccb88e7382e4cb4
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017551"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435200"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Apache Hadoop Linux tabanlı HDInsight (SSH) ile Apache Mahout kullanarak film önerileri oluşturma
 
@@ -28,14 +28,14 @@ Mahout olduğu bir [makine öğrenimi] [ ml] Apache Hadoop için kitaplığı. M
 
 * Bir Linux tabanlı HDInsight kümesi. Bir oluşturma hakkında daha fazla bilgi için bkz: [HDInsight içinde Linux tabanlı Hadoop kullanmaya başlama][getstarted].
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Bir SSH istemcisi. Daha fazla bilgi için [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md) belgesine bakın.
 
-## <a name="mahout-versioning"></a>Mahout sürüm oluşturma
+## <a name="apache-mahout-versioning"></a>Apache Mahout sürüm oluşturma
 
-HDInsight içinde Mahout sürümü hakkında daha fazla bilgi için bkz. [HDInsight sürümleri ve Hadoop bileşenleri](../hdinsight-component-versioning.md).
+HDInsight içinde Mahout sürümü hakkında daha fazla bilgi için bkz. [HDInsight sürümleri ve Apache Hadoop bileşenleri](../hdinsight-component-versioning.md).
 
 ## <a name="recommendations"></a>Önerilerini anlama
 
@@ -43,11 +43,11 @@ Mahout tarafından sağlanan işlevlerden birini bir öneri altyapısıdır. Bu 
 
 Aşağıdaki iş akışı film verileri kullanan basitleştirilmiş bir örnektir:
 
-* **Ortak oluşum**: Ali'nin, Alice ve Bob bağlanan tüm *Star Wars*, *geri Empire durumda*, ve *Jedi dönüşü*. Ayrıca bu filmler herhangi biri gibi kullanıcılar diğer iki ister mahout belirler.
+* **Ortak oluşum**: ALi, Alice ve Bob tüm bağlanan *Star Wars*, *geri Empire durumda*, ve *Jedi dönüşü*. Ayrıca bu filmler herhangi biri gibi kullanıcılar diğer iki ister mahout belirler.
 
 * **Ortak oluşum**: Bob ve Gamze ayrıca beğenmediğinizi *hayali İstilası*, *kopyaları saldırısını*, ve *Sith, Revenge*. Önceki üç filmler ayrıca beğenmediğinizi kullanıcılar bu üç filmler ister mahout belirler.
 
-* **Benzerlik öneri**: çünkü Ali'nin ilk üç filmler beğenmediğinizi Mahout beğenmediğinizi benzer tercihleri, başkalarıyla filmleri görünür, ancak Joe olmayan izlenen (beğenmediğinizi/derecelendirilmiş). Bu durumda, Mahout önerir *hayali İstilası*, *kopyaları saldırısını*, ve *Sith, Revenge*.
+* **Benzerlik öneri**: Ali'nin ilk üç filmler beğenmediğinizi çünkü Mahout filmleri beğenmediğinizi benzer tercihleri, başkalarıyla görünür, ancak Joe (beğenmediğinizi/derecelendirilmiş) izlenen değil. Bu durumda, Mahout önerir *hayali İstilası*, *kopyaları saldırısını*, ve *Sith, Revenge*.
 
 ### <a name="understanding-the-data"></a>Verileri anlama
 
@@ -59,8 +59,8 @@ Kullanıcı-ratings.txt içerdiği veri yapısını sahip `userID`, `movieID`, `
 
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
 
 ## <a name="run-the-analysis"></a>Analizini Çalıştır
@@ -71,7 +71,7 @@ Kümeye SSH bağlantısından, öneri işi çalıştırmak için aşağıdaki ko
 mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > İşin tamamlanması birkaç dakika sürebilir ve birden çok MapReduce işleri çalıştırabilirsiniz.
 
 ## <a name="view-the-output"></a>Çıkışı görüntülemek
@@ -188,7 +188,7 @@ Mahout işleri iş işlenirken oluşan geçici veri kaldırmayın. `--tempDir` K
 hdfs dfs -rm -f -r /temp/mahouttemp
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > Komut yeniden çalıştırmak istiyorsanız, çıkış dizinine da silmeniz gerekir. Bu dizini silmek için aşağıdakileri kullanın:
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
@@ -198,8 +198,8 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 Mahout kullanmayı öğrendiniz, HDInsight üzerinde verilerle çalışma için diğer yöntemler keşfedin:
 
-* [HDInsight ile hive](hdinsight-use-hive.md)
-* [HDInsight ile pig](hdinsight-use-pig.md)
+* [Apache Hive ile HDInsight](hdinsight-use-hive.md)
+* [HDInsight ile Apache Pig](hdinsight-use-pig.md)
 * [HDInsight ile MapReduce](hdinsight-use-mapreduce.md)
 
 [build]: https://mahout.apache.org/developers/buildingmahout.html

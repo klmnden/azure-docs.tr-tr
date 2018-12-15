@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: Metni ayıklama - C# SDK'sı - Görüntü İşleme"
+title: "Hızlı Başlangıç: Metin - SDK'sı ayıklamak C# -görüntü işleme"
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta Görüntü İşleme Windows C# istemci kitaplığını kullanarak bir görüntüden metin ayıklayacaksınız.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: pafarley
-ms.openlocfilehash: c1b25db440023618d3d633f9a2b2ebcd5c0a6293
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: c0323c215e83850dc53acd5e350d7eeeeb9a05b1
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852495"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413226"
 ---
-# <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Görüntü İşleme SDK'sı ve C# kullanarak metin ayıklama
+# <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Hızlı Başlangıç: Bilgisayar işleme SDK'sını kullanarak metni ayıklayın veC#
 
 Bu hızlı başlangıçta Görüntü İşleme Windows istemci kitaplığını kullanarak bir görüntüden el yazısı veya basılı metin ayıklayacaksınız.
 
@@ -188,7 +188,7 @@ namespace ExtractText
 
 Başarılı bir yanıt her görüntü için tanınan metin satırlarını görüntüler.
 
-Ham JSON çıktı örneği için bkz: [Hızlı Başlangıç: El yazısı metin ayıklama - REST, C# ](../QuickStarts/CSharp-hand-text.md#examine-the-response).
+Bkz: [hızlı başlangıç: El yazısı metinleri - REST, ayıklamak C# ](../QuickStarts/CSharp-hand-text.md#examine-the-response) ham JSON örneği için çıktı.
 
 ```cmd
 Calling GetHandwritingRecognitionOperationResultAsync()

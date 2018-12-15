@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 42fc92b0cee20679ab72a389cc11522c0ca4e0fd
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e1b4681bc8e42294be6b47a04a24e28f81703e6f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013763"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436866"
 ---
 # <a name="develop-java-mapreduce-programs-for-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hadoop için Java MapReduce programları geliştirme
 
@@ -285,8 +285,8 @@ Bu komut dosyaları, yerel sistemden baş düğüme kopyalar. Daha fazla bilgi i
 
 Bu belgede, bir Java MapReduce işi geliştirme gerçekleştirmeyi öğrendiniz. HDInsight ile çalışmanın diğer yolları için aşağıdaki belgelere bakın.
 
-* [HDInsight ile Hive kullanma](hdinsight-use-hive.md)
-* [HDInsight ile Pig kullanma](hdinsight-use-pig.md)
+* [Apache Hive, HDInsight ile kullanma](hdinsight-use-hive.md)
+* [Apache Pig, HDInsight ile kullanma](hdinsight-use-pig.md)
 * [HDInsight ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
 Daha fazla bilgi için Ayrıca bkz: [Java Geliştirici Merkezi](https://azure.microsoft.com/develop/java/).

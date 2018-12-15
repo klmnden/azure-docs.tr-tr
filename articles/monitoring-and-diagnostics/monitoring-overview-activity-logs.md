@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 9b2566458bc32f9b1d7a36790fbdd5fbb2419ec1
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: debc5ac2771b57fe1a6091ef8dc97291aa11365e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384308"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437052"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -102,7 +102,7 @@ Günlükleri yayan bir aynı abonelikte değil bir depolama hesabına veya olay 
 >  Verileri güvenli bir sanal ağda olduğu bir depolama hesabına şu anda arşivlenemiyor.
 
 > [!WARNING]
-> 1 Kasım 2018'de JSON satırlarına değiştirildi depolama hesabında günlük veri biçimi. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./monitor-diagnostic-logs-append-blobs.md) 
+> 1 Kasım 2018'de JSON satırlarına değiştirildi depolama hesabında günlük veri biçimi. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 

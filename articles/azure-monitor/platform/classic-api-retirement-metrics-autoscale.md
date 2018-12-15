@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: robb
-ms.openlocfilehash: 1ea8fddf2b4e75abba38f011a271aada848a8cb5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ce54b63aa7831ed40a8592d536c43fc83fdc5567
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192201"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433103"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Klasik dağıtım modeli API'lerini Azure İzleyici emeklilik ölçümleri ve otomatik ölçeklendirme
 
@@ -24,7 +24,7 @@ Aynı işlemleri aracılığıyla desteklenen bir Azure Resource Manager API'ler
 
 Otomatik ölçeklendirme Azure portalı üzerinden yönetiyorsanız [yeni Azure İzleyici SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, CLI veya Resource Manager şablonları, herhangi bir eylemi gerekli değildir.  
 
-Azure portalı veya yoluyla çeşitli ölçümleri kullanma, [izleme iş ortağı Hizmetleri](../../monitoring-and-diagnostics/monitoring-partners.md), herhangi bir eylemi gerekli değildir. Microsoft, izleme için yeni API'ler geçirmek için iş ortakları ile çalışmaktadır.
+Azure portalı veya yoluyla çeşitli ölçümleri kullanma, [izleme iş ortağı Hizmetleri](../../azure-monitor/platform/partners.md), herhangi bir eylemi gerekli değildir. Microsoft, izleme için yeni API'ler geçirmek için iş ortakları ile çalışmaktadır.
 
 ## <a name="who-is-affected"></a>Kimler etkilenir
 

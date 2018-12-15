@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 80a2cea90d8d1d2dd43207fa504e601b216714cc
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 6a9f3fcb372606e7f608b5137fb1ed15376d72d9
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343488"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407346"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -135,7 +135,7 @@ Linux için App Service'te çalışan Java uygulamalarını kümesinin aynısın
 
 ### <a name="authenticate-users"></a>Kullanıcıların kimliklerini doğrulama
 
-Uygulama kimlik doğrulaması ile Azure portalında ayarlama **kimlik doğrulama ve yetkilendirme** seçeneği. Burada, Azure Active Directory veya Facebook, Google veya GitHub gibi sosyal oturum açma bilgilerini kullanarak kimlik doğrulamasını etkinleştirebilirsiniz. Azure portal yapılandırması yalnızca tek bir kimlik doğrulama sağlayıcısı yapılandırırken çalışır.  Daha fazla bilgi için [App Service uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma](/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) ve diğer kimlik sağlayıcıları için ilgili makaleler.
+Uygulama kimlik doğrulaması ile Azure portalında ayarlama **kimlik doğrulama ve yetkilendirme** seçeneği. Burada, Azure Active Directory veya Facebook, Google veya GitHub gibi sosyal oturum açma bilgilerini kullanarak kimlik doğrulamasını etkinleştirebilirsiniz. Azure portal yapılandırması yalnızca tek bir kimlik doğrulama sağlayıcısı yapılandırırken çalışır.  Daha fazla bilgi için [App Service uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma](/azure/app-service/configure-authentication-provider-aad) ve diğer kimlik sağlayıcıları için ilgili makaleler.
 
 Birden çok oturum açma sağlayıcısı etkinleştirmeniz gerekirse, yönergeleri izleyin [App Service kimlik doğrulaması özelleştirme](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) makalesi.
 

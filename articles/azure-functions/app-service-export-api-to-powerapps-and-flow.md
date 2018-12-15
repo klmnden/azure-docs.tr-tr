@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: c91508cbd98f18c875411cc7a36f9d71d817fb31
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c9ff4332a10247787e3b11c5508d0d94a1f1c8ba
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997867"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410474"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Azure'da barındırılan bir API'yi PowerApps ve Microsoft Flow için dışarı aktarma
 
@@ -154,7 +154,7 @@ Bir API anahtarı kullanılırken, Bağlayıcınızı kullanıcıları bağlant�
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 Azure AD kullanarak iki Azure AD uygulama kayıtları gerekir: API ve bir özel bağlayıcı için:
 
-- Kayıt için API yapılandırmak için kullanın [App Service kimlik doğrulama/yetkilendirme](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md) özelliği.
+- Kayıt için API yapılandırmak için kullanın [App Service kimlik doğrulama/yetkilendirme](../app-service/configure-authentication-provider-aad.md) özelliği.
 
 - Bağlayıcı kaydını yapılandırmak için adımları [bir Azure AD uygulaması ekleme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). Kayıt API ve bir yanıt URL'si, erişim vermiş olması gerekir `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 

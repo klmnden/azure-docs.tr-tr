@@ -1,5 +1,5 @@
 ---
-title: Linux uygulama performansı Log analytics'te toplamak | Microsoft Docs
+title: Azure İzleyici'de Linux uygulama performansı toplamak | Microsoft Docs
 description: Bu makalede, MySQL ve Apache HTTP Server için performans sayaçları toplamak Linux için Log Analytics aracısını yapılandırmak için ayrıntıları sağlar.
 services: log-analytics
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 03faa393d42f3596aa6b05c4a3afb476c8b9e0a3
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 824d3f2402861ed8a54a29c9571654cc581e4c5e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186523"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434639"
 ---
-# <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Log analytics'te Linux uygulamaları için performans sayaçlarını Topla 
+# <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Azure İzleyici'de Linux uygulamaları için performans sayaçlarını Topla 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-Yapılandırma ayrıntıları bu makalede sağlar [Linux için Log Analytics aracısını](https://github.com/Microsoft/OMS-Agent-for-Linux) belirli uygulamalar için performans sayaçları toplanamadı.  Bu makalede bulunan uygulamalar şunlardır:  
+Yapılandırma ayrıntıları bu makalede sağlar [Linux için Log Analytics aracısını](https://github.com/Microsoft/OMS-Agent-for-Linux) Azure İzleyici günlüklerine belirli uygulamalar için performans sayaçları toplamak için.  Bu makalede bulunan uygulamalar şunlardır:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP Server](#apache-http-server)
@@ -114,7 +114,7 @@ Bu ayrıcalıkları verme aşağıdaki komutları çalıştırarak verilebilir.
 
 ### <a name="define-performance-counters"></a>Performans sayaçları tanımlayın
 
-Verileri Log Analytics'e göndermek Linux için Log Analytics aracısını yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Log analytics'te Windows ve Linux performans veri kaynakları](data-sources-windows-events.md) aşağıdaki tabloda sayaçlarla.
+Azure İzleyici için veri göndermek Linux için Log Analytics aracısını yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Azure İzleyici'de Windows ve Linux performans veri kaynakları](data-sources-performance-counters.md) aşağıdaki tabloda sayaçlarla.
 
 | Nesne Adı | Sayaç Adı |
 |:--|:--|
@@ -150,7 +150,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Performans sayaçları tanımlayın
 
-Verileri Log Analytics'e göndermek Linux için Log Analytics aracısını yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Log analytics'te Windows ve Linux performans veri kaynakları](data-sources-windows-events.md) aşağıdaki tabloda sayaçlarla.
+Azure İzleyici için veri göndermek Linux için Log Analytics aracısını yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Azure İzleyici'de Windows ve Linux performans veri kaynakları](data-sources-performance-counters.md) aşağıdaki tabloda sayaçlarla.
 
 | Nesne Adı | Sayaç Adı |
 |:--|:--|
@@ -168,4 +168,4 @@ Verileri Log Analytics'e göndermek Linux için Log Analytics aracısını yapı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Performans sayaçlarını Topla](data-sources-performance-counters.md) Linux aracılardan.
-* Hakkında bilgi edinin [günlük aramaları](../../azure-monitor/log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 
+* Hakkında bilgi edinin [oturum sorguları](../../log-analytics/log-analytics-queries.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için. 

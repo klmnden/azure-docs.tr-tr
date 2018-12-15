@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: 945cdf63a178a09f121f355aaa7635537e46e5ff
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 4941d893c6c871541772569e42bf5169270def88
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703862"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413566"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>Durum bilgisi olan hizmetler için birim testleri oluşturma
 Birim testi Service Fabric durum bilgisi olan hizmetler mutlaka geleneksel uygulama veya etki alanına özgü birim testi tarafından yakalanabilen değil yaygın hataları açıklığa kavuşturur. Durum bilgisi olan hizmetler için birim testleri geliştirirken akılda tutulması gereken bazı noktalar vardır.
@@ -34,7 +34,7 @@ Bu makalede varsayar [birim Service Fabric durum bilgisi olan hizmetler testi](s
 3.3.0, Sürüm'den itibaren [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) orchestration çoğaltmaları durum yönetimi ve sahte işlem için bir API sağlar. Bu örneklerde kullanılır.
 
 [Nuget](https://www.nuget.org/packages/ServiceFabric.Mocks/)
-[Github](https://github.com/loekd/ServiceFabric.Mocks)
+[GitHub](https://github.com/loekd/ServiceFabric.Mocks)
 
 *ServiceFabric.Mocks değil ait veya Microsoft tarafından korunur. Ancak, şu anda Microsoft kitaplığı birim testi durum bilgisi olan hizmetler için önerilen budur.*
 
@@ -91,7 +91,7 @@ replicaSet.PromoteNewReplicaToPrimaryAsync(4);
 
 //promote the first idle secondary to an active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync();
-//promote idle secodary with replica id 4 to active secondary 
+//promote idle secodary with replica id 4 to active secondary
 PromoteIdleSecondaryToActiveSecondaryAsync(4);
 
 //add a new replica with randomly assigned replica id and promote it to primary
@@ -100,7 +100,7 @@ PromoteNewReplicaToPrimaryAsync()
 PromoteNewReplicaToPrimaryAsync(4)
 ```
 
-## <a name="putting-it-all-together"></a>Hepsini birleştirme
+## <a name="putting-it-all-together"></a>Hepsini bir araya getirme
 Şu test, bir üç düğümlü çoğaltma ayarlama ayarlama ve rol değişiklikten sonra verileri ikincil bölgeden kullanılabilir olduğu doğrulanıyor gösterir. Veri sırasında eklediyseniz bu catch tipik bir sorun olduğunu `InsertAsync` bir şey bellek veya bir güvenilir koleksiyon çalıştırılmadan kaydedilmiş `CommitAsync`. Her iki durumda da ikincil birincil ile eşitlenmemiş olabilir. Hizmet taşındıktan sonra bu tutarsız yanıtlarını sunulmasını sağlar.
 
 ```csharp

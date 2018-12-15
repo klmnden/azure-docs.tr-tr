@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 67d08379d98873fa88ef20b5cc8c87163c067e3a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310462"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409760"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Kimlik doğrulama ve yetkilendirme Azure App Service'te özelliğinin Gelişmiş kullanımı
 
@@ -29,11 +29,11 @@ Hızlıca kullanmaya başlamak için aşağıdaki öğreticilerden birine bakın
 
 * [Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca (Windows) Azure App Service'te yetkilendirme](app-service-web-tutorial-auth-aad.md)
 * [Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca Azure App Service'te Linux için yetkilendirme](containers/tutorial-auth-aad.md)
-* [Uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [Uygulamanızı Facebook oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [Uygulamanızı Google oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-google-authentication.md)
-* [Uygulamanızı Microsoft Hesabı oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [Uygulamanızı Twitter oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [Uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma](configure-authentication-provider-aad.md)
+* [Uygulamanızı Facebook oturum açma bilgilerini kullanacak şekilde yapılandırma](configure-authentication-provider-facebook.md)
+* [Uygulamanızı Google oturum açma bilgilerini kullanacak şekilde yapılandırma](configure-authentication-provider-google.md)
+* [Uygulamanızı Microsoft Hesabı oturum açma bilgilerini kullanacak şekilde yapılandırma](configure-authentication-provider-microsoft.md)
+* [Uygulamanızı Twitter oturum açma bilgilerini kullanacak şekilde yapılandırma](configure-authentication-provider-twitter.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>Oturum açma birden çok sağlayıcı kullanma
 
@@ -183,7 +183,7 @@ Sağlayıcınızın erişim belirtecinin süresi dolduğunda, kullanıcının ye
 - **Google**: Append bir `access_type=offline` sorgu dizesi parametresi, `/.auth/login/google` API çağrısı. Mobile Apps SDK'sı kullanıyorsanız, parametre birine ekleyebileceğiniz `LogicAsync` aşırı yüklemeler (bkz [Google yenileme belirteçleri](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Yenileme belirteçleri sağlamaz. Uzun süreli belirteçlerin süresi 60 gün içinde (bkz [Facebook zaman aşımı ve erişim belirteçleri uzantısı](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
 - **Twitter**: Erişim belirteçleri olmayan süresi (bkz [Twitter OAuth SSS](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
-- **Microsoft hesabı**: Zaman [Microsoft hesabı kimlik doğrulama ayarları yapılandırma](app-service-mobile-how-to-configure-microsoft-authentication.md)seçin `wl.offline_access` kapsam.
+- **Microsoft hesabı**: Zaman [Microsoft hesabı kimlik doğrulama ayarları yapılandırma](configure-authentication-provider-microsoft.md)seçin `wl.offline_access` kapsam.
 - **Azure Active Directory**: İçinde [ https://resources.azure.com ](https://resources.azure.com), aşağıdaki adımları uygulayın:
     1. Sayfanın üst kısmında seçin **okuma/yazma**.
     1. Sol tarayıcıda gidin **abonelikleri** > **_\<abonelik\_adı_**   >  **resourceGroups** > _**\<kaynak\_grubu\_adı >**_   >  **sağlayıcıları** > **Microsoft.Web** > **siteleri** > _**\<uygulama \_adı >**_ > **config** > **authsettings**. 

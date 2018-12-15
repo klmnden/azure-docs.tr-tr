@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 6f5ed4e7ede9a098d69b7a40f44dd60f9b400472
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: fa498c39123e09c212466c900e6000c0138db467
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010999"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413107"
 ---
 # <a name="understand-the-storage-hierarchy-of-azure-netapp-files"></a>Azure NetApp Files’ın depolama hiyerarşisini anlama
 
@@ -35,17 +35,19 @@ Azure NetApp Files’da birim oluşturmadan önce, sağlanan kapasite için bir 
 ## <a name="capacity_pools"></a>Kapasite havuzları
 
 - Kapasite havuzu sağlanan kapasitesiyle ölçülür.  
-- Kapasite, satın aldığınız sabit SKU'lar tarafından sağlanır (örneğin, 4 TB kapasiteli).
+- Kapasite (örneğin, 4 TiB Kapasite) satın alınan sabit SKU'ları tarafından sağlanır.
+- Tek kapasitesi havuzu için en düşük Boyut 4 TiB, ve en büyük boyutu 500 TiB. 
 - Kapasite havuzunda tek bir hizmet düzeyi bulunabilir.  
-  Şu anda yalnızca Premium hizmet düzeyi vardır.
-- Her kapasite havuzu tek bir NetApp hesabına aittir.  
+  Şu anda yalnızca Premium hizmet düzeyi kullanılabilir.
+- Her kapasitesi havuzu, yalnızca bir NetApp hesabına ait olabilir. Ancak, bir NetApp hesabında birden fazla kapasitesi havuzu olabilir.  
 - Kapasite havuzu NetApp hesapları arasında taşınamaz.   
   Örneğin, aşağıdaki [Depolama hiyerarşisi kavramsal diyagramında](#conceptual_diagram_of_storage_hierarchy) Capacity Pool 1 adlı kapasite havuzu US East NetApp hesabından US West 2 NetApp hesabına taşınamaz.  
 
 ## <a name="volumes"></a>Birimler
 
-- Birimler, mantıksal kapasite kullanımıyla ölçülür ve birim başına 100 TB'a kadar ölçeklenebilir.
+- Bir birimi mantıksal kapasite tüketimini ölçülür ve ölçeklenebilir. En küçük boyut tek bir birim için 100 GiB, ve en büyük boyutu 92 TiB.
 - Birimin kapasite kullanımı, havuzunun sağlanan kapasitesinden sayılır.
+-   Bölge başına en fazla Azure aboneliği başına 100 birim olabilir. 
 - Her birim tek bir havuza ait olsa da, bir havuzda birden çok birim olabilir. 
 - Aynı NetApp hesabı içinde, birimi havuzlar arasında taşıyabilirsiniz.    
   Örneğin, aşağıdaki [Depolama hiyerarşisinin kavramsal diyagramında](#conceptual_diagram_of_storage_hierarchy) birimleri Capacity Pool 1'den Capacity Pool 2'ye taşıyabilirsiniz.
@@ -57,7 +59,4 @@ Aşağıdaki örnekte Azure aboneliği, NetApp hesapları, kapasite havuzları v
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-1. [NetApp hesabı oluşturma](azure-netapp-files-create-netapp-account.md)
-2. [Kapasitesi havuzunu ayarlama](azure-netapp-files-set-up-capacity-pool.md)
-3. [Azure NetApp Files için birim oluşturma](azure-netapp-files-create-volumes.md)
-4. [Birim için dışarı aktarma ilkesini yapılandırma (isteğe bağlı)](azure-netapp-files-configure-export-policy.md)
+[NetApp Azure dosyaları için kaydolun](azure-netapp-files-register.md)

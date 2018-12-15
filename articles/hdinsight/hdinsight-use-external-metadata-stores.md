@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 288ee46e9a5741a49ddcec1ef155c6f08b7b6cbc
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9c35a4a811925abaf8dcb64d3e7060bbb1f91cce
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016192"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408332"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight, harici meta veri depolarını kullanma
 
-Hive meta veri deposu HDInsight, Hadoop mimarisi önemli bir parçasıdır. Meta veri deposu, Spark, etkileşimli sorgu (LLAP), Presto veya Pig gibi diğer büyük veri erişim araçları tarafından kullanılabilecek merkezi şema depodur. HDInsight Hive meta veri deposu Azure SQL veritabanı kullanır.
+HDInsight, Apache Hive meta depo, Apache Hadoop mimarisi, önemli bir parçasıdır. Meta veri deposu Apache Spark, etkileşimli sorgu (LLAP), Presto veya Apache Pig gibi diğer büyük veri erişim araçları tarafından kullanılabilecek merkezi şema depodur. HDInsight Hive meta veri deposu Azure SQL veritabanı kullanır.
 
 ![HDInsight Hive meta veri Store mimarisi](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
 
@@ -72,12 +72,12 @@ Meta veri deposu en iyi bazı genel HDInsight Hive şunlardır:
 - Azure HDInsight yeni, daha yüksek bir sürümü mevcut bir özel meta veri deposu veritabanında oluşturulduğunda Sistem meta veri deposu şeması veritabanını yedekten geri olmadan geri alınamaz olduğu yükseltir.
 - Meta veri deposu arasında birden fazla küme paylaşıyorsanız, tüm kümeleri aynı HDInsight sürüm emin olun. Farklı Hive sürümleri, farklı bir meta veri deposu veritabanı şemalarını kullanın. Örneğin, bir meta veri deposu Hive 1.2 ve 2.1 Hive tutulan kümelerinde paylaşamazsınız. 
 
-## <a name="oozie-metastore"></a>Oozie meta veri deposu
+##  <a name="apache-oozie-metastore"></a>Apache Oozie meta veri deposu
 
 Apache Oozie, Hadoop işlerini yöneten bir iş akışı koordinasyon sistemidir.  Oozie Apache MapReduce, Pig, Hive ve diğerleri için Hadoop işlerini destekler.  Oozie meta veri deposu anki ve tamamlanmış iş akışları hakkında bilgi depolamak için kullanır. Oozie kullanırken performansı artırmak için Azure SQL veritabanı özel bir meta veri deposu kullanabilirsiniz. Sonra kümenizi sildiğinizden meta veri deposu Oozie iş verilerine erişim de sağlayabilirsiniz.
 
-Oozie meta veri deposu ile Azure SQL veritabanı oluşturma ile ilgili yönergeler için bkz: [iş akışları için Oozie kullanma](hdinsight-use-oozie-linux-mac.md).
+Oozie meta veri deposu ile Azure SQL veritabanı oluşturma ile ilgili yönergeler için bkz: [kullanım Apache Oozie iş akışları için](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [HDInsight Hadoop, Spark, Kafka ve daha fazlası ile kümelerini ayarlama](./hdinsight-hadoop-provision-linux-clusters.md)
+- [Apache Hadoop, Apache Spark, Apache Kafka ve daha fazlasıyla HDInsight kümelerinde ayarlama](./hdinsight-hadoop-provision-linux-clusters.md)

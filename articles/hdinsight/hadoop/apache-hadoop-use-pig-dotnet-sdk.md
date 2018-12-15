@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0aa45ae807f153e6f1a3fde1d648571b29802dc2
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 721bb93dc259bd2b4cc9f51d8d0d665c9b921128
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632484"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436849"
 ---
 # <a name="run-apache-pig-jobs-using-the-net-sdk-for-apache-hadoop-in-hdinsight"></a>HDInsight, Apache Hadoop için .NET SDK kullanarak Apache Pig işleri çalıştırma
 
@@ -118,11 +118,11 @@ HDInsight .NET SDK'sı .NET istemci kitaplıkları, .NET HDInsight kümeleriyle 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Pig, HDInsight hakkında daha fazla bilgi için bkz: [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md).
+Pig, HDInsight hakkında daha fazla bilgi için bkz: [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md).
 
 HDInsight üzerinde Hadoop kullanmaya ilişkin daha fazla bilgi için aşağıdaki belgelere bakın:
 
-* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
-* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Apache Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/

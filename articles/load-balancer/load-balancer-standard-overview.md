@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 845f991085a4427ab4f4301cab1dc60215374554
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185775"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438770"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer Standard genel bakış
 
@@ -229,7 +229,7 @@ Standart Load Balancer, Yük Dengeleme kuralları yapılandırılmış sayısın
 - Hakkında bilgi edinin [sistem durumu araştırmaları](load-balancer-custom-probe-overview.md).
 - Daha fazla bilgi edinin [kullanılabilirlik](../availability-zones/az-overview.md).
 - Hakkında bilgi edinin [standart yük dengeleyici tanılama](load-balancer-standard-diagnostics.md).
-- Hakkında bilgi edinin [çok boyutlu ölçümler desteklenen](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) tanılama yenilikleri [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md).
+- Hakkında bilgi edinin [çok boyutlu ölçümler desteklenen](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers) tanılama yenilikleri [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md).
 - Kullanma hakkında bilgi edinin [giden bağlantılar için yük dengeleyici](load-balancer-outbound-connections.md).
 - Hakkında bilgi edinin [giden kuralları](load-balancer-outbound-rules-overview.md).
 - Hakkında bilgi edinin [TCP boşta üzerinde sıfırlama](load-balancer-tcp-reset.md).

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6b3299bc93910d1211b0188bdb6639b19302be3c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014464"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437155"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Öğretici: Oturum açma ekranından Azure AD parola sıfırlama
 
@@ -124,6 +124,8 @@ Aşağıdaki ilke ayarlarını parolalarını sıfırlama olanağı müdahale bi
    * Etkin şekilde veya 1 NoLockScreen olan
    * Cihazda EnableLostMode ayarlanır
    * Explorer.exe özel bir kabuk ile değiştirilir
+
+Bu özellik, dağıtılan 802.1 x ağ kimlik doğrulaması ağlarla ve "Kullanıcı oturum açma işleminden hemen önce gerçekleştir" seçeneği için çalışmaz. 802.1 x ağ kimlik doğrulaması dağıtmış olan ağlar için bu özelliği etkinleştirmek için makine kimlik doğrulaması kullanmak için önerilir.
 
 Windows 10 makinelerinizi bir ara sunucu veya güvenlik duvarı arkasında ise, passwordreset.microsoftonline.com ve ajax.aspnetcdn.com adreslerine yönelik HTTPS trafiğine (443) izin verilmelidir.
 

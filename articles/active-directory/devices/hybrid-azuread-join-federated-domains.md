@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: c35c16e1414b1287fa891d1ce1f65ca8eff3d2c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277979"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434962"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Öğretici: Federasyon etki alanları için hibrit Azure Active Directory'ye katılımı yapılandırma
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Öğretici: Federasyon etki alanları için hibrit Azure Active Directory katılımını Yapılandır
 
 Kullanıcıya benzer şekilde bir cihaz, korumak istediğiniz ve her yerde ve zamanda kaynaklarınızı korumak için kullandığınız başka bir kimlik alır. Aşağıdaki yöntemlerden biri ile cihazlarınızın kimliklerini Azure AD'ye getirerek bu hedefi gerçekleştirebilirsiniz:
 
@@ -42,7 +42,7 @@ Bu öğreticide, ADFS kullanılarak federasyon durumuna getirilen cihazlar için
 > * Sorun giderme
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticide, şu konularda bilgi sahibi olduğunuz varsayılır:
 
@@ -53,9 +53,12 @@ Bu öğreticide, şu konularda bilgi sahibi olduğunuz varsayılır:
 -  [Cihazlarınızın hibrit Azure AD'ye katılımını denetleme](hybrid-azuread-join-control.md)
 
 
+
 Bu öğreticide senaryoyu yapılandırmak için şunlar gereklidir:
 
 - AD FS içeren Windows Server 2012 R2
+
+- Bir şirket içi Active Directory (AD) ile bir şema düzeyinde 85 veya sonraki sürümüne yükseltilmesi. Daha fazla bilgi için [Active Directory şemanızı yükseltme](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0 veya sonraki sürümü. 
  
@@ -167,7 +170,7 @@ Windows alt düzey cihazlarını kaydetmek için, cihaz ayarlarının kullanıc�
 
 
     
-Aşağıdaki ilke **Tümü** olarak ayarlanmalıdır: **Kullanıcılar cihazlarını Azure AD ile kaydedebilir**
+Aşağıdaki ilke ayarlanmalıdır **tüm**: **Kullanıcıların cihazlarını Azure AD'ye kaydedebilir**
 
 ![Cihaz kaydetme](./media/hybrid-azuread-join-federated-domains/23.png)
 

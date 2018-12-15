@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 48cb88b9815ba723d93c18caf63f33b50eea850c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e3ae11adf84e858429cba4643802300f7915a166
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009199"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412951"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Azure NetApp dosyalarını kullanarak anlık görüntüleri yönetme
 Bir birim için bir isteğe bağlı anlık görüntü oluşturmak veya yeni bir birim için bir anlık görüntüden geri yükleme için Azure NetApp dosyaları kullanabilirsiniz.
@@ -30,7 +30,7 @@ Yalnızca isteğe bağlı olarak, anlık görüntü oluşturabilirsiniz.  Anlık
 
 2.  Yeni anlık görüntü penceresinde, oluşturmakta olduğunuz yeni anlık görüntü için bir ad sağlayın.   
 
-3. **Tamam**’a tıklayın. 
+3. **Tamam** düğmesine tıklayın. 
 
 
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Yeni bir birim için bir anlık görüntü geri yükleme
@@ -42,30 +42,34 @@ Yalnızca isteğe bağlı olarak, anlık görüntü oluşturabilirsiniz.  Anlık
     ![Yeni birim için anlık görüntü geri yükleme](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 4. Yeni birim penceresinde yeni birimi için bilgileri sağlayın:  
-    * **Adı**   
-        Oluşturmakta olduğunuz birim adını belirtin.  
+    * **Ad**   
+        Oluşturmakta olduğunuz birim için ad belirtin.  
         
-        Adı bir kaynak grubu içinde benzersiz olmalıdır. En az 3 karakter uzunluğunda olmalıdır.  Bunu, herhangi bir alfasayısal karakter kullanabilirsiniz.
+        Ad, kaynak grubu içinde benzersiz olmalıdır. En az üç karakter uzunluğunda olmalıdır.  Tüm alfasayısal karakterler kullanılabilir.
 
     * **Dosya yolu**     
-        Yeni birim dışarı aktarma yolu oluşturmak için kullanılan dosya yolu belirtin. Dışarı aktarma yoluna bağlayın ve birime erişmek için kullanılır.   
+        Yeni birimin dışarı aktarma yolunu oluşturmak için kullanılacak dosya yolunu belirtin. Dışarı aktarma yolu, birimi bağlamak ve birime erişmek için kullanılır.   
         
-        Bir bağlama hedefi NFS hizmeti IP adresi uç noktadır. Otomatik olarak oluşturulur.   
+        Bağlama hedefi, NFS hizmeti IP adresinin uç noktasıdır. Otomatik olarak oluşturulur.   
         
-        Dosya yolu adı harf, rakam ve kısa çizgi içerebilir ("-") yalnızca. 16 ve 40 karakter uzunluğunda olmalıdır. 
+        Dosya yolu adında yalnızca harfler, sayılar ve kısa çizgiler ("-") bulunabilir. 16 ile 40 karakter arası uzunlukta olmalıdır. 
 
     * **Kota**  
         Birime ayrılmış mantıksal depolama miktarını belirtin.  
 
-        **Kullanılabilir kota** alan yeni bir birim oluşturma doğrultusunda kullanabilirsiniz seçilen kapasitesi havuzu kullanılmayan alanı miktarını gösterir. Yeni birim boyutu kullanılabilir kota aşmamalıdır.
+        **Kullanılabilir kota** alanı, yeni birimi oluştururken kullanabildiğiniz, seçilen kapasite havuzundaki kullanılmamış alan miktarını gösterir. Yeni birimin boyutu kullanılabilir kotayı aşamaz.
 
     *   **Sanal ağ**  
-        İçinden birime erişmek istediğiniz Azure sanal ağı (Vnet) belirtin. 
-        
-        Belirttiğiniz sanal ağ, Azure NetApp dosyaları yapılandırılmış olması gerekir. Azure NetApp dosyaları hizmet birimi ile aynı konumda olan bir Vnet erişilebilir.  
+        Birime hangi Azure sanal ağından (Vnet) erişmek istediğinizi belirtin.  
+        Belirttiğiniz sanal ağ, Azure için NetApp dosyaları temsilci bir alt ağ olması gerekir. Azure NetApp dosyaları hizmeti, yalnızca aynı sanal ağda veya bir sanal ağ aynı bölgedeyse Vnet eşlemesi aracılığıyla toplu olarak erişilebilir. Express Route üzerinden şirket içi ağınızdan birimi de erişebilirsiniz. 
 
-    ![Geri yüklenen yeni birim](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
-    
-5. **Tamam**’a tıklayın.   
+    * **Alt ağ**  
+        Birim için kullanmak istediğiniz alt ağ belirtin.  
+        Belirttiğiniz alt ağ Azure NetApp dosyaları hizmetine temsilci gerekir. Seçerek yeni bir alt ağ oluşturabilirsiniz **Yeni Oluştur** alt ağ alanı altında.  
+<!--
+    ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
+-->
+
+5. **Tamam** düğmesine tıklayın.   
     Anlık görüntü geri yüklendikten yeni birim birimleri dikey penceresinde görüntülenir.
 

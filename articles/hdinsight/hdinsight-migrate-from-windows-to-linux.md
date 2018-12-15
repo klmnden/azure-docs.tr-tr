@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3f0c912d1489884e0fef87e495d91486f3b1fc67
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bcaf59e1d9b36dfbb17f1e0b8089cd88e626e2b9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010074"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437138"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows tabanlı HDInsight kümesinden bir Linux tabanlı bir kümeye geçirme
 
 Bu belgede, HDInsight üzerinde Windows ve Linux arasındaki farklar hakkında ayrıntılı bilgi sağlar. Ayrıca var olan iş yükleri için Linux tabanlı küme geçiş yapmaya yönelik rehberlik sağlar.
 
-Windows tabanlı HDInsight bulutunda Hadoop kullanmaya kolay bir yol sağlarken, Linux tabanlı bir kümeye geçirmek gerekebilir. Örneğin, çözümünüz için gerekli olan Linux tabanlı araçları ve teknolojileri yararlanmak için. Pek çok Hadoop ekosistemindeki Linux tabanlı sistemler üzerinde geliştirilen ve Windows tabanlı HDInsight ile kullanmak için kullanılamıyor olabilir. Bir çok kitap, videolar ve diğer eğitim malzemeleri Hadoop ile çalışırken, bir Linux sistem kullandığınız varsayılır.
+Windows tabanlı HDInsight bulutta Apache Hadoop kullanmak için kolay bir yol sağlarken, Linux tabanlı bir kümeye geçirmek gerekebilir. Örneğin, çözümünüz için gerekli olan Linux tabanlı araçları ve teknolojileri yararlanmak için. Pek çok Hadoop ekosistemindeki Linux tabanlı sistemler üzerinde geliştirilen ve Windows tabanlı HDInsight ile kullanmak için kullanılamıyor olabilir. Bir çok kitap, videolar ve diğer eğitim malzemeleri Hadoop ile çalışırken, bir Linux sistem kullandığınız varsayılır.
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight kümeleri kümedeki düğümler için işletim sistemi olarak Ubuntu uzun süreli destek (LTS) kullanın. Sürümü ile HDInsight, Ubuntu, yanı sıra diğer bileşen sürümü oluşturma bilgiler hakkında daha fazla bilgi için bkz: [HDInsight bileşen sürümü](hdinsight-component-versioning.md).
 
 ## <a name="migration-tasks"></a>Geçiş görevleri
@@ -82,7 +82,7 @@ Verileri üretim kümeden test kümeye kopyalamak için aşağıdaki adımları 
     hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Verileri içeren dizin yapısı test ortamı mevcut değilse aşağıdaki komutu kullanarak oluşturabilirsiniz:
 
     ```bash
@@ -97,7 +97,7 @@ Alternatif olarak kullanmak isteyebilirsiniz `Start-AzureStorageBlobCopy` HDInsi
 
 ## <a name="client-side-technologies"></a>İstemci tarafı teknolojileri
 
-Gibi istemci tarafı teknolojilerin [Azure PowerShell cmdlet'lerini](/powershell/azureps-cmdlets-docs), [Klasik Azure CLI'yı](../cli-install-nodejs.md), veya [Hadoop için .NET SDK'sı](https://hadoopsdk.codeplex.com/) Linux tabanlı kümeler çalışmaya devam eder. Bu teknolojiler arasında her iki küme işletim sistemi türleri aynı olan REST API'lerini kullanır.
+Gibi istemci tarafı teknolojilerin [Azure PowerShell cmdlet'lerini](/powershell/azureps-cmdlets-docs), [Klasik Azure CLI'yı](../cli-install-nodejs.md), veya [Apache Hadoop için .NET SDK'sı](https://hadoopsdk.codeplex.com/) Linux tabanlı kümeler çalışmaya devam eder. Bu teknolojiler arasında her iki küme işletim sistemi türleri aynı olan REST API'lerini kullanır.
 
 ## <a name="server-side-technologies"></a>Sunucu tarafı teknolojileri
 
@@ -110,7 +110,7 @@ Aşağıdaki tabloda, Windows özgü olan geçirme sunucu tarafı bileşenleri r
 | **.NET bileşenleri** |.NET üzerinde Linux tabanlı HDInsight ile desteklenen [Mono](https://mono-project.com). Daha fazla bilgi için [geçirme .NET çözümlerini Linux tabanlı HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md). |
 | **Win32 bileşenlerini veya diğer yalnızca Windows teknolojileri** |Bileşen veya teknoloji Kılavuzu bağlıdır. Linux ile uyumlu bir sürümünü bulamıyor olabilir. Değilse, alternatif bir çözüm bulmak veya bu bileşeni yeniden yazın. |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight Yönetimi SDK'sı Mono ile tam olarak uyumlu değildir. HDInsight kümesi için dağıtılan çözümlerin bir parçası olarak kullanmayın.
 
 ## <a name="cluster-creation"></a>Küme oluşturma
@@ -133,7 +133,7 @@ Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-
 
 Başka bir özelleştirme özelliği **önyükleme**. Bu özellik Windows kümeleri için Hive'ı kullanmak için ek kitaplıklar konumunu belirtmenize olanak sağlar. Küme oluşturulduktan sonra bu kitaplıkları otomatik olarak kullanmak zorunda kalmadan Hive sorguları ile kullanılabilir `ADD JAR`.
 
-Linux tabanlı kümeler için önyükleme özelliği bu işlevsellik sağlamaz. Bunun yerine, belirtilmiştir betik eylemi kullanın [ekleme Hive kitaplıkları küme oluşturma sırasında](hdinsight-hadoop-add-hive-libraries.md).
+Linux tabanlı kümeler için önyükleme özelliği bu işlevsellik sağlamaz. Bunun yerine, belirtilmiştir betik eylemi kullanın [ekleyin, Apache Hive kitaplıkları küme oluşturma sırasında](hdinsight-hadoop-add-hive-libraries.md).
 
 ### <a name="virtual-networks"></a>Sanal Ağlar
 
@@ -143,18 +143,18 @@ Yapılandırma gereksinimleri hakkında daha fazla bilgi için bkz. [kullanarak 
 
 ## <a name="management-and-monitoring"></a>Yönetim ve izleme
 
-Ambari kullanılabilen birçok web kullanıcı arabirimleri, iş geçmişi ya da Yarn UI gibi Windows tabanlı HDInsight ile kullanmış olabilirsiniz. Ayrıca, Ambari Hive görünümünü web tarayıcınızı kullanarak Hive sorguları çalıştırmak için bir yol sağlar. Ambari Web kullanıcı arabirimini Linux tabanlı kümelerde kullanılabilir https://CLUSTERNAME.azurehdinsight.net.
+Birçok web kullanıcı arabirimleri, iş geçmişi ya da Yarn UI gibi Windows tabanlı HDInsight ile kullanmış olabilirsiniz, Apache Ambari kullanılabilir. Ayrıca, Ambari Hive görünümünü web tarayıcınızı kullanarak Hive sorguları çalıştırmak için bir yol sağlar. Ambari Web kullanıcı arabirimini Linux tabanlı kümelerde kullanılabilir https://CLUSTERNAME.azurehdinsight.net.
 
 Ambari ile çalışma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
-* [Ambari Web](hdinsight-hadoop-manage-ambari.md)
-* [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Apache Ambari Web](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari REST API'si](hdinsight-hadoop-manage-ambari-rest-api.md)
 
 ### <a name="ambari-alerts"></a>Ambari uyarıları
 
 Ambari, küme olası sorunları size söyleyebilir bir uyarı sistemine sahiptir. Ayrıca bunları REST API aracılığıyla alabilir ancak uyarılar Ambari Web kullanıcı arabiriminde, kırmızı veya sarı girişleri olarak görünür.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ambari uyarıları belirtin, burada *olabilir* bir sorun, burada *olduğu* sorun. Örneğin, normalde erişimi olsa da HiveServer2 erişilemeyeceğini bir uyarı alabilirsiniz.
 >
 > Çok sayıda uyarı aralığı tabanlı sorgular karşı bir hizmet olarak uygulanır ve belirli bir zaman çerçevesi içinde bir yanıt bekler. Uyarı hizmetinin kapalı olduğunu mutlaka gelmez şekilde, BT beklenen zaman çerçevesi içindeki sonuç döndürmedi.
@@ -176,30 +176,30 @@ Genel olarak, dosya adını biliyorsanız, dosya yolunu bulmak için bir SSH otu
 
 Ayrıca, dosya adı ile joker karakterler kullanabilirsiniz. Örneğin, `find / -name *streaming*.jar 2>/dev/null` 'dosya adının bir parçası olarak akış' sözcüğünü içeren tüm jar dosyalarının yolunu döndürür.
 
-## <a name="hive-pig-and-mapreduce"></a>Hive, Pig ve MapReduce
+## <a name="apache-hive-apache-pig-and-mapreduce"></a>Apache Hive, Apache Pig ve MapReduce
 
 Pig ve MapReduce iş yüklerini, Linux tabanlı kümelerde benzerdir. Ancak, Linux tabanlı HDInsight kümeleri, Hadoop, Hive ve Pig daha yeni sürümleri kullanılarak oluşturulabilir. Bu sürümü farkları nasıl değişikliklere neden olabilir, mevcut çözümleri işlevi. HDInsight ile eklenen bileşenlerin sürümlerini hakkında daha fazla bilgi için bkz. [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md).
 
 Linux tabanlı HDInsight, uzak masaüstü işlevselliğini sağlamaz. Bunun yerine, küme baş düğümlerine uzaktan bağlanmak için SSH kullanabilirsiniz. Daha fazla bilgi için aşağıdaki belgelere bakın:
 
-* [SSH ile Hive kullanma](hdinsight-hadoop-use-hive-ssh.md)
-* [SSH ile Pig kullanma](hadoop/apache-hadoop-use-pig-ssh.md)
+* [Apache Hive ile SSH kullanma](hdinsight-hadoop-use-hive-ssh.md)
+* [Apache Pig ile SSH kullanma](hadoop/apache-hadoop-use-pig-ssh.md)
 * [SSH ile MapReduce kullanma](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### <a name="hive"></a>Hive
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bir dış Hive meta veri deposu kullanıyorsanız, Linux tabanlı HDInsight ile kullanmadan önce meta veri deposu yedeklemelisiniz. Linux tabanlı HDInsight uyumsuzluklar sahip olabilecek Hive daha yeni sürümleriyle kullanılabilir ile önceki sürümleriyle oluşturulan meta depolar.
 
 Aşağıdaki grafikte, Hive iş yüklerinizi geçirme hakkında yönergeler sağlar.
 
 | Üzerinde Windows tabanlı kullanmam... | Linux tabanlı... |
 | --- | --- |
-| **Hive Düzenleyicisi** |[Ambari, Hive görünümü](hadoop/apache-hadoop-use-hive-ambari-view.md) |
-| `set hive.execution.engine=tez;` Tez etkinleştirme |Tez Linux tabanlı kümeler için varsayılan yürütme altyapısı olduğundan set deyimi artık gerekli değildir. |
+| **Hive Düzenleyicisi** |[Apache Ambari görünümünde Hive](hadoop/apache-hadoop-use-hive-ambari-view.md) |
+| `set hive.execution.engine=tez;` Tez etkinleştirme |Apache Tez Linux tabanlı kümeler için varsayılan yürütme altyapısı olduğundan set deyimi artık gerekli değildir. |
 | C# kullanıcı tanımlı işlevler | Linux tabanlı HDInsight ile C# bileşenleri doğrulama hakkında daha fazla bilgi için bkz: [geçirme .NET çözümlerini Linux tabanlı HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD dosyaları veya betikleri bir Hive işi bir parçası olarak çağrılan sunucuda |Bash betiklerini kullanma |
-| `hive` Uzak Masaüstü komutu |Kullanım [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) veya [Hive bir SSH oturumundan](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` Uzak Masaüstü komutu |Kullanım [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) veya [Apache Hive bir SSH oturumundan](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -215,9 +215,9 @@ Aşağıdaki grafikte, Hive iş yüklerinizi geçirme hakkında yönergeler sağ
 | C# bileşenleri Eşleyici ve Azaltıcı | Linux tabanlı HDInsight ile C# bileşenleri doğrulama hakkında daha fazla bilgi için bkz: [geçirme .NET çözümlerini Linux tabanlı HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD dosyaları veya betikleri bir Hive işi bir parçası olarak çağrılan sunucuda |Bash betiklerini kullanma |
 
-## <a name="oozie"></a>Oozie
+## <a name="apache-oozie"></a>Apache Oozie
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Dış Oozie meta depo kullanırsanız, Linux tabanlı HDInsight ile kullanmadan önce meta veri deposu yedeklemelisiniz. Linux tabanlı HDInsight uyumsuzluklar sahip olabilecek Oozie daha yeni sürümleriyle kullanılabilir ile önceki sürümleriyle oluşturulan meta depolar.
 
 Oozie ile iş akışlarını Kabuğu Eylemler izin verir. Kabuk Eylemler, komut satırı komutlarını çalıştırmak için işletim sistemi için varsayılan kabuğunu kullanın. Windows Kabuğu kullanan Oozie iş akışları varsa, Linux Kabuk ortamını (Bash) yararlanmayı iş akışlarını yeniden yazmanız gerekir. Kabuk Eylemler ile Oozie kullanma hakkında daha fazla bilgi için bkz. [Oozie Kabuk eylem uzantısı](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
@@ -228,15 +228,15 @@ Bir C# uygulaması kullanan bir iş akışı varsa, bu uygulamaların bir Linux 
 
 | Üzerinde Windows tabanlı kullanmam... | Linux tabanlı... |
 | --- | --- |
-| Storm Panosu |Storm panosunu kullanılamıyor. Bkz: [Linux tabanlı HDInsight üzerinde dağıtma ve yönetme Storm topolojileri](storm/apache-storm-deploy-monitor-topology-linux.md) topolojileri göndermek yöntemleri |
+| Storm Panosu |Storm panosunu kullanılamıyor. Bkz: [Linux tabanlı HDInsight üzerinde dağıtma ve yönetme Apache Storm topolojilerini](storm/apache-storm-deploy-monitor-topology-linux.md) topolojileri göndermek yöntemleri |
 | Storm kullanıcı Arabirimi |Storm kullanıcı arabirimini kullanılabilir https://CLUSTERNAME.azurehdinsight.net/stormui |
 | Oluşturmanıza, dağıtmanıza ve C# veya karma topolojileri izleyip yönetmek için visual Studio |Visual Studio oluşturmanıza, dağıtmanıza ve C# (SCP.NET) ya da Linux tabanlı HDInsight üzerinde Storm üzerinde karma topolojiler yönetmek için kullanılabilir. Yalnızca, 10/28/2016'dan sonra oluşturulan kümeleri ile de kullanılabilir. |
 
-## <a name="hbase"></a>HBase
+## <a name="apache-hbase"></a>Apache HBase
 
 HBase için znode üst Linux tabanlı kümelerde `/hbase-unsecure`. Bu değer yerel HBase Java API kullanan uygulamalardan herhangi bir Java istemci yapılandırmasını ayarlayın.
 
-Bkz: [bir Java tabanlı HBase uygulaması](hdinsight-hbase-build-java-maven.md) bu değeri ayarlayan bir örnek istemci için.
+Bkz: [bir Java tabanlı Apache HBase uygulaması](hdinsight-hbase-build-java-maven.md) bu değeri ayarlayan bir örnek istemci için.
 
 ## <a name="spark"></a>Spark
 
@@ -261,7 +261,7 @@ Küme düğümleri üzerinde çalışan bir komut dosyası için bitiş satırı
 
 Betikleri katıştırılmış CR karakterler içeren dizeleri içermiyorsa, aşağıdaki yöntemlerden birini kullanarak satır sonlarını değişiklik topluca ekleyebilirsiniz:
 
-* **Kümeye karşıya yüklemeden önce**: satır sonlarını, kümeye betiği karşıya yüklemeden önce LF için CRLF değiştirmek için aşağıdaki PowerShell ifadeleri kullanın.
+* **Kümeye karşıya yüklemeden önce**: Satır sonlarını, kümeye betiği karşıya yüklemeden önce LF için CRLF değiştirmek için aşağıdaki PowerShell ifadeleri kullanın.
 
     ```powershell
     $original_file ='c:\path\to\script.py'
@@ -269,7 +269,7 @@ Betikleri katıştırılmış CR karakterler içeren dizeleri içermiyorsa, aşa
     [IO.File]::WriteAllText($original_file, $text)
     ```
 
-* **Kümeye karşıya yükledikten sonra**: komut dosyasını değiştirmek için Linux tabanlı küme için bir SSH oturumunda aşağıdaki komutu kullanın.
+* **Kümeye karşıya yükledikten sonra**: Komut dosyasını değiştirmek için Linux tabanlı küme için bir SSH oturumunda aşağıdaki komutu kullanın.
 
     ```bash
     hdfs dfs -get wasb:///path/to/script.py oldscript.py
@@ -281,4 +281,4 @@ Betikleri katıştırılmış CR karakterler içeren dizeleri içermiyorsa, aşa
 
 * [Linux tabanlı HDInsight kümeleri oluşturmayı öğrenin](hdinsight-hadoop-provision-linux-clusters.md)
 * [HDInsight için bağlanmak için SSH kullanın](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [Ambari kullanarak Linux tabanlı küme yönetme](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari kullanarak Linux tabanlı küme yönetme](hdinsight-hadoop-manage-ambari.md)

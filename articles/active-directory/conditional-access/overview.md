@@ -14,19 +14,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2673a0ec1e9ed66c9a1bb6e369ad5300a570ba0a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f0ba365096808954c24beb073f3570499fd23523
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240452"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408285"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim nedir?
 
 Bulutu kullanan kuruluşlar için en önemli konu güvenliktir. Bulut kaynaklarınızı yönetmek söz konusu olduğunda, bulut güvenliğinin temel etmenlerinden biri güvenlik ve kimliktir. Mobil ve bulut öncelikli bir dünyada kullanıcılar, kuruluşunuzun kaynaklarına erişmek için farklı konumlardan farklı cihazlar ve uygulamalar kullanabilir. Bunun sonucunda artık yalnızca bir kaynağa erişim sağlayabilecek kullanıcılara odaklanmak yeterli değildir. Güvenlik ve üretkenlik arasındaki dengeyi kurmak için, erişim denetimi kararı sırasında bir kaynağa erişim şeklini de dikkate almanız gerekir. Azure Active Directory (Azure AD) koşullu erişim ile bu gereksinimleri karşılayabilirsiniz. Koşullu erişim, Azure Active Directory tarafından sunulan bir özelliktir. Koşullu erişim sayesinde, bulut uygulamalarınıza erişim sağlamak için koşullara bağlı otomatik erişim denetimi kararları uygulayabilirsiniz. 
+
+Koşullu erişim ilkeleri, ilk-faktörlü kimlik doğrulaması tamamlandıktan sonra uygulanır. Diğer bir deyişle, koşullu erişim, örneğin sayaç ölçüsü hizmet reddi (DoS) saldırıları için bir mekanizma olarak tasarlanmamıştır.  
 
 ![Denetim](./media/overview/81.png)
 
@@ -47,15 +49,20 @@ Erişim konusunda sıkça akla takılan ve koşullu erişimin yardımcı olabile
 
 
 
-- **[Oturum açma riski](conditions.md#sign-in-risk)**: Azure AD Identity Protection, oturum açma risklerini algılar. Oturum açma riskinin kötü niyetli bir kullanıcıyı işaret ettiği durumda erişimi nasıl sınırlarsınız? Oturumun açma işleminin doğru kullanıcı tarafından gerçekleştirilmiş olduğuna dair daha kuvvetli bir kanıta ihtiyaç duyarsanız ne olur? Şüpheleriniz, belirli kullanıcıların bir uygulamaya erişimini engelleyecek kadar kuvvetliyse ne yapmalısınız?  
+- **[Oturum açma riski](conditions.md#sign-in-risk)**: Azure AD kimlik koruması, oturum açma riskleri algılar. Oturum açma riskinin kötü niyetli bir kullanıcıyı işaret ettiği durumda erişimi nasıl sınırlarsınız? Oturumun açma işleminin doğru kullanıcı tarafından gerçekleştirilmiş olduğuna dair daha kuvvetli bir kanıta ihtiyaç duyarsanız ne olur? Şüpheleriniz, belirli kullanıcıların bir uygulamaya erişimini engelleyecek kadar kuvvetliyse ne yapmalısınız?  
 
-- **[Ağ konumu](location-condition.md)**: Azure AD'ye her yerden erişim sağlanabilir. BT departmanınızın denetimi altında olmayan bir ağ konumundan erişim girişimi gerçekleştirilirse ne olur? Kullanıcı adı ve parola bileşimi, kuruluş ağınızdan yapılan erişim denemelerinde kimliğinizi kanıtlamaya yeterli olabilir. Peki dünya üzerindeki diğer beklenmeyen ülkelerden veya bölgelerden başlatılan erişim girişimleri için daha kuvvetli bir kimlik kanıtına ihtiyaç duyuyorsanız? Belirli konumlardan erişim girişimlerini tamamen engellemek isterseniz ne yapmalısınız?  
+- **[Ağ konumu](location-condition.md)**: Azure AD her yerden erişilebilir. BT departmanınızın denetimi altında olmayan bir ağ konumundan erişim girişimi gerçekleştirilirse ne olur? Kullanıcı adı ve parola bileşimi, kuruluş ağınızdan yapılan erişim denemelerinde kimliğinizi kanıtlamaya yeterli olabilir. Peki dünya üzerindeki diğer beklenmeyen ülkelerden veya bölgelerden başlatılan erişim girişimleri için daha kuvvetli bir kimlik kanıtına ihtiyaç duyuyorsanız? Belirli konumlardan erişim girişimlerini tamamen engellemek isterseniz ne yapmalısınız?  
 
-- **[Cihaz yönetimi](conditions.md#device-platforms)**: Azure AD'de kullanıcılar bulut uygulamalarına mobil ve kişisel cihazlar dahil olmak üzere çok çeşitli cihazlardan erişebilir. Peki ya erişim denemelerinin yalnızca BT departmanınız tarafından yönetilen cihazlardan gerçekleştirilmesini isterseniz? Peki ya belirli cihaz türlerinin ortamınızdaki bulut uygulamalarına erişmesini engellemek isterseniz? 
+- **[Cihaz Yönetimi](conditions.md#device-platforms)**: Azure AD'de, bulut uygulamaları dahil olmak üzere mobil cihazları hem de kişisel cihazları geniş aralığından kullanıcılar erişebilir. Peki ya erişim denemelerinin yalnızca BT departmanınız tarafından yönetilen cihazlardan gerçekleştirilmesini isterseniz? Peki ya belirli cihaz türlerinin ortamınızdaki bulut uygulamalarına erişmesini engellemek isterseniz? 
 
-- **[İstemci uygulaması](conditions.md#client-apps)**: Günümüzde web tabanlı uygulamalar, mobil uygulamalar veya masaüstü uygulamaları gibi farklı uygulama türü kullanan birçok bulut uygulamasına erişmek mümkün. Peki bilinen sorunlara yol açan türde bir istemci uygulaması kullanılarak erişim girişimi gerçekleştirilirse ne olur? Belirli uygulama türleri için BT departmanınız tarafından yönetilen bir cihazı şart koşmak istiyorsanız ne yapmalısınız? 
+- **[İstemci uygulaması](conditions.md#client-apps)**: Günümüzde, çok sayıda bulut uygulamaları, web tabanlı uygulamalar, mobil uygulamalar ve Masaüstü uygulamaları gibi farklı uygulama türlerini kullanarak erişebilirsiniz. Peki bilinen sorunlara yol açan türde bir istemci uygulaması kullanılarak erişim girişimi gerçekleştirilirse ne olur? Belirli uygulama türleri için BT departmanınız tarafından yönetilen bir cihazı şart koşmak istiyorsanız ne yapmalısınız? 
 
 Bu sorular ve yanıtları, Azure AD koşullu erişim özelliğinin yaygın erişim senaryolarını oluşturmaktadır. Azure Active Directory'nin koşullu erişim özelliği, senaryoları ilke tabanlı bir yaklaşımla ele almanızı sağlar.
+
+  
+
+
+> [!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
 
 
 ## <a name="conditional-access-policies"></a>Koşullu erişim ilkeleri
@@ -69,9 +76,9 @@ Koşullu erişim ilkesi, aşağıdaki modeli kullanan bir erişim senaryosunun t
 
 **Bu ortaya çıktığında**, ilkenizin tetiklenme nedenini tanımlar. Neden, karşılanan bir koşul grubu ile belirlenir. Azure AD koşullu erişim özelliğinde iki atama koşulu özel bir role sahiptir:
 
-- **[Kullanıcılar](conditions.md#users-and-groups)**: Erişim girişiminde bulunan kullanıcılar (**Kim**). 
+- **[Kullanıcılar](conditions.md#users-and-groups)**: Erişim denemesi gerçekleştiren kullanıcıları (**kimin**). 
 
-- **[Bulut uygulamaları](conditions.md#cloud-apps)**: Erişim girişiminin hedefi (**Ne**).    
+- **[Bulut uygulamaları](conditions.md#cloud-apps)**: Erişim denemesi hedefleri (**ne**).    
 
 Bu iki koşulun, koşullu erişim ilkesinde kullanılması zorunludur. Bu iki zorunlu koşula ek olarak, erişim girişiminin gerçekleştirilme şeklini açıklayan ek koşullar da kullanabilirsiniz. Mobil cihazların veya kuruluş ağınızın dışındaki konumların kullanılması, yaygın örnekler arasında sayılabilir. Daha fazla bilgi için bkz. [Azure Active Directory koşullu erişim özelliğindeki koşullar](conditions.md).   
 
@@ -107,7 +114,5 @@ Koşullu erişimi kullanabilmek için Azure AD Premium lisansına ihtiyacınız 
     - Erişim denetimleri hakkında daha fazla bilgi için bkz. [Azure Active Directory koşullu erişim özelliğindeki erişim denetimleri](controls.md).
 
 - Koşullu erişim ilkelerini yapılandırma konusunda deneyim edinmek istiyorsanız bkz. [Azure Active Directory koşullu erişim özelliğiyle belirli uygulamalar için MFA isteme](app-based-mfa.md).
-
-- Ortamınızda koşullu erişim ilkelerini yapılandırmaya hazırsanız bkz. [Azure Active Directory'de koşullu erişim için en iyi yöntemler](best-practices.md). 
 
 - Önerilen ilkelere sahip ayrıntılı bir dağıtım planına ihtiyacınız varsa bkz. [koşullu erişim dağıtım planı](https://aka.ms/conditionalaccessdeploymentplan)

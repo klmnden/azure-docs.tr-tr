@@ -8,14 +8,14 @@ author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 832fab6c4f183ddad512c5e6e4309d70938a316b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 150f920fb1371eb64181ff69fdad054f989c0845
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600032"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407029"
 ---
-# <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak Hive sorunlarını giderme
+# <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Apache Hive Azure HDInsight'ı kullanarak sorun giderme
 
 Apache Ambari, Apache Hive yükü ile çalışırken en çok sorulan sorular ve bunların çözümleri hakkında bilgi edinin.
 
@@ -104,7 +104,7 @@ Apache Ambari, Apache Hive yükü ile çalışırken en çok sorulan sorular ve 
 - [Hive yapılandırma özellikleri](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Tez DAG veri kümesi kritik yol üzerindeki nasıl analiz?
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>Apache Tez DAG veri kümesi kritik yol üzerindeki nasıl analiz?
 
 
 ### <a name="resolution-steps"></a>Çözüm adımları
@@ -126,17 +126,17 @@ Apache Ambari, Apache Hive yükü ile çalışırken en çok sorulan sorular ve 
   İlk bağımsız değişken olarak bir örnek program sağlamanız gerekir.
 
   Geçerli program adları şunlardır:
-    - **ContainerReuseAnalyzer**: yazdırma DAG kapsayıcı yeniden ayrıntıları
-    - **CriticalPath**: DAG kritik yolunu bulun
-    - **LocalityAnalyzer**: yazdırma DAG ayrıntılarında yerleşim yeri
-    - **ShuffleTimeAnalyzer**: dag'deki shuffle zaman ayrıntılarını analiz etme
-    - **SkewAnalyzer**: dag'deki eğriltme ayrıntılarını analiz etme
-    - **SlowNodeAnalyzer**: yazdırma bir DAG düğümüne ayrıntıları
-    - **SlowTaskIdentifier**: DAG yazdırma yavaş görev ayrıntıları
-    - **SlowestVertexAnalyzer**: en yavaş köşe ayrıntılarını dag'deki yazdırma
-    - **SpillAnalyzer**: DAG yazdırma Saçılma ayrıntıları
-    - **TaskConcurrencyAnalyzer**: DAG görev eşzamanlılık ayrıntılarında yazdırma
-    - **VertexLevelCriticalPathAnalyzer**: kritik yol köşe düzeyinde DAG bulun
+    - **ContainerReuseAnalyzer**: Bir DAG kapsayıcı yeniden ayrıntılarında yazdırma
+    - **CriticalPath**: Bir DAG'ye ait kritik yolu bulunamadı
+    - **LocalityAnalyzer**: Bir DAG ayrıntılarında yazdırma yerleşim yeri
+    - **ShuffleTimeAnalyzer**: Bir DAG içindeki shuffle zaman ayrıntılarını analiz etme
+    - **SkewAnalyzer**: Bir DAG içindeki eğriltme ayrıntılarını analiz etme
+    - **SlowNodeAnalyzer**: Bir DAG düğümüne ayrıntılarında yazdırma
+    - **SlowTaskIdentifier**: Bir DAG yavaş görev ayrıntılarında yazdırma
+    - **SlowestVertexAnalyzer**: Bir DAG içinde en yavaş köşe ayrıntılarını yazdır
+    - **SpillAnalyzer**: Bir DAG yazdırma Saçılma ayrıntıları
+    - **TaskConcurrencyAnalyzer**: Bir DAG görev eşzamanlılık ayrıntılarında yazdırma
+    - **VertexLevelCriticalPathAnalyzer**: Bir DAG köşe düzeyinde kritik yolu bulun
 
 
 ### <a name="additional-reading"></a>Ek okuma

@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.author: cshoe
-ms.openlocfilehash: eba0901561b7c1455b7b06849e1773629d9d357f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 00a72c8c7fb42c763a8b0bad1fa3914ac27c496f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388036"
+ms.locfileid: "53406939"
 ---
-# <a name="manually-run-a-non-http-triggered-function"></a>El ile olmayan HTTP ile tetiklenen bir işlev çalıştırın
+# <a name="manually-run-a-non-http-triggered-function"></a>HTTP ile tetiklenmeyen bir işlevi el ile çalıştırma
 
 Bu makalede, olmayan HTTP ile tetiklenen bir işlev özel olarak biçimlendirilmiş bir HTTP isteği aracılığıyla el ile çalıştırabileceğiniz gösterilmiştir.
 
@@ -43,6 +43,9 @@ Azure Portal'da işlevinize gidin ve tıklayarak **Yönet** ve bulma **ana bilgi
 ![İşlev yönetim ekranından ana anahtarı Kopyala](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
 
 Ana anahtarı kopyaladıktan sonra kod dosyası penceresine dönmek için işlev adına tıklayın. Ardından, tıklayarak **günlükleri** sekmesi. Postman ' el ile işlevi çalıştırdığınızda, burada oturum işlevden mesajlar görürsünüz.
+
+> [!CAUTION]  
+> İşlev uygulamanızın ana anahtar ile verilen yükseltilmiş izinler nedeniyle üçüncü taraflarla bu anahtarı paylaşan veya gerekir uygulamayı dağıtın.
 
 ## <a name="call-the-function"></a>İşlev çağrısı
 

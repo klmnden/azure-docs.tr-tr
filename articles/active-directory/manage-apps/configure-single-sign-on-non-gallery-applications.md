@@ -15,12 +15,12 @@ ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29a2be1735561d31f934f1353a336b5e4d198227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dd42f6317f684fcc5ad9da94c1b09ab1870ccf76
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622202"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408145"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için çoklu oturum açma yapılandırma
 
@@ -46,7 +46,7 @@ Bir uygulama tümleştirme şablonu kullanarak bir uygulamayı bağlamak için A
 
 App Galerisi'nde listelenmeyen bir uygulamayı seçerek ekleyebilirsiniz **galeri dışı uygulama** istenen uygulama bulunamazsa, arama sonuçlarında gösterilen bir kutucuk. Uygulamanız için bir ad girdikten sonra çoklu oturum açma seçenekleri ve davranışını yapılandırabilirsiniz. 
 
-**Hızlı İpucu**: en iyi uygulama, uygulama galerisinde bulunan uygulama zaten var olup olmadığını kontrol etmek için arama işlevini kullanın. Uygulama bulunamadı ve çoklu oturum açma açıklamasını bahsetmeleri, ardından uygulamayı zaten Federasyon çoklu oturum açma için desteklenir.
+**Hızlı İpucu**:  En iyi uygulama, uygulama galerisinde bulunan uygulama zaten var olup olmadığını kontrol etmek için arama işlevini kullanın. Uygulama bulunamadı ve çoklu oturum açma açıklamasını bahsetmeleri, ardından uygulamayı zaten Federasyon çoklu oturum açma için desteklenir.
 
   ![Arama](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
 
@@ -163,7 +163,7 @@ Oturum açma sayfası yakalanan, kullanıcılar ve gruplar atanabilir ve kimlik 
 >
 
 ## <a name="existing-single-sign-on"></a>Varolan çoklu oturum açma
-Uygulamanın, kuruluşunuzun Azure AD erişim paneli veya Office 365 portalına bir bağlantı eklemek için bu seçeneği belirleyin. Bu bağlantıları şu anda Azure Active Directory Federasyon Hizmetleri (veya başka bir Federasyon Hizmeti) kullanan özel web Apps'e eklemek yerine Azure AD kimlik doğrulaması için kullanabilirsiniz. Veya belirli SharePoint sayfaları veya yalnızca kullanıcı erişim panellerinde görünmesi istiyorsanız diğer web sayfaları için ayrıntılı bağlantılar ekleyebilirsiniz. 
+Uygulamanın, kuruluşunuzun Azure AD erişim paneli veya Office 365 portalına bir bağlantı eklemek için bu seçeneği belirleyin. Bu bağlantıları şu anda Active Directory Federasyon Hizmetleri (veya başka bir Federasyon Hizmeti) kullanan özel web Apps'e eklemek yerine Azure AD kimlik doğrulaması için kullanabilirsiniz. Veya belirli SharePoint sayfaları veya yalnızca kullanıcı erişim panellerinde görünmesi istiyorsanız diğer web sayfaları için ayrıntılı bağlantılar ekleyebilirsiniz. 
 
 Seçtikten sonra **sonraki**, bağlamak için uygulamanın URL'sini girmeniz istenir. Tamamlandığında, kullanıcıları ve grupları görünen uygulamanın uygulama atanabilir [Office 365 uygulama başlatıcısında](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) veya [Azure AD erişim paneli](end-user-experiences.md) yönetmeyecek olan kullanıcılar için.
 

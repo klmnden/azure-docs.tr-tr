@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9ab3c5399263e301760b7822488fe00145149d2a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 69eeadd8252d20dd25ac6d0abbbf0c6c158383d5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633351"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438634"
 ---
 # <a name="run-apache-pig-jobs-from-a-remote-desktop-connection"></a>Uzak Masaüstü bağlantısı üzerinden Apache Pig işleri çalıştırma
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
 Bu belge, Pig Latin açıklamaları, bir Windows tabanlı HDInsight kümesi için bir Uzak Masaüstü Bağlantısı'ndan çalıştırmak için Apache Pig komutunu kullanarak için bir kılavuz sağlar. Pig Latin'i veri dönüşümleri açıklayarak MapReduce uygulamaları oluşturmak, İşlevler azaltmak ve yerine eşleme sağlar.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Uzak Masaüstü, yalnızca Windows işletim sistemi olarak kullandığınız HDInsight kümelerinde kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
-> HDInsight 3.4 veya büyük bkz [HDInsight ve SSH ile Pig kullanma](apache-hadoop-use-pig-ssh.md) Pig işleri doğrudan küme üzerinde bir komut satırından çalıştırma etkileşimli olarak hakkında bilgi.
+> HDInsight 3.4 veya büyük bkz [HDInsight ve SSH ile Apache Pig kullanma](apache-hadoop-use-pig-ssh.md) Pig işleri doğrudan küme üzerinde bir komut satırından çalıştırma etkileşimli olarak hakkında bilgi.
 
 ## <a id="prereq"></a>Önkoşullar
 Bu makaledeki adımları tamamlamak için aşağıdakiler gerekir.
@@ -78,7 +78,7 @@ HDInsight kümesi için Uzak masaüstünü etkinleştirme, sonra yönergeleri iz
 
         STORE RESULT into 'wasb:///example/data/pigout'
 
-   > [!NOTE]
+   > [!NOTE]  
    > Veriler, dosya adında belirtilen dizinde depolanır **bölümü nnnnn**. Dizin zaten varsa, bir hata iletisi alırsınız.
    >
    >
@@ -119,9 +119,9 @@ Gördüğünüz gibi Pig komut etkileşimli olarak MapReduce işlemlerini çalı
 ## <a id="nextsteps"></a>Sonraki adımlar
 HDInsight, Pig hakkında genel bilgi için:
 
-* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md)
 
 Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
-* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Apache Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)

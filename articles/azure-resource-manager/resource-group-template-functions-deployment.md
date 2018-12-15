@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager şablonu işlevleri - dağıtım | Microsoft Docs
-description: Dağıtım bilgilerini almak için bir Azure Resource Manager şablonunda kullanılacak işlevleri açıklanmaktadır.
+description: Dağıtım bilgilerini almak için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 12/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 725bc41f96359d4bf0d9d570f73f91dba5da2cab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d802af1d48405518f26f4b52ecc3023cbb15caff
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358243"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407363"
 ---
-# <a name="deployment-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için dağıtım işlevleri 
+# <a name="deployment-functions-for-azure-resource-manager-templates"></a>Dağıtım işlevleri için Azure Resource Manager şablonları 
 
 Resource Manager şablonu ve dağıtımıyla ilgili değerleri bölümlerden değerleri almak için aşağıdaki işlevleri sunar:
 
 * [Dağıtım](#deployment)
 * [parametreler](#parameters)
-* [değişkenleri](#variables)
+* [Değişkenleri](#variables)
 
-Kaynakları, kaynak grupları ya da abonelik değerlerini almak için bkz: [kaynak işlevlerini](resource-group-template-functions-resource.md).
+Kaynakları, kaynak gruplarını veya abonelikleri değerleri almak için bkz: [kaynak işlevleri](resource-group-template-functions-resource.md).
 
 <a id="deployment" />
 
@@ -40,7 +40,7 @@ Geçerli dağıtım işlemiyle ilgili bilgi döndürür.
 
 ### <a name="return-value"></a>Dönüş değeri
 
-Bu işlev, dağıtımı sırasında geçirilen nesneyi döndürür. Döndürülen nesne özelliklerinde dağıtım nesnesi bir bağlantı veya bir satır içi nesnesi olarak geçirilir göre farklılık gösterir. Ne zaman dağıtım nesnesi geçirilir satır içi, gibi kullanırken **- TemplateFile** yerel bir dosyaya işaret edecek şekilde Azure PowerShell parametresi, döndürülen nesne aşağıdaki biçim sahiptir:
+Bu işlevin dağıtımı sırasında geçirilen nesneyi döndürür. Döndürülen nesne özellikleri dağıtım nesnesi bir bağlantı veya bir satır içi nesnesi olarak geçirilir göre farklılık gösterir. Ne zaman dağıtım nesnesi geçirilir satır içi, gibi kullanırken **- TemplateFile** parametresi yerel bir dosyaya işaret edecek şekilde, Azure PowerShell'de döndürülen nesne aşağıdaki biçim vardır:
 
 ```json
 {
@@ -62,7 +62,7 @@ Bu işlev, dağıtımı sırasında geçirilen nesneyi döndürür. Döndürüle
 }
 ```
 
-Ne zaman nesne geçirilen bir bağlantı olarak gibi kullanırken **- TemplateUri** parametresini kullanarak uzak bir nesneye işaret nesnesi şu biçimde döndürülür: 
+Ne zaman nesne geçirilir, bir bağlantı gibi kullanırken **- TemplateUri** parametresini kullanarak uzak bir nesneye işaret nesnesi şu biçimde döndürülür: 
 
 ```json
 {
@@ -86,9 +86,11 @@ Ne zaman nesne geçirilen bir bağlantı olarak gibi kullanırken **- TemplateUr
 }
 ```
 
+Olduğunda, [bir Azure aboneliğine dağıtma](deploy-to-subscription.md), bir kaynak grubu yerine dönüş nesneyi içeren bir `location` özelliği. Location özelliği, yerel bir şablon veya bir dış şablonu dağıtırken dahil edilir.
+
 ### <a name="remarks"></a>Açıklamalar
 
-Deployment() üst şablon URI'sini bağlı başka bir şablonu bağlamak için kullanabilirsiniz.
+Deployment() ana şablon URİ'SİNDE tabanlı başka bir şablona bağlamak için kullanabilirsiniz.
 
 ```json
 "variables": {  
@@ -98,7 +100,7 @@ Deployment() üst şablon URI'sini bağlı başka bir şablonu bağlamak için k
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) dağıtım nesnesi döndürür:
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json) dağıtım nesnesi döndürür:
 
 ```json
 {
@@ -114,7 +116,7 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Önceki örnekte aşağıdaki nesneyi döndürür:
+Yukarıdaki örnekte, şu nesne döndürür:
 
 ```json
 {
@@ -138,30 +140,32 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
+
+Dağıtım işlevi kullanan bir abonelik düzeyinde şablonu için bkz: [abonelik dağıtım işlevi](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). İle birlikte dağıtılır `az deployment create` veya `New-AzureRmDeployment` komutları.
 
 <a id="parameters" />
 
 ## <a name="parameters"></a>parametreler
 `parameters(parameterName)`
 
-Bir parametre değeri döndürür. Belirtilen parametre adı Şablon Parametreler bölümünde tanımlanmış olması gerekir.
+Bir parametre değeri döndürür. Belirtilen parametre adı şablon parametreleri bölümünde tanımlanmış olması gerekir.
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| parameterName |Evet |dize |Döndürülecek parametresinin adı. |
+| parameterName |Evet |dize |Döndürülecek parametrenin adı. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -169,7 +173,7 @@ Belirtilen parametre değeri.
 
 ### <a name="remarks"></a>Açıklamalar
 
-Genellikle, parametreleri, kaynak değerlerini ayarlamak için kullanın. Aşağıdaki örnek, dağıtımı sırasında geçirilen parametre değeri için web sitesinin adını ayarlar.
+Genellikle, kaynak değerlerini ayarlamak için parametreleri kullanın. Aşağıdaki örnek, web sitesinin adı dağıtımı sırasında geçirilen parametre değerine ayarlar.
 
 ```json
 "parameters": { 
@@ -189,7 +193,7 @@ Genellikle, parametreleri, kaynak değerlerini ayarlamak için kullanın. Aşağ
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) parametreleri işlevi Basitleştirilmiş kullanımını göstermektedir.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json) parametreleri işlevi basitleştirilmiş bir kullanımını göstermektedir.
 
 ```json
 {
@@ -244,23 +248,23 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Önceki örnekte varsayılan değerlere sahip çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| stringOutput | Dize | seçenek 1 |
+| stringOutput | Dize | Seçenek 1 |
 | intOutput | Int | 1 |
 | objectOutput | Nesne | {"bir": "a", "iki": "b"} |
 | arrayOutput | Dizi | [1, 2, 3] |
-| crossOutput | Dize | seçenek 1 |
+| crossOutput | Dize | Seçenek 1 |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
@@ -268,7 +272,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="variables" />
 
-## <a name="variables"></a>değişkenleri
+## <a name="variables"></a>Değişkenleri
 `variables(variableName)`
 
 Değişkenin değerini döndürür. Belirtilen değişken adı şablon değişkenleri bölümünde tanımlanmış olması gerekir.
@@ -277,7 +281,7 @@ Değişkenin değerini döndürür. Belirtilen değişken adı şablon değişke
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| variableName |Evet |Dize |Döndürülecek değişkeninin adı. |
+| Değişkenadı |Evet |Dize |Döndürmek için değişkenin adı. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -285,7 +289,7 @@ Belirtilen değişken değeri.
 
 ### <a name="remarks"></a>Açıklamalar
 
-Genellikle, karmaşık değerler yalnızca bir kez oluşturarak şablonunuzu basitleştirmek için değişkenleri kullanın. Aşağıdaki örnek, bir depolama hesabı için benzersiz bir ad oluşturur.
+Genellikle karmaşık değerleri yalnızca bir kez oluşturarak, şablonunuzu basitleştirmek için değişkenleri kullanır. Aşağıdaki örnek, bir depolama hesabı için benzersiz bir ad oluşturur.
 
 ```json
 "variables": {
@@ -309,7 +313,7 @@ Genellikle, karmaşık değerler yalnızca bir kez oluşturarak şablonunuzu bas
 
 ### <a name="example"></a>Örnek
 
-Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) farklı değişken değerleri döndürür.
+Aşağıdaki [örnek şablonu](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json) farklı değişken değerleri döndürür.
 
 ```json
 {
@@ -347,30 +351,30 @@ Aşağıdaki [örnek şablon](https://github.com/Azure/azure-docs-json-samples/b
 }
 ```
 
-Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
+Önceki örnekte varsayılan değerlere sahip çıktı.
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
 | exampleOutput1 | Dize | myVariable |
 | exampleOutput2 | Dizi | [1, 2, 3, 4] |
 | exampleOutput3 | Dize | myVariable |
-| exampleOutput4 |  Nesne | {"property1": "value1", "property2": "value2"} |
+| exampleOutput4 |  Nesne | {"property1": "value1", "Özellik2": "value2"} |
 
-Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
+Azure CLI ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```azurecli-interactive
 az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
 ```
 
-Bu örnek şablon PowerShell ile dağıtmak için kullanın:
+PowerShell ile bu örnek şablonu dağıtmak için şunu kullanın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bir Azure Resource Manager şablonu bölümlerde açıklaması için bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
-* Birden fazla şablon birleştirmek için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
-* Belirtilen sayıda yinelemek için kaynak türünü oluştururken bkz [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md).
-* Oluşturduğunuz şablon dağıtma hakkında bilgi için bkz: [Azure Resource Manager şablonu ile bir uygulamayı dağıtmak](resource-group-template-deploy.md).
+* Bir Azure Resource Manager şablonu olarak bölümlerde açıklaması için bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
+* Çeşitli şablonlar birleştirmek için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
+* Belirtilen sayıda yineleme için bir kaynak türünü oluştururken bkz [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md).
+* Oluşturduğunuz bir şablonu dağıtmayı öğrenmek için bkz [Azure Resource Manager şablonu ile uygulama dağıtma](resource-group-template-deploy.md).
 

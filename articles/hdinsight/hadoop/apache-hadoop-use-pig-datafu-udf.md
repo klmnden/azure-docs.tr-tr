@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7422e7d91edc9c190bee4300717b3d4c6fe8186b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 982ed4533c34cd4a6613d289ef4712001977538f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017860"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436227"
 ---
 # <a name="use-apache-datafu-pig-with-apache-pig-on-hdinsight"></a>HDInsight üzerinde Apache Pig ile DataFu Pig Apache kullanma
 
@@ -29,21 +29,21 @@ DataFu Pig hakkında daha fazla bilgi için bkz. [ https://datafu.apache.org/ ](
 
 * Bir Azure HDInsight kümesi (Linux veya Windows tabanlı)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* Temel olarak bilindiğini [üzerinde HDInsight Pig kullanma](hdinsight-use-pig.md)
+* Temel olarak bilindiğini [HDInsight üzerinde Apache Pig kullanma](hdinsight-use-pig.md)
 
 ## <a name="install-datafu-on-linux-based-hdinsight"></a>Linux tabanlı HDInsight üzerinde DataFu yükleyin
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux tabanlı kümeler sürüm 3.3 ve üzeri ve Windows tabanlı kümeler DataFu yüklenir. Linux tabanlı kümelerde 3.3'den önceki yüklü değildir.
 >
 > Windows tabanlı bir küme veya 3.3 sürümünden daha yüksek bir Linux tabanlı küme kullanıyorsanız, bu bölümü atlayın.
 
 DataFu, indirilir ve Maven deposundan yüklenir. HDInsight kümenize ekleyin ve gerekir sürümü bulmak için aşağıdaki adımları kullanın:
 
-> [!WARNING]
+> [!WARNING]  
 > DataFu sürümleri, HDInsight tarafından karşılanmadığından gereksinimlerine sahip olabilir. Örneğin, DataFu daha eski bir sürümünü kullanıyorsanız, HDInsight içinde neleri daha farklı bir sürümünü, Pig gerektirebilir.
 
 ### <a name="find-a-version"></a>Bir sürümünü bulun
@@ -62,7 +62,7 @@ DataFu, indirilir ve Maven deposundan yüklenir. HDInsight kümenize ekleyin ve 
 
 2. Wget yardımcı programını kullanarak DataFu jar dosyasını indirmek için aşağıdaki komutu kullanın:
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Komut bağlantı, daha önce kopyaladığınız URL ile değiştirin.
 
     ```
@@ -71,21 +71,21 @@ DataFu, indirilir ve Maven deposundan yüklenir. HDInsight kümenize ekleyin ve 
 
 3. Ardından, varsayılan depolama, HDInsight kümeniz dosyasını yükleyin. Dosyanın varsayılan yerleştirme depolama tüm düğümler için kullanılabilir bir kümede kolaylaştırır.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Dosya adında sürüm numarasını indirmiş olduğunuz sürümle değiştirin.
 
     ```
     hdfs dfs -put datafu-pig-1.4.0.jar /example/jars
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Önceki komut, jar depolar `/example/jars` bu dizine küme depolama alanında zaten mevcut olduğundan. HDInsight küme depolama alanında istediğiniz herhangi bir konuma kullanabilirsiniz.
 
 ## <a name="use-datafu-with-pig"></a>Pig ile DataFu kullanma
 
 Bu bölümdeki adımlarda, üzerinde HDInsight Pig kullanımıyla ilgili bilgi sahibi olduğunuz varsayılır. HDInsight ile Pig kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile Pig kullanma](hdinsight-use-pig.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Önceki bölümdeki adımları kullanarak DataFu el ile yüklediyseniz, kullanmadan önce kaydetmeniz gerekir.
 >
 > * Kümenizi Azure depolama kullanan kullanırsanız bir `wasb://` yolu. Örneğin, `register wasb:///example/jars/datafu-pig-1.4.0.jar`.
@@ -140,4 +140,4 @@ Bu, aşağıdaki çıktıyı oluşturur:
 DataFu veya Pig hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
 * [Apache DataFu Başlarken Pig](https://datafu.apache.org/docs/datafu/getting-started.html).
-* [HDInsight ile Pig kullanma](hdinsight-use-pig.md)
+* [Apache Pig, HDInsight ile kullanma](hdinsight-use-pig.md)

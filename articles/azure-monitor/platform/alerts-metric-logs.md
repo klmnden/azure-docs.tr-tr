@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 08aec12498524b7cef279f58a9b7901e0922cc33
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 76355723baa7727c0dda10ace449603d6ebefbe1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384607"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435863"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure İzleyici günlükler için ölçüm uyarıları oluşturma  
 
 ## <a name="overview"></a>Genel Bakış
-Azure İzleyicisi'ni destekleyen [ölçüm uyarı türü](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) üzerinden avantajları olduğu [Klasik uyarılar](../../azure-monitor/platform/alerts-classic-portal.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](../../monitoring-and-diagnostics/monitoring-supported-metrics.md). Bu makalede (yani) bir alt kümesi için kaynak - kullanımını açıklar `Microsoft.OperationalInsights/workspaces`. 
+Azure İzleyicisi'ni destekleyen [ölçüm uyarı türü](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) üzerinden avantajları olduğu [Klasik uyarılar](../../azure-monitor/platform/alerts-classic-portal.md). Ölçümler kullanılabilir [Azure hizmetlerinin büyük listesi](../../azure-monitor/platform/metrics-supported.md). Bu makalede (yani) bir alt kümesi için kaynak - kullanımını açıklar `Microsoft.OperationalInsights/workspaces`. 
 
 Ölçümleriniz Azure veya şirket içi kaynaklar dahil olmak üzere günlüklerinden ölçümleri bir parçası olarak ayıklanan popüler Log Analytics günlükleri ile ilgili ölçüm Uyarıları'nı kullanabilirsiniz. Desteklenen Log Analytics çözümleri aşağıda listelenmiştir:
 - [Performans sayaçları](../../azure-monitor/platform/data-sources-performance-counters.md) Windows ve Linux makineler için
@@ -35,7 +35,7 @@ Kullanmak için birçok faydası vardır **günlükleri için ölçüm uyarılar
 > Özel ölçüm ve/veya boyut yalnızca veriler için seçilen süre içinde olup olmadığını gösterilir. Bu ölçümler, Azure Log Analytics çalışma alanına sahip müşteriler için kullanılabilir.
 
 ## <a name="metrics-and-dimensions-supported-for-logs"></a>Ölçüm ve günlükleri için desteklenen boyutlar
- Ölçüm uyarıları boyutlar kullanmak için ölçümleri uyarı destekler. Ölçümünüzün doğru düzeyine filtrelemek için boyutları kullanabilirsiniz. Günlüklerinden desteklenen ölçümler tam listesini [Log Analytics çalışma alanları](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) listelenir; çözümleri arasında desteklenir.
+ Ölçüm uyarıları boyutlar kullanmak için ölçümleri uyarı destekler. Ölçümünüzün doğru düzeyine filtrelemek için boyutları kullanabilirsiniz. Günlüklerinden desteklenen ölçümler tam listesini [Log Analytics çalışma alanları](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) listelenir; çözümleri arasında desteklenir.
 
 > [!NOTE]
 > Log Analytics çalışma ayıklanırken için desteklenen ölçümleri görüntülemek için [Azure İzleyici - ölçümler](../../azure-monitor/platform/metrics-charts.md); ölçüm bir günlük için söz konusu ölçüm oluşturulması için uyar. Ölçüm uyarısı için günlükleri - seçilen boyutları görünmesi için Azure İzleyici - ölçümler aracılığıyla araştırma.
@@ -48,7 +48,7 @@ Log Analytics veri çalışır Ölçüm günlükleri için toplanan önce aşağ
 1. **Etkin bir Log Analytics çalışma alanı**: Geçerli ve etkin Log Analytics çalışma alanı mevcut olması gerekir. Daha fazla bilgi için [Azure portalında Log Analytics çalışma alanı oluşturma](../../azure-monitor/learn/quick-create-workspace.md).
 2. **Aracı için Log Analytics çalışma alanı yapılandırılmış**: Aracının önceki adımda kullanılan Log Analytics çalışma alanına Azure Vm'leri (veya) şirket içi Vm'leri için veri göndermek yapılandırılmış olması gerekir. Daha fazla bilgi için [Log Analytics - Aracısı genel bakış](../../azure-monitor/platform/agents-overview.md).
 3. **Desteklenen Log Analytics çözümleri yüklü**: Log Analytics çözümü, yapılandırılmış ve gönderen verileri Log Analytics çalışma alanına - desteklenen olmalıdır çözümler [Windows ve Linux için performans sayaçları](../../azure-monitor/platform/data-sources-performance-counters.md), [aracı sistem durumu sinyal kayıtlarını](../../azure-monitor/insights/solution-agenthealth.md) , [Güncelleştirme yönetimi, ve [olay verilerini](../../azure-monitor/platform/data-sources-windows-events.md).
-4. **Günlükleri göndermek için yapılandırılmış analiz çözümleri oturum**: Log Analytics çözümü, gerekli günlükleri/veri karşılık gelen olmalıdır [Log Analytics çalışma alanları için desteklenen ölçümler](../../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces) etkin. Örneğin, *% kullanılabilir bellek* sayacı bunu yapılandırılmalıdır [performans sayaçları](../../azure-monitor/platform/data-sources-performance-counters.md) çözüm ilk.
+4. **Günlükleri göndermek için yapılandırılmış analiz çözümleri oturum**: Log Analytics çözümü, gerekli günlükleri/veri karşılık gelen olmalıdır [Log Analytics çalışma alanları için desteklenen ölçümler](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) etkin. Örneğin, *% kullanılabilir bellek* sayacı bunu yapılandırılmalıdır [performans sayaçları](../../azure-monitor/platform/data-sources-performance-counters.md) çözüm ilk.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Yapılandırma günlükleri için ölçüm Uyarısı
  Ölçüm uyarıları oluşturulabilir ve Resource Manager şablonları, REST API, PowerShell ve Azure CLI Azure portalını kullanarak yönetilen. Günlükleri için ölçüm uyarıları olduğundan bir değişken ölçüm uyarıları - önkoşulları tamamladıktan sonra günlükler için ölçüm uyarısı için belirtilen Log Analytics çalışma alanı oluşturulabilir. Tüm özelliklerini ve işlevlerini [ ölçüm uyarıları](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) yükü şema, geçerli bir kota sınırları ve faturalandırılan fiyat; günlükleri de için ölçüm uyarıları için geçerli olacaktır.

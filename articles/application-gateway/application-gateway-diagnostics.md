@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: d8c652d75b01b3a13ef06475190ad81980f31e44
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 45a13bca32593895e51fa7fe3c5bd7ce1ba547e6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270374"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437478"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Arka uç sistem durumu, tanılama günlükleri ve ölçümler için Application Gateway
 
@@ -169,7 +169,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 
 |Değer  |Açıklama  |
 |---------|---------|
-|InstanceId     | Hizmet isteği uygulama ağ geçidi örneği.        |
+|instanceId     | Hizmet isteği uygulama ağ geçidi örneği.        |
 |Clientıp     | İsteğin kaynak IP.        |
 |clientPort     | İstek için kaynak bağlantı noktası.       |
 |HttpMethod     | İstek tarafından kullanılan HTTP yöntemi.       |
@@ -213,7 +213,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 
 |Değer  |Açıklama  |
 |---------|---------|
-|InstanceId     |  Uygulama ağ geçidi örneği performans verileri oluşturulur. Çok örnekli application gateway için örnek başına bir satır var.        |
+|instanceId     |  Uygulama ağ geçidi örneği performans verileri oluşturulur. Çok örnekli application gateway için örnek başına bir satır var.        |
 |HealthyHostCount     | Arka uç havuzundaki sağlıklı konakların sayısı.        |
 |unHealthyHostCount     | Arka uç havuzunda iyi durumda olmayan konak sayısı.        |
 |RequestCount     | Hizmet isteklerinin sayısı.        |
@@ -250,7 +250,7 @@ Yalnızca, önceki adımlarda açıklandığı her uygulama ağ geçidi örneği
 
 |Değer  |Açıklama  |
 |---------|---------|
-|InstanceId     | Uygulama ağ geçidi örneği için hangi güvenlik duvarı veri oluşturuluyor. Çok örnekli application gateway için örnek başına bir satır var.         |
+|instanceId     | Uygulama ağ geçidi örneği için hangi güvenlik duvarı veri oluşturuluyor. Çok örnekli application gateway için örnek başına bir satır var.         |
 |Clientıp     |   İsteğin kaynak IP.      |
 |clientPort     |  İstek için kaynak bağlantı noktası.       |
 |requestUri     | Alınan istek URL'si.       |
@@ -343,7 +343,7 @@ Aşağıdaki görüntüde üç ölçümlerle son 30 dakika boyunca görüntülen
 
 [![](media/application-gateway-diagnostics/figure5.png "Ölçüm görüntüle")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
-Ölçümleri geçerli listesini görmek için bkz: [Azure İzleyici ile desteklenen ölçümler](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+Ölçümleri geçerli listesini görmek için bkz: [Azure İzleyici ile desteklenen ölçümler](../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="alert-rules"></a>Uyarı kuralları
 

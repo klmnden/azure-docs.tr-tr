@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 8b9daa0fbbf84e0f602498a0847c9e120f709b17
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057939"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408945"
 ---
-# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalı kullanarak Batch AI eğitim işleri için küme oluşturma
+# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Batch yapay ZEKA eğitim işleri için küme oluşturma
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Bu hızlı başlangıçta, yapay zeka ve makine öğrenimi modellerini eğitmek üzere kullanabileceğiniz bir Batch AI kümesi oluşturmak için Azure portalı nasıl kullanabileceğiniz gösterilmektedir. Batch AI, veri bilimcilerinin ve yapay zeka araştırmacılarının Azure sanal makine kümelerindeki yapay zeka ve makine öğrenimi modellerini ölçeğe uygun olarak eğitmesini sağlayan bir yönetilen hizmettir.
 
@@ -91,7 +94,7 @@ Aşağıdaki adımlar, tek bir GPU düğümü ile bir küme oluşturur. Küme d�
    |**VM boyutu**     |Standart NC6|
    |**Hedef düğüm sayısı**     |1|
 
-3. Bir **Yönetici kullanıcı adı** girin ve SSH ortak anahtar dosyanızın içeriğini **SSH anahtarına** kopyalayın. Bu sayfadaki diğer değerler için varsayılanları kabul edin ve **Sonraki: Düğüm kurulumu** seçeneğini belirleyin.
+3. Bir **Yönetici kullanıcı adı** girin ve SSH ortak anahtar dosyanızın içeriğini **SSH anahtarına** kopyalayın. Bu sayfadaki geri kalan değerler için Varsayılanları kabul edin ve seçin **sonraki: Düğüm Kurulumu**.
 
    ![Temel küme bilgilerini girin](./media/quickstart-create-cluster-portal/create-cluster.png)
 

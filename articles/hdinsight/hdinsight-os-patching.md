@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 8bde1e8846dbaee957e2498ea4fae0c5cf79a913
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 34bf642cbdecce31be1a8119adc483d017686479
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056246"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434054"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight için düzeltme eki uygulama işletim sistemi 
-Yönetilen bir Hadoop hizmeti olan HDInsight HDInsight kümeleri tarafından kullanılan temel alınan sanal makinelerin işletim sistemi düzeltme eki uygulama üstlenir. 1 Ağustos 2016'dan itibaren (sürüm 3.4) Linux tabanlı HDInsight kümeleri için konuk işletim sistemi düzeltme eki uygulama ilkesi değiştirdik. Yeni ilke hedefi düzeltme eki uygulama nedeniyle yeniden başlatma sayısını önemli ölçüde azaltmaktır. Yeni ilke, her Pazartesi ya da herhangi bir küme içindeki düğümler arasında aşamalı bir şekilde 12: 00 UTC başlayarak Perşembe Linux kümelerinde düzeltme eki sanal makinelerine (VM'ler) devam eder. Ancak, belirli bir VM'nin yalnızca en fazla 30 konuk işletim sistemi düzeltme eki uygulama nedeniyle günde bir kez yeniden başlatılır. Ayrıca, ilk başlatma işlemi yeni oluşturulan bir küme için küme oluşturma tarihinden itibaren 30 gün daha erken olmaması. Düzeltme ekleri, Vm'leri yeniden sonra geçerli olacaktır.
+Yönetilen bir Apache Hadoop hizmeti olan HDInsight HDInsight kümeleri tarafından kullanılan temel alınan sanal makinelerin işletim sistemi düzeltme eki uygulama üstlenir. 1 Ağustos 2016'dan itibaren (sürüm 3.4) Linux tabanlı HDInsight kümeleri için konuk işletim sistemi düzeltme eki uygulama ilkesi değiştirdik. Yeni ilke hedefi düzeltme eki uygulama nedeniyle yeniden başlatma sayısını önemli ölçüde azaltmaktır. Yeni ilke, her Pazartesi ya da herhangi bir küme içindeki düğümler arasında aşamalı bir şekilde 12: 00 UTC başlayarak Perşembe Linux kümelerinde düzeltme eki sanal makinelerine (VM'ler) devam eder. Ancak, belirli bir VM'nin yalnızca en fazla 30 konuk işletim sistemi düzeltme eki uygulama nedeniyle günde bir kez yeniden başlatılır. Ayrıca, ilk başlatma işlemi yeni oluşturulan bir küme için küme oluşturma tarihinden itibaren 30 gün daha erken olmaması. Düzeltme ekleri, Vm'leri yeniden sonra geçerli olacaktır.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>İşletim sistemi düzeltme eki uygulama zamanlamasını Linux tabanlı HDInsight kümeleri için yapılandırma
 Bir HDInsight kümesinde sanal makineler, böylece önemli güvenlik düzeltme eklerinin yüklü bazen başlatılması gerekir. 1 Ağustos 2016'den itibaren yeni Linux tabanlı HDInsight kümeleri (sürüm 3.4 veya daha büyük) yeniden şu zamanlamaya kullanarak:
@@ -31,7 +31,7 @@ Bu makalede açıklanan betik eylemi kullanarak işletim sistemi gibi düzeltme 
 2. Kümesi sıklığını (gün önyüklemeler) ile yeniden başlatır.
 3. Bir yeniden başlatma işlemi gerçekleştiğinde haftanın günü ayarlayın
 
-> [!NOTE]
+> [!NOTE]  
 > Bu betik eylemi, yalnızca 1 Ağustos 2016'dan sonra oluşturulan Linux tabanlı HDInsight kümeleri ile çalışır. Yalnızca VM'ler yeniden başlatıldığı zaman düzeltme ekleri tarihinden itibaren geçerli olacaktır. 
 >
 
@@ -43,7 +43,7 @@ Ne zaman bu betiği kullanarak, aşağıdaki bilgileri gerektirir:
 2. Betik uygulanan küme düğümü türlerini: baş düğüm, workernode, zookeeper. Bu betik, kümedeki tüm düğüm türleri uygulanması gerekir. Bir düğüm türü için uygulanmamış durumunda, sanal makineler, düğüm türü için önceki düzeltme eki uygulama zamanlamasını kullanmayı sürdürecektir.
 
 
-3.  Parametre: Bu komut üç sayısal parametre kabul eder:
+3.  Parametre: Bu betik, üç sayısal parametre kabul eder:
 
     | Parametre | Tanım |
     | --- | --- |
@@ -52,10 +52,8 @@ Ne zaman bu betiği kullanarak, aşağıdaki bilgileri gerektirir:
     | Haftanın günü |1 ile 7 (sınırlar dahil). 1 değeri, yeniden başlatma Pazartesi günü olmamalıdır, 7 parametrelerini kullanarak bir Sunday.For örnek belirtir 1 60 2 sonuçları otomatik yeniden Başlatmalara 60 günde (en fazla) Salı günü. |
     | Kalıcılık |Betik eylemi mevcut bir kümeye uygularken, komut dosyasını kalıcı olarak işaretleyebilirsiniz. Küme ölçeklendirme işlemlerinin aracılığıyla eklenen yeni workernodes kalıcı duruma getirilmiş betiklerin uygulanır. |
 
-> [!NOTE]
-> Bu betik, mevcut bir kümeye uygularken kalıcı olarak işaretlemeniz gerekir. Aksi takdirde, ölçeklendirme işlemleri aracılığıyla oluşturulan tüm yeni düğümler, düzeltme eki uygulama zamanlamasını varsayılan kullanır.
-Küme oluşturma işlemi kapsamında betiği uygularsanız, otomatik olarak kalıcıdır.
->
+> [!NOTE]  
+> Bu betik, mevcut bir kümeye uygularken kalıcı olarak işaretlemeniz gerekir. Aksi takdirde, ölçeklendirme işlemleri aracılığıyla oluşturulan tüm yeni düğümler, düzeltme eki uygulama zamanlamasını varsayılan kullanır.  Küme oluşturma işlemi kapsamında betiği uygularsanız, otomatik olarak kalıcıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

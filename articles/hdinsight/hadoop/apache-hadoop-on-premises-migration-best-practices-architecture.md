@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7558a853657e3e3764cd8e3faf6dd466e9ead35e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8295c149d513f89318aa63ddd7f4236013923203
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994139"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434019"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---architecture-best-practices"></a>Azure HDInsight - mimari en iyi uygulamaları şirket içi Apache Hadoop kümelerini geçirme
 
@@ -75,7 +75,9 @@ HDInsight kümelerinde depolama ile işlem birlikte bulunması gerekmez ve Azure
 
 ## <a name="use-external-metadata-stores"></a>Dış meta veri depolarını kullanma
 
+
 HDInsight kümeleri ile çalışma iki ana meta depolar vardır: [Apache Hive](https://hive.apache.org/) ve [Apache Oozie](https://oozie.apache.org/). Hive meta veri deposu Hadoop, Spark, LLAP, Presto dahil olmak üzere veri işleme altyapıları ve Apache Pig tarafından kullanılabilecek merkezi şema depodur. Oozie meta veri deposu, devam eden ve tamamlanan Hadoop işlerini zamanlama hakkında ayrıntıları ve durumunu depolar.
+
 
 Azure SQL veritabanı, HDInsight Hive ve Oozie meta depolar için kullanır. HDInsight kümelerinde meta veri deposu ayarlamak için iki yolu vardır:
 

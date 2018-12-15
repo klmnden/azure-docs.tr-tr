@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b63f2566220d556f9695687dc743a7d47e27acf1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ebb1e3614309f92fc21442100a13c53291b3acbb
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984322"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407296"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory kullanıcılarını HDInsight kümesine eşitleme
 
@@ -40,11 +40,11 @@ Konaklarınız görüntülemek için Ambari Web kullanıcı arabirimini açın. 
 
 4. **Oluştur**’u seçin.
 
-## <a name="use-the-ambari-rest-api-to-synchronize-users"></a>Kullanıcılar eşitlemek için Ambari REST API'si kullanma
+## <a name="use-the-apache-ambari-rest-api-to-synchronize-users"></a>Kullanıcılar eşitlemek için Apache Ambari REST API'sini kullanma
 
 Küme oluşturma işlemi sırasında belirtilen kullanıcı grupları, o anda eşitlenir. Kullanıcı eşitleme otomatik olarak saatte bir gerçekleşir. Ambari REST API'yi hemen kullanıcıları eşitlemek veya küme oluşturma sırasında belirttiğiniz grupları dışındaki bir grubunu eşitlemek için kullanın.
 
-Aşağıdaki yöntemi POST Ambari REST API ile kullanır. Daha fazla bilgi için [yönetme HDInsight kümeleri Ambari REST API'yi kullanarak](hdinsight-hadoop-manage-ambari-rest-api.md).
+Aşağıdaki yöntemi POST Ambari REST API ile kullanır. Daha fazla bilgi için [yönetme HDInsight kümeleri Apache Ambari REST API'yi kullanarak](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 1. [Kümenizin SSH ile bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md). Azure portalında kümenizin genel bakış bölmesinden seçin **güvenli Kabuk (SSH)** düğmesi.
 
@@ -123,12 +123,12 @@ Aşağıdaki yöntemi POST Ambari REST API ile kullanır. Daha fazla bilgi için
 
 5. Bu sonucu durum olduğunu gösterir. **tam**, yeni bir kullanıcı oluşturuldu ve kullanıcının bir üyelik atandı. Bu örnekte, "eşitlenmiş HiveUsers için" kullanıcı atanmış kullanıcı için aynı grubu Azure AD'ye eklendikten sonra LDAP grup.
 
-> [!NOTE]
+> [!NOTE]  
 > Önceki yöntem yalnızca belirtilen Azure AD grupları eşitler **erişim kullanıcı grubu** küme oluşturma sırasında etki alanı ayarlarını özelliğidir. Daha fazla bilgi için [bir HDInsight kümesi oluşturma](domain-joined/apache-domain-joined-configure.md).
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>Yeni eklenen doğrulayın Azure AD kullanıcısı
 
-Açık [Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md) doğrulamak için yeni Azure AD kullanıcı eklendi. Ambari Web kullanıcı arabirimini göz atarak erişim **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Küme Yöneticisi kullanıcı adı ve parolayı girin.
+Açık [Apache Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md) doğrulamak için yeni Azure AD kullanıcı eklendi. Ambari Web kullanıcı arabirimini göz atarak erişim **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**. Küme Yöneticisi kullanıcı adı ve parolayı girin.
 
 1. Ambari Panoda **yönetme Ambari** altında **yönetici** menüsü.
 
@@ -148,6 +148,6 @@ Yeni kullanıcı (veya herhangi bir etki alanı kullanıcı) için Ambari oturum
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [ESP ile HDInsight Hive ilkelerini yapılandırma](hdinsight-domain-joined-run-hive.md)
+* [ESP ile HDInsight, Apache Hive ilkelerini yapılandırma](hdinsight-domain-joined-run-hive.md)
 * [ESP ile HDInsight kümelerini yönetme](hdinsight-domain-joined-manage.md)
-* [Ambari için kullanıcıları yetkilendirme](hdinsight-authorize-users-to-ambari.md)
+* [Apache Ambari için kullanıcıları yetkilendirme](hdinsight-authorize-users-to-ambari.md)

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6bcd2d299d3816c17265eef658ff1f01409828a1
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: a674ee52ae5e8f8f800d4584a53c808ceae70156
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632232"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435064"
 ---
 # <a name="run-apache-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Pig komut (SSH) ile bir Linux tabanlı kümesinde Apache Pig işleri çalıştırma
 
@@ -22,7 +22,7 @@ ms.locfileid: "51632232"
 
 Apache Pig işleri SSH bağlantısından HDInsight kümenize etkileşimli olarak çalıştırmayı öğrenin. Pig Latin'i programlama dili, istenen çıkış üretmek üzere giriş verilerini için uygulanan dönüşümler açıklamak sağlar.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgede yer alan adımlar, Linux tabanlı HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="ssh"></a>SSH ile bağlanma
@@ -35,7 +35,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 
 Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a id="pig"></a>Pig komutunu kullanın
+## <a id="pig"></a>Apache Pig komutunu kullanın
 
 1. Bağlandıktan sonra aşağıdaki komutu kullanarak Pig komut satırı arabirimi (CLI) başlatın:
 
@@ -74,7 +74,7 @@ Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-lin
     | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | Bir küme oluşturur her bir benzersiz günlüğe içeren veri düzeyi değeri ve kaç kez gerçekleşir. Veri kümesi içinde depolanan `FREQUENCIES`. |
     | `RESULT = order FREQUENCIES by COUNT desc;` | Günlük düzeyleri (Azalan) sayısına göre sıralar ve içine depolar `RESULT`. |
 
-    > [!TIP]
+    > [!TIP]  
     > Kullanım `DUMP` her adımdan sonra dönüşümünün sonucu görüntülemek için.
 
 5. Kullanarak bir dönüştürme sonuçlarını da kaydedebilirsiniz `STORE` deyimi. Örneğin, aşağıdaki deyim kaydeder `RESULT` için `/example/data/pigout` kümeniz için varsayılan depolama dizinine:
@@ -83,7 +83,7 @@ Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-lin
     STORE RESULT into '/example/data/pigout';
     ```
 
-   > [!NOTE]
+   > [!NOTE]  
    > Veriler, dosya adında belirtilen dizinde depolanır `part-nnnnn`. Dizin zaten varsa, bir hata alırsınız.
 
 6. Grunt istemi çıkmak için aşağıdaki ifadeyi girin:
@@ -136,9 +136,9 @@ Pig komutu, Pig Latin bir dosyada yer alan çalıştırmak için de kullanabilir
 
 Aşağıdaki belge, HDInsight Pig hakkında genel bilgi için bkz:
 
-* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md)
 
 HDInsight üzerinde Hadoop ile çalışmak için diğer yollar hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
-* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
-* [HDInsight üzerinde Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Apache Hadoop ile MapReduce kullanma](hdinsight-use-mapreduce.md)

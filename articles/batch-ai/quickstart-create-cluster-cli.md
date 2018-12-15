@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 0d4ba7edfb22a6710222c854ceb2bf86284d2d77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1ea12c9a544704ea91b85ae944e611e6769b5592
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057968"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407142"
 ---
-# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI kullanarak Batch AI eğitim işleri için küme oluşturma
+# <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI kullanarak Batch yapay ZEKA eğitim işleri için küme oluşturma
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Bu hızlı başlangıçta, yapay zeka ve makine öğrenimi modellerini eğitmek üzere kullanabileceğiniz bir Batch AI kümesi oluşturmak için Azure CLI’yi nasıl kullanabileceğiniz gösterilmektedir. Batch AI, veri bilimcilerinin ve yapay zeka araştırmacılarının Azure sanal makine kümelerindeki yapay zeka ve makine öğrenimi modellerini ölçeğe uygun olarak eğitmesini sağlayan bir yönetilen hizmettir.
 

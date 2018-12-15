@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: f2bbcf0218291f91d3ee5b25e89a5f580e0c1c86
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105742"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413498"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid güvenliğini ve kimlik doğrulaması 
 
@@ -35,7 +35,7 @@ Web kancalarını destekleyen birçok diğer hizmetleri gibi Event Grid, olaylar
 
 HTTP tetikleyicisi tabanlı Azure işlevi gibi başka türde bir uç noktasını kullanıyorsanız, Event Grid ile bir doğrulama anlaşması'na katılmak uç nokta kodunuzun gerekir. Event Grid aboneliği doğrulama iki şekilde destekler.
 
-1. **ValidationCode el sıkışması (programlı)**: uç noktanız için kaynak kodu denetimi, bu yöntem tavsiye edilir. Olay aboneliği oluşturma sırasında Event Grid aboneliği doğrulama olayı uç noktanıza gönderir. Bu olayın şeması için başka bir Event Grid olayı benzerdir. Bu olay veri bölümünü içeren bir `validationCode` özelliği. Uygulamanızı doğrulama isteği için beklenen olay aboneliği ve doğrulama kodu Event grid'e yankılayan olduğunu doğrular. Bu anlaşma mekanizması tüm Event Grid sürümlerinde desteklenir.
+1. **ValidationCode el sıkışması (programlı)**: Uç noktanız için kaynak kodu denetimi, bu yöntem tavsiye edilir. Olay aboneliği oluşturma sırasında Event Grid aboneliği doğrulama olayı uç noktanıza gönderir. Bu olayın şeması için başka bir Event Grid olayı benzerdir. Bu olay veri bölümünü içeren bir `validationCode` özelliği. Uygulamanızı doğrulama isteği için beklenen olay aboneliği ve doğrulama kodu Event grid'e yankılayan olduğunu doğrular. Bu anlaşma mekanizması tüm Event Grid sürümlerinde desteklenir.
 
 2. **ValidationURL el sıkışması (el ile)**: Bazı durumlarda, kaynak kodu ValidationCode el sıkışması uygulamak için uç nokta erişemez. Örneğin, bir üçüncü taraf hizmet kullanın (gibi [Zapier](https://zapier.com) veya [IFTTT](https://ifttt.com/)), program aracılığıyla doğrulama kodu ile yanıt veremez.
 
@@ -79,6 +79,8 @@ Uç nokta sahipliği kanıtlamak için geri validationResponse özelliğinde do�
   "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
 }
 ```
+
+Bir HTTP 200 OK yanıtı durum kodu döndürmelidir. HTTP 202 kabul edildi geçerli bir Event Grid aboneliği doğrulama yanıt tanınmıyor.
 
 Veya doğrulama URL'si için bir GET isteği göndererek abonelik el ile doğrulayabilirsiniz. Olay aboneliği doğrulandı kadar bir bekleme durumunda kalır.
 
@@ -271,7 +273,7 @@ Yerleşik roller farklı olan izinleri belirtmeniz gerekiyorsa, özel roller olu
 
 Farklı eylemlerde bulunmak kullanıcıların örnek Event Grid rol tanımları aşağıda verilmiştir. Bunlar yalnızca olay abonelikleri daha geniş erişim vermek için bu özel roller yerleşik rollerden farklıdır.
 
-**EventGridReadOnlyRole.json**: yalnızca salt okunur işlemlere izin verin.
+**EventGridReadOnlyRole.json**: Yalnızca salt okunur işlemlere izin verir.
 
 ```json
 {
@@ -290,7 +292,7 @@ Farklı eylemlerde bulunmak kullanıcıların örnek Event Grid rol tanımları 
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: izin kısıtlı sonrası eylemler ancak Sil eylemlerinin izin vermeyin.
+**EventGridNoDeleteListKeysRole.json**: Kısıtlı sonrası eylemler izin ancak Sil eylemlerinin izin vermeyin.
 
 ```json
 {
@@ -313,7 +315,7 @@ Farklı eylemlerde bulunmak kullanıcıların örnek Event Grid rol tanımları 
 }
 ```
 
-**EventGridContributorRole.json**: tüm event grid Eylemler sağlar.
+**EventGridContributorRole.json**: Tüm event grid Eylemler sağlar.
 
 ```json
 {

@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: ad8cc550ce69e4dc4c19a569718fa873a65b3620
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: eda5f21a535c6256d534bfdaa6cf30ae710ba075
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010353"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413192"
 ---
 # <a name="create-a-netapp-account"></a>NetApp hesabı oluşturma
 NetApp hesabı oluşturmak, kapasite havuzu ayarlamanıza ve ardından birim oluşturmanıza olanak tanır. Yeni NetApp hesabını oluşturmak için Azure NetApp Files dikey penceresini kullanırsınız.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-Microsoft.NetApp Azure Kaynak Sağlayıcısı'na erişim için izin verilenler listesinde yer almanız ve Azure NetApp Files hizmetini kullanmak için yapılandırılmış olmanız gerekir.  
+NetApp kaynak sağlayıcısı ve genel önizleme özelliğini kullanmak için aboneliğinizi kayıtlı gerekir.
 
-[Azure NetApp Files Genel Önizleme kayıt sayfası](https://aka.ms/nfspublicpreview). 
+[NetApp Azure dosyaları için kaydolun](azure-netapp-files-register.md)
 
 ## <a name="steps"></a>Adımlar 
 
-1. Önizleme davetinizde önizleme Azure portalı URL'sini bulun ve portalda oturum açın. 
+1. Azure portal Önizleme bulun portal Önizleme daveti ve oturum açma URL'si. 
 2.  Aşağıdaki yöntemlerden birini kullanarak Azure NetApp Files dikey penceresine ulaşın:  
   * Azure portalı arama kutusunda **Azure NetApp Files** için arama yapın.  
   * Gezintide **Tüm hizmetler**'e tıklayın ve ardından Azure NetApp Files için filtreleyin.  
@@ -60,6 +60,5 @@ Microsoft.NetApp Azure Kaynak Sağlayıcısı'na erişim için izin verilenler l
 
 ## <a name="next-steps"></a>Sonraki adımlar  
 
-1. [Kapasitesi havuzunu ayarlama](azure-netapp-files-set-up-capacity-pool.md)
-2. [Azure NetApp Files için birim oluşturma](azure-netapp-files-create-volumes.md)
-3. [Birim için dışarı aktarma ilkesini yapılandırma (isteğe bağlı)](azure-netapp-files-configure-export-policy.md)
+[Kapasitesi havuzunu ayarlama](azure-netapp-files-set-up-capacity-pool.md)
+

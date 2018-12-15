@@ -10,14 +10,14 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f57a5a2413103ddcf7484f3b1fc5b4170b7bdc98
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 97352cdc89aabe312bf500901347acaf5238e871
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412870"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437002"
 ---
-# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS bağlayıcı hesap izinlerini yapılandırma 
+# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS bağlayıcı hesap izinlerini yapılandırma 
 
 Adlı yeni bir PowerShell Modülü [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) cmdlet'leri Azure AD'niz için doğru Active Directory izinlerini yapılandırmanıza yardımcı olması için bir koleksiyon içerir (Ağustos 2018'de yayımlanan) 1.1.880.0 yapı ile kullanılmaya başlandı Dağıtım bağlanın. 
 
@@ -205,12 +205,12 @@ Bu cmdlet şu izinler ayarlanır:
 Grup geri yazma kullanırken AD DS bağlayıcı hesabının izinlerini ayarlamak için çalıştırın: 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 veya; 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
 ```
  
 Bu cmdlet şu izinler ayarlanır: 
@@ -225,14 +225,14 @@ Bu cmdlet şu izinler ayarlanır:
 Exchange karma dağıtımı kullanırken AD DS bağlayıcı hesabının izinlerini ayarlamak için çalıştırın: 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 
 
 veya; 
 
 ``` powershell
-Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
+Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
 ```
 
 Bu cmdlet şu izinler ayarlanır:  
@@ -299,7 +299,7 @@ Bu cmdlet şu izinler ayarlanır:
 |İzin Ver |Kimliği Doğrulanmış Kullanıcılar |Okuma izinleri |Bu nesne 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-- [Azure AD Connect: Hesaplar ve izinler](reference-connect-accounts-permissions.md)
+- [Azure AD Connect: Hesapları ve izinleri](reference-connect-accounts-permissions.md)
 - [Hızlı yükleme](how-to-connect-install-express.md)
 - [Özel yükleme](how-to-connect-install-custom.md)
 - [ADSyncConfig başvurusu](reference-connect-adsyncconfig.md)

@@ -12,23 +12,25 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/28/2018
+ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: 42e475f4da2102bb8b010daec6e6451ba7f13848
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 8fc76c33055f7131444a073d2f8560e136c0701d
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011101"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413260"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Azure NetApp Files için birim oluşturma
 
 Birimin kapasite kullanımı, havuzunun sağlanan kapasitesinden sayılır.  Kapasite havuzunda birden fazla birim oluşturabilirsiniz; ancak, birimlerin toplam kapasite kullanımı havuzun boyutunu aşamaz. 
 
 ## <a name="before-you-begin"></a>Başlamadan önce 
-Zaten bir kapasite havuzu ayarlamış olmalısınız.  
+Zaten bir kapasite havuzu ayarlamış olmalısınız.   
+[Kapasitesi havuzu oluşturmak](azure-netapp-files-set-up-capacity-pool.md)   
+Bir alt ağ, Azure için NetApp dosyaları temsilci gerekir.  
+[Temsilci bir alt ağ Azure NetApp dosyaları](azure-netapp-files-delegate-subnet.md)
 
-[Kapasitesi havuzunu ayarlama](azure-netapp-files-set-up-capacity-pool.md)
 
 ## <a name="steps"></a>Adımlar 
 1.  Kapasite Havuzlarını Yönet dikey penceresinden **Birimler** dikey penceresine tıklayın. 
@@ -38,26 +40,40 @@ Zaten bir kapasite havuzu ayarlamış olmalısınız.
 3.  Yeni Birim penceresinde **Oluştur**’a tıklayın ve aşağıdaki alanlar için bilgileri girin:   
     * **Ad**      
         Oluşturmakta olduğunuz birim için ad belirtin.   
-        Ad, kaynak grubu içinde benzersiz olmalıdır. En az 3 karakter uzunluğunda olmalıdır.  Tüm alfasayısal karakterler kullanılabilir.
+
+        Ad, kaynak grubu içinde benzersiz olmalıdır. En az üç karakter uzunluğunda olmalıdır.  Tüm alfasayısal karakterler kullanılabilir.
 
     * **Dosya yolu**  
         Yeni birimin dışarı aktarma yolunu oluşturmak için kullanılacak dosya yolunu belirtin. Dışarı aktarma yolu, birimi bağlamak ve birime erişmek için kullanılır.   
-        Bağlama hedefi, NFS hizmeti IP adresinin uç noktasıdır. Otomatik olarak oluşturulur.    
+     
         Dosya yolu adında yalnızca harfler, sayılar ve kısa çizgiler ("-") bulunabilir. 16 ile 40 karakter arası uzunlukta olmalıdır.  
 
     * **Kota**  
         Birime ayrılmış mantıksal depolama miktarını belirtin.  
+
         **Kullanılabilir kota** alanı, yeni birimi oluştururken kullanabildiğiniz, seçilen kapasite havuzundaki kullanılmamış alan miktarını gösterir. Yeni birimin boyutu kullanılabilir kotayı aşamaz.  
 
     * **Sanal ağ**  
-        Birime hangi Azure sanal ağından (Vnet) erişmek istediğinizi belirtin. Belirttiğiniz Vnet'te Azure NetApp Files yapılandırılmış olmalıdır. Azure NetApp Files hizmetine yalnızca birimle aynı konumda yer alan Vnet'ten erişilebilir.   
+        Birime hangi Azure sanal ağından (Vnet) erişmek istediğinizi belirtin.  
 
-    ![Yeni birim](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        Belirttiğiniz sanal ağ, Azure için NetApp dosyaları temsilci bir alt ağ olması gerekir. Azure NetApp dosyaları hizmeti, yalnızca aynı sanal ağda veya bir sanal ağ aynı bölgedeyse Vnet eşlemesi aracılığıyla toplu olarak erişilebilir. Express Route üzerinden şirket içi ağınızdan birimi de erişebilirsiniz.   
 
-4.  **Tamam**’a tıklayın. 
+    * **Alt ağ**  
+        Birim için kullanmak istediğiniz alt ağ belirtin.  
+        Belirttiğiniz alt ağ, Azure için NetApp dosyaları temsilci gerekir. 
+        
+        Bir alt ağ temsilcisi yok, tıklayabilirsiniz **Yeni Oluştur** sayfasında bir birim oluşturun. Ardından alt ağ oluşturma sayfası alt ağ bilgileri belirtin ve seçin **Microsoft.NetApp/volumes** alt ağın Azure NetApp dosyaları için temsilci.    
+ 
+        ![Yeni birim](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+    
+        ![Alt ağ oluşturma](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
+
+4.  **Tamam** düğmesine tıklayın. 
  
 Birim, kapasite havuzundan aboneliği, kaynak grubunu ve konum özniteliklerini devralır. Birimin dağıtım durumunu izlemek için Bildirimler sekmesini kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar  
-[Birim için dışarı aktarma ilkesini yapılandırma (isteğe bağlı)](azure-netapp-files-configure-export-policy.md)
+* [Birim için dışarı aktarma ilkesini yapılandırma (isteğe bağlı)](azure-netapp-files-configure-export-policy.md)
+* [Azure Hizmetleri için sanal ağ tümleştirmesi hakkında bilgi edinin](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
 

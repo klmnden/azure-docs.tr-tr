@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9d7ec781fbc559b434b51db4a5dd8ffb1b6ef11f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d13f97ff7ec25fd638b92dc1c057afcaeecc2bf9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103239"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434078"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Node.js kullanarak Azure Event Hubs'tan gelen olayları alma
 
@@ -28,7 +28,7 @@ Bu öğreticide, Azure'ı kullanarak bir olay hub'ından olayları almaya göste
 Bu Hızlı Başlangıç için kod kullanılabilir [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/processor).
 
 > [!NOTE]
->  Node.js kullanarak Event Hubs için olayları göndermek için bu makaleye bakın: [olayları Node.js kullanarak Azure Event Hubs'a gönderme](event-hubs-node-get-started-send.md). 
+>  Node.js kullanarak Event Hubs için olayları göndermek için bu makaleye bakın: [Node.js kullanarak Azure Event Hubs için olayları gönderme](event-hubs-node-get-started-send.md). 
 
 ## <a name="prerequisites"></a>Önkoşullar
 

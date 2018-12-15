@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 753a0ad72e1d4b60a93daa570ceecc25d21bb228
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6f1620c9977f997b4037fbf3f823c429e43b4f6a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634150"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436271"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>MapReduce işleri PowerShell kullanarak HDInsight üzerinde Apache Hadoop ile çalıştırın.
 
@@ -26,7 +26,7 @@ Bu belgede bir MapReduce işi içinde bir Hadoop HDInsight kümesinde çalışt�
 
 * **Bir Azure HDInsight (Hadoop HDInsight üzerinde) kümesi**
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * **Azure PowerShell içeren bir iş istasyonu**.
@@ -37,15 +37,15 @@ Azure PowerShell sağlar *cmdlet'leri* uzaktan üzerinde HDInsight MapReduce iş
 
 MapReduce işleri çalıştıran bir uzak HDInsight kümesinde aşağıdaki cmdlet'ler kullanılır.
 
-* **Connect-AzureRmAccount**: Azure PowerShell'in Azure aboneliğinize kimliğini doğrular.
+* **Connect-AzureRmAccount**: Azure PowerShell, Azure aboneliğinize kimliğini doğrular.
 
-* **Yeni AzureRmHDInsightMapReduceJobDefinition**: yeni bir oluşturur *iş tanımı* belirtilen MapReduce bilgileri kullanarak.
+* **Yeni AzureRmHDInsightMapReduceJobDefinition**: Yeni bir oluşturur *iş tanımı* belirtilen MapReduce bilgileri kullanarak.
 
-* **Başlangıç AzureRmHDInsightJob**: iş tanımı için HDInsight gönderir ve bir iş başlatılır. A *iş* nesne döndürülür.
+* **Başlangıç AzureRmHDInsightJob**: HDInsight için iş tanımını gönderir ve bir iş başlatılır. A *iş* nesne döndürülür.
 
-* **Bekleme AzureRmHDInsightJob**: İş nesnesinde işinin durumunu denetlemek için kullanır. Bekleme süresi aşılırsa veya iş tamamlanana kadar bekler.
+* **Bekleme AzureRmHDInsightJob**: İş nesnesi, iş durumunu denetlemek için kullanır. Bekleme süresi aşılırsa veya iş tamamlanana kadar bekler.
 
-* **Get-AzureRmHDInsightJobOutput**: tanımlı işlemin çıktısını almak için kullanılır.
+* **Get-AzureRmHDInsightJobOutput**: İşin çıktısını almak için kullanılır.
 
 Aşağıdaki adımlarda HDInsight kümenizdeki bir işi çalıştırmak için bu cmdlet'leri kullanma gösterilmektedir.
 
@@ -73,7 +73,7 @@ Aşağıdaki adımlarda HDInsight kümenizdeki bir işi çalıştırmak için bu
 
     Bu çıkış, işin başarıyla tamamlandığını gösterir.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Varsa **ExitCode** değer 0'dan bkz [sorun giderme](#troubleshooting).
 
     Bu örnek ayrıca indirilen dosyaları depolayan bir **çýktý.txt** betiğini çalıştırdığınız dizindeki dosya.
@@ -82,7 +82,7 @@ Aşağıdaki adımlarda HDInsight kümenizdeki bir işi çalıştırmak için bu
 
 Sözcükleri ve sayıları iş tarafından üretilen görmek için **çýktý.txt** dosyasını bir metin düzenleyicisinde.
 
-> [!NOTE]
+> [!NOTE]  
 > Bir MapReduce işi'nın çıktı dosyalarını sabittir. Bu nedenle, bu örnek yeniden, çıkış dosyasının adını değiştirmek gerekir.
 
 ## <a id="troubleshooting"></a>Sorun giderme
@@ -113,5 +113,5 @@ HDInsight MapReduce işleri hakkında genel bilgi için:
 
 Diğer yollar hakkında daha fazla bilgi için HDInsight üzerinde Hadoop ile çalışabilirsiniz:
 
-* [HDInsight üzerinde Hadoop ile Hive kullanma](hdinsight-use-hive.md)
-* [HDInsight üzerinde Hadoop ile Pig kullanma](hdinsight-use-pig.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Hive'ı kullanma](hdinsight-use-hive.md)
+* [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hdinsight-use-pig.md)

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 52657ae18b6fd06408887df82bd822eb2ff8fffe
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8c8ba338a7059d6d11f43bda6348aa6e645ab98c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964365"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410168"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Şirket içi Hyper-V Vm'lerini azure'a olağanüstü durum kurtarması için destek matrisi
 
@@ -31,10 +31,10 @@ Hyper-V olmadan Virtual Machine Manager | Virtual Machine Manager tarafından y�
 
 ## <a name="on-premises-servers"></a>Şirket içi sunucular
 
-**Sunucu** | **Gereksinimleri** | **Ayrıntılar**
+**Sunucu** | **Gereksinimler** | **Ayrıntılar**
 --- | --- | ---
-(Çalışan Virtual Machine Manager olmadan) Hyper-V | Windows Server 2016 (dahil olmak üzere Sunucu Çekirdeği yüklemesi), en son güncelleştirmeleri içeren Windows Server 2012 R2 | Site Recovery, Hyper-V sitesi yapılandırdığınızda, Windows Server 2016 ve 2012 R2 çalıştıran konaklar karıştırma desteklenmez.<br/><br/> Windows Server 2016 çalıştıran bir konakta bulunan sanal makineler için farklı bir konuma kurtarma desteklenmez.
-(Çalışan Virtual Machine Manager ile) Hyper-V | Virtual Machine Manager 2012 R2 Virtual Machine Manager 2016 | Virtual Machine Manager kullandıysanız, Virtual Machine Manager 2016'da Windows Server 2016 ana yönetilmelidir.<br/><br/> Windows Server 2016 ve 2012 R2 üzerinde çalışan Hyper-V konakları karıştırır Virtual Machine Manager Bulutu şu anda desteklenmemektedir.<br/><br/> Var olan bir Virtual Machine Manager 2012 R2 Server 2016'ya yükseltme içeren ortamlar desteklenmez.
+(Çalışan Virtual Machine Manager olmadan) Hyper-V | Windows Server 2016 (dahil olmak üzere Sunucu Çekirdeği yüklemesi), en son güncelleştirmeleri içeren Windows Server 2012 R2 | Windows Server 2016 çalıştıran bir konakta bulunan sanal makineler için farklı bir konuma kurtarma desteklenmez.<br/><br/> Windows Server 2012 R2 ile zaten yapılandırdıysanız / veya SCVMM 2012 R2 ile Azure Site Recovery ve işletim sistemi, yükseltmeyi planlıyorsanız, lütfen Kılavuzu izleyin [belgeleri.](upgrade-2012R2-to-2016.md) 
+(Çalışan Virtual Machine Manager ile) Hyper-V | Virtual Machine Manager 2012 R2 Virtual Machine Manager 2016 | Virtual Machine Manager kullandıysanız, Virtual Machine Manager 2016'da Windows Server 2016 ana yönetilmelidir.<br/><br/>
 
 
 ## <a name="replicated-vms"></a>Çoğaltılan VM'ler
@@ -59,15 +59,15 @@ Konuk işletim sistemi | Tüm konuk işletim sistemi [Azure için desteklenen](h
 
 **Bileşen** | **Hyper-V ile Virtual Machine Manager** | **Hyper-V olmadan Virtual Machine Manager**
 --- | --- | ---
-Konak ağ: NIC ekibi oluşturma | Evet | Evet
-Konak ağ: VLAN | Evet | Evet
-Konak ağ: IPv4 | Evet | Evet
-Konak ağ: IPv6 | Hayır | Hayır
-Konuk VM ağ: NIC ekibi oluşturma | Hayır | Hayır
+Konak ağı: NIC grubu oluşturma | Evet | Evet
+Konak ağı: VLAN | Evet | Evet
+Konak ağı: IPv4 | Evet | Evet
+Konak ağı: IPv6 | Hayır | Hayır
+Konuk VM ağı: NIC grubu oluşturma | Hayır | Hayır
 Konuk VM ağı: IPv4 | Evet | Evet
 Konuk VM ağı: IPv6 | Hayır | Evet
-Konuk VM ağı: statik IP (Windows) | Evet | Evet
-Konuk VM ağı: statik IP (Linux) | Hayır | Hayır
+Konuk VM ağı: Statik IP (Windows) | Evet | Evet
+Konuk VM ağı: Statik IP (Linux) | Hayır | Hayır
 Konuk VM ağı: Multi-NIC | Evet | Evet
 
 
@@ -111,7 +111,7 @@ NFS | NA | NA
 SMB 3.0 | Hayır | Hayır
 RDM | NA | NA
 Disk > 1 TB | Evet, 4.095 GB'a kadar | Evet, 4.095 GB'a kadar
-Disk: mantıksal ve fiziksel 4K kesim | Desteklenmiyor: Gen 1/Gen 2 | Desteklenmiyor: Gen 1/Gen 2
+Disk: 4K mantıksal ve fiziksel kesimi | Desteklenmeyen: Gen 1/2. nesil | Desteklenmeyen: Gen 1/2. nesil
 Disk: 4K mantıksal ve fiziksel 512 baytlık kesim | Evet |  Evet
 Mantıksal birim yönetimi (LVM). LVM'yi veri diskleri üzerinde desteklenir. Azure, yalnızca tek bir işletim sistemi diski sağlar. | Evet | Evet
 Bölüştürülmüş bir disk birimi > 1 TB | Evet | Evet
@@ -148,7 +148,7 @@ Yönetilen diskler | Evet, yük devretme için.<br/><br/> Yönetilen diskler yen
 
 Azure'a Çoğalttığınız şirket içi Vm'leri bu tabloda özetlenen Azure VM gereksinimleri karşılaması gerekir.
 
-**Bileşen** | **Gereksinimleri** | **Ayrıntılar**
+**Bileşen** | **Gereksinimler** | **Ayrıntılar**
 --- | --- | ---
 Konuk işletim sistemi | Site Recovery tüm işletim sistemlerini destekler [Azure tarafından desteklenen](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Desteklenmeyen başarısız önkoşulları denetleyin.
 Konuk işletim sistemi mimarisi | 64 bit | Desteklenmeyen başarısız önkoşulları denetleyin.
@@ -181,7 +181,7 @@ Dağıtımınız bu makaledeki ayarlarla uyumlu olduğundan emin olmak için en 
 
 **Ad** | **Açıklama** | **Ayrıntılar**
 --- | --- | --- | --- | ---
-Azure Site Recovery sağlayıcısı | Şirket içi sunucular ile Azure arasındaki iletişimi düzenler <br/><br/> Hyper-V Virtual Machine Manager ile: Virtual Machine Manager sunucularında yüklü<br/><br/> Hyper-V Virtual Machine Manager olmadan: Hyper-V konaklarında yüklü| En son sürümü: 5.1.2700.1 (Azure Portalı'ndan kullanılabilir)<br/><br/> [En son özellikler ve düzeltmeler](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
+Azure Site Recovery sağlayıcısı | Şirket içi sunucular ile Azure arasındaki iletişimi düzenler <br/><br/> Hyper-V Virtual Machine Manager ile: Virtual Machine Manager sunucularında yüklü<br/><br/> Hyper-V Virtual Machine Manager olmadan: Hyper-V konaklarında yüklü| En son sürümü: 5.1.2700.1 (Azure portalından kullanılabilir)<br/><br/> [En son özellikler ve düzeltmeler](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Microsoft Azure kurtarma Hizmetleri Aracısı | Hyper-V Vm'leri ve Azure arasında çoğaltma koordinatları<br/><br/> Şirket içi Hyper-V sunucuları (ile arama veya Virtual Machine Manager olmadan) yüklü | En son aracıyı portalından kullanılabilir
 
 

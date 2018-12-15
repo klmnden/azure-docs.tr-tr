@@ -17,26 +17,26 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 610b3111b8b84f42327f39ac17285ba7fef0d719
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 49ed750a25c732b7f11ef5de2e545be2a5412fa8
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869227"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437580"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure'da Visual Studio görüntüleri
 Önceden yapılandırılmış Azure sanal makineler'de (VM) Visual Studio kullanarak herhangi bir şey bir yukarı ve çalışan geliştirme ortamına gitmek için hızlı ve kolay bir yoludur. Sistem görüntüleri farklı Visual Studio yapılandırmalarıyla kullanılabilir [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
 
-Azure’da yeni misiniz? [Ücretsiz bir Azure hesabı oluşturun](https://azure.microsoft.com/free).
+Azure'da yeni misiniz? [Ücretsiz Azure hesabı oluşturun](https://azure.microsoft.com/free).
 
 ## <a name="what-configurations-and-versions-are-available"></a>Hangi yapılandırmaları ve sürümlerinin kullanılabilir mi?
-En son ana sürümleri, Visual Studio 2017 ve Visual Studio 2015 için görüntüleri Azure Market'te bulunabilir. Her bir ana sürüm için yayınlanmış (RTW) sürümünü ve en son güncelleştirilmiş sürümlerine bakın. Bu sürümlerin her biri, Visual Studio Enterprise ve Visual Studio Community sürümleri sunar. Bu görüntüler, en son Visual Studio ve Windows güncelleştirmelerini dahil etmek için en az her ay güncelleştirilir. Her görüntünün açıklaması, yüklü bir ürün sürümü ve görüntünün "Başlangıç" tarihi görüntüleri adları aynı kalsa da içerir.
+En son ana sürümleri, Visual Studio 2017 ve Visual Studio 2015 için görüntüleri Azure Market'te bulunabilir.  Yakın zamanda yaklaşan ana sürüm - Visual Studio 2019 önizlemeleri için destek ekledik.  Yayımlanan her ana sürümü için özgün olarak yayımlanmış (RTW) sürümünü ve en son güncelleştirilmiş sürümlerine bakın.  Bu sürümlerin her biri, Visual Studio Enterprise ve Visual Studio Community sürümleri sunar.  Bu görüntüler, en son Visual Studio ve Windows güncelleştirmelerini dahil etmek için en az her ay güncelleştirilir.  Her görüntünün açıklaması, yüklü bir ürün sürümü ve görüntünün "Başlangıç" tarihi görüntüleri adları aynı kalsa da içerir.
 
-| Yayın sürümü                                              | Sürümleri                     |     Ürün sürümü      |
+| Yayın sürümü                                              | Sürümler                     |     Ürün sürümü      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|   Visual Studio 2019: Önizleme (Önizleme 1)                   |           Enterprise         | Sürüm 16.0.0 Önizleme 1 |
-| Visual Studio 2017: En son (sürüm 15.9)                    |    Kurumsal ve topluluk     |       Sürüm 15.9.0     |
-|         Visual Studio 2017: RTW                              |    Kurumsal ve topluluk     |      Sürüm 15.0.18     |
+|    Visual Studio 2019: Önizleme (Önizleme 1)                   |           Enterprise         | Sürüm 16.0.0 Önizleme 1 |
+| Visual Studio 2017: En son (sürüm 15.9)                    |    Kurumsal ve topluluk     |      Sürüm 15.9.4      |
+|         Visual Studio 2017: RTW                              |    Kurumsal ve topluluk     |      Sürüm 15.0.20     |
 |   Visual Studio 2015: En son (Aktualizace 3)                      |    Kurumsal ve topluluk     |  Sürüm 14.0.25431.01   |
 |         Visual Studio 2015: RTW                              |             None             | (Bakım için süresi doldu)  |
 
@@ -50,7 +50,7 @@ Bu Visual Studio sürümü için önerilen özelliklere her görüntü içerir. 
 
 * Önerilen tüm kullanılabilir iş yükleri, her iş yükünün dahil olmak üzere isteğe bağlı bileşenler
 * .NET 4.6.2 ve .NET 4.7 geliştirici araçları SDK'ları ve hedefleme paketleri
-* GörselF#
+* Visual F#
 * Visual Studio için GitHub uzantısı
 * LINQ to SQL araçları
 

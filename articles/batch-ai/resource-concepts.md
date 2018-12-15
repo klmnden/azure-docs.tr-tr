@@ -15,14 +15,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4a9e3529f9d68ecdc614ea69cffc6897891f4548
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4454448809411c6390bc1f65c33b4abe76094ded
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057286"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407754"
 ---
 # <a name="overview-of-resources-in-batch-ai"></a>Batch AI kaynakların genel bakış
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Batch AI hizmeti kullanılarak ilk kez başlattığınızda kullanılabilir Batch AI kaynak öğrenmek istersiniz. Diğer Azure Hizmetleri ile bir veya daha fazla Azure'da Batch AI kaynak oluşturmak gibi *kaynak grupları*. Bir veya daha fazla Batch AI oluşturma *çalışma alanları* bir kaynak grubunda. Her bir çalışma alanı Batch AI bir karışımını içeren *kümeleri*, *dosya sunucuları*, ve *denemeleri*. Bir Batch AI deneme kapsayan bir grup *işleri*.
 

@@ -1,5 +1,5 @@
 ---
-title: Sanal ağ hizmet uç noktaları ve Azure SQL veritabanı için kuralları | Microsoft Docs
+title: Sanal ağ hizmet uç noktaları ve Azure SQL veritabanı ve SQL veri ambarı için kural | Microsoft Docs
 description: Bir alt ağ, sanal ağ hizmet uç noktası olarak işaretleyin. Ardından uç noktası olarak Azure SQL veritabanınızda ACL uygulamak için bir sanal ağ kuralı. SQL veritabanı, ardından tüm sanal makineler ve alt ağdaki diğer düğümlere gelen iletişimi kabul eder.
 services: sql-database
 ms.service: sql-database
@@ -11,17 +11,17 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 3469b03cae88a5bdf7c9ccd51b54af92ea8d7b23
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/13/2018
+ms.openlocfilehash: d4957efa151a0f992d098b2d6355b03f336e3738
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958397"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438600"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Azure SQL veritabanı ve SQL veri ambarı için sanal ağ hizmet uç noktaları ve kuralları kullanma
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Azure SQL için sanal ağ hizmet uç noktaları ve kuralları kullanma
 
-*Sanal ağ kuralları* olduğunu denetleyen bir güvenlik duvarı olup Azure [SQL veritabanı](sql-database-technical-overview.md) veya [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) sunucu uygulamasından gönderilen iletişimi kabul eder sanal ağlar içindeki belirli alt ağlar. Bu makalede, sanal ağ kuralı özelliği bazen Azure SQL veritabanınıza iletişimi güvenli bir şekilde vermeye yönelik en iyi seçenek olup neden açıklar.
+*Sanal ağ kuralları* olduğunu denetleyen bir güvenlik duvarı olup Azure [SQL veritabanı](sql-database-technical-overview.md) veya [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) sunucu uygulamasından gönderilen iletişimi kabul eder sanal ağlar içindeki belirli alt ağlar. Bu makalede, sanal ağ kuralı özelliği bazen Azure SQL veritabanı ve SQL veri ambarı iletişimi güvenli bir şekilde izin vermek için en iyi seçenek olup neden açıklar.
 
 > [!NOTE]
 > Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
@@ -36,13 +36,13 @@ Yalnızca bir sanal ağ kuralı oluşturursanız, devam açıklama ve adımları
 
 ## <a name="terminology-and-description"></a>Terminoloji ve açıklaması
 
-**Sanal ağ:** Azure aboneliğinizle ilişkili sanal ağı olabilir.
+**Sanal ağ:** Azure aboneliğinizle ilişkili sanal ağları olabilir.
 
-**Alt ağı:** içeren bir sanal ağ **alt ağlar**. Tüm Azure sahip olduğunuz sanal makinelerin (VM'ler), alt ağa atanır. Bir alt ağ, birden çok VM veya başka bir işlem düğümünde içerebilir. Sanal ağınızın dışında düğümleri erişime izin vermek için güvenlik yapılandırmadığınız sürece, sanal ağınızın erişemiyor işlem.
+**Alt ağı:** Bir sanal ağ içeren **alt ağlar**. Tüm Azure sahip olduğunuz sanal makinelerin (VM'ler), alt ağa atanır. Bir alt ağ, birden çok VM veya başka bir işlem düğümünde içerebilir. Sanal ağınızın dışında düğümleri erişime izin vermek için güvenlik yapılandırmadığınız sürece, sanal ağınızın erişemiyor işlem.
 
 **Sanal ağ hizmet uç noktası:** A [sanal ağ hizmet uç noktası] [ vm-virtual-network-service-endpoints-overview-649d] özellik değerleri içeren bir veya daha fazla biçimsel Azure hizmet türü adları bir alt ağ. Bu makalede şu tür adı ile ilgilenen **Microsoft.Sql**, adlandırılmış SQL veritabanı, Azure hizmetini ifade eder.
 
-**Sanal ağ kuralı:** SQL veritabanı sunucunuz için bir sanal ağ kuralı, SQL veritabanı sunucunuza erişim denetim listesinde (ACL) listelenen bir alt ağıdır. SQL veritabanınız için ACL olması için alt ağ içermelidir **Microsoft.Sql** tür adı.
+**Sanal ağ kuralı:** SQL veritabanı sunucunuz için bir sanal ağ kuralı, SQL veritabanı sunucunuza erişim denetim listesinde (ACL) listelenen bir alt ağdır. SQL veritabanınız için ACL olması için alt ağ içermelidir **Microsoft.Sql** tür adı.
 
 Bir sanal ağ kuralı bir alt ağda bulunan her düğüme gelen iletişimleri kabul etmek için SQL veritabanı sunucunuza söyler.
 
@@ -92,8 +92,8 @@ Tüm Azure SQL veritabanı sunucunuza, yalnızca belirli bir veritabanını sunu
 
 Sanal ağ hizmet uç noktaları Yönetim güvenlik rollerini ayrımı yoktur. Eylem her aşağıdaki roller gereklidir:
 
-- **Ağ Yöneticisi:** &nbsp; uç noktada açın.
-- **Veritabanı Yöneticisi:** &nbsp; erişim denetim listesi (ACL) belirli alt SQL veritabanı sunucusuna eklemek için güncelleştirin.
+- **Ağ Yöneticisi:** &nbsp; Uç noktada bırakın.
+- **Veritabanı Yöneticisi:** &nbsp; Erişim denetimi listesi (ACL) belirli alt SQL veritabanı sunucusuna eklemek için güncelleştirin.
 
 *RBAC alternatif:*
 
@@ -129,7 +129,7 @@ Azure SQL veritabanı için sanal ağ kuralları özelliği aşağıdaki sınır
 
 Azure SQL veritabanı için hizmet uç noktaları kullanarak, aşağıdaki konuları gözden geçirin:
 
-- **Azure SQL veritabanına genel IP'ler için giden gereklidir**: bağlantısına izin vermek üzere Azure SQL veritabanı IP'ler için ağ güvenlik grupları (Nsg'ler) açılır. NSG kullanarak bunu yapabilirsiniz [hizmet etiketleri](../virtual-network/security-overview.md#service-tags) Azure SQL veritabanı için.
+- **Azure SQL veritabanına genel IP'ler için giden gereklidir**: Ağ güvenlik grupları (Nsg'ler) bağlantısına izin vermek üzere Azure SQL veritabanı IP'ler için açık olması gerekir. NSG kullanarak bunu yapabilirsiniz [hizmet etiketleri](../virtual-network/security-overview.md#service-tags) Azure SQL veritabanı için.
 
 ### <a name="expressroute"></a>ExpressRoute
 
@@ -243,19 +243,19 @@ Bağlantı hatası 40914 ilişkili *sanal ağ kuralları*, Azure Portalı'nda g�
 
 ### <a name="error-40914"></a>Hata 40914
 
-*İleti metni:* sunucu açamıyor '*[sunucu-adı]*' oturum açma tarafından istenen. İstemcinin sunucuya erişmesine izin verilmiyor.
+*İleti metni:* Sunucu açamıyor '*[sunucu-adı]*' oturum açma tarafından istenen. İstemcinin sunucuya erişmesine izin verilmiyor.
 
-*Hata açıklaması:* sanal ağ sunucu uç noktaları olan bir alt ağda istemcidir. Ancak, Azure SQL veritabanı sunucusunun SQL veritabanıyla iletişim kurmak için sağ alt ağa izin veren sanal ağ kuralı yok.
+*Hata açıklaması:* Sanal ağ sunucu uç noktaları olan bir alt ağda istemcisidir. Ancak, Azure SQL veritabanı sunucusunun SQL veritabanıyla iletişim kurmak için sağ alt ağa izin veren sanal ağ kuralı yok.
 
-*Hata çözünürlüğü:* üzerinde güvenlik duvarı bölmesinde sanal ağ kuralları denetimi kullanın Azure portalının [bir sanal ağ kuralı ekleyin](#anchor-how-to-by-using-firewall-portal-59j) alt ağ.
+*Hata çözünürlüğü:* Azure portal'ın güvenlik duvarı bölmede sanal ağ kuralları denetimi kullanın [bir sanal ağ kuralı ekleyin](#anchor-how-to-by-using-firewall-portal-59j) alt ağ.
 
 ### <a name="error-40615"></a>Hata 40615
 
-*İleti metni:* sunucu açamıyor '{0}' oturum açma tarafından istenen. İstemci IP adresi ile{1}' sunucuya erişmesine izin verilmiyor.
+*İleti metni:* Sunucu açamıyor '{0}' oturum açma tarafından istenen. İstemci IP adresi ile{1}' sunucuya erişmesine izin verilmiyor.
 
-*Hata açıklaması:* istemci, Azure SQL veritabanı sunucusuna bağlanmak için yetkili değil bir IP adresinden bağlanmaya çalışıyor. Sunucu güvenlik duvarını belirli IP adresinden SQL veritabanıyla iletişim kurmak bir istemci veren IP adresi kuralı yok.
+*Hata açıklaması:* İstemci, Azure SQL veritabanı sunucusuna bağlanmak için yetkili değil bir IP adresinden bağlanmaya çalışıyor. Sunucu güvenlik duvarını belirli IP adresinden SQL veritabanıyla iletişim kurmak bir istemci veren IP adresi kuralı yok.
 
-*Hata çözünürlüğü:* istemcinin IP adresini bir IP kuralı olarak girin. Azure Portalı'nda güvenlik duvarı bölmesini kullanarak bunu.
+*Hata çözünürlüğü:* İstemcinin IP adresini bir IP kuralı olarak girin. Azure Portalı'nda güvenlik duvarı bölmesini kullanarak bunu.
 
 Birden fazla SQL veritabanı hata iletilerinin listesini belgelenen [burada][sql-database-develop-error-messages-419g].
 
@@ -278,7 +278,7 @@ Bir PowerShell Betiği, sanal ağ kuralları oluşturabilirsiniz. Önemli cmdlet
 
 Dahili olarak, SQL VNet eylemleri için PowerShell cmdlet'leri, REST API'lerini çağırma. REST API'lerini doğrudan çağırabilir.
 
-- [Sanal ağ kuralları: işlemler][rest-api-virtual-network-rules-operations-862r]
+- [Sanal ağ kuralları: İşlemleri][rest-api-virtual-network-rules-operations-862r]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -320,10 +320,10 @@ Belirli sanal ağ hizmet uç noktası ile etiketlenmiş bir alt ağ zaten olmal�
 
 > [!NOTE]
 > Aşağıdaki durumlar veya durumları için kurallar geçerlidir:
-> - **Hazır:** başlattığınız işleminin başarılı olduğunu gösterir.
-> - **Başarısız oldu:** , başlatılan işlem başarısız oldu belirtir.
-> - **Silindi:** yalnızca silme işlemi için geçerlidir ve kural silindi ve artık geçerli olduğunu gösterir.
-> - **Devam ediyor:** işlemi devam ediyor belirtir. Eski kural, işlem bu durumda olduğunda geçerlidir.
+> - **Hazır:** Başlattığınız işleminin başarılı olduğunu gösterir.
+> - **Başarısız oldu:** Başlattığınız bir işlemin başarısız olduğunu gösterir.
+> - **Silindi:** Yalnızca silme işlemi için geçerlidir ve kural silindi ve artık geçerli olduğunu gösterir.
+> - **Devam ediyor:** İşlemi sürmekte olduğunu gösterir. Eski kural, işlem bu durumda olduğunda geçerlidir.
 
 <a name="anchor-how-to-links-60h" />
 
@@ -337,7 +337,7 @@ Azure SQL veritabanı için sanal ağ kuralı özelliği geç Eylül 2017'de kul
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Azure SQL veritabanı için bir sanal ağ hizmet uç noktası ve bir sanal ağ kuralı oluşturmak için PowerShell kullanın.][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
-- [Sanal ağ kuralları: İşlem] [ rest-api-virtual-network-rules-operations-862r] REST API'leri
+- [Sanal ağ kuralları: İşlemleri] [ rest-api-virtual-network-rules-operations-862r] REST API'leri
 
 <!-- Link references, to images. -->
 
@@ -347,7 +347,7 @@ Azure SQL veritabanı için sanal ağ kuralı özelliği geç Eylül 2017'de kul
 
 [image-portal-firewall-vnet-result-rule-30-png]: media/sql-database-vnet-service-endpoint-rule-overview/portal-firewall-vnet-result-rule-30.png
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
@@ -369,7 +369,7 @@ Azure SQL veritabanı için sanal ağ kuralı özelliği geç Eylül 2017'de kul
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
-<!-- Link references, to text, Outside this Github repo (HTTP). -->
+<!-- Link references, to text, Outside this GitHub repo (HTTP). -->
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 

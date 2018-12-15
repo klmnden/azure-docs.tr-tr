@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: e1482b4238211db45a7f317d874bbb3a8c974cb2
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: fce89cc754ac179054a60ce837949bb02b2102c6
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337912"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408706"
 ---
 # <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Azure Blob ve kuyruk verisi ile RBAC (Önizleme) için erişim haklarını yönetme
 
@@ -27,7 +27,7 @@ Bir kullanıcı, Grup veya uygulama hizmet sorumlusunun bir Azure AD kimlik olab
 
 Azure depolama, hem yerleşik hem de özel RBAC rollerini destekler. Azure depolama, Azure AD ile kullanmak için bu yerleşik RBAC rolleri sunar:
 
-- [Depolama Blob verileri sahibi (Önizleme)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview): Azure Data Lake depolama 2. nesil için sahiplik ve ACL'ler ayarlamak için kullanın (Önizleme). Daha fazla bilgi için [Azure Data Lake depolama Gen2'deki erişim denetimi](../blobs/data-lake-storage-access-control.md).
+- [Depolama Blob verileri sahibi (Önizleme)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview): Sahipliği ayarlamak ve POSIX erişim denetimi için Azure Data Lake depolama Gen2 yönetmek için kullanın (Önizleme). Daha fazla bilgi için [Azure Data Lake depolama Gen2'deki erişim denetimi](../blobs/data-lake-storage-access-control.md).
 - [Depolama Blob verileri katkıda bulunan (Önizleme)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview): Blob depolama kaynaklarını okuma/yazma/silme izni vermek için kullanın.
 - [Depolama Blob verileri Okuyucu (Önizleme)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview): Blob depolama kaynaklarını salt okunur izinler vermek için kullanın.
 - [Depolama kuyruk verileri katkıda bulunan (Önizleme)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview): Azure Kuyrukları için okuma/yazma/silme izinleri vermek için bu seçeneği kullanın.
@@ -45,10 +45,10 @@ Kapsayıcıları ve kuyruk depolama hesabınızda izinler vermek için Azure kim
 
 |Kapsam|BLOB veri sahibi|BLOB verileri katkıda bulunan|BLOB veri okuyucusu|Kuyruk verileri katkıda bulunan|Kuyruk verileri okuyucu|
 |---|---|---|---|---|---|
-|Abonelik düzeyi|Sahiplik ve Abonelikteki Data Lake Storage kaynakları için ACL'leri|Tüm kapsayıcılar ve bloblar Abonelikteki okuma/yazma/silme erişimi| Tüm kapsayıcılar ve bloblar aboneliği okuma erişimi|Abonelikteki tüm kuyruklara erişim okuma/yazma/silme|Abonelikteki tüm kuyrukları okuma erişimi|
-|Kaynak grubu düzeyinde|Data Lake Storage kaynakların kaynak grubundaki sahipliği ve ACL'ler ayarlayın|Tüm kapsayıcılar ve bloblar kaynak grubundaki okuma/yazma/silme erişimi|Tüm kapsayıcılar ve bloblar kaynak grubundaki okuma erişimi|Kaynak grubundaki tüm kuyruklara erişim okuma/yazma/silme|Kaynak grubundaki tüm kuyrukları okuma erişimi|
-|Depolama hesabı düzeyi|Depolama hesabında Data Lake Storage kaynakları için sahiplik ve ACL'ler ayarlayın|Tüm kapsayıcıları ve blobları depolama hesabındaki okuma/yazma/silme erişimi|Tüm kapsayıcıları ve blobları depolama hesabındaki okuma erişimi|Depolama hesabındaki tüm kuyruklara erişim okuma/yazma/silme|Depolama hesabındaki tüm kuyrukları okuma erişimi|
-|Dosya kapsayıcısı/sistem/kuyruk düzeyi|Sahiplik ve ACL'ler Data Lake Storage kaynakları için dosya sisteminde ayarlayın.|Belirtilen kapsayıcıya ve bloblarına okuma/yazma/silme erişimi|Belirtilen kapsayıcıya ve bloblarına okuma erişimi|Belirtilen sıra okuma/yazma/silme erişimi|Belirtilen sıra okuma erişimi|
+|Abonelik düzeyi|Denetim Yönetimi tüm kapsayıcılar ve bloblar aboneliği için okuma/yazma erişimi ve POSIX erişim|Tüm kapsayıcılar ve bloblar aboneliği için okuma/yazma erişimi| Tüm kapsayıcılar ve bloblar aboneliği okuma erişimi|Abonelikteki tüm kuyruklar için okuma/yazma erişimi|Abonelikteki tüm kuyrukları okuma erişimi|
+|Kaynak grubu düzeyinde|Tüm kapsayıcıları ve blobları kaynak grubunda denetim Yönetimi okuma/yazma erişimi ve POSIX erişim|Tüm kapsayıcılar ve bloblar kaynak grubundaki okuma/yazma erişimi|Tüm kapsayıcılar ve bloblar kaynak grubundaki okuma erişimi|Kaynak grubundaki tüm kuyruklar için okuma/yazma erişimi|Kaynak grubundaki tüm kuyrukları okuma erişimi|
+|Depolama hesabı düzeyi|Tüm kapsayıcıları ve BLOB Depolama hesabında denetim Yönetimi okuma/yazma erişimi ve POSIX erişim|Tüm kapsayıcıları ve blobları depolama hesabındaki okuma/yazma erişimi|Tüm kapsayıcıları ve blobları depolama hesabındaki okuma erişimi|Depolama hesabındaki tüm kuyruklar için okuma/yazma erişimi|Depolama hesabındaki tüm kuyrukları okuma erişimi|
+|Kapsayıcı/kuyruk düzeyi|Okuma/yazma erişimi ve POSIX erişim denetimi Yönetimi belirtilen kapsayıcıya ve bloblarına.|Belirtilen kapsayıcıya ve bloblarına okuma/yazma erişimi|Belirtilen kapsayıcıya ve bloblarına okuma erişimi|Belirtilen sıra okuma/yazma erişimi|Belirtilen sıra okuma erişimi|
 
 > [!NOTE]
 > Bir Azure depolama hesabınızın sahibi olarak, otomatik olarak veri erişim izni atanmaz. Siz açıkça kendiniz bir RBAC rolü için Azure depolama atamanız gerekir. Aboneliğiniz, kaynak grubu, depolama hesabı veya bir kapsayıcı veya kuyruk düzeyinde atayabilirsiniz.

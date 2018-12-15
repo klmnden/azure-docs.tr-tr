@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 0d2b7a5e3239cf46c41db0a086b804c34df5d6e2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3779260d2dd6036e65be39b4a59ceb1459d01b9e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386953"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434265"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Azure Logic Apps için uyarılarını Aç durumunu izleme ve tanılama günlük kaydını ayarlama
 
@@ -207,7 +207,7 @@ Uyarılar olmadan ayarlamak için [Azure Log Analytics](../log-analytics/log-ana
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Azure Tanılama Olay ayarları ve ayrıntıları
 
-Her mantıksal uygulamanızı ve bu olay, örneğin durumu hakkında ayrıntılı tanılama olayında, başlangıç saati, bitiş saati ve benzeri. İzleme, izleme ve günlüğe kaydetme program aracılığıyla ayarlamak için bu ayrıntılarla kullanabilirsiniz [Azure Logic Apps için REST API](https://docs.microsoft.com/rest/api/logic) ve [REST API'si için Azure tanılama](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
+Her mantıksal uygulamanızı ve bu olay, örneğin durumu hakkında ayrıntılı tanılama olayında, başlangıç saati, bitiş saati ve benzeri. İzleme, izleme ve günlüğe kaydetme program aracılığıyla ayarlamak için bu ayrıntılarla kullanabilirsiniz [Azure Logic Apps için REST API](https://docs.microsoft.com/rest/api/logic) ve [REST API'si için Azure tanılama](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
 
 Örneğin, `ActionCompleted` olayının `clientTrackingId` ve `trackedProperties` izleme ve izleme için kullanabileceğiniz özellikler:
 

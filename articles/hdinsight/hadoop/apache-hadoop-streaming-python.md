@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: d6a9de293d62ec6f25bd3a665d5ced5a1ac671ae
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e8cf8de25a35909cb2a0fc94237bfa517c72e685
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634031"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410355"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Python için HDInsight akış MapReduce programları geliştirme
 
@@ -47,9 +47,9 @@ Aşağıdaki akış çizelgesi ne eşleme sırasında gerçekleşir ve aşamalar
 
 Hadoop, eşleme içeren bir dosya belirtin ve bir iş tarafından kullanılan mantıksal azaltılmasına olanak tanır. Eşleme için belirli gereksinimler ve mantıksal azaltmak şunlardır:
 
-* **Giriş**: eşleme ve azaltma bileşenleri STDIN giriş verilerinin okuma gerekir.
-* **Çıkış**: eşleme ve azaltma bileşenleri STDOUT için çıktı verilerini yazmalıdır.
-* **Veri biçimi**: tüketilen ve üretilen veriler bir sekme karakteri tarafından ayrılmış bir anahtar/değer çifti olmalıdır.
+* **Giriş**: Eşleme ve azaltma bileşenleri STDIN giriş verilerinin okuma gerekir.
+* **Çıkış**: Eşleme ve azaltma bileşenleri STDOUT için çıktı verilerini yazmalıdır.
+* **Veri biçimi**: Tüketilen ve üretilen veriler, bir sekme karakteri tarafından ayrılmış bir anahtar/değer çifti olmalıdır.
 
 Python kolayca işleyebilir bu gereksinimleri kullanarak `sys` STDIN ve kullanarak Modülü `print` STDOUT yazdırmak için. Kalan görev yalnızca bir sekme ile verileri biçimlendirme (`\t`) karakteri anahtar ve değer arasında.
 
@@ -144,7 +144,7 @@ Dosyaları karşıya yükleme, işini çalıştırın ve çıktıyı görüntül
 
     Bu komut dosyaları, yerel sistemden baş düğüme kopyalar.
 
-    > [!NOTE]
+    > [!NOTE]  
     > SSH hesabınızın güvenliğini sağlamak için parola kullandıysanız, parola istenir. Bir SSH anahtarı kullandıysanız, kullanmak zorunda kalabilirsiniz `-i` parametresi ve özel anahtarın yolunu. Örneğin, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
 2. SSH kullanarak kümeye bağlanın:
@@ -170,17 +170,17 @@ Dosyaları karşıya yükleme, işini çalıştırın ve çıktıyı görüntül
 
     Bu komut, aşağıdaki bölümleri içerir:
 
-   * **hadoop streaming.jar**: akış MapReduce işlemleri gerçekleştirirken kullanılır. Bu Hadoop MapReduce dış kod sağladığınız arabirimleri.
+   * **hadoop streaming.jar**: Akış MapReduce işlemleri gerçekleştirirken kullanılır. Bu Hadoop MapReduce dış kod sağladığınız arabirimleri.
 
-   * **-dosyaları**: MapReduce işine belirtilen dosyaları ekler.
+   * **-dosyaları**: Belirtilen dosyalar, MapReduce işine ekler.
 
    * **-Eşleyici**: Hadoop Eşleyici kullanmak için hangi dosya söyler.
 
    * **-Azaltıcı**: Hadoop Azaltıcı kullanmak için hangi dosya söyler.
 
-   * **-Giriş**: count giriş dosyası gelen sözcükleri.
+   * **-Giriş**: Biz sözcük sayısı giriş dosyası.
 
-   * **-Çıkış**: çıkış yazılan dizini.
+   * **-Çıkış**: Çıkış yazılan dizin.
 
     MapReduce işi çalıştığı işlemin yüzde olarak görüntülenir.
 
@@ -199,6 +199,6 @@ Dosyaları karşıya yükleme, işini çalıştırın ve çıktıyı görüntül
 
 HDInsight ile akış MapRedcue işi kullanmayı öğrendiniz, Azure HDInsight ile çalışmanın diğer yollarını keşfetmek için aşağıdaki bağlantıları kullanın.
 
-* [HDInsight ile Hive kullanma](hdinsight-use-hive.md)
-* [HDInsight ile Pig kullanma](hdinsight-use-pig.md)
+* [Apache Hive, HDInsight ile kullanma](hdinsight-use-hive.md)
+* [Apache Pig, HDInsight ile kullanma](hdinsight-use-pig.md)
 * [HDInsight ile MapReduce işleri kullanma](hdinsight-use-mapreduce.md)

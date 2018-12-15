@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9c1b0d52a83d707df3a01212f2ab23c625987da0
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013228"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435319"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Kullanım C# üzerindeki HDInsight, Apache Hadoop akışı MapReduce ile
 
@@ -157,7 +157,7 @@ Uygulamayı oluşturduktan sonra bunu oluşturmak için yapı `/bin/Debug/reduce
 
     * Bu giriş genişletilebilir, kullanmakta olduğunuz bir __Azure depolama hesabı__ kümenin varsayılan depolama alanı olarak. Kümenin varsayılan depolama dosyalarını görüntülemek için giriş genişletin ve ardından çift __(varsayılan kapsayıcı)__.
 
-    * Bu giriş genişletilemez, kullanmakta olduğunuz __Azure Data Lake Store__ kümenin varsayılan depolama alanı olarak. Kümenin varsayılan depolama alanı dosyaları görüntülemek için çift tıklayın __(varsayılan depolama hesabı)__ girişi.
+    * Bu giriş genişletilemez, kullanmakta olduğunuz __Azure Data Lake Storage__ kümenin varsayılan depolama alanı olarak. Kümenin varsayılan depolama alanı dosyaları görüntülemek için çift tıklayın __(varsayılan depolama hesabı)__ girişi.
 
 5. .Exe dosyalarını karşıya yüklemek için aşağıdaki yöntemlerden birini kullanın:
 
@@ -165,17 +165,17 @@ Uygulamayı oluşturduktan sonra bunu oluşturmak için yapı `/bin/Debug/reduce
 
         ![simgeyi karşıya yükleyin](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
     
-    * Kullanıyorsanız __Azure Data Lake Store__dosya listesinde boş bir alana sağ tıklayın ve ardından __karşıya__. Son olarak, seçin **mapper.exe** tıklayın ve dosya **açık**.
+    * Kullanıyorsanız __Azure Data Lake Storage__dosya listesinde boş bir alana sağ tıklayın ve ardından __karşıya__. Son olarak, seçin **mapper.exe** tıklayın ve dosya **açık**.
 
     Bir kez __mapper.exe__ karşıya yükleme tamamlandığında, karşıya yükleme işlemi için yineleyin __reducer.exe__ dosya.
 
-## <a name="run-a-job-using-an-ssh-session"></a>Bir işi çalıştırma: bir SSH oturumu kullanma
+## <a name="run-a-job-using-an-ssh-session"></a>Bir iş çalıştırın: Bir SSH oturumu kullanma
 
 1. HDInsight kümesine bağlanmak için SSH kullanın. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. MapReduce işi başlatmak için aşağıdaki komutlardan birini kullanın:
 
-    * Kullanıyorsanız __Data Lake Store__ varsayılan depolama alanı olarak:
+    * Kullanıyorsanız __Data Lake Storage__ varsayılan depolama alanı olarak:
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -189,7 +189,7 @@ Uygulamayı oluşturduktan sonra bunu oluşturmak için yapı `/bin/Debug/reduce
 
     Aşağıdaki liste, her parametre ne yaptığını açıklar:
 
-    * `hadoop-streaming.jar`: Akış MapReduce işlevleri içerir jar dosyası.
+    * `hadoop-streaming.jar`: Akış MapReduce işlevlerini içeren jar dosyasını.
     * `-files`: Ekler `mapper.exe` ve `reducer.exe` bu proje dosyaları. `adl:///` Veya `wasb:///` önce her dosya kümenin varsayılan depolama alanı kökünde yoludur.
     * `-mapper`: Hangi dosya Eşleyici uygulayan belirtir.
     * `-reducer`: Hangi dosya Azaltıcı uygulayan belirtir.
@@ -214,7 +214,7 @@ Uygulamayı oluşturduktan sonra bunu oluşturmak için yapı `/bin/Debug/reduce
         yourselves      3
         youth   17
 
-## <a name="run-a-job-using-powershell"></a>Bir işi çalıştırma: PowerShell kullanarak
+## <a name="run-a-job-using-powershell"></a>Bir iş çalıştırın: PowerShell’i kullanma
 
 Bir MapReduce işi çalıştırın ve sonuçları karşıdan yüklemek için aşağıdaki PowerShell betiğini kullanın.
 
@@ -236,6 +236,6 @@ Bu betik, küme oturum açma hesabı adı ve parola, HDInsight küme adıyla bir
 
 HDInsight ile MapReduce kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile MapReduce kullanma](hdinsight-use-mapreduce.md).
 
-Hive ve Pig ile C# ' ı kullanma hakkında daha fazla bilgi için bkz. [Hive ve Pig ile C# kullanıcı tanımlı işlevi kullanma](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
+Kullanma hakkında bilgi için C# Hive ve Pig ile bkz [kullanımı bir C# Apache Hive ve Apache Pig ile kullanıcı tanımlı işlev](apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-C# HDInsight üzerinde Storm ile kullanma hakkında daha fazla bilgi için bkz. [C# topolojileri geliştirme HDInsight üzerinde Storm için](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
+Kullanma hakkında bilgi için C# HDInsight üzerinde Storm ile bkz [geliştirme C# HDInsight üzerinde Apache Storm topolojilerini](../storm/apache-storm-develop-csharp-visual-studio-topology.md).
