@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 12/14/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 87d5389abd72875c62ea3484fc3f9ca43c339447
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 36b3fcfa90b5b1de9c9d3262da1f3e519cc99c19
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240219"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444440"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Özel IPsec/IKE ilkesi tüm Azure VPN Gateway SKU’larında desteklenir mi?
 Özel IPsec/IKE ilkesi, Azure **VpnGw1, VpnGw2, VpnGw3, Standard** ve **HighPerformance** VPN ağ geçitlerinde desteklenir. **Temel** SKU **desteklenmemektedir**.
@@ -102,3 +102,6 @@ Evet. VNet-VNet tüneli, her iki yön için birer tane olmak üzere Azure’daki
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>Özel IPsec/IKE ilkesi ExpressRoute bağlantısında çalışır mı?
 Hayır. IPsec/IKE ilkesi yalnızca Azure VPN ağ geçitleri aracılığıyla kurulan S2S VPN ve VNet-VNet bağlantılarında çalışır.
+
+### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>IPSec için daha fazla yapılandırma bilgilerini nerede bulabilirim?
+Bkz: [S2S veya VNet-VNet bağlantıları için IPSec/IKE yapılandırma İlkesi](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

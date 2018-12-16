@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c75d123fec9cbc98a532f4a38887cfd2fc88feda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b214932f43ce20480ee37a7b4edf942f080b38e8
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197967"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444441"
 ---
 Bir istemci sertifikası yüklenirken, istemci sertifikası dışarı aktarılırken oluşturulan parola gerekir.
 
-1. .Pfx sertifika dosyasını bulun ve Mac için kopyalayın Çeşitli yollarla Mac için sertifika elde edebilirsiniz, örneğin, sertifika dosyasını e-posta gönderebilirsiniz.
-2. Mac için sertifika kopyaladıktan sonra açmak için sertifikayı çift tıklatın **eklemek sertifikaları** kutusunda tıklatın **Ekle** yüklemeye başlamak için.
+1. .Pfx sertifika dosyasını bulun ve için Mac bilgisayarınıza kopyalayın Çeşitli yollarla Mac için sertifika alabilirsiniz, örneğin, sertifika dosyasını e-posta gönderebilirsiniz.
+2. Mac bilgisayara sertifikayı kopyalandıktan sonra açmak için sertifikayı çift tıklatın **sertifikaları eklemek** kutusuna tıklayarak **Ekle** yüklemeyi başlatmak için.
 
-  ![Sertifikaları Ekle](./media/vpn-gateway-certificates-install-mac-client-cert-include/addcert.png)
-3. İstemci sertifikasını dışarı aktarılırken oluşturduğunuz parolayı girin. Parola sertifikanın özel anahtarı korur. Tıklatın **Tamam** yüklemeyi tamamlayın.
+   ![Sertifika Ekle](./media/vpn-gateway-certificates-install-mac-client-cert-include/addcert.png)
+3. İstemci sertifikası dışarı aktardığınızda oluşturduğunuz parolayı girin. Sertifikanın özel anahtarı parola korur. Tıklayın **Tamam** yüklemeyi tamamlamak için.
 
-  ![Parola](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)
+   ![Parola](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)

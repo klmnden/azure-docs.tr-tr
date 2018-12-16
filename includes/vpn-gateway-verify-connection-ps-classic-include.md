@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 03dc6d8bb95a952a77be31f79df36a2c1ddc8ffc
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: c1b5560e16b68565c37365ac9c2cba217d9b1b90
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458656"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444433"
 ---
 'Get-AzureVNetConnection' cmdlet'ini kullanarak bağlantınızın başarılı olduğunu doğrulayabilirsiniz.
 
 1. Aşağıdaki cmdlet örneğini kullanın ve değerleri, kendi değerlerinizle eşleşecek şekilde yapılandırın. Sanal ağ adı, boşluk içeriyorsa tırnak işaretleri olması gerekir.
 
-  ```azurepowershell
-  Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
-  ```
+   ```azurepowershell
+   Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
+   ```
 2. cmdlet tamamlandıktan sonra değerleri görüntüleyin. Aşağıdaki örnekte, bağlantı durumu "Bağlandı" gösterilir ve giriş ve çıkış baytlarını görebilirsiniz.
 
         ConnectivityState         : Connected

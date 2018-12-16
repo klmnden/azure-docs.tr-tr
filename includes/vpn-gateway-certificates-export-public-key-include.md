@@ -8,39 +8,39 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4ae4cfb91fb3a746c73d6b098a1adc9e4dee8698
-ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.openlocfilehash: 3c6485406c67bf84b9e0fdfb9f4683abe5062d6c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35414714"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444423"
 ---
-Otomatik olarak imzalanan bir sertifika oluşturduktan sonra kök sertifika ortak anahtar .cer dosyasını (özel anahtarı değil) verin. Ayrıca, Azure için daha sonra bu dosyayı karşıya yükler. Aşağıdaki adımlar, otomatik olarak imzalanan kök sertifika .cer dosyasını dışarı yardımcı:
+Otomatik olarak imzalanan kök sertifika oluşturduktan sonra kök sertifika ortak anahtar .cer dosyasını (özel anahtarı değil) dışarı aktarın. Daha sonra bu dosya Azure'a yükler. Aşağıdaki adımları otomatik olarak imzalanan kök sertifikanız için .cer dosyasını dışarı aktarmanıza yardımcı olur:
 
-1. Sertifikadan bir .cer dosyası almak için **Kullanıcı sertifikalarını yönet** menüsünü açın. Otomatik olarak imzalanan kök sertifikayı bulun (genellikle 'Certificates - Current User\Personal\Certificates' konumundadır) ve sağ tıklayın. **Tüm Görevler**’e tıklayın ve ardından **Dışarı Aktar**’a tıklayın. **Sertifika Dışarı Aktarma Sihirbazı** açılır. Geçerli User\Personal\Certificates altına sertifikayı bulamazsa (Başlık "Sertifikalar – yerel değil"Sertifikalar – Geçerli kullanıcı"bilgisayar" olarak olacaktır) yerel bilgisayar sertifikaları için Sertifika Yöneticisi'ni açık olabilir. Geçerli Sertifika Yöneticisi'ni açmak için kullanıcı kapsamı başlatılsın burada sertifikaları oluşturulmuş yazarak aynı powershell'den ```certmgr```.
+1. Sertifikadan bir .cer dosyası almak için **Kullanıcı sertifikalarını yönet** menüsünü açın. Otomatik olarak imzalanan kök sertifikayı bulun (genellikle 'Certificates - Current User\Personal\Certificates' konumundadır) ve sağ tıklayın. **Tüm Görevler**’e tıklayın ve ardından **Dışarı Aktar**’a tıklayın. **Sertifika Dışarı Aktarma Sihirbazı** açılır. Geçerli kullanıcı\kişisel\sertifikalar'ın altında bir sertifika bulamazsanız (başlık, "Sertifikalar - yerel değil"Sertifikalar - Geçerli kullanıcı"bilgisayar" olarak olacaktır) yerel bilgisayar sertifikaları için Sertifika Yöneticisi'ni açık olabilir. Geçerli Sertifika Yöneticisi'ni açmak için kullanıcı kapsamı başlatın sertifikaları nerede oluşturulacağını yazarak powershell'den ```certmgr```.
 
-  ![Dışarı Aktarma](./media/vpn-gateway-certificates-export-public-key-include/export.png)
+   ![Dışarı Aktarma](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. Sihirbazda, **İleri**’ye tıklayın.
 
-  ![Sertifikayı dışarı aktarma](./media/vpn-gateway-certificates-export-public-key-include/exportwizard.png)
+   ![Sertifikayı dışarı aktarma](./media/vpn-gateway-certificates-export-public-key-include/exportwizard.png)
 3. **Hayır, özel anahtarı dışarı aktarma**’yı seçin ve **İleri**’ye tıklayın.
 
-  ![Özel anahtarı verme](./media/vpn-gateway-certificates-export-public-key-include/notprivatekey.png)
+   ![Özel anahtarı dışarı aktarma](./media/vpn-gateway-certificates-export-public-key-include/notprivatekey.png)
 4. **Dışarı Aktarma Dosyası Biçimi** sayfasında **Base-64 ile kodlanmış X.509 (.CER)** seçeneğini belirleyin ve **İleri**’ye tıklayın.
 
-  ![Base-64 kodlanmış](./media/vpn-gateway-certificates-export-public-key-include/base64.png)
-5. İçin **dışarı aktarılan dosya**, **Gözat** sertifika vermek istediğiniz konuma. **Dosya adı** alanına, sertifika dosyası için bir ad girin. Ardından **İleri**'ye tıklayın.
+   ![Base-64 kodlamalı](./media/vpn-gateway-certificates-export-public-key-include/base64.png)
+5. İçin **dışarı aktarılan dosya**, **Gözat** sertifikasını dışarı aktarmak istediğiniz konum için. **Dosya adı** alanına, sertifika dosyası için bir ad girin. Ardından **İleri**'ye tıklayın.
 
-  ![Göz at](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
+   ![Göz at](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
 6. Sertifikayı dışarı aktarmak için **Son**'a tıklayın.
 
-  ![Son](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
+   ![Son](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
 7. Sertifikanızı başarıyla dışarı aktarıldı.
 
-  ![Başarılı](./media/vpn-gateway-certificates-export-public-key-include/success.png)
-8. Dışarı aktarılan sertifikayı şuna benzer:
+   ![Başarılı](./media/vpn-gateway-certificates-export-public-key-include/success.png)
+8. Dışarı aktarılan sertifika şuna benzer:
 
-  ![Dışa Aktarıldı](./media/vpn-gateway-certificates-export-public-key-include/exported.png)
-9. Not Defteri'ni kullanarak verilen sertifika açarsanız, bu örneğe benzer bir şey görürsünüz. Mavi bölümünde Azure'a karşıya bilgileri içerir. Sertifikanızı Not Defteri'nde açın ve buna benzer aramaz, genellikle Bunun anlamı, dışa değil kullanarak Base-64 olarak kodlanmış X.509 (. CER) biçimi. Ayrıca, farklı bir metin Düzenleyicisi kullanmak istiyorsanız, bazı düzenleyicileri istenmeyen arka planda biçimlendirme getirebilir anlayın. Bu, bu sertifika metinden Azure karşıya sorunlar oluşturabilir.
+   ![Dışa Aktarıldı](./media/vpn-gateway-certificates-export-public-key-include/exported.png)
+9. Not Defteri'ni kullanarak dışarı aktarılan sertifikası açarsanız, bu örnektekine benzer bir şey görürsünüz. Mavi bölümünde Azure'a yüklenmiş bilgileri içerir. Sertifikanızı Not Defteri'nde açın ve buna benzer aramaz, genellikle Bunun anlamı vermeden değil kullanarak Base-64 kodlanmış X.509 (. CER) biçimi. Ayrıca, farklı bir metin Düzenleyicisi kullanmak istiyorsanız, bazı düzenleyiciler istenmeyen arka planda biçimlendirme çıkarabilir anlayın. Bu, bu sertifika metinden azure'a karşıya sorunlar oluşturabilir.
 
-  ![Not Defteri ile Aç](./media/vpn-gateway-certificates-export-public-key-include/notepad.png)
+   ![Not Defteri ile açın](./media/vpn-gateway-certificates-export-public-key-include/notepad.png)

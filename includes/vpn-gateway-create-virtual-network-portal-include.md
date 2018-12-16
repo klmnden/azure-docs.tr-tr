@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 1d648b6f7727743c6d2f2c6e050778777e44ddf4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: HT
+ms.openlocfilehash: d35da4f1eaed91411c015ed7665944d886f9d79c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30921601"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444430"
 ---
 Azure portalını kullanarak Resource Manager dağıtımında bir VNet oluşturmak için aşağıdaki adımları izleyin. Bu adımları öğretici olarak uyguluyorsanız [örnek değerleri](#values) kullanın. Bu adımları öğretici olarak uygulamıyorsanız değerleri kendi değerlerinizle değiştirmeyi unutmayın. Sanal ağlarla çalışma hakkında daha fazla bilgi için bkz. [Virtual Network’e Genel Bakış](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -26,14 +26,14 @@ Azure portalını kullanarak Resource Manager dağıtımında bir VNet oluşturm
 2. **Kaynak oluştur**’a tıklayın. **Markette ara** alanına 'sanal ağ' yazın. Döndürülen listeden **Sanal ağ**’ı bulun ve tıklayarak **Sanal Ağ** sayfasını açın.
 3. Sanal Ağ sayfasının en altına doğru, **Bir dağıtım modeli seçin** listesinden **Resource Manager**’ı seçip **Oluştur**’a tıklayın. Bu işlem "Sanal ağ geçidi oluştur" sayfasını açar.
 
-  ![Sanal ağ oluşturma sayfası](./media/vpn-gateway-create-virtual-network-portal-include/create-virtual-network.png "Sanal ağ oluşturma sayfası")
-1. **Sanal ağ oluştur** sayfasında sanal ağ ayarlarını yapılandırın. Alanları doldururken, alana girilen karakterler geçerliyse kırmızı ünlem işareti yeşil onay işaretine dönüşür.
+   ![Sanal ağ oluşturma sayfası](./media/vpn-gateway-create-virtual-network-portal-include/create-virtual-network.png "Sanal ağ oluşturma sayfası")
+4. **Sanal ağ oluştur** sayfasında sanal ağ ayarlarını yapılandırın. Alanları doldururken, alana girilen karakterler geçerliyse kırmızı ünlem işareti yeşil onay işaretine dönüşür.
 
-  - **Ad**: Sanal ağınızın adını girin. Bu örnekte, VNet1 kullandık.
-  - **Adres alanı**: Adres alanını girin. Eklenecek birden fazla adres alanınız varsa birinci adres alanınızı ekleyin. Sanal ağı oluşturduktan sonra başka adres alanları ekleyebilirsiniz. Belirttiğiniz adres alanının, şirket içi konumunuzdaki adres alanıyla çakışmadığından emin olun.
-  - **Abonelik**: Listelenen aboneliğin doğru olduğunu onaylayın. Açılan listeyi kullanarak abonelikleri değiştirebilirsiniz.
-  - **Kaynak grubu**: Var olan bir kaynak grubunu seçin ya da yeni kaynak grubunuz için bir ad yazarak yeni bir tane oluşturun. Yeni bir grup oluşturuyorsanız, planlanan yapılandırma değerlerinize göre kaynak grubunu adlandırın. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) sayfasını ziyaret edin.
-  - **Konum**: Sanal ağınızın konumunu seçin. Konum bu sanal ağa dağıttığınız kaynakların nerede olacağını belirler.
-  - **Alt ağ**: İlk alt ağ adını ve alt ağ adres aralığını ekleyin. Bu VNet'i oluşturduktan sonra ağ geçidi alt ağı ve başka alt ağlar ekleyebilirsiniz. 
+   - **Ad**: Sanal ağınızın adını girin. Bu örnekte, VNet1 kullandık.
+   - **Adres alanı**: Adres alanını girin. Eklenecek birden fazla adres alanınız varsa birinci adres alanınızı ekleyin. Sanal ağı oluşturduktan sonra başka adres alanları ekleyebilirsiniz. Belirttiğiniz adres alanının, şirket içi konumunuzdaki adres alanıyla çakışmadığından emin olun.
+   - **Abonelik**: Listelenen aboneliğin doğru olduğunu doğrulayın. Açılan listeyi kullanarak abonelikleri değiştirebilirsiniz.
+   - **Kaynak grubu**: Mevcut bir kaynak grubunu seçin veya yeni kaynak grubunuz için bir ad yazarak yeni bir tane oluşturun. Yeni bir grup oluşturuyorsanız, planlanan yapılandırma değerlerinize göre kaynak grubunu adlandırın. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../articles/azure-resource-manager/resource-group-overview.md#resource-groups)’ı ziyaret edin.
+   - **Konum**: Ağınızın konumunu seçin. Konum bu sanal ağa dağıttığınız kaynakların nerede olacağını belirler.
+   - **Alt ağ**: İlk alt ağ adını ve alt ağ adres aralığını ekleyin. Bu VNet'i oluşturduktan sonra ağ geçidi alt ağı ve başka alt ağlar ekleyebilirsiniz. 
 
 5. Sanal ağınızı panoda kolay bulmak istiyorsanız **Panoya sabitle**’yi seçin ve ardından **Oluştur**’a tıklayın. **Oluştur**’a tıkladıktan sonra panonuzda sanal ağınızın ilerleme durumunu yansıtacak bir kutucuk göreceksiniz. Sanal ağ oluşturulurken kutucuk değişir.

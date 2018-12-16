@@ -5,16 +5,18 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: include
-ms.date: 11/07/2018
+ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 70cdd5a9d0482c24dfeb2037ae56b86cd9339fcf
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f3ae2289112948dea7d2649c4fad6b1cafb3804b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285743"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444429"
 ---
+#### <a name="process-automation"></a>Süreç otomasyonu
+
 | Kaynak | Üst Sınır |Notlar|
 | --- | --- |---|
 | Otomasyon hesabı (olmayan zamanlanmış işler) her 30 saniyede gönderilen yeni işler en fazla sayısı |100 |Bu sınıra ulaştığınızda, bir iş oluşturmak için sonraki istekler başarısız. İstemci bir hata yanıtı alır.|
@@ -33,5 +35,19 @@ ms.locfileid: "51285743"
 | En fazla Runbook parametreleri   | 50|JSON veya XML dize için bir parametre geçirin ve 50 parametresi sınırına ulaşırsanız runbook ile ayrıştırılamıyor.|
 | En fazla Web kancası yükü boyutu |  512 kb|
 | İş verileri günde en fazla|30 gün|
+| En fazla PowerShell iş akışı durumu boyutu |5 MB| PowerShell iş akışı runbook'ları için geçerli olduğunda denetim noktası oluşturma iş akışı.|
 
 **<sup>1</sup>**  bir korumalı alan birden fazla iş tarafından kullanılan paylaşılan bir ortamda, aynı sanal kullanarak işleri tarafından korumalı kaynak sınırlamaları bağlıdır.
+
+#### <a name="change-tracking-and-inventory"></a>Değişiklik İzleme ve Stok
+
+Aşağıdaki tablo, değişiklik izleme için makine başına izlenen öğe sınırları gösterir.
+
+| **Kaynak** | **Sınırı**| **Notlar** |
+|---|---|---|
+|Dosya|500||
+|Kayıt Defteri|250||
+|Windows yazılım|250|Yazılım güncelleştirmeleri dahil değildir|
+|Linux paketleri|1250||
+|Hizmetler|250||
+|Program|250||

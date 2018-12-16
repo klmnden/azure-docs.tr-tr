@@ -8,28 +8,29 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 932aab3f16a571d4c83c77c1cc2274ae60ea3d35
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d9825ea41937dc9436fe8b465b48b378e13407c1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30196939"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444421"
 ---
 1. Portalda **Tüm kaynaklar** menüsündeki **+Ekle**’ye tıklayın.
-2. İçinde **her şeyi** sayfa arama kutusuna **yerel ağ geçidi**, sonra kaynakların bir listesini döndürmek için tıklatın. **Yerel ağ geçidi**’ne tıklayarak sayfayı açın, ardından **Oluştur**’a tıklayarak **Yerel ağ geçidi oluştur** sayfasını açın.
+2. İçinde **her şeyi** sayfa arama kutusuna **yerel ağ geçidi**, ardından kaynakları listesini döndürmek için tıklatın. **Yerel ağ geçidi**’ne tıklayarak sayfayı açın, ardından **Oluştur**’a tıklayarak **Yerel ağ geçidi oluştur** sayfasını açın.
 
-  ![yerel ağ geçidi oluşturma](./media/vpn-gateway-add-lng-rm-portal-include/lng.png)
+   ![yerel ağ geçidi oluşturma](./media/vpn-gateway-add-lng-rm-portal-include/lng.png)
 3. **Yerel ağ geçidi oluştur** sayfasında, yerel ağ geçidiniz için değerlerleri belirtin.
 
-  - **Ad:** Yerel ağ geçidi nesneniz için bir ad belirtin. Mümkünse, sezgisel gibi bir şeyi kullanan **ClassicVNetLocal** veya **TestVNet1Local**. Bu Portalı'nda yerel ağ geçidi belirlemenizi kolaylaştırır.
-  - **IP adresi:** geçerli ortak bir belirtin **IP adresi** bağlanmak istediğiniz VPN cihazı ya da sanal ağ geçidi için.
+   - **Adı:** Yerel ağ geçidi nesneniz için bir ad belirtin. Mümkünse, sezgisel gibi bir şey kullanmak **ClassicVNetLocal** veya **TestVNet1Local**. Bu, yerel ağ geçidi portalında belirleyebilmeniz için kolaylaştırır.
+   - **IP adresi:** Geçerli bir genel belirtin **IP adresi** bağlanmak istediğiniz VPN cihazı ya da sanal ağ geçidi için.
 
-    * **Bu yerel ağ bir şirket içi konumunu temsil edip etmediğini:** bağlanmak istediğiniz VPN cihazının genel IP adresi belirtin. NAT’nin ardında olamaz ve Azure tarafından erişilebilir olması gerekir.
-    * **Bu yerel ağ başka bir VNet temsil ediyorsa:** sanal ağ geçidi, VNet için atanan ortak IP adresi belirtin.
-    * **IP adresi henüz yoksa:** geçerli yer tutucu IP adresi yapmak ve daha sonra geri dönün ve bağlanmadan önce bu ayarı değiştirin.
-  - **Adres Alanı**, bu yerel ağın temsil ettiği ağa ilişkin adres aralıkları anlamına gelir. Birden fazla adres alanı aralığı ekleyebilirsiniz. Burada belirttiğiniz aralıklar, bağlandığınız diğer ağlara aralıklarıyla çakışmadığından emin olun.
-  - **BGP ayarları yapılandır:** Yalnızca BGP’yi yapılandırırken kullanın. Aksi takdirde, bu seçeneği işaretlemeyin.
-  - **Abonelik:** Doğru aboneliğin gösterildiğinden emin olun.
-  - **Kaynak Grubu:** Kullanmak istediğiniz kaynak grubunu seçin. Yeni bir kaynak grubu oluşturabilir veya önceden oluşturduğunuz birini seçebilirsiniz.
-  - **Konum:** Bu nesnenin oluşturulacağı konumu seçin. VNet'inizin bulunduğu konumu seçebilirsiniz ancak bu zorunlu değildir.
+     * **Bu yerel ağ, şirket içi bir konumu temsil ediyorsa:** Bağlanmak istediğiniz VPN cihazının genel IP adresini belirtin. NAT’nin ardında olamaz ve Azure tarafından erişilebilir olması gerekir.
+     * **Bu yerel ağ başka bir Vnet'i temsil ediyorsa:** O VNet için sanal ağ geçidine atanan genel IP adresini belirtin.
+     * **IP adresi henüz yoksa:** Geçerli bir yer tutucu IP adresi yapmak ve sonra geri dönün ve bağlanmadan önce bu ayarı değiştirmek.
+   - **Adres Alanı**, bu yerel ağın temsil ettiği ağa ilişkin adres aralıkları anlamına gelir. Birden fazla adres alanı aralığı ekleyebilirsiniz. Burada belirttiğiniz aralıkların, bağlanmak istediğiniz diğer ağların aralıklarıyla çakışmadığından emin olun.
+   - **BGP ayarları yapılandırın:** Yalnızca BGP'yi yapılandırırken kullanın. Aksi takdirde, bu seçeneği işaretlemeyin.
+   - **Abonelik:** Doğru aboneliğin gösterildiğini doğrulayın.
+   - **Kaynak grubu:** Kullanmak istediğiniz kaynak grubunu seçin. Yeni bir kaynak grubu oluşturabilir veya önceden oluşturduğunuz birini seçebilirsiniz.
+   - **Konum:** Bu nesnenin oluşturulacağı konumu seçin. VNet'inizin bulunduğu konumu seçebilirsiniz ancak bu zorunlu değildir.
+
 4. Yerel ağ geçidi oluşturmak için **Oluştur**’a tıklayın.

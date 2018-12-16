@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 29ec30840e550b87f83de67d52348b9723400e0f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: eb2555cdc163ee0f88149248b9e7d83a51d34a1b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111618"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444425"
 ---
 1. İçinde [Azure portalında](http://portal.azure.com), bir sanal ağ geçidini oluşturmak istediğiniz Resource Manager sanal ağı seçin.
 
@@ -21,8 +21,8 @@ ms.locfileid: "53111618"
 
 3. Üzerinde **alt ağlar** sayfasında **ağ geçidi alt ağı** açmak için **alt ağ Ekle** sayfası.
 
-  ![Ağ geçidi alt ağını ekleme](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsub.png "Ağ geçidi alt ağını ekleme")
+   ![Ağ geçidi alt ağını ekleme](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addgwsub.png "Ağ geçidi alt ağını ekleme")
 
 4. **Adı** için alt ağınızın otomatik olarak autofilled değerle *GatewaySubnet*. Azure alt ağın ağ geçidi alt ağı tanınması bu değer gereklidir. Autofilled ayarlamak **adres aralığı** değerlerini yapılandırma gereksinimlerinizle eşleşecek şekilde seçip **Tamam** alt ağı oluşturmak için.
 
-  ![Alt ağı ekleme](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addsubnetgw.png "Alt ağı ekleme")
+   ![Alt ağı ekleme](./media/vpn-gateway-add-gwsubnet-rm-portal-include/addsubnetgw.png "Alt ağı ekleme")

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bf9d9368207f8791c33db84e1467d44201d6a5af
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d478107f3176e79c88a05d9cbe6207606a6246d5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38765955"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444414"
 ---
 Azure portalında, bağlantıya giderek bir Resource Manager VPN Gateway bağlantısının durumunu görüntüleyebilirsiniz. Aşağıdaki adımlarda, bağlantınıza gitmek ve doğrulamak için bir yol gösterilmiştir.
 
@@ -21,4 +21,4 @@ Azure portalında, bağlantıya giderek bir Resource Manager VPN Gateway bağlan
 2. Sanal ağ geçidinizin dikey penceresinde **Bağlantılar**’a tıklayın. Her bağlantının durumunu görebilirsiniz.
 3. **Temel Bileşenler**’i açmak için doğrulamak istediğiniz bağlantının adına tıklayın. Temel Bileşenler’de, bağlantınız hakkında daha fazla bilgi görebilirsiniz. Başarılı bir bağlantı gerçekleştirdiğinizde, **Durum** ‘Başarılı’ ve ‘Bağlandı’ olur.
 
-  ![Azure portalını kullanarak VPN Gateway bağlantısını doğrulama](./media/vpn-gateway-verify-connection-portal-rm-include/connection-succeeded.png)
+   ![Azure portalını kullanarak VPN Gateway bağlantısını doğrulama](./media/vpn-gateway-verify-connection-portal-rm-include/connection-succeeded.png)
