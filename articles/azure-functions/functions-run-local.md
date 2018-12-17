@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 2264e6ff686519f7ef0d436d67f3055a48a7421b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 48b2d42348996f5f135d88cdf6345bca8daf8335
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997095"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409454"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -444,7 +444,7 @@ Bu komut var olan işlev uygulamanızı Azure'a yayımlar. Bir hata oluşursa, `
 | **`--publish-settings-only -o`** |  Yalnızca yayımlama ayarları ve içeriği atlayın. Komut istemi varsayılandır. |
 |**`--list-ignored-files`** | .Funcignore dosyasını temel alan yayımlama sırasında sayılan dosyaların bir listesini görüntüler. |
 | **`--list-included-files`** | .Funcignore dosyasını temel alan yayımlanan, dosyaların listesini görüntüler. |
-| **`--zip`** | Run-From-Zip paketi yayımlayın. Uygulama tanımlı AzureWebJobsStorage ayara sahip olmasını gerektirir. |
+| **`--nozip`** | Varsayılan kapatır `Run-From-Zip` modunu devre dışı. |
 | **`--build-native-deps`** | Python yayımlarken .wheels klasör oluşturmayı atlar uygulamalar çalışmaz. |
 | **`--additional-packages`** | Yerel bağımlılıkları oluştururken yüklemek için paketler listesi. Örneğin: `python3-dev libevent-dev`. |
 | **`--force`** | Bazı senaryolarda önceden yayımlama doğrulama yoksayın. |

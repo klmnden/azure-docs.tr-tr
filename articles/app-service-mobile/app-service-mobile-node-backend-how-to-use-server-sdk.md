@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 926712d8d38f144c583dcf61c3cd0f078566296a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964007"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409267"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK'sını kullanma
 
@@ -794,7 +794,7 @@ var api = {
 module.exports = api;
 ```
 
-Her standart RESTful fiillerden biri parametredir: Al, sonrası, düzeltme eki veya SİLİN. Standart yöntemdir [ExpressJS ara yazılımı] gerekli çıktı gönderen bir işlev.
+Her parametre standart RESTful fiilleri biridir: Al, sonrası, düzeltme eki veya Sil. Standart yöntemdir [ExpressJS ara yazılımı] gerekli çıktı gönderen bir işlev.
 
 ### <a name="howto-customapi-auth"></a>Özel bir API'ye erişim için kimlik doğrulaması gerektir
 
@@ -920,11 +920,11 @@ Aşağıdaki komutlar, komut çubuğunda bir tablo için kullanılabilir:
 
 * **İzinleri Değiştir**: Okuma izinlerini değiştirmek, ekleme, güncelleştirme ve silme işlemleri tablosunda.
  Kimlik doğrulaması gerektirir ya da işlemi tüm erişimi devre dışı bırakmak için anonim erişime izin vermek için seçeneklerdir.
-* **Komut dosyasını Düzenle**: Tablo için komut dosyasını App Service Düzenleyicisi'nde açılır.
-* **Şemayı yönetme**: Tablo dizini değiştirmek ekleyin veya sütunları silme.
-* **Tabloyu Temizle**: şema değişmeden ancak tüm veri satırları silerek var olan bir tabloyu kesin.
-* **Satırları Sil**: belirli veri satırlarının silin.
-* **Akış günlükleri görünümü**: siteniz için akış günlüğü hizmetine bağlanın.
+* **Komut dosyasını Düzenle**: Betik dosyası tablo için App Service Düzenleyicisi'nde açılır.
+* **Şemayı yönetme**: Ekleme sütunlarını Sil veya tablosu dizini değiştirin.
+* **Tabloyu Temizle**: Tüm veri satırları silerek var olan bir tabloyu kesin ancak şemanın değişmeden.
+* **Satırları Sil**: Belirli veri satırlarının silin.
+* **Akış günlükleri görünümü**: Siteniz için akış günlüğü hizmetine bağlanın.
 
 ### <a name="work-easy-apis"></a>Azure portalında kolay API'ler ile çalışma
 
@@ -963,11 +963,11 @@ Azure portalını kullanarak Node.js arka uç komut dosyalarınızı App Service
 [Xamarin.Forms istemci hızlı başlangıç]: app-service-mobile-xamarin-forms-get-started.md
 [Windows Store istemcisi hızlı başlangıç]: app-service-mobile-windows-store-dotnet-get-started.md
 [Çevrimdışı veri eşitleme]: app-service-mobile-offline-data-sync.md
-[Azure Active Directory kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
-[Google kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[Microsoft kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Twitter kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Azure Active Directory kimlik doğrulamasını yapılandırma]: ../app-service/configure-authentication-provider-aad.md
+[Facebook kimlik doğrulamasını yapılandırma]: ../app-service/configure-authentication-provider-facebook.md
+[Google kimlik doğrulamasını yapılandırma]: ../app-service/configure-authentication-provider-google.md
+[Microsoft kimlik doğrulamasını yapılandırma]: ../app-service/configure-authentication-provider-microsoft.md
+[Twitter kimlik doğrulamasını yapılandırma]: ../app-service/configure-authentication-provider-twitter.md
 [Azure App Service Dağıtım Kılavuzu]: ../app-service/app-service-deploy-local-git.md
 [Azure uygulama hizmeti izleme]: ../app-service/web-sites-monitor.md
 [Azure App Service'te tanılama günlük kaydını etkinleştirme]: ../app-service/web-sites-enable-diagnostic-log.md

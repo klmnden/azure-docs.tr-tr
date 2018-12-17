@@ -15,14 +15,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: cec57f2dafaddfa2ebc492f0cb92755b1f65607f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 140994de4b1be61f16593e450d156b81727a9f52
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251031"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437852"
 ---
-# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs ile bildirimler gönderme: sık sorulan sorular
+# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs ile anında iletme bildirimleri: Sık sorulan sorular
 ## <a name="general"></a>Genel
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>Notification Hubs'ın kaynak yapısı nedir?
 
@@ -33,14 +33,14 @@ Azure Notification hubs'ı iki kaynak düzeyi vardır: hub'ları ve ad alanları
 ### <a name="what-is-the-price-model-for-notification-hubs"></a>Bildirim hub'ları için fiyat modeli nedir?
 En son fiyatlandırma ayrıntıları bulunabilir [Notification Hubs fiyatlandırması] sayfası. Notification hubs'ı ad alanı düzeyinde faturalandırılır. (Bir ad alanı tanımı için bkz: "Notification Hubs'ın kaynak yapısı nedir?") Bildirim hub'ları üç katmanda sunulur:
 
-* **Ücretsiz**: anında iletme bildirimleri keşfetmek için iyi bir başlangıç noktası bu katmandır. Üretim uygulamaları için önerilmez. 500 CİHAZDAN alın ve hizmet düzeyi sözleşmesi (SLA) garanti 1 milyon / ay, ad alanı başına dahil edilen gönderim.
-* **Temel**: Bu katmanda (veya standart katman) küçük üretim uygulamaları için önerilir. 200.000 aygıt alma ve her ay temel olarak ad alanı başına dahil edilen 10 milyon bildirim gönderilir. Kota artışı seçenekleri dahil edilir.
+* **Ücretsiz**: Anında iletme bildirimleri keşfetmek için iyi bir başlangıç noktası katmandır. Üretim uygulamaları için önerilmez. 500 CİHAZDAN alın ve hizmet düzeyi sözleşmesi (SLA) garanti 1 milyon / ay, ad alanı başına dahil edilen gönderim.
+* **Temel**: Bu katman (veya standart katman) küçük üretim uygulamaları için önerilir. 200.000 aygıt alma ve her ay temel olarak ad alanı başına dahil edilen 10 milyon bildirim gönderilir. Kota artışı seçenekleri dahil edilir.
 * **Standart**: Bu katman, Orta ve büyük üretim uygulamaları için önerilir. 10 milyon cihazı alın ve her ay temel olarak ad alanı başına dahil edilen 10 milyon bildirim gönderilir. Kota artışı seçenekleri ve zengin telemetri özellikleri dahil edilir.
 
 Standart katman özellikleri:
-* **Zengin telemetri**: bildirim hub'ları ileti başına Telemetri hata ayıklama için herhangi bir Platform bildirim sistemi geri bildirimi ve anında iletme istekleri izlemek için kullanabilirsiniz.
+* **Zengin telemetri**: Bildirim hub'ları ileti başına Telemetri, hata ayıklama için herhangi bir Platform bildirim sistemi geri bildirimi ve anında iletme istekleri izlemek için kullanabilirsiniz.
 * **Çok kiracılı mimari**: Platform bildirim sistemi kimlik bilgileriyle bir ad alanı düzeyinde çalışabilir. Bu seçenek, aynı ad alanı kolayca kiracılar Bölünecek sağlar.
-* **Zamanlanan anında iletme**: bildirimleri dilediğiniz zaman gönderilmek üzere zamanlayabilirsiniz.
+* **Zamanlanan anında iletme**: Bildirimleri dilediğiniz zaman gönderilmek üzere zamanlayabilirsiniz.
 
 ### <a name="what-is-the-notification-hubs-sla"></a>Bildirim hub'ları SLA'sı nedir?
 Temel ve standart Notification hub katmanları için düzgün şekilde yapılandırılmış uygulamaların anında iletme bildirimleri göndermek veya ilişkili kayıt yönetim işlemleri en az yüzde 99,9 oranında gerçekleştirin. SLA hakkında daha fazla bilgi için Git [bildirim hub'ları SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) sayfası.
@@ -52,11 +52,11 @@ Temel ve standart Notification hub katmanları için düzgün şekilde yapıland
 Birçok müşteri, Notification hubs'ı kullanır. Bazı önemli olanları aşağıda listelenmiştir:
 
 * Soçi 2014: Yüzlerce ilgi alanı gruplarına, 3 + milyon cihazı ve 150 + milyon bildirim iki hafta içinde gönderilir. [Örnek olay incelemesi: Soçi]
-* Skanska: [örnek olay incelemesi: Skanska]
-* Seattle süreleri: [örnek olay incelemesi: Seattle saatleri]
-* Mural.LY: [örnek olay incelemesi: Mural.ly]
-* 7Digital: [örnek olay incelemesi: 7Digital]
-* Bing uygulamalar: Milyonlarca onlarca günde 3 milyon bildirim gönderin.
+* Skanska: [Örnek olay incelemesi: Skanska]
+* Seattle saatler: [Örnek olay incelemesi: Seattle saatleri]
+* Mural.LY: [Örnek olay incelemesi: Mural.LY]
+* 7Digital: [Örnek olay incelemesi: 7Digital]
+* Bing uygulamalar: Milyonlarca cihaza onlarca, günde 3 milyon bildirim gönderin.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Nasıl yükseltebilir veya my hub veya ad alanı farklı bir katmana düşürme?
 Git  **[Azure portal]** > **Notification Hubs ad alanlarını** veya **Notification hubs'ı**. Güncelleştirme ve şuraya gitmek istediğiniz kaynağı seçin **fiyatlandırma katmanı**. Aşağıdaki gereksinimleri göz önünde bulundurun:
@@ -202,7 +202,7 @@ Program aracılığıyla (standart katmanda) telemetri verileri dışarı aktarm
 [Örnek olay incelemesi: Soçi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [Örnek olay incelemesi: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [Örnek olay incelemesi: Seattle saatleri]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[Örnek olay incelemesi: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
+[Örnek olay incelemesi: Mural.LY]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [Örnek olay incelemesi: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Notification hubs'ı REST API'leri]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Notification hubs'ı kullanmaya başlama öğreticileri]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
@@ -213,7 +213,7 @@ Program aracılığıyla (standart katmanda) telemetri verileri dışarı aktarm
 [Bildirim hub'ları güvenlik modeli]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [Bildirim hub'ları güvenli bildirim Öğreticisi]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Bildirim hub'ları sorunlarını giderme]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[Bildirim hub'ları ölçümleri]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Bildirim hub'ları ölçümleri]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Bildirim hub'ları ölçüm örneği]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [Kayıtları dışarı/içeri aktarma]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure portal]: https://portal.azure.com

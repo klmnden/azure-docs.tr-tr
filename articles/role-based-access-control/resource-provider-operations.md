@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b09f64e2183453b3656efa340d53682a241dd00e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 22af5b4b757fed83e5c9b23426283d2fb4c4867f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017962"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410542"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
@@ -80,7 +80,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | Orman için kullanıcı tercihi ayarını alır.<br>Örnek - MetricCounterName ldapsuccessfulbinds ntlmauthentications, kerberosauthentications addsinsightsagentprivatebytes, ldapsearches gibi.<br>UI grafiklerini vb. için ayarlar. |
 > | Eylem | Microsoft.ADHybridHealthService/addsservices/forestsummary/read | Orman orman adı, etki alanı altında bu orman, siteler ve site ayrıntıları vb. sayısı gibi belirli bir orman için Özet alır. |
 > | Eylem | Microsoft.ADHybridHealthService/addsservices/metricmetadata/read | Desteklenen ölçümlerin listesi için belirli bir hizmet alır.<br>Örnek, Extranet hesap kilitlemeleri, toplam başarısız istek sayısı, bekleyen belirteci isteklerini (Proxy), belirteç İsteği/sn için ADFS hizmeti vb. için.<br>NTLM kimlik doğrulama/sn, LDAP başarılı bağlamalar/sn, LDAP bağlama süresi, etkin iş parçacığı LDAP, Kerberos kimlik doğrulamaları/sn, ATQ iş parçacıkları toplam vb. ADDomainService için.<br>Azure AD'ye ADSync hizmeti için profil gecikme süresi, TCP bağlantı kuran, İçgörüler Aracısı özel bayt sayısı, istatistikleri Dışarı Aktar'ı çalıştırın. |
-> | Eylem | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Bu API, hizmet göz önünde bulundurulduğunda, ölçüm bilgileri alır.<br>Örneğin, bu API ile ilgili bilgi almak için kullanılabilir: Extranet hesap kilitlemeleri uygulayın, toplam başarısız istek sayısı, bekleyen belirteci isteklerini (Proxy), belirteç İsteği/sn vb. ADFederation hizmeti.<br>NTLM kimlik doğrulama/sn, LDAP başarılı bağlamalar/sn, LDAP bağlama süresi, LDAP Etkin iş parçacığı, Kerberos kimlik doğrulamaları/sn, ATQ iş parçacıklarının toplam vb. ADDomain hizmeti için.<br>Çalıştırma profili gecikmesi, TCP bağlantısı kurulduktan İçgörüler Aracısı özel bayt sayısı, dışarı aktarma istatistikleri için Azure AD eşitleme hizmeti için. |
+> | Eylem | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Bu API, hizmet göz önünde bulundurulduğunda, ölçüm bilgileri alır.<br>Örneğin, bu API, ilgili bilgileri almak için kullanılabilir: Extranet hesap kilitlemeleri uygulayın, toplam başarısız istekler, bekleyen belirteci isteklerini (Proxy), belirteç İsteği/sn vb. ADFederation hizmeti.<br>NTLM kimlik doğrulama/sn, LDAP başarılı bağlamalar/sn, LDAP bağlama süresi, LDAP Etkin iş parçacığı, Kerberos kimlik doğrulamaları/sn, ATQ iş parçacıklarının toplam vb. ADDomain hizmeti için.<br>Çalıştırma profili gecikmesi, TCP bağlantısı kurulduktan İçgörüler Aracısı özel bayt sayısı, dışarı aktarma istatistikleri için Azure AD eşitleme hizmeti için. |
 > | Eylem | Microsoft.ADHybridHealthService/addsservices/premiumcheck/read | Bu API, bir premium Kiracı için tüm eklenen ADDomainServices listesini alır. |
 > | Eylem | Microsoft.ADHybridHealthService/addsservices/read | Hizmet Ayrıntıları belirtilen hizmet adını alır. |
 > | Eylem | Microsoft.ADHybridHealthService/addsservices/replicationdetails/read | Belirtilen hizmet adı için tüm sunucuların çoğaltma ayrıntılarını alır. |
@@ -115,9 +115,9 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ADHybridHealthService/services/exportstatus/read | Belirli bir hizmet için dışarı aktarma durumunu alır. |
 > | Eylem | Microsoft.ADHybridHealthService/services/feedbacktype/feedback/read | Verili hizmet ve sunucu için uyarılar geri bildirim alır. |
 > | Eylem | Microsoft.ADHybridHealthService/services/metricmetadata/read | Desteklenen ölçümlerin listesi için belirli bir hizmet alır.<br>Örnek, Extranet hesap kilitlemeleri, toplam başarısız istek sayısı, bekleyen belirteci isteklerini (Proxy), belirteç İsteği/sn için ADFS hizmeti vb. için.<br>NTLM kimlik doğrulama/sn, LDAP başarılı bağlamalar/sn, LDAP bağlama süresi, etkin iş parçacığı LDAP, Kerberos kimlik doğrulamaları/sn, ATQ iş parçacıkları toplam vb. ADDomainService için.<br>Azure AD'ye ADSync hizmeti için profil gecikme süresi, TCP bağlantı kuran, İçgörüler Aracısı özel bayt sayısı, istatistikleri Dışarı Aktar'ı çalıştırın. |
-> | Eylem | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | Bu API, hizmet göz önünde bulundurulduğunda, belirli bir hizmetin ölçümler için ortalama alır.<br>Örneğin, bu API ile ilgili bilgi almak için kullanılabilir: Extranet hesap kilitlemeleri uygulayın, toplam başarısız istek sayısı, bekleyen belirteci isteklerini (Proxy), belirteç İsteği/sn vb. ADFederation hizmeti.<br>NTLM kimlik doğrulama/sn, LDAP başarılı bağlamalar/sn, LDAP bağlama süresi, LDAP Etkin iş parçacığı, Kerberos kimlik doğrulamaları/sn, ATQ iş parçacıklarının toplam vb. ADDomain hizmeti için.<br>Çalıştırma profili gecikmesi, TCP bağlantısı kurulduktan İçgörüler Aracısı özel bayt sayısı, dışarı aktarma istatistikleri için Azure AD eşitleme hizmeti için. |
-> | Eylem | Microsoft.ADHybridHealthService/services/metrics/groups/read | Bu API, hizmet göz önünde bulundurulduğunda, ölçüm bilgileri alır.<br>Örneğin, bu API ile ilgili bilgi almak için kullanılabilir: Extranet hesap kilitlemeleri uygulayın, toplam başarısız istek sayısı, bekleyen belirteci isteklerini (Proxy), belirteç İsteği/sn vb. ADFederation hizmeti.<br>NTLM kimlik doğrulama/sn, LDAP başarılı bağlamalar/sn, LDAP bağlama süresi, LDAP Etkin iş parçacığı, Kerberos kimlik doğrulamaları/sn, ATQ iş parçacıklarının toplam vb. ADDomain hizmeti için.<br>Çalıştırma profili gecikmesi, TCP bağlantısı kurulduktan İçgörüler Aracısı özel bayt sayısı, dışarı aktarma istatistikleri için Azure AD eşitleme hizmeti için. |
-> | Eylem | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | Bu API, hizmet göz önünde bulundurulduğunda, belirli bir hizmetin ölçümler için toplanan görünümünü alır.<br>Örneğin, bu API ile ilgili bilgi almak için kullanılabilir: Extranet hesap kilitlemeleri uygulayın, toplam başarısız istek sayısı, bekleyen belirteci isteklerini (Proxy), belirteç İsteği/sn vb. ADFederation hizmeti.<br>NTLM kimlik doğrulama/sn, LDAP başarılı bağlamalar/sn, LDAP bağlama süresi, LDAP Etkin iş parçacığı, Kerberos kimlik doğrulamaları/sn, ATQ iş parçacıklarının toplam vb. ADDomain hizmeti için.<br>Çalıştırma profili gecikmesi, TCP bağlantısı kurulduktan İçgörüler Aracısı özel bayt sayısı, dışarı aktarma istatistikleri için Azure AD eşitleme hizmeti için. |
+> | Eylem | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | Bu API, hizmet göz önünde bulundurulduğunda, belirli bir hizmetin ölçümler için ortalama alır.<br>Örneğin, bu API, ilgili bilgileri almak için kullanılabilir: Extranet hesap kilitlemeleri uygulayın, toplam başarısız istekler, bekleyen belirteci isteklerini (Proxy), belirteç İsteği/sn vb. ADFederation hizmeti.<br>NTLM kimlik doğrulama/sn, LDAP başarılı bağlamalar/sn, LDAP bağlama süresi, LDAP Etkin iş parçacığı, Kerberos kimlik doğrulamaları/sn, ATQ iş parçacıklarının toplam vb. ADDomain hizmeti için.<br>Çalıştırma profili gecikmesi, TCP bağlantısı kurulduktan İçgörüler Aracısı özel bayt sayısı, dışarı aktarma istatistikleri için Azure AD eşitleme hizmeti için. |
+> | Eylem | Microsoft.ADHybridHealthService/services/metrics/groups/read | Bu API, hizmet göz önünde bulundurulduğunda, ölçüm bilgileri alır.<br>Örneğin, bu API, ilgili bilgileri almak için kullanılabilir: Extranet hesap kilitlemeleri uygulayın, toplam başarısız istekler, bekleyen belirteci isteklerini (Proxy), belirteç İsteği/sn vb. ADFederation hizmeti.<br>NTLM kimlik doğrulama/sn, LDAP başarılı bağlamalar/sn, LDAP bağlama süresi, LDAP Etkin iş parçacığı, Kerberos kimlik doğrulamaları/sn, ATQ iş parçacıklarının toplam vb. ADDomain hizmeti için.<br>Çalıştırma profili gecikmesi, TCP bağlantısı kurulduktan İçgörüler Aracısı özel bayt sayısı, dışarı aktarma istatistikleri için Azure AD eşitleme hizmeti için. |
+> | Eylem | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | Bu API, hizmet göz önünde bulundurulduğunda, belirli bir hizmetin ölçümler için toplanan görünümünü alır.<br>Örneğin, bu API, ilgili bilgileri almak için kullanılabilir: Extranet hesap kilitlemeleri uygulayın, toplam başarısız istekler, bekleyen belirteci isteklerini (Proxy), belirteç İsteği/sn vb. ADFederation hizmeti.<br>NTLM kimlik doğrulama/sn, LDAP başarılı bağlamalar/sn, LDAP bağlama süresi, LDAP Etkin iş parçacığı, Kerberos kimlik doğrulamaları/sn, ATQ iş parçacıklarının toplam vb. ADDomain hizmeti için.<br>Çalıştırma profili gecikmesi, TCP bağlantısı kurulduktan İçgörüler Aracısı özel bayt sayısı, dışarı aktarma istatistikleri için Azure AD eşitleme hizmeti için. |
 > | Eylem | Microsoft.ADHybridHealthService/services/monitoringconfiguration/write | Ekleme veya bir hizmet için izleme yapılandırmasını güncelleştirir. |
 > | Eylem | Microsoft.ADHybridHealthService/services/monitoringconfigurations/read | Belirli bir hizmetin izleme yapılandırmalarının alır. |
 > | Eylem | Microsoft.ADHybridHealthService/services/monitoringconfigurations/write | Ekleme veya bir hizmet için izleme yapılandırmalarının güncelleştirir. |
@@ -130,7 +130,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ADHybridHealthService/services/servicemembers/datafreshness/read | Belirli bir sunucu için bu API sunucuları ve her karşıya yükleme için en son zaman tarafından karşıya veri türleri listesini alır. |
 > | Eylem | Microsoft.ADHybridHealthService/services/servicemembers/delete | Bir sunucu örneği hizmetinde siler. |
 > | Eylem | Microsoft.ADHybridHealthService/services/servicemembers/exportstatus/read | Belirli bir eşitleme hizmeti için eşitleme dışarı aktarma hata ayrıntılarını alır. |
-> | Eylem | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | Bu API, hizmet göz önünde bulundurulduğunda, ölçüm bilgileri alır.<br>Örneğin, bu API ile ilgili bilgi almak için kullanılabilir: Extranet hesap kilitlemeleri uygulayın, toplam başarısız istek sayısı, bekleyen belirteci isteklerini (Proxy), belirteç İsteği/sn vb. ADFederation hizmeti.<br>NTLM kimlik doğrulama/sn, LDAP başarılı bağlamalar/sn, LDAP bağlama süresi, LDAP Etkin iş parçacığı, Kerberos kimlik doğrulamaları/sn, ATQ iş parçacıklarının toplam vb. ADDomain hizmeti için.<br>Çalıştırma profili gecikmesi, TCP bağlantısı kurulduktan İçgörüler Aracısı özel bayt sayısı, dışarı aktarma istatistikleri için Azure AD eşitleme hizmeti için. |
+> | Eylem | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | Bu API, hizmet göz önünde bulundurulduğunda, ölçüm bilgileri alır.<br>Örneğin, bu API, ilgili bilgileri almak için kullanılabilir: Extranet hesap kilitlemeleri uygulayın, toplam başarısız istekler, bekleyen belirteci isteklerini (Proxy), belirteç İsteği/sn vb. ADFederation hizmeti.<br>NTLM kimlik doğrulama/sn, LDAP başarılı bağlamalar/sn, LDAP bağlama süresi, LDAP Etkin iş parçacığı, Kerberos kimlik doğrulamaları/sn, ATQ iş parçacıklarının toplam vb. ADDomain hizmeti için.<br>Çalıştırma profili gecikmesi, TCP bağlantısı kurulduktan İçgörüler Aracısı özel bayt sayısı, dışarı aktarma istatistikleri için Azure AD eşitleme hizmeti için. |
 > | Eylem | Microsoft.ADHybridHealthService/services/servicemembers/read | Hizmet sunucu örneğinde okur. |
 > | Eylem | Microsoft.ADHybridHealthService/services/servicemembers/serviceconfiguration/read | Belirli bir kiracının hizmet yapılandırmasını alır. |
 > | Eylem | Microsoft.ADHybridHealthService/services/tenantwhitelisting/read | Belirli bir kiracısı için özellik beyaz listeye ekleme durumu alır. |
@@ -600,38 +600,6 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Batch/register/action | Batch kaynak sağlayıcısı için aboneliği kaydeder ve Batch hesaplarının oluşturulmasını sağlar |
 > | Eylem | Microsoft.Batch/unregister/action | Batch hesaplarının oluşturulmasını önleme Batch kaynak sağlayıcısı için aboneliği kaydını siler |
 
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-
-> [!div class="mx-tdCol2BreakAll"]
-> | Eylem Türü | İşlem | Açıklama |
-> | --- | --- | --- |
-> | Eylem | Microsoft.BatchAI/clusters/read | Batch AI kümeleri listeler veya bir Batch AI kümesi özelliklerini alır |
-> | Eylem | Microsoft.BatchAI/fileservers/read | Batch AI fileservers listeler veya bir Batch AI dosya sunucusu özelliklerini alır |
-> | Eylem | Microsoft.BatchAI/locations/operationresults/read | Belirtilen Azure bölgesi batch AI zaman uyumsuz işlem sonucunu alır |
-> | Eylem | Microsoft.BatchAI/locations/operationstatuses/read | Belirtilen Azure bölgesi batch AI zaman uyumsuz işlem durumunu alır |
-> | Eylem | Microsoft.BatchAI/locations/usages/read | Belirtilen Azure bölgesi belirtilen abonelik batch AI kullanımları alır |
-> | Eylem | Microsoft.BatchAI/register/action | Batch AI kaynak sağlayıcısı için aboneliği kaydeder ve Batch AI kaynaklarının oluşturulmasını sağlar |
-> | Eylem | Microsoft.BatchAI/unregister/action | Batch AI kaynaklarının oluşturulmasını önleyen Batch AI kaynak sağlayıcısı için abonelik kaydını siler |
-> | Eylem | Microsoft.BatchAI/workspaces/clusters/delete | Bir Batch AI kümesi siler |
-> | Eylem | Microsoft.BatchAI/workspaces/clusters/read | Batch AI kümeleri listeler veya bir Batch AI kümesi özelliklerini alır |
-> | Eylem | Microsoft.BatchAI/workspaces/clusters/remoteLoginInformation/action | Bir Batch AI kümesi uzaktan oturum açma bilgilerini listeler |
-> | Eylem | Microsoft.BatchAI/workspaces/clusters/write | Yeni bir Batch AI kümesi oluşturur veya mevcut bir Batch AI kümesi güncelleştirir |
-> | Eylem | Microsoft.BatchAI/workspaces/delete | Bir Batch AI Çalışma alanı siler |
-> | Eylem | Microsoft.BatchAI/workspaces/experiments/delete | Bir Batch AI deneme siler |
-> | Eylem | Microsoft.BatchAI/workspaces/experiments/jobs/delete | Bir Batch AI işi siler |
-> | Eylem | Microsoft.BatchAI/workspaces/experiments/jobs/listoutputfiles/action | Çıkış dosyalarını bir Batch AI işi için listeler |
-> | Eylem | Microsoft.BatchAI/workspaces/experiments/jobs/read | Batch AI işleri listeler veya bir Batch AI işi özelliklerini alır |
-> | Eylem | Microsoft.BatchAI/workspaces/experiments/jobs/remoteLoginInformation/action | Batch AI işi için uzaktan oturum açma bilgilerini listeler |
-> | Eylem | Microsoft.BatchAI/workspaces/experiments/jobs/terminate/action | Batch AI işi sonlandırır |
-> | Eylem | Microsoft.BatchAI/workspaces/experiments/jobs/write | Yeni bir Batch AI işi oluşturur veya var olan bir Batch AI işi güncelleştirir |
-> | Eylem | Microsoft.BatchAI/workspaces/experiments/read | Batch AI listeleri denemeleri veya bir Batch AI deneme özelliklerini alır |
-> | Eylem | Microsoft.BatchAI/workspaces/experiments/write | Yeni bir Batch AI deneme oluşturur veya mevcut bir Batch AI deneme güncelleştirir |
-> | Eylem | Microsoft.BatchAI/workspaces/fileservers/delete | Batch AI dosya sunucusu siler |
-> | Eylem | Microsoft.BatchAI/workspaces/fileservers/read | Batch AI fileservers listeler veya bir Batch AI dosya sunucusu özelliklerini alır |
-> | Eylem | Microsoft.BatchAI/workspaces/fileservers/write | Yeni bir Batch AI dosya sunucusu oluşturur veya mevcut bir Batch AI dosya sunucusu güncelleştirir |
-> | Eylem | Microsoft.BatchAI/workspaces/read | Batch AI Çalışma alanlarını listeler veya bir Batch AI Çalışma alanı özelliklerini alır |
-> | Eylem | Microsoft.BatchAI/workspaces/write | Yeni bir Batch AI Çalışma alanı oluşturur veya mevcut bir Batch AI Çalışma güncelleştirir |
-
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -658,20 +626,20 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
-> | Eylem | Microsoft.Blueprint/blueprintAssignments/delete | Herhangi bir blueprint yapıtlarını silin |
-> | Eylem | Microsoft.Blueprint/blueprintAssignments/read | Herhangi bir blueprint yapıtını okuyun |
-> | Eylem | Microsoft.Blueprint/blueprintAssignments/write | Herhangi bir blueprint yapıtları güncelle |
-> | Eylem | Microsoft.Blueprint/blueprints/artifacts/delete | Herhangi bir blueprint yapıtlarını silin |
-> | Eylem | Microsoft.Blueprint/blueprints/artifacts/read | Herhangi bir blueprint yapıtını okuyun |
-> | Eylem | Microsoft.Blueprint/blueprints/artifacts/write | Herhangi bir blueprint yapıtları güncelle |
-> | Eylem | Microsoft.Blueprint/blueprints/delete | Herhangi bir blueprint'i silin |
-> | Eylem | Microsoft.Blueprint/blueprints/read | Herhangi bir blueprint'i okuyun |
-> | Eylem | Microsoft.Blueprint/blueprints/versions/artifacts/read | Herhangi bir blueprint yapıtını okuyun |
-> | Eylem | Microsoft.Blueprint/blueprints/versions/delete | Herhangi bir blueprint'i silin |
-> | Eylem | Microsoft.Blueprint/blueprints/versions/read | Herhangi bir blueprint'i okuyun |
-> | Eylem | Microsoft.Blueprint/blueprints/versions/write | Herhangi bir Blueprint oluştur veya güncelleştir |
-> | Eylem | Microsoft.Blueprint/blueprints/write | Herhangi bir Blueprint oluştur veya güncelleştir |
-> | Eylem | Microsoft.Blueprint/register/action | Azure Blueprint kaynak sağlayıcısını Kaydet |
+> | Eylem | Microsoft.Blueprint/blueprintAssignments/delete | Herhangi bir şema yapıtını silin |
+> | Eylem | Microsoft.Blueprint/blueprintAssignments/read | Herhangi bir şema yapıtını okuyun |
+> | Eylem | Microsoft.Blueprint/blueprintAssignments/write | Herhangi bir şema yapıtını oluşturun veya güncelleştirin |
+> | Eylem | Microsoft.Blueprint/blueprints/artifacts/delete | Herhangi bir şema yapıtını silin |
+> | Eylem | Microsoft.Blueprint/blueprints/artifacts/read | Herhangi bir şema yapıtını okuyun |
+> | Eylem | Microsoft.Blueprint/blueprints/artifacts/write | Herhangi bir şema yapıtını oluşturun veya güncelleştirin |
+> | Eylem | Microsoft.Blueprint/blueprints/delete | Herhangi bir şemayı silin |
+> | Eylem | Microsoft.Blueprint/blueprints/read | Herhangi bir şemayı okuyun |
+> | Eylem | Microsoft.Blueprint/blueprints/versions/artifacts/read | Herhangi bir şema yapıtını okuyun |
+> | Eylem | Microsoft.Blueprint/blueprints/versions/delete | Herhangi bir şemayı silin |
+> | Eylem | Microsoft.Blueprint/blueprints/versions/read | Herhangi bir şemayı okuyun |
+> | Eylem | Microsoft.Blueprint/blueprints/versions/write | Herhangi bir şemayı oluşturun veya güncelleştirin |
+> | Eylem | Microsoft.Blueprint/blueprints/write | Herhangi bir şemayı oluşturun veya güncelleştirin |
+> | Eylem | Microsoft.Blueprint/register/action | Azure Blueprints Kaynak Sağlayıcısı'nı kaydeder |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -1324,16 +1292,16 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ContainerService/containerServices/delete | Bir kapsayıcı hizmetini siler |
 > | Eylem | Microsoft.ContainerService/containerServices/read | Kapsayıcı hizmeti al |
 > | Eylem | Microsoft.ContainerService/containerServices/write | Yeni bir kapsayıcı hizmeti oluşturur veya mevcut bir kapsayıcı hizmetini güncelleştirir |
-> | Eylem | Microsoft.ContainerService/locations/operationresults/read | Zaman uyumsuz işlem sonucu durumunu alır |
+> | Eylem | Microsoft.ContainerService/locations/operationresults/read | Zaman uyumsuz bir işlem sonucunun durumunu alır |
 > | Eylem | Microsoft.ContainerService/locations/operations/read | Bir zaman uyumsuz işlemin durumunu alır |
 > | Eylem | Microsoft.ContainerService/locations/orchestrators/read | Desteklenen düzenleyicileri listeler |
 > | Eylem | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Kimlik bilgilerini listeleme kullanarak rol adına göre yönetilen küme erişim profili al |
 > | Eylem | Microsoft.ContainerService/managedClusters/accessProfiles/read | Rol adına göre yönetilen küme erişim profili al |
 > | Eylem | Microsoft.ContainerService/managedClusters/delete | Yönetilen bir kümeyi siler |
-> | Eylem | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Yönetilen bir küme clusterAdmin kimlik listesi |
-> | Eylem | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Yönetilen bir küme clusterUser kimlik listesi |
+> | Eylem | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Yönetilen bir kümenin clusterAdmin kimlik bilgilerini listele |
+> | Eylem | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Yönetilen bir kümenin clusterUser kimlik bilgilerini listele |
 > | Eylem | Microsoft.ContainerService/managedClusters/read | Yönetilen küme al |
-> | Eylem | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Küme yükseltme profilini alır |
+> | Eylem | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Kümenin yükseltme profilini alır |
 > | Eylem | Microsoft.ContainerService/managedClusters/write | Yeni bir yönetilen küme oluşturur veya mevcut bir yönetilen kümeyi güncelleştirir |
 > | Eylem | Microsoft.ContainerService/openShiftClusters/delete | Open Shift küme silme |
 > | Eylem | Microsoft.ContainerService/openShiftClusters/read | Bir Open Shift kümesi Al |
@@ -1341,9 +1309,9 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.ContainerService/openShiftManagedClusters/delete | Open Shift yönetilen küme silme |
 > | Eylem | Microsoft.ContainerService/openShiftManagedClusters/read | Open Shift yönetilen kümesi Al |
 > | Eylem | Microsoft.ContainerService/openShiftManagedClusters/write | Yeni bir açık Shift yönetilen kümesi oluşturur veya mevcut olanı güncelleştirir |
-> | Eylem | Microsoft.ContainerService/operations/read | Microsoft.ContainerService kaynak sağlayıcısındaki kullanılabilir işlemleri listele |
+> | Eylem | Microsoft.ContainerService/operations/read | Microsoft.ContainerService kaynak sağlayıcısında bulunan işlemleri listeler |
 > | Eylem | Microsoft.ContainerService/register/action | Aboneliği Microsoft.ContainerService kaynak sağlayıcısına kaydeder |
-> | Eylem | Microsoft.ContainerService/unregister/action | Microsoft.ContainerService kaynak sağlayıcı ile abonelik kaydını siler |
+> | Eylem | Microsoft.ContainerService/unregister/action | Microsoft.ContainerService kaynak sağlayıcısından Abonelik kaydını siler |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
@@ -1542,7 +1510,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | --- | --- | --- |
 > | Eylem | Microsoft.Databricks/register/action | Databricks için kaydolun. |
 > | Eylem | Microsoft.Databricks/workspaces/delete | Bir Databricks çalışma alanını kaldırır. |
-> | Eylem | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Databricks çalışma alanı için kullanılabilir tanılama ayarlarını belirler |
+> | Eylem | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/read | Databricks çalışma alanı için kullanılabilir tanılama ayarlarını ayarlar |
 > | Eylem | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/diagnosticSettings/write | Tanılama ayarlarını ekleyin veya değiştirin. |
 > | Eylem | Microsoft.Databricks/workspaces/providers/Microsoft.Insights/logDefinitions/read | Databricks çalışma alanı için kullanılabilir günlük tanımlarını alır |
 > | Eylem | Microsoft.Databricks/workspaces/read | Databricks çalışma alanlarının bir listesini alır. |
@@ -2169,7 +2137,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.EventHub/clusters/providers/Microsoft.Insights/metricDefinitions/read | Küme ölçümleri kaynak açıklamalarının listesini alın |
 > | Eylem | Microsoft.EventHub/clusters/read | Küme Kaynağı Açıklamasını alır |
 > | Eylem | Microsoft.EventHub/clusters/write | Küme Kaynağı Açıklamasını alır |
-> | Eylem | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | Belirtilen VNet için sanal ağ kuralları EventHub kaynak Sağlayıcısı'nda siler |
+> | Eylem | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | Belirtilen VNet için EventHub Kaynak Sağlayıcısı'ndaki VNet kurallarını siler |
 > | Eylem | Microsoft.EventHub/namespaces/authorizationRules/action | Güncelleştirmeleri Namespace yetkilendirme kuralı. Bu API kullanım dışıdır ' dir. Bunun yerine Namespace yetkilendirme kuralını güncelleştirmek için lütfen bir PUT çağrısı kullanın... Bu işlem API 2017-04-01 sürümünde desteklenmiyor. |
 > | Eylem | Microsoft.EventHub/namespaces/authorizationRules/delete | Namespace yetkilendirme kuralını silin. Varsayılan Namespace yetkilendirme kuralı silinemez.  |
 > | Eylem | Microsoft.EventHub/namespaces/authorizationRules/listkeys/action | Ad Alanı için Bağlantı Dizesini alın |
@@ -2292,17 +2260,17 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.Insights/AlertRules/Resolved/Action | Klasik ölçüm uyarısı çözümlendi |
 > | Eylem | Microsoft.Insights/AlertRules/Throttled/Action | Klasik ölçüm uyarısı kuralı kısıtlandı |
 > | Eylem | Microsoft.Insights/AlertRules/Write | Bir klasik ölçüm uyarısı oluşturun veya güncelleştirin |
-> | Eylem | Microsoft.Insights/AutoscaleSettings/Delete | Bir otomatik ölçek ayarını silin |
+> | Eylem | Microsoft.Insights/AutoscaleSettings/Delete | Bir otomatik ölçeklendirme ayarını silin |
 > | Eylem | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Read | Bir kaynak tanılama ayarını okuyun |
 > | Eylem | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/diagnosticSettings/Write | Bir kaynak tanılama ayarı oluşturun veya güncelleştirin |
 > | Eylem | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/logDefinitions/Read | Günlük tanımlarını oku |
 > | Eylem | Microsoft.Insights/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read | Ölçüm tanımlarını oku |
-> | Eylem | Microsoft.Insights/AutoscaleSettings/Read | Bir otomatik ölçek ayarını okuyun |
-> | Eylem | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | Otomatik ölçek ölçeği azaltma işlemi başlatıldı |
-> | Eylem | Microsoft.Insights/AutoscaleSettings/ScaledownResult/Action | Otomatik ölçek ölçeği azaltma işlemi tamamlandı |
-> | Eylem | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | Otomatik ölçek ölçeği artırma işlemi başlatıldı |
-> | Eylem | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | Otomatik ölçek ölçeği artırma işlemi tamamlandı |
-> | Eylem | Microsoft.Insights/AutoscaleSettings/Write | Bir otomatik ölçek ayarı oluşturun veya güncelleştirin |
+> | Eylem | Microsoft.Insights/AutoscaleSettings/Read | Bir otomatik ölçeklendirme ayarını okuyun |
+> | Eylem | Microsoft.Insights/AutoscaleSettings/Scaledown/Action | Otomatik ölçeklendirme ölçeği azaltma işlemi başlatıldı |
+> | Eylem | Microsoft.Insights/AutoscaleSettings/ScaledownResult/Action | Otomatik ölçeklendirme ölçeği azaltma işlemi tamamlandı |
+> | Eylem | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | Otomatik ölçeklendirme ölçeği artırma işlemi başlatıldı |
+> | Eylem | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | Otomatik ölçeklendirme ölçeği artırma işlemi tamamlandı |
+> | Eylem | Microsoft.Insights/AutoscaleSettings/Write | Bir otomatik ölçeklendirme ayarı oluşturun veya güncelleştirin |
 > | Eylem | Microsoft.Insights/Components/AnalyticsItems/Delete | Bir Application Insights analitik öğesini silme |
 > | Eylem | Microsoft.Insights/Components/AnalyticsItems/Read | Bir Application Insights analitik öğesini okuma |
 > | Eylem | Microsoft.Insights/Components/AnalyticsItems/Write | Bir Application Insights analitik öğesinin yazma |
@@ -2680,24 +2648,24 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
-> | Eylem | Microsoft.LocationBasedServices/accounts/delete | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) Silme konum tabanlı hizmetler hesabı. |
-> | Eylem | Microsoft.LocationBasedServices/accounts/listKeys/action | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) Konum tabanlı hizmetler hesabı anahtarlarını Listele |
-> | Eylem | Microsoft.LocationBasedServices/accounts/read | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) Alma konum tabanlı hizmetler hesabı. |
-> | Eylem | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) Yeni konum tabanlı hizmetler hesabı birincil veya ikincil anahtarı oluştur |
-> | Eylem | Microsoft.LocationBasedServices/accounts/write | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) Veya bir konum tabanlı hizmetler hesabı güncelleştirilemiyor. |
-> | Eylem | Microsoft.LocationBasedServices/register/action | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) Sağlayıcısını Kaydet |
+> | Eylem | Microsoft.LocationBasedServices/accounts/delete | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) bir konum tabanlı hizmetler hesabı silin. |
+> | Eylem | Microsoft.LocationBasedServices/accounts/listKeys/action | (Kullanım dışı: Lütfen /providers/Microsoft.Maps)List konum tabanlı hizmetler hesabı anahtarlarını kullanma |
+> | Eylem | Microsoft.LocationBasedServices/accounts/read | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) bir konum tabanlı hizmetler hesabı alın. |
+> | Eylem | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) yeni konum tabanlı hizmetler hesabı birincil veya ikincil anahtar üret |
+> | Eylem | Microsoft.LocationBasedServices/accounts/write | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) oluşturma veya güncelleştirme bir konum tabanlı hizmetler hesabı. |
+> | Eylem | Microsoft.LocationBasedServices/register/action | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) sağlayıcısını Kaydet |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Eylem Türü | İşlem | Açıklama |
 > | --- | --- | --- |
-> | Eylem | Microsoft.LocationServices/accounts/delete | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) Konum hizmetleri hesabı silin. |
-> | Eylem | Microsoft.LocationServices/accounts/listKeys/action | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) Konum tabanlı hizmetler hesabı anahtarlarını Listele |
-> | Eylem | Microsoft.LocationServices/accounts/read | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) Konum hizmetleri hesabı alın. |
-> | Eylem | Microsoft.LocationServices/accounts/regenerateKey/action | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) Yeni konum tabanlı hizmetler hesabı birincil veya ikincil anahtarı oluştur |
-> | Eylem | Microsoft.LocationServices/accounts/write | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) Veya konum hizmetleri hesabı güncelleştirilemiyor. |
-> | Eylem | Microsoft.LocationServices/register/action | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) Sağlayıcısını Kaydet |
+> | Eylem | Microsoft.LocationServices/accounts/delete | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) bir konum Hizmetleri hesabını silin. |
+> | Eylem | Microsoft.LocationServices/accounts/listKeys/action | (Kullanım dışı: Lütfen /providers/Microsoft.Maps)List konum tabanlı hizmetler hesabı anahtarlarını kullanma |
+> | Eylem | Microsoft.LocationServices/accounts/read | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) bir konum hizmetleri hesabı edinin. |
+> | Eylem | Microsoft.LocationServices/accounts/regenerateKey/action | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) yeni konum tabanlı hizmetler hesabı birincil veya ikincil anahtar üret |
+> | Eylem | Microsoft.LocationServices/accounts/write | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) oluşturma veya güncelleştirme konum hizmetleri hesabı. |
+> | Eylem | Microsoft.LocationServices/register/action | (Kullanım dışı: Lütfen /providers/Microsoft.Maps kullanın) sağlayıcısını Kaydet |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 
@@ -4073,7 +4041,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Kurtarma noktası Uygula |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/delete | Tüm korumalı öğeleri sil |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Yük devretme işlemesi |
-> | Eylem | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Planlı yük devretme |
+> | Eylem | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Planlanan Yük Devretme |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Tüm korumalı öğeleri okuma |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Tüm çoğaltma kurtarma noktaları okuyun |
 > | Eylem | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/remove/action | Korumalı öğeyi Kaldır |
@@ -4357,7 +4325,7 @@ Kaynak sağlayıcısı işlemleri her zaman artmaktadır. En son işlem almak i�
 > | --- | --- | --- |
 > | Eylem | Microsoft.ServiceBus/checkNameAvailability/action | İlgili abonelikte ad alanının kullanılabilirliğini denetler. |
 > | Eylem | Microsoft.ServiceBus/checkNamespaceAvailability/action | İlgili abonelikte ad alanının kullanılabilirliğini denetler. Bu API kullanım dışıdır bunun yerine Lütfen Checknameavailability'yi kullanın. |
-> | Eylem | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | Belirtilen sanal ağ için ServiceBus kaynak Sağlayıcısı'nda sanal ağ kuralları siler |
+> | Eylem | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | Belirtilen VNet için ServiceBus Kaynak Sağlayıcısı'ndaki VNet kurallarını siler |
 > | Eylem | Microsoft.ServiceBus/namespaces/authorizationRules/action | Güncelleştirmeleri Namespace yetkilendirme kuralı. Bu API kullanım dışıdır ' dir. Bunun yerine Namespace yetkilendirme kuralını güncelleştirmek için lütfen bir PUT çağrısı kullanın... Bu işlem API 2017-04-01 sürümünde desteklenmiyor. |
 > | Eylem | Microsoft.ServiceBus/namespaces/authorizationRules/delete | Namespace yetkilendirme kuralını silin. Varsayılan Namespace yetkilendirme kuralı silinemez.  |
 > | Eylem | Microsoft.ServiceBus/namespaces/authorizationRules/listkeys/action | Ad Alanı için Bağlantı Dizesini alın |

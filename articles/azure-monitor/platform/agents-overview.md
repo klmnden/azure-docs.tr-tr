@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 5726444033d8da14c213918f409ddf5875e026b9
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5a40e215c6dd5bf4dc1178595716f95ae21adcb4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322764"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438209"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure İzleme Aracısı genel bakış 
 Microsoft Azure, Microsoft Windows ve Azure, veri merkezinizi veya diğer bulut sağlayıcılarında barındırılan Linux çalıştıran sanal makineler farklı veri türleri toplamak için birden çok yol sağlar. Bir VM'yi izlemek için kullanılabilen aracıları üç tür şunlardır:
@@ -44,7 +44,7 @@ Toplanacak seçebilirsiniz:
 Azure Tanılama aracı, aşağıdakileri yapmak istediğinizde kullanılmalıdır:
 
 * Arşiv günlükleri ve Azure depolama ölçümleri
-* İzleme verileri, üçüncü taraf araçlarla tümleştirin. Birçok farklı yöntemle sorgulama için iletilen depolama hesabı dahil olmak üzere bu araçları kullanın [Event Hubs](../../event-hubs/event-hubs-about.md), veya ile sorgulama [Azure izleme REST API'si](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+* İzleme verileri, üçüncü taraf araçlarla tümleştirin. Birçok farklı yöntemle sorgulama için iletilen depolama hesabı dahil olmak üzere bu araçları kullanın [Event Hubs](../../event-hubs/event-hubs-about.md), veya ile sorgulama [Azure izleme REST API'si](../../azure-monitor/platform/rest-api-walkthrough.md)
 * Azure portalında ölçüm grafikleri oluşturma veya neredeyse gerçek zamanlı oluşturmak için Azure İzleyici Veril [ölçüm uyarıları](../../azure-monitor/platform/alerts-metric-overview.md). 
 * Sanal makine ölçek kümelerini otomatik ölçeklendirme ve klasik bulut Hizmetleri, konuk işletim sistemi ölçümlere göre.
 * VM önyükleme sorunlarını denetleyin [önyükleme tanılaması](../../virtual-machines/troubleshooting/boot-diagnostics.md).

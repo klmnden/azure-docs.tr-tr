@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdd0c647021c453095ec4e05c042992011389b9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: b42529df406febc617c778d18d5b420f9c38c59a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975899"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434673"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevlerini ölçeklendirme ve barındırma
 
@@ -68,7 +68,7 @@ Aşağıdaki durumlarda bir App Service planı göz önünde bulundurun:
 
 Bir VM sayısını yürütme, yürütme süresini ve kullanılan bellek maliyetinden ayırır. Sonuç olarak, kullandığınız en fazla tahsis VM örneği maliyetini ödeme olmaz. App Service planı nasıl çalıştığı hakkında daha fazla ayrıntı için bkz. [Azure App Service planlarına ayrıntılı genel bakış](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
-Bir App Service planı, el ile daha fazla VM örneği ekleyerek genişletebilir veya otomatik ölçeklendirmeyi etkinleştirebilirsiniz. Daha fazla bilgi için [örnek sayısını elle veya otomatik olarak ölçeklendirme](../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Ayrıca farklı bir App Service planı seçerek ölçeğini artırabilirsiniz. Daha fazla bilgi için [azure'da uygulamanın ölçeğini](../app-service/web-sites-scale.md). 
+Bir App Service planı, el ile daha fazla VM örneği ekleyerek genişletebilir veya otomatik ölçeklendirmeyi etkinleştirebilirsiniz. Daha fazla bilgi için [örnek sayısını elle veya otomatik olarak ölçeklendirme](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Ayrıca farklı bir App Service planı seçerek ölçeğini artırabilirsiniz. Daha fazla bilgi için [azure'da uygulamanın ölçeğini](../app-service/web-sites-scale.md). 
 
 JavaScript işlevleri bir App Service planı üzerinde çalışırken, daha az Vcpu olan bir planı seçmeniz gerekir. Daha fazla bilgi için [seçin tek çekirdekli App Service planları](functions-reference-node.md#considerations-for-javascript-functions).  
 

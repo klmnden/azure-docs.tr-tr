@@ -90,7 +90,7 @@ Eylem runbook bir izleyici görevi, bir izleyici runbook'tan geçirilen verileri
 1. Parametreler için aşağıdaki değerleri girin:
 
    ***EVENTDATA** -boş bırakın. Veri İzleyicisi runbook'tan geçirilir.  
-   ***Çalıştırma ayarları** -olarak Azure'a bırakın Bu runbook Otomasyon hizmeti çalışırken.
+   ***Çalıştırma ayarları** ** -olarak Azure'a bırakın Bu runbook Otomasyon hizmeti çalışırken.
 
 1. Tıklayın **Tamam**ve ardından İzleyicisi sayfasına geri dönün.
 1. Tıklayın **Tamam** İzleyici görevi oluşturmak için.

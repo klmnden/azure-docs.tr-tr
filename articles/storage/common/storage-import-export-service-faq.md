@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: b53f679f6f93dd5d4889fbe51f8b5caf62fc1a36
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8111d80d0888455fbdf3ccf37e723fe348a62bee
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236730"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435013"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure içeri/dışarı aktarma hizmeti: sık sorulan sorular 
 Aşağıda, soruları ve Azure depolama alanına veri aktarmak için Azure içeri/dışarı aktarma hizmeti kullanırken karşılaşabileceğiniz yanıtları verilmiştir. Sorular ve yanıtlar aşağıdaki kategorilere ayrılmıştır:
@@ -66,7 +66,10 @@ Evet. Durumu olduğunda, bir işi iptal edebilirsiniz **oluşturma** veya **sevk
 90 güne kadar tamamlanmış işlerin durumunu görüntüleyebilirsiniz. Tamamlanan İşler 90 gün sonra silinir.
 
 ### <a name="if-i-want-to-import-or-export-more-than-10-drives-what-should-i-do"></a>İçeri aktarma veya 10'dan fazla sürücüleri dışarı aktarmak istiyorsanız ne yapmalıyım?
-Bir içeri aktarma veya dışarı aktarma işi, tek bir iş yalnızca 10 sürücüleri başvurabilir. 10'dan fazla sürücüleri gönderin, birden çok iş oluşturmanız gerekir. Aynı pakette aynı işle ilişkili sürücüleri birlikte sevk gerekir. İşleri daha fazla bilgi ve veri kapasitesi birden çok disk yayıldığında rehberlik almak için Microsoft ile iletişime geçin. bulkimport@microsoft.com.                                                              
+Bir içeri aktarma veya dışarı aktarma işi, tek bir iş yalnızca 10 sürücüleri başvurabilir. 10'dan fazla sürücüleri gönderin, birden çok iş oluşturmanız gerekir. Aynı pakette aynı işle ilişkili sürücüleri birlikte sevk gerekir. İşleri daha fazla bilgi ve veri kapasitesi birden çok disk yayıldığında rehberlik almak için Microsoft ile iletişime geçin. bulkimport@microsoft.com. 
+
+### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>Karşıya yüklenen blobun, "Kira süresi dolmuş olarak" durumunu gösterir. Ne yapmalıyım?
+"Kiralama süresi doldu" alanı yoksayabilirsiniz. İçeri/dışarı aktarma, başka bir işlem paralel blob güncelleştirebilirsiniz emin olmak için karşıya yükleme sırasında bloba kirası alır. Kiralama süresi doldu, içeri/dışarı aktarma için artık yüklüyor ve blob için kullanabileceğiniz anlamına gelir. 
 
 ## <a name="shipping-disks"></a>Sevkiyat diskler
 
