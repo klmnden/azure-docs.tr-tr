@@ -239,11 +239,11 @@ Daha her bildirimin öğelerini anlamına gelir ve bunların her birini örnekle
 
 -   **Görünen ad** – **(boş olabilir)** hatanın ayrıntılı bir görünen ad
 
-    -   Örnek * – **uygulama proxy'si ayarları**
+    -   Örnek *– **uygulama proxy'si ayarları**
 
 -   **Durum** – bildirim özel durumu
 
-    -   Örnek * – **başarısız oldu**
+    -   Örnek *– **başarısız oldu**
 
 -   **Nesne Kimliği** – **(boş olabilir)** karşı işlemi gerçekleştirildi nesne kimliği
 
