@@ -157,14 +157,8 @@ items:
       href: sql-database-managed-instance-create-manage.md
     - name: Kaynak sınırları
       href: sql-database-managed-instance-resource-limits.md
-    - name: Sanal Ağ yapılandırması
-      items:
-      - name: Sanal Ağ yapılandırması
-        href: sql-database-managed-instance-vnet-configuration.md
-      - name: Bağlantı mimarisi
-        href: sql-database-managed-instance-connectivity-architecture.md
-      - name: Yönetim uç noktası
-        href: sql-database-managed-instance-management-endpoint.md
+    - name: Bağlantı mimarisi
+      href: sql-database-managed-instance-connectivity-architecture.md
     - name: T-SQL farklılıkları
       href: sql-database-managed-instance-transact-sql-information.md
   - name: Hizmet olarak Platform
@@ -287,34 +281,28 @@ items:
       href: elastic-jobs-overview.md
   - name: SQL özellik karşılaştırması
     href: sql-database-features.md
-  - name: İzleme ve performans ayarlama
+  - name: İzleme ve ayarlama
     items:
-    - name: İzleme ve ayarlamaya genel bakış
+    - name: İzleme ve performans ayarlama
       href: sql-database-monitor-tune-overview.md
-    - name: Akıllı performans
+    - name: Performans izleme
       items:
-      - name: Ayarlama eylemleri ve öneriler
-        href: sql-database-performance.md
       - name: Sorgu Performansı İçgörüleri
         href: sql-database-query-performance.md
-      - name: Veritabanı danışmanı performans önerileri
-        href: sql-database-advisor.md
-    - name: Gelişmiş izleme
-      items:
       - name: Azure SQL Analytics izleme
         href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
       - name: Tanılama telemetri verilerini günlüğe kaydetme
         href: sql-database-metrics-diag-logging.md
-    - name: Performansa yönelik akıllı içgörüler
-      href: sql-database-intelligent-insights.md
-    - name: Otomatik ayarlama
-      href: sql-database-automatic-tuning.md
-    - name: Akıllı sorgu işleme
+    - name: Akıllı performans
       items:
-      - name: Akıllı sorgu işleme
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: Uyarlamalı sorgu işleme
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: Otomatik ayarlama
+        href: sql-database-automatic-tuning.md
+      - name: Performansa yönelik akıllı içgörüler
+        href: sql-database-intelligent-insights.md
+      - name: Ayarlama eylemleri ve öneriler
+        href: sql-database-performance.md
+      - name: Veritabanı danışmanı performans önerileri
+        href: sql-database-advisor.md
   - name: Veritabanlarının özellikleri
     items:
     - name: Veritabanlarının özellikleri
@@ -409,10 +397,20 @@ items:
       href: sql-database-managed-instance-migrate.md
     - name: TDE sertifikasını Yönetilen örneğe geçirme
       href: sql-database-managed-instance-migrate-tde-certificate.md
+    - name: Yönetilen Örnek alt ağının boyutunu belirleme
+      href: sql-database-managed-instance-determine-size-vnet-subnet.md
+    - name: Yönetilen Örnek için yeni VNet ve alt ağ oluşturma
+      href: sql-database-managed-instance-create-vnet-subnet.md
+    - name: Yönetilen Örnek için mevcut VNet’i ve alt ağı yapılandırma
+      href: sql-database-managed-instance-configure-vnet-subnet.md
     - name: Özel API'yi yapılandırma
       href: sql-database-managed-instance-custom-dns.md
     - name: Eşitleme ağı yapılandırması
       href: sql-database-managed-instance-sync-network-configuration.md
+    - name: Yönetim uç noktası IP adresini bulma
+      href: sql-database-managed-instance-find-management-endpoint-ip-address.md
+    - name: Yerleşik güvenlik duvarı korumasını doğrulama
+      href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
     - name: İşlem çoğaltması
       href: replication-with-sql-database-managed-instance.md
     - name: Tehdit algılamayı yapılandırma
@@ -668,9 +666,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Elastik işin yüklemesini kaldırma (kullanım dışı)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: bb051db62acda98e40be09c174216208578afccc
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d94f4fb39ccdee60fae434204369fd844aedeb20
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320974"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384284"

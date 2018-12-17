@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma
+title: App Service ortamı - Azure iç yük dengeleyici oluşturma
 description: İnternet’ten yalıtılmış bir Azure App Service Ortamı oluşturma ve kullanma ayrıntıları
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
-ms.custom: mvc
-ms.openlocfilehash: e86367d5df8294a7e0f798e47bf87ff3fb8ccf72
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: b6c04c5b167eb963e9b2befa57e270ac454f5d74
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967581"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344287"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
@@ -58,17 +58,17 @@ ILB ASE oluşturmak için:
 
 1. Azure portalında **kaynak Oluştur** > **Web** > **App Service ortamı**.
 
-1. Aboneliğinizi seçin.
+2. Aboneliğinizi seçin.
 
-1. Kaynak grubunu seçin veya oluşturun.
+3. Kaynak grubunu seçin veya oluşturun.
 
-1. Bir VNet seçin veya oluşturun.
+4. Bir VNet seçin veya oluşturun.
 
-1. Varolan bir sanal ağı seçerseniz, ASE’yi tutmak için bir alt ağ oluşturmanız gerekir. Alt ağ boyutunu, ASE’nizin gelecekteki her türlü büyümesine uyum sağlayacak kadar büyük ayarladığınızdan emin olun. 256 adres içeren ve en büyük boyutlu ASE’yi işleyebilen ve ölçeklendirme ihtiyaçlarını karşılayabilen `/24` dosya boyutu önerilir. 
+5. Varolan bir sanal ağı seçerseniz, ASE’yi tutmak için bir alt ağ oluşturmanız gerekir. Alt ağ boyutunu, ASE’nizin gelecekteki her türlü büyümesine uyum sağlayacak kadar büyük ayarladığınızdan emin olun. 256 adres içeren ve en büyük boyutlu ASE’yi işleyebilen ve ölçeklendirme ihtiyaçlarını karşılayabilen `/24` dosya boyutu önerilir. 
 
-1. Seçin **sanal ağ/konum** > **sanal ağ yapılandırması**. **VIP Türü**’nü **İç** olarak ayarlayın.
+6. Seçin **sanal ağ/konum** > **sanal ağ yapılandırması**. **VIP Türü**’nü **İç** olarak ayarlayın.
 
-1. Etki alanı adı girin. Bu etki alanı, bu ASE içinde oluşturulan uygulamalar için kullanılır. Bazı kısıtlamalar vardır. Şunlar olamaz:
+7. Etki alanı adı girin. Bu etki alanı, bu ASE içinde oluşturulan uygulamalar için kullanılır. Bazı kısıtlamalar vardır. Şunlar olamaz:
 
     * net   
 
@@ -134,7 +134,7 @@ ASE’yi oluşturduktan sonra etki alanı adında belirttiğiniz etki alanı gö
 ILB ASE’nizin geçerli bir SSL sertifikası olmalıdır. İç sertifika yetkililerini kullanın, harici bir verenden sertifika satın alın ya da otomatik olarak imzalanan bir sertifika kullanın. SSL sertifikasının kaynağından bağımsız olarak, aşağıdaki sertifika özniteliklerinin doğru şekilde yapılandırılması gerekir:
 
 * **Konu**: Bu öznitelik *.your-root-domain-here olarak ayarlanmalıdır.
-* **Konu Diğer Adı**: Bu öznitelik hem *\ *.your-root-domain-here* hem de *\ *.scm.your-root-domain-here* değerlerini içermelidir. Her bir uygulamayla ilişkili SCM/Kudu sitesiyle kurulan SSL bağlantıları *your-app-name.scm.your-root-domain-here* biçiminde bir adres kullanır.
+* **Konu alternatif adı**: Bu öznitelik her ikisini de içermelidir **.your-root-domain-here* ve **.Your-kök-etki-burada*. Her bir uygulamayla ilişkili SCM/Kudu sitesiyle kurulan SSL bağlantıları *your-app-name.scm.your-root-domain-here* biçiminde bir adres kullanır.
 
 SSL sertifikasını .pfx dosyası olarak dönüştürün/kaydedin. .pfx dosyası, tüm ara ve kök sertifikaları içermelidir. Bir parola ile güvenli hale getirin.
 

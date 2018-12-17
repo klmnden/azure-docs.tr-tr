@@ -164,7 +164,7 @@ items:
       href: optimize-cost-regions.md
     - name: Geliştirme/test iş yüklerinizi iyileştirme
       href: optimize-dev-test.md
-    - name: Ayrılmış kapasite için ön ödeme yapma
+    - name: Ayrılmış kapasite ile en iyi duruma getirme
       href: cosmos-db-reserved-capacity.md
   - name: Güvenlik
     items:
@@ -302,15 +302,15 @@ items:
           items:
           - name: 1. Bölüm - Giriş
             href: tutorial-develop-mongodb-nodejs.md
-          - name: 2. Bölüm - Node uygulama oluşturma
+          - name: Bölüm 2 - Node uygulama oluşturma
             href: tutorial-develop-mongodb-nodejs-part2.md
-          - name: 3. Bölüm - Angular ile kullanıcı arabirimi ekleme
+          - name: Bölüm 3 - Angular ile kullanıcı arabirimi ekleme
             href: tutorial-develop-mongodb-nodejs-part3.md
-          - name: 4. Bölüm - Hesap oluşturma
+          - name: Bölüm 4 - Hesap oluşturma
             href: tutorial-develop-mongodb-nodejs-part4.md
           - name: 5. Bölüm - Azure Cosmos DB’ye bağlanma
             href: tutorial-develop-mongodb-nodejs-part5.md
-          - name: 6. Bölüm - CRUD işlemleri gerçekleştirme
+          - name: Bölüm 6 - CRUD işlemleri gerçekleştirme
             href: tutorial-develop-mongodb-nodejs-part6.md
         - name: Node.js ve React uygulaması
           href: tutorial-develop-mongodb-react.md
@@ -603,9 +603,9 @@ items:
       href: use-cases.md
     - name: Sosyal medya uygulamaları
       href: social-media-apps.md
-ms.openlocfilehash: b172650cc0a69169bcbebf58e0a11d0bb9cd6450
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d31364cb9d458e54ae407d10fd88d8db4e9f457f
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254709"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384675"

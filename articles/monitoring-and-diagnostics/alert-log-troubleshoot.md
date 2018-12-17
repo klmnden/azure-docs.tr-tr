@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 4593c19a05484f7075b7a4a15a6be2e6a1bc0d28
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: 38153a605bc3c2fb32662e2733d2521fa1bf519a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271513"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341227"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Azure İzleyicisi'nde sorun giderme günlük uyarıları  
 ## <a name="overview"></a>Genel Bakış
@@ -27,7 +27,7 @@ Terim **günlük uyarıları** yangın özel bir sorgunun bağlı uyarılar aç�
 
 ## <a name="log-alert-didnt-fire"></a>Günlük uyarı yangın gelmedi
 
-İşte bazı yaygın nedenler neden yapılandırılmış bir [Azure İzleyici'de günlük uyarı kuralı](../azure-monitor/platform/alerts-log.md) değil durumu göster [olarak *harekete* beklendiğinde](monitoring-alerts-managing-alert-states.md). 
+İşte bazı yaygın nedenler neden yapılandırılmış bir [Azure İzleyici'de günlük uyarı kuralı](../azure-monitor/platform/alerts-log.md) değil durumu göster [olarak *harekete* beklendiğinde](../azure-monitor/platform/alerts-managing-alert-states.md). 
 
 ### <a name="data-ingestion-time-for-logs"></a>Günlükler için veri alım zamanı
 Günlük uyarı düzenli aralıklarla çalışan temel sorgunuzu [Log Analytics](../azure-monitor/learn/tutorial-viewdata.md) veya [Application Insights](../application-insights/app-insights-analytics.md). Log Analytics, binlerce müşteri çeşitli kaynaklardan gelen verileri terabayta kadar dünya genelindeki işlediğinden, hizmet için değişen gecikme süresini saldırılara açıktır. Daha fazla bilgi için [Log Analytics veri alımı zamanında](../azure-monitor/platform/data-ingestion-time.md).
@@ -71,7 +71,7 @@ Zaman damgası üzerinde toplama olduğu gibi veriler (olduğu gibi "kırmızı)
 - (Veya) dayalı uyarı mantığı kullanmak için uyarı kuralı yeniden *toplam ihlal* bunun yerine uygun şekilde
  
 ## <a name="log-alert-fired-unnecessarily"></a>Günlük uyarı gereksiz yere tetiklendi
-Ayrıntılı sonraki bazı yaygın nedenler neden olan bir yapılandırılmış [Azure İzleyici'de günlük uyarı kuralı](../azure-monitor/platform/alerts-log.md) görüntülendiğinde tetiklenebilir [Azure uyarıları](monitoring-alerts-managing-alert-states.md), harekete beklemiyoruz.
+Ayrıntılı sonraki bazı yaygın nedenler neden olan bir yapılandırılmış [Azure İzleyici'de günlük uyarı kuralı](../azure-monitor/platform/alerts-log.md) görüntülendiğinde tetiklenebilir [Azure uyarıları](../azure-monitor/platform/alerts-managing-alert-states.md), harekete beklemiyoruz.
 
 ### <a name="alert-triggered-by-partial-data"></a>Kısmi veriler tarafından tetiklenen uyarı
 Log Analytics ve Application Insights'ı destekleyen analiz alımı gecikmeleri ve işleme tabi olan; hangi nedeniyle sağlanan günlük uyarı sorgusu çalıştırıldığında - zaman olabilir bir servis talebi almalarının hiçbir veri ya da yalnızca mevcut olan bazı veriler. Daha fazla bilgi için [Log Analytics veri alımı zamanında](../azure-monitor/platform/data-ingestion-time.md).
