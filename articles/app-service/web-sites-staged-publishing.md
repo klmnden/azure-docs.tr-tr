@@ -45,7 +45,7 @@ Uygulama çalıştırmalıdır **standart**, **Premium**, veya **yalıtılmış*
     ![Yeni bir dağıtım yuvası ekle][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > Uygulama zaten değilse **standart**, **Premium**, veya **yalıtılmış* katmanı, aşamalı yayımlamayı etkinleştirmeye desteklenen katmanları belirten bir ileti alırsınız. Bu noktada, tercih yapma seçeneğine sahip **yükseltme** gidin **ölçek** sekmesinde devam etmeden önce uygulama.
+   > Uygulama zaten değilse **standart**, **Premium**, veya **yalıtılmış* katmanı, aşamalı yayımlamayı etkinleştirmeye desteklenen katmanları belirten bir ileti alırsınız. Bu noktada, tercih yapma seçeneğine sahip ** **yükseltme** gidin **ölçek** sekmesinde devam etmeden önce uygulama.
    > 
    > 
 3. İçinde **bir yuva Ekle** dikey penceresinde yuvası bir ad verin ve mevcut olan başka bir dağıtım yuvası uygulama yapılandırmasından kopyalamak seçin. Devam etmek için onay işaretine tıklayın.

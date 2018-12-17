@@ -79,7 +79,7 @@ Bu bölümde, bir sanal ağ oluşturur, yük dengeleyicinizin arka uç havuzu i�
     1. Sanal ağ için *myVNet*, alt ağ için de *myBackendSubnet* değerinin seçildiğinden emin olun.
     2. **Ortak IP adresi** için **Ortak IP adresi oluştur** bölmesinde **Standart** seçeneğini ve ardından **Tamam**'ı seçin.
     3. **Ağ Güvenlik Grubu** bölümünde **Gelişmiş**'i seçip şu işlemleri gerçekleştirin:
-        1. *Ağ güvenlik grubu (güvenlik duvarı) seçimini yapın ve **Ağ güvenlik grubu seç** sayfasında **Yeni oluştur**'u seçin. 
+        1. *Ağ güvenlik grubu (güvenlik duvarı) ** seçimini yapın ve **Ağ güvenlik grubu seç** sayfasında **Yeni oluştur**'u seçin. 
         2. **Ağ güvenlik grubu oluştur** sayfasının **Ad** bölümüne *myNetworkSecurityGroup* yazın ve **Tamam**'ı seçin.
 5. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
 6. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’a tıklayın.
