@@ -1,0 +1,39 @@
+items:
+- name: Azure NetApp Files Belgeleri
+  href: index.md
+- name: Genel Bakış
+  items:
+  - name: Azure NetApp Files'a giriş
+    href: azure-netapp-files-introduction.md
+  - name: Depolama hiyerarşisini anlama
+    href: azure-netapp-files-understand-storage-hierarchy.md
+- name: Hızlı Başlangıçlar
+  items:
+  - name: Azure NetApp Files için kaydolma
+    href: azure-netapp-files-register.md
+  - name: NetApp hesabı oluşturma
+    href: azure-netapp-files-create-netapp-account.md
+  - name: Kapasite havuzunu ayarlama
+    href: azure-netapp-files-set-up-capacity-pool.md
+  - name: Azure NetApp Files için bir alt ağı temsilci olarak belirleme
+    href: azure-netapp-files-delegate-subnet.md
+  - name: Azure NetApp Files için birim oluşturma
+    href: azure-netapp-files-create-volumes.md
+  - name: Birim için dışarı aktarma ilkesini yapılandırma (isteğe bağlı)
+    href: azure-netapp-files-configure-export-policy.md
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Birimleri yönetme
+    href: azure-netapp-files-manage-volumes.md
+  - name: Sanal makineler için birimi bağlama veya ayırma
+    href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+  - name: Anlık görüntüleri yönetme
+    href: azure-netapp-files-manage-snapshots.md
+  - name: Kapasitesi havuzunu veya birimi yeniden boyutlandırma
+    href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+ms.openlocfilehash: 9e500904c2249fe1f419e4e8e3657bb083f0143b
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53414227"

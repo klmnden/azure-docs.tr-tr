@@ -26,7 +26,7 @@ items:
   - name: ESP kümesiyle bağlantı kurmak için Eclipse kullanma
     href: ../spark/apache-spark-eclipse-tool-plugin.md
     maintainContext: true
-  - name: ESP kümelerinde Oozie kullanma
+  - name: ESP kümelerinde Apache Oozie kullanma
     href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: Verilerin güvenliğini sağlama
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
@@ -39,10 +39,10 @@ items:
   - name: HDInsight’a şirket içi ağınızla bağlanma
     href: ../connect-on-premises-network.md
     maintainContext: true
-  - name: Azure VNet’te HBase kümesi oluşturma
+  - name: Azure VNet’te Apache HBase kümesi oluşturma
     href: ../hbase/apache-hbase-provision-vnet.md
     maintainContext: true
-  - name: Azure VNet’te HBase kümesi çoğaltma
+  - name: Azure VNet’te Apache HBase kümesi çoğaltma
     href: ../hbase/apache-hbase-replication.md
     maintainContext: true
 - name: Log Analytics kullanarak izleme
@@ -70,13 +70,13 @@ items:
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK'sı
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: Kaynaklar
   items:
@@ -100,9 +100,9 @@ items:
   - name: HDInsight için Windows araçları
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 08e08fba0b9957babd391cada4a665e5d99fdd90
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 838d344742cdb9c19224b6831540736a86fc5b33
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155720"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433664"
