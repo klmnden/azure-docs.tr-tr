@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 79f2aa9c3e73037aa25848b7d11c34a73bf35f64
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f212e2555b6097912628791635a539bc488d4979
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342407"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413175"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>JavaScript içinde konuşma tanıma API'si ile çalışmaya başlama
 
@@ -34,10 +34,10 @@ Konuşma tanıma API'si, Bilişsel hizmetler bir parçasıdır. Ücretsiz deneme
 
 ## <a name="get-started"></a>başlarken
 
-Bu bölümde biz, örnek bir HTML sayfası yüklemek için gereken adımlarda size yol gösterir. Örnek bulunan bizim [github deposu](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). Yapabilecekleriniz **örnek doğrudan açmak** deposundan veya **örneği yerel bir kopyasından açın** depo. 
+Bu bölümde biz, örnek bir HTML sayfası yüklemek için gereken adımlarda size yol gösterir. Örnek bulunan bizim [GitHub deposu](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript). Yapabilecekleriniz **örnek doğrudan açmak** deposundan veya **örneği yerel bir kopyasından açın** depo.
 
 > [!NOTE]
-> Bazı tarayıcılar dönüştürmesinin güvenliği kaldırılamıyor kaynak mikrofon erişimi engelleyin. Bu nedenle, 'örneği' barındırmak için önerilir / 'uygulamanızı' bunu desteklenen tüm tarayıcılarda çalıştırmak için https. 
+> Bazı tarayıcılar dönüştürmesinin güvenliği kaldırılamıyor kaynak mikrofon erişimi engelleyin. Bu nedenle, 'örneği' barındırmak için önerilir / 'uygulamanızı' bunu desteklenen tüm tarayıcılarda çalıştırmak için https.
 
 ### <a name="open-the-sample-directly"></a>Örnek doğrudan açın
 
