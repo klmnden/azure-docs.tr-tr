@@ -92,7 +92,7 @@ Aşağıdaki tabloda farklı günlük dosyaları belirtmek için geçerli düzen
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>4. Adım. Bir ad ve açıklama günlüğü sağlayın
 Belirttiğiniz ad, yukarıda açıklandığı gibi günlük türü için kullanılacaktır.  Özel bir günlük ayırmak için _CL ile her zaman sona erecek.
 
-1. Günlük için'bir ad yazın.   **\_CL** soneki otomatik olarak sağlanır.
+1. Günlük için'bir ad yazın.  **\_CL** soneki otomatik olarak sağlanır.
 2. İsteğe bağlı bir ekleme **açıklama**.
 3. Tıklayın **sonraki** özel günlük tanımını kaydedin.
 

@@ -91,7 +91,7 @@
 #### [Test Sürüşü sekmesi](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
 #### [Market sekmesi](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
 #### [Destek sekmesi](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
-<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [Teknik varlıklar oluşturma](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 ### [Azure uygulama teklifini yayımlama](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 ### [Mevcut teklifi güncelleştirme](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 

@@ -51,7 +51,7 @@ Teklif ayarları formu teklif ayarlarını belirtmek için temel bir biçimidir.
 
 Bu teklif içinde bir yayımcı profili için benzersiz bir tanımlayıcıdır. Bu kimliği, ürün URL'lerinde görünür olur. Yalnızca küçük harfli alfasayısal karakterler veya tirelerden (-) oluşabilir. Kimliği tire bitemez ve en çok 50 karakter olabilir. Bu alan, teklif etkin hale gelir sonra kilitli.
 
-bir teklifle bir yayımcı contoso yayımcı oluşturursa, örneğin, Teklif kimliği *örnek dynamics365 işlemleri için*, appsource'ta görünür \"https://appsource.microsoft.com/marketplace/apps/\**contoso\**.\*operasyonlar için örnek-dynamics 365\*? sekmesini = genel bakış\"
+bir teklifle bir yayımcı contoso yayımcı oluşturursa, örneğin, Teklif kimliği *örnek dynamics365 işlemleri için*, appsource'ta görünür \"https://appsource.microsoft.com/marketplace/apps/**contoso**.\*operasyonlar için örnek-dynamics 365\*? sekmesini = genel bakış\"
 
 ### <a name="publisher-id"></a>Yayımcı kimliği
 

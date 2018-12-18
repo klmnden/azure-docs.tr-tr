@@ -19,9 +19,9 @@ ms.locfileid: "50139233"
 
 Bir edge ağ geçidi dağıtmak için iki yazılım bileşenlerini ihtiyacınız *Connected Factory* Çözüm Hızlandırıcısı:
 
--  *OPC Proxy* Connected Factory bir bağlantı kurar. OPC Proxy çalıştıran bağlı Fabrika çözüm portalında tümleşik OPC Browser komut ve Denetim iletileri ardından bekler.
+- OPC  *Proxy* Connected Factory bir bağlantı kurar. OPC Proxy çalıştıran bağlı Fabrika çözüm portalında tümleşik OPC Browser komut ve Denetim iletileri ardından bekler.
 
--  *OPC yayımcı* iletir telemetri iletilerini bunları bağlı Fabrika için ve mevcut şirket içi OPC UA sunucularına bağlanır. Bir OPC Klasik cihaz kullanarak bağlantı kurabilir [OPC UA için OPC Klasik bağdaştırıcısı](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
+- OPC  *yayımcı* iletir telemetri iletilerini bunları bağlı Fabrika için ve mevcut şirket içi OPC UA sunucularına bağlanır. Bir OPC Klasik cihaz kullanarak bağlantı kurabilir [OPC UA için OPC Klasik bağdaştırıcısı](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
 
 Her iki bileşenler açık kaynaklı ve GitHub üzerinde kaynak ve DockerHub Docker kapsayıcıları olarak kullanılabilir:
 

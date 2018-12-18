@@ -101,6 +101,8 @@ items:
       href: sql-database-service-tiers-dtu.md
     - name: Ayrılmış kapasite için ön ödeme yapma
       href: sql-database-reserved-capacity.md
+    - name: Premium RS hizmet katmanından geçirme
+      href: sql-database-service-tiers-prs.md
   - name: İşlem ve depolama
     items:
     - name: Genel Bakış
@@ -115,7 +117,7 @@ items:
       href: sql-database-service-tier-hyperscale-faq.md
   - name: Tek veritabanları
     items:
-    - name: Tek veritabanı
+    - name: Tek veritabanına genel bakış
       href: sql-database-single-index.yml
     - name: Oluşturma ve yönetme
       href: sql-database-single-databases-manage.md
@@ -149,7 +151,7 @@ items:
       href: sql-database-single-database-scale.md
   - name: Yönetilen örnekler
     items:
-    - name: Yönetilen örnekler
+    - name: Yönetilen örneklere genel bakış
       href: sql-database-managed-instance-index.yml
     - name: Yönetilen örneğe genel bakış
       href: sql-database-managed-instance.md
@@ -163,7 +165,7 @@ items:
       href: sql-database-managed-instance-transact-sql-information.md
   - name: Hizmet olarak Platform
     items:
-    - name: Hizmet olarak Platform
+    - name: Hizmet olarak platforma genel bakış
       href: sql-database-paas.yml
     - name: İş sürekliliği
       href: sql-database-business-continuity.md
@@ -195,7 +197,7 @@ items:
         href: sql-database-disaster-recovery-drills.md
   - name: Güvenlik
     items:
-    - name: Güvenlik
+    - name: Güvenliğe genel bakış
       href: sql-database-security-index.yml
     - name: Güvenliğe genel bakış
       href: sql-database-security-overview.md
@@ -249,7 +251,7 @@ items:
         href: transparent-data-encryption-byok-azure-sql.md
   - name: Ölçeklenebilirlik
     items:
-    - name: Ölçeklenebilirlik
+    - name: Ölçeklenebilirliğe genel bakış
       href: sql-database-scalability-index.yml
     - name: Ölçeği Artırma/Azaltma
       href: sql-database-scale-resources.md
@@ -283,6 +285,8 @@ items:
     href: sql-database-features.md
   - name: İzleme ve ayarlama
     items:
+    - name: İzleme ve ayarlamaya genel bakış
+      href: sql-database-monitoring-tuning-index.yml
     - name: İzleme ve performans ayarlama
       href: sql-database-monitor-tune-overview.md
     - name: Performans izleme
@@ -315,8 +319,12 @@ items:
       href: sql-database-temporal-tables.md
 - name: Nasıl yapılır kılavuzları
   items:
+  - name: Genel Bakış
+    href: sql-database-howto.md
   - name: Tek veritabanı
     items:
+    - name: Genel Bakış
+      href: sql-database-howto-single-database.md
     - name: SQL Veritabanına geçiş
       href: sql-database-cloud-migrate.md
     - name: Geçişten sonra SQL veritabanını yönetme
@@ -393,6 +401,8 @@ items:
         href: elastic-jobs-migrate.md
   - name: Yönetilen örnek
     items:
+    - name: Genel Bakış
+      href: sql-database-howto-managed-instance.md
     - name: Yönetilen örneğe geçiş
       href: sql-database-managed-instance-migrate.md
     - name: TDE sertifikasını Yönetilen örneğe geçirme
@@ -666,9 +676,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Elastik işin yüklemesini kaldırma (kullanım dışı)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: d94f4fb39ccdee60fae434204369fd844aedeb20
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: d276b202da8055965a43f5313b6a8c4b335f74b2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384284"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436033"

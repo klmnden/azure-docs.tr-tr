@@ -51,8 +51,8 @@ Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: adı
 ### <a name="application-2"></a>Uygulama #2: 
 Aşağıdaki istisnalarla birlikte uygulama #1 olduğu gibi aynı adımları izleyin: 
 
-**#5. adım**: İç URL QlikSense URL'si uygulama tarafından kullanılan kimlik doğrulaması bağlantı noktası ile artık olmalıdır. Varsayılan değer **4244** HTTPS ve HTTP için 4248. Örn: **https&#58;//demo.qlik.com:4244**</br></br> 
- **#10. adım:** kullanmayın SSO'yu ayarlama ve bırakın **çoklu oturum açma devre dışı**
+**#5. adım**: İç URL QlikSense URL'si uygulama tarafından kullanılan kimlik doğrulaması bağlantı noktası ile artık olmalıdır. Varsayılan değer **4244** HTTPS ve HTTP için 4248. Örn: **https&#58;//demo.qlik.com:4244**</br></br>**#10. adım:** kullanmayın SSO'yu ayarlama ve bırakın **çoklu oturum açma devre dışı** 
+
  
  
 ## <a name="testing"></a>Test Etme 

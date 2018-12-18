@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 77f4eeec1aa87f42c90d4e93f98f460a8b54b9a9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 503e056a3fa87e48f61d26661110b9bb89456a51
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167420"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338531"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux Vm'lerinde Azure üzerinde SAP hana yüksek kullanılabilirlik
 
@@ -88,7 +88,7 @@ SAP HANA yüksek kullanılabilirlik elde etmek için iki sanal makinelere yükle
 SAP HANA sistem çoğaltması Kurulumu kullanır ayrılmış sanal ana bilgisayar adı ve sanal IP adresleri. Azure üzerinde bir yük dengeleyici sanal IP adresi kullanmak için gereklidir. Aşağıdaki liste, yük dengeleyici yapılandırmasını gösterir:
 
 * Ön uç yapılandırması: IP adresi 10.0.0.13 hn1 db
-* Arka uç yapılandırmasını: HANA sistem çoğaltması parçası olması gereken tüm sanal makinelerin birincil ağ arabirimlerine bağlı
+* Arka uç yapılandırması: HANA sistem çoğaltması parçası olması gereken tüm sanal makinelerin birincil ağ arabirimlerine bağlı
 * Araştırma bağlantı noktası: Bağlantı noktası 62503
 * Yük Dengeleme kuralları: 30313 TCP, 30315 TCP, 30317 TCP, 30340 TCP, 30341 TCP, 30342 TCP
 
@@ -103,13 +103,13 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
 
 1. Açık [veritabanı şablonu] [ template-multisid-db] Azure portalında.
 1. Aşağıdaki parametreleri girin:
-    * **SAP sistem kimliği**: SAP sistemine yüklemek istediğiniz SAP sistemi Kimliğini girin. Kimlik ön eki olarak dağıtılan kaynaklar için kullanılır.
+    * **SAP sistem kimliği**: Yüklemek istediğiniz SAP sistemine SAP sistemi Kimliğini girin. Kimlik ön eki olarak dağıtılan kaynaklar için kullanılır.
     * **İşletim sistemi türü**: Linux dağıtımları birini seçin. Bu örnekte, seçin **RHEL 7**.
-    * **Veritabanı türü**: seçin **HANA**.
-    * **SAP sistemi boyutu**: yeni sisteme sağlamak için gittiği SAP sayısını girin. SAP teknoloji iş ortağı veya sistem Entegratörü, emin kaç SAP sistemi gerektiriyor olmadığınız durumlarda isteyin.
-    * **Sistem kullanılabilirliği**: seçin **HA**.
-    * **Yönetici kullanıcı adı, yönetici parolası veya SSH anahtarı**: yeni bir kullanıcı oluşturulur makinesinde oturum açma için kullanılabilir.
-    * **Alt ağ kimliği**: tanımlı bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle gibi görünüyor **/subscriptions/\<abonelik kimliği > /resourceGroups/\<kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/\<sanal ağ adı > /subnets/ \<alt ağ adı >**. Yeni bir sanal ağ oluşturmak istiyorsanız boş bırakın
+    * **Veritabanı türü**: Seçin **HANA**.
+    * **SAP sistemi boyutu**: Yeni sisteme sağlamak için gittiği SAP sayısını girin. SAP teknoloji iş ortağı veya sistem Entegratörü, emin kaç SAP sistemi gerektiriyor olmadığınız durumlarda isteyin.
+    * **Sistem kullanılabilirliği**: Seçin **HA**.
+    * **Yönetici kullanıcı adı, yönetici parolası veya SSH anahtarı**: Yeni bir kullanıcı oluşturulur makinesinde oturum açma için kullanılabilir.
+    * **Alt ağ kimliği**: Tanımlanan bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle gibi görünüyor **/subscriptions/\<abonelik kimliği > /resourceGroups/\<kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/\<sanal ağ adı > /subnets/ \<alt ağ adı >**. Yeni bir sanal ağ oluşturmak istiyorsanız boş bırakın
 
 ### <a name="manual-deployment"></a>El ile dağıtım
 
@@ -120,9 +120,9 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
 1. Bir yük dengeleyiciye (dahili) oluşturun.
    * 2. adımda oluşturduğunuz sanal ağı seçin.
 1. 1 sanal makine oluşturun.  
-   SAP HANA için en az Red Hat Enterprise Linux 7.4 kullanın. Bu örnekte SAP HANA görüntüsü için Red Hat Enterprise Linux 7.4 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74forSAPHANA-ARM> kullanılabilirlik 3. adımda oluşturulan kümesini seçin.
+   SAP HANA için en az Red Hat Enterprise Linux 7.4 kullanın. Bu örnekte SAP HANA görüntüsü için Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> kullanılabilirlik 3. adımda oluşturulan kümesini seçin.
 1. 2 sanal makine oluşturun.  
-   SAP HANA için en az Red Hat Enterprise Linux 7.4 kullanın. Bu örnekte SAP HANA görüntüsü için Red Hat Enterprise Linux 7.4 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74forSAPHANA-ARM> kullanılabilirlik 3. adımda oluşturulan kümesini seçin.
+   SAP HANA için en az Red Hat Enterprise Linux 7.4 kullanın. Bu örnekte SAP HANA görüntüsü için Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> kullanılabilirlik 3. adımda oluşturulan kümesini seçin.
 1. Veri diski ekleyin.
 1. Yük Dengeleyici yapılandırın. İlk olarak, ön uç IP havuzu oluşturun:
 
@@ -188,10 +188,10 @@ SAP HANA için gerekli bağlantı noktaları hakkında daha fazla bilgi için bu
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]** : Adım yalnızca düğüm 1 için geçerlidir.
-* **[2]** : Adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
-1. **[A]**  Disk düzenini ayarla: **mantıksal birim Yöneticisi (LVM)**.
+1. **[A]**  Disk düzenini ayarla: **Mantıksal birim Yöneticisi (LVM)**.
 
    LVM'yi veri depolayan ve günlük dosyaları birimleri için kullanmanızı öneririz. Aşağıdaki örnek, sanal makineler iki birim oluşturmak için kullanılan bağlı dört veri diskleri olduğunu varsayar.
 
@@ -257,7 +257,7 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
    <pre><code>sudo mount -a
    </code></pre>
 
-1. **[A]**  Disk düzenini ayarla: **düz diskleri**.
+1. **[A]**  Disk düzenini ayarla: **Düz diskleri**.
 
    Tanıtım sistemler için HANA verilerin ve günlük dosyalarının bir diskte yerleştirebilirsiniz. /Dev/disk/azure/scsi1/lun0 üzerinde bir bölüm oluşturun ve xfs ile biçimlendirin:
 
@@ -303,29 +303,29 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
    SAP HANA sistem çoğaltması yüklemek için izleyin <https://access.redhat.com/articles/3004101>.
 
    * Çalıştırma **hdblcm** HANA DVD'den program. Komut isteminde aşağıdaki değerleri girin:
-   * Yükleme'yi seçin: girin **1**.
-   * Yükleme için ek bileşenleri: girin **1**.
-   * Yükleme yolu [hana paylaşılan /] girin: seçin girin.
+   * Yükleme seçin: Girin **1**.
+   * Ek bileşenler yüklemesi için seçin: Girin **1**.
+   * Yükleme yolu [hana paylaşılan /] girin: Select girin.
    * [.] Yerel ana bilgisayar adı girin: Select girin.
    * Sisteme ek konakları eklemek istiyor musunuz? (e/h) [n]: Select girin.
-   * SAP HANA sistem kimliği girin: SID, HANA örneğin girin: **HN1**.
+   * SAP HANA sistem kimliği girin: Örneğin, SID HANA girin: **HN1**.
    * [00] Örnek numarasını girin: HANA örneği sayısını girin. Girin **03** Azure şablonu kullanılan veya bu makalede el ile dağıtım bölümünü izleyen.
-   * Veritabanı modunu seçin / girin [1]. dizin: Select girin.
-   * Sistem kullanımını seçin / girin dizini [4]: Sistem kullanım değerini seçin.
-   * Veri birimleri [/ data/hana/HN1] konumu girin: seçin girin.
-   * Günlük birimleri [/ hana/log/HN1] konumu girin: seçin girin.
+   * Veritabanı modunu seçin / [1]. dizin girin: Select girin.
+   * Sistem kullanımını seçin / [4]. dizin girin: Sistem kullanım değerini seçin.
+   * Veri birimleri [/ data/hana/HN1] konumu girin: Select girin.
+   * Günlük birimleri [/ hana/log/HN1] konumu girin: Select girin.
    * Maksimum bellek ayırma kısıtlayın? [n]: Select girin.
    * '...' Konak için sertifika ana bilgisayar adı girin [...]: Select girin.
-   * SAP konak aracısı kullanıcısı (sapadm) parola girin: konak Aracısı kullanıcının parolasını girin.
-   * SAP konak aracısı kullanıcısı (sapadm) parolayı onaylayın: onaylamak için yeniden konak Aracısı kullanıcının parolasını girin.
+   * SAP konak aracısı kullanıcısı (sapadm) parola girin: Konak Aracısı kullanıcının parolasını girin.
+   * SAP konak aracısı kullanıcısı (sapadm) parolayı onaylayın: Onaylamak için yeniden konak Aracısı kullanıcının parolasını girin.
    * Sistem Yöneticisi (hdbadm) parola girin: Sistem Yöneticisi parolasını girin.
-   * Sistem Yöneticisi (hdbadm) parolayı onaylayın: onaylamak için yeniden sistem yöneticisi parolasını girin.
-   * ENTER Sistem Yöneticisi giriş dizinine [/ usr/sap/HN1/giriş]: seçin girin.
-   * Sistem Yöneticisi oturum açma Kabuğu'nu girin [/ bin/sh]: seçin girin.
+   * Sistem Yöneticisi (hdbadm) parolayı onaylayın: Onaylamak için yeniden sistem yöneticisi parolasını girin.
+   * Sistem Yöneticisi giriş dizini girin [/ usr/sap/HN1/giriş]: Select girin.
+   * Sistem Yöneticisi oturum açma Kabuğu'nu girin [/ bin/sh]: Select girin.
    * Sistem yöneticisinin kullanıcı kimliği [1001] girin: Select girin.
-   * Girin kimliği kullanıcı grubuna (sapsys) [79]: seçin girin.
-   * Veritabanı kullanıcı (Sistem) parolayı girin: veritabanı kullanıcı parolasını girin.
-   * Veritabanı kullanıcı (Sistem) parolayı onaylayın: onaylamak için yeniden veritabanı kullanıcı parolasını girin.
+   * Girin kimliği kullanıcı grubuna (sapsys) [79]: Select girin.
+   * Veritabanı (Sistem) kullanıcının parolasını girin: Veritabanı kullanıcı parolasını girin.
+   * Veritabanı (Sistem) kullanıcı parolayı onaylayın: Onaylamak için yeniden veritabanı kullanıcı parolasını girin.
    * Sistem yeniden başlatıldıktan sonra makinenin yeniden başlatılmasını? [n]: Select girin.
    * Devam etmek istiyor musunuz? (e/h): Özet doğrulayın. Girin **y** devam etmek için.
 
@@ -349,8 +349,8 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]** : Adım yalnızca düğüm 1 için geçerlidir.
-* **[2]** : Adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
 1. **[A]**  Güvenlik duvarını yapılandırma
 
@@ -440,8 +440,8 @@ sudo firewall-cmd --zone=public --add-port=30342/tcp
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]** : Adım yalnızca düğüm 1 için geçerlidir.
-* **[2]** : Adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
 1. **[A]**  Güvenlik duvarını yapılandırma
 

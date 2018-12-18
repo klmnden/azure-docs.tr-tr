@@ -296,7 +296,7 @@ Aşağıdaki adımları kullanarak bir kullanılabilirlik grubunu yapılandırma
 
     ![Yeni AG Sihirbazı, ilk veri eşitlemeyi seçin](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. İçinde **ilk veri eşitlemesini Seç** sayfasında **tam** ve paylaşılan bir ağ konumu belirtin. Konumu için [, oluşturduğunuz yedek paylaşımı](#backupshare). Bu örnekte olduğu, **\\\\\<ilk SQL Server\>\Backup\**. **İleri**’ye tıklayın.
+8. İçinde **ilk veri eşitlemesini Seç** sayfasında **tam** ve paylaşılan bir ağ konumu belirtin. Konumu için [, oluşturduğunuz yedek paylaşımı](#backupshare). Bu örnekte olduğu, **\\\\\<ilk SQL Server\>\Backup\\**. **İleri**’ye tıklayın.
 
    >[!NOTE]
    >Tam eşitleme, SQL Server'ın ilk örneğinde veritabanının tam yedekleme gerçekleştirir ve ikinci örneğine geri yükler. Büyük veritabanları için tam eşitleme önerilmez uzun sürebilir. El ile bir veritabanının yedeğini almak ve ile geri bu süreyi kısaltabilirsiniz `NO RECOVERY`. Veritabanı zaten ile geri `NO RECOVERY` ikinci SQL kullanılabilirlik grubunu yapılandırmadan önce sunucuda seçin **sadece Birleştir**. Kullanılabilirlik grubu yapılandırıldıktan sonra yedekleme almak istiyorsanız seçin **ilk veri eşitlemeyi atla**.
