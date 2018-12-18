@@ -215,7 +215,7 @@ Yukarıdakilerin yanı sıra Microsoft, ön ekleri ait oldukları hizmet göre e
 | Azure genel Hizmetleri * | 12076:5050 |
 | Diğer Office 365 Çevrimiçi hizmetleri | 12076:5100 |
 
-***Azure DevOps Azure küresel hizmetler içerir**
+***Azure DevOps Azure küresel hizmetler içerir**\**
 
 
 > [!NOTE]

@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>join
 
-[**birleştirme**](https://docs.microsoft.com/azure/kusto/query/joinoperator): eşleşen değerler her tablodan belirtilen sütunların tarafından yeni bir tablo oluşturmak için iki tablo satırları birleştirir. Kusto birleşim türleri çeşitli destekler: **fullouter**, **iç**, **innerunique**, **leftanti**, **leftantisemi **, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter **, **rightsemi**.
+[**birleştirme**](https://docs.microsoft.com/azure/kusto/query/joinoperator): eşleşen değerler her tablodan belirtilen sütunların tarafından yeni bir tablo oluşturmak için iki tablo satırları birleştirir. Kusto birleşim türleri çeşitli destekler: **fullouter**, **iç**, **innerunique**, **leftanti**, **leftantisemi**, **leftouter**, **leftsemi**, **rightanti**, **rightantisemi**, **rightouter**, **rightsemi**.
 
 Aşağıdaki örnekte, bir iç birleştirme ile iki tabloyu birleştirir.
 
