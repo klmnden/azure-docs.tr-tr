@@ -19,6 +19,7 @@
 ## [SQL Server’ı Azure SQL DB'ye geçirmek için PowerShell kullanma](howto-sql-server-to-azure-sql-powershell.md)
 ## [SQL Server’ı Azure SQL MI'ya geçirmek için PowerShell kullanma](howto-sql-server-to-azure-sql-mi-powershell.md)
 ## [Geçiş etkinliğini izleme](how-to-monitor-migration-activity.md)
+## [SSIS paketlerini Azure'a geçirme](how-to-migrate-ssis-packages.md)
 
 # Kaynaklar
 ## [Veritabanı geçi senaryosunun durumu](resource-scenario-status.md)

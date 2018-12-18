@@ -84,18 +84,14 @@ items:
       href: how-to-register-device-cli.md
     - name: Visual Studio Code
       href: how-to-register-device-vscode.md
-  - name: IoT Edge çalışma zamanını yükleme
+  - name: IoT Edge'i yükleme ve yönetme
     items:
     - name: Linux X64
       href: how-to-install-iot-edge-linux.md
     - name: Linux ARM32
       href: how-to-install-iot-edge-linux-arm.md
-    - name: Windows kapsayıcıları ile Windows
-      href: how-to-install-iot-edge-windows-with-windows.md
-    - name: Linux kapsayıcıları ile Windows
-      href: how-to-install-iot-edge-windows-with-linux.md
-    - name: IoT Core
-      href: how-to-install-iot-core.md
+    - name: Windows X64
+      href: how-to-install-iot-edge-windows.md
     - name: Çalışma zamanı sürümünü güncelleştirme
       href: how-to-update-iot-edge.md
   - name: DPS ile otomatik sağlama
@@ -107,23 +103,7 @@ items:
   - name: VS 2017 ile modül geliştirme ve modülde hata ayıklama
     href: how-to-visual-studio-develop-csharp-module.md
   - name: VS Code ile modül geliştirme ve modülde hata ayıklama
-    items:
-    - name: Azure İşlevleri
-      href: how-to-develop-csharp-function.md
-    - name: C#
-      href: how-to-develop-csharp-module.md
-    - name: Python
-      href: how-to-develop-python-module.md
-    - name: Node.js
-      href: how-to-develop-node-module.md
-    - name: Java
-      href: how-to-develop-java-module.md
-    - name: C
-      href: how-to-develop-c-module.md
-    - name: Birden fazla modül geliştirme
-      href: how-to-develop-multiple-modules-vscode.md
-    - name: Birden fazla modülde hata ayıklama
-      href: how-to-debug-multiple-modules-vscode.md
+    href: how-to-vs-code-develop-module.md
   - name: Modülleri dağıtma
     items:
     - name: Azure portal
@@ -226,9 +206,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 0f761c4395dc1e96aa58acc9dc737f115fcde09b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1f56b5e15759bc0c386ecf9649cbc78b611705ad
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340853"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558592"

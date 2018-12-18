@@ -3,26 +3,30 @@ items:
   href: index.yml
 - name: Genel Bakış
   items:
-  - name: Bing Özel Arama nedir?
+  - name: Bing Özel Arama API'si nedir?
     href: overview.md
   expanded: true
-- name: REST API Hızlı Başlangıçları
+- name: Hızlı Başlangıçlar
   items:
-  - name: İlk örneği oluşturma
+  - name: Özel arama örneği oluşturma
     href: quick-start.md
-  - name: C#
-    href: call-endpoint-csharp.md
-  - name: Java
-    href: call-endpoint-java.md
-  - name: Node.js
-    href: call-endpoint-nodejs.md
-  - name: Python
-    href: call-endpoint-python.md
+  - name: Örneğinizden arama sonuçlarını alma
+    items:
+    - name: REST API
+      items:
+      - name: C# kullanma
+        href: call-endpoint-csharp.md
+      - name: Java'yı kullanma
+        href: call-endpoint-java.md
+      - name: Node.js'yi kullanma
+        href: call-endpoint-nodejs.md
+      - name: Python’u kullanma
+        href: call-endpoint-python.md
+    - name: SDK
+      items:
+      - name: C# kullanma
+        href: sdk-csharp-quick-start.md
   expanded: true
-- name: SDK Hızlı başlangıçları
-  items:
-  - name: C# SDK hızlı başlangıcı
-    href: sdk-csharp-quick-start.md
 - name: Öğreticiler
   items:
   - name: Özel Arama web sayfası derleme
@@ -33,23 +37,23 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Özel arama deneyimini yapılandırma
+  - name: Özel arama deneyiminizi yapılandırma
     href: define-your-custom-view.md
-  - name: Özel arama çağırma
+  - name: Özel arama örneğinizi çağırma
     href: search-your-custom-view.md
-  - name: Barındırılan kullanıcı arabirimi deneyimini yapılandırma
+  - name: Barındırılan kullanıcı arabirimini yapılandırma ve tümleştirme
     href: hosted-ui.md
-  - name: Özel arama paylaşma
+  - name: Özel arama örneğinizi paylaşma
     href: share-your-custom-search.md
-  - name: Örneğinizden görüntü alma
+  - name: Arama örneğinizden görüntü alma
     href: get-images-from-instance.md
-  - name: Örneğinizden video alma
+  - name: Arama örneğinizden video alma
     href: get-videos-from-instance.md
   - name: Özel otomatik öneri deneyimini yapılandırma
     href: define-custom-suggestions.md
   - name: İsabet vurgulamayı gerçekleştirme
     href: hit-highlighting.md
-  - name: Sayfa web sayfaları
+  - name: Web sayfalarında ilerleme
     href: page-webpages.md
 - name: Başvuru
   items:
@@ -85,9 +89,9 @@ items:
     href: endpoint-custom.md
   - name: Dil ve bölge desteği
     href: language-support.md
-ms.openlocfilehash: 62392b7ff226072108c61f10b3f0519677aaba6b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 81d0d94efc519fa241ab36979506b2baddf50d91
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432011"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555874"

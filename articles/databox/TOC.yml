@@ -19,8 +19,14 @@ items:
         href: data-box-deploy-ordered.md
       - name: 2 - Ayarlama
         href: data-box-deploy-set-up.md
-      - name: 3 - Verileri kopyalama
-        href: data-box-deploy-copy-data.md
+      - name: 3 - Bağlanma ve kopyalama
+        items:
+        - name: SMB aracılığıyla
+          href: data-box-deploy-copy-data.md
+        - name: NFS aracılığıyla
+          href: data-box-deploy-copy-data-via-nfs.md
+        - name: REST aracılığıyla
+          href: data-box-deploy-copy-data-via-rest.md
       - name: 4 - İade etme, karşıya yükleme, doğrulama
         href: data-box-deploy-picked-up.md
     - name: Kavramlar
@@ -28,7 +34,11 @@ items:
       - name: Güvenlik yönergelerini okuyun
         href: data-box-safety.md
       - name: Gereksinimleri inceleme
-        href: data-box-system-requirements.md
+        items:
+        - name: Data Box için
+          href: data-box-system-requirements.md
+        - name: Data Box Blob depolama için
+          href: data-box-system-requirements-rest.md
       - name: Sınırları anlama
         href: data-box-limits.md
       - name: Güvenliği gözden geçirme
@@ -98,9 +108,9 @@ items:
       href: https://azure.microsoft.com/pricing/details/storage/databox/
     - name: Data Box Disk fiyatlandırması
       href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
-ms.openlocfilehash: bd23df1abd99ba3fd89a4b382c6c5f00c8b80f1f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 4ca0a1e04f558396cb72b0617c9bee6349a0fe54
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739201"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540529"

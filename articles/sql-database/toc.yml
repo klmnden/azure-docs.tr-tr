@@ -311,8 +311,8 @@ items:
     items:
     - name: Veritabanlarının özellikleri
       href: sql-database-develop-overview.md
-    - name: JSON verileri
-      href: sql-database-json-features.md
+    - name: Çok modelli özellikler
+      href: sql-database-multi-model-features.md
     - name: Bellek içi
       href: sql-database-in-memory.md
     - name: Zamana bağlı tablolar
@@ -501,6 +501,8 @@ items:
     items:
     - name: Bağlantı
       href: sql-database-libraries.md
+    - name: JSON verileriyle çalışma
+      href: sql-database-json-features.md
     - name: Spark Bağlayıcısı kullanma
       href: sql-database-spark-connector.md
     - name: Uygulamanın kimliğini doğrulama
@@ -676,9 +678,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Elastik işin yüklemesini kaldırma (kullanım dışı)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: d276b202da8055965a43f5313b6a8c4b335f74b2
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3a4a06a79b0931c95bf1ef35e250711f1cd90de8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436033"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541804"
