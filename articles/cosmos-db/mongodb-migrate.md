@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 50bb34d86780dec003c63b5ff0a3884049dd47c1
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a17b2121feb5656df4298bddc2b1e90bb9ac6457
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871022"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545629"
 ---
-# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>Öğretici: Verilerinizi Azure Cosmos DB MongoDB API hesabına geçirme
+# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-api-account-for-mongodb"></a>Öğretici: MongoDB için Azure Cosmos DB API hesabı için verilerinizi geçirme
 
-Bu öğreticide MongoDB'de depolanan verileri Azure Cosmos DB MongoDB API'si hesabına geçirme adımları açıklanmaktadır. MongoDB’den verileri içeri aktarıyor ve bunları Azure Cosmos DB SQL API’siyle kullanmayı planlıyorsanız, verileri içeri aktarmak için [Veri Geçiş aracını](import-data.md) kullanmanız gerekir.
+Bu öğreticide, MongoDB için Azure Cosmos DB API Mongodb'ye depolanan verileri geçirme hakkında yönergeler açıklanmaktadır. MongoDB’den verileri içeri aktarıyor ve bunları Azure Cosmos DB SQL API’siyle kullanmayı planlıyorsanız, verileri içeri aktarmak için [Veri Geçiş aracını](import-data.md) kullanmanız gerekir.
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
@@ -29,7 +29,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 > * mongoimport'u kullanarak veri geçirme
 > * mongorestore'u kullanarak veri geçirme
 
-Verileri MongoDB API'si hesabına geçirmeden önce örnek MongoDB verilerine sahip olduğunuzdan emin olun. Örnek MongoDB veritabanınız yoksa [MongoDB community server](https://www.mongodb.com/download-center) sürümünü indirip yükleyebilir, örnek bir veritabanı oluşturabilir ve örnek verileri mongoimport.exe veya mongorestore.exe ile karşıya yükleyebilirsiniz. 
+Veri geçiriyorsanız mongodb, Azure Cosmos DB API yapmadan önce emin olan bazı örnek MongoDB verilerini vardır. Örnek MongoDB veritabanınız yoksa [MongoDB community server](https://www.mongodb.com/download-center) sürümünü indirip yükleyebilir, örnek bir veritabanı oluşturabilir ve örnek verileri mongoimport.exe veya mongorestore.exe ile karşıya yükleyebilirsiniz. 
 
 ## <a name="plan-for-migration"></a>Geçiş planlaması
 
@@ -59,7 +59,7 @@ Verileri MongoDB API'si hesabına geçirmeden önce örnek MongoDB verilerine sa
 
 1. Tek bir belge yazma için yaklaşık RU ücretini hesaplayın:
 
-   a. MongoDB Kabuğu'ndan Azure Cosmos DB MongoDB API hesabınıza bağlanın. [Azure Cosmos DB’ye MongoDB uygulaması bağlama](connect-mongodb-account.md) bölümünde yönergeleri bulabilirsiniz.
+   a. Azure Cosmos DB API'si, MongoDB için MongoDB Kabuğu'ndan bağlanın. [Azure Cosmos DB’ye MongoDB uygulaması bağlama](connect-mongodb-account.md) bölümünde yönergeleri bulabilirsiniz.
     
    b. MongoDB Kabuğu’ndan örnek belgelerinizden birini kullanarak örnek bir ekleme komutu çalıştırın:
    
@@ -127,11 +127,11 @@ Verileri MongoDB API'si hesabına geçirmeden önce örnek MongoDB verilerine sa
 
 ## <a name="prerequisites-for-migration"></a>Geçiş önkoşulları
 
-* **Aktarım hızını artırma:** Veri geçişinizin süresi, tek bir koleksiyon veya bir koleksiyon kümesi için ayarladığınız aktarım hızı miktarına bağlıdır. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. [Azure portalında](https://portal.azure.com) aktarım hızını artırma hakkında daha fazla bilgi için bkz. [Azure Cosmos DB’de performans düzeyleri ve fiyatlandırma katmanları](performance-levels.md).
+* **Aktarım hızını artırın:** Veri geçiş süresi, aktarım hızı, tek bir koleksiyon için ayarlama miktarı veya koleksiyonları kümesi göre değişir. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. [Azure portalında](https://portal.azure.com) aktarım hızını artırma hakkında daha fazla bilgi için bkz. [Azure Cosmos DB’de performans düzeyleri ve fiyatlandırma katmanları](performance-levels.md).
 
-* **SSL’yi etkinleştirme:** Azure Cosmos DB sıkı güvenlik gereksinimleri ve standartlarına sahiptir. Hesabınız ile etkileşim kurarken SSL’yi etkinleştirdiğinizden emin olun. Makalenin devamındaki yordamlar mongoimport ve mongorestore için SSL’yi etkinleştirmeyi içerir.
+* **SSL etkinleştir:** Azure Cosmos DB, katı güvenlik gereksinimleri ve standartları vardır. Hesabınız ile etkileşim kurarken SSL’yi etkinleştirdiğinizden emin olun. Makalenin devamındaki yordamlar mongoimport ve mongorestore için SSL’yi etkinleştirmeyi içerir.
 
-* **Azure Cosmos DB kaynaklarını oluşturma:** Veri geçişini başlatmadan önce Azure portaldan tüm koleksiyonlarınızı oluşturun. Veritabanı düzeyinde aktarım hızına sahip olan bir Azure Cosmos DB hesabına geçiş yapıyorsanız Azure Cosmos DB koleksiyonlarını oluştururken bölüm anahtarı girdiğinizden emin olun.
+* **Azure Cosmos DB kaynaklarını oluşturan:** Veri geçişi başlatmadan önce tüm koleksiyonlarınız Azure portalından önceden oluşturun. Veritabanı düzeyinde aktarım hızına sahip olan bir Azure Cosmos DB hesabına geçiş yapıyorsanız Azure Cosmos DB koleksiyonlarını oluştururken bölüm anahtarı girdiğinizden emin olun.
 
 ## <a name="get-your-connection-string"></a>Bağlantı dizenizi alma 
 

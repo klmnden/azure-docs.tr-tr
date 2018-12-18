@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: 3493b94e93a03faaf60aaa64bf8b80cefb754657
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a2c00d5373bd4e19a6e6057c6eddc758857860da
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309068"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556773"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Service Fabric Mesh uygulamalarını derlemek için Windows geliştirme ortamınızı ayarlayın
 
@@ -86,7 +86,7 @@ Aşağıdaki sırayla Service Fabric Mesh çalışma zamanını, SDK'yı ve ara�
 > Terminal penceresi açarak ve hata oluşup oluşmadığını görmek için `docker ps` komutunu çalıştırarak Docker'ı çalışmasını test edin. Yanıt bir hata göstermiyorsa, Docker çalışıyor ve siz de küme oluşturmaya hazırsınız demektir.
 
 > [!Note]
-> Üzerinde geliştiriyorsanız, Windows Fall Creators update (1709 sürümü) makine, yalnızca Windows sürüm 1709 docker docker görüntülerini kullanabilirsiniz.
+> Üzerinde geliştiriyorsanız, Windows Fall Creators update (1709 sürümü) makine, yalnızca Windows sürüm 1709 docker görüntülerini kullanabilirsiniz.
 > Windows üzerinde geliştirme yapıyorsanız 10 Nisan 2018 Güncelleştirmesi (sürüm 1803) makine, ya da Windows sürüm 1709 veya 1803 docker görüntülerini kullanabilirsiniz.
 
 Yerel kümeniz yoksa Visual Studio tarafından oluşturulacağından Visual Studio kullanıyorsanız bu adımı atlayabilirsiniz.

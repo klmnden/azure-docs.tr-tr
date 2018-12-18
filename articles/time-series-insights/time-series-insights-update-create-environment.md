@@ -1,5 +1,5 @@
 ---
-title: Azure zaman serisi öngörüleri ayarlama - Önizleme bir Azure zaman serisi öngörüleri Önizleme ortamı öğreticiyi ayarlama | Microsoft Docs
+title: 'Öğretici: Bir Azure zaman serisi öngörüleri Önizleme ortamı ayarlama | Microsoft Docs'
 description: Azure zaman serisi öngörüleri önizlemesinde ortamınızı ayarlama konusunda bilgi edinin.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9ad957d6378b1279f1ca51939eb4802b0ce7d78f
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 965fd4b0ca5defc2b1bf633af72ac250942d838f
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322627"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554818"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>Öğretici: Bir Azure zaman serisi öngörüleri Önizleme ortamı ayarlama
 

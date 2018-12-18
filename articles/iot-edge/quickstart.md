@@ -4,17 +4,17 @@ description: Bu hızlı başlangıçta bir IOT Edge cihazı oluşturma ve ardın
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/02/2018
+ms.date: 12/17/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 941d5d8f356fbd1477b4559f1475511165c01341
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 96c261619a0e6930ea299b5e2a50050dca5471f8
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340105"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554784"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç: İlk IOT Edge modülü Azure portalından bir Windows cihazına dağıtma - Önizleme
 
@@ -59,18 +59,15 @@ Bulut kaynakları:
 IoT Edge cihazı:
 
 * IoT Edge cihazınız olacak bir Windows bilgisayar veya sanal makine. Desteklenen bir Windows sürümünü kullanın:
-  * Windows 10 veya daha yenisi
-  * Windows Server 2016 veya daha yenisi
-* Bir Windows bilgisayar etkinleştirilmişse, bu karşıladığından emin olun [sistem gereksinimleri](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) Hyper-V için.
-* Bir sanal makineyse etkinleştirme [iç içe sanallaştırma](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) ve en az 2 GB bellek ayrılamadı.
-* [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)’u yükleyin ve çalıştığından emin olun.
-
-> [!TIP]
-> Docker kurulumu sırasında Windows veya Linux kapsayıcılarını kullanma seçeneği bulunur. Bu hızlı başlangıçta, IoT Edge çalışma zamanını Linux kapsayıcılarıyla kullanacak şekilde yapılandırma açıklanılır.
+  * Windows 10 veya IOT Core ile Ekim 2018 Güncelleştirmesi (derleme 17763)
+  * Windows Server 2019
+* Cihazınızı kapsayıcıları barındırabilmesi sanallaştırmasını etkinleştir
+   * Bir Windows bilgisayar etkinleştirilmişse, kapsayıcı özelliğini etkinleştirin. Başlat çubuğuna gidin **kapatma Windows özelliklerini aç veya Kapat** ve yanındaki kutuyu işaretleyin **kapsayıcıları**.
+   * Bir sanal makineyse etkinleştirme [iç içe sanallaştırma](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) ve en az 2 GB bellek ayrılamadı.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
-Hızlı başlangıç adımlarına başlamak için Azure CLI ile IoT hub'ınızı oluşturun.
+Bu hızlı başlangıçta, Azure CLI ile IOT hub'ı oluşturarak başlayın.
 
 ![Diyagram - bulutta IOT hub'ı oluşturma](./media/quickstart/create-iot-hub.png)
 
@@ -107,7 +104,9 @@ IOT Edge cihazları sınıflardır ve tipik bir IOT cihazlarında farklı yönet
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Bağlantı dizesini kopyalayın ve kaydedin. Bu değeri bir sonraki bölümde IoT Edge çalışma zamanını yapılandırmak için kullanacaksınız.
+3. JSON çıktısını bağlantı dizesini kopyalayın ve kaydedin. Bu değeri bir sonraki bölümde IoT Edge çalışma zamanını yapılandırmak için kullanacaksınız.
+
+   ![CLI çıkışından bağlantı dizesi alma](./media/quickstart/retrieve-connection-string.png)
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>IoT Edge çalışma zamanını yükleme ve başlatma
 
@@ -116,13 +115,15 @@ Azure IoT Edge çalışma zamanını IoT Edge cihazınıza yükleyin ve cihaz ba
 
 IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Üç bileşeni vardır. **IoT Edge güvenlik daemon'u** bir Edge cihazı her başladığında çalışır ve IoT Edge aracısını çalıştırarak cihazı önyükler. **IoT Edge aracısı**, IoT Edge hub'ı dahil olmak üzere IoT Edge cihazındaki modüllerin dağıtımını ve izlenmesini kolaylaştırır. **IoT Edge hub'ı** IoT Edge cihazındaki modüller ve cihaz ile IoT Hub'ı arasındaki iletişimi yönetir.
 
+Yükleme betiği, IOT Edge Cihazınızda kapsayıcı görüntülerini yönetir Moby adlı bir kapsayıcı altyapısı da içerir. 
+
 Çalışma zamanı yüklemesi sırasında cihaz bağlantı dizesi istenir. Azure CLI'den aldığınız dizeyi kullanın. Bu dize, fiziksel cihazınızı Azure'daki IoT Edge cihaz kimliğiyle ilişkilendirir.
 
-Bu bölümdeki yönergeler, IoT Edge çalışma zamanını Linux kapsayıcılarla yapılandırmaktadır. Windows kapsayıcıları kullanmak istiyorsanız bkz. [Azure IoT Edge çalışma zamanını Windows kapsayıcılarla kullanmak üzere Windows'a yükleme](how-to-install-iot-edge-windows-with-windows.md).
+Bu bölümdeki yönergeler, Windows kapsayıcıları ile IOT Edge çalışma zamanı yapılandırın. Linux kapsayıcıları kullanmak istiyorsanız, bkz. [Windows yükleme Azure IOT Edge çalışma zamanına](how-to-install-iot-edge-windows-with-linux.md) bu Önkoşullar ve yükleme adımları için.
 
 ### <a name="connect-to-your-iot-edge-device"></a>IOT Edge Cihazınızı bağlama
 
-Tüm bu bölümdeki adımlarda, IOT Edge Cihazınızda gerçekleşir. IOT Edge cihazı olarak kendi makine kullanıyorsanız, bu bölümü atlayabilirsiniz. Bir sanal makine ya da ikincil donanım kullanıyorsanız, artık bu makineye bağlanmak istediğiniz. 
+Tüm bu bölümdeki adımlarda, IOT Edge Cihazınızda gerçekleşir. Bir sanal makine ya da ikincil donanım kullanıyorsanız, bu makineye artık SSH veya Uzak Masaüstü aracılığıyla bağlanmak istediğiniz. IOT Edge cihazı olarak kendi makine kullanıyorsanız, sonraki bölüme devam edebilirsiniz. 
 
 ### <a name="download-and-install-the-iot-edge-service"></a>IoT Edge hizmetini indirme ve yükleme
 
@@ -134,7 +135,7 @@ PowerShell'i kullanarak IoT Edge çalışma zamanını indirin ve yükleyin. Cih
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Manual -ContainerOs Linux
+   Install-SecurityDaemon -Manual -ContainerOs Windows
    ```
 
 3. **DeviceConnectionString** istendiğinde önceki bölümde kopyaladığınız dizeyi iletin. Bağlantı dizesinin etrafındaki tırnak işaretlerini dahil etmeyin.
@@ -217,25 +218,13 @@ Sanal makinenizi ve IoT hub’ınızı yeni bir kaynak grubunda oluşturduysanı
 
 ### <a name="remove-the-iot-edge-runtime"></a>IoT Edge çalışma zamanını kaldırma
 
-Gelecekte test için IoT Edge cihazını kullanmayı planlıyorsanız ama tempSensor modülünün kullanımda olmadığında IoT hub'ınıza veri göndermesini durdurmak istiyorsanız, aşağıdaki komutu kullanarak IoT Edge hizmetini durdurun.
-
-   ```powershell
-   Stop-Service iotedge -NoWait
-   ```
-
-Testi yeniden başlatmaya hazır olduğunuzda hizmeti yeniden başlatabilirsiniz
-
-   ```powershell
-   Start-Service iotedge
-   ```
-
 Cihazınızdaki yüklemeleri kaldırmak istiyorsanız aşağıdaki komutları kullanın.  
 
-IoT Edge çalışma zamanını kaldırın.
+IoT Edge çalışma zamanını kaldırın. IOT Edge yeniden yüklenmesine planlıyorsanız dışlamayı `-DeleteConfig` ve `-DeleteMobyDataRoot` parametreleri böylece yeni ayarladığınız aynı yapılandırmaya sahip yeniden yükleyebilirsiniz.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Uninstall-SecurityDaemon
+   Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
    ```
 
 IoT Edge çalışma zamanı kaldırıldığında, oluşturduğu kapsayıcılar durdurulur, ancak cihazınızda yer almaya devam eder. Tüm kapsayıcıları görüntüleyin.

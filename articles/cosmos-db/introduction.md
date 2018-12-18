@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 50abe2b067770976f19ae9b70c97c2df8354640f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 50e2e36058e025e87302352eaa492f5cf78eb31b
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091587"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536432"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB’ye hoş geldiniz
 
@@ -35,11 +35,11 @@ Genel olarak dağıtılan, çok modelli bir veritabanı hizmeti olarak Azure Cos
 * **Çoklu veri modelleri ve verilere erişim ile veri sorgulamaya yönelik popüler API’ler**
     * Azure Cosmos DB'nin üzerine yapılandırıldığı ve atom kayıt sırasını (ARS) temel alan veri modeli; belge, grafik, anahtar-değer, tablo ve sütun ailesi veri modelleri de dahil olmak üzere ancak bunlarla sınırlı kalmamak kaydıyla birçok veri modelini yerel olarak destekler.
     * Aşağıdaki veri modellerinin API'leri, birden çok dilde sağlanan SDK'larla desteklenir:
-        * [SQL API](sql-api-introduction.md): Zengin SQL sorgulama özelliklerine sahip şemasız bir JSON veritabanı.
-        * [MongoDB API](mongodb-introduction.md): Azure Cosmos DB platformu tarafından desteklenen üst düzeyde ölçeklenebilir bir *Hizmet olarak MongoDB*. Mevcut MongoDB kitaplıkları, sürücüleri, araçları ve uygulamalarıyla uyumludur.
-        * [Cassandra API](cassandra-introduction.md): Azure Cosmos DB platformu tarafından desteklenen, genel olarak dağıtımı yapılan bir Hizmet olarak Cassandra. Mevcut [Apache Cassandra](https://cassandra.apache.org/) kitaplıkları, sürücüleri, araçları ve uygulamalarıyla uyumludur.
-        * [Gremlin API](graph-introduction.md): Open Gremlin API'leri desteğine sahip üst düzeyde bağlantılı veri kümeleriyle çalışan uygulamaların oluşturulmasını ve çalıştırılmasını kolaylaştıran, tümüyle yönetilen ve yatay olarak ölçeklenebilen graf veritabanı hizmeti ([Apache TinkerPop belirtimi](https://tinkerpop.apache.org/), Apache Gremlin temelinde).
-        * [Tablo API](table-introduction.md): Hiçbir uygulama değişikliği yapmadan mevcut Azure Tablosu uygulamalarına üstün özellikler (örneğin, otomatik dizin oluşturma, garantili düşük gecik süresi, genel dağıtım) sağlamak için tasarlanan bir anahtar-değer veritabanı hizmeti.
+        * [Azure Cosmos DB API SQL](sql-api-introduction.md): Zengin SQL sorgulama özelliklerine sahip şemasız bir JSON veritabanı altyapısı.
+        * [MongoDB için Azure Cosmos DB API](mongodb-introduction.md): Yüksek düzeyde ölçeklenebilir *hizmet olarak MongoDB* Azure Cosmos DB platformu tarafından desteklenen. Mevcut MongoDB kitaplıkları, sürücüleri, araçları ve uygulamalarıyla uyumludur.
+        * [Cassandra için Azure Cosmos DB API](cassandra-introduction.md): Bir Global olarak dağıtılmış Cassandra olarak-Azure Cosmos DB platformu tarafından desteklenen hizmet. Mevcut [Apache Cassandra](https://cassandra.apache.org/) kitaplıkları, sürücüleri, araçları ve uygulamalarıyla uyumludur.
+        * [Gremlin için Azure Cosmos DB API](graph-introduction.md): Tam olarak yönetilen, yüksek oranda çalışan uygulamaların oluşturulmasını ve çalıştırılmasını kolaylaştırır yatay olarak ölçeklenebilen graf veritabanı hizmeti bağlı açık Gremlin API'lerini destekleyen veri kümeleri (temel [Apache TinkerPop belirtimi](https://tinkerpop.apache.org/), Apache Gremlin).
+        * [Tablo için Azure Cosmos DB API](table-introduction.md): Hiçbir uygulama değişikliği yapmadan mevcut Azure tablo depolama uygulamaları için premium özellikler (örneğin, otomatik dizin oluşturma, garantili düşük gecikme süresi, genel dağıtım) sağlamak için tasarlanan bir anahtar-değer veritabanı hizmeti.
         * Çok yakında başka veri modelleri ve API’ler de kullanıma sunulacaktır!
 
 * **Aktarım hızı ve depolamayı dünyanın dört bir yanında, talep üzerine esnek ve bağımsız bir şekilde ölçeklendirin**
@@ -90,7 +90,7 @@ Azure Cosmos DB, geleneksel ilişkisel ve ilişkisel olmayan veritabanlarının 
 Dört hızlı başlangıçtan biriyle Azure Cosmos DB kullanmaya başlayın:
 
 * [Azure Cosmos DB SQL API’yi kullanmaya başlama](create-sql-api-dotnet.md)
-* [Azure Cosmos DB MongoDB API’yi kullanmaya başlama](create-mongodb-nodejs.md)
+* [MongoDB için Azure Cosmos DB API'si ile çalışmaya başlama](create-mongodb-nodejs.md)
 * [Azure Cosmos DB Cassandra API’yi kullanmaya başlama](create-cassandra-dotnet.md)
 * [Azure Cosmos DB Graph API’yi kullanmaya başlama](create-graph-dotnet.md)
 * [Azure Cosmos DB Tablo API’yi kullanmaya başlama](create-table-dotnet.md)

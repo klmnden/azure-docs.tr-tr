@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 59173550c0cdff44931e0b686308b39e985dddcf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 23a737c97cad0ce8c525d52db97bfb32ef4eb300
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254964"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537197"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service’te bir Node.js ve MongoDB web uygulaması derleme
 
@@ -28,14 +28,14 @@ ms.locfileid: "53254964"
 > Bu makalede bir uygulamanın Linux üzerinde App Service'e dağıtımı yapılır. _Windows_'da App Service dağıtmak için bkz. [Azure'da Node.js ve MongoDB web uygulaması derleme](../app-service-web-tutorial-nodejs-mongodb-app.md).
 >
 
-[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu öğreticide Node.js web uygulaması oluşturma, bu uygulamayı yerel olarak MongoDB veritabanına bağlama, ardından MongoDB API'sini kullanarak CosmosDB veritabanı bağlantısıyla Azure'a dağıtma işlemleri gösterilir. İşiniz bittiğinde, Linux üzerinde App Service’te çalışan bir MEAN uygulamanız (MongoDB, Express, AngularJS ve Node.js) olacaktır. Kolaylık olması için örnek uygulama [MEAN.js web çerçevesi](https://meanjs.org/)’ni kullanır.
+[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu öğreticide, bir Node.js web uygulaması oluşturma, yerel olarak MongoDB veritabanına bağlanma ve sonra MongoDB için Azure Cosmos DB API için dağıtma gösterilmektedir. İşiniz bittiğinde, Linux üzerinde App Service’te çalışan bir MEAN uygulamanız (MongoDB, Express, AngularJS ve Node.js) olacaktır. Kolaylık olması için örnek uygulama [MEAN.js web çerçevesi](https://meanjs.org/)’ni kullanır.
 
 ![Azure App Service’te çalışan MEAN.js uygulaması](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 Aşağıdakileri nasıl yapacağınızı öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Azure'da MongoDB API'sini kullanarak CosmosDB veritabanı oluşturma
+> * MongoDB için Azure Cosmos DB API bir veritabanı oluşturun
 > * Node.js uygulamasını MongoDB’ye bağlama
 > * Uygulamayı Azure’da dağıtma
 > * Veri modelini güncelleştirme ve uygulamayı yeniden dağıtma
@@ -319,7 +319,7 @@ http://<app_name>.azurewebsites.net
 
 Üst menüde **Kaydol**’a tıklayın ve bir işlevsiz kullanıcı oluşturun.
 
-Başarılı olursanız ve uygulama otomatik olarak oluşturulan kullanıcıda oturum açarsa, Azure'daki MEAN.js uygulamanızın Cosmos DB veritabanı MongoDB API'sine bağlantısı vardır.
+Ardından, başarılı olursanız ve uygulama otomatik olarak oluşturulan kullanıcıda oturum açarsa, azure'daki MEAN.js uygulamanızın MongoDB için Azure Cosmos DB API bağlantısı vardır.
 
 ![Azure App Service’te çalışan MEAN.js uygulaması](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -474,7 +474,7 @@ Portal, varsayılan olarak web uygulamanızın **Genel Bakış** sayfasında gö
 Öğrendikleriniz:
 
 > [!div class="checklist"]
-> * Azure'da MongoDB API'sini kullanarak CosmosDB veritabanı oluşturma
+> * MongoDB için Azure Cosmos DB API bir veritabanı oluşturun
 > * Node.js uygulamasını MongoDB’ye bağlama
 > * Uygulamayı Azure’da dağıtma
 > * Veri modelini güncelleştirme ve uygulamayı yeniden dağıtma

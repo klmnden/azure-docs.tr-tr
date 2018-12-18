@@ -1,5 +1,5 @@
 ---
-title: 'Regresyon modeli öğretici: Otomatik olarak modellerini eğitin'
+title: 'Regresyon modeli öğretici: Otomatik ML'
 titleSuffix: Azure Machine Learning service
 description: Otomatik makine öğrenimini kullanarak ML model oluşturmayı öğrenin.  Azure Machine Learning, sizin için otomatikleştirilmiş bir yolla veri ön işlemini, algoritma seçimini ve hiper parametre seçimini gerçekleştirebilir. Bundan sonra son model Azure Machine Learning hizmetiyle dağıtılır.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6bbc2d44ab128aec032ead29bf247cd834f932b6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 65b634d66da935b5276cb4c6bdca5742cb0a1c1f
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315212"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555226"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Öğretici: Otomatik makine öğrenimi, regresyon modeli derler
 

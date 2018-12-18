@@ -1,22 +1,20 @@
 ---
-title: 'Öğretici: Azure portalı kullanarak MariaDB için Azure Veritabanı tasarlama'
+title: 'Öğretici: Azure portalını kullanarak MariaDB için Azure veritabanı tasarlama'
 description: Bu öğreticide, Azure portalı kullanarak MariaDB için Azure Veritabanı sunucusunun ve veritabanının nasıl oluşturulup yönetileceği açıklanır.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.custom: mvc
-ms.openlocfilehash: 20714bed5c36cd93d11cb4ade6640798775f5055
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 23af00b8a8e061056e9b7ad8ea2c999414783ad6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322065"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538115"
 ---
-# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak MariaDB için Azure Veritabanı tasarlama
+# <a name="tutorial-design-an-azure-database-for-mariadb-database-by-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak MariaDB veritabanı için Azure veritabanı tasarlama
 
 MariaDB için Azure Veritabanı, bulutta yüksek oranda kullanılabilir olan MySQL veritabanlarını çalıştırmak, yönetmek ve ölçeklendirmek için kullanılan, yönetilen bir hizmettir. Azure portalı kullanarak, sunucunuzu kolayca yönetebilir ve bir veritabanı tasarlayabilirsiniz.
 
@@ -56,7 +54,7 @@ Tanımlı bir dizi [işlem ve depolama kaynağı](concepts-pricing-tiers.md) ile
     Kaynak grubu | **myresourcegroup** | Yeni bir kaynak grubu adı girin veya var olan bir kaynak grubunu seçin.
     Kaynak seçme | **Boş** | Yeni bir sunucu oluşturmak için **Boş**’u seçin. (Mevcut bir MariaDB için Azure Veritabanı sunucusunun coğrafi yedeğinden bir sunucu oluşturuyorsanız, **Yedek**'i seçin.)
     Sunucu yöneticisi oturum açma | **myadmin** | Sunucuya bağlanırken kullanılacak kendi oturum açma hesabı. Yönetici oturum açma adı **azure_superuser**, **admin**, **administrator**, **root**, **guest** veya **public** olamaz.
-    Parola | *tercih ettiğiniz* | Sunucu yönetici hesabı için yeni bir parola girin. 8 ile 128 arasında karakter içermelidir. Parolanız şu üç kategoride yer alan karakterlerden oluşmalıdır: İngilizce büyük ve küçük harfler, sayılar (0-9) ve alfasayısal olmayan karakterler (!, $, #, %, vb.).
+    Parola | *tercih ettiğiniz* | Sunucu yönetici hesabı için yeni bir parola girin. 8 ile 128 arasında karakter içermelidir. Parolanız şu kategorilerin üçünden karakterler içermelidir: İngilizce büyük harfler, İngilizce küçük harfler, sayılar (0-9) ve alfasayısal olmayan karakterler (!, $, #, % vb.).
     Parolayı onayla | *tercih ettiğiniz*| Yönetici hesabı parolasını onaylayın.
     Konum | *kullanıcılarınıza en yakın bölge*| Kullanıcılarınıza veya diğer Azure uygulamalarınıza en yakın konumu seçin.
     Sürüm | *en son sürüm*| En son sürüm (başka bir sürüm kullanmak için belirli gereksinimleriniz yoksa).
@@ -171,9 +169,9 @@ SELECT * FROM inventory;
    
    ![Geri yükleme formu](./media/tutorial-design-database-using-portal/2-restore-form.png)
    
-   - **Geri yükleme noktası**: Listelenen zaman dilimi içerisindeki geri yüklemek istediğiniz noktayı seçin. Yerel saat diliminizi UTC'ye dönüştürdüğünüzden emin olun.
-   - **Yeni sunucuyu geri yükle**: Geri yükleme için kullanılacak yeni sunucunun adını girin.
-   - **Konum**: Bölge, kaynak sunucu ile aynıdır ve değiştirilemez.
+   - **Geri yükleme noktası**: İçin listelenen zaman dilimi içinde geri yüklemek istediğiniz zamanda bir nokta seçin. Yerel saat diliminizi UTC'ye dönüştürdüğünüzden emin olun.
+   - **Yeni sunucuya geri**: Geri yüklemek için yeni bir sunucu adı girin.
+   - **Konum**: Bölge, kaynak sunucuyla aynıdır ve değiştirilemez.
    - **Fiyatlandırma katmanı**: Fiyatlandırma katmanı, kaynak sunucu ile aynıdır ve değiştirilemez.
    
 3. Sunucuyu, tablo silinmeden önceki [belirli bir noktaya geri yüklemek](./howto-restore-server-portal.md) için **Tamam**’a tıklayın. Bir sunucuyu geri yüklemek, sunucunun seçtiğiniz zamanda yeni bir kopyasını oluşturur. 

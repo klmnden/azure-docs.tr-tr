@@ -1,9 +1,9 @@
 ---
-title: Azure Batch için PowerShell kullanmaya başlama | Microsoft Docs
+title: -Azure Batch PowerShell kullanmaya başlama | Microsoft Docs
 description: Batch kaynaklarını yönetmek için kullanabileceğiniz Azure PowerShell cmdlet'lerine hızlı bir giriş.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 10/05/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d05cb2fbee1f171daa3b73caab57a0b6acebfad
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
-ms.translationtype: HT
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: bd8e5425a09f0faeaa573cec58def88f352b9a1d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116117"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548077"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Batch kaynaklarını PowerShell cmdlet'leriyle yönetme
 
@@ -30,7 +30,7 @@ Tam Batch cmdlet’leri listesi ve ayrıntılı cmdlet sözdizimi için bkz. [Az
 
 Bu makale, Azure Batch 4.1.5 sürümündeki cmdlet’leri temel almaktadır. Hizmet güncelleştirmeleri ve geliştirmeleri avantajlarından yararlanmak için Azure PowerShell modüllerinizi sık sık güncelleştirin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Azure PowerShell modülünü yükleyin ve yapılandırın](/powershell/azure/overview). Yayın öncesi modül gibi belirli bir Azure Batch modülünü yüklemek için [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureRM.Batch/5.0.0-preview)'ne bakın. 
 
@@ -50,13 +50,13 @@ Bu makale, Azure Batch 4.1.5 sürümündeki cmdlet’leri temel almaktadır. Hiz
 
 ### <a name="create-a-batch-account"></a>Batch hesabı oluşturma
 
-**New-AzureRmBatchAccount**, belirtilen kaynak grubunda bir Batch hesabı oluşturur. Zaten bir kaynak grubunuz yoksa [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet'ini çalıştırarak bir kaynak grubu oluşturun. **Location** parametresinde, "Orta ABD" gibi Azure bölgelerinden birini belirtin. Örnek:
+**New-AzureRmBatchAccount**, belirtilen kaynak grubunda bir Batch hesabı oluşturur. Zaten bir kaynak grubunuz yoksa [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet'ini çalıştırarak bir kaynak grubu oluşturun. **Location** parametresinde, "Orta ABD" gibi Azure bölgelerinden birini belirtin. Örneğin:
 
 ```PowerShell
 New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 ```
 
-Ardından, <*account_name*> içinde bir hesap adı ve kaynak grubunuzun konumunu ve adını belirterek kaynak grubunda bir Batch hesabı oluşturun. Batch hesabının oluşturulması biraz zaman alabilir. Örnek:
+Ardından, <*account_name*> içinde bir hesap adı ve kaynak grubunuzun konumunu ve adını belirterek kaynak grubunda bir Batch hesabı oluşturun. Batch hesabının oluşturulması biraz zaman alabilir. Örneğin:
 
 ```PowerShell
 New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
@@ -92,7 +92,7 @@ New-AzureRmBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 ### <a name="delete-a-batch-account"></a>Batch hesabını silme
 
-**Remove-AzureRmBatchAccount** Batch hesabını siler. Örnek:
+**Remove-AzureRmBatchAccount** Batch hesabını siler. Örneğin:
 
 ```PowerShell
 Remove-AzureRmBatchAccount -AccountName <account_name>
@@ -177,7 +177,7 @@ Get-AzureBatchPool -Id "myPool" -BatchContext $context
 
 ### <a name="use-the-maxcount-parameter"></a>MaxCount parametresini kullanma
 
-Varsayılan olarak, her cmdlet en çok 1000 nesne döndürür. Bu sınıra ulaştıysanız, daha az nesne döndürmek için filtreyi daraltın veya **MaxCount** parametresini kullanarak kesin bir üst sınır ayarlayın. Örnek:
+Varsayılan olarak, her cmdlet en çok 1000 nesne döndürür. Bu sınıra ulaştıysanız, daha az nesne döndürmek için filtreyi daraltın veya **MaxCount** parametresini kullanarak kesin bir üst sınır ayarlayın. Örneğin:
 
 ```PowerShell
 Get-AzureBatchTask -MaxCount 2500 -BatchContext $context

@@ -1,6 +1,6 @@
 ---
-title: MongoDB API'si için Azure Cosmos DB genel dağıtım Öğreticisi
-description: MongoDB API’sini kullanarak Azure Cosmos DB genel dağıtımını ayarlamayı öğrenin.
+title: MongoDB için Azure Cosmos DB API hesabı, genel dağıtım Öğreticisi
+description: MongoDB için Azure Cosmos DB API hesabı kullanarak Azure Cosmos DB genel dağıtımını ayarlama konusunda bilgi edinin.
 services: cosmos-db
 keywords: genel dağıtım, MongoDB
 author: SnehaGunda
@@ -10,26 +10,26 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 27fa9849c13de151f6922e829514cc8838f295ea
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4703b8b5c866b4bcd70cad38e4fd3d0a65ee250f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874779"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541600"
 ---
-# <a name="set-up-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>MongoDB API’sini kullanarak Azure Cosmos DB genel dağıtımını ayarlama
+# <a name="set-up-azure-cosmos-db-global-distribution-using-the-azure-cosmos-db-api-for-mongodb"></a>MongoDB için Azure Cosmos DB API kullanarak Azure Cosmos DB genel dağıtımını ayarlama
 
-Bu makalede, Azure portalını kullanarak Azure Cosmos DB genel dağıtımını ayarlama ve sonra MongoDB API’sini kullanarak bağlanma işlemlerinin nasıl yapılacağı gösterilmektedir.
+Bu makalede, Azure portalında Azure Cosmos DB genel dağıtımını ayarlama ve sonra MongoDB için Azure Cosmos DB API kullanarak bağlanma nasıl kullanılacağını göstereceğiz.
 
 Bu makale aşağıdaki görevleri kapsar: 
 
 > [!div class="checklist"]
 > * Azure portalını kullanarak genel dağıtımı yapılandırma
-> * [MongoDB API](mongodb-introduction.md)’sini kullanarak genel dağıtımı yapılandırma
+> * Kullanarak genel dağıtımı yapılandırma [Azure Cosmos DB MongoDB API'si](mongodb-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-## <a name="verifying-your-regional-setup-using-the-mongodb-api"></a>MongoDB API’sini kullanarak bölgesel kurulumunuzu doğrulama
+## <a name="verifying-your-regional-setup"></a>Bölgesel kurulumunuzu doğrulama 
 MongoDB API’sindeki genel yapılandırmanızı iki kez denetlemenin en basit yolu, Mongo Kabuğundan *isMaster()* komutunu çalıştırmaktır.
 
 Mongo Kabuğunuzdan:
@@ -64,9 +64,9 @@ Mongo Kabuğunuzdan:
       }
    ```
 
-## <a name="connecting-to-a-preferred-region-using-the-mongodb-api"></a>MongoDB API’sini kullanarak tercih ettiğiniz bir bölgeye bağlanma
+## <a name="connecting-to-a-preferred-region"></a>Tercih edilen bir bölgeye bağlanma 
 
-MongoDB API’si, genel olarak dağıtılan bir veritabanı için koleksiyonunuzun okuma tercihini belirtmenize olanak sağlar. Hem düşük gecikmeli okumalar hem de genel yüksek kullanılabilirlik için, koleksiyonunuzun okuma tercihini *en yakın* olarak ayarlamanızı öneririz. En yakın bölgeden okumak için *en yakın* okuma tercihi yapılandırılır.
+MongoDB için Azure Cosmos DB API, Global olarak dağıtılmış bir veritabanı için koleksiyonunuzun okuma tercihini belirtmenize olanak sağlar. Hem düşük gecikmeli okumalar hem de genel yüksek kullanılabilirlik için, koleksiyonunuzun okuma tercihini *en yakın* olarak ayarlamanızı öneririz. En yakın bölgeden okumak için *en yakın* okuma tercihi yapılandırılır.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);

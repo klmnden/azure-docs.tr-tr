@@ -1,21 +1,21 @@
 ---
-title: Verilerinizi Microsoft Azure Data Box'a kopyalama | Microsoft Docs
-description: Azure Data Box'a veri kopyalamayı öğrenin
+title: SMB üzerinden Microsoft Azure Data Box için veri kopyalama | Microsoft Docs
+description: SMB üzerinden Azure Data Box için veri kopyalama hakkında bilgi edinin
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 11/20/2018
 ms.author: alkohli
-ms.openlocfilehash: b59830677ac8c07c6b7adbab24c82ca25d71f5a0
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: e5219a0ade610a41d316970aecda06d4020b37f2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093468"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546190"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box"></a>Öğretici: Azure Data Box'a veri kopyalama 
+# <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Öğretici: SMB üzerinden Azure Data Box için veri kopyalama
 
 Bu öğreticide yerel web arabirimini kullanarak bağlantı kurma, ana bilgisayarınızdan veri kopyalama ve ardından Data Box'ı göndermeye hazırlama adımları anlatılmaktadır.
 
@@ -26,11 +26,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Data Box'a veri kopyalama
 > * Data Box'ı göndermeye hazırlama.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce aşağıdakilerden emin olun:
 
-1. [Öğretici: Azure Data Box'ı kurma](data-box-deploy-set-up.md) konusunu tamamladınız.
+1. Tamamladığınızda [Öğreticisi: Azure Data Box ' ayarlamak](data-box-deploy-set-up.md).
 2. Data Box’ınızı teslim aldınız ve portaldaki sipariş durumu **Teslim Edildi** oldu.
 3. Data Box üzerinden kopyalamak istediğiniz verileri içeren bir ana bilgisayarınız var. Ana bilgisayarınız:
     - [Desteklenen bir işletim sistemi](data-box-system-requirements.md) çalıştırılmalıdır.
@@ -47,13 +47,9 @@ Blok blobu ve sayfa blobu paylaşımlarının altında birinci düzeydeki varlı
 Aşağıdaki örneği inceleyin. 
 
 - Depolama hesabı: *Mystoracct*
-- Blok blobu için paylaşım: *Mystoracct_BlockBlob/my-container/blob*
-- Sayfa blobu için paylaşım: *Mystoracct_PageBlob/my-container/blob*
-- Dosya için paylaşım: *Mystoracct_AzFile/my-share*
-
-Bağlantı ve veri kopyalama adımları Data Box'ınızın Windows Server veya Linux ana bilgisayara bağlı olma durumuna göre değişebilir.
-
-### <a name="connect-via-smb"></a>SMB ile bağlanma 
+- Blok blobu için paylaşımı: *Mystoracct_BlockBlob/my-kapsayıcı/blob*
+- Sayfa blobu için paylaşımı: *Mystoracct_PageBlob/my-kapsayıcı/blob*
+- Dosya Paylaşımı için: *Mystoracct_AzFile/my-paylaşma*
 
 Windows Server ana bilgisayarı kullanıyorsanız Data Box'a bağlanmak için aşağıdaki adımları gerçekleştirin.
 
@@ -90,29 +86,6 @@ Windows Server ana bilgisayarı kullanıyorsanız Data Box'a bağlanmak için a�
     
     ![Paylaşıma Dosya Gezgini ile bağlanma 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Paylaşıma Dosya Gezgini ile bağlanma 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
-### <a name="connect-via-nfs"></a>NFS ile bağlanma 
-
-Linux ana bilgisayarı kullanıyorsanız aşağıdaki adımları gerçekleştirerek Data Box'ı NFS istemcilerine izin verecek şekilde yapılandırın.
-
-1. Paylaşıma erişmesine izin verilen istemcilerin IP adreslerini sağlayın. Yerel web arabiriminde **Bağlan ve kopyala** sayfasına gidin. **NFS ayarları** bölümünde **NFS istemci erişimi**'ne tıklayın. 
-
-    ![NFS istemci erişimini yapılandırma 1](media/data-box-deploy-copy-data/nfs-client-access.png)
-
-2. NFS istemcisinin IP adresini girin ve **Ekle**'ye tıklayın. Bu adımı tekrarlayarak birden fazla NFS istemcisi için erişim sağlayabilirsiniz. **Tamam** düğmesine tıklayın.
-
-    ![NFS istemci erişimini yapılandırma 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
-
-2. Linux ana bilgisayarında NFS istemcisinin [desteklenen sürümünün](data-box-system-requirements.md) yüklü olduğundan emin olun. Linux dağıtımınıza uygun sürümü kullanın. 
-
-3. NFS istemcisi yüklendikten sonra, Data Box cihazınızdaki NFS paylaşımını bağlamak için aşağıdaki komutu kullanın:
-
-    `sudo mount <Data Box device IP>:/<NFS share on Data Box device> <Path to the folder on local Linux computer>`
-
-    Aşağıdaki örnekte, Data Box paylaşımına NFS yoluyla nasıl bağlanılacağı gösterilir. Data Box cihaz IP'si `10.161.23.130` şeklindedir, `Mystoracct_Blob` ubuntuVM'ye bağlanmıştır ve bağlama noktası `/home/databoxubuntuhost/databox` ile belirtilmiştir.
-
-    `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
-
-
 ## <a name="copy-data-to-data-box"></a>Data Box'a veri kopyalama
 
 Data Box paylaşımlarına bağlandıktan sonra veri kopyalamaya başlayabilirsiniz. Veri kopyalamaya başlamadan önce aşağıdaki noktaları gözden geçirin:
@@ -122,13 +95,11 @@ Data Box paylaşımlarına bağlandıktan sonra veri kopyalamaya başlayabilirsi
 - Data Box tarafından yüklenen verilerin Data Box haricinde başka bir uygulama tarafından da yüklenmesi durumunda yükleme işinde hata oluşabilir ve veri bozulması yaşanabilir.
 - Aynı anda hem SMB hem de NFS kullanmamanızı veya aynı verileri Azure'daki aynı uç hedefe kopyalamamanızı öneririz. Bu gibi durumlarda nihai sonucu kestirmek mümkün olmayabilir.
 
-### <a name="copy-data-via-smb"></a>SMB ile veri kopyalama
-
 SMB paylaşımına bağlandıktan sonra verileri kopyalamaya başlayabilirsiniz. 
 
 Verilerinizi kopyalamak için Robocopy gibi SMB uyumlu herhangi bir dosya kopyalama aracını kullanabilirsiniz. Robocopy ile birden fazla kopyalama işlemini başlatabilirsiniz. Aşağıdaki komutu kullanın:
     
-    robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
+    robocopy <Source> <Target> * /e /r:3 /w:60 /is /nfl /ndl /np /MT:32 or 64 /fft /Log+:<LogFile> 
   
  Öznitelikler aşağıdaki tabloda açıklanmıştır.
     
@@ -223,80 +194,11 @@ Veri bütünlüğünü sağlamak için sağlama toplamı veri kopyalama sırası
     
    ![Panoda boş ve kullanılan alanı doğrulama](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 
-### <a name="copy-data-via-nfs"></a>NFS ile veri kopyalama
-
-Linux ana bilgisayar kullanıyorsanız Robocopy ile benzer bir kopyalama yardımcı programı kullanabilirsiniz. Linux için kullanabileceğiniz bazı alternatifler: [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) veya [Ultracopier](https://ultracopier.first-world.info/).  
-
-`cp` komutu, dizin kopyalamak için en iyi seçeneklerden biridir. Kullanımı hakkında daha fazla bilgi için [cp man sayfalarına](http://man7.org/linux/man-pages/man1/cp.1.html) gidin.
-
-Çok iş parçacığına sahip olan bir kopyalama işlemi için rsync seçeneğini kullanıyorsanız şu yönergeleri izleyin:
-
- - Linux istemcinizde kullanılan dosya sistemine bağlı olarak **CIFS Utils** veya **NFS Utils** paketini yükleyebilirsiniz.
-
-    `sudo apt-get install cifs-utils`
-
-    `sudo apt-get install nfs-utils`
-
- -  **Rsync** ve **Parallel** uygulamalarını yükleyin (Linux dağıtımınıza göre değişir).
-
-    `sudo apt-get install rsync`
-   
-    `sudo apt-get install parallel` 
-
- - Bağlama noktası oluşturun.
-
-    `sudo mkdir /mnt/databox`
-
- - Birimi bağlayın.
-
-    `sudo mount -t NFS4  //Databox IP Address/share_name /mnt/databox` 
-
- - Klasör dizin yapısını kopyalayın.  
-
-    `rsync -za --include='*/' --exclude='*' /local_path/ /mnt/databox`
-
- - Dosyaları kopyalayın. 
-
-    `cd /local_path/; find -L . -type f | parallel -j X rsync -za {} /mnt/databox/{}`
-
-     Burada j paralelleştirme sayısını, X ise paralel kopya sayısını belirtir
-
-     16 paralel kopyayla başlamanızı ve kullanılabilir kaynak durumuna göre iş parçacığı sayısını artırmanızı öneririz.
 
 ## <a name="prepare-to-ship"></a>Göndermeye hazırlama
 
-Son adım cihazı göndermeye hazırlamaktır. Bu adımda tüm cihaz paylaşımları çevrimdışı duruma getirilir. Cihazı göndermeye hazırlamaya başladıktan sonra paylaşımlara erişim sağlayamazsınız.
-1. **Göndermeye hazırlama** sayfasına gidip **Hazırlamayı başlat**'a tıklayın. 
-   
-    ![Göndermeye hazırlama 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
+[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
-2. Sağlama toplamları varsayılan olarak göndermeye hazırlama sırasında satır içinde hesaplanır. Sağlama toplamı hesaplaması, verilerinizin boyutuna bağlı olarak biraz zaman alabilir. **Hazırlamayı başlat**'a tıklayın.
-    1. Göndermeye hazırlama aşamasında cihaz paylaşımları çevrimdışı duruma geçer ve cihaz kilitlenir.
-        
-        ![Göndermeye hazırlama 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 
-   
-    2. Cihaz hazırlığı tamamlandıktan sonra cihaz durumu *Göndermeye hazır* olarak değişir. 
-        
-        ![Göndermeye hazırlama 1](media/data-box-deploy-copy-data/prepare-to-ship3.png)
-
-    3. Bu işlem sırasında kopyalanan dosyaların listesini (bildirim) indirin. Daha sonra bu listeyi kullanarak Azure'a yüklenen dosyaları doğrulayabilirsiniz.
-        
-        ![Göndermeye hazırlama 1](media/data-box-deploy-copy-data/prepare-to-ship4.png)
-
-3. Cihazı kapatın. **Kapat veya yeniden başlat** sayfasına gidip **Kapat**'a tıklayın. Onayınız istendiğinde devam etmek için **Tamam**'a tıklayın.
-4. Kabloları sökün. Bir sonraki adım cihazı Microsoft'a göndermektir.
-
- 
-<!--## Appendix - robocopy parameters
-
-This section describes the robocopy parameters used when copying the data to optimize the performance.
-
-|    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |  |
-|    Data Box Heavy     |    6 Robocopy sessions <br> 24 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |   
-|    Data Box Disk         |    4 Robocopy sessions <br> 16 threads per sessions             |    2 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 16 threads per sessions    |   
--->
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -307,7 +209,7 @@ Bu öğreticide aşağıdaki Azure Data Box konularını öğrendiniz:
 > * Data Box'a veri kopyalama
 > * Data Box'ı göndermeye hazırlama
 
-Data Box'ınızı kurma ve veri kopyalama hakkında bilgi edinmek için sonraki öğreticiye geçin.
+Data Box'ınızı Microsoft'a göndermeye hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
 > [Azure Data Box verilerinizi Microsoft'a gönderme](./data-box-deploy-picked-up.md)

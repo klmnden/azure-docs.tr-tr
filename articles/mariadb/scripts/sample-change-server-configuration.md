@@ -1,21 +1,19 @@
 ---
 title: Azure CLI betiği - Sunucu yapılandırmalarını değiştirme
 description: Bu örnek CLI betiği, kullanılabilir tüm sunucu yapılandırmalarını listeler ve innodb_lock_wait_timeout değerini güncelleştirir.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: a2104b4a2a80dc7ca3f76edb6757a59fcc6c7a4f
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 514f2fe7e8c2b94e175bc6f6fb0cec8ea3d0c9c6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585341"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547431"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Azure CLI kullanarak MariaDB için Azure veritabanı yapılandırmalarını listeleme ve güncelleştirme
 Bu örnek CLI betiği, tüm kullanılabilir yapılandırma parametrelerini ve bunun yanı sıra izin verilen değerleriyle MariaDB sunucusu için Azure veritabanı listelenir ve ayarlar *innodb_lock_wait_timeout* varsayılandan olan bir değer.
@@ -45,6 +43,6 @@ Bu betik, aşağıdaki tabloda ana hatları verilen komutları kullanır:
 | [az group delete](/cli/azure/group#az-group-delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Azure CLI hakkında daha fazla bilgi okuyun: [Azure CLI belgeleri](/cli/azure).
+- Azure CLI hakkında daha fazla bilgi edinin: [Azure CLI belgeleri](/cli/azure).
 - Ek betikleri deneyin: [MariaDB için Azure veritabanı Azure CLI örnekleri](../sample-scripts-azure-cli.md)
 - Sunucu parametreleri hakkında daha fazla bilgi için bkz. [nasıl sunucu parametrelerini yapılandırma MariaDB için Azure veritabanı'nda](../howto-server-parameters.md).

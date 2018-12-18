@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5558409c3a3b0aef3757ebb73b2046a7018e4150
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c1f78421fd431ca6a1aeab9f6147a3cca936cf9b
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088196"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539764"
 ---
 # <a name="create-a-container-in-azure-cosmos-db"></a>Azure Cosmos DB'de kapsayıcı oluşturma
 
@@ -20,7 +20,7 @@ Bu makalede kapsayıcı oluşturmanın farklı yolları (koleksiyon, tablo, graf
 
 ## <a name="create-a-container-using-azure-portal"></a>Azure portalını kullanarak kapsayıcı oluşturma
 
-### <a id="portal-sql"></a>SQL (Core) API
+### <a id="portal-sql"></a>Azure Cosmos DB API SQL (çekirdek)
 
 1. [Azure portalda](https://portal.azure.com/) oturum açın.
 
@@ -36,7 +36,7 @@ Bu makalede kapsayıcı oluşturmanın farklı yolları (koleksiyon, tablo, graf
 
 ![SQL API'si bir koleksiyon oluşturur](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
-### <a id="portal-mongodb"></a>MongoDB API’si
+### <a id="portal-mongodb"></a>MongoDB için Azure Cosmos DB API'si
 
 1. [Azure portalda](https://portal.azure.com/) oturum açın.
 
@@ -51,9 +51,9 @@ Bu makalede kapsayıcı oluşturmanın farklı yolları (koleksiyon, tablo, graf
    * Bir aktarım hızı (örneğin 1000 RU) girin.
    * **Tamam**’ı seçin.
 
-![MongoDB API'si bir koleksiyon oluşturur](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+![MongoDB için Azure Cosmos DB API bir koleksiyon oluşturur.](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
-### <a id="portal-cassandra"></a>Cassandra API
+### <a id="portal-cassandra"></a>Cassandra için Azure Cosmos DB API'si
 
 1. [Azure portalda](https://portal.azure.com/) oturum açın.
 
@@ -72,7 +72,7 @@ Bu makalede kapsayıcı oluşturmanın farklı yolları (koleksiyon, tablo, graf
 > [!NOTE]
 > Cassandra API'si için, bölüm anahtarı birincil anahtar olarak kullanılır.
 
-### <a id="portal-gremlin"></a>Gremlin API'si
+### <a id="portal-gremlin"></a>Gremlin için Azure Cosmos DB API'si
 
 1. [Azure portalda](https://portal.azure.com/) oturum açın.
 
@@ -89,7 +89,7 @@ Bu makalede kapsayıcı oluşturmanın farklı yolları (koleksiyon, tablo, graf
 
 ![Gremlin API'si bir koleksiyon oluşturur](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
 
-### <a id="portal-table"></a>Tablo API’si
+### <a id="portal-table"></a>Tablo için Azure Cosmos DB API'si
 
 1. [Azure portalda](https://portal.azure.com/) oturum açın.
 
@@ -109,7 +109,7 @@ Bu makalede kapsayıcı oluşturmanın farklı yolları (koleksiyon, tablo, graf
 
 ## <a name="create-a-container-using-azure-cli"></a>Azure CLI kullanarak kapsayıcı oluşturma
 
-### <a id="cli-sql"></a>SQL (Core) API'si
+### <a id="cli-sql"></a>Azure Cosmos DB API SQL (çekirdek)
 
 ```azurecli-interactive
 # Create a container with a partition key and provision 1000 RU/s throughput.
@@ -123,7 +123,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-mongodb"></a>MongoDB API’si
+### <a id="cli-mongodb"></a>MongoDB için Azure Cosmos DB API'si
 
 ```azurecli-interactive
 # Create a collection with a shard key and provision 1000 RU/s throughput.
@@ -136,7 +136,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-cassandra"></a>Cassandra API’si
+### <a id="cli-cassandra"></a>Cassandra için Azure Cosmos DB API'si
 
 ```azurecli-interactive
 # Create a table with a partition/primary key and provision 1000 RU/s throughput.
@@ -149,7 +149,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-gremlin"></a>Gremlin API'si
+### <a id="cli-gremlin"></a>Gremlin için Azure Cosmos DB API'si
 
 ```azurecli-interactive
 # Create a graph with a partition key and provision 1000 RU/s throughput.
@@ -162,7 +162,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-### <a id="cli-table"></a>Tablo API’si
+### <a id="cli-table"></a>Tablo için Azure Cosmos DB API'si
 
 ```azurecli-interactive
 # Create a table with 1000 RU/s
@@ -177,7 +177,7 @@ az cosmosdb collection create \
 
 ## <a name="create-a-container-using-net-sdk"></a>.NET SDK'sını kullanarak kapsayıcı oluşturma
 
-### <a id="dotnet-sql-graph"></a>SQL API'si ve Gremlin API'si
+### <a id="dotnet-sql-graph"></a>Azure Cosmos DB API SQL ve Gremlin
 
 ```csharp
 // Create a container with a partition key and provision 1000 RU/s throughput.
@@ -191,7 +191,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 1000 });
 ```
 
-### <a id="dotnet-mongodb"></a>MongoDB API’si
+### <a id="dotnet-mongodb"></a>MongoDB için Azure Cosmos DB API'si
 
 ```csharp
 // Create a collection with a partition key by using Mongo Shell:
@@ -201,7 +201,7 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 > [!Note]
 > MongoDB'de istek birimleri kavramı yoktur. Aktarım hızıyla yeni bir koleksiyon oluşturmak için, önceki örneklerde gösterildiği gibi Azure Portalını veya SQL API'sini kullanın.
 
-### <a id="dotnet-cassandra"></a>Cassandra API
+### <a id="dotnet-cassandra"></a>Cassandra için Azure Cosmos DB API'si
 
 ```csharp
 // Create a Cassandra table with a partition/primary key and provision 1000 RU/s throughput.

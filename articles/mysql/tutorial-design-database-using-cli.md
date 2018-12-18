@@ -1,24 +1,21 @@
 ---
-title: 'Öğretici: Azure CLI’yı kullanarak MySQL için Azure Veritabanı tasarlama'
+title: 'Öğretici: Azure CLI kullanarak MySQL için Azure veritabanı tasarlama'
 description: Bu öğreticide, MySQL sunucusu ve veritabanı için komut satırından Azure CLI kullanarak Azure Veritabanının nasıl oluşturulup yönetileceği açıklanır.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 60cfb5e1c5fa44952ca6a5e6fc411f4a6ab0e8be
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 352444dcb3beace0e1618aadba50b56cdcd9d003
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966988"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545799"
 ---
-# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Öğretici: Azure CLI’yı kullanarak MySQL için Azure Veritabanı tasarlama
+# <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Öğretici: Azure CLI kullanarak MySQL için Azure veritabanı tasarlama
 
 MySQL için Azure Veritabanı, MySQL Community Edition veritabanı altyapısını temel alan, Microsoft bulutunda bulunan ilişkisel bir veritabanı hizmetidir. Bu öğreticide, şunları nasıl yapacağınızı öğrenmek için Azure CLI (komut satırı arabirimi) ve diğer yardımcı programları kullanırsınız:
 
@@ -175,19 +172,19 @@ Bu tabloyu yanlışlıkla sildiğinizi düşünün. Bu işlemi kolayca geri alam
 
 Geri yüklemek için şu bilgiler gereklidir:
 
-- Geri yükleme noktası: Sunucu değiştirilmeden önce gerçekleşen bir zaman seçin. Kaynak veritabanının En eski yedekleme değerinden daha büyük veya bu değere eşit olmalıdır.
+- Geri yükleme noktası: Bir-sunucu değiştirilmeden önce gerçekleşen belirli bir noktaya seçin. Kaynak veritabanının En eski yedekleme değerinden daha büyük veya bu değere eşit olmalıdır.
 - Hedef sunucu: Geri yüklemek istediğiniz yeni bir sunucu adı sağlayın
-- Kaynak sunucu: Geri yüklemek istediğiniz sunucunun adını belirtin
-- Konum: Bölgeyi seçemezsiniz, varsayılan olarak kaynak sunucuyla aynıdır
+- Kaynak sunucu: Öğesinden geri yüklemek istediğiniz sunucunun adını belirtin
+- Konum: Bölgeyi seçemezsiniz, varsayılan olarak, kaynak sunucuyla aynıdır
 
 ```azurecli-interactive
 az mysql server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver
 ```
 
 `az mysql server restore` komutu için aşağıdaki parametreler gerekir:
-| Ayar | Önerilen değer | Açıklama  |
+| Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |
+| resource-group |  myresourcegroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |
 | ad | mydemoserver-restored | Geri yükleme komutu tarafından oluşturulan yeni sunucunun adı. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Zaman içinde geri yüklenecek bir nokta seçin. Bu tarih ve saat, kaynak sunucunun yedekleme saklama dönemi içinde olmalıdır. ISO8601 tarih ve saat biçimini kullanın. Örneğin, `2017-04-13T05:59:00-08:00` şeklinde kendi yerel saat diliminizi ya da `2017-04-13T13:59:00Z` şeklindeki UTC Zulu biçimini kullanabilirsiniz. |
 | source-server | mydemoserver | Geri yükleme kaynağı olarak kullanılacak sunucunun adı veya kimliği. |

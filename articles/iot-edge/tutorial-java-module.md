@@ -9,12 +9,12 @@ ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 53be0f36e79d5691d8531c46bf7f554c53f641ee
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f099d280615607382bd424063d39bb26cdeea793
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342842"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557876"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Öğretici: Bir Java IOT Edge modülü geliştirme ve sanal Cihazınızı dağıtma
 
@@ -36,8 +36,8 @@ Bu öğreticide oluşturacağınız IoT Edge modülü, cihazınız tarafından o
 
 Bir Azure IoT Edge cihazı:
 
-* [Linux](quickstart-linux.md) için hızlı başlangıç adımlarını izleyerek dağıtım makinenizi veya sanal makinenizi bir Edge cihazı olarak kullanabilirsiniz.
-* Java IoT Edge modülleri Windows cihazlarını desteklemez.
+* Hızlı başlangıçlar için adımları izleyerek bir IOT Edge cihazı ayarlayabilirsiniz [Linux](quickstart-linux.md) veya [Windows](quickstart.md).
+* Windows cihazlarda IOT Edge için sürüm 1.0.5 Java modülleri desteklemez. Daha fazla bilgi için [1.0.5 sürüm notları](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Belirli bir sürümünü yükleme adımları için bkz: [IOT Edge güvenlik arka plan programı ve çalışma zamanını güncelleştirme](how-to-update-iot-edge.md).
 
 Bulut kaynakları:
 
@@ -70,7 +70,7 @@ Kapsayıcı kayıt defteri zaten yoksa, azure'da yeni bir tane oluşturmak için
    | ----- | ----- |
    | Kayıt defteri adı | Benzersiz bir ad girin. |
    | Abonelik | Açılan listeden bir abonelik seçin. |
-   | Kaynak grubu | IoT Edge hızlı başlangıçlarında ve öğreticilerinde oluşturduğunuz tüm test kaynakları için aynı kaynak grubunu kullanmanızı öneririz. Örneğin, **IoTEdgeResources**. |
+   | Kaynak grubu | Daha kolay yönetim için tüm IOT Edge hızlı başlangıçlar ve öğreticilerle sırasında oluşturduğunuz test kaynakları için aynı kaynak grubunu kullanın. Örneğin, **IoTEdgeResources**. |
    | Konum | Size yakın bir konum seçin. |
    | Yönetici kullanıcı | **Etkinleştir**'i seçin. |
    | SKU | **Temel**'i seçin. | 
@@ -82,7 +82,7 @@ Kapsayıcı kayıt defteri zaten yoksa, azure'da yeni bir tane oluşturmak için
 7. **Oturum açma sunucusu**, **Kullanıcı adı** ve **Parola** değerlerini kopyalayın. Kapsayıcı kayıt defterine erişim sağlamak için öğreticinin ilerleyen bölümlerinde bu değerleri kullanırsınız. 
 
 ## <a name="create-an-iot-edge-module-project"></a>IoT Edge modülü projesi oluşturma
-Aşağıdaki adımlarda, Visual Studio Code ve Azure IoT Edge uzantısı kullanılarak Azure IoT Edge maven şablon paketi ve Azure IoT Java cihazına dayalı bir IoT Edge modülü projesi oluşturulur.
+Aşağıdaki adımlar Azure IOT Edge maven şablon paketi ve Azure IOT Java cihaz SDK'sını dayalı bir IOT Edge modülü projesi oluşturur. Proje, Visual Studio Code ve Azure IOT Edge uzantısını kullanarak oluşturun.
 
 ### <a name="create-a-new-solution"></a>Yeni çözüm oluşturma
 
@@ -103,7 +103,7 @@ Kendi yazacağınız kodla özelleştirebileceğiniz bir Java çözüm şablonu 
  
    ![Docker görüntü deposunu sağlama](./media/tutorial-java-module/repository.png)
    
-İlk kez bir Java modülü oluşturuyorsanız maven paketlerinin indirilmesi birkaç dakika sürebilir. Ardından VS Code penceresi IoT Edge çözümü çalışma alanınızı yükler. Çözüm çalışma alanında beş üst düzey bileşen bulunur. **modules** klasöründe modülünüzün Java kodunun yanı sıra modülünüzden kapsayıcı görüntüsü oluşturmak için kullanılacak Dockerfiles öğeleri bulunur. **\.env** dosyasında kapsayıcı kayıt defterinizin kimlik bilgileri yer alır. **deployment.template.json** dosyasında IoT Edge çalışma zamanının modülleri cihazlara dağıtmak için kullandığı bilgiler bulunur. Ve **deployment.debug.template.json** kapsayıcıları dosyanın modülleri hata ayıklama sürümü. Bu öğreticide **\.vscode** klasörünü veya **\.gitignore** dosyasını düzenlemeyeceksiniz. 
+İlk kez bir Java modülü oluşturuyorsanız maven paketlerinin indirilmesi birkaç dakika sürebilir. Ardından VS Code penceresi IoT Edge çözümü çalışma alanınızı yükler. Çözüm çalışma alanında beş üst düzey bileşen bulunur. **Modülleri** klasörü, Java kodunu modülünüzde yanı sıra, modül olarak bir kapsayıcı görüntüsü oluşturmak için Docker dosyaları içerir. **\.env** dosyasında kapsayıcı kayıt defterinizin kimlik bilgileri yer alır. **deployment.template.json** dosyasında IoT Edge çalışma zamanının modülleri cihazlara dağıtmak için kullandığı bilgiler bulunur. Ve **deployment.debug.template.json** kapsayıcıları dosyanın modülleri hata ayıklama sürümü. Bu öğreticide **\.vscode** klasörünü veya **\.gitignore** dosyasını düzenlemeyeceksiniz. 
 
 Çözümünüzü oluştururken kapsayıcı kayıt defteri belirtmediyseniz ve varsayılan localhost:5000 değerini kabul ettiyseniz \.env dosyanız olmaz. 
 
@@ -136,7 +136,7 @@ Ortam dosyası, kapsayıcı kayıt defterinizin kimlik bilgilerini depolar ve bu
     import com.microsoft.azure.sdk.iot.device.DeviceTwin.TwinPropertyCallBack;
     ```
 
-5. Aşağıdaki tanımı **App** sınıfına ekleyin. Bu değişken, IoT Hub'a verilerin gönderilmesi için ölçülen sıcaklığın aşması gereken değeri ayarlar. 
+5. Aşağıdaki tanımı **App** sınıfına ekleyin. Bu değişken bir sıcaklık eşik ayarlar. Bu değerin üzerine ölçeklendirilinceye kadar IOT Hub'ına raporlanan ölçülen makine sıcaklık olmaz. 
 
     ```java
     private static final String TEMP_THRESHOLD = "TemperatureThreshold";
@@ -175,7 +175,7 @@ Ortam dosyası, kapsayıcı kayıt defterinizin kimlik bilgilerini depolar ve bu
         }
     ```
 
-8. Aşağıdaki iki statik iç sınıfı **App** sınıfına ekleyin. Bu sınıflar modül ikizinin istenen özellikleri üzerinde yapılan güncelleştirmeleri alır ve **tempThreshold** değişkenini buna göre güncelleştirir. Tüm modüllerin, doğrudan buluttan bir modülün içinde çalışan kodu yapılandırmanıza izin veren kendi modül ikizi vardır.
+8. Aşağıdaki iki statik iç sınıfı **App** sınıfına ekleyin. Modül ikizinin istenen özellik değişiklikleri bu sınıfların tempThreshold değişkeni güncelleştirin. Tüm modüllerin, doğrudan buluttan bir modülün içinde çalışan kodu yapılandırmanıza izin veren kendi modül ikizi vardır.
 
     ```java
     protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
@@ -240,9 +240,9 @@ Ortam dosyası, kapsayıcı kayıt defterinizin kimlik bilgilerini depolar ve bu
 
 ## <a name="build-your-iot-edge-solution"></a>IoT Edge çözümünüzü derleyin
 
-Bir önceki bölümde bir IoT Edge çözümü oluşturdunuz ve **JavaModule** modülüne makine sıcaklığının kabul edilebilir eşiğin altında olduğunu bildiren iletileri filtreleyen kodu eklediniz. Şimdi çözümü kapsayıcı görüntüsü olarak derlemeniz ve kapsayıcı kayıt defterine göndermeniz gerekiyor. 
+Önceki bölümde, IOT Edge çözümü oluşturulur ve koduna eklemiştir **JavaModule** bildirilen makine sıcaklık kabul edilebilir limiti altında olduğu mesajları filtrelemek için. Artık, bir kapsayıcı görüntüsü olarak Çözümü derleyin ve kapsayıcı kayıt defterinize gönderin. 
 
-1. Visual Studio Code tümleşik terminaline aşağıdaki komutu girerek Docker’da oturum açın. Ardından, modül görüntünüzü Azure kapsayıcı kayıt defterinize gönderin.
+1. Visual Studio Code'da terminal aşağıdaki komutu girerek Docker'da oturum açın. Ardından, modül görüntünüzü Azure kapsayıcı kayıt defterinize gönderin.
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -281,7 +281,7 @@ Dağıtım bildirimini IoT Edge cihazınıza uyguladıktan sonra cihazdaki IoT E
 
 IoT Edge cihazınızın durumunu görüntülemek için Visual Studio Code gezgininin **Azure IoT Hub Cihazları** bölümünü kullanabilirsiniz. Dağıtılan ve çalışan modüllerin listesini görmek için cihazınızın ayrıntılarını genişletin. 
 
-IoT Edge cihazında `iotedge list` komutunu kullanarak dağıtım modüllerinin durumunu görebilirsiniz. Dört modül görmeniz gerekir: İki IoT Edge çalışma zamanı modülü, tempSensor ve bu öğreticide oluşturduğunuz özel modül. Tüm modüllerin başlatılması birkaç dakika sürebilir. Bu nedenle tümünü görmüyorsanız komutu yeniden çalıştırın. 
+IOT Edge cihazında komutunu kullanarak dağıtım modüllerinizi durumunu görebilirsiniz `iotedge list`. Dört modül görmeniz gerekir: İki IoT Edge çalışma zamanı modülü, tempSensor ve bu öğreticide oluşturduğunuz özel modül. Tüm modüllerin başlatılması birkaç dakika sürebilir. Bu nedenle tümünü görmüyorsanız komutu yeniden çalıştırın. 
 
 Modüller tarafından oluşturulan iletileri görüntülemek için `iotedge logs <module name>` komutunu kullanın. 
 

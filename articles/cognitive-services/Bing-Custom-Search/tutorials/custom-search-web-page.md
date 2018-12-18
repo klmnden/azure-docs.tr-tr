@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Özel arama web sayfası oluşturma - Bing Özel Arama'
+title: 'Öğretici: Bir özel arama web sayfası - Bing özel arama oluştur'
 titlesuffix: Azure Cognitive Services
 description: Özel arama örneği yapılandırma ve bunu bir web sayfasıyla tümleştirme adımları açıklanmaktadır.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: aahi
-ms.openlocfilehash: d39ec856d628a8a607c6a8ea214f5dd9fbd63a9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0c98f75417bbcba13e179502eb1c8b4488b17d78
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427370"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558031"
 ---
-# <a name="tutorial-build-a-custom-search-web-page"></a>Öğretici: Özel Arama web sayfası oluşturma
+# <a name="tutorial-build-a-custom-search-web-page"></a>Öğretici: Özel Arama web sayfası derleme
 
 Bing Özel Arama API’si, önemsediğiniz konulara özel olarak uyarlanmış arama deneyimleri oluşturmanızı sağlar. Örneğin, arama deneyimi sunan bir dövüş sanatları web sitesine sahipseniz Bing’in aradığı etki alanlarını, alt siteleri ve web sayfalarını belirtebilirsiniz. Kullanıcılarınız, arama sonucu sayfalarındaki alakasız olabilecek içeriği ayıklamak zorunda kalmadan içeriğe göre oluşturulan arama sonuçlarını görebilir. 
 
@@ -79,7 +79,7 @@ Sonuçlardan hariç tutmak istediğiniz web sitelerini veya URL'leri **Engellend
 
 ## <a name="add-pinned-entries"></a>Sabitlenmiş girişleri ekleme
 
-Belirli bir web sayfasını arama sonuçlarının en üstüne sabitlemek için ilgili web sayfasını ve sorgu terimini **Sabitlendi** sekmesine ekleyin. **Sabitlendi** sekmesinde belirli bir arama sonucu için ilk sırada görünen web sayfasını belirten web sayfası ve sorgu terimi çiftlerinin listesi bulunur. Web sayfası yalnızca kullanıcının sorgu dizesinin sabitleme eşleme koşuluna göre sabitlenen sorgu dizesiyle eşleşmesi durumunda sabitlenir. Aramalarda yalnızca dizine alınmış web sayfaları görüntülenir. Daha fazla bilgi için bkz. [Özel görünümünüzü tanımlama](../define-your-custom-view.md#pin-to-top).
+Belirli bir web sayfasını arama sonuçlarının en üstüne sabitlemek için ilgili web sayfasını ve sorgu terimini **Sabitlendi** sekmesine ekleyin. **Sabitlendi** sekmesinde belirli bir arama sonucu için ilk sırada görünen web sayfasını belirten web sayfası ve sorgu terimi çiftlerinin listesi bulunur. Web sayfası yalnızca kullanıcının sorgu dizesinin sabitleme eşleme koşuluna göre sabitlenen sorgu dizesiyle eşleşmesi durumunda sabitlenir. Aramalarda yalnızca dizine alınmış web sayfaları görüntülenir. Daha fazla bilgi için bkz. [Özel görünümünüzü tanımlama](../define-your-custom-view.md#pin-slices-to-the-top-of-search-results).
 
 1. **Yapılandırma** sayfasında **Sabitlendi** sekmesine tıklayın ve ilk sırada döndürülmesini istediğiniz web sayfasını ve sorgu terimini girin.  
   
@@ -127,10 +127,10 @@ Belirli bir web sayfasını arama sonuçlarının en üstüne sabitlemek için i
 
 Barındırılan kullanıcı arabirimini kullanmanın iki yolu vardır.  
 
-- 1. Seçenek: Verilen JavaScript kod parçacığını uygulamanızla tümleştirin.
-- 2. Seçenek: Sağlanan HTML Uç Noktasını kullanın.
+- 1. seçenek: Sağlanan JavaScript kod parçacığını uygulamanızla tümleştirin.
+- 2. seçenek: Sağlanan uç nokta HTML kullanın.
 
-Bu öğreticinin devamında **1. Seçenek: JavaScript kod parçacığı** gösterilmektedir.  
+Bu öğreticinin geri kalanında gösterir **1. seçenek: JavaScript kod parçacığını**.  
 
 ## <a name="set-up-your-visual-studio-solution"></a>Visual Studio çözümünüzü kurma
 

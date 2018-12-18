@@ -1,23 +1,20 @@
 ---
-title: 'Öğretici: Azure portalını kullanarak PostgreSQL için Azure Veritabanı tasarlama'
+title: 'Öğretici: Azure portalını kullanarak PostgreSQL için Azure veritabanı tasarlama'
 description: Bu öğretici, Azure portalını kullanarak ilk PostgreSQL için Azure Veritabanınızı nasıl tasarlayacağınızı gösterir.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 6a3241e15cc72d1d50862a9dec14c23712ec4226
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 441b56aa683ac01566d2fd2877b9b8b912194f3a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406391"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536534"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak PostgreSQL için Azure Veritabanı tasarlama
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak PostgreSQL için Azure veritabanı tasarlama
 
 PostgreSQL için Azure Veritabanı, bulutta son derece kullanılabilir olan PostgreSQL veritabanları çalıştırmanızı, yönetmenizi ve ölçeklendirmenizi sağlayan ve yönetilen bir hizmettir. Azure portalını kullanarak, sunucunuzu kolayca yönetebilir ve bir veritabanı tasarlayabilirsiniz.
 
@@ -31,7 +28,7 @@ Bu öğreticide, Azure portalını kullanarak şu işlemleri gerçekleştirmeyi 
 > * Verileri güncelleştirme
 > * Verileri geri yükleme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
@@ -195,9 +192,9 @@ Bu tabloyu yanlışlıkla sildiğinizi düşünün. Bu, kolayca kurtaramayacağ�
 
    ![Azure portalı - Geri yükleme formu seçenekleri](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
 
-   - **Geri yükleme noktası**: Sunucu değiştirilmeden önce gerçekleşen belirli bir nokta seçin
-   - **Hedef sunucu**: İçine geri yüklemek istediğiniz yeni bir sunucu adı belirtin
-   - **Konum**: Bölgeyi seçemezsiniz, varsayılan olarak kaynak sunucuyla aynıdır
+   - **Geri yükleme noktası**: Bir-sunucu değiştirilmeden önce gerçekleşen belirli bir noktaya seçin
+   - **Hedef sunucu**: Geri yüklemek istediğiniz yeni bir sunucu adı sağlayın
+   - **Konum**: Bölgeyi seçemezsiniz, varsayılan olarak, kaynak sunucuyla aynıdır
    - **Fiyatlandırma katmanı**: Bir sunucuyu geri yüklerken bu değeri değiştiremezsiniz. Kaynak sunucuyla aynıdır. 
 3.  Sunucuyu, [tablo silinmeden önceki belirli bir noktaya geri yüklemek için](./howto-restore-server-portal.md) **Tamam**’a tıklayın. Sunucunun farklı bir zaman noktasına geri yüklenmesi, [fiyatlandırma katmanınızın](./concepts-pricing-tiers.md) bekletme dönemi içinde olmak şartıyla, belirttiğiniz zaman noktasından itibaren özgün sunucu ile aynı yeni bir kopya sunucu oluşturur.
 
@@ -212,4 +209,4 @@ Bu öğreticide, aşağıdakileri yapmak için Azure portalını ve diğer yard�
 > * Verileri güncelleştirme
 > * Verileri geri yükleme
 
-Daha sonra benzer görevleri yapmak üzere Azure CLI’nin nasıl kullanılacağını öğrenmek için şu öğreticiyi gözden geçirin: [Azure CLI kullanarak ilk PostgreSQL için Azure Veritabanınızı tasarlama](tutorial-design-database-using-azure-cli.md)
+Ardından, benzer görevleri yapmak için Azure CLI'yı kullanmayı öğrenmek için şu öğreticiyi gözden geçirin: [PostgreSQL için Azure CLI kullanarak ilk Azure veritabanınızı tasarlama](tutorial-design-database-using-azure-cli.md)

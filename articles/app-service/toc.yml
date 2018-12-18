@@ -102,19 +102,19 @@ items:
     - name: Uygulamayı dağıtma
       items:
       - name: ZIP veya WAR dağıtma
-        href: app-service-deploy-zip.md
+        href: deploy-zip.md
       - name: FTP aracılığıyla dağıtma
-        href: app-service-deploy-ftp.md
+        href: deploy-ftp.md
       - name: Bulut eşitleme aracılığıyla dağıtma
-        href: app-service-deploy-content-sync.md
+        href: deploy-content-sync.md
       - name: Sürekli dağıtım
-        href: app-service-continuous-deployment.md
+        href: deploy-continuous-deployment.md
       - name: Yerel Git’ten dağıtım
-        href: app-service-deploy-local-git.md
+        href: deploy-local-git.md
       - name: Şablon ile dağıtım
-        href: app-service-deploy-complex-application-predictably.md
+        href: deploy-complex-application-predictably.md
     - name: Dağıtım kimlik bilgilerini ayarlama
-      href: app-service-deployment-credentials.md
+      href: deploy-configure-credentials.md
     - name: Hazırlama ortamları oluşturma
       href: web-sites-staged-publishing.md
     - name: Resource Manager şablon kılavuzu
@@ -257,9 +257,9 @@ items:
       href: ip-address-change-outbound.md
     - name: SSL adresi
       href: ip-address-change-ssl.md
-ms.openlocfilehash: 2a0dc03143688e1aadb0666242d44ab06763f04b
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 2c1d686bc6dfb46bcacccb68063553739a5d9947
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437886"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542416"

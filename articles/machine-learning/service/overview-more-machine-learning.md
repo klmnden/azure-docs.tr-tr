@@ -1,5 +1,6 @@
 ---
-title: Karşılaştırma makine öğrenme Microsoft'ta ürün seçenekleri
+title: Karşılaştırma makine öğrenme ürün seçenekleri
+titleSuffix: Microsoft
 description: Makine öğrenmesi modellerinizi derlemek, dağıtmak ve yönetmek için Microsoft’un sunduğu ürün çeşitlerini karşılaştırın. Çözümünüz için hangi ürünün seçileceğine karar verin.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: b2d7888234a05c82f1245bd58b98f505989d7f2d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274138"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557895"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft'ta makine öğrenimi ürünlerini nelerdir?
 
@@ -37,7 +38,7 @@ Makine öğrenmesi modellerinizi derlemek, dağıtmak ve yönetmek için Microso
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning hizmeti
 
-[Azure Machine Learning hizmeti](overview-what-is-azure-ml.md) eğitmek, dağıtmak ve ML modellerini ölçeğe uygun yönetmek için kullanılan bir tam olarak yönetilen bir bulut hizmetidir. Açık kaynak teknolojilerini tamamen destekler, bu nedenle TensorFlow, PyTorch ve scikit-learn gibi açık kaynak Python paketlerinin on binlercesini kullanabilir. Zengin Araçlar gibi kullanılabilir ayrıca [Azure not defterleri](https://notebooks.azure.com/), [Jupyter not defterleri](http://jupyter.org), veya [Visual Studio Code için Azure Machine Learning](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) keşfetmek kolay hale getirmek için uzantı verileri dönüştürmek ve ardından eğitmek ve Modellerinizi dağıtın. Azure Machine Learning hizmeti kolaylık, verimlilik ve doğrulukla model oluşturma ve ayarlama işlemini otomatik hale getiren özellikler içerir.
+[Azure Machine Learning hizmeti](overview-what-is-azure-ml.md) eğitmek, dağıtmak ve ML modellerini ölçeğe uygun yönetmek için kullanılan bir tam olarak yönetilen bir bulut hizmetidir. Açık kaynak teknolojilerini tamamen destekler, bu nedenle TensorFlow, PyTorch ve scikit-learn gibi açık kaynak Python paketlerinin on binlercesini kullanabilir. Zengin Araçlar gibi kullanılabilir ayrıca [Azure not defterleri](https://notebooks.azure.com/), [Jupyter not defterleri](http://jupyter.org), veya [Visual Studio Code için Azure Machine Learning](https://aka.ms/vscodetoolsforai) keşfetmek kolay hale getirmek için uzantı verileri dönüştürmek ve ardından eğitmek ve Modellerinizi dağıtın. Azure Machine Learning hizmeti kolaylık, verimlilik ve doğrulukla model oluşturma ve ayarlama işlemini otomatik hale getiren özellikler içerir.
 
 Bulut ölçeğinde Python ve CLI kullanarak ML modellerini eğitmek, dağıtmak ve yönetmek için Azure Machine Learning hizmetini kullanın.
 

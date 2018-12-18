@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: Bir Java ve MongoDB API'si konsol uygulaması oluşturma"
-description: Azure Cosmos DB MongoDB API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Java kodu örneği sunar
+title: MongoDB için Java ve Azure Cosmos DB API bir konsol uygulaması oluşturma
+description: Bağlanmak ve MongoDB için Azure Cosmos DB API sorgulamak için kullanabileceğiniz bir Java kodu örneği sunar
 services: cosmos-db
 author: slyons
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: sclyon
-ms.openlocfilehash: 30e87ba14c6754fa39269f3afac318a02cf99a2c
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ddecb179b2ea0001ec358ad17ec76754054b0309
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162030"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535563"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalı ile bir MongoDB API'si konsol uygulaması oluşturma
+# <a name="build-a-console-app-with-java-and-the-azure-cosmos-db-api-for-mongodb"></a>MongoDB için Java ve Azure Cosmos DB API bir konsol uygulaması oluşturma
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -30,7 +30,7 @@ ms.locfileid: "53162030"
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu hızlı başlangıçta Azure portalı kullanarak bir Azure Cosmos DB [MongoDB API](mongodb-introduction.md) hesabını, belge veritabanını ve koleksiyonunu nasıl oluşturacağınız anlatılmıştır. Bu adımların ardından [MongoDB Java sürücüsünü](https://docs.mongodb.com/ecosystem/drivers/java/) kullanarak bir konsol uygulaması derleyebilir ve çalıştırabilirsiniz. 
+Bu hızlı başlangıçta nasıl oluşturulacağını gösterir. bir [Azure Cosmos DB MongoDB API'si](mongodb-introduction.md) hesabını, belge veritabanı ve Azure portalını kullanarak bir koleksiyon. Bu adımların ardından [MongoDB Java sürücüsünü](https://docs.mongodb.com/ecosystem/drivers/java/) kullanarak bir konsol uygulaması derleyebilir ve çalıştırabilirsiniz. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -53,7 +53,7 @@ Yeni veritabanınıza **db**, yeni koleksiyonunuza da **coll** adını verin.
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
-Şimdi github'dan bir MongoDB API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı şimdi. Verilerle program aracılığıyla çalışmanın ne kadar kolay olduğunu göreceksiniz. 
+Şimdi MongoDB uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı bir Azure Cosmos DB API github'dan çalıştıralım. Verilerle program aracılığıyla çalışmanın ne kadar kolay olduğunu göreceksiniz. 
 
 1. Bir komut istemini açın, git-samples adlı yeni bir klasör oluşturun ve komut istemini kapatın.
 

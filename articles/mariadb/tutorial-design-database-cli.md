@@ -1,22 +1,19 @@
 ---
 title: 'Öğretici: Azure CLI kullanarak MariaDB için Azure veritabanı tasarlama'
 description: Bu öğreticide, oluşturma ve MariaDB server ve Azure CLI kullanarak komut satırından veritabanı için Azure veritabanı'nı yönetme açıklanmaktadır.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 2d715f89b56af822c2c1174cca0f2a9c1b847fc0
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: fa056dad052914e771251585cb426c70591aa235
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516354"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541200"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Öğretici: Azure CLI kullanarak MariaDB için Azure veritabanı tasarlama
 
@@ -175,10 +172,10 @@ Bu tabloyu yanlışlıkla sildiğinizi düşünün. Bu işlemi kolayca geri alam
 
 Geri yüklemek için şu bilgiler gereklidir:
 
-- Geri yükleme noktası: Sunucu değiştirilmeden önce gerçekleşen bir zaman seçin. Kaynak veritabanının En eski yedekleme değerinden daha büyük veya bu değere eşit olmalıdır.
+- Geri yükleme noktası: Bir-sunucu değiştirilmeden önce gerçekleşen belirli bir noktaya seçin. Kaynak veritabanının En eski yedekleme değerinden daha büyük veya bu değere eşit olmalıdır.
 - Hedef sunucu: Geri yüklemek istediğiniz yeni bir sunucu adı sağlayın
-- Kaynak sunucu: Geri yüklemek istediğiniz sunucunun adını belirtin
-- Konum: Bölgeyi seçemezsiniz, varsayılan olarak kaynak sunucuyla aynıdır
+- Kaynak sunucu: Öğesinden geri yüklemek istediğiniz sunucunun adını belirtin
+- Konum: Bölgeyi seçemezsiniz, varsayılan olarak, kaynak sunucuyla aynıdır
 
 ```azurecli-interactive
 az mariadb server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time "2017-05-4 03:10" --source-server-name mydemoserver

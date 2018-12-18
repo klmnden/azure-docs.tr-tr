@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3666af764fa20a8343addedbddcdb12de0daf4a1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 41b73e662316a6f61ec4145c06fb5e9c06e83f06
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251513"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537868"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Öğretici: Azure’da bir Node.js ve MongoDB web uygulaması oluşturma
 
@@ -119,7 +119,7 @@ Birkaç makale eklemek için **Yönetici > Makaleleri Yönet**’i seçin.
 Node.js’yi dilediğiniz zaman durdurmak için, terminalde `Ctrl+C` tuşlarına basın. 
 
 > [!NOTE]
-> [Node.js hızlı başlangıcında](app-service-web-get-started-nodejs.md), kök uygulama dizininde bir web.config dosyası olması gerektiği belirtilmiştir. Ancak bu öğreticide, dosyalarınızı ZIP dosya dağıtımı yerine [yerel Git dağıtımını](app-service-deploy-local-git.md) kullanarak dağıttığınızda bu web.config dosyası App Service tarafından otomatik olarak oluşturulur. 
+> [Node.js hızlı başlangıcında](app-service-web-get-started-nodejs.md), kök uygulama dizininde bir web.config dosyası olması gerektiği belirtilmiştir. Ancak bu öğreticide, dosyalarınızı ZIP dosya dağıtımı yerine [yerel Git dağıtımını](deploy-local-git.md) kullanarak dağıttığınızda bu web.config dosyası App Service tarafından otomatik olarak oluşturulur. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2dd209025db762f659510898e23cb371a31291b9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970204"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544694"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
 
@@ -23,13 +23,13 @@ Azure Analysis Services, bulutta kurumsal düzeyde veri modelleri sağlayan, tam
 
 ![Veri kaynakları](./media/analysis-services-overview/aas-overview-overall.png)
 
-**Video:** Azure Analysis Services’in Microsoft’un genel BI özelliklerine ne kadar uygun olduğu hakkında bilgi almak için [Azure Analysis Services’e Genel Bakış](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) bölümüne göz atın.
+**Video:** Kullanıma [Azure Analysis Services'e genel bakış](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) nasıl Azure Analysis Services sağlayabileceğinizi öğrenmek için genel BT özellikleriyle.
 
 ## <a name="get-up-and-running-quickly"></a>Hızla çalışmaya başlayın
 
 Azure portalında, birkaç dakikada [sunucu oluşturabilirsiniz](analysis-services-create-server.md). Ayrıca, Azure Resource Manager [şablonları](../azure-resource-manager/resource-manager-create-first-template.md) ve PowerShell'le, bildirim temelli bir şablon kullanarak sunucu oluşturabilirsiniz. Basit bir şablonla, sunucu kaynaklarını ve bunların yanında depolama hesapları ve Azure İşlevleri gibi diğer Azure bileşenlerini dağıtabilirsiniz. 
 
-**Video:** Azure Otomasyonu’nu kullanarak sunucu oluşturmayı nasıl hızlandırabileceğiniz hakkında daha fazla bilgi almak için [Dağıtımı otomatik hale getirme](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) bölümüne göz atın.
+**Video:** Kullanıma [dağıtımını otomatik hale getirme](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) Azure Otomasyonu hızı sunucu oluşturma için nasıl kullanabileceğiniz hakkında daha fazla bilgi edinmek için.
 
 Azure Analysis Services, birçok Azure hizmetiyle tümleştirildiğinden gelişmiş analiz çözümleri oluşturmanıza olanak tanır. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) ile tümleştirme, önemli verilerinize güvenli, rol tabanlı erişim sağlar. Verileri modele yükleyen bir etkinlik ekleyerek [Azure Data Factory](../data-factory/introduction.md) işlem hatlarıyla tümleştirin. Özel kodla modellerde basit düzenlemeler yapmak için [Azure Otomasyonu](../automation/automation-intro.md) ve [Azure İşlevleri](../azure-functions/functions-overview.md) kullanılabilir. 
 
@@ -146,7 +146,7 @@ Azure Analysis Services’te tablolu modeller, basit metin dosyalarından Azure 
 
 ## <a name="your-data-is-secure"></a>Verileriniz güvende
 
-Azure Analysis Services, birden fazla düzeyde hassas verileriniz için güvenlik sağlar. Sunucu düzeyinde: Güvenlik Duvarı, Azure kimlik doğrulaması, sunucu yöneticisi rolleri ve Sunucu Tarafı Şifreleme. Veri modeli düzeyinde, kullanıcı rollerinde, satır düzeyinde ve nesne düzeyi güvenlikte verilerinizin güvenli olduğundan ve yalnızca görmesi amaçlanan kullanıcılar tarafından görüldüğünden emin olun.
+Azure Analysis Services, birden fazla düzeyde hassas verileriniz için güvenlik sağlar. Sunucu düzeyinde: Güvenlik Duvarı, Azure kimlik doğrulaması, sunucu yöneticisi rolleri ve sunucu tarafı şifreleme. Veri modeli düzeyinde, kullanıcı rollerinde, satır düzeyinde ve nesne düzeyi güvenlikte verilerinizin güvenli olduğundan ve yalnızca görmesi amaçlanan kullanıcılar tarafından görüldüğünden emin olun.
 
 ### <a name="firewall"></a>Güvenlik duvarı
 
@@ -215,7 +215,7 @@ Power BI, Excel, Reporting Services ve üçüncü taraf araçlar gibi modern ver
 
 ## <a name="monitoring-and-diagnostics"></a>İzleme ve tanılama
 
-Azure Analysis Services, Azure ölçümleriyle tümleşiktir ve sunucularınızın performans ve durumunu izlemenize yardımcı olan çok sayıda kaynağa özgü ölçüm sağlar. Daha fazla bilgi için bkz. [Sunucu ölçümlerini izleme](analysis-services-monitor.md). Ölçümleri [Azure kaynak tanılama günlükleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) ile kaydedin. Günlükleri izleyin ve [Azure Depolama](https://azure.microsoft.com/services/storage/)’ya gönderin, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)’a akış yapın ve bir [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite) hizmeti olan [Log Analytics](https://azure.microsoft.com/services/log-analytics/)’e aktarın. Daha fazla bilgi için bkz. [Tanılama günlüğüne kaydetmeyi ayarlama](analysis-services-logging.md).
+Azure Analysis Services, Azure ölçümleriyle tümleşiktir ve sunucularınızın performans ve durumunu izlemenize yardımcı olan çok sayıda kaynağa özgü ölçüm sağlar. Daha fazla bilgi için bkz. [Sunucu ölçümlerini izleme](analysis-services-monitor.md). Ölçümleri [Azure kaynak tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-overview.md) ile kaydedin. Günlükleri izleyin ve [Azure Depolama](https://azure.microsoft.com/services/storage/)’ya gönderin, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)’a akış yapın ve bir [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite) hizmeti olan [Log Analytics](https://azure.microsoft.com/services/log-analytics/)’e aktarın. Daha fazla bilgi için bkz. [Tanılama günlüğüne kaydetmeyi ayarlama](analysis-services-logging.md).
 
 Azure Analysis Services ayrıca [Dynamic Management Görünümleri (DMV)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services) kullanmayı destekler. SQL söz dizimine göre DMV’ler, sunucu örneği hakkında meta veri ve izleme bilgileri döndüren şema satır kümeleri ile arabirim oluşturur.
 
@@ -251,7 +251,7 @@ Analysis Services’ın canlı bir kullanıcı topluluğu vardır. [Azure Analys
 > [Ücretsiz Azure Denemesi için kaydolun](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
-> [Hızlı başlangıç: Sunucu oluşturma - Portal](analysis-services-create-server.md)   
+> [Hızlı Başlangıç: Bir sunucu - Portal oluşturma](analysis-services-create-server.md)   
 
 > [!div class="nextstepaction"]
-> [Hızlı başlangıç: Sunucu oluşturma - PowerShell](analysis-services-create-powershell.md)  
+> [Hızlı Başlangıç: Bir sunucu oluşturma - PowerShell](analysis-services-create-powershell.md)  

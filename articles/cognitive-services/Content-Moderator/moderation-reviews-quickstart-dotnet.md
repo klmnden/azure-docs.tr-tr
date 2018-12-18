@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: .NET - Content Moderator'ı kullanarak incelemeler oluşturma"
+title: "Hızlı Başlangıç: .NET - Content Moderator'ı kullanarak incelemeleri oluşturma"
 titlesuffix: Azure Cognitive Services
 description: .NET için Azure Content Moderator SDK'sını kullanarak incelemeler oluşturma.
 services: cognitive-services
@@ -10,38 +10,38 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: ce90c5f691a0a8a333161f3135856d720d1de310
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
-ms.translationtype: HT
+ms.openlocfilehash: 6409011c1a7c125dd03bb706f49ccad1a1fd49a4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226594"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538880"
 ---
-# <a name="quickstart-create-reviews-using-net"></a>Hızlı Başlangıç: .NET kullanarak incelemeler oluşturma
+# <a name="quickstart-create-reviews-using-net"></a>Hızlı Başlangıç: .NET kullanarak incelemeleri oluşturma
 
-Bu makalede, aşağıdaki amaçlarla [.NET için Content Moderator SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)'sını kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanmaktadır:
+Bu makalede, aşağıdaki amaçlarla [.NET için Content Moderator SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)'nı kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri sağlanmaktadır:
  
 - İnsan moderatörler için bir inceleme kümesi oluşturma
 - İnsan moderatörler için mevcut incelemelerin durumunu alma
 
-Genellikle, içerik insan incelemesi için zamanlanmadan önce otomatik moderasyondan geçer. Bu makale yalnızca insan moderasyonu için inceleme oluşturma konusunu ele alır. Daha eksiksiz bir senaryo için [Facebook içerik moderasyonu](facebook-post-moderation.md) ve [E-ticaret katalog moderasyonu](ecommerce-retail-catalog-moderation.md) öğreticilerine bakın.
+Genellikle, içerik insan incelemesi için zamanlanmadan önce otomatik moderasyondan geçer. Bu makale yalnızca insan moderasyonu için inceleme oluşturma konusunu ele alır. Daha eksiksiz bir senaryo için bkz [Facebook içerik denetleme](facebook-post-moderation.md) ve [Orta e-ticaret ürün görüntüleri](ecommerce-retail-catalog-moderation.md) öğreticiler.
 
 Bu makale, Visual Studio ve C# hakkında bilgi sahibi olduğunuzu varsayar.
 
-## <a name="sign-up-for-content-moderator"></a>Content Moderator’a kaydolma
+## <a name="sign-up-for-content-moderator"></a>Content Moderator için kaydolma
 
-Content Moderator hizmetlerini REST API veya SDK aracılığıyla kullanabilmeniz için önce bir abonelik anahtarınız olması gerekir.
-Anahtarı nasıl edinebileceğinizi öğrenmek için [Hızlı Başlangıca](quick-start.md) bakın.
+REST API veya SDK aracılığıyla Content Moderator hizmetlerini kullanabilmeniz için önce bir abonelik anahtarınız olması gerekir.
+Anahtarı nasıl edinebileceğinizi öğrenmek için [Hızlı Başlangıç](quick-start.md)'a bakın.
 
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Önceki adımda yapmadıysanız bir inceleme aracı hesabına kaydolun
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Önceki adımda yapmadıysanız bir inceleme araç hesabına kaydolun
 
-Content Moderator’ı Azure portaldan aldıysanız, [inceleme aracı hesabına da kaydolun](https://contentmoderator.cognitive.microsoft.com/) ve bir inceleme takımı oluşturun. Bir İşi başlatmak ve inceleme aracındaki incelemeleri görüntülemek üzere inceleme API’sini çağırmak için takım kimliği ve inceleme aracı gerekir.
+Content Moderator’ı Azure portaldan aldıysanız, [inceleme aracı hesabına da kaydolun](https://contentmoderator.cognitive.microsoft.com/) ve bir inceleme takımı oluşturun. Bir İşi başlatmak ve inceleme aracındaki incelemeleri görüntülemek üzere inceleme API'sini çağırmak için ekip kimliği ve inceleme aracı gerekir.
 
-## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>API anahtarınızın inceleme oluşturma amacıyla inceleme API’sini çağırabildiğinden emin olun
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>API anahtarınızın inceleme oluşturma amacıyla inceleme API'sini çağırabildiğinden emin olun
 
 Önceki adımları tamamladıktan sonra, başlangıcı Azure portaldan yaptıysanız şu anda iki Content Moderator anahtarınız olmalıdır. 
 
-SDK örneğinizde Azure tarafından sağlanan API anahtarını kullanmayı planlıyorsanız, uygulamanızın inceleme API’sini çağırmasına ve incelemeler oluşturmasına izin vermek için [inceleme API’si ile birlikte Azure anahtarını kullanma](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) bölümünde anlatılan adımları izleyin.
+SDK örneğinizde Azure tarafından sağlanan API anahtarını kullanmayı planlıyorsanız, uygulamanızın inceleme API’sini çağırmasına ve incelemeler oluşturmasına izin vermek için [inceleme API'siyle Azure anahtarını kullanma](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) bölümünde anlatılan adımları izleyin.
 
 İnceleme aracı tarafından oluşturulan ücretsiz deneme anahtarını kullanırsanız, inceleme aracı hesabınız anahtarı zaten tanıyordur ve bu nedenle ek bir adım gerekli değildir.
 
@@ -51,7 +51,7 @@ SDK örneğinizde Azure tarafından sağlanan API anahtarını kullanmayı planl
 
    Örnek kodda, projeyi **CreateReviews** olarak adlandırın.
 
-1. Bu projeyi, çözümün tek başlangıç projesi olarak seçin.
+1. Bu projeyi çözümün tek başlatma projesi olarak seçin.
 
 ### <a name="install-required-packages"></a>Gerekli paketleri yükleme
 
@@ -61,9 +61,9 @@ Aşağıdaki NuGet paketlerini yükleyin:
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Deyimleri kullanarak programı güncelleştirme
+### <a name="update-the-programs-using-statements"></a>Programı deyimler kullanarak güncelleştirme
 
-Deyimleri kullanarak programı değiştirin.
+Programı deyimler kullanarak değiştirin.
 
     using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
@@ -76,7 +76,7 @@ Deyimleri kullanarak programı değiştirin.
 
 ### <a name="create-the-content-moderator-client"></a>Content Moderator istemcisini oluşturma
 
-Aboneliğiniz için bir Content Moderator istemcisi oluşturmak isterseniz aşağıdaki kodu ekleyin.
+Aboneliğiniz için bir Content Moderator istemcisi oluşturmak üzere aşağıdaki kodu ekleyin.
 
 > [!IMPORTANT]
 > **AzureRegion** ve **CMSubscriptionKey** alanlarını bölge tanımlayıcınız ve abonelik anahtarınız ile değiştirin.
@@ -499,7 +499,7 @@ Ardından, devam etmek için herhangi bir tuşa basın.
 
 ## <a name="your-callback-url-if-provided-receives-this-response"></a>Belirtilmişse geri arama Url’niz bu yanıtı alır
 
-Aşağıdaki örneğe benzer bir yanıt alırsınız:
+Şu örneğe benzer bir yanıt alırsınız:
 
     {
         "ReviewId": "201801i48a2937e679a41c7966e838c92f5e649",
@@ -520,4 +520,4 @@ Aşağıdaki örneğe benzer bir yanıt alırsınız:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu ve diğer .NET için Content Moderator hızlı başlangıçları için [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) ve [Visual Studio çözümünü](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) edinin ve tümleştirmeniz üzerinde çalışmaya başlayın.
+Bu ve diğer .NET için Content Moderator hızlı başlangıçları için [Content Moderator .NET SDK'sını](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) ve [Visual Studio çözümünü](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) alın ve tümleştirmeniz üzerinde çalışmaya başlayın.

@@ -1,252 +1,123 @@
 ---
-title: 'Öğretici: eTicaret katalog denetimi - Content Moderator'
+title: 'Öğretici: E-ticaret ürün görüntüleri - Content Moderator Orta'
 titlesuffix: Azure Cognitive Services
-description: Makine öğrenmesi ve AI ile eTicaret kataloglarını otomatik olarak denetleyin.
+description: Analiz ve ürün görüntüleri (Azure görüntü işleme ve özel görüntü kullanarak) belirtilen etiketlerle sınıflandırmak için bir uygulama ayarlayın ve daha fazla etiket uygunsuz görüntüleri (Azure Content Moderator'ı kullanarak) Gözden.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/25/2017
-ms.author: sajagtap
-ms.openlocfilehash: 285590435a7e3c31d45d5d154d4e430ed3252838
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.author: pafarley
+ms.openlocfilehash: 209fb3bba2b5462caad53d809c46eba0ebf4d836
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256239"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547907"
 ---
-# <a name="tutorial-ecommerce-catalog-moderation-with-machine-learning"></a>Öğretici: Makine öğrenmesi ile eTicaret katalog denetimi
+# <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Öğretici: Azure Content Moderator ile orta e-ticaret ürün görüntüleri
 
-Bu öğreticide, akıllı bir katalog sistemi sağlamak için makine destekli AI teknolojilerini insan denetimiyle birleştirerek makine öğrenmesi tabanlı akıllı eticaret kataloğu denetiminin nasıl gerçekleştirildiğini öğreneceğiz.
+Bu öğreticide, Content Moderator dahil olmak üzere, Azure bilişsel hizmetler, etkili bir şekilde sınıflandırmak için nasıl kullanılacağını ve bir e-ticaret senaryo Orta ürün görüntüleri öğreneceksiniz. Görüntüleri çeşitli etiketleri (etiketler) uygulamak için görüntü işleme ve özel görüntü kullanır ve sonra Content Moderator'ın makine öğrenmesi tabanlı teknolojiler akıllı bir denetimi sağlamak için insan tarafından İnceleme teams ile birleştiren bir takım gözden geçirme oluşturur sistemi.
 
-![Sınıflandırılmış ürün resimleri](images/tutorial-ecommerce-content-moderator.PNG)
+Bu öğretici şunların nasıl yapıldığını gösterir:
 
-## <a name="business-scenario"></a>İş senaryosu
+> [!div class="checklist"]
+> * Content Moderator için kaydolun ve bir gözden geçirme ekibi oluşturun.
+> * Olası yetişkinlere yönelik ve müstehcen içerik taraması için Content Moderator'ın resim API'sini kullanma.
+> * Görüntü işleme hizmeti, ünlü içeriği (veya diğer bilgisayar-işleme-algılanabilir etiketleri) taramak için kullanın.
+> * Bayrakları, toys ve kalemler (veya diğer özel etiketler) varlığını taramak için Custom Vision Service'i kullanın.
+> * İnsan tarafından inceleme ve son karar birleşik tarama sonuçlarını sunar.
 
-Makine destekli teknolojileri kullanarak ürün resimlerini şu kategoriler altında sınıflandırın ve denetleyin:
+Tam örnek kodu [Eticaret katalog denetimi örnekleri](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) github deposu.
 
-1. Yetişkin (Çıplaklık)
-2. Müstehcen (Kışkırtıcı)
-3. Ünlüler
-4. US Etiketleri
-5. Oyuncaklar
-6. Kalemler
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="tutorial-steps"></a>Öğretici adımları
+## <a name="prerequisites"></a>Önkoşullar
 
-Öğretici, şu adımlarda size yol gösterir:
+- Content Moderator abonelik anahtarı. Bölümündeki yönergeleri [Bilişsel Hizmetler hesabı oluşturma](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) Content Moderator hizmete abone olmak ve anahtarınızı alın.
+- Görüntü işleme abonelik anahtarı (yukarıdaki yönergeleri).
+- [Visual Studio 2015 veya 2017](https://www.visualstudio.com/downloads/)'nin herhangi bir sürümü.
+- Custom Vision sınıflandırıcı (büyük/küçük harf bu toys, kalemler ve BİZE bayrakları) kullanan her bir etiket için görüntü kümesi.
 
-1. Kaydolma ve Content Moderator takımı oluşturma.
-2. Olası ünlü ve bayrak içeriği için denetim etiketlerini yapılandırma.
-3. Olası yetişkinlere yönelik ve müstehcen içerik taraması için Content Moderator'ın resim API'sini kullanma.
-4. Olası ünlüler taraması için Görüntü İşleme API'sini kullanma.
-5. Olası bayrak varlığını taramak için Özel Görüntü İşleme hizmetini kullanma.
-6. İnsan incelemesi ve son karar için ayrıntılı tarama sonuçlarını sunma.
+## <a name="create-a-review-team"></a>Bir gözden geçirme takım oluştur
 
-## <a name="create-a-team"></a>Takım oluşturma
+Başvurmak [ile Content Moderator hakkında bilgi edinmek](quick-start.md) kaydolmak yönergeler için Hızlı Başlangıç [Content Moderator gözden geçirme aracı](https://contentmoderator.cognitive.microsoft.com/) ve bir gözden geçirme ekibi oluşturun. Not **Takım Kimliği** değerini **kimlik bilgilerini** sayfası.
 
-Content Moderator'a kaydolmak ve takım oluşturmak için [Hızlı Başlangıç](quick-start.md) sayfasına bakın. **Kimlik Bilgileri** sayfasındaki **Takım Kimliği**'ni not alın.
+## <a name="create-custom-moderation-tags"></a>Özel denetimi etiketlerini oluştur
 
-
-## <a name="define-custom-tags"></a>Özel etiketler tanımlama
-
-Özel etiketler eklemek için [Etiketler](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) makalesine bakın. Yerleşik **adult** ve **racy** etiketlerine ek olarak, yeni etiketler de inceleme aracının etiketler için tanımlayıcı adlar görüntülemesine izin verir.
-
-Biz örneğimizde şu özel etiketleri tanımladık (**celebrity**, **flag**, **us**, **toy**, **pen**):
+Ardından, özel etiketler gözden geçirme Aracı'nda oluşturun (başvurmak [etiketleri](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) bu işlemle ilgili yardıma ihtiyacınız olursa makale). Bu durumda, aşağıdaki etiketler ekleyeceğiz: **ünlü**, **ABD**, **bayrağı**, **çocuğunun**, ve **kalem**. Tüm etiketleri görüntü işleme algılanabilir kategorilerde olması gerektiğini unutmayın (gibi **ünlü**); daha sonra algılamak için özel görüntü işleme sınıflandırıcı eğitme sürece, kendi özel etiketler ekleyebilirsiniz.
 
 ![Özel etiketleri yapılandırma](images/tutorial-ecommerce-tags2.PNG)
 
-## <a name="list-your-api-keys-and-endpoints"></a>API anahtarlarınızı ve uç noktalarınızı listeleme
+## <a name="create-visual-studio-project"></a>Visual Studio projesi oluşturma
 
-1. Öğreticide üç API, bunlara karşılık gelen anahtarlar ve API uç noktaları kullanılır.
-2. Abonelik bölgelerinize ve Content Moderator İnceleme Takımı Kimliğinize bağlı olarak, API uç noktaları farklı olacaktır.
+1. Visual Studio'da yeni proje iletişim kutusunu açın. Genişletin **yüklü**, ardından **Visual C#** , ardından **konsol uygulaması (.NET Framework)**.
+1. Uygulama adı **EcommerceModeration**, ardından **Tamam**.
+1. Bu proje için varolan bir çözümü ekliyorsanız, bu projeyi tek başlangıç projesi olarak seçin.
 
-> [!NOTE]
-> Öğretici, aşağıdaki uç noktalarda görünür olan bölgelerdeki abonelik anahtarlarını kullanacak şekilde tasarlanmıştır. API anahtarlarınızla bölge Uri'lerinin eşleştiğinden emin olun; aksi takdirde anahtarlarınız aşağıdaki uç noktalarla çalışmayabilir:
+Bu öğreticide, projeye merkezi kodu vurgulanır, ancak bunu her gerekli kod satırı kapsamaz. Tam içeriğini kopyalayın _Program.cs_ örnek projeden ([Eticaret katalog denetimi örnekleri](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)) içine _Program.cs_ yeni projenizin dosya. Ardından, adımı kendiniz proje nasıl çalıştığı ve nasıl kullanılacağı hakkında bilgi edinmek için aşağıdaki bölümleri aracılığıyla.
 
-         // Your API keys
-        public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
-        public const string ComputerVisionKey = "XXXXXXXXXXXXXXXXXXXX";
-        public const string CustomVisionKey = "XXXXXXXXXXXXXXXXXXXX";
+## <a name="define-api-keys-and-endpoints"></a>API anahtarları ve uç noktalarını tanımlayın
 
-        // Your end points URLs will look different based on your region and Content Moderator Team ID.
-        public const string ImageUri = "https://westus.api.cognitive.microsoft.com/contentmoderator/moderate/v1.0/ProcessImage/Evaluate";
-        public const string ReviewUri = "https://westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0/teams/YOURTEAMID/reviews";
-        public const string ComputerVisionUri = "https://westcentralus.api.cognitive.microsoft.com/vision/v1.0";
-        public const string CustomVisionUri = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/Prediction/XXXXXXXXXXXXXXXXXXXX/url";
+Yukarıda belirtildiği gibi Bu öğretici üç bilişsel hizmetler kullanır; Bu nedenle, üç ilgili anahtarları ve API uç noktalarını gerektirir. Aşağıdaki alanları görmek **Program** sınıfı: 
 
-## <a name="scan-for-adult-and-racy-content"></a>Yetişkinlere yönelik ve müstehcen içerikleri tarama
+[!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
-1. İşlev, resim URL'sini ve bir anahtar-değer çifti dizisini parametre olarak alır.
-2. Yetişkin ve Müstehcen puanlarını almak için Content Moderator'ın Görüntü API'sini çağırır.
-3. Puan 0,4'ten büyükse (0 ile 1 aralığındadır), **ReviewTags** dizisindeki değeri **True** olarak ayarlar.
-4. İnceleme aracında buna karşılık gelen etiketi vurgulamak için **ReviewTags** dizisi kullanılır.
+Güncellemeniz gerekecektir `___Key` abonelik anahtarlarınızın değerlerini içeren alanlar (elde edecekleriniz `CustomVisionKey` daha sonra), ve değiştirmeniz gerekebilir `___Uri` böylece doğru bölgeyi tanımlayıcıları içerdikleri alanları. Doldurun `YOURTEAMID` parçası `ReviewUri` alanında daha önce oluşturduğunuz gözden geçirme takım kimliği. Son bölümünde doldurur `CustomVisionUri` daha sonra alan.
 
-        public static bool EvaluateAdultRacy(string ImageUrl, ref KeyValuePair[] ReviewTags)
-        {
-            float AdultScore = 0;
-            float RacyScore = 0;
+## <a name="primary-method-calls"></a>Birincil yöntem çağrıları
 
-            var File = ImageUrl;
-            string Body = $"{{\"DataRepresentation\":\"URL\",\"Value\":\"{File}\"}}";
+Aşağıdaki kodda bkz **ana** yönteminin resim URL'leri bir listesi üzerinden döngü. Her üç farklı hizmet görüntüsüyle çözümler, uygulanan etiketler, kayıtları **ReviewTags** dizisi ve İnsan Moderatörler (gönderen Content Moderator gözden geçirme Aracı'nı görüntülerin) için bir inceleme oluşturur. Aşağıdaki bölümlerde bu yöntemleri inceleyeceksiniz. Unutmayın isterseniz, burada, hangi görüntüleri gözden geçirmek için gönderilen kullanarak denetleyebilirsiniz **ReviewTags** etiketleri uygulanan denetlemek için bir koşullu deyimde dizisi.
 
-            HttpResponseMessage response = CallAPI(ImageUri, ContentModeratorKey, CallType.POST,
-                                                   "Ocp-Apim-Subscription-Key", "application/json", "", Body);
+[!code-csharp[Main: evaluate each image and create review](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=53-70)]
 
-            if (response.IsSuccessStatusCode)
-            {
-                // {“answers”:[{“answer”:“Hello”,“questions”:[“Hi”],“score”:100.0}]}
-                // Parse the response body. Blocking!
-                GetAdultRacyScores(response.Content.ReadAsStringAsync().Result, out AdultScore, out RacyScore);
-            }
+## <a name="evaluateadultracy-method"></a>EvaluateAdultRacy yöntemi
 
-            ReviewTags[0] = new KeyValuePair();
-            ReviewTags[0].Key = "a";
-            ReviewTags[0].Value = "false";
-            if (AdultScore > 0.4)
-            {
-                ReviewTags[0].Value = "true";
-            }
+Bkz: **EvaluateAdultRacy** yönteminde **Program** sınıfı. Bu yöntem, parametre bir resim URL'si ve anahtar-değer çiftleri dizisi alır. Content Moderator's resim API'si (REST kullanarak), görüntünün yetişkin ve Racy puanlarını almak için çağırır. Ya da için puan (aralığı 0-1) 0.4 daha büyükse, buna karşılık gelen bir değer ayarlar **ReviewTags** için dizi **True**.
 
-            ReviewTags[1] = new KeyValuePair();
-            ReviewTags[1].Key = "r";
-            ReviewTags[1].Value = "false";
-            if (RacyScore > 0.3)
-            {
-                ReviewTags[1].Value = "true";
-            }
-            return response.IsSuccessStatusCode;
-        }
+[!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
-## <a name="scan-for-celebrities"></a>Ünlüleri tarama
+## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags yöntemi
 
-1. [Görüntü İşleme API'sinin](https://azure.microsoft.com/services/cognitive-services/computer-vision/) [ücretsiz denemesine](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision) kaydolun.
-2. **API Anahtarını Al** düğmesine tıklayın.
-3. Koşulları kabul edin.
-4. Oturum açmak için, kullanılabilir İnternet hesapları listesinden seçim yapın.
-5. Hizmet sayfanızda görüntülenen API anahtarlarını not alın.
-    
-   ![Görüntü İşleme API'si anahtarları](images/tutorial-computer-vision-keys.PNG)
-    
-6. Resmi Görüntü İşleme API'si ile tarayan işlev için proje kaynak koduna bakın.
+Sonraki yöntem, bir resim URL'si ve görüntü işleme abonelik bilgilerinizi alır ve ünlüleri varlığını görüntüyü inceler. Bir veya daha fazla ünlüleri bulunursa buna karşılık gelen bir değer ayarlar **ReviewTags** için dizi **True**. 
 
-         public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
-        {
-            var File = ImageUrl;
-            string Body = $"{{\"URL\":\"{File}\"}}";
+[!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
-            HttpResponseMessage Response = CallAPI(ComputerVisionUri, ComputerVisionKey, CallType.POST,
-                                                   "Ocp-Apim-Subscription-Key", "application/json", "", Body);
+## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags yöntemi
 
-            if (Response.IsSuccessStatusCode)
-            {
-                ReviewTags[2] = new KeyValuePair();
-                ReviewTags[2].Key = "cb";
-                ReviewTags[2].Value = "false";
+Ardından, bkz **EvaluateCustomVisionTags** gerçek ürünleri sınıflandırır yöntemi&mdash;kalemler ve bu durumda toys bayraklar. Bölümündeki yönergeleri [sınıflandırıcı oluşturma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) görüntülerde bayrakları, toys ve kalemler (veya özel etiketlerinizi seçtiğiniz) varolup olmadığını algılamak için kendi özel görüntünüzü sınıflandırıcı oluşturma kılavuzu.
 
-                ComputerVisionPrediction CVObject = JsonConvert.DeserializeObject<ComputerVisionPrediction>(Response.Content.ReadAsStringAsync().Result);
+![Özel görüntü işleme web sayfası, kalemler, toys ve bayrakları eğitim resmi](images/tutorial-ecommerce-custom-vision.PNG)
 
-                if ((CVObject.categories[0].detail != null) && (CVObject.categories[0].detail.celebrities.Count() > 0))
-                {                 
-                    ReviewTags[2].Value = "true";
-                }
-            }
+Sınıflandırıcınızı eğitim almış sonra tahmin uç nokta URL'si ve tahmin anahtar Al (bkz [URL'si ve tahmin anahtarını alma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) bunları alınırken yardıma ihtiyacınız varsa) ve bu değerleri atamak, `CustomVisionKey` ve `CustomVisionUri` alanları , sırasıyla. Yöntemi, bir sınıflandırıcı sorgulamak için bu değerleri kullanır. Sınıflandırıcı görüntüde bir veya daha fazla özel etiketler bulursa, bu yöntem karşılık gelen değerleri ayarlar **ReviewTags** için dizi **True**. 
 
-            return Response.IsSuccessStatusCode;
-        }
+[!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 
-## <a name="classify-into-flags-toys-and-pens"></a>Bayraklar, oyuncaklar ve kalemler olarak sınıflandırma
+## <a name="create-reviews-for-review-tool"></a>İncelemeler için İnceleme aracı oluşturma
 
-1. [Özel Görüntü İşleme API'si önizlemesinde](https://www.customvision.ai/) [oturum açın](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/).
-2. Bayrakların, oyuncakların ve kalemlerin olası varlığını algılamak üzere kendi özel sınıflandırıcınızı oluşturmak için [Hızlı Başlangıç](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) bölümünü kullanın.
-   ![Özel İşleme Eğitimi Resimleri](images/tutorial-ecommerce-custom-vision.PNG)
-3. Özel sınıflandırıcınız için [tahmin uç noktası URL'sini alın](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api).
-4. Resminizi taramak üzere özel sınıflandırıcı tahmin uç noktanızı çağıran işlevi görmek için proje kaynak koduna bakın.
+Önceki bölümlerde, yetişkinlere yönelik ve müstehcen içeriğin (Content Moderator), ünlüleri (görüntü işleme) ve çeşitli diğer nesnelerin (Custom Vision) gelen görüntü tarama yöntemleri Not. Ardından, bkz: **CreateReview** uygulanan etiketlerini tüm görüntüleri yükler yöntemi (olarak geçirilen _meta verileri_), insan tarafından İnceleme için kullanılabilir olabilmeleri Content Moderator gözden geçirme aracı. 
 
-        public static bool EvaluateCustomVisionTags(string ImageUrl, string CustomVisionUri, string CustomVisionKey, ref KeyValuePair[] ReviewTags)
-        {
-            var File = ImageUrl;
-            string Body = $"{{\"URL\":\"{File}\"}}";
+[!code-csharp[define CreateReview method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=173-196)]
 
-            HttpResponseMessage response = CallAPI(CustomVisionUri, CustomVisionKey, CallType.POST,
-                                                   "Prediction-Key", "application/json", "", Body);
+Görüntüleri İnceleme sekmesinde görünür [Content Moderator İnceleme aracı](https://contentmoderator.cognitive.microsoft.com/).
 
-            if (response.IsSuccessStatusCode)
-            {
-                // Parse the response body. Blocking!
-                SaveCustomVisionTags(response.Content.ReadAsStringAsync().Result, ref ReviewTags);
-            }
-            return response.IsSuccessStatusCode;
-        }       
- 
-## <a name="reviews-for-human-in-the-loop"></a>Döngüye insanı da dahil eden incelemeler
+![Birkaç görüntüyü ve vurgulanan etiketlerini Content Moderator gözden geçirme Aracı'nın ekran görüntüsü](images/tutorial-ecommerce-content-moderator.PNG)
 
-1. Önceki bölümlerde, gelen resimleri yetişkinlere yönelik ve müstehcen içerik (Content Moderator), ünlüler (Görüntü İşleme) ve Bayraklar (Özel Görüntü İşleme) için taradınız.
-2. Her tarama için eşleşme eşiklerimiz temelinde, inceleme aracında insan incelemesi için sağlanan ayrıntılı örnekleri hazırlayın.
-        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata) {
+## <a name="submit-a-list-of-test-images"></a>Test görüntülerin listesini gönderin
 
-            ReviewCreationRequest Review = new ReviewCreationRequest();
-            Review.Item[0] = new ReviewItem();
-            Review.Item[0].Content = ImageUrl;
-            Review.Item[0].Metadata = new KeyValuePair[MAXTAGSCOUNT];
-            Metadata.CopyTo(Review.Item[0].Metadata, 0);
+İçinde gördüğünüz gibi **ana** yöntemi, bu program "C:Test" dizinle arar bir _Urls.txt_ görüntü URL'lerin bir listesini içeren dosya. Böyle bir dosya ve dizin oluşturma veya yolun metin dosyanıza işaret edecek şekilde değiştirin ve bu dosyayla görüntüleri test etmek istediğiniz URL'leri Doldur.
 
-            //SortReviewItems(ref Review);
+[!code-csharp[Main: set up test directory, read lines](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=38-51)]
 
-            string Body = JsonConvert.SerializeObject(Review.Item);
+## <a name="run-the-program"></a>Programı çalıştırma
 
-            HttpResponseMessage response = CallAPI(ReviewUri, ContentModeratorKey, CallType.POST,
-                                                   "Ocp-Apim-Subscription-Key", "application/json", "", Body);
-
-            return response.IsSuccessStatusCode;
-        }
-
-## <a name="submit-batch-of-images"></a>Toplu resimleri gönderme
-
-1. Bu öğreticide, resim Url'leri listesini içeren bir metin dosyasının bulunduğu "C:Test" dizinin var olduğu varsayılır.
-2. Aşağıdaki kod dosyanın var olup olmadığını denetler ve tüm Url'leri belleğe okur.
-            // Resim Url'lerini içeren metin dosyası için test dizinini denetleyip şu taramayı yapın: var topdir = @"C:\test\"; var Urlsfile = topdir + "Urls.txt";
-
-            if (!Directory.Exists(topdir))
-                return;
-
-            if (!File.Exists(Urlsfile))
-            {
-                return;
-            }
-
-            // Read all image URLs in the file
-            var Urls = File.ReadLines(Urlsfile);
-
-## <a name="initiate-all-scans"></a>Tüm taramaları başlatma
-
-1. Bu üst düzey işlev, daha önce belirttiğimiz metin dosyasındaki tüm resim URL'lerinde döngü yapar.
-2. Her API'yle bunları tarar ve eşleşme güvenilirlik puanı ölçütlerimize uyarsa insan denetleyiciler için bir inceleme oluşturur.
-             // dosyadaki her resim URL'si için... foreach (var Url in Urls) { // Yeni bir inceleme etiketleri dizisi başlatın ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
-
-                // Evaluate for potential adult and racy content with Content Moderator API
-                EvaluateAdultRacy(Url, ref ReviewTags);
-
-                // Evaluate for potential presence of celebrity (ies) in images with Computer Vision API
-                EvaluateComputerVisionTags(Url, ComputerVisionUri, ComputerVisionKey, ref ReviewTags);
-
-                // Evaluate for potential presence of custom categories other than Marijuana
-                EvaluateCustomVisionTags(Url, CustomVisionUri, CustomVisionKey, ref ReviewTags);
-
-                // Create review in the Content Moderator review tool
-                CreateReview(Url, ReviewTags);
-            }
-
-## <a name="license"></a>Lisans
-
-Tüm Microsoft Bilişsel Hizmetler SDK'ları ve örnekler, MIT Lisansı ile lisanslanmıştır. Diğer ayrıntılar için bkz. [LİSANS](https://microsoft.mit-license.org/).
-
-## <a name="developer-code-of-conduct"></a>Geliştirici Kullanım Kuralları
-
-Bu istemci kitaplığı ve örnek de dahil olmak üzere Bilişsel Hizmetler'i kullanan geliştiricilerin, http://go.microsoft.com/fwlink/?LinkId=698895 adresinde bulunan "Microsoft Bilişsel Hizmetler için Geliştirici Kullanım Kuralları"na uyması beklenir.
+Yukarıdaki adımları izlediyseniz, program (tüm üç hizmeti ilgili etiketlerini için sorgulama) her bir görüntü işleme ve Content Moderator gözden geçirme Aracı'etiketi bilgileri görüntülerle yükleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Derleme ve öğreticiyi kullanarak genişletme [proje kaynak dosyaları](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) GitHub üzerinde.
+Bu öğreticide, ürün görüntüleri bunları ürün türüne göre etiketleme ve bir gözden geçirme takım, içerik denetleme hakkında bilinçli kararlar verme amacıyla analiz etmek için program ayarlama. Ardından, görüntü denetimi ile ilgili ayrıntıları hakkında daha fazla bilgi edinin.
+
+> [!div class="nextstepaction"]
+> [Denetlenen görüntüleri İnceleme](./review-tool-user-guide/review-moderated-images.md)

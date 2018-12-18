@@ -8,12 +8,12 @@ ms.component: cosmosdb-sql
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: 9c16a882e49ceec4fc733cb3a8c1061dd1949e28
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d8aff2048d80b2c1542241c8370a9eb2b79366ac
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166634"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541906"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API'si için .NET örnekleri
 > [!div class="op_single_selector"]
@@ -161,7 +161,7 @@ Sunucu tarafı programlama dosyasında ([azure-documentdb-dotnet/samples/code-sa
 | [Tetikleme sonrası oluşturma](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L329) |[DocumentClient.CreateTriggerAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createtriggerasync.aspx) |
 | [Kullanıcı Tanımlı İşlev (UDF) Oluşturma](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/ServerSideScripts/Program.cs#L389) |[DocumentClient.CreateUserDefinedFunctionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createuserdefinedfunctionasync.aspx) |
 
-Sunucu tarafı programlama hakkında daha fazla bilgi için bkz. [Azure Cosmos DB sunucu tarafı programlama: Saklı yordamlar, veritabanı Tetikleyicileri ve UDF'leri](programming.md).
+Sunucu tarafı programlama hakkında daha fazla bilgi için bkz. [Azure Cosmos DB sunucu tarafı programlama: Saklı yordamlar, veritabanı Tetikleyicileri ve UDF'leri](stored-procedures-triggers-udfs.md).
 
 ## <a name="user-management-examples"></a>Kullanıcı yönetim örnekleri
 Kullanıcı yönetimi dosyası ([azure-documentdb-dotnet/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs)) aşağıdaki görevlerin nasıl gerçekleştirileceğini gösterir.

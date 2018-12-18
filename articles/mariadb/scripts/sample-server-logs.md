@@ -1,21 +1,19 @@
 ---
 title: Azure CLI betiği - Azure veritabanı'nda indirme sunucu, MariaDB için kaydeder.
 description: Bu örnek Azure CLI betiği, MariaDB sunucusu için Azure veritabanı sunucu günlüklerini etkinleştirmeyi ve indirmeyi gösterilmektedir.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: cda2f1f02bf48c261da2fdda53c1c145154fe3ee
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: da2a8ed610873d957866117a9ef7aab424edd452
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585345"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548102"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Etkinleştirme ve Azure CLI kullanarak MariaDB için Azure veritabanı sunucusunun yavaş sorgu günlüklerini indirme
 Bu örnek CLI betiği, etkinleştirir ve tek bir Azure veritabanı MariaDB sunucusu için yavaş sorgu günlüklerini indirir.
@@ -46,5 +44,5 @@ Bu betik, aşağıdaki tabloda ana hatları verilen komutları kullanır:
 | [az group delete](/cli/azure/group#az-group-delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Azure CLI hakkında daha fazla bilgi okuyun: [Azure CLI belgeleri](/cli/azure).
+- Azure CLI hakkında daha fazla bilgi edinin: [Azure CLI belgeleri](/cli/azure).
 - Ek betikleri deneyin: [MariaDB için Azure veritabanı Azure CLI örnekleri](../sample-scripts-azure-cli.md)

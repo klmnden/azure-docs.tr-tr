@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 842a321f63bce11207e6144705e9c4f68df21760
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 30d9db58a6b9e8cbebe427d450ef73265f9bf478
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133985"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536823"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app"></a>Angular ve Azure Cosmos DB - bölüm 2 ile bir MongoDB uygulaması oluşturun: Bir Node.js Express uygulaması oluşturma
 
-Bu çok bölümlü öğretici, Express, Angular ve Azure Cosmos DB veritabanınız ile Node.js kullanılarak yazılmış yeni bir [MongoDB API](mongodb-introduction.md) uygulamasının nasıl oluşturulacağını gösterir.
+Bu çok bölümlü öğretici, yeni bir gösterilmiştir [MongoDB için Azure Cosmos DB API hesabı](mongodb-introduction.md) Express, Angular ve Azure Cosmos DB veritabanınız ile Node.js kullanılarak yazılmış uygulama.
 
 Öğreticinin 2. bölümünde [giriş bölümündeki](tutorial-develop-mongodb-nodejs.md) konular genişletilir ve aşağıdaki görevler yer alır:
 

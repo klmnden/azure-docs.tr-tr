@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı başlangıç: Java kullanarak uç nokta çağırma - Bing Özel Arama'
+title: 'Hızlı Başlangıç: Java kullanarak Bing özel arama uç noktanızı arayın | Microsoft Docs'
 titlesuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Java kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir.
+description: Bu hızlı başlangıçta, Java Bing özel arama örneğinizin gelen arama sonuçlarını talep başlamak için kullanın.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,33 +10,31 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: 5b4494f7840dd9b32cad88ecda800e4dac9c4d8a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 803c2de976255b252bea8e16b920f8f3aee37101
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315928"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557623"
 ---
-# <a name="quickstart-call-bing-custom-search-endpoint-java"></a>Hızlı başlangıç: Bing Özel Arama uç noktasını çağırma (Java)
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Hızlı Başlangıç: Java kullanarak Bing özel arama uç noktanızı arayın
 
-Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Java kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir. 
+Bing özel arama örneğinizin arama sonuçlarını talep başlamak için bu Hızlı Başlangıç'ı kullanın. Bu uygulama, Java dilinde yazılır, ancak Bing özel arama API'si bir RESTful web çoğu programlama dilleri ile uyumlu hizmetidir. Bu örneğin kaynak kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingCustomSearchv7.java)’da mevcuttur.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
+- Bing özel arama örneği için. Bkz: [hızlı başlangıç: İlk Bing özel arama örneğinizin oluşturma](quick-start.md) daha fazla bilgi için.
 
-- Kullanıma hazır özel arama örneği. Bkz. [İlk Bing Özel Arama örneğinizi oluşturma](quick-start.md).
-- [Java](https://www.java.com) uygulamasının yüklenmiş olması.
-- Abonelik anahtarı. Abonelik anahtarını [ücretsiz denemenizi](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) etkinleştirdikten sonra alabilir veya Azure panonuzdan ücretli abonelik anahtarı (bkz. [Bilişsel Hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)) kullanabilirsiniz.   Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+- En son [Java Geliştirme Seti](https://www.oracle.com/technetwork/java/javase/downloads/index.html)  
 
-## <a name="run-the-code"></a>Kodu çalıştırma
+- [Gson kitaplığı](https://github.com/google/gson)
 
-Bu örneği çalıştırmak için aşağıdaki adımları uygulayın:
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
-1. Tercih ettiğiniz Java IDE ortamını kullanarak bir paket oluşturun.  
-  
-2. Pakette CustomSrchJava.java adlı bir dosya oluşturun ve aşağıdaki kodu içine kopyalayın. **YOUR-SUBSCRIPTION-KEY** ve **YOUR-CUSTOM-CONFIG-ID** yerine abonelik anahtarınızı ve yapılandırma kimliğinizi yazın.  
-  
+## <a name="create-and-initialize-the-application"></a>Uygulamayı oluşturma ve başlatma
+
+1. Sık kullandığınız IDE ortamında veya düzenleyicide yeni bir Java projesi oluşturun ve aşağıdaki kitaplıkları içeri aktarın.
+
     ```java
     import java.io.InputStream;
     import java.net.URL;
@@ -45,48 +43,40 @@ Bu örneği çalıştırmak için aşağıdaki adımları uygulayın:
     import java.util.List;
     import java.util.Map;
     import java.util.Scanner;
-    
     import javax.net.ssl.HttpsURLConnection;
-    
     import com.google.gson.Gson;
     import com.google.gson.GsonBuilder;
     import com.google.gson.JsonObject;
     import com.google.gson.JsonParser;
-    
-    public class CustomSrchJava {       
+    ```
+
+2. adlı bir sınıf oluşturun `CustomSrchJava`ve abonelik anahtarınız, özel arama uç noktası ve yapılandırma özel arama örneğinizin kimliği için değişkenleri oluşturma 
+    ```java
+    public class CustomSrchJava {
         static String host = "https://api.cognitive.microsoft.com";
         static String path = "/bingcustomsearch/v7.0/search";
         static String subscriptionKey = "YOUR-SUBSCRIPTION-KEY"; 
-        static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";  
-    
-        static String searchTerm = "Microsoft";  // Replace with search term specific to your search scenario.
-    
-        public static SearchResults SearchWeb (String searchQuery) throws Exception {
-            // construct URL of search request (endpoint + query string)
-            URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
-            HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-            connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
-    
-            // receive JSON body
-            InputStream stream = connection.getInputStream();
-            String response = new Scanner(stream).useDelimiter("\\A").next();
-    
-            // construct result object for return
-            SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-    
-            // extract Bing-related HTTP headers
-            Map<String, List<String>> headers = connection.getHeaderFields();
-            for (String header : headers.keySet()) {
-                if (header == null) continue;      // may have null key
-                if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
-                    results.relevantHeaders.put(header, headers.get(header).get(0));
-                }
-            }
-    
-            stream.close();
-            return results;
+        static String customConfigId = "YOUR-CUSTOM-CONFIG-ID";
+        static String searchTerm = "Microsoft";  
+    ...
+    ```
+
+3. Adlı başka bir sınıf oluşturun `SearchResults` Bing özel arama örneğinizin yanıttan içerecek.
+
+    ```csharp
+    class SearchResults{
+        HashMap<String, String> relevantHeaders;
+        String jsonResponse;
+        SearchResults(HashMap<String, String> headers, String json) {
+            relevantHeaders = headers;
+            jsonResponse = json;
         }
-    
+    }
+    ```
+
+4. Adlı bir işlev oluşturma `prettify()` Bing özel arama API'si JSON yanıtı biçimlendirmek için.
+
+    ```java
         // pretty-printer for JSON; uses GSON parser to parse and re-serialize
         public static String prettify(String json_text) {
             JsonParser parser = new JsonParser();
@@ -94,48 +84,52 @@ Bu örneği çalıştırmak için aşağıdaki adımları uygulayın:
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             return gson.toJson(json);
         }
-    
-        public static void main (String[] args) {
-            if (subscriptionKey.length() != 32) {
-                System.out.println("Invalid Custom Search subscription key!");
-                System.out.println("Please paste yours into the source code.");
-                System.exit(1);
-            }
-    
-            try {
-                System.out.println("Searching your slice of the Web for: " + searchTerm);
-    
-                SearchResults result = SearchWeb(searchTerm);
-    
-                System.out.println("\nRelevant HTTP Headers:\n");
-                for (String header : result.relevantHeaders.keySet())
-                    System.out.println(header + ": " + result.relevantHeaders.get(header));
-    
-                System.out.println("\nJSON Response:\n");
-                System.out.println(prettify(result.jsonResponse));
-            }
-            catch (Exception e) {
-                e.printStackTrace(System.out);
-                System.exit(1);
-            }
+    ```
+
+## <a name="send-and-receive-a-search-request"></a>Arama isteği gönderip 
+
+1. Adlı bir işlev oluşturma `SearchWeb()` bir istek gönderir ve döndüren bir `SearchResults` nesne. İstek oluşturma özel yapılandırma kimliği, sorgu ve uç nokta bilgilerinizi birleştirerek URL'si. Abonelik anahtarınızı ekleme `Ocp-Apim-Subscription-Key` başlığı.
+
+    ```java
+    public class CustomSrchJava {
+    ...
+        public static SearchResults SearchWeb (String searchQuery) throws Exception {
+            // construct the URL for your search request (endpoint + query string)
+            URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8") + "&CustomConfig=" + customConfigId);
+            HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+            connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+    ...
+    ```
+
+2. Bir stream oluşturabilir ve JSON yanıt olarak depolamak bir `SearchResults` nesne.
+
+    ```java
+    public class CustomSrchJava {
+    ...
+        public static SearchResults SearchWeb (String searchQuery) throws Exception {
+            ...
+            // receive the JSON body
+            InputStream stream = connection.getInputStream();
+            String response = new Scanner(stream).useDelimiter("\\A").next();
+        
+            // construct result object for return
+            SearchResults results = new SearchResults(new HashMap<String, String>(), response);
+            
+            stream.close();
+            return results;
         }
-    }
-    
-    // Container class for search results encapsulates relevant headers and JSON data
-    static class SearchResults{
-        HashMap<String, String> relevantHeaders;
-        String jsonResponse;
-        SearchResults(HashMap<String, String> headers, String json) {
-            relevantHeaders = headers;
-            jsonResponse = json;
-        }
-    
-    }
-    ```  
-  
+    ```
+
+3. Uygulamanızın ana yöntemi çağırın `SearchWeb()` arama teriminizi ile 
+
+    ```java
+    System.out.println("\nJSON Response:\n");
+    System.out.println(prettify(result.jsonResponse));
+    ```
+
 4. Programı çalıştırın.
     
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Barındırılan kullanıcı arabirimi deneyiminizi yapılandırma](./hosted-ui.md)
-- [Metni vurgulamak için süsleme işaretçilerini kullanma](./hit-highlighting.md)
-- [Sayfa web sayfaları](./page-webpages.md)
+
+> [!div class="nextstepaction"]
+> [Bir özel arama web uygulaması derleme](./tutorials/custom-search-web-page.md)

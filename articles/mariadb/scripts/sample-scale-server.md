@@ -1,21 +1,19 @@
 ---
 title: Azure CLI betiği - ölçek MariaDB server için Azure veritabanı
 description: Bu örnek CLI betiği ölçümleri sorguladıktan sonra farklı bir performans düzeyinde sunucuya MariaDB için Azure veritabanı ölçeklendirir.
-services: mariadb
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: e5f6364992987e5aeb6cb1ccd2055823efae607e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ef01c38dddee0a74477ef331f935bda2787866df
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585337"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546378"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mariadb-server-using-azure-cli"></a>İzleme ve Azure CLI kullanarak MariaDB için Azure veritabanı ölçeklendirme
 Bu örnek CLI betiği ölçümleri sorguladıktan sonra tek sunucuya farklı bir performans düzeyinde MariaDB için Azure veritabanı ölçeklendirir.
@@ -42,6 +40,6 @@ Bu betik, aşağıdaki tabloda ana hatları verilen komutları kullanır:
 | [az group delete](/cli/azure/group#az-group-delete) | Bir kaynak grubunu tüm iç içe geçmiş kaynaklar dahil siler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Azure CLI hakkında daha fazla bilgi okuyun: [Azure CLI belgeleri](/cli/azure).
+- Azure CLI hakkında daha fazla bilgi edinin: [Azure CLI belgeleri](/cli/azure).
 - Ek betikleri deneyin: [MariaDB için Azure veritabanı Azure CLI örnekleri](../sample-scripts-azure-cli.md)
 - Ölçeklendirme hakkında daha fazla bilgi için bkz. [fiyatlandırma katmanları] (.. /Concepts-pricing-tiers.MD.

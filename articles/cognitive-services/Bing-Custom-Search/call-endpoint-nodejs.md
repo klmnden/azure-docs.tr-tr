@@ -1,7 +1,7 @@
 ---
-title: 'Hızlı başlangıç: Node.js kullanarak uç nokta çağırma - Bing Özel Arama'
+title: 'Hızlı Başlangıç: Node.js kullanarak Bing özel arama uç noktanızı arayın | Microsoft Docs'
 titlesuffix: Azure Cognitive Services
-description: Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Node.js kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir.
+description: Arama sonuçlarını Node.js kullanarak Bing özel arama örneğinizin talep başlamak için bu Hızlı Başlangıç'ı kullanın
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,77 +10,71 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: c0c97dd52f8fc3ff590c86f32f794beeb00f4b05
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3af35a9aea9115971d1fbd251da3fbaddb011c5f
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310261"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555804"
 ---
-# <a name="quickstart-call-bing-custom-search-endpoint-nodejs"></a>Hızlı başlangıç: Bing Özel Arama uç noktasını çağırma (Node.js)
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak Bing özel arama uç noktanızı arayın
 
-Bu hızlı başlangıçta Bing Özel Arama uç noktasını çağırmak için Node.js kullanarak özel arama örneğinizden arama sonuçlarını isteme adımları gösterilmektedir. 
+Bing özel arama örneğinizin arama sonuçlarını talep başlamak için bu Hızlı Başlangıç'ı kullanın. Bu uygulamanın, JavaScript'te yazılmış olsa, Bing özel arama API'si bir RESTful web çoğu programlama dilleri ile uyumlu hizmetidir. Bu örneğin kaynak kodu [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js)’da mevcuttur.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
+- Bing özel arama örneği için. Bkz: [hızlı başlangıç: İlk Bing özel arama örneğinizin oluşturma](quick-start.md) daha fazla bilgi için.
 
-- Kullanıma hazır özel arama örneği. Bkz. [İlk Bing Özel Arama örneğinizi oluşturma](quick-start.md).
-- [Node.js](https://www.nodejs.org/) uygulamasının yüklenmiş olması.
-- Abonelik anahtarı. Abonelik anahtarını [ücretsiz denemenizi](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) etkinleştirdikten sonra alabilir veya Azure panonuzdan ücretli abonelik anahtarı (bkz. [Bilişsel Hizmetler API hesabı](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)) kullanabilirsiniz.   Ayrıca bkz: [Bilişsel hizmetler fiyatlandırması - Bing arama API'si](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+- [Node.js](https://www.nodejs.org/)
 
-## <a name="run-the-code"></a>Kodu çalıştırma
+- [JavaScript isteği kitaplığı](https://github.com/request/request)
 
-Bu örneği çalıştırmak için aşağıdaki adımları uygulayın:
+[!INCLUDE [cognitive-services-bing-custom-search-prerequisites](../../../includes/cognitive-services-bing-custom-search-signup-requirements.md)]
 
-1. Kodunuz için bir klasör oluşturun.  
-  
-2. Bir komut isteminden veya terminalden az önce oluşturduğunuz klasöre gidin.  
-  
-3. **request** Node modülünü yükleyin:
-    <pre>
-    npm install request
-    </pre>  
-    
-4. Oluşturduğunuz klasörde BingCustomSearch.js adlı bir dosya oluşturun ve aşağıdaki kodu içine kopyalayın. **YOUR-SUBSCRIPTION-KEY** ve **YOUR-CUSTOM-CONFIG-ID** yerine abonelik anahtarınızı ve yapılandırma kimliğinizi yazın.  
-  
-    ``` javascript
+## <a name="create-and-initialize-the-application"></a>Uygulamayı oluşturma ve başlatma
+
+1. Yeni bir JavaScript dosyası, sık kullandığınız IDE veya düzenleyici oluşturma ve ekleme bir `require()` istekleri kitaplığı için bildirimi. Abonelik anahtarınız ve özel yapılandırma kimliği bir arama terimi için değişkenler oluşturun. 
+
+    ```javascript
     var request = require("request");
     
     var subscriptionKey = 'YOUR-SUBSCRIPTION-KEY';
     var customConfigId = 'YOUR-CUSTOM-CONFIG-ID';
     var searchTerm = 'microsoft';
-    
-    var options = {
+    ```
+
+## <a name="send-and-receive-a-search-request"></a>Arama isteği gönderip 
+
+1. İsteğinizde gönderilen bilgileri depolamak için bir değişken oluşturun. Arama teriminizi ekleyerek istek URL'si oluşturmak `q=` sorgu parametresi ve yapılandırma kimliği özel arama örneğinizin `customconfig=`. parametrelerle ayrı bir `&` karakter. 
+
+    ```javascript
+    var info = {
         url: 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 
-          'q=' + searchTerm + 
-          '&customconfig=' + customConfigId,
+            'q=' + searchTerm + "&" +
+            'customconfig=' + customConfigId,
         headers: {
             'Ocp-Apim-Subscription-Key' : subscriptionKey
         }
     }
-    
-    request(options, function(error, response, body){
-        var searchResponse = JSON.parse(body);
-        for(var i = 0; i < searchResponse.webPages.value.length; ++i){
-            var webPage = searchResponse.webPages.value[i];
-            console.log('name: ' + webPage.name);
-            console.log('url: ' + webPage.url);
-            console.log('displayUrl: ' + webPage.displayUrl);
-            console.log('snippet: ' + webPage.snippet);
-            console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
-            console.log();
-        }
-    })
-    ```  
-  
-6. Şu komutu kullanarak kodu çalıştırın:  
-  
-    ```    
-    node BingCustomSearch.js
-    ``` 
+    ```
+
+1. Bing özel arama örneğinizin arama isteği gönderme ve Web sayfasının son gezinilmesi istendiğinde bilgileri hakkında adı, url ve tarih gibi sonuçları yazdırmak için JavaScript isteği Kitaplığı'nı kullanın.
+
+    ```javascript
+    request(info, function(error, response, body){
+            var searchResponse = JSON.parse(body);
+            for(var i = 0; i < searchResponse.webPages.value.length; ++i){
+                var webPage = searchResponse.webPages.value[i];
+                console.log('name: ' + webPage.name);
+                console.log('url: ' + webPage.url);
+                console.log('displayUrl: ' + webPage.displayUrl);
+                console.log('snippet: ' + webPage.snippet);
+                console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
+                console.log();
+            }
+    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Barındırılan kullanıcı arabirimi deneyiminizi yapılandırma](./hosted-ui.md)
-- [Metni vurgulamak için süsleme işaretçilerini kullanma](./hit-highlighting.md)
-- [Sayfa web sayfaları](./page-webpages.md)
+
+> [!div class="nextstepaction"]
+> [Bir özel arama web uygulaması derleme](./tutorials/custom-search-web-page.md)

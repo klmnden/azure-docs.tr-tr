@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell Betiği-Azure Cosmos DB MongoDB API hesap oluşturma
-description: Azure PowerShell Betiği Örneği - Azure Cosmos DB MongoDB API hesabı oluşturma
+title: Azure PowerShell Betiği-oluşturma MongoDB için bir Azure Cosmos DB API hesabı
+description: Azure PowerShell betik örneği - MongoDB için Azure Cosmos DB API hesabı oluşturma
 services: cosmos-db
 ms.service: cosmos-db
 author: SnehaGunda
@@ -9,16 +9,16 @@ ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 05/29/2018
-ms.openlocfilehash: 1df8749f0032f60bc3d18f6d8352712e74c53fd5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 006aff3c9dd45d3a8a932eb6761c393ab5bcd1d7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963905"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544811"
 ---
-# <a name="azure-cosmos-db-create-a-mongodb-api-account-using-powershell"></a>Azure Cosmos DB: PowerShell kullanarak bir MongoDB API hesabı oluşturma
+# <a name="create-a-azure-cosmos-db-api-account-for-mongodb-using-powershell"></a>PowerShell kullanarak MongoDB için Azure Cosmos DB API hesabı oluşturma
 
-Bu örnek PowerShell betiği bir Azure Cosmos DB MongoDB API hesabı oluşturur. 
+Bu örnek PowerShell Betiği, MongoDB için Azure Cosmos DB API hesabı oluşturur. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

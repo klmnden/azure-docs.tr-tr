@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: 98e69c7759f736c132601305156290f7a43eeaf9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319362"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537588"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins eklentisini kullanarak Azure App Service'e dağıtım yapma 
 
@@ -55,7 +55,7 @@ Kapsayıcılar için Web App'e dağıtım yapmak istiyorsanız Jenkins Ana Sunuc
 Azure'a dağıtım yapmak için bir Azure hizmet sorumlusuna ihtiyacınız vardır. 
 
 
-1. Azure hizmet sorumlusu oluşturmak için [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)'yi veya [Azure portal](/azure/azure-resource-manager/resource-group-create-service-principal-portal)'ı kullanın.
+1. Bir Azure hizmet sorumlusu oluşturmak için kullanın [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) veya [Azure portalında](/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 2. Jenkins panosunda **Credentials** > **System**'ı (Kimlik Bilgileri > Sistem) seçin. Ardından, **Global credentials(unrestricted)** (Genel kimlik bilgileri (sınırsız)) seçeneğini belirleyin.
 3. Microsoft Azure hizmet sorumlusu eklemek için **Add Credentials**'ı (Kimlik Bilgileri Ekle) seçin. **Abonelik Kimliği**, **İstemci Kimliği**, **Gizli Anahtar** ve **OAuth 2.0 Belirteç Uç Noktası** alanları için değer girin. **Kimlik** alanını **mySp** olarak ayarlayın. Bu makaledeki sonraki adımlarda bu kimliği kullanacağız.
 
@@ -64,9 +64,9 @@ Azure'a dağıtım yapmak için bir Azure hizmet sorumlusuna ihtiyacınız vard�
 
 Projenizi Web Apps’e dağıtmak için, derleme yapıtlarınızı dosya yüklemeyle yükleyebilirsiniz. Azure App Service, birden çok dağıtım seçeneğini destekler. Azure App Service Jenkins eklentisini bunu sizin için basitleştirir ve türeyen dosya türüne göre dağıtım seçeneğini türetir. 
 
-* Java EE uygulamaları için [WAR dağıtımı](/azure/app-service/app-service-deploy-zip#deploy-war-file) kullanılır.
-* Java SE uygulamaları için [ZIP dağıtımı](/azure/app-service/app-service-deploy-zip#deploy-zip-file) kullanılır.
-* Diğer diller için [Git dağıtımını](/azure/app-service/app-service-deploy-local-git) kullanılır.
+* Java EE uygulamaları için [WAR dağıtımı](/azure/app-service/deploy-zip#deploy-war-file) kullanılır.
+* Java SE uygulamaları için [ZIP dağıtımı](/azure/app-service/deploy-zip#deploy-zip-file) kullanılır.
+* Diğer diller için [Git dağıtımını](/azure/app-service/deploy-local-git) kullanılır.
 
 İşi Jenkins'de ayarlayabilmek için bir Azure App Service planına ve Java uygulamasını çalıştıracak bir web uygulamasına ihtiyacınız vardır.
 
@@ -100,7 +100,7 @@ Projenizi Web Apps’e dağıtmak için, derleme yapıtlarınızı dosya yüklem
 4. **Publish an Azure Web App**'i (Azure Web App Yayımla) seçerek derleme sonrası eylem ekleyin.
 5. Azure hizmet sorumlusu olarak **mySp** değerini girin. Bu sorumlu, önceki bir adımda [Azure Kimlik Bilgileri](#service-principal) olarak depolanmıştı.
 6. **Uygulama Yapılandırması**bölümünde, aboneliğinizdeki web uygulamasını ve kaynak grubunu seçin. Jenkins eklentisi, web uygulamasının Windows tabanlı mı, Linux tabanlı mı olduğunu otomatik olarak algılar. Windows web uygulamaları için **Publish Files** (Dosyaları Yayımla) seçeneği sunulur.
-7. Dağıtmak istediğiniz dosyaları girin. Örneğin, Java'yı kullanıyorsanız WAR paketini belirtin. Dosyayı karşıya yükleme işlemi için kullanılacak kaynak ve hedef klasörleri belirtmek üzere isteğe bağlı **Kaynak Dizin** ve **Hedef Dizin** parametrelerini kullanın. Azure'da Java web uygulamaları bir Tomcat sunucusunda çalıştırılır. Bu nedenle Java için, WAR paketinizi webapps klasörüne yükleyin. Bu örnek için **Kaynak Dizin** değerini **target**, **Hedef Dizin** değerini **webapps** olarak ayarlayın.
+7. Dağıtmak istediğiniz dosyaları girin. Örneğin, Java'yı kullanıyorsanız WAR paketini belirtin. Dosyayı karşıya yükleme işlemi için kullanılacak kaynak ve hedef klasörleri belirtmek üzere isteğe bağlı **Kaynak Dizin** ve **Hedef Dizin** parametrelerini kullanın. Azure'da Java web uygulamaları bir Tomcat sunucusunda çalıştırılır. Bu nedenle Java için WAR paketinizi webapps klasörüne yükleyin. Bu örnek için **Kaynak Dizin** değerini **target**, **Hedef Dizin** değerini **webapps** olarak ayarlayın.
 8. production dışında bir yuvaya dağıtım yapmak istiyorsanız **Yuva** adını da ayarlayabilirsiniz.
 9. Projeyi kaydedin ve derleyin. Derleme tamamlandığında web uygulamanız Azure'a dağıtılır.
 
@@ -131,7 +131,7 @@ Azure App Service Jenkins eklentisi işlem hattında kullanıma hazırdır. Aşa
 
 ## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>Kapsayıcılar için Web App dağıtmak üzere Jenkins'i yapılandırma
 
-Linux üzerinde Web App, Docker ile dağıtımı destekler. Web uygulamanızı Docker'ı kullanarak dağıtmak için, web uygulamanızı bir hizmet çalışma zamanı ile Docker görüntüsü olarak paket haline getiren bir Dockerfile sağlamanız gerekir. Ardından, Jenkins eklentisi görüntüyü derleyip Docker kayıt defterine gönderir ve görüntüyü web uygulamanıza dağıtır.
+Linux üzerinde Web App, Docker ile dağıtımı destekler. Docker kullanarak web uygulamanızı dağıtmak için bir hizmet çalışma zamanı web uygulamanızla bir Docker görüntüsü halinde paketler bir Dockerfile'ı sağlamanız gerekir. Ardından, Jenkins eklentisi görüntüyü derleyip Docker kayıt defterine gönderir ve görüntüyü web uygulamanıza dağıtır.
 
 Linux üzerinde Web App, yalnızca yerleşik diller (.NET Core, Node.js, PHP ve Ruby) için geçerli olmak üzere Git ve dosya yükleme gibi geleneksel dağıtım yöntemlerini de destekler. Diğer diller için, uygulama kodunuzla hizmet çalışma zamanını birlikte bir Docker görüntüsü olarak paket haline getirmeniz ve dağıtım için Docker'ı kullanmanız gerekir.
 
@@ -161,7 +161,7 @@ Azure Container Registry'yi kullanıyorsanız **Docker registry URL** (Docker ka
     az acr credential show -n <yourRegistry>
     ```
 
-10. **Advanced** (Gelişmiş) sekmesindeki Docker görüntü adı ve etiket değeri isteğe bağlıdır. Varsayılan olarak, görüntü adı değeri, Azure portal'daki **Docker Container** (Docker Kapsayıcısı) ayarlarında yapılandırmış olduğunuz addan alınır. Etiket, $BUILD_NUMBER temel alınarak oluşturulur.
+10. **Advanced** (Gelişmiş) sekmesindeki Docker görüntü adı ve etiket değeri isteğe bağlıdır. Varsayılan olarak, görüntü adı değeri, Azure portal'daki **Docker Container** (Docker Kapsayıcısı) ayarlarında yapılandırmış olduğunuz addan alınır. Etiket $BUILD_NUMBER oluşturulur.
     > [!NOTE]
     > Azure portal'da görüntü adını belirttiğinizden veya **Advanced** (Gelişmiş) sekmesinde bir **Docker Image** (Docker Görüntüsü) değeri sağladığınızdan emin olun. Bu örnek için, **Docker image** (Docker görüntüsü) değerini &lt;Kayıt_Defteriniz>.azurecr.io/calculator olarak ayarlayın ve **Docker Image Tag** (Docker Görüntü Etiketi) değerini boş bırakın.
 
@@ -206,7 +206,7 @@ Azure Container Registry'yi kullanıyorsanız **Docker registry URL** (Docker ka
     Sun Jun 17 16:39:10 UTC 2017
     ```
 
-3. http://&lt;uygulamanızın_adı>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> sayfasına gidin. &lt;x> ve &lt;y> değerlerini, x + y toplamını elde etmek istediğiniz sayılarla değiştirin. Hesaplayıcı şu toplamı görüntüler: ![Calculator: add](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+3. http://&lt;uygulamanızın_adı>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> sayfasına gidin. &lt;x> ve &lt;y> değerlerini, x + y toplamını elde etmek istediğiniz sayılarla değiştirin. Hesaplayıcı toplamı gösterilir: ![Hesaplayıcı: Ekle](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
 ### <a name="for-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service için
 

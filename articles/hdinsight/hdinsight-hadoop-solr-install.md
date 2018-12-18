@@ -156,7 +156,7 @@ Solr ile bazı veri dosyalarının dizinini oluşturarak ile başlamalıdır. So
           </response>
       ```
       
-   2. Uzak bir oturumda {SOLR_HOME için} gidin\{koleksiyon} \data. Bu örnek betik oluşturulan küme için olmalıdır `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Bu konumda benzer bir ad ile oluşturulmuş bir anlık görüntü klasörü görmelisiniz **anlık görüntü.* zaman damgası ***.
+   2. Uzak bir oturumda {SOLR_HOME için} gidin\{koleksiyon} \data. Bu örnek betik oluşturulan küme için olmalıdır `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Bu konumda benzer bir ad ile oluşturulmuş bir anlık görüntü klasörü görmelisiniz **anlık görüntü.\*zaman damgası**\*.
    
    3. Anlık görüntü klasörü zip ve Azure Blob depolama alanına yükleyin. Hadoop komut satırından aşağıdaki komutu kullanarak anlık görüntü klasörü konumuna gidin:
 

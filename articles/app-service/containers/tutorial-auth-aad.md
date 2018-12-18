@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 7359374e520469e13d98b88b46ddf467d64d3ba7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409427"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545697"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca Linux üzerinde Azure App Service'te yetkilendirme
 
@@ -129,7 +129,7 @@ git commit -m "add CORS to back end"
 
 ### <a name="push-to-azure-from-git"></a>Git üzerinden Azure'a gönderme
 
-Yerel terminal penceresinde, arka uç uygulamasına dağıtmak için aşağıdaki Git komutlarını çalıştırın. _&lt;deploymentLocalGitUrl-of-back-end-app>_ değerini, [Azure kaynakları oluşturma](#create-azure-resources) bölümünde kaydettiğiniz Git uzak öğesine ait URL ile değiştirin. Git Kimlik Bilgisi Yöneticisi kimlik bilgilerini sorduğunda, Azure portalında oturum açmak için kullandığınız kimlik bilgileri yerine [dağıtım kimlik bilgilerini](../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) girdiğinizden emin olun.
+Yerel terminal penceresinde, arka uç uygulamasına dağıtmak için aşağıdaki Git komutlarını çalıştırın. _&lt;deploymentLocalGitUrl-of-back-end-app>_ değerini, [Azure kaynakları oluşturma](#create-azure-resources) bölümünde kaydettiğiniz Git uzak öğesine ait URL ile değiştirin. Git Kimlik Bilgisi Yöneticisi kimlik bilgilerini sorduğunda, Azure portalında oturum açmak için kullandığınız kimlik bilgileri yerine [dağıtım kimlik bilgilerini](../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) girdiğinizden emin olun.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>

@@ -1,6 +1,6 @@
 ---
 title: MongoDB için Azure Cosmos DB özelliği desteği
-description: Azure Cosmos DB MongoDB API'sinin MongoDB 3.4 için sağladığı özellik desteği hakkında bilgi edinin.
+description: MongoDB 3.4 için Azure Cosmos DB MongoDB için API sağlar özellik desteği hakkında bilgi edinin.
 services: cosmos-db
 author: alekseys
 ms.service: cosmos-db
@@ -8,32 +8,32 @@ ms.component: cosmosdb-mongo
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 01e8af08ff5059867cc49cb9d55ae92f2ae21cdc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3a62df3cca50a3d9d95ffbcfaa661bbeb0982c16
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879682"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544609"
 ---
-# <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB özellikleri ve söz dizimi için MongoDB API’si desteği
+# <a name="azure-cosmos-db-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>MongoDB özellikleri ve söz dizimi için MongoDB için Azure Cosmos DB API desteği
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Veritabanının MongoDB API'siyle iletişim kurmak için herhangi bir açık kaynaklı MongoDB istemcisinin [sürücülerini](https://docs.mongodb.org/ecosystem/drivers) kullanabilirsiniz. MongoDB API'si, MongoDB [kablo protokolüne](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) bağlı kalarak mevcut istemci sürücülerinin kullanımını etkinleştirir.
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Herhangi bir açık kaynak MongoDB istemcisi ile MongoDB için Azure Cosmos DB API'si ile iletişim kurabilir [sürücüleri](https://docs.mongodb.org/ecosystem/drivers). MongoDB için Azure Cosmos DB API, Mongodb'ye bağlı kalarak mevcut istemci sürücülerin kullanımını etkinleştirir [wire Protokolü](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-Azure Cosmos DB MongoDB API'sini kullanarak, Azure Cosmos DB'nin sağladığı tüm kurumsal olanaklarla birlikte tanıdığınız MongoDB API'lerinin avantajlarından yararlanabilirsiniz: [küresel dağıtım](distribute-data-globally.md), [otomatik parçalama](partition-data.md), kullanılabilirlik ve gecikme süresi garantileri, her alanın otomatik olarak dizininin oluşturulması, REST'te şifreleme, yedekler ve daha pek çok şey.
+MongoDB için Azure Cosmos DB API kullanarak için kullandığınız, özelliklerin tümünü ve Azure Cosmos DB sağlar enterprise ile MongoDB avantajlarından yararlanabilirsiniz: [genel dağıtım](distribute-data-globally.md), [otomatik parçalanmasını](partition-data.md), kullanılabilirlik ve gecikme süresi garanti, otomatik dizin oluşturma her alan, rest, yedeklemeleri ve daha fazlasını şifrelenmesi.
 
 ## <a name="mongodb-protocol-support"></a>MongoDB Protokol Desteği
 
-Azure Cosmos DB MongoDB API'si, MongoDB Sunucusu’nun **3.2** sürümüyle varsayılan olarak uyumludur. Desteklenen işleçler ve tüm sınırlamalar veya özel durumlar aşağıda listelenmiştir. MongoDB’nin **3.4** sürümünde eklenen özellikler ve sorgu işleçleri şu anda bir önizleme özelliği olarak kullanılabilir. Bu protokolleri anlayan bir istemci sürücüsü Cosmos DB'ye MongoDB API'sini kullanarak bağlanabilir.
+Azure Cosmos DB API'ı MongoDB için MongoDB sunucusunun sürümüyle uyumlu **3.2** varsayılan olarak. Desteklenen işleçler ve tüm sınırlamalar veya özel durumlar aşağıda listelenmiştir. MongoDB’nin **3.4** sürümünde eklenen özellikler ve sorgu işleçleri şu anda bir önizleme özelliği olarak kullanılabilir. Bu protokollerin anlayan herhangi bir istemci sürücüsü MongoDB için Azure Cosmos DB API için bağlanabilmesi.
 
 [MongoDB toplama işlem hattı](#aggregation-pipeline) da ayrı bir önizleme özelliği olarak kullanılabilir.
 
 ## <a name="mongodb-query-language-support"></a>MongoDB sorgu dili desteği
 
-Azure Cosmos DB MongoDB API'si, MongoDB sorgu dili yapıları için kapsamlı destek sağlar. Aşağıda şu anda desteklenen işlem, işleç, aşama, komut ve seçeneklerin ayrıntılı bir listesini bulabilirsiniz.
+MongoDB için Azure Cosmos DB API'si, MongoDB sorgu dil yapıları için kapsamlı destek sağlar. Aşağıda şu anda desteklenen işlem, işleç, aşama, komut ve seçeneklerin ayrıntılı bir listesini bulabilirsiniz.
 
 ## <a name="database-commands"></a>Veritabanı komutları
 
-Azure Cosmos DB, tüm MongoDB API'si hesaplarında aşağıdaki veritabanı komutlarını destekler.
+Azure Cosmos DB, MongoDB için tüm Azure Cosmos DB API üzerinde aşağıdaki veritabanı komutlarını destekler.
 
 ### <a name="query-and-write-operation-commands"></a>Sorgulama ve yazma işlemi komutları
 - delete
@@ -310,11 +310,11 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Sıralama anahtarı olm
 
 Azure Cosmos DB, varsayılan olarak veritabanına yazılan belgelerdeki her alanın dizinini oluşturur. Benzersiz dizinler, varsayılan "_id" anahtarında özgünlüğün korunmasına benzer bir şekilde bir koleksiyondaki tüm belgeler genelinde belirli bir alanda yinelenen değer olmamasını sağlar. Azure Cosmos DB'de artık createIndex komutunu kullanarak, 'unique' kısıtlamasını dahil ederek özel dizinler oluşturabilirsiniz.
 
-Benzersiz dizinler tüm MongoDB API hesaplarında bulunur.
+Benzersiz dizinler, MongoDB hesabı için tüm Azure Cosmos DB API'si için kullanılabilir.
 
 ## <a name="time-to-live-ttl"></a>Etkin kalma süresi (TTL)
 
-Azure Cosmos DB, belgenin zaman damgasına bağlı göreli bir etkin kalma süresini (TTL) destekler. TTL, MongoDB API koleksiyonlarında [Azure portalı](https://portal.azure.com) aracılığıyla etkinleştirilebilir.
+Azure Cosmos DB, belgenin zaman damgasına bağlı göreli bir etkin kalma süresini (TTL) destekler. TTL MongoDB koleksiyonlarına için Azure Cosmos DB API için etkinleştirilebilir [Azure portalında](https://portal.azure.com).
 
 ## <a name="user-and-role-management"></a>Kullanıcı ve rol yönetimi
 
@@ -326,7 +326,7 @@ Azure Cosmos DB, en düşük katmanlarda otomatik, yerel çoğaltmayı destekler
 
 ## <a name="write-concern"></a>Yazma Sorunu
 
-Belirli MongoDB API’leri, bir yazma işlemi sırasında gereken yanıt sayısını belirleyen [Yazma Sorunu](https://docs.mongodb.com/manual/reference/write-concern/)’nu belirtme özelliğini destekler. Cosmos DB’nin arka planda çoğaltma işleme şekli nedeniyle varsayılan olarak tüm yazma işlemleri otomatik olarak çekirdektir. İstemci kodu tarafından belirtilen tüm yazma sorunları göz ardı edilir. Daha fazla bilgi için bkz. [Kullanılabilirlik ve performansı en üst düzeye çıkarmak için tutarlılık düzeylerini kullanma](consistency-levels.md).
+MongoDB desteği belirtmek için belirli Azure Cosmos DB API bir [yazma sorunu](https://docs.mongodb.com/manual/reference/write-concern/) yazma işlemi sırasında gerekli yanıtları sayısını belirtir. Cosmos DB’nin arka planda çoğaltma işleme şekli nedeniyle varsayılan olarak tüm yazma işlemleri otomatik olarak çekirdektir. İstemci kodu tarafından belirtilen tüm yazma sorunları göz ardı edilir. Daha fazla bilgi için bkz. [Kullanılabilirlik ve performansı en üst düzeye çıkarmak için tutarlılık düzeylerini kullanma](consistency-levels.md).
 
 ## <a name="sharding"></a>Parçalama
 

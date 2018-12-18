@@ -1,20 +1,21 @@
 ---
-title: Azure Digital Twins ile alan izleme | Microsoft Docs
+title: 'Öğretici: Azure Digital Twins ile alan izleme | Microsoft Docs'
 description: Uzamsal kaynaklarınızı sağlamak ve Bu öğreticide adımları kullanarak Azure dijital çiftleri ile çalışma koşullarına izleme hakkında bilgi edinin.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: a9784860cbc0b6d58f63fb22b7ad676048c8aee6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584205"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556110"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Öğretici: Azure Digital Twins ile binanızda sağlama yapma ve çalışma koşullarını izleme
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Öğretici: Yapı ve Azure dijital İkizlerini koşullarla çalışma İzleyici sağlayın
 
 Bu öğreticide sıcaklık koşullarının ve konfor düzeyinin istediğiniz gibi olup olmadığını belirleme amacıyla alanlarınızı izlemek için Azure Digital Twins'i kullanma adımları gösterilmektedir. Çalıştırdıktan sonra [, örnek yapı yapılandırma](tutorial-facilities-setup.md), sağlama, yapı ve Bu öğreticide adımları kullanarak özel işlevler sensör verileriniz üzerinde çalıştırın.
 
@@ -203,9 +204,9 @@ Bu bölümde, adlı proje kullanacağınız *cihaz bağlantısı* örnekteki. Ha
 
 1. Açık **appSettings.json** Düzenleyicisi'nde dosya ve aşağıdaki değerleri düzenleyin:
 
-   a. **DeviceConnectionString**: Bir önceki bölümde çıktı penceresinde görünen `ConnectionString` değerini atayın. Simülatör ile IOT hub'ı düzgün şekilde bağlanabilmesi için bu dize tamamen tırnak içine kopyalayın.
+   a. **DeviceConnectionString**: Değeri atamak `ConnectionString` çıktı penceresinde önceki bölümde. Simülatör ile IOT hub'ı düzgün şekilde bağlanabilmesi için bu dize tamamen tırnak içine kopyalayın.
 
-   b. **HardwareId** içinde **algılayıcılar** dizi: Azure dijital İkizlerini Örneğinize sağlanan sensörlerden alınan olayları benzetiminin yapıldığı için donanım Kimliğini ve bu dosyadaki algılayıcı adlarını eşleşmelidir`sensors` provisionSample.yaml dosyasının düğümü.
+   b. **HardwareId** içinde **algılayıcılar** dizisi: Azure dijital İkizlerini Örneğinize sağlanan sensörlerden alınan olayları benzetiminin yapıldığı için donanım Kimliğini ve bu dosyadaki algılayıcı adlarını eşleşmelidir `sensors` provisionSample.yaml dosyasının düğümü.
 
       Sıcaklık algılayıcı için yeni bir giriş ekleyin. **Algılayıcılar** appSettings.json düğümünde, aşağıdaki gibi görünmelidir:
 
@@ -264,7 +265,7 @@ Bu noktada Azure dijital İkizlerini keşfetmeye durdurmak istiyorsanız, bu ö�
 Sağlanan, boşluk ve özel bildirimleri tetiklemek için bir çerçeve oluşturan göre aşağıdaki öğreticilerde birini gidebilirsiniz:
 
 > [!div class="nextstepaction"]
-> [Öğretici: Logic Apps'i kullanarak Azure Digital Twins alanlarınızdan bildirim alma](tutorial-facilities-events.md)
+> [Öğretici: Logic Apps kullanarak, Azure dijital İkizlerini boşlukları bildirimleri alma](tutorial-facilities-events.md)
 
 > [!div class="nextstepaction"]
-> [Öğretici: Time Series Insights'ı kullanarak Azure Digital Twins alanlarınızdan gelen olayları görselleştirme ve analiz etme](tutorial-facilities-analyze.md)
+> [Öğretici: Time Series Insights'ı kullanarak Azure dijital İkizlerini alanlarınıza olayları çözümleyin](tutorial-facilities-analyze.md)

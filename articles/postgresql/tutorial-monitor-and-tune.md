@@ -1,20 +1,19 @@
 ---
 title: PostgreSQL için Azure Veritabanında İzleme ve Ayarlama Eğitimi
 description: Bu eğitim, PostgreSQL için Azure Veritabanında izleme ve ayarlamayı incelemenizi sağlar.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: ef8809afa2da36f44384d784e32532b7b121e3a9
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: f05e0eef7680b08ce116cc0243d944f6a1db597c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379153"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536450"
 ---
-# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>Öğretici: PostgreSQL için Azure Veritabanını İzleme ve Ayarlama
+# <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>Öğretici: İzleme ve PostgreSQL için Azure veritabanı ayarlama
 
 PostgreSQL için Azure Veritabanı, sunucu performansınızı anlamanıza ve geliştirmenize yardımcı olan özelliklere sahiptir. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]

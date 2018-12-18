@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: 814d558efee4a72a25d956828e0db237424cab24
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.date: 12/17/2018
+ms.openlocfilehash: aea95c245b86905b7bef0a35ffaa6c5e00567111
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409777"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558643"
 ---
 # <a name="tutorial-secure-a-single-database-in-azure-sql-database"></a>Öğretici: Tek bir veritabanını Azure SQL veritabanı'nda güvenli
 
@@ -136,6 +136,9 @@ Azure portalında Azure SQL Sunucunuz için bir Azure Active Directory Yönetici
     ![ad seçin](./media/sql-database-aad-authentication/8choose-ad.png)
 
 2. Üzerinde **SQL Server** sayfasında **Active Directory Yöneticisi**ve **Active Directory Yöneticisi** sayfasında **yönetici Ayarla**.  ![active Directory'yi seçin](./media/sql-database-aad-authentication/select-active-directory.png)  
+
+   > [!IMPORTANT]
+   > Bu görevi gerçekleştirmek için "Şirket Yöneticisi" veya "Genel yönetici" olmanız gerekir.
 
 3. İçinde **yönetici Ekle** sayfasında aramak için bir kullanıcı, kullanıcı seçin veya yönetici grubunu ve ardından **seçin**. (Active Directory Yönetim sayfasında tüm üyeleri ve Active Directory gruplarını gösterir. Azure AD yönetici olarak desteklenmediğinden, kullanıcılar veya gruplar gri renkte seçilemez. (Desteklenen Yöneticiler grubuna üye listesini **Azure AD özellikler ve sınırlamalar** bölümünü [kullanımı Azure SQL veritabanı veya SQL veri ambarı ile kimlik doğrulaması için Active Directory kimlik](sql-database-aad-authentication.md).) Rol tabanlı erişim denetimi (RBAC), yalnızca portalı için geçerlidir ve SQL Server'a dağıtılmaz.
     ![Yönetici Seç](./media/sql-database-aad-authentication/select-admin.png)  

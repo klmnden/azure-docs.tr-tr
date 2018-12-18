@@ -1,6 +1,6 @@
 ---
-title: Spark kullanarak Azure Databricks ile Azure Data Lake Storage 2. Nesil Önizleme verilerine erişme | Microsoft Docs
-description: Azure Data Lake Storage 2. Nesil depolama hesabındaki verilere erişmek için bir Azure Databricks kümesinde Spark sorgularını çalıştırmayı öğrenin.
+title: 'Öğretici: Spark kullanarak Azure Databricks ile Azure Data Lake Storage 2. Nesil Önizleme verilerine erişme | Microsoft Docs'
+description: Bu öğreticide, Spark, Azure Data Lake depolama Gen2'ye depolama hesabınız verilere erişmek için bir Azure Databricks kümesinde sorguları çalıştırma işlemi gösterilmektedir.
 services: storage
 author: dineshmurthy
 ms.component: data-lake-storage-gen2
@@ -8,56 +8,62 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: dineshm
-ms.openlocfilehash: 88a05eb8fa59740012ca6c7a8d8508d565854dc7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b0382d31f9d16228ca3447ace9c7d4f171b206f6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975740"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548995"
 ---
-# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Öğretici: Spark kullanarak Azure Databricks ile Azure Data Lake Storage 2. Nesil Önizleme verilerine erişme
+# <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Öğretici: Spark'ı kullanarak Azure Databricks ile Data Lake depolama Gen2 önizlemesi verilere erişme
 
-Bu öğreticide Azure Data Lake Storage 2. Nesil Önizleme etkin bir depolama hesabındaki verileri sorgulamak için bir Azure Databricks kümesinde Spark sorguları çalıştırmayı öğreneceksiniz.
+Bu öğreticide, Azure Databricks kümesiyle Azure Data Lake depolama Gen2'ye sahip bir Azure depolama hesabında depolanan verilere bağlanmak gösterilir (Önizleme) etkin. Bu bağlantı, yerel olarak sorgular ve analiz, verilerinizde kümenizden çalıştırmanızı sağlar.
+
+Bu öğreticide şunları yapacaksınız:
 
 > [!div class="checklist"]
 > * Databricks kümesi oluşturma
 > * Yapılandırılmamış verileri bir depolama hesabına alma
 > * Blob depolama alanındaki verilerinizde analiz çalıştırma
 
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticide [Amerika Birleşik Devletleri Ulaştırma Bakanlığı](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time) tarafından sunulan hava yolları uçuş verilerini kullanma ve sorgulama adımları gösterilmektedir. En az iki yıllık hava yolları verisini (tüm alanları seçerek) indirin ve sonucu bilgisayarınıza kaydedin. Sonraki adımlarda ihtiyacınız olacağından dosya adını ve indirdiğiniz yolu not almayı unutmayın.
+Bu öğreticide [Amerika Birleşik Devletleri Ulaştırma Bakanlığı](https://transtats.bts.gov/DL_SelectFields.asp) tarafından sunulan hava yolları uçuş verilerini kullanma ve sorgulama adımları gösterilmektedir. 
 
-> [!NOTE]
-> Tüm veri alanlarını seçmek için **Prezipped file** (Önceden sıkıştırılmış dosya) onay kutusuna tıklayın. İndirilen veriler gigabayt boyutunda olabilir ancak analiz için bu boyutta veri olması şarttır.
+1. Seçin **Prezipped dosya** tüm veri alanlarını seçmek için onay kutusunu.
+2. Seçin **indirme** ve sonuçları makinenize kaydedin.
+3. Dosya adını not ve indirme yolunu oluşturmak; Bu bilgiler sonraki adımda ihtiyacınız var.
 
-## <a name="create-an-azure-storage-account-with-analytic-capabilities"></a>Analiz özelliklerine sahip bir Azure depolama hesabı oluşturma
+Bu öğreticiyi tamamlamak için bir depolama hesabı analitik özellikleriyle gerekir. Tamamlama öneririz bizim [hızlı](data-lake-storage-quickstart-create-account.md) oluşturmak için konu ile ilgili. Oluşturduktan sonra yapılandırma ayarlarını almak için depolama hesabına gidin.
 
-Başlamak için [analiz özelliklerine sahip yeni bir depolama hesabı](data-lake-storage-quickstart-create-account.md) oluşturun ve bu hesaba benzersiz bir ad verin. Ardından yapılandırma ayarlarını almak için depolama hesabına gidin.
-
-1. **Settings** (Ayarlar) altında **Access keys** (Erişim anahtarları) öğesine tıklayın.
-2. Anahtar değerini kopyalamak için **key1**'in yanındaki **Copy** (Kopyala) düğmesine tıklayın.
+1. Altında **ayarları**seçin **erişim anahtarları**.
+2. Seçin **kopyalama** düğmesinin yanındaki **key1** anahtar değerini kopyalamak için.
 
 Bu öğreticinin sonraki adımlarında kullanmanız gerekeceğinden hesap adını ve anahtarı not alın. Bir metin düzenleyici açıp hesap adını ve anahtarı daha sonra kullanmak üzere kaydedin.
 
 ## <a name="create-a-databricks-cluster"></a>Databricks kümesi oluşturma
 
-Bir sonraki adım, veri çalışma alanı oluşturmak için bir [Databricks kümesi](https://docs.azuredatabricks.net/) oluşturmaktır.
+Sonraki adım, veri çalışma alanı oluşturmak için Databricks kümesini oluşturmaktır.
 
-1. Bir [Databricks hizmeti](https://ms.portal.azure.com/#create/Microsoft.Databricks) oluşturun ve **myFlightDataService** olarak adlandırın (hizmeti oluştururken *Panoya sabitle* onay kutusunu işaretlemeyi unutmayın).
-2. Çalışma alanını yeni bir tarayıcı penceresinde açmak için **Launch Workspace** (Çalışma Alanın Başlat) öğesine tıklayın.
-3. Sol gezinti çubuğunda **Clusters** (Kümeler) öğesine tıklayın.
-4. **Create Cluster** (Küme Oluştur) öğesine tıklayın.
-5. *Cluster name* (Küme adı) alanına **myFlightDataCluster** yazın.
-6. *Worker Type* (Çalışan Türü) alanında **Standard_D8s_v3** seçeneğini belirleyin.
-7. **Min Workers** (Minimum Çalışan) değerini *4* olarak değiştirin.
-8. Sayfanın en üstündeki **Create Cluster** (Küme Oluştur) öğesine tıklayın (bu işlemin tamamlanması 5 dakikaya kadar sürebilir).
-9. İşlem tamamlandıktan sonra gezinti çubuğunun sol üst kısmından **Azure Databricks**'i seçin.
-10. Sayfanın alt yarısındaki **New** (Yeni) bölümünden **Notebook** (Not Defteri) öğesini seçin.
-11. **Name** (Ad) alanına bir ad girin ve dil olarak **Python**'ı seçin.
-12. Diğer tüm alanlar varsayılan değerlerde bırakılabilir.
-13. **Oluştur**’u seçin.
-14. Aşağıdaki kodu yapıştırın **Cmd 1** hücre. Gösterilen örnekte kendi değerlerinizle köşeli ayraçlar içindeki yer tutucuları değiştirmeniz unutmayın:
+1. Gelen [Azure portalında](https://portal.azure.com)seçin **kaynak Oluştur**.
+2. Girin **Azure Databricks** arama alanına.
+3. Seçin **Oluştur** Azure Databricks dikey penceresinde.
+4. Databricks hizmetinizi adlandırın **myFlightDataService** (mutlaka denetleyin *panoya Sabitle* checkbox aynı hizmet oluşturma).
+5. Seçin **çalışma alanını Başlat** çalışma alanına yeni bir tarayıcı penceresinde açın.
+6. Seçin **kümeleri** sol gezinti çubuğundaki.
+7. Seçin **küme oluşturma**.
+8. **Cluster name** (Küme adı) alanına **myFlightDataCluster** yazın.
+9. **Worker Type** (Çalışan Türü) alanında **Standard_D8s_v3** seçeneğini belirleyin.
+10. **Min Workers** (Minimum Çalışan) değerini **4** olarak değiştirin.
+11. Seçin **küme oluşturma** sayfanın üstünde. (Bu işlem son 5 dakika kadar sürebilir.)
+12. İşlem tamamlandığında seçin **Azure Databricks** üzerinde gezinti çubuğunda sol üst köşesindeki.
+13. Sayfanın alt yarısındaki **New** (Yeni) bölümünden **Notebook** (Not Defteri) öğesini seçin.
+14. İçinde tercih ettiğiniz bir ad girin **adı** alan ve seçim **Python** dili olarak.
+15. Diğer tüm alanlar varsayılan değerlerde bırakılabilir.
+16. **Oluştur**’u seçin.
+17. Aşağıdaki kodu yapıştırın **Cmd 1** hücre. Gösterilen örnekte kendi değerlerinizle köşeli ayraçlar içindeki yer tutucuları değiştirin:
 
     ```scala
     %python%
@@ -72,13 +78,13 @@ Bir sonraki adım, veri çalışma alanı oluşturmak için bir [Databricks küm
         mount_point = "/mnt/flightdata",
         extra_configs = configs)
     ```
-15. Kod hücresini çalıştırmak için **SHIFT + ENTER** tuşlarına basın.
+18. Kod hücresini çalıştırmak için **SHIFT + ENTER** tuşlarına basın.
 
 ## <a name="ingest-data"></a>Veriyi çekme
 
 ### <a name="copy-source-data-into-the-storage-account"></a>Kaynak verilerini depolama hesabına kopyalama
 
-Bir sonraki görev, *.csv* dosyasındaki verileri Azure depolama alanına kopyalamak için AzCopy komutunu kullanmaktır. Bir komut istemi penceresi açın ve aşağıdaki komutları girin. `<DOWNLOAD_FILE_PATH>` ve `<ACCOUNT_KEY>` yer tutucularının yerine bir önceki adımda kaydettiğiniz değerleri girmeyi unutmayın.
+Bir sonraki görev, *.csv* dosyasındaki verileri Azure depolama alanına kopyalamak için AzCopy komutunu kullanmaktır. Bir komut istemi penceresi açın ve aşağıdaki komutları girin. Yer tutucuları değiştirmek emin `<DOWNLOAD_FILE_PATH>`, `<ACCOUNT_NAME>`, ve `<ACCOUNT_KEY>` , kenara bir önceki adımda karşılık gelen değerlerle.
 
 ```bash
 set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -90,12 +96,12 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 
 Databricks’i tarayıcınızda yeniden açın ve aşağıdaki adımları uygulayın:
 
-1. Gezinti çubuğunun sol üst kısmından **Azure Databricks**'i seçin.
+1. Seçin **Azure Databricks** üzerinde gezinti çubuğunda sol üst köşesindeki.
 2. Sayfanın alt yarısındaki **New** (Yeni) bölümünden **Notebook** (Not Defteri) öğesini seçin.
 3. **Name** (Ad) alanına **CSV2Parquet** yazın.
 4. Diğer tüm alanlar varsayılan değerlerde bırakılabilir.
 5. **Oluştur**’u seçin.
-6. Aşağıdaki kodu **Cmd 1** hücresine yapıştırın (bu kod düzenleyicide otomatik olarak kaydedilir).
+6. Aşağıdaki kodu yapıştırın **Cmd 1** hücre. (Bu kodu otomatik-Düzenleyicisi'nde kaydeder.)
 
     ```python
     # Use the previously established DBFS mount point to read the data
@@ -106,11 +112,11 @@ Databricks’i tarayıcınızda yeniden açın ve aşağıdaki adımları uygula
     print("Done")
     ```
 
-## <a name="explore-data-using-hadoop-distributed-file-system"></a>Hadoop Dağıtılmış Dosya Sistemi kullanarak verileri keşfetme
+## <a name="explore-data"></a>Verileri inceleme
 
-Databricks çalışma alanına dönün ve sol gezinti çubuğundaki **Recent** (Son Öğeler) simgesine tıklayın.
+Databricks çalışma alanına geri dönün ve seçin **son** sol gezinti çubuğunda simgesi.
 
-1. **Flight Data Analytics** not defterine tıklayın.
+1. Seçin **uçuş Data Analytics** dizüstü bilgisayar.
 2. Yeni hücre oluşturmak için **Ctrl + Alt + N** tuşlarına basın.
 
 Aşağıdaki kod bloklarını **Cmd 1** bölümüne girin ve **Cmd + Enter** tuşlarına basarak Python betiğini çalıştırın.
@@ -137,7 +143,7 @@ Bu kod örnekleriyle Data Lake Storage 2. Nesil etkin bir depolama hesabında de
 
 Bir sonraki adımda depolama hesabınıza yüklediğiniz verileri sorgulamaya başlayabilirsiniz. Aşağıdaki kod bloklarını **Cmd 1** bölümüne girin ve **Cmd + Enter** tuşlarına basarak Python betiğini çalıştırın.
 
-### <a name="simple-queries"></a>Basit sorgular
+### <a name="run-simple-queries"></a>Basit Sorgu çalıştırma
 
 Veri kaynaklarınız için veri çerçevesi oluşturma amacıyla aşağıdaki betiği çalıştırın:
 
@@ -198,7 +204,8 @@ print('Airports in Texas: ', out.show(100))
 out1 = spark.sql("SELECT distinct(Carrier) FROM FlightTable WHERE OriginStateName='Texas'")
 print('Airlines that fly to/from Texas: ', out1.show(100, False))
 ```
-### <a name="complex-queries"></a>Karmaşık sorgular
+
+### <a name="run-complex-queries"></a>Karmaşık sorgular çalıştırma
 
 Daha karmaşık sorguları yürütmek için not defterindeki segmentleri sırayla çalıştırıp sonuçları inceleyin.
 
@@ -241,6 +248,12 @@ output.show(10, False)
 display(output)
 ```
 
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık ihtiyaç duyulan olmadığında kaynak grubunu ve tüm ilgili kaynakları silin. Bunu yapmak için depolama hesabı için kaynak grubunu seçin ve seçin **Sil**.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme](data-lake-storage-tutorial-extract-transform-load-hive.md)
+[!div class="nextstepaction"] 
+> [Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme](data-lake-storage-tutorial-extract-transform-load-hive.md)
+

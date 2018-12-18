@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1bc7425d1979b2e1a35884c0800117455aebe9b6
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dc9ad544bb974dded098a27855ff5f6b9885d879
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338066"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556586"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Hızlı Başlangıç: Bir Linux x64 cihaza, ilk IOT Edge modülü dağıtma
 
@@ -69,7 +69,7 @@ IoT Edge cihazı:
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
-Hızlı başlangıç adımlarına başlamak için Azure CLI ile IoT hub'ınızı oluşturun.
+Bu hızlı başlangıçta, Azure CLI ile IOT hub'ı oluşturarak başlayın.
 
 ![Diyagram - bulutta IOT hub'ı oluşturma](./media/quickstart-linux/create-iot-hub.png)
 
@@ -106,7 +106,9 @@ IOT Edge cihazları sınıflardır ve tipik bir IOT cihazlarında farklı yönet
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Bağlantı dizesini kopyalayın ve kaydedin. Bu değeri bir sonraki bölümde IoT Edge çalışma zamanını yapılandırmak için kullanacaksınız. 
+3. JSON çıktısını bağlantı dizesini kopyalayın ve kaydedin. Bu değeri bir sonraki bölümde IoT Edge çalışma zamanını yapılandırmak için kullanacaksınız.
+
+   ![CLI çıkışından bağlantı dizesi alma](./media/quickstart/retrieve-connection-string.png)
 
 ## <a name="connect-the-iot-edge-device-to-iot-hub"></a>IOT Edge cihazı IOT hub'a bağlama
 

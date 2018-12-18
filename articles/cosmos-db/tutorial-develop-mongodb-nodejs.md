@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: ea69e4c8ba74dc685dd0b0fb7ac61cc6d061a26f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 88e26e6f69fa5d283695fc4c3b1d2fda9d6b7fad
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137659"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545986"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db"></a>Angular ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma 
 
-Bu çok bölümlü öğretici, Express, Angular ve Node.js (MEAN yığını) kullanılarak yazılmış yeni bir [MongoDB API](mongodb-introduction.md) uygulamasının nasıl oluşturulacağını ve Azure Cosmos DB veritabanına nasıl bağlanacağını gösterir. Azure Cosmos DB MongoDB istemci bağlantılarını destekler, bu nedenle MongoDB yerine Azure Cosmos DB’yi kullanabilirsiniz. Böylece MongoDB uygulamalarıyla aynı kodları kullanır ancak bazı avantajlar elde edersiniz. Bu avantajlar Azure Cosmos DB'den kolay bulut dağıtımı, ölçekleme, güvenlik, genel çoğaltılan veriler, birden çok model desteği ve çok yüksek hızlı okuma ve yazma işlemleridir. 
+Bu çok bölümlü öğretici, yeni bir gösterilmiştir [MongoDB için Azure Cosmos DB API hesabı](mongodb-introduction.md) Express, Angular ve Node.js (MEAN yığını) ile uygulama ve Azure Cosmos DB veritabanınıza bağlanın. Azure Cosmos DB MongoDB istemci bağlantılarını destekler, bu nedenle MongoDB yerine Azure Cosmos DB’yi kullanabilirsiniz. Böylece MongoDB uygulamalarıyla aynı kodları kullanır ancak bazı avantajlar elde edersiniz. Bu avantajlar Azure Cosmos DB'den kolay bulut dağıtımı, ölçekleme, güvenlik, genel çoğaltılan veriler, birden çok model desteği ve çok yüksek hızlı okuma ve yazma işlemleridir. 
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 

@@ -55,7 +55,7 @@
 ### [Sunucusuz uygulamalar](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [Mikro hizmetler kümesi](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## Dağıtma
-### [Kaynak denetiminden web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
+### [Kaynak denetiminden web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)
 ### [Yerel mikro hizmetler](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)

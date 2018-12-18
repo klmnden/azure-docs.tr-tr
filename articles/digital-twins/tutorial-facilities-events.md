@@ -1,20 +1,21 @@
 ---
-title: Azure dijital İkizlerini alanı olayları yakalama | Microsoft Docs
+title: 'Öğretici: Azure dijital İkizlerini alanı olayları yakalama | Microsoft Docs'
 description: Azure Digital Twins'i Logic Apps ile tümleştirerek alanlarınızdan bildirim almayı öğrenmek için bu öğreticideki adımları izleyin.
 services: digital-twins
 author: dsk-2015
+ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: bf41be4a3a4856302a054e5767b3d7b5ba423c60
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a52a3be8c3023893569e95b566a18c032be26459
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583270"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556025"
 ---
-# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Öğretici: Azure dijital İkizlerini alanlarınıza Logic Apps'i kullanarak bildirimlerin
+# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Öğretici: Logic Apps'i kullanarak, Azure dijital İkizlerini boşlukları bildirimleri alma
 
 Azure dijital İkizlerini örneğinizi dağıtma alanlarınıza sağlama ve belirli koşulları izlemek için özel işlevler uygulamak sonra izlenen koşulların gerçekleşmesine office yöneticinizin e-posta ile bildirimde bulunabilir. 
 
@@ -174,7 +175,7 @@ Kullanabileceğiniz [Azure Logic Apps](../logic-apps/logic-apps-overview.md) di�
 
    c. **Alıcı** kutusuna bildirimlerin gönderilmesi için e-posta adresinizi yazın. İçinde **konu**, metin girin **dijital İkizlerini bildirim alanında kötü uzaktan kalite için**. Ardından **TopologyObjectId** gelen **dinamik içerik** için liste **JSON Ayrıştır**.
 
-   d. Altında **gövdesi** aynı penceresinde şuna benzer bir metin girin: **zayıf uzaktan kalite bir odada algılandı ve sıcaklık ayarlanması gerekiyor**. Öğeleri kullanarak özenli çekinmeyin **dinamik içerik** listesi.
+   d. Altında **gövdesi** aynı penceresinde şuna benzer bir metin girin: **Zayıf uzaktan kalite bir odada algılandı ve sıcaklık ayarlanması gerekiyor**. Öğeleri kullanarak özenli çekinmeyin **dinamik içerik** listesi.
 
    ![Logic Apps "e-posta Gönder" seçimleri](./media/tutorial-facilities-events/logic-app-send-email.png)
 
@@ -205,7 +206,7 @@ Bu noktada Azure dijital İkizlerini keşfetmeye durdurmak istiyorsanız, bu ö�
 
 Sensör verilerinizi görselleştirin, eğilimleri ve anormallikleri analiz öğrenmek için sonraki öğreticiye geçin: 
 > [!div class="nextstepaction"]
-> [Öğretici: Time Series Insights'ı kullanarak Azure Digital Twins alanlarınızdan gelen olayları görselleştirme ve analiz etme](tutorial-facilities-analyze.md)
+> [Öğretici: Time Series Insights'ı kullanarak Azure dijital İkizlerini alanlarınıza olayları çözümleyin](tutorial-facilities-analyze.md)
 
 Ayrıca Azure dijital İkizlerini nesne modellerinde ve uzamsal zeka grafikler hakkında daha fazla bilgi edinebilirsiniz: 
 > [!div class="nextstepaction"]

@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB tablo API'sine giriş
-description: Azure Cosmos DB ile popüler OSS MongoDB API'lerini kullanarak çok büyük hacimlerdeki anahtar-değer verilerini düşük gecikme süreleriyle nasıl depolayabileceğinizi ve sorgulayabileceğinizi öğrenin.
+description: Depolamak için Azure Cosmos DB'yi nasıl kullanabileceğinizi ve sorgu çok büyük hacimlerdeki anahtar-değer verilerini düşük gecikme süresi ile MongoDB için popüler OSS Azure Cosmos DB API hesabı kullanarak öğrenin.
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.component: cosmosdb-table
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
-ms.openlocfilehash: 2647065d251caea571e2bfcd5703bbb3bec08345
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8e386d5d56654610f92ac07648ccc271fd3e9467
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074317"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535055"
 ---
-# <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB: Tablo API’sine Giriş
+# <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB'ye giriş: Tablo API’si
 
 [Azure Cosmos DB](introduction.md), Azure Tablo depolaması için yazılmış olan ve aşağıdaki gibi üst düzey özelliklere ihtiyaç duyan uygulamalar için Tablo API'sini sunar:
 

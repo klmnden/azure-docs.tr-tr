@@ -1,24 +1,21 @@
 ---
-title: 'Öğretici: Azure CLI kullanarak PostgreSQL için Azure Veritabanı tasarlama'
+title: 'Öğretici: Azure CLI kullanarak PostgreSQL için Azure veritabanı tasarlama'
 description: Bu öğreticide Azure CLI kullanarak ilk PostgreSQL için Azure Veritabanı sunucunuzu oluşturma, yapılandırma ve sorgulama işlemleri gösterilmiştir.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
-ms.openlocfilehash: c04eede63df50359af55f3956041df10fa2d075e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 03c9d647c98122b63b81baa453e0cccdf951901a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982350"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547329"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Öğretici: Azure CLI kullanarak PostgreSQL için Azure Veritabanı tasarlama 
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Öğretici: Azure CLI kullanarak PostgreSQL için Azure veritabanı tasarlama 
 Bu öğreticide, şunları nasıl yapacağınızı öğrenmek için Azure CLI (komut satırı arabirimi) ve diğer yardımcı programları kullanırsınız:
 > [!div class="checklist"]
 > * PostgreSQL için Azure Veritabanı sunucusu oluşturma
@@ -195,9 +192,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 `az postgres server restore` komutu için aşağıdaki parametreler gerekir:
-| Ayar | Önerilen değer | Açıklama  |
+| Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |
+| resource-group |  myresourcegroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |
 | ad | mydemoserver-restored | Geri yükleme komutu tarafından oluşturulan yeni sunucunun adı. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Zaman içinde geri yüklenecek bir nokta seçin. Bu tarih ve saat, kaynak sunucunun yedekleme saklama dönemi içinde olmalıdır. ISO8601 tarih ve saat biçimini kullanın. Örneğin, `2017-04-13T05:59:00-08:00` şeklinde kendi yerel saat diliminizi ya da `2017-04-13T13:59:00Z` şeklindeki UTC Zulu biçimini kullanabilirsiniz. |
 | source-server | mydemoserver | Geri yükleme kaynağı olarak kullanılacak sunucunun adı veya kimliği. |
@@ -218,4 +215,4 @@ Bu öğreticide, Azure CLI (komut satırı arabirimi) ve diğer yardımcı progr
 > * Verileri güncelleştirme
 > * Verileri geri yükleme
 
-Daha sonra, Azure portalını kullanarak benzer görevleri nasıl yapabileceğinizi öğrenmek için şu öğreticiyi gözden geçirin: [Azure portalını kullanarak ilk PostgreSQL için Azure Veritabanınızı tasarlama](tutorial-design-database-using-azure-portal.md)
+Ardından, Azure portalını kullanarak benzer görevleri yapmak için şu öğreticiyi gözden geçirin öğrenin: [PostgreSQL için Azure portalını kullanarak ilk Azure veritabanınızı tasarlama](tutorial-design-database-using-azure-portal.md)

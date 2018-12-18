@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2018
-ms.openlocfilehash: cff7d0dea27dd21ac4f7bb133e297e4f5928d2c2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8ef4e9917623f43e5c9900150deb22d62169c836
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52680608"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555974"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Terratest kullanarak Azure'da Terraform modülleri test etme
 
@@ -38,7 +38,7 @@ Başlamadan önce aşağıdaki yazılımları yükleyin:
 - **Go programlama dili**: Terraform test çalışmaları yazılır [Git](https://golang.org/dl/).
 - **dep**: [dep](https://github.com/golang/dep#installation), Go’nun bağımlılık yönetimi aracıdır.
 - **Azure CLI**: [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) Azure kaynaklarını yönetmek için kullanabileceğiniz bir komut satırı aracıdır. (Terraform destekleyen bir hizmet sorumlusu Azure için kimlik doğrulama veya [Azure CLI aracılığıyla](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
-- **Görüntü**: kullandığımız [yürütülebilir görüntü](https://github.com/magefile/mage/releases) çalışan Terratest çalışmaları basitleştirmek gösterilir. 
+- **Görüntü**: Kullandığımız [yürütülebilir görüntü](https://github.com/magefile/mage/releases) çalışan Terratest çalışmaları basitleştirmek gösterilir. 
 
 ## <a name="create-a-static-webpage-module"></a>Statik bir web sayfası modülü oluşturma
 
@@ -93,10 +93,10 @@ output "homepage_url" {
 ```
 
 Modül ana mantığını dört kaynaklar sağlar:
-- **kaynak grubu**: kaynak grubu adı `website_name` tarafından eklenen giriş `-staging-rg`.
-- **Depolama hesabı**: depolama hesabının adıdır `website_name` tarafından eklenen giriş `data001`. Depolama hesabının adı kısıtlamaları için uyması için modül tüm özel karakterleri kaldırır ve küçük harfler tüm depolama hesabı adını kullanır.
-- **ad kapsayıcısı sabit**: kapsayıcı adlı `wwwroot` ve depolama hesabı oluşturulur.
-- **tek bir HTML dosyası**: HTML dosyası okunamıyor `html_path` giriş ve yüklenen `wwwroot/index.html`.
+- **Kaynak grubu**: Kaynak grubunun adı `website_name` tarafından eklenen giriş `-staging-rg`.
+- **Depolama hesabı**: Depolama hesabının adıdır `website_name` tarafından eklenen giriş `data001`. Depolama hesabının adı kısıtlamaları için uyması için modül tüm özel karakterleri kaldırır ve küçük harfler tüm depolama hesabı adını kullanır.
+- **ad kapsayıcısı sabit**: Kapsayıcı adındaki `wwwroot` ve depolama hesabı oluşturulur.
+- **tek bir HTML dosyası**: HTML dosyasını okuyabilir `html_path` giriş ve yüklenen `wwwroot/index.html`.
 
 Statik web sayfası modülünün mantığı `./main.tf` içinde uygulanır:
 
@@ -267,7 +267,7 @@ Yaklaşık bir dakika içinde geleneksel Git test sonucunu döndürür.
 
 Birim testleri aksine, tümleştirme testlerini kaynakları gerçek bir ortama bir uçtan uca perspektifi için hazırlamanız gerekir. Bu tür bir görev iyi bir iş Terratest yapar. 
 
-Terraform modülleri incude yükleme için en iyi yöntemler `examples` klasör. `examples` Klasörü bazı uçtan uca örnekler içerir. Gerçek verileri içeren çalışma önlemek için bu örnekleri tümleştirme testleri test neden? Bu bölümde, yıldız ile işaretlenmiş üç dosyayı odaklanıyoruz `(*)` aşağıdaki klasörü yapısı içinde:
+Terraform modülleri için en iyi uygulamaları dahil yükleme `examples` klasör. `examples` Klasörü bazı uçtan uca örnekler içerir. Gerçek verileri içeren çalışma önlemek için bu örnekleri tümleştirme testleri test neden? Bu bölümde, yıldız ile işaretlenmiş üç dosyayı odaklanıyoruz `(*)` aşağıdaki klasörü yapısı içinde:
 
 ```
  📁 GoPath/src/staticwebpage
@@ -298,7 +298,7 @@ Terraform modülleri incude yükleme için en iyi yöntemler `examples` klasör.
 </head>
 <body>
     <h1>Hi, Terraform Module</h1>
-    <p>This is a sample webpage to demostrate Terratest.</p>
+    <p>This is a sample webpage to demonstrate Terratest.</p>
 </body>
 </html>
 ```
@@ -365,7 +365,7 @@ func TestIT_HelloWorldExample(t *testing.T) {
     http_helper.HttpGetWithCustomValidation(t, homepage, func(status int, content string) bool {
         return status == 200 &&
             strings.Contains(content, "Hi, Terraform Module") &&
-            strings.Contains(content, "This is a sample web page to demostrate Terratest.")
+            strings.Contains(content, "This is a sample web page to demonstrate Terratest.")
     })
 }
 ```
@@ -417,11 +417,11 @@ Görüntü tarafından gereken tek şey `magefile.go` projenizin kök dizininde 
 ```
 
 İşte bir örnek `./magefile.go`. Git içinde yazılan bu derleme betiğindeki şu beş yapı adımları uygulayın:
-- `Clean`: Test yürütme sırasında oluşturulan tüm oluşturulan ve geçici dosyalar adım kaldırır.
-- `Format`: Adım çalışır `terraform fmt` ve `go fmt` kod tabanınızın biçimlendirmek için.
+- `Clean`: Bu adım, test yürütme sırasında oluşturulan tüm oluşturulan ve geçici dosyalar kaldırır.
+- `Format`: Adımı `terraform fmt` ve `go fmt` kod tabanınızın biçimlendirmek için.
 - `Unit`: Adım tüm birim testlerini çalıştırır (işlev adı kuralı kullanarak `TestUT_*`) altında `./test/` klasör.
 - `Integration`: Adım benzer `Unit`, ancak isteğe bağlı olarak, birim testlerini yerine tümleştirme testleri yürütür (`TestIT_*`).
-- `Full`: Adım çalışır `Clean`, `Format`, `Unit`, ve `Integration` dizideki.
+- `Full`: Adımı `Clean`, `Format`, `Unit`, ve `Integration` dizideki.
 
 ```go
 // +build mage
@@ -504,7 +504,7 @@ Bir tam test paketi çalıştırmak için aşağıdaki komutları kullanabilirsi
 $ cd [Your GoPath]/src/staticwebpage
 GoPath/src/staticwebpage$ dep init    # Run only once for this folder
 GoPath/src/staticwebpage$ dep ensure  # Required to run if you imported new packages in magefile or test cases
-GoPath/src/staticwebpage$ go fmt      # Only requied when you change the magefile
+GoPath/src/staticwebpage$ go fmt      # Only required when you change the magefile
 GoPath/src/staticwebpage$ az login    # Required when no service principal environment variables are present
 GoPath/src/staticwebpage$ mage
 ```
@@ -513,7 +513,7 @@ Son komut satırında ek mage adımlarla değiştirebilirsiniz. Örneğin, kulla
 
 Görüntü ile Git paket sistemini kullanarak da adımları paylaşabilir. Bu durumda, ortak bir uygulama başvuru ve bağımlılıkları bildirme tüm modüller arasında magefiles basitleştirebilirsiniz (`mg.Deps()`).
 
-**İsteğe bağlı: kabul testleri çalıştırmak için hizmet sorumlusu ortam değişkenlerini ayarlama**
+**İsteğe bağlı: Kabul testleri çalıştırmak için hizmet sorumlusu ortam değişkenlerini ayarlama**
  
 Yürütme yerine `az login` testleri önce hizmet sorumlusu ortam değişkenlerini ayarlayarak Azure kimlik doğrulaması tamamlayabilirsiniz. Terraform yayımlar bir [ortam değişken adları listesi](https://www.terraform.io/docs/providers/azurerm/index.html#testing). (Bu ortam değişkenlerinden yalnızca ilk dördü gereklidir.) Terraform açıklayan ayrıntılı yönergeler de yayımlar nasıl [bu ortam değişkenleri değeri elde etmek](https://www.terraform.io/docs/providers/azurerm/authenticating_via_service_principal.html).
 

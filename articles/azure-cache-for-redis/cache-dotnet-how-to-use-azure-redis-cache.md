@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: b75d84fefa9c45711003731666ecb21336057cc2
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 6b2ab1ba89fbc2b271ede177a906a1919c14023d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019224"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557674"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-application"></a>Hızlı Başlangıç: Kullanın Azure önbelleği için Redis ile bir .NET uygulaması
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-application"></a>Hızlı Başlangıç: Azure Cache, Redis için bir .NET uygulamasını kullanın.
 
 
 
@@ -160,7 +160,7 @@ Konsol uygulamanıza yönelik `Program` sınıfının `Main` yordamı için aşa
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringSet()");
             Console.WriteLine("Cache response : " + cache.StringSet("Message", "Hello! The cache is working from a .NET console app!").ToString());
 
-            // Demostrate "SET Message" executed as expected...
+            // Demonstrate "SET Message" executed as expected...
             cacheCommand = "GET Message";
             Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
             Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
@@ -174,7 +174,7 @@ Konsol uygulamanıza yönelik `Program` sınıfının `Main` yordamı için aşa
         }
 ```
 
-Azure önbellek, bir Azure önbelleği için verileri mantıksal olarak ayırmak için kullanılan veritabanları (varsayılan değer 16) yapılandırılabilir sayıda Rediss sahip Redis. Kod, DB 0 adlı varsayılan veritabanına bağlanır. Daha fazla bilgi için bkz. [Redis veritabanı nedir?](cache-faq.md#what-are-redis-databases) ve [Varsayılan Redis sunucu yapılandırması](cache-configure.md#default-redis-server-configuration).
+Azure önbelleği için Redis yapılandırılabilir sayıda verileri bir Azure önbelleği için Redis mantıksal olarak ayırmak için kullanılan veritabanları (varsayılan değer 16) sahiptir. Kod, DB 0 adlı varsayılan veritabanına bağlanır. Daha fazla bilgi için bkz. [Redis veritabanı nedir?](cache-faq.md#what-are-redis-databases) ve [Varsayılan Redis sunucu yapılandırması](cache-configure.md#default-redis-server-configuration).
 
 `StringSet` ve `StringGet` yöntemleri kullanılarak önbellek öğeleri depolanabilir ve alınabilir.
 
@@ -201,7 +201,7 @@ Install-Package Newtonsoft.Json
 
 Aşağıdaki `using` deyimini *Program.cs* dosyasının üst kısmına ekleyin:
 
-```charp
+```csharp
 using Newtonsoft.Json;
 ```
 
