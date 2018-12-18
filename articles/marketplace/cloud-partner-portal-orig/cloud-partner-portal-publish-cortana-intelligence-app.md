@@ -59,7 +59,7 @@ Bu kimliği, ürün URL'lerinde görülebilir. Yalnızca küçük harfli alfasay
 
 **Örnek:**
 
-Varsa yayımcı **contoso** Teklif kimliği ile bir teklif oluşturur *örnek Cortana Intelligence*, appsource'ta görünür "https://appsource.microsoft.com/marketplace/apps/\**contoso\**.\*Örnek-Cortana Intelligence\*? sekmesi genel bakış = ".
+Varsa yayımcı **contoso** Teklif kimliği ile bir teklif oluşturur *örnek Cortana Intelligence*, appsource'ta görünür "https://appsource.microsoft.com/marketplace/apps/**contoso**.\*Örnek-Cortana Intelligence\*? sekmesi genel bakış = ".
 
 ### <a name="publisher-id"></a>Yayımcı kimliği
 
