@@ -12,20 +12,14 @@ items:
   expanded: true
 - name: Öğreticiler
   items:
-  - name: Karşıya yükleme, kodlama ve akışla aktarma
-    items:
-    - name: .NET ile
-      href: stream-files-tutorial-with-api.md
-    - name: REST ile
-      href: stream-files-tutorial-with-rest.md
-  - name: Canlı akış
-    items:
-    - name: .NET Core ile
-      href: stream-live-tutorial-with-api.md
-  - name: Videonuzu analiz etme
-    items:
-    - name: .NET ile
-      href: analyze-videos-tutorial-with-api.md
+  - name: Uzak dosyayı kodlama ve videoyu akışla aktarma – REST
+    href: stream-files-tutorial-with-rest.md
+  - name: Karşıya yüklenen dosyayı kodlama ve videoyu akışla aktarma – .NET
+    href: stream-files-tutorial-with-api.md
+  - name: Canlı akış - .NET
+    href: stream-live-tutorial-with-api.md
+  - name: Videonuzu analiz etme - .NET
+    href: analyze-videos-tutorial-with-api.md
 - name: Örnekler
   items:
   - name: Azure kod örnekleri
@@ -186,9 +180,9 @@ items:
     href: limits-quotas-constraints.md
   - name: SSS
     href: frequently-asked-questions.md
-ms.openlocfilehash: 9c42d463bc88ae936e0fbe965fd4039a716e3052
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 49c15b2540b33a3f37f4f276b435ce3f4508b513
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557181"
+ms.locfileid: "53582516"

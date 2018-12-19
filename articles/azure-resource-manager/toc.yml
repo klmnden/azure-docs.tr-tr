@@ -94,7 +94,7 @@ items:
       href: /azure/architecture/building-blocks/extending-templates/update-resource
   - name: Şablon dağıtma
     items:
-    - name: Portalı kullanarak dağıtma
+    - name: Azure portal kullanarak dağıtma
       href: resource-group-template-deploy-portal.md
     - name: Azure CLI'yi kullanarak dağıtma
       href: resource-group-template-deploy-cli.md
@@ -123,27 +123,27 @@ items:
       maintainContext: true
   - name: Şablonları yönetme
     items:
-    - name: Azure PowerShell
-      href: powershell-azure-resource-manager.md
-    - name: Azure CLI
-      href: cli-azure-resource-manager.md
-    - name: Azure portal
+    - name: Azure portal kullanarak yönetme
       href: resource-group-portal.md
-    - name: Kaynakları düzenlemek için etiketleri kullanma
-      href: resource-group-using-tags.md
-    - name: Kaynakları yeni gruba veya aboneliğe taşıma
+    - name: Azure PowerShell kullanarak yönetme
+      href: powershell-azure-resource-manager.md
+    - name: Azure CLI kullanarak yönetme
+      href: cli-azure-resource-manager.md
+    - name: Kaynakları taşıma
       href: resource-group-move-resources.md
       items:
       - name: Kaynak türü başına taşıma desteği
         href: move-support-resources.md
+    - name: Etiketleri kullanarak kaynakları düzenleme
+      href: resource-group-using-tags.md
+    - name: Kaynakları kilitleme
+      href: resource-group-lock-resources.md
+    - name: Aboneliklere erişmek için kimlik doğrulama API’si
+      href: resource-manager-api-authentication.md
     - name: EA abonelikleri oluşturma
       href: programmatically-create-subscription.md
     - name: EA abonelikleri oluşturmak için erişim izni verme
       href: grant-access-to-create-subscription.md
-    - name: Aboneliklere erişmek için kimlik doğrulama API’si
-      href: resource-manager-api-authentication.md
-    - name: Kaynakları kilitleme
-      href: resource-group-lock-resources.md
   - name: Dağıtımları denetleme
     items:
     - name: Etkinlik günlüklerini görüntüleme
@@ -211,7 +211,7 @@ items:
     href: /rest/api/resources/
   - name: REST - Dağıtım Yöneticisi
     href: /rest/api/deploymentmanager/
-  - name: PowerShell
+  - name: Azure PowerShell
     href: /powershell/module/azurerm.resources
   - name: Azure CLI
     href: /cli/azure/resource
@@ -235,9 +235,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 166a23d480db7dfda7a78a5a63e7717b5e721bb9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 47766ce1bd0250c1eeaa269c4bc2436a2e117f02
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436798"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600973"

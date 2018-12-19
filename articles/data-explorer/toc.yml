@@ -49,22 +49,29 @@ items:
   expanded: true
 - name: Nasıl yapılır kılavuzları
   items:
-  - name: Python kullanarak Databricks'ten bağlanma
-    href: connect-from-databricks.md
-  - name: Sorgu yazma
-    href: write-queries.md
-  - name: Örnek verileri ekleme
-    href: ingest-sample-data.md
-  - name: Grafana’da verileri görselleştirme
-    href: grafana.md
-  - name: Verileri silme
-    href: delete-data.md
-  - name: Veritabanı izinlerini yönetme
-    href: manage-database-permissions.md
-  - name: Küme durumunu denetleme
-    href: check-cluster-health.md
-  - name: Küme ölçeklendirmeyi yönetme
-    href: manage-cluster-scaling.md
+  - name: Başlarken
+    items:
+    - name: Sorgu yazma
+      href: write-queries.md
+    - name: Örnek verileri ekleme
+      href: ingest-sample-data.md
+    expanded: true
+  - name: Yönetme
+    items:
+    - name: Veritabanı izinlerini yönetme
+      href: manage-database-permissions.md
+    - name: Küme durumunu denetleme
+      href: check-cluster-health.md
+    - name: Küme ölçeklendirmeyi yönetme
+      href: manage-cluster-scaling.md
+    - name: Verileri silme
+      href: delete-data.md
+  - name: Diğer araçlarla çalışma
+    items:
+    - name: Python kullanarak Databricks'ten bağlanma
+      href: connect-from-databricks.md
+    - name: Grafana’da verileri görselleştirme
+      href: grafana.md
   - name: Sorun giderme
     items:
     - name: Küme oluşturma
@@ -105,9 +112,9 @@ items:
     href: http://aka.ms/adecostestimator
   - name: Hizmet güncelleştirmeleri
     href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: 31b588167d4a136f54df248225fd718128a7421c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5773939edb8bb846325e5709cc46273b9669117b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958227"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606836"

@@ -275,6 +275,7 @@
 ##### [Kullanıcı sağlama galeri uygulamasını yapılandırırken yönetici kimlik bilgilerini kaydetme sorunu](manage-apps/application-provisioning-config-problem-storage-limit.md)
 ##### [Kullanıcılar sağlanmıyor - galeri uygulaması](manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
 ##### [Yanlış kullanıcılar sağlanıyor - galeri uygulaması](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [SCIM uyumluluk sorunları - galeri dışı uygulama](manage-apps/application-provisioning-config-problem-scim-compatibility.md)
 
 #### Çoklu oturum açma
 ##### [Yöntem seçme](manage-apps/single-sign-on-modes.md)
@@ -321,10 +322,10 @@
 ## [Sorun giderme](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Azure AD Kavram Kanıtı (PoC) Dağıtma
-### [PoC El Kitabı: Giriş](active-directory-playbook-intro.md)
-### [PoC El Kitabı: Malzemeler](active-directory-playbook-ingredients.md)
-### [PoC El Kitabı: Uygulama](active-directory-playbook-implementation.md)
-### [PoC El Kitabı: Yapı Taşları](active-directory-playbook-building-blocks.md)
+### [PoC Playbook: Giriş](active-directory-playbook-intro.md)
+### [PoC Playbook: Malzemeler](active-directory-playbook-ingredients.md)
+### [PoC Playbook: Uygulama](active-directory-playbook-implementation.md)
+### [PoC Playbook: Yapı Taşları](active-directory-playbook-building-blocks.md)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory)
