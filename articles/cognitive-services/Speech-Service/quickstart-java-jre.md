@@ -8,20 +8,20 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/18/2018
 ms.author: fmegen
-ms.openlocfilehash: 7d1f26a43866025c3b542fc10a3f316ad0d1dc37
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9b8327a529baf230bc64dd9abcc808924b31293b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103131"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603455"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma Tanıma Hizmeti SDK’sını kullanarak Windows veya Linux üzerinde Java’da konuşma tanıma
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma hizmeti SDK'sını kullanarak Windows veya Linux üzerinde Java konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Bu makalede, [Konuşma Tanıma Hizmeti SDK'sı](speech-sdk.md) kullanarak bir Java konsol uygulaması oluşturacaksınız. Bilgisayarınızın mikrofonundan gerçek zamanlı olarak konuşmayı metne dönüştüreceksiniz. Uygulama; 64 bit Windows veya Ubuntu Linux 16.04’te Eclipse Java IDE (v4.8) ve Konuşma SDK’sı Maven paketi ile derlenmiştir. 64 bit Java 8 çalışma zamanı ortamında (JRE) çalışır.
+Bu makalede, [Konuşma Tanıma Hizmeti SDK'sı](speech-sdk.md) kullanarak bir Java konsol uygulaması oluşturacaksınız. Bilgisayarınızın mikrofonundan gerçek zamanlı olarak konuşmayı metne dönüştüreceksiniz. Uygulama konuşma SDK Maven paketini ve 64-bit Windows veya Ubuntu Linux 16.04 Eclipse Java IDE (v4.8) ile oluşturulmuş / 18.04. 64 bit Java 8 çalışma zamanı ortamında (JRE) çalışır.
 
 > [!NOTE]
 > Konuşma Cihazları SDK’sı ve Roobo cihazı için bkz. [Konuşma Cihazları SDK’sı](speech-devices-sdk.md).
@@ -33,7 +33,7 @@ Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtar�
 
 ## <a name="create-and-configure-project"></a>Proje oluşturma ve yapılandırma
 
-Ubuntu 16.04 kullanıyorsanız, Eclipse’i başlatmadan önce gerekli paketlerin yüklendiğinden emin olmak için aşağıdaki komutları çalıştırın.
+Ubuntu 16.04 veya 18.04, Eclipse başlatmadan önce kullanıyorsanız, gerekli paketlerin yüklendiğinden emin olmak için aşağıdaki komutları çalıştırın.
 
   ```sh
   sudo apt-get update
@@ -74,7 +74,7 @@ Ubuntu 16.04 kullanıyorsanız, Eclipse’i başlatmadan önce gerekli paketleri
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Ayrıca Konuşma SDK'sı sürüm 1.1.0 bağımlılığına sahip bir `dependencies` öğesi de oluşturun:
+  * Ayrıca bir `dependencies` öğeyle Speech SDK'sı sürümü 1.2.0 bağımlılık olarak:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

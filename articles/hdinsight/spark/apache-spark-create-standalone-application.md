@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure HDInsight’ta IntelliJ kullanarak Spark için bir Scala Maven uygulaması oluşturma'
+title: 'Öğretici: Intellij kullanarak Azure HDInsight içindeki Spark Scala Maven uygulama oluşturma'
 description: Derleme sistemi olarak Apache Maven ile Scala’da ve Scala için IntelliJ IDEA tarafından sağlanan mevcut bir Maven mimari türü ile yazılmış bir Spark uygulaması oluşturun.
 services: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: d83c04946b67dd25bae306c2fa41a0864287bfc8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: eef755c01a6703976383ee31b52bde14d32f0110
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499316"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604074"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Öğretici: Intellij kullanarak HDInsight, Apache Spark Scala Maven uygulama oluşturma
 
@@ -26,7 +26,7 @@ Bu öğreticide, şunların nasıl oluşturulacağı bir [Apache Spark](https://
 * HDInsight Spark kümelerine gönderilebilen bir jar dosyası oluşturma.
 * Livy kullanarak uygulamayı Spark kümesi üzerinde çalıştırma.
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight ayrıca uygulamaları oluşturma ve Linux üzerindeki bir HDInsight Spark kümesine gönderme işlemini kolaylaştıran IntelliJ IDEA eklenti aracını sağlar. Daha fazla bilgi için [oluşturmak ve Apache Spark uygulamaları göndermek amacıyla Intellij Idea için kullanım HDInsight araçları eklentisi](apache-spark-intellij-tool-plugin.md).
 > 
 
@@ -106,7 +106,7 @@ Scala eklentisini yüklemek için aşağıdaki adımları kullanın:
 1. **GroupId**, **ArtifactId** ve **Version** için ilgili değerleri sağlayın. Bu öğreticide aşağıdaki değerler kullanılır:
 
     - GroupId: com.microsoft.spark.example
-    - ArtifactId: SparkSimpleApp
+    - Artifactıd: SparkSimpleApp
 1. **İleri**’yi seçin.
 1. Ayarları doğrulayıp **İleri**’yi seçin.
 1. Proje adını ve konumunu doğrulayıp **Son**’u seçin.

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 775d7595e80c02bcfbc1c3d6abc687d5e335d7da
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ebbb12ff5f4e824b9ae27a75dfa3ccdd9b399b12
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261016"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604897"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Öğretici: Azure App Service’te .NET Core ve SQL Veritabanı web uygulaması oluşturma
 
@@ -27,7 +27,7 @@ ms.locfileid: "53261016"
 > Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. _Linux_ üzerinde App Service’e dağıtım yapmak için, bkz. [Linux üzerinde Azure App Service’te .NET Core ve SQL Veritabanı web uygulaması oluşturma](./containers/tutorial-dotnetcore-sqldb-app.md).
 >
 
-[App Service](app-service-web-overview.md), Azure’da yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide, bir .NET Core web uygulaması oluşturma ve bu uygulamayı bir SQL Veritabanı’na bağlamayla ilgili yönergeler verilmiştir. Öğreticiyi tamamladığınızda, App Service’te çalışan bir .NET Core MVC uygulaması oluşturmuş olacaksınız.
+[App Service](overview.md), Azure’da yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide, bir .NET Core web uygulaması oluşturma ve bu uygulamayı bir SQL Veritabanı’na bağlamayla ilgili yönergeler verilmiştir. Öğreticiyi tamamladığınızda, App Service’te çalışan bir .NET Core MVC uygulaması oluşturmuş olacaksınız.
 
 ![App Service’te çalışan uygulama](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
@@ -397,4 +397,4 @@ Portal, varsayılan olarak web uygulamanızın **Genel Bakış** sayfasında gö
 Web uygulamanıza özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Mevcut bir özel DNS adını Azure Web Apps ile eşleme](app-service-web-tutorial-custom-domain.md)
+> [Mevcut bir özel DNS adını Azure App Service'e eşlemek](app-service-web-tutorial-custom-domain.md)

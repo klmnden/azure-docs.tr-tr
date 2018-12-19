@@ -1,10 +1,10 @@
 ---
-title: 'VS Code: Azure SQL Veritabanında verileri bağlama ve sorgulama | Microsoft Docs'
+title: "VS Code'u: Azure SQL veritabanı'nda verileri bağlama ve sorgulama | Microsoft Docs"
 description: Visual Studio Code kullanarak SQL Veritabanına bağlanma hakkında bilgi edinin. Ardından, verileri sorgulamak ve düzenlemek için Transact-SQL (T-SQL) deyimleri çalıştırın.
 keywords: sql veritabanına bağlanma
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,14 +13,14 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/06/2018
-ms.openlocfilehash: 786b4fab42fb49cd44c1985bfa04ce33e77cadf0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5e0b2fff7ca5bc7f5856a6de05e18b99bbf8b938
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098993"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600837"
 ---
-# <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Hızlı Başlangıç: Visual Studio bağlanmak ve bir Azure SQL veritabanı sorgulamak için bir kod kullanın
+# <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Hızlı Başlangıç: Bağlanmak ve bir Azure SQL veritabanı sorgulamak için Visual Studio Code'u kullanma
 
 [Visual Studio Code](https://code.visualstudio.com/docs) Linux, macOS ve Windows için bir grafiksel kod düzenleyicisidir. Dahil olmak üzere uzantıları destekleyen [mssql uzantısı](https://aka.ms/mssql-marketplace) Microsoft SQL Server, Azure SQL veritabanı ve SQL veri ambarı'nı sorgulamak için. Bu hızlı başlangıçta, bir Azure SQL veritabanına bağlanın ve ardından Transact-SQL deyimleriyle sorgulama, ekleme, güncelleştirme ve verileri silmek için Visual Studio Code kullanmayı gösterir.
 
@@ -174,6 +174,6 @@ Aşağıdaki [Sil](https://docs.microsoft.com/sql/t-sql/statements/delete-transa
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- SQL Server Management Studio kullanarak bağlanıp sorgulamak için bkz: [hızlı başlangıç: Azure SQL veritabanı ve sorgu verilerine bağlanmak için kullanım SQL Server Management Studio](sql-database-connect-query-ssms.md).
-- Azure portalını kullanarak bağlanmak ve sorgulamak için bkz: [hızlı başlangıç: bağlanmak ve veri sorgulamak için Azure portalında SQL sorgu Düzenleyicisi'ni kullanmak](sql-database-connect-query-portal.md).
+- SQL Server Management Studio kullanarak bağlanıp sorgulamak için bkz: [hızlı başlangıç: Bir Azure SQL veritabanı ve sorgu verilerine bağlanmak için SQL Server Management Studio'yu kullanın](sql-database-connect-query-ssms.md).
+- Azure portalını kullanarak bağlanmak ve sorgulamak için bkz: [hızlı başlangıç: Bağlanmak ve veri sorgulamak için Azure portalında SQL sorgu Düzenleyicisi'ni kullanmak](sql-database-connect-query-portal.md).
 - Visual Studio Code'u kullanmaya ilişkin MSDN dergisi makalesi için bkz. [MSSQL uzantısı blog gönderisinden yararlanarak veritabanı IDE'si oluşturma](https://msdn.microsoft.com/magazine/mt809115).

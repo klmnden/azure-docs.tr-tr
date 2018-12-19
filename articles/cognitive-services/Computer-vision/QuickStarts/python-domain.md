@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Etki alanı modelini kullanma - REST, Python - Görüntü İşleme'
+title: 'Hızlı Başlangıç: Etki alanına özel görüntü içeriğini - REST, Python'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Python ile Görüntü İşleme API'sini kullanarak bir görüntüdeki yer işaretlerini ve ünlü kişileri tanımlamak için alan modeli kullanacaksınız.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 4594d84c411994b4157b2fa51ed5d6d24088380d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 9a511cb26f5bc4ba44e4d999cb7b3c3ba98bca4c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852342"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582244"
 ---
-# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API’sini ve Python’ı kullanarak etki alanı modelini kullanma
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme Python ve REST API kullanarak bir etki alanı modeli kullanın
 
 Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak uzakta depolanan bir görüntüdeki yer işaretlerini veya isteğe bağlı olarak ünlüleri tanımlamak için alan modeli kullanacaksınız. [Etki Alanına Özgü İçeriği Tanıma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) yöntemiyle, bir görüntüdeki içeriği tanımak için etki alanına özgü bir model uygulayabilirsiniz.
 

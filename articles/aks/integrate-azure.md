@@ -8,18 +8,18 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: d0b6fc1ebd08b29b9acc28cfb0107b815c7d7bad
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
-ms.translationtype: HT
+ms.openlocfilehash: 74240298b0c8bec46ab2beab6fcdfbb59fd7b12a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068253"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579983"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Azure için Açık Hizmet Aracısı (OSBA) kullanarak Azure tarafından yönetilen hizmetlerle tümleştirme
 
 [Kubernetes Hizmet Kataloğu][kubernetes-service-catalog] ile birlikte Azure için Açık Hizmet Aracısı (OSBA), geliştiricilerin Kubernetes'te Azure tarafından yönetilen hizmetleri kullanmasına izin verir. Bu kılavuz; Kubernetes Hizmet Kataloğu, Azure için Açık Hizmet Aracısı (OSBA) ve Azure tarafından yönetilen hizmetleri kullanan uygulamaları dağıtmaya odaklanır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Bir Azure aboneliği
 
 * Azure CLI: [Yerel olarak yükleyebilir][azure-cli-install] veya [Azure Cloud Shell][azure-cloud-shell]'de kullanabilirsiniz.
@@ -77,7 +77,7 @@ v1beta1.storage.k8s.io               10
 
 Sonraki adımda, Azure tarafından yönetilen hizmetler için kataloğu içeren [Azure için Açık Hizmet Aracısı][open-service-broker-azure]'nı yükleyin. Kullanılabilir Azure hizmetleri arasında PostgreSQL için Azure Veritabanı, MySQL için Azure Veritabanı ve Azure SQL Veritabanı bulunur.
 
-İlk olarak Azure Helm deposu için Açık Hizmet Aracısı ekleyerek başlayalım:
+Azure Helm deposu için açık hizmet Aracısı ekleyerek başlayın:
 
 ```azurecli-interactive
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
@@ -171,7 +171,7 @@ Son olarak, tüm kullanılabilir hizmet planlarını listeleyin. Hizmet planlar�
 Bu adımda, Helm kullanarak WordPress için güncelleştirilmiş bir Helm grafiği yüklersiniz. Grafik, WordPress’in kullanabileceği bir dış MySQL için Azure Veritabanı sağlar. Bu işlem birkaç dakika sürebilir.
 
 ```azurecli-interactive
-helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0
+helm install azure/wordpress --name wordpress --namespace wordpress --set resources.requests.cpu=0 --set replicaCount=1
 ```
 
 Yüklemenin doğru kaynakları sağladığını onaylamak için, yüklü hizmet örneklerini ve bağlamaları listeleyin:

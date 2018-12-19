@@ -1,5 +1,5 @@
 ---
-title: Azure Digital Twins ile uygun odaları bulma (C#) | Microsoft Docs
+title: Azure dijital İkizlerini kullanılabilir odaları - bulma | Microsoft Docs
 description: Bu hızlı başlangıçta iki .NET Core örnek uygulaması çalıştırarak bir Azure Digital Twins alanına sanal hareket ve karbondioksit telemetri verileri göndereceksiniz. Burada hedefiniz, veriler bulutta işlendikten sonra Yönetim API'leriyle temiz havaya sahip olan uygun odaları bulmak olacak.
 author: alinamstanciu
 manager: bertvanhoof
@@ -7,25 +7,25 @@ ms.service: digital-twins
 services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
-ms.custom: mvc
-ms.date: 11/7/2018
+ms.custom: mvc seodec18
+ms.date: 12/17/2018
 ms.author: alinast
-ms.openlocfilehash: ab1e879a7c145699779f6af3a97cef0ee6b5d219
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d2588090ced3e82e63397a416245ca69204f3d87
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105521"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583094"
 ---
-# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Hızlı Başlangıç: Azure dijital İkizlerini kullanarak kullanılabilir odaları bulun.
+# <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Hızlı Başlangıç: Azure dijital İkizlerini kullanarak kullanılabilir odaları Bul
 
-Azure dijital İkizlerini service, fiziksel ortamınızın dijital bir görüntüsünü yeniden oluşturmak sağlar. Bu işlemin ardından ortamınızdaki olaylarla ilgili bildirimler alabilir ve verdiğiniz yanıtları özelleştirebilirsiniz. 
+Azure dijital İkizlerini service, fiziksel ortamınızın dijital bir görüntüsünü yeniden oluşturmak sağlar. Bu işlemin ardından ortamınızdaki olaylarla ilgili bildirimler alabilir ve verdiğiniz yanıtları özelleştirebilirsiniz.
 
 Bu hızlı başlangıçta kullanılmaktadır [.NET örnekleri çifti](https://github.com/Azure-Samples/digital-twins-samples-csharp) sanal ofis binasını dijitalleştirerek. Bu yapı içinde kullanılabilir odaları nasıl gösterir. Dijital İkizlerini kullanmaya birçok sensörlerden ortamınız ile ilişkilendirebilirsiniz. Bunu ayrıca kullanılabilir odanıza hava kalitesini sanal algılayıcı tasarruf edilen karbon dioksit için Yardım en uygun olup olmadığını öğrenebilirsiniz. Örnek uygulamalarından biridir, bu senaryo görselleştirmenize yardımcı olmak için rastgele sensör verilerini oluşturur.
 
 Aşağıdaki videoda hızlı başlangıç ayarları özetlenir:
 
-> [!VIDEO https://www.youtube.com/embed/1izK266tbMI]
+>[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -33,8 +33,7 @@ Aşağıdaki videoda hızlı başlangıç ayarları özetlenir:
 
 1. Bu hızlı başlangıçta çalıştırdığınız iki konsol uygulamaları kullanılarak yazılan C#. Yükleme [.NET Core SDK'sı sürüm 2.1.403 veya yukarıdaki](https://www.microsoft.com/net/download) geliştirme makinenizde. .NET Core SDK varsa, geçerli sürümünü doğrulama C# geliştirme makinenizde. Çalıştırma `dotnet --version` bir komut isteminde.
 
-1. İndirme [örnek C# proje](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip). Dijital-twins-samples-csharp-master.zip arşivini ayıklayın. 
-
+1. İndirme [örnek C# proje](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip). Dijital-twins-samples-csharp-master.zip arşivini ayıklayın.
 
 ## <a name="create-a-digital-twins-instance"></a>Digital Twins örneği oluşturma
 
@@ -44,42 +43,40 @@ Dijital İkizlerini yeni bir örneğini oluşturma [portalı](https://portal.azu
 
 ## <a name="set-permissions-for-your-app"></a>Uygulamanızın izinlerini ayarlama
 
-Dijital İkizlerini örneğinizin erişebilmesi için bu bölümde, örnek uygulamanızı Azure Active Directory (Azure AD) kaydeder. Bir Azure AD uygulama kaydı zaten varsa, Örneğiniz için yeniden kullanın. Bu bölümde açıklanan şekilde yapılandırıldığından emin olun. 
+Dijital İkizlerini örneğinizin erişebilmesi için bu bölümde, örnek uygulamanızı Azure Active Directory (Azure AD) kaydeder. Bir Azure AD uygulama kaydı zaten varsa, Örneğiniz için yeniden kullanın. Bu bölümde açıklanan şekilde yapılandırıldığından emin olun.
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
-
 
 ## <a name="build-application"></a>Uygulama oluşturma
 
 Sahiplik uygulamayı aşağıdaki adımları izleyerek oluşturun.
 
-1. Bir komut istemi açın. Dijital-twins-samples-csharp-master.zip dosyalarınızı ayıkladığınız klasöre gidin.
+1. Bir komut istemi açın. Klasörüne gidin Burada, `digital-twins-samples-csharp-master.zip` dosyaları ayıklanır.
 1. `cd occupancy-quickstart/src` öğesini çalıştırın.
 1. `dotnet restore` öğesini çalıştırın.
-1. **appSettings.json** dosyasını düzenleyerek aşağıdaki değişkenleri güncelleştirin:
-    - **ClientID**: önceki bölümde belirtilen Azure AD uygulama kaydı uygulama Kimliğini girin.
+1. [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) dosyasını düzenleyerek aşağıdaki değişkenleri güncelleştirin:
+    - **ClientID**: Önceki bölümde belirtilen Azure AD uygulama kaydı uygulama Kimliğini girin.
     - **Kiracı**: Ayrıca önceki bölümde belirtilen Azure AD kiracınızda dizin Kimliğini girin.
-    - **BaseUrl**: dijital İkizlerini örneğinizin yönetim API URL biçiminde olan `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Bu URL içindeki yer tutucuları önceki bölümde Örneğiniz için değerlerle değiştirin.
+    - **BaseUrl**: Dijital İkizlerini örneğinizin yönetim API URL'si şu biçimdedir `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Bu URL içindeki yer tutucuları önceki bölümde Örneğiniz için değerlerle değiştirin.
 
 ## <a name="provision-graph"></a>Grafı sağlama
 
 Bu adım, dijital İkizlerini uzamsal grafik ile sağlar:
- 
+
 - Çeşitli alanları.
 - Bir cihaz.
-- İki algılayıcılar. 
-- Özel bir işlev. 
+- İki algılayıcılar.
+- Özel bir işlev.
 - Bir rol ataması.
- 
-Uzamsal graph kullanılarak sağlanan [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) dosya. 
+
+Uzamsal graph kullanılarak sağlanan [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) dosya.
 
 1. `dotnet run ProvisionSample` öğesini çalıştırın.
     >[!NOTE]
     >Cihaz oturum açma Azure CLI aracını, Azure ad kullanıcının kimliğini doğrulamak için kullanılır. Kullanıcı kimlik doğrulaması için belirli bir kod girmeden [Microsoft oturum açma](https://microsoft.com/devicelogin) sayfası. İlgili kod girildikten sonra kimlik doğrulaması için adımları izleyin. Aracı çalıştırırken, kullanıcının kimliğini doğrulaması gerekir.
-    
+
     >[!TIP]
     > Bu adımı çalıştırdığınızda aşağıdaki hata iletisi görüntülenirse, değişkenlerinizi düzgün bir şekilde kopyalanan emin olun: `EXIT: Unexpected error: The input is not a valid Base-64 string ...`
-
 
 1. Sağlama adım birkaç dakika sürebilir. Ayrıca, IOT hub'ı dijital İkizlerini örneğinizin içinde sağlar. IOT hub'ı durum gösterilene kadar aracılığıyla döngü =`Running`.
 
@@ -99,7 +96,7 @@ Oluşturun ve aşağıdaki adımları izleyerek algılayıcısı simülatör uyg
 1. Yeni bir komut istemi açın. Dijital-twins-samples-csharp-master klasöründe indirdiğiniz projeye gidin.
 1. `cd device-connectivity` öğesini çalıştırın.
 1. `dotnet restore` öğesini çalıştırın.
-1. Düzen **appsettings.json** güncelleştirilecek **DeviceConnectionString** önceki ile `ConnectionString`.
+1. Düzen [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) güncelleştirilecek **DeviceConnectionString** önceki ile `ConnectionString`.
 1. Çalıştırma `dotnet run` sensör verilerini göndermeyi başlatamadı.%n%nolası. Aşağıdaki görüntüde gösterildiği gibi sayısal çiftleri için gönderilen görürsünüz.
 
      ![Cihaz Bağlantısı][2]
@@ -115,7 +112,7 @@ Sensör örnek iki algılayıcılar için rastgele veri değerleri benzetimini y
 
 1. Önceki sağlama adım çalıştırmak için kullanılan komut istemi açın.
 1. `dotnet run GetAvailableAndFreshSpaces` öğesini çalıştırın.
-1. Bu komut istemi ve sensör verilerini komut istemi yan yana bakın. 
+1. Bu komut istemi ve sensör verilerini komut istemi yan yana bakın.
 
     Bir komut istemi, beş saniyede dijital çiftleri için sanal hareket ve tasarruf edilen karbon dioksit verileri gönderir. Diğer komutu, grafiğin gerçek zamanlı olarak kullanıma kullanılabilir odaları rastgele simülasyon verileri temel alan yeni hava bulmak için okur. Bu koşullardan biri son gönderilen algılayıcı verileri temel alan neredeyse gerçek zamanlı gösterir:
     - Temiz havaya sahip olan uygun odalar.
@@ -144,26 +141,25 @@ Veya kolaylık sağlamak için göz atın [dijital İkizlerini Swagger](https://
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Öğreticiler kullanma hakkında daha fazla ayrıntıya gidin: 
+Öğreticiler kullanma hakkında daha fazla ayrıntıya gidin:
 
-- Tesis yöneticilerinin occupant üretkenliği artırmak için bir uygulama oluşturun. 
+- Tesis yöneticilerinin occupant üretkenliği artırmak için bir uygulama oluşturun.
 - Oluşturmaya çalışması daha verimli bir şekilde.
 
 Öğreticilerine devam etmek için kaynakları oluşturulan temizlemeyin Bu hızlı başlangıçta. Devam etmeyi planlamıyorsanız, bu hızlı başlangıç ile oluşturulan tüm kaynakları silin.
 
 1. Örnek depoyu indirildiğinde oluşturduğunuz klasörü silin.
 1. İçinde soldaki menüden [Azure portalında](http://portal.azure.com)seçin **tüm kaynakları**. Ardından dijital İkizlerini kaynağınızı seçin. Üst kısmındaki **tüm kaynakları** bölmesinde **Sil**.
-   
+
     > [!TIP]
     > Dijital İkizlerini örneğinizin silme sorun olduysa, bir hizmet güncelleştirmesi düzeltme alındı. Örneğiniz silme yeniden deneyin.
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu hızlı başlangıçta basit bir senaryo odaları ile iyi çalışma koşullarına nasıl göstermek için kullanılır. Bu senaryonun ayrıntılı analiz için bu öğreticiye bakın:
 
-> [!div class="nextstepaction"]
-> [Öğretici: Azure Digital Twins'i dağıtma ve uzamsal graf yapılandırma](tutorial-facilities-setup.md)
+>[!div class="nextstepaction"]
+>[Öğretici: Azure dijital İkizlerini dağıtma ve uzamsal graph'ı yapılandırma](tutorial-facilities-setup.md)
 
 <!-- Images -->
 [1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png

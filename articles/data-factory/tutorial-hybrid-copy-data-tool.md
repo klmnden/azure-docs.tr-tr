@@ -135,7 +135,7 @@ Bu bölümde, Blob depolama alanınızda **adftutorial** adlı bir blob kapsayı
       - **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin. 
         
       Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).
-1. **Sürüm** bölümünde **V2**'yi seçin.
+1. **Sürüm** bölümünde **V2 **'yi seçin.
 1. **Konum** bölümünde veri fabrikasının konumunu seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri Fabrikası tarafından kullanılan veri depoları (örneğin, Azure Depolama ve SQL Veritabanı) ve işlemler (örneğin, Azure HDInsight) başka konumlarda/bölgelerde olabilir.
 1. **Panoya sabitle**’yi seçin. 
 1. **Oluştur**’u seçin.
@@ -165,7 +165,7 @@ Bu bölümde, Blob depolama alanınızda **adftutorial** adlı bir blob kapsayı
 
    ![SQL Server seçimi](./media/tutorial-hybrid-copy-data-tool/select-source-data-store.png)
 
-1. Yeni Bağlantılı Hizmet (SQL Server) **Ad**** altına **SqlServerLinkedService** yazın. **Tümleştirme çalışma zamanı aracılığıyla bağlan** için **+Yeni** seçeneğini belirleyin. Şirket içinde barındırılan bir tümleştirme çalışma zamanı oluşturup bunu makinenize indirmeniz ve Data Factory’ye kaydetmeniz gerekir. Şirket içinde barındırılan tümleştirme çalışma zamanı, şirket içi ortamınızla bulut arasında veri kopyalar.
+1. Yeni Bağlantılı Hizmet (SQL Server) **Ad**\*\* altına **SqlServerLinkedService** yazın. **Tümleştirme çalışma zamanı aracılığıyla bağlan** için **+Yeni** seçeneğini belirleyin. Şirket içinde barındırılan bir tümleştirme çalışma zamanı oluşturup bunu makinenize indirmeniz ve Data Factory’ye kaydetmeniz gerekir. Şirket içinde barındırılan tümleştirme çalışma zamanı, şirket içi ortamınızla bulut arasında veri kopyalar.
 
    ![Şirket içinde barındırılan tümleştirme çalışma zamanı oluşturma](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-link.png)
 
@@ -223,7 +223,7 @@ Bu bölümde, Blob depolama alanınızda **adftutorial** adlı bir blob kapsayı
 
 1. **Yeni Bağlı Hizmet (Azure Blob Depolama)** iletişim kutusunda aşağıdaki adımları uygulayın: 
 
-     a. **Ad**** bölümüne **AzureStorageLinkedService** adını girin.
+     a. **Ad**\*\* bölümüne **AzureStorageLinkedService** adını girin.
 
      b. **Tümleştirme çalışma zamanıyla bağlan** bölümünde **TutorialIntegrationRuntime** öğesini seçin
 

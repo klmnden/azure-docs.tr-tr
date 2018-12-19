@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
 ms.openlocfilehash: 334396b99609ea52085e36ee2740583e0957c3a4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549587"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600038"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve test için Azure Cosmos DB Öykünücüsünü kullanma
 

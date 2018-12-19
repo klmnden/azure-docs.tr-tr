@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 9a35c1205c0b564c8d0db1fbd0535d41bb9c84a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 63e35a32cb4a031ea9848486c4ecda7058707914
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989915"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599902"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Azure İşlevleri'ni kullanarak sunucusuz bir API oluşturma
 
 Bu öğreticide Azure İşlevleri'ni kullanarak yüksek oranda ölçeklenebilir API'ler derlemeyi öğreneceksiniz. Azure İşlevleri Node.JS, C# ve daha birçok dilde uç nokta yazmayı kolaylaştıran yerleşik HTTP tetikleyicisi ve bağlama koleksiyonuna sahiptir. Bu öğreticide bir HTTP tetikleyicisini API tasarımınızdaki belirli eylemleri işlemek üzere özelleştireceksiniz. Ayrıca Azure İşlev Proxy'leri tümleştirmesi yapıp sahte API'ler oluşturarak API'nizi ölçeklendirmeye hazır hale getireceksiniz. Tüm bu işlemler Azure İşlevleri'nin sunucusuz işlem ortamında gerçekleştirildiğinden kaynak ölçeklendirme konusunda endişelenmenize gerek yoktur. Tek yapmanız gereken API'nizin mantığına yoğunlaşmaktır.
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Önkoşullar 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -39,14 +39,14 @@ HTTP ile tetiklenen işleviniz varsayılan olarak tüm HTTP yöntemlerini kabul 
 
     ![HTTP işlevini özelleştirme](./media/functions-create-serverless-api/customizing-http.png)
 
-1. Tabloda belirtilen HTTP tetikleyicisi ayarlarını kullanın.
+1. Tabloda belirtilen HTTP tetikleyici ayarlarını kullanın.
 
     | Alan | Örnek değer | Açıklama |
     |---|---|---|
     | İzin verilen HTTP yöntemleri | Seçilen yöntemler | Bu işlevi çağırmak için kullanılabilecek HTTP yöntemlerini belirler |
     | Seçili HTTP metotları | GET | Yalnızca seçilen HTTP yöntemlerinin bu işlevi çağırmak için kullanılmasını sağlar |
     | Yol şablonu | /hello | Bu işlevi çağırmak için kullanılacak yolu belirler |
-    | Yetkilendirme Düzeyi | Anonim | İsteğe bağlı: İşlevinizi API anahtarı olmadan erişilebilir duruma getirir |
+    | Yetkilendirme Düzeyi | Anonim | İsteğe bağlı: İşlevinizi bir API anahtarı olmadan erişilebilir hale getirir |
 
     > [!NOTE] 
     > Genel ayar tarafından işlendiği için `/api` temel yol ön ekini yol şablonuna dahil etmediniz.
@@ -71,7 +71,7 @@ Bir sonraki bölümde API'nizi proxy aracılığıyla erişilebilir duruma getir
 
 Proxy, herhangi bir HTTP kaynağına yönlendirme yapabilir, örneğin:
 - Azure İşlevleri 
-- [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview)'teki API uygulamaları
+- [Azure App Service](https://docs.microsoft.com/azure/app-service/overview)'teki API uygulamaları
 - [Linux App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)'teki Docker kapsayıcıları
 - Barındırılan herhangi bir API
 
@@ -103,7 +103,7 @@ Proxy'nizi oluşturacağınız yeni bir işlev uygulaması oluşturmak için [İ
 
     | Alan | Örnek değer | Açıklama |
     |---|---|---|
-    | Adı | HelloProxy | Yalnızca yönetim için kullanılan kolay ad |
+    | Ad | HelloProxy | Yalnızca yönetim için kullanılan kolay ad |
     | Yol şablonu | /api/hello | Bu proxy'yi çağırmak için kullanılacak yolu belirler |
     | Arka uç URL'si | https://%HELLO_HOST%/api/hello | İsteğe proxy uygulanacak uç noktayı belirtir |
     

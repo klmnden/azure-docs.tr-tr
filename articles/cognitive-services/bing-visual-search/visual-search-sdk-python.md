@@ -1,5 +1,5 @@
 ---
-title: "Hızlı Başlangıç: Bing Görsel Arama SDK'sı, Python"
+title: "Hızlı Başlangıç: Bing görsel arama SDK'sı Python"
 titleSuffix: Azure Cognitive Services
 description: Python Görsel Arama SDK'sı konsol uygulamasını kurma.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: 9f2a6d9b75ccf704862d169b96ea1a1f2edb9815
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ba76e1da73cac1b4f7df79a4c7e903a85ae58931
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445697"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599663"
 ---
-# <a name="quickstart-bing-visual-search-sdk-python"></a>Hızlı Başlangıç: Bing Görsel Arama SDK'sı Python
+# <a name="quickstart-bing-visual-search-sdk-python"></a>Hızlı Başlangıç: Bing görsel arama SDK'sı Python
 
 Bing Görsel Arama SDK'sı, web istekleri ve sonuçları ayrıştırma için REST API işlevlerini kullanır.
 [Python Bing Görsel Arama SDK'sı örnekleri için kaynak kodu](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) Git Hub'dan edinilebilir.
@@ -58,6 +58,7 @@ python -m pip install azure-cognitiveservices-search-visualsearch
 import http.client, urllib.parse
 import json
 import os.path
+from msrest.authentication import CognitiveServicesCredentials
 from azure.cognitiveservices.search.visualsearch import VisualSearchAPI
 from azure.cognitiveservices.search.visualsearch.models import (
     VisualSearchRequest,
@@ -73,7 +74,7 @@ subscription_key = 'YOUR-VISUAL-SEARCH-ACCESS-KEY'
 ```
 Ardından, istemciyi örneklendirin:
 ```
-var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+var client = WebSearchAPI(ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 ```
 Görüntü arama ve sonuçları ayrıştırma için istemciyi kullanın:
 ```
@@ -122,6 +123,15 @@ Aşağıdaki konsol uygulaması, önceden tanımlanmış sorguyu yürütür ve s
 import http.client, urllib.parse
 import json
 import os.path
+from msrest.authentication import CognitiveServicesCredentials
+from azure.cognitiveservices.search.visualsearch import VisualSearchAPI
+from azure.cognitiveservices.search.visualsearch.models import (
+    VisualSearchRequest,
+    CropArea,
+    ImageInfo,
+    Filters,
+    KnowledgeRequest,
+)
 
 # Replace the subscriptionKey string value with your valid subscription key.
 subscription_key = 'YOUR-VISUAL-SEARCH-ACCESS-KEY'

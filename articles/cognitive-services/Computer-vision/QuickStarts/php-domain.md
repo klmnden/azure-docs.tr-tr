@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Etki alanı modelini kullanma - REST, PHP - Görüntü İşleme'
+title: 'Hızlı Başlangıç: Etki alanına özel görüntü içeriğini - REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, PHP ile Görüntü İşleme API’sini kullanarak bir görüntüdeki yer işaretlerini tanımlamak için alan modeli kullanacaksınız.
 services: cognitive-services
@@ -10,20 +10,21 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 176e11615fe2f2c1b58b7608dfd5cbd349f9e547
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 19aa1874a93c4a52f6fc5ff75848c1ca6815db1e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340095"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581350"
 ---
-# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-php-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API’sini ve PHP’yi kullanarak etki alanı modelini kullanma
+# <a name="quickstart-recognize-domain-specific-content-using-the-rest-api-and-php-with-computer-vision"></a>Hızlı Başlangıç: REST API ve PHP ile görüntü işleme kullanan etki alanına özgü içerikleri
 
 Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak uzakta depolanan bir görüntüdeki yer işaretlerini veya isteğe bağlı olarak ünlüleri tanımlamak için alan modeli kullanacaksınız. [Etki Alanına Özgü İçeriği Tanıma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) yöntemiyle, bir görüntüdeki içeriği tanımak için etki alanına özgü bir model uygulayabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - [PHP](https://secure.php.net/downloads.php) yüklenmiş olmalıdır.
 - [Pear](https://pear.php.net) yüklenmiş olmalıdır.
@@ -33,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Örneği oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
 
-1. PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) paketini yükleyin.
+1. PHP5 [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) paketini yükleyin.
    1. Yönetici olarak bir komut istemi penceresini açın.
    1. Şu komutu çalıştırın:
 

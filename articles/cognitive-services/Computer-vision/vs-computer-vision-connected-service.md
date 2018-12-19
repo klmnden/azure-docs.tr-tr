@@ -1,7 +1,7 @@
 ---
-title: 'Öğretici: Görüntü İşleme C#'
+title: Visual Studio bağlı hizmeti - görüntü işleme
 titleSuffix: Azure Cognitive Services
-description: Bir ASP.NET Core web uygulamasından Görüntü İşleme API'sine bağlanın.
+description: Görüntü işleme API'si için Visual Studio bağlı hizmeti özelliğini kullanarak bir ASP.NET Core web uygulamasından bağlanın.
 services: cognitive-services
 author: ghogen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: Tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: ebfcabdea1e83a83af5eea8025ba5a411c3f9880
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: e9207fe19272dac23db165e160ce9f7a7e802c14
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077959"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579745"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Visual Studio'daki Bağlı Hizmetler özelliğini kullanarak Görüntü İşleme API'sine bağlanma
 
@@ -23,7 +24,7 @@ Bilişsel Hizmetler Görüntü İşleme API'sini kullanarak görsel verileri kat
 
 Bu makalede ve beraberindeki destek makalelerinde, Bilişsel Hizmetler Görüntü İşleme API'si için Visual Studio Bağlı Hizmet özelliğinin kullanımına ilişkin ayrıntılar sağlanmaktadır. Özellik, Bilişsel Hizmetler uzantısının yüklendiği Visual Studio 2017 15.7 ve sonraki sürümlerde mevcuttur.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - **Bir Azure aboneliği**. Bir aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 - **Web Geliştirme** iş yükünün yüklendiği **Visual Studio 2017 sürüm 15.7**. [Şimdi indir](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -37,15 +38,15 @@ Bu makalede ve beraberindeki destek makalelerinde, Bilişsel Hizmetler Görünt�
 1. **Çözüm Gezgini**’nde **Ekle** > **Bağlı Hizmet** seçeneklerini belirleyin.
    Projenize ekleyebileceğiniz hizmetlerle birlikte Bağlı Hizmet sayfası görüntülenir.
 
-   ![Bağlı Hizmet Ekle menü öğesi](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Visual Studio proje üzerinde sağ tıklama menüsünün ekran görüntüsü: Ekle > bağlı hizmeti](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. Kullanılabilir hizmetler menüsünde **Bilişsel Hizmetler Görüntü İşleme API'sini** seçin.
 
-   ![Bağlanılacak hizmeti seçme](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Görüntü işleme analiz görüntülerle vurgulama bağlı hizmetler menüsü](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Visual Studio’da oturum açtıysanız ve hesabınızla ilişkili bir Azure aboneliğiniz varsa, aboneliklerinizi içeren bir açılır listenin yer aldığı bir sayfa görüntülenir.
 
-   ![Aboneliğinizi seçme](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Bir "Görüntü işleme API'si" Visual Studio vurgulanmış abonelik açılır penceresi](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Kullanmak istediğiniz aboneliği seçin ve sonra Görüntü İşleme API'si için bir ad seçin veya otomatik olarak oluşturulan adı değiştirmek için Düzenle bağlantısını seçin, kaynak grubunu ve Fiyatlandırma Katmanını seçin.
 
@@ -93,11 +94,11 @@ Bu makalede ve beraberindeki destek makalelerinde, Bilişsel Hizmetler Görünt�
 
 1. Projenizdeki wwwroot klasörüne bir görüntüler klasörü ekleyin ve wwwroot klasörünüz için bir görüntü dosyası ekleyin. Örneğin, bu [Görüntü İşleme API'si sayfasındaki](https://azure.microsoft.com/services/cognitive-services/computer-vision/) görüntülerden birini kullanabilirsiniz. Görüntülerden birine sağ tıklayın, yerel sabit sürücünüze kaydedin, ardından Çözüm Gezgini’nde görüntüler klasörüne sağ tıklayıp **Ekle** > **Mevcut Öğe** seçeneklerini belirleyerek öğeyi projenize ekleyin. Projeniz Çözüm Gezgini’nde aşağıdakine benzer şekilde görünmelidir: 
   
-   ![görüntü dosyasını içeren görüntüler klasörü](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
+   ![Çözüm Gezgini görünümü seçili bir resim dosyası ile ekran görüntüsü](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 
 1. Görüntü dosyasına sağ tıklayın, Özellikler’i seçin ve ardından **Yeniyse kopyala** seçeneğini belirleyin. 
 
-   ![Yeniyse kopyala](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![Görüntü Özellikleri penceresinde; Çıkış Dizinine Kopyala yeniyse Kopyala ayarlanır](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Görüntü İşleme API'sine erişmek ve bir görüntüyü test etmek için aşağıdaki kod ile Yapılandırma yöntemini değiştirin.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure'da bulut tabanlı IoT tahmine dayalı bakım çözümü deneme | Microsoft Docs
+title: Bir bulut tabanlı IOT Tahmine dayalı bakım çözümü - Azure'ı deneyin | Microsoft Docs
 description: Bu hızlı başlangıçta Tahmine Dayalı Bakım Azure IoT çözümünü dağıtacak ve çözüm panosunda oturum açıp işlevleri kullanacaksınız.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: c56bdb5968b5f5ada902aa9212282c3cfebe2eaf
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: 22f0eae805ad112c5a6a7746897dac7e37d90028
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139848"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604346"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Hızlı başlangıç: Bağlı cihazlarımda tahmine dayalı bakım analizi çalıştırmak için bulut tabanlı bir çözüm deneme
+# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Hızlı Başlangıç: Bulut tabanlı bir çözüm bağlı cihazlarım bir Tahmine dayalı bakım analizini Çalıştır'ı deneyin
 
 Bu hızlı başlangıçta Azure IoT Tahmine Dayalı Bakım çözümü hızlandırıcısını dağıtarak bulut tabanlı tahmine dayalı bakım simülasyonu çalıştırmayı öğreneceksiniz. Çözüm hızlandırıcısını dağıttıktan sonra, çözümün **Pano** sayfasını kullanarak simülasyon uçak motoru verilerinden yararlanan tahmine dayalı bakım analizi çalıştırırsınız. Bu çözüm hızlandırıcısını, kendi uygulamanızın başlangıç noktası veya bir öğrenme aracı olarak kullanabilirsiniz.
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/13/2018
+ms.date: 12/17/2018
 ms.author: b-juche
-ms.openlocfilehash: 8fc76c33055f7131444a073d2f8560e136c0701d
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 937ff9cf4c099f229df28070be07ba76339704e0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413260"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584012"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Azure NetApp Files için birim oluşturma
 
@@ -62,7 +62,7 @@ Bir alt ağ, Azure için NetApp dosyaları temsilci gerekir.
         Birim için kullanmak istediğiniz alt ağ belirtin.  
         Belirttiğiniz alt ağ, Azure için NetApp dosyaları temsilci gerekir. 
         
-        Bir alt ağ temsilcisi yok, tıklayabilirsiniz **Yeni Oluştur** sayfasında bir birim oluşturun. Ardından alt ağ oluşturma sayfası alt ağ bilgileri belirtin ve seçin **Microsoft.NetApp/volumes** alt ağın Azure NetApp dosyaları için temsilci.    
+        Bir alt ağ temsilcisi yok, tıklayabilirsiniz **Yeni Oluştur** sayfasında bir birim oluşturun. Ardından alt ağ oluşturma sayfası alt ağ bilgileri belirtin ve seçin **Microsoft.NetApp/volumes** alt ağın Azure NetApp dosyaları için temsilci. Her bir sanal ağda Azure NetApp dosyaları için yalnızca bir alt ağı atanabilir unutmayın.   
  
         ![Yeni birim](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     

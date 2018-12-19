@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: a7e7c04b458575cdc9f2608d0c84f0df105bf202
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: a594d6704b9fa76c212719f0ac423942e9f57d7a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261764"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604040"
 ---
 # <a name="create-azure-app-service-web-apps-by-using-ansible"></a>Ansible'ı kullanarak Azure App Service web uygulamaları oluşturun
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (veya yalnızca Web Apps) web uygulamaları, REST API'leri ve mobil arka uçlar konaklar. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz.
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (veya yalnızca Web Apps) web uygulamaları, REST API'leri ve mobil arka uçlar konaklar. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz.
 
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Bu makalede Ansible'ı kullanarak Java çalışma zamanıyla bir web uygulaması oluşturma adımları gösterilmektedir. 
 

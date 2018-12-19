@@ -1,5 +1,5 @@
 ---
-title: Endüstriyel cihazları yönetmek için Azure'da bir çözüm deneme | Microsoft Docs
+title: Deneyin My endüstriyel IOT cihazları - Azure'ı yönetmek için bir çözüm | Microsoft Docs
 description: Bu hızlı başlangıçta Bağlı Fabrika Azure IoT çözüm hızlandırıcısını dağıtacak ve çözüm panosunda oturum açıp işlevleri kullanacaksınız.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
-ms.translationtype: HT
+ms.openlocfilehash: d02e72a46e2bec69792eacef673c779310561f83
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139037"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602656"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Hızlı başlangıç: Endüstriyel IoT cihazlarını yönetmek için bulut tabanlı bir çözümü deneme
+# <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Hızlı Başlangıç: Deneyin My endüstriyel IOT cihazları yönetmek için bulut tabanlı bir çözüm
 
 Bu hızlı başlangıçta endüstriyel IoT cihazlarını izleme ve yönetme amacıyla bulut tabanlı bir uygulama çalıştırmak için Azure IoT Bağlı Fabrika çözüm hızlandırıcısını dağıtmayı öğreneceksiniz. Bağlı Fabrika çözüm hızlandırıcısını dağıttığınızda, genel bir endüstriyel IoT senaryosunu adım adım görmenize olanak sağlayan sanal kaynaklar ile önceden doldurulur. Çözüme bağlanmış olan birçok sanal fabrika, genel donanım verimliliğini (OEE) ve ana performans göstergelerini (KPI) hesaplamak için gereken veri değerlerini raporlar. Bu hızlı başlangıçta çözüm panosunu kullanarak aşağıdaki işlemleri gerçekleştireceksiniz:
 
@@ -76,7 +76,7 @@ Panoda şunları görebilirsiniz:
 
 [![Genel donanım verimliliği](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
-OEE, üretimle ilgili operasyonel parametreleri kullanarak üretim sürecinin verimliliğini derecelendirir. OEE, kullanılabilirlik oranı, performans oranı ve kalite oranının çarpılmasıyla hesaplanan standart bir endüstri ölçümüdür: OEE = kullanılabilirlik x performans x kalite.
+OEE, üretimle ilgili operasyonel parametreleri kullanarak üretim sürecinin verimliliğini derecelendirir. OEE, standart ölçü kullanılabilirlik oranı, performans oranı ve kalite oranının çarpılmasıyla hesaplanan bir sektördür: OEE = kullanılabilirlik x performans x kalite.
 
 Hiyerarşi verilerinin herhangi bir düzeyindeki OEE verilerini daha ayrıntılı bir şekilde analiz edebilirsiniz. OEE, kullanılabilirlik, performans veya kalite yüzdesi halkasına tıklayın. Verilerin farklı zamanlardaki görselleştirmelerinin yer aldığı bir bağlam paneli açılır:
 

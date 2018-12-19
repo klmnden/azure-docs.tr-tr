@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 57046b9e199fbe5e88d0ea7fa25248641693508a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 51d28eb9507952708a964d0a76a12e601de1dbbb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257004"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599936"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Öğretici: Mevcut bir özel SSL sertifikasını Azure Web Apps'e bağlama
 
-Azure Web Apps, yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide, güvenilir bir sertifika yetkilisinden satın aldığınız özel bir SSL sertifikasını [Azure Web Apps](app-service-web-overview.md)’e nasıl bağlayacağınız gösterilmektedir. İşiniz bittiğinde, web uygulamanıza DNS etki alanınızın HTTPS uç noktasından erişebilirsiniz.
+Azure Web Apps, yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğretici için bir güvenilen sertifika yetkilisinden satın aldığınız özel bir SSL sertifikası bağlama işlemi gösterilmektedir [Azure App Service](overview.md). İşiniz bittiğinde, web uygulamanıza DNS etki alanınızın HTTPS uç noktasından erişebilirsiniz.
 
 ![Özel SSL sertifikası ile web uygulaması](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 

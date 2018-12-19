@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Görüntü İşleme API’si Java'
+title: 'Öğretici: Görüntü işlemleri - Java'
 titlesuffix: Azure Cognitive Services
 description: Azure Bilişsel Hizmetler’de Görüntü İşleme API’sini kullanan temel bir Java Swing uygulamasını keşfedin. OCR gerçekleştirin, küçük resimler oluşturun ve bir görüntüdeki görsel özelliklerle çalışın.
 services: cognitive-services
@@ -9,15 +9,16 @@ ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
+ms.custom: seodec18
 ms.date: 09/21/2017
-ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.openlocfilehash: f039e85ab3fccfc36b704f06d9fcfa3b4cfed758
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340265"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584556"
 ---
-# <a name="tutorial-computer-vision-api-java"></a>Öğretici: Görüntü İşleme API’si Java
+# <a name="tutorial-computer-vision-api-java"></a>Öğretici: Bilgisayar görüntü işleme API'si Java
 
 Bu öğreticide, Azure Bilişsel Hizmetler Görüntü İşleme REST API’sinin özellikleri gösterilmektedir.
 
@@ -35,7 +36,7 @@ Bu öğreticide, Görüntü İşleme’nin nasıl kullanılacağı ele alınacak
 
 Java Swing form uygulaması zaten yazılmıştır, ancak bir işlevselliğe sahip değildir. Bu öğreticide, uygulamanın işlevselliğini tamamlamak için Görüntü İşleme API'sine özgü kodu ekleyeceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="platform-requirements"></a>Platform gereksinimleri
 

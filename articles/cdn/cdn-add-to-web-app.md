@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: db4a9a43a971f66870c2079762b9c62802122baa
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093332"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602826"
 ---
-# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Öğretici: Azure App Service web uygulamasına Azure CDN ekleme
+# <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Öğretici: Azure CDN, bir Azure App Service web uygulamasına ekleme
 
-Bu öğretici, [Azure Content Delivery (CDN)](cdn-overview.md) hizmetinin [Azure App Service’teki bir web uygulamasına](../app-service/app-service-web-overview.md) nasıl ekleneceğini gösterir. Web apps; web uygulamaları, REST API'leri ve mobil arka uçlar barındırmaya yönelik bir hizmettir. 
+Bu öğretici, [Azure Content Delivery (CDN)](cdn-overview.md) hizmetinin [Azure App Service’teki bir web uygulamasına](../app-service/overview.md) nasıl ekleneceğini gösterir. Web apps; web uygulamaları, REST API'leri ve mobil arka uçlar barındırmaya yönelik bir hizmettir. 
 
 Kullanacağınız örnek statik HTML sitesinin ana sayfası:
 
@@ -38,7 +38,7 @@ Kullanacağınız örnek statik HTML sitesinin ana sayfası:
 > * Önbelleğe alınan sürümleri denetlemek için sorgu dizeleri kullanma.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
@@ -268,6 +268,6 @@ Daha fazla bilgi için bkz. [Sorgu dizeleri içeren Azure CDN önbelleğe alma d
 CDN performansını nasıl iyileştirebileceğinizi öğrenmek için aşağıdaki makalelere göz atın:
 
 > [!div class="nextstepaction"]
-> [Öğretici: Azure CDN uç noktanıza özel etki alanı ekleme](cdn-map-content-to-custom-domain.md)
+> [Öğretici: Azure CDN uç noktanıza özel etki alanı Ekle](cdn-map-content-to-custom-domain.md)
 
 

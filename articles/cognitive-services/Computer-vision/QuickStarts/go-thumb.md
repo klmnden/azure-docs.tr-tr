@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Küçük resim oluşturma - REST, Go - Görüntü İşleme'
+title: 'Hızlı Başlangıç: REST, Git - küçük resim oluşturma'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, Go ile Görüntü İşleme API’sini kullanarak bir görüntüden küçük resim oluşturacaksınız.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: a1a1daebaba7b5592a94bc90811a9ac272ec7971
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 9abd34266c5ee109d836484a9e7eb9d95c082296
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969558"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580918"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-go-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve Go kullanarak küçük resim oluşturma
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-go-in-computer-vision"></a>Hızlı Başlangıç: REST API kullanarak küçük resim oluşturma ve görüntü işleme Git
 
 Bu hızlı başlangıçta, Görüntü İşleme REST API’sini kullanarak bir görüntüden küçük resim oluşturacaksınız. [Küçük Resim Alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) yöntemi ile bir görüntünün küçük resmini alabilirsiniz. Giriş görüntüsünün en boy oranından farklı olabilen bir yükseklik ve genişlik belirtirsiniz. Görüntü işleme, akıllı bir şekilde ilgi belirlemek ve söz konusu bölgeyi temel alan kırpma koordinatları oluşturmak için akıllı kırpma kullanır.
 

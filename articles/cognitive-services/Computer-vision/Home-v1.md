@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: 09a7f02df1102e42bc45b4615a2af4235372bcdc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: acd6d41e8b6d1fb834697ec3d026419ee6b69ec9
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957036"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582363"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Görüntü İşleme API'si Sürüm 1.0 nedir?
 
@@ -38,10 +39,10 @@ Bulut tabanlı Görüntü İşleme API’si, geliştiriciler için görüntüler
 * [Fotoğrafları küçük resim olarak kullanılabilecek şekilde kırpma.](#Thumbnails)
 
 ## <a name="requirements"></a>Gereksinimler
-* Desteklenen giriş yöntemleri: Uygulama/sekizli akış veya görüntü URL’si biçiminde işlenmemiş görüntü ikili dosyası.
-* Desteklenen görüntü biçimleri: JPEG, PNG, GIF, BMP.
-* Görüntü dosyası boyutu: 4 MB’tan az.
-* Görüntü boyutu: 50 x 50 pikselden büyük.
+* Giriş yöntemleri desteklenir: İkili bir uygulama/octet stream veya resim URL'si biçiminde ham görüntü.
+* Resim biçimleri desteklenir: JPEG, PNG, GIF, BMP.
+* Resim dosyasının boyutu: 4 MB'den daha küçük.
+* Görüntü boyutu: 50 x 50 piksel büyüktür.
 
 ## <a name="tagging-images"></a>Görüntüleri Etiketleme
 Görüntü işleme API'si, tanınabilir nesne, canlı, manzara ve Eylemler binlerce alan etiketler döndürür. Belirsiz veya herkesçe bilinmeyen etiketler söz konusu olduğunda, API yanıtı, etiketin anlamının bilinen bir ortama ilişkin bağlamda açıklığa kavuşturulması için "ipuçları" sağlar. Etiketler taksonomi olarak tanınmaz ve hiçbir devralma hiyerarşisi yoktur. Bir içerik etiketi koleksiyonu, tam tümceler halinde biçimlendirilmiş insan tarafından okunabilir dilde görüntülenen bir görüntü 'açıklamasının' temelini oluşturur. Şu noktada görüntü açıklaması için desteklenen tek dilin İngilizce olduğunu unutmayın.
@@ -137,9 +138,9 @@ Resmin içindeki insan yüzlerini algılar ve yüz koordinatlarını, yüz için
 
 Görüntü|Yanıt
 ----|----
-![Görüntü Analizi Damdaki Kadının Yüzü](./Images/woman_roof_face.png) | [ { "age": 23, "gender": "Female", "faceRectangle": { "left": 1379, "top": 320, "width": 310, "height": 310 } } ]
-![Görüntü Analizi Anne Kız Yüzü](./Images/mom_daughter_face.png) | [ { "age": 28, "gender": "Female", "faceRectangle": { "left": 447, "top": 195, "width": 162, "height": 162 } }, { "age": 10, "gender": "Male", "faceRectangle": { "left": 355, "top": 87, "width": 143, "height": 143 } } ]
-![Görüntü Analizi Aile Fot Yüzü](./Images/family_photo_face.png) | [ { "age": 11, "gender": "Male", "faceRectangle": { "left": 113, "top": 314, "width": 222, "height": 222 } }, { "age": 11, "gender": "Female", "faceRectangle": { "left": 1200, "top": 632, "width": 215, "height": 215 } }, { "age": 41, "gender": "Male", "faceRectangle": { "left": 514, "top": 223, "width": 205, "height": 205 } }, { "age": 37, "gender": "Female", "faceRectangle": { "left": 1008, "top": 277, "width": 201, "height": 201 } } ]
+![Görüntü Analizi Damdaki Kadının Yüzü](./Images/woman_roof_face.png) | [{"Yaş": "cinsiyet" 23: "Kadın", "faceRectangle": {"sol": 1379, "üst": 320, "width": 310, "yükseklik": 310}}]
+![Görüntü Analizi Anne Kız Yüzü](./Images/mom_daughter_face.png) | [{"Yaş": 28, "cinsiyet": "Kadın", "faceRectangle": {"sol": 447, "üst": 195, "width": 162, "yükseklik": 162}}, {"Yaş": "cinsiyet" 10: "Erkek", "faceRectangle": {"sol": 355, "üst": 87, "width": 143 "yükseklik": 143}}]
+![Görüntü Analizi Aile Fot Yüzü](./Images/family_photo_face.png) | [{"Yaş": "cinsiyet" 11: "Erkek", "faceRectangle": {"sol": 113 "üst": 314 "width": 222, "yükseklik": 222}}, {"Yaş": "cinsiyet" 11: "Kadın", "faceRectangle": {"sol": 1200, "üst": 632, "width": 215 "yükseklik": 215}}, {"Yaş": 41, "cinsiyet": "Erkek", "faceRectangle": {"sol": 514, "üst": "width" 223: 205, "yükseklik": 205}}, {"Yaş": "cinsiyet" 37: "Kadın", "faceRectangle": {"sol": 1008, "üst": 277, "width": 201, "yükseklik": 201}}]
 
 
 ## <a name="domain-specific-content"></a>Etki Alanına Özgü İçerik
@@ -231,7 +232,7 @@ Görüntü                                                      | Yanıt
 ## <a name="optical-character-recognition-ocr"></a>Optik Karakter Tanıma (OCR)
 OCR teknolojisi bir görüntüdeki metin içeriğini algılar ve tanımlanan metni makine tarafından okunabilen bir karakter akışına ayıklar. Sonucu, arama yapmak için veya tıbbi kayıtlar, güvenlik ve bankacılık gibi çok çeşitli amaçlarla kullanabilirsiniz. Dili otomatik olarak algılar. OCR, zaman tasarrufu sağlar ve kullanıcılara, metni yazmak yerine bunların fotoğrafını çekme olanağı tanıyarak kolaylık sunar.
 
-OCR, 25 dili destekler. Bu diller: Almanca, Arapça, Çekçe, Basitleştirilmiş Çince, Geleneksel Çince, Danca, Felemenkçe, Fince, Fransızca, İngilizce, İspanyolca, İsveççe, İtalyanca, Japonca, Korece, Lehçe, Macarca, Norveççe, Portekizce, Rumence, Rusça, Sırpça (Kiril ve Latin), Slovakça, Türkçe ve Yunanca.
+OCR, 25 dili destekler. Bu diller şunlardır: Arapça, Çince, Geleneksel Çince, Basitleştirilmiş Çekçe, Danca, Felemenkçe, İngilizce, Fince, Fransızca, Almanca, Yunanca, Macarca, İtalyanca, Japonca, Korece, Norveççe, Lehçe, Portekizce, Rumence, Rusça, Sırpça (Kiril ve Latin), Slovakya, İspanyolca, İsveççe ve Türkçe.
 
 Gerekirse, OCR tanınan metnin yönünü yatay görüntü ekseninde derece olarak düzeltir. OCR, aşağıdaki çizimde gösterildiği gibi her sözcük için çerçeve koordinatlarını verir.
 
@@ -250,7 +251,7 @@ Metin tanımanın doğruluğu görüntünün kalitesine bağlıdır. Aşağıdak
 - Sözcüklerin başındaki aşırı büyük veya eksik büyük harfler
 - Alt simge, üst simge veya üstü çizili metin.
 
-Sınırlamalar: Metnin baskın olduğu fotoğraflarda, kısmen tanınan sözcüklerden hatalı pozitif sonuçlar elde edilebilir. Bazı fotoğraflarda, özellikle de hiç metin bulunmayan fotoğraflarda görüntünün türüne bağlı olarak duyarlık çok değişebilir.
+Sınırlamalar: Metin baskın olduğu fotoğraflar, hatalı pozitif sonuçları kısmen tanınan sözcükleri gelebilir. Bazı fotoğraflarda, özellikle de hiç metin bulunmayan fotoğraflarda görüntünün türüne bağlı olarak duyarlık çok değişebilir.
 
 ## <a name="recognize-handwritten-text"></a>El Yazısı Metinleri Tanıma
 Bu teknoloji el yazısı not, mektup, ödev, tahta ve form gibi kaynaklardaki metinleri algılamanıza ve ayıklamanıza olanak tanır. Beyaz kağıt, sarı yapışkan notlar ve beyaz tahtalar gibi farklı yüzey ve arka planlarla çalışır.
@@ -258,7 +259,7 @@ Bu teknoloji el yazısı not, mektup, ödev, tahta ve form gibi kaynaklardaki me
 El yazısı metinleri tanıma özelliği, hem zaman ve çabadan tasarruf etmenizi sağlar hem de metnin dökümünü almak yerine fotoğrafını çekme olanağı sunarak daha üretken olmanıza yardımcı olur. Notları dijital ortama geçirmeyi mümkün kılar. Bu dijitalleştirme hızlı ve kolay aramalar yapmanızı sağlar. Üstelik kağıt dağınıklığını da azaltır.
 
 Giriş gereksinimleri:
-- Desteklenen görüntü biçimleri: JPEG, PNG ve BMP.
+- Resim biçimleri desteklenir: JPEG, PNG ve BMP.
 - Görüntü dosyası boyutu 4 MB’tan az olmalıdır.
 - Görüntü boyutları en az 40 x 40 ve en fazla 3200 x 3200 olmalıdır.
 

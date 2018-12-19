@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: e739f3905ff2bbb60669b1f1e214a4630b896db4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 695cc2afbfd231758e90889eea2c154fbc16dffb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255474"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602622"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>Azure SignalR Hizmeti ile ASP.NET Core SignalR uygulamalarını ölçeklendirme
 
@@ -21,7 +21,7 @@ ms.locfileid: "53255474"
 
 ASP.NET Core SignalR, önceki sürümün yeniden üretimidir. Sonuç olarak ASP.NET Core SignalR, önceki SignalR sürümüyle geriye dönük olarak uyumlu değildir. API’ler ve davranışlar farklıdır. ASP.NET Core SignalR SDK’sı, .NET Standard’ı hedef alır; bu nedenle .NET Framework ile hala kullanabilirsiniz. Ancak, eski API’ler yerine yenilerini kullanmanız gerekir. SignalR kullanıyor ve ASP.NET Core SignalR’ye veya Azure SignalR Hizmeti’ne geçmek istiyorsanız, kodunuzu API’lerdeki farklılıkları işleyecek şekilde değiştirmeniz gerekir.
 
-Azure SignalR Hizmeti ile, ASP.NET Core SignalR’nin sunucu tarafı bileşeni Azure’da barındırılır. Ancak, teknoloji ASP.NET Core temel alınarak oluşturulduğu için gerçek web uygulamanızı birden fazla platform (Windows, Linux ve MacOS) üzerinde çalıştırırken [Azure App Service](../app-service/app-service-web-overview.md), [IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index), [Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx), [Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache), [Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index) ile barındırabilirsiniz. Ayrıca, işleminizin içinde kendi kendine barındırmayı da kullanabilirsiniz.
+Azure SignalR Hizmeti ile, ASP.NET Core SignalR’nin sunucu tarafı bileşeni Azure’da barındırılır. Ancak, teknoloji ASP.NET Core temel alınarak oluşturulduğu için gerçek web uygulamanızı birden fazla platform (Windows, Linux ve MacOS) üzerinde çalıştırırken [Azure App Service](../app-service/overview.md), [IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index), [Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx), [Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache), [Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index) ile barındırabilirsiniz. Ayrıca, işleminizin içinde kendi kendine barındırmayı da kullanabilirsiniz.
 
 Uygulamanızın amaçları arasında web istemcilerine gerçek zamanlı içerik güncelleştirmeleri uygulamak için en son işlevleri desteklemek, birden fazla platform üzerinde çalışmak (Azure, Windows, Linux ve MacOS) ve farklı ortamlarda barındırmak varsa, Azure SignalR Hizmetinden yararlanmak en iyi seçim olacaktır.
 

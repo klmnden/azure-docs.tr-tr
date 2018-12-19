@@ -14,18 +14,18 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: d9871b399ff06fb08d817c0d892b667b4ef0242d
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
-ms.translationtype: HT
+ms.openlocfilehash: db540326ccdf1683394eda4e168a684e8e2ae3db
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41917729"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605883"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Visual Studio için Python web ve çalışan rolleri içeren Python Araçları
 
 Bu makalede, [Visual Studio için Python Araçları][Python Tools for Visual Studio] ile Python web ve çalışan rollerini kullanmaya genel bir bakış sunulmuştur. Visual Studio’yu kullanarak Python kullanan temel bir Bulut Hizmetinin nasıl oluşturulup dağıtılacağını öğrenin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * [Visual Studio 2013, 2015 veya 2017](https://www.visualstudio.com/)
 * [Visual Studio için Python Araçları][Python Tools for Visual Studio] (PTVS)
 * [VS 2013 için Azure SDK Araçları][Azure SDK Tools for VS 2013] veya  
@@ -36,7 +36,7 @@ Bu makalede, [Visual Studio için Python Araçları][Python Tools for Visual Stu
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Python web ve çalışan rolleri nelerdir?
-Azure, uygulama çalıştırmak için üç işlem modeli sağlar: [Azure App Service’teki Web Apps özelliği][execution model-web sites], [Azure Sanal Makineler][execution model-vms] ve [Azure Cloud Services][execution model-cloud services]. Python bu üç modeli de destekler. Web ve çalışan rolleri içeren Cloud Services *Hizmet Olarak Platform (PaaS)* sunar. Web rolü, bir bulut hizmetinde ön uç web uygulamalarını barındırmak için özel Internet Information Services (IIS) web sunucusu sağlar. Çalışan rolü ise kullanıcı etkileşimi ve girişinden bağımsız zaman uyumsuz, uzun çalışan ve kalıcı görevleri çalıştırabilir.
+Azure, uygulamaları çalıştırmak için üç bilgi işlem modeli sağlar: [Azure App service'taki Web Apps özelliği][execution model-web sites], [Azure sanal makineler][execution model-vms], ve [Azure Cloud Services] [execution model-cloud services]. Python bu üç modeli de destekler. Web ve çalışan rolleri içeren Cloud Services *Hizmet Olarak Platform (PaaS)* sunar. Web rolü, bir bulut hizmetinde ön uç web uygulamalarını barındırmak için özel Internet Information Services (IIS) web sunucusu sağlar. Çalışan rolü ise kullanıcı etkileşimi ve girişinden bağımsız zaman uyumsuz, uzun çalışan ve kalıcı görevleri çalıştırabilir.
 
 Daha fazla bilgi için bkz. [Bulut Hizmeti nedir?].
 
@@ -101,7 +101,7 @@ Aşağıdaki betikler Python 3.5 hedeflenerek yazılmıştır. Python 2.x sürü
 </Startup>
 ```
 
-**PYTHON2** ve **PYPATH** değişkenlerinin çalışan başlangıç görevine eklenmesi gerekir. **PYPATH** değişkeni yalnızca **PYTHON2** değişkeni **açık** olarak ayarlandığında kullanılır.
+**PYTHON2** ve **PYPATH** değişkenlerinin çalışan başlangıç görevine eklenmesi gerekir.  **PYPATH** değişkeni yalnızca **PYTHON2** değişkeni **açık** olarak ayarlandığında kullanılır.
 
 ```xml
 <Runtime>
@@ -346,7 +346,7 @@ Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmet
 <!--Link references-->
 
 [Bulut Hizmeti nedir?]: cloud-services-choose-me.md
-[execution model-web sites]: ../app-service/app-service-web-overview.md
+[execution model-web sites]: ../app-service/overview.md
 [execution model-vms]:../virtual-machines/windows/overview.md
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/

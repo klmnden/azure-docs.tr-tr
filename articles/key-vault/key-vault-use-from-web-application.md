@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2018
 ms.author: barclayn
-ms.openlocfilehash: b66c9912ba0b6508c2beb786d2327efa779c6645
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
-ms.translationtype: HT
+ms.openlocfilehash: 272238e41327e09af8e4d3967868c21c37683236
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079472"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602059"
 ---
-# <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Öğretici: Web uygulamasından Azure Key Vault’u kullanma
+# <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Öğretici: Bir web uygulamasından Azure Key Vault'u kullanma
 
 Bu öğretici, Azure'daki bir web uygulamasından Azure Key Vault’u kullanmayı öğrenmenize yardımcı olacaktır. Web uygulamasında kullanmak üzere Azure Key Vault'taki bir gizli diziye erişme sürecini göstermektedir. Öğretici ayrıca bu süreci bir adım ileri götürerek gizli anahtar yerine sertifika kullanımını da gösterecektir. Bu öğretici, Azure'da web uygulaması oluşturma konusundaki temel kavramlara hakim olan web geliştiricileri için tasarlanmıştır.
 
@@ -32,7 +32,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki öğelere sahip olmanız gerekir:
 
@@ -40,7 +40,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki öğelere sahip olmanız gerekir:
 * Azure Active Directory'ye kaydedilmiş ve anahtar kasanıza erişimi olan bir web uygulamasının İstemci Kimliği ve Gizli Anahtarı
 * Bir web uygulaması. Bu öğreticide Azure'da bir Web Uygulaması olarak dağıtılmış olan ASP.NET MVC uygulamasıyla ilgili adımlar gösterilir.
 
-Gizli dizi URI'sini, İstemci Kimliğini, Gizli Anahtarı almak ve uygulamayı kaydetmek için [Azure Key Vault'u kullanmaya başlama](key-vault-get-started.md) sayfasındaki adımları uygulayın. Web uygulaması kasaya erişecektir ve Azure Active Directory'de kayıtlı olması gerekir. Ayrıca anahtar kasasına erişim haklarına da sahip olmalıdır. Uygulama bu şartları karşılamıyorsa Kullanmaya Başlama öğreticisindeki Uygulama Kaydetme bölümüne dönün ve oradaki adımları uygulayın. Azure Web Apps uygulaması oluşturma hakkında daha fazla bilgi için bkz. [Web Apps'e genel bakış](../app-service/app-service-web-overview.md).
+Gizli dizi URI'sini, İstemci Kimliğini, Gizli Anahtarı almak ve uygulamayı kaydetmek için [Azure Key Vault'u kullanmaya başlama](key-vault-get-started.md) sayfasındaki adımları uygulayın. Web uygulaması kasaya erişecektir ve Azure Active Directory'de kayıtlı olması gerekir. Ayrıca anahtar kasasına erişim haklarına da sahip olmalıdır. Uygulama bu şartları karşılamıyorsa Kullanmaya Başlama öğreticisindeki Uygulama Kaydetme bölümüne dönün ve oradaki adımları uygulayın. Azure Web Apps uygulaması oluşturma hakkında daha fazla bilgi için bkz. [Web Apps'e genel bakış](../app-service/overview.md).
 
 Bu örnek, Azure Active Directory kimliklerinin el ile sağlanmasına dayanmaktadır. Bunun yerine Azure AD kimliklerini otomatik olarak sağlayan [Azure kaynakları için yönetilen kimlikleri](../active-directory/managed-identities-azure-resources/overview.md) kullanmanız gerekir. Daha fazla bilgi için [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) üzerindeki örneğe ve ilgili [App Service ve İşlevler öğreticisine](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) bakın. Anahtar kasasına özgü [Anahtar Kasasından gizli dizi okumak için bir Azure web uygulaması yapılandırma öğreticisine](tutorial-web-application-keyvault.md) de bakabilirsiniz.
 
@@ -159,7 +159,7 @@ Export-PfxCertificate -cert $Cert -FilePath $PFXFilePath -Password $SecStringPw
 Export-Certificate -cert $Cert -FilePath $CerFilePath 
 ```
 
-Bitiş tarihini ve .pfx dosyasının parolasını not edin (bu örnekte: 15 Mayıs 2019 ve MyPassword). Aşağıdaki betik için bu değerlere ihtiyacınız olacak. 
+Bitiş tarihi ve .pfx için parolayı not alın (Bu örnekte: 15 Mayıs 2019 ve parolam). Aşağıdaki betik için bu değerlere ihtiyacınız olacak. 
 ### <a name="associate-the-certificate-with-an-azure-ad-application"></a>Sertifikayı bir Azure AD uygulaması ile ilişkilendirme
 
 Artık bir sertifikanız olduğuna göre bunu bir Azure AD uygulamasıyla ilişkilendirebilirsiniz. İlişkilendirme işlemi PowerShell üzerinden tamamlanabilir. Sertifikayı Azure AD uygulamasıyla ilişkilendirmek için aşağıdaki komutları çalıştırın:
@@ -192,7 +192,7 @@ Bu komutları çalıştırdıktan sonra uygulamayı Azure AD'de görebilirsiniz.
 
 ```cs
 //Add this using statement
-using System.Security.Cryptography.X509Certificates;  
+using System.Security.Cryptography.X509Certificates;  
 
 public static class CertificateHelper
 {

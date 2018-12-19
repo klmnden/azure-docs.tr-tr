@@ -1,5 +1,5 @@
 ---
-title: 'Örnek: Görüntü İşleme API’sini çağırma'
+title: "Örnek: Analiz resim API'si - görüntü işleme çağırma"
 titlesuffix: Azure Cognitive Services
 description: Azure Bilişsel Hizmetler’de REST’i kullanarak Görüntü İşleme API’sinin nasıl çağrılacağını öğreneceksiniz.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: e8297fbe59ebe2dea9caf112ebea4517447cf9e0
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 9520d4bcec0e170700aacc5ef4bc69100e333af1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981754"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581717"
 ---
-# <a name="example-how-to-call-the-computer-vision-api"></a>Örnek: Görüntü İşleme API’sini çağırma
+# <a name="example-how-to-call-the-computer-vision-api"></a>Örnek: Görüntü işleme API'sini çağırma
 
 Bu kılavuzda, REST kullanılarak Görüntü İşleme API’sinin nasıl çağrılacağı gösterilmektedir. Örnekler hem Görüntü İşleme API’si istemci kitaplığı kullanılarak C# dilinde hem de HTTP POST/GET çağrıları olarak yazılır. Odaklanacaklarımız:
 
@@ -26,10 +27,10 @@ Bu kılavuzda, REST kullanılarak Görüntü İşleme API’sinin nasıl çağr�
 
 ### <a name="Prerequisites">Önkoşullar</a> 
 Yerel olarak depolanan görüntünün yolu veya görüntü URL’si.
-  * Desteklenen giriş yöntemleri: Uygulama/sekizli akış veya görüntü URL’si biçiminde işlenmemiş görüntü ikilisi
-  * Desteklenen görüntü biçimleri: JPEG, PNG, GIF, BMP
-  * Görüntü dosyası boyutu: 4 MB’tan azdır
-  * Görüntü boyutu: 50 x 50 pikselden büyüktür
+  * Giriş yöntemleri desteklenir: İkili bir uygulama/octet stream veya resim URL'si biçiminde ham görüntü
+  * Resim biçimleri desteklenir: JPEG, PNG, GIF, BMP
+  * Resim dosyasının boyutu: 4 MB'tan az
+  * Görüntü boyutu: 50 x 50 piksel büyüktür
   
 Aşağıdaki örneklerde, aşağıdaki özellikler gösterilmektedir:
 
@@ -38,10 +39,10 @@ Aşağıdaki örneklerde, aşağıdaki özellikler gösterilmektedir:
 
 Özellikler şunlara ayrılır:
 
-  * **Birinci Seçenek:** Kapsamlı Analiz - Yalnızca belirli bir modeli analiz etme
-  * **İkinci Seçenek:** Gelişmiş Analiz - [86 kategorisi taksonomi](../Category-Taxonomy.md) ile ek ayrıntılar sağlamak için analiz etme
+  * **Birinci seçenek:** Kapsamlı analiz - yalnızca belirli bir model analiz edin
+  * **İki seçenek:** Gelişmiş analiz - ek ayrıntılar ile sağlamak için analiz [86-kategori sınıflandırma](../Category-Taxonomy.md)
   
-### <a name="Step1">1. Adım: API çağrısını yetkilendirme</a> 
+### <a name="Step1">1. adım: API çağrısı Yetkilendir</a> 
 Görüntü İşleme API’sine yapılan her çağrı için bir abonelik anahtarı gerekir. Bu anahtarın bir sorgu dizesi parametresi aracılığıyla geçirilmesi veya istek üst bilgisinde belirtilmesi gerekir. 
 
 Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md
@@ -59,12 +60,12 @@ Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-A
 
 ```var visionClient = new VisionServiceClient(“Your subscriptionKey”);```
 
-### <a name="Step2">2. Adım: Görüntü İşleme API’si hizmetine görüntü yükleme ve etiketleri, açıklamaları ve ünlüleri alma</a>
+### <a name="Step2">2. adım: Görüntü işleme API'si hizmeti için bir görüntü yükleyin ve etiketler, açıklamalar ve ünlüleri Geri Al</a>
 Görüntü İşleme API’si çağrısını gerçekleştirmenin temel yolu, bir görüntünün doğrudan karşıya yüklenmesiyle gerçekleşir. Görüntüden okunan verilerle uygulama/sekizli akış içerik türü ile bir "POST" isteği gönderilerek bu yapılır. "Etiketler" ve "Açıklama" için bu karşıya yükleme yöntemi, tüm Görüntü İşleme API’si çağrıları için aynı olacaktır. Tek fark, kullanıcının belirttiği sorgu parametreleridir. 
 
 Belirli bir görüntü için "Etiketler" ve "Açıklama" alma işlemi şöyledir:
 
-**Birinci Seçenek:** "Etiketler" listesini ve bir "Açıklama" alma
+**Birinci seçenek:** "Tags" listesini ve bir "Description" Al
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
 ```
@@ -99,7 +100,7 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 ```
 ### <a name="here-is-how-to-get-domain-specific-analysis-in-our-case-for-celebrities"></a>Aşağıda, etki alanına özgü analizin (bizim durumumuzda, ünlüler için) nasıl alınacağı açıklanmaktadır.
 
-**Birinci Seçenek:** Kapsamlı Analiz - Yalnızca belirli bir modeli analiz etme
+**Birinci seçenek:** Kapsamlı analiz - yalnızca belirli bir model analiz edin
 ```
 POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
@@ -109,7 +110,7 @@ Bu seçenek için diğer tüm sorgu parametreleri {visualFeatures, details} geç
 GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models 
 var models = await visionClient.ListModelsAsync();
 ```
-**İkinci Seçenek:** Gelişmiş Analiz - [86 kategorisi taksonomi](../Category-Taxonomy.md) ile ek ayrıntılar sağlamak için analiz etme
+**İki seçenek:** Gelişmiş analiz - ek ayrıntılar ile sağlamak için analiz [86-kategori sınıflandırma](../Category-Taxonomy.md)
 
 Bir veya daha fazla etki alanına özgü modelde yer alan ayrıntılara ek olarak genel görüntü analizi almak istediğiniz uygulamalar için, modeller sorgu parametresi ile v1 API’sini genişletiriz.
 ```
@@ -119,7 +120,7 @@ Bu yöntem çağrıldığında önce 86 kategorisi sınıflandırıcısını ça
 
 Tüm v1 sorgu parametreleri, bu durumda aynı şekilde davranır.  visualFeatures=categories belirtilmezse, örtük olarak etkinleştirilir.
 
-### <a name="Step3">3. Adım: analyze&visualFeatures=Tags, Description için JSON çıktısını alma ve anlama</a>
+### <a name="Step3">3. adım: Alma ve analiz & visualFeatures JSON çıkışını anlama etiketler, açıklama =</a>
 
 Bir örneği aşağıda verilmiştir:
 ```
@@ -152,16 +153,16 @@ Bir örneği aşağıda verilmiştir:
 Alan   | Tür  | İçerik
 ------|------|------|
 Etiketler    | object    | Etiket dizisi için üst düzey nesnedir
-tags[].Name | string    | Etiketler sınıflandırıcısındaki anahtar sözcüktür
+tags[].Name | dize    | Etiketler sınıflandırıcısındaki anahtar sözcüktür
 tags[].Score    | number    | 0 ile 1 arasında güven puanıdır
 açıklama  | object   | Açıklama için üst düzey nesnedir.
-description.tags[] |    string  | Etiketlerin listesidir.  Açıklamalı alt yazı üretme özelliği yeterince güvenilir değilse, çağıranın kullanımına sunulan tek bilgi etiketler olabilir.
-description.captions[].text | string    | Görüntüyü açıklayan bir ifadedir.
+description.tags[] |    dize  | Etiketlerin listesidir.  Açıklamalı alt yazı üretme özelliği yeterince güvenilir değilse, çağıranın kullanımına sunulan tek bilgi etiketler olabilir.
+description.captions[].text | dize    | Görüntüyü açıklayan bir ifadedir.
 description.captions[].confidence   | number    | İfade için güven düzeyidir.
 
-### <a name="Step4">4. Adım: Etki alanına özgü modellerin JSON çıktısını alma ve anlama</a>
+### <a name="Step4">4. adım: Alma ve alana özgü modeller JSON çıkışını anlama</a>
 
-**Birinci Seçenek:** Kapsamlı Analiz - Yalnızca belirli bir modeli analiz etme
+**Birinci seçenek:** Kapsamlı analiz - yalnızca belirli bir model analiz edin
 
 Çıkış bir etiket dizisi olacaktır; örnek şuna benzer:
 ```
@@ -179,7 +180,7 @@ description.captions[].confidence   | number    | İfade için güven düzeyidir
   }
 ```
 
-**İkinci Seçenek:** Gelişmiş Analiz - 86 kategorisi taksonomisi ile ek ayrıntılar sağlamak için analiz etme
+**İki seçenek:** Gelişmiş analiz - 86 kategorileri sınıflandırma ile ek ayrıntı sağlamak için analiz edin
 
 İkinci Seçeneği (Gelişmiş Analiz) kullanan etki alanına özgü modeller için kategoriler döndürme türü genişletilmiştir. Aşağıda bir örnek verilmiştir:
 ```
@@ -212,7 +213,7 @@ Kategoriler alanı, özgün taksonomideki [86 kategorisinden](../Category-Taxono
 Alan   | Tür  | İçerik
 ------|------|------|
 kategoriler | object | Üst düzey nesne
-categories[].name    | string   | 86 kategorisi sınıflandırmasındaki ad
+categories[].name    | dize   | 86 kategorisi sınıflandırmasındaki ad
 categories[].score  | number    | 0 ile 1 arasında güven puanı
 categories[].detail  | nesne?      | İsteğe bağlı ayrıntı nesnesi
 

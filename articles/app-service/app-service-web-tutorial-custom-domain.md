@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3eff646a1b3681c58c820695d296d5e09297e03b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270272"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600212"
 ---
-# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Öğretici: Mevcut bir özel DNS adını Azure Web Apps ile eşleme
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Öğretici: Mevcut bir özel DNS adını Azure App Service'e eşlemek
 
-[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide, mevcut bir özel DNS adını Azure Web Apps ile nasıl eşleyeceğiniz gösterilir.
+[Azure App Service](overview.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide Azure App Service'e var olan özel bir DNS adı eşlemeyle ilgili bilgi gösterir.
 
 ![Azure uygulamasına portal gezintisi](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
@@ -156,7 +156,7 @@ Yeni konak adının uygulamanın **Özel etki alanları** sayfasına yansıtılm
 ![CNAME kaydı eklenir](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> SSL bağlaması eklemek için bkz. [Azure Web Apps’e mevcut bir özel SSL sertifikası bağlama](app-service-web-tutorial-custom-ssl.md).
+> SSL bağlaması eklemek için bkz [mevcut bir özel SSL sertifikasını Azure App Service'e bağlama](app-service-web-tutorial-custom-ssl.md).
 
 Daha önce bir adımı atladıysanız veya yazım hatası yaptıysanız, sayfanın en altında bir doğrulama hatası görürsünüz.
 
@@ -231,7 +231,7 @@ Yeni konak adının uygulamanın **Özel etki alanları** sayfasına yansıtılm
 ![A kaydı eklenir](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> SSL bağlaması eklemek için bkz. [Azure Web Apps’e mevcut bir özel SSL sertifikası bağlama](app-service-web-tutorial-custom-ssl.md).
+> SSL bağlaması eklemek için bkz [mevcut bir özel SSL sertifikasını Azure App Service'e bağlama](app-service-web-tutorial-custom-ssl.md).
 
 Daha önce bir adımı atladıysanız veya yazım hatası yaptıysanız, sayfanın en altında bir doğrulama hatası görürsünüz.
 
@@ -286,7 +286,7 @@ Joker karakter etki alanıyla eşleşen bir konak adı daha eklemek için **+** 
 ![CNAME kaydı eklenir](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> SSL bağlaması eklemek için bkz. [Azure Web Apps’e mevcut bir özel SSL sertifikası bağlama](app-service-web-tutorial-custom-ssl.md).
+> SSL bağlaması eklemek için bkz [mevcut bir özel SSL sertifikasını Azure App Service'e bağlama](app-service-web-tutorial-custom-ssl.md).
 
 ## <a name="test-in-browser"></a>Tarayıcıda test
 
@@ -334,7 +334,7 @@ az webapp config hostname add \
     --hostname <fully_qualified_domain_name> 
 ``` 
 
-Daha fazla bilgi için bkz. [Özel bir etki alanını web uygulamasıyla eşleme](scripts/app-service-cli-configure-custom-domain.md). 
+Daha fazla bilgi için bkz. [Özel bir etki alanını web uygulamasıyla eşleme](scripts/cli-configure-custom-domain.md). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
@@ -347,7 +347,7 @@ Set-AzureRmWebApp `
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 
 ```
 
-Daha fazla bilgi için bkz. [Özel bir etki alanını web uygulamasına atama](scripts/app-service-powershell-configure-custom-domain.md).
+Daha fazla bilgi için bkz. [Özel bir etki alanını web uygulamasına atama](scripts/powershell-configure-custom-domain.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -363,4 +363,4 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Web uygulamasına özel bir SSL sertifikası bağlamayla ilgili bilgi edinmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Azure Web Apps’e mevcut özel bir SSL sertifikasını bağlama](app-service-web-tutorial-custom-ssl.md)
+> [Azure App Service'e var olan özel bir SSL sertifikası bağlama](app-service-web-tutorial-custom-ssl.md)

@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 9535ad73300406408a94a6f38f001e45ba7409a2
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: 0b8cb815e89b0df2fd7a326fe92dd75a85e1c855
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093104"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601688"
 ---
 # <a name="what-is-azure-dns"></a>Azure DNS nedir?
 
 Azure DNS, DNS etki alanları için Microsoft Azure altyapısı kullanılarak ad çözümlemesi olanağı sağlayan bir hizmettir. Etki alanlarınızı Azure'da barındırarak DNS kayıtlarınızı diğer Azure hizmetlerinde kullandığınız kimlik bilgileri, API’ler, araçlar ve faturalarla yönetebilirsiniz.
 
-Azure DNS'yi kullanarak etki alanı adı satın alamazsınız. Yıllık ücret karşılığında [Azure Web Apps](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) veya üçüncü taraf etki alanı adı kayıt şirketlerini kullanarak etki alanı adı satın alabilirsiniz. Ardından etki alanlarınızı kayıt yönetimi için Azure DNS'de barındırabilirsiniz. Daha fazla bilgi için bkz. [Bir etki alanını Azure DNS'ye devretme](dns-domain-delegation.md).
+Azure DNS'yi kullanarak etki alanı adı satın alamazsınız. Bir yıllık ücret karşılığı bir etki alanı adı kullanarak alabilirsiniz [App Service etki alanları](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) veya bir üçüncü taraf etki alanı adı kayıt şirketi. Ardından etki alanlarınızı kayıt yönetimi için Azure DNS'de barındırabilirsiniz. Daha fazla bilgi için bkz. [Bir etki alanını Azure DNS'ye devretme](dns-domain-delegation.md).
 
 Azure DNS aşağıdaki özellikleri içerir.
 

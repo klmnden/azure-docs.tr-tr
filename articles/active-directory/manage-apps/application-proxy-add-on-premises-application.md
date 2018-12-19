@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 444fb5576ed6886e5919202cf7f22ef14e1255b5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 91e28ed1f498ce717b72bb592adff324a84f2e09
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321418"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601551"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Öğretici: Azure Active Directory Uygulama proxy'si aracılığıyla uzaktan erişim için şirket içi uygulama ekleme
 
@@ -119,7 +119,7 @@ Kuruluşunuz internet'e bağlanmak için proxy sunucuları kullanıyorsa bunlar�
 
 Bağlayıcılar, kapasite planlaması ve nasıl güncel kalın hakkında daha fazla bilgi için bkz: [anlamak Azure AD uygulama ara sunucusu bağlayıcıları](application-proxy-connectors.md). 
 
-Uygulamanızı bağlamak için WebSockets kullanıyorsa, son Bağlayıcısı'nı yüklediğinizden emin olun.  WebSockets 1.5.612.0 bağlayıcı sürümlerinde desteklenen veya üzeri.
+Qlik Sense uygulama kullanıyorsanız, her zaman en son Bağlayıcısı'nı yükleyin. Qlik Sense WebSockets, yalnızca 1.5.612.0 bağlayıcı sürümlerinde desteklenen veya üzeri olduğu kullanır.
 
 
 ## <a name="verify-the-connector-installed-and-registered-correctly"></a>Yüklü ve kayıtlı doğru bağlayıcı doğrulayın

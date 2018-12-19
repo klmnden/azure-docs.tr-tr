@@ -1,7 +1,7 @@
 ---
 title: 'Regresyon modeli öğretici: Otomatik ML'
 titleSuffix: Azure Machine Learning service
-description: Otomatik makine öğrenimini kullanarak ML model oluşturmayı öğrenin.  Azure Machine Learning, sizin için otomatikleştirilmiş bir yolla veri ön işlemini, algoritma seçimini ve hiper parametre seçimini gerçekleştirebilir. Bundan sonra son model Azure Machine Learning hizmetiyle dağıtılır.
+description: Otomatik machine learning kullanarak machine learning modeli oluşturmayı öğrenin. Azure Machine Learning veri ön işleme, algoritma seçimi ve hiper parametre seçimi otomatik bir şekilde sizin için gerçekleştirebilirsiniz. Daha sonra son modelin Azure Machine Learning hizmeti ile dağıtılır.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,49 +11,49 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 65b634d66da935b5276cb4c6bdca5742cb0a1c1f
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 5bd6649b063521853864d4da423372ae181cf977
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555226"
+ms.locfileid: "53580527"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Öğretici: Otomatik makine öğrenimi, regresyon modeli derler
 
 Bu öğretici, **iki bölümden oluşan bir öğretici serisinin ikinci bölümüdür**. Önceki öğreticide, [NYC taksi verileri regresyon modelleme için hazırlanmış](tutorial-data-prep.md).
 
-Artık, Azure Machine Learning hizmeti ile modelinizi oluşturmaya başlamak hazırsınız. Öğreticinin bu bölümünde, hazırlanan verileri kullanabilir ve otomatik olarak taksi taksi fiyatlarını tahmin etmek için regresyon modeli oluşturun. Hizmet otomatik ML yeteneklerini kullanarak, makine öğrenimi hedefleri ve kısıtlamaları tanımlamak, öğrenme sürecinde otomatik makine başlatın ve sonra algoritması seçme ve sizin için gerçekleştirilecek hiper parametre ayarı izin. Otomatikleştirilmiş ML tekniği, ölçütünüze dayanan en iyi modeli bulana kadar çok sayıda algoritma ve hiper parametre bileşimini yineler.
+Artık Azure Machine Learning hizmeti ile modelinizi oluşturmaya başlamak hazırsınız. Öğreticinin bu bölümünde, hazırlanan verileri kullanabilir ve otomatik olarak taksi taksi fiyatlarını tahmin etmek için regresyon modeli oluşturun. Otomatik makine öğrenimi özellikleri hizmeti kullanarak, makine öğrenimi hedefleri ve kısıtlamaları tanımlar. Öğrenme sürecinde otomatik makine başlatın. Ardından algoritması seçme ve sizin için gerçekleştirilecek ayarlama hiper parametre izin verin. En iyi modeli, bu ölçütü temel alan bulana kadar otomatik makine teknik öğrenme algoritmaları ve hiperparametreleri çok sayıda yinelenir.
 
-![akış diyagramı](./media/tutorial-auto-train-models/flow2.png)
+![Akış Diyagramı](./media/tutorial-auto-train-models/flow2.png)
 
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide, aşağıdaki görevleri öğrenin:
 
 > [!div class="checklist"]
-> * Python ortamını kurun ve SDK paketlerini içeri aktarma
-> * Bir Azure Machine Learning hizmeti çalışma alanında yapılandırın
-> * Otomatik-bir regresyon modeli eğitimi
-> * Modeli yerel olarak özel parametrelerle çalıştırın
-> * Sonuçları inceleme
-> * En iyi modeli kaydetme
+> * Bir Python ortamını ayarlama ve SDK paketlerini içeri aktarın.
+> * Bir Azure Machine Learning hizmeti çalışma alanında yapılandırın.
+> * Autotrain bir regresyon modeli.
+> * Modeli yerel olarak özel parametrelerle çalıştırın.
+> * Sonuçları inceleyin.
+> * En iyi modeli kaydedin.
 
 Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
 
 >[!NOTE]
-> Bu makalede kod Azure Machine Learning SDK sürüm 1.0.0 ile test edilmiştir
+> Bu makalede kod, Azure Machine Learning SDK sürüm 1.0.0 ile test edilmiştir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 > * [Veri hazırlama öğreticisini çalıştırma](tutorial-data-prep.md).
-> * Machine learning yapılandırılmış ortam otomatik ör. Azure not defterleri, yerel Python ortamı veya veri bilimi sanal makinesi. [Kurulum](samples-notebooks.md) machine learning otomatik.
+> * Otomatik machine learning ortam yapılandırılmış. Azure not defterleri, yerel Python ortamı veya bir veri bilimi sanal makinesi verilebilir. [Otomatik makine öğrenimi yedekleme kümesi](samples-notebooks.md).
 
 ## <a name="get-the-notebook"></a>Not defterini alma
 
-Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb) olarak sağlanır. `regression-part2-automated-ml.ipynb` notebook'unu Azure Notebooks üzerinde veya kendi Jupyter notebook sunucunuzda çalıştırın.
+Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb) olarak sağlanır. Çalıştırma `regression-part2-automated-ml.ipynb` not defteri Azure defterlerinde veya kendi Jupyter Notebook sunucusu.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ## <a name="import-packages"></a>Paketleri içeri aktarma
-Bu öğreticide ihtiyacınız olan Python paketlerini içeri aktarın.
+Bu öğreticide gerekli olacak Python paketlerini içeri aktarın:
 
 
 ```python
@@ -68,9 +68,11 @@ import os
 
 ## <a name="configure-workspace"></a>Çalışma alanını yapılandırma
 
-Mevcut çalışma alanından bir çalışma alanı nesnesi oluşturun. A `Workspace` Azure aboneliğinizi ve kaynak bilgilerini kabul eder ve modelinizi izlemeye yarayan bir bulut kaynağı oluşturur bir sınıf çalıştırır. `Workspace.from_config()`, **aml_config/config.json** dosyasını okur ve ayrıntıları `ws` adlı nesneye yükler.  Bu öğreticideki kodun kalanında `ws` kullanılır.
+Mevcut çalışma alanından bir çalışma alanı nesnesi oluşturun. A `Workspace` Azure abonelik ve kaynak bilgilerini kabul eden bir sınıftır. Ayrıca, model çalıştırmalarınızı izlemeye yarayan bir bulut kaynağı oluşturur. 
 
-Bir çalışma alanı nesneniz olduğunda, deneme için bir ad belirtin ve çalışma alanıyla yerel bir dizini kaydedin. Tüm çalıştırmalar geçmişini belirtilen deneme altında ve kaydedilen [Azure portalında](https://portal.azure.com).
+`Workspace.from_config()`, **aml_config/config.json** dosyasını okur ve ayrıntıları `ws` adlı nesneye yükler.  Bu öğreticideki kodun kalanında `ws` kullanılır.
+
+Bir çalışma nesnesi oluşturduktan sonra deneme için bir ad belirtin. Oluşturun ve çalışma alanı ile yerel bir dizine kaydedin. Tüm çalıştırmalar geçmişini belirtilen deneme altında ve kaydedilen [Azure portalında](https://portal.azure.com).
 
 
 ```python
@@ -93,7 +95,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## <a name="explore-data"></a>Verileri inceleme
 
-Önceki öğreticide oluşturduğunuz veri akış nesnesi kullanın. Açın ve veri akışını yürütecek ve sonuçları gözden geçirin.
+Önceki öğreticide oluşturduğunuz veri akış nesnesi kullanın. Açın ve veri akışı çalıştırma ve sonuçları gözden geçirin:
 
 
 ```python
@@ -119,17 +121,17 @@ dflow_prepared.get_profile()
       <th>Eksik yüzde</th>
       <th>Hata sayısı</th>
       <th>Boş sayısı</th>
-      <th>% 0,1 Quantile</th>
-      <th>%1 Quantile</th>
-      <th>%5 Quantile</th>
-      <th>% 25 Quantile</th>
-      <th>% 50 Quantile</th>
-      <th>% 75 Quantile</th>
-      <th>% 95 Quantile</th>
-      <th>% 99 Quantile</th>
-      <th>% 99,9 Quantile</th>
+      <th>%0,1 quantile</th>
+      <th>%1 quantile</th>
+      <th>%5 quantile</th>
+      <th>% 25 quantile</th>
+      <th>% 50 quantile</th>
+      <th>% 75 quantile</th>
+      <th>% 95 quantile</th>
+      <th>% 99 quantile</th>
+      <th>%99,9 quantile</th>
       <th>Ortalama</th>
-      <th>Standart Sapma</th>
+      <th>Standart sapma</th>
       <th>Varyans</th>
       <th>Komutunu</th>
       <th>Basıklık</th>
@@ -581,16 +583,16 @@ dflow_prepared.get_profile()
   </tbody>
 </table>
 
-Sütunlar ekleyerek deneme için verileri hazırlama `dflow_x` bizim model oluşturmaya yönelik özellikler için. Tanımladığınız `dflow_y` bizim tahmin olmasını değeri; maliyet.
+Sütunlar ekleyerek deneme için verileri hazırlama `dflow_x` bizim model oluşturmaya yönelik özellikler için. Tanımladığınız `dflow_y` bizim tahmin değeri olarak **maliyet**:
 
 ```python
 dflow_X = dflow_prepared.keep_columns(['pickup_weekday','pickup_hour', 'distance','passengers', 'vendor'])
 dflow_y = dflow_prepared.keep_columns('cost')
 ```
 
-### <a name="split-data-into-train-and-test-sets"></a>Verileri bölme eğitme ve test ayarlar
+### <a name="split-the-data-into-train-and-test-sets"></a>Verileri train bölme ve kümelerini test
 
-Verileri eğitim ve test kümeleri kullanarak halinde bölmek artık `train_test_split` işlevi `sklearn` kitaplığı. Bu işlev x verileri riske model eğitiminin ve y (tahmin etmek için değerler) için veri kümesi (özellikleri) sınama için veri kümesi. `test_size` Parametresi test ayrılacak veri yüzdesini belirler. `random_state` Parametre, eğitin ve test bölmeleri her zaman kararlı ve böylelikle bu çekirdek rastgele oluşturucuya ayarlar.
+Artık verileri eğitim halinde bölme ve kullanarak test kümelerini `train_test_split` işlevi `sklearn` kitaplığı. Bu işlev x, verileri riske **özellikleri**, veri kümesi için model eğitiminin ve y **tahmin etmek için değerleri**, test için veri kümesi. `test_size` Parametresi test ayrılacak veri yüzdesini belirler. `random_state` Parametre, eğitin ve test bölmeleri her zaman kararlı ve böylelikle bu çekirdek rastgele oluşturucuya ayarlar:
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -603,27 +605,27 @@ x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 y_train.values.flatten()
 ```
 
-Artık modelinizde otomatik eğitim için gerekli paketleriniz ve verileriniz hazırdır.
+Artık gerekli paketleri vardır ve veri modelinizin autotraining için hazır.
 
 ## <a name="automatically-train-a-model"></a>Otomatik olarak bir modeli eğitme
 
-Otomatik olarak bir modeli eğitmek için:
-1. Denemeyi çalıştırma ayarlarını tanımlayın
-1. Modeli ayarlama denemeyi gönderme
+Otomatik olarak bir modeli eğitmek için aşağıdaki adımları uygulayın:
+1. Denemeyi çalıştırma ayarlarını tanımlayın.
+1. Modeli ayarlama denemeyi gönderme.
 
 ### <a name="define-settings-for-autogeneration-and-tuning"></a>Serilerinin otomatik oluşturulması ve ayarlamak için ayarlarını tanımlayın
 
-Serilerinin otomatik oluşturulması ve ayarlamak için deneme parametreleri ve modelleri ayarlarını tanımlar. Tam listesini görüntüleyin [ayarları](how-to-configure-auto-train.md).
+Deneme parametreyi tanımlayın ve ayarları serilerinin otomatik oluşturulması ve ayarlamak için model. Tam listesini görüntüleyin [ayarları](how-to-configure-auto-train.md).
 
 
 |Özellik| Bu öğreticideki değer |Açıklama|
 |----|----|---|
 |**iteration_timeout_minutes**|10|Her yineleme için dakika cinsinden süre.|
-|**iterations**|30|Yineleme sayısı. Her yinelemede, model belirli bir işlem hattına sahip verilerle eğitilir|
+|**iterations**|30|Yineleme sayısı. Her yinelemede, belirli bir işlem hattı ile veri modeli eğitir.|
 |**primary_metric**| spearman_correlation | İyileştirmek istediğiniz ölçüm.|
-|**preprocess**| True | Giriş ön işleme gerçekleştirmek için doğru etkinleştirir deneyin.|
+|**preprocess**| True | Kullanarak **True**, denemeyi giriş önceden işlenir.|
 |**Ayrıntı düzeyi**| logging.INFO | Günlüğe kaydetme düzeyini denetler.|
-|**n_cross_validationss**|5|Çapraz doğrulama bölmelerinin sayısı
+|**n_cross_validationss**|5|Çapraz doğrulama bölmelerini sayısı.|
 
 
 
@@ -653,7 +655,7 @@ automated_ml_config = AutoMLConfig(task = 'regression',
 
 ### <a name="train-the-automatic-regression-model"></a>Otomatik bir regresyon modeli eğitme
 
-Denemeyi yerel olarak çalıştırmak için başlatın. Tanımlanan geçirmek `automated_ml_config` nesne denemeye ve çıktı olarak `True` deneme sırasında ilerleme durumunu görüntülemek için.
+Denemeyi yerel olarak çalıştırmak için başlatın. Tanımlanan geçirmek `automated_ml_config` deneme nesne. Çıkış kümesine `True` deneme sırasında ilerleme durumunu görüntülemek için:
 
 
 ```python
@@ -709,7 +711,7 @@ Otomatik eğitim Jupyter pencere öğesi veya deneme geçmişini inceleyerek son
 
 ### <a name="option-1-add-a-jupyter-widget-to-see-results"></a>1. seçenek: Sonuçları görmek için Jupyter pencere öğesi ekleyin
 
-Juypter Not Defteri kullanıyorsanız, bir grafik ve tablo tüm sonuçları görmek için bu Jupyter not defteri pencere öğesi kullanın.
+Jupyter not defteri kullanırsanız, bir grafik ve tablo tüm sonuçları görmek için bu Jupyter not defteri pencere öğesini kullanın:
 
 
 ```python
@@ -722,7 +724,7 @@ RunDetails(local_run).show()
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>2. seçenek: Alma ve Python çalışma tüm yinelemelerde inceleyin
 
-Alternatif olarak, her deneme geçmişini almak ve her yinelemede çalıştırmak için tek tek ölçümleri keşfedin.
+Ayrıca, her deneme geçmişini almak ve her bir yineleme çalıştırma bireysel ölçümleri keşfedin:
 
 ```python
 children = list(local_run.get_children())
@@ -1071,7 +1073,7 @@ rundata
 
 ## <a name="retrieve-the-best-model"></a>En iyi modeli alma
 
-Bizim yinelemeler en iyi işlem hattını seçin. `get_output` Metodunda `automl_classifier` son çağırma sığdırmak için en iyi çalıştırmanın ve ekrana sığdırılmış modeli döndürür. Aşırı yüklemeleri vardır `get_output` herhangi ölçüm veya belirli bir yinelemeye oturum için en iyi şekilde çalışır ve ekrana sığdırılmış modeli almanıza olanak tanıyan.
+Bizim yinelemeler en iyi işlem hattını seçin. `get_output` Metodunda `automl_classifier` son çağırma sığdırmak için en iyi çalıştırmanın ve ekrana sığdırılmış modeli döndürür. Aşırı kullanarak `get_output`, en iyi çalıştırmanın alabilir ve herhangi bir ekrana sığdırılmış modeli günlüğe ölçüm veya belirli bir yineleme:
 
 ```python
 best_run, fitted_model = local_run.get_output()
@@ -1081,7 +1083,7 @@ print(fitted_model)
 
 ## <a name="register-the-model"></a>Modeli kaydedin
 
-Azure Machine Learning hizmeti çalışma alanınızda modeli kaydedin.
+Azure Machine Learning hizmeti çalışma alanınızda modeli kaydedin:
 
 
 ```python
@@ -1093,14 +1095,14 @@ local_run.model_id # Use this id to deploy the model as a web service in Azure
 
 ## <a name="test-the-best-model-accuracy"></a>En iyi modeli doğruluk testi
 
-Test veri kümesinde Öngörüler çalıştırmak için en iyi modeli kullanın. İşlev `predict` en iyi modeli kullanır ve gelen y (seyahat maliyeti) değerlerini tahmin `x_test` veri kümesi. Yazdırma değerlerinden maliyet tahmin ilk 10 `y_predict`.
+Test veri kümesi üzerinde Öngörüler çalıştırma için en iyi modeli kullanın. İşlev `predict` en iyi modeli kullanır ve y değerleri tahmin **geçirmek maliyet**, gelen `x_test` veri kümesi. Yazdırma değerlerinden maliyet tahmin ilk 10 `y_predict`:
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Gerçek maliyet değerlere kıyasla tahmin edilen maliyet değerleri görselleştirmek için bir dağılım grafiğinde noktalara oluşturun. Aşağıdaki kod `distance` özelliği x ekseni ve geçirmek `cost` y ekseni olarak. İlk 100 öngörülen ve gerçek maliyet değerler her seyahat uzaklık değeri bir tahmin edilen maliyet varyansını karşılaştırmak için ayrı seri olarak oluşturulur. Çizim İnceleme uzaklığı/maliyet neredeyse doğrusal bir ilişkidir ve çoğu durumda çok yakın gerçek maliyet değerlerin aynı seyahat uzaklığı için tahmin edilen maliyet değerler gösterilir.
+Gerçek maliyet değerlere kıyasla tahmin edilen maliyet değerleri görselleştirmek için bir dağılım grafiğinde noktalara oluşturun. Aşağıdaki kod `distance` özellik x ekseni ve seyahat `cost` y ekseni olarak. Her bir seyahat uzaklık değeri bir tahmin edilen maliyet varyansını Karşılaştırılacak ilk 100 öngörülen ve gerçek maliyet değerleri ayrı seri olarak oluşturulur. Çizim İnceleme uzaklığı/maliyet ilişki neredeyse doğrusal olduğunu gösterir. Ve çoğu durumda çok yakın gerçek maliyet değerlerin aynı seyahat uzaklığı için tahmin edilen maliyet değerlerdir.
 
 ```python
 import matplotlib.pyplot as plt
@@ -1125,7 +1127,7 @@ plt.show()
 
 ![Tahmin dağılım grafiğinde noktalara](./media/tutorial-auto-train-models/automl-scatter-plot.png)
 
-Hesapla `root mean squared error` sonuçları. Kullanım `y_test` veri çerçevesi ve tahmin edilen değerlere karşılaştırılacak bir listeye dönüştürün. İşlev `mean_squared_error` iki dizi değerlerini alır ve bunlar arasındaki ortalama karesi alınmış hata hesaplar. Sonuç kare kökünü alma aynı birimi (Maliyet) y değişkeni olarak bir hata verir ve kabaca ne kadar tahminlerin gerçek değerini belirtir.
+Hesapla `root mean squared error` sonuçları. Kullanım `y_test` veri çerçevesi. Tahmin edilen değerlere karşılaştırılacak bir listeye dönüştürün. İşlev `mean_squared_error` iki dizi değerlerini alır ve bunlar arasındaki ortalama karesi alınmış hata hesaplar. Sonuç kare kökünü alma sağlar bir hata y değişken aynı birimde **maliyet**. Bu kabaca ne kadar Öngörüler gerçek değerini gösterir:
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1137,7 +1139,7 @@ rmse
 
     3.2204936862688798
 
-Tam kullanarak MAPE (ortalama mutlak tamamlanma hata oluştu) hesaplamak için aşağıdaki kodu çalıştırın `y_actual` ve `y_predict` veri kümeleri. Bu ölçüm her öngörülen ve gerçek değer arasındaki mutlak bir farkı hesaplar, tüm farklar toplar ve ardından toplamı gerçek değerlerin toplamının yüzde ifade eder.
+Ortalama mutlak tamamlanma hata (MAPE) tam hesaplamak için aşağıdaki kodu çalıştırın `y_actual` ve `y_predict` veri kümeleri. Bu ölçüm her öngörülen ve gerçek değerinin farkını tüm arasındaki mutlak bir farkı hesaplar. Ardından, TOPLA gerçek değerlerin toplamının yüzde ifade:
 
 ```python
 sum_actuals = sum_errors = 0
@@ -1170,12 +1172,12 @@ print(1 - mean_abs_percent_error)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu otomatik makine öğrenimi öğreticisinde, içinde:
+Makine öğrenimi öğreticisinde bu otomatik, aşağıdaki görevleri yapar:
 
 > [!div class="checklist"]
-> * Bir çalışma alanı ve bir deneme için hazırlanan verileri yapılandırılmış
-> * Kullanarak yerel olarak özel parametrelerle bir otomatik regresyon modeli eğitimi
-> * Keşfedilen ve gözden geçirilmiş eğitim sonuçları
-> * En iyi modeli kayıtlı
+> * Bir çalışma alanı ve hazırlanmış veri bir deneme için yapılandırılmış.
+> * Bir otomatik gerileme modelini kullanarak yerel olarak özel parametrelerle eğitim.
+> * Keşfedilen ve gözden geçirilmiş eğitim sonuçları.
+> * En iyi modeli kayıtlı.
 
 [Modelinizi](tutorial-deploy-models-with-aml.md) Azure Machine Learning ile.

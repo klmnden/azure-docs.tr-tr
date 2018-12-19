@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: konuşma tanıma C# (UWP) - konuşma Hizmetleri'
+title: 'Hızlı Başlangıç: Konuşma tanıma C# (UWP) - konuşma Hizmetleri'
 titleSuffix: Azure Cognitive Services
 description: Bu makalede, oluşturduğunuz bir C# Bilişsel hizmetler konuşma SDK'sı kullanarak evrensel Windows Platformu (UWP) uygulama. Cihazınızın mikrofonundan gerçek zamanda konuşmayı metne dönüştüreceksiniz. Uygulama, konuşma SDK'sı NuGet paketi ve Microsoft Visual Studio 2017 ile oluşturulmuştur.
 services: cognitive-services
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 55988ef65e223c76a485c3cbec13626abf68d3b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 036c5230104e9915f9bcbaa5dd535a359fecf55a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104638"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599459"
 ---
-# <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak UWP uygulamasında konuşma tanıma
+# <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak bir UWP uygulamasında konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Bu makalede Bilişsel Hizmetler[Konuşma SDK'sı](speech-sdk.md)'nı kullanarak bir C# Evrensel Windows Platformu (UWP) uygulaması oluşturacaksınız. Cihazınızın mikrofonundan gerçek zamanda konuşmayı metne dönüştüreceksiniz. Uygulama [Konuşma SDK'sı NuGet Paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017 (herhangi bir sürüm) ile geliştirilmiştir.
+Bu makalede, geliştirdiğiniz bir C# Evrensel Windows Platformu (UWP; Windows sürüm 1709 daha sonra) uygulama Bilişsel hizmetler kullanarak [Speech SDK'sı](speech-sdk.md). Program, cihazınızın mikrofondan gerçek zamanlı olarak metne konuşma tanıma özelliği. Uygulama [Konuşma SDK'sı NuGet Paketi](https://aka.ms/csspeech/nuget) ve Microsoft Visual Studio 2017 (herhangi bir sürüm) ile geliştirilmiştir.
 
 > [!NOTE]
 > Evrensel Windows Platformu; PC, Xbox, Surface Hub ve diğer cihazlar dahil olmak üzere Windows 10 destekleyen tüm cihazlarda çalışan uygulamalar geliştirmenize olanak tanır.
@@ -45,7 +45,7 @@ Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtar�
 
     ![Yeni Proje iletişim kutusunun ekran görüntüsü](media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. Hız SDK’sı, uygulamanızın Windows 10 Fall Creators Update veya sonraki sürümü için derlenmiş olmasını gerektirir. Çıkan **Yeni Evrensel Windows Platformu Projesi** penceresinde **Windows 10 Fall Creators Update (10.0; Sürüm 16299)** seçeneğini **En düşük sürüm** olarak belirleyin. **Hedef sürümü** kutusunda, bu veya sonraki bir sürümü seçin ve ardından **Tamam**’a tıklayın.
+1. Speech SDK'sı, uygulama için Windows 10 Fall Creators Update veya üzerini derleme gerektirir. Çıkan **Yeni Evrensel Windows Platformu Projesi** penceresinde **Windows 10 Fall Creators Update (10.0; Sürüm 16299)** seçeneğini **En düşük sürüm** olarak belirleyin. **Hedef sürümü** kutusunda, bu veya sonraki bir sürümü seçin ve ardından **Tamam**’a tıklayın.
 
     ![Yeni Evrensel Windows Platformu Projesi penceresinin ekran görüntüsü](media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 
@@ -71,7 +71,7 @@ Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtar�
 1. Paket Yöneticisi konsolunda aşağıdaki çıkış satırı görüntülenir.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.1.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.2.0' to helloworld
    ```
 
 1. Uygulama, konuşma girdisi için mikrofon kullandığından, **Mikrofon** özelliğini projeye ekleyin. Çözüm Gezgini'nde, uygulama bildiriminizi düzenlemek için **Package.appxmanifest** dosyasına çift tıklayın. Ardından **Özellikler** sekmesine geçin, **Mikrofon** özelliği kutusunu seçin ve değişikliklerinizi kaydedin.
