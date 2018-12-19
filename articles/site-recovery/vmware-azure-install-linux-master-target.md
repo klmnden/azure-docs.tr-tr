@@ -259,7 +259,7 @@ Bekletme diski oluşturmak için aşağıdaki adımları kullanın:
     
     Seçin **Ekle** dosyayı düzenlemeye başlayabilmesi için. Yeni bir satır oluşturun ve sonra aşağıdaki metni ekleyin. Önceki komutta alınan vurgulanan çok yollu kimliği temel disk çok yollu Kimliğini düzenleyin.
 
-     **/dev/Eşleyici/ <Retention disks multipath id> /mnt/saklama ext4 rw 0 0**
+    **/dev/Eşleyici/<Retention disks multipath id> /mnt/saklama ext4 rw 0 0**
 
     Seçin **Esc**, Anahtar'a tıklayın ve **: wq** (yazma ve Çık) Düzenleyicisi penceresini kapatın.
 

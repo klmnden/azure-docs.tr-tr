@@ -168,16 +168,16 @@ Dosya paylaşımlarının yük devretme işlemini otomatikleştirmek ASR'deki bi
 1. Otomasyon hesabı'nda tıklatın **değişkenleri** &gt; **değişken Ekle** ve aşağıdaki değişkenleri ekleyin. Bu varlıklar şifrelemeyi seçebilirsiniz. Bu kurtarma planı belirli değişkenlerdir. Kurtarma planı, değişkenlerinizi TestPlan StorSimRegKey, TestPlan-AzureSubscriptionName olması ve benzeri sonraki adımda oluşturacağınız TestPlan, adıdır.
 
    - **BaseUrl**: Azure bulutu için Azure Resource Manager URL'si. Kullanarak başlayın **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet'i.
-   - * RecoveryPlanName ***- ResourceGroupName**: StorSimple kaynak için Azure Resource Manager grubu.
-   - * RecoveryPlanName ***- ManagerName**: StorSimple cihazı olan StorSimple kaynak.
-   - * RecoveryPlanName ***- DeviceName**: devredilecek olan StorSimple cihaz.
-   - * RecoveryPlanName ***- DeviceIpAddress**: aygıtın IP adresi (Bu bulunabilir **cihazları** sekmesini StorSimple cihaz Yöneticisi bölümünde &gt; **ayarları** &gt; **Ağ** &gt; **DNS ayarlarını** grup).
-   - * RecoveryPlanName ***- VolumeContainers**: virgülle ayrılmış bir dize üzerinde; örneğin başarısız için gereken cihazdaki birim kapsayıcıların: volcon1, volcon2, volcon3.
-   - * RecoveryPlanName ***- TargetDeviceName**: StorSimple Cloud Appliance üzerinde kapsayıcılardır devredilecek.
-   - * RecoveryPlanName ***- TargetDeviceIpAddress**: hedef cihazın IP adresi (Bu bulunabilir **sanal makine** bölümü &gt; **ayarları** Grup &gt; **ağ** sekmesi).
-   - * RecoveryPlanName ***- StorageAccountName**: (Bu VM üzerinde başarısız üzerinde çalıştırılacak olan) betik depolanacağı depolama hesabı adı. Bu betik geçici olarak depolamak için bazı alana sahip herhangi bir depolama hesabı olabilir.
-   - * RecoveryPlanName ***- StorageAccountKey**: Yukarıdaki depolama hesabı için erişim anahtarı.
-   - * RecoveryPlanName ***- VMGUIDS**: bir sanal makine koruma sırasında Azure Site Recovery her VM üzerinde VM başarısız ayrıntılarını sağlayan benzersiz bir kimliği atar. VMGUID elde etmek için seçin **kurtarma Hizmetleri** sekmesine **korumalı öğesi** &gt; **koruma grupları** &gt;  **Makineleri** &gt; **özellikleri**. Birden fazla VM varsa, GUID'leri virgülle ayrılmış bir dize olarak ekleyin.
+   - *RecoveryPlanName* **- ResourceGroupName**: StorSimple kaynak için Azure Resource Manager grubu.
+   - *RecoveryPlanName* **- ManagerName**: StorSimple cihazı olan StorSimple kaynak.
+   - *RecoveryPlanName* **- DeviceName**: devredilecek olan StorSimple cihaz.
+   - *RecoveryPlanName* **- DeviceIpAddress**: aygıtın IP adresi (Bu bulunabilir **cihazları** sekmesini StorSimple cihaz Yöneticisi bölümünde &gt; **ayarları** &gt; **Ağ** &gt; **DNS ayarlarını** grup).
+   - *RecoveryPlanName* **- VolumeContainers**: virgülle ayrılmış bir dize üzerinde; örneğin başarısız için gereken cihazdaki birim kapsayıcıların: volcon1, volcon2, volcon3.
+   - *RecoveryPlanName* **- TargetDeviceName**: StorSimple Cloud Appliance üzerinde kapsayıcılardır devredilecek.
+   - *RecoveryPlanName* **- TargetDeviceIpAddress**: hedef cihazın IP adresi (Bu bulunabilir **sanal makine** bölümü &gt; **ayarları** Grup &gt; **ağ** sekmesi).
+   - *RecoveryPlanName* **- StorageAccountName**: (Bu VM üzerinde başarısız üzerinde çalıştırılacak olan) betik depolanacağı depolama hesabı adı. Bu betik geçici olarak depolamak için bazı alana sahip herhangi bir depolama hesabı olabilir.
+   - *RecoveryPlanName* **- StorageAccountKey**: Yukarıdaki depolama hesabı için erişim anahtarı.
+   - *RecoveryPlanName* **- VMGUIDS**: bir sanal makine koruma sırasında Azure Site Recovery her VM üzerinde VM başarısız ayrıntılarını sağlayan benzersiz bir kimliği atar. VMGUID elde etmek için seçin **kurtarma Hizmetleri** sekmesine **korumalı öğesi** &gt; **koruma grupları** &gt;  **Makineleri** &gt; **özellikleri**. Birden fazla VM varsa, GUID'leri virgülle ayrılmış bir dize olarak ekleyin.
 
     Kurtarma planı fileServerpredayRP, adıdır, örneğin, ardından, **değişkenleri**, **bağlantıları** ve **sertifikaları** sekmesi, ekledikten sonra aşağıdaki gibi görünmelidir Tüm varlıklar için.
 

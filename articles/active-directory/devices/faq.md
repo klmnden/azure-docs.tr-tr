@@ -24,7 +24,7 @@ ms.locfileid: "53309187"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
-**S: Ben kısa bir süre önce cihazın kayıtlı. Azure portalındaki kullanıcı Bilgilerim altında cihazın neden göremiyorum? Veya neden yok hibrit Azure AD'ye katılmış cihazlar için cihaz sahibi işaretlenmiş? ** 
+**S: Ben kısa bir süre önce cihazın kayıtlı. Azure portalındaki kullanıcı Bilgilerim altında cihazın neden göremiyorum? Veya neden yok hibrit Azure AD'ye katılmış cihazlar için cihaz sahibi işaretlenmiş?**
  **Y:** Hibrit Azure AD'ye katılmış olan Windows 10 cihazları altında kullanıcı cihazları gösterilmez.
 Azure portalında tüm cihazları görüntüle kullanmanız gerekir. PowerShell de kullanabilirsiniz [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet'i.
 
@@ -107,14 +107,14 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 
 ---
 
-**S: Kullanıcılarım silinmiş veya Azure AD'de devre dışı Azure AD'ye katılmış cihazlar oturum açarak? ** 
+**S: Kullanıcılarım silinmiş veya Azure AD'de devre dışı Azure AD'ye katılmış cihazlar oturum açarak?**
  **Y:** Evet. Windows, kullanıcılar Masaüstü bile ağ bağlantısı hızlıca erişmek için önceden günlüğe yazılan izin vermek için oturum açma özelliği önbelleğe almıştır. Cihazın silindi veya Azure AD'de devre dışı olduğunda Windows cihaza bilinmiyor. Bu nedenle, daha önce oturum kullanıcılar Masaüstü önbelleğe alınmış oturum açma ile erişmeye devam edebilir. Ancak, cihazın silinmesi veya devre dışı olarak Kullanıcılar Cihaz tabanlı koşullu erişim tarafından korunan herhangi bir kaynağa erişemez. 
 
 Önbelleğe alınmış oturum açma için etkin olarak zaten oturum açmadıysanız kullanıcıların cihaz erişemez. 
 
 ---
 
-**S: Devre dışı bırakılan veya silinen kullanıcılar Azure AD'ye katılmış cihazlar için oturum açabilir? ** 
+**S: Devre dışı bırakılan veya silinen kullanıcılar Azure AD'ye katılmış cihazlar için oturum açabilir?**
  **Y:** Evet, ancak yalnızca sınırlı bir süreliğine. Bir kullanıcı silindi veya Azure AD'de devre dışı olduğunda Windows cihaza hemen bilinmiyor. Bu nedenle, daha önce oturum Masaüstü önbelleğe alınmış oturum açma ile kullanıcıların erişim sağlayabilir. Cihaz (genellikle kısa 4 saat) kullanıcı durumu uyumlu hale geldikten sonra Windows kullanıcılarla Masaüstü erişmesini engeller. Kullanıcı silindi veya Azure AD'de devre dışı olarak bunlar herhangi bir kaynağa erişilemiyor. Bu nedenle tüm belirteçlerin, iptal edilir. 
 
 Önbelleğe alınmış oturum açma için bunları etkin olduğundan, daha önce oturum açmadıysanız silinmiş veya devre dışı bırakılmış kullanıcılar bir cihaz erişemez. 
@@ -127,7 +127,7 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 
 ---
 
-**S: Nasıl bir uzak Azure AD'ye bağlanabilirim katılmış? ** 
+**S: Nasıl bir uzak Azure AD'ye bağlanabilirim katılmış?**
  **Y:** Makalesine bakın https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc Ayrıntılar için.
 
 ---
