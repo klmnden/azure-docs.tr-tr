@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d4ee723b8b8303f2eaf9bea4db8dfc1aaa1c4931
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242135"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608826"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services ve ASP.NET kullanmaya başlama
 
@@ -35,8 +35,8 @@ Uygulama bir reklam bülteni panosudur. Kullanıcılar metin girerek ve görünt
 
 Uygulama bir arka uç işleminde küçük resim oluşturmaya yönelik CPU yoğunluklu iş yükünü azaltmak üzere [kuyruk merkezli çalışma deseni](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) kullanır.
 
-## <a name="alternative-architecture-web-apps-and-webjobs"></a>Alternatif mimari: Web Apps ve WebJobs
-Bu öğreticide bir Azure bulut hizmetinde hem ön ucun hem de arka ucun nasıl çalıştırılacağı gösterilmektedir. Alternatif yöntem bir [Azure Web Apps](/azure/app-service/)’te ön uç çalıştırılması ve arka uç için [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) özelliğinin kullanılmasıdır. WebJobs kullanan bir öğretici için bkz. [Azure WebJobs SDK ile Çalışmaya Başlama](https://github.com/Azure/azure-webjobs-sdk/wiki). Senaryonuza en uygun hizmetlerin nasıl seçileceği hakkında bilgi için bkz. [Azure Web Siteleri, Cloud Services ve sanal makineler karşılaştırması](../app-service/choose-web-site-cloud-service-vm.md).
+## <a name="alternative-architecture-app-service-and-webjobs"></a>Alternatif mimari: App Service ve WebJobs
+Bu öğreticide bir Azure bulut hizmetinde hem ön ucun hem de arka ucun nasıl çalıştırılacağı gösterilmektedir. Ön uç çalıştırılması alternatiftir [Azure App Service](/azure/app-service/) ve [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) arka uç için özellik. WebJobs kullanan bir öğretici için bkz. [Azure WebJobs SDK ile Çalışmaya Başlama](https://github.com/Azure/azure-webjobs-sdk/wiki). Senaryonuza en uygun hizmetlerin nasıl seçileceği hakkında daha fazla bilgi için bkz. [Azure App Service, Cloud Services ve virtual machines karşılaştırması](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>Öğrenecekleriniz
 * Azure SDK’sını yükleyerek Azure dağıtımı için makinenizi etkinleştirme.
@@ -46,7 +46,7 @@ Bu öğreticide bir Azure bulut hizmetinde hem ön ucun hem de arka ucun nasıl 
 * Dosyaları karşıya yükleme ve Azure Blob hizmetine depolama.
 * Katmanlar arasında iletişim için Azure Queue hizmetini kullanma.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Öğretici *web rolü* ve *çalışan rolü* terminolojisi gibi [Azure bulut hizmetleri hakkında temel kavramları](cloud-services-choose-me.md) anladığınızı varsayar.  Ayrıca Visual Studio’da [ASP.NET MVC](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started) veya [Web Forms](http://www.asp.net/web-forms/tutorials/aspnet-45/getting-started-with-aspnet-45-web-forms/introduction-and-overview) projeleri ile nasıl çalışılacağını bildiğinizi varsayar. Örnek uygulama MVC kullanır, ancak öğreticinin büyük bölümü Web Forms için de geçerlidir.
 
 Uygulamayı bir Azure aboneliği olmadan yerel olarak çalıştırabilirsiniz, ancak uygulamayı buluta dağıtmak için bir abonelik gerekecektir. Bir hesabınız yoksa, [MSDN abone avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A55E3C668) veya [ücretsiz deneme için kaydolabilirsiniz.](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A55E3C668)
@@ -391,7 +391,7 @@ Bu bölümde, yerel olarak test etmek amacıyla Azure Storage ve SQL bağlantı 
 8. Hala **ContosoAdsWorker [Rolü]** özellikler penceresindeyken başka bir bağlantı dizesi ekleyin:
 
    * Ad: ContosoAdsDbConnectionString
-   * Türü: Dize
+   * Şunu yazın: Dize
    * Değer: Web rolü projesi kullandığınız bağlantı dizesinin aynısını yapıştırın. (Aşağıdaki örnek Visual Studio 2013 içindir. Bu örneği kopyalarsanız ve Visual Studio 2015 veya sonraki bir sürümü kullanıyorsanız Veri Kaynağını değiştirmeyi unutmayın.)
 
        ```
@@ -407,9 +407,9 @@ Bir proje veya klasöre dosya eklemek için proje veya klasöre sağ tıklayıp 
 2. ContosoAdsWeb projesinde indirilen projeden aşağıdaki dosyaları ekleyin.
 
    * *Global.asax.cs*.  
-   * *Görünümler/Paylaşılan* klasöründe: *\_Layout.cshtml*.
-   * *Görünümler/Giriş* klasöründe: *Index.cshtml*.
-   * *Denetleyiciler* klasöründe: *AdController.cs*.
+   * İçinde *görünümler/paylaşılan* klasörü: *\_Layout.cshtml*.
+   * İçinde *görünümler/giriş* klasörü: *Index.cshtml*.
+   * İçinde *denetleyicileri* klasörü: *AdController.cs*.
    * *Görünümler/Reklam* klasöründe (öncelikle klasörü oluşturun): beş *.cshtml* dosyası.
 3. ContosoAdsWorker projesinde indirilen projeden *WorkerRole.cs* ekleyin.
 
@@ -775,7 +775,7 @@ Azure Storage’da en iyi yöntemler ve yaklaşımlar hakkında bir tanıtım i�
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-* [Azure Cloud Services Bölüm 1: Giriş](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Azure Cloud Services bölüm 1: Giriş](http://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Cloud Services nasıl yönetilir?](cloud-services-how-to-manage-portal.md)
 * [Azure Depolama](https://docs.microsoft.com/azure/storage/)
 * [Bulut hizmeti sağlayıcısı seçme](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

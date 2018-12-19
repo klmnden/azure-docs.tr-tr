@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Küçük resim oluşturma - REST, PHP - Görüntü İşleme'
+title: 'Hızlı Başlangıç: Küçük resim - REST, PHP oluşturma'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, PHP ile Görüntü İşleme API’sini kullanarak bir görüntüden küçük resim oluşturacaksınız.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 171893dd3017d46c405d2269506fe37896155e55
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 1527f57a1d300f730222d100bc9caf2001098fea
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964518"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579354"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>Hızlı Başlangıç: REST API ve PHP ile Görüntü İşleme kullanarak küçük resim oluşturma
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme PHP ve REST API kullanarak küçük resim oluşturma
 
 Bu hızlı başlangıçta, Görüntü İşleme REST API’sini kullanarak bir görüntüden küçük resim oluşturacaksınız. [Küçük Resim Alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) yöntemi ile bir görüntünün küçük resmini alabilirsiniz. Giriş görüntüsünün en boy oranından farklı olabilen bir yükseklik ve genişlik belirtirsiniz. Görüntü işleme, akıllı bir şekilde ilgi belirlemek ve söz konusu bölgeyi temel alan kırpma koordinatları oluşturmak için akıllı kırpma kullanır.
 
@@ -33,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Örneği oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
 
-1. PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) paketini yükleyin.
+1. PHP5 [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) paketini yükleyin.
    1. Yönetici olarak bir komut istemi penceresini açın.
    1. Şu komutu çalıştırın:
 

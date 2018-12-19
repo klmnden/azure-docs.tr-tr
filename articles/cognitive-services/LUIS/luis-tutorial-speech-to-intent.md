@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: efbe24500dd83ddd84c070ea36c423c742c26d4b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162640"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607413"
 ---
-# <a name="integrate-speech-service"></a>Konuşma hizmetini tümleştirme
+# <a name="integrate-speech-service-with-your-language-understanding-app"></a>Konuşma hizmeti Language Understanding uygulamanızla tümleştirin
 [Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) tek bir istek kullanarak ses almanızı ve JSON nesneleriyle LUIS tahmini döndürmenizi sağlar. Bu makalede bir C# projesi indirip Visual Studio'da kullanarak mikrofona konuşacak ve LUIS tahmin bilgilerini alacaksınız. Bu projede Konuşma [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paketi kullanılmaktadır ve bu paket başvuru olarak projeye eklenmiştir. 
 
 Bu makalede uygulamayı içeri aktarmak için ücretsiz bir [LUIS][LUIS] web sitesi hesabına ihtiyacınız olacak.

@@ -16,16 +16,16 @@ ms.topic: overview
 ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: seodec18
-ms.openlocfilehash: ac8d5ddb843227e5c5d8e7508c3ea46946f4850e
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 23b1ec176572b3a7e6deb0cba60ac7a1e73eeffb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257888"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605526"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux’ta Azure App Service’e Giriş
 
-[Web App](../app-service-web-overview.md), web sitelerini ve web uygulamalarını barındırmak için en uygun hale getirilmiş, tam olarak yönetilen bir işlem platformudur. Müşteriler Linux’ta App Service’i kullanarak desteklenen uygulama yığınları için Linux’ta yerel olarak web uygulamaları barındırabilir. Aşağıdaki bölümlerde, şu an desteklenen uygulama yığınları listelenmiştir.
+[Web App](../overview.md), web sitelerini ve web uygulamalarını barındırmak için en uygun hale getirilmiş, tam olarak yönetilen bir işlem platformudur. Müşteriler Linux’ta App Service’i kullanarak desteklenen uygulama yığınları için Linux’ta yerel olarak web uygulamaları barındırabilir. Aşağıdaki bölümlerde, şu an desteklenen uygulama yığınları listelenmiştir.
 
 ## <a name="languages"></a>Diller
 

@@ -10,14 +10,14 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 454b84f4ba5e492f61daf67c980b204c82a2090d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1a26cbea3aaca700f5e501d3b6be0f7d1c942f36
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075196"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607549"
 ---
-# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak Windows üzerinde C++ dilinde konuşma tanıma
+# <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Konuşma SDK'sını kullanarak Windows üzerinde c++ konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -37,7 +37,7 @@ Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtar�
 
     Aksi takdirde, **C++ ile masaüstü geliştirme**’nin yanındaki kutuyu işaretleyin.
 
-1. **NuGet paket yöneticisi** bileşeninin kullanılabilir olduğundan emin olun. Visual Studio yükleyicisi iletişim kutusunun **Bağımsız bileşenler** sekmesine geçin ve etkin değilse **NuGet paket yöneticisi**’ni seçin.
+1. **NuGet paket yöneticisi** bileşeninin kullanılabilir olduğundan emin olun. Geçiş **tek tek bileşenler** Visual Studio yükleyicisi iletişim kutusu sekmesi. Seçin **NuGet Paket Yöneticisi** zaten etkin değilse.
 
       ![Visual Studio Bağımsız bileşenler sekmesinin ekran görüntüsü](media/sdk/vs-enable-nuget-package-manager.png)
 
@@ -47,7 +47,7 @@ Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtar�
 
     ![Yeni Proje iletişim kutusunun ekran görüntüsü](media/sdk/qs-cpp-windows-01-new-console-app.png)
 
-1. 64 bit Windows işletim sistemini kullanıyorsanız, Visual Studio araç çubuğundaki açılan menüyü kullanarak yapı platformunuzu `x64` işletim sistemine geçirebilirsiniz. (Windows’un 64 bit sürümleri 32 bit uygulamaları çalıştırabildiğinden bu bir gereksinim değildir.)
+1. 64 bit Windows işletim sistemini kullanıyorsanız, Visual Studio araç çubuğundaki açılan menüyü kullanarak yapı platformunuzu `x64` işletim sistemine geçirebilirsiniz. (Windows 64-bit sürümleri 32-bit uygulamaları doğrudan çalıştırabilirsiniz.)
 
     ![x64 seçeneğinin vurgulandığı Visual Studio araç çubuğunun ekran görüntüsü](media/sdk/qs-cpp-windows-02-switch-to-x64.png)
 
@@ -60,7 +60,7 @@ Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtar�
     ![Çözüm için Paketleri Yönet iletişim kutusunun ekran görüntüsü](media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 
     > [!NOTE]
-    > Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.1.0`.
+    > Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.2.0`.
 
 1. NuGet paketinin yükleme işlemini başlatmak için görüntülenen lisansı kabul edin.
 

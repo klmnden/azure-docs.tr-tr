@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: konuşma tanıma Objective-C - konuşma Hizmetleri'
+title: 'Hızlı Başlangıç: Konuşma tanıma Objective-C - konuşma Hizmetleri'
 titleSuffix: Azure Cognitive Services
 description: Konuşma Tanıma Hizmeti SDK’sını kullanarak iOS üzerinde Objective-C’de konuşma tanımayı öğrenme
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: chlandsi
-ms.openlocfilehash: eaa44f942082c6bd062599dbdd0401fe4505daf4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 824fa5ceb5828394fedfe7af8bf48af2980160d9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090222"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606325"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma Tanıma Hizmeti SDK’sını kullanarak iOS üzerinde Objective-C’de konuşma tanıma
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma hizmeti SDK'sı kullanarak iOS Objective-C, konuşma tanıma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -35,7 +35,7 @@ Başlamadan önce önkoşullarının listesi aşağıda verilmiştir:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.1.0`.
+Bilişsel Hizmetler Konuşma SDK'sının geçerli sürümü: `1.2.0`.
 
 Mac ve iOS için Bilişsel Hizmetler Konuşma SDK’sı şu anda bir Cocoa Framework olarak dağıtılmaktadır.
 https://aka.ms/csspeech/iosbinary konumundan indirilebilir. Dosyayı giriş dizininize indirin.
@@ -49,15 +49,15 @@ Takip eden iletişim kutularında, aşağıdaki seçimleri yapın:
 
 1. Proje Seçenekleri İletişim Kutusu
     1. Hızlı başlangıç uygulaması için bir ad girin, örneğin `helloworld`.
-    1. Zaten bir Apple geliştirici hesabınız varsa uygun bir kuruluş adı ve kuruluş tanımlayıcısı girin. Test amacıyla, `testorg` gibi herhangi bir ad seçebilirsiniz. Uygulamayı imzalamak için, ayrıca uygun bir sağlama profili gerekir. Lütfen ayrıntılar için [Apple geliştirici sitesine](https://developer.apple.com/) bakın.
+    1. Zaten bir Apple geliştirici hesabınız varsa uygun bir kuruluş adı ve kuruluş tanımlayıcısı girin. Test amacıyla, `testorg` gibi herhangi bir ad seçebilirsiniz. Uygulamayı imzalamak için uygun bir sağlama profili gerekir. Başvurmak [Apple Geliştirici sitesine](https://developer.apple.com/) Ayrıntılar için.
     1. Proje dili olarak Objective-C seçildiğinden emin olun.
     1. Testler ve temel veriler için tüm onay kutularını devre dışı bırakın.
     ![Proje Ayarları](media/sdk/qs-objectivec-project-settings.png)
 1. Proje dizini seçin
-    1. Projeyi yerleştirmek için giriş dizininizi seçin. Bu, giriş dizininizde Xcode projesi için tüm dosyaları içeren bir `helloworld` dizini oluşturur.
+    1. Projeyi yerleştirmek için giriş dizininizi seçin. Bu, oluşturur bir `helloworld` dizin giriş dizininizde Xcode projesi için tüm dosyaları içerir.
     1. Bu örnek için Git deposu oluşturmayı devre dışı bırakın.
     1. *Proje Ayarları*’nda SDK yollarını ayarlayın.
-        1. **Katıştırılmış İkili Dosyalar** üst bilgisi altında **Genel** sekmesinde, SDK kitaplığını çerçeve olarak ekleyin: **Katıştırılmış ikili dosya ekle** > **Başka ekle...** > Giriş dizininize gidin ve `MicrosoftCognitiveServicesSpeech.framework` dosyasını seçin. Bu ayrıca SDK kitaplığını otomatik olarak **Bağlı Çerçeve ve Kitaplıklar**’a ekler.
+        1. İçinde **genel** sekmesinde altında **katıştırılmış ikili dosyalar** üst bilgi bir çerçeve SDK'sı kitaplığı ekleyin: **Katıştırılmış ikili dosyalar ekleme** > **diğer Ekle...**  > Giriş dizinine gidin ve dosyayı seçin `MicrosoftCognitiveServicesSpeech.framework`. Bu SDK'sı kitaplığı üstbilgiye ekler **bağlı çerçeve ve kitaplıklar** otomatik olarak.
         ![Eklenen Çerçeve](media/sdk/qs-objectivec-framework.png)
         1. **Derleme Ayarları** sekmesine gidin ve **Tümü** ayarını etkinleştirin.
         1. `$(SRCROOT)/..` dizinini **Arama Yolları** başlığı altında *Çerçeve Arama Yolları*’na ekleyin.
@@ -65,10 +65,10 @@ Takip eden iletişim kutularında, aşağıdaki seçimleri yapın:
 
 ## <a name="set-up-the-ui"></a>Kullanıcı arabirimini ayarlama
 
-Örnek uygulama çok basit bir kullanıcı arabirimine sahip olacaktır: Dosyadan veya mikrofon girişinden konuşma tanımayı başlatmak için iki düğme ve sonucu görüntülemek için bir metin etiketi.
+Örnek uygulama, çok basit bir kullanıcı Arabirimi vardır: Konuşma tanıma dosyasından veya mikrofon girişi ve sonucu görüntülemek için bir metin etiketi başlatmak için iki düğme.
 Kullanıcı arabirimi projenin `Main.storyboard` bölümünde ayarlanır.
 Proje ağacında `Main.storyboard` girdisine sağ tıklayıp **Farklı Aç...** > **Kaynak Kod** seçeneklerini belirleyerek görsel taslağın XML görünümünü açın.
-Otomatik oluşturulan XML’i şununla değiştirin:
+Otomatik olarak oluşturulan XML şu kodla değiştirin:
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/Base.lproj/Main.storyboard)]
 
@@ -81,7 +81,7 @@ Aşağıdaki iletişim kutusunda ayarları değiştirmeden **Son**’a tıklayı
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
 1. `YourSubscriptionKey` dizesini abonelik anahtarınızla değiştirin.
 1. `YourServiceRegion` dizesini, aboneliğinizle ilişkili [bölge](regions.md) ile (örneğin, ücretsiz deneme aboneliği için `westus`) değiştirin.
-1. Mikrofon erişimi için isteği ekleyin. Proje ağacında `Info.plist` girdisine sağ tıklayın ve **Farklı Aç...** > **Kaynak Kodu** seçeneğini belirleyin. Aşağıdaki satırları `<dict>` bölümüne ekleyin ve ardından dosyayı kaydedin.
+1. Mikrofon erişimi için isteği ekleyin. Sağ `Info.plist` girişi seçin ve proje ağacı **farklı Aç...**   >  **Kaynak kodu**. Aşağıdaki satırları `<dict>` bölümüne ekleyin ve ardından dosyayı kaydedin.
     ```xml
     <key>NSMicrophoneUsageDescription</key>
     <string>Need microphone access for speech recognition from microphone.</string>

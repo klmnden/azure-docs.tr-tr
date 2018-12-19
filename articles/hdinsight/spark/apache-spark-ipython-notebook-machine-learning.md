@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure HDInsight’ta Spark makine öğrenimi uygulaması derleme'
+title: 'Öğretici: Spark makine öğrenme Azure HDInsight uygulama oluşturun'
 description: Jupyter not defteri kullanarak HDInsight Spark kümelerinde Apache Spark makine öğrenimi uygulaması derlemeye ilişkin adım adım yönergeler.
 services: hdinsight
 ms.service: hdinsight
@@ -9,14 +9,14 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0a0712e4985414263d1e90299d78d5e30fe78a3e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580579"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608520"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Öğretici: bir Apache Spark makine öğrenme HDInsight uygulama derleme 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Öğretici: HDInsight uygulama öğrenme bir Apache Spark makine oluşturun 
 
 Bu öğreticide, şunların nasıl kullanılacağını [Jupyter not defteri](https://jupyter.org/) oluşturmak için bir [Apache Spark](https://spark.apache.org/) makine öğrenimi uygulaması Azure HDInsight için. 
 
@@ -97,7 +97,7 @@ Bu uygulamada bir belge sınıflandırması gerçekleştirmek için Spark [ML i�
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    İşlem hattı ve nasıl çalıştığı hakkında daha fazla bilgi için bkz. <a href="http://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Spark makine öğrenimi işlem hattı</a>.
+    İşlem hattı ve nasıl çalıştığı hakkında daha fazla bilgi için bkz. <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Apache Spark makine öğrenimi işlem hattı</a>.
 
 5. İşlem hattını eğitim belgesine uygun hale getirin.
    
@@ -184,7 +184,7 @@ Bu uygulamada bir belge sınıflandırması gerçekleştirmek için Spark [ML i�
 10. Kaynakları serbest bırakmak için not defterini kapatın. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’u seçin. Bu eylem, not defterini kapatır.
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>Spark makine öğrenimi için Anaconda scikit-learn kitaplığını kullanma
-HDInsight’ta Apache Spark kümeleri, Anaconda kitaplıklarını içerir. Ayrıca, makine öğrenimi **scikit-learn** kitaplığını içerir. Kitaplık aynı zamanda, aynı uygulamaları bir Jupyter not defterinden doğrudan derlemek için kullanabileceğiniz çeşitli veri kümeleri içerir. scikit-learn kitaplığını kullanma örnekleri için bkz. [http://scikit-learn.org/stable/auto_examples/index.html](http://scikit-learn.org/stable/auto_examples/index.html).
+HDInsight’ta Apache Spark kümeleri, Anaconda kitaplıklarını içerir. Ayrıca, makine öğrenimi **scikit-learn** kitaplığını içerir. Kitaplık aynı zamanda, aynı uygulamaları bir Jupyter not defterinden doğrudan derlemek için kullanabileceğiniz çeşitli veri kümeleri içerir. scikit-learn kitaplığını kullanma örnekleri için bkz. [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

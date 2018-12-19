@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: cb3ecff394aa8f2f80c61499e848d7d63806b37d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a7c1941bbb44d4d165b70e032f39129a642d0c65
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279781"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605975"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Aracısı Yüklemesi
 Bu belge, Azure AD Connect Health Aracılarını yüklemenize ve yapılandırmanıza yardımcı olur. Aracıları [buradan](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent) indirebilirsiniz.
@@ -29,26 +29,26 @@ Aşağıdaki tabloda Azure AD Connect Health kullanımına ilişkin gereksinimle
 
 | Gereksinim | Açıklama |
 | --- | --- |
-| Azure AD Premium |Azure AD Connect Health, bir Azure AD Premium özelliği olup Azure AD Premium gerektirir. </br></br>Daha fazla bilgi için bkz. [Azure AD Premium ile Çalışmaya Başlama](../fundamentals/active-directory-get-started-premium.md) </br>30 günlük ücretsiz denemeyi başlatmak için bkz. [Denemeyi başlatma.](https://azure.microsoft.com/trial/get-started-active-directory/) |
-| Azure AD Connect Health ile çalışmaya başlamak için Azure AD'nizin genel yöneticisi olmanız gerekir. |Varsayılan olarak yalnızca genel yöneticiler; çalışmaya başlamak üzere durum aracılarını yükleyip yapılandırabilir, portala erişebilir ve Azure AD Connect Health'te işlem gerçekleştirebilir. Daha fazla bilgi için bkz. [Azure AD dizininizi yönetme](../fundamentals/active-directory-administer.md). <br><br> Rol Tabanlı Erişim Denetimini kullanarak kuruluşunuzdaki diğer kullanıcılara Azure AD Connect Health erişim izni verebilirsiniz. Daha fazla bilgi için bkz. [Azure AD Connect Health için Rol Tabanlı Erişim Denetimi.](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) </br></br>**Önemli:** Aracıları yüklerken kullanılan hesap bir iş veya okul hesabı olmalıdır. Bir Microsoft hesabı olamaz. Daha fazla bilgi için bkz. [Azure'a kuruluş olarak kaydolma](../fundamentals/sign-up-organization.md) |
-| Azure AD Connect Health Aracısı, hedeflenen tüm sunucularda yüklüdür | Azure AD Connect Health, veri almak ve İzleme ve Analiz özelliklerini sağlamak için hedeflenen sunucularda Sistem Durumu Aracılarının yüklü ve yapılandırılmış olmasını gerektirir. </br></br>Örneğin, AD FS altyapınızdan veri alabilmek için AD FS sunucularında ve Web Uygulaması Proxy sunucularında aracının yüklü olması gerekir. Benzer şekilde, şirket içi AD DS altyapınızdaki verileri almak için aracının etki alanı denetleyicilerine yüklenmesi gerekir. </br></br> |
-| Azure hizmet uç noktalarına giden bağlantı | Yükleme ve çalışma zamanı sırasında, aracı ile Azure AD Connect Health hizmet uç noktaları arasında bağlantı kurulması gerekir. Giden bağlantı Güvenlik Duvarları kullanılarak engellenirse aşağıdaki uç noktaların izin verilenler listesine eklendiğinden emin olun. Bkz. [giden bağlantı uç noktaları](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) | 
+| Azure AD Premium |Azure AD Connect Health, bir Azure AD Premium özelliği olup Azure AD Premium gerektirir. <br /><br />Daha fazla bilgi için bkz. [Azure AD Premium ile Çalışmaya Başlama](../fundamentals/active-directory-get-started-premium.md) <br />30 günlük ücretsiz denemeyi başlatmak için bkz. [Denemeyi başlatma.](https://azure.microsoft.com/trial/get-started-active-directory/) |
+| Azure AD Connect Health ile çalışmaya başlamak için Azure AD'nizin genel yöneticisi olmanız gerekir. |Varsayılan olarak yalnızca genel yöneticiler; çalışmaya başlamak üzere durum aracılarını yükleyip yapılandırabilir, portala erişebilir ve Azure AD Connect Health'te işlem gerçekleştirebilir. Daha fazla bilgi için bkz. [Azure AD dizininizi yönetme](../fundamentals/active-directory-administer.md). <br /><br /> Rol Tabanlı Erişim Denetimini kullanarak kuruluşunuzdaki diğer kullanıcılara Azure AD Connect Health erişim izni verebilirsiniz. Daha fazla bilgi için bkz. [Azure AD Connect Health için Rol Tabanlı Erişim Denetimi.](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) <br /><br />**Önemli:** Aracıları yüklerken kullanılan hesabın, bir iş veya Okul hesabı olması gerekir. Bir Microsoft hesabı olamaz. Daha fazla bilgi için bkz. [Azure'a kuruluş olarak kaydolma](../fundamentals/sign-up-organization.md) |
+| Azure AD Connect Health Aracısı, hedeflenen tüm sunucularda yüklüdür | Azure AD Connect Health, veri almak ve İzleme ve Analiz özelliklerini sağlamak için hedeflenen sunucularda Sistem Durumu Aracılarının yüklü ve yapılandırılmış olmasını gerektirir. <br /><br />Örneğin, AD FS altyapınızdan veri alabilmek için AD FS sunucularında ve Web Uygulaması Proxy sunucularında aracının yüklü olması gerekir. Benzer şekilde, şirket içi AD DS altyapınızdaki verileri almak için aracının etki alanı denetleyicilerine yüklenmesi gerekir. <br /><br /> |
+| Azure hizmet uç noktalarına giden bağlantı | Yükleme ve çalışma zamanı sırasında, aracı ile Azure AD Connect Health hizmet uç noktaları arasında bağlantı kurulması gerekir. Giden bağlantı Güvenlik Duvarları kullanılarak engellenirse aşağıdaki uç noktaların izin verilenler listesine eklendiğinden emin olun. Bkz. [giden bağlantı uç noktaları](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |IP Adreslerini temel alan giden bağlantı | Güvenlik duvarlarında IP adresine göre filtreleme için bkz. [Azure IP Aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).|
 | Giden trafik için SSL İncelemesi filtrelenmiş ya da devre dışı | Ağ katmanında giden trafik için SSL incelemesi veya sonlandırması mevcutsa aracı kaydı adımı veya veri yükleme işlemleri başarısız olabilir. [SSL denetimi kurulumu](https://technet.microsoft.com/library/ee796230.aspx) hakkında daha fazla bilgi edinin |
-| Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları |Aracının Azure AD Health hizmet uç noktaları ile iletişim kurabilmesi için aşağıdaki güvenlik duvarı bağlantı noktalarının açık olması gerekir.</br></br><li>TCP bağlantı noktası 443</li><li>TCP bağlantı noktası 5671</li> </br>[güvenlik duvarı bağlantı noktalarını etkinleştirme](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) hakkında daha fazla bilgi edinin |
-| IE Artırılmış Güvenlik etkinse aşağıdaki web sitelerine izin verin |IE Artırılmış Güvenlik etkinse aracının yükleneceği sunucuda aşağıdaki web sitelerine izin verilmesi gerekir.</br></br><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>Kuruluşunuz için Azure Active Directory tarafından güvenilen federasyon sunucusu. Örneğin: https:\//sts.contoso.com</li> [IE’yi yapılandırma](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) hakkında daha fazla bilgi edinin |
-| PowerShell v4.0 veya üzerinin yüklü olduğundan emin olun | <li>Windows Server 2008 R2, aracı için yeterli olmayan PowerShell v2.0 sürümüne sahiptir.  PowerShell'i [Windows Server 2008 R2 Sunucularında aracı yüklemesi](#agent-installation-on-windows-server-2008-r2-servers) belgesine göre güncelleştirin.</li><li>Windows Server 2012, aracı için yeterli olmayan PowerShell v3.0 sürümüne sahiptir.  Windows Management Framework'ü [güncelleştirin](https://www.microsoft.com/download/details.aspx?id=40855).</li><li>Windows Server 2012 R2 ve üzeri ile gelen PowerShell sürümü yeterli olacaktır.</li>|
+| Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları |Aracının Azure AD Health hizmet uç noktaları ile iletişim kurabilmesi için aşağıdaki güvenlik duvarı bağlantı noktalarının açık olması gerekir.<br /><br /><li>TCP bağlantı noktası 443</li><li>TCP bağlantı noktası 5671</li> <br />[güvenlik duvarı bağlantı noktalarını etkinleştirme](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) hakkında daha fazla bilgi edinin |
+| IE Artırılmış Güvenlik etkinse aşağıdaki web sitelerine izin verin |IE Artırılmış Güvenlik etkinse aracının yükleneceği sunucuda aşağıdaki web sitelerine izin verilmesi gerekir.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>Kuruluşunuz için Azure Active Directory tarafından güvenilen federasyon sunucusu. Örneğin: https:\//sts.contoso.com</li> [IE’yi yapılandırma](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) hakkında daha fazla bilgi edinin |
+| PowerShell v4.0 veya üzerinin yüklü olduğundan emin olun | <li>Windows Server 2008 R2, aracı için yeterli olmayan PowerShell v2.0 sürümüne sahiptir. PowerShell'i [Windows Server 2008 R2 Sunucularında aracı yüklemesi](#agent-installation-on-windows-server-2008-r2-servers) belgesine göre güncelleştirin.</li><li>Windows Server 2012, aracı için yeterli olmayan PowerShell v3.0 sürümüne sahiptir.  Windows Management Framework'ü [güncelleştirin](https://www.microsoft.com/download/details.aspx?id=40855).</li><li>Windows Server 2012 R2 ve üzeri ile gelen PowerShell sürümü yeterli olacaktır.</li>|
 |FIPS’yi devre dışı bırakma|FIPS, Azure AD Connect Health aracıları tarafından desteklenmez.|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure hizmet uç noktalarına giden bağlantı
- Yükleme ve çalışma zamanı sırasında, aracı ile Azure AD Connect Health hizmet uç noktaları arasında bağlantı kurulması gerekir. Giden bağlantı Güvenlik Duvarları kullanılarak engellenirse aşağıdaki uç noktaların izin verilenler listesine eklendiğinden emin olun. [giden bağlantıyı denetleme](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) hakkında daha fazla bilgi edinin  
- 
+ Yükleme ve çalışma zamanı sırasında, aracı ile Azure AD Connect Health hizmet uç noktaları arasında bağlantı kurulması gerekir. Giden bağlantı Güvenlik Duvarları kullanılarak engellenirse aşağıdaki uç noktaların izin verilenler listesine eklendiğinden emin olun. [giden bağlantıyı denetleme](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) hakkında daha fazla bilgi edinin
+
 | Etki Alanı Ortamı | Gerekli Azure hizmet uç noktaları |
 | --- | --- |
-| Genel Kullanıma Açık | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.queue.core.windows.net </li><li>&#42;.servicebus.windows.net - Bağlantı Noktası: 5671 </li><li>&#42;.table.core.windows.net </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *bu uç nokta yalnızca kayıt sırasında keşif amacıyla kullanılır.</li> | 
+| Genel Kullanıma Açık | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.queue.core.windows.net </li><li>&#42;. servicebus.windows.net - bağlantı noktası: 5671 </li><li>&#42;.table.core.windows.net </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *bu uç nokta yalnızca kayıt sırasında keşif amacıyla kullanılır.</li> |
 | Azure Almanya | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.queue.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li><li>&#42;.table.core.cloudapi.de </li><li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https:\//www.office.de *bu uç nokta yalnızca kayıt sırasında keşif amacıyla kullanılır.</li> |
-| Azure Kamu | <li>&#42;.blob.core.usgovcloudapi.net </li><li>&#42;.queue.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.table.core.usgovcloudapi.net </li><li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *bu uç nokta yalnızca kayıt sırasında keşif amacıyla kullanılır.</li> |  
- 
+| Azure Kamu | <li>&#42;.blob.core.usgovcloudapi.net </li><li>&#42;.queue.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.table.core.usgovcloudapi.net </li><li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *bu uç nokta yalnızca kayıt sırasında keşif amacıyla kullanılır.</li> |
+
 
 ## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>Azure AD Connect Health Aracısını indirme ve yükleme
 * Azure AD Connect Health [gereksinimlerini yerine getirdiğinizden](how-to-connect-health-agent-install.md#requirements) emin olun.
@@ -65,8 +65,8 @@ Aşağıdaki tabloda Azure AD Connect Health kullanımına ilişkin gereksinimle
 > [!NOTE]
 > AD FS sunucusunun Eşitleme sunucunuzdan farklı olması gerekir. AD FS aracısını Eşitleme sunucunuza yüklemeyin.
 >
-  
-Yükleme öncesinde AD FS sunucunuzun ana bilgisayar adının benzersiz olduğundan ve AD FS hizmetinde bulunmadığından emin olun.   
+
+Yükleme öncesinde AD FS sunucunuzun ana bilgisayar adının benzersiz olduğundan ve AD FS hizmetinde bulunmadığından emin olun.
 Aracı yüklemesini başlatmak için indirdiğiniz .exe dosyasına çift tıklayın. İlk ekranda Yükle'ye tıklayın.
 
 ![Azure AD Connect Health'i doğrulama](./media/how-to-connect-health-agent-install/install1.png)
@@ -120,7 +120,7 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 3. **Yerel Güvenlik Ayarları** sekmesinde AD FS 2.0 hizmet hesabının listelenmiş olduğunu doğrulayın. Listelenmediyse **Kullanıcı veya Grup Ekle**'ye tıklayın, hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
 4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir Komut İstemi açın ve şu komutu çalıştırın: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
 5. **Yerel Güvenlik İlkesi**’ni kapatın.
-<br>   -- **Aşağıdaki adımlar, yalnızca birincil AD FS sunucuları için gereklidir.** -- </br>
+<br />   -- **Aşağıdaki adımlar, yalnızca birincil AD FS sunucuları için gereklidir.** -- <br />
 6. **AD FS Yönetim** ek bileşenini açın. AD FS Yönetim ek bileşenini açmak için **Başlat**'a tıklayın, **Programlar** ve **Yönetim Araçları**'nın üzerine gidin ve ardından **AD FS 2.0 Yönetimi**'ne tıklayın.
 7. **Eylemler** bölmesinde **Federasyon Hizmeti Özelliklerini Düzenle**'ye tıklayın.
 8. **Federation Service Properties (Federasyon Hizmeti Özellikleri)** iletişim kutusunda **Events (Olaylar)** sekmesine tıklayın.
@@ -133,7 +133,7 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 3. **Yerel Güvenlik Ayarları** sekmesinde AD FS hizmet hesabının listelenmiş olduğunu doğrulayın. Listelenmediyse **Kullanıcı veya Grup Ekle**'ye tıklayın, hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
 4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir komut istemi açın ve şu komutu çalıştırın: ```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```.
 5. **Yerel Güvenlik İlkesi**’ni kapatın.
-<br>   -- **Aşağıdaki adımlar, yalnızca birincil AD FS sunucuları için gereklidir.** -- </br>
+<br />   -- **Aşağıdaki adımlar, yalnızca birincil AD FS sunucuları için gereklidir.** -- <br />
 6. **AD FS Yönetimi** ek bileşenini açın. (Sunucu Yöneticisi'nde Araçlar'a tıklayın ve AD FS Yönetimi'ni seçin).
 7. **Eylemler** bölmesinde **Federasyon Hizmeti Özelliklerini Düzenle**'ye tıklayın.
 8. **Federation Service Properties (Federasyon Hizmeti Özellikleri)** iletişim kutusunda **Events (Olaylar)** sekmesine tıklayın.
@@ -145,7 +145,7 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 3. **Yerel Güvenlik Ayarları** sekmesinde AD FS hizmet hesabının listelenmiş olduğunu doğrulayın. Mevcut değilse, **Kullanıcı veya Grup Ekle**'ye tıklayın, AD FS hizmet hesabını listeye ekleyin ve ardından **Tamam**'a tıklayın.
 4. Denetimi etkinleştirmek için yükseltilmiş ayrıcalıklara sahip bir komut istemi açın ve şu komutu çalıştırın: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
 5. **Yerel Güvenlik İlkesi**’ni kapatın.
-<br>   -- **Aşağıdaki adımlar, yalnızca birincil AD FS sunucuları için gereklidir.** -- </br>
+<br />   -- **Aşağıdaki adımlar, yalnızca birincil AD FS sunucuları için gereklidir.** -- <br />
 6. **AD FS Yönetimi** ek bileşenini açın. (Sunucu Yöneticisi'nde Araçlar'a tıklayın ve AD FS Yönetimi'ni seçin).
 7. **Eylemler** bölmesinde **Federasyon Hizmeti Özelliklerini Düzenle**'ye tıklayın.
 8. **Federation Service Properties (Federasyon Hizmeti Özellikleri)** iletişim kutusunda **Events (Olaylar)** sekmesine tıklayın.
@@ -166,7 +166,7 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 ![AD FS denetim günlükleri](./media/how-to-connect-health-agent-install/adfsaudit.png)
 
 > [!WARNING]
-> AD FS denetimi bir grup ilkesiyle devre dışı bırakılabilir. AD FS denetimi devre dışı bırakılırsa, oturum açma etkinlikleriyle ilgili kullanım analizi mevcut olmaz. AD FS denetimini devre dışı bırakan bir grup ilkesine sahip olmadığınızdan emin olun.>
+> AD FS denetimi bir grup ilkesiyle devre dışı bırakılabilir. AD FS denetimi devre dışı bırakılırsa, oturum açma etkinlikleriyle ilgili kullanım analizi mevcut olmaz. AD FS denetimi devre dışı bırakan bir grup ilkenizin olmadığından emin olun. >
 >
 
 
@@ -274,7 +274,7 @@ Azure AD Connect Health Aracılarını bir HTTP Ara Sunucusunu kullanacak şekil
 Azure AD Connect Health Aracısını bir HTTP Ara Sunucusunu kullanacak şekilde yapılandırmak üzere aşağıdaki seçeneklere sahipsiniz.
 
 > [!NOTE]
-> Proxy ayarlarının güncelleştirilmesi için tüm Azure AD Connect Health Aracısı hizmetlerinin yeniden başlatılması gerekir. Şu komutu çalıştırın:<br>
+> Proxy ayarlarının güncelleştirilmesi için tüm Azure AD Connect Health Aracısı hizmetlerinin yeniden başlatılması gerekir. Şu komutu çalıştırın:<br />
 > Restart-Service AdHealth*
 >
 >
@@ -315,7 +315,7 @@ Aşağıdaki komutu çalıştırarak geçerli olarak yapılandırılmış olan p
 ## <a name="test-connectivity-to-azure-ad-connect-health-service"></a>Azure AD Connect Health Hizmeti için Bağlantı Testi
 Azure AD Connect Health aracısıyla Azure AD Connect Health hizmeti arasındaki bağlantının kesilmesine neden olabilecek sorunlar meydana gelebilir. Ağ sorunları, izin sorunları veya diğer çeşitli nedenler bunlara dahildir.
 
-Aracı iki saatten uzun bir süre boyunca Azure AD Connect Health hizmetine veri gönderemezse portalda şu uyarı ile gösterilir: "Health Hizmeti verileri güncel değil." Aşağıdaki PowerShell komutunu çalıştırarak, etkilenen Azure AD Connect Health aracısının Azure AD Connect Health hizmetine veri yükleyebildiğini onaylayabilirsiniz:
+Aracı iki saatten uzun Azure AD Connect Health hizmetine veri göndermek üzere yapamıyorsa, portalda şu uyarı ile gösterilir: "Sistem sağlığı hizmeti verileri güncel değil." Aşağıdaki PowerShell komutunu çalıştırarak, etkilenen Azure AD Connect Health aracısının Azure AD Connect Health hizmetine veri yükleyebildiğini onaylayabilirsiniz:
 
     Test-AzureADConnectHealthConnectivity -Role ADFS
 

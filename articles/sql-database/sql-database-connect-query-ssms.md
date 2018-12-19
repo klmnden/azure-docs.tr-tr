@@ -1,10 +1,10 @@
 ---
-title: 'SSMS: Azure SQL Veritabanında verileri bağlama ve sorgulama | Microsoft Docs'
+title: "SSMS: Azure SQL veritabanı'nda verileri bağlama ve sorgulama | Microsoft Docs"
 description: SQL Server Management Studio (SSMS) kullanarak Azure'da SQL Database'e nasıl bağlanılacağını öğrenin. Ardından, verileri sorgulamak ve düzenlemek için Transact-SQL (T-SQL) deyimleri çalıştırın.
 keywords: sql veritabanına bağlanma,sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -13,14 +13,14 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: b3342164aec49967e819c316827dca9a65f2674f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7049691e6635940e70795f0b5b4cc4c94cfd3631
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098966"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607328"
 ---
-# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Hızlı Başlangıç: Bağlanmak ve bir Azure SQL veritabanı sorgulamak kullanım SQL Server Management Studio
+# <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Hızlı Başlangıç: Bağlanmak ve bir Azure SQL veritabanı sorgulamak için SQL Server Management Studio'yu kullanın.
 
 Kullanabileceğiniz [SQL Server Management Studio] [ ssms-install-latest-84g] (SSMS) Microsoft Windows için SQL veritabanı için SQL Server'dan tüm SQL altyapılarını yönetme. Bu hızlı başlangıçta SSMS kullanarak Azure SQL veritabanına bağlanan ve ardından sorgulama, ekleme, güncelleştirme için Transact-SQL deyimleri çalıştırın ve verileri silmek için nasıl kullanılacağını gösterir. 
 

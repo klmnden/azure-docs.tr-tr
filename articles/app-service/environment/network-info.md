@@ -169,7 +169,7 @@ Bu örnekte, listenin üst kısmındaki ASE işlevi için ilk iki gelen gereksin
 
 ![Gelen güvenlik kuralları][4]
 
-Varsayılan kural, ASE alt ağına konuşmaya sanal IP'ler sağlar. Başka bir varsayılan kural, ASE ile iletişim kurmak için genel VIP olarak da bilinen yük dengeleyici sağlar. Varsayılan kuralları görmek için seçin **varsayılan kuralları** yanındaki **Ekle** simgesi. Diğer her şey kural gösterilen NSG kuralları sonra reddetme yerleştirirseniz, VIP ve ASE arasındaki trafiği engeller. Sanal ağ içinde gelen trafiği engellemek için izin veren kendi gelen kuralı ekleyin. Azureloadbalancer'a eşit olan bir kaynak hedefi ile kullanmak **herhangi** ve bir bağlantı noktası aralığını **\*** \*. ASE alt ağa bir NSG kuralı uygulandığından, hedefte belirli olması gerekmez.
+Varsayılan kural, ASE alt ağına konuşmaya sanal IP'ler sağlar. Başka bir varsayılan kural, ASE ile iletişim kurmak için genel VIP olarak da bilinen yük dengeleyici sağlar. Varsayılan kuralları görmek için seçin **varsayılan kuralları** yanındaki **Ekle** simgesi. Diğer her şey kural gösterilen NSG kuralları sonra reddetme yerleştirirseniz, VIP ve ASE arasındaki trafiği engeller. Sanal ağ içinde gelen trafiği engellemek için izin veren kendi gelen kuralı ekleyin. Azureloadbalancer'a eşit olan bir kaynak hedefi ile kullanmak **herhangi** ve bir bağlantı noktası aralığını **\***. ASE alt ağa bir NSG kuralı uygulandığından, hedefte belirli olması gerekmez.
 
 Uygulamanız için bir IP adresi atanmışsa, bağlantı noktalarının açık tutulması emin olun. Bağlantı noktalarını görmek için seçin **App Service ortamı** > **IP adresleri**.  
 

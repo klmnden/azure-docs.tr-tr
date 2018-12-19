@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: aae7836448ff27b4c80d7bb53e108034ee52db1c
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
-ms.translationtype: HT
+ms.openlocfilehash: 7945ff5d67f8229802666ac4a12209c2d26607f7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586300"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608418"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Anahtar Kasası nedir?
 
@@ -73,7 +73,7 @@ Ayrıca, Azure Anahtar Kasalarını kullanarak uygulama gizli dizilerini ayırab
 
 ### <a name="integrate-with-other-azure-services"></a>Diğer Azure hizmetleri ile tümleştirme
 
-Azure’da güvenli bir depo olarak Key Vault, [Azure Disk Şifrelemesi](../security/azure-security-disk-encryption.md), SQL sunucusu ve Azure SQL Veritabanı'ndaki [her zaman şifrelenmiş]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) işlevselliği, [Azure web uygulamaları]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site) gibi senaryoları kolaylaştırmak için kullanılmıştır. Key Vault, depolama hesapları, olay hub’ları ve günlük analizi ile tümleştirilebilir.
+Azure'da bir Güvenli Depo Key Vault gibi senaryoları kolaylaştırmak için kullanıldı [Azure Disk şifrelemesi](../security/azure-security-disk-encryption.md), [her zaman şifreli]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) SQL server ve Azure SQL veritabanı işlevleri [Azure uygulaması Hizmet]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Key Vault, depolama hesapları, olay hub’ları ve günlük analizi ile tümleştirilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

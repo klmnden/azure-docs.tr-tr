@@ -87,10 +87,22 @@ items:
     href: active-directory-b2c-reference-mfa.md
   - name: Kimlik Deneyimi Altyapısı
     items:
-    - name: Özel ilke oluşturma
-      href: active-directory-b2c-get-started-custom.md
     - name: Application Insights’ı kullanarak günlük toplama
       href: active-directory-b2c-troubleshoot-custom.md
+    - name: Kullanıcı erişimini yapılandırma
+      href: active-directory-b2c-configure-signup-self-asserted-custom.md
+    - name: Özel ilke oluşturma
+      href: active-directory-b2c-get-started-custom.md
+    - name: Kullanıcı arabirimini özelleştirme
+      href: active-directory-b2c-ui-customization-custom.md
+    - name: Kullanıcı arabirimini dinamik olarak özelleştirme
+      href: active-directory-b2c-ui-customization-custom-dynamic.md
+    - name: Belirteçleri özelleştirme
+      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+    - name: Özel öznitelikleri tanımlama
+      href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
+    - name: Oturumumu açık bırak seçeneğini etkinleştirme
+      href: active-directory-b2c-reference-kmsi-custom.md
     - name: RESTful API’lerini tümleştirme
       items:
       - name: Kullanıcı girişini doğrulama
@@ -123,6 +135,10 @@ items:
       href: page-contract.md
     - name: Erişim belirtecini doğrudan geçirme
       href: idp-pass-through-custom.md
+    - name: Parola karmaşıklığı
+      href: active-directory-b2c-reference-password-complexity-custom.md
+    - name: Parola değiştirme
+      href: active-directory-b2c-reference-password-change-custom.md
     - name: SAML sağlayıcıları
       items:
       - name: ADFS
@@ -131,24 +147,6 @@ items:
         href: active-directory-b2c-setup-sf-app-custom.md
     - name: Kullanıcı davranışını izleme
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
-    - name: Kullanıcı akışları
-      items:
-      - name: Kullanıcı erişimini yapılandırma
-        href: active-directory-b2c-configure-signup-self-asserted-custom.md
-      - name: Özel öznitelikler
-        href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
-      - name: Kullanıcı arabirimini özelleştirme
-        href: active-directory-b2c-ui-customization-custom.md
-      - name: Kullanıcı arabirimini dinamik olarak özelleştirme
-        href: active-directory-b2c-ui-customization-custom-dynamic.md
-      - name: Belirteçleri özelleştirme
-        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
-      - name: Parola karmaşıklığı
-        href: active-directory-b2c-reference-password-complexity-custom.md
-      - name: Parola değiştirme
-        href: active-directory-b2c-reference-password-change-custom.md
-      - name: Oturumumu açık bırak seçeneğini etkinleştirme
-        href: active-directory-b2c-reference-kmsi-custom.md
     - name: Başvuru
       items:
       - name: Talep çözümleyicileri
@@ -326,9 +324,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: 80e90efcc500f04e3ec1f3e10c157c9b415f0eda
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d61d6726d388fd7bf18f1bcbc168078afadd1a71
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079084"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579813"

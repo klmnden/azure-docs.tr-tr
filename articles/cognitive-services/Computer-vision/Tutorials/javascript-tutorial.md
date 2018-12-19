@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Görüntü İşleme API’si JavaScript'
+title: 'Öğretici: Görüntü işlemleri - JavaScript'
 titlesuffix: Azure Cognitive Services
 description: Azure Bilişsel Hizmetler’de Görüntü İşleme API'sini kullanan temel bir JavaScript uygulamasını keşfedin. OCR gerçekleştirin, küçük resimler oluşturun ve bir görüntüdeki görsel özelliklerle çalışın.
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: c024e517eb59c7d3b61408e477c94004ccb01a54
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 46d992fc44a0c3b2d355861d5753aa6f8c22215e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341319"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581384"
 ---
-# <a name="tutorial-computer-vision-api-javascript"></a>Öğretici: Görüntü İşleme API’si JavaScript
+# <a name="tutorial-computer-vision-api-javascript"></a>Öğretici: Bilgisayar görüntü işleme API'si JavaScript
 
 Bu öğreticide, Azure Bilişsel Hizmetler Görüntü İşleme REST API’sinin özellikleri gösterilmektedir.
 
@@ -25,7 +26,7 @@ Optik karakter tanıma (OCR) gerçekleştirmek, akıllı kırpılmış küçük 
 
 JavaScript form uygulaması zaten yazılmıştır, ancak Görüntü İşleme işlevselliğine sahip değildir. Bu öğreticide, uygulamanın işlevselliğini tamamlamak için Görüntü İşleme API'sine özgü kodu ekleyeceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="platform-requirements"></a>Platform gereksinimleri
 
@@ -494,7 +495,7 @@ Görüntü İşleme’nin Optik Karakter Tanıma (OCR) özelliği, yazdırılan 
 
 Öğretici uygulamasının OCR özelliğini tamamlamak için aşağıdaki adımları gerçekleştirin:
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>1. OCR adımı: Form düğmesi için olay işleyicisi kodu ekleme
+### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR adım 1: Form düğmesi için olay işleyicisi kodu ekleme
 
 **ocr.html** dosyasını bir metin düzenleyicisinde açın ve dosyanın alt kısmının yakınındaki **ocrButtonClick** işlevini bulun.
 

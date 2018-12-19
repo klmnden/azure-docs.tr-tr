@@ -1,5 +1,5 @@
 ---
-title: Azure IoT çözüm hızlandırıcılarına giriş | Microsoft Docs
+title: IOT Çözüm Hızlandırıcıları - Azure giriş | Microsoft Docs
 description: Azure IoT çözüm hızlandırıcıları hakkında bilgi edinin. IoT çözüm hızlandırıcıları, IoT çözümlerini dağıtmak için kullanılan tam kapsamlı, uçtan uca ve dağıtıma hazır sistemlerdir.
 author: dominicbetts
 ms.author: dobett
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 79c8f0f1c987de6320770416641300f3b8bb7c1d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824549"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607212"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT çözüm hızlandırıcıları nedir?
 
@@ -34,7 +34,7 @@ Her çözüm hızlandırıcısındaki uygulama kodunda çözüm hızlandırıcı
 
 ### <a name="remote-monitoring"></a>Uzaktan İzleme
 
-Bu Çözüm Hızlandırıcısı, uzak cihazlardan telemetri toplamaya ve bunları denetlemek için kullanın. Cihazlara örnek olarak müşterilerinizin tesislerindeki soğutma sistemleri veya uzak pompa istasyonlarındaki valfler verilebilir.
+Kullanım [Uzaktan izleme çözüm hızlandırıcısının](iot-accelerators-remote-monitoring-sample-walkthrough.md) uzak cihazlardan telemetri toplamaya ve bunları denetlemek için. Cihazlara örnek olarak müşterilerinizin tesislerindeki soğutma sistemleri veya uzak pompa istasyonlarındaki valfler verilebilir.
 
 Uzaktan izleme panosunu kullanarak bağlı cihazlarınızdan gelen telemetri verilerini görüntüleyebilir, yeni cihazlar sağlayabilir veya bağlı cihazlarınızdaki üretici yazılımını yükseltebilirsiniz:
 
@@ -42,7 +42,7 @@ Uzaktan izleme panosunu kullanarak bağlı cihazlarınızdan gelen telemetri ver
 
 ### <a name="connected-factory"></a>Bağlı Fabrika
 
-[OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) arabirimine sahip olan endüstriyel varlıklardan telemetri verilerini toplamak ve bu varlıkları denetlemek için bu çözüm hızlandırıcısını kullanabilirsiniz. Endüstriyel varlıklar arasında bir fabrikanın üretim hattındaki montaj ve test istasyonları olabilir.
+Kullanım [bağlı Fabrika Çözüm Hızlandırıcısı](iot-accelerators-connected-factory-sample-walkthrough.md) endüstriyel varlıklarla telemetri toplamak için bir [OPC birleşik mimarisi](https://opcfoundation.org/about/opc-technologies/opc-ua/) arabirimi ve bunları denetlemek için. Endüstriyel varlıklar arasında bir fabrikanın üretim hattındaki montaj ve test istasyonları olabilir.
 
 Bağlı fabrika panonuzu kullanarak endüstriyel cihazlarınızı izleyebilir ve yönetebilirsiniz:
 
@@ -50,7 +50,7 @@ Bağlı fabrika panonuzu kullanarak endüstriyel cihazlarınızı izleyebilir ve
 
 ### <a name="predictive-maintenance"></a>Tahmine Dayalı Bakım
 
-Bu Çözüm Hızlandırıcısı, uzak cihaz, cihaz başarısız olmadan önce bakım gerçekleştirmek için başarısız beklenmektedir tahmin etmek için kullanın. Bu çözüm hızlandırıcısı, cihazların telemetri verilerini kullanarak arıza tahmini gerçekleştirmek için makine öğrenimi algoritmalarını kullanır. Örnek cihazlar uçak motorları veya asansörler olabilir.
+Kullanım [Tahmine dayalı bakım Çözüm Hızlandırıcısı](iot-accelerators-predictive-walkthrough.md) tahmin, uzak cihaz cihaz başarısız olmadan önce bakım gerçekleştirmek için başarısız olması bekleniyor. Bu çözüm hızlandırıcısı, cihazların telemetri verilerini kullanarak arıza tahmini gerçekleştirmek için makine öğrenimi algoritmalarını kullanır. Örnek cihazlar uçak motorları veya asansörler olabilir.
 
 Tahmine dayalı bakım panosunu kullanarak tahmine dayalı bakım analizlerini görüntüleyebilirsiniz:
 
@@ -58,7 +58,7 @@ Tahmine dayalı bakım panosunu kullanarak tahmine dayalı bakım analizlerini g
 
 ### <a name="device-simulation"></a>Cihaz Benzetimi
 
-Bu Çözüm Hızlandırıcısı, gerçekçi telemetri oluşturmak sanal cihazlar çalıştırmak için kullanın. Bu çözüm hızlandırıcısını kullanarak diğer çözüm hızlandırıcılarının davranışını veya kendi IoT çözümlerinizi test edebilirsiniz.
+Kullanım [cihaz benzetimi Çözüm Hızlandırıcısı](iot-accelerators-device-simulation-overview.md) gerçekçi telemetri oluşturmak sanal cihazlar çalıştırılacak. Bu çözüm hızlandırıcısını kullanarak diğer çözüm hızlandırıcılarının davranışını veya kendi IoT çözümlerinizi test edebilirsiniz.
 
 Cihaz benzetimi web uygulamasını kullanarak benzetimlerinizi yapılandırabilir ve çalıştırabilirsiniz:
 
@@ -85,7 +85,7 @@ Tüm çözüm hızlandırıcıları aynı tasarım ilkelerini ve hedeflerini tak
 | Bağlı Fabrika      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Cihaz Benzetimi      | Mikro hizmetler | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-Mikro hizmet mimarisi hakkında daha fazla bilgi için [.NET Uygulama Mimarisi](https://www.microsoft.com/net/learn/architecture) ve [Mikro hizmetler: Bulut tarafından desteklenen bir uygulama devrimi](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) konusunu inceleyin.
+Mikro hizmet mimarisi hakkında daha fazla bilgi için bkz: [Azure IOT başvuru mimarisi için giriş](iot-accelerators-architecture-overview.md).
 
 ## <a name="deployment-options"></a>Dağıtım seçenekleri
 
@@ -94,8 +94,8 @@ Mikro hizmet mimarisi hakkında daha fazla bilgi için [.NET Uygulama Mimarisi](
 Uzaktan İzleme çözüm hızlandırıcısını aşağıdaki yapılandırmalarla dağıtabilirsiniz:
 
 * **Standart:** Bir üretim dağıtımı geliştirmek için genişletilmiş altyapı dağıtımı. Azure Container Service, mikro Hizmetleri birden fazla Azure sanal makinelerine dağıtır. Kubernetes mikro hizmetleri tek tek barındıran Docker kapsayıcılarını düzenler.
-* **Temel:** Tanıtım için veya bir dağıtımı test etmek için daha düşük maliyetli sürüm. Tüm mikro hizmetler tek bir Azure sanal makinesine dağıtılır.
-* **Yerel:** Test ve geliştirme için yerel makineye dağıtma. Bu yaklaşımda mikro hizmetler yerel bir Docker kapsayıcısına dağıtılır ve buluttaki IoT Hub, Azure Cosmos DB ve Azure depolama hizmetlerine bağlanır.
+* **Temel:** Tanıtım için veya bir dağıtımı test etmek için daha az maliyet sürümü. Tüm mikro hizmetler tek bir Azure sanal makinesine dağıtılır.
+* **Yerel:** Test ve geliştirme için yerel makine dağıtım. Bu yaklaşımda mikro hizmetler yerel bir Docker kapsayıcısına dağıtılır ve buluttaki IoT Hub, Azure Cosmos DB ve Azure depolama hizmetlerine bağlanır.
 
 Çözüm Hızlandırıcısını çalıştırma maliyeti birleşik, [temel alınan Azure Hizmetleri çalıştıran maliyeti](https://azure.microsoft.com/pricing). Kullanılan Azure hizmetlerinin ayrıntılarını dağıtım seçeneklerinizi belirlerken görebilirsiniz.
 

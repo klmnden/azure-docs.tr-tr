@@ -1,5 +1,5 @@
 ---
-title: Azure'da bulut tabanlı IoT uzaktan izleme çözümü deneme | Microsoft Docs
+title: Bir bulut tabanlı IOT Uzaktan izleme çözümü - Azure'ı deneyin | Microsoft Docs
 description: Bu hızlı başlangıçta Uzaktan İzleme Azure IoT çözümünü dağıtacak ve çözüm panosunda oturum açıp işlevleri kullanacaksınız.
 author: dominicbetts
 manager: timlt
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3f30b46138fc7753a1a4282497cbb06b6a4defbc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824787"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608366"
 ---
-# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Hızlı başlangıç: Bulut tabanlı uzaktan izleme çözümünü deneme
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Hızlı Başlangıç: Bir bulut tabanlı uzaktan izleme çözümünü deneyin
 
 Bu hızlı başlangıçta Azure IoT Uzaktan İzleme çözümü hızlandırıcısını dağıtmayı öğreneceksiniz. Bu bulut tabanlı çözümde **Dashboard** (Pano) sayfasını kullanarak sanal cihazları harita üzerinde görselleştirecek ve **Maintenance** (Bakım) sayfasını kullanarak sanal bir soğutucu cihazından gelen basınç uyarısına müdahale edeceksiniz. Bu çözüm hızlandırıcısını, kendi uygulamanızın başlangıç noktası veya bir öğrenme aracı olarak kullanabilirsiniz.
 
@@ -142,4 +142,4 @@ Bu hızlı başlangıçta Uzaktan İzleme çözümü hızlandırıcısını dağ
 Simülasyon cihazları kullanan çözüm hızlandırıcısı hakkında daha fazla bilgi için aşağıdaki öğreticiyle devam edin.
 
 > [!div class="nextstepaction"]
-> [Öğretici: IoT cihazlarınızı izleme](iot-accelerators-remote-monitoring-monitor.md)
+> [Öğretici: IOT cihazlarınızı izleme](iot-accelerators-remote-monitoring-monitor.md)

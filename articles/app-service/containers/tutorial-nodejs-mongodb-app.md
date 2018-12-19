@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 23a737c97cad0ce8c525d52db97bfb32ef4eb300
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: af72a9de2b4dea7c61e23d3608c7df7855b5500c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537197"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608537"
 ---
 # <a name="build-a-nodejs-and-mongodb-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service’te bir Node.js ve MongoDB web uygulaması derleme
 
@@ -484,4 +484,4 @@ Portal, varsayılan olarak web uygulamanızın **Genel Bakış** sayfasında gö
 Web uygulamanıza özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Mevcut bir özel DNS adını Azure Web Apps ile eşleme](../app-service-web-tutorial-custom-domain.md)
+> [Mevcut bir özel DNS adını Azure App Service'e eşlemek](../app-service-web-tutorial-custom-domain.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Uzak görüntüyü analiz etme - REST, cURL - Görüntü İşleme'
+title: 'Hızlı Başlangıç: Bir uzak image - REST, cURL analiz edin'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, cURL ile Görüntü İşleme API’si kullanarak bir uzak görüntüyü analiz edeceksiniz.
 services: cognitive-services
@@ -10,20 +10,21 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 04ad5ff2e148a5f5469cd13ce6106e6466d645b3
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 18e7c084686099611db0c3042e66181df19d6186
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344039"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581547"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-curl-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve cURL’yi kullanarak uzak görüntüyü analiz etme
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-curl-in-computer-vision"></a>Hızlı Başlangıç: REST API kullanarak uzak bir resmi çözümleme ve görüntü işleme cURL
 
 Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak görsel özellikleri ayıklamak için uzakta depolanan bir görüntüyü analiz edeceksiniz. [Görüntü Analizi](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) yöntemi ile, görüntü içeriğini temel alarak görsel özellikleri ayıklayabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - [cURL](https://curl.haxx.se/windows)’niz olmalıdır.
 - Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).

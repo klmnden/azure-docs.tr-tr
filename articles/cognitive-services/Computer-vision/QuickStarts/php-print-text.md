@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Yazdırılan metni ayıklama (OCR) - REST, PHP - Görüntü İşleme'
+title: 'Hızlı Başlangıç: Yazdırılan metin - REST, PHP ayıklayın'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, PHP ile Görüntü İşleme API’si kullanarak bir görüntüden yazdırılan metin ayıklayacaksınız.
 services: cognitive-services
@@ -10,20 +10,21 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 10be09c4d18cc7bc395937e1a175a5bfcd1e5d7e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
-ms.translationtype: HT
+ms.custom: seodec18
+ms.openlocfilehash: 2707134c3fb451f4386748f691086eeb617d3ebe
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340248"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581394"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-php-in-computer-vision"></a>Hızlı Başlangıç: Görüntü İşleme’de REST API ve PHP kullanarak yazdırılan metni ayıklama (OCR)
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-php-in-computer-vision"></a>Hızlı Başlangıç: Görüntü işleme PHP ve REST API kullanarak yazdırılan metin (OCR) ayıklayın
 
 Bu hızlı başlangıçta, Görüntü İşleme’nin REST API’sini kullanarak bir görüntüden optik karakter tanıma (OCR) ile yazdırılan metni ayıklayacaksınız. [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) yöntemiyle, bir görüntüdeki yazdırılan metni algılayabilir ve tanınan karakterleri makine tarafından kullanılabilir bir karakter akışı halinde ayıklayabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - [PHP](https://secure.php.net/downloads.php) yüklenmiş olmalıdır.
 - [Pear](https://pear.php.net) yüklenmiş olmalıdır.
@@ -33,7 +34,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Örneği oluşturup çalıştırmak için aşağıdaki adımları uygulayın:
 
-1. PHP5 [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) paketini yükleyin.
+1. PHP5 [`HTTP_Request2`](https://pear.php.net/package/HTTP_Request2) paketini yükleyin.
    1. Yönetici olarak bir komut istemi penceresini açın.
    1. Şu komutu çalıştırın:
 

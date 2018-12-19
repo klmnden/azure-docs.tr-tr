@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: d1f24c8bebc8740f47dc0f02089db1091c22f597
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 8ebc07f68e2d26126d0bd387f32204255404d6e1
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711336"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605322"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Öğretici: Azure Key Vault ile Azure Windows sanal makinesine .NET kullanmayı
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Öğretici: Azure Key Vault ile Azure Windows sanal makinesine .NET kullanma
 
 Azure Key Vault uygulamalarınıza, hizmetlerinize ve BT kaynaklarınıza erişmek için gereken API Anahtarları, Veritabanı Bağlantısı dizeleri gibi gizli dizileri korumanıza yardımcı olur.
 
-Bu öğreticide, Azure kaynakları için yönetilen kimliklerle bilgilerini Azure Key Vault'tan okumak için bir konsol uygulaması almak için gerekli adımları izleyin. Bu öğreticide [Azure Web Apps](../app-service/app-service-web-overview.md) temel alınmıştır. Şunları yapmayı öğreneceksiniz:
+Bu öğreticide, Azure kaynakları için yönetilen kimliklerle bilgilerini Azure Key Vault'tan okumak için bir konsol uygulaması almak için gerekli adımları izleyin. Şunları yapmayı öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Bir anahtar kasası oluşturma.
@@ -80,9 +80,9 @@ Az önce oluşturduğunuz kaynak grubu bu makale boyunca kullanılır.
 
 Ardından, önceki adımda oluşturduğunuz kaynak grubunda bir anahtar kasası oluşturursunuz. Şu bilgileri belirtin:
 
-* Anahtar kasası adı: Adı 3-24 karakterden oluşan bir dize olmalı ve yalnızca (0-9, a-z, A-Z ve -) karakterlerini içermelidir.
+* Anahtar kasası adı: Ad 3-24 karakter dizesi olmalı ve yalnızca içermelidir (0-9, a-z, A-Z ve -).
 * Kaynak grubu adı.
-* Konum: **West US**.
+* Konum: **Batı ABD**.
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"

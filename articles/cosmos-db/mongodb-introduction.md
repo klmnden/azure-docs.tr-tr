@@ -9,24 +9,24 @@ ms.component: cosmosdb-mongo
 ms.topic: overview
 ms.date: 02/12/2018
 ms.author: sclyon
-ms.openlocfilehash: 52036dd0bdcdbc9d4ae71f388a7bb750fd781a5f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: c4c33094f070e603057042eaea8187e29270fb77
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547992"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606852"
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>MongoDB için Azure Cosmos DB API'sine giriş
 
 [Azure Cosmos DB](../cosmos-db/introduction.md), Microsoft'un görev açısından kritik uygulamalar için genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB, [kullanıma hazır genel dağıtım](distribute-data-globally.md), dünya çapında [aktarım hızı ve depolama için esnek ölçeklendirme](partition-data.md), 99. yüzdebirlik dilimde tek haneli milisaniyelik gecikme süreleri ve garantili yüksek kullanılabilirlik olanakları sunar ve bunların tümü [sektör lideri SLA’lar](https://azure.microsoft.com/support/legal/sla/cosmos-db/) ile desteklenir. Azure Cosmos DB, şema ve dizin yönetimiyle ilgilenmenize gerek kalmadan [otomatik olarak verilerin dizinini oluşturur](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Çok modelli olan bu hizmet belge, anahtar-değer, grafik ve sütunlu veri modellerini destekler. 
 
-![MongoDB için Azure Cosmos DB API'si](./media/mongodb-introduction/cosmosdb-mongodb.png) 
+![MongoDB için Azure Cosmos DB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
 Azure Cosmos DB veritabanları, [MongoDB](https://docs.mongodb.com/manual/introduction/) için yazılmış uygulamaların veri deposu olarak kullanılabilir. Bu işlevsellik, MongoDB için yazılmış uygulamanızın mevcut[sürücüleri](https://docs.mongodb.org/ecosystem/drivers/) kullanarak artık Azure Cosmos DB ile iletişim kurabileceği ve MongoDB veritabanları yerine Azure Cosmos DB veritabanlarını kullanabileceği anlamına gelir. Çoğu durumda, sadece bir bağlantı dizesini değiştirerek MongoDB'den Azure Cosmos DB'ye geçiş yapabilirsiniz. Bu işlevselliği kullanarak, MongoDB'nin tanıdık yöntem ve araçlarını kullanmaya devam ederken, Azure Cosmos DB ve [kapsamlı sektör lideri SLA'ları](https://azure.microsoft.com/support/legal/sla/cosmos-db) ile Azure bulutunda kolayca küresel olarak dağıtılmış MongoDB veritabanı uygulamaları geliştirebilir ve çalıştırabilirsiniz.
 
 **MongoDB Uyumluluk**: Azure Cosmos DB MongoDB kablo protokolüne uyguladığı, var olan MongoDB uzmanlığı, uygulama kodu ve araçları kullanabilirsiniz. MongoDB kullanarak uygulamalar geliştirebilir ve bunları tamamen yönetilen, küresel olarak dağıtılmış Azure Cosmos DB hizmetini kullanarak üretime dağıtabilirsiniz. Desteklenen sürümler hakkında daha fazla bilgi için bkz. [MongoDB Protokol Desteği](mongodb-feature-support.md#mongodb-protocol-support).
 
-BT aynı kullanıyor MongoDB için Azure Cosmos DB API doğrudan uç noktası olarak Azure Stream Analytics gibi hizmetler için kullanılamaz çünkü [istemci sürücüleri](https://docs.mongodb.org/ecosystem/drivers/) yerel MongoDB olarak. Azure Stream Analytics ile tümleştirmek için kullanmayı [Azure App Service](../app-service/app-service-web-overview.md) veya [Azure işlevleri hizmet](../azure-functions/functions-overview.md) veri MongoDB için Azure Cosmos DB API için yazabilen bir ara yazılım hizmet olarak.
+BT aynı kullanıyor MongoDB için Azure Cosmos DB API doğrudan uç noktası olarak Azure Stream Analytics gibi hizmetler için kullanılamaz çünkü [istemci sürücüleri](https://docs.mongodb.org/ecosystem/drivers/) yerel MongoDB olarak. Azure Stream Analytics ile tümleştirmek için kullanmayı [Azure App Service](../app-service/overview.md) veya [Azure işlevleri hizmet](../azure-functions/functions-overview.md) veri MongoDB için Azure Cosmos DB API için yazabilen bir ara yazılım hizmet olarak.
 
 ## <a name="what-is-the-benefit-of-using-azure-cosmos-db-for-mongodb-applications"></a>MongoDB uygulamaları için Azure Cosmos DB kullanmanın avantajı nedir?
 

@@ -233,7 +233,7 @@ VPN bağlantısını denetlemek için iki VM oluşturun: biri azure'da ve Azure 
 6. Sağlayan bir **abonelik**, **kaynak grubu**, ve **konumu**ve ardından **Tamam**.
 7. Üzerinde **boyutu** bölümünde, bu örnek için seçim bir sanal makine boyutu ve ardından **seçin**.
 8. Üzerinde **ayarları** bölümünde, Varsayılanları kabul edin. Emin olun **Azs-VNet** sanal ağın seçili. Alt ağ değerine ayarlandığını doğrulayın **10.1.0.0/24**. Sonra **Tamam**’ı seçin.
-9. Üzerinde **özeti** bölümünde ayarları gözden geçirin ve ardından * Tamam **.
+9. Üzerinde **özeti** bölümünde ayarları gözden geçirin ve ardından *Tamam*\*.
 
 ## <a name="test-the-connection"></a>Bağlantıyı sınama
 

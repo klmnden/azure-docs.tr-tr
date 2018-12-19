@@ -26,18 +26,18 @@
 
 # Örnekler
 ## Azure CLI
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-cli-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/samples-cli)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/cli-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/cli-samples)
 ## Azure PowerShell
-### [Web Apps](https://docs.microsoft.com/azure/app-service/app-service-powershell-samples)
+### [Web Apps](https://docs.microsoft.com/azure/app-service/samples-powershell)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/powershell-samples)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/powershell-samples)
 
 # Kavramlar
 ## [Faturalama ve abonelikler](https://docs.microsoft.com/azure/billing/billing-getting-started)
 ## [Barındırma karşılaştırmaları](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
-## [App Service nedir?](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+## [App Service nedir?](https://docs.microsoft.com/azure/app-service/overview)
 ## Sanal makineler
 ### [Linux VM'leri](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 ### [Windows VM’leri](https://docs.microsoft.com/azure/virtual-machines/windows/overview)

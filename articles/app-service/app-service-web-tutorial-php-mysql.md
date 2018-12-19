@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a20373e43780cea10e550ae968deb2a8720b9a9f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9bd57ae6926f57dc8b6c0fc12199649f63cba261
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251683"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608571"
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Öğretici: Azure'da PHP ve MySQL web uygulaması derleme
 
@@ -28,7 +28,7 @@ ms.locfileid: "53251683"
 > Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. _Linux_ üzerinde App Service'e dağıtım yapmak için bkz. [Linux üzerinde Azure App Service'te PHP ve MySQL web uygulaması derleme](./containers/tutorial-php-mysql-app.md).
 >
 
-[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide, Azure’da bir PHP web uygulaması oluşturma ve bu uygulamayı bir MySQL veritabanına bağlamayla ilgili yönergeler verilmiştir. İşiniz bittiğinde, Azure App Service Web Apps üzerinde çalışan bir [Laravel](https://laravel.com/) uygulamasına sahip olacaksınız.
+[Azure App Service](overview.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide, Azure’da bir PHP web uygulaması oluşturma ve bu uygulamayı bir MySQL veritabanına bağlamayla ilgili yönergeler verilmiştir. İşiniz bittiğinde, Azure App Service Web Apps üzerinde çalışan bir [Laravel](https://laravel.com/) uygulamasına sahip olacaksınız.
 
 ![Azure App Service’te çalışan PHP uygulaması](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
@@ -637,4 +637,4 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Bir web uygulamasına DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Mevcut bir özel DNS adını Azure Web Apps ile eşleme](app-service-web-tutorial-custom-domain.md)
+> [Mevcut bir özel DNS adını Azure App Service'e eşlemek](app-service-web-tutorial-custom-domain.md)

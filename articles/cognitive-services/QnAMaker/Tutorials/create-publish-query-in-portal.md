@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 9853e84ffd2de8a1dfd6d9c4f32f58bb36b16403
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 581c47d84466f37d7c7c3ad3e98ae1749f8d9524
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164441"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608656"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Öğretici: Bilgi Bankası sonra soruyu yanıtlama soru-cevap Oluşturucu portalı üzerinden oluşturma
 
@@ -83,9 +83,9 @@ Bu öğretici için var olan bir [Soru-Cevap Oluşturma hizmetini](../How-To/set
 
 1. Tablonun en altından son soru-cevap sayfasını seçin. Bu sayfada Chit-chat personality (Konuşma kişiliği) ayarı ile birlikte gelen sorular ve cevapları bulunur. 
 
-1. Soru-cevap listesinin üstündeki araç çubuğunda dişliyi seçin. Her soru ve cevapla ilgili filtreler gösterilir. Chit-chat personality (Konuşma kişiliği) sorularında **editorial: chit-chat** filtresi ayarlanmış durumdadır. Bu filtre, seçilen cevapla birlikte istemci uygulamasına döndürülür. Sohbet botu gibi bir istemci uygulaması, bu filtreyi kullanarak ek işlem veya kullanıcı etkileşimi adımlarını belirleyebilir.
+1. Sorular ve cevaplar listesini üstündeki araç çubuğundan meta verileri simgesini seçin. Bu, her bir soru ve yanıt için meta veri etiketleri gösterir. Sohbet Chit sorularınız **düzenleme: chit sohbet** meta verileri zaten ayarlanmış. Bu meta veriler seçilen yanıt yanı sıra istemci uygulamaya döndürülür. İstemci uygulama bir sohbet Robotu gibi ek işleme veya kullanıcı etkileşim belirlemek için bu filtre uygulanmış meta veri kullanabilirsiniz.
 
-    ![Filtreleri görüntüleme](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![Meta veri etiketleri görüntüleme](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. Üst menü çubuğundan **Save and train** (Kaydet ve eğit) öğesini seçin.
 
@@ -171,7 +171,7 @@ Bilgi bankası yayımlandıktan sonra uç nokta görüntülenir
    
     ```
 
-    `Thank you` sorusu bir genel konuşma sorusuyla tam olarak eşleştiği için Soru-Cevap Oluşturma tam olarak emindir ve 100 puan döndürür. Soru-Cevap Oluşturma ayrıca ilgili tüm sorulara ek olarak genel konuşma filtresi bilgilerini içeren meta veri özelliğini de döndürmüştür.  
+    `Thank you` sorusu bir genel konuşma sorusuyla tam olarak eşleştiği için Soru-Cevap Oluşturma tam olarak emindir ve 100 puan döndürür. Soru-cevap Oluşturucu, ayrıca tüm ilgili sorular ve bunun yanı sıra Chit sohbet meta veri etiketi bilgileri içeren bir meta veri özelliği döndürdü.  
 
 ## <a name="use-curl-to-query-for-the-default-answer"></a>Curl kullanarak varsayılan cevap sorgulama
 

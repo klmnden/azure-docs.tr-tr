@@ -59,7 +59,7 @@ Azure portalı, JSON belgesini el ile oluşturmak yerine dağıtım bildirimini 
 
 ### <a name="specify-routes"></a>Rota belirtme
 
-Varsayılan olarak sihirbaz size bir yol olarak adlandırılan **rota** ve tanımlanmış olarak **FROM /* Yukarı Akış $ **, modüllerin tarafından çıkış iletileri IOT hub'ına gönderilen anlamına gelir.  
+Varsayılan olarak sihirbaz size bir yol olarak adlandırılan **rota** ve tanımlanmış olarak **FROM /\* Yukarı Akış $**, modüllerin tarafından çıkış iletileri IOT hub'ına gönderilen anlamına gelir.  
 
 Ekleme veya yolları alınan bilgilerle güncelleştirme [bildirmek yollar](module-composition.md#declare-routes), ardından **sonraki** gözden geçirme bölüme geçmek için.
 

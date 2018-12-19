@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: c2e278b606ebfb445fc76294b2fac78d729aa970
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322150"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606173"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Öğretici: . NET'te bir Azure web uygulaması ile Azure anahtar kasası
 
 Azure Key Vault, API anahtarları gibi gizli dizileri koruyun ve veritabanı bağlantı dizelerini yardımcı olur. Uygulamaları, hizmetleri ve BT kaynaklarına erişim sağlar.
 
-Bu öğreticide, bir Azure anahtar kasası bilgileri okuyabilir bir Azure web uygulaması oluşturmayı öğrenin. İşlem, Azure kaynakları için yönetilen kimlikleri kullanır. Azure web uygulamaları hakkında daha fazla bilgi için bkz. [Azure Web Apps](../app-service/app-service-web-overview.md).
+Bu öğreticide, bir Azure anahtar kasası bilgileri okuyabilir bir Azure web uygulaması oluşturmayı öğrenin. İşlem, Azure kaynakları için yönetilen kimlikleri kullanır. Azure web uygulamaları hakkında daha fazla bilgi için bkz. [Azure App Service](../app-service/overview.md).
 
 Makaleyi gösterilmektedir için:
 

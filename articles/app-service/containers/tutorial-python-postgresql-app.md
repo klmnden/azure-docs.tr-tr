@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8846ec386ad1776172ae1949b5e0f26e03ddf1df
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 86b80e8d2e4dbec96807edaba2dff813d0eda029
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337999"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607430"
 ---
 # <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Azure App Service'te bir Python ve PostgreSQL web uygulaması derleme
 
@@ -431,7 +431,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 Web uygulamanıza özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Mevcut bir özel DNS adını Azure Web Apps ile eşleme](../app-service-web-tutorial-custom-domain.md)
+> [Mevcut bir özel DNS adını Azure App Service'e eşlemek](../app-service-web-tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
 > [Yerleşik Python görüntüsünü ve hatalarında sorun giderme yapılandırın](how-to-configure-python.md)

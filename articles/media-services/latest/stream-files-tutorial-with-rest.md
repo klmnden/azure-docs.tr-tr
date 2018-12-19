@@ -1,6 +1,6 @@
 ---
-title: Karşıya yükleme, kodlama ve Azure Media Services - REST kullanarak akış | Microsoft Docs
-description: REST kullanarak Azure Media Services ile bir dosyayı karşıya yüklemek, videoyu kodlamak ve içeriğinizi akışla aktarmak için bu öğreticinin adımlarını izleyin.
+title: URL ve Azure medya Hizmetleri - REST kullanarak akışa bağlı bir uzak dosya kodlama | Microsoft Docs
+description: Bir URL'sini temel alarak dosya kodlamak için bu öğreticideki adımları izleyin ve Azure Media Services REST kullanarak içerik akışı.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 12/17/2018
 ms.author: juliako
-ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: a26d3c8d6582c07c9724c2872d035e0d4fc01f5e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615781"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581363"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Öğretici: REST ile karşıya video yükleme, bunları kodlama ve akışla aktarma
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Öğretici: URL'sini temel alarak bir uzak dosya kodlama ve akışını video - REST
 
 Azure Media Services, çok çeşitli tarayıcılar ve cihazlar üzerinde yürütülen biçimlerini kullanarak medya dosyalarınızı kodlayın sağlar. Örneğin, içeriğinizi Apple'ın HLS veya MPEG DASH biçimlerinde akışla göndermek isteyebilirsiniz. Akışla göndermeden önce yüksek kaliteli dijital medya dosyanızı kodlamanız gerekir. Kodlama yönergeleri için bkz. [Kodlama kavramı](encoding-concept.md).
 
-Bu öğretici, REST kullanarak karşıya yükleme, kodlama ve Azure Media Services ile video dosyalarını akışla işlemini göstermektedir. 
+Bu öğretici, REST kullanarak URL'sini temel alarak bir dosya kodlama ve Azure Media Services ile video akışı işlemini göstermektedir. 
 
 ![Videoyu yürütme](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -52,7 +52,7 @@ Bu öğretici şunların nasıl yapıldığını gösterir:
 
 - AMS REST öğreticilerinden bazılarında gösterilen REST API'lerini yürütmek için [Postman](https://www.getpostman.com/) REST istemcisini yükleyin. 
 
-    Biz **Postman**'ı kullanıyoruz, ancak herhangi bir REST aracı da olabilir. Diğer seçenekler şunlardır: REST eklentili **Visual Studio Code** veya **Telerik Fiddler**. 
+    Biz **Postman**'ı kullanıyoruz, ancak herhangi bir REST aracı da olabilir. Diğer Seçenekler şunlardır: **Visual Studio Code** REST eklentisiyle veya **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Postman dosyalarını indirme
 
@@ -111,7 +111,7 @@ Bu bölümde, dosyanızı akışla aktarabilmeniz için kodlama ve URL oluşturm
 
 ### <a name="get-azure-ad-token"></a>Azure AD Belirteci alma 
 
-1. Postman'ın sol penceresinde, "Adım 1: AAD Kimlik doğrulama belirteci alma"'yı seçin.
+1. Postman sol penceresinde, seçin "1. adım: AAD kimlik doğrulaması belirteci alma".
 2. Sonra, "Hizmet Sorumlusu Kimlik Doğrulaması için Azure AD Belirteci alma"'yı seçin.
 3. **Gönder**’e basın.
 
@@ -228,7 +228,7 @@ Bu örnekte, işin girdisi bir HTTPS URL'sini ("https://nimbuscdn-nimbuspm.strea
 
 İşin tamamlanması biraz sürüyor ve tamamlandığında bildirim almak istiyorsunuz. İşin ilerleme durumunu görmek için Event Grid'in kullanılmasını öneririz. Event Grid yüksek kullanılabilirlik, tutarlı performans ve dinamik ölçek için tasarlanmıştır. Event Grid ile uygulamalarınız neredeyse tüm Azure hizmetleri ve özel kaynaklardan gelen olayları takip edip bu olaylara yanıt verebilir. Basit, HTTP tabanlı reaktif olay işleme özelliği, olayların akıllı filtrelenmesi ve yönlendirilmesi sayesinde etkili çözümler oluşturmanıza yardımcı olur.  Bkz. [Olayları özel bir web uç noktasına yönlendirme](job-state-events-cli-how-to.md).
 
-**İş** genellik şu aşamalardan geçer: **Zamanlandı**, **Kuyruğa Alındı**, **İşleniyor**, **Tamamlandı** (son aşama). İş bir hatayla karşılaştıysa **Hata** durumunu alırsınız. İş iptal edilme sürecindeyse **İptal Ediliyor** ve **İptal Edildi** durumunu alırsınız.
+**İş** genellikle şu durumlardan geçer: **Zamanlanmış**, **sıraya alınan**, **işleme**, **tamamlandı** (son durumu). İş bir hatayla karşılaştıysa **Hata** durumunu alırsınız. İş iptal edilme sürecindeyse **İptal Ediliyor** ve **İptal Edildi** durumunu alırsınız.
 
 ### <a name="create-a-streaming-locator"></a>Akış bulucusu oluşturma
 

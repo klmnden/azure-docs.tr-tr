@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b22ea49367009a4c76135d979d783c5b73449d9d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 2351acea7fe5361e22e8221572b81085a0e3a476
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261577"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606937"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Öğretici: Azure App Service'de CORS ile RESTful API barındırma
 
-[Azure App Service](app-service-web-overview.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Buna ek olarak, App Service'de RESTful API'ler için yerleşik [Çıkış Noktaları Arası Kaynak Paylaşımı (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) desteği vardır. Bu öğreticide CORS desteğiyle ASP.NET Core API uygulamasının App Service'e nasıl dağıtılacağı gösterilir. Komut satırı araçlarını kullanarak uygulamayı yapılandırır ve Git kullanarak dağıtırsınız. 
+[Azure App Service](overview.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Buna ek olarak, App Service'de RESTful API'ler için yerleşik [Çıkış Noktaları Arası Kaynak Paylaşımı (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) desteği vardır. Bu öğreticide CORS desteğiyle ASP.NET Core API uygulamasının App Service'e nasıl dağıtılacağı gösterilir. Komut satırı araçlarını kullanarak uygulamayı yapılandırır ve Git kullanarak dağıtırsınız. 
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
