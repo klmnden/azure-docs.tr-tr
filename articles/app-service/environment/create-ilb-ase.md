@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 285bd8ec7ac5c4f0b39a32408c039c9616dc7a07
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9c44e2564c26a16d632a16195d3e53b8ce83d735
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604625"
+ms.locfileid: "53629892"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
@@ -78,7 +78,7 @@ ILB ASE oluşturmak için:
 
     * &lt;asename&gt;.p.azurewebsites.net
 
-   Mevcut bir DNS adını web uygulamanıza eşlemenize olanak sağlayan özel etki alanı adları adı verilen bir özellik vardır. [Mevcut bir DNS adını web uygulamanıza eşleme][customdomain] belgesinden bu özellik hakkında daha fazla bilgi edinebilirsiniz. Uygulamalar için kullanılan özel etki alanı adı ve ASE’niz için kullanılan etki alanı adı örtüşemez. Etki alanı adı _contoso.com_ olan bir ILB ASE ile uygulamalarınız için şunlar gibi özel etki alanı adlarını kullanamazsınız:
+   Yapabilecekleriniz [mevcut bir DNS adını uygulamanıza eşleme][customdomain]. Uygulamalar için kullanılan özel etki alanı adı ve ASE’niz için kullanılan etki alanı adı örtüşemez. Etki alanı adı _contoso.com_ olan bir ILB ASE ile uygulamalarınız için şunlar gibi özel etki alanı adlarını kullanamazsınız:
 
     * www.contoso.com
 
@@ -88,7 +88,7 @@ ILB ASE oluşturmak için:
 
    Uygulamalarınızın özel etki alanı adlarını biliyorsanız, ILB ASE için bu özel etki alanı adları ile çakışmayacak bir etki alanı seçin. Bu örnekte, *.contoso.com* ile sona eren özel etki alanı adlarıyla çakışmayacağından, ASE’nizin etki alanı için *contoso-internal.com* gibi bir şey kullanabilirsiniz.
 
-1. **Tamam**’ı ve ardından **Oluştur**’u seçin.
+8. **Tamam**’ı ve ardından **Oluştur**’u seçin.
 
     ! [ASE oluşturma] [1]
 
@@ -160,23 +160,23 @@ Kendi sertifikalarınızı yüklemek ve erişimi test etmek için:
 
 1. ASE’nizin ILB adresini alın. **ASE** > **Özellikler** > **Sanal IP Adresi**’ni seçin.
 
-1. ASE oluşturulduktan sonra ASE’nizde bir web uygulaması oluşturun.
+2. ASE oluşturulduktan sonra ASE'NİZDE bir uygulama oluşturun.
 
-1. Bu sanal ağ içinde yoksa bir VM oluşturun.
+3. Bu sanal ağ içinde yoksa bir VM oluşturun.
 
     > [!NOTE] 
     > Başarısız olacağından veya sorunlara yol açacağından, bu VM’yi ASE ile aynı sanal ağ içinde oluşturmaya çalışmayın.
     >
 
-1. ASE etki alanınızın DNS’ini ayarlayın. DNS’inizde etki alanınızla birlikte bir joker karakter kullanabilirsiniz. Bazı basit testler yapmak için, VM üzerindeki konak dosyalarını düzenleyerek web uygulaması adını VIP IP adresine ayarlayın:
+4. ASE etki alanınızın DNS’ini ayarlayın. DNS’inizde etki alanınızla birlikte bir joker karakter kullanabilirsiniz. Bazı basit testler yapmak için uygulama adını VIP IP adresine ayarlamak için VM üzerindeki konak dosyalarını düzenleyin:
 
-    a. ASE’nizde _.ilbase.com_ etki alanı adı varsa ve _mytestapp_ adlı web uygulamasını oluşturursanız, adresi _mytestapp.ilbase.com_ şeklinde olur. Daha sonra ILB adresini çözümlemek için _mytestapp.ilbase.com_ adresini ayarlarsınız. (Windows’ta konak dosyası _C:\Windows\System32\drivers\etc\_ dizinindedir.)
+    a. ASE'NİZİN etki alanı adı varsa _. ilbase.com_ adlı bir uygulama oluşturduğunuzda _mytestapp_, konumunda ele _mytestapp.ilbase.com_. Daha sonra ILB adresini çözümlemek için _mytestapp.ilbase.com_ adresini ayarlarsınız. (Windows’ta konak dosyası _C:\Windows\System32\drivers\etc\_ dizinindedir.)
 
     b. Web dağıtımı yayımlamayı veya gelişmiş konsola erişimi test etmek için bir _mytestapp.scm.ilbase.com_ kaydı oluşturun.
 
-1. Bu VM'de bir tarayıcı kullanın ve Git https://mytestapp.ilbase.com. (Veya etki alanınızda web uygulamanızın adına gidin.)
+5. Bu VM'de bir tarayıcı kullanın ve Git https://mytestapp.ilbase.com. (Veya uygulama adınız ile bir etki alanınız ne olursa olsun gidin.)
 
-1. Bu VM'de bir tarayıcı kullanın ve Git https://mytestapp.ilbase.com. Otomatik olarak imzalanan sertifika kullanıyorsanız, güvenlik eksikliğini kabul edin.
+6. Bu VM'de bir tarayıcı kullanın ve Git https://mytestapp.ilbase.com. Otomatik olarak imzalanan sertifika kullanıyorsanız, güvenlik eksikliğini kabul edin.
 
     ILB’nizin IP adresi, **IP adresleri** altında listelenir. Bu listede ayrıca dış VIP tarafından ve gelen yönetim trafiği için kullanılan IP adresleri bulunur.
 
