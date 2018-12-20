@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc34411cc27870dbd9c707a34ebf34b96c7253dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 3ebf450f4e84fed572307a18f20f36013e32c7a5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986126"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630708"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Öğretici: Windows dosya sunucularını Azure Dosya Eşitleme ile genişletme
 Bu öğreticide, Azure Dosya Eşitleme kullanarak bir Windows Server’ın depolama kapasitesini genişletmeye yönelik temel adımları göstereceğiz. Bu öğreticide bir Windows Server Azure sanal makinesi kullanılmasına karşın, bu işlemi genellikle şirket içi sunucularınız için yapacaksınız. Azure Dosya Eşitleme’yi kendi ortamınızda dağıtmaya hazırsanız, bunun yerine [Azure Dosya Eşitleme’yi Dağıtma](storage-sync-files-deployment-guide.md) makalesini kullanın.
@@ -83,12 +83,12 @@ Bu noktada, bir Azure Depolama hesabı ve Azure’da, içinde bir dosya olan bir
 
    VM’yi oluşturmadan önce bir veri diski oluşturmanız gerekir.
 
-1. **Sonraki: Diskler**’e tıklayın
+1. **Sonraki: Diskler**’e tıklayın.
 
    ![Veri diski ekleme](./media/storage-sync-files-extend-servers/vm-add-data-disk.png)
 
 1. **Diskler** sekmesindeki **Disk seçenekleri** altında varsayılan değerleri değiştirmeden bırakın.
-1. **VERİ DİSKLERİ** altında **Yeni disk oluştur ve kullanıma aç**’a tıklayın.
+1. **VERİ DİSKLERİ** altında **Yeni disk oluştur ve ekle**’ye tıklayın.
 
 1. Bu öğreticide **Boyut (GiB)** ayarını **1 GB** olarak ayarlamak dışında varsayılan ayarları değiştirmeden bırakın.
 
@@ -163,14 +163,14 @@ Bu noktada, bir Azure Depolama hesabı ve Azure’da, içinde bir dosya olan bir
 
 1. **Explorer**’ı ve **Sunucu Yöneticisi**’ni kapatın.
 
-### <a name="download-the-azurerm-powershell-module"></a>AzureRM PowerShell modülünü indirme
-Ardından, **Windows Server 2016 Datacenter** sanal makinesinde **AzureRM PowerShell modülünü** sunucuya yükleyin.
+### <a name="download-the-azure-powershell-module"></a>Azure PowerShell modülünü indirin
+Ardından **Windows Server 2016 Datacenter** VM yükleme **Azure PowerShell Modülü** sunucusunda.
 
 1. Bir VM’de, yükseltilmiş bir PowerShell penceresi açın
 1. Şu komutu çalıştırın:
 
    ```powershell
-   Install-Module -Name AzureRM -AllowClobber
+   Install-Module -Name Az -AllowClobber
    ```
 
    > [!NOTE]
@@ -189,12 +189,12 @@ Ardından, **Windows Server 2016 Datacenter** sanal makinesinde **AzureRM PowerS
 
 1. Yükleme işlemine devam etmek için `Yes` veya `Yes to All` yanıtını verin.
 
-`AzureRM` modülü, Azure PowerShell cmdlet’leri için toplu bir modüldür. Bu modülü yüklediğinizde kullanılabilir durumdaki tüm Azure Resource Manager modülleri indirilir ve cmdlet’leri kullanıma sunulur.
+`Az` modülü, Azure PowerShell cmdlet’leri için toplu bir modüldür. Bu modülü yüklediğinizde kullanılabilir durumdaki tüm Azure Resource Manager modülleri indirilir ve cmdlet’leri kullanıma sunulur.
 
 Bu noktada, öğretici için ortamınızı ayarlamayı tamamladınız ve **Depolama Eşitleme Hizmeti**’ni dağıtmaya başlamak için hazırsınız.
 
 ## <a name="deploy-the-service"></a>Hizmeti dağıtma 
-Azure Dosya Eşitleme’yi dağıtma işleminde ilk olarak **Depolama Eşitleme Hizmeti** kaynağını seçtiğiniz aboneliğe yerleştirirsiniz. Depolama Eşitleme Hizmeti, abonelikten ve aboneliği dağıttığınız kaynak grubundan erişim izinlerini devralır.
+Azure Dosya Eşitleme’yi dağıtma işleminde ilk olarak **Depolama Eşitleme Hizmeti** kaynağını, seçtiğiniz abonelikte bulunan bir kaynak grubuna yerleştirirsiniz. Depolama Eşitleme Hizmeti, abonelikten ve hizmeti dağıttığınız kaynak grubundan erişim izinlerini devralır.
 
 1. Azure portalda **Kaynak oluştur**’a tıklayın ve sonra **Azure Dosya Eşitleme**’yi arayın.
 1. Arama sonuçlarında **Azure Dosya Eşitleme**’yi seçin.
@@ -237,7 +237,7 @@ Azure Eşitleme Hizmeti’ni dağıttınız ve aracıyı **Windows Server 2016 D
 ## <a name="register-windows-server"></a>Windows Server’ı kaydetme
 Windows Server’ı bir Depolama Eşitleme Hizmeti’ne kaydetmek, sunucunuz (veya kümeniz) ile Depolama Eşitleme Hizmeti arasında bir güven ilişkisi kurar. Bir sunucu yalnızca bir Depolama Eşitleme Hizmeti’ne kaydedilebilir ve aynı Depolama Eşitleme Hizmeti ile ilişkili diğer sunucular ve Azure dosya paylaşımları ile eşitlenebilir.
 
-**Azure Dosya Eşitleme aracısı** yüklendikten sonra Sunucu Kaydı kullanıcı arabirimi otomatik olarak açılmalıdır. Açılmazsa, şu dosya konumundan kendiniz açabilirsiniz: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
+**Azure Dosya Eşitleme aracısı** yüklendikten sonra Sunucu Kaydı kullanıcı arabirimi otomatik olarak açılmalıdır. Seçili değilse bunu dosya konumundan el ile açabilirsiniz: C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.
 
 1. Sunucu Kaydı kullanıcı arabirimi sanal makinede açıldığında **Tamam**’a tıklayın.
 1. Başlamak için **Oturum açın**’a tıklayın.

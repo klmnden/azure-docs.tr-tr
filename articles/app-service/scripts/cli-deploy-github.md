@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Betik Örneği - GitHub’dan dağıtım ile bir web uygulaması oluşturma | Microsoft Docs
-description: Azure CLI Betik Örneği - GitHub’dan dağıtım ile bir web uygulaması oluşturma
+title: Azure CLI betik örneği - github'dan dağıtım ile bir uygulama oluşturma | Microsoft Docs
+description: Azure CLI betik örneği - github'dan dağıtım ile bir App Service uygulaması oluşturma
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -16,16 +16,16 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 7af828d12a3403feb7d6e2677b086dc466555d02
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 61cf31bcd82997a13ffae79df106485a86a9444d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585094"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632109"
 ---
-# <a name="create-a-web-app-with-deployment-from-github-using-azure-cli"></a>Azure CLI kullanarak github'dan dağıtım ile bir web uygulaması oluşturma
+# <a name="create-an-app-service-app-with-deployment-from-github-using-azure-cli"></a>Azure CLI kullanarak github'dan dağıtım ile bir App Service uygulaması oluşturma
 
-Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur. Daha sonra, web uygulama kodunuzu genel bir GitHub deposundan (sürekli dağıtım olmadan) dağıtır. Sürekli dağıtım ile GitHub dağıtımı için bkz. [GitHub’dan sürekli dağıtım ile bir web uygulaması oluşturma](cli-continuous-deployment-github.md).
+Bu örnek betik, App Service'te ilgili kaynaklarıyla birlikte bir uygulama oluşturur. Daha sonra uygulama kodunuz (sürekli dağıtım olmadan) genel bir GitHub deposundan dağıtır. Sürekli dağıtım ile GitHub dağıtımı için bkz: [github'dan sürekli dağıtım ile bir uygulama oluşturma](cli-continuous-deployment-github.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,7 +35,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya so
 
 ## <a name="sample-script"></a>Örnek betik
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3 "Create a web app with deployment from GitHub")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-github/deploy-github.sh?highlight=3 "Create an app with deployment from GitHub")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -47,8 +47,8 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service planı oluşturur. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir Azure web uygulaması oluşturur. |
-| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Bir Azure web uygulamasını Git veya Mercurial deposu ile ilişkilendirir. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir App Service uygulaması oluşturur. |
+| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Bir App Service uygulamasını Git veya Mercurial deposu ile ilişkilendirir. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

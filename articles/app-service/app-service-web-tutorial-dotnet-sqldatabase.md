@@ -15,18 +15,18 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 781c560429a01397fe36204360e896233bdd23f5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8c4dc3e62322cac1fe90874b55a155014e78278d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600378"
+ms.locfileid: "53633700"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Öğretici: Azure'da SQL Veritabanı ile ASP.NET uygulaması oluşturma
 
-[Azure App Service](overview.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide size, Azure'da veri temelli bir ASP.NET web uygulamasını dağıtma ve bunu [Azure SQL Veritabanı](../sql-database/sql-database-technical-overview.md)'na bağlama işlemleri gösterilir. Tamamladığınızda, Azure'da çalışan ve SQL Veritabanı'na bağlanan bir ASP.NET uygulamanız olur.
+[Azure App Service](overview.md), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğretici, App Service'te veri temelli bir ASP.NET uygulaması dağıtma ve buna bağlanmak nasıl gösterir [Azure SQL veritabanı](../sql-database/sql-database-technical-overview.md). Tamamladığınızda, Azure'da çalışan ve SQL Veritabanı'na bağlanan bir ASP.NET uygulamanız olur.
 
-![Azure web uygulamasında yayımlanan ASP.NET uygulaması](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Azure App Service'te yayımlanan ASP.NET uygulaması](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -65,7 +65,7 @@ Uygulamayı hata ayıklaması yapılmadan çalıştırmak için `Ctrl+F5` yazın
 
 **Düzenle**, **Ayrıntılar** ve **Sil** bağlantılarını test edin.
 
-Uygulama, veritabanıyla bağlantı kurmak için bir veritabanı bağlamı kullanır. Bu örnekte, veritabanı bağlamı `MyDbConnection` adlı bir bağlantı dizesi kullanır. Bağlantı dizesi *Web.config* dosyasında ayarlanır ve *Models/MyDatabaseContext.cs* dosyasında bu bağlantı dizesine başvurulur. Bağlantı dizesi adı öğreticinin ilerleyen bölümlerinde Azure web uygulamasını Azure SQL Veritabanı'na bağlamak için kullanılacaktır. 
+Uygulama, veritabanıyla bağlantı kurmak için bir veritabanı bağlamı kullanır. Bu örnekte, veritabanı bağlamı `MyDbConnection` adlı bir bağlantı dizesi kullanır. Bağlantı dizesi *Web.config* dosyasında ayarlanır ve *Models/MyDatabaseContext.cs* dosyasında bu bağlantı dizesine başvurulur. Bağlantı dizesi adı öğreticinin ilerleyen bölümlerinde Azure uygulaması kullanarak Azure SQL veritabanına bağlanmak için kullanılır. 
 
 ## <a name="publish-to-azure-with-sql-database"></a>SQL Veritabanı ile Azure'a yayımlama
 
@@ -77,7 +77,7 @@ Uygulama, veritabanıyla bağlantı kurmak için bir veritabanı bağlamı kulla
 
 ![Projeye genel bakış sayfasından yayımlama](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-to-app-service.png)
 
-Yayımlama işlemi, ASP.NET web uygulamanızı Azure’da çalışmanız için gereken tüm Azure kaynaklarını oluşturmanıza yardımcı olan **App Service Oluştur** iletişim kutusunu açar.
+Açılır yayımlama **App Service Oluştur** iletişim kutusunda, ASP.NET uygulamanızı Azure'da çalışmanız için gereken tüm Azure kaynaklarını oluşturmanıza yardımcı olur.
 
 ### <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
@@ -163,7 +163,7 @@ Sihirbaz Azure kaynaklarını oluşturmayı tamamladığında, ASP.NET uygulaman
 
 Yapılacak birkaç iş ekleyin.
 
-![Azure web uygulamasında yayımlanan ASP.NET uygulaması](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
+![Azure uygulamasında yayımlanan ASP.NET uygulaması](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 Tebrikler! Veri temelli ASP.NET uygulamanız Azure App Service'de çalışıyor.
 
@@ -189,7 +189,7 @@ Daha önce oluşturduğunuz veritabanı yöneticisi parolasını yazın ve **Ba�
 
 ### <a name="allow-client-connection-from-your-computer"></a>Bilgisayarınızdan istemci bağlantısına izin verme
 
-**Yeni güvenlik duvarı kuralı oluştur** iletişim kutusu açılır. Varsayılan olarak, SQL Veritabanı örneğiniz yalnızca Azure web uygulamanız gibi Azure hizmetlerinden gelen bağlantılara izin verir. Veritabanınıza bağlanmak için, SQL Veritabanı örneğinde bir güvenlik duvarı kuralı oluşturun. Güvenlik duvarı kuralı yerel bilgisayarınızın genel IP adresine izin verir.
+**Yeni güvenlik duvarı kuralı oluştur** iletişim kutusu açılır. Varsayılan olarak, SQL veritabanı örneğiniz yalnızca Azure uygulamanız gibi Azure hizmetlerinden gelen bağlantıları sağlar. Veritabanınıza bağlanmak için, SQL Veritabanı örneğinde bir güvenlik duvarı kuralı oluşturun. Güvenlik duvarı kuralı yerel bilgisayarınızın genel IP adresine izin verir.
 
 İletişim kutusu bilgisayarınızın genel IP adresiyle önceden doldurulmuştur.
 
@@ -207,7 +207,7 @@ Bağlantınız > **Veritabanları** > **&lt;veritabanınız>** > **Tablolar**'ı
 
 ## <a name="update-app-with-code-first-migrations"></a>Uygulamayı Code First Migrations ile güncelleştirme
 
-Azure'da veritabanınızı ve web uygulamanızı güncelleştirmek için Visual Studio'daki tanıdık araçları kullanabilirsiniz. Bu adımda, veritabanı şemanızda değişiklik yapmak ve bunu Azure'a yayımlamak için Entity Framework'te Code First Migrations'ı kullanırsınız.
+Veritabanınızı ve uygulamanızı Azure'a güncelleştirmek için Visual Studio'daki tanıdık araçları kullanın. Bu adımda, veritabanı şemanızda değişiklik yapmak ve bunu Azure'a yayımlamak için Entity Framework'te Code First Migrations'ı kullanırsınız.
 
 Entity Framework Code First Migrations'ı kullanma hakkında daha fazla bilgi için bkz. [MVC 5 Kullanarak Entity Framework 6 Code First ile Çalışmaya Başlama](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
@@ -301,7 +301,7 @@ Artık yapılacak bir öğe ekleyip öğeyi **Bitti** olarak işaretleyebilirsin
 
 ### <a name="enable-code-first-migrations-in-azure"></a>Azure'da Code First Migrations’ı etkinleştirme
 
-Artık veritabanı geçişi de dahil olmak üzere kod değişikliğiniz çalıştığına göre, bunu Azure web uygulamanıza yayımlar ve SQL Veritabanınızı da Code First Migrations ile güncelleştirirsiniz.
+Kodunuzu değiştirmeniz works veritabanı geçişi de dahil olmak üzere, göre Azure uygulamanızı yayımlayın ve SQL veritabanınızı Code First Migrations ile güncelleştirirsiniz.
 
 Aynı daha önce yaptığınız gibi, projenize sağ tıklayıp **Yayımla**'yı seçin.
 
@@ -315,40 +315,40 @@ Sihirbazda, **İleri**’ye tıklayın.
 
 **Önce Kod Uygulamalı Geçişler (uygulama başlatılırken çalışır)** öğesini seçin ve **Kaydet**'e tıklayın.
 
-![Azure web uygulamasında Code First Migrations’ı etkinleştirme](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
+![Azure uygulamasında Code First geçişleri etkinleştir](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
 
 ### <a name="publish-your-changes"></a>Değişikliklerinizi yayımlama
 
-Artık Azure web uygulamanızda Code First Migrations'ı etkinleştirdiğinize göre, kod değişikliklerinizi yayımlayın.
+Azure uygulamanızda Code First Migrations etkin, kod değişikliklerinizi yayımlayın.
 
 Yayımlama sayfasında **Yayımla**'ya tıklayın.
 
 Yapılacaklar öğelerini yeniden eklemeyi deneyin ve **Bitti**'yi seçin; bunlar giriş sayfanızda tamamlanmış öğe olarak gösteriliyor olmalıdır.
 
-![Code First Migration’dan sonra Azure web uygulaması](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Code First Migration'dan sonra Azure uygulaması](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 Mevcut yapılacak öğeleriniz görüntülenmeye devam eder. ASP.NET uygulamanızı yeniden yayımladığınızda, SQL Veritabanınızdaki mevcut veriler kaybolmaz. Ayrıca, Code First Migrations yalnızca veri şemasını değiştirir ve mevcut verilerinizde herhangi bir değişiklik yapmaz.
 
 
 ## <a name="stream-application-logs"></a>Uygulama günlüklerinin akışı yapma
 
-Doğrudan Azure web uygulamanızdan Visual Studio'ya izleme iletilerinizin akışını yapabilirsiniz.
+Visual Studio için doğrudan Azure uygulamanızdan izleme iletilerinizin akışını yapabilirsiniz.
 
 _Controllers\TodosController.cs_ dosyasını açın.
 
-Her eylem bir `Trace.WriteLine()` yöntemiyle başlar. Bu kod, izleme iletilerini Azure web uygulamanıza nasıl ekleyeceğinizi göstermek için eklenmiştir.
+Her eylem bir `Trace.WriteLine()` yöntemiyle başlar. Bu kod, izleme iletilerini Azure uygulamanıza ekleme işlemini göstermek için eklenir.
 
 ### <a name="open-server-explorer"></a>Sunucu Gezgini'ni açma
 
-**Görünüm** menüsünde **Sunucu Gezgini**'ni seçin. **Sunucu Gezgini'nde**, Azure web uygulamanız için günlüğü yapılandırabilirsiniz. 
+**Görünüm** menüsünde **Sunucu Gezgini**'ni seçin. Azure uygulamanız için günlüğü yapılandırabilirsiniz **Sunucu Gezgini**. 
 
 ### <a name="enable-log-streaming"></a>Günlük akışını etkinleştirme
 
 **Sunucu Gezgini**'nde **Azure** > **App Service**'i genişletin.
 
-Azure web uygulamasını ilk oluşturduğunuzda oluşturmuş olduğunuz **myResourceGroup** kaynak grubunu genişletin.
+Genişletin **myResourceGroup** kaynak grubu, oluşturduğunuz Azure uygulaması oluşturduğunuzda.
 
-Azure web uygulamanıza sağ tıklayın ve **Akış Günlüklerini Görüntüle**'yi seçin.
+Azure uygulamanıza sağ tıklayıp **akış günlüklerini görüntüle**.
 
 ![Günlük akışını etkinleştirme](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
@@ -356,13 +356,13 @@ Azure web uygulamanıza sağ tıklayın ve **Akış Günlüklerini Görüntüle*
 
 ![Çıkış penceresinde günlük akışı](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
 
-Öte yandan, henüz hiçbir izleme iletisi görmezsiniz. Bunun nedeni, **Akış Günlüklerini Görüntüle**'yi ilk kez seçtiğinizde Azure web uygulamanızın izleme düzeyini `Error` olarak ayarlamasıdır. Bu ayar yalnızca hata olaylarını günlüğe kaydeder (`Trace.TraceError()` yöntemiyle).
+Öte yandan, henüz hiçbir izleme iletisi görmezsiniz. Bu ilk kez seçtiğinizde çünkü **akış günlüklerini görüntüle**, Azure uygulamanızı izleme düzeyini ayarlar `Error`, hangi yalnızca hata olaylarını günlüğe kaydeder (ile `Trace.TraceError()` yöntemi).
 
 ### <a name="change-trace-levels"></a>İzleme düzeylerini değiştirme
 
 İzleme düzeylerini değiştirip başka izleme iletilerinin de çıkışını almak için, **Sunucu Gezgini**'ne dönün.
 
-Azure web uygulamanıza yeniden sağ tıklayın ve **Görünüm Ayarları**'nı seçin.
+Azure uygulamanızı tekrar sağ tıklayıp **görünüm ayarlarını**.
 
 **Uygulama Günlüğü (Dosya Sistemi)** açılan listesinde **Ayrıntılı**'yı seçin. **Kaydet**’e tıklayın.
 
@@ -373,7 +373,7 @@ Azure web uygulamanıza yeniden sağ tıklayın ve **Görünüm Ayarları**'nı 
 >
 >
 
-Tarayıcınızda yeniden web uygulamanıza gidin (*http://&lt;uygulamanızın adı>.azurewebsites.net*), sonra da Azure'da yapılacaklar listesi uygulamasının çevresine tıklamayı deneyin. Artık Visual Studio'da izleme iletileri akışla **Çıkış** penceresine aktarılır.
+Tarayıcınızda yeniden uygulamanıza gidin *http://&lt;, uygulama adı >. azurewebsites.net*, sonra da azure'da Yapılacaklar listesi uygulamasının çevresine tıklamayı deneyin. Artık Visual Studio'da izleme iletileri akışla **Çıkış** penceresine aktarılır.
 
 ```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
@@ -390,17 +390,17 @@ Günlük akışı hizmetini durdurmak için, **Çıkış** penceresinde **İzlem
 
 ![Günlük akışını durdurma](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
-## <a name="manage-your-azure-web-app"></a>Azure web uygulamanızı yönetme
+## <a name="manage-your-azure-app"></a>Azure uygulamanızı yönetme
 
-Oluşturduğunuz web uygulamasını görmek için [Azure portalına](https://portal.azure.com) gidin. 
+Git [Azure portalında](https://portal.azure.com) oluşturduğunuz uygulamayı görmek için. 
 
 
 
-Sol menüden **App Service**’e ve ardından Azure web uygulamanızın adına tıklayın.
+Sol menüden **App Service**, ardından Azure uygulamanızın adına tıklayın.
 
-![Portaldan Azure web uygulamasına gitme](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
+![Azure uygulamasına portal gezintisi](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 
-Web uygulamanızın sayfasına geldiniz. 
+Uygulamanızın sayfasına Geldiniz. 
 
 Varsayılan olarak, portalda **Genel Bakış** sayfası gösterilir. Bu sayfa, uygulamanızın nasıl çalıştığını gösterir. Buradan ayrıca göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. Sayfanın sol tarafındaki sekmeler, açabileceğiniz farklı yapılandırma sayfalarını gösterir. 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Betik Örneği - Bir web uygulamasını depolama hesabına bağlama | Microsoft Docs
-description: Azure CLI Betik Örneği - Bir web uygulamasını depolama hesabına bağlama
+title: Azure CLI betik örneği - bir uygulama bir depolama hesabına bağlama | Microsoft Docs
+description: Azure CLI betik örneği - bir depolama hesabına bir uygulamaya Bağlan
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3e32f6d27172d801ed18ae2e37e58457842bc320
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 57a1e9ad6bf377fa5148a4d5c716be00db786c84
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585117"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632289"
 ---
-# <a name="connect-a-web-app-to-a-storage-account-using-cli"></a>Bir web uygulamasını CLI kullanarak bir depolama hesabına bağlama
+# <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>Bir App Service uygulaması CLI kullanarak bir depolama hesabına bağlama
 
-Bu örnek betik bir Azure depolama hesabı ile bir Azure web uygulaması oluşturur. Daha sonra uygulama ayarlarını kullanarak depolama hesabını web uygulamasına bağlar.
+Bu örnek betik bir Azure depolama hesabı ve bir App Service uygulaması oluşturur. Daha sonra uygulama ayarlarını kullanarak uygulama için depolama hesabını bağlar.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -42,16 +42,16 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya so
 
 ## <a name="script-explanation"></a>Betik açıklaması
 
-Bu betik bir kaynak grubu, web uygulaması, depolama hesabı ve tüm ilgili kaynakları oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
+Bu betik bir kaynak grubu, App Service uygulama, depolama hesabı ve tüm ilgili kaynakları oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service planı oluşturur. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir Azure web uygulaması oluşturur. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir App Service uygulaması oluşturur. |
 | [`az storage account create`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) | Bir depolama hesabı oluşturur. |
 | [`az storage account show-connection-string`](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-show-connection-string) | Bir depolama hesabının bağlantı dizesini alır. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Bir Azure web uygulaması için uygulama ayarı oluşturur veya güncelleştirir. Uygulama ayarları, uygulamanız için ortam değişkenleri olarak kullanıma sunulur. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Oluşturur veya bir App Service uygulaması için uygulama ayarı güncelleştirir. Uygulama ayarları, uygulamanız için ortam değişkenleri olarak kullanıma sunulur. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

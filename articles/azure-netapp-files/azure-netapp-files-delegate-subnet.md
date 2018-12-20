@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: fc8ec5c3bbe0157f5737e2eb757478357aa6e867
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 8ec41c6db8c8e5c62d15dc0638762f2649c637b8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53414062"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631660"
 ---
-# <a name="delegate-a-subnet-to-azure-netapp-files"></a>Temsilci bir alt ağ Azure NetApp dosyaları 
+# <a name="delegate-a-subnet-to-azure-netapp-files"></a>Azure NetApp Files için bir alt ağı temsilci olarak belirleme 
 
 Bir alt ağ Azure NetApp dosyaları devretmeniz gerekir.   Bir birim oluşturduğunuzda, temsilci alt ağ belirtmenize gerek.
 
 ## <a name="about-this-task"></a>Bu görev hakkında
 * Bir/24 varsayılan olarak yeni bir alt ağ oluşturmak için Sihirbazı için 251 kullanılabilir IP adreslerini sağlayan ağ maskesi. Bir/28'i kullanarak 16 kullanılabilir IP adreslerini sağlayan ağ maskesi hizmeti için yeterlidir.
 * Bir ağ güvenlik grubu atamak veya hizmet temsilcisi alt ağdaki uç noktası değiştirilemez. Bunun yapılması, alt ağ temsilci başarısız olmasına neden olur.
-* Her Azure sanal ağı (VNet), yalnızca bir alt ağ, Azure için NetApp dosyaları atanabilir.
+* Her Azure sanal ağı (Vnet), yalnızca bir alt ağ, Azure için NetApp dosyaları atanabilir.
 * Eşlenen sanal ağdan bir birime erişimi şu anda desteklenmiyor.
 
 ## <a name="steps"></a>Adımlar 

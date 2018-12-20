@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Betik Örneği - FTP ile bir web uygulaması oluşturma ve dosya dağıtma | Microsoft Docs
-description: Azure CLI Betik Örneği - FTP ile bir web uygulaması oluşturma ve dosya dağıtma
+title: Azure CLI betik örneği - bir uygulama oluşturun ve FTP ile dosya dağıtma | Microsoft Docs
+description: Azure CLI betik örneği - bir App Service uygulaması oluşturun ve dosyalarını FTP ile dağıtma
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -15,16 +15,16 @@ ms.topic: sample
 ms.date: 12/12/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 416b6573a7cec85442ca725583f8c53fa5a6c697
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 7bca306911dc72a2f8ec31d2ac80f99b4925c9fd
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585134"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634295"
 ---
-# <a name="create-a-web-app-and-deploy-files-with-ftp-using-azure-cli"></a>Bir web uygulaması oluşturma ve Azure CLI kullanarak FTP ile dosya dağıtma
+# <a name="create-an-app-service-app-and-deploy-files-with-ftp-using-azure-cli"></a>Bir App Service uygulaması oluşturun ve dosyalarını Azure CLI kullanarak FTP ile dağıtma
 
-Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra FTP kullanarak statik bir HTML sayfası dağıtır. FTP yüklemesi için betik örnek olarak [cURL](https://en.wikipedia.org/wiki/CURL) kullanır. Dosyalarınızı karşıya yüklemek için herhangi bir FTP aracını kullanabilirsiniz.
+Bu örnek betik, bir uygulamayı App Service'te ilgili kaynaklarıyla birlikte oluşturur ve sonra FTP kullanarak statik bir HTML sayfası dağıtır. FTP yüklemesi için betik örnek olarak [cURL](https://en.wikipedia.org/wiki/CURL) kullanır. Dosyalarınızı karşıya yüklemek için herhangi bir FTP aracını kullanabilirsiniz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -34,7 +34,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya so
 
 ## <a name="sample-script"></a>Örnek betik
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-ftp/deploy-ftp.sh "Create a web app and deploy files with FTP")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-ftp/deploy-ftp.sh "Create an app and deploy files with FTP")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -46,8 +46,8 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service planı oluşturur. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir Azure web uygulaması oluşturur. |
-| [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment?view=azure-cli-latest#az-webapp-deployment-list-publishing-profiles) | Kullanılabilir web uygulaması dağıtım profillerine ilişkin ayrıntıları alın. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir App Service uygulaması oluşturur. |
+| [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment?view=azure-cli-latest#az-webapp-deployment-list-publishing-profiles) | Kullanılabilir uygulaması dağıtım profillerine ilişkin ayrıntıları alın. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

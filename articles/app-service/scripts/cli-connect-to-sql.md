@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Betik Örneği - Bir web uygulamasını SQL veritabanına bağlama | Microsoft Docs
-description: Azure CLI Betik Örneği - Bir web uygulamasını SQL veritabanına bağlama
+title: Azure CLI betik örneği - bir uygulamayı bir SQL veritabanı'na bağlanma | Microsoft Docs
+description: Azure CLI betik örneği - bir SQL veritabanı'na bir uygulamaya Bağlan
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 33f1086010d15d8a045e924a619d6acc77a01413
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: e23ef4a12182aaeb6db84615106ed4e8919938bf
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585123"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634261"
 ---
-# <a name="connect-a-web-app-to-a-sql-database-using-cli"></a>Bir web uygulamasını CLI kullanarak bir SQL veritabanına bağlama
+# <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>Bir App Service uygulaması CLI kullanarak bir SQL veritabanına bağlanma
 
-Bu örnek betik bir Azure SQL veritabanı ile bir Azure web uygulaması oluşturur. Daha sonra uygulama ayarlarını kullanarak SQL veritabanını web uygulamasına bağlar.
+Bu örnek betik bir Azure SQL veritabanı ile bir App Service uygulaması oluşturur. Daha sonra uygulama ayarlarını kullanarak uygulamaya SQL veritabanına bağlar.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,17 +41,17 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya so
 
 ## <a name="script-explanation"></a>Betik açıklaması
 
-Bu betik bir kaynak grubu, web uygulaması, SQL Veritabanı ve tüm ilgili kaynakları oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
+Bu betik bir kaynak grubu, App Service uygulaması, SQL veritabanı ve tüm ilgili kaynakları oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service planı oluşturur. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir Azure web uygulaması oluşturur. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir App Service uygulaması oluşturur. |
 | [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) | SQL Veritabanı Sunucusu oluşturur.  |
 | [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) | SQL Veritabanı Sunucusu ile yeni bir veritabanı oluşturur. |
 | [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) | Veritabanına bir bağlantı dizesi oluşturur. |
-| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Bir Azure web uygulaması için uygulama ayarı oluşturur veya güncelleştirir. Uygulama ayarları, uygulamanız için ortam değişkenleri olarak kullanıma sunulur. |
+| [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Oluşturur veya bir App Service uygulaması için uygulama ayarı güncelleştirir. Uygulama ayarları, uygulamanız için ortam değişkenleri olarak kullanıma sunulur. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

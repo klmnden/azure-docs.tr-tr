@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 8/2/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b0d920c1a41ff679c3dedcb6745e250b77cb769a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f07bcf3cb1b489ad7ec06dff1437e49d83748998
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878345"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631177"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup özelliklerine genel bakış
 Azure Backup, verilerinizi Microsoft bulutunda yedeklemek (veya korumak) ve geri yüklemek için kullanabileceğiniz Azure tabanlı bir hizmettir. Azure Backup, var olan şirket içi veya şirket dışı yedekleme çözümünüzün yerine, güvenilir, güvenli ve maliyet açısından rekabetçi bir bulut tabanlı çözüm sunar. Azure Backup, indirdikten sonra uygun bilgisayar, sunucu veya buluta dağıtabileceğiniz birden fazla bileşene sahiptir. Dağıtacağınız bileşen veya aracı, korumak istediğiniz nesnelere göre değişiklik gösterir. Tüm Azure Backup bileşenleri (koruduğunuz veriler şirket içi veya bulut verileri olabilir), verileri Azure’daki bir Kurtarma Hizmetleri kasasına yedeklemek için kullanılabilir. Belirli verileri, uygulamaları veya iş yüklerini korumak için kullanılacak bileşenler hakkında bilgi almak için [Azure Backup bileşen tablosuna](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (bu makalenin ilerleyen bölümlerinde) bakın.
@@ -78,17 +78,17 @@ Aşağıdaki tabloda Azure Backup kullanarak koruma altına alınabilecek verile
 | Azure IaaS VM'ler (Linux) |Azure’da çalışan |[Azure Backup (VM uzantısı)](backup-azure-vms-introduction.md) |
 
 ## <a name="linux-support"></a>Linux desteği
-Aşağıdaki tabloda Linux destekli Azure Backup bileşenleri gösterilmektedir.  
+Aşağıdaki tabloda, Linux için desteklenen Azure Backup bileşenleri gösterilmektedir.  
 
-| Bileşen | Linux (Azure destekli) Desteği |
-| --- | --- |
-| Azure Backup (MARS) aracısı |Hayır (Yalnızca Windows tabanlı aracı) |
-| System Center DPM |<li> Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/> <li> Hyper-V ve VMWare Linux Konuk VM’lerinin VM geri yüklemesi </br> </br>  *Tutarlı dosya yedekleme Azure VM için kullanılamaz* <br/> |
-| Azure Backup Sunucusu |<li>Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/> <li> Hyper-V ve VMWare Linux Konuk VM’lerinin VM geri yüklemesi </br></br> *Tutarlı dosya yedekleme Azure VM için kullanılamaz*  |
-| Azure IaaS VM Backup |[betik öncesi ve betik sonrası çerçeve](backup-azure-linux-app-consistent.md) kullanılarak uygulamada tutarlı yedekleme<br/> [Ayrıntılı dosya kurtarma](backup-azure-restore-files-from-vm.md)<br/> [Tüm VM disklerini geri yükleme](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [VM geri yükleme](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
+**Bileşen** | **Linux (Azure destekli)**
+--- | --- 
+Azure Backup (MARS) aracısı | (Windows tabanlı aracı yalnızca) 
+System Center DPM | Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/><br/> Hyper-V ve VMWare Linux Konuk VM’lerinin VM geri yüklemesi</br></br> Dosyayla tutarlı yedekleme Azure Vm'leri için kullanılamıyor
+Azure Backup Sunucusu | Hyper-V ve VMWare üzerinde Linux Konuk VM’lerinin dosyayla tutarlı yedeklemesi<br/><br/> Hyper-V ve VMWare Linux Konuk Vm'lerinin VM geri yükleme</br></br> Dosyayla tutarlı yedekleme Azure Vm'leri için kullanılamıyor 
+Azure IaaS VM Backup | Uygulamayla tutarlı Yedekleme kullanarak [betik öncesi ve betik sonrası çerçeve](backup-azure-linux-app-consistent.md)<br/><br/> [Dosya düzeyinde kurtarma](backup-azure-restore-files-from-vm.md)<br/><br/> [Geri yüklenen diskten VM oluşturma](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Bir kurtarma noktasından bir VM oluşturma](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Azure Backup ile Premium Depolama VM’leri
-Azure Backup, Premium Depolama VM'leri koruma altına alır. Azure Premium Depolama, G/Ç açısından yoğun iş yüklerini desteklemek için tasarlanan katı hal sürücüsü (SSD) tabanlı bir depolama hizmetidir. Premium Depolama, sanal makine (VM) iş yükleri için idealdir. Premium Depolama hakkında daha fazla bilgi almak için bkz. [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](../virtual-machines/windows/premium-storage.md).
+Azure Backup, Premium Depolama VM'leri koruma altına alır. Azure Premium Depolama, G/Ç açısından yoğun iş yüklerini desteklemek için tasarlanan katı hal sürücüsü (SSD) tabanlı bir depolama hizmetidir. Premium Depolama, sanal makine (VM) iş yükleri için idealdir. Premium depolama hakkında daha fazla bilgi için bkz [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../virtual-machines/windows/premium-storage.md).
 
 ### <a name="back-up-premium-storage-vms"></a>Premium Storage VM'lerini yedekleme
 Premium Depolama VM'lerini yedeklerken, Backup hizmeti, Premium Depolama hesabında “AzureBackup-” adlı geçici bir hazırlama konumu oluşturur. Hazırlama konumunun boyutu, kurtarma noktası anlık görüntüsünü boyutuna eşittir. Premium Depolama hesabında, geçici hazırlama konumu barındırmak için yeterli boş alan olduğundan emin olun. Daha fazla bilgi için [premium depolama sınırlamaları](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) makalesine bakın. Yedekleme işi tamamlandıktan sonra, hazırlama konumu silinir. Hazırlama konumu için kullanılan depolama alanının fiyatı tüm [Premium depolama fiyatlandırması](../virtual-machines/windows/premium-storage.md#pricing-and-billing) ile tutarlıdır.
@@ -209,7 +209,7 @@ Korumalı örnek, Azure’a yedeklemek için yapılandırılmış bir Windows bi
 Korumalı örneklere sanal makineler, uygulama sunucuları, veritabanları ve Windows işletim sistemi çalıştıran kişisel bilgisayarlar örnek olarak verilebilir. Örneğin:
 
 * Hyper-V veya Azure IaaS hiper yönetici yapısı çalıştıran bir sanal makine. Sanal makine için konuk işletim sistemleri Windows Server veya Linux olabilir.
-* Bir uygulama sunucusu: Uygulama sunucusu Windows Server ve yedeklenmesi gereken verileri içeren iş yüklerini çalıştıran bir fiziksel veya sanal makine olabilir. Ortak iş yükleri; Microsoft SQL Server, Microsoft Exchange sunucusu, Microsoft SharePoint sunucusu ve Windows Server üzerindeki Dosya Sunucusu rolüdür. Bu iş yüklerini yedeklemek için System Center Data Protection Manager (DPM) veya Azure Backup Sunucusu gerekir.
+* Bir uygulama sunucusu: Uygulama sunucusu, bir fiziksel veya yedeklenmesi gereken verileri ile Windows Server ve iş yüklerini çalıştıran sanal makine olabilir. Ortak iş yükleri; Microsoft SQL Server, Microsoft Exchange sunucusu, Microsoft SharePoint sunucusu ve Windows Server üzerindeki Dosya Sunucusu rolüdür. Bu iş yüklerini yedeklemek için System Center Data Protection Manager (DPM) veya Azure Backup Sunucusu gerekir.
 * Windows işletim sistemi çalıştıran kişisel bilgisayar, iş istasyonu veya dizüstü bilgisayar.
 
 

@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/06/2018
-ms.openlocfilehash: 5e0b2fff7ca5bc7f5856a6de05e18b99bbf8b938
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 994f7d300b1e9a76e109e73467a2e7f0d4c1584d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600837"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652124"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Hızlı Başlangıç: Bağlanmak ve bir Azure SQL veritabanı sorgulamak için Visual Studio Code'u kullanma
 
-[Visual Studio Code](https://code.visualstudio.com/docs) Linux, macOS ve Windows için bir grafiksel kod düzenleyicisidir. Dahil olmak üzere uzantıları destekleyen [mssql uzantısı](https://aka.ms/mssql-marketplace) Microsoft SQL Server, Azure SQL veritabanı ve SQL veri ambarı'nı sorgulamak için. Bu hızlı başlangıçta, bir Azure SQL veritabanına bağlanın ve ardından Transact-SQL deyimleriyle sorgulama, ekleme, güncelleştirme ve verileri silmek için Visual Studio Code kullanmayı gösterir.
+[Visual Studio Code](https://code.visualstudio.com/docs) Linux, macOS ve Windows için bir grafiksel kod düzenleyicisidir. Dahil olmak üzere uzantıları destekleyen [mssql uzantısı](https://aka.ms/mssql-marketplace) Microsoft SQL Server, Azure SQL veritabanı ve SQL veri ambarı'nı sorgulamak için. Bu hızlı başlangıçta, Visual Studio Code kullanarak Azure SQL veritabanına bağlanan ve ardından sorgulama, ekleme, güncelleştirme için Transact-SQL deyimleri çalıştırın ve verileri silmek için kullanacaksınız.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -66,7 +66,7 @@ Dil modunu Visual Studio Code'da kümesine **SQL** mssql komutlarını ve T-SQL 
 
 1. Yeni bir Visual Studio Code penceresi açın. 
 
-2. Tuşuna **CTRL**+**N**. Yeni bir düz metin dosyası açılır. 
+2. Tuşuna **Ctrl**+**N**. Yeni bir düz metin dosyası açılır. 
 
 3. Seçin **düz metin** durum çubuğunun sağ alt köşesindeki içinde.
 
@@ -77,16 +77,16 @@ Dil modunu Visual Studio Code'da kümesine **SQL** mssql komutlarını ve T-SQL 
 Visual Studio Code’u kullanarak Azure SQL Veritabanı sunucunuzla bağlantı kurun.
 
 > [!IMPORTANT]
-> Devam etmeden önce sunucu ve oturum açma bilgilerinizin hazır olduğundan emin olun. Odağınızı Visual Studio Code'dan değiştirirseniz bağlantı profili bilgilerini girmeye başladıktan sonra profil oluşturma işlemini yeniden başlatmanız gerekir.
+> Devam etmeden önce sunucunuzun olması ve hazır bilgi oturum emin olun. Odağınızı Visual Studio Code'dan değiştirirseniz bağlantı profili bilgilerini girmeye başladıktan sonra profil oluşturma işlemini yeniden başlatmanız gerekir.
 >
 
 1. Visual Studio Code'da basın **Ctrl + Shift + P** (veya **F1**) komut paletini açın.
 
-2. Seçin **MS SQL: Connect** basın **Enter**.
+2. Seçin **MS SQL: Connect** ve **Enter**.
 
 3. Seçin **bağlantı profili oluşturmak**.
 
-4. Yeni profilinin bağlantı özelliklerini belirtmek için istemleri izleyin. Her bir değeri belirttikten sonra basın **Enter** devam etmek için. 
+4. Yeni profilinin bağlantı özelliklerini belirtmek için istemleri izleyin. Her bir değeri belirttikten sonra seçin **Enter** devam etmek için. 
 
    | Özellik       | Önerilen değer | Açıklama |
    | ------------ | ------------------ | ------------------------------------------------- | 
@@ -102,7 +102,7 @@ Visual Studio Code’u kullanarak Azure SQL Veritabanı sunucunuzla bağlantı k
 
 ## <a name="query-data"></a>Verileri sorgulama
 
-Aşağıdaki [seçin](https://msdn.microsoft.com/library/ms189499.aspx) sorgulamak için ilk 20 ürünü kategoriye göre Transact-SQL deyimi.
+Aşağıdaki komutu çalıştırın [seçin](https://msdn.microsoft.com/library/ms189499.aspx) sorgulamak için ilk 20 ürünü kategoriye göre Transact-SQL deyimi.
 
 1. Düzenleyicisi penceresinde, aşağıdaki SQL sorgusunu yapıştırın.
 
@@ -113,13 +113,13 @@ Aşağıdaki [seçin](https://msdn.microsoft.com/library/ms189499.aspx) sorgulam
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-2. Tuşuna **Ctrl**+**Shift**+**E** sorguyu yürütmek ve sonuçları görüntülemek için `Product` ve `ProductCategory` tablolar.
+2. Tuşuna **Ctrl**+**Shift**+**E** sorgu çalıştırmak ve sonuçları görüntülemek için `Product` ve `ProductCategory` tablolar.
 
     ![2 tablolarından veri almak için sorgu](./media/sql-database-connect-query-vscode/query.png)
 
 ## <a name="insert-data"></a>Veri ekleme
 
-Aşağıdaki [Ekle](https://msdn.microsoft.com/library/ms174335.aspx) yeni bir ürün eklemek için Transact-SQL deyimini `SalesLT.Product` tablo.
+Aşağıdaki komutu çalıştırın [Ekle](https://msdn.microsoft.com/library/ms174335.aspx) yeni bir ürün eklemek için Transact-SQL deyimini `SalesLT.Product` tablo.
 
 1. Önceki sorguyu Bununla değiştirin.
 
@@ -147,7 +147,7 @@ Aşağıdaki [Ekle](https://msdn.microsoft.com/library/ms174335.aspx) yeni bir �
 
 ## <a name="update-data"></a>Verileri güncelleştirme
 
-Aşağıdaki [güncelleştirme](https://msdn.microsoft.com/library/ms177523.aspx) eklenen ürünü güncelleştirmek için Transact-SQL deyimi.
+Aşağıdaki komutu çalıştırın [güncelleştirme](https://msdn.microsoft.com/library/ms177523.aspx) eklenen ürünü güncelleştirmek için Transact-SQL deyimi.
 
 1. Önceki sorguyu Bununla değiştirin:
 
@@ -161,7 +161,7 @@ Aşağıdaki [güncelleştirme](https://msdn.microsoft.com/library/ms177523.aspx
 
 ## <a name="delete-data"></a>Verileri silme
 
-Aşağıdaki [Sil](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) yeni ürünü kaldırmak için Transact-SQL deyimi.
+Aşağıdaki komutu çalıştırın [Sil](https://docs.microsoft.com/sql/t-sql/statements/delete-transact-sql) yeni ürünü kaldırmak için Transact-SQL deyimi.
 
 1. Önceki sorguyu Bununla değiştirin:
 

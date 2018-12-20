@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: HDInsight üzerinde Hive kullanarak ayıklama, dönüştürme, yükleme (ETL) işlemleri gerçekleştirme - Azure '
+title: "Öğretici: Ayıklama, dönüştürme ve yükleme (ETL) işlemleri - Azure HDInsight üzerinde Hive'ı kullanarak gerçekleştirin "
 description: Ham CSV veri kümesinden veri ayıklama, HDInsight üzerinde Hive kullanarak dönüştürme ve sonra Apache Sqoop kullanarak dönüştürülmüş verileri Azure SQL veritabanına yükleme hakkında bilgi edinin.
 services: hdinsight
 author: hrasheed-msft
@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: c0123008e5b15d6d3edce27245a7ed1fa6c431e7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e5ee2f40526837fbe0251e1fdda6847db1c51288
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015064"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634363"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Öğretici: Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme
 
-Bu öğreticide, bir ham CSV verileri dosyası olması, bir HDInsight küme depolama alanına alma ve ardından kullanarak verileri dönüştürme [Apache Hive](https://hive.apache.org/) Azure HDInsight üzerinde. Veri dönüştürüldükten sonra bu verileri kullanarak bir Azure SQL veritabanı yük [Apache Sqoop](http://sqoop.apache.org/). Bu makalede, genel kullanıma açık uçuş verileri kullanacaksınız.
+Bu öğreticide, bir ham CSV verileri dosyası olması, bir HDInsight küme depolama alanına alma ve ardından kullanarak verileri dönüştürme [Apache Hive](https://hive.apache.org/) Azure HDInsight üzerinde. Veri dönüştürüldükten sonra bu verileri kullanarak bir Azure SQL veritabanı yük [Apache Sqoop](https://sqoop.apache.org/). Bu makalede, genel kullanıma açık uçuş verileri kullanacaksınız.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, Azure HDInsight sürüm 3.4 veya üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 Bu öğretici aşağıdaki görevleri kapsar: 
@@ -76,7 +76,7 @@ Bir HDInsight kümesiyle ilişkili depolama birimine veri yüklemenin birçok yo
 
     *FILENAME* değerini .zip dosyasının adıyla değiştirin. *USERNAME* değerini HDInsight kümesinin SSH oturum açma adıyla değiştirin. *CLUSTERNAME* değerini HDInsight kümesinin adıyla değiştirin.
 
-   > [!NOTE]
+   > [!NOTE]  
    > SSH oturum açma bilgilerinizi doğrulamak için bir parola kullanıyorsanız parola girmeniz istenir. Ortak anahtar kullanıyorsanız, eşleşen özel anahtarın yolunu belirtmek için `-i` parametresini kullanmanız gerekebilir. Örneğin, `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`.
 
 2. Karşıya yükleme tamamlandıktan sonra SSH kullanarak kümeye bağlanın. Komut istemine aşağıdaki komutu girin:
@@ -212,7 +212,7 @@ Zaten bir SQL veritabanınız varsa, sunucu adını almanız gerekir. [Azure por
 
 ![Azure SQL server ayrıntılarını alma](./media/hdinsight-analyze-flight-delay-data-linux/get-azure-sql-server-details.png "Azure SQL server ayrıntılarını alma")
 
-> [!NOTE]
+> [!NOTE]  
 > SQL Veritabanına bağlanıp tablo oluşturmanın çok sayıda yolu vardır. Aşağıdaki adımlarda HDInsight kümesinden [FreeTDS](http://www.freetds.org/) kullanılır.
 
 
@@ -315,7 +315,7 @@ Bu öğreticide, HDInsight üzerinde bir Apache Hadoop kümesi kullanarak veri a
 
 HDInsight’ta verilerle çalışmanın diğer yollarını öğrenmek için aşağıdaki makalelere bakın:
 
-* [Öğretici: Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
+* [Öğretici: Ayıklama, dönüştürme ve Azure HDInsight üzerinde Apache Hive kullanarak verileri yükleme](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
 * [Apache Hive, HDInsight ile kullanma][hdinsight-use-hive]
 * [Apache Pig, HDInsight ile kullanma][hdinsight-use-pig]
 * [HDInsight üzerinde Apache Hadoop için Java MapReduce programları geliştirme][hdinsight-develop-mapreduce]
@@ -330,7 +330,7 @@ HDInsight’ta verilerle çalışmanın diğer yollarını öğrenmek için aşa
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
@@ -346,4 +346,4 @@ HDInsight’ta verilerle çalışmanın diğer yollarını öğrenmek için aşa
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

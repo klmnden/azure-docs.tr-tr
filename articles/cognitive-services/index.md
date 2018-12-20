@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 1d82809a4ed88ee5f84b812955e6979df2ae6070
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5477b1b3dc14a94713074a72751b732262880258
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322082"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650986"
 ---
 <h1>Azure Bilişsel Hizmetler Belgeleri</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Uygulamalarınıza, web sitelerinize ve botlarınıza, kullanıcılarınızın ihtiyaçlarını görmek, duymak, dile getirmek ve anlamak için doğal iletişim yöntemlerinden yararlanan akıllı algoritmalar oluşturmayı öğrenin. Öğreticiler, hızlı başlangıçlar, API başvuruları ve örnekler size bunu nasıl yapacağınızı gösterir.</p>
@@ -297,8 +297,8 @@ ms.locfileid: "53322082"
                     <div class="cardText">
                         <h3>Görüntü İşleme API'si</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">Görüntü İşleme</a></p>
-                        <p><a href="/azure/cognitive-services/content-moderator/overview">Content Moderator</a></p>
-                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/home"><span>Özel Görüntü İşleme Hizmeti&nbsp;<sup style="font-size:70%">ÖNİZLEME</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
+                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/"><span>Özel Görüntü İşleme Hizmeti&nbsp;<sup style="font-size:70%">ÖNİZLEME</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/face/">Yüz Tanıma API’si</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
                         <p><a href="/azure/cognitive-services/emotion/home"><span>Duygu tanıma API’si&nbsp;<sup style="font-size:70%">KULLANIMDAN KALDIRILIYOR</sup></span></a></p>

@@ -1,5 +1,5 @@
 ---
-title: "Azure portalı: Sorgu Düzenleyicisi'ni kullanarak Azure SQL Veritabanını sorgulama | Microsoft Docs"
+title: "Azure portalı: Sorgu Düzenleyicisi'ni kullanarak Azure SQL veritabanı sorgulama | Microsoft Docs"
 description: SQL Sorgu Düzenleyicisi'ni kullanarak Azure portalında SQL Veritabanına bağlanmayı öğrenin. Ardından, verileri sorgulamak ve düzenlemek için Transact-SQL (T-SQL) deyimleri çalıştırın.
 keywords: sql veritabanına bağlanma,azure portalı, portal, sorgu düzenleyicisi
 services: sql-database
@@ -13,16 +13,16 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: fa46260fdd5623ba32da9979aaea8470139096b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86120e65ad6a3b7fab2a5db78a338bed0e277cb8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091399"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651956"
 ---
-# <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Hızlı Başlangıç: bağlanmak ve veri sorgulamak için Azure portalında SQL sorgu Düzenleyicisi'ni kullanın.
+# <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Hızlı Başlangıç: Bağlanmak ve veri sorgulamak için Azure portalında SQL sorgu Düzenleyicisi'ni kullanın
 
-SQL sorgu Düzenleyicisi, Azure SQL veritabanı veya Azure SQL veri ambarı üzerinde SQL sorguları yürütmek için kolay bir yol sağlayarak, Azure portal tarayıcı bir araçtır. Bu hızlı başlangıçta, bir SQL veritabanına bağlanma ve sorgulama, ekleme, güncelleştirme için Transact-SQL deyimleri çalıştırın ve verileri silmek için sorgu Düzenleyicisi'ni kullanmayı gösterir.
+SQL sorgu Düzenleyicisi, Azure SQL veritabanı veya Azure SQL veri ambarı üzerinde SQL sorguları yürütmek için kolay bir yol sağlayarak, Azure portal tarayıcı bir araçtır. Bu hızlı başlangıçta, bir SQL veritabanına bağlanan ve ardından sorgulama, ekleme, güncelleştirme için Transact-SQL deyimleri çalıştırın ve verileri silmek için sorgu Düzenleyicisi'ni kullanacaksınız.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -70,7 +70,7 @@ Bir Active Directory (AD) yöneticisinin yapılandırılması, Azure portalı ve
 
 4. AD Yönetim sayfası araç çubuğundan seçin **Kaydet**.
 
-5. Gidin **mySampleDatabase** veritabanı ve sol taraftaki menüden **sorgu Düzenleyicisi (Önizleme)**. **Oturum açma** sayfası görüntülenir. Bir AD, daha sonra sağ tarafta altında yöneticisiyseniz **Active Directory çoklu oturum açma**, kullanıcı ile oturum bildiren bir ileti görüntülenir. 
+5. Gidin **mySampleDatabase** veritabanı ve sol taraftaki menüden **sorgu Düzenleyicisi (Önizleme)**. **Oturum açma** sayfası görüntülenir. Bir AD, daha sonra sağ tarafta altında yöneticisiyseniz **Active Directory çoklu oturum açma**, açtığınızdan bildiren bir ileti görüntülenir. 
    
 6. **Tamam**’ı seçin.
 
@@ -92,7 +92,7 @@ Bir Active Directory (AD) yöneticisinin yapılandırılması, Azure portalı ve
 
 ## <a name="insert-data"></a>Veri ekleme
 
-Aşağıdaki [Ekle](https://msdn.microsoft.com/library/ms174335.aspx) yeni bir ürün eklemek için Transact-SQL deyimini `SalesLT.Product` tablo.
+Aşağıdaki komutu çalıştırın [Ekle](https://msdn.microsoft.com/library/ms174335.aspx) yeni bir ürün eklemek için Transact-SQL deyimini `SalesLT.Product` tablo.
 
 1. Önceki sorguyu Bununla değiştirin.
 
@@ -117,12 +117,12 @@ Aşağıdaki [Ekle](https://msdn.microsoft.com/library/ms174335.aspx) yeni bir �
    ```
 
 
-2. Seçin **çalıştırma** Product tablosuna yeni bir satır eklemek için. **İletileri** bölmesini görüntüler **sorgu başarılı oldu: Etkilenen Satırlar: 1**.
+2. Seçin **çalıştırma** yeni bir satır eklemek için `Product` tablo. **İletileri** bölmesini görüntüler **sorgu başarılı oldu: Etkilenen Satırlar: 1**.
 
 
 ## <a name="update-data"></a>Verileri güncelleştirme
 
-Aşağıdaki [güncelleştirme](https://msdn.microsoft.com/library/ms177523.aspx) yeni ürün değiştirmek için Transact-SQL deyimi.
+Aşağıdaki komutu çalıştırın [güncelleştirme](https://msdn.microsoft.com/library/ms177523.aspx) yeni ürün değiştirmek için Transact-SQL deyimi.
 
 1. Önceki sorguyu Bununla değiştirin.
 
@@ -132,11 +132,11 @@ Aşağıdaki [güncelleştirme](https://msdn.microsoft.com/library/ms177523.aspx
    WHERE Name = 'myNewProduct';
    ```
 
-2. Seçin **çalıştırma** Product tablosunda belirtilen satırı güncelleştirin. **İletileri** bölmesini görüntüler **sorgu başarılı oldu: Etkilenen Satırlar: 1**.
+2. Seçin **çalıştırma** belirtilen satırı güncelleştirmek için `Product` tablo. **İletileri** bölmesini görüntüler **sorgu başarılı oldu: Etkilenen Satırlar: 1**.
 
 ## <a name="delete-data"></a>Verileri silme
 
-Aşağıdaki [Sil](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL deyimini kullanarak yeni ürünü kaldırmak için.
+Aşağıdaki komutu çalıştırın [Sil](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL deyimini kullanarak yeni ürünü kaldırmak için.
 
 1. Önceki sorguyu Bununla değiştirin:
 
@@ -145,7 +145,7 @@ Aşağıdaki [Sil](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQ
    WHERE Name = 'myNewProduct';
    ```
 
-2. Seçin **çalıştırma** Product tablosunda belirtilen satırı silin. **İletileri** bölmesini görüntüler **sorgu başarılı oldu: Etkilenen Satırlar: 1**.
+2. Seçin **çalıştırma** belirtilen satırı silmek için `Product` tablo. **İletileri** bölmesini görüntüler **sorgu başarılı oldu: Etkilenen Satırlar: 1**.
 
 
 ## <a name="query-editor-considerations"></a>Sorgu Düzenleyicisi konuları
@@ -156,7 +156,7 @@ Sorgu Düzenleyicisi ile çalışırken bilmeniz gereken birkaç nokta vardır.
 
 * F5 tuşuna basarak sorgu Düzenleyicisi sayfası yenilenir ve üzerinde çalışılmakta olan herhangi bir sorgu kaybolur.
 
-* Sorgu Düzenleyicisi, ana veritabanına bağlanmayı desteklemez.
+* Sorgu Düzenleyicisi, bağlanmayı desteklemez `master` veritabanı.
 
 * Sorgu yürütme için 5 dakikalık zaman aşımı yoktur.
 
