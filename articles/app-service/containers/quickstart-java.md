@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: d27491d84d4df1757f77a403cd754496bbff6887
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0c72318f6c80563d138d9c885ea5984a22c5c7fa
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252618"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653909"
 ---
-# <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Hızlı Başlangıç: Linux üzerinde App Service'te Java web uygulaması oluşturma
+# <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Hızlı Başlangıç: Linux üzerinde App Service'te bir Java uygulaması oluşturma
 
-[Linux üzerindeki App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıç, [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)'nın [Azure Web Uygulamaları için Maven Eklentisi (Önizleme)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) bileşeni ile bir Java Web uygulaması Web arşiv (WAR) dosyası dağıtmak için nasıl kullanılacağını göstermektedir.
+[Linux üzerindeki App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıçta nasıl kullanılacağını gösterir [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) ile [Azure Web Apps (Önizleme) için Maven Plugin](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) bir Java web arşivi (WAR) dosyasına dağıtılacak.
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-java/java-hello-world-in-browser.png)
 
@@ -34,7 +34,7 @@ ms.locfileid: "53252618"
 
 ## <a name="create-a-java-app"></a>Java uygulaması oluşturma
 
-`helloworld` adlı yeni bir Web uygulaması oluşturmak için Cloud Shell isteminde aşağıdaki Maven komutunu yürütün:
+Cloud Shell isteminde adlı yeni bir uygulama oluşturmak için aşağıdaki Maven komutunu yürütün `helloworld`:
 
 ```bash
 mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -DarchetypeArtifactId=maven-archetype-webapp
@@ -62,12 +62,12 @@ Sonra `pom.xml` dosyasının `<build>` öğesinin içine aşağıdaki eklenti ta
         <version>1.4.0</version>
         <configuration>
    
-            <!-- Web App information -->
+            <!-- App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
    
-            <!-- Java Runtime Stack for Web App on Linux-->
+            <!-- Java Runtime Stack for App on Linux-->
             <linuxRuntime>tomcat 8.5-jre8</linuxRuntime>
    
         </configuration>
@@ -84,9 +84,9 @@ Eklenti yapılandırmasında aşağıdaki yer tutucuları güncelleştirin:
 
 | Yer tutucu | Açıklama |
 | ----------- | ----------- |
-| `RESOURCEGROUP_NAME` | Web uygulamanızın oluşturulacağı yeni kaynak grubunun adı. Uygulamanın tüm kaynaklarını bir gruba koyarak birlikte yönetebilirsiniz. Örneğin, kaynak grubunu sildiğinizde uygulamayla ilişkili tüm kaynaklar da silinir. Bu değeri *TestResources* gibi benzersiz bir yeni kaynak grubu adı ile güncelleştirin. Bu kaynak grubunu daha sonraki bir bölümde tüm Azure kaynaklarını temizlemek için kullanacaksınız. |
-| `WEBAPP_NAME` | Uygulama adı, Azure’a dağıtıldığında web uygulamasının konak adının parçası haline gelir (UYGULAMA_ADI.azurewebsites.net). Bu değeri, Java uygulamanızı barındıracak yeni Azure web uygulamanızın benzersiz adıyla (*contoso* gibi) değiştirin. |
-| `REGION` | Web uygulamasının barındırıldığı bir Azure bölgesi; örneğin `westus2`. Cloud Shell'den veya CLI'dan `az account list-locations` komutunu kullanarak bölgelerin bir listesini alabilirsiniz. |
+| `RESOURCEGROUP_NAME` | Uygulamanızın oluşturulacağı yeni kaynak grubunun adı. Uygulamanın tüm kaynaklarını bir gruba koyarak birlikte yönetebilirsiniz. Örneğin, kaynak grubunu sildiğinizde uygulamayla ilişkili tüm kaynaklar da silinir. Bu değeri *TestResources* gibi benzersiz bir yeni kaynak grubu adı ile güncelleştirin. Bu kaynak grubunu daha sonraki bir bölümde tüm Azure kaynaklarını temizlemek için kullanacaksınız. |
+| `WEBAPP_NAME` | Uygulama adı bölümü (WEBAPP_NAME.azurewebsites.net) Azure'a dağıtırken uygulama için ana bilgisayar adı olacaktır. Bu değer Java uygulamanızı örneğin barındıracak yeni App Service uygulaması için benzersiz bir adla güncelleştirin *contoso*. |
+| `REGION` | Uygulamanın barındırıldığı, örneğin bir Azure bölgesi `westus2`. Cloud Shell'den veya CLI'dan `az account list-locations` komutunu kullanarak bölgelerin bir listesini alabilirsiniz. |
 
 ## <a name="deploy-the-app"></a>Uygulamayı dağıtma
 
@@ -108,7 +108,7 @@ Dağıtım tamamlandıktan sonra, web tarayıcınızda aşağıdaki URL’yi kul
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta bir Java web uygulaması oluşturmak için Maven kullandınız, [Azure Web Apps için Maven Eklentisi](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) bileşenini yapılandırdınız, ardından Web arşiviyle paketlenmiş bir Java uygulamasını Linux üzerinde App Service'e dağıttınız. Aşağıdaki öğreticiler ve daha fazla bilgi Linux'ta App Service üzerinde Java uygulamalarını barındırmak için nasıl yapılır makaleleri bakın.
+Bu hızlı başlangıçta, yapılandırılmış bir Java uygulaması oluşturmak için Maven kullanılan [Azure Web Apps için Maven Plugin](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), Linux üzerinde App Service'e paketlenmiş arşiv Java web uygulaması dağıtılıp. Aşağıdaki öğreticiler ve daha fazla bilgi Linux'ta App Service üzerinde Java uygulamalarını barındırmak için nasıl yapılır makaleleri bakın.
 
 - [Öğretici: Bir Java dağıtma PostgreSQL ile Kurumsal uygulama](tutorial-java-enterprise-postgresql-app.md)
 - [Tomcat veri kaynağını yapılandırma](app-service-linux-java.md#connecting-to-data-sources)

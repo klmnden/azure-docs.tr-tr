@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 6bc354ef3451862e3567adbe5ff8ee6da0eacaf6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314882"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631507"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Ortamı için Web Uygulaması Güvenlik Duvarı (WAF) Yapılandırma
 ## <a name="overview"></a>Genel Bakış
@@ -74,12 +74,12 @@ Oturum açtıktan sonra, aşağıdaki görüntüde gösterildiği gibi WAF korum
 
 ![Yönetim Panosu][ManagementDashboard]
 
-**Hizmetler** sekmesine tıklayarak WAF’yi koruduğu hizmetler için yapılandırabilirsiniz. Barracuda WAF’nizi yapılandırma hakkında daha ayrıntılı bilgi için [ilgili belgelere](https://techlib.barracuda.com/waf/getstarted1) bakın. Aşağıdaki örnekte, HTTP ve HTTPS üzerindeki trafiğe hizmet veren bir Azure Web Uygulaması yapılandırılmıştır.
+**Hizmetler** sekmesine tıklayarak WAF’yi koruduğu hizmetler için yapılandırabilirsiniz. Barracuda WAF’nizi yapılandırma hakkında daha ayrıntılı bilgi için [ilgili belgelere](https://techlib.barracuda.com/waf/getstarted1) bakın. Aşağıdaki örnekte, HTTP ve HTTPS trafiğini sunan bir App Service uygulaması yapılandırıldı.
 
 ![Yönetim Hizmet Ekleme][ManagementAddServices]
 
 > [!NOTE]
-> Uygulamalarınızın nasıl yapılandırıldığına ve App Service Ortamınızda hangi özelliklerin kullanıldığına bağlı olarak, örneğin bir Web Uygulaması için IP SSL ayarını yaptıysanız, 80 ile 443 dışındaki TCP bağlantı noktaları için trafiği iletmeniz gerekir. App Service Ortamlarında kullanılan ağ bağlantı noktalarının listesi için [Gelen Trafiği Denetleme belgelerinde](app-service-app-service-environment-control-inbound-traffic.md) Ağ Bağlantı Noktaları bölümüne bakın.
+> Bir App Service uygulaması için IP SSL ayarını varsa, uygulamalarınızın nasıl yapılandırıldığına ve App Service ortamınızda hangi özelliklerin kullanıldığını bağlı olarak, trafiği için TCP bağlantı noktaları 80 ve 443, örneğin, dışındaki iletmek gerekir. App Service Ortamlarında kullanılan ağ bağlantı noktalarının listesi için [Gelen Trafiği Denetleme belgelerinde](app-service-app-service-environment-control-inbound-traffic.md) Ağ Bağlantı Noktaları bölümüne bakın.
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
 title: Azure CLI betik örneği - uygulama oluşturma ve Azure depoları sürekli dağıtım | Microsoft Docs
-description: Azure CLI betik örneği - Azure depoları için sürekli dağıtım ile bir web uygulaması oluşturma
+description: Azure CLI betik örneği - Azure depoları için sürekli dağıtım ile bir uygulama oluşturma
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -16,16 +16,16 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: jeconnoc
 ms.custom: seodec18
-ms.openlocfilehash: 98c3934bd969da77d9dcbef057e29d3db80bad03
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 90eaf7f57f524cb6e47d9d0f4e160855acd6daf5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585138"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633666"
 ---
-# <a name="create-a-web-app-with-continuous-deployment-using-azure-cli"></a>Azure CLI kullanarak sürekli dağıtım ile bir web uygulaması oluşturma
+# <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Azure CLI kullanarak sürekli dağıtım ile bir App Service uygulaması oluşturma
 
-Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra bir Azure DevOps deposundan sürekli dağıtımı ayarlar. Bu örnekte şunlar gereklidir:
+Bu örnek betik, bir uygulamayı App Service'te ilgili kaynaklarıyla birlikte oluşturur ve sonra Azure DevOps deposundan sürekli dağıtımı ayarlar. Bu örnekte şunlar gereklidir:
 
 * Yönetme izinlerine sahip olduğunuz uygulama kodu ile bir Azure DevOps deposu.
 * Azure DevOps kuruluşunuz için bir [Kişisel Erişim Belirteci (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts).
@@ -39,7 +39,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya so
 
 ## <a name="sample-script"></a>Örnek betik
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Azure DevOps")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create an app with continuous deployment from Azure DevOps")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -51,8 +51,8 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service planı oluşturur. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir Azure web uygulaması oluşturur. |
-| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Bir Azure web uygulamasını Git veya Mercurial deposu ile ilişkilendirir. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir App Service uygulaması oluşturur. |
+| [`az webapp deployment source config`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config) | Bir App Service uygulamasını Git veya Mercurial deposu ile ilişkilendirir. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

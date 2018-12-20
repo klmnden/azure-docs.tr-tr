@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Depolama hesabı oluşturma - Azure Depolama'
+title: 'Hızlı Başlangıç: Depolama hesabı - Azure depolama oluşturma'
 description: Bu hızlı başlangıçta Azure portalı, Azure PowerShell veya Azure CLI kullanarak bir depolama hesabı oluşturmayı öğreneceksiniz. Azure depolama hesabı, Azure Depolama hizmetinde oluşturduğunuz veri nesnelerini depolamak ve bunlara erişmek için Microsoft Azure’da benzersiz bir ad alanı sağlar.
 services: storage
 author: tamram
@@ -9,18 +9,20 @@ ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: a695e333f48ed0bbf1ad5656c20964232feff4d7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: d34be70e3283869a28f036f0016a0d3f8f241a8a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990136"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634856"
 ---
 # <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
 Bu hızlı başlangıçta [Azure portalı](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) veya [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) kullanarak bir depolama hesabı oluşturmayı öğreneceksiniz.  
 
-## <a name="prerequisites"></a>Ön koşullar
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
@@ -30,7 +32,7 @@ Yok.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Bu hızlı başlangıç, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Geçerli sürümünüzü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
+Bu hızlı başlangıçta, Azure PowerShell modülü Az 0.7 veya sonraki bir sürümü gerektirir. Geçerli sürümünüzü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-Az-ps).
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -63,10 +65,10 @@ Ayrıca, Azure CLI’yi yerel olarak yükleyip kullanabilirsiniz. Bu hızlı ba�
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-`Connect-AzureRmAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyerek kimlik doğrulaması yapın.
+`Connect-AzAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyerek kimlik doğrulaması yapın.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -95,26 +97,26 @@ Her depolama hesabı bir Azure kaynak grubuna ait olmalıdır. Kaynak grubu, Azu
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-İlk olarak, [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutunu kullanarak PowerShell ile yeni bir kaynak grubu oluşturun: 
+İlk olarak kullanarak PowerShell ile yeni bir kaynak grubu oluşturun. [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu: 
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
 # without hardcoding it repeatedly
 $resourceGroup = "storage-quickstart-resource-group"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
+New-AzResourceGroup -Name $resourceGroup -Location $location 
 ```
 
-`-Location` parametresi için hangi bölgeyi belirteceğinizden emin değilseniz, [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) komutuyla aboneliğiniz için desteklenen bölgelerin bir listesini alabilirsiniz:
+İçin hangi bölgeyi belirteceğinizden emin değilseniz `-Location` parametresi, aboneliğiniz için desteklenen bölgelerin bir listesini alabilirsiniz [Get-AzLocation](/powershell/module/az.resources/get-azlocation) komutu:
 
 ```powershell
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "westus"
 ```
 
-Ardından, yerel olarak yedekli depolama (LRS) ile bir genel amaçlı v2 depolama hesabı oluşturun. [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) komutunu kullanın: 
+Ardından, yerel olarak yedekli depolama (LRS) ile bir genel amaçlı v2 depolama hesabı oluşturun. Kullanım [yeni AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) komutu: 
 
 ```powershell
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
@@ -126,7 +128,7 @@ Bölgesel olarak yedekli depolama (ZRS) (önizleme), coğrafi olarak yedekli dep
 |Çoğaltma seçeneği  |SkuName parametresi  |
 |---------|---------|
 |Yerel olarak yedekli depolama (LRS)     |Standard_LRS         |
-|Bölgesel olarak yedekli depolama (ZRS)     |Standard_ZRS         |
+|Alanlar arası yedekli depolama (ZRS)     |Standard_ZRS         |
 |Coğrafi olarak yedekli depolama (GRS)     |Standard_GRS         |
 |Okuma erişimli coğrafi olarak yedekli depolama (GRS)     |Standard_RAGRS         |
 
@@ -164,7 +166,7 @@ Bölgesel olarak yedekli depolama (ZRS Önizlemesi), coğrafi olarak yedekli dep
 |Çoğaltma seçeneği  |sku parametresi  |
 |---------|---------|
 |Yerel olarak yedekli depolama (LRS)     |Standard_LRS         |
-|Bölgesel olarak yedekli depolama (ZRS)     |Standard_ZRS         |
+|Alanlar arası yedekli depolama (ZRS)     |Standard_ZRS         |
 |Coğrafi olarak yedekli depolama (GRS)     |Standard_GRS         |
 |Okuma erişimli coğrafi olarak yedekli depolama (GRS)     |Standard_RAGRS         |
 
@@ -186,10 +188,10 @@ Azure portalını kullanarak kaynak grubunu kaldırmak için:
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Kaynak grubunu ve yeni depolama hesabı dahil olmak üzere ilişkili kaynakları kaldırmak için [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanın: 
+Kaynak grubunu ve yeni depolama hesabı dahil olmak üzere ilişkili kaynakları kaldırmak için kullanın [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) komutu: 
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)

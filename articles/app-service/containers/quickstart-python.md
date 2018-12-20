@@ -1,5 +1,5 @@
 ---
-title: Linux üzerinde - Azure App Service'e Python web uygulaması oluşturma | Microsoft Docs
+title: Linux'ta - Azure App Service'e Python uygulaması oluşturma | Microsoft Docs
 description: Linux üzerinde Azure App Service'te ilk Python merhaba dünya uygulamanızı birkaç dakika içinde dağıtın.
 services: app-service\web
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d9d6f3549ec5db914536400fac53de60f2ad4a94
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3af8f57cab6e420a7c7515bdf32b7ef382441cf9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261859"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633156"
 ---
-# <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Linux üzerinde Azure App Service'te bir Python web uygulaması oluşturma (Önizleme)
+# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Linux (Önizleme) üzerinde Azure App Service'te bir Python uygulaması oluşturma
 
 [Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıçta, bir Python uygulamasının [Azure CLI](/cli/azure/install-azure-cli) kullanılarak Linux üzerinde App Service'te yerleşik olan Python görüntüsü (Önizleme) üzerine dağıtılması gösterilmektedir.
 
@@ -85,17 +85,17 @@ Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
 
 ## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
-Yerleşik görüntü ile yeni oluşturduğunuz web uygulamasını görmek için siteye göz atın. _&lt;app name>_ değerini kendi web uygulamanızın adıyla değiştirin.
+Yerleşik görüntü ile yeni oluşturulmuş uygulamanızı görmek için siteye göz atın. Değiştirin  _&lt;uygulama adı >_ uygulamanızın adıyla.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Yeni web uygulamanız aşağıdaki gibi görünmelidir:
+İşte yeni uygulamanız aşağıdaki gibi görünmelidir:
 
-![Boş web uygulaması sayfası](media/quickstart-php/app-service-web-service-created.png)
+![Boş uygulama sayfası](media/quickstart-php/app-service-web-service-created.png)
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -129,7 +129,7 @@ Web tarayıcınızı kullanarak, dağıtılan uygulamanın konumuna gidin.
 http://<app_name>.azurewebsites.net
 ```
 
-Python örnek kodu bir web uygulaması yerleşik görüntüsünde çalışmaktadır.
+Python örnek kodu, bir yerleşik görüntü ile Linux üzerinde App Service'te çalışıyor.
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-python/hello-world-in-browser.png)
 
@@ -154,15 +154,15 @@ Dağıtım tamamlandıktan sonra **Uygulamaya göz atma** adımında açılan ta
 
 ![Azure'da çalışan güncelleştirilmiş örnek uygulama](media/quickstart-python/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Yeni Azure web uygulamanızı yönetme
+## <a name="manage-your-new-azure-app"></a>Yeni Azure uygulamanızı yönetme
 
-Oluşturduğunuz web uygulamasını yönetmek için <a href="https://portal.azure.com" target="_blank">Azure portalına</a> gidin.
+Git <a href="https://portal.azure.com" target="_blank">Azure portalında</a> oluşturduğunuz uygulamayı yönetmek için.
 
-Sol menüden **Uygulama Hizmetleri**'ne ve ardından Azure web uygulamanızın adına tıklayın.
+Sol menüden **uygulama hizmetleri**ve ardından Azure uygulamanızın adına tıklayın.
 
-![Portaldan Azure web uygulamasına gitme](./media/quickstart-python/app-service-list.png)
+![Azure uygulamasına portal gezintisi](./media/quickstart-python/app-service-list.png)
 
-Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz.
+Uygulamanızın genel bakış sayfasını görürsünüz. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz.
 
 ![Azure portalında App Service sayfası](media/quickstart-python/app-service-detail.png)
 

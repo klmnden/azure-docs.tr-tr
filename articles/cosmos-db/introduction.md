@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 12/18/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 0d4ae2ce567da0df9a15f229d3fc12e06c4993af
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 133f8e82d7a46bae11eb049b2d1c9393990c9042
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608384"
+ms.locfileid: "53634584"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB’ye hoş geldiniz
 
 Günümüzün uygulamaları yüksek derecede yanıt veren ve her zaman çevrimiçi olması gerekir. Düşük gecikme süresi ve yüksek kullanılabilirlik elde etmek için bu uygulamaların örnekleri kendi kullanıcılara yakın olan veri merkezlerinde dağıtılması gerekir. Uygulamaları yoğun saatlerde kullanım büyük değişiklikleri gerçek zamanlı olarak yanıt hacimlerinin veri depolamak ve bu verileri milisaniye cinsinden kullanıcılar için kullanılabilir hale.
 
-Azure Cosmos DB, Microsoft'un Global olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB, bir düğmeye tıklayarak aktarım hızı ile depolamayı dilediğiniz sayıda Azure coğrafi bölgesinde esnek ve birbirinden bağımsız bir şekilde ölçeklendirmenize olanak tanır. Esnek, aktarım hızını ve depolamayı ölçeklendirin ve en sevdiğiniz API'nizi arasında SQL, MongoDB, Apache Cassandra, tablo ve Gremlin kullanarak hızlı, tek haneli milisaniye veri erişimi avantajlarından yararlanın. Cosmos DB sağlayan kapsamlı [hizmet düzeyi sözleşmeleri](https://aka.ms/acdbsla) (SLA'lar) aktarım hızı, gecikme süresi, kullanılabilirlik ve tutarlılık garantisi için bir şey başka bir veritabanı hizmet sunabilir.
+Azure Cosmos DB, Microsoft'un Global olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB, bir düğmeye tıklayarak aktarım hızı ile depolamayı dilediğiniz sayıda Azure coğrafi bölgesinde esnek ve birbirinden bağımsız bir şekilde ölçeklendirmenize olanak tanır. Esnek, aktarım hızını ve depolamayı ölçeklendirin ve en sevdiğiniz API'nizi arasında SQL, MongoDB, Cassandra, tablo ve Gremlin kullanarak hızlı, tek haneli milisaniye veri erişimi avantajlarından yararlanın. Cosmos DB sağlayan kapsamlı [hizmet düzeyi sözleşmeleri](https://aka.ms/acdbsla) (SLA'lar) aktarım hızı, gecikme süresi, kullanılabilirlik ve tutarlılık garantisi için bir şey başka bir veritabanı hizmet sunabilir.
 
 [Azure Cosmos DB’yi ücretsiz olarak](https://azure.microsoft.com/try/cosmosdb/) bir Azure aboneliği olmadan, ücretsiz ve herhangi bir taahhütte bulunmadan deneyebilirsiniz.
 
@@ -82,17 +82,16 @@ Cosmos DB, ilk ve tek hizmettir sunmak olduğundan [sektör lideri kapsamlı SLA
 
 Çalıştırabileceğiniz [Spark](spark-connector.md) Cosmos DB'de depolanan veriler. Bu özellik, doğrudan Cosmos DB'de işletim işlemsel iş yüklerini etkilemeden küresel ölçekte düşük gecikme süreli, operasyonel analiz gerçekleştirmenize olanak tanır.
 
-### <a name="native-wire-compatible-mongodb-cassandra-gremlin-and-azure-table-storage-apis"></a>Yerel kablo ile uyumlu MongoDB, Cassandra, Gremlin ve Azure tablo depolama API'leri
+### <a name="develop-applications-for-cosmos-db-using-popular-nosql-apis"></a>Popüler NoSQL API kullanarak Cosmos DB için uygulamalar geliştirin
 
 Cosmos DB, güncelleştirme ve Cosmos veritabanınızda depolanan verilerinizi sorgulayın API'leri bir seçenek sunar. Varsayılan olarak, [SQL kullanabileceğiniz](how-to-sql-query.md) güncelleştirmek ve Cosmos veritabanı, verilerinizi sorgulayın.
 
-Cosmos DB ayrıca uygulayan [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), ve [Gremlin](graph-introduction.md) protokolleri hizmette doğrudan bağlayabilirsiniz. Böylece noktası Cassandra, MongoDB, Gremlin istemci sürücüleri (ve araçlar) doğrudan, Cosmos veritabanı ve Cosmos Global olarak dağıtılmış, DB Cassandra / / Gremlin hizmet olarak MongoDB-a-lisans, destek, ödeme olmadan tam olarak yönetilen, olarak kullanın veya veya işlemleri veritabanına satıcıya maliyeti. Cassandra/MongoDB/Gremlin/tablo depolama API'leri için yerel destek çeşitli avantajlar sağlar. Şunları yapabilirsiniz:
+Cosmos DB ayrıca uygulayan [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) ve [Azure tablo depolama](table-introduction.md) protokolleri hizmette doğrudan bağlayabilirsiniz. Bu, istemci sürücüleri (ve araçlar) işaret edecek şekilde doğrudan Cosmos veritabanınız için yaygın olarak kullanılan NoSQL API'leri sağlar. Sık kullanılan NoSQL API kablo protokolleri destekleyerek, Cosmos DB sağlar:
 
-* Kolayca Cassandra, MongoDB, Gremlin ve tablo depolama veritabanlarınızı Cosmos DB'ye geçirilebilir. 
-* Cosmos DB Cassandra, MongoDB, Gremlin ve tablo depolama arabirimleri ile arabirim oluşturmak için değişmeden uygulama mantığınızın büyük bölümünü koruyun.
+* Uygulama mantığınızın önemli kısımları korurken Cosmos DB uygulamanıza kolayca geçirin.
 * Uygulamanızı taşınabilir tutun ve bulut satıcısı belirsiz durumda kalır.
-* Sektör, Cosmos DB tarafından desteklenen MongoDB/Cassandra/Gremlin veritabanınız için önde gelen, mali olarak desteklenen SLA'ları alın. 
-* Sağlanan aktarım hızı ve depolama için Cassandra esnek bir biçimde ölçeklendirin ve MongoDB veritabanları ihtiyaçlarınıza göre ve yalnızca aktarım hızını ve ihtiyacınız olan depolama için ödeme yaparsınız. Bu, önemli maliyet tasarrufları yol açar.
+* Sektör ortak NoSQL API için önde gelen, mali olarak desteklenen SLA'ları alın. 
+* Esnek bir şekilde sağlanan aktarım hızı ve depolama için veritabanlarınızı ihtiyaçlarınıza göre ölçeklendirin ve yalnızca aktarım hızını ve ihtiyacınız olan depolama için ödeme yaparsınız. Bu, önemli maliyet tasarrufları yol açar.
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Azure Cosmos DB'den yararlanan çözümler
 

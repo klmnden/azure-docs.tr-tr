@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2351acea7fe5361e22e8221572b81085a0e3a476
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: b8c1130a45f60b9caaacd365cd1c256f50ed7675
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606937"
+ms.locfileid: "53629586"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Öğretici: Azure App Service'de CORS ile RESTful API barındırma
 
@@ -132,7 +132,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Azure web uygulamasına göz atma
+### <a name="browse-to-the-azure-app"></a>Azure uygulamasına göz atma
 
 Tarayıcıda `http://<app_name>.azurewebsites.net/swagger` adresine gidin ve Swagger kullanıcı arabirimiyle çalışın.
 

@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 914dcf6d19ca0791c5914e7d605e48f15a610d62
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d093dbe50cb76faedc463603edc459b22dda4fba
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099520"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628247"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Hızlı Başlangıç: Azure Data Lake depolama Gen2'ye bir depolama hesabı oluşturma
+# <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Hızlı Başlangıç: Bir Azure Data Lake depolama Gen2'ye depolama hesabı oluşturma
 
 Azure Data Lake depolama Gen2'ye [hiyerarşik bir Namespace hizmetinin desteklediği](data-lake-storage-introduction.md) yerel dizin tabanlı sağlayan dosya sistemi Hadoop dağıtılmış dosya sistemi (HDFS) ile çalışacak şekilde tasarlanmış. HDFS'den Data Lake Storage Gen2 verilerine erişim [ABFS sürücüsü](data-lake-storage-abfs-driver.md) aracılığıyla sağlanabilir.
 
@@ -89,7 +89,7 @@ Azure portalında genel amaçlı v2 bir depolama hesabı oluşturmak için aşa�
 2. Seçin, **abonelik** ve **kaynak grubu** daha önce oluşturduğunuz.
 3. Depolama hesabınız için bir ad girin.
 4. **Konum**'u **Batı ABD 2** olarak belirleyin
-5. Şu alanları varsayılan değerlerinde bırakın: **performans**, **hesap türü**, **çoğaltma**, **erişim katmanı**.
+5. Şu alanları varsayılan değerlerinde bırakın: **Performans**, **hesap türü**, **çoğaltma**, **erişim katmanı**.
 6. Depolama hesabını oluşturmak istediğiniz aboneliği seçin.
 7. Seçin **sonraki: Gelişmiş >**
 8. Altında değerleri bırakın **güvenlik** ve **sanal ağlar** alanlarını varsayılan değerlerine ayarlayın.
@@ -116,21 +116,11 @@ Ardından, yükseltme, powershell modülü, Azure aboneliğinizde oturum açın 
 
 ### <a name="upgrade-your-powershell-module"></a>PowerShell modülünüzü yükseltme
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 PowerShell kullanarak Data Lake depolama 2. nesil ile etkileşimde bulunmak üzere, modül Az.Storage sürümü yüklemeniz gerekir **0,7** veya üzeri.
 
 Yükseltilmiş izinlere sahip bir PowerShell oturumu açarak işleme başlayın.
-
-Ardından, AzureRM.Storage Modülü yüklü olup olmadığını belirleyin.
-
-```powershell
-Get-Module -ListAvailable AzureRM.Storage
-```
-
-Bir modül görünürse, bunu kaldırın.
-
-```powershell
-Uninstall-Module AzureRM.Storage -Force
-```
 
 Az.Storage modülünü yükleme
 
@@ -138,28 +128,20 @@ Az.Storage modülünü yükleme
 Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
 ```
 
-AzureRM için Uyumluluk modu etkinleştirin.
-
-```powershell
-Enable-AzureRMAlias
-```
-
-Uyumluluk modu AzureRM.Storage modülü kullanan komut dosyalarını AzureRM.Storage modülü kaldırdınız olsa bile çalışmaya devam edecek anlamına gelir.
-
 > [!NOTE]
-> Azure Powershell Az modülleri, Powershell, Azure hizmetleriyle çalışmak için tercih edilen modüllerdir. Daha fazla bilgi için bkz. [Karşınızda yeni Azure PowerShell Az modül](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0).
+> Azure Powershell Az modülleri, Powershell, Azure hizmetleriyle çalışmak için tercih edilen modüllerdir. Daha fazla bilgi için bkz. [Karşınızda yeni Azure PowerShell Az modül](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 ### <a name="log-in-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açın
 
-Kullanım `Login-AzureRmAccount` izleyin ve komut ekrandaki kimlik doğrulaması yapın.
+Kullanım `Login-AzAccount` izleyin ve komut ekrandaki kimlik doğrulaması yapın.
 
 ```powershell
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-PowerShell ile yeni bir kaynak grubu oluşturmak için [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutunu kullanın: 
+PowerShell ile yeni bir kaynak grubu oluşturmak için kullanın [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu: 
 
 > [!NOTE]
 > Hiyerarşik ad alanı şu anda tüm genel bölgelerde kullanılabilir. Şu anda bağımsız bulutlarda kullanılamıyor.
@@ -169,17 +151,17 @@ PowerShell ile yeni bir kaynak grubu oluşturmak için [New-AzureRmResourceGroup
 # without hardcoding it repeatedly
 $resourceGroup = "storage-quickstart-resource-group"
 $location = "westus2"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Genel amaçlı v2 depolama hesabı oluşturma
 
-PowerShell’den yerel olarak yedekli depolama (LRS) ile genel amaçlı bir v2 depolama hesabı oluşturmak için [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) komutunu kullanın:
+Genel amaçlı v2 depolama hesabı, yerel olarak yedekli depolama (LRS) Powershell'den oluşturmak için kullanın [yeni AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) komutu:
 
 ```powershell
 $location = "westus2"
 
-New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name "storagequickstart" `
   -Location $location `
   -SkuName Standard_LRS `
@@ -189,10 +171,10 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 
 ### <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Kaynak grubunu ve yeni depolama hesabı dahil olmak üzere ilişkili kaynakları kaldırmak için [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanın: 
+Kaynak grubunu ve yeni depolama hesabı dahil olmak üzere ilişkili kaynakları kaldırmak için kullanın [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) komutu: 
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="create-an-account-using-azure-cli"></a>Azure CLI'yı kullanarak hesap oluşturma

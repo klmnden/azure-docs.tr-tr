@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 99afa5a1167d5f1a06504aacdca215564a672833
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ae37befe2ae2220feaf17ae4354b6fc780147f7e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608605"
+ms.locfileid: "53634244"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure'da statik bir HTML web uygulaması oluşturma
 
@@ -106,7 +106,7 @@ Bu komutun çalıştırılması birkaç dakika sürebilir. Çalıştırıldığ�
 
 ## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
-Bir tarayıcıda Azure web uygulaması URL'sine gidin: `http://<app_name>.azurewebsites.net`.
+Bir tarayıcıda, uygulama URL'sine gidin: `http://<app_name>.azurewebsites.net`.
 
 Sayfa bir Azure App Service web uygulaması çalıştırıyor.
 
@@ -132,13 +132,13 @@ Dağıtım tamamlandıktan sonra **Uygulamaya göz atma** adımında açılan ta
 
 ![Güncelleştirilen örnek uygulama giriş sayfası](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Yeni Azure web uygulamanızı yönetme
+## <a name="manage-your-new-azure-app"></a>Yeni Azure uygulamanızı yönetme
 
 Oluşturduğunuz web uygulamasını yönetmek için <a href="https://portal.azure.com" target="_blank">Azure portalına</a> gidin.
 
-Sol menüden **Uygulama Hizmetleri**'ne ve ardından Azure web uygulamanızın adına tıklayın.
+Sol menüden **uygulama hizmetleri**ve ardından Azure uygulamanızın adına tıklayın.
 
-![Portaldan Azure web uygulamasına gitme](./media/app-service-web-get-started-html/portal1.png)
+![Azure uygulamasına portal gezintisi](./media/app-service-web-get-started-html/portal1.png)
 
 Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz.
 

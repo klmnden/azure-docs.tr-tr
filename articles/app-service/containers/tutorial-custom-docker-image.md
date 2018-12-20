@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: ae9da43ac40a3da188e6030659cfb6de166c53bb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 62cdc50b40fb1273fdc2eece050869fc2284cf6c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256086"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632985"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Kapsayıcılar için Web App’e yönelik özel Docker görüntüsü kullanma
 
@@ -193,7 +193,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## <a name="deploy-app-to-azure"></a>Uygulamayı Azure’da dağıtma
 
-Azure Web Apps kullanarak yerel Linux uygulamalarını bulutta barındırabilirsiniz. Kapsayıcılar için Web App oluştururken, grubu, ardından hizmet planını ve son olarak da web uygulamasının kendisini oluşturan Azure CLI komutlarını çalıştırmanız gerekir. 
+Oluşturmak için bir gönderdiğiniz görüntünün kullanan bir uygulamayı bir grubu ardından bir hizmet planına ve son olarak web uygulaması oluşturmayı ve Azure CLI komutlarını çalıştırın. 
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 

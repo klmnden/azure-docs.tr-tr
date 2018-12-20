@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2d247a3135888fc00efd837b706e0a4f0ecc5c47
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: acbd9b3309f55d97b7877907d5ab317464d0191e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601449"
+ms.locfileid: "53631065"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca Azure App Service'te yetkilendirme
 
@@ -119,7 +119,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-web-apps"></a>Azure web uygulamalarına göz atma
+### <a name="browse-to-the-apps"></a>Uygulamalara Gözat
 
 Bir tarayıcıda aşağıdaki URL'lere gittiğinizde iki uygulamanın çalıştığını görebilirsiniz.
 

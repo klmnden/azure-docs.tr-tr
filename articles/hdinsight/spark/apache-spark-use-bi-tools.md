@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure HDInsight’ta Power BI kullanarak Apache Spark verilerini çözümleme '
+title: 'Öğretici: Power BI kullanarak Azure HDInsight Apache Spark verileri analiz etme '
 description: Apache Spark verileri görselleştirmek için Microsoft Power BI kullanım depolanan HDInsight kümeleri
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: e862000df1edc5101c0768f1f96c11953f1485c7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 688aab6c6e67b259931e4e2331e2d632e87f1db9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583287"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651478"
 ---
-# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Öğretici: Power BI kullanarak HDInsight Apache Spark verileri analiz edin 
+# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Öğretici: HDInsight Power BI'ı kullanarak Apache Spark verileri analiz etme 
 
 Nasıl kullanacağınızı öğrenin [Microsoft Power BI](https://powerbi.microsoft.com/) verileri görselleştirmek için bir [Apache Spark](https://spark.apache.org/) içinde küme [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
@@ -28,7 +28,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **[Öğretici: Azure HDInsight içindeki bir Apache Spark kümesinde veri yükleme ve sorgu çalıştırma](./apache-spark-load-data-run-query.md)** makalesini tamamlayın.
+* **Makaleyi tamamlamak [Öğreticisi: Veri yükleme ve Azure HDInsight, Apache Spark kümesinde sorguları çalıştırma](./apache-spark-load-data-run-query.md)**.
 * **Power BI**: [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) ve [Power BI deneme aboneliği](https://app.powerbi.com/signupredirect?pbi_source=web) (isteğe bağlı).
 
 
@@ -69,7 +69,7 @@ Bu bölümde Power BI kullanarak, Spark kümesi verilerinden görselleştirme, r
 ### <a name="create-a-report-in-power-bi-desktop"></a>Power BI Desktop'ta rapor oluşturma
 Spark ile çalışmanın ilk adımları, Power BI Desktop’ta kümeye bağlanmak, kümeden veri yüklemek ve bu verileri temel alarak basit bir görselleştirme oluşturmaktır.
 
-> [!NOTE]
+> [!NOTE]  
 > Bu makalede gösterilen bağlayıcı şu anda önizleme aşamasındadır. Geri bildirimlerinizi [Power BI Topluluğu](https://community.powerbi.com/) sitesi ya da [Power BI Ideas](https://ideas.powerbi.com/forums/265200-power-bi-ideas) sayfasından gönderin.
 
 1. [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/)’ı açın.
@@ -174,7 +174,7 @@ Görseliniz panoya sabitlenir. Rapora başka görseller ekleyebilir ve bu görse
 >
 >
 
-1. Install [Tableau Desktop](http://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
+1. Install [Tableau Desktop](https://www.tableau.com/products/desktop) on the computer where you are running this Apache Spark BI tutorial.
 
 2. Make sure that computer also has Microsoft Spark ODBC driver installed. You can install the driver from [here](https://go.microsoft.com/fwlink/?LinkId=616229).
 

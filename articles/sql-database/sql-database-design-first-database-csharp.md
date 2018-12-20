@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
 ms.date: 11/01/2018
-ms.openlocfilehash: 82cf0303019d2cbb620c442fd6f750f733930f84
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.openlocfilehash: 0608bd9c923ed9ba04f257d87faad48765d3201a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912348"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650301"
 ---
 # <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Öğretici: C&#x23; ve ADO.NET ile bir Azure SQL veritabanı tasarlama ve bağlama
 
@@ -33,7 +33,7 @@ Azure SQL Veritabanı, Microsoft Bulut’ta (Azure) ilişkisel bir hizmet olarak
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 [Visual Studio Community 2017, Visual Studio Professional 2017 veya Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/) yüklemesi.
 
@@ -63,4 +63,4 @@ Bu öğreticide, veritabanı ve tablo oluşturma, veri yükleme ve sorgulama ve 
 Verilerinizi geçirme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [SQL Server veritabanınızı Azure SQL Veritabanına geçirme](sql-database-migrate-your-sql-server-database.md)
+> [DMS kullanarak SQL Server'ı çevrimdışı Azure SQL Veritabanına geçirme](../dms/tutorial-sql-server-to-azure-sql.md)

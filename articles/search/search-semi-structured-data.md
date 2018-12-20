@@ -1,5 +1,5 @@
 ---
-title: Azure bulut depolama - Azure Search yarı yapılandırılmış verileri arama Öğreticisi
+title: JSON Azure Blob storage'da - Azure Search arama Öğreticisi
 description: Bu öğreticide, Azure Search kullanarak yarı yapılandırılmış Azure blob verilerini aramayı öğreneceksiniz.
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5608495ff2975cabefdb83e5794a7d92b318b5a5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ba9b34dbd9d0959e79c755abc8dad9fe1d358a50
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313835"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632951"
 ---
 # <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>Öğretici: Azure bulut depolamada yarı yapılandırılmış verileri arama
 
@@ -60,7 +60,7 @@ Sizin için bir örnek veri kümesi hazırlandı. **[clinical-trials-json.zip](h
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[Azure Portal](http://portal.azure.com) oturum açın.
+[Azure Portal](https://portal.azure.com) oturum açın.
 
 ## <a name="upload-the-sample-data"></a>Örnek verileri karşıya yükleme
 

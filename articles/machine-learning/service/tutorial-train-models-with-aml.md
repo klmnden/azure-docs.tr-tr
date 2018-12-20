@@ -11,34 +11,34 @@ ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a2208e160d641d762b57668cdc635fe877677ff5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b2013cc96b8c310f099883890f91c23d45828b60
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310122"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651683"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Öğretici: Bir Azure Machine Learning hizmeti ile görüntü sınıflandırma modeli eğitme
 
-Bu öğreticide, makine öğrenmesi modelini hem yerel olarak hem de uzak işlem kaynaklarında eğitiyorsunuz. Azure Machine Learning hizmetinde bir Python Jupyter not defteri için eğitim ve dağıtım iş akışı'nı kullanacaksınız.  Ardından not defterini şablon olarak kullanıp kendi verilerinizle kendi makine öğrenmesi modelinizi eğitebilirsiniz. Bu öğretici, **iki bölümden oluşan bir öğretici serisinin birinci bölümüdür**.  
+Bu öğreticide, makine öğrenmesi modelini hem yerel olarak hem de uzak işlem kaynaklarında eğitiyorsunuz. Azure Machine Learning hizmetinde bir Python Jupyter not defteri için eğitim ve dağıtım iş akışı'nı kullanın. Ardından not defterini şablon olarak kullanıp kendi verilerinizle kendi makine öğrenmesi modelinizi eğitebilirsiniz. Bu öğretici, **iki bölümden oluşan bir öğretici serisinin birinci bölümüdür**.  
 
-Bu öğretici, Azure Machine Learning hizmeti ile [MNIST](https://yann.lecun.com/exdb/mnist/) veri kümesini ve [scikit-learn](https://scikit-learn.org) kitaplığını kullanarak basit bir lojistik regresyonu eğitir.  MNIST, 70.000 gri tonlamalı resimden oluşan popüler bir veri kümesidir. Her resim 28x28 piksel bir el yazısı rakamdır ve 0 ile 9 arası bir sayıyı temsil eder. Amaç, belirli bir resim temsil ettiği rakamı tanımlamak için çok sınıflı bir sınıflandırıcı oluşturmaktır. 
+Bu öğreticide basit bir Lojistik regresyon kullanarak eğitir [MNIST](https://yann.lecun.com/exdb/mnist/) veri kümesi ve [scikit-bilgi](https://scikit-learn.org) Azure Machine Learning hizmeti ile. MNIST, 70.000 gri tonlamalı resimden oluşan popüler bir veri kümesidir. Her bir el yazısı basamak 28 x 28 piksel, dokuz sıfırdan bir sayıyı temsil eden görüntüsüdür. Belirli bir görüntüyü basamak tanımlamak için bir çok sınıflı sınıflandırıcı oluşturulacağını temsil eden hedeftir. 
 
-Şunları nasıl yapacağınızı öğrenin:
+Aşağıdaki eylemleri gerçekleştirmeniz öğrenin:
 
 > [!div class="checklist"]
-> * Geliştirme ortamınızı kurma
-> * Verilere erişme ve onları inceleme
-> * Popüler scikit-learn makine öğrenimi kitaplığını kullanarak basit bir lojistik regresyon modelini eğitme 
-> * Uzak kümede birden çok modeli eğitme
-> * Eğitim sonuçlarını inceleme ve en iyi modeli kaydetme
+> * Geliştirme ortamınızı ayarlayın.
+> * Erişim ve verileri inceleyin.
+> * Popüler scikit kullanarak yerel olarak basit bir Lojistik regresyon eğitme-makine öğrenimi kitaplığı öğrenin. 
+> * Bir uzak kümesi üzerinde birden çok modeli eğitin.
+> * Eğitim sonuçlarını gözden geçirin ve en iyi modeli kaydedin.
 
-Daha sonra [bu öğreticinin ikinci bölümünde](tutorial-deploy-models-with-aml.md) model seçmeyi ve dağıtmayı öğreneceksiniz. 
+Bir model seçin ve bunu dağıtma hakkında bilgi edinin [Bu öğreticinin İkinci bölüm](tutorial-deploy-models-with-aml.md). 
 
 Azure aboneliğiniz yoksa başlamadan önce ücretsiz bir hesap oluşturun. Deneyin [Azure Machine Learning hizmetinin ücretsiz veya Ücretli sürümüne](http://aka.ms/AMLFree) bugün.
 
 >[!NOTE]
-> Bu makalede kod Azure Machine Learning SDK sürümü 1.0.2 ile test edilmiştir
+> Bu makalede kod, Azure Machine Learning SDK sürümü 1.0.2 ile test edilmiştir.
 
 ## <a name="get-the-notebook"></a>Not defterini alma
 
@@ -49,16 +49,16 @@ Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com
 
 ## <a name="set-up-your-development-environment"></a>Geliştirme ortamınızı kurma
 
-Geliştirme çalışmanızdaki tüm kurulum bir Python not defterinde gerçekleştirilebilir.  Kurulum şunları içerir:
+Geliştirme çalışmanızdaki tüm kurulum bir Python not defterinde gerçekleştirilebilir. Kurulumu, aşağıdaki eylemleri içerir:
 
-* Python paketlerini içeri aktarma
-* Yerel bilgisayarınızla uzak kaynaklar arasında iletişim kurulmasına olanak tanımak için çalışma alanına bağlanma
-* Tüm çalıştırmalarınızı izlemek için bir deneme oluşturma
-* Eğitim için kullanılacak uzak işlem hedefini oluşturma
+* Python paketlerini içeri aktarın.
+* Yerel bilgisayarınızda uzak kaynaklarla iletişim kurabilmesi için bir çalışma alanına bağlayın.
+* Tüm çalıştırmalar izlemek için bir deneme oluşturun.
+* Eğitim için kullanılacak uzak işlem hedefi oluşturmak.
 
 ### <a name="import-packages"></a>Paketleri içeri aktarma
 
-Bu oturumda ihtiyacınız olan Python paketlerini içeri aktarın. Ayrıca Azure Machine Learning SDK'sının sürümünü görüntüleyin.
+Bu oturumda ihtiyacınız olan Python paketlerini içeri aktarın. Ayrıca Azure Machine Learning SDK sürümü görüntüler:
 
 ```python
 %matplotlib inline
@@ -73,9 +73,9 @@ from azureml.core import Workspace, Run
 print("Azure ML SDK Version: ", azureml.core.VERSION)
 ```
 
-### <a name="connect-to-workspace"></a>Çalışma alanına bağlanma
+### <a name="connect-to-a-workspace"></a>Bir çalışma alanına bağlayın
 
-Mevcut çalışma alanından bir çalışma alanı nesnesi oluşturun. `Workspace.from_config()`, **config.json** dosyasını okur ve ayrıntıları `ws` adlı nesneye yükler.
+Mevcut çalışma alanından bir çalışma alanı nesnesi oluşturun. `Workspace.from_config()` Dosya Okuma **config.json** ve ayrıntıları adlı bir nesnesine yükler `ws`:
 
 ```python
 # load workspace configuration from the config.json file in the current folder.
@@ -83,9 +83,9 @@ ws = Workspace.from_config()
 print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 ```
 
-### <a name="create-experiment"></a>Deneme oluşturma
+### <a name="create-an-experiment"></a>Deneme oluşturma
 
-Çalışma alanınızdaki çalıştırmaları izleyecek bir deneme oluşturun. Bir çalışma alanının birden çok denemesi olabilir. 
+Çalışma alanınızdaki çalıştırmaları izleyecek bir deneme oluşturun. Bir çalışma alanı, birden çok deneme olabilir: 
 
 ```python
 experiment_name = 'sklearn-mnist'
@@ -94,11 +94,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-or-attach-existing-amlcompute"></a>Oluşturun veya var olan AMlCompute ekleme
+### <a name="create-or-attach-an-existing-amlcompute"></a>Oluşturun veya var olan bir AMlCompute ekleme
 
-Azure Machine Learning yönetilen Compute(AmlCompute) kümelerinde GPU desteğine sahip VM'ler gibi Azure sanal makineler, makine öğrenimi modellerini eğitmek veri bilimcilerine sağlayan bir yönetilen hizmettir.  Bu öğreticide, eğitim ortamınızı AmlCompute oluşturun. Çalışma alanınızda zaten yoksa, bu kod, sizin için işlem kümeleri olarak oluşturur.
+Azure Machine Learning işlem (AmlCompute) yönetilen bir hizmet kullanarak veri bilimcileri makine öğrenimi modellerini Azure sanal makinelerini kümeleri hakkında eğitebilirsiniz. Örnekler, GPU desteğine sahip sanal makinelerini içerir. Bu öğreticide, eğitim ortamınızı AmlCompute oluşturun. Çalışma alanınızda zaten mevcut olmaması durumunda bu kod, sizin için işlem kümeleri olarak oluşturur.
 
- **İşlemin oluşturulması yaklaşık 5 dakika sürer.** İşlem çalışma alanında ise bu kod kullanır ve oluşturma işlemini atlar.
+ **İşlem oluşturulması yaklaşık beş dakika sürer.** İşlem çalışma alanında ise, bu kod kullanır ve oluşturma işlemi atlanıyor:
 
 
 ```python
@@ -145,15 +145,15 @@ Artık bulutta bir modeli eğitmek için gerekli paketleriniz ve işlem kaynakla
 
 ## <a name="explore-data"></a>Verileri inceleme
 
-Modeli eğitmeden önce, eğitimde kullandığınız verileri anlamanız gerekir.  Ayrıca bulut eğitim ortamınızın erişebilmesi için verileri buluta kopyalamalısınız.  Bu bölümde şunları nasıl yapabileceğinizi öğrenirsiniz:
+Bir model eğitip önce onu eğitmek için kullandığınız verileri anlamak gerekir. Ayrıca, verileri buluta kopyalama gerekir. Ardından, bulut eğitim ortamı tarafından erişilebilir. Bu bölümde, aşağıdaki eylemleri hakkında bilgi edinin:
 
-* MNIST veri kümesini indirme
-* Bazı örnek görüntüleri gösterme
-* Verileri buluta yükleme
+* MNIST veri kümesini indirin.
+* Bazı örnek görüntüler.
+* Verilerini buluta yükleyin.
 
 ### <a name="download-the-mnist-dataset"></a>MNIST veri kümesini indirme
 
-MNIST veri kümesini indirin ve dosyaları yerel olarak `data` dizinine kaydedin.  Hem eğitim hem test için görüntüler ve etiketler karşıya yüklenir.
+MNIST veri kümesini indirin ve dosyaları yerel olarak `data` dizinine kaydedin. Görüntüleri ve etiketleri eğitim ve test için yüklenir:
 
 
 ```python
@@ -170,7 +170,7 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
 
 ### <a name="display-some-sample-images"></a>Bazı örnek görüntüleri gösterme
 
-Sıkıştırılmış dosyaları `numpy` dizilerine yükleyin. Ardından `matplotlib` kullanarak, üst kısımlarında etiketleriyle veri kümesinden 30 rastgele görüntü çizin. Bu adım gerektirir Not bir `load_data` dahil işlevi bir `util.py` dosya. Bu dosya örnek klasöründe bulunur. Lütfen bu not defteriyle aynı klasöre yerleştirildiğinden emin olun. `load_data` İşlevi yalnızca sıkıştırılmış dosyalar numpy diziye ayrıştırır.
+Sıkıştırılmış dosyaları `numpy` dizilerine yükleyin. Ardından `matplotlib` kullanarak, üst kısımlarında etiketleriyle veri kümesinden 30 rastgele görüntü çizin. Bu adım gerektirir bir `load_data` dahil işlevi bir `util.py` dosya. Bu dosya örnek klasöründe bulunur. Bu not defteri ile aynı klasörde yerleştirildiğinden emin olun. `load_data` İşlevi yalnızca sıkıştırılmış dosyalar numpy diziye ayrıştırır:
 
 
 
@@ -185,7 +185,7 @@ y_train = load_data('./data/train-labels.gz', True).reshape(-1)
 X_test = load_data('./data/test-images.gz', False) / 255.0
 y_test = load_data('./data/test-labels.gz', True).reshape(-1)
 
-# now let's show some randomly chosen images from the traininng set.
+# now let's show some randomly chosen images from the training set.
 count = 0
 sample_size = 30
 plt.figure(figsize = (16, 6))
@@ -201,15 +201,15 @@ plt.show()
 
 Rastgele görüntü örnekleri gösterilir:
 
-![rastgele görüntü örnekleri](./media/tutorial-train-models-with-aml/digits.png)
+![rastgele örnek görüntüleri](./media/tutorial-train-models-with-aml/digits.png)
 
 Artık bu görüntülerin nasıl göründüğü ve beklenen tahmin sonucu hakkında bir fikriniz oldu.
 
 ### <a name="upload-data-to-the-cloud"></a>Verileri buluta yükleme
 
-Şimdi verileri yerel makinenizden Azure'a yükleyerek uzaktan erişilebilir duruma getirin. Böylece uzaktan eğitim için bunlara erişilebilir. Veri deposu, verileri karşıya yüklemeniz/indirmeniz ve uzak işlem hedeflerinizden verilerle etkileşimli çalışmanız için çalışma alanınızla ilişkilendirilmiş kullanışlı bir yapıdır. Azure blob depolama hesabı ile desteklenir.
+Artık verilerin erişilebilir uzaktan Azure'a bu verileri yerel makinenizden karşıya yükleyerek hale getirir. Ardından uzak eğitim için erişilebilir. Veri deposu, karşıya yükleme veya verileri indirmek için çalışma alanıyla ilişkili kullanışlı bir yapıdır. Ayrıca, uzak işlem hedeflerden ile de etkileşim kurabilirsiniz. Bu, bir Azure Blob Depolama hesabı tarafından desteklenir.
 
-MNIST dosyaları, veri deposunun kökündeki `mnist` adlı bir dizine yüklenir.
+Adlı bir dizine MNIST dosyalar yüklendiğinde `mnist` veri deposu, kökünde:
 
 ```python
 ds = ws.get_default_datastore()
@@ -221,9 +221,9 @@ Artık modeli eğitmeye başlamak için gereken her şeye sahipsiniz.
 
 ## <a name="train-a-local-model"></a>Yerel bir model eğitip
 
-Scikit kullanarak bir basit Lojistik regresyon modelini eğitme-yerel olarak öğrenin.
+Scikit kullanarak basit bir Lojistik regresyon modelini eğitme-yerel olarak öğrenin.
 
-Bilgisayarınızın yapılandırmasına bağlı olarak **yerel eğitmek bir veya iki dakika sürer**.
+**Yerel olarak eğitim alabilir bir veya iki dakika** bilgisayar yapılandırmanıza bağlı olarak:
 
 ```python
 %%time
@@ -233,7 +233,7 @@ clf = LogisticRegression()
 clf.fit(X_train, y_train)
 ```
 
-Ardından, test kümesini kullanarak tahminler yapın ve doğruluğu ölçün. 
+Sonraki test kümesi kullanarak tahmin yapmayı ve doğrulukta hesaplama: 
 
 ```python
 y_hat = clf.predict(X_test)
@@ -244,21 +244,21 @@ Yerel modelin doğruluğu görüntülenir:
 
 `0.9202`
 
-Yalnızca birkaç kod satırıyla %92 doğruluk elde ettiniz.
+Yalnızca birkaç kod satırıyla, 92 yüzde kesinliğe sahip.
 
 ## <a name="train-on-a-remote-cluster"></a>Uzak kümede eğitme
 
-Şimdi, farklı bir düzenleme hızıyla bir model oluşturarak bu basit modeli genişletebilirsiniz. Bu kez modeli uzak kaynakta eğiteceksiniz.  
+Şimdi, farklı bir düzenleme hızıyla bir model oluşturarak bu basit modeli genişletebilirsiniz. Bu kez, uzak kaynak modeli eğitin.  
 
-Bu görev için, işi daha önce ayarlamış olduğunuz uzak eğitim kümesine gönderin.  İş göndermek için şunları yaparsınız:
-* Dizin oluşturma
-* Eğitim betiği oluşturma
-* Tahmin nesne oluşturma
-* İşi gönderme 
+Bu görev için, işi daha önce ayarlamış olduğunuz uzak eğitim kümesine gönderin. Bir işi göndermek için aşağıdaki adımları uygulayın:
+* Bir dizin oluşturun.
+* Bir eğitim betiği oluşturun.
+* Tahmin nesnesi oluşturun.
+* İşi Gönder.
 
 ### <a name="create-a-directory"></a>Dizin oluşturma
 
-Gerekli kodu bilgisayarınızdan uzak kaynağa teslim etmek için bir dizin oluşturun.
+Gerekli kodu bilgisayarınızdan uzak kaynağa sunmak için bir dizin oluşturun:
 
 ```python
 import os
@@ -268,7 +268,7 @@ os.makedirs(script_folder, exist_ok=True)
 
 ### <a name="create-a-training-script"></a>Eğitim betiği oluşturma
 
-İşi kümeye göndermek için, önce bir eğitim betiği oluşturun. Aşağıdaki kodu çalıştırarak, az önce oluşturduğunuz dizinde `train.py` adlı eğitim betiğini oluşturun. Bu eğitim, eğitim algoritmasına bir düzenleme oranı ekler ve bu nedenle yerel sürümden biraz farklı bir model oluşturur.
+İşi kümeye göndermek için, önce bir eğitim betiği oluşturun. Adlı bir eğitim betiği oluşturmak için aşağıdaki kodu çalıştırın `train.py` oluşturduğunuz dizine. Bu eğitim, eğitim algoritması için normalleştirme oranını ekler. Bu nedenle yerel belirtilenden biraz daha farklı bir model oluşturur:
 
 ```python
 %%writefile $script_folder/train.py
@@ -303,7 +303,7 @@ print(X_train.shape, y_train.shape, X_test.shape, y_test.shape, sep = '\n')
 # get hold of the current run
 run = Run.get_context()
 
-print('Train a logistic regression model with regularizaion rate of', args.reg)
+print('Train a logistic regression model with regularization rate of', args.reg)
 clf = LogisticRegression(C=1.0/args.reg, random_state=42)
 clf.fit(X_train, y_train)
 
@@ -324,12 +324,12 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 Betiğin verileri nasıl aldığına ve modelleri nasıl kaydettiğine dikkat edin:
 
-+ Eğitim betiği verileri içeren dizini bulmak için bir bağımsız değişkeni okur.  Daha sonra işi gönderdiğinizde, bu bağımsız değişken için veri deposuna işaret edersiniz: `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
++ Eğitim betiği, veri içeren dizine bulmak için bir bağımsız değişken okur. Daha sonra işi gönderdiğinizde, bu bağımsız değişken için veri deposu üzerine: `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`.
 
-+ Eğitim betiği modelinizi outputs adlı dizine kaydeder. <br/>
-`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`<br/>
-Bu dizine yazılan her şey otomatik olarak çalışma alanınıza yüklenir. Öğreticide daha sonra bu dizinden modelinize erişeceksiniz.
-Veri kümesini doğru yüklemek için eğitim betiğinden `utils.py` dosyasına başvurulur.  Bu betiği betik klasörünüze kopyalayın. Böylelikle, uzak kaynakta eğitim betiğiyle birlikte bu betiğe de erişilebilir.
++ Eğitim betiğini modelinizi adlı bir dizine kaydeder. **çıkarır**: <br/>
+`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`.<br/>
+Bu dizine yazılan her şey otomatik olarak çalışma alanınıza yüklenir. Öğreticinin ilerleyen bölümlerinde bu dizinden modelinizi erişin.
+Veri kümesini doğru yüklemek için eğitim betiğinden `utils.py` dosyasına başvurulur. Uzak Kaynak eğitim betiği birlikte erişilebilir olacak şekilde bu betiği komut dosyası klasörüne kopyalayın.
 
 
 ```python
@@ -340,16 +340,16 @@ shutil.copy('utils.py', script_folder)
 
 ### <a name="create-an-estimator"></a>Tahmin aracı oluşturma
 
-Tahmin aracı nesnesi, çalıştırmayı göndermek için kullanılır.  Şunları tanımlamak için aşağıdaki kodu çalıştırın ve tahmin aracınızı oluşturun:
+Tahmin aracı nesnesi, çalıştırmayı göndermek için kullanılır. Bu öğeleri tanımlamak için aşağıdaki kodu çalıştırarak, tahmin oluşturun:
 
-* Tahmin aracı nesnesinin adı, `est`
+* Tahmin nesnesinin adını `est`.
 * Betiklerinizi içeren dizin. Bu dizindeki dosyaların tümü yürütülmek üzere küme düğümlerine yüklenir. 
-* Bilgi işlem hedefi.  Bu durumda, oluşturduğunuz Azure Machine Learning işlem kümesi kullanır.
-* Eğitim betik adı, train.py
-* Eğitin betiğinden gerekli parametreler 
-* Eğitim için gereken Python paketleri
+* Bilgi işlem hedefi. Bu durumda, oluşturduğunuz Azure Machine Learning işlem kümesi kullanın.
+* Eğitim betik adı **train.py**.
+* Eğitim betikten gerekli parametreleri. 
+* Eğitim için gereken Python paketleri.
 
-Bu öğreticide, bu AmlCompute hedefidir. Betik klasördeki tüm dosyaları yürütme için küme düğümlerine yüklenir. Data_folder veri deposunu kullanacak şekilde ayarlanır (`ds.as_mount()`).
+Bu öğreticide, bu AmlCompute hedefidir. Betik klasördeki tüm dosyaları çalıştırmak için küme düğümlerinin yüklenir. **Data_folder** veri deposu kullanmak üzere ayarlanmış `ds.as_mount()`:
 
 ```python
 from azureml.train.estimator import Estimator
@@ -369,37 +369,37 @@ est = Estimator(source_directory=script_folder,
 
 ### <a name="submit-the-job-to-the-cluster"></a>İşi kümeye gönderme
 
-Tahmin aracı nesnesini göndererek denemeyi çalıştırın.
+Denemeyi estimator nesne göndererek çalıştırın:
 
 ```python
 run = exp.submit(config=est)
 run
 ```
 
-Çağrı zaman uyumsuz olduğundan, iş başlatıldığı anda **Hazırlanıyor** veya **Çalıştırılıyor** durumunu gönderir.
+Zaman uyumsuz bir çağrı olduğundan, onu döndürür bir **hazırlama** veya **çalıştıran** iş başlatıldıktan hemen sonra durum.
 
 ## <a name="monitor-a-remote-run"></a>Uzaktan çalıştırmayı izleme
 
-Toplamda, ilk çalıştırma **yaklaşık 10 dakika** sürer. Ama betik bağımlılıkları değişmediği sürece bunu izleyen çalıştırmalarda aynı görüntü yeniden kullanılır ve dolayısıyla kapsayıcı başlatma süresi çok daha kısa olur.
+Toplam olarak, ilk çalıştırma alır **yaklaşık 10 dakika**. Ancak, sonraki çalıştırmalar için betik bağımlılıkları değiştirme sürece, aynı görüntüsü yeniden kullanılır. Bu nedenle kapsayıcı başlatma süresi çok daha hızlıdır.
 
-Siz beklerken şunlar gerçekleştirilir:
+Beklerken ne olur:
 
-- **Görüntü oluşturma**: Tahmin aracı tarafından belirtilen Python ortamı eşleşen bir Docker görüntüsü oluşturulur. Görüntü, çalışma alanına yüklenir. Görüntüyü oluşturma ve karşıya yükleme **yaklaşık 5 dakika** sürer. 
+- **Görüntü oluşturma**: Bir Docker görüntüsü estimator tarafından belirtilen Python ortamı eşleşen oluşturulur. Görüntü, çalışma alanına yüklenir. Görüntü oluşturma ve karşıya yükleme alır **yaklaşık beş dakikada**. 
 
-  Bu aşama her Python ortamı için tek bir kez gerçekleştirilir çünkü bunu izleyen çalıştırmalar için kapsayıcı önbelleğe alınır.  Görüntü oluşturma sırasında, günlükler çalıştırma geçmişine aktarılır. Bu günlükleri kullanarak görüntü oluşturma işleminin ilerleme durumunu izleyebilirsiniz.
+  Sonraki çalıştırmaları için kapsayıcı önbelleğe alındığından bu aşamanın her Python ortamı için bir kez gerçekleşir. Görüntü oluşturma sırasında, günlükler çalıştırma geçmişine aktarılır. Bu günlükleri kullanarak görüntü oluşturma ilerleme durumunu izleyebilirsiniz.
 
-- **Ölçeklendirme**: Uzak kümeye çalıştırma şu anda kullanılabilir daha yürütmek için daha fazla düğüm gerekiyorsa, ek düğümler otomatik olarak eklenir. Ölçekleme genellikle **yaklaşık 5 dakika** sürer.
+- **Ölçeklendirme**: Uzak kümeye çalıştırma daha şu anda kullanılabilir yapmak için daha fazla düğüm gerekiyorsa, ek düğümler otomatik olarak eklenir. Genellikle ölçekleme alan **yaklaşık beş dakika.**
 
-- **Çalışan**: Bu aşamada gerekli betikler ve dosyaları işlem hedefine gönderilir sonra bağlı ve kopyalanan veri depoları entry_script çalıştırın. İş çalıştırılırken, stdout ve ./logs dizini çalıştırma geçmişine aktarılır. Bu günlükleri kullanarak çalıştırma işleminin ilerleme durumunu izleyebilirsiniz.
+- **Çalışan**: Bu aşamada, gerekli betikler ve dosyaları işlem hedefine gönderilir. Ardından veri depoları takılı kopyaladığınız veya. Ardından **entry_script** çalıştırılır. İş çalışırken **stdout** ve **. / günlükleri** dizin için çalıştırma geçmişi akış. Bu günlükleri kullanarak çalışmanın ilerlemesini izleyebilirsiniz.
 
-- **İşleme sonrası**: . / Çalıştırma dizinine kopyalanır üzerinden çalıştırma geçmişini çalışma alanınızda bu sonuçları erişebilmesi çıkarır.
+- **İşleme sonrası**: **. / Çıkışlar** çalıştırma dizinine kopyalanır üzerinden çalıştırma geçmişini çalışma alanınızda bu sonuçları erişebilmesi için.
 
 
-Çalışan işin ilerleme durumunu çeşitli yollarla denetleyebilirsiniz. Bu öğreticide hem Jupyter pencere öğesi hem de `wait_for_completion` yöntemi kullanılır. 
+Çeşitli şekillerde çalışan işin ilerleme durumunu kontrol edebilirsiniz. Bu öğreticide bir Jupyter pencere öğesi ve bir `wait_for_completion` yöntemi. 
 
 ### <a name="jupyter-widget"></a>Jupyter pencere öğesi
 
-Çalıştırmanın ilerleme durumunu Jupyter pencere öğesiyle izleyin.  Çalıştırma gönderimi gibi pencere öğesi de zaman uyumsuzdur ve iş tamamlanana kadar her 10-15 saniyede bir canlı güncelleştirmeler sağlar.
+Çalıştırmanın ilerleme durumunu Jupyter pencere öğesiyle izleyin. Çalıştırma gönderim gibi pencere öğesi zaman uyumsuz ve canlı güncelleştirmeler iş tamamlanana kadar her 10 ila 15 saniyede sağlar:
 
 
 ```python
@@ -407,13 +407,13 @@ from azureml.widgets import RunDetails
 RunDetails(run).show()
 ```
 
-Burada, pencere öğesinin eğitimin sonunda gösterilen durağan bir anlık görüntüsü verilmiştir:
+Bu yine de anlık görüntü eğitim sonunda gösterilen pencere öğesi şöyledir:
 
-![not defteri pencere öğesi](./media/tutorial-train-models-with-aml/widget.png)
+![Not Defteri pencere öğesi](./media/tutorial-train-models-with-aml/widget.png)
 
 ### <a name="get-log-results-upon-completion"></a>Tamamlandıktan sonra günlük sonuçlarını alma
 
-Model eğitimi ve izlemesi arka planda yapılır. Daha fazla kod çalıştırmadan önce model eğitiminin tamamlanmasını bekleyin. Model eğitiminin ne zaman tamamlandığını göstermek için `wait_for_completion` kullanın. 
+Model eğitimi ve izlemesi arka planda yapılır. Daha fazla kod çalıştırmadan önce model eğitim tamamlanana kadar bekleyin. Kullanım `wait_for_completion` modeli eğitimi tamamlandığında göstermek için: 
 
 
 ```python
@@ -422,28 +422,28 @@ run.wait_for_completion(show_output=False) # specify True for a verbose log
 
 ### <a name="display-run-results"></a>Çalıştırma sonuçlarını görüntüleme
 
-Artık uzak düğümde eğitilmiş bir modeliniz vardır.  Modelin doğruluğunu alın:
+Artık uzak düğümde eğitilmiş bir modeliniz vardır. Modelin doğruluğunu alın:
 
 ```python
 print(run.get_metrics())
 ```
-Çıkışta uzak modelin doğruluğunun yerel modelden biraz fazla olduğu gösterilir; bunun nedeni eğitim sırasında kurallaştırma oranının eklenmesidir.  
+Çıktı normalleştirme oranını eklenmesini eğitim sırasında nedeniyle yerel modelinden biraz daha yüksek doğruluk uzaktan modeline sahip gösterir:  
 
 `{'regularization rate': 0.8, 'accuracy': 0.9204}`
 
-Sonraki Öğreticide bu modeli daha ayrıntılı inceleyeceksiniz.
+Sonraki öğreticide, bu modeli daha ayrıntılı keşfedin.
 
 ## <a name="register-model"></a>Modeli kaydetme
 
-Son adımda eğitim betiği işin yürütüldüğü kümenin sanal makinesinde yer alan `outputs` adlı dizine `outputs/sklearn_mnist_model.pkl` dosyasını yazar. `outputs` özel bir dizindir; şöyle ki, dizindeki tüm içerik otomatik olarak çalışma alanınıza yüklenir.  Bu içerik çalışma alanınızın altında yer alan denemedeki çalıştırma kaydında gösterilir. Bu nedenle, model dosyası artık çalışma alanınızda da kullanılabilir durumdadır.
+Son adımda eğitim betik dosyası yazıldı `outputs/sklearn_mnist_model.pkl` adlı bir dizinde `outputs` işin çalıştırıldığı kümesinin VM. `outputs` Bu dizindeki tüm içeriği için çalışma alanınızı otomatik olarak yüklenir, özel bir dizindir. Bu içerik çalışma alanınızın altında yer alan denemedeki çalıştırma kaydında gösterilir. Bu nedenle model dosyası ayrıca çalışma alanınızda kullanıma sunuldu.
 
-Bu çalıştırmayla ilişkilendirilmiş dosyaları görebilirsiniz.
+Çalıştırılan ile ilişkili dosyaları görebilirsiniz:
 
 ```python
 print(run.get_file_names())
 ```
 
-Bu modelin siz (veya birlikte çalıştıklarınızdan biri) tarafından daha sonra sorgulanabilmesi, incelenebilmesi ve dağıtılabilmesi için, çalışma alanında modeli kaydedin.
+Böylece, veya diğer ortak çalışanlar daha sonra sorgu inceleyin ve bu model dağıtma modeli çalışma alanında, kaydedin:
 
 ```python
 # register model 
@@ -455,26 +455,26 @@ print(model.name, model.id, model.version, sep = '\t')
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
-Doğrudan Azure Yönetilen İşlem kümesini de silebilirsiniz. Öte yandan, otomatik ölçeklendirme açıldığından ve küme alt sınırı 0 olduğundan dolayı, bu özel kaynak kullanımda olmadığında ek işlem ücreti alınmaz.
+Yalnızca Azure Machine Learning işlem kümesi de silebilirsiniz. Ancak, otomatik ölçeklendirme açık olduğundan ve kümenin en az sıfırdır. Bu nedenle bu kaynak, kullanımda olmadığında ek işlem ücreti alınmayacaktır:
 
 
 ```python
-# optionally, delete the Azure Managed Compute cluster
+# optionally, delete the Azure Machine Learning Compute cluster
 compute_target.delete()
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu Azure Machine Learning hizmeti öğreticisinde Python kullanarak aşağıdakileri yaptınız:
+Bu Azure Machine Learning hizmeti öğreticide aşağıdaki görevler için Python kullanılır:
 
 > [!div class="checklist"]
-> * Geliştirme ortamınızı kurma
-> * Verilere erişme ve onları inceleme
-> * Popüler scikit-learn makine öğrenimi kitaplığını kullanarak basit bir lojistik regresyon modelini eğitme
-> * Uzak kümede birden çok modeli eğitme
-> * Eğitim ayrıntılarını inceleme ve en iyi modeli kaydetme
+> * Geliştirme ortamınızı ayarlayın.
+> * Erişim ve verileri inceleyin.
+> * Popüler scikit kullanarak yerel olarak basit bir Lojistik regresyon eğitme-makine öğrenimi kitaplığı öğrenin.
+> * Bir uzak kümesi üzerinde birden çok modeli eğitin.
+> * Eğitim ayrıntılarını gözden geçirin ve en iyi modeli kaydedin.
 
-Öğretici serisinin sonraki bölümünde verilen yönergeleri kullanarak bu kayıtlı modeli dağıtmaya hazırsınız:
+Kayıtlı Bu model, öğretici serisinin bir sonraki bölümü içindeki yönergeleri kullanarak dağıtmaya hazırsınız:
 
 > [!div class="nextstepaction"]
 > [Öğretici 2 - Modelleri dağıtma](tutorial-deploy-models-with-aml.md)

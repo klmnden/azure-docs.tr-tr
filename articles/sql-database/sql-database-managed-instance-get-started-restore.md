@@ -11,42 +11,46 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: bc27ece2eddc842a81698aaa685cbe6d63c6a1df
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.date: 12/14/2018
+ms.openlocfilehash: 40d07827cbd856fe3be3d797dde793b1a7f50207
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912263"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653247"
 ---
-# <a name="quickstart-restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Hızlı Başlangıç: Veritabanı yedeklemesini Azure SQL Veritabanı Yönetilen Örneğine geri yükleme
+# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Hızlı Başlangıç: Bir veritabanı yönetilen örneği'ne geri yükleme 
 
-Bu hızlı başlangıçta Wide World Importers - Standart yedekleme dosyasını kullanarak Azure blob depolama’da depolanan bir veritabanı yedeklemesinin Yönetilen Örneğe nasıl geri yükleneceği gösterilmektedir. Bu yöntem miktar biraz kesinti süresine neden olur. 
+Bu hızlı başlangıçta, bir veritabanı (Wide World Importers - standart yedekleme dosyasını) Azure blob depolama alanından Azure SQL veritabanı'na geri yüklemek için SQL Server Management Studio (SSMS) kullanacaksınız [yönetilen örneği](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance). 
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
-Azure Veritabanı Geçiş Hizmeti’ni (DMS) geçiş için kullanmaya ilişkin bir öğretici için bkz. [DMS kullanarak Yönetilen Örnek geçişi](../dms/tutorial-sql-server-to-managed-instance.md). Çeşitli geçiş yöntemleriyle ilgili bir tartışma için bkz. [SQL Server örneğinin Azure SQL Veritabanı Yönetilen Örneği'ne geçişi](sql-database-managed-instance-migrate.md).
+> [!NOTE]
+> * Kullanarak Azure veritabanı geçiş hizmeti (DMS) geçişi hakkında daha fazla bilgi için bkz. [DMS kullanarak yönetilen örneğe geçiş](../dms/tutorial-sql-server-to-managed-instance.md). 
+> * Çeşitli geçiş yöntemleri hakkında daha fazla bilgi için bkz. [Azure SQL veritabanı yönetilen örneği SQL Server örneği geçiş](sql-database-managed-instance-migrate.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıç:
-- [Yönetilen Örnek Oluşturma](sql-database-managed-instance-get-started.md) hızlı başlangıcında oluşturulan kaynakları başlangıç noktası olarak kullanır.
-- Şirket içi istemci bilgisayarınızda [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)'nun en yeni sürümünün olmasını gerektirir
-- Yönetilen Örneğinize SQL Server Management Studio ile bağlanabilmeyi gerektirir. Bağlantı seçenekleri için şu hızlı başlangıçlara bakın:
-  - [Bir Azure VM'den bir Azure SQL Veritabanı Yönetilen Örneğine bağlanma](sql-database-managed-instance-configure-vm.md)
-  - [Noktadan siteye bağlantı ile şirket içinden Azure SQL Veritabanı Yönetilen Örneğine bağlanma](sql-database-managed-instance-configure-p2s.md).
-- Wide World Importers - Standart yedekleme dosyasını (indirme konumu: https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak) içeren önceden yapılandırılmış bir Azure blob depolama hesabı kullanır.
+- Kaynaklardan kullanan [bir yönetilen örnek oluşturma](sql-database-managed-instance-get-started.md) hızlı başlangıç.
+- Bilgisayarınızda yüklü en son gerektirir [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) yüklü.
+- SSMS yönetilen Örneğinize bağlanmak için kullanılması gerekir. Bağlanmak Bu hızlı başlangıçlara bakın:
+  * [Bir Azure VM'den bir Azure SQL Veritabanı Yönetilen Örneğine bağlanma](sql-database-managed-instance-configure-vm.md)
+  * [Noktadan siteye bağlantı, şirket içinden Azure SQL veritabanı yönetilen örneği için yapılandırma](sql-database-managed-instance-configure-p2s.md).
+
 
 > [!NOTE]
-> Bir SQL Server veritabanını Azure blob depolama ve Paylaşılan Erişim İmzası (SAS) kullanarak yedekleme hakkında daha fazla bilgi için bkz. [URL'ye SQL Server Yedekleme](sql-database-managed-instance-get-started-restore.md).
+> Veritabanı yedekleme ve bir SQL Server geri yükleme hakkında daha fazla bilgi için Azure blob depolama kullanan ve bir [paylaşılan erişim imzası (SAS) anahtarı](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), bkz: [URL'ye SQL Server Yedekleme](sql-database-managed-instance-get-started-restore.md).
 
-## <a name="restore-the-wide-world-importers-database-from-a-backup-file"></a>Wide World Importers veritabanını bir yedekleme dosyasından geri yükleme
+## <a name="restore-the-database-from-a-backup-file"></a>Veritabanını bir yedekleme dosyasından geri yükleyin.
 
-SSMS ile Wide World Importers veritabanını yedekleme dosyasından Yönetilen Örneğinize geri yüklemek için aşağıdaki adımları kullanın.
+SSMS'de, yönetilen Örneğinize Wide World Importers veritabanını geri yüklemek için aşağıdaki adımları izleyin. Veritabanı yedek dosyasını, bir önceden yapılandırılmış Azure blob depolama hesabında depolanır.
 
-1. SQL Server Management Studio'yu (SSMS) açın ve Yönetilen Örneğinize bağlanın.
-2. SSMS içinde yeni bir sorgu penceresi açın.
-3. Yönetilen Örnekte önceden yapılandırılmış depolama hesabını ve SAS anahtarını kullanarak bir kimlik bilgisi oluşturmak için aşağıdaki betiği kullanın.
+1. SMSS açın ve yönetilen Örneğinize bağlanın.
+
+2. Sol taraftaki menüden, yönetilen Örneğinize sağ tıklayıp **yeni sorgu** yeni bir sorgu penceresi açın.
+
+3. Önceden yapılandırılmış depolama hesabı ve SAS anahtarı kullanan aşağıdaki SQL betiğini çalıştırın [bir kimlik bilgisi oluşturmak](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) yönetilen Örneğinize içinde.
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 
@@ -56,10 +60,8 @@ SSMS ile Wide World Importers veritabanını yedekleme dosyasından Yönetilen �
 
     ![kimlik bilgisi oluşturma](./media/sql-database-managed-instance-get-started-restore/credential.png)
 
-    > [!NOTE]
-    > Oluşturulan SAS anahtarındaki baştaki **?** işaretini her zaman kaldırın.
   
-3. SAS kimlik bilgisini ve yedekleme geçerliliğini denetlemek için, yedekleme dosyasını içeren kapsayıcının URL'sini sağlayarak şu betiği kullanın:
+3. Kimlik bilgilerinizi denetlemek için kullandığı aşağıdaki betiği çalıştırın. bir [kapsayıcı](https://azure.microsoft.com/services/container-instances/) bir yedek dosya listesini almak için URL.
 
    ```sql
    RESTORE FILELISTONLY FROM URL = 
@@ -68,7 +70,7 @@ SSMS ile Wide World Importers veritabanını yedekleme dosyasından Yönetilen �
 
     ![dosya listesi](./media/sql-database-managed-instance-get-started-restore/file-list.png)
 
-4. Aşağıdaki betiği kullanarak Wide World Importers veritabanını bir yedekleme dosyasından geri yükleyin; yedekleme dosyasını içeren kapsayıcının URL’sini sağlayın:
+4. Wide World Importers veritabanını geri yüklemek için aşağıdaki betiği çalıştırın.
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =
@@ -77,20 +79,20 @@ SSMS ile Wide World Importers veritabanını yedekleme dosyasından Yönetilen �
 
     ![geri yükleme](./media/sql-database-managed-instance-get-started-restore/restore.png)
 
-5. Geri yükleme işleminizin durumunu izlemek için aşağıdaki sorguyu yeni bir sorgu oturumunda çalıştırın:
+5. Geri yükleme 's durumunu izlemek için aşağıdaki betiği çalıştırın.
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
       , dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time 
    FROM sys.dm_exec_requests r 
    CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a 
-   WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')`
+   WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
 6. Geri yükleme tamamlandığında Nesne Gezgini içinde görüntüleyin. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- URL'ye yedekleme sorunlarını giderme için bkz: [URL'ye SQL Server Yedekleme En İyi Yöntemleri ve Sorun Giderme](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
-- Uygulamaların bağlantı seçeneklerine genel bir bakış için bkz: [Uygulamalarınızı Yönetilen Örneğe bağlama](sql-database-managed-instance-connect-app.md).
-- Tercih ettiğiniz araçlardan veya dillerden birini kullanarak sorgulama için bkz: [bağlanma ve sorgulama](sql-database-connect-query.md).
+- URL'ye yedekleme sorunlarını giderme için bkz: [URL en iyi yöntemler ve sorun giderme için SQL Server Yedekleme](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting).
+- Uygulama bağlantı seçeneklerine genel bakış için bkz. [, uygulamaların yönetilen örneğe bağlanma](sql-database-managed-instance-connect-app.md).
+- En sevdiğiniz araçları veya dilleri kullanarak sorgulamak için bkz: [hızlı Başlangıçlar: Azure SQL veritabanına bağlanma ve sorgulama](sql-database-connect-query.md).

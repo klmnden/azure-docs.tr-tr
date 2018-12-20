@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 51d28eb9507952708a964d0a76a12e601de1dbbb
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: cdd73c46d87ec09439188024945bd60299bb1d57
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599936"
+ms.locfileid: "53629756"
 ---
-# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Öğretici: Mevcut bir özel SSL sertifikasını Azure Web Apps'e bağlama
+# <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>Öğretici: Azure App Service'e var olan özel bir SSL sertifikası bağlama
 
-Azure Web Apps, yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğretici için bir güvenilen sertifika yetkilisinden satın aldığınız özel bir SSL sertifikası bağlama işlemi gösterilmektedir [Azure App Service](overview.md). İşiniz bittiğinde, web uygulamanıza DNS etki alanınızın HTTPS uç noktasından erişebilirsiniz.
+Azure App Service, yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan web barındırma hizmeti sağlar. Bu öğretici için bir güvenilen sertifika yetkilisinden satın aldığınız özel bir SSL sertifikası bağlama işlemi gösterilmektedir [Azure App Service](overview.md). İşlemi tamamladığınızda, uygulamanıza özel DNS etki alanınızın HTTPS uç noktasında erişmek mümkün olacaktır.
 
 ![Özel SSL sertifikası ile web uygulaması](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -39,14 +39,14 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * TLS yönetimini betiklerle otomatikleştirme
 
 > [!NOTE]
-> Özel bir SSL sertifikası almanız gerekirse, doğrudan Azure portalından bir tane edinerek web uygulamanıza bağlayabilirsiniz. [App Service Sertifikaları öğreticisini](web-sites-purchase-ssl-web-site.md) takip edin.
+> Özel bir SSL sertifikası almanız gerekiyorsa, Azure Portalı'nda doğrudan almak ve uygulamanıza bağlayın. [App Service Sertifikaları öğreticisini](web-sites-purchase-ssl-web-site.md) takip edin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
 - [App Service uygulaması oluşturma](/azure/app-service/)
-- [Özel bir DNS adını web uygulamanıza eşleme](app-service-web-tutorial-custom-domain.md)
+- [App Service uygulamanıza özel bir DNS adı eşleme](app-service-web-tutorial-custom-domain.md)
 - Güvenilir sertifika yetkilisinden SSL sertifikası alma
 - SSL sertifika isteğini imzalamak için kullandığınız özel anahtara sahip olma
 
@@ -70,7 +70,7 @@ Bir sertifikayı App Service’te kullanabilmek için sertifikanın aşağıdaki
 
 ## <a name="bind-your-ssl-certificate"></a>SSL sertifikanızı bağlama
 
-SSL sertifikanızı web uygulamanıza yüklemeye hazırsınız.
+Uygulamanız için SSL sertifikanızı karşıya yüklemek hazır olursunuz.
 
 ### <a name="merge-intermediate-certificates"></a>Ara sertifikaları birleştirme
 
@@ -114,7 +114,7 @@ Sertifika isteğinizi oluşturmak için IIS veya _Certreq.exe_ kullandıysanız,
 
 ### <a name="upload-your-ssl-certificate"></a>SSL sertifikanızı karşıya yükleme
 
-SSL sertifikanızı karşıya yüklemek için web uygulamanızın sol gezinti bölmesindeki **SSL ayarları** öğesine tıklayın.
+SSL sertifikanızı karşıya yüklemek için tıklayın **SSL ayarları** uygulamanızın sol gezinti bölmesinde.
 
 **Sertifikayı Karşıya Yükle**’ye tıklayın. 
 
@@ -154,24 +154,24 @@ App Service sertifikanızı karşıya yüklemeyi tamamladığında sertifikanız
 
 ## <a name="remap-a-record-for-ip-ssl"></a>IP SSL için A kaydını yeniden eşleme
 
-Web uygulamanızda IP tabanlı SSL kullanmıyorsanız [HTTPS’yi özel etki alanınız için test etme](#test) bölümüne atlayın.
+Uygulamanızda IP tabanlı SSL kullanmıyorsanız, atlamak [özel etki alanınız için Test HTTPS](#test).
 
-Varsayılan olarak, web uygulamanız paylaşılan bir genel IP adresini kullanır. Bir sertifikayı IP tabanlı SSL ile bağladığınızda App Service, web uygulamanız için yeni ve ayrılmış bir IP adresi oluşturur.
+Varsayılan olarak, uygulamanızı paylaşılan bir genel IP adresini kullanır. Bir sertifikayı IP tabanlı SSL ile bağladığınızda App Service uygulamanız için yeni ve ayrılmış bir IP adresi oluşturur.
 
-Web uygulamanız için bir A kaydını eşlediyseniz, etki alanı kaydınızı bu yeni ve ayrılmış IP adresi ile güncelleştirin.
+Uygulamanız için bir A kaydını eşlediyseniz, etki alanı kaydınızı bu yeni ve ayrılmış IP adresi ile güncelleştirin.
 
-Web uygulamanızın **Özel etki alanı** sayfası yeni ve ayrılmış IP adresi ile güncelleştirilir. [Bu IP adresini kopyalayın](app-service-web-tutorial-custom-domain.md#info), ardından bu yeni IP adresine [A kaydını yeniden eşleyin](app-service-web-tutorial-custom-domain.md#map-an-a-record).
+Uygulamanızın **özel etki alanı** sayfası, yeni ve ayrılmış IP adresi ile güncelleştirilir. [Bu IP adresini kopyalayın](app-service-web-tutorial-custom-domain.md#info), ardından bu yeni IP adresine [A kaydını yeniden eşleyin](app-service-web-tutorial-custom-domain.md#map-an-a-record).
 
 <a name="test"></a>
 
 ## <a name="test-https"></a>HTTPS’yi test etme
 
-Şimdi yapılması gereken tek şey, HTTPS’nin özel etki alanınız için çalıştığından emin olmaktır. Çeşitli tarayıcılarda `https://<your.custom.domain>` sayfasına göz atarak web uygulamanıza hizmet verip vermediğini görün.
+Şimdi yapılması gereken tek şey, HTTPS’nin özel etki alanınız için çalıştığından emin olmaktır. Çeşitli tarayıcılarda göz atın `https://<your.custom.domain>` uygulamanızı vermediğini görün.
 
 ![Azure uygulamasına portal gezintisi](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
 > [!NOTE]
-> Web uygulamanız sertifika doğrulama hataları veriyorsa, büyük olasılıkla otomatik olarak imzalanan bir sertifika kullanıyorsunuz.
+> Uygulamanızı sağlıyorsa, sertifika doğrulama hataları, büyük olasılıkla otomatik olarak imzalanan bir sertifika kullanıyorsunuz.
 >
 > Böyle bir durum söz konusu değilse, sertifikanızı PFX dosyasına aktardığınızda ara sertifikaları dışarıda bırakmış olabilirsiniz.
 
@@ -187,9 +187,9 @@ Bir bağlamayı sildiğinizde, bu bağlama IP tabanlı olsa bile gelen IP adresi
 
 ## <a name="enforce-https"></a>HTTPS zorlama
 
-Varsayılan olarak, herkes HTTP kullanarak web uygulamanıza erişmeye devam edebilir. Tüm HTTPS isteklerini HTTP bağlantı noktasına yeniden yönlendirebilirsiniz.
+Varsayılan olarak, herkes HTTP kullanarak uygulamanıza erişmeye devam edebilirsiniz. Tüm HTTPS isteklerini HTTP bağlantı noktasına yeniden yönlendirebilirsiniz.
 
-Web uygulaması sayfanızın sol gezinti bölmesinde **SSL ayarları**’nı seçin. Ardından **Yalnızca HTTPS** menüsünde **Açık**’ı seçin.
+Uygulaması sayfanızın sol gezinti bölmesinde seçin **SSL ayarları**. Ardından **Yalnızca HTTPS** menüsünde **Açık**’ı seçin.
 
 ![HTTPS zorlama](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -203,7 +203,7 @@ Web uygulaması sayfanızın sol gezinti bölmesinde **SSL ayarları**’nı se�
 
 Uygulamanız varsayılan olarak [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 sürümüne izin verir. Bu, [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) gibi endüstri standartlarınca önerilen TLS düzeyidir. Farklı TLS sürümlerini zorlamak için aşağıdaki adımları uygulayın:
 
-Web uygulaması sayfanızın sol gezinti bölmesinde **SSL ayarları**’nı seçin. Ardından **TLS sürümü**’nde istediğiniz en düşük TLS sürümünü seçin. Bu ayar yalnızca gelen çağrıları denetler. 
+Uygulaması sayfanızın sol gezinti bölmesinde seçin **SSL ayarları**. Ardından **TLS sürümü**’nde istediğiniz en düşük TLS sürümünü seçin. Bu ayar yalnızca gelen çağrıları denetler. 
 
 ![TLS 1.1 veya 1.2’yi zorlama](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
@@ -211,7 +211,7 @@ Web uygulaması sayfanızın sol gezinti bölmesinde **SSL ayarları**’nı se�
 
 ## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
 
-Web uygulamalarınıza yönelik SSL bağlamalarını, [Azure CLI](/cli/azure/install-azure-cli) veya [Azure PowerShell](/powershell/azure/overview) kullanarak betiklerle otomatik hale getirebilirsiniz.
+Kullanarak uygulamanızın, betiklerle SSL bağlamaları otomatikleştirebilirsiniz [Azure CLI](/cli/azure/install-azure-cli) veya [Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -260,9 +260,9 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Ortak sertifikalar (isteğe bağlı)
-Uygulamanızı bir istemci olarak uzak kaynaklara erişmesi ve uzak kaynak sertifika doğrulaması gerektiren, karşıya yüklediğiniz [Ortak Sertifikalar](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) web uygulamanıza. Ortak Sertifikalar, uygulamanızın SSL bağlamaları için gerekli değildir.
+Uygulamanızı bir istemci olarak uzak kaynaklara erişmesi ve uzak kaynak sertifika doğrulaması gerektiren, karşıya yüklediğiniz [Ortak Sertifikalar](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) uygulamanıza. Ortak Sertifikalar, uygulamanızın SSL bağlamaları için gerekli değildir.
 
-Uygulamanızda ortak sertifika yükleme ve kullanma hakkında daha fazla bilgi için bkz. [Azure App Service’deki uygulama kodunda SSL sertifikası kullanma](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load). Ortak sertifikaları App Service ortamlarındaki uygulamalarla çok kullanabilirsiniz. Sertifikayı LocalMachine sertifika deposuna kaydetmeniz gerekirse, App Service Ortamında bir web uygulaması kullanmanız gerekir. Daha fazla bilgi için bkz. [Web Uygulamanızda ortak sertifikaları yapılandırma](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+Uygulamanızda ortak sertifika yükleme ve kullanma hakkında daha fazla bilgi için bkz. [Azure App Service’deki uygulama kodunda SSL sertifikası kullanma](app-service-web-ssl-cert-load.md). Ortak sertifikaları App Service ortamlarındaki uygulamalarla çok kullanabilirsiniz. Sertifikayı LocalMachine sertifika deposuna kaydetmeniz gerekirse, App Service ortamında bir uygulama kullanmanız gerekir. Daha fazla bilgi için [ortak sertifikaları App Service uygulamanız için yapılandırma](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Ortak Sertifikayı Karşıya Yükleme](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Betik Örneği - Özel bir etki alanını bir web uygulaması ile eşleme | Microsoft Docs
-description: Azure CLI Betik Örneği - Özel bir etki alanını bir web uygulaması ile eşleme
+title: Azure CLI betik örneği - özel bir uygulama etki alanını eşleme | Microsoft Docs
+description: Azure CLI betik örneği - özel bir uygulama etki alanını eşleme
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -16,16 +16,16 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d4bc6cd0a9b0740302d3ac2fc4661e11bd754d6d
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 58d13498e1b86421ae04f5a3aa60cf0c44242a39
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585093"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629144"
 ---
-# <a name="map-a-custom-domain-to-a-web-app-using-cli"></a>CLI kullanarak bir web uygulamasına özel bir etki alanını eşleme
+# <a name="map-a-custom-domain-to-an-app-service-app-using-cli"></a>CLI kullanarak bir App Service uygulamasına özel bir etki alanı eşleme
 
-Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra onu `www.<yourdomain>` ile eşler.
+Bu örnek betik, bir uygulamayı App Service'te ilgili kaynaklarıyla birlikte oluşturur ve sonra eşler `www.<yourdomain>` ona.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,7 +35,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya so
 
 ## <a name="sample-script"></a>Örnek betik
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Map a custom domain to a web app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/configure-custom-domain/configure-custom-domain.sh?highlight=3 "Map a custom domain to an app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -47,8 +47,8 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service planı oluşturur. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir Azure web uygulaması oluşturur. |
-| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | Özel bir etki alanını bir web uygulaması ile eşler. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir App Service uygulaması oluşturur. |
+| [`az webapp config hostname add`](/cli/azure/webapp/config/hostname?view=azure-cli-latest#az-webapp-config-hostname-add) | Özel bir etki alanı, bir App Service uygulaması ile eşler. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

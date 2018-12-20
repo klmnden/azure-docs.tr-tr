@@ -1,5 +1,5 @@
 ---
-title: -Azure App Service Linux üzerinde PostgreSQL ile Python web uygulaması derleme | Microsoft Docs
+title: -Azure App Service Linux üzerinde PostgreSQL ile Python uygulaması derleme | Microsoft Docs
 description: Azure'da bir PostgreSQL veritabanına bağlantısı olan veri temelli bir Python uygulamasını nasıl çalıştıracağınızı öğrenin.
 services: app-service\web
 documentationcenter: python
@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: beverst;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 86b80e8d2e4dbec96807edaba2dff813d0eda029
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 69e1bc5e537ed251801816f48d55cd50b54884c4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607430"
+ms.locfileid: "53635383"
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure-app-service"></a>Azure App Service'te bir Python ve PostgreSQL web uygulaması derleme
+# <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Azure App Service'te bir Python ve PostgreSQL uygulaması oluşturma
 
-[Linux’ta App Service](app-service-linux-intro.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide veritabanı arka ucu olarak PostgreSQL kullanan veri temelli bir Python web uygulamasının nasıl oluşturulacağı gösterilmektedir. İşiniz bittiğinde, Linux üzerinde App Service'te çalışan bir Django uygulaması vardır.
+[Linux’ta App Service](app-service-linux-intro.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide, PostgreSQL veritabanı arka ucu kullanarak bir veri odaklı Python uygulaması oluşturma işlemi gösterilmektedir. İşiniz bittiğinde, Linux üzerinde App Service'te çalışan bir Django uygulaması vardır.
 
 ![Linux üzerinde App Service'te Python Django uygulaması](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
@@ -371,9 +371,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 App Service dağıtım sunucusu görür _requirements.txt_ depo kökünde ve Python paket Yönetimi otomatik olarak çalıştırır `git push`.
 
-### <a name="browse-to-the-azure-web-app"></a>Azure web uygulamasına göz atma
+### <a name="browse-to-the-azure-app"></a>Azure uygulamasına göz atma
 
-Dağıtılan web uygulamasına göz atın. Uygulama ilk kez çağrıldığında kapsayıcının indirilmesi ve çalışması gerektiğinden başlatılması biraz uzun sürebilir. Sayfa zaman aşımına uğrar veya hata iletisi görüntülerse, birkaç dakika bekleyip sayfayı yenileyin.
+Dağıtılan uygulamaya gidin. Uygulama ilk kez çağrıldığında kapsayıcının indirilmesi ve çalışması gerektiğinden başlatılması biraz uzun sürebilir. Sayfa zaman aşımına uğrar veya hata iletisi görüntülerse, birkaç dakika bekleyip sayfayı yenileyin.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -403,15 +403,15 @@ Kapsayıcı günlüğe kaydetme etkinleştirildikten sonra günlük akışını 
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-## <a name="manage-your-web-app-in-the-azure-portal"></a>Azure portalda web uygulamanızı yönetme
+## <a name="manage-your-app-in-the-azure-portal"></a>Uygulamanızı Azure portalında yönetme
 
-Oluşturduğunuz web uygulamasını görmek için [Azure portalına](https://portal.azure.com) gidin.
+Git [Azure portalında](https://portal.azure.com) oluşturduğunuz uygulamayı görmek için.
 
-Sol menüden **Uygulama Hizmetleri**’ne ve ardından Azure web uygulamanızın adına tıklayın.
+Sol menüden **uygulama hizmetleri**, ardından Azure uygulamanızın adına tıklayın.
 
-![Portaldan Azure web uygulamasına gitme](./media/tutorial-python-postgresql-app/app-resource.png)
+![Azure uygulamasına portal gezintisi](./media/tutorial-python-postgresql-app/app-resource.png)
 
-Portal, varsayılan olarak web uygulamanızın **Genel Bakış** sayfasında görünür. Bu sayfa, uygulamanızın nasıl çalıştığını gösterir. Buradan ayrıca göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. Sayfanın sol tarafındaki sekmeler, açabileceğiniz farklı yapılandırma sayfalarını gösterir.
+Varsayılan olarak, uygulamanızın portal gösterir **genel bakış** sayfası. Bu sayfa, uygulamanızın nasıl çalıştığını gösterir. Buradan ayrıca göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. Sayfanın sol tarafındaki sekmeler, açabileceğiniz farklı yapılandırma sayfalarını gösterir.
 
 ![Azure portalında App Service sayfası](./media/tutorial-python-postgresql-app/app-mgmt.png)
 
@@ -428,7 +428,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Tanılama günlüklerini görüntüleme
 > * Uygulamayı Azure portalında yönetme
 
-Web uygulamanıza özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye geçin.
+Uygulamanıza özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
 > [Mevcut bir özel DNS adını Azure App Service'e eşlemek](../app-service-web-tutorial-custom-domain.md)

@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: cc94e309db3fd0e97e06b5be5884a0b6e7337cea
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 236a4e4f79e6da89154e1e52bb9f45daf3a54d59
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158984"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632053"
 ---
-# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Hızlı Başlangıç: Azure CLI kullanarak Azure dosya paylaşımları oluşturma ve yönetme
+# <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Hızlı Başlangıç: Oluşturma ve Azure CLI kullanarak Azure dosya paylaşımlarını yönetme
 Bu kılavuzda, Azure CLI kullanarak [Azure dosya paylaşımları](storage-files-introduction.md) ile çalışmanın temel kuralları gösterilmektedir. Azure dosya paylaşımları diğer dosya paylaşımları gibidir, ancak bulutta depolanır ve Azure platformu tarafından desteklenir. Azure dosya paylaşımları endüstri standardı SMB protokolünü destekler ve birden çok makine, uygulama ve örnek arasında dosya paylaşmayı olanaklı kılar. 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
@@ -87,7 +87,7 @@ Bir dosya paylaşımını SMB ile bağlayabilmeniz için işletim sisteminize g�
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Dosya REST protokolü ile bir Azure dosya paylaşımını kullanma 
-Dosya REST protokolü ile doğrudan çalışmak (yani REST HTTP çağrılarını kendiniz hazırlamak) mümkündür, ancak Dosya REST protokolünün kullanmanın en yaygın yolu her biri Dosya REST protokolü çevresinde tercih ettiğiniz betik/programlama dilinde güzel bir sarmalayıcı sağlayan Azure CLI'yı, [AzureRM PowerShell modülünü](storage-how-to-use-files-powershell.md) veya bir Azure Depolama SDK'sını kullanmaktır.  
+Dosya REST protokolü ile doğrudan olası çalışma doğrudan olduğu (yani REST HTTP handcrafting çağrıları kendiniz), ancak dosya REST protokolü kullanmak için en yaygın yolu Azure CLI aracını [Azure PowerShell Modülü](storage-how-to-use-files-powershell.md), veya bir Azure Depolama SDK'sı, her biri kendi tercih ettiğiniz betik programlama dilinde dosya REST Protokolü çevresinde güzel bir sarmalayıcı sağlar.  
 
 Kullanabilmeyi umdukları mevcut uygulama ve araçlarını kullanmalarına izin vereceği için Azure Dosyaları kullanıcılarının çoğunluğunun Azure dosya paylaşımları ile SMP protokolü üzerinden çalışmasını bekliyoruz, ancak SMB yerine Dosya REST API'si kullanmanın aşağıdaki gibi bazı avantajları bulunmaktadır:
 
@@ -95,7 +95,7 @@ Kullanabilmeyi umdukları mevcut uygulama ve araçlarını kullanmalarına izin 
 - SMB paylaşımlarını bağlayamayan istemcilerden; örneğin 445 numaralı bağlantı noktası engeli kaldırılmamış şirket içi bir istemciden bir betik veya uygulama yürütmeniz gerekiyorsa.
 - [Azure İşlevleri](../../azure-functions/functions-overview.md) gibi sunucusuz kaynaklardan yararlanıyorsanız. 
 
-Aşağıdaki örnekler, AzureRM PowerShell modülünün Azure dosya paylaşımınızı Dosya REST protokolü ile yönetmek için nasıl kullanılacağını göstermektedir. 
+Aşağıdaki örnekler Azure dosya paylaşımınıza dosya REST protokolü ile yönetmek için Azure CLI'yı kullanmayı gösterir. 
 
 ### <a name="create-a-directory"></a>Dizin oluşturma
 Azure dosya paylaşımınızın kökünde *myDirectory* adlı yeni bir dizin oluşturmak için [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create) komutunu kullanın:

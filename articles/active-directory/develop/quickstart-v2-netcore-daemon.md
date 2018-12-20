@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 11/28/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7c920782810cc8b7b302799a5bab53a737b11c0a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 787a817b32838d11cb8974737037543f73285b0d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853096"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653434"
 ---
-# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Hızlı Başlangıç: bir belirteç almak ve Microsoft Graph API'sini çağırmak uygulamanın kimliğini kullanarak bir konsol uygulaması
+# <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Hızlı Başlangıç: Bir belirteç almak ve Microsoft Graph API'sini çağırmak uygulamanın kimliğini kullanarak bir konsol uygulaması
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -37,22 +37,19 @@ Bu Hızlı Başlangıç [.NET Core 2.1](https://www.microsoft.com/net/download/d
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Hızlı başlangıç uygulamanızı kaydetme ve indirme
-
-> [!div renderon="portal" class="sxs-lookup"]
+>
 > Hızlı başlangıç uygulamanızı başlatmak için kullanabileceğiniz iki seçenek vardır:
-> * [Hızlı] [1. Seçenek: Uygulamanızı otomatik olarak kaydedip yapılandırma ve ardından kod örneğinizi indirme](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [El ile] [2. Seçenek: Uygulamanızı ve kod örneğinizi el ile kaydetme ve yapılandırma](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> * [Express] [Seçenek 1: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [El ile] [Seçeneği 2: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>1. Seçenek: Uygulamanızı otomatik olarak kaydedip yapılandırın ve ardından kod örneğinizi indirin
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>1. seçenek: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin
 >
-> 1. [Azure portal - Uygulama Kaydı (Önizleme)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs) sayfasına gidin.
+> 1. [Azure portal - Uygulama Kaydı (Önizleme)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs) sayfasına gidin.
 > 1. Uygulamanız için bir ad girin ve **Kaydet**'i seçin.
 > 1. Yönergeleri izleyerek yeni uygulamanızı yalnızca tek tıklamayla indirin ve otomatik olarak yapılandırın.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>2. Seçenek: Uygulamanızı ve kod örneğinizi el ile kaydetme ve yapılandırma
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>2. seçenek: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma
 >
-
-> [!div renderon="docs"]
 > #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
 > Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze el ile eklemek için şu adımları izleyin:
 >
@@ -67,6 +64,8 @@ Bu Hızlı Başlangıç [.NET Core 2.1](https://www.microsoft.com/net/download/d
 > 1. Altında **kullanıcı** düğümünü **User.Read.All**, ardından **izinleri ekleme**
 
 > [!div class="sxs-lookup" renderon="portal"]
+> ### <a name="download-and-configure-your-quickstart-app"></a>İndirme ve hızlı başlangıç uygulamanızı yapılandırma
+> 
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>1. Adım: Uygulamanızı Azure portalında yapılandırma
 > İstemci gizli anahtarı oluşturma ve Graph API'nin eklemek için ihtiyacınız çalışmak bu hızlı başlangıç için kod örneği için **User.Read.All** uygulama izni.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -75,11 +74,11 @@ Bu Hızlı Başlangıç [.NET Core 2.1](https://www.microsoft.com/net/download/d
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Zaten yapılandırılmış](media/quickstart-v2-windows-desktop/green-check.png) Uygulamanız bu özniteliklerle yapılandırılmış.
 
-#### <a name="step-2-download-your-visual-studio-project"></a>2. Adım: Visual Studio projenizi indirme
+#### <a name="step-2-download-your-visual-studio-project"></a>2. Adım: Visual Studio projenizi indirin
 
 [Visual Studio projesini indirin](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>3. Adım: Visual Studio projenizi yapılandırma
+#### <a name="step-3-configure-your-visual-studio-project"></a>3. Adım: Visual Studio projenizi yapılandırın
 
 1. Zip dosyasını diskin köküne yakın bir yerel klasöre (örneğin **C:\Azure-Samples**) ayıklayın.
 1. Visual Studio'da - çözümü açın **arka plan programı console.sln** (isteğe bağlı).
@@ -99,6 +98,7 @@ Bu Hızlı Başlangıç [.NET Core 2.1](https://www.microsoft.com/net/download/d
     >> * `Enter_the_Tenant_Id_Here` -Bu değerle **Kiracı kimliği** veya **Kiracı adı** (örneğin, contoso.microsoft.com)
     >> * `Enter_the_Client_Secret_Here` -Bu değeri 1. adım üzerinde oluşturulan gizli anahtarla değiştirin.
 
+    > [!div renderon="docs"]
     > > [!TIP]
     > > Değerlerini bulmak için **uygulama (istemci) kimliği**, **dizin (Kiracı) kimliği**uygulamanın Git **genel bakış** Azure portalında sayfası. Yeni bir anahtar oluşturmak için şu adrese gidin **sertifikaları ve parolaları** sayfası.
     
@@ -130,9 +130,9 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 >> * `Enter_the_Application_Id_Here` - kaydettiğiniz uygulamanın **Uygulama (istemci) Kimliği** değeridir.
 
 > [!NOTE]
-> Hatasıyla karşılaşabilirsiniz *' AADSTS50011: uygulama için hiç yanıt adresi kayıtlı '* sonra önceki URL'yi kullanarak bir uygulamaya izin veriliyor. Bu sorun bu uygulama ve URL yeniden yönlendirme URI'si - olmadığı için lütfen yoksayın hata.
+> Hatasıyla karşılaşabilirsiniz *' AADSTS50011: Uygulama için hiç yanıt adresi kayıtlı '* sonra önceki URL'yi kullanarak bir uygulamaya izin veriliyor. Bu sorun bu uygulama ve URL yeniden yönlendirme URI'si - olmadığı için lütfen yoksayın hata.
 
-#### <a name="step-5-run-the-application"></a>5. adım: uygulamayı çalıştırma
+#### <a name="step-5-run-the-application"></a>5. adım: Uygulamayı çalıştırma
 
 Visual Studio kullanıyorsanız, basın **F5** uygulamayı çalıştırmak için Aksi takdirde, uygulamayı komut istemi veya konsol çalıştırın:
 

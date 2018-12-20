@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 77dd9424f20017b009b3de2cd8f7f78314feb316
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d04fa3f01c468b71f0150812e543043c193c848f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600259"
+ms.locfileid: "53634703"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca Linux üzerinde Azure App Service'te yetkilendirme
 
@@ -86,7 +86,7 @@ Bu adımda projeyi iki App Service uygulamasına dağıtacaksınız. Bunlardan b
 
 ### <a name="create-azure-resources"></a>Azure kaynakları oluşturma
 
-Cloud Shell’de iki web uygulaması oluşturmak için aşağıdaki komutları çalıştırın. _&lt;front\_end\_app\_name>_ ve _&lt;back\_end\_app\_name>_ değerlerini genel olarak benzersiz olan iki uygulama adı ile değiştirin (geçerli karakterler `a-z`, `0-9` ve `-`). Her komut hakkında daha fazla bilgi için bkz. [Linux üzerinde App Service’te bir .NET Core web uygulaması oluşturma](quickstart-dotnetcore.md).
+Cloud Shell'de iki App Service uygulamaları oluşturmak için aşağıdaki komutları çalıştırın. _&lt;front\_end\_app\_name>_ ve _&lt;back\_end\_app\_name>_ değerlerini genel olarak benzersiz olan iki uygulama adı ile değiştirin (geçerli karakterler `a-z`, `0-9` ve `-`). Her komut hakkında daha fazla bilgi için bkz. [Linux üzerinde App Service'te .NET Core uygulaması oluşturma](quickstart-dotnetcore.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
@@ -143,7 +143,7 @@ git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
 git push frontend master
 ```
 
-### <a name="browse-to-the-azure-web-apps"></a>Azure web uygulamalarına göz atma
+### <a name="browse-to-the-azure-apps"></a>Azure uygulamalarına göz atma
 
 Bir tarayıcıda aşağıdaki URL'lere gittiğinizde iki uygulamanın çalıştığını görebilirsiniz.
 
@@ -453,7 +453,7 @@ Bu komutun çalıştırılması bir dakika sürebilir.
 > * Sunucu kodundan erişim belirteçleri kullanma
 > * İstemci (tarayıcı) kodundan erişim belirteçleri kullanma
 
-Web uygulamanıza özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye geçin.
+Uygulamanıza özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
 > [Mevcut bir özel DNS adını Azure App Service'e eşlemek](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)

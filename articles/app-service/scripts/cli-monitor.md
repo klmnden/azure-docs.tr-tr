@@ -1,6 +1,6 @@
 ---
-title: Azure CLI betik örneği - web sunucusu günlükleri ile bir web uygulamasını izleme | Microsoft Docs
-description: Azure CLI betik örneği - web sunucusu günlükleri ile bir web uygulamasını izleme
+title: Azure CLI betik örneği - bir web sunucusu günlükleri ile uygulama izleme | Microsoft Docs
+description: Azure CLI betik örneği - bir web sunucusu günlükleri ile App Service uygulamasını izleme
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 364843708bea2b10770abad9c3e91006193c6aa0
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: c0bdf64e7fd9bf7de3ea46f6c08741b61ef0013f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585110"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53649681"
 ---
-# <a name="monitor-a-web-appwith-web-server-logs-using-azure-cli"></a>Azure CLI kullanarak web sunucusu günlükleri ile bir web uygulamasını izleme
+# <a name="monitor-an-app-service-appwith-web-server-logs-using-azure-cli"></a>Azure CLI kullanarak web sunucusu günlükleri ile bir App Service uygulamasını izleme
 
-Bu örnek betik bir kaynak grubu, app service planı ve web uygulaması oluşturur ve web uygulamasını web sunucusu günlüklerini etkinleştirecek şekilde yapılandırır. Ardından, gözden geçirmek üzere günlük dosyalarını indirir.
+Bu örnek betik bir kaynak grubu, App Service planı ve uygulaması oluşturur ve uygulamasını web sunucusu günlüklerini etkinleştirecek şekilde yapılandırır. Ardından, gözden geçirmek üzere günlük dosyalarını indirir.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,15 +41,15 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya so
 
 ## <a name="script-explanation"></a>Betik açıklaması
 
-Bu betik bir kaynak grubu, web uygulaması ve tüm ilgili kaynakları oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
+Bu betik bir kaynak grubu, App Service uygulaması ve tüm ilgili kaynakları oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service planı oluşturur. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir Azure web uygulaması oluşturur. |
-| [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) | Bir Azure web uygulamasında hangi günlüklerin kalıcı olduğunu yapılandırır. |
-| [`az webapp log download`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-download) | Bir Azure web uygulamasının günlüklerini yerel makinenize indirir. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir App Service uygulaması oluşturur. |
+| [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) | Bir App Service uygulama devam ederse, günlükleri yapılandırır. |
+| [`az webapp log download`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-download) | Bir App Service uygulamasının günlüklerini yerel makinenize indirir. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

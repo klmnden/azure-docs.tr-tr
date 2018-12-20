@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: SQL Server'dan Azure SQL Veritabanı Yönetilen Örneği'ne çevrimiçi geçiş yapmak için Azure Veritabanı Geçiş Hizmeti'ni kullanma | Microsoft Docs"
+title: "Öğretici: SQL Server'dan Azure SQL Veritabanı Yönetilen Örneği'ne çevrimiçi geçiş gerçekleştirmek için Azure Veritabanı Geçiş Hizmeti'ni kullanma | Microsoft Docs"
 description: Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi SQL Server'dan Azure SQL Veritabanı Yönetilen Örneği'ne çevrimiçi geçiş gerçekleştirmeyi öğrenin.
 services: dms
 author: pochiraju
@@ -10,19 +10,16 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/04/2018
-ms.openlocfilehash: 030cd89bbd6407cd2e83a9b56942adbf419e069b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/19/2018
+ms.openlocfilehash: 3f52dde1e091ee089b83fe8f7f2d860941c11318
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956712"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631456"
 ---
-# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Öğretici: DMS kullanarak çevrimiçi ortamda SQL Server'ı Azure SQL Veritabanı Yönetilen Örneği'ne geçirme
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Öğretici: DMS kullanarak çevrimiçi biçimde SQL Server'ı Azure SQL Veritabanı Yönetilen Örneği'ne geçirme
 Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi SQL Server örneğindeki veritabanlarını minimum çalışmama süresi ile [Azure SQL Veritabanı Yönetilen Örneği](../sql-database/sql-database-managed-instance.md)'ne geçirebilirsiniz. El ile gerçekleştirilmesi gereken adımlar içeren ek yöntemler için bkz. [Azure SQL Veritabanı Yönetilen Örneği'ne SQL Server örneği geçişi](../sql-database/sql-database-managed-instance-migrate.md).
-
->[!IMPORTANT]
->Projelerin SQL Server'dan Azure SQL Veritabanı Yönetilen Örneği'ne çevrimiçi olarak geçirilmesi önizleme sürümündedir ve [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)'na tabidir.
 
 Bu öğreticide şirket içi SQL Server örneğindeki **Adventureworks2012** veritabanını Azure Veritabanı Geçiş Hizmeti'ni kullanarak minimum çalışmama süresi ile bir Azure SQL Veritabanı Yönetilen Örneği'ne geçireceksiniz.
 
@@ -34,7 +31,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Hazır olduğunuzda tam geçişi gerçekleştirme.
 
 > [!NOTE]
-> Çevrimiçi bir geçiş gerçekleştirmek için Azure veritabanı geçiş hizmeti kullanarak, fiyatlandırma katmanına göre Premium (Önizleme) bağlı olarak bir örnek oluşturmak gerekir.
+> Azure veritabanı geçiş hizmeti çevrimiçi bir geçiş gerçekleştirmek için Premium fiyatlandırma katmanını temel alan bir örneği oluşturmanız gerekir.
 
 > [!IMPORTANT]
 > En iyi geçiş deneyimi için Microsoft, Azure Veritabanı Geçiş Hizmeti’nin bir örneğini hedef veritabanıyla aynı Azure bölgesinde oluşturmayı önerir. Verileri bölgeler veya coğrafyalar arasında taşımak, geçiş sürecini yavaşlatabilir ve hatalara neden olabilir.
@@ -95,10 +92,10 @@ Bu öğreticiyi tamamlamak için aşağıdakileri yapmanız gerekir:
 
     Daha fazla ayrıntı için bkz. [Azure Veritabanı Geçiş Hizmeti'ni kullanarak yapılan Azure SQL Veritabanı Yönetilen Örnek geçişleri ağ topolojileri](https://aka.ms/dmsnetworkformi).
 
-6. “İş Açısından Kritik (Önizleme)” fiyatlandırma katmanından bir SKU seçin.
+6. Bir SKU Premium fiyatlandırma katmanı seçin.
 
     > [!NOTE]
-    > Çevrimiçi geçişlere yalnızca “İş Açısından Kritik (Önizleme)" katmanı kullanıldığında izin verilir. 
+    > Çevrimiçi geçişler yalnızca Premium katmanda kullanılırken desteklenir. 
    
     Maliyetler ve fiyatlandırma katmanları hakkında daha fazla bilgi için [fiyatlandırma sayfasına](https://aka.ms/dms-pricing) bakın.
    
@@ -118,7 +115,7 @@ Hizmetin bir örneği oluşturulduktan sonra Azure portaldan bulun, açın ve ye
  
 3. +**Yeni Geçiş Projesi**'ni seçin.
 
-4. **Yeni geçiş projesi** ekranında proje için bir ad belirtin, **Kaynak sunucu türü** metin kutusunda **SQL Server**, **Hedef sunucu türü** metin kutusunda **Azure SQL Veritabanı Yönetilen Örneği** ve **Etkinlik türünü seçin** alanında **Çevrimiçi veri geçişi (önizleme)** seçimini yapın.
+4. Üzerinde **yeni geçiş projesi** projesi için bir ad belirtin, ekran **kaynak sunucu türü** metin kutusunda **SQL Server**, **hedef sunucu tür** metin kutusunda **Azure SQL veritabanı yönetilen örneği**ve ardından **etkinlik türünü seçin**seçin **çevrimiçi veri geçişi** .
 
    ![DMS projesi oluşturma](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
 

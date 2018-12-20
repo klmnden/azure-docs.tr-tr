@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Betik Örneği - Azure CLI kullanarak Web Uygulamasını el ile ölçeklendirme | Microsoft Docs
-description: Azure CLI Betik Örneği - Azure CLI kullanarak Web Uygulamasını el ile ölçeklendirme
+title: Azure CLI betik örneği - Azure CLI kullanarak uygulamasını el ile bir ölçeklendirme | Microsoft Docs
+description: Azure CLI betik örneği - Azure CLI kullanarak el ile bir App Service ölçek
 services: appservice
 documentationcenter: appservice
 author: msangapu
@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 2e7c268f17bf6107766e449d78f559b3d2ced3b2
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 5a15a16b05adedf9f7c8738ae26174120a86efd8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585091"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650036"
 ---
-# <a name="scale-a-web-app-manually-using-azure-cli"></a>Azure CLI kullanarak el ile bir web uygulamasını ölçeklendirme
+# <a name="scale-an-app-service-app-manually-using-azure-cli"></a>Azure CLI kullanarak el ile bir App Service uygulamasını ölçeklendirme
 
-Bu örnek betik bir kaynak grubu, bir App Service planı ve bir web uygulaması oluşturur. Daha sonra App Service planını tek bir örnekten birden fazla örneğe ölçeklendirir.
+Bu örnek betik bir kaynak grubu, App Service planı ve bir uygulama oluşturur. Daha sonra App Service planını tek bir örnekten birden fazla örneğe ölçeklendirir.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,13 +41,13 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya so
 
 ## <a name="script-explanation"></a>Betik açıklaması
 
-Bu betik bir kaynak grubu, web uygulaması ve tüm ilgili kaynakları oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
+Bu betik bir kaynak grubu, App Service uygulaması ve tüm ilgili kaynakları oluşturmak için aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Tüm kaynakların depolandığı bir kaynak grubu oluşturur. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service planı oluşturur. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir Azure web uygulaması oluşturur. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir App Service uygulaması oluşturur. |
 | [`az appservice plan update`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-update) | App Service planının özelliklerini güncelleştirir. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

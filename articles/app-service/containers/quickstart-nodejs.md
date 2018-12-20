@@ -1,5 +1,5 @@
 ---
-title: Linux üzerinde - Azure App Service'te node.js web uygulaması oluşturma | Microsoft Docs
+title: Linux üzerinde - Azure App Service'e node.js uygulaması oluşturma | Microsoft Docs
 description: Linux’ta Azure App Service’te ilk Node.js Merhaba Dünya uygulamanızı birkaç dakika içinde dağıtın.
 services: app-service\web
 documentationcenter: ''
@@ -15,17 +15,17 @@ ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c22b5f0c1a445f30a99b7aba4afffaf077818335
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: c739aa4fb510bd5ebe9e3ffff67f93a2dd49cf0c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543555"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631541"
 ---
-# <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Linux’ta Azure App Service’te bir Node.js web uygulaması oluşturma
+# <a name="create-a-nodejs-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service'te bir Node.js uygulaması oluşturma
 
 > [!NOTE]
-> Bu makalede bir uygulamanın Linux üzerinde App Service'e dağıtımı yapılır. _Windows_'da App Service dağıtmak için bkz. [Azure'da Node.js web uygulaması oluşturma](../app-service-web-get-started-nodejs.md).
+> Bu makalede bir uygulamanın Linux üzerinde App Service'e dağıtımı yapılır. App Service dağıtmak için _Windows_, bkz: [Azure'da bir Node.js uygulaması oluşturma](../app-service-web-get-started-nodejs.md).
 >
 
 [Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıçta Linux üzerinde [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) kullanarak bir Node.js uygulamasını App Service’e dağıtma gösterilmektedir.
@@ -136,17 +136,17 @@ All done.
 
 - Belirtilen adla bir uygulama oluşturur.
 
-- Dosyaları geçerli çalışma dizininden web uygulamasına [sıkıştırıp dağıtır](https://docs.microsoft.com/azure/app-service/deploy-zip).
+- [Zip dağıtma](https://docs.microsoft.com/azure/app-service/deploy-zip) dosyaları uygulamanın geçerli çalışma dizini.
 
 ## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
-Web tarayıcınızı kullanarak, dağıtılan uygulamanın konumuna gidin. <app_name> değerini kendi web uygulamanızın adıyla değiştirin.
+Web tarayıcınızı kullanarak, dağıtılan uygulamanın konumuna gidin. < App_name > Uygulama adınızla değiştirin.
 
 ```bash
 http://<app_name>.azurewebsites.net
 ```
 
-Node.js örnek kodu bir web uygulaması yerleşik görüntüsünde çalışıyor.
+Node.js örnek kodu, bir yerleşik görüntü ile Linux üzerinde App Service'te çalışıyor.
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -166,7 +166,7 @@ response.end("Hello Azure!");
 
 Değişikliklerinizi kaydedin ve nanodan çıkın. Kaydetmek için `^O` ve çıkmak için `^X` komutunu kullanın.
 
-Şimdi uygulamayı yeniden dağıtacaksınız. `<app_name>` kısmını web uygulamanızla değiştirin.
+Şimdi uygulamayı yeniden dağıtacaksınız. Yedek `<app_name>` uygulamanızla.
 
 ```bash
 az webapp up -n <app_name>
@@ -176,15 +176,15 @@ Dağıtım tamamlandıktan sonra **Uygulamaya göz atma** adımında açılan ta
 
 ![Azure'da çalışan güncelleştirilmiş örnek uygulama](media/quickstart-nodejs/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>Yeni Azure web uygulamanızı yönetme
+## <a name="manage-your-new-azure-app"></a>Yeni Azure uygulamanızı yönetme
 
-Oluşturduğunuz web uygulamasını yönetmek için <a href="https://portal.azure.com" target="_blank">Azure portalına</a> gidin.
+Git <a href="https://portal.azure.com" target="_blank">Azure portalında</a> oluşturduğunuz uygulamayı yönetmek için.
 
-Sol menüden **Uygulama Hizmetleri**'ne ve ardından Azure web uygulamanızın adına tıklayın.
+Sol menüden **uygulama hizmetleri**ve ardından Azure uygulamanızın adına tıklayın.
 
-![Portaldan Azure web uygulamasına gitme](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
+![Azure uygulamasına portal gezintisi](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
 
-Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini tamamlayabilirsiniz.
+Uygulamanızın genel bakış sayfasını görürsünüz. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini tamamlayabilirsiniz.
 
 ![Azure portalında App Service sayfası](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
 

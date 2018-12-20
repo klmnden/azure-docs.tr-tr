@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Betik Örneği - Bir web uygulaması için zamanlanmış yedekleme oluşturma | Microsoft Docs
-description: Azure CLI Betik Örneği - Bir web uygulaması için zamanlanmış yedekleme oluşturma
+title: Azure CLI betik örneği - bir uygulama için zamanlanmış yedekleme oluşturma | Microsoft Docs
+description: Azure CLI betik örneği - bir uygulama için zamanlanmış yedekleme oluşturma
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -14,16 +14,16 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8bfe6030d5573c35f00043fedc1db54f15b34475
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b5f75ded0b51b78d56354bf97b5ebb0488022509
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585223"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635757"
 ---
-# <a name="create-a-scheduled-backup-for-a-web-app-using-cli"></a>CLI kullanarak bir web uygulaması için zamanlanmış yedekleme oluşturma
+# <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>CLI kullanarak bir App Service uygulaması için zamanlanmış yedekleme oluşturma
 
-Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra bu web uygulaması için zamanlanmış bir yedekleme oluşturur. 
+Bu örnek betik bir uygulamayı App Service'te ilgili kaynaklarıyla birlikte oluşturur ve bunun için zamanlanmış bir yedekleme oluşturur. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -33,7 +33,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0 veya so
 
 ## <a name="sample-script"></a>Örnek betik
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/backup-scheduled/backup-scheduled.sh?highlight=3-7 "Create a scheduled backup for a web app")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/backup-scheduled/backup-scheduled.sh?highlight=3-7 "Create a scheduled backup for an app")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -48,10 +48,10 @@ Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü b
 | [`az storage container create`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) | Bir Azure depolama kapsayıcısı oluşturur. |
 | [`az storage container generate-sas`](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-generate-sas) | Azure depolama kapsayıcısı için bir SAS belirteci oluşturur.  |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service planı oluşturur. |
-| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir Azure web uygulaması oluşturur. |
-| [`az webapp config backup update`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-update) | Bir web uygulaması için yeni bir yedekleme zamanlaması yapılandırır. |
-| [`az webapp config backup show`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-show) | Bir web uygulamasının yedekleme zamanlamasını gösterir. |
-| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Bir web uygulamasının yedekleme listesini alır. |
+| [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Bir App Service uygulaması oluşturur. |
+| [`az webapp config backup update`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-update) | Bir App Service uygulaması için yeni bir yedekleme zamanlaması yapılandırır. |
+| [`az webapp config backup show`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-show) | Bir App Service uygulaması yedekleme zamanlamasını gösterir. |
+| [`az webapp config backup list`](/cli/azure/webapp/config/backup?view=azure-cli-latest#az-webapp-config-backup-list) | Bir App Service uygulaması için yedekleme listesini alır. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

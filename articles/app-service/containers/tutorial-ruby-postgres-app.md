@@ -1,5 +1,5 @@
 ---
-title: Linux üzerinde - Azure App Service Postgres ile Ruby web uygulaması derleme | Microsoft Docs
+title: Postgres ile Ruby uygulamasını Linux - Azure App Service oluştur | Microsoft Docs
 description: Azure'da çalışan ve bir PostgreSQL veritabanı ile bağlantısı olan Ruby uygulamasını nasıl edinebileceğinizi öğrenin.
 services: app-service\web
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 93cdf83797cde40d75d6f6d6220cf4e02cb56cef
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 67dfc99490787eef9164759d34ef9f5ee542b76a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604232"
+ms.locfileid: "53635349"
 ---
-# <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Linux üzerinde Azure App Service'te bir Ruby ve PostgreSQL web uygulaması derleme
+# <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Linux üzerinde Ruby ve Azure App Service'te Postgres uygulaması derleme
 
-[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu öğreticide, bir Ruby web uygulaması oluşturma ve bu uygulamayı bir PostgreSQL veritabanına bağlamayla ilgili yönergeler verilmiştir. İşiniz bittiğinde, Linux üzerinde App Service’te çalışan bir [Ruby on Rails](https://rubyonrails.org/) uygulamasına sahip olacaksınız.
+[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu öğretici bir Ruby uygulaması oluşturma ve bir PostgreSQL veritabanına bağlanma işlemi gösterilmektedir. İşiniz bittiğinde, Linux üzerinde App Service’te çalışan bir [Ruby on Rails](https://rubyonrails.org/) uygulamasına sahip olacaksınız.
 
 ![Azure App Service'te çalışan Ruby on Rails uygulaması](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -357,7 +357,7 @@ remote: Running deployment command...
 < Output has been truncated for readability >
 ```
 
-### <a name="browse-to-the-azure-web-app"></a>Azure web uygulamasına göz atma
+### <a name="browse-to-the-azure-app"></a>Azure uygulamasına göz atma
 
 `http://<app_name>.azurewebsites.net` listesine göz atın ve listeye birkaç görev ekleyin.
 
@@ -470,21 +470,21 @@ git commit -m "added complete checkbox"
 git push azure master
 ```
 
-`git push` tamamlandığında, Azure web uygulamasına gidin ve yeni işlevleri test edin.
+Bir kez `git push` tamamlandığında, Azure uygulamasına gidin ve yeni işlevleri test edin.
 
 ![Azure’da yayımlanan model ve veritabanı değişiklikleri](media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
 Herhangi bir görevi eklediyseniz veritabanında tutulur. Veri şemasında yapılan güncelleştirmeler var olan verileri olduğu gibi bırakır.
 
-## <a name="manage-the-azure-web-app"></a>Azure web uygulamasını yönetme
+## <a name="manage-the-azure-app"></a>Azure uygulaması yönetme
 
-Oluşturduğunuz web uygulamasını yönetmek için [Azure portalına](https://portal.azure.com) gidin.
+Git [Azure portalında](https://portal.azure.com) oluşturduğunuz uygulamayı yönetmek için.
 
-Sol menüden **Uygulama Hizmetleri**'ne ve ardından Azure web uygulamanızın adına tıklayın.
+Sol menüden **uygulama hizmetleri**ve ardından Azure uygulamanızın adına tıklayın.
 
-![Portaldan Azure web uygulamasına gitme](./media/tutorial-php-mysql-app/access-portal.png)
+![Azure uygulamasına portal gezintisi](./media/tutorial-php-mysql-app/access-portal.png)
 
-Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan durdurma, başlatma, yeniden başlatma, göz atma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz.
+Uygulamanızın genel bakış sayfasını görürsünüz. Buradan durdurma, başlatma, yeniden başlatma, göz atma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz.
 
 Soldaki menü, uygulamanızı yapılandırmaya yönelik sayfalar sağlar.
 
@@ -506,7 +506,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Azure’daki tanılama günlüklerinin akışını sağlama
 > * Uygulamayı Azure portalında yönetme
 
-Bir web uygulamasına DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye geçin.
+Uygulamanıza özel bir DNS adı eşlemeyle ilgili bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
 > [Mevcut bir özel DNS adını Azure App Service'e eşlemek](../app-service-web-tutorial-custom-domain.md)

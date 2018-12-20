@@ -13,20 +13,20 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
 ms.author: rogarana
-ms.openlocfilehash: 58e2275398216f29764d54d1a230959e86eda0b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2c83526ac5fd6fb6c757bffab08414d940694998
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253270"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635434"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Windows üzerinde AzCopy kullanarak blobları depolama hesapları arasında geçirme
 
 Bu örnek kullanıcı tarafından sağlanan bir kaynak depolama hesabından tüm blob nesnelerini kullanıcı tarafından sağlanan bir hedef depolama hesabına geçirir. 
 
-Bu bir depolama hesabındaki tüm kapsayıcıları listeleyen `Get-AzureStorageContainer` komutu kullanılarak gerçekleştirilir. Örnek daha sonra AzCopy komutları vererek kaynak depolama hesabından her bir kapsayıcıyı hedef depolama hesabına taşır. Herhangi bir hata oluşursa, örnek $retryTimes kez yeniden dener (varsayılan değer 3’tür ve `-RetryTimes` parametresiyle değiştirilebilir). Her yeniden denemede hatayla karşılaşılırsa, kullanıcı `-LastSuccessContainerName` parametresini kullanarak örneğe başarılı bir şekilde kopyalanan son kapsayıcıyı sağlayarak betiği yeniden çalıştırabilir. Örnek daha sonra bu noktadan kapsayıcıları kopyalamaya devam eder.
+Bu bir depolama hesabındaki tüm kapsayıcıları listeleyen `Get-AzStorageContainer` komutu kullanılarak gerçekleştirilir. Örnek daha sonra AzCopy komutları vererek kaynak depolama hesabından her bir kapsayıcıyı hedef depolama hesabına taşır. Herhangi bir hata oluşursa, örnek $retryTimes kez yeniden dener (varsayılan değer 3’tür ve `-RetryTimes` parametresiyle değiştirilebilir). Her yeniden denemede hatayla karşılaşılırsa, kullanıcı `-LastSuccessContainerName` parametresini kullanarak örneğe başarılı bir şekilde kopyalanan son kapsayıcıyı sağlayarak betiği yeniden çalıştırabilir. Örnek daha sonra bu noktadan kapsayıcıları kopyalamaya devam eder.
 
-Bu örnek için Azure PowerShell Depolama modülünün **4.0.2** veya daha sonraki bir sürümü gerekir. `Get-Module -ListAvailable Azure.storage` kullanarak yüklü olan sürümü denetleyebilirsiniz. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps). 
+Bu örnek Azure PowerShell depolama modülünün sürümünü gerektirir **0,7** veya üzeri. `Get-Module -ListAvailable Az.storage` kullanarak yüklü olan sürümü denetleyebilirsiniz. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-Az-ps). 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -68,8 +68,8 @@ Betik bir depolama hesabından diğerine verileri kopyalamak için aşağıdaki 
 
 | Komut | Notlar |
 |---|---|
-| [Get-AzureStorageContainer](/powershell/module/azure.storage/Get-AzureStorageContainer) | Bu depolama hesabıyla ilişkili kapsayıcıları döndürür. |
-| [New-AzureStorageContext](/powershell/module/azure.storage/New-AzureStorageContext) | Azure Depolama bağlamı oluşturur. |
+| [Get-AzStorageContainer](/powershell/module/azure.storage/Get-AzStorageContainer) | Bu depolama hesabıyla ilişkili kapsayıcıları döndürür. |
+| [Yeni AzStorageContext](/powershell/module/azure.storage/New-AzStorageContext) | Azure Depolama bağlamı oluşturur. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

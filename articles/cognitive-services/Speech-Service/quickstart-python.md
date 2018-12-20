@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: chlandsi
-ms.openlocfilehash: bfa781dc76d54ad016fd72f8b28330632bbce624
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 46f19876215c4c1ffac7d99e377381451a0ea7df
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53609431"
+ms.locfileid: "53629297"
 ---
 # <a name="quickstart-using-the-speech-service-from-python"></a>Hızlı Başlangıç: Python'dan konuşma hizmeti kullanma
 
@@ -61,15 +61,22 @@ Bir sorun olması ya da bir özellik eksik göz varsa bizim [destek sayfasını]
 
 ## <a name="create-a-python-application-using-the-speech-sdk"></a>Konuşma SDK'sını kullanarak bir Python uygulaması oluşturma
 
-### <a name="running-the-sample-in-a-terminal"></a>Örnek bir Terminal içinde çalışan
+### <a name="running-the-sample-in-a-terminal"></a>Örnek bir terminal içinde çalışan
 
-Ya da kod bu hızlı başlangıçtan bir kaynak dosyaya kopyalayabilirsiniz `quickstart.py` ve IDE'nizi veya konsolunda çalıştırın
+Ya da kopyalayabilirsiniz [kod](#quickstart-code) bir kaynak dosyası için bu hızlı başlangıcı `quickstart.py` ve IDE'nizi veya konsolunda çalıştırın
 
 ```sh
 python quickstart.py
 ```
 
 Bu hızlı başlangıç öğreticisinde olarak indirebilirsiniz bir [Jupyter](https://jupyter.org) not defterinden [Bilişsel hizmetler konuşma örnekleri depomuzdan](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) ve not defteri olarak çalıştırın.
+
+### <a name="quickstart-code"></a>Hızlı Başlangıç kod
+
+[!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
+
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+`quickstart/python` klasöründe bu örneği arayın.
 
 ### <a name="installing-the-speech-sdk-python-package-and-running-the-sample-in-visual-studio-code"></a>Konuşma SDK'sı Python paketini yüklemek ve Visual Studio Code'da örneği çalıştırma
 
@@ -82,7 +89,7 @@ Bu hızlı başlangıç öğreticisinde olarak indirebilirsiniz bir [Jupyter](ht
    ![Klasör Aç](media/sdk/qs-python-vscode-python-open-folder.png)
 1. Yeni bir Python kaynak dosyası oluşturmak `speechsdk.py`, yeni dosya simgesine tıklayarak.
    ![Dosya oluşturma](media/sdk/qs-python-vscode-python-newfile.png)
-1. Kopyalama, yapıştırın ve Python kodu aşağıdaki yeni oluşturulan dosyaya kaydedin.
+1. Kopyalama, yapıştırma ve Kaydet [Python kodu](#quickstart-code) için yeni oluşturulan dosya.
 1. Konuşma hizmeti abonelik bilgilerinizi ekleyin.
 1. Python yorumlayıcısı zaten seçili değilse, pencerenin altındaki durum çubuğunda sol tarafında görüntülenir.
    Aksi takdirde, açarak kullanılabilir Python yorumlayıcılarını listesini getirebilir miyim **komut paleti** (`Ctrl+Shift+P`) yazarak **Python: Yorumlayıcıyı seçme**, uygun bir tane seçin.
@@ -94,13 +101,6 @@ Bu hızlı başlangıç öğreticisinde olarak indirebilirsiniz bir [Jupyter](ht
    ![Örneği çalıştırma](media/sdk/qs-python-vscode-python-run.png)
 
 Bu yönergeleri izleyerek bir sorun varsa, daha kapsamlı başvuran [Visual Studio kod Python Eğitmen](https://code.visualstudio.com/docs/python/python-tutorial).
-
-### <a name="quickstart-code"></a>Hızlı Başlangıç kod
-
-[!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
-
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-`quickstart/python` klasöründe bu örneği arayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -9,210 +9,239 @@ ms.topic: tutorial
 ms.date: 11/27/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 77a2b8d2b5d3ac42dcbbe2db2b05d38657290073
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: c0901f22e4941fdfaa21138153a06e97c2d6095f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443798"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630385"
 ---
-# <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>Öğretici: Azure Data Box Edge ile veri dönüştürme (Önizleme)
+# <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>Öğretici: Azure veri kutusu Edge (Önizleme) ile verileri dönüştürün
 
-Bu öğreticide Data Box Edge'deki işlem rolünü yapılandırma adımları açıklanmaktadır. İşlem rolü yapılandırıldıktan sonra Data Box Edge verileri Azure'a göndermeden önce dönüştürebilir.
+Bu öğreticide, Azure veri kutusu Edge Cihazınızda bir işlem rolünü yapılandırma açıklanır. Bilgi işlem rolü yapılandırdıktan sonra veri kutusu Edge Azure'a göndermeden önce verileri dönüştürebilirsiniz.
 
-Bu yordamın tamamlanması 30-45 dakika kadar sürebilir.
+Bu yordamı tamamlamak için yaklaşık 30-45 dakika sürebilir.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * IoT Hub kaynağı oluşturma
+> * Azure IOT hub'ı kaynak oluştur
 > * İşlem rolünü ayarlama
 > * İşlem modülü ekleme
 > * Veri dönüştürme işlemini doğrulama ve verileri aktarma
 
 > [!IMPORTANT]
-> Data Box Edge, önizleme aşamasındadır. Sipariş vermeden ve bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin.
+> Data Box Edge, önizleme aşamasındadır. Sipariş ve bu çözümü dağıtın önce gözden [Azure Önizleme için hizmet koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 ## <a name="prerequisites"></a>Önkoşullar
 
-Data Box Edge'deki işlem rolünü ayarlamadan önce şunları yaptığınızdan emin olun:
+Veri kutusu Edge Cihazınızda bir işlem rolünü kurmadan önce emin olun:
 
-* Data Box Edge cihazınız [Azure Data Box Edge cihazınızı bağlama ve etkinleştirme](data-box-edge-deploy-connect-setup-activate.md) sayfasında açıklanan şekilde etkinleştirildi.
+* Veri kutusu Edge cihazınıza açıklandığı etkinleştirildikten sonra [bağlanma, ayarlamak ve Azure veri kutusu Edge etkinleştirme](data-box-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="create-an-iot-hub-resource"></a>IoT Hub kaynağı oluşturma
 
-Data Box Edge'deki işlem rolünü ayarlamadan önce bir IoT Hub kaynağı oluşturmanız gerekir.
+Veri kutusu Edge üzerinde bir işlem rolü'kurmak ayarlamadan önce bir IOT hub'ı kaynak oluşturmanız gerekir.
 
-Ayrıntılı yönergeler için [IoT Hub oluşturma](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#create-an-iot-hub) sayfasına gidin. Data Box Edge kaynağınız için kullandığınız aboneliği ve kaynak grubunu seçin.
+Ayrıntılı yönergeler için [IoT Hub oluşturma](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#create-an-iot-hub) sayfasına gidin. Veri kutusu Edge kaynağınız için kullanılan aynı abonelik ve kaynak grubunu kullanın.
 
 ![IoT Hub kaynağı oluşturma](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-1.png)
 
-Edge işlem rolü ayarlanmadığında:
+Bir uç bilgi işlem rolü ayarlanmadı, aşağıdaki uyarılar uygulayın:
 
-- IoT Hub kaynağına IoT cihazı veya IoT Edge cihazı eklenemez.
+- Herhangi bir Azure IOT cihazları veya Azure IOT Edge cihazlarının IOT hub'ı kaynak yok.
 - Yerel Edge paylaşımları oluşturamazsınız. Paylaşım eklediğinize Edge işlemi için yerel paylaşım oluşturma seçeneği etkinleştirilmez.
 
 
 ## <a name="set-up-compute-role"></a>İşlem rolünü ayarlama
 
-Edge cihazında Edge işlem rolü ayarlandığında bir IoT cihazı ve bir IoT Edge cihazı olmak üzere iki cihaz oluşturulur. Bu cihazların ikisi de IoT Hub kaynağında görüntülenebilir.
+Uç bilgi işlem rolü Edge cihazında ayarlandığında, iki cihazı oluşturur: bir IOT cihaz ve bir IOT Edge cihazı. IOT hub'ı kaynak hem de görüntülenebilir.
 
-Cihazda işlem rolünü ayarlamak için aşağıdaki adımları gerçekleştirin.
+Cihazda bilgi işlem rolü ayarlamak için aşağıdakileri yapın:
 
-1. Data Box Edge kaynağına gidip **Genel Bakış** ve **İşlem rolünü ayarla**'ya tıklayın. 
+1. Select veri kutusu Edge kaynak Git **genel bakış**ve ardından **işlem rolünü kurmadan**. 
 
-    ![İşlem rolünü ayarlama](./media/data-box-edge-deploy-configure-compute/setup-compute-1.png)
+    ![Sol bölmede genel bağlantı](./media/data-box-edge-deploy-configure-compute/setup-compute-1.png)
    
-    **Modüller** sayfasına gidip **İşlemi yapılandırma**'ya da tıklayabilirsiniz.
+    İsteğe bağlı olarak, gidebilirsiniz **modülleri** seçip **işlem yapılandırma**.
 
-    ![İşlem rolünü ayarlama](./media/data-box-edge-deploy-configure-compute/setup-compute-2.png)
+    !["Modülleri" ve "işlem yapılandırma" bağlantıları](./media/data-box-edge-deploy-configure-compute/setup-compute-2.png)
  
-2. Açılan listeden bir önceki adımda oluşturduğunuz **IoT Hub kaynağını** seçin. Şu an için IoT Edge cihazınızda yalnızca Linux platformunu kullanabilirsiniz. **Oluştur**’a tıklayın.
+1. Aşağı açılan listesinde seçin **IOT hub'ı kaynak** önceki adımda oluşturduğunuz.  
+    Bu noktada, yalnızca Linux platformuna IOT Edge cihazınız için kullanılabilir. 
+    
+1. **Oluştur**’a tıklayın.
 
-    ![İşlem rolünü ayarlama](./media/data-box-edge-deploy-configure-compute/setup-compute-3.png)
+    ![Oluştur düğmesi](./media/data-box-edge-deploy-configure-compute/setup-compute-3.png)
  
-3. İşlem rolünün oluşturulması birkaç dakika sürer. Bu sürümdeki bir hata nedeniyle işlem rolü oluşturulduktan sonra ekran yenilenmez. **Modüller**'e gittiğinizde Edge işleminin yapılandırılmış olduğunu görebilirsiniz.  
+    İşlem rolünün oluşturulması birkaç dakika sürer. Bu sürümdeki bir hata nedeniyle işlem rolü oluşturulduktan sonra ekran yenilenmez. Uç bilgi işlem rolü yapılandırıldığını doğrulamak için Git **modülleri**.  
 
-    ![İşlem rolünü ayarlama](./media/data-box-edge-deploy-configure-compute/setup-compute-4.png)
+    !["Yapılandırma Edge işlem" cihaz listesi](./media/data-box-edge-deploy-configure-compute/setup-compute-4.png)
 
-4. Yeniden **Genel Bakış** sayfasına gittiğinizde ekranın işlem rolünün yapılandırılmış olduğunu gösterecek şekilde güncelleştirildiğini görebilirsiniz.
+1. Git **genel bakış** yeniden.  
+    Ekrana bilgi işlem rolü yapılandırılmış olduğunu göstermek için güncelleştirilir.
 
-    ![İşlem rolünü ayarlama](./media/data-box-edge-deploy-configure-compute/setup-compute-5.png)
+    ![Bir işlem rolü ayarlayın](./media/data-box-edge-deploy-configure-compute/setup-compute-5.png)
  
-5. Edge işlem rolünü oluştururken kullandığınız IoT Hub'a gidin. **IoT cihazları** sayfasına gidin. Etkin bir IoT cihazı olduğunu görebilirsiniz. 
+1. IOT Edge bilgi işlem rolü oluştururken kullandığınız hub'ı, Git **IOT cihazları**.  
+    IOT cihaz şimdi etkinleştirildi. 
 
-    ![İşlem rolünü ayarlama](./media/data-box-edge-deploy-configure-compute/setup-compute-6.png)
+    !["IOT cihazları" sayfası](./media/data-box-edge-deploy-configure-compute/setup-compute-6.png)
 
-6. **IoT Edge** sayfasına gittiğinizde bir IoT Edge cihazının da etkinleştirilmiş olduğunu görebilirsiniz.
+1. Sol bölmede seçin **IOT Edge**.  
+    IOT Edge cihazı de etkinleştirilir.
 
-    ![İşlem rolünü ayarlama](./media/data-box-edge-deploy-configure-compute/setup-compute-7.png)
+    ![Bir işlem rolü ayarlayın](./media/data-box-edge-deploy-configure-compute/setup-compute-7.png)
  
-7. IoT Edge cihazını seçip tıklayın. Bu IoT Edge cihazında bir Edge aracısı çalışmaktadır. 
+1. IoT Edge cihazını seçip tıklayın.  
+    Bu IoT Edge cihazında bir Edge aracısı çalışmaktadır. 
 
-    ![İşlem rolünü ayarlama](./media/data-box-edge-deploy-configure-compute/setup-compute-8.png) 
+    ![Cihaz Ayrıntıları sayfası](./media/data-box-edge-deploy-configure-compute/setup-compute-8.png) 
 
-Ancak bu Edge cihazında özel modül yoktur. Şimdi bu cihaza özele modül ekleyebilirsiniz. Özel bir modül oluşturmayı öğrenmek için [Data Box Edge’iniz için C# modülü geliştirme](data-box-edge-create-iot-edge-module.md) bölümüne gidin.
+    Bu uç cihazda hiçbir özel modüller vardır, ancak artık özel bir modülü ekleyebilirsiniz. Özel bir modül oluşturma konusunda bilgi almak için Git [geliştirme bir C# veri kutusu Edge cihazınız için modül](data-box-edge-create-iot-edge-module.md).
 
 
 ## <a name="add-a-custom-module"></a>Özel modül ekleme
 
-Bu bölümde [Data Box Edge’iniz için bir C# modülü geliştirme](data-box-edge-create-iot-edge-module.md)’de oluşturduğunuz IoT Edge cihazına özel bir modül ekleyeceksiniz. 
+Bu bölümde oluşturduğunuz IOT Edge cihazı için özel bir modül Ekle [geliştirme bir C# modülü, veri kutusu Edge için](data-box-edge-create-iot-edge-module.md). 
 
-Bu yordamda kullanılan örnekte özel modül Edge cihazındaki yerel paylaşımdan dosya alıp bunları cihazdaki bir bulut paylaşımına taşımaktadır. Bulut paylaşımı ardından dosyaları bulut paylaşımıyla ilişkilendirilmiş olan Azure depolama hesabına göndermektedir. 
+Aşağıdaki yordam bir örnek burada Özel Modül Edge cihazdaki dosyaların yerel paylaşımından alır ve bunları bir bulut paylaşımı için cihazda taşır kullanır. Bulut paylaşımı, bulut paylaşımı ile ilişkili Azure depolama hesabına dosyaları ardından iter. 
 
-1. İlk adım, Edge cihazına yerel paylaşım eklemektir. Data Box Edge kaynağınızda **Paylaşımlar**'a gidin. **+ Paylaşım ekle**'ye tıklayın. Paylaşım adını girin ve paylaşım türünü seçin. Yerel paylaşım oluşturmak için **Edge yerel paylaşımı olarak yapılandır** seçeneğini işaretleyin. **Var olan kullanıcı** veya **yeni oluştur** seçeneğini belirleyin. **Oluştur**’a tıklayın.
+1. Yerel bir paylaşımı, aşağıdakileri yaparak Edge cihazında ekleyin:
+
+    a. Data Box Edge kaynağınızda **Paylaşımlar**'a gidin. 
+    
+    b. Seçin **Ekle paylaşımı**ve ardından paylaşımı adı sağlayın ve paylaşım türü seçin. 
+    
+    c. Yerel bir paylaşımı oluşturmak için Seç **Edge Yerel paylaşım olarak yapılandırma** onay kutusu. 
+    
+    d. Seçin **Yeni Oluştur** veya **var olanı kullan**ve ardından **Oluştur**.
 
     ![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-1.png) 
 
-    Yerel NFS paylaşımı oluşturduysanız paylaşıma dosya kopyalamak için aşağıdaki rsync komutu seçeneğini kullanın:
+    Yerel bir NFS paylaşımına oluşturduysanız, dosya paylaşımına kopyalamak için aşağıdaki uzak eşitleme (rsync) komut seçeneği kullanın:
 
     `rsync --inplace <source file path> < destination file path>`
 
-     Rsync komutu hakkında daha fazla bilgi için bkz. [Rsync belgeleri](https://www.computerhope.com/unix/rsync.htm). 
+    Rsync komut hakkında daha fazla bilgi için Git [Rsync belgeleri](https://www.computerhope.com/unix/rsync.htm). 
 
- 
-2. Yerel paylaşım oluşturulduktan ve oluşturma işleminin başarılı olduğunu gösteren bildirimi gördükten sonra (paylaşım listesi güncelleştirilebilir ancak oluşturma işleminin tamamlanmasını beklemeniz gerekir) paylaşım listesine gidin. 
+    Yerel paylaşımı oluşturulur ve başarılı oluşturma bildirimi alırsınız. Paylaşım listesi güncelleştirildi, ancak tamamlanması paylaşımı oluşturmak için beklemeniz gerekir.
+    
+1. Paylaşımları listesine gidin. 
 
     ![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-2.png) 
  
-3. Yeni oluşturulan yerel paylaşımı seçip tıklayın ve paylaşımın özelliklerini görüntüleyin. Bu paylaşıma ait olan **Edge modülleri için yerel bağlama noktasını** kopyalayıp kaydedin.
+1. Yeni oluşturulan yerel paylaşım özelliklerini görüntülemek için seçin. 
 
-    ![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-3.png) 
+1. İçinde **Edge için yerel bağlama noktası işlem modülleri** kutusunda, bu paylaşıma karşılık gelen değeri kopyalayın.  
+    Modül dağıttığınızda bu yerel bağlama noktası kullanacaksınız.
+
+    !["Yerel bağlama noktası Edge için işlem modülleri" kutusu](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-3.png) 
  
-    Data Box Edge cihazınızda oluşturulmuş olan mevcut bulut paylaşımına gidin. Bu bulut paylaşımı için de yerel Edge işlemi bağlama noktasını kopyalayıp kaydedin. Bu yerel bağlama noktaları modülün dağıtılması sırasında kullanılacaktır.
+1. Veri kutusu Edge Cihazınızda oluşturulmuş mevcut bir bulut paylaşımı üzerinde **Edge için yerel bağlama noktası işlem modülleri** kutusunda, bu bulut paylaşımı için Edge işlem modüller için yerel bağlama noktası kopyalayın.  
+    Modül dağıttığınızda bu yerel bağlama noktası kullanacaksınız.
 
     ![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-4.png)  
 
-4. IoT Edge cihazına özel modül eklemek için IoT Hub kaynağınıza ve ardından **IoT Edge cihazına** gidin. Cihazı seçip tıklayın. **Cihaz ayrıntıları** bölümünde üstteki komut çubuğundan **Modülleri Ayarla**'ya tıklayın. 
+1. IOT Edge cihaza Özel Modül eklemek, IOT hub'ı kaynağınıza gidin ve ardından Git **IOT Edge cihazı**. 
 
-    ![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-5.png) 
+1. Cihazı seçin ve sonra **cihaz ayrıntıları**seçin **modülleri ayarlama**. 
 
-5. **Modül Ekle** bölümünde aşağıdaki adımları izleyin:
+    ![Modülleri ayarlama bağlantı](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-5.png) 
 
-    1. Özel modülün **Kapsayıcı kayıt defteri ayarları** için **ad**, **adres**, **kullanıcı adı** ve **parola** bilgilerini girin. Ad, adres ve listelenen kimlik bilgileri, eşleşen URL'ye sahip olan modülleri almak için kullanılır. Bu modülü dağıtmak için **Dağıtım modülleri** sayfasında **IoT Edge modülü**'nü seçin. Bu IoT Edge modülü, Data Box Edge cihazınızla ilişkilendirilmiş olan IoT Edge cihazınıza dağıtabileceğiniz bir Docker kapsayıcısıdır.
+1. Altında **Ekle modülleri**, aşağıdakileri yapın:
 
-        ![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-6.png) 
+    a. Özel Modül için kapsayıcı kayıt defteri ayarları için ad, adres, kullanıcı adı ve parola girin.  
+    Ad, adres ve listelenen kimlik bilgilerini modülleri ile eşleşen bir URL almak için kullanılır. Bu modülü dağıtmak için **Dağıtım modülleri** sayfasında **IoT Edge modülü**'nü seçin. Bu IOT Edge modülü, veri kutusu Edge cihazla ilişkilendirilmiş IOT Edge cihazı dağıtabileceğiniz bir docker kapsayıcısı var.
+
+    ![Modülleri ayarlama sayfası](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-6.png) 
  
-    2. IoT Edge özel modül ayarlarını belirtin. Modülünüzün **adını** ve karşılık gelen kapsayıcı görüntüsünün **görüntü URI’sini** sağlayın. 
+    b. IOT Edge Özel Modül ayarlarını modülünüzde ve karşılık gelen kapsayıcı görüntüsünün resim URI'sini adını girerek belirtin. 
     
-        ![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-7.png) 
+    ![IOT Edge özel modüller sayfası](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-7.png) 
 
-    3. **Kapsayıcı oluşturma seçenekleri** bölümünde önceki adımlarda bulut ve yerel paylaşımlar için kopyalanan Edge modülü yerel bağlama noktalarını girin (yeni yol oluşturmak yerine bu yolların kullanılması önemlidir). Yerel bağlama noktaları, [modülü özel kodla güncelleştirirken](data-box-edge-create-iot-edge-module.md#update-the-module-with-custom-code) modülde belirttiğiniz karşılık gelen **InputFolderPath** ve **OutputFolderPath** ile eşlenmiştir. 
+    c. İçinde **kapsayıcı oluşturma seçenekleri** kutusuna, Bulut ve Yerel paylaşım için önceki adımda kopyaladığınız Edge modülleri için yerel bağlama noktalarını girin.
+    > [!IMPORTANT]
+    > Kopyalanan yolları kullanın. yeni yollar oluşturabilirsiniz. Karşılık gelen yerel bağlama noktaları eşlenen **InputFolderPath** ve **OutputFolderPath** modülünde belirttiğiniz zaman, [modülü ile özel kodgüncelleştirildi](data-box-edge-create-iot-edge-module.md#update-the-module-with-custom-code). 
     
-        Aşağıda **Kapsayıcı oluşturma seçeneklerinde** gösterilen örneği kopyalayıp yapıştırabilirsiniz: 
-        
-        ```
-        {
-         "HostConfig": {
-          "Binds": [
-           "/home/hcsshares/mysmblocalshare:/home/LocalShare",
-           "/home/hcsshares/mysmbshare1:/home/CloudShare"
-           ]
-         }
+    İçinde **kapsayıcı oluşturma seçenekleri** kutusunda, aşağıdaki örnek yapıştırabilirsiniz: 
+    
+    ```
+    {
+        "HostConfig": {
+        "Binds": [
+        "/home/hcsshares/mysmblocalshare:/home/LocalShare",
+        "/home/hcsshares/mysmbshare1:/home/CloudShare"
+        ]
         }
-        ```
+    }
+    ```
 
-        Ayrıca modülünüze ait ortam değişkenlerini de girin.
+    Ayrıca tüm ortam değişkenleri burada modülünüzde için sağlar.
 
-        ![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-8.png) 
+    ![Kapsayıcı oluşturma seçenekleri kutusu](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-8.png) 
  
-    4. Gerekirse **Gelişmiş Edge çalışma zamanı ayarlarını** yapılandırın ve **İleri**'ye tıklayın.
+    d. Gerekirse, Gelişmiş Edge çalışma zamanı ayarlarını yapılandırın ve ardından **sonraki**.
 
-        ![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-9.png) 
+    ![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-9.png) 
  
-6.  **Rota belirtme** bölümünde modüller arasındaki rotayı ayarlayın. Bu durumda bulut paylaşımına veri gönderecek olan yerel paylaşımın adını girin. **İleri**’ye tıklayın.
+1.  Altında **yolları belirtin**, modüller arasında ayarlayın.  
+    Bu örnekte, veri bulut paylaşımına gönderir ve yerel paylaşımının adını girin.
 
-    Yol aşağıdaki yol dizesi ile değiştirebilirsiniz:       `"route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"`
+    Değiştirebilirsiniz *rota* aşağıdaki yol dizesi ile:       `"route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"`
 
-    ![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
+    ![Rota belirtme bölümü](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
+
+1. **İleri**’yi seçin. 
+
+1.  Altında **gözden geçirin, dağıtım**tüm ayarları gözden geçirin ve ardından **Gönder** dağıtım için modül göndermek için.
+
+    ![Modülleri ayarlama sayfası](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-11.png) 
  
-7.  **Dağıtımı gözden geçirme** bölümünde tüm ayarları gözden geçirin ve uygunsa modülü dağıtım için **gönderin**.
+    Bu eylem, aşağıdaki görüntüde gösterildiği gibi modülü dağıtımı başlar:
 
-    ![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-11.png) 
- 
-Bu işlem **Modüller** bölümünde **IoT Edge Özel modülü** ile gösterilen modül dağıtımını başlatır.
-
-![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-12.png) 
+    ![Özel modül ekleme](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-12.png) 
 
 ### <a name="verify-data-transform-and-transfer"></a>Veri dönüştürme işlemini doğrulama ve verileri aktarma
 
-Son adım, modülün bağlı olduğundan ve beklenen şekilde çalıştığından emin olmaktır. Modülün çalıştığını doğrulamak için aşağıdaki adımları gerçekleştirin.
+Modül bağlı ve beklendiği gibi çalıştığından emin olmak için son adımdır bakın. IOT Edge cihazınızın IOT hub'ı kaynak modülü çalışma zamanı durumunu çalıştırıyor olmalıdır.
 
-1. IoT Hub kaynağındaki IoT Edge cihazınız için modülün "Çalışıyor" durumda olması gerekir.
-
-    ![Veri dönüştürmeyi doğrulama](./media/data-box-edge-deploy-configure-compute/verify-data-transform-1.png) 
+![Veri dönüştürmeyi doğrulama](./media/data-box-edge-deploy-configure-compute/verify-data-transform-1.png) 
  
-2. Modülü seçip tıklayın ve **Modül Kimliği İkizi** bölümüne bakın. Edge cihazı ve modülü istemci durumunun **Bağlı** olması gerekir.
+Modül çalıştığını doğrulamak için aşağıdakileri yapın:
+
+1. Modül seçin ve ardından kimlik modül İkizi görüntüleyin.  
+    Sınır cihazı ve modülü için istemci durumu olarak görüntülenmesi gereken *bağlı*.
 
     ![Veri dönüştürmeyi doğrulama](./media/data-box-edge-deploy-configure-compute/verify-data-transform-2.png) 
  
-3.  Modül çalışmaya başladıktan sonra Data Box Edge kaynağınızın Edge modülleri listesinde de görüntülenir. Eklediğiniz modülün **çalışma zamanı durumu**, **Çalışıyor** şeklindedir.
+    Modül çalışmaya başladıktan sonra veri kutusu uç kaynağında Edge modüllerinin listesi altında de görüntülenir. Eklenir modülü çalışma zamanı durumunu *çalıştıran*.
 
     ![Veri dönüştürmeyi doğrulama](./media/data-box-edge-deploy-configure-compute/verify-data-transform-3.png) 
  
-4.  Dosya Gezgini aracılığıyla oluşturduğunuz yerel paylaşıma ve bulut paylaşımına bağlanın.
+1.  Hem yerel dosya Gezgini'nde, Bağlan ve bulut paylaşımları, önceden oluşturulmuş.
 
     ![Veri dönüştürmeyi doğrulama](./media/data-box-edge-deploy-configure-compute/verify-data-transform-4.png) 
  
-5.  Yerel paylaşıma veri ekleyin.
+1.  Yerel paylaşıma veri ekleyin.
 
     ![Veri dönüştürmeyi doğrulama](./media/data-box-edge-deploy-configure-compute/verify-data-transform-5.png) 
  
-6.  Veriler bulut paylaşımına taşınır.
+    Veriler bulut paylaşımına taşınır.
 
     ![Veri dönüştürmeyi doğrulama](./media/data-box-edge-deploy-configure-compute/verify-data-transform-6.png)  
 
-7.  Veriler ardından bulut paylaşımından depolama hesabına gönderilir. Verileri görüntülemek için Depolama Gezgini'ne gidin.
+    Veri, bulut paylaşımından sonra depolama hesabına gönderilir. Verileri görüntülemek için verileri görüntülemek için depolama Gezgini'ne gidin.
 
     ![Veri dönüştürmeyi doğrulama](./media/data-box-edge-deploy-configure-compute/verify-data-transform-7.png) 
  
-Bu işlemle doğrulama adımları tamamlanmış olur.
+Doğrulama işlemini tamamladınız.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide aşağıdaki Data Box Edge konuları hakkında bilgi edindiniz:
+Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * IoT Hub kaynağı oluşturma
@@ -220,7 +249,7 @@ Bu öğreticide aşağıdaki Data Box Edge konuları hakkında bilgi edindiniz:
 > * İşlem modülü ekleme
 > * Veri dönüştürme işlemini doğrulama ve verileri aktarma
 
-Data Box Edge cihazınızı yönetmeyi öğrenmek için sonraki öğreticiye geçin.
+Veri kutusu Edge Cihazınızı yönetme konusunda bilgi edinmek için bkz:
 
 > [!div class="nextstepaction"]
 > [Data Box Edge yönetimi için yerel web arabirimi kullanma](https://aka.ms/dbg-docs)

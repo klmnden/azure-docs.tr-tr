@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 282942d82a688b4fc47b8473b0f8708ba23b5674
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 49f98958c540faa06aa15fbfc429f87f92463c3e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602486"
+ms.locfileid: "53635451"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Öğretici: Yönetilen kimlik kullanarak App Service'ten Azure SQL veritabanı bağlantısını güvenli hale getirme
 
@@ -147,7 +147,7 @@ Bundan sonra tek yapmanız gereken, değişikliklerinizi Azure'da yayımlamaktı
 
 Yayımlama sayfasında **Yayımla**'ya tıklayın. Yeni web sayfası yapılacaklar listenizi gösterdiğinde uygulamanızın yönetilen kimliğini kullanarak veritabanına bağlanmakta olduğu anlamına gelir.
 
-![Code First Migration’dan sonra Azure web uygulaması](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
+![Code First Migration'dan sonra Azure uygulaması](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
 Bundan sonra yapılacaklar listesini daha önce olduğu gibi düzenleyebilirsiniz.
 
