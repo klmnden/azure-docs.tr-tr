@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1a16dd52d06e4ee31e6645d6e5a4090afd897de9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 178ae177d3183d492540f03c8dc1dfa064ddeb22
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605407"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652447"
 documentType: LandingData
 title: App Service Belgeleri
 metadata:
   document_id: 6c8db72a-cdb7-8fb7-ed57-ed75afcca4d0
   title: Azure App Service Belgeleri - Öğreticiler, API Başvurusu
-  meta.description: Learn how to use App Service to build and host websites and web applications.
+  meta.description: Learn how to use App Service to build and host websites and web applications, including RESTful APIs and mobile back ends.
   services: app-service
   author: czeumault
   manager: carolz
@@ -21,14 +21,14 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: Azure App Service, altyapı yönetimine gerek kalmadan, kendi seçtiğiniz programlama dilinde web uygulamaları oluşturmanıza ve barındırmanıza olanak tanır. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Azure DevOps veya herhangi bir Git deposundan otomatik dağıtımlar sağlar. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Web Apps’i kullanmayı öğrenin.
+  description: Azure App Service, altyapı yönetimine gerek kalmadan, kendi seçtiğiniz programlama dilinde web uygulamaları, mobil arka uçlar ve REST API'ler oluşturmanıza ve barındırmanıza olanak tanır. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Azure DevOps veya herhangi bir Git deposundan otomatik dağıtımlar sağlar. Hızlı başlangıçlarımız, öğreticilerimiz ve örneklerimizle Azure App Service’i kullanmayı öğrenin.
   aside:
     image:
       alt: 
       height: 110
       src: https://docs.microsoft.com/azure/app-service/media/index/create-a-web-app-with-nodejs-and-azure-app-service.png
       width: 250
-    title: Node.js ve Azure App Service ile bir web uygulaması oluşturun. (2:41)
+    title: Node.js ve Azure App Service ile bir uygulama oluşturun. (2:41)
     href: https://azure.microsoft.com/resources/videos/create-a-web-app-with-nodejs-and-azure-app-service/
     width: 250
 sections:
