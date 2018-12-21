@@ -102,11 +102,11 @@ Bu makalede çalıştırma hakkında en yaygın soruların yanıtları sağlanı
  
    Evet. Tüm müşteriler yeni SQL VM kaynak sağlayıcısı ile kaydolmak olanağına sahip olursunuz. Ancak, yalnızca Müşteriler Yazılım Güvencesi avantajı ile etkinleştirebilir [Azure hibrit Avantajı'nı (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (veya KLG) SQL Server VM üzerinde. 
 
-1. **_ İçin ne*VM kaynağı taşıdıysanız veya bırakılan Microsoft.SqlVirtualMachine_* kaynak?** 
+1. **_ İçin ne\*VM kaynağı taşıdıysanız veya bırakılan Microsoft.SqlVirtualMachine_\* kaynak?** 
 
    Ne zaman Microsoft.Compute/VirtualMachine kaynak bırakılmış veya ilişkili Microsoft.SqlVirtualMachine kaynak işlemi zaman uyumsuz olarak çoğaltmak için bildirim sonra taşındı.
 
-1. **VM, ne _* Microsoft.SqlVirtualMachine_* kaynak bırakıldı?**
+1. **VM, ne _\*Microsoft.SqlVirtualMachine_\* kaynak bırakıldı?**
 
    Microsoft.SqlVirtualMachine kaynak bırakıldığında Microsoft.Compute/VirtualMachine kaynak etkilenmez. Ancak, lisans değişikliklerinin özgün görüntü kaynağı için varsayılan olarak kullanılır. 
 

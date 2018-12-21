@@ -60,7 +60,7 @@ Depolama istemcisi kitaplığı kullanan [AES](http://en.wikipedia.org/wiki/Adva
 > 
 > 
 
-Şifrelenmiş bir blobu indirme içeren tüm blob kullanarak içerik alma **DownloadTo**\* /** BlobReadStream** kullanışlı yöntemler. Sarmalanan CEK sarmalanmamış ve şifresi çözülmüş veriler kullanıcılara döndürmek için (Bu durumda blob meta veri olarak depolanır) IV ile birlikte kullanılır.
+Şifrelenmiş bir blobu indirme içeren tüm blob kullanarak içerik alma **DownloadTo** /** BlobReadStream**\* kullanışlı yöntemler. Sarmalanan CEK sarmalanmamış ve şifresi çözülmüş veriler kullanıcılara döndürmek için (Bu durumda blob meta veri olarak depolanır) IV ile birlikte kullanılır.
 
 Bir rastgele aralık indiriliyor (**DownloadRange*** yöntemleri) az miktarda bir başarıyla istenen şifresini çözmek için kullanılan ek veri alabilmek için kullanıcı tarafından sağlanan aralık ayarlamak şifrelenmiş bir blobu içerir. Aralık.
 
