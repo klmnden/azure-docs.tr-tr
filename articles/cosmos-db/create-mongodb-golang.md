@@ -1,5 +1,5 @@
 ---
-title: Golang ve Azure Cosmos DB API kullanarak MongoDB için Azure portalında bir konsol uygulaması oluşturma
+title: Golang ve Azure Cosmos DB için MongoDB API'sini kullanarak Azure portalında bir konsol uygulaması oluşturma
 description: Azure Cosmos DB’ye bağlanmak ve veritabanını sorgulamak için kullanabileceğiniz bir Golang kod örneği sunar
 services: cosmos-db
 author: slyons
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: 7b1674c151919f763ab13d01c65952495e411e5c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 1378d63dad80d8bc086a518650010fceaf4e85fe
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539781"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728100"
 ---
-# <a name="build-a-console-app-with-golang-and-the-azure-portal-using-azure-cosmos-db-api-for-mongodb"></a>Golang ve Azure Cosmos DB API kullanarak MongoDB için Azure portalında bir konsol uygulaması oluşturma
+# <a name="build-a-console-app-with-golang-and-the-azure-portal-using-azure-cosmos-db-for-mongodb-api"></a>Golang ve Azure Cosmos DB için MongoDB API'sini kullanarak Azure portalında bir konsol uygulaması oluşturma
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -29,9 +29,9 @@ ms.locfileid: "53539781"
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz.
 
-Bu hızlı başlangıçta, yazılmış mevcut bir MongoDB uygulamasını kullanma işlemi gösterilmektedir [Golang](https://golang.org/) ve MongoDB için Azure Cosmos DB API kullanarak MongoDB istemci bağlantılarını destekleyen Azure Cosmos DB veritabanınıza bağlanın.
+Bu hızlı başlangıçta, yazılmış mevcut bir MongoDB uygulamasını kullanma işlemi gösterilmektedir [Golang](https://golang.org/) ve Azure Cosmos DB için MongoDB API'sini kullanarak MongoDB istemci bağlantılarını destekleyen Azure Cosmos DB veritabanınıza bağlanın.
 
-Diğer bir deyişle, Golang uygulamanız yalnızca, MongoDB için Azure Cosmos DB API kullanarak bir veritabanına bağlandığını bilir. Verilerin Azure Cosmos DB'de depolandığı uygulamaya açıkça gösterilir.
+Diğer bir deyişle, Golang uygulamanız yalnızca, Azure Cosmos DB için MongoDB API'sini kullanarak bir veritabanına bağlandığını bilir. Verilerin Azure Cosmos DB'de depolandığı uygulamaya açıkça gösterilir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -97,7 +97,7 @@ Aşağıdaki kod parçacıklarının tamamı, main.go dosyasından alınmıştı
 
 Azure Cosmos DB, SSL kullanan MongoDB’yi destekler. SSL kullanan bir MongoDB’ye bağlanmak için [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo)’da **DialServer** işlevini tanımlamanız ve bağlantıyı gerçekleştirmek için [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) işlevini kullanmanız gerekir.
 
-Aşağıdaki Golang kod parçacığı, Go uygulaması MongoDB için Azure Cosmos DB API ile bağlanır. *DialInfo* sınıfı, bir MongoDB kümesiyle oturum bağlantısı kurmak için gereken seçenekleri barındırır.
+Aşağıdaki Golang kod parçacığı, Go uygulaması ile Azure Cosmos DB MongoDB API'si için bağlanır. *DialInfo* sınıfı, bir MongoDB kümesiyle oturum bağlantısı kurmak için gereken seçenekleri barındırır.
 
 ```go
 // DialInfo holds options for establishing a session with a MongoDB cluster.
@@ -250,7 +250,7 @@ Belgenizi Veri Gezgini’nde görmek için Azure portalına dönün.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı ve MongoDB API’sini kullanarak bir Golang uygulamasını çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz. 
+Bu hızlı başlangıçta, bir Azure Cosmos DB hesabı oluşturmayı ve MongoDB API'si için istemci kullanarak bir Golang uygulamasını çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz. 
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB MongoDB API'si ile verileri içeri aktar](mongodb-migrate.md)
+> [MongoDB API'si veritabanı için Azure Cosmos DB'ye veri aktarma](mongodb-migrate.md)

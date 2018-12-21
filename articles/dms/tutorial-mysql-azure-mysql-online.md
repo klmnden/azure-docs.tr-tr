@@ -5,18 +5,18 @@ services: dms
 author: HJToland3
 ms.author: scphang
 manager: craigg
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/19/2018
-ms.openlocfilehash: 1bd226e1475e8d73c7768ccfe91594e19220ac43
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 52346e25c0b0e1b1b0c0befb6b5285f66b9a95d7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635230"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724581"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Öğretici: DMS hizmetini kullanarak MySQL'i MySQL için Azure Veritabanı'na çevrimiçi geçirme
 Şirket içi bir MySQL örneğindeki veritabanlarını minimum çalışmama süresi ile [MySQL için Azure Veritabanı](https://docs.microsoft.com/azure/mysql/)'na geçirmek için Azure Veritabanı Geçiş Hizmeti'ni kullanabilirsiniz. Diğer bir deyişle, geçiş işlemi, uygulamada minimum çalışmama süresi ile gerçekleştirilebilir. Bu öğreticide, Azure Veritabanı Geçiş Hizmeti'nde çevrimiçi bir geçiş etkinliğini kullanarak şirket içi bir MySQL 5.7 örneğindeki **Employees** örnek veritabanını MySQL için Azure Veritabanı'na geçireceksiniz.

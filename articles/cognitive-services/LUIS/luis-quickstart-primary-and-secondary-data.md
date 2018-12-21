@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: e8a1575527f906fab130e08cda715f6c8e904275
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: e48231e154c04e75ab27f2a92783486b83d00d3b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166277"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719515"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Öğretici 7: Basit bir varlık ve deyim listesi ile adlarını Ayıkla
 
@@ -51,7 +51,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
 Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
-1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json) indirip kaydedin.
+1.  [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json) indirip kaydedin.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 
@@ -284,7 +284,7 @@ Ad herhangi bir şey olabileceğinden LUIS, sinyali güçlendirecek bir tümceci
 
 ## <a name="to-boost-signal-add-phrase-list"></a>Sinyali güçlendirmek için tümcecik listesi ekleme
 
-Açık [işleri tümcecik list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) LUIS örnekleri GitHub deposundan. Bu listede binin üzerinde iş sözcüğü ve tümceciği vardır. Listede size anlamlı gelen iş sözcüklerini bulun. İstediğiniz sözcükler ve tümcecikler listede değilse ekleyin.
+Açık [işleri tümcecik list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) Azure örnekleri GitHub deposundan. Bu listede binin üzerinde iş sözcüğü ve tümceciği vardır. Listede size anlamlı gelen iş sözcüklerini bulun. İstediğiniz sözcükler ve tümcecikler listede değilse ekleyin.
 
 1. LUIS uygulamasının **Build** (Derleme) bölümünde **Improve app performance** (Uygulama performansını geliştir) kısmındaki **Phrase lists** (Tümcecik listeleri) girişini seçin.
 

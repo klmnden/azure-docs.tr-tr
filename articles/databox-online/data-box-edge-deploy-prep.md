@@ -1,6 +1,6 @@
 ---
 title: Azure portalı Data Box Edge dağıtımına hazırlama öğreticisi | Microsoft Docs
-description: Azure Data Box Edge'in dağıtımına yönelik ilk öğretici Azure portalın hazırlanmasını içerir.
+description: Azure veri kutusu Edge dağıtma hakkında daha fazla ilk öğreticide, Azure portalında hazırlanmasını içerir.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,17 +9,17 @@ ms.topic: tutorial
 ms.date: 10/08/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 35ac28d687c8bc6636a7d8e10f54ffb5b219a776
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: 25f68b011d1fcba450903e9a691b98dfe9e87281
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167475"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726128"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-edge-preview"></a>Öğretici: Azure Data Box Edge (Önizleme) dağıtımına hazırlanma
+# <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Öğretici: Azure veri kutusu Edge dağıtmaya hazırlanma  
 
 
-Bu, Azure Data Box Edge'inizi tamamen dağıtmak için gereken dağıtım öğreticileri serisinin ilk öğreticisidir. Bu öğreticide Data Box Edge kaynağını dağıtmak için Azure portalının nasıl hazırlanacağı açıklanır. 
+Bu, Azure veri kutusu Edge tamamen dağıtmak için gerekli olan dağıtım öğreticileri serisinin ilk öğreticisidir. Bu öğreticide, Azure portalında bir veri kutusu Edge kaynak dağıtmaya hazırlanmak açıklar. 
 
 Kurulum ve yapılandırma işlemini tamamlamak için yönetici ayrıcalıkları gerekir. Portal hazırlığı 10 dakikadan kısa sürer.
 
@@ -33,40 +33,39 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 
 > [!IMPORTANT]
-> Data Box Edge, önizleme aşamasındadır. Sipariş vermeden ve bu çözümü dağıtmadan önce [Önizleme için Azure hizmet şartlarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) gözden geçirin. 
+> Data Box Edge, önizleme aşamasındadır. Sipariş ve bu çözümü dağıtın önce gözden [Azure Önizleme için hizmet koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).  
 
 ### <a name="get-started"></a>başlarken
 
-Data Box Edge'inizi dağıtmak için, aşağıdaki öğreticileri belirtilen sırada izleyin.
+Veri kutusu Edge dağıtmak için önceden belirlenmiş bir sırada aşağıdaki öğreticilere bakın.
 
 | **#** | **Bu adımda** | **Bu belgeleri kullanın** |
 | --- | --- | --- | 
 | 1. |**[Azure portalını Data Box Edge için hazırlama](data-box-edge-deploy-prep.md)** |Data Box Edge fiziksel cihazını kurmadan önce Data Box Edge kaynağınızı oluşturun ve yapılandırın. |
 | 2. |**[Azure Data Box Edge'i kurma](data-box-edge-deploy-install.md)**|Data Box Edge fiziksel cihazını kutusundan çıkarın, rafa yerleştirin ve kablolarını bağlayın.  |
-| 3. |**[Data Box Edge'i bağlama, kurma ve etkinleştirme](data-box-edge-deploy-connect-setup-activate.md)** |Yerel web kullanıcı arabirimine bağlayın, cihaz kurulumunu tamamlayın ve cihazı etkinleştirin. Cihaz SMB veya NFS paylaşımlarının kurulması için hazırdır.  |
+| 3. |**[Bağlanma, ayarlamak ve veri kutusu Edge etkinleştirme](data-box-edge-deploy-connect-setup-activate.md)** |Yerel web kullanıcı arabirimine bağlayın, cihaz kurulumunu tamamlayın ve cihazı etkinleştirin. Cihaz SMB veya NFS paylaşımlarının kurulması için hazırdır.  |
 | 4. |**[Verileri Data Box Edge ile aktarma](data-box-edge-deploy-add-shares.md)** |Paylaşımları ekleyin ve SMB veya NFS üzerinden paylaşımlara bağlanın. |
 | 5. |**[Data Box Edge ile veri dönüştürme](data-box-edge-deploy-configure-compute.md)** |Azure'a taşınan verilerin dönüştürülmesi için cihazdaki Edge modüllerini yapılandırın. |
 
 Artık Azure portalını ayarlamaya başlayabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-Burada Data Box Edge kaynağınız, Data Box Edge cihazınız ve veri merkezi ağı için yapılandırma önkoşullarını bulabilirsiniz.
+Veri kutusu Edge kaynağınızı, veri kutusu Edge cihazınıza ve veri merkezi ağı için yapılandırma önkoşulları aşağıda verilmiştir.
 
 ### <a name="for-the-data-box-edge-resource"></a>Data Box Edge kaynağı için
 
 Başlamadan önce aşağıdakilerden emin olun:
 
-* Microsoft Azure aboneliğiniz Data Box Edge kaynağı için etkinleştirilmiş olmalı.
+* Microsoft Azure aboneliğiniz için bir veri kutusu Edge kaynak etkinleştirilir.
 * Erişim kimlik bilgilerine sahip bir Microsoft Azure Storage hesabınız var.
 
 ### <a name="for-the-data-box-edge-device"></a>Data Box Edge cihazı için
 
 Fiziksel cihazı dağıtmadan önce şunlardan emin olun:
-
-- Cihazı yerleştirmek için veri merkezinizdeki 19 inçlik standart bir rafta 1 U büyüklüğünde boş yuva mevcut. 
-- Cihazın güvenli bir şekilde yerleştirilebileceği düz, sabit ve dengeli bir çalışma yüzeyine sahip olduğunuzdan emin olun.
-- Cihazı kurmayı planladığınız konumda bağımsız bir kaynaktan gelen standart AC güç beslemesi veya kesintisiz güç kaynağına (UPS) sahip bir raf güç dağıtım birimi (PDU) olduğunu doğrulayın.
+- Cihazı rafa için veri merkezinizde bir standart 19" rafa kullanılabilir bir 1 U yuvası sahip. 
+- Düz, kararlı ve düzeyi çalışma yüzeyine burada cihaz güvenli bir şekilde tuttuğunuzda erişebilirsiniz.
+- Burada cihazınızın kurulumunun yapılabilmesi için istediğinize site bağımsız bir kaynak veya bir raf güç dağıtım birimi (PDU) bir kesintisiz güç kaynağı (UPS) ile standart AC gücü sahiptir.
 - Fiziksel cihaza erişebiliyor olmanız gerekir.
 
 
@@ -74,9 +73,9 @@ Fiziksel cihazı dağıtmadan önce şunlardan emin olun:
 
 Başlamadan önce aşağıdakilerden emin olun:
 
-* Veri merkezinizdeki ağ, Data Box Edge cihazınızın ağ gereksinimlerine uygun olarak yapılandırılmış. Daha fazla bilgi için bkz. [Data Box Edge Sistem Gereksinimleri](data-box-gateway-system-requirements.md).
+* Veri kutusu Edge cihazınız için ağ gereksinimleri başına, veri merkezinizdeki ağ yapılandırılır. Daha fazla bilgi için [veri kutusu Edge sistem gereksinimleri](data-box-gateway-system-requirements.md).
 
-* Data Box Edge'inize her zaman ayrılmış 20 Mb/sn İnternet bant genişliği (veya daha fazlası) sağlanıyor. Bu bant genişliği başka hiçbir uygulamayla paylaşılmamalıdır. Bant genişliği azaltma kullanılıyorsa, azaltmanın çalışması için 32 Mb/sn veya daha fazla İnternet bant genişliği kullanmanızı öneririz.
+* Veri kutusu Edge adanmış 20 MB/sn Internet bant genişliği (veya daha fazlası) her zaman kullanılabilir. Bu bant genişliği ile diğer uygulamaları paylaşılmamalıdır. Ağ kapasitesi azaltma kullanıyorsanız, ardından çalışmak için azaltma için 32 MB/sn Internet bant genişliği veya daha fazla kullanmanızı öneririz.
 
 ## <a name="create-a-new-resource"></a>Yeni kaynak oluşturma
 
@@ -84,11 +83,11 @@ Aşağıdaki adımları izleyerek yeni bir Data Box Edge kaynağı oluşturun.
 
 Fiziksel cihazlarınızı yönetmek için bir Data Box Edge kaynağınız varsa, bu adımı atlayın ve [Etkinleştirme anahtarını alma](#get-the-activation-key) bölümüne gidin.
 
-Azure portalında aşağıdaki adımları uygulayarak bir Data Box kaynağı oluşturun.
+Veri kutusu Edge kaynak oluşturmak için Azure portalında aşağıdaki adımları uygulayın.
 
-1. Microsoft Azure kimlik bilgilerinizi kullanarak şu URL'de Azure önizleme portalında oturum açın: [https://aka.ms/databox-edge](https://aka.ms/databox-edge). 
+1. Azure Önizleme portalı bu URL'de oturum açmak için Microsoft Azure kimlik bilgilerinizi kullanın: [ https://aka.ms/databox-edge ](https://aka.ms/databox-edge). 
 
-2. Data Box Edge önizlemesinde kullanmak istediğiniz aboneliği seçin. Data Box Edge kaynağını dağıtmak istediğiniz bölgeyi seçin. **Data Box Edge** seçeneğinde **Oluştur**'a tıklayın.
+2. Veri kutusu Edge önizlemesi için kullanmak istediğiniz aboneliği seçin. Data Box Edge kaynağını dağıtmak istediğiniz bölgeyi seçin. İçinde **veri kutusu Edge** seçeneği için **Oluştur**.
 
     ![Data Box Edge hizmetini arama](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 
@@ -96,30 +95,30 @@ Azure portalında aşağıdaki adımları uygulayarak bir Data Box kaynağı olu
     
     |Ayar  |Değer  |
     |---------|---------|
-    |Kaynak adı   | Kaynağı tanımlamak için kolay bir ad.<br>Kaynak adı 2 ile 50 karakter arasında olmalı, harf, rakam ve kısa çizgilerden oluşmalıdır.<br> Ad bir harf veya rakamla başlar ve biter.        |
+    |Kaynak adı   | Hangi kaynağı tanımlamak bir kolay ad.<br>Kaynak adı harf, rakam ve kısa çizgi içeren 2 ila 50 karakter uzunluğunda olabilir.<br> Ad bir harf veya rakamla başlar ve biter.        |
     |Abonelik    |Abonelik fatura hesabınıza bağlıdır. |
-    |Kaynak grubu  |Mevcut grubu seçin veya yeni bir grup oluşturun.<br>[Azure Kaynak Grupları](../azure-resource-manager/resource-group-overview.md) hakkında daha fazla bilgi edinin.     |
+    |Kaynak grubu  |Mevcut grubu seçin veya yeni bir grup oluşturun.<br>Daha fazla bilgi edinin [Azure kaynak grupları](../azure-resource-manager/resource-group-overview.md).     |
     |Konum     |Bu sürümde Doğu ABD, Batı ABD 2, Güneydoğu Asya ve Batı Avrupa kullanılabilir. <br> Cihazınızı dağıtmak istediğiniz coğrafi bölgeye yakın bir konum seçin.|
     
-    ![Data Box Edge kaynağı oluşturma](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
+    ![Veri kutusu Edge kaynak oluştur](media/data-box-edge-deploy-prep/data-box-edge-resource.png)
     
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**’ı seçin.
  
-Kaynağın oluşturulması birkaç dakika sürer. Kaynak başarıyla oluşturulduktan sonra, bu size uygun bir şekilde bildirilir.
+Kaynağın oluşturulması birkaç dakika sürer. Kaynak başarıyla oluşturulduktan sonra uygun şekilde bildirim alırsınız.
 
 
 ## <a name="get-the-activation-key"></a>Etkinleştirme anahtarı alma
 
-Data Box Edge kaynağı çalışır duruma geldikten sonra, etkinleştirme anahtarını almanız gerekecektir. Bu anahtar Data Box Edge cihazınızı etkinleştirmek ve kaynağa bağlamak için kullanılır. Bu anahtarı şimdi, Azure portalındayken alabilirsiniz.
+Veri kutusu Edge kaynak çalışır duruma geldikten sonra etkinleştirme anahtarı almanız gerekir. Bu anahtar Data Box Edge cihazınızı etkinleştirmek ve kaynağa bağlamak için kullanılır. Bu anahtarı şimdi, Azure portalındayken alabilirsiniz.
 
-1. Oluşturduğunuz kaynağa tıklayın ve sonra da **Genel Bakış**'a tıklayın.
+1. Oluşturduğunuz ve ardından kaynak Seç **genel bakış**.
 
-2. Etkinleştirme anahtarını oluşturmak için **Anahtar oluştur**'a tıklayın. Kopyala simgesine tıklayarak anahtarı kopyalayın ve daha sonra kullanmak üzere kaydedin.
+2. Seçin **anahtar üret** etkinleştirme anahtarı oluşturmak için. Anahtarı kopyalayın ve daha sonra kullanmak üzere kaydetmek için Kopyala simgesini seçin.
 
     ![Etkinleştirme anahtarını alma](media/data-box-edge-deploy-prep/get-activation-key.png)
 
 > [!IMPORTANT]
-> - Etkinleştirme anahtarının kullanım süresi, oluşturulduktan 3 gün sonra sona erer. 
+> - Etkinleştirme anahtarı, üç gün üretildikten sonra sona erer. 
 > - Anahtarın kullanım süresi dolarsa, yeni bir anahtar oluşturun. Eski anahtar geçerli olmaz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -130,10 +129,10 @@ Bu öğreticide, aşağıdaki Data Box Edge konularını öğrendiniz:
 > * Yeni kaynak oluşturma
 > * Etkinleştirme anahtarı alma
 
-Data Box Edge'inizi kurma hakkında bilgi almak için bir sonraki öğreticiye geçin. 
+Veri kutusu Edge yükleme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin. 
 
 > [!div class="nextstepaction"]
-> [Data Box Edge cihazını kurma](./data-box-edge-deploy-install.md)
+> [Veri kutusu Edge yükleyin](./data-box-edge-deploy-install.md)
 
 
 

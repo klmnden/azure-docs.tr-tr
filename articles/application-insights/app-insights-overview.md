@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5614832863fa801f931fc5cf08ca7ebf7c317488
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a0071d651f322da7bbdeb914393ef3d3be650b36
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997660"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715503"
 ---
 # <a name="what-is-application-insights"></a>Application Insights nedir?
 Application Insights, farklı platformlardaki web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.  Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve J2EE gibi çok çeşitli platformlarda, şirket içi veya bulutta barındırılan uygulamalar için yararlıdır. DevOps işleminizle tümleştirilir ve çeşitli geliştirme araçlarıyla bağlantı noktaları vardır. Visual Studio App Center ile tümleştirerek mobil uygulamalardan telemetriyi izleyebilir ve çözümleyebilir.
@@ -61,15 +61,15 @@ Verilerinizi keşfetmenin birçok yolu vardır. Aşağıdaki makaleleri inceleyi
 
 |  |  |
 | --- | --- |
-| [**Akıllı algılama ve el ile uyarılar**](app-insights-proactive-diagnostics.md)<br/>Otomatik uyarılar, uygulamanızın normal telemetri desenlerine uyum sağlar ve normal desenin dışında bir durum gelişirse tetiklenir. Belirli özel veya standart ölçüm düzeylerinde de [uyarılar](app-insights-alerts.md) ayarlayabilirsiniz. |![Uyarı örneği](./media/app-insights-overview/alerts-tn.png) |
-| [**Uygulama eşlemesi**](app-insights-app-map.md)<br/>Uygulamanızın bileşenlerinin yanı sıra önemli ölçüm ve uyarılar. |![Uygulama eşlemesi](./media/app-insights-overview/appmap-tn.png)  |
+| [**Akıllı algılama ve el ile uyarılar**](app-insights-proactive-diagnostics.md)<br/>Otomatik uyarılar, uygulamanızın normal telemetri desenlerine uyum sağlar ve normal desenin dışında bir durum gelişirse tetiklenir. Belirli özel veya standart ölçüm düzeylerinde de [uyarılar](../azure-monitor/app/alerts.md) ayarlayabilirsiniz. |![Uyarı örneği](./media/app-insights-overview/alerts-tn.png) |
+| [**Uygulama eşlemesi**](../azure-monitor/app/app-map.md)<br/>Uygulamanızın bileşenlerinin yanı sıra önemli ölçüm ve uyarılar. |![Uygulama eşlemesi](./media/app-insights-overview/appmap-tn.png)  |
 | [**Profil Oluşturucu**](app-insights-profiler.md)<br/>Örnek isteklerinin yürütme profillerini inceleyin. |![Profil Oluşturucu](./media/app-insights-overview/profiler.png) |
 | [**Kullanım analizi**](app-insights-usage-overview.md)<br/>Kullanıcıların segmentlere nasıl ayrıldığını ve nasıl elde tutulduğunu çözümleyin.|![Elde tutma aracı](./media/app-insights-overview/retention.png) |
 | [**Örnek verileri için tanılama arama**](app-insights-diagnostic-search.md)<br/>İstekler, özel durumlar, bağımlılık çağrıları, günlük izlemeleri ve sayfa görüntülemeleri gibi olaylarda arama yapın ve bunları filtreleyin.  |![Telemetri arama](./media/app-insights-overview/search-tn.png) |
 | [**Toplu veriler için Ölçüm Gezgini**](app-insights-metrics-explorer.md)<br/>İstek, hata ve özel durum oranları; yanıt süreleri, sayfa yükleme süreleri gibi toplu verileri keşfedin, filtreleyin ve bölümlere ayırın. |![Ölçümler](./media/app-insights-overview/metrics-tn.png) |
-| [**Panolar**](app-insights-dashboards.md#dashboards)<br/>Birden çok kaynaktan toplanan verileri birleştirin ve başkalarıyla paylaşın. Çok bileşenli uygulamalar ve takım odasında sürekli görüntüleme için idealdir. |![Pano örneği](./media/app-insights-overview/dashboard-tn.png) |
+| [**Panolar**](../azure-monitor/app/app-insights-dashboards.md#dashboards)<br/>Birden çok kaynaktan toplanan verileri birleştirin ve başkalarıyla paylaşın. Çok bileşenli uygulamalar ve takım odasında sürekli görüntüleme için idealdir. |![Pano örneği](./media/app-insights-overview/dashboard-tn.png) |
 | [**Canlı Ölçüm Akışı**](app-insights-live-stream.md)<br/>Yeni bir derleme dağıttığınızda, her şeyin beklendiği gibi çalıştığından emin olmak için bu neredeyse gerçek zamanlı performans göstergelerini izleyin. |![Canlı ölçüm örneği](./media/app-insights-overview/live-metrics-tn.png) |
-| [**Analiz**](app-insights-analytics.md)<br/>Bu güçlü sorgulama dilini kullanarak uygulamanızın performansı ve kullanımıyla ilgili zor soruları yanıtlayın. |![Analiz örneği](./media/app-insights-overview/analytics-tn.png) |
+| [**Analiz**](../azure-monitor/app/analytics.md)<br/>Bu güçlü sorgulama dilini kullanarak uygulamanızın performansı ve kullanımıyla ilgili zor soruları yanıtlayın. |![Analiz örneği](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](app-insights-visual-studio.md)<br/>Koddaki performans verilerini görün. Yığın izlemelerinden koda gidin.|![Visual studio](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Anlık görüntü hata ayıklayıcısı**](app-insights-snapshot-debugger.md)<br/>Dinamik işlemlerden örneklenen anlık görüntülerdeki hataları parametre değerleriyle ayıklayın.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](app-insights-export-power-bi.md)<br/>Kullanım ölçümlerini diğer iş zekası verileriyle tümleştirin.| ![Power BI](./media/app-insights-overview/power-bi.png)|
@@ -81,7 +81,7 @@ Verilerinizi keşfetmenin birçok yolu vardır. Aşağıdaki makaleleri inceleyi
 ### <a name="monitor"></a>İzleme
 Application Insights’ı uygulamanıza yükleyin, [kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md) ayarlayın ve:
 
-* Yük ve yanıt verme hızının yanı sıra bağımlılıklarınızın, sayfa yüklemelerinizin ve AJAX çağrılarınızın performansını izlemek amacıyla takım odanız için bir [pano](app-insights-dashboards.md) ayarlayın.
+* Yük ve yanıt verme hızının yanı sıra bağımlılıklarınızın, sayfa yüklemelerinizin ve AJAX çağrılarınızın performansını izlemek amacıyla takım odanız için bir [pano](../azure-monitor/app/app-insights-dashboards.md) ayarlayın.
 * En yavaş ve en çok başarısız olan isteklerin hangileri olduğunu keşfedin.
 * Yeni bir sürüm dağıttığınızda [Canlı Akış](app-insights-live-stream.md)’ı izleyerek herhangi bir performans düşüşünü anında görün.
 

@@ -5,18 +5,18 @@ services: database-migration
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
-ms.service: database-migration
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/09/2018
-ms.openlocfilehash: 7df19efc52f0771a10535c10625dd959a6edc90a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: 2b3ec4a09fb2baee7d532f348fc18cb3d428d092
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958024"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53711831"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure Veritabanı Geçiş Hizmeti örneği oluşturma
 Bu Hızlı Başlangıç kılavuzunda Azure Veritabanı Geçiş Hizmeti’nin bir örneğini oluşturmak için Azure portalını kullanacaksınız.  Hizmeti oluşturduktan sonra, şirket içi SQL Server’daki verileri bir Azure SQL veritabanına geçirmek için bu hizmeti kullanabilirsiniz.
@@ -56,7 +56,7 @@ Varsayılan görünüm hizmet panonuzu içerir.
 
         Azure portalda sanal ağ oluşturma hakkında daha fazla bilgi için [Azure portalı kullanarak sanal ağ oluşturma](https://aka.ms/vnet) makalesine bakın.
 
-    - **Fiyatlandırma katmanı** için Temel: 1 Sanal Çekirdek seçeneğini belirleyin.
+    - Temel seçin: 1 sanal çekirdek için **fiyatlandırma katmanı**.
 
         ![Geçiş hizmetini oluşturma](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
 

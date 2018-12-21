@@ -3,22 +3,21 @@ title: Azure’da Kubernetes öğreticisi - Kümeyi dağıtma
 description: Bu Azure Kubernetes Service (AKS) öğreticisinde bir AKS kümesi oluşturacak ve kubectl istemcisini kullanarak Kubernetes ana düğümüne bağlanacaksınız.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 80b011f9df389098095f58c02008da891b2aa8a7
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
-ms.translationtype: HT
+ms.openlocfilehash: 7e5c78e1b30b311c6ce918453fe728ae86060dda
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41917602"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720671"
 ---
-# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Hızlı Başlangıç: Azure Kubernetes Hizmeti (AKS) kümesini dağıtma
+# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Öğretici: Azure Kubernetes Service (AKS) kümesini dağıtma
 
-Kubernetes, kapsayıcılı uygulamalar için dağıtılmış bir platform sunar. AKS ile üretim için hazır bir Kubernetes kümesini hızlıca sağlayabilirsiniz. Yedi parçalık bu öğreticinin üçüncü kısmında, AKS içinde bir Kubernetes kümesi dağıtılır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Kubernetes, kapsayıcılı uygulamalar için dağıtılmış bir platform sunar. AKS ile üretime hazır Kubernetes kümelerini hızla oluşturabilirsiniz. Yedi parçalık bu öğreticinin üçüncü kısmında, AKS içinde bir Kubernetes kümesi dağıtılır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Kaynak etkileşimleri için hizmet sorumlusu oluşturma
@@ -26,19 +25,19 @@ Kubernetes, kapsayıcılı uygulamalar için dağıtılmış bir platform sunar.
 > * Kubernetes CLI (kubectl) yükleme
 > * kubectl istemcisini AKS kümenize bağlanacak şekilde yapılandırma
 
-Sonraki öğreticilerde Azure Vote uygulaması kümeye dağıtılacak, ölçeklendirecek ve güncelleştirilecektir.
+Ek öğreticilerde Azure Vote uygulaması kümeye dağıtılır, ölçeği genişletilmiş olup güncelleştirildi.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Önceki öğreticilerde, bir kapsayıcı görüntüsü oluşturuldu ve Azure Container Registry örneğine yüklendi. Bu adımları tamamlamadıysanız ve takip etmek istiyorsanız, [Öğretici 1 – Kapsayıcı görüntüleri oluşturma][aks-tutorial-prepare-app] konusuna dönün.
+Önceki öğreticilerde, bir kapsayıcı görüntüsü oluşturuldu ve Azure Container Registry örneğine yüklendi. Bu adımları bu işlemi yapmadıysanız ve örneği takip etmek istiyorsanız, başlangıç [öğretici 1 – kapsayıcı görüntüleri oluşturma][aks-tutorial-prepare-app].
 
-Bu öğretici için Azure CLI 2.0.44 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+Bu öğretici, Azure CLI Sürüm 2.0.53 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
 ## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
 
 Bir AKS kümesinin diğer Azure kaynaklarıyla etkileşime geçmesini sağlamak için bir Azure Active Directory hizmet sorumlusu kullanılır. Bu hizmet sorumlusu Azure CLI veya portal ile otomatik olarak oluşturulabilir veya kendiniz önceden bir tane oluşturup ek izinler atayabilirsiniz. Bu öğreticide bir hizmet sorumlusu oluşturacak, önceki öğreticide oluşturulan Azure Container Registry (ACR) örneğine erişim verecek ve ardından bir AKS kümesi oluşturacaksınız.
 
-[az ad sp create-for-rbac][] komutunu kullanarak bir hizmet sorumlusu oluşturun. `--skip-assignment` parametresi, ek izinlerin atanmasını engeller.
+[az ad sp create-for-rbac][] komutunu kullanarak bir hizmet sorumlusu oluşturun. `--skip-assignment` parametresi, ek izinlerin atanmasını engeller. Varsayılan olarak, bu hizmet sorumlusunun bir yıl süreyle geçerlidir.
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment
@@ -76,7 +75,7 @@ az role assignment create --assignee <appId> --scope <acrId> --role Reader
 
 ## <a name="create-a-kubernetes-cluster"></a>Kubernetes kümesi oluşturma
 
-AKS kümeleri Kubernetes rol tabanlı erişim denetimlerini (RBAC) kullanabilir. Bu denetimler, kullanıcılara atanmış olan rollere göre kaynaklara erişim vermenizi sağlayabilir. Bir kullanıcıya birden fazla rolün atanmış olması durumunda izinler birleştirilebilir ve ayrıca izinler için tek bir ad alanı veya kümenin tamamı gibi kapsamlar belirlenebilir. Kubernetes RBAC şu anda AKS kümeleri için önizleme sürümündedir. Bir AKS kümesi oluşturduğunuzda Azure CLI varsayılan ayarlarda RBAC özelliğini otomatik olarak etkinleştirir.
+AKS kümeleri Kubernetes rol tabanlı erişim denetimlerini (RBAC) kullanabilir. Bu denetimler, kullanıcılara atanmış olan rollere göre kaynaklara erişim vermenizi sağlayabilir. Bir kullanıcı birden çok rol atanır ve izinleri tek bir ad veya tüm küme genelinde kapsamlı izinler birleştirilir. Bir AKS kümesi oluşturduğunuzda Azure CLI varsayılan ayarlarda RBAC özelliğini otomatik olarak etkinleştirir.
 
 [az aks create][] komutunu kullanarak bir AKS kümesi oluşturun. Aşağıdaki örnek, *myResourceGroup* adlı kaynak grubunda *myAKSCluster* adlı bir küme oluşturur. Bu kaynak grubu, [bir önceki öğreticide][aks-tutorial-prepare-acr] oluşturulmuştur. `<appId>` ve `<password>` yerine hizmet sorumlusunun oluşturulduğu bir önceki adımdan aldığınız değerlerinizi girin.
 
@@ -90,7 +89,7 @@ az aks create \
     --generate-ssh-keys
 ```
 
-Birkaç dakika sonra dağıtım tamamlanır ve AKS dağıtımı hakkında JSON tarafından biçimlendirilmiş bilgiler döndürür.
+Birkaç dakika sonra dağıtım tamamlanır ve AKS dağıtımı hakkında JSON ile biçimlendirilmiş bilgiler döndürür.
 
 ## <a name="install-the-kubernetes-cli"></a>Kubernetes CLI'yi yükleme
 
@@ -104,7 +103,7 @@ az aks install-cli
 
 ## <a name="connect-to-cluster-using-kubectl"></a>kubectl istemcisini kullanarak kümeye bağlanma
 
-`kubectl` istemcisini Kubernetes kümenize bağlanacak şekilde yapılandırmak için [az aks get-credentials][] komutunu kullanın. Aşağıdaki örnek *myResourceGroup* içindeki *myAKSCluster* adlı AKS kümesinin kimlik bilgilerini alır:
+Yapılandırmak için `kubectl` Kubernetes kümenize bağlanmak için [az aks get-credentials][] komutu. Aşağıdaki örnekte adlı AKS kümesi için kimlik bilgilerini alır *myAKSCluster* içinde *myResourceGroup*:
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -115,8 +114,8 @@ Kümenize yönelik bağlantıyı doğrulamak için [kubectl get nodes][kubectl-g
 ```
 $ kubectl get nodes
 
-NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.9
+NAME                       STATUS   ROLES   AGE     VERSION
+aks-nodepool1-28993262-0   Ready    agent   3m18s   v1.9.11
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

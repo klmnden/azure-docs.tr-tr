@@ -4,24 +4,22 @@ description: İlk Azure SQL veritabanınızı tasarlamayı ve ADO.NET kullanarak
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
-ms.date: 11/01/2018
-ms.openlocfilehash: 0608bd9c923ed9ba04f257d87faad48765d3201a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 12/10/2018
+ms.openlocfilehash: cf180f6e2970ac4435602f1cceeb98a4dd9e8724
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650301"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727176"
 ---
 # <a name="tutorial-design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Öğretici: C&#x23; ve ADO.NET ile bir Azure SQL veritabanı tasarlama ve bağlama
 
-Azure SQL Veritabanı, Microsoft Bulut’ta (Azure) ilişkisel bir hizmet olarak veritabanıdır (DBaaS). Bu öğreticide, Visual Studio ile ADO.NET ve Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
+Azure SQL veritabanı, bir ilişkisel veritabanı olarak-hizmet (DBaaS), Microsoft Cloud (Azure) ' dir. Bu öğreticide, Visual Studio ile ADO.NET ve Azure portalını kullanarak şu işlemleri gerçekleştirmeyi öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Azure portalında veritabanı oluşturma
@@ -35,7 +33,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-[Visual Studio Community 2017, Visual Studio Professional 2017 veya Visual Studio Enterprise 2017](https://www.visualstudio.com/downloads/) yüklemesi.
+Yüklemesini [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 
 <!-- The following included .md, sql-database-tutorial-portal-create-firewall-connection-1.md, is long.
 And it starts with a ## H2.
@@ -51,16 +49,16 @@ And it starts with a ## H2.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, veritabanı ve tablo oluşturma, veri yükleme ve sorgulama ve veritabanını önceki bir zaman noktasına geri yükleme gibi temel veritabanı görevlerini öğrendiniz. Şunları öğrendiniz:
+Bu öğreticide, temel veritabanı görevlerini gibi veritabanı ve tablo oluşturma hakkında bilgi edindiniz, veritabanına bağlanmak, verileri yüklemek ve sorguları çalıştırın. Şunları öğrendiniz:
+
 > [!div class="checklist"]
 > * Veritabanı oluşturma
 > * Güvenlik duvarı kuralı ayarlama
 > * [Visual Studio ve C#](sql-database-connect-query-dotnet-visual-studio.md) ile veritabanına bağlanma
 > * Tablo oluşturma
-> * Veri ekleme, güncelleştirme ve silme
-> * Verileri sorgulama
+> * Ekleme, güncelleştirme, silme ve verileri Sorgulama
 
-Verilerinizi geçirme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
+Veri geçişi hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
 > [DMS kullanarak SQL Server'ı çevrimdışı Azure SQL Veritabanına geçirme](../dms/tutorial-sql-server-to-azure-sql.md)

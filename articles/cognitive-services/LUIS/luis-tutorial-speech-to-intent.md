@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: efbe24500dd83ddd84c070ea36c423c742c26d4b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8e664e26a2cafc2f0b32ebea0f019918426d956c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607413"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714589"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Konuşma hizmeti Language Understanding uygulamanızla tümleştirin
 [Konuşma hizmeti](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) tek bir istek kullanarak ses almanızı ve JSON nesneleriyle LUIS tahmini döndürmenizi sağlar. Bu makalede bir C# projesi indirip Visual Studio'da kullanarak mikrofona konuşacak ve LUIS tahmin bilgilerini alacaksınız. Bu projede Konuşma [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paketi kullanılmaktadır ve bu paket başvuru olarak projeye eklenmiştir. 
@@ -27,7 +27,7 @@ Bu makalede uygulamayı içeri aktarmak için ücretsiz bir [LUIS][LUIS] web sit
 Azure portalda bir **Language Understanding** (LUIS) anahtarı [oluşturun](luis-how-to-azure-subscription.md#create-luis-endpoint-key). 
 
 ## <a name="import-human-resources-luis-app"></a>İnsan Kaynakları LUIS uygulamasını içeri aktarma
-İnsan Kaynakları LUIS uygulaması kullanılabilir amacı ve bu makalede konuşma arasındadır [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) GitHub deposu. [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) dosyasını indirin, `.json` uzantısıyla kaydedin ve LUIS'e [aktarın](luis-how-to-start-new-app.md#import-new-app). 
+İnsan Kaynakları LUIS uygulaması kullanılabilir amacı ve bu makalede konuşma arasındadır [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding) GitHub deposu. [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json) dosyasını indirin, `.json` uzantısıyla kaydedin ve LUIS'e [aktarın](luis-how-to-start-new-app.md#import-new-app). 
 
 Bu uygulamada İnsan Kaynakları alanıyla ilgili amaçlar, varlıklar ve konuşmalar bulunur. Örnek konuşmalar şunlardır:
 
@@ -62,7 +62,7 @@ Uygulamayı içeri aktardıktan sonra **Entities** (Varlıklar) ve ardından **A
 Bu makalede bilgisayarınızdaki ses cihazı kullanılmaktadır. Bu mikrofonlu kulaklık veya yerleşik ses cihazı olabilir. Ses giriş düzeylerini inceleyin ve konuşmanızın ses cihazı tarafından algılanması için gerekirse normalden yüksek sesle konuşun. 
 
 ## <a name="download-the-luis-sample-project"></a>LUIS Örnek projesini indirme
- [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) deposunu kopyalayın veya indirin. [Speech to intent project](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) projesini Visual Studio ile açın ve NuGet paketlerini geri yükleyin. VS çözüm dosyasının yolu: .\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln.
+ Kopyala veya indir [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding) depo. [Speech to intent project](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-speech-intent-recognition) projesini Visual Studio ile açın ve NuGet paketlerini geri yükleyin. VS çözüm documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln dosyasıdır.
 
 Konuşma SDK'sı başvuru olarak eklenmiştir. 
 
@@ -93,7 +93,7 @@ Konuşma SDK'sı, LUIS yanıtının tamamını döndürür.
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 İhtiyacınız kalmadıysa LUIS HumanResources uygulamasını silebilirsiniz. Bunu yapmak için uygulamayı seçin ve listenin üzerindeki bağlam araç çubuğunda **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
-Örnek kodla işiniz bittiğinde LUIS-Samples dizinini silmeyi unutmayın.
+İşiniz bittiğinde, dizin silmeyi unutmayın örnek kodu kullanarak.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

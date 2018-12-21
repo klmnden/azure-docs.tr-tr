@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 60f16405f76654ce2646ec651a47396d79268cc2
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2c11aa11bad7e3cbdeae418eef92a042ca0731b4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537129"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725584"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: Var olan bir Node.js MongoDB web uygulamasını geçirme 
 
@@ -29,7 +29,7 @@ ms.locfileid: "53537129"
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu hızlı başlangıçta, node.js'de yazılmış mevcut bir MongoDB uygulamasını kullanma ve kullanarak MongoDB istemci bağlantılarını destekleyen Azure Cosmos DB veritabanınıza bağlama işlemi gösterilmektedir [Azure Cosmos DB MongoDB API'si](mongodb-introduction.md). Diğer bir deyişle, Node.js uygulamanız yalnızca, MongoDB için Azure Cosmos DB API'leri kullanarak bir veritabanına bağlandığını bilir. Verilerin Azure Cosmos DB'de depolandığı uygulamaya açıkça gösterilir.
+Bu hızlı başlangıçta, node.js'de yazılmış mevcut bir MongoDB uygulamasını kullanma ve kullanarak MongoDB istemci bağlantılarını destekleyen Azure Cosmos DB veritabanınıza bağlama işlemi gösterilmektedir [Azure Cosmos DB MongoDB API'si için](mongodb-introduction.md). Diğer bir deyişle, Node.js uygulamanız yalnızca, Azure Cosmos DB için MongoDB API'sini kullanarak bir veritabanına bağlandığını bilir. Verilerin Azure Cosmos DB'de depolandığı uygulamaya açıkça gösterilir.
 
 İşiniz bittiğinde, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) üzerinde çalışan bir MEAN uygulamanız (MongoDB, Express, Angular ve Node.js) olacaktır. 
 

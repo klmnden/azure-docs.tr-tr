@@ -9,16 +9,16 @@ ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 05/29/2018
-ms.openlocfilehash: 006aff3c9dd45d3a8a932eb6761c393ab5bcd1d7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 08a0994f2da7dcee5c9e9498d68767f458a82acb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544811"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715180"
 ---
-# <a name="create-a-azure-cosmos-db-api-account-for-mongodb-using-powershell"></a>PowerShell kullanarak MongoDB için Azure Cosmos DB API hesabı oluşturma
+# <a name="create-a-azure-cosmos-db-account-for-mongodb-api-using-powershell"></a>PowerShell kullanarak MongoDB API'si için bir Azure Cosmos DB hesabı oluşturma
 
-Bu örnek PowerShell Betiği, MongoDB için Azure Cosmos DB API hesabı oluşturur. 
+Bu örnek PowerShell Betiği bir Azure Cosmos DB MongoDB API hesabı oluşturur. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

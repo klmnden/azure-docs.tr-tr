@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 92cfdea12dc51884ea04ed894a79ded7f532d88b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2640316ce8915018df30fc94df0e1fbb207e894b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53085408"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713616"
 ---
 # <a name="overview-of-azure-notebooks"></a>Azure not defterleri genel bakış
 
@@ -66,12 +66,12 @@ Her not defteri için herhangi bir kod hücreleri çalıştırmak için kullanı
 - Python 2.7 + Anaconda2 5.3.0
 - Python 3.6 + Anaconda3 5.3.0
 - Python 3.5 + Anaconda3 4.2.0 (kullanım dışı bırakılacak)
-- R 3.3 + Microsoft R 3.3.0 açın
+- R 3.4.1 + Microsoft R 3.4.1 açın
 - F#4.1.9
 
 Azure not defterleri, ayrıca temel dağıtımları ötesinde ek paketleri içerir. Python çekirdekler, örneğin numpy, pandas scikit-learn ve matplotlib ve bokeh kitaplıkları.
 
-Ayrıca, o proje içinde tüm dizüstü bilgisayarlar için bir ortam oluşturmaya yönelik bir proje özelleştirebilirsiniz. Daha fazla bilgi için [hızlı başlangıç: özel bir ortamla bir proje oluşturma](quickstart-create-jupyter-notebook-project-environment.md).
+Ayrıca, o proje içinde tüm dizüstü bilgisayarlar için bir ortam oluşturmaya yönelik bir proje özelleştirebilirsiniz. Daha fazla bilgi için [hızlı başlangıç: Bir proje ile özel bir ortam oluşturma](quickstart-create-jupyter-notebook-project-environment.md).
 
 Temel dağıtımların yanı sıra Azure not defterleri veri uzmanları için faydalı olan birçok ek paketlerin önceden yüklü olarak gelen. Ayrıca, her dil için tipik bir işlem kullanarak kendi paketlerini yükleyebilirsiniz.
 
@@ -79,7 +79,7 @@ Temel dağıtımların yanı sıra Azure not defterleri veri uzmanları için fa
 
 Azure not defterleri ile aşağıdaki Jupyter uzantıları önceden yapılandırılmış:
 
-- [ARTIŞ](https://github.com/damianavila/RISE): A Jupyter slayt gösterisi uzantısı (live_reveal olarak da bilinir). Daha fazla bilgi için [bir not defteri slayt gösterisi çalıştırma](present-jupyter-notebooks-slideshow.md).
+- [ARTIŞ](https://github.com/damianavila/RISE): Bir Jupyter slayt gösterisi uzantısı (live_reveal olarak da bilinir). Daha fazla bilgi için [bir not defteri slayt gösterisi çalıştırma](present-jupyter-notebooks-slideshow.md).
 - [JupyterLab](https://github.com/jupyterlab/jupyterlab): Jupyter not defterleri ile çalışmak için bir tam hesaplama ortamı.
 - [Altair](https://github.com/ellisonbg/altair): Python için bir bildirim temelli istatistiksel görselleştirme kitaplığı.
 - [BQPlot](https://github.com/bloomberg/bqplot): Jupyter not defterleri için etkileşimli bir çizim çerçevesi.

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/17/2018
+ms.date: 12/19/2018
 ms.author: juliako
-ms.openlocfilehash: a26d3c8d6582c07c9724c2872d035e0d4fc01f5e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cd020566b61dac7da37b24f10eebfc69b19073cb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581363"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720960"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Öğretici: URL'sini temel alarak bir uzak dosya kodlama ve akışını video - REST
 
@@ -174,7 +174,7 @@ Yerleşik bir EncoderNamedPreset ön ayarını veya özel ön ayarları kullanab
         ```json
         {
             "properties": {
-                "description": "Basic Transform using an Adaptive Streaming encoding preset from the libray of built-in Standard Encoder presets",
+                "description": "Standard Transform using an Adaptive Streaming encoding preset from the library of built-in Standard Encoder presets",
                 "outputs": [
                     {
                     "onError": "StopProcessingJob",

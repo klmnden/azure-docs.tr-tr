@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 67dfc99490787eef9164759d34ef9f5ee542b76a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: e42d9592d74e845410441097fa6082cfb3f4ac5e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635349"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713888"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Linux üzerinde Ruby ve Azure App Service'te Postgres uygulaması derleme
 
@@ -162,7 +162,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 ```
 
 > [!TIP] 
-> [Yalnızca uygulamanızın kullandığı giden IP adreslerini kullanarak](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips) güvenlik duvarı kurallarınızda daha da kısıtlayıcı olabilirsiniz.
+> [Yalnızca uygulamanızın kullandığı giden IP adreslerini kullanarak](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips) güvenlik duvarı kurallarınızda daha da kısıtlayıcı olabilirsiniz.
 >
 
 ### <a name="connect-to-production-postgres-server-locally"></a>Üretim Postgres sunucusuna yerel olarak bağlanma

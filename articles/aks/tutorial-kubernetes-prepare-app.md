@@ -3,20 +3,19 @@ title: Azure’da Kubernetes öğreticisi - Uygulamayı hazırlama
 description: Bu Azure Kubernetes Service (AKS) öğreticisinde Docker Compose ile AKS'ye dağıtabileceğiniz bir çok kapsayıcılı uygulama hazırlamayı ve derlemeyi öğreneceksiniz.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 20a57a0d528fa6a291aa66f91ff6ddd71053f478
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.openlocfilehash: b529af1db6d72d87abc25eb37f2f1c39216a0ba4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297069"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724173"
 ---
-# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Öğretici: Azure Kubernetes Hizmeti (AKS) için uygulamayı hazırlama
+# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Öğretici: Azure Kubernetes Service (AKS) için uygulama hazırlama
 
 Bu yedi parçalık öğreticinin ilk bölümünde, bir çoklu kapsayıcı uygulaması Kubernetes’te kullanılmak üzere hazırlanmaktadır. Uygulamayı yerel ortamda derlemek ve test etmek için Docker Compose gibi var olan geliştirme araçları kullanılmaktadır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
@@ -29,7 +28,7 @@ Tamamlandıktan sonra, aşağıdaki uygulama yerel geliştirme ortamınızda ça
 
 ![Azure’da Kubernetes kümesinin görüntüsü](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-Sonraki öğreticilerde, kapsayıcı görüntüsü Azure Container Registry’ye yüklenip bir AKS kümesine dağıtılır.
+Ek öğreticilerde, kapsayıcı görüntüsü bir Azure Container Registry'ye yüklendi ve ardından bir AKS kümesine dağıtılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -49,7 +48,7 @@ Bu öğreticide kullanılan örnek uygulama, temel oylama uygulamasıdır. Bu uy
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Kopyalanan dizinden çalışabilmeniz için dizinleri değiştirin.
+Kopyalanmış dizine değiştirin.
 
 ```console
 cd azure-voting-app-redis

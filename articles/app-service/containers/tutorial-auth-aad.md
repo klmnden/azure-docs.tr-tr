@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d04fa3f01c468b71f0150812e543043c193c848f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 8ebaab260d38a3fe4f492f2545c5ec8b07990235
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634703"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715248"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Öğretici: Kimlik doğrulama ve kullanıcıları uçtan uca Linux üzerinde Azure App Service'te yetkilendirme
 
-[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Ayrıca, App Service [kullanıcı kimlik doğrulaması ve yetkilendirmesi](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) için yerleşik destek sunar. Bu öğreticide, App Service kimlik doğrulaması ve yetkilendirmesi ile uygulamalarınızın nasıl güvenli hale getirileceği gösterilmektedir. Yalnızca bir örnek olarak, Angular.js ön ucu ile birlikte bir ASP.NET Core uygulaması kullanılmaktadır. App Service kimlik doğrulaması ve yetkilendirmesi tüm dil çalışma zamanlarını destekler ve öğreticiyi takip ederek tercih ettiğiniz dilde nasıl uygulanacağını öğrenebilirsiniz.
+[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Ayrıca, App Service [kullanıcı kimlik doğrulaması ve yetkilendirmesi](../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) için yerleşik destek sunar. Bu öğreticide, App Service kimlik doğrulaması ve yetkilendirmesi ile uygulamalarınızın nasıl güvenli hale getirileceği gösterilmektedir. Yalnızca bir örnek olarak, Angular.js ön ucu ile birlikte bir ASP.NET Core uygulaması kullanılmaktadır. App Service kimlik doğrulaması ve yetkilendirmesi tüm dil çalışma zamanlarını destekler ve öğreticiyi takip ederek tercih ettiğiniz dilde nasıl uygulanacağını öğrenebilirsiniz.
 
 Öğretici, kendi içindeki bir uygulamanın güvenliğini sağlama işlemini göstermek için örnek uygulamayı kullanır ([Arka uç uygulaması içn kimlik doğrulaması ve yetkilendirmeyi etkinleştirme](#enable-authentication-and-authorization-for-back-end-app) içinde).
 

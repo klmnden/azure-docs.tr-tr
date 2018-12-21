@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 12/19/2018
 ms.author: juliako
-ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 266227b87381fde74efd0fa05c6ea10a0eace985
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613401"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724972"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Öğretici: Stream Canlı Media Services v3 ile API'leri kullanma
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Öğretici: Media Services v3 ile canlı Stream API'leri kullanma
 
 Azure Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) canlı akış içeriğinin işlemekten sorumludur. Bir LiveEvent, daha sonra canlı bir kodlayıcıya sağladığınız bir giriş uç noktası (alma URL'si) sağlar. LiveEvent, canlı giriş akışlarını canlı kodlayıcıdan alır ve bir veya daha fazla [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) aracılığıyla akış için kullanıma açar. LiveEvent'ler, ayrıca, akışınızı yapılacak başka işlemlerden ve sunumdan önce doğrulamak amacıyla incelemek için kullanacağınız bir önizleme uç noktası (önizleme URL'si) sağlar. Bu öğretici, **geçiş** türü bir canlı olay oluşturmak için .NET Core kullanmayı göstermektedir. 
 
@@ -89,7 +89,7 @@ Bu bölümde, *MediaV3LiveApp* projesinin [Program.cs](https://github.com/Azure-
 
 ### <a name="create-a-live-event"></a>Canlı etkinlik oluşturma
 
-Bu bölümde **geçiş** türü bir LiveEvent oluşturma gösterilmektedir (LiveEventEncodingType None olarak ayarlıdır). Canlı kodlama için etkinleştirilmiş bir LiveEvent oluşturmak istiyorsanız, LiveEventEncodingType'ı Basic olarak ayarlayın. 
+Bu bölümde **geçiş** türü bir LiveEvent oluşturma gösterilmektedir (LiveEventEncodingType None olarak ayarlıdır). Gerçek zamanlı kodlama için standart LiveEventEncodingType kümesi için etkinleştirilen bir Livestream oluşturmak istiyorsanız. 
 
 Canlı etkinliği oluştururken belirtmek isteyebileceğiniz bazı başka şeyler:
 

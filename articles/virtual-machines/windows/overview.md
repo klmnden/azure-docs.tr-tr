@@ -16,16 +16,16 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6ec151222bda3d87386cc3be4c54821775880795
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
-ms.translationtype: HT
+ms.openlocfilehash: a58644deb8d1325fd466d2a4d3a1fc927c83b685
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816846"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720263"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure’da Windows sanal makinelere genel bakış
 
-Azure Virtual Machines (VM) Azure’un sunduğu [isteğe bağlı ve ölçeklenebilir işlem kaynağı türlerinden](../../app-service/choose-web-site-cloud-service-vm.md) biridir. Genellikle, sunulan diğer seçimlere göre bilgi işlem ortamınız üzerinde daha fazla denetime ihtiyacınız varsa, bir VM seçersiniz. Bu makalede VM oluşturmadan önce dikkat etmeniz gereken bilgilere, oluşturma yöntemine ve yönetim seçeneklerine yer verilmiştir.
+Azure Virtual Machines (VM) Azure’un sunduğu [isteğe bağlı ve ölçeklenebilir işlem kaynağı türlerinden](../../app-service/overview-compare.md) biridir. Genellikle, sunulan diğer seçimlere göre bilgi işlem ortamınız üzerinde daha fazla denetime ihtiyacınız varsa, bir VM seçersiniz. Bu makalede VM oluşturmadan önce dikkat etmeniz gereken bilgilere, oluşturma yöntemine ve yönetim seçeneklerine yer verilmiştir.
 
 Bir Azure VM, onu çalıştıran fiziksel donanımı satın almanıza ve muhafaza etmenize gerek kalmadan size sanallaştırma esnekliği sunar. Ancak yine de yapılandırma, düzeltme eki uygulama ve yazılım yükleme gibi görevleri gerçekleştirerek VM’nin bakımını yapmanız gerekir.
 
@@ -101,13 +101,13 @@ Uzantıları kullanarak şu genel görevleri gerçekleştirebilirsiniz:
 ### <a name="related-resources"></a>İlgili kaynaklar
 Bu tablodaki kaynaklar VM tarafından kullanılır ve VM oluşturulduğunda mevcut olmaları ya da oluşturulmaları gerekir.
 
-| Kaynak | Gerekli | Açıklama |
+| Kaynak | Gereklidir | Açıklama |
 | --- | --- | --- |
-| [Kaynak grubu](../../azure-resource-manager/resource-group-overview.md) |Yes |VM bir kaynak grubunda yer almalıdır. |
-| [Depolama hesabı](../../storage/common/storage-create-storage-account.md) |Yes |VM, sanal sabit disklerini depolamak için bir depolama hesabına ihtiyaç duyar. |
-| [Sanal ağ](../../virtual-network/virtual-networks-overview.md) |Yes |VM’in bir sanal ağa üye olması gerekir. |
+| [Kaynak grubu](../../azure-resource-manager/resource-group-overview.md) |Evet |VM bir kaynak grubunda yer almalıdır. |
+| [Depolama hesabı](../../storage/common/storage-create-storage-account.md) |Evet |VM, sanal sabit disklerini depolamak için bir depolama hesabına ihtiyaç duyar. |
+| [Sanal ağ](../../virtual-network/virtual-networks-overview.md) |Evet |VM’in bir sanal ağa üye olması gerekir. |
 | [Genel IP adresi](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Hayır |VM, uzaktan erişim için atanmış bir genel IP adresine sahip olabilir. |
-| [Ağ arabirimi](../../virtual-network/virtual-network-network-interface.md) |Yes |VM’in ağda iletişim kurabilmek için ağ arabirimine ihtiyacı vardır. |
+| [Ağ arabirimi](../../virtual-network/virtual-network-network-interface.md) |Evet |VM’in ağda iletişim kurabilmek için ağ arabirimine ihtiyacı vardır. |
 | [Veri diskleri](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Hayır |VM, depolama olanaklarını genişletmek için veri disklerine sahip olabilir. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>İlk VM’mi nasıl oluşturabilirim?

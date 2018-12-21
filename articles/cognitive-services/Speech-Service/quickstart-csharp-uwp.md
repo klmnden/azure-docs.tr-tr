@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 036c5230104e9915f9bcbaa5dd535a359fecf55a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 2d51bd910b86c81304fb228d35079fca166b1eb7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599459"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719890"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Hızlı Başlangıç: Speech SDK'sı kullanarak bir UWP uygulamasında konuşma tanıma
 
@@ -29,57 +29,16 @@ Bu makalede, geliştirdiğiniz bir C# Evrensel Windows Platformu (UWP; Windows s
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtarınız olması gerekir. Anahtarı ücretsiz alabilirsiniz. Ayrıntılar için bkz. [Konuşma hizmetini ücretsiz olarak deneme](get-started.md).
+Bu hızlı başlangıç şunları gerektirir:
+
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* Konuşma hizmeti için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio projesi oluşturma
 
-1. Visual Studio 2017'yi başlatın.
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
 
-1. **Evrensel Windows Platformu geliştirmesi** iş yükünün bulunduğundan emin olun. Visual Studio yükleyicisini açmak için Visual Studio menü çubuğundan **Araçlar** > **Araçları ve Özellikleri Al**'ı seçin. Bu iş yükü zaten etkinse iletişim kutusunu kapatın.
-
-    ![Visual Studio yükleyicisinin İş yükleri sekmesi vurgulanmış olarak ekran görüntüsü](media/sdk/vs-enable-uwp-workload.png)
-
-    Etkin değilse **.NET çoklu platform geliştirme**'nin yanındaki kutuyu ve iletişim kutusunun sağ alt köşesindeki **Değiştir**'i seçin. Yeni özelliğin yüklenmesi bir dakika sürer.
-
-1. Boş bir Visual C# Evrensel Windows uygulaması oluşturun. İlk olarak, menüden **Dosya** > **Yeni** > **Proje** seçeneğini belirleyin. **Yeni Proje** iletişim kutusunda, sol bölmeden **Yüklü** > **Visual C#** > **Windows Evrensel**'i genişletin. Sonra **Boş Uygulama (Evrensel Windows)** seçeneğini belirleyin. Proje adı olarak *helloworld* girin.
-
-    ![Yeni Proje iletişim kutusunun ekran görüntüsü](media/sdk/qs-csharp-uwp-01-new-blank-app.png)
-
-1. Speech SDK'sı, uygulama için Windows 10 Fall Creators Update veya üzerini derleme gerektirir. Çıkan **Yeni Evrensel Windows Platformu Projesi** penceresinde **Windows 10 Fall Creators Update (10.0; Sürüm 16299)** seçeneğini **En düşük sürüm** olarak belirleyin. **Hedef sürümü** kutusunda, bu veya sonraki bir sürümü seçin ve ardından **Tamam**’a tıklayın.
-
-    ![Yeni Evrensel Windows Platformu Projesi penceresinin ekran görüntüsü](media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
-
-1. 64 bit Windows işletim sistemini kullanıyorsanız, Visual Studio araç çubuğundaki açılan menüyü kullanarak yapı platformunuzu `x64` işletim sistemine geçirebilirsiniz. (64 bit Windows, 32 bit uygulamaları çalıştırabilir, bu yüzden dilerseniz `x86` olarak ayarlanmış şekilde bırakabilirsiniz.)
-
-   ![x64 seçeneğinin vurgulandığı Visual Studio araç çubuğunun ekran görüntüsü](media/sdk/qs-csharp-uwp-03-switch-to-x64.png)
-
-   > [!NOTE]
-   > Konuşma SDK'sı yalnızca Intel uyumlu işlemcileri destekler. ARM şu anda desteklenmiyor.
-
-1. [Konuşma SDK NuGet paketi](https://aka.ms/csspeech/nuget)'ni yükleyip başvurulara ekleyin. Çözüm Gezgini'nde çözüme sağ tıklayın ve **Çözüm için NuGet Paketlerini Yönet**'i seçin.
-
-    ![Çözüm Gezgini'nin, Çözüm için NuGet Paketlerini Yönet seçeneğinin vurgulandığı ekran görüntüsü](media/sdk/qs-csharp-uwp-04-manage-nuget-packages.png)
-
-1. Sağ üst köşede, **Paket Kaynağı** alanında **nuget.org**'u seçin. `Microsoft.CognitiveServices.Speech` paketini arayın ve **helloworld** projesine yükleyin.
-
-    ![Çözüm için Paketleri Yönet iletişim kutusunun ekran görüntüsü](media/sdk/qs-csharp-uwp-05-nuget-install-1.0.0.png "NuGet paketini yükle")
-
-1. NuGet paketinin yükleme işlemini başlatmak için görüntülenen lisansı kabul edin.
-
-    ![Lisans Kabulü iletişim kutusunun ekran görüntüsü](media/sdk/qs-csharp-uwp-06-nuget-license.png "Lisansı kabul et")
-
-1. Paket Yöneticisi konsolunda aşağıdaki çıkış satırı görüntülenir.
-
-   ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.2.0' to helloworld
-   ```
-
-1. Uygulama, konuşma girdisi için mikrofon kullandığından, **Mikrofon** özelliğini projeye ekleyin. Çözüm Gezgini'nde, uygulama bildiriminizi düzenlemek için **Package.appxmanifest** dosyasına çift tıklayın. Ardından **Özellikler** sekmesine geçin, **Mikrofon** özelliği kutusunu seçin ve değişikliklerinizi kaydedin.
-
-   ![Özellikler ve Mikrofonun vurgulandığı Visual Studio uygulama bildiriminin ekran görüntüsü](media/sdk/qs-csharp-uwp-07-capabilities.png)
-
-
-## <a name="add-sample-code"></a>Örnek kodu ekleme
+## <a name="add-sample-code"></a>Örnek kod ekleme
 
 1. Uygulamanın kullanıcı arabirimini XAML kullanılarak tanımlanır. `MainPage.xaml` dosyasını Çözüm Gezgini'nde açın. Tasarımcının XAML görünümünde, aşağıdaki XAML kod parçacığını Kılavuz etiketine ekleyin (`<Grid>` ve `</Grid>` arasında).
 
@@ -113,13 +72,10 @@ Bu Hızlı Başlangıcı tamamlamak için bir Konuşma hizmeti abonelik anahtar�
 
     ![Konuşma tanıma kullanıcı arabiriminin ekran görüntüsü](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-`quickstart/csharp-uwp` klasöründe bu örneği arayın.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [C# için Konuşma SDK'sını kullanarak konuşmadaki amacı tanıma](how-to-recognize-intents-from-speech-csharp.md)
+> [Keşfedin C# github'da örnekleri](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

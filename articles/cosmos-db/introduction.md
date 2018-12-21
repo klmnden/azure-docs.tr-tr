@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 12/18/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 133f8e82d7a46bae11eb049b2d1c9393990c9042
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 0fe01f6654be715c83cc119e1b7940d78e385e97
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634584"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728287"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB’ye hoş geldiniz
 
@@ -104,7 +104,7 @@ Cosmos DB hakkında daha fazla bilgiyi [genel dağıtım](distribute-data-global
 Dört hızlı başlangıçtan biriyle Azure Cosmos DB kullanmaya başlayın:
 
 * [Azure Cosmos DB SQL API’yi kullanmaya başlama](create-sql-api-dotnet.md)
-* [MongoDB için Azure Cosmos DB API'si ile çalışmaya başlama](create-mongodb-nodejs.md)
+* [MongoDB API'si için Azure Cosmos DB ile çalışmaya başlama](create-mongodb-nodejs.md)
 * [Azure Cosmos DB Cassandra API’yi kullanmaya başlama](create-cassandra-dotnet.md)
 * [Azure Cosmos DB Graph API’yi kullanmaya başlama](create-graph-dotnet.md)
 * [Azure Cosmos DB Tablo API’yi kullanmaya başlama](create-table-dotnet.md)

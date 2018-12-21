@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8c4dc3e62322cac1fe90874b55a155014e78278d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: ffa6e44a4be8813b74dc707f161bd5c17f72f350
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633700"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720061"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Öğretici: Azure'da SQL Veritabanı ile ASP.NET uygulaması oluşturma
 
@@ -118,7 +118,7 @@ Kaynak grubunu **myResourceGroup** olarak adlandırın.
 
 | Ayar  | Önerilen değer | Daha fazla bilgi edinmek için |
 | ----------------- | ------------ | ----|
-|**App Service Planı**| myAppServicePlan | [App Service planları](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
+|**App Service Planı**| myAppServicePlan | [App Service planları](../app-service/overview-hosting-plans.md) |
 |**Konum**| Batı Avrupa | [Azure bölgeleri](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**Boyut**| Ücretsiz | [Fiyatlandırma katmanları](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
@@ -139,7 +139,7 @@ Bir yönetici kullanıcı adı ve parolası ekleyin. Parola karmaşıklık gerek
 Bu kullanıcı adını ve parolayı unutmayın. Daha sonra mantıksal sunucu örneğini yönetirken bunlara ihtiyacınız olacaktır.
 
 > [!IMPORTANT]
-> Bağlantı dizelerindeki (Visual Studio ve ayrıca App Service’te) parolanız maskelenmiş olsa bile, bir yerlerde tutulması uygulamanızın saldırı yüzeyine katkıda bulunur. App Service, kodunuzda veya uygulama yapılandırmanızda gizli dizileri tutma gereksinimini tamamen ortadan kaldırarak bu riski yok etmek için [yönetilen hizmet kimliklerini](app-service-managed-service-identity.md) kullanabilir. Daha fazla bilgi için bkz. [Sonraki adımlar](#next-steps).
+> Bağlantı dizelerindeki (Visual Studio ve ayrıca App Service’te) parolanız maskelenmiş olsa bile, bir yerlerde tutulması uygulamanızın saldırı yüzeyine katkıda bulunur. App Service, kodunuzda veya uygulama yapılandırmanızda gizli dizileri tutma gereksinimini tamamen ortadan kaldırarak bu riski yok etmek için [yönetilen hizmet kimliklerini](overview-managed-identity.md) kullanabilir. Daha fazla bilgi için bkz. [Sonraki adımlar](#next-steps).
 
 ![SQL Server örneği oluşturma](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: a594d6704b9fa76c212719f0ac423942e9f57d7a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 4a772977130f5679da2d879cc12738b89be09f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604040"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726740"
 ---
 # <a name="create-azure-app-service-web-apps-by-using-ansible"></a>Ansible'ı kullanarak Azure App Service web uygulamaları oluşturun
 [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (veya yalnızca Web Apps) web uygulamaları, REST API'leri ve mobil arka uçlar konaklar. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz.
@@ -93,7 +93,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ## <a name="create-an-app-service-by-using-traffic-manager"></a>Traffic Manager’ı kullanarak uygulama hizmeti oluşturma
 [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager)'ı kullanarak web istemcilerinden gelen isteklerin Azure App Service'teki uygulamalara nasıl dağıtılacağını denetleyebilirsiniz. App Service uç noktaları bir Azure Traffic Manager profiline eklendiğinde, Traffic Manager, App Service uygulamalarınızın durumunu izler. Durumlar arasında çalışıyor, durduruldu ve silindi yer alır. Ardından Traffic Manager bu uç noktalardan hangilerinin trafik alması gerektiğine karar verebilir.
 
-App Service'teki uygulamalar bir [App Service planında](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
+App Service'teki uygulamalar bir [App Service planında](https://docs.microsoft.com/azure/app-service/overview-hosting-plans
 ) çalışır. App Service planı, bir web uygulamasının birlikte çalıştırılacağı işlem kaynakları kümesini tanımlar. App Service planınızı ve web uygulamanızı farklı gruplarda yönetebilirsiniz.
 
 Bu bölüm, aşağıdaki kaynakları tanımlayan bir örnek Ansible playbook sunar:

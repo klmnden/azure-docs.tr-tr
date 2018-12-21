@@ -1,6 +1,6 @@
 ---
-title: MongoDB için Azure Cosmos DB API verileri Sorgulama
-description: MongoDB için Azure Cosmos DB API'si ile sorgulamayı öğreneceksiniz.
+title: MongoDB API'si için Azure Cosmos DB'den verileri Sorgulama
+description: Azure Cosmos DB ile MongoDB API'si için sorgu yürütmeyi öğrenirsiniz.
 services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
@@ -9,21 +9,21 @@ ms.component: cosmosdb-mongo
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/29/2018
-ms.openlocfilehash: 36fdb2727d31ab640cb6116ecf5eae9ed06c07d2
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: bcfbb0115274c8b0d330426a454530dcd7c170ab
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536942"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724666"
 ---
-# <a name="tutorial-query-data-from-azure-cosmos-db-api-for-mongodb"></a>Öğretici: Azure Cosmos DB MongoDB API'si sorgu verileri
+# <a name="tutorial-query-data-using-azure-cosmos-db-for-mongodb-api"></a>Öğretici: Azure Cosmos DB için MongoDB API'sini kullanarak verileri Sorgulama
 
 [MongoDB için Azure Cosmos DB API’si](mongodb-introduction.md), [MongoDB kabuk sorgularını](https://docs.mongodb.com/manual/tutorial/query-documents/) destekler. 
 
 Bu makale aşağıdaki görevleri kapsar: 
 
 > [!div class="checklist"]
-> * MongoDB ile verileri sorgulama
+> * MongoDB Kabuğu'nu kullanarak Cosmos veritabanında depolanan QQuerying veri
 
 Başlamak için bu belgedeki örnekleri kullanabilir ve [Query Azure Cosmos DB with MongoDB shell](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/) (Azure Cosmos DB'yi MongoDB kabuğu ile sorgulama) videosunu izleyebilirsiniz.
 
@@ -303,7 +303,7 @@ Sonraki sorgu, çocuk dizisi boyutu 3 olan tüm aileleri döndürür.
 Bu öğreticide aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
-> * MongoDB kullanarak sorgulamayı öğrendiniz 
+> * MongoDB API'si için yerel destek Cosmos DB kullanarak sorgulamayı öğrendiniz
 
 Artık verilerinizi genel olarak nasıl dağıtacağınızı öğrenmek için sonraki öğreticiye ilerleyebilirsiniz.
 

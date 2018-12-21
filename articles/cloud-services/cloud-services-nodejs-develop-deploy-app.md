@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 08/17/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7af18272c335c835a2aa406fc635f3e7afda2a3a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 182dada35e0bea7101cc58ff62fde76fbcb8971e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003461"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722286"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Bir Node.js uygulaması derleme ve Azure Cloud Service’e dağıtma
 
@@ -36,7 +36,7 @@ Uygulama basit bir "hello world" uygulamasıdır:
 
 ![Hello World web sayfasını gösteren bir web tarayıcısı][A web browser displaying the Hello World web page]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 > [!NOTE]
 > Bu öğretici Windows gerektiren Azure PowerShell’i kullanır.
 
@@ -60,8 +60,8 @@ Temel Node.js iskelesiyle birlikte yeni bir Azure Cloud Service projesi oluştur
 
     Cmdlet aşağıdaki dosyaları oluşturur:
 
-   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** ve **ServiceDefinition.csdef**: Uygulamanızı yayımlamak için gereken Azure’a özel dosyalar. Daha fazla bilgi için bkz. [Azure için Barındırılan Hizmet Oluşturmaya Genel Bakış].
-   * **deploymentSettings.json**: Azure PowerShell dağıtım cmdlet’leri tarafından kullanılan yerel ayarları depolar.
+   * **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** ve **ServiceDefinition.csdef**: Uygulamanızı yayımlamak için gereken azure'a özel dosyalar. Daha fazla bilgi için bkz. [Azure için Barındırılan Hizmet Oluşturmaya Genel Bakış].
+   * **deploymentSettings.json**: Azure PowerShell dağıtım cmdlet'leri tarafından kullanılan yerel ayarları depolar.
 4. Yeni bir web rolü eklemek için aşağıdaki komutu girin:
 
        Add-AzureNodeWebRole
@@ -164,7 +164,7 @@ Daha fazla bilgi için bkz. [Node.js Geliştirici Merkezi].
 
 <!-- URL List -->
 
-[Azure Websites, Cloud Services ve Virtual Machines karşılaştırması]: ../app-service/choose-web-site-cloud-service-vm.md
+[Azure Websites, Cloud Services ve Virtual Machines karşılaştırması]: ../app-service/overview-compare.md
 [basit bir web uygulaması kullanmayı]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [.NET 2.7 için Azure SDK’sını]: http://www.microsoft.com/en-us/download/details.aspx?id=48178

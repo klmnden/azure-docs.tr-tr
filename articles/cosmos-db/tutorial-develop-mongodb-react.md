@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 54a58ed9a3adf405f1384a2d0a31c569707acfc9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f7f247da93290aafaec62fe68158a036bc6cb887
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542994"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723357"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>React ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma  
 
-Bu çok parçalı videolu öğretici, React ön ucuyla hero izleme uygulaması oluşturmayı gösterir. Uygulama sunucusu için kullanılan, Node ve Express, Azure Cosmos DB ile bağlandığı [MongoDB için Azure Cosmos DB API hesabı](mongodb-introduction.md)ve ardından React ön ucunu uygulamanın sunucu bölümüne bağlar. Öğreticide ayrıca Azure Portal’da Azure Cosmos DB’nin tıklayarak ölçeklendirilme ve uygulamayı İnternet'e dağıtarak herkesin sık kullanılan hero'larını izlemesini sağlama konuları gösterilmiştir. 
+Bu çok parçalı videolu öğretici, React ön ucuyla hero izleme uygulaması oluşturmayı gösterir. Uygulama sunucusu için kullanılan, Node ve Express, Azure Cosmos DB ile bağlandığı [Azure Cosmos DB MongoDB API'si için](mongodb-introduction.md)ve ardından React ön ucunu uygulamanın sunucu bölümüne bağlar. Öğreticide ayrıca Azure Portal’da Azure Cosmos DB’nin tıklayarak ölçeklendirilme ve uygulamayı İnternet'e dağıtarak herkesin sık kullanılan hero'larını izlemesini sağlama konuları gösterilmiştir. 
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) MongoDB istemci bağlantılarını destekler, bu nedenle MongoDB yerine Azure Cosmos DB’yi kullanabilirsiniz. Böylece MongoDB uygulamalarıyla aynı kodları kullanır ancak kolay bulut dağıtımı, ölçeklendirme, yüksek hızlı okuma ve yazma gibi bazı avantajlar elde edersiniz.  
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) MongoDB istemci bağlantılarını destekler, böylece Azure Cosmos DB MongoDB yerine kullanabilirsiniz.  
 
 Bu çok bölümlü öğretici aşağıdaki görevleri içerir:
 

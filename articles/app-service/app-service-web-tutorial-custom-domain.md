@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3eff646a1b3681c58c820695d296d5e09297e03b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 89852e30929cc26aa0cbe63ed4e334c4e878b90b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600212"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714347"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Öğretici: Mevcut bir özel DNS adını Azure App Service'e eşlemek
 
@@ -48,7 +48,7 @@ Bu öğreticiyi tamamlamak için:
   Örneğin, `contoso.com` ve `www.contoso.com` için DNS girdileri eklemek üzere `contoso.com` kök etki alanının DNS ayarlarını yapılandırabilmeniz gerekir.
 
   > [!NOTE]
-  > Mevcut etki alanı adınız yoksa, [Azure Portal'ı kullanarak etki alanı satın almayı](custom-dns-web-site-buydomains-web-app.md) göz önünde bulundurabilirsiniz. 
+  > Mevcut etki alanı adınız yoksa, [Azure Portal'ı kullanarak etki alanı satın almayı](manage-custom-dns-buy-domain.md) göz önünde bulundurabilirsiniz. 
 
 ## <a name="prepare-the-app"></a>Uygulamayı hazırlama
 
@@ -305,7 +305,7 @@ Daha önce yapılandırılmış olan DNS adlarına (örneğin, `contoso.com`,  `
 
 ## <a name="migrate-an-active-domain"></a>Etkin bir etki alanını geçirme
 
-Canlı siteyi ve onun DNS etki alanı adını hiçbir kesinti olmadan App Service'e geçirmek için, bkz. [Etkin DNS adını Azure App Service'e geçirme](app-service-custom-domain-name-migrate.md).
+Canlı siteyi ve onun DNS etki alanı adını hiçbir kesinti olmadan App Service'e geçirmek için, bkz. [Etkin DNS adını Azure App Service'e geçirme](manage-custom-dns-migrate-domain.md).
 
 ## <a name="redirect-to-a-custom-directory"></a>Özel bir dizine yeniden yönlendirme
 

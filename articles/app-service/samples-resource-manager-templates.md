@@ -13,16 +13,16 @@ ms.workload: app-service
 ms.date: 10/15/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 4502077e04fd8f705d404028b93463f6ccd18a79
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: d2b7e7a29838fd14292e3498c8db3a496d7d9434
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653331"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717815"
 ---
 # <a name="azure-resource-manager-templates-for-app-service"></a>App Service için Azure Resource Manager şablonları
 
-Aşağıdaki tabloda, Azure App Service için Azure Resource Manager şablonlarının bağlantılarını içerir. Uygulaması şablonları oluştururken sık karşılaşılan hataların önlenmesiyle ilgili öneriler için bkz. [Azure Resource Manager şablonları ile uygulaması Dağıtma Kılavuzu](web-sites-rm-template-guidance.md).
+Aşağıdaki tabloda, Azure App Service için Azure Resource Manager şablonlarının bağlantılarını içerir. Uygulaması şablonları oluştururken sık karşılaşılan hataların önlenmesiyle ilgili öneriler için bkz. [Azure Resource Manager şablonları ile uygulaması Dağıtma Kılavuzu](deploy-resource-manager-template.md).
 
 | | |
 |-|-|

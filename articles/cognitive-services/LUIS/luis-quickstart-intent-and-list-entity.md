@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 5706e0b124bb9ceaf1abf7228faf088dc4e510ce
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cf2cd8a3dade408bf98a6fcc64af0d4ee4419fa0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096698"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718257"
 ---
-# <a name="tutorial-4-extract-exact-text-matches"></a>Öğretici 4: Tam metin eşleşmelerini ayıklama
+# <a name="tutorial-4-extract-exact-text-matches"></a>4. Öğretici: Tam metin eşleşmelerini ayıklama
 Bu öğreticide bir listedeki önceden tanımlı öğelerle eşleşen verileri almayı öğreneceksiniz. Listeden her öğenin bir eşanlamlı sözcükler listesi olabilir. İnsan kaynakları uygulamasında, bir çalışan ad, e-posta, telefon numarası ve ABD federal vergi numarası gibi birkaç başlıca bilgi ile tanımlanabilir. 
 
 İnsan Kaynakları uygulamasının hangi çalışanın bir binadan başka bir binaya taşındığını belirlemesi gerekiyor. LUIS, çalışan taşıma ile ilgili bir konuşmadan amacı belirliyor ve istemci uygulama tarafından çalışanı taşımak üzere standart bir emir oluşturulabilmesi için çalışanı çıkarıyor.
@@ -49,7 +49,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
 Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
-1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json) indirip kaydedin.
+1.  [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-regex-HumanResources.json) indirip kaydedin.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 

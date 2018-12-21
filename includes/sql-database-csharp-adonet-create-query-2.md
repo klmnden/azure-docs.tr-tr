@@ -2,382 +2,296 @@
 author: MightyPen
 ms.service: sql-database
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 12/10/2018
 ms.author: genemi
-ms.openlocfilehash: c4329b9efef3cdb2911466e64ac6c9f07a1e9b31
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52272690"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728583"
 ---
-<a name="cs_0_csharpprogramexample_h2"/>
-
 ## <a name="c-program-example"></a>C#örnek program
 
-Mevcut bu makalenin sonraki bölümlerinde bir C# Transact-SQL deyimleri SQL veritabanına göndermek için ADO.NET kullanan programı. C# Programı aşağıdaki eylemleri gerçekleştirir:
+Mevcut bu makalenin sonraki bölümlerinde bir C# Transact-SQL (T-SQL) deyimlerini SQL veritabanına göndermek için ADO.NET kullanan programı. C# Programı aşağıdaki eylemleri gösterir:
 
-1. [Bizim ADO.NET kullanarak SQL veritabanına bağlanan](#cs_1_connect).
-2. [Tablolar oluşturur](#cs_2_createtables).
-3. [T-SQL INSERT deyimleri göndererek tabloları verilerle doldurur](#cs_3_insert).
-4. [Bir birleşimin kullandığı veri güncelleştirmeleri](#cs_4_updatejoin).
-5. [Bir birleşimin kullandığı verilerini siler](#cs_5_deletejoin).
-6. [Bir birleşim kullanarak veri satırları seçer](#cs_6_selectrows).
-7. (Bu, herhangi bir geçici tablo tempdb üzerinden bırakır) bağlantıyı kapatır.
+- [ADO.NET kullanarak SQL veritabanı'na bağlanma](#cs_1_connect)
+- [T-SQL deyimleri döndüren yöntemler](#cs_2_return)
+    - Tablo oluşturma
+    - Tabloları verilerle doldurun
+    - Güncelleştirme, silme ve verileri seçme
+- [T-SQL veritabanına gönderme](#cs_3_submit)
 
-C# Program içerir:
+### <a name="entity-relationship-diagram-erd"></a>Varlık ilişkisi şeması (ERD)
 
-- C#veritabanına bağlanmak için kod.
-- T-SQL kaynak kodunu döndüren yöntemler.
-- T-SQL veritabanına göndermek iki yöntem.
+`CREATE TABLE` Deyimleri içeren **başvuruları** oluşturmak için anahtar sözcüğü bir *yabancı anahtar* iki tablo arasında ilişki (FK). Kullanıyorsanız *tempdb*, açıklama `--REFERENCES` önünde çizgiler çifti kullanarak anahtar sözcüğü.
 
-#### <a name="to-compile-and-run"></a>Derlemek ve çalıştırmak için
+ERD iki tablo arasındaki ilişkiyi gösterir. Değerler **tabEmployee.DepartmentCode** *alt* sütun sınırlı değerleri için **tabDepartment.DepartmentCode** *üst*sütun.
 
-Bu C# mantıksal olarak bir .cs dosyası bir programdır. Ancak burada program her blok görmek ve anlamak daha kolay hale getirmek için bazı kod blokları şeklinde, fiziksel olarak ayrılmıştır. Derleme ve bu programı çalıştırmak için aşağıdakileri yapın:
-
-1. Oluşturma bir C# Visual Studio'da proje.
-    - Proje türü olmalıdır bir *konsol* çerçevedeki aşağıdaki hiyerarşi gibi uygulama: **şablonları** > **Visual C#**  > **Windows Klasik Masaüstü** > **konsol uygulaması (.NET Framework)**.
-3. Dosyasındaki **Program.cs**, kodun küçük bir başlangıç satırları sil.
-3. Program.cs, içine kopyalayın ve her biri aşağıdaki blok, burada belirtilen sırayla yapıştırın.
-4. Program.cs'ye aşağıdaki değerleri Düzenle **ana** yöntemi:
-
-   - **Kal. Veri kaynağı**
-   - **CD. Kullanıcı Kimliği**
-   - **Kal. Parola**
-   - **InitialCatalog**
-
-5. Doğrulayın derleme **System.Data.dll** başvurulur. Doğrulamak için genişletme **başvuruları** düğümünde **Çözüm Gezgini** bölmesi.
-6. Visual Studio'da bir program oluşturmak için tıklayın **derleme** menüsü.
-7. Program Visual Studio'dan çalıştırmak için tıklayın **Başlat** düğmesi. Rapor çıktısı cmd.exe penceresinde görüntülenir.
+![ERD gösteren yabancı anahtar](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
 
 > [!NOTE]
-> Bir satır eklemek için T-SQL düzenleme seçeneğiniz **#** tablo adlarına oluşturan bunları gibi geçici tablolarda **tempdb**. Test veritabanı kullanılabilir olduğunda bu tanıtım amacıyla yararlı olabilir. Bağlantıyı kapatır, geçici tabloları otomatik olarak silinir. Yabancı anahtarlar için tüm başvurular geçici tablolar için zorunlu değildir.
->
+> Bir satır eklemek için T-SQL düzenleme seçeneğiniz `#` tablo adlarına oluşturan bunları gibi geçici tablolarda *tempdb*. Test veritabanı kullanılabilir olduğunda bu gösterim amaçları için yararlıdır. Yabancı anahtarlar herhangi bir başvuru, bunların kullanılması sırasında zorlanmaz ve program çalışmayı tamamladıktan sonra bağlantıyı kapatır, geçici tabloları otomatik olarak silinir.
+
+### <a name="to-compile-and-run"></a>Derlemek ve çalıştırmak için
+
+C# Program mantıksal olarak bir .cs dosyası ve her blok anlamak daha kolay hale getirmek için bazı kod blokları şeklinde, fiziksel olarak ayrılmıştır. Derleme ve programı çalıştırmak için aşağıdaki adımları uygulayın:
+
+1. Oluşturma bir C# Visual Studio'da proje. Proje türü olmalıdır bir *konsol*, altında bulunan **şablonları** > **Visual C#**   >  **WindowsMasaüstü**  >  **Konsol uygulaması (.NET Framework)**.
+
+1. Dosyasındaki *Program.cs*, aşağıdaki adımlarla bulunan Başlangıç kod satırlarını değiştirin:
+
+    1. Aşağıdaki kod blokları, bunların sunulur, aynı sırada Kopyala ve Yapıştır bkz [veritabanına bağlan](#cs_1_connect), [oluşturmak T-SQL](#cs_2_return), ve [veritabanı Gönder](#cs_3_submit).
+
+    1. Aşağıdaki değerleri değiştirme `Main` yöntemi:
+
+        - *Kal. Veri kaynağı*
+        - *Kal. Kullanıcı Kimliği*
+        - *Kal. Parola*
+        - *Kal. InitialCatalog*
+
+1. Derleme doğrulama *System.Data.dll* başvurulur. Doğrulamak için genişletme **başvuruları** düğümünde **Çözüm Gezgini** bölmesi.
+
+1. Yapı ve Visual Studio'dan programı çalıştırmak için **Başlat** düğmesi. GUID değerleri, test çalışmaları arasında farklılık gösterir ancak rapor çıktısı bir program penceresinde görüntülenir.
+
+    ```Output
+    =================================
+    T-SQL to 2 - Create-Tables...
+    -1 = rows affected.
+
+    =================================
+    T-SQL to 3 - Inserts...
+    8 = rows affected.
+
+    =================================
+    T-SQL to 4 - Update-Join...
+    2 = rows affected.
+
+    =================================
+    T-SQL to 5 - Delete-Join...
+    2 = rows affected.
+
+    =================================
+    Now, SelectEmployees (6)...
+    8ddeb8f5-9584-4afe-b7ef-d6bdca02bd35 , Alison , 20 , acct , Accounting
+    9ce11981-e674-42f7-928b-6cc004079b03 , Barbara , 17 , hres , Human Resources
+    315f5230-ec94-4edd-9b1c-dd45fbb61ee7 , Carol , 22 , acct , Accounting
+    fcf4840a-8be3-43f7-a319-52304bf0f48d , Elle , 15 , NULL , NULL
+    View the report output here, then press any key to end the program...
+    ```
 
 <a name="cs_1_connect"/>
-### <a name="c-block-1-connect-by-using-adonet"></a>C#Block 1: ADO.NET kullanarak bağlanma
 
-- [Sonraki](#cs_2_createtables)
-
+### <a name="connect-to-sql-database-using-adonet"></a>ADO.NET kullanarak SQL veritabanı'na bağlanma
 
 ```csharp
 using System;
-using System.Data.SqlClient;   // System.Data.dll 
+using System.Data.SqlClient;   // System.Data.dll
 //using System.Data;           // For:  SqlDbType , ParameterDirection
 
 namespace csharp_db_test
 {
-   class Program
-   {
-      static void Main(string[] args)
-      {
-         try
-         {
-            var cb = new SqlConnectionStringBuilder();
-            cb.DataSource = "your_server.database.windows.net";
-            cb.UserID = "your_user";
-            cb.Password = "your_password";
-            cb.InitialCatalog = "your_database";
-
-            using (var connection = new SqlConnection(cb.ConnectionString))
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
             {
-               connection.Open();
+                var cb = new SqlConnectionStringBuilder();
+                cb.DataSource = "your_server.database.windows.net";
+                cb.UserID = "your_user";
+                cb.Password = "your_password";
+                cb.InitialCatalog = "your_database";
 
-               Submit_Tsql_NonQuery(connection, "2 - Create-Tables",
-                  Build_2_Tsql_CreateTables());
+                using (var connection = new SqlConnection(cb.ConnectionString))
+                {
+                    connection.Open();
 
-               Submit_Tsql_NonQuery(connection, "3 - Inserts",
-                  Build_3_Tsql_Inserts());
+                    Submit_Tsql_NonQuery(connection, "2 - Create-Tables", Build_2_Tsql_CreateTables());
 
-               Submit_Tsql_NonQuery(connection, "4 - Update-Join",
-                  Build_4_Tsql_UpdateJoin(),
-                  "@csharpParmDepartmentName", "Accounting");
+                    Submit_Tsql_NonQuery(connection, "3 - Inserts", Build_3_Tsql_Inserts());
 
-               Submit_Tsql_NonQuery(connection, "5 - Delete-Join",
-                  Build_5_Tsql_DeleteJoin(),
-                  "@csharpParmDepartmentName", "Legal");
+                    Submit_Tsql_NonQuery(connection, "4 - Update-Join", Build_4_Tsql_UpdateJoin(),
+                        "@csharpParmDepartmentName", "Accounting");
 
-               Submit_6_Tsql_SelectEmployees(connection);
+                    Submit_Tsql_NonQuery(connection, "5 - Delete-Join", Build_5_Tsql_DeleteJoin(),
+                        "@csharpParmDepartmentName", "Legal");
+
+                    Submit_6_Tsql_SelectEmployees(connection);
+                }
             }
-         }
-         catch (SqlException e)
-         {
-            Console.WriteLine(e.ToString());
-         }
-         Console.WriteLine("View the report output here, then press any key to end the program...");
-         Console.ReadKey();
-      }
-```
-
-
-<a name="cs_2_createtables"/>
-### <a name="c-block-2-t-sql-to-create-tables"></a>C#Block 2: Tablo oluşturmak için T-SQL
-
-- [Önceki](#cs_1_connect) &nbsp;  /  &nbsp; [İleri](#cs_3_insert)
-
-```csharp
-      static string Build_2_Tsql_CreateTables()
-      {
-         return @"
-DROP TABLE IF EXISTS tabEmployee;
-DROP TABLE IF EXISTS tabDepartment;  -- Drop parent table last.
-
-
-CREATE TABLE tabDepartment
-(
-   DepartmentCode  nchar(4)          not null
-      PRIMARY KEY,
-   DepartmentName  nvarchar(128)     not null
-);
-
-CREATE TABLE tabEmployee
-(
-   EmployeeGuid    uniqueIdentifier  not null  default NewId()
-      PRIMARY KEY,
-   EmployeeName    nvarchar(128)     not null,
-   EmployeeLevel   int               not null,
-   DepartmentCode  nchar(4)              null
-      REFERENCES tabDepartment (DepartmentCode)  -- (REFERENCES would be disallowed on temporary tables.)
-);
-";
-      }
-```
-
-#### <a name="entity-relationship-diagram-erd"></a>Varlık ilişkisi şeması (ERD)
-
-Önceki bir CREATE TABLE deyimi içeren **başvuruları** oluşturmak için anahtar sözcüğü bir *yabancı anahtar* iki tablo arasında ilişki (FK).  Tempdb kullanıyorsanız, açıklama `--REFERENCES` önünde çizgiler çifti kullanarak anahtar sözcüğü.
-
-Sonraki iki tablo arasındaki ilişkiyi gösteren ERD olduğu. #TabEmployee.DepartmentCode değerleri *alt* sütun #tabDepartment.Department içinde mevcut değerleri için sınırlı *üst* sütun.
-
-![ERD gösteren yabancı anahtar](./media/sql-database-csharp-adonet-create-query-2/erd-dept-empl-fky-2.png)
-
-
-<a name="cs_3_insert"/>
-### <a name="c-block-3-t-sql-to-insert-data"></a>C#Block 3: T-SQL, veri eklemek için
-
-- [Önceki](#cs_2_createtables) &nbsp;  /  &nbsp; [İleri](#cs_4_updatejoin)
-
-
-```csharp
-      static string Build_3_Tsql_Inserts()
-      {
-         return @"
--- The company has these departments.
-INSERT INTO tabDepartment
-   (DepartmentCode, DepartmentName)
-      VALUES
-   ('acct', 'Accounting'),
-   ('hres', 'Human Resources'),
-   ('legl', 'Legal');
-
--- The company has these employees, each in one department.
-INSERT INTO tabEmployee
-   (EmployeeName, EmployeeLevel, DepartmentCode)
-      VALUES
-   ('Alison'  , 19, 'acct'),
-   ('Barbara' , 17, 'hres'),
-   ('Carol'   , 21, 'acct'),
-   ('Deborah' , 24, 'legl'),
-   ('Elle'    , 15, null);
-";
-      }
-```
-
-
-<a name="cs_4_updatejoin"/>
-### <a name="c-block-4-t-sql-to-update-join"></a>C#Block 4: T-SQL güncelleştirme katılma
-
-- [Önceki](#cs_3_insert) &nbsp;  /  &nbsp; [İleri](#cs_5_deletejoin)
-
-
-```csharp
-      static string Build_4_Tsql_UpdateJoin()
-      {
-         return @"
-DECLARE @DName1  nvarchar(128) = @csharpParmDepartmentName;  --'Accounting';
-
-
--- Promote everyone in one department (see @parm...).
-UPDATE empl
-   SET
-      empl.EmployeeLevel += 1
-   FROM
-      tabEmployee   as empl
-      INNER JOIN
-      tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
-   WHERE
-      dept.DepartmentName = @DName1;
-";
-      }
-```
-
-
-<a name="cs_5_deletejoin"/>
-### <a name="c-block-5-t-sql-to-delete-join"></a>C#Block 5: T-SQL delete-katılma
-
-- [Önceki](#cs_4_updatejoin) &nbsp;  /  &nbsp; [İleri](#cs_6_selectrows)
-
-
-```csharp
-      static string Build_5_Tsql_DeleteJoin()
-      {
-         return @"
-DECLARE @DName2  nvarchar(128);
-SET @DName2 = @csharpParmDepartmentName;  --'Legal';
-
-
--- Right size the Legal department.
-DELETE empl
-   FROM
-      tabEmployee   as empl
-      INNER JOIN
-      tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
-   WHERE
-      dept.DepartmentName = @DName2
-
--- Disband the Legal department.
-DELETE tabDepartment
-   WHERE DepartmentName = @DName2;
-";
-      }
-```
-
-
-
-<a name="cs_6_selectrows"/>
-### <a name="c-block-6-t-sql-to-select-rows"></a>C#Block 6: satırları seçmek için T-SQL
-
-- [Önceki](#cs_5_deletejoin) &nbsp;  /  &nbsp; [İleri](#cs_6b_datareader)
-
-
-```csharp
-      static string Build_6_Tsql_SelectEmployees()
-      {
-         return @"
--- Look at all the final Employees.
-SELECT
-      empl.EmployeeGuid,
-      empl.EmployeeName,
-      empl.EmployeeLevel,
-      empl.DepartmentCode,
-      dept.DepartmentName
-   FROM
-      tabEmployee   as empl
-      LEFT OUTER JOIN
-      tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
-   ORDER BY
-      EmployeeName;
-";
-      }
-```
-
-
-<a name="cs_6b_datareader"/>
-### <a name="c-block-6b-executereader"></a>C#6B engelle: ExecuteReader
-
-- [Önceki](#cs_6_selectrows) &nbsp;  /  &nbsp; [İleri](#cs_7_executenonquery)
-
-Bu yöntem tarafından oluşturulan T-SQL SELECT deyimi çalıştırmak için tasarlanmış **Build_6_Tsql_SelectEmployees** yöntemi.
-
-
-```csharp
-      static void Submit_6_Tsql_SelectEmployees(SqlConnection connection)
-      {
-         Console.WriteLine();
-         Console.WriteLine("=================================");
-         Console.WriteLine("Now, SelectEmployees (6)...");
-
-         string tsql = Build_6_Tsql_SelectEmployees();
-
-         using (var command = new SqlCommand(tsql, connection))
-         {
-            using (SqlDataReader reader = command.ExecuteReader())
+            catch (SqlException e)
             {
-               while (reader.Read())
-               {
-                  Console.WriteLine("{0} , {1} , {2} , {3} , {4}",
-                     reader.GetGuid(0),
-                     reader.GetString(1),
-                     reader.GetInt32(2),
-                     (reader.IsDBNull(3)) ? "NULL" : reader.GetString(3),
-                     (reader.IsDBNull(4)) ? "NULL" : reader.GetString(4));
-               }
+                Console.WriteLine(e.ToString());
             }
-         }
-      }
+
+            Console.WriteLine("View the report output here, then press any key to end the program...");
+            Console.ReadKey();
+        }
 ```
 
+<a name="cs_2_return"/>
 
-<a name="cs_7_executenonquery"/>
-### <a name="c-block-7-executenonquery"></a>C#Block 7: ExecuteNonQuery
-
-- [Önceki](#cs_6b_datareader) &nbsp;  /  &nbsp; [İleri](#cs_8_output)
-
-Bu yöntem, tüm veri satırları dönmeden tabloların veri içeriğini değiştirme işlemleri için çağrılır.
-
+### <a name="methods-that-return-t-sql-statements"></a>T-SQL deyimleri döndüren yöntemler
 
 ```csharp
-      static void Submit_Tsql_NonQuery(
-         SqlConnection connection,
-         string tsqlPurpose,
-         string tsqlSourceCode,
-         string parameterName = null,
-         string parameterValue = null
-         )
-      {
-         Console.WriteLine();
-         Console.WriteLine("=================================");
-         Console.WriteLine("T-SQL to {0}...", tsqlPurpose);
+static string Build_2_Tsql_CreateTables()
+{
+    return @"
+        DROP TABLE IF EXISTS tabEmployee;
+        DROP TABLE IF EXISTS tabDepartment;  -- Drop parent table last.
 
-         using (var command = new SqlCommand(tsqlSourceCode, connection))
-         {
-            if (parameterName != null)
-            {
-               command.Parameters.AddWithValue(  // Or, use SqlParameter class.
-                  parameterName,
-                  parameterValue);
-            }
-            int rowsAffected = command.ExecuteNonQuery();
-            Console.WriteLine(rowsAffected + " = rows affected.");
-         }
-      }
-   } // EndOfClass
+        CREATE TABLE tabDepartment
+        (
+            DepartmentCode  nchar(4)          not null    PRIMARY KEY,
+            DepartmentName  nvarchar(128)     not null
+        );
+
+        CREATE TABLE tabEmployee
+        (
+            EmployeeGuid    uniqueIdentifier  not null  default NewId()    PRIMARY KEY,
+            EmployeeName    nvarchar(128)     not null,
+            EmployeeLevel   int               not null,
+            DepartmentCode  nchar(4)              null
+            REFERENCES tabDepartment (DepartmentCode)  -- (REFERENCES would be disallowed on temporary tables.)
+        );
+    ";
+}
+
+static string Build_3_Tsql_Inserts()
+{
+    return @"
+        -- The company has these departments.
+        INSERT INTO tabDepartment (DepartmentCode, DepartmentName)
+        VALUES
+            ('acct', 'Accounting'),
+            ('hres', 'Human Resources'),
+            ('legl', 'Legal');
+
+        -- The company has these employees, each in one department.
+        INSERT INTO tabEmployee (EmployeeName, EmployeeLevel, DepartmentCode)
+        VALUES
+            ('Alison'  , 19, 'acct'),
+            ('Barbara' , 17, 'hres'),
+            ('Carol'   , 21, 'acct'),
+            ('Deborah' , 24, 'legl'),
+            ('Elle'    , 15, null);
+    ";
+}
+
+static string Build_4_Tsql_UpdateJoin()
+{
+    return @"
+        DECLARE @DName1  nvarchar(128) = @csharpParmDepartmentName;  --'Accounting';
+
+        -- Promote everyone in one department (see @parm...).
+        UPDATE empl
+        SET
+            empl.EmployeeLevel += 1
+        FROM
+            tabEmployee   as empl
+        INNER JOIN
+            tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
+        WHERE
+            dept.DepartmentName = @DName1;
+    ";
+}
+
+static string Build_5_Tsql_DeleteJoin()
+{
+    return @"
+        DECLARE @DName2  nvarchar(128);
+        SET @DName2 = @csharpParmDepartmentName;  --'Legal';
+
+        -- Right size the Legal department.
+        DELETE empl
+        FROM
+            tabEmployee   as empl
+        INNER JOIN
+            tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
+        WHERE
+            dept.DepartmentName = @DName2
+
+        -- Disband the Legal department.
+        DELETE tabDepartment
+            WHERE DepartmentName = @DName2;
+    ";
+}
+
+static string Build_6_Tsql_SelectEmployees()
+{
+    return @"
+        -- Look at all the final Employees.
+        SELECT
+            empl.EmployeeGuid,
+            empl.EmployeeName,
+            empl.EmployeeLevel,
+            empl.DepartmentCode,
+            dept.DepartmentName
+        FROM
+            tabEmployee   as empl
+        LEFT OUTER JOIN
+            tabDepartment as dept ON dept.DepartmentCode = empl.DepartmentCode
+        ORDER BY
+            EmployeeName;
+    ";
 }
 ```
 
+<a name="cs_3_submit"/>
 
-<a name="cs_8_output"/>
-### <a name="c-block-8-actual-test-output-to-the-console"></a>C#Block 8: konsola gerçek test çıkışı
+### <a name="submit-t-sql-to-the-database"></a>T-SQL veritabanına gönderme
 
-- [Önceki](#cs_7_executenonquery)
+```csharp
+static void Submit_6_Tsql_SelectEmployees(SqlConnection connection)
+{
+    Console.WriteLine();
+    Console.WriteLine("=================================");
+    Console.WriteLine("Now, SelectEmployees (6)...");
 
-Bu bölümde, konsola program gönderilen çıktısını yakalar. GUID değerleri, test çalışmaları arasında farklılık gösterir.
+    string tsql = Build_6_Tsql_SelectEmployees();
 
+    using (var command = new SqlCommand(tsql, connection))
+    {
+        using (SqlDataReader reader = command.ExecuteReader())
+        {
+            while (reader.Read())
+            {
+                Console.WriteLine("{0} , {1} , {2} , {3} , {4}",
+                    reader.GetGuid(0),
+                    reader.GetString(1),
+                    reader.GetInt32(2),
+                    (reader.IsDBNull(3)) ? "NULL" : reader.GetString(3),
+                    (reader.IsDBNull(4)) ? "NULL" : reader.GetString(4));
+            }
+        }
+    }
+}
 
-```text
-[C:\csharp_db_test\csharp_db_test\bin\Debug\]
->> csharp_db_test.exe
+static void Submit_Tsql_NonQuery(
+    SqlConnection connection,
+    string tsqlPurpose,
+    string tsqlSourceCode,
+    string parameterName = null,
+    string parameterValue = null
+    )
+{
+    Console.WriteLine();
+    Console.WriteLine("=================================");
+    Console.WriteLine("T-SQL to {0}...", tsqlPurpose);
 
-=================================
-Now, CreateTables (10)...
-
-=================================
-Now, Inserts (20)...
-
-=================================
-Now, UpdateJoin (30)...
-2 rows affected, by UpdateJoin.
-
-=================================
-Now, DeleteJoin (40)...
-
-=================================
-Now, SelectEmployees (50)...
-0199be49-a2ed-4e35-94b7-e936acf1cd75 , Alison , 20 , acct , Accounting
-f0d3d147-64cf-4420-b9f9-76e6e0a32567 , Barbara , 17 , hres , Human Resources
-cf4caede-e237-42d2-b61d-72114c7e3afa , Carol , 22 , acct , Accounting
-cdde7727-bcfd-4f72-a665-87199c415f8b , Elle , 15 , NULL , NULL
-
-[C:\csharp_db_test\csharp_db_test\bin\Debug\]
->>
+    using (var command = new SqlCommand(tsqlSourceCode, connection))
+    {
+        if (parameterName != null)
+        {
+            command.Parameters.AddWithValue(  // Or, use SqlParameter class.
+                parameterName,
+                parameterValue);
+        }
+        int rowsAffected = command.ExecuteNonQuery();
+        Console.WriteLine(rowsAffected + " = rows affected.");
+    }
+}
+} // EndOfClass
+}
 ```

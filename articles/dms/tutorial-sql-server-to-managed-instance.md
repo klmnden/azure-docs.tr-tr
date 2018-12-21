@@ -5,18 +5,18 @@ services: dms
 author: pochiraju
 ms.author: rajpo
 manager: craigg
-ms.reviewer: ''
+ms.reviewer: douglasl
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: e1cce6231fbb31dac6526a01ec402533b3861a21
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e9baf8c838da2201fbb588d278cbf1ce5bbe6354
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956510"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713328"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>Öğretici: DMS kullanarak çevrimdışı biçimde SQL Server'ı Azure SQL Veritabanı Yönetilen Örneği'ne geçirme
 Azure Veritabanı Geçiş Hizmeti'ni kullanarak şirket içi SQL Server örneğindeki veritabanlarını [Azure SQL Veritabanı Yönetilen Örneği](../sql-database/sql-database-managed-instance.md)'ne geçirebilirsiniz. El ile gerçekleştirilmesi gereken adımlar içeren ek yöntemler için bkz. [Azure SQL Veritabanı Yönetilen Örneği'ne SQL Server örneği geçişi](../sql-database/sql-database-managed-instance-migrate.md).

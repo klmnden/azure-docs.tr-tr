@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 46d6dfd27fb96dff49ea782f32655e1667011134
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 5df59e886a2a4950e2ca6e1ef96487d3d59e7524
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542804"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718138"
 ---
 # <a name="getting-started"> </a>Azure Uygulama Hizmetinde Mobile Apps Hakkında
 Azure Uygulama Hizmeti, profesyonel geliştiricilere yönelik tam olarak yönetilen bir [hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) teklifidir. Bu hizmet, web, mobil ve tümleştirme senaryoları için zengin bir özellik kümesi sağlar. 
@@ -100,7 +100,7 @@ Azure Uygulama Hizmeti platformu hakkında daha fazla bilgi için bkz. [Azure Ap
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
 [otomatik ölçeklendirme]: ../app-service/web-sites-scale.md
-[hazırlık ortamları]: ../app-service/web-sites-staged-publishing.md
+[hazırlık ortamları]: ../app-service/deploy-staging-slots.md
 [karma bağlantılar]: ../biztalk-services/integration-hybrid-connection-overview.md
 [sanal ağlar]: ../app-service/web-sites-integrate-with-vnet.md
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md

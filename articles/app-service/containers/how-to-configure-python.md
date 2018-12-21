@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f7e63fa75f473d5da911fbf845f0662d8eec5c70
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249643"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717407"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Python uygulamanızı Linux'ta Azure App Service için yapılandırma
 
@@ -132,4 +132,4 @@ App Service özel komut dosyası, Django uygulaması veya Flask uygulaması bula
 - **Tarayıcıda "Hizmet Kullanılamıyor" iletisini görüyorsunuz.** Bu durum, tarayıcının App Service'ten yanıt beklerken zaman aşımına uğradığını gösterir. Bunun nedeni App Service'in Gunicorn sunucusunu başlatmış olması ancak uygulama kodunu belirten bağımsız değişkenlerin hatalı olmasıdır.
   - Özellikle App Service Planınızda en düşük fiyatlandırma katmanlarını kullanıyorsanız tarayıcıyı yenileyin. Ücretsiz katmanları kullandığınızda uygulamanın başlaması daha uzun sürebilir ve tarayıcıyı yenilediğinizde yanıt verebilir.
   - Uygulamanızın App Service'in [Django](#django-app) veya [Flask](#flask-app) için beklediği şekilde yapılandırılmış olduğundan emin olun veya [özel başlangıç komutu](#custom-startup-command) kullanın.
-  - SSH veya Kudu kullanarak App Service'e bağlanın ve *LogFiles* klasöründe bulunan tanılama günlüklerini inceleyin. Günlüğe kaydetme hakkında daha fazla bilgi için bkz. [Azure App Service’te web uygulamaları için tanılama günlüğünü etkinleştirme](../web-sites-enable-diagnostic-log.md).
+  - SSH veya Kudu kullanarak App Service'e bağlanın ve *LogFiles* klasöründe bulunan tanılama günlüklerini inceleyin. Günlüğe kaydetme hakkında daha fazla bilgi için bkz. [Azure App Service’te web uygulamaları için tanılama günlüğünü etkinleştirme](../troubleshoot-diagnostic-logs.md).

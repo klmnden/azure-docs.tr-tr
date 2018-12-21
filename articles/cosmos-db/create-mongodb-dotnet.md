@@ -1,6 +1,6 @@
 ---
-title: MongoDB için .NET SDK'sını ve Azure portalını kullanarak Azure Cosmos DB API ile bir web uygulaması derleme
-description: Bağlanmak ve MongoDB için Azure Cosmos DB API sorgulamak için kullanabileceğiniz bir .NET kodu örneği sunar.
+title: MongoDB API'si için .NET SDK'sını ve Azure portalını kullanarak Azure Cosmos DB ile bir web uygulaması derleme
+description: Bağlanmak ve Azure Cosmos DB MongoDB API'si için sorgulamak için kullanabileceğiniz bir .NET kodu örneği sunar.
 services: cosmos-db
 author: slyons
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: sclyon
-ms.openlocfilehash: 7800a9d4e4a5ad5d24415ec8c4c0ce70d7ab2a70
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: ffc6296af2366723076f2b6242cbda3f85feef34
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537265"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714874"
 ---
-# <a name="build-a-web-app-with-azure-cosmos-db-api-for-mongodb-using-net-sdk-and-the-azure-portal"></a>MongoDB için .NET SDK'sını ve Azure portalını kullanarak Azure Cosmos DB API ile bir web uygulaması derleme
+# <a name="build-a-web-app-with-azure-cosmos-db-for-mongodb-api-using-net-sdk-and-the-azure-portal"></a>MongoDB API'si için .NET SDK'sını ve Azure portalını kullanarak Azure Cosmos DB ile bir web uygulaması derleme
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -30,7 +30,7 @@ ms.locfileid: "53537265"
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu hızlı başlangıçta MongoDB, bir belge veritabanı ve Azure portalını kullanarak bir koleksiyon için bir Azure Cosmos DB API hesabı oluşturma işlemini gösterir. Bu adımların ardından [MongoDB .NET sürücüsü](https://docs.mongodb.com/ecosystem/drivers/csharp/) üzerinde oluşturulan görev listesi web uygulaması derleyip dağıtacaksınız.
+Bu hızlı başlangıçta Azure Cosmos DB MongoDB API'si, bir belge veritabanı ve Azure portalını kullanarak bir koleksiyon kullanarak bir hesabının nasıl oluşturulacağını gösterir. Bu adımların ardından [MongoDB .NET sürücüsü](https://docs.mongodb.com/ecosystem/drivers/csharp/) üzerinde oluşturulan görev listesi web uygulaması derleyip dağıtacaksınız.
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>Örnek uygulamayı çalıştırmak için önkoşullar
 
@@ -110,7 +110,7 @@ Aşağıdaki kod parçacıklarının tümü, DAL dizinindeki Dal.cs dosyasından
     collection.Find(new BsonDocument()).ToList();
     ```
 
-* Bir görev oluşturur ve görevi MongoDB koleksiyonuna ekler
+Bir görev oluşturun ve koleksiyona Ekle
 
    ```csharp
     public void CreateTask(MyTask task)
@@ -166,8 +166,8 @@ Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı ve MongoDB kullanarak bir web uygulamasını çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz. 
+Bu hızlı başlangıçta, bir Cosmos hesabı oluşturmayı ve MongoDB API'si için bir istemci sürücüsü kullanarak bir web uygulamasını çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz. 
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB MongoDB API'si ile verileri içeri aktar](mongodb-migrate.md)
+> [Azure Cosmos DB MongoDB API'si için yapılandırılmış veri aktarma](mongodb-migrate.md)
 

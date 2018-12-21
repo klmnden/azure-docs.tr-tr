@@ -2,113 +2,91 @@
 author: MightyPen
 ms.service: sql-database
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 12/10/2018
 ms.author: genemi
-ms.openlocfilehash: a999a18ccd504d6928a5eb1e209fbf55cb8506f5
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ab31ee82e8035fe888fa70b5796aef2c2b2939b2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52272670"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728580"
 ---
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
-[Azure Portal](https://portal.azure.com/) oturum açın.
+[Azure portalda](https://portal.azure.com/) oturum açma
 
 ## <a name="create-a-blank-sql-database"></a>Boş bir SQL veritabanı oluşturma
 
-Azure SQL veritabanı bir dizi [işlem ve depolama kaynağı](../articles/sql-database/sql-database-service-tiers-dtu.md) ile oluşturulur. Veritabanı bir [Azure kaynak grubu](../articles/azure-resource-manager/resource-group-overview.md) ve bir [Azure SQL Veritabanı mantıksal sunucusu](../articles/sql-database/sql-database-features.md) içinde oluşturulur. 
+Tanımlı bir dizi içinde bir Azure SQL veritabanı mevcut [işlem ve depolama kaynaklarını](../articles/sql-database/sql-database-service-tiers-dtu.md). Veritabanını çalışır altında bir [Azure kaynak grubu](../articles/azure-resource-manager/resource-group-overview.md) ve [Azure SQL veritabanı mantıksal sunucusu](../articles/sql-database/sql-database-features.md).
 
-Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin. 
+Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
 
-2. **Yeni** penceresinden **Veritabanları**’nı seçin ve **Yeni** sayfasında **SQL Veritabanı** altından **Oluştur**’u seçin.
+1. Üzerinde **yeni** sayfasında **veritabanları** > **SQL veritabanı**.
 
    ![create empty-database](../articles/sql-database/media/sql-database-design-first-database/create-empty-database.png)
 
-3. SQL Veritabanı formunu, önceki görüntüde gösterildiği gibi aşağıdaki bilgilerle doldurun:   
+1. İçinde **SQL veritabanı** bölmesinde aşağıdaki değerleri seçin veya yazın:
 
-   | Ayar       | Önerilen değer | Açıklama | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Veritabanı adı** | mySampleDatabase | Geçerli veritabanı adları için bkz. [Veritabanı Tanımlayıcıları](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
-   | **Abonelik** | Aboneliğiniz  | Abonelikleriniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.windowsazure.com/Subscriptions). |
-   | **Kaynak grubu** | myResourceGroup | Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | Ayar       | Önerilen değer | Açıklama |
+   | ------------ | ------------------ | ------------------------------------------------- |
+   | **Veritabanı adı** | *Veritabanınız* | Geçerli veritabanı adları için bkz [veritabanı tanımlayıcıları](/sql/relational-databases/databases/database-identifiers). |
+   | **Abonelik** | *yourSubscription*  | Abonelikleriniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.windowsazure.com/Subscriptions). |
+   | **Kaynak grubu** | *yourResourceGroup* | Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](/azure/architecture/best-practices/naming-conventions). |
    | **Kaynak seçme** | Boş veritabanı | Boş bir veritabanı oluşturulması gerektiğini belirtir. |
 
-4. Yeni veritabanınız için yeni bir sunucu oluşturup yapılandırmak üzere **Sunucu**’ya tıklayın. **Yeni sunucu formu**’nu aşağıdaki bilgilerle doldurun: 
+   ![veritabanı oluşturma](../articles/sql-database/media/sql-database-design-first-database/create-database.png)
 
-   | Ayar       | Önerilen değer | Açıklama | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Sunucu adı** | Genel olarak benzersiz bir ad | Geçerli sunucu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
-   | **Sunucu yöneticisi oturum açma bilgileri** | Geçerli bir ad | Geçerli oturum açma adları için bkz. [Veritabanı Tanımlayıcıları](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
-   | **Parola** | Geçerli bir parola | Parolanızda en az 8 karakter bulunmalı ve parolanız şu üç kategoriden karakterler içermelidir: büyük harf karakterler, küçük harf karakterler, sayılar ve alfasayısal olmayan karakterler. |
-   | **Konum** | Geçerli bir konum | Bölgeler hakkında bilgi için bkz. [Azure Bölgeleri](https://azure.microsoft.com/regions/). |
+   1. Seçin **sunucu** yeni veritabanınız için bir sunucuyu yapılandırmak için. Ardından, yazın veya aşağıdaki değerleri seçin:
 
-   ![create database-server](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
+      | Ayar       | Önerilen değer | Açıklama |
+      | ------------ | ------------------ | ------------------------------------------------- |
+      | **Sunucu adı** | Genel olarak benzersiz bir ad | Geçerli sunucu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](/azure/architecture/best-practices/naming-conventions). |
+      | **Sunucu yöneticisi oturum açma bilgileri** | Geçerli bir ad | Geçerli oturum açma adları için bkz [veritabanı tanımlayıcıları](/sql/relational-databases/databases/database-identifiers).|
+      | **Parola** | Geçerli bir parola | Parolanız en az 8 karakter bulunmalı ve şu kategorilerin üçünden karakterler kullanmanız gerekir: büyük harf karakterler, küçük harf karakterler, sayılar ve alfasayısal olmayan karakter. |
+      | **Konum** | Geçerli bir konum | Bölgeler hakkında daha fazla bilgi için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/). |
 
-5. **Seç**'e tıklayın.
+      **Seç**’i seçin.
 
-6. Hizmet katmanını, DTU'ların sayısını ve depolama alanı miktarını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Her hizmet katmanı için kullanılabilir DTU'lar ve depolama alanı miktarı seçeneklerini araştırın. 
+      ![create database-server](../articles/sql-database/media/sql-database-design-first-database/create-database-server.png)
 
-7. Bu öğreticide, **standart** hizmet katmanını seçip kaydırıcıyı kullanarak **100 DTU (S3)** ve **400** GB depolama alanını seçin.
+   1. Seçin **fiyatlandırma katmanı** Hizmet katmanını, dtu'ların sayısını ve depolama miktarını belirtmek için. Dtu ve her hizmet katmanı için kullanılabilir olan depolama seçeneklerini keşfedin.
 
-   ![create database-s1](../articles/sql-database/media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+      Sunucu katmanını, dtu'ların sayısını ve depolama miktarını seçtikten sonra seçin **Uygula**.
 
-8. **Ek Depolama** seçeneğini kullanmak için önizleme koşullarını kabul edin. 
+   1. Girin bir **harmanlama** boş bir veritabanı için (Bu öğretici için varsayılan değeri kullanın). Harmanlamalar hakkında daha fazla bilgi için bkz: [harmanlamaları](/sql/t-sql/statements/collations).
 
-   > [!IMPORTANT]
-   > \* Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
-   >
-   >\* Premium katmanında şu anda şu bölgelerde 1 TB’den fazla depolama alanı mevcuttur: Kanada Orta, Kanada Doğu, Fransa Orta, Almanya Orta, Japonya Doğu, Kore Orta, Güney Orta ABD, Güneydoğu Asya, ABD Doğu 2, Batı ABD, US Gov Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](../articles/sql-database/sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-   > 
+1. Tamamladığınıza göre şimdi **SQL veritabanı** form, select **Oluştur** veritabanını oluşturmak için. Bu adım gerçekleştirebileceğiniz bir dakikalık bir tamamlanması buçuk kadar.
 
-9. Sunucu katmanını, DTU'ların sayısını ve depolama alanı miktarını seçtikten sonra **Uygula**’ya tıklayın.  
+1. Araç çubuğunda **Bildirimler**’e tıklayarak dağıtım işlemini izleyin.
 
-10. Boş veritabanı için bir **harmanlama** seçin (bu öğretici için varsayılan değeri kullanın). Harmanlamalar hakkında daha fazla bilgi için bkz. [Harmanlamalar](https://docs.microsoft.com/sql/t-sql/statements/collations)
+     ![bildirim](../articles/sql-database/media/sql-database-design-first-database/notification.png)
 
-11. Veritabanını sağlamak için **Oluştur**’a tıklayın. Sağlama işleminin tamamlanması yaklaşık olarak bir buçuk dakika sürer. 
+## <a name="create-a-firewall-rule"></a>Bir güvenlik duvarı kuralı oluşturma
 
-12. Araç çubuğunda **Bildirimler**’e tıklayarak dağıtım işlemini izleyin.
-    
-     ![bildirim](../articles/sql-database/media/sql-database-get-started-portal/notification.png)
-
-## <a name="create-a-server-level-firewall-rule"></a>Sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma
-
-SQL Veritabanı hizmeti, güvenlik duvarını belirli IP adreslerine açmaya yönelik bir güvenlik duvarı kuralı oluşturulmadıkça, dış uygulama ve araçların sunucuya ya da sunucu üzerindeki herhangi bir veritabanına bağlanmasını engelleyen sunucu düzeyinde bir güvenlik duvarı kuralı oluşturur. SQL Veritabanı güvenlik duvarı üzerinden yalnızca IP adresinize yönelik dış bağlantıları etkinleştirmek üzere istemcinizin IP adresi için bir [SQL Veritabanı sunucu düzeyi güvenlik duvarı kuralı](../articles/sql-database/sql-database-firewall-configure.md) oluşturmak için bu adımları izleyin. 
+SQL veritabanı hizmeti, dış uygulama ve araçların sunucuya ya da sunucu üzerindeki herhangi bir veritabanına bağlanmasını önlemek için sunucu düzeyinde bir güvenlik duvarı oluşturur. Oluşturmak için bu adımları bir [SQL veritabanı sunucu düzeyinde güvenlik duvarı kuralı](../articles/sql-database/sql-database-firewall-configure.md) istemcinizin IP adresi. Bu işlem yalnızca IP adresiniz için SQL veritabanı güvenlik duvarı üzerinden dış bağlantıları sağlar.
 
 > [!NOTE]
-> SQL Veritabanı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Bir kurumsal ağ içerisinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda BT departmanınız 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL Veritabanı sunucunuza bağlanamazsınız.
->
+> SQL veritabanı 1433 numaralı bağlantı noktası üzerinden iletişim kurar. Bir kurumsal ağ içerisinden bağlanmaya çalışıyorsanız, ağınızın güvenlik duvarı tarafından 1433 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda, yöneticinize 1433 numaralı bağlantı noktasını açmadığı sürece Azure SQL veritabanı sunucusuna bağlanamıyor.
 
-1. Dağıtım tamamlandıktan sonra, soldaki menüden **SQL veritabanları**'na ve ardından **SQL veritabanları** sayfasında **mySampleDatabase** öğesine tıklayın. Veritabanınıza ilişkin genel bakış sayfası açılır ve tam sunucu adı (örneğin, **mynewserver20170824.database.windows.net**) görüntülenerek daha fazla yapılandırma seçeneği sunulur. 
+1. Dağıtım tamamlandıktan sonra seçin **SQL veritabanları** seçin ve sol taraftaki menüden *veritabanınız* üzerinde **SQL veritabanları** sayfası. **Genel bakış** , veritabanı açılır ve tam sunucu adını gösteren sayfası (gibi *yourserver.database.windows.net*) ve daha fazla yapılandırma seçenekleri sağlar.
 
-2. Sonraki hızlı başlangıçlarda sunucunuza ve veritabanlarına bağlanmak için bu tam sunucu adını kopyalayın. 
+1. Sunucunuz ve sonraki adımlarda veritabanlarına bağlanmak için tam sunucu adını kopyalayın.
 
-   ![sunucu adı](../articles/sql-database/media/sql-database-get-started-portal/server-name.png) 
+   ![sunucu adı](../articles/sql-database/media/sql-database-design-first-database/server-name.png)
 
-3. Araç çubuğunda **Sunucu güvenlik duvarını ayarla**’ya tıklayın. SQL Veritabanı sunucusu için **Güvenlik duvarı ayarları** sayfası açılır. 
+1. Seçin **sunucu güvenlik duvarını Ayarla** araç. **Güvenlik Duvarı ayarları** SQL veritabanı sunucusu için sayfası açılır.
 
-   ![sunucu güvenlik duvarı kuralı](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![sunucu güvenlik duvarı kuralı](../articles/sql-database/media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. Geçerli IP adresinizi yeni bir güvenlik duvarı kuralına eklemek için araç çubuğunda **İstemci IP’si Ekle** öğesine tıklayın. Güvenlik duvarı kuralı, 1433 numaralı bağlantı noktasını tek bir IP adresi veya bir IP adresi aralığı için açabilir.
+   1. Seçin **istemci IP'si Ekle** geçerli IP adresinizi yeni bir güvenlik duvarı kuralına eklemek için araç çubuğunda. Güvenlik duvarı kuralı, 1433 numaralı bağlantı noktasını tek bir IP adresi veya bir IP adresi aralığı için açabilir.
 
-5. **Kaydet**’e tıklayın. Geçerli IP adresiniz için mantıksal sunucuda 1433 numaralı bağlantı noktası açılarak sunucu düzeyinde güvenlik duvarı kuralı oluşturulur.
+   1. **Kaydet**'i seçin. Geçerli IP adresiniz için mantıksal sunucuda 1433 numaralı bağlantı noktası açılarak sunucu düzeyinde güvenlik duvarı kuralı oluşturulur.
 
-6. **Tamam**’a tıklayın ve sonra **Güvenlik duvarı ayarları** sayfasını kapatın.
+   1. Seçin **Tamam** ve kapatın **Güvenlik Duvarı ayarları** sayfası.
 
-Artık SQL Server Management Studio’yu veya seçtiğiniz başka bir aracı kullanarak, daha önce oluşturduğunuz sunucu yöneticisi hesabıyla bu IP adresinden SQL Veritabanı sunucusuna ve sunucuya ait veritabanlarına bağlanabilirsiniz.
-
+IP adresiniz, güvenlik duvarı üzerinden artık geçirebilirsiniz ve artık SQL veritabanı sunucusunu ve veritabanlarını SSMS veya seçtiğiniz başka bir aracı kullanarak bağlanabilirsiniz. Daha önce oluşturduğunuz sunucu yönetici hesabı kullandığınızdan emin olun.
 
 > [!IMPORTANT]
-> Varsayılan olarak, SQL Veritabanı güvenlik duvarı üzerinden erişim tüm Azure hizmetleri için etkindir. Tüm Azure hizmetleri için devre dışı bırakmak isterseniz bu sayfadaki **KAPALI** öğesine tıklayın.
-
-## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
-
-Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsiniz. SQL Server Management Studio kullanarak sunucunuza bağlanmak için tam sunucu adını kullanırsınız.
-
-1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
-3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın.
-
-   ![bağlantı bilgileri](../articles/sql-database/media/sql-database-get-started-portal/server-name.png)
+> Varsayılan olarak, SQL veritabanı güvenlik duvarı üzerinden erişim tüm Azure Hizmetleri için etkindir. Seçin **OFF** tüm Azure Hizmetleri için devre dışı bırakmak için bu sayfadaki.

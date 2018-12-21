@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d789954c0ebc71f88fb434430de5b5076ca6c246
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094415"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713740"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>Öğretici 4: Bağlamsal olarak ilişkili desenleri ayıklama
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>4. Öğretici: Bağlamsal olarak ilişkili desenleri ayıklama
 
 Bu öğreticide iyi biçimlendirilmiş konuşma şablonundan veri ayıklamak için desen kullanacaksınız. Konuşma şablonu basit bir varlığın yanı sıra kaynak konum ve hedef konum gibi ilgili verileri ayıklamak için roller kullanır.  Desen kullandığınızda amaç için daha az sayıda örnek konuşmaya ihtiyacınız vardır.
 
@@ -29,7 +29,7 @@ Yeni çalışanın adı Billy Patterson henüz **Employee** liste varlığının
 
 Yeni çalışanın ve ailesinin bulundukları şehirden hayali bir şirketin bulunduğu başka bir şehre taşınmaları gerekmektedir. Yeni bir çalışan herhangi bir şehirde bulunabileceği için konumların bulunması gerekir. Yalnızca listedeki şehirlerin ayıklanmasına neden olacağından liste varlığı gibi sabit bir liste işe yaramayacaktır.
 
-Kaynak ve hedef şehirlerle ilişkilendirilmiş rol adlarının tüm varlıklarda benzersiz olması gerekir. Rollerin benzersiz olduğundan emin olmanın kolay yollarından biri, adlandırma stratejisi ile içeren varlığa bağlamaktır. **NewEmployeeRelocation** varlığı iki role sahip olan basit bir varlıktır: **NewEmployeeReloOrigin** ve **NewEmployeeReloDestination**. Relo, "relocation" (konum değiştirme) teriminin kısaltmasıdır.
+Kaynak ve hedef şehirlerle ilişkilendirilmiş rol adlarının tüm varlıklarda benzersiz olması gerekir. Rollerin benzersiz olduğundan emin olmanın kolay yollarından biri, adlandırma stratejisi ile içeren varlığa bağlamaktır. **NewEmployeeRelocation** varlıktır iki rol ile basit bir varlık: **NewEmployeeReloOrigin** ve **NewEmployeeReloDestination**. Relo, "relocation" (konum değiştirme) teriminin kısaltmasıdır.
 
 `Move new employee Robert Williams from Sacramento and San Francisco` örnek konuşmasında yalnızca makine öğrenimi varlıkları bulunduğundan varlıkların tespit edilmesi için amaca yeterli sayıda örnek konuşmanın sağlanması önemlidir.  
 
@@ -57,7 +57,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
 Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
-1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json) indirip kaydedin.
+1.  [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json) indirip kaydedin.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 

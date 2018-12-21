@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 01e66e1e592d98433a015dfb294a6182438be238
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: b6add6ac94e45789033cfe9913ec64e69f394f45
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601891"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715146"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma hizmeti SDK'sını kullanarak bir tarayıcıda JavaScript dilinde konuşma tanıma
 
@@ -103,10 +103,7 @@ Uygulamayı başlatmak için, index.html dosyasına çift tıklayın veya index.
 
 Uygulamanızı başlatmak için, sık kullandığınız bir web tarayıcısını açın klasörü barındırdığınız ortak URL’ye işaret edin, [bölgenizi](regions.md) girin ve mikrofonu kullanarak bir tanıma tetikleyin. Yapılandırılırsa, belirteç kaynağınızdan bir belirteç alır.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-`quickstart/js-browser` klasöründe bu örneği arayın.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Örneklerimizi alın](speech-sdk.md#get-the-samples)
+> [GitHub üzerinde JavaScript örneklerini keşfedin](https://aka.ms/csspeech/samples)

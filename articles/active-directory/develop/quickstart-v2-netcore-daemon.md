@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/28/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 787a817b32838d11cb8974737037543f73285b0d
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 3e5e364e9c3327e9d666a9a3096573267d0e1983
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653434"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727617"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Hızlı Başlangıç: Bir belirteç almak ve Microsoft Graph API'sini çağırmak uygulamanın kimliğini kullanarak bir konsol uygulaması
 
@@ -37,6 +37,8 @@ Bu Hızlı Başlangıç [.NET Core 2.1](https://www.microsoft.com/net/download/d
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Hızlı başlangıç uygulamanızı kaydetme ve indirme
+
+> [!div renderon="docs" class="sxs-lookup"]
 >
 > Hızlı başlangıç uygulamanızı başlatmak için kullanabileceğiniz iki seçenek vardır:
 > * [Express] [Seçenek 1: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -49,7 +51,8 @@ Bu Hızlı Başlangıç [.NET Core 2.1](https://www.microsoft.com/net/download/d
 > 1. Yönergeleri izleyerek yeni uygulamanızı yalnızca tek tıklamayla indirin ve otomatik olarak yapılandırın.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>2. seçenek: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma
->
+
+> [!div renderon="docs"]
 > #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
 > Uygulamanızı kaydetmek ve uygulama kayıt bilgilerinizi çözümünüze el ile eklemek için şu adımları izleyin:
 >

@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.topic: hero-article
 ms.date: 09/17/2018
-ms.openlocfilehash: 4d4f7bf9c77dad21f9e66ab0fa023a4898163f1f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: fb3fba7fa86027d753be21e028109a5d7ef03efb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989198"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722490"
 ---
 # <a name="what-is-azure-scheduler"></a>Azure Scheduler nedir?
 
@@ -26,13 +26,13 @@ ms.locfileid: "46989198"
 
 Scheduler'ı kullanarak zamanlanmış iş yüklerini oluşturabilir, koruyabilir ve çalıştırabilirsiniz ama Scheduler iş yüklerini barındırmaz veya kod çalıştırmaz. Hizmet yalnızca başka bir yerde (örneğin Azure’da, şirket içinde veya başka sağlayıcıda) barındırılan hizmetleri veya kodu *çağırır*. Scheduler HTTP, HTTPS, Depolama kuyruğu, Service Bus kuyruğu veya Service Bus konusu aracılığıyla çağırabilir. İşleri oluşturmak, yönetmek ve zamanlamak için [Azure portalını](../scheduler/scheduler-get-started-portal.md), kodu, [Scheduler REST API](https://docs.microsoft.com/rest/api/scheduler/)'yi veya [Azure Scheduler PowerShell cmdlet'leri başvurusunu](scheduler-powershell-reference.md) kullanabilirsiniz. Örneğin, Azure portalında ve betikleri kullanarak program aracılığıyla işleri ve [iş koleksiyonlarını](../scheduler/scheduler-concepts-terms.md) oluşturabilir, görüntüleyebilir, güncelleştirebilir, yönetebilir veya silebilirsiniz.
 
-Diğer Azure zamanlama özellikleri, örneğin Azure App Service'te bir [Web Apps](https://azure.microsoft.com/services/app-service/web/) özelliği olan [Azure Web İşleri](../app-service/web-sites-create-web-jobs.md) de arka planda Scheduler'ı kullanır. [Scheduler REST API](https://docs.microsoft.com/rest/api/scheduler/)'yi kullanarak bu eylemler için iletişimi yönetebilirsiniz. bu eylemler için iletişimi yönetmeye yardımcı olur.
+Diğer Azure zamanlama özellikleri, örneğin Azure App Service'te bir [Web Apps](https://azure.microsoft.com/services/app-service/web/) özelliği olan [Azure Web İşleri](../app-service/webjobs-create.md) de arka planda Scheduler'ı kullanır. [Scheduler REST API](https://docs.microsoft.com/rest/api/scheduler/)'yi kullanarak bu eylemler için iletişimi yönetebilirsiniz. bu eylemler için iletişimi yönetmeye yardımcı olur.
 
 Burada Scheduler'ın size yardımcı olabileceği bazı senaryolar verilmiştir:
 
-* **Yinelenen uygulama eylemlerini çalıştırma**: Örneğin, Twitter'dan düzenli aralıklarla bir akışa veri toplama.
+* **Yinelenen uygulama eylemleri çalıştırmak**: Örneğin, düzenli aralıklarla veri Twitter'dan akışa toplayın.
 
-* **Günlük bakım yapma:** Günlüklerin günlük ayıklanması, yedeklemelerin ve diğer bakım görevlerinin gerçekleştirilmesi. 
+* **Günlük bakımının**: Günlük günlükleri temizleme, yedekleme ve diğer bakım görevleri gerçekleştirme gibi. 
 
   Örneğin, yönetici olarak önümüzdeki dokuz ay boyunca veritabanınızı her gün saat 1:00'da yedeklemek isteyebilirsiniz.
 

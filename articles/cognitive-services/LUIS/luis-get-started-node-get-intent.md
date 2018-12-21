@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 92e10b1f4ec8be1dc67ff449df32ef76e365b5f2
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3a16c87e96a94fcf95694d3cbfd6f8f07adedb74
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162673"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717084"
 ---
 # <a name="quickstart-get-intent-using-nodejs"></a>Hızlı Başlangıç: Node.js kullanarak get hedefi
 
@@ -34,7 +34,7 @@ Bu hızlı başlangıçta, amaç ve varlıkları döndürmek için bir LUIS uç 
 
 
 > [!NOTE] 
-> Eksiksiz Node.js çözümünü kullanılabilir [ **LUIS-Samples** GitHub deposu](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node).
+> Eksiksiz Node.js çözümünü kullanılabilir [ **Azure-Samples** GitHub deposu](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/analyze-text/node).
 
 ## <a name="get-luis-key"></a>LUIS anahtarını alma
 

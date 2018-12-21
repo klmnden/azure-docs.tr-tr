@@ -1,6 +1,6 @@
 ---
-title: MongoDB için Python ve Azure Cosmos DB API ile bir Flask web uygulaması derleme
-description: Bağlanmak ve MongoDB için Azure Cosmos DB API buradan veri sorgulamak için kullanabileceğiniz bir Python Flask kodu örneği sunar.
+title: MongoDB API'si için Python ve Azure Cosmos DB ile bir Flask web uygulaması oluşturma
+description: Bağlanmak ve MongoDB API'si için Azure Cosmos DB buradan veri sorgulamak için kullanabileceğiniz bir Python Flask kodu örneği sunar.
 services: cosmos-db
 author: slyons
 ms.author: sclyon
@@ -10,14 +10,14 @@ ms.custom: quick start connect, mvc, seodec18
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/02/2017
-ms.openlocfilehash: 6645350dcc2f67d37b26bfdbe6b2c4a88871e734
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 4bd62507ae3cae25d4bca10a906a305550d0b61a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543085"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715840"
 ---
-# <a name="build-a-flask-app-with-the-azure-cosmos-db-api-for-mongodb"></a>MongoDB için Azure Cosmos DB API'si ile bir Flask uygulaması derleme
+# <a name="build-a-flask-app-with-the-azure-cosmos-db-for-mongodb-api"></a>MongoDB API'si için Azure Cosmos DB ile bir Flask uygulaması derleme
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -30,7 +30,7 @@ ms.locfileid: "53543085"
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz.
 
-Bu Hızlı Başlangıç Kılavuzu aşağıdaki kullanan [Flask örnek](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) ve basit bir To-Do Flask uygulaması derlemeyi gösterir [Azure Cosmos DB öykünücüsü'nü](local-emulator.md) ve yerine yerel MongoDB için Azure Cosmos DB API'si MongoDB.
+Bu Hızlı Başlangıç Kılavuzu aşağıdaki kullanan [Flask örnek](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) ve basit bir To-Do Flask uygulaması derlemeyi gösterir [Azure Cosmos DB öykünücüsü'nü](local-emulator.md) ve Azure Cosmos DB MongoDB API'si için.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -165,7 +165,7 @@ Bu deponun bir çatalını oluşturmak istemiyorsanız, aşağıdaki Azure’a d
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı ve MongoDB API’sini kullanarak bir Flask uygulamasını çalıştırmayı öğrendiniz. Artık Cosmos DB hesabınıza başka veriler aktarabilirsiniz.
+Bu hızlı başlangıçta, bir Azure Cosmos DB hesabı oluşturmayı ve MongoDB API'si için istemci kullanarak bir Flask uygulamasını çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB MongoDB API'si ile verileri içeri aktar](mongodb-migrate.md)
+> [MongoDB API'si veritabanı için Azure Cosmos DB'ye veri aktarma](mongodb-migrate.md)

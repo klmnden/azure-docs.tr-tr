@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 654d3c4e7dd7ec8916b785f52a78388ec04b3cc9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135585"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53712789"
 ---
-# <a name="tutorial-3-extract-well-formatted-data"></a>Öğretici 3: İyi biçimlendirilmiş verileri ayıklama
+# <a name="tutorial-3-extract-well-formatted-data"></a>3. Öğretici: İyi biçimlendirilmiş verileri ayıklama
 Bu öğreticide, **Normal İfade** varlığını kullanarak bir konuşmadan tutarlı olarak biçimlendirilmiş veriler ayıklamak için İnsan Kaynakları uygulamasını değiştirme anlatılmaktadır.
 
 Varlığın amacı, konuşmada bulunan önemli verileri almaktır. Bu uygulama, normal ifade varlığını kullanarak bir konuşmadaki biçimlendirilmiş İnsan Kaynakları (İK) Form numaralarını çekmektedir. Konuşmanın amacı her zaman makine öğrenimi ile belirlenirse de bu özel varlık türü makine öğrenimli değildir. 
@@ -55,7 +55,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
 Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
-1. [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-prebuilts-HumanResources.json) indirip kaydedin.
+1. [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-prebuilts-HumanResources.json) indirip kaydedin.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 

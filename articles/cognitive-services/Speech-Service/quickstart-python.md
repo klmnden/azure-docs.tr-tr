@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: chlandsi
-ms.openlocfilehash: 46f19876215c4c1ffac7d99e377381451a0ea7df
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 7610b12b351b2652df7ade603711d4d92e587292
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629297"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723918"
 ---
 # <a name="quickstart-using-the-speech-service-from-python"></a>Hızlı Başlangıç: Python'dan konuşma hizmeti kullanma
 
@@ -27,8 +27,8 @@ Bu makalede, Python için Speech SDK'sı aracılığıyla konuşma hizmeti kulla
 
 Başlamadan önce önkoşullarının listesi aşağıda verilmiştir:
 
-* A [abonelik anahtarı](get-started.md) konuşma hizmeti için.
-* Python 3.5 (64-bit) veya üstü gereklidir. Kullanılabilir yüklemeler [burada](https://www.python.org/downloads/).
+* Konuşma hizmeti için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md).
+* [Python 3.5 (64-bit)](https://www.python.org/downloads/) veya üzeri.
 * Python konuşma SDK paketi (X macOS sürüm 10.12 veya sonrası) Mac ve Linux (Ubuntu 16.04 veya 18.04 x64) (x64) Windows için kullanılabilir.
 * Ubuntu üzerinde gerekli paketleri yüklemek için aşağıdaki komutları çalıştırın:
 
@@ -75,9 +75,6 @@ Bu hızlı başlangıç öğreticisinde olarak indirebilirsiniz bir [Jupyter](ht
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-`quickstart/python` klasöründe bu örneği arayın.
-
 ### <a name="installing-the-speech-sdk-python-package-and-running-the-sample-in-visual-studio-code"></a>Konuşma SDK'sı Python paketini yüklemek ve Visual Studio Code'da örneği çalıştırma
 
 1. [İndirme](https://www.python.org/downloads/) ve Python'ın 64 bit sürümünü (3.5 veya sonraki sürümler) bilgisayarınıza yükleyin.
@@ -105,5 +102,4 @@ Bu yönergeleri izleyerek bir sorun varsa, daha kapsamlı başvuran [Visual Stud
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Örneklerimizi alın](speech-sdk.md#get-the-samples)
-
+> [GitHub üzerinde Python örnekleri keşfedin](https://aka.ms/csspeech/samples)
