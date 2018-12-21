@@ -8,7 +8,7 @@ items:
   - name: Linux’ta App Service hakkında
     href: app-service-linux-intro.md
   - name: Barındırma seçeneklerini karşılaştırma
-    href: ../choose-web-site-cloud-service-vm.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    href: ../overview-compare.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
 - name: Hızlı Başlangıçlar
   items:
   - name: .NET Core uygulaması oluşturma
@@ -69,7 +69,7 @@ items:
   - name: App Service nasıl çalışır?
     href: ../app-service-how-works-readme.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: App Service planları
-    href: ../azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    href: ../overview-hosting-plans.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: App Service Ortamı
     href: ../environment/intro.md
   - name: Java geliştirici kılavuzu
@@ -77,13 +77,13 @@ items:
   - name: Java Enterprise kılavuzu
     href: app-service-java-enterprise.md
   - name: Gelen ve giden IP’ler
-    href: ../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    href: ../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Kimlik doğrulama ve yetkilendirme
-    href: ../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    href: ../overview-authentication-authorization.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Dağıtım türünü seçin
     href: choose-deployment-type.md
   - name: Tanılama
-    href: ../app-service-diagnostics.md
+    href: ../overview-diagnostics.md
 - name: Nasıl Yapılır Kılavuzları
   items:
   - name: Uygulama yapılandırma
@@ -113,15 +113,15 @@ items:
     - name: Dağıtım kimlik bilgilerini ayarlama
       href: ../deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Hazırlama ortamları oluşturma
-      href: ../web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Özel etki alanı eşleme
     items:
     - name: Etki alanı satın alma
-      href: ../custom-dns-web-site-buydomains-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../manage-custom-dns-buy-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Traffic Manager ile etki alanlarını eşleme
       href: ../web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Etkin bir etki alanını geçirme
-      href: ../app-service-custom-domain-name-migrate.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../manage-custom-dns-migrate-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Güvenli uygulama
     items:
     - name: SSL sertifikası satın alma
@@ -149,7 +149,7 @@ items:
     - name: Ölçeği birden fazla örneğe genişletme
       href: ../../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Yüksek yoğunluklu barındırma
-      href: ../app-service-high-density-hosting.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../manage-scale-per-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Uygulama izleme
     items:
     - name: SSH ile uygulamaya bağlanma
@@ -157,13 +157,13 @@ items:
     - name: Kotalar ve uyarılar
       href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Günlükleri etkinleştirme
-      href: ../web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Java APM tümleştirmeleri
       href: how-to-java-apm-monitoring.md
   - name: Uygulama yönetme
     items:
     - name: Uygulama yedekleme
-      href: ../web-sites-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../manage-backup.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Yedeği geri yükleme
       href: ../web-sites-restore.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Uygulama kopyalama
@@ -205,7 +205,7 @@ items:
   - name: Sorun giderme
     items:
     - name: Visual Studio sorunlarını giderme
-      href: ../web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      href: ../troubleshoot-dotnet-visual-studio.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Node.js uygulamasında sorun giderme
       href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: HTTP 502 ve 503 hatalarını giderme
@@ -222,9 +222,9 @@ items:
         href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Yapılandırma ve yönetim hakkında SSS
         href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-ms.openlocfilehash: 3e0ce6b9c8f3fa3aaf88ba8994bf7eb58911da85
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: f29fa4901e2eb8e3a6bcabcc72e4dba37041186a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604506"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719532"
