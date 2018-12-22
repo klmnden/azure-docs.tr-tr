@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2018
 ms.author: barclayn
-ms.openlocfilehash: 272238e41327e09af8e4d3967868c21c37683236
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 85eb7762437bff8d9f6f6a360fc9cc1ea2e6e145
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602059"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718223"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Öğretici: Bir web uygulamasından Azure Key Vault'u kullanma
 
@@ -42,7 +42,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki öğelere sahip olmanız gerekir:
 
 Gizli dizi URI'sini, İstemci Kimliğini, Gizli Anahtarı almak ve uygulamayı kaydetmek için [Azure Key Vault'u kullanmaya başlama](key-vault-get-started.md) sayfasındaki adımları uygulayın. Web uygulaması kasaya erişecektir ve Azure Active Directory'de kayıtlı olması gerekir. Ayrıca anahtar kasasına erişim haklarına da sahip olmalıdır. Uygulama bu şartları karşılamıyorsa Kullanmaya Başlama öğreticisindeki Uygulama Kaydetme bölümüne dönün ve oradaki adımları uygulayın. Azure Web Apps uygulaması oluşturma hakkında daha fazla bilgi için bkz. [Web Apps'e genel bakış](../app-service/overview.md).
 
-Bu örnek, Azure Active Directory kimliklerinin el ile sağlanmasına dayanmaktadır. Bunun yerine Azure AD kimliklerini otomatik olarak sağlayan [Azure kaynakları için yönetilen kimlikleri](../active-directory/managed-identities-azure-resources/overview.md) kullanmanız gerekir. Daha fazla bilgi için [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) üzerindeki örneğe ve ilgili [App Service ve İşlevler öğreticisine](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) bakın. Anahtar kasasına özgü [Anahtar Kasasından gizli dizi okumak için bir Azure web uygulaması yapılandırma öğreticisine](tutorial-web-application-keyvault.md) de bakabilirsiniz.
+Bu örnek, Azure Active Directory kimliklerinin el ile sağlanmasına dayanmaktadır. Bunun yerine Azure AD kimliklerini otomatik olarak sağlayan [Azure kaynakları için yönetilen kimlikleri](../active-directory/managed-identities-azure-resources/overview.md) kullanmanız gerekir. Daha fazla bilgi için [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) üzerindeki örneğe ve ilgili [App Service ve İşlevler öğreticisine](https://docs.microsoft.com/azure/app-service/overview-managed-identity) bakın. Anahtar kasasına özgü [Anahtar Kasasından gizli dizi okumak için bir Azure web uygulaması yapılandırma öğreticisine](tutorial-web-application-keyvault.md) de bakabilirsiniz.
 
 ## <a id="packages"></a>NuGet paketlerini ekleme
 

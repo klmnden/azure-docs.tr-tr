@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 7084766273ec392856d829f245d3588ce57c8dae
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 622aa49a8dffa933499c243bd723ce2d67a4c251
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605781"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714909"
 ---
 # <a name="tutorial-1-fix-unsure-predictions"></a>1. Öğretici: Emin olunmayan tahminleri düzeltme
 Bu öğreticide, LUIS HTTP uç noktası üzerinden alınan ifadeleri doğrulayarak veya düzelterek LUIS'in emin olmadığı uygulama tahminlerini geliştireceksiniz. Bazı konuşmaların amaç, diğerlerinin ise varlık için doğrulanması gerekebilir. Zamanlanmış LUIS bakımınızın normal bir parçası olarak uç noktası konuşmalarını gözden geçirmeniz gerekir. 
@@ -48,13 +48,13 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
 Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
-1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json) indirip kaydedin.
+1.  [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json) indirip kaydedin.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 
 3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `review` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez.
 
-    Bu öğreticiyi yeni, içeri aktarılan bir uygulama olarak kullanıyorsanız, uygulamayı eğitmeniz, yayımlamanız ve sonra da bir [betikle](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) veya tarayıcıdaki uç noktadan ifadeleri uç noktaya eklemeniz gerekir. Eklenecek konuşmalar:
+    Bu öğreticiyi yeni, içeri aktarılan bir uygulama olarak kullanıyorsanız, uygulamayı eğitmeniz, yayımlamanız ve sonra da bir [betikle](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) veya tarayıcıdaki uç noktadan ifadeleri uç noktaya eklemeniz gerekir. Eklenecek konuşmalar:
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 

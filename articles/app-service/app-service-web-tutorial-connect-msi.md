@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 49f98958c540faa06aa15fbfc429f87f92463c3e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6af6eb0dd6473b9fe947f7cc4939da4e0cbc77cb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635451"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718546"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Öğretici: Yönetilen kimlik kullanarak App Service'ten Azure SQL veritabanı bağlantısını güvenli hale getirme
 
-[App Service](overview.md), Azure’da yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Ayrıca, uygulamanız için [Azure SQL Veritabanı](/azure/sql-database/)’na ve diğer Azure hizmetlerine erişimi güvenli hale getirmeye yönelik anahtar teslim bir çözüm olan [yönetilen kimliği](app-service-managed-service-identity.md) sağlar. App Service içindeki yönetilen kimlikler, bağlantı dizelerindeki kimlik bilgileri gibi uygulamanızdaki gizli dizileri ortadan kaldırarak uygulamanızı daha güvenli hale getirir. Bu öğreticide, bölümünde derlediğiniz örnek ASP.NET web uygulamasına yönetilen kimlik ekleyeceksiniz [Öğreticisi: Azure'da SQL veritabanı ile ASP.NET uygulaması derleme](app-service-web-tutorial-dotnet-sqldatabase.md). İşiniz bittiğinde, örnek uygulamanız kullanıcı adı ve parolaya gerek kalmadan SQL Veritabanıa güvenli bir şekilde bağlanacaktır.
+[App Service](overview.md), Azure’da yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Ayrıca, uygulamanız için [Azure SQL Veritabanı](/azure/sql-database/)’na ve diğer Azure hizmetlerine erişimi güvenli hale getirmeye yönelik anahtar teslim bir çözüm olan [yönetilen kimliği](overview-managed-identity.md) sağlar. App Service içindeki yönetilen kimlikler, bağlantı dizelerindeki kimlik bilgileri gibi uygulamanızdaki gizli dizileri ortadan kaldırarak uygulamanızı daha güvenli hale getirir. Bu öğreticide, bölümünde derlediğiniz örnek ASP.NET web uygulamasına yönetilen kimlik ekleyeceksiniz [Öğreticisi: Azure'da SQL veritabanı ile ASP.NET uygulaması derleme](app-service-web-tutorial-dotnet-sqldatabase.md). İşiniz bittiğinde, örnek uygulamanız kullanıcı adı ve parolaya gerek kalmadan SQL Veritabanıa güvenli bir şekilde bağlanacaktır.
 
 > [!NOTE]
 > Bu senaryo şu an için .NET Framework 4.6 ve üzeri tarafından desteklenmektedir ancak [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows) ile kullanılamaz. [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) senaryoyu destekler ancak henüz App Service varsayılan görüntülerine dahil edilmemiştir. 
@@ -123,7 +123,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-Bu oluşturucu, App Service’ten Azure SQL Veritabanı için bir erişim belirteci kullanmak üzere özel bir SqlConnection nesnesi yapılandırır. App Service uygulamanız erişim belirtecini kullanarak yönetilen kimlik ile Azure SQL Veritabanında kimlik doğrulaması yapar. Daha fazla bilgi için bkz. [Azure kaynakları için belirteç edinme](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). `if` deyimi, uygulamanızı LocalDB ile yerel olarak test etmeye devam etmenizi sağlar.
+Bu oluşturucu, App Service’ten Azure SQL Veritabanı için bir erişim belirteci kullanmak üzere özel bir SqlConnection nesnesi yapılandırır. App Service uygulamanız erişim belirtecini kullanarak yönetilen kimlik ile Azure SQL Veritabanında kimlik doğrulaması yapar. Daha fazla bilgi için bkz. [Azure kaynakları için belirteç edinme](overview-managed-identity.md#obtaining-tokens-for-azure-resources). `if` deyimi, uygulamanızı LocalDB ile yerel olarak test etmeye devam etmenizi sağlar.
 
 > [!NOTE]
 > `SqlConnection.AccessToken` şu anda yalnızca .NET Framework 4.6 ve üzerinde desteklenir, [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2) için de desteklenir ancak [.NET Core 2.1](https://www.microsoft.com/net/learn/get-started/windows) için destek sunulmaz.

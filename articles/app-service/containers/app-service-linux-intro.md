@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 10/09/2018
 ms.author: wesmc
 ms.custom: seodec18
-ms.openlocfilehash: 23b1ec176572b3a7e6deb0cba60ac7a1e73eeffb
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ea63049e7d3315ff3166ea5414d96b071675046c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605526"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725550"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux’ta Azure App Service’e Giriş
 
@@ -63,7 +63,7 @@ Daha fazla ayrıntı için bkz. [Linux’ta App Service’te Java web uygulamas�
 
 ## <a name="scaling"></a>Ölçeklendirme
 
-* Müşteriler [App Service planı](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview?toc=%2fazure%2fapp-service-web%2ftoc.json) katmanlarını değiştirerek web uygulamalarının ölçeğini büyütüp küçültebilirler
+* Müşteriler [App Service planı](https://docs.microsoft.com/azure/app-service/overview-hosting-plans?toc=%2fazure%2fapp-service-web%2ftoc.json) katmanlarını değiştirerek web uygulamalarının ölçeğini büyütüp küçültebilirler
 
 ## <a name="locations"></a>Konumlar
 
@@ -105,7 +105,7 @@ Linux'ta App Service hakkında daha ayrıntılı bilgi için aşağıdaki makale
 
 * [Linux’ta App Service hakkında SSS](app-service-linux-faq.md)
 * [Linux'ta App Service için SSH desteği](app-service-linux-ssh-support.md)
-* [App Service’te hazırlık ortamları ayarlama](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [App Service’te hazırlık ortamları ayarlama](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Docker Hub sürekli dağıtımı](app-service-linux-ci-cd.md)
 
 Sorularınızı ve çekincelerinizi [forumumuzda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview) paylaşabilirsiniz.

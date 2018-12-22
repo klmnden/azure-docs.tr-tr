@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 91e28ed1f498ce717b72bb592adff324a84f2e09
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8f76c53964d062db76ea7d40cdb0ced2d015fc79
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601551"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716020"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Öğretici: Azure Active Directory Uygulama proxy'si aracılığıyla uzaktan erişim için şirket içi uygulama ekleme
 
@@ -39,9 +39,9 @@ Kiracınıza uygulama eklemek için şunlara ihtiyacınız vardır:
 * Uygulama yönetici hesabı.
 
 ### <a name="windows-server"></a>Windows server
-Şirket içi ekliyorsunuz uygulama olduğundan, Windows Server 2012 R2 veya daha sonra uygulama Proxy Bağlayıcısı'nı yüklediğiniz çalışan bir Windows sunucusu gerekir. Uygulama Ara sunucusu hizmetlerini azure'da ve şirket içi uygulamaları yayımlamayı planlama bağlanmak bu bağlayıcı sunucusu gerekir.
+Uygulama proxy'si kullanmak için Windows Server 2012 R2 çalıştıran bir Windows server gerekir veya üzeri. Sunucu üzerinde uygulama ara sunucusu bağlayıcısını yükleyeceksiniz. Uygulama Ara sunucusu hizmetlerini azure'da ve şirket içi uygulamaları yayımlamayı planlama bağlanmak bu bağlayıcı sunucusu gerekir.
 
-Üretim ortamınızda, yüksek kullanılabilirlik için birden fazla Windows sunucusu olması önerilir.  Bu öğreticide, bir Windows server yeterli olur.
+Üretim ortamınızda, yüksek kullanılabilirlik için birden fazla Windows sunucusu olması önerilir. Bu öğreticide, bir Windows server yeterli olur.
 
 **Bağlayıcı sunucusu için öneriler**
 
@@ -89,11 +89,11 @@ Aşağıdaki URL'lere erişim izin ver:
 
 | URL'si | Nasıl kullanılır |
 | --- | --- |
-| \*. msappproxy.net<br>servicebus.Windows.NET | Bağlayıcı ve uygulama proxy'si bulut hizmeti arasında iletişim |
+| \*. msappproxy.net<br>\*. servicebus.windows.net | Bağlayıcı ve uygulama proxy'si bulut hizmeti arasında iletişim |
 | mscrl.microsoft.com:80<br>CRL.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure sertifikaları doğrulamak için bu URL'leri kullanır. |
 | login.windows.net<br>login.microsoftonline.com | Bağlayıcı, bu URL'ler kayıt işlemi sırasında kullanır. |
 
-Güvenlik Duvarı veya proxy DNS beyaz listeye ekleme izin veriyorsa: msappproxy.net ve servicebus.windows.net beyaz liste bağlantıları kullanabilirsiniz. Erişime izin vermek, gerekirse [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653), her hafta güncelleştirilir.
+Güvenlik Duvarı veya proxy DNS beyaz listeye ekleme izin veriyorsa, beyaz liste bağlantıları için \*. msappproxy.net ve \*. servicebus.windows.net. Erişime izin vermek, gerekirse [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). IP aralıklarını haftalık olarak güncelleştirilir.
 
 ## <a name="install-and-register-a-connector"></a>Yükleme ve bir bağlayıcıyı kaydetme
 Uygulama proxy'si kullanmak için uygulama proxy'si hizmeti ile kullanmak için seçtiğiniz her Windows server üzerinde bir bağlayıcı yüklemeniz gerekir. Giden bağlantı şirket içi uygulama sunucularından Azure AD'de uygulama ara sunucusuna yöneten bir aracı Bağlayıcıdır. Bir bağlayıcı sunucuları gibi Azure AD Connect'in yüklü diğer kimlik doğrulama aracılarının de yükleyebilirsiniz.
@@ -162,7 +162,7 @@ Ortamınızı hazırladığınız ve yüklü bir bağlayıcı göre şirket içi
 
     ![Kendi uygulamanızı ekleyin](./media/application-proxy-publish-azure-portal/add-your-own.png)
 
-4. Uygulamanız ile ilgili şu bilgileri sağlayın:
+4. İçinde **kendi şirket içi uygulamanızı ekleme** dikey penceresinde, uygulama ile ilgili aşağıdaki bilgileri sağlayın:
 
     ![Uygulamanızı yapılandırma](./media/application-proxy-publish-azure-portal/configure-app.png)
 
@@ -171,20 +171,18 @@ Ortamınızı hazırladığınız ve yüklü bir bağlayıcı göre şirket içi
     | **Ad** | Uygulamanın erişim panelinde hem de Azure portalında görünecek adı. |
     | **İç URL** | Uygulamaya özel ağınızın içinden erişmek için URL. Arka uç sunucusundaki belirli bir yolun yayımlanmasını sağlayabilirsiniz. Sunucunun geri kalanı yayımlanmaz. Bu şekilde, farklı uygulamalar ile aynı sunucuda farklı siteleri yayımlayabilir; her biri kendi adını ve erişim kuralları belirleyebilirsiniz.<br><br>Bir yol yayımlarsanız uygulamanıza ilişkin tüm gerekli görüntüleri, betikleri ve stil sayfalarını içerdiğinden emin olun. Örneğin, uygulamanız, ise https://yourapp/app ve konumunda bulunan görüntüleri kullanır https://yourapp/media, yayımlamanız gerekir sonra https://yourapp/ yolu olarak. Bu iç URL, kullanıcıların görmesi giriş sayfası olması gerekmez. Daha fazla bilgi için [yayımlanan uygulamalar için özel bir ana sayfa ayarlamak](application-proxy-configure-custom-home-page.md). |
     | **Dış URL** | Uygulamadan ağınızın dışından erişmek kullanıcıların adresi. Varsayılan uygulama ara sunucusu etki alanı kullanmayı istemiyorsanız okuyun [Azure AD uygulama proxy'sinde özel etki alanları](application-proxy-configure-custom-domain.md).|
-    | **Ön kimlik doğrulaması** | Uygulama proxy'si nasıl erişim uygulamanıza vermeden önce kullanıcıları doğrular.<br><br>**Azure Active Directory** -uygulama proxy'si, kullanıcıların dizin ve uygulama izinlerine yönelik kimlik doğrulaması Azure AD'de oturum açmasına yönlendirir. Azure AD koşullu erişim ve çok faktörlü kimlik doğrulaması gibi güvenlik özelliklerini yararlanabilir, böylece bu seçenek varsayılan olarak tutma öneririz.<br><br>**Geçiş** -kullanıcılar, Azure uygulamaya erişmek için Active Directory karşı kimlik doğrulaması yapmak zorunda değilsiniz. Kimlik doğrulama gereksinimleri arka uçtaki yine de ayarlayabilirsiniz. |
+    | **Ön kimlik doğrulaması** | Uygulama proxy'si nasıl erişim uygulamanıza vermeden önce kullanıcıları doğrular.<br><br>**Azure Active Directory** -uygulama proxy'si, kullanıcıların dizin ve uygulama izinlerine yönelik kimlik doğrulaması Azure AD'de oturum açmasına yönlendirir. Azure AD koşullu erişim ve çok faktörlü kimlik doğrulaması gibi güvenlik özelliklerini yararlanabilir, böylece bu seçenek varsayılan olarak tutma öneririz. **Azure Active Directory** Microsoft bulut uygulama güvenliği ile bir uygulama izlemek için gereklidir.<br><br>**Geçiş** -kullanıcılar, Azure uygulamaya erişmek için Active Directory karşı kimlik doğrulaması yapmak zorunda değilsiniz. Kimlik doğrulama gereksinimleri arka uçtaki yine de ayarlayabilirsiniz. |
     | **Bağlayıcı grubu** | Uygulamanız için uzaktan erişim bağlayıcılar işlemek ve bağlayıcı grupları bağlayıcılar ve bölgeyi, ağ veya amaçlı uygulamaların düzenlemenize yardımcı. Bağlayıcı gruplarda henüz sahip değilseniz, uygulamanızın atanan **varsayılan**.<br><br>Uygulamanız bağlanmak için WebSockets kullanıyorsa gruptaki tüm bağlayıcıları sürüm 1.5.612.0 olmalıdır veya üzeri.|
 
-5. Gerekirse, ek ayarları yapılandırın. Çoğu uygulama için bu ayarları varsayılan durumlarına tutmanız gerekir. 
-
-    ![Uygulamanızı yapılandırma](./media/application-proxy-publish-azure-portal/additional-settings.png)
+5. Gerekirse, yapılandırma **ek ayarlar**. Çoğu uygulama için bu ayarları varsayılan durumlarına tutmanız gerekir. 
 
     | Alan | Açıklama |
     | :---- | :---------- |
     | **Arka uç uygulama zaman aşımı** | Bu değer kümesine **uzun** uygulamanız kimlik doğrulaması ve bağlanmak yavaş ise. |
-    | **Yalnızca HTTP tanımlama bilgisi kullan** | Bu değer kümesine **Evet** tanımlama bilgileri uygulama proxy'si için HTTP yanıt üst bilgisinde HTTPOnly bayrağını ekleyin. Uzak Masaüstü Hizmetleri'ni kullanarak ayarlarsanız bu **Hayır**.|
-    | **Güvenli bir tanımlama bilgisi kullan**| Bu değer kümesine **Evet** tanımlama bilgilerini yalnızca şifrelenmiş bir HTTPS isteği gibi güvenli bir kanal üzerinden iletilen emin olmak için.
+    | **Yalnızca HTTP tanımlama bilgisi kullan** | Bu değer kümesine **Evet** tanımlama bilgileri uygulama proxy'si için HTTP yanıt üst bilgisinde HTTPOnly bayrağını ekleyin. Uzak Masaüstü Hizmetleri'ni kullanarak ayarlarsanız bu değer **Hayır**.|
+    | **Güvenli bir tanımlama bilgisi kullan**| Bu değer kümesine **Evet** şifrelenmiş bir HTTPS isteği gibi güvenli bir kanal üzerinden tanımlama bilgileri iletmek için.
     | **Üst bilgilerinde URL'leri Çevir** | Bu değer olarak tutmak **Evet** özgün ana bilgisayar üst bilgisi'kimlik doğrulama isteği, uygulamanızın gerektirdiği durumlar haricinde. |
-    | **Uygulama gövdesi URL'leri Çevir** | Bu değer olarak tutmak **Hayır** sürece diğer şirket içi uygulamalara yönelik sabit kodlanmış HTML bağlantıları ve özel etki alanları kullanmayın. Daha fazla bilgi için [çeviri uygulama ara sunucusu ile bağlantı](application-proxy-configure-hard-coded-link-translation.md). |
+    | **Uygulama gövdesi URL'leri Çevir** | Bu değer olarak tutmak **Hayır** sürece diğer şirket içi uygulamalara yönelik sabit kodlanmış HTML bağlantıları ve özel etki alanları kullanmayın. Daha fazla bilgi için [çeviri uygulama ara sunucusu ile bağlantı](application-proxy-configure-hard-coded-link-translation.md).<br><br>Bu değer kümesine **Evet** bu Microsoft Cloud App Security (MCAS) ile uygulama izlemeyi planlıyorsanız. Daha fazla bilgi için [erişim, Microsoft Cloud App Security ve Azure Active Directory ile gerçek zamanlı uygulama izlemeyi yapılandırma](application-proxy-integrate-with-microsoft-cloud-application-security.md) |
    
 
 
@@ -192,7 +190,7 @@ Ortamınızı hazırladığınız ve yüklü bir bağlayıcı göre şirket içi
 
 ## <a name="test-the-application"></a>Uygulamayı test etme
 
-Uygulamanızın düzgün şekilde eklendiğini test etmek için uygulamaya bir kullanıcı hesabı eklemeniz ve oturum açmayı deneyin. 
+Test etmeye hazırsınız uygulaması doğru eklenir. Aşağıdaki adımlarda, uygulamaya bir kullanıcı hesabı eklemeniz ve oturum açmayı deneyin.
 
 ### <a name="add-a-user-for-testing"></a>Test etmek için kullanıcı ekleme
 Bir kullanıcı uygulamaya eklemeden önce kullanıcı hesabı kurumsal ağ içinde uygulamaya erişmek için izinlere zaten sahip olun.
@@ -215,14 +213,15 @@ Bir test kullanıcısı eklemek için:
 Oturum açma için uygulamayı test etmek için:
 
 1. Yayımlama adımında yapılandırdığınız dış URL'yi tarayıcınızda gidin. 
-2. Başlangıç ekranına bakın ve ayarladığınız test hesabıyla oturum açabilir.
+2. Başlangıç ekranını görmeniz gerekir.
+3. Önceki bölümde oluşturduğunuz kullanıcı olarak oturum açmayı deneyin.
 
     ![Yayımlanan uygulamanızı test edin](./media/application-proxy-publish-azure-portal/test-app.png)
 
 Sorun giderme için bkz: [uygulama proxy'si sorunlarını giderme sorunlarını ve hata iletileri](application-proxy-troubleshoot.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, şirket içi ortamınızı uygulaması Ara sunucusu ile çalışacak şekilde hazırlanmış yüklü ve kayıtlı uygulama Proxy Bağlayıcısı. Ardından, Azure AD kiracınızla bir uygulamaya eklenen ve imzalama açma uygulama ile bir Azure AD hesabı tarafından çalışılan doğrulandı.
+Bu öğreticide, şirket içi ortamınızı uygulaması Ara sunucusu ile çalışacak şekilde hazırlanmış yüklü ve kayıtlı uygulama Proxy Bağlayıcısı. Ardından, Azure AD kiracınızla bir uygulamayı eklendi. Bir kullanıcının uygulamayı bir Azure AD hesabı kullanarak oturum açabilir, doğrulandı.
 
 Şu işlemleri yaptınız:
 > [!div class="checklist"]
@@ -232,7 +231,7 @@ Bu öğreticide, şirket içi ortamınızı uygulaması Ara sunucusu ile çalı�
 > * Azure AD kiracınızla bir şirket içi uygulamaya eklenen
 > * Bir test kullanıcısı bir Azure AD hesabını kullanarak uygulamada oturum açabilir doğrulandı.
 
-Artık uygulamayı çoklu oturum açma için yapılandırmaya hazırsınız. En iyi yöntem seçme, uygulamanızın kimliğini doğrulayan yolda bağlıdır ve birkaç çoklu oturum açma yöntemleri vardır. Aşağıdaki bağlantıda uygun tek oturum açma öğretici için uygulamanızın bulmanıza yardımcı olur.
+Uygulama için çoklu oturum açma yapılandırmaya hazırsınız. Tek bir oturum açma yöntemi seçin ve çoklu oturum açma öğreticiler bulmak için aşağıdaki bağlantıyı kullanın. 
 
 > [!div class="nextstepaction"]
 >[Çoklu oturum açmayı yapılandırma](what-is-single-sign-on.md#choosing-a-single-sign-on-method)

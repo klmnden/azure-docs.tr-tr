@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 480957dd0700c898c85b15702905919483d0de68
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: f5d74c2283d25d5774bd46bb9fe94795ff98fe9b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607498"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720591"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>Öğretici: Azure Key Vault ile Azure Linux sanal makinesine Python kullanma
 
@@ -160,7 +160,7 @@ Bu takip edebilirsiniz [Öğreticisi](https://docs.microsoft.com/azure/virtual-m
 
 ## <a name="create-and-run-sample-python-app"></a>Oluşturma ve örnek Python uygulamasını çalıştırma
 
-Aşağıda yalnızca bir örnek dosya "Sample.py" olarak adlandırılır. Kullandığı [istekleri](http://docs.python-requests.org/master/) HTTP GET çağrıları yapmak için kitaplık.
+Aşağıda yalnızca bir örnek dosya "Sample.py" olarak adlandırılır. Kullandığı [istekleri](https://pypi.org/project/requests/2.7.0/) HTTP GET çağrıları yapmak için kitaplık.
 
 ## <a name="edit-samplepy"></a>Sample.PY Düzenle
 Dosya ve kopyalama Sample.py açık oluşturduktan sonra aşağıdaki kodu

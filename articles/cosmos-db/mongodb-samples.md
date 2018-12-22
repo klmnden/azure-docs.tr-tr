@@ -1,5 +1,5 @@
 ---
-title: Bir Node.js uygulaması oluşturmak için Azure Cosmos DB MongoDB API'si kullanma
+title: Azure Cosmos DB MongoDB API'si için bir Node.js uygulaması oluşturmak için kullanın
 description: MongoDB için Azure Cosmos API’lerini kullanarak bir çevrimiçi veritabanı oluşturan öğretici.
 keywords: mongodb örnekleri
 services: cosmos-db
@@ -10,14 +10,14 @@ ms.devlang: nodejs
 ms.topic: sample
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: 994371f716a2171622c6c534329764bcf7ac585c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 3e9436301dca7c88a930d0dbd743bcefe62f4fe3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534782"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713089"
 ---
-# <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Bir Azure Cosmos DB oluşturun: Node.js kullanarak bir MongoDB uygulaması için API
+# <a name="build-an-azure-cosmos-db-for-mongodb-api-app-using-nodejs"></a>Bir Azure Cosmos DB için Node.js kullanarak bir MongoDB API'si uygulaması derleme
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -26,11 +26,11 @@ ms.locfileid: "53534782"
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
-Bu örnek, bir Azure Cosmos DB oluşturma işlemini göstermektedir: Node.js kullanarak MongoDB konsol uygulaması için API.
+Bu örnek, bir Azure Cosmos DB için Node.js kullanarak bir MongoDB API'si konsol uygulaması derleme işlemini göstermektedir.
 
 Bu örneği kullanmak için yapmanız gerekenler:
 
-* [Oluşturma](create-mongodb-dotnet.md#create-account) bir Azure Cosmos DB: MongoDB hesabı için API.
+* [Oluşturma](create-mongodb-dotnet.md#create-account) MongoDB API'si için yapılandırılmış bir Cosmos hesabı.
 * MongoDB [bağlantı dizesi](connect-mongodb-account.md) bilgilerinizi alın.
 
 ## <a name="create-the-app"></a>Uygulama oluşturma
@@ -172,4 +172,5 @@ Bu örneği kullanmak için yapmanız gerekenler:
 3. Tercih ettiğiniz terminali açın, **npm install mongodb --save** komutunu çalıştırın ve sonra da uygulamanızı **node app.js** ile çalıştırın
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgi edinmek için nasıl [MongoChef kullanma](mongodb-mongochef.md) Azure Cosmos DB ile: MongoDB hesabı için API.
+
+* Bilgi edinmek için nasıl [MongoChef kullanma](mongodb-mongochef.md) Cosmos hesabınızda MongoDB API'si için yapılandırılmış.

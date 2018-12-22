@@ -1,7 +1,7 @@
 ---
-title: MongoDB için Azure Cosmos DB API'sine giriş
+title: Azure Cosmos DB MongoDB API'si için giriş
 description: Sorgu çok büyük hacimlerdeki JSON belgeleri depolamak için Azure Cosmos DB'yi nasıl kullanabileceğinizi ve düşük gecikme ile popüler OSS MongoDB API'sini kullanarak öğrenin.
-keywords: MongoDB için Azure Cosmos DB API
+keywords: MongoDB API için Azure Cosmos DB
 services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.component: cosmosdb-mongo
 ms.topic: overview
 ms.date: 12/19/2018
 ms.author: sclyon
-ms.openlocfilehash: d8b423bcbfc8f999ce04c7713a57cfa096fa2c55
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: MT
+ms.openlocfilehash: fc6c9567073bbdfa77d753b9b274f7ed5e901405
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654045"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720592"
 ---
 # <a name="azure-cosmos-db-for-mongodb-api-clients"></a>Azure Cosmos DB MongoDB API istemciler için
 
@@ -26,7 +26,7 @@ Cosmos DB Cassandra, MongoDB, Gremlin ve Azure tablo depolama da dahil olmak üz
 
 Varsayılan olarak, Azure Cosmos DB MongoDB API'si için kablo protokolünü 3.2 sürümü ile uyumludur. Bir önizleme özelliği olarak şu anda özellikleri veya kablo protokolünü 3.4 sürümünde eklenen sorgu işleçleri kullanılabilir. MongoDB API'si için bu protokol sürümleri anlayan herhangi bir istemci sürücüsü yerel olarak Azure Cosmos DB'ye bağlanmak görebilmeniz gerekir.
 
-![MongoDB için Azure Cosmos DB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
+![MongoDB API için Azure Cosmos DB](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
 ## <a name="key-benefits"></a>Önemli avantajlar
 
@@ -55,3 +55,5 @@ Bir Azure Cosmos DB hesabı oluşturmak ve mevcut MongoDB uygulamanızı Azure C
 * İzleyin [protokolü ile verilerini Azure Cosmos DB'ye geçirme için MongoDB API'si desteği](mongodb-migrate.md) verilerinizi Cosmos veritabanına içeri aktarmak için öğretici.
 * Bir Cosmos hesap kullanarak bağlanmak [Robomongo'yu](mongodb-robomongo.md).
 * [Küresel olarak dağıtılmış uygulamalar için okuma tercihlerini yapılandırmayı](../cosmos-db/tutorial-global-distribution-mongodb.md) öğrenin.
+
+<sup>Not: Bu makalede, Azure Cosmos DB'nin MongoDB veritabanları kablo protokolü uyum sağlayan bir özellik açıklanmaktadır. Microsoft bu hizmeti sağlamak için MongoDB veritabanları çalıştırmaz. Azure Cosmos DB ile MongoDB, Inc.'e bağlı değil</sup>

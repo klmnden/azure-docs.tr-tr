@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: cb106abaff2446fdbc2d025ae96c95745bc53150
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: MT
+ms.openlocfilehash: ab3d4d2df8f12c28fa6dbdbdd7d6913d53f12884
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728064"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715078"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps için Application Insights’a genel bakış
 
@@ -108,7 +108,7 @@ Böylece, daha günlükleri bile araştırmadan ve ortaya çıktıktan sonra 15 
 ![başarısız istek](./media/app-insights-detect-triage-diagnose/23.png)
 
 ## <a name="detect-exceptions"></a>Özel durumları algılama
-Ufak bir kurulumla [özel durumlar](app-insights-asp-net-exceptions.md) otomatik olarak Application Insights'a bildirilir. Koda [TrackException()](app-insights-api-custom-events-metrics.md#trackexception) çağrıları ekleyerek de açık olarak yakalanabilirler:  
+Ufak bir kurulumla [özel durumlar](app-insights-asp-net-exceptions.md) otomatik olarak Application Insights'a bildirilir. Koda [TrackException()](../azure-monitor/app/api-custom-events-metrics.md#trackexception) çağrıları ekleyerek de açık olarak yakalanabilirler:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -131,7 +131,7 @@ Ufak bir kurulumla [özel durumlar](app-insights-asp-net-exceptions.md) otomatik
 
 Fabrikam Bank ekibi, kurtarma kaçınılmaz olmadığı sürece bir özel durum olduğunda her zaman telemetri gönderme uygulamasını geliştirmiştir.  
 
-Aslında stratejileri daha da geniştir: Müşterinin yapmak istediği şeyi yapamadığı her durumda, bu ister kodda bir özel duruma karşılık gelsin ister gelmesin telemetri gönderirler. Örneğin, bankalar arası dış transfer sistemi bir operasyonel nedenle (müşterinin kusuru olmadan) “bu işlem tamamlanamıyor” mesajı veriyorsa o olayı izlerler.
+Aslında, kendi stratejisi daha geniştir: Müşteri, kod içinde bir özel duruma karşılık olmadığını ne yapmak, istedikleri engellenen olduğu her durumda telemetri gönderdikleri. Örneğin, bankalar arası dış transfer sistemi bir operasyonel nedenle (müşterinin kusuru olmadan) “bu işlem tamamlanamıyor” mesajı veriyorsa o olayı izlerler.
 
     var successCode = AttemptTransfer(transferAmount, ...);
     if (successCode < 0)

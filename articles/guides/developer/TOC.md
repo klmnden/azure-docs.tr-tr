@@ -36,7 +36,7 @@
 
 # Kavramlar
 ## [Faturalama ve abonelikler](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [Barındırma karşılaştırmaları](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [Barındırma karşılaştırmaları](https://docs.microsoft.com/azure/app-service/overview-compare)
 ## [App Service nedir?](https://docs.microsoft.com/azure/app-service/overview)
 ## Sanal makineler
 ### [Linux VM'leri](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
@@ -76,11 +76,11 @@
 ### [Web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## Backup
-### [Web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+### [Web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service/manage-backup)
 ### [Sanal makineler](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## İzleme
-### [Web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
+### [Web ve mobil uygulamaları](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [Mikro hizmetler](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)

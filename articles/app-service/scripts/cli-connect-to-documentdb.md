@@ -16,16 +16,16 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 505f1dac3f9b63b516f0b9e352f363e287e2f604
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 12f7a4cb5db084d6e2c179bf8acd641c814dcbd0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629552"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719804"
 ---
 # <a name="connect-an-app-service-app-to-cosmos-db-using-cli"></a>Bir App Service uygulaması CLI kullanarak Cosmos DB'ye bağlanma
 
-Bu örnek betik, MongoDB ve bir App Service uygulaması için bir Azure Cosmos DB API hesabı oluşturur. Daha sonra uygulamaya uygulama ayarlarını kullanarak MongoDB bağlantı dizesini bağlar.
+Bu örnek betik, Cosmos DB MongoDB API'si ile bir App Service uygulaması için kullanarak bir Azure Cosmos DB hesabı oluşturur. MongoDB bağlantı dizesi daha sonra uygulama ayarlarını kullanarak web uygulamasına bağlar.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

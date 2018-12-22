@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: c5f1c5add069be99f7a6f467f6e3e2bd9c2b3535
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
-ms.translationtype: HT
+ms.openlocfilehash: 082170d6f8bfb687195de87cde4247697571b0d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45543097"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715928"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Visual Studio aracılığıyla Azure kaynak grupları oluşturma ve dağıtma
 Visual Studio ile altyapınızı ve kodlarınızı Azure’a dağıtan bir proje oluşturabilirsiniz. Örneğin, uygulamanızın web ana bilgisayarını, web sitesini ve veritabanını tanımlayabilir ve kodlarını ve altyapısını dağıtabilirsiniz. Visual Studio genelde karşılaşılan senaryoların dağıtılması için birçok farklı başlangıç şablonu sağlar. Bu makalede bir web uygulaması ve SQL Veritabanı dağıtacaksınız.  
@@ -132,7 +132,7 @@ Artık, projenizi dağıtmaya hazırsınız. Bir Azure Kaynak Grubu projesi dağ
     ![Parametreleri Düzenle düğmesi](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/edit-parameters.png)
 4. Boş parametreler için değerleri belirtin ve **Kaydet** düğmesini seçin. **hostingPlanName**, **administratorLogin**, **administratorLoginPassword** ve **databaseName** boş parametrelerdir.
    
-    **hostingPlanName**, oluşturulacak [App Service planı](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) için bir ad belirtir. 
+    **hostingPlanName**, oluşturulacak [App Service planı](../app-service/overview-hosting-plans.md) için bir ad belirtir. 
    
     **administratorLogin**, SQL Server yöneticisinin kullanıcı adını belirtir. **sa** veya **admin** gibi yaygın yönetici adlarını kullanmayın. 
    

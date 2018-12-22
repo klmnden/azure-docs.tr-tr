@@ -3,22 +3,21 @@ title: Azure’da Kubernetes öğreticisi - Uygulamayı güncelleştirme
 description: Bu Azure Kubernetes Service (AKS) öğreticisinde var olan bir AKS uygulama dağıtımını uygulama kodunun yeni sürümüyle güncelleştirmeyi öğreneceksiniz.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
+ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2dd52fec112b879e072d3ac5598dd7978e68cbc
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
-ms.translationtype: HT
+ms.openlocfilehash: ed4a65e9e4e579277866bdafda67eb577a76bbfe
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920642"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714823"
 ---
-# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Öğretici: Azure Kubernetes Hizmeti’nde (AKS) bir uygulamayı güncelleştirme
+# <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Öğretici: Azure Kubernetes Service (AKS) uygulama güncelleştirme
 
-Bir uygulama Kubernetes’te dağıtıldıktan sonra, yeni bir kapsayıcı görüntüsü veya görüntü sürümü belirtilerek güncelleştirilebilir. Bu yapıldığında, güncelleştirme, dağıtımın yalnızca bir kısmı eşzamanlı olarak güncelleştirilecek şekilde hazırlanılır. Hazırlanan bu güncelleştirme, uygulamanın güncelleştirme sırasında çalışmaya devam etmesini sağlar. Ayrıca bir dağıtım hatası oluşursa, bir geri alma mekanizması sağlar.
+Bir uygulama Kubernetes’te dağıtıldıktan sonra, yeni bir kapsayıcı görüntüsü veya görüntü sürümü belirtilerek güncelleştirilebilir. Bir güncelleştirme, aynı anda yalnızca bir kısmını dağıtım güncelleştirilebilmesi için hazırdır. Hazırlanan bu güncelleştirme, uygulamanın güncelleştirme sırasında çalışmaya devam etmesini sağlar. Ayrıca bir dağıtım hatası oluşursa, bir geri alma mekanizması sağlar.
 
 Bu yedi parçalı öğreticinin altıncı bölümünde, örnek Azure Vote uygulaması güncelleştirilir. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
@@ -30,21 +29,21 @@ Bu yedi parçalı öğreticinin altıncı bölümünde, örnek Azure Vote uygula
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Önceki öğreticilerde, bir uygulama bir kapsayıcı görüntüsüne paketlendi, görüntü Azure Container Registry’ye (ACR) yüklendi ve bir Kubernetes kümesi oluşturuldu. Ardından uygulama Kubernetes kümesinde çalıştırıldı.
+Önceki öğreticilerde, bir uygulama bir kapsayıcı görüntüsüne paketlendi. Bu görüntü Azure Container Registry'ye yüklendi ve bir AKS kümesi oluşturulmakta. Uygulama ardından için AKS kümesi dağıtıldı.
 
-Bu öğreticide ayrıca uygulama kaynak kodunu içeren bir uygulama deposu da kopyalandı ve önceden oluşturulmuş bir Docker Compose dosyası kullanıldı. Deponun bir kopyasını oluşturduğunuzu ve dizinleri kopyalanmış dizine değiştirdiğinizi doğrulayın. Bu adımları tamamlamadıysanız ve takip etmek istiyorsanız, [Öğretici 1 – Kapsayıcı görüntüleri oluşturma][aks-tutorial-prepare-app] konusuna dönün.
+Bu öğreticide ayrıca uygulama kaynak kodunu içeren bir uygulama deposu da kopyalandı ve önceden oluşturulmuş bir Docker Compose dosyası kullanıldı. Deponun bir kopyasını oluşturduktan ve dizinleri kopyalanmış dizine değiştirdiğinizi doğrulayın. Bu adımları tamamlamadıysanız ve takip etmek istiyorsanız başlayın [öğretici 1 – kapsayıcı görüntüleri oluşturma][aks-tutorial-prepare-app].
 
-Bu öğretici için Azure CLI 2.0.44 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
+Bu öğretici, Azure CLI Sürüm 2.0.53 çalıştırdığınız gerektirir veya üzeri. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][azure-cli-install].
 
 ## <a name="update-an-application"></a>Uygulamayı güncelleştirme
 
-Şimdi örnek uygulamada bir değişiklik yapalım ve AKS kümenize dağıtılmış olan sürümü güncelleştirelim. Örnek uygulama kaynak kodu *azure-vote* dizininde bulunabilir. *config_file.cfg* dosyasını `vi` gibi bir düzenleyiciyle açın:
+Şimdi örnek uygulamada bir değişiklik yapalım ve AKS kümenize dağıtılmış olan sürümü güncelleştirelim. Kopyalanan olduğunuzdan emin olun *azure voting uygulamasını redis* dizin. Örnek uygulama kaynak kodunu ardından içinde bulunabilir *azure-vote* dizin. *config_file.cfg* dosyasını `vi` gibi bir düzenleyiciyle açın:
 
 ```console
 vi azure-vote/azure-vote/config_file.cfg
 ```
 
-*VOTE1VALUE* ve *VOTE2VALUE* değerlerinin rengini değiştirin. Aşağıdaki örnekte güncelleştirilen renk değerleri gösterilmektedir:
+Değerlerini değiştirmek *VOTE1VALUE* ve *VOTE2VALUE* renkleri gibi farklı değerler. Aşağıdaki örnek, güncelleştirilmiş değerleri gösterir:
 
 ```
 # UI Configurations
@@ -54,7 +53,7 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-Dosyayı kaydedin ve kapatın.
+Dosyayı kaydedin ve kapatın. İçinde `vi`, kullanın `:wq`.
 
 ## <a name="update-the-container-image"></a>Kapsayıcı görüntüsünü güncelleştirme
 
@@ -70,7 +69,7 @@ Güncelleştirilmiş kapsayıcı görüntüsünde yaptığınız değişiklikler
 
 ![Azure’da Kubernetes kümesinin görüntüsü](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
-*config_file.cfg* dosyasında belirtilen güncelleştirilmiş renk değerleri, çalışan uygulamanızda görüntülenir.
+Sağlanan güncelleştirilmiş değerleri *config_file.cfg* dosya çalışan uygulamanızda görüntülenir.
 
 ## <a name="tag-and-push-the-image"></a>Görüntüyü etiketleme ve gönderme
 
@@ -86,7 +85,7 @@ Görüntüyü etiketlemek için [docker tag][docker-tag]’i kullanın. Aşağı
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Şimdi görüntüyü kayıt defterinize yüklemek için [docker push][docker-push] komutunu kullanın. `<acrLoginServer>` yerine ACR oturum açma sunucunuzun adını yazın. ACR kayıt defterinize giden sorunlarla karşılaşıyorsanız, [az acr login][az-acr-login] komutunu çalıştırdığınızdan emin olun.
+Şimdi görüntüyü kayıt defterinize yüklemek için [docker push][docker-push] komutunu kullanın. `<acrLoginServer>` yerine ACR oturum açma sunucunuzun adını yazın. ACR kayıt defterinize giden sorunlarla karşılaşıyorsanız, çalıştırdığınızdan emin emin [az acr oturum açma] [ az-acr-login] komutu.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -94,7 +93,7 @@ docker push <acrLoginServer>/azure-vote-front:v2
 
 ## <a name="deploy-the-updated-application"></a>Güncelleştirilmiş uygulamayı dağıtma
 
-En uzun çalışma süresini sağlamak için uygulama podunun birden çok örneğinin çalıştırılması gerekir. [kubectl get pods][kubectl-get] komutunu kullanarak çalışan ön uç görüntülerinin sayısını doğrulayın:
+En uzun çalışma süresini sağlamak için uygulama podunun birden çok örneğini çalıştırılması gerekir. [kubectl get pods][kubectl-get] komutunu kullanarak çalışan ön uç görüntülerinin sayısını doğrulayın:
 
 ```
 $ kubectl get pods
@@ -106,7 +105,7 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-Birden fazla ön uç podunuz yoksa *azure-vote-front* dağıtımını şu şekilde ölçeklendirin:
+Ön uç birden çok podunuz yoksa, ölçeklendirme *azure-vote-front* aşağıdaki gibi dağıtım:
 
 ```console
 kubectl scale --replicas=3 deployment/azure-vote-front
@@ -144,13 +143,13 @@ Güncelleştirme uygulamasını görüntülemek için öncelikle `azure-vote-fro
 kubectl get service azure-vote-front
 ```
 
-Şimdi yerel web tarayıcısından IP adresine gidin.
+Artık hizmetinizin IP adresi için bir yerel web tarayıcısı açın:
 
 ![Azure’da Kubernetes kümesinin görüntüsü](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir uygulamayı güncelleştirdiniz ve bu güncelleştirmeyi bir Kubernetes kümesine sundunuz. Şunları öğrendiniz:
+Bu öğreticide, bir uygulamayı güncelleştirdiniz ve bu güncelleştirmeyi, AKS kümesine sundunuz. Şunları öğrendiniz:
 
 > [!div class="checklist"]
 > * Ön uç uygulama kodunu güncelleştirme

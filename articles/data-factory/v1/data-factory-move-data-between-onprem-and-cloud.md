@@ -304,7 +304,7 @@ Bu adımda, kopyalama işlemi için girdi ve çıktı verilerini temsil eden gir
 ## <a name="create-pipeline"></a>İşlem hattı oluşturma
 Bu adımda, oluşturduğunuz bir **işlem hattı** biriyle **kopyalama etkinliği** kullanan **EmpOnPremSQLTable** giriş olarak ve **OutputBlobTable** olarak çıktı.
 
-1. Data Factory Düzenleyicisi'nde tıklayın **... Daha fazla** ve **Yeni işlem hattı öğelerine tıklayın.
+1. Data Factory Düzenleyicisi'nde tıklayın **... Daha fazla** ve **Yeni işlem hattı** öğelerine tıklayın.
 2. Sağ bölmedeki JSON aşağıdaki metinle değiştirin:    
 
     ```JSON   

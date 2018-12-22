@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: fb412e32eee8cbc38f90e4325ab31a9926060beb
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 5a54d70164e393dfe41dc3d9b71fb3c5afa33852
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537690"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723629"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Verilerinizi Azure Cosmos DB'ye geçirmek için Veri geçişi aracını kullanma
 
@@ -24,7 +24,7 @@ Azure Cosmos DB ile hangi API’yi kullanacaksınız?
 
 * **[SQL API’si](documentdb-introduction.md)** : Verileri içeri aktarmak için Veri Geçişi aracında sağlanan kaynak seçeneklerinin herhangi birini kullanabilirsiniz.
 * **[Tablo API’si](table-introduction.md)** : Verileri içeri aktarmak için Veri Geçişi aracını veya AzCopy’yi kullanabilirsiniz. Daha fazla bilgi için bkz. [Azure Cosmos DB Tablo API’si ile kullanılmak üzere verileri içeri aktarma](table-import.md).
-* **[MongoDB için Azure Cosmos DB API](mongodb-introduction.md)**  -veri geçiş aracı şu anda desteklemiyor Azure Cosmos DB API MongoDB için bir kaynak veya hedef olarak. İçine veya dışına Azure Cosmos DB koleksiyonları veri geçirmek istiyorsanız, başvurmak [MongoDB için Azure Cosmos DB API için veri geçirme](mongodb-migrate.md) yönergeler için. SQL API’si ile kullanılmak üzere MongoDB’den Azure Cosmos DB SQL API koleksiyonlarına verileri dışarı aktarmak için Veri Geçişi aracını kullanmaya devam edebilirsiniz.
+* **[Azure Cosmos DB MongoDB API'si için](mongodb-introduction.md)**  -veri geçiş aracı şu anda desteklemiyor Azure Cosmos DB MongoDB API'si için bir kaynak veya hedef olarak. İçine veya dışına Azure Cosmos DB koleksiyonları veri geçirmek istiyorsanız, başvurmak [veri için Azure Cosmos DB MongoDB API'si için geçirme](mongodb-migrate.md) yönergeler için. SQL API’si ile kullanılmak üzere MongoDB’den Azure Cosmos DB SQL API koleksiyonlarına verileri dışarı aktarmak için Veri Geçişi aracını kullanmaya devam edebilirsiniz.
 * **[Gremlin API](graph-introduction.md)**  -veri geçiş aracı şu anda bir Gremlin API hesapları için desteklenen içeri aktarma aracı değildir.
 
 Bu öğretici aşağıdaki görevleri kapsar:
@@ -111,7 +111,7 @@ dt.exe /s:JsonFile /s.Files:D:\\CompanyData\\Companies.json /t:DocumentDBBulk /t
 ## <a id="MongoDB"></a>MongoDB’den içeri aktarma
 
 > [!IMPORTANT]
-> MongoDB desteği ile bir Azure Cosmos DB hesabına içe aktarıyorsanız, aşağıdaki adımları [yönergeleri](mongodb-migrate.md).
+> MongoDB API'si için yapılandırılmış bir Cosmos hesabına içe aktarıyorsanız, aşağıdaki adımları [yönergeleri](mongodb-migrate.md).
 
 MongoDB kaynak alma seçeneği ile tek bir MongoDB koleksiyonundan içeri aktarma, isteğe bağlı olarak bir sorgu kullanarak belgeleri filtreler ve belge yapısı bir yansıtma kullanarak değiştirin.  
 

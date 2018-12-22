@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: fmegen
-ms.openlocfilehash: 6dc482f8629bf8ca75af5f1643999ae896fa2435
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 35652b169067bc545fa0d1fcc977bbaee79ec3aa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53609435"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724445"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-nodejs-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma hizmeti SDK'sını kullanarak node.js'de JavaScript dilinde konuşma tanıma
 
@@ -26,7 +26,7 @@ Microsoft Web tabanlı uygulaması [Bilişsel hizmetler konuşma SDK'sı](https:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Konuşma tanıma hizmeti için bir abonelik anahtarı. Bkz. [Konuşma Tanıma Hizmetini ücretsiz olarak deneyin](get-started.md).
+* Konuşma hizmeti için bir Azure aboneliği anahtarı. [Ücretsiz edinin](get-started.md).
 * Güncel bir sürümünü [Node.js](https://nodejs.org).
 
 ## <a name="create-a-new-project-folder"></a>Yeni bir proje klasörü oluşturun
@@ -120,10 +120,7 @@ Visual Studio Code'dan örnek de çalıştırabilirsiniz. Yükleme, açın ve H�
 
    ![Hata ayıklama Konsolu ekran görüntüsü](media/sdk/qs-js-node-07-debug_output.png)
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-`quickstart/js-node` klasöründe bu örneği arayın.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Örneklerimizi alın](speech-sdk.md#get-the-samples)
+> [Github'da node.js örneklerini keşfedin](https://aka.ms/csspeech/samples)

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 167c6a63064b7d66b869984e0cffb5aaf90900e8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 27940cc9f612c62625c0c0b2809e7afc8cd990d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542209"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53711933"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Azure DevOps'ta Azure Cosmos DB öykünücüsü derleme göreviyle CI/CD işlem hattı oluşturma
 
@@ -81,7 +81,7 @@ Uygulamanın birim testlerine iletilecek parametreleri tanımlayan örnek **.run
 </RunSettings>
 ```
 
-MongoDB için Azure Cosmos DB API kullanan bir uygulama için bir CI/CD işlem hattı ayarlıyorsanız, varsayılan olarak MongoDB bağlantı dizesini 10255 olarak bağlantı noktası numarasını içerir. Ancak, bu bağlantı noktası açık değil alternatif olarak, bağlantı kurmak için bağlantı noktası 10250 kullanmanız gerekir. MongoDB bağlantı dizesi için Azure Cosmos DB API, desteklenen bir bağlantı noktası numarası yerine 10255 olarak 10250 haricinde aynı kalır.
+Azure Cosmos DB için MongoDB API'sini kullanan bir uygulama için bir CI/CD işlem hattı ayarlıyorsanız, varsayılan olarak MongoDB bağlantı dizesini 10255 olarak bağlantı noktası numarasını içerir. Ancak, bu bağlantı noktası açık değil alternatif olarak, bağlantı kurmak için bağlantı noktası 10250 kullanmanız gerekir. Azure Cosmos DB MongoDB API bağlantı dizesi, desteklenen bağlantı noktası numarası yerine 10255 olarak 10250 haricinde aynı kalır.
 
 `TestRunParameters` parametrelerine uygulamanın test projesindeki bir `TestContext` özelliği aracılığıyla başvurulur. Burada Cosmos DB ile çalışan örnek bir testi görebilirsiniz.
 

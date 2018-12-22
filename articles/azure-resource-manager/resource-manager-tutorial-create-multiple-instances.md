@@ -13,16 +13,18 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5f355604e2bff1c3f03c8237f30cbe41ce7e5810
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 3ac7517327e1447fbcd20cf3ffb506b7207a78b3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616156"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717578"
 ---
-# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Öğretici: Resource Manager şablonlarıyla birden çok kaynak örneği oluşturma
+# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Öğretici: Resource Manager şablonları ile birden çok kaynak örneğini oluşturma
 
 Bir Azure Kaynağı’nın birden çok örneğini oluşturmak için Azure Resource Manager şablonunuzda yineleme yapmayı öğrenin. Bu öğreticide, bir şablonu değiştirerek üç depolama hesabı örneği oluşturacaksınız.
+
+Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
 > * Hızlı başlangıç şablonunu açma
@@ -149,7 +151,7 @@ Artık Azure kaynakları gerekli değilse, kaynak grubunu silerek dağıttığı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, birden çok depolama hesabı örneği oluşturmayı öğrendiniz. Şu ana kadar bir depolama hesabı veya birden çok depolama hesabı örneği oluşturdunuz. Bir sonraki öğreticide, birden fazla kaynağa ve birden çok kaynak türüne sahip bir şablon geliştireceksiniz. Bazı kaynakların bağımlı kaynakları vardır.
+Bu öğreticide, birden çok depolama hesabı örneği oluşturmayı öğrendiniz. Sonraki öğreticide, bir kaynak bir kaynak grubundan başka bir kaynak grubuna taşıma konusunda bilgi edinin.
 
 > [!div class="nextstepaction"]
-> [Bağımlı kaynaklar oluşturma](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Kaynakları taşıma](./resource-manager-tutorial-move-resources.md)

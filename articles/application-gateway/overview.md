@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: b58237f25a51438f0255243f960cc2a6aed2b0ca
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6badfabb3ad20b5c17b3bb2bf09ae13f63568d05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679180"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714763"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway nedir?
 
@@ -106,10 +106,18 @@ Application Gateway, WebSocket ve HTTP/2 protokolleri için yerel destek sağlar
 
 WebSocket ve HTTP/2 protokolleri, uzun süre çalışan bir TCP bağlantısı üzerinden bir sunucu ile bir istemci arasında tam çift yönlü iletişimi etkinleştirir. Bu, web sunucusu ile istemci arasında HTTP tabanlı uygulamalarda gerektiği gibi yoklama olmadan çift yönlü olabilen daha etkileşimli bir iletişime olanak sağlar. Bu protokoller HTTP’den farklı olarak düşük yüke sahiptir ve kaynakların daha verimli bir şekilde kullanılması için aynı TCP bağlantısını birden fazla istek/yanıt için kullanabilir. Bu protokoller, geleneksel HTTP bağlantı noktaları 80 ve 443 üzerinden çalışmak üzere tasarlanmıştır.
 
+## <a name="rewrite-http-headers-public-preview"></a>HTTP üstbilgileri (genel Önizleme) yeniden yazma
+
+HTTP üstbilgileri, istemci ve sunucu istek veya yanıt ek bilgilerle geçmesine izin verin. Güvenlikle ilgili üstbilgi ekleme gibi birkaç önemli senaryoları görevi bu HTTP üstbilgileri yardımcı yeniden yazma alanları HSTS gibi / X XSS koruma veya yanıt üst bilgisi kaldırma alanları, arka uç sunucu adı gibi hassas bilgileri açığa. 
+
+Application Gateway, gelen HTTP isteklerini, hem de giden HTTP yanıt üst bilgilerini yeniden yazabilme becerisine artık desteklemektedir. Eklemek, kaldırmak veya HTTP istek ve yanıt üstbilgileri, istek/yanıt paketleri istemci ve arka uç havuzları arasında taşırken güncelleştirmek mümkün olacaktır. Her iki standart yazabilirsiniz (tanımlanan [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)) standart üstbilgi alanlarını yanı sıra.  
+
+Bu genel önizleme özelliği hakkında daha fazla bilgi için bkz. [yeniden HTTP üstbilgileri](rewrite-http-headers.md).
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Gereksinimleriniz ve ortamınıza bağlı olarak, Azure portalı, Azure PowerShell veya Azure CLI kullanarak bir test Application Gateway oluşturabilirsiniz:
 
-- [Hızlı Başlangıç: Azure Application Gateway ile web trafiğini yönlendirme - Azure portalı](quick-create-portal.md).
-- [Hızlı Başlangıç: Azure Application Gateway ile web trafiğini yönlendirme - Azure PowerShell](quick-create-powershell.md)
-- [Hızlı Başlangıç: Azure Application Gateway ile web trafiğini yönlendirme - Azure CLI](quick-create-cli.md)
+- [Hızlı Başlangıç: Azure Application Gateway - Azure portalı ile web trafiğini doğrudan](quick-create-portal.md).
+- [Hızlı Başlangıç: Azure Application Gateway - Azure PowerShell ile doğrudan web trafiği](quick-create-powershell.md)
+- [Hızlı Başlangıç: Azure Application Gateway - Azure CLI ile doğrudan web trafiği](quick-create-cli.md)

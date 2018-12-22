@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: a36caf8786b836faad93a31bde952b66b7f690fc
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 5d56a9c5bee007568fc893a020edf487403c9fde
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537163"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720297"
 ---
 # <a name="provision-throughput-for-an-azure-cosmos-db-container"></a>Azure Cosmos DB kapsayıcısına aktarım hızı sağlama
 
@@ -47,7 +47,7 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-MongoDB için Azure Cosmos DB API hesabı için aktarım hızı sağlama kullanırsanız ' / myShardKey' bölüm anahtarı yolu için ve Cassandra API hesabı için aktarım hızı sağlanırken, ' / myPrimaryKey' bölüm anahtarı yolu için.
+MongoDB API'si için yapılandırılmış bir Cosmos hesabı için aktarım hızı sağlıyorsanız kullanın ' / myShardKey' bölüm anahtarı yolu için ve Cassandra API'si için yapılandırılmış bir Cosmos hesabı için aktarım hızı sağlanırken, ' / myPrimaryKey' bölüm anahtarı yolu için.
 
 ## <a name="provision-throughput-using-net-sdk"></a>.NET SDK’sını kullanarak aktarım hızı sağlama
 

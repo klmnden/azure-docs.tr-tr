@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b6fb603b84cdcf3cb0f75d0020fa2047a0a838d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 20f5fb918c836bda9bee19feec3259cfd4858875
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074092"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722423"
 ---
-# <a name="tutorial-2-identify-common-intents-and-entities"></a>Öğretici 2: Ortak amaçları ve varlıkları tanımlama
+# <a name="tutorial-2-identify-common-intents-and-entities"></a>2. Öğretici: Ortak hedefleri ve varlıkları tanımlama
 Bu öğreticide İnsan Kaynakları uygulamasında değiştireceksiniz. Hızlıca amaç tahmini ve veri ayıklaması gerçekleştirmek için İnsan Kaynakları öğretici uygulamasına önceden oluşturulmuş amaçlar ve varlıklar ekleyin. Varlıklar otomatik algılandığından herhangi bir konuşmayı önceden oluşturulmuş varlıklarla etiketlemeniz gerekmez.
 
 Genel konu etki alanlarının ve veri türlerinin önceden oluşturulmuş modelleri, modelinizi hızla oluşturmanıza yardımcı olmanın yanı sıra modellerin yapısını gösteren bir örnek de sağlar. 
@@ -40,7 +40,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
 Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
-1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json) indirip kaydedin.
+1.  [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json) indirip kaydedin.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 

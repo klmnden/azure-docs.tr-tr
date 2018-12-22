@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/13/2018
 ms.author: chlandsi
-ms.openlocfilehash: 824fa5ceb5828394fedfe7af8bf48af2980160d9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 75411ebd50448c5f490a1f03fbbf25a61dbffaf8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606325"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718121"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Hızlı Başlangıç: Konuşma hizmeti SDK'sı kullanarak iOS Objective-C, konuşma tanıma
 
@@ -99,10 +99,7 @@ Konuşma SDK’sı şu anda yalnızca 64 bit iOS platformlarını desteklemekted
 
 1. Uygulamada “Tanı (Mikrofon)” düğmesine tıklayıp birkaç sözcük söyledikten sonra, konuştuğunuz metni ekranın alt bölümünde görmeniz gerekir.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-`quickstart/objectivec-ios` klasöründe bu örneği arayın.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Örneklerimizi alın](speech-sdk.md#get-the-samples)
+> [GitHub üzerinde Objective-C örneklerini keşfedin](https://aka.ms/csspeech/samples)

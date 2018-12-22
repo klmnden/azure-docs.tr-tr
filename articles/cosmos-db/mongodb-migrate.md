@@ -1,5 +1,5 @@
 ---
-title: Veya ve mongorestore Azure Cosmos DB API ile MongoDB için kullanın.
+title: Veya ve mongorestore ile Azure Cosmos DB için MongoDB API'yi kullanın.
 description: MongoDB hesabı için bir API’ye verileri içeri aktarmak için mongoimport ve mongorestore kullanmayı öğrenin
 keywords: mongoimport, mongorestore
 services: cosmos-db
@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: a17b2121feb5656df4298bddc2b1e90bb9ac6457
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: c0fed311a43677465559ca9ea86b384a39b9fbfd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545629"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723425"
 ---
-# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-api-account-for-mongodb"></a>Öğretici: MongoDB için Azure Cosmos DB API hesabı için verilerinizi geçirme
+# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-configured-for-mongodb-api"></a>Öğretici: Azure Cosmos DB MongoDB API'si için yapılandırılmış verilerinizi geçirme
 
-Bu öğreticide, MongoDB için Azure Cosmos DB API Mongodb'ye depolanan verileri geçirme hakkında yönergeler açıklanmaktadır. MongoDB’den verileri içeri aktarıyor ve bunları Azure Cosmos DB SQL API’siyle kullanmayı planlıyorsanız, verileri içeri aktarmak için [Veri Geçiş aracını](import-data.md) kullanmanız gerekir.
+Bu öğreticide, Azure Cosmos DB MongoDB API'si için yapılandırılmış Mongodb'ye depolanan verileri geçirme hakkında yönergeler açıklanmaktadır. Mongodb'deki verileri içeri aktarma ve ile kullanmayı planlıyorsanız, Azure Cosmos DB SQL API'si için yapılandırılmış, kullanmanız gereken [veri geçiş aracı](import-data.md) verileri içeri aktarmak için.
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
@@ -29,7 +29,7 @@ Bu öğretici aşağıdaki görevleri kapsar:
 > * mongoimport'u kullanarak veri geçirme
 > * mongorestore'u kullanarak veri geçirme
 
-Veri geçiriyorsanız mongodb, Azure Cosmos DB API yapmadan önce emin olan bazı örnek MongoDB verilerini vardır. Örnek MongoDB veritabanınız yoksa [MongoDB community server](https://www.mongodb.com/download-center) sürümünü indirip yükleyebilir, örnek bir veritabanı oluşturabilir ve örnek verileri mongoimport.exe veya mongorestore.exe ile karşıya yükleyebilirsiniz. 
+Azure Cosmos DB MongoDB API'si için veri geçişi yapmadan önce emin olan bazı örnek MongoDB verilerini vardır. Örnek MongoDB veritabanınız yoksa [MongoDB community server](https://www.mongodb.com/download-center) sürümünü indirip yükleyebilir, örnek bir veritabanı oluşturabilir ve örnek verileri mongoimport.exe veya mongorestore.exe ile karşıya yükleyebilirsiniz. 
 
 ## <a name="plan-for-migration"></a>Geçiş planlaması
 
@@ -59,7 +59,7 @@ Veri geçiriyorsanız mongodb, Azure Cosmos DB API yapmadan önce emin olan baz�
 
 1. Tek bir belge yazma için yaklaşık RU ücretini hesaplayın:
 
-   a. Azure Cosmos DB API'si, MongoDB için MongoDB Kabuğu'ndan bağlanın. [Azure Cosmos DB’ye MongoDB uygulaması bağlama](connect-mongodb-account.md) bölümünde yönergeleri bulabilirsiniz.
+   a. MongoDB Kabuğu'ndan MongoDB API'si için yapılandırılmış Cosmos hesabınıza bağlanın. [Azure Cosmos DB’ye MongoDB uygulaması bağlama](connect-mongodb-account.md) bölümünde yönergeleri bulabilirsiniz.
     
    b. MongoDB Kabuğu’ndan örnek belgelerinizden birini kullanarak örnek bir ekleme komutu çalıştırın:
    
@@ -161,7 +161,7 @@ mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cos
 
 ## <a name="migrate-data-by-using-mongorestore"></a>mongorestore'u kullanarak veri geçirme
 
-MongoDB hesabı için API’nize verileri geri yüklemek için, içeri aktarmayı yürütmek üzere aşağıdaki şablonu kullanın. *Konak*, *kullanıcı adı* ve *parola* alanlarını hesabınıza özgü değerlerle doldurun.
+Cosmos hesabınızda MongoDB API'si için yapılandırılmış verileri geri yüklemek için alma işlemi yürütmek için aşağıdaki şablonu kullanın. *Konak*, *kullanıcı adı* ve *parola* alanlarını hesabınıza özgü değerlerle doldurun.
 
 Şablon:
 
@@ -177,7 +177,7 @@ mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u co
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir sonraki öğreticiye geçip Azure Cosmos DB kullanarak MongoDB verilerini sorgulamayı öğrenebilirsiniz. 
+Sonraki öğreticiye geçebilir ve Cosmos veritabanı, istemciler ve araçlar için MongoDB kullanarak veri sorgulamayı öğrenin. 
 
 > [!div class="nextstepaction"]
 >[MongoDB verileri nasıl sorgulanır?](../cosmos-db/tutorial-query-mongodb.md)

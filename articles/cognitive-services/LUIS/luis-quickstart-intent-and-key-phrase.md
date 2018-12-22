@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 0a064966f118925d2a08e0ff1ce6efc7683cac96
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7de18cc0ed2e8284e020a1ae6fb9c876ed3d2197
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096936"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718401"
 ---
-# <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Öğretici 8: Konuşmadaki anahtar tümcecikleri ayıklama
+# <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Öğretici 8: Utterance, anahtar tümcecikleri ayıklayın
 Bu öğreticide konuşmalardan ana konuyu ayıklamak için önceden oluşturulmuş keyPhrase varlığı kullanılmaktadır. Herhangi bir konuşmayı önceden oluşturulmuş varlıklarla etiketlemeniz gerekmez. Varlık otomatik olarak algılanır.
 
 Aşağıdaki konuşmalarda anahtar ifade örnekleri gösterilmektedir:
@@ -47,7 +47,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
 Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
 
-1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-simple-HumanResources.json) indirip kaydedin.
+1.  [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-simple-HumanResources.json) indirip kaydedin.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 
