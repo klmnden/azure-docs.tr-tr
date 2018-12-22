@@ -13,16 +13,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 7049691e6635940e70795f0b5b4cc4c94cfd3631
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 636adcf15479fe8e072b833b59ddc78b5f820550
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607328"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745083"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Hızlı Başlangıç: Bağlanmak ve bir Azure SQL veritabanı sorgulamak için SQL Server Management Studio'yu kullanın.
 
-Kullanabileceğiniz [SQL Server Management Studio] [ ssms-install-latest-84g] (SSMS) Microsoft Windows için SQL veritabanı için SQL Server'dan tüm SQL altyapılarını yönetme. Bu hızlı başlangıçta SSMS kullanarak Azure SQL veritabanına bağlanan ve ardından sorgulama, ekleme, güncelleştirme için Transact-SQL deyimleri çalıştırın ve verileri silmek için nasıl kullanılacağını gösterir. 
+Bu hızlı başlangıçta kullanacaksınız [SQL Server Management Studio] [ ssms-install-latest-84g] (SSMS) kullanarak Azure SQL veritabanına bağlanmak için. Ardından, Transact-SQL deyimleriyle sorgulama, ekleme, güncelleştirme ve verileri silmek çalıştıracaksınız. SSMS, SQL Server'dan SQL veritabanı için Microsoft Windows tüm SQL altyapılarını yönetmek için kullanabilirsiniz.  
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -75,11 +75,11 @@ SMSS Azure SQL veritabanı sunucunuza bağlanın.
 
 ## <a name="query-data"></a>Verileri sorgulama
 
-Aşağıdaki [seçin](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL kodunu sorgulamak için ilk 20 ürünü kategoriye göre.
+Bu çalıştırma [seçin](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL kodunu sorgulamak için ilk 20 ürünü kategoriye göre.
 
-1. Nesne Gezgini'nde sağ **mySampleDatabase** seçip **yeni sorgu**. Veritabanınıza bağlı boş bir sorgu penceresi açılır.
+1. Nesne Gezgini'nde sağ **mySampleDatabase** seçip **yeni sorgu**. Veritabanınıza bağlı yeni bir sorgu penceresi açılır.
 
-1. Bu SQL sorgusunu sorgu penceresine yapıştırın.
+2. Bu SQL sorgusunu sorgu penceresine yapıştırın.
 
    ```sql
    SELECT pc.Name as CategoryName, p.name as ProductName
@@ -90,11 +90,11 @@ Aşağıdaki [seçin](https://msdn.microsoft.com/library/ms189499.aspx) Transact
 
 3. Araç çubuğunda **yürütme** verilerin alınacağı `Product` ve `ProductCategory` tablolar.
 
-    ![2 tablolarından veri almak için sorgu](./media/sql-database-connect-query-ssms/query2.png)
+    ![iki tablodan verileri almak için sorgu](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>Veri ekleme
 
-Aşağıdaki [Ekle](https://msdn.microsoft.com/library/ms174335.aspx) yeni bir ürün oluşturmak için Transact-SQL kodu `SalesLT.Product` tablo.
+Bu çalıştırma [Ekle](https://msdn.microsoft.com/library/ms174335.aspx) yeni bir ürün oluşturmak için Transact-SQL kodu `SalesLT.Product` tablo.
 
 1. Önceki sorguyu Bununla değiştirin.
 
@@ -117,7 +117,7 @@ Aşağıdaki [Ekle](https://msdn.microsoft.com/library/ms174335.aspx) yeni bir �
            ,GETDATE() );
    ```
 
-2. Seçin **yürütme** Product tablosuna yeni bir satır eklemek için. **İletileri** bölmesini görüntüler **(1 satır etkilendi)**.
+2. Seçin **yürütme** yeni bir satır eklemek için `Product` tablo. **İletileri** bölmesini görüntüler **(1 satır etkilendi)**.
 
 ## <a name="view-the-result"></a>Görünüm sonucu
 
@@ -134,7 +134,7 @@ Aşağıdaki [Ekle](https://msdn.microsoft.com/library/ms174335.aspx) yeni bir �
  
 ## Update data
 
-Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify the new product you just added.
+Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
 
 1. Replace the previous query with this one.
 
@@ -144,11 +144,11 @@ Use the following [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Tra
    WHERE Name = 'myNewProduct';
    ```
 
-2. Seçin **yürütme** Product tablosunda belirtilen satırı güncelleştirin. **İletileri** bölmesini görüntüler **(1 satır etkilendi)**.
+2. Seçin **yürütme** belirtilen satırı güncelleştirmek için `Product` tablo. **İletileri** bölmesini görüntüler **(1 satır etkilendi)**.
 
 ## <a name="delete-data"></a>Verileri silme
 
-Aşağıdaki [Sil](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL kod daha önce eklemiş olduğunuz yeni ürünü kaldırın.
+Bu çalıştırma [Sil](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL kodunu yeni ürün kaldırmak için.
 
 1. Önceki sorguyu Bununla değiştirin.
 
@@ -157,7 +157,7 @@ Aşağıdaki [Sil](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQ
    WHERE Name = 'myNewProduct';
    ```
 
-2. Seçin **yürütme** Product tablosunda belirtilen satırı silin. **İletileri** bölmesini görüntüler **(1 satır etkilendi)**.
+2. Seçin **yürütme** belirtilen satırı silmek için `Product` tablo. **İletileri** bölmesini görüntüler **(1 satır etkilendi)**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

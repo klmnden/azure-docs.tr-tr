@@ -1,7 +1,7 @@
 ---
-title: Node.Js, MongoB API (Part5) kullanarak Angular uygulaması
+title: "Öğretici: (Bölüm 5) - kullanımı Azure Cosmos DB'ye bağlanmak için Mongoose MongoDB API hesabı depolanan verileri yönetmek için bir Node.js uygulaması oluşturma"
 titleSuffix: Azure Cosmos DB
-description: Azure Cosmos DB üzerinde Angular ve Node ile MongoDB için kullandığınız aynı API'leri kullanarak bir MongoDB uygulaması oluşturma öğreticisi dizisinin 5. bölümü.
+description: Bu öğreticide MongoDB API hesabı depolanan verileri yönetmek için Angular ve Express kullanarak bir Node.js uygulaması oluşturma işlemini açıklamaktadır. Bu bölümünde Azure Cosmos DB'ye bağlanmak için Mongoose kullanma.
 author: johnpapa
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
@@ -10,67 +10,62 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 0b0ebbbf4f511d033f0724b9b97a32f408cb5c74
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in a MongoDB API account of Azure Cosmos DB.
+ms.openlocfilehash: 714ba7360b500a76eba9ab7694ab9a2e54d697e9
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726193"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752648"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-connect-to-azure-cosmos-db"></a>Angular ve Azure Cosmos DB - 5. bölüm ile bir MongoDB uygulaması oluşturun: Azure Cosmos DB’ye bağlanma 
+# <a name="tutorial-build-a-nodejs-application-to-manage-the-data-stored-in-a-mongodb-api-account-part-5---use-mongoose-to-connect-to-azure-cosmos-db"></a>Öğretici: (Bölüm 5) - kullanımı Azure Cosmos DB'ye bağlanmak için Mongoose MongoDB API hesabı depolanan verileri yönetmek için bir Node.js uygulaması oluşturma
 
-Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yazılmış yeni bir uygulama oluşturun ve buna bağlanmak gösterilmektedir, [MongoDB API'si için yapılandırılmış Cosmos hesabı](mongodb-introduction.md).
+Bir geliştirici olarak, NoSQL belge verileri kullanan uygulamalar olabilir. Azure Cosmos DB MongoDB API hesabı, depolamak ve bu belge verilere erişmek için kullanabilirsiniz. Azure Cosmos DB MongoDB API hesabı depolanan verileri yönetmek için bir Node.js uygulaması oluşturabilirsiniz. Bu çok bölümlü öğretici, Express ve Angular ile Node.js uygulaması oluşturma ve buna bağlanmak gösterilmiştir bir [Azure Cosmos DB MongoDB API](mongodb-introduction.md) hesabı. Bu makalede öğreticinin 5. bölüm ve yapılar [bölüm 4](tutorial-develop-mongodb-nodejs-part4.md).
 
-Öğreticinin 5. bölümünde [4. bölümdeki](tutorial-develop-mongodb-nodejs-part4.md) konular genişletilir ve aşağıdaki görevler yer alır:
+Öğreticinin bu bölümünde şunları yapacaksınız:
 
 > [!div class="checklist"]
-> * Azure Cosmos DB’ye bağlanmak için Mongoose kullanma
-> * Cosmos DB bağlantı dizesi bilgilerinizi alma
-> * Hero modelini oluşturma
-> * Hero verilerini almak için hero hizmetini oluşturma
-> * Uygulamayı yerel olarak çalıştırma
+> * Azure Cosmos DB'ye bağlanmak için Mongoose kullanma.
+> * Azure Cosmos DB bağlantı dizenizi alın.
+> * Hero modelini oluşturun.
+> * Hero verilerini almak için Hero hizmetini oluşturma.
+> * Uygulamayı yerel olarak çalıştırın.
 
-## <a name="video-walkthrough"></a>Görüntülü kılavuz
-
-Bu belgede anlatılan adımları hızla öğrenmek için şu videoya göz atabilirsiniz: 
-
-> [!VIDEO https://www.youtube.com/embed/sI5hw6KPPXI]
-
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Öğreticinin bu bölümüne başlamadan önce öğreticinin [4. bölümündeki](tutorial-develop-mongodb-nodejs-part4.md) adımları tamamladığınızdan emin olun.
+* Bu öğreticiye başlamadan önce bölümündeki adımları tamamlamanız [bölüm 4](tutorial-develop-mongodb-nodejs-part4.md).
 
-> [!TIP]
-> Bu öğretici, uygulamanızı adım adım oluşturmanızı sağlayacak adımlarla size yol gösterir. Tamamlanmış projeyi indirmek isterseniz, tamamlanmış uygulamayı github'daki [angular-cosmosdb deposundan](https://github.com/Azure-Samples/angular-cosmosdb) alabilirsiniz.
+* Bu öğretici, Azure CLI'yi yerel olarak çalıştırmanızı gerektirir. Azure CLI 2.0 veya sonraki bir sürümünü yüklemiş olmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Gerekirse yükleyin veya Azure CLI'yı yükseltmek için bkz: [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="use-mongoose-to-connect-to-azure-cosmos-db"></a>Azure Cosmos DB’ye bağlanmak için Mongoose kullanma
+* Bu öğretici adım adım uygulaması oluşturma adımlarında size kılavuzluk eder. Tamamlanmış projeyi indirmek isterseniz, tamamlanmış uygulamayı github'daki [angular-cosmosdb deposundan](https://github.com/Azure-Samples/angular-cosmosdb) alabilirsiniz.
 
-1. mongoose npm modülünü yükleyin. Bu modül MongoDB ile anlaşmak için kullanılan bir API'dir.
+## <a name="use-mongoose-to-connect"></a>Bağlanmak için Mongoose kullanma
+
+Mongoose MongoDB ve Node.js (ODM) kitaplığı modelleme nesnesi verilerdir. Azure Cosmos DB hesabınıza bağlanmak için Mongoose kullanabilirsiniz. Mongoose yüklemek ve Azure Cosmos DB'ye bağlanmak için aşağıdaki adımları kullanın:
+
+1. MongoDB ile anlaşmak için kullanılan bir API'dir mongoose npm modülünü yükleyin.
 
     ```bash
     npm i mongoose --save
     ```
 
-2. Şimdi **server** klasöründe **mongo.js** adlı yeni bir dosya oluşturun. Cosmos DB hesabınızın bağlantı bilgilerini bu dosyaya ekleyeceksiniz.
+1. İçinde **sunucu** klasöründe adlı bir dosya oluşturun **mongo.js**. Bağlantı ayrıntılarını Azure Cosmos DB hesabınızın bu dosyaya ekleyeceksiniz.
 
-3. **mongo.js**’ye aşağıdaki kodları kopyalayın: Bu kod:
+1. Aşağıdaki kodu kopyalayın **mongo.js** dosya. Kod, aşağıdaki işlevleri sağlar:
 
     * Mongoose gerektirir.
-
-    * Mongo’daki promise yaklaşımını ES6/ES2015 ve üzeri sürümlerde yerleşik olarak bulunan temel promise yaklaşımıyla değiştirir.
-
-    * Hazırlama, üretim veya geliştirme aşamalarında olmanıza bağlı olarak belirli seçenekleri ayarlamanızı sağlayan bir env dosyası çağırır. Bir sonraki bölümde bu dosyayı oluşturacaksınız.
-
-    * env dosyasında ayarlanan MongoDB bağlantı dizemizi içerir.
-
+    * Mongo'daki promise ES6/ES2015 ve üzeri sürümlere yerleşik olarak bulunan temel promise kullanılacak.
+    * Hazırlama, üretim veya geliştirme olmanıza üzerinde dayalı belirli şeyleri olanak sağlayan bir env dosyası çağrılarda ayarlayın. Sonraki bölümde bu dosyayı oluşturacaksınız.
+    * Env dosyasında ayarlanan MongoDB bağlantı dizesini içerir.
     * Mongoose’u çağıran bir bağlanma işlevi oluşturur.
 
     ```javascript
     const mongoose = require('mongoose');
     /**
      * Set to Node.js native promises
-     * Per https://mongoosejs.com/docs/promises.html
+     * Per http://mongoosejs.com/docs/promises.html
      */
     mongoose.Promise = global.Promise;
 
@@ -90,9 +85,9 @@ Bu belgede anlatılan adımları hızla öğrenmek için şu videoya göz atabil
     };
     ```
     
-4. Explorer bölmesinde, **server** altında **environment** adlı bir klasör oluşturun ve **environment** klasöründe **environment.js** adlı yeni dosyayı oluşturun.
+1. Explorer bölmesinde altında **sunucu**, adlı bir klasör oluşturun **ortam**. İçinde **ortam** klasöründe adlı bir dosya oluşturun **environment.js**.
 
-5. Mongo.js dosyasına `dbName`, `key` ve `cosmosPort` bölümlerini dahil etmemiz gerektiğini biliyoruz, bu nedenle aşağıdaki kodu **environment.js** dosyasına kopyalayın.
+1. İçin değerler içerecek şekilde ihtiyacımız mongo.js dosyasından `dbName`, `key`ve `cosmosPort` parametreleri. Aşağıdaki kodu kopyalayın **environment.js** dosyası:
 
     ```javascript
     // TODO: replace if yours are different
@@ -104,39 +99,45 @@ Bu belgede anlatılan adımları hızla öğrenmek için şu videoya göz atabil
     };
     ```
 
-## <a name="get-the-connection-string-information"></a>Bağlantı dizesi bilgilerini alın
+## <a name="get-the-connection-string"></a>Bağlantı dizesini alma
 
-1. **environment.js** içinde `port` değerini 10255 olarak değiştirin. (Cosmos DB bağlantı noktanızı Azure portalda bulabilirsiniz)
+Uygulamanızı Azure Cosmos DB'ye bağlanmak için uygulama yapılandırma ayarları güncelleştirmeniz gerekiyor. Ayarları güncelleştirmek için aşağıdaki adımları kullanın: 
+
+1. Azure portalında Azure Cosmos DB hesabınız için bağlantı noktası numarası, Azure Cosmos DB hesap adı ve birincil anahtar değerlerini alın.
+
+1. İçinde **environment.js** dosyası, değiştirin `port` değerini 10255 olarak. 
 
     ```javascript
     const port = 10255;
     ```
 
-2. **environment.js** içinde `accountName` değerini [4. adımda](tutorial-develop-mongodb-nodejs-part4.md)oluşturduğunuz Azure Cosmos DB hesabıyla değiştirin. 
+1. İçinde **environment.js** dosyası, değiştirin `accountName` oluşturduğunuz Azure Cosmos DB hesabı adını [bölüm 4](tutorial-develop-mongodb-nodejs-part4.md) Öğreticisi. 
 
-3. Terminal penceresinde aşağıdaki CLI komutunu kullanarak Azure Cosmos DB hesabı için birincil anahtarı alın: 
+1. Terminal penceresinde aşağıdaki CLI komutunu kullanarak Azure Cosmos DB hesabı için birincil anahtarı alın: 
 
     ```azure-cli-interactive
     az cosmosdb list-keys --name <cosmosdb-name> -g myResourceGroup
     ```    
     
-    * `<cosmosdb-name>`, [4. adımda](tutorial-develop-mongodb-nodejs-part4.md)oluşturduğunuz Azure Cosmos DB hesabının adıdır.
+    \<cosmosdb-name > oluşturduğunuz Azure Cosmos DB hesabının adıdır [bölüm 4](tutorial-develop-mongodb-nodejs-part4.md) Öğreticisi.
 
-4. Birincil anahtarı `key` değeri olarak environment.js dosyasına kopyalayın.
+1. Birincil anahtarı kopyalayın **environment.js** Dosyala `key` değeri.
 
-    Uygulamanız artık Azure Cosmos DB’ye bağlanmak için gerekli tüm bilgilere sahiptir. Bu bilgiler portaldan da alınabilir. Daha fazla bilgi için bkz. [Özelleştirilecek MongoDB bağlantı dizesini alma](connect-mongodb-account.md#GetCustomConnection). Portaldaki kullanıcı adı, environments.js içindeki dbName değerine karşılık gelir. 
+Artık uygulamanızı Azure Cosmos DB'ye bağlanmak için gerekli tüm bilgileri var. 
 
 ## <a name="create-a-hero-model"></a>Hero modeli oluşturma
 
-1. Explorer bölmesinde **server** altında **hero.model.js** dosyasını oluşturun.
+Ardından, bir model dosyası tanımlayarak Azure Cosmos DB'de depolamak için veri şemasını tanımlamak gerekir. Oluşturmak için aşağıdaki adımları kullanın. bir _Hero modelini_ veri şeması tanımlayan:
 
-2. **hero.model.js**’ye aşağıdaki kodları kopyalayın: Bu kod aşağıdaki işlevleri sunar:
+1. Explorer bölmesinde altında **sunucu** klasöründe adlı bir dosya oluşturun **hero.model.js**.
+
+1. Aşağıdaki kodu kopyalayın **hero.model.js** dosya. Kod, aşağıdaki işlevleri sağlar:
 
    * Mongoose gerektirir.
    * Bir kimliği, adı ve deyişi olan yeni bir şema oluşturur.
    * Şemayı kullanarak bir model oluşturur.
    * Modeli dışarı aktarır. 
-   * Koleksiyonu Heroes (Mongoose çoğul adlandırma kurallarına göre koleksiyonunun varsayılan adı Heros olduğundan) olarak adlandırın.
+   * Koleksiyon adları **hero'ları** (yerine **Heros**, Mongoose çoğul adlandırma kurallarına göre koleksiyonunun varsayılan adı).
 
    ```javascript
    const mongoose = require('mongoose');
@@ -161,16 +162,18 @@ Bu belgede anlatılan adımları hızla öğrenmek için şu videoya göz atabil
 
 ## <a name="create-a-hero-service"></a>Hero hizmeti oluşturma
 
-1. Explorer bölmesinde **server** altında **hero.service.js** dosyasını oluşturun.
+Hero modelini oluşturduktan sonra verileri okur ve listede gerçekleştirmek için bir hizmet tanımlama oluşturma, silme ve güncelleştirme işlemlerinin. Oluşturmak için aşağıdaki adımları kullanın. bir _Hero hizmetini_ , Azure Cosmos DB'den verileri sorgular:
 
-2. **hero.service.js**’ye aşağıdaki kodları kopyalayın: Bu kod:
+1. Explorer bölmesinde altında **sunucu** klasöründe adlı bir dosya oluşturun **hero.service.js**.
 
-   * Yeni oluşturduğunuz modeli alır
-   * Veritabanına bağlar
-   * Tüm hero'ları döndüren bir sorgu tanımlamak için hero.find yöntemini kullanan bir docquery değişkeni oluşturur.
-   * docquery.exec ile tüm hero'ları alma promise yaklaşımına sahip, yanıt durumu 200 olan bir sorgu çalıştırır. 
-   * Durum 500 ise, hata iletisini geri gönderir
-   * Modülleri kullandığımızdan, heroları alır. 
+1. Aşağıdaki kodu kopyalayın **hero.service.js** dosya. Kod, aşağıdaki işlevleri sağlar:
+
+   * Oluşturduğunuz modeli alır.
+   * Veritabanına bağlar.
+   * Oluşturur bir `docquery` kullanan değişkeni `hero.find` tüm hero'ları döndüren bir sorgu tanımlamak için yöntemi.
+   * Bir sorgu çalıştırır `docquery.exec` yanıt durumu 200 bulunduğu bir liste tüm hero'ları alma promise ile işlevi. 
+   * Durum 500 ise hata iletisini geri gönderir.
+   * Modüller kullandığımızdan hero'ları alır. 
 
    ```javascript
    const Hero = require('./hero.model');
@@ -195,9 +198,11 @@ Bu belgede anlatılan adımları hızla öğrenmek için şu videoya göz atabil
    };
    ```
 
-## <a name="add-the-hero-service-to-routesjs"></a>Hero hizmetini routes.js dosyasına ekleme
+## <a name="configure-routes"></a>Yolları Yapılandır
 
-1. Visual Studio Code içinde **routes.js**’de, örnek hero verilerini gönderen `res.send` işlevini yorum ekleyerek devre dışı bırakın ve `heroService.getHeroes` işlevini çağıracak bir satır ekleyin.
+Ardından, Get URL'leri işlemek için rotalar ayarlayabilir için oluşturma, okuma ve istekleri silin. Geri çağırma işlevleri yönlendirme yöntemleri belirtin (olarak da adlandırılan _işleyici işlevleri_). Bu işlevler uygulamanın belirtilen uç noktası ve HTTP yöntemi için bir istek aldığında çağrılır. Hero hizmetini ekleyip yollarınızı tanımlamak için aşağıdaki adımları kullanın:
+
+1. Visual Studio Code içinde **routes.js** dosya, açıklama `res.send` örnek hero verilerini gönderen bir işlev. Çağırmak için bir satır ekleyin `heroService.getHeroes` işlevini.
 
     ```javascript
     router.get('/heroes', (req, res) => {
@@ -208,39 +213,43 @@ Bu belgede anlatılan adımları hızla öğrenmek için şu videoya göz atabil
     });
     ```
 
-2. **routes.js** dosyasında hero’yu gerekli kılın:
+1. İçinde **routes.js** dosyası `require` hero hizmeti:
 
     ```javascript
     const heroService = require('./hero.service'); 
     ```
 
-3. **hero.service.js** dosyasında, getHeroes işlevini `req` ve `res` parametrelerini alacak şekilde aşağıdaki gibi güncelleştirin:
+1. İçinde **hero.service.js** dosyası, güncelleştirme `getHeroes` gerçekleştirilecek işlevi `req` ve `res` aşağıdaki gibi parametreleri:
 
     ```javascript
     function getHeroes(req, res) {
     ```
 
-    Bu aşamada çağrı zincirini gözden geçirip hazırlayalım. İlk olarak düğüm sunucusu ayarlarının bulunduğu `index.js` dosyasına bakalım. Burada rotaların ayarlandığını ve tanımlandığını görebilirsiniz. routes.js dosyanız bundan sonra hero hizmetiyle etkileşimde bulunur ve getHeroes gibi işlevlerimizi almasını, isteği ve yanıtı geçirmesini belirtir. Burada her.service.js modeli alacak ve Mongo’ya bağlanacaktır. Ardından çağırdığımızda getHeroes’u başlatıp 200 yanıtını döndürür. Sonrasında da zincirden çıkar. 
+Şimdi gözden geçirmek ve önceki kod açıklaması için bir dakikanızı ayırın. İlk olarak biz düğüm sunucuyu ayarlar index.js dosyasına gelir. Ayarlar ve yollarınızı tanımlar olduğuna dikkat edin. Ardından, routes.js dosyanızı hero hizmetine hakkında konuşuyor ve gibi işlevlerinizin almak için söyler **getHeroes**, istek ve yanıt geçirin. Hero.service.js dosya modeli alır ve Mongo için bağlanır. Yürütür, ardından **getHeroes** zaman adlandırılır ve döndürür yeniden 200 yanıtını döndürür. 
 
 ## <a name="run-the-app"></a>Uygulamayı çalıştırma
 
-1. Şimdi uygulamayı yeniden çalıştırın. Visual Studio Code’da tüm değişikliklerinizi kaydedin, sol taraftaki **Hata ayıkla** düğmesine ![Visual Studio Code’da hata ayıkla simgesi](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) tıklayın, ardından **Hata Ayıklamayı Başlat** düğmesine ![ Visual Studio Code’da Hata ayıklama simgesi](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png) tıklayın.
+Ardından, aşağıdaki adımları kullanarak uygulamayı çalıştırın:
 
-3. Şimdi tarayıcıya geçelim, Geliştirici araçlarını ve Ağ sekmesini açıp ardından http://localhost:3000 hedefine gidelim. İşte uygulamamız burada.
+1. Visual Studio Code'da tüm değişikliklerinizi kaydedin. Sol tarafta, seçin **hata ayıklama** düğmesi ![Visual Studio code'da Hata Ayıkla simgesi](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png)ve ardından **hata ayıklamayı Başlat** düğmesi ![Visual Studio code'da Hata Ayıkla simgesi ](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
+
+1. Şimdi tarayıcıya geçin. Açık **Geliştirici Araçları** ve **Ağ sekmesi**. Git http://localhost:3000, ve uygulamamızı orada gördüğünüz.
 
     ![Azure Portal’daki yeni Azure Cosmos DB hesabı](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 
-   Uygulamada henüz depolanan hero yok, ancak öğreticinin sonraki adımında put, push ve delete işlevlerini ekleyeceğiz. Böylece Azure Cosmos DB veritabanımıza Mongoose bağlantıları kullanarak kullanıcı arabiriminden hero'ları eklememiz, güncelleştirmemiz ve silmemiz mümkün olacak. 
+Uygulamada henüz depolanan hero yok vardır. Bu öğreticinin sonraki bölümünde ekleyeceğiz put, push ve silme işlevi. Ardından biz ekleyebilir, güncelleştirme ve Azure Cosmos DB veritabanımızdaki Mongoose bağlantıları kullanarak kullanıcı Arabiriminden hero'ları silin. 
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Kaynaklara artık ihtiyacınız olmadığında, kaynak grubu, Azure Cosmos DB hesabı ve tüm ilgili kaynakları silin. Kaynak grubunu silmek için aşağıdaki adımları kullanın:
+
+ 1. Azure Cosmos DB hesabı oluşturduğunuz kaynak grubuna gidin.
+ 1. **Kaynak grubunu sil**'i seçin.
+ 1. Silin ve kaynak grubu adını onaylayın **Sil**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Öğreticinin bu bölümünde şu görevleri tamamladınız:
-
-> [!div class="checklist"]
-> * Heroes uygulamanızı Azure Cosmos DB’ye bağlamak için Mongoose API'lerini kullandınız. 
-> * Uygulamaya get heroes işlevini eklediniz
-
-Uygulamaya Post, Put ve Delete işlevlerini eklemek için öğreticinin sonraki bölümüne geçebilirsiniz.
+Post, eklemek için öğreticinin Bölüm 6'için devam Put ve Delete işlevleri uygulamaya:
 
 > [!div class="nextstepaction"]
-> [Uygulamaya Post, Put ve Delete işlevleri ekleme](tutorial-develop-mongodb-nodejs-part6.md)
+> [6. Bölüm: POST, Put ekleyin ve Delete işlevleri uygulamaya](tutorial-develop-mongodb-nodejs-part6.md)

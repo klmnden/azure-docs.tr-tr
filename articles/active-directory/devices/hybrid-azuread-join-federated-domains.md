@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c35c16e1414b1287fa891d1ce1f65ca8eff3d2c5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3bce57f919490e1689ce40f59a3799ce451ee6e7
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434962"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752801"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Öğretici: Federasyon etki alanları için hibrit Azure Active Directory katılımını Yapılandır
 
@@ -57,8 +57,6 @@ Bu öğreticide, şu konularda bilgi sahibi olduğunuz varsayılır:
 Bu öğreticide senaryoyu yapılandırmak için şunlar gereklidir:
 
 - AD FS içeren Windows Server 2012 R2
-
-- Bir şirket içi Active Directory (AD) ile bir şema düzeyinde 85 veya sonraki sürümüne yükseltilmesi. Daha fazla bilgi için [Active Directory şemanızı yükseltme](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema).
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0 veya sonraki sürümü. 
  

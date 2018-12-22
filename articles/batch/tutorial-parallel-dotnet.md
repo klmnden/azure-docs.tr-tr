@@ -8,17 +8,17 @@ ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/20/2018
+ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 7e654e070ce64b0f5e7f9fb5734bf0ec1584dbf6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9db223075284b02de1cf3de8cfa7a0b5aa35f286
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423618"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754229"
 ---
-# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Öğretici: .NET API’si kullanarak Azure Batch ile paralel iş yükü çalıştırma
+# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Öğretici: .NET API kullanarak Azure Batch ile paralel iş yükü çalıştırma
 
 Büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HPC) toplu işlerini Azure’da verimli bir şekilde çalıştırmak için Azure Batch’i kullanın. Bu öğreticide, Batch kullanarak paralel iş yükü çalıştırmaya ilişkin bir C# örneği açıklanmaktadır. Genel bir Batch uygulaması iş akışı hakkında bilgi alacak ve Batch ve Depolama kaynakları ile programlı olarak etkileşimde bulunmayı öğreneceksiniz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
@@ -175,8 +175,8 @@ Sonra, dosyalar yerel `InputFiles` klasöründen giriş kapsayıcısına yüklen
 
 Dosyalar karşıya yüklenirken `Program.cs` içindeki iki yöntem kullanılır:
 
-* `UploadResourceFilesToContainerAsync`: ResourceFile nesnelerinin bir koleksiyonunu döndürür ve `inputFilePaths`parametresine geçirilen her dosyayı karşıya yüklemek için `UploadResourceFileToContainerAsync` çağrısı yapar.
-* `UploadResourceFileToContainerAsync`: Her dosyayı blob olarak giriş kapsayıcısına yükler. Blob karşıya yükledikten sonra, dosya için paylaşılan erişim imzasını (SAS) alır ve temsil ettiği bir ResourceFile nesnesini döndürür.
+* `UploadResourceFilesToContainerAsync`: ResourceFile nesnelerinin bir koleksiyonunu döndürür ve dahili olarak çağırır `UploadResourceFileToContainerAsync` geçirilen her dosyayı karşıya yüklemek için `inputFilePaths` parametresi.
+* `UploadResourceFileToContainerAsync`: Her dosya, bir BLOB olarak giriş kapsayıcısına yükler. Blob karşıya yükledikten sonra, dosya için paylaşılan erişim imzasını (SAS) alır ve temsil ettiği bir ResourceFile nesnesini döndürür.
 
 ```csharp
 string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
@@ -248,11 +248,14 @@ await job.CommitAsync();
 
 Örnek, `AddTasksAsync` yöntemini çağırarak iş içinde görevler oluşturur ve [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) nesnelerinin bir listesini oluşturur. Her `CloudTask`, bir [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) özelliği kullanarak giriş `ResourceFile` nesnesini işlemek üzere ffmpeg çalıştırır. ffmpeg, daha önce havuz oluşturulduğunda her bir düğüme yüklenmiştir. Burada komut satırı, her bir giriş MP4 (video) dosyasını bir MP3 (ses) dosyasına dönüştürmek için ffmpeg çalıştırır.
 
-Örnek, komut satırını çalıştırdıktan sonra MP3 dosyası için bir [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) nesnesi oluşturur. Her bir görevin çıkış dosyaları (bu örnekte bir tane), görevin [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) özelliği kullanılarak bağlı depolama hesabındaki bir kapsayıcıya yüklenir.
+Örnek, komut satırını çalıştırdıktan sonra MP3 dosyası için bir [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) nesnesi oluşturur. Her bir görevin çıkış dosyaları (bu örnekte bir tane), görevin [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) özelliği kullanılarak bağlı depolama hesabındaki bir kapsayıcıya yüklenir. Daha önce kod örneğinde, bir paylaşılan erişim imzası URL'si (`outputContainerSasUrl`) çıkış kapsayıcıya yazma erişimi sağlamak için alınamadı. Üzerinde ayarlanan koşullar Not `outputFile` nesne. Görev başarıyla tamamlandıktan sonra bir görev bir çıkış dosyasından yalnızca kapsayıcıya yüklenir (`OutputFileUploadCondition.TaskSuccess`). Tam bkz [kod örneği](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) uygulamasının Ayrıntılar için GitHub üzerindeki.
 
 Sonra örnek, [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync) yöntemi ile görevleri işe ekler ve işlem düğümleri üzerinde çalışmak üzere kuyruğa alır.
 
 ```csharp
+ // Create a collection to hold the tasks added to the job.
+List<CloudTask> tasks = new List<CloudTask>();
+
 for (int i = 0; i < inputFiles.Count; i++)
 {
     string taskId = String.Format("Task{0}", i);
@@ -265,7 +268,7 @@ for (int i = 0; i < inputFiles.Count; i++)
         ".mp3");
     string taskCommandLine = String.Format("cmd /c {0}\\ffmpeg-3.4-win64-static\\bin\\ffmpeg.exe -i {1} {2}", appPath, inputMediaFile, outputMediaFile);
 
-    // Create a cloud task (with the task ID and command line) 
+    // Create a cloud task (with the task ID and command line)
     CloudTask task = new CloudTask(taskId, taskCommandLine);
     task.ResourceFiles = new List<ResourceFile> { inputFiles[i] };
 

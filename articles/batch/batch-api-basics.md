@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 3043764ed89f2e53ddc3fd3f009a8bee586031e9
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f844b460e5fc6548a17b93038d1232fe61483018
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540389"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754076"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch içe büyük ölçekli paralel işlem çözümleri geliştirme
 
@@ -264,7 +264,7 @@ Bir görev oluşturduğunuzda aşağıdakileri belirtebilirsiniz:
 * Düğümdeki görevin çalıştığı Docker kapsayıcısını oluşturmak için Docker Hub içinde bir **kapsayıcı görüntüsü** başvurusu veya özel kayıt defteri ile ek ayarlar. Bu bilgileri yalnızca havuz kapsayıcı yapılandırmasıyla kurulduysa belirtmeniz gerekir.
 
 > [!NOTE]
-> Bir görevin, işe eklendiği zamandan tamamlandığı zamana kadar olan en uzun yaşam süresi 7 gündür. Tamamlanan görevler süresiz olarak kalır. En uzun yaşam süresi içinde tamamlanmamış görevlerin verileri erişilemez.
+> Tamamlandığında, gelen ne zaman işe eklenir, bir görevin maksimum ömrü 180 gün olur. Tamamlanan görevler 7 gün için kalıcı; en fazla bir yaşam süresi içinde tamamlanmamış görevlerin verileri erişilemez.
 
 Bir düğümde hesaplama yapmak üzere tanımladığınız görevlere ek olarak, aşağıdaki özel görevler de Batch hizmeti tarafından sağlanır:
 

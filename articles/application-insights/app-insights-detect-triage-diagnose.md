@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: ab3d4d2df8f12c28fa6dbdbdd7d6913d53f12884
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: eea1ca2d1a4c9f062f374f4fcaddcc7206aee65d
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715078"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753719"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps için Application Insights’a genel bakış
 
@@ -108,7 +108,7 @@ Böylece, daha günlükleri bile araştırmadan ve ortaya çıktıktan sonra 15 
 ![başarısız istek](./media/app-insights-detect-triage-diagnose/23.png)
 
 ## <a name="detect-exceptions"></a>Özel durumları algılama
-Ufak bir kurulumla [özel durumlar](app-insights-asp-net-exceptions.md) otomatik olarak Application Insights'a bildirilir. Koda [TrackException()](../azure-monitor/app/api-custom-events-metrics.md#trackexception) çağrıları ekleyerek de açık olarak yakalanabilirler:  
+Ufak bir kurulumla [özel durumlar](../azure-monitor/app/asp-net-exceptions.md) otomatik olarak Application Insights'a bildirilir. Koda [TrackException()](../azure-monitor/app/api-custom-events-metrics.md#trackexception) çağrıları ekleyerek de açık olarak yakalanabilirler:  
 
     var telemetry = new TelemetryClient();
     ...
@@ -227,7 +227,7 @@ Bir ekip Application Insights’ı sadece bağımsız sorunları düzeltmek içi
 ## <a name="next-steps"></a>Sonraki adımlar
 Uygulamanızın özelliklerine bağlı olarak çeşitli şekillerde başlayabilirsiniz. Size en çok uyanı seçin:
 
-* [ASP.NET Web uygulaması](app-insights-asp-net.md)
+* [ASP.NET Web uygulaması](../azure-monitor/app/asp-net.md)
 * [Java Web uygulaması](app-insights-java-get-started.md)
 * [Node.js Web uygulaması](app-insights-nodejs.md)
 * [IIS](app-insights-monitor-web-app-availability.md), [J2EE](app-insights-java-live.md) veya [Azure](app-insights-overview.md) üzerinde barındırılan önceden dağıtılmış uygulamalar.

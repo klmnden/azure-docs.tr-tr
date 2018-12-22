@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 4ce4c9e2479c8d570766169ce5094dcc2b4bc511
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.openlocfilehash: 669d5995b66322a2a6ad346643444d5a46c4b6f8
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42812880"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744420"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights ile performans sorunlarını bulma ve tanılama
 
@@ -28,14 +28,14 @@ Azure Application Insights, uygulamanızdan çalışma ve performans analizine y
 > * Sorgu dilini kullanarak sayfa görüntülemelerinin ayrıntılarını analiz etme
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
     - ASP.NET ve web geliştirme
     - Azure geliştirme
-- Azure’a .NET uygulaması dağıtma ve [Application Insights SDK’sını etkinleştirme](app-insights-asp-net.md).
+- Azure’a .NET uygulaması dağıtma ve [Application Insights SDK’sını etkinleştirme](../azure-monitor/app/asp-net.md).
 - Uygulamanız için [Application Insights profil oluşturucuyu etkinleştirme](app-insights-profiler.md#installation).
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma

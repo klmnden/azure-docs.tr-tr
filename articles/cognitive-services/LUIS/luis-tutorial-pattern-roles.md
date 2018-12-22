@@ -9,18 +9,36 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: d789954c0ebc71f88fb434430de5b5076ca6c246
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 8b66895e1ae37947c995ffc643505d466c42b93b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713740"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753124"
 ---
-# <a name="tutorial-4-extract-contextually-related-patterns"></a>4. Öğretici: Bağlamsal olarak ilişkili desenleri ayıklama
+# <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Öğretici: Rolleri kullanarak bağlamsal ilgili desenlerini ayıklayın
 
 Bu öğreticide iyi biçimlendirilmiş konuşma şablonundan veri ayıklamak için desen kullanacaksınız. Konuşma şablonu basit bir varlığın yanı sıra kaynak konum ve hedef konum gibi ilgili verileri ayıklamak için roller kullanır.  Desen kullandığınızda amaç için daha az sayıda örnek konuşmaya ihtiyacınız vardır.
+
+
+**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
+
+> [!div class="checklist"]
+> * Örnek uygulamayı içeri aktarma
+> * Yeni varlıklar oluşturma
+> * Yeni amaç oluşturma
+> * Eğitim
+> * Yayımlama
+> * Uç noktadan amaçları ve varlıkları alma
+> * Role sahip desen oluşturma
+> * Şehirleri içeren tümcecik listesi oluşturma
+> * Uç noktadan amaçları ve varlıkları alma
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-roles-in-patterns"></a>Rolleri modelleri kullanma
 
 Rollerin amacı bir konuşma içindeki bağlamsal olarak ilişkili varlıkları ayıklamaktır. `Move new employee Robert Williams from Sacramento and San Francisco` konuşmasının içindeki kaynak şehir ve hedef şehir değerleri birbirleriyle ilişkilidir ve her konumun belirtilmesi için yaygın bir dil kullanılmaktadır. 
 
@@ -37,25 +55,10 @@ Kaynak ve hedef şehirlerle ilişkilendirilmiş rol adlarının tüm varlıklard
 
 Ad veya şehir olması nedeniyle basit varlık algılama konusunda zorluk yaşıyorsanız benzer değerlerin bulunduğu bir tümcecik listesi eklemeyi deneyebilirsiniz. Bu liste LUIS'e kelime veya tümcecik türü hakkında ek bilgi vererek şehir adının algılanmasına yardımcı olur. Tümcecik listeleri yalnızca desenin eşleşmesi için gerekli varlık algılama konusunda desene yardımcı olur. 
 
-**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
-
-> [!div class="checklist"]
-> * Mevcut öğretici uygulamasını kullanma
-> * Yeni varlıklar oluşturma
-> * Yeni amaç oluşturma
-> * Eğitim
-> * Yayımlama
-> * Uç noktadan amaçları ve varlıkları alma
-> * Role sahip desen oluşturma
-> * Şehirleri içeren tümcecik listesi oluşturma
-> * Uç noktadan amaçları ve varlıkları alma
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
+## <a name="import-example-app"></a>Örnek uygulamayı içeri aktarma
 Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
+Aşağıdaki adımları kullanın:
 
 1.  [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json) indirip kaydedin.
 

@@ -9,19 +9,34 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 654d3c4e7dd7ec8916b785f52a78388ec04b3cc9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ebd1d9380747a85b7134fa7f6b232bcee8d29f05
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53712789"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752835"
 ---
-# <a name="tutorial-3-extract-well-formatted-data"></a>3. Öğretici: İyi biçimlendirilmiş verileri ayıklama
-Bu öğreticide, **Normal İfade** varlığını kullanarak bir konuşmadan tutarlı olarak biçimlendirilmiş veriler ayıklamak için İnsan Kaynakları uygulamasını değiştirme anlatılmaktadır.
+# <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>Öğretici: Utterance iyi biçimlendirilmiş veri alma
+Bu öğreticide, bir utterance kullanımından tutarlı bir şekilde biçimlendirilmiş verileri ayıklamak için uygulama oluşturma **normal ifade** varlık.
 
-Varlığın amacı, konuşmada bulunan önemli verileri almaktır. Bu uygulama, normal ifade varlığını kullanarak bir konuşmadaki biçimlendirilmiş İnsan Kaynakları (İK) Form numaralarını çekmektedir. Konuşmanın amacı her zaman makine öğrenimi ile belirlenirse de bu özel varlık türü makine öğrenimli değildir. 
+**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Yeni bir uygulama oluşturma 
+> * Amaç ekleme
+> * Normal ifade varlığı ekleme 
+> * Eğitim
+> * Yayımlama
+> * Uç noktadan amaçları ve varlıkları alma
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="regular-expression-entities"></a>Normal ifade varlıkları
+
+Bu uygulamanın normal ifade varlık iyi biçimlendirilmiş bir utterance İnsan Kaynakları (ik) form numaraları dışarı çıkarmak için kullanılır. Konuşmanın amacı her zaman makine öğrenimi ile belirlenirse de bu özel varlık türü makine öğrenimli değildir. 
 
 **Basit konuşma örnekleri:**
 
@@ -37,41 +52,22 @@ Normal bir ifade, şu durumlarda bu tür veri için iyi bir seçimdir:
 
 * veriler düzgün biçimlendirilmiş olduğunda.
 
-**Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Mevcut öğretici uygulamasını kullanma
-> * FindForm amacı ekleme
-> * Normal ifade varlığı ekleme 
-> * Eğitim
-> * Yayımlama
-> * Uç noktadan amaçları ve varlıkları alma
+## <a name="create-a-new-app"></a>Yeni bir uygulama oluşturma
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
-Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
-
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
-
-1. [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-prebuilts-HumanResources.json) indirip kaydedin.
-
-2. JSON'ı yeni bir uygulamaya içeri aktarın.
-
-3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `regex` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez. 
-
-## <a name="findform-intent"></a>FindForm amacı
+## <a name="create-intent-for-finding-form"></a>Form bulma hedefi oluşturma
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. **Create new intent** (Yeni amaç oluştur) öğesini seçin. 
+1. **Create new intent** (Yeni amaç oluştur) öğesini seçin. 
 
-3. Açılan iletişim kutusuna `FindForm` girip **Done** (Bitti) öğesini seçin. 
+1. Açılan iletişim kutusuna `FindForm` girip **Done** (Bitti) öğesini seçin. 
 
     ![Arama kutusunda Utilities (Yardımcı Programlar) yazan yeni amaç oluşturma iletişim kutusunun ekran görüntüsü](./media/luis-quickstart-intents-regex-entity/create-new-intent-ddl.png)
 
-4. Amaca örnek konuşmalar ekleyin.
+1. Amaca örnek konuşmalar ekleyin.
 
     |Örnek konuşmalar|
     |--|
@@ -79,7 +75,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
     |Where is hrf-345678? (hrf-345678 nerede?)|
     |When was hrf-456098 updated? (hrf-456098 ne zaman güncelleştirildi?)|
     |Did John Smith update hrf-234639 last week? (John Smith, hrf-234639 numaralı formu geçen hafta güncelleştirdi mi?)|
-    |How many version of hrf-345123 are there? (hrf-345123 numaralı formun kaç farklı sürümü var?)|
+    |Kaç tane hrf 345123 sürümleri vardır?|
     |Who needs to authorize form hrf-123456? (hrf-123456 numaralı formun yetkilisi kim?)|
     |How many people need to sign off on hrf-345678? (hrf-345678 numaralı formu kaç kişinin onaylaması gerekiyor?)|
     |hrf-234123 date? (hrf-234123 numaralı formun tarihi nedir?)|
@@ -88,11 +84,9 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
     [ ![Yeni konuşmaların vurgulandığı Intent (Amaç) sayfasının ekran görüntüsü](./media/luis-quickstart-intents-regex-entity/findform-intent.png) ](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
 
-    Uygulamaya önceki öğreticide eklenmiş numaralar vardır ve bu nedenle her form etiketlenmiştir. Bu kadarı istemci uygulamanız için yeterli olabilir ancak numara, numara türü etiketi ile etiketlenmiş olmayacaktır. Uygun bir adla yeni bir varlık oluşturulması, istemci uygulamasının LUIS tarafından döndürülen varlığı uygun şekilde işlemesini sağlar.
-
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
-## <a name="regular-expression-entity"></a>Normal ifade varlığı 
+## <a name="use-the-regular-expression-entity-for-well-formatted-data"></a>Normal ifade varlık iyi biçimlendirilmiş veriler için kullanın.
 Form numarasıyla eşleştirilecek normal ifade varlığı: `hrf-[0-9]{6}`. Bu normal ifade, `hrf-` değişmez karakterleriyle eşleşir ancak büyük/küçük harf ve kültür farklarını yoksayar. Tam olarak 6 basamak için 0-9 basamaklarını eşleştirir.
 
 HRF `human resources form` anlamına gelir.
@@ -103,27 +97,31 @@ Aşağıdaki adımları izleyerek LUIS uygulamasına HRF-numara biçimini bildir
 
 1. Sol panelde **Entities** (Varlıklar) öğesini seçin.
 
-2. Entities (Varlıklar) sayfasında **Create new entity** (Yeni varlık oluştur) düğmesini seçin. 
+1. Entities (Varlıklar) sayfasında **Create new entity** (Yeni varlık oluştur) düğmesini seçin. 
 
-3. Açılan iletişim kutusuna yeni varlık adı olarak `HRF-number` girin, varlık türü olarak **RegEx**'i seçin, **Normal İfade** değeri olarak `hrf-[0-9]{6}` girin ve ardından **Bitti** düğmesini seçin.
+1. Açılan iletişim kutusuna yeni varlık adı olarak `HRF-number` girin, varlık türü olarak **RegEx**'i seçin, **Normal İfade** değeri olarak `hrf-[0-9]{6}` girin ve ardından **Bitti** düğmesini seçin.
 
     ![Yeni varlık özelliklerinin ayarlandığı açılan iletişim kutusunun ekran görüntüsü](./media/luis-quickstart-intents-regex-entity/create-regex-entity.png)
 
-4. Sol menüden **Amaçlar**'ı, ardından **FindForm** amacını seçerek konuşmalarda etiketlenmiş olan normal ifadeleri görebilirsiniz. 
+1. Sol menüden **Amaçlar**'ı, ardından **FindForm** amacını seçerek konuşmalarda etiketlenmiş olan normal ifadeleri görebilirsiniz. 
 
     [![Konuşmayı var olan varlıkla ve normal ifade düzeniyle etiketleme işleminin ekran görüntüsü](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png)](./media/luis-quickstart-intents-regex-entity/labeled-utterances-for-entity.png#lightbox)
 
-    Varlık, makine öğrenmesi varlığı olmadığından etiket oluşturulduktan hemen sonra konuşmalara uygulanır ve LUIS web sitesinde görüntülenir.
+    Varlık, bir makine öğrenilen varlık olmadığı için varlık konuşma uygulanan ve oluşturulduktan hemen sonra LUIS Web sitesi görüntülenir.
 
-## <a name="train"></a>Eğitim
+## <a name="add-example-utterances-to-the-none-intent"></a>Örnek konuşma hiçbiri hedefi ekleme 
+
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
+
+## <a name="train-the-app-before-testing-or-publishing"></a>Uygulamayı test etme ve yayımlama önce eğitin
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Yayımlama
+## <a name="publish-the-app-to-query-from-the-endpoint"></a>Uç noktasından sorguya uygulamayı yayımlama
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktadan amacı ve varlıkları alma
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Uç noktasından amacı ve varlık öngörü Al
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -134,63 +132,19 @@ Aşağıdaki adımları izleyerek LUIS uygulamasına HRF-numara biçimini bildir
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {
         "intent": "FindForm",
-        "score": 0.9993477
+        "score": 0.9988884
       },
       "intents": [
         {
           "intent": "FindForm",
-          "score": 0.9993477
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.0206110049
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.00533067342
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.004215215
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00209096959
+          "score": 0.9988884
         },
         {
           "intent": "None",
-          "score": 0.0017655947
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.00109490135
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.0005704638
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.000525338168
+          "score": 0.00204812363
         }
       ],
       "entities": [
-        {
-          "entity": "last year",
-          "type": "builtin.datetimeV2.daterange",
-          "startIndex": 53,
-          "endIndex": 61,
-          "resolution": {
-            "values": [
-              {
-                "timex": "2017",
-                "type": "daterange",
-                "start": "2017-01-01",
-                "end": "2018-01-01"
-              }
-            ]
-          }
-        },
         {
           "entity": "hrf-123456",
           "type": "HRF-number",
@@ -202,35 +156,24 @@ Aşağıdaki adımları izleyerek LUIS uygulamasına HRF-numara biçimini bildir
           "type": "HRF-number",
           "startIndex": 25,
           "endIndex": 34
-        },
-        {
-          "entity": "-123456",
-          "type": "builtin.number",
-          "startIndex": 13,
-          "endIndex": 19,
-          "resolution": {
-            "value": "-123456"
-          }
-        },
-        {
-          "entity": "-234567",
-          "type": "builtin.number",
-          "startIndex": 28,
-          "endIndex": 34,
-          "resolution": {
-            "value": "-234567"
-          }
         }
       ]
     }
     ```
 
-    Konuşmadaki numaralar bir kez yeni varlık (`hrf-number`), bir kez de önceden oluşturulmuş varlık (`number`) olmak üzere iki kez döndürülür. Bu örnekte gördüğünüz gibi bir konuşmada birden fazla varlık ve aynı varlık türünden birden fazla bulunabilir. LUIS, normal ifade varlığı kullanarak adlandırılmış verileri ayıklar ve bu durum, JSON yanıtını alan istemci yazılımı için program açısından daha faydalıdır.
+    LUIS, normal ifade varlığı kullanarak adlandırılmış verileri ayıklar ve bu durum, JSON yanıtını alan istemci yazılımı için program açısından daha faydalıdır.
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="related-information"></a>İlgili bilgiler
+
+* [Normal ifade](luis-concept-entity-types.md#regex) varlık kavramları
+* [Eğitme](luis-how-to-train.md)
+* [Yayımlama nasıl yapılır?](luis-how-to-publish-app.md)
+* [LUIS portalında test etme](luis-interactive-test.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide yeni bir amaç oluşturuldu, örnek konuşmalar eklendi ve ardından konuşmalardan düzgün biçimlendirilmiş veriler ayıklamak için normal ifade varlığı eklendi. Uygulama eğitildikten ve yayımlandıktan sonra uç noktaya gönderilen bir sorgu amacı tanımladı ve ayıklanan verileri döndürdü.

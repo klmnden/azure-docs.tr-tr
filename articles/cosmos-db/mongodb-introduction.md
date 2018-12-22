@@ -9,12 +9,12 @@ ms.component: cosmosdb-mongo
 ms.topic: overview
 ms.date: 12/19/2018
 ms.author: sclyon
-ms.openlocfilehash: fc6c9567073bbdfa77d753b9b274f7ed5e901405
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: c2e009b81fa072fef5249f5dc697fcad547adb3e
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720592"
+ms.locfileid: "53744182"
 ---
 # <a name="azure-cosmos-db-for-mongodb-api-clients"></a>Azure Cosmos DB MongoDB API istemciler için
 
@@ -24,7 +24,7 @@ ms.locfileid: "53720592"
 
 Cosmos DB Cassandra, MongoDB, Gremlin ve Azure tablo depolama da dahil olmak üzere sık kullanılan NoSQL veritabanları kablo protokolleri uygular. Yerel bir uygulama kablo protokolünü verimli bir şekilde ve doğrudan Cosmos DB içinde vererek, mevcut istemci SDK'ları, sürücüler ve NoSQL veritabanları araçlarının Cosmos DB ile saydam bir şekilde etkileşim kurmak sağlar. Cosmos DB, kablo ile uyumlu API'leri herhangi bir NoSQL veritabanı sağlamak için herhangi bir kaynak kod veritabanı kullanmaz.
 
-Varsayılan olarak, Azure Cosmos DB MongoDB API'si için kablo protokolünü 3.2 sürümü ile uyumludur. Bir önizleme özelliği olarak şu anda özellikleri veya kablo protokolünü 3.4 sürümünde eklenen sorgu işleçleri kullanılabilir. MongoDB API'si için bu protokol sürümleri anlayan herhangi bir istemci sürücüsü yerel olarak Azure Cosmos DB'ye bağlanmak görebilmeniz gerekir.
+Varsayılan olarak, Azure Cosmos DB MongoDB API'si için kablo protokolünü 3.2 sürümü ile uyumludur. Bir önizleme özelliği olarak şu anda özellikleri veya kablo protokolünü 3.4 sürümünde eklenen sorgu işleçleri kullanılabilir. Bu protokol sürümleri anlayan herhangi bir MongoDB istemcisi sürücüsünü yerel olarak Azure Cosmos DB'ye bağlanmak görebilmeniz gerekir.
 
 ![MongoDB API için Azure Cosmos DB](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
@@ -50,10 +50,10 @@ Bir Azure Cosmos DB hesabı oluşturmak ve mevcut MongoDB uygulamanızı Azure C
 
 İşte başlamanıza yardımcı olacak birkaç ipucu:
 
-* Hesap bağlantı dizesi bilgilerinizi nasıl alacağınızı öğrenmek için [Bir MongoDB hesabına bağlanma](connect-mongodb-account.md) öğreticisini izleyin.
-* Studio 3T'de Azure Cosmos DB veritabanınız ve MongoDB uygulamanız arasında bağlantı oluşturmayı öğrenmek için [Azure Cosmos DB ile Studio 3T (MongoChef) kullanma](mongodb-mongochef.md) öğreticisini izleyin.
+* İzleyin [bir MongoDB uygulamasını Azure Cosmos DB'ye bağlanmak](connect-mongodb-account.md) hesabı bağlantı dizesi bilgilerinizi alın hakkında bilgi edinmek için öğretici.
+* İzleyin [Azure Cosmos DB ile kullanım Studio 3T](mongodb-mongochef.md) 3 t Studio'da Azure Cosmos DB veritabanı ve MongoDB uygulaması arasında bir bağlantı oluşturma hakkında bilgi edinmek için öğretici
 * İzleyin [protokolü ile verilerini Azure Cosmos DB'ye geçirme için MongoDB API'si desteği](mongodb-migrate.md) verilerinizi Cosmos veritabanına içeri aktarmak için öğretici.
-* Bir Cosmos hesap kullanarak bağlanmak [Robomongo'yu](mongodb-robomongo.md).
+* Bir Cosmos hesap kullanarak bağlanmak [Robo 3T](mongodb-robomongo.md).
 * [Küresel olarak dağıtılmış uygulamalar için okuma tercihlerini yapılandırmayı](../cosmos-db/tutorial-global-distribution-mongodb.md) öğrenin.
 
 <sup>Not: Bu makalede, Azure Cosmos DB'nin MongoDB veritabanları kablo protokolü uyum sağlayan bir özellik açıklanmaktadır. Microsoft bu hizmeti sağlamak için MongoDB veritabanları çalıştırmaz. Azure Cosmos DB ile MongoDB, Inc.'e bağlı değil</sup>

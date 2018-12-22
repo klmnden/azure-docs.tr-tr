@@ -12,16 +12,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 471d2b0b8d98651d4b9ef4e88df0e863715b0c88
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5f2c8c2a9a2b21a15aa997ff0cc98860ceec76cc
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341788"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744845"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: .NET Core (C#) kullanarak Azure SQL veritabanı sorgulama
 
-Bu hızlı başlangıçta nasıl kullanılacağını gösterir [.NET Core](https://www.microsoft.com/net/) ve C# kod kullanarak Azure SQL veritabanına bağlanan ve Transact-SQL deyimiyle verileri sorgulamak çalıştırın.
+Bu hızlı başlangıçta kullanacaksınız [.NET Core](https://www.microsoft.com/net/) ve C# bir Azure SQL veritabanına bağlanmak için kod. Ardından, verileri sorgulamak Transact-SQL deyimini çalıştıracaksınız.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -53,14 +53,14 @@ Bu öğretici için şunlar gerekir:
   
 ## <a name="create-a-new-net-core-project"></a>Yeni bir .NET Core projesi oluşturma
 
-1. Komut istemini açın ve **sqltest** adlı bir klasör oluşturun. Bu klasöre gidin ve aşağıdaki komutu çalıştırın.
+1. Komut istemini açın ve **sqltest** adlı bir klasör oluşturun. Bu klasöre gidin ve şu komutu çalıştırın.
 
     ```cmd
     dotnet new console
     ```
-    Bu proje dosyaları, bir ilk dahil olmak üzere yeni bir uygulama oluşturur C# kod dosyası (**Program.cs**), bir XML yapılandırma dosyasını (**sqltest.csproj**) ve ikili dosyaları gerekli.
+    Bu komut, proje dosyaları, bir ilk dahil olmak üzere yeni bir uygulama oluşturur C# kod dosyası (**Program.cs**), bir XML yapılandırma dosyasını (**sqltest.csproj**) ve ikili dosyaları gerekli.
 
-2. Bir metin düzenleyicisinde açın **sqltest.csproj** arasında aşağıdaki XML Yapıştır `<Project>` etiketler. Bu ekler `System.Data.SqlClient` bağımlılık olarak.
+2. Bir metin düzenleyicisinde açın **sqltest.csproj** arasında aşağıdaki XML Yapıştır `<Project>` etiketler. Bu XML ekler `System.Data.SqlClient` bağımlılık olarak.
 
     ```xml
     <ItemGroup>
@@ -173,7 +173,7 @@ namespace sqltest
 
    Done. Press enter.
    ```
-3. Tuşuna **Enter** uygulama penceresini kapatın.
+3. Seçin **Enter** uygulama penceresini kapatın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

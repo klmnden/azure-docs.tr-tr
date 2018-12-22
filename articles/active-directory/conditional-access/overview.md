@@ -17,18 +17,18 @@ ms.workload: identity
 ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f0ba365096808954c24beb073f3570499fd23523
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 06866b1a0b986190ab6770e5484fb7d950d10b26
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408285"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753923"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim nedir?
 
 Bulutu kullanan kuruluşlar için en önemli konu güvenliktir. Bulut kaynaklarınızı yönetmek söz konusu olduğunda, bulut güvenliğinin temel etmenlerinden biri güvenlik ve kimliktir. Mobil ve bulut öncelikli bir dünyada kullanıcılar, kuruluşunuzun kaynaklarına erişmek için farklı konumlardan farklı cihazlar ve uygulamalar kullanabilir. Bunun sonucunda artık yalnızca bir kaynağa erişim sağlayabilecek kullanıcılara odaklanmak yeterli değildir. Güvenlik ve üretkenlik arasındaki dengeyi kurmak için, erişim denetimi kararı sırasında bir kaynağa erişim şeklini de dikkate almanız gerekir. Azure Active Directory (Azure AD) koşullu erişim ile bu gereksinimleri karşılayabilirsiniz. Koşullu erişim, Azure Active Directory tarafından sunulan bir özelliktir. Koşullu erişim sayesinde, bulut uygulamalarınıza erişim sağlamak için koşullara bağlı otomatik erişim denetimi kararları uygulayabilirsiniz. 
 
-Koşullu erişim ilkeleri, ilk-faktörlü kimlik doğrulaması tamamlandıktan sonra uygulanır. Diğer bir deyişle, koşullu erişim, örneğin sayaç ölçüsü hizmet reddi (DoS) saldırıları için bir mekanizma olarak tasarlanmamıştır.  
+Koşullu erişim ilkeleri, ilk-faktörlü kimlik doğrulaması tamamlandıktan sonra uygulanır. Bu nedenle, koşullu erişim, hizmet reddi (DoS) saldırıları gibi senaryolar için ilk satırı savunma olarak tasarlanmamıştır, ancak bu olaylar (örneğin oturum açma risk düzeyini, konum isteği ve benzeri) gelen sinyalleri erişimini belirlemek için kullanabilir.  
 
 ![Denetim](./media/overview/81.png)
 

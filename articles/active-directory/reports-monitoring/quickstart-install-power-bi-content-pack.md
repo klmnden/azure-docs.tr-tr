@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 314f1c1656485f93942eb23f928cc66720a12565
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622543"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753549"
 ---
-# <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Hızlı başlangıç: Azure Active Directory Power BI içerik paketini yükleme
+# <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Hızlı Başlangıç: Azure Active Directory Power BI içerik paketi yükleyin
 
 |  |
 |--|
@@ -39,7 +39,7 @@ Bu hızlı başlangıcı tamamlamak için şunlar gerekir:
 
 * Power BI hesabı. O365 veya Azure AD hesabınızı kullanabilirsiniz. 
 * Azure AD kiracınızın kimliği. Dizininizi tanımlayan bu **Dizin Kimliği** değerine Azure portalın [özellikler sayfasından](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) erişebilirsiniz.
-* Azure AD Premium (P1/P2) lisansı. 
+* Azure AD Premium (P1/P2) lisansı. Bkz: [Azure Active Directory Premium ile çalışmaya başlama](../fundamentals/active-directory-get-started-premium.md) , Azure Active Directory sürümünü yükseltmek için.
 
 ## <a name="install-azure-ad-power-bi-content-pack"></a>Azure AD Power BI içerik paketini yükleme 
 

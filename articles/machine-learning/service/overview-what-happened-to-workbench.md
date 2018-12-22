@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f7b8cf102160a281b47419680a209c58a7ae60c9
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 614c4b9f8cb6b748385d86d20cbec15928642d30
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582846"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753311"
 ---
 # <a name="whats-happening-to-machine-learning-workbench-in-azure-machine-learning-service"></a>Machine Learning Workbench'i Azure Machine Learning hizmetinde neler oluyor?
 
@@ -68,9 +68,9 @@ Portal'ın çalışma Pano yalnızca Microsoft Edge, Chrome ve Firefox tarayıc�
 
 Machine Learning Workbench artık sahip değilseniz çünkü önceden var olan veri hazırlama dosyalarınızı en son sürüme taşınabilir değildir. Bununla birlikte, verilerinizi modelleme için yine de hazırlayabilirsiniz.  
 
-Daha küçük veri kümeleri ile kullanabileceğiniz <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning veri hazırlama SDK</a> hızla verilerinizi modelleme önce hazırlamak için. 
+Her boyuttaki veri kümeleri ile kullanabileceğiniz [Azure Machine Learning veri hazırlığı SDK'sı](http://aka.ms/data-prep-sdk) hızla verilerinizi modelleme önce Python kod yazarak hazırlamak için. 
 
-Bu aynı kullanabileceğiniz <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> daha büyük veri kümeleri için. Veya Azure Databricks, büyük veri kümelerini hazırlamak için kullanın. 
+İzleyebileceğiniz [Bu öğreticide](tutorial-data-prep.md) Azure Machine Learning veri hazırlığı SDK'sı kullanma hakkında daha fazla bilgi için.
 
 ## <a name="will-projects-persist"></a>Projeler kalacak mı?
 

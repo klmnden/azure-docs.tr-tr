@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma | Microsoft Docs'
+title: "Hızlı Başlangıç: Azure portalını kullanarak Azure Databricks'te bir Spark işi çalıştırma | Microsoft Docs"
 description: Bu hızlı başlangıçta Azure portalını kullanarak bir Azure Databricks çalışma alanı, bir Apache Spark kümesi oluşturma ve bir Spark işi çalıştırma işlemi gösterilmektedir.
 services: storage
 author: jamesbak
@@ -8,14 +8,14 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
-ms.openlocfilehash: 14ea060ca29d181023086ad241db59d275d2c581
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c820d2172c3e38d9d744e645d7c0e8b4749b42cd
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975915"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743383"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Azure Databricks'te Spark işini çalıştırma
 
 Bu hızlı başlangıçta Data Lake Storage 2. Nesil Önizleme sürümü etkin bir depolama hesabında depolanan verileri analiz etmek için Azure Databricks kullanarak bir Apache Spark işini çalıştırmayı öğreneceksiniz.
 
@@ -137,7 +137,7 @@ Bu bölümde, Azure Databricks çalışma alanında bir not defteri oluşturacak
     ```scala    
     spark.conf.set("fs.azure.account.key.<account-name>.dfs.core.windows.net", "<account-key>")
 
-    dbutils.fs.ls("abfs://<file-system-name>@<account-name>.dfs.core.windows.net/")
+    dbutils.fs.ls("abfss://<file-system-name>@<account-name>.dfs.core.windows.net/")
     ```
 
 5. Kod ilk hücrenin ve enter tuşuna basın **SHIFT + ENTER** çalıştırmak için.

@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: a0071d651f322da7bbdeb914393ef3d3be650b36
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: d5279391c4f85411e592ce1d071fb1743cd135d5
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715503"
+ms.locfileid: "53744131"
 ---
 # <a name="what-is-application-insights"></a>Application Insights nedir?
 Application Insights, farklı platformlardaki web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.  Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve J2EE gibi çok çeşitli platformlarda, şirket içi veya bulutta barındırılan uygulamalar için yararlıdır. DevOps işleminizle tümleştirilir ve çeşitli geliştirme araçlarıyla bağlantı noktaları vardır. Visual Studio App Center ile tümleştirerek mobil uygulamalardan telemetriyi izleyebilir ve çözümleyebilir.
@@ -109,7 +109,7 @@ Hizmeti kullanmaya başlamanın birkaç yolu vardır. Sizin için en uygun yönt
   * [**Azure web uygulaması veya VM**](app-insights-monitor-performance-live-website-now.md)
   * [**J2EE**](app-insights-java-live.md)
 * **Geliştirme zamanında: Application Insights’ı kodunuza ekleyin.** Özel telemetri yazmanızın yanı sıra arka uç ve masaüstü uygulamalarını izlemenize imkan tanır.
-  * [Visual Studio](app-insights-asp-net.md) 2013 güncelleştirme 2 veya sonraki bir sürüm.
+  * [Visual Studio](../azure-monitor/app/asp-net.md) 2013 güncelleştirme 2 veya sonraki bir sürüm.
   * [Java](app-insights-java-get-started.md)
   * [Node.js](app-insights-nodejs.md)
   * [Diğer platformlar](app-insights-platforms.md)
@@ -126,7 +126,7 @@ Hizmeti kullanmaya başlamanın birkaç yolu vardır. Sizin için en uygun yönt
 
 Geliştirme zamanında şunlarla kullanmaya başlayın:
 
-* [ASP.NET](app-insights-asp-net.md)
+* [ASP.NET](../azure-monitor/app/asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [Node.js](app-insights-nodejs.md)
 
@@ -153,7 +153,7 @@ Geliştirme zamanında şunlarla kullanmaya başlayın:
 [client]: app-insights-javascript.md
 [desktop]: app-insights-windows-desktop.md
 [detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-asp-net.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [ios]: app-insights-mobile-center-quickstart.md
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md

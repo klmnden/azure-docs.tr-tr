@@ -9,18 +9,36 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: e48231e154c04e75ab27f2a92783486b83d00d3b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c0c79e3d85a8ced2b868c9fa7741a14105c1de05
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719515"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753058"
 ---
-# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Öğretici 7: Basit bir varlık ve deyim listesi ile adlarını Ayıkla
+# <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Öğretici: Varlığın ve deyim listesi ile adlarını Ayıkla
 
 Bu öğreticide, **Basit** varlığını kullanarak bir ifadeden iş adının makine öğrenmesi verilerini ayıklayın. Ayıklama doğruluğunu artırmak için, basit varlığa özgü terimlerin tümcecik listesini ekleyin.
+
+Basit varlık, sözcükler veya tümceciklerde bulunan tek bir veri kavramını algılar.
+
+**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Örnek uygulamayı içeri aktarma
+> * Basit bir varlık ekleme 
+> * Sinyal sözcükleri artırmak üzere ifade listesi ekleme
+> * Eğitim 
+> * Yayımlama 
+> * Uç noktadan amaçları ve varlıkları alma
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+
+## <a name="simple-entity"></a>Basit varlık
 
 Bu öğretici, iş adını ayıklamak için yeni bir basit varlık ekler. Bu LUIS uygulamasındaki basit varlığın amacı, LUIS uygulamasına iş adının ne olduğunu ve konuşmanın hangi bölümünde bulunabileceğini öğretmektir. İfadenin iş adı olan bölümü, sözcük seçimine ve ifade uzunluğuna göre ifadeden ifadeye değişiklik gösterebilen iletidir. LUIS için, iş adlarını kullanan tüm amaçlar genelinde iş adlarının örnekleri gerekir.  
 
@@ -31,34 +49,6 @@ Aşağıdaki durumlarda bu veri tipi için basit varlık idealdir:
 * Veri, önceden derlenmiş telefon numarası veya veri varlığı gibi genel olmadığında.
 * Veri, liste varlığı gibi bilinen sözcükler listesiyle tam olarak eşleşmediğinde.
 * Veri, bileşik varlık veya hiyerarşik varlık gibi başka veri öğeleri içermediğinde.
-
-**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Mevcut öğretici uygulamasını kullanma
-> * Uygulamadan iş ayıklamak için basit bir varlık ekleme
-> * İş sözcüklerinin sinyalini güçlendirmek için tümcecik listesi ekleme
-> * Eğitim 
-> * Yayımlama 
-> * Uç noktadan amaçları ve varlıkları alma
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
-
-Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
-
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
-
-1.  [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json) indirip kaydedin.
-
-2. JSON'ı yeni bir uygulamaya içeri aktarın.
-
-3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `simple` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez.
-
-## <a name="simple-entity"></a>Basit varlık
-Basit varlık, sözcükler veya tümceciklerde bulunan tek bir veri kavramını algılar.
 
 Bir sohbet botundan alınmış olan aşağıdaki ifadelere göz atın:
 
@@ -87,25 +77,38 @@ Bu LUIS uygulamasında birden fazla amaçta iş adları bulunmaktadır. LUIS, bu
 
 Varlıklar, örnek ifadelerde işaretlendikten sonra, basit varlığın sinyalini güçlendirmek için tümcecik listesi eklenmesi önemlidir. Tümcecik listesi, tam eşleşme olarak **kullanılmaz** ve beklediğiniz her olası değer olması gerekmez. 
 
+## <a name="import-example-app"></a>Örnek uygulamayı içeri aktarma
+
+1.  İndirip kaydedin [uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/intentonly.json) Intents Öğreticisi.
+
+2. JSON'ı yeni bir uygulamaya içeri aktarın.
+
+3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `simple` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez.
+
+## <a name="mark-entities-in-example-utterances-of-an-intent"></a>Örnek konuşma bir hedefinin varlıklarda işaretle
+
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. **Intents** (Amaçlar) sayfasında **ApplyForJob** amacını seçin. 
+1. **Intents** (Amaçlar) sayfasında **ApplyForJob** amacını seçin. 
 
-3. `I want to apply for the new accounting job` konuşmasında `accounting` öğesini seçin, açılır menünün en üst kısmına `Job` yazın ve ardından açılır menüden **Create new entity** (Yeni varlık oluştur) girişini seçin. 
+1. `I want to apply for the new accounting job` konuşmasında `accounting` öğesini seçin, açılır menünün en üst kısmına `Job` yazın ve ardından açılır menüden **Create new entity** (Yeni varlık oluştur) girişini seçin. 
 
     [![LUIS ekran görüntüsü ile 'ApplyForJob' hedefi ile vurgulanmış varlık adımları oluşturma](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "LUIS ekran görüntüsü ile 'ApplyForJob' hedefi ile vurgulanmış varlık adımları oluşturma")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
-4. Açılır pencerede varlığın adını ve türünü doğrulayıp **Done** (Bitti) öğesini seçin.
+1. Açılır pencerede varlığın adını ve türünü doğrulayıp **Done** (Bitti) öğesini seçin.
 
     ![İş adı ve basit türü görünen basit varlık oluşturma açılır iletişim kutusu](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. `Submit resume for engineering position` konuşmasında `engineering` kelimesini İş varlığı olarak etiketleyin. `engineering` kelimesini seçin ve açılır menüden **Job** (İş) girişini seçin. 
+1. İşle ilgili kelimelerinizle kalan konuşma işaretlemek **iş** bir sözcük veya tümcecik seçip seçerek varlık **iş** açılır menüden. 
 
     [![Vurgulanan iş Varlık etiketleme LUIS ekran](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "vurgulanan iş Varlık etiketleme LUIS ekran görüntüsü")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
-    Tüm konuşmalar etiketlendi ancak beş konuşma, LUIS'e işle ilgili sözcükler ve tümcecikler hakkında eğitim vermek için yeterli değildir. Sayı değeri içeren işler normal ifade varlığı kullandığından daha fazla örneğe ihtiyaçları yoktur. Sözcük veya tümcecik olan işler için en az 15 tane daha örnek gerekir. 
 
-6. Daha fazla konuşma ekleyin ve iş sözcüklerini veya tümceciklerini **Job** (İş) varlığı olarak etiketleyin. Bir işe alma hizmeti için kullanılan iş türleri tüm alanlar için ortaktır. İşlerin belirli bir sektörle ilgili olmasını istiyorsanız iş sözcüklerinin bu durumu yansıtması gerekir. 
+## <a name="add-more-example-utterances-and-mark-entity"></a>Daha fazla örnek Konuşma ekleme ve varlık işaretleyin
+
+Basit varlıklar, tahmin, bir yüksek güvenilirliğe sahip olmak için birçok örneği gerekir. 
+ 
+1. Daha fazla konuşma ekleyin ve iş sözcüklerini veya tümceciklerini **Job** (İş) varlığı olarak etiketleyin. 
 
     |İfade|İş varlığı|
     |:--|:--|
@@ -126,100 +129,64 @@ Varlıklar, örnek ifadelerde işaretlendikten sonra, basit varlığın sinyalin
     |My curriculum vitae for professor of biology is enclosed. (Biyoloji öğretmenliği için özgeçmişimi ekte bulabilirsiniz.)|professor of biology (biyoloji öğretmenliği)|
     |I would like to apply for the position in photography. (Fotoğrafçılık alanındaki pozisyon için başvuruda bulunmak istiyorum.)|photography (fotoğrafçılık)|git 
 
-## <a name="label-entity-in-example-utterances"></a>Örnek ifadelerdeki varlığı etiketleme
-
-Etiketleme veya _işaretleme_ ile varlık, varlığın örnek ifadelerde bulunduğu LUIS’i gösterir.
+## <a name="mark-job-entity-in-other-intents"></a>Diğer ıntents iş varlığında işaretle
 
 1. Sol menüden **Intents** (Amaçlar) öğesini seçin.
 
-2. Amaç listesinden **GetJobInformation** girişini seçin. 
+1. Amaç listesinden **GetJobInformation** girişini seçin. 
 
-3. Örnek konuşmalardaki işleri etiketleyin:
+1. Örnek konuşma işlerinde etiket
 
-    |İfade|İş varlığı|
-    |:--|:--|
-    |Is there any work in databases? (Veritabanı alanında iş var mı?)|veritabanları|
-    |Looking for a new situation with responsibilities in accounting (Muhasebe alanında yeni bir iş arayışım mevcut)|accounting (muhasebe)|
-    |What positions are available for senior engineers? (Kıdemli mühendisler için uygun olan pozisyonlar hangileri?)|senior engineers (kıdemli mühendisler)|
+    Bir hedefi başka bir amaç'den daha fazla örnek konuşma varsa, en yüksek tahmin edilen This is olma olasılığı daha anlaşılabilmelidir. 
 
-    Başka örnek konuşmalar da vardır ancak bunlarda işle ilgili sözcük mevcut değildir.
-
-## <a name="train"></a>Eğitim
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Uygulama hedefi değişiklikleri test edilebilir şekilde eğitme 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Yayımlama
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Eğitilen modelin uç noktasından sorgulanabilir, bu nedenle, uygulamayı yayımlama
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktadan amacı ve varlıkları alma 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Uç noktasından amacı ve varlık öngörü Al 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Adres çubuğundaki URL'nin sonuna gidip `Here is my c.v. for the programmer job` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `ApplyForJob` konuşmaları döndürmelidir.
+2. Adres çubuğundaki URL'nin sonuna gidip `Here is my c.v. for the engineering job` yazın. Son sorgu dizesi parametresi konuşma **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `ApplyForJob` konuşmaları döndürmelidir.
 
     ```json
     {
-      "query": "Here is my c.v. for the programmer job",
+      "query": "Here is my c.v. for the engineering job",
       "topScoringIntent": {
         "intent": "ApplyForJob",
-        "score": 0.9826467
+        "score": 0.98052007
       },
       "intents": [
         {
           "intent": "ApplyForJob",
-          "score": 0.9826467
+          "score": 0.98052007
         },
         {
           "intent": "GetJobInformation",
-          "score": 0.0218927357
-        },
-        {
-          "intent": "MoveEmployee",
-          "score": 0.007849265
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.00349470088
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00348804821
+          "score": 0.03424581
         },
         {
           "intent": "None",
-          "score": 0.00319909188
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.00222647213
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00211193133
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.00172086991
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00138010911
+          "score": 0.0015820954
         }
       ],
       "entities": [
         {
-          "entity": "programmer",
+          "entity": "engineering",
           "type": "Job",
           "startIndex": 24,
-          "endIndex": 33,
-          "score": 0.5230502
+          "endIndex": 34,
+          "score": 0.668959737
         }
       ]
     }
     ```
     
-    LUIS, doğru amacı (**ApplyForJob**) buldu ve `programmer` değeriyle doğru **İş** varlığını ayıkladı.
+    LUIS, doğru amacı (**ApplyForJob**) buldu ve `engineering` değeriyle doğru **İş** varlığını ayıkladı.
 
 
 ## <a name="names-are-tricky"></a>Adlar kafa karıştırıcı olabilir
@@ -229,51 +196,23 @@ Aşağıdaki JSON kodunda LUIS doğru amaç olan `ApplyForJob` yanıt vermektedi
 
 ```json
 {
-  "query": "This is the lead welder paperwork.",
+  "query": "This is the lead welder paperwork",
   "topScoringIntent": {
     "intent": "ApplyForJob",
-    "score": 0.468558252
+    "score": 0.860295951
   },
   "intents": [
     {
       "intent": "ApplyForJob",
-      "score": 0.468558252
+      "score": 0.860295951
     },
     {
       "intent": "GetJobInformation",
-      "score": 0.0102701457
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.009442534
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00639619166
+      "score": 0.07265678
     },
     {
       "intent": "None",
-      "score": 0.005859333
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.005087704
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00315379258
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00259344373
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00193389168
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.000420796918
+      "score": 0.00482481951
     }
   ],
   "entities": []
@@ -282,94 +221,76 @@ Aşağıdaki JSON kodunda LUIS doğru amaç olan `ApplyForJob` yanıt vermektedi
 
 Ad herhangi bir şey olabileceğinden LUIS, sinyali güçlendirecek bir tümcecik listesi olması halinde varlıkları daha doğru bir şekilde tahmin edebilir.
 
-## <a name="to-boost-signal-add-phrase-list"></a>Sinyali güçlendirmek için tümcecik listesi ekleme
+## <a name="to-boost-signal-of-the-job-related-words-add-a-phrase-list-of-job-related-words"></a>Boost sinyale işle ilgili sözcük, tümcecik listesini bir kelimelerin işle ilgili Ekle
 
-Açık [işleri tümcecik list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) Azure örnekleri GitHub deposundan. Bu listede binin üzerinde iş sözcüğü ve tümceciği vardır. Listede size anlamlı gelen iş sözcüklerini bulun. İstediğiniz sözcükler ve tümcecikler listede değilse ekleyin.
+Açık [işleri tümcecik list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) Azure örnekleri GitHub deposundan. 1. 000'den iş sözcük ve tümcecikleri listesidir. Listede size anlamlı gelen iş sözcüklerini bulun. İstediğiniz sözcükler ve tümcecikler listede değilse ekleyin.
 
 1. LUIS uygulamasının **Build** (Derleme) bölümünde **Improve app performance** (Uygulama performansını geliştir) kısmındaki **Phrase lists** (Tümcecik listeleri) girişini seçin.
 
-2. **Create new phrase list** (Yeni tümcecik listesi oluştur) öğesini seçin. 
+1. **Create new phrase list** (Yeni tümcecik listesi oluştur) öğesini seçin. 
 
-3. Yeni tümcecik listesine `Job` adını verin ve jobs-phrase-list.csv dosyasındaki listeyi kopyalayıp **Values** (Değerler) metin kutusuna yapıştırın. Enter'a basın. 
+1. Yeni tümcecik listesine `JobNames` adını verin ve jobs-phrase-list.csv dosyasındaki listeyi kopyalayıp **Values** (Değerler) metin kutusuna yapıştırın. Enter'a basın. 
 
     [![Ekran görüntüsü yeni ifade listesi iletişim kutusu açılır oluşturma](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Oluştur ekran görüntüsü yeni ifade listesi iletişim kutusu açılır")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     Tümcecik listesine daha fazla sözcük eklemek istiyorsanız, **Related Values** (İlgili Değerler) girişlerini gözden geçirin ve ilgili olanları ekleyin. 
 
-4. Tümcecik listesini etkinleştirmek için **Save** (Kaydet) öğesini seçin.
+1. Tümcecik listesini etkinleştirmek için **Save** (Kaydet) öğesini seçin.
 
     [![Ekran görüntüsü oluşturma yeni ifade listesi iletişim kutusu açılır sözcük, tümcecik değerler listesinde](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Oluştur ekran görüntüsü yeni ifade listesi iletişim kutusu açılır sözcük, tümcecik değerler listesinde")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. Tümcecik listesini kullanmak için uygulamayı tekrar [eğitin](#train) ve [yayımlayın](#publish).
+1. Tümcecik listesini kullanmak için uygulamayı tekrar [eğitin](#train) ve [yayımlayın](#publish).
 
-6. Uç noktayı aynı konuşmayla yeniden sorgulayın: `This is the lead welder paperwork.`
+1. Uç noktayı aynı konuşmayla yeniden sorgulayın: `This is the lead welder paperwork.`
 
     JSON yanıtı ayıklanan varlığı içerir:
 
     ```json
-    {
-        "query": "This is the lead welder paperwork.",
-        "topScoringIntent": {
-            "intent": "ApplyForJob",
-            "score": 0.920025647
+      {
+      "query": "This is the lead welder paperwork.",
+      "topScoringIntent": {
+        "intent": "ApplyForJob",
+        "score": 0.983076453
+      },
+      "intents": [
+        {
+          "intent": "ApplyForJob",
+          "score": 0.983076453
         },
-        "intents": [
-            {
-            "intent": "ApplyForJob",
-            "score": 0.920025647
-            },
-            {
-            "intent": "GetJobInformation",
-            "score": 0.003800706
-            },
-            {
-            "intent": "Utilities.StartOver",
-            "score": 0.00299335527
-            },
-            {
-            "intent": "MoveEmployee",
-            "score": 0.0027167045
-            },
-            {
-            "intent": "None",
-            "score": 0.00259556063
-            },
-            {
-            "intent": "FindForm",
-            "score": 0.00224019377
-            },
-            {
-            "intent": "Utilities.Stop",
-            "score": 0.00200693542
-            },
-            {
-            "intent": "Utilities.Cancel",
-            "score": 0.00195913855
-            },
-            {
-            "intent": "Utilities.Help",
-            "score": 0.00162656687
-            },
-            {
-            "intent": "Utilities.Confirm",
-            "score": 0.0002851904
-            }
-        ],
-        "entities": [
-            {
-            "entity": "lead welder",
-            "type": "Job",
-            "startIndex": 12,
-            "endIndex": 22,
-            "score": 0.8295959
-            }
-        ]
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0120766377
+        },
+        {
+          "intent": "None",
+          "score": 0.00248388131
+        }
+      ],
+      "entities": [
+        {
+          "entity": "lead welder",
+          "type": "Job",
+          "startIndex": 12,
+          "endIndex": 22,
+          "score": 0.8373154
+        }
+      ]
     }
     ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="related-information"></a>İlgili bilgiler
+
+* [Varlıkları öğretici olmadan hedefleri](luis-quickstart-intents-only.md)
+* [Varlığın](luis-concept-entity-types.md) kavramsal bilgiler
+* [İfade listesi](luis-concept-feature.md) kavramsal bilgiler
+* [Eğitme](luis-how-to-train.md)
+* [Yayımlama nasıl yapılır?](luis-how-to-publish-app.md)
+* [LUIS portalında test etme](luis-interactive-test.md)
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

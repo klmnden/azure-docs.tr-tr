@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: accefc89d7fe252c9e86de7977a2ce36f5c3e3aa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 882a43a75fa720b13d931740818e5ee6e893bcab
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725176"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753345"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>Öğretici: Azure Depolama ile buluta görüntü verileri yükleme
 
 Bu öğretici, bir dizinin birinci bölümüdür. Bu öğreticide, bir depolama hesabına görüntü yüklemek için Azure depolama istemci kitaplığı kullanan web uygulamasının nasıl dağıtılacağını öğreneceksiniz. İşlemi tamamladığınızda, depolar ve Azure depolamadaki görüntüleri görüntüleyen bir web uygulaması oluşturmuş olacaksınız.
 
-# <a name="nettabnet"></a>[\.NET](#tab/net)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 ![Görüntüler kapsayıcı görünümü](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
@@ -121,7 +121,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>GitHub deposundan örnek uygulamayı dağıtma
 
-# <a name="nettabnet"></a>[\.NET](#tab/net)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
 App Service bir web uygulamasına içerik dağıtmanın birkaç yolunu destekler. Bu öğreticide, web uygulamasını bir [genel GitHub örnek deposundan](https://github.com/Azure-Samples/storage-blob-upload-from-webapp) dağıtırsınız. [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) komutuyla Git dağıtımını web uygulamasında gerçekleşecek şekilde yapılandırın. `<web_app>` değerini önceki adımda oluşturduğunuz web uygulamasının adıyla değiştirin.
 
@@ -159,7 +159,7 @@ Dağıtma ve web uygulaması'ı yapılandırdıktan sonra uygulamada görüntüy
 Web uygulamasını test etmek için, yayımlanan uygulamanızın URL'sine gidin. Web uygulamasının varsayılan URL'si `https://<web_app>.azurewebsites.net` şeklindedir.
 Seçin **fotoğrafları karşıya yükle** bölgeyi seçin ve bir dosyayı karşıya yükleyin veya bir dosyayı bölgenin sürükleyin. Görüntü başarıyla karşıya yüklenirse kaybolur.
 
-# <a name="nettabnet"></a>[\.NET](#tab/net)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
 ![ImageResizer uygulaması](media/storage-upload-process-images/figure1.png)
 
@@ -281,7 +281,7 @@ Dosya Seçici ile bir dosya seçip seçin **karşıya**.
 
 **thumbnails** kapsayıcısına yüklenen görüntünün görünür olduğunu doğrulamak için uygulamanıza geri gidin.
 
-# <a name="nettabnet"></a>[\.NET](#tab/net)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 ![Görüntüler kapsayıcı görünümü](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
