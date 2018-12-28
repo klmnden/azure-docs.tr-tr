@@ -1,244 +1,224 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile yenilik Hub | Microsoft Docs'
-description: Azure Active Directory ve yenilik hub'ı arasında çoklu oturum açmayı yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Innoverse | Microsoft Docs'
+description: Azure Active Directory ve Innoverse arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: d72e4da0-0123-409b-96c2-e613f3f83fb1
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/20/2018
+ms.topic: tutorial
+ms.date: 12/14/2018
 ms.author: jeedes
-ms.openlocfilehash: 6486c43ed9eaf1e829598cfc9177a96e0bed9fe1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 293c08a81ba675d42cd0e9f715e988b2186deb3d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437558"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794082"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-innovation-hub"></a>Öğretici: Azure Active Directory yenilikleri Hub ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-innoverse"></a>Öğretici: Innoverse ile Azure Active Directory Tümleştirme
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile yenilik hub'ı tümleştirme konusunda bilgi edinin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile Innoverse tümleştirme konusunda bilgi edinin.
+Azure AD ile Innoverse tümleştirme ile aşağıdaki avantajları sağlar:
 
-Yenilik hub'ı Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+* Innoverse erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) Innoverse için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-- Yenilik Hub erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak imzalanan (çoklu oturum açma) yenilik hub'a açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
-
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD Tümleştirmesi ile yenilik hub'ı yapılandırmak için aşağıdaki öğeler gerekir:
+Azure AD Tümleştirmesi ile Innoverse yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
-- Abonelik bir yenilik Hub çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik Innoverse çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden yenilik Hub ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-## <a name="adding-innovation-hub-from-the-gallery"></a>Galeriden yenilik Hub ekleme
-Azure AD'ye yenilik Hub tümleştirmesini yapılandırmak için yenilik Hub Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+* Innoverse destekler **SP ve IDP** tarafından başlatılan
+* Innoverse destekler **zamanında** kullanıcı sağlama
 
-**Galeriden yenilik hub'ı eklemek için aşağıdaki adımları gerçekleştirin:**
+## <a name="adding-innoverse-from-the-gallery"></a>Galeriden Innoverse ekleme
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+Azure AD'de Innoverse tümleştirmesini yapılandırmak için Innoverse Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-    ![Azure Active Directory düğmesi][1]
+**Galeriden Innoverse eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Azure Active Directory düğmesi](common/select_azuread.png)
 
-    ![Yeni Uygulama düğmesi][3]
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-1. Arama kutusuna **yenilik Hub**seçin **yenilik Hub** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise_applications.png)
 
-    ![Sonuç listesinde yenilik Hub](./media/innovationhub-tutorial/tutorial_innovationhub_addfromgallery.png)
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+
+    ![Yeni Uygulama düğmesi](common/add_new_app.png)
+
+4. Arama kutusuna **Innoverse**seçin **Innoverse** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+
+     ![Sonuç listesinde Innoverse](common/search_new_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve yenilik "Britta Simon" adlı bir test kullanıcıya bağlı hub'ı ile Azure AD çoklu oturum açma testi.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Innoverse adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının Innoverse ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Tek iş için oturum açma için Azure AD ne karşılık gelen kullanıcı yenilik hub'ında bir kullanıcının Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve yenilik hub'ında ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
-
-Yapılandırma ve Azure AD çoklu oturum açma yenilik hub'ı ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Innoverse ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Yenilik hub'ı bir test kullanıcısı oluşturma](#create-an-innovation-hub-test-user)**  - kullanıcı Azure AD gösterimini bağlı yenilik Hub'ındaki Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Innoverse çoklu oturum açmayı yapılandırma](#configure-innoverse-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Innoverse test kullanıcısı oluşturma](#create-innoverse-test-user)**  - kullanıcı Azure AD gösterimini bağlı Innoverse Britta simon'un bir karşılığı vardır.
+5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve yenilik Hub uygulamanızda çoklu oturum açmayı yapılandırma.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile yenilik hub'ı yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile Innoverse yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında üzerinde **yenilik Hub** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Innoverse** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select_sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/innovationhub-tutorial/tutorial_innovationhub_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **yenilik Hub etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select_saml_option.png)
 
-    ![Yenilik Hub etki alanı ve URL'ler tek oturum açma bilgileri](./media/innovationhub-tutorial/tutorial_innovationhub_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<domainname>.innohb.com/auth/saml2/login`
+    ![Temel SAML yapılandırmasını düzenle](common/edit_urls.png)
 
-    b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `https://<domainname>.innohb.com`
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
+    ![Innoverse etki alanı ve URL'ler tek oturum açma bilgileri](common/idp_intiated.png)
+
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<domainname>.innover.se`
+
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<domainname>.innover.se/auth/saml2/login`
+
+5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+
+    ![Innoverse etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata_upload_additional_signon.png)
+
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://<domainname>.innover.se/auth/saml2/login`
+    
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. İlgili kişi [yenilik Hub istemci Destek ekibine](mailto:support@readify.net) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Innoverse istemci Destek ekibine](mailto:support@readify.net) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-1. Yenilik Hub uygulama belirli bir biçimde SAML onaylamalarını bekler. Lütfen bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
+6. Innoverse uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/innovationhub-tutorial/attribute.png)
+    ![image](./media/innovationhub-tutorial/tutorial-innovationhub-attribute.png)
 
-1. Tıklayın **görünümü ve diğer tüm kullanıcı özniteliklerini düzenleyin** onay kutusu **kullanıcı öznitelikleri** bölüm öznitelikleri genişletin. Her birini görüntülenen öznitelikleri - aşağıdaki adımları gerçekleştirin
+7. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-    | Öznitelik Adı | Öznitelik Değeri | Namespace değeri|
-    | ---------------| --------------- |----------------|
-    | DisplayName | User.userPrincipalName | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | | |
+    | Ad | Kaynak özniteliği| Ad alanı |
+    | ---------------| --------- | ----------------|
+    | DisplayName | `user.userprincipalname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 
-    a. Tıklayın **eklemek agentconfigutil** açmak için **öznitelik Ekle** iletişim.
+    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/innovationhub-tutorial/tutorial_attribute_04.png)
+    ![image](common/new_save_attribute.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/innovationhub-tutorial/tutorial_attribute_05.png)
+    ![image](common/new_attribute_details.png)
 
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
-    c. Gelen **değer** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
+    c. Girin **Namespace**.
 
-    d. Gelen **Namespace değeri** listesinde, ilgili satır için gösterilen ad alanı değeri yazın.
+    d. Kaynağı olarak **özniteliği**.
 
-    e. **Tamam**’a tıklayın.
+    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+    f. Tıklayın **Tamam**
 
-    ![Sertifika indirme bağlantısı](./media/innovationhub-tutorial/tutorial_innovationhub_certificate.png)
+    g. **Kaydet**’e tıklayın.
 
-1. Tıklayın **Kaydet** düğmesi.
+8. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde **kopyalama** Kopyala simgesine **UygulamaFederasyonmetaveriURL'si** ve bilgisayarınıza kaydedin.
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/innovationhub-tutorial/tutorial_general_400.png)
+    ![Sertifika indirme bağlantısı](common/copy_metadataurl.png)
 
-1. Çoklu oturum açmayı yapılandırma **yenilik Hub** tarafı, kopyalanan göndermek için ihtiyacınız **Federasyon meta veri URL'si** için [yenilik Hub Destek ekibine](mailto:support@readify.net). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+### <a name="configure-innoverse-single-sign-on"></a>Innoverse tek oturum açmayı yapılandırın
+
+Çoklu oturum açmayı yapılandırma **Innoverse** tarafı, kopyalanan göndermek için ihtiyacınız **Federasyon meta veri URL'si** için [Innoverse Destek ekibine](mailto:support@readify.net). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/innovationhub-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new_user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/innovationhub-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user_properties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alanına **BrittaSimon**.
 
-    ![Ekle düğmesi](./media/innovationhub-tutorial/create_aaduser_03.png)
+    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/innovationhub-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="create-an-innovation-hub-test-user"></a>Yenilik hub'ı bir test kullanıcısı oluşturma
-
-Bu bölümün amacı, yenilik Hub'ında Britta Simon adlı bir kullanıcı oluşturmaktır. Yenilik Hub tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa yenilik Hub erişme denemesi sırasında oluşturulur.
->[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [yenilik Hub Destek ekibine](mailto:support@readify.net).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, yenilik Hub'ına erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için Innoverse erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Innoverse**.
 
-**Britta Simon yenilik Hub'ına atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise_applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde yazın ve **Innoverse**.
 
-    ![Kullanıcı Ata][201] 
+    ![Uygulamalar listesinde Innoverse bağlantı](common/all_applications.png)
 
-1. Uygulamalar listesinde **yenilik Hub**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Uygulamalar listesinde yenilik Hub bağlantısı](./media/innovationhub-tutorial/tutorial_innovationhub_app.png)  
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users_groups_blade.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    ![Atama Ekle bölmesi](common/add_assign_user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Atama Ekle bölmesi][203]
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+7. İçinde **atama Ekle** iletişim kutusunda, tıklayın **atama** düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+### <a name="create-innoverse-test-user"></a>Innoverse test kullanıcısı oluşturma
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+Bu bölümde, Britta Simon adlı bir kullanıcı Innoverse oluşturulur. Innoverse destekler **tam zamanında sağlama**, varsayılan olarak etkindir. Bu bölümde, hiçbir eylem öğesini yoktur. Bir kullanıcı Innoverse içinde zaten mevcut değilse Innoverse erişmeye çalıştığında yeni bir tane oluşturulur.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde yenilik Hub kutucuğa tıkladığınızda, otomatik olarak yenilik hub'ı uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli Innoverse kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Innoverse için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
-<!--Image references-->
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-[1]: ./media/innovationhub-tutorial/tutorial_general_01.png
-[2]: ./media/innovationhub-tutorial/tutorial_general_02.png
-[3]: ./media/innovationhub-tutorial/tutorial_general_03.png
-[4]: ./media/innovationhub-tutorial/tutorial_general_04.png
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[100]: ./media/innovationhub-tutorial/tutorial_general_100.png
-
-[200]: ./media/innovationhub-tutorial/tutorial_general_200.png
-[201]: ./media/innovationhub-tutorial/tutorial_general_201.png
-[202]: ./media/innovationhub-tutorial/tutorial_general_202.png
-[203]: ./media/innovationhub-tutorial/tutorial_general_203.png
-
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

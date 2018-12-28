@@ -1,12 +1,12 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirmesi kutusu | Microsoft Docs'
-description: Azure Active Directory ve kutusu arasında çoklu oturum açmayı yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile AuditBoard | Microsoft Docs'
+description: Azure Active Directory ve AuditBoard arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 3b565c8d-35e2-482a-b2f4-bf8fd7d8731f
+ms.assetid: 072724b9-d1c8-4c22-9571-d1d0d7eb5ea2
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 0dd91fb26777815844bdff5aba033a4bbeac4496
+ms.openlocfilehash: cb8eb2b13f82deb5f0146d413a917362301fc8a1
 ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794405"
+ms.locfileid: "53797236"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-box"></a>Öğretici: Azure Active Directory Tümleştirmesi kutusu
+# <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Öğretici: AuditBoard ile Azure Active Directory Tümleştirme
 
-Bu öğreticide, kutusu Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
-Kutusu Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Bu öğreticide, Azure Active Directory (Azure AD) ile AuditBoard tümleştirme konusunda bilgi edinin.
+Azure AD ile AuditBoard tümleştirme ile aşağıdaki avantajları sağlar:
 
-* Box'a erişimi, Azure AD'de kontrol edebilirsiniz.
-* Otomatik olarak (çoklu oturum açma) kutusuna kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* AuditBoard erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) AuditBoard için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
 * Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,24 +35,22 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure AD tümleştirmesi kutusuyla yapılandırmak için aşağıdaki öğeler gerekir:
+Azure AD Tümleştirmesi ile AuditBoard yapılandırmak için aşağıdaki öğeler gerekir:
 
 * Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
-* Abonelik kutusu çoklu oturum açma etkin
+* Abonelik AuditBoard çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
 Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-* Kutu destekler **SP** tarafından başlatılan
-* Kutu destekler **zamanında** kullanıcı sağlama
-* Kutu destekler [otomatik kullanıcı hazırlama](https://docs.microsoft.com/azure/active-directory/saas-apps/box-userprovisioning-tutorial) 
+* AuditBoard destekler **SP ve IDP** tarafından başlatılan
 
-## <a name="adding-box-from-the-gallery"></a>Galeriden kutusu ekleme
+## <a name="adding-auditboard-from-the-gallery"></a>Galeriden AuditBoard ekleme
 
-Azure AD'de kutusunun tümleştirmesini yapılandırmak için kutusu Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
+Azure AD'de AuditBoard tümleştirmesini yapılandırmak için AuditBoard Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Galeriden kutusunu eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden AuditBoard eklemek için aşağıdaki adımları gerçekleştirin:**
 
 1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
@@ -66,21 +64,21 @@ Azure AD'de kutusunun tümleştirmesini yapılandırmak için kutusu Galeriden y
 
     ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-4. Arama kutusuna **kutusu**seçin **kutusu** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+4. Arama kutusuna **AuditBoard**seçin **AuditBoard** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-     ![Sonuçlar listesinde kutusu](common/search-new-app.png)
+     ![Sonuç listesinde AuditBoard](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma kutusunu adlı bir test kullanıcı ile test etme **Britta Simon**.
-Tek iş için oturum açma için bir Azure AD kullanıcısının kutusunda ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma AuditBoard adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının AuditBoard ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Yapılandırma ve Azure AD çoklu oturum açma kutusu test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma AuditBoard ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Kutusu çoklu oturum açmayı yapılandırma](#configure-box-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+2. **[AuditBoard çoklu oturum açmayı yapılandırma](#configure-auditboard-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Kutusunu test kullanıcısı oluşturma](#create-box-test-user)**  - kullanıcı Azure AD gösterimini bağlı kutusunda Britta simon'un bir karşılığı vardır.
+4. **[AuditBoard test kullanıcısı oluşturma](#create-auditboard-test-user)**  - kullanıcı Azure AD gösterimini bağlı AuditBoard Britta simon'un bir karşılığı vardır.
 5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
@@ -88,9 +86,9 @@ Yapılandırma ve Azure AD çoklu oturum açma kutusu test etmek için aşağıd
 
 Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-Azure AD çoklu oturum açma kutusuyla yapılandırmak için aşağıdaki adımları gerçekleştirin:
+Azure AD çoklu oturum açma ile AuditBoard yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. İçinde [Azure portalında](https://portal.azure.com/), **kutusu** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **AuditBoard** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
@@ -102,27 +100,30 @@ Azure AD çoklu oturum açma kutusuyla yapılandırmak için aşağıdaki adıml
 
     ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP tarafından başlatılan** modu, aşağıdaki adımları gerçekleştirin:
 
-    ![Kutusu etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+    ![AuditBoard etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<SUBDOMAIN>.account.box.com`
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml`
 
-    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna bir URL yazın: `box.net`
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/assert`
+
+    c. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP tarafından başlatılan** modu:
+
+    d. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<SUBDOMAIN>.auditboardapp.com/`
+
+    ![AuditBoard etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
 
     > [!NOTE]
-    > Oturum açma URL değeri, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [kutusu istemci Destek ekibine](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [AuditBoard istemci Destek ekibine](mailto:support@auditboard.com) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
 
-    ![Sertifika indirme bağlantısı](common/metadataxml.png)
+    ![Sertifika indirme bağlantısı](common/copy-metadataurl.png)
 
-### <a name="configure-box-single-sign-on"></a>Kutusu çoklu oturum açmayı yapılandırın
+### <a name="configure-auditboard-single-sign-on"></a>AuditBoard tek oturum açmayı yapılandırın
 
-Uygulamanız için SSO'yu yapılandırmak için verilen yordamı izleyin [SSO'yu kendi ayarlamak](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown).
-
-> [!NOTE]
-> Box hesabınıza için SSO ayarlarını yapılandırmaya bulamıyorsanız, indirilen göndermem gerekiyor **Federasyon meta verileri XML** için [kutusu Destek ekibine](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+Çoklu oturum açmayı yapılandırma **AuditBoard** tarafını göndermek için ihtiyacınız **uygulama Federasyon meta verileri URL'sini** için [AuditBoard Destek ekibine](mailto:support@auditboard.com). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
@@ -151,15 +152,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Box'a erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, Azure çoklu oturum açma kullanmak için AuditBoard erişim vererek Britta Simon etkinleştirin.
 
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **kutusu**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **AuditBoard**.
 
     ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-2. Uygulamalar listesinde yazın ve **kutusu**.
+2. Uygulamalar listesinde **AuditBoard**.
 
-    ![Uygulamalar listesinde kutusu bağlantısı](common/all-applications.png)
+    ![Uygulamalar listesinde AuditBoard bağlantı](common/all-applications.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
@@ -175,18 +176,15 @@ Bu bölümde, Box'a erişim izni verdiğinizde, Azure çoklu oturum açma kullan
 
 7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-### <a name="create-box-test-user"></a>Kutusunu test kullanıcısı oluşturma
+### <a name="create-auditboard-test-user"></a>AuditBoard test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon adlı bir kullanıcı kutuda oluşturulur. Kutusunu just-ın-time kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Kutuya bir kullanıcı zaten mevcut değilse yeni bir kimlik doğrulamasından sonra oluşturulur.
-
-> [!NOTE]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [kutusu Destek ekibine](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
+Bu bölümde, Britta Simon AuditBoard içinde adlı bir kullanıcı oluşturun. Çalışmak [AuditBoard Destek ekibine](mailto:support@auditboard.com) AuditBoard platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli kutusu kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama kutusuna oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Erişim paneli AuditBoard kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama AuditBoard için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 

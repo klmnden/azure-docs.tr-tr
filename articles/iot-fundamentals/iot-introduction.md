@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 2480aa92dec8d8e8879db813b1cfcddc26f77b7e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582437"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792535"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Azure nesnelerin interneti (IOT) nedir?
 
@@ -26,7 +26,7 @@ Bir IOT çözümü ana bölümleri şunlardır: cihazları, arka uç Hizmetleri 
 
 ### <a name="iot-devices"></a>IoT cihazları
 
-Cihazlar genellikle İnternet'e bir bağlantı hattı panonun bağlı censors ile oluşur. Çok sayıda cihaz, bir Wi-Fi yonga iletişim kurar. IOT cihazları bazı örnekleri aşağıda verilmiştir:
+Cihazlar genellikle İnternet'e bir bağlantı hattı panonun bağlı sensörlerden ile oluşur. Çok sayıda cihaz, bir Wi-Fi yonga iletişim kurar. IOT cihazları bazı örnekleri aşağıda verilmiştir:
 
 * bir uzak Petrol pompası baskısı sensörlerini
 * Sıcaklık ve nem sensörlerden air-conditioning birim
@@ -105,9 +105,9 @@ Azure IOT ile ilgili birkaç hizmet mevcuttur ve kullanmak istediğiniz hangi bi
 
 1. [**IOT Central**](../iot-central/overview-iot-central.md): Bu bağlayın, izleyin ve IOT cihazlarınızı yönetmenize yardımcı olan bir SaaS çözümüdür. Başlamak için oluşturma ve cihazın işleçleri kullanan temel bir IOT Central uygulamasına test cihaz türünüz için bir şablon seçin. IOT Central uygulamasına aygıtlarını izlemek ve yeni cihazları hazırlama de olanak sağlar. Ayrıntılı hizmet özelleştirmesi gerektirmeyen basit çözümleri hizmetidir. 
 
-2. [**IOT Çözüm Hızlandırıcıları**](/azure/iot-suite): Bu PaaS çözümleri, bir IOT çözümü geliştirme sürecinizi hızlandırmak için kullanabileceğiniz bir koleksiyon oluşturulur. Sağlanan bir IOT çözüm ile Başlat ve bu çözüm gereksinimlerinizi tam olarak özelleştirebilirsiniz. Arka uç özelleştirmek için Java veya .NET becerileri ve görselleştirmeyi özelleştirmek için JavaScript becerileri gerekir. 
+2. [**IOT Çözüm Hızlandırıcıları**](/azure/iot-suite): Bu, bir IOT çözümü geliştirme sürecinizi hızlandırmak için kullanabileceğiniz PaaS çözümlerini oluşan bir koleksiyondur. Sağlanan bir IOT çözüm ile Başlat ve bu çözüm gereksinimlerinizi tam olarak özelleştirebilirsiniz. Arka uç özelleştirmek için Java veya .NET becerileri ve görselleştirmeyi özelleştirmek için JavaScript becerileri gerekir. 
 
-3. [**IOT hub'ı**](/azure/iot-hub/): Bu hizmet, cihazlardan bir IOT hub'ına bağlanmak ve milyarlarca IOT cihazını izleyin ve denetlemenizi sağlar. IOT cihazlarınızı ve arka ucunuz çift yönlü iletişimi gerekiyorsa bu özellikle yararlıdır. IOT Central hem de IOT Çözüm Hızlandırıcıları için temel alınan hizmete budur. 
+3. [**IOT hub'ı**](/azure/iot-hub/): Bu hizmet bir IOT hub'ı ve izleme ve denetim milyarlarca IOT cihazlarının cihazlarınızdan bağlanmanıza olanak tanır. IOT cihazlarınızı ve arka ucunuz çift yönlü iletişimi gerekiyorsa bu özellikle yararlıdır. IOT Central hem de IOT Çözüm Hızlandırıcıları için temel alınan hizmete budur. 
 
 4. [**IOT Hub cihazı sağlama hizmeti**](/azure/iot-dps/): IOT Hub, IOT hub'ınıza cihazların güvenli bir şekilde sağlamak için kullanabileceğiniz bir yardımcı hizmettir budur. Bu hizmet ile kolayca milyonlarca cihaza hızla, birer birer sağlama yerine sağlayabilirsiniz. 
 
@@ -115,7 +115,7 @@ Azure IOT ile ilgili birkaç hizmet mevcuttur ve kullanmak istediğiniz hangi bi
 
 6. [**Azure dijital İkizlerini**](../digital-twins/index.yml): Bu hizmet, kapsamlı modelleri, fiziksel ortam oluşturmanıza olanak sağlar. Kişiler, boşluk ve cihazlar arasındaki etkileşimler ve ilişkiler modelleyebilirsiniz. Örneğin, bakım için bir Fabrika, bir Elektrik şebekesi için gerçek zamanlı enerji gereksinimlerini çözümlemek veya bir office için kullanılabilir alanı kullanımını en iyi duruma getirme tahmin edebilirsiniz.
 
-7. [**Zaman serisi öngörüleri**](/azure/time-series-insights): Bu hizmeti, zaman serisi verilerini IOT cihazlar tarafından oluşturulan büyük miktarda sorgu depolamak ve görselleştirmenize olanak sağlar. Bu hizmeti ile IOT hub'ı kullanabilirsiniz. 
+7. [**Zaman serisi öngörüleri**](/azure/time-series-insights): Bu hizmet, zaman serisi verilerini IOT cihazlar tarafından oluşturulan büyük miktarda sorgu depolamak ve görselleştirmenize olanak sağlar. Bu hizmeti ile IOT hub'ı kullanabilirsiniz. 
 
 8. [**Azure haritalar**](/azure/azure-maps): Bu hizmet, web ve mobil uygulamalara coğrafi bilgileri sağlar. Tam bir dizi REST API'leri ve bunun yanı sıra hem Apple hem de Windows cihazlar için masaüstü ve mobil uygulamalar üzerinde çalışan esnek uygulamalar oluşturmak için kullanılan web tabanlı bir JavaScript denetimiyle yoktur.
 

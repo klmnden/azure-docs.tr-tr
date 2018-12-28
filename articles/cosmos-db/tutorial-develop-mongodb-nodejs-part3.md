@@ -1,5 +1,5 @@
 ---
-title: Node.Js, MongoB API (Part3) kullanarak Angular uygulaması
+title: Angular uygulama API'si ile Azure Cosmos DB'nin MongoDB için oluşturma - Angular ile kullanıcı arabirimini oluşturma
 titleSuffix: Azure Cosmos DB
 description: MongoDB için kullandığınız API'lerle Azure Cosmos DB üzerinde Angular ve Node ile bir MongoDB uygulaması oluşturma öğreticisi dizisinin 3. bölümü.
 author: johnpapa
@@ -7,19 +7,19 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 73710b812a78af9728873a8cb9e0586091f48f66
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 462d0ea036ee50a3eea6812d87772bba9559125c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717917"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788591"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Angular ve Azure Cosmos DB - bölüm 3 ile bir MongoDB uygulaması oluşturun: Angular ile kullanıcı arabirimini oluşturma
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Angular uygulama API'si ile Azure Cosmos DB'nin MongoDB için oluşturma - Angular ile kullanıcı arabirimini oluşturma
 
-Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yazılmış yeni bir uygulama oluşturun ve buna bağlanmak gösterilmektedir, [MongoDB API'si için yapılandırılmış Cosmos hesabı](mongodb-introduction.md).
+Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yazılmış yeni bir uygulama oluşturun ve buna bağlanmak gösterilmektedir, [MongoDB için Cosmos DB API'si ile yapılandırılan Cosmos hesabı](mongodb-introduction.md).
 
 Öğreticinin 3. bölümünde [2. bölümdeki](tutorial-develop-mongodb-nodejs-part2.md) konular genişletilir ve aşağıdaki görevler yer alır:
 

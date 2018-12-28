@@ -1,129 +1,135 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle BambooHR | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile BambooHR | Microsoft Docs'
 description: Azure Active Directory ve BambooHR arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: f826b5d2-9c64-47df-bbbf-0adf9eb0fa71
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/18/2018
+ms.topic: tutorial
+ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: dc6664321588d383b4656199c3e8ea79159ca850
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 86d279d7cfcbed16080c43e2b878c3a4e0e35da3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437687"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793164"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Öğretici: Azure Active Directory BambooHR ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Öğretici: BambooHR ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile BambooHR tümleştirme konusunda bilgi edinin.
+Azure AD ile BambooHR tümleştirme ile aşağıdaki avantajları sağlar:
 
-BambooHR Azure AD ile tümleştirme aşağıdaki avantajları sağlar:
+* BambooHR erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) BambooHR için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-- BambooHR erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak BambooHR için çoklu oturum açma (SSO) ile Azure AD hesaplarına kullanarak oturum açıp, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda, Azure portalında yönetebilir.
-
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile BambooHR yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
-- BambooHR SSO etkin bir abonelik
-
-> [!NOTE]
-> Bu öğreticideki adımları test ettiğinizde, bir üretim ortamında kullanmanızı öneririz.
-
-Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [ücretsiz, bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik BambooHR çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. 
 
-Bu öğreticide özetler senaryo iki temel yapı taşları oluşur:
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-1. Galeriden BambooHR ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+* BambooHR destekler **SP** tarafından başlatılan
 
-## <a name="add-bamboohr-from-the-gallery"></a>Galeriden BambooHR Ekle
-Azure AD'de BambooHR tümleştirmesini yapılandırmak için BambooHR aşağıdakileri yaparak Galeriden yönetilen SaaS uygulamaları listenize ekleyin:
+## <a name="adding-bamboohr-from-the-gallery"></a>Galeriden BambooHR ekleme
 
-1. İçinde [Azure portalında](https://portal.azure.com), sol bölmede seçin **Azure Active Directory**. 
+Azure AD'de BambooHR tümleştirmesini yapılandırmak için BambooHR Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-    ![Azure Active Directory düğmesi][1]
+**Galeriden BambooHR eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Seçin **kurumsal uygulamalar** > **tüm uygulamaları**.
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Kurumsal uygulamalar bölmesi][2]
-    
-1. Bir uygulama eklemek için seçin **yeni uygulama**.
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-    !["Yeni uygulama" düğmesi][3]
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-1. Arama kutusuna **BambooHR**. Sonuç listesinden **BambooHR**ve ardından **Ekle**.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Sonuç listesinde BambooHR](./media/bamboo-hr-tutorial/tutorial_bamboohr_addfromgallery.png)
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
+
+4. Arama kutusuna **BambooHR**seçin **BambooHR** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+
+     ![Sonuç listesinde BambooHR](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve test kullanıcı "Britta Simon" kullanarak Azure AD SSO BambooHR ile test etme
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma BambooHR adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının BambooHR ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Çalışmak SSO için Azure AD BambooHR içinde karşılık gelen kullanıcı ne olduğunu bilmeniz gerekir. Diğer bir deyişle, Azure AD kullanıcısı ile ilgili kullanıcı arasında bir bağlantı ilişki içinde BambooHR oluşturmanız gerekir.
+Yapılandırma ve Azure AD çoklu oturum açma BambooHR ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-İçinde BambooHR bağlantı kurmak için Azure AD atama **kullanıcı adı** BambooHR değeri **kullanıcıadı** değeri.
-
-Yapılandırma ve Azure AD SSO BambooHR ile test etme için yapı taşlarını sonraki beş bölümlerde tamamlayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[BambooHR çoklu oturum açmayı yapılandırma](#configure-bamboohr-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[BambooHR test kullanıcısı oluşturma](#create-bamboohr-test-user)**  - kullanıcı Azure AD gösterimini bağlı BambooHR Britta simon'un bir karşılığı vardır.
+5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure portalında Azure AD SSO'yu etkinleştirmek ve aşağıdakileri yaparak BambooHR uygulamanıza SSO yapılandırın:
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-1. Azure portalında, üzerinde **BambooHR** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+Azure AD çoklu oturum açma ile BambooHR yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+1. İçinde [Azure portalında](https://portal.azure.com/), **BambooHR** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-1. İçinde **çoklu oturum açma** penceresi içinde **modu** aşağı açılan listesinden **SAML tabanlı oturum açma**.
- 
-    ![Çoklu oturum açma penceresi](./media/bamboo-hr-tutorial/tutorial_bamboohr_samlbase.png)
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Altında **BambooHR etki alanı ve URL'ler**, aşağıdakileri yapın:
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![BambooHR etki alanı ve URL'ler bölümü](./media/bamboo-hr-tutorial/tutorial_bamboohr_url.png)
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    a. İçinde **oturum açma URL'si** kutusuna bir URL aşağıdaki biçimde yazın: `https://<company>.bamboohr.com`.
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    b. İçinde **tanımlayıcı** bir değer yazın: `BambooHR-SAML`.
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    > [!NOTE] 
-    > **Oturum açma URL'si** değeri gerçek değil. Bu, gerçek oturum açma URL'si ile güncelleştirin. Değer elde etmek için ilgili kişi [BambooHR istemci Destek ekibine](https://www.bamboohr.com/contact.php). 
- 
-1. Altında **SAML imzalama sertifikası**seçin **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Sertifika indirme bağlantısı](./media/bamboo-hr-tutorial/tutorial_bamboohr_certificate.png) 
+    ![BambooHR etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
-1. **Kaydet**’i seçin.
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<company>.bamboohr.com`
 
-    ![Kaydet düğmesi](./media/bamboo-hr-tutorial/tutorial_general_400.png)
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `BambooHR-SAML`
 
-1. Altında **BambooHR yapılandırma**seçin **yapılandırma BambooHR** açmak için **yapılandırma oturum açma** penceresi. İçinde **hızlı başvuru** bölümünde, kopya **SAML çoklu oturum açma hizmeti URL'si** daha sonra kullanmak için.
+    > [!NOTE]
+    > **Oturum açma URL'si** değeri gerçek değil. Değeri ile gerçek oturum açma URL'si güncelleştirin. İlgili kişi [BambooHR istemci Destek ekibine](https://www.bamboohr.com/contact.php) değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-    ![BambooHR yapılandırma](./media/bamboo-hr-tutorial/tutorial_bamboohr_configure.png) 
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
+
+6. Üzerinde **BambooHR kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
+
+    a. Oturum Açma URL'si:
+
+    b. Azure Ad tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-bamboohr-single-sign-on"></a>BambooHR tek oturum açmayı yapılandırın
 
 1. Yeni bir pencerede BambooHR şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-1. Giriş sayfasında, aşağıdakileri yapın:
+2. Giriş sayfasında, aşağıdakileri yapın:
    
     ![BambooHR çoklu oturum açma sayfası](./media/bamboo-hr-tutorial/ic796691.png "çoklu oturum açma")   
 
@@ -133,129 +139,99 @@ Bu bölümde, Azure portalında Azure AD SSO'yu etkinleştirmek ve aşağıdakil
    
     c. Seçin **SAML çoklu oturum açma**.
 
-1. İçinde **SAML çoklu oturum açma** bölmesinde aşağıdakileri yapın:
+3. İçinde **SAML çoklu oturum açma** bölmesinde aşağıdakileri yapın:
    
     ![SAML çoklu oturum açma bölmesi](./media/bamboo-hr-tutorial/IC796692.png "SAML çoklu oturum açma")
    
-    a. İçine **SSO oturum açma URL'si** kutusu, yapıştırma **SAML çoklu oturum açma hizmeti URL'si** 6. adımda Azure portaldan kopyaladığınız.
+    a. İçine **SSO oturum açma URL'si** kutusu, yapıştırma **oturum açma URL'si** 6. adımda Azure portaldan kopyaladığınız.
       
     b. Not Defteri'nde, Azure portalından indirdiğiniz base-64 kodlanmış sertifika açın, içeriğini kopyalayın ve ardından yapıştırın **X.509 sertifikası** kutusu.
    
     c. **Kaydet**’i seçin.
 
-> [!TIP]
-> Uygulamayı hazırlama ayarlıyorsanız, Bu yönergelerde kısa bir sürümünü edinebilirsiniz [Azure portalında](https://portal.azure.com). Uygulamadan ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünden yalnızca **çoklu oturum açma** sekmesine ve ardından erişim embedded belgeleri aracılığıyla **yapılandırma** alttaki bölümü. Bilgi için [Azure AD belgeleri katıştırılmış]( https://go.microsoft.com/fwlink/?linkid=845985).
-> 
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-Bu bölümün amacı, Azure portalında Britta Simon adlı bir test kullanıcı oluşturmaktır.
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-   ![Azure AD test kullanıcısı Britta Simon oluşturun][100]
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-Azure AD'de bir test kullanıcısı oluşturmak için aşağıdakileri yapın:
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-1. Azure portalında, sol bölmede seçin **Azure Active Directory**.
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-    ![Azure Active Directory düğmesi](./media/bamboo-hr-tutorial/create_aaduser_01.png)
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/bamboo-hr-tutorial/create_aaduser_02.png)
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-1. Üst kısmındaki **tüm kullanıcılar** bölmesinde **Ekle**.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-    ![Ekle düğmesi](./media/bamboo-hr-tutorial/create_aaduser_03.png)
+    d. **Oluştur**’a tıklayın.
 
-1. İçinde **kullanıcı** penceresinde aşağıdakileri yapın:
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-    ![Kullanıcı penceresi](./media/bamboo-hr-tutorial/create_aaduser_04.png)
+Bu bölümde, Azure çoklu oturum açma kullanmak için BambooHR erişim vererek Britta Simon etkinleştirin.
 
-    a. İçinde **adı** kutusuna **BrittaSimon**.
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **BambooHR**.
 
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+2. Uygulamalar listesinde yazın ve **BambooHR**.
 
-    d. **Oluştur**’u seçin.
- 
-### <a name="create-a-bamboohr-test-user"></a>BambooHR test kullanıcısı oluşturma
+    ![Uygulamalar listesinde BambooHR bağlantı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-bamboohr-test-user"></a>BambooHR test kullanıcısı oluşturma
 
 BambooHR için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunları el ile BambooHR aşağıdakileri yaparak kurun:
 
 1. Oturum açın, **BambooHR** yönetici olarak site.
 
-1. Üst araç çubuğunda, seçin **ayarları**.
+2. Üst araç çubuğunda, seçin **ayarları**.
    
     ![Ayarlar düğmesi](./media/bamboo-hr-tutorial/IC796694.png "ayarı")
 
-1. **Genel Bakış**’ı seçin.
+3. **Genel Bakış**’ı seçin.
 
-1. Sol bölmede seçin **güvenlik** > **kullanıcılar**.
+4. Sol bölmede seçin **güvenlik** > **kullanıcılar**.
 
-1. Kullanıcı adı, parola ve geçerli Azure AD, e-posta adresi ayarlamak istediğiniz hesap türü.
+5. Kullanıcı adı, parola ve geçerli Azure AD, e-posta adresi ayarlamak istediğiniz hesap türü.
 
-1. **Kaydet**’i seçin.
+6. **Kaydet**’i seçin.
         
 >[!NOTE]
 >Azure AD kullanıcı hesaplarını ayarlamak için de BambooHR kullanıcı hesabı oluşturma araçları veya API'leri kullanabilirsiniz.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
-Kullanıcı Azure SSO için BambooHR erişim vererek kullanacak şekilde Britta Simon etkinleştirin.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-![Kullanıcı rolü atayın][200] 
+Erişim paneli BambooHR kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama BambooHR için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-Britta Simon kullanıcı için BambooHR atamak için aşağıdakileri yapın:
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-1. Azure portalında uygulama görünümünü açın, dizin görünümüne gidin ve ardından **kurumsal uygulamalar** > **tüm uygulamaları**.
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-    ![Kullanıcı Ata][201] 
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-1. İçinde **kurumsal uygulamalar** listesinden **BambooHR**.
-
-    ![Kurumsal uygulamalar listesinde BambooHR bağlantı](./media/bamboo-hr-tutorial/tutorial_bamboohr_app.png)  
-
-1. Sol bölmede seçin **kullanıcılar ve gruplar**.
-
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
-
-1. Seçin **Ekle** düğmesine ve ardından **atama Ekle** bölmesinde **kullanıcılar ve gruplar**.
-
-    ![Atama Ekle bölmesi][203]
-
-1. İçinde **kullanıcılar ve gruplar** penceresi içinde **kullanıcılar** listesinden **Britta Simon**.
-
-1. Seçin **seçin** düğmesi.
-
-1. İçinde **atama Ekle** penceresinde **atama** düğmesi.
-    
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
-
-Azure AD SSO yapılandırmanızı erişim panelini kullanarak test edin.
-
-Seçtiğinizde, **BambooHR** oturumunuz otomatik olarak BambooHR uygulamanıza erişim Paneli'nde; kutucuk.
-
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
-
-## <a name="additional-resources"></a>Ek kaynaklar
-
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme konusundaki öğreticilerin listesine](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/bamboo-hr-tutorial/tutorial_general_01.png
-[2]: ./media/bamboo-hr-tutorial/tutorial_general_02.png
-[3]: ./media/bamboo-hr-tutorial/tutorial_general_03.png
-[4]: ./media/bamboo-hr-tutorial/tutorial_general_04.png
-
-[100]: ./media/bamboo-hr-tutorial/tutorial_general_100.png
-
-[200]: ./media/bamboo-hr-tutorial/tutorial_general_200.png
-[201]: ./media/bamboo-hr-tutorial/tutorial_general_201.png
-[202]: ./media/bamboo-hr-tutorial/tutorial_general_202.png
-[203]: ./media/bamboo-hr-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

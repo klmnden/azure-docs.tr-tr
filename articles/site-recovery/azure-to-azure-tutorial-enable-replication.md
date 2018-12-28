@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0aa7b7f3558bab7f3553527e03c44d71dd5a87ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 60ecf08d7f0c40a04472b3e2bf5ef739e51c32e8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833151"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794439"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Azure VM’leri için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama
 
@@ -138,24 +138,24 @@ Site Recovery, hedef bölge için varsayılan ayarları ve çoğaltma ilkesini o
 
 3. Hedef ayarlarını aşağıdaki gibi özelleştirebilirsiniz:
 
-    - **Hedef abonelik**: Olağanüstü durum kurtarma için kullanılan hedef abonelik. Hedef abonelik varsayılan olarak kaynak abonelikle aynı olur. Aynı Azure Active Directory kiracısındaki farklı bir hedef aboneliği seçmek için 'Özelleştir'e tıklayın.
+    - **Hedef abonelik**: Olağanüstü durum kurtarma için kullanılan hedef aboneliği. Hedef abonelik varsayılan olarak kaynak abonelikle aynı olur. Aynı Azure Active Directory kiracısındaki farklı bir hedef aboneliği seçmek için 'Özelleştir'e tıklayın.
     - **Hedef konum**: Olağanüstü durum kurtarma için kullanılan hedef bölge. Hedef konumun Site Recovery kasasının konumuyla eşleşmesini öneririz.
-    - **Hedef kaynak grubu**: Yük devretme işleminden sonra VM’lerin tutulduğu hedef bölgedeki kaynak grup. Site Recovery, varsayılan olarak hedef bölgede "asr" sonekine sahip yeni bir kaynak grup oluşturur. hedef kaynak grubunun kaynak grubu konumu, sanal makinelerinizin barındırıldığı bölge dışındaki herhangi bir bölge olabilir.
-    - **Hedef sanal ağ**: Yük devretme işleminden sonra VM’lerin bulunduğu hedef bölgedeki ağ.
+    - **Hedef kaynak grubu**: Yük devretme sonrasında Azure Vm'leri tutan hedef bölgedeki kaynak grubu. Site Recovery, varsayılan olarak hedef bölgede "asr" sonekine sahip yeni bir kaynak grup oluşturur. hedef kaynak grubunun kaynak grubu konumu, sanal makinelerinizin barındırıldığı bölge dışındaki herhangi bir bölge olabilir.
+    - **Hedef sanal ağ**: Yük devretme işleminden sonra VM'lerin bulunduğu hedef bölgedeki ağ.
       Site Recovery varsayılan olarak hedef bölgede "asr" sonekine sahip yeni bir sanal ağ (ve alt ağlarını) oluşturur.
-    - **Önbellek depolama hesapları**: Site Recovery, kaynak bölgede bir depolama hesabı kullanır. Kaynak VM’lere yönelik değişiklikler, hedef konuma çoğaltılmadan önce bu hesaba gönderilir.
+    - **Önbellek depolama hesapları**: Site Recovery kaynak bölgede bir depolama hesabı kullanır. Kaynak VM’lere yönelik değişiklikler, hedef konuma çoğaltılmadan önce bu hesaba gönderilir.
       >[!NOTE]
       >Güvenlik Duvarı etkin önbellek depolama hesabı kullanıyorsanız, 'güvenilen Microsoft hizmetlerinin izin ver' emin olun. [Daha fazla bilgi edinin.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
       >
 
-    - **Hedef depolama hesapları (Kaynak sanal makine yönetilen diskleri kullanmıyorsa)**: Site Recovery varsayılan olarak kaynak sanal makine depolama hesabını yansıtmak için hedef bölgede yeni bir depolama hesabı oluşturur.
+    - **Hedef depolama hesapları (kaynak makine yönetilen diskleri kullanmıyorsa)**: Varsayılan olarak, Site Recovery, kaynak VM depolama hesabını yansıtmak için hedef bölgede yeni bir depolama hesabı oluşturur.
       >[!NOTE]
       >Güvenlik Duvarı etkin kaynak veya hedef depolama hesabı kullanıyorsanız, 'güvenilen Microsoft hizmetlerinin izin ver' emin olun. [Daha fazla bilgi edinin.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
       >
 
-    - **Yönetilen çoğaltma diskleri (Kaynak sanal makine yönetilen diskleri kullanıyorsa)**: Site Recovery varsayılan olarak kaynak sanal makinenin yönetilen diskiyle aynı depolama türüne (Standart veya premium) sahip kaynak sanal makinenin yönetilen disklerini yansıtmak için hedef bölgede yönetilen çoğaltma diskleri oluşturur.
-    - **Hedef kullanılabilirlik kümeleri**: varsayılan olarak, Azure Site Recovery, yeni bir kullanılabilirlik Vm'leri bir kullanılabilirlik kümesi kaynak bölgede bir parçası için "asr" sonekine sahip adı ile hedef bölgede kümesi oluşturur. Kullanılabilirlik kümesi zaten Azure Site Recovery tarafından oluşturulan mevcut durumda yeniden kullanılır.
-    - **Hedef kullanılabilirlik**: hedef bölge kullanılabilirlik destekliyorsa, varsayılan olarak, Site Recovery hedef bölge kaynak bölgede aynı bölge sayısına atar. 
+    - **Yönetilen çoğaltma diskleri (kaynak sanal makine yönetilen diskleri kullanıyorsa)**: Varsayılan olarak, Site Recovery kaynak sanal makinenin yönetilen disklerle aynı depolama türüne (standart veya premium) kaynağın VM'ye yönetilen disk olarak yansıtmak için hedef bölgede yönetilen çoğaltma diskleri oluşturur.
+    - **Hedef kullanılabilirlik kümeleri**: Varsayılan olarak, Azure Site Recovery, yeni bir kullanılabilirlik Vm'leri bir kullanılabilirlik kümesi kaynak bölgede bir parçası için "asr" sonekine sahip adı ile hedef bölgede kümesi oluşturur. Kullanılabilirlik kümesi zaten Azure Site Recovery tarafından oluşturulan mevcut durumda yeniden kullanılır.
+    - **Hedef kullanılabilirlik**: Kullanılabilirlik alanları hedef bölge destekliyorsa, varsayılan olarak, Site Recovery hedef bölge kaynak bölgede aynı bölge sayısına atar. 
 
     Hedef bölge kullanılabilirlik bölgelerini desteklemez, hedef Vm'leri varsayılan olarak tek örnekleri olarak yapılandırılır. Gerekirse, tür VM'ler 'Özelleştir' tıklayarak kullanılabilirlik kümeleri hedef bölgede bir parçası olarak yapılandırabilirsiniz.
 
@@ -165,10 +165,10 @@ Site Recovery, hedef bölge için varsayılan ayarları ve çoğaltma ilkesini o
 
 4. Çoğaltma İlkesi ayarlarını özelleştirmek için tıklatın **Özelleştir** yanındaki **Çoğaltma İlkesi**ve aşağıdaki ayarları gerektiği gibi değiştirin:
 
-    - **Çoğaltma ilkesi adı**: İlke adı.
-    - **Kurtarma noktası bekletme**: Site Recovery varsayılan olarak kurtarma noktalarını 24 saat boyunca saklar. 1 ile 72 saat arasında bir değer yapılandırabilirsiniz.
-    - **Uygulamayla tutarlı anlık görüntü sıklığı**: Site Recovery varsayılan olarak 4 saatte bir uygulamayla tutarlı bir anlık görüntü alır. 1 ile 12 saat arasında bir değer yapılandırabilirsiniz. Uygulamayla tutarlı anlık görüntü, VM’nin içindeki uygulama verilerinin belirli bir noktadaki anlık görüntüsüdür. Birim Gölge Kopyası Hizmeti (VSS), anlık görüntü alınırken VM’deki uygulamanın tutarlı bir durumda olmasını sağlar.
-    - **Çoğaltma grubu**: Uygulamanız VM’ler arasında çoklu VM tutarlığına ihtiyaç duyuyorsa, bu VM’ler için bir çoğaltma grubu oluşturabilirsiniz. Seçilen VM’ler varsayılan olarak hiçbir çoğaltma grubunun parçası değildir.
+    - **Çoğaltma İlkesi adı**: İlke adı.
+    - **Kurtarma noktası bekletme**: Varsayılan olarak, Site Recovery kurtarma noktalarını 24 saat boyunca saklar. 1 ile 72 saat arasında bir değer yapılandırabilirsiniz.
+    - **Uygulamayla tutarlı anlık görüntü sıklığı**: Varsayılan olarak, Site Recovery, 4 saatte bir uygulamayla tutarlı anlık görüntüsünü alır. 1 ile 12 saat arasında bir değer yapılandırabilirsiniz. Uygulamayla tutarlı anlık görüntü, VM’nin içindeki uygulama verilerinin belirli bir noktadaki anlık görüntüsüdür. Birim Gölge Kopyası Hizmeti (VSS), anlık görüntü alınırken VM’deki uygulamanın tutarlı bir durumda olmasını sağlar.
+    - **Çoğaltma grubu**: Uygulamanız VM'ler arasında çoklu VM tutarlılığı gerekiyorsa, bu sanal makineler için çoğaltma grubu oluşturabilirsiniz. Seçilen VM’ler varsayılan olarak hiçbir çoğaltma grubunun parçası değildir.
 
 5. İçinde **Özelleştir**seçin **Evet** Vm'leri yeni veya mevcut çoğaltma grubuna eklemek istiyorsanız, çoklu VM tutarlılığı için. Vm'leri yapmak için bir çoğaltma grubunun parçası. Daha sonra, **Tamam**'a tıklayın.
 
@@ -180,8 +180,8 @@ Site Recovery, hedef bölge için varsayılan ayarları ve çoğaltma ilkesini o
 Kaynak sanal makinenin etkinleştirilmiş Azure disk şifrelemesi (ADE) varsa, şifreleme ayarları gösterilir:
 
 1. Şifreleme ayarları gözden geçirin.
-    - **Disk şifrelemesi anahtar kasaları**: Azure Site Recovery varsayılan olarak hedef bölgede kaynak VM disk şifrelemesi anahtarlarını temel alan "asr" son ekine sahip yeni bir anahtar kasası oluşturur. Azure Site Recovery tarafından oluşturulmuş bir anahtar kasası varsa yeniden kullanılır.
-    - **Anahtar şifreleme anahtar kasaları**: Azure Site Recovery varsayılan olarak hedef bölgede kaynak VM anahtar şifreleme anahtarlarını temel alan "asr" son ekine sahip yeni bir anahtar kasası oluşturur. Azure Site Recovery tarafından oluşturulmuş bir anahtar kasası varsa yeniden kullanılır.
+    - **Disk şifreleme anahtar kasalarını**: Varsayılan olarak, Azure Site Recovery kaynak VM disk şifreleme anahtara göre "asr" sonekine sahip adı ile hedef bölgede yeni bir anahtar kasası oluşturur. Azure Site Recovery tarafından oluşturulmuş bir anahtar kasası varsa yeniden kullanılır.
+    - **Anahtar şifreleme anahtar kasalarını**: Varsayılan olarak, Azure Site Recovery kaynak VM anahtar şifreleme anahtara göre "asr" sonekine sahip adı ile hedef bölgede yeni bir anahtar kasası oluşturur. Azure Site Recovery tarafından oluşturulmuş bir anahtar kasası varsa yeniden kullanılır.
 
 2. Tıklayın **Özelleştir** özel anahtar Kasası'nı seçin.
 

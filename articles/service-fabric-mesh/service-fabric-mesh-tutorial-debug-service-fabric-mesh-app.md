@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 6e7f6499a78b21ad81af5d541966e18090467532
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887517"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787639"
 ---
-# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Öğretici: Yerel geliştirme kümenizde çalışan bir Service Fabric Mesh uygulamasının hatalarını ayıklama
+# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Öğretici: Yerel geliştirme kümenizde çalışan bir Service Fabric Mesh uygulaması hata ayıklama
 
 Bir serinin ikinci kısmı olan bu öğreticide, yerel geliştirme kümenizdeki bir Azure Service Fabric Mesh uygulamasında derleme ve hata ayıklama işleminin nasıl yapıldığı gösterilir.
 
@@ -93,8 +93,8 @@ Uygulama başlatıldığında **404** hatası alırsanız, **service.yaml** içi
 ### <a name="debug-in-visual-studio"></a>Visual Studio'da hata ayıklama
 
 Visual Studio'da bir Service Fabric Mesh uygulaması hata ayıklaması yaparken yerel bir Service Fabric geliştirme kümesi kullanıyorsunuz. Arka uç hizmetinden yapılacaklar öğelerinin nasıl alındığını görmek için OnGet() yönteminde hata ayıklaması yapın.
-1. **WebFrontEnd** projesinde **Pages** > **Index.cshtml** > **Index.cshtml.cs** öğesini açın ve **Get** yönteminde bir kesme noktası ayarlayın (17. satır).
-2. **ToDoService** projesinde **TodoController.cs** öğesini açın ve **OnGet** yönteminde bir kesme noktası ayarlayın (15. satır).
+1. İçinde **WebFrontEnd** projesini açarsanız **sayfaları** > **Index.cshtml** > **Index.cshtml.cs** ve ayarlanmış bir kesme noktasına **OnGet** yöntemi (17. satır).
+2. İçinde **ToDoService** projesini açarsanız **TodoController.cs** bir kesme noktası ayarlayın **alma** yöntemi (15. satır).
 3. Tarayıcınıza geri dönüp sayfayı yenileyin. Web ön ucu `OnGet()` yönteminde kesme noktasına ulaşırsınız. `backendUrl` değişkenini inceleyerek **service.yaml** dosyasında tanımladığınız ortam değişkenlerinin arka uç hizmetiyle bağlantı kurmak için kullanılan URL'yle nasıl birleştirildiği görebilirsiniz.
 4. `client.GetAsync(backendUrl).GetAwaiter().GetResult())` çağrısından ilerleyin (F10); denetleyicinin `Get()` kesme noktasına ulaşırsınız. Bu yöntemde, yapılacaklar öğesi listesinin bellek içi listeden nasıl alındığını görebilirsiniz.
 5. İşiniz bittiğinde tuşlarına basarak projenizi Visual Studio'da hata ayıklamayı Durdur **Shift + F5**.

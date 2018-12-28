@@ -1,27 +1,27 @@
 ---
-title: 'Öğretici: MongoDB için Azure Cosmos DB API’si ile mongoimport ve mongorestore kullanma | Microsoft Docs'
-description: Bu öğreticide, veya ve mongorestore MongoDB hesabı için bir API veri almak için nasıl kullanılacağını öğrenin.
+title: Veya mongorestore ile Azure Cosmos DB için MongoDB verilerinizi geçirme
+description: Veya ve mongorestore Cosmos DB'ye veri almak için nasıl kullanılacağını öğreneceksiniz.
 keywords: mongoimport, mongorestore
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/07/2018
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: mvc
-Customer intent: As a developer, I want to migrate the data from my existing MongoDB workloads to a MongoDB API account in Azure Cosmos DB, so that the overhead to manage resources is handled by Azure Cosmos DB.
-ms.openlocfilehash: b40ca7cf62127a95fe277e205e5a5c5d36618828
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+Customer intent: As a developer, I want to migrate the data from my existing MongoDB to Cosmos DB.
+ms.openlocfilehash: 4cd30c7981cd6807113729292db403a80cbddef0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753855"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793759"
 ---
-# <a name="tutorial-migrate-your-data-to-a-mongodb-api-account-in-azure-cosmos-db"></a>Öğretici: Bir Azure Cosmos DB MongoDB API hesabı, verilerinizi geçirme
+# <a name="migrate-your-mongodb-data-to-azure-cosmos-db"></a>MongoDB verilerinizi Azure Cosmos DB'ye geçirme
 
-Bir geliştirici olarak, NoSQL belge verileri kullanan uygulamalar olabilir. Azure Cosmos DB MongoDB API hesabı, depolamak ve bu belge verilere erişmek için kullanabilirsiniz. MongoDB API'si için var olan uygulamalarınızdan verileri de geçirebilirsiniz. Bu öğretici, önceden bir Azure Cosmos DB MongoDB API hesabı için depolanan verileri geçirme hakkında yönergeler açıklanmaktadır. Mongodb'deki verileri içeri aktarın ve Azure Cosmos DB SQL API ile kullanmayı planlıyorsanız, kullanmanız gereken [veri geçiş aracı](import-data.md) verileri içeri aktarma.
+ Bu öğretici, Azure Cosmos DB için MongoDB depolanan verileri geçirmek yönergeler MongoDB için Cosmos DB'nin API'sini kullanmak üzere yapılandırılmış sağlar. Mongodb'deki verileri içeri aktarın ve Azure Cosmos DB SQL API ile kullanmayı planlıyorsanız, kullanmanız gereken [veri geçiş aracı](import-data.md) verileri içeri aktarma.
 
 Bu öğreticide şunları yapacaksınız:
 
@@ -43,13 +43,13 @@ Bu bölümde, veri geçişini planlama açıklar. Biz RU ücretleri tahmin, bulu
 
 #### <a name="pre-create-and-scale-your-collections"></a>Önceden oluşturma ve koleksiyonlarınız ölçeklendirin
 
-Varsayılan olarak, Azure Cosmos DB yeni bir MongoDB koleksiyonun saniyede 1.000 istek birimiyle (RU/sn) sağlar. Veya veya mongorestore geçirmeden önce tüm koleksiyonlardan önceden oluştur [Azure portalında](https://portal.azure.com) veya MongoDB sürücüleri ve araçlar. Veri boyutu 10 GB'den fazla ise, bölünmüş bir koleksiyona bir uygun parça anahtarı ile oluşturun.
+Veya veya mongorestore geçirmeden önce tüm koleksiyonlardan önceden oluştur [Azure portalında](https://portal.azure.com) veya MongoDB sürücüleri ve araçlar. 
 
-Gelen [Azure portalında](https://portal.azure.com), tek bölümlü bir koleksiyon için 1.000 RU/sn ve 2.500 RU/sn parçalı koleksiyon için geçiş için koleksiyonları aktarım hızınızı artırın. Daha yüksek aktarım hızı ile, hız sınırlamayı önleyebilir ve daha kısa sürede geçişi tamamlayabilirsiniz. Maliyetlerden tasarruf etmek için geçişten hemen sonra aktarım hızını düşürebilirsiniz.
+Gelen [Azure portalında](https://portal.azure.com), geçiş için koleksiyonları aktarım hızınızı artırın. Daha yüksek bir işleme hacmiyle oranı sınırlı tükenmesini önlersiniz ve daha kısa sürede geçirin. Maliyetlerden tasarruf etmek için geçişten hemen sonra aktarım hızını düşürebilirsiniz.
 
-Sağlama RU/sn ek olarak koleksiyon düzeyinde, ana veritabanı düzeyinde koleksiyonları kümesi için RU/sn sağlayabilirsiniz. Üst düzeyde veritabanı ve koleksiyon önceden oluşturma ve her bir koleksiyon için bir parça anahtarı tanımlayın.
+Koleksiyon düzeyinde sağlama aktarım hızına ek olarak, aktarım hızı için sağlanan aktarım hızına paylaşmak için koleksiyonları kümesi için veritabanı düzeyinde sağlayabilirsiniz. Veritabanı ve koleksiyon önceden oluşturma ve paylaşılan aktarım hızı veritabanında bir parça anahtarı için her bir koleksiyon tanımlamanız gerekir.
 
-Parçalı koleksiyonlar, tercih edilen araç, sürücü veya SDK kullanarak oluşturabilirsiniz. Bu örnekte, parçalı bir koleksiyon oluşturmak için Mongo Shell kullanacağız:
+Tercih edilen araç, sürücü ya da SDK kullanılarak parçalı koleksiyonlar oluşturabilirsiniz. Bu örnekte, parçalı bir koleksiyon oluşturmak için Mongo Shell kullanacağız:
 
 ```bash
 db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )
@@ -67,7 +67,7 @@ Komutu aşağıdaki sonuçları verir:
 
 #### <a name="calculate-the-approximate-ru-charge-for-a-single-document-write"></a>Bir tek belge yazma için yaklaşık RU Ücret hesaplama
 
-Azure Cosmos DB MongoDB API hesabınızda MongoDB Kabuğu'ndan bağlanın. [Azure Cosmos DB’ye MongoDB uygulaması bağlama](connect-mongodb-account.md) bölümünde yönergeleri bulabilirsiniz.
+MongoDB Kabuğu'ndan, MongoDB için Cosmos DB'nin API'sini kullanmak üzere yapılandırılmış Cosmos hesabınıza bağlanın. Yönergeleri bulabilirsiniz [bir Cosmos DB MongoDB uygulamasına bağlanma](connect-mongodb-account.md).
 
 Ardından, örnek belgelerinizi birini kullanarak örnek bir Ekle komutu çalıştırın:
    
@@ -92,7 +92,7 @@ globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
         
 İstek ücretini not edin.
     
-#### <a name="determine-the-latency-from-your-machine-to-the-azure-cosmos-db-cloud-service"></a>Azure Cosmos DB bulut hizmeti için makinenizden gecikme süresini belirleme
+#### <a name="determine-the-latency-from-your-machine-to-cosmos-db"></a>Cosmos DB'ye makinenizden gecikme süresini belirleme
     
 Komutu ile MongoDB Kabuğu'ndan ayrıntılı günlüğe yazmayı etkinleştir `setVerboseShell(true)`.
     
@@ -108,7 +108,7 @@ Geçiş işlemini çalıştırmadan önce yinelenen belge olmadığından emin o
 
 #### <a name="calculate-the-approximate-values-for-the-batchsize-and-numinsertionworkers-properties"></a>BatchSize ve numInsertionWorkers özelliklerinin yaklaşık değerleri hesaplama
 
-İçin **batchSize** özelliği, toplam RU, tek bir belge yazma izninden "makinenizden Azure Cosmos DB bulut hizmeti gecikme süresini belirler." bölümünde tamamlandı olarak tüketilen RU miktarı tarafından sağlanan Böl Hesaplanan değer 24'e eşit veya daha az ise, bu sayıyı özellik değeri olarak kullanın. Özellik değeri, hesaplanan değer 24'ten büyükse, 24'e ayarlayın.
+İçin **batchSize** özelliği, toplam sağlanan aktarım hızını (RU/sn) "cosmos DB, makinenizde gecikme süresini belirler." bölümünde tamamlandı olarak tek bir belge yazma için tüketilen RU miktarı tarafından Böl Hesaplanan değer 24'e eşit veya daha az ise, bu sayıyı özellik değeri olarak kullanın. Özellik değeri, hesaplanan değer 24'ten büyükse, 24'e ayarlayın.
     
 Değeri için **numInsertionWorkers** özelliği, bu eşitlik kullanın:
 
@@ -140,13 +140,13 @@ mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u co
 
 Geçiş için planladıktan sonra aşağıdaki adımları tamamlayın: 
 
-* **Örnek veri alma**: Geçişe başlamadan önce bazı örnek MongoDB verilerini olduğundan emin olun. Örnek MongoDB veritabanınız yoksa [MongoDB community server](https://www.mongodb.com/download-center) sürümünü indirip yükleyebilir, örnek bir veritabanı oluşturabilir ve örnek verileri mongoimport.exe veya mongorestore.exe ile karşıya yükleyebilirsiniz. 
+* **Örnek veri alma**: Geçişe başlamadan önce bazı örnek veriler olduğundan emin olun. 
 
-* **Üretilen iş hacmini artırmak**: Veri geçiş süresi, aktarım hızı, tek bir koleksiyon için ayarlama miktarı veya koleksiyonları kümesi göre değişir. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamlandıktan sonra maliyet tasarrufu için Aktarım azaltabilirsiniz. 
+* **Üretilen iş hacmini artırmak**: Veri geçişinizi süresi, bir tek bir koleksiyonu veya veritabanı için sağlama aktarım hızı miktarına bağlıdır. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamlandıktan sonra maliyet tasarrufu için Aktarım azaltabilirsiniz. 
 
-* **SSL'yi**: Azure Cosmos DB, katı güvenlik gereksinimleri ve standartları vardır. Hesabınız ile etkileşim kurarken SSL’yi etkinleştirdiğinizden emin olun. Bu makalede yer alan yordamları veya ve mongorestore komutlar için SSL'yi etkinleştirecek şekilde nasıl içerir.
+* **SSL'yi**:  Cosmos DB, katı güvenlik gereksinimleri ve standartları vardır. Cosmos hesabınızla etkileşim kurduğunuzda SSL'yi emin olun. Bu makalede yer alan yordamları veya ve mongorestore komutlar için SSL'yi etkinleştirecek şekilde nasıl içerir.
 
-* **Azure Cosmos DB kaynaklarını oluşturan**: Geçişe başlamadan önce tüm koleksiyonlarınız Azure portalından önceden oluşturun. Veritabanı düzeyinde aktarım hızına sahip bir Azure Cosmos DB hesabına geçirirseniz, Azure Cosmos DB koleksiyonları oluştururken bir bölüm anahtarı sağlamak emin olun.
+* **Cosmos DB kaynaklarını oluşturan**: Geçişe başlamadan önce tüm koleksiyonlarınız Azure portalından önceden oluşturun. Veritabanı düzeyinde sağlanan aktarım hızına sahip bir Cosmos hesabına geçirirseniz, koleksiyon oluştururken bir bölüm anahtarı sağlamak emin olun.
 
 * **Bağlantı dizenizi alma**: İçinde [Azure portalında](https://portal.azure.com)seçin **Azure Cosmos DB** soldaki girişi. Altında **abonelikleri**, hesabınızın adını seçin. Altında **bağlantı dizesi**seçin **bağlantı dizesi**. Portalın sağ tarafındaki bilgileri gösterir, hesabınıza bağlanmanız gerekir:
 
@@ -154,7 +154,7 @@ Geçiş için planladıktan sonra aşağıdaki adımları tamamlayın:
 
 ## <a name="use-mongoimport"></a>Veya kullanın
 
-Azure Cosmos DB hesabınıza verileri içeri aktarmak için, aşağıdaki şablonu kullanın.
+Verileri Cosmos hesabınızda içeri aktarmak için aşağıdaki şablonu kullanın.
 
 ```bash
 mongoimport.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file "C:\sample.json"
@@ -168,7 +168,7 @@ mongoimport.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u cos
 
 ## <a name="use-mongorestore"></a>Mongorestore kullanın
 
-MongoDB hesabı için API’nize verileri geri yüklemek için, içeri aktarmayı yürütmek üzere aşağıdaki şablonu kullanın.
+MongoDB için Cosmos DB API'si ile yapılandırılan Cosmos hesabınıza verileri geri yüklemek için alma işlemi yürütmek için aşağıdaki şablonu kullanın.
 
 ```bash
 mongorestore.exe --host <your_hostname>:10255 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
@@ -182,15 +182,15 @@ mongorestore.exe --host cosmosdb-mongodb-account.documents.azure.com:10255 -u co
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Kaynaklara artık ihtiyacınız olmadığında, kaynak grubu, Azure Cosmos DB hesabı ve tüm ilgili kaynakları silin. Kaynak grubunu silmek için aşağıdaki adımları kullanın:
+Kaynaklara artık ihtiyacınız olmadığında, kaynak grubunu, Cosmos hesabı ve tüm ilgili kaynakları silin. Kaynak grubunu silmek için aşağıdaki adımları kullanın:
 
-1. Azure Cosmos DB hesabı oluşturduğunuz kaynak grubuna gidin.
+1. Cosmos hesabı oluşturduğunuz kaynak grubuna gidin.
 1. **Kaynak grubunu sil**'i seçin.
 1. Silin ve kaynak grubu adını onaylayın **Sil**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-MongoDB verilerini Azure Cosmos DB kullanarak sorgulama hakkında bilgi edinmek için sonraki öğreticiye devam edin. 
+Azure Cosmos DB'nin MongoDB kullanarak veri sorgulama hakkında bilgi edinmek için sonraki öğreticiye devam edin. 
 
 > [!div class="nextstepaction"]
 > [MongoDB verilerini sorgulama](../cosmos-db/tutorial-query-mongodb.md)

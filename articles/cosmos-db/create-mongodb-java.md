@@ -1,23 +1,23 @@
 ---
-title: MongoDB API'si için Java ve Azure Cosmos DB ile bir konsol uygulaması oluşturma
-description: Bağlanmak ve Azure Cosmos DB MongoDB API'si için sorgulamak için kullanabileceğiniz bir Java kodu örneği sunar
+title: MongoDB ve Java SDK'sı için Azure Cosmos DB'nin API'sini kullanarak bir konsol uygulaması oluşturma
+description: Bağlanmak ve Azure Cosmos DB'nin MongoDB kullanarak sorgulamak için kullanabileceğiniz bir Java kodu örneği sunar.
 services: cosmos-db
-author: slyons
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quickstart
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/10/2017
-ms.author: sclyon
-ms.openlocfilehash: 106db77dbd884ea15e12ccfc49a8de7e6c3c1924
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 12/26/2017
+ms.author: rimman
+ms.openlocfilehash: 6a27958a38006d8ef81fab469bbf3c9d97e90a69
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717679"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793162"
 ---
-# <a name="build-a-console-app-with-java-and-the-azure-cosmos-db-for-mongodb-api"></a>MongoDB API'si için Java ve Azure Cosmos DB ile bir konsol uygulaması oluşturma
+# <a name="build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>MongoDB ve Java SDK'sı için Azure Cosmos DB'nin API'sini kullanarak bir web uygulaması derleme
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -28,9 +28,9 @@ ms.locfileid: "53717679"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Hızla oluşturun ve her biri genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz Cosmos DB belge, anahtar/değer ve grafik veritabanlarını sorgulama. 
 
-Bu hızlı başlangıçta nasıl oluşturulacağını gösterir. bir [Azure Cosmos DB MongoDB API'si için](mongodb-introduction.md) hesabını, belge veritabanı ve Azure portalını kullanarak bir koleksiyon. Bu adımların ardından [MongoDB Java sürücüsünü](https://docs.mongodb.com/ecosystem/drivers/java/) kullanarak bir konsol uygulaması derleyebilir ve çalıştırabilirsiniz. 
+Bu Hızlı Başlangıç ile bir Cosmos hesabının nasıl oluşturulacağını gösterir [Azure Cosmos DB'nin MongoDB API'si](mongodb-introduction.md). Daha sonra yapı ve bir konsol uygulaması kullanılarak oluşturulan [MongoDB Java sürücüsünü](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -137,9 +137,7 @@ Artık [Robomongo](mongodb-robomongo.md) / [Studio 3T](mongodb-mongochef.md) kul
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak koleksiyon oluşturmayı ve bir konsol uygulamasını çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz. 
+Bu hızlı başlangıçta, Cosmos hesabı oluşturma, bir koleksiyon oluşturun ve bir konsol uygulamasını çalıştırmayı öğrendiniz. Şimdi, Cosmos veritabanınıza ek veri aktarabilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB’ye MongoDB verileri aktarma](mongodb-migrate.md)
-
-

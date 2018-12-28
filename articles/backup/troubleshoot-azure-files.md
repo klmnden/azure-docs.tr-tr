@@ -8,36 +8,37 @@ ms.author: raynew
 ms.date: 10/23/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: faf229d67a5b4a7a15774d6e01af1c5706d18058
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.openlocfilehash: 4806ca77bda1d380d3c5f1d958a335bceddc7f16
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023160"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787452"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Azure Dosya Paylaşımlarını yedekleme sorunlarını giderme
 Aşağıdaki tablolarda listelenen bilgilerle Azure Dosya Paylaşımları yedeklemesi kullanılırken karşılaşılan sorunları ve hataları giderebilirsiniz.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Önizleme sırasında Azure dosya paylaşımı yedeklemesine yönelik sınırlamalar
-Azure Dosya paylaşımları için yedekleme, Önizleme aşamasındadır. Aşağıdaki yedekleme senaryoları, Azure dosya paylaşımları için desteklenmemektedir:
+Azure Dosya paylaşımları için yedekleme, Önizleme aşamasındadır. Azure dosya paylaşımlarını hem genel amaçlı v1 hem de genel amaçlı v2 depolama hesapları desteklenir. Aşağıdaki yedekleme senaryoları, Azure dosya paylaşımları için desteklenmemektedir:
 - [Okuma erişimli coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md) (RA-GRS) çoğaltması* ile Depolama Hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
 - Sanal Ağların veya Güvenlik Duvarının etkin olduğu depolama hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
-- Azure Backup kullanarak Azure Dosyalarını korumak için bir PowerShell veya CLI yoktur.
+- Azure Backup'ı kullanarak Azure dosyaları korumak için kullanılabilir hiçbir CLI yoktur.
 - Günlük zamanlanan maksimum yedekleme sayısı birdir.
 - Günlük zamanlanan maksimum istek üzerine yedekleme sayısı dörttür.
 - Kurtarma Hizmetleri kasanızdaki yedeklemelerin yanlışlıkla silinmesini önlemek için depolama hesabındaki [kaynak kilitlerini](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) kullanın.
 - Azure Backup tarafından oluşturulan anlık görüntülerin silmeyin. Anlık görüntülerin silinmesi, kurtarma noktalarının kaybolması ve/veya geri yükleme işlemlerinin başarısız olmasıyla sonuçlanabilir
+- Azure Backup tarafından korunan dosya paylaşımları silmeyin. Geçerli çözüm dosya paylaşımı silindiğinde, Azure Backup tarafından alınan tüm anlık görüntüleri silin ve bu nedenle tüm geri yükleme noktalarını kaybedersiniz.
 
 \*[Okuma erişimli coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md) (RA-GRS) çoğaltması ile Depolama Hesaplarında Azure Dosya Paylaşımları, GRS olarak çalışır ve GRS fiyatlarıyla faturalandırılır.
 
-[Bölgesel olarak yedekli depolama](../storage/common/storage-redundancy-zrs.md) (ZRS) çoğaltması ile Depolama Hesaplarında Azure Dosya Paylaşımları için yedekleme şu anda yalnızca Orta ABD (CUS), Doğu ABD 2 (EUS2), Kuzey Avrupa (NE), Güneydoğu Asya (SEA) ve Batı Avrupa (WE) bölgesinde kullanılabilir.
+İle depolama hesaplarında Azure dosya paylaşımları için Yedekleme [bölgesel olarak yedekli depolama](../storage/common/storage-redundancy-zrs.md) (ZRS) çoğaltma şu anda yalnızca orta ABD (CUS), Doğu ABD (EUS), Doğu ABD 2 (EUS2), Kuzey Avrupa (NE), Güneydoğu Asya (SEA), Batı Avrupa (WE) ve Batı ABD 2 (WUS2).
 
 ## <a name="configuring-backup"></a>Yedeklemeyi yapılandırma
 Aşağıdaki tablo, yedeklemenin yapılandırılmasına yöneliktir:
 
 | Yedeklemeyi yapılandırma | Geçici çözüm veya çözümleme ipuçları |
 | ------------------ | ----------------------------- |
-| Azure dosya paylaşımına yönelik yedeklemeyi yapılandırmak için Depolama Hesabımı bulamıyorum | <ul><li>Bulma işlemi tamamlanana kadar bekleyin. <li>Depolama hesabından herhangi bir Dosya paylaşımının zaten başka bir Kurtarma Hizmetleri kasası ile korunup korunmadığını denetleyin. **Not**: Bir Depolama Hesabındaki tüm dosya paylaşımları tek bir Kurtarma Hizmetleri kasası kapsamında korunabilir. <li>Desteklenmeyen herhangi bir Depolama Hesabında Dosya paylaşımının mevcut olmadığından emin olun.|
+| Azure dosya paylaşımına yönelik yedeklemeyi yapılandırmak için Depolama Hesabımı bulamıyorum | <ul><li>Bulma işlemi tamamlanana kadar bekleyin. <li>Depolama hesabından herhangi bir Dosya paylaşımının zaten başka bir Kurtarma Hizmetleri kasası ile korunup korunmadığını denetleyin. **Not**: Bir depolama hesabındaki tüm dosya paylaşımları tek altında kurtarma Hizmetleri kasası korunabilir. <li>Desteklenmeyen herhangi bir Depolama Hesabında Dosya paylaşımının mevcut olmadığından emin olun.|
 | Portal durumlarında hata oluştu. Depolama hesaplarını bulma işlemi başarısız oldu. | Aboneliğiniz iş ortağı hesabıysa (CSP etkin) hatayı yoksayın. Aboneliğinizde CSP etkin değilse ve depolama hesaplarınız bulunamıyorsa desteğe başvurun.|
 | Seçilen Depolama Hesabı doğrulaması veya kaydı başarısız oldu.| İşlemi yeniden deneyin, sorun devam ederse desteğe başvurun.|
 | Seçilen Depolama Hesabında Dosya paylaşımları listelenemedi veya bulunamadı. | <ul><li> Kaynak Grubunda Depolama Hesabının mevcut olduğundan (ve silinmediğinden veya kasadaki son doğrulamadan/kayıttan sonra taşınmadığından) emin olun.<li>Korumak istediğiniz Dosya paylaşımının silinmemiş olduğundan emin olun. <li>Depolama Hesabının, Dosya paylaşımı yedeklemesi için desteklenen bir depolama hesabı olduğundan emin olun.<li>Dosya paylaşımının, aynı Kurtarma Hizmetleri kasasında zaten korumalı olup olmadığını denetleyin.|

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd3229773b19b9f6c4d9ff76402f1841a4810bc7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52851137"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793079"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Amazon Web Services (AWS) sanal makinelerini Azure’a geçirme
 
@@ -113,7 +113,7 @@ Azure portalda kasanızın sayfasında, **Başlarken** bölümünden **Site Reco
 
 İşiniz bittiğinde, sonraki bölüme geçmek için **Tamam**’ı seçin.
 
-### <a name="2-prepare-source"></a>2: Kaynağı hazırlama
+### <a name="2-prepare-source"></a>2: Kaynağı hazırla
 
 **Kaynağı hazırla** sayfasında **+ Yapılandırma Sunucusu** seçeneğini belirleyin.
 
@@ -136,9 +136,9 @@ Azure portalda kasanızın sayfasında, **Başlarken** bölümünden **Site Reco
     11. **Yükleme İlerleme Durumu**, size yükleme süreci hakkında bilgiler gösterir. Tamamlandığında, **Bitir**’i seçin. Bir pencere sistemin yeniden başlatılması hakkında bir ileti görüntüler. **Tamam**’ı seçin. Ardından, bir pencere yapılandırma sunucusunun bağlantı parolası hakkında bir ileti görüntüler. Parolayı panonuza kopyalayın ve güvenli bir yere kaydedin.
 6. Sanal makinede, yapılandırma sunucusunda bir veya daha fazla yönetim hesabı oluşturmak için cspsconfigtool.exe dosyasını çalıştırın. Yönetim hesaplarının, geçirmek istediğiniz EC2 örneklerinde yönetici iznine sahip olduğundan emin olun.
 
-Yapılandırma sunucusunu ayarlama işiniz bittiğinde portala geri dönün, **Yapılandırma Sunucusu** için oluşturmuş olduğunuz sunucuyu seçin. 3. adım olan Hedef Hazırlama adımına ilerlemek için **Tamam**’u seçin.
+Yapılandırma sunucusunu ayarlama işiniz bittiğinde portala geri dönün, **Yapılandırma Sunucusu** için oluşturmuş olduğunuz sunucuyu seçin. Seçin **Tamam** 3'e gidin: Hedef hazırlayın.
 
-### <a name="3-prepare-target"></a>3: Hedef hazırlama
+### <a name="3-prepare-target"></a>3: Hedefi hazırla
 
 Bu bölümde, bu öğreticinin önceki kısımlarındaki [Azure kaynaklarını hazırlama](#prepare-azure-resources) bölümündeyken oluşturduğunuz kaynaklar hakkında bilgi girersiniz.
 
@@ -148,7 +148,7 @@ Bu bölümde, bu öğreticinin önceki kısımlarındaki [Azure kaynaklarını h
 4. İşiniz bittiğinde **Tamam**’ı seçin.
 
 
-### <a name="4-prepare-replication-settings"></a>4 Çoğaltma ayarlarını hazırlama
+### <a name="4-prepare-replication-settings"></a>4: Çoğaltma ayarlarını hazırlama
 
 Çoğaltmayı etkinleştirmek için önce bir çoğaltma ilkesi oluşturmanız gerekir.
 
@@ -156,7 +156,7 @@ Bu bölümde, bu öğreticinin önceki kısımlarındaki [Azure kaynaklarını h
 2. **Ad** bölümüne **myReplicationPolicy** yazın.
 3. Geri kalan varsayılan ayarları değiştirmeyin ve **Tamam**’ı seçerek ilkeyi oluşturun. Yeni ilke otomatik olarak yapılandırma sunucusu ile ilişkilendirilir.
 
-### <a name="5-select-deployment-planning"></a>5: Dağıtım planlamasını seçin
+### <a name="5-select-deployment-planning"></a>5: Dağıtım planlaması seçin
 
 **Dağıtım planlamasını tamamladınız mı?** bölümünde, **Daha sonra yapacağım**’ı seçin ve **Tamam**’ı seçin.
 
@@ -169,7 +169,7 @@ Geçirmek istediğiniz her sanal makine için çoğaltmayı etkinleştirin. Ço�
 
 1. [Azure Portal](htts://portal.azure.com) gidin.
 1. Kasanızın sayfasındaki **Başlarken** bölümünde **Site Recovery**’i seçin.
-2. **Şirket içi makineler ve Azure VM’ler için** bölümünde **1. Adım: Uygulamayı Çoğaltma**’yı seçin. Aşağıdaki bilgilerle sihirbazın sonraki sayfalarını tamamlayın. İşiniz bittiğinde her sayfada **Tamam**’ı seçin:
+2. Altında **şirket içi makineler ve Azure Vm'leri için**seçin **1. adım: Uygulama çoğaltma**. Aşağıdaki bilgilerle sihirbazın sonraki sayfalarını tamamlayın. İşiniz bittiğinde her sayfada **Tamam**’ı seçin:
     - 1: Kaynağı yapılandırma
 
     |  |  |
@@ -179,7 +179,7 @@ Geçirmek istediğiniz her sanal makine için çoğaltmayı etkinleştirin. Ço�
     |Makine türü: | **Fiziksel Makineler**’i seçin.|
     | İşlem sunucusu: | Açılır listeden yapılandırma sunucusunu seçin.|
 
-    - 2: Hedefi yapılandırma
+    - 2: Hedef yapılandırma
 
     |  |  |
     |-----|-----|
@@ -192,11 +192,11 @@ Geçirmek istediğiniz her sanal makine için çoğaltmayı etkinleştirin. Ço�
     | Yük devretme sonrası Azure ağı: | [Azure kaynaklarını hazırlama](#prepare-azure-resources) bölümünde oluşturduğunuz ağı seçin.|
     | Alt ağ: | Açılır listeden **varsayılan** seçeneğini belirleyin.|
 
-    - 3: Fiziksel makineleri seçme
+    - 3: Fiziksel makine seçin
 
       **Fiziksel makine** seçeneğini belirleyin ve ardından geçirmek istediğiniz EC2 örneğinin **Ad**, **IP Adresi** ve **İşletim Sistemi Türü** bilgilerini girin. **Tamam**’ı seçin.
 
-    - 4 Özellikleri yapılandırma
+    - 4: Özellikleri yapılandırma
 
       Yapılandırma sunucusunda oluşturduğunuz hesabı ve ardından **Tamam**’ı seçin.
 
@@ -222,9 +222,9 @@ Portalda yük devretme testini çalıştırın:
 
 1. Kasanızın sayfasında **Korumalı öğeler** > **Çoğaltılan Öğeler** bölümüne gidin. VM’yi ve ardından **Yük Devretme Testi**’ni seçin.
 2. Yük devretme için kullanılacak bir kurtarma noktası seçin:
-    - **En son işlenen**: VM yükü, Site Recovery tarafından işlenen en son kurtarma noktasına devredilir. Zaman damgası gösterilir. Bu seçenekle veri işlemeye zaman harcanmadığından düşük kurtarma süresi hedefi (RTO) elde edilir.
-    - **Uygulamayla tutarlı olan son**: Bu seçenek, tüm VM’lerin yükünü uygulamayla tutarlı olan en son kurtarma noktasına devreder. Zaman damgası gösterilir.
-    - **Özel**: Herhangi bir kurtarma noktası seçin.
+    - **En son işlenen**: VM'nin Site Recovery tarafından işlenen en son kurtarma noktasına devreder. Zaman damgası gösterilir. Bu seçenekle veri işlemeye zaman harcanmadığından düşük kurtarma süresi hedefi (RTO) elde edilir.
+    - **Uygulamayla tutarlı olan sonuncu**: Bu seçenek tüm sanal makineler en son uygulamayla tutarlı kurtarma noktasına devreder. Zaman damgası gösterilir.
+    - **Özel**: Herhangi bir kurtarma noktasını seçin.
 
 3. **Yük Devretme Testi** bölümünde, yük devretme gerçekleştikten sonra Azure VM’lerinin bağlanacağı hedef Azure ağını seçin. Bu, [Azure kaynaklarını hazırlama](#prepare-azure-resources) aşamasında oluşturduğunuz ağ olmalıdır.
 4. Yük devretmeyi başlatmak için **Tamam**'ı seçin. İlerleme durumunu izlemek için VM’yi seçip özelliklerini açın. Kasanızın sayfasında **Yük Devretme Testi**’ni de seçebilirsiniz. Bunu yapmak için **İzleme ve raporlar** > **İşler** >  **Site Recovery işleri**’ni seçin.

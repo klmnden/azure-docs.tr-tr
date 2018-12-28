@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 467484824ec3a3ceffb6dfa692953406ed6acc1b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: ec282bc1159e8a8cf21b88b8430bbf3067686528
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963330"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788640"
 ---
-# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Öğretici: Service Fabric Mesh uygulaması dağıtma
+# <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Öğretici: Bir Service Fabric Mesh uygulaması dağıtma
 
 Bir serinin üçüncü kısmı olan bu öğreticide doğrudan Visual Studio'dan bir Azure Service Fabric Mesh web uygulaması yayımlamayı öğreneceksiniz.
 
@@ -42,7 +42,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce:
 
@@ -113,10 +113,10 @@ Kalan adımlar için Azure Cloud Shell veya yerel bir Azure CLI yüklemesi kulla
 
 Bu noktada uygulamanız artık dağıtılmış durumdadır. `app show` komutunu kullanarak durumunu kontrol edebilirsiniz. 
 
-Öğretici uygulamasının adı `ServiceMeshApp` olacaktır. Aşağıdaki komutla uygulama hakkında ayrıntılı bilgilere ulaşabilirsiniz:
+Öğretici uygulamasının adı `todolistapp` olacaktır. Aşağıdaki komutla uygulama hakkında ayrıntılı bilgilere ulaşabilirsiniz:
 
 ```azurecli-interactive
-az mesh app show --resource-group $rg --name ServiceMeshApp
+az mesh app show --resource-group $rg --name todolistapp
 ```
 
 ## <a name="see-all-applications-currently-deployed-to-your-subscription"></a>Aboneliğinize dağıtılmış olan tüm uygulamaları görme

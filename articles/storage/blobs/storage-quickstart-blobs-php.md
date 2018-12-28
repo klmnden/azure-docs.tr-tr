@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 6ecb87af9cc75898aa8734b329dce01f70511a27
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 58d1d47b548569f7542e24bd09a41299f12e496e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712917"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787894"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>PHP kullanarak nesneleri Azure Blob depolama içine/dışına aktarma
 Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için PHP'yi nasıl kullanabileceğinizi öğreneceksiniz. 
@@ -43,14 +43,14 @@ Bu komut, depoyu yerel Git klasörünüze kopyalar. Örnek PHP uygulamasını in
 ## <a name="configure-your-storage-connection-string"></a>Depolama bağlantı dizelerinizi yapılandırma
 Uygulamada, uygulamanız için **BlobRestProxy** örneği oluşturmak amacıyla depolama hesabı adınızı ve hesap anahtarınızı sağlamanız gerekir. Bu tanımlayıcıları uygulamayı çalıştıran yerel makine üzerindeki bir ortam değişkeninde depolamanız önerilir. Ortam değişkenini oluşturmak için İşletim Sisteminize bağlı olarak aşağıdaki örneklerden birini kullanın. **youraccountname** ve **accountkey** değerlerini, hesap adınız ve anahtarınızla değiştirin.
 
-# <a name="linux-tablinux"></a>[Linux] (#sekme/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
 export ACCOUNT_NAME=<youraccountname>
 export ACCOUNT_KEY=<youraccountkey>
 ```
 
-# <a name="windows-tabwindows"></a>[Windows] (#sekme/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```cmd
 setx ACCOUNT_NAME=<youraccountname>

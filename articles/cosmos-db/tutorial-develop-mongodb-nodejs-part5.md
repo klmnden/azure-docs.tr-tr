@@ -1,32 +1,32 @@
 ---
-title: "Öğretici: (Bölüm 5) - kullanımı Azure Cosmos DB'ye bağlanmak için Mongoose MongoDB API hesabı depolanan verileri yönetmek için bir Node.js uygulaması oluşturma"
+title: MongoDB - kullanım Cosmos DB'ye bağlanmak için Mongoose için Azure Cosmos DB API'si ile Angular uygulama oluşturma
 titleSuffix: Azure Cosmos DB
-description: Bu öğreticide MongoDB API hesabı depolanan verileri yönetmek için Angular ve Express kullanarak bir Node.js uygulaması oluşturma işlemini açıklamaktadır. Bu bölümünde Azure Cosmos DB'ye bağlanmak için Mongoose kullanma.
+description: Bu öğreticide, Cosmos DB'de depolanan verileri yönetmek için Angular ve Express kullanarak bir Node.js uygulaması oluşturma işlemini açıklamaktadır. Bu bölümünde Azure Cosmos DB'ye bağlanmak için Mongoose kullanma.
 author: johnpapa
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in a MongoDB API account of Azure Cosmos DB.
-ms.openlocfilehash: 714ba7360b500a76eba9ab7694ab9a2e54d697e9
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
+ms.openlocfilehash: 03b1f1d5fa1320f08059ed755f6f4f7d1c08d35e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752648"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793710"
 ---
-# <a name="tutorial-build-a-nodejs-application-to-manage-the-data-stored-in-a-mongodb-api-account-part-5---use-mongoose-to-connect-to-azure-cosmos-db"></a>Öğretici: (Bölüm 5) - kullanımı Azure Cosmos DB'ye bağlanmak için Mongoose MongoDB API hesabı depolanan verileri yönetmek için bir Node.js uygulaması oluşturma
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>MongoDB - kullanım Cosmos DB'ye bağlanmak için Mongoose için Azure Cosmos DB API'si ile Angular uygulama oluşturma
 
-Bir geliştirici olarak, NoSQL belge verileri kullanan uygulamalar olabilir. Azure Cosmos DB MongoDB API hesabı, depolamak ve bu belge verilere erişmek için kullanabilirsiniz. Azure Cosmos DB MongoDB API hesabı depolanan verileri yönetmek için bir Node.js uygulaması oluşturabilirsiniz. Bu çok bölümlü öğretici, Express ve Angular ile Node.js uygulaması oluşturma ve buna bağlanmak gösterilmiştir bir [Azure Cosmos DB MongoDB API](mongodb-introduction.md) hesabı. Bu makalede öğreticinin 5. bölüm ve yapılar [bölüm 4](tutorial-develop-mongodb-nodejs-part4.md).
+Bu çok bölümlü öğretici, Express ve Angular ile Node.js uygulaması oluşturma ve buna bağlanmak gösterilmektedir, [MongoDB için Cosmos DB API'si ile yapılandırılan Cosmos hesabı](mongodb-introduction.md). Bu makalede öğreticinin 5. bölüm ve yapılar [bölüm 4](tutorial-develop-mongodb-nodejs-part4.md).
 
 Öğreticinin bu bölümünde şunları yapacaksınız:
 
 > [!div class="checklist"]
-> * Azure Cosmos DB'ye bağlanmak için Mongoose kullanma.
-> * Azure Cosmos DB bağlantı dizenizi alın.
+> * Cosmos DB'ye bağlanmak için Mongoose kullanma.
+> * Cosmos DB bağlantı dizenizi alın.
 > * Hero modelini oluşturun.
 > * Hero verilerini almak için Hero hizmetini oluşturma.
 > * Uygulamayı yerel olarak çalıştırın.

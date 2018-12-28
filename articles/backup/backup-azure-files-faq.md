@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 9ef3525d7867d0ef01b6f17035039d4a4e6def93
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 51952196bd2c44ba79e96266436860106a0753c4
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874580"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793521"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Dosyalarını yedekleme ile ilgili sorular
 Bu makale, Azure Dosyalarını yedekleme hakkındaki yaygın sorulara yanıtlar sunar. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -39,31 +39,34 @@ Evet. Ancak bağlanan Kasadan [Korumayı Durdurmanız](backup-azure-files.md#sto
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Azure Dosya paylaşımlarını hangi bölgelerde yedekleyebilirim? <br/>
 Azure Dosya paylaşımları için yedekleme şu anda Önizleme aşamasındadır ve yalnızca aşağıdaki bölgelerde kullanılabilir: 
--   Avustralya Doğu (AE) 
+- Avustralya Doğu (AE) 
 - Avustralya Güneydoğu (ASE) 
 - Brezilya Güney (BRS)
 - Kanada Orta (CNC)
--   Kanada Doğu (CE)
--   Orta ABD (CUS)
--   Doğu Asya (EA)
--   Doğu ABD (EUS)
--   Doğu ABD 2 (EUS2)
+- Kanada Doğu (CE)
+- Orta ABD (CUS)
+- Doğu Asya (EA)
+- Doğu ABD (EUS)
+- Doğu ABD 2 (EUS2)
 - Japonya Doğu (JPE)
 - Japonya Batı (JPW)
--   Hindistan Orta (INC) 
+- Hindistan Orta (INC) 
 - Hindistan Güney (INS)
 - Kore Orta (KRC)
 - Kore Güney (KRS)
--   Orta Kuzey ABD (NCUS) 
--   Kuzey Avrupa (NE) 
--   Orta Güney ABD (SCUS) 
--   Güneydoğu Asya (SEA)
--   UK Güney (UKS) 
--   UK Batı (UKW) 
--   Batı Avrupa (WE) 
--   Batı ABD (WUS)
--   Batı Orta ABD (WCUS)
--   Batı ABD 2 (WUS 2)
+- Orta Kuzey ABD (NCUS) 
+- Kuzey Avrupa (NE) 
+- Orta Güney ABD (SCUS) 
+- Güneydoğu Asya (SEA)
+- UK Güney (UKS) 
+- UK Batı (UKW) 
+- Batı Avrupa (WE) 
+- Batı ABD (WUS)
+- Batı Orta ABD (WCUS)
+- Batı ABD 2 (WUS 2)
+- ABD Devleti Arizona (UGA)
+- ABD Devleti Texas (UGT)
+- ABD Devleti Virginia (UGV)
 
 Yukarıda belirtilmeyen bir bölgede kullanmanız gerekiyorsa [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com) adresine yazın.
 

@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 94a3282451a0efcc9209c4aac3d316e40560495f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 13003f671e479217d73d1c611be36987b3bda7bc
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972142"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793595"
 ---
 # <a name="back-up-azure-file-shares"></a>Azure dosya paylaşımlarını yedekleme
 Bu makalede, Azure portalını kullanarak [Azure dosya paylaşımlarını](../storage/files/storage-files-introduction.md) yedekleme ve geri yükleme işlemlerinin nasıl yapılacağı açıklanmaktadır.
@@ -34,7 +34,7 @@ Azure dosya paylaşımını yedekleyebilmeniz için önce [desteklenen Depolama 
 Azure Dosya paylaşımları için yedekleme, Önizleme aşamasındadır. Azure dosya paylaşımlarını hem genel amaçlı v1 hem de genel amaçlı v2 depolama hesapları desteklenir. Aşağıdaki yedekleme senaryoları, Azure dosya paylaşımları için desteklenmemektedir:
 - [Okuma erişimli coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md) (RA-GRS) çoğaltması* ile Depolama Hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
 - Sanal Ağların veya Güvenlik Duvarının etkin olduğu depolama hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
-- Azure Backup kullanarak Azure Dosyalarını korumak için bir PowerShell veya CLI yoktur.
+- Azure Backup'ı kullanarak Azure dosyaları korumak için kullanılabilir hiçbir CLI yoktur.
 - Günlük zamanlanan maksimum yedekleme sayısı birdir.
 - Günlük zamanlanan maksimum istek üzerine yedekleme sayısı dörttür.
 - Kurtarma Hizmetleri kasanızdaki yedeklemelerin yanlışlıkla silinmesini önlemek için depolama hesabındaki [kaynak kilitlerini](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) kullanın.
