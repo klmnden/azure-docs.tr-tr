@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: f3c1d42aa4591c679a67fd86bd13e8e714150233
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 6f2fb29e705edde24d6f54faafd17b580ae131b5
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791600"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Öğretici: Müşteri için SAP Cloud ile Azure Active Directory Tümleştirme
 
@@ -78,8 +78,8 @@ Yapılandırma ve Azure AD çoklu oturum açma SAP bulut ile müşteri için tes
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[SAP Cloud müşteri çoklu oturum açma için yapılandırma](#configure-sap-cloud-for-customer-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Müşteri test kullanıcısı için SAP Cloud oluşturma](#create-sap-cloud-for-customer-test-user)**  - kullanıcı Azure AD gösterimini bağlı müşteri için SAP bulutta Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Müşteri test kullanıcısı için SAP Cloud oluşturma](#create-sap-cloud-for-customer-test-user)**  - kullanıcı Azure AD gösterimini bağlı müşteri için SAP bulutta Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın

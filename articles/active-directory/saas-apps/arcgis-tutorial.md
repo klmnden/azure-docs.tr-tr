@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: fd850cd39522d49cdce955712eaaa76d65279af8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 1acb32b7001ef5d37a3c52d65563fc0627ec3643
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788761"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>Öğretici: Arcgıs Online ile Azure Active Directory Tümleştirmesi
 
@@ -45,10 +45,6 @@ Azure AD tümleştirmesi Arcgıs Online ile yapılandırmak için aşağıdaki �
 Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
 * Arcgıs Online destekler **SP** tarafından başlatılan
-
-
-
-
 
 ## <a name="adding-arcgis-online-from-the-gallery"></a>Arcgıs Online galeri ekleme
 
@@ -82,8 +78,8 @@ Yapılandırma ve Azure AD çoklu oturum açma Arcgıs Online ile test etmek iç
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Arcgıs Online çoklu oturum açmayı yapılandırma](#configure-arcgis-online-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Arcgıs Online test kullanıcısı oluşturma](#create-arcgis-online-test-user)**  - Arcgıs kullanıcı Azure AD gösterimini bağlı olan çevrimiçi bir karşılığı Britta simon'un sağlamak için.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Arcgıs Online test kullanıcısı oluşturma](#create-arcgis-online-test-user)**  - Arcgıs kullanıcı Azure AD gösterimini bağlı olan çevrimiçi bir karşılığı Britta simon'un sağlamak için.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın

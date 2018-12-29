@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 4ea8901db71176c0b4d378131ca2f351897e45eb
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 517c92336b8c5c6827717d4c2287c41eaaa14b55
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789441"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810548"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Öğretici: Atlassian bulut ile Azure Active Directory Tümleştirme
 
@@ -78,8 +78,8 @@ Yapılandırma ve Azure AD çoklu oturum açma Atlassian Bulutu ile test etmek i
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Atlassian bulut çoklu oturum açmayı yapılandırma](#configure-atlassian-cloud-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Atlassian bulut test kullanıcısı oluşturma](#create-atlassian-cloud-test-user)**  - kullanıcı Azure AD gösterimini bağlı Atlassian bulutta Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Atlassian bulut test kullanıcısı oluşturma](#create-atlassian-cloud-test-user)**  - kullanıcı Azure AD gösterimini bağlı Atlassian bulutta Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: bcd902445cd779c27c8bc33a92ace44b36605177
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: b19866ad560dcb056f1cfad8fbc1918930bd143d
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791092"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811554"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Hızlı Başlangıç: Apache Hadoop ve Apache Hive, Azure portalını kullanarak Azure HDInsight ile çalışmaya başlama
 
@@ -92,7 +92,7 @@ Bu bölümde, Azure portalını kullanarak HDInsight’ta Hadoop kümesi oluştu
 
 4. Küme oluşturulduktan sonra, Azure portalında kümeye genel bakış sayfasını görürsünüz.
    
-    ![HDInsight - Linux - başlarken - küme ayarları](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight küme özellikleri")    
+    ![HDInsight - Linux - başlarken - küme ayarları](./media/apache-hadoop-linux-create-cluster-get-started-portal/hdinsight-linux-get-started-cluster-settings.png "HDInsight küme özellikleri")    
     
     Her kümenin bir [Azure Depolama hesabı](../hdinsight-hadoop-use-blob-storage.md) veya [Azure Data Lake hesabı](../hdinsight-hadoop-use-data-lake-store.md) bağımlılığı vardır. Bu genellikle varsayılan depolama hesabı olarak ifade edilir. HDInsight kümesi ve kümenin varsayılan depolama hesabının aynı Azure bölgesinde bulunması gerekir. Kümeleri silmek depolama hesabını silmez.
 

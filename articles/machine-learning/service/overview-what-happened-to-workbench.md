@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 614c4b9f8cb6b748385d86d20cbec15928642d30
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: ff6b61874363bbc869bd509174e58640a2487f56
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753311"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811316"
 ---
 # <a name="whats-happening-to-machine-learning-workbench-in-azure-machine-learning-service"></a>Machine Learning Workbench'i Azure Machine Learning hizmetinde neler oluyor?
 
@@ -78,7 +78,7 @@ Hiçbir kodu veya çalışmayı kaybetmeyeceksiniz. Eski sürümde projeler yere
 
 Proje içeriğin yerel makinenizde zaten oluştu. Bu nedenle bu dizinde bir yapılandırma dosyası oluşturma ve kod, çalışma alanına bağlamak için referans yeterlidir. Bilgi edinmek için nasıl [mevcut projelerinizi geçirmenin](how-to-migrate.md#projects).
 
-Bilgi edinmek için nasıl [Python ana SDK'sı ile çalışmaya başlama](quickstart-get-started.md).
+Kullanmaya başlamak öğrenin [ana SDK'sı Python](quickstart-create-workspace-with-python.md) veya bu adı kullanıyor [Azure portalında](quickstart-get-started.md).
 
 ## <a name="what-about-my-registered-models-and-images"></a>My kayıtlı modelleri ve görüntüleri hakkında neler diyeceksiniz?
  

@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 80cc1d06285ff35b8b334630cd8ec129799d6b10
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788166"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810704"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Şirket içi Hyper-V sanal makineleri için Azure’da olağanüstü durum kurtarma ayarlama
 
@@ -81,8 +81,24 @@ Kaynak ortamını ayarlamak için bir Hyper-V sitesi oluşturun ve siteye Hyper-
 5. **Proxy Ayarları** bölümünde **Proxy sunucusu olmadan doğrudan Azure Site Recovery hizmetine bağlan** seçeneğini belirleyin.
 6. **Kayıt** bölümünde, Sunucu kasaya kaydedildikten sonra **Son**’a tıklayın.
 
-Hyper-V sunucusundaki meta veriler, Azure Site Recovery tarafından alınır ve **Site Recovery Altyapısı** > **Hyper-V Konakları** bölümünde sunucu görüntülenir. Bu işlemin tamamlanması 30 dakika sürebilir.
+Hyper-V sunucusundaki meta veriler, Azure Site Recovery tarafından alınır ve **Site Recovery Altyapısı** > **Hyper-V Konakları** bölümünde sunucu görüntülenir. Bu işlemin tamamlanması 30 dakika sürebilir.        
 
+Bir Hyper-V çekirdeği sunucusu kullandığınız durumda izleyin aşağıda belirtildiği gibi sağlayıcısını ve kasa kimlik bilgilerini indirme sonra adımları [burada](#set-up-the-source-environment)
+
+1. Çalıştırarak AzureSiteRecoveryProvider.exe dosyaları ayıklayın
+
+    ``AzureSiteRecoveryProvider.exe /x:. /q``
+ 
+    Bu yerel dizin dosyalarını ayıklar.
+ 
+2.  ``.\setupdr.exe /i `` öğesini çalıştırın
+
+    Sonuçları %Programdata%\ASRLogs\DRASetupWizard.log için günlüğe kaydedilir
+
+3.  Komutunu kullanarak sunucuyu kaydedin:
+
+``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+ 
 
 ## <a name="set-up-the-target-environment"></a>Hedef ortamı ayarlama
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: eb414a84a56d60135873b7a81a26d4d8e00f4ac0
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5ecb26a7ca0f164c2ba8d9a9de26bf19777653a0
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794456"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Öğretici: Qlik algılama Enterprise ile Azure Active Directory Tümleştirmesi
 
@@ -78,8 +78,8 @@ Yapılandırma ve Azure AD çoklu oturum açma Qlik algılama Enterprise ile tes
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Qlik anlamda Kurumsal çoklu oturum açmayı yapılandırma](#configure-qlik-sense-enterprise-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Qlik anlamda Kurumsal test kullanıcısı oluşturma](#create-qlik-sense-enterprise-test-user)**  - Qlik algılama kuruluşta, kullanıcının Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Qlik anlamda Kurumsal test kullanıcısı oluşturma](#create-qlik-sense-enterprise-test-user)**  - Qlik algılama kuruluşta, kullanıcının Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -107,7 +107,6 @@ Azure AD çoklu oturum açma Qlik algılama Enterprise ile yapılandırmak için
     a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
 
     b. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak:
-    
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|

@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 96c4597c1031257eca329d0247c36f5d60456fe9
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 14c500d77cc0e67aaade5e6be490f599f39bfad5
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582652"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807729"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için Azure portalını kullanma
 
@@ -71,7 +71,7 @@ Azure not defterleri, Machine Learning çalıştırmak için gereken her şeyi i
 
 Oturum açabilmeniz için kuruluşunuzda [yönetici onayı](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) gerekli olabilir.
 
-Siz oturum açtıktan sonra, yeni bir sekme açılır ve `Clone Library` istemi görüntülenir. `Clone` öğesini seçin.
+Azure not defterleri Azure portalında oturum açmak için kullanılan hesap ile oturum açın.  Siz oturum açtıktan sonra, yeni bir sekme açılır ve `Clone Library` istemi görüntülenir. `Clone` öğesini seçin.
 
 
 ### <a name="run-the-notebook"></a>Not defterini çalıştırma

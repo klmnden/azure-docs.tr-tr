@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: c11afc6381db8d3eecf46c74a9e2bf41e10136e5
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e30ede3e69711fefcf5026202ed7b004d00cb02e
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788324"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810823"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Öğretici: Jamf Pro ile Azure Active Directory Tümleştirme
 
@@ -78,8 +78,8 @@ Yapılandırma ve Azure AD çoklu oturum açma Jamf Pro ile test etmek için aş
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Jamf Pro çoklu oturum açmayı yapılandırma](#configure-jamf-pro-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Jamf Pro test kullanıcısı oluşturma](#create-jamf-pro-test-user)**  - Jamf Pro'da kullanıcı Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Jamf Pro test kullanıcısı oluşturma](#create-jamf-pro-test-user)**  - Jamf Pro'da kullanıcı Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
@@ -117,7 +117,7 @@ Azure AD çoklu oturum açma Jamf Pro ile yapılandırmak için aşağıdaki ad�
     > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Gerçek tanımlayıcı değerini alırsınız **çoklu oturum açma** bölümünde Jamf Pro portal, öğreticinin ilerleyen bölümlerinde açıklanmıştır. Gerçek ayıklayabilir **alt etki alanı** değer tanımlayıcısı değeri ve kullanan **alt etki alanı** bilgileri oturum açma URL'si ve yanıt URL'si. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
+6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
 
     ![Sertifika indirme bağlantısı](common/copy-metadataurl.png)
 

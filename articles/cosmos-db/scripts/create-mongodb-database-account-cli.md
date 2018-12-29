@@ -1,22 +1,22 @@
 ---
-title: Azure CLI betiği-oluşturma Azure Cosmos DB MongoDB API hesabı, veritabanı ve koleksiyonu
-description: Azure CLI betik örneği - bir Azure Cosmos DB MongoDB API hesabı, veritabanı ve koleksiyonu oluşturma
+title: Azure CLI betiği-Cosmos hesap oluşturma Azure Cosmos DB'nin MongoDB API'si ile
+description: Azure CLI betik örneği - bir Cosmos hesabı, MongoDB için Azure Cosmos DB API'si ile oluşturma
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/26/2018
-ms.openlocfilehash: ff211658b88d8df9120e881f13d83584123f1b74
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: f37c47470553110c9003d54a1783d7db0dc94e6a
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714075"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808766"
 ---
-# <a name="create-an-azure-cosmos-db-account-for-mongodb-api-using-azure-cli"></a>Azure CLI kullanarak MongoDB API'si için bir Azure Cosmos DB hesabı oluşturma
+# <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Azure Cosmos DB hesabı, Azure CLI kullanarak MongoDB için Azure Cosmos DB API'si ile oluşturma
 
-Bu örnek CLI betiği, bir Azure Cosmos DB MongoDB API hesabı, veritabanı ve koleksiyonu oluşturur.
+Bu örnek CLI betiği, MongoDB için Azure Cosmos DB API'si ile Cosmos hesabı oluşturur.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -24,7 +24,7 @@ CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.
 
 ## <a name="sample-script"></a>Örnek betik
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh "Create an Azure Cosmos DB for MongoDB API account, database, and collection.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh "Create a Cosmos account with Azure Cosmos DB's API for MongoDB - account, database, and collection.")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e9956ad119865396a5e3842e3d5975c532aa8ee
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 928205627ee971958fd2d98ad2c3cb91d9b491cc
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791209"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808511"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-concur"></a>Öğretici: Concur ile Azure Active Directory Tümleştirme
 
@@ -79,8 +79,8 @@ Yapılandırma ve Azure AD çoklu oturum açma Concur ile test etmek için aşa�
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Concur çoklu oturum açmayı yapılandırma](#configure-concur-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Concur test kullanıcısı oluşturma](#create-concur-test-user)**  - kullanıcı Azure AD gösterimini bağlı Concur Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Concur test kullanıcısı oluşturma](#create-concur-test-user)**  - kullanıcı Azure AD gösterimini bağlı Concur Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın

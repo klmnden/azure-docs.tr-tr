@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 0dd91fb26777815844bdff5aba033a4bbeac4496
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 188405d110b164d2c83a2a25d0c8705cba04a9e3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794405"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Öğretici: Azure Active Directory Tümleştirmesi kutusu
 
@@ -80,8 +80,8 @@ Yapılandırma ve Azure AD çoklu oturum açma kutusu test etmek için aşağıd
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Kutusu çoklu oturum açmayı yapılandırma](#configure-box-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
 3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-4. **[Kutusunu test kullanıcısı oluşturma](#create-box-test-user)**  - kullanıcı Azure AD gösterimini bağlı kutusunda Britta simon'un bir karşılığı vardır.
-5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Kutusunu test kullanıcısı oluşturma](#create-box-test-user)**  - kullanıcı Azure AD gösterimini bağlı kutusunda Britta simon'un bir karşılığı vardır.
 6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
