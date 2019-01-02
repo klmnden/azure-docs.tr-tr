@@ -22,7 +22,7 @@ ms.lasthandoff: 07/11/2018
 ms.locfileid: "38668036"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>İşlem hatları ve etkinlikler Azure Data factory'de
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
 > * [Sürüm 1](data-factory-create-pipelines.md)
 > * [Sürüm 2 (geçerli sürüm)](../concepts-pipelines-activities.md)
 
