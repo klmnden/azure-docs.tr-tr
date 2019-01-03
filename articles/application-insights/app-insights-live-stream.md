@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 097eae37f170a8036ee46652450788faf77c3960
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b44903244147f556e620e9726f6e9884b12ac8a8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967138"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976537"
 ---
-# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümler Stream: İzleme ve tanılama 1 saniyelik gecikme süresi
+# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümleri Stream: İzleme ve tanılama 1 saniyelik gecikme süresi
 
-Gelen Canlı ölçümleri Stream kullanarak canlı, üretimde web uygulamanızın beating Kalp araştırma [Application Insights](app-insights-overview.md). Seçin ve hizmetinize herhangi Ayaklanma olmadan gerçek zamanlı olarak izlemek için Ölçümler ve performans sayaçlarını filtreleyin. Yığın izlemelerinden örnek başarısız istekler ve özel durumları inceleyin. İle birlikte [Profiler](app-insights-profiler.md), [anlık görüntü hata ayıklayıcısı](app-insights-snapshot-debugger.md), ve [performans testi](app-insights-monitor-web-app-availability.md#performance-tests), Canlı ölçümleri Stream, canlı web için güçlü ve bozucu bir tanılama aracı sağlar Site.
+Gelen Canlı ölçümleri Stream kullanarak canlı, üretimde web uygulamanızın beating Kalp araştırma [Application Insights](app-insights-overview.md). Seçin ve hizmetinize herhangi Ayaklanma olmadan gerçek zamanlı olarak izlemek için Ölçümler ve performans sayaçlarını filtreleyin. Yığın izlemelerinden örnek başarısız istekler ve özel durumları inceleyin. İle birlikte [Profiler](app-insights-profiler.md), [anlık görüntü hata ayıklayıcısı](app-insights-snapshot-debugger.md), ve [performans testi](../azure-monitor/app/monitor-web-app-availability.md#performance-tests), Canlı ölçümleri Stream, canlı web için güçlü ve bozucu bir tanılama aracı sağlar Site.
 
 Canlı ölçümler Stream ile şunları yapabilirsiniz:
 
@@ -38,7 +38,7 @@ Canlı ölçümler Stream ile şunları yapabilirsiniz:
 
 ## <a name="get-started"></a>başlarken
 
-1. Henüz yapmadıysanız [Application Insights yüklü](app-insights-asp-net.md) ASP.NET web uygulamanızda veya [Windows server uygulamasını](app-insights-windows-services.md), bunu şimdi yapın. 
+1. Henüz yapmadıysanız [Application Insights yüklü](../azure-monitor/app/asp-net.md) ASP.NET web uygulamanızda veya [Windows server uygulamasını](app-insights-windows-services.md), bunu şimdi yapın. 
 2. **En son sürüme güncelleştirme** Application Insights paketi. Visual Studio'da, projenize sağ tıklayıp seçin **Nuget paketlerini Yönet**. Açık **güncelleştirmeleri** sekmesinde, onay **ön sürümü dahil et**ve tüm Microsoft.ApplicationInsights.* paketleri seçin.
 
     Uygulamanızı yeniden dağıtın.
@@ -52,7 +52,7 @@ Canlı ölçümler Stream ile şunları yapabilirsiniz:
 
 ### <a name="no-data-check-your-server-firewall"></a>Veri yok mu? Sunucu güvenlik duvarınızdan denetleyin
 
-Denetleme [Canlı ölçümleri Stream için giden bağlantı noktalarının](app-insights-ip-addresses.md#outgoing-ports) sunucularınızı Güvenlik Duvarı'nda açıktır. 
+Denetleme [Canlı ölçümleri Stream için giden bağlantı noktalarının](../azure-monitor/app/ip-addresses.md#outgoing-ports) sunucularınızı Güvenlik Duvarı'nda açıktır. 
 
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>Canlı ölçümler Stream ölçüm Gezgini ve analiz farkı nedir?
@@ -60,10 +60,10 @@ Denetleme [Canlı ölçümleri Stream için giden bağlantı noktalarının](app
 | |Canlı Akış | Ölçüm Gezgini ve analiz |
 |---|---|---|
 |Gecikme süresi|Bir saniye içinde görüntülenen verileri|Dakika boyunca toplanır.|
-|Hiçbir bekletme|Grafik üzerinde olduğundan ve ardından atılır ancak veri devam ettirir.|[Veriler 90 gün boyunca saklanır.](app-insights-data-retention-privacy.md#how-long-is-the-data-kept)|
+|Hiçbir bekletme|Grafik üzerinde olduğundan ve ardından atılır ancak veri devam ettirir.|[Veriler 90 gün boyunca saklanır.](../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |İsteğe bağlı|Canlı ölçümler açarken veriler akışla|SDK'ın yüklü ve etkin olduğunda, veriler gönderilir|
 |Ücretsiz|Canlı Stream veri için ücret alınmaz|Konusu [fiyatlandırması](app-insights-pricing.md)
-|Örnekleme|Tüm seçili ölçümlerini ve sayaçlarını aktarılır. Hataları ve Yığın izlemeleri örneklenir. TelemetryProcessors uygulanmaz.|Olayları olabilir [örneklenir](app-insights-api-filtering-sampling.md)|
+|Örnekleme|Tüm seçili ölçümlerini ve sayaçlarını aktarılır. Hataları ve Yığın izlemeleri örneklenir. TelemetryProcessors uygulanmaz.|Olayları olabilir [örneklenir](../azure-monitor/app/api-filtering-sampling.md)|
 |Denetim kanalı|Filtre denetimi sinyalleri için SDK'sı gönderilir. Öneririz [güvenli bu kanal](#secure-channel).|Portala tek yönlü iletişim|
 
 
@@ -75,7 +75,7 @@ Portaldan herhangi bir Application Insights telemetri üzerinde isteğe bağlı 
 
 ![Özel bir istek KPI](./media/app-insights-live-stream/live-stream-filteredMetric.png)
 
-Bir değer sayısından farklı izleyebilirsiniz. Seçenekler herhangi bir Application Insights telemetri olabilecek akışın türüne bağlıdır: istekleri, bağımlılıkları, özel durumlar, izlemeler, olaylar veya ölçümleri. Kendi olabilir [özel ölçüm](app-insights-api-custom-events-metrics.md#properties):
+Bir değer sayısından farklı izleyebilirsiniz. Seçenekler herhangi bir Application Insights telemetri olabilecek akışın türüne bağlıdır: istekleri, bağımlılıkları, özel durumlar, izlemeler, olaylar veya ölçümleri. Kendi olabilir [özel ölçüm](../azure-monitor/app/api-custom-events-metrics.md#properties):
 
 ![Değer seçenekleri](./media/app-insights-live-stream/live-stream-valueoptions.png)
 
@@ -92,7 +92,7 @@ Varsayılan olarak, canlı akış olayları başarısız istekler ve bağımlıl
 
 ![Özel bir canlı akışı](./media/app-insights-live-stream/live-stream-events.png)
 
-Not: Özel durum iletisi tabanlı ölçüt için en dıştaki özel durum iletisi şu anda kullanın. İç özel durum iletisi zararsız özel durumla filtrelemek için önceki örnekte (aşağıdaki "<--" sınırlayıcı) "istemci bağlantısı kesildi." bir ileti kullanın değil-"İstek içeriği okunurken hata" ölçütleri içerir.
+Not: Şu anda, özel durum iletisi tabanlı ölçüt için en dıştaki özel durum iletisi kullanın. İç özel durum iletisi zararsız özel durumla filtrelemek için önceki örnekte (aşağıdaki "<--" sınırlayıcı) "istemci bağlantısı kesildi." bir ileti kullanın değil-"İstek içeriği okunurken hata" ölçütleri içerir.
 
 Canlı akıştaki bir öğenin ayrıntılarını tıklayarak bakın. Tıklayarak akış duraklatabilirsiniz **duraklatmak** yalnızca aşağı kaydırma veya öğeyi tıklatarak. Başa dön veya durdurulduğundan sırasında toplanan öğelerinin sayaç tıklayarak kaydırma sonra canlı akışı devam eder.
 
@@ -188,7 +188,7 @@ Ancak, tanıyacak ve tüm bağlı sunucular güven, kimliği doğrulanmış kana
 
 ## <a name="generating-a-performance-test-load"></a>Performans testi yük oluşturma
 
-Yük artışı etkisini izlemek Performans Test dikey penceresini kullanın. Bu eşzamanlı kullanıcıların sayısı gelen istekleri benzetimini yapar. Ya da "el ile testler" çalıştırabilirsiniz (ping testleri) tek bir URL ya da çalıştırılabilir bir [çok adımlı web performans testi](app-insights-monitor-web-app-availability.md#multi-step-web-tests) (ile bir kullanılabilirlik testi aynı şekilde) yüklediğiniz.
+Yük artışı etkisini izlemek Performans Test dikey penceresini kullanın. Bu eşzamanlı kullanıcıların sayısı gelen istekleri benzetimini yapar. Ya da "el ile testler" çalıştırabilirsiniz (ping testleri) tek bir URL ya da çalıştırılabilir bir [çok adımlı web performans testi](../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) (ile bir kullanılabilirlik testi aynı şekilde) yüklediğiniz.
 
 > [!TIP]
 > Performans testi oluşturduktan sonra test ve canlı Stream dikey ayrı bir pencerede açabilirsiniz. Sıraya alınan performans testi başladığında ve canlı akışı izleyin, aynı anda görebilirsiniz.
@@ -197,12 +197,12 @@ Yük artışı etkisini izlemek Performans Test dikey penceresini kullanın. Bu 
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
-Veri yok mu? Uygulamanız, korunan bir ağda ise: Canlı ölçümleri Stream diğer Application Insights telemetri değerinden farklı bir IP adresi kullanır. Emin [bu IP adreslerini](app-insights-ip-addresses.md) güvenlik duvarınızdan açıktır.
+Veri yok mu? Uygulamanız, korunan bir ağda ise: Canlı ölçümler Stream diğer Application Insights telemetri değerinden farklı bir IP adresi kullanır. Emin [bu IP adreslerini](../azure-monitor/app/ip-addresses.md) güvenlik duvarınızdan açıktır.
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Application Insights ile kullanımı izleme](app-insights-usage-overview.md)
-* [Tanılama aramayı kullanma](app-insights-diagnostic-search.md)
+* [Tanılama aramayı kullanma](../azure-monitor/app/diagnostic-search.md)
 * [Profil Oluşturucu](app-insights-profiler.md)
 * [Anlık görüntü hata ayıklayıcısı](app-insights-snapshot-debugger.md)

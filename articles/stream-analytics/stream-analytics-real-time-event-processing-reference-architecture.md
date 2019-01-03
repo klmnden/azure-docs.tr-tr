@@ -4,17 +4,16 @@ description: Bu makalede, gerçek zamanlı Olay işleme ve Azure Stream Analytic
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: 1195ab125749cd211a35d7ff00c4f418dbd59f62
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 7f9748a4e4f1c86362781aa80d8958237c97106a
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232435"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555447"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Başvuru mimarisi: Gerçek zamanlı Olay işleme ile Microsoft Azure Stream Analytics
 Başvuru mimarisi için gerçek zamanlı Olay işleme Azure Stream Analytics ile gerçek zamanlı platformu Microsoft Azure ile hizmet (PaaS) akış işleme çözümü olarak dağıtmak için genel bir şema sağlamak amacını taşımaktadır.
@@ -39,11 +38,11 @@ Microsoft Azure, bir dizi farklı çözüm senaryolarına ve gereksinimlerine de
 
 **Yazar:** Charles Feddersen, çözüm Mimarı, veri öngörüleri merkezi memnuniyeti, Microsoft Corporation
 
-**Yayımlanma:** Ocak 2015
+**Yayım Tarihi:** Ocak 2015
 
 **Düzeltme:** 1.0
 
-**İndirin:** [gerçek zamanlı Olay işleme ile Microsoft Azure Stream Analytics](https://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
+**İndirin:** [Gerçek zamanlı Olay işleme ile Microsoft Azure Stream Analytics](https://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
 ## <a name="get-help"></a>Yardım alın
 Daha fazla yardım için deneyin [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)

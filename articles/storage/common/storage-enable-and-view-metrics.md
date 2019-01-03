@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: a12f2f3775808edb2045be5a1d955280f515ff7d
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3e6a11a8c225afb220f290cee2db39c36750b401
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531840"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632153"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Azure depolama ölçümlerini etkinleştirme ve ölçüm verilerini görüntüleme
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -37,7 +37,10 @@ Bir ölçüm verileri saklama süresini yapılandırabilirsiniz: Bu ölçüm ve 
 [Azure portalında](https://portal.azure.com) , depolama hesabınızdaki; dakika ölçümlerini yapılandırmak şu anda olarak etkinleştirmez, PowerShell kullanarak dakika ölçümlerini etkinleştirmeniz gerekir veya programlama yoluyla.
 
 ## <a name="how-to-enable-metrics-using-powershell"></a>PowerShell kullanarak ölçümleri etkinleştirme
-Azure PowerShell cmdlet geçerli ayarları almak için Get-AzureStorageServiceMetricsProperty ve cmdlet'ini kullanarak depolama hesabınızda depolama ölçümleri yapılandırmak için yerel makinenizde PowerShell'i kullanabilirsiniz Geçerli ayarları değiştirmek için Set-AzureStorageServiceMetricsProperty.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Azure PowerShell cmdlet geçerli ayarları almak için Get-AzStorageServiceMetricsProperty ve Set-AzStorageServiceMetricsProperty cmdlet'ini kullanarak depolama hesabınızda depolama ölçümleri yapılandırmak için yerel makinenizde PowerShell'i kullanabilirsiniz Geçerli ayarları değiştirmek için.
 
 Depolama ölçümleri denetim cmdlet'ler, aşağıdaki parametreleri kullanın:
 
@@ -48,16 +51,16 @@ Depolama ölçümleri denetim cmdlet'ler, aşağıdaki parametreleri kullanın:
 Örneğin, aşağıdaki komutu için varsayılan depolama hesabınızdaki Blob hizmetine dakika ölçümlerini üzerinde bekletme dönemi beş gün olarak ayarlanmış olan geçer:
 
 ```powershell
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
+Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5`
 ```
 
 Aşağıdaki komut geçerli saat ölçümleri düzeyi ve bekletme gün boyunca varsayılan depolama hesabınızdaki blob hizmetine alır:
 
 ```powershell
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
+Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob
 ```
 
-Azure aboneliğinizi ve kullanmak için varsayılan depolama hesabı seçme çalışmak için Azure PowerShell cmdlet'lerini nasıl yapılandırılacağı hakkında daha fazla bilgi için bkz: [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
+Azure PowerShell cmdlet'lerini, Azure aboneliğiniz ile çalışmak için yapılandırma ve kullanılacak varsayılan depolama hesabı seçme hakkında daha fazla bilgi için bkz: [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 
 ## <a name="how-to-enable-storage-metrics-programmatically"></a>Program aracılığıyla depolama ölçümlerini etkinleştirme
 Aşağıdaki C# kod parçacığı, Ölçümler ve .NET için depolama istemci kitaplığı kullanarak Blob hizmeti için günlüğe kaydetmeyi etkinleştirmek gösterilmektedir:

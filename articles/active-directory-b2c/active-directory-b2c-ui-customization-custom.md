@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b0e24da86d253139a85e792bf3c59d777cf5db6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cc96da060a7a91e0e3118c436a93bdafca3b0372
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833957"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633019"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C'de bir özel ilke kullanarak uygulamanızın kullanıcı arabirimini özelleştirme
 
@@ -31,7 +31,7 @@ Bölümündeki adımları tamamlamanız [özel ilkeleri kullanmaya başlama](act
 
 Sayfa UI özelleştirmesi özelliğini kullanarak, herhangi bir özel ilke görünümünü özelleştirebilirsiniz. Ayrıca bu sayede uygulamanızla Azure AD B2C arasında marka ve görsel tutarlılığı sağlayabilirsiniz.
 
-Çalışma şekli şöyledir: Azure AD B2C kod müşterinizin tarayıcıda çalışan ve modern bir yaklaşımı adlı kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/). İlk olarak, özelleştirilmiş HTML içerikli özel ilkesindeki bir URL belirtin. Azure AD B2C, kullanıcı arabirimi öğelerini URL'nizden yüklenen HTML içeriğiyle birleştirdikten sonra sayfayı müşteriye gösterir.
+Şekli aşağıda verilmiştir: Azure AD B2C kod müşterinizin tarayıcıda çalışan ve modern bir yaklaşımı adlı kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/). İlk olarak, özelleştirilmiş HTML içerikli özel ilkesindeki bir URL belirtin. Azure AD B2C, kullanıcı arabirimi öğelerini URL'nizden yüklenen HTML içeriğiyle birleştirdikten sonra sayfayı müşteriye gösterir.
 
 ## <a name="create-your-html5-content"></a>HTML5 içerik oluşturma
 
@@ -50,9 +50,6 @@ HTML başlığında ürününüzün marka adı ile içerik oluşturun.
    </body>
    </html>
    ```
-
-   >[!NOTE]
-   >Güvenlik nedenleriyle, JavaScript kullanımını özelleştirmek için şu anda engelleniyor.
 
 2. Kopyalanmış kod parçacığı bir metin düzenleyiciye yapıştırın ve ardından dosyayı farklı Kaydet *özelleştirme ui.html*.
 
@@ -124,7 +121,7 @@ UI Özelleştirme yapılandırmak için kopyalama **ContentDefinition** ve uzant
 3. Uzantı dosyası açın. Örneğin, *TrustFrameworkExtensions.xml*. Arama **BuildingBlocks** öğesi. Öğe yoksa, bunu ekleyin.
 4. Tüm içeriğini yapıştırın **ContentDefinitions** öğesi alt öğesi olarak kopyaladığınız **BuildingBlocks** öğesi. 
 5. Arama **ContentDefinition** öğesini içeren `Id="api.signuporsignin"` kopyaladığınız XML.
-6. Değiştirin **LoadUri** depolama alanına yüklenir HTML dosyasının URL'si. Örneğin, 'https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+6. Değiştirin **LoadUri** depolama alanına yüklenir HTML dosyasının URL'si. Örneğin, https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html.
     
     Özel ilkenizi aşağıdaki gibi görünmelidir:
 

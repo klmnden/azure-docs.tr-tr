@@ -12,17 +12,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/29/2018
+ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 78315409c5d83a98321e16913b1090e8996ed8ce
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3e390763255878384e7a767158210d0515b09958
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230293"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653563"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric uygulama ve hizmet bildirimleri
 Bu makalede tanımlanan ve tutulan ApplicationManifest.xml ve ServiceManifest.xml dosyalarını kullanarak Service Fabric uygulamaları ve hizmetleri nasıl açıklar.  Daha ayrıntılı örnekler için bkz: [uygulama ve hizmet bildirimi örnekleri](service-fabric-manifest-examples.md).  Bu bildirim dosyaları için XML Şeması belgelenen [ServiceFabricServiceModel.xsd şema belgeleri](service-fabric-service-model-schema.md).
+
+> [!WARNING]
+> Bildirim XML dosyası şeması, doğru alt öğelerinin sıralama zorlar.  Kısmi bir geçici çözüm olarak "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" yazma veya herhangi bir Service Fabric bildirimleri değiştirme Visual Studio'da açın. Bu, alt öğelerinin sırasını denetleyin olanak tanıyacak ve IntelliSense sağlar.
 
 ## <a name="describe-a-service-in-servicemanifestxml"></a>ServiceManifest.xml hizmetinde açıklayın
 Hizmet bildirimi, hizmet türü ve sürümü bildirimli olarak tanımlar. Bu hizmet türü, sistem durumu özellikleri, Yük Dengeleme ölçümleri, hizmet ikili dosyaları ve yapılandırma dosyaları gibi hizmet meta verileri belirtir.  Başka bir deyişle, bir veya daha fazla hizmet türlerini desteklemek için bir hizmet paketi oluşturan kod, yapılandırma ve veri paketleri açıklar. Birden çok kod, yapılandırma ve bağımsız olarak tutulan olabilir veri paketleri, bir hizmet bildirimi içerebilir. ASP.NET Core web ön uç hizmeti için bir hizmet bildirimi işte [Voting örnek uygulamasını](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (ve bazı [daha ayrıntılı örnekler](service-fabric-manifest-examples.md)):

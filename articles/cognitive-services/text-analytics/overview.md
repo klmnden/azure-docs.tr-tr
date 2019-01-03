@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 545d60207bbd1941920bc0e70096417c35486634
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0fe4a9f05e0f6d1abed7b906cc5cd89854885ae5
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634609"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53992864"
 ---
 # <a name="what-is-text-analytics"></a>Metin Analizi nedir?
 
@@ -31,10 +31,10 @@ Metin analizi farklı anlamlara gelebilir ancak Bilişsel Hizmetler Metin Analiz
 |-----------|-------------|------|
 |[**Yaklaşım Analizi**](how-tos/text-analytics-how-to-sentiment-analysis.md) | Ham metinde pozitif veya negatif yaklaşım analizi gerçekleştirerek müşterilerinizin markanız veya belirli bir konu hakkındaki düşüncelerini öğrenin. API, her belge için 0 ile 1 arasında bir yaklaşım puanı döndürür ve 1 en pozitif değerdir.<br /> Analiz modelleri, Microsoft tarafından sağlanan geniş kapsamlı gövde metinleri ve doğal dil teknolojileri kullanılarak önceden eğitilmiştir. API, [seçili dillerde](text-analytics-supported-languages.md) sağladığınız ham metni analiz edip puanlayabilir ve sonuçları doğrudan çağrıyı yapan uygulamaya döndürebilir. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package)  |
 |[**Anahtar İfade Ayıklama**](how-tos/text-analytics-how-to-keyword-extraction.md) | Anahtar ifadeleri otomatik olarak ayıklayarak metnin önemli noktalarını hızla belirleyin. Örneğin, "The food was delicious and there were wonderful staff" (Yemekler lezzetliydi ve personel harikaydı) giriş metni olduğunda API, "food" (yemek) ve "wonderful staff" (personel harikaydı) ana konuşma noktalarını döndürür.  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
-|[**Dil Algılama**](how-tos/text-analytics-how-to-language-detection.md) | 120 dil için giriş metninin yazıldığı dili algılar ve istekte gönderilen her belge için tek bir dil kodu bildirir. Dil kodu, puanın ağırlığını belirten bir puanla eşleştirilir. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br />  [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) | 
+|[**Dil Algılama**](how-tos/text-analytics-how-to-language-detection.md) | 120 dil için giriş metninin yazıldığı dili algılar ve istekte gönderilen her belge için tek bir dil kodu bildirir. Dil kodu, puanın ağırlığını belirten bir puanla eşleştirilir. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br />  [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
 |[**Varlık Tanıma (Önizleme)**](how-tos/text-analytics-how-to-entity-linking.md) | Metninizdeki kişiler, yerler, kuruluşlar, tarih/saat, miktarlar, yüzdeler ve para birimleri gibi varlıkları tanımlayın ve kategorilere ayırın. İyi bilinen varlıklar da tanınarak web üzerindeki ek bilgilere bağlantı verilir. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) |
 
-## <a name="use-containers"></a>Kapsayıcılar kullanma
+## <a name="use-containers"></a>Kapsayıcıları kullanma
 
 [Metin analizi kapsayıcılarını](how-tos/text-analytics-how-to-install-containers.md) anahtar ifadeleri ayıklamak için dili algılayın ve verilerinizi standart Docker kapsayıcıları yakın yükleyerek yaklaşım yerel olarak analiz edin.
 
@@ -76,7 +76,7 @@ Hız sınırı dakikada 100 çağrıdır. Tek bir çağrıda daha fazla belge (e
 
 ## <a name="unicode-encoding"></a>Unicode kodlama
 
-Metin Analizi API'si, metin gösterimi ve karakter sayısı hesaplamaları için Unicode kodlamasını kullanır. İstekler UTF-8 ve UTF-16 olarak gönderilebilir, karakter sayısında fark olmayacaktır. Karakter uzunluğu için Unicode kod noktaları buluşsal değer olarak kullanılır ve metin analizi veri sınırları için eşdeğer kabul edilir. Karakter sayısını almak için `String.Length` kullanırsanız veri boyutunu ölçmek için bizimle aynı yöntemi kullanıyor olursunuz.
+Metin Analizi API'si, metin gösterimi ve karakter sayısı hesaplamaları için Unicode kodlamasını kullanır. İstekler UTF-8 ve UTF-16 olarak gönderilebilir, karakter sayısında fark olmayacaktır. Karakter uzunluğu için Unicode kod noktaları buluşsal değer olarak kullanılır ve metin analizi veri sınırları için eşdeğer kabul edilir. Kullanırsanız [ `StringInfo.LengthInTextElements` ](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) karakter sayısını almak için veri boyutu ölçmek için kullandığımız aynı yöntemi kullanıyorsunuz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

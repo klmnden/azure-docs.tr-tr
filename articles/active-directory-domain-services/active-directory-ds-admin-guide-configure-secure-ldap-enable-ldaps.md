@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: ergreenl
-ms.openlocfilehash: 74d6748a4d595e330103497dcc97ac57e01db250
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b1cfecca7d7b8a3f554466d95c666e2cbddbffde
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158627"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975687"
 ---
 # <a name="enable-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Güvenli LDAP (LDAPS) bir Azure AD Domain Services yönetilen etki alanı için etkinleştirme
 
@@ -51,7 +51,7 @@ Güvenli LDAP'yi etkinleştirmek için aşağıdaki yapılandırma adımlarını
 5. Varsayılan olarak, yönetilen etki alanınıza internet üzerinden güvenli LDAP erişimini devre dışıdır. İki durumlu **internet üzerinden güvenli LDAP erişimine izin** için **etkinleştirme**, gerekirse.
 
     > [!WARNING]
-    > Etki alanınızı internet üzerinden güvenli LDAP erişimi etkinleştirdiğinizde, internet üzerinden parola deneme yanılma saldırılarına açıktır. Bu nedenle, gerekli kaynak IP adresi aralıkları için erişim kilitlemek için bir NSG ayarlama öneririz. Yönergeler için bkz: [yönetilen etki alanınıza internet üzerinden erişim LDAPS kilitleme](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
+    > Etki alanınızı internet üzerinden güvenli LDAP erişimi etkinleştirdiğinizde, internet üzerinden parola deneme yanılma saldırılarına açıktır. Bu nedenle, gerekli kaynak IP adresi aralıkları için erişim kilitlemek için bir NSG ayarlama öneririz. Yönergeler için bkz: [yönetilen etki alanınıza internet üzerinden erişim LDAPS kilitleme](active-directory-ds-ldaps-bind-lockdown.md#task-6-lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
     >
 
 6. Klasör simgesini aşağıdaki **. Güvenli LDAP sertifikalı PFX dosyasını**. Yönetilen etki alanı için güvenli LDAP erişimi için Sertifika PFX dosyasının yolunu belirtin.

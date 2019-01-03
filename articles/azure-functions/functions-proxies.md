@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7c1d3adec6fd718df12abde1b56a89e662de284e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139529"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538999"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure işlev proxy'leri ile çalışma
 
@@ -81,8 +81,8 @@ Yol şablonunda kullanılan parametreleri adı tarafından başvurulan kullanıl
 Rota şablonu parametrelerine ek olarak, yapılandırma değerleri aşağıdaki değerler kullanılabilir:
 
 * **{request.method}** : Özgün istekte kullanılan HTTP yöntemi.
-* **{request.headers. \<HeaderName\>}**: özgün istekteki okunabilir bir üst bilgisi. Değiştirin *\<HeaderName\>* okumak istediğiniz üst bilgi adı. İstek üst bilgisi dahil edilmemişse, değer boş dize olacaktır.
-* **{request.querystring. \<ParameterName\>}**: özgün istekteki okunabilir bir sorgu dizesi parametresi. Değiştirin *\<ParameterName\>* ile okumak istediğiniz parametrenin adı. İstek parametre dahil edilmezse, boş bir dize değeri olacaktır.
+* **{request.headers. \<HeaderName\>}**: Özgün istekteki okunabilir üstbilgisi. Değiştirin *\<HeaderName\>* okumak istediğiniz üst bilgi adı. İstek üst bilgisi dahil edilmemişse, değer boş dize olacaktır.
+* **{request.querystring. \<ParameterName\>}**: Özgün istekteki okunabilir bir sorgu dizesi parametresi. Değiştirin *\<ParameterName\>* ile okumak istediğiniz parametrenin adı. İstek parametre dahil edilmezse, boş bir dize değeri olacaktır.
 
 ### <a name="response-parameters"></a>Başvuru arka uç yanıtı parametreleri
 
@@ -90,7 +90,7 @@ Yanıt parametrelerinin, yanıtı istemciye değiştirme işleminin parçası ol
 
 * **{backend.response.statusCode}** : Arka uç yanıtta döndürülen HTTP durum kodu.
 * **{backend.response.statusReason}** : Arka uç yanıtta döndürülen HTTP neden deyimi.
-* **{backend.response.headers. \<HeaderName\>}**: arka uç yanıtı okuyabilen bir üst bilgisi. Değiştirin *\<HeaderName\>* okumak istediğiniz üst bilgi adı. Yanıt üst bilgisi dahil edilmemişse değeri boş dize olacaktır.
+* **{backend.response.headers. \<HeaderName\>}**: Arka uç yanıtı okuyabilen bir üst bilgisi. Değiştirin *\<HeaderName\>* okumak istediğiniz üst bilgi adı. Yanıt üst bilgisi dahil edilmemişse değeri boş dize olacaktır.
 
 ### <a name="use-appsettings"></a>Uygulama ayarları başvurusu
 
@@ -139,12 +139,12 @@ Yapılandırdığınız proxy depolanan bir *proxies.json* bir işlev uygulamas�
 
 Her bir proxy gibi bir kolay ad sahip *proxy1* önceki örnekte. Karşılık gelen proxy tanım nesnesi, aşağıdaki özellikleri tarafından tanımlanır:
 
-* **matchCondition**: gerekli--bu proxy yürütülmesini tetiklemek istekleri tanımlayan nesne. İle paylaşılan iki özellik içeriyor [HTTP Tetikleyicileri]:
-    * _yöntemleri_: bir dizi bir yanıt veren Ara sunucu HTTP yöntemleri. Belirtilmezse, proxy tüm HTTP yöntemleri rotadaki yanıt verir.
-    * _Rota_: gerekli--proxy, istek URL'lerini denetleme için rota şablonu tanımlar yanıt verir. Aksine HTTP tetikleyicileri, varsayılan değer yoktur.
-* **backendUri**: arka uç kaynağı için istek olacağı proxy URL'si. Bu değer, uygulama ayarları ve parametreleri özgün istemci istekten başvurabilirsiniz. Bu özellik dahil edilmezse, Azure işlevleri, bir HTTP 200 OK ile yanıt verir.
-* **requestOverrides**: arka uç isteği dönüştürmeleri tanımlayan bir nesne. Bkz: [requestOverrides nesnesi tanımlayın].
-* **responseOverrides**: istemci yanıtı dönüştürmeleri tanımlayan bir nesne. Bkz: [responseOverrides nesnesi tanımlayın].
+* **matchCondition**: --Gerekli bu proxy yürütülmesini tetiklemek istekleri tanımlayan nesne. İle paylaşılan iki özellik içeriyor [HTTP Tetikleyicileri]:
+    * _yöntemleri_: Yanıt Ara sunucu HTTP yöntemleri dizisi. Belirtilmezse, proxy tüm HTTP yöntemleri rotadaki yanıt verir.
+    * _Rota_: Gerekli--proxy, istek URL'lerini denetleme için rota şablonu tanımlar yanıt verir. Aksine HTTP tetikleyicileri, varsayılan değer yoktur.
+* **backendUri**: İstek proxy edileceği için arka uç kaynak URL'si. Bu değer, uygulama ayarları ve parametreleri özgün istemci istekten başvurabilirsiniz. Bu özellik dahil edilmezse, Azure işlevleri, bir HTTP 200 OK ile yanıt verir.
+* **requestOverrides**: Arka uç isteği dönüştürmeleri tanımlayan nesne. Bkz: [requestOverrides nesnesi tanımlayın].
+* **responseOverrides**: İstemci yanıtı dönüştürmeleri tanımlayan nesne. Bkz: [responseOverrides nesnesi tanımlayın].
 
 > [!NOTE] 
 > *Rota* Azure işlev proxy'lerini bir özellik değil dikkate *routeprefix öğesi* işlevi uygulama konağı Yapılandırma özelliği. Bir önek gibi dahil etmek istiyorsanız `/api`, içinde eklenmelidir *rota* özelliği.
@@ -161,7 +161,7 @@ Ekleyerek bireysel proxy'leri devre dışı bırakabilirsiniz `"disabled": true`
             "matchCondition": {
                 "route": "/example"
             },
-            "backendUri": "www.example.com"
+            "backendUri": "https://<AnotherApp>.azurewebsites.net/api/<FunctionName>"
         }
     }
 }
@@ -187,9 +187,9 @@ Tüm dizeleri yorumu hariç, küme ayracı ve eğik çizgi olmadan proxy'leri ok
 
 RequestOverrides nesne isteği arka uç kaynağa çağrıldığında yapılan değişiklikleri tanımlar. Nesne, aşağıdaki özellikleri tarafından tanımlanır:
 
-* **backend.Request.Method**: arka uç çağırmak için kullanılan HTTP yöntemi.
-* **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back-end. Değiştirin *\<ParameterName\>* ile belirlemek istediğiniz parametrenin adı. Boş dize sağlanmazsa, parametre arka uç isteği dahil edilmez.
-* **backend.Request.Headers. \<HeaderName\>**: çağrı arka uç için ayarlanabilen üstbilgi. Değiştirin *\<HeaderName\>* ayarlamak istediğiniz üst bilgi adı. Boş bir dize sağlayın, üst bilgi arka uç isteği dahil edilmez.
+* **backend.Request.Method**: Arka uç çağırmak için kullanılan HTTP yöntemi.
+* **backend.Request.QueryString. \<ParameterName\>**: Arka uca çağrısı için ayarlanabilir bir sorgu dizesi parametresi. Değiştirin *\<ParameterName\>* ile belirlemek istediğiniz parametrenin adı. Boş dize sağlanmazsa, parametre arka uç isteği dahil edilmez.
+* **backend.Request.Headers. \<HeaderName\>**: Arka uca çağrısı için ayarlanabilir üstbilgisi. Değiştirin *\<HeaderName\>* ayarlamak istediğiniz üst bilgi adı. Boş bir dize sağlayın, üst bilgi arka uç isteği dahil edilmez.
 
 Değerleri uygulama ayarları ve parametreleri özgün istemci istekten başvurabilirsiniz.
 
@@ -218,10 +218,10 @@ Değerleri uygulama ayarları ve parametreleri özgün istemci istekten başvura
 
 İstemciye geri geçirilen yanıta yapılan değişiklikleri requestOverrides nesneyi tanımlar. Nesne, aşağıdaki özellikleri tarafından tanımlanır:
 
-* **response.statusCode**: istemciye döndürülecek HTTP durum kodu.
-* **response.statusReason**: istemciye döndürülecek HTTP neden deyimi.
-* **Response.body**: istemciye döndürülecek gövdesini dize gösterimi.
-* **Response.Headers. \<HeaderName\>**: yanıtı istemciye için ayarlayabileceğiniz bir üst bilgisi. Değiştirin *\<HeaderName\>* ayarlamak istediğiniz üst bilgi adı. Boş bir dize sağlayın, üst bilgi yanıtta dahil edilmez.
+* **response.statusCode**: İstemciye döndürülecek HTTP durum kodu.
+* **response.statusReason**: İstemciye döndürülecek HTTP neden deyimi.
+* **Response.body**: İstemciye döndürülecek gövdesini dize gösterimi.
+* **Response.Headers. \<HeaderName\>**: Yanıtı istemciye için ayarlanabilir üstbilgisi. Değiştirin *\<HeaderName\>* ayarlamak istediğiniz üst bilgi adı. Boş bir dize sağlayın, üst bilgi yanıtta dahil edilmez.
 
 Uygulama ayarları, özgün istemci İstek parametreleri ve parametre değerlerini arka uç yanıtı başvuruda bulunabilir.
 

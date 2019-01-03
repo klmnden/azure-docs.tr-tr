@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d810b8be496bbfd1c5bd88d8221e77dd5b76c889
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622983"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651461"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI içerik Paketi'ni kullanma
 
@@ -32,7 +32,7 @@ Power BI İçerik Paketi için Azure Active Directory (Azure AD) yardımcı olma
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-İçerik paketini kullanmak için bir Azure AD premium (ö1/ö2) lisansı gerekir. 
+İçerik paketini kullanmak için bir Azure AD premium (ö1/ö2) lisansı gerekir. Bkz: [Azure Active Directory Premium ile çalışmaya başlama](../fundamentals/active-directory-get-started-premium.md) , Azure Active Directory sürümünü yükseltmek için.
 
 ## <a name="install-the-content-pack"></a>İçerik Paketi yükleyin
 
@@ -42,7 +42,7 @@ Kullanıma [hızlı](quickstart-install-power-bi-content-pack.md) Azure AD Power
 
 Aşağıdaki raporlar, Azure AD Power BI içerik paketine dahil edilir. Verilerden raporlar içeren **son 30 gün**.
 
-**Uygulama kullanımını ve Eğilimleri raporu**: Bu rapor, kuruluşunuzda kullanılan uygulamaları hakkında Öngörüler sunar. En popüler uygulamalar listesini almak veya kuruluşunuzda son zamanlarda toplu bir uygulamayı nasıl kullanıldığını anlayın. Bu, izleme ve kullanım zaman içinde geliştirilmeye sağlar.
+**Uygulama kullanımını ve Eğilimleri raporu**:  Bu rapor, kuruluşunuzda kullanılan uygulamaları bir anlayış verir. En popüler uygulamalar listesini almak veya kuruluşunuzda son zamanlarda toplu bir uygulamayı nasıl kullanıldığını anlayın. Bu, izleme ve kullanım zaman içinde geliştirilmeye sağlar.
 
 **Konuma ve kullanıcılara göre oturum açma**: Bu rapor, tüm oturum açma Azure kimliği kullanılarak gerçekleştirilen işlemleri hakkında veri sağlar. Bu rapor, tek tek oturum açma aşağı inebilir ve şunun gibi sorular sorun:
 
@@ -52,7 +52,7 @@ Aşağıdaki raporlar, Azure AD Power BI içerik paketine dahil edilir. Verilerd
  
 Ayrıca, belirli bir tarih veya konumu seçerek sonuçlarını filtreleyebilirsiniz.
 
-**Uygulama başına benzersiz kullanıcı**: Bu rapor, belirli bir uygulamayı kullanan tüm benzersiz kullanıcıları bir görünümünü sağlar. Yalnızca sahip kullanıcılar içerir "*başarıyla*" bir uygulamada oturum açmış.
+**Uygulama başına benzersiz kullanıcı**:  Bu rapor, belirli bir uygulamayı kullanan tüm benzersiz kullanıcıları bir görünümünü sağlar. Yalnızca sahip kullanıcılar içerir "*başarıyla*" bir uygulamada oturum açmış.
 
 **Cihaz oturum açma işlemleri**: Bu rapor, kuruluşunuzda kullanılan cihaz profillerini anlayabilir ve kullanıma göre cihaz ilkeleri belirleyebilirsiniz yardımcı olur. Bu veriler dahil olmak üzere kullanıcılar hakkında ayrıntılı bilgiyle beraber uygulamalara oturum açmak için kullanılan tarayıcılar ve işletim sistemi türü sağlar:
 
@@ -65,21 +65,21 @@ Ayrıca, belirli bir tarih veya konumu seçerek sonuçlarını filtreleyebilirsi
 
 ## <a name="customize-azure-ad-activity-content-pack"></a>Azure AD etkinlik içerik paketini özelleştirme
 
-**Görselleri Değiştirme**: **Raporu Düzenle**'ye tıklayıp istediğiniz görünümü seçerek raporun görsellerini değiştirebilirsiniz.
+**Görselleştirme Değiştir**:  Tıklayarak raporun görsellerini değiştirebilirsiniz **Raporu Düzenle** ve istediğiniz görselleştirmeyi seçin.
  
 ![Azure Active Directory Power BI İçerik Paketi](./media/howto-power-bi-content-pack/09.png) 
  
 ![Azure Active Directory Power BI İçerik Paketi](./media/howto-power-bi-content-pack/10.png) 
 
-**Ek alanları dahil etme**: Alan eklemek/kaldırmak istediğiniz görsele tıklayarak rapora alan ekleyebilir veya var olan alanları kaldırabilirsiniz. Örneğin, aşağıda gösterildiği gibi Tablo görünümüne "oturum açma durumu" alanını ekleyebilirsiniz. 
+**Ek alanları dahil**:  Rapor için bir alan eklemek veya alan eklemek/kaldırmak istediğiniz görsele tıklayarak kaldırın. Örneğin, aşağıda gösterildiği gibi Tablo görünümüne "oturum açma durumu" alanını ekleyebilirsiniz. 
  
 ![Azure Active Directory Power BI İçerik Paketi](./media/howto-power-bi-content-pack/11.png) 
 
-**Görselleştirmeleri bir panoya sabitleme**: panoya sabitleme ve kendi görselleştirmelerinizi rapora dahil olmak üzere, panoyu özelleştirebilirsiniz. 
+**Görselleştirmeleri bir panoya sabitleme**:  Panoya sabitleme ve kendi görselleştirmelerinizi rapora dahil olmak üzere, panoyu özelleştirebilirsiniz. 
 
 ![Azure Active Directory Power BI İçerik Paketi](./media/howto-power-bi-content-pack/13.png) 
  
-**Pano paylaşmak**: Ayrıca panoyu kullanıcılarla kuruluşunuzun içinde paylaşabilirsiniz. Raporu paylaştığınızda raporda seçtiğiniz alanları kullanıcılar görebilir.
+**Pano paylaşmak**: Ayrıca, kuruluşunuzdaki kullanıcılarla Pano paylaşabilirsiniz. Raporu paylaştığınızda raporda seçtiğiniz alanları kullanıcılar görebilir.
  
 ![Azure Active Directory Power BI İçerik Paketi](./media/howto-power-bi-content-pack/14.png) 
 

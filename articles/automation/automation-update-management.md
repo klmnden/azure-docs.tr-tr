@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 06006456a08c5eb499eff504fea5dcffdc11d662
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0066a4ea5d91369bf6724dbaea4743a10bd8db0b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342400"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631864"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümünü azure'da
 
@@ -589,7 +589,7 @@ Güncelleştirme yönetimi, güncelleştirme zenginleştirme, bulutta gerçekle�
 
 Ancak, güncelleştirme yönetimi, ilgili güncelleştirme hakkında ek bilgi içerdiğinden olarak uyumlu söz konusu makine hala bildirebilir.
 
-Güncelleştirme sınıflandırmasına göre güncelleştirmeler dağıtma CentOS üzerinde kullanıma hazır çalışmaz. SUSE için seçme *yalnızca* sınıflandırma bazı güvenlik neden olabileceğinden ' diğer ' güvenlik güncelleştirmeleri, ayrıca yüklenen güncelleştirmeler zypper (Paket Yöneticisi) için ilgili veya bağımlılıklarından ilk gereklidir. Bu davranış, zypper kısıtlamasıdır. Bazı durumlarda, güncelleştirme dağıtımının yeniden çalıştırmanız gerekebilir. Doğrulamak için update günlüğünü denetleyin.
+Güncelleştirme sınıflandırmasına göre güncelleştirmeler dağıtma CentOS üzerinde kullanıma hazır çalışmaz. Güncelleştirmeler için CentOS düzgün bir şekilde dağıtmak için güncelleştirmelerin uygulandığından emin olmak için tüm sınıflandırmaları seçin. SUSE için seçme *yalnızca* sınıflandırma bazı güvenlik neden olabileceğinden ' diğer ' güvenlik güncelleştirmeleri, ayrıca yüklenen güncelleştirmeler zypper (Paket Yöneticisi) için ilgili veya bağımlılıklarından ilk gereklidir. Bu davranış, zypper kısıtlamasıdır. Bazı durumlarda, güncelleştirme dağıtımının yeniden çalıştırmanız gerekebilir. Doğrulamak için update günlüğünü denetleyin.
 
 ## <a name="troubleshoot"></a>Sorun giderme
 

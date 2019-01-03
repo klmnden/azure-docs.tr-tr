@@ -7,17 +7,17 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 2d881b9dbc20dbbf95491d023b859a20815091d3
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 804202149234a55de4f7f99b18dc40b8136463a3
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311210"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651054"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL veritabanını BACPAC dosyasına dışarı aktarma
 
@@ -98,6 +98,7 @@ $exportStatus
 - Arşiv amacıyla bir veritabanını alternatif dışarı gibi bir Azure SQL veritabanı yedeklemesini, uzun süreli yedek saklama hakkında bilgi edinmek için [uzun süreli yedek saklama](sql-database-long-term-retention.md).
 - BACPAC dosyalarını kullanarak geçiş hakkında bir SQL Server Müşteri Danışmanlık Ekibi blogu için bkz. [BACPAC Dosyalarını kullanarak SQL Server’dan Azure SQL Veritabanına Geçiş](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 - Bir SQL Server veritabanına BACPAC aktarma hakkında bilgi edinmek için [bir BACPCAC için SQL Server veritabanını içeri aktarma](https://msdn.microsoft.com/library/hh710052.aspx).
-- SQL Server veritabanındaki verileri bir BACPAC aktarma hakkında bilgi edinmek için [veri katmanı uygulaması dışarı aktarma](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) ve [ilk veritabanınızı geçirme](sql-database-migrate-your-sql-server-database.md).
+- SQL Server veritabanındaki verileri bir BACPAC aktarma hakkında bilgi edinmek için [veri katmanı uygulaması dışarı aktarma](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
+- Veri geçiş hizmeti kullanarak bir veritabanını geçirme hakkında bilgi edinmek için [Azure SQL veritabanı için SQL Server'ı geçirme DMS kullanarak çevrimdışı](../dms/tutorial-sql-server-to-azure-sql.md).
 - Azure SQL veritabanı'na geçiş için bir tanıtımlar olarak SQL Server'dan verdiğiniz olup [bir SQL Server veritabanını Azure SQL veritabanı'na geçirme](sql-database-cloud-migrate.md).
 - Depolama anahtarları ve paylaşılan erişim imzaları güvenli bir şekilde, bkz: yönetmek ve paylaşmak hakkında bilgi edinmek için [Azure depolama Güvenlik Kılavuzu](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

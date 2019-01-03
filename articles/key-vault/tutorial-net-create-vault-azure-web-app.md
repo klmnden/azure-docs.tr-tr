@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: c2e278b606ebfb445fc76294b2fac78d729aa970
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 44f93cc72915b378d0e05287deff3540fe347f99
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606173"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995142"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Öğretici: . NET'te bir Azure web uygulaması ile Azure anahtar kasası
 
@@ -256,4 +256,4 @@ Uygulamayı çalıştırdığınızda, gizli değer alabilir görmeniz gerekir.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 >[!div class="nextstepaction"]
->[Azure Key Vault Geliştirici Kılavuzu](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide)
+>[Azure Key Vault Geliştirici Kılavuzu](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)

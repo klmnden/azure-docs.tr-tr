@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: victorh
-ms.openlocfilehash: b0bde770e33a08832e7d3a93a745bbba44b04f87
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 99a4dd25539db754a893ddda7480c64e5a13a5bd
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353348"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631524"
 ---
-# <a name="configure-app-service-web-apps-with-application-gateway"></a>Application Gateway ile App Service Web Apps’i yapılandırma
+# <a name="configure-app-service-with-application-gateway"></a>Application Gateway ile App Service'ı yapılandırma
 
-Application gateway, bir Azure Web Uygulaması veya diğer çok kiracılı hizmeti arka uç havuzu üyesi olarak kullanmanıza olanak tanır. Bu makalede bir Azure web uygulamasını Application Gateway ile yapılandırma hakkında bilgi alacaksınız. İlk örnekte, arka uç havuzu üyesi olarak web uygulamasını kullanmak için mevcut bir application gateway’i nasıl yapılandıracağınız gösterilmektedir. İkinci örnekte, arka uç havuzu üyesi olarak web uygulaması ile yeni bir application gateway’i nasıl oluşturacağınız gösterilmektedir.
+Uygulama ağ geçidi, bir App Service uygulaması veya diğer çok kiracılı hizmeti arka uç havuzu üyesi olarak olmasını sağlar. Bu makalede, bir App Service uygulaması ile uygulama ağ geçidi yapılandırmayı öğrenin. İlk örnekte, arka uç havuzu üyesi olarak web uygulamasını kullanmak için mevcut bir application gateway’i nasıl yapılandıracağınız gösterilmektedir. İkinci örnekte, arka uç havuzu üyesi olarak web uygulaması ile yeni bir application gateway’i nasıl oluşturacağınız gösterilmektedir.
 
 ## <a name="configure-a-web-app-behind-an-existing-application-gateway"></a>Mevcut bir application gateway’in arkasında web uygulaması yapılandırma
 
@@ -163,4 +163,4 @@ Web uygulamalarınız için erişimi kısıtlayabilir tek bir yolu [Azure App Se
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Yeniden yönlendirmeyi yapılandırma hakkında bilgi almak için bkz. [PowerShell ile Application Gateway için yeniden yönlendirmeyi yapılandırma](redirect-overview.md).
+Yeniden yönlendirmeyi yapılandırma işlemleri gerçekleştirmeyi öğreneceksiniz: [PowerShell ile Application Gateway için yeniden yönlendirmeyi yapılandırma](redirect-overview.md).

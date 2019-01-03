@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 0f376d6b1108b784af37b5e50dab9edba63e5f76
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 0b2e49bb0e269c91ed6a1bf7294565a729082db3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713104"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975143"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Otomatik Ölçeklendiricinin küme Azure Kubernetes hizmeti üzerinde (AKS) - Önizleme
 
@@ -113,7 +113,7 @@ Ardından, aşağıdaki komutu çalıştırarak, düğüm havuzu adını alın.
 $ kubectl get nodes --show-labels
 ```
 
-Çıktı:
+Çıkış:
 
 ```console
 NAME                       STATUS    ROLES     AGE       VERSION   LABELS
@@ -382,7 +382,7 @@ Events:  <none>
 Küme otomatik ölçeklendiricinin durumunu iki farklı düzeyde küme otomatik ölçeklendiricinin durumunu görmenize olanak sağlar: küme çapında ve her düğüm grubu içinde. AKS şu anda yalnızca bir düğüm havuzu desteklediğinden, bu ölçümleri aynıdır.
 
 * Sistem durumu düğümleri genel durumunu gösterir. Küme otomatik ölçeklendiricinin oluşturmak struggles veya kümedeki düğümleri kaldırır, bu durum "Uygun değil" olarak değişecektir. Farklı düğümlerin durumunun dökümünü de mevcuttur:
-    * "Hazır" bir düğüm üzerinde zamanlanmış pod'ları için hazır olduğu anlamına gelir.
+    * "Hazır" bir düğüm üzerinde zamanlanmış pod'ların hazır olduğu anlamına gelir.
     * "Hazır olmayan" başladıktan sonra bozulduğu bir düğümü anlamına gelir.
     * "NotStarted", bir düğümü tam olarak henüz başlatıldı değil anlamına gelir.
     * "LongNotStarted", bir düğüm makul bir sınırı içinde başlatılamadı anlamına gelir.
@@ -398,7 +398,7 @@ Küme otomatik ölçeklendiricinin durumunu iki farklı düzeyde küme otomatik 
     * Bir ölçeği azaltma için bir düğüm kümesi ölçeklendiriciyi belirledi, kümenin kendi iş yükü işleme yeteneği etkilemeden kaldırılabilir adaydır. 
     * Sağlanan kez ölçeği azaltma adayları son kez küme denetlendi ve son geçiş süresini gösterir.
 
-Son olarak, olaylar'ın altında herhangi bir ölçekte bakın veya olay, başarısız veya başarılı ve küme ölçeklendiriciyi gerçekleştirmiş süreleri, ölçeği.
+Son olarak, olaylar'ın altında herhangi bir ölçekte görmek veya olay, başarısız veya başarılı ve küme ölçeklendiriciyi gerçekleştirmiş süreleri, ölçeği.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

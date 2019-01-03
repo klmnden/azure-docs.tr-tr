@@ -3,17 +3,17 @@ title: Azure haritalar için fiyatlandırma katmanı sağ seçin | Microsoft Doc
 description: Azure haritalar tarafından sağlanan katmanları fiyatlandırması hakkında bilgi edinin
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ee277867f449afddeb89c3fd73b5b577a68a4497
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 028a227eefb319d19c9274082626a007bd9161de
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998375"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993969"
 ---
 # <a name="choosing-the-right-pricing-tier-in-azure-maps"></a>Azure haritalar fiyatlandırma katmanı sağ seçme
 
@@ -53,9 +53,8 @@ Bazı ek veri noktaları dikkate değer, ne tür bir kuruluş, belirtilmiş veya
 
 | Fiyatlandırma katmanı  |        Hedeflenen müşteriler                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
-| S0            |    <p>S0 fiyatlandırma katmanı küçük veya orta ölçekli işletmelerin isteyen müşterilere yöneliktir. Bu, yüksek hacimli eşzamanlı kullanıcı beklemiyoruz ve hizmet gereksinimlerinizi çekirdek Jeo-uzamsal aşağıdaki tabloda gösterildiği gibi API'leri tarafından karşılandığından, fiyatlandırma katmanını hakkı olur. Bu katman genel kullanıma sunuldu ve tüm geliştirme kavram kanıtı üretimden aşamalarını ve erken aşama uygulama üretim ve dağıtım için test uygulamaları için geçerlidir.<p>|
+| S0            |    <p>S0 fiyatlandırma katmanı küçük veya orta ölçekli işletmelerin isteyen müşterilere yöneliktir. Bu, yüksek hacimli eşzamanlı kullanıcı beklemiyoruz ve hizmet gereksinimlerinizi çekirdek Jeo-uzamsal yukarıdaki tabloda gösterilen API'leri tarafından karşılandığından, fiyatlandırma katmanını hakkı olur. Bu katman genel kullanıma sunuldu ve tüm geliştirme kavram kanıtı üretimden aşamalarını ve erken aşama uygulama üretim ve dağıtım için test uygulamaları için geçerlidir.<p>|
 | S1            |    <p>S1 fiyatlandırma katmanını büyük ölçekli kurumsal iş açısından kritik uygulamalar, yüksek hacimli eşzamanlı kullanıcı için destek geçirilmesi gereken müşterilere yöneliktir ve gelişmiş bir Jeo-uzamsal hizmetler gerektirir.</p>|
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
