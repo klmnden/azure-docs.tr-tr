@@ -8,18 +8,18 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 50e6b714bc28ce383f06580d0e35b0b0e4066835
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432232"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606478"
 ---
 # <a name="app-service-documentation"></a>App Service Belgeleri
 Azure App Service, altyapıyı veya dilin ya da web çerçevesinin çalışma zamanını yönetmeye gerek kalmadan, kendi seçtiğiniz programlama dilinde web uygulamaları oluşturmanıza ve barındırmanıza olanak tanır. Otomatik ölçeklendirme ve yüksek kullanılabilirlik sunar, hem Windows hem de Linux’ı destekler ve GitHub, Azure DevOps Services veya herhangi bir Git deposundan otomatik dağıtımlar sağlar. Hızlı başlangıçlarımız, öğreticilerimiz ve örneklerimizle Azure App Service’i kullanmayı öğrenin.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux ve Docker
-[Web Apps](/app-service/app-service-web-overview), App Service’in Windows ortamlarını kullanarak web uygulamaları oluşturmaya ve barındırmaya yönelik sunduğu ana hizmettir. Linux ortamını tercih eden geliştiriciler[Linux için App Service](/app-service/containers/app-service-linux-intro)’i seçebilir. Geliştiriciler ayrıca özel çalışma zamanları/çerçeveler dağıtmak için Docker görüntülerini doğrudan Linux için App Service’e dağıtabilir.
+[Web Apps](/app-service/overview), App Service’in Windows ortamlarını kullanarak web uygulamaları oluşturmaya ve barındırmaya yönelik sunduğu ana hizmettir. Linux ortamını tercih eden geliştiriciler[Linux için App Service](/app-service/containers/app-service-linux-intro)’i seçebilir. Geliştiriciler ayrıca özel çalışma zamanları/çerçeveler dağıtmak için Docker görüntülerini doğrudan Linux için App Service’e dağıtabilir.
 
 ## <a name="5-minute-quickstarts"></a>5 Dakikalık Hızlı Başlangıçlar
 
@@ -54,7 +54,7 @@ Azure'da güvenli web uygulamaları dağıtma, yönetme ve izleme hakkında bilg
 Genel görevleri yönetmeye yönelik betikleri bulun.
 
 - [Azure CLI](/azure/app-service/app-service-cli-sample)
-- [Azure PowerShell](/azure/app-service/app-service-powershell-samples)
+- [Azure PowerShell](/azure/app-service/samples-powershell)
 
 ## <a name="more"></a>Daha fazla
 
