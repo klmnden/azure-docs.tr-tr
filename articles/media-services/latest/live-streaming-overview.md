@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/26/2018
 ms.author: juliako
-ms.openlocfilehash: b51f2850a925fcd9daf3a07d8db66193555df0fa
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000250"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788217"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Canlı akış ile Azure Media Services v3
 
@@ -34,7 +34,7 @@ Bu makalede ayrıntılı bir genel kılavuzluk sağlar ve Media Services ile can
 
 En az bir sahip olması Media Services ile isteğe bağlı veya canlı akışlar sunmanıza olanak [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). Media Services hesabınız oluşturulduğunda bir **varsayılan** StreamingEndpoint hesabınıza eklenen **durduruldu** durumu. İzleyicilerinize için içerik akışı yapmak istediğiniz StreamingEndpoint başlamak için ihtiyacınız. Varsayılan değer kullandığınız **StreamingEndpoint**, veya başka bir özelleştirilmiş oluşturma **StreamingEndpoint** istenen yapılandırma ve CDN ayarları. Her biri farklı bir CDN hedefleme ve içerik teslimi için benzersiz bir ana bilgisayar adı sağlayarak birden çok akış etkinleştirmek isteyebilirsiniz. 
 
-Medya Hizmetleri'nde [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) almak ve canlı video akışları işlenmesinden sorumludur. Bir Livestream oluşturduğunuzda, bir uzak kodlayıcıdan canlı bir sinyal göndermek için kullanabileceğiniz bir giriş uç noktası oluşturulur. Uzaktan gerçek zamanlı Kodlayıcı giriş uç noktası kullanarak katkı için akış gönderir [RTMP](https://www.adobe.com/devnet/rtmp.html) veya [kesintisiz akış](https://msdn.microsoft.com/library/ff469518.aspx) (parçalanmış MP4) protokolü.  
+Medya Hizmetleri'nde [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) almak ve canlı video akışları işlenmesinden sorumludur. Bir Livestream oluşturduğunuzda, bir uzak kodlayıcıdan canlı bir sinyal göndermek için kullanabileceğiniz bir giriş uç noktası oluşturulur. Uzaktan gerçek zamanlı Kodlayıcı giriş uç noktası kullanarak katkı için akış gönderir [RTMP](https://www.adobe.com/devnet/rtmp.html) veya [kesintisiz akış](https://msdn.microsoft.com/library/ff469518.aspx) (parçalanmış MP4) protokolü. Kesintisiz akış alma protokolü, desteklenen URL şemalarını `http://` veya `https://`. Desteklenen URL şemalarını için RTMP alma protokolü, `rtmp://` veya `rtmps://`. Daha fazla bilgi için [önerilen Canlı Kodlayıcıları akış](recommended-on-premises-live-encoders.md).
 
 Bir kez **Livestream** başlatır, akış katkı alma, Önizleme uç noktası (Önizleme ve daha fazla yayımlamadan önce Canlı akışı aldığını doğrulamak için Önizleme URL'si. kullanabilirsiniz. Önizleme akışı iyi olduğuna iade ettikten sonra Livestream canlı akış bir veya daha fazla (önceden oluşturulmuş) aracılığıyla teslimi için kullanılabilir hale getirmek için kullanabileceğiniz **akış**. Bunu yapmak için yeni oluşturduğunuz [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) üzerinde **Livestream**. 
 
@@ -42,9 +42,9 @@ Bir kez **Livestream** başlatır, akış katkı alma, Önizleme uç noktası (�
 
 Media Services ile avantajlarından yararlanabilirsiniz **dinamik paketleme**, Önizleme ve yayın Canlı akışlarınız olanak tanıyan [MPEG DASH, HLS ve kesintisiz akış biçimlerinde](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) gelen akış katkı hizmete gönderin. İzleyicilerinize herhangi HLS, DASH veya kesintisiz akış uyumlu yürütücüler ile canlı akış oynatabilirsiniz. Kullanabileceğiniz [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) web veya mobil uygulamalar, akışınız şu protokollerin birinde sunmak için.
 
-Media Services dinamik olarak şifrelenmiş içerik teslim etmenizi sağlar (**dinamik şifreleme**) Gelişmiş Şifreleme Standardı (AES-128) veya herhangi bir üç ana dijital hak yönetimi (DRM) sistemi: Microsoft PlayReady Google Widevine ve FairPlay Apple. Media Services, yetkili istemcilere AES anahtarları ve DRM lisanslarını teslim etmek üzere bir hizmet de sağlar. İçeriğinizi Media Services ile şifreleme hakkında daha fazla bilgi için bkz: [içerik genel koruma](content-protection-overview.md)
+Media Services dinamik olarak şifrelenmiş içerik teslim etmenizi sağlar (**dinamik şifreleme**) Gelişmiş Şifreleme Standardı (AES-128) veya herhangi bir üç ana dijital hak yönetimi (DRM) sistemi: Microsoft PlayReady, Google Widevine ve FairPlay Apple. Media Services, yetkili istemcilere AES anahtarları ve DRM lisanslarını teslim etmek üzere bir hizmet de sağlar. İçeriğinizi Media Services ile şifreleme hakkında daha fazla bilgi için bkz: [içerik genel koruma](content-protection-overview.md)
 
-İsterseniz, parçalar, biçimleri, bit hızlarına dönüştürme ve oyunculara gönderilen sunu zaman pencereleri sayısını denetlemek için kullanılabilen dinamik filtreleme, de uygulayabilirsiniz. 
+İsterseniz, parçalar, biçimleri, bit hızlarına dönüştürme ve oyunculara gönderilen sunu zaman pencereleri sayısını denetlemek için kullanılabilen dinamik filtreleme, de uygulayabilirsiniz. Daha fazla bilgi için [filtreleri ve dinamik bildirimlere](filters-dynamic-manifest-overview.md).
 
 ### <a name="new-capabilities-for-live-streaming-in-v3"></a>V3 sürümünde canlı akış için yeni özellikler
 
@@ -77,13 +77,13 @@ Canlı bir örneğe bakın [MediaV3LiveApp](https://github.com/Azure-Samples/med
 
 ![live Encoding](./media/live-streaming/live-encoding.png)
 
-Media Services ile Live encoding kullanıldığında, tek bit hızlı (RTMP veya parçalanmış Mp4 protokolünü kullanarak) Livestream akışı katkı olarak video göndermek için şirket içi Canlı Kodlayıcı yapılandırırsınız. Livestream kodlar, gelen tek bit hızlı akış için bir [birden çok hızlı video akışına](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), MPEG-DASH, HLS ve kesintisiz akış gibi protokolleri aracılığıyla cihazları kayıttan yürütmek teslim için kullanılabilir hale getirir. Bu tür bir Livestream oluştururken, kodlama türü olarak belirtin **temel** (LiveEventEncodingType.Basic).
+Media Services ile Live encoding kullanıldığında, tek bit hızlı (RTMP veya parçalanmış Mp4 protokolünü kullanarak) Livestream akışı katkı olarak video göndermek için şirket içi Canlı Kodlayıcı yapılandırırsınız. Livestream kodlar, gelen tek bit hızlı akış için bir [birden çok hızlı video akışına](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), MPEG-DASH, HLS ve kesintisiz akış gibi protokolleri aracılığıyla cihazları kayıttan yürütmek teslim için kullanılabilir hale getirir. Bu tür bir Livestream oluştururken, kodlama türü olarak belirtin **standart** (LiveEventEncodingType.Standard).
 
 En 30 kare/saniye, H.264/AVC video codec ve AAC kare hızı 1080 p çözünürlükte en fazla akış katkı gönderebilirsiniz (AAC-LC, HE-AACv1 veya HE-AACv2) ses kodek bileşeni. Bkz: [Livestream türleri, karşılaştırma ve sınırlamalar](live-event-types-comparison.md) makale daha fazla ayrıntı için.
 
 ## <a name="liveevent-types-comparison"></a>Livestream türlerini karşılaştırma
 
-Livestream iki özelliklerinin karşılaştıran bir tablo makalesinin içerir: [karşılaştırma](live-event-types-comparison.md).
+Livestream iki özelliklerinin karşılaştıran bir tablo makalesinin içerir: [Karşılaştırma](live-event-types-comparison.md).
 
 ## <a name="liveoutput"></a>LiveOutput
 

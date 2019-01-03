@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 748a9c0c583d4e1af9626527a440b19900898b87
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963605"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600317"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure sözlüğünü: Azure platformunda bulut terimleri sözlüğü
 
@@ -37,7 +37,7 @@ Bkz: [Office 365 hesabınızı kullanarak bir Azure aboneliği için kaydolun](b
 Başka bir ad [App Service uygulaması](#app-service-app).
 
 ## <a name="app-service-app"></a>App Service uygulaması
-İşlem kaynakları, [Azure App Service](app-service/app-service-web-overview.md) bir Web sitesi veya web uygulamasını web API barındırmak için veya [mobil uygulama arka ucu](app-service-mobile/app-service-mobile-value-prop.md). App Service uygulamalarını da denir *uygulama hizmetleri*, *web uygulamaları*, *API apps*, ve *mobil uygulamalar*.
+İşlem kaynakları, [Azure App Service](app-service/overview.md) bir Web sitesi veya web uygulamasını web API barındırmak için veya [mobil uygulama arka ucu](app-service-mobile/app-service-mobile-value-prop.md). App Service uygulamalarını da denir *uygulama hizmetleri*, *web uygulamaları*, *API apps*, ve *mobil uygulamalar*.
 
 ## <a name="availability-set"></a>Kullanılabilirlik kümesi
 Uygulama yedeklilik ve güvenilirliği sağlamak için birlikte yönetilen sanal makineler koleksiyonudur. Bir kullanılabilirlik kümesi kullanımı ya da planlı veya Plansız bakım olayı sırasında en az bir sanal makine kullanılabilir olmasını sağlar.  
@@ -70,7 +70,7 @@ Bkz: [Azure SQL veritabanı için etkin coğrafi çoğaltma](sql-database/sql-da
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## <a name="image"></a>image
-Herhangi bir sayıda sanal makineler oluşturmak için kullanılan uygulama yapılandırması ve işletim sistemi içeren bir dosya. Azure'da görüntülerinin iki tür vardır: VM görüntüsünü ve işletim sistemi görüntüsü. Bir VM görüntüsü, işletim sistemi ve görüntü oluşturulduğunda bir sanal makineye bağlı tüm diskleri içerir. Yalnızca genelleştirilmiş işletim sistemi hiçbir veri disk yapılandırmaları olan bir işletim sistemi görüntüsü içerir.  
+Herhangi bir sayıda sanal makineler oluşturmak için kullanılan uygulama yapılandırması ve işletim sistemi içeren bir dosya. Azure'da görüntülerinin iki tür vardır: Sanal makine görüntüsünü ve işletim sistemi görüntüsü. Bir VM görüntüsü, işletim sistemi ve görüntü oluşturulduğunda bir sanal makineye bağlı tüm diskleri içerir. Yalnızca genelleştirilmiş işletim sistemi hiçbir veri disk yapılandırmaları olan bir işletim sistemi görüntüsü içerir.  
 Bkz: [seçin PowerShell veya CLI ile azure'da Windows sanal makine görüntülerine erişin ve](virtual-machines/windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="limits"></a>sınırları
@@ -83,7 +83,7 @@ Gelen trafiği bir ağdaki bilgisayarlar arasında dağıtan bir kaynaktır. Azu
 ## <a name="mobile-app"></a>mobil uygulama
 Başka bir ad [App Service uygulaması](#app-service-app).
 
-## <a name="offer"></a>teklif
+## <a name="offer"></a>Teklif
 Fiyatlandırma, krediler ve bir Azure aboneliği için geçerli olan ilgili koşulları.  
 Bkz: [Azure Teklif Ayrıntıları sayfası](https://azure.microsoft.com/support/legal/offer-details/)
 
@@ -106,13 +106,13 @@ Bkz: [Azure Resource Manager'a genel bakış](azure-resource-manager/resource-gr
 Bir veya daha fazla Azure kaynakları bildirimli olarak tanımlayan ve dağıtılan kaynaklar arasındaki bağımlılıkları tanımlayan bir JSON dosyası. Şablon, kaynakları tutarlı ve sürekli olarak dağıtmak için kullanılabilir.  
 Bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md)
 
-## <a name="resource-provider"></a>kaynak sağlayıcıs
+## <a name="resource-provider"></a>Kaynak sağlayıcısı
 Kaynakları sağlayan bir hizmet dağıtma ve Resource Manager ile yönetin. Her kaynak sağlayıcısı dağıtılan kaynaklarla çalışmaya yönelik işlemler sunar. Kaynak sağlayıcıları, Azure portalı, Azure PowerShell ve çeşitli programlama SDK'ları erişilebilir.  
 Bkz: [Azure Resource Manager'a genel bakış](azure-resource-manager/resource-group-overview.md)
 
 ## <a name="role"></a>rol
 Kullanıcılar, gruplar ve hizmetlere atanabilen erişimi denetlemek için bir anlamına gelir. Rolleri gibi oluşturmak, yönetmek ve Azure kaynaklarında okuma eylemleri gerçekleştiremezsiniz.  
-Bkz: [RBAC: yerleşik roller](role-based-access-control/built-in-roles.md)
+Bkz: [RBAC: Yerleşik roller](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>Hizmet düzeyi sözleşmesi (SLA)
 Çalışma süresi ve bağlantı için Microsoft'un taahhütleri açıklar sözleşme. Her bir Azure hizmeti, belirli bir SLA yoktur.  

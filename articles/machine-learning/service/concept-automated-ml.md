@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 12/04/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7e55304fb02078c71b91b2904475a4bee4bcc018
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9e3297b2493ea12f9da50556e4fc9e72d625fd25
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436968"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583468"
 ---
 # <a name="what-is-automated-machine-learning"></a>Nedir, makine öğrenimi otomatik?
 
@@ -65,9 +65,10 @@ Ortak bir durumu otomatik machine Learning, uçtan uca işlemi görmek için ba�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Örneklere bakın ve otomatik Machine Learning kullanarak modelleri oluşturmayı öğrenin:
++ [Örnekler: Azure Machine Learning hizmeti keşfetmek için Jupyter not defterleri kullanma](samples-notebooks.md#automated-ml-setup)
 
 + [Öğretici: Otomatik olarak bir Azure Machine Learning otomatik sınıflandırma modeli eğitme](tutorial-auto-train-models.md)
 
-+ [Otomatik eğitim ayarlarını yapılandırma](how-to-configure-auto-train.md)
++ [Uzak bir kaynağa otomatik eğitim kullanma](how-to-auto-train-remote.md)
 
-+ [Uzak bir kaynağa otomatik eğitim kullanma](how-to-auto-train-remote.md) 
++ [Otomatik eğitim ayarlarını yapılandırma](how-to-configure-auto-train.md)

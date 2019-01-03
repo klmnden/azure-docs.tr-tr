@@ -3,17 +3,15 @@ title: MariaDB için Azure veritabanı'nda bir sunucuya geri yükleme
 description: Bu makalede Azure portalını kullanarak MariaDB için Azure veritabanı'nda bir sunucuya geri yükleme.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 899f0bfa3075c92ac31e2b4f5fab9093a1dc6806
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cf6d0399c790a42eaf74b3ec339bf8cf67495fb3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999061"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548774"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Nasıl yedeklenir ve Azure portalını kullanarak MariaDB için Azure veritabanı'nda bir sunucuya geri yükleme
 
@@ -66,10 +64,10 @@ Aşağıdaki adımlar bir-belirli bir noktaya için örnek sunucuyu geri yükle:
 3. Geri yükleme formunu gerekli bilgiler ile doldurun:
 
    ![MariaDB - geri yükleme bilgileri için Azure veritabanı ](./media/howto-restore-server-portal/3-restore.png)
-  - **Geri yükleme noktası**:-geri yüklemek istediğiniz belirli bir noktaya seçin.
-  - **Hedef sunucu**: yeni sunucu için bir ad belirtin.
-  - **Konum**: bölgeyi seçemezsiniz. Varsayılan olarak, kaynak sunucuyla aynıdır.
-  - **Fiyatlandırma katmanı**:-belirli bir noktaya geri yükleme yaparken bu parametrelerin değiştiremezsiniz. Kaynak sunucuyla aynıdır. 
+  - **Geri yükleme noktası**: -Geri yüklemek istediğiniz belirli bir noktaya seçin.
+  - **Hedef sunucu**: Yeni sunucu için bir ad sağlayın.
+  - **Konum**: Bölgeyi seçemezsiniz. Varsayılan olarak, kaynak sunucuyla aynıdır.
+  - **Fiyatlandırma katmanı**: Belirli bir noktaya geri yükleme yaparken bu parametrelerin değiştiremezsiniz. Kaynak sunucuyla aynıdır. 
 
 4. Tıklayın **Tamam** bir-belirli bir noktaya için geri yüklemek için sunucuyu geri yükleyin. 
 
@@ -81,12 +79,12 @@ Aşağıdaki adımlar bir-belirli bir noktaya için örnek sunucuyu geri yükle:
 ## <a name="geo-restore"></a>Coğrafi geri yükleme
 Coğrafi olarak yedekli yedekleme için sunucunuzu yapılandırdıysanız, bu var olan bir sunucuyu yedekten yeni bir sunucu oluşturulabilir. Bu yeni sunucu MariaDB için Azure veritabanı kullanılabilir herhangi bir bölgede oluşturulabilir.  
 
-1. Portalın sol üst köşesinde bulunan **Kaynak oluştur** düğmesini (+) seçin. Tür **MariaDB için Azure veritabanı** hizmeti bulmak için arama kutusuna.
+1. Portalın sol üst köşesinde bulunan **Kaynak oluştur** düğmesini (+) seçin. Hizmeti bulmak için arama kutusuna **MariaDB için Azure Veritabanı** yazın.
 
    !["MariaDB için Azure veritabanı" seçeneği](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
 
 2. Formun **Kaynağı Seç** açılır listesinde, seçin **yedekleme**. Bu eylem, etkin coğrafi olarak yedekli yedeklemelere sahip sunucularının bir listesini yükler. Yeni sunucunuzun bir kaynak olarak bu yedeklemeler birini seçin.
-   ![Kaynak Seç: Yedekleme ve coğrafi olarak yedekli yedeklemeleri listesi](./media/howto-restore-server-portal/2-georestore.png)
+   ![Kaynağı seçin: Yedekleme ve coğrafi olarak yedekli yedeklemeleri listesi](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
    > Bir sunucu ilk oluşturulduğunda coğrafi geri yükleme için hemen kullanılabilir olmayabilir. Bu doldurulması gerekli meta veriler için birkaç saat sürebilir.

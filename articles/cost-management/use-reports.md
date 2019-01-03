@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: db24cb1e1b303fbd3f0981390940732685c98baf
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075889"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558813"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Cloudyn portalında kullanılabilir raporlar
 
@@ -29,7 +29,7 @@ Cloudyn raporlarını üç tür vardır:
 
 - Aşırı zaman raporlar. Örneğin, zaman içinde Maliyet raporu. Aşırı zaman raporlar önceden tanımlanmış bir çözümleme seçili bir aralık boyunca bir zaman serisi verilerinin Göster ve son iki ay boyunca haftalık bir çözüm göster. Gruplandırma ve filtreleme, çeşitli veri noktalarına yakınlaştırmak için kullanabilirsiniz.
   - Aşırı zaman raporlar, eğilimleri görüntülemek ve ani artış ve anomalileri algılayın yardımcı olabilir.
-- Analiz raporları. Örneğin, maliyet analizi repot. Bu raporlar tanımlayın ve verileri filtreleme ve gruplandırma izin bir dönem boyunca toplanan verileri gösterir.
+- Analiz raporları. Örneğin, maliyet analizi raporu. Bu raporlar tanımlayın ve verileri filtreleme ve gruplandırma izin bir dönem boyunca toplanan verileri gösterir.
   - Analiz raporları görüntüleyin ani ve anomali nedenlerini belirlemek yardımcı olabilir ve verilerinizi ayrıntılı bir kesme aşağı göstermek için.
 - Tablo raporlar. Tablo olarak herhangi bir raporu görüntüleyebilirsiniz, ancak bazı raporlar yalnızca tablo olarak görüntülenir. Bu raporlar, öğe listeleri içeren ayrıntılı sağlar.
   - Öneriler misiniz tablosal raporları — önerileri için herhangi bir görselleştirmenin vardır. Ancak, öneri sonuçları görselleştirebilirsiniz. Örneğin, zaman tasarrufu.
@@ -63,7 +63,7 @@ El ile bir oluşturduktan sonra birçok Cloudyn raporlarını bütçe bilgileri 
 
 ## <a name="reports-and-reporting-features"></a>Raporlar ve raporlama özellikleri
 
-Aşağıdaki raporlar ve raporlama özelliklerinin Clouydn içerir.
+Cloudyn aşağıdaki raporlar ve raporlama özelliklerini içerir.
 
 ### <a name="cost-navigator-report"></a>Gezgin rapor maliyeti
 
@@ -448,7 +448,7 @@ Belirli bir örneği için öneri ayrıntılarını görüntülemek için tıkla
 
 Detaya gitme ve örnek CPU üzerinden zaman örnekleri dökümünü görmek için raporu açmak için grafiğe tıklayın.
 
-- Kullanım **alanları Göster/Gizle** alanları eklemek veya kaldırmak için: zaman damgası, ortalama CPU, en düşük CPU, en fazla CPU.
+- Kullanım **alanları Göster/Gizle** alanları eklemek veya kaldırmak için: Zaman damgası, ortalama CPU, en düşük CPU, en fazla CPU.
 - Kullanım **tarih aralığı** bir tarih veya tarih aralığı girin ve belirli bir InstanceId detayına gidin.
 - Kullanım **genişletilmiş filtreler** Tümünü Göster ya da belirli bir örnek kimliği
 - Tıklayın **yakınlaştırmak** CPU kullanımı raporu açmak için

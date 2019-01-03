@@ -9,16 +9,16 @@ ms.service: media-services
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: anzaman
-ms.openlocfilehash: aa2c089659d202222e7dd5e41ae56bf2a683bb1e
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: b309d0969eb313c90e94af0a32123b7d45b4bef0
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323038"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601398"
 ---
 # <a name="customize-a-language-model-with-video-indexer"></a>Video Indexer ile bir dil modelini özelleştirin
 
-Video Indexer, Microsoft ile tümleştirilmesiyle otomatik konuşma tanıma destekler [özel konuşma hizmeti](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). Dil modeli uyarlama metinle, yani sözlük uyum sağlamak üzere altyapısı istediğiniz etki alanından karşıya yükleyerek özelleştirebilirsiniz. Modelinizi eğitin sonra varsayılan telaffuz varsayılarak yeni sözcük uyarlama metinli tanınır ve dil modeli, sözcük yeni olası dizileri öğreneceksiniz. Özel dil modelleri, İngilizce, Almanca, İspanyolca, Arapça, Fransızca, Hintçe, İtalyanca, Japonca, Portekizce, Rusça ve Çince için desteklenir.
+Video Indexer, Microsoft ile tümleştirilmesiyle otomatik konuşma tanıma destekler [özel konuşma hizmeti](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). Dil modeli uyarlama metinle, yani sözlük uyum sağlamak üzere altyapısı istediğiniz etki alanından karşıya yükleyerek özelleştirebilirsiniz. Modelinizi eğitin sonra varsayılan telaffuz varsayılarak yeni sözcük uyarlama metinli tanınır ve dil modeli, sözcük yeni olası dizileri öğreneceksiniz. Özel dil modelleri, İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Çince (Basitleştirilmiş), Japonca, Rusça, Portekizce (Brezilya), Hintçe ve Kore dili için desteklenir. 
 
 Örnek olarak (bağlamında Azure Kubernetes hizmeti), "Kubernetes" gibi yüksek oranda belirli bir sözcük ele alalım. Word'ün yeni Video Indexer olduğundan, "topluluklarına" kabul edilir. "Kubernetes" tanımak için modeli eğitmek gerekir. Diğer durumlarda, sözcükleri var, ancak dil modelini belirli bir bağlamda görünmesini beklediği değil. Örneğin, "container service" belirli bir sözcükler kümesini özel olmayan dil modeli tanımlayabileceği bir 2 sözcük dizisi değil.
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 796cbcfc7ab905c54b878a5ccc866efbf9242fb6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583222"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652090"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Akış Apache Spark'a genel bakış
 
@@ -203,7 +203,7 @@ Spark akış API'de kayan pencere işlevleri penceresi, countByWindow reduceByWi
 
 ## <a name="checkpointing"></a>Denetim noktası oluşturma
 
-Dayanıklılık ve hataya dayanıklılık sağlamak üzere akış işleme düğüm hataları karşılaşıldığında bile kesintiye uğramadan devam edebileceğinizden emin olmak için denetim noktası Spark Streaming seçeneğini kullanır. HDInsight Spark kontrol noktalarını kalıcı depolama (Azure Depolama'da veya Data Lake Store) oluşturur. Bu kontrol noktalarının yapılandırması, uygulama ve sıraya alınmış ancak henüz işlenmemiş toplu işlemler tarafından tanımlanan işlemleri gibi akış uygulaması hakkındaki meta verileri depolar. Bazı durumlarda, verileri daha hızlı bir şekilde mevcut Rdd Spark tarafından yönetilen nedir verileri durumunu yeniden Rdd kaydetme kontrol noktalarını de içerecektir.
+Dayanıklılık ve hataya dayanıklılık sağlamak üzere akış işleme düğüm hataları karşılaşıldığında bile kesintiye uğramadan devam edebileceğinizden emin olmak için denetim noktası Spark Streaming seçeneğini kullanır. HDInsight Spark kontrol noktalarını kalıcı depolama (Azure Depolama'da veya Data Lake depolama) oluşturur. Bu kontrol noktalarının yapılandırması, uygulama ve sıraya alınmış ancak henüz işlenmemiş toplu işlemler tarafından tanımlanan işlemleri gibi akış uygulaması hakkındaki meta verileri depolar. Bazı durumlarda, verileri daha hızlı bir şekilde mevcut Rdd Spark tarafından yönetilen nedir verileri durumunu yeniden Rdd kaydetme kontrol noktalarını de içerecektir.
 
 ## <a name="deploying-spark-streaming-applications"></a>Spark akış uygulamaları dağıtma
 

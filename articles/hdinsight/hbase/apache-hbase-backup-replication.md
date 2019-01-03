@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 568d63f984980e91b4dc059211dcf0eaceb73820
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d7be248e49baf4e7fd10d6b37df1473e92ccfce7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164237"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651733"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Apache HBase ve HDInsight üzerinde Apache Phoenix için yedekleme ve çoğaltma ayarlama
 
@@ -26,7 +26,7 @@ Apache HBase, kullanılan veri kaybına karşı koruyarak için çeşitli yakla�
 * Anlık Görüntüler
 * Çoğaltma
 
-> [!NOTE]
+> [!NOTE]  
 > Sistem kataloğu HBase tablolarını yedeklediğinizde meta verileri yedeklenir, Apache Phoenix HBase tablolarda, meta verileri depolar.
 
 Aşağıdaki bölümlerde bu yaklaşımların her için kullanım senaryosu açıklanmaktadır.
@@ -35,7 +35,7 @@ Aşağıdaki bölümlerde bu yaklaşımların her için kullanım senaryosu aç�
 
 Bu yaklaşımda, tablo ve sütun ailesi alt kümesine işaretleyebilmesine olmadan tüm HBase veri kopyalayın. Sonraki yaklaşım daha fazla denetim sağlar.
 
-HDInsight, HBase, Azure depolama blobları veya Azure Data Lake Store kümeyi oluştururken seçili varsayılan depolama alanı kullanır. Her iki durumda da, HBase aşağıdaki yolda bulunan verileri ve meta veri dosyalarını depolar:
+HDInsight içinde HBase kümesi, Azure depolama blobları veya Azure Data Lake Storage oluştururken seçili varsayılan depolama alanı kullanır. Her iki durumda da, HBase aşağıdaki yolda bulunan verileri ve meta veri dosyalarını depolar:
 
     /hbase
 
@@ -45,7 +45,7 @@ HDInsight, HBase, Azure depolama blobları veya Azure Data Lake Store kümeyi ol
     wasbs://<containername>@<accountname>.blob.core.windows.net/hbase
     ```
 
-* Azure Data Lake Store içinde `hbase` klasörün bulunduğu bir kümesi sağlanırken belirtilen kök yolunun altında. Genellikle bu kök yolu olan bir `clusters` sonra HDInsight kümenizi adlı bir alt klasörle:
+* Azure Data Lake Storage içinde `hbase` klasörün bulunduğu bir kümesi sağlanırken belirtilen kök yolunun altında. Genellikle bu kök yolu olan bir `clusters` sonra HDInsight kümenizi adlı bir alt klasörle:
 
     ```
     /clusters/<clusterName>/hbase
@@ -57,7 +57,7 @@ Küme silindikten sonra verileri yerinde bırakın veya verileri yeni bir konuma
 
 * Geçerli bir depolama konumuna işaret eden yeni bir HDInsight örneği oluşturun. Yeni örnek ile mevcut olan tüm verileri oluşturulur.
 
-* Kopyalama `hbase` klasör için farklı bir Azure depolama blob kapsayıcı ya da Data Lake Store konumu ve yeni bir küme bu verilerle başlatın. Azure depolama için kullanmak [AzCopy](../../storage/common/storage-use-azcopy.md)ve Data Lake Store kullanmak için [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
+* Kopyalama `hbase` klasör için farklı bir Azure depolama blob kapsayıcı ya da Data Lake depolama konumu ve yeni bir küme bu verilerle başlatın. Azure depolama için kullanmak [AzCopy](../../storage/common/storage-use-azcopy.md)ve Data Lake depolama kullanmak için [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md).
 
 ## <a name="export-then-import"></a>Ardından içeri dışarı aktarma
 
@@ -75,7 +75,7 @@ Tam dışarı aktarma yolu varsayılan depolama veya bağlı depolama seçenekle
 
     wasbs://<containername>@<accountname>.blob.core.windows.net/<path>
 
-Azure Data Lake Store içinde sözdizimi aşağıdaki gibidir:
+Azure Data Lake depolama sözdizimi aşağıdaki gibidir:
 
     adl://<accountName>.azuredatalakestore.net:443/<path>
 
@@ -117,7 +117,7 @@ CopyTable yardımcı programını Ayrıca satır kopyalamak ve kopyalamak için 
 
 CopyTable üzerinden hedef tabloya kopyalanacak tüm kaynak tablo içeriğini tarar. CopyTable çalışırken bu HBase kümenizin performansını düşürebilir.
 
-> [!NOTE]
+> [!NOTE]  
 > Tablolar arasında veri kopyalama otomatik hale getirmek için bkz: `hdi_copy_table.sh` betiğini [Azure HBase Utils](https://github.com/Azure/hbase-utils/tree/master/replication) github deposu.
 
 ### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>Apache ZooKeeper çekirdek listesini el ile toplayın

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: 05c089c0e92672b3602bd9c7bfb3263c56db76ef
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7dc2136fe6ee28da0583ebdb2b2749ddf1c37049
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633308"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728049"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtreler ve dinamik bildirimlere
 
@@ -40,14 +40,14 @@ Bu konu başlığı altında açıklanır [kavramları](#concepts) ve [gösterir
 
 ### <a name="dynamic-manifests"></a>Dinamik bildirimlerin
 
-Medya Hizmetleri sunan **dinamik bildirimlerini** temel üzerinde önceden tanımlanmış [filtreleri](#filters). Filtreler tanımladıktan sonra istemcilerinize bunları belirli bir işleme veya alt klip videonuzun akışını sağlamak için kullanabilirsiniz. Bunlar, akış URL'SİNDE filtreleri belirtmeniz gerekir. Filtreler hızı Uyarlamalı akış için uygulanan: Apple HTTP canlı akış (HLS), MPEG-DASH ve kesintisiz akış. 
+Medya Hizmetleri sunan **dinamik bildirimlerini** temel üzerinde önceden tanımlanmış [filtreleri](#filters). Filtreler tanımladıktan sonra istemcilerinize bunları belirli bir işleme veya alt klip videonuzun akışını sağlamak için kullanabilirsiniz. Bunlar, akış URL'SİNDE filtreleri belirtmeniz gerekir. Filtreler hızı Uyarlamalı akış için uygulanabilir: Apple HTTP canlı akış (HLS), MPEG-DASH ve kesintisiz akış. 
 
 Aşağıdaki tabloda, filtrelerle URL'leri bazı örnekler gösterilmektedir:
 
 |Protokol|Örnek|
 |---|---|
-|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=myAccountFilter)`|
-|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=myAccountFilter)`|
+|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,filter=myAccountFilter)`|
 |MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Kesintisiz Akış|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
 
@@ -114,7 +114,7 @@ Filtreler tanımlamak için aşağıdaki özellikleri kullanın.
 |---|---|
 |firstQuality|Filtrenin ilk kalite hızı.|
 |PresentationTimeRange|Sunu zaman aralığı. Bu özellik, bildirim başlangıç/bitiş noktaları, sunu penceresi uzunluğu ve canlı bir başlangıç konumu filtreleme için kullanılır. <br/>Daha fazla bilgi için [PresentationTimeRange](#PresentationTimeRange).|
-|parçaları|Parçaları seçimi koşulları. Daha fazla bilgi için [izler](#tracks)|
+|Parçaları|Parçaları seçimi koşulları. Daha fazla bilgi için [izler](#tracks)|
 
 ### <a name="presentationtimerange"></a>PresentationTimeRange
 
@@ -216,7 +216,7 @@ Varlıklarınızı birden fazla ses dili İngilizce, İspanyolca, Fransızca, vb
 ![Filtreleme dili izler][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Bir varlığın başlangıç kırpma
-Çoğu canlı akış olayları, işleçler, gerçek olayın önce bazı testler çalıştırın. Örneğin, olay başlamadan önce böyle bir maskeleme görüntüsü içerebilir: "Program kısa bir süre içinde başlayacak". Program arşivleme, test ve maskeleme görüntüsü veri arşivlenmiş da sunuda. Ancak, bu bilgileri istemcilere gösterilmeyecek. Dinamik bildirim başlangıç süresi filtre oluşturabilir ve bildirim istenmeyen verileri kaldırın.
+Çoğu canlı akış olayları, işleçler, gerçek olayın önce bazı testler çalıştırın. Örneğin, şunun gibi bir maskeleme görüntüsü olay başlamadan önce şunlar olabilir: "Program kısa bir süre içinde başlayacak". Program arşivleme, test ve maskeleme görüntüsü veri arşivlenmiş da sunuda. Ancak, bu bilgileri istemcilere gösterilmeyecek. Dinamik bildirim başlangıç süresi filtre oluşturabilir ve bildirim istenmeyen verileri kaldırın.
 
 ![Kırpma Başlat][trim_filter]
 

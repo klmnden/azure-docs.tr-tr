@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: cf3c30d33e618ae3fd9d4ad942c77d211a414e82
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288553"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601160"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Docker dağıtma
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Bu makalede, test ve geliştirme için yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtma işlemini göstermektedir. Yerel Docker kapsayıcıları için mikro Hizmetleri dağıtmayı öğrenin. Yerel mikro hizmetlerin dağıtımı aşağıdaki bulut hizmetlerini kullanır: bulutta IOT Hub, Cosmos DB, Azure akış analizi ve Azure Time Series Insights Hizmetleri.
+Bu makalede, test ve geliştirme için yerel makinenize Uzaktan izleme çözüm Hızlandırıcısını dağıtma işlemini göstermektedir. Yerel Docker kapsayıcıları için mikro Hizmetleri dağıtmayı öğrenin. Yerel mikro hizmetlerin dağıtımı aşağıdaki bulut hizmetlerini kullanır: Bulutta IOT Hub, Cosmos DB, Azure akış analizi ve Azure Time Series Insights Hizmetleri.
 
 Uzaktan izleme çözüm Hızlandırıcısını IDE içinde yerel makinenizde çalıştırmak istiyorsanız, bkz. [Uzaktan izleme çözüm Hızlandırıcısını yerel olarak - Visual Studio dağıtma](iot-accelerators-remote-monitoring-deploy-local.md).
 
@@ -27,7 +27,7 @@ Uzaktan izleme çözüm Hızlandırıcısını IDE içinde yerel makinenizde ça
 
 Uzaktan izleme çözüm Hızlandırıcısını tarafından kullanılan Azure Hizmetleri dağıtmak için bir etkin Azure aboneliği gerekir.
 
-Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](http://azure.microsoft.com/pricing/free-trial/).
+Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
 ### <a name="machine-setup"></a>Makine Kurulumu
 
@@ -72,11 +72,11 @@ docker-compose up
 > [!TIP]
 > Microsoft, yeni Docker görüntülerini yeni işlevlerle sık yayımlar. En son olanları çekme önce yerel Docker kapsayıcıları ve ilgili görüntüleri aşağıdaki temizleme komutları kümesini kullanabilirsiniz:
 
-    ```cmd/sh
-    docker list
-    docker rm <list_of_containers>
-    docker rmi <list_of_images>
-    ```
+```cmd/sh
+docker list
+docker rm <list_of_containers>
+docker rmi <list_of_images>
+```
 
 Kapsayıcı günlüklerini görüntülemek için ayrı bir kabuk kullanabilirsiniz. Kimliği kullanarak kapsayıcıdaki ilk bulma `docker ps` komutu. Ardından `docker logs {container-id} --tail 1000` belirtilen kapsayıcı için son 1000 girişlerini görüntülemek için.
 

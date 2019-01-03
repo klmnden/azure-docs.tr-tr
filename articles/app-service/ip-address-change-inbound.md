@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2a494b318011d601609033bc877134f0b0eeff09
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: aaa89b5a3bb1af6878ed21e0160a534a1c989228
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249337"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721368"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>Nasıl bir gelen IP adresi değişikliğe hazırlanmak için
 
@@ -50,4 +50,4 @@ Portalda, uygulamaya verilen yeni gelen IP adresi bulunduğu **sanal IP adresi**
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, Azure tarafından başlatılan bir IP adresi değişikliği hazırlama açıklanmıştır. Azure App Service'te IP adresleri hakkında daha fazla bilgi için bkz. [gelen ve giden IP adresleri, Azure App Service'te](app-service-ip-addresses.md).
+Bu makalede, Azure tarafından başlatılan bir IP adresi değişikliği hazırlama açıklanmıştır. Azure App Service'te IP adresleri hakkında daha fazla bilgi için bkz. [gelen ve giden IP adresleri, Azure App Service'te](overview-inbound-outbound-ips.md).

@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 10/19/18
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: ddc85cb7c9bd4488295b22e687d199a73d23922c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 933fcbfc21c69d02f1093e0ea2519d76f4130b29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955635"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598899"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Depolama'da statik Web sitesi barındırma
 Azure depolama ve GPv2 hesapları doğrudan adlı bir depolama kapsayıcısındaki statik içerik (HTML, CSS, JavaScript ve görüntü dosyaları) sunmak izin *$web*. Azure Depolama'da barındırma yararlanma dahil olmak üzere sunucusuz mimarileri kullanmanıza olanak verir [Azure işlevleri](/azure/azure-functions/functions-overview) ve diğer PaaS Hizmetleri.
 
-Statik Web sitesi barındırma aksine, sunucu tarafı kodu bağımlı dinamik siteleri en iyi kullanarak barındırılan [Azure Web Apps](/azure/app-service/app-service-web-overview).
+Statik Web sitesi barındırma aksine, sunucu tarafı kodu bağımlı dinamik siteleri en iyi kullanarak barındırılan [Azure App Service](/azure/app-service/overview).
 
 ## <a name="how-does-it-work"></a>Nasıl çalışır?
 Statik Web sitesi etkinleştirdiğinizde, depolama hesabı, barındırma, varsayılan dosyanızın adını seçin ve isteğe bağlı olarak Özel 404 sayfa yolu sağlayın. Özelliğin etkin olduğu gibi bir kapsayıcı adlı *$web* önceden yoksa oluşturulur. 
@@ -109,7 +109,7 @@ az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NA
 
 - [AzCopy](../common/storage-use-azcopy.md)
 - [Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/)
-- [Visual Studio Team System](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
+- [Azure işlem hatları](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
 - [Visual Studio Code uzantısı](https://code.visualstudio.com/tutorials/static-website/getting-started)
 
 Her durumda, dosyaları kopyalamak emin *$web* kapsayıcı.
@@ -158,9 +158,9 @@ Evet, yeni web uç noktası, depolama hesabı için yapılandırılmış sanal a
 Evet, web uç noktası yalnızca blob uç noktası gibi büyük küçük harfe duyarlıdır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [HTTP'ler üzerinden özel etki alanlarıyla bloblara erişmek için Azure CDN'yi kullanma](storage-https-custom-domain-cdn.md)
+* [HTTPS üzerinden özel etki alanlarıyla bloblara erişmek için Azure CDN'yi kullanma](storage-https-custom-domain-cdn.md)
 * [Blob veya web uç noktanız için özel etki alanı adı yapılandırma](storage-custom-domain-name.md)
 * [Azure İşlevleri](/azure/azure-functions/functions-overview)
-* [Azure Web Apps](/azure/app-service/app-service-web-overview)
+* [Azure App Service](/azure/app-service/overview)
 * [İlk sunucusuz web uygulamanızı oluşturun](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Öğretici: etki alanınızı Azure DNS'e ana bilgisayar](../../dns/dns-delegate-domain-azure-dns.md)
+* [Öğretici: Etki alanınızı Azure DNS'de barındırın](../../dns/dns-delegate-domain-azure-dns.md)

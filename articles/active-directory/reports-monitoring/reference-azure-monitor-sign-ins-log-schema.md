@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4a610780d11452a8207a1108e4469bc9de62ecb8
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0c44501a483b9a988c3ef048d12455eb3e5ae337
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620927"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546408"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) Azure AD oturum açma günlükleri şemada yorumlama
 
@@ -172,4 +172,4 @@ Bu makalede, Azure İzleyici'de Azure Active Directory (Azure AD) oturum açma g
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure İzleyici denetim günlükleri şemasını yorumlama](reference-azure-monitor-audit-log-schema.md)
-* [Azure tanılama günlükleri hakkında daha fazla bilgi](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Azure tanılama günlükleri hakkında daha fazla bilgi](../../azure-monitor/platform/diagnostic-logs-overview.md)

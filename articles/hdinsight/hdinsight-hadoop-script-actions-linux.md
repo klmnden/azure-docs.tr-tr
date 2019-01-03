@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 768dc4f555ade9483e11c3aec0f4622fe6b441c1
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 9dafe7df3c488dbc6d0c2f27a6265e86eebad41c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384215"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718937"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight ile betik eylemi geliştirme
 
@@ -134,7 +134,7 @@ Linux tabanlı HDInsight kümeleri küme içinde etkin olan iki baş düğümü 
 
 ### <a name="bPS6"></a>Azure Blob depolamayı kullanmak için özel bileşenlerini yapılandırma
 
-Kümede yüklemek bileşenleri, Apache Hadoop dağıtılmış dosya sistemi (HDFS) depolama kullanan varsayılan yapılandırması olabilir. HDInsight, Azure depolama ya da Data Lake Store varsayılan depolama alanı olarak kullanır. Her iki küme silinse bile, veri devam HDFS uyumlu bir dosya sistemi sağlar. WASB veya ADL HDFS yerine kullanılacak Yükleme bileşenleri yapılandırmanız gerekebilir.
+Kümede yüklemek bileşenleri, Apache Hadoop dağıtılmış dosya sistemi (HDFS) depolama kullanan varsayılan yapılandırması olabilir. HDInsight, varsayılan depolama alanı olarak Azure depolama ya da Data Lake Storage kullanır. Her iki küme silinse bile, veri devam HDFS uyumlu bir dosya sistemi sağlar. WASB veya ADL HDFS yerine kullanılacak Yükleme bileşenleri yapılandırmanız gerekebilir.
 
 İşlemlerinin çoğu için dosya sistemini belirtmek gerekmez. Örneğin, aşağıdaki giraph-examples.jar dosyasını yerel dosya sisteminden küme depolama alanına kopyalayan:
 
@@ -142,7 +142,7 @@ Kümede yüklemek bileşenleri, Apache Hadoop dağıtılmış dosya sistemi (HDF
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-Bu örnekte, `hdfs` komutu şeffaf bir şekilde varsayılan küme depolama kullanır. Bazı işlemler için URI belirtmeniz gerekebilir. Örneğin, `adl:///example/jars` Data Lake Store için veya `wasb:///example/jars` Azure depolama için.
+Bu örnekte, `hdfs` komutu şeffaf bir şekilde varsayılan küme depolama kullanır. Bazı işlemler için URI belirtmeniz gerekebilir. Örneğin, `adl:///example/jars` Data Lake Storage için veya `wasb:///example/jars` Azure depolama için.
 
 ### <a name="bPS7"></a>STDOUT ve STDERR bilgilerini yazma
 
@@ -163,7 +163,7 @@ Varsayılan olarak, `echo` STDOUT dize gönderir. STDERR yönlendirmek için ekl
 >&2 echo "An error occurred installing Foo"
 ```
 
-Bu, STDOUT, STDERR (2) için bunun yerine yazılan bilgi yönlendirir. G/ç yeniden yönlendirmesi hakkında daha fazla bilgi için bkz. [ http://www.tldp.org/LDP/abs/html/io-redirection.html ](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+Bu, STDOUT, STDERR (2) için bunun yerine yazılan bilgi yönlendirir. G/ç yeniden yönlendirmesi hakkında daha fazla bilgi için bkz. [ https://www.tldp.org/LDP/abs/html/io-redirection.html ](https://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Betik eylemleri tarafından günlüğe kaydedilen oturum bilgilerinin görüntüleme ile ilgili daha fazla bilgi için bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
@@ -278,17 +278,17 @@ Bir küme özelleştirmek için kullanılan betikleri aşağıdaki konumlardan b
 
 * A __herkese açık şekilde okunabilir URI__. Örneğin, OneDrive, Dropbox veya barındırma hizmeti başka bir dosya üzerinde depolanan verileri URL'si.
 
-* Bir __Azure Data Lake Store hesabı__ HDInsight kümesi ile ilişkili olan. Azure Data Lake Store ile HDInsight kullanma hakkında daha fazla bilgi için bkz. [hızlı başlangıç: HDInsight kümelerinde ayarlama](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* Bir __Azure Data Lake Store hesabına__ HDInsight kümesi ile ilişkili olan. Azure Data Lake Store ile HDInsight kullanma hakkında daha fazla bilgi için bkz. [hızlı başlangıç: HDInsight kümelerinde ayarlama](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]  
-    > HDInsight, Data Lake Store erişmek için kullandığı hizmet sorumlusu, betik okuma erişiminiz olması gerekir.
+    > HDInsight, Data Lake depolamaya erişmek için kullandığı hizmet sorumlusu, betik okuma erişiminiz olması gerekir.
 
 Komut dosyası tarafından kullanılan kaynakları da genel kullanıma açık olması gerekir.
 
-Bir Azure depolama hesabına veya Azure Data Lake Store dosyaları depolamak için Azure ağı içinde her ikisi de olarak hızlı erişim sağlar.
+Bir Azure depolama hesabına veya Azure Data Lake Storage dosyaların depolanması, Azure ağı içinde her ikisi de olarak hızlı erişim sağlar.
 
 > [!NOTE]  
-> Betik başvurmak için kullanılan URI biçimi, kullanılan hizmete bağlı olarak farklılık gösterir. HDInsight kümesi ile ilişkili depolama hesapları için kullanmak `wasb://` veya `wasbs://`. Genel olarak okunabilir URI'ler için kullanmak `http://` veya `https://`. Data Lake Store için kullanmak `adl://`.
+> Betik başvurmak için kullanılan URI biçimi, kullanılan hizmete bağlı olarak farklılık gösterir. HDInsight kümesi ile ilişkili depolama hesapları için kullanmak `wasb://` veya `wasbs://`. Genel olarak okunabilir URI'ler için kullanmak `http://` veya `https://`. Data Lake depolama için kullanmak `adl://`.
 
 ### <a name="checking-the-operating-system-version"></a>İşletim sistemi sürümü denetleniyor
 

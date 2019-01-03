@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/28/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 84924900403a4aa2a65143c65a0b26f2c95a1e5b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 00c4d750d0617d36ab476719ce31c8038065511c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962656"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807219"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack kaydı
 Azure Market öğelerini indirme ve ticaret verileri Microsoft'a raporlamaya ayarlamak için Azure ile Azure Stack geliştirme Seti'ni (ASDK) yüklemenizi kaydedebilirsiniz. Kayıt, Pazar dağıtımı da dahil olmak üzere tam Azure Stack işlevleri desteklemek için gereklidir. Kayıt önerilir çünkü Market dağıtım ve kullanım raporlama gibi önemli Azure Stack işlevselliğini test etmek sağlar. Azure Stack kaydettikten sonra kullanım için Azure ticaret bildirilir. Kayıt için kullanılan abonelik altında görebilirsiniz. Ancak ASDK kullanıcılar bunlar rapor tüm kullanımlar için ücretlendirilmezsiniz.
@@ -69,7 +69,7 @@ Azure ile ASDK kaydetmek için aşağıdaki adımları izleyin.
     -RegistrationName $RegistrationName `
     -UsageReportingEnabled:$true
     ```
-3. Betik tamamlandığında, bu iletiyi görmeniz gerekir: **ortamınızı şimdi kaydedilir ve sağlanan parametreleri kullanarak etkinleştirildi.**
+3. Betik tamamlandığında, bu iletiyi görmeniz gerekir: **Ortamınızı şimdi kaydedilir ve sağlanan parametreleri kullanarak etkinleştirildi.**
 
     ![Ortamınızı artık kayıtlı](media/asdk-register/1.PNG)
 
@@ -201,21 +201,21 @@ Alternatif olarak, **Get-Content** kayıt belirtecinizi içeren bir dosyaya işa
 Etkinleştirme tamamlandıktan sonra benzer bir ileti görürsünüz **ortamınızı kayıt ve etkinleştirme işlemi tamamlandı.**
 
 ## <a name="verify-the-registration-was-successful"></a>Kaydın başarılı olduğunu doğrulayın
-Azure ile ASDK kaydı doğrulamak için aşağıdaki adımları izleyin **bağlı ortamlarda** başarılı oldu.
+
+Kullanabileceğiniz **bölge Yönetimi** Azure Stack kaydın başarılı olduğunu doğrulamak için bir kutucuk. Bu kutucuk, Yönetici portalı'nda varsayılan pano üzerinde kullanılabilir.
 
 1. Oturum [Azure Stack Yönetim Portalı](https://adminportal.local.azurestack.external).
 
-2. Tıklayın **Market Yönetim** > **Azure'dan ekleme**.
+2. Panoda **bölge Yönetimi**.
 
-    ![](media/asdk-register/2.PNG)
+    [ ![Bölge Yönetimi kutucuğu](media/asdk-register/admin1sm.png "bölge Yönetimi kutucuğu") ](media/asdk-register/admin1.png#lightbox)
 
-3. Azure'dan kullanılabilir öğeleri listesini görürseniz, etkinleştirme başarılı oldu.
-
-    ![](media/asdk-register/3.PNG)
+3. Seçin **özellikleri**. Bu dikey pencere, ortamınızın ayrıntılarını ve durumunu gösterir. Durum olabilir **kayıtlı** veya **kayıtlı**. Kaydettiyseniz, Azure Stack, adını ve kayıt kaynak grubunun yanı sıra kaydolmak için kullandığınız ayrıca Azure abonelik Kimliğini gösterir.
 
 ## <a name="move-a-registration-resource"></a>Kayıt kaynak taşıma
 Kayıt kaynak aynı abonelik altında kaynak grupları arasında taşıma **olduğu** desteklenir. Kaynakları yeni kaynak grubuna taşıma hakkında daha fazla bilgi için bkz. [kaynakları yeni kaynak grubuna veya aboneliğe taşıma](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Bir Azure Stack Market öğesi Ekle](../azure-stack-marketplace.md)
+
+- [Bir Azure Stack Market öğesi Ekle](../azure-stack-marketplace.md)

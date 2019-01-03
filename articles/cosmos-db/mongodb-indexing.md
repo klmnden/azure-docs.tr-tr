@@ -1,24 +1,24 @@
 ---
-title: Azure Cosmos DB MongoDB API'si dizin oluşturma
-description: Azure Cosmos DB MongoDB API’sinde dizinleme özelliklerine genel bir bakış sunar.
+title: MongoDB için Azure Cosmos DB'nin API'SİNDE dizinleme
+description: Dizinleme özelliklerine genel bakış için MongoDB API'si ile Azure Cosmos DB'nin sunar.
 services: cosmos-db
-author: orestis-ms
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.author: orkostak
-ms.openlocfilehash: bdb2ceb45950b99b1a5a351c6301599a791ef8cc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: 4c6ba4b12625433f0b0218dc88decf2d7cb7ad77
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875306"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792291"
 ---
-# <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB: MongoDB API’sinde dizinleme
+# <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB'nin MongoDB kullanarak dizin oluşturma
 
-Azure Cosmos DB MongoDB API’si, Azure Cosmos DB’nin otomatik dizin yönetimi özelliklerinden yararlanır. Sonuç olarak, kullanıcılar Azure Cosmos DB’nin varsayılan dizinleme ilkelerine erişebilir. Bu nedenle, kullanıcı tarafından tanımlanmış bir dizin yoksa veya bir dizin bırakılmamışsa, tüm alanlar koleksiyona eklendiğinde varsayılan olarak otomatik dizinlenir. Çoğu senaryoda, hesap üzerinde ayarlanmış varsayılan dizinleme ilkesinin kullanılması önerilir.
+Azure Cosmos DB'nin MongoDB API'si, Cosmos DB'nin otomatik dizin yönetimi özelliklerinden yararlanır. Sonuç olarak, kullanıcılar varsayılan dizinleme ilkelerine Cosmos DB'nin erişebilir. Bu nedenle, kullanıcı tarafından tanımlanmış dizin yok veya dizin bırakılmamışsa, ardından tüm alanları otomatik olarak bir koleksiyona eklendiğinde varsayılan olarak dizinlenir. Çoğu senaryoda, hesap üzerinde ayarlanmış varsayılan dizinleme ilkesinin kullanılması önerilir.
 
 ## <a name="dropping-the-default-indexes"></a>Varsayılan dizinleri bırakma
 
@@ -97,5 +97,5 @@ Yukarıdaki komut, ```db.coll``` koleksiyonunda son 10 saniye içinde değiştir
 Şu anda benzersiz dizinler yalnızca koleksiyon hiçbir belge içermediğinde oluşturulabilir. Popüler MongoDB geçiş araçları, verileri içeri aktardıktan sonra benzersiz dizin oluşturmaya çalışır. Bu sorunu aşmak için kullanıcıların geçiş aracına izin vermek yerine karşılık gelen koleksiyonları ve benzersiz dizinleri el ile oluşturması önerilir (```mongorestore``` için bu davranış komut satırında --noIndexRestore bayrağı kullanılarak elde edilir).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Cosmos DB verileri nasıl dizinler?](../cosmos-db/index-policy.md)
-* [Azure Cosmos DB koleksiyonlarındaki verileri yaşam süresi ile otomatik olarak sonlandır](../cosmos-db/time-to-live.md)
+* [Azure Cosmos DB'yi dizine ekleme](../cosmos-db/index-policy.md)
+* [Yaşam süresi otomatik olarak Azure Cosmos DB'de verilerle süresi dolacak](../cosmos-db/time-to-live.md)

@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 18c35070707408f43fd0e5dfc5e3330ef62a914d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c1a778a006c7743b6ea19062d79cff3cfeaba3d8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343165"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713282"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Dayanıklı işlevler Web işleri çalıştırma
 
-[Azure işlevleri](../functions-overview.md) ve [dayanıklı işlevler](durable-functions-overview.md) uzantı üzerinde oluşturulan [WebJobs SDK](../../app-service/web-sites-create-web-jobs.md). `JobHost` WebJobs SDK Azure işlevleri çalışma zamanı olan. Denetime ihtiyacınız varsa `JobHost` davranışı Azure işlevleri'nde mümkün olmayan yöntemlerden geliştirin ve dayanıklı işlevler Web işleri SDK'sını kullanarak kendiniz çalıştırın. Bir Azure WebJob içinde dayanıklı işlevler daha sonra çalıştırabilir veya bir konsol uygulaması her yerde çalışır.
+[Azure işlevleri](../functions-overview.md) ve [dayanıklı işlevler](durable-functions-overview.md) uzantı üzerinde oluşturulan [WebJobs SDK](../../app-service/webjobs-create.md). `JobHost` WebJobs SDK Azure işlevleri çalışma zamanı olan. Denetime ihtiyacınız varsa `JobHost` davranışı Azure işlevleri'nde mümkün olmayan yöntemlerden geliştirin ve dayanıklı işlevler Web işleri SDK'sını kullanarak kendiniz çalıştırın. Bir Azure WebJob içinde dayanıklı işlevler daha sonra çalıştırabilir veya bir konsol uygulaması her yerde çalışır.
 
 Zincirleme dayanıklı işlevler örnek bir Web işleri SDK'sı sürümü olarak kullanılabilir: indirin veya kopyalayın [dayanıklı işlevler depo](https://github.com/azure/azure-functions-durable-extension/) gidin *örnekleri\\webjobssdk\\Zincirleme* klasör.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 57848a7a4d8e627e952a9f46d438b073c73d833a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a9b90fe119bc56620a7bd3087d4842f604fc18f0
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725871"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582550"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Düzenli yedekleme ve geri yükleme Azure Service fabric'te 
 > [!div class="op_single_selector"]
@@ -150,6 +150,9 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestor
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
+> [!IMPORTANT]
+> Çalışma zamanında bir sorun nedeniyle, bekletme ilkesi bekletme süresi 24 günden az olacak şekilde yapılandırılır; Aksi takdirde, çekirdek kayıp çoğaltma yük devretme sonrasında gitmek için yedekleme geri yükleme hizmeti neden olacağından emin olun.
+
 ### <a name="enable-periodic-backup"></a>Dönemsel yedeklemeyi etkinleştirme
 Uygulamanın veri koruma gereksinimlerini karşılamak için yedekleme İlkesi tanımladıktan sonra yedekleme ilkesini uygulama ile ilişkili olması gerekir. Yedekleme İlkesi gereksinim bağlı olarak, bir uygulama, hizmet veya bir bölümü ile ilişkili olabilir.
 
@@ -228,8 +231,10 @@ FailureError            :
 
 ## <a name="limitation-caveats"></a>Sınırlama / uyarılar
 - Herhangi bir Service Fabric PowerShell cmdlet'leri yerleşik.
-- Service Fabric CLI desteği yok.
 - Linux üzerinde Service Fabric desteği kümeleri.
+
+## <a name="known-issues"></a>Bilinen Sorunlar
+- Bekletme süresi 24 günden az olacak şekilde yapılandırıldığından emin olun. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Düzenli yedekleme yapılandırması anlama](./service-fabric-backuprestoreservice-configure-periodic-backup.md)

@@ -5,22 +5,24 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 11/28/2018
+ms.date: 12/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: da340166ba0e8d73ff3a21663e76fcfaa4938241
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3d3e6d37ace7ed72700042c04b6e4502a6b3b42a
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111664"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53814521"
 ---
 | Kategori | Veri deposu | Kaynak olarak desteklenen | Havuz olarak desteklenen | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) tarafından desteklenen | [Şirket içinde barındırılan IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) tarafından desteklenen |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Depolama](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Cosmos DB (MongoDB API'si)](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Lake Storage Gen2 (Önizleme)](../articles/data-factory/connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[MariaDB için Azure veritabanı](../articles/data-factory/connector-azure-database-for-mariadb.md) |✓ | |✓ |✓  |
 | &nbsp; |[MySQL için Azure Veritabanı](../articles/data-factory/connector-azure-database-for-mysql.md) |✓ | |✓ |✓  |
 | &nbsp; |[PostgreSQL için Azure Veritabanı](../articles/data-factory/connector-azure-database-for-postgresql.md) |✓ | |✓ |✓  |
 | &nbsp; |[Azure Dosya Depolama](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓ |✓ |✓  |
@@ -59,11 +61,13 @@ ms.locfileid: "53111664"
 | **Dosya** |[Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dosya Sistemi](../articles/data-factory/connector-file-system.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[FTP](../articles/data-factory/connector-ftp.md) |✓ | |✓ |✓  |
+| &nbsp; |[Google bulut depolama](../articles/data-factory/connector-amazon-simple-storage-service.md#copy-from-google-cloud-storage) |✓ | |✓ |✓  |
 | &nbsp; |[HDFS](../articles/data-factory/connector-hdfs.md) |✓ | |✓ |✓  |
 | &nbsp; |[SFTP](../articles/data-factory/connector-sftp.md) |✓ | |✓ |✓  |
 | **Genel protokol** |[Genel HTTP](../articles/data-factory/connector-http.md) |✓ | |✓ |✓  |
 | &nbsp; |[Genel OData](../articles/data-factory/connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[Genel ODBC](../articles/data-factory/connector-odbc.md) |✓ |✓ | |✓  |
+| &nbsp; |[Genel REST](../articles/data-factory/connector-rest.md) |✓ | |✓ |✓  |
 | **Hizmetler ve uygulamalar** |[Amazon Marketplace Web Service (Önizleme)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
 | &nbsp; |[Uygulamalar için Common Data Service](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Concur (Önizleme)](../articles/data-factory/connector-concur.md) |✓ | |✓ |✓  |

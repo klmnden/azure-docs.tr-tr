@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: bd8bfb8775bc9c988bb7484ac25f189c3ff46991
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 69eaa0028f1115cafbd1ed28b66940d7faaed062
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317288"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608554"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka için günlüklerini çözümleme
 
@@ -30,7 +30,7 @@ HDInsight için log Analytics etkinleştirme adımları tüm HDInsight kümeleri
 
 3. Log Analytics'i kullanmak için Kafka kümesi yapılandırın. Daha fazla bilgi için [HDInsight izlemek için Log Analytics'i kullanmak](../hdinsight-hadoop-oms-log-analytics-tutorial.md) belge.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Log Analytics kullanarak kümeye de yapılandırabilirsiniz `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet'i. Bu cmdlet, aşağıdaki bilgileri gerektirir:
     >
     > * HDInsight kümesi adı.
@@ -38,7 +38,7 @@ HDInsight için log Analytics etkinleştirme adımları tüm HDInsight kümeleri
     > * Log Analytics bağlantısı için birincil anahtar. Birincil anahtar, açık, Azure portalında çalışma alanını bulmak için seçin __Gelişmiş ayarlar__ sol menüden. Gelişmiş ayarları seçin __bağlı kaynaklar__>__Linux sunucuları__.
 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu veriler, Log Analytics için kullanılabilir olmadan önce yaklaşık 20 dakika sürebilir.
 
 ## <a name="query-logs"></a>Sorgu günlükleri
@@ -57,7 +57,7 @@ HDInsight için log Analytics etkinleştirme adımları tüm HDInsight kümeleri
 
     * Saniye başına Giden bayt sayısı: `metrics_kafka_CL | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)`
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Sorgu değerleri kümeye özel bilgileri ile değiştirin. Örneğin, `ClusterName_s` kümenizin adı olarak ayarlanması gerekir. `HostName_s` Kümedeki çalışan düğümü etki alanı adı olarak ayarlanmalıdır.
 
     Ayrıca girebilirsiniz `*` kaydedilen tüm türleri aranacak. Şu anda aşağıdaki günlükleri sorgular için kullanılabilir:

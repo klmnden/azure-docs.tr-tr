@@ -8,16 +8,16 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: d02ae48bab6a17cbf5568996b30ccb39ccb81c59
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 2cbfb21469df45f29a70b5d10d8c99ecd894c30c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994009"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755028"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU kaynakları kullanan container Instances'ı dağıtma
 
-Azure Container Instances hakkında belirli bilgi işlem açısından yoğun iş yüklerini çalıştırmak için kapsayıcı gruplarınızı dağıtma *GPU kaynakları*. Kapsayıcı örnekleri, NVIDIA Tesla Gpu'lar bir veya daha fazla CUDA gibi kapsayıcı iş yükleri ve uygulamalar derin öğrenme erişebilirsiniz.
+Azure Container Instances hakkında belirli bilgi işlem açısından yoğun iş yüklerini çalıştırmak için dağıtma, [kapsayıcı grupları](container-instances-container-groups.md) ile *GPU kaynakları*. Grubundaki kapsayıcı örnekleri, NVIDIA Tesla Gpu'lar bir veya daha fazla CUDA gibi kapsayıcı iş yükleri ve uygulamalar derin öğrenme erişebilirsiniz.
 
 Bu makalede gösterilen şekilde kullanarak bir kapsayıcı grubu dağıttığınızda GPU kaynaklar ekleyebilirsiniz bir [YAML dosyası](container-instances-multi-container-yaml.md) veya [Resource Manager şablonu](container-instances-multi-container-group.md).
 
@@ -87,7 +87,7 @@ GPU kaynakları dağıtırken, CPU ve bellek kaynakları aşağıdaki tabloda g�
 
 ## <a name="yaml-example"></a>YAML örneği
 
-Adlı yeni bir dosyaya aşağıdaki YAML'ye kopyalayın *gpu dağıtma aci.yaml*, ardından dosyayı kaydedin. Adlı bir kapsayıcı grubu bu YAML oluşturur *gpucontainergroup* K80 GPU ile bir kapsayıcı örneği belirtme. Örneği, örnek CUDA vektör toplama uygulaması çalışır. İş yükü çalıştırmak için yeterli kaynak isteklerdir.
+GPU kaynakları eklemek için bir yol olan bir kapsayıcı grubu kullanarak dağıtmak için bir [YAML dosyası](container-instances-multi-container-yaml.md). Adlı yeni bir dosyaya aşağıdaki YAML'ye kopyalayın *gpu dağıtma aci.yaml*, ardından dosyayı kaydedin. Adlı bir kapsayıcı grubu bu YAML oluşturur *gpucontainergroup* K80 GPU ile bir kapsayıcı örneği belirtme. Örneği, örnek CUDA vektör toplama uygulaması çalışır. İş yükü çalıştırmak için yeterli kaynak isteklerdir.
 
 ```YAML
 additional_properties: {}
@@ -121,7 +121,7 @@ Dağıtımın tamamlanması birkaç dakika sürer. Ardından, kapsayıcı başla
 az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
 ```
 
-Çıktı:
+Çıkış:
 
 ```Console
 [Vector addition of 50000 elements]
@@ -134,7 +134,7 @@ Done
 
 ## <a name="resource-manager-template-example"></a>Resource Manager şablonu örneği
 
-Adlı bir dosya oluşturarak başlayın `gpudeploy.json`, içine aşağıdaki JSON kopyalayın. Bu örnek, bir kapsayıcı örneği çalıştıran bir V100 GPU dağıtır bir [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) eğitim işini karşı [MNIST dataset](http://yann.lecun.com/exdb/mnist/). İş yükü çalıştırmak için yeterli kaynak isteklerdir.
+Bir kapsayıcı grubu GPU kaynakları dağıtmak için başka bir yolu kullanmaktır bir [Resource Manager şablonu](container-instances-multi-container-group.md). Adlı bir dosya oluşturarak başlayın `gpudeploy.json`, içine aşağıdaki JSON kopyalayın. Bu örnek, bir kapsayıcı örneği çalıştıran bir V100 GPU dağıtır bir [TensorFlow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) eğitim işini karşı [MNIST dataset](http://yann.lecun.com/exdb/mnist/). İş yükü çalıştırmak için yeterli kaynak isteklerdir.
 
 ```JSON
 {
@@ -198,7 +198,7 @@ Dağıtımın tamamlanması birkaç dakika sürer. Ardından, kapsayıcıyı ba�
 az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
 ```
 
-Çıktı:
+Çıkış:
 
 ```Console
 2018-10-25 18:31:10.155010: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA

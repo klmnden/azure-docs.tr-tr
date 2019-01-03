@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 1d1811549978d78a8dddad8e89895fdf605ed02b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 1393dd32aea8cb6d348092ea1fc56752f659beab
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341907"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717883"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack Depolama: Farklılıklar ve dikkat edilmesi gerekenler
 
@@ -34,8 +34,8 @@ Bu makalede, Azure depolama hizmetlerinde bilinen Azure Stack depolama farklar �
 | Özellik | Azure (Genel) | Azure Stack |
 | --- | --- | --- |
 |Dosya depolama|Desteklenen bulut tabanlı SMB dosya paylaşımları|Henüz desteklenmiyor
-|Bekleyen veri için Azure depolama hizmeti şifrelemesi|256 bit AES şifrelemesi|BitLocker 128 bit AES şifrelemesi
-|Depolama hesabı türü|Genel amaçlı ve Azure blob depolama hesapları|Genel amaçlı yalnızca.
+|Bekleyen veri için Azure depolama hizmeti şifrelemesi|256 bit AES şifreleme. Anahtar Kasası'nda müşteri tarafından yönetilen anahtarları kullanarak şifreleme destekler.|BitLocker'ı 128 bit AES şifreleme. Müşteri tarafından yönetilen anahtarları kullanarak şifreleme desteklenmiyor.
+|Depolama hesabı türü|Genel amaçlı V1, V2 ve Blob Depolama hesapları|Yalnızca genel amaçlı V1.
 |Çoğaltma seçenekleri|Yerel olarak yedekli depolama, coğrafi olarak yedekli depolama, okuma erişimli coğrafi olarak yedekli depolama ve bölgesel olarak yedekli depolama|Yerel olarak yedekli depolama.
 |Premium depolama|Tam olarak desteklenir|Garanti ya da performans sınır sağlanabilir.
 |Yönetilen diskler|Premium ve standart desteklenir|1808 veya sonraki bir sürümü kullandığınızda desteklenir.
@@ -44,11 +44,14 @@ Bu makalede, Azure depolama hizmetlerinde bilinen Azure Stack depolama farklar �
 |Sayfa blob anlık görüntü kopyalama|Desteklenen çalışan bir VM'ye bağlı yedekleme Azure yönetilmeyen VM diskleri|Henüz desteklenmiyor.
 |Sayfa blob artımlı anlık görüntü kopyalama|Premium ve standart Azure sayfa blobları desteklenir|Henüz desteklenmiyor.
 |Blob depolama için depolama katmanları|Sık erişimli, seyrek erişimli ve Arşiv depolama katmanları.|Henüz desteklenmiyor.
-Blob depolama için geçici silme|Önizleme|Henüz desteklenmiyor.
+|Blob depolama için geçici silme|Genel kullanımda|Henüz desteklenmiyor.
 |Sayfa blob en büyük boyutu|8 TB|1 TB
 |Sayfa blob sayfa boyutu|512 bayt|4 KB
 |Tablo bölüm anahtarını ve satır boyutu anahtarı.|1024 karakter (2.048 bayt)|400 karakter (800 bayt)
-|BLOB anlık görüntüsü|Bir blobun anlık görüntüleri maksimum sayısı sınırlı değildir.|Bir blobun anlık görüntüleri maksimum sayısı 1000'dir.|
+|BLOB anlık görüntüsü|Bir blobun anlık görüntüleri maksimum sayısı sınırlı değildir.|Bir blobun anlık görüntüleri maksimum sayısı 1000'dir.
+|Depolama için Azure AD kimlik doğrulaması|Önizleme aşamasında|Henüz desteklenmiyor.
+|Sabit BLOB'ları|Genel kullanımda|Henüz desteklenmiyor.
+|Güvenlik Duvarı ve depolama için sanal ağ kuralları|Genel kullanımda|Henüz desteklenmiyor.|
 
 Depolama ölçümleri farklılıklar vardır:
 
@@ -61,7 +64,17 @@ Azure Stack depolama ile aşağıdaki sürümleri destekler:
 
 Azure depolama API Hizmetleri:
 
-Güncelleştirme 1802 ya da daha yeni:
+1811 güncelleştirmesi veya daha yeni sürümleri:
+
+ - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+ - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
+ - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+ - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+ - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+ - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
+ - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
+
+1809 güncelleştirme 1802 güncelleştirme:
 
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
@@ -79,6 +92,12 @@ Azure depolama hizmet yönetimi API'ları:
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
+Önceki sürümler:
+
+ - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ - [2015-05-01-Önizleme](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+ 
 ## <a name="sdk-versions"></a>SDK sürümleri
 
 Azure Stack depolama aşağıdaki istemci kitaplıklardan destekler:

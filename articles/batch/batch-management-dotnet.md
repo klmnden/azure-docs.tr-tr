@@ -1,9 +1,9 @@
 ---
-title: .NET - Azure batch hesabı kaynaklarına istemci kitaplığı ile yönetme | Microsoft Docs
+title: .NET - Azure Batch hesabı kaynaklarına istemci kitaplığı ile yönetme | Microsoft Docs
 description: Oluşturma, silme ve Azure Batch hesabı kaynaklarına toplu işlem yönetimi .NET kitaplığı ile değiştirin.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/24/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fd511a8a9d17bf79f1237bbfe2dc2ddbc5ec1b2e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: c65a71d9e64a1ea3f60abbe2e420652c12ba030e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867435"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549560"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET için Batch Yönetimi istemci kitaplığı ile batch hesaplarını ve kotalarını yönetme
 
@@ -181,9 +181,9 @@ Yeni oluşturulan Batch hesabı ve kaynak grubu silmeden önce bunları görünt
 [aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Azure AD için kimlik doğrulama senaryoları"
 [aad_integrate]:../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md "Uygulamaları Azure Active Directory ile tümleştirme"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
-[api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
+[api_net]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_mgmt_net]: https://msdn.microsoft.com/library/azure/mt463120.aspx
-[azure_portal]: http://portal.azure.com
+[azure_portal]: https://portal.azure.com
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [azure_tokencreds]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.tokencloudcredentials.aspx
 [batch_explorer_project]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer

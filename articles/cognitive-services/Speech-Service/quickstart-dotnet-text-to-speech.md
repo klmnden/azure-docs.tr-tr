@@ -1,5 +1,5 @@
 ---
-title: 'Hızlı Başlangıç: metin okuma, .NET Core - konuşma Hizmetleri Dönüştür'
+title: 'Hızlı Başlangıç: Metin okuma, .NET Core - konuşma Hizmetleri Dönüştür'
 titleSuffix: Azure Cognitive Services
 description: Bu hızlı başlangıçta, metin okuma metin okuma REST API'si ile nasıl dönüştürme yapılacağını öğreneceksiniz. Bu kılavuzda yer örnek metni konuşma sentezi işaretleme dili (SSML'yi) olarak yapılandırılmıştır. Bu, ses ve konuşma yanıtın dili seçmenize olanak sağlar.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 3a0304a69cdff15cddf325be8abe336a42ea4fc1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d463ca73fb533b8a44c2019a478f2df0162cb23
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089879"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791454"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>Hızlı Başlangıç: Dönüştürme metin okuma .NET Core kullanma
 
@@ -27,7 +27,7 @@ Bu hızlı başlangıç bir [Azure Bilişsel Hizmetler hesabı](https://docs.mic
 
 Bu hızlı başlangıç şunları gerektirir:
 
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), veya en sevdiğiniz metin düzenleyiciyi
 * Konuşma hizmeti için bir Azure aboneliği anahtarı
 
@@ -109,7 +109,7 @@ public class Authentication
 ```
 
 > [!NOTE]
-> Kimlik doğrulaması hakkında daha fazla bilgi için bkz. [bir erişim belirteci almak nasıl](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
+> Kimlik doğrulaması hakkında daha fazla bilgi için bkz. [bir erişim belirteci ile kimlik doğrulama](https://docs.microsoft.com/azure/cognitive-services/authentication#authenticate-with-an-authentication-token).
 
 ## <a name="get-an-access-token-and-set-the-host-url"></a>Erişim belirteci almak ve ana bilgisayar URL'si ayarlayın
 
@@ -162,7 +162,7 @@ string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis'
 ```
 
 > [!NOTE]
-> Bu örnekte `ZiraRUS` ses tipi. Ses/dillerde Microsoft tam bir listesi sağlanmaktadır için bkz: [dil desteği](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/language-support). Markanız için benzersiz, tanınan bir ses oluşturmak istiyorsanız bkz [özel ses tipi oluşturma](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font).
+> Bu örnekte `ZiraRUS` ses tipi. Ses/dillerde Microsoft tam bir listesi sağlanmaktadır için bkz: [dil desteği](language-support.md). Markanız için benzersiz, tanınan bir ses oluşturmak istiyorsanız bkz [özel ses tipi oluşturma](how-to-customize-voice-font.md).
 
 ## <a name="instantiate-the-client-make-a-request-and-save-synthesized-audio-to-a-file"></a>İstemci örneği, bir istek oluşturun ve Sentezlenen ses bir dosyaya kaydedin.
 

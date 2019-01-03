@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
+ms.lasthandoff: 12/21/2018
 ms.locfileid: "51238084"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Yapılandırma Always On kullanılabilirlik grubu Azure VM'de el ile
@@ -45,7 +45,7 @@ Aşağıdaki tabloda, bu öğreticiye başlamadan önce tamamlanması gereken ö
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Dosya Paylaşımı için küme tanığı |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server hizmet hesabı | Etki alanı hesabı |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Aracısı hizmet hesabı | Etki alanı hesabı |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Güvenlik Duvarı bağlantı noktalarını açma | -SQL Server: **1433** varsayılan örnek için <br/> -Veritabanı yansıtma uç noktası: **5022** veya tüm kullanılabilir bağlantı noktası <br/> -Kullanılabilirlik grubu yük dengeleyici IP adresi durum araştırması: **59999** veya tüm kullanılabilir bağlantı noktası <br/> -Küme Çekirdek yük dengeleyici IP adresi durum araştırması: **58888** veya tüm kullanılabilir bağlantı noktası |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Güvenlik Duvarı bağlantı noktalarını açma | -SQL sunucusu: **1433** varsayılan örnek için <br/> -Veritabanı yansıtma uç noktası: **5022** veya tüm kullanılabilir bağlantı noktası <br/> -Kullanılabilirlik grubu yük dengeleyici IP adresi durum araştırması: **59999** veya tüm kullanılabilir bağlantı noktası <br/> -Küme Çekirdek yük dengeleyici IP adresi durum araştırması: **58888** veya tüm kullanılabilir bağlantı noktası |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Yük devretme kümesi özelliği Ekle | Bu özellik hem SQL sunucuları gerektirir |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Yükleme etki alanı hesabı | -Her bir SQL Server yerel yönetici <br/> -Her SQL Server örneği için SQL Server sysadmin sabit sunucu rolünün üyesi  |
 
@@ -296,7 +296,7 @@ Aşağıdaki adımları kullanarak bir kullanılabilirlik grubunu yapılandırma
 
     ![Yeni AG Sihirbazı, ilk veri eşitlemeyi seçin](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. İçinde **ilk veri eşitlemesini Seç** sayfasında **tam** ve paylaşılan bir ağ konumu belirtin. Konumu için [, oluşturduğunuz yedek paylaşımı](#backupshare). Bu örnekte olduğu, **\\\\\<ilk SQL Server\>\Backup\\**. **İleri**’ye tıklayın.
+8. İçinde **ilk veri eşitlemesini Seç** sayfasında **tam** ve paylaşılan bir ağ konumu belirtin. Konumu için [, oluşturduğunuz yedek paylaşımı](#backupshare). Bu örnekte olduğu, **\\\\\<ilk SQL Server\>\Backup\**. **İleri**’ye tıklayın.
 
    >[!NOTE]
    >Tam eşitleme, SQL Server'ın ilk örneğinde veritabanının tam yedekleme gerçekleştirir ve ikinci örneğine geri yükler. Büyük veritabanları için tam eşitleme önerilmez uzun sürebilir. El ile bir veritabanının yedeğini almak ve ile geri bu süreyi kısaltabilirsiniz `NO RECOVERY`. Veritabanı zaten ile geri `NO RECOVERY` ikinci SQL kullanılabilirlik grubunu yapılandırmadan önce sunucuda seçin **sadece Birleştir**. Kullanılabilirlik grubu yapılandırıldıktan sonra yedekleme almak istiyorsanız seçin **ilk veri eşitlemeyi atla**.
@@ -420,7 +420,7 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir yoklama oluştur
    | **Bağlantı Noktası** | Kullanılabilirlik grubu dinleyicisinin bağlantı noktası kullan | 1433 |
    | **Arka uç bağlantı noktası** | Kayan IP için doğrudan sunucu dönüş ayarlandığında, bu alan kullanılmaz | 1433 |
    | **Araştırma** |Yoklama için belirtilen adı | SQLAlwaysOnEndPointProbe |
-   | **Oturum kalıcılığı** | Açılan liste | **Yok** |
+   | **Oturum kalıcılığı** | Açılan liste | **Yok.** |
    | **Boşta kalma zaman aşımı** | TCP bağlantısı açık tutmak için dakika | 4 |
    | **Kayan IP (doğrudan sunucu dönüşü)** | |Etkin |
 
@@ -460,7 +460,7 @@ WSFC IP adresi aynı zamanda yük dengeleyicide olması gerekir.
    | **Bağlantı Noktası** | Bağlantı noktası için küme IP adresini kullanın. Bu dinleyici araştırma bağlantı noktası için kullanılmaz kullanılabilir bir bağlantı noktasıdır. | 58888 |
    | **Arka uç bağlantı noktası** | Kayan IP için doğrudan sunucu dönüş ayarlandığında, bu alan kullanılmaz | 58888 |
    | **Araştırma** |Yoklama için belirtilen adı | WSFCEndPointProbe |
-   | **Oturum kalıcılığı** | Açılan liste | **Yok** |
+   | **Oturum kalıcılığı** | Açılan liste | **Yok.** |
    | **Boşta kalma zaman aşımı** | TCP bağlantısı açık tutmak için dakika | 4 |
    | **Kayan IP (doğrudan sunucu dönüşü)** | |Etkin |
 

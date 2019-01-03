@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: fd9094d646b917cf811c28c9770fc2427a404ab4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0df548d6b3639ce2ce3c7c72695bb96cc6d0dc3d
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309047"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581037"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>HDInsight üzerinde Kafka ile Apache Kafka konularını çoğaltma MirrorMaker kullanın
 
@@ -22,7 +22,7 @@ ms.locfileid: "52309047"
 
 Bu örnekte, yansıtma konular iki HDInsight kümeleri arasında çoğaltmak için kullanılır. Bir Azure sanal ağ aynı bölgedeki iki kümeleridir.
 
-> [!WARNING]
+> [!WARNING]  
 > Yansıtma, hataya dayanıklılık elde etmek için bir yol değerlendirilmemelidir. Uzaklık içindeki bir konuya öğelerine kaynak ve hedef kümeler arasında farklı nedenle istemciler birbirinin yerine iki kullanamazsınız.
 >
 > Hataya dayanıklılık hakkında endişeleriniz varsa, çoğaltma konular için küme içinde ayarlamanız gerekir. Daha fazla bilgi için [HDInsight üzerinde Apache Kafka ile çalışmaya başlama](apache-kafka-get-started.md).
@@ -45,13 +45,13 @@ Kaynak ve hedef küme düğümlerine ve bölümlerine sayısında farklı olabil
 
 Farklı ağlarda Kafka kümeleri arasında yansıtmak gerekiyorsa, aşağıdaki ek hususlar vardır:
 
-* **Ağ geçitleri**: ağları TCPIP düzeyinde iletişim kurabilmesi gerekir.
+* **Ağ geçitleri**: Ağları TCPIP düzeyinde iletişim kurabilmesi gerekir.
 
-* **Ad çözümlemesi**: her ağ içinde Kafka kümeleri ana bilgisayar adları kullanarak birbirlerine bağlayabilirsiniz olmalıdır. Bu, diğer ağlara istekleri iletmek üzere yapılandırıldığı her ağındaki bir etki alanı adı sistemi (DNS) sunucusu gerektirebilir.
+* **Ad çözümlemesi**: Her ağ içinde Kafka kümeleri ana bilgisayar adları kullanarak birbirine mümkün olması gerekir. Bu, diğer ağlara istekleri iletmek üzere yapılandırıldığı her ağındaki bir etki alanı adı sistemi (DNS) sunucusu gerektirebilir.
 
     Bir Azure sanal ağ ile sağlanan otomatik DNS kullanmak yerine ağ oluştururken, özel bir DNS sunucusu ve sunucunun IP adresini belirtmeniz gerekir. Sanal ağ oluşturulduktan sonra ardından bu IP adresini kullanan bir Azure sanal makine oluşturma sonra yükleyin ve DNS yazılım üzerinde yapılandırmanız gerekir.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Oluşturun ve HDInsight sanal ağa yüklemeden önce özel bir DNS sunucusu yapılandırın. Sanal ağ için yapılandırılan DNS sunucusunun kullanılacağını HDInsight için gereken ek yapılandırma yoktur.
 
 İki Azure sanal ağları bağlama hakkında daha fazla bilgi için bkz. [bir VNet-VNet bağlantısını yapılandırma](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
@@ -66,32 +66,32 @@ Bir Azure sanal ağı oluşturabilirsiniz ve el ile Kafka kümeleri olsa da bir 
    
     Azure Resource Manager şablonu **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-kafka-mirror-cluster-in-vnet-v2.1.json** sayfasında bulunur.
 
-    > [!WARNING]
+    > [!WARNING]  
     > HDInsight üzerinde Kafka'yı kullanabilmeniz için kümenizin en az üç çalışan düğümü içermesi gerekir. Bu şablon, üç çalışan düğümü içeren bir Kafka kümesi oluşturur.
 
 2. Girişleri doldurmak için aşağıdaki bilgileri kullanın **özel dağıtım** dikey penceresinde:
     
     ![HDInsight özel dağıtım](./media/apache-kafka-mirroring/parameters.png)
     
-    * **Kaynak grubu**: bir grup oluşturun veya varolan bir tanesini seçin. Bu grup, HDInsight kümesi içerir.
+    * **Kaynak grubu**: Bir grup oluşturun veya var olanı seçin. Bu grup, HDInsight kümesi içerir.
 
-    * **Konum**: coğrafi olarak yakın bir konum seçin.
+    * **Konum**: Coğrafi olarak yakın bir konum seçin.
      
     * **Temel küme adı**: Bu değer, Kafka kümeleri için temel adı olarak kullanılır. Örneğin, girme **hdı** adlandırılmış kümeler oluşturur **kaynak hdı** ve **dest hdı**.
 
-    * **Küme oturum açma kullanıcı adı**: yönetici kullanıcı adı kaynak ve hedef için Kafka kümeleri.
+    * **Küme oturum açma kullanıcı adı**: Kaynak ve hedef için yönetici kullanıcı adı, Kafka kümeleri.
 
-    * **Küme oturum açma parolası**: kaynak ve hedef için yönetici kullanıcı parolası Kafka kümeleri.
+    * **Küme oturum açma parolası**: Kaynak ve hedef için yönetici kullanıcı parolası, Kafka kümeleri.
 
-    * **SSH kullanıcı adı**: kaynak ve hedef Kafka için kümeleri oluşturmak için kullanılan SSH kullanıcısı.
+    * **SSH kullanıcı adı**: İçin kaynak ve hedef Kafka kümeleri oluşturmak için SSH kullanıcısı.
 
-    * **SSH parolası**: kaynak ve hedef SSH kullanıcısının parolasını Kafka kümeleri.
+    * **SSH parolası**: Kaynak ve hedef SSH kullanıcısının parolasını Kafka kümeleri.
 
 3. **Hüküm ve Koşullar**’ı okuyun ve ardından **Yukarıda belirtilen hüküm ve koşulları kabul ediyorum**’u seçin.
 
 4. Son olarak, **Panoya sabitle**’yi işaretleyin ve **Satın Al**’ı seçin. Kümelerin oluşturulması yaklaşık 20 dakika sürer.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight kümeleri adı **kaynak BASENAME** ve **dest BASENAME**, BASENAME şablona verdiğiniz adı olduğu yer. Kümeye bağlanırken bu adlar daha sonraki adımlarda kullanın.
 
 ## <a name="create-topics"></a>Konu oluşturma
@@ -218,7 +218,7 @@ Bir Azure sanal ağı oluşturabilirsiniz ve el ile Kafka kümeleri olsa da bir 
 
 7. HDInsight üzerinde Kafka için varsayılan yapılandırma konuları otomatik olarak oluşturulmasını izin vermez. Yansıtma işlemini başlatmadan önce aşağıdaki seçeneklerden birini kullanmanız gerekir:
 
-    * **Konular hedef kümede oluşturma**: Bu seçenek, bölümler ve çoğaltma faktörü sayısını ayarlamak de sağlar.
+    * **Konular hedef kümede oluşturma**: Bu seçenek, bölümler ve çoğaltma faktörü sayısını ayarlamanızı sağlar.
 
         Aşağıdaki komutu kullanarak önceden konuları oluşturabilirsiniz:
 
@@ -228,7 +228,7 @@ Bir Azure sanal ağı oluşturabilirsiniz ve el ile Kafka kümeleri olsa da bir 
 
         Değiştirin `testtopic` oluşturmak için konu adına sahip.
 
-    * **Küme için otomatik konu oluşturmayı yapılandırma**:, bunları farklı sayıda bölüm ve çoğaltma faktörü kaynak konuyu Daha oluşturabilirsiniz ancak bu seçenek MirrorMaker konuları, otomatik olarak oluşturmasını sağlar.
+    * **Küme için otomatik konu oluşturmayı yapılandırma**: Bunları farklı sayıda bölüm ve çoğaltma faktörü kaynak konuyu daha oluşturun ancak bu seçenek MirrorMaker konuları, otomatik olarak oluşturmasını sağlar.
 
         Konular otomatik olarak oluşturmak için hedef küme yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
@@ -250,13 +250,13 @@ Bir Azure sanal ağı oluşturabilirsiniz ve el ile Kafka kümeleri olsa da bir 
 
     Bu örnekte kullanılan parametreler şunlardır:
 
-    * **--consumer.config**: tüketici özellikleri içeren dosyayı belirtir. Bu özellikler okur bir tüketici oluşturmak için kullanılan *kaynak* Kafka kümesi.
+    * **--consumer.config**: Tüketici özellikleri içeren dosyayı belirtir. Bu özellikler okur bir tüketici oluşturmak için kullanılan *kaynak* Kafka kümesi.
 
-    * **--producer.config**: üretici özellikleri içeren dosyayı belirtir. Bu özellikler yazan bir üretici oluşturmak için kullanılan *hedef* Kafka kümesi.
+    * **--producer.config**: Üretici özellikleri içeren dosyayı belirtir. Bu özellikler yazan bir üretici oluşturmak için kullanılan *hedef* Kafka kümesi.
 
-    * **--beyaz liste**: MirrorMaker kaynak kümeden hedefe çoğaltır konuların listesi.
+    * **--beyaz liste**: MirrorMaker hedef kaynak kümeden çoğaltır konuların listesi.
 
-    * **--num.streams**: Oluşturulacak tüketici iş parçacığı sayısı.
+    * **--num.streams**: Oluşturmak için tüketici iş parçacığı sayısı.
 
  Başlangıç sırasında aşağıdaki metne benzer bilgiler MirrorMaker döndürür:
 

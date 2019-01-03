@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 75c021f7b2c2584580f2d9dbf30cbcdf11d3fdc5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7bf1a3af7705858432b9ff8caf5064b0794568df
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875374"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602469"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Farklı şemalarla (Önizleme) bulut veritabanlarında sorgulama yapma
 ![Farklı veritabanlarındaki tabloları sorgulama][1]
@@ -117,8 +117,8 @@ Aşağıdaki örnek, geçerli veritabanından dış tabloların listesini almak 
 ### <a name="remarks"></a>Açıklamalar
 Esnek sorgu RDBMS türündeki dış veri kaynakları kullanan dış tablolar tanımlamak için var olan dış tablo sözdizimi genişletir. Dikey bölümleme için bir dış tablo tanımındaki aşağıdaki konuları içerir: 
 
-* **Şema**: dış tablo DDL sorgularınızı kullanabileceğiniz bir şema tanımlar. Dış tablo Tanımınızda belirtilen şema, gerçek verilerin depolandığı Uzak veritabanı tablo şema ile eşleşmesi gerekiyor. 
-* **Uzak veritabanı başvurusu**: dış tablo DDL bir dış veri kaynağına başvuruyor. Dış veri kaynağı mantıksal sunucu adını ve gerçek tablo verilerinin nerede depolanacağını Uzak veritabanı için veritabanı adını belirtir. 
+* **Şema**: Dış tablo DDL sorgularınızı kullanabileceğiniz bir şema tanımlar. Dış tablo Tanımınızda belirtilen şema, gerçek verilerin depolandığı Uzak veritabanı tablo şema ile eşleşmesi gerekiyor. 
+* **Uzak veritabanı başvurusu**: Dış tablo DDL bir dış veri kaynağına başvuruyor. Dış veri kaynağı mantıksal sunucu adını ve gerçek tablo verilerinin nerede depolanacağını Uzak veritabanı için veritabanı adını belirtir. 
 
 Önceki bölümde açıklandığı gibi bir dış veri kaynağı kullanarak dış tablolar oluşturmak için sözdizimi aşağıdaki gibidir: 
 
@@ -130,7 +130,7 @@ Aşağıdaki DDL deyimi var olan bir dış tablo tanımındaki yerel katalogdan 
 
     DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
-**Dış tablo oluşturma/bırakma izinlerini**: dış tablo ayrıca temel alınan veri kaynağına başvurmak için gerekli olan DDL için ALTER ANY dış veri kaynağı izinleri gerekiyor.  
+**Dış tablo oluşturma bırakma izinlerini**: Dış tablo ayrıca temel alınan veri kaynağına başvurmak için gerekli olan DDL için ALTER ANY dış veri kaynağı izinleri gereklidir.  
 
 ## <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
 Dış tablo erişimi olan kullanıcılar temel alınan uzak tablolar dış veri kaynağı tanımına verilen kimlik bilgisi altında otomatik olarak erişin. Dış veri kaynağının kimlik bilgisi üzerinden istenmeyen ayrıcalık önlemek için dış tablo erişim dikkatli bir şekilde yönetmeniz gerekir. Normal SQL izinleri VERMEK veya yalnızca işlevmiş gibi olağan bir tablo bir dış tablo erişimi iptal etmek için kullanılabilir.  
@@ -157,9 +157,9 @@ Aşağıdaki sorgu, müşteriler için siparişleri ve satış siparişi için i
 Esnek sorgu, uzak veritabanına doğrudan erişim sağlayan bir saklı yordam da tanıtılmaktadır. Saklı yordamı çağrılır [sp\_yürütme \_uzak](https://msdn.microsoft.com/library/mt703714) ve Uzak veritabanı üzerinde uzak saklı yordamları ya da T-SQL kodunu çalıştırmak için kullanılabilir. Bunu, aşağıdaki parametreleri alır: 
 
 * Veri kaynağı adı (nvarchar): RDBMS türündeki dış veri kaynağının adı. 
-* Sorgu (nvarchar): T-SQL sorgusu Uzak veritabanı üzerinde yürütülür. 
-* Parametre bildirimi (nvarchar) - isteğe bağlı: dize verileri (gibi sp_executesql) sorgu parametresi olarak kullanılan parametreler için tür tanımları ile. 
-* Parametre değeri listesi - isteğe bağlı: parametre değerleri (örneğin, sp_executesql) virgülle ayrılmış listesi.
+* Sorgu (nvarchar): Uzak veritabanı üzerinde yürütülecek T-SQL sorgusu. 
+* Parametre bildirimi (nvarchar) - isteğe bağlı: Dize (gibi sp_executesql) sorgu parametresi olarak kullanılan parametreler için tür tanımları ile verileri. 
+* Parametre değeri listesi - isteğe bağlı: Virgülle ayrılmış listesi (gibi sp_executesql) parametre değerleri.
 
 Sp\_yürütme\_uzaktan Uzak veritabanı üzerinde belirli T-SQL deyimi yürütmek için çağırma parametreleri sağlanan dış veri kaynağı kullanır. Dış veri kaynağının kimlik bilgisi uzak veritabanına bağlanmak için kullanır.  
 

@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: a88d4b09178ea32526cb8d035b47e1aef9c19dc3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ea2fe0f7e326db00a63529c0279c9c15d30c744c
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384250"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744828"
 ---
 # <a name="use-apache-maven-to-build-java-applications-that-use-apache-hbase-with-windows-based-hdinsight-apache-hadoop"></a>Windows tabanlı HDInsight (Apache Hadoop) ile Apache HBase kullanan Java uygulamaları oluşturmak için Apache Maven kullanma
-Öğrenin ve oluşturmak bir [Apache HBase](http://hbase.apache.org/) Apache Maven kullanarak Java uygulaması. Ardından uygulama, Azure HDInsight (Apache Hadoop) ile kullanın.
+Öğrenin ve oluşturmak bir [Apache HBase](https://hbase.apache.org/) Apache Maven kullanarak Java uygulaması. Ardından uygulama, Azure HDInsight (Apache Hadoop) ile kullanın.
 
-[Apache Maven](http://maven.apache.org/) yazılım, belgelere ve Java projeleri için raporlar oluşturmanıza olanak tanıyan bir yazılım proje yönetimi ve içeriği kavrama aracıdır. Bu makalede, sorgular, oluşturur ve bir Azure HDInsight kümesindeki bir HBase tablosu siler temel bir Java uygulaması oluşturmak için bunu kullanın öğrenin.
+[Apache Maven](https://maven.apache.org/) yazılım, belgelere ve Java projeleri için raporlar oluşturmanıza olanak tanıyan bir yazılım proje yönetimi ve içeriği kavrama aracıdır. Bu makalede, sorgular, oluşturur ve bir Azure HDInsight kümesindeki bir HBase tablosu siler temel bir Java uygulaması oluşturmak için bunu kullanın öğrenin.
 
 > [!IMPORTANT]  
 > Bu belgedeki adımlarda Windows kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Gereksinimler
 * [Java platformu JDK](https://aka.ms/azure-jdks) 7 veya üzeri
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 * HBase ile bir Windows tabanlı HDInsight kümesi
 
     > [!NOTE]  
@@ -40,7 +40,7 @@ ms.locfileid: "53384250"
 
     Bu komut bir dizin tarafından belirtilen ada sahip geçerli konumda oluşturur **Artifactıd** parametre (**hbaseapp** Bu örnekte.) Bu dizin, aşağıdaki öğeleri içerir:
 
-   * **pom.xml**:  Proje nesne modeli ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) projeyi oluşturmak için kullanılan bilgiler ve yapılandırma ayrıntılarını içerir.
+   * **pom.xml**:  Proje nesne modeli ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) projeyi oluşturmak için kullanılan bilgiler ve yapılandırma ayrıntılarını içerir.
    * **src**: İçeren dizine **main\java\com\microsoft\examples** burada geliştirdiğiniz uygulama dizini.
 3. Silme **src\test\java\com\microsoft\examples\apptest.java** Bu örnekte kullanılmadığından dosya.
 
@@ -53,7 +53,7 @@ ms.locfileid: "53384250"
           <version>1.1.2</version>
         </dependency>
 
-    Bu bölümde Maven proje gerektirdiğini belirten **hbase istemci** sürüm **1.1.2**. Bu bağımlılık, derleme zamanında varsayılan Maven deposundan yüklenir. Kullanabileceğiniz [Apache Maven merkezi depo arama](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) bu bağımlılık hakkında daha fazla bilgi edinmek için.
+    Bu bölümde Maven proje gerektirdiğini belirten **hbase istemci** sürüm **1.1.2**. Bu bağımlılık, derleme zamanında varsayılan Maven deposundan yüklenir. Kullanabileceğiniz [Apache Maven merkezi depo arama](https://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) bu bağımlılık hakkında daha fazla bilgi edinmek için.
 
    > [!IMPORTANT]  
    > Sürüm numarası, HDInsight kümenizle sağlanan HBase sürümü aynı olmalıdır. Doğru sürüm numarasını bulmak için aşağıdaki tabloyu kullanın.
@@ -127,7 +127,7 @@ ms.locfileid: "53384250"
    >
    >
 
-    Bu `<plugins>` bölümü yapılandırır [Apache Maven derleme eklentisini](http://maven.apache.org/plugins/maven-compiler-plugin/) ve [Apache Maven gölge eklentisi](http://maven.apache.org/plugins/maven-shade-plugin/). Eklenti derleyici topoloji derlemek için kullanılır. Eklenti gölge Maven tarafından oluşturulan JAR paketi lisans yinelenmesini önlemek için kullanılır. Bu nedeni, yinelenen lisans dosyaları üzerinde HDInsight kümesi çalışma zamanında hataya neden olmasıdır. Gölge maven plugin ile kullanarak `ApacheLicenseResourceTransformer` uygulama bu hatayı önler.
+    Bu `<plugins>` bölümü yapılandırır [Apache Maven derleme eklentisini](https://maven.apache.org/plugins/maven-compiler-plugin/) ve [Apache Maven gölge eklentisi](https://maven.apache.org/plugins/maven-shade-plugin/). Eklenti derleyici topoloji derlemek için kullanılır. Eklenti gölge Maven tarafından oluşturulan JAR paketi lisans yinelenmesini önlemek için kullanılır. Bu nedeni, yinelenen lisans dosyaları üzerinde HDInsight kümesi çalışma zamanında hataya neden olmasıdır. Gölge maven plugin ile kullanarak `ApacheLicenseResourceTransformer` uygulama bu hatayı önler.
 
     Maven gölge eklentisi uber jar dosyasını (veya fat jar) üretir uygulamanın gerektirdiği tüm bağımlılıkları içerir.
 4. **Pom.xml** dosyasını kaydedin.
@@ -147,7 +147,7 @@ ms.locfileid: "53384250"
           * "License"); you may not use this file except in compliance
           * with the License.  You may obtain a copy of the License at
           *
-          *     http://www.apache.org/licenses/LICENSE-2.0
+          *     https://www.apache.org/licenses/LICENSE-2.0
           *
           * Unless required by applicable law or agreed to in writing, software
           * distributed under the License is distributed on an "AS IS" BASIS,

@@ -1,19 +1,17 @@
 ---
-title: PostgreSQL için Azure veritabanı Gelişmiş tehdit koruması - | Microsoft Docs
+title: Gelişmiş tehdit koruması - PostgreSQL için Azure veritabanı
 description: Tehdit koruması veritabanına olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini algılar.
-services: postgresql
 author: bolzmj
-manager: kfile
-ms.service: postgresql
-ms.topic: article
-ms.date: 09/20/2018
 ms.author: mbolz
-ms.openlocfilehash: ab32cc9a4aafd9fc716eff8104fb2b5117f233a9
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.service: postgresql
+ms.topic: conceptual
+ms.date: 09/20/2018
+ms.openlocfilehash: b7c1f873d47be0f2ec0125f769a47a399e492662
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048282"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536160"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı için Gelişmiş tehdit koruması
 
@@ -22,7 +20,7 @@ PostgreSQL için Azure Veritabanı Gelişmiş Tehdit Koruması, veritabanların�
 Gelişmiş tehdit koruması için Gelişmiş güvenlik özellikleri birleştirilmiş bir pakettir gelişmiş veri güvenliği sunan bir parçasıdır. Gelişmiş tehdit koruması erişilebilen ve aracılığıyla yönetilen [Azure portalında](https://portal.azure.com) ve şu anda Önizleme aşamasındadır.
 
 > [!NOTE]
-> Gelişmiş tehdit Koruması özelliği **değil** aşağıdaki Azure devlet kurumları ve bağımsız bulut bölgelerde kullanılabilir: ABD Devleti Texas, ABD Devleti Arizona, ABD Devleti Iowa, ABD Devleti Virginia, ABD DoD Doğu, ABD DoD Orta, Almanya Orta, Almanya Doğu Çin Doğu, Kuzey Çin 2 Lütfen [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/) genel ürün kullanılabilirliği için.
+> Gelişmiş tehdit Koruması özelliği **değil** aşağıdaki Azure devlet kurumları ve bağımsız bulut bölgelerde kullanılabilir: ABD Devleti Texas, ABD Devleti Arizona, ABD Devleti Iowa, ABD Devleti Virginia, US DoD Doğu, ABD DoD Orta, Almanya Orta, Almanya Kuzey, Doğu Çin, Doğu Çin 2. Lütfen [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/) genel ürün kullanılabilirliği için.
 >
 
 ## <a name="set-up-threat-detection"></a>Tehdit algılama ' ayarlayın

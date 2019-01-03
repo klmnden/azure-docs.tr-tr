@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 877f41fb1d47bc8faf4ea1275c94cd492884bfb1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 439535975c6e1b996bf888a1df7b6f2ae6732a6d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313253"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717544"
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Giriş Azure AD Connect Eşitleme Hizmeti Yöneticisi kullanıcı Arabirimi
 
@@ -32,9 +32,10 @@ ms.locfileid: "46313253"
 Başlattığınız **Eşitleme Hizmeti Yöneticisi** Başlat menüsünden kullanıcı Arabirimi. İsimlendirilmiştir **eşitleme hizmeti** ve bulunabilir **Azure AD Connect** grubu.  
 ![Eşitleme Hizmeti Yöneticisi](./media/how-to-connect-sync-service-manager-ui/startmenu.png)
 
-Kullanıcı arabiriminde farklı sekmeler hakkında daha fazla bilgi edinmek için bu konunun üst kısımdaki bağlantılara tıklayın.
-
 ## <a name="next-steps"></a>Sonraki adımlar
+
+Eşitleme Hizmeti Yöneticisi dahil olmak üzere kullanıcı Arabirimi hakkında daha fazla bilgi [işlemleri](how-to-connect-sync-service-manager-ui-operations.md), [Bağlayıcılar](how-to-connect-sync-service-manager-ui-connectors.md), [meta veri deposu Tasarımcısı](how-to-connect-sync-service-manager-ui-mvdesigner.md), ve [metaverideposuarama](how-to-connect-sync-service-manager-ui-mvsearch.md) sekmeler.
+
 Daha fazla bilgi edinin [Azure AD Connect eşitleme](how-to-connect-sync-whatis.md) yapılandırma.
 
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](whatis-hybrid-identity.md) hakkında daha fazla bilgi edinin.

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: b5083a2af335bd40dc55f7f325ac0a4ad125b682
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 03b4cc919086ff2a8eb038ad9c4f45200e9a6246
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384241"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715126"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Apache Ambari REST API'yi kullanarak HDInsight kümelerini yönetme
 
@@ -26,7 +26,7 @@ Apache Ambari, yönetim ve bir kolayca web UI ve REST API'si kullanma sağlayara
 
 ## <a id="whatis"></a>Apache Ambari nedir
 
-[Apache Ambari](http://ambari.apache.org) web yönetmek ve Hadoop kümeleri izlemek için kullanılan kullanıcı Arabirimi sağlar. Geliştiriciler tümleştirilebilir yeteneklere uygulamalarına kullanarak [Ambari REST API'lerini](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](https://ambari.apache.org) web yönetmek ve Hadoop kümeleri izlemek için kullanılan kullanıcı Arabirimi sağlar. Geliştiriciler tümleştirilebilir yeteneklere uygulamalarına kullanarak [Ambari REST API'lerini](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari, Linux tabanlı HDInsight kümeleri ile varsayılan olarak sağlanır.
 
@@ -232,7 +232,7 @@ foreach($item in $respObj.items) {
 
 ## <a name="example-get-the-default-storage"></a>Örnek: Varsayılan depolama alanı edinin
 
-Bir HDInsight kümesi oluşturduğunuzda, varsayılan depolama alanı olarak bir Azure depolama hesabı veya Data Lake Store küme için kullanmanız gerekir. Ambari, Küme oluşturulduktan sonra bu bilgileri almak için kullanabilirsiniz. Örneğin, istediğinizde/veri kapsayıcı HDInsight dışında okuma.
+Bir HDInsight kümesi oluşturduğunuzda, varsayılan depolama alanı olarak bir Azure depolama hesabı veya Data Lake depolama kümesi için kullanmanız gerekir. Ambari, Küme oluşturulduktan sonra bu bilgileri almak için kullanabilirsiniz. Örneğin, istediğinizde/veri kapsayıcı HDInsight dışında okuma.
 
 Aşağıdaki örnekler, kümeden varsayılan depolama yapılandırması Al:
 
@@ -255,7 +255,7 @@ Dönüş değeri aşağıdaki örneklerden birini benzer:
 
 * `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` -Bu değer, kümenin varsayılan depolama alanı için bir Azure depolama hesabı kullandığını gösterir. `ACCOUNTNAME` Değerini depolama hesabının adıdır. `CONTAINER` Bölümüdür depolama hesabındaki blob kapsayıcısının adı. Kapsayıcı küme için HDFS uyumlu depolama köküdür.
 
-* `adl://home` -Bu değer, kümenin varsayılan depolama alanı için bir Azure Data Lake Store kullandığını gösterir.
+* `adl://home` -Bu değer, kümenin varsayılan depolama alanı için Azure Data Lake Storage kullandığını gösterir.
 
     Data Lake Store hesap adını bulmak için aşağıdaki örnekleri kullanın:
 
@@ -271,9 +271,9 @@ Dönüş değeri aşağıdaki örneklerden birini benzer:
     $respObj.items.configurations.properties.'dfs.adls.home.hostname'
     ```
 
-    Dönüş değeri benzer `ACCOUNTNAME.azuredatalakestore.net`burada `ACCOUNTNAME` Data Lake Store hesabının adıdır.
+    Dönüş değeri benzer `ACCOUNTNAME.azuredatalakestore.net`burada `ACCOUNTNAME` Data Lake depolama hesabının adıdır.
 
-    Küme için depolama içeren Data Lake Store içinde dizin bulmak için aşağıdaki örnekleri kullanın:
+    Data Lake depolama kümesi için depolamayı içeren dizininde bulmak için aşağıdaki örnekleri kullanın:
 
     ```bash
     curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \

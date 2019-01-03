@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 013b63d0eb2cc69893dcb4075c1ca26a31ef2474
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: db7591c98147a5728486843efb0c807b6094557a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277990"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601483"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Ağ İlkesi Sunucusu (NPS) uzantısı ve Azure AD kullanarak Uzak Masaüstü Ağ Geçidi altyapınızı tümleştirin
 
@@ -26,7 +26,7 @@ Ağ İlkesi Sunucusu (NPS) uzantısı için Azure, müşterilerin korumanıza ol
 Bu makalede, Azure için NPS uzantısı kullanarak NPS altyapı ile Azure mfa'yı tümleştirmek için adım adım yönergeler sağlar. Bu, bir Uzak Masaüstü Ağ Geçidi oturum açmaya çalışan kullanıcılar için güvenli doğrulama sağlar.
 
 > [!NOTE]
-> Bu makalede, MFA sunucusu dağıtımları ile kullanılmamalıdır yalnızca Azure mfa'yı (bulut tabanlı).
+> Bu makalede, MFA sunucusu dağıtımları ile kullanılmamalıdır ve Azure mfa'yı (bulut tabanlı) dağıtımlarında yalnızca kullanılmalıdır.
 
 Ağ İlkesi ve erişim Hizmetleri'ni (NPS) kuruluşlar yeteneği aşağıdakileri sağlar:
 
@@ -162,7 +162,7 @@ Betiği kullanmak için Azure AD yönetici kimlik bilgilerinizi ve daha önce ko
 
 1. Bir yönetici Windows PowerShell istemi açın.
 1. PowerShell isteminde `cd ‘c:\Program Files\Microsoft\AzureMfa\Config’`basın **ENTER**.
-1. Tür `.\AzureMfsNpsExtnConfigSetup.ps1`basın **ENTER**. Betik, Azure Active Directory PowerShell Modülü yüklü olup olmadığını denetler. Yüklü değilse, komut sizin için modülünü yükler.
+1. Tür `.\AzureMfaNpsExtnConfigSetup.ps1`basın **ENTER**. Betik, Azure Active Directory PowerShell Modülü yüklü olup olmadığını denetler. Yüklü değilse, komut sizin için modülünü yükler.
 
   ![Azure AD PowerShell](./media/howto-mfa-nps-extension-rdg/image4.png)
   

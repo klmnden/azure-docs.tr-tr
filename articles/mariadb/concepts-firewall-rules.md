@@ -3,24 +3,22 @@ title: Sunucu güvenlik duvarı kuralları MariaDB için Azure veritabanı
 description: MariaDB için Azure veritabanı sunucunuza için güvenlik duvarı kurallarını açıklar.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 930e561c1777ccfcb8046c824853ebb12367cee5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 6fb9099ebfe884fc6eee58882ee23e46ba550e13
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248109"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546258"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Sunucu güvenlik duvarı kuralları MariaDB için Azure veritabanı
 Güvenlik duvarları, hangi bilgisayarların izinli olduğunu belirtmenize kadar veritabanı sunucunuza tüm erişimi engeller. Güvenlik Duvarı her isteğin kaynak IP adresi tabanlı sunucu erişim verir.
 
 Bir Güvenlik Duvarı'nı yapılandırmak için kabul edilebilir IP adreslerinin aralıklarını belirten güvenlik duvarı kuralları oluşturun. Sunucu düzeyinde güvenlik duvarı kuralları oluşturabilirsiniz.
 
-**Güvenlik duvarı kuralları:** bu kurallar istemcilerin diğer bir deyişle, tüm veritabanlarının aynı mantıksal sunucu içindeki tüm Azure veritabanınızı MariaDB sunucusuna erişim sağlar. Azure portal veya Azure CLI komutlarını kullanarak sunucu düzeyinde güvenlik duvarı kuralları yapılandırılabilir. Sunucu düzeyinde güvenlik duvarı kuralları oluşturma için abonelik sahibi veya abonelik katkıda bulunanı olmanız gerekir.
+**Güvenlik duvarı kuralları:** Bu kurallar, diğer bir deyişle, tüm aynı mantıksal sunucu içindeki veritabanlarına istemcilerin tüm Azure veritabanınızı MariaDB sunucusuna erişmesini sağlar. Azure portal veya Azure CLI komutlarını kullanarak sunucu düzeyinde güvenlik duvarı kuralları yapılandırılabilir. Sunucu düzeyinde güvenlik duvarı kuralları oluşturma için abonelik sahibi veya abonelik katkıda bulunanı olmanız gerekir.
 
 ## <a name="firewall-overview"></a>Güvenlik duvarına genel bakış
 MariaDB sunucusu için Azure veritabanı sunucunuza tüm veritabanı erişimi, güvenlik duvarı tarafından engellenmediğinden varsayılan olarak açıktır. Başka bir bilgisayardan sunucunuzu kullanmaya başlamak için sunucunuza erişimi etkinleştirmek için bir veya daha fazla sunucu düzeyinde güvenlik duvarı kurallarını belirtmek gerekir. Adres aralıklarını izin vermek için Internet'ten güvenlik duvarı kuralları, hangi IP belirtmek için kullanın. Azure Portalı Web sitesine erişimi kendisi güvenlik duvarı kuralları tarafından etkilenmez.
@@ -53,11 +51,11 @@ Azure portalına ek olarak Azure CLI kullanarak güvenlik duvarı kurallarını 
 ## <a name="troubleshooting-the-database-firewall"></a>Veritabanı güvenlik duvarı sorunlarını giderme
 Microsoft Azure veritabanına erişimi MariaDB server hizmeti için beklendiği gibi davranmadığında aşağıdaki noktaları göz önünde bulundurun:
 
-* **İzin verilenler listesine değişiklikler uygulanmadı etkisi henüz:** Azure etkili olması için veritabanı'na MariaDB sunucusu güvenlik duvarı yapılandırması için beş dakikalık bir gecikme değişiklikleri kadar olabilir.
+* **İzin verilenler listesine değişiklikler henüz etkili olmamıştır:** Bir beş dakikaya kadar değişikliklerin etkili olması için Azure veritabanı MariaDB sunucusu güvenlik duvarı yapılandırması olabilir.
 
-* **Oturum açma yetkili değil veya yanlış parola kullanıldı:** bir oturum açma MariaDB için Azure veritabanı üzerinde izni yok veya kullanılan parola yanlışsa, MariaDB için Azure veritabanı bağlantısı reddedildi. Bir güvenlik duvarı ayarının oluşturulması yalnızca istemcilere sunucunuzla bağlantı kurmayı deneme fırsatı sunar; her istemci gerekli güvenlik kimlik bilgilerini belirtmek zorundadır.
+* **Oturum açma yetkili değil veya yanlış parola kullanıldı:** Bir oturum açma MariaDB için Azure veritabanı üzerinde izni yok veya kullanılan parola yanlışsa, MariaDB için Azure veritabanı bağlantısı reddedildi. Bir güvenlik duvarı ayarının oluşturulması yalnızca istemcilere sunucunuzla bağlantı kurmayı deneme fırsatı sunar; her istemci gerekli güvenlik kimlik bilgilerini belirtmek zorundadır.
 
-* **Dinamik IP adresi:** dinamik IP adresiyle kurulmuş bir Internet bağlantısı varsa ve güvenlik duvarını aşmakta sorun yaşıyorsanız aşağıdaki çözümlerden birini deneyebilirsiniz:
+* **Dinamik IP adresi:** Dinamik IP adresiyle kurulmuş bir Internet bağlantısı varsa ve güvenlik duvarını aşmakta sorun yaşıyorsanız aşağıdaki çözümlerden birini deneyebilirsiniz:
 
 * MariaDB için Azure veritabanı erişen istemci bilgisayarlarınıza atanmış IP adresi aralığını Internet servis sağlayıcınıza (ISS) sorun ve IP adres aralığı olarak bir güvenlik duvarı kuralı ekleyin.
 

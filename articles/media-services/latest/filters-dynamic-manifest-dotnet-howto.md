@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: juliako
-ms.openlocfilehash: 23e83b98288f9ac1fe23e01b9a91d81daa3b0f47
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 31b49d882c1affbbef84bb6f4e8989d30fa320fa
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632390"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650984"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Media Services .NET SDK ile filtre oluşturma
 
@@ -37,17 +37,18 @@ Bu konuda bir Video isteğe bağlı varlık için bir filtre tanımlar ve oluşt
 
 . NET'te, yapılandırdığınız izleme seçimleri [FilterTrackSelection](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) ve [FilterTrackPropertyCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) sınıfları. 
 
-Aşağıdaki kod ile EC-3 İngilizce olan tüm ses parçaları ve 0-1000000 hızına sahip olan herhangi bir video parçalar içeren bir filtre tanımlar aralığı.
+Aşağıdaki kod EC-3 olan tüm ses parçalarını ve 0-1000000 hızına sahip olan herhangi bir video parçalar içeren bir filtre tanımlar aralığı.
 
 ```csharp
 var audioConditions = new List<FilterTrackPropertyCondition>()
 {
-    new FilterTrackPropertyCondition(FilterTrackPropertyType.Language, "en-us", FilterTrackPropertyCompareOperation.Equal),
+    new FilterTrackPropertyCondition(FilterTrackPropertyType.Type, "Audio", FilterTrackPropertyCompareOperation.Equal),
     new FilterTrackPropertyCondition(FilterTrackPropertyType.FourCC, "EC-3", FilterTrackPropertyCompareOperation.Equal)
 };
 
 var videoConditions = new List<FilterTrackPropertyCondition>()
 {
+    new FilterTrackPropertyCondition(FilterTrackPropertyType.Type, "Video", FilterTrackPropertyCompareOperation.Equal),
     new FilterTrackPropertyCondition(FilterTrackPropertyType.Bitrate, "0-1000000", FilterTrackPropertyCompareOperation.Equal)
 };
 

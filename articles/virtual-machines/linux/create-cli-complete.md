@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: e618bce78a3a3ce080b6c24cc34a27c2f5fb39e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6b3f862acd5aba39a7ad6eb0ce2f0a9b4a9e5307
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977562"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973670"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI'de eksiksiz bir Linux sanal makinesi oluşturma
 Bir sanal makine (VM) Azure'da hızlıca oluşturmak için gerekli tüm destekleyici kaynakları oluşturmak için varsayılan değerleri kullanan tek bir Azure CLI komutunu kullanabilirsiniz. Bir sanal ağ, genel IP adresi ve ağ güvenlik grubu kuralları gibi kaynakları otomatik olarak oluşturulur. Daha fazla denetim üretim ortamınızda kullanmak, önceden bu kaynakları oluşturmak ve Vm'lerinizi bunlara ekleyin. Bu makalede, VM ve destekleyici kaynakların tek tek her biri oluşturma hakkında size yol gösterir.
@@ -112,7 +112,7 @@ az network public-ip create \
     --dns-name mypublicdns
 ```
 
-Çıktı:
+Çıkış:
 
 ```json
 {
@@ -182,7 +182,7 @@ Ağ güvenlik grubu ve kurallarıyla inceleyin [az ağ nsg show](/cli/azure/netw
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
 ```
 
-Çıktı:
+Çıkış:
 
 ```json
 {
@@ -210,7 +210,7 @@ az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGro
       "destinationPortRange": "*",
       "direction": "Inbound",
       "etag": "W/\"3371b313-ea9f-4687-a336-a8ebdfd80523\"",
-      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/defaultSecurityRules/AllowAzureLoadBalancerInBou
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNetworkSecurityGroup/defaultSecurityRules/AllowAzureLoadBalancerInBou",
       "name": "AllowAzureLoadBalancerInBound",
       "priority": 65001,
       "protocol": "*",
@@ -345,7 +345,7 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Çıktı:
+Çıkış:
 
 ```json
 {
@@ -515,7 +515,7 @@ Genel IP adresini oluştururken sağladığınız DNS girişi ile sanal makineni
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
-Çıktı:
+Çıkış:
 
 ```bash
 The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' can't be established.

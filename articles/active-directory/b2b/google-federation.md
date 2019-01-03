@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 5bc94b6fe69a9ffec11fcbab952a6f8aa3e2259a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 295b7eeebf8d9815aef0b862ee2b3cccbee15ed6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569014"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546751"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google B2B Konuk kullanıcılar için kimlik sağlayıcısı Ekle
 
 Google ile Federasyon ayarlayarak, paylaşılan uygulamaları ve kaynakları kendi Google hesapları ile Microsoft Accounts (MSA) veya Azure AD hesapları oluşturmak zorunda kalmadan oturum açmak, davet edilen kullanıcılar izin verebilirsiniz.  
 > [!NOTE]
-> Örneğin Kiracı bağlamı içeren bir bağlantı kullanarak Google Konuk kullanıcılarınız oturum gerekir `https://myapps.microsoft.com/?tenantid=<tenant id>`. Kiracı bağlam içerirler sürece uygulamalarına ve kaynaklarına doğrudan bağlantılar da çalışır. Konuk kullanıcıları hiçbir Kiracı bağlamına sahip uç noktaları kullanarak oturum şu anda belirleyemiyoruz. Örneğin, kullanarak `https://myapps.microsoft.com`, `https://portal.azure.com`, veya ekipler ortak uç nokta bir hataya neden olur.
+> Örneğin Kiracı bağlamı içeren bir bağlantı kullanarak Google Konuk kullanıcılarınız oturum gerekir `https://myapps.microsoft.com/<tenant id>`. Kiracı bağlam içerirler sürece uygulamalarına ve kaynaklarına doğrudan bağlantılar da çalışır. Konuk kullanıcıları hiçbir Kiracı bağlamına sahip uç noktaları kullanarak oturum şu anda belirleyemiyoruz. Örneğin, kullanarak `https://myapps.microsoft.com`, `https://portal.azure.com`, veya ekipler ortak uç nokta bir hataya neden olur.
  
 ## <a name="what-is-the-experience-for-the-google-user"></a>Google kullanıcı deneyimini nedir?
 Bir Google Gmail kullanıcıya bir davet gönderdiğinizde, Konuk kullanıcının paylaşılan uygulamaları veya Kiracı bağlamını içeren bir bağlantı kullanarak kaynakları erişmelidir. Deneyimlerini olup, henüz Google'da oturum açmadıysanız bağlı olarak değişir:
@@ -32,10 +32,10 @@ Konuk kullanıcı bir "çok uzun üstbilgi" hatası görürse, kendi tanımlama 
 
 ![Google ile oturum aç](media/google-federation/google-sign-in.png)
 
-## <a name="step-1-configure-a-google-developer-project"></a>1. adım: bir Google developer proje yapılandırma
+## <a name="step-1-configure-a-google-developer-project"></a>1. Adım: Bir Google developer proje yapılandırma
 İlk olarak bir istemci kimliği ve daha sonra Azure AD'ye ekleyebileceğiniz bir istemci gizli anahtarını almak amacıyla Google geliştiriciler konsolunda yeni bir proje oluşturun. 
 1. Google API'leri Git https://console.developers.google.comve Google hesabınızla oturum açın. Paylaşılan bir takım Google hesabı kullanmanızı öneririz.
-2. Yeni bir proje oluşturun: panodaki, select **proje oluştur**ve ardından **Oluştur**. Yeni Proje sayfa üzerinde girin bir **proje adı**ve ardından **Oluştur**.
+2. Yeni bir proje oluşturun: Panoda seçin **proje oluştur**ve ardından **Oluştur**. Yeni Proje sayfa üzerinde girin bir **proje adı**ve ardından **Oluştur**.
    
    ![Yeni Google proje](media/google-federation/google-new-project.png)
 
@@ -70,7 +70,7 @@ Konuk kullanıcı bir "çok uzun üstbilgi" hatası görürse, kendi tanımlama 
 
    ![OAuth istemci kimliği ve istemci gizli anahtarı](media/google-federation/google-auth-client-id-secret.png)
 
-## <a name="step-2-configure-google-federation-in-azure-ad"></a>2. adım: Azure AD'de Google Federasyon yapılandırma 
+## <a name="step-2-configure-google-federation-in-azure-ad"></a>2. Adım: Azure AD'de Google Federasyonu yapılandırma 
 Artık Azure AD portalında girerek veya PowerShell kullanarak Kimliğini ve istemci gizli anahtarı, Google istemci ayarlarsınız. Kendiniz bir Gmail adresi kullanarak ve çalışırken davetini davet edilen Google hesabınızla davet ederek Google Federasyon yapılandırmanızı test etmeyi unutmayın. 
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Azure AD portalında Google Federasyon yapılandırmak için 
@@ -90,7 +90,7 @@ Artık Azure AD portalında girerek veya PowerShell kullanarak Kimliğini ve ist
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  
    > [!NOTE]
-   > İstemci kimliğini ve istemci gizli dizi içinde oluşturduğunuz bir uygulamadan kullanın "1. adım: bir Google developer proje yapılandırma." Daha fazla bilgi için [yeni AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) makalesi. 
+   > İstemci kimliğini ve istemci gizli dizi içinde oluşturduğunuz bir uygulamadan kullanın "1. adım: Bir Google developer proje yapılandırma." Daha fazla bilgi için [yeni AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) makalesi. 
  
 ## <a name="how-do-i-remove-google-federation"></a>Google Federasyon nasıl kaldırabilirim?
 Google Federasyon kurulumunuzu silebilirsiniz. Bunu yaparsanız, davetini zaten yararlandınız Google Konuk kullanıcılar oturum açmanız mümkün olmayacaktır, ancak bunları erişim yeniden kaynaklarınızı dizinden silerek ve bunları yeniden davet tanıyabilirsiniz. 

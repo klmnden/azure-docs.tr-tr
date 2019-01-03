@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8795930c6b676e7e710f112e8d9eedd6ab9084b5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: cf5035d4dd1c58baff66bd5edbdac42c08d6baab
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164574"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600193"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Azure SQL veritabanında Query Store çalıştırma
 Query Store azure'da sürekli olarak toplayan ve tüm sorguları hakkında ayrıntılı geçmiş bilgiler sunan bir tam olarak yönetilen veritabanı özelliğidir. Query Store hakkında önemli ölçüde kolaylaştırır hem de bulut için sorun giderme sorgu performansı ve şirket içinde müşteriler uçak 's uçuş veri Kaydedicisi benzer olarak düşünebilirsiniz. Bu makalede, azure'da Query Store işletim belirli yönlerini açıklar. Bu önceden toplanan verileri kullanarak, hızlı bir şekilde tanılayın ve performans sorunlarını ve böylece kendi işletmelerini odaklanarak daha fazla zaman ayırıyor. 

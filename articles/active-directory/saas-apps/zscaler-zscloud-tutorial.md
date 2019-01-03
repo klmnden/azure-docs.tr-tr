@@ -1,10 +1,11 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Zscaler ZSCloud | Microsoft Docs'
+title: 'Öğretici: Zscaler ZSCloud ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve Zscaler ZSCloud arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
+ms.reviewer: joflore
 ms.assetid: 411d5684-a780-410a-9383-59f92cf569b5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -12,32 +13,32 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: a23d68e0b48a01cf98a5d1cc136a6af46895b0ee
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 311cf4ad22f8e7fdcee976e0cb4b26b9dd2a13a5
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440652"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794283"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Öğretici: Azure Active Directory Zscaler ZSCloud ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Öğretici: Zscaler ZSCloud ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Zscaler ZSCloud tümleştirme konusunda bilgi edinin.
 
 Zscaler ZSCloud Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Zscaler ZSCloud erişimi, Azure AD'de denetleyebilirsiniz
-- Azure AD hesaplarına otomatik olarak imzalanan (çoklu oturum açma) için Zscaler ZSCloud açma, kullanıcılarınızın etkinleştirebilirsiniz
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
+- Zscaler ZSCloud erişimi, Azure AD'de kontrol edebilirsiniz.
+- Azure AD hesaplarına otomatik olarak imzalanan (çoklu oturum açma) için Zscaler ZSCloud açma, kullanıcılarınızın etkinleştirebilirsiniz.
+- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile Zscaler ZSCloud yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Zscaler ZSCloud çoklu oturum açma abonelik etkin.
 
 > [!NOTE]
@@ -46,54 +47,50 @@ Azure AD Tümleştirmesi ile Zscaler ZSCloud yapılandırmak için aşağıdaki 
 Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
 
 - Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
+
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
 1. Zscaler ZSCloud galeri ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+2. Yapılandırma ve test Azure AD çoklu oturum açma
 
 ## <a name="adding-zscaler-zscloud-from-the-gallery"></a>Zscaler ZSCloud galeri ekleme
+
 Azure AD'de Zscaler ZSCloud tümleştirmesini yapılandırmak için Zscaler ZSCloud Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Zscaler ZSCloud eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi][1]
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Uygulamalar][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi][2]
 
-    ![Uygulamalar][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **Zscaler ZSCloud**.
+    ![Yeni Uygulama düğmesi][3]
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_search.png)
+4. Arama kutusuna **Zscaler ZSCloud**seçin **Zscaler ZSCloud** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-1. Sonuçlar panelinde seçin **Zscaler ZSCloud**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Sonuç listesinde Zscaler ZSCloud](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_addfromgallery.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırmanız ve Zscaler ZSCloud ile Azure AD çoklu oturum açmayı test "Britta Simon." adlı bir test kullanıcı tabanlı
+Bu bölümde, yapılandırmanız ve Zscaler ZSCloud ile Azure AD çoklu oturum açmayı test "Britta Simon" adlı bir test kullanıcı tabanlı.
 
 Tek iş için oturum açma için Azure AD ne Zscaler ZSCloud karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Zscaler ZSCloud ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
-
-Değerini atayarak bu bağlantı ilişki kurulduktan **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** Zscaler ZSCloud içinde.
 
 Yapılandırma ve Azure AD çoklu oturum açma Zscaler ZSCloud ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Ara sunucu ayarlarını yapılandırma](#configuring-proxy-settings)**  - Internet Explorer'da proxy ayarlarını yapılandırmak için
-1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Zscaler ZSCloud test kullanıcısı oluşturma](#creating-a-zscaler-zscloud-test-user)**  - kullanıcı Azure AD gösterimini bağlı Zscaler ZSCloud Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Zscaler ZSCloud test kullanıcısı oluşturma](#creating-a-zscaler-zscloud-test-user)**  - kullanıcı Azure AD gösterimini bağlı Zscaler ZSCloud Britta simon'un bir karşılığı vardır.
+4. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -103,70 +100,101 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Z
 
 1. Azure portalında, üzerinde **Zscaler ZSCloud** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunu tıklatın **seçin** için **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **Zscaler ZSCloud etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açmayı yapılandırın](common/tutorial_general_301.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-     İçinde **oturum açma URL'si** metin kutusu, türü URL kullanıcılarınız oturum açmaya ZScaler ZSCloud uygulamanıza tarafından kullanılıyor.
-    
+    ![Çoklu oturum açmayı yapılandırın](common/editconfigure.png)
+
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+
+    ![Zscaler ZSCloud etki alanı ve URL'ler tek oturum açma bilgileri](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_url.png)
+
+    İçinde **oturum açma URL'si** metin kutusu, türü URL kullanıcılarınız oturum açmaya ZScaler ZSCloud uygulamanıza tarafından kullanılıyor.
+
     > [!NOTE] 
-    > Bu değer gerçek oturum açma URL'si ile güncelleştirmeniz gerekiyor. İlgili kişi [Zscaler ZSCloud istemci Destek ekibine](https://help.zscaler.com/zia) bu değeri alınamıyor. 
- 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+    > Bu değer gerçek oturum açma URL'si ile güncelleştirmeniz gerekiyor. İlgili kişi [Zscaler iki istemci Destek ekibine](https://help.zscaler.com/) bu değerleri almak için.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_certificate.png) 
+5. Zscaler ZSCloud uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri ve talepler** uygulama tümleştirme sayfasında bölümü. Üzerinde **SAML sayfası ile çoklu oturum açmayı ayarlayın**, tıklayın **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri ve talepler** iletişim.
 
-1. Tıklayın **Kaydet** düğmesi.
+    ![Öznitelik bağlantısı](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_attribute.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/zscaler-zscloud-tutorial/tutorial_general_400.png)
+6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
-1. Üzerinde **Zscaler ZSCloud yapılandırma** bölümünde **yapılandırma Zscaler ZSCloud** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+    | Ad  | Kaynak özniteliği  |
+    | ---------| ------------ |
+    | İz     | User.assignedroles |
 
-    ![Çoklu oturum açmayı yapılandırın](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_configure.png) 
+    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-1. Farklı bir web tarayıcı penceresinde ZScaler ZSCloud şirketinizin sitesi için bir yönetici olarak oturum açın.
+    ![image](./common/new_save_attribute.png)
+    
+    ![image](./common/new_attribute_details.png)
 
-1. Üstteki menüden **Yönetim**.
+    b. Gelen **kaynak özniteliği** selelct öznitelik değeri listesi.
+
+    c. **Tamam**’a tıklayın.
+
+    d. **Kaydet**’e tıklayın.
+
+    > [!NOTE]
+    > Lütfen tıklayın [burada](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) Azure AD'de rol yapılandırma bilmek
+
+7. Üzerinde **SAML imzalama sertifikası** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+
+    ![Sertifika indirme bağlantısı](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_certificate.png) 
+
+8. Üzerinde **Zscaler ZSCloud kümesi** bölümünde, ihtiyacınıza göre uygun URL'yi kopyalayın.
+
+    a. Oturum Açma URL'si:
+
+    b. Azure AD Tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+    ![Zscaler ZSCloud yapılandırma](common/configuresection.png)
+
+9. Farklı bir web tarayıcı penceresinde Zscaler ZSCloud şirketinizin sitesi için bir yönetici olarak oturum açın.
+
+10. Git **Yönetim > kimlik doğrulama > kimlik doğrulama ayarları** ve aşağıdaki adımları gerçekleştirin:
    
     ![Yönetim](./media/zscaler-zscloud-tutorial/ic800206.png "Yönetim")
 
-1. Altında **yönetmesine & rolleri**, tıklayın **Kullanıcıları Yönet & kimlik doğrulaması**.   
+    a. Kimlik doğrulaması türü'nün altında seçin **SAML**.
+
+    b. Tıklayın **SAML'yi yapılandırmak**.
+
+11. Üzerinde **Düzenle SAML** penceresinde aşağıdaki adımları gerçekleştirin: ve Kaydet'e tıklayın.  
             
-    ![Kullanıcı ve kimlik doğrulaması yönetmek](./media/zscaler-zscloud-tutorial/ic800207.png "kullanıcı ve kimlik doğrulaması'nı yönetme")
-
-1. İçinde **seçin, kuruluşunuz için kimlik doğrulama seçenekleri** bölümünde, aşağıdaki adımları gerçekleştirin:   
-                
-    ![Kimlik doğrulaması](./media/zscaler-zscloud-tutorial/ic800208.png "kimlik doğrulaması")
-   
-    a. Seçin **SAML çoklu oturum açma kullanarak kimlik doğrulaması**.
-
-    b. Tıklayın **oturum açma SAML tek parametrelerini yapılandırma**.
-
-1. Üzerinde **SAML çoklu oturum açma parametrelerini yapılandırma** iletişim sayfasında, aşağıdaki adımları uygulayın ve ardından **bitti**
-
-    ![Çoklu oturum açma](./media/zscaler-zscloud-tutorial/ic800209.png "çoklu oturum açma")
+    ![Kullanıcı ve kimlik doğrulaması yönetmek](./media/zscaler-zscloud-tutorial/ic800208.png "kullanıcı ve kimlik doğrulaması'nı yönetme")
     
-    a. Yapıştırma **SAML çoklu oturum açma hizmeti URL'si** içine değer **olduğu kullanıcılar için kimlik doğrulaması gönderilir SAML portalın URL'sini** metin.
-    
-    b. İçinde **öznitelik oturum açma adını içeren** metin kutusuna **Nameıd**.
-    
-    c. İndirilen sertifikanızı karşıya yüklemek için tıklayın **Zscaler pem**.
-    
-    d. Seçin **SAML otomatik sağlamayı etkinleştirme**.
+    a. İçinde **SAML portalı URL'si** metin kutusu, yapıştırma **oturum açma URL'si** , Azure Portalı'ndan kopyaladığınız.
 
-1. Üzerinde **kullanıcı kimlik doğrulamasını yapılandırma** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+    b. İçinde **oturum açma adı özniteliği** metin girin **Nameıd**.
 
-    ![Yönetim](./media/zscaler-zscloud-tutorial/ic800210.png "Yönetim")
-    
-    a. **Kaydet**’e tıklayın.
+    c. Tıklayın **karşıya**, içinde Azure portalından indirilen Azure SAML imzalama sertifikasını karşıya yüklemek için **ortak SSL sertifikası**.
 
-    b. Tıklayın **etkinleştirelim**.
+    d. İki durumlu **SAML otomatik sağlamayı etkinleştirme**.
+
+    e. İçinde **kullanıcı görünen adı özniteliği** metin girin **displayName** SAML otomatik sağlama displayName öznitelikler için etkinleştirmek istiyorsanız.
+
+    f. İçinde **grubu adı özniteliği** metin girin **memberOf** SAML otomatik sağlama memberOf öznitelikler için etkinleştirmek istiyorsanız.
+
+    g. İçinde **departmanı Name özniteliği** Enter **departmanı** SAML otomatik sağlama için bölüm özniteliklerini etkinleştirmek istiyorsanız.
+
+    i. **Kaydet**’e tıklayın.
+
+12. Üzerinde **kullanıcı kimlik doğrulamasını yapılandırma** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
+
+    ![Yönetim](./media/zscaler-zscloud-tutorial/ic800207.png)
+
+    a. Üzerine **etkinleştirme** ekranın sol menü.
+
+    b. Tıklayın **etkinleştirme**.
 
 ## <a name="configuring-proxy-settings"></a>Ara sunucu ayarlarını yapılandırma
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Internet Explorer'ın proxy ayarlarını yapılandırmak için
@@ -189,7 +217,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Z
 
     a. Seçin **AĞINIZ için bir proxy sunucusu kullan**.
 
-    b. Adresi metin kutusuna yazın **gateway.zscalerone.net**.
+    b. Adresi metin kutusuna yazın **ağ geçidi. Zscaler ZSCloud.net**.
 
     c. Bağlantı noktası metin kutusuna yazın **80**.
 
@@ -200,105 +228,74 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Z
 1. Tıklayın **Tamam** kapatmak için **Internet Seçenekleri** iletişim.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD kullanıcısı oluşturun][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    ![Azure AD kullanıcısı oluşturun][100]
 
-1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/zscaler-zscloud-tutorial/create_aaduser_01.png) 
+    ![Bir Azure AD test kullanıcısı oluşturma](common/create_aaduser_01.png) 
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/zscaler-zscloud-tutorial/create_aaduser_02.png) 
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/zscaler-zscloud-tutorial/create_aaduser_03.png) 
+    ![Bir Azure AD test kullanıcısı oluşturma](common/create_aaduser_02.png)
 
-1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/zscaler-zscloud-tutorial/create_aaduser_04.png) 
+    a. İçinde **adı** alanına **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alanına **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
+    c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
-
-    d. **Oluştur**’a tıklayın.
+    d. **Oluştur**’u seçin.
 
 ### <a name="creating-a-zscaler-zscloud-test-user"></a>Zscaler ZSCloud test kullanıcısı oluşturma
 
-ZScaler ZSCloud için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunlar için ZScaler ZSCloud sağlanması gerekir.  
-ZScaler ZSCloud söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
-
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Kullanıcı sağlamayı yapılandırmak için aşağıdaki adımları gerçekleştirin:
-
-1. Oturum açın, **Zscaler** Kiracı.
-
-1. Tıklayın **Yönetim**.   
-   
-    ![Yönetim](./media/zscaler-zscloud-tutorial/ic781035.png "Yönetim")
-
-1. Tıklayın **kullanıcı yönetimi**.   
-        
-     ![Ekleme](./media/zscaler-zscloud-tutorial/ic781037.png "Ekle")
-
-1. İçinde **kullanıcılar** sekmesinde **Ekle**.
-      
-    ![Ekleme](./media/zscaler-zscloud-tutorial/ic781037.png "Ekle")
-
-1. Kullanıcı Ekle bölümünde aşağıdaki adımları gerçekleştirin:
-        
-    ![Kullanıcı ekleme](./media/zscaler-zscloud-tutorial/ic781038.png "kullanıcı ekleme")
-   
-    a. Tür **UserID**, **kullanıcı görünen adı**, **parola**, **parolayı onayla**ve ardından **grupları**ve **departmanı** sağlamak istediğiniz geçerli bir AAD hesabı.
-
-    b. **Kaydet**’e tıklayın.
-
-> [!NOTE]
-> Herhangi diğer ZScaler ZSCloud kullanıcı hesabı oluşturma araçları kullanabilir veya API'leri için AAD kullanıcı hesapları sağlamak ZScaler ZSCloud tarafından sağlanan.
+Bu bölümün amacı Zscaler ZSCloud Britta Simon adlı bir kullanıcı oluşturmaktır. Zscaler ZSCloud tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa Zscaler ZSCloud erişme denemesi sırasında oluşturulur.
+>[!Note]
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Zscaler ZSCloud Destek ekibine](https://help.zscaler.com/).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için Zscaler ZSCloud erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı Ata][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**.
 
-**Britta Simon Zscaler ZSCloud için atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kullanıcı Ata][201]
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **Zscaler ZSCloud**.
 
-    ![Kullanıcı Ata][201] 
+    ![Çoklu oturum açmayı yapılandırın](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_app.png)
 
-1. Uygulamalar listesinde **Zscaler ZSCloud**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_app.png) 
+    ![Kullanıcı Ata][202]
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    ![Kullanıcı Ata][202] 
-
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+4. Tıklayın **Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
 
     ![Kullanıcı Ata][203]
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. İçinde **kullanıcılar ve gruplar** kullanıcı gibi iletişim kutusunda **Britta Simon** listeden ardından **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+    ![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_users.png)
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
+6. Gelen **rolü Seç** iletişim listede uygun kullanıcı rolünü seçin ve ardından tıklayın **seçin** ekranın alt kısmındaki düğmesi.
+
+    ![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_roles.png)
+
+7. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
+
+    ![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_assign.png)
+
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
 
-Çoklu oturum açma ayarları test etmek isterseniz, erişim Paneli'nde açın.
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim panelinde Zscaler ZSCloud kutucuğa tıkladığınızda, otomatik olarak Zscaler ZSCloud uygulamanıza açan.
-
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -307,15 +304,13 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 <!--Image references-->
 
-[1]: ./media/zscaler-zscloud-tutorial/tutorial_general_01.png
-[2]: ./media/zscaler-zscloud-tutorial/tutorial_general_02.png
-[3]: ./media/zscaler-zscloud-tutorial/tutorial_general_03.png
-[4]: ./media/zscaler-zscloud-tutorial/tutorial_general_04.png
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
 
-[100]: ./media/zscaler-zscloud-tutorial/tutorial_general_100.png
+[100]: common/tutorial_general_100.png
 
-[200]: ./media/zscaler-zscloud-tutorial/tutorial_general_200.png
-[201]: ./media/zscaler-zscloud-tutorial/tutorial_general_201.png
-[202]: ./media/zscaler-zscloud-tutorial/tutorial_general_202.png
-[203]: ./media/zscaler-zscloud-tutorial/tutorial_general_203.png
-
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

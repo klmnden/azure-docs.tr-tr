@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 12/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 1109e72d00ccddd6fc0f120ee71c88adaae72fed
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b73bf3e542801e58fbda6232eb063305785ce643
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337606"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536279"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Gelişmiş tehdit koruması ile Azure Güvenlik Merkezi
 
@@ -57,7 +57,21 @@ Bu özellik, Windows Server 2012 R2 ve Windows Server 2016 algılama destekler.
 
 Yalnızca sunucu Aboneliklerdeki standart hizmet katmanı için desteklenir.
 
-## <a name="onboarding-instructions"></a>Ekleme yönergeleri
+## <a name="onboarding-servers-to-security-center"></a>Güvenlik Merkezi'ne ekleme sunucuları 
+
+Güvenlik Merkezi'ne ekleme sunucularına tıklayın **Azure Güvenlik Merkezi'ne ekleme sunucuları'na gidin** gelen Windows Defender ATP sunucu ekleme.
+
+1. İçinde **ekleme** dikey penceresini seçin ya da verileri depolamak için bir çalışma alanı oluşturun. <br>
+2. Tüm çalışma alanlarını göremiyorsanız, yetersiz izinler nedeniyle, çalışma alanınız için Azure güvenlik standart katmanı ayarlandığından emin olun. Daha fazla bilgi için [Güvenlik Merkezi'nin standart katmanında Gelişmiş güvenlik yükseltme](security-center-pricing.md).
+    
+3.  Seçin **sunucuları ekleme** Microsoft Monitoring Agent'ı yükleme hakkında yönergeler görüntülemek için. 
+
+4.  Ekledikten sonra makineleri altında izleyebilirsiniz **işlem ve uygulamaları**.
+
+  ![Bilgisayarları ekleme](media/security-center-wdatp/onboard-computers.png)
+
+
+## <a name="enable-windows-defender-atp-integration"></a>Windows Defender ATP tümleştirmesini etkinleştirme
 
 Windows Defender ATP tümleştirmesi etkin olup olmadığını görmek için seçin **Güvenlik Merkezi** > **Güvenlik İlkesi** > **abonelik**  >  **Ayarlarını Düzenle**.
 

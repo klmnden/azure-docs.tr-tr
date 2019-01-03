@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: b55c5bc6096186e338d6960190169d5f4acc777d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dcedf27f6105dcc1ea6e43feb32d254b491842c7
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955142"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974446"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup’ta çevrimdışı yedekleme iş akışı
 Azure Backup, azure'a veri ilk tam yedekleme sırasında ağ ve depolama maliyetlerinden tasarruf birkaç yerleşik verimliliği sahiptir. Genellikle ilk tam yedeklemeler büyük miktarlarda veri aktarmanıza ve yalnızca deltaları/incrementals aktarmak sonraki yedeklemelerle karşılaştırıldığında daha fazla ağ bant genişliği gerektirecektir. Çevrimdışı dengeli dağıtım işlemi boyunca, Azure Backup diskler Çevrimdışı Yedekleme verileri Azure'a karşıya yüklemek için kullanabilirsiniz.
@@ -75,11 +75,11 @@ Bu bölümde, böylece verilerinizi Azure veri merkezi için sunulan ve Azure de
 
   Girişleri açıklaması aşağıdaki gibidir:
 
-    * **Hazırlama konumu**: geçici depolama konumuna ilk yedek kopyanın yazılır. Hazırlama konumu, bir ağ paylaşımına veya yerel bilgisayar üzerinde olabilir. Kopya bilgisayar ve kaynak bilgisayara farklıysa, hazırlama konumunun tam ağ yolu belirtmeniz önerilir.
-    * **Azure Resource Manager depolama hesabına**: herhangi bir Azure aboneliğinde depolama hesabı Resource Manager türü adı.
-    * **Azure depolama kapsayıcısı**: hedef depolama blobunda burada yedekleme verileri alınır kurtarma Hizmetleri kasasına kopyalanmadan önce Azure depolama hesabı adı.
+    * **Hazırlama konumu**: İlk yedek kopyanın yazıldığı geçici depolama konumu. Hazırlama konumu, bir ağ paylaşımına veya yerel bilgisayar üzerinde olabilir. Kopya bilgisayar ve kaynak bilgisayara farklıysa, hazırlama konumunun tam ağ yolu belirtmeniz önerilir.
+    * **Azure Resource Manager depolama hesabı**: Herhangi bir Azure aboneliğinde depolama hesabı Resource Manager türü adı.
+    * **Azure depolama kapsayıcısı**: Kurtarma Hizmetleri kasasına kopyalanmadan önce yedekleme verileri burada alınır Azure depolama hesabında hedef depolama blob adı.
     * **Azure abonelik kimliği**: Azure depolama hesabının oluşturulduğu Azure abonelik kimliği.
-    * **Azure içeri aktarma işinin adını**: tarafından hangi Azure içeri aktarma hizmeti ve Azure Backup izleme gönderilen veri aktarımını disklerde Azure'a benzersiz adı. 
+    * **Azure içeri aktarma işinin adını**: Tarafından hangi Azure içeri aktarma hizmeti ve Azure Backup gönderilen veri aktarımını disklerde Azure'a izlemek benzersiz adı. 
   
   ' A tıklayın ve giriş ekranındaki **sonraki**. Sağlanan kaydetme *hazırlama konumu* ve *Azure içeri aktarma işinin adını*gibi diskleri hazırlamak için bu bilgiler gereklidir.
 

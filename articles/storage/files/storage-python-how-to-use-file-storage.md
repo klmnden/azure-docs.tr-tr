@@ -6,15 +6,15 @@ author: wmgries
 ms.service: storage
 ms.devlang: python
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 12/14/2018
 ms.author: tamram
 ms.component: files
-ms.openlocfilehash: 4082352c8c9814b8e6533d3f64b18450a6cf416d
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: f1ebc059c66615ecf21054e85472b2a6d86dfce6
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165581"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743196"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python ile Azure dosyaları için geliştirme
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -33,7 +33,7 @@ Bu öğretici, dosya verilerini depolamak için Azure dosyaları'nı kullanma uy
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>İndirin ve Python için Azure depolama SDK'sını yükleyin
 
-Python için Azure depolama SDK, Python 2.7, 3.3, 3.4, 3.5 ve 3.6 gerektirir ve 4 farklı paketlerde gelir: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` ve `azure-storage-queue`. Bu öğreticide kullanılacak kullanacağız `azure-storage-file` paket.
+[Python için Azure depolama SDK'sı](https://github.com/azure/azure-storage-python) Python 2.7, 3.3, 3.4, 3.5 ve 3.6 gerektirir.
  
 ## <a name="install-via-pypi"></a>Pypı yüklemek
 
@@ -43,13 +43,15 @@ Python paket dizinini (Pypı) yüklemek için şunu yazın:
 pip install azure-storage-file
 ```
 
-
 > [!NOTE]
-> Azure depolama SDK'sından Python 0.36 veya önceki bir sürümü için yükseltme yapıyorsanız, önce kaldırmak gerekir `pip uninstall azure-storage` artık depolama SDK'sı Python için tek bir paket içinde kullanıma sunacağımız gibi.
-> 
-> 
+> Python 0.36 veya önceki bir sürümü için Azure depolama SDK'sından yükseltme yapıyorsanız, eski SDK'sını kullanarak kaldırma `pip uninstall azure-storage` en yeni paketi yüklemeden önce.
 
 Diğer yükleme yöntemleri için ziyaret [GitHub üzerinde Python için Azure depolama SDK'sı](https://github.com/Azure/azure-storage-python/).
+
+## <a name="view-the-sample-application"></a>Örnek uygulamayı görüntüleme
+f görüntülemek ve Azure dosyaları ile Python kullanma gösteren bir örnek uygulama çalıştırmak için bkz. [Azure Depolama: Python Azure dosyaları ile çalışmaya başlama](https://github.com/Azure-Samples/storage-file-python-getting-started). 
+
+Örnek uygulamayı çalıştırmak için her ikisi de yüklediğinizden emin olun `azure-storage-file` ve `azure-storage-common` paketleri.
 
 ## <a name="set-up-your-application-to-use-azure-files"></a>Azure dosyaları'nı kullanmak için uygulamanızı ayarlama
 Ekranın üst kısmında programlı bir şekilde Azure Depolama'ya erişmek istediğiniz herhangi bir Python kaynak dosyası ekleyin.

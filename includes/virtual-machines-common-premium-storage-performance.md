@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 50e252b7dbd20d5330f8117eaa45ccf52303f277
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b98261601f352668fa3cc8d18dc3b1d0d7fe2654
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51678229"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53553354"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Depolama: Yüksek performans tasarımı
+# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Depolama: Yüksek Performans Tasarımı
 
 Bu makalede, Azure Premium depolama kullanan yüksek performanslı uygulamalar oluşturmak için yönergeler sağlar. Performansı en iyi uygulamaları, uygulamanız tarafından kullanılan teknolojiler için geçerli bir araya geldiğinde bu belgede sağlanan yönergeleri kullanabilirsiniz. Yönergeler göstermek için bu belge boyunca örnek olarak Premium depolama üzerinde çalışan SQL Server kullandınız.
 
@@ -35,7 +35,7 @@ Premium depolama alanında çalışan iş yükleri yüksek performans duyarlı o
 > Bazen, bir disk performans sorunu görünüyor ne aslında bir ağ sorunu olabilir. Bu gibi durumlarda, iyileştirmek, [ağ performansı](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
 > Hızlandırılmış ağ, sanal Makinenizin destekliyorsa, etkin olduğundan emin olun. Etkinleştirilmezse, hem de zaten dağıtılmış vm'lerde etkinleştirebilirsiniz [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) ve [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
-Premium depolamaya bilginiz yoksa, başlamadan önce okumanız [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md) ve [Azure depolama ölçeklenebilirlik ve performans hedefleri](../articles/storage/common/storage-scalability-targets.md)makaleler.
+Premium depolamaya bilginiz yoksa, başlamadan önce okumanız [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md) ve [Azure Storage ölçeklenebilirlik ve performans hedefleri](../articles/storage/common/storage-scalability-targets.md) makaleler.
 
 ## <a name="application-performance-indicators"></a>Uygulama performans göstergeleri
 
@@ -66,6 +66,14 @@ Bu nedenle, uygulamanızın ihtiyaç duyduğu en iyi aktarım hızı ve IOPS de�
 Gecikme süresi uygulamanın tek bir istek alma, depolama diskleri gönderin ve yanıtı istemciye göndermek için gereken süre anlamına gelmektedir. Bu, IOPS ve aktarım hızı yanı sıra uygulama performansının kritik bir ölçüdür. Bir premium depolama disk gecikme süresini, bir istek için bilgi almak ve uygulamanıza geri iletişim için gereken süredir. Premium depolama, tutarlı düşük gecikme süreleri sağlar. Salt okunur konak üzerinde premium depolama diskleri önbelleğe almayı etkinleştirirseniz, çok daha düşük okuma gecikme süresi elde edebilirsiniz. Diski önbelleğe alma işlemi sonraki bölümünde daha ayrıntılı üzerinde ele alınacaktır *uygulama performansını en iyi duruma getirme*.
 
 Uygulamanıza daha yüksek IOPS ve aktarım hızı alma iyileştirirken, uygulamanızın gecikme süresini etkiler. Uygulama performansı ayarlama sonra gecikme süresi yüksek oranda gecikme süreleri beklenmeyen davranışları önlemek için uygulamanın her zaman değerlendirin.
+
+Aşağıdaki denetim düzlemi işlemleri yönetilen diskler üzerindeki bir depolama konumundan diske hareketini gerektirebilir. Bu, genellikle 24 saatten az disklerde veri miktarına bağlı olarak birkaç saat sürebilir, veri arka plan kopyalama aracılığıyla yönetilir. Bu sırada bazı okuma konumuna yönlendirildi ve tamamlanması uzun sürebilir, uygulamanızın normal okuma gecikme süresi daha yüksek oluşabilir. Bu süre boyunca yazma gecikmesi üzerinde hiçbir etkisi yoktur.  
+
+1.  [Güncelleştirme depolama türü](../articles/virtual-machines/windows/convert-disk-storage.md)
+2.  [Bir VM'den bir diski ekleme ve ayırma](../articles/virtual-machines/windows/attach-disk-ps.md)
+3.  [Bir VHD'den yönetilen Disk oluşturma](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-vhd.md)
+4.  [Anlık görüntüden yönetilen Disk oluşturma](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md)
+5.  [Yönetilmeyen diskleri yönetilen disklere dönüştürme](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)
 
 ## <a name="gather-application-performance-requirements"></a>Uygulama Performans gereksinimlerini toplama
 
@@ -228,7 +236,7 @@ Azure Premium depolama, sekiz GA disk boyutları ve şu anda Önizleme aşaması
 | Premium disk türü  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 | Disk boyutu           | 32 GiB | 64 GiB | 128 GiB| 256 giB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 giB (16 tib'a kadar)    | 32.767 giB (32 GiB)    |
-| Disk başına IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15.000              | 20,000              |
+| Disk başına IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15.000              | 20.000              |
 | Disk başına aktarım hızı | Saniye başına 25 MiB  | Saniye başına 50 MiB  | Saniye başına 100 MiB |Saniye başına 125 MiB | Saniye başına 150 MiB | Saniye başına 200 MiB | Saniye başına 250 MiB | Saniye başına 250 MiB | Saniye başına 480 MiB | Saniye başına 750 MiB | Saniye başına 750 MiB |
 
 Seçilen diskte bağlıdır seçtiğiniz kaç diskinin boyutu. Uygulama dağıtımı gereksinimi karşılamak için tek bir P50 disk veya birden çok P10 disk kullanabilirsiniz. Seçim yaparken, aşağıda listelenen hesabında dikkate alınacak noktalar alın.
@@ -597,7 +605,7 @@ Okuma ve yazma aktarım hızı üst sınırı almak için birleştirilmiş, daha
 
 Azure Premium depolama hakkında daha fazla bilgi edinin:
 
-* [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](../articles/virtual-machines/windows/premium-storage.md)  
+* [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md)  
 
 SQL Server kullanıcıları için SQL Server için en iyi performans uygulamaları makalelerini okuyun:
 

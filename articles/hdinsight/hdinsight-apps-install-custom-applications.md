@@ -9,38 +9,38 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: a14719551677e2264aa390ccd1f4cbe0b6589a5b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 39864b629d41f0921c80736042ca5f8938376297
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496970"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651003"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight üzerinde özel Apache Hadoop uygulamaları yükleme
 
-Bu makalede, nasıl yükleneceğini öğreneceksiniz bir [Apache Hadoop](https://hadoop.apache.org/) Azure portalına yayımlanmamış Azure HDInsight uygulaması. Bu makalede yükleyeceğiniz uygulama [Hue](http://gethue.com/) uygulamasıdır.
+Bu makalede, nasıl yükleneceğini öğreneceksiniz bir [Apache Hadoop](https://hadoop.apache.org/) Azure portalına yayımlanmamış Azure HDInsight uygulaması. Bu makalede yükleyeceğiniz uygulama [Hue](https://gethue.com/) uygulamasıdır.
 
 HDInsight uygulaması kullanıcıların Linux tabanlı HDInsight kümesine yükleyebileceği bir uygulamadır.  Bu uygulamalar Microsoft veya bağımsız yazılım satıcıları (ISV) tarafından ya da sizin tarafınızdan geliştirilebilir.  
 
 Diğer ilgili makaleler:
 
-* [HDInsight uygulamaları yükleme](hdinsight-apps-install-applications.md): HDInsight uygulamalarını kümelerinize yükleme hakkında bilgi alın.
-* [HDInsight uygulamalarını yayımlama](hdinsight-apps-publish-applications.md): Özel HDInsight uygulamalarınızı Azure Marketi’nde nasıl yayımlayacağınızı öğrenin.
-* [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını nasıl tanımlayacağınızı öğrenin.
+* [HDInsight uygulamaları yükleme](hdinsight-apps-install-applications.md): Bir HDInsight uygulamalarını kümelerinize yüklemeyi öğrenin.
+* [HDInsight uygulamaları yayımlama](hdinsight-apps-publish-applications.md): Özel HDInsight uygulamalarınızı Azure Marketi'nde yayımlama konusunda bilgi edinin.
+* [MSDN: Bir HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını nasıl tanımlayacağınızı öğrenin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 HDInsight uygulamalarını mevcut bir HDInsight kümesine yüklemek istiyorsanız bir HDInsight kümesine sahip olmanız gerekir. Küme oluşturmak için bkz. [Küme oluşturma](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). HDInsight uygulamalarını ayrıca bir HDInsight kümesi oluştururken yükleyebilirsiniz.
 
 ## <a name="install-hdinsight-applications"></a>HDInsight uygulamaları yükleme
-HDInsight uygulamaları bir küme oluşturduğunuzda veya var olan bir HDInsight kümesine yüklenebilir. Azure Resource Manager şablonlarını tanımlamak için bkz. [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx).
+HDInsight uygulamaları bir küme oluşturduğunuzda veya var olan bir HDInsight kümesine yüklenebilir. Azure Resource Manager şablonlarını tanımlamak için bkz [MSDN: Bir HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx).
 
 Bu uygulamayı (Hue) dağıtmak için gerekli dosyalar:
 
-* [azuredeploy.json](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): HDInsight uygulamasını yüklemek için Azure Resource Manager şablonu. Kendi Azure Resource Manager şablonunuzu geliştirmek için bkz. [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx).
-* [hue-install_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): Kenar düğümünü yapılandırmak üzere Resource Manager şablonu tarafından çağrılan Betik eylemi.
-* [hue-binaries.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): hui-install_v0.sh dosyasından çağrılan Hue ikili dosyası.
-* [hue-binaries-14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): hui-install_v0.sh dosyasından çağrılan Hue ikili dosyası.
-* [webwasb-tomcat.tar.gz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/webwasb-tomcat.tar.gz): hui-install_v0.sh dosyasından çağrılan bir örnek web uygulaması (Tomcat).
+* [azuredeploy.JSON](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/azuredeploy.json): HDInsight uygulamasını yüklemek için Resource Manager şablonu. Bkz: [MSDN: Bir HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx) kendi Resource Manager şablonunuzu geliştirmek için.
+* [Hue-install_v0.sh](https://github.com/hdinsight/Iaas-Applications/blob/master/Hue/scripts/Hue-install_v0.sh): Kenar düğümünü yapılandırmak üzere Resource Manager şablonu tarafından çağrılan betik eylemi.
+* [Hue-binaries.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): Hui-install_v0.sh dosyasından çağrılan hue ikili dosyası.
+* [Hue-ikili-14-04.tgz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/hue-binaries-14-04.tgz): Hui-install_v0.sh dosyasından çağrılan hue ikili dosyası.
+* [webwasb-tomcat.tar.gz](https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv01/webwasb-tomcat.tar.gz): Hui-install_v0.sh dosyasından çağrılan bir örnek web uygulaması (Tomcat).
 
 **Mevcut bir HDInsight kümesine Hue yüklemek için**
 
@@ -48,7 +48,7 @@ Bu uygulamayı (Hue) dağıtmak için gerekli dosyalar:
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2FIaas-Applications%2Fmaster%2FHue%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-    Bu düğme Azure portalında bir Resource Manager şablonu açar.  Resource Manager şablonu şu konumdadır [ https://github.com/hdinsight/Iaas-Applications/tree/master/Hue ](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue).  Bu Resource Manager şablonunun nasıl yazılacağını öğrenmek için bkz. [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx).
+    Bu düğme Azure portalında bir Resource Manager şablonu açar.  Resource Manager şablonu şu konumdadır [ https://github.com/hdinsight/Iaas-Applications/tree/master/Hue ](https://github.com/hdinsight/Iaas-Applications/tree/master/Hue).  Bu Resource Manager şablonunun nasıl yazılacağını öğrenmek için bkz: [MSDN: Bir HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx).
 2. **Parametreler** dikey penceresinde aşağıdakileri girin:
 
    * **ClusterName**: Uygulamayı yüklemek istediğiniz kümenin adını girin. Bu küme var olan bir küme olmalıdır.
@@ -63,7 +63,7 @@ Bu uygulamayı (Hue) dağıtmak için gerekli dosyalar:
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhdinsightapps%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-apps-install-custom-applications/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-    Bu düğme Azure portalında bir Resource Manager şablonu açar.  Resource Manager şablonu şu konumdadır [ https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json ](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json).  Bu Resource Manager şablonunun nasıl yazılacağını öğrenmek için bkz. [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx).
+    Bu düğme Azure portalında bir Resource Manager şablonu açar.  Resource Manager şablonu şu konumdadır [ https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json ](https://hditutorialdata.blob.core.windows.net/hdinsightapps/create-linux-based-hadoop-cluster-in-hdinsight.json).  Bu Resource Manager şablonunun nasıl yazılacağını öğrenmek için bkz: [MSDN: Bir HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx).
 2. Küme oluşturmak ve Hue uygulamasını yüklemek için yönergeleri izleyin. HDInsight kümeleri oluşturma hakkında daha fazla bilgi için bkz. [HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
 
 Azure portalına ek olarak da kullanabilirsiniz [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-powershell) ve [Klasik Azure CLI'yı](hdinsight-hadoop-create-linux-clusters-arm-templates.md#deploy-using-azure-cli) Resource Manager şablonlarını çağırmak için.
@@ -90,12 +90,12 @@ Bir uygulama yüklemesi başarısız olduysa 3 yerden hata iletileri ve hata ay�
     Portaldan kümeyi açın ve Ayarlar dikey penceresinden Uygulamalar’a tıklayın:
 
     ![hdinsight applications application installation error](./media/hdinsight-apps-install-applications/hdinsight-apps-error.png)
-* HDInsight betik eylemi: HDInsight Uygulamalarının hata iletisi bir betik eylemi hatası belirtiyorsa betik eylemleri bölmesinde betik hatasına ilişkin daha fazla bilgi sunulur.
+* HDInsight betik eylemi: HDInsight uygulamalarının hata iletisi bir betik eylemi hatası belirtiyorsa betik eylemleri bölmesinde betik hata hakkında daha fazla ayrıntı sunulur.
 
     Ayarlar dikey penceresinden Betik Eylemi’ne tıklayın. Betik eylemi geçmişinde hata iletileri gösterilir
 
     ![hdinsight applications script action error](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
-* Ambari Web Kullanıcı Arabirimi: Hatanın nedeni yükleme betiği ise yükleme betikleri hakkında tam günlükleri denetlemek için Ambari Web Kullanıcı Arabirimini kullanın.
+* Ambari Web kullanıcı Arabirimi: Hatanın nedeni yükleme betiği ise yükleme betikleri hakkında tam günlükleri denetlemek için Ambari Web kullanıcı arabirimini kullanın.
 
     Daha fazla bilgi için bkz. [Sorun giderme](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting).
 
@@ -121,9 +121,9 @@ Azure PowerShell kullanarak kümeyi veya kaynak grubunu silebilirsiniz. Bkz. [Az
 Klasik Azure CLI'yı kullanarak kümeyi veya kaynak grubunu silin. Bkz: [Klasik Azure CLI'yı kullanarak küme silme](hdinsight-administer-use-command-line.md#delete-clusters).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını dağıtmaya yönelik Resource Manager şablonlarını nasıl geliştireceğinizi öğrenin.
-* [HDInsight uygulamaları yükleme](hdinsight-apps-install-applications.md): HDInsight uygulamalarını kümelerinize yükleme hakkında bilgi alın.
-* [HDInsight uygulamalarını yayımlama](hdinsight-apps-publish-applications.md): Özel HDInsight uygulamalarınızı Azure Marketi’nde nasıl yayımlayacağınızı öğrenin.
+* [MSDN: Bir HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını dağıtmak için Resource Manager şablonlarını nasıl geliştireceğinizi öğrenin.
+* [HDInsight uygulamaları yükleme](hdinsight-apps-install-applications.md): Bir HDInsight uygulamalarını kümelerinize yüklemeyi öğrenin.
+* [HDInsight uygulamaları yayımlama](hdinsight-apps-publish-applications.md): Özel HDInsight uygulamalarınızı Azure Marketi'nde yayımlama konusunda bilgi edinin.
 * [Betik Eylemi kullanarak Linux tabanlı HDInsight kümelerini özelleştirme](hdinsight-hadoop-customize-cluster-linux.md): ek uygulamalar yüklemek için Betik Eyleminin nasıl kullanılacağını öğrenin.
 * [Linux tabanlı Apache Hadoop kümelerini Resource Manager şablonlarını kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md): HDInsight kümeleri oluşturmak için Resource Manager şablonlarının nasıl çağrılacağını öğrenin.
 * [HDInsight’ta boş kenar düğümleri kullanma](hdinsight-apps-use-edge-node.md): HDInsight kümesine erişmek, HDInsight uygulamalarını test etmek ve HDInsight uygulamalarını barındırmak için boş bir kenar düğümünü kullanmayı öğrenin.

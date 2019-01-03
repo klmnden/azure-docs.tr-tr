@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 0a3570e8907369d5cefc1197eef60d682659d0ed
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3d1821ccc3f3bc16bffd8a19d3014b5ea4876768
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261832"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715614"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure Uygulama Hizmeti için En İyi Uygulamalar
 Bu makalede kullanmak için en iyi uygulamalar özetlenmektedir [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -39,7 +39,7 @@ Belirtilen izleme veya hizmet önerileri, bir uygulama olarak beklenenden daha f
 ## <a name="CPUresources"></a>Ne zaman beklenenden daha fazla CPU uygulamalarını kullanma
 Fark, uygulama beklenenden daha fazla CPU kullanan veya artırma veya azaltma App Service planı kullanıma deneyimleri yinelenen CPU'daki ani değişikliklerin izleme veya hizmet önerileri belirtildiği gibi düşünün. Uygulamanızı durum bilgisi olan, uygulamanız varsa durum bilgisi olmayan, ölçeklendirme çıkış size daha fazla esneklik ve daha yüksek ölçek olası getirirken büyütme tek seçenek ise. 
 
-"Durum bilgisi olan" vs "durum bilgisi olmayan" uygulamalar hakkında daha fazla bilgi için bu videoyu izleyebilirsiniz: [Microsoft Azure Web App üzerinde ölçeklenebilir uçtan uca çok katmanlı uygulaması planlama](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). App Service, ölçeklendirme ve otomatik ölçeklendirme seçenekleri hakkında daha fazla bilgi için bkz. [Web uygulamasını Azure App Service'te ölçeklendirme](web-sites-scale.md).  
+"Durum bilgisi olan" vs "durum bilgisi olmayan" uygulamalar hakkında daha fazla bilgi için bu videoyu izleyebilirsiniz: [Ölçeklenebilir uçtan uca çok katmanlı uygulaması üzerinde Azure App Service'te planlama](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). App Service, ölçeklendirme ve otomatik ölçeklendirme seçenekleri hakkında daha fazla bilgi için bkz. [Web uygulamasını Azure App Service'te ölçeklendirme](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Ne zaman yuva kaynakları tükendi
 Tükettiğini giden TCP bağlantılarına yaygın bir nedeni, istemci kitaplıklarının hangi TCP bağlantılarını yeniden uygulanmadı veya HTTP - tutma gibi daha üst düzey bir protokol değil kullanıldığında kullanılır. App Service yapılandırılmış veya verimli kullanılmasını giden bağlantılar için kodunuza erişir emin olmak için planınızı uygulamalar tarafından başvurulan kitaplıkların her birinde belgelerini gözden geçirin. Ayrıca uygun oluşturma ve yayın veya bağlantıları sızdırılmasını önlemek için temizleme kitaplığı belgeleri yönergeleri izleyin. Bu istemci kitaplıklarını araştırmalar devam ederken, etkisi birden fazla örneğe ölçek genişletilerek azaltılması.
@@ -68,7 +68,7 @@ pm2 start /home/site/wwwroot/app.js --no-daemon -i 4
 ## <a name="appbackup"></a>Ne zaman uygulamanızı yedekleme başarısız başlatır
 Uygulama yedekleme başarısız neden olan iki en yaygın nedenleri: Geçersiz depolama ayarlarını ve geçersiz veritabanı yapılandırması. Bu hatalar genellikle depolama veya veritabanı kaynaklarına değişiklikleri veya bu kaynaklara (örneğin, yedekleme ayarlarında seçili veritabanı için güncelleştirilmiş kimlik) öğrenmek için değişiklikler olduğunda gerçekleşir. Yedeklemeler, genellikle bir zamanlamaya göre çalıştırın ve (için kopyalama ve yedeklemeye dahil edilecek içeriği okunurken) depolama (Yedeklenen dosyaların çıktısı için) ve veritabanlarına erişim gerektirir. Ya da bu kaynakları erişmek başarısız sonucu tutarlı yedekleme başarısız olacaktır. 
 
-Yedekleme hataları meydana geldiğinde, hangi tür hataları olup olmadığını anlamak için en son sonuçları gözden geçirin. Depolama erişim hataları için gözden geçirin ve yedekleme yapılandırmasında kullanılan depolama ayarlarını güncelleştirin. Veritabanı erişim hataları gözden geçirin ve uygulama ayarlarının bir parçası, bağlantı dizelerini güncelleştirin; ardından yedekleme yapılandırmanızı doğru gerekli veritabanlarını içerecek şekilde güncelleştirmek için devam edin. Uygulama yedeklemeleri hakkında daha fazla bilgi için bkz. [Azure App Service'te bir web uygulamasını yedekleme](web-sites-backup.md).
+Yedekleme hataları meydana geldiğinde, hangi tür hataları olup olmadığını anlamak için en son sonuçları gözden geçirin. Depolama erişim hataları için gözden geçirin ve yedekleme yapılandırmasında kullanılan depolama ayarlarını güncelleştirin. Veritabanı erişim hataları gözden geçirin ve uygulama ayarlarının bir parçası, bağlantı dizelerini güncelleştirin; ardından yedekleme yapılandırmanızı doğru gerekli veritabanlarını içerecek şekilde güncelleştirmek için devam edin. Uygulama yedeklemeleri hakkında daha fazla bilgi için bkz. [Azure App Service'te bir web uygulamasını yedekleme](manage-backup.md).
 
 ## <a name="nodejs"></a>Ne zaman yeni bir Node.js uygulamalarını Azure App Service'e dağıtılır
 Node.js uygulamaları için Azure App Service varsayılan yapılandırma, en yaygın uygulamalarının ihtiyaçlarını en iyi uyacak şekilde yöneliktir. Node.js uygulamanız için yapılandırma kişiselleştirilmiş ayarlama gelen performansını veya CPU/bellek/ağ kaynakları için kaynak kullanımını en iyi duruma görmek için yararlı [en iyi yöntemler ve Azure uygulamasında node.js uygulamaları için sorun giderme kılavuzu Hizmet](app-service-web-nodejs-best-practices-and-troubleshoot-guide.md). Bu makalede, Node.js uygulamanız için değiştirmeniz gerekebilir, çeşitli senaryolar açıklanmaktadır veya uygulamanızı karşılaşmış ve bu sorunları gidermeye yönelik gösterilmektedir sorunları iisnode ayarları açıklanır.

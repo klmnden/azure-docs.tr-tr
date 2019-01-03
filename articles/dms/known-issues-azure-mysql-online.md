@@ -4,29 +4,29 @@ description: MySQL için Azure veritabanı çevrimiçi geçişleri ile bilinen s
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 6e82c10d8e9109279045095c1b856520245a5a6f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884519"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721657"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>MySQL için Azure DB online geçişleri ile bilinen sorunları/geçiş sınırlamaları
 
 Bilinen sorunlar ve sınırlamalar online geçişleri MySQL için Azure veritabanı için MySQL ile ilişkili aşağıdaki bölümlerde açıklanmıştır. 
 
 ## <a name="online-migration-configuration"></a>Çevrimiçi geçişi yapılandırma
-- Kaynak MySQL Server sürümü 5.6.35, 5.7.18 veya üzeri olmalıdır
+- Kaynak MySQL Server sürümü sürümü 5.6.35, 5.7.18 olmalıdır veya üzeri
 - MySQL için Azure veritabanı'nı destekler:
-    - MySQL topluluk sürümü
-    - InnoDB altyapısı
+    - MySQL community edition
+    - Innodb altyapısı
 - Aynı sürüm geçişi. MySQL 5.7 için Azure veritabanı geçişi MySQL 5.6 desteklenmez.
 - My.ini (Windows) veya my.cnf (Unix) ikili günlüğü etkinleştirme
     - 1, örneğin, Server_id Server_id istediğiniz kadar büyük veya eşittir ayarlayın (yalnızca için MySQL 5.6) = 1
@@ -53,29 +53,29 @@ Bilinen sorunlar ve sınırlamalar online geçişleri MySQL için Azure veritaba
       GROUP BY SchemaName;
     ```
 
-    Sorgu sonucu (olan ikinci sütundaki) bırakma yabancı anahtarı çalıştırın.
+    Sorgu sonucunda bırakma yabancı anahtarını (ikinci sütun) çalıştırın.
 - Şema hedef MySQL için Azure veritabanı içinde hiçbir tetikleyici olmaması gerekir. Hedef veritabanında Tetikleyicileri bırakmak için:
     ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
     ```
 
 ## <a name="datatype-limitations"></a>DataType sınırlamaları
-- **Sınırlama**: kaynak MySQL veritabanında bir JSON veri türü varsa, geçiş sırasında sürekli eşitleme başarısız olur.
+- **Sınırlama**: Kaynak MySQL veritabanında bir JSON veri türü varsa, geçiş sırasında sürekli eşitleme başarısız olur.
 
-    **Geçici çözüm**: Orta metin ya da kaynak MySQL veritabanında longtext değiştirme JSON veri türü.
+    **Geçici çözüm**: Orta metin ya da kaynak MySQL veritabanında longtext JSON veri türünü değiştirin.
 
-- **Sınırlama**: tablolarda birincil anahtar varsa, sürekli eşitleme başarısız olur.
+- **Sınırlama**: Tablolarda birincil anahtar varsa, sürekli eşitleme başarısız olur.
  
-    **Geçici çözüm**: Tablo için geçiş devam etmek için bir birincil anahtar geçici olarak ayarlar. Veri geçişi tamamlandıktan sonra birincil anahtarı kaldırabilirsiniz.
+    **Geçici çözüm**: Bir birincil anahtar tablosu geçişe devam etmek için geçici olarak ayarlar. Veri geçişi tamamlandıktan sonra birincil anahtarı kaldırabilirsiniz.
 
 ## <a name="lob-limitations"></a>LOB sınırlamaları
 Büyük nesne (LOB) sütunları boyutu büyük büyüyebilir sütunlarıdır. MySQL, Orta metin için Longtext, Blob, Mediumblob, Longblob, vb. LOB veri türleri bazıları verilmiştir.
 
-- **Sınırlama**: veri türleri, LOB birincil anahtar olarak kullanılan, geçiş başarısız olur.
+- **Sınırlama**: LOB veri türleri birincil anahtarlar kullanılıyorsa, geçiş başarısız olur.
 
-    **Geçici çözüm**: diğer veri türleri veya LOB olmayan sütunları birincil anahtarıyla değiştirin.
+    **Geçici çözüm**: Birincil anahtar, diğer veri türleri veya LOB olmayan sütunlar ile değiştirin.
 
-- **Sınırlama**: büyük nesne (LOB) sütun uzunluğu 32 KB'den daha büyük ise, hedefte veri kesilmiş. Bu sorguyu kullanarak LOB sütunu uzunluğunu kontrol edebilirsiniz:
+- **Sınırlama**: Büyük nesne (LOB) sütun uzunluğu 32 KB'den daha büyük ise, hedefte veri kesilebilir. Bu sorguyu kullanarak LOB sütunu uzunluğunu kontrol edebilirsiniz:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```

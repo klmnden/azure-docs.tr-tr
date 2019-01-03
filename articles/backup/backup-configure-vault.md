@@ -4,17 +4,16 @@ description: Windows dosya ve klasörlerini Azure'a yedeklemek için Microsoft A
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keywords: Yedekleme kasası; bir Windows server'ı yedekleme; Yedekleme pencereleri;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874014"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788404"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Resource Manager dağıtım modelini kullanarak Windows Server veya istemcisini Azure’a yedekleme
 Bu makalede, Windows Server (veya Windows istemcisi) nasıl yedekleyeceğiniz açıklanmaktadır dosya ve klasörleri Azure Resource Manager dağıtım modelini kullanarak Azure Backup ile.
@@ -183,6 +182,8 @@ Makine/proxy sınırlı internet erişimi makine/proxy üzerinde güvenlik duvar
 Yedekleme İlkesi, Kurtarma noktaları alındığında zamanlamayı ve kurtarma noktalarının bekletileceği süreyi ' dir. Dosyalar ve klasörler için yedekleme ilkesi oluşturmak için Microsoft Azure Backup Aracısı'nı kullanın.
 
 ### <a name="to-create-a-backup-schedule"></a>Bir yedekleme zamanlaması oluşturmak için
+
+Yedeklemek istediğiniz makineye yedekleme zamanlamasını ayarlayın. Azure Backup (DST) günışığından almadığı için yedekleme kümesi süre yerel bilgisayar zamanından farklı olabilir, hesaba unutmayın. 
 1. Microsoft Azure Backup Aracısı'nı açın. Bunu, makinenizde **Microsoft Azure Backup** aramasını yaparak bulabilirsiniz.
 
     ![Azure Backup aracısını başlatma](./media/backup-configure-vault/snap-in-search.png)

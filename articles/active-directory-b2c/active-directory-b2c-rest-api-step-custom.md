@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dddb42f53d4bb59113df937799bd4de10d31491c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5102f2b43819c279d0087754b29a616812e5a5f2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338788"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556569"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>İzlenecek yol: Bir düzenleme adımı, Azure AD B2C kullanıcı yolculuğunun talep alışverişlerine REST API tümleştirme
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Çözüm: Bir düzenleme adımı, Azure AD B2C kullanıcı yolculuğunun talep alışverişlerine REST API tümleştirme
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -33,7 +33,7 @@ IEF Taleplerde veri gönderip geri Taleplerde veri alır. REST API talep Değiş
 
 Daha sonra yürütmenin akışını değiştirileceği alınan talepler kullanabilirsiniz.
 
-Ayrıca, bir doğrulama profili olarak etkileşim tasarlayabilirsiniz. Daha fazla bilgi için [izlenecek yol: tümleştirme REST API, kullanıcı girişini doğrulama olarak, Azure AD B2C kullanıcı yolculuğu alışverişlerine talep](active-directory-b2c-rest-api-validation-custom.md).
+Ayrıca, bir doğrulama profili olarak etkileşim tasarlayabilirsiniz. Daha fazla bilgi için [izlenecek yol: Kullanıcı girişini doğrulama olarak, Azure AD B2C kullanıcı yolculuğunun talep alışverişlerine REST API tümleştirme](active-directory-b2c-rest-api-validation-custom.md).
 
 Bir kullanıcı bir profil düzenleme gerçekleştirdiğinde istediğimizi senaryodur:
 
@@ -45,9 +45,9 @@ Bir kullanıcı bir profil düzenleme gerçekleştirdiğinde istediğimizi senar
 
 - Bölümünde anlatıldığı gibi yerel bir hesap oturumu açma kaydolma/oturum açma, tamamlamak için yapılandırılmış bir Azure AD B2C kiracısı [Başlarken](active-directory-b2c-get-started-custom.md).
 - İle etkileşim kurmak için bir REST API uç noktası. Bu kılavuzda, örnek olarak basit bir Azure işlevi uygulaması Web kancası kullanır.
-- *Önerilen*: tamamlamak [REST API, bir doğrulama adımı olarak exchange gözden geçirme talep](active-directory-b2c-rest-api-validation-custom.md).
+- *Önerilen*: Tamamlamak [REST API, bir doğrulama adımı olarak exchange gözden geçirme talep](active-directory-b2c-rest-api-validation-custom.md).
 
-## <a name="step-1-prepare-the-rest-api-function"></a>1. adım: REST API işlevi hazırlama
+## <a name="step-1-prepare-the-rest-api-function"></a>1. Adım: REST API işlevi hazırlama
 
 > [!NOTE]
 > REST API işlevleri kurulumu, bu makalenin kapsamı dışında ' dir. [Azure işlevleri](https://docs.microsoft.com/azure/azure-functions/functions-reference) bulutta RESTful hizmetleri oluşturmak için mükemmel bir araç takımı sunar.
@@ -79,7 +79,7 @@ return request.CreateResponse<ResponseContent>(
 
 Bir Azure işlev uygulaması, belirli bir işlev tanımlayıcı içeren işlev URL'sini Al kolaylaştırır. Bu durumda, URL'dir: https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Bunu test etmek için kullanabilirsiniz.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>2. adım: RESTful API talep değişimi TrustFrameworExtensions.xml dosyanızdaki teknik profili olarak yapılandırın.
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>2. Adım: RESTful API talep değişimi TrustFrameworExtensions.xml dosyanızdaki teknik profili olarak yapılandırma
 
 Teknik profili RESTful hizmeti ile istenen Exchange tam bir yapılandırmadır. TrustFrameworkExtensions.xml dosyasını açın ve içine aşağıdaki XML parçacığını ekleyin `<ClaimsProvider>` öğesi.
 
@@ -97,6 +97,7 @@ Teknik profili RESTful hizmeti ile istenen Exchange tam bir yapılandırmadır. 
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
@@ -114,7 +115,7 @@ Teknik profili RESTful hizmeti ile istenen Exchange tam bir yapılandırmadır. 
 
 `<OutputClaims>` Öğe IEF REST hizmetinden beklediği talepleri tanımlar. Alınan talep sayısından bağımsız olarak, IEF yalnızca tanımlanan burada kullanır. Bu örnekte, bir talep olarak alınan. `city` bir IEF için eşlenmiş adlı talep `city`.
 
-## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>3. adım: yeni talep ekleyin `city` TrustFrameworkExtensions.xml dosyanıza şemasında
+## <a name="step-3-add-the-new-claim-city-to-the-schema-of-your-trustframeworkextensionsxml-file"></a>3. Adım: Yeni Talep ekleyin `city` TrustFrameworkExtensions.xml dosyanıza şemasında
 
 Talep `city` henüz herhangi bir yere bizim şemasında tanımlı değil. Bu nedenle, bir tanım öğesinin içine ekleyin `<BuildingBlocks>`. Bu öğe TrustFrameworkExtensions.xml dosyasının başında bulabilirsiniz.
 
@@ -211,7 +212,7 @@ Kullanıcı yolculuğu için son XML şu şekilde görünmelidir:
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>5. adım: talep ekleme `city` bağlı olan taraf için ilke dosyasına talep uygulamanıza gönderilir ve böylece
+## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>5. adım: Talep Ekle `city` bağlı olan taraf için ilke dosyasına talep uygulamanıza gönderilir ve böylece
 
 ProfileEdit.xml bağlı olan taraf (RP) dosyanızı düzenleyin ve değiştirme `<TechnicalProfile Id="PolicyProfile">` öğe aşağıdakileri ekleyin: `<OutputClaim ClaimTypeReferenceId="city" />`.
 
@@ -228,7 +229,7 @@ Yeni Talep ekledikten sonra teknik profili şöyle görünür:
 </TechnicalProfile>
 ```
 
-## <a name="step-6-upload-your-changes-and-test"></a>6. adım: değişikliklerinizi karşıya yüklemek ve test
+## <a name="step-6-upload-your-changes-and-test"></a>6. adım: Değişikliklerinizi karşıya yüklemek ve test
 
 İlkenin mevcut sürümlerin üzerine yazın.
 

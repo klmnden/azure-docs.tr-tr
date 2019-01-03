@@ -1,24 +1,24 @@
 ---
-title: Kapsayıcıları yükleme ve çalıştırma
-titlesuffix: Computer Vision - Azure Cognitive Services
+title: Yükleme ve kapsayıcıları - görüntü işleme çalıştırın
+titlesuffix: Azure Cognitive Services
 description: İndirme, yükleme ve bu izlenecek yol öğreticide görüntü işleme için kapsayıcıları çalıştırmak nasıl.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 9964be07c578cd1cafd93328bffe972483123e03
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 6a6468cd71cf83c627f6dd72e5a1fc5564361d50
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077044"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579864"
 ---
-# <a name="install-and-run-containers"></a>Kapsayıcıları yükleme ve çalıştırma
+# <a name="install-and-run-recognize-text-containers"></a>Yükleme ve metni tanı kapsayıcıları çalıştırma
 
 Kapsayıcı, bir uygulama veya hizmet bir kapsayıcı görüntüsüne paketlenmiştir yazılım dağıtım için kullanılan bir yaklaşımdır. Yapılandırma ve bağımlılıklarla uygulama veya hizmet için kapsayıcı görüntüsüne eklenir. Kapsayıcı görüntüsü, bir kapsayıcı konağında çok az kayıpla veya hiç değişiklik ile sonra dağıtılabilir. Birbirine ve bir sanal makine değerinden daha küçük bir kaplama alanı ile temel işletim sistemi, yalıtılmış kapsayıcılardır. Kapsayıcılar için kısa vadeli görevleri kapsayıcı görüntülerinden oluşturulan ve artık gerekli olmadığında kaldırıldı.
 
@@ -32,11 +32,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Metni Tanı kapsayıcı kullanmadan önce aşağıdaki gereksinimleri karşılaması gerekir:
 
-**Docker altyapısı**: Docker altyapısının yerel olarak yüklü olması gerekir. Docker üzerinde Docker ortamını yapılandıran paketler sağlar [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), ve [Windows](https://docs.docker.com/docker-for-windows/). Windows Docker Linux kapsayıcıları destekleyecek şekilde yapılandırılması gerekir. Docker kapsayıcıları da dağıtılabilir doğrudan [Azure Kubernetes hizmeti](/azure/aks/), [Azure Container Instances](/azure/container-instances/), veya bir [Kubernetes](https://kubernetes.io/) içindağıtılanküme[Azure Stack](/azure/azure-stack/). Kubernetes için Azure Stack dağıtma hakkında daha fazla bilgi için bkz. [Azure Stack dağıtma Kubernetes](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+**Docker altyapısı**: Docker altyapısının yerel olarak yüklü olması gerekir. Docker üzerinde Docker ortamını yapılandıran paketler sağlar [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), ve [Windows](https://docs.docker.com/docker-for-windows/). Windows Docker Linux kapsayıcıları destekleyecek şekilde yapılandırılması gerekir. Docker kapsayıcıları da dağıtılabilir doğrudan [Azure Kubernetes hizmeti](../../aks/index.yml), [Azure Container Instances](../../container-instances/index.yml), veya bir [Kubernetes](https://kubernetes.io/) içindağıtılanküme[Azure Stack](../../azure-stack/index.yml). Kubernetes için Azure Stack dağıtma hakkında daha fazla bilgi için bkz. [Azure Stack dağıtma Kubernetes](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 Docker, kapsayıcılar ile bağlanma ve faturalama verileri Azure'a göndermek izin verecek şekilde yapılandırılmalıdır.
 
-**Microsoft Container Registry ve Docker konusunda**: bir temel kavramlarını hem Microsoft Container Registry ve Docker kayıt defterleri, depoları, kapsayıcılar ve kapsayıcı görüntülerinin yanı sıra bilgisi gibi olmalıdır temel `docker` komutları.  
+**Microsoft Container Registry ve Docker konusunda**: Bir temel kavramlarını hem Microsoft Container Registry ve Docker kayıt defterleri, havuzları, kapsayıcılar ve kapsayıcı görüntülerinin yanı sıra temel bilgi gibi olmalıdır `docker` komutları.  
 
 Docker ve kapsayıcı temelleri hakkında bilgi için bkz: [Docker'a genel bakış](https://docs.docker.com/engine/docker-overview/).
 

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: aed816dadcced36946d6e173ca259a6c0f373727
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: caf3ecb64d0bdb5771b2fde705fdcbffdffccacb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957472"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969310"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Kaynak güncelleştirme etkinliği'ni kullanarak Azure Machine Learning modellerini güncelleştirme
-Bu makalede ana Azure Data Factory - Azure Machine Learning tümleştirme makale tamamlar: [Azure Machine Learning ve Azure Data Factory kullanarak öngörülebilir komut zincirleri oluşturma](transform-data-using-machine-learning.md). Zaten yapmadıysanız, bu makalede okumadan önce ana makalesini gözden geçirin. 
+Bu makalede, ana Azure Data Factory - Azure Machine Learning tümleştirme makale tamamlar: [Azure Machine Learning ve Azure Data Factory kullanarak öngörülebilir komut zincirleri oluşturma](transform-data-using-machine-learning.md). Zaten yapmadıysanız, bu makalede okumadan önce ana makalesini gözden geçirin. 
 
 ## <a name="overview"></a>Genel Bakış
 Azure Machine Learning modellerini faaliyete işleminin bir parçası, modelinizi eğitilmiş ve kaydedilir. Ardından, bir Tahmine dayalı Web hizmeti oluşturmak için kullanabilirsiniz. Web hizmeti web siteleri, panolar ve mobil uygulamalarda tüketilebilir.
@@ -61,7 +61,7 @@ Aşağıdaki JSON kod parçacığında, bir Azure Machine Learning Batch Executi
 
 
 
-| Özellik                      | Açıklama                              | Gerekli |
+| Özellik                      | Açıklama                              | Gereklidir |
 | :---------------------------- | :--------------------------------------- | :------- |
 | ad                          | İşlem hattındaki etkinliğin adı     | Evet      |
 | açıklama                   | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
@@ -93,7 +93,7 @@ Bir model ve güncelleştirme Tahmine dayalı Web hizmetlerini yeniden eğitme f
 Web hizmeti bir Azure Resource Manager uç noktasını kullanıma sunar ve web hizmeti yeni türü ise, ikinci eklemek gerekmez **varsayılan olmayan** uç noktası. **UpdateResourceEndpoint** bölümünde bağlı hizmetin şu biçimdedir: 
 
 ```
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. 
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview
 ```
 
 Değerler için yer tutucu URL'nin web hizmeti üzerinde sorgulanırken alabileceğiniz [Azure Machine Learning Web Hizmetleri portalını](https://services.azureml.net/). 
@@ -118,7 +118,7 @@ Bağlı örnek bir hizmet tanımı aşağıda verilmiştir:
             "type": "SecureString",
             "value": "APIKeyOfEndpoint1"
             },
-            "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview. ",
+            "updateResourceEndpoint": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview",
             "servicePrincipalId": "000000000-0000-0000-0000-0000000000000",
             "servicePrincipalKey": {
             "type": "SecureString",

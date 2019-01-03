@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 569030cc6d72d206411a73703ec0d359e033bef7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b8995436677c195317b9ac304fe8c52cc2fcfc80
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311679"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602078"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Azure Kubernetes hizmeti, HDInsight üzerinde Apache Kafka ile kullanma
 
@@ -22,7 +22,7 @@ Azure Kubernetes Service (AKS) ile kullanmayı öğrenin [Apache Kafka](https://
 
 [Apache Kafka](https://kafka.apache.org), gerçek zamanlı akış verisi işlem hatları ve uygulamaları oluşturmak için kullanılabilen, açık kaynak dağıtılmış akış platformudur. Azure Kubernetes hizmeti, barındırılan Kubernetes ortamınızı yöneten ve kapsayıcılı uygulamaları dağıtmak hızlı ve kolaylaştırır. Bir Azure sanal ağı kullanarak, iki hizmet bağlanabilirsiniz.
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight üzerinde Kafka ile iletişim kurmak Azure Kubernetes hizmeti etkinleştirmek için gerekli adımları bu belgenin odak açıktır. Örnek yapılandırma çalıştığını göstermek için yalnızca bir temel Kafka istemcisidir.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -49,7 +49,7 @@ Aşağıdaki diyagram, bu belgede kullanılan ağ topolojisini gösterir:
 
 ![Bir sanal ağ, başka bir AKS ve eşlemesini kullanmanın bağlı ağlara HDInsight](./media/apache-kafka-azure-container-services/kafka-aks-architecture.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu nedenle IP adresi kullanılır eşlenen ağların ad çözümlemesi etkin değil. Varsayılan olarak, HDInsight üzerinde Kafka, istemciler bağlandığında, IP adresi yerine ana bilgisayar adlarını döndürmek için yapılandırılır. Kafka IP kullanmak için bu belgedeki adımlarda değiştirmek yerine reklam.
 
 ## <a name="create-an-azure-kubernetes-service-aks"></a>Azure Kubernetes Service'i (AKS) oluşturma
@@ -59,7 +59,7 @@ Bir AKS kümesi zaten yoksa, nasıl oluşturacağınızı öğrenmek için aşa�
 * [Bir Azure Kubernetes Service (AKS) küme dağıtma - Portal](../../aks/kubernetes-walkthrough-portal.md)
 * [Bir Azure Kubernetes Service (AKS) kümesi dağıtma - CLI](../../aks/kubernetes-walkthrough.md)
 
-> [!NOTE]
+> [!NOTE]  
 > AKS, yükleme sırasında bir sanal ağ oluşturur. Bu ağ, sonraki bölümde HDInsight için oluşturulan bir eşlenmiş.
 
 ## <a name="configure-virtual-network-peering"></a>Sanal ağ eşlemesini yapılandırma
@@ -72,7 +72,7 @@ Bir AKS kümesi zaten yoksa, nasıl oluşturacağınızı öğrenmek için aşa�
 
 4. HDInsight için bir sanal ağ oluşturmak için seçin __+ kaynak Oluştur__, __ağ__, ardından __sanal ağ__.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Değerleri yeni bir sanal ağ için girerken, AKS küme ağı tarafından kullanılan çakışmayacak bir adres alanı kullanmanız gerekir.
 
     Aynı __konumu__ sanal ağ için AKS kümesi için kullanılır.
@@ -81,23 +81,23 @@ Bir AKS kümesi zaten yoksa, nasıl oluşturacağınızı öğrenmek için aşa�
 
 5. HDInsight ağ ve AKS küme ağı arasında eşleme yapılandırmak için sanal ağı seçin ve ardından __eşlemeler__. Seçin __+ Ekle__ ve formu doldurmak için aşağıdaki değerleri kullanın:
 
-    * __Ad__: Eşleme bu yapılandırma için benzersiz bir ad girin.
-    * __Sanal ağ__: sanal ağ için seçmek için bu alanı kullanın **AKS kümesi**.
+    * __Ad__: Bu eşleme yapılandırması için benzersiz bir ad girin.
+    * __Sanal ağ__: Sanal ağ için seçmek için bu alanı kullanın **AKS kümesi**.
 
     Diğer alanları varsayılan değerde bırakın ve ardından __Tamam__ eşlemesini yapılandırmak üzere.
 
 6. AKS küme ağı arasında HDInsight ağ eşlemesini yapılandırmak üzere seçin __AKS küme sanal ağ__ve ardından __eşlemeler__. Seçin __+ Ekle__ ve formu doldurmak için aşağıdaki değerleri kullanın:
 
-    * __Ad__: Eşleme bu yapılandırma için benzersiz bir ad girin.
-    * __Sanal ağ__: sanal ağ için seçmek için bu alanı kullanın __HDInsight küme__.
+    * __Ad__: Bu eşleme yapılandırması için benzersiz bir ad girin.
+    * __Sanal ağ__: Sanal ağ için seçmek için bu alanı kullanın __HDInsight küme__.
 
     Diğer alanları varsayılan değerde bırakın ve ardından __Tamam__ eşlemesini yapılandırmak üzere.
 
 ## <a name="install-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka yükleyin
 
-HDInsight kümesinde Kafka oluşturma, HDInsight için daha önce oluşturduğunuz sanal ağa eklemeniz gerekir. Kafka kümesi oluşturma hakkında daha fazla bilgi için bkz. [Kafka kümesi oluşturma](apache-kafka-get-started.md) belge.
+HDInsight kümesinde Kafka oluşturma, HDInsight için daha önce oluşturduğunuz sanal ağa eklemeniz gerekir. Kafka kümesi oluşturma hakkında daha fazla bilgi için bkz. [Apache Kafka kümesi oluşturma](apache-kafka-get-started.md) belge.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Kümeyi oluştururken kullanmanız gerekir __Gelişmiş ayarlar__ HDInsight için oluşturduğunuz sanal ağa bağlanma.
 
 ## <a name="configure-apache-kafka-ip-advertising"></a>Apache Kafka IP reklam yapılandırma
@@ -169,7 +169,7 @@ Bu noktada, Kafka ve Azure Kubernetes hizmeti eşlenen sanal ağlarda aracılı�
     docker build -t kafka-aks-test .
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Bu uygulama için gereken paketleri kullanmaya gerek kalmayacak şekilde depoya işaretli `npm` yardımcı programını kullanarak bunları yükleyin.
 
 5. Azure Container Registry (ACR) için oturum açın ve loginServer adını bulun:
@@ -179,7 +179,7 @@ Bu noktada, Kafka ve Azure Kubernetes hizmeti eşlenen sanal ağlarda aracılı�
     az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > Azure Container Registry adınız ya da Azure CLI kullanarak Azure Kubernetes hizmeti ile çalışacak şekilde erişilen bilmiyorsanız bkz bilmiyorsanız [AKS öğreticileri](../../aks/tutorial-kubernetes-prepare-app.md).
 
 6. Yerel etiketi `kafka-aks-test` , ACR loginserver'ı ile görüntü. Ayrıca `:v1` sonuna görüntü sürümü belirtmek için:
@@ -217,7 +217,7 @@ Bu noktada, Kafka ve Azure Kubernetes hizmeti eşlenen sanal ağlarda aracılı�
 
 12. Metin alanına girin ve ardından __Gönder__ düğmesi. Kafka için bir veri gönderilmedi. Kafka tüketicisi uygulamada iletiyi okur ve ona ekler __iletileri kafka'dan__ bölümü.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Birden çok kopyasını bir ileti alabilirsiniz. Bu sorun genellikle bağlandıktan sonra tarayıcınızı yenileyin olur veya uygulamaya birden çok tarayıcı bağlantısı açın.
 
 ## <a name="next-steps"></a>Sonraki adımlar

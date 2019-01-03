@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c3e4ab9dc03afe1c4a19e738804e6400b0830291
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b9c8f1af612c220534e45c5c66651f0ad8600826
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634422"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628195"
 ---
 # <a name="analyze-sensor-data-using-the-apache-hive-query-console-on-apache-hadoop-in-hdinsight"></a>HDInsight, Apache Hadoop üzerinde Apache Hive sorgu konsolunu kullanarak sensör verilerini çözümleme
 
-(Apache Hadoop) HDInsight ile Hive sorgu Konsolu kullanarak algılayıcı verilerini çözümlemeyi öğrenin ve ardından Power View'ı kullanarak verileri Microsoft Excel'de görselleştirin.
+HDInsight (Apache Hadoop) ile Apache Hive sorgu konsolunu kullanarak algılayıcı verilerini çözümlemeyi öğrenin ve ardından Power View'ı kullanarak verileri Microsoft Excel'de görselleştirin.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgede yer alan adımlar, yalnızca Windows tabanlı HDInsight kümeleri ile çalışır. HDInsight yalnızca Windows üzerinde HDInsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
@@ -35,10 +35,10 @@ Bu örnekte, Hive geçmiş verilerini işlemek ve ısıtma ve havalandırma sist
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Bir HDInsight (Hadoop) kümesi: bkz [Hadoop kümeleri oluşturma HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) bir küme oluşturma hakkında daha fazla bilgi için.
+* Bir HDInsight (Hadoop) kümesi: Bkz: [Apache Hadoop kümeleri oluşturma HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) bir küme oluşturma hakkında daha fazla bilgi için.
 * Microsoft Excel 2013
 
-  > [!NOTE]
+  > [!NOTE]  
   > Microsoft Excel ile veri görselleştirme için kullanılan [Power View](https://support.office.com/Article/Power-View-Explore-visualize-and-present-your-data-98268d31-97e2-42aa-a52b-a68cf460472e?ui=en-US&rs=en-US&ad=US).
 
 * [Microsoft Hive ODBC sürücüsü](https://www.microsoft.com/download/details.aspx?id=40886)

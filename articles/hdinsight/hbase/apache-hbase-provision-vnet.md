@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: cf037000a047b02f3874c3bccc9678f2ea18ecec
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 31e4f4a8cfe9a82cf5320cd364905c7c91de0959
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011207"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653807"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure sanal ağdaki HDInsight üzerinde Apache HBase kümeleri oluşturma
 Azure HDInsight Apache HBase kümeleri oluşturmayı öğrenin bir [Azure sanal ağı][1].
@@ -34,14 +34,14 @@ Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 ## <a name="create-apache-hbase-cluster-into-virtual-network"></a>Sanal ağına Apache HBase kümesi oluşturma
 Bu bölümde, bir Azure sanal ağı kullanarak bağımlı Azure depolama hesabı ile bir Linux tabanlı Apache HBase kümesi oluşturma bir [Azure Resource Manager şablonu](../../azure-resource-manager/resource-group-template-deploy.md). Diğer küme oluşturma yöntemleri ve ayarları hakkında bilgi edinmek bkz [oluşturma HDInsight kümeleri](../hdinsight-hadoop-provision-linux-clusters.md). HDInsight Apache Hadoop kümelerini oluşturmak için bir şablon kullanma hakkında daha fazla bilgi için bkz. [Apache Hadoop kümeleri oluşturma Azure Resource Manager şablonlarını kullanarak HDInsight](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-> [!NOTE]
+> [!NOTE]  
 > Bazı özellikler, şablona sabit kodlanmış. Örneğin:
 >
 > * **Konum**: Doğu ABD 2
 > * **Küme sürümü**: 3.6
 > * **Çalışan düğümü sayısı küme**: 2
 > * **Varsayılan depolama hesabı**: benzersiz bir dize
-> * **Sanal ağ adı**: &lt;küme adı >-vnet
+> * **Sanal ağ adı**: &lt;Küme adı >-vnet
 > * **Sanal ağ adres alanı**: 10.0.0.0/16
 > * **Alt ağ adı**: subnet1
 > * **Alt ağ adres aralığı**: 10.0.0.0/24
@@ -56,11 +56,11 @@ Bu bölümde, bir Azure sanal ağı kullanarak bağımlı Azure depolama hesabı
 2. Gelen **özel dağıtım** dikey penceresinde, aşağıdaki özellikleri girin:
 
    * **Abonelik**: HDInsight küme, bağımlı depolama hesabı ve Azure sanal ağı oluşturmak için kullanılan bir Azure aboneliği seçin.
-   * **Kaynak grubu**: seçin **Yeni Oluştur**, yeni bir kaynak grubu adı belirtin.
+   * **Kaynak grubu**: Seçin **Yeni Oluştur**, yeni bir kaynak grubu adı belirtin.
    * **Konum**: Kaynak grubu için bir konum seçin.
    * **ClusterName**: Oluşturulacak Hadoop kümesi için bir ad girin.
-   * **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı **admin** şeklindedir.
-   * **SSH kullanıcı adı ve parolası**: Varsayılan kullanıcı adı **sshuser** şeklindedir.  Bunu yeniden adlandırabilirsiniz.
+   * **Küme oturum açma adı ve parola**: Varsayılan oturum açma adı **admin**’dir.
+   * **SSH kullanıcı adı ve parola**: Varsayılan kullanıcı adı **sshuser** şeklindedir.  Bunu yeniden adlandırabilirsiniz.
    * **Hüküm ve yukarıdaki koşulları kabul ediyorum**: (Seç)
 3. **Satın al**’a tıklayın. Bir küme oluşturmak yaklaşık 20 dakika sürer. Küme oluşturulduktan sonra küme dikey penceresini açmak için portalda tıklayabilirsiniz.
 
@@ -71,13 +71,11 @@ Yeni bir HBase kümesi ile çalışmaya başlamak için bulunan yordamları kull
 ## <a name="connect-to-the-apache-hbase-cluster-using-apache-hbase-java-rpc-apis"></a>Apache HBase Java RPC API'lerini kullanarak Apache HBase kümeye bağlanma
 1. Bir altyapı (ıaas) sanal makine olarak aynı Azure sanal ağı ve aynı alt ağda oluşturun. Yeni bir Iaas sanal makine oluşturma ile ilgili yönergeler için bkz: [sanal makine çalıştıran Windows Server oluşturma](../../virtual-machines/windows/quick-create-portal.md). Bu belgede yer alan adımları uygulayarak, ağ yapılandırması için aşağıdaki değerleri kullanmanız gerekir:
 
-   * **Sanal ağ**: &lt;küme adı >-vnet
+   * **Sanal ağ**: &lt;Küme adı >-vnet
    * **Alt ağ**: subnet1
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Değiştirin &lt;küme adı > önceki adımlarda HDInsight kümesi oluştururken kullandığınız ada sahip.
-   >
-   >
 
    Bu değerleri kullanarak, sanal makineyi aynı sanal ağ ve alt ağ HDInsight kümesi olarak yerleştirilir. Bu yapılandırma, bunları doğrudan birbirleri ile iletişim kurmasına olanak sağlar. Bir boş kenar düğümü bir HDInsight kümesi oluşturmak için bir yol yoktur. Kenar düğümüne kümeyi yönetmek için kullanılabilir.  Daha fazla bilgi için [HDInsight içinde boş kenar düğümlerini kullanma](../hdinsight-apps-use-edge-node.md).
 
@@ -232,10 +230,8 @@ Bu bilgiler bir Java uygulamasında kullanmak için adımları izleyebilirsiniz 
         <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
     </property>
 
-> [!NOTE]
+> [!NOTE]  
 > Kendi DNS sunucunuzu kullanmak nasıl dahil olmak üzere sanal ağlar, azure'da ad çözümlemesi hakkında daha fazla bilgi için bkz [adı çözümleme (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
->
->
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, bir Apache HBase kümesi oluşturmayı öğrendiniz. Daha fazla bilgi için bkz:

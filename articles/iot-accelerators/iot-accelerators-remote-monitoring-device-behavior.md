@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 70f9ccbbe737bad4d6f88365e804d4421c418d28
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: edd5da35d33aa7e79fc3e972f3ea1cfe2ef40973
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164016"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631422"
 ---
 # <a name="implement-the-device-model-behavior"></a>Cihaz modeli davranışlarını uygulayın
 
@@ -21,6 +21,9 @@ Makaleyi [cihaz modeli şemasını anlama](iot-accelerators-remote-monitoring-de
 
 - **Durum** JavaScript dosyaları, cihaz iç durumunu güncelleştirmek için sabit aralıklarla çalıştırın.
 - **Yöntemi** JavaScript dosyaları çözüm cihaz üzerinde bir yöntemi çağırdığında çalıştıran.
+
+> [!NOTE]
+> Cihaz modeli davranışlarını yalnızca cihaz benzetimi hizmette barındırılan sanal cihazlar içindir. Fiziksel bir cihaz oluşturmak istiyorsanız, bkz. [Cihazınızı Uzaktan izleme çözüm hızlandırıcısına bağlamayı](iot-accelerators-connecting-devices.md).
 
 Bu makalede şunları öğreneceksiniz:
 

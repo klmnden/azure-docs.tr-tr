@@ -1,51 +1,48 @@
 ---
-title: Azure veritabanı için MySQL veritabanı uygulaması geliştirmeye genel bakış
-description: Bir geliştirici MySQL için Azure veritabanına bağlanmak için uygulama kodu yazarken izlemeniz gereken tasarım konuları sunar
-services: mysql
+title: MySQL için Azure veritabanı için veritabanı uygulaması geliştirmeye genel bakış
+description: MySQL için Azure veritabanı'na bağlanmak için uygulama kodu yazarken Geliştirici izlemelidir tasarım konuları tanıtır.
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: b733468d41afacb616c95f0628e7bad6b0c837f0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 946f7011c51b7c6844e023d03e01e4c2043d2578
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264172"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544472"
 ---
-# <a name="application-development-overview-for-azure-database-for-mysql"></a>Azure veritabanı için MySQL için uygulama geliştirmeye genel bakış 
-Bu makalede bir geliştirici MySQL için Azure veritabanına bağlanmak için uygulama kodu yazarken izlemeniz gereken tasarım konuları açıklanmaktadır. 
+# <a name="application-development-overview-for-azure-database-for-mysql"></a>Uygulama geliştirmeye genel bakış MySQL için Azure veritabanı 
+Bu makalede, bir geliştirici, MySQL için Azure veritabanı'na bağlanmak için uygulama kodu yazarken izlemelidir tasarım konuları açıklanmaktadır. 
 
 > [!TIP]
-> Bir sunucu oluşturmak, sunucu tabanlı bir güvenlik duvarı oluşturma, sunucu özelliklerini görüntülemek, veritabanı oluşturmak ve bağlamak ve çalışma ekranı ve mysql.exe kullanarak sorgulama gösteren bir öğretici için bkz: [ilk Azure veritabanınızı MySQL veritabanı için tasarlama](tutorial-design-database-using-portal.md)
+> Sunucu oluşturma, sunucu tabanlı güvenlik duvarı oluşturma, sunucu özelliklerini görüntüleme, veritabanı oluşturun ve bağlanın ve workbench ve mysql.exe kullanarak sorgulama adımlarını gösteren bir öğretici için bkz [ilk MySQL veritabanı için Azure veritabanı tasarlama](tutorial-design-database-using-portal.md)
 
 ## <a name="language-and-platform"></a>Dil ve platform
-Çeşitli programlama dilleri ve platformları için kod örnekleri mevcuttur. Kod örnekleri bağlantılar bulabilirsiniz: [MySQL için Azure veritabanına bağlanmak için kullanılan bağlantı kitaplıkları](concepts-connection-libraries.md)
+Çeşitli programlama dilleri ve platformları için kod örnekleri mevcuttur. Kod örneklerinin bağlantılarını şu sayfada bulabilirsiniz: [MySQL için Azure veritabanı'na bağlanmak için kullanılan bağlantı kitaplıkları](concepts-connection-libraries.md)
 
 ## <a name="tools"></a>Araçlar
-Azure veritabanı için MySQL kullanır gibi mysql.exe, çalışma ekranı veya MySQL yardımcı programları gibi genel yönetim araçlarını MySQL ile uyumlu MySQL community sürümü [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql)ve diğerleri. Veritabanı hizmetiyle etkileşim kurmak için Azure portalı, Azure CLI ve REST API de kullanabilirsiniz.
+MySQL için Azure veritabanı gibi mysql.exe, Workbench veya MySQL yardımcı programları gibi yaygın yönetim araçları MySQL ile uyumlu MySQL topluluk sürümünü kullanan [phpMyAdmin](https://www.phpmyadmin.net/), [Navicat](https://www.navicat.com/products/navicat-for-mysql)ve diğerleri. Veritabanı hizmetiyle etkileşim kurmak için Azure portalı, Azure CLI ve REST API'lerini kullanabilirsiniz.
 
 ## <a name="resource-limitations"></a>Kaynak sınırlamaları
-Azure veritabanı MySQL için iki farklı mekanizmalarını kullanarak bir sunucuya kullanılabilir kaynakları yönetir: 
+MySQL için Azure veritabanı, iki farklı mekanizma kullanarak bir sunucuya kullanabileceği kaynakları yönetir: 
 - Kaynak İdaresi.
 - Sınırları zorlama.
 
 ## <a name="security"></a>Güvenlik
-Azure veritabanı için MySQL sınırlama erişim, koruma verileri, bir MySQL veritabanı izleme etkinliklerini, yapılandırma kullanıcılar ve roller için kaynaklar sağlar.
+MySQL için Azure veritabanı, sınırlama erişim, koruma verileri, yapılandırma kullanıcılar ve roller ve izleme etkinliklerin bir MySQL veritabanı için kaynakları sağlar.
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
-Azure veritabanı için MySQL server ve kimlik doğrulaması için kullanıcıların oturum açma bilgileri destekler.
+MySQL için Azure veritabanı, sunucu kimlik doğrulaması kullanıcı ve oturum açma bilgileri destekler.
 
 ## <a name="resiliency"></a>Dayanıklılık
-Bir MySQL veritabanına bağlanırken geçici bir hata ortaya çıktığında, kodunuzu çağrı yeniden denemeniz gerekir. Böylece, SQL veritabanı ile birden çok istemci aynı anda yeniden deneniyor doldurmaya değil yeniden deneme mantığı geri mantığı kullanmanızı öneririz.
+Bir MySQL veritabanına bağlanırken geçici bir hata oluştuğunda, kodunuzun çağrıyı yeniden denemesi gerekir. SQL veritabanını aynı anda yeniden deneniyor birden fazla istemciyle boğmaması için yeniden deneme mantığı geri mantığını devre dışı kullanmanızı öneririz.
 
-- Kod örnekleri: örnekler için tercih ettiğiniz dili gösteren kod örnekleri mantığı yeniden dene için bkz: [MySQL için Azure veritabanına bağlanmak için kullanılan bağlantı kitaplıkları](concepts-connection-libraries.md)
+- Kod örnekleri: Gösteren kod örnekleri için yeniden deneme mantığı, istediğiniz dili için örneklerine bakın: [MySQL için Azure veritabanı'na bağlanmak için kullanılan bağlantı kitaplıkları](concepts-connection-libraries.md)
 
 ## <a name="managing-connections"></a>Bağlantıları yönetme
-Veritabanı bağlantıları sınırlı bir kaynak olduğundan, daha iyi performans elde etmek için MySQL veritabanınızı erişirken bağlantıların duyarlı kullanılmasını öneririz.
-- Veritabanı bağlantı havuzunu veya kalıcı bağlantılar kullanarak erişir.
-- Veritabanı kısa bağlantı ömrü kullanarak erişir. 
-- Bağlantı denemesi eşzamanlı bağlantılarından kaynaklanan hataları catch noktasında, uygulamanızda kullanmak yeniden deneme mantığı izin verilen maksimum ulaştı. Yeniden deneme mantığı kısa bir gecikme ayarlayın ve ardından ek bağlantı denemeleri önce rastgele bir süre bekleyin.
+Veritabanı bağlantıları sınırlı bir kaynak olduğundan, daha iyi performans elde etmek için MySQL veritabanınızı erişirken bağlantıları mantıklı kullanılmasını öneririz.
+- Bağlantı havuzu veya kalıcı bağlantılar kullanarak veritabanına erişir.
+- Kısa bağlantı ömrü kullanarak veritabanına erişir. 
+- Eşzamanlı bağlantılarını kaynaklanan hataları yakalamak için bağlantı denemesi noktasında uygulamanızda kullanım yeniden deneme mantığı izin verilen maksimum sınırına. Yeniden deneme mantığı, kısa bir gecikme ayarlama ve ek bağlantı denemeleri öncesinde rastgele bir süre bekleyin.

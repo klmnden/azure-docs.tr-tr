@@ -2,20 +2,17 @@
 title: Geçici bağlantı hatalarının MariaDB için Azure veritabanı işleme | Microsoft Docs
 description: Geçici bağlantı hataları için MariaDB için Azure veritabanı işleme hakkında bilgi edinin.
 keywords: MySQL bağlantı, bağlantı dizesi, bağlantı sorunları, geçici bir hata oluştu, bağlantı hatası
-services: mariadb
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 203401e3842912169371f315048f6930c8dc80eb
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f5f5915e6fdb240fa519ee10526c935a524cb5b4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568106"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546292"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mariadb"></a>Geçici bağlantı hataları MariaDB için işleme için Azure veritabanı
 
@@ -39,7 +36,7 @@ Birinci ve ikinci durumda olan oldukça oldukça işlemek için. Bağlantıyı y
 * Aşağıdaki denemeler, bekleme artırmak için katlanarak, 60 saniye olarak ayarlama.
 * En fazla bir noktada uygulamanızı işlemi başarısız oldu olarak değerlendirir. yeniden deneme sayısını ayarlayın.
 
-Etkin bir işlem ile bağlantı başarısız olursa kurtarma doğru bir şekilde işlemek daha zordur. İki durum vardır: işlem, doğası gereği salt okunur ise, güvenli bağlantıyı yeniden açmalı ve işlemi yeniden deneyin. İşlem, ayrıca veritabanına yazma, Bununla birlikte, işlem geri alınamaz belirlemeniz gerekiyorsa veya önce başarılı olursa, geçici bir hata oluştu. Bu durumda, işleme bildirim veritabanı sunucusundan aldığınız değil.
+Etkin bir işlem ile bağlantı başarısız olursa kurtarma doğru bir şekilde işlemek daha zordur. Olası iki durum vardır: İşlem, doğası gereği salt okunur ise, güvenli bağlantıyı yeniden açmalı ve işlemi yeniden deneyin. İşlem, ayrıca veritabanına yazma, Bununla birlikte, işlem geri alınamaz belirlemeniz gerekiyorsa veya önce başarılı olursa, geçici bir hata oluştu. Bu durumda, işleme bildirim veritabanı sunucusundan aldığınız değil.
 
 Bunu yapmanın bir yolu, istemcide yeniden denemeler için kullanılan benzersiz bir kimliği oluşturmaktır. Sunucu ve bir sütunda benzersiz kısıtlama ile depolamak için bu benzersiz kimliği işlemin bir parçası geçirin. Bu şekilde işlem güvenli bir şekilde yeniden deneyebilirsiniz. Önceki işlem geri alındı ve oluşturulan istemci benzersiz kimliği henüz sistemde yok. başarılı olur. Önceki işlem başarıyla tamamlanmadığından benzersiz kimliği daha önce depolanmışsa, yinelenen bir anahtar ihlali gösteren başarısız olur.
 

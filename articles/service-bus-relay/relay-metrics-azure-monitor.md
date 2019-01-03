@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: spelluru
-ms.openlocfilehash: 5ca4535afb44238380cb6db55953072598130fae
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: eb71161c9191e29d3248b2c64fd9cc0fa76c92a2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582369"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545153"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme), Azure geçişi ölçümleri
 Azure geçişi ölçümleri, Azure aboneliğinizdeki kaynakları durumunu sağlar. Zengin ölçüm verileri ile genel Relay kaynakları, yalnızca ad alanı düzeyinde, aynı zamanda varlık düzeyinde durumunu değerlendirebilirsiniz. Bu istatistikler Azure geçişi durumunu izlemek için yardımcı önemli olabilir. Ölçümler, Azure desteğine başvurun gerek kalmadan kök neden sorunlarını da yardımcı olabilir.
@@ -33,7 +33,7 @@ Azure İzleyici, çeşitli Azure Hizmetleri genelinde izleme için birleştirilm
 
 Azure İzleyici ölçümlerine erişim birden çok yol sağlar. Ya da erişim ölçümleri ile yapabilecekleriniz [Azure portalında](https://portal.azure.com), veya Azure İzleyici API'leri (REST ve .NET) ve Operations Management Suite ve Event Hubs gibi analiz çözümleri kullanın. Daha fazla bilgi için [İzleme verilerine Azure İzleyicisi tarafından toplanan](../azure-monitor/platform/data-collection.md).
 
-Ölçümler, varsayılan olarak etkindir ve en son 30 Günün verilerini erişebilir. Uzun bir süre saklamak istiyorsanız ölçüm verileri bir Azure depolama hesabına arşivleyebilir. Bu yapılandırılan [tanılama ayarları](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) Azure İzleyici'de.
+Ölçümler, varsayılan olarak etkindir ve en son 30 Günün verilerini erişebilir. Uzun bir süre saklamak istiyorsanız ölçüm verileri bir Azure depolama hesabına arşivleyebilir. Bu yapılandırılan [tanılama ayarları](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) Azure İzleyici'de.
 
 ## <a name="access-metrics-in-the-portal"></a>Portalda erişim ölçümlerini
 
@@ -60,24 +60,24 @@ Azure İzleyici, tüm ölçüm değerleri dakikada gönderilir. Zaman ayrıntı 
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-| Microsoft.Relay başarılı (Önizleme) | Azure geçişi için belirtilen bir süredeki yapılan başarılı bir dinleyici bağlantı sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Microsoft.Relay-Senderconnections'da (Önizleme)|Belirli bir dönem boyunca dinleyici bağlantılarında istemci hataları sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Microsoft.Relay-ServerError (Önizleme)|Belirli bir dönem boyunca dinleyici bağlantılarda sunucu hataları sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Microsoft.Relay SenderConnections başarılı (Önizleme)|Belirtilen bir zaman dilimi içerisinde yapılan başarılı gönderen bağlantılarının sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Microsoft.Relay SenderConnections-Senderconnections'da (Önizleme)|Belirli bir dönem boyunca gönderen bağlantılarında istemci hataları sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Microsoft.Relay SenderConnections-ServerError (Önizleme)|Gönderen bağlantısı belirli bir süre içinde sunucu hataları sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Microsoft.Relay-TotalRequests (Önizleme)|Dinleyici bağlantı belirli bir dönem boyunca toplam sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Microsoft.Relay SenderConnections-TotalRequests (Önizleme)|Belirtilen bir süredeki Gönderenler tarafından yapılan bağlantı istekleri.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|ActiveConnections (Önizleme)|Belirtilen bir süre boyunca etkin bağlantı sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|ActiveListeners (Önizleme)|Belirtilen bir süre boyunca etkin dinleyiciler sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|ListenerDisconnects (Önizleme)|Belirli bir dönem boyunca bağlantısı kesilmiş dinleyicileri sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|SenderDisconnects (Önizleme)|Belirli bir dönem boyunca bağlantısı kesilmiş Gönderenler sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+| Microsoft.Relay başarılı (Önizleme) | Azure geçişi için belirtilen bir süredeki yapılan başarılı bir dinleyici bağlantı sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Microsoft.Relay-Senderconnections'da (Önizleme)|Belirli bir dönem boyunca dinleyici bağlantılarında istemci hataları sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Microsoft.Relay-ServerError (Önizleme)|Belirli bir dönem boyunca dinleyici bağlantılarda sunucu hataları sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Microsoft.Relay SenderConnections başarılı (Önizleme)|Belirtilen bir zaman dilimi içerisinde yapılan başarılı gönderen bağlantılarının sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Microsoft.Relay SenderConnections-Senderconnections'da (Önizleme)|Belirli bir dönem boyunca gönderen bağlantılarında istemci hataları sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Microsoft.Relay SenderConnections-ServerError (Önizleme)|Gönderen bağlantısı belirli bir süre içinde sunucu hataları sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Microsoft.Relay-TotalRequests (Önizleme)|Dinleyici bağlantı belirli bir dönem boyunca toplam sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Microsoft.Relay SenderConnections-TotalRequests (Önizleme)|Belirtilen bir süredeki Gönderenler tarafından yapılan bağlantı istekleri.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|ActiveConnections (Önizleme)|Belirtilen bir süre boyunca etkin bağlantı sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|ActiveListeners (Önizleme)|Belirtilen bir süre boyunca etkin dinleyiciler sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|ListenerDisconnects (Önizleme)|Belirli bir dönem boyunca bağlantısı kesilmiş dinleyicileri sayısı.<br/><br/> Birim: Bayt <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|SenderDisconnects (Önizleme)|Belirli bir dönem boyunca bağlantısı kesilmiş Gönderenler sayısı.<br/><br/> Birim: Bayt <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 
 ## <a name="memory-usage-metrics"></a>Bellek kullanım ölçümleri
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-|BytesTransferred (Önizleme)|Belirtilen bir süredeki aktarılan bayt sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+|BytesTransferred (Önizleme)|Belirtilen bir süredeki aktarılan bayt sayısı.<br/><br/> Birim: Bayt <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 
 ## <a name="metrics-dimensions"></a>Ölçümleri boyutları
 

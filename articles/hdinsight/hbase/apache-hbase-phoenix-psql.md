@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 8b14550adf89f866cf3b736db049cc671db5b765
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 04a923a8bc022aefb667489702c0e74493df94a8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314516"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652770"
 ---
-# <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Apache psql kullanarak phoenix'e toplu veri yükleme
+# <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Psql kullanarak Apache Phoenix’e toplu veri yükleme
 
-[Apache Phoenix](http://phoenix.apache.org/) yüksek düzeyde paralel ilişkisel veritabanı üzerinde oluşturulmuş bir açık kaynak [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix, HBase üzerinde SQL benzeri sorguları sağlar. Phoenix, kullanıcıların oluşturma, silme ve ayrı ayrı ve toplu SQL tablolarını, dizinleri, görünümleri ve sıraları ve upsert satırları alter sağlamak için JDBC sürücüleri kullanır. Phoenix, HBase üzerinde düşük gecikme süreli uygulamalar oluşturmak için noSQL yerel derleme sorgular derlemek için MapReduce kullanmak yerine kullanır. Phoenix, verilerle birlikte bulunan bir kodu yürüten sunucuya adres alanında istemci tarafından sağlanan kod çalıştırılmasını desteklemek üzere ortak işlemciler ekler. Bu istemci/sunucu veri aktarımını en aza indirir.  Phoenix HDInsight kullanarak verilerle çalışmak için önce tablolar oluşturun ve bunları veri yükleme.
+[Apache Phoenix](https://phoenix.apache.org/) yüksek düzeyde paralel ilişkisel veritabanı üzerinde oluşturulmuş bir açık kaynak [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix, HBase üzerinde SQL benzeri sorguları sağlar. Phoenix, kullanıcıların oluşturma, silme ve ayrı ayrı ve toplu SQL tablolarını, dizinleri, görünümleri ve sıraları ve upsert satırları alter sağlamak için JDBC sürücüleri kullanır. Phoenix, HBase üzerinde düşük gecikme süreli uygulamalar oluşturmak için noSQL yerel derleme sorgular derlemek için MapReduce kullanmak yerine kullanır. Phoenix, verilerle birlikte bulunan bir kodu yürüten sunucuya adres alanında istemci tarafından sağlanan kod çalıştırılmasını desteklemek üzere ortak işlemciler ekler. Bu istemci/sunucu veri aktarımını en aza indirir.  Phoenix HDInsight kullanarak verilerle çalışmak için önce tablolar oluşturun ve bunları veri yükleme.
 
 ## <a name="bulk-loading-with-apache-phoenix"></a>Toplu Apache Phoenix ile yükleme
 
@@ -73,7 +73,7 @@ Veri yükleme başlamadan önce Phoenix etkin olduğundan ve sorgu zaman aşım�
     python psql.py ZookeeperQuorum createCustomersTable.sql /tmp/customers.csv listCustomers.sql
     ```
 
-    > [!NOTE] 
+    > [!NOTE]   
     > Belirlemek için `ZookeeperQuorum` adı, bulun [Apache ZooKeeper](https://zookeeper.apache.org/) çekirdek dizesini `/etc/hbase/conf/hbase-site.xml` özellik adı ile `hbase.zookeeper.quorum`.
 
 5. Sonra `psql` işlemi tamamlandı, komut pencerenizde bir ileti görürsünüz:
@@ -141,7 +141,7 @@ Küme üzerinde dağıtılmış yüksek performanslı yükleme için MapReduce Y
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Toplu veri Apache Phoenix ile yükleniyor](http://phoenix.apache.org/bulk_dataload.html)
+* [Toplu veri Apache Phoenix ile yükleniyor](https://phoenix.apache.org/bulk_dataload.html)
 * [HDInsight kümelerinde Linux tabanlı Apache HBase ile Apache Phoenix kullanma](../hbase/apache-hbase-phoenix-squirrel-linux.md)
 * [Salted tabloları](https://phoenix.apache.org/salted.html)
-* [Phoenix dilbilgisi](http://phoenix.apache.org/language/index.html)
+* [Apache Phoenix dilbilgisi](https://phoenix.apache.org/language/index.html)

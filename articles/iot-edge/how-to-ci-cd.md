@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a714cec5ce05473887f9f06d47c75563bf878081
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386834"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582924"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Sürekli tümleştirme ve sürekli dağıtım için Azure IOT Edge
 
@@ -40,7 +40,7 @@ Bu bölümde, yapı işleminin bir parçası olarak yürütebilen çözüm birim
 
 3. Artık IOT Edge çözüm örneğinizi hazırdır. Varsayılan C# modülü kanal iletisi modül olarak görev yapar. İçinde `deployment.template.json`, bu çözümü içeren iki modül görürsünüz. İleti kaynaklandığı `tempSensor` modülü ve aracılığıyla doğrudan yöneltilen `FilterModule`, ardından IOT hub'ına gönderilen.
 
-4. Bu projeler kaydettikten sonra Azure Depolarınızı işleyin.
+4. Bu projeler kaydettikten sonra Azure depoları deponuza işleyin.
     
 > [!NOTE]
 > Azure depoları kullanma hakkında daha fazla bilgi için bkz. [Visual Studio ve Azure depoları ile kodunuzu paylaşmaya](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
@@ -69,11 +69,11 @@ Bu bölümde, IOT Edge çözüm örnek değişiklikleri iade ettiğinizde otomat
     
     * Linux kapsayıcıları için platform amd64, modülleri oluşturmak istiyorsanız seçin **barındırılan Ubuntu 1604**
     * Windows kapsayıcıları için platform amd64, modülleri derleme istiyorsanız seçin **Hosted VS2017** 
-    * Linux kapsayıcıları için platform arm32v7, modülleri oluşturmak ister misiniz kümesine kendi Yapı aracınızı tıklayarak gerekirse **Yönet** düğmesi.
+    * Linux kapsayıcıları için platform arm32v7, modülleri oluşturmak ister misiniz kümesine kendi Yapı aracınızı ederek gerekirse **Yönet** düğmesi.
     
     ![Derleme aracı havuzu yapılandırma](./media/how-to-ci-cd/configure-env.png)
 
-1. Aracı işinde tıklayın "+" derleme işlem hattı, üç görev eklemek için. İlk iki arasındadır **Azure IOT Edge**. Ve üçüncü dandır **derleme Yapıtları yayımlama**
+1. Derleme işlem hattı, üç görev eklemek için aracı işi, açık, "+". İlk iki arasındadır **Azure IOT Edge**. Ve üçüncü dandır **derleme Yapıtları yayımlama**
     
     ![Derleme işlem hattı için görev ekleyin](./media/how-to-ci-cd/add-tasks.png)
 
@@ -93,13 +93,13 @@ Bu bölümde, IOT Edge çözüm örnek değişiklikleri iade ettiğinizde otomat
 
     ![Sürekli Tümleştirme tetikleyici Aç](./media/how-to-ci-cd/configure-trigger.png)
 
-    Yeni derleme işlem hattı kaydedin. **Kaydet** düğmesine tıklayın.
+    Yeni derleme işlem hattı ile Kaydet **Kaydet** düğmesi.
 
 
 ## <a name="configure-azure-pipelines-for-continuous-deployment"></a>Azure işlem hatları için sürekli dağıtımı yapılandırma
 Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak çalışacak şekilde yapılandırılmış bir yayın işlem hattı oluşturacaksınız ve Azure işlem hatlarında dağıtım günlükleri gösterilir.
 
-1. İçinde **yayınlar** sekmesini, **+ yeni işlem hattı**. Veya, yayın işlem hatları zaten varsa, seçin **+ yeni** düğmesini tıklatın ve tıklatın **+ yeni yayın işlem**.  
+1. İçinde **yayınlar** sekmesini, **+ yeni işlem hattı**. Veya, yayın işlem hatları zaten varsa, seçin **+ yeni** düğmesini tıklatın ve seçin **+ yeni yayın işlem**.  
 
     ![Yayın işlem hattı ekleyin](./media/how-to-ci-cd/add-release-pipeline.png)
 
@@ -115,7 +115,7 @@ Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak �
 
     ![Yapıt Ekle](./media/how-to-ci-cd/add-artifacts.png)  
     
-    İçinde **bir yapıt sayfasını ekleme**, kaynak türünü seçin **yapı**. Ardından, projeyi ve oluşturduğunuz derleme işlem hattı seçin. Ardından **ekleme**.
+    İçinde **bir yapıt sayfasını ekleme**, kaynak türünü seçin **yapı**. Ardından, projeyi ve oluşturduğunuz derleme işlem hattı seçin. Ardından **Ekle**'yi seçin.
 
     ![Bir derleme yapıtı Ekle](./media/how-to-ci-cd/add-an-artifact.png)
 
@@ -127,7 +127,7 @@ Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak �
 
     ![QA görevlerini yapılandırma](./media/how-to-ci-cd/view-stage-tasks.png)
 
-   Dağıtım görevi, yani seçebilirsiniz platformudur küçük harfe duyarlı **Hosted VS2017** veya **barındırılan Ubuntu 1604** içinde **aracı havuzu** (veya tarafından yönetilen herhangi bir aracı kendiniz). Tıklayın "+" ve bir görev ekleyin.
+   Dağıtım görevi, yani seçebilirsiniz platformudur küçük harfe duyarlı **Hosted VS2017** veya **barındırılan Ubuntu 1604** içinde **aracı havuzu** (veya tarafından yönetilen herhangi bir aracı kendiniz). Seçin "+" ve bir görev ekleyin.
 
     ![QA için görev ekleyin](./media/how-to-ci-cd/add-task-qa.png)
 
@@ -135,13 +135,13 @@ Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak �
 
     ![QA için dağıtma](./media/how-to-ci-cd/deploy-to-qa.png)
 
-    Yeni yayın ardışık düzeni kaydedin. **Kaydet** düğmesine tıklayın. Ve ardından **işlem hattı** ardışık düzene dönmek için.
+    Yeni yayın ardışık düzeni ile Kaydet **Kaydet** düğmesi. Ve ardından **işlem hattı** ardışık düzene dönmek için.
 
 6. Üretim ortamınız için ikinci aşamasıdır. Yeni aşama "PROD" eklemek için "Kalite güvence" Aşama kopyalayın ve kopyalanmış aşamasına Yeniden Adlandır **PROD**,
 
     ![Aşama kopyalama](./media/how-to-ci-cd/clone-stage.png)
 
-7. Üretim ortamınız için görevleri yapılandırın. Birden çok IOT Edge cihazları 'prod', görev yapılandırmalarında "prod" ve "dağıtma-ürün" Gelişmiş ayarları olarak dağıtım Kimliğini ayarlamak için hedef koşulu güncelleştirirken Etiketlenmedi olduğu varsayılır. **Kaydet** düğmesine tıklayın. Ve ardından **işlem hattı** ardışık düzene dönmek için.
+7. Üretim ortamınız için görevleri yapılandırın. Birden çok IOT Edge cihazları 'prod', görev yapılandırmalarında "prod" ve "dağıtma-ürün" Gelişmiş ayarları olarak dağıtım Kimliğini ayarlamak için hedef koşulu güncelleştirirken Etiketlenmedi olduğu varsayılır. İle kaydedin **Kaydet** düğmesi. Ve ardından **işlem hattı** ardışık düzene dönmek için.
     
     ![Üretime dağıtma](./media/how-to-ci-cd/deploy-to-prod.png)
 
@@ -151,7 +151,7 @@ Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak �
 
         ![Açık dağıtım öncesi koşulları](./media/how-to-ci-cd/pre-deploy-conditions.png)    
 
-    2. Ayarlama **etkin** içinde **dağıtım öncesi onayları**. Doldurun **onaylayanlar** giriş. Daha sonra **Kaydet**'e tıklayın.
+    2. Ayarlama **etkin** içinde **dağıtım öncesi onayları**. Doldurun **onaylayanlar** giriş. İle kaydedin **Kaydet** düğmesi.
     
         ![Durumlar belirleyin](./media/how-to-ci-cd/set-pre-deployment-conditions.png)
 
@@ -165,7 +165,7 @@ Bu bölümde, derleme işlem hattı, yapıtlar düştüğünde otomatik olarak �
 
 Bu bölümde, iş CI/CD işlem hattı yapmak için bir derleme tetikler. Dağıtım başarılı olduktan sonra doğrulayın.
 
-1. Bir derleme işi tetiklemek için kaynak kodu deposu için bir işleme için gönderim veya el ile tetiklersiniz. Tıklayarak, derleme işlem hattı, bir derleme işi tetikleyebilirsiniz **kuyruk** aşağıdaki ekran görüntüsünde gösterildiği gibi düğmesi.
+1. Bir derleme işi tetiklemek için kaynak kodu deposu için bir işleme için gönderim veya el ile tetiklersiniz. Seçerek, derleme işlem hattı, bir derleme işi tetikleyebilirsiniz **kuyruk** aşağıdaki ekran görüntüsünde gösterildiği gibi düğmesi.
 
     ![El ile tetikleme](./media/how-to-ci-cd/manual-trigger.png)
 

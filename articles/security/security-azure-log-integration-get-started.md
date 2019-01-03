@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: a6bbc61afcc1ed25d5eac8673b9abfa59e72dba9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036811"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602197"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure tanılama günlüğünü ve Windows Olay iletme'yi Azure günlük tümleştirmesi
 
@@ -151,7 +151,7 @@ Temel kurulum tamamlandıktan sonra yükleme sonrası ve doğrulama adımların�
 Bu adımda, günlük dosyaları içeren depolama hesabına bağlanmak için Azure günlük tümleştirmesi hizmeti çalıştıran makinenin yapılandırın.
 
 Bu adımı tamamlamak için birkaç şey gerekir:  
-* **FriendlyNameForSource**: bir kolay ad, Azure tanılama bilgilerini depolamak sanal makine için yapılandırmış olduğunuz depolama hesabı uygulayabilirsiniz.
+* **FriendlyNameForSource**: Azure tanılama bilgilerini depolamak sanal makine için yapılandırmış olduğunuz depolama hesabı uygulayabileceğiniz bir kolay ad.
 * **StorageAccountName**: Azure Tanılama'yı yapılandırırken belirtilen depolama hesabı adı.  
 * **Depolama anahtarı**: Bu sanal makine için Azure tanılama bilgilerini depolandığı depolama hesabı için depolama anahtarı.  
 
@@ -198,7 +198,7 @@ Aşağıdaki video, önceki adımları ele alınmıştır:<br /><br />
 ## <a name="if-data-isnt-showing-up-in-the-forwarded-events-folder"></a>İletilen olaylar klasöründe veri listemde görünmüyor
 Veri iletilen olaylar klasöründe bir saat sonra listemde görünmüyor, bu adımları tamamlayın:
 
-1. Azure günlük tümleştirmesi hizmeti çalıştıran makinenin kontrol edin. Azure erişebildiğinizi doğrulayın. Bağlantı, tarayıcıda test etmek için gitmek deneyin [Azure portalında](http://portal.azure.com).
+1. Azure günlük tümleştirmesi hizmeti çalıştıran makinenin kontrol edin. Azure erişebildiğinizi doğrulayın. Bağlantı, tarayıcıda test etmek için gitmek deneyin [Azure portalında](https://portal.azure.com).
 2. Kullanıcı hesabı Azlog klasör users\Azlog için yazma izni olduğundan emin olun.
   1. Dosya Gezgini'ni açın.
   2. C:\Users gidin.
@@ -243,7 +243,7 @@ Ayrıca açabileceğiniz bir [destek isteği](../azure-supportability/how-to-cre
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure günlük tümleştirmesi hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın: Bu makaledeki adımlarda çalışmadan önce Get kullanmaya başlama makalesini gözden geçirin ve var. adımları tamamlamanız gerekir.
+Azure günlük tümleştirmesi hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın: Bu makaledeki adımlarda denemeden önce Get başlatılan makalesini gözden geçirin ve orada adımları tamamlayın.
 
 * [Azure günlük tümleştirme için Azure günlükleri](https://www.microsoft.com/download/details.aspx?id=53324). İndirme Merkezi'nde, Ayrıntılar, sistem gereksinimleri ve yükleme yönergeleri için Azure günlük tümleştirmesi içerir.
 * [Azure günlük tümleştirmesine giriş](security-azure-log-integration-overview.md). Bu makalede Azure günlük tümleştirmesi, önemli işlevleri ve nasıl çalıştığını tanıtılmaktadır.

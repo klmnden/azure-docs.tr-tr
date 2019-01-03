@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/17/2018
 ms.author: rajanaki
-ms.openlocfilehash: e965848b0c3c009444762dafdf42acc080b6915e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 06337e205c472d26024289222dc8876d23b4184f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834978"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791889"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Yeniden koruma ve bir şirket içi siteye geri makineleri, azure'a yük devredildikten sonra başarısız
 
@@ -61,8 +61,8 @@ Azure'da bir işlem sunucusu dağıtmak için:
 
 Ana hedef sunucu yeniden çalışma verilerini alır. Ana hedef sunucu varsayılan olarak şirket için yapılandırma sunucusunda çalışır. Ancak, başarısız oldu-yeniden trafik hacmine bağlı olarak, ayrı bir ana hedef sunucu yeniden çalışma için oluşturmanız gerekebilir. Nasıl oluşturacağınızı şöyledir:
 
-* [Bir Linux ana hedef sunucu oluşturma](vmware-azure-install-linux-master-target.md) Linux Vm'leri yeniden çalışma için. Bu gereklidir.
-* İsteğe bağlı olarak, bir Windows VM yeniden çalışma için ayrı bir ana hedef sunucusu oluşturun. Bunu yapmak için birleşik Kurulum'u yeniden çalıştırın ve bir ana hedef sunucusu oluşturmak için seçin. [Daha fazla bilgi edinin](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
+* [Bir Linux ana hedef sunucu oluşturma](vmware-azure-install-linux-master-target.md) Linux Vm'leri yeniden çalışma için. Bu gereklidir. Not, ana hedef sunucuda LVM desteklenmiyor.
+* İsteğe bağlı olarak, bir Windows VM yeniden çalışma için ayrı bir ana hedef sunucusu oluşturun. Bunu yapmak için birleşik Kurulum'u yeniden çalıştırın ve bir ana hedef sunucusu oluşturmak için seçin. [Daha fazla bilgi edinin](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers). 
 
 Bir ana hedef sunucu oluşturduktan sonra aşağıdaki görevleri yapın:
 

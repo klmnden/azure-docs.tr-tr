@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/21/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 73d4ecec2665e238236de4a778d6cdd43642c87b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8a680f1c745bed7745691ad337ed887cc4fc05c5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310404"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716625"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2'den v3 taşımak için Geçiş Kılavuzu
 
@@ -83,11 +83,11 @@ V3 API v2 API'si ile ilgili aşağıdaki özellik boşluklarına sahiptir. Boşl
     * Yer paylaşımları
     * Kırpma
     * Küçük resim zıplamasını sağlayın
-* Maskeleme görüntüsü ekleme Orta akışı, özel önayarların kullanılmasına veya API çağrısı aracılığıyla reklam işareti ekleme şu anda kodlama dönüştürme ile LiveEvents desteklemez. 
+* Kodlama dönüştürme şu anda ile LiveEvents API çağrısı aracılığıyla maskeleme görüntüsü ekleme Orta stream ve reklam işareti ekleme desteklemez. 
 
 > [!NOTE]
 > Lütfen bu makalede yer işareti ve güncelleştirmeleri denetleme tutun.
-
+ 
 ## <a name="code-differences"></a>Kod farkları
 
 Aşağıdaki tabloda, v2 ve v3 sık karşılaşılan senaryolara yönelik kod farkları gösterilmektedir.
@@ -108,7 +108,7 @@ Aşağıdaki tabloda, v2 ve v3 sık karşılaşılan senaryolara yönelik kod fa
     * Kanallar ve (v3 sürümünde LiveOutputs LiveEvents ile eşlenir) v2 ile oluşturulan programları v3 ile yönetilen devam edemiyor. V3 LiveEvents ve kullanışlı bir kanalı durdurun, LiveOutputs geçmeniz önerilir.<br/>Şu anda, sürekli olarak çalışan kanalların geçiremezsiniz.  
 
 > [!NOTE]
-> Lütfen bu makalede yer işareti ve güncelleştirmeleri denetleme tutun.
+> Bu sayfa, medya Hizmetleri ekibi v3 API'ler için devam eden bir iyileşme ve sürümler arasındaki boşlukları adresleri korunacaktır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

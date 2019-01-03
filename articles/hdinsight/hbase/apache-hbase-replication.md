@@ -9,20 +9,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 933506e732926b0f3827f039a65e78acd3a6932b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163845"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653824"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure sanal ağlarda bulunan Apache HBase kümesi çoğaltma ayarlama
 
-Nasıl ayarlanacağını öğrenin [Apache HBase](http://hbase.apache.org/) çoğaltma sanal ağ içindeki veya azure'daki iki sanal ağ arasında.
+Nasıl ayarlanacağını öğrenin [Apache HBase](https://hbase.apache.org/) çoğaltma sanal ağ içindeki veya azure'daki iki sanal ağ arasında.
 
 Küme çoğaltma, bir kaynak itme yöntemini kullanır. Her iki rolde tek seferde gerçekleştirebilir veya bir kaynak veya hedef bir HBase kümesi olabilir. Çoğaltma zaman uyumsuzdur. Çoğaltma son tutarlılık hedeftir. Kaynak çoğaltma etkinleştirildiğinde bir sütun ailesi için bir düzenleme aldığında, düzenleme için tüm hedef küme dağıtılır. Veriler bir kümeden diğerine çoğaltılır, kaynak kümesi ve veri zaten kullanmışsa tüm kümeler, çoğaltma döngüleri önlemek için izlenir.
 
-Bu öğreticide, bir kaynak-hedef çoğaltma kümesi. Diğer küme Topolojileri için bkz. [Apache HBase Başvuru Kılavuzu](http://hbase.apache.org/book.html#_cluster_replication).
+Bu öğreticide, bir kaynak-hedef çoğaltma kümesi. Diğer küme Topolojileri için bkz. [Apache HBase Başvuru Kılavuzu](https://hbase.apache.org/book.html#_cluster_replication).
 
 Tek bir sanal ağ için HBase çoğaltma kullanım örnekleri şunlardır:
 
@@ -121,7 +121,7 @@ Bağlama yüklemek için aşağıdaki yordamı kullanın:
 
     Değiştirin `sshuser` DNS sanal makine oluştururken belirttiğiniz SSH kullanıcı hesabı ile.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Bir elde etmek için çeşitli yollar vardır `ssh` yardımcı programı. Linux, Unix ve macOS üzerinde işletim sisteminin bir parçası olarak sağlanır. Windows kullanıyorsanız, aşağıdaki seçeneklerden birini göz önünde bulundurun:
     >
     > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
@@ -162,7 +162,7 @@ Bağlama yüklemek için aşağıdaki yordamı kullanın:
     };
     ```
     
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Değerleri değiştirin `goodclients` bölümünde iki sanal ağ ile IP adresi aralığı. Bu bölümde, bu DNS sunucusu gelen istekleri kabul eder adresleri tanımlar.
 
     Bu dosyayı düzenlemek için aşağıdaki komutu kullanın:
@@ -197,7 +197,7 @@ Bağlama yüklemek için aşağıdaki yordamı kullanın:
     };
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Değiştirmeniz gereken `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` diğer sanal ağın DNS sonekine sahip. Ve iletici IP DNS sunucusunun bir sanal ağ özel IP adresidir.
 
     Bu dosyayı düzenlemek için aşağıdaki komutu kullanın:
@@ -221,7 +221,7 @@ Bağlama yüklemek için aşağıdaki yordamı kullanın:
     nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Değiştirin `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` diğer ağ DNS sanal makinenin tam etki alanı adıyla (FQDN).
     >
     > Değiştirin `10.2.0.4` ile __iç IP adresi__ özel DNS sunucunuzun bir sanal ağ.
@@ -258,7 +258,7 @@ sudo service bind9 status
 
 ## <a name="create-apache-hbase-clusters"></a>Apache HBase kümeleri oluşturma
 
-Oluşturma bir [Apache HBase](http://hbase.apache.org/) her iki sanal ağı aşağıdaki yapılandırma ile küme:
+Oluşturma bir [Apache HBase](https://hbase.apache.org/) her iki sanal ağı aşağıdaki yapılandırma ile küme:
 
 - **Kaynak grubu adı**: oluşturduğunuz sanal ağlar aynı kaynak grubu adı kullanın.
 - **Küme türü**: HBase
@@ -295,8 +295,7 @@ Aşağıdaki adımlar komut dosyası eylemi komut dosyası Azure portalından ç
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
-    >[!note]
-    >
+    > [!NOTE]
     > Ana bilgisayar adı yerine FQDN'yi için hem kaynak hem de hedef küme DNS adını kullanın.
 
 6. **Oluştur**’u seçin. Betik özellikle kullandığınızda çalıştırmak için biraz zaman **- copydata** bağımsız değişken.

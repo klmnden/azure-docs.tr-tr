@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: eee37f5a77331b78aa587ba2e3eb61132d7d6adc
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 738ef5df0b2e2a7f31a7316a1d2ef4395168d41e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385576"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722031"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web kullanıcı arabirimini kullanarak HDInsight kümelerini yönetme
 
@@ -26,7 +26,7 @@ Bu belgede, Ambari Web kullanıcı arabirimini bir HDInsight kümesi ile kullanm
 
 ## <a id="whatis"></a>Apache Ambari nedir?
 
-[Apache Ambari](http://ambari.apache.org) bir kolayca kullanıma web kullanıcı Arabirimi sağlayarak Hadoop yönetimini basitleştirir. Ambari, yönetmek ve Hadoop kümeleri izlemek için kullanabilirsiniz. Geliştiriciler tümleştirilebilir yeteneklere uygulamalarına kullanarak [Ambari REST API'lerini](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](https://ambari.apache.org) bir kolayca kullanıma web kullanıcı Arabirimi sağlayarak Hadoop yönetimini basitleştirir. Ambari, yönetmek ve Hadoop kümeleri izlemek için kullanabilirsiniz. Geliştiriciler tümleştirilebilir yeteneklere uygulamalarına kullanarak [Ambari REST API'lerini](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari Web kullanıcı Arabirimi, varsayılan olarak Linux işletim sistemini HDInsight kümeleri ile sağlanır.
 
@@ -181,12 +181,12 @@ Kullanıcıları, grupları ve izinleri ile çalışma kullanırken desteklenen 
 
    * **Yetkisini** -bir ana bilgisayar kümeden kaldırır.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Bu eylem, HDInsight kümelerinde kullanmayın.
 
    * **Recommission** -daha önce yetkisi alınmış bir konak kümesine ekler.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Bu eylem, HDInsight kümelerinde kullanmayın.
 
 ### <a id="service"></a>Hizmetleri

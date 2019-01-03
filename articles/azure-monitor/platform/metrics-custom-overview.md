@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 2b3e8877713fde088be2147bbfa8969e351a3f06
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: aacfc98a9132a59c90a8f67d5a3877b75fa59dfe
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326360"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605594"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure İzleyici'de özel ölçümler
 
@@ -25,7 +25,7 @@ Bunlar **özel** ölçümleri uygulama telemetrinizi, Azure kaynaklarınızı ve
 - Uygulamanızı Azure Application Insights SDK'sını kullanarak izleyin ve Azure İzleyici özel telemetri gönderin. 
 - Windows Azure tanılama (WAD) uzantıyı yükleyin, [Azure VM](collect-custom-metrics-guestos-resource-manager-vm.md), [sanal makine ölçek kümesi](collect-custom-metrics-guestos-resource-manager-vmss.md), [Klasik VM](collect-custom-metrics-guestos-vm-classic.md), veya [KlasikbulutHizmetleri](collect-custom-metrics-guestos-vm-cloud-service-classic.md) ve performans sayaçları için Azure İzleyici gönderin. 
 - Yükleme [InfluxData Telegraf aracı](collect-custom-metrics-linux-telegraf.md) gönderme ölçümleri kullanarak Azure İzleyici ve Azure Linux VM üzerinde eklenti çıktı.
-- Özel ölçümler Gönder [doğrudan Azure İzleyici REST API'si için](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- Özel ölçümler Gönder [doğrudan Azure İzleyici REST API'si için](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
 Azure İzleyici, her veri noktasının veya değeri bildirilen özel ölçümler gönderdiğinizde, aşağıdaki bilgileri içermelidir.
 
@@ -57,7 +57,7 @@ Bu özellik, hangi Azure bölgesi için ölçümleri yayma kaynağın dağıtıl
 ### <a name="timestamp"></a>Zaman damgası
 Azure İzleyici gönderilen her veri noktası, bir zaman damgası ile işaretlenmelidir. Bu zaman damgası, ölçüm değeri ölçülen veya toplanan DateTime yakalar. Azure İzleyici ölçüm verileri Geçmiş ve gelecekteki 5 dakikada 20 dakika sunulan ürünün kendinde zaman damgalı kabul eder.
 
-### <a name="namespace"></a>Ad Alanı
+### <a name="namespace"></a>Ad alanı
 Ad alanları, kategorilere veya benzer ölçümler gruplamak için bir yoludur. Ad alanlarını kullanarak farklı öngörüleri ya da performans göstergeleri toplayabilir ve ölçüm grupları arasında yalıtım elde edebilirsiniz. Örneğin, adlı bir ad alanına sahip olabileceğiniz **ContosoMemoryMetrics** bellek kullanım ölçümleri, bir uygulama profili izler. Adlı başka bir ad alanı **ContosoAppTransaction** uygulamanızdaki kullanıcı işlemleri ile ilgili tüm ölçümleri izleyebilir.
 
 ### <a name="name"></a>Ad
@@ -193,6 +193,6 @@ Farklı Hizmetleri özel ölçümleri kullanın:
  - [Sanal makine ölçek kümesi](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Azure sanal makineler (Klasik)](collect-custom-metrics-guestos-vm-classic.md)
  - [Telegraf Aracısı'nı kullanarak Linux sanal makinesi](collect-custom-metrics-linux-telegraf.md)
- - [REST API](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md)
+ - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [Klasik bulut Hizmetleri](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

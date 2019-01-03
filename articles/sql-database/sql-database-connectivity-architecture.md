@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: eeb1ae2904a9b132ed1de8e66cad83d5ff5144b8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435727"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715911"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL bağlantı mimarisi
 
@@ -26,7 +26,7 @@ Bu makalede, Azure SQL Örneğiniz için trafiği farklı bileşenleri işlevi n
 > [!IMPORTANT]
 > **[Gelecek değişiklik] Azure SQL sunucuları için hizmet uç noktası bağlantıları için bir `Default` bağlantı davranış değişiklikleri `Redirect`.**
 >
-> Değişiklik Brezilya Güney ve Batı Avrupa bölgeleri için zaten 10 Kasım 2019 ' etkili olur. Diğer tüm bölgeler için değişiklik 2 Ocak 2019 ' geçerli olacaktır.
+> Değişiklik Brezilya Güney ve Batı Avrupa bölgeleri için zaten 10 Kasım 2018 tarihinden sonra etkili olur. Diğer tüm bölgeler için değişiklik 2 Ocak 2019 ' geçerli olacaktır.
 >
 > Bu değişikliğin sonucu olarak mevcut ortamlarda bozucu bir hizmet uç noktası üzerinden bağlantı engellemek için aşağıdakileri yapın telemetri kullanırız:
 > - Değiştirilmeden önce hizmet uç noktaları aracılığıyla erişilen biz algılayan sunucular için şu bağlantı türüne çevirin `Proxy`.

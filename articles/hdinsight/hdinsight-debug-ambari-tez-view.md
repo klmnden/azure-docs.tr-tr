@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 312b476f8809d1d6375cc20035901d8d11c32173
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 9b8b92b7a672a4d344b17d4ade497749766f8a91
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012360"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719702"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>HDInsight üzerinde Apache Tez işlerinin hatalarını ayıklamak için Apache Ambari görünümlerini kullanma
 
 [Apache Ambari](https://ambari.apache.org/) HDInsight için Web kullanıcı Arabirimi içeren bir [Apache TEZ](https://tez.apache.org/) anlamak ve kullanmak Tez işlerinin hatalarını ayıklamak için kullanılan görünümü. Tez görünümü bağlı öğelerin bir grafik olarak görselleştirin, her öğenin ayrıntısına ve istatistikleri ve günlük bilgilerini almak sağlar.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight bileşen sürümü oluşturma](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -91,7 +91,7 @@ Tez kullanan Hive sorgusu çalıştırmak için aşağıdaki adımları kullanı
 5. Bu sayfadaki sekmeleri, aşağıdaki bilgileri görüntülemek izin ver:
 
     * **Sorgu ayrıntıları**: Hive sorgusu hakkında ayrıntıları.
-    * **Zaman Çizelgesi**: ne kadar sürdüğünü her aşaması hakkında bilgi.
+    * **Zaman Çizelgesi**: Ne kadar sürdüğünü her aşaması hakkında bilgiler.
     * **Yapılandırmaları**: Bu sorgu için kullanılan yapılandırma.
 
     Gelen __sorgu ayrıntıları__ bağlantıları hakkında bilgi bulmak için kullanabileceğiniz __uygulama__ veya __DAG__ bu sorgu için.

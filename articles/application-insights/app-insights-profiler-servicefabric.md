@@ -12,24 +12,24 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3eb5b2300ea2af7bc778e0831d105f286eab247c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 3808b3e93ed7e3ad374054c3c32fd54930f50972
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721417"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606580"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Application Insights ile canlı Azure Service Fabric uygulamaları profili
 
 Ayrıca, Application Insights Profiler'ı bu hizmetlerin dağıtabilirsiniz:
-* [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Sanal Makineler](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
 ## <a name="set-up-the-environment-deployment-definition"></a>Ortam dağıtım tanımını ayarlar
 
-Application Insights Profiler, Windows Azure tanılama (WAD) ile birlikte gelir. WAD uzantısı, Service Fabric kümeniz için bir Azure RM şablonu kullanarak yüklenebilir. Bir örnek şablon: [ **WAD yükleyen bir Service Fabric kümesinde şablonu.**](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json)
+Application Insights Profiler, Windows Azure tanılama (WAD) ile birlikte gelir. WAD uzantısı, Service Fabric kümeniz için bir Azure RM şablonu kullanarak yüklenebilir. Örnek şablonu aşağıda verilmiştir: [**Bir Service Fabric kümesinde WAD yükler şablonu.**](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json)
 
 Ortamınızı ayarlamak için aşağıdaki eylemleri gerçekleştirin:
 1. Kullandığınızdan emin olmak için [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) veya daha sonra dağıtılan işletim sistemi olduğundan emin olmak yeterli `Windows Server 2012 R2` veya üzeri.

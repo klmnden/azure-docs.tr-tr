@@ -1,24 +1,24 @@
 ---
-title: Kapsayıcıları yapılandırma
-titlesuffix: Computer Vision - Azure Cognitive Services
-description: Görüntü işleme kapsayıcıları için yapılandırma ayarları.
+title: Kapsayıcı - görüntü işleme yapılandırın
+titlesuffix: Azure Cognitive Services
+description: Görüntü işleme metin tanıma kapsayıcılar için çeşitli ayarları yapılandırın.
 services: cognitive-services
 author: diberry
 manager: cgronlun
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.custom: seodec18
+ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077027"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579796"
 ---
-# <a name="configure-containers"></a>Kapsayıcıları yapılandırma
+# <a name="configure-recognize-text-containers"></a>Metni Tanı kapsayıcılar'ı yapılandırma
 
 Görüntü işleme, ortak bir yapılandırma çerçeve metni tanı kapsayıcıyla sağlar, böylece kolayca yapılandırabilir ve depolama, günlüğe kaydetme ve telemetri ve güvenlik ayarları için kapsayıcılarınızı yönetin.
 
@@ -41,7 +41,7 @@ Ortam değişkeni değerlerini, kapsayıcı görüntüsü için varsayılan değ
 
 ### <a name="configuration-settings-as-environment-variables"></a>Ortam değişkenleri olarak yapılandırma ayarları
 
-Kullanabileceğiniz [ASP.NET Core ortam değişkeni sözdizimini](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) yapılandırma ayarlarını belirtmek için.
+Kullanabileceğiniz [ASP.NET Core ortam değişkeni sözdizimini](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#environment-variables-configuration-provider) yapılandırma ayarlarını belirtmek için.
 
 Kapsayıcı örneği oluşturulduğunda kapsayıcı kullanıcı ortam değişkenlerini okur. Bir ortam değişkeni varsa, ortam değişkeninin değerini belirtilen bir yapılandırma ayarı için varsayılan değeri geçersiz kılar. Ortam değişkenlerini kullanmanın avantajı, birden çok yapılandırma ayarları, kapsayıcı örneğini oluşturmadan önce ayarlanabilir ve birden çok kapsayıcı otomatik olarak aynı yapılandırma ayarları kümesini kullanabilirsiniz ' dir.
 
@@ -130,10 +130,10 @@ Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmakt
 
   | Ad | Veri türü | Açıklama |
   |------|-----------|-------------|
-  | `Format` | Dize | Günlük dosyaları için çıkış biçimi.<br/> **Not:** bu değer ayarlanmalıdır `json` günlük sağlayıcısını etkinleştirmek için. Bu değer aynı zamanda bir kapsayıcı örneği oluşturulurken bir çıkış bağlama belirtmeden belirtilirse, bir hata oluşur. |
-  | `MaxFileSize` | Tamsayı | Megabayt (MB) günlük dosyasının en büyük boyutu. Yeni bir günlük dosyası, geçerli günlük dosyası boyutunu karşıladığından veya bu değeri aşarsa, oturum açma sağlayıcısı tarafından başlatılır. -1 belirtilmezse, günlük dosyasının boyutu, çıkış bağlama yalnızca en büyük dosya boyutuyla sınırlıdır. Varsayılan değer 1'dir. |
+  | `Format` | Dize | Günlük dosyaları için çıkış biçimi.<br/> **Not:** Bu değer ayarlanmalıdır `json` günlük sağlayıcısını etkinleştirmek için. Bu değer aynı zamanda bir kapsayıcı örneği oluşturulurken bir çıkış bağlama belirtmeden belirtilirse, bir hata oluşur. |
+  | `MaxFileSize` | Tamsayı | Megabayt (MB) günlük dosyasının en büyük boyutu. Yeni bir günlük dosyası, geçerli günlük dosyası boyutunu karşıladığından veya bu değeri aşarsa, oturum açma sağlayıcısı tarafından başlatılır. -1 belirtilmezse, günlük dosyasının boyutu, çıkış bağlama yalnızca en büyük dosya boyutuyla sınırlıdır. Varsayılan değer 1’dir. |
 
-ASP.NET Core günlük desteği yapılandırma hakkında daha fazla bilgi için bkz. [ayarları dosya Yapılandırması](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+ASP.NET Core günlük desteği yapılandırma hakkında daha fazla bilgi için bkz. [ASP.NET Core günlüğü](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#configuration).
 
 ## <a name="mounts-configuration-settings"></a>Yapılandırma ayarları bağlar
 
@@ -148,8 +148,8 @@ Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmakt
 
 | Ad | Veri türü | Açıklama |
 |------|-----------|-------------|
-| `Input` | Dize | Giriş bağlama hedefi. Varsayılan değer `/input` şeklindedir. |
-| `Output` | Dize | Çıkış bağlama hedefi. Varsayılan değer `/output` şeklindedir. |
+| `Input` | Dize | Giriş bağlama hedefi. Varsayılan değer `/input`. |
+| `Output` | Dize | Çıkış bağlama hedefi. Varsayılan değer `/output`. |
 
 ### <a name="input-and-output-mounts"></a>Giriş ve çıkış başlatmalar
 

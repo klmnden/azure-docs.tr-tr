@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326525"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53553381"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas VM diskleri ve yönetilen ve yönetilmeyen premium diskleri hakkında sık sorulan sorular
 
@@ -189,7 +189,7 @@ Hayır, standart SSD'ler Tek Örnekli sanal makine SLA'sı yoktur. Premium SSD d
 
 ## <a name="migrate-to-managed-disks"></a>Yönetilen Disklere geçme
 
-** Tüm yönetilen diskler performansı geçişinin etkisi var mı?
+**Yönetilen diskler performans üzerindeki geçişin herhangi bir etkisi var mı?**
 
 Geçişi, bir depolama konumundan diske taşımayı içerir. Bu, arka plan kopyasını disklerde veri miktarına bağlı olarak 24 saat değerinden, genellikle tamamlanması birkaç saat sürebilir verileri aracılığıyla yönetilir. Bu sırada bazı okuma konumuna yönlendirildi ve tamamlanması uzun sürebilir, uygulamanızın normal okuma gecikme süresi daha yüksek oluşabilir. Bu süre boyunca yazma gecikmesi üzerinde hiçbir etkisi yoktur.  
 

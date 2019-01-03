@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: f5bd0923c1edac06f952ff93e087505a76407b05
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 34723a6ee37e54ea2d81e6d1143672e3ccb30d1e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444438"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53805749"
 ---
 Azure platformu güvenilirlik, performans ve sanal makineler için konak altyapısının güvenliğini iyileştirmek için düzenli olarak güncelleştirir. Yazılım bileşenlerini barındırma ortamında donanım yetkisinin alınması için ağ iletişimi bileşenlerinin yükseltme düzeltme eki uygulama öğesinden bu güncelleştirmeleri aralığı. Bu güncelleştirmelerin çoğu barındırılan sanal makinelere herhangi bir etkisi vardır. Ancak, burada güncelleştirmeleri etkisi ve Azure güncelleştirmeleri için en az etkili ücretlerinin durumlar vardır:
 
@@ -27,7 +27,7 @@ Yaklaşan bakımlar hakkında bildirim içinde VM için zamanlanmış olaylar ku
 
 Planlı bakım yönetme "nasıl yapılır" için "İşleme planlı bakım bildirimlerini" için bilgi [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) veya [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="non-rebootful-maintenance"></a>Olmayan rebootful bakım
+## <a name="memory-preserving-maintenance"></a>Bakımı koruma bellek
 
 Çoğu rebootful olmayan güncelleştirmeleri için 10 saniyeden az VM için duraklatma hedeftir. Bakımı koruma bazı durumlarda bellekte 30 saniyeye kadar sanal Makineyi duraklatır ve RAM belleği korur mekanizması kullanılmaz. Ardından sanal makine sürdürülür ve sanal makinenin saati otomatik olarak eşitlenir. Azure giderek daha fazla dinamik geçiş teknolojilerini kullanarak ve duraklatma süresi azaltmak için bakım mekanizması koruma bellek artırma.
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: de96de96d68164d021f8b823e69bc52322642aa7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 02942cafe6e1532a6829ad7a6761b825739a1e85
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865412"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597979"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>(Önizleme) ölçeği genişletilen bulut veritabanlarında raporlama
 ![Parça arasında sorgu][1]
@@ -140,7 +140,7 @@ Dağıtım yan tümcesi Bu tablo için kullanılan veri dağılımını belirtir
 2. **ÇOĞALTILAN** tablo eşdeğer kopyalarını her veritabanında mevcut olduğu anlamına gelir. Bu veritabanları arasında çoğaltmaları aynı olduğundan emin olmak sizin sorumluluğunuzdur.
 3. **YUVARLAK\_ROBIN** uygulama bağımlı dağıtım yöntemi kullanarak, tabloyu yatay olarak bölümlenen anlamına gelir. 
 
-**Veri katmanı başvuru**: dış tablo DDL bir dış veri kaynağına başvuruyor. Dış tablo bütün veritabanlarını veri katmanınızın bulmak gereken bilgileri sağlayan bir parça eşlemesi dış veri kaynağını belirtir. 
+**Veri katmanı başvuru**: Dış tablo DDL bir dış veri kaynağına başvuruyor. Dış tablo bütün veritabanlarını veri katmanınızın bulmak gereken bilgileri sağlayan bir parça eşlemesi dış veri kaynağını belirtir. 
 
 ### <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
 Dış tablo erişimi olan kullanıcılar temel alınan uzak tablolar dış veri kaynağı tanımına verilen kimlik bilgisi altında otomatik olarak erişin. Dış veri kaynağının kimlik bilgisi üzerinden istenmeyen ayrıcalık kaçının. Yalnızca işlevmiş gibi olağan bir tablo için dış tablo GRANT veya REVOKE kullanın.  
@@ -169,9 +169,9 @@ Aşağıdaki sorgu, ambar, sipariş ve satış siparişi arasında üç yönlü 
 Esnek sorgu, parçalar doğrudan erişim sağlayan bir saklı yordam da tanıtılmaktadır. Saklı yordamı çağrılır [sp\_yürütme \_uzak](https://msdn.microsoft.com/library/mt703714) ve uzak veritabanlarında uzak saklı yordamları ya da T-SQL kodunu çalıştırmak için kullanılabilir. Bunu, aşağıdaki parametreleri alır: 
 
 * Veri kaynağı adı (nvarchar): RDBMS türündeki dış veri kaynağının adı. 
-* Sorgu (nvarchar): T-SQL sorgusu, her parça üzerinde yürütülür. 
-* Parametre bildirimi (nvarchar) - isteğe bağlı: dize verileri (gibi sp_executesql) sorgu parametresi olarak kullanılan parametreler için tür tanımları ile. 
-* Parametre değeri listesi - isteğe bağlı: parametre değerleri (örneğin, sp_executesql) virgülle ayrılmış listesi.
+* Sorgu (nvarchar): Her parça üzerinde yürütülecek T-SQL sorgusu. 
+* Parametre bildirimi (nvarchar) - isteğe bağlı: Dize (gibi sp_executesql) sorgu parametresi olarak kullanılan parametreler için tür tanımları ile verileri. 
+* Parametre değeri listesi - isteğe bağlı: Virgülle ayrılmış listesi (gibi sp_executesql) parametre değerleri.
 
 Sp\_yürütme\_uzaktan uzak veritabanlarında belirli T-SQL deyimi yürütmek için çağırma parametreleri sağlanan dış veri kaynağı kullanır. Dış veri kaynağının kimlik bilgisi shardmap manager veritabanını hem de uzak veritabanlarına bağlanmak için kullanır.  
 

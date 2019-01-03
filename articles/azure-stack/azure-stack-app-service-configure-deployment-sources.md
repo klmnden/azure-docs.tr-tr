@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b81b9b34843974ceacf41b08a40a52418ea46d22
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888520"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547558"
 ---
 # <a name="configure-deployment-sources"></a>Dağıtım kaynaklarını yapılandırma
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Azure Stack'te App Service, isteğe bağlı dağıtım birden çok kaynak denetim sağlayıcılarından destekler. Bu özellik, uygulama geliştiricilerin kendi kaynak denetim depolarından doğrudan dağıtma olanak sağlar. Kullanıcılar App Service'ı için depolardaki bağlanmak için yapılandırmak istiyorsanız, bir bulut işleci Azure Stack'te App Service ve kaynak denetimi sağlayıcısı arasındaki tümleştirmeden önce yapılandırmanız gerekir.  
 
@@ -74,8 +74,8 @@ Bu görevi tamamlamak için bir BitBucket hesabına ihtiyacınız vardır. Kişi
 5. Girin **geri çağırma URL'si**. Varsayılan bir Azure Stack dağıtımı geri çağırma URL'si biçimindedir https://portal.local.azurestack.external/TokenAuthorize. Farklı bir etki alanı altında çalışıyorsa, azurestack.local için etki alanı adınızla değiştirin. BitBucket tümleştirme başarılı olması, URL'sini burada listelenen büyük/küçük harf izlemeniz gerekir.
 6. Girin **URL**. Bu URL, Azure Stack portalı olmalıdır; URL Örneğin, https://portal.local.azurestack.external.
 7. Seçin **izinleri** gerekli:
-    - **Depoları**: *okuma*
-    - **Web kancaları**: *okuma ve yazma*
+    - **Depoları**: *Okuma*
+    - **Web kancaları**: *Okuma ve yazma*
 8. **Kaydet**’e tıklayın. İle birlikte bu yeni uygulama artık bkz **anahtarı** ve **gizli**altında **OAuth tüketiciler**.
     ![BitBucket uygulama listesi][9]
 9.  Yeni bir tarayıcı sekmesinde veya penceresinde, Azure Stack Yönetici portalında oturum açın (https://adminportal.local.azurestack.external) Hizmet Yöneticisi olarak.
@@ -138,7 +138,7 @@ Bu görevi tamamlamak için Microsoft OneDrive hesabınıza bağlı Account olma
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kullanıcılar artık kullanabilir dağıtım kaynakları gibi şeyler için [sürekli dağıtım](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment), [yerel Git dağıtımı](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-local-git), ve [bulut klasör eşitleme](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-content-sync).
+Kullanıcılar artık kullanabilir dağıtım kaynakları gibi şeyler için [sürekli dağıtım](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment), [yerel Git dağıtımı](https://docs.microsoft.com/azure/app-service/deploy-local-git), ve [bulut klasör eşitleme](https://docs.microsoft.com/azure/app-service-web/deploy-content-sync).
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png

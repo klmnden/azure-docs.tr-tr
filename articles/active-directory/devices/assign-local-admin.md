@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: 267e398305939048014038b7350b2a10481fdfbd
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 702ebdc0966a72396ac644b154ba13d2321fd5d4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238735"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631354"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD'de yerel Yöneticiler grubuna yönetme alanına katılmış cihazları
 
@@ -88,7 +88,7 @@ Varsayılan olarak, Azure AD Yönetici grubu Azure AD'ye katılmasını sağlama
 
 Azure AD katılma işlemi kullanmaya ek olarak, normal bir kullanıcı belirli bir cihaz üzerinde yerel yönetici olmasını el ile yükseltebilirsiniz. Bu adım zaten yerel Yöneticiler grubunun bir üyesi olmasını gerektirir. 
 
-İle başlayarak **Windows 10 1709** sürüm, gerçekleştirebileceğiniz bu görevden **ayarlar -> hesapları -> diğer kullanıcıların** seçerek **iş veya Okul kullanıcı ekleme**.
+İle başlayarak **Windows 10 1709** sürüm, gerçekleştirebileceğiniz bu görevden **ayarlar -> hesapları -> diğer kullanıcıların**. Seçin **iş veya Okul kullanıcı ekleme**, altında kullanıcının UPN'sini girin **kullanıcı hesabı** seçip *yönetici* altında **hesap türü**  
  
 Ayrıca, komut istemini kullanarak kullanıcıları ekleyebilirsiniz:
 

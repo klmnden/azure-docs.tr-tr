@@ -8,18 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.openlocfilehash: 696bd6ec80f39e8a9f3418426a754ffc038171e2
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: fe0a84d9d88f5287ca3a114225bde619f9312e69
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325091"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628366"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Raspberry Pi'yi Cihazınızı Uzaktan izleme çözüm hızlandırıcısına (Node.js) bağlama
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Bu öğreticide, fiziksel bir cihazı Uzaktan izleme çözüm hızlandırıcısına bağlamayı gösterilmektedir. Bu öğreticide, Node.js, en az kaynak kısıtlamalarıyla ortamlar için iyi bir seçenek olduğu kullanın.
+Bu öğreticide, gerçek bir cihaz Uzaktan izleme çözüm hızlandırıcısına bağlamayı gösterilmektedir. Bu öğreticide, Node.js, en az kaynak kısıtlamalarıyla ortamlar için iyi bir seçenek olduğu kullanın.
+
+Bir cihazın benzetimini gerçekleştirme isterseniz, bkz. [oluşturma ve test yeni bir simülasyon cihazı](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ### <a name="required-hardware"></a>Gerekli donanım
 
@@ -36,7 +38,7 @@ Raspberry Pi komut satırında bilgisayarlarına uzaktan bağlanabilmelerini sa�
 
 Komut satırı Raspberry Pi üzerinde uzaktan erişim sağlamak için Masaüstü makinenizde SSH istemcisi gerekir.
 
-- Windows, bir SSH istemcisi içermez. Kullanmanızı öneririz [PuTTY](http://www.putty.org/).
+- Windows, bir SSH istemcisi içermez. Kullanmanızı öneririz [PuTTY](https://www.putty.org/).
 - Çoğu Linux dağıtımları ve MAC'te SSH komut satırı yardımcı programı içerir. Daha fazla bilgi için [SSH kullanarak Linux veya Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
 ### <a name="required-raspberry-pi-software"></a>Raspberry Pi'yi yazılım gerekli
@@ -126,7 +128,6 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantıs
     var temperatureSchema = 'chiller-temperature;v1';
     var humiditySchema = 'chiller-humidity;v1';
     var pressureSchema = 'chiller-pressure;v1';
-    var interval = "00:00:05";
     var deviceType = "Chiller";
     var deviceFirmware = "1.0.0";
     var deviceFirmwareUpdateStatus = "";
@@ -144,8 +145,6 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantıs
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
         "TemperatureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"temperature\":${temperature},\"temperature_unit\":\"${temperature_unit}\"}",
           "MessageSchema": {
             "Name": temperatureSchema,
             "Format": "JSON",
@@ -156,8 +155,6 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantıs
           }
         },
         "HumiditySchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"humidity\":${humidity},\"humidity_unit\":\"${humidity_unit}\"}",
           "MessageSchema": {
             "Name": humiditySchema,
             "Format": "JSON",
@@ -168,8 +165,6 @@ Kullanarak aşağıdaki adımları tamamlayın `ssh` Raspberry Pi'yi bağlantıs
           }
         },
         "PressureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"pressure\":${pressure},\"pressure_unit\":\"${pressure_unit}\"}",
           "MessageSchema": {
             "Name": pressureSchema,
             "Format": "JSON",

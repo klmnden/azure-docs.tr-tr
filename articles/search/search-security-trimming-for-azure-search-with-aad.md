@@ -1,5 +1,5 @@
 ---
-title: Active Directory kimlikleri - Azure Search kullanarak sonuçları kırpmak için güvenlik filtreleri
+title: Active Directory - Azure Search kullanarak sonuçları kırpmak için güvenlik filtreleri
 description: Güvenlik filtreleri ve Azure Active Directory (AAD) Kimlikleridir kullanarak Azure Search içerik üzerinde erişim denetimi.
 author: brjohnstmsft
 manager: jlembicz
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 2d1ac36341ef47ac95317c583005b675f31f1265
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 1cd862c59154f9da766b5df1ab8fb8d61e15d054
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53308837"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628298"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Active Directory kimlikleri kullanarak Azure Search Sonuçları kırpma için güvenlik filtreleri
 
@@ -93,7 +93,7 @@ User user = new User()
 User newUser = await graph.Users.Request().AddAsync(user);
 ```
 
-### <a name="step-3-associate-user-and-group"></a>3. adım: Kullanıcı ve Grup ilişkilendirme
+### <a name="step-3-associate-user-and-group"></a>3. Adım: Kullanıcı ve Grup ilişkilendirme
 ```csharp
 await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
@@ -179,7 +179,7 @@ SearchParameters parameters = new SearchParameters()
 
 DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<SecuredFiles>("*", parameters);
 ```
-### <a name="step-3-handle-the-results"></a>3. adım: Sonuçlarını işleme
+### <a name="step-3-handle-the-results"></a>3. Adım: Sonuçlarını işleme
 
 Yanıt, belgeler, kullanıcı görüntüleme iznine sahip olanlar oluşan filtrelenmiş bir listesini içerir. Arama sonuçları sayfasını nasıl oluşturmak bağlı olarak, filtrelenmiş sonuç kümesinde yansıtacak şekilde görsel ipuçları eklemek isteyebilirsiniz.
 

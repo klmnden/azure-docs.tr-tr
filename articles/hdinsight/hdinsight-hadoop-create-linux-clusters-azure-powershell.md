@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: af6915a522788f95aaac8ec1b690a7e53b31aac6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 54dbeeede58116b01f21db784b3e34970ace029f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863440"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792156"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Linux tabanlı kümeler Azure PowerShell kullanarak HDInsight oluşturma
 
@@ -22,7 +22,7 @@ ms.locfileid: "52863440"
 
 Azure PowerShell, denetlemek ve dağıtım ve Microsoft azure'da iş yüklerinizi yönetimini otomatikleştirmek için kullanabileceğiniz güçlü bir komut dosyası ortamıdır. Bu belge, Azure PowerShell kullanarak bir Linux tabanlı HDInsight kümesi oluşturma hakkında bilgi sağlar. Ayrıca, bir örnek betiği içerir.
 
-> [!NOTE]
+> [!NOTE]  
 > Azure PowerShell, Windows istemcilerinde yalnızca kullanılabilir. Linux, Unix ya da Mac OS X istemci kullanıyorsanız bkz [Klasik Azure CLI kullanarak Linux tabanlı HDInsight kümesi oluşturma](hdinsight-hadoop-create-linux-clusters-azure-cli.md) bir küme oluşturmak için Klasik CLI kullanma hakkında bilgi.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -31,7 +31,7 @@ Bu yordamı başlatmadan önce aşağıdakilerin olması gerekir:
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Azure PowerShell](/powershell/azure/install-azurerm-ps)
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışı bırakılmış** ve 1 Ocak 2017 tarihinde kaldırılmıştır. Bu belgede yer alan adımlar, Azure Resource Manager ile çalışan yeni HDInsight cmdlet'lerini kullanır.
     >
     > Lütfen adımları [Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) Azure PowerShell'in en son sürümünü yüklemek için. Azure Resource Manager’la çalışan yeni cmdlet’lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, daha fazla bilgi için bkz. [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -55,14 +55,14 @@ Küme oturum açma için belirlediğiniz değerleri kümesi için Hadoop kullan�
 
 SSH kullanıcısı için belirlediğiniz değerler, küme için SSH kullanıcı oluşturmak için kullanılır. Küme üzerinde uzak bir SSH oturumu başlatın ve işleri çalıştırmak için bu hesabı kullanın. Daha fazla bilgi için [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md) belgesine bakın.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 32'den fazla çalışan düğümleri (veya küme oluşturma sırasında oluşturulduktan sonra küme ölçeklendirme) kullanmayı planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB RAM ile de belirtmeniz gerekir.
 >
 > Düğüm boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırması](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Uygulamanın bir küme oluşturmak için en fazla 20 dakika sürebilir.
 
-## <a name="create-cluster-configuration-object"></a>Küme oluşturma: Yapılandırma nesnesi
+## <a name="create-cluster-configuration-object"></a>Küme Oluştur: Yapılandırma nesnesi
 
 Bir HDInsight yapılandırma nesnesi kullanarak da oluşturabilirsiniz `New-AzureRmHDInsightClusterConfig` cmdlet'i. Kümenizin ek yapılandırma seçenekleri etkinleştirmek için bu yapılandırma nesnesi daha sonra değiştirebilirsiniz. Son olarak, `-Config` parametresinin `New-AzureRmHDInsightCluster` yapılandırmasını kullanmak için cmdlet.
 
@@ -70,7 +70,7 @@ Aşağıdaki betiği HDInsight küme türü üzerinde bir R Server'ı yapıland�
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight kümesinden farklı bir konumda bir depolama hesabının kullanılması desteklenmez. Bu örnek kullanırken, sunucu ile aynı konumda ek depolama hesabı oluşturun.
 
 ## <a name="customize-clusters"></a>Kümeleri özelleştirme
@@ -84,7 +84,7 @@ Aşağıdaki betiği HDInsight küme türü üzerinde bir R Server'ı yapıland�
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
-HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-administer-use-portal-linux.md#create-clusters).
+HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -94,7 +94,7 @@ Bir HDInsight kümesi başarıyla oluşturdunuz, bir küme ile çalışmanıza �
 
 * [Apache Hive, HDInsight ile kullanma](hadoop/hdinsight-use-hive.md)
 * [Apache Pig, HDInsight ile kullanma](hadoop/hdinsight-use-pig.md)
-* [HDInsight ile Apache HAdoop MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase kümeleri
 
@@ -111,6 +111,6 @@ Bir HDInsight kümesi başarıyla oluşturdunuz, bir küme ile çalışmanıza �
 
 * [Scala kullanarak tek başına uygulama oluşturma](spark/apache-spark-create-standalone-application.md)
 * [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](spark/apache-spark-livy-rest-interface.md)
-* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
-* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)
 

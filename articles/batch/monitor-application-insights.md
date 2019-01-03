@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: fb0760f24b8f384818db8154ffe871d7fd4ce429
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 2188451e987aad7e4edfaa2097a828ab9714d706
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138353"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793793"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>İzleme ve Application Insights ile bir Azure Batch .NET uygulama hatalarını ayıklama
 
@@ -56,14 +56,14 @@ Başvuru Application Insights .NET uygulamanızı kullanarak **Microsoft.applica
 
 ## <a name="instrument-your-code"></a>Kodunuzu izleme
 
-Kodunuzu izleme için Application Insights'ı oluşturmak, çözümünüzün gerekir [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). Bu örnekte TelemetryClient yapılandırmasını yükler [Applicationınsights.config](../application-insights/app-insights-configuration-with-applicationinsights-config.md) dosya. Applicationınsights.config dosyasını aşağıdaki projeleri ile Application Insights izleme anahtarınızı güncelleştirdiğinizden emin olun: Microsoft.Azure.Batch.Samples.TelemetryStartTask ve TopNWordsSample.
+Kodunuzu izleme için Application Insights'ı oluşturmak, çözümünüzün gerekir [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient). Bu örnekte TelemetryClient yapılandırmasını yükler [Applicationınsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md) dosya. Applicationınsights.config aşağıdaki projeleri ile Application Insights izleme anahtarınızı güncelleştirdiğinizden emin olun: Microsoft.Azure.Batch.Samples.TelemetryStartTask ve TopNWordsSample.
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>
 ```
 Ayrıca dosyasında TopNWords.cs izleme anahtarını ekleyin.
 
-Aşağıdaki örnekte TopNWords.cs içinde [izleme çağrıları](../application-insights/app-insights-api-custom-events-metrics.md) Application Insights API'si:
+Aşağıdaki örnekte TopNWords.cs içinde [izleme çağrıları](../azure-monitor/app/api-custom-events-metrics.md) Application Insights API'si:
 * `TrackMetric()` -Nasıl uzun, ortalama, gerekli bir metin dosyasını indirmek için bir işlem düğümünde alan izler.
 * `TrackTrace()` -Kodunuzda hata ayıklama çağrıları ekler.
 * `TrackEvent()` -Olayları yakalamak için ilgi çekici izler.
@@ -125,7 +125,7 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 ```
 
 ### <a name="azure-batch-telemetry-initializer-helper"></a>Azure Batch telemetri başlatıcısını Yardımcısı
-Verilen sunucu ve örneği için telemetri raporlama, Application Insights Azure VM rolü ve VM adını için varsayılan değerleri kullanır. Azure Batch bağlamında örnek havuz adı ve bunun yerine işlem düğümü adı nasıl kullanılacağını gösterir. Kullanım bir [telemetri başlatıcısını](../application-insights/app-insights-api-filtering-sampling.md#add-properties) varsayılan değerlerini geçersiz kılması için. 
+Verilen sunucu ve örneği için telemetri raporlama, Application Insights Azure VM rolü ve VM adını için varsayılan değerleri kullanır. Azure Batch bağlamında örnek havuz adı ve bunun yerine işlem düğümü adı nasıl kullanılacağını gösterir. Kullanım bir [telemetri başlatıcısını](../azure-monitor/app/api-filtering-sampling.md#add-properties) varsayılan değerlerini geçersiz kılması için. 
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;

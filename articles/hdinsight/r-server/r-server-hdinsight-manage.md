@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: bdb2e355b29306c8a78a3a773269baeee13fc9d1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7e135432ce8490c505e7d3a1022407dd5d9b9776
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497553"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584403"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure HDInsight kümesinde ML Hizmetleri yönetme
 
@@ -22,9 +22,9 @@ Bu makalede, Azure HDInsight'ı uzaktan bir ML hizmetleri kümesine bağlanma bi
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Bir HDInsight ML Hizmetleri kümesinde**: yönergeler için [ML Hizmetleri HDInsight kullanmaya başlama](r-server-get-started.md).
+* **Bir HDInsight ML Hizmetleri kümesinde**: Yönergeler için [ML Hizmetleri HDInsight kullanmaya başlama](r-server-get-started.md).
 
-* **Güvenli Kabuk (SSH) istemcisi**: HDInsight kümesine uzaktan bağlanmak ve komutları doğrudan küme üzerinde çalıştırmak için bir SSH istemcisi kullanılır. Daha fazla bilgi için [HDInsight ile SSH kullanma.](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Güvenli Kabuk (SSH) istemcisi**: Bir SSH istemcisi uzaktan HDInsight kümesine bağlanmak ve komutları doğrudan küme üzerinde çalıştırmak için kullanılır. Daha fazla bilgi için [HDInsight ile SSH kullanma.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 ## <a name="enable-multiple-concurrent-users"></a>Birden çok eş zamanlı kullanıcı etkinleştirme
@@ -50,7 +50,7 @@ Kümenin kenar düğümünde RStudio çalıştığı için burada birkaç adım 
 2. Kenar düğümüne daha fazla Linux kullanıcısı ekleme
 3. RStudio Topluluk sürümünü oluşturulan kullanıcıyla kullanma
 
-### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>1. adım: kenar düğümde oturum açmak için oluşturulan SSH kullanıcısını kullanma
+### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>1. Adım: Kenar düğümde oturum açmak için oluşturulan SSH kullanıcısını kullanma
 
 Konumundaki yönergeleri [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](../hdinsight-hadoop-linux-use-ssh-unix.md) kenar düğümüne erişin. HDInsight kümesinde ML Hizmetleri için uç düğüm adresi olan `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
@@ -80,7 +80,7 @@ Ayrıca yeni eklenen kullanıcıların Linux sisteminde kök ayrıcalıklarına 
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Microsoft ML Hizmetleri uzaktan bağlanma
 
-Sizin masaüstünüzde çalışan uzak bir örneğini ML istemci HDInsight Spark işlem bağlamına erişim ayarlayabilirsiniz. Bunu yapmak için seçenekleri (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches ve sshProfileScript) belirtin, dizüstü tanımlama izin ver işlem bağlamını masaüstünüzde: Örnek:
+Sizin masaüstünüzde çalışan uzak bir örneğini ML istemci HDInsight Spark işlem bağlamına erişim ayarlayabilirsiniz. Bunu yapmak için seçenekleri (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches ve sshProfileScript) belirtin, dizüstü tanımlama izin ver işlem bağlamını masaüstünüzde: Örneğin:
 
     myNameNode <- "default"
     myPort <- 0
@@ -299,10 +299,8 @@ Kenar düğümüne ek R paketleri yüklemek isterseniz, kullanabileceğiniz `ins
 
 Kümenin çalışan düğümlerine R paketleri yüklemek için betik eylemi kullanmanız gerekir. Betik Eylemleri, HDInsight kümesinde yapılandırma değişiklikleri yapmak veya ek R paketleri gibi ek yazılımlar yüklemek için kullanılan Bash betikleridir. 
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ek R paketleri yüklemek için Betik Eylemleri yalnızca küme oluşturulduktan sonra kullanılabilir. Betik ML Hizmetleri tamamen yapılandırılmış olmasına olduğundan, bu yordamı küme oluşturma sırasında kullanmayın.
->
->
 
 1. Bölümündeki adımları [betik eylemi kullanarak kümeleri özelleştirme](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -312,11 +310,11 @@ Kümenin çalışan düğümlerine R paketleri yüklemek için betik eylemi kull
 
    * İçin **adı**, betik eylemi için bir ad sağlayın.
 
-    * İçin **Bash betiği URI'si**, girin `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Çalışan düğümüne ek R paketleri yükleyen bir betik budur.
+    * İçin **Bash betiği URI'si**, girin `https://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`. Çalışan düğümüne ek R paketleri yükleyen bir betik budur.
 
    * Yalnızca için onay kutusunu işaretleyin **çalışan**.
 
-   * **Parametreler**: Yüklenecek R paketleri. Örneğin, `bitops stringr arules`
+   * **Parametreleri**: Yüklenecek R paketleri. Örneğin, `bitops stringr arules`
 
    * Onay kutusunu işaretleyin **bu betik eylemi kalıcı**.  
 

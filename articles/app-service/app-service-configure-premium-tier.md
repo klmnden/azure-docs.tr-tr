@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ac0a3500956cc81e264c8743d44aa06f018b1a45
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 991748c33eae607e97b3916a913b111af7b3b75a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258908"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714483"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Azure App Service için PremiumV2 katmanını yapılandırma
 
@@ -29,7 +29,7 @@ Yeni **PremiumV2** fiyatlandırma katmanı, size daha hızlı işlemcilere, SSD 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Ölçek büyütme bir web uygulaması için **PremiumV2**, bir Web uygulamasını Azure App Service'te, daha düşük bir fiyatlandırma katmanında çalışır ihtiyacınız **PremiumV2**, ve Web uygulamasını destekleyen bir App Service dağıtımı çalışıyor olması gerekir PremiumV2.
+Bir uygulamaya ölçek artırmayı **PremiumV2**, daha düşük bir fiyatlandırma katmanında çalıştıran bir Azure App Service uygulaması ihtiyacınız **PremiumV2**, ve uygulama PremiumV2 destekleyen bir App Service dağıtımı çalışıyor olması gerekir.
 
 <a name="availability"></a>
 
@@ -47,7 +47,7 @@ az appservice list-locations --sku P1V2
 
 ## <a name="create-an-app-in-premiumv2-tier"></a>PremiumV2 katmanı uygulama oluşturma
 
-Bir App Service uygulaması fiyatlandırma katmanını tanımlanan [App Service planı](azure-web-sites-web-hosting-plans-in-depth-overview.md) üzerinde çalıştığı. Tek başına veya Web uygulaması oluşturma işleminin bir parçası olarak, bir App Service planı oluşturabilirsiniz.
+Bir App Service uygulaması fiyatlandırma katmanını tanımlanan [App Service planı](overview-hosting-plans.md) üzerinde çalıştığı. Tek başına veya uygulama oluşturmanın bir parçası olarak, bir App Service planı oluşturabilirsiniz.
 
 App Service planında yapılandırırken <a href="https://portal.azure.com" target="_blank">Azure portalında</a>seçin **fiyatlandırma katmanı**. 
 
@@ -88,7 +88,7 @@ Temel alınan App Service dağıtımı PremiumV2 desteklemiyorsa bazı App Servi
 
 Uygulamanız bir App Service dağıtımı içinde çalışıyorsa burada **PremiumV2** kullanılamıyor veya uygulamanız bir bölgede şu anda çalışıyorsa desteklemediği **PremiumV2**, faydalanmak için uygulamanızı yeniden dağıtmanız gerekir avantajlarından **PremiumV2**.  İki seçeneğiniz vardır:
 
-- Oluşturma bir **yeni** kaynak grubunda ve ardından oluşturmak bir **yeni** web uygulaması ve app service planı'nda **yeni** oluşturma sırasında istediğiniz Azure bölgeyi seçerek, kaynak grubu işlem.  **Gerekir** seçin **PremiumV2** plana zaman yeni app service planı oluşturulur.  Bu kaynak grubu, App Service planı birleşimi sağlar ve Azure bölgesi destekleyen bir App Service dağıtımı oluşturulan App Service planı sonuçlanır **PremiumV2**.  Ardından uygulama kodunuz, yeni oluşturulan uygulama ve app service planı içinde yeniden dağıtın. İsterseniz, daha sonra ölçeklendirme yapabilen App Service planı gelen **PremiumV2** kaydetmek için maliyetleri ve yine de başarılı bir şekilde yeniden gelecekte kullanarak arka ölçeği oluşturabileceksiniz **PremiumV2**.
+- Oluşturma bir **yeni** kaynak grubunda ve ardından oluşturun bir **yeni** uygulaması ve App Service planı'nda **yeni** oluşturma işlemi sırasında istediğiniz Azure bölgeyi seçerek, kaynak grubu.  **Gerekir** seçin **PremiumV2** plana zaman yeni app service planı oluşturulur.  Bu kaynak grubu, App Service planı birleşimi sağlar ve Azure bölgesi destekleyen bir App Service dağıtımı oluşturulan App Service planı sonuçlanır **PremiumV2**.  Ardından uygulama kodunuz, yeni oluşturulan uygulama ve app service planı içinde yeniden dağıtın. İsterseniz, daha sonra ölçeklendirme yapabilen App Service planı gelen **PremiumV2** kaydetmek için maliyetleri ve yine de başarılı bir şekilde yeniden gelecekte kullanarak arka ölçeği oluşturabileceksiniz **PremiumV2**.
 - Uygulamanız zaten var çalışıyorsa **Premium** katmanı, uygulamanızı tüm uygulama ayarları, bağlantı dizeleri ve dağıtım yapılandırması kullanan yeni bir app service planı içine kopyalayabilirsiniz sonra **PremiumV2**.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)

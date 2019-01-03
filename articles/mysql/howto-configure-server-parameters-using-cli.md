@@ -1,21 +1,18 @@
 ---
 title: Hizmet parametreleri, MySQL için Azure veritabanı'nda yapılandırma
 description: Bu makalede hizmet parametreleri Azure CLI komut satırı yardımcı programını kullanarak MySQL için Azure veritabanı'nda yapılandırma açıklanır.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: b45975bc019da2859da87a40e46970d849312e38
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b0d7bbdc3e1dcad6f6cecb57b15e2e5df6b3fd28
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957066"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53534902"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Azure CLI kullanarak sunucu yapılandırma parametrelerini özelleştirme
 Liste göstermek ve Azure CLI, Azure komut satırı yardımcı programını kullanarak MySQL için Azure veritabanı için yapılandırma parametreleri güncelleştirin. Bir alt kümesini altyapısı yapılandırmaları, sunucu düzeyinde kullanıma sunulmuştur ve değiştirilebilir. 

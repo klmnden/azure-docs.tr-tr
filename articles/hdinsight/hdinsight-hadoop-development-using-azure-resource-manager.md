@@ -9,25 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7722076c3b0031da8580dd88efdc0b575fd5a3be
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 33bb3186493b2ea2a0d676f250282574b27f7988
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875578"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718545"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçiş
 
 HDInsight, HDInsight için Azure Service Manager ASM tabanlı araçlar kaldırmaktadır. Azure PowerShell, Azure Klasik CLI veya HDInsight .NET SDK'ın HDInsight kümeleriyle çalışmak için kullandığınız, PowerShell, CLI ve .NET SDK'sı ileride Azure Resource Manager sürümleri kullanmanız önerilir. Bu makalede, Resource Manager tabanlı yeni yaklaşıma için geçiş yapmaya yönelik işaretçiler sağlar. Geçerli olduğunda, bu belgede ASM ve Resource Manager yaklaşım HDInsight için arasındaki farklar vurgulanmaktadır.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > ASM desteği, PowerShell, CLI, temel alır ve .NET SDK'sı üzerinde sona erecek **1 Ocak 2017**.
-> 
-> 
 
 ## <a name="migrating-azure-classic-cli-to-azure-resource-manager"></a>Klasik Azure CLI, Azure Resource Manager'a geçiş
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Azure CLI, HDInsight kümeleriyle çalışmak için destek sağlamaz. Ancak, Klasik Azure CLI kullanım dışı bırakılmıştır, Klasik Azure CLI'yı HDInsight ile kullanabilirsiniz.
 
 Klasik Azure CLI aracılığıyla HDInsight ile çalışmak için temel komutlar şunlardır:
@@ -51,11 +49,11 @@ Azure Resource Manager ile kullanılabilen yeni komutlar şunlardır:
 ### <a name="deprecated-commands"></a>Kullanımdan kaldırılan komutların
 Kullanırsanız `azure hdinsight job` komutları HDInsight kümenize işleri göndermek için şu komutları Resource Manager komutları kullanılabilir değil. Programlama yoluyla işleri HDInsight için betiklerin göndermek istiyorsanız, bunun yerine HDInsight tarafından sağlanan REST API'leri kullanmanız gerekir. REST API'lerini kullanarak işleri gönderme hakkında daha fazla bilgi için aşağıdaki belgelere bakın.
 
-* [Apache Hadoop MapReduce işlerini cURL kullanarak HDInsight üzerinde Hadoop ile çalıştırın.](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [MapReduce işleri cURL kullanarak HDInsight üzerinde Hadoop ile çalıştırın.](hadoop/apache-hadoop-use-mapreduce-curl.md)
 * [Apache Hive sorguları cURL kullanarak HDInsight üzerinde Apache Hadoop ile çalıştırın.](hadoop/apache-hadoop-use-hive-curl.md)
 * [Apache Pig işleri cURL kullanarak HDInsight üzerinde Apache Hadoop ile çalıştırın.](hadoop/apache-hadoop-use-pig-curl.md)
 
-Apache Hadoop MapReduce, Apache Hive ve Apache Pig etkileşimli olarak çalışacak şekilde diğer yollar hakkında daha fazla bilgi için bkz: [HDInsight üzerinde Hadoop ile Apache Hadoop MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md), [Apache HiveHDInsightüzerindeApacheHadoopilekullanma](hadoop/hdinsight-use-hive.md), ve [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hadoop/hdinsight-use-pig.md).
+Apache Hadoop MapReduce, Apache Hive ve Apache Pig etkileşimli olarak çalışacak şekilde diğer yollar hakkında daha fazla bilgi için bkz: [HDInsight üzerinde Hadoop ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md), [HDInsight üzerinde Apache Hadoop ile Hive kullanma Apache](hadoop/hdinsight-use-hive.md), ve [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma](hadoop/hdinsight-use-pig.md).
 
 ### <a name="examples"></a>Örnekler
 **Küme oluşturma**
@@ -73,10 +71,8 @@ Apache Hadoop MapReduce, Apache Hive ve Apache Pig etkileşimli olarak çalışa
 * Eski komut (ASM)- `azure hdinsight cluster list`
 * Yeni komut- `azure hdinsight cluster list`
 
-> [!NOTE]
+> [!NOTE]  
 > LIST komutu için kaynak grubunu kullanarak belirtme `-g` kümeleri yalnızca belirtilen kaynak grubunda döndürür.
-> 
-> 
 
 **Küme bilgilerini göster**
 
@@ -135,17 +131,17 @@ Yalnızca Resource Manager modunda kullanılabilen yeni cmdlet'ler şunlardır:
 
 **Betik eylemi ile ilgili cmdlet'leri:**
 
-* **Get-AzureRmHDInsightPersistedScriptAction**: Gets the persisted script actions for a cluster and lists them in chronological order, or gets details for a specified persisted script action. 
-* **Get-AzureRmHDInsightScriptActionHistory**: Gets the script action history for a cluster and lists it in reverse chronological order, or gets details of a previously executed script action. 
-* **Remove-AzureRmHDInsightPersistedScriptAction**: Removes a persisted script action from an HDInsight cluster.
-* **Set-AzureRmHDInsightPersistedScriptAction**: daha önce yürütülen betik eylemi kalıcı betik eylemi olacak şekilde ayarlar.
-* **Gönderme AzureRmHDInsightScriptAction**: Azure HDInsight kümesine yeni betik eylemini gönderir. 
+* **Get-AzureRmHDInsightPersistedScriptAction**: Bir küme için kalıcı betik eylemleri alır ve bunları kronolojik sırayla listeler veya ayrıntılar için belirtilen kalıcı betik eylemi alır. 
+* **Get-AzureRmHDInsightScriptActionHistory**: Bir küme için betik eylemi geçmişi alır ve ters kronolojik sırayla listelenir ve daha önce yürütülen betik eylemi ayrıntılarını alır. 
+* **Remove-AzureRmHDInsightPersistedScriptAction**: Kalıcı betik eylemi bir HDInsight kümeden kaldırır.
+* **Set-AzureRmHDInsightPersistedScriptAction**: Kalıcı betik eylemi için daha önce yürütülen betik eylemi ayarlar.
+* **Gönderme AzureRmHDInsightScriptAction**: Yeni betik eylemi için bir Azure HDInsight kümesi gönderir. 
 
 Ek kullanım bilgileri için bkz: [özelleştirme Linux tabanlı HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
 
 **Kimlikle ilgili cmdlet'leri küme:**
 
-* **Ekleme AzureRmHDInsightClusterIdentity**: küme kimlik bir küme yapılandırma nesnesine ekler; böylece Azure Data Lake Stores HDInsight kümesine erişebilirsiniz. Bkz: [Azure PowerShell kullanarak Data Lake Store ile HDInsight kümesi oluşturma](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
+* **Ekleme AzureRmHDInsightClusterIdentity**: Küme kimlik bir küme yapılandırma nesnesine ekler; böylece Azure Data Lake Storage HDInsight kümesine erişebilirsiniz. Bkz: [Azure PowerShell kullanarak Data Lake Store ile HDInsight kümesi oluşturma](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md).
 
 ### <a name="examples"></a>Örnekler
 **Küme oluşturma**

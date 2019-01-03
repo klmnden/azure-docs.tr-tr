@@ -1,21 +1,18 @@
 ---
 title: Oluşturma ve Azure veritabanı Azure CLI kullanarak MariaDB için güvenlik duvarı kurallarını yönetme
 description: Bu makalede, oluşturma ve Azure veritabanı Azure CLI, komut satırı kullanarak MariaDB için güvenlik duvarı kurallarını yönetme işlemleri açıklanır.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 1dba4b99dc50d1908b7b3d0488ba6ebf2f85c2a4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: a2f0d775f061ab221092c9354d9d04b9241c9430
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516288"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543895"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Oluşturma ve Azure veritabanı Azure CLI kullanarak MariaDB için güvenlik duvarı kurallarını yönetme
 Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi veya bir IP adresi aralığı MariaDB sunucusu için Azure veritabanı'na yönetme olanağı sağlar. Uygun Azure CLI'si komutlarını kullanarak, oluşturabilir, güncelleştirin, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kurallarını gösterir. Bir Azure veritabanı'nın için MariaDB güvenlik duvarları için bkz: genel bakış [MariaDB sunucu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md)
@@ -28,11 +25,11 @@ Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi ve
 **Az mariadb sunucu güvenlik duvarı kuralı** oluştur, Sil, listesinde, görüntülemek ve güvenlik duvarı kurallarını güncelleştirmek için Azure CLI üzerinden komutu kullanılır.
 
 Komutlar:
-- **oluşturma**: bir Azure MariaDB sunucu güvenlik duvarı kuralı oluşturun.
-- **silme**: bir Azure MariaDB sunucu güvenlik duvarı kuralını silin.
+- **oluşturma**: Bir Azure MariaDB sunucu güvenlik duvarı kuralı oluşturun.
+- **Silme**: Bir Azure MariaDB sunucu güvenlik duvarı kuralını silin.
 - **Liste**: Azure MariaDB sunucu güvenlik duvarı kuralları listesi.
-- **Göster**: güvenlik duvarı kuralı Azure MariaDB sunucusunun ayrıntılarını göster.
-- **Güncelleştirme**: bir Azure MariaDB sunucu güvenlik duvarı kuralını güncelleştir.
+- **Göster**: Güvenlik duvarı kuralı Azure MariaDB sunucusunun ayrıntılarını göster.
+- **Güncelleştirme**: Bir Azure MariaDB sunucu güvenlik duvarı kuralı güncelleştirin.
 
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Azure'da oturum açın ve MariaDB sunucuları için Azure veritabanınızı listeleme
 Azure CLI kullanarak güvenli bir şekilde Azure hesabınızla bağlanmanız **az login** komutu.

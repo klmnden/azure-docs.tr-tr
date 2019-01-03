@@ -1,20 +1,18 @@
 ---
 title: MySQL ilişkisel veritabanı hizmeti için Azure veritabanı'nın genel bakış
 description: MySQL ilişkisel veritabanı hizmeti için Azure veritabanı genel bakış.
-services: mysql
 ms.service: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.custom: mvc
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2018
-ms.openlocfilehash: 4d0d78b978f6454170b52a95f538f143b9f24505
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9385ccf61f8cb8de0b3a459ac00c05b32d2630e4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684809"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536891"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>MySQL için Azure veritabanı nedir?
 MySQL için Azure veritabanı, bir ilişkisel veritabanı hizmetidir Microsoft bulutunda temel [MySQL Community Edition](https://www.mysql.com/products/community/) veritabanı altyapısı, sürüm 5.6 ve 5.7. MySQL için Azure veritabanı şunları getirir:
@@ -38,7 +36,7 @@ Azure CLI örnekleri için bkz:
 - [MySQL için Azure veritabanı Azure CLI örnekleri](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Saniyeler içinde performansı ve ölçeği ayarlama
-MySQL hizmeti için Azure veritabanı birkaç hizmet katmanı sunmaktadır: temel, genel amaçlı ve bellek için iyileştirilmiş. Her katman, hafiften ağıra kadar tüm iş yüklerini desteklemek üzere farklı performans ve özellikler getirir. İlk uygulamanızı aylık birkaç dolar ücretle küçük bir veritabanı üzerinde oluşturabilir ve sonra çözümünüzün gereksinimlerine göre ölçeği ayarlayabilirsiniz. Dinamik ölçeklendirebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine saydam bir şekilde yanıt verebilmesini sağlar. Yalnızca ihtiyacınız olan kaynaklar için ve yalnızca bunlara ihtiyacınız olduğunda ödeme yaparsınız. Bkz: [fiyatlandırma katmanları](concepts-service-tiers.md) Ayrıntılar için.
+MySQL hizmeti için Azure veritabanı, birkaç hizmet katmanı sunar: Temel, genel amaçlı ve bellek için iyileştirilmiş. Her katman, hafiften ağıra kadar tüm iş yüklerini desteklemek üzere farklı performans ve özellikler getirir. İlk uygulamanızı aylık birkaç dolar ücretle küçük bir veritabanı üzerinde oluşturabilir ve sonra çözümünüzün gereksinimlerine göre ölçeği ayarlayabilirsiniz. Dinamik ölçeklendirebilirlik, veritabanınızın hızla değişen kaynak gereksinimlerine saydam bir şekilde yanıt verebilmesini sağlar. Yalnızca ihtiyacınız olan kaynaklar için ve yalnızca bunlara ihtiyacınız olduğunda ödeme yaparsınız. Bkz: [fiyatlandırma katmanları](concepts-service-tiers.md) Ayrıntılar için.
 
 ## <a name="monitoring-and-alerting"></a>İzleme ve uyarı
 Ne zaman artırılacağına ve ne zaman azaltılacağını nasıl karar verirsiniz? Yerleşik performans izleme ve uyarı özelliklerini, sanal çekirdekleri temel alan performans değerlendirmeleriyle birlikte kullanırsınız. Bu araçları kullanarak geçerli veya projeye özgü performans ihtiyaçlarınıza göre sanal çekirdeklerin ölçeğini büyütme veya küçültme işlemlerinin etkisini hızla değerlendirebilirsiniz. Ayrıntılar için bkz. [Uyarılar](howto-alert-on-metric.md).
@@ -65,4 +63,4 @@ Buna ek olarak, aşağıdaki iletişim noktalarını uygun şekilde göz önünd
 MySQL için Azure veritabanı tanıtımını okuyun ve "Ne olduğu Azure veritabanı için MySQL?" sorusunu yanıtladığınıza göre şunları yapmaya hazırsınız:
 - Maliyet karşılaştırmaları ve hesaplayıcıları için fiyatlandırma sayfasına bakın. [Fiyatlandırma](https://azure.microsoft.com/pricing/details/mysql/)
 - İlk sunucunuzu oluşturarak başlayın. [Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma](quickstart-create-mysql-server-database-using-azure-portal.md)
-- Tercih ettiğiniz dili kullanarak ilk uygulamanızı oluşturun: [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md)  |  [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [gidin](./connect-go.md)
+- Tercih ettiğiniz dili kullanarak ilk uygulamanızı oluşturun: [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md)  |  [.NET (C#)](./connect-csharp.md) | [gidin](./connect-go.md)

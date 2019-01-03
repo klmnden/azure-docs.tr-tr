@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: f6d343d42bf9d918bf23c9f5f442d977a5caca96
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 34177cb2ea1650c4b7130d8c5a2a886655852783
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343726"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555039"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli bir arka plan işlemleri için Azure Web işleri SDK'sını kullanma
 
@@ -416,7 +416,7 @@ public class WorkItem
 
 Kilidi için varsayılan kapsamı `SingletonScope.Function` anlamı kilit kapsamı (blob kiralama yol) tam işlev adını bağlı. İşlevlerinin kilitlemek için belirtin `SingletonScope.Host` ve tümü aynı anda çalıştırmak istemediğiniz işlevleri aynı olan bir kapsam kimliği adı kullanın. Aşağıdaki örnekte, yalnızca bir örneğini `AddItem` veya `RemoveItem` teker teker çalıştırılır:
 
-```charp
+```csharp
 [Singleton("ItemsLock", SingletonScope.Host)]
 public static void AddItem([QueueTrigger("add-item")] string message)
 {

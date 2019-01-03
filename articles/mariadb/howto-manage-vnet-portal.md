@@ -3,17 +3,15 @@ title: Oluşturma ve MariaDB sanal ağ hizmet uç noktaları ve Azure portalın�
 description: Oluşturma ve MariaDB sanal ağ hizmet uç noktaları ve Azure portalını kullanarak kurallar için Azure veritabanı'nı yönetme
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 078c4253f990e3ad2759afb9f5b55832c78d9e73
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 77602898df7d783367ffd78328082c3edcaac83e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334100"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542348"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Oluşturma ve Azure portalını kullanarak MariaDB sanal ağ hizmet uç noktaları ve sanal ağ kuralları için Azure veritabanı yönetme
 

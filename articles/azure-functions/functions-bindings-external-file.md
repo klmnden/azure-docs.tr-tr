@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: cshoe
-ms.openlocfilehash: 39036f17b8ceafebbe3660f2074e2a6c84c4df03
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 765eab8dfc1163c4d9e0337a1af840278ae1a82c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248702"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546275"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Azure işlevleri dış dosya bağlamaları (Deneysel)
 Bu makalede, Azure işlevleri'nde (örneğin, Dropbox veya Google Drive gibi) farklı SaaS sağlayıcıları dosyalarını işlemek gösterilmektedir. Azure işlevleri destekler tetiklemek, girdi ve çıktı bağlaması için dış dosyaları. Bu bağlamaları SaaS sağlayıcıları için API bağlantıları oluşturma ve işlev uygulamanızın kaynak grubundan mevcut API bağlantıları kullanın.
@@ -29,9 +29,9 @@ Bu makalede, Azure işlevleri'nde (örneğin, Dropbox veya Google Drive gibi) fa
 
 |Bağlayıcı|Tetikleyici|Girdi|Çıktı|
 |:-----|:---:|:---:|:---:|
-|[Kutusu](https://www.box.com)|x|x|x
+|[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)|x|x|x
+|[FTP](https://docs.microsoft.com/azure/app-service/deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[OneDrive İş](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x

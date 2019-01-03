@@ -1,21 +1,17 @@
 ---
 title: SSL bağlantısı, PostgreSQL için Azure veritabanı'nda yapılandırma
 description: Yönergeler ve bilgiler PostgreSQL ve SSL bağlantıları düzgün bir şekilde kullanmak için ilişkili uygulamalar için Azure veritabanı'nı yapılandırmak için.
-services: postgresql
 author: JasonMAnderson
 ms.author: janders
-editor: jasonwhowell
-manager: kfile
 ms.service: postgresql
-ms.custom: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: cc8bd25b58cf898169a4d84154f7f3f81966bb92
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: bcb6f1da78cfccb4914f1f4008609f002a7b8c2d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985803"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545442"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>SSL bağlantısı, PostgreSQL için Azure veritabanı'nda yapılandırma
 PostgreSQL için Azure veritabanı sunucunuzla istemci uygulamalarınız için Güvenli Yuva Katmanı (SSL) kullanarak PostgreSQL hizmetine bağlanma tercih eder. Veritabanı sunucunuzla istemci uygulamalarınız arasında SSL bağlantılarının zorunlu tutulması, sunucuya uygulamanız arasındaki veri akışını şifreleyerek "bağlantıyı izinsiz izleme" saldırılarına karşı korumaya yardımcı olur.

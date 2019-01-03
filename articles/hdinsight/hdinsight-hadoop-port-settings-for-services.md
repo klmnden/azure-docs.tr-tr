@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 22e15f58f3d4e7f4db3ac3bd519dbb286a36ef95
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: be264be41b198e95dae64730ef31f431ec06a2e7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384148"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715469"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight üzerinde Apache Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları
 
@@ -157,7 +157,7 @@ Belirli küme türlerinin için şunlar kullanılabilir:
 
 | Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
-| Aracısı |Çalışan düğümleri |9092 |[Kafka kablo protokolü](http://kafka.apache.org/protocol.html) |İstemci iletişimi için kullanılan |
+| Aracısı |Çalışan düğümleri |9092 |[Kafka kablo protokolü](https://kafka.apache.org/protocol.html) |İstemci iletişimi için kullanılan |
 | &nbsp; |Zookeeper düğümleri |2181 |&nbsp; |İstemcilerin Zookeeper için bağlanmak için kullandığı bağlantı noktası |
 
 ### <a name="spark-ports"></a>Spark bağlantı noktaları

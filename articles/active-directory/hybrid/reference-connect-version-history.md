@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
+ms.date: 12/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5e13f21971c7babaeaebc9714fe2a040229eebb2
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 780a4c5cd590b4fa1b4dd5b29fab738cb9a8bb6a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278687"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608452"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayınlama geçmişi
 Azure Active Directory (Azure AD) ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect güncelleştirir. Tüm eklemeleri için tüm kitlelere yönelik uygulanabilir.
@@ -36,6 +36,17 @@ Azure AD Connect'ten yükseltme adımları | Farklı yöntemlere [en son önceki
 Gerekli izinler | Bir güncelleştirmeyi uygulamak için gereken izinler için bkz: [hesapları ve izinleri](reference-connect-accounts-permissions.md#upgrade).
 
 İndir | [Azure AD Connect'i indirme](https://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="12700"></a>1.2.70.0
+
+### <a name="release-status"></a>Yayın durumu
+
+12/18/2018: İndirme için yayımlanan
+
+### <a name="fixed-issues"></a>Düzeltilen sorunlar
+
+Bu derleme, Azure AD Connect ile birlikte gelen standart bağlayıcılar (örneğin, genel LDAP Bağlayıcısı ve genel SQL Bağlayıcısı) güncelleştirir. Sürümünde 1.1.911.0 uygun bağlayıcılar hakkında daha fazla bilgi için bkz. [bağlayıcı sürümü yayın geçmişi](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history).
+
 
 ## <a name="12690"></a>1.2.69.0
 
@@ -485,7 +496,7 @@ Durum: 05 Eylül 2017
 * Kullanıcının AD FS ve WAP sunucularını sağlamanız istenir önce artık gerçekleşmesi AAD Connect kullanarak yeni bir AD FS grup ayarlıyorsanız, ADFS kimlik bilgilerinin sorulmasına sayfaya taşındı.  Bu, belirtilen hesabın doğru izinlere sahip olduğunu denetlemek AAD Connect sağlar.
 * ADFS güveni AAD güncelleştiremediğinde AAD Connect yükseltmesinde biz artık yükseltme başarısız olur.  Bu durumda, kullanıcı uygun bir uyarı iletisi gösterilir ve AAD Connect ek görevi aracılığıyla güveni sıfırlamak için devam etmelisiniz.
 
-### <a name="seamless-single-sign-on"></a>Sorunsuz çoklu oturum açma
+### <a name="seamless-single-sign-on"></a>Sorunsuz Çoklu Oturum Açma
 #### <a name="fixed-issues"></a>Düzeltilen sorunlar
 * Azure AD Connect Sihirbazı'nı etkinleştirmek denerseniz bir hata döndürmek neden bir sorun düzeltildi [sorunsuz çoklu oturum açma](how-to-connect-sso.md). Hata iletisi *"Yapılandırması Microsoft Azure AD Connect kimlik doğrulaması Aracısı başarısız oldu."* Bu sorun için kimlik doğrulama aracılarının önizleme sürümünü el ile yükselten Mevcut müşterileri etkiler [geçişli kimlik doğrulaması](how-to-connect-sso.md) bu konuda açıklanan adımları göre [makale](how-to-connect-pta-upgrade-preview-authentication-agents.md).
 

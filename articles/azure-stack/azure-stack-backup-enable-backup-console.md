@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: d8d88484181c3c38f64cf8f00f9d8feaa3b0217a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f5610f03cb613c7da2f89da1a38b6bf058a4e0cc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962571"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714415"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Yönetim Portalı'ndan Azure Stack için yedeklemeyi etkinleştirme
 Azure Stack yedekleme oluşturabilmesi altyapı Backup Hizmeti Yönetim Portalı aracılığıyla etkinleştirin. Bu yedeklemeler bulut kurtarma durumunda kullanarak ortamınızda geri yüklemek için kullanabileceğiniz [geri dönülemez bir arıza](./azure-stack-backup-recover-data.md). Bulut kurtarma amacı, Kurtarma tamamlandıktan sonra operatörler ve kullanıcılar portalına geri dönüp oturum açabildiğinizden emin sağlamaktır. Kullanıcılar, rol tabanlı erişim izinleri ve rolleri, özgün planları, teklifleri ve önceden tanımlı bilgi işlem, depolama ve ağ kotaları dahil olmak üzere geri aboneliklerini sahip olacaktır.
@@ -30,7 +30,7 @@ Ancak, altyapı yedekleme hizmeti, Iaas Vm'leri, ağ yapılandırmaları ve depo
 Yöneticiler ve kullanıcılar için yedekleme ve Iaas ve PaaS kaynakları ayrı ayrı altyapısını yedekleme işlemleri geri sorumludur. Iaas ve PaaS kaynaklarına yedekleme hakkında daha fazla bilgi için aşağıdaki bağlantılara bakın:
 
 - [Sanal Makineler](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-protect)
-- [App Service](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+- [App Service](https://docs.microsoft.com/azure/app-service/manage-backup)
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 

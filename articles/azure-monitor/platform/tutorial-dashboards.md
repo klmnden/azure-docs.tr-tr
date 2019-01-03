@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 417f542bcf1711b2ac8e986663353e29a3705fb3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c6bcc5a7948e87a8b887bd0ebd3abc8fc3d3a517
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389103"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545325"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
-[Azure İzleyici tanılama günlükleri](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) olan işlemi bu hizmetlerin veya kaynakları tanımlayan Azure Hizmetleri tarafından günlüklerdir. Azure İzleyici kullanılabilir tüm tanılama günlükleri esneklik her hizmet kendi olaylar için benzersiz özellikler yaymak için ortak bir üst düzey şema paylaşın.
+[Azure İzleyici tanılama günlükleri](../../azure-monitor/platform/diagnostic-logs-overview.md) olan işlemi bu hizmetlerin veya kaynakları tanımlayan Azure Hizmetleri tarafından günlüklerdir. Azure İzleyici kullanılabilir tüm tanılama günlükleri esneklik her hizmet kendi olaylar için benzersiz özellikler yaymak için ortak bir üst düzey şema paylaşın.
 
 Kaynak türü bileşimi (kullanılabilir `resourceId` özelliği) ve `category` bir şema benzersiz olarak tanımlanabilmesi. Bu makalede tanılama günlükleri ve her hizmet için şemaların bağlantılar için üst düzey şema açıklanır.
 
@@ -25,12 +25,12 @@ Kaynak türü bileşimi (kullanılabilir `resourceId` özelliği) ve `category` 
 
 | Ad | Gerekli/isteğe bağlı | Açıklama |
 |---|---|---|
-| time | Gerekli | Olayın zaman damgası (UTC). |
-| resourceId | Gerekli | Olay yayılan kaynağının kaynak kimliği. Kiracı Hizmetleri için form /tenants/tenant-id/providers/provider-name budur. |
+| time | Gereklidir | Olayın zaman damgası (UTC). |
+| resourceId | Gereklidir | Olay yayılan kaynağının kaynak kimliği. Kiracı Hizmetleri için form /tenants/tenant-id/providers/provider-name budur. |
 | Kiracı kimliği | Kiracı günlükleri için gerekli | Bu olay bağlıdır Active Directory kiracısı Kiracı kimliği. Bu özellik, yalnızca kaynak düzeyi günlüklerde görünmüyor Kiracı düzeyinde günlükleri için kullanılır. |
-| operationName | Gerekli | Bu olay tarafından temsil edilen işlemin adı. Bir RBAC işlem olayı temsil ediyorsa, bu RBAC işlemi (örn. addır Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Gerçek belgelenmiş Resource Manager işlemlerini olmasa bile genellikle bir Resource Manager işlem biçiminde modellenmiş (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationName | Gereklidir | Bu olay tarafından temsil edilen işlemin adı. Bir RBAC işlem olayı temsil ediyorsa, bu RBAC işlemi (örn. addır Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Gerçek belgelenmiş Resource Manager işlemlerini olmasa bile genellikle bir Resource Manager işlem biçiminde modellenmiş (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | İsteğe bağlı | OperationName (örn. bir API kullanarak gerçekleştirdiyseniz, işlemle ilişkili api-version `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Bu işlem için karşılık gelen hiçbir API varsa, sürüm sürümü bu işlem, işlemle ilişkili özellikler gelecekte değiştirilmesini durumunda temsil eder. |
-| category | Gerekli | Olay günlüğü kategorisi. Ayrıntı düzeyi, etkinleştirme veya devre dışı belirli bir kaynağa açtığında kategorisidir. Bir olayın özellikleri blob içinde görünen özellikleri belirli günlük kategorisi ve kaynak türü içinde aynıdır. Tipik günlük kategorileri "Denetleme" "işlemsel" "Yürütme" ve "İstek" olan |
+| category | Gereklidir | Olay günlüğü kategorisi. Ayrıntı düzeyi, etkinleştirme veya devre dışı belirli bir kaynağa açtığında kategorisidir. Bir olayın özellikleri blob içinde görünen özellikleri belirli günlük kategorisi ve kaynak türü içinde aynıdır. Tipik günlük kategorileri "Denetleme" "işlemsel" "Yürütme" ve "İstek" olan |
 | resultType | İsteğe bağlı | Olay durumu. Başlarken, sürüyor, başarılı, başarısız, etkin ve Çözümlenmiş tipik değerler içerir. |
 | resultSignature | İsteğe bağlı | Olay alt durumu. Bu işlem için bir REST API çağrısı karşılık geliyorsa, karşılık gelen REST çağrısı HTTP durum kodunu budur. |
 | resultDescription | İsteğe bağlı | Bu işlem statik metin açıklamasını örn. "Get. depolama dosyası." |
@@ -205,7 +205,7 @@ Kaynak tanılama günlükleri için şema, kaynak ve günlük kategorisine bağl
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-* [Tanılama günlükleri hakkında daha fazla bilgi edinin](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [Kaynak tanılama günlükleri için Stream **olay hub'ları**](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Tanılama günlükleri hakkında daha fazla bilgi edinin](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Kaynak tanılama günlükleri için Stream **olay hub'ları**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Azure İzleyici REST API'sini kullanarak kaynak tanılama ayarlarını değiştirme](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Log Analytics ile Azure depolama biriminden günlüklerini çözümleme](../../azure-monitor/platform/collect-azure-metrics-logs.md)

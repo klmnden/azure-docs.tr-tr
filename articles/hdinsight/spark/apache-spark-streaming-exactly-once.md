@@ -8,20 +8,20 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 194e6091180fa1dd0eaaf999e970c0248ea99db9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581009"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651784"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Apache Spark akış işleri ile tam olarak oluşturma-kere olay işleme
 
 Stream işleme uygulamalarını nasıl bunlar yeniden işlem iletileri bazı hatadan sonra sistemde işlemek için farklı yaklaşımlara uygulayın:
 
-* En az bir kez: her iletinin işlenmesi sağlanır, ancak birden çok kez işlendikten.
-* En fazla bir kez: her ileti olabilir veya işlenmemiş. Bir ileti işlediğinde, yalnızca bir kez işlenir.
-* Tam bir kez: her iletiyi yalnızca tek bir kez işlenmesi sağlanır.
+* En az bir kez: Her ileti işlenmek üzere garanti edilmez, ancak birden çok kez işlendikten.
+* En fazla bir kez: Her ileti olabilir veya işlenmemiş. Bir ileti işlediğinde, yalnızca bir kez işlenir.
+* Tam bir kez: Her iletiyi yalnızca tek bir kez işlenmesini garanti edilir.
 
 Bu makalede, tam olarak elde etmek için Spark akışı yapılandırma gösterir-bir kez işlenmesini.
 
@@ -29,11 +29,11 @@ Bu makalede, tam olarak elde etmek için Spark akışı yapılandırma gösterir
 
 İlk olarak göz önünde bulundurun hata tüm sistemin noktaları bir sorun atandıktan sonra yeniden başlatma ve veri kaybını önlemek nasıl. Uygulama Spark akışı vardır:
 
-* Bir giriş kaynağı
-* Bir veya daha fazla alıcı işlemleri ise giriş kaynağından veri çekme
-* Veri işleme görevleri
-* Çıkış havuzu
-* Uzun süre çalışan iş yöneten bir sürücü işlemi
+* Bir giriş kaynağı.
+* Veri çekme ise giriş kaynağından bir veya daha fazla alıcı işlemler.
+* Veri işleme görevleri.
+* Çıkış havuzu.
+* Uzun süre çalışan iş yöneten bir sürücü işlemi.
 
 Tam olarak-sonra hiçbir veri herhangi bir noktada kaybolur ve bu ileti işleme hatanın oluştuğu bağımsız olarak yeniden başlatılabilir, semantiği gerektirir.
 
@@ -41,7 +41,7 @@ Tam olarak-sonra hiçbir veri herhangi bir noktada kaybolur ve bu ileti işleme 
 
 Spark Streaming uygulamanız, olaylarından okuma kaynağı olmalıdır *yeniden oynatılabilir*. Bu durumda, burada iletisi alındı, ancak iletinin kalıcı veya işlenen önce sistem başarısız oldu, kaynak aynı ileti yeniden sağlamanız gereken anlamına gelir.
 
-Azure'da, hem Azure Event Hubs ve [Apache Kafka](https://kafka.apache.org/) HDInsight üzerinde yeniden oynatılabilir kaynakları sağlayın. Hataya dayanıklı dosya sistemi gibi başka bir örnek yeniden oynatılabilir kaynağı olan [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure depolama blobları veya Azure Data Lake Store, burada tüm verileri her zaman tutulur ve herhangi bir noktada verilerin tamamına yeniden okuyabilirsiniz.
+Azure'da, hem Azure Event Hubs ve [Apache Kafka](https://kafka.apache.org/) HDInsight üzerinde yeniden oynatılabilir kaynakları sağlayın. Hataya dayanıklı dosya sistemi gibi başka bir örnek yeniden oynatılabilir kaynağı olan [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), Azure depolama blobları veya Azure Data Lake Storage'ı seçin, burada tüm verileri her zaman tutulur ve herhangi bir noktada verilerin tamamına yeniden okuyabilirsiniz.
 
 ### <a name="reliable-receivers"></a>Güvenilir Alıcılar
 
@@ -49,7 +49,7 @@ Spark akış, olay hub'ları ve Kafka gibi kaynakları *Güvenilir Alıcılar*, 
 
 ### <a name="use-the-write-ahead-log"></a>Yazma önceden yazılan günlük kullanın
 
-Spark akışı, bir yazma tamamlanan alınan her olayın burada ilk hataya dayanıklı depolama, Spark'ın denetim noktası dizinine yazılır ve sonra bir dayanıklı Dağıtılmış veri kümesi (RDD içinde) depolanan günlük kullanımını destekler. Azure'da, Azure depolama veya Azure Data Lake Store tarafından desteklenen HDFS hataya dayanıklı depolama alanıdır. Spark Streaming uygulamanızda ayarlayarak yazma önceden yazılan günlük için tüm alıcıları etkin `spark.streaming.receiver.writeAheadLog.enable` yapılandırma ayarı `true`. Yazma önceden yazılan günlük hem sürücü hem de Yürütücü hataları için hata toleransı sağlar.
+Spark akışı, bir yazma tamamlanan alınan her olayın burada ilk hataya dayanıklı depolama, Spark'ın denetim noktası dizinine yazılır ve sonra bir dayanıklı Dağıtılmış veri kümesi (RDD içinde) depolanan günlük kullanımını destekler. Azure'da, Azure depolama veya Azure Data Lake Depolama tarafından yedeklenen HDFS hataya dayanıklı depolama alanıdır. Spark Streaming uygulamanızda ayarlayarak yazma önceden yazılan günlük için tüm alıcıları etkin `spark.streaming.receiver.writeAheadLog.enable` yapılandırma ayarı `true`. Yazma önceden yazılan günlük hem sürücü hem de Yürütücü hataları için hata toleransı sağlar.
 
 Olay verilerini karşı çalışan görevlerin çalışanları için hem çoğaltılacak ve birden fazla çalışana arasında dağıtılmış tanımı her RDD gereğidir. Kilitlenen çalışan alt görev olayı veri çoğaltmasını sahip başka bir çalışan üzerinde yeniden başlatılacak bir görev başarısız olur, böylece olay kaybolmaz.
 
@@ -66,7 +66,7 @@ Kontrol noktaları Spark akışı iki adımda etkinleştirilir.
     ssc.checkpoint("/path/to/checkpoints")
     ```
 
-    HDInsight bu kontrol noktalarının kümenize, Azure depolama veya Azure Data Lake Store bağlı varsayılan depolama alanı için kaydedilmesi gerekir.
+    HDInsight bu kontrol noktalarının kümenize, Azure depolama veya Azure Data Lake Storage bağlı varsayılan depolama alanı için kaydedilmesi gerekir.
 
 2. Ardından, DStream üzerinde bir denetim noktası aralığı (saniye cinsinden) belirtin. Her bir aralıkta, depolama için giriş olay kaynağından türetilmiş durumu verilerini kalıcı hale getirilir. Kalıcı durum veri kaynağı olay durumu yeniden oluştururken gerekli hesaplama azaltabilir.
 
@@ -85,7 +85,7 @@ Hedef havuz, iş sonuçları yazacağı durum burada da aynı sonucu birden çok
 
 Örneğin, olayları bir tabloya ekler, Azure SQL veritabanı ile bir saklı yordamı kullanabilirsiniz. Bu saklı yordamı ilk anahtar alanları tarafından ve yalnızca bulunan eşleşen hiçbir olay tabloya eklenen kayıt olduğunda olay arar.
 
-Başka bir örnek, bir Azure depolama blobları gibi bölümlenmiş dosya sistemi veya Azure Data Lake store kullanmaktır. Bu durumda bir dosyanın varlığını denetlemek havuz mantığınızı gerekmez. Olay temsil eden dosya varsa, yalnızca aynı verilerle üzerine yazılır. Aksi takdirde, yeni bir dosya hesaplanan yolda oluşturulur.
+Azure depolama blobları veya Azure Data Lake depolama gibi bir bölümlenmiş dosya sistemini kullanan başka bir örnektir. Bu durumda bir dosyanın varlığını denetlemek havuz mantığınızı gerekmez. Olay temsil eden dosya varsa, yalnızca aynı verilerle üzerine yazılır. Aksi takdirde, yeni bir dosya hesaplanan yolda oluşturulur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

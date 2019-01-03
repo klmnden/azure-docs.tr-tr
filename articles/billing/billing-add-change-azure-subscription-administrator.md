@@ -15,19 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: 53cecc845ed8bd15311e1bcec3ec9b36db8f5c2c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 94d574d16b1b9951ab91a09023f9193723f850a7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727877"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583374"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ekleme veya Azure aboneliği yöneticileri değiştirme
 
 Azure kaynaklarına erişimi yönetmek için uygun yönetici rolüne sahip olmanız gerekir. Bu makalede, ekleme veya değiştirme abonelik düzeyinde bir kullanıcı için yönetici rolünü açıklar.
-
-> [!div class="nextstepaction"]
-> [Azure faturalama belgelerinin iyileştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="what-administrator-role-do-i-use"></a>Yönetici rolü kullanabilirim?
 
@@ -127,6 +124,6 @@ Hesap Yöneticisi başlangıçta Azure aboneliğine kaydolduğu ve faturalandır
 * Azure'da tüm rolleri hakkında daha fazla bilgi edinmek için [farklı rolleri Azure anlamak](../role-based-access-control/rbac-and-directory-admin-roles.md).
 * Azure Active Directory hakkında daha fazla bilgi için bkz. [Azure aboneliklerinin Azure Active Directory ile ilişkisi](../active-directory/active-directory-how-subscriptions-associated-directory.md) ve [Azure Active Directory'de yönetici rolleri atama](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

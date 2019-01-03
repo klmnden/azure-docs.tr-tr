@@ -11,22 +11,60 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/15/2018
+ms.date: 12/14/2018
 ms.author: raiye
-ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 94cf90dbc41533b8f5d41a0bdb18e5cdcb7be474
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854280"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541039"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirmelerin Microsoft Güvenlik Yanıt Merkezi (MSRC) gösterilmektedir. Belirli bir güncelleştirmenin Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeler her zaman taşıyan İleri için belirli [ailesi] [ family-explain] sürümünde yapılan.
 
-## <a name="november-2018-guest-os"></a>Kasım 2018'den konuk işletim sistemi
+## <a name="december-2018-guest-os"></a>Aralık 2018'e konuk işletim sistemi
 
 >[!NOTE]
->Kasım konuk işletim sistemi, şu anda, otomatik güncelleştirmeler için yapılandırılmış olan bir bulut hizmeti vm'lerine da sunulacaktır. Piyasaya çıkış tamamlandığında, bu sürümü ile Azure portal ve yapılandırma dosyalarını el ile güncelleştirmeleri kullanılabilir hale getirilir. Aşağıdaki düzeltme ekleri, Kasım konuk işletim sisteminde dahil edilir. Bu liste değiştirilebilir ' dir.
+>Aralık konuk işletim sistemi, şu anda, otomatik güncelleştirmeler için yapılandırılmış olan bir bulut hizmeti vm'lerine da sunulacaktır. Piyasaya çıkış tamamlandığında, bu sürümü ile Azure portal ve yapılandırma dosyalarını el ile güncelleştirmeleri kullanılabilir hale getirilir. Aşağıdaki düzeltme ekleri aralık konuk işletim sistemi dahil edilir. Bu liste değiştirilebilir ' dir.
+
+| Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
+| --- | --- | --- | --- | --- |
+| Rel 18-12 | [4471321] | Windows 10 Güvenlik | 5.26 | 11 Aralık 2018'e |
+| Rel 18-12 | [4471328] | Windows Güvenlik   | 2.81 | 11 Aralık 2018'e |
+| Rel 18-12 | [4471326] | Windows Güvenlik   | 3.68 | 11 Aralık 2018'e |
+| Rel 18-12 | [4471322] | Windows Güvenlik   | 4.61 | 11 Aralık 2018'e |
+| Rel 18-12 | [4470600] | .NET 3.x güvenliği  | 2.81 | 11 Aralık 2018'e |
+| Rel 18-12 | [4470601] | .NET 3.x güvenliği  | 3.68 | 11 Aralık 2018'e|
+| Rel 18-12 | [4470602] | .NET 3.x güvenliği  | 4.61 | 11 Aralık 2018'e |
+| Rel 18-12 | [4470493] | .NET 4.x güvenliği  | 2.81 | 11 Aralık 2018'e |
+| Rel 18-12 | [4470492] | .NET 4.x güvenliği  | 3.68 | 11 Aralık 2018'e |
+| Rel 18-12 | [4470491] | .NET 4.x güvenliği  | 4.61| 11 Aralık 2018'e |
+| Rel 18-12 | [4471331] | Flash  | 3.68, 4.61 5.26 | 5 Aralık 2018'e  |
+| Rel 18-12 | [4470199] | Internet Explorer  | 2.81, 3.68 4.61 | 11 Aralık 2018'e |
+| Yok | [4468323] | Saat dilimi güncelleştirme    | 2.81, 3.68 4.61 | 13 Aralık 2018'e |
+| Yok | [4467107] | Kasım güvenlikle dökümü   | 2.81 | 13 Kasım 2018 |
+| Yok | [4467701] | Kasım güvenlikle dökümü     | 3.68 | 13 Kasım 2018 |
+| Yok | [4467697] | Kasım güvenlikle dökümü     | 4.61 | 13 Kasım 2018 |
+
+[4471321]: http://support.microsoft.com/kb/4471321
+[4471328]: http://support.microsoft.com/kb/4471328
+[4471326]: http://support.microsoft.com/kb/4471326
+[4471322]: http://support.microsoft.com/kb/4471322
+[4470600]: http://support.microsoft.com/kb/4470600
+[4470601]: http://support.microsoft.com/kb/4470601
+[4470602]: http://support.microsoft.com/kb/4470602
+[4470493]: http://support.microsoft.com/kb/4470493
+[4470492]: http://support.microsoft.com/kb/4470492
+[4470491]: http://support.microsoft.com/kb/4470491
+[4471331]: http://support.microsoft.com/kb/4471331
+[4470199]: http://support.microsoft.com/kb/4470199
+[4468323]: http://support.microsoft.com/kb/4468323
+[4467107]: http://support.microsoft.com/kb/4467107
+[4467701]: http://support.microsoft.com/kb/4467701
+[4467697]: http://support.microsoft.com/kb/4467697
+
+## <a name="november-2018-guest-os"></a>Kasım 2018'den konuk işletim sistemi
 
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
@@ -427,7 +465,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |  [3212646] |Windows 7 SP1 ve Windows Server 2008 R2 SP1'i Ocak 2017 güvenlik aylık kalite dökümü |2.60 |14 Mart 2017 |
 | Yok |  [3205409] |Aralık 2016 güvenlik Windows Server 2012 için aylık kalite dökümü |3.47 |14 Mart 2017 |
 | Yok |  [3205401] |Aralık 2016 güvenlik aylık kalite toplaması için Windows 8.1 ve Windows Server 2012 R2 |4.40 |14 Mart 2017 |
-| Yok |  [3211320] |Windows 10 sürüm 1607'ye ve Windows Server 2016 güncelleştirmesi yığın bakımı: 24 Ocak 2017 |5.5 |14 Mart 2017 |
+| Yok |  [3211320] |Windows 10 sürüm 1607'ye ve Windows Server 2016 için hizmet yığını güncelleştirmesi: 24 Ocak 2017 |5.5 |14 Mart 2017 |
 
 ## <a name="january-2017-guest-os"></a>Ocak 2017 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -438,15 +476,15 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
 | --- | --- | --- | --- | --- |
 | MS16-144 |[3204059] |Internet Explorer için toplu güvenlik güncelleştirmesi |2.58, 3.46, 4.39 |13 Aralık 2016 |
-| MS16-145 |[3204062] |Microsoft Edge için toplu güvenlik güncelleştirmesi |5.4 |13 Aralık 2016 |
+| MS16-145 |[3204062] |Microsoft Edge için toplu güvenlik güncelleştirmesi |5,4 |13 Aralık 2016 |
 | MS16-146 |[3204066]   |Microsoft grafik bileşeni için güvenlik güncelleştirmesi|2.58, 3.46, 4.39, 5.4 |13 Aralık 2016 |
 | MS16-147 |[3204063]   |Microsoft Uniscribe güvenlik güncelleştirmesi|2.58, 3.46, 4.39, 5.4 |13 Aralık 2016 |
 | MS16-149 |[3205655]   |Microsoft Windows Güvenlik güncelleştirmesi|2.58, 3.46, 4.39, 5.4 |13 Aralık 2016 |
-| MS16-150 |[3205642]   |Güvenlik güncelleştirmesi güvenli çekirdek modu |5.4 |13 Aralık 2016 |
+| MS16-150 |[3205642]   |Güvenlik güncelleştirmesi güvenli çekirdek modu |5,4 |13 Aralık 2016 |
 | MS16-151 |[3205651]   |Çekirdek modu sürücüleri için güvenlik güncelleştirmesi|2.58, 3.46, 4.39, 5.4 |13 Aralık 2016 |
-| MS16-152 |[3199709]   |Windows çekirdek güvenlik güncelleştirmesi |5.4 |13 Aralık 2016 |
+| MS16-152 |[3199709]   |Windows çekirdek güvenlik güncelleştirmesi |5,4 |13 Aralık 2016 |
 | MS16-153 |[3207328] |Ortak günlük dosya sistemi sürücüsü için güvenlik güncelleştirmesi|2.58, 3.46, 4.39, 5.4 |13 Aralık 2016 |
-| MS16-155 |[3205640]   |.NET Framework güvenlik güncelleştirmesi |5.4 |13 Aralık 2016 |
+| MS16-155 |[3205640]   |.NET Framework güvenlik güncelleştirmesi |5,4 |13 Aralık 2016 |
 | Yok |[3197868] |Windows 7 SP1 ve Windows Server 2008 R2 SP1'i Kasım 2016 güvenlik aylık kalite dökümü |2.58 |13 Aralık 2016 |
 | Yok |[3197877] |Kasım 2016 güvenlik Windows Server 2012 için aylık kalite dökümü |3.46 |13 Aralık 2016 |
 | Yok |[3197874] |Kasım 2016 güvenlik aylık kalite toplaması için Windows 8.1 ve Windows Server 2012 R2 |4.39 |13 Aralık 2016 |
@@ -468,12 +506,12 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |[3192321] |Türkiye DST observance sona erer. |5.3, 4.38, 3.45, 2.57 |8 Kasım 2016 |
 | Yok |[3185330] |Ekim 2016 güvenlik Windows 7 SP1 ve Windows Server 2008 R2 SP1 için aylık kalite dökümü |2.57 |8 Kasım 2016 |
 | Yok |[3192403] |Windows 7 SP1 ve Windows Server 2008 R2 SP1 için aylık kalite toplaması Ekim 2016'dan önizlemesi |2.57 |8 Kasım 2016 |
-| Yok |[3177467] |Hizmet, Windows 7 SP1 ve Windows Server 2008 R2 SP1 Güncelleştirmesi yığın: 20 Eylül 2016 |2.57 |8 Kasım 2016 |
+| Yok |[3177467] |Windows 7 SP1 ve Windows Server 2008 R2 SP1 hizmet yığını güncelleştirmesi: 20 Eylül 2016 |2.57 |8 Kasım 2016 |
 | Yok |[3185332] |Windows Server 2012 Ekim 2016 güvenlik aylık kalite dökümü |3.45 |8 Kasım 2016 |
 | Yok |[3192406] |Ekim 2016'dan Windows Server 2012 için aylık kalite toplaması önizlemesi |3.45 |8 Kasım 2016 |
 | Yok |[3185331] |Ekim 2016 güvenlik Windows 8.1 ve Windows Server 2012 R2 için aylık kalite dökümü |4.38 |8 Kasım 2016 |
 | Yok |[3192404] |Windows 8.1 ve Windows Server 2012 R2 için aylık kalite toplaması Ekim 2016'dan önizlemesi |4.38 |8 Kasım 2016 |
-| Yok |[3199986] |Bakım güncelleştirmesi, Windows 10 sürüm 1607'ye yığın: 27 Ekim 2016 |5.3 |8 Kasım 2016 |
+| Yok |[3199986] |Windows 10 sürüm 1607 için hizmet yığını güncelleştirmesi: 27 Ekim 2016 |5.3 |8 Kasım 2016 |
 | Yok |[3197954] |Windows 10 sürüm 1607'ye ve Windows Server 2016 için toplu güncelleştirme: 27 Ekim 2016 |5.3 |8 Kasım 2016 |
 
 ## <a name="october-2016-guest-os"></a>Ekim 2016 konuk işletim sistemi
@@ -581,7 +619,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | Yok |[3133977] |BitLocker Sürücü svchost.exe işleminde Windows 7 veya Windows Server 2008 R2 hizmet kilitlenmesi nedeniyle şifrelenemiyor  |2.51 |10 Mayıs 2016 |
 | Yok |[3133681] |İşlemi Windows Server 2012 R2'de SCVMM'de sanal makineler yanıt yok  |4.32 |10 Mayıs 2016 |
 | Yok |[3123245] |Güncelleştirme, Windows Server 2012 R2'de bağlantı noktası tükenmesi kimliği geliştirir.  |4.32 |10 Mayıs 2016 |
-| Yok |[RC4'ü devre dışı bırak] | Microsoft Güvenlik Danışma Belgesi: güncelleştirme RC4'ü devre dışı bırakmak için  |4.32, 3.39, 2.51 |10 Mayıs 2016 |
+| Yok |[RC4'ü devre dışı bırak] | Microsoft Güvenlik Danışma Belgesi: RC4'ü devre dışı bırakmak için güncelleştirme  |4.32, 3.39, 2.51 |10 Mayıs 2016 |
 
 ## <a name="april-2016-guest-os"></a>Nisan 2016 konuk işletim sistemi
 | Bülten No | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -630,7 +668,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan güncelleştirm
 | MS16-005 |[3124584] |Windows çekirdek modu sürücüleri uzaktan kod yürütülmesine yönelik güvenlik güncelleştirmesi |4.28, 3.35, 2.47 |12 Ocak 2016 |
 | MS16-007 |[3124901] |Microsoft uzaktan kod yürütülmesine yönelik olarak Windows Güvenlik güncelleştirmesi |4.28, 3.35, 2.47 |12 Ocak 2016 |
 | MS16-008 |[3124605] |Ayrıcalıkların yükseltilmesine yönelik çekirdek güvenlik güncelleştirmesi |4.28, 3.35, 2.47 |12 Ocak 2016 |
-| Microsoft Security Advisory düzeltme |[2755801] |Internet Explorer'da Adobe Flash Player güvenlik açıkları için güncelleştirme (KB paketini: TBD)-danışmanlık yer tutucu |4.28, 3.35 |12 Ocak 2016 |
+| Microsoft Security Advisory düzeltme |[2755801] |Internet Explorer'da Adobe Flash Player güvenlik açıkları için güncelleştirme (KB paketi: Henüz Belirlenmedi) - danışmanlık yer tutucu |4.28, 3.35 |12 Ocak 2016 |
 | Microsoft Güvenlik danışma belgesi |[3109853] |TLS birlikte çalışabilirlik geliştirmek için güncelleştirme |4.28, 3.35 |12 Ocak 2016 |
 | Microsoft Güvenlik danışma belgesi |[3123479] |Microsoft kök sertifika programı için SHA-1 karma algoritması kullanımdan kaldırma |4.28, 3.35, 2.47 |12 Ocak 2016 |
 | Microsoft Güvenlik danışma belgesi |[2736233] |ActiveX, KILL bitleri için güncelleştirmeleri |4.28, 3.35, 2.47 |12 Ocak 2016 |

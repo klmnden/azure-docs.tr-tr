@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: dbda20554b119bfb72b939cbeb7f19e0b9093b31
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499395"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597486"
 ---
-# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Bir Apache Spark makine öğrenimi işlem hattı oluşturma
+# <a name="create-an-apache-spark-machine-learning-pipeline"></a>Apache Spark makine öğrenimi işlem hattı oluşturma
 
-Apache Spark'ın ölçeklenebilir makine öğrenimi kitaplığı (MLlib), dağıtılmış bir ortama modelleme özellikleri sunar. Spark paket [ `spark.ml` ](http://spark.apache.org/docs/latest/ml-pipeline.html) DataFrames üzerinde oluşturulan üst düzey API'ler kümesidir. Bu API'ler oluşturmak ve pratik makine öğrenimi işlem hatlarını ayarlama yardımcı olur.  *Spark machine learning* bu MLlib DataFrame tabanlı API'sine olmayan eski RDD tabanlı ardışık düzen API ifade eder.
+Apache Spark'ın ölçeklenebilir makine öğrenimi kitaplığı (MLlib), dağıtılmış bir ortama modelleme özellikleri sunar. Spark paket [ `spark.ml` ](https://spark.apache.org/docs/latest/ml-pipeline.html) DataFrames üzerinde oluşturulan üst düzey API'ler kümesidir. Bu API'ler oluşturmak ve pratik makine öğrenimi işlem hatlarını ayarlama yardımcı olur.  *Spark machine learning* bu MLlib DataFrame tabanlı API'sine olmayan eski RDD tabanlı ardışık düzen API ifade eder.
 
 Bir machine learning (ML) işlem hattı, birden çok makine öğrenimi algoritması birlikte birleştirerek eksiksiz bir akışıdır. Çok adımlı işlem ve algoritmaları bir dizi gerektiren verilerden bilgi almak için gerekli olabilir. Ardışık Düzen aşamaları ve bir makine öğrenme sürecinde sıralama tanımlayın. MLlib içinde bir işlem hattının aşamaları PipelineStages burada bir dönüştürücü ve bir tahmin görevleri, belirli bir dizi tarafından temsil edilir.
 
@@ -30,7 +30,7 @@ Her bir durum bilgisi olmayan bir dönüştürücü ya da bir Estimator örneği
 
 ## <a name="pipeline-example"></a>İşlem hattı örneği
 
-Bu örnek bir ML işlem hattı pratik bir kullanımını göstermek için örnek kullanır `HVAC.csv` veri dosyası, varsayılan depolama alanı Azure depolama ya da Data Lake Store, HDInsight kümeniz üzerinde önceden yüklü olarak sunulur. Dosya içeriğini görüntülemek için gidin `/HdiSamples/HdiSamples/SensorSampleData/hvac` dizin. `HVAC.csv` hem hedef hem de gerçek Sıcaklıkların süreleri için HVAC içerir (*ısıtma, havalandırma ve havalandırma*) çeşitli binalar sistemlerinde. Veri modeli eğitmek ve belirli bir yapı için tahmini bir sıcaklık üretmek için kullanılan hedeftir.
+Bu örnek bir ML işlem hattı pratik bir kullanımını göstermek için örnek kullanır `HVAC.csv` veri dosyası, varsayılan depolama alanı Azure depolama ya da Data Lake depolama, HDInsight kümeniz üzerinde önceden yüklü olarak sunulur. Dosya içeriğini görüntülemek için gidin `/HdiSamples/HdiSamples/SensorSampleData/hvac` dizin. `HVAC.csv` hem hedef hem de gerçek Sıcaklıkların süreleri için HVAC içerir (*ısıtma, havalandırma ve havalandırma*) çeşitli binalar sistemlerinde. Veri modeli eğitmek ve belirli bir yapı için tahmini bir sıcaklık üretmek için kullanılan hedeftir.
 
 Aşağıdaki kodu:
 

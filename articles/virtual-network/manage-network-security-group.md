@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 3ac7ab0aac190ab53075a6a4ee24fca3ee7eeb84
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: d6dfd88f9349312cc81d760a2c473f32ff932885
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227529"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543096"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Oluşturma, değiştirme veya bir ağ güvenlik grubunu sil
 
@@ -52,7 +52,7 @@ Kaç ağ güvenlik grupları Azure konumu ve abonelik oluşturmak için bir sın
 **Komutları**
 
 - Azure CLI: [az ağ nsg oluşturma](/cli/azure/network/nsg#az-network-nsg-create)
-- PowerShell: [AzureRmNetworkSecurityGroup yeni](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)
+- PowerShell: [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)
 
 ### <a name="view-all-network-security-groups"></a>Tüm ağ güvenlik grupları görüntüleme
 
@@ -68,7 +68,7 @@ Portalın üst kısmındaki arama kutusuna girin *ağ güvenlik grupları*. Zama
 1. Portalın üst kısmındaki arama kutusuna girin *ağ güvenlik grupları*. Zaman **ağ güvenlik grupları** arama sonuçlarında görünmesini, onu seçin.
 2. Ağ güvenlik grubu ayrıntılarını görüntülemek istediğiniz listeyi seçin. Altında **ayarları** görüntüleyebileceğiniz **gelen güvenlik kuralları** ve **giden güvenlik kuralları**, **ağ arabirimleri** ve  **Alt ağlar** ilişkili ağ güvenlik grubu. Ayrıca etkinleştirir veya devre dışı bırakmak **tanılama günlükleri** ve Görünüm **geçerli güvenlik kuralları**. Daha fazla bilgi için bkz. [tanılama günlükleri](virtual-network-nsg-manage-log.md) ve [geçerli güvenlik kuralları görüntüleyebiliriz](diagnose-network-traffic-filter-problem.md).
 3. Listelenen yaygın Azure ayarları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
-    *   [Etkinlik Günlüğü](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+    *   [Etkinlik Günlüğü](../azure-monitor/platform/activity-logs-overview.md)
     *   [Erişim denetimi (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Etiketler](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Kilitler](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -134,7 +134,7 @@ Ağ güvenlik grubu başına kaç kuralları Azure konumu ve abonelik oluşturab
 **Komutları**
 
 - Azure CLI: [az ağ nsg kuralı oluşturma](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)
-- PowerShell: [yeni-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)
+- PowerShell: [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig)
 
 ### <a name="view-all-security-rules"></a>Tüm güvenlik kurallarını görüntüleyin
 
@@ -203,7 +203,7 @@ Uygulama güvenlik grubu, sıfır veya daha fazla ağ arabirimlerini içerir. Da
 **Komutları**
 
 - Azure CLI: [az ağ asg oluşturma](/cli/azure/network/asg#az-network-asg-create)
-- PowerShell: [yeni-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)
+- PowerShell: [Yeni-AzureRmApplicationSecurityGroup](/powershell/module/azurerm.network/new-azurermapplicationsecuritygroup)
 
 ### <a name="view-all-application-security-groups"></a>Tüm uygulama güvenlik grupları görüntüleme
 
@@ -233,7 +233,7 @@ Uygulama güvenlik grubu, sıfır veya daha fazla ağ arabirimlerini içerir. Da
 3. Ayarlarını değiştirmek istediğiniz uygulama güvenlik grubu seçin. Ekleyebilir veya etiketleri, kaldırmak veya atayın veya uygulama güvenlik grubu izinlerini kaldırın.
 
 - Azure CLI: [az ağ asg güncelleştirme](/cli/azure/network/asg#az-network-asg-update)
-- PowerShell: Hiçbir PowerShell cmdlet'i.
+- PowerShell: PowerShell cmdlet yok.
 
 ### <a name="delete-an-application-security-group"></a>Bir uygulama güvenlik grubunu sil
 
@@ -269,7 +269,7 @@ Ağ güvenlik grupları, güvenlik kuralları ve uygulama güvenlik grupları g�
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/rules/read            |   Kuralı alma                                                            |
 | Microsoft.Network/networkSecurityGroups/rules/write           |   Kuralı oluşturun veya güncelleştirin                                               |
-| Microsoft.Network/networkSecurityGroups/rules/delete          |   Kuralı Sil                                                         |
+| Microsoft.Network/networkSecurityGroups/rules/delete          |   Kuralı sil                                                         |
 
 ### <a name="application-security-group"></a>Uygulama güvenlik grubu
 

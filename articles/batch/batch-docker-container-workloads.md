@@ -1,5 +1,5 @@
 ---
-title: Kapsayıcı iş yüklerinin Azure batch | Microsoft Docs
+title: Kapsayıcı iş yüklerinin - Azure Batch | Microsoft Docs
 description: Uygulamaları, kapsayıcı görüntülerini Azure Batch'te çalıştırmayı öğrenin.
 services: batch
 author: dlepow
@@ -10,12 +10,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1d915482a3a8b1f6416b50ab52de997a9d33294f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.custom: seodec18
+ms.openlocfilehash: 4d4dc5d01959406e71859fcbde6de1e36b5871aa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262440"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541005"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch'te kapsayıcı uygulamaları çalıştırma
 
@@ -29,7 +30,7 @@ Kapsayıcıları kullanarak bir ortam ve uygulamaları çalıştırmak için ba�
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **SDK sürümleri**: Batch SDK'ları destek kapsayıcı görüntülerini aşağıdaki sürümlerinden itibaren:
+* **SDK sürümleri**: Batch SDK'ları aşağıdaki sürümlerinden itibaren kapsayıcı görüntüleri destekler:
     * Batch REST API Sürüm 2017-09-01.6.0
     * Batch .NET SDK'sı sürüm 8.0.0
     * Batch Python SDK'sı sürüm 4.0
@@ -38,7 +39,7 @@ Kapsayıcıları kullanarak bir ortam ve uygulamaları çalıştırmak için ba�
 
 * **Hesapları**: Azure aboneliğinizde bir Batch hesabı ve isteğe bağlı olarak bir Azure depolama hesabı oluşturmanız gerekir.
 
-* **Desteklenen bir VM görüntüsü**: sanal makine yapılandırmasıyla oluşturulan havuzlarda yalnızca kapsayıcılar desteklenir aşağıdaki bölümde ayrıntılı görüntülerden "sanal makine görüntüleri desteklenmiyor." Özel bir görüntü sağlarsanız, aşağıdaki bölümde önemli noktalar ve gereksinimler bkz [sanal makine havuzu oluşturmak için yönetilen bir özel görüntü kullanmak](batch-custom-images.md). 
+* **Desteklenen bir VM görüntüsü**: Sanal makine yapılandırmasıyla oluşturulan havuzlarda yalnızca kapsayıcılar desteklenir aşağıdaki bölümde ayrıntılı görüntülerden "sanal makine görüntüleri desteklenmiyor." Özel bir görüntü sağlarsanız, aşağıdaki bölümde önemli noktalar ve gereksinimler bkz [sanal makine havuzu oluşturmak için yönetilen bir özel görüntü kullanmak](batch-custom-images.md). 
 
 ### <a name="limitations"></a>Sınırlamalar
 

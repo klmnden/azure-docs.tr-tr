@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 1aa1bd085a312e379dc996a860c7f97b2e0dfe73
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 1333c8cdb4493530e1e4803192b382720dbfa5ee
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918885"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634414"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Azure dosya eşitleme ile kayıtlı sunucuları yönetme
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunu Windows sunucularınızı Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürerek yapar. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
 
 Aşağıdaki makalede kaydetmek ve depolama eşitleme hizmeti ile bir sunucuyu yönetmek nasıl gösterir. Bkz: [Azure dosya eşitleme dağıtmayı](storage-sync-files-deployment-guide.md) Azure dosya eşitleme uçtan uca dağıtma hakkında daha fazla bilgi için.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Depolama eşitleme hizmeti ile bir sunucu kaydı/unregister
 Azure dosya eşitleme ile bir sunucu kaydetme, Windows Server ve Azure arasında bir güven ilişkisi oluşturur. Bu ilişki oluşturmak için daha sonra kullanılabilir *sunucu uç noktaları* sunucuda, bir Azure dosya paylaşımı ile eşitlenmesi gereken belirli klasörlere temsil (olarak da bilinen bir *bulut uç noktası*). 
@@ -33,10 +35,10 @@ Depolama eşitleme hizmeti ile bir sunucuyu kaydetmek için önce gerekli önko�
     
     ![Sunucu Yöneticisi kullanıcı Arabirimi ile vurgulanmış IE Artırılmış Güvenlik Yapılandırması](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
-* AzureRM PowerShell Modülü'nın sunucuda yüklü olduğundan emin olun. Sunucunuz bir yük devretme kümesinin bir üyesi ise, kümedeki her düğümün AzureRM modülünü gerektirir. AzureRM modülünü yükleme hakkında daha fazla ayrıntı bulunabilir [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* Azure PowerShell Modülü'nın sunucuda yüklü olduğundan emin olun. Sunucunuz bir yük devretme kümesinin bir üyesi ise, kümedeki her düğümün Az modül gerektirir. Az Modül yükleme hakkında daha fazla ayrıntı bulunabilir [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
     > [!Note]  
-    > Bir sunucu kaydı/kaydını kaldırma AzureRM PowerShell modülünün en yeni sürümü kullanmanızı öneririz. AzureRM paketi bu sunucuda daha önce yüklenmişse (ve bu sunucu üzerindeki PowerShell sürümü 5.* veya üzeri), kullanabilirsiniz `Update-Module` bu paketi güncelleştirmeye yönelik cmdlet'i. 
+    > Bir sunucu kaydı/kaydını kaldırma Az PowerShell modülünün en yeni sürümü kullanmanızı öneririz. Az paket bu sunucuda daha önce yüklenmişse (ve bu sunucu üzerindeki PowerShell sürümü 5.* veya üzeri), kullanabilirsiniz `Update-Module` bu paketi güncelleştirmeye yönelik cmdlet'i. 
 * Ortamınızda ağ proxy sunucusu kullanmak, sunucunuzdaki yararlanmak eşitleme aracısı için proxy ayarlarını yapılandırın.
     1. Ara sunucu IP adresi ve bağlantı noktası numarasını belirleyin
     2. Bu iki dosyayı düzenleyin:
@@ -61,7 +63,7 @@ Depolama eşitleme hizmeti ile bir sunucuyu kaydetmek için önce gerekli önko�
 ### <a name="register-a-server-with-storage-sync-service"></a>Depolama eşitleme hizmeti ile bir sunucuyu kaydetmek
 Bir sunucu olarak kullanılabilmesi için önce bir *sunucu uç noktası* bir Azure dosya eşitleme'deki *eşitleme grubu*, ile kaydedilmelidir bir *depolama eşitleme hizmeti*. Bir sunucu aynı anda yalnızca bir depolama eşitleme hizmeti ile kaydedilebilir.
 
-#### <a name="install-the-azure-file-sync-agent"></a>Azure dosya eşitleme aracısını yükleme
+#### <a name="install-the-azure-file-sync-agent"></a>Azure Dosya Eşitleme aracısını yükleme
 1. [Azure dosya eşitleme Aracısı'nı indirme](https://go.microsoft.com/fwlink/?linkid=858257).
 2. Azure dosya eşitleme Aracısı Yükleyicisi'ni başlatın.
     
@@ -101,8 +103,8 @@ Ayrıca, PowerShell aracılığıyla sunucu kaydı gerçekleştirebilirsiniz. Su
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
-Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+Login-AzStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
+Register-AzStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
 ```
 
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Depolama eşitleme hizmeti ile sunucunun kaydını Kaldır
@@ -135,15 +137,15 @@ Bu, basit bir PowerShell Betiği ile de gerçekleştirilebilir:
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
-$accountInfo = Connect-AzureRmAccount
-Login-AzureRmStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
+$accountInfo = Connect-AzAccount
+Login-AzStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -TenantId $accountInfo.Context.Tenant.Id -ResourceGroupName "<your-resource-group>"
 
 $StorageSyncService = "<your-storage-sync-service>"
 
-Get-AzureRmStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
+Get-AzStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
     $SyncGroup = $_; 
-    Get-AzureRmStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
-        Remove-AzureRmStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
+    Get-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
+        Remove-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
     } 
 }
 ```

@@ -4,19 +4,19 @@ description: Veritabanı geçiş hizmeti için kaynak ve hedef yapılandırmalar
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/8/2018
-ms.openlocfilehash: cd62b60718a35aed9129db61413086266bb9f2c7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 12/19/2018
+ms.openlocfilehash: bc54b3dbcdb304b18f916e5fbd4866ff54d1bfa2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971088"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713205"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>İçin Azure veritabanı geçiş hizmetini kullanarak Azure SQL DB yönetilen örneği geçişlerinin ağ topolojileri
 Bu makalede, kapsamlı bir geçiş deneyimi için Azure SQL veritabanı yönetilen örneği şirket içi SQL Server'lardaki sağlamak için Azure veritabanı geçiş hizmeti çalışabilirsiniz çeşitli ağ topolojileri açıklanır.
@@ -26,7 +26,7 @@ Azure SQL veritabanı yönetilen örneği, şirket içi ağınıza bağlıysa bu
 
 ![Hibrit iş yükleri için ağ topolojisi](media/resource-network-topologies/hybrid-workloads.png)
 
-**Gereksinimleri**
+**Gereksinimler**
 - Bu senaryoda, Azure SQL veritabanı yönetilen örneği ve Azure veritabanı geçiş hizmeti örneği aynı Azure sanal ağınızda oluşturulur, ancak bunlar farklı alt ağları kullanın.  
 - Bu senaryoda kullanılan VNET kullanarak şirket içi ağa ayrıca bağlı [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) veya [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
@@ -38,7 +38,7 @@ Bir veya daha fazla aşağıdaki senaryolarda ortamınızın gerektiriyorsa, bu 
 
 ![Yönetilen şirket içi ağdan yalıtılmış bir örneği için ağ topolojisi](media/resource-network-topologies/mi-isolated-workload.png)
 
-**Gereksinimleri**
+**Gereksinimler**
 - Bu senaryo için Azure veritabanı geçiş hizmeti kullanan sanal ağın da şirket içi ağa kullanarak bağlanmalıdır (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) veya [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Ayarlanan [VNET ağ eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) Azure SQL veritabanı yönetilen örneği ve Azure veritabanı geçiş hizmeti için kullanılan sanal ağ arasında.
 
@@ -49,7 +49,7 @@ Kaynak SQL Server bir Azure sanal Makinesinde barındırılan ve Azure SQL verit
 
 ![Paylaşılan bir sanal ağ ile bulut buluta geçiş ağ topolojisi](media/resource-network-topologies/cloud-to-cloud.png)
 
-**Gereksinimleri**
+**Gereksinimler**
 - Ek gereksinimi yoktur.
 
 ## <a name="cloud-to-cloud-migrations-isolated-vnet"></a>Buluta geçiş için bulut: sanal ağ yalıtılmış
@@ -61,7 +61,7 @@ Bir veya daha fazla aşağıdaki senaryolarda ortamınızın gerektiriyorsa, bu 
 
 ![Ağ topolojisi yalıtılmış bir sanal ağ ile bulut buluta geçiş](media/resource-network-topologies/cloud-to-cloud-isolated.png)
 
-**Gereksinimleri**
+**Gereksinimler**
 - Ayarlanan [VNET ağ eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) Azure SQL veritabanı yönetilen örneği ve Azure veritabanı geçiş hizmeti için kullanılan sanal ağ arasında.
 
 ## <a name="inbound-security-rules"></a>Gelen güvenlik kuralları
@@ -87,4 +87,5 @@ Bir veya daha fazla aşağıdaki senaryolarda ortamınızın gerektiriyorsa, bu 
 - [Azure portalını kullanarak bir sanal ağ oluşturma](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bölgesel kullanılabilirlik genel Önizleme süresince ve Azure veritabanı geçiş Hizmeti'nin genel bakış için bkz [Azure veritabanı geçiş hizmeti önizlemesi nedir](dms-overview.md). 
+- Azure veritabanı geçiş Hizmeti'nin genel bakış için bkz [Azure veritabanı geçiş hizmeti nedir?](dms-overview.md).
+- Azure veritabanı geçiş hizmeti bölgesel kullanılabilirliği hakkında güncel bilgiler için bkz [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration) sayfası.

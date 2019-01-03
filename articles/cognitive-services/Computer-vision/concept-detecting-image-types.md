@@ -1,7 +1,7 @@
 ---
 title: Resim türleri - görüntü işleme algılama
 titleSuffix: Azure Cognitive Services
-description: Görüntü işleme API'sini kullanarak görüntü türlerini algılamak için ilgili kavramları.
+description: Görüntü işleme API'si, resim türü algılama özellikle ilgili kavramları.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: ecdbdd60af41ee14070f2f45dfe50875e38ac3b3
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 04062d5625126712c5f14c41d610d55caf4c28b5
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342016"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583111"
 ---
-# <a name="detecting-image-types"></a>Görüntü türünü algılama
+# <a name="detecting-image-types-with-computer-vision"></a>Görüntü işleme olan algılama resim türleri
 
 Görüntü işleme görüntüleri içerik türü tarafından bir görüntüyü küçük resim olup olmadığını belirten bir ölçeği veya çizim olasılığını derecelendirme çözümleyebilirsiniz.
 
@@ -27,7 +28,7 @@ Görüntü işleme, görüntüye inceler ve aşağıdaki tabloda açıklandığ�
 
 | Değer | Anlamı |
 |-------|---------|
-| 0 | Olmayan küçük resim |
+| 0 | Küçük resim değil |
 | 1 | belirsiz |
 | 2 | Normal küçük resim |
 | 3 | iyi küçük resim |
@@ -36,7 +37,7 @@ Görüntü işleme, görüntüye inceler ve aşağıdaki tabloda açıklandığ�
 
 Aşağıdaki JSON yanıtları gösterir görüntü işleme, küçük resim olan örnek görüntüleri olasılığını derecelendirme döndürür.
 
-![Görüntü işleme peynirlerine ayırıyor küçük resim analiz edin](./Images/cheese_clipart.png)
+![Küçük resim görüntüsünü dilimin peynirlerine ayırıyor](./Images/cheese_clipart.png)
 
 ```json
 {
@@ -53,7 +54,7 @@ Aşağıdaki JSON yanıtları gösterir görüntü işleme, küçük resim olan 
 }
 ```
 
-![Görüntü merkezi Yard analiz edin](./Images/house_yard.png)
+![Mavi bir ev ve ön yard](./Images/house_yard.png)
 
 ```json
 {
@@ -78,7 +79,7 @@ Görüntü işleme, görüntüye inceler ve resmin çizim olup olmadığını g�
 
 Aşağıdaki JSON yanıtları gösterir görüntü işleme örnek görüntüleri çizimlerde olup olmadığını gösteren zaman döndürür.
 
-![Görüntü işleme Lion çizim analiz edin](./Images/lion_drawing.png)
+![Bir lion çizim görüntüsü](./Images/lion_drawing.png)
 
 ```json
 {
@@ -95,7 +96,7 @@ Aşağıdaki JSON yanıtları gösterir görüntü işleme örnek görüntüleri
 }
 ```
 
-![İşleme çiçek analiz edin](./Images/flower.png)
+![Yeşil bir arka plan beyaz çiçek](./Images/flower.png)
 
 ```json
 {

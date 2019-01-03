@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 836449dad621cf6a0efe6c8534edc9f3982869b3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141586"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601976"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>LUIS uygulamanızı LUIS portalında test etme
 <a name="train-your-app"></a>
@@ -51,11 +51,11 @@ Bir test sonucunun ayrıntılarını incelemek **inceleyin** paneli.
  
 1. İle **Test** slayt genişletme paneli açık, select **inceleyin** karşılaştırmak istediğiniz bir utterance için. 
 
-    ![Düğme inceleyin](./media/luis-how-to-interactive-test/inspect.png)
+    ![Test sonuçlarıyla ilgili daha fazla ayrıntı için İncele düğmeyi seçin](./media/luis-how-to-interactive-test/inspect.png)
 
 2. **İnceleme** paneli görüntülenir. Panelin amacını ve bunun yanı sıra tanımlanan herhangi bir varlık Puanlama üst içerir. Paneli, seçilen utterance sonucunu gösterir.
 
-    ![Düğme inceleyin](./media/luis-how-to-interactive-test/inspect-panel.png)
+    ![Panelin amacını ve bunun yanı sıra tanımlanan herhangi bir varlık Puanlama üst içerir. Paneli, seçilen utterance sonucunu gösterir.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## <a name="correct-top-scoring-intent"></a>Doğru üst hedefi Puanlama
 

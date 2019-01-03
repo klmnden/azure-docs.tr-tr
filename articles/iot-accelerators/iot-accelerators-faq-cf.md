@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: e9e88fc9aa3aad902c140ac176e31571b9e55ee3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ef55f25657d1decb09e438d443e7c289823f7d9d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353750"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605917"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Bağlı Fabrika çözüm Hızlandırıcı için sık sorulan sorular
 
@@ -27,7 +27,7 @@ Kaynak kodu, aşağıdaki GitHub deposunda depolanır:
 
 ### <a name="what-is-opc-ua"></a>OPC UA nedir?
 
-OPC birleşik mimarisi (2008'de yayımlanan UA), bir platformdan bağımsız, hizmet odaklı birlikte çalışabilirlik standart ' dir. OPC UA çeşitli endüstriyel sistemleri ve cihazların sektör bilgisayarları PLC ve algılayıcılar gibi tarafından kullanılır. OPC UA OPC Klasik belirtimleri işlevselliğinin bir Genişletilebilir Framework'e yerleşik güvenlik ile tümleştirir. OPC Fundation tarafından yönetilen bir standarttır. [OPC Fundation](http://opcfoundation.org/) 440'den fazla üyelere sahip olmayan yetkilendirilip kâr kuruluştur. Hedef kuruluşun aracılığıyla çok satıcılı, çok platformlu, güvenli ve güvenilir birlikte çalışabilirlik kolaylaştırmak için OPC belirtimleri kullanmaktır:
+OPC birleşik mimarisi (2008'de yayımlanan UA), bir platformdan bağımsız, hizmet odaklı birlikte çalışabilirlik standart ' dir. OPC UA çeşitli endüstriyel sistemleri ve cihazların sektör bilgisayarları PLC ve algılayıcılar gibi tarafından kullanılır. OPC UA OPC Klasik belirtimleri işlevselliğinin bir Genişletilebilir Framework'e yerleşik güvenlik ile tümleştirir. OPC Fundation tarafından yönetilen bir standarttır. [OPC Fundation](https://opcfoundation.org/) 440'den fazla üyelere sahip olmayan yetkilendirilip kâr kuruluştur. Hedef kuruluşun aracılığıyla çok satıcılı, çok platformlu, güvenli ve güvenilir birlikte çalışabilirlik kolaylaştırmak için OPC belirtimleri kullanmaktır:
 
 * Altyapı
 * Belirtimler
@@ -78,7 +78,7 @@ Www.azureiotsolutions.com çözümden dağıttıysanız, sanal Makineye oturum a
 1. Tüm benzetim kapsayıcıları başlatmak için:
     * Bir kabuk değişkeni adı ile dışarı aktarma **IOTHUB_CONNECTIONSTRING**. Değerini kullanmak **IotHubOwnerConnectionString** ayarı `<name of your deployment>.config.user` dosya. Örneğin:
 
-        ```
+        ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
         ```
 
@@ -142,7 +142,7 @@ IOT Hub'ına gönderilen veri görürseniz, benzetim ile ilgili bir sorun yoktur
 
 Bağlı Fabrika çözümünüzü etkileşimli bir harita etkinleştirmek için bir Azure haritalar hesabı olmalıdır.
 
-Gelen dağıtırken [www.azureiotsolutions.com](http://www.azureiotsolutions.com), dağıtım işlemi bir Azure haritalar hesabı çözüm Hızlandırıcı hizmetleri içeren kaynak grubunu ekler.
+Gelen dağıtırken [www.azureiotsolutions.com](https://www.azureiotsolutions.com), dağıtım işlemi bir Azure haritalar hesabı çözüm Hızlandırıcı hizmetleri içeren kaynak grubunu ekler.
 
 Kullanarak dağıtırken `build.ps1` ortam değişkeni bağlı Fabrika GitHub deposu kümesinde betik `$env:MapApiQueryKey` derleme penceresinde [Azure haritalar hesabınızda anahtarı](../azure-maps/how-to-manage-account-keys.md). Etkileşimli harita otomatik olarak etkinleştirilir.
 
@@ -174,15 +174,15 @@ Telemetri verilerini olmayan OPC UA cihazları bağlı Fabrika için göndermek 
 
     ```json
     [
-      {
-        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
-        "DisplayName": "<name_of_the_datapoint>",
-        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
-        "Value": {
-          "Value": <datapoint_value>,
-          "SourceTimestamp": "<timestamp>"
-        }
-      }
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
     ]
     ```
 

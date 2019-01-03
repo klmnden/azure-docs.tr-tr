@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a896c949e1f05a5d9ee179fa475150ad8da34283
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497264"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792790"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Hata ayıklama ve tanılama Apache Spark uygulamaları için genişletilmiş Apache Spark geçmiş sunucusu kullanın
 
@@ -26,7 +26,7 @@ Apache Spark geçmiş sunucusu, tamamlanmış ve çalışan Spark uygulamaları 
 
 ### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>Azure portalından Apache Spark geçmiş sunucusu Web kullanıcı arabirimini açın
 
-1. Gelen [Azure portalında](https://portal.azure.com/), Spark kümesini açın. Daha fazla bilgi için [kümeleri Listele ve Göster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. Gelen [Azure portalında](https://portal.azure.com/), Spark kümesini açın. Daha fazla bilgi için [kümeleri Listele ve Göster](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Gelen **hızlı bağlantılar**, tıklayın **küme Panosu**ve ardından **Spark geçmiş sunucusu**. İstendiğinde, Spark küme için yönetici kimlik bilgilerini girin. 
 
     ![Spark geçmiş sunucusu](./media/apache-azure-spark-history-server/launch-history-server.png "Spark geçmiş sunucusu")
@@ -106,11 +106,11 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
 
 + Tıklayarak işi kayıttan yürütme **kayıttan yürütme** Durdur düğmesini tıklayarak dilediğiniz zaman durdurmak ve düğme. Görev görünen farklı durumunu göstermek için renk, kayıttan yürütme:
 
-    + Başarılı olanlar için yeşil: işi başarıyla tamamlandı.
-    + Denenen için turuncu: başarısız olan ancak işin kesin sonucunu etkilemeyen bir görev örneği. Bu görevler sahip yinelenen veya daha sonra başarılı olabilecek örnekleri yeniden deneyin.
+    + Yeşil başarılı olanlar için: İş başarıyla tamamlandı.
+    + Turuncu için yeniden deneme: Başarısız olan ancak işin kesin sonucunu etkilemeyen görevleri örnekleri. Bu görevler sahip yinelenen veya daha sonra başarılı olabilecek örnekleri yeniden deneyin.
     + Mavi çalıştırmak için: Görev çalışıyor.
-    + Bekleme için beyaz veya atlandı: görev çalıştırılmayı bekliyor veya aşamayı atlandı.
-    + Kırmızı işlemi başarısız oldu: görev başarısız oldu.
+    + Bekleme için beyaz veya atlandı: Görev çalıştırılmayı bekliyor veya aşamayı atlandı.
+    + Kırmızı başarısız oldu: Görev başarısız oldu.
 
     ![renk örneği çalıştırma grafiği](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
@@ -119,7 +119,7 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
 
     ![graf renk örneği, başarısız oldu](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
-    > [!NOTE]
+    > [!NOTE]  
     > Kayıttan yürütme her iş için izin verilir. İş eksik, kayıttan yürütme desteklenmiyor.
 
 
@@ -132,8 +132,8 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
     ![Grafik araç ipucu](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + İş grafiği sekmesinde, araç ipucu ve görevleri karşılamak oluşturulduysa görüntülenen küçük simge aşamaları olacaktır koşullar altında:
-    + Veri dengesizliği: veri okuma boyutu > Ortalama Veri Okuma boyutu Bu aşama içinde tüm görevlerin * 2 ve veri okuma boyutu > 10 MB
-    + Zaman eğimi: yürütme süresi > Bu aşamayı içindeki tüm görevlerin ortalama yürütme süresi * 2 ve yürütme süresi > 2 dakika
+    + Veri dengesizliği: veri okuma boyutu > Ortalama Veri Okuma boyutu Bu aşama içinde tüm görevlerin * 2 ve veri okuma boyutu > 10 MB.
+    + Zaman eğimi: yürütme süresi > Bu aşamayı içindeki tüm görevlerin ortalama yürütme süresi * 2 ve yürütme süresi > 2 dakika.
 
     ![graf eğriltme simgesi](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
@@ -147,10 +147,10 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
     + Satır sayısı: Giriş kayıtları, toplam çıkış kayıtları, okunan kayıtlar karışık ve karışık yazma kayıtları.
     + İlerleme durumu.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Varsayılan olarak, iş graf düğümüyle her bir aşama (aşama yürütme süresi dışında) en son bilgileri görüntülenir, ancak kayıttan yürütme grafiği sırasında düğüm her girişimin bilgileri gösterir.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Veri boyutu okuma ve yazma 1 kullandığımız için MB = 1000 KB = 1000 * 1000 baytı.
 
 + Tıklayarak sorunları ile geri bildirim gönder **geri bildirim sağlayın**.
@@ -168,7 +168,7 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
 ### <a name="data-skew"></a>Veri dengesizliği
 Tıklayın **veri dengesizliği** sekmesinde ilgili dengesiz görevleri, belirtilen parametrelere bağlı olarak görüntülenir. 
 
-+ **Parametreleri belirtin** -ilk bölüm veri dengesizliği algılamak için kullanılan parametreleri görüntüler. Yerleşik kural: okunan görev verisi okuma 3 kez ortalama görev verileri büyüktür ve okuma görev verileri 10 MB'tan fazla. Kendi kural dengesiz görevleri tanımlamak istiyorsanız, parametrelerinizi seçebilirsiniz **dengesiz aşama**, ve **eğme Char** bölümüne uygun şekilde yenileneceğini.
++ **Parametreleri belirtin** -ilk bölüm veri dengesizliği algılamak için kullanılan parametreleri görüntüler. Yerleşik kural şöyledir: Görev okunan ortalama görev verileri okuma 3 kez daha büyüktür ve okuma görev verileri 10 MB'tan fazla. Kendi kural dengesiz görevleri tanımlamak istiyorsanız, parametrelerinizi seçebilirsiniz **dengesiz aşama**, ve **eğme Char** bölümüne uygun şekilde yenileneceğini.
 
 + **Dengesiz aşama** -İkinci bölüm, yukarıda belirtilen ölçütleri karşılayan görevleri şuna aşamaları görüntüler. Bir aşamadaki birden fazla dengesiz görev varsa, dengesiz aşama tablo yalnızca en dengesiz görev (örneğin en büyük veri için veri dengesizliği) görüntüler.
 

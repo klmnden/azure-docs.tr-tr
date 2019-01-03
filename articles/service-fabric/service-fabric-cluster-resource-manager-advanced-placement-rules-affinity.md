@@ -1,6 +1,6 @@
 ---
-title: Service Fabric kümesi Kaynak Yöneticisi - benzeşim | Microsoft Docs
-description: Benzeşim hizmet doku hizmetler için yapılandırma genel bakış
+title: Service Fabric Küme Kaynak Yöneticisi - benzeşim | Microsoft Docs
+description: Service Fabric Hizmetleri için benzeşim yapılandırmaya genel bakış
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 57abea79a620aa83e16ad4cc2fd78a4294f2b278
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bda70a6854dc6d94d3d4b37e6f587e4dcd045126
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204864"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543848"
 ---
-# <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Yapılandırma ve Service Fabric hizmeti benzeşimini kullanma
-Benzeşim Bulut ve mikro dünyaya daha büyük tek yapılı uygulamalar geçişini kolaylaştırır yardımcı olmak için temel olarak sağlanan bir denetimdir. Bunun yapılması rağmen Hizmetleri, performansı artırmak için bir en iyi duruma getirme yan etkileri olabilir olarak da kullanılır.
+# <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Yapılandırma ve Service Fabric hizmet benzeşimi kullanma
+Benzeşim Bulut ve mikro hizmetler dünyaya tek parçalı büyük uygulamaların geçişi kolaylaştırmak amacıyla, esas olarak sağlanan bir denetimdir. Bunun yapılması rağmen Hizmetleri performansını iyileştirme için bir iyileştirme yan etkileri olabilir olarak da kullanılır.
 
-Daha büyük bir uygulama veya bir Service Fabric için aklınızda mikro (ya da dağıtılmış bir ortama) yalnızca tasarlanmış değildi getiren varsayalım. Bu geçiş türünü yaygındır. Ortamına tüm uygulama kaldırma tarafından bu paketleme başlattığınız ve emin olunmasını sorunsuz çalışıyor. Daha sonra tümünü birbirine konuşun farklı küçük Hizmetleri bölmeyi başlatın.
+Daha büyük bir uygulamanın ya da bir mikro hizmetler, Service fabric'e unutmayın (veya herhangi bir dağıtılmış ortamda) ile yalnızca tasarlanmış değildi getirdiğiniz varsayalım. Bu tür geçişe yaygındır. Uygulamanın tamamında ortamına kaldırarak tarafından paketleyerek başlattığınız ve emin olunmasını sorunsuz çalışıyor. Daha sonra tüm birbirine konuşun farklı daha küçük hizmetlerine bozucu başlatın.
 
-Sonuç olarak, uygulamanın bazı sorunlar yaşıyor bulabilirsiniz. Sorunları genellikle bu kategoriden ayrılır:
+Sonunda, uygulama bazı sorunlar yaşıyor bulabilirsiniz. Sorunları genellikle bu kategoriden birine girer:
 
-1. Bazı tek yapılı uygulama bileşeni X belgelenmemiş bir bağımlılık Y bileşende vardı ve yalnızca bu bileşenleri ayrı hizmetlerine açık. Bu hizmetleri artık kümedeki farklı düğümlerde çalışan olduğundan, bunlar bozuk.
-2. Bu bileşenlerin üzerinden iletişim kurmasına (adlandırılmış kanallar yerel | bellek paylaşılan | diskteki dosyaları) ve gerçekten performansı artırmak için yerel bir paylaşılan kaynak şu anda yazma olması gerekir. Bu sabit bağımlılık daha sonra belki de kaldırılır.
-3. Her şeyi sorun yoktur, ancak bu iki bileşenin gerçekten chatty/performans hassas olduğunu öyle. Bunlar ayrı hizmetlerine taşındıklarında genel tanked uygulama performansı veya gecikme artar. Sonuç olarak, genel uygulama beklentilerini karşılamıyor.
+1. Bazı X tek parçalı uygulama belgelenmemiş bir bağımlılık Y bileşende bileşeninde ve yalnızca bu bileşenleri ayrı hizmet olarak açılır. Bu hizmetleri artık kümedeki farklı düğümlere çalışır durumda olduğundan, bozuk.
+2. Aracılığıyla bu bileşenleri iletişim (yerel adlandırılmış kanallar | paylaşılan bellek | diskteki dosyaları) ve bunların gerçekten performansı artırmak için yerel bir paylaşılan kaynak için şu anda yazabilmesi olması gerekir. Bu sabit bağımlılık daha sonra belki de kaldırılır.
+3. Her şeyi bir sakınca yoktur, ancak bu iki bileşenin gerçekten geveze/performans hassas olduğunu ettik. Bunlar ayrı hizmet olarak taşındıklarında genel tanked uygulama performansı veya gecikme süresi artar. Sonuç olarak, genel uygulama beklentilerini karşılamıyor.
 
-Bu durumda, biz bizim düzenleme iş kaybetmek istemediğiniz ve monolith geri dönmek istemiyorum. Son koşul bile düz bir iyileştirme istenebilir. Ancak, biz doğal Hizmetleri olarak çalışmak için bileşenler tasarlayabilirsiniz kadar (veya biz performans beklentilerini başka bir yolla çözebilir kadar) yerleşim yeri bazı duygusu gerek yapacağız.
+Bu gibi durumlarda, size sunduğumuz yeniden düzenleme iş kaybetmek istemediğiniz ve tek parçalı mimariden geri dönmek istemiyorsanız. Son durum bile düz bir iyileştirme istenebilir. Ancak biz bileşenleri doğal olarak hizmet olarak çalışacak şekilde yeniden tasarlayıp tasarlayamayacağınızı kadar (veya başka bir şekilde performans beklentilerini çözme kadar) bazı yerleşim yeri duygusu gerek ekleyeceğiz.
 
-Ne yapmanız gerekir? İyi üzerinde benzeşim kapatma çalışabilir.
+Ne yapmanız gerekir? Benzeşimine kapatma de deneyebilirsiniz.
 
 ## <a name="how-to-configure-affinity"></a>Benzeşim yapılandırma
-Benzeşim ayarlamak için iki farklı hizmet arasında bir benzeşim ilişkisi tanımlayın. "Bir hizmet başka bir işaret" ve "Bu hizmet yalnızca burada hizmetinin çalıştığını çalıştırabilirsiniz." belirten olarak benzeşim düşünebilirsiniz Bazen biz (burada üst alt işaretleyin) bir üst/alt ilişkisi benzeşimi bakın. Benzeşim çoğaltmaları veya bir hizmet örnekleri olan başka bir hizmet olarak aynı düğümlere yerleştirilir sağlar.
+Benzeşim ayarlamak için iki farklı hizmetler arasında bir benzeşim ilişkisi tanımlayın. "Bir hizmetin başka bir işaretleme" ve "Bu hizmet yalnızca burada hizmetinin çalışıp çalışmadığını çalıştırabilirsiniz." diyerek olarak benzeşim düşünebilirsiniz Bazen benzeşimi (burada üst alt öğe noktası) bir üst/alt ilişkisi olarak diyoruz. Çoğaltmalar veya bir hizmetin örneklerine başka bir hizmet olarak aynı düğümlere yerleştirilir benzeşimi sağlar.
 
 ```csharp
 ServiceCorrelationDescription affinityDescription = new ServiceCorrelationDescription();
@@ -48,39 +48,39 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
 > [!NOTE]
-> Bir alt hizmeti yalnızca bir tek benzeşim ilişkisinde yer alabilir. İki üst hizmetler için aynı anda Benzetilen için alt istediyseniz, birkaç seçeneğiniz vardır:
-> - İlişkileri ters (parentService1 ve parentService2 adresindeki geçerli alt hizmet noktası varsa), veya
-> - Bir üst kurala göre bir hub olarak belirleyin ve tüm hizmetleri, bu hizmeti noktası. 
+> Bir alt hizmeti yalnızca bir tek benzeşimi ilişkisinde yer alabilir. İki üst hizmet için aynı anda Benzetilen için alt istediyseniz, birkaç seçeneğiniz vardır:
+> - İlişkileri ters (parentService1 ve geçerli alt hizmeti noktası parentService2 varsa), veya
+> - Üst öğeyi bir kurala göre bir merkez olarak belirleyin ve tüm hizmetleri bu hizmet in üzerine gelin. 
 >
-> Sonuçta elde edilen yerleştirme davranışını kümedeki aynı olmalıdır.
+> Sonuçta elde edilen vranışı kümedeki aynı olmalıdır.
 >
 
-## <a name="different-affinity-options"></a>Farklı benzeşim seçenekleri
-Benzeşim birkaç bağıntı düzenleri biri ile temsil edilir ve iki farklı mod vardır. En yaygın benzeşim NonAlignedAffinity veririz modudur. NonAlignedAffinity içinde çoğaltmaları ya da farklı hizmet örneklerinin aynı düğümlerinde yerleştirilir. Diğer AlignedAffinity moddur. Yalnızca durum bilgisi olan hizmetler ile hizalanmış benzeşim yararlıdır. Benzeşim hizalı iki durum bilgisi olan hizmet yapılandırma hizmetlerin ana olarak birbiriyle aynı düğümlere yerleştirilir sağlar. İkincil kopya aynı düğümlerine yerleştirilmesini bu hizmetlerin her çifti neden olur. Ayrıca NonAlignedAffinity durum bilgisi olan hizmetler için yapılandırmak üzere (daha az ortak rağmen) mümkündür. NonAlignedAffinity, iki durum bilgisi olan hizmet farklı kopyalarını aynı düğümler üzerinde çalışır, ancak kendi ana farklı düğümlerde şunun.
+## <a name="different-affinity-options"></a>Farklı bir benzeşim seçenekleri
+Benzeşim birkaç bağıntı düzenlerden birini ifade edilir ve iki farklı mod vardır. En yaygın benzeşim NonAlignedAffinity dediğimiz modudur. NonAlignedAffinity çoğaltmalar veya farklı hizmet örneklerinin aynı düğümlere yerleştirilir. Diğer AlignedAffinity modudur. Hizalanmış benzeşimi, yalnızca durum bilgisi olan hizmetlerle yararlıdır. İki durum bilgisi olan hizmet benzeşimi hizalı için yapılandırma seçimlerine hizmetlerin birbiriyle aynı düğümlere yerleştirilir sağlar. Her çift ikinciller için söz konusu hizmetler aynı düğümlere yerleştirilmesine neden olur. Ayrıca durum bilgisi olan hizmetler için NonAlignedAffinity yapılandırmak için (daha az ortak karşın) mümkündür. NonAlignedAffinity, iki durum bilgisi olan hizmetler farklı kopyaya aynı düğümler üzerinde çalışır, ancak bunların seçimlerine farklı düğümlere bulunabileceğini.
 
 <center>
-![Benzeşim modları ve bunların etkileri][Image1]
+![Benzeşim modlarını ve bunların etkileri][Image1]
 </center>
 
-### <a name="best-effort-desired-state"></a>En iyi çaba istenen durumu
-En iyi çaba bir benzeşim ilişkidir. Birlikte bulundurma özelliğini ya da aynı şekilde çalışan yürütülebilir bir işlemi yapar güvenilirlik aynı garanti sağlamaz. Bir benzeşim ilişkisi Hizmetleri'nde başarısız olabilir ve bağımsız olarak taşınmasına temelde farklı varlıklardır. Ancak bu sonlarını geçici bir benzeşim ilişkisi de kesebilir. Örneğin, kapasite sınırlamaları benzeşim ilişkisi hizmet nesneleri yalnızca bazılarını belirli bir düğümde uygun olduğu anlamına gelebilir. Bu durumlarda, yerinde bir benzeşim ilişkisi olsa, diğer kısıtlamaları nedeniyle zorlanamaz. Bunu yapmak Mümkünse, ihlalin daha sonra otomatik olarak düzeltilir.
+### <a name="best-effort-desired-state"></a>En iyi çaba istenen durum
+En iyi çaba bir benzeşim ilişkidir. Düzenleme ya da aynı şekilde çalışan yürütülebilir işlem yapar güvenilirlik aynı garanti sağlamaz. Bir benzeşim ilişkisinde başarısız olabilir ve bağımsız olarak taşınabilir tamamen farklı varlıklar hizmetleridir. Ancak bu sonu geçici bir benzeşim ilişkisi de kesebilir. Örneğin, kapasite sınırlamaları benzeşim ilişkisi hizmet nesneleri yalnızca bazıları belirli bir düğümde en uygun olan anlamına gelebilir. Bu gibi durumlarda, yerinde bir benzeşim ilişkisi olsa da diğer kısıtlamaları nedeniyle zorlanamaz. Bunu yapmak Mümkünse, ihlalin daha sonra otomatik olarak düzeltilir.
 
 ### <a name="chains-vs-stars"></a>Zincirleri yıldız karşılaştırması
-Bugün Küme Kaynak Yöneticisi'ni benzeşimi ilişkileri modeli zincirleri için mümkün değildir. Bu, bir alt bir benzeşim ilişkisi olan bir hizmettir anlamı başka bir benzeşim ilişkisi içinde üst öğesi olamaz. Bu ilişki türünde model istiyorsanız, etkin bir zincir yerine bir yıldız olarak model sahip. Bir yıldız bir zincirinden taşımak için alttaki alt ilk çocuğun üst öğeye bunun yerine üst öğe. Hizmetlerinizin düzenleme bağlı olarak, birden çok kez yapmanız gerekebilir. Doğal üst hizmet ise, bir yer tutucu olarak hizmet veren bir oluşturmanız gerekebilir. Gereksinimlerinize bağlı olarak, aynı zamanda içine ara isteyebilirsiniz [uygulama grupları](service-fabric-cluster-resource-manager-application-groups.md).
+Bugün küme kaynak yöneticisi için benzeşim ilişkilerin modelini zincirleri mümkün değildir. Bu alt öğe bir benzeşim ilişkisi olan bir hizmeti olan anlamı, başka bir benzeşim ilişkisi içinde üst olamaz. Bu ilişki türünde, model istiyorsanız, verimli bir zincir yerine bir yıldız olarak model gerekir. İçin bir yıldız bir zincirinden taşımak için alttaki alt ilk alt öğenin üst için bunun yerine üst öğe. Hizmetlerinizi düzenleme bağlı olarak, birden çok kez yapmanız gerekebilir. Doğal üst hizmet yok ise, bir yer tutucu olarak hizmet veren bir tane oluşturmak zorunda kalabilirsiniz. Gereksinimlerinize bağlı olarak, ayrıca içine öğrenmek isteyebilirsiniz [uygulama grupları](service-fabric-cluster-resource-manager-application-groups.md).
 
 <center>
 ![Zincirleri vs. Yıldız bağlamında benzeşimi ilişkileri][Image2]
 </center>
 
-Bugün benzeşimi ilişkileri hakkında dikkat edilecek başka bir tek yönlü şeydir. Bu alt ile üst yerleştirilen benzeşim kural yalnızca zorlar anlamına gelir. Alt ile üst bulunduğundan emin olunmasını sağlamamasıdır. Farklı Hizmetleri ile farklı yaşam döngüleri vardır ve başarısız ve bağımsız olarak hareket beri benzeşim ilişkisi mükemmel veya anında zorlanamaz olduğunu dikkate almak önemlidir. Örneğin, bunu kilitlendi olduğundan üst aniden başka bir düğüme yöneltilir varsayalım. Küme Kaynak Yöneticisi ve Yük Devretme Yöneticisi Hizmetleri, tutarlı tutmak bu yana yük devretme ilk olarak, işler ve öncelik kullanılabilir. Yük devretme işlemi tamamlandıktan sonra benzeşim ilişkisi bozuk, ancak Küme Kaynak Yöneticisi'ni alt ile üst bulunduğu değil bildirimler kadar her şeyi ince taşıdığını düşündüğü. Bu tür denetimler düzenli olarak gerçekleştirilir. Küme Kaynak Yöneticisi'ni kısıtlamaları nasıl hesaplar hakkında daha fazla bilgi kullanılabilir [bu makalede](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), ve [bu](service-fabric-cluster-resource-manager-balancing.md) bu kısıtlamaların değerlendirilir tempoyla yapılandırma hakkında daha fazla ettiği.   
+Bugün benzeşimi ilişkileri hakkında dikkat edilecek başka bir şey, varsayılan olarak yönlüdür ' dir. Başka bir deyişle, alt ile üst yerleştirilen benzeşim kuralı yalnızca zorlar. Alt ile üst bulunduğu garantilemez. Bu nedenle, benzeşim ihlali yok ve herhangi bir nedenden dolayı ve ihlali gidermek için--üst alt öğenin düğüme taşıdığınızdan ihlali düzelttikten bile--alt üst öğenin düğüme ardından taşımak için uygun değildir üst th için taşınır değil e alt düğümü. Config ayarlanıyor [MoveParentToFixAffinityViolation](service-fabric-cluster-fabric-settings.md) için true, yönlülüğü kaldırmanız. Farklı Hizmetleri ile farklı yaşam döngülerine sahip başarısız ve bağımsız olarak hareket beri benzeşim ilişkisi mükemmel veya anında zorlanamaz olduğunu unutmayın. Örneğin, kaldığı için üst aniden başka bir düğüme devreder varsayalım. Küme Kaynak Yöneticisi ve yük devretme Hizmetleri, tutarlılığını, koruma bu yana yük devretme ilk olarak, işlemek ve öncelik kullanılabilir. Yük devretme işlemi tamamlandıktan sonra benzeşim ilişkisi bozuk, ancak alt ile üst bulunduğu değil bildirimler kadar her şeyi iyi Küme Kaynak Yöneticisi düşünüyor. Bu tür denetimler düzenli gerçekleştirilir. Küme Kaynak Yöneticisi kısıtlamalar nasıl hesaplar hakkında daha fazla bilgi kullanılabilir [bu makalede](service-fabric-cluster-resource-manager-management-integration.md#constraint-types), ve [bunu](service-fabric-cluster-resource-manager-balancing.md) bu kısıtlamaları olan temposu yapılandırma hakkında daha fazla hakkında konuşuyor değerlendirilir.   
 
 
 ### <a name="partitioning-support"></a>Bölümleme desteği
-Burada üst bölümlenmiş ilişkiler desteklenmez, benzeşim son benzeşim hakkında dikkat edin şeydir. Bölümlenmiş üst Hizmetleri sonunda desteklenmiyor olabilir, ancak bugün verilmez.
+Üst burada bölümlenen ilişkileri desteklenmez, benzeşim son benzeşimi hakkında dikkat edin şeydir. Bölümlenmiş üst Hizmetleri sonunda desteklenmiyor olabilir, ancak bugün verilmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Hizmetleri yapılandırma hakkında daha fazla bilgi için [hizmetleri yapılandırma hakkında bilgi edinin](service-fabric-cluster-resource-manager-configure-services.md)
-- Makineler, küçük bir kümesini Hizmetleri sınırlamak veya hizmetleri, yük toplayarak kullanmak için [uygulama grupları](service-fabric-cluster-resource-manager-application-groups.md)
+- Küçük bir makine Hizmetleri sınırlamak veya hizmetlerin yükü toplayarak kullanmak için [uygulama grupları](service-fabric-cluster-resource-manager-application-groups.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png
 [Image2]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resource-manager-chains-vs-stars.png

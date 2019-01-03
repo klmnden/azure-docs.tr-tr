@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 5acabc8381422b9202b041cf849af3b35809a3c0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0c12136fb0c866ceebf83f6352a33b7e2791ad0f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110167"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717220"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Küme güvenliği ve yükseltmeler Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
@@ -54,7 +54,7 @@ Kapsayıcı işlemlerin daha ayrıntılı denetim için yerleşik Linux güvenli
 
 ### <a name="app-armor"></a>Uygulama Armor
 
-Kapsayıcıları gerçekleştirebileceği eylemleri sınırlamak için kullanabileceğiniz [AppAmour] [ k8s-apparmor] Linux çekirdek güvenlik modülü. AppArmor kullanılabilir işletim sistemi, temel alınan AKS düğümü bir parçası olarak ve varsayılan olarak etkindir. AppArmor eylemler gibi kısıtlama profillerini okuma, yazma veya yürütme ya da dosya sistemleri bağlama gibi sistem işlevlerini oluşturursunuz. Varsayılan AppArmor profilleri çeşitli erişimi kısıtlamak `/proc` ve `/sys` konumları ve temel alınan düğümünden kapsayıcılar mantıksal olarak ayırmak için bir yol sağlar. Yalnızca Kubernetes pod'larını Linux üzerinde çalışan herhangi bir uygulama için AppArmor çalışır.
+Kapsayıcıları gerçekleştirebileceği eylemleri sınırlamak için kullanabileceğiniz [AppArmor] [ k8s-apparmor] Linux çekirdek güvenlik modülü. AppArmor kullanılabilir işletim sistemi, temel alınan AKS düğümü bir parçası olarak ve varsayılan olarak etkindir. AppArmor eylemler gibi kısıtlama profillerini okuma, yazma veya yürütme ya da dosya sistemleri bağlama gibi sistem işlevlerini oluşturursunuz. Varsayılan AppArmor profilleri çeşitli erişimi kısıtlamak `/proc` ve `/sys` konumları ve temel alınan düğümünden kapsayıcılar mantıksal olarak ayırmak için bir yol sağlar. Yalnızca Kubernetes pod'larını Linux üzerinde çalışan herhangi bir uygulama için AppArmor çalışır.
 
 ![Kapsayıcı eylemlerine sınırlamak için bir AKS kümesi kullanımda AppArmor profilleri](media/operator-best-practices-container-security/apparmor.png)
 

@@ -11,14 +11,15 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 478727a4d3628fbe6a385e3beb28201c228f9e2d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8ea180131ce2f9e1288c3ffb928170be55a77de7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078252"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598459"
 ---
-# <a name="luis-api-http-response-codes"></a>LUIS API'si HTTP yanıt kodları
+# <a name="common-api-response-codes-and-their-meaning"></a>Yaygın API yanıt kodları ve anlamları
+
 [Yazma](https://aka.ms/luis-authoring-apis) ve [uç nokta](https://aka.ms/luis-endpoint-apis) API'leri döndürülen HTTP yanıt kodları. Yanıt iletilerini istek özgü bilgileri içerirken, HTTP yanıtı durum kodunun geneldir. 
 
 ## <a name="common-status-codes"></a>Genel durum kodları
@@ -38,3 +39,7 @@ Aşağıdaki tabloda en yaygın HTTP yanıtı durum kodları için bazılarını
 |410|Uç Nokta|Uygulama retrained ve yeniden yayımlanması gerekiyor|
 |414|Uç Nokta|Sorgu en fazla karakter sınırını aşıyor|
 |429|Geliştirme, uç nokta|Hız sınırı aşıldı (istek/saniye)|
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* REST API [yazma](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) ve [uç nokta](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) belgeleri

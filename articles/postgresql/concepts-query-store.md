@@ -1,22 +1,21 @@
 ---
 title: PostgreSQL için Azure veritabanı'nda Query Store
 description: Bu makalede, PostgreSQL için Azure veritabanı için Query Store özelliği açıklanır.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 5b760c9148e26421c0df1ffe936365aae4971543
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 86b6c4284cccb183ac9f19911abd4b6cb1d308e5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379170"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546921"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Query Store ile performans izleme
 
-**İçin geçerlidir:** 9.6 ve 10 PostgreSQL için Azure veritabanı
+**Şunlara uygulanır:** 9.6 ve 10 PostgreSQL için Azure veritabanı
 
 > [!IMPORTANT]
 > Query Store özelliği genel Önizleme aşamasındadır.
@@ -114,30 +113,30 @@ Bu görünüm Query Store tüm verileri döndürür. Her ayrı bir veritabanı k
 |runtime_stats_entry_id |bigint | | Runtime_stats_entries tablosundan kimliği|
 |USER_ID    |OID    |pg_authid.oid  |Deyim yürüten kullanıcının nesne kimliği|
 |db_id  |OID    |pg_database.oid    |Deyimi içinde yürütüldüğü veritabanının OID|
-|query_id   |bigint  || Deyimin ayrıştırma ağacından hesaplanan iç karma kodu|
-|query_sql_text |VARCHAR(10000)  || Temsilci bildirimi metni. Aynı yapıya sahip farklı sorgular birlikte kümelenmiş; Bu metin sorguların kümedeki ilk alınmıştır.|
+|query_id   |bigint  || Deyimin ayrıştırma ağacından hesaplanan iç karma kodu|
+|query_sql_text |VARCHAR(10000)  || Temsilci bildirimi metni. Aynı yapıya sahip farklı sorgular birlikte kümelenmiş; Bu metin sorguların kümedeki ilk alınmıştır.|
 |plan_id    |bigint |   |Bu sorguya kullanılamıyor henüz karşılık gelen bir plan kimliği|
 |start_time |timestamp  ||  Sorguları zaman demetlere göre toplanır - bir demet zaman aralığını varsayılan değer 15 dakikadır. Bu giriş süresi Demetin karşılık gelen başlangıç zamanı budur.|
 |end_time   |timestamp  ||  Bu giriş süresi Demetin karşılık gelen bitiş saati.|
-|çağrı  |bigint  || Sorgu çalıştırılmış sayısı|
-|TOTAL_TIME |çift duyarlık   ||  Milisaniye cinsinden toplam sorgu yürütme süresi|
+|çağrı  |bigint  || Sorgu çalıştırılmış sayısı|
+|TOTAL_TIME |çift duyarlık   ||  Milisaniye cinsinden toplam sorgu yürütme süresi|
 |min_time   |çift duyarlık   ||  Milisaniye cinsinden en düşük sorgu yürütme süresi|
 |max_time   |çift duyarlık   ||  Milisaniye cinsinden en yüksek sorgu yürütme süresi|
 |mean_time  |çift duyarlık   ||  Sorgu yürütme süresi, milisaniye cinsinden ortalama|
 |stddev_time|   çift duyarlık    ||  Sorgu yürütme süresi, milisaniye cinsinden standart sapma |
-|satırlar   |bigint ||  Toplam alınan veya deyiminden etkilenen satır sayısı|
-|shared_blks_hit|   bigint  ||  Toplam deyimi tarafından paylaşılan blok önbellek isabet sayısı|
+|satırlar   |bigint ||  Toplam alınan veya deyiminden etkilenen satır sayısı|
+|shared_blks_hit|   bigint  ||  Toplam deyimi tarafından paylaşılan blok önbellek isabet sayısı|
 |shared_blks_read|  bigint  ||  Bildirimi tarafından paylaşılan bloğu sayısı.|
-|shared_blks_dirtied|   bigint   || Deyim tarafından kirlenmiş paylaşılan bloğu sayısı. |
-|shared_blks_written|   bigint  ||  Deyim tarafından yazılan paylaşılan bloğu sayısı.|
+|shared_blks_dirtied|   bigint   || Deyim tarafından kirlenmiş paylaşılan bloğu sayısı. |
+|shared_blks_written|   bigint  ||  Deyim tarafından yazılan paylaşılan bloğu sayısı.|
 |local_blks_hit|    bigint ||   Toplam deyimi tarafından yerel blok önbellek isabet sayısı|
-|local_blks_read|   bigint   || Deyim tarafından okunur yerel bloğu sayısı.|
-|local_blks_dirtied|    bigint  ||  Deyim tarafından kirlenmiş yerel bloğu sayısı.|
-|local_blks_written|    bigint  ||  Yerel blok deyimi tarafından yazılan toplam sayısı|
-|temp_blks_read |bigint  || Bildirimi tarafından geçici bloğu sayısı.|
-|temp_blks_written| bigint   || Deyim tarafından yazılan geçici bloğu sayısı.|
-|blk_read_time  |çift duyarlık    || Toplam süre deyimi için harcanan milisaniye cinsinden okuma blokları (track_io_timing etkinleştirilirse, aksi halde sıfır)|
-|blk_write_time |çift duyarlık    || Toplam deyim harcanan yazma blokları, milisaniye cinsinden süre (track_io_timing etkinleştirilirse, aksi halde sıfır)|
+|local_blks_read|   bigint   || Deyim tarafından okunur yerel bloğu sayısı.|
+|local_blks_dirtied|    bigint  ||  Deyim tarafından kirlenmiş yerel bloğu sayısı.|
+|local_blks_written|    bigint  ||  Yerel blok deyimi tarafından yazılan toplam sayısı|
+|temp_blks_read |bigint  || Bildirimi tarafından geçici bloğu sayısı.|
+|temp_blks_written| bigint   || Deyim tarafından yazılan geçici bloğu sayısı.|
+|blk_read_time  |çift duyarlık    || Toplam süre deyimi için harcanan milisaniye cinsinden okuma blokları (track_io_timing etkinleştirilirse, aksi halde sıfır)|
+|blk_write_time |çift duyarlık    || Toplam deyim harcanan yazma blokları, milisaniye cinsinden süre (track_io_timing etkinleştirilirse, aksi halde sıfır)|
     
 ### <a name="querystorequerytextsview"></a>query_store.query_texts_view
 Bu görünüm, Query Store sorgu metin verileri döndürür. Olan her ayrı query_text için bir satır vardır.
@@ -145,7 +144,7 @@ Bu görünüm, Query Store sorgu metin verileri döndürür. Olan her ayrı quer
 |**Ad**|  **Tür**|   **Açıklama**|
 |---|---|---|
 |query_text_id  |bigint     |Query_texts tablo kimliği|
-|query_sql_text |VARCHAR(10000)     |Temsilci bildirimi metni. Aynı yapıya sahip farklı sorgular birlikte kümelenmiş; Bu metin sorguların kümedeki ilk alınmıştır.|
+|query_sql_text |VARCHAR(10000)     |Temsilci bildirimi metni. Aynı yapıya sahip farklı sorgular birlikte kümelenmiş; Bu metin sorguların kümedeki ilk alınmıştır.|
 
 ### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
 Bu görünüm, Query Store olayları verileri döndürür bekleyin. Her farklı veritabanı kimliği, kullanıcı kimliği, sorgu kimliği ve olay için bir satır var.
@@ -154,8 +153,8 @@ Bu görünüm, Query Store olayları verileri döndürür bekleyin. Her farklı 
 |---|---|---|---|
 |USER_ID    |OID    |pg_authid.oid  |Deyim yürüten kullanıcının nesne kimliği|
 |db_id  |OID    |pg_database.oid    |Deyimi içinde yürütüldüğü veritabanının OID|
-|query_id   |bigint     ||Deyimin ayrıştırma ağacından hesaplanan iç karma kodu|
-|event_type |metin       ||Arka uç olarak bekleyen olay türü|
+|query_id   |bigint     ||Deyimin ayrıştırma ağacından hesaplanan iç karma kodu|
+|event_type |metin       ||Arka uç olarak bekleyen olay türü|
 |event  |metin       ||Arka uç şu anda bekliyorsa bekleme olay adı|
 |çağrı  |Tamsayı        ||Yakalanan aynı olay sayısı|
 
@@ -163,11 +162,11 @@ Bu görünüm, Query Store olayları verileri döndürür bekleyin. Her farklı 
 ### <a name="functions"></a>İşlevler
 Query_store.qs_reset() void döndürür
 
-`qs_reset` şu ana kadar Query Store tarafından toplanan tüm istatistikleri atar. Bu işlev, yalnızca sunucu yöneticisi rolü tarafından gerçekleştirilebilir.
+`qs_reset` şu ana kadar Query Store tarafından toplanan tüm istatistikleri atar. Bu işlev, yalnızca sunucu yöneticisi rolü tarafından gerçekleştirilebilir.
 
 Query_store.staging_data_reset() void döndürür
 
-`staging_data_reset` bellekte Query Store (diğer bir deyişle, veriler değil temizlendi bellekte henüz veritabanına) tarafından toplanan tüm istatistikleri atar. Bu işlev, yalnızca sunucu yöneticisi rolü tarafından gerçekleştirilebilir.
+`staging_data_reset` bellekte Query Store (diğer bir deyişle, veriler değil temizlendi bellekte henüz veritabanına) tarafından toplanan tüm istatistikleri atar. Bu işlev, yalnızca sunucu yöneticisi rolü tarafından gerçekleştirilebilir.
 
 ## <a name="limitations-and-known-issues"></a>Sınırlamalar ve bilinen sorunlar
 - Bir PostgreSQL sunucusu parametresi default_transaction_read_only sahip, Query Store veri yakalayamaz.

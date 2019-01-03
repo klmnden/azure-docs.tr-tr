@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2e24a138220f350e56b30406f65bb869dd523bad
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fada29145334a45872aa64b3cc0fe2e859b52568
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015883"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632900"
 ---
 # <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>Apache Hive, HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme
 [Apache Hive](https://hive.apache.org/) çalıştırmanın sağlar [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) işleri SQL benzeri bir betik dilini aracılığıyla adlı *[HiveQL] [ hadoop-hiveql]*, hangi uygulanabilir özetleme, sorgulamaya ve analiz etmeye büyük hacimli verileri doğru.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgedeki adımlarda Windows tabanlı HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı bir küme ile çalışmanıza adımlar için bkz: [HDInsight (Linux), Apache Hive'ı kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data-linux.md).
 
 Azure HDInsight'ın en önemli avantajlarından biri veri depolama ve işlem ayrılmasıdır. HDInsight, veri depolama için Azure Blob Depolama kullanır. Tipik bir iş üç parça içerir:
@@ -43,8 +43,8 @@ Diyagramdaki sayılar için bölüm başlıkları karşılık geldiğini unutmay
 
 Çok uçuş gecikme verilerini karşıya yükleme, oluşturma/Hive sorgu dizesi karşıya yükleme ve Azure SQL veritabanı Sqoop işine hazırlama yönergeleri bulabilirsiniz.
 
-> [!NOTE]
-> Bu belgedeki adımlarda Windows tabanlı HDInsight kümelerine özeldir. Linux tabanlı bir küme ile çalışmanıza adımlar için bkz: [Apache Hive, HDInsight (Linux) kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data-linux.md)
+> [!NOTE]  
+> Bu belgedeki adımlarda Windows tabanlı HDInsight kümelerine özeldir. Linux tabanlı bir küme ile çalışmanıza adımlar için bkz: [Apache Hive, HDInsight (Linux) kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data-linux.md).
 
 ### <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
@@ -52,7 +52,7 @@ Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Azure PowerShell içeren bir iş istasyonu**.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışı bırakılmış** ve 1 Ocak 2017 tarihinde kaldırılmıştır. Bu belgede yer alan adımlar, Azure Resource Manager ile çalışan yeni HDInsight cmdlet'lerini kullanır.
     >
     > Azure PowerShell’in en son sürümünü yüklemek için lütfen [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs)’daki adımları uygulayın. Azure Resource Manager’la çalışan yeni cmdlet’lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, daha fazla bilgi için bkz. [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -242,7 +242,7 @@ Veri dosyasını karşıya yükleme ve [HiveQL](https://cwiki.apache.org/conflue
 * **Varsayılan dosya sistemi olarak HDInsight küme tarafından kullanılacak olan aynı Azure depolama hesabını kullanın.** HDInsight küme depolama hesabı erişim anahtarı bulunacağından, ek değişiklik gerekmez.
 * **HDInsight kümesi varsayılan dosya sisteminden farklı bir Azure depolama hesabını kullanırsınız.** Bu durumda, Windows PowerShell komut dosyası bulundu oluşturma bölümünü değiştirmeniz gerekir [oluşturma HDInsight kümesi ve çalışma Apache Hive/Sqoop işleri](#runjob) ek bir depolama hesabı depolama hesabı bağlamak için. Yönergeler için [Apache Hadoop kümeleri oluşturma HDInsight][hdinsight-provision]. HDInsight kümesi, ardından depolama hesabı için erişim anahtarı bilir.
 
-> [!NOTE]
+> [!NOTE]  
 > Blob Depolama yolu veri dosyası için HiveQL betik dosyasında kodlanmış zordur. Uygun şekilde güncelleştirmeniz gerekir.
 
 **Uçuş verileri indirmek için**
@@ -351,7 +351,7 @@ Dosyaları karşıya yükleme için farklı bir yöntem kullanmayı seçerseniz,
 
 Öğreticiler/flightdelay/veri yolu, dosyaları karşıya yüklediğiniz sırada oluşturulan sanal klasörüdür. Her ay için 12 dosyaları olduğunu doğrulayın.
 
-> [!NOTE]
+> [!NOTE]  
 > Yeni konumdan okunamıyor Hive sorgusu güncelleştirmeniz gerekir.
 >
 > Ayrıca, kapsayıcı erişim iznini genel veya HDInsight kümesi için depolama hesabına bağlama ya da yapılandırmanız gerekir. Aksi takdirde, Hive sorgu dizesi veri dosyalarına erişmek mümkün olmayacaktır.
@@ -615,7 +615,7 @@ HiveQL komutların tam listesi için bkz. [Apache Hive veri tanımlama dili][had
     #region - Constants and variables
 
     # IP address REST service used for retrieving external IP address and creating firewall rules
-    [String]$ipAddressRestService = "http://bot.whatismyipaddress.com"
+    [String]$ipAddressRestService = "https://bot.whatismyipaddress.com"
     [String]$fireWallRuleName = "FlightDelay"
 
     # SQL database variables
@@ -699,12 +699,12 @@ HiveQL komutların tam listesi için bkz. [Apache Hive veri tanımlama dili][had
     Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
     ```
 
-   > [!NOTE]
-   > Betik bir temsili durum aktarımı (REST) hizmeti kullanır http://bot.whatismyipaddress.com, dış IP adresiniz alınacak. IP adresi, SQL veritabanı sunucunuz için bir güvenlik duvarı kuralı oluşturmak için kullanılır.
+   > [!NOTE]  
+   > Betik bir temsili durum aktarımı (REST) hizmeti kullanır https://bot.whatismyipaddress.com, dış IP adresiniz alınacak. IP adresi, SQL veritabanı sunucunuz için bir güvenlik duvarı kuralı oluşturmak için kullanılır.
 
     Betikte kullanılan bazı değişkenleri şunlardır:
 
-   * **$ipAddressRestService** -varsayılan değer http://bot.whatismyipaddress.com. Genel bir IP adresi, dış IP adresini almak için REST hizmeti var. İsterseniz, diğer hizmetleri kullanabilirsiniz. (Bir Windows PowerShell Betiği kullanılarak) veritabanı istasyonunuzdan erişebilmeleri hizmet aracılığıyla alınan dış IP adresi, Azure SQL veritabanı sunucunuz için bir güvenlik duvarı kuralı oluşturmak için kullanılır.
+   * **$ipAddressRestService** -varsayılan değer https://bot.whatismyipaddress.com. Genel bir IP adresi, dış IP adresini almak için REST hizmeti var. İsterseniz, diğer hizmetleri kullanabilirsiniz. (Bir Windows PowerShell Betiği kullanılarak) veritabanı istasyonunuzdan erişebilmeleri hizmet aracılığıyla alınan dış IP adresi, Azure SQL veritabanı sunucunuz için bir güvenlik duvarı kuralı oluşturmak için kullanılır.
    * **$fireWallRuleName** -Azure SQL veritabanı sunucusu için güvenlik duvarı kuralı adı budur. Varsayılan ad <u>FlightDelay</u>. İsterseniz yeniden adlandırabilirsiniz.
    * **$sqlDatabaseMaxSizeGB** -yalnızca yeni bir Azure SQL veritabanı sunucusunu oluştururken bu değeri kullanılır. Varsayılan değer 10 GB'tır. 10GB, Bu öğretici için yeterlidir.
    * **$sqlDatabaseName** -yalnızca yeni bir Azure SQL veritabanı oluştururken bu değeri kullanılır. HDISqoop varsayılan değerdir. Yeniden adlandırmak, Sqoop Windows PowerShell komut dosyasını uygun şekilde güncelleştirmeniz gerekir.
@@ -725,7 +725,7 @@ Artık Azure Blob depolama alanına bir dosya karşıya yükleme, Azure Blob dep
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -739,9 +739,9 @@ Artık Azure Blob depolama alanına bir dosya karşıya yükleme, Azure Blob dep
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
-[hadoop-shell-commands]: http://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
+[hadoop-shell-commands]: https://hadoop.apache.org/docs/r0.18.3/hdfs_shell.html
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
 
 [image-hdi-flightdelays-avgdelays-dataset]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.AvgDelays.DataSet.png
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png

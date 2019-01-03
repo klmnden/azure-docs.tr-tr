@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 05/17/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f4067c73cac4597da3099212c9c04c2544a0b2d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 30bfaad8fcc1a837a37689280149a6dbe20b7c1d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634354"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628160"
 ---
 # <a name="use-apache-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Apache Hive Windows tabanlı HDInsight ile Web sitesi günlüklerini çözümlemek için kullanın
 Bir Web sitesi günlüklerini çözümlemek için HDInsight ile HiveQL kullanmayı öğrenin. Web sitesi günlüğü çözümlemesi benzer etkinliklere dayalı hedef kitlenizi segmentlere ayırın, site ziyaretçilerinin demografik bilgilere göre kategorilere ayırın ve bulmak için içeriği teslim bunlar görünümü, Web siteleri geliyorlar ve benzeri kullanılabilir.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgede yer alan adımlar, yalnızca Windows tabanlı HDInsight kümeleri ile çalışır. HDInsight yalnızca Windows üzerinde HDInsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 Bu örnekte, bir HDInsight kümesi ziyaretlerin sıklığına ilişkin Web sitesi için dış Web sitelerinden bir gün içinde öngörü almak için Web sitesi günlük dosyalarını analiz etmek için kullanın. Ayrıca, kullanıcıların deneyimini Web sitesi hatalarının bir özetini de oluşturur. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
@@ -32,7 +32,7 @@ Bu örnekte, bir HDInsight kümesi ziyaretlerin sıklığına ilişkin Web sites
 ![HDI. Samples.Website.Log.Analysis](./media/apache-hive-analyze-website-log/hdinsight-weblogs-sample.png)
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Azure HDInsight Hadoop kümesinde sağlanması gerekir. Yönergeler için [HDInsight küme sağlama](../hdinsight-hadoop-provision-linux-clusters.md).
+* Azure HDInsight üzerinde Apache Hadoop kümesi sağlanması gerekir. Yönergeler için [HDInsight küme sağlama](../hdinsight-hadoop-provision-linux-clusters.md).
 * Excel 2010 yüklü veya Microsoft Excel 2013 yüklü olmalıdır.
 * Olmalıdır [Microsoft Hive ODBC sürücüsünü](https://www.microsoft.com/download/details.aspx?id=40886) kovanından Excel'e veri aktarma için.
 

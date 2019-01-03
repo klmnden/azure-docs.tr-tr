@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 35929d820ac6f72b83d6c3f25547255ca3423fc8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1edb4818ff7fda170d123ea8b81e6df9d620f354
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138455"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713582"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Altyapı Backup hizmeti başvurusu
 
 ## <a name="azure-backup-infrastructure"></a>Azure Yedekleme Altyapısı
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Azure Stack portal, Azure Resource Manager'ı oluşturan çok sayıda hizmetten oluşur ve altyapı yönetimi deneyimi. Azure Stack Gereci gibi yönetim deneyimini kullanıma sunulan çözüm işlecine karmaşıklığı azaltmak üzerinde odaklanır.
 
@@ -87,9 +87,16 @@ Gereksinimleri şunları içerir:
 
 Altyapı yedekleme denetleyicisi verilerini isteğe bağlı olarak yedekler. En son iki gün ve canlı en fazla yedi güne kadar yedek yedeklemek için önerilir. 
 
+**1811 ve sonraki süreci desteleyen**
 | Ortam ölçek | Yedekleme tahmini boyutu | Toplam gereken alan miktarı |
 |-------------------|--------------------------|--------------------------------|
-| 4-16 düğümleri        | 10 GB                     | 140 GB                          |
+| 4-16 düğümleri        | 20 GB                    | 280 GB                        |
+| ASDK              | 10 GB                    | 140 GB                        |
+
+**Öncesi 1811**
+| Ortam ölçek | Yedekleme tahmini boyutu | Toplam gereken alan miktarı |
+|-------------------|--------------------------|--------------------------------|
+| 4-16 düğüm ASDK  | 10 GB                     | 140 GB                        |
 
 ### <a name="network-requirements"></a>Ağ gereksinimleri
 | Depolama konumu                                                                 | Ayrıntılar                                                                                                                                                                                 |
@@ -109,7 +116,7 @@ Planlama, dağıtma ve Microsoft Azure Stack örneklerinizin çalışmak gibi bu
 | Sınır tanımlayıcı                                                 | Sınır        | Yorumlar                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Yedekleme türü                                                      | Yalnızca tam    | Altyapı yedekleme denetleyicisi, yalnızca tam yedeklemeleri destekler. Artımlı yedeklemeler desteklenmez.                                          |
-| Zamanlanmış yedeklemeler                                                | Yalnızca el ile  | Yedekleme denetleyicisi şu anda yalnızca isteğe bağlı yedeklemeleri destekler                                                                                 |
+| Zamanlanmış yedeklemeler                                                | Zamanlanmış ve el ile  | Zamanlanmış ve isteğe bağlı yedeklemeler yedekleme denetleyicisi destekler                                                                                 |
 | En fazla eş zamanlı yedekleme işleri                                   | 1            | Yedekleme denetleyici örneği başına yalnızca bir etkin yedek iş desteklenir.                                                                  |
 | Ağ anahtarı yapılandırmasının                                     | Kapsam içinde değil | Yönetici, OEM araçlar kullanarak ağ anahtarı yapılandırmasının yedeklemeniz gerekir. Azure Stack her OEM satıcısı tarafından sağlanan belgelere bakın. |
 | Donanım yaşam döngüsü konak                                          | Kapsam içinde değil | Yönetici, donanım yaşam döngüsü OEM araçlarını kullanarak konak yedeklemeniz gerekir. Azure Stack her OEM satıcısı tarafından sağlanan belgelere bakın.      |

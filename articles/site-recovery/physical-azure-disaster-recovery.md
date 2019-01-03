@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: fa2f16f1a7d99a825039e2191c69642a45ff728a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 3b06335019cf15cc296c1814ee1fcf5ce50c3949
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845238"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971861"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Şirket içi fiziksel sunucuların azure'a olağanüstü durum kurtarmayı ayarlama
 
@@ -137,7 +137,7 @@ IP adresi tabanlı güvenlik duvarı kurallarına yukarıda listelenen Azure URL
 - **Ticari IP'ler** -izin [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)ve HTTPS (443) bağlantı noktası. AAD, yedekleme, çoğaltma ve depolama URL'leri desteklemek için aboneliğinizin Azure bölgesi için IP adresi aralıklarına izin verin.  
 - **Kamu IP'ler** -izin [Azure devlet kurumları veri merkezi IP aralıkları](https://www.microsoft.com/en-us/download/details.aspx?id=57063)ve HTTPS (443) bağlantı noktası (Virginia, Texas, Arizona ve Iowa) AAD, yedekleme, çoğaltma ve depolama URL'leri desteklemek için tüm USGov bölgeler için.  
 
-#### <a name="run-setup"></a>Kurulumu çalıştırın
+#### <a name="run-setup"></a>Kurulumu çalıştırma
 Birleşik Kurulum bir yerel yapılandırma sunucusunu yüklemek için yönetici olarak çalıştırın. Ayrıca işlem sunucusu ve ana hedef sunucusu yapılandırma sunucusunda varsayılan olarak yüklenir.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]

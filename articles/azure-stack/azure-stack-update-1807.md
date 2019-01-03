@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f87f93ebc739d75c796859c7091d4cf62a820a0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260593"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714994"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 güncelleştirme
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri*
 
 Bu makalede 1807 güncelleştirme paketinin içeriğini açıklar. Bu güncelleştirme, Azure Stack nerede güncelleştirmeyi indirin ve bu sürüm için bilinen sorunlar geliştirmeleri ve düzeltmeleri içerir. Bilinen sorunlar için güncelleştirme işlemini doğrudan ilgili sorunları ve derleme (yükleme sonrası) ile ilgili sorunlar ayrılır.
 
@@ -162,9 +162,8 @@ Bu güvenlik açıkları hakkında daha fazla bilgi için yukarıdaki bağlantı
 
 ### <a name="prerequisites"></a>Önkoşullar
 
-- Azure yığını'nı yükleme [1805 güncelleştirme](azure-stack-update-1805.md) Azure Stack 1807 güncelleştirmeyi uygulamadan önce.  Hiçbir güncelleştirme 1806 vardı.  
-
-- En son kullanılabilir yükleme [güncelleştirme veya düzeltme sürümü 1805](azure-stack-update-1805.md#post-update-steps).  
+- Azure yığını'nı yükleme [1805 güncelleştirme](azure-stack-update-1805.md) Azure Stack 1807 güncelleştirmeyi uygulamadan önce. Hiçbir güncelleştirme 1806 vardı.  
+ 
   > [!TIP]  
   > Aşağıdaki abone olmak *RRS* veya *Atom* Azure Stack düzeltmelerle birlikte kalmasını sağlamak için akışları:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
@@ -244,16 +243,16 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 - Uyarıları görebilirsiniz **sistem durumu denetleyicisi** aşağıdaki ayrıntıları olan bir bileşeni:  
 
    Uyarı #1:
-   - ADI: Sağlıksız altyapı rolü
-   - Önem DERECESİ: uyarı
-   - BİLEŞENİ: Sistem durumu denetleyicisi
-   - Açıklama: Sistem durumu denetleyici sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.  
+   - ADI:  Sağlıksız altyapı rolü
+   - ÖNEM DERECESİ: Uyarı
+   - BİLEŞEN: Denetleyici sistem durumu
+   - AÇIKLAMA: Sistem durumu denetleyici sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.  
 
   Uyarı #2:
-   - ADI: Sağlıksız altyapı rolü
-   - Önem DERECESİ: uyarı
-   - BİLEŞENİ: Sistem durumu denetleyicisi
-   - Açıklama: Hata tarayıcı durumu denetleyicisi kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.
+   - ADI:  Sağlıksız altyapı rolü
+   - ÖNEM DERECESİ: Uyarı
+   - BİLEŞEN: Denetleyici sistem durumu
+   - AÇIKLAMA: Sistem durumu denetleyicisi hata tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.
 
   Her iki uyarılar güvenle yoksayılabilir ve zaman içinde otomatik olarak kapatılması.  
 
@@ -261,10 +260,10 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 <!-- 2812138 | IS --> 
 - İçin bir uyarı görebileceğiniz **depolama** aşağıdaki ayrıntıları olan bir bileşeni:
 
-   - Ad: Depolama hizmeti iç iletişim hatası  
-   - Önem DERECESİ: kritik  
-   - Bileşen: depolama  
-   - Açıklama: Aşağıdaki düğümlere istekleri gönderirken, depolama hizmeti iç iletişim hatası oluştu.  
+   - ADI: Depolama hizmeti iç iletişim hatası  
+   - ÖNEM DERECESİ: Kritik  
+   - BİLEŞEN: Depolama  
+   - AÇIKLAMA: Aşağıdaki düğümlere istekleri gönderirken, depolama hizmeti iç iletişim hatası oluştu.  
 
     Uyarıyı güvenle yoksayılabilir, ancak uyarıyı el ile kapatmanız gerekir.
 
@@ -278,10 +277,10 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 - PowerShell cmdlet'lerini kullanırken **başlangıç AzsScaleUnitNode** veya **Stop-AzsScaleunitNode** ölçek birimleri yönetmek için başlatma veya durdurma ölçek birimi için yapılan ilk girişim başarısız olabilir. İlk çalıştırılmasında cmdlet'i başarısız olursa, cmdlet'in ikinci kez çalıştırın. İkinci çalıştırma işlemi tamamlamak için başarılı olmalıdır. 
 
 <!-- 2494144 - IS, ASDK --> 
-- Bir sanal makine dağıtımı için bir sanal makine boyutu seçerken, bazı F serisi VM boyutlarının görünür olmayan bir VM oluşturduğunuzda boyut seçici bir parçası olarak. Aşağıdaki VM boyutları seçicide görünmez: *F8s_v2*, *F16s_v2*, *F32s_v2*, ve *F64s_v2*.  
+- Bir sanal makine dağıtımı için bir sanal makine boyutu seçerken, bazı F serisi VM boyutlarının görünür olmayan bir VM oluşturduğunuzda boyut seçici bir parçası olarak. Aşağıdaki VM boyutları, seçicide görünmez: *F8s_v2*, *F16s_v2*, *F32s_v2*, ve *F64s_v2*.  
   Geçici bir çözüm olarak, bir VM'yi dağıtmak için aşağıdaki yöntemlerden birini kullanın. Her bir yöntemin, kullanmak istediğiniz VM boyutu belirtmeniz gerekir.
 
-  - **Azure Resource Manager şablonu:** bir şablon kullandığınızda *vmSize* şablonunda kullanmak istediğiniz VM boyutuna eşit olur. Örneğin, şu girişi kullanan bir VM dağıtmak için kullanılan *F32s_v2* boyutu:  
+  - **Azure Resource Manager şablonu:** Bir şablon kullandığınızda *vmSize* şablonunda kullanmak istediğiniz VM boyutuna eşit olur. Örneğin, şu girişi kullanan bir VM dağıtmak için kullanılan *F32s_v2* boyutu:  
 
     ```
         "properties": {
@@ -289,9 +288,9 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - **Azure CLI:** kullanabileceğiniz [az vm oluşturma](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) benzer bir parametre olarak bir VM boyutu belirtin ve komutu `--size "Standard_F32s_v2"`.
+  - **Azure CLI:** Kullanabileceğiniz [az vm oluşturma](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create) benzer bir parametre olarak bir VM boyutu belirtin ve komutu `--size "Standard_F32s_v2"`.
 
-  - **PowerShell:** kullanabileceğiniz PowerShell ile [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) benzer VM boyutunu belirten parametresiyle `-VMSize "Standard_F32s_v2"`.
+  - **PowerShell:** PowerShell ile kullanabileceğiniz [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) benzer VM boyutunu belirten parametresiyle `-VMSize "Standard_F32s_v2"`.
 
 
 <!-- TBD - IS ASDK --> 

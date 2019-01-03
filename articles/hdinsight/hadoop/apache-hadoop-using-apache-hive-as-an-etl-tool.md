@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f8fb036eaca35e41d89b0a9610ebcd68e65f40f9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632552"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630267"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Apache Hive ayıklama, dönüştürme ve yükleme (ETL) aracı olarak kullanma
 
-Genelde temizlemek ve analiz için uygun bir hedef içine yüklemeden önce gelen verileri dönüştürmek gerekir. Ayıklama, dönüştürme ve yükleme (ETL) işlemleri, veri hazırlama ve veri hedefe yüklemek için kullanılır.  HDInsight üzerinde Apache Hive yapılandırılmamış verileri okuma, gerektiği gibi verileri işlemek ve ardından karar destek sistemleri için bir ilişkisel veri ambarı'na veri yükleme. Bu yaklaşımda, veri kaynağından ayıklanan ve ölçeklenebilir depolama, Azure depolama blobları veya Azure Data Lake Store gibi depolanır. Veriler ardından Hive sorguları bir dizi kullanarak dönüştürülür ve içinde Hive toplu hedef veri deposuna yükleme hazırlığı kapsamında son hazırlanır.
+Genelde temizlemek ve analiz için uygun bir hedef içine yüklemeden önce gelen verileri dönüştürmek gerekir. Ayıklama, dönüştürme ve yükleme (ETL) işlemleri, veri hazırlama ve veri hedefe yüklemek için kullanılır.  HDInsight üzerinde Apache Hive yapılandırılmamış verileri okuma, gerektiği gibi verileri işlemek ve ardından karar destek sistemleri için bir ilişkisel veri ambarı'na veri yükleme. Bu yaklaşımda, veri kaynağından ayıklanan ve ölçeklenebilir depolama, Azure depolama blobları veya Azure Data Lake Storage gibi depolanır. Veriler ardından Hive sorguları bir dizi kullanarak dönüştürülür ve içinde Hive toplu hedef veri deposuna yükleme hazırlığı kapsamında son hazırlanır.
 
 ## <a name="use-case-and-model-overview"></a>Büyük/küçük harf ve model genel bakış kullanın
 
@@ -30,7 +30,7 @@ Hadoop genellikle metin dosyaları (örneğin, csv) veya daha küçük ancak say
 
 Hive'ı kullanarak ETL gerçekleştirmeyi için tipik adımları aşağıdaki gibidir:
 
-1. Verileri Azure Data Lake Store veya Azure Blob Depolama yükleyin.
+1. Verileri Azure Data Lake Storage veya Azure Blob Depolama yükleyin.
 2. Kendi şemaları depolanırken Hive tarafından kullanılmak üzere (Azure SQL veritabanı kullanarak) bir meta veri Store veritabanı oluşturun.
 3. Bir HDInsight kümesi oluşturma ve veri deposuna bağlanın.
 4. Veri deposundaki veriler üzerinde okuma zamanında uygulamak için bir şema tanımlayın:
@@ -51,7 +51,7 @@ Hive'ı kullanarak ETL gerçekleştirmeyi için tipik adımları aşağıdaki gi
 
 5. Veri dönüştürme ve hedefe yükle.  Hive dönüştürme ve yükleme sırasında kullanmak için birkaç yol vardır:
 
-    * Sorgu, Hive kullanarak verileri hazırlama ve Azure Data Lake Store veya Azure blob Depolama'nde bir CSV olarak kaydedin.  Ardından bu Csv'leri almak ve verileri SQL Server gibi ilişkisel bir hedef veritabanı yüklemek için SQL Server Integration Services (SSIS) gibi bir araç kullanın.
+    * Sorgu, Hive kullanarak verileri hazırlama ve Azure Data Lake Storage veya Azure blob Depolama'nde bir CSV olarak kaydedin.  Ardından bu Csv'leri almak ve verileri SQL Server gibi ilişkisel bir hedef veritabanı yüklemek için SQL Server Integration Services (SSIS) gibi bir araç kullanın.
     * Verileri doğrudan Excel veya Hive ODBC sürücüsünü kullanarak C# sorgu.
     * Kullanım [Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md) hazırlanmış düz CSV dosyaları okumak ve bunları hedef ilişkisel veritabanı'na yükler.
 

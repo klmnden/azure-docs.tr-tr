@@ -15,12 +15,12 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: d84f37e8350778b3b1fbc9d618df451e1d3ca9f8
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: bcd46ac62ed59229cbeb3c55fa08b9b4fd82a69c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723507"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752869"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Visual Studio Eğilimlerini Çözümleme
 Application Insights Eğilimleri aracı, web uygulamanızın önemli telemetri olaylarının zaman içinde nasıl değiştiğini gösterir ve sorunları ve anormallikleri hızlıca belirlemenize yardımcı olur. Sizi daha ayrıntılı tanılama bilgilerine bağlayan Eğilimler, uygulamanızın performansını geliştirmenize, özel durumların nedenlerini izlemenize ve özel olaylarınıza ilişkin bilgileri açığa çıkarmanıza yardımcı olabilir.
@@ -107,6 +107,6 @@ Eğilimler aracı, aynı zaman dizisindeki diğer baloncuklara kıyasla anormal 
 |  |  |
 | --- | --- |
 | **[Visual Studio’da Application Insights ile çalışma](app-insights-visual-studio.md)**<br/>Telemetri arayın, CodeLens içindeki verilere bakın ve Application Insights’ı yapılandırın. Hepsi Visual Studio’da. |![Projeye sağ tıklayın ve Application Insights, Ara’yı seçin](./media/app-insights-visual-studio-trends/34.png) |
-| **[Daha fazla veri ekleme](app-insights-asp-net-more.md)**<br/>Kullanımı, kullanılabilirliği, bağımlılıkları, özel durumları izleyin. Günlük altyapılarından izlemeleri tümleştirin. Özel telemetri yazın. |![Visual studio](./media/app-insights-visual-studio-trends/64.png) |
-| **[Application Insights portalıyla çalışma](app-insights-dashboards.md)**<br/>Panolar, güçlü tanılama ve analiz araçları, uyarılar, uygulamanızın canlı bağımlılık haritası ve telemetriyi dışarı aktarma. |![Visual studio](./media/app-insights-visual-studio-trends/62.png) |
+| **[Daha fazla veri ekleme](../azure-monitor/app/asp-net-more.md)**<br/>Kullanımı, kullanılabilirliği, bağımlılıkları, özel durumları izleyin. Günlük altyapılarından izlemeleri tümleştirin. Özel telemetri yazın. |![Visual studio](./media/app-insights-visual-studio-trends/64.png) |
+| **[Application Insights portalıyla çalışma](../azure-monitor/app/app-insights-dashboards.md)**<br/>Panolar, güçlü tanılama ve analiz araçları, uyarılar, uygulamanızın canlı bağımlılık haritası ve telemetriyi dışarı aktarma. |![Visual studio](./media/app-insights-visual-studio-trends/62.png) |
 

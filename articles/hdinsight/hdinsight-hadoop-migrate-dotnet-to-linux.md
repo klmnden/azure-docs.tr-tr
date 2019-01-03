@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3681f87780f1ef2a6b42e33bcd6fc2d761994d5c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3a9a026af67cd5528dfc00148bcbbcef82b8b189
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384216"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714670"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>.NET çözümlerini Linux tabanlı HDInsight için Windows tabanlı HDInsight için geçirme
 
@@ -24,7 +24,7 @@ Linux tabanlı HDInsight kümeleri kullanım [Mono (https://mono-project.com) ](
 
 HDInsight sürümü 3.6 ile Mono sürüm 4.2.1 dahildir. HDInsight ile dahil Mono sürümü hakkında daha fazla bilgi için bkz. [HDInsight bileşen sürümü](hdinsight-component-versioning.md). Mono belirli bir sürümünü yüklemek için bkz [Mono yükleme veya güncelleştirme](hdinsight-hadoop-install-mono.md) belge.
 
-Mono ve .NET uyumluluğu hakkında daha fazla bilgi için bkz. [Mono uyumluluğu (http://www.mono-project.com/docs/about-mono/compatibility/) ](http://www.mono-project.com/docs/about-mono/compatibility/) belge.
+Mono ve .NET uyumluluğu hakkında daha fazla bilgi için bkz. [Mono uyumluluğu (https://www.mono-project.com/docs/about-mono/compatibility/) ](https://www.mono-project.com/docs/about-mono/compatibility/) belge.
 
 > [!IMPORTANT]  
 > SCP.NET çerçevesi, Mono ile uyumludur. SCP.NET Mono ile kullanma hakkında daha fazla bilgi için bkz. [HDInsight üzerinde Apache Storm için C# topolojileri geliştirme için Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md).
@@ -52,7 +52,7 @@ Mono ve .NET uyumluluğu hakkında daha fazla bilgi için bkz. [Mono uyumluluğu
 
 ## <a name="manual-portability-analysis"></a>El ile Taşınabilirlik analizi
 
-El ile bir denetim bilgileri kullanarak kodunuzun gerçekleştirmek [uygulama taşınabilirliğini (http://www.mono-project.com/docs/getting-started/application-portability/) ](http://www.mono-project.com/docs/getting-started/application-portability/) belge.
+El ile bir denetim bilgileri kullanarak kodunuzun gerçekleştirmek [uygulama taşınabilirliğini (https://www.mono-project.com/docs/getting-started/application-portability/) ](https://www.mono-project.com/docs/getting-started/application-portability/) belge.
 
 ## <a name="modify-and-build"></a>Derleme ve değiştirme
 

@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 5a8760bc67125f857998f23ca33733a62a0d8fb5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: db412d3fd0af84d528ad0c83d86cc5d055359914
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315732"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632696"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>En iyi uygulamalar ve Azure App Service Windows üzerinde node.js uygulamaları için sorun giderme kılavuzu
 
-Bu makalede, en iyi yöntemler ve sorun giderme adımları için bilgi [node uygulamaları](app-service-web-get-started-nodejs.md) Azure Web Apps üzerinde çalışan (ile [iisnode](https://github.com/azure/iisnode)).
+Bu makalede, en iyi yöntemler ve sorun giderme adımları için bilgi [node uygulamaları](app-service-web-get-started-nodejs.md) Azure App Service üzerinde çalışan (ile [iisnode](https://github.com/azure/iisnode)).
 
 > [!WARNING]
 > Sorun giderme adımları üretim sitenizi kullanırken dikkatli olun. Uygulamanızı bir üretim dışı Kurulum Örneğin, hazırlık yuvasına ve sorun düzeltildiğinde, hazırlama yuvasına, üretim yuvası ile takas için önerilir.
@@ -44,18 +44,18 @@ Bu ayar, node.exe yolu denetler. Bu değer, node.exe sürüme işaret edecek şe
 
 ### <a name="maxconcurrentrequestsperprocess"></a>maxConcurrentRequestsPerProcess
 
-Bu ayar, en fazla iisnode tarafından gönderilen her node.exe için eş zamanlı istek sayısını denetler. Azure Web Apps üzerinde varsayılan değer sonsuzdur. Azure Web Apps'te barındırılan değil, varsayılan değer 1024'tür. Değer, uygulamanın aldığı kaç istekleri ve uygulamanızı her isteğin ne kadar hızlı işleme bağlı olarak yapılandırabilirsiniz.
+Bu ayar, en fazla iisnode tarafından gönderilen her node.exe için eş zamanlı istek sayısını denetler. Azure App Service üzerinde sınırsız varsayılan değerdir. Değer, uygulamanın aldığı kaç istekleri ve uygulamanızı her isteğin ne kadar hızlı işleme bağlı olarak yapılandırabilirsiniz.
 
 ### <a name="maxnamedpipeconnectionretry"></a>maxNamedPipeConnectionRetry
 
-Bu ayar, en fazla kaç kez denetler iisnode deneme node.exe için istek göndermek için adlandırılmış kanal üzerindeki bağlantı oluşturma. Bu ayar namedPipeConnectionRetryDelay birlikte her isteğin iisnode içinde toplam zaman aşımı belirler. Azure Web apps'te 200 varsayılan değerdir. Zaman aşımı saniye cinsinden toplam = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
+Bu ayar, en fazla kaç kez denetler iisnode deneme node.exe için istek göndermek için adlandırılmış kanal üzerindeki bağlantı oluşturma. Bu ayar namedPipeConnectionRetryDelay birlikte her isteğin iisnode içinde toplam zaman aşımı belirler. Azure App Service'te 200 varsayılan değerdir. Zaman aşımı saniye cinsinden toplam = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
 ### <a name="namedpipeconnectionretrydelay"></a>namedPipeConnectionRetryDelay
 
 Bu ayar adlandırılmış kanal üzerinden node.exe için isteği göndermek için her yeniden deneme arasındaki süre (ms) iisnode bekler miktarını denetler. 250 ms varsayılan değerdir.
 Zaman aşımı saniye cinsinden toplam = (maxNamedPipeConnectionRetry \* namedPipeConnectionRetryDelay) / 1000
 
-Varsayılan olarak, Azure Web apps'te iisnode toplam zaman aşımı 200'dür \* 250 ms = 50 saniye.
+Varsayılan olarak, Azure App Service'te iisnode toplam zaman aşımı 200'dür \* 250 ms = 50 saniye.
 
 ### <a name="logdirectory"></a>logDirectory
 
@@ -128,7 +128,7 @@ Okuma [Windows üzerinde node.js uygulamalarında hata ayıklama](https://tomasz
 
 Birçok uygulama, normal işlemlerinin bir parçası olarak giden bağlantılar oluşturmak istersiniz. Örneğin, bir istek geldiğinde, başka bir yerde REST API ile iletişime geçin ve isteği işlemek için bazı bilgiler almak düğüm uygulamanızı istersiniz. Http veya https çağrıları yapılırken canlı tutma aracı kullanmak isteyebilirsiniz. Canlı tutma aracısı olarak, bu giden çağrıları yapılırken agentkeepalive modülü kullanabilirsiniz.
 
-Yuvalar, Azure webapp VM yeniden kullanılan agentkeepalive modülü sağlar. Her bir giden talep üzerinde yeni bir yuva oluşturma, uygulamanıza ek yükü ekler. Giden istekler için yuva yeniden uygulamanızın olması, uygulamanızın VM başına ayrılmış maxSockets aşmaması sağlar. Azure Web apps'te agentKeepAlive maxSockets değeri ayarlamak için toplam önerilir (4 node.exe örneklerini \* 40 maxSockets/örnek) 160 yuva VM başına.
+Yuvalar, Azure webapp VM yeniden kullanılan agentkeepalive modülü sağlar. Her bir giden talep üzerinde yeni bir yuva oluşturma, uygulamanıza ek yükü ekler. Giden istekler için yuva yeniden uygulamanızın olması, uygulamanızın VM başına ayrılmış maxSockets aşmaması sağlar. Azure App Service'te agentKeepAlive maxSockets değeri ayarlamak için toplam önerilir (node.exe 4 örneklerini \* 40 maxSockets/örnek) VM başına 160 yuva.
 
 Örnek [agentKeepALive](https://www.npmjs.com/package/agentkeepalive) yapılandırma:
 
@@ -147,10 +147,10 @@ var keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>Çok fazla CPU tükettiğini düğüm Uygulamam
 
-Yüksek cpu tüketimi hakkında portalınızdaki Azure Web uygulamaları bir öneri alabilirsiniz. Belirli izlemek için izleyicilerinin ayarlayabilirsiniz [ölçümleri](web-sites-monitor.md). CPU kullanımı üzerinde denetlenirken [Azure portalı Panosu](../application-insights/app-insights-web-monitor-performance.md), CPU, en yüksek değerleri kaçırmamak için en büyük değerleri kontrol edin.
+Yüksek cpu tüketimi hakkında portalınızdaki Azure uygulama Hizmeti'nden bir öneri alabilirsiniz. Belirli izlemek için izleyicilerinin ayarlayabilirsiniz [ölçümleri](web-sites-monitor.md). CPU kullanımı üzerinde denetlenirken [Azure portalı Panosu](../application-insights/app-insights-web-monitor-performance.md), CPU, en yüksek değerleri kaçırmamak için en büyük değerleri kontrol edin.
 Uygulamanız çok fazla CPU kullanan ve neden açıklayamadığınız düşünüyorsanız öğrenmek için node.js uygulamanızı profilini oluşturabilirsiniz.
 
-#### <a name="profiling-your-node-application-on-azure-web-apps-with-v8-profiler"></a>Node.js uygulamanızı Azure Web apps'te V8 Profiler ile profil oluşturma
+#### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>Node.js uygulamanızı Azure App Service'te V8 Profiler ile profil oluşturma
 
 Örneğin, aşağıdaki gibi profilini oluşturmak istediğiniz bir Merhaba Dünya uygulaması sahip varsayalım:
 
@@ -220,7 +220,7 @@ Bu dosyayı indirin ve Chrome F12 araçları ile açın. Chrome'da F12 tuşuna b
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>Düğüm Uygulamam çok fazla bellek tüketiyor
 
-Uygulamanız çok fazla bellek kullanıp kullanmadığına portalınızdaki yüksek bellek tüketimi hakkında bir uyarı Azure Web uygulamalarından bakın. Belirli izlemek için izleyicilerinin ayarlayabilirsiniz [ölçümleri](web-sites-monitor.md). Bellek kullanımı denetlenirken [Azure portalı Panosu](../application-insights/app-insights-web-monitor-performance.md), en yüksek değerleri kaçırmamak için bellek için en büyük değerleri kontrol ettiğinizden emin olun.
+Uygulamanız çok fazla bellek kullanıp kullanmadığına portalınızdaki yüksek bellek tüketimi hakkında Azure App Service'in bir bildirim görürsünüz. Belirli izlemek için izleyicilerinin ayarlayabilirsiniz [ölçümleri](web-sites-monitor.md). Bellek kullanımı denetlenirken [Azure portalı Panosu](../application-insights/app-insights-web-monitor-performance.md), en yüksek değerleri kaçırmamak için bellek için en büyük değerleri kontrol ettiğinizden emin olun.
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>Sızıntı algılama ve node.js için yığın farkı
 
@@ -249,12 +249,12 @@ Uygulamanızı Yakalanmayan Özel durumların – onay yanlamasına ivme kazanma
 
 ### <a name="my-node-application-takes-too-much-time-to-start-cold-start"></a>Düğüm Uygulamam (Gecikmeli Başlatma) başlatmak için çok fazla zaman alır
 
-Genel uzun uygulama başlangıç zamanlarını çok sayıda düğümü dosyalarında nedeni\_modüller. Uygulama başlatma sırasında bu dosyaları çoğunu yüklemek çalışır. Azure Web Apps üzerinde ağ paylaşımı üzerinde dosyaları depolandığından varsayılan olarak, çok sayıda dosya yüklenirken zaman alabilir.
+Genel uzun uygulama başlangıç zamanlarını çok sayıda düğümü dosyalarında nedeni\_modüller. Uygulama başlatma sırasında bu dosyaları çoğunu yüklemek çalışır. Azure App Service'te, ağ paylaşımında dosyalarınızı depolandığından varsayılan olarak, çok sayıda dosya yüklenirken zaman alabilir.
 Bu işlem daha hızlı hale getirmek için bazı çözümler vardır:
 
 1. Düz bağımlılık yapısı ve yinelenen bağımlılıkları yoktur, modüllerini yüklemek için npm3 kullanarak sahip olduğunuzdan emin olun.
 2. Yavaş deneyin yük düğümünüzü\_modülleri ve tüm uygulama başlangıcında modüllerini yüklenmeyecek. Modül kod yürütmeyi ilk önce işlev içindeki modül gerçekten ihtiyacınız olduğunda yavaş yük modüllerle require('module') çağrısı yapılmalıdır.
-3. Azure Web Apps, yerel önbellek adı verilen bir özellik sunar. Bu özellik, içeriğinizi ağ paylaşımından VM yerel diskte kopyalar. Dosyaları yükleme süresi düğümünün yerel olduğundan\_modülleri çok daha hızlı.
+3. Azure App Service yerel önbellek adı verilen bir özellik sunar. Bu özellik, içeriğinizi ağ paylaşımından VM yerel diskte kopyalar. Dosyaları yükleme süresi düğümünün yerel olduğundan\_modülleri çok daha hızlı.
 
 ## <a name="iisnode-http-status-and-substatus"></a>IISNODE http durumu ve alt durumu
 
@@ -274,13 +274,13 @@ Win32 hata kodu görmek uygulamanızın FREB etkinleştir (performansı artırma
 | 503 |1002 |Gerçek bir nedenle – isteği onay win32 hata kodu için bir node.exe dağıtılamadı. |
 | 503 |1003 |Adlandırılmış kanal çok meşgul – node.exe aşırı CPU kullanmadığına doğrulayın |
 
-NODE.exe adlı bir ayar olan `NODE_PENDING_PIPE_INSTANCES`. Varsayılan olarak, Azure Web Apps üzerinde dağıtılan bu değeri 4 olur. Bu node.exe yalnızca kabul edebilir dört istekleri adlandırılmış kanal üzerinde bir seferde anlamına gelir. Azure Web Apps üzerinde bu değer 5000 olarak ayarlanır. Bu değer, Azure Web Apps üzerinde çalışan düğümü uygulamalarının çoğu için yeterince iyi olmalıdır. 503.1003 Azure Web Apps üzerinde yüksek değeri nedeniyle görmelisiniz değil `NODE_PENDING_PIPE_INSTANCES`
+NODE.exe adlı bir ayar olan `NODE_PENDING_PIPE_INSTANCES`. Azure App Service, bu değer 5000 olarak ayarlanır. Bu node.exe kabul edebilir 5000 istekleri adlandırılmış kanal üzerinde bir seferde anlamına gelir. Bu değer, Azure App Service üzerinde çalışan düğümü uygulamalarının çoğu için yeterince iyi olmalıdır. 503.1003 üzerinde Azure App Service'te yüksek değeri nedeniyle görmelisiniz değil `NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>Diğer kaynaklar
 
 Azure App Service'te node.js uygulamaları hakkında daha fazla bilgi için aşağıdaki bağlantıları izleyin.
 
-* [Azure App Service'te Node.js Web uygulamalarını kullanmaya başlama](app-service-web-get-started-nodejs.md)
+* [Azure App Service’te Node.js web uygulamalarını kullanmaya başlama](app-service-web-get-started-nodejs.md)
 * [Azure Uygulama Hizmeti’ndeki bir Node.js web uygulamasına hata ayıklama](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Azure uygulamalarıyla Node.js Modüllerini kullanma](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web uygulamaları: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)

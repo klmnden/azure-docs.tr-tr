@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: b1bea9b1a2bdb04a60fa6a8fa1d92bfbaf80c6d6
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 2df24cfe217a9955a3abb08d042836821b083946
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320838"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580646"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Web kancası kullanarak bir Azure sistem bilgisini Klasik ölçüm uyarısı sahip
 İşlem Sonrası veya özel eylemler için diğer sistemlere Azure bir uyarı bildirimine yönlendirmek için Web kancaları kullanabilirsiniz. Sohbet veya Mesajlaşma Hizmetleri aracılığıyla veya diğer çeşitli eylemler için bir takıma bildirin hataları oturum, SMS iletileri göndermek Hizmetleri yönlendirmek için bir uyarısında Web kancası kullanabilirsiniz. 
@@ -27,7 +27,7 @@ Eklemek veya Web kancası URI güncelleştirmek için [Azure portalında](https:
 
 ![Bir uyarı kuralı bölmesi ekleme](./media/alerts-webhooks/Alertwebhook.png)
 
-Kullanarak bir Web kancası için URI gönderilecek bir uyarı yapılandırabilirsiniz [Azure PowerShell cmdlet'lerini](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts), [platformlar arası CLI](../../azure-monitor/platform/cli-samples.md#work-with-alerts), veya [Azure İzleyici REST API'leri](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Kullanarak bir Web kancası için URI gönderilecek bir uyarı yapılandırabilirsiniz [Azure PowerShell cmdlet'lerini](../../azure-monitor/platform/powershell-quickstart-samples.md#create-metric-alerts), [platformlar arası CLI](../../azure-monitor/platform/cli-samples.md#work-with-alerts), veya [Azure İzleyici REST API'leri](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticate-the-webhook"></a>Web kancası kimlik doğrulaması
 Web kancası, belirteç tabanlı yetkilendirme kullanarak kimlik doğrulaması yapabilirsiniz. Web kancası belirteci bir kimliğe sahip URI kaydedilir Örneğin, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`

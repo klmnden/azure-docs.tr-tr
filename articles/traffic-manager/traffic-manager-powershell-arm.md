@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 8696f4780db8b98457b56dd7f1162553697023d4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 93d52101569e911c90377f26a9773d61eeaaf229
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237936"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653688"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Traffic Manager'ı yönetmek için PowerShell kullanma
 
@@ -111,7 +111,7 @@ Her üç durumda, iki yolla uç noktaları eklenebilir:
 
 Azure uç noktaları, Azure üzerinde barındırılan hizmetleri başvuru. Azure uç noktalarını iki türleri desteklenir:
 
-1. Azure Web Apps
+1. Azure App Service
 2. (Bir yük dengeleyici veya bir sanal makine NIC eklenebilecek) azure Publicıpaddress kaynakları. Publicıpaddress trafik Yöneticisi'nde kullanılmak üzere atanmış bir DNS adı olmalıdır.
 
 Her durumda:
@@ -121,9 +121,9 @@ Her durumda:
 * Belirten 'ağırlık' isteğe bağlıdır. Profil 'Ağırlıklı' trafik yönlendirme yöntemini kullanmak için yapılandırılmışsa ağırlıkları yalnızca kullanılır. Aksi takdirde, bunlar yoksayılır. Bu seçenek belirtilmişse, değerin 1 ile 1000 arasında bir sayı olmalıdır. Varsayılan değer, '1' dir.
 * Belirten 'öncelik' isteğe bağlıdır. Öncelikleri, yalnızca profili, 'Priority' trafik yönlendirme yöntemini kullanmak için yapılandırılmışsa, kullanılır. Aksi takdirde, bunlar yoksayılır. Geçerli değerler 1 ile 1000 ile düşük değerler daha yüksek bir önceliğe belirten:. Bir uç nokta için belirtilirse, tüm uç noktalar için belirtilmelidir. Atlanırsa, varsayılan değerleri '1'den başlayarak, uç noktaları listelenen sırayla uygulanır.
 
-### <a name="example-1-adding-web-app-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>Örnek 1: kullanarak bir Web uygulaması uç noktaları ekleme `Add-AzureRmTrafficManagerEndpointConfig`
+### <a name="example-1-adding-app-service-endpoints-using-add-azurermtrafficmanagerendpointconfig"></a>Örnek 1: Kullanarak App Service uç noktaları ekleme `Add-AzureRmTrafficManagerEndpointConfig`
 
-Bu örnekte, biz bir Traffic Manager profili oluşturma ve kullanarak, iki Web uygulaması uç noktalarını eklemek `Add-AzureRmTrafficManagerEndpointConfig` cmdlet'i.
+Bu örnekte, biz bir Traffic Manager profili oluşturma ve kullanarak, iki App Service uç noktası ekleme `Add-AzureRmTrafficManagerEndpointConfig` cmdlet'i.
 
 ```powershell
 $profile = New-AzureRmTrafficManagerProfile -Name myprofile -ResourceGroupName MyRG -TrafficRoutingMethod Performance -RelativeDnsName myapp -Ttl 30 -MonitorProtocol HTTP -MonitorPort 80 -MonitorPath "/"
@@ -133,7 +133,7 @@ $webapp2 = Get-AzureRMWebApp -Name webapp2
 Add-AzureRmTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $profile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
-### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Örnek 2: kullanarak bir Publicıpaddress uç noktası ekleme `New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-azurermtrafficmanagerendpoint"></a>Örnek 2: Kullanarak bir Publicıpaddress uç noktası ekleme `New-AzureRmTrafficManagerEndpoint`
 
 Bu örnekte, bir genel IP adresi kaynağı Traffic Manager profiline eklenir. Genel IP adresini, yapılandırılmış bir DNS adı olmalıdır ve bir VM'nin NIC'ye ya da bir yük dengeleyiciye bağlı olabilir.
 
@@ -152,7 +152,7 @@ Dış uç noktalar belirtirken:
 * 'EndpointLocation', 'Performans' trafik yönlendirme yöntemi kullandıysanız gereklidir. Aksi halde isteğe bağlıdır. Değer olmalıdır bir [geçerli bir Azure bölgesi adı](https://azure.microsoft.com/regions/).
 * 'Ağırlık' ve 'Öncelik' isteğe bağlıdır.
 
-### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Örnek 1: kullanarak dış uç noktaları ekleme `Add-AzureRmTrafficManagerEndpointConfig` ve `Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-adding-external-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Örnek 1: Dış uç noktaları kullanarak ekleyerek `Add-AzureRmTrafficManagerEndpointConfig` ve `Set-AzureRmTrafficManagerProfile`
 
 Bu örnekte, biz Traffic Manager profili oluşturma, iki dış uç nokta ekleyin ve değişiklikleri uygulayın.
 
@@ -163,7 +163,7 @@ Add-AzureRmTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManage
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-adding-external-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Örnek 2: kullanarak dış uç noktaları ekleme `New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-external-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Örnek 2: Kullanarak dış uç noktaları ekleme `New-AzureRmTrafficManagerEndpoint`
 
 Bu örnekte, var olan bir profile dış uç noktası ekleriz. Profil, profili ve kaynak grubu adları kullanarak belirtilir.
 
@@ -182,7 +182,7 @@ Traffic Manager profillerine tek bir trafik yönlendirme yöntemini belirtir. An
 * 'Ağırlık' ve 'Öncelik' Azure uç noktalarına hem isteğe bağlı.
 * 'MinChildEndpoints' parametresi isteğe bağlıdır. Varsayılan değer, '1' dir. Kullanılabilir uç nokta sayısı bu eşiğin altına düşmesi durumunda, üst profili alt profil 'düşürülmüş' ve üst profili diğer uç noktalardan trafiği yönlendiren göz önünde bulundurur.
 
-### <a name="example-1-adding-nested-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Örnek 1: kullanarak iç içe uç noktaları ekleme `Add-AzureRmTrafficManagerEndpointConfig` ve `Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-adding-nested-endpoints-using-add-azurermtrafficmanagerendpointconfig-and-set-azurermtrafficmanagerprofile"></a>Örnek 1: Kullanarak iç içe uç noktaları ekleyerek `Add-AzureRmTrafficManagerEndpointConfig` ve `Set-AzureRmTrafficManagerProfile`
 
 Bu örnekte, biz profilleri yeni bir Traffic Manager alt ve üst öğe oluşturma, alt, üst iç içe bir uç nokta ekleyin ve değişiklikleri uygulayın.
 
@@ -195,7 +195,7 @@ Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 
 Bu örnekte konuyu uzatmamak amacıyla, biz diğer uç noktalar alt veya üst profillere eklemediniz.
 
-### <a name="example-2-adding-nested-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Örnek 2: kullanarak iç içe uç noktaları ekleme `New-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-adding-nested-endpoints-using-new-azurermtrafficmanagerendpoint"></a>Örnek 2: Kullanarak iç içe uç noktaları ekleme `New-AzureRmTrafficManagerEndpoint`
 
 Bu örnekte, var olan bir alt profilini iç içe uç noktası olarak var olan bir üst profile ekleriz. Profil, profili ve kaynak grubu adları kullanarak belirtilir.
 
@@ -223,7 +223,7 @@ Var olan bir Traffic Manager uç noktasını güncelleştirmek için iki yolu va
 1. Traffic Manager profili kullanarak `Get-AzureRmTrafficManagerProfile`profilinde uç noktası özelliklerini güncelleştirmek ve kullanarak değişiklikleri `Set-AzureRmTrafficManagerProfile`. Bu yöntem, tek bir işlemde birden fazla uç noktasını güncelleştirmek için avantajı vardır.
 2. Traffic Manager uç nokta kullanarak `Get-AzureRmTrafficManagerEndpoint`, uç nokta özelliklerini güncelleştirmek ve kullanarak değişiklikleri `Set-AzureRmTrafficManagerEndpoint`. Profilde uç noktaları diziye dizin gerektirmediğinden bu yöntem basittir.
 
-### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>Örnek 1: kullanan uç güncelleştirme `Get-AzureRmTrafficManagerProfile` ve `Set-AzureRmTrafficManagerProfile`
+### <a name="example-1-updating-endpoints-using-get-azurermtrafficmanagerprofile-and-set-azurermtrafficmanagerprofile"></a>Örnek 1: Uç noktaları kullanarak güncelleştirme `Get-AzureRmTrafficManagerProfile` ve `Set-AzureRmTrafficManagerProfile`
 
 Bu örnekte biz varolan bir profili içinde iki uç nokta önceliği değiştirin.
 
@@ -234,7 +234,7 @@ $profile.Endpoints[1].Priority = 1
 Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $profile
 ```
 
-### <a name="example-2-updating-an-endpoint-using-get-azurermtrafficmanagerendpoint-and-set-azurermtrafficmanagerendpoint"></a>Örnek 2: kullanarak bir uç nokta güncelleştiriliyor `Get-AzureRmTrafficManagerEndpoint` ve `Set-AzureRmTrafficManagerEndpoint`
+### <a name="example-2-updating-an-endpoint-using-get-azurermtrafficmanagerendpoint-and-set-azurermtrafficmanagerendpoint"></a>Örnek 2: Bir uç nokta kullanarak güncelleştirme `Get-AzureRmTrafficManagerEndpoint` ve `Set-AzureRmTrafficManagerEndpoint`
 
 Bu örnekte biz varolan profilini tek bir uç nokta ağırlığı değiştirin.
 
@@ -249,7 +249,7 @@ Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 Traffic Manager, etkin ve devre dışı, tüm profilleri devre dışı bırakma ve etkinleştirme verme yanı sıra bireysel uç noktaları sağlar.
 Bu değişiklikler, uç nokta veya profili kaynakları alma/güncelleştirme/ayarı tarafından yapılabilir. Ortak işlemlerini kolaylaştırmak için adanmış cmdlet'leri da desteklenir.
 
-### <a name="example-1-enabling-and-disabling-a-traffic-manager-profile"></a>Örnek 1: Etkinleştirme ve Traffic Manager profili devre dışı bırakılıyor
+### <a name="example-1-enabling-and-disabling-a-traffic-manager-profile"></a>Örnek 1: Traffic Manager profili devre dışı bırakma ve etkinleştirme
 
 Traffic Manager profili etkinleştirmek için `Enable-AzureRmTrafficManagerProfile`. Profil, bir profil nesnesi kullanılarak belirtilebilir. Profili nesnesini kullanarak veya işlem hattı aracılığıyla geçirilebilir '-TrafficManagerProfile' parametresi. Bu örnekte, biz profili tarafından profil ve kaynak grubu adı belirtin.
 
@@ -265,7 +265,7 @@ Disable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResour
 
 Disable-AzureRmTrafficManagerProfile cmdlet'inin, onay ister. Bu istemi kullanılarak gizlenebilir. '-Force' parametresi.
 
-### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Örnek 2: Etkinleştirme ve Traffic Manager uç noktası devre dışı bırakma
+### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Örnek 2: Traffic Manager uç noktası devre dışı bırakma ve etkinleştirme
 
 Traffic Manager uç noktasını etkinleştirmek için `Enable-AzureRmTrafficManagerEndpoint`. Uç nokta belirtmenin iki yolu vardır.
 

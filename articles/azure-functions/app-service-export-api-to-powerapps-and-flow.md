@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: c9ff4332a10247787e3b11c5508d0d94a1f1c8ba
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 53aa40c047b2b5201cd74c0409d56e97d2880eb0
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410474"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602860"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Azure'da barındırılan bir API'yi PowerApps ve Microsoft Flow için dışarı aktarma
 
 [PowerApps](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/) oluşturan ve platformlardaki verilerinize bağlanmak ve özel iş kolu uygulamalarını kullanarak yönelik bir hizmettir. [Microsoft Flow](https://flow.microsoft.com/guided-learning/learning-introducing-flow/) iş akışları ve sık kullandığınız uygulamalar ve hizmetler arasında iş süreçlerini otomatik hale getirmek kolay hale getirir. PowerApps ve Microsoft Flow, Office 365, Dynamics 365, Salesforce ve diğer veri kaynakları için çeşitli yerleşik bağlayıcılar ile gelir. Bazı durumlarda, uygulama ve akış oluşturucular ayrıca veri kaynakları ve kuruluş tarafından oluşturulan API'leri bağlanmak istediğiniz.
 
-Benzer şekilde, kullanıcıların API'leri bir kuruluş içinde daha geniş kapsamda kullanıma sunmak istiyorsanız geliştiriciler kendi API kullanılabilir uygulama ve akış oluşturucuları yapabilirsiniz. Bu konu ile oluşturulmuş bir API dışa aktarmayı gösterir [Azure işlevleri](../azure-functions/functions-overview.md) veya [Azure App Service](../app-service/app-service-web-overview.md). Dışarı aktarılan API olur bir *özel bağlayıcı*, kullanılan Microsoft Flow ve PowerApps ile bir yerleşik Bağlayıcısı gibidir.
+Benzer şekilde, kullanıcıların API'leri bir kuruluş içinde daha geniş kapsamda kullanıma sunmak istiyorsanız geliştiriciler kendi API kullanılabilir uygulama ve akış oluşturucuları yapabilirsiniz. Bu konu ile oluşturulmuş bir API dışa aktarmayı gösterir [Azure işlevleri](../azure-functions/functions-overview.md) veya [Azure App Service](../app-service/overview.md). Dışarı aktarılan API olur bir *özel bağlayıcı*, kullanılan Microsoft Flow ve PowerApps ile bir yerleşik Bağlayıcısı gibidir.
 
 ## <a name="create-and-export-an-api-definition"></a>Oluşturma ve bir API tanımını dışarı aktarma
 Bir API dışarı aktarmadan önce bir Openapı tanımı kullanarak API'yi açıklamanız gerekir (eski adıyla bir [Swagger](https://swagger.io/) dosyası). Bu tanım, bir API’de hangi işlemlerin kullanılabildiğinin yanı sıra API için istek ve yanıt verilerinin nasıl yapılandırılması gerektiğiyle ilgili bilgileri içerir. PowerApps ve Microsoft Flow özel bağlayıcılar için herhangi bir Openapı 2.0 tanımı oluşturabilirsiniz. Azure işlevleri ve Azure App Service oluşturma, barındırma ve Openapı tanımlarıyla yönetmek için yerleşik desteği vardır. Daha fazla bilgi için [Azure App Service'te CORS ile RESTful API barındırma](../app-service/app-service-web-tutorial-rest-api.md).

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 71285ce3b1fb3cc592fc65b4ad96c6783de0c408
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499292"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650112"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Bir Apache HBase kümesi yeni sürüme geçirme
 
@@ -26,16 +26,16 @@ ms.locfileid: "52499292"
 4. Geçici veri aktarın.
 5. İşleri başlatmak ve yeni kümede işleme devam edin.
 
-Yükseltmek için bir [Apache HBase](http://hbase.apache.org/) bazı ek adımlar gerekiyor, bu makalede açıklandığı gibi küme.
+Yükseltmek için bir [Apache HBase](https://hbase.apache.org/) bazı ek adımlar gerekiyor, bu makalede açıklandığı gibi küme.
 
-> [!NOTE]
+> [!NOTE]  
 > Yükseltilirken kapalı kalma süresi dakika bazında en az olmalıdır. Bu kapalı kalma süresi, tüm bellek içi verileri ve ardından yeni kümede hizmetlerini yeniden başlatın ve yapılandırma için zaman temizlemeye adımlarla neden olur. Sonuçlarınız, düğümler, veri miktarı ve diğer değişkenleri sayısına bağlı olarak değişir.
 
 ## <a name="review-apache-hbase-compatibility"></a>Apache HBase uyumluluğu gözden geçirin
 
-Apache HBase yükseltmeden önce kaynak ve hedef kümeler HBase sürümlerinde uyumlu olduğundan emin olun. Daha fazla bilgi için [Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen](../hdinsight-component-versioning.md).
+Apache HBase yükseltmeden önce kaynak ve hedef kümeler HBase sürümlerinde uyumlu olduğundan emin olun. Daha fazla bilgi için [Apache Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen](../hdinsight-component-versioning.md).
 
-> [!NOTE]
+> [!NOTE]  
 > Sürüm uyumluluk matrisi gözden geçirmenizi öneririz [HBase kitap](https://hbase.apache.org/book.html#upgrading).
 
 Burada uyumluluk Y gösterir ve olası bir uyumsuzluk N gösteren bir örnek sürüm uyumluluk matrisi, şu şekildedir:
@@ -54,7 +54,7 @@ Burada uyumluluk Y gösterir ve olası bir uyumsuzluk N gösteren bir örnek sü
 | Bağımlılık uyumluluğu | N | E | E |
 | İşletimsel uyumluluğu | N | N | E |
 
-> [!NOTE]
+> [!NOTE]  
 > En son uyumsuzlukları HBase sürümü bu sürüm notlarında açıklanmalıdır.
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>Aynı Apache HBase ile ana sürüm yükseltme
@@ -203,7 +203,7 @@ Aynı HBase ana sürümle (her ikisi de 1.1.2 Apache HBase ile gelir) 3.6 HDInsi
 9. Gerekli tüm hizmetleri Ambari tarafından belirtildiği gibi yeniden başlatın.
 10. Uygulamanızı yeni kümesine gelin.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Statik uygulamanız için DNS yükseltirken değiştirir. Bu DNS kodlamak yerine, bir CNAME kümenin adına işaret eden etki alanı adı DNS ayarları yapılandırabilirsiniz. Başka bir seçenek yeniden dağıtmaya gerek kalmadan güncelleştirebilirsiniz uygulamanız için bir yapılandırma dosyası kullanmaktır.
 
 11. Her şeyin beklendiği gibi çalışıp çalışmadığını görmek için alımı başlatın.
@@ -211,7 +211,7 @@ Aynı HBase ana sürümle (her ikisi de 1.1.2 Apache HBase ile gelir) 3.6 HDInsi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hakkında daha fazla bilgi edinmek için [Apache HBase](http://hbase.apache.org/) ve HDInsight kümelerini yükseltme, aşağıdaki makalelere bakın:
+Hakkında daha fazla bilgi edinmek için [Apache HBase](https://hbase.apache.org/) ve HDInsight kümelerini yükseltme, aşağıdaki makalelere bakın:
 
 * [Bir HDInsight kümesine yeni bir sürüme yükseltme](../hdinsight-upgrade-cluster.md)
 * [İzleme ve Azure HDInsight, Apache Ambari Web kullanıcı arabirimini kullanarak yönetme](../hdinsight-hadoop-manage-ambari.md)

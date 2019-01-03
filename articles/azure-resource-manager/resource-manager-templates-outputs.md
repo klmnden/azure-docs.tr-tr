@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 85aab429fd59afd36cd026e6d8aef2b7e6f6e122
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9a46d813f2e50831240303ba47380da39e2cb6af
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140464"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725822"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarında çıkış bölümü
 Çıkış bölümünde dağıtımdan döndürülen değerlerini belirtin. Örneğin, dağıtılmış bir kaynağa erişmek için URI döndürebilir.
@@ -81,25 +81,8 @@ Aşağıdaki örnek, bir çıkış tanımı yapısını gösterir:
 | type |Evet |Çıkış değeri türü. Çıkış değerleri şablon giriş parametreleri aynı türlerini destekler. |
 | değer |Evet |Değerlendirilen ve çıkış değeri döndürülen şablon dili ifadesi. |
 
-## <a name="recommendations"></a>Öneriler
-
-Genel IP adresleri oluşturmak için bir şablon kullanırsanız, IP adresi ve tam etki alanı adı (FQDN) ayrıntılarını döndürür bir çıkış bölümü içerir. Çıkış değerleri, bir kolayca dağıtımdan sonra genel IP adresleri ve FQDN'ler hakkında ayrıntıları almak için kullanabilirsiniz.
-
-```json
-"outputs": {
-    "fqdn": {
-        "value": "[reference(parameters('publicIPAddresses_name')).dnsSettings.fqdn]",
-        "type": "string"
-    },
-    "ipaddress": {
-        "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]",
-        "type": "string"
-    }
-}
-```
 
 ## <a name="example-templates"></a>Örnek şablonları
-
 
 |Şablon  |Açıklama  |
 |---------|---------|
@@ -111,5 +94,4 @@ Genel IP adresleri oluşturmak için bir şablon kullanırsanız, IP adresi ve t
 ## <a name="next-steps"></a>Sonraki adımlar
 * Farklı türlerde çözümler için tam şablonları görüntülemek üzere bkz. [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/documentation/templates/).
 * Kullanabileceğiniz gelen içinde şablon işlevleri hakkında daha fazla ayrıntı için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
-* Birden fazla şablon dağıtımı sırasında birleştirmek için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
-* Farklı bir kaynak grubu içinde mevcut kaynakları kullanmanız gerekebilir. Bu depolama hesaplarını veya birden çok kaynak grupları arasında paylaşılan sanal ağlar ile çalışırken yaygın senaryodur. Daha fazla bilgi için [ResourceId işlevi](resource-group-template-functions-resource.md#resourceid).
+* Şablonları oluşturma hakkında daha fazla öneri için bkz. [Azure Resource Manager şablonu iyi](template-best-practices.md).

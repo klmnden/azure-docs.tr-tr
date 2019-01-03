@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: a7fe2cf151b79b02f4f8996ad938d8fc262a5f77
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b2733bed4418fdfcaefb20c04683cb6a229134e9
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400347"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594230"
 ---
 # <a name="enable-write-accelerator"></a>Yazma hızlandırıcıyı etkinleştirme
 
@@ -41,7 +41,7 @@ Yazma Hızlandırıcı için işletim sistemi diskleri etkinleştirme SAP ilgili
 Yazma Hızlandırıcı Azure bir disk/VHD için kullanırken bu kısıtlamalar uygulanır:
 
 - Premium disk önbelleği 'None' olarak ayarlanmalıdır ya da 'Read Only'. Diğer tüm önbelleğe alma modu desteklenmez.
-- Bir yazma Hızlandırıcısı etkinleştirilmiş diski anlık görüntüleri henüz desteklenmiyor. Bu kısıtlama, Azure Backup hizmeti, sanal makinenin tüm disklerinin bir uygulamayla tutarlı anlık görüntü gerçekleştirme becerisi engeller.
+- Anlık görüntü şu anda desteklenmemektedir yazma Hızlandırıcısı etkinleştirilmiş disk için. Azure Backup hizmeti, yedekleme sırasında VM'ye yazma Hızlandırıcısı etkinleştirilmiş disk otomatik olarak dışlar.
 - Yalnızca küçük g/ç boyutları (< = 32 KiB) hızlandırılmış yolu edilmektedir. İş yükü verileri toplu sürekli olduğu durumlarda yüklenen ya da işlem günlüğü arabelleklerini farklı DBMS daha büyük bir dereceye kadar depolama alanına kalıcı önce doldurulur burada olasılığı olan yazılan g/ç diski hızlandırılmış yolu değil sürüyor.
 
 Azure Premium depolama VHD'leri yazma Hızlandırıcı tarafından desteklenen VM başına sınırları vardır. Geçerli sınırlar şu şekildedir:

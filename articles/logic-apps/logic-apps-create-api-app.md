@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 25b33242b9f7bddf0497067f111ca3fb4a1ea570
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233523"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600734"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Azure mantıksal uygulamalardan arayabileceğiniz özel API'ler oluşturma
 
@@ -25,11 +25,11 @@ Azure Logic Apps sunmasına karşın [100'den fazla yerleşik bağlayıcı](../c
 * Müşterilerin kişisel veya profesyonel görevlerini yönetmek için hizmetinizi kullanmak yardımcı olur.
 * Erişim, bulunabilirlik ve kullanım hizmetiniz için genişletin.
 
-Temel olarak, web takılabilir arabirimleri için REST kullanma API bağlayıcıları olan [Swagger meta veri biçimi](http://swagger.io/specification/) belgeleri ve kendi veri takas biçimi olarak JSON. Bağlayıcıları bir HTTP uç noktaları iletişim kuran bir REST API'leri olduğundan, .NET, Java ve Node.js gibi herhangi bir dilde bağlayıcılar oluşturmak için kullanabilirsiniz. Apı'leriniz üzerinde barındırabilirsiniz [Azure App Service](../app-service/app-service-web-overview.md), bir platform-a sağlayan en iyi, kolay ve en iyi yollarından biri, API barındırmak için sunan hizmet olarak (PaaS). 
+Temel olarak, web takılabilir arabirimleri için REST kullanma API bağlayıcıları olan [Swagger meta veri biçimi](http://swagger.io/specification/) belgeleri ve kendi veri takas biçimi olarak JSON. Bağlayıcıları bir HTTP uç noktaları iletişim kuran bir REST API'leri olduğundan, .NET, Java ve Node.js gibi herhangi bir dilde bağlayıcılar oluşturmak için kullanabilirsiniz. Apı'leriniz üzerinde barındırabilirsiniz [Azure App Service](../app-service/overview.md), bir platform-a sağlayan en iyi, kolay ve en iyi yollarından biri, API barındırmak için sunan hizmet olarak (PaaS). 
 
 Logic apps ile çalışmak özel API'ler için API'nizi sağlayabilir [ *eylemleri* ](./logic-apps-overview.md#logic-app-concepts) mantıksal uygulama iş akışlarınızla belirli görevler gerçekleştirir. API'nizi gibi de davranabilir bir [ *tetikleyici* ](./logic-apps-overview.md#logic-app-concepts) yeni veriler veya bir olay belirtilen bir koşulu karşıladığında bir mantıksal uygulama iş akışı başlar. Bu konuda, eylemleri ve Tetikleyicileri sağlamak için API'nizi istediğiniz davranışına göre API'nizi oluşturmak için izlemeniz gereken ortak deseni açıklar.
 
-Apı'lerinizi barındırmak [Azure App Service](../app-service/app-service-web-overview.md), bir platform-a sağlayan yüksek düzeyde ölçeklenebilir, kolay API'sini barındıran sunan hizmet olarak (PaaS).
+Apı'lerinizi barındırmak [Azure App Service](../app-service/overview.md), bir platform-a sağlayan yüksek düzeyde ölçeklenebilir, kolay API'sini barındıran sunan hizmet olarak (PaaS).
 
 > [!TIP] 
 > Apı'lerinizi web uygulamaları olarak dağıtabilmenize karşın olarak derleme, barındırma ve API'leri bulutta ve şirket içi bağlandığınızda işinizi kolaylaştırabilir ve API apps, API dağıtımı göz önünde bulundurun. Apı'lerinizi herhangi bir kod değişikliği--yalnızca kodunuzu API uygulamasına dağıtma yok. Örneğin, bu dillerden ile oluşturulan API uygulamaları oluşturmayı öğrenin: 
@@ -134,9 +134,9 @@ Biz bu Web kancası düzeni yeniden eşlediğinizde, Logic Apps altyapısı, pas
 
 Bu düzen için iki uç nokta denetleyicinizde ayarlayın: `subscribe` ve `unsubscribe`
 
-*  `subscribe` uç nokta: yürütme iş akışı eylemi, API'NİZİN ulaştığında çağrıları Logic Apps altyapısı `subscribe` uç noktası. Bu adım, mantıksal uygulamanın API'nizi depolayan bir geri çağırma URL'si oluşturun ve ardından iş tamamlandığında, API'nizi geri çağırmadan bekleyin neden olur. API'nizi sonra URL'sine HTTP POST ile geri çağırır ve mantıksal uygulama için giriş olarak herhangi bir üst bilgileri ve döndürülen içeriğin geçirir.
+*  `subscribe` Uç noktası: Yürütme iş akışı eylemi, API'NİZİN ulaştığında çağrıları Logic Apps altyapısı `subscribe` uç noktası. Bu adım, mantıksal uygulamanın API'nizi depolayan bir geri çağırma URL'si oluşturun ve ardından iş tamamlandığında, API'nizi geri çağırmadan bekleyin neden olur. API'nizi sonra URL'sine HTTP POST ile geri çağırır ve mantıksal uygulama için giriş olarak herhangi bir üst bilgileri ve döndürülen içeriğin geçirir.
 
-* `unsubscribe` uç nokta: mantıksal uygulama çalıştırması iptal edilirse, çağrıları Logic Apps altyapısı `unsubscribe` uç noktası. API'nizi geri çağırma URL'si kaydını ve gereken tüm işlemleri durdur.
+* `unsubscribe` Uç noktası: Mantıksal uygulama çalıştırması iptal edilirse, çağrıları Logic Apps altyapısı `unsubscribe` uç noktası. API'nizi geri çağırma URL'si kaydını ve gereken tüm işlemleri durdur.
 
 ![Web kancası eylemi deseni](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
@@ -196,9 +196,9 @@ API'nin açısından açıklanan yoklama tetikleyici, belirli adımlar şunlard�
 Bir Web kancası tetikleyici bir *anında iletme tetikleyici* bekler ve yeni veri ya da, hizmet uç noktasında olayları dinler. Belirtilen koşulu karşılıyorsa, yeni verileri veya bir olay tetiklenir ve ardından verileri girdi olarak işler bir mantıksal uygulama örneği oluşturur.
 Web kancası Tetikleyicileri gibi davranacak [Web kancası eylemleri](#webhook-actions) daha önce bu konuda açıklanan ve ile ayarlayın `subscribe` ve `unsubscribe` uç noktaları. 
 
-* `subscribe` uç nokta: ekleyin ve bir Web kancası tetikleyici mantıksal uygulamanızı kaydedin, çağrıları Logic Apps altyapısı `subscribe` uç noktası. Bu adım, API'nizi depolayan bir geri çağırma URL'si oluşturmak mantıksal uygulama neden olur. Yeni veri ya da belirtilen koşulu karşılayan bir olay olduğunda API'NİZİN URL'sine HTTP POST ile geri çağırır. Üst bilgiler ve içerik yükü mantıksal uygulama için giriş olarak geçirin.
+* `subscribe` Uç noktası: Ekleme ve bir Web kancası tetikleyici mantıksal uygulamanızı kaydedin, çağrıları Logic Apps altyapısı `subscribe` uç noktası. Bu adım, API'nizi depolayan bir geri çağırma URL'si oluşturmak mantıksal uygulama neden olur. Yeni veri ya da belirtilen koşulu karşılayan bir olay olduğunda API'NİZİN URL'sine HTTP POST ile geri çağırır. Üst bilgiler ve içerik yükü mantıksal uygulama için giriş olarak geçirin.
 
-* `unsubscribe` uç nokta: bir Web kancası tetikleyicisine veya tüm mantıksal uygulama silinirse, çağrıları Logic Apps altyapısı `unsubscribe` uç noktası. API'nizi geri çağırma URL'si kaydını ve gereken tüm işlemleri durdur.
+* `unsubscribe` Uç noktası: Web kancası tetikleyicisine veya tüm mantıksal uygulama silinirse, çağrıları Logic Apps altyapısı `unsubscribe` uç noktası. API'nizi geri çağırma URL'si kaydını ve gereken tüm işlemleri durdur.
 
 ![Web kancası tetikleyici deseni](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 

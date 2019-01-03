@@ -8,20 +8,22 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: 55c8ff799ba3ff7fe9691d46dc90a00d5182d390
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 729ba19153eeb9767961d099e7a37c10a38b1286
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829419"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634726"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Cihazınızı Uzaktan izleme çözüm Hızlandırıcısını için (Windows) bağlama
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Bu öğreticide, fiziksel bir cihazı Uzaktan izleme çözüm hızlandırıcısına bağlamayı gösterilmektedir.
+Bu öğreticide, gerçek bir cihaz Uzaktan izleme çözüm hızlandırıcısına bağlamayı gösterilmektedir.
 
 Kısıtlanmış cihazlarında çalışan en katıştırılmış uygulamalarında olduğu gibi cihaz uygulaması için istemci kodu c dilinde yazılan Bu öğreticide, Windows çalıştıran bir makinede cihazı istemci uygulaması oluşturun.
+
+Bir cihazın benzetimini gerçekleştirme isterseniz, bkz. [oluşturma ve test yeni bir simülasyon cihazı](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -33,7 +35,7 @@ Nasıl yapılır bu kılavuzdaki adımları tamamlamak için adımları izleyin 
 
 ### <a name="download-the-source-code-and-prepare-the-project"></a>Kaynak kodunu indirebilir ve proje hazırlama
 
-Proje hazırlamak için Kopyala veya indir [Azure IOT C SDK'ları depo](https://github.com/Azure/azure-iot-sdk-c) github'dan.
+Proje hazırlamak için [Azure IOT C SDK'ları depoyu kopyalama](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#set-up-a-windows-development-environment) github'dan.
 
 Örnek bulunan **çözümleri/samples/remote_monitoring_client** klasör.
 

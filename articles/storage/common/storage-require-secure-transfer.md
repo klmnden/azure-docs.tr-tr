@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 72e0937e91a7287d240bbdb25996865f934d432d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6f17cb4540feea6400c60c8032d071d6a922c871
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876511"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633070"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Azure Depolama'daki güvenli aktarım gerektir
 
@@ -49,8 +49,8 @@ SDK'sı ile bir depolama hesabı oluşturduğunuzda varsayılan olarak "güvenli
 
 Program aracılığıyla güvenli aktarım gerektir için bu ayarı kullanın _supportsHttpsTrafficOnly_ REST API, araçları ve kitaplıkları ile depolama hesabı özellikleri:
 
-* [REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (sürümü: 2016-12-01)
-* [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (sürüm: 4.1.0)
+* [REST API](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (sürüm: 2016-12-01)
+* [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) (sürüm: 0,7)
 * [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (sürüm: 2.0.11)
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (sürüm: 1.1.0)
 * [.NET SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (sürüm: 6.3.0)
@@ -59,14 +59,16 @@ Program aracılığıyla güvenli aktarım gerektir için bu ayarı kullanın _s
 
 ### <a name="enable-secure-transfer-required-setting-with-powershell"></a>"PowerShell ile ayarı güvenli aktarım gerekli" etkinleştirme
 
-Bu örnek, Azure PowerShell modülü sürüm 4.1 veya üstünü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` komutunu çalıştırın.
+Bu örnek Azure PowerShell modülü Az 0.7 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-Az-ps).
+
+Azure ile bağlantı oluşturmak için `Connect-AzAccount` komutunu çalıştırın.
 
  Ayarı denetlemek için şu komut satırını kullanın:
 
 ```powershell
-> Get-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+> Get-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : False
@@ -77,7 +79,7 @@ EnableHttpsTrafficOnly : False
 Bu ayarı etkinleştirmek için aşağıdaki komut satırını kullanın:
 
 ```powershell
-> Set-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+> Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : True

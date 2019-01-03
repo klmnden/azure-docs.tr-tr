@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 4502f7232d2bcfaf4a32a384d24556cd668dc50b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e7676213f9eee781fa7b8c19a30c6505ca5bf2ac
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285126"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720314"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Günlük uyarı kuralları için Web kancası eylemleri
 Olduğunda bir [günlük uyarı Azure'da oluşturulan](alerts-log.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırma](action-groups.md) bir veya daha fazla eylem gerçekleştirmek için.  Bu makalede, özel JSON tabanlı Web kancası yapılandırma hakkında ayrıntıları ve mevcut olan farklı bir Web kancası eylemleri açıklar.
@@ -73,13 +73,13 @@ Bu örnek yükü Web kancası'na gönderildiğinde aşağıdaki gibi bir şey ç
 ```
 Özel bir Web kancası tüm değişkenlerinde belirtilen "#searchinterval" gibi JSON kutu içinde olduğundan, sonuçta elde edilen Web kancası gibi kutu içinde değişken veri de bulunur "00: 05:00".
 
-Özel bir yükte arama sonuçları dahil etmek için emin olun **IncudeSearchResults** json yükü en üst düzey özelliği olarak ayarlanır. 
+Özel bir yükte arama sonuçları dahil etmek için emin olun **IncludeSearchResults** json yükü en üst düzey özelliği olarak ayarlanır. 
 
 ## <a name="sample-payloads"></a>Örnek yükler
 Bu bölümde, yükü standart olduğunda ve ne zaman gibi günlük uyarıları için Web kancası için örnek yük gösterilir, özel.
 
 > [!NOTE]
-> Geriye dönük uyumluluk sağlamak için Azure Log Analytics kullanarak uyarıları için standart bir Web kancası yükü aynı [Log Analytics uyarı Yönetim](alerts-metric.md). Ancak kullanarak günlük uyarıları için [Application Insights](../../application-insights/app-insights-analytics.md), standart bir Web kancası yükü eylem grubu şemasını temel alır.
+> Geriye dönük uyumluluk sağlamak için Azure Log Analytics kullanarak uyarıları için standart bir Web kancası yükü aynı [Log Analytics uyarı Yönetim](alerts-metric.md). Ancak kullanarak günlük uyarıları için [Application Insights](../../azure-monitor/app/analytics.md), standart bir Web kancası yükü eylem grubu şemasını temel alır.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Günlük uyarıları için standart bir Web kancası 
 Bu örneklerin her ikisi, yalnızca iki sütun ve iki satır işlevsiz bir yükü açıklamıştır.
@@ -200,5 +200,5 @@ Aşağıdaki, tüm günlük uyarısı için bir özel Web kancası eylemi için 
 - Hakkında bilgi edinin [oturum uyarılar Azure uyarıları ](alerts-unified-log.md)
 - Anlamak [azure'da managaing günlük uyarıları](alerts-log.md)
 - Oluşturma ve yönetme [Azure Eylem grupları](action-groups.md)
-- Daha fazla bilgi edinin [Application Insights](../../application-insights/app-insights-analytics.md)
+- Daha fazla bilgi edinin [Application Insights](../../azure-monitor/app/analytics.md)
 - Daha fazla bilgi edinin [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 

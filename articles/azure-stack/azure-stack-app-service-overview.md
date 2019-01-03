@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: 3015755d8046f72c03cd1a1485d90a7f720a8909
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b1b4ea5775a661712838c1495ef0025a83b8c518
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353039"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607952"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack’te App Service’e genel bakış
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure Stack'te Azure App Service, Azure Stack için kullanılabilir olan Microsoft Azure platformu-bir hizmet olarak (PaaS) teklifidir. Web API ve Azure işlevleri'ni oluşturmak iç veya dış müşterilere hizmet sağlar herhangi bir platform veya cihaz için uygulamalar. Uygulamalarınızı şirket içi uygulamalarla tümleştirin ve iş süreçlerini otomatik hale getirin. Azure Stack bulut operatörlerinin müşteri uygulamaları, kendi seçtiğiniz paylaşılan VM kaynakları veya özel VM'ler tam olarak yönetilen sanal makineler (VM) çalıştırabilirsiniz.
+Azure Stack'te Azure App Service, Azure Stack için kullanılabilir olan Microsoft Azure platformu-bir hizmet olarak (PaaS) teklifidir. Web API ve Azure işlevleri'ni oluşturmak iç veya dış müşterilere hizmet sağlar herhangi bir platform veya cihaz için uygulamalar. Uygulamalarınızı şirket içi uygulamalarla tümleştirebilir ve iş süreçlerini otomatik hale getirebilirler. Azure Stack bulut operatörleri, paylaşılan sanal makine (VM) kaynakları veya ayrılmış VM'lerden yapılan seçimle müşteri uygulamalarını tümüyle yönetilen VM'lerde çalıştırabilir.
 
 Azure App Service, iş süreçlerini otomatikleştirmek ve bulut API'leri barındırmak sağlar. Tek bir tümleşik hizmet olarak Azure App Service, Web siteleri, REST API'leri ve tek bir çözüm, iş süreçleri gibi çeşitli bileşenleri birleştirmek sağlar.
 
@@ -33,16 +33,16 @@ Azure App Service, iş süreçlerini otomatikleştirmek ve bulut API'leri barın
 
 App Service’in temel özelliklerinden bazıları şunlardır:
 
-- **Birden çok dil ve çerçeveleri**: App Service ASP.NET, Node.js, Java, PHP ve Python için birinci sınıf destek sunar. Windows PowerShell ve diğer betikleri veya yürütülebilirleri App Service sanal makineleri üzerinde çalıştırabilirsiniz.
-- **DevOps iyileştirmesi**: sürekli tümleştirme ve dağıtım GitHub, yerel Git veya BitBucket ile ayarlayın. Test ve hazırlık ortamları aracılığıyla güncelleştirmeleri yükseltin ve Azure PowerShell veya platformlar arası komut satırı arabirimi (CLI) kullanarak App Service uygulamalarınızı yönetin.
-- **Visual Studio tümleştirmesi**: Visual Studio'daki ayrılmış Araçlar oluşturma ve uygulamaları dağıtma işlemlerini kolaylaştırır.
+- **Birden çok dil ve çerçeveleri**: App Service ASP.NET, Node.js, Java, PHP ve Python için birinci sınıf destek sunmaktadır. Windows PowerShell ve diğer betikleri veya yürütülebilirleri App Service sanal makineleri üzerinde çalıştırabilirsiniz.
+- **DevOps iyileştirmesi**: Sürekli tümleştirme ve dağıtım GitHub, yerel Git veya BitBucket ile ayarlayın. Test ve hazırlık ortamları aracılığıyla güncelleştirmeleri yükseltin ve Azure PowerShell veya platformlar arası komut satırı arabirimi (CLI) kullanarak App Service uygulamalarınızı yönetin.
+- **Visual Studio tümleştirmesi**: Visual Studio'daki ayrılmış Araçlar oluşturma ve uygulamaları dağıtma işlemlerini kolaylaştırın.
 
 ## <a name="app-types-in-app-service"></a>App Service’deki uygulama türleri
 
 App Service, her biri belirli bir iş yükü barındırması amaçlanan birkaç uygulama türlerini sunar:
 
-- [Web uygulamaları](../app-service/app-service-web-overview.md) Web siteleri ve web uygulamalarını barındırmak için.
-- [API Apps](../app-service/app-service-web-overview.md) REST API'leri barındırmak için.
+- [Web uygulamaları](../app-service/overview.md) Web siteleri ve web uygulamalarını barındırmak için.
+- [API Apps](../app-service/overview.md) REST API'leri barındırmak için.
 - Olay temelli, sunucusuz iş yüklerini barındırmak için azure işlevleri.
 
 Word *uygulama* bir iş yükünü çalıştırmaya ayrılmış barındırma kaynaklarını ifade eder. Alma *web uygulaması* örnek olarak, büyük olasılıkla işlem kaynakları ve uygulamayı bir tarayıcıya birlikte teslim işlevselliği kod gibi bir web uygulaması düşünmek için alışkın. App Service'te bir web uygulaması, uygulama kodunuzun barındırılması için Azure Stack sağlayan işlem kaynağıdır.

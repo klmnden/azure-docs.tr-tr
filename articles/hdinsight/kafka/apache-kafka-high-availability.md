@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: e39829d4fa08e466f98930becc831c6f4b551aed
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3d048618fef04b630366b3f575e420b329f102cb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315843"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597673"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>HDInsight’ta Apache Kafka ile verilerinizin yüksek kullanılabilirliği
 
@@ -26,7 +26,7 @@ Hata etki alanı, bir Azure veri merkezinde temel donanımlardan oluşan mantık
 
 Her Azure bölgesinde belirli sayıda hata etki alanı bulunur. Etki alanlarının ve içerdikleri hata etki alanı sayısının listesi için [Kullanılabilirlik kümeleri](../../virtual-machines/windows/regions-and-availability.md#availability-sets) belgelerine bakın.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Kafka, hata etki alanları ile uyumlu değildir. Kafka’da bir konu oluşturduğunuzda, tüm bölüm çoğaltmaları aynı hata etki alanında depolanabilir. HDInsight, bu sorunu çözmek için [Kafka bölüm yeniden dengeleme aracını](https://github.com/hdinsight/hdinsight-kafka-tools) kullanıma sunuyor.
 
 ## <a name="when-to-rebalance-partition-replicas"></a>Bölüm çoğaltmaları ne zaman yeniden dengelenmelidir?
@@ -39,7 +39,7 @@ Kafka verilerinizin en yüksek kullanılabilirliğe sahip olmasını istiyorsan�
 
 ## <a name="replication-factor"></a>Çoğaltma faktörü
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Üç hata etki alanı içeren ve çoğaltma faktörü 3 olan bir Azure bölgesi kullanmanız önerilir.
 
 Yalnızca iki hata etki alanı içeren bir bölge kullanmanız gerekiyorsa, çoğaltmaları iki hata etki alanına eşit oranda yaymak için çoğaltma faktörü olarak 4 kullanın.

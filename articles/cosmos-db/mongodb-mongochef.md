@@ -1,34 +1,34 @@
 ---
-title: Studio 3T kullanma MongoDB hesabınıza bağlanma (MongoChef)
+title: Studio 3T kullanma MongoDB için Azure Cosmos DB'nin API'sine bağlanma
 titleSuffix: Azure Cosmos DB
-description: Studio 3t'yi kullanarak Azure Cosmos DB MongoDB API'SİNDE bağlama ve bağlandıktan sonra bir veritabanı, koleksiyon ve belge oluşturma işlemini öğrenin.
+description: Cosmos DB MongoDB Studio 3T ve Azure Cosmos DB'nin API'sini kullanarak bağlanma hakkında bilgi edinin.
 keywords: mongochef, studio 3T
 services: cosmos-db
-author: slyons
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: sclyon
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: seodec18
-ms.openlocfilehash: 5bdcf035f892f1cbdb8bb43579dba547f0ec8bfd
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 396db84186e00fefe14ac55b9a36497c6674cb43
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135670"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811248"
 ---
-# <a name="connect-to-mongodb-account-using-studio-3t-mongochef"></a>Studio 3T kullanma MongoDB hesabınıza bağlanma (MongoChef)
+# <a name="connect-to-cosmos-account-using-studio-3t"></a>Studio 3T kullanma Cosmos hesabına bağlanma
 
-Bir Azure Cosmos DB MongoDB API hesabına bağlanmak için şunları yapmalısınız:
+Azure Cosmos DB'nin MongoDB kullanarak bir Cosmos hesabına bağlanmak için şunları yapmalısınız:
 
-* İndirme ve yükleme [Studio 3T](https://studio3t.com/) (eski adıyla MongoChef da bilinir)
-* Azure Cosmos DB sahip [bağlantı dizesi](connect-mongodb-account.md) MongoDB hesabı için bilgiler
+* İndirme ve yükleme [Studio 3T](https://studio3t.com/)
+* Cosmos DB sahip [bağlantı dizesi](connect-mongodb-account.md) bilgileri
 
 ## <a name="create-the-connection-in-studio-3t"></a>Studio 3t'yi bağlantı oluşturma
-Studio 3T Bağlantı Yöneticisi için Azure Cosmos DB hesabınıza eklemek için aşağıdaki adımları gerçekleştirin:
+Studio 3T Bağlantı Yöneticisi için Cosmos hesabınızı eklemek için aşağıdaki adımları gerçekleştirin:
 
-1. İçindeki yönergeleri kullanarak MongoDB API hesabı için Azure Cosmos DB bağlantı bilgilerini almak [bir MongoDB uygulamasını Azure Cosmos DB'ye bağlanmak](connect-mongodb-account.md) makalesi.
+1. Azure Cosmos DB API yönergeleri kullanarak mongodb'yle yapılandırılmış Cosmos hesabınız için bağlantı bilgilerini almak [bir MongoDB uygulamasını Azure Cosmos DB'ye bağlanmak](connect-mongodb-account.md) makalesi.
 
     ![Bağlantı dizesi sayfası ekran görüntüsü](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. Tıklayın **Connect** Bağlantı Yöneticisi'ni açmak için ardından **yeni bağlantı**
@@ -112,4 +112,6 @@ Veritabanı, koleksiyon ve belgelerin Studio 3T kullanma oluşturmak için aşa�
     ![Mongo Chef sorgu sonuçları ekran görüntüsü](./media/mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Azure Cosmos DB MongoDB API keşfedin [örnekleri](mongodb-samples.md).
+
+- Bilgi edinmek için nasıl [Robo 3T kullanma](mongodb-robomongo.md) Azure Cosmos DB'nin MongoDB API'si ile.
+- MongoDB keşfedin [örnekleri](mongodb-samples.md) Azure Cosmos DB'nin MongoDB API'si ile.

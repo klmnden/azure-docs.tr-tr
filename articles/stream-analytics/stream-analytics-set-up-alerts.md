@@ -4,17 +4,17 @@ description: Bu makalede, izleme ve Azure Stream Analytics işleri için uyarıl
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/26/2017
-ms.openlocfilehash: 4c676ab3039a02a4fda27ab00312133e5de8077a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 727747d84d0db32c73fc1a200bcea7e5c149d24b
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47090975"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554920"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics işleri için uyarıları ayarlama
 Bir ölçüm belirlediğiniz bir koşulu ulaştığında bir uyarı tetiklemek için uyarılar ayarlayabilirsiniz. Örneğin, aşağıdaki gibi bir koşul için bir uyarı ayarlayabilirsiniz:
@@ -30,7 +30,7 @@ Kuralları, portal üzerinden ölçümler üzerinde ayarlanabilir veya yapıland
 
 3. İçinde **ölçüm** dikey penceresinde tıklayın **uyarısı Ekle** komutu.
 
-      ![Azure portal Kurulumu](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
+      ![Azure portalında Stream Analytics uyarıları Kurulumu](./media/stream-analytics-set-up-alerts/06-stream-analytics-set-up-alerts.png)  
 
 4. Bir ad ve açıklama girin.
 

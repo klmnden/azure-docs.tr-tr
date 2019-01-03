@@ -9,24 +9,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 23702c12f5ec538da4b980ed42fe2282dea69409
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0c2fd29990e180283eb25949b806c4ceac58e2f7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582233"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653637"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Apache Spark yapılandırılmış akışı genel bakış
 
 [Apache Spark](https://spark.apache.org/) yapılandırılmış akış veri akışlarını işlemeye ölçeklenebilir, yüksek performanslı, hataya dayanıklı uygulamalar uygulama olanak sağlar. Yapılandırılmış akış, Spark SQL altyapısı kurulmuştur ve temel Spark SQL veri çerçevelerden yapıları artırır ve akış aynı şekilde, sorgular yazabilmesi veri kümelerini toplu işlem sorguları yazmalısınız.  
 
-Yapılandırılmış akış uygulamaları HDInsight Spark kümelerinde çalıştırılır ve veri akış bağlanma [Apache Kafka](https://kafka.apache.org/), bir TCP yuva (hata ayıklama amacıyla için) Azure depolama veya Azure Data Lake Store. Dış depolama Hizmetleri'ni kullanır, ikinci iki seçenek, depolama alanına eklenen yeni dosyalar için izleyebilir ve akış gibi bunların içeriğini işlemek etkinleştirin. 
+Yapılandırılmış akış uygulamaları HDInsight Spark kümelerinde çalıştırılır ve veri akış bağlanma [Apache Kafka](https://kafka.apache.org/), bir TCP yuva (hata ayıklama amacıyla için) Azure depolama veya Azure Data Lake Storage. Dış depolama Hizmetleri'ni kullanır, ikinci iki seçenek, depolama alanına eklenen yeni dosyalar için izleyebilir ve akış gibi bunların içeriğini işlemek etkinleştirin. 
 
-Yapılandırılmış akış sırasında işlemleri seçimi, projeksiyon, toplama, Pencereleme ve akış veri çerçevesi ile başvuru veri çerçevelerini katılma gibi giriş verileri için geçerli bir uzun süre çalışan sorgu oluşturur. Ardından, özel kod (örneğin, SQL veritabanı veya Power BI) kullanarak dosya depolama (Azure depolama Blobları veya Data Lake Store) veya herhangi bir veri deposu sonuçları gönderir. HDInsight içinde hata ayıklama için oluşturulan verileri görebilirsiniz. Bu nedenle yapılandırılmış akış çıkışı yerel olarak hata ayıklama için konsolu ve bir bellek içi tablo için de sağlar. 
+Yapılandırılmış akış sırasında işlemleri seçimi, projeksiyon, toplama, Pencereleme ve akış veri çerçevesi ile başvuru veri çerçevelerini katılma gibi giriş verileri için geçerli bir uzun süre çalışan sorgu oluşturur. Ardından, özel kod (örneğin, SQL veritabanı veya Power BI) kullanarak dosya depolama (Azure depolama Blobları veya Data Lake depolama) veya herhangi bir veri deposu sonuçları gönderir. HDInsight içinde hata ayıklama için oluşturulan verileri görebilirsiniz. Bu nedenle yapılandırılmış akış çıkışı yerel olarak hata ayıklama için konsolu ve bir bellek içi tablo için de sağlar. 
 
 ![Stream Spark yapılandırılmış akışını HDInsight ile işleme ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Spark yapılandırılmış akış, Spark Streaming (DStreams) yerini alıyor. Yalnızca Bakım modunda DStreams ancak bundan sonra yapılandırılmış akış geliştirmeleri ve Bakım alır. Yapılandırılmış akış şu anda olarak özellik DStreams kaynakları için eksiksiz değildir ve şu havuzlar kullanıma hazır destekler, bu nedenle, gereksinimlerinize uygun Spark akış işleme seçeneği seçin değerlendirin. 
 
 ## <a name="streams-as-tables"></a>Akışları olarak tabloları
@@ -124,11 +124,11 @@ Bu sorgu, aşağıdakine benzer bir sonuç verir:
 |{u'start': u'2016-07-26T07:00:00.000Z', u'end'...  |95 |   96.980971 | 99 |
 |{u'start': u'2016-07-26T08:00:00.000Z', u'end'...  |95 |   96.965997 | 99 |  
 
-Spark yapılandırılmış Stream API hakkında daha fazla bilgi için giriş verilerinin yanı sıra kaynakları, operations ve çıkış havuzlarını, desteklediği için bkz: [Apache Spark yapılandırılmış akış Programlama Kılavuzu](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
+Spark yapılandırılmış Stream API hakkında daha fazla bilgi için giriş verilerinin yanı sıra kaynakları, operations ve çıkış havuzlarını, desteklediği için bkz: [Apache Spark yapılandırılmış akış Programlama Kılavuzu](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>Denetim noktası oluşturma ve yazma tamamlanan günlükleri
 
-Dayanıklılık ve hataya dayanıklılık sağlamak için yapılandırılmış akış dayanan *denetim noktası* bu emin olmak için işleme düğüm hataları olsa da, kesintisiz devam edebilirsiniz. HDInsight Spark dayanıklı depolama, Azure depolama ya da Data Lake Store için kontrol noktaları oluşturur. Bu kontrol noktalarının akış sorgu ilerleme bilgilerini depolar. Ayrıca, yapılandırılmış akış'ı kullanan bir *yazma önceden yazılan günlük* (WAL). WAL aldı, ancak henüz bir sorgu tarafından işlenen alınan verileri yakalar. Bir hata oluşur ve işleme WAL başlatılır, kaynaktan alınan herhangi bir olayı kaybolmaz.
+Dayanıklılık ve hataya dayanıklılık sağlamak için yapılandırılmış akış dayanan *denetim noktası* bu emin olmak için işleme düğüm hataları olsa da, kesintisiz devam edebilirsiniz. HDInsight Spark kontrol noktalarını kalıcı depolama, Azure depolama ya da Data Lake Storage oluşturur. Bu kontrol noktalarının akış sorgu ilerleme bilgilerini depolar. Ayrıca, yapılandırılmış akış'ı kullanan bir *yazma önceden yazılan günlük* (WAL). WAL aldı, ancak henüz bir sorgu tarafından işlenen alınan verileri yakalar. Bir hata oluşur ve işleme WAL başlatılır, kaynaktan alınan herhangi bir olayı kaybolmaz.
 
 ## <a name="deploying-spark-streaming-applications"></a>Spark akış uygulamaları dağıtma
 
@@ -141,5 +141,5 @@ Tüm uygulamaların durumunu, ayrıca bir LIVY uç noktasına karşı bir GET is
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [HDInsight Apache Spark kümesi oluşturma](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Apache Spark yapılandırılmış akış Programlama Kılavuzu](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [Apache Spark yapılandırılmış akış Programlama Kılavuzu](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
 * [Apache Spark işleri Apache LIVY ile uzaktan başlatma](apache-spark-livy-rest-interface.md)

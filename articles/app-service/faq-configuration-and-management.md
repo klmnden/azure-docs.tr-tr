@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 266c9df095e9153533dbd89b4cd557d12ddcdc66
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4cd6b375385326889226f6d4284815dfa0f47c49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408893"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971316"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure'daki Web uygulamaları için yapılandırma ve yönetim hakkında SSS
 
@@ -39,7 +39,7 @@ App Service kaynakları yeni kaynak grubuna veya aboneliğe taşımayı planlıy
 
 ## <a name="how-do-i-purchase-a-new-custom-domain-for-my-web-app"></a>Web uygulamamı nasıl yeni bir özel etki alanı satın?
 
-Satın alma ve App Service web uygulamanıza özel bir etki alanı ayarlama hakkında bilgi edinmek için [satın alma ve App Service'te özel etki alanı adı yapılandırma](custom-dns-web-site-buydomains-web-app.md).
+Satın alma ve App Service web uygulamanıza özel bir etki alanı ayarlama hakkında bilgi edinmek için [satın alma ve App Service'te özel etki alanı adı yapılandırma](manage-custom-dns-buy-domain.md).
 
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Nasıl karşıya yükleme ve web Uygulamam için mevcut bir SSL sertifikasını yapılandırma?
@@ -72,9 +72,11 @@ Web uygulamanız için sunucusunun saat dilimini ayarlamak için:
     * Değer = *istediğiniz saat dilimi*
 3. **Kaydet**’i seçin.
 
+Bkz **saat dilimi** sütununda [varsayılan saat dilimlerini](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) makale için kabul edilen değerler.
+
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Neden benim sürekli WebJobs bazen hata veriyor?
 
-Belirli bir süre için boşta olmaları durumunda varsayılan olarak, web uygulamaları kaldırılır. Bu kaynak tasarrufu yapmak sistemi sağlar. Temel ve standart planlarında etkinleştirebilirsiniz **Always On** her zaman yüklü web uygulamasını tutmak ayarlama. Web uygulamanız sürekli WebJobs çalışıyorsa açmanız **Always On**, veya WebJobs güvenilir bir şekilde çalışmayabilir. Daha fazla bilgi için [sürekli olarak çalışan bir WebJob oluşturmak](web-sites-create-web-jobs.md#CreateContinuous).
+Belirli bir süre için boşta olmaları durumunda varsayılan olarak, web uygulamaları kaldırılır. Bu kaynak tasarrufu yapmak sistemi sağlar. Temel ve standart planlarında etkinleştirebilirsiniz **Always On** her zaman yüklü web uygulamasını tutmak ayarlama. Web uygulamanız sürekli WebJobs çalışıyorsa açmanız **Always On**, veya WebJobs güvenilir bir şekilde çalışmayabilir. Daha fazla bilgi için [sürekli olarak çalışan bir WebJob oluşturmak](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Giden IP adresi için web uygulamamı nasıl alabilirim?
 
@@ -124,7 +126,7 @@ Daha fazla bilgi için [PCI standart 3.0 ve 3.1 Microsoft Azure App Service web 
 
 Web uygulamanızı App Service'e dağıttığınızda standart ve Premium App Service planlarında yerine ayrı bir dağıtım yuvası varsayılan üretim yuvasına dağıtım yapabilirsiniz. Dağıtım yuvaları kendi ana bilgisayar adları olan canlı web uygulamalardır. Web app içerik ve yapılandırma öğeleri, üretim yuvası dahil iki dağıtım yuvası arasında değişiklik yapılabilir.
 
-Dağıtım yuvaları kullanma hakkında daha fazla bilgi için bkz. [App Service'te hazırlık ortamı ayarlama](web-sites-staged-publishing.md).
+Dağıtım yuvaları kullanma hakkında daha fazla bilgi için bkz. [App Service'te hazırlık ortamı ayarlama](deploy-staging-slots.md).
 
 ## <a name="how-do-i-access-and-review-webjob-logs"></a>Nasıl erişim ve WebJob günlükleri gözden?
 
@@ -248,7 +250,7 @@ Zamanlanan Webjob'lar Cron ifadeleri kullanarak oluşturabilirsiniz:
     {month} {day of the week}" }
     ```
 
-Zamanlanan Webjob'lar hakkında daha fazla bilgi için bkz: [bir Cron ifadesi kullanarak bir zamanlanmış Web işi oluşturma](web-sites-create-web-jobs.md#CreateScheduledCRON).
+Zamanlanan Webjob'lar hakkında daha fazla bilgi için bkz: [bir Cron ifadesi kullanarak bir zamanlanmış Web işi oluşturma](webjobs-create.md#CreateScheduledCRON).
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>App Service Uygulamam için sızma nasıl yaparım?
 

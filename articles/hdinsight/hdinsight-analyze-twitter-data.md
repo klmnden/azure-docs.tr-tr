@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8782db64a39ab3994c4689e7f809005c20c6dacd
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: b8ab4acd24a53267711fde4408bb9fa8f52c35f3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017466"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635587"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-in-hdinsight"></a>Apache Hive, HDInsight kullanarak Twitter verilerini çözümleme
 Sosyal Web siteleri, büyük veri benimsenmesine yönelik önemli itici zorlar biridir. Twitter gibi siteler tarafından sağlanan genel API'leri, veri çözümlemek ve popüler eğilimleri anlamak için yararlı bir kaynaktır.
 Bu öğreticide, Twitter bir akış API'sini kullanarak tweetleri Al ve daha sonra [Apache Hive](https://hive.apache.org/) en belirli bir sözcüğü içeren tweet gönderen Twitter kullanıcıların listesini almak için Azure HDInsight üzerinde.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgedeki adımlarda Windows tabanlı HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Adımlar için belirli Linux tabanlı bir küme için bkz: [Apache Hive, HDInsight (Linux) kullanarak Analiz Twitter verilerini](hdinsight-analyze-twitter-data-linux.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -42,7 +42,7 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
     Select-AzureRmSubscription -SubscriptionID <Azure Subscription ID>
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışı bırakılmış** ve 1 Ocak 2017 tarihinde kaldırılmıştır. Bu belgede yer alan adımlar, Azure Resource Manager ile çalışan yeni HDInsight cmdlet'lerini kullanır.
     >
     > Azure PowerShell’in en son sürümünü yüklemek için lütfen [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs)’daki adımları uygulayın. Azure Resource Manager’la çalışan yeni cmdlet’lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, daha fazla bilgi için bkz. [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -61,12 +61,12 @@ Aşağıdaki tabloda, bu öğreticide kullanılan dosyaları listeler:
 ## <a name="get-twitter-feed"></a>Get Twitter akışı
 Bu öğreticide kullanacağınız [API'leri akış Twitter][twitter-streaming-api]. Akış API'sini kullanacağınız belirli bir Twitter şu [durumları/filtre][twitter-statuses-filter].
 
-> [!NOTE]
+> [!NOTE]  
 > Ortak bir Blob kapsayıcısını karşıya 10.000 tweetleri içeren bir dosya ve Hive betik dosyası (sonraki bölümde yer alan). Karşıya yüklenen dosya kullanmak istiyorsanız, bu bölümü atlayabilirsiniz.
 
 Tweetleri veriler içeren bir karmaşık iç içe yapı JavaScript nesne gösterimi (JSON) biçiminde depolanır. Böylece bir yapılandırılmış sorgu dili (SQL) tarafından sorgulanabilir geleneksel bir programlama dilini kullanarak çok sayıda satır kod yazmak yerine, bu iç içe geçmiş yapının bir Hive tablosuna dönüştürebilirsiniz-HiveQL adında dil ister.
 
-Twitter OAuth API'si için yetkili erişim sağlamak için kullanır. OAuth, kullanıcıların parolalarını paylaşmadan kendi adınıza yapacak uygulamalarını onaylamak olanak tanıyan bir kimlik doğrulama protokolüdür. Daha fazla bilgi şu adreste bulunabilir: [oauth.net](http://oauth.net/) veya mükemmel [OAuth Başlangıç Kılavuzu](http://hueniverse.com/oauth/) Hueniverse öğesinden.
+Twitter OAuth API'si için yetkili erişim sağlamak için kullanır. OAuth, kullanıcıların parolalarını paylaşmadan kendi adınıza yapacak uygulamalarını onaylamak olanak tanıyan bir kimlik doğrulama protokolüdür. Daha fazla bilgi şu adreste bulunabilir: [oauth.net](https://oauth.net/) veya mükemmel [OAuth Başlangıç Kılavuzu](https://hueniverse.com/oauth/) Hueniverse öğesinden.
 
 OAuth kullanmanın ilk adımı, Twitter Geliştirici sitesinde yeni bir uygulama oluşturmaktır.
 
@@ -80,7 +80,7 @@ OAuth kullanmanın ilk adımı, Twitter Geliştirici sitesinde yeni bir uygulama
    | --- | --- |
    |  Ad |MyHDInsightApp |
    |  Açıklama |MyHDInsightApp |
-   |  Web sitesi |http://www.myhdinsightapp.com |
+   |  Web sitesi |https://www.myhdinsightapp.com |
 4. Denetleme **Evet, kabul ediyorum**ve ardından **kendi Twitter uygulamanızı oluşturun**.
 5. Tıklayın **izinleri** sekmesi. Varsayılan izin **salt okunur**. Bu, Bu öğretici için yeterlidir.
 6. Tıklayın **anahtarlar ve erişim belirteçleri** sekmesi.
@@ -90,7 +90,7 @@ OAuth kullanmanın ilk adımı, Twitter Geliştirici sitesinde yeni bir uygulama
 
 Bu öğreticide, web hizmeti çağrısı yapmak için Windows PowerShell kullanın. Web hizmeti çağrıları yapmak için diğer popüler araç [ *Curl*][curl]. Curl nden indirilebilir [burada][curl-download].
 
-> [!NOTE]
+> [!NOTE]  
 > Curl komutu Windows kullandığınızda, çift tırnak işareti yerine tek tırnak seçeneği değerleri için kullanın.
 
 **Tweetleri almak için**
@@ -245,7 +245,7 @@ Doğrulama yordamı, çıktı dosyasını kontrol edebilirsiniz **/tutorials/twi
 ## <a name="create-hiveql-script"></a>HiveQL betiğini oluşturma
 Azure PowerShell kullanarak, birden çok çalıştırabileceğiniz [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) deyimleri bir zaman veya paket bir betik dosyasına HiveQL deyimi. Bu öğreticide, HiveQL betiğini oluşturur. Betik dosyası Azure Blob depolama alanına yüklenmelidir. Sonraki bölümde, Azure PowerShell kullanarak komut dosyasını çalışır.
 
-> [!NOTE]
+> [!NOTE]  
 > Ortak bir Blob kapsayıcısını karşıya Hive betik dosyası ve 10.000 tweetleri içeren dosya. Karşıya yüklenen dosya kullanmak istiyorsanız, bu bölümü atlayabilirsiniz.
 
 HiveQL betiğini aşağıdakileri gerçekleştirin:
@@ -453,7 +453,7 @@ Tüm hazırlık çalışması tamamladınız. Şimdi, Hive betiğini çağırır
 ### <a name="submit-a-hive-job"></a>Bir Hive işi gönderdikten
 Hive betiğini çalıştırmak için aşağıdaki Windows PowerShell betiğini kullanın. Birinci değişken ayarlamanız gerekir.
 
-> [!NOTE]
+> [!NOTE]  
 > Tweetleri kullanılacak ve [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) son iki bölümde karşıya komut dosyası, kümesine $hqlScriptFile "/ tutorials/twitter/twitter.hql". Sizin için ortak bir blob için yüklenmiş bağlantı noktalarını kullanmak üzere ayarlanmış $hqlScriptFile "wasb://twittertrend@hditutorialdata.blob.core.windows.net/twitter.hql".
 
 ```powershell
@@ -529,7 +529,7 @@ Write-Host "==================================" -ForegroundColor Green
 #end region
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Hive tablosu \001 alan sınırlayıcı kullanır. Sınırlayıcı çıktıda görünür değil.
 
 Analiz sonuçları, Azure Blob depolama alanına yerleştirildi sonra bir Azure SQL veritabanı/SQL server için verileri dışarı aktarma, Power Query kullanarak verileri Excel'e aktarma veya Hive ODBC sürücüsünü kullanarak uygulamanızı verilere bağlanın. Daha fazla bilgi için [HDInsight ile Apache Sqoop'u kullanma][hdinsight-use-sqoop], [HDInsight kullanarak uçuş gecikme verilerini çözümleme][hdinsight-analyze-flight-delay-data], [ Excel'i Power Query ile HDInsight bağlama][hdinsight-power-query], ve [HDInsight Microsoft Hive ODBC sürücüsü ile Excel'i bağlama][hdinsight-hive-odbc].
@@ -543,7 +543,7 @@ Bu öğreticide yapılandırılmamış bir JSON veri kümesi sorgulamak için ke
 * [Excel'i HDInsight Microsoft Hive ODBC sürücüsü ile bağlama][hdinsight-hive-odbc]
 * [HDInsight ile Apache Sqoop'u kullanma][hdinsight-use-sqoop]
 
-[curl]: http://curl.haxx.se
+[curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial

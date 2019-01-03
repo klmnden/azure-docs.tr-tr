@@ -1,19 +1,20 @@
 ---
-title: Azure dijital İkizlerini nesnelerine BLOB Ekle | Microsoft Docs
-description: Azure dijital İkizlerini nesneleri blobları ekleme anlama
+title: Azure dijital İkizlerini nesneleri blobları ekleme | Microsoft Docs
+description: Azure dijital İkizlerini nesnelerine blobları eklemeyi öğrenin.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/28/2018
 ms.author: adgera
-ms.openlocfilehash: 8a68ba35ddf7caacbf2339d87c5aeef80f470ba4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.custom: seodec18
+ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725633"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974531"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure dijital İkizlerini nesnelerine BLOB Ekle
 
@@ -21,10 +22,7 @@ Resimler ve günlükleri gibi yaygın dosya türleri yapılandırılmamış tems
 
 Azure dijital İkizlerini cihazlara, boşluk ve kullanıcılara düğmelere bloblarını destekler. BLOB'ları, bir kullanıcı, cihaz fotoğraf, video, bir harita veya bir günlük için bir profil resmi temsil edebilir.
 
-> [!NOTE]
-> Bu makalede varsayılır:
-> * Örneğiniz doğru yönetim API isteklerini almak için yapılandırılmış olduğunu.
-> * Doğru tercih ettiğiniz bir REST istemcisi kullanarak kimlik doğrulaması yaptınız olduğunu.
+[!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
 ## <a name="uploading-blobs-an-overview"></a>Blobları karşıya yükleme: bir genel bakış
 
@@ -93,9 +91,9 @@ This is my blob content. In this case, some text, but I could also be uploading 
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Parametre değeri | Şununla değiştir |
+| Değer | Şununla değiştir |
 | --- | --- |
-| *USER_DEFINED_BOUNDARY* | Çok bölümlü içerik sınır adı |
+| USER_DEFINED_BOUNDARY | Çok bölümlü içerik sınır adı |
 
 Aşağıdaki kod bir sınıf kullanarak aynı blob karşıya yükleme, .NET uygulamasıdır [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent):
 
@@ -116,7 +114,7 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 ## <a name="api-endpoints"></a>API uç noktaları
 
-Aşağıdaki bölümlerde, çekirdek uç noktaları aracılığıyla ve bunların işlevlerini açıklamaktadır.
+Aşağıdaki bölümlerde, çekirdek blob ile ilgili API uç noktaları ve kendi işlevler açıklanmaktadır.
 
 ### <a name="devices"></a>Cihazlar
 
@@ -144,7 +142,7 @@ Başarılı istekler döndürür bir **DeviceBlob** yanıt JSON nesnesi. **Devic
 > [!TIP]
 > Yukarıdaki tabloda başarıyla döndürülen istek verileri işlemek için kullanın.
 
-### <a name="spaces"></a>Alanları
+### <a name="spaces"></a>Boşluklar
 
 Ayrıca, blobları için alanları ekleyebilirsiniz. Aşağıdaki görüntü, alanı API uç noktalarını blobları işlenmesinden sorumludur listeler. Ayrıca, bu uç noktalarına geçmek için herhangi bir yol parametreleri listeler.
 
@@ -194,7 +192,7 @@ Döndürülen JSON (**UserBlob** nesneleri) için aşağıdaki JSON modelleri uy
 
 ## <a name="common-errors"></a>Sık karşılaşılan hatalar
 
-Sık karşılaşılan doğru üst bilgi bilgileri dahil değil:
+Doğru üst bilgi bilgileri dahil yaygın bir hatadır:
 
 ```JSON
 {

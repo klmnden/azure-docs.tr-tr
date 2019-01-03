@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: aef706d18d558f5fe321735c7f93361a5ef50606
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 0723d0e2a60c0f43633e5e5ca771ccfe88d2db68
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139528"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808069"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>Sanal makine oluşturma ve Azure Stack anahtar kasasından alınan bir sertifika yükleyin
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Azure Stack sanal makine'de (VM) oluşturma, bir anahtar kasası sertifikası ile bilgi edinin.
 
@@ -31,17 +31,17 @@ Azure Stack sanal makine'de (VM) oluşturma, bir anahtar kasası sertifikası il
 
 Active Directory kimlik doğrulaması veya web trafiği şifreleme gibi birçok senaryoda sertifikalar kullanılır. Azure Stack anahtar kasasındaki gizli diziler olarak sertifikaları güvenli bir şekilde depolayabilirsiniz. Azure Stack anahtar kasası kullanmanın avantajları şunlardır:
 
-* Sertifikalar, bir komut dosyası, komut satırı geçmişinde veya şablonda kullanıma sunulmaz.
+* Sertifikalar, bir komut dosyası, komut satırı geçmişinde veya şablonda gösterilmez.
 * Sertifika yönetimi işlemini kolaylaştırılmış hale getirilir.
 * Sertifikalara erişen anahtarları denetiminizde var.
 
 ### <a name="process-description"></a>İşlem açıklaması
 
-Aşağıdaki adımlar bir sanal makine sertifikası göndermek için gerekli işlemi açıklanmaktadır:
+Aşağıdaki adımlar, sanal makine için bir sertifika göndermek için gerekli işlemi açıklanmaktadır:
 
 1. Bir Key Vault gizli anahtar oluşturun.
 2. Azuredeploy.parameters.json dosyasını güncelleştirin.
-3. Şablonu dağıtma
+3. Şablonu dağıtın.
 
 > [!NOTE]
 > VPN birbirine bağlandıysa, dış istemciden veya Azure Stack geliştirme Seti'ni bu adımları kullanabilirsiniz.
@@ -49,8 +49,8 @@ Aşağıdaki adımlar bir sanal makine sertifikası göndermek için gerekli iş
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Key Vault hizmetini içeren bir teklife abone olması gerekir.
-* [Azure Stack için PowerShell yükleyin.](azure-stack-powershell-install.md)
-* [Azure Stack kullanıcının PowerShell ortamını yapılandırma](azure-stack-powershell-configure-user.md)
+* [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md).
+* [Azure Stack kullanıcının PowerShell ortamını yapılandırmak](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-key-vault-secret"></a>Bir Key Vault gizli dizisi oluşturma
 
@@ -60,7 +60,6 @@ Aşağıdaki betiği .pfx biçiminde bir sertifika oluşturur, bir anahtar kasas
 > Kullanmalısınız `-EnabledForDeployment` anahtar kasası oluşturma sırasında parametre. Bu parametre, anahtar kasası Azure Resource Manager şablonlarından başvurulabilir sağlar.
 
 ```powershell
-
 # Create a certificate in the .pfx format
 New-SelfSignedCertificate `
   -certstorelocation cert:\LocalMachine\My `
@@ -117,16 +116,15 @@ Set-AzureKeyVaultSecret `
   -VaultName $vaultName `
   -Name $secretName `
    -SecretValue $secret
-
 ```
 
-Önceki betiği çalıştırdığınızda, çıktı gizli anahtar URI'sini içerir. Bu URI not edin. İçinde başvurmak zorunda [Windows Resource Manager şablonu için anında iletme sertifikası](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). İndirme [anında iletme sertifikası windows vm şablonu](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) geliştirme bilgisayarınıza klasör. Bu klasörde `azuredeploy.json` ve `azuredeploy.parameters.json` dosyaları, sonraki adımlarda gerekecektir.
+Önceki betiği çalıştırdığınızda, çıktı gizli anahtar URI'sini içerir. Bu URI not edin. İçinde başvurmak zorunda [Windows Resource Manager şablonu için anında iletme sertifikası](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). İndirme [anında iletme sertifikası windows vm](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) geliştirme bilgisayarınıza şablon klasörü. Bu klasörde `azuredeploy.json` ve `azuredeploy.parameters.json` dosyaları, sonraki adımlarda gerekecektir.
 
-Değiştirme `azuredeploy.parameters.json` ortam değerlerinize göre dosya. Özel ilgi kasa adını, kasa kaynak grubu ve gizli dizi (önceki betiği tarafından oluşturulan gibi) URI parametrelerdir. Aşağıdaki dosya, bir parametre dosyası örneğidir:
+Değiştirme `azuredeploy.parameters.json` ortam değerlerinize göre dosya. Özel ilgi kasa adını, kasa kaynak grubu ve gizli dizi (önceki betiği tarafından oluşturulan gibi) URI parametrelerdir. Aşağıdaki bölümde, bir parametre dosyası örneği gösterilmektedir.
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>Azuredeploy.parameters.json dosyasını güncelleştirme
 
-VaultName, gizli URI, VmName ve diğer değerleri, ortamınızı göre olan azuredeploy.parameters.json dosyasını güncelleştirin. Şablon parametreleri dosyası örneği aşağıdaki JSON dosyası gösterir:
+Güncelleştirme `azuredeploy.parameters.json` ile dosya `vaultName`, gizli URI `VmName`ve diğer değerleri, ortamınızı göre. Şablon parametreleri dosyası örneği aşağıdaki JSON dosyası gösterir:
 
 ```json
 {
@@ -178,10 +176,10 @@ New-AzureRmResourceGroupDeployment `
 
 ![Şablon dağıtım sonuçları](media/azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-Azure Stack dağıtımı sırasında sanal makine sertifikası iter. Sertifikanın konum, sanal makinenin işletim sistemine bağlıdır:
+Azure Stack sertifika dağıtımı sırasında sanal makineye gönderir. Sertifika konumu sanal makinenin işletim sistemine bağlıdır:
 
-* Windows, sertifikayı LocalMachine sertifika konumu, kullanıcı tarafından sağlanan sertifika deposu ile eklenir.
-* Linux sertifika /var/lib/waagent dizindeki dosya adı altında yerleştirilir &lt;UppercaseThumbprint&gt;.crt X509 için sertifika dosyası ve &lt;UppercaseThumbprint&gt;.prv özel anahtar için .
+* Sertifika eklenir Windows içinde **LocalMachine** sertifika konumu, kullanıcı tarafından sağlanan sertifika deposuna sahip.
+* Linux sertifika altına yerleştirilir `/var/lib/waagent directory`, dosya adına sahip &lt;UppercaseThumbprint&gt;.crt X509 için sertifika dosyası ve &lt;UppercaseThumbprint&gt;.prv özel anahtar için.
 
 ## <a name="retire-certificates"></a>Sertifikaları devre dışı bırakma
 

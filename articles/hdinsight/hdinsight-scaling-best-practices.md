@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 3e664fc83fde937b26a4726f997da4c0cb4d8f8a
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407890"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742890"
 ---
 # <a name="scale-hdinsight-clusters"></a>HDInsight kümeleri ölçeklendirme
 
@@ -152,7 +152,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![Güvenli modu kapalı](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]  
-> `-D` Anahtar, Azure depolama veya Azure Data Lake Store HDInsight varsayılan dosya sisteminde olduğu için gereklidir. `-D` komutlar yerel HDFS dosya sisteminin karşı yürütmek belirtir.
+> `-D` Anahtar, Azure depolama veya Azure Data Lake Storage HDInsight varsayılan dosya sisteminde olduğu için gereklidir. `-D` komutlar yerel HDFS dosya sisteminin karşı yürütmek belirtir.
 
 Ardından, HDFS durumunun ayrıntılarını gösteren bir raporu görüntüleyebilirsiniz:
 

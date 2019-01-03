@@ -2,20 +2,17 @@
 title: MariaDB için Azure veritabanı bağlantı sorunlarını giderme | Microsoft Docs
 description: MariaDB için Azure veritabanı bağlantı sorunlarını giderme hakkında bilgi edinin.
 keywords: mariadb bağlantı, bağlantı dizesi, bağlantı sorunları, geçici bir hata oluştu, bağlantı hatası
-services: mariadb
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 0100fa6d9691c864de9ac4aaea04b647e1705872
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c7e1ff10f9698bf57ce86a7e9686ef13e5248db7
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565148"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545918"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı bağlantı sorunlarını giderme
 
@@ -49,8 +46,8 @@ Bakım, sistem donanım veya yazılım bir hatayla karşılaştığında veya sa
 
 MariaDB için Azure veritabanı'na bağlanmak uygulamayı kalıcı olarak başarısız olursa, genellikle aşağıdakilerden biri ile ilgili bir sorun gösterir:
 
-* Güvenlik duvarı yapılandırması: MariaDB sunucu veya istemci tarafı güvenlik duvarı için Azure veritabanı bağlantıları engelleme.
-* Ağ Yapılandırması istemci tarafında: yeni bir IP adresi veya bir ara sunucu eklendi.
+* Güvenlik duvarı yapılandırması: MariaDB sunucu veya istemci tarafı güvenlik duvarı için Azure veritabanı bağlantıları engelliyor.
+* İstemci tarafında ağ yapılandırması: Yeni bir IP adresi veya bir ara sunucu eklendi.
 * Kullanıcı hatası: Örneğin, bağlantı dizesi veya eksik bir sunucu adı gibi bağlantı parametrelerini yanlış yazmış olabilirsiniz *@servername* kullanıcı adı soneki.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Kalıcı bağlantı sorunlarını giderme adımları

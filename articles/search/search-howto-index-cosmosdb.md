@@ -11,12 +11,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
 ms.custom: seodec2018
-ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 99f19f6595f2e3105c4b30a7c2e7ef1e296fad6e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311822"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724884"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Dizin oluşturucuları kullanarak Azure Search ile Cosmos DB'ye bağlanma
 
@@ -38,7 +38,7 @@ Aşağıdaki videoda, Azure Cosmos DB Program Yöneticisi Manager Andrew Liu nas
 <a name="supportedAPIs"></a>
 ## <a name="supported-api-types"></a>Desteklenen API türleri
 
-Azure Cosmos DB çeşitli veri modellerini ve API'lerini destekler; ancak, yalnızca SQL API'si için Azure Search dizin oluşturucu üretim desteği genişletir. MongoDB API'si desteği şu anda genel Önizleme aşamasındadır.  
+Azure Cosmos DB çeşitli veri modellerini ve API'lerini destekler; ancak, yalnızca SQL API'si için Azure Search dizin oluşturucu üretim desteği genişletir. Azure Cosmos DB için MongoDB API'si desteği şu anda genel Önizleme aşamasındadır.  
 
 Ek API'ler için destek, gelecek. İlk desteklemek için hangilerinin belirlememize yardımcı olmak için oyunuzu User Voice web sitesinde dönüştürün:
 
@@ -193,7 +193,7 @@ Hedef dizin şemasını kaynak JSON belgelerinin şemasını veya kendi özel so
 
 <a name="CreateIndexer"></a>
 
-## <a name="step-3-create-an-indexer"></a>3. adım: Dizin oluşturucu oluşturma
+## <a name="step-3-create-an-indexer"></a>3. Adım: Dizin oluşturucu oluşturma
 
 Dizinin ve veri kaynağının oluşturulan dizin oluşturucu oluşturmaya hazırsınız:
 

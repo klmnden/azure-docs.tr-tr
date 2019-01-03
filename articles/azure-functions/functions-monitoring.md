@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 600bec9e4cfe356dcd28d489707d20ab47f5b013
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876528"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753651"
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
 
@@ -119,9 +119,9 @@ Application Insights'ı kullanma hakkında daha fazla bilgi için bkz: [Applicat
 
 ![Ölçüm Gezgini](media/functions-monitoring/metrics-explorer.png)
 
-Üzerinde [hataları](../application-insights/app-insights-asp-net-exceptions.md) sekmesinde grafikler oluşturabilir ve uyarılar, özel durumlar işlevi hataları ve sunucuda temel. **İşlem adı** işlev adıdır. Bağımlılıklar hataları uyguladığınız sürece gösterilmiyor [özel telemetri](#custom-telemetry-in-c-functions) bağımlılıklar için.
+Üzerinde [hataları](../azure-monitor/app/asp-net-exceptions.md) sekmesinde grafikler oluşturabilir ve uyarılar, özel durumlar işlevi hataları ve sunucuda temel. **İşlem adı** işlev adıdır. Bağımlılıklar hataları uyguladığınız sürece gösterilmiyor [özel telemetri](#custom-telemetry-in-c-functions) bağımlılıklar için.
 
-![Başarısızlıklar](media/functions-monitoring/failures.png)
+![Hatalar](media/functions-monitoring/failures.png)
 
 Üzerinde [performans](../application-insights/app-insights-performance-counters.md) sekmesinde, performans sorunlarını çözümleyebilirsiniz.
 
@@ -137,7 +137,7 @@ Application Insights'ı kullanma hakkında daha fazla bilgi için bkz: [Applicat
 
 ## <a name="query-telemetry-data"></a>Telemetri verileri Sorgulama
 
-[Application Insights Analytics](../application-insights/app-insights-analytics.md) erişmenizi tüm telemetri verilerini bir veritabanındaki tabloları biçiminde. Analytics ayıklanması, düzenleme ve veri görselleştirme için bir sorgu dili sağlar.
+[Application Insights Analytics](../azure-monitor/app/analytics.md) erişmenizi tüm telemetri verilerini bir veritabanındaki tabloları biçiminde. Analytics ayıklanması, düzenleme ve veri görselleştirme için bir sorgu dili sağlar.
 
 ![Analytics seçin](media/functions-monitoring/select-analytics.png)
 
@@ -158,7 +158,7 @@ Kullanılabilir tablolar gösterilen **şema** sol bölmenin sekmesi. Aşağıda
 * **istekleri** -her işlev çağrısı için bir tane.
 * **özel durumlar** - çalışma zamanı tarafından oluşturulan özel durumlar.
 * **customMetrics** -sayısı başarılı ve başarısız olan çağrılar, başarı oranı, süre.
-* **customEvents** -olayları izlenen çalışma zamanında, örneğin: bir işlev tetiklemek HTTP istekleri.
+* **customEvents** -olayları izlenen çalışma zamanında, örneğin:  HTTP isteklerinin bir işlev tetikler.
 * **performanceCounters** -işlevleriniz gerektirdikçe sunucularının performansı hakkında bilgi.
 
 Kullanılabilirlik testleri ve istemci/tarayıcı telemetrisi diğer tablolara içindir. Veri eklemek üzere özel telemetri uygulayabilirsiniz.
@@ -439,7 +439,7 @@ Bu kodu çağırmak için bir alternatifidir `trackMetric` kullanarak [Applicati
 
 ## <a name="custom-telemetry-in-c-functions"></a>C# işlevlerdeki özel telemetri
 
-Kullanabileceğiniz [Microsoft.applicationınsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) Application Insights özel telemetri verileri göndermek için NuGet paketi. Aşağıdaki C# örnekte [API özel telemetri](../application-insights/app-insights-api-custom-events-metrics.md). Örnek bir .NET sınıf kitaplığı için yazılmıştır, ancak Application Insights kod C# betiği için aynıdır.
+Kullanabileceğiniz [Microsoft.applicationınsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) Application Insights özel telemetri verileri göndermek için NuGet paketi. Aşağıdaki C# örnekte [API özel telemetri](../azure-monitor/app/api-custom-events-metrics.md). Örnek bir .NET sınıf kitaplığı için yazılmıştır, ancak Application Insights kod C# betiği için aynıdır.
 
 ### <a name="version-2x"></a>Sürüm 2.x
 
@@ -671,7 +671,7 @@ PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-A
 PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-Daha fazla bilgi için [günlüklerin akışını nasıl](../app-service/web-sites-enable-diagnostic-log.md#streamlogs).
+Daha fazla bilgi için [günlüklerin akışını nasıl](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
 
 ### <a name="viewing-log-files-locally"></a>Günlük dosyaları yerel olarak görüntüleme
 

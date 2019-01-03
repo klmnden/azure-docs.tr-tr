@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: ce0c51a3b97c57095a336128919c5e27f860905b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1e35513d5a5a799b1f5e45cf9a5aa97c083e2087
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38676479"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725210"
 ---
 # <a name="devtest-labs-concepts"></a>DevTest Labs kavramları
 ## <a name="overview"></a>Genel Bakış
@@ -29,7 +29,7 @@ Aşağıdaki liste, temel DevTest Labs kavramları ve tanımları içerir:
 Limitler ve kotalar belirterek daha iyi sayesinde sanal makineler (VM'ler), bu kaynakları yönetmelerini gibi bir laboratuvar kaynaklarını bir grup kapsayan altyapısıdır.
 
 ## <a name="virtual-machine"></a>Sanal makine
-Bir Azure VM türlerinden biri [isteğe bağlı ve ölçeklenebilir işlem kaynağı](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm) Azure'un sunduğu. Azure sanal makineleri size sanallaştırma esnekliği satın alma ve rağmen yine de yapılandırma, düzeltme eki uygulama ve üzerinde çalıştığı yazılım yükleme gibi belirli görevleri gerçekleştirerek VM'nin bakımını yapmanız gereken, onu çalıştıran fiziksel donanımı korumak zorunda kalmadan sunar .
+Bir Azure VM türlerinden biri [isteğe bağlı ve ölçeklenebilir işlem kaynağı](https://docs.microsoft.com/azure/app-service/overview-compare) Azure'un sunduğu. Azure sanal makineleri size sanallaştırma esnekliği satın alma ve rağmen yine de yapılandırma, düzeltme eki uygulama ve üzerinde çalıştığı yazılım yükleme gibi belirli görevleri gerçekleştirerek VM'nin bakımını yapmanız gereken, onu çalıştıran fiziksel donanımı korumak zorunda kalmadan sunar .
 
 [Azure'da Windows sanal makineleri genel bakış](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) önce dikkat etmeniz gereken hakkında bilgi verir oluşturma bir VM, oluşturma ve yönetme biçiminizi.
 

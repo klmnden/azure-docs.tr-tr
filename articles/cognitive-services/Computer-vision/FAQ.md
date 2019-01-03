@@ -1,5 +1,5 @@
 ---
-title: Görüntü işleme API'si hakkında SSS
+title: Sık sorulan sorular - görüntü işleme
 titlesuffix: Azure Cognitive Services
 description: Azure Bilişsel hizmetler görüntü işleme API'si hakkında sık sorulan soruların yanıtlarını alın.
 services: cognitive-services
@@ -10,12 +10,13 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
-ms.openlocfilehash: 55b474d0edbb8dc01b9f35d4f8799e53e37862df
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec18
+ms.openlocfilehash: 3146650280af80923a4ed9cbb78a5ce6d43e5bce
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166381"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584284"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Görüntü işleme API'si hakkında sık sorulan sorular
 
@@ -23,21 +24,21 @@ ms.locfileid: "49166381"
 
 -----
 
-**Soru**: *özel etiketleri kullanmak için görüntü işleme API'si eğitim yapabilirsiniz?  Örneğin, resimler cat cinslerinin 'yapay ZEKA Eğitimi' sonra da bir yapay ZEKA istek türünün değerini almak için akışa istiyorum.*
+**Soru**: *Ben özel etiketleri kullanmak için görüntü işleme API'si eğitebilirsiniz?  Örneğin, resimler cat cinslerinin 'yapay ZEKA Eğitimi' sonra da bir yapay ZEKA istek türünün değerini almak için akışa istiyorum.*
 
 **Yanıt**: Bu işlev şu anda kullanılamıyor. Ancak, Mühendislerimiz, görüntü işleme için bu işlevselliği getirmek için çalışıyor.
 
 -----
 
-**Soru**: *olabilir görüntü işleme internet bağlantısı olmadan yerel olarak kullanılabilir mi?*
+**Soru**: *Görüntü işleme internet bağlantısı olmadan yerel olarak kullanılabilir mi?*
 
-**Yanıt**: şu anda bir şirket içi sunmuyoruz veya yerel bir çözüm.
+**Yanıt**: Şu anda bir şirket içi sunmuyoruz veya yerel bir çözüm.
 
 -----
 
-**Soru**: *hangi dilleri ile görüntü işleme desteklenir?*
+**Soru**: *Hangi dil ile görüntü işleme destekleniyor mu?*
 
-**Yanıt**: desteklenen diller şunlardır:
+**Yanıt**: Desteklenen diller:
 
 | | | Desteklenen Diller | | |
 |---------------- |------------------ |------------------ |--------------------------- |--------------------
@@ -48,44 +49,44 @@ ms.locfileid: "49166381"
 
 -----
 
-**Soru**: *olabilir görüntü işleme, lisans kalıplarını okumak için kullanılır?*
+**Soru**: *Görüntü işleme, lisans kalıplarını okumak için kullanılabilir mi?*
 
-**Yanıt**: görüntü işleme API'si, OCR ile iyi metin algılama sunar, ancak lisans kalıplarını için şu anda getirilmemiştir. Sürekli OCR otomatik lisans blondan tanıma için özellik istekleri listemize ekledik ve hizmetlerimizi geliştirmek çalışıyoruz.
-
------
-
-**Soru:** *hangi diller için el yazısı tanıma desteklenir?*
-
-**Yanıt**: şu anda yalnızca İngilizce dili desteklenmektedir.
+**Yanıt**: Görüntü işleme API'si OCR ile iyi metin algılama özelliği sunar, ancak lisans kalıplarını için şu anda getirilmemiştir. Sürekli OCR otomatik lisans blondan tanıma için özellik istekleri listemize ekledik ve hizmetlerimizi geliştirmek çalışıyoruz.
 
 -----
 
-**Soru**: *hangi tür yazma yüzeyleri için el yazısı tanıma desteklenir?*
+**Soru:** *Hangi diller için el yazısı tanıma desteklenir?*
 
-**Yanıt**: teknoloji yüzeyleri, mektup, incelemeyi ve sarı Yapışkan notlar gibi farklı türde çalışır.
-
------
-
-**Soru**: *el yazısı tanıma işleminin ne kadar sürer?*
-
-**Yanıt**: metnin uzunluğuna, geçen süreyi bağlıdır. Daha uzun metinler için birkaç saniye sürebilir. Bu nedenle, resimlerdeki el yazısı metni tanı işlemi tamamlandıktan sonra resimlerdeki el yazısı metin işleminin sonucunu Al işlemi kullanarak sonuçları almadan önce beklemeniz gerekebilir.
+**Yanıt**: Şu anda yalnızca İngilizce dili desteklenmektedir.
 
 -----
 
-**Soru**: *nasıl bir satır ortasında bir şapka karakterini kullanarak eklenen el yazısı tanıma teknolojisi tanıtıcı metinleri mu?*
+**Soru**: *Hangi tür yazma yüzeyleri için el yazısı tanıma destekleniyor mu?*
 
-**Yanıt**: Böyle bir metin ayrı bir satırda el yazısı tanıma işlemi tarafından döndürülür.
-
------
-
-**Soru**: *nasıl el yazısı tanıma teknolojisini ele çizilmiş sözcükleri veya satırları?*
-
-**Yanıt**: bunları tanınmayan işlemek için birden fazla satır sözcükleri geçildiğinden, el yazısı tanıma işlemi bunları kısımdan devam etmez. Ancak, sözcüklerin tek bir satırı kullanarak aşıldığında, o kesen gürültü kabul edilir ve sözcükleri hala el yazısı tanıma işlemiyle toplanmış.
+**Yanıt**: Teknoloji yüzeyleri, mektup, incelemeyi ve sarı Yapışkan notlar gibi farklı türde çalışır.
 
 -----
 
-**Soru**: *hangi metin yönleri için el yazısı tanıma teknolojisini desteklenir?*
+**Soru**: *El yazısı tanıma işleminin ne kadar sürer?*
 
-**Yanıt**: açılarını yaklaşık 30 derece en fazla 40 dereceye adresindeki yönelik metin toplanmış el yazısı tanıma işlemiyle.
+**Yanıt**: Geçen süre miktarını metnin uzunluğuna bağlıdır. Daha uzun metinler için birkaç saniye sürebilir. Bu nedenle, resimlerdeki el yazısı metni tanı işlemi tamamlandıktan sonra resimlerdeki el yazısı metin işleminin sonucunu Al işlemi kullanarak sonuçları almadan önce beklemeniz gerekebilir.
+
+-----
+
+**Soru**: *El yazısı tanıma teknolojisini kullanarak bir giriş işaretini bir satır ortasında eklenen metinleri nasıl ele alınıyor?*
+
+**Yanıt**: Bu metin ayrı bir satırda el yazısı tanıma işlemi tarafından döndürülür.
+
+-----
+
+**Soru**: *El yazısı tanıma teknolojisini çizilmiş sözcükleri veya satırları nasıl işliyor?*
+
+**Yanıt**: Bunları tanınmayan işlemek için birden fazla satır sözcükleri geçildiğinden, el yazısı tanıma işlemi bunları kısımdan devam etmez. Ancak, sözcüklerin tek bir satırı kullanarak aşıldığında, o kesen gürültü kabul edilir ve sözcükleri hala el yazısı tanıma işlemiyle toplanmış.
+
+-----
+
+**Soru**: *Hangi metin yönleri için el yazısı tanıma teknolojisini destekleniyor mu?*
+
+**Yanıt**: Metin açılarını yaklaşık 30 derece en fazla 40 dereceye adresindeki yönelik el yazısı tanıma işlemiyle toplanmış.
 
 -----

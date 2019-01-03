@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 4f1372f8b15670472146efc1c4f3a341f4a97c71
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 0ab9e4a3d129243ec069031c5e7233f341b545e4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255610"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713973"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>LUIS sonuçlarını Application Insights ve Azure işlevleri ekleme
 Bu öğreticide LUIS istek ve yanıt bilgileri ekler [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri veri depolama. Bu verileri aldıktan sonra bunu Kusto dil veya çözümlemek, toplama, Power BI ile sorgulayabilirsiniz ve hedefleri ve gerçek zamanlı utterance varlıklarının rapor. Bu analiz, eklediğinizde veya amaç ve varlıkları LUIS uygulamanızı düzenlemek, belirlemenize yardımcı olur.
@@ -37,7 +37,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!Tip]
 > Zaten bir aboneliğiniz yoksa, kaydolabilirsiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/).
 
-Bu öğreticideki kod tüm kullanılabilir [LUIS örnekleri GitHub deposunda](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) ve Bu öğretici ile ilişkili her bir satır ile geçersiz kılınan `//APPINSIGHT:`. 
+Bu öğreticideki kod tüm kullanılabilir [Azure örnekleri GitHub deposunda](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs) ve Bu öğretici ile ilişkili her bir satır ile geçersiz kılınan `//APPINSIGHT:`. 
 
 ## <a name="web-app-bot-with-luis"></a>LUIS ile Web app botu
 Bu öğreticide kod aşağıdaki gibi görünüyor veya tamamladığınızdan emin olduğunuz varsayılır [diğer öğretici](luis-nodejs-tutorial-build-bot-framework-sample.md): 
@@ -51,11 +51,11 @@ LUIS istek ve yanıt yakalamak için web app botu gereken **[Application Insight
 
 1. Azure portalında web app botu hizmeti seçin **derleme** altında **Bot Yönetim** bölümü. 
 
-    ![App ınsights arayın](./media/luis-tutorial-appinsights/build.png)
+    ![Azure portalında web uygulama bot hizmeti, "Bot Yönetimi" bölümünde "Derleme"'i seçin. ](./media/luis-tutorial-appinsights/build.png)
 
 2. App Service Düzenleyicisi ile yeni bir tarayıcı sekmesi açılır. Uygulama adı üst çubuktaki seçip **Kudu konsolu aç**. 
 
-    ![App ınsights arayın](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![Üst çubuktaki uygulama adı seçin, sonra "Kudu konsolu aç" seçin. ](./media/luis-tutorial-appinsights/kudu-console.png)
 
 3. Konsolda, Application Insights ve alt çizgi paketleri yüklemek için aşağıdaki komutu girin:
 
@@ -63,7 +63,7 @@ LUIS istek ve yanıt yakalamak için web app botu gereken **[Application Insight
     cd site\wwwroot && npm install applicationinsights && npm install underscore
     ```
 
-    ![App ınsights arayın](./media/luis-tutorial-appinsights/npm-install.png)
+    ![Application Insights ve alt çizgi paketleri yüklemek için npm komutları kullanın.](./media/luis-tutorial-appinsights/npm-install.png)
 
     Bekleme yüklenecek paketler için:
 
@@ -112,9 +112,7 @@ LUIS girişlerini görmek için Application ınsights'ı açın.
 
 1. Portalında **tüm kaynakları** ardından web app botu adına göre filtreleyin. Kaynak türü ile tıklayın **Application Insights**. Application ınsights bir ampul simgedir. 
 
-    ![App ınsights arayın](./media/luis-tutorial-appinsights/search-for-app-insights.png)
-
-
+    ! [[App ınsights Azure Portalı'nda arayın](./media/luis-tutorial-appinsights/search-for-app-insights.png)
 
 2. Kaynak açıldığında tıklayarak **arama** Sağdaki panelde Büyüteç simgesi. Yeni bir panel için doğru görüntüler. Bağlı olarak ne kadar telemetri verilerini bulunduğunda paneli görüntülemek için birkaç saniye sürebilir. Arama `LUIS-results` ve klavyede girin. Listede yalnızca, bu öğreticiyle eklenen LUIS sorgu sonuçlarına daraltıldığı.
 

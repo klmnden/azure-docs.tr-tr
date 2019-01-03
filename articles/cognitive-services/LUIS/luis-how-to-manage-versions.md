@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a1594d3dfe449049258e5ee12bc173c413459f8a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f5f31ddee58d1d609d0ff4b2901aa38abf3147a0
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132883"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599109"
 ---
-# <a name="manage-versions"></a>Sürümleri yönetme
+# <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Düzenle ve hazırlık veya üretim uygulamaları etkilemeden test sürümleri kullanın
 
 Sürümleri, farklı modelleri yayımladığınız olanak tanır. Başka bir geçerli etkin model kopyalamak için iyi bir uygulama olan [sürüm](luis-concept-version.md) modelde değişiklikler yapmadan önce uygulamanın. 
 

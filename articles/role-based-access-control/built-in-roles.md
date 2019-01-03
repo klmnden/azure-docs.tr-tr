@@ -15,12 +15,12 @@ ms.date: 12/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: d6696d9bdd69b085b9c9ac0804da68cd91612f35
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: b2d834c5f9f46f2ebe3c997c75dc50f30ed4bda7
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386970"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558932"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure kaynakları için yerleşik roller
 [Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcılara, gruplara veya hizmet sorumluları için atayabileceğiniz birkaç yerleşik rol tanımlarına sahiptir. Rol atamaları, azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller kuruluşunuzun ihtiyaçlarını karşılamıyorsa kendi [özel rollerinizi](custom-roles.md) oluşturabilirsiniz.
@@ -98,7 +98,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Ağ Katılımcısı](#network-contributor) | Ağları yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Yeni Relic APM hesap Katılımcısı](#new-relic-apm-account-contributor) | New Relic Application Performance Management hesaplarını ve uygulamalarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Okuyucu ve veri erişimi](#reader-and-data-access) | Sağlayan her şeyi görüntüleyebilir, ancak bir depolama hesabı ya da kapsanan kaynak oluşturma veya silemezsiniz izin vermez. Depolama hesabı anahtarları erişimi üzerinden bir depolama hesabında kapsanan tüm verilere okuma/yazma erişimi de izin verir. |
-| [Azure önbelleği için Redis katkıda bulunan](#redis-cache-contributor) | Azure Cache Rediss ancak onlara yönelik erişimi yönetmenize olanak tanır. |
+| [Azure önbelleği için Redis katkıda bulunan](#redis-cache-contributor) | Azure önbelleği için Redis yönetebilir, ancak onlara yönelik erişimi sağlar. |
 | [Kaynak ilkesine katkıda bulunan (Önizleme)](#resource-policy-contributor-preview) | (Önizleme) Kaynak ilkesi oluşturma/değiştirme, destek bileti oluşturma ve kaynakları/hiyerarşiyi okuma haklarıyla EA’dan kullanıcılar geri dolduruldu. |
 | [Scheduler iş koleksiyonları Katılımcısı](#scheduler-job-collections-contributor) | Zamanlayıcı iş koleksiyonlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Search Hizmeti Katılımcısı](#search-service-contributor) | Search hizmetlerini yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
@@ -114,7 +114,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 | [Depolama Hesabı Katılımcısı](#storage-account-contributor) | Depolama hesaplarını yönetmenize izin verir ancak bunlara yönelik erişimi yönetmenize izin vermez. |
 | [Depolama hesabı anahtarı işleci hizmet rolü](#storage-account-key-operator-service-role) | Depolama Hesabı Anahtarı İşleçlerine, Depolama Hesaplarında anahtarları listeleme ve yeniden oluşturma izni verilir |
 | [Depolama Blob verileri katkıda bulunan (Önizleme)](#storage-blob-data-contributor-preview) | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma, yazma ve silme erişimi verir |
-| [Depolama Blob verileri sahibi (Önizleme)](#storage-blob-data-owner-preview) | Azure Depolama blob kapsayıcılarına ve verilerine yönelik olarak okuma, yazma, silme ve POSIX süper kullanıcı erişimi izni verilir |
+| [Depolama Blob verileri sahibi (Önizleme)](#storage-blob-data-owner-preview) | Okuma, yazma, silme ve Azure depolama blob kapsayıcılarına ve verilerine POSIX süper kullanıcı erişimi verir |
 | [Depolama Blob verileri Okuyucu (Önizleme)](#storage-blob-data-reader-preview) | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma erişimi verir |
 | [Depolama kuyruk verileri katkıda bulunan (Önizleme)](#storage-queue-data-contributor-preview) | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma, yazma ve silme erişimi verir |
 | [Depolama kuyruk verileri Okuyucu (Önizleme)](#storage-queue-data-reader-preview) | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma erişimi verir |
@@ -1289,11 +1289,11 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Azure Cache Rediss ancak onlara yönelik erişimi yönetmenize olanak tanır. |
+> | **Açıklama** | Azure önbelleği için Redis yönetebilir, ancak onlara yönelik erişimi sağlar. |
 > | **Kimlik** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
-> | Microsoft.Cache/redis/* | Oluşturma ve Azure Cache için Rediss yönetme |
+> | Microsoft.Cache/redis/* | Oluşturma ve Azure önbelleği için Redis yönetme |
 > | Microsoft.Insights/alertRules/* | Oluşturma ve uyarı kurallarını yönet |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır |
 > | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımlarında yönetme |
@@ -1701,7 +1701,7 @@ Aşağıdaki tabloda, yerleşik rollerin kısa açıklamaları verilmiştir. Rol
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Azure Depolama blob kapsayıcılarına ve verilerine yönelik olarak okuma, yazma, silme ve POSIX süper kullanıcı erişimi izni verilir |
+> | **Açıklama** | Okuma, yazma, silme ve Azure depolama blob kapsayıcılarına ve verilerine POSIX süper kullanıcı erişimi verir |
 > | **Kimlik** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Eylemler** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Bir kapsayıcının silinmesinin sonucunu döndürür |

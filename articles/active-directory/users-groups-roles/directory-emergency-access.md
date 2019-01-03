@@ -1,87 +1,98 @@
 ---
-title: Azure AD'de Acil Durum erişimi yönetici hesaplarını yönetin | Microsoft Docs
-description: Bu makalede, kuruluşların mevcut Azure Active Directory ortamında ayrıcalıklı erişimi kısıtlamasına yardımcı olmak için Acil Durum erişim hesapları kullanmayı açıklar.
+title: Azure AD'de Acil Durum erişim hesapları yönetme | Microsoft Docs
+description: Bu makalede, Azure Active Directory (Azure AD) kiracınızın dışında yanlışlıkla kilitlenen önlemeye yardımcı olmak için Acil Durum erişim hesapları kullanmayı açıklar.
 services: active-directory
 author: markwahl-msft
 ms.author: billmath
-ms.date: 12/13/2017
+ms.date: 12/21/2018
 ms.topic: article-type-from-white-list
 ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 4f3772abc1cdbd3b35b8b1f16e7a47c0f1a17783
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ae23d7a3047a970c795c562b0b981c20068aeccb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38595663"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974244"
 ---
-# <a name="manage-emergency-access-administrative-accounts-in-azure-ad"></a>Azure AD'de Acil Durum erişimi yönetici hesaplarını yönetme 
+# <a name="manage-emergency-access-accounts-in-azure-ad"></a>Azure AD'de Acil Durum erişim hesapları yönetme
 
-Çoğu günlük etkinlikler için *genel yönetici* hakları, kullanıcılarınızın gerekmiyor. Sahip olması gereken daha yüksek izinler gerektiren bir görevi gerçekleştirdikleri yanlışlıkla çünkü kullanıcı rolü için kalıcı olarak atanmamalıdır. Genel yönetici olarak görev yapacak kullanıcıları ihtiyacınız olmadığında, Azure Active Directory (Azure AD) Privileged Identity Management (PIM), kendi hesabı veya başka bir yönetici hesabı kullanarak rol atamasını etkinleştirmelisiniz.
+Farkında olmadan oturum açın veya var olan tek bir kullanıcının hesabı yönetici olarak etkinleştirmek için Azure Active Directory (Azure AD) kiracınızın dışında kilitli önlemesini önemlidir. İki veya daha fazla oluşturarak yönetici erişimi yanlışlıkla eksikliği etkisini en aza indirebileceğiniz *Acil Durum erişim hesapları* kiracınızdaki.
 
-Kullanıcıların yönetici erişim haklarını kendileri için ayırdığınız yanı sıra, oturum ne var olan tek bir kullanıcının hesabı olarak etkinleştirmek için Azure AD kiracınızın Yönetim dışı yanlışlıkla kilitlenen önlemek ihtiyacınız bir Yönetici. İki veya daha fazla depolayarak yönetici erişimi yanlışlıkla eksikliği etkisini en aza indirebileceğiniz *Acil Durum erişim hesapları* kiracınızdaki.
+Acil Durum erişim hesapları son derece ayrıcalıklı olan ve belirli kişilere atanmaz. Acil Durum erişim hesapları, Acil Durum ya da 'Acil Durum' senaryoları normal yönetim hesaplarını burada kullanılamaz sınırlıdır. Kuruluşlar, yalnızca kesinlikle gerekli olduğunda kez Acil Durum hesabına ait kullanım kısıtlama bir hedef sürdürmeniz gerekir.
 
-Acil Durum erişim hesapları, kuruluşların mevcut Azure Active Directory ortamında ayrıcalıklı erişimi kısıtlamasına yardımcı olabilir. Bu tür hesaplar son derece ayrıcalıklı olan ve belirli kişilere atanmaz. Acil Durum erişim hesapları, Acil Durum ya da 'Acil Durum' senaryoları, normal yönetim hesapları kullanılamaz olduğu durumlarda sınırlıdır. Kuruluşlar, bir hedef Acil Durum hesabının kullanım sırasında gereklidir o zaman yalnızca kısıtlama sürdürmeniz gerekir.
+Bu makalede, Azure AD'de Acil Durum erişim hesaplarını yönetmek için yönergeler sağlar.
+
+## <a name="when-would-you-use-an-emergency-access-account"></a>Acil Durum erişim hesabı kullandığınızda?
 
 Bir kuruluş, aşağıdaki durumlarda bir Acil Durum erişim hesabı kullanmanız gerekebilir:
 
- - Kullanıcı hesaplarını Federal ve Federasyon bir hücre ağ kesintisi veya kimlik sağlayıcısı kesinti nedeniyle şu anda kullanılamıyor. Örneğin, ortamınızda kimlik sağlayıcısı konağı aşağıya indi, kullanıcıları Azure AD kimlik sağlayıcısına yönlendirir, oturum açamıyor olabilir. 
- - Yöneticiler Azure multi-Factor Authentication kaydedilen ve tek tek tüm cihazlardan kullanılamaz. Kullanıcıların multi-Factor Authentication'ın bir rolü etkinleştirmek için tamamlayamıyor olabilir. Örneğin, bir hücre ağ kesintisi bunları yanıtlama telefon görüşmeleri veya kısa mesaj, kayıtlı cihazlarını yalnızca iki kimlik doğrulama mekanizması almasını engelliyor. 
- - En son genel yönetici erişimine sahip bir kişi kuruluştan ayrılan. Azure AD'ye son engeller *genel yönetici* silinmesini gelen hesabı, ancak engellemez silinmesini öğesinden hesap veya şirket devre dışı. Her iki durumda, kuruluş hesabı kurtarmanız mümkün hale getirebilirsiniz.
+- Kullanıcı hesaplarını Federal ve Federasyon bir hücre ağ kesintisi veya kimlik sağlayıcısı kesinti nedeniyle şu anda kullanılamıyor. Örneğin, ortamınızda kimlik sağlayıcısı konağı aşağıya indi, kullanıcıları Azure AD kimlik sağlayıcısına yönlendirir, oturum açamıyor olabilir.
+- Yöneticiler Azure multi-Factor Authentication kaydedilen ve tek tek tüm cihazlardan kullanılamıyor veya hizmet kullanılamıyor. Kullanıcıların multi-Factor Authentication'ın bir rolü etkinleştirmek için tamamlayamıyor olabilir. Örneğin, bir hücre ağ kesintisi bunları yanıtlama telefon görüşmeleri veya kısa mesaj, kayıtlı cihazlarını yalnızca iki kimlik doğrulama mekanizması almasını engelliyor.
+- En son genel yönetici erişimi olan bir kişi kuruluştan ayrılan. Azure AD'ye son genel yönetici hesabını silinmesini engeller, ancak hesap siliniyor gelen veya şirket devre dışı engellemez. Her iki durumda, kuruluş hesabı kurtarmanız mümkün hale getirebilirsiniz.
+- Acil, doğal afetler gibi öngörülemeyen durumlarda aşamasında bir cep telefonu veya diğer ağlara kullanılamıyor olabilir. 
 
-## <a name="initial-configuration"></a>İlk Yapılandırma
+## <a name="create-two-cloud-based-emergency-access-accounts"></a>İki bulut tabanlı bir Acil Durum erişim hesapları oluşturma
 
-İki veya daha fazla Acil Durum erişim hesapları oluşturun. Bunlar kullanan yalnızca bulut hesapları olmalıdır \*. onmicrosoft.com etki alanı olan ve olmayan Federasyon veya bir şirket içi ortamdan eşitlenen. 
+İki veya daha fazla Acil Durum erişim hesapları oluşturun. Bu hesapları kullanan yalnızca bulut hesapları olmalıdır \*. onmicrosoft.com etki alanı olan ve olmayan Federasyon veya bir şirket içi ortamdan eşitlenen.
 
-Hesapları kuruluştaki herhangi bir kullanıcı ile ilişkilendirilmemelidir. Bu hesaplar için kimlik bilgilerini yalnızca bunları kullanma yetkisi olan kişiler için güvenli ve bilinen kalmasını sağlamak kuruluşların gerekir. 
+Bu hesaplar yapılandırırken, aşağıdaki gereksinimler karşılanmalıdır:
 
-> [!NOTE]
-> Genellikle bir hesap parolası bir Acil Durum erişim hesabı için iki veya üç parçalara ayrılmış, kağıda ayrı parçaları üzerinde yazılan ve güvenli, ayrı konumlardaki güvenli, ateşe dayanıklı kasalar depolanır. 
->
-> Acil Durum erişim hesapları, tüm çalışan tarafından sağlanan cep telefonları ile bağlı değil, bu seyahat çalışanları veya diğer çalışan özel kimlik bilgileri ile donanım belirteçleri emin olun. Bu önlem, kimlik bilgisi gerektiğinde tek bir çalışan ulaşılamaz olduğu örnekleri kapsar. 
+- Acil Durum erişim hesapları kuruluştaki herhangi bir kullanıcı ile ilişkilendirilmemelidir. Hesaplarınız bir çalışan tarafından sağlanan cep telefonları ile bağlı değil, bu seyahat çalışanları veya diğer çalışan özel kimlik bilgileri ile donanım belirteçleri emin olun. Bu önlem, kimlik bilgisi gerektiğinde tek bir çalışan ulaşılamaz olduğu örnekleri kapsar. Tüm kayıtlı cihazları olan Azure AD ile iletişim kuran birden fazla yol bilinen ve güvenli bir konumda kalmasını sağlamak önemlidir.
+- Bir Acil Durum erişim hesabı için kullanılan kimlik doğrulama mekanizması diğer Acil Durum erişim hesapları dahil olmak üzere, diğer yönetim hesapları tarafından kullanılan farklı olmalıdır.  Örneğin, normal yönetici oturum açma şirket içi MFA ise, Azure mfa'yı farklı bir mekanizma olacaktır.  Azure MFA, birincil yönetici hesaplarınız için kimlik doğrulaması parçası ise, ancak daha sonra farklı bir yaklaşım gibi bir üçüncü taraf MFA sağlayıcısı ile koşullu erişim kullanarak bu göz önünde bulundurun.
+- Cihaz kimlik bilgisi gereken değil sona veya kullanımını alınamadığından otomatik temizleme kapsamında olabilir.  
+- Genel yönetici rolü atama kalıcı, Acil Durum erişim hesapları için yapmanız. 
 
-### <a name="initial-configuration-with-permanent-assignments"></a>İlk yapılandırma ile kalıcı atamaları
 
-Bir seçenek olan kullanıcılar üyeleri kalıcı hale getirmek üzere *genel yönetici* rol. Bu seçenek, Azure AD Premium P2 abonelikleri olmayan kuruluşlar için uygun olacaktır.
+### <a name="exclude-at-least-one-account-from-phone-based-multi-factor-authentication"></a>En az bir hesap multi-Factor authentication'dan telefon tabanlı Dışla
 
-Güvenliği aşılmış bir paroladan kaynaklanan bir saldırı riskini azaltmak için Azure AD, tüm bireysel kullanıcılar için çok faktörlü kimlik doğrulaması gerektiren önerir. Bu grup yöneticileri ve diğer tüm (örneğin, finansal görevlileri), gizliliği tehlikeye giren hesap önemli bir etkisi yoktur içermelidir. 
+Güvenliği aşılmış bir paroladan kaynaklanan bir saldırı riskini azaltmak için Azure AD, tüm bireysel kullanıcılar için çok faktörlü kimlik doğrulaması gerektiren önerir. Bu grubun Yöneticiler ve diğerlerinin tümü (örneğin, finansal görevlileri), gizliliği tehlikeye giren hesap önemli bir etkisi yoktur içerir.
 
-Bununla birlikte, paylaşılan cihazlar, kuruluşunuzun sahip değilse, multi-Factor Authentication için bu Acil Durum erişim hesapları mümkün olmayabilir. Gerektirmek için koşullu erişim ilkesi yapılandırıyorsanız [her yöneticinin multi-Factor Authentication kaydını](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states) Azure AD'de ve diğer bağlı bir hizmet (SaaS) uygulamaları olarak yazılım, ilke yapılandırma gerekebilir Acil Durum erişim hesapları bu gereksinimden hariç tutmak için özel durumlar.
+Ancak, Acil Durum erişim hesapları en az biri, diğer olmayan Acil Durum hesapları olarak aynı çok faktörlü kimlik doğrulaması mekanizması olmamalıdır. Bu, üçüncü taraf multi-Factor authentication çözümleri içerir. Gerektirmek için koşullu erişim ilkesi varsa [her yönetici için multi-Factor authentication](../authentication/howto-mfa-userstates.md) Azure AD'de ve diğer bağlı yazılım hizmet (SaaS) uygulamaları, Acil Durum erişim hesapları bu dışarıda gereksinim ve bunun yerine, farklı bir mekanizma yapılandırın. Ayrıca, bir kullanıcı başına çok faktörlü kimlik doğrulama İlkesi hesaplar sahip olmadığından emin olmanız gerekir.
 
-### <a name="initial-configuration-with-approvals"></a>İlk yapılandırma ile onaylar
+### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>En az bir hesabı koşullu erişim ilkelerinin dışında tutun
 
-Kullanıcılarınız için uygun ve etkinleştirmek için onaylayan yapılandırmak için başka bir seçenektir *genel yönetici* rol. Bu seçenek, kuruluşunuzun Azure AD Premium P2 aboneliği gerektirir. Ayrıca, birden çok kişiye ve ağ ortamı arasında paylaşılan kullanım için uygun olan bir çok faktörlü kimlik doğrulaması seçeneği de gerekir. Bu gereksinimler olduğu etkinleştirme *genel yönetici* rolü, kullanıcıların daha önce çok faktörlü kimlik doğrulaması gerçekleştirdikten gerektirir. Daha fazla bilgi için [Azure AD Privileged Identity Management içinde çok faktörlü kimlik doğrulaması isteme](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-how-to-require-mfa).
+Acil sırasında olası bir sorunu düzeltmek için erişimi engellemek için bir ilke istemezsiniz. Öğeden tüm koşullu erişim ilkeleri en az bir Acil Durum erişim hesabı'nın hariç tutulması gerekir. Etkinleştirdiyseniz bir [temel ilke](../conditional-access/baseline-protection.md), Acil Durum erişim hesapları dışlamanız gerekir.
 
-Kişisel cihazlar için Acil Durum erişim hesapları ile ilişkili bir multi-Factor Authentication kullanarak önermiyoruz. Gerçek acil durumlarda, kişisel cihaz olan bir multi-Factor Authentication kayıtlı bir cihaz erişmesi kişiye olmayabilir. 
+## <a name="additional-guidance-for-hybrid-customers"></a>Karma müşteriler için ek yönergeler
 
-Ayrıca, tehdit Manzarası göz önünde bulundurun. Örneğin, Acil Durum doğal afetler gibi öngörülemeyen bir durumda, bu sırada bir cep telefonu veya diğer ağlara kullanılamayabilir ortaya çıkabilir. Tüm kayıtlı cihazları olan Azure AD ile iletişim kuran birden fazla yol bilinen ve güvenli bir konumda kalmasını sağlamak önemlidir.
+Azure AD ile federasyona eklemek için AD etki alanı Hizmetleri ve ADFS kullanan kuruluşlar veya benzer bir kimlik sağlayıcısı için ek bir seçenek olup, MFA talebi, kimlik sağlayıcısı tarafından sağlanan bir Acil Durum erişim hesabı yapılandırmak için.  Örneğin, Acil Durum erişim hesabı gibi bir akıllı kart üzerinde depolanan bir sertifika ve anahtar çifti tarafından yedeklenen.  AD, kullanıcının kimliği doğrulandığında, AD FS için Azure AD kullanıcı MFA gereksinimlerinin karşılandığından emin gösteren bir talep sağlayabilirsiniz.  Federasyon kurulamıyor durumunda bile bu yaklaşımda, kuruluşlar yine de bulut tabanlı bir Acil Durum erişim hesapları olması gerekir. 
 
-## <a name="ongoing-monitoring"></a>Devam eden izleme
+## <a name="store-devices-and-credentials-in-a-safe-location"></a>Cihazlar ve kimlik bilgilerini güvenli bir konuma Store
 
-İzleyici [Azure AD oturum açma ve denetim günlüklerini](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins) oturum açma işlemleri için ve Acil Durum erişim hesapları etkinliğinden denetleyebilirsiniz. Normalde bu hesapların açarken olması değil ve onları kullanmanız açısından anormal ve güvenlik araştırma gerektiren büyük olasılıkla, bu nedenle, değişiklikler yapmak değil.
+Kuruluşlar, Acil Durum erişim hesapları için kimlik bilgilerini yalnızca bunları kullanma yetkisi olan kişiler için güvenli ve bilinen kalmasını sağlamak gerekir. Bazı müşteriler bir akıllı kart ve parolaların diğerleri kullanın. Genellikle bir Acil Durum erişim hesabı için bir parola iki veya üç parçalara ayrılmış, üzerinde kağıda ayrı parçaları yazılan ve güvenli, ayrı konumlardaki güvenli, ateşe dayanıklı kasalar depolanır.
 
-## <a name="account-check-validation-must-occur-at-regular-intervals"></a>Hesap denetimini doğrulama düzenli aralıklarla gerçekleşmelidir.
+Parola kullanıyorsanız, hesaplarının parola süresinin sona ermediğinden güçlü parolalar sahip olduğundan emin olun. İdeal olarak, parolalar, uzun ve rastgele oluşturulan en az 16 karakter arasında olmalıdır.
 
-Hesabı doğrulamak için en azından aşağıdaki adımları gerçekleştirin:
-- Her 90 günde.
-- BT ekibi, işi değişiklik, bir ayrılma ya da yeni bir işe alma gibi yeni bir değişiklik olduğunda.
-- Azure AD aboneliklerini kuruluştaki zaman değişti.
 
-Acil Durum erişim hesapları kullanmak için personel eğitmek için aşağıdakileri yapın:
+## <a name="monitor-sign-in-and-audit-logs"></a>Oturum izleme ve Denetim günlükleri
 
-* Personel güvenlik izleme hesabı onay etkinliği devam ediyor farkında olduğundan emin olun.
-* Bulut kullanıcı hesapları oturum açın ve kendi rollerini etkinleştirebilmelerini ve Acil sırasında şu adımları gerçekleştirmeniz gerekebilir kullanıcılar üzerindeki işlem eğitilir doğrulayın.
-* Multi-Factor Authentication ya da tek tek her kullanıcının cihazına veya kişisel ayrıntılar için Self Servis parola sıfırlama (SSPR) isteneceği değil emin olun. 
-* Hesapları için multi-Factor Authentication için rol etkinleştirme sırasında kullanım için bir cihaz kaydedilirse cihazın Acil sırasında kullanmak için gereken tüm yöneticiler için erişilebilir olduğundan emin olun. Ayrıca, ortak bir hata modu paylaşmayın en az iki mekanizmalar aracılığıyla cihazın kayıtlı olup olmadığını doğrulayın. Örneğin, cihaz özelliği'nin kablosuz ağ hem hücresi sağlayıcısını Ağ üzerinden İnternet'e iletişim kurabilir.
-* Hesap kimlik bilgilerini güncelleştirin.
+İzleyici [Azure AD oturum açma ve denetim günlüklerini](../reports-monitoring/concept-sign-ins.md) oturum açma işlemleri için ve Acil Durum erişim hesapları etkinliğinden denetleyebilirsiniz. Normalde, bu hesaplar, oturum açarken olması değil ve onları kullanmanız açısından anormal ve güvenlik araştırma gerektiren büyük olasılıkla, bu nedenle, değişiklikler yapmak değil.
+
+## <a name="validate-accounts-at-regular-intervals"></a>Düzenli aralıklarla hesapları doğrula
+
+Acil Durum erişim hesapları kullanmak ve Acil Durum erişim hesapları doğrulamak için personel eğitmek için düzenli aralıklarla aşağıdaki en düşük adımları uygulayın:
+
+- Personel güvenlik izleme hesabı onay etkinliği devam ediyor farkında olduğundan emin olun.
+- Acil Durum sonu cam işlemi bu hesapları kullanma belgelenmiş ve güncel olduğundan emin olun.
+- Yöneticiler ve kimin bir Acil Durum sırasında şu adımları gerçekleştirmeniz gerekebilir güvenlik sorumluları işlemi eğitilir emin olun.
+- Hesap kimlik bilgilerini, özellikle, Acil Durum erişim hesapları, parolaları güncelleştirin ve ardından Acil Durum erişim hesapları oturum açma ve yönetimsel görevleri gerçekleştirmek doğrulayın.
+- Kullanıcıların multi-Factor Authentication ya da tek tek her kullanıcının cihazına veya kişisel ayrıntılar için Self Servis parola sıfırlama (SSPR) kaydolmadınız emin olun. 
+- Hesaplar çok faktörlü kimlik doğrulaması için oturum açma veya rol etkinleştirme sırasında kullanım için bir cihaz için kayıtlı bir Acil Durum sırasında kullanmak için gereken tüm yöneticiler için cihaz erişilebildiğinden emin olun. Ayrıca cihaz ortak bir hata modu paylaşmayın en az iki ağ yolları ile iletişim kurabildiğini doğrulayın. Örneğin, cihaz özelliği'nin kablosuz ağ hem hücresi sağlayıcısını Ağ üzerinden İnternet'e iletişim kurabilir.
+
+Bu adımlar, düzenli aralıklarla ve önemli değişiklikler için gerçekleştirilmelidir:
+
+- En az 90 günde bir
+- BT ekibi, işi değişiklik, bir ayrılma ya da yeni bir işe alma gibi yeni bir değişiklik olduğunda
+- Azure AD aboneliklerini kuruluştaki zaman değiştirildi
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Bulut tabanlı kullanıcı ekleme](../fundamentals/add-users-azure-active-directory.md) ve [yeni kullanıcı genel Yönetici rolüne atayın](../fundamentals/active-directory-users-assign-role-azure-portal.md).
-- [Azure Active Directory Premium'a kaydolma](../fundamentals/active-directory-get-started-premium.md), zaten kaydolmuş olmasanız.
-- [Yönetici olarak atanan bireysel kullanıcılar için Azure multi-Factor Authentication iste](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-user-states).
-- [Office 365'te genel Yöneticiler için ek koruma olanaklarını yapılandırma](https://support.office.com/article/Protect-your-Office-365-global-administrator-accounts-6b4ded77-ac8d-42ed-8606-c014fd947560), Office 365 kullanıyorsanız.
-- [Genel Yöneticiler, erişim gözden geçirmesi gerçekleştirme](../privileged-identity-management/pim-how-to-start-security-review.md) ve [varolan genel yöneticileri daha özel yönetici rolleri için geçiş](directory-assign-admin-roles.md).
 
-
+- [Azure AD'de karma ve bulut dağıtımları için ayrıcalıklı erişim güvenliğini sağlama](directory-admin-roles-secure.md)
+- [Azure AD kullanarak kullanıcı ekleme](../fundamentals/add-users-azure-active-directory.md) ve [yeni kullanıcı genel Yönetici rolüne atayın.](../fundamentals/active-directory-users-assign-role-azure-portal.md)
+- [Azure AD Premium'a kaydolun](../fundamentals/active-directory-get-started-premium.md), zaten kaydolmuş olmasanız
+- [Bir kullanıcı için iki aşamalı doğrulama gerektirme](../authentication/howto-mfa-userstates.md)
+- [Office 365'te genel Yöneticiler için ek koruma olanaklarını yapılandırma](https://docs.microsoft.com/office365/enterprise/protect-your-global-administrator-accounts), Office 365 kullanıyorsanız
+- [Genel yönetici / erişim değerlendirmesi başlatma](../privileged-identity-management/pim-how-to-start-security-review.md) ve [varolan genel yöneticileri daha özel yönetici rolleri için geçiş](directory-assign-admin-roles.md)

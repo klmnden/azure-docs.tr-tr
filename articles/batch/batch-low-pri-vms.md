@@ -1,5 +1,5 @@
 ---
-title: Uygun maliyetli düşük öncelikli Vm'leri Azure Batch iş yüklerinizi çalıştırma | Microsoft Docs
+title: Uygun maliyetli düşük öncelikli Vm'lere - Azure Batch iş yüklerini çalıştırma | Microsoft Docs
 description: Düşük öncelikli VM'ler, Azure Batch iş yüklerinizi maliyetini azaltmak için hazırlamayı öğrenin.
 services: batch
 author: mscurrell
@@ -11,12 +11,13 @@ ms.topic: article
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: d42cef944c3b971804ef1417a3877bf919784a02
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.custom: seodec18
+ms.openlocfilehash: 17668470be3e997c215aacc4cc2c32c80de2dd81
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093012"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546802"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Batch ile düşük öncelikli VM'ler kullanma
 
@@ -42,11 +43,11 @@ Düşük öncelikli VM'ler, hangi iş yüklerini kullanabilir ve bunları kullan
 
 Düşük öncelikli VM'ler kullanma için uygun toplu işleme kullanım örnekleri iyi bazı örnekleri şunlardır:
 
--   **Geliştirme ve test**: özellikle büyük ölçekli çözümleri geliştirdiğinizde, önemli ölçüde tasarruf alırlar. Tüm test türleri yararlı olabilir, ancak büyük ölçekli yük testi ve gerileme sınaması harika kullanır.
+-   **Geliştirme ve test**: Özellikle de büyük ölçekli çözümleri geliştirdiğinizde, önemli ölçüde tasarruf gerçekleşmiş. Tüm test türleri yararlı olabilir, ancak büyük ölçekli yük testi ve gerileme sınaması harika kullanır.
 
--   **İsteğe bağlı kapasite ekleme**: düşük öncelikli VM'ler, normal özel VM'ler - desteklemek için kullanılabilir kullanılabilir olduğunda, işleri ölçeklendirmek ve bu nedenle daha hızlı tamamlamak için daha düşük maliyet; kullanılabilir olduğunda, ayrılmış sanal taban kullanılabilir durumda kalır .
+-   **İsteğe bağlı kapasite ekleme**: Düşük öncelikli VM'ler, normal özel VM'ler - desteklemek için kullanılabilir kullanılabilir olduğunda, işleri ölçeklendirmek ve düşük maliyetli; bu nedenle daha hızlı tamamlayın kullanılabilir olduğunda, ayrılmış sanal taban kullanılabilir durumda kalır.
 
--   **Esnek iş yürütme süresi**: varsa zaman işler esnekliğe sahip tamamlamak sonra olası bırakmaları kapasite izin; Bununla birlikte düşük öncelikli VM'ler'ın eklenmesiyle işleri daha hızlı ve düşük maliyetli çalışacak.
+-   **Esnek iş yürütme süresi**: Esneklik ise sürede işlerin tamamlamanız gereken ve kapasite olası bırakmaları izin; Bununla birlikte düşük öncelikli VM'ler'ın eklenmesiyle işleri sık daha hızlı ve düşük maliyetli çalıştırın.
 
 Düşük öncelikli VM'ler, iş yürütme süresi esneklik bağlı olarak birkaç yolu kullanmak için Batch havuzları yapılandırılabilir:
 

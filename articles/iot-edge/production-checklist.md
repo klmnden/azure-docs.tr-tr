@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d39a271f33cb86bf870c3a7692c38d780093efa2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100047"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652635"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IOT Edge çözümünüzü üretim ortamında dağıtmaya hazırlanma
 
@@ -162,6 +162,17 @@ Beyaz liste bağlantıları açıkça IOT Edge cihazları yapılan ağ kurulumun
 Her üç durumda desen DNS adıyla eşleşmesi \*.azure devices.net. 
 
 Ayrıca, **Container altyapısı** HTTPS üzerinden kapsayıcı kayıt defterleri için çağrılar. IOT Edge çalışma zamanı kapsayıcı görüntülerini almak için DNS mcr.microsoft.com adıdır. Kapsayıcı altyapısı diğer kayıt defterleri için Dağıtımda yapılandırılmış olarak bağlanır. 
+
+Bu denetim, güvenlik duvarı kuralları için bir başlangıç noktasıdır:
+
+   | URL (\* joker =) | Giden TCP bağlantı noktaları | Kullanım |
+   | ----- | ----- | ----- |
+   | MCR.microsoft.com  | 443 | Microsoft kapsayıcı kayıt defteri |
+   | Global.Azure cihazları provisioning.net  | 443 | DPS erişim (isteğe bağlı) |
+   | \*. azurecr.io | 443 | Kişisel ve 3. taraf kapsayıcı kayıt defterleri |
+   | \*.blob.core.windows.net | 443 | Görüntü deltalarını indirin | 
+   | \*.Azure devices.net | 5671, 8883, 443 | IOT hub'ı erişim |
+   | \*. docker.io  | 443 | Docker erişim (isteğe bağlı) |
 
 ### <a name="configure-communication-through-a-proxy"></a>Bir proxy üzerinden iletişimi yapılandırma
 

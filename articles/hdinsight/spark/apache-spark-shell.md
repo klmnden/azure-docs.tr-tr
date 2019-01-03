@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: f8c296fddaafb8364cc5e0f07b54d850606322d9
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 3da6260faa87aecb7eb13f16386006e0c856d46b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581434"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653858"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Apache Spark Spark Kabuğu'ndan çalıştırma
 
@@ -60,10 +60,10 @@ SparkSession örneğine erişmek için enter `spark`. Zamanda sparkcontext öğe
 
 Spark Shell komutu (`spark-shell`, `pyspark`, veya `sparkR`) birçok komut satırı parametrelerini destekler. Parametreleri, tam listesini görmek için Spark Shell anahtarıyla başlatma `--help`. Bu parametrelerden bazıları yalnızca için dağıtılsa `spark-submit`, hangi Spark Shell sarmalar.
 
-| Anahtar | açıklama | Örnek |
+| anahtarı | açıklama | Örnek |
 | --- | --- | --- |
 | --Ana MASTER_URL | Ana URL'yi belirtir. HDInsight bu değer her zaman, `yarn`. | `--master yarn`|
-| --jar'lar JAR_LIST | Sürücü hem de Yürütücü sınıf yolları üzerinde dahil etmek için yerel jar dosyaları dışındaki virgülle ayrılmış listesi. HDInsight Azure Depolama'da veya Data Lake Store içinde varsayılan dosya sistemi yolları Bu liste oluşur. | `--jars /path/to/examples.jar` |
+| --jar'lar JAR_LIST | Sürücü hem de Yürütücü sınıf yolları üzerinde dahil etmek için yerel jar dosyaları dışındaki virgülle ayrılmış listesi. HDInsight bu liste, Azure Depolama'da veya Data Lake Storage varsayılan dosya sistemi yolları oluşur. | `--jars /path/to/examples.jar` |
 | --MAVEN_COORDS paketleri | Sürücü hem de Yürütücü sınıf yolları üzerinde dahil etmek için maven koordinatları jar dosyaları dışındaki virgülle ayrılmış listesi. Herhangi bir ek uzak depolar ile belirtilen yerel maven deposu, ardından maven central arar `--repositories`. Koordinatları biçimi *GroupID*:*Artifactıd*:*sürüm*. | `--packages "com.microsoft.azure:azure-eventhubs:0.14.0"`|
 | --py dosyaları listesi | Python için yalnızca .zip, .egg veya .py dosyaları üzerinde ise PYTHONPATH yerleştirmek için virgülle ayrılmış listesi. | `--pyfiles "samples.py"` |
 
@@ -72,4 +72,3 @@ Spark Shell komutu (`spark-shell`, `pyspark`, veya `sparkR`) birçok komut satı
 - Bkz: [Azure HDInsight üzerinde Apache Spark'a giriş](apache-spark-overview.md) genel bakış.
 - Bkz: [Azure HDInsight Apache Spark kümesi oluşturma](apache-spark-jupyter-spark-sql.md) SparkSQL ve Spark kümeleri ile çalışmak için.
 - Bkz: [Apache Spark yapılandırılmış Akış nedir?](apache-spark-streaming-overview.md) Spark ile akış verilerini işleme uygulamaları yazmak için.
-

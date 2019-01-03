@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b269b8db59c4aeecf182b6ea11b92a3980a2cd6d
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 40f8f1e9470201292c9dee27187d2155c879e13b
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567426"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583077"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Yedekleme ve Azure Backup ile şifrelenmiş sanal makineleri geri yükleme
 Bu makalede Azure Backup'ı kullanarak sanal makineleri (VM'ler) geri adım hakkında konuşuyor. Ayrıca hata durumları için desteklenen senaryolar, önkoşulları ve sorun giderme adımları hakkında ayrıntılar sağlar.
@@ -27,6 +27,10 @@ Bu makalede Azure Backup'ı kullanarak sanal makineleri (VM'ler) geri adım hakk
    | --- | --- | --- |
    | **Yönetilmeyen VM'ler**  | Evet | Evet  |
    | **Yönetilen VM'ler**  | Evet | Evet  |
+
+   > [!NOTE]
+   > Azure Backup, tek başına anahtarlar kullanılarak şifrelenmiş VM'ler destekler. Bir VM şifrelemek için kullanılan bir sertifika bir parçası olan herhangi bir tuşa bugün desteklenmiyor.
+   >   
 
 ## <a name="prerequisites"></a>Önkoşullar
 * VM kullanılarak şifrelenen [Azure Disk şifrelemesi](../security/azure-security-disk-encryption.md).

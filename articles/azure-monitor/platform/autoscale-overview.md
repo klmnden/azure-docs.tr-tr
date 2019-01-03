@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: adeb2d1f1268ed3f933a340c184a531510a7ff88
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 85a93746f3d10c5b4dae4f50cd539d515960bd54
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437461"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584335"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure sanal makineleri, bulut Hizmetleri ve Web uygulamalarını otomatik ölçeklendirmeye genel bakış
 Bu makalede, hangi Microsoft Azure otomatik ölçeklendirme, aboneliğin avantajları olduğu ve nasıl kullanmaya başlayacağınızı açıklar.  
@@ -97,7 +97,7 @@ Daha fazla bilgi için [Azure Otomasyonu ile Azure sanal makine dikey olarak öl
 Otomatik ölçeklendirme ayarlayabilirsiniz.
 
 * [Azure portal](../../azure-monitor/platform/autoscale-get-started.md)
-* [PowerShell](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings)
+* [PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 * [Platformlar arası Komut Satırı Arabirimi (CLI)](../../azure-monitor/platform/cli-samples.md#autoscale)
 * [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 

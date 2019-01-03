@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 5ef9c15d4edf62ef63b16765f16971a9be5ca58b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e2497233ec97ffc88bf13797f62d601d4da373a1
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970714"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628502"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanılarak depolama hizmeti şifrelemesi
 
@@ -32,11 +32,13 @@ Neden kendi anahtarlarınızı oluşturulsun mu? Oluşturma, döndürme, devre d
 
 Müşteri tarafından yönetilen anahtarlar SSE ile kullanmak için anahtar veya bir var olan bir key vault ile anahtar kullanabilirsiniz ve ya da yeni bir anahtar kasası oluşturabilirsiniz. Depolama hesabı ve anahtar kasasının aynı bölgede olması gerekir, ancak bunlar farklı Aboneliklerde olabilir.
 
-### <a name="step-1-create-a-storage-account"></a>1. adım: depolama hesabı oluşturma
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### <a name="step-1-create-a-storage-account"></a>1. Adım: Depolama hesabı oluşturma
 
 İlk olarak, zaten yoksa, bir depolama hesabı oluşturun. Daha fazla bilgi için bkz. [Depolama hesabı oluşturma](storage-quickstart-create-account.md).
 
-### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>2. adım: SSE, Blob ve dosya depolama için etkinleştirme
+### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>2. Adım: Blob ve dosya depolama için SSE etkinleştir
 
 Müşteri tarafından yönetilen anahtarlar kullanılarak SSE etkinleştirmek için yazılım silin ve yapmak değil temizlemek, iki anahtar koruma özelliklerini Azure anahtar Kasası'nda da etkinleştirilmesi gerekir. Bu ayarlar, anahtarları yanlışlıkla veya bilerek silinmiş emin olun. Anahtarların en uzun saklama süresi 90 gün, kullanıcıya kötü amaçlı aktörler ve fidye yazılımı saldırılarına karşı korumak için ayarlanır.
 
@@ -45,7 +47,7 @@ Program aracılığıyla müşteri tarafından yönetilen anahtarlar için SSE e
 Müşteri tarafından yönetilen anahtarlar SSE ile kullanmak için depolama hesabı için bir depolama hesabı kimliği atamanız gerekir. Uygulamanın kimliğini aşağıdaki PowerShell veya Azure CLI komutunu yürüterek ayarlayabilir:
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
+Set-AzStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
 ```
 
 ```azurecli-interactive
@@ -58,18 +60,18 @@ az storage account \
 Aşağıdaki PowerShell veya Azure CLI komutları yürüterek geçici silme ve temizleme değil yapmak etkinleştirebilirsiniz:
 
 ```powershell
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enableSoftDelete -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enablePurgeProtection -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
@@ -83,13 +85,13 @@ az resource update \
     --set properties.enablePurgeProtection=true
 ```
 
-### <a name="step-3-enable-encryption-with-customer-managed-keys"></a>3. adım: müşteri tarafından yönetilen anahtarlarla şifrelemeyi etkinleştir
+### <a name="step-3-enable-encryption-with-customer-managed-keys"></a>3. Adım: Müşteri tarafından yönetilen anahtarlarla şifrelemeyi etkinleştir
 
 Varsayılan olarak, Microsoft tarafından yönetilen anahtarlar SSE kullanır. Müşteri tarafından yönetilen anahtarları kullanarak depolama hesabı için SSE etkinleştirebilirsiniz [Azure portalında](https://portal.azure.com/). Üzerinde **ayarları** depolama hesabı dikey penceresine tıklayın **şifreleme**. Seçin **kendi anahtarınızı kullanın** seçeneği, aşağıdaki resimde gösterildiği gibi.
 
 ![Şifreleme seçeneği Portal gösteren ekran görüntüsü](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 
-### <a name="step-4-select-your-key"></a>4. adım: anahtarınızı seçin.
+### <a name="step-4-select-your-key"></a>4. adım: Anahtarınızı seçin
 
 Anahtarınızı bir URI olarak veya bir anahtar kasasından anahtar seçerek belirtebilirsiniz.
 
@@ -121,18 +123,18 @@ Ayrıca, Azure portalında Azure Key vault'a giderek ve depolama hesabı için e
 Aşağıdaki PowerShell komutlarını kullanarak mevcut bir depolama hesabıyla yukarıdaki anahtar ilişkilendirebilirsiniz:
 
 ```powershell
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
-$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
-### <a name="step-5-copy-data-to-storage-account"></a>5. adım: veri depolama hesabına kopyalayın.
+### <a name="step-5-copy-data-to-storage-account"></a>5. adım: Depolama hesabına veri kopyalama
 
 Şifrelenir, böylece yeni depolama hesabınızı veri aktarmak için. Daha fazla bilgi için [depolama hizmeti şifrelemesi hakkında SSS](storage-service-encryption.md#faq-for-storage-service-encryption).
 
-### <a name="step-6-query-the-status-of-the-encrypted-data"></a>6. adım: şifrelenmiş veriler durumu sorgu
+### <a name="step-6-query-the-status-of-the-encrypted-data"></a>6. adım: Şifrelenmiş verilerin durumu
 
 Şifrelenmiş veriler durumunu sorgulayın.
 
@@ -154,7 +156,7 @@ Depolama hizmeti şifrelemesi, Microsoft tarafından yönetilen anahtarlarla Azu
 Azure Disk şifrelemesi, BitLocker ve DM-Crypt gibi işletim sistemi tabanlı çözümler ve Azure anahtar kasası arasında tümleştirme sağlar. Depolama hizmeti şifrelemesi, yerel olarak katmanında Azure depolama platformu, sanal makine aşağıdaki şifreleme sağlar.
 
 **Şifreleme anahtarlarına erişimi iptal etme?**
-Evet, erişimi istediğiniz zaman iptal edebilirsiniz. Anahtarlarınızı erişimini iptal etmek için birkaç yolu vardır. Başvurmak [Azure anahtar kasası PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) ve [Azure anahtar kasası CLI](https://docs.microsoft.com/cli/azure/keyvault) daha fazla ayrıntı için. Erişimi iptal ediliyor hesap şifreleme anahtarı Azure Depolama tarafından erişilemez olduğundan etkili bir şekilde depolama hesabındaki tüm bloblar erişimini engeller.
+Evet, erişimi istediğiniz zaman iptal edebilirsiniz. Anahtarlarınızı erişimini iptal etmek için birkaç yolu vardır. Başvurmak [Azure anahtar kasası PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) ve [Azure anahtar kasası CLI](https://docs.microsoft.com/cli/azure/keyvault) daha fazla ayrıntı için. Erişimi iptal ediliyor hesap şifreleme anahtarı Azure Depolama tarafından erişilemez olduğundan etkili bir şekilde depolama hesabındaki tüm bloblar erişimini engeller.
 
 **Farklı bir bölgede bir depolama hesabı ve anahtarı oluşturabilir?**  
 Hayır, depolama hesabı ve Azure anahtar kasası ve anahtar da aynı bölgede olması gerekir.

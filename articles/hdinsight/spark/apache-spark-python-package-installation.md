@@ -9,26 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: bfb2df377030f14893b3e124e6112ef6c2994afd
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: f804cfd693a37099edc22e7f4861d6d7e1af0fc7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321195"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651122"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight üzerinde Apache Spark kümeleri Jupyter not defterleri için dış Python paketlerini yüklemek üzere betik eylemi kullanın
 > [!div class="op_single_selector"]
 > * [Hücre Sihri kullanarak](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Betik eylemi kullanarak](apache-spark-python-package-installation.md)
->
->
 
 Betik eylemleri yapılandırmak için kullanmayı öğrenin bir [Apache Spark](https://spark.apache.org/) dış kullanmak için (Linux) HDInsight kümesinde topluluk tarafından katkıda bulunulan **python** kümede olmayan paketleri dahil kullanıma hazır.
 
-> [!NOTE]
+> [!NOTE]  
 > Jupyter Not Defteri kullanarak da yapılandırabilirsiniz `%%configure` magic dış paketleri kullanma. Yönergeler için [, HDInsight üzerinde Apache Spark kümeleri Jupyter not defterleri ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md).
-> 
-> 
 
 Arama yapabilirsiniz [paket dizinini](https://pypi.python.org/pypi) kullanılabilir paketler tam listesi için. Ayrıca, diğer kaynaklardan kullanılabilir paketler listesini alabilirsiniz. Örneğin, kullanılabilir hale paketleri yükleyebilirsiniz [conda oluşturmasına](https://conda-forge.org/feedstocks/).
 
@@ -40,10 +36,8 @@ Aşağıdakilere sahip olmanız gerekir:
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * HDInsight üzerinde bir Apache Spark kümesi. Yönergeler için bkz. [Azure HDInsight'ta Apache Spark kümeleri oluşturma](apache-spark-jupyter-spark-sql.md).
 
-   > [!NOTE]
+   > [!NOTE]  
    > HDInsight Linux üzerinde bir Spark kümesi zaten yoksa, betik eylemleri, küme oluşturma sırasında çalıştırabilirsiniz. Belgeleri ziyaret [özel betik eylemlerini kullanmak nasıl](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
-   > 
-   > 
    
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>HDInsight kümelerinde kullanılan açık kaynaklı yazılım desteği
 
@@ -54,10 +48,10 @@ HDInsight hizmetinde kullanılabilir açık kaynak bileşenleri iki tür vardır
 * **Yerleşik bileşenlerini** -bu bileşenler HDInsight kümelerinde önceden yüklü olan ve kümeyi temel işlevlerini sağlar. Örneğin, Apache Hadoop YARN ResourceManager, Apache Hive sorgu dili (HiveQL) ve Mahout kitaplığı, bu kategoriye aittir. Tam küme bileşenleri listesini kullanılabilir [HDInsight tarafından sağlanan Apache Hadoop küme sürümlerindeki yenilikler](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
 * **Özel bileşenler** -, kümenin bir kullanıcı olarak yükleyebilir veya herhangi bir bileşeni Topluluğu'nda kullanılabilir veya sizin tarafınızdan oluşturulan iş yükünüzü kullanın.
 
-> [!WARNING]
+> [!WARNING]   
 > HDInsight kümesi ile sağlanan bileşenler tam olarak desteklenir. Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
 >
-> Özel bileşenler daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Microsoft desteği sorunu çözmek mümkün olabilir veya bu teknoloji için derin bir uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları etkileşim kurmak için isteyebilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
+> Özel bileşenler daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Microsoft desteği sorunu çözmek mümkün olabilir veya bu teknoloji için derin bir uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları etkileşim kurmak için isteyebilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Apache projeleri proje siteleri de [ https://apache.org ](https://apache.org), örneğin: [Hadoop](https://hadoop.apache.org/).
 
 
 ## <a name="use-external-packages-with-jupyter-notebooks"></a>Jupyter not defterleri ile dış paketleri kullanma
@@ -66,7 +60,7 @@ HDInsight hizmetinde kullanılabilir açık kaynak bileşenleri iki tür vardır
 
 2. Spark kümesi dikey penceresinden tıklayın **betik eylemleri** sol bölmeden. Betik türünü "Özel" kullanın ve betik eylemi için bir kolay ad girin. Betiği çalıştırın **baş ve çalışan düğümleri** ve parametreleri alanı boş bırakın. Bash betiği başvurulabilir: https://hdiconfigactions.blob.core.windows.net/linuxtensorflow/tensorflowinstall.sh Belgeleri ziyaret [özel betik eylemlerini kullanmak nasıl](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
 
-   > [!NOTE]
+   > [!NOTE]  
    > Kümedeki yüklemeler iki python var. Spark Anaconda python yükleme konumunda bulunan kullanacağı `/usr/bin/anaconda/bin` ve Python 2.7 ortam varsayılan ayarlanır. PySpark3 çekirdek Python 3.x ve yükleme paketlerini kullanmak için yolu kullanmak `conda` bu ortam ve kullanmak için yürütülebilir `-n` ortamını belirtmek için parametre. Örneğin, komut `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, yükler `ggplot` Python 3.5 ortamı kullanarak paket `conda-forge` kanal.
 
 3. Bir PySpark Jupyter not defterini açın
@@ -101,7 +95,7 @@ HDInsight hizmetinde kullanılabilir açık kaynak bileşenleri iki tür vardır
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma
 * [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
+* [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
 * [HDInsight üzerinde Apache Spark kümeleri Jupyter not defterlerinde ile dış paketleri kullanma](apache-spark-jupyter-notebook-use-external-packages.md)

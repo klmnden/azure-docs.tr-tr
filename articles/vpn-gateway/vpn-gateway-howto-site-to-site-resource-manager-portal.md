@@ -1,18 +1,18 @@
 ---
-title: 'Şirket içi ağınızı bir Azure sanal ağına bağlama: Siteden Siteye VPN: Portal | Microsoft Docs'
+title: 'Şirket içi ağınızı bir Azure sanal ağına bağlama: Siteden siteye VPN: Portal | Microsoft Docs'
 description: Şirket içi ağınız ile bir Azure sanal ağı arasında genel İnternet üzerinden bir IPSec bağlantısı oluşturma adımları. Bu adımlar portalı kullanarak Siteden Siteye şirket içi ve dışı karışık VPN Gateway bağlantısı oluşturmanıza yardımcı olur.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 12/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: dd29b4af85826e350e116b31fa53031aacaba067
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 032b6a4f5147d06a4613a827a0372437dca47f47
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457128"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651648"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Azure portalında Siteden Siteye bağlantı oluşturma
 
@@ -35,30 +35,30 @@ Siteden Siteye VPN ağ geçidi bağlantısı, şirket içi ağınızı bir IPsec
 Yapılandırmanıza başlamadan önce aşağıdaki ölçütleri karşıladığınızı doğrulayın:
 
 * Uyumlu bir VPN cihazı ve bu cihazı yapılandırabilecek birinin bulunduğundan emin olun. Uyumlu VPN cihazları ve cihaz yapılandırması hakkında daha fazla bilgi için bkz.[VPN Cihazları Hakkında](vpn-gateway-about-vpn-devices.md).
-* VPN cihazınız için dışarıya dönük genel bir IPv4 adresi olduğunu doğrulayın. Bu IP adresi bir NAT’nin arkasında olamaz.
+* VPN cihazınız için dışarıya dönük genel bir IPv4 adresi olduğunu doğrulayın.
 * Şirket içi ağ yapılandırmanızda bulunan IP adresi aralıklarıyla ilgili fazla bilginiz yoksa size bu ayrıntıları sağlayabilecek biriyle çalışmanız gerekir. Bu yapılandırmayı oluşturduğunuzda, Azure’un şirket içi konumunuza yönlendireceği IP adres aralığı ön eklerini oluşturmanız gerekir. Şirket içi ağınızın alt ağlarından hiçbiri, bağlanmak istediğiniz sanal ağ alt ağlarıyla çakışamaz. 
 
 ### <a name="values"></a>Örnek değerler
 
 Bu makaledeki örneklerde aşağıdaki değerler kullanılır. Bu değerleri kullanarak bir test ortamı oluşturabilir veya bu makaledeki örnekleri daha iyi anlamak için bunlara bakabilirsiniz. Genel olarak VPN Gateway ayarları hakkında daha fazla bilgi için [VPN Gateway Ayarları Hakkında](vpn-gateway-about-vpn-gateway-settings.md) konusunu inceleyin.
 
-* **VNet Name:** TestVNet1
+* **VNet adı:** TestVNet1
 * **Adres Alanı:** 10.1.0.0/16
 * **Abonelik:** Kullanmak istediğiniz abonelik
-* **Kaynak Grubu:** TestRG1
+* **Kaynak grubu:** TestRG1
 * **Konum:** Doğu ABD
-* **Alt ağ:** FrontEnd: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (bu alıştırma için isteğe bağlı)
-* **Ağ Geçidi Alt Ağ adı:** GatewaySubnet (bu alan portalda otomatik doldurulacaktır)
-* **Ağ Geçidi Alt Ağ adres aralığı:** 10.1.255.0/27
-* **DNS Sunucusu:** 8.8.8.8 - İsteğe bağlıdır. DNS sunucunuzun IP adresidir.
-* **Sanal Ağ Geçidi Adı: VNet1GW**
-* **Genel IP:** VNet1GWIP
-* **VPN Türü:** Yol tabanlı
-* **Bağlantı Türü:** Siteden siteye (IPsec)
-* **Ağ Geçidi Türü:** VPN
-* **Yerel Ağ Geçidi Adı:** Site1
-* **Bağlantı Adı:** VNet1toSite1
-* **Ortak anahtar:** Bu örnekte abc123 kullanılır. Ancak, VPN donanımınızla uyumlu herhangi bir seçeneği kullanabilirsiniz. Önemli olan, değerin bağlantının her iki tarafında eşleşmesidir.
+* **Alt ağı:** Ön uç: 10.1.0.0/24, BackEnd: 10.1.1.0/24 (Bu alıştırma için isteğe bağlı)
+* **Ağ geçidi alt ağ adı:** GatewaySubnet (Bu işlem otomatik olarak Doldur Portalı'nda)
+* **Ağ geçidi alt ağ adres aralığı:** 10.1.255.0/27
+* **DNS sunucusu:** 8.8.8.8 - isteğe bağlı. DNS sunucunuzun IP adresidir.
+* **Sanal ağ geçidi adı:** VNet1GW
+* **Genel IP:** Vnet1gwıp
+* **VPN türü:** Rota tabanlı
+* **Bağlantı türü:** Siteden siteye (IPSec)
+* **Ağ geçidi türü:** VPN
+* **Yerel ağ geçidi adı:** Site1
+* **Bağlantı adı:** VNet1toSite1
+* **Paylaşılan anahtar:** Bu örnekte abc123 kullanılır. Ancak, VPN donanımınızla uyumlu herhangi bir seçeneği kullanabilirsiniz. Önemli olan, değerin bağlantının her iki tarafında eşleşmesidir.
 
 ## <a name="CreatVNet"></a>1. Sanal ağ oluşturma
 

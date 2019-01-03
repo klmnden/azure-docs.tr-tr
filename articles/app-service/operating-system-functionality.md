@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bb17748968d0875cae132730a02f490eab966690
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ad27a7eaf88ae57f730609e2b0f43a2f5ea182a1
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389157"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653518"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service üzerindeki işletim sistemi işlevi
 Bu makalede çalışan tüm Windows uygulamaları için kullanılabilir olan ortak temel işletim sistemi işlevi [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Bu işlev, dosya, ağ ve kayıt defteri erişim ve tanılama günlüklerini ve olayları içerir. 
@@ -131,11 +131,5 @@ Herhangi bir kullanıcı başına kayıt defteri anahtarı erişim dahil olmak �
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
-[Azure Web uygulama korumalı alanı](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) -App Service'in yürütme ortamı hakkında en güncel bilgileri. Bu sayfa, doğrudan App Service geliştirme ekibi tarafından korunur.
-
-> [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin](https://azure.microsoft.com/try/app-service/) sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
-> 
-> 
-
+[Azure App Service korumalı](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) -App Service'in yürütme ortamı hakkında en güncel bilgileri. Bu sayfa, doğrudan App Service geliştirme ekibi tarafından korunur.
 

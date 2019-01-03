@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 9eabdae9b884b7c55d410100193c8c5a41243e09
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: da876152b55ee626025b6192a5004648a29545dc
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864605"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604193"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>(Önizleme) ölçeği genişletilen bulut veritabanlarında raporlama
 Bir tek bağlantı noktası kullanarak birden çok Azure SQL veritabanından raporlar oluşturabilirsiniz bir [esnek sorgu](sql-database-elastic-query-overview.md). (Ayrıca "olarak parçalı" bilinen) yatay olarak bu veritabanlarını bölümlenmesi gerekir.

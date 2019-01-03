@@ -9,17 +9,42 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0496d9b3fde8b0194ddf57b3bbfec98eb7fda7fe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: caa078aa522e20a0e09d0b4d97461358c1698fc7
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250858"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744250"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
 Bu makalede Windows istemcilerinden bağlandığınızda, Microsoft Azure dosyaları'na ilgili genel sorunları listeler. Ayrıca olası nedenleri ve çözümlemeleri için bu sorunları sağlar. Bu makalede sorun giderme adımlarını ek olarak da kullanabilirsiniz [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) Windows istemci ortam önkoşulları doğru olduğundan emin olmak için. En iyi performansı elde etmek için ortamınızı ayarlama yardımcı olur ve bu makalede değinilen belirtileri çoğunu algılanması AzFileDiagnostics otomatikleştirir. Bu bilgiler de bulabilirsiniz [Azure dosyaları paylaşımlarını sorun giderici](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) bağlama/eşleme/bağlama Azure dosyaları paylaşımlarını sorunlara yardımcı olmak için adımları sağlar.
 
+<a id="error5"></a>
+## <a name="error-5-when-you-mount-an-azure-file-share"></a>Bir Azure dosya paylaşımını bağladığınızda 5 hatası
+
+Bir dosya paylaşımını bağlayabilmeniz çalıştığınızda şu hatayı alabilirsiniz:
+
+- 5. Sistem hatası oluştu. Erişim reddedildi.
+
+### <a name="cause-1-unencrypted-communication-channel"></a>1. neden: Şifrelenmemiş iletişim kanalı
+
+Güvenlik nedenleriyle, Azure dosya paylaşımlarını bağlantı iletişim kanalını şifreli değildir ve Azure dosya paylaşımlarını bulunduğu aynı veri merkezlerinden bağlantı girişimi yapılmadan değil engellenir. Aynı veri merkezindeki şifrelenmemiş bağlantıları da ise engellenir [güvenli aktarım gerekli](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) depolama hesabı seçeneği etkinleştirilmiştir. Şifreli iletişim kanalı, yalnızca kullanıcının istemci işletim sistemi SMB şifrelemesi destekliyorsa sağlanır.
+
+Windows 8, Windows Server 2012 ve sonraki sürümleri her sistem şifrelemeyi destekleyen SMB 3.0 içeren istekleri anlaşır.
+
+### <a name="solution-for-cause-1"></a>Çözüm nedeni 1 için
+
+1. SMB şifrelemesi (Windows 8, Windows Server 2012 veya üstü) destekleyen bir istemciyi bağlanmak veya aynı veri merkezinde Azure dosya paylaşımı için kullanılan Azure depolama hesabı olarak bir sanal makinesinden bağlanabilirsiniz.
+2. Doğrulama [güvenli aktarım gerekli](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) ayarı devre dışı depolama hesabında istemci SMB şifrelemesi desteklemiyorsa.
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>2. neden: Sanal ağ veya güvenlik duvarı kuralları depolama hesabı etkinleştirilir 
+
+Sanal ağ (VNET) ve güvenlik duvarı kuralları depolama hesabında yapılandırılmışsa, istemci IP adresi veya sanal ağ erişimine izin verilmesini sürece ağ trafiğini erişimi reddedilir.
+
+### <a name="solution-for-cause-2"></a>Neden 2 çözümü
+
+Sanal ağ ve güvenlik duvarı kuralları depolama hesabı düzgün şekilde yapılandırıldığından doğrulayın. Sanal ağ veya güvenlik duvarı kuralları neden sorun varsa test etmek için geçici olarak depolama hesabı için ayarı değiştirmeniz **tüm ağlardan erişime izin ver**. Daha fazla bilgi için bkz. [yapılandırma Azure depolama güvenlik duvarlarını ve sanal ağlar](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Hata 53, hata 67 veya hata bağlama ya da bir Azure dosya paylaşımını ayırma 87
@@ -30,39 +55,47 @@ Bu makalede Windows istemcilerinden bağlandığınızda, Microsoft Azure dosyal
 - 67 sistem hatası oluştu. Ağ adı bulunamıyor.
 - 87 sistem hatası oluştu. Parametresi geçersiz.
 
-### <a name="cause-1-unencrypted-communication-channel"></a>1. neden: Şifrelenmemiş iletişim kanalı
-
-Güvenlik nedenleriyle, Azure dosya paylaşımlarını bağlantı iletişim kanalını şifreli değildir ve Azure dosya paylaşımlarını bulunduğu aynı veri merkezlerinden bağlantı girişimi yapılmadan değil engellenir. Aynı veri merkezindeki şifrelenmemiş bağlantıları da ise engellenir [güvenli aktarım gerekli](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) depolama hesabı seçeneği etkinleştirilmiştir. Kullanıcının istemci işletim sistemi SMB şifrelemesi destekliyorsa iletişim kanalı şifreleme sağlanır.
-
-Windows 8, Windows Server 2012 ve sonraki sürümleri her sistem şifrelemeyi destekleyen SMB 3.0 içeren istekleri anlaşır.
-
-### <a name="solution-for-cause-1"></a>Çözüm nedeni 1 için
-
-1. Doğrulama [güvenli aktarım gerekli](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) ayarı depolama hesabı devre dışı.
-2. Aşağıdakilerden birini gerçekleştiren bir istemciden bağlanma:
-
-    - Windows 8 ve Windows Server 2012 veya sonraki sürümler gereksinimlerini karşılar
-    - Azure dosya paylaşımı için kullanılan Azure depolama hesabıyla aynı veri merkezinde bir sanal makineden bağlanır
-
-### <a name="cause-2-port-445-is-blocked"></a>2. neden: Bağlantı noktası 445 engellendi
+### <a name="cause-1-port-445-is-blocked"></a>1. neden: Bağlantı noktası 445 engellendi
 
 Bağlantı noktası 445 giden iletişimi, Azure dosyaları bir veri merkezine engellenirse, sistem hatası 53 veya sistem hatası 67 ortaya çıkabilir. İzin vermek veya vermemek bağlantı noktası 445 erişimden ISS'ler özetini görmek için Git [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
-Bu nedenle "Sistem hata 53" iletisi arkasında olup olmadığını anlamak için TCP:445 uç nokta sorgulamak için Portqry kullanabilirsiniz. TCP:445 uç noktası filtrelenmiş şekilde görüntülenirse TCP bağlantı noktası engellenir. Örnek bir sorgu aşağıda verilmiştir:
+445 bağlantı noktası güvenlik duvarı veya ISS engelleyip engellemediğini denetlemek için kullanmak [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) aracı veya `Test-NetConnection` cmdlet'i. 
 
-  `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+Kullanılacak `Test-NetConnection` cmdlet'i, AzureRM PowerShell Modülü yüklü olması gerekir, bkz: [Azure PowerShell modülü yükleme](/powershell/azure/install-azurerm-ps) daha fazla bilgi için. `<your-storage-account-name>` ile `<your-resoure-group-name>` yerine depolama hesabınızla ilgili bilgileri yazmayı unutmayın.
 
-445 numaralı TCP bağlantı noktası, ağ yolunda bir kural tarafından engellenirse aşağıdaki çıktıyı görürsünüz:
+   
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
 
-  `TCP port 445 (microsoft-ds service): FILTERED`
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
-Portqry kullanımı hakkında daha fazla bilgi için bkz. [Portqry.exe komut satırı yardımcı programının açıklaması](https://support.microsoft.com/help/310099).
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+  
+    
+Bağlantı başarılı olursa şu çıktıyı görmeniz gerekir:
+    
+  
+    ComputerName     : <storage-account-host-name>
+    RemoteAddress    : <storage-account-ip-address>
+    RemotePort       : 445
+    InterfaceAlias   : <your-network-interface>
+    SourceAddress    : <your-ip-address>
+    TcpTestSucceeded : True
+ 
 
-### <a name="solution-for-cause-2"></a>Neden 2 çözümü
+> [!Note]  
+> Yukarıdaki komut, depolama hesabının geçerli IP adresini döndürür. Bu IP adresinin aynı kalacağı garanti edilmez ve bu adres herhangi bir zamanda değişebilir. Bu IP adresini betiklere veya güvenlik duvarına sabit şekilde kodlamayın.
+
+### <a name="solution-for-cause-1"></a>Çözüm nedeni 1 için
 
 Bağlantı noktası 445'in giden açmak için BT Departmanınızla birlikte çalışma [Azure IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### <a name="cause-3-ntlmv1-is-enabled"></a>3. neden: NTLMv1 etkin
+### <a name="cause-2-ntlmv1-is-enabled"></a>2. neden: NTLMv1 etkin
 
 NTLMv1 iletişim istemcide etkinse, sistem hatası 53 veya sistem hatası 87 ortaya çıkabilir. Azure dosyaları yalnızca NTLMv2 kimlik doğrulamasını destekler. NTLMv1 etkin olması daha az güvenli bir istemci oluşturur. Bu nedenle, iletişim, Azure dosyaları için engellenir. 
 
@@ -72,7 +105,7 @@ Bu hatanın nedenini olup olmadığını belirlemek için aşağıdaki kayıt de
 
 Daha fazla bilgi için [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) TechNet'teki konu.
 
-### <a name="solution-for-cause-3"></a>Çözüm nedeni 3
+### <a name="solution-for-cause-2"></a>Neden 2 çözümü
 
 Geri döndürme **LmCompatibilityLevel** değeri 3 Aşağıdaki kayıt defteri alt anahtarında varsayılan değeri:
 
@@ -88,6 +121,27 @@ Dosya paylaşımının nerede bağlı bilgisayar için bir dosya izin verilen e�
 ### <a name="solution"></a>Çözüm
 
 Bazı işler kapatarak eşzamanlı açık tanıtıcı sayısını azaltın ve yeniden deneyin. Daha fazla bilgi için [Microsoft Azure depolama performansı ve ölçeklenebilirlik denetim listesi](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+
+<a id="accessdeniedportal"></a>
+## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>"Erişim reddedildi" hatası portalında bir Azure dosya paylaşımına göz atarken
+
+Portalda bir Azure dosya paylaşımına göz attığınızda aşağıdaki hata iletisini alabilirsiniz:
+
+Erişim reddedildi  
+Erişim izniniz yok  
+Bu içeriğe erişime izniniz yok gibi görünüyor. Erişim almak için lütfen sahibiyle iletişime geçin.  
+
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>1. neden: Kullanıcı hesabınızın, depolama hesabına erişimi yok
+
+### <a name="solution-for-cause-1"></a>Çözüm nedeni 1 için
+
+Azure dosya paylaşımının bulunduğu depolama hesabına Gözat'a tıklayın **erişim denetimi (IAM)** ve kullanıcı hesabınızın, depolama hesabına erişimi olduğunu doğrulayın. Daha fazla bilgi için bkz. [rol tabanlı erişim denetimi (RBAC) ile depolama hesabınızın güvenliğini sağlamak nasıl](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>2. neden: Sanal ağ veya güvenlik duvarı kuralları depolama hesabı etkinleştirilir
+
+### <a name="solution-for-cause-2"></a>Neden 2 çözümü
+
+Sanal ağ ve güvenlik duvarı kuralları depolama hesabı düzgün şekilde yapılandırıldığından doğrulayın. Sanal ağ veya güvenlik duvarı kuralları neden sorun varsa test etmek için geçici olarak depolama hesabı için ayarı değiştirmeniz **tüm ağlardan erişime izin ver**. Daha fazla bilgi için bkz. [yapılandırma Azure depolama güvenlik duvarlarını ve sanal ağlar](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Dosya ve Windows Azure dosyalarından kopyalamak yavaş
@@ -168,7 +222,7 @@ Sürücüleri, kullanıcı başına bağlanır. Uygulama, uygulamanızın veya h
 
   `net use * \\storage-account-name.file.core.windows.net\share`
 
-Bu yönergeleri uyguladıktan sonra sistem/ağ hizmeti hesabı için ağ kullanım çalıştırdığınızda aşağıdaki hata iletisini alabilirsiniz: "1312 sistem hatası oluştu. Belirtilen oturum yok. Bunu zaten kapatılmış olabilir." Bu meydana gelirse, net use yöntemine geçirilen kullanıcı adı etki alanı bilgilerini içerdiğinden emin olun (örneğin: "[depolama hesabı adı]. file.core.windows .net").
+Bu yönergeleri uyguladıktan sonra sistem/ağ hizmeti hesabı için ağ kullanım çalıştırdığınızda, aşağıdaki hata iletisini alabilirsiniz: "1312 sistem hatası oluştu. Belirtilen oturum yok. Bunu zaten kapatılmış olabilir." Bu meydana gelirse, net use yöntemine geçirilen kullanıcı adı etki alanı bilgilerini içerdiğinden emin olun (örneğin: "[depolama hesabı adı]. file.core.windows .net").
 
 <a id="doesnotsupportencryption"></a>
 ## <a name="error-you-are-copying-a-file-to-a-destination-that-does-not-support-encryption"></a>"Şifrelemeyi desteklemeyen bir hedefe bir dosya kopyalarsınız" hatası
@@ -208,5 +262,5 @@ Bu sorunu çözmek için ayarlama **DirectoryCacheEntrySizeMax** istemci makine 
 Örneğin, 0x100000 için ayarlayabilir ve performansını daha iyi hale gelirse bakın.
 
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
+## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun.
 Hala yardıma ihtiyacınız varsa [Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi alınamıyor.

@@ -1,5 +1,5 @@
 ---
-title: Azure Arama'da çok kiracılı mimari modelleme | Microsoft Docs
+title: Tek bir hizmet - Azure Search içerik yalıtımı için çok kiracılı mimari modelleme
 description: Azure Search kullanarak çok kiracılı SaaS uygulamaları için sık karşılaşılan tasarım desenleri öğrenin.
 manager: jlembicz
 author: LiamCavanagh
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 1da9756df4fa05b367665a5fe024528939f22578
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 58d7ca65a14f9f774b19796c9beae2a7c84102ad
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313046"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632934"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Çok kiracılı SaaS uygulamaları ve Azure Search için desenler tasarlama
 Çok müşterili uygulamalarda herhangi bir sayıda göremez veya diğer bir kiracı veri paylaşımı Kiracı aynı Hizmetleri ve özellikleri sağlayan biridir. Bu belge, Azure Search ile derlenen çok kiracılı uygulamalar için Kiracı yalıtımı stratejileri açıklanır.

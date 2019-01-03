@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 021ec3919e061010265ff3a2f30fde0ffb59e7b0
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 92221e5aaebbaebb2af17ea211e38a3665a2b04f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632620"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652482"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Apache Hive ve Apache Pig, HDInsight ile kullanmak Python kullanıcı tanımlı işlevler (UDF)
 
@@ -26,7 +26,7 @@ Python2.7 HDInsight 3.0 ve sonraki sürümlerde varsayılan olarak yüklenir. Ap
 
 HDInsight, Java dilinde yazılmış bir Python uygulaması Jython de içerir. Jython doğrudan Java sanal makine üzerinde çalışır ve akış kullanmaz. Pig ile Python kullanarak önerilen Python yorumlayıcısı Jython olur.
 
-> [!WARNING]
+> [!WARNING]  
 > Bu belgedeki adımlarda aşağıdaki varsayımlar: 
 >
 > * Yerel geliştirme ortamınızda Python betikleri oluşturun.
@@ -38,7 +38,7 @@ HDInsight, Java dilinde yazılmış bir Python uygulaması Jython de içerir. Jy
 > * Kullanım `scp` HDInsight cloud shell'den dosyaları karşıya yüklemek için.
 > * Kullanım `ssh` için HDInsight bağlanıp örnekleri çalıştırmak için cloud shell'den.
 
-## <a name="hivepython"></a>UDF hive
+## <a name="hivepython"></a>Apache Hive UDF
 
 Python, Hive aracılığıyla HiveQL UDF'yi olarak kullanılabilir `TRANSFORM` deyimi. Örneğin, aşağıdaki HiveQL çağırır `hiveudf.py` dosya kümesi için varsayılan Azure depolama hesabında depolanır.
 
@@ -66,7 +66,7 @@ FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Windows tabanlı HDInsight kümelerinde `USING` yan tümcesi python.exe tam yolunu belirtmeniz gerekir.
 
 Bu örnekte yaptığı aşağıda verilmiştir:
@@ -111,7 +111,7 @@ Betik çıktısı için giriş değeri bir bitiştirmedir `devicemake` ve `devic
 
 Bkz: [örnekleri çalıştırma](#running) Bu örnekte, HDInsight kümesinde çalıştırma için.
 
-## <a name="pigpython"></a>Pig UDF
+## <a name="pigpython"></a>Apache Pig UDF
 
 Bir Python betiği Pig UDF'yi olarak kullanılabilir `GENERATE` deyimi. Jython ya da C Python kullanarak betiği çalıştırabilirsiniz.
 
@@ -123,7 +123,7 @@ Python yorumlayıcısı belirtmek için kullanın `register` Python betiğini ba
 * **Jython kullanılacak**: `register '/path/to/pigudf.py' using jython as myfuncs;`
 * **C Python kullanılacak**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Jython kullanırken pig_jython dosyasının yolunu yerel bir yol ya da bir WASB olabilir: / / yolu. Ancak, C Python kullanırken, Pig işi göndermek için kullanmakta olduğunuz düğümünün yerel dosya sisteminde bir dosyasına başvurmalıdır.
 
 Bir kez kaydı, bu örnek için Pig Latin her ikisi için de aynıdır:
@@ -182,7 +182,7 @@ Pig için döndürülen veriler, tutarlı bir şema sınıfında tanımlandığ�
 
 ## <a name="running"></a>Karşıya yükleme ve örnekleri çalıştırmak
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > **SSH** adımlar, yalnızca Linux tabanlı HDInsight kümesi ile çalışır. **PowerShell** adımları için bir Linux veya Windows tabanlı HDInsight kümesi ile çalışır, ancak bu bir Windows istemci gerektirir.
 
 ### <a name="ssh"></a>SSH
@@ -299,11 +299,11 @@ Dosyaları karşıya yükledikten sonra Hive ve Pig işleri çalıştırmak içi
 
     Bu iş tamamlandığında, daha önce Jython kullanarak betiği çalıştırdığınızda aynı bir çıktı görmeniz gerekir.
 
-### <a name="powershell-upload-the-files"></a>PowerShell: dosyaları karşıya yükleme
+### <a name="powershell-upload-the-files"></a>PowerShell: Dosyaları karşıya yükleme
 
 HDInsight sunucuya dosya yüklemek için PowerShell kullanabilirsiniz. Python dosyaları karşıya yüklemek için aşağıdaki betiği kullanın:
 
-> [!IMPORTANT] 
+> [!IMPORTANT]   
 > Bu bölümdeki adımlarda, Azure PowerShell kullanırsınız. Azure PowerShell kullanma hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=5-41)]
@@ -313,14 +313,14 @@ HDInsight sunucuya dosya yüklemek için PowerShell kullanabilirsiniz. Python do
 
 Bu betik, HDInsight kümenizle ilgili bilgileri alır sonra hesabı ve varsayılan depolama hesabı için anahtarı ayıklar ve kapsayıcı köküne dosyaları yükler.
 
-> [!NOTE]
-> Karşıya dosya yükleme ile ilgili daha fazla bilgi için bkz: [HDInsight Hadoop işleri için verileri karşıya yükleme](../hdinsight-upload-data.md) belge.
+> [!NOTE]  
+> Karşıya dosya yükleme ile ilgili daha fazla bilgi için bkz: [HDInsight Apache Hadoop işleri için verileri karşıya yükleme](../hdinsight-upload-data.md) belge.
 
-#### <a name="powershell-use-the-hive-udf"></a>PowerShell: ' % s'Hive UDF kullanma
+#### <a name="powershell-use-the-hive-udf"></a>PowerShell: Hive UDF kullanma
 
 PowerShell uzaktan Hive sorguları çalıştırmak için de kullanılabilir. Aşağıdaki PowerShell komut dosyası kullanan bir Hive sorgusu çalıştırmak amacıyla kullanmak **hiveudf.py** betiği:
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Çalıştırmadan önce betiği HDInsight kümeniz için HTTPs/yönetim hesabı bilgileri ister.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=45-94)]
@@ -337,7 +337,7 @@ PowerShell uzaktan Hive sorguları çalıştırmak için de kullanılabilir. Aş
 
 PowerShell, Pig Latin işlerini çalıştırmak için de kullanılabilir. Kullanan bir Pig Latin işini çalıştırmak için **pigudf.py** betik, aşağıdaki PowerShell betiğini kullanın:
 
-> [!NOTE]
+> [!NOTE]  
 > Uzaktan PowerShell kullanarak bir iş gönderirken C Python yorumlayıcısı olarak kullanmak mümkün değildir.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=98-144)]
@@ -383,6 +383,6 @@ Varsayılan olarak sağlanmayan Python modüllerini yüklemek ihtiyacınız vars
 
 Kullanılacak diğer yolları için Pig, Hive ve MapReduce kullanma hakkında bilgi edinmek için aşağıdaki belgelere bakın:
 
-* [HDInsight ile Hive kullanma](hdinsight-use-hive.md)
-* [HDInsight ile Pig kullanma](hdinsight-use-pig.md)
+* [Apache Hive, HDInsight ile kullanma](hdinsight-use-hive.md)
+* [Apache Pig, HDInsight ile kullanma](hdinsight-use-pig.md)
 * [HDInsight ile MapReduce kullanma](hdinsight-use-mapreduce.md)

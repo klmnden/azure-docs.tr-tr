@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: e3159ac4074e7ff437e052e0e2c1ae7d31378abe
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8fd7161208f6303e03deaacca6a1e2fad24ec45e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346504"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580885"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Azure uyarıları yönetim olayları etkinlik günlüğü uyarılarına geçirme
 
@@ -110,9 +110,9 @@ Daha önce oluşturduğunuz yönetim olayları ile ilgili uyarılar, etkinlik g�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Daha fazla bilgi edinin [etkinlik günlüğü](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+* Daha fazla bilgi edinin [etkinlik günlüğü](../../azure-monitor/platform/activity-logs-overview.md)
 * Yapılandırma [Azure portal aracılığıyla etkinlik günlüğü uyarıları](../../azure-monitor/platform/activity-log-alerts.md)
 * Yapılandırma [etkinlik günlüğü uyarıları Resource Manager aracılığıyla](../../azure-monitor/platform/alerts-activity-log.md)
 * Gözden geçirme [etkinlik günlüğü uyarısı Web kancası şeması](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* Daha fazla bilgi edinin [hizmet bildirimleri](../../monitoring-and-diagnostics/monitoring-service-notifications.md)
+* Daha fazla bilgi edinin [hizmet bildirimleri](../../azure-monitor/platform/service-notifications.md)
 * Daha fazla bilgi edinin [Eylem grupları](../../azure-monitor/platform/action-groups.md)

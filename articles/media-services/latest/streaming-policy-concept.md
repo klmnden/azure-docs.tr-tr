@@ -9,21 +9,21 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/22/2018
 ms.author: juliako
-ms.openlocfilehash: c5f441fef95989e5c82586d96fc6c10e00a9627c
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d74ce913a2189dd1062b30f9def919cbbabe7b64
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085504"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742533"
 ---
 # <a name="streaming-policies"></a>Akış İlkeleri
 
-Azure Media Services v3 sürümünde akış ilkeleri akış protokolleri ve şifreleme seçeneklerini, StreamingLocators tanımlamanıza olanak tanır. Akış oluşturduğunuz ilke adını belirtebilir veya önceden tanımlanmış akış ilkelerden birini kullanın. Önceden tanımlanmış akış ilkeleri şu anda kullanılabilir: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' ve ' Predefined_ MultiDrmStreaming'.
+Azure Media Services v3 sürümünde akış ilkeleri akış protokolleri ve şifreleme seçeneklerini, StreamingLocators tanımlamanıza olanak tanır. Akış oluşturduğunuz ilke adını belirtebilir veya önceden tanımlanmış akış ilkelerden birini kullanın. Önceden tanımlanmış akış şu anda kullanılabilir ilkeleri şunlardır: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' ve 'Predefined_MultiDrmStreaming'.
 
 > [!IMPORTANT]
-> Özel [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies)’yi kullanırken Media Service hesabınız için bu tür ilkelerin sınırlı bir kümesini tasarlamanız ve aynı şifreleme seçenekleri ve protokoller gerekli olduğunda StreamingLocators için bunları kullanmanız gerekir. Media Service hesabınızda StreamingPolicy girişlerinin sayısı için bir kota bulunur. Her StreamingLocator için yeni bir StreamingPolicy oluşturmamanız gerekir.
+> Özel bir kullanırken [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), medya hizmeti hesabınız için sınırlı sayıda gibi ilkelerin tasarlamanıza ve protokolleri ve aynı şifreleme seçenekleri gerektiğinde bunları sizin için akış bulucuları aşağıdaki yeniden kullanımı. Medya hizmeti hesabınızı akış İlkesi girdi sayısı için bir kota vardır. Yeni bir akış ilke her akış Bulucu için oluşturduğunuz değil.
 
 ## <a name="streamingpolicy-definition"></a>StreamingPolicy tanımı
 

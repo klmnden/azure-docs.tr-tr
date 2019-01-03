@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 17193bf3285a2052a913293ec3adc6f9b8884f72
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0c171ff768395540c123c4ef2a19168d926b0661
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435959"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633836"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Azure Machine Learning hizmeti ile modelleri dağıtma
 
@@ -164,7 +164,7 @@ Azure Container Instances'a dağıtmak için aşağıdaki adımları kullanın:
     > [!TIP]
     > Dağıtım sırasında bir hata varsa, kullanmak `service.get_logs()` AKS hizmeti günlükleri görüntülemek için. Günlüğe kaydedilen bilgileri hatanın nedenini gösterir.
 
-Daha fazla bilgi için başvuru belgeleri için bkz. [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) ve [Webservice](https://docs.microsoft.comS/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py) sınıfları.
+Daha fazla bilgi için başvuru belgeleri için bkz. [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) ve [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) sınıfları.
 
 ### <a id="aks"></a> Azure Kubernetes hizmetine dağıtın
 
@@ -211,6 +211,7 @@ Azure Kubernetes Service'e dağıtmak için aşağıdaki adımları kullanın:
     > AKS kümesini Azure aboneliğinizde zaten ve sürüm 1.11. *, görüntünüzü dağıtmak için kullanın. Aşağıdaki kod, varolan bir kümenin çalışma alanınıza eklemek gösterilmektedir:
     >
     > ```python
+    > from azureml.core.compute import AksCompute, ComputeTarget
     > # Set the resource group that contains the AKS cluster and the cluster name
     > resource_group = 'myresourcegroup'
     > cluster_name = 'mycluster'
@@ -218,7 +219,7 @@ Azure Kubernetes Service'e dağıtmak için aşağıdaki adımları kullanın:
     > # Attatch the cluster to your workgroup
     > attach_config = AksCompute.attach_configuration(resource_group = resource_group,
     >                                          cluster_name = cluster_name)
-    > compute = ComputeTarget.attach(ws, 'mycompute', attach_config)
+    > aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
     > 
     > # Wait for the operation to complete
     > aks_target.wait_for_completion(True)
@@ -275,7 +276,7 @@ IOT hub'ı oluşturmalı ve bir cihazı kaydetmek veya sahip olduğunuz bir yeni
 ssh <yourusername>@<yourdeviceip>
 sudo wget https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/createNregister
 sudo chmod +x createNregister
-sudo ./createNregister <The Azure subscriptionID you wnat to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
+sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup to use or create for the IoT hub> <Azure location to use e.g. eastus2> <the Hub ID you want to use or create> <the device ID you want to create>
 ```
 
 "Cs" sonra elde edilen bağlantı dizesini kaydedin: "{Bu dizeyi kopyalayın}".

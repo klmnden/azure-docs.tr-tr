@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: c95c40404bb52f739c407eca3c0d48be5e0a86e6
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ff6a3f32d9163be01483e8b8c743caa4e5bb573c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262444"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581258"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure önbelleği için Redis yapılandırma
 Bu konuda, Azure önbelleği için Redis örneği için yapılandırmaları açıklanmaktadır. Bu konuda, Azure Cache Redis örneği için varsayılan Redis sunucu yapılandırması da kapsar.
@@ -359,7 +359,7 @@ Tıklayın **uyarı kuralları** üzerindeki Azure önbelleği için Redis ölç
 Varsayılan olarak, Azure İzleyici'de önbellek ölçümleridir [30 gün saklanan](../azure-monitor/platform/data-collection.md#metrics) ve ardından silinir. Kalıcı önbellek ölçümlerinizi 30 günden daha uzun bir süre için tıklayın **tanılama** için [depolama hesabı yapılandırma](cache-how-to-monitor.md#export-cache-metrics) önbellek tanılama verilerini depolamak için kullanılır.
 
 >[!NOTE]
->Depolama için önbellek ölçümlerinizi arşivleme yanı sıra, ayrıca [bunları bir olay hub'ına akış veya bunları Log Analytics'e gönderme](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+>Depolama için önbellek ölçümlerinizi arşivleme yanı sıra, ayrıca [bunları bir olay hub'ına akış veya bunları Log Analytics'e gönderme](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 >
 >
 

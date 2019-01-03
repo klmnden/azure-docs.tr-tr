@@ -1,5 +1,5 @@
 ---
-title: Yetişkinlere yönelik ve müstehcen içeriğin - görüntü işleme açıklayan
+title: Yetişkinlere yönelik ve müstehcen içeriğin - görüntü işleme açıklayın
 titleSuffix: Azure Cognitive Services
 description: Görüntü işleme API'sini kullanarak resimlerdeki yetişkinlere yönelik ve müstehcen içerikleri algılama için ilgili kavramları.
 services: cognitive-services
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 71866149e3d2dca4b39585ce8da73aae658a4d59
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: e0cca054acb7d3d649105ecd45748a60a2aa9bbb
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344940"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582176"
 ---
 # <a name="detecting-adult-and-racy-content"></a>Yetişkinlere yönelik ve müstehcen içerikleri algılama
 
-Çeşitli visual kategorileri yetişkinlere yönelik malzemeleri olanak tanır ve görüntülerini cinsel içerik içeren görüntülenmesini sınırlar yetişkinlere yönelik ve müstehcen, grubudur. Yetişkinlere yönelik ve müstehcen içerik algılama için filtre kullanıcı tercihi uyum sağlamak için bir kaydırıcı ölçeğini üzerinde ayarlanabilir.
+Çeşitli görsel kategoriler arasında yetişkinlere yönelik ve müstehcen içerik grubu, yetişkinlere yönelik malzemeleri algılamaya olanak tanır ve cinsel içerikli görüntülerin gösterilmesini kısıtlar. Yetişkinlere yönelik veya müstehcen içeriklerin algılanmasına yönelik filtre, kullanıcının tercihleri doğrultusunda bir kaydırıcı ölçeği üzerinde ayarlanabilir.
 
 ## <a name="defining-adult-and-racy-content"></a>Yetişkinlere yönelik ve müstehcen içeriğin tanımlama
 

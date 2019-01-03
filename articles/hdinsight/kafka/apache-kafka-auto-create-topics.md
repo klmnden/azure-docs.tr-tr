@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: e78f0d2012cf4f6152e69fff1bab04f827c0eef7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b9f17ad0ccfd5e58d5b93bde91e6f9c537a15fa6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310897"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606903"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Konular otomatik olarak oluşturmak için HDInsight üzerinde Apache Kafka yapılandırma
 
@@ -55,7 +55,7 @@ Ambari Web kullanıcı Arabirimi aracılığıyla var olan bir kümede otomatik 
 
     ![Yeniden başlatma seçimi görüntüsü](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Ambari değerleri Ambari REST API aracılığıyla da ayarlayabilirsiniz. Geçerli yapılandırmayı almak, Değiştir, vb. için birden çok REST çağrısı yapmanız gibi genel olarak daha zor, budur. Daha fazla bilgi için [yönetme HDInsight kümeleri Apache Ambari REST API'sini kullanarak](../hdinsight-hadoop-manage-ambari-rest-api.md) belge.
 
 ## <a name="resource-manager-templates"></a>Resource Manager şablonları

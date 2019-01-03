@@ -4,24 +4,23 @@ description: Bu makalede, bir sürekli tümleştirme ve dağıtım işlemi ayarl
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
-ms.openlocfilehash: 567e2f850e2c51a6103dc24b91d139042d58acb3
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2f3cc3b386dec0010b179455372fb49bcec55ffc
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986841"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558405"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Sürekli tümleştirme ve Stream Analytics araçları ile geliştirme
 Bu makalede, Visual Studio için Azure Stream Analytics araçları bir sürekli tümleştirme ve dağıtım sürecini kullanmayı kullanmayı açıklar.
 
 2.3.0000.0 sürümünü kullanın veya üstü, [Visual Studio için Stream Analytics Araçları](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) MSBuild için destek alma.
 
-Bir NuGet paketi kullanıma sunuldu: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Bu, Stream Analytics Visual Studio projelerinin sürekli tümleştirme ve dağıtım işlemini destekleyen MSBuild, yerel çalıştırma ve dağıtım araçlarını sağlar. 
+Bir NuGet paketi kullanılabilir: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Bu, Stream Analytics Visual Studio projelerinin sürekli tümleştirme ve dağıtım işlemini destekleyen MSBuild, yerel çalıştırma ve dağıtım araçlarını sağlar. 
 > [!NOTE] 
 Visual Studio için NuGet paketini yalnızca 2.3.0000.0 veya Stream Analytics Araçları'nın sürümünden sonraki bir sürümü kullanılabilir. Visual Studio Araçları'nın önceki sürümlerinde oluşturulmuş projeleri varsa 2.3.0000.0 veya sürümünden sonraki bir sürümü yalnızca açın ve kaydedin. Ardından, yeni özellikler etkinleştirilir. 
 
@@ -80,11 +79,11 @@ localrun -Project [ProjectFullPath]
 
 *Arm* komutu, proje şablonu ve giriş olarak derleme üzerinden oluşturulmuş iş şablon parametre dosyaları alır. Ardından, bunları Stream Analytics PowerShell API'si ile kullanılabilecek bir iş tanımı JSON dosyasını birleştirir.
 
-```
+```powershell
 arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-OutputFile <asaArmFilePath>]
 ```
 Örnek:
-```
+```powershell
 ./tools/SA.exe arm -JobTemplate "ProjectA.JobTemplate.json" -JobParameterFile "ProjectA.JobTemplate.parameters.json" -OutputFile "JobDefinition.json" 
 ```
 

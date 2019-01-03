@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/24/2018
-ms.openlocfilehash: 5ad49c8e28f0e91b18af6dc485489d11464fbc0d
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 15c0a3d90b4a6493c49b67058f1d989a4ab72346
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413396"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726859"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Apache Hadoop kümesi ile güvenli aktarım depolama hesapları Azure HDInsight oluşturma
 
@@ -78,7 +78,7 @@ HDInsight’ın verileri nasıl depoladığı veya HDInsight’a verilerin nası
 
 HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* Linux tabanlı HDInsight kümenizi yönetme hakkında bilgi edinmek için bkz. [Ambari kullanarak HDInsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md).
+* Linux tabanlı HDInsight kümenizi yönetme hakkında daha fazla bilgi için bkz: [Apache Ambari kullanarak HDInsight yönetme kümelerini](hdinsight-hadoop-manage-ambari.md).
 * HDInsight kümesi oluştururken tercih edebileceğiniz seçenekler hakkında daha fazla bilgi için bkz. [Özel seçenekleri kullanarak Linux’ta HDInsight oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
 * Linux ve Apache Hadoop ile ilgili bilgi sahibi olduğunuz, ancak Hadoop'a HDInsight ilişkin teknik özellikleri öğrenmek istiyorsanız, bkz. [Linux'ta HDInsight ile çalışma](hdinsight-hadoop-linux-information.md). Bu makale aşağıdaki gibi bilgiler sağlar:
 

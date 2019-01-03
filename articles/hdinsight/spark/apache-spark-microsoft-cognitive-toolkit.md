@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: f3e590ec5dded03ce9c6ab2f7a21d51048020622
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 76fc2c9a0864417e380471f8de59d148e0fbf7b4
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012598"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651836"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Microsoft Bilişsel Araç Seti derin öğrenme modeli Azure HDInsight Spark kümesi ile kullanma
 
@@ -39,15 +39,15 @@ Bu çözüm, bu makalede ve bu öğreticinin bir parçası olarak yüklemek bir 
 
 Jupyter not defterine aşağıdaki kalan adımları ele alınmaktadır.
 
-- Bir Spark Resiliant Dağıtılmış veri kümesi veya RDD yük örnek görüntüleri
-   - Modülleri yükleme ve hazır ayarlarını tanımlama
-   - Veri kümesi üzerinde Spark kümesi için bir yerel olarak indir
-   - Veri kümesi bir RDD Dönüştür
-- Eğitilen bir Bilişsel Araç Seti modeli kullanarak görüntüleri Puanlama
-   - Spark kümesine eğitim Bilişsel Araç Seti modeli indirin
-   - Alt düğümler tarafından kullanılacak işlevleri tanımlayın
-   - Görüntüleri çalışan düğümlerinde Puanlama
-   - Model doğruluğu değerlendir
+- Örnek görüntüleri bir Spark Resiliant Dağıtılmış veri kümesi veya RDD içine yükleyin.
+   - Modülleri yükleme ve hazır tanımlayın.
+   - Veri kümesi üzerinde Spark kümesi için bir yerel olarak indirin.
+   - Veri kümesi bir RDD dönüştürün.
+- Eğitilen bir Bilişsel Araç Seti modeli kullanarak görüntüleri puan.
+   - Spark kümesine eğitim Bilişsel Araç Seti modeli indirin.
+   - Alt düğümler tarafından kullanılacak işlevleri tanımlayın.
+   - Görüntüleri çalışan düğümlerinde puan.
+   - Model doğruluğu değerlendirin.
 
 
 ## <a name="install-microsoft-cognitive-toolkit"></a>Microsoft Bilişsel araç setini yükleme
@@ -87,18 +87,18 @@ Microsoft Bilişsel araç seti ile Azure HDInsight Spark kümesi kullanmak için
 5. Not defterini karşıya yüklendikten sonra not defteri adına tıklayın ve ardından bir veri kümesi yükleyin ve hızlı başlangıç öğreticisinde konusunda not kendisini yönergeleri izleyin.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
+* [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 * [HDInsight Apache Spark'ı kullanarak application Insight telemetri verilerinin analizi](apache-spark-analyze-application-insight-logs.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma
 * [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
+* [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
 * [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisini kullanma](apache-spark-intellij-tool-plugin.md)

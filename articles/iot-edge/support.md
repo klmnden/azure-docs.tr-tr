@@ -4,17 +4,17 @@ description: Azure IOT Edge arka plan programı ve çalışma zamanı ve üretim
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/07/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c75f50e40f83a4dc6765ae422fbb2458f40d770
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6443260de0a8bd8531edb303fa581d281034fef3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100199"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555617"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IOT Edge desteklenen sistemleri
 
@@ -41,12 +41,14 @@ Genel kullanıma sunuldu
 | Ubuntu Server 16.04 | Evet | Hayır |
 | Ubuntu Server 18.04 | Evet | Hayır |
 
-Genel önizlemeye sunuldu
+Genel önizleme
 | İşletim Sistemi | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
-| Windows 10 IoT Core (Nisan 2018 güncelleştirmesi) | Evet | Hayır |
-| Windows 10 IOT Enterprise (Nisan 2018 güncelleştirmesi) | Evet | Hayır |
-| Windows 10 sunucu 1803 | Evet | Hayır |
+| Windows 10 IoT Core derleme 17763 | Evet | Hayır |
+| Windows 10, Windows kapsayıcıları için 17763 oluşturun<br><br>Windows 10 derleme 14393 ya da Linux kapsayıcıları için daha yeni\* | Evet | Hayır |
+| Windows Server 2019 Windows kapsayıcıları için<br><br>Windows Server 2016 veya daha yeni Linux kapsayıcıları için\* | Evet | Hayır |
+
+\* Microsoft, yalnızca geliştirme ve test için Windows cihazlarda Linux kapsayıcıları için yükleme paketleri sağlar. Bu, üretim kullanımı için desteklenen bir yapılandırma değildir. 
 
 ### <a name="tier-2"></a>Katman 2
 Katman 2 sistemleri, Azure IOT Edge ile uyumlu olarak düşünülebilir ve görece bir kolayca kullanılabilir. Bunun anlamı:

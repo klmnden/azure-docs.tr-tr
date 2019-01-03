@@ -1,5 +1,5 @@
 ---
-title: Ölçümler, uyarılar ve Azure Batch için tanılama günlüklerini | Microsoft Docs
+title: Ölçümler, uyarılar ve tanılama günlükleri - Azure Batch | Microsoft Docs
 description: Kayıt ve tanılama günlüğü olaylarını havuzlar ve görevler gibi Azure Batch hesabı kaynakları için analiz edin.
 services: batch
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: 8efa8088bca3eb6221c49ec5f14334342149795d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.custom: seodec18
+ms.openlocfilehash: cd3e671a00f7f8b0a13ed95bfd43795a24244a66
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438447"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537112"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Toplu ölçümleri, uyarılar ve değerlendirme tanılama ve izleme günlükleri
 
  
-Bu makalede, bir Batch hesabı özelliklerini kullanarak izlemek açıklanmaktadır [Azure İzleyici](../azure-monitor/overview.md). Azure İzleyici toplar [ölçümleri](../azure-monitor/platform/data-collection.md#metrics) ve [tanılama günlükleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) Batch hesabınızdaki kaynaklara için. Toplama ve Batch hesabınızı izleme ve sorunlarını tanılamak için yol çeşitli bu verileri kullanır. Ayrıca [ölçüm uyarıları](../azure-monitor/platform/alerts-overview.md) bir ölçüm belirli bir değere ulaştığında bildirimleri almak için. 
+Bu makalede, bir Batch hesabı özelliklerini kullanarak izlemek açıklanmaktadır [Azure İzleyici](../azure-monitor/overview.md). Azure İzleyici toplar [ölçümleri](../azure-monitor/platform/data-collection.md#metrics) ve [tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-overview.md) Batch hesabınızdaki kaynaklara için. Toplama ve Batch hesabınızı izleme ve sorunlarını tanılamak için yol çeşitli bu verileri kullanır. Ayrıca [ölçüm uyarıları](../azure-monitor/platform/alerts-overview.md) bir ölçüm belirli bir değere ulaştığında bildirimleri almak için. 
 
 ## <a name="batch-metrics"></a>Toplu ölçümleri
 
@@ -109,7 +109,7 @@ Tanılama günlükleri için isteğe bağlı diğer hedefleri:
 
     ![Batch tanılama](media/batch-diagnostics/diagnostics-portal.png)
 
-Günlük toplamayı etkinleştirmek için diğer seçenekler şunlardır: portalda Azure İzleyicisi'ni kullanın tanılama ayarları yapılandırmak, kullanmak için bir [Resource Manager şablonu](../azure-monitor/platform/diagnostic-logs-stream-template.md), veya Azure PowerShell veya Azure CLI'yı kullanın. bkz: [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
+Günlük toplamayı etkinleştirmek için diğer seçenekler şunlardır: portalda Azure İzleyicisi'ni kullanın tanılama ayarları yapılandırmak, kullanmak için bir [Resource Manager şablonu](../azure-monitor/platform/diagnostic-logs-stream-template.md), veya Azure PowerShell veya Azure CLI'yı kullanın. bkz: [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Depolama erişim tanılama günlükleri

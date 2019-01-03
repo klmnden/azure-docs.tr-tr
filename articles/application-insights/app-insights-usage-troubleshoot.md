@@ -13,26 +13,26 @@ ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 7da0717273892893bec03c164b9b297f28e5218d
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a0284675417ae31c2e16651a312f4c11c4e238ff
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995536"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969361"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Kullanıcı davranış analizi araçları Application ınsights sorunlarını giderme
-Hakkında sorularınız [kullanıcı davranış analizi araçları Application ınsights'ta](app-insights-usage-overview.md): [kullanıcılar, oturumlar, etkinlikler](app-insights-usage-segmentation.md), [Huniler](usage-funnels.md), [kullanıcı akışları](app-insights-usage-flows.md), [Bekletme](app-insights-usage-retention.md), veya Kohortlar? Bazı soruların yanıtları aşağıdadır.
+Hakkında sorularınız [kullanıcı davranış analizi araçları Application ınsights'ta](app-insights-usage-overview.md): [Kullanıcılar, oturumlar, etkinlikler](app-insights-usage-segmentation.md), [Huniler](usage-funnels.md), [kullanıcı akışları](app-insights-usage-flows.md), [bekletme](app-insights-usage-retention.md), veya Kohortlar? Bazı soruların yanıtları aşağıdadır.
 
 ## <a name="counting-users"></a>Kullanıcı sayımı
 **Kullanıcı davranış analizi araçları, bir kullanıcı oturumunu Uygulamam var, ancak birçok kullanıcı oturumları uygulamamı sahip biliyorum gösterir. Bu yanlış sayım nasıl düzeltebilirim?**
 
-Application ınsights tüm telemetri olaylarını sahip bir [anonim kullanıcı kimliği](application-insights-data-model-context.md) ve [oturum kimliği](application-insights-data-model-context.md) iki standart özellikleri olarak. Varsayılan olarak, tüm kullanım analizi araçları, kullanıcılar ve bu kimliklerine göre çıkarak sayısı. Bu standart özellikler her kullanıcı ve uygulama oturumu için benzersiz kimlikler ile doldurulmasını olmayan kullanıcılar ve kullanım analizi araçları oturumlarda sayımının yanlış görürsünüz.
+Application ınsights tüm telemetri olaylarını sahip bir [anonim kullanıcı kimliği](../azure-monitor/app/data-model-context.md) ve [oturum kimliği](../azure-monitor/app/data-model-context.md) iki standart özellikleri olarak. Varsayılan olarak, tüm kullanım analizi araçları, kullanıcılar ve bu kimliklerine göre çıkarak sayısı. Bu standart özellikler her kullanıcı ve uygulama oturumu için benzersiz kimlikler ile doldurulmasını olmayan kullanıcılar ve kullanım analizi araçları oturumlarda sayımının yanlış görürsünüz.
 
-Bir web uygulaması izleme yapıyorsanız, kolay çözümü eklemek için ise [Application Insights JavaScript SDK'sı](app-insights-javascript.md) , uygulama ve emin için kod parçacığı izlemek istediğiniz her sayfada yüklenir. JavaScript SDK'yı otomatik olarak anonim kullanıcı ve oturum kimliklerini oluşturur ve ardından uygulamanızdan gönderilen gibi telemetri olayları bu kimlikleri ile doldurur.
+Bir web uygulaması izleme yapıyorsanız, kolay çözümü eklemek için ise [Application Insights JavaScript SDK'sı](../azure-monitor/app/javascript.md) , uygulama ve emin için kod parçacığı izlemek istediğiniz her sayfada yüklenir. JavaScript SDK'yı otomatik olarak anonim kullanıcı ve oturum kimliklerini oluşturur ve ardından uygulamanızdan gönderilen gibi telemetri olayları bu kimlikleri ile doldurur.
 
 Bir web hizmeti (hiçbir kullanıcı arabirimi) izliyorsanız [anonim kullanıcı kimliği ve oturum kimliği özellikleri dolduran bir telemetri Başlatıcısı oluşturma](app-insights-usage-send-user-context.md) göre benzersiz kullanıcı ve oturum hizmetinizin kavramları.
 
-Uygulamanızı gönderiyorsa [kimliği doğrulanmış kullanıcı kimlikleri](app-insights-api-custom-events-metrics.md#authenticated-users), bağlı olarak kimliği doğrulanmış kullanıcı kimlikleri kullanıcılar aracında güvenebilirsiniz. "Show" açılır menüden "Kimliği doğrulanan kullanıcılar" seçin
+Uygulamanızı gönderiyorsa [kimliği doğrulanmış kullanıcı kimlikleri](../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), bağlı olarak kimliği doğrulanmış kullanıcı kimlikleri kullanıcılar aracında güvenebilirsiniz. "Show" açılır menüden "Kimliği doğrulanan kullanıcılar" seçin
 
 Kullanıcı davranış analizi araçları sayım kullanıcılar veya anonim kullanıcı kimliği, kimliği doğrulanmış kullanıcı kimliği veya oturum kimliği dışındaki özellikleri göre oturumları şu anda desteklenmiyor
 

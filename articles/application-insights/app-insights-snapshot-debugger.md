@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: a92b54a80de645dda8ea0cc0259bd07f72330204
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: a9e7cfdf9b63e511c3b59e840999024e849122aa
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136724"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808902"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET uygulamalarında özel durumlarda anlık görüntü hata ayıklama
 
-Bir özel durum oluştuğunda, hata ayıklama anlık görüntüsünü canlı web uygulamanızı otomatik olarak toplayabilirsiniz. Anlık görüntü, özel durumun oluştuğu şu anda kaynak kodu ve değişkenleri durumunu gösterir. Snapshot Debugger (Önizleme) içinde [Azure Application Insights](app-insights-overview.md) web uygulamanızdan özel telemetri izler. Böylece, üretim sorunlarını tanılamak ihtiyacınız olan bilgileri sahip anlık görüntüleri, üst özel durum atma özel durumları toplar. Dahil [Snapshot collector NuGet paketini](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanızda ve isteğe bağlı olarak koleksiyon parametrelerinde yapılandırma [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md). Anlık görüntüler görüntülenerek [özel durumları](app-insights-asp-net-exceptions.md) Application Insights portalında.
+Bir özel durum oluştuğunda, hata ayıklama anlık görüntüsünü canlı web uygulamanızı otomatik olarak toplayabilirsiniz. Anlık görüntü, özel durumun oluştuğu şu anda kaynak kodu ve değişkenleri durumunu gösterir. Snapshot Debugger (Önizleme) içinde [Azure Application Insights](app-insights-overview.md) web uygulamanızdan özel telemetri izler. Böylece, üretim sorunlarını tanılamak ihtiyacınız olan bilgileri sahip anlık görüntüleri, üst özel durum atma özel durumları toplar. Dahil [Snapshot collector NuGet paketini](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanızda ve isteğe bağlı olarak koleksiyon parametrelerinde yapılandırma [Applicationınsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md). Anlık görüntüler görüntülenerek [özel durumları](../azure-monitor/app/asp-net-exceptions.md) Application Insights portalında.
 
 Hata ayıklama anlık görüntülerini portalda görüntüleyerek çağrı yığınını görebilir ve her bir çağrı yığını çerçevesinde değişkenleri inceleyebilirsiniz. Kaynak koduyla birlikte daha güçlü bir hata ayıklama deneyimi elde etmek için Visual Studio 2017 Enterprise ile anlık görüntüleri açmak. Visual Studio'da ayrıca [etkileşimli anlık görüntülerini almak için anlık görüntü noktaları ayarlamak](https://aka.ms/snappoint) olmadan için bir özel durum bekleniyor.
 
@@ -43,11 +43,11 @@ Anlık görüntü koleksiyonu için kullanılabilir:
 
 ### <a name="configure-snapshot-collection-for-aspnet-applications"></a>ASP.NET uygulamaları için anlık görüntü koleksiyonunu yapılandırma
 
-1. [Web uygulamanızda Application Insights'ı etkinleştirmek](app-insights-asp-net.md), henüz yapmadınız.
+1. [Web uygulamanızda Application Insights'ı etkinleştirmek](../azure-monitor/app/asp-net.md), henüz yapmadınız.
 
 2. Dahil [Microsoft.applicationınsights.snapshotcollectya da](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
 
-3. Pakete eklenen varsayılan seçenekleri gözden [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md):
+3. Pakete eklenen varsayılan seçenekleri gözden [Applicationınsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md):
 
     ```xml
     <TelemetryProcessors>
@@ -81,12 +81,12 @@ Anlık görüntü koleksiyonu için kullanılabilir:
     </TelemetryProcessors>
     ```
 
-4. Application ınsights'ı raporlanan özel durumların anlık görüntülerini toplanır. Bazı durumlarda (örneğin, eski sürümleri .NET platformu) için gereksinim duyabileceğiniz [özel durum koleksiyonunu yapılandırma](app-insights-asp-net-exceptions.md#exceptions) portalında anlık görüntülerle özel durumları görmek için.
+4. Application ınsights'ı raporlanan özel durumların anlık görüntülerini toplanır. Bazı durumlarda (örneğin, eski sürümleri .NET platformu) için gereksinim duyabileceğiniz [özel durum koleksiyonunu yapılandırma](../azure-monitor/app/asp-net-exceptions.md#exceptions) portalında anlık görüntülerle özel durumları görmek için.
 
 
 ### <a name="configure-snapshot-collection-for-aspnet-core-20-applications"></a>ASP.NET Core 2.0 uygulamaları için anlık görüntü koleksiyonunu yapılandırma
 
-1. [ASP.NET Core web uygulamanızı Application Insights'ı etkinleştirme](app-insights-asp-net-core.md), henüz yapmadınız.
+1. [ASP.NET Core web uygulamanızı Application Insights'ı etkinleştirme](../azure-monitor/app/asp-net-core.md), henüz yapmadınız.
 
     > [!NOTE]
     > Uygulamanızı sürüm 2.1.1 başvuran emin veya Microsoft.ApplicationInsights.AspNetCore paketin daha yeni olması.
@@ -212,7 +212,7 @@ Abonelik sahipleri Ata `Application Insights Snapshot Debugger` rol kullanıcıl
 
 ## <a name="debug-snapshots-in-the-application-insights-portal"></a>Application Insights portalında anlık görüntü hata ayıklama
 
-Belirli bir özel durum veya bir sorun kimliği için bir anlık görüntü kullanılabiliyorsa bir **Aç hata ayıklama anlık görüntüsü** düğmesinin üzerindeki [özel durum](app-insights-asp-net-exceptions.md) Application Insights portalında.
+Belirli bir özel durum veya bir sorun kimliği için bir anlık görüntü kullanılabiliyorsa bir **Aç hata ayıklama anlık görüntüsü** düğmesinin üzerindeki [özel durum](../azure-monitor/app/asp-net-exceptions.md) Application Insights portalında.
 
 ![Özel durum hata ayıklama anlık görüntüsü düğmesinde Aç](./media/app-insights-snapshot-debugger/snapshot-on-exception.png)
 
@@ -235,8 +235,8 @@ Anlık görüntüler, hassas bilgiler içerebilir ve görüntülenebilir olmayan
 
 ## <a name="how-snapshots-work"></a>Anlık görüntüleri nasıl çalışır?
 
-Anlık görüntü toplayıcının olarak uygulanan bir [Application Insights Telemetri İşlemci](app-insights-configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Uygulamanız çalışırken, anlık görüntü toplayıcısı Telemetri işlemci, uygulamanızın telemetri ardışık düzenine eklenen.
-Her zaman uygulama çağrılarınızı [TrackException](app-insights-asp-net-exceptions.md#exceptions), oluşturulan özel durum ve oluşturma yöntemini türünden bir sorun kimliği anlık görüntü toplayıcının hesaplar.
+Anlık görüntü toplayıcının olarak uygulanan bir [Application Insights Telemetri İşlemci](../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-processors-aspnet). Uygulamanız çalışırken, anlık görüntü toplayıcısı Telemetri işlemci, uygulamanızın telemetri ardışık düzenine eklenen.
+Her zaman uygulama çağrılarınızı [TrackException](../azure-monitor/app/asp-net-exceptions.md#exceptions), oluşturulan özel durum ve oluşturma yöntemini türünden bir sorun kimliği anlık görüntü toplayıcının hesaplar.
 Uygulamanızı çağırır TrackException, her zaman uygun sorun kimliği için bir sayaç artırılır Sayaç ulaştığında `ThresholdForSnapshotting` değeri, sorun kimliği, bir koleksiyon planı'na eklenir.
 
 Anlık görüntü toplayıcının bunlar abone tarafından oluşturulan gibi ayrıca özel durumları izleyen [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception) olay. Bu olayı tetikler, özel durum sorun kimliği hesaplanan ve koleksiyon planı içinde sorun kimlikleri karşı karşılaştırılır.
@@ -472,10 +472,10 @@ Bu anlık görüntü Kimliğe sahip bir özel durum yine de görmüyorsanız, ö
 
 ### <a name="edit-network-proxy-or-firewall-rules"></a>Ağ proxy veya güvenlik duvarı kurallarını Düzenle
 
-Uygulamanız İnternet'e bir ara sunucu veya bir güvenlik duvarı üzerinden bağlanıyorsa, Snapshot Debugger hizmetiyle iletişim kurmak için uygulamanıza izin vermek için kuralları düzenlemek gerekebilir. İşte [IP adresleri ve anlık görüntü hata ayıklayıcısı tarafından kullanılan bağlantı noktaları listesini](app-insights-ip-addresses.md#snapshot-debugger).
+Uygulamanız İnternet'e bir ara sunucu veya bir güvenlik duvarı üzerinden bağlanıyorsa, Snapshot Debugger hizmetiyle iletişim kurmak için uygulamanıza izin vermek için kuralları düzenlemek gerekebilir. İşte [IP adresleri ve anlık görüntü hata ayıklayıcısı tarafından kullanılan bağlantı noktaları listesini](../azure-monitor/app/ip-addresses.md#snapshot-debugger).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Anlık görüntü noktaları kodunuzda ayarlayın](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) için bir özel durum beklemeden anlık görüntüler alınacak.
-* [Web uygulamalarınızda özel durumları tanılama](app-insights-asp-net-exceptions.md) daha fazla özel durum Application Insights tarafından görülebilmesi açıklanmaktadır.
+* [Web uygulamalarınızda özel durumları tanılama](../azure-monitor/app/asp-net-exceptions.md) daha fazla özel durum Application Insights tarafından görülebilmesi açıklanmaktadır.
 * [Akıllı algılama](app-insights-proactive-diagnostics.md) performans anormalliklerini otomatik olarak bulur.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 3f88965e0d48a9ed3e9a91b4df42a79b83d2a79b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a198fa7fe5e1ed81e30987990359f9ecedbe225b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313335"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631558"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Azure Search'te birden çok dilde belgeler için dizin oluşturma
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Aşağıda Azure arama için bir dizin şemasını tanımlamak kullanıcıların
 ![][2]
 *Her bir alan için desteklenen Çözümleyicileri birini seçin*
 
-Varsayılan olarak, tüm aranabilir alanları kullanın [standart olarak Lucene çözümleyici](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) dil belirsiz olduğu. Desteklenen Çözümleyicileri tam listesini görüntülemek için bkz: [Azure Arama'da dil desteği](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+Varsayılan olarak, tüm aranabilir alanları kullanın [standart olarak Lucene çözümleyici](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) dil belirsiz olduğu. Desteklenen Çözümleyicileri tam listesini görüntülemek için bkz: [Azure Arama'da dil desteği](https://msdn.microsoft.com/library/azure/dn879793.aspx).
 
 Bir alan için bir dil Çözümleyicisi seçtikten sonra bu alan için dizin oluşturma ve arama her istekle kullanılır. Bir sorgu farklı çözümleyicilerini kullanarak birden çok alan karşı verildiğinde sorgu bağımsız olarak her alan için doğru çözümleyiciler tarafından işlenir.
 
@@ -81,7 +81,7 @@ Bazen bir sorgu verme aracı dili, bu durumda sorgu karşı tüm alanlar aynı a
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
-.NET geliştiricisiyseniz, dil Çözümleyicileri kullanarak yapılandırabileceğinize dikkat edin [Azure Search .NET SDK'sı](http://www.nuget.org/packages/Microsoft.Azure.Search). En son sürümü Microsoft dil Çözümleyicileri de destekler.
+.NET geliştiricisiyseniz, dil Çözümleyicileri kullanarak yapılandırabileceğinize dikkat edin [Azure Search .NET SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.Search). En son sürümü Microsoft dil Çözümleyicileri de destekler.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png

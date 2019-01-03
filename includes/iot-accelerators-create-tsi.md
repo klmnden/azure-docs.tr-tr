@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 8c114ed137089e70899e601ebdc1d4d39f562601
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: ab3d4cbe8a200e91d02177e49446065cd9c228df
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43383296"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53609081"
 ---
 ## <a name="create-a-consumer-group"></a>Bir tüketici grubu oluşturun
 
@@ -41,7 +41,7 @@ Azure CLI, tüketici grubu oluşturmak için aşağıdaki adımları Azure Cloud
 
 [Azure Time Series Insights](../articles/time-series-insights/time-series-insights-overview.md) bulutta IOT ölçekli zaman serisi verilerini yönetmek için tam olarak yönetilen bir analiz, depolama ve görselleştirme hizmeti. Yeni bir zaman serisi görüşleri ortamı oluşturmak için:
 
-1. [Azure Portal](http://portal.azure.com/)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
 1. Seçin **kaynak Oluştur** > **nesnelerin interneti** > **Time Series Insights**:
 

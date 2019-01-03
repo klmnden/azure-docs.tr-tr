@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
-ms.reviewer: MightyPen
+ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4b2c9f17bc9c6e9bbc280116d074bd0f1e3d3e38
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056607"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606053"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Azure SQL veritabanı, SQL veri ambarı, Data Factory ve Power BI ile SaaS Analytics'i keşfedin
 
@@ -146,7 +146,7 @@ Genel bakış sayfasında, geçiş **Yazar** sekmesinde sol panelde ve üç uyun
 
 **İşlem hattı 1 - SQLDBToDW** katalog veritabanında depolanan Kiracı veritabanlarının adlarını arar. (tablo adı: [__ShardManagement]. [ ShardsGlobal]) ve her Kiracı veritabanı için yürütür **DBCopy** işlem hattı. Tamamlandıktan sonra sağlanan **sp_TransformExtractedData** saklı yordam şema yürütülür. Bu saklı yordam, yüklü hazırlama tablolarındaki verileri dönüştürür ve yıldız şeması tabloları doldurur.
 
-**İşlem hattı 2 - DBCopy** blob depolamada depolanan bir yapılandırma dosyasından kaynak tablo ve sütun adları arar.  **TableCopy** işlem hattı sonra çalıştırılır tabloların her biri dört için: TicketFacts, CustomerFacts EventFacts ve VenueFacts. **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** 20 tüm veritabanları için paralel bir etkinliği yürütür. ADF en fazla 20 döngü yinelemesi paralel olarak çalıştırılmasına izin verir. Daha fazla veritabanı için birden çok işlem hatları oluşturmayı düşünün.    
+**İşlem hattı 2 - DBCopy** blob depolamada depolanan bir yapılandırma dosyasından kaynak tablo ve sütun adları arar.  **TableCopy** işlem hattı sonra çalıştırılır tabloların her biri dört için: TicketFacts, CustomerFacts, EventFacts ve VenueFacts. **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** 20 tüm veritabanları için paralel bir etkinliği yürütür. ADF en fazla 20 döngü yinelemesi paralel olarak çalıştırılmasına izin verir. Daha fazla veritabanı için birden çok işlem hatları oluşturmayı düşünün.    
 
 **İşlem hattı 3 - TableCopy** kullanan SQL veritabanı'nda sürüm numaraları satır (_rowversion_), değiştirilen veya güncelleştirilen satırları belirleyin. Bu etkinlik başlangıç ve bitiş satır sürümü kaynak tablolardan satırları ayıklanacağı arar. **CopyTracker** tablo her bir kiracı veritabanında depolanan her çalıştırıldığında her kaynak tablosunda ayıklanan son satırını izler. Yeni veya değiştirilmiş satırları veri ambarında karşılık gelen hazırlama tabloları kopyalanır: **raw_Tickets**, **raw_Customers**, **raw_Venues**, ve **raw_ Olayları**. Son olarak, son satır sürümü kaydedilir **CopyTracker** için sonraki ayıklama ilk satır sürümü kullanılacak tablo. 
 

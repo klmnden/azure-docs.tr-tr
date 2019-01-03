@@ -6,13 +6,13 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.openlocfilehash: ad23599d1df5d07e912f634435f8b44b441d87e6
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.date: 12/17/2018
+ms.openlocfilehash: 08faef2eaf5c9cd09172d455c464531e293d5f3e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298546"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554597"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Konuları Yönet ve olay etki alanları kullanarak olay yayımlama
 
@@ -139,7 +139,7 @@ Bir konu için ayarladığınız izinler, Azure Active Directory'de depolanır v
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>Olayları bir Event Grid etki alanına yayımlama
 
-Bir etki alanına olayları yayımlama aynıdır [özel bir konu başlığında yayımlamaya](./post-to-custom-topic.md). Tek fark, her bir olay gitmek istediğiniz konu belirtmeniz gerekiyor. Aşağıdaki olaylar dizisi olay ile sonuçlanır `"id": "1111"` konuya `foo` olay ile çalışırken `"id": "2222"` konu başlığına gönderilen `bar`:
+Bir etki alanına olayları yayımlama aynıdır [özel bir konu başlığında yayımlamaya](./post-to-custom-topic.md). Ancak, özel konuya yayımlama yerine, tüm olayları ve etki alanı uç noktasına yayımlayın. JSON olay verilerini, olayları gitmek istediğiniz konu belirtin. Aşağıdaki olaylar dizisi olay ile sonuçlanır `"id": "1111"` konuya `demotopic1` olay ile çalışırken `"id": "2222"` konu başlığına gönderilen `demotopic2`:
 
 ```json
 [{
@@ -168,7 +168,15 @@ Bir etki alanına olayları yayımlama aynıdır [özel bir konu başlığında 
 }]
 ```
 
-Azure CLI ile bir etki alanı için anahtarları almak için kullanın:
+Azure CLI ile bir etki alanı uç noktası almak için kullanın
+
+```azurecli-interactive
+az eventgrid domain show \
+  -g <my-resource-group> \
+  -n <my-domain>
+```
+
+Bir etki alanı için anahtarları almak için kullanın:
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -176,7 +184,15 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
-PowerShell için şunu kullanın:
+PowerShell ile bir etki alanı uç noktası almak için kullanın
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
+Bir etki alanı için anahtarları almak için kullanın:
 
 ```azurepowershell-interactive
 Get-AzureRmEventGridDomainKey `

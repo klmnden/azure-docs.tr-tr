@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle SuccessFactors | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile SuccessFactors | Microsoft Docs'
 description: Azure Active Directory ve SuccessFactors arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 89224b32efaecdf7a2797b034b1beac7ad191ee5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 467db4046c0600142338dcfa39e136f45255caba
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685234"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976758"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Öğretici: Azure Active Directory SuccessFactors ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Öğretici: SuccessFactors ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile SuccessFactors tümleştirme konusunda bilgi edinin.
 
@@ -150,7 +150,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
     | `https://<companyname>.sapsf.cn/<companyname>`|
          
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si, tanımlayıcı ve yanıt URL'si ile güncelleştirin. İlgili kişi [SuccessFactors istemci Destek ekibine](https://www.successfactors.com/support.html) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si, tanımlayıcı ve yanıt URL'si ile güncelleştirin. İlgili kişi [SuccessFactors istemci Destek ekibine](https://www.successfactors.com/content/ssf-site/en/support.html) bu değerleri almak için. 
 
 5. Üzerinde **SAML imzalama sertifikası** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
@@ -261,7 +261,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcıs
 SuccessFactors için oturum açmak Azure AD kullanıcılarının etkinleştirmek için bunların SuccessFactors sağlanması gerekir.  
 SuccessFactors söz konusu olduğunda, sağlama bir el ile gerçekleştirilen bir görevdir.
 
-İletişime geçmeniz SuccessFactors içinde oluşturulan kullanıcıları almak için [SuccessFactors Destek ekibine](https://www.successfactors.com/support.html).
+İletişime geçmeniz SuccessFactors içinde oluşturulan kullanıcıları almak için [SuccessFactors Destek ekibine](https://www.successfactors.com/content/ssf-site/en/support.html).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
 

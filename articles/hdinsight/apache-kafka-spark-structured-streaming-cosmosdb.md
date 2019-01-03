@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: c35082d7aa1e9d669bc9c5b89948f190d3edd2f3
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e964e00cd326d924a77a53348942f91ebbdbdea4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014540"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630169"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Apache Spark yapılandırılmış akış Apache Kafka ve Azure Cosmos DB ile kullanma
 
@@ -24,7 +24,7 @@ Nasıl kullanacağınızı öğrenin [Apache Spark](https://spark.apache.org/) [
 
 Spark yapılandırılmış akışı, Spark SQL üzerinde yerleşik bir akış işleme altyapısıdır. Bu altyapıyı kullanarak, statik veriler üzerinde toplu hesaplamayla aynı şekilde akış hesaplamalarını ifade edebilirsiniz. Yapılandırılmış akış hakkında daha fazla bilgi için bkz: [yapılandırılmış akış Programlama Kılavuzu](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) Apache.org.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu örnekte, HDInsight 3.6 üzerinde Spark 2.2 kullanılır.
 >
 > Bu belgede yer alan adımlar hem HDInsight üzerinde Spark hem de HDInsight kümesinde Kafka içeren bir Azure kaynak grubu oluşturur. Bu kümelerin her ikisi de Spark kümesinin Kafka kümesiyle doğrudan iletişim kurmasına olanak tanıyan bir Azure Sanal Ağı içinde bulunur.
@@ -37,7 +37,7 @@ HDInsight üzerinde Apache Kafka, genel internet üzerinden Kafka aracılarına 
 
 ![Bir Azure sanal ağında Spark ve Kafka kümeleri diyagramı](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Kafka hizmeti, sanal ağ içindeki iletişimle sınırlıdır. SSH ve Ambari gibi küme üzerindeki diğer hizmetlere internet üzerinden erişilebilir. HDInsight üzerinde kullanılabilir olan genel bağlantı noktaları hakkında daha fazla bilgi için bkz. [HDInsight Tarafından Kullanılan Bağlantı Noktaları ve URI’ler](hdinsight-hadoop-port-settings-for-services.md).
 
 Bir Azure sanal ağı, Kafka, oluşturabileceğiniz ve el ile Spark kümeleri, ancak bir Azure Resource Manager şablonu kullanmak daha kolaydır. Bir Azure sanal ağı, Kafka, dağıtma ve Spark kümeleri, Azure aboneliğiniz için aşağıdaki adımları kullanın.
@@ -58,12 +58,12 @@ Bir Azure sanal ağı, Kafka, oluşturabileceğiniz ve el ile Spark kümeleri, a
 
     * HDInsight kümeleri içeren bir Azure Sanal Ağı.
 
-        > [!NOTE]
+        > [!NOTE]  
         > Şablon tarafından oluşturulan sanal ağ 10.0.0.0/16 adres alanı kullanır.
 
     * Bir Azure Cosmos DB SQL API veritabanı.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Bu örnekte kullanılan yapılandırılmış akış not defteri, HDInsight 3.6 üzerinde Spark gerektirir. HDInsight üzerinde Spark’ın daha önceki bir sürümünü kullanıyorsanız, not defterini kullanırken hatalarla karşılaşırsınız.
 
 2. Girişleri doldurmak için aşağıdaki bilgileri kullanın **özel dağıtım** bölümü:
@@ -72,32 +72,32 @@ Bir Azure sanal ağı, Kafka, oluşturabileceğiniz ve el ile Spark kümeleri, a
 
     * **Abonelik**: Azure aboneliğinizi seçin.
    
-    * **Kaynak grubu**: bir grup oluşturun veya varolan bir tanesini seçin. Bu grup, HDInsight kümesi içerir.
+    * **Kaynak grubu**: Bir grup oluşturun veya var olanı seçin. Bu grup, HDInsight kümesi içerir.
 
-    * **Konum**: coğrafi olarak yakın bir konum seçin.
+    * **Konum**: Coğrafi olarak yakın bir konum seçin.
 
-    * **Cosmos DB hesap adınızı**: Bu değer, Cosmos DB hesabı adı olarak kullanılır.
+    * **Cosmos DB hesap adı**: Bu değer, Cosmos DB hesabı adı olarak kullanılır.
 
-    * **Temel küme adı**: Bu değer, Spark temel adı olarak kullanılır ve Kafka kümeleri. Örneğin, girme **myhdi** adlı bir Spark kümesi oluşturulur __spark myhdi__ ve adlı bir Kafka kümesi **kafka myhdi**.
+    * **Temel küme adı**: Bu değer, Spark ve Kafka kümeleri için temel adı olarak kullanılır. Örneğin, girme **myhdi** adlı bir Spark kümesi oluşturulur __spark myhdi__ ve adlı bir Kafka kümesi **kafka myhdi**.
 
     * **Küme sürümü**: HDInsight küme sürümü.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Bu örnekte, HDInsight 3.6 ile birlikte test edilir ve diğer küme türleri ile çalışmayabilir.
 
     * **Küme oturum açma kullanıcı adı**: Spark ve Kafka kümeleri için yönetici kullanıcı adı.
 
     * **Küme oturum açma parolası**: Spark ve Kafka kümeleri için yönetici kullanıcı parolası.
 
-    * **SSH kullanıcı adı**: Spark ve Kafka kümelerini oluşturmak için kullanılan SSH kullanıcısı.
+    * **SSH kullanıcı adı**: Spark ve Kafka kümeler için oluşturulacak SSH kullanıcısı.
 
-    * **SSH parolası**: Spark ve Kafka kümeleri için SSH kullanıcısının parolası.
+    * **SSH parolası**: Spark ve Kafka kümeleri için SSH kullanıcı parolası.
 
 3. **Hüküm ve Koşullar**’ı okuyun ve ardından **Yukarıda belirtilen hüküm ve koşulları kabul ediyorum**’u seçin.
 
 4. Son olarak, seçin **satın alma**. Kümelerin oluşturulması yaklaşık 20 dakika sürer.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu kümeler, sanal ağ ve Cosmos DB hesabı oluşturma 45 dakika kadar sürebilir.
 
 ## <a name="create-the-cosmos-db-database-and-collection"></a>Cosmos DB veritabanı ve koleksiyon oluşturma
@@ -140,7 +140,7 @@ Koncový bod dokumentu ve birincil anahtar bilgilerine aşağıdaki metne benzer
 "YqPXw3RP7TsJoBF5imkYR0QNA02IrreNAlkrUMkL8EW94YHs41bktBhIgWq4pqj6HCGYijQKMRkCTsSaKUO2pw=="
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Jupyter not defterlerinde gerektiğinde uç noktasını ve anahtarı değerleri kaydedin.
 
 ## <a name="get-the-apache-kafka-brokers"></a>Apache Kafka aracılarına Al
@@ -158,7 +158,7 @@ $brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ($brokerHosts -join ":9092,") + ":9092"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Bash örnek bekliyor `$CLUSTERNAME` değerini Kafka kümesinin adı içeriyor.
 >
 > Bu örnekte [jq](https://stedolan.github.io/jq/) yardımcı programını, verileri JSON belgesi ayrıştırılamadı.

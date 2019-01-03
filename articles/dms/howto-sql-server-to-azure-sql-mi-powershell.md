@@ -4,19 +4,19 @@ description: Azure PowerShell kullanarak şirket içi SQL Server'dan Azure SQL D
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 64d77a17241c44c9d450b9e7602222cdb89482b7
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c4ccbe8a6f1e1923e83d2bdcbeb2d61429083aee
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247174"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724207"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Şirket içi SQL Server'dan Azure SQL veritabanı yönetilen Azure PowerShell kullanarak örneğine geçirme
 Bu makalede, geçiş **Adventureworks2012** şirket içi örneği SQL Server 2005 veya üzeri için Microsoft Azure PowerShell kullanarak Azure SQL veritabanı yönetilen örneği için geri yüklenen veritabanı. Kullanarak Azure SQL veritabanı yönetilen örneği için bir şirket içi SQL Server örneğinden veritabanları geçirebilirsiniz `AzureRM.DataMigration` Microsoft Azure PowerShell modülü.
@@ -176,7 +176,7 @@ $blobSasUri="https://mystorage.blob.core.windows.net/test?st=2018-07-13T18%3A10%
 ```
 
 ### <a name="select-logins"></a>Oturum açmaları seçme
-Aşağıdaki örnekte gösterildiği gibi geçirilecek oturum açmalar listesini oluşturun: şu anda yalnızca SQL oturum açmaları geçiş DMS destekler unutmayın. 
+Aşağıdaki örnekte gösterildiği gibi geçirilmesi için oturumların listesini oluşturun:  Not, şu anda DMS yalnızca geçirme SQL oturumları destekler. 
 
 ```powershell
 $selectedLogins = @("user1", "user2")

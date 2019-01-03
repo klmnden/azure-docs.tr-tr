@@ -4,18 +4,18 @@ ms.service: app-service
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
-ms.openlocfilehash: ed771d1817e7ee1161e0f94ec9eefb5d2dfb3e23
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7771bbcab08fb84a941eedab402880fb7bc4232d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50737261"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53551674"
 ---
 ## <a name="rest"></a>ZIP dosyası REST API'leri ile dağıtma 
 
 Kullanabileceğiniz [dağıtım hizmeti REST API'leri](https://github.com/projectkudu/kudu/wiki/REST-API) .zip dosyası, uygulamanızı Azure'a dağıtmak için. Dağıtmak için https://<app_name>.scm.azurewebsites.net/api/zipdeploy bir POST isteği gönderin. POST isteğinin ileti gövdesinde .zip dosyasını içermesi gerekir. Uygulamanızın dağıtım kimlik bilgileri, HTTP BASIC kimlik doğrulaması kullanılarak istekte belirtilir. Daha fazla bilgi için [.zip anında dağıtım başvurusu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file). 
 
-HTTP temel kimlik doğrulaması için App Service dağıtım kimlik bilgileriniz gerekir. Dağıtım kimlik bilgilerinizi ayarlamak hakkında bilgi için bkz. [ayarlayın ve kullanıcı düzeyi kimlik bilgilerini sıfırlama](../articles/app-service/app-service-deployment-credentials.md#userscope).
+HTTP temel kimlik doğrulaması için App Service dağıtım kimlik bilgileriniz gerekir. Dağıtım kimlik bilgilerinizi ayarlamak hakkında bilgi için bkz. [ayarlayın ve kullanıcı düzeyi kimlik bilgilerini sıfırlama](../articles/app-service/deploy-configure-credentials.md#userscope).
 
 ### <a name="with-curl"></a>CURL ile
 

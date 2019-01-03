@@ -1,21 +1,18 @@
 ---
 title: Oluşturma ve Azure veritabanı Azure CLI kullanarak MySQL için güvenlik duvarı kurallarını yönetme
 description: Bu makalede, oluşturma ve Azure veritabanı Azure CLI, komut satırı kullanarak MySQL için güvenlik duvarı kurallarını yönetme işlemleri açıklanır.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 6ece07d2be605f51e08274649f3ea15e3bbba472
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e4aabaf2673f6211523653f9d0a0ecf1769f83a3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134905"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549012"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Oluşturma ve Azure veritabanı Azure CLI kullanarak MySQL için güvenlik duvarı kurallarını yönetme
 Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi veya bir IP adresi aralığı MySQL Server için Azure veritabanı'na yönetme olanağı sağlar. Uygun Azure CLI'si komutlarını kullanarak, oluşturabilir, güncelleştirin, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kurallarını gösterir. Bir Azure veritabanı için MySQL güvenlik duvarları için bkz: genel bakış [MySQL sunucusu güvenlik duvarı kuralları için Azure veritabanı](./concepts-firewall-rules.md)
@@ -28,11 +25,11 @@ Sunucu düzeyinde güvenlik duvarı kuralları, erişim belirli bir IP adresi ve
 **Az mysql server güvenlik duvarı kuralı** oluştur, Sil, listesinde, görüntülemek ve güvenlik duvarı kurallarını güncelleştirmek için Azure CLI üzerinden komutu kullanılır.
 
 Komutlar:
-- **oluşturma**: bir Azure MySQL sunucusu güvenlik duvarı kuralı oluşturun.
-- **silme**: bir Azure MySQL sunucusu güvenlik duvarı kuralını silin.
+- **oluşturma**: Bir Azure MySQL sunucusu güvenlik duvarı kuralı oluşturun.
+- **Silme**: Bir Azure MySQL sunucusu güvenlik duvarı kuralını silin.
 - **Liste**: Azure MySQL sunucusu güvenlik duvarı kuralları listesi.
-- **Göster**: güvenlik duvarı kuralı Azure MySQL sunucusu ayrıntılarını göster.
-- **Güncelleştirme**: bir Azure MySQL sunucusu güvenlik duvarı kuralını güncelleştir.
+- **Göster**: Azure MySQL sunucusu güvenlik duvarı kuralı ayrıntılarının.
+- **Güncelleştirme**: Bir Azure MySQL sunucusu güvenlik duvarı kuralı güncelleştirin.
 
 ## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Azure'da oturum açın ve Azure veritabanınızı MySQL sunucuları için listeleme
 Azure CLI kullanarak güvenli bir şekilde Azure hesabınızla bağlanmanız **az login** komutu.

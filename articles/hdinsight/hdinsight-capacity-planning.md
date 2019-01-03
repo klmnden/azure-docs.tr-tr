@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 7eb18b5560e849796770ce9d24574d7a3d0db262
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193867"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716149"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapasite için HDInsight kümeleri planlama
 
@@ -38,17 +38,17 @@ HDInsight, Azure bölgelerinde kullanılabilir. En yakın bölgeyi bulmak için 
 
 ### <a name="location-of-default-storage"></a>Varsayılan depolama konumu
 
-Bir Azure depolama hesabına veya Azure Data Lake Store, varsayılan depolama kümeniz ile aynı konumda olmalıdır. Azure depolama tüm konumlarda kullanılabilir. Data Lake Store Gen1 bazı bölgelerde kullanılabilir: geçerli bir Data Lake Store kullanılabilirlik seçeneğinin altında bkz *depolama* içinde [bölgeye göre Azure ürünleri kullanılabilir](https://azure.microsoft.com/regions/services/).
+Bir Azure depolama hesabına veya Azure Data Lake Storage, varsayılan depolama kümeniz ile aynı konumda olmalıdır. Azure depolama tüm konumlarda kullanılabilir. Data Lake depolama Gen1 bazı bölgelerde kullanılabilir: geçerli bir Data Lake Storage kullanılabilirlik seçeneğinin altında bkz *depolama* içinde [bölgeye göre Azure ürünleri kullanılabilir](https://azure.microsoft.com/regions/services/).
 
 ### <a name="location-of-existing-data"></a>Mevcut veri konumu
 
-Zaten bir depolama hesabı veya Data Lake Store, verilerinizi içeren varsa ve bu depolama alanı, kümenin varsayılan depolama alanı olarak kullanmak istediğiniz kümenizin aynı yerde dağıtmanız gerekir.
+Zaten bir depolama hesabı veya Data Lake, verilerinizi içeren depolama ve bu depolama alanı, kümenin varsayılan depolama alanı olarak kullanmak istediğiniz kümenizin aynı yerde dağıtmanız gerekir.
 
 ### <a name="storage-size"></a>Depolama boyutu
 
-Dağıtılmış bir HDInsight kümesine sonra ek Azure depolama hesapları ekleme ya da diğer Data Lake Store erişim. Tüm depolama hesapları, kümeniz ile aynı konumda bulunmalıdır. Bu, bazı veri okuma/yazma gecikmelere neden olabilir ancak bir Data Lake Store farklı bir konumda olabilir.
+Dağıtılmış bir HDInsight kümesine sonra ek Azure depolama hesapları ekleme ya da başka bir Data Lake depolama erişim. Tüm depolama hesapları, kümeniz ile aynı konumda bulunmalıdır. Bu, bazı veri okuma/yazma gecikmelere neden olabilir ancak bir Data Lake Storage farklı bir konumda olabilir.
 
-Azure depolama alanına sahip bazı [kapasite sınırları](../azure-subscription-service-limits.md#storage-limits), Data Lake Store Gen1 neredeyse sınırsızdır.
+Azure depolama alanına sahip bazı [kapasite sınırları](../azure-subscription-service-limits.md#storage-limits), Data Lake depolama Gen1 neredeyse sınırsızdır.
 
 Bir küme farklı depolama hesaplarında birleşimi erişebilirsiniz. Tipik örnekleri şunlardır:
 
@@ -75,7 +75,7 @@ VM boyutunu ve türünü CPU işleme güç, RAM boyutu ve ağ gecikmesi tarafın
 
 * RAM: VM boyutunu, VM kullanılabilir RAM miktarını da belirler. Disk okuma, çalışan düğümlerinizin sağlamak yerine belleğindeki işleme için veri depolama iş yükleri için verileri sığdırmak için yeterli belleğe sahip.
 
-* Ağ: Çoğu küme türleri için küme tarafından işlenen değil yerel diskte değil, Data Lake Store veya Azure depolama gibi bir dış depolama hizmeti verilerdir. Düğüm sanal makine ve depolama hizmeti arasında aktarım hızı ve ağ bant genişliğini göz önünde bulundurun. Bir VM için kullanılabilir ağ bant genişliği, genellikle daha büyük boyutları ile artırır. Ayrıntılar için bkz [VM boyutları genel bakış](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Ağ: Çoğu küme türleri için küme tarafından işlenen değil yerel diskte değil, Data Lake Storage veya Azure depolama gibi bir dış depolama hizmeti verilerdir. Düğüm sanal makine ve depolama hizmeti arasında aktarım hızı ve ağ bant genişliğini göz önünde bulundurun. Bir VM için kullanılabilir ağ bant genişliği, genellikle daha büyük boyutları ile artırır. Ayrıntılar için bkz [VM boyutları genel bakış](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 ## <a name="choose-the-cluster-scale"></a>Küme ölçek seçin
 
@@ -89,7 +89,7 @@ Yoğun yük taleplerini karşılamak ve sonra ölçeği onu tekrar ek düğümle
 
 Bir kümenin ömrü boyunca ücretlendirilir. Yalnızca belirli saatler kümesi oluşturma ve çalıştırma ihtiyacınız varsa, yapabilecekleriniz [Azure Data Factory kullanarak isteğe bağlı kümeler oluşturma](hdinsight-hadoop-create-linux-clusters-adf.md). Sağlama ve kümenizi sildiğinizden PowerShell betikleri oluşturabilir ve ardından bu komut dosyalarını kullanarak zamanlama [Azure Otomasyonu](https://azure.microsoft.com/services/automation/).
 
-> [!NOTE]
+> [!NOTE]  
 > Bir küme silindiğinde, varsayılan Hive meta veri deposu da silinir. Sonraki küme yeniden oluşturma için meta veri deposu kalıcı hale getirmek için Azure veritabanı gibi bir dış meta veri deposunu kullanın veya [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
@@ -115,12 +115,12 @@ Hedef küme VM boyutu, ölçek ve türünü belirledikten sonra aboneliğinizi g
     
     ![HDInsight çekirdek kotasını artırmak için bir destek isteği oluşturun](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. **İleri**'ye tıklayın.
+1. **İleri**’ye tıklayın.
 1. Üzerinde **ayrıntıları** sayfasında, sorunun bir açıklama girin, sorunun önem derecesini seçin ve tercih ettiğiniz iletişim yöntemi seçin.
 1. Tıklayın **sonraki: Gözden geçir + Oluştur**.
 1. Üzerinde **gözden geçir + Oluştur** sekmesinde **Oluştur**.
 
-> [!Note]
+> [!NOTE]  
 > Özel bir bölgesini HDInsight çekirdek kotasını artırmak gerekiyorsa [beyaz liste talebinizi](https://aka.ms/canaryintwhitelist).
 
 Yapabilecekleriniz [bir kota artırım talebinde bulunmak Destek ekibiyle iletişime geçin](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).

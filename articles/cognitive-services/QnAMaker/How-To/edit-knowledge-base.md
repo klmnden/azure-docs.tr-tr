@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d40886f54083a1619635f31af57841138f1706d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e055d1e10ddf8c18c84af5376cf4a284d48fde6b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086615"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603336"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Soru-cevap Oluşturucu, Bilgi Bankası Düzenle
 
@@ -71,7 +71,7 @@ Bir kullanıcı sorgu için bir eşleşme olasılığını artırmak için var o
 ## <a name="add-metadata"></a>meta veri ekleme
 
 
-Filtre simgesini seçerek meta verileri çifti Ekle
+Meta veri simgesini seçerek meta verileri çifti Ekle
 
 ![Meta veri ekleme](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
@@ -80,11 +80,17 @@ Filtre simgesini seçerek meta verileri çifti Ekle
 
 ## <a name="manage-large-knowledge-bases"></a>Büyük bilgi bankalarından yönetme
 
-1. Bankalarıyla olan **gruplandırılmış** bunlar ayıklanan veri kaynağı tarafından. Genişlet veya daralt veri kaynağı.
-2. Yapabilecekleriniz **arama** Bankası üst Bilgi Bankası tablonun metin kutusuna yazarak. Soru, yanıt veya meta veri içeriğini aramak için ENTER'a tıklayın. Arama filtresi kaldırmak için X simgesine tıklayın.
-3. **Sayfalandırma** büyük bilgi bankalarından yönetmenize olanak sağlar
+* **Veri kaynağı grupları**: Bankalarıyla içinden ayıklandıkları veri kaynağı tarafından gruplandırılır. Genişlet veya daralt veri kaynağı.
 
-    ![Arama, sayfalandırma, grubu](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+    ![Daralt ve veri kaynağı sorularını ve yanıtlarını genişletmek için soru-cevap Oluşturucu veri kaynağını çubuğundaki kullanın](../media/qnamaker-how-to-edit-kb/data-source-grouping.png)
+
+* **Bilgi Bankası arama**: Metin kutusuna Bilgi Bankası Tablo üst bilgi bankasında arama yapabilirsiniz. Soru, yanıt veya meta veri içeriğini aramak için ENTER'a tıklayın. Arama filtresi kaldırmak için X simgesine tıklayın.
+
+    ![Görünüm yalnızca filtreyle eşleşen öğeler azaltmak için yukarıdaki soruları ve yanıtları soru-cevap Oluşturucu arama kutusunu kullanın](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+* **Sayfalandırma**: Hızlı bir şekilde büyük bilgi bankalarından yönetmek için veri kaynakları arasında taşıma
+
+    ![Sorular ve cevaplar sayfaları aracılığıyla taşımak için yukarıdaki soruları ve yanıtları soru-cevap Oluşturucu sayfalandırma özelliklere kullanın](../media/qnamaker-how-to-edit-kb/pagination.png)
 
 ## <a name="delete-knowledge-bases"></a>Bilgi bankaları Sil
 
