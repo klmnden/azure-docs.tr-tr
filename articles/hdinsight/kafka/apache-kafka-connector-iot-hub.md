@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 143df8a8c82e84b193bdb48a3d41682fca19156b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ff96204d53d31940846d2ec74db57caf69d4329e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315436"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608639"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IOT Hub ile HDInsight üzerinde Apache kafka'yı kullanma
 
@@ -48,7 +48,7 @@ Connect API hakkında daha fazla bilgi için bkz. [ https://kafka.apache.org/doc
 
 2. Kenar düğümüne, kafka, HDInsight kümesinde .jar dosyasını karşıya yüklemek için aşağıdaki komutu kullanın:
 
-    > [!NOTE]
+    > [!NOTE]  
     > Değiştirin `sshuser` HDInsight kümenizin SSH kullanıcı hesabı ile. Değiştirin `new-edgenode` kenar düğümünün adıyla. Değiştirin `clustername` küme adı ile. Uç düğümünün SSH uç noktası hakkında daha fazla bilgi için bkz. [kenar düğümleri HDInsight ile kullanılan](../hdinsight-apps-use-edge-node.md#access-an-edge-node) belge.
 
     ```bash
@@ -69,10 +69,10 @@ Connect API hakkında daha fazla bilgi için bkz. [ https://kafka.apache.org/doc
     sudo mv kafka-connect-iothub-assembly*.jar /usr/hdp/current/kafka-broker/libs/
     ```
 
-> [!TIP]
+> [!TIP]  
 > Bu belgedeki adımlarda geri kalanı ile ilgili sorunlar önceden oluşturulmuş .jar dosyasını kullanırken karşılaşırsanız, paket kaynağından oluşturmaya çalışın.
 >
-> Bağlayıcı oluşturmak için Scala geliştirme ortamıyla sahip [Scala derleme aracı](http://www.scala-sbt.org/).
+> Bağlayıcı oluşturmak için Scala geliştirme ortamıyla sahip [Scala derleme aracı](https://www.scala-sbt.org/).
 >
 > 1. Kaynak için bir bağlayıcı indirmek [ https://github.com/Azure/toketi-kafka-connect-iothub/ ](https://github.com/Azure/toketi-kafka-connect-iothub/) geliştirme ortamınıza.
 >
@@ -132,7 +132,7 @@ Kenar düğümüne SSH bağlantısından, Kafka Bağlayıcısı'nı tek başına
         value.converter=org.apache.kafka.connect.storage.StringConverter
         ```
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Bu değişiklik, Kafka ile birlikte dahil edilen konsol üretici kullanarak test olanak tanır. Diğer üreticileri ve tüketicileri için farklı dönüştürücüleri gerekebilir. Diğer dönüştürücü değerleri kullanma hakkında daha fazla bilgi için bkz. [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
     * Aşağıdaki metni içeren dosyanın sonunda bir satır ekleyin:
@@ -141,7 +141,7 @@ Kenar düğümüne SSH bağlantısından, Kafka Bağlayıcısı'nı tek başına
         consumer.max.poll.records=10
         ```
 
-        > [!TIP]
+        > [!TIP]  
         > Bu değişiklik, bir kerede 10 kayıtları sınırlayarak havuz bağlayıcı zaman aşımları engellemektir. Daha fazla bilgi için bkz. [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
 6. Dosyayı kaydetmek için kullanın __Ctrl + X__, __Y__, ardından __Enter__.
@@ -178,7 +178,7 @@ Bağlayıcı tarafından kullanılan IOT hub'ı bilgileri almak için aşağıda
             * __Event Hub ile uyumlu uç noktası__
             * __Bölümler__
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Bu örnekte gerekmeyen fazladan metin portaldan uç nokta değerini içerebilir. Bu desenle eşleşen metni Ayıkla `sb://<randomnamespace>.servicebus.windows.net/`.
 
     * __Gelen [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, aşağıdaki komutu kullanın:
@@ -239,14 +239,14 @@ IOT Hub ile çalışmaya kaynağını yapılandırmak için kenar düğümüne S
 
     Düzenleyicisi'ni bulun ve aşağıdaki girdileri değiştirin:
 
-    * `Kafka.Topic=PLACEHOLDER`: Değiştirin `PLACEHOLDER` ile `iotin`. IOT hub'ından alınan iletileri yerleştirildiğinde `iotin` konu.
+    * `Kafka.Topic=PLACEHOLDER`:  yerine `iotin` yazın. IOT hub'ından alınan iletileri yerleştirildiğinde `iotin` konu.
     * `IotHub.EventHubCompatibleName=PLACEHOLDER`: Değiştirin `PLACEHOLDER` Event Hub ile uyumlu ada sahip.
     * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: Değiştirin `PLACEHOLDER` Event Hub ile uyumlu uç nokta ile.
     * `IotHub.Partitions=PLACEHOLDER`: Değiştirin `PLACEHOLDER` ile önceki adımlarda geçen bölüm sayısı.
-    * `IotHub.AccessKeyName=PLACEHOLDER`: Değiştirin `PLACEHOLDER` ile `service`.
+    * `IotHub.AccessKeyName=PLACEHOLDER`:  yerine `service` yazın.
     * `IotHub.AccessKeyValue=PLACEHOLDER`: Değiştirin `PLACEHOLDER` birincil anahtarı ile `service` ilkesi.
     * `IotHub.StartType=PLACEHOLDER`: Değiştirin `PLACEHOLDER` UTC tarihi. Bağlayıcı iletileri denetleme başladığında bu tarihtir. Tarih biçimi `yyyy-mm-ddThh:mm:ssZ`.
-    * `BatchSize=100`: Değiştirin `100` ile `5`. Bu değişiklik, IOT hub'ında beş yeni iletileri sonra Kafka iletileri okumak bağlayıcıyı neden olur.
+    * `BatchSize=100`:  yerine `5` yazın. Bu değişiklik, IOT hub'ında beş yeni iletileri sonra Kafka iletileri okumak bağlayıcıyı neden olur.
 
     Örnek bir yapılandırma için bkz: [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
@@ -272,7 +272,7 @@ IOT Hub'ınıza çalışmak için havuz bağlantı yapılandırmak için kenar d
 
     Düzenleyicisi'ni bulun ve aşağıdaki girdileri değiştirin:
 
-    * `topics=PLACEHOLDER`: Değiştirin `PLACEHOLDER` ile `iotout`. Yazılan iletileri `iotout` konu, IOT hub'ına iletilir.
+    * `topics=PLACEHOLDER`:  yerine `iotout` yazın. Yazılan iletileri `iotout` konu, IOT hub'ına iletilir.
     * `IotHub.ConnectionString=PLACEHOLDER`: Değiştirin `PLACEHOLDER` bağlantı dizesiyle `service` ilkesi.
 
     Örnek bir yapılandırma için bkz: [ https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md ](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
@@ -298,7 +298,7 @@ nnect.IotHubSourceTask:39)
 org.apache.kafka.connect.runtime.WorkerSourceTask:356)
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Bağlayıcı başlatılırken bazı uyarılar görebilirsiniz. Bu uyarılar IOT hub'ından iletiler alan sorunlara neden olmaz.
 
 Bağlayıcı durdurmak için kullanın __Ctrl + C__.
@@ -320,7 +320,7 @@ IotHubSinkTask:47)
 t.runtime.WorkerSinkTask:262)
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Bağlayıcı başlatılırken bazı uyarılar görebilirsiniz. Bunları güvenle yok sayabilirsiniz.
 
 Bağlayıcı aracılığıyla göndermek için aşağıdaki adımları kullanın:
@@ -332,7 +332,7 @@ Bağlayıcı aracılığıyla göndermek için aşağıdaki adımları kullanın
     ```
 2. İleti göndermek için `iotout` konu, aşağıdaki komutu kullanın:
 
-    > [!WARNING]
+    > [!WARNING]  
     > Bu yeni bir SSH bağlantısı olduğundan `$KAFKABROKERS` değişken, herhangi bir bilgi içermiyor. Bunu ayarlamak için aşağıdaki yöntemlerden birini kullanın:
     >
     > * İlk üç adımda kullanın [yapılandırma Apache Kafka](#configure-apache-kafka) bölümü.
@@ -346,7 +346,7 @@ Bağlayıcı aracılığıyla göndermek için aşağıdaki adımları kullanın
 
 3. Cihazınız için bir ileti göndermek için SSH oturumu için bir JSON belgesi yapıştırın `kafka-console-producer`.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Değerini ayarlamalısınız `"deviceId"` giriş cihazınızın kimliği. Aşağıdaki örnekte, cihazın adlı `fakepi`:
 
     ```text

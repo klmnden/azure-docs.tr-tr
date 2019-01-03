@@ -12,25 +12,25 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5bb70bf56efac28029401b69ee4f87c2738c52e3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 28e21180fde50d19154830694cd4959795ae9d5c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721859"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789392"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Profil Canlı Application Insights ile Azure bulut Hizmetleri
 
 Ayrıca, Application Insights Profiler'ı bu hizmetlerin dağıtabilirsiniz:
-* [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric uygulamaları](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Sanal Makineler](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler Windows Azure tanılama (WAD) uzantısı ile yüklenir. Profil oluşturucuyu yükleme ve Application Insights kaynağınıza profilleri göndermek için WAD yapılandırmak yeterlidir.
 
 ## <a name="enable-profiler-for-your-azure-cloud-service"></a>Azure bulut hizmeti için profil oluşturucuyu etkinleştirme
-1. Denetleyin, kullanarak [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) veya üzeri.  Onaylamak yeterliyse *ServiceConfiguration.\*. cscfg* dosyalarınız bir `osFamily` değeri "5" veya sonraki sürümüne yükseltilmesi.
-1. Ekleme [bulut hizmetine Application Insights SDK'sı](app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json).
+1. Denetleyin, kullanarak [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) veya üzeri.  Onaylamak yeterliyse *ServiceConfiguration.\*.cscfg* dosyalarınız bir `osFamily` değeri "5" veya sonraki sürümüne yükseltilmesi.
+1. Ekleme [bulut hizmetine Application Insights SDK'sı](../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 1. Application Insights ile izleme istekleri:
 
     ASP.Net web rolleri için Application Insights istekleri otomatik olarak izleyebilirsiniz.
@@ -63,12 +63,12 @@ Application Insights Profiler Windows Azure tanılama (WAD) uzantısı ile yükl
       </WadCfg>
       ```
 
-    >   **Not:** varsa *diagnostics.wadcfgx* dosya başka bir havuz türü de içeren `ApplicationInsights`, üçünü aşağıdaki izleme anahtarı ile eşleşmesi gerekir:  
+    >   **NOT:** Varsa *diagnostics.wadcfgx* dosya başka bir havuz türü de içeren `ApplicationInsights`, üçünü aşağıdaki izleme anahtarı ile eşleşmesi gerekir:  
     >  * Uygulamanız tarafından kullanılan anahtar.  
     >  * Tarafından kullanılan anahtarı `ApplicationInsights` havuz.  
     >  * Tarafından kullanılan anahtarı `ApplicationInsightsProfiler` havuz.  
     >
-    > Tarafından kullanılan gerçek araçları anahtar değerini bulabilirsiniz `ApplicationInsights` havuz *ServiceConfiguration.\*. cscfg* dosyaları.  
+    > Tarafından kullanılan gerçek araçları anahtar değerini bulabilirsiniz `ApplicationInsights` havuz *ServiceConfiguration.\*.cscfg* dosyaları.  
     > Visual Studio 15.5 Azure SDK'sı sürüm, uygulama tarafından kullanılan izleme anahtarı sonra ve `ApplicationInsightsProfiler` birbiriyle aynı havuz gerekir.
 1. Yeni tanılama yapılandırması hizmetinizle dağıtın ve Application Insights Profiler, hizmette çalıştıracak şekilde yapılandırılır.
  

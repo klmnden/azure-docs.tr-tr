@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: ad711fe998a3c250775c5d4f4d76305ffb7cf860
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2237d523b8023c0a6551515f9a2740e92e7beb3f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244602"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548934"
 ---
 # <a name="azure-network-security-overview"></a>Azure ağ güvenliğine genel bakış
 
@@ -104,7 +104,7 @@ Azure ağı, sanal ağlarınızda ağ trafiğini yönlendirme davranışını ö
 
 [Zorlamalı tünel](https://www.petri.com/azure-forced-tunneling) hizmetlerinizi internet'teki cihazlar için bir bağlantı başlatmak için izin verilmiyor emin olmak için kullanabileceğiniz bir mekanizmadır. Bu gelen bağlantıları kabul etmesini ve onlara yanıt farklı olduğunu unutmayın. Ön uç web sunucusuna internet konaklarından isteklerine yanıt gerekir ve bu nedenle internet kaynaklı trafik bu web sunucularına gelen ve web sunucularını yanıt vermesine izin izin verilir.
 
-İzin vermek istemediğiniz bir giden talep başlatmak için bir ön uç web sunucusudur. Bu bağlantılar kötü amaçlı yazılım indirmek için kullanılabildiğinden, bu tür istekleri bir güvenlik riski temsil edebilir. İnternet'e Giden istekleri başlatmak için bu ön uç sunucularına isteseniz bile, bunları, şirket içi web proxy'leri Git zorlamak isteyebilirsiniz. Bu, filtreleme ve günlüğe kaydetme URL'sinin yararlanmasına olanak sağlar.
+T don istediğiniz izin vermek bir giden talep başlatmak için bir ön uç web sunucusudur. Bu bağlantılar kötü amaçlı yazılım indirmek için kullanılabildiğinden, bu tür istekleri bir güvenlik riski temsil edebilir. İnternet'e Giden istekleri başlatmak için bu ön uç sunucularına isteseniz bile, bunları, şirket içi web proxy'leri Git zorlamak isteyebilirsiniz. Bu, filtreleme ve günlüğe kaydetme URL'sinin yararlanmasına olanak sağlar.
 
 Bunun yerine, bunu önlemek için zorlamalı tünel kullanmak istersiniz. Zorlamalı tünel etkinleştirdiğinizde, şirket içi ağ geçidi üzerinden İnternet'e yönelik tüm bağlantılar zorlanır. Zorlamalı tünel Udr'ler avantajlarından yararlanarak yapılandırabilirsiniz.
 
@@ -127,7 +127,7 @@ Nsg'ler, Udr ve zorlamalı tünel ağ ve Aktarım katmanı güvenlik düzeyini s
 * Uygulama erişimi denetimi
 * Ek bir DDoS koruma (yukarıda, Azure fabric tarafından kendisine sağlanan DDoS koruması)
 
-Bir Azure iş ortağı çözümü kullanarak gelişmiş ağ güvenliği özelliklere erişebilirsiniz. Güvenlik çözümleri ziyaret ederek en güncel Azure iş ortağı ağı bulabilirsiniz [Azure Marketi](https://azure.microsoft.com/marketplace/)ve "güvenlik" ve "ağ güvenliği" için arama
+Bir Azure iş ortağı çözümü kullanarak gelişmiş ağ güvenliği özelliklere erişebilirsiniz. Ziyaret ederek en güncel Azure iş ortağı ağı güvenlik çözümlerini bulabilirsiniz [Azure Marketi](https://azure.microsoft.com/marketplace/), güvenlik ve ağ güvenliği için arama yapma.
 
 ## <a name="azure-firewall"></a>Azure Güvenlik Duvarı
 
@@ -171,7 +171,7 @@ Daha fazla bilgi edinin:
 
 ### <a name="connect-your-on-premises-network-to-a-virtual-network-with-a-vpn"></a>Bir sanal ağa bir VPN ile şirket içi ağınıza bağlama
 
-Tüm kurumsal ağa veya bölümleri, bir sanal ağa bağlanmak isteyebilirsiniz. Bu karma BT'de yaygın senaryoları, burada kuruluşlar [kendi şirket içi veri merkezinizi Azure'a genişletir](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). Çoğu durumda, kuruluşların bir hizmet olarak Azure ve şirket bölümleri bölümlerini barındırır. Örneğin, bunlar bir çözümü, Azure'da ön uç web sunucuları içerir ve arka uç şirket içi veritabanları, bunu yapabilir. Bu tür bir "şirket içi" bağlantıları da yer alan Azure yönetim olun kaynaklara daha güvenli ve Active Directory etki alanı denetleyicileri Azure'a genişletme gibi senaryoları etkinleştirmek.
+Tüm kurumsal ağa veya bölümleri, bir sanal ağa bağlanmak isteyebilirsiniz. Bu karma BT'de yaygın senaryoları, burada kuruluşlar [kendi şirket içi veri merkezinizi Azure'a genişletir](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84). Çoğu durumda, kuruluşların bir hizmet olarak Azure ve şirket bölümleri bölümlerini barındırır. Örneğin, bunlar bir çözümü, Azure'da ön uç web sunucuları içerir ve arka uç şirket içi veritabanları, bunu yapabilir. Bu tür bir şirketler arası bağlantılar da yer alan Azure yönetim olun kaynaklara daha güvenli ve Active Directory etki alanı denetleyicileri Azure'a genişletme gibi senaryoları etkinleştirmek.
 
 Tek yönlü gerçekleştirmek için bu kullanmaktır bir [siteden siteye VPN](https://www.techopedia.com/definition/30747/site-to-site-vpn). Noktadan siteye VPN siteden siteye VPN arasındaki fark, ikincisi tek bir cihazı bir sanal ağa bağlandığını ' dir. Siteden siteye VPN tamamını bir ağa (örneğin, şirket içi ağınıza) bir sanal ağa bağlanır. Bir sanal ağ için siteden siteye VPN'ler, yüksek oranda güvenli IPSec tünel modu VPN protokolü kullanın.
 
@@ -199,7 +199,7 @@ Daha fazla bilgi edinin:
 
 Çok sayıda sanal ağ dağıtımlarınız için kullanmak mümkündür. Neden bunu yapabilirsiniz çeşitli nedenleri vardır. Yönetimini basitleştirmek isteyebilirsiniz veya daha fazla güvenlik isteyebilirsiniz. Farklı sanal ağlardaki kaynaklar yerleştirme motivasyon bakılmaksızın kaynakların birbiriyle bağlanmak için bu ağların her istediğinizde zamanlar olabilir.
 
-Bir seçenektir "geri döngü" başka bir sanal ağda hizmetlerine bağlanmak için bir sanal ağ hizmetleri için internet üzerinden. Bağlantı, bir sanal ağ'da başlar, Internet üzerinden geçer ve hedef sanal ağa geri gelir. Bu seçenek, herhangi bir internet tabanlı iletişimde devralınan güvenlik sorunları bağlantı kullanıma sunar.
+Bir seçenek Hizmetleri Internet üzerinden döngü Hizmetleri başka bir sanal ağa bağlanmak için bir sanal ağdaki içindir. Bağlantı, bir sanal ağ'da başlar, Internet üzerinden geçer ve hedef sanal ağa geri gelir. Bu seçenek, herhangi bir internet tabanlı iletişimde devralınan güvenlik sorunları bağlantı kullanıma sunar.
 
 Bağlanan iki sanal ağ arasında siteden siteye VPN oluşturmak için daha iyi bir seçenek olabilir. Bu yöntem aynı kullanır [IPSec tünel modu](https://technet.microsoft.com/library/cc786385.aspx) protokolü olarak yukarıda belirtilen şirket içi siteden siteye VPN bağlantısı.
 
@@ -213,7 +213,7 @@ Sanal ağlarınıza bağlanmak için başka bir yolu [VNET eşlemesi](../virtual
 
 ## <a name="availability"></a>Kullanılabilirlik
 
-Kullanılabilirlik, herhangi bir güvenlik programının temel bir bileşenidir. Kullanıcılar ve sistemlerden ağ üzerinden erişmek gereksinim duydukları şeyleri erişemiyorsanız, hizmet olarak kabul edilir tehlikeye. Azure aşağıdaki yüksek kullanılabilirlik mekanizmaları ağ teknolojilerini içerir:
+Kullanılabilirlik, herhangi bir güvenlik programının temel bir bileşenidir. Kullanıcılar ve sistemlerden kullanabilirsiniz t ağ üzerinden erişmek gereksinim duydukları şeyleri erişirseniz, hizmet kabul tehlikeye. Azure aşağıdaki yüksek kullanılabilirlik mekanizmaları ağ teknolojilerini içerir:
 
 * HTTP tabanlı Yük Dengeleme
 * Ağ düzeyinde Yük Dengeleme
@@ -222,7 +222,7 @@ Kullanılabilirlik, herhangi bir güvenlik programının temel bir bileşenidir.
 Yük Dengeleme bağlantıları birden çok cihaz arasında eşit olarak dağıtmak için tasarlanmış bir mekanizmadır. Yük Dengeleme hedefleri şunlardır:
 
 * Kullanılabilirliğini artırmak için. Birden çok cihazda Bakiye bağlantıları yüklediğinizde, bir veya daha fazla aygıtlar hizmet ödün vermeden kullanılamaz hale gelebilir. Kalan çevrimiçi cihaz üzerinde çalışan hizmetleri hizmetinden gelen içerik sunmak devam edebilirsiniz.
-* Performansı artırmak için. Birden çok cihazda Bakiye bağlantıları yüklediğinizde, tüm işlemleri işlemek tek bir cihaz yok. Bunun yerine, içeriği sunması için işlem ve bellek taleplerini yayılır birden çok cihazda.
+* Performansı artırmak için. Birden çok cihazda Bakiye bağlantıları yüklediğinizde, bir tek cihaz eklenmemişse t sahip tüm işlemleri işlemek. Bunun yerine, içeriği sunması için işlem ve bellek taleplerini yayılır birden çok cihazda.
 
 ### <a name="http-based-load-balancing"></a>HTTP tabanlı Yük Dengeleme
 
@@ -231,7 +231,7 @@ Bu web hizmetleri önündeki bir HTTP tabanlı yük dengeleyici web tabanlı Hiz
 Azure Application Gateway, HTTP tabanlı Yük Dengeleme, web tabanlı hizmetler sunar. Application Gateway destekler:
 
 * Tanımlama bilgilerine dayalı oturum benzeşimi. Bu özellik, yük dengeleyicinin arkasına sunucularından birine kurulan istemci ve sunucu arasında değişmeden kalmasını sağlar. Bu işlem kararlılığını sağlar.
-* SSL yük boşaltma. Bir istemci yük dengeleyiciyle bağlandığında, bu oturuma HTTPS (SSL) protokolü kullanılarak şifrelenir. Ancak, performansı artırmak için yük dengeleyici ve yük dengeleyicinin arkasındaki web sunucusu arasında bağlantı kurmak için HTTP (şifrelenmemiş) protokolünü kullanabilirsiniz. Yük dengeleyicinin arkasındaki web sunucuları işlemci ek yükü şifrelemeyle ilgili deneyimi yoktur çünkü bu "SSL boşaltma" adlandırılır. Web sunucuları bu nedenle istekleri daha hızlı bir şekilde hizmet verebilirsiniz.
+* SSL yük boşaltma. Bir istemci yük dengeleyiciyle bağlandığında, bu oturuma HTTPS (SSL) protokolü kullanılarak şifrelenir. Ancak, performansı artırmak için yük dengeleyici ve yük dengeleyicinin arkasındaki web sunucusu arasında bağlantı kurmak için HTTP (şifrelenmemiş) protokolünü kullanabilirsiniz. SSL yük boşaltma, web sunucularının yük dengeleyici don t arkasında işlemci ek yükü şifrelemeyle ilgili deneyimi çünkü bu için denir. Web sunucuları bu nedenle istekleri daha hızlı bir şekilde hizmet verebilirsiniz.
 * URL tabanlı içerik yönlendirme. Bu özellik, hedef URL temel alınarak ileriye doğru bağlantıları burada hakkında kararlar yapmak yük dengeleyici için mümkün kılar. Bu, Yük Dengeleme kararları IP adreslerine göre olun çözümlerine kıyasla çok daha fazla esneklik sağlar.
 
 Daha fazla bilgi edinin:
@@ -256,7 +256,7 @@ Daha fazla bilgi edinin:
 
 ### <a name="global-load-balancing"></a>Genel Yük Dengeleme
 
-Bazı kuruluşlar, olası en yüksek düzeyde kullanılabilirlik istersiniz. Bu hedefe ulaşmak için bir Global olarak dağıtılmış veri merkezlerinde uygulamalarını barındırmak için yoludur. Dünyanın dört bir yanında bulunan veri merkezlerinde barındırılan bir uygulama, olası tüm coğrafi bir bölgenin kullanılamaz duruma gelir ve yine de uygulamanın sahip ve çalışır durumdadır.
+Bazı kuruluşlar, olası en yüksek düzeyde kullanılabilirlik istersiniz. Bu hedefe ulaşmak için bir Global olarak dağıtılmış veri merkezlerinde uygulamalarını barındırmak için yoludur. Bir uygulama dünya genelinde bulunan veri merkezlerinde barındırılan, s kullanılamaz duruma gelir ve uygulamayı çalıştırmaya devam bir tüm jeopolitik bölge için mümkün.
 
 Bu yük dengeleyici strateji performans avantajları da sağlayabilir. Hizmet isteği yapan cihaz en yakın veri merkezine için istekleri yönlendirebilir.
 
@@ -268,11 +268,11 @@ Daha fazla bilgi edinin:
 
 ## <a name="name-resolution"></a>Ad çözümlemesi
 
-Ad çözümlemesi, tüm hizmetleri Azure'da barındırmak için önemli bir işlevdir. Güvenlik açısından bakıldığında, ad çözümlemesi işlevini güvenliğinin aşılması, sitelerden istekleri bir saldırganın sitesine yönlendirme saldırgan neden olabilir. Güvenli ad çözümlemesi, tüm barındırılan bulut Hizmetleri için bir gereksinimdir.
+Ad çözümlemesi, tüm hizmetleri Azure'da barındırmak için önemli bir işlevdir. Güvenlik açısından bakıldığında, ad çözümlemesi işlevini güvenliğinin aşılması, sitelerden istekleri bir saldırgan s sitesine yönlendirme saldırgan neden olabilir. Güvenli ad çözümlemesi, tüm barındırılan bulut Hizmetleri için bir gereksinimdir.
 
 Ad çözümlemesi ilgilenmeniz gereken iki çeşit vardır:
 
-* İç ad çözümlemesi. Bu, sanal ağlarınızı, şirket içi ağlarınızı ya da her ikisi de Hizmetleri tarafından kullanılır. İç ad çözümlemesi için kullanılan adları internet üzerinden erişilebilir değildir. En iyi güvenlik için iç ad çözümlemesi düzeninizi dış kullanıcılar için erişilebilir değil önemlidir.
+* İç ad çözümlemesi. Bu, sanal ağlarınızı, şirket içi ağlarınızı ya da her ikisi de Hizmetleri tarafından kullanılır. İç ad çözümlemesi için kullanılan adları internet üzerinden erişilebilir değildir. En iyi güvenlik için dahili ad çözümlemesi düzeninizi dış kullanıcılar için erişilebilir değil önemlidir.
 * Dış ad çözümlemesi. Bu, şirket içi ağlarınız ve sanal ağları dışındaki kişi ve cihazlarla tarafından kullanılır. Bu, internet'e görünür olduğundan ve bulut tabanlı hizmetlerinize bağlantı yönlendirmek için kullanılan adlardır.
 
 İç ad çözümlemesi için iki seçeneğiniz vardır:
@@ -292,7 +292,7 @@ Dış ad çözümlemesi için iki seçeneğiniz vardır:
 
 Birçok büyük kuruluşlar, kendi DNS sunucuları şirket içi barındırın. Bunu yapmak için küresel bir erişim ağına ve ağ uzmanlığı olduğundan, bunu yapabilirsiniz.
 
-Çoğu durumda, DNS ad çözümleme hizmetleri bir hizmet sağlayıcı ile barındırmanız iyidir. Bu hizmet sağlayıcıları ağ uzmanlık ve ad çözümleme hizmetleriniz için yüksek kullanılabilirlik sağlamak için küresel bir erişim ağına sahiptir. Kullanılabilirlik, ad çözümleme hizmetleri başarısız olursa, hiç kimsenin Hizmetleri, Internet'e erişmek mümkün olacağından, DNS hizmetleri için gereklidir.
+Çoğu durumda bu DNS ana bilgisayar daha iyi s ad çözümleme hizmetleri ile bir hizmet sağlayıcısı. Bu hizmet sağlayıcıları ağ uzmanlık ve ad çözümleme hizmetleriniz için yüksek kullanılabilirlik sağlamak için küresel bir erişim ağına sahiptir. Kullanılabilirlik, ad çözümleme hizmetleri başarısız olursa, hiç kimsenin Hizmetleri, Internet'e erişmek mümkün olacağından, DNS hizmetleri için gereklidir.
 
 Azure, bir yüksek oranda kullanılabilir ve yüksek performanslı dış DNS çözüm formundaki, Azure DNS sağlar. Bu dış ad çözümlemesi çözüm dünya çapındaki Azure DNS altyapısı yararlanır. Etki alanınızı azure'da aynı kimlik bilgileri, API'ler, Araçlar ve diğer Azure hizmetlerinde faturalama barındırmanıza olanak tanır. Azure bir parçası olarak, platformda yerleşik olarak güçlü güvenlik denetimleri de devralır.
 
@@ -303,7 +303,7 @@ Daha fazla bilgi edinin:
 
 ## <a name="perimeter-network-architecture"></a>Çevre ağ mimarisi
 
-Çoğu büyük kuruluş ağlarına segmentlere ayırmak için çevre ağları kullanın ve internet ile hizmet arasında tampon bölgesi oluşturma. Ağ çevre kısmı bir düşük güvenlikli bölgenin kabul edilir ve hiçbir yüksek değerli varlıklar söz konusu ağ segmente yerleştirilir. Çevre ağ kesimindeki bir ağ arabirimine sahip ağ güvenlik cihazlar genellikle görürsünüz. Sanal makineler ve hizmetler, internet'ten gelen bağlantıları kabul edecek olan bir ağa bağlı başka bir ağ arabirimi.
+Çoğu büyük kuruluş ağlarına segmentlere ayırmak için çevre ağları kullanın ve internet ile hizmet arasında tampon bölgesi oluşturma. Ağ çevre kısmı bir düşük güvenlikli bölgenin kabul edilir ve hiçbir yüksek değerli varlıklar söz konusu ağ segmente yerleştirilir. Ll, genellikle çevre ağ kesimindeki bir ağ arabirimine sahip ağ güvenlik cihazları bakın. Sanal makineler ve hizmetler, internet'ten gelen bağlantıları kabul edecek olan bir ağa bağlı başka bir ağ arabirimi.
 
 Bir dizi farklı yolla Çevre ağları tasarlayabilirsiniz. Bir çevre ağına ve ardından bir kullanmaya karar verirseniz kullanmak için ne tür bir çevre ağ dağıtma kararı, ağ güvenlik gereksinimlerine bağlıdır.
 
@@ -313,19 +313,19 @@ Daha fazla bilgi edinin:
 
 ## <a name="azure-ddos-protection"></a>Azure DDoS koruması
 
-Dağıtılmış hizmet engelleme (DDoS) saldırıları, uygulamalarını buluta taşıyan müşterilerin karşılaştığı en büyük kullanılabilirlik ve güvenlik sorunlarından biridir. DDoS saldırıları, bir uygulamanın kaynaklarını tüketerek uygulamanın geçerli kullanıcılar için kullanılamaz duruma gelmesini amaçlar. DDoS saldırıları internet üzerinden genel olarak erişilebilen herhangi bir uç noktasını hedefleyebilir.
+Dağıtılmış hizmet engelleme (DDoS) saldırıları, uygulamalarını buluta taşıyan müşterilerin karşılaştığı en büyük kullanılabilirlik ve güvenlik sorunlarından biridir. Bir DDoS saldırısının uygulama kullanılamaz yapmak için kullanıcıların bir uygulama s kaynakları tüketebilir dener. DDoS saldırıları internet üzerinden genel olarak erişilebilen herhangi bir uç noktasını hedefleyebilir.
 Microsoft olarak bilinen DDoS koruması sağlar **temel** Azure platformunun bir parçası olarak. Bu, ücretsiz olarak sunulur ve her zaman ortak ağ düzeyinde saldırı izleme ve gerçek zamanlı azaltma üzerinde içerir. DDoS koruması ile dahil korumaları yanı sıra **temel** etkinleştirebilirsiniz **standart** seçeneği. DDoS koruması standart özellikler şunlardır:
 
-* **Yerel platform tümleştirme:** yerel olarak tümleştirilmiş Azure. Azure portalı üzerinden yapılandırma içerir. Standart DDoS koruması, kaynaklarınızı ve kaynak yapılandırması farkındadır.
-* **Kullanıma hazır koruma:** Basitleştirilmiş yapılandırma standart DDoS koruması etkinleştirilmiş olarak bir sanal ağ üzerindeki tüm kaynaklar hemen korur. Hiçbir müdahale veya kullanıcı tanımı gereklidir. Bunu algılandığında DDoS koruması standart anında ve otomatik olarak saldırı azaltır.
-* **Her zaman açık trafik izleme:** , uygulama trafiği düzenlerinin DDoS saldırılarının göstergelerini bakarak haftada 7 gün, günde 24 saat izlenir. Koruma ilkeleri aşıldığında azaltma gerçekleştirilir.
+* **Yerel platform tümleştirme:** Yerel olarak Azure'a entegre. Azure portalı üzerinden yapılandırma içerir. Standart DDoS koruması, kaynaklarınızı ve kaynak yapılandırması farkındadır.
+* **Kullanıma hazır koruma:** DDoS koruması standart etkin olarak Basitleştirilmiş yapılandırma, bir sanal ağ üzerindeki tüm kaynaklar hemen korur. Hiçbir müdahale veya kullanıcı tanımı gereklidir. Bunu algılandığında DDoS koruması standart anında ve otomatik olarak saldırı azaltır.
+* **Her zaman açık trafik izleme:** Uygulama trafiği düzenlerinin, DDoS saldırılarının göstergelerini bakarak haftada 7 gün, günde 24 saat izlenir. Koruma ilkeleri aşıldığında azaltma gerçekleştirilir.
 * **Saldırı azaltma raporları** saldırı azaltma raporları toplanan ağ akışı veri kaynaklarınıza hedeflenen saldırıları hakkında ayrıntılı bilgi sağlamak için kullanın.
 * **Saldırı azaltma akış günlükleri** saldırı azaltma akış günlüklerini gözden trafiğin bırakılmasına izin iletilen trafiği ve diğer saldırı verileri neredeyse gerçek zamanlı etkin bir DDoS saldırı sırasında.
-* **Uyarlamalı ayarlama:** akıllı trafik profil oluşturma uygulamanızdaki trafiği zamanla öğrenir ve seçer ve hizmetiniz için en uygun profili güncelleştirir. Trafiği zamanla olan değişimini profilinin ayarlar. Katman 7 koruması için Katman 3: bir web uygulaması güvenlik duvarı ile kullanıldığında tam yığın DDoS koruması sağlar.
-* **Kapsamlı azaltma Ölçek:** üzerinden 60 farklı saldırı türleri azaltılabilir, en büyük bilinen DDoS saldırılarına karşı korumaya yönelik genel kapasiteyle.
-* **Saldırı ölçümleri:** Summarized ölçümleri her saldırılara karşı Azure İzleyici erişilebilir.
-* **Saldırı Uyarı:** uyarıları, başlatma ve durdurma bir saldırı sırasında yapılandırılabilir ve saldırı'nın süresi boyunca yerleşik saldırı ölçümleri kullanarak. Uyarıları operasyonel yazılımınızı Microsoft Azure Log Analytics, Splunk, Azure depolama, e-posta ve Azure portalı gibi tümleştirin.
-* **Maliyet garantisi:** veri aktarımı ve uygulama ölçeklendirme hizmet KREDİLERİ belgelenmiş bir DDoS saldırıları için.
+* **Uyarlamalı ayarlama:** Akıllı trafik profil oluşturma, uygulama s trafiği zamanla öğrenir seçer ve hizmetiniz için en uygun profili güncelleştirir. Trafiği zamanla olan değişimini profilinin ayarlar. Katman 7 koruması için Katman 3: Tam yığın DDoS koruması, web uygulaması güvenlik duvarı ile kullanıldığında sağlar.
+* **Kapsamlı azaltma Ölçek:** En büyük bilinen DDoS saldırılarına karşı korumaya yönelik genel kapasiteyle 60'tan fazla farklı saldırı türleri azaltılabilir.
+* **Saldırı ölçümleri:** Her saldırılara karşı özetlenmiş ölçümler, Azure İzleyici erişilebilir.
+* **Saldırı Uyarı:** Uyarılar, başlatma ve durdurma bir saldırı sırasında yapılandırılabilir ve saldırı s süresi boyunca yerleşik saldırı ölçümleri kullanarak. Uyarıları operasyonel yazılımınızı Microsoft Azure Log Analytics, Splunk, Azure depolama, e-posta ve Azure portalı gibi tümleştirin.
+* **Maliyet garantisi:**  Veri aktarımı ve uygulama ölçeklendirme hizmet iadeleri belgelenmiş bir DDoS saldırıları için.
 * **DDoS hızlı yanıt veren** DDoS koruması standart müşterileri artık etkin bir saldırı sırasında hızlı yanıt takım erişime sahiptir. DRR saldırı araştırma, bir saldırı ve saldırı sonrası analiz sırasında özel azaltmaları yardımcı olabilir.
 
 
@@ -394,7 +394,7 @@ Daha fazla bilgi edinin:
 
 Ağ düzeyinde günlüğe kaydetme, herhangi bir ağ güvenlik senaryo için temel bir işlevdir. Azure'da ağ düzeyinde bilgi günlük kaydı almak Nsg'ler için elde edilen bilgileri günlüğe kaydedebilirsiniz. NSG günlüğüyle bilgileri alın:
 
-* [Etkinlik günlükleri](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Bu günlükler, Azure aboneliklerinize gönderilen tüm işlemleri görüntülemek için kullanın. Bu günlükler varsayılan olarak etkindir ve Azure portalında kullanılabilir. Daha önce denetim veya işlem günlükleri bilinirdi.
+* [Etkinlik günlükleri](../azure-monitor/platform/activity-logs-overview.md). Bu günlükler, Azure aboneliklerinize gönderilen tüm işlemleri görüntülemek için kullanın. Bu günlükler varsayılan olarak etkindir ve Azure portalında kullanılabilir. Daha önce denetim veya işlem günlükleri bilinirdi.
 * Olay günlükleri. Bu günlükler, hangi NSG kuralları uygulanan hakkında bilgi sağlar.
 * Sayaç günlükleri. Bu günlükler her bir NSG kuralı, trafiğine izin vermek veya reddetmek için uygulanan kaç kez size sağlar.
 
