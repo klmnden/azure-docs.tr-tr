@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 7e1f2411db828917d7a3c5e21348b553a5a5a3bb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d83a27d87ffadd15a27196a11ae3f69d84232efa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087517"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719615"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Azure mantıksal uygulamalardan özel API'lere giden çağrıların güvenliğini sağlama
 
@@ -24,12 +24,12 @@ Kodunuzu güncelleştirmek zorunda kalmamak için API'lere giden çağrıların 
 
 Özel API'nizi aşağıdaki şekillerde çağrıları güvenli hale getirebilirsiniz:
 
-* [Kod değişikliği yapmadan](#no-code): ile API'nizi koruma [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) Azure portalı üzerinden, bu nedenle yazmanız gerekmez kodunuzu güncelleştirin veya API'nizi yeniden dağıtın.
+* [Kod değişikliği yapmadan](#no-code): İle API'nizi koruma [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) Azure portalı üzerinden, bu nedenle yazmanız gerekmez kodunuzu güncelleştirin veya API'nizi yeniden dağıtın.
 
   > [!NOTE]
   > Varsayılan olarak, hassas yetkilendirme Azure Portalı'nda açmanız Azure AD kimlik doğrulaması sağlamaz. Örneğin, bu kimlik doğrulaması yalnızca belirli bir kiracıda değil, belirli bir kullanıcı veya uygulama API'nizi kilitler. 
 
-* [API'NİZİN kodu güncelleştirmeniz](#update-code): zorlayarak API'nizi koruma [sertifika kimlik doğrulaması](#certificate), [temel kimlik doğrulaması](#basic), veya [Azure AD kimlik doğrulaması](#azure-ad-code) aracılığıyla kodu.
+* [API'NİZİN kodu güncelleştirmeniz](#update-code): Zorlayarak API'nizi koruma [sertifika kimlik doğrulaması](#certificate), [temel kimlik doğrulaması](#basic), veya [Azure AD kimlik doğrulaması](#azure-ad-code) kod aracılığıyla.
 
 <a name="no-code"></a>
 
@@ -43,7 +43,7 @@ Bu yöntem için genel adımlar şunlardır:
 
 3. Mantıksal uygulama tanımınızı uygulama kimliklerini içerir.
 
-#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>1. Bölüm: mantıksal uygulamanız için bir Azure AD uygulama kimliği oluşturma
+#### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>1. Bölüm: Mantıksal uygulamanız için bir Azure AD uygulama kimliği oluşturma
 
 Mantıksal uygulamanızı karşı Azure AD kimlik doğrulaması için bu Azure AD uygulama kimliğini kullanır. Yalnızca bir kez dizininiz için bu kimlik ayarlamak zorunda. Örneğin, her mantıksal uygulama için benzersiz bir kimlik oluşturabilirsiniz olsa bile, tüm logic apps için aynı kimlik kullanmayı da tercih edebilirsiniz. Azure portalında bu kimlikleri ayarlayın veya kullanın [PowerShell](#powershell).
 
@@ -106,7 +106,7 @@ PowerShell ile Azure Resource Manager aracılığıyla bu görevi gerçekleştir
 
 Daha fazla bilgi için bilgi nasıl [kaynaklarına erişmek için PowerShell ile hizmet sorumlusu oluşturma](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
-#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>2. Bölüm: Azure AD uygulama kimliği, web veya API uygulaması oluşturma
+#### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>2. Bölüm: Web uygulamanızı veya API uygulaması için bir Azure AD uygulama kimliği oluşturma
 
 Web uygulamanızı veya API uygulaması zaten dağıtılmışsa, kimlik doğrulamasını etkinleştirmek ve Azure portalında uygulama kimliği oluşturun. Aksi takdirde [bir Azure Resource Manager şablonu ile dağıttığınızda kimlik doğrulamasını etkinleştirmek](#authen-deploy). 
 
@@ -178,7 +178,7 @@ Bir boş web uygulaması ve bir mantıksal uygulama Azure Active Directory kimli
 
 [![Azure’a dağıtma](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
-#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>3. Bölüm: mantıksal uygulamanızı yetkilendirme bölümünde Doldur
+#### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>3. Bölüm: Mantıksal uygulamanızı yetkilendirme bölümünde Doldur
 
 Önceki şablon zaten ayarlanmış bu yetkilendirme bölüm vardır, ancak doğrudan mantıksal uygulama yazıyorsanız, tam yetkilendirme bölümü içermelidir.
 
@@ -186,7 +186,7 @@ Açık mantıksal uygulama tanımınızı kod Görünümü'nde Git **HTTP** eyle
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
-| Öğe | Gerekli | Açıklama | 
+| Öğe | Gereklidir | Açıklama | 
 | ------- | -------- | ----------- | 
 | kiracı | Evet | Azure AD kiracısı için GUID | 
 | Hedef kitle | Evet | İstemci kimlik, web veya API uygulaması için uygulama kimliği, erişmek istediğiniz hedef kaynağı için GUID | 
@@ -232,7 +232,7 @@ Web uygulamanızı veya API uygulaması için mantıksal uygulamadan gelen istek
 
 `{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
 
-| Öğe | Gerekli | Açıklama | 
+| Öğe | Gereklidir | Açıklama | 
 | ------- | -------- | ----------- | 
 | type | Evet | Kimlik doğrulaması türü. SSL istemci sertifikaları için bir değer olmalıdır `ClientCertificate`. | 
 | password | Evet | İstemci sertifikası (PFX dosyası) erişmek için parola | 
@@ -249,7 +249,7 @@ Web uygulamanızı veya API uygulaması, mantıksal uygulamadan gelen istekleri 
 
 `{"type": "basic", "username": "username", "password": "password"}`.
 
-| Öğe | Gerekli | Açıklama | 
+| Öğe | Gereklidir | Açıklama | 
 | ------- | -------- | ----------- | 
 | type | Evet | Kullanmak istediğiniz kimlik doğrulaması türü. Temel kimlik doğrulaması için bir değer olmalıdır `Basic`. | 
 | kullanıcı adı | Evet | Kimlik doğrulaması için kullanmak istediğiniz kullanıcı adı | 
@@ -266,7 +266,7 @@ Kod aracılığıyla mantıksal uygulamanız için API erişimini kısıtlamak i
 
 <!-- Going further, to implement this authentication entirely in your own code, 
 and not use the Azure portal, learn how to 
-[authenticate with on-premises Active Directory in your Azure app](../app-service/app-service-authentication-overview.md).
+[authenticate with on-premises Active Directory in your Azure app](../app-service/overview-authentication-authorization.md).
 
 To create an application identity for your logic app and use that identity to call your API, 
 you must follow the previous steps. -->

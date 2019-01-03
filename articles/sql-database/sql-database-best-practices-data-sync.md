@@ -9,21 +9,24 @@ ms.devlang: ''
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: ''
+ms.reviewer: douglasl
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: fa5ce7264fd003e0a49d6408acae070577879cdd
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: a7289ba5ab1f4e94adc099978591d69cac6ff786
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686628"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721606"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL Data Sync için en iyi deneyimler 
 
 Bu makalede, Azure SQL Data Sync için en iyi uygulamaları açıklar.
 
 SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync mu **değil** şu anda Azure SQL veritabanı yönetilen örneği destekler.
 
 ## <a name="security-and-reliability"></a> Güvenlik ve güvenilirlik
 
@@ -196,7 +199,7 @@ Bazı durumlarda, bir veritabanı ile bir istemci Aracısı kaydını eşitleme 
 1. SQL veritabanı örneğinde ve yerel Aracı 1 ile ilişkili bir şirket içi SQL Server veritabanını kullanarak bir eşitleme grubu oluşturuldu.
 2. Aynı şirket içi veritabanı, yerel Aracı (Bu aracı, herhangi bir eşitleme grubu ile ilişkili değil) 2 ile kaydedilmiştir.
 3. Şirket içi veritabanı kaydını yerel Aracıdan izleme 2 kaldırır ve meta tablolar için şirket içi veritabanı için bir grup eşitleme.
-4. Eşitleme grubu bu hata bir işlem başarısız olur: "geçerli işlem eşitleme yapılandırma tablolar için izniniz yok veya veritabanı eşitleme için sağlanmamış olduğundan tamamlanamadı."
+4. Eşitleme Grubu A işlemleri, şu hatayla başarısız: "Geçerli işlem eşitleme yapılandırma tablolar için izniniz yok veya veritabanı eşitleme için sağlanmamış olduğundan tamamlanamadı."
 
 #### <a name="solution"></a>Çözüm
 
@@ -221,7 +224,7 @@ SQL Data Sync hakkında daha fazla bilgi için bkz:
 
 -   Genel Bakış - [verileri Eşitle birden fazla Bulut ve şirket içi veritabanı arasında Azure SQL Data Sync ile](sql-database-sync-data.md)
 -   Data Sync'i Ayarla
-    - Portalda - [öğretici: Azure SQL veritabanı ve SQL Server arasında verileri eşitlemek amacıyla şirket içi SQL Data Sync'i Ayarla](sql-database-get-started-sql-data-sync.md)
+    - Portalda - [Öğreticisi: Azure SQL veritabanı ve SQL Server arasında verileri eşitlemek amacıyla şirket içi SQL Data Sync'i Ayarla](sql-database-get-started-sql-data-sync.md)
     - PowerShell ile
         -  [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)

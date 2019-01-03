@@ -8,17 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: raynew
-ms.openlocfilehash: 0cfbb258364ed684ff38b2be9f998d8ff0656251
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a7f09341c1362850409a940810a4e2dd20aa7f74
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864545"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745049"
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Azure sanal makine yedekleme uyarılarını izleme
+
 Bir olayı eşiği karşılanmalı veya aşılan hizmetinden alınan yanıtları uyarılardır. Bilerek zaman sorunları başlangıç iş maliyetleri düşük düzeyde tutarak için kritik olabilir. Uyarılar genellikle bir zamanlamaya göre gerçekleşmez ve bu nedenle uyarılar ortaya sonra hemen bilmek yararlı olur. Örneğin, bir yedekleme veya geri yükleme işi başarısız olduğunda bir uyarı hata beş dakika içinde gerçekleşir. Kasa panosunda, yedekleme uyarıları kutucuğuna kritik ve uyarı düzeyi olayları görüntüler. Yedekleme uyarıları Ayarları'nda, tüm olayları görüntüleyebilirsiniz. Ancak, ayrı bir sorunu üzerinde çalışırken, bir uyarı ortaya çıkarsa ne yapacaksınız? Uyarı gerçekleştiğinde bilmiyorsanız, küçük bir sorun nedeniyle olabilir veya verileri tehlikeye atabilecek. Oluştuğunda doğru kişilere bir uyarının - farkında olduğundan emin olmak için hizmetini e-posta üzerinden uyarı bildirimleri gönderecek şekilde yapılandırın. E-posta bildirimleri ayarlama hakkında daha fazla ayrıntı için bkz. [bildirimleri yapılandırma](backup-azure-monitor-vms.md#configure-notifications).
 
 ## <a name="how-do-i-find-information-about-the-alerts"></a>Uyarılarla ilgili bilgileri nasıl bulabilirim?
+
 Bir uyarı oluşturdu olayla ilgili bilgileri görüntülemek için yedekleme Uyarılar bölümünde açmanız gerekir. Yedekleme Uyarılar bölümünde açmanın iki yolu vardır: yedekleme uyarılardan ya da kasa panosunda veya uyarıları ve olayları bölümünden bölmesi.
 
 Yedekleme uyarıları kutucuğundan yedekleme uyarılar dikey penceresini açmak için:
@@ -43,6 +45,7 @@ Yedekleme uyarıları dikey penceresi uyarıları ve olayları bölümünden aç
     Listede gösterilen öznitelikleri özelleştirmek için bkz [ek olay öznitelikleri görüntüleyin](backup-azure-monitor-vms.md#view-additional-event-attributes)
 
 ## <a name="configure-notifications"></a>Bildirimleri yapılandırma
+
  Son bir saat boyunca veya belirli türde olaylar meydana geldiğinde gerçekleşen uyarılar için e-posta bildirimleri gönderecek şekilde hizmeti yapılandırabilirsiniz.
 
 Uyarılar için e-posta bildirimlerini ayarlamak için
@@ -62,14 +65,16 @@ Uyarılar için e-posta bildirimlerini ayarlamak için
 5. İçinde **önem derecesi** iletişim e-posta bildirimi tetiklemek istediğiniz bir veya daha fazla düzeyleri seçin.
 6. **Kaydet**’e tıklayın.
 
-   ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Azure Iaas VM yedeklemesi için hangi uyarı türleri mevcuttur?
+### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Azure Iaas VM yedeklemesi için hangi uyarı türleri kullanılabilir
+
    | Uyarı düzeyi | Gönderilen uyarılar |
    | --- | --- |
    | Kritik | Kurtarma hatası yedekleme hatası için |
    | Uyarı | uyarılarla başarılı yedekleme işleri için (örneğin: bazı yazarları, bir anlık görüntü oluşturulurken başarısız oldu) |
    | Bilgilendirici | şu anda, Azure VM yedeklemesi için hiçbir bilgilendirici uyarılar kullanılabilir |
 
-### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Bildirimler yapılandırılmış olsa bile e-postanın gönderilmediği durumlar var mı?
+### <a name="situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Bildirimler yapılandırılmış olsa bile e-postanın gönderilmediği durumlar
+
 Bildirimlerin düzgün yapılandırılmış olsa da burada bir uyarı gönderilmez, durumlar vardır. Aşağıdaki durumlarda e-postayla uyarı gürültüsünü önlemek için bildirimleri gönderilmez:
 
 * Bildirimler, saatlik Özet için yapılandırılır ve bir uyarı oluşturulur ve aynı saat içinde çözülen durumunda.
@@ -79,9 +84,13 @@ Bildirimlerin düzgün yapılandırılmış olsa da burada bir uyarı gönderilm
 
 ## <a name="using-activity-logs-to-get-notifications-for-successful-backups"></a>Başarılı yedeklemeler için bildirim almak için etkinlik günlüklerini kullanma
 
+> [!NOTE]
+> Azure Backup kurtarma Hizmetleri kasaları üzerinde etkinlik günlüklerinden Pompalama, yeni bir Modeli'ne taşıdık. Ne yazık ki bu etkinlik günlüklerini Azure bağımsız bulutlarda nesil etkilenmiş. Azure bağımsız bulut kullanıcıları oluşturulan/herhangi bir uyarıyı aşağıda belirtildiği gibi Azure İzleyici aracılığıyla etkinlik günlüklerinden yapılandırdıysanız, bunlar tetiklenmesi değil. Bu durumda, biz böyle kullanıcıların tanılama ayarları ve LA çalışma kullanmasını öneriyoruz veya [Powerbı çözüm raporlama](backup-azure-configure-reports.md) ilgili bilgileri almak için. Bir kullanıcının kurtarma Hizmetleri etkinlik günlükleri bir günlük analizi çalışma alanına belirtildiği gibi topladığını, ayrıca, tüm Azure bölgelerinde genel, [burada](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity), bu günlükleri değil de görünür.
+
 Yedeklemeler başarılı olduktan sonra size bildirilmesini istiyorsanız, üzerinde oluşturulan uyarılar kullanabileceğiniz [etkinlik günlüklerini](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) kasasının.
 
 ### <a name="login-into-azure-portal"></a>Azure portalında oturum açın
+
 Azure portalında oturum açın ve ilgili Azure kurtarma Hizmetleri Kasası'na devam ve Özellikler "Etkinlik günlüğü" bölümünde'ı tıklatın.
 
 ### <a name="identify-appropriate-log"></a>Uygun günlük tanımlayın
@@ -98,9 +107,7 @@ Daha fazla bilgi almak ve kopyalama, bir metin düzenleyicisi yapıştırma gör
 
 "Etkinlik günlüğü uyarısı Ekle" tıklandığında, bir ekran aşağıda gösterildiği gibi gösterilir
 
-![Etkinlik günlüğü Uyarısı](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png)
-    
-Abonelik ve kaynak grubu, uyarı depolamak için kullanılır. Ölçüt önceden doldurulur. Tüm değerleri, gereksinime uygun olduğundan emin olun.
+![Etkinlik günlüğü Uyarısı](./media/backup-azure-monitor-vms/activity-logs-alerts-successful.png) abonelik ve kaynak grubu, uyarı depolamak için kullanılır. Ölçüt önceden doldurulur. Tüm değerleri, gereksinime uygun olduğundan emin olun.
 
 Başarılı yedeklemeler için 'Düzeyi' "Bilgilendirici" ve durumu "Başarılı" olarak işaretlenir.
 
@@ -112,18 +119,19 @@ Bir "kaynak" Yukarıdaki seçerseniz, ilgili kaynağın veya kasa için etkinlik
 
 ![Etkinlik günlüğü eylem grubu](./media/backup-azure-monitor-vms/activity-logs-alerts-action-group.png)
 
-
 Tamam'a tıkladığınızda, bir etkinlik günlüğü uyarısı oluşturulur ve eylem grubunda tanımlanan eylem başarılı yedeklemeler için kaydedilen bir sonraki etkinlik günlüklerini ateşlenir.
 
 ### <a name="limitations-on-alerts"></a>Uyarılar ilgili sınırlamalar
+
 Olay tabanlı uyarılara aşağıdaki sınırlamalara tabi şunlardır:
 
 1. Kurtarma Hizmetleri kasasındaki tüm sanal makinelerde uyarılar tetiklenir. Bir alt kümesi sanal makinelerinin bir kurtarma Hizmetleri kasası için uyarı özelleştiremezsiniz.
 2. Uyarılar gönderilen "alerts-noreply@mail.windowsazure.com". Şu anda e-posta gönderen değiştiremezsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Bir kurtarma noktasından bir sanal makine yeniden oluşturma hakkında daha fazla bilgi için kullanıma [Azure Vm'leri geri yükleme](backup-azure-arm-restore-vms.md).
 
-Sanal makinelerinizi koruma hakkında daha fazla bilgi gerekirse bkz [ilk bakış: sanal makineleri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md). 
+Sanal makinelerinizi koruma hakkında daha fazla bilgi gerekirse bkz [ilk bakış: Vm'leri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md).
 
 Makalede, VM yedeklemeleri için yönetim görevleri hakkında daha fazla bilgi [yönetme Azure sanal makine yedeklemelerini](backup-azure-manage-vms.md).

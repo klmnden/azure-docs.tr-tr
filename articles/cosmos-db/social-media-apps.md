@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB tasarım deseni: sosyal medya uygulamaları'
+title: 'Azure Cosmos DB tasarım deseni: Sosyal medya uygulamaları'
 description: Sosyal ağlar için Azure Cosmos DB ve diğer Azure hizmetleriyle depolama esnekliğinden yararlanarak bir tasarım modeli hakkında bilgi edinin.
 keywords: Sosyal medya uygulamaları
 services: cosmos-db
@@ -8,18 +8,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 494566cc7d49d502fd0bd864e70b338b8d6e0788
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083980"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726791"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB ile iletişim
 
 İçinde bir yüksek düzeyde birbirine society yaşayan anlamına gelir hayatta belirli bir noktada, bir parçası haline gelir, bir **sosyal ağ**. Sosyal ağlar arkadaşlarınız, iş arkadaşlarınızın, ailesi sürdürebilecek tutmak veya bazen Tutkunuzu ortak ilgi alanlarına kişilerle paylaşmak için kullanın.
 
-Mühendislerin veya geliştiriciler olarak, bu ağlar depolamak ve nasıl bağlantı verilerinizi merak etmiş olabilirsiniz. Veya, bile oluşturmak veya yeni bir sosyal ağ belirli sayıda pazar için Mimari görevli. Bu durumda önemli soruyu ortaya çıkar: nasıl tüm bu veriler depolanır?
+Mühendislerin veya geliştiriciler olarak, bu ağlar depolamak ve nasıl bağlantı verilerinizi merak etmiş olabilirsiniz. Veya, bile oluşturmak veya yeni bir sosyal ağ belirli sayıda pazar için Mimari görevli. Bu durumda önemli soruyu ortaya çıkar: Tüm bu veriler nasıl depolanır?
 
 Kullanıcıların resimler, videolar veya hatta müzik gibi ilgili medya makalelerle gönderebileceği yeni ve shiny bir sosyal ağ oluşturduğunuzu düşünün. Kullanıcılar gönderilerine yorum ve derecelendirmeleri puan verin. Kullanıcıların görebileceği ve etkileşim ana Web sitesinin giriş sayfasında gönderilerin bir akış olacaktır. Bu yöntem ilk ancak kolaylık açısından en karmaşık ses değil, şimdi burada durdurun. (Özel kullanıcı akışları ilişkileri tarafından etkilenen içine delve, ancak bu makalenin hedefi gider.)
 
@@ -100,7 +100,7 @@ Akışlar oluşturma verilen ilgi sipariş kimlikleri gönderiyle listesini içe
 
 Oluşturma tarihine göre sıralanmış gönderiler ile "son" bir akışa sahip olabilir. Veya bu son 24 saat içindeki daha beğenilerin gönderilerinize "sıcak" bir akışa sahip olabilirsiniz. Özel bir akış izleyicilerinizle ve ilgi alanları gibi mantıksal göre her bir kullanıcı için bile uygulayabilirsiniz. Gönderi listesini olmaya. Sağlasa da, bu listeleri oluşturmak nasıl olduğu halde okuma performansını unhindered kalır. Bu listelerden birine edindiğiniz sonra Cosmos DB kullanarak tek bir sorgu alınmamış [İŞLECİNDE](how-to-sql-query.md#WhereClause) teker teker gönderilerin sayfaları almak için.
 
-Akış akışları kullanılarak oluşturulabilir. [Azure uygulama hizmetleri](https://azure.microsoft.com/services/app-service/) arka plan işlemleri: [Webjobs](../app-service/web-sites-create-web-jobs.md). Bir gönderi oluşturulduğunda, arka plan işlemesi kullanarak tetiklenebilir [Azure depolama](https://azure.microsoft.com/services/storage/) [kuyrukları](../storage/queues/storage-dotnet-how-to-use-queues.md) ve kullanarak Tetiklenmiş Web işleri [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), uygulama kendi özel mantığı temelinde akışlar içinde yayma gönderin.
+Akış akışları kullanılarak oluşturulabilir. [Azure uygulama hizmetleri](https://azure.microsoft.com/services/app-service/) arka plan işlemleri: [Webjobs](../app-service/webjobs-create.md). Bir gönderi oluşturulduğunda, arka plan işlemesi kullanarak tetiklenebilir [Azure depolama](https://azure.microsoft.com/services/storage/) [kuyrukları](../storage/queues/storage-dotnet-how-to-use-queues.md) ve kullanarak Tetiklenmiş Web işleri [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), uygulama kendi özel mantığı temelinde akışlar içinde yayma gönderin.
 
 Puan ve beğeniler post üzerinden sonunda tutarlı bir ortam oluşturmak için aynı tekniği kullanarak ertelenmiş bir şekilde işlenebilir.
 
@@ -206,7 +206,7 @@ Azure arama hakkında daha fazla bilgi için ziyaret edebilirsiniz [arama Hitchh
 
 ## <a name="the-underlying-knowledge"></a>Temel alınan bilgi
 
-Büyür ve her gün büyüdükçe tüm bu içerik depolama sonrasında, düşünme bulabilirsiniz: tüm bu akış bilgileri ile my kullanıcıların neler yapabilirim?
+Büyür ve her gün büyüdükçe tüm bu içerik depolama sonrasında, düşünme bulabilirsiniz: Tüm bu akış bilgileri ile my kullanıcıların neler yapabilirim?
 
 Yanıt oldukça basittir: İş ve buradan edinin yerleştirin.
 
@@ -214,7 +214,7 @@ Ancak ne öğrenebilir? Birkaç kolay örnekler [yaklaşım analizi](https://en.
 
 Büyük olasılıkla, kancalandı aldım, bu desenleri ve basit veritabanları ve dosyaları dışında bilgi ayıklamak için bazı Biyofizik matematik Bilimleri gerekir, ancak yanlış olurdu düşünecek.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)in bir parçası olan [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), içinde basit bir Sürükle ve bırak arabirimi algoritmalarını kullanarak iş akışları oluşturun, kendi algoritmalar koduolanaksağlayantamolarakyönetilenbuluthizmeti[ R](https://en.wikipedia.org/wiki/R_\(programming_language\)), veya bazı zaten oluşturulmuş ve kullanıma hazır API'leri gibi kullanın: [metin analizi](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator veya [önerileri](https://gallery.azure.ai/Solution/Recommendations-Solution).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)in bir parçası olan [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), içinde basit bir Sürükle ve bırak arabirimi algoritmalarını kullanarak iş akışları oluşturun, kendi algoritmalar koduolanaksağlayantamolarakyönetilenbuluthizmeti[ R](https://en.wikipedia.org/wiki/R_\(programming_language\)), veya bazı zaten oluşturulmuş ve kullanıma hazır API'leri gibi kullanın: [Metin analizi](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator, veya [önerileri](https://gallery.azure.ai/Solution/Recommendations-Solution).
 
 Bu makine öğrenimi senaryoların herhangi birini elde etmek için kullanabileceğiniz [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) farklı kaynaklardan bilgi alacaksınız. Ayrıca [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) bilgi işlem ve Azure Machine Learning tarafından işlenebilen bir çıktı oluşturur.
 

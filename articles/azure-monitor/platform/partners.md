@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 07127e8a15626c7eacad925381f92d0a7c94fc96
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 95e4140125f064d4e279c90f60b390c4762e8cf8
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440572"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580221"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure İzleyici iş ortağı tümleştirmeleri
 | İş Ortakları |  |  |
@@ -166,8 +166,8 @@ Turbonomic, performansı, maliyeti ve uyumluluğu gerçek zamanlı bir şekilde 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Azure İzleyici hakkında daha fazla bilgi edinin](../../azure-monitor/overview.md)
 * [REST API kullanarak erişim ölçümleri](rest-api-walkthrough.md)
-* [Microsoft olmayan bir hizmette etkinlik günlüğünün Stream](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-* [Microsoft olmayan bir hizmette Stream tanılama günlükleri](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Microsoft olmayan bir hizmette etkinlik günlüğünün Stream](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [Microsoft olmayan bir hizmette Stream tanılama günlükleri](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 
 <!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"

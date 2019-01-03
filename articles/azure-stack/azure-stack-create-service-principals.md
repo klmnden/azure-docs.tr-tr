@@ -1,28 +1,27 @@
 ---
-title: Azure Stack için hizmet sorumlusu oluşturma | Microsoft Docs
-description: Azure Kaynak Yöneticisi'nde rol tabanlı erişim denetimi ile kaynaklara erişimi yönetmek için kullanılabilir olan yeni bir hizmet sorumlusu oluşturmayı açıklar.
+title: Azure Stack için hizmet sorumlusu yönetme | Microsoft Docs
+description: Azure Kaynak Yöneticisi'nde rol tabanlı erişim denetimi ile kaynaklara erişimi yönetmek için kullanılabilir olan yeni bir hizmet sorumlusu yönetme işlemi açıklanır.
 services: azure-resource-manager
 documentationcenter: na
 author: sethmanheim
 manager: femila
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2018
+ms.date: 12/18/2018
 ms.author: sethm
-ms.openlocfilehash: a6d8ef698c005429c1184b5565b1a9387d05e062
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 50ece9edbc4bee1dea2cc61f2cdd851b278aa7b0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230123"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720450"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Uygulamalara Azure Stack erişimi sağlama
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bir uygulama dağıtmak veya Azure Stack'te Azure Resource Manager üzerinden kaynaklarını yapılandırmak için erişim gerektiğinde, uygulamanız için bir kimlik bilgisi olan bir hizmet sorumlusu oluşturun. Ardından, yalnızca bu hizmet sorumlusuna gerekli izinleri devredebilirsiniz.  
 
@@ -30,28 +29,35 @@ Bir uygulama dağıtmak veya Azure Stack'te Azure Resource Manager üzerinden ka
 
 Hizmet sorumluları olmadığından uygulama kendi kimlik bilgileriniz altında çalışan için tercih edilir:
 
-* Hizmet sorumlusu kendi hesap izinleri farklı olan izinler atayabilirsiniz. Normalde, bu izinler tam olarak uygulamaya gereken izinlerle sınırlı olur.
-* Sizin Sorumluluklarınız değiştirirseniz uygulamanın kimlik bilgilerini değiştirmeniz gerekmez.
-* Katılımsız betik yürütülürken kimlik doğrulaması otomatikleştirmek için bir sertifika kullanabilirsiniz.  
+ - Hizmet sorumlusu kendi hesap izinleri farklı olan izinler atayabilirsiniz. Normalde, bu izinler tam olarak uygulamaya gereken izinlerle sınırlı olur.
+ - Sizin Sorumluluklarınız değiştirirseniz uygulamanın kimlik bilgilerini değiştirmeniz gerekmez.
+ - Katılımsız betik yürütülürken kimlik doğrulaması otomatikleştirmek için bir sertifika kullanabilirsiniz.  
 
 ## <a name="getting-started"></a>Başlarken
 
-Nasıl Azure Stack dağıttığınız bağlı olarak, bir hizmet sorumlusu oluşturma işlemiyle başlayın. Bu belgede, her ikisi için de bir hizmet sorumlusu oluşturma açıklanmaktadır [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad) ve [Active Directory Federasyon Services(AD FS)](#create-service-principal-for-ad-fs). Hizmet sorumlusu oluşturduktan sonra AD FS ve Azure Active Directory genel adımları alışkın olduğunuz [temsilci izinleri](#assign-role-to-service-principal) rolü.     
+Nasıl Azure Stack dağıttığınız bağlı olarak, bir hizmet sorumlusu oluşturma işlemiyle başlayın. Bu belgede, hizmet sorumlusu için oluşturma açıklanmaktadır:
 
-## <a name="create-service-principal-for-azure-ad"></a>Azure AD hizmet sorumlusu oluşturma
+- [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad). Azure AD sağlayan bir çok kiracılı, bulut tabanlı dizin ve kimlik yönetimi hizmetidir. Azure AD bağlı bir Azure Stack ile kullanabilirsiniz.
+- [Active Directory Federasyon Hizmetleri (AD FS)](#create-service-principal-for-ad-fs). AD FS Basitleştirilmiş, güvenli Kimlik Federasyonu ve Web'de çoklu oturum açma (SSO) özellikleri sağlar. AD FS ile Azure Stack örnekleri bağlı ve bağlantısı kesilmiş kullanabilirsiniz.
 
-Azure Stack kimlik deposu olarak Azure AD'yi kullanarak dağıttıysanız, Azure için gibi hizmet sorumluları oluşturabilirsiniz. Bu bölümde Portalı aracılığıyla adımların nasıl gerçekleştirileceğini gösterir. Sahip olduğunuz denetimi [Azure AD izinleri gerekli](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) başlamadan önce.
+Hizmet sorumlusu oluşturduktan sonra AD FS ve Azure Active Directory genel adımları alışkın olduğunuz [temsilci izinleri](#assign-role-to-service-principal) rolü.
+
+## <a name="manage-service-principal-for-azure-ad"></a>Azure AD hizmet sorumlusunu Yönet
+
+Azure Active Directory (Azure AD) ile Azure Stack, kimlik yönetimi hizmeti olarak dağıttıysanız, Azure için gibi hizmet sorumluları oluşturabilirsiniz. Bu bölümde Portalı aracılığıyla adımların nasıl gerçekleştirileceğini gösterir. Sahip olduğunuz denetimi [Azure AD izinleri gerekli](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) başlamadan önce.
 
 ### <a name="create-service-principal"></a>Hizmet sorumlusu oluşturma
+
 Bu bölümde, Azure AD'de uygulamanızı temsil eden bir uygulama (hizmet sorumlusu) oluşturma.
 
 1. Üzerinden Azure hesabınızla oturum açın [Azure portalında](https://portal.azure.com).
-2. Seçin **Azure Active Directory** > **uygulama kayıtları** > **yeni uygulama kaydı**   
+2. Seçin **Azure Active Directory** > **uygulama kayıtları** > **yeni uygulama kaydı**
 3. Uygulama için bir ad ve URL sağlayın. Şunlardan birini seçin **Web uygulaması / API** veya **yerel** oluşturmak istediğiniz uygulama türü. Değerleri ayarladıktan sonra seçin **Oluştur**.
 
 Uygulamanız için bir hizmet sorumlusu oluşturdunuz.
 
 ### <a name="get-credentials"></a>Kimlik bilgilerini al
+
 Programlamayla oturum açılırken, kimlik, uygulamanız için ve bir Web uygulaması için kullandığınız / API, bir kimlik doğrulama anahtarı. Bu değerleri almak için aşağıdaki adımları kullanın:
 
 1. Gelen **uygulama kayıtları** Active Directory'de, uygulamanızı seçin.
@@ -67,27 +73,45 @@ Anahtar kaydedildikten sonra, anahtarın değeri görüntülenir. Daha sonra ana
 
 ![kaydedilen anahtar](./media/azure-stack-create-service-principal/image15.png)
 
-İşlem tamamlandıktan sonra devam [uygulamanızı rol atama](#assign-role-to-service-principal).
+İşlem tamamlandıktan sonra yapabilecekleriniz [uygulamanızı rol atama](#assign-role-to-service-principal).
 
-## <a name="create-service-principal-for-ad-fs"></a>AD FS için hizmet sorumlusu oluşturma
-AD FS ile Azure Stack dağıttıysanız, hizmet sorumlusu oluşturma, erişim için rol atama ve o kimlik kullanarak PowerShell üzerinden oturum için PowerShell kullanabilirsiniz.
+## <a name="manage-service-principal-for-ad-fs"></a>AD FS için hizmet sorumlusunu Yönet
 
-Betik ayrıcalıklı uç noktasından bir ERCS sanal makinede çalıştırılır.
+Active Directory Federasyon Hizmetleri (AD FS) ile Azure Stack, kimlik yönetimi hizmeti olarak dağıttıysanız, hizmet sorumlusu oluşturma, erişim için bir rol atayın ve bu kimliklerini kullanarak oturum için PowerShell kullanın.
 
-Gereksinimler:
-- Bir sertifika gereklidir.
+AD FS ile hizmet sorumlusu oluşturmak için iki yöntemden birini kullanabilirsiniz. Şunları yapabilirsiniz:
+ - [Bir sertifika kullanarak bir hizmet sorumlusu oluşturma](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate)
+ - [İstemci gizli anahtarı kullanarak bir hizmet sorumlusu oluşturma](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret)
 
-Sertifika gereksinimleri:
+AD FS yönetimi ile ilgili görevler sorumluları hizmeti.
+
+| Tür | Eylem |
+| --- | --- |
+| AD FS sertifikası | [Oluşturma](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
+| AD FS sertifikası | [Güncelleştirme](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-AD-FS) |
+| AD FS sertifikası | [Kaldır](azure-stack-create-service-principals.md#remove-a-service-principal-for-AD-FS) |
+| AD FS istemci gizli anahtarı | [Oluşturma](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
+| AD FS istemci gizli anahtarı | [Güncelleştirme](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
+| AD FS istemci gizli anahtarı | [Kaldır](azure-stack-create-service-principals.md##remove-a-service-principal-for-AD-FS) |
+
+### <a name="create-a-service-principal-using-a-certificate"></a>Bir sertifika kullanarak bir hizmet sorumlusu oluşturma
+
+Bir hizmet sorumlusu kimliği için AD FS kullanırken oluştururken, bir sertifika kullanabilirsiniz.
+
+#### <a name="certificate"></a>Sertifika
+
+Bir sertifika gereklidir.
+
+**Sertifika gereksinimleri**
+
  - Şifreleme hizmeti sağlayıcısı (CSP), eski anahtar sağlayıcısı olmalıdır.
  - Ortak ve özel anahtarlar gerektiğinde PFX dosyasını sertifika biçimi olmalıdır. Windows sunucuları, ortak anahtar dosyasını (SSL sertifika dosyası) içeren .pfx dosyaları ve ilişkili özel anahtar dosyasını kullanın.
- - Üretim için sertifika bir iç sertifika yetkilisi veya bir ortak sertifika yetkilisi verilmiş olması gerekir. Bir ortak sertifika yetkilisi kullanmanız durumunda, içermesi yetkilisi temel işletim sistemi görüntüsüne Microsoft güvenilir kök yetkilisi programının bir parçası olarak. Tam listesini bulabilirsiniz [Microsoft güvenilen kök sertifika programı: katılımcıları](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+ - Üretim için sertifika bir iç sertifika yetkilisi veya bir ortak sertifika yetkilisi verilmiş olması gerekir. Bir ortak sertifika yetkilisi kullanmanız durumunda, içermesi yetkilisi temel işletim sistemi görüntüsüne Microsoft güvenilir kök yetkilisi programının bir parçası olarak. Tam listesini bulabilirsiniz [Microsoft güvenilen kök sertifika programı: Katılımcıların](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
  - Azure Stack altyapınızı, sertifika yetkilisinin sertifika iptal listesi (CRL) konumuna sertifikada yayımlanan ağ erişimi olması gerekir. Bu CRL bir HTTP uç noktası olmalıdır.
-
 
 #### <a name="parameters"></a>Parametreler
 
 Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
-
 
 |Parametre|Açıklama|Örnek|
 |---------|---------|---------|
@@ -95,12 +119,9 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
 |ClientCertificates|Sertifika nesneler dizisi|X509 sertifika|
 |ClientRedirectUris<br>(İsteğe bağlı)|Uygulama yeniden yönlendirme URI'si|-|
 
-#### <a name="example"></a>Örnek
+#### <a name="use-powershell-to-create-a-service-principal"></a>Bir hizmet sorumlusu oluşturmak için PowerShell kullanma
 
-1. Yükseltilmiş bir Windows PowerShell oturumu açın ve aşağıdaki komutları çalıştırın:
-
-   > [!NOTE]
-   > Bu örnekte otomatik olarak imzalanan bir sertifika oluşturur. Bu komutları bir üretim dağıtımında çalıştırdığınızda kullanmanız [Get-Item](/powershell/module/Microsoft.PowerShell.Management/Get-Item) kullanmak istediğiniz sertifika için sertifika nesnesini almak için.
+1. Yükseltilmiş bir Windows PowerShell oturumu açın ve aşağıdaki cmdlet'leri çalıştırın:
 
    ```PowerShell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
@@ -109,9 +130,11 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
     # Creating a PSSession to the ERCS PrivilegedEndpoint
     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-    # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-    $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
-
+    # If you have a managed certificate use the Get-Item command to retrieve your certificate from your certificate location.
+    # If you don't want to use a managed certificate, you can produce a self signed cert for testing purposes: 
+    # $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+    $cert = Get-Item "<yourcertificatelocation>"
+    
     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
     $session|remove-pssession
@@ -146,8 +169,15 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
     $ServicePrincipal
 
    ```
+   > [!Note]  
+   > Kendinden imzalı bir sertifika kullanarak oluşturulabilir doğrulama amacıyla aşağıdaki örnekteki:
 
-2. Otomasyon tamamlandıktan sonra SPN kullanmak için gerekli ayrıntıları görüntüler. 
+   ```PowerShell  
+   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+   ```
+
+
+2. Otomasyon tamamlandıktan sonra SPN kullanmak için gerekli ayrıntıları görüntüler. Daha sonra kullanmak için çıktıyı depolamak için önerilir.
 
    Örneğin:
 
@@ -160,22 +190,177 @@ Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
    ```
 
-### <a name="assign-a-role"></a>Rol atama
-Hizmet sorumlusu oluşturulduktan sonra şunları yapmalısınız [rol atama](#assign-role-to-service-principal).
+### <a name="update-certificate-for-service-principal-for-ad-fs"></a>AD FS için hizmet sorumlusu sertifikasını güncelleştir
 
-### <a name="sign-in-through-powershell"></a>PowerShell aracılığıyla oturum açın
-Bir rol atadıktan sonra Azure Stack aşağıdaki komutu ile hizmet sorumlusunu kullanarak oturum:
+AD FS ile Azure Stack dağıttıysanız, bir hizmet sorumlusu için parolayı güncelleştirmek için PowerShell kullanabilirsiniz.
 
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ClientId ` 
- -TenantId $directoryTenantId
+Betik ayrıcalıklı uç noktasından bir ERCS sanal makinede çalıştırılır.
+
+#### <a name="parameters"></a>Parametreler
+
+Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
+
+|Parametre|Açıklama|Örnek|
+|---------|---------|---------|
+|Ad|SPN hesabının adı|Uygulamam|
+|ApplicationIdentifier|Benzersiz tanımlayıcı|S-1-5-21-1634563105-1224503876-2692824315-2119|
+|ClientCertificate|Sertifika nesneler dizisi|X509 sertifika|
+
+#### <a name="example-of-updating-service-principal-for-ad-fs"></a>AD FS için hizmet sorumlusu güncelleştirme örneği
+
+Bu örnek, otomatik olarak imzalanan bir sertifika oluşturur. Bir üretim dağıtımında cmdlet'lerini çalıştırdığınızda kullanmanız [Get-Item](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Management/Get-Item) kullanmak istediğiniz sertifika için sertifika nesnesini almak için.
+
+1. Yükseltilmiş bir Windows PowerShell oturumu açın ve aşağıdaki cmdlet'leri çalıştırın:
+
+     ```powershell
+          # Creating a PSSession to the ERCS PrivilegedEndpoint
+          $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+          # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
+          $Newcert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+
+          $RemoveServicePrincipal = Invoke-Command -Session $session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ClientCertificates $Newcert}
+
+          $session|remove-pssession
+     ```
+
+2. Otomasyon tamamlandıktan sonra SPN kimlik doğrulaması için gereken güncelleştirilmiş parmak izi değerini görüntüler.
+
+     ```Shell  
+          ClientId              : 
+          Thumbprint            : AF22EE716909041055A01FE6C6F5C5CDE78948E9
+          ApplicationName       : Azurestack-ThomasAPP-3e5dc4d2-d286-481c-89ba-57aa290a4818
+          ClientSecret          : 
+          RunspaceId            : a580f894-8f9b-40ee-aa10-77d4d142b4e5
+     ```
+
+### <a name="create-a-service-principal-using-a-client-secret"></a>İstemci gizli anahtarı kullanarak bir hizmet sorumlusu oluşturma
+
+Bir hizmet sorumlusu kimliği için AD FS kullanırken oluştururken, bir sertifika kullanabilirsiniz. Ayrıcalıklı uç noktasına cmdlet'leri çalıştırmak için kullanın.
+
+Bu betikler ayrıcalıklı uç noktasından bir ERCS sanal makinede çalıştırılır. Ayrıcalıklı uç noktası hakkında daha fazla bilgi için bkz: [Azure Stack'te ayrıcalıklı uç noktayı kullanarak](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
+
+#### <a name="parameters"></a>Parametreler
+
+Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
+
+| Parametre | Açıklama | Örnek |
+|----------------------|--------------------------|---------|
+| Ad | SPN hesabının adı | Uygulamam |
+| GenerateClientSecret | Gizli dizi oluşturma |  |
+
+#### <a name="use-the-ercs-privilegedendpoint-to-create-the-service-principal"></a>Hizmet sorumlusu oluşturmak için ERCS PrivilegedEndpoint kullanın
+
+1. Yükseltilmiş bir Windows PowerShell oturumu açın ve aşağıdaki cmdlet'leri çalıştırın:
+
+     ```PowerShell  
+      # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+     $creds = Get-Credential
+
+     # Creating a PSSession to the ERCS PrivilegedEndpoint
+     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+     # Creating a SPN with a secre
+     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -GenerateClientSecret}
+     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
+     $session|remove-pssession
+
+     # Output the SPN details
+     $ServicePrincipal
+     ```
+
+2. Cmdlet'leri çalıştırdıktan sonra Kabuk SPN kullanmak için gerekli ayrıntıları görüntüler. İstemci gizli anahtarı sakladığınızdan emin olun.
+
+     ```PowerShell  
+     ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
+     ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
+     Thumbprint            : 
+     ApplicationName       : Azurestack-YourApp-6967581b-497e-4f5a-87b5-0c8d01a9f146
+     ClientSecret          : 6RUZLRoBw3EebMDgaWGiowCkoko5_j_ujIPjA8dS
+     PSComputerName        : 192.168.200.224
+     RunspaceId            : 286daaa1-c9a6-4176-a1a8-03f543f90998
+     ```
+
+#### <a name="update-client-secret-for-a-service-principal-for-ad-fs"></a>AD FS için bir hizmet sorumlusunun istemci gizli anahtarı güncelleştirme
+
+Yeni bir gizli PowerShell cmdlet tarafından oluşturulan otomatik olarak.
+
+Betik ayrıcalıklı uç noktasından bir ERCS sanal makinede çalıştırılır.
+
+##### <a name="parameters"></a>Parametreler
+
+Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
+
+| Parametre | Açıklama | Örnek |
+|-----------------------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------|
+| ApplicationIdentifier | Benzersiz tanımlayıcısı. | S-1-5-21-1634563105-1224503876-2692824315-2119 |
+| ChangeClientSecret | Gizli bir geçiş süresi 2880 eski parolayı hala geçerli olduğu dakika ile değiştirir. |  |
+| ResetClientSecret | İstemci gizli anahtarı hemen değiştirme |  |
+
+##### <a name="example-of-updating-a-client-secret-for-ad-fs"></a>Örneğin, AD FS için bir istemci gizli anahtarı güncelleştirme
+
+Örnekte **resetclientsecret** parametresini hemen gizli değişmez.
+
+1. Yükseltilmiş bir Windows PowerShell oturumu açın ve aşağıdaki cmdlet'leri çalıştırın:
+
+     ```PowerShell  
+          # Creating a PSSession to the ERCS PrivilegedEndpoint
+          $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+          # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
+          $Newcert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+
+          $UpdateServicePrincipal = Invoke-Command -Session $session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ResetClientSecret}
+
+          $session|remove-pssession
+     ```
+
+2. Otomasyon tamamlandıktan sonra yeni oluşturulan gizli dizi SPN kimlik doğrulaması için gerekli görüntüler. Yeni gizli sakladığınızdan emin olun.
+
+     ```PowerShell  
+          ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2120
+          ClientId              :  
+          Thumbprint            : 
+          ApplicationName       : Azurestack-Yourapp-6967581b-497e-4f5a-87b5-0c8d01a9f146
+          ClientSecret          : MKUNzeL6PwmlhWdHB59c25WDDZlJ1A6IWzwgv_Kn
+          RunspaceId            : 6ed9f903-f1be-44e3-9fef-e7e0e3f48564
+     ```
+
+### <a name="remove-a-service-principal-for-ad-fs"></a>AD FS için bir hizmet sorumlusunu kaldırma
+
+AD FS ile Azure Stack dağıttıysanız, hizmet sorumlusu silmek için PowerShell kullanabilirsiniz.
+
+Betik ayrıcalıklı uç noktasından bir ERCS sanal makinede çalıştırılır.
+
+#### <a name="parameters"></a>Parametreler
+
+Aşağıdaki bilgiler gereklidir Otomasyon parametreler için giriş olarak:
+
+|Parametre|Açıklama|Örnek|
+|---------|---------|---------|
+| Parametre | Açıklama | Örnek |
+| ApplicationIdentifier | Benzersiz tanımlayıcı | S-1-5-21-1634563105-1224503876-2692824315-2119 |
+
+> [!Note]  
+> Var olan tüm hizmet sorumlularını ve bunların uygulama tanımlayıcısı listesini görüntülemek için get-graphapplication komutu kullanılabilir.
+
+#### <a name="example-of-removing-the-service-principal-for-ad-fs"></a>AD FS için hizmet sorumlusu kaldırma örneği
+
+```powershell  
+     Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+     $creds = Get-Credential
+
+     # Creating a PSSession to the ERCS PrivilegedEndpoint
+     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+     $UpdateServicePrincipal = Invoke-Command -Session $session -ScriptBlock { Remove-GraphApplication -ApplicationIdentifier S-1-5-21-1634563105-1224503876-2692824315-2119}
+
+     $session|remove-pssession
 ```
 
-## <a name="assign-role-to-service-principal"></a>Hizmet sorumlusuna rolü atama
-Aboneliğinizdeki kaynaklara erişmek için uygulamaya bir rol atamanız gerekir. Uygulama için doğru izinlere rolünü karar verin. Kullanılabilir roller hakkında bilgi edinmek için [RBAC: yerleşik roller](../role-based-access-control/built-in-roles.md).
+## <a name="assign-a-role"></a>Rol atama
+
+Aboneliğinizdeki kaynaklara erişmek için uygulamaya bir rol atamanız gerekir. Uygulama için doğru izinlere rolünü karar verin. Kullanılabilir roller hakkında bilgi edinmek için [RBAC: Yerleşik roller](../role-based-access-control/built-in-roles.md).
 
 Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam için izinler devralınmıştır. Örneğin, bir kaynak grubu için okuyucu rolüne uygulamaya ekleme kaynak grubunu ve içerdiği tüm kaynakları okuyun anlamına gelir.
 
@@ -189,7 +374,7 @@ Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha 
 
      ![erişim seçin](./media/azure-stack-create-service-principal/image17.png)
 
-4. **Add (Ekle)** seçeneğini belirleyin.
+4. Seçin **rol ataması Ekle**.
 
 5. Uygulamayı atamak istediğiniz rolü seçin.
 
@@ -201,5 +386,7 @@ Bir hizmet sorumlusu oluşturuldu ve atanan role göre bu Azure Stack kaynaklara
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[ADFS için kullanıcı ekleme](azure-stack-add-users-adfs.md)
-[kullanıcı izinlerini yönetme](azure-stack-manage-permissions.md)
+[Kullanıcıları AD FS’ye ekleme](azure-stack-add-users-adfs.md)  
+[Kullanıcı izinlerini yönetme](azure-stack-manage-permissions.md)  
+[Azure Active Directory Belgeleri](https://docs.microsoft.com/azure/active-directory)  
+[Active Directory Federasyon Hizmetleri](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)

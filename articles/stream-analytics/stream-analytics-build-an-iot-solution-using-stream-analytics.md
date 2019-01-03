@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4817efcb5cfa5f8692f2b7e5c65d411bc0d21942
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 820a918b9ab5dd7a399dc43bcfed29fb3b94e99b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317398"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971112"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Stream Analytics kullanarak bir IOT çözümü oluşturma
 
@@ -185,7 +185,7 @@ Akış işi başlatmak için aşağıdaki adımları izleyin:
 ## <a name="review-the-cosmosdb-output-data"></a>CosmosDB çıkış verileri gözden geçirin
 1. TollApp kaynakları içeren kaynak grubunu bulun.
 
-2. Ad deseni ile Azure Cosmos DB hesabı seçin **tollapp<random>-cosmos**.
+2. Ad deseni ile Azure Cosmos DB hesabı seçin **tollapp\<rastgele\>-cosmos**.
 
 3. Seçin **Veri Gezgini** Veri Gezgini sayfası açmak için.
 

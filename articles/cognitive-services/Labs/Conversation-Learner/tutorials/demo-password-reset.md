@@ -10,21 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bd0bcd79bb21dc3973b34086f6dad21b47a95c2f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 409647da146a2844384204cb03de5028d45e5763
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240877"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792399"
 ---
-# <a name="demo-password-reset"></a>Demo: Parola sıfırlama
-Bu Tanıtım, parola sıfırlama ile yardım edebilecek bir basit teknik destek bot gösterilmektedir. 
-
-Bu, konuşma Öğrenici Önemsiz iletişim akışlar, çıkış, etki alanı sınıfı dahil olmak üzere, çok Aç dizileri nasıl bilgi gösterir. Bu sunum, herhangi bir kod veya varlıkları kullanmaz.
+# <a name="demo-password-reset"></a>Tanıtım: Parola sıfırlama
+Bu öğreticide, konuşma Learner tarafından desteklenen parola sıfırlama ile yardımcı olabilecek bir basit teknik destek bot gösterir. Önemsiz iletişim akışları ve çok etkinleştirin botun modeli edinebilirsiniz çıkış, etki alanı sınıfları da dahil olmak üzere dizileri. Görev, kod veya varlıkları gerçekleştirilebilir.
 
 ## <a name="video"></a>Video
 
-[![Tanıtım parola Önizleme](https://aka.ms/cl-demo-password-preview)](https://aka.ms/blis-demo-password)
+[![Tanıtım parola Önizleme](https://aka.ms/cl_Tutorial_v3_DemoPassword_Preview)](https://aka.ms/cl_Tutorial_v3_DemoPassword)
 
 ## <a name="requirements"></a>Gereksinimler
 Bu öğreticide, parola sıfırlama bot çalışıyor olması gerekir
@@ -37,41 +35,48 @@ Web kullanıcı Arabirimi Model listesi, öğretici tanıtım parola sıfırlama
 
 ### <a name="actions"></a>Eylemler
 
-Kullanıcı parolalarını ile çözümleri dahil olmak üzere Yardım almak için nereye arıyor eylemleri kümesini oluşturduk.
+Model bir dizi ortak parola sorunları çözmesine yardımcı olmak için tasarlanan eylemi içerir.
 
 ![](../media/tutorial_pw_reset_actions.PNG)
 
 ### <a name="training-dialogs"></a>Eğitim iletişim kutuları
 
-Eğitim iletişim kutuları vardır. Yetersiz alan sınıfının--gösterimlerine 'yol tarifi' etki alanı yetersiz olduğu gibi kullanıcı isteklerini vardır; bot, birkaç etki alanı istekleri dışında örnekleri verilen ve yanıt 'I ile yardımcı olamaz.'
+Birkaç Train dışında etki alanı sınıfı eğitim gösteren bazı dahil olmak üzere iletişim kutuları, modeli de içerir. Örneğin, yol tarifi isteyebilir kullanıcılar gibi. Örnek bot tanıtım amacıyla birkaç üzerinde geliştirilen ve onu bildiren tarafından yanıt basitçe "ile yardımcı olamaz." Mevcut eğitme iletişim kutuları listesini sol bölmede bulunan "Train iletişim kutuları altında" bulunur.
 
 ![](../media/tutorial_pw_reset_entities.PNG)
 
-Örneğin, öğretim oturumu deneyelim.
+1. Sol panelde, "İletişim kutuları eğitme" ve ardından "Yeni Train iletişim kutusu" düğmesine tıklayın.
+2. Sohbet panelinde nerede yazacaktır "Yazın, iletinizi...", "i parolamı kaybolur." türü
+3. "Puan Eylemler" düğmesine tıklayın.
+4. ", Yerel hesap veya Microsoft hesabı için mi?" yanıt seçin
+5. Burada yazacaktır "Yazın, iletinizi...", sohbet panelinde yazın "Lütfen yerel hesap"
+6. "Puan Eylemler" düğmesine tıklayın.
+7. "Windows hangi sürümünü kullanıyorsunuz?" yanıt seçin
+8. Sohbet panelinde nerede yazacaktır "Yazın, iletinizi...", "windows XP'de" türü
+9. "Puan Eylemler" düğmesine tıklayın.
+10. Tıklayın "+ eylem" düğmesi.
+11. "Botun yanıtta..." alanına "çözümü: Windows XP parola sıfırlama nasıl …"
+12. "Oluştur" düğmesine tıklayın.
 
-1. Train iletişim kutuları, ardından yeni Train iletişim tıklayın.
-1. 'I parolamı kayıp' girin.
-2. Puan eylemini tıklatın.
-3. 'Yerel hesap veya Microsoft hesabı için olan?' seçmek için tıklayın
-4. 'Yerel hesabı' girin.
-5. Puan eylemleri tıklayın.
-3. 'Windows'ın hangi sürümünü kullanıyorsunuz?' seçmek için tıklayın
-4. Girin ' Windows 8'.
-5. Puan eylemleri tıklayın.
-6. Seç ' çözümü: Windows 8 parolasını nasıl sıfırlayacağımı.'
-4. Öğretim Bitti'ye tıklayın.
+### <a name="training-dialogs-for-out-of-domain-scenarios"></a>Çıkış, etki alanı senaryoları için eğitim iletişim kutuları
 
-Bot çıkış, etki alanı sınıfı nasıl bilgi deneyelim.
-
-1. Train iletişim kutuları, ardından yeni Train iletişim tıklayın.
-1. 'Web araması' girin.
-    - Bu çıkış, etki alanı sınıfı, bir örnektir. 
-2. Puan eylemini tıklatın.
-3. 'Ne yazık ki ile Yardım olamaz.' seçmek için tıklayın
-    - Bu seçenek puanını şu anda düşük olduğuna dikkat edin. Ancak biraz daha fazla öğretim sonra puan daha yüksek elde edersiniz.
-4. Öğretim Bitti'ye tıklayın.
-
-Artık, temel teknik destek tanıtım oluşturma ve bu çözümleri sağlayan ve ayrıca dışında örnek sorguları işlemek nasıl edinebilirsiniz gördünüz.
+1. Sol panelde "İletişim kutuları eğitme" ve ardından mevcut "Oyuncak depoları" tıklayın Train iletişim.
+2. Sohbet Masası'ndaki "çocuğunun stores" utterance tıklayın.
+3. Web türü "arama" ve isabet "alternatif giriş Ekle" alanına girin.
+4. Uçuş türü "kayıt" ve isabet "alternatif giriş Ekle" alanına girin.
+5. "Değişiklikleri Kaydet" düğmesine tıklayın.
+6. "Kaydet Düzenle" düğmesine tıklayın.
+7. Sol panelde, "Günlük iletişim kutuları" sonra "Yeni günlük iletişim kutusu" düğmesine tıklayın.
+8. Sohbet panelinde nerede yazacaktır "Yazın, iletinizi...", "i parolamı bulunamıyor" türü
+9. Sohbet panelinde nerede yazacaktır "Yazın, iletinizi...", "Microsoft hesabı" yazın
+10. Sohbet panelinde nerede yazacaktır "Yazın, iletinizi...", "teşekkür ederiz" yazın
+11. "Test Bitti" düğmesine tıklayın.
+12. "İ parolamı bulunamıyor" günlük iletişim kutusundan kılavuz görünümüne tıklayın.
+13. Sohbet panelinde yanlış işlenen tıklayın "çözümü: Bir Microsoft hesabı parola sıfırlama nasıl"yanıtı.
+14. Tıklayın "+ eylem" düğmesi.
+15. "Botun yanıt..." alanı, "Hoş Geldiniz" yazın
+16. "Oluştur" düğmesine tıklayın.
+17. "Kaydet olarak Train iletişim" düğmesine tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

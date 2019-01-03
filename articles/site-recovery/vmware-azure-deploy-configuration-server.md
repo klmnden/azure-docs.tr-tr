@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251037"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794363"
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
@@ -97,7 +97,7 @@ Yapılandırma sunucusuna Ek NIC eklemek istiyorsanız, sunucuyu kasaya kaydetme
 
 ### <a name="configure-settings"></a>Ayarları yapılandırma
 
-1. Yapılandırma sunucusu yönetim sihirbazında **Bağlantı kurma** seçeneğini belirleyip, VM’lerden çoğaltma trafiğini almak için işlem sunucusunun kullandığı NIC’yi seçin. Daha sonra **Kaydet**’e tıklayın. Yapılandırıldıktan sonra bu ayarı değiştiremezsiniz.
+1. Yapılandırma sunucusu yönetim sihirbazında **Bağlantı kurma** seçeneğini belirleyip, VM’lerden çoğaltma trafiğini almak için işlem sunucusunun kullandığı NIC’yi seçin. Daha sonra **Kaydet**’e tıklayın. Yapılandırıldıktan sonra bu ayarı değiştiremezsiniz. Yapılandırma sunucusunun IP adresini değiştirmek için değil kesinlikle önerilir. STATİK IP ve DHCP IP yapılandırma sunucusuna atanan IP olduğundan emin olun.
 2. İçinde **kurtarma Hizmetleri kasasını seçin**, Microsoft Azure'da oturum açın, Azure aboneliğinizi ve ilgili kaynak grubu ve kasayı seçin.
 
     > [!NOTE]
@@ -150,7 +150,11 @@ Devam eden çoğaltma kesintileri önlemek için yapılandırma sunucusunu bir k
     İçinde **kurtarma Hizmetleri kasası**, **yönetme** > **Site Recovery altyapısı** > **yapılandırmasunucusu**. Sunucularda seçin **indirme kayıt anahtarı** kasa kimlik bilgileri dosyası indirilemedi.
 8. Var olan bir yapılandırma sunucusu kopyalayın ve miyim çoğaltma düzenleme işlemi için kullanılmakta?
 
-    **Hayır**, klonlanmış bir yapılandırma sunucusu bileşeni kullanımı desteklenmiyor. 
+    **Hayır**, klonlanmış bir yapılandırma sunucusu bileşeni kullanımı desteklenmiyor.
+
+9. Yapılandırma sunucusu IP'si değiştirebilirim?
+
+    **Hayır**, yapılandırma sunucusunun IP adresini değiştirmek için kesinlikle önerilir. Yapılandırma sunucusuna atanan tüm IP'lere statik IP ve değil DHCP IP'ler olduğundan emin olun.
 
 ## <a name="troubleshoot-deployment-issues"></a>Dağıtım sorunlarını giderme
 

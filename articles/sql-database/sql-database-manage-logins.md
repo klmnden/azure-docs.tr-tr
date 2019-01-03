@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/29/2018
-ms.openlocfilehash: c234ac95d0e02857fe87afe3a734d77f00954477
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/18/2018
+ms.openlocfilehash: 2be5c8ddf6928d5529c2eb08a6d64bd64b8445de
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864953"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631983"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Denetleme ve SQL veritabanı ve SQL veri ambarı veritabanına erişim izni verme
 
@@ -31,9 +31,9 @@ Güvenlik duvarı kurallarını yapılandırmadan sonra Azure'a bağlanma [SQL v
 > Bir öğretici için bkz. [Azure SQL veritabanınızın güvenliğini sağlama](sql-database-security-tutorial.md). Bu öğreticide uygulanmaz **Azure SQL veritabanı yönetilen örneği**.
 
 ## <a name="unrestricted-administrative-accounts"></a>Kısıtlanmamış yönetici hesapları
-Yönetici işlevlerine sahip iki yönetici hesabı (**Sunucu yöneticisi** ve **Active Directory yöneticisi**) vardır. SQL sunucunuzda bu yönetici hesaplarını tanımlamak için Azure portalını açın ve SQL sunucunuzun özelliklerine gidin.
+Yönetici işlevlerine sahip iki yönetici hesabı (**Sunucu yöneticisi** ve **Active Directory yöneticisi**) vardır. Bu SQL server yönetici hesaplarını tanımlamak için Azure portalını açın ve SQL server veya SQL veritabanı özellikleri sekmesine gidin.
 
-![SQL Server Yöneticileri](./media/sql-database-manage-logins/sql-admins.png)
+![SQL Server Yöneticileri](media/sql-database-manage-logins/sql-admins.png)
 
 - **Sunucu yöneticisi**   
 Bir Azure SQL sunucusu oluşturduğunuzda **Sunucu yöneticisi oturum açma bilgileri** belirlemeniz gerekir. SQL Server, bu hesabı ana veritabanında oturum açma bilgileri olarak oluşturur. Bu hesap SQL Server kimlik doğrulaması (kullanıcı adı ve parola) kullanarak bağlanır. Bu hesaplardan yalnızca biri mevcut olabilir.   
@@ -78,7 +78,7 @@ Daha önce anlatılan sunucu düzeyi yönetim rollerine ek olarak SQL Veritaban�
 Bu yönetici rollerinden biri, **dbmanager** rolüdür. Bu rolün üyeleri yeni veritabanları oluşturabilir. Bu rolü kullanmak için `master` veritabanında bir kullanıcı oluşturmanız ve bu kullanıcıyı **dbmanager** veritabanı rolüne eklemeniz gerekir. Bir veritabanı oluşturmak için kullanıcının, ana veritabanındaki SQL Server oturumunu temel alan bir kullanıcı ya da Azure Active Directory kullanıcısını temel alan bağımsız bir veritabanı kullanıcısı olması gerekir.
 
 1. Bir yönetici hesabını kullanarak ana veritabanına bağlanın.
-2. İsteğe bağlı adım: [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) deyimini kullanarak bir SQL Server kimlik doğrulaması oturum açma bilgisi oluşturun. Örnek deyim:
+2. İsteğe bağlı adım: Bir SQL Server kimlik doğrulama oturumu kullanarak [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) deyimi. Örnek deyim:
    
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
@@ -184,7 +184,7 @@ SQL Veritabanında oturum açma bilgilerini ve kullanıcıları yönetirken aşa
 * `CREATE USER` deyimini `FOR/FROM LOGIN` seçeneğiyle yürütürken bunun bir Transact-SQL toplu işindeki tek deyim olması gerekir.
 * `ALTER USER` deyimini `WITH LOGIN` seçeneğiyle yürütürken bunun bir Transact-SQL toplu işindeki tek deyim olması gerekir.
 * Bir kullanıcıda `CREATE/ALTER/DROP` işlemini gerçekleştirmek için veritabanında `ALTER ANY USER` izni gerekir.
-* Bir veritabanı rolünün sahibi başka bir kullanıcıyı ilgili veritabanı rolüne eklemeye veya bu rolden kaldırmaya çalıştığında şu hata ortaya çıkabilir: **Kullanıcı veya rol "Ad" bu veritabanında mevcut değil.** Bu hatanın nedeni, kullanıcının rol sahibine görünür olmamasıdır. Bu sorunu çözmek için rol sahibine kullanıcı için `VIEW DEFINITION` iznini verin. 
+* Bir veritabanı rolünün sahibi eklemek veya başka bir veritabanı kullanıcısı ya da bu veritabanı rolünden kaldırmak çalıştığında şu hata ortaya çıkabilir: **Kullanıcı veya rol "Ad" Bu veritabanında yok.** Bu hatanın nedeni, kullanıcının rol sahibine görünür olmamasıdır. Bu sorunu çözmek için rol sahibine kullanıcı için `VIEW DEFINITION` iznini verin. 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

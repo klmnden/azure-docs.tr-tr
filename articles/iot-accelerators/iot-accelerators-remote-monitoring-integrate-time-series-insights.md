@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights Uzaktan izleme ile tümleştirin. | Microsoft Docs
+title: Time Series Insights - Uzaktan izleme ile tümleştirerek Azure | Microsoft Docs
 description: Bu nasıl yapılır makalesinde Time Series Insights zaten içermeyen mevcut bir uzaktan izleme çözüm Time Series Insights'ı yapılandırmak öğreneceksiniz.
 author: aditidugar
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: e6dcbf9d185b45c18261e47e9d575adf40812611
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 655d65ebfbb0141acd829a64414d9ba20dd2c697
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253825"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633751"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Azure Time Series Insights’ı Uzaktan İzleme ile tümleştirme
 
@@ -49,7 +49,7 @@ az iot hub consumer-group create --hub-name contosorm30526 --name timeseriesinsi
 
 Ardından, zaman serisi görüşleri, Uzaktan izleme çözümünüze ek bir kaynak dağıtma ve IOT hub'ına bağlanın.
 
-1. [Azure Portal](http://portal.azure.com/) oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
 1. Seçin **kaynak Oluştur** > **nesnelerin interneti** > **Time Series Insights**.
 
@@ -164,12 +164,13 @@ Sonraki adım, Cosmos DB'ye gönderme kesmek için Azure Stream Analytics Yönet
 
 .NET: 
 
-```
+```cmd/sh
 docker pull azureiotpcs/asa-manager-dotnet:1.0.2
 ```
 
 Java:
-```
+
+```cmd/sh
 docker pull azureiotpcs/asa-manager-java:1.0.2
 ```
 
@@ -178,13 +179,14 @@ docker pull azureiotpcs/asa-manager-java:1.0.2
 En son Telemetri mikro hizmet, komut istemine aşağıdaki komutu yazarak çekin:
 
 .NET:
-```
+
+```cmd/sh
 docker pull azureiotpcs/telemetry-dotnet:1.0.2
 ```
 
 Java:
 
-```
+```cmd/sh
 docker pull azureiotpcs/telemetry-java:1.0.2
 ```
 
@@ -192,7 +194,7 @@ docker pull azureiotpcs/telemetry-java:1.0.2
 
 Kolayca Time Series Insights explorer'ın verilerinizi görüntülemek için ortama kolayca bağlamak için kullanıcı arabirimini özelleştirme öneririz. Bunu yapmak için aşağıdaki komutu kullanarak Web Arabirimine en son değişiklikleri çekin:
 
-```
+```cmd/sh
 docker pull azureiotpcs/pcs-remote-monitoring-webui:1.0.2
 ```
 
@@ -220,7 +222,7 @@ Ortamını yapılandırmak `basic` güncelleştirilmiş mikro hizmetlere yöneli
 
 1. Her mikro hizmet docker'da aşağıdaki ortam değişkenleri yaml dosyası oluşturma ve `env-setup` VM'de betik:
 
-    ```
+    ```sh
     PCS_TELEMETRY_STORAGE_TYPE=tsi
     PCS_TSI_FQDN={TSI Data Access FQDN}
     PCS_AAD_TENANT={AAD Tenant Id}
@@ -244,7 +246,7 @@ Ortamını yapılandırmak `standard` yukarıdaki güncelleştirilmiş mikro hiz
 
 1. TSI için aşağıdaki yeni ortam değişkenleri eklemek için yapılandırma eşlemesi bulun:
 
-    ```
+    ```yaml
     telemetry.storage.type: "tsi"
     telemetry.tsi.fqdn: "{TSI Data Access FQDN}"
     security.auth.serviceprincipal.secret: "{AAD application service principal secret}"
@@ -252,7 +254,7 @@ Ortamını yapılandırmak `standard` yukarıdaki güncelleştirilmiş mikro hiz
 
 4. Telemetri hizmeti pod şablon yaml dosyası Düzenle:
 
-    ```
+    ```yaml
     - name: PCS_AAD_TENANT
         valueFrom:
         configMapKeyRef:
@@ -282,7 +284,7 @@ Ortamını yapılandırmak `standard` yukarıdaki güncelleştirilmiş mikro hiz
 
 5. ASA Yöneticisi hizmeti pod şablon yaml dosyası Düzenle:
 
-    ```
+    ```yaml
     - name: PCS_TELEMETRY_STORAGE_TYPE
         valueFrom:
         configMapKeyRef:

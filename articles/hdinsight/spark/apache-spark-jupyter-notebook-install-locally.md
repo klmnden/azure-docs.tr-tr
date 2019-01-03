@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 92f6bc358fe8cc5ab8f7242d94edc3004eaab4b9
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c1f4690d2ce10fe83d613b37ef2514effd2cef63
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163387"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598830"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Jupyter not defterine bilgisayarınıza yükleyin ve HDInsight üzerinde Apache spark'a bağlanma
 
@@ -22,9 +22,9 @@ Bu makalede (Python için) özel PySpark ve Spark Sihirli ile (Scala için) Apac
 
 Jupyter ve Spark Sihirli bilgisayarınızda yüklemeyle ilgili üç önemli adım vardır.
 
-* Jupyter not defteri yükleyin
-* PySpark ve Spark çekirdekler Spark ile Sihirli yükleyin
-* HDInsight Spark kümesine erişmek için Spark Sihirli yapılandırın
+* Jupyter not defteri yükleyin.
+* PySpark ve Spark çekirdekler Spark ile Sihirli yükleyin.
+* HDInsight Spark kümesine erişmek için Spark Sihirli yapılandırın.
 
 Özel çekirdekler ve HDInsight kümesi ile Jupyter not defterleri için Spark Sihirli hakkında daha fazla bilgi için bkz. [için Jupyter not defterlerinde kullanılabilen çekirdekler Apache Spark Linux kümeleri HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
@@ -43,7 +43,7 @@ Jupyter not defterleri yükleyebilmek için önce Python yüklemeniz gerekir. He
 
         conda install jupyter
 
-    Jupyter yükleme hakkında daha fazla bilgi için bkz. [Anaconda kullanarak Jupyter yükleme](http://jupyter.readthedocs.io/en/latest/install.html).
+    Jupyter yükleme hakkında daha fazla bilgi için bkz. [Anaconda kullanarak Jupyter yükleme](https://jupyter.readthedocs.io/en/latest/install.html).
 
 ## <a name="install-the-kernels-and-spark-magic"></a>Çekirdekler ve Spark Sihirli yükleyin
 
@@ -100,7 +100,7 @@ Bu bölümde Azure HDInsight oluşturmuş olmanız gerekir bir Apache Spark küm
             "livy_server_heartbeat_timeout_seconds": 60,
             "heartbeat_retry_seconds": 1
 
-    >[!TIP]
+    >[!TIP]  
     >Oturumlarının sızdırılmaz emin olmak için sinyaller gönderilir. Bir bilgisayar uyku moduna geçer veya kapatıldığında, sinyal gönderilmedi, oturumu olduğu kaynaklanan temizlenir. Kümeleri v3.4 için bu davranışı devre dışı bırakmak istiyorsanız Livy config ayarlayabilirsiniz `livy.server.interactive.heartbeat.timeout` için `0` Ambari arabiriminden. Yukarıdaki 3.5 yapılandırma ayarlamazsanız kümeleri v3.5'için oturum silinmez.
 
 1. Jupyter başlatın. Komut isteminden aşağıdaki komutu kullanın.
@@ -120,7 +120,7 @@ Bu bölümde Azure HDInsight oluşturmuş olmanız gerekir bir Apache Spark küm
 
     Çıkış başarıyla alabilir, HDInsight kümesine bağlantınızı test edilir.
 
-    >[!TIP]
+    >[!TIP]  
     >Farklı bir kümeye bağlanmak için not defteri yapılandırmasını güncelleştirmek istiyorsanız, config.json yukarıdaki adım 3'te gösterildiği gibi değerleri, yeni bir dizi ile güncelleştirin.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Bilgisayarımda Jupyter neden yüklemeliyim?
@@ -132,7 +132,7 @@ Pek çok neden Jupyter bilgisayarınıza yükleyin ve HDInsight üzerinde Apache
 * Bir küme bile kalmadan not defterleri ile yerel olarak çalışabilirsiniz. Yalnızca el ile not defterlerinizi veya bir geliştirme ortamı yönetmemeyi defterlerinizi karşı test etmek için bir küme gerekir.
 * Küme üzerinde Jupyter yüklemesini yapılandırmak yerine kendi yerel geliştirme ortamınızı yapılandırmak daha kolay olabilir.  Bir veya daha fazla uzak kümelerini yapılandırma olmadan yerel olarak yüklü tüm yazılımların yararlanabilirsiniz.
 
-> [!WARNING]
+> [!WARNING]  
 > Yerel bilgisayarınızda yüklü Jupyter ile birden çok kullanıcı aynı not defterini kullanarak aynı Spark kümesi üzerinde aynı anda çalıştırabilirsiniz. Böyle bir durumda, birden çok Livy oturumu oluşturulur. Bir sorunla çalıştırın ve, hata ayıklamak isterseniz, karmaşık bir görevin hangi Livy oturumu izlemek için hangi kullanıcıya ait olur.
 >
 >

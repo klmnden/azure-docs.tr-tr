@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: dda4e26de74dbd5579f2dd45ea47f42c904f028f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 74776a658c7a0002df40b1b3ccb572e9b9262540
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271734"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972934"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Application Insights uyarıları ayarlamak için PowerShell kullanma
-Yapılandırılmasını otomatikleştirebilirsiniz [uyarılar](app-insights-alerts.md) içinde [Application Insights](app-insights-overview.md).
+Yapılandırılmasını otomatikleştirebilirsiniz [uyarılar](../azure-monitor/app/alerts.md) içinde [Application Insights](app-insights-overview.md).
 
 Ayrıca, aşağıdakileri yapabilirsiniz [ayarlanmış bir uyarı yanıtları otomatik hale getirmek için Web kancaları](../azure-monitor/platform/alerts-webhooks.md).
 
@@ -81,7 +81,7 @@ Abonelik kimliği (değil uygulamanızın izleme anahtarını) GUID'dir.
      -Location "East US" -RuleType Metric
 
 ## <a name="example-2"></a>Örnek 2
-Bir uygulama içinde kullanmam sahibim [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) "salesPerHour." adlı bir ölçüm bildirmek için "SalesPerHour" 100 düşerse bir e-posta arkadaşlarım 24 saat içinde ortalama gönderin.
+Bir uygulama içinde kullanmam sahibim [TrackMetric()](../azure-monitor/app/api-custom-events-metrics.md#trackmetric) "salesPerHour." adlı bir ölçüm bildirmek için "SalesPerHour" 100 düşerse bir e-posta arkadaşlarım 24 saat içinde ortalama gönderin.
 
     Add-AzureRmMetricAlertRule -Name "poor sales" `
      -Description "slow sales alert" `
@@ -94,7 +94,7 @@ Bir uygulama içinde kullanmam sahibim [TrackMetric()](app-insights-api-custom-e
      -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
      -Location "East US" -RuleType Metric
 
-Aynı kural kullanılarak bildirilen ölçüm için kullanılabilir [ölçüm parametresi](app-insights-api-custom-events-metrics.md#properties) TrackEvent veya trackPageView gibi başka bir izleme çağrısı.
+Aynı kural kullanılarak bildirilen ölçüm için kullanılabilir [ölçüm parametresi](../azure-monitor/app/api-custom-events-metrics.md#properties) TrackEvent veya trackPageView gibi başka bir izleme çağrısı.
 
 ## <a name="metric-names"></a>Ölçüm adları
 | Ölçüm adı | Ekran adı | Açıklama |
@@ -120,16 +120,16 @@ Aynı kural kullanılarak bildirilen ölçüm için kullanılabilir [ölçüm pa
 | `request.rate` |İstek oranı |Saniyede uygulamaya yapılan tüm isteklerin oranı. |
 | `requestFailed.count` |Başarısız istekler |Bir yanıt kodunda sonuçlanan HTTP isteği sayısı > 400 = |
 | `view.count` |Sayfa görünümleri |Bir web sayfası için istemci kullanıcı isteklerini sayısı. Yapay trafik filtrelendi. |
-| {, özel ölçüm adı} |{Ölçüm adı} |Ölçüm, değer tarafından bildirilen [TrackMetric](app-insights-api-custom-events-metrics.md#trackmetric) veya [ölçümleri parametresi bir izleme çağrısının](app-insights-api-custom-events-metrics.md#properties). |
+| {, özel ölçüm adı} |{Ölçüm adı} |Ölçüm, değer tarafından bildirilen [TrackMetric](../azure-monitor/app/api-custom-events-metrics.md#trackmetric) veya [ölçümleri parametresi bir izleme çağrısının](../azure-monitor/app/api-custom-events-metrics.md#properties). |
 
 Ölçümler, farklı telemetri modülleri tarafından gönderilir:
 
 | Ölçüm grubu | Toplayıcı Modülü |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>görünüm |[JavaScript tarayıcı](app-insights-javascript.md) |
-| PerformanceCounter |[Performans](app-insights-configuration-with-applicationinsights-config.md) |
-| remoteDependencyFailed |[Bağımlılık](app-insights-configuration-with-applicationinsights-config.md) |
-| İstek,<br/>requestFailed |[Sunucu isteği](app-insights-configuration-with-applicationinsights-config.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>görünüm |[JavaScript tarayıcı](../azure-monitor/app/javascript.md) |
+| PerformanceCounter |[Performans](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[Bağımlılık](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| İstek,<br/>requestFailed |[Sunucu isteği](../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>Web Kancaları
 Yapabilecekleriniz [yanıtınızı bir uyarıya](../azure-monitor/platform/alerts-webhooks.md). Bir uyarı oluşturulduğunda azure, tercih ettiğiniz bir web adresini çağırır.

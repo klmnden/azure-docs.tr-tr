@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
-ms.openlocfilehash: e8fafbe1c5fafd338009b1bdd8c5d838c3fac726
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 4b1ae3f3e256a87a78ac95b89b98d59c7924b7a7
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323295"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791005"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Bir Azure web uygulaması için Application Insights’ı kurmak üzere PowerShell’i kullanma
 [Microsoft Azure](https://azure.com), [Azure Application Insights](app-insights-overview.md)'a [Azure Tanılama verileri gönderecek şekilde yapılandırılabilir.](../azure-monitor/platform/diagnostics-extension-to-application-insights.md) Tanılama verileri Azure Cloud Services ve Azure VM’leriyle ilişkilidir. Uygulama içinde Application Insights SDK’sı kullanarak gönderdiğiniz telemetriyi tamamlar. Azure’da yeni kaynaklar oluşturma işlemini otomatikleştirmenin bir parçası olarak tanılamayı PowerShell kullanarak yapılandırabilirsiniz.
@@ -134,7 +134,7 @@ Tanılama uzantısını her bir rolden kaldırmak için:
 
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Application Insights’la Azure Cloud Services uygulamalarını izleme](app-insights-cloudservices.md)
+* [Application Insights’la Azure Cloud Services uygulamalarını izleme](../azure-monitor/app/cloudservices.md)
 * [Azure Tanılama verilerini Application Insights’a gönderme](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Yapılandırma uyarılarını otomatik hale getirme](app-insights-powershell-alerts.md)
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: e5c5c7f667959426f015e207cd32d716c493e31e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 78290f6d1b31788c3f2de99996739cc8e7b20419
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995023"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810943"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay Kılavuzu tetikleyicisi
 
@@ -48,7 +48,7 @@ Bir olay Kılavuzu tetikleyicisi için dile özgü örneğe bakın:
 
 * [C#](#c-example)
 * [C# betiği (.csx)](#c-script-example)
-* [Java](#trigger---java-example)
+* [Java](#trigger---java-examples)
 * [JavaScript](#javascript-example)
 * [Python](#python-example)
 
@@ -221,9 +221,14 @@ def main(event: func.EventGridEvent):
     logging.info("  Data: %s", event.get_json())
 ```
 
-### <a name="trigger---java-example"></a>Tetikleyici - Java örnek
+### <a name="trigger---java-examples"></a>Tetikleyici - Java örnekleri
 
-Aşağıdaki örnek, bir tetikleyici bağlamasında gösterir. bir *function.json* dosyası ve bir [Java işlevi](functions-reference-java.md) bağlama kullanır ve bir olay yazdırır.
+Bu bölüm aşağıdaki örnekleri içerir:
+
+* [Olay Kılavuzu tetikleyicisi, dize parametresi](#event-grid-trigger-string-parameter-java)
+* [Olay Kılavuzu tetikleyicisi, POJO'ya parametresi](#event-grid-trigger-pojo-parameter-java)
+
+Tetikleyici bağlamasında Aşağıdaki örnekler bir *function.json* dosya ve [Java işlevleri](functions-reference-java.md) bağlama kullanın ve ilk olay olarak alan, bir olay yazdırmak ```String``` ve ikinci bir POJO'ya olarak.
 
 ```json
 {
@@ -237,16 +242,60 @@ Aşağıdaki örnek, bir tetikleyici bağlamasında gösterir. bir *function.jso
 }
 ```
 
-Java kod aşağıdaki gibidir:
+#### <a name="event-grid-trigger-string-parameter-java"></a>Olay Kılavuzu tetikleyicisi, dize parametresinin (Java)
 
 ```java
-@FunctionName("eventGridMonitor")
+  @FunctionName("eventGridMonitorString")
   public void logEvent(
-     @EventGridTrigger(name = "event") String content,
-      final ExecutionContext context
-  ) {
-      context.getLogger().info(content);
-    }
+    @EventGridTrigger(
+      name = "event"
+    ) 
+    String content, 
+    final ExecutionContext context) {
+      // log 
+      context.getLogger().info("Event content: " + content);      
+  }
+```
+
+#### <a name="event-grid-trigger-pojo-parameter-java"></a>Olay Kılavuzu tetikleyicisi, POJO'ya parametre (Java)
+
+Bu örnek, üst düzey bir Event Grid olay özelliklerini temsil eden aşağıdaki POJO'ya kullanır:
+
+```java
+import java.util.Date;
+import java.util.Map;
+
+public class EventSchema {
+
+  public String topic;
+  public String subject;
+  public String eventType;
+  public Date eventTime;
+  public String id;
+  public String dataVersion;
+  public String metadataVersion;
+  public Map<String, Object> data;
+
+}
+```
+
+Olayın bir JSON yükü geldiğinde, içine serileştirilmiş seri durumdan ```EventSchema``` POJO'ya işlevi tarafından kullanılacak. Bu, nesne yönelimli bir yolla olay özelliklerine erişmek işlev sağlar.
+
+```java
+  @FunctionName("eventGridMonitor")
+  public void logEvent(
+    @EventGridTrigger(
+      name = "event"
+    ) 
+    EventSchema event, 
+    final ExecutionContext context) {
+      // log 
+      context.getLogger().info("Event content: ");
+      context.getLogger().info("Subject: " + event.subject);
+      context.getLogger().info("Time: " + event.eventTime); // automatically converted to Date by the runtime
+      context.getLogger().info("Id: " + event.id);
+      context.getLogger().info("Data: " + event.data);
+  }
 ```
 
 İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `EventGridTrigger` ek açıklama parametreleri değeri EventGrid ' gelmesi. Bu ek açıklamalar parametrelerle bir olay geldiğinde çalıştırmak işlev neden.  Bu ek açıklama yerel Java türler, pojo'ları veya kullanarak boş değer atanabilir değer ile kullanılabilir `Optional<T>`.

@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: cf315718377210e13a6634c0eaf8caab158bcc4d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24d0965fa2a88bc844a81c7430d46c071a9b874b
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342230"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580051"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Nasıl iş ölçüm uyarıları anlamak Azure İzleyici'de
 
@@ -93,7 +93,7 @@ Uyarı kuralı sıklığı 1 dakika olarak ayarlarsanız ölçüm uyarıları i�
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Desteklenen kaynak türleri için ölçüm uyarıları
 
-Bu konuda desteklenen kaynak türlerini tam listesini bulabilirsiniz [makale](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+Bu konuda desteklenen kaynak türlerini tam listesini bulabilirsiniz [makale](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 Bugün Klasik ölçüm uyarıları kullanarak ve ölçüm uyarıları tüm kaynak türleri destekleyip desteklemediğini görmek için arıyorsanız kullanmakta olduğunuz, aşağıdaki tabloda kaynak türleri Klasik ölçüm uyarıları tarafından desteklenen ve bunlar tarafından ölçüm uyarıları bugün ya da olmasın desteklenip desteklenmediğini gösterir.
 

@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 14b849a46701ab19c76ee175717c3715cc89f411
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 11c5d44d44bf66bc7f50dac13c1c7cf0ae7acfff
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408910"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994394"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Tanımlamak ve Linux tabanlı Azure HDInsight üzerinde bir iş akışı çalıştırmak için Apache Hadoop ile Apache Oozie kullanma
 
@@ -58,7 +58,7 @@ Bu belgede kullanılan iş akışı iki eylemleri içerir. Hive, Sqoop, MapReduc
 
 2. Sqoop eylemi, Azure SQL veritabanı'nda oluşturulan bir tablo için yeni Hive tablosu içeriği dışarı aktarır. Sqoop hakkında daha fazla bilgi için bkz: [HDInsight ile Apache Sqoop'u kullanma][hdinsight-use-sqoop].
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight kümelerinde desteklenen Oozie sürümleri için bkz: [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler][hdinsight-versions].
 
 ## <a name="create-the-working-directory"></a>Çalışma dizini oluşturma
@@ -301,7 +301,7 @@ SQL veritabanı oluşturmak için adımları [SQL veritabanı oluşturma](../sql
     ```
 
     > [!NOTE]  
-    > HDInsight küme varsayılan depolama alanı olarak Azure depolama kullanıyorsa `<value>` öğenin içeriği ile başlayan `wasb://`. Azure Data Lake Store yerine kullanılıyorsa ile başlayan `adl://`.
+    > HDInsight küme varsayılan depolama alanı olarak Azure depolama kullanıyorsa `<value>` öğenin içeriği ile başlayan `wasb://`. Bunun yerine Azure Data Lake Storage kullanılıyorsa, ile başlayan `adl://`.
 
     İçeriği Kaydet `<value>` öğesi, sonraki adımda kullanılır.
 
@@ -576,7 +576,7 @@ Düzenleyici, yinelenme sıklığı işleri için bir başlangıç ve sona belir
     </coordinator-app>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > `${...}` Değişkenleri, çalışma zamanında iş tanımındaki değerlerle değiştirilir. Değişkenleri şunlardır:
     >
     > * `${coordFrequency}`: Çalışan işin Örnekler arasındaki süre.
@@ -737,7 +737,7 @@ Bu öğreticide, bir Oozie iş akışının tanımlayın ve Oozie işinin nasıl
 * [HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma][hdinsight-use-pig]
 * [HDInsight için Java MapReduce programları geliştirme][hdinsight-develop-mapreduce]
 
-[hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
+[hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md
 [hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
@@ -757,12 +757,12 @@ Bu öğreticide, bir Oozie iş akışının tanımlayın ve Oozie işinin nasıl
 
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
-[apache-hadoop]: http://hadoop.apache.org/
-[apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
-[apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
+[apache-hadoop]: https://hadoop.apache.org/
+[apache-oozie-400]: https://oozie.apache.org/docs/4.0.0/
+[apache-oozie-332]: https://oozie.apache.org/docs/3.3.2/
 
 [powershell-download]: https://azure.microsoft.com/downloads/
-[powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
+[powershell-about-profiles]: https://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
@@ -773,4 +773,4 @@ Bu öğreticide, bir Oozie iş akışının tanımlayın ve Oozie işinin nasıl
 [img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

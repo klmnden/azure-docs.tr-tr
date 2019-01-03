@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: bd3bcd575e8e0f60d5d8f9640aa7b0ed4935249e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: eba81e0d0a5b178aec6f712abaae2b566bc54316
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273230"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583459"
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>PagerDuty ile hizmet sistem durumu uyarılarını yapılandırma
 
@@ -98,5 +98,5 @@ Bu makalede, bir Web kancası kullanarak PagerDuty aracılığıyla Azure hizmet
 ## <a name="next-steps"></a>Sonraki adımlar
 - Bilgi edinmek için nasıl [mevcut sorun yönetim sistemleri için Web kancası bildirimleri yapılandırma](service-health-alert-webhook-guide.md).
 - Gözden geçirme [etkinlik günlüğü uyarısı Web kancası şeması](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Hakkında bilgi edinin [hizmet durumu bildirimlerini](../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Hakkında bilgi edinin [hizmet durumu bildirimlerini](../azure-monitor/platform/service-notifications.md).
 - Daha fazla bilgi edinin [Eylem grupları](../azure-monitor/platform/action-groups.md).

@@ -10,20 +10,20 @@ ms.component: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 40b9685c56dd494e82c05bff9ed75f425a3006ff
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 39468a4a143d184fcc964ae88f82ad7254e4f3b0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886636"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741751"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Bing ınsights kullanım örnekleri
 
-Bu bölüm, Bing Bing.com üzerinde Öngörüler nasıl görüntüleyebilir örnekleri içerir.
+Bu makale, Bing nasıl ve resim öngörüleri Bing.com üzerinde görüntülemek örnekleri içerir.
 
 ## <a name="pagesincluding-insight-example"></a>PagesIncluding Insight örneği
 
-Bing görüntü içeren Web sayfalarının nasıl görüntüleyebilir gösterir. Örnek için ilk Web sayfası bağlantısı görüntülenir ve kullanıcının genişletin ve görüntü içeren diğer Web sayfalarının listesini Daralt olanak tanır.
+Aşağıdaki ilk Web sayfasına bağlantı görüntüler ve kullanıcının genişletin ve görüntü içeren diğer Web sayfalarının listesini Daralt olanak tanır.
 
 ![Genişletilmiş sayfaları dahil olmak üzere](./media/pages-including.PNG)
 
@@ -83,9 +83,7 @@ Varsayılan olmayan etiketler etiketin uygulandığı görüntüde faiz alanın�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu örnekler arkasında JSON kullanıma için bkz: [varsayılan ınsights](default-insights-tag.md) ve [JSON yanıtı](overview.md#the-response).
-
-Hızlı başlangıçlar ilk isteğinizi hızlıca başlamak için bkz: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md)  |  [Python](quickstarts/python.md)
+İlk isteğinizi hızlıca başlamak için hızlı başlangıçları bakın: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
 
 
 

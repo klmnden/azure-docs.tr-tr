@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7103557d19b367be0b9f0aa6f4a4642800c14558
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2f9800deedb2e8d55362920fed2493a42290e764
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314848"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555855"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Sık sorulan sorular Service Fabric Mesh
 
@@ -79,7 +79,7 @@ Kaynak grubunu silmek için kullanın `az group delete <nameOfResourceGroup>` ko
 
 ## <a name="supported-container-os-images"></a>Desteklenen kapsayıcı işletim sistemi görüntüleri
 
-Windows Fall Creators Update (1709 sürümü) makinesinde geliştiriyorsanız, yalnızca Windows sürüm 1709 docker docker görüntülerini kullanabilirsiniz.
+Windows Fall Creators Update (1709 sürümü) makinesinde geliştiriyorsanız, yalnızca Windows sürüm 1709 docker görüntülerini kullanabilirsiniz.
 
 Bir Windows üzerinde geliştirme yapıyorsanız 10 Nisan 2018 Güncelleştirmesi (sürüm 1803) makine, Windows sürüm 1709 veya Windows sürümü 1803 docker görüntülerini kullanabilirsiniz.
 
@@ -101,7 +101,7 @@ Hizmetten hizmete iletişimi, belirli koşullar altında başarısız olabilir. 
 - Tek başına bir hizmet adı işe yaramazsa, tam adı deneyin: ServiceName.ApplicationName.
 - Hizmetiniz için Docker dosyasına ekleyin `EXPOSE <port>` bağlantı noktası, bağlantı noktası olduğunda, hizmetinizi üzerinde karşı savunmasız bırakıyorsunuz. Örneğin:
 
-```
+```DockerFile
 EXPOSE 80
 ```
 

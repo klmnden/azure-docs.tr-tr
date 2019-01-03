@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: rimman
-ms.openlocfilehash: a15a704cfba9260daac0cd5edfdf8b4566348628
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 419ad6681af39aee468a23319b773de23619984d
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263968"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555464"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Azure Cosmos DB ile Ownership(TCO) toplam maliyeti
 
@@ -27,7 +27,7 @@ Sunucusuz sağlama modelinin Azure Cosmos DB'nin veritabanı altyapısı işlemi
 
 * **Fiyat için mükemmel bir değer:** Pazar analistleri, müşteriler ve iş ortakları, Azure Cosmos DB ne müşteriler bu çözümler, kendi ya da diğer satıcılardan uygularken alabilir için kıyasla çok daha düşük bir fiyatla sunduğu tüm özelliklerden büyük bir değer doğrulanmıştır. Veritabanı özellikleri gibi küresel dağıtım, birden çok yöneticili ve sezgisel, iyi tanımlanmış tutarlılık modeli, otomatik dizin oluşturma büyük ölçüde basitleştirilmiş Azure Cosmos DB ile herhangi bir ek yükü, karmaşık veya kapalı kalma süresi olmadan.
 
-* **Hiç NoSQL devops yönetim gereklidir:** Azure Cosmos DB ile bir devops dağıtımları yönetmek için bakım, ölçek ve düzeltme eki gerçekleştirmek görevlendirmek gerekmez. OSS NoSQL küme barındırılan şirket içi veya Bulut altyapısı üzerinde yaptığınız tüm iş yüklerini yürütebilir.
+* **Hiç NoSQL DevOps yönetim gereklidir:** Azure Cosmos DB ile bir DevOps dağıtımları yönetmek için bakım, ölçek ve düzeltme eki gerçekleştirmek görevlendirmek gerekmez. OSS NoSQL küme barındırılan şirket içi veya Bulut altyapısı üzerinde yaptığınız tüm iş yüklerini yürütebilir.
 
 ![Azure Cosmos DB sahip olma maliyeti](./media/total-cost-ownership/tco.png)
 
@@ -37,7 +37,7 @@ Sunucusuz sağlama modelinin Azure Cosmos DB'nin veritabanı altyapısı işlemi
 
 * **Bulut için iyileştirilmiş:** Azure Cosmos DB, en başından başlayarak ayrıntılı çok kiracılılık ve performans yalıtımı birlikte gelen tasarlanmıştır. Bu en uygun şekilde yerleştirme, yürütme ve kümeler ve veri merkezleri arasında binlerce kiracılar ve iş yüklerini Dengeleme sağlar. Buna karşılık, OSS NoSQL veritabanları geçerli nesil şirket içi tek bir kiracının iş yükünü çalıştırmak için kabul tüm sanal makine ile çalışır. Bu veritabanları, ayrıca bir bulut sağlayıcısının altyapı ve tam kapsamı için donanım yararlanmak için tasarlanmamıştır. Örneğin, bir rutin görüntüsü bir OSS NoSQL veritabanı altyapısı olan bir sanal makine Vs arasındaki farkların farkında değil yükseltebilir veya olgu, premium disk zaten üç yönlü çoğaltılır. Bu avantajlarından yararlanın ve müşterilerine avantajlar ve tasarruf geçirin.
 
-* **Saat bazında ödeme yaparsınız:** Büyük ölçekli iş yükleri için gereken herhangi bir anda ölçeklendirmek belirli bir noktaya yalnızca saatlik olarak ücretlendirilir. İş yükleri bir uygulamada genellikle yıl ve veri arasında sürelerinin farklılık, bu sorgulanır. Azure Cosmos DB ile yukarı veya aşağı gerekir ve yalnızca ihtiyacınız olan kadarını ödersiniz olarak ölçeklendirebilirsiniz. Şirket içi veya Iaas tarafından barındırılan sistemleriyle donanım saatte yetkisini almak için bir yol olmadığından bu model, aynı olamaz. Böyle durumlarda, büyük olasılıkla arasında 14 10 kez Azure Cosmos DB ile bir ortalama kaydedebilirsiniz.
+* **Saat bazında ödeme yaparsınız:** Herhangi bir noktada zaman içinde ölçeklendirmek için gereken, büyük ölçekli iş yükleri için yalnızca saatlik olarak ücretlendirilir. Uygulama iş yükünü, genellikle yılın ve tarafından sorgulanan veriler arasında farklılık gösterir. Azure Cosmos DB ile yukarı veya aşağı gerekir ve yalnızca ihtiyacınız olan kadarını ödersiniz olarak ölçeklendirebilirsiniz. Şirket içi veya Iaas tarafından barındırılan sistemleriyle donanım saatte yetkisini almak için bir yol olmadığından bu model, aynı olamaz. Böyle durumlarda, büyük olasılıkla arasında 14 10 kez Azure Cosmos DB ile bir ortalama kaydedebilirsiniz.
 
 * **Çok sayıda özelliğe Ücretsiz edinin:** Azure Cosmos DB'de iş yüklerinin önemli ölçüde daha ucuz alternatif veritabanı hizmetleri karşılaştırılır yazın. Ayrıca, Azure Cosmos DB özellikleri gibi gibi sunar [otomatik dizin oluşturma](indexing-policies.md), [yaşam süresi (TTL)](time-to-live.md), [değişiklik akışı](change-feed.md) ve diğer hiçbir ek bir ücret olmadan diğer veritabanı hizmetlerinin genellikle ücret bir şey.
 

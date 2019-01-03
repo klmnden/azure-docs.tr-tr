@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 9f320f508fd45b6ad70b1357e873663796825621
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: f40d88df7a46c73981b6f20bee0b119743c08257
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078809"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714500"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>Güncelleştirme 2 sürüm notları Azure Stack üzerinde App Service'e
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bu sürüm notları, Azure App Service'te düzeltmeleri ve geliştirmeleri ve Azure Stack güncelleştirme 2 bilinen sorunlar açıklanmaktadır. Bilinen sorunlar doğrudan dağıtım, güncelleştirme işlemi ve sorunları (yükleme sonrası) yapı ile ilgili sorunlar ayrılır.
 
@@ -66,7 +66,7 @@ Azure Stack güncelleştirme 2 üzerinde'Azure App Service, aşağıdaki gelişt
   - Güncelleştirilmiş.Net Core Azure App Service Genel bulutta tutarlı olması için bileşenleri.
   - Güncelleştirilmiş Kudu
 
-- Dağıtımının otomatik takas yuvası özelliğinin etkin - [otomatik yapılandırma değiştirme](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing#configure-auto-swap)
+- Dağıtımının otomatik takas yuvası özelliğinin etkin - [otomatik yapılandırma değiştirme](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
 
 - Test üretim özelliği etkin - [üretimde test giriş](https://azure.microsoft.com/resources/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/)
 
@@ -83,14 +83,14 @@ Azure Stack güncelleştirme 2 üzerinde'Azure App Service, aşağıdaki gelişt
 - Çalışanları App Service, var olan bir sanal ağda dağıtılır ve dosya sunucusu yalnızca özel ağda kullanılabilir dosya sunucusuna erişemiyor.
 
 Mevcut bir sanal ağ ve dosya sunucunuza bağlanmak için bir dahili IP adresine dağıtmayı seçerseniz, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir. Bunu yapmak için Yönetim Portalı'nda WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
- * Kaynak: tüm
+ * Kaynak: Herhangi biri
  * Kaynak bağlantı noktası aralığı: *
- * Hedef: IP adresleri
- * Hedef IP adresi aralığı: dosya sunucusu için IP aralığı
+ * Hedef: IP Adresleri
+ * Hedef IP adresi aralığı: Dosya sunucusu için IP aralığı
  * Hedef bağlantı noktası aralığı: 445
  * Protokol: TCP
- * Eylem: izin ver
- * Öncelik: 700
+ * Eylem: İzin Ver
+ * Önceliği: 700
  * Ad: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure Stack üzerinde Azure App Service'te çalışan bulut yöneticileri için bilinen sorunlar

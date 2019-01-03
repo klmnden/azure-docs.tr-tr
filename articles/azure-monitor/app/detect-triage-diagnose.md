@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2f1a6016f7555cdf1955487da22fc9171c55a480
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 5cc5e0e9bf1d05bde273d1c26c03165a38e02122
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811881"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976656"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps için Application Insights’a genel bakış
 
@@ -47,7 +47,7 @@ Ekip, Application Insights’ı kullanarak canlı Web uygulamasını şunun içi
 ![Algıla-Önceliklendir-Tanıla](./media/detect-triage-diagnose/01-pipe1.png)
 
 ## <a name="detect-poor-availability"></a>Zayıf kullanılabilirliği algılama
-Marcela Markova OBS ekibinde kıdemli bir geliştiricidir ve çevrimiçi performansı izlemeden sorumludur. Birkaç [kullanılabilirlik testi](../../application-insights/app-insights-monitor-web-app-availability.md) kurar:
+Marcela Markova OBS ekibinde kıdemli bir geliştiricidir ve çevrimiçi performansı izlemeden sorumludur. Birkaç [kullanılabilirlik testi](../../azure-monitor/app/monitor-web-app-availability.md) kurar:
 
 * Uygulamanın ana giriş sayfası için tek URL’li bir test, http://fabrikambank.com/onlinebanking/. HTTP kodu 200 ölçütlerini ve 'Hoş Geldiniz!' metnini ayarlar. Bu test başarısız olursa ağda veya sunucularda ciddi bir yanlışlık veya belki de bir dağıtım sorunu vardır. (Ya da birisi ona bilgi vermeden sayfadaki Hoş Geldiniz! mesajını değiştirmiştir.)
 * Oturum açıp geçerli hesap listesini alan, her sayfada birkaç önemli ayrıntıyı denetleyen daha derin ve çok adımlı bir test. Bu test, hesapların olduğu veritabanı bağlantısının çalıştığını doğrular. Kurgusal bir müşteri kimliğini kullanır: test amacıyla böyle birkaç kimlik bulundurulmaktadır.
@@ -228,8 +228,8 @@ Bir ekip Application Insights’ı sadece bağımsız sorunları düzeltmek içi
 Uygulamanızın özelliklerine bağlı olarak çeşitli şekillerde başlayabilirsiniz. Size en çok uyanı seçin:
 
 * [ASP.NET Web uygulaması](../../azure-monitor/app/asp-net.md)
-* [Java Web uygulaması](../../application-insights/app-insights-java-get-started.md)
+* [Java Web uygulaması](../../azure-monitor/app/java-get-started.md)
 * [Node.js Web uygulaması](../../application-insights/app-insights-nodejs.md)
-* [IIS](../../application-insights/app-insights-monitor-web-app-availability.md), [J2EE](../../application-insights/app-insights-java-live.md) veya [Azure](../../application-insights/app-insights-overview.md) üzerinde barındırılan önceden dağıtılmış uygulamalar.
-* [Web sayfaları](../../application-insights/app-insights-javascript.md) -Tek Sayfalık Uygulama veya normal Web sayfası - bunu kendi başına veya sunucu seçeneklerinden herhangi biriyle birlikte kullanın.
-* Uygulamanızı genel İnternet'ten test etmek için [kullanılabilirlik testleri](../../application-insights/app-insights-monitor-web-app-availability.md).
+* [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md) veya [Azure](../../application-insights/app-insights-overview.md) üzerinde barındırılan önceden dağıtılmış uygulamalar.
+* [Web sayfaları](../../azure-monitor/app/javascript.md) -Tek Sayfalık Uygulama veya normal Web sayfası - bunu kendi başına veya sunucu seçeneklerinden herhangi biriyle birlikte kullanın.
+* Uygulamanızı genel İnternet'ten test etmek için [kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md).

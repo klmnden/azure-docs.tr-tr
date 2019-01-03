@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 763e1d20f707a1db1f559661089b55093f93a632
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bb1616c7cbf5c9c4620aed3e31896e32fe0163f9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999933"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606223"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Openapı 2.0 (Önizleme) Azure işlevleri'nde meta veri desteği
 Openapı 2.0 (eski adıyla Swagger) meta verileri desteği Azure işlevleri bir Openapı 2.0 tanımı bir işlev uygulaması içinde yazmak için kullanabileceğiniz bir önizleme özelliği değil. Ardından, işlev uygulamasını kullanarak bu dosyayı barındırabilirsiniz.
@@ -23,7 +23,7 @@ Openapı 2.0 (eski adıyla Swagger) meta verileri desteği Azure işlevleri bir 
 > [!IMPORTANT]
 > OpenAPI önizleme özelliği şu anda yalnızca 1.x çalışma zamanında kullanılabilir. 1.x işlev uygulaması oluşturma hakkında bilgi [burada bulunabilir](./functions-versions.md#creating-1x-apps).
 
-[Openapı meta verileri](https://swagger.io/) çok çeşitli diğer yazılımlar tarafından kullanılması için bir REST API'sini barındıran bir işlev verir. Bu yazılım PowerApps gibi Microsoft teklifleriyle içerir ve [Azure App Service API Apps özelliklerinden](../app-service/app-service-web-overview.md), gibi üçüncü taraf geliştirici araçları [Postman](https://www.getpostman.com/docs/importing_swagger), ve [diğer birçok paket](https://swagger.io/tools/).
+[Openapı meta verileri](https://swagger.io/) çok çeşitli diğer yazılımlar tarafından kullanılması için bir REST API'sini barındıran bir işlev verir. Bu yazılım PowerApps gibi Microsoft teklifleriyle içerir ve [Azure App Service API Apps özelliklerinden](../app-service/overview.md), gibi üçüncü taraf geliştirici araçları [Postman](https://www.getpostman.com/docs/importing_swagger), ve [diğer birçok paket](https://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -56,8 +56,8 @@ Oluşturulan bir Swagger çatı eşleştirildiğinden aşağıdaki tabloda Azure
 |Swagger.json|Portal kullanıcı Arabirimi|Function.JSON|
 |:----|:-----|:-----|
 |[Ana Bilgisayar](https://swagger.io/specification/#fixed-fields-15)|**İşlev uygulaması ayarları** > **App Service ayarlarını** > **genel bakış** > **URL'si**|*Mevcut değil*
-|[Yolları](https://swagger.io/specification/#paths-object-29)|**Tümleştirme** > **seçili HTTP metotları**|Bağlamaları: yol
-|[Yol öğesi](https://swagger.io/specification/#path-item-object-32)|**Tümleştirme** > **rota şablonu**|Bağlamaları: yöntemler
+|[Yolları](https://swagger.io/specification/#paths-object-29)|**Tümleştirme** > **seçili HTTP metotları**|Bağlamaları: Yol
+|[Yol öğesi](https://swagger.io/specification/#path-item-object-32)|**Tümleştirme** > **rota şablonu**|Bağlamaları: Yöntemler
 |[Güvenlik](https://swagger.io/specification/#security-scheme-object-112)|**anahtarları**|*Mevcut değil*|
 |Operationıd *|**Rota + izin verilen fiiller**|Rota + izin verilen fiiller|
 

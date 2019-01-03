@@ -11,19 +11,19 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 630961954a235efd5f0cef92dd6a2525ae316838
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f53233edd17fa7097dde67bbce16b1ece668c721
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140039"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554869"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Azure Machine Learning Python istemci kitaplığını kullanarak Python ile veri kümelerine erişim
 Microsoft Azure Machine Learning Python istemci kitaplığı önizlemesi, Azure Machine Learning veri kümeleriniz için yerel bir Python ortamından güvenli erişimi etkinleştirebilir ve oluşturulmasını ve yönetimini bir çalışma alanındaki veri kümesi sağlar.
 
 Bu konu hakkında yönergeler sağlar:
 
-* Machine Learning Python istemci Kitaplığı'nı yükleyin 
+* Machine Learning Python istemci Kitaplığı'nı yükleyin
 * erişim ve veri kümeleri, Azure Machine Learning veri kümeleri, yerel Python ortamınızdan erişmek için yetki alma hakkında yönergeler dahil olmak üzere karşıya yükleyin
 * Ara veri kümeleri denemelerle erişim
 * veri kümelerini listeleme, meta verilerine erişim, bir veri kümesi içeriğini okumak, yeni veri kümeleri oluşturma ve mevcut veri kümelerini güncelleştirmek için Python istemci kitaplığını kullanma
@@ -49,7 +49,7 @@ Azure Machine Learning Python istemci kitaplığı, bu konuda açıklanan görev
 
     pip install azureml
 
-Alternatif olarak, indirin ve yükleyin kaynaklardan [github](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
+Alternatif olarak, indirin ve yükleyin kaynaklardan [GitHub](https://github.com/Azure/Azure-MachineLearning-ClientLibrary-Python).
 
     python setup.py install
 
@@ -74,11 +74,11 @@ Rolünüz olarak ayarlanmamışsa **sahibi**, sahibi olarak ortamına yeniden da
 
 Yetkilendirme belirteci almak için aşağıdakilerden birini yapın:
 
-* Bir sahibinden için bir belirteç isteyin. Sahipleri yetkilendirme belirteçleriyle Studio'da kendi çalışma alanının ayarlar sayfasından erişebilirsiniz. Seçin **ayarları** sol bölmesinde ve **YETKİLENDİRME BELİRTEÇLERİ** birincil ve ikincil belirteçleri görmek için.  Birincil veya ikincil yetkilendirme belirteçleri kod parçacığında kullanılabilir olsa da, sahipleri yalnızca ikincil yetkilendirme belirteçleri paylaşıma önerilir.
+* Bir sahibinden için bir belirteç isteyin. Sahipleri yetkilendirme belirteçleriyle Studio'da kendi çalışma alanının ayarlar sayfasından erişebilirsiniz. Seçin **ayarları** sol bölmesinde ve **YETKİLENDİRME BELİRTEÇLERİ** birincil ve ikincil belirteçleri görmek için. Birincil veya ikincil yetkilendirme belirteçleri kod parçacığında kullanılabilir olsa da, sahipleri yalnızca ikincil yetkilendirme belirteçleri paylaşıma önerilir.
 
 ![Yetkilendirme belirteçleri](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Sahip rolüne Yükseltilecek isteyin.  Bunu yapmak için geçerli bir çalışma alanı sahibi önce çalışma alanından kaldırın ardından ona sahip olarak yeniden davet gerekir.
+* Sahip rolüne Yükseltilecek isteyin. Bunu yapmak için geçerli bir çalışma alanı sahibi önce çalışma alanından kaldırın ardından ona sahip olarak yeniden davet gerekir.
 
 Geliştiriciler çalışma alanı kimliği ve yetkilendirme aldıktan sonra belirteç, bunlar rollerine bağımsız olarak kod parçacığını kullanarak çalışma alanındaki erişim olanağına sahip olursunuz.
 

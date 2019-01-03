@@ -7,27 +7,27 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 57832b59d8b43f5aa157b278e67c50b25084c86c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8b86f79cb5af34105a666613152acc0acfb08f56
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962844"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808936"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Verilerinizi görselleştirin ve Qlik Sense Azure Cosmos DB'ye bağlanma
 
 Qlik Sense farklı kaynaklardan gelen verileri tek bir görünümde birleştiren bir veri görselleştirme aracıdır. Verilere anında öngörü sahibi olabilir, böylece verilerinizi olası her ilişkide Qlik Sense dizinler. Azure Cosmos DB veri Qlik Sense kullanarak görselleştirebilirsiniz. Bu makalede Qlik Sense Azure Cosmos DB'ye bağlanma ve verilerinizi görselleştirmek için gereken adımlar açıklanmaktadır. 
 
 > [!NOTE]
-> Azure Cosmos DB'ye Qlik Sense bağlanma, şu anda yalnızca Azure Cosmos DB SQL API ve MongoDB API'si hesapları için desteklenir.
+> Qlik Sense Azure Cosmos DB'ye bağlanmanın şu anda SQL API'sini ve Azure Cosmos DB'nin API'sini yalnızca MongoDB hesapları için desteklenir.
 
 Bağlama Qlik Sense için Azure Cosmos DB ile yapabilecekleriniz:
 
 * Cosmos DB SQL ODBC Bağlayıcısı'nı kullanarak API.
 
-* Cosmos DB MongoDB (şu anda Önizleme aşamasında) Qlik algılama MongoDB bağlayıcısını kullanarak API.
+* Azure Cosmos DB'nin MongoDB için API (şu anda Önizleme aşamasında) Qlik algılama MongoDB bağlayıcısını kullanarak.
 
-* Cosmos DB MongoDB API'si ve SQL API'si, REST API Bağlayıcısı kullanarak Qlik Sense.
+* MongoDB ve Qlik Sense REST API Bağlayıcısı kullanarak SQL API'si için Azure Cosmos DB API.
 
 * Cosmos DB Mongo DB Qlik çekirdek için gRPC bağlayıcısını kullanarak API.
 ODBC Bağlayıcısı'nı kullanarak Cosmos DB SQL API'sine bağlanma ayrıntıları bu makalede açıklanır.

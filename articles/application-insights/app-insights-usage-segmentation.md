@@ -13,12 +13,12 @@ ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 6a7f62d4018e5a8bd39cbf2bb2b1418137d93638
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 16795ce1fd53b9634dbc2ff7513d1c39752b8848
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720159"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974599"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Application Insights kullanıcılar, oturumlar ve olaylar analizi
 
@@ -34,22 +34,22 @@ Kullanıcılar, oturumlar veya olaylar dikey pencereleri Application Insights po
 
 Kullanım dikey pencerelerinde üçünün de aynı aracı dilimlediği telemetri üç perspektiflerden web uygulamanızdan kullanın. Filtreleme ve verileri bölme farklı sayfalarını ve özelliklerini göreli kullanımıyla ilgili öngörüleri ortaya çıkarabilirsiniz.
 
-* **Kullanıcılar aracı**: kaç kişinin uygulamanızı ve özellikleri kullanılır.  Kullanıcıların, tarayıcı tanımlama bilgilerinde depolanan anonim kimlikleri kullanarak sayılır. Farklı tarayıcılar veya makineleri kullanarak tek bir kişi olarak birden fazla kullanıcı olarak sayılır.
-* **Oturumlar aracına**: kaç oturum, kullanıcı etkinliğinin belirli sayfalarını ve özelliklerini uygulamanızın olarak eklenir. Oturum, kullanıcı yapılmadığında yarım saat sürekli kullanıma 24 saat sonra veya sayılır.
-* **Olaylar aracına**: belirli sayfalarını ve özelliklerini uygulamanızın ne sıklıkla kullanılır. Sahip olduğunuz sağlanan bir sayfa görünümü bir tarayıcı, uygulamanızdan Sayfa yüklediğinde sayılır [, izleme eklenmiş](app-insights-javascript.md). 
+* **Kullanıcılar aracı**: Kaç kişinin uygulamanızı ve özellikleri kullanılır.  Kullanıcıların, tarayıcı tanımlama bilgilerinde depolanan anonim kimlikleri kullanarak sayılır. Farklı tarayıcılar veya makineleri kullanarak tek bir kişi olarak birden fazla kullanıcı olarak sayılır.
+* **Oturumlar aracına**: Kaç oturum, kullanıcı etkinliğinin belirli sayfalarını ve özelliklerini uygulamanızın eklediniz. Oturum, kullanıcı yapılmadığında yarım saat sürekli kullanıma 24 saat sonra veya sayılır.
+* **Olaylar aracına**: Belirli sayfalarını ve özelliklerini uygulamanızın ne sıklıkla kullanılır. Sahip olduğunuz sağlanan bir sayfa görünümü bir tarayıcı, uygulamanızdan Sayfa yüklediğinde sayılır [, izleme eklenmiş](../azure-monitor/app/javascript.md). 
 
-    Özel olay şeyin uygulamanızı, genellikle bir düğmeyi gibi bir kullanıcı etkileşimi veya bazı görevi tamamlanırken bir oluşumu temsil eder. Uygulamanıza kod eklemek [özel olaylar oluşturma](app-insights-api-custom-events-metrics.md#trackevent).
+    Özel olay şeyin uygulamanızı, genellikle bir düğmeyi gibi bir kullanıcı etkileşimi veya bazı görevi tamamlanırken bir oluşumu temsil eder. Uygulamanıza kod eklemek [özel olaylar oluşturma](../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 ## <a name="querying-for-certain-users"></a>Belirli kullanıcılar sorgulama
 
 Farklı kullanıcı grupları, kullanıcılar aracı üst kısmındaki sorgu seçeneklerini ayarlayarak keşfedin:
 
 * Göster: Analiz etmek için kullanıcıların kohortu seçin.
-* Şunu kullanan: özel olaylar'ı seçin ve sayfa görüntüleme.
-* İşlem sırasında: bir zaman aralığı seçin.
-* Tarafından: bir süre veya tarayıcı veya şehir gibi başka bir özellik tarafından veri demetine nasıl ek Yardım düğmesini seçin.
-* Bölme ölçütü: bir özellik olarak bölünmüş veya segment için verileri seçin. 
-* Filtreleri ekleyin: Sorgu belirli kullanıcılar, oturumlar veya tarayıcı veya şehir gibi özelliklerini dayalı olarak olayları sınırı. 
+* Şunu kullanan: Özel olaylar ve sayfa görüntülemelerini seçin.
+* İşlem sırasında: Bir zaman aralığını seçin.
+* Tarafından: Bir süre veya tarayıcı veya şehir gibi başka bir özellik tarafından veri demetine nasıl seçin.
+* Bölme ölçütü: Bir özellik olarak bölünmüş veya segment için verileri seçin. 
+* Filtreleri ekleyin: Belirli kullanıcılar, oturumlar veya tarayıcı veya şehir gibi özelliklerini dayalı olarak olayları sorgu sınırı. 
  
 ## <a name="saving-and-sharing-reports"></a>Kaydetme ve rapor paylaşma 
 Kullanıcıların raporları yalnızca raporlarım bölümünde, özel veya paylaşılan diğer paylaşılan Raporlar bölümünde bu Application Insights kaynağına erişimi olan herkes ile kaydedebilirsiniz.

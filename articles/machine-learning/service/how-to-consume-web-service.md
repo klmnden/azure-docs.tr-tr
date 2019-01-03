@@ -1,7 +1,7 @@
 ---
 title: Dağıtılmış web hizmetini tüketmeye istemcisi oluşturma
 titleSuffix: Azure Machine Learning service
-description: Bir modeli Azure Machine Learning modeli ile dağıttığınızda, oluşturulan bir web hizmetinin nasıl kullanılacağı hakkında bilgi edinin. REST API, web hizmetidir. İstemciler için tercih ettiğiniz programlama dilini kullanarak bu API oluşturun.
+description: Bir modeli Azure Machine Learning modeli ile dağıttığınızda, oluşturulan bir web hizmetinin nasıl kullanılacağı hakkında bilgi edinin. Web hizmeti REST API sunar. İstemciler bu API için tercih ettiğiniz programlama dilini kullanarak oluşturun.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,31 +11,31 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: fc1f472cec1b1da26456924885d7905ab2458e14
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: efa24fcb624c7613ce16028d7ba06af4d4d2153c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251139"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753396"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Bir web hizmeti olarak bir Azure Machine Learning modeli kullanma
 
-Bir Azure Machine Learning modeli bir web hizmeti olarak dağıtma, bir REST API oluşturur. Bu API için veri göndermek ve modeli tarafından döndürülen tahmin alırsınız. Bu belgede, web hizmeti kullanmak için istemcileri oluşturmayı öğrenin C#, Go, Java ve Python.
+Bir Azure Machine Learning modeli bir web hizmeti olarak dağıtma, bir REST API oluşturur. Bu API için veri göndermek ve modeli tarafından döndürülen tahmin alırsınız. Bu belgede, web hizmeti istemcileri kullanarak oluşturmayı öğrenin C#, Go, Java ve Python.
 
-Bir web hizmeti, görüntüyü Azure Container örneği, Azure Kubernetes hizmeti veya Project Brainwave (alanda programlanabilir kapı dizileri) dağıttığınızda oluşturulur. Görüntüleri, kayıtlı bir model ve puanlama dosyaları oluşturulur. Bir web hizmetine erişmek için kullanılan URI kullanılarak alınabilir [Azure Machine Learning SDK'sı](https://aka.ms/aml-sdk). Kimlik doğrulamasını etkinleştirdiyseniz, kimlik doğrulama anahtarlarını almak için SDK'yı da kullanabilirsiniz.
+Görüntüyü Azure Container Instances, Azure Kubernetes hizmeti veya Project Brainwave (alanda programlanabilir kapı dizileri) dağıtırken bir web hizmeti oluşturun. Kayıtlı bir model ve puanlama dosyaları yansımaları oluşturun. Kullanarak bir web hizmetine erişmek için kullanılan URI'yi almak [Azure Machine Learning SDK'sı](https://aka.ms/aml-sdk). Kimlik doğrulamasını etkinleştirdiyseniz, kimlik doğrulama anahtarlarını almak için SDK'yı da kullanabilirsiniz.
 
-Bir XML web hizmeti kullanan bir istemci oluşturma, genel iş akışı şöyledir:
+Bir machine learning web hizmeti kullanan bir istemci oluşturmak için genel iş akışı şöyledir:
 
-1. Bağlantı bilgilerini almak için SDK'yi kullanın
-1. Model tarafından kullanılan istek verisi türünü belirleme
-1. Web hizmetini çağıran bir uygulama oluşturun
+1. Bağlantı bilgilerini almak için SDK'yi kullanın.
+1. Model tarafından kullanılan istek verilerin türünü belirler.
+1. Web hizmetini çağıran bir uygulama oluşturun.
 
 ## <a name="connection-information"></a>Bağlantı bilgileri
 
 > [!NOTE]
-> Azure Machine Learning SDK'sı, web hizmeti bilgileri almak için kullanılır. Bir Python SDK'sı budur. Web hizmetleri hakkında bilgi almak için kullanılır, ancak bir istemci hizmeti oluşturmak için herhangi bir dil kullanabilirsiniz.
+> Web hizmeti bilgileri almak için Azure Machine Learning SDK'sını kullanın. Bir Python SDK'sı budur. Herhangi bir dilde bir istemci hizmeti oluşturmak için kullanabilirsiniz.
 
-Web hizmeti bağlantı bilgileri, Azure Machine Learning SDK'sı kullanılarak alınabilir. [Azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) sınıfı, bir istemci oluşturmak için gereken bilgileri sağlar. Aşağıdaki `Webservice` bir istemci uygulaması oluştururken yararlı olan özellikler:
+[Azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) sınıfı, bir istemci oluşturmak ihtiyacınız olan bilgileri sağlar. Aşağıdaki `Webservice` özellikleri bir istemci uygulaması oluşturmak için kullanışlıdır:
 
 * `auth_enabled` -Kimlik doğrulama etkinse `True`; Aksi takdirde `False`.
 * `scoring_uri` -REST API adresi.
@@ -53,14 +53,14 @@ Dağıtılan web hizmetleri için bu bilgileri almak için üç yol vardır:
     print(service.scoring_uri)
     ```
 
-* Kullanabileceğiniz `Webservice.list` bir listesini almak için çalışma alanınızdaki modelleri için web hizmetleri dağıtıldı. Döndürülen bilgileri listesini daraltmak için filtre ekleyebilirsiniz. Ne hakkında daha fazla bilgi filtrelenebilen için bkz: [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) başvuru belgeleri.
+* Kullanabileceğiniz `Webservice.list` bir listesini almak için çalışma alanınızdaki modelleri için web hizmetleri dağıtıldı. Döndürülen bilgileri listesini daraltmak için filtre ekleyebilirsiniz. Hakkında daha fazla bilgi filtrelenebilen için bkz: [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) başvuru belgeleri.
 
     ```python
     services = Webservice.list(ws)
     print(services[0].scoring_uri)
     ```
 
-* Dağıtılan hizmetin adını biliyorsanız, yeni bir örneğini oluşturabilirsiniz `Webservice` ve parametrelere çalışma ve hizmet adını girin. Yeni nesne dağıtılan hizmeti hakkında bilgi içerir.
+* Dağıtılan hizmetin adını biliyorsanız, yeni bir örneğini oluşturabilirsiniz `Webservice`ve parametrelere çalışma ve hizmet adını girin. Yeni nesne dağıtılan hizmeti hakkında bilgi içerir.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -69,12 +69,12 @@ Dağıtılan web hizmetleri için bu bilgileri almak için üç yol vardır:
 
 ### <a name="authentication-key"></a>Kimlik doğrulama anahtarı
 
-Kimlik doğrulaması anahtarları, bir dağıtım için kimlik doğrulaması etkinleştirildiğinde otomatik olarak oluşturulur.
+Kimlik doğrulaması için bir dağıtım'ı etkinleştirdiğinizde otomatik olarak kimlik doğrulaması anahtarları oluşturun.
 
-* Kimlik doğrulaması __varsayılan olarak etkin__ dağıtım yapılırken __Azure Kubernetes hizmeti__.
-* Kimlik doğrulaması __varsayılan olarak devre dışı__ dağıtım yapılırken __Azure container Instances__.
+* Azure Kubernetes Service'e dağıtırken, kimlik doğrulaması varsayılan olarak etkindir.
+* Azure Container Instances'a dağıtırken kimlik doğrulaması varsayılan olarak devre dışıdır.
 
-Kimlik doğrulaması denetlemek için kullanın `auth_enabled` oluşturulurken veya güncelleştirilirken bir dağıtım parametresi.
+Kimlik doğrulaması denetlemek için kullanın `auth_enabled` oluştururken veya bir dağıtım güncelleştirme parametresi.
 
 Kimlik doğrulamasını etkinleştirdiyseniz, kullanabileceğiniz `get_keys` yönteminin bir birincil ve ikincil kimlik doğrulama anahtarı almak için:
 
@@ -155,9 +155,9 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> Şeyler `azureml.contrib` ad alanını değiştirme sık olarak hizmeti geliştirmek için çalışıyoruz. Bu nedenle, bu ad alanındaki herhangi bir şey önizleme olarak kabul ve tamamen Microsoft tarafından desteklenmiyor.
+> `azureml.contrib` Ad değişiklikleri sık olarak hizmeti geliştirmek için çalışıyoruz. Bu nedenle, bu ad alanındaki herhangi bir şey önizleme olarak kabul ve tamamen Microsoft tarafından desteklenmiyor.
 >
-> Bu, yerel geliştirme ortamınıza test gerekiyorsa, aşağıdaki komutu kullanarak contrib ad alanında bileşenleri yükleyebilirsiniz:
+> Bu, yerel geliştirme ortamınıza test etmeniz, bileşenleri yükleyebilirsiniz `contrib` aşağıdaki komutu kullanarak ad alanı:
 > 
 > ```shell
 > pip install azureml-contrib-services

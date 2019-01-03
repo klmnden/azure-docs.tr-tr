@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 43acf5f59667f45e67156b33e31d28160ba47c13
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 19a842eacb00e877d31712febeeebc72cbdd25a0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408817"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743179"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Azure HDInsight için arşivlenmiş yayın notları
 
@@ -52,10 +52,9 @@ HDInsight'ın Haziran 2018 sürümünden yeni güncelleştirmeleri ve müşteril
   
 
 
-
 ## <a name="04062017---general-availability-of-hdinsight-36"></a>06/04/2017 - genel kullanıma sunulduğunu HDInsight 3.6
 
-* Bu sürümle birlikte, Azure HDInsight sürümü 3.6, üzerinde HDP 2.6 dayalı olarak ekler. HDP 2.6 sürüm notları [burada](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) ve HDInsight sürümleri hakkında daha fazla bilgi bulunabilir [burada](hdinsight-component-versioning.md). HDInsight 3.6, aşağıdaki iş yükleri için kullanılabilir:
+* Bu sürümle birlikte, Azure HDInsight sürümü 3.6, üzerinde HDP 2.6 dayalı olarak ekler. HDP 2.6 sürüm notları [burada](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html) ve HDInsight sürümleri hakkında daha fazla bilgi bulunabilir [burada](hdinsight-component-versioning.md). HDInsight 3.6, aşağıdaki iş yükleri için kullanılabilir:
 
     * Hadoop v2.7.3
     * HBase v1.1.2
@@ -63,7 +62,7 @@ HDInsight'ın Haziran 2018 sürümünden yeni güncelleştirmeleri ve müşteril
     * Spark v2.1.0
     * Etkileşimli Hive v2.1.0
 
-* **Hive görünümünü 2.0 için destek**. Bu, Interactive Hive kullanıcı deneyimini iyileştirmek. Daha fazla bilgi için [Hortonworks belgeleri](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
+* **Hive görünümünü 2.0 için destek**. Bu, Interactive Hive kullanıcı deneyimini iyileştirmek. Daha fazla bilgi için [Hortonworks belgeleri](https://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html).
 
 * **Hive, LLAP performans geliştirmeleriyle**. Daha fazla bilgi için [Hortonworks belgeleri](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/).
 
@@ -87,11 +86,11 @@ HDInsight'ın Haziran 2018 sürümünden yeni güncelleştirmeleri ve müşteril
 
 
 ## <a name="02282017---release-of-spark-21-on-hdinsight-36-preview"></a>02/28/2017 - HDInsight 3.6 üzerinde Spark 2.1 sürümünü (Önizleme)
-* [Spark 2.1](http://spark.apache.org/releases/spark-release-2-1-0.html) önceki sürümleriyle birçok kararlılık ve kullanılabilirlik sorunlarını artırır. Tüm Spark gibi iş yüklerini Spark Core, SQL, ML ve akış üzerinden yeni özellikler de sunar.
+* [Spark 2.1](https://spark.apache.org/releases/spark-release-2-1-0.html) önceki sürümleriyle birçok kararlılık ve kullanılabilirlik sorunlarını artırır. Tüm Spark gibi iş yüklerini Spark Core, SQL, ML ve akış üzerinden yeni özellikler de sunar.
 * Yapılandırılmış akış olayı zaman Filigranlar ve Kafka 0,10 bağlayıcı desteği ile geliştirilmiş ölçeklenebilirlik alır.
-* Spark SQL bölümleme artık yeni bölüm ölçeklenebilir işleme mekanizması kullanılarak ele alınır. Daha fazla ayrıntı görmek [burada](http://spark.apache.org/releases/spark-release-2-1-0.html) yükseltme hakkında.
+* Spark SQL bölümleme artık yeni bölüm ölçeklenebilir işleme mekanizması kullanılarak ele alınır. Daha fazla ayrıntı görmek [burada](https://spark.apache.org/releases/spark-release-2-1-0.html) yükseltme hakkında.
 * Azure şu anda Önizleme HDInsight 3.6 üzerinde Spark 2.1 ODBC sürücüsünü kullanarak BI aracı bağlantı desteklemez.
-* Azure Data Lake Store erişim Spark 2.1 küme Bu önizleme sürümünde desteklenmiyor.
+* Azure Data Lake depolama erişim Spark 2.1 küme Bu önizleme sürümünde desteklenmiyor.
 
 
 ## <a name="11182016---release-of-spark-201-on-hdinsight-35"></a>18/11/2016-2.0.1 Spark HDInsight 3.5 sürümü
@@ -110,9 +109,4 @@ Spark 2.0.1 Spark kümelerinde (HDInsight sürüm 3.5) kullanıma sunulmuştur.
 * HDInsight kümesi sağlama üzerinde R Server basitleştirilmiştir.
 * HDInsight üzerinde R Server normal HDInsight kullanıma sunuldu "R Server" küme türü ve artık ayrı bir HDInsight uygulaması olarak yüklü. Artık R Server ikili ve kenar düğümüne R Server kümesi dağıtımının bir parçası sağlanır. Bu, hızı ve sağlama güvenilirliğini artırır. R Server için fiyatlandırma modeline uygun şekilde güncelleştirilir.
 * R Server kümesi türü fiyatı, standart katman fiyata ek R Server ek maliyeti fiyat üzerinde artık temel alır. Bu değişiklik geçerli R Server'ın fiyatlandırma etkilemez; Bu ücret faturada yalnızca nasıl sunulduğu değiştirir. Tüm var olan R Server kümelerinin çalışmaya devam eder ve Resource Manager şablonları kullanımdan kaldırma bildirimi kadar çalışmaya devam eder. **Betikleştirilmiş dağıtımlarınızı yeni Resource Manager şablonu kullanmak için güncelleştirme ancak önerilir.**
-
-
-
-
-
 

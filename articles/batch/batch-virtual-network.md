@@ -1,19 +1,20 @@
 ---
-title: Bir sanal ağın Azure Batch havuzunda sağlama | Microsoft Docs
+title: Bir sanal ağ - Azure Batch havuzunda sağlama | Microsoft Docs
 description: İşlem düğümleri ağdaki bir dosya sunucusu gibi diğer vm'lerle güvenli bir şekilde iletişim kurabilmesi için bir Azure sanal ağında bir Batch havuzu oluşturma
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: danlep
-ms.openlocfilehash: ef37d482e86e4ae05d3f14c78404dc395792b236
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 840c9f4115c13052c65e5975ed22aab7737ea2fe
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091972"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543924"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Sanal ağ içinde bir Azure Batch havuzu oluşturma
 
@@ -37,7 +38,7 @@ Azure Batch havuzu birbirleri ile - örneğin iletişim kurmak için çok örnek
 
 ## <a name="create-a-pool-with-a-vnet-in-the-portal"></a>Sanal ağ içinde portal ile havuz oluşturma
 
-Sanal ağınızdaki bir kez oluşturdunuz ve bir alt ağ atanmış, bu sanal ağ ile bir Batch havuzu oluşturabilirsiniz. Azure portalından bir havuz oluşturmak için aşağıdaki adımları izleyin: 
+Sanal ağınızdaki bir kez oluşturdunuz ve bir alt ağ atanmış, bu sanal ağ ile bir Batch havuzu oluşturabilirsiniz. Azure portalından bir havuz oluşturmak için aşağıdaki adımları izleyin: 
 
 1. Azure portalında Batch hesabınıza gidin. Bu hesabı kullanmayı planlıyorsanız sanal ağ içeren bir kaynak grubu aynı abonelik ve aynı bölgede olması gerekir. 
 2. İçinde **ayarları** penceresi seçin sol taraftaki **havuzları** menü öğesi.

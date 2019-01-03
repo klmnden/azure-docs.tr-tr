@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: ddfea3ec7380a36f937052a6a994504ca081f187
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 2abf0afb3b6e1cd80168fa3f295297551b9bf7ce
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020179"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755164"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Nasıl yapılır: Azure ad koşullu erişim bloğu eski kimlik doğrulaması   
 
@@ -60,7 +60,7 @@ Nasıl kiracınızın kaynaklara erişimini eski kimlik doğrulaması kullanan u
 
 Bu bölümde, eski bir kimlik doğrulama bloğu için bir koşullu erişim ilkesini yapılandırma açıklanmaktadır. 
 
-### <a name="block-legacy-authentication"></a>Blok eski kimlik doğrulaması 
+### <a name="block-legacy-authentication"></a>Eski kimlik doğrulamasını engelleme 
 
 Bir koşullu erişim ilkesi kaynaklarınıza erişmek için kullanılan istemci uygulamaları için bağlı bir koşul ayarlayabilirsiniz. Seçerek eski kimlik doğrulaması kullanan uygulamalar için kapsamını daraltmak istemci uygulamalar koşulunu sağlayan **diğer istemciler** için **mobil uygulamalar ve masaüstü istemciler**.
 
@@ -91,7 +91,7 @@ Azure, bu yapılandırma ihlal ettiğinden ilkenizi böyle oluşturmanızı enge
 ![İlke yapılandırması desteklenmiyor](./media/block-legacy-authentication/04.png)
 
 
-Güvenlik özelliği gereklidir çünkü *tüm kullanıcılar ve tüm bulut uygulamaları* tüm kuruluşunuzu kiracınıza imzalama engelleyin olasılığına sahiptir. En az bir en iyi uygulama gereksinimi karşılamak için en az bir kullanıcı hariç tutmanız gerekir. Ayrıca olabilir 
+Güvenlik özelliği gereklidir çünkü *tüm kullanıcılar ve tüm bulut uygulamaları* tüm kuruluşunuzu kiracınıza imzalama engelleyin olasılığına sahiptir. En az bir en iyi uygulama gereksinimi karşılamak için en az bir kullanıcı hariç tutmanız gerekir. Bir dizin rolüne de hariç.
 
 ![İlke yapılandırması desteklenmiyor](./media/block-legacy-authentication/05.png)
 

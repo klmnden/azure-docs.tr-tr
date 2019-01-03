@@ -13,12 +13,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2bba11cd8b0e90f7835872e496c790aa56fcddc8
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 47a89da808e2f53cf8dfc901c64eba3d78842d13
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277357"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652039"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Nasıl yapılır: Azure Active Directory raporlarını kullanarak oturum açma hatalarında sorun giderme
 
@@ -35,7 +35,7 @@ Ayrıca, oturum açma işlemleri raporu da kuruluşunuzdaki kullanıcılar için
 
 Gerekenler:
 
-* Azure AD kiracısı (ö1/ö2) premium lisansına sahip. 
+* Azure AD kiracısı (ö1/ö2) premium lisansına sahip. Bkz: [Azure Active Directory Premium ile çalışmaya başlama](../fundamentals/active-directory-get-started-premium.md) , Azure Active Directory sürümünü yükseltmek için.
 * İçinde olan bir kullanıcı **genel yönetici**, **Güvenlik Yöneticisi**, **güvenlik okuyucusu** veya **rapor okuyucu** kiracının rol. Ayrıca, herhangi bir kullanıcı kendi oturum açma etkinliklerine erişebilir. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Oturum açma işlemleri raporu kullanarak oturum açma hatalarında sorun giderme

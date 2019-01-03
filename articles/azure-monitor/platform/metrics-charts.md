@@ -5,19 +5,19 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 12/20/2018
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: daa3a140e749700665427a011292f48ac8f163d2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 8932f8aa1dd950693378e9fc58c79838fad6166b
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389079"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741768"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure İzleyici ölçüm Gezgini
 
-Azure İzleyici ölçüm Gezgini'ni grafikler çizme, görsel olarak eğilimleri ilişkilendirme ve ani araştırma sağlar ve düşüşler ölçümleri değerleri Microsoft Azure portalının bir bileşenidir. Ölçüm Gezgini çeşitli performans ve Azure'da barındırılan veya Azure izleme hizmetleri tarafından izlenen altyapı ve uygulamalar ile kullanılabilirlik sorunları araştırma için bir temel başlangıç noktasıdır. 
+Azure İzleyici ölçüm Gezgini'ni grafikler çizme, görsel olarak eğilimleri ilişkilendirme ve ani araştırma sağlar ve düşüşler ölçümleri değerleri Microsoft Azure portalının bir bileşenidir. Ölçüm Gezgini çeşitli performans ve Azure'da barındırılan veya Azure izleme hizmetleri tarafından izlenen altyapı ve uygulamalar ile kullanılabilirlik sorunları araştırma için bir temel başlangıç noktasıdır.
 
 ## <a name="metrics-in-azure"></a>Azure ölçümleri
 
@@ -28,11 +28,11 @@ Microsoft azure'da ölçümleri ölçülen değerleri ve toplanan ve zaman için
 1. Azure portalını açın
 2. Yeni Git **İzleyici** sekmesine tıklayın ve ardından **ölçümleri**.
 
-   ![Ölçümler görüntüsü](./media/metrics-charts/0001.png)
+   ![Ölçümler görüntüsü](./media/metrics-charts/00001.png)
 
 3. **Ölçüm Seçici** otomatik olarak sizin için açık olacaktır. Bir kaynağı kendi ilgili ölçümleri görüntülemek için listeden seçin. Yalnızca kaynakları ölçümlerle listesinde gösterilir.
 
-   ![Ölçümler görüntüsü](./media/metrics-charts/0002.png)
+   ![Ölçümler görüntüsü](./media/metrics-charts/00002.png)
 
    > [!NOTE]
    >Ölçüm Gezgini çeken kaynakları Portal ayarlarında seçili abonelikler genelinde kullanıma birden fazla Azure aboneliğiniz varsa, filtre tarafından abonelik listesi ->. Değiştirmek için ekranın en üstünde Portal ayarları dişli simgesine tıklayın ve kullanmak istediğiniz abonelikleri seçin.
@@ -41,15 +41,15 @@ Microsoft azure'da ölçümleri ölçülen değerleri ve toplanan ve zaman için
 
    Örneğin, her bir Azure depolama alt Servisleri "BLOB", "Files", "Kuyrukları" ve tüm bölümleri depolama hesabının "Tablo" için ölçüler vardır. Ancak, "kuyruk mesaj sayısı" ölçüm doğal olarak "Sırası" subservice ve tüm diğer depolama hesabı alt servisleri için geçerlidir.
 
-   ![Ölçümler görüntüsü](./media/metrics-charts/0003.png)
+   ![Ölçümler görüntüsü](./media/metrics-charts/00003.png)
 
 5. Listeden bir ölçüm seçin. İstediğiniz ölçümü kısmi adını biliyorsanız, kullanılabilir ölçümler filtrelenmiş bir listesini görmek için yazmak başlayabilirsiniz:
 
-   ![Ölçümler görüntüsü](./media/metrics-charts/0004.png)
+   ![Ölçümler görüntüsü](./media/metrics-charts/00004.png)
 
 6. Bir ölçüm seçildiğinde, grafik, seçilen ölçüm için varsayılan toplama ile işlenir. Bu noktada yalnızca liste kutusundan tıklayabilirsiniz **ölçümleri Seçici** kapatmak için. Ayrıca isteğe bağlı olarak farklı bir toplama için grafiği geçiş yapabilirsiniz. Bazı ölçümler için toplama geçişi grafikte görmek istediğiniz değer seçmenize olanak sağlar. Örneğin, ortalama, minimum ve maksimum değerleri arasında geçiş yapabilirsiniz. 
 
-7. Ölçüm Ekle simgesine tıklayarak ![Ölçüm simgesi](./media/metrics-charts/icon001.png) ve adım 3-6 yinelenen daha fazla ölçümleri aynı grafikte ekleyebilirsiniz.
+7. Tıklayarak **ölçüm Ekle** ve 3-6 adımları yinelemekten daha fazla ölçümleri aynı grafikte ekleyebilirsiniz.
 
    > [!NOTE]
    > Genellikle, bir grafikte ölçümleri farklı ölçü (yani "milisaniye" ve "kilobayt") veya önemli ölçüde farklı ölçeklendirme ile sahip istemezsiniz. Bunun yerine, birden çok grafik kullanmayı düşünün. Ölçüm Gezgini'nde birden çok grafik oluşturmak için Hesap Ekle düğmesine tıklayın.
@@ -60,19 +60,19 @@ Boyutlarla ölçümleri gösteren grafikler için filtre uygulayabilirsiniz. "İ
 
 ### <a name="to-add-a-filter"></a>Filtre eklemek için
 
-1. Filtre Ekle simgesine tıklayın ![filtre simgesi](./media/metrics-charts/icon002.png) grafiğin üstünde
+1. Seçin **Filtre Ekle** grafiğin üstünde
 
 2. Filtre uygulamak istediğiniz boyutu (özellik) seçin
 
-   ![Ölçüm görüntüsü](./media/metrics-charts/0006.png)
+   ![Ölçüm görüntüsü](./media/metrics-charts/00006.png)
 
 3. (Bu örnekte filtreleme başarılı depolama işlemleri gösterilmiştir) grafik çizim, dahil etmek istediğiniz hangi boyut değerleri seçin:
 
-   ![Ölçüm görüntüsü](./media/metrics-charts/0007.png)
+   ![Ölçüm görüntüsü](./media/metrics-charts/00007.png)
 
 4. Filtre değerleri belirledikten sonra filtre Seçici uzağa kapatmak için tıklayın. Artık grafik kaç depolama işlemi başarısız olmuş gösterir:
 
-   ![Ölçüm görüntüsü](./media/metrics-charts/0008.png)
+   ![Ölçüm görüntüsü](./media/metrics-charts/00008.png)
 
 5. Aynı grafikleri birden fazla filtre uygulamak için 1-4 arası adımları tekrarlayabilirsiniz.
 
@@ -82,23 +82,37 @@ Bir ölçüm bölme ölçütü: ölçüm karşılaştırma birbirleriyle nasıl 
 
 ### <a name="to-segment-a-chart"></a>Bir grafik segmentlere ayırmak için
 
-1. Gruplama ekleme simgesine tıklayın  ![Ölçüm görüntüsü](./media/metrics-charts/icon003.png) grafiğin üstünde.
+1. Tıklayarak **uygulamak bölme** grafiğin üstünde.
  
    > [!NOTE]
-   > Tek bir gruplandırma ancak birden çok filtre herhangi tek grafikte olabilir.
+   > Herhangi bir tek grafikte birden çok filtre ancak yalnızca bir bölme/Segment değeri olabilir.
 
-2. Grafiğinizi segmentlere ayırmak istediğiniz bir boyut seçin: 
+2. Grafiğinizi segmentlere ayırmak istediğiniz bir boyut seçin:
 
-   ![Ölçüm görüntüsü](./media/metrics-charts/0010.png)
+   ![Ölçüm görüntüsü](./media/metrics-charts/00010.png)
 
    Şimdi grafik, artık her bir kesim boyutu için birden fazla satır gösterir:
 
-   ![Ölçüm görüntüsü](./media/metrics-charts/0012.png)
+   ![Ölçüm görüntüsü](./media/metrics-charts/00012.png)
 
 3. Liste kutusundan tıklayın **gruplandırma Seçici** kapatmak için.
 
    > [!NOTE]
-   > Filtreleme ve gruplandırma aynı boyutta hem senaryonuz için ilgisi olmayan ve grafikleri okunmalarını kolaylaştırmak segmentleri gizlemek için kullanın.
+   > Filtreleme hem de aynı boyutta bölme senaryonuz için ilgisi olmayan ve grafikleri okunmalarını kolaylaştırmak segmentleri gizlemek için kullanın.
+
+### <a name="new-alert-rule"></a>Yeni uyarı kuralı
+
+Uyarı kuralı bir ölçüm temel mantığını temel alarak gibi ölçümlerinizi görselleştirmek için ayarlanan ölçütlerle de kullanabilirsiniz. 
+
+Tıklarsanız **yeni uyarı kuralı**
+
+![Kırmızı renkte vurgulanmış yeni uyarı kuralı düğmesi](./media/metrics-charts/015.png)
+
+Temel alınan ölçü boyutları ile uyarı kuralı oluşturma bölmesine özel uyarı kuralları oluşturma daha kolay hale getirmek için önceden doldurulmuş grafiğinizi alınır.
+
+![Uyarı kuralı oluştur](./media/metrics-charts/016.png)
+
+Kullanıma alma bu [makale](alerts-metric.md) ölçüm uyarılarını ayarlama hakkında daha fazla bilgi edinmek için.
 
 ## <a name="lock-boundaries-of-chart-y-axis"></a>Grafik y ekseni sınırlarını kilidi
 
@@ -110,20 +124,20 @@ Başka bir kullanılabilir bellek bir dalgalanma burada değeri teknik olarak hi
 
 Y ekseni aralığını denetlemek için kullanma "..." Grafik menü ve seçin **grafiği Düzenle** grafiği ayarları Gelişmiş erişim için. Y ekseni aralığını bölümündeki değerleri değiştirin veya kullanın **otomatik** varsayılanlara geri düğmesi.
 
-![Ölçüm görüntüsü](./media/metrics-charts/0014-manually-set-granularity.png)
+![Ölçüm görüntüsü](./media/metrics-charts/00014-manually-set-granularity.png)
 
 > [!WARNING]
 > Çeşitli izlemek grafiklerin y ekseni sınırlarını kilitleme sayar veya toplayan bir dönem boyunca zaman (ve dolayısıyla kullanım sayısı, toplam, minimum veya maksimum toplamalar) genellikle otomatik varsayılanlara güvenmek yerine bir sabit zaman ayrıntı düzeyi belirterek gerektirir. Bu gereklidir çünkü zaman ayrıntı düzeyi tarayıcı penceresini yeniden boyutlandırma veya başka bir ekran çözünürlüğünü giden kullanıcı tarafından otomatik olarak değiştirildiğinde grafiklerde değerlerini değiştirin. Elde edilen grafiğin y ekseni aralığını oluşan geçerli seçimi geçersiz kılmalarını görünümünü zaman ayrıntı düzeyi efektleri değiştirin.
 
 ## <a name="pin-charts-to-dashboards"></a>Panolar için PIN grafikleri
 
-Grafikleri yapılandırdıktan sonra yeniden, büyük olasılıkla diğer izleme telemetri bağlamında görüntülemek veya takımınızla paylaşmak için Pano eklemek isteyebilirsiniz. 
+Grafikleri yapılandırdıktan sonra yeniden, büyük olasılıkla diğer izleme telemetri bağlamında görüntülemek veya takımınızla paylaşmak için Pano eklemek isteyebilirsiniz.
 
 Yapılandırılmış bir grafik bir panoya sabitlemek için:
 
 Grafiğinizi yapılandırdıktan sonra tıklayarak **grafik Eylemler** menüsü sağ üst köşe grafiğin ve tıklayın **panoya Sabitle**.
 
-![Ölçüm görüntüsü](./media/metrics-charts/0013.png)
+![Ölçüm görüntüsü](./media/metrics-charts/00013.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,20 +1,17 @@
 ---
 title: MySQL için Azure veritabanı'nda dışarı ve içeri aktarma
 description: Bu makalede, MySQL Workbench gibi araçları kullanarak MySQL için Azure veritabanı'nda veritabanlarını dışarı ve içeri aktarma yaygın yolları açıklanmaktadır.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/01/2018
-ms.openlocfilehash: ee291f24a1ad77f84e7cdb8cf4c687af7dfa3f17
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: fa72037c8f54271f5651667765c5d5e2e9c03619
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986229"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545527"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Dışarı aktarma ve içeri aktarma'yı kullanarak MySQL veritabanınızı geçirme
 Bu makalede iki genel yaklaşımları açıklanmaktadır verileri MySQL Workbench kullanarak MySQL için Azure veritabanı dışarı aktarma ve içeri aktarma. 
@@ -93,7 +90,7 @@ Aşağıdaki örnek tabloya bir CSV dosyasından içeri aktarır:
 ### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>SQL veri sihirbazları için Gezgin bölmesindeki alma ve verme
 MySQL Workbench'ten oluşturulan veya mysqldump komuttan oluşturulan SQL içeri veya dışarı aktarmak için bir sihirbaz kullanın. Bu sihirbaz erişim **Gezgin** bölmesinde seçerek veya **sunucu** ana menüden. Ardından **verileri dışarı aktarma** veya **veri içeri aktarma**. 
 
-#### <a name="data-export"></a>Verileri dışarı aktarma
+#### <a name="data-export"></a>Veri Dışarı Aktarma
 ![Gezinti bölmesini kullanarak MySQL Workbench verilerini dışarı aktarma](./media/concepts-migrate-import-export/p2.png)
 
 Kullanabileceğiniz **verileri dışarı aktarma** MySQL verilerinizi dışarı aktarmak için sekmesinde. 

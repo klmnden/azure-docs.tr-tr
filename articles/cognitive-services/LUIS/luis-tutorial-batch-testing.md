@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2c8d4486b235534db2bb7d06206d5767c1496fbd
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106048"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754399"
 ---
-# <a name="tutorial-2-batch-test-data-sets"></a>Eğitmen 2: Toplu test veri kümesi
+# <a name="tutorial-batch-test-data-sets"></a>Öğretici: Toplu test veri kümesi
 
 Bu öğreticide, batch test utterance tahmin sorunları uygulamanızı bulun ve bunları düzeltmek için nasıl kullanılacağı gösterilmektedir.  
 
@@ -36,7 +36,7 @@ Bu öğreticinin dışında bir uygulama kullanırken, yapmak *değil* zaten bir
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Mevcut öğretici uygulamasını kullanma
+> * Örnek uygulamayı içeri aktarma
 > * Toplu test dosyası oluşturma 
 > * Toplu test çalıştırma
 > * Test sonuçlarını gözden geçirme
@@ -45,13 +45,13 @@ Bu öğreticinin dışında bir uygulama kullanırken, yapmak *değil* zaten bir
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
+## <a name="import-example-app"></a>Örnek uygulamayı içeri aktarma
 
 Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
+Aşağıdaki adımları kullanın:
 
-1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json) indirip kaydedin.
+1.  [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json) indirip kaydedin.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 
@@ -61,7 +61,7 @@ Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin.
 
 ## <a name="batch-file"></a>Toplu iş dosyası
 
-1. Oluşturma `HumanResources-jobs-batch.json` bir metin düzenleyicisinde veya [indirme](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json) bu. 
+1. Oluşturma `HumanResources-jobs-batch.json` bir metin düzenleyicisinde veya [indirme](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json) bu. 
 
 2. Konuşma ile JSON biçimli toplu iş dosyasında, ekleme **hedefi** testinde tahmin edilen istiyor. 
 
@@ -177,7 +177,7 @@ Varlıklar için toplam word çeşitlemesi ([belirteci](luis-glossary.md#token))
 
 Değerini bir **iş** test konuşma içinde sağlanan varlıktır genellikle daha fazla sözcük olan birkaç örnekleri içeren bir veya iki sözcük. Varsa _kendi_ İnsan Kaynakları uygulamasında genellikle birçok bir kelimelerin iş adları varsa, örnek Konuşma ile etiketlenmiş **iş** bu uygulamada varlık iyi çalışmamasına.
 
-1. Oluşturma `HumanResources-entities-batch.json` gibi bir metin düzenleyicisinde [VSCode](https://code.visualstudio.com/) veya [indirme](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) bu.
+1. Oluşturma `HumanResources-entities-batch.json` gibi bir metin düzenleyicisinde [VSCode](https://code.visualstudio.com/) veya [indirme](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) bu.
 
 
 2. JSON biçimli bir toplu iş dosyasında bir konuşma ile içeren bir nesne dizisi Ekle **hedefi** utterance herhangi bir varlık konumlarını yanı sıra test tahmin edilen istiyor. Bir varlık belirteç tabanlı olduğundan, her varlık, bir karakter durdurmak ve başlatmak emin olun. Başlayamaz veya bitemez utterance bir alan üzerinde. Bu, toplu iş dosyasını içeri aktarma sırasında bir hataya neden olur.  

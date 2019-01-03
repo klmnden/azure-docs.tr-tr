@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: a8b0884486f86f66ae02c7e7a82fecee43d5ffed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c92a55ec1d56b83457167fc2db0bd7897a447852
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386910"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974854"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>ScaleR ve SparkR HDInsight içinde birleştirin
 
@@ -21,7 +21,7 @@ Bu belge, uçuş varış gecikmeler kullanarak tahmin etmek gösterilmiştir bir
 
 Apache Hadoop'ın Spark yürütme altyapısının iki paketi de çalıştırmasına rağmen bellek içi verileri kendi ilgili Spark oturumlarında gereksinim duydukları her gibi paylaşım engellenir. ML Server gelecek bir sürümünde bu sorun giderilinceye kadar çakışmayan Spark oturumlar kullanan ve Ara dosyaları veri değişimi için çözüm olabilir. Buradaki yönergeleri Bu gereksinimleri elde etmek basit olduğunu gösterir.
 
-Bu örnek başlangıçta bir konuşması konumundaki Strata 2016 içinde Roni Burd Mario Inchiosa ile paylaşıldı. Bu konuşmada, bulabilirsiniz [R ile ölçeklenebilir bir veri bilimi platformu oluşturmayı](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
+Bu örnek başlangıçta bir konuşması konumundaki Strata 2016 içinde Roni Burd Mario Inchiosa ile paylaşıldı. Bu konuşmada, bulabilirsiniz [R ile ölçeklenebilir bir veri bilimi platformu oluşturmayı](https://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
 Kodu, azure'da bir HDInsight kümesinde Spark üzerinde çalıştırılan ML Server için ilk olarak yazılmıştır. Ancak, bir komut dosyası kullanımda ScaleR ve SparkR karıştırma kavramı da şirket içi ortamlara bağlamında geçerli.
 
@@ -29,9 +29,9 @@ Bu belgedeki adımlarda bir ara R ve bu bilgi düzeyi sahip olduğunuzu varsayma
 
 ## <a name="the-airline-and-weather-datasets"></a>Uçak ve hava durumu veri kümeleri
 
-Uçuş verileri kullanılabilir [ABD devlet kurumları arşivlerinizin](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Bir zip olarak kullanılabilir [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
+Uçuş verileri kullanılabilir [ABD devlet kurumları arşivlerinizin](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Bir zip olarak kullanılabilir [AirOnTimeCSV.zip](https://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-Hava Durumu verilerini ham biçimiyle, zip dosyaları olarak aya göre indirilebileceğini [Ulusal Okyanus ve Atmosfer Yönetimi depo](http://www.ncdc.noaa.gov/orders/qclcd/). Bu örnekte, Mayıs 2007: Kasım 2012 verileri indirin. Saatlik veri dosyalarını kullanmak ve `YYYYMMMstation.txt` her zıps dosya. 
+Hava Durumu verilerini ham biçimiyle, zip dosyaları olarak aya göre indirilebileceğini [Ulusal Okyanus ve Atmosfer Yönetimi depo](https://www.ncdc.noaa.gov/orders/qclcd/). Bu örnekte, Mayıs 2007: Kasım 2012 verileri indirin. Saatlik veri dosyalarını kullanmak ve `YYYYMMMstation.txt` her zıps dosya. 
 
 ## <a name="setting-up-the-spark-environment"></a>Spark ortamını ayarlama
 
@@ -41,7 +41,7 @@ Spark ortamı ayarlamak için aşağıdaki kodu kullanın:
 workDir        <- '~'  
 myNameNode     <- 'default' 
 myPort         <- 0
-inputDataDir   <- 'wasb://hdfs@myAzureAcccount.blob.core.windows.net'
+inputDataDir   <- 'wasb://hdfs@myAzureAccount.blob.core.windows.net'
 hdfsFS         <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
 
 # create a persistent Spark session to reduce startup times 
@@ -535,7 +535,7 @@ Bu makalede, biz nasıl SparkR kullanımı için Hadoop Spark model geliştirme 
 
 ## <a name="next-steps-and-more-information"></a>Sonraki adımlar ve daha fazla bilgi
 
-- Apache Spark ML sunucuda kullanımı hakkında daha fazla bilgi için bkz. [Başlarken Kılavuzu](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Apache Spark ML sunucuda kullanımı hakkında daha fazla bilgi için bkz. [Başlarken kılavuzunda](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).
 
 - ML Server hakkında genel bilgi için bkz. [R ile çalışmaya başlama](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) makalesi.
 
@@ -543,6 +543,6 @@ Bu makalede, biz nasıl SparkR kullanımı için Hadoop Spark model geliştirme 
 
 SparkR kullanımı hakkında daha fazla bilgi için bkz:
 
-- [Apache SparkR belge](https://spark.apache.org/docs/2.1.0/sparkr.html)
+- [Apache SparkR belge](https://spark.apache.org/docs/2.1.0/sparkr.html).
 
-- [SparkR genel bakış](https://docs.databricks.com/spark/latest/sparkr/overview.html) Databricks gelen
+- [SparkR genel bakış](https://docs.databricks.com/spark/latest/sparkr/overview.html) Databricks öğesinden.

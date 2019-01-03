@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0adc8ad651989d198fecabf00d38fbdeb7cf3cd1
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: a54c47c0f67052f2ce486a97e009293a118919d4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407103"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994122"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight, Apache Hadoop işleri için veri yükleme
 
@@ -171,12 +171,10 @@ or
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-Dosyalarla diğer Hadoop komutlarını bir listesi için bkz. [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+Dosyalarla diğer Hadoop komutlarını bir listesi için bkz. [https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
 > Apache HBase kümelerinde veri yazma 256 KB olduğunda kullanılan boyutu varsayılan engelleyin. Bu HBase API'lerini veya REST API'leri kullanırken düzgün çalışır durumdayken `hadoop` veya `hdfs dfs` ~ 12 GB'tan büyük veri hatayla sonuçlanır yazmak için komutları. Daha fazla bilgi için bkz. [blob yazma için depolama özel durumu](#storageexception) bu makaledeki bir bölüm.
->
->
 
 ### <a name="graphical-clients"></a>Grafik istemciler
 Azure depolama ile çalışmak için bir grafik arabirim sağlayan çeşitli uygulamalar vardır. Aşağıdaki tabloda, birkaç bu uygulamaların bir listesi verilmiştir:
@@ -184,17 +182,17 @@ Azure depolama ile çalışmak için bir grafik arabirim sağlayan çeşitli uyg
 | İstemci | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
 | [HDInsight için Microsoft Visual Studio Araçları](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Azure Depolama Gezgini](http://storageexplorer.com/) |✔ |✔ |✔ |
-| [Bulut depolama Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
+| [Azure Depolama Gezgini](https://storageexplorer.com/) |✔ |✔ |✔ |
+| [Bulut depolama Studio 2](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [Azure Gezgini](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [Azure Gezgini](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>HDInsight için Visual Studio Araçları
 Daha fazla bilgi için [bağlı kaynaklara gitme](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
 #### <a id="storageexplorer"></a>Azure Depolama Gezgini
-*Azure Depolama Gezgini* incelemek ve blob'larda veri değiştirme için kullanışlı bir araçtır. Yüklenebilir ücretsiz, açık kaynaklı bir araç [ http://storageexplorer.com/ ](http://storageexplorer.com/). Kaynak kodu, bu bağlantıdan kullanılabilir.
+*Azure Depolama Gezgini* incelemek ve blob'larda veri değiştirme için kullanışlı bir araçtır. Yüklenebilir ücretsiz, açık kaynaklı bir araç [ https://storageexplorer.com/ ](https://storageexplorer.com/). Kaynak kodu, bu bağlantıdan kullanılabilir.
 
 Aracı'nı kullanmadan önce Azure depolama hesabı adını ve hesap anahtarınızı bilmeniz gerekir. Bu bilgi alma hakkında yönergeler için bkz. "nasıl yapılır: Görüntüleme, kopyalama ve yeniden oluşturma depolama erişim anahtarlarını"bölümünü [oluşturma, yönetme veya bir depolama hesabı silme][azure-create-storage-account].
 
@@ -315,7 +313,7 @@ HDInsight ile verileri alma anladığınıza göre Analiz gerçekleştirme hakk�
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 
-[apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
+[apache-sqoop-guide]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 

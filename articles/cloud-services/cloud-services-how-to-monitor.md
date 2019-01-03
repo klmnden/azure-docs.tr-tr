@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
-ms.openlocfilehash: e9fbe59c40fe55218429a3b479ddbbec7220c66a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42059684"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789478"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Bulut hizmeti izleme giriş
 
@@ -93,13 +93,13 @@ Büyük olasılıkla iki tane **.cscfg** dosyaları, bir adlı **ServiceConfigur
 
 ## <a name="use-application-insights"></a>Application Insights kullanın
 
-Visual Studio bulut hizmetinden yayımladığınızda, Application Insights'a tanılama verilerini gönderme seçeneği sunulur. O anda Application Insights Azure kaynak oluşturabilir veya mevcut bir Azure kaynak verileri gönderin. Kullanılabilirlik, performans, hatalar ve kullanım için bulut hizmetinizi Application Insights tarafından izlenebilir. Özel grafikler verileri görebilmesi için Application Insights eklenebilir en, önemlidir. Rol örneği veri, bulut hizmeti projenizi Application Insights SDK'sını kullanarak toplanabilir. Application Insights'ı tümleştirme hakkında daha fazla bilgi için bkz. [Cloud Services ile Application Insights](../application-insights/app-insights-cloudservices.md).
+Visual Studio bulut hizmetinden yayımladığınızda, Application Insights'a tanılama verilerini gönderme seçeneği sunulur. O anda Application Insights Azure kaynak oluşturabilir veya mevcut bir Azure kaynak verileri gönderin. Kullanılabilirlik, performans, hatalar ve kullanım için bulut hizmetinizi Application Insights tarafından izlenebilir. Özel grafikler verileri görebilmesi için Application Insights eklenebilir en, önemlidir. Rol örneği veri, bulut hizmeti projenizi Application Insights SDK'sını kullanarak toplanabilir. Application Insights'ı tümleştirme hakkında daha fazla bilgi için bkz. [Cloud Services ile Application Insights](../azure-monitor/app/cloudservices.md).
 
 Performans sayaçlarını (ve diğer ayarları) görüntülemek için Application Insights kullanabilmenize karşın Windows Azure tanılama uzantısı, yalnızca belirttiğiniz Not uygulamasına Application Insights SDK'sı ile tümleştirerek daha zengin bir deneyim elde, Worker ve web rolleri.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Application Insights ile bulut hizmetleri hakkında bilgi edinin](../application-insights/app-insights-cloudservices.md)
+- [Application Insights ile bulut hizmetleri hakkında bilgi edinin](../azure-monitor/app/cloudservices.md)
 - [Performans sayaçlarını kurma](diagnostics-performance-counters.md)
 

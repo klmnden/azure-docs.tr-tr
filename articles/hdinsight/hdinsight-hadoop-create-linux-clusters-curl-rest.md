@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: b6ec48085d5dd2ea31543e208e8d32b954cb0bca
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fec87bf3af7f215b69a891c2d75cdd979a7b5a52
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872872"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789221"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API'sini kullanarak Apache Hadoop kümeleri oluşturma
 
@@ -24,10 +24,10 @@ Bir Azure Resource Manager şablonu ve Azure REST API'sini kullanarak bir HDInsi
 
 Azure REST API'si, HDInsight kümeleri gibi yeni kaynaklar oluşturma da dahil olmak üzere, Azure platformunda barındırılan hizmetler üzerinde yönetim işlemlerini gerçekleştirmenize olanak sağlar.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-> [!NOTE]
+> [!NOTE]  
 > Bu adımları belge kullanım [curl (https://curl.haxx.se/) ](https://curl.haxx.se/) Azure REST API'si ile iletişim kurmasına yardımcı programı.
 
 ## <a name="create-a-template"></a>Şablon oluşturma
@@ -211,7 +211,7 @@ Azure Resource Manager şablonları açıklayan bir JSON belgeleri olan bir **ka
 
 Bu örnekte, bu belgedeki adımlarda kullanılır. Örneği değiştirecek *değerleri* içinde **parametreleri** kümenizin değerlerle bölümü.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Şablon, bir HDInsight kümesi için varsayılan (4) çalışan düğümü sayısını kullanır. 32'den fazla çalışan düğümlerinde planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB ram ile seçmeniz gerekir.
 >
 > Düğüm boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırması](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -222,7 +222,7 @@ Konusunda belgelenen adımları [Azure CLI ile çalışmaya başlama](https://do
 
 ## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
 
-> [!NOTE]
+> [!NOTE]  
 > Bu adımlarla bir MMC'ye sürümünü *parola ile hizmet sorumlusu oluşturma* bölümünü [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için Azure CLI'yı kullanmak](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) belge. Bu adımlar Azure REST API'sine kimliğini doğrulamak için kullanılan bir hizmet sorumlusu oluşturur.
 
 1. Bir komut satırından Azure aboneliklerinizi listelemek için aşağıdaki komutu kullanın.
@@ -241,7 +241,7 @@ Konusunda belgelenen adımları [Azure CLI ile çalışmaya başlama](https://do
 
     Değerleri Değiştir `--display-name`, `--homepage`, ve `--identifier-uris` kendi değerlerinizle. Yeni Active Directory giriş için bir parola sağlayın.
 
-   > [!NOTE]
+   > [!NOTE]  
    > `--home-page` Ve `--identifier-uris` değerleri, internet'te barındırılan gerçek bir web sayfasına başvurmak gerekmez. Benzersiz bir URI'leri olmaları gerekir.
 
    Bu komuttan döndürülen değer __uygulama kimliği__ yeni uygulama için. Bu değer kaydedin.
@@ -323,14 +323,14 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 -d "{set your body string to the template and parameters}"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Şablonu bir dosyaya kaydettiyseniz, aşağıdaki komutu yerine kullanabileceğiniz `-d "{ template and parameters}"`:
 >
 > `--data-binary "@/path/to/file.json"`
 
 Bu istek başarılı olursa, 200 serisi yanıt ve dağıtım işlemi hakkında bilgi içeren bir JSON belgesi yanıt gövdesi içerir.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Dağıtım gönderildi ancak tamamlanmadı. Bu, genellikle yaklaşık 15, dağıtımın tamamlanması birkaç dakika sürebilir.
 
 ## <a name="check-the-status-of-a-deployment"></a>Bir dağıtım durumunu denetleyin
@@ -347,7 +347,7 @@ Bu komut, dağıtım işlemi hakkında bilgi içeren bir JSON belgesini döndür
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
-HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-administer-use-portal-linux.md#create-clusters).
+HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -357,7 +357,7 @@ Bir HDInsight kümesi başarıyla oluşturuldu, kümenizi ile çalışma hakkın
 
 * [Apache Hive, HDInsight ile kullanma](hadoop/hdinsight-use-hive.md)
 * [Apache Pig, HDInsight ile kullanma](hadoop/hdinsight-use-pig.md)
-* [HDInsight ile Apache Hadoop MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase kümeleri
 

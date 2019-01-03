@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
 ROBOTS: NOINDEX
-ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 96c2bd1c11554481e441662a6051620f4b2e2993
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237883"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972371"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Tümce ve belirteçlere ayırma
 
 > [!IMPORTANT]
-> Dil analizi önizlemesi, 9 Ağustos 2018 tarihinde kullanımdan. Kullanmanızı öneririz [Azure Machine Learning metin analiz modüllerini](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) metin işleme ve analiz için.
+> Dilbilimsel Analiz önizleme sürümü 9 Ağustos 2018 tarihinde kullanımdan kaldırılmıştır. Metin işleme ve analiz için [Azure Machine Learning metin analizi modüllerini](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) kullanmanızı öneririz.
 
 ## <a name="background-and-motivation"></a>Arka plan ve motivasyon
 
@@ -75,4 +75,4 @@ Word işlemek bu simgeleştirme kurmamızı *yaramadı* ve tümcecik *belirtmiyo
 ## <a name="specification"></a>Belirtimi
 
 Ne bir cümle ve bir belirteç oluşur konusunda tutarlı kararlar önemlidir.
-Belirtiminden bağımlı olduğumuz [da Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html bazı ek ayrıntılar kullanılabilir).
+Belirtiminden bağımlı olduğumuz [da Treebank](https://catalog.ldc.upenn.edu/LDC99T42) (ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html bazı ek ayrıntılar kullanılabilir).

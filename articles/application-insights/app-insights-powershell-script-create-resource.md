@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/19/2016
 ms.author: mbullwin
-ms.openlocfilehash: ccc3ced06a6b5ac36df9e7294a9b4cf17d0dedf3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6cb1bc8608aa106d56382264184c1c4eb017538a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723168"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790071"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>Application Insights kaynağı oluşturmak için PowerShell betiği
 
@@ -103,9 +103,9 @@ Her kaynak kendi izleme anahtarını (iKey) tarafından tanımlanır. Bir kaynak
 
 SDK iKey kullanılabilir hale getirmek için iki yol vardır:
 
-* İçinde [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md): 
+* İçinde [Applicationınsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md): 
   * `<instrumentationkey>`*ikey*`</instrumentationkey>`
-* Veya [başlatma kodu](app-insights-api-custom-events-metrics.md): 
+* Veya [başlatma kodu](../azure-monitor/app/api-custom-events-metrics.md): 
   * `Microsoft.ApplicationInsights.Extensibility.
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 

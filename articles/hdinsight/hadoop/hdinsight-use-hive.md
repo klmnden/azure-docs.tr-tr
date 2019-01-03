@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 73c68e6946b3715bfa67561141e6c18e32e20c18
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 0fa487e1ecd419780243b04a273110f3cf43761c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011768"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633972"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Apache Hive ve HiveQL Azure HDInsight üzerinde nedir?
 
@@ -25,13 +25,13 @@ Hive, büyük ölçüde yapılandırılmamış veriler üzerinde Proje yapısı 
 
 HDInsight, belirli iş yükleri için ayarlanmıştır çeşitli küme türleri sağlar. Aşağıdaki küme türleri Hive sorguları için en sık kullanılır:
 
-* __Etkileşimli sorgu__: sağlayan bir Hadoop kümesi [düşük gecikme süresi analitik işleme (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) işlevselliği, etkileşimli sorgular için yanıt sürelerini geliştirebilir. Daha fazla bilgi için [HDInsight etkileşimli sorgu ile başlayıp](../interactive-query/apache-interactive-query-get-started.md) belge.
+* __Etkileşimli sorgu__: Sunan bir Hadoop kümesi [düşük gecikme süresi analitik işleme (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) işlevselliği, etkileşimli sorgular için yanıt sürelerini geliştirebilir. Daha fazla bilgi için [HDInsight etkileşimli sorgu ile başlayıp](../interactive-query/apache-interactive-query-get-started.md) belge.
 
-* __Hadoop__: toplu işlem iş yükleri için ayarlanmış bir Hadoop kümesi. Daha fazla bilgi için [HDInsight Hadoop ile başlayıp](../hadoop/apache-hadoop-linux-tutorial-get-started.md) belge.
+* __Hadoop__: Toplu işlem iş yükleri için ayarlanmış bir Hadoop kümesi. Daha fazla bilgi için [HDInsight, Apache Hadoop ile başlayıp](../hadoop/apache-hadoop-linux-tutorial-get-started.md) belge.
 
-* __Spark__: Apache Spark, Hive ile çalışmak için yerleşik bir işlevi vardır. Daha fazla bilgi için [HDInsight üzerinde Spark ile başlayıp](../spark/apache-spark-jupyter-spark-sql.md) belge.
+* __Spark__: Apache Spark, Hive ile çalışmak için yerleşik bir işleve sahiptir. Daha fazla bilgi için [HDInsight üzerinde Apache Spark ile başlayıp](../spark/apache-spark-jupyter-spark-sql.md) belge.
 
-* __HBase__: HiveQL içinde HBase depolanan verileri sorgulamak için kullanılabilir. Daha fazla bilgi için [HDInsight üzerinde HBase ile başlayıp](../hbase/apache-hbase-tutorial-get-started-linux.md) belge.
+* __HBase__: HiveQL Apache HBase depolanan verileri sorgulamak için kullanılabilir. Daha fazla bilgi için [HDInsight üzerinde Apache HBase ile başlayıp](../hbase/apache-hbase-tutorial-get-started-linux.md) belge.
 
 ## <a name="how-to-use-hive"></a>Hive kullanma
 
@@ -78,14 +78,14 @@ Hive tarafından desteklenen dosya biçimleri hakkında daha fazla bilgi için b
 
 Tablolar Hive ile oluşturabileceğiniz iki tür vardır:
 
-* __İç__: veri Hive veri ambarı'nda depolanır. Veri ambarı şu konumdadır `/hive/warehouse/` kümenin varsayılan depolama.
+* __İç__: Verileri Hive veri ambarı'nda depolanır. Veri ambarı şu konumdadır `/hive/warehouse/` kümenin varsayılan depolama.
 
     Aşağıdaki koşullardan biri geçerli olduğunda iç tablolar kullanın:
 
     * Veriler geçicidir.
     * Hive tablosu ve veri yaşam döngüsü yönetmek için kullanmanız gerekir.
 
-* __Dış__: veri, veri ambarı dışında depolanır. Veri kümesi tarafından erişilebilen tüm depolama depolanabilir.
+* __Dış__: Veriler, veri ambarı dışında depolanır. Veri kümesi tarafından erişilebilen tüm depolama depolanabilir.
 
     Aşağıdaki koşullardan biri geçerli olduğunda dış tablolar kullanın:
 
@@ -100,15 +100,15 @@ Daha fazla bilgi için [Hive iç ve dış tablolar giriş] [ cindygross-hive-tab
 
 Hive da uzatabilirsiniz aracılığıyla **kullanıcı tanımlı işlevler (UDF)**. Bir UDF işlevleri veya kolayca modellenmiş olmayan mantıksal HiveQL olanak tanır. UDF ile Hive kullanma örneği için aşağıdaki belgelere bakın:
 
-* [Kullanıcı tanımlı bir Java işlev ile Hive kullanma](../hadoop/apache-hadoop-hive-java-udf.md)
+* [Apache Hive ile Java kullanıcı tanımlı bir işlevi kullanın.](../hadoop/apache-hadoop-hive-java-udf.md)
 
-* [Kullanıcı tanımlı bir Python işlevi ile Hive kullanma](../hadoop/python-udf-hdinsight.md)
+* [Apache Hive ile kullanıcı tanımlı bir Python işlevi kullanın](../hadoop/python-udf-hdinsight.md)
 
-* [C# kullanıcı tanımlı işlevi ile Hive kullanma](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Kullanım bir C# Apache Hive, kullanıcı tanımlı işlevi](../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [HDInsight için özel bir Hive kullanıcı tanımlı işlevi ekleme](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [HDInsight için bir özel Apache Hive kullanıcı tanımlı işlevi ekleme](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-* [Bir örnek Hive tarih/saat biçimlerini dönüştürmek için Hive zaman damgası için kullanıcı tanımlı işlevi](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
+* [Tarih/saat biçimlerini dönüştürmek için Hive zaman damgası için kullanıcı tanımlı işlev Apache Hive'ı örneği](https://github.com/Azure-Samples/hdinsight-java-hive-udf)
 
 ## <a id="data"></a>Örnek veri
 
@@ -138,24 +138,24 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 Önceki örnekte, HiveQL ifadelerini aşağıdaki eylemleri gerçekleştirin:
 
-* `set hive.execution.engine=tez;`: Yürütme altyapısı, Tez kullanılacak ayarlar. Tez kullanarak sorgu performans artışı sağlayabilir. Tez hakkında daha fazla bilgi için bkz. [Gelişmiş performans için Apache Tez kullanma](#usetez) bölümü.
+* `set hive.execution.engine=tez;`: Yürütme altyapısı, Apache Tez kullanılacak ayarlar. Tez kullanarak sorgu performans artışı sağlayabilir. Tez hakkında daha fazla bilgi için bkz. [Gelişmiş performans için Apache Tez kullanma](#usetez) bölümü.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Bu deyimi amaçlıdır bir Windows tabanlı HDInsight kümesi kullanırken gereklidir. Tez Linux tabanlı HDInsight için varsayılan yürütme altyapısıdır.
 
-* `DROP TABLE`: Bir tablo zaten varsa silin.
+* `DROP TABLE`: Tablo zaten mevcut değilse silebilirsiniz.
 
-* `CREATE EXTERNAL TABLE`: Oluşturur Yeni bir **dış** Hive tablosunda. Dış tablolar, yalnızca Hive tablo tanımı depolayın. Verileri özgün biçiminde ve özgün konumunda bırakılır.
+* `CREATE EXTERNAL TABLE`: Yeni bir oluşturur **dış** Hive tablosunda. Dış tablolar, yalnızca Hive tablo tanımı depolayın. Verileri özgün biçiminde ve özgün konumunda bırakılır.
 
-* `ROW FORMAT`: Veri nasıl biçimlendirildiğini Hive söyler. Bu durumda, her günlük alanlar boşlukla ayrılır.
+* `ROW FORMAT`: Hive verileri nasıl biçimlendirildiğini söyler. Bu durumda, her günlük alanlar boşlukla ayrılır.
 
-* `STORED AS TEXTFILE LOCATION`: Bildiren verilerin depolandığı Hive ( `example/data` dizini) ve metin olarak depolanır. Veri, bir dosyada olabilir veya dizin içinde birden çok dosyalar arasında yaymak.
+* `STORED AS TEXTFILE LOCATION`: Verilerin depolandığı Hive bildirir ( `example/data` dizini) ve metin olarak depolanır. Veri, bir dosyada olabilir veya dizin içinde birden çok dosyalar arasında yaymak.
 
 * `SELECT`: Tüm satırların sayımını seçer burada sütunu **t4** değeri içeren **[Hata]**. Bu bildirimi bir değeri döndürür **3** olmadığı için bu değeri içeren üç satır.
 
 * `INPUT__FILE__NAME LIKE '%.log'` -Hive, dizindeki tüm dosyaları şema uygulamak çalışır. Bu durumda, dizin şemasını eşleşmeyen dosyalarını içerir. Çöp veri sonuçları engellemek için bu bildirimi Hive biz yalnızca veri sonu dosyalarından dönmesi gerektiğini söyler. günlük.
 
-> [!NOTE]
+> [!NOTE]  
 > Dış tablolar, temel alınan veriler dış bir kaynak tarafından güncelleştirilmesi beklediğiniz kullanılmalıdır. Örneğin, bir otomatik veri karşıya yükleme işlemi veya MapReduce işlemi.
 >
 > Bir dış tablo bırakılırken mu **değil** verileri silmek için yalnızca tablo tanımını siler.
@@ -180,13 +180,13 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 Bu deyimler, aşağıdaki eylemleri gerçekleştirin:
 
-* `CREATE TABLE IF NOT EXISTS`: Bir tablonun mevcut değilse oluşturun. Çünkü **dış** anahtar sözcüğü kullanılmazsa, bu deyimi iç tablo oluşturur. Tablo Hive veri ambarında depolanan ve yığın tarafından tamamen yönetilir.
+* `CREATE TABLE IF NOT EXISTS`: Tablo mevcut değilse oluşturun. Çünkü **dış** anahtar sözcüğü kullanılmazsa, bu deyimi iç tablo oluşturur. Tablo Hive veri ambarında depolanan ve yığın tarafından tamamen yönetilir.
 
 * `STORED AS ORC`: Veri en iyi duruma getirilmiş satır sütunlu (ORC) biçiminde depolar. ORC Hive verilerini depolamak için yüksek oranda en iyi duruma getirilmiş ve verimli bir biçimidir.
 
 * `INSERT OVERWRITE ... SELECT`: Satırları seçer **log4jLogs** içeren bir tablo **[Hata]** ve ardından verileri ekler **günlüklerini** tablo.
 
-> [!NOTE]
+> [!NOTE]  
 > Dış tablolar, bir iç tablo bırakılırken temel alınan verileri siler.
 
 ## <a name="improve-hive-query-performance"></a>Hive sorgu performansı
@@ -195,20 +195,20 @@ Bu deyimler, aşağıdaki eylemleri gerçekleştirin:
 
 [Apache Tez](https://tez.apache.org) ölçekte çok daha verimli bir şekilde çalıştırmak için Hive gibi veri yoğun uygulamalar sağlayan bir çerçevedir. Tez, Linux tabanlı HDInsight kümeleri için varsayılan olarak etkindir.
 
-> [!NOTE]
+> [!NOTE]  
 > Tez şu anda Windows tabanlı HDInsight kümeleri için varsayılan olarak kapalıdır ve etkinleştirilmesi gerekir. Tez yararlanmak için bir Hive sorgusu için şu değere ayarlamanız gerekir:
 >
 > `set hive.execution.engine=tez;`
 >
 > Tez, Linux tabanlı HDInsight kümeleri için varsayılan altyapısıdır.
 
-[Hive Tez tasarım belgeleri](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) uygulama seçeneklerine ve ayarlama yapılandırmalar hakkında ayrıntılar içerir.
+[Apache Hive Tez tasarım belgelerinde](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez) uygulama seçeneklerine ve ayarlama yapılandırmalar hakkında ayrıntılar içerir.
 
 Tez kullanarak işleri hata ayıklamaya yardımcı olmak için çalışan, HDInsight'ı aşağıdaki web Tez işlerinin ayrıntılarını görmenize izin veren kullanıcı arabirimleri sunar:
 
-* [Linux tabanlı HDInsight üzerinde Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md)
+* [Linux tabanlı HDInsight üzerinde Apache Ambari Tez görünümünü kullanın](../hdinsight-debug-ambari-tez-view.md)
 
-* [Tez kullanıcı Arabirimi, Windows tabanlı HDInsight üzerinde kullanma](../hdinsight-debug-tez-ui.md)
+* [Windows tabanlı HDInsight üzerinde Apache Tez kullanıcı Arabirimi kullanma](../hdinsight-debug-tez-ui.md)
 
 ### <a name="low-latency-analytical-processing-llap"></a>Düşük gecikme süresi analitik işlem (LLAP)
 
@@ -236,14 +236,14 @@ Daha fazla bilgi için [Azure Feature Pack] [ ssispack] belgeleri.
 
 ### <a name="apache-oozie"></a>Apache Oozie
 
-Apache Oozie, Hadoop işlerini yöneten bir iş akışı ve koordinasyon sistemidir. Oozie ile Hive kullanma hakkında daha fazla bilgi için bkz. [tanımlamak ve bir iş akışı çalıştırmak için kullanım Oozie](../hdinsight-use-oozie-linux-mac.md) belge.
+Apache Oozie, Hadoop işlerini yöneten bir iş akışı ve koordinasyon sistemidir. Oozie ile Hive kullanma hakkında daha fazla bilgi için bkz. [tanımlamak ve bir iş akışı çalıştırmak için kullanım Apache Oozie](../hdinsight-use-oozie-linux-mac.md) belge.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 
 Hive nedir ve HDInsight, Hadoop ile kullanma işlemini öğrendiğinize göre Azure HDInsight ile çalışmanın diğer yollarını keşfetmek için aşağıdaki bağlantıları kullanın.
 
 * [HDInsight'a veri yükleme][hdinsight-upload-data]
-* [HDInsight ile Pig kullanma][hdinsight-use-pig]
+* [Apache Pig, HDInsight ile kullanma][hdinsight-use-pig]
 * [HDInsight ile MapReduce işleri kullanma][hdinsight-use-mapreduce]
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/

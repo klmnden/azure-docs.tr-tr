@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 12/05/2018
+ms.date: 12/24/2018
 ms.author: juliako
-ms.openlocfilehash: 9de0d8bc389218d3102633b09073b3af323d2ceb
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c5332cd2613bc64e3dda143381f37d27b54aa922
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012003"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789238"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services olayları Azure Event Grid şemaları
 
@@ -28,7 +28,7 @@ Bu makalede, Media Services olaylarını şemaları ve özellikleri sağlar.
 
 ### <a name="job-related-event-types"></a>İş ilgili olay türleri
 
-Media Services yayan **iş** ilgili olay türleri aşağıda açıklanmıştır. İçin iki kategorisi vardır **iş** ilgili olaylar: "İş durumu değişiklikleri izleme" ve "Proje çıkış durum değişikliklerini izleme". 
+Media Services yayan **iş** ilgili olay türleri aşağıda açıklanmıştır. İçin iki kategorisi vardır **iş** ilgili olaylar: "İzleme iş durumu" ve "İzleme iş Çıkış durumu değiştirir". 
 
 Tüm olaylar için JobStateChange olaya abone olarak kaydedebilirsiniz. Veya yalnızca belirli olaylar (örneğin, son durumlarını JobErrored JobFinished ve JobCanceled gibi) için abone olabilirsiniz. 
 
@@ -112,9 +112,9 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | Özellik | Tür | Açıklama |
 | -------- | ---- | ----------- |
 | previousState | dize | Olay önce iş durumu. |
-| durum | dize | Bu durumda bildirilmesini işi yeni durumu. Örneğin, "zamanlanmış: işi başlatmak hazır" veya "tamamlandı: İş tamamlandı".|
+| durum | dize | Bu durumda bildirilmesini işi yeni durumu. Örneğin, "zamanlandı: İşi başlatmak hazır"veya" tamamlandı: İş tamamlandı".|
 
-Nereden iş durumu aşağıdakilerden biri olabilir değerleri: *sıraya alınan*, *zamanlanmış*, *işleme*, *tamamlandı*, *hata*, *İptal*, *iptal ediliyor*
+Burada iş durumu değerlerden biri olabilir: *Kuyruğa Alınan*, *zamanlanmış*, *işleme*, *tamamlandı*, *hata*, *iptal*, *İptal ediliyor*
 
 > [!NOTE]
 > *Kuyruğa Alınan* yalnızca bulunması geçiyor **previousState** özelliği de **durumu** özelliği.
@@ -134,7 +134,7 @@ Her olmayan son iş durumu değişikliği için (örneğin, JobScheduled, JobPro
     "previousState": "Scheduled",
     "state": "Processing",
     "correlationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -168,7 +168,7 @@ Her son iş durumu değişikliği için (örneğin, JobFinished, JobCanceled, Jo
     "previousState": "Processing",
     "state": "Finished",
     "correlationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -205,7 +205,7 @@ Aşağıdaki örnek, şemasını gösterir **JobOutputStateChange** olay:
       "state": "Finished"
     },
     "jobCorrelationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -236,7 +236,7 @@ Her JobOutput durum değişikliği için şema örneği aşağıdaki gibi görü
       "state": "Processing"
     },
     "jobCorrelationData": {
-      "TestKey1": "TestValue1",
+      "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
   },
@@ -258,13 +258,14 @@ Aşağıdaki örnek, şemasını gösterir **LiveEventConnectionRejected** olay:
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "b303db59-d5c1-47eb-927a-3650875fded1",
     "data": { 
-      "StreamId":"Mystream1",
-      "IngestUrl": "http://abc.ingest.isml",
-      "EncoderIp": "118.238.251.xxx",
-      "EncoderPort": 52859,
-      "ResultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
+      "streamId":"Mystream1",
+      "ingestUrl": "http://abc.ingest.isml",
+      "encoderIp": "118.238.251.xxx",
+      "encoderPort": 52859,
+      "resultCode": "MPE_INGEST_CODEC_NOT_SUPPORTED"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -394,14 +395,15 @@ Aşağıdaki örnek, şemasını gösterir **LiveEventIncomingDataChunkDropped**
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "03da9c10-fde7-48e1-80d8-49936f2c3e7d",
     "data": { 
-      "TrackType": "Video",
-      "TrackName": "Video",
-      "Bitrate": 300000,
-      "Timestamp": 36656620000,
-      "Timescale": 10000000,
-      "ResultCode": "FragmentDrop_OverlapTimestamp"
+      "trackType": "Video",
+      "trackName": "Video",
+      "bitrate": 300000,
+      "timestamp": 36656620000,
+      "timescale": 10000000,
+      "resultCode": "FragmentDrop_OverlapTimestamp"
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -413,8 +415,8 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | TrackType | dize | İzleme türü (Ses / Video). |
 | TrackName | dize | İzleme adı. |
 | Bit hızı | integer | İzleme hızı. |
-| Zaman damgası | dize | Bırakılan veri öbeğin zaman damgası. |
-| Timescale | dize | Zaman damgası ölçeğini. |
+| timestamp | dize | Bırakılan veri öbeğin zaman damgası. |
+| Zaman Çizelgesi | dize | Zaman damgası ölçeğini. |
 | ResultCode | dize | Verileri öbek açılan açıklaması. **FragmentDrop_OverlapTimestamp** veya **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
@@ -456,8 +458,8 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | IngestUrl | dize | Canlı etkinliği tarafından sağlanan URL alın. |
 | EncoderIp | dize  | Kodlayıcı IP'si. |
 | EncoderPort | dize | Gelen bu akış nereden geldiğini bir kodlayıcının bağlantı noktası. |
-| Zaman damgası | dize | Alınan verileri öbek ilk zaman damgası. |
-| Timescale | dize | Ölçeği, zaman damgası gösterilir. |
+| timestamp | dize | Alınan verileri öbek ilk zaman damgası. |
+| Zaman Çizelgesi | dize | Ölçeği, zaman damgası gösterilir. |
 
 ### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
@@ -509,13 +511,14 @@ Aşağıdaki örnek, şemasını gösterir **LiveEventIncomingVideoStreamsOutOfS
     "eventTime": "2018-01-16T01:57:26.005121Z",
     "id": "6dd4d862-d442-40a0-b9f3-fc14bcf6d750",
     "data": {
-      "FirstTimestamp": "2162058216",
-      "FirstDuration": "2000",
-      "SecondTimestamp": "2162057216",
-      "SecondDuration": "2000",
+      "firstTimestamp": "2162058216",
+      "firstDuration": "2000",
+      "secondTimestamp": "2162057216",
+      "secondDuration": "2000",
       "timescale": "10000000"      
     },
-    "dataVersion": "1.0"
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
   }
 ]
 ```
@@ -528,7 +531,7 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | FirstDuration | dize | İlk zaman damgası ile verileri öbek süresi. |
 | SecondTimestamp | dize  | Zaman damgası, bazı diğer izleme/kalite düzeyini video türü alındı. |
 | SecondDuration | dize | İkinci zaman damgası ile verileri öbek süresi. |
-| Timescale | dize | Zaman damgaları ve süresi ölçeğini.|
+| Zaman Çizelgesi | dize | Zaman damgaları ve süresi ölçeğini.|
 
 ### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
@@ -571,13 +574,13 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | Bit hızı | integer | İzleme hızı. |
 | IncomingBitrate | integer | Kodlayıcıdan gelen veri öbekleri göre hesaplanan hızı. |
 | LastTimestamp | dize | Son 20 saniye cinsinden bir parçası için alınan son zaman damgası. |
-| Timescale | dize | Ölçeği zaman damgaları cinsinden ifade edilir. |
+| Zaman Çizelgesi | dize | Ölçeği zaman damgaları cinsinden ifade edilir. |
 | OverlapCount | integer | Veri öbeği sayısı son 20 saniye cinsinden zaman damgaları çakışan. |
 | DiscontinuityCount | integer | Son 20 saniye içinde gözlemlenen discontinuities sayısı. |
 | NonIncreasingCount | integer | Geçmişteki zaman damgalı veri öbeği sayısı son 20 saniye içinde alınmadı. |
-| UnexpectedBitrate | bool | Son 20 saniye cinsinden izin verilenden fazla sınırı tarafından beklenen ve gerçek bit hızlarına dönüştürme farklıysa. True ise ve yalnızca, IncomingBitrate olan > = 2 * hızı veya IncomingBitrate < = hızı/2 veya IncomingBitrate = 0. |
-| Durum | dize | Canlı etkinlik durumu. |
-| Sorunsuz | bool | Belirtir olup olmadığını alma sayıları ve bayrakları göre kötü durumda. Sağlıklı true ise, OverlapCount 0 = & & DiscontinuityCount 0 = & & NonIncreasingCount 0 = & & UnexpectedBitrate = false. |
+| UnexpectedBitrate | bool | Son 20 saniye cinsinden izin verilenden fazla sınırı tarafından beklenen ve gerçek bit hızlarına dönüştürme farklıysa. True ise ve yalnızca, incomingBitrate olan > = 2 * bit hızı veya incomingBitrate < = hızı/2 veya IncomingBitrate = 0. |
+| durum | dize | Canlı etkinlik durumu. |
+| iyi durumda | bool | Belirtir olup olmadığını alma sayıları ve bayrakları göre kötü durumda. Sağlıklı true ise, overlapCount 0 = & & discontinuityCount 0 = & & nonIncreasingCount 0 = & & unexpectedBitrate = false. |
 
 ### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
@@ -616,7 +619,7 @@ Veri nesnesi, aşağıdaki özelliklere sahiptir:
 | PreviousTimestamp | dize | Önceki parça zaman damgası. |
 | NewTimestamp | dize | Zaman damgası geçerli parça. |
 | DiscontinuityGap | dize | Yukarıdaki iki zaman damgaları arasındaki boşluk. |
-| Timescale | dize | Hangi zaman damgası hem süreksizlik boşluk ölçeğinde temsil edilir. |
+| Zaman Çizelgesi | dize | Hangi zaman damgası hem süreksizlik boşluk ölçeğinde temsil edilir. |
 
 ### <a name="common-event-properties"></a>Ortak olay özellikleri
 

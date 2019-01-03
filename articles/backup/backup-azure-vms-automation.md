@@ -9,25 +9,26 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 814afb8731f8e4da3d3cbc75ef69c3b5da487914
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f2cdeea546e7153c63cb1edfbc53f3644facc4f2
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877879"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743910"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Yedekleme ve sanal makineleri geri yükleme için PowerShell kullanma
 
-Bu makalede, Azure PowerShell cmdlet'leri yedekleme ve kurtarma Hizmetleri kasasından Azure sanal makine'de (VM) kurtarma için nasıl kullanılacağını gösterir. Kurtarma Hizmetleri kasası, verilere ve varlıklara Azure Backup ve Azure Site Recovery hizmetlerinde korumak için kullanılan bir Azure Resource Manager kaynağıdır. 
+Bu makalede, Azure PowerShell cmdlet'leri yedekleme ve kurtarma Hizmetleri kasasından Azure sanal makine'de (VM) kurtarma için nasıl kullanılacağını gösterir. Kurtarma Hizmetleri kasası, verilere ve varlıklara Azure Backup ve Azure Site Recovery hizmetlerinde korumak için kullanılan bir Azure Resource Manager kaynağıdır.
 
 > [!NOTE]
-> Azure'da kaynak oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli mevcuttur: [Resource Manager ve Klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede Resource Manager modeli kullanılarak oluşturulan sanal makineler ile kullanımı içindir.
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki dağıtım modeli vardır: [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede Resource Manager modeli kullanılarak oluşturulan sanal makineler ile kullanımı içindir.
 >
 >
 
 Bu makalede, bir sanal Makineyi korumak ve veri bir kurtarma noktasından geri yükleme için PowerShell kullanarak adımları gösterilmektedir.
 
 ## <a name="concepts"></a>Kavramlar
+
 Hizmetine genel bakış için Azure Backup hizmeti ile aşina değilseniz bkz [Azure Backup nedir?](backup-introduction-to-azure-backup.md) Başlamadan önce Azure Backup ve geçerli sanal makine yedekleme çözümü sınırlamaları ile gereken önkoşulları karşılamak emin olun.
 
 PowerShell etkili bir şekilde kullanmak için nesnelerin ve nereden başlayacağınızı hiyerarşi anlamak gereklidir.
@@ -43,7 +44,7 @@ Başlamak için:
 1. [PowerShell'in en son sürümünü indirin](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (gerekli en düşük sürüm: 1.4.0)
 
 2. Kullanılabilir Azure Backup PowerShell cmdlet'lerini, aşağıdaki komutu yazarak bulabilirsiniz:
-   
+
     ```powershell
     Get-Command *azurermrecoveryservices*
     ```    
@@ -326,7 +327,7 @@ $rp[0]
 
 Çıktı aşağıdaki örneğe benzer:
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -350,6 +351,7 @@ Diskleri ve yapılandırma bilgilerini geri yüklemek için:
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
 ```
+
 #### <a name="restore-managed-disks"></a>Yönetilen diskleri geri yükle
 
 > [!NOTE]
@@ -359,16 +361,15 @@ $restorejob
 
 Ek bir parametre sağlayın **TargetResourceGroupName** için yönetilen diskleri geri yükleneceği RG belirtmek için.
 
-
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
 ```
 
 **VMConfig.JSON** dosya depolama hesabına geri yükleneceği ve yönetilen diskler, belirtilen hedef RG kurulacaktır.
 
-
 Çıktı aşağıdaki örneğe benzer:
-```
+
+```powershell
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
 V2VM              Restore           InProgress           4/23/2016 5:00:30 PM                        cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
@@ -397,6 +398,27 @@ Diskleri geri yükledikten sonra oluşturmak ve diskten sanal makine yapılandı
 > Geri yüklenen disklerden şifreli VM'ler oluşturmak için Azure rolünüz eylemi gerçekleştirme izni olmalıdır **Microsoft.KeyVault/vaults/deploy/action**. Rolünüz bu izne sahip değilse bu eylem ile özel bir rol oluşturun. Daha fazla bilgi için [Azure rbac'de özel roller](../role-based-access-control/custom-roles.md).
 >
 >
+
+> [!NOTE]
+> Diskleri geri yükledikten sonra artık doğrudan yeni bir VM oluşturmak için kullanabileceğiniz bir dağıtım şablonu alabilirsiniz. Şifrelenmiş ve şifrelenmemiş olan yönetilen veya yönetilmeyen VM oluşturmak için daha fazla farklı PS cmdlet'leri.
+
+Sonuç iş ayrıntılarını sorgulanabilir ve dağıtılan URI şablonu sağlar.
+
+```powershell
+   $properties = $details.properties
+   $templateBlobURI = $properties["Template Blob Uri"]
+```
+
+Yalnızca açıklandığı gibi yeni bir VM oluşturmak için şablon dağıtma [burada](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source).
+
+```powershell
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS
+```
+
+Aşağıdaki bölümde "VMConfig" dosyasını kullanarak bir VM oluşturmak için gerekli adımları listeler.
+
+> [!NOTE]
+> Bir VM oluşturmak için yukarıdaki ayrıntılı dağıtım şablonu kullanmak için önerilir. Bu bölümde (1-6 nokta) yakında kullanımdan kaldırılacak.
 
 1. İş ayrıntılarını geri yüklenen diski özelliklerini sorgulayın.
 
@@ -476,14 +498,14 @@ Diskleri geri yükledikten sonra oluşturmak ve diskten sanal makine yapılandı
    * **Yönetilen ve şifreli olmayan Vm'leri** - şifrelenmemiş yönetilen sanal makineler için geri yüklenen yönetilen diskleri bağlayın. Ayrıntılı bilgi için bkz [Windows PowerShell kullanarak bir VM'ye veri diski](../virtual-machines/windows/attach-disk-ps.md).
 
    * **Yönetilen ve şifrelenmiş Vm'leri (yalnızca BEK)** - için (BEK yalnızca kullanılarak şifrelenmiş), yönetilen şifrelenmiş Vm'leri geri yüklenen yönetilen diskleri bağlayın. Ayrıntılı bilgi için bkz [Windows PowerShell kullanarak bir VM'ye veri diski](../virtual-machines/windows/attach-disk-ps.md).
-   
-      El ile veri diskleri için şifrelemeyi etkinleştirmek için aşağıdaki komutu kullanın.
+
+     El ile veri diskleri için şifrelemeyi etkinleştirmek için aşağıdaki komutu kullanın.
 
        ```powershell
        Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
        ```
 
-   * **Yönetilen ve şifrelenmiş Vm'leri (BEK ve KEK)** - için (BEK ve KEK kullanılarak şifrelenmiş), yönetilen şifrelenmiş Vm'leri geri yüklenen yönetilen diskleri bağlayın. Ayrıntılı bilgi için bkz [Windows PowerShell kullanarak bir VM'ye veri diski](../virtual-machines/windows/attach-disk-ps.md). 
+   * **Yönetilen ve şifrelenmiş Vm'leri (BEK ve KEK)** - için (BEK ve KEK kullanılarak şifrelenmiş), yönetilen şifrelenmiş Vm'leri geri yüklenen yönetilen diskleri bağlayın. Ayrıntılı bilgi için bkz [Windows PowerShell kullanarak bir VM'ye veri diski](../virtual-machines/windows/attach-disk-ps.md).
 
       El ile veri diskleri için şifrelemeyi etkinleştirmek için aşağıdaki komutu kullanın.
 
@@ -520,7 +542,6 @@ Bir dosyayı bir Azure sanal makine yedeklemesini geri yükleme için temel adı
 * Disk kurtarma noktası takma
 * Gerekli dosyaları Kopyala
 * Diski çıkarın
-
 
 ### <a name="select-the-vm"></a>Sanal Makineyi seçin
 
@@ -575,7 +596,7 @@ Get-AzureRmRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 Çıktı aşağıdaki örneğe benzer:
 
-```
+```powershell
 OsType  Password        Filename
 ------  --------        --------
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe

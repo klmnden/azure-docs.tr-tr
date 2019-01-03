@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 0a4d5cf4731932ed72e0dc38c13a5f855a937864
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 21f8d8ad63e8ea7c134477a6171155c40a2b4dc8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317517"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792025"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure işlevleri için Azure Service Bus bağlamaları
 
@@ -331,6 +331,9 @@ Service Bus tetiği birkaç sağlar [meta veri özelliklerini](functions-trigger
 |`Label`|`string`|Uygulamaya özgü etiket.|
 |`CorrelationId`|`string`|Bağıntı Kimliği|
 |`UserProperties`|`IDictionary<String,Object>`|Uygulama özel ileti özellikleri.|
+
+> [!NOTE]
+> Şu anda, tetikleyici yalnızca Kuyruklar ve oturumları kullanmayın abonelikler ile çalışır. Lütfen izleme [bu özellik öğesi](https://github.com/Azure/azure-functions-host/issues/563) bu özellikle ilgili daha fazla güncelleştirme için. 
 
 Bkz: [kod örnekleri](#trigger---example) bu makalenin önceki bölümlerinde bu özellikleri kullanın.
 

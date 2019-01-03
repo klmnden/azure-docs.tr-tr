@@ -13,12 +13,12 @@ ms.date: 01/25/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 6bc18d73f66c1ede777d579b764127f034d9f0ca
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9b987ccd17f2060eea125a5d384446cec24fb68a
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725735"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969174"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Application Insights ile Etkisi Analizi
 
@@ -35,7 +35,7 @@ Ancak, performans çözümleme yalnızca etkisi'nın özellikleri alt kümesidir
 ![Tarayıcı ekran dönüştürme](./media/app-insights-usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> Application Insights kaynağınıza, sayfa görünümleri veya etkisi aracı kullanmak için özel olaylar içermelidir. [Sayfa görüntülemeleri Application Insights JavaScript SDK'sı ile otomatik olarak toplamak için uygulamanızı ayarlayın öğrenin](app-insights-javascript.md). Ayrıca bu yana bağıntı, analiz, örnek boyutu etkilenebileceğini önemlidir.
+> Application Insights kaynağınıza, sayfa görünümleri veya etkisi aracı kullanmak için özel olaylar içermelidir. [Sayfa görüntülemeleri Application Insights JavaScript SDK'sı ile otomatik olarak toplamak için uygulamanızı ayarlayın öğrenin](../azure-monitor/app/javascript.md). Ayrıca bu yana bağıntı, analiz, örnek boyutu etkilenebileceğini önemlidir.
 >
 >
 

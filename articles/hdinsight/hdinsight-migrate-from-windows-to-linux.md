@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: bcaf59e1d9b36dfbb17f1e0b8089cd88e626e2b9
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ea808609add942c5cac36e7f0306e4a27ac3bb3a
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437138"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743655"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Windows tabanlı HDInsight kümesinden bir Linux tabanlı bir kümeye geçirme
 
@@ -119,7 +119,7 @@ Bu bölümde, küme oluşturma farklılıkları hakkında bilgiler sağlar.
 
 ### <a name="ssh-user"></a>SSH kullanıcı
 
-Linux tabanlı HDInsight kümeleri kullanım **güvenli Kabuk (SSH)** küme düğümlerine uzaktan erişim sağlamak için protokol. Uzak Masaüstü için Windows tabanlı kümeler, bir grafik kullanıcı deneyimi çoğu SSH istemcisi sağlamaz. Bunun yerine, küme üzerinde komut çalıştırabilirsiniz olanak tanıyan bir komut satırı SSH istemcisi sağlar. Bazı istemciler (gibi [MobaXterm](http://mobaxterm.mobatek.net/)) bir grafik dosya sistemi tarayıcı uzak komut satırı ek belirtin.
+Linux tabanlı HDInsight kümeleri kullanım **güvenli Kabuk (SSH)** küme düğümlerine uzaktan erişim sağlamak için protokol. Uzak Masaüstü için Windows tabanlı kümeler, bir grafik kullanıcı deneyimi çoğu SSH istemcisi sağlamaz. Bunun yerine, küme üzerinde komut çalıştırabilirsiniz olanak tanıyan bir komut satırı SSH istemcisi sağlar. Bazı istemciler (gibi [MobaXterm](https://mobaxterm.mobatek.net/)) bir grafik dosya sistemi tarayıcı uzak komut satırı ek belirtin.
 
 Küme oluşturma sırasında bir SSH kullanıcısı ve ya da sağlamalısınız bir **parola** veya **ortak anahtar sertifikasını** kimlik doğrulaması için.
 
@@ -199,7 +199,7 @@ Aşağıdaki grafikte, Hive iş yüklerinizi geçirme hakkında yönergeler sağ
 | `set hive.execution.engine=tez;` Tez etkinleştirme |Apache Tez Linux tabanlı kümeler için varsayılan yürütme altyapısı olduğundan set deyimi artık gerekli değildir. |
 | C# kullanıcı tanımlı işlevler | Linux tabanlı HDInsight ile C# bileşenleri doğrulama hakkında daha fazla bilgi için bkz: [geçirme .NET çözümlerini Linux tabanlı HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD dosyaları veya betikleri bir Hive işi bir parçası olarak çağrılan sunucuda |Bash betiklerini kullanma |
-| `hive` Uzak Masaüstü komutu |Kullanım [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) veya [Apache Hive bir SSH oturumundan](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` Uzak Masaüstü komutu |Kullanım [Apache Hive Beeline](hadoop/apache-hadoop-use-hive-beeline.md) veya [Apache Hive bir SSH oturumundan](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -220,7 +220,7 @@ Aşağıdaki grafikte, Hive iş yüklerinizi geçirme hakkında yönergeler sağ
 > [!IMPORTANT]  
 > Dış Oozie meta depo kullanırsanız, Linux tabanlı HDInsight ile kullanmadan önce meta veri deposu yedeklemelisiniz. Linux tabanlı HDInsight uyumsuzluklar sahip olabilecek Oozie daha yeni sürümleriyle kullanılabilir ile önceki sürümleriyle oluşturulan meta depolar.
 
-Oozie ile iş akışlarını Kabuğu Eylemler izin verir. Kabuk Eylemler, komut satırı komutlarını çalıştırmak için işletim sistemi için varsayılan kabuğunu kullanın. Windows Kabuğu kullanan Oozie iş akışları varsa, Linux Kabuk ortamını (Bash) yararlanmayı iş akışlarını yeniden yazmanız gerekir. Kabuk Eylemler ile Oozie kullanma hakkında daha fazla bilgi için bkz. [Oozie Kabuk eylem uzantısı](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
+Oozie ile iş akışlarını Kabuğu Eylemler izin verir. Kabuk Eylemler, komut satırı komutlarını çalıştırmak için işletim sistemi için varsayılan kabuğunu kullanın. Windows Kabuğu kullanan Oozie iş akışları varsa, Linux Kabuk ortamını (Bash) yararlanmayı iş akışlarını yeniden yazmanız gerekir. Kabuk Eylemler ile Oozie kullanma hakkında daha fazla bilgi için bkz. [Oozie Kabuk eylem uzantısı](https://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
 
 Bir C# uygulaması kullanan bir iş akışı varsa, bu uygulamaların bir Linux ortamı doğrulayın. Daha fazla bilgi için [geçirme .NET çözümlerini Linux tabanlı HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: 514e85fc61240834d8db152ece65a4f9cce9023e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b554dc1fa33519d87aa0c9c5ba9130b47cbea142
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250416"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971759"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Azure’da Barındırılan bir Web Sitesinde ReportViewer Kullanma
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../azure-resource-manager/resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
 
 Bir Microsoft Azure sanal Makinesi'nde depolanan bir raporu görüntüleyen Visual Studio ReportViewer denetimiyle Microsoft Azure Web sitesi oluşturabilirsiniz. ASP.NET Web uygulaması şablonunu kullanarak oluşturduğunuz bir Web uygulamasında ReportViewer denetimi var.
@@ -42,7 +42,7 @@ ReportViewer'ı Microsoft Azure Web sitenize eklemek için aşağıdaki görevle
 
 > [!NOTE]
 > ReportViewer denetimleri ile Visual Studio, Standard Edition veya üstüne gönderilir. Web Developer Express Edition kullanıyorsanız, yüklemelisiniz [MICROSOFT Rapor Görüntüleyicisi 2012 çalışma zamanı](https://www.microsoft.com/download/details.aspx?id=35747) ReportViewer çalışma zamanı özellikleri kullanmak için.
-> 
+>
 > Yapılandırılmış yerel işleme modunda ReportViewer'ı Microsoft Azure'da desteklenmiyor.
 
 ## <a name="adding-assemblies-to-the-deployment-package"></a>Derleme, dağıtım paketi ekleme
@@ -51,7 +51,7 @@ ASP.NET uygulaması şirket içi barındırdığınızda, ReportViewer derlemele
 Uzaktan işleme modunda ReportViewer denetimi aşağıdaki derlemeler kullanır:
 
 * **Microsoft.ReportViewer.WebForms.dll**: ReportViewer sayfanızın kullanmanız gereken ReportViewer kodunu içerir. Projenizde ASP.NET sayfasına bir ReportViewer denetimi düşürdüğünüzde başvuru bu derleme için projenize eklenir.
-* **Microsoft.ReportViewer.Common.dll**: çalışma zamanında ReportViewer denetimi tarafından kullanılan sınıfları içerir. Projenize otomatik olarak eklenmez.
+* **Microsoft.ReportViewer.Common.dll**: Çalışma zamanında ReportViewer denetimi tarafından kullanılan sınıfları içerir. Projenize otomatik olarak eklenmez.
 
 ### <a name="to-add-a-reference-to-microsoftreportviewercommon"></a>Microsoft.ReportViewer.Common bir başvuru eklemek için
 * Projenizin sağ **başvuruları** düğümünü seçip alt **Başvuru Ekle**, .NET sekmesinde derlemeyi seçin ve tıklayın **Tamam**.
@@ -71,21 +71,21 @@ Uzaktan işleme modunda ReportViewer denetimi aşağıdaki derlemeler kullanır:
 
 ### <a name="to-configure-for-localized-reportviewer-control"></a>Yerelleştirilmiş ReportViewer denetimi için yapılandırmak için
 1. İndirin ve yukarıda belirtilen yönergeleri izleyerek Microsoft Rapor Görüntüleyicisi 2012 çalışma zamanı yeniden dağıtılabilir paketi yükleyin.
-2. Oluşturma <language> kopyalama ve proje klasöründe ilişkili kaynak bütünleştirilmiş kodu dosyaları yok. Kopyalanacak kaynak derleme dosyası da: **Microsoft.ReportViewer.Webforms.Resources.dll** ve **Microsoft.ReportViewer.Common.Resources.dll**. Kaynak derleme dosyaları seçin ve Özellikler bölmesinde **çıkış dizinine Kopyala** için "**her zaman Kopyala**".
+2. Oluşturma \<dil\> kopyalama ve proje klasöründe ilişkili kaynak bütünleştirilmiş kodu dosyaları yok. Kopyalanacak kaynak derleme dosyaları şunlardır: **Microsoft.ReportViewer.Webforms.Resources.dll** ve **Microsoft.ReportViewer.Common.Resources.dll**. Kaynak derleme dosyaları seçin ve Özellikler bölmesinde **çıkış dizinine Kopyala** için "**her zaman Kopyala**".
 3. Culture ve UICulture için web projesine ayarlayın. Bir ASP.NET Web sayfası için kültürü ve kullanıcı Arabirimi kültürünü ayarlama hakkında daha fazla bilgi için bkz. [nasıl yapılır: ASP.NET Web sayfası Genelleştirme için kültürü ve kullanıcı Arabirimi kültürünü ayarlama](https://go.microsoft.com/fwlink/?LinkId=237461).
 
 ## <a name="configuring-authentication-and-authorization"></a>Kimlik doğrulama ve yetkilendirme yapılandırma
 ReportViewer'ı rapor sunucusu ile kimlik doğrulaması için uygun kimlik bilgilerini kullanması gerekir ve kimlik bilgileri rapor sunucusu tarafından istediğiniz raporlara erişmek için yetkilendirilmesi gerekir. Kimlik doğrulaması hakkında daha fazla bilgi için bkz. [Reporting Services Rapor Görüntüleyicisi denetimi ve Microsoft Azure sanal makine tabanlı rapor sunucuları](https://msdn.microsoft.com/library/azure/dn753698.aspx).
 
 ## <a name="publish-the-aspnet-web-application-to-azure"></a>ASP.NET Web uygulamasını azure'da yayımlama
-Azure'a bir ASP.NET Web uygulaması yayımlama ile ilgili yönergeler için bkz: [nasıl yapılır: geçirme ve Visual Studio'dan bir Web uygulamasını azure'a yayımlama](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) ve [Web Apps'i ve ASP.NET'i kullanmaya başlama](../../../app-service/app-service-web-get-started-dotnet.md).
+Azure'a bir ASP.NET Web uygulaması yayımlama ile ilgili yönergeler için bkz: [nasıl yapılır: Geçiş ve Visual Studio'dan bir Web uygulamasını azure'a yayımlama](../../../vs-azure-tools-migrate-publish-web-app-to-cloud-service.md) ve [Web Apps'i ve ASP.NET'i kullanmaya başlama](../../../app-service/app-service-web-get-started-dotnet.md).
 
 > [!IMPORTANT]
 > Azure dağıtım projesine eklemek veya Azure bulut hizmeti projesi Ekle komutu kısayol menüsünde Çözüm Gezgininde görünmüyorsa, proje için hedef çerçeveyi .NET Framework 4'e değişiklik yapmanız gerekebilir.
-> 
+>
 > İki komut aslında aynı işlevleri sağlar. Bir ya da diğer komutu kısayol menüsünde, yüklediğiniz Microsoft Azure SDK'sı sürümüne bağlı olarak görünür.
-> 
-> 
+>
+>
 
 ## <a name="resources"></a>Kaynaklar
 [Microsoft raporları](https://go.microsoft.com/fwlink/?LinkId=205399)
@@ -93,4 +93,3 @@ Azure'a bir ASP.NET Web uygulaması yayımlama ile ilgili yönergeler için bkz:
 [Azure Sanal Makinelerde SQL Server İş Zekası](../classic/ps-sql-bi.md)
 
 [Yerel Mod Rapor Sunucusu ile Azure VM Oluşturmak için PowerShell Kullanma](../classic/ps-sql-report.md)
-

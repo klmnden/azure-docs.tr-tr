@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/19/2018
 ms.author: victorh
-ms.openlocfilehash: 9c0ccb7c5ccb3eced32ea5bcd9f1961c5ccd2110
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 8e8a09ede66213247b306c77938dbff30651fee5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173852"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727157"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Bir Azure hizmeti için özel etki alanı ayarları sağlamak için Azure DNS kullanma
 
@@ -116,7 +116,7 @@ DNS bölgenizi gelin ve tıklayın **+ kayıt kümesi**. Aşağıdaki bilgileri 
 
 App Service özel etki alanı eşleme hakkında daha fazla bilgi edinmek için [mevcut bir özel DNS adını Azure Web Apps ile eşleme](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
-Özel bir etki alanı satın almak için ihtiyacınız varsa bkz [Azure Web Apps için bir özel etki alanı adı satın alma](../app-service/custom-dns-web-site-buydomains-web-app.md) App Service etki alanları hakkında daha fazla bilgi edinmek için.
+Özel bir etki alanı satın almak için ihtiyacınız varsa bkz [Azure Web Apps için bir özel etki alanı adı satın alma](../app-service/manage-custom-dns-buy-domain.md) App Service etki alanları hakkında daha fazla bilgi edinmek için.
 
 ## <a name="blob-storage"></a>Blob depolama
 

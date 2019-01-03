@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: ea509d3804053f060ad551b6eff945b70cec8796
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c9a2d569641ab0f8f6aa1d7234da1d3cbb0ab147
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261067"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744998"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Redis için Azure Önbelleği örnekleri
 Bu konu, önbellek, okuma ve yazma verileri azure'a veya önbellekten bağlanma ve ASP.NET Azure önbelleği için Redis sağlayıcıları kullanan gibi senaryoları kapsayan, Redis örnekleri için Azure önbellek listesini sağlar. Örneklerden bazıları indirilebilir projelerdir ve bazı adım adım rehberlik ve kod parçacıkları içerir ancak indirilebilir bir projeye bağlamayın.
@@ -40,7 +40,7 @@ Bu örnek, gösterir nasıl yapılır:
 * Redis kümesi etiketleme uygulamak için kullanma
 * Redis küme ile çalışmanıza
 
-Daha fazla bilgi için [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) GitHub ve daha fazla kullanım senaryoları için belgelere bakın [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) birim testleri.
+Daha fazla bilgi için [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) GitHub ve daha fazla kullanım senaryoları için belgelere bakın [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests) birim testleri.
 
 [Azure Cache, Redis Python ile kullanılmak üzere nasıl](cache-python-get-started.md) Python kullanarak Redis için Azure Cache kullanmaya başlama işlemini gösterir ve [redis-py](https://github.com/andymccurdy/redis-py) istemci.
 

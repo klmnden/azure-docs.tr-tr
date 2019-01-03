@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/6/2018
 ms.author: victorh
-ms.openlocfilehash: 0187ef3d3b6853c1d1225fc9f208f2508372978d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9cb14e5076379e5095ca88dc749a954e9e5d5aa4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425736"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994870"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway için sık sorulan sorular
 
@@ -49,7 +49,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Hangi kaynakların arka uç havuzunun bir parçası bugün destekleniyor mu?
 
-Arka uç havuzları, ağ, sanal makine ölçek kümeleri, genel IP'ler birleştirilebilir, iç IP'ler, tam etki alanı adlarını (FQDN) ve çok kiracılı arka-Azure Web Apps gibi biter. Uygulama ağ geçidi arka uç havuzu üyeleri bir kullanılabilirlik kümesine bağlı değil. IP bağlantısı sahip oldukları sürece arka uç havuzu üyelerinin kümeleri, veri merkezleri arasında veya Azure dışında olabilir.
+Arka uç havuzları, ağ, sanal makine ölçek kümeleri, genel IP'ler birleştirilebilir, iç IP'ler, tam etki alanı adlarını (FQDN) ve çok kiracılı arka-Azure App Service gibi biter. Uygulama ağ geçidi arka uç havuzu üyeleri bir kullanılabilirlik kümesine bağlı değil. IP bağlantısı sahip oldukları sürece arka uç havuzu üyelerinin kümeleri, veri merkezleri arasında veya Azure dışında olabilir.
 
 ### <a name="what-regions-is-the-service-available-in"></a>Hangi bölgeler kullanılabilir hizmet?
 
@@ -88,9 +88,11 @@ Yalnızca bir genel IP adresi, bir uygulama ağ geçidinde desteklenmiyor.
 Özel ön uç IP yapılandırması yapılandırılmışsa, uygulama ağ geçidi örneği başına bir özel IP adresi yanı sıra, başka bir özel IP adresini kullanır. Ayrıca, Azure ilk dört ayırır ve son her alt ağda iç kullanım için IP adresi.
 Örneğin, bir uygulama ağ geçidi üç örnekleri ve ardından bir/29 hiçbir özel ön uç IP ayarlanmışsa, alt ağ boyutu veya üzeri gereklidir. Bu durumda, uygulama ağ geçidi üç IP adresini kullanır. Üç örnekleri ve ardından/28 özel ön uç IP yapılandırması için bir IP adresi varsa dört IP adresleri gerekli olduğu gibi alt ağı veya büyük boyut gereklidir.
 
-### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>S. Birden fazla uygulama ağ geçidi kaynağı tek bir alt ağa dağıtabilirsiniz? **
+### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>S. Tek bir alt ağa birden fazla Application Gateway kaynağında dağıtabilir miyim?
 
 Evet, belirli bir uygulama ağ geçidi dağıtım birden çok örneğini sahip olmaya ek olarak, farklı bir uygulama ağ geçidi kaynağı içeren mevcut bir alt ağ için benzersiz bir uygulama ağ geçidi kaynak sağlayabilirsiniz.
+
+Standard_v2 ve standart Application Gateway, aynı alt ağda karıştırma desteklenmiyor. Ayrıca, otomatik ölçeklendirme etkin olduğunda, bir alt ağ yalnızca bir uygulama ağ geçidi olabilir.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Application Gateway, x-iletilen-için üstbilgiler destekliyor mu?
 
@@ -103,6 +105,8 @@ Uygulama ağ geçidi ile gelen isteği özgün ana bilgisayar üst bilgisini iç
 Yeni uygulama ağ geçidi v1 SKU dağıtımlar sağlamak 20 dakikaya kadar sürebilir. Örnek boyutu/sayısı değişiklikler kesintiye uğratan değildir ve ağ geçidi bu süre boyunca etkin kalır.
 
 V2 SKU dağıtımlar sağlamak yaklaşık beş için altı dakika sürebilir.
+
+Application Gateway, x-iletilen-için üstbilgiler destekliyor mu?
 
 ## <a name="configuration"></a>Yapılandırma
 
@@ -210,7 +214,7 @@ Evet. Bağlantı boşaltma kesintiye uğratmadan arka uç havuzundaki üyelerini
 
 ### <a name="what-are-application-gateway-sizes"></a>Uygulama ağ geçidi boyutları nelerdir?
 
-Application Gateway şu anda üç büyüklükte sunulmaktadır: **Kısa**, **Orta** ve **Uzun**. Küçük örnek boyutları, geliştirme ve test senaryolarına yöneliktir.
+Uygulama ağ geçidi, şu anda üç büyüklükte sunulmaktadır: **Küçük**, **orta**, ve **büyük**. Küçük örnek boyutları, geliştirme ve test senaryolarına yöneliktir.
 
 Application Gateway limitlerinin tam listesi için bkz. [Application Gateway hizmet limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
@@ -316,9 +320,9 @@ WAF tanılama günlüğüne kaydetme ile izlenen, tanılama günlüğüne kaydet
 
 Hayır, algılama modunda yalnızca bir WAF kuralını tetikleyen trafiği günlüğe kaydeder.
 
-### <a name="how-do-i-customize-waf-rules"></a>WAF kurallarını nasıl özelleştiririm?
+### <a name="can-i-customize-waf-rules"></a>WAF kurallarını özelleştirebilirim?
 
-Evet, WAF kurallarını bunları özelleştirme hakkında daha fazla bilgi için özelleştirilebilir [özelleştirme WAF kural gruplarının ve kuralların](application-gateway-customize-waf-rules-portal.md)
+Evet, WAF kurallarını özelleştirilebilir. Daha fazla bilgi için [özelleştirme WAF kural gruplarının ve kuralların](application-gateway-customize-waf-rules-portal.md)
 
 ### <a name="what-rules-are-currently-available"></a>İşleme hangi kuralların şu anda kullanılabilir
 

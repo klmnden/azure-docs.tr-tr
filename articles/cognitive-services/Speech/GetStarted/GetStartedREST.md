@@ -10,14 +10,14 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a9f74f4032a78ee51ea2a8f020cd1418bb3330ca
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5cbdad82e25baa95c0342eb514f39c7026f1618b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345365"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753089"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Hızlı Başlangıç: REST API Bing konuşma tanıma kullanın.
+# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Hızlı Başlangıç: Bing konuşma tanıma REST API'si kullanma
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -66,7 +66,7 @@ Hizmetin URI bazı örnekler aşağıdaki tabloda listelenmiştir.
 | Tanıma modu  | Dil | Çıkış biçimi | Hizmet URI'si |
 |---|---|---|---|
 | `interactive` | pt-BR | Varsayılan | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | tr-TR | Ayrıntılı |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `conversation` | en-US | Ayrıntılı |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
 | `dictation` | fr-FR | Basit | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
@@ -76,8 +76,8 @@ Hizmetin URI bazı örnekler aşağıdaki tabloda listelenmiştir.
 
 Aşağıdaki alanlar, istek üstbilgisinde ayarlamanız gerekir:
 
-- `Ocp-Apim-Subscription-Key`: Hizmete çağrı her zaman abonelik anahtarınızı geçmelidir `Ocp-Apim-Subscription-Key` başlığı. Konuşma hizmeti de yetkilendirmeyi destekler Abonelik anahtarları yerine belirteçler. Daha fazla bilgi için [kimlik doğrulaması](../How-to/how-to-authentication.md).
-- `Content-type``Content-type` Alan biçimini ve ses akışı codec bileşenini açıklar. Şu anda yalnızca WAV dosyası ve PCM Mono 16000 kodlama desteklenir. Bu biçim içerik türü değeri `audio/wav; codec=audio/pcm; samplerate=16000`.
+- `Ocp-Apim-Subscription-Key`: Hizmete çağrı her zaman abonelik anahtarınızı geçmelidir `Ocp-Apim-Subscription-Key` başlığı. Konuşma hizmeti de yetkilendirmeyi destekler Abonelik anahtarları yerine belirteçler. Daha fazla bilgi için bkz. [Kimlik doğrulaması](../How-to/how-to-authentication.md).
+- `Content-type`: `Content-type` Alan biçimini ve ses akışı codec bileşenini açıklar. Şu anda yalnızca WAV dosyası ve PCM Mono 16000 kodlama desteklenir. Bu biçim içerik türü değeri `audio/wav; codec=audio/pcm; samplerate=16000`.
 
 `Transfer-Encoding` alanı isteğe bağlıdır. Bu alan ayarlamanız `chunked`, ses küçük öbeklere kesme. Daha fazla bilgi için [öbekli aktarım](../How-to/how-to-chunked-transfer.md).
 
@@ -100,7 +100,7 @@ Aşağıdaki örnek, konuşma REST Uç noktalara bir konuşma tanıma isteği g�
 > [!NOTE]
 > Değiştirin `YOUR_AUDIO_FILE` ile önceden kaydedilmiş ses dosyanızın yolu. Değiştirin `YOUR_SUBSCRIPTION_KEY` kendi abonelik anahtarınızla.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
@@ -135,7 +135,7 @@ Bu örnek, Linux üzerinde bash ile curl kullanır. Platformunuzda bulunan kulla
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 HttpWebRequest request = null;
@@ -184,7 +184,7 @@ using (FileStream fs = new FileStream(YOUR_AUDIO_FILE, FileMode.Open, FileAccess
 
 Aşağıdaki kod parçacığı yanıt akıştan nasıl edinebilirsiniz örneği gösterilmektedir.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 # show the response in JSON format
@@ -199,7 +199,7 @@ Bu örnekte, curl doğrudan yanıt iletisini dize döndürür. JSON biçiminde g
 curl -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE | jq
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 /*

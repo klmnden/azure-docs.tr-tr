@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: 85f93e15cfce1d44567c48c6c6f4b38c42dfb296
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a15c983291d35063884178f7b84e21fe4908b49a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416401"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632323"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure depolama geçişi hakkında sık sorulan sorular
 
@@ -54,8 +54,8 @@ Tüm depolama hesabınızı doğrudan yedekleme seçeneği yoktur. Ancak, el ile
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source`: (Kapsayıcı kadar) kaynak depolama hesabı için bir URI sağlayın.  
-    - `/Dest`: (Kapsayıcı kadar) hedef depolama hesabı için bir URI sağlayın.  
+    - `/Source`: Kaynak depolama hesabı (kapsayıcı kadar) bir URI sağlayın.  
+    - `/Dest`: Hedef depolama hesabı (kapsayıcı kadar) bir URI sağlayın.  
     - `/SourceKey`: Kaynak depolama hesabı için birincil anahtarı sağlayın. Depolama hesabı seçerek, bu anahtarı Azure portalından kopyalayabilirsiniz.  
     - `/DestKey`: Hedef depolama hesabı için birincil anahtarı sağlayın. Depolama hesabı seçerek, bu anahtarı portalından kopyalayabilirsiniz.
 
@@ -118,6 +118,8 @@ Daha fazla bilgi için [Windows üzerinde AzCopy ile veri aktarımı](storage-us
 
 **Yönetilen diskler için başka bir depolama hesabına nasıl taşırım?**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Şu adımları uygulayın:
 
 1.  Yönetilen disk bağlı olduğu sanal makineyi durdurun.
@@ -125,15 +127,15 @@ Daha fazla bilgi için [Windows üzerinde AzCopy ile veri aktarımı](storage-us
 2.  Yönetilen disk VHD aşağıdaki Azure PowerShell betiğini çalıştırarak bir çalışma alanından diğerine kopyalayın:
 
     ```
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
-    Select-AzureRmSubscription -SubscriptionId <ID>
+    Select-AzSubscription -SubscriptionId <ID>
 
-    $sas = Grant-AzureRmDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
+    $sas = Grant-AzDiskAccess -ResourceGroupName <RG name> -DiskName <Disk name> -DurationInSecond 3600 -Access Read
 
-    $destContext = New-AzureStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
+    $destContext = New-AzStorageContext –StorageAccountName contosostorageav1 -StorageAccountKey <your account key>
 
-    Start-AzureStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
+    Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer 'vhds' -DestContext $destContext -DestBlob 'MyDestinationBlobName.vhd'
     ```
 
 3.  VHD kopyaladığınız başka bir bölgede VHD dosyasını kullanarak yönetilen disk oluşturun. Bunu yapmak için aşağıdaki Azure PowerShell betiğini çalıştırın:  
@@ -151,9 +153,9 @@ Daha fazla bilgi için [Windows üzerinde AzCopy ile veri aktarımı](storage-us
 
     $storageType = 'StandardLRS'
 
-    $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
+    $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -SourceUri $vhdUri -StorageAccountId $storageId -DiskSizeGB 128
 
-    $osDisk = New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
+    $osDisk = New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
     ``` 
 
 Bir yönetilen diskten bir sanal makine dağıtma hakkında daha fazla bilgi için bkz. [CreateVmFromManagedOsDisk.ps1](https://github.com/Azure-Samples/managed-disks-powershell-getting-started/blob/master/CreateVmFromManagedOsDisk.ps1).
@@ -234,7 +236,7 @@ Sanal makineleriniz varsa, depolama hesabı verileri geçirmeden önce ek adıml
 
 **Klasik depolama hesabından bir Azure Resource Manager depolama hesabına nasıl taşırım?**
 
-Kullanabileceğiniz **Move-AzureStorageAccount** cmdlet'i. Bu cmdlet birden fazla adım vardır (doğrulayın, hazırlama, yürütme). Bunu yapmadan önce taşıma doğrulayabilirsiniz.
+Kullanabileceğiniz **taşıma AzStorageAccount** cmdlet'i. Bu cmdlet birden fazla adım vardır (doğrulayın, hazırlama, yürütme). Bunu yapmadan önce taşıma doğrulayabilirsiniz.
 
 Sanal makineleriniz varsa, depolama hesabı verileri geçirmeden önce ek adımları atmanız gerekir. Daha fazla bilgi için [Azure PowerShell kullanarak geçirme Iaas kaynaklarını Klasik modelden Azure Resource Manager'a](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md).
 
@@ -274,11 +276,11 @@ Diğer kişilerin depolama kaynaklarına erişim vermek için:
 
 -   Okuma erişimli coğrafi olarak yedekli depolama kullanıyorsanız, verileri ikincil bölgeden herhangi bir zamanda erişebilirsiniz. Aşağıdaki yöntemlerden birini kullanın:  
       
-    - **AzCopy**: ekleme **-ikincil** ikincil uç noktasına erişmek için URL'de depolama hesabı adı. Örneğin:  
+    - **AzCopy**: Append **-ikincil** ikincil uç noktasına erişmek için URL'de depolama hesabı adı. Örneğin:  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
-    - **SAS belirteci**: bir SAS belirteci uç noktasından verilere erişmek için kullanın. Daha fazla bilgi için [paylaşılan erişim imzaları kullanma](storage-dotnet-shared-access-signature-part-1.md).
+    - **SAS belirteci**: Bir SAS belirteci uç noktasından verilere erişmek için kullanın. Daha fazla bilgi için [paylaşılan erişim imzaları kullanma](storage-dotnet-shared-access-signature-part-1.md).
 
 **HTTPS özel etki alanı ile depolama Hesabımı nasıl kullanabilirim? Örneğin, ne yaptığım "https://mystorageaccountname.blob.core.windows.net/images/image.gif"olarak görünür"https://www.contoso.com/images/image.gif"?**
 
@@ -295,6 +297,6 @@ Depolama Gezgini veya benzer bir uygulama kullanmaya gerek kalmadan verileri yal
 
  Bunu kullanarak yapabilirsiniz bizim [Blob geçiş öncesinde bir betik](../scripts/storage-common-transfer-between-storage-accounts.md).
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
+## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun.
 
 Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: a522d436328a3aeb1ed365baa2ec1e3b9d3387ed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 4b6eb0aa7011226fda667370f3e854081b795ae6
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385032"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744879"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Bir Windows bilgisayardan HDInsight üzerinde Apache Hadoop ekosistemindeki çalışma
 
@@ -26,9 +26,9 @@ Azure PowerShell, denetlemek ve dağıtım ve HDInsight Windows gelen yönetim g
 
 PowerShell ile yapmak görev örnekleri:
 
-* [PowerShell kullanarak küme oluşturma](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [PowerShell kullanarak Apache Hive sorguları çalıştırma](hadoop/apache-hadoop-use-hive-powershell.md)
-* [PowerShell ile küme yönetme](hdinsight-administer-use-powershell.md)
+* [PowerShell kullanarak küme oluşturma](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+* [PowerShell kullanarak Apache Hive sorguları çalıştırma](hadoop/apache-hadoop-use-hive-powershell.md).
+* [PowerShell ile küme yönetme](hdinsight-administer-use-powershell.md).
 
 Adımlarını izleyin [Azure PowerShell'i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) en son sürümünü almak için. Azure Resource Manager için yeni cmdlet'ler kullanmak üzere değiştirilmesi için gereken komut dosyalarınız varsa [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçiş](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
@@ -54,11 +54,11 @@ Visual Studio için Data Lake araçları ile Visual Studio ile gerçekleştirebi
 Visual Studio, .NET SDK'sı ile kümeleri yönetme ve büyük veri uygulamaları geliştirmek için kullanabilirsiniz. Aşağıdaki görevler için diğer Ide'leri kullanabilirsiniz, ancak Visual Studio'da örnekler gösterilmektedir.
 
 Visual Studio'da .NET SDK'sı ile gerçekleştirebileceğiniz görevler örnekleri:
-* [Kümeleri oluşturma ve bir .NET Framework uygulamasından HDInsight içinde çalışma](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-* [.NET SDK kullanarak Apache Hive sorguları çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Kullanım C# Apache Hive ve Apache Hadoop akış Apache Pig ile kullanıcı tanımlı işlevler](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Kümeleri oluşturma ve bir .NET Framework uygulamasından HDInsight içinde iş](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md).
+* [.NET SDK kullanarak Apache Hive sorguları çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+* [Kullanım C# Apache Hive ve Apache Hadoop akış Apache Pig ile kullanıcı tanımlı işlevleri](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md).
 
-> İPUCU   
+> [!TIP]
 > .NET çözümlerini Windows tabanlı HDInsight kümeleriyle çalıştırıyorsanız, Linux tabanlı kümeler için bir geçiş planı için iyi bir zamandır. Daha fazla bilgi için [geçirme .NET çözüm için Linux tabanlı HDInsight için Windows tabanlı HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
 ## <a name="intellij-idea-and-eclipse-ide-for-spark-clusters"></a>Intellij Idea ve Eclipse IDE için Spark kümeleri
@@ -85,7 +85,7 @@ Burada bir aracı veya yalnızca Linux üzerinde kullanılabilir teknolojisi kul
 
 * **Windows 10 üzerinde bash (beta)** Windows üzerinde Linux alt sistemi sağlar. Bash doğrudan adanmış bir Linux yüklemesi korumak zorunda kalmadan Linux yardımcı programları çalıştırmanıza olanak tanır. [Yükleyin ve Windows 10 üzerinde Bash beta çalıştırın](https://msdn.microsoft.com/commandline/wsl/install_guide)
 * **Windows için docker** çok sayıda Linux tabanlı araçlar erişim sağlar ve doğrudan Windows çalıştırılabilir. Örneğin, Beeline istemci Hive için doğrudan Windows çalıştırmak için Docker kullanabilirsiniz. Yerel Jupyter not defteri çalıştırmak için de Docker'ı kullanma ve HDInsight üzerinde Spark uzaktan bağlanın. [Docker için Windows ile çalışmaya başlama](https://docs.docker.com/docker-for-windows/)
-* **[MobaXTerm](http://mobaxterm.mobatek.net/)**  grafiksel bir SSH bağlantısı üzerinden küme dosya sistemine göz atmanızı sağlar.
+* **[MobaXTerm](https://mobaxterm.mobatek.net/)**  grafiksel bir SSH bağlantısı üzerinden küme dosya sistemine göz atmanızı sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Linux tabanlı kümelerde çalışmaya yeni başladıysanız aşağıdaki makalelere bakın:

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6ce51dc9bbcdc7b46593a4800c4fce07a42f3171
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9cb52aea56e9c1183af9ca76201ab65c62a58f22
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346480"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972180"
 ---
 # <a name="offer-settings-tab"></a>Teklif ayarları sekmesi
 
@@ -42,9 +42,6 @@ Bu tanımlayıcı, hesabınıza ilişkilidir. Kuruluş hesabınızla oturum açt
 *Ad*
 
 AppSource veya Azure Marketi'nde teklif adı olarak ne görüntüler bu dizedir. *Adı* alan 50 karakterle sınırlıdır.  Gözden Geçiren süreli teklif adı ekleme için izin vermek için başlığı düzenlemek ve Teklif türü gerekebilir.
-
->[!Note]
->Önemli: Yalnızca Burada gerçek hizmetin adını girin. Süre ve hizmetin türü içermez.
 
 Teklif adı nasıl derlenip Edgewater Fullscope aşağıdaki örnekte gösterilmektedir. Teklif adı aşağıdaki gibi görünür:
 

@@ -1,21 +1,22 @@
 ---
-title: Azure dijital İkizlerini Swagger kullanmayı öğrenme | Microsoft Docs
-description: Azure dijital İkizlerini Swagger'ı kullanın
+title: Swagger Azure dijital İkizlerini başvurusunun nasıl kullanılacağını anlama | Microsoft Docs
+description: Azure dijital İkizlerini Swagger başvuru belgeleri kullanmayı anlama.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/31/2018
 ms.author: adgera
-ms.openlocfilehash: 737c33f6b8cdf9bcb2530816601ff9b5eb994087
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: 7d079f543f8b564c396560c97225897c12f3cd24
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624259"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975653"
 ---
-# <a name="use-azure-digital-twins-swagger"></a>Azure dijital İkizlerini Swagger'ı kullanın
+# <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure dijital İkizlerini Swagger başvuru belgeleri
 
 Sağlanan her bir Azure dijital İkizlerini örneği otomatik olarak oluşturulan kendi Swagger başvuru belgelerini içerir.
 
@@ -34,19 +35,19 @@ Swagger içeren API'nizi etkileşimli bir özetini sunar:
 * HTTP yanıtlarını doğrulamak ve doğrulamak için kullanılan örnek yanıt bilgileri.
 * Hata kod bilgisini.
 
-Swagger, geliştirme ve yönetim API'sine yapılan test çağrıları yardımcı olmak için kullanışlı bir araçtır.
+Swagger, geliştirme ve test çağrıların Azure dijital İkizlerini yönetim API'leri için yardımcı olmak için kullanışlı bir araçtır.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>Başvuru kaynakları
 
-Otomatik olarak oluşturulan başvuru malzemesi önemli kavramları ve nesne modellerini açıklar.
+Otomatik olarak oluşturulan Swagger başvuru malzemesi önemli kavramları, kullanılabilir yönetim API uç noktaları ve geliştirme ve test yardımcı olmak için her nesne modeli açıklaması hızlı bir genel bakış sağlar.
 
 Kısa bir Özet API açıklar.
 
 ![Swagger üst][1]
 
-Core API'si nesne modelini de listelenir.
+Yönetim API'si nesne modelini de listelenir.
 
 ![Swagger modelleri][2]
 
@@ -58,7 +59,7 @@ Tüm kullanılabilir Azure dijital İkizlerini görmek oluşturulan Swagger nesn
 
 ## <a name="endpoint-summary"></a>Uç nokta özeti
 
-Swagger API oluşturan tüm uç noktalar kapsamlı bir bakış da sağlar.
+Swagger, ayrıca Yönetim API'leri oluşturan tüm uç noktalar kapsamlı bir genel bakış sağlar.
 
 Listelenen her endpoint gerekli istek bilgileri gibi de içerir:
 

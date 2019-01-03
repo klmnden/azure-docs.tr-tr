@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights şablon Yönetimi - Azure Resource Manager şablonlarını kullanarak Azure zaman serisi görüşleri ortamınızı yönetmek nasıl | Microsoft Docs
+title: Azure Resource Manager şablonlarını kullanarak Azure zaman serisi görüşleri ortamınızı yönetmek nasıl | Microsoft Docs
 description: Bu makalede, Azure Resource Manager kullanarak program aracılığıyla Azure Time Series Insights ortamınızı yönetmek açıklar.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 70f82c19bced7618027379fcf9451348ac2591eb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9200b3b8cd85bfd94bbc4c66cccb35b78a97aaff
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270629"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554699"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak Time Series Insights kaynakları oluşturma
 

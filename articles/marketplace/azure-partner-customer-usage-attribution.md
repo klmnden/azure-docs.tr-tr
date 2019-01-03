@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262610"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602180"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure iş ortağı müşteri kullanım attribution
 
@@ -30,7 +30,7 @@ Microsoft artık ortakları Azure kullanımınızın müşteri dağıtımları y
 Microsoft iş ortağı olarak, Azure kullanımı, bir müşterinin adıma sağlamanız tüm Azure kaynakları ile ilişkilendirebilirsiniz. Azure marketi, hızlı başlangıç depo, özel GitHub depoları ve bire bir müşteri katılımı ile ilişki kurabilir. İzlemeyi etkinleştirmek için iki yaklaşım kullanılabilir:
 
 - Azure Resource Manager şablonları: Resource Manager şablonları ya da iş ortağının yazılımlarını çalıştırmak üzere Azure hizmetlerini dağıtmak için çözüm şablonları. İş ortakları, altyapı ve bunların Azure çözüm yapılandırmasını tanımlamak için bir Resource Manager şablonu oluşturabilirsiniz. Siz ve müşterilerinizin yaşam döngüsü boyunca çözümünüzü dağıtmak Resource Manager şablonu sağlar. Kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. 
-- Azure Resource Manager API'leri: İş ortakları doğrudan bir Resource Manager şablonu dağıtma veya doğrudan Azure hizmetleri sağlamak için API çağrıları oluşturmak için Resource Manager API'leri çağırabilirsiniz. 
+- Azure Resource Manager API'leri: İş ortakları, doğrudan bir Resource Manager şablonu dağıtma veya doğrudan Azure hizmetleri sağlamak için API çağrıları oluşturmak için Resource Manager API'leri çağırabilirsiniz. 
 
 Müşteri kullanım attribution gerekli tüm [çözüm şablonları](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) Azure Market'te yayımlanan. 
 
@@ -270,15 +270,11 @@ Microsoft iş ortakları kendi şablonlarını ve ınsights müşteri dağıtım
 
 **Kimin bir GUID bir şablona ekleyebilir miyim?**
 
-İzleme kaynak iş ortağı çözümünün müşterinin Azure kullanımına bağlanmak için tasarlanmıştır. Kullanım verileri, bir iş ortağının Microsoft iş ortağı ağı kimliğini (MPN kimliği) bağlıdır. Raporlama, CPP iş ortakları için kullanılabilir.
+İzleme kaynak iş ortağı çözümünün müşterinin Azure kullanımına bağlanmak için tasarlanmıştır. Kullanım verileri, bir iş ortağının Microsoft iş ortağı ağı kimliğini (MPN kimliği) bağlıdır. 
 
 **Bir GUID eklendikten sonra değiştirilebilir mi?**
  
 Evet, müşteri veya uygulama iş ortağı şablonu özelleştirmek ve değiştirebilir veya GUID kaldırabilirsiniz. İş ortaklarının müşterileri ve iş ortakları kaldırma veya düzenleme izleme GUID önlemek için kaynak GUID ve role proaktif olarak açıklamak öneririz. GUID değiştirilmesi, yalnızca yeni, var olmayan dağıtımlar ve kaynakları etkiler.
-
-**Ne zaman raporlama kullanıma sunulacak?**
-
-Raporlama bir beta sürümünü hemen kullanılabilir olması gerekir. Raporlama CPP tümleştirilecektir.
 
 **Ben bir GitHub gibi Microsoft dışı deposundan dağıtılan şablonları izleyebilir miyim?**
 

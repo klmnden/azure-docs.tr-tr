@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 01d1ef428804838df4257a4c28dfcddbdd8f156b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a3687a4b8bb4e0d900ee96f52c40352db4e96df6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011003"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635570"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hive ve Apache Hadoop kullanarak Twitter verilerini çözümleme
 
 Nasıl kullanacağınızı öğrenin [Apache Hive](https://hive.apache.org/) Twitter verilerini işleme. Belirli bir sözcük içeren çoğu tweetleri gönderen Twitter kullanıcıların listesini sonucudur.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgedeki adımlarda HDInsight 3.6 üzerinde test edilmiştir.
 >
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="get-the-data"></a>Verileri alma
 
-Twitter bir REST API aracılığıyla JavaScript nesne gösterimi (JSON) belgesi olarak her tweet için verileri almanıza olanak tanır. [OAuth](http://oauth.net) API kimlik doğrulaması için gereklidir.
+Twitter bir REST API aracılığıyla JavaScript nesne gösterimi (JSON) belgesi olarak her tweet için verileri almanıza olanak tanır. [OAuth](https://oauth.net) API kimlik doğrulaması için gereklidir.
 
 ### <a name="create-a-twitter-application"></a>Twitter uygulaması oluşturma
 
@@ -41,7 +41,7 @@ Twitter bir REST API aracılığıyla JavaScript nesne gösterimi (JSON) belgesi
    |:--- |:--- |
    | Ad |MyHDInsightApp |
    | Açıklama |MyHDInsightApp |
-   | Web sitesi |http://www.myhdinsightapp.com |
+   | Web sitesi |https://www.myhdinsightapp.com |
 
 4. Denetleme **Evet, kabul ediyorum**ve ardından **kendi Twitter uygulamanızı oluşturun**.
 
@@ -59,7 +59,7 @@ Twitter bir REST API aracılığıyla JavaScript nesne gösterimi (JSON) belgesi
 
 Aşağıdaki Python kodu 10.000 tweetleri twitter'dan ve kaydetmek adlı bir dosya yükler **tweets.txt**.
 
-> [!NOTE]
+> [!NOTE]  
 > Python zaten yüklü olmadığından aşağıdaki adımlarda HDInsight kümesinde gerçekleştirilir.
 
 1. SSH kullanarak HDInsight kümesine bağlanma:
@@ -70,7 +70,7 @@ Aşağıdaki Python kodu 10.000 tweetleri twitter'dan ve kaydetmek adlı bir dos
 
     Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. Yüklemek için aşağıdaki komutları kullanın [Tweepy](http://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2)ve diğer gerekli paketleri:
+3. Yüklemek için aşağıdaki komutları kullanın [Tweepy](https://www.tweepy.org/), [Progressbar](https://pypi.python.org/pypi/progressbar/2.2)ve diğer gerekli paketleri:
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -145,7 +145,7 @@ Aşağıdaki Python kodu 10.000 tweetleri twitter'dan ve kaydetmek adlı bir dos
    twitterStream.filter(track=["azure","cloud","hdinsight"])
    ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Şu öğeler için yer tutucu metni kendi twitter uygulamanızı bilgileri değiştirin:
     >
     > * `consumer_secret`
@@ -153,7 +153,7 @@ Aşağıdaki Python kodu 10.000 tweetleri twitter'dan ve kaydetmek adlı bir dos
     > * `access_token`
     > * `access_token_secret`
 
-    > [!TIP]
+    > [!TIP]  
     > Popüler anahtar sözcükleri izlemek için Son satırda konuları filtre ayarlayın. Betiği çalıştırdığınızda popüler anahtar sözcükleri kullanarak daha hızlı veri yakalamaya izin verir.
 
 6. Kullanım **Ctrl + X**, ardından **Y** dosyayı kaydetmek için.
@@ -166,7 +166,7 @@ Aşağıdaki Python kodu 10.000 tweetleri twitter'dan ve kaydetmek adlı bir dos
 
     Bir İlerleme göstergesi görünür. Tweetleri indirildiğini % 100 sayar.
 
-   > [!NOTE]
+   > [!NOTE]  
    > İlerlemek ilerleme çubuğu için uzun sürüyorsa, popüler konularını izlemek üzere filtreyi değiştirmeniz gerekir. Filtreniz konusundaki ilgili birçok tweetleri olduğunda, gerekli 10000 tweetleri hızlıca elde edebilirsiniz.
 
 ### <a name="upload-the-data"></a>Karşıya veri yükleme
@@ -317,7 +317,7 @@ Bu komutlar, veri kümedeki tüm düğümlerin erişebileceği bir konuma depola
 
     En fazla 10 sözcüğünü içeren tweetleri bu sorgunun döndürdüğü **Azure** ileti metin.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Filtre değiştirdiyseniz `gettweets.py` komut dosyası, değiştirin **Azure** filtrelerden birini kullandınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -327,7 +327,7 @@ Yapılandırılmamış bir JSON veri kümesi yapılandırılmış bir dönüşt�
 * [HDInsight ile çalışmaya başlama](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](hdinsight-analyze-flight-delay-data-linux.md)
 
-[curl]: http://curl.haxx.se
+[curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial

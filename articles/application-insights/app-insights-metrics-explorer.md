@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8a8b1e29a6504c725e244efa1ae8c37a9a0d8420
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 0d673ee9d316f14f95f6924929ad319eae13efcc
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726279"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973324"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Application ınsights'ta ölçümleri keşfederken
 Ölçümlerde [Application Insights] [ start] ölçülen değerleri ve telemetriyi uygulamanızdan gönderilen olayların sayısı. Performans sorunları tespit edin ve eğilimler, uygulamanızın nasıl kullanıldığını izleyin yardımcı olur. Çok çeşitli standart ölçüm vardır ve kendi özel Ölçümler ve olaylar da oluşturabilirsiniz.
@@ -140,7 +140,7 @@ Göre de filtre uygulayabilirsiniz **yapay trafik kaynağı**.
 ### <a name="to-add-properties-to-the-filter-list"></a>Özellikler filtre listesine eklemek için
 Kendi seçtiğiniz bir kategorinin telemetri filtreleme ister misiniz? Örneğin, belki de, kullanıcılar farklı kategorilere ayırmak ve verilerinizi kategorilerine göre segmentlere ayırmak istediğiniz.
 
-[Kendi özellik Oluştur](app-insights-api-custom-events-metrics.md#properties). Ayarlamanız bir [Telemetri başlatıcısını](app-insights-api-custom-events-metrics.md#defaults) farklı SDK modülleri tarafından gönderilen standart telemetri dahil olmak üzere tüm telemetriyi - görünmesini sağlamak için.
+[Kendi özellik Oluştur](../azure-monitor/app/api-custom-events-metrics.md#properties). Ayarlamanız bir [Telemetri başlatıcısını](../azure-monitor/app/api-custom-events-metrics.md#defaults) farklı SDK modülleri tarafından gönderilen standart telemetri dahil olmak üzere tüm telemetriyi - görünmesini sağlamak için.
 
 ## <a name="edit-the-chart-type"></a>Grafik türünü Düzenle
 Graflar ve Kılavuzlar arasında geçiş yapabilirsiniz dikkat edin:
@@ -176,13 +176,13 @@ Telemetrinizin çok daha yakın bir görünüm için açık [Canlı Stream](app-
 
 
 ## <a name="continuous-export"></a>Sürekli Dışarı Aktarma
-Harici olarak işleyebilir, böylece sürekli olarak dışarı aktarılan verileri istiyorsanız kullanmayı [sürekli dışarı aktarma](app-insights-export-telemetry.md).
+Harici olarak işleyebilir, böylece sürekli olarak dışarı aktarılan verileri istiyorsanız kullanmayı [sürekli dışarı aktarma](../azure-monitor/app/export-telemetry.md).
 
 ### <a name="power-bi"></a>Power BI
 Verilerinizi daha kapsamlı görünümlerini istiyorsanız [dışarı aktarmak için Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## <a name="analytics"></a>Analiz
-[Analytics](app-insights-analytics.md) güçlü bir sorgu dili kullanarak telemetrinizi analiz etmek için daha çok yönlü bir yoludur. Birleştirme veya ölçümleri sonuçlarını işlem ya da uygulamanızın en son performans ayrıntılı inceleme yapmak istiyorsanız, bunu kullanın. 
+[Analytics](../azure-monitor/app/analytics.md) güçlü bir sorgu dili kullanarak telemetrinizi analiz etmek için daha çok yönlü bir yoludur. Birleştirme veya ölçümleri sonuçlarını işlem ya da uygulamanızın en son performans ayrıntılı inceleme yapmak istiyorsanız, bunu kullanın. 
 
 Bir ölçüm grafiği doğrudan eşdeğer Analytics sorgusu almak için Analytics simgesine tıklayabilirsiniz.
 
@@ -193,7 +193,7 @@ Bir ölçüm grafiği doğrudan eşdeğer Analytics sorgusu almak için Analytic
 
     Farklı filtreler farklı grafikler üzerinde ayarlamak istiyorsanız bunları farklı dikey pencerelerinde oluşturma gibi ayrı sık kaydedin. İsterseniz, bunları birbirine yanı sıra görebilirsiniz, böylece bunları panoya sabitleyebilirsiniz.
 * Ölçüme göre tanımlanmamış özelliği bir grafiği gruplarsanız, ardından olacaktır hiçbir şey grafiği. 'Gruplandırma ölçütü' temizlemeyi deneyin veya farklı gruplandırma özelliğini seçin.
-* Performans verileri (CPU, GÇ oranı vb.) Java web Hizmetleri, Windows Masaüstü uygulamaları için kullanılabilir [Durum İzleyicisi'ni yükleyin, web uygulamaları ve Hizmetleri'IIS](app-insights-monitor-performance-live-website-now.md), ve [Azure Cloud Services](app-insights-overview.md). Azure Web siteleri için kullanılabilir değildir.
+* Performans verileri (CPU, GÇ oranı vb.) Java web Hizmetleri, Windows Masaüstü uygulamaları için kullanılabilir [Durum İzleyicisi'ni yükleyin, web uygulamaları ve Hizmetleri'IIS](../azure-monitor/app/monitor-performance-live-website-now.md), ve [Azure Cloud Services](app-insights-overview.md). Azure Web siteleri için kullanılabilir değildir.
 
 ## <a name="video"></a>Video
 
@@ -201,10 +201,10 @@ Bir ölçüm grafiği doğrudan eşdeğer Analytics sorgusu almak için Analytic
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Application Insights ile kullanımı izleme](app-insights-usage-overview.md)
-* [Tanılama aramayı kullanma](app-insights-diagnostic-search.md)
+* [Tanılama aramayı kullanma](../azure-monitor/app/diagnostic-search.md)
 
 <!--Link references-->
 
-[alerts]: app-insights-alerts.md
+[alerts]: ../azure-monitor/app/alerts.md
 [start]: app-insights-overview.md
-[track]: app-insights-api-custom-events-metrics.md
+[track]: ../azure-monitor/app/api-custom-events-metrics.md

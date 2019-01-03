@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 973b5d3f40968790dc6153ae91d1638cb83202ee
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 77225c4d659755ec6de1a14bf67bd0a62659fb6a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384386"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753872"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Olay filtreleme için Event Grid abonelikleri anlama
 
@@ -141,6 +141,7 @@ Gelişmiş filtreleme aşağıdaki sınırlamalara sahiptir:
 * dize değeri başına 512 karakter
 * Beş değerleri **içinde** ve **değil** işleçleri
 * Anahtarı yalnızca bir düzey iç içe geçme (gibi data.key1) olabilir
+* Özel olay şemaları yalnızca üst düzey alanlarda filtrelenebilir
 
 Birden fazla filtreye aynı anahtar kullanılır.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: 968c9f2455269cf41a701de685e4f47255b46847
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 064d73aa3d1a9183eddd53b1a1b8ddbf02afb04d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386438"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792858"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows üzerinde geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
@@ -50,6 +50,9 @@ Geliştirme için şu işletim sistemi sürümleri desteklenir:
 ## <a name="install-the-sdk-and-tools"></a>SDK'yı ve araçları yükleme
 Web Platformu Yükleyicisi (Webpı), SDK ve araçlarını yüklemek için önerilen yoldur. Webpı kullanarak çalışma zamanı hataları alırsanız, belirli bir Service Fabric sürümü için sürüm notları yükleyicileri için doğrudan bağlantılar da bulabilirsiniz. Sürüm Notları çeşitli yayın duyurularda bulunabilir [Service Fabric ekibi blogu](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
+> [!NOTE]
+> Yerel Service Fabric geliştirme kümesi yükseltme desteklenmez.
+
 ### <a name="to-use-visual-studio-2017"></a>Visual Studio 2017’yi kullanmak için
 Service Fabric Araçları, Visual Studio 2017’de Azure Geliştirme iş yükünün parçasıdır. Bu iş yükünü Visual Studio yüklemenizin bir parçası olarak etkinleştirin.
 Ayrıca Web Platformu Yükleyicisini kullanarak Microsoft Azure Service Fabric SDK'sını da yüklemeniz gerekir.
@@ -66,8 +69,8 @@ Yalnızca SDK'yı yüklemeniz gerekiyorsa bu paketi yükleyebilirsiniz:
 * [Microsoft Azure Service Fabric SDK'sını yükleyin][core-sdk]
 
 Geçerli sürümler şunlardır:
-* Service Fabric SDK'sı ve Araçları 3.3.617
-* Service Fabric çalışma zamanı 6.4.617
+* Service Fabric SDK'sı ve Araçları 3.3.622
+* Service Fabric çalışma zamanı 6.4.622
 * Service Fabric Tools Pro Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15.9 2.4.11024.1 Visual Studio için Service Fabric araçlarını içerir 
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 12fab05ef7c459419c8aaf319098fddaae1416e6
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 145dd36629286980c0f0e1692df3afb227764285
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243506"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974055"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Ethereum yetkilisi kavram consortium
 
@@ -198,7 +198,7 @@ Bu işlem, birkaç sanal makine dağıtmaya destekleyebilir ve yönetilen diskle
 
 Bir abonelik güvenli hale getirildikten sonra Azure portalına gidin. Seç '+', ('bkz. tüm'), Market ve Ethereum PoA Consortium arayın.
 
-Aşağıdaki bölümde ilk üyenin ayak izini ağ yapılandırması için size yol gösterir. Dağıtım akışı beş adımlarına ayrılmıştır: temel, dağıtım bölgeleri, ağ boyutu ve performansı, Ethereum ayarları, Azure İzleyici.
+Aşağıdaki bölümde ilk üyenin ayak izini ağ yapılandırması için size yol gösterir. Dağıtım akışı beş adımlarına ayrılmıştır: Temel bilgiler, dağıtım bölgeleri, ağ boyutu ve performansı, Ethereum ayarları, Azure İzleyici.
 
 #### <a name="basics"></a>Temel Bilgiler
 
@@ -212,7 +212,7 @@ Bir yeni veya mevcut birleşim ağı oluşturulsun mu?|Yeni bir ağ oluşturmak 
 E-posta adresiniz (isteğe bağlı)|Dağıtımınız hakkında bilgi içeren dağıtımınız tamamlandığında bir e-posta bildirimi alırsınız.|Geçerli bir e-posta adresi|NA
 VM kullanıcı adı|Dağıtılan her VM'nin (yalnızca alfasayısal karakterler) yönetici kullanıcı adı|1-64 karakter|NA
 Kimlik doğrulaması türü|Sanal makinenin kimliğini doğrulamak için yöntem.|Parola veya SSH ortak anahtarı|Parola
-Parola (kimlik doğrulaması türü = parola)|Dağıtılan sanal makinelerin her biri için yönetici hesabının parolası.  Parola şunlardan 3 tanesini içermelidir: 1 büyük harf karakter, 1 küçük harf, 1 sayı ve 1 özel karakter. Tüm VM'lerin aynı parolayı başlangıçta olsa da, parola sağladıktan sonra değiştirebilirsiniz.|12-72 karakter|NA
+Parola (kimlik doğrulaması türü = parola)|Dağıtılan sanal makinelerin her biri için yönetici hesabının parolası.  Parola 3 birini içermelidir: 1 büyük harf karakter, 1 küçük harf, 1 sayı ve 1 özel karakter. Tüm VM'lerin aynı parolayı başlangıçta olsa da, parola sağladıktan sonra değiştirebilirsiniz.|12-72 karakter|NA
 SSH anahtarı (kimlik doğrulaması türü ortak anahtar =)|Uzaktan oturum açma için kullanılan güvenli Kabuk anahtarı.||NA
 Abonelik|Aboneliği Konsorsiyum ağı dağıtmak için||NA
 Kaynak Grubu|Hangi Konsorsiyum ağı dağıtmak kaynak grubu.||NA
@@ -259,7 +259,7 @@ Sanal makine ve depolama katmanı ağ performansını etkileyeceğini unutmayın
   Sanal makine SKU'su|Depolama katmanı|Fiyat|Aktarım hızı|Gecikme süresi
   ---|---|---|---|---
   F1|Standart SSD|Düşük|Düşük|Yüksek
-  D2_v3|Standart SSD|Orta|Orta|Orta
+  D2_v3|Standart SSD|orta|orta|orta
   F16s|Premium SSD|Yüksek|Yüksek|Düşük
 
 Aşağıda bir örnek dağıtımı: ![ağ, boyut ve performans](./media/ethereum-poa-deployment/network-size-and-performance.png)
@@ -273,7 +273,7 @@ Her parametre için ayrıntılı bir açıklaması aşağıdaki gibidir:
   Parametre adı|Açıklama|İzin verilen değerler|Varsayılan değerler
   ---|---|---|---
 Consortium üye kimliği|Çakışma önlemek için IP adresi alanları yapılandırmak için kullanılan consortium ağa katılan her üye ile ilişkili kimlik. Özel bir ağ söz konusu olduğunda, üye kimliği aynı ağda farklı kuruluşlar arasında benzersiz olması gerekir.  Hatta aynı kuruluşa birden fazla bölgeye dağıtırken benzersiz üye kimliği gereklidir. Hiçbir çakışma olduğundan emin olmak için katılan diğer üyeleriyle paylaşmak olması gerektiğinden, bu parametrenin değerini not edin.|0-255|NA
-Ağ Kimliği|Dağıtılan consortium Ethereum ağ ağ kimliği.  Her Ethereum ağ kendi ağ 1 olan ortak ağ kimliği ile kimliği vardır.|5 - 999,999,999|10101010
+Ağ kimliği|Dağıtılan consortium Ethereum ağ ağ kimliği.  Her Ethereum ağ kendi ağ 1 olan ortak ağ kimliği ile kimliği vardır.|5 - 999,999,999|10101010
 Yönetici Ethereum adresi|PoA idaresinde katıldığınız için kullanılan hesap adresi Ethereum.  MetaMask Ethereum adresi oluşturmak için kullanmanızı öneririz.|0 x'ile başlayan 42 alfasayısal karakterler|NA
 Gelişmiş Seçenekler|Ethereum ayarları için Gelişmiş Seçenekleri|Etkinleştirmek veya devre dışı|Devre Dışı Bırak
 Genel IP (Gelişmiş Seçenekler = etkin)|VNet ağ geçidinin arkasında ağ dağıtır ve eşleme erişim kaldırır. Bu seçenek belirlenirse, tüm üyeleri uyumlu olacak şekilde sanal ağ geçidi bağlantısı için kullanmanız gerekir.|Genel IP özel VNet|Genel IP
@@ -744,7 +744,7 @@ $ truffle migrate --network poa
 
 ### <a name="debug-smart-contract-with-truffle"></a>Akıllı sözleşme Truffle ile hata ayıklama
 
-Truffle akıllı sözleşme hata ayıklama için kullanılabilir olan bir yerel geliştirme ağı sahiptir. Tam öğretici bulabilirsiniz [burada](http://truffleframework.com/tutorials/debugging-a-smart-contract).
+Truffle akıllı sözleşme hata ayıklama için kullanılabilir olan bir yerel geliştirme ağı sahiptir. Tam öğretici bulabilirsiniz [burada](https://truffleframework.com/tutorials/debugging-a-smart-contract).
 
 ### <a name="webassembly-wasm-support"></a>WebAssembly (WASM) desteği
 

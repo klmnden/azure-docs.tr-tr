@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6a1b9c110c79e428ab0cc182d0da370e59bc4f30
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: b3949fefac1cc230a98687b3b5ff9c7a01c6a0e9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386222"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789586"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure İzleyici'de günlük uyarıları
 Bu makalede, günlük uyarı ayrıntıları, bir içinde desteklenen uyarı türleri sağlanır [Azure uyarıları](../../azure-monitor/platform/alerts-overview.md) ve kullanıcıların uyarmak için temel olarak Azure'nın analiz platformu kullanmasına izin verir.
 
-Günlük araması kuralları için oluşturulan günlük uyarı oluşur [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) veya [Application Insights](../../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Kullanımı hakkında daha fazla bilgi için bkz. [Azure'da günlüğü uyarıları oluşturma](../../azure-monitor/platform/alerts-log.md)
+Günlük araması kuralları için oluşturulan günlük uyarı oluşur [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) veya [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostic-events). Kullanımı hakkında daha fazla bilgi için bkz. [Azure'da günlüğü uyarıları oluşturma](../../azure-monitor/platform/alerts-log.md)
 
 > [!NOTE]
 > Popüler günlük verilerini [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) şimdi de Azure İzleyici ölçüm platformda kullanılabilir. Ayrıntılar görünümü için [günlükleri için ölçüm Uyarısı](../../azure-monitor/platform/alerts-metric-logs.md)
@@ -38,7 +38,7 @@ Günlük arama kuralları aşağıdaki ayrıntıları tarafından tanımlanır:
 - **Sıklık**.  Sorgunun ne sıklıkta çalıştırılması gerektiğini belirtir. Herhangi bir değer 5 dakika ile 24 saat arasında olabilir. Eşittir veya süre değerinden küçük olmalıdır.  Değer süre büyük ise, eksik kayıtları riski oluşur.<br>*Örneğin, 30 dakikalık bir süre ve 60 dakikalık bir sıklık göz önünde bulundurun.  Sorgu 1: 00'da çalışıyorsa, 12:30 ve 1:00 arasında kayıtları döndürür.  Sorgu çalıştıracağınız sonraki 2:00 kayıtlar 1:30 ve 2:00 arasında zaman döndürecekti zamandır.  1:30 ile 1:00 arasında oluşturulan kayıtları hiç hesaplanmadı.*
 - **Eşik**.  Günlük aramasının sonuçları, bir uyarının oluşturulması gerekip gerekmediğini belirlemek için değerlendirilir.  Farklı türde günlük araması uyarı kuralları için eşik farklıdır.
 
-Günlük arama kuralları olması için [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) veya [Application Insights](../../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events), iki türde olabilir. Bu türlerinin her birini ayrıntılı olarak bölümlerde açıklanmıştır.
+Günlük arama kuralları olması için [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) veya [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostic-events), iki türde olabilir. Bu türlerinin her birini ayrıntılı olarak bölümlerde açıklanmıştır.
 
 - **[Sonuç sayısı](#number-of-results-alert-rules)**. Günlük araması tarafından döndürülen kayıt sayısını belirtilen bir sayıyı aştığında oluşturulan tek bir uyarı.
 - **[Ölçüm ölçüsü](#metric-measurement-alert-rules)**.  Uyarı belirtilen Eşiği aşan değerler ile günlük arama sonuçlarındaki her nesne için oluşturuldu.
@@ -121,5 +121,5 @@ Günlük uyarıları fiyatlandırması geçerli belirtildikten adresindeki [Azur
 * Hakkında bilgi edinin [azure'da günlüğü uyarıları oluşturma](../../azure-monitor/platform/alerts-log.md).
 * Anlamak [günlük uyarıları azure'da Web kancalarıyla](alerts-log-webhook.md).
 * Hakkında bilgi edinin [Azure uyarıları](../../azure-monitor/platform/alerts-overview.md).
-* Daha fazla bilgi edinin [Application Insights](../../application-insights/app-insights-analytics.md).
+* Daha fazla bilgi edinin [Application Insights](../../azure-monitor/app/analytics.md).
 * Daha fazla bilgi edinin [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    

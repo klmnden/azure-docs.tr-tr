@@ -1,43 +1,40 @@
 ---
-title: Azure veritabanı PostgreSQL videolar için
-description: Bu sayfa, Azure veritabanı PostgreSQL için öğrenme için ilgili görüntü içeriğini listeler.
-services: postgresql
+title: Videoları PostgreSQL için Azure veritabanı
+description: Bu sayfa, PostgreSQL için Azure veritabanı öğrenme için ilgili video içeriğini listeler.
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: ddc5249bb5b001a93f2695f9df2fb8e870988095
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: de4194671f09bde65bee0a1d0d86ffacdcedfbf3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687909"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543246"
 ---
-# <a name="azure-database-for-postgresql-videos"></a>Azure veritabanı PostgreSQL videolar için
+# <a name="azure-database-for-postgresql-videos"></a>Videoları PostgreSQL için Azure veritabanı
 
-[Genel Bakış: Azure veritabanı PostgreSQL ve MySQL için](https://channel9.msdn.com/Events/Connect/2017/T147)
+[Genel Bakış: PostgreSQL ve MySQL için Azure veritabanı](https://channel9.msdn.com/Events/Connect/2017/T147)
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player]
 
-Azure veritabanı PostgreSQL için ve Azure veritabanı için MySQL Getir birlikte community edition veritabanı motoru ve tam olarak yönetilen bir hizmet özelliklerini — bir veritabanını yönetmek zorunda kalmak yerine uygulamalarınıza odaklanabilirsiniz. Hizmet kullanmanın yararları hızlı bir genel bakış almak için ayarlamak ve bazı özellikleri eylem bakın.
+PostgreSQL için Azure veritabanı ve MySQL için Azure veritabanı bir araya getirir, community edition veritabanı motoru ve tam olarak yönetilen bir hizmet özelliklerini — bir veritabanını yönetmek zorunda kalmak yerine uygulamalarınıza odaklanın. Hizmet kullanmanın avantajlarını hızlı bir genel bakış kulak verin ve bazı özelliklerini iş başında görün.
 
-[Yönetilen hizmet özellikleri üzerinde derin Dalış MySQL ve PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T148)
+[MySQL ve PostgreSQL için Yönetilen hizmet özellikleriyle ilgili derinlemesine bakış](https://channel9.msdn.com/Events/Connect/2017/T148)
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T148/player]
 
-Azure veritabanı PostgreSQL için ve Azure veritabanı için MySQL getirin birlikte community edition veritabanı motoru ve tam olarak yönetilen bir hizmet özelliklerini. Bu hizmetleri nasıl çalıştığı hakkında derinlemesine almak için ayarlama — nasıl biz yüksek kullanılabilirlik sağlamak ve (saniye) ölçeklendirme, müşterilerinizin gereksinimlerini karşılamak için hızlı. Bazı temel Yatırımlar güvenlik ve dünya çapında kullanılabilirliği ayrıca öğreneceksiniz.
+PostgreSQL için Azure veritabanı ve MySQL için Azure veritabanı bir araya getirir, community edition veritabanı motoru ve tam olarak yönetilen bir hizmet özellikleri. Bu hizmetleri nasıl çalıştığı hakkında derinlemesine bir bakış elde etkinliğindeki — nasıl biz yüksek kullanılabilirlik sağlamak ve (saniye) içinde ölçeklendirme, müşterilerinizin ihtiyaçlarını karşılayabilecek şekilde hızlı. Temel alınan Yatırımlar bazıları hakkında güvenlik ve dünya çapında kullanılabilirlik da öğreneceksiniz.
 
-[Bir PostgreSQL akıllı analytics uygulamayla geliştirin](https://channel9.msdn.com/Events/Connect/2017/T149)
+[PostgreSQL ile akıllı analiz uygulama geliştirme](https://channel9.msdn.com/Events/Connect/2017/T149)
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T149/player]
 
-Azure veritabanı PostgreSQL için getirir birlikte community edition veritabanı motoru ve tam olarak yönetilen bir hizmet özelliklerini — bir veritabanını yönetmek zorunda kalmak yerine uygulamalarınıza odaklanabilirsiniz. Eylem Bilişsel hizmetler Azure üzerinde olan, uygulamalarınıza ekleme gibi yeni deneyimler oluşturmak için ne kadar kolay olduğunu görmek için katılın.
+PostgreSQL için Azure veritabanı community edition veritabanı altyapısı ve tam olarak yönetilen bir hizmet özelliklerini araya — bir veritabanını yönetmek zorunda kalmak yerine uygulamalarınıza odaklanın. Uygulamada, Bilişsel hizmetler, Azure üzerinde olması sayesinde uygulamalarınıza ekleme gibi yeni deneyimler oluşturmak için ne kadar kolay olduğunu görmek için katılın.
 
-[Nasıl PostgreSQL hizmet için yeni Azure veritabanı kullanmaya başlama](https://channel9.msdn.com/events/Build/2017/B8046)
+[Nasıl PostgreSQL hizmeti için yeni Azure veritabanı ile çalışmaya başlama](https://channel9.msdn.com/events/Build/2017/B8046)
 
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/B8046/player]
 
-2017 Microsoft //Build konferans öğesinden Bu videoda, iki erken nu benimsemenin müşterilerden bunlar daha hızlı yenilik için Azure veritabanı PostgreSQL hizmet için nasıl kullandığınız hakkında bilgi edinin. Uygulama geliştirme sonraki adımda ele ve hizmete nasıl geçirildiklerinden öğrenin. Video anahtar hizmet özelliklerinden bazıları anlatılmaktadır ve nasıl Geliştirici can olarak mevcut uygulamalarını taşımak veya bu yönetilen PostgreSQL Azure'da Hizmeti'yle yeni uygulamaları geliştirmek anlatılmaktadır.
+2017 Microsoft //Build konferansına ait Bu videoda, bunların daha hızlı yenilik yapın için hizmet PostgreSQL için Azure veritabanı nasıl kullandıysanız iki erken benimsemenin müşterilerden öğrenin. Sonraki adımda, uygulama geliştirmeye tartışın ve hizmete nasıl geçirilmesi öğrenin. Video anahtar hizmet özelliklerini bazıları açıklanmaktadır ve nasıl bir geliştirici can gibi mevcut uygulamalarınızı geçirme veya Azure'da Bu yönetilen PostgreSQL hizmeti kullanan yeni uygulamalar geliştirmek açıklanır.

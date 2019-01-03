@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 43b7b2e7b4f4da4939e08a68bc2ac7ea0a2c2a6b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: f7bf5d521f4bcb5672ff1d710a08bed2e0872545
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49459046"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974412"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Azure Service Fabric izleme iş ortakları
 
@@ -27,7 +27,7 @@ Bu makalede, nasıl bir, Service Fabric uygulamaları, kümeler ve altyapı iş 
 
 ## <a name="dynatrace"></a>Dynatrace
 
-Dynatrace ile bizim tümleştirme çok Service Fabric kümeleriniz izlemek için kutusunu özellikleri dışında sağlar. Dynatrace OneAgent VMSS örneklerinizin yükleme uygulama düzeye, performans sayaçları ve Service Fabric dağıtımınızın bir topoloji sunar. Dynatrace, şirket içinde izleme için ideal bir tercih de var. Daha fazla listelenen özellikleri kullanıma [duyuruyu](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) ve [yönergeleri](https://www.dynatrace.com/support/help/cloud-platforms/azure/how-do-i-monitor-azure-service-fabric-applications/) Dynatrace kümenizde etkinleştirmek için. 
+Dynatrace ile bizim tümleştirme çok Service Fabric kümeleriniz izlemek için kutusunu özellikleri dışında sağlar. Dynatrace OneAgent VMSS örneklerinizin yükleme uygulama düzeye, performans sayaçları ve Service Fabric dağıtımınızın bir topoloji sunar. Dynatrace, şirket içinde izleme için ideal bir tercih de var. Daha fazla listelenen özellikleri kullanıma [duyuruyu](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) ve [yönergeleri](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) Dynatrace kümenizde etkinleştirmek için. 
 
 ## <a name="datadog"></a>Datadog
 
@@ -43,7 +43,7 @@ Yeni Relic da Service Fabric uygulamaları ile tümleşen başka bir uygulama pe
 
 ## <a name="elk"></a>ELK 
 
-ELK yığını açık kaynaklı teknolojiler topluluğudur: Elasticsearch, Logstash ve kibana'yı. Bunları birlikte kullanarak toplamak, depolamak ve Service Fabric izleme ve tanılama verilerini analiz edin. Bir öğretici için Service Fabric yerel Java uygulamalarıyla bunun nasıl yapılacağını sahibiz [burada](service-fabric-tutorial-java-elk.md). 
+ELK yığını, açık kaynaklı teknolojiler topluluğudur: Elasticsearch, Logstash ve kibana'yı. Bunları birlikte kullanarak toplamak, depolamak ve Service Fabric izleme ve tanılama verilerini analiz edin. Bir öğretici için Service Fabric yerel Java uygulamalarıyla bunun nasıl yapılacağını sahibiz [burada](service-fabric-tutorial-java-elk.md). 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

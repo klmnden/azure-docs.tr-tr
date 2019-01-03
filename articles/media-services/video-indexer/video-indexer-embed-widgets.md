@@ -7,18 +7,22 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/25/2018
 ms.author: juliako
-ms.openlocfilehash: a051f40cb5586cae58d8e4939f4fcee35438bf69
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 2c07cfcba473e2e27f14ff0118e6ca8a8f484df1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292518"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791834"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer pencere öğeleri uygulamalarınıza ekleyin
 
-Bu makalede, uygulamalarınıza Video Indexer pencere öğelerini nasıl ekleyebileceğiniz gösterilmektedir. Video Indexer, uygulamanıza iki tür pencere öğesinin eklenmesini destekler: **Bilişsel İçgörüler** ve **Yürütücü**. 
+Bu makalede, uygulamalarınıza Video Indexer pencere öğelerini nasıl ekleyebileceğiniz gösterilmektedir. Video Indexer, uygulamanıza ekleme iki tür pencere öğeleri destekler: **Bilişsel İçgörüler** ve **Player**. 
+
+> [!NOTE]
+> ' % S'sürümü 1, 1 Şubat 2018'den ile başlangıç **Bilişsel İçgörüler** pencere öğesi kullanımdan kaldırılacaktır. Ekleme URL'si sürüm varsayılan `version=2`.
+
 ## <a name="widget-types"></a>Pencere öğesi türleri
 
 ### <a name="cognitive-insights-widget"></a>Bilişsel İçgörüler pencere öğesi
@@ -27,8 +31,8 @@ Bu makalede, uygulamalarınıza Video Indexer pencere öğelerini nasıl ekleyeb
 
 |Ad|Tanım|Açıklama|
 |---|---|---|
-|widgets|Virgülle ayrılmış dizeler|İşlemek istediğiniz öngörüleri denetlemenize olanak sağlar. <br/>Örnek: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` yalnızca kişiler ve markalarla ilgili kullanıcı arabirimi içgörülerini işler<br/>Mevcut seçenekler: people (kişiler), keywords (anahtar sözcükler), annotations (ek açıklamalar), brands (markalar), sentiments (yaklaşımlar), transcript (transkript), search (arama).<br/>version=2’de URL aracılığıyla desteklenmez<br/><br/>**Not:** **version=2** kullanılırsa **widgets** URL parametresi desteklenmez. |
-|version|**Bilişsel İçgörüler** pencere öğesinin sürümleri|En son içgörüler pencere öğesi güncelleştirmelerini almak için ekleme URL'sine `?version=2` sorgu parametresini ekleyin. Örneğin, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Eski sürümü elde etmek için URL'den `version=2` parametresini kaldırın.
+|widgets|Virgülle ayrılmış dizeler|İşlemek istediğiniz öngörüleri denetlemenize olanak sağlar. <br/>Örnek: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` yalnızca kişiler ve markalarla ilgili kullanıcı arabirimi içgörülerini işler<br/>Mevcut seçenekler: people (kişiler), keywords (anahtar sözcükler), annotations (ek açıklamalar), brands (markalar), sentiments (yaklaşımlar), transcript (transkript), search (arama).<br/>version=2’de URL aracılığıyla desteklenmez<br/><br/>**Not:** **Pencere öğeleri** , URL param desteklenmiyor **sürüm 2 =** kullanılır. |
+|version|**Bilişsel İçgörüler** pencere öğesinin sürümleri|Pencere öğesi güncelleştirmeleri en yeni içgörüleri almak için ekleyin `?version=2` query param ekleme URL'si. Örneğin, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Eski sürümü elde etmek için URL'den `version=2` parametresini kaldırın.
 
 ### <a name="player-widget"></a>Yürütücü pencere öğesi
 
@@ -39,7 +43,7 @@ Bu makalede, uygulamalarınıza Video Indexer pencere öğelerini nasıl ekleyeb
 |t|Başlangıçtan itibaren saniye sayısı|Yürütücünün dosyayı zamanda belirtilen noktadan itibaren yürütmeye başlamasını sağlar.<br/>Örnek: t=60|
 |captions|Dil kodu|Pencere öğesi yüklenirken açıklamalı alt yazıyı belirtilen dilde getirerek açıklamalı alt yazı menüsünde mevcut olmasını sağlar.<br/>Örnek: captions=en-US|
 |showCaptions|Bir boole değeri|Yürütücünün etkin olan açıklamalı alt yazıları yüklemesini sağlar.<br/>Örnek: showCaptions=true|
-|type||Bir ses yürütücüsü dış görünümünü etkinleştirir (video bölümü kaldırılır).<br/>Örnek: type=audio|
+|type||Bir ses yürütücüsü dış görünümünü etkinleştirir (video bölümü kaldırılır).<br/>Örnek: type=audio|"
 |autoplay|Bir boole değeri|Yürütücünün, yüklendiğinde videoyu oynatmaya başlatıp başlatmayacağını gösterir (varsayılan: true).<br/>Örnek: autoplay=false|
 |language|Dil kodu|Yürütücünün dilini denetler (varsayılan: en-US)<br/>Örnek: language=de-DE|
 

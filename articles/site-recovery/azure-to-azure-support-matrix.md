@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 50f9027301e4a04cd5624deee084429c803e04f4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24776e2d14824c6d7b028a2cb9e2ba1e1aaa5c96
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342723"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789135"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
@@ -56,8 +56,9 @@ Almanya | Almanya Orta, Almanya Kuzeydoğu
 
 >[!NOTE]
 >
-> Güney Brezilya bölgesinde, çoğaltma ve aşağıdakilerden birini yük devretme: Orta Güney ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2 ve orta Kuzey ABD bölgeleri.</br>
-> Site Recovery, Brezilya Güney, burada Vm'leri korunabilir gelen bir kaynak bölgesi olarak kullanılmak üzere yalnızca etkinleştirilmiş olduğu unutulmamalıdır. Orta Güney ABD gibi Azure bölgelerinden birini için bir hedef DR bölgesindeki kullanılamaz. Bunun nedeni gecikme süresi, Brezilya Güney dışındaki tüm diğer Amerika'nın bölgeyi seçmek için önerilen nedeniyle coğrafi uzaklıktan gözlemledik.  
+> Güney Brezilya bölgesinde, çoğaltma ve aşağıdakilerden birini yük devretme: Orta Güney ABD, Batı Orta ABD, Doğu ABD, Doğu ABD 2, Batı ABD, Batı ABD 2 ve orta Kuzey ABD bölgeleri.
+>
+> Site Recovery, Brezilya Güney, burada Vm'leri korunabilir gelen bir kaynak bölgesi olarak kullanılmak üzere yalnızca etkinleştirilmiş olduğu unutulmamalıdır. Orta Güney ABD gibi Azure bölgelerinden birini için bir hedef DR bölgesindeki kullanılamaz. Bunun nedeni gecikme süresi, Brezilya Güney dışındaki tüm diğer Amerika'nın bölgeyi seçmek için önerilen nedeniyle coğrafi uzaklıktan gözlemledik.
 
 ## <a name="cache-storage"></a>Önbellek depolama
 
@@ -127,10 +128,10 @@ Debian 8 | 9.17, 9.18 | 3.16.0-4-AMD64 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 4.9.0
 
 **Yayın** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
-SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.20 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.162-94.69-default için |
-SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.19 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.93-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.80-default için</br></br>SP3 4.4.73-5-default 4.4.140-94.42-default için |
-SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.18 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.93-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.80-default için</br></br>SP3 4.4.73-5-default 4.4.138-94.39-default için |
-SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.17 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.88-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default 4.4.126-94.22-default için |
+SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.20 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için<br/><br/> SP2 4.4.21-69-default 4.4.120-92.70-default için<br/><br/>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için<br/><br/>SP3 4.4.73-5-default 4.4.162-94.69-default için |
+SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.19 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.93-default için<br/><br/> SP2 4.4.21-69-default 4.4.120-92.70-default için<br/><br/>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.80-default için<br/><br/>SP3 4.4.73-5-default 4.4.140-94.42-default için |
+SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.18 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.93-default için<br/><br/> SP2 4.4.21-69-default 4.4.120-92.70-default için<br/><br/>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.80-default için<br/><br/>SP3 4.4.73-5-default 4.4.138-94.39-default için |
+SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.17 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.88-default için<br/><br/> SP2 4.4.21-69-default 4.4.120-92.70-default için<br/><br/>SP2(LTSS) 4.4.121-92.73-default<br/><br/>SP3 4.4.73-5-default 4.4.126-94.22-default için |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Çoğaltılan makineler - Linux dosya sistemi/Konuk depolama
 
@@ -145,7 +146,7 @@ SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.17 | SP1 3.12.49-11-default 3
 --- | --- | ---
 Boyut | Herhangi bir Azure VM boyutu en az 2 CPU Çekirdeği ve 1 GB RAM | Doğrulama [Azure sanal makine boyutları](../virtual-machines/windows/sizes.md).
 Kullanılabilirlik kümeleri | Desteklenen | Varsayılan seçeneklerle bir Azure sanal makine için çoğaltmayı etkinleştirmek, bir kullanılabilirlik kümesinde kaynak bölge ayarlarını göre otomatik olarak oluşturulur. Bu ayarları değiştirebilirsiniz.
-Kullanılabilirlik alanları | Desteklenen |  
+Kullanılabilirlik alanları | Desteklenen |
 Hibrit kullanım teklifi (HUB) | Desteklenen | Kaynak VM etkin bir HUB lisans yük devretme testi veya yük devretme varsa VM, ayrıca HUB lisansı kullanır.
 VM ölçek kümeleri | Desteklenmiyor |
 Microsoft Azure galeri görüntüleri - yayımlandı | Desteklenen | Sanal Makineyi desteklenen bir işletim sisteminde çalışıyorsa desteklenmiyor.
@@ -177,23 +178,23 @@ Veri diski sayısı | En fazla 64 içinde belge belirli bir Azure VM boyutu içi
 Veri disk değişim hızı | Premium depolama için disk başına 10 MB/sn sayısı. Standart depolama için disk başına 2 MB/sn sayısı. | Üzerindeki ortalama veri değişim oranı disk sürekli olarak en yüksek değerden yüksek olduğundan, çoğaltma catch olmaz.<br/><br/>  Ancak, en fazla tutularak aşılıyorsa, çoğaltma yakalayabilir, ancak biraz Gecikmeli kurtarma noktalarını görebilirsiniz.
 Veri diski - standart depolama hesabı | Desteklenen |
 Veri diski - premium depolama hesabı | Desteklenen | Bir VM, premium ve standart depolama hesapları arasında yayılabilir disk varsa, aynı depolama yapılandırması hedef bölgede olduğundan emin olmak için her disk için farklı bir hedef depolama hesabı seçebilirsiniz.
-Yönetilen disk - standart | Azure Site Recovery, desteklenen Azure bölgelerinde desteklenir. |  
+Yönetilen disk - standart | Azure Site Recovery, desteklenen Azure bölgelerinde desteklenir. |
 Yönetilen disk - premium | Azure Site Recovery, desteklenen Azure bölgelerinde desteklenir. |
 Standart SSD | Desteklenmiyor |
 Yedeklilik | LRS ve GRS desteklenir.<br/><br/> ZRS desteklenmez.
 Seyrek erişimli ve sık erişimli depolama | Desteklenmiyor | VM diskleri seyrek erişimli ve sık erişimli depolama alanı desteklenmez.
-Depolama alanları | Desteklenen |         
+Depolama alanları | Desteklenen |
 (SSE) bekleyen şifreleme | Desteklenen | SSE, depolama hesapları varsayılan ayardır.   
 Windows işletim sistemi için Azure Disk şifrelemesi (ADE) | VM'ler için etkin [şifrelemesi ile Azure AD uygulaması](https://aka.ms/ade-aad-app) desteklenir |
 Linux işletim sistemi için Azure Disk şifrelemesi (ADE) | Desteklenmiyor |
 Sık erişimli Ekle/Kaldır disk | Desteklenmiyor | VM veri diski ekleyip, çoğaltmayı devre dışı bırakın ve yeniden sanal Makineye yönelik çoğaltmayı etkinleştirmek gerekir.
 Diski hariç tutma | Desteklenmiyor|   Geçici disk, varsayılan olarak çıkarılır.
-Depolama alanları doğrudan  | Desteklenmiyor|
+Doğrudan Erişimli Depolama Alanları  | Desteklenmiyor|
 Genişleme dosya sunucusu  | Desteklenmiyor|
 LRS | Desteklenen |
 GRS | Desteklenen |
 RA-GRS | Desteklenen |
-ZRS | Desteklenmiyor |  
+ZRS | Desteklenmiyor |
 Seyrek erişimli ve sık erişimli depolama | Desteklenmiyor | Seyrek erişimli ve sık erişimli depolama alanı sanal makine diskleri desteklenmez
 Sanal ağlar için Azure depolama güvenlik duvarları  | Desteklenen | Depolama hesapları için sanal ağ erişimini kısıtlama, emin olmanız ['İzin güvenilen Microsoft Hizmetleri'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Genel amaçlı V2 depolama hesaplarının (hem sık erişimli ve seyrek erişimli Katmanlar) | Hayır | İşlem maliyetleri artırmak için genel amaçlı V1 depolama hesaplarında önemli ölçüde karşılaştırılır.
@@ -220,13 +221,13 @@ NIC | Belirli bir Azure VM boyutu için desteklenen en büyük sayı | VM yük d
 İnternet Yük Dengeleyici | Desteklenen | Bir kurtarma planında bir Azure Otomasyonu betik kullanarak önceden yapılandırılmış bir yük dengeleyici ile ilişkilendirin.
 İç Load balancer | Desteklenen | Bir kurtarma planında bir Azure Otomasyonu betik kullanarak önceden yapılandırılmış bir yük dengeleyici ile ilişkilendirin.
 Genel IP adresi | Desteklenen | Var olan bir genel IP adresini NIC ile ilişkilendirin Veya, bir genel IP adresi oluşturun ve bir kurtarma planında bir Azure Otomasyonu betik kullanarak NIC ile ilişkilendirin.
-NIC'de NSG | Desteklenen | NSG, bir Azure Otomasyonu komut dosyası kullanarak bir kurtarma planında NIC ile ilişkilendirin.  
+NIC'de NSG | Desteklenen | NSG, bir Azure Otomasyonu komut dosyası kullanarak bir kurtarma planında NIC ile ilişkilendirin.
 Alt ağda NSG | Desteklenen | NSG, bir kurtarma planında bir Azure Otomasyonu betik kullanarak alt ağı ile ilişkilendirin.
 Ayrılmış (statik) IP adresi | Desteklenen | Kaynak VM NIC'i bir statik IP adresi varsa ve hedef alt ağ aynı IP adresi, atanan devredilen VM'nin için.<br/><br/> Hedef alt ağ, aynı IP adresi yoksa, alt ağdaki kullanılabilir IP adreslerinden oluşan bir VM için ayrılmıştır.<br/><br/> Bir sabit IP adresini ve alt ağ olarak da belirtebilirsiniz **çoğaltılan öğeler** > **ayarları** > **işlem ve ağ**  >  **Ağ arabirimleri**.
 Dinamik IP adresi | Desteklenen | Kaynak NIC dinamik IP adresi varsa, yük devredilen VM NIC de varsayılan olarak dinamiktir.<br/><br/> Bunu sabit bir IP adresi için gerekirse değiştirebilirsiniz.
 Traffic Manager     | Desteklenen | Traffic Manager, trafiğin uç noktasına düzenli olarak kaynak bölgede ve uç noktaya yük devretme durumunda hedef bölgede yönlendirilmesi önceden yapılandırabilirsiniz.
 Azure DNS | Desteklenen |
-Özel DNS  | Desteklenen |    
+Özel DNS  | Desteklenen |
 Kimliği doğrulanmamış Proxy | Desteklenen | Başvurmak [ağ rehberi belgesi.](site-recovery-azure-to-azure-networking-guidance.md)    
 Kimliği doğrulanmış Proxy | Desteklenmiyor | VM için giden bağlantı kimliği doğrulanmış bir ara sunucu kullanıyorsa, Azure Site Recovery kullanarak yinelenemez.    
 Siteden siteye VPN ile şirket içi (ile veya olmadan ExpressRoute)| Desteklenen | Udr ve Nsg'ler Site kurtarma trafiği şirket içi yönlendirilmemesidir şekilde yapılandırıldığından emin olun. Başvurmak [ağ rehberi belgesi.](site-recovery-azure-to-azure-networking-guidance.md)  

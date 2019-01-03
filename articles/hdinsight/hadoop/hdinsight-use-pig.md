@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 25a91c6217aac1b2278957c1ff0ed8b7a9b1f6ac
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3f4f99a37718fac3ae4baa14553290d63c7bce63
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166175"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653977"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hadoop ile Apache Pig kullanma
 
@@ -29,10 +29,10 @@ Apache Pig olarak bilinen bir yordam dilini kullanarak Apache Hadoop için progr
 | [Hadoop için .NET SDK](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux veya Windows |Windows (şimdilik ile) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux veya Windows |Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a id="why"></a>Neden Pig kullanma
+## <a id="why"></a>Neden Apache Pig kullanma
 
 Yalnızca bir eşleme ve azaltma işlevi kullanarak Hadoop MapReduce kullanarak veri işleme sorunlarından biri, işleme mantığı uygulamaya koyuyor. Karmaşık bir işlem için genellikle işleme Zincirli birden fazla MapReduce işlemi kesmek zorunda birlikte istenen sonucu elde etmek için.
 
@@ -40,23 +40,23 @@ Pig işleme istenen çıkış oluşturmak için aracılığıyla veri akışlar�
 
 Pig Latin'i dil ham girişini, istenen çıkış oluşturmak için bir veya daha fazla dönüştürmeleri, veri akışından açıklamak sağlar. Pig Latin'i programlar bu genel bir desene uyar:
 
-* **Yük**: Dosya sisteminden yönetilebilmesini veri okuma
+* **Yük**: Dosya sisteminden yönetilebilmesini verileri okuyamadı.
 
-* **Dönüştürme**: Veri işleme
+* **Dönüştürme**: Veri işleme.
 
-* **Döküm veya mağaza**: Çıktı verilerini ekranına veya işleme için mağaza
+* **Döküm veya mağaza**: Çıktı verilerini ekranına veya işleme için depolayın.
 
 ### <a name="user-defined-functions"></a>Kullanıcı tanımlı işlevler
 
 Pig Latin'i kullanıcı tanımlı işlevler (UDF), Pig Latin modelinde zordur mantığını dış bileşenleri çağırma olanak tanıyan da destekler.
 
-Pig Latin'i hakkında daha fazla bilgi için bkz: [Pig Latin başvuru el ile 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) ve [Pig Latin başvuru el ile 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
+Pig Latin'i hakkında daha fazla bilgi için bkz: [Pig Latin başvuru el ile 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) ve [Pig Latin başvuru el ile 2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
 UDF ile Pig kullanma örneği için aşağıdaki belgelere bakın:
 
-* [HDInsight, Pig ile DataFu kullanma](apache-hadoop-use-pig-datafu-udf.md) -DataFu olan Apache tarafından tutulan yararlı UDF'ler koleksiyonu
-* [Pig ve Hive, HDInsight ile Python kullanma](python-udf-hdinsight.md)
-* [Hive ve Pig, HDInsight ile C# kullanma](apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [HDInsight, Apache Pig ile DataFu Apache kullanma](apache-hadoop-use-pig-datafu-udf.md) -DataFu olan Apache tarafından tutulan yararlı UDF'ler koleksiyonu
+* [Apache Pig ve Apache Hive, HDInsight ile Python kullanma](python-udf-hdinsight.md)
+* [Kullanım C# Apache Hive ve Apache Pig, HDInsight ile](apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 ## <a id="data"></a>Örnek veri
 
@@ -68,7 +68,7 @@ Her günlük dosyası içindeki içeren bir dizi alanlarının oluşur bir `[LOG
 
 Önceki örnekte, günlük düzeyi hatadır.
 
-> [!NOTE]
+> [!NOTE]  
 > Log4j dosyasını kullanarak da oluşturabilirsiniz [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) aracı günlüğe kaydetme ve ardından blobunuza bu dosyayı karşıya yükleyin. Bkz: [HDInsight verileri karşıya yükleme](../hdinsight-upload-data.md) yönergeler için. Azure Depolama'daki blobları HDInsight ile nasıl kullanıldığı hakkında daha fazla bilgi için bkz. [HDInsight ile Azure Blob Depolama kullanma](../hdinsight-hadoop-use-blob-storage.md).
 
 ## <a id="job"></a>Örnek Proje
@@ -98,7 +98,7 @@ HDInsight Pig Latin işleri çeşitli yöntemler kullanarak çalıştırabilirsi
 | [Hadoop için .NET SDK](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux veya Windows |Windows (şimdilik ile) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux veya Windows |Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="pig-and-sql-server-integration-services"></a>Pig ve SQL Server Integration Services
@@ -115,9 +115,9 @@ SSIS için Azure Feature Pack hakkında daha fazla bilgi edinin [burada][ssispac
 HDInsight ile Pig kullanma gerçekleştirmeyi öğrendiniz, Azure HDInsight ile çalışmanın diğer yollarını keşfetmek için aşağıdaki bağlantıları kullanın.
 
 * [HDInsight için karşıya veri yükleme](../hdinsight-upload-data.md)
-* [HDInsight ile Hive kullanma][hdinsight-use-hive]
-* [HDInsight ile Sqoop kullanma](hdinsight-use-sqoop.md)
-* [HDInsight ile Oozie kullanma](../hdinsight-use-oozie.md)
+* [Apache Hive, HDInsight ile kullanma][hdinsight-use-hive]
+* [HDInsight ile Apache Sqoop'u kullanma](hdinsight-use-sqoop.md)
+* [HDInsight ile Apache Oozie kullanma](../hdinsight-use-oozie.md)
 * [HDInsight ile MapReduce işleri kullanma][hdinsight-use-mapreduce]
 
 [apachepig-home]: https://pig.apache.org/

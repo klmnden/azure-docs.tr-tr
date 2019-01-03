@@ -10,13 +10,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: ea7b4def23f766e6cda1e1e8e1d4e8dc7be302fe
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.date: 12/16/2018
+ms.openlocfilehash: 40f6b6effa509fd2cfa40ecfc758ac37e0a66778
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997601"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538625"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL veritabanı için Gelişmiş tehdit koruması
 
@@ -30,7 +30,7 @@ SQL Gelişmiş tehdit Koruması (ATP), veri bulma & Sınıflandırma, güvenlik 
 - [Güvenlik Açığı Değerlendirmesi](sql-vulnerability-assessment.md) olası veritabanı güvenlik açıklarını keşfetmenizi ve izlemenizi sağlamanın yanı sıra bunları gidermeye yardımcı olan yapılandırması kolay bir hizmettir. Güvenlik durumunuz hakkında görünürlük sağlamasının yanı sıra güvenlik sorunlarınızı çözmek ve veritabanı güçlendirmelerinizi geliştirmek için eyleme dönüştürülebilir adımlar sunar.
 - [Tehdit Algılama](sql-database-threat-detection-overview.md), veritabanlarına erişme veya bunları kullanma konusunda olağandışı ve potansiyel olarak zararlı girişimleri gösteren anormal etkinlikleri tespit eder. Veritabanınızı şüpheli etkinliklere karşı sürekli izler ve olası güvenlik açıkları, SQL ekleme saldırıları ve anormal veritabanı erişim modelleri hakkında anında güvenlik uyarıları sunar. Tehdit Algılama uyarıları, şüpheli etkinliğin ayrıntılarının yanı sıra tehdidi araştırmak ve ortadan kaldırmak için önerilen eylemleri içerir.
 
-Bunların tümü etkinleştirmek için özellikler dahil sonra SQL ATP etkinleştirin. ATP’yi tüm veritabanı sunucunuzda tek tıkla etkinleştirebilir ve sunucuda bulunan tüm veritabanlarına uygulayabilirsiniz. 
+Bunların tümü etkinleştirmek için özellikler dahil sonra SQL ATP etkinleştirin. ATP’yi tüm veritabanı sunucunuzda tek tıkla etkinleştirebilir ve sunucuda bulunan tüm veritabanlarına uygulayabilirsiniz. Etkinleştirme veya ATP ayarlarını yönetme gerektirir ait [SQL Güvenlik Yöneticisi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) rolü, SQL veritabanı yönetim rolü veya SQL server Yönetici rolü. 
 
 ATP fiyatlandırması, Azure Güvenlik Merkezi standart katmanı, korunan her SQL veritabanı sunucusu bir düğüm olarak sayıldığı ile hizalar. Yeni korunan kaynakları, Güvenlik Merkezi standart katmanının ücretsiz deneme için uygun. Daha fazla bilgi için [Azure Güvenlik Merkezi fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/security-center/).
 

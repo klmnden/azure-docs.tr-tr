@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ec1343f85216171adac22f873f9be2e72bb4c282
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: cbf134640f981056c0996ffc6768ebc1381ce2ac
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52892464"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995159"
 ---
-# <a name="add-a-heat-map-layer"></a>Isı Haritası katman ekleyin
+# <a name="add-a-heat-map-layer"></a>Isı haritası katmanı ekleme
 
 Isı Haritaları, olarak da bilinen yoğunluklu haritalar'ın üzerine, veri görselleştirme bir renk aralığı kullanarak verileri yoğunluğu göstermek için kullanılan bir tür. Bunlar genellikle bir haritada "etkin nokta" verileri göstermek için kullanılır ve büyük işlemek için harika bir yoludur, veri kümeleri'nin üzerine olan.  Semboller harita alanının çoğunu kapsar gibi on binlerce eşlemesi görünümündeki noktaları gibi işleme ve başkaları tarafından kadar veri anlayış kazanmak zorlaştıran kapsamında fazla sembol neden olur. Ancak, ısı Haritası olarak aynı bu veri kümesini görselleştirmenin noktası verileri densest ve diğer alanlarına göreli yoğunluklu nerede görmeyi kolaylaştırır. İçinde hangi ısı haritaları kullanılan birçok senaryo vardır. Bazı örnekler şunlardır;
 
 * İçin iki veri noktaları arasındaki sıcaklık hangi anların sağladığından sıcaklık verilerini genellikle ısı Haritası olarak işlenir.
-* Isı Haritası olarak gürültü algılayıcı verilerini işleme, yalnızca algılayıcı olduğu insanity gürültü olasılığını gösterir ancak bir yoldan dağıtımı Öngörüler de sağlayabilirsiniz. Ancak birçok gürültü kapsamı alanından çakışırsa, bu çakışan alan daha yüksek gürültü düzeyleri ile karşılaşabilir ve bu nedenle ısı Haritası da görünür olur mümkün olduğu herhangi bir sitede gürültü düzeyi yüksek, olmayabilir.
+* Isı Haritası olarak gürültü algılayıcı verilerini işleme, yalnızca algılayıcı olduğu gürültü yoğunluğunu gösterir ancak bir yoldan dağıtımı Öngörüler de sağlayabilirsiniz. Ancak birçok gürültü kapsamı alanından çakışırsa, bu çakışan alan daha yüksek gürültü düzeyleri ile karşılaşabilir ve bu nedenle ısı Haritası da görünür olur mümkün olduğu herhangi bir sitede gürültü düzeyi yüksek, olmayabilir.
 * Bir GPS görselleştirme her veri noktasının yoğunluğu hızına burada dayalı bir ağırlık yükseklik harita olarak hızını içeren izleme burada araç hızlandırmaya yönelik hızlı bir şekilde görmek için harika bir yoludur.
 
 > [!TIP]
-> Kabarcık katmanları varsayılan olarak, bir veri kaynağındaki tüm geometriler koordinatlarını işlenir. Özellikleri ayarlama katmanı yalnızca noktası geometri işler gibi sınırlamak için `filter` katmana özelliği `['==', '$type', 'Point']`
+> Kabarcık katmanları varsayılan olarak, bir veri kaynağındaki tüm geometriler koordinatlarını işlenir. Katman geometri özellikleri işler noktası yalnızca oluşturmak sınırlamak için `filter` katmana özelliği `['==', '$type', 'Point']`
 
-## <a name="add-a-heat-map-layer"></a>Isı Haritası katman ekleyin
+## <a name="add-a-heat-map-layer"></a>Isı haritası katmanı ekleme
 
 Veri işlemek için noktaları kaynağı olarak basit bir ısı Haritası veri kaynağınız HeatMapLayer sınıfın bir örneğine geçirmeniz ve haritayı burada gösterildiği gibi ekleyin.
 

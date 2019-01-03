@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: a6170d51e1a8756020b4f2caa733c388b2ce4060
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 2542364db3a895c060c752beeb0cfabf75834f7d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013825"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970285"
 ---
-# <a name="install-and-run-containers"></a>Kapsayıcıları yükleme ve çalıştırma
+# <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
 Language Understanding (LUIS) kapsayıcı eğitilen veya yayımlanmış Language Understanding modelinizi yüklendiğinde, ayrıca olarak bilmeniz bir [LUIS uygulaması](https://www.luis.ai), docker kapsayıcısı ve erişim için sorgu Öngörüler kapsayıcının API'SİNDEN sağlar. uç noktaları. Kapsayıcıdan sorgu günlükleri toplayıp, uygulamanın tahmin doğruluğunu artırmak için Azure dil anlama modeli Bu geri yükleyin.
 
@@ -32,19 +32,19 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 LUIS kapsayıcıyı çalıştırmak için aşağıdakilere sahip olmanız gerekir: 
 
-|Gerekli|Amaç|
+|Gereklidir|Amaç|
 |--|--|
-|Docker altyapısı| Bu önizleme tamamlamak için Docker altyapısının yüklenmiş olması gerekir. bir [ana bilgisayar](#the-host-computer). Docker üzerinde Docker ortamını yapılandıran paketler sağlar [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), ve [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Docker ve kapsayıcı temelleri hakkında bilgi için bkz: [Docker'a genel bakış](https://docs.docker.com/engine/docker-overview/).<br><br> Docker, kapsayıcılar ile bağlanma ve faturalama verileri Azure'a göndermek izin verecek şekilde yapılandırılmalıdır. <br><br> **Windows üzerinde**, Docker de Linux kapsayıcıları destekler şekilde yapılandırılmalıdır.<br><br>|
+|Docker altyapısı| Docker Altyapısı'nın kurulu ihtiyacınız bir [ana bilgisayar](#the-host-computer). Docker üzerinde Docker ortamını yapılandıran paketler sağlar [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), ve [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Docker ve kapsayıcı temelleri hakkında bilgi için bkz: [Docker'a genel bakış](https://docs.docker.com/engine/docker-overview/).<br><br> Docker, kapsayıcılar ile bağlanma ve faturalama verileri Azure'a göndermek izin verecek şekilde yapılandırılmalıdır. <br><br> **Windows üzerinde**, Docker de Linux kapsayıcıları destekler şekilde yapılandırılmalıdır.<br><br>|
 |Docker ile aşinalık | Bir temel kavramlarını Docker kayıt defterleri, havuzları, kapsayıcılar ve kapsayıcı görüntülerinin yanı sıra temel bilgi gibi olmalıdır `docker` komutları.| 
-|Language Understanding (LUIS) kaynak ve ilişkili uygulama |Kapsayıcı kullanabilmeniz için şunlara sahip olmalısınız:<br><br>* A [ _Language Understanding_ Azure kaynak](luis-how-to-azure-subscription.md), ile ilişkili uç noktası anahtarı ve uç noktası URI'si (fatura uç noktası olarak kullanılır).<br>* Kapsayıcı ile ilişkili uygulama kimliğini bağlı bir giriş olarak paketlenmiş bir eğitilen veya yayımlanan uygulama<br>* Bu API yapıyor, uygulama paketi indirmek için yazma anahtarı.<br><br>Bu gereksinimler, aşağıdaki değişkenleri komut satırı bağımsız değişkenleri geçirmek için kullanılır:<br><br>**{AUTHORING_KEY}** : Bu anahtar, paketlenmiş uygulamayı bulutta LUIS hizmetten alma ve sorgu günlüklerini buluta geri yüklemek için kullanılır. Biçim `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Bu kimlik, uygulamayı seçmek üzere kullanılır. Biçim `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Bu anahtar kapsayıcısı başlatmak için kullanılır. Uç nokta, iki yerde bulabilirsiniz. Azure portalında ilk olan _Language Understanding_ kaynağın anahtarları listesi. Uç nokta da anahtarları ve uç nokta LUIS Portalı'nda ayarları sayfası. Başlangıç anahtarı kullanmayın.<br><br>**{BILLING_ENDPOINT}** : Fatura uç nokta değerini Azure portalının dil anlama genel bakış sayfasında kullanılabilir. Bir örnek verilmiştir: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>[Anahtarını ve uç noktası anahtarı yazma](luis-boundaries.md#key-limits) farklı amaçları olan. Bunları birbirinin yerine kullanmayın. |
+|Language Understanding (LUIS) kaynak ve ilişkili uygulama |Kapsayıcı kullanabilmeniz için şunlara sahip olmalısınız:<br><br>* A [ _Language Understanding_ Azure kaynak](luis-how-to-azure-subscription.md), ile ilişkili uç noktası anahtarı ve uç noktası URI'si (fatura uç noktası olarak kullanılır).<br>* Kapsayıcı ile ilişkili uygulama kimliğini bağlı bir giriş olarak paketlenmiş bir eğitilen veya yayımlanan uygulama<br>* Bu API yapıyor, uygulama paketi indirmek için yazma anahtarı.<br><br>Bu gereksinimler, aşağıdaki değişkenleri komut satırı bağımsız değişkenleri geçirmek için kullanılır:<br><br>**{AUTHORING_KEY}** : Bu anahtar, paketlenmiş uygulamayı bulutta LUIS hizmetten alma ve sorgu günlüklerini buluta geri yüklemek için kullanılır. Biçim `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Bu kimlik, uygulamayı seçmek için kullanılır. Biçim `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Bu anahtar kapsayıcısı başlatmak için kullanılır. Uç nokta, iki yerde bulabilirsiniz. Azure portalında ilk olan _Language Understanding_ kaynağın anahtarları listesi. Uç nokta da anahtarları ve uç nokta LUIS Portalı'nda ayarları sayfası. Başlangıç anahtarı kullanmayın.<br><br>**{BILLING_ENDPOINT}** : Fatura uç nokta değerini Azure portalının dil anlama genel bakış sayfasında kullanılabilir. Bir örnek verilmiştir: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>[Anahtarını ve uç noktası anahtarı yazma](luis-boundaries.md#key-limits) farklı amaçları olan. Bunları birbirinin yerine kullanmayın. |
 
 ### <a name="the-host-computer"></a>Ana bilgisayar
 
 **Konak** , docker kapsayıcısı çalıştıran bilgisayardır. Bu, bir bilgisayara şirket içinde veya Azure dahil olmak üzere hizmeti barındıran bir docker olabilir:
 
-* [Azure Kubernetes Service](/azure/aks/)
-* [Azure Container Instances](/azure/container-instances/)
-* [Kubernetes](https://kubernetes.io/) kümesi dağıtıldı için [Azure Stack](/azure/azure-stack/). Daha fazla bilgi için [Azure Stack dağıtma Kubernetes](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+* [Azure Kubernetes Service](../../aks/index.yml)
+* [Azure Container Instances](../../container-instances/index.yml)
+* [Kubernetes](https://kubernetes.io/) kümesi dağıtıldı için [Azure Stack](../../azure-stack/index.yml). Daha fazla bilgi için [Azure Stack dağıtma Kubernetes](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 
 ### <a name="container-requirements-and-recommendations"></a>Kapsayıcı gereksinimleri ve önerileri
 
@@ -113,7 +113,7 @@ Giriş bağlama directory içerebilir **üretim**, **hazırlama**, ve **Trained*
 |Hazırlanıyor|GET, Post|Azure ve kapsayıcı|`{APPLICATION_ID}_STAGING.gz`|
 |Üretim|GET, Post|Azure ve kapsayıcı|`{APPLICATION_ID}_PRODUCTION.gz`|
 
->**Önemli:** yeniden adlandırmayın, alter veya LUIS paket dosyaları açılamadı.
+>**Önemli:** Yeniden adlandırmayın, alter veya LUIS paket dosyaları açılamadı.
 
 ### <a name="packaging-prerequisites"></a>Paketleme önkoşulları
 

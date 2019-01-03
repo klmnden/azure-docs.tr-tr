@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 76cdd4bd4d95c7c11906f9c02a0f5cfa2326390e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: d8d48a41f9100abc3bc8ba306c766d9511f80026
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000770"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972082"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet paketleri
 
@@ -70,17 +70,17 @@ Application Insights için NuGet paketlerini kararlı sürüm geçerli listesi a
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Çalışma zamanı x64 için veri toplamayı etkinleştirir uygulamalar | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Çalışma zamanı x86 için veri toplamayı etkinleştirir uygulamalar. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-Bu paketler, çalışma zamanını izleme çekirdek işlevselliğini parçası oluşturan [Durum İzleyicisi](app-insights-monitor-performance-live-website-now.md). Bu paketleri doğrudan karşıdan yüklemek için yalnızca Durum İzleyicisi yükleyici kullanın gerekmez. Daha fazla nasıl bu paketler hakkında bileşenler bu işe anlamak istiyorsanız [blog gönderisi](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) geliştiricilerimiz birinden iyi bir başlangıç noktasıdır.
+Bu paketler, çalışma zamanını izleme çekirdek işlevselliğini parçası oluşturan [Durum İzleyicisi](../azure-monitor/app/monitor-performance-live-website-now.md). Bu paketleri doğrudan karşıdan yüklemek için yalnızca Durum İzleyicisi yükleyici kullanın gerekmez. Daha fazla nasıl bu paketler hakkında bileşenler bu işe anlamak istiyorsanız [blog gönderisi](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/) geliştiricilerimiz birinden iyi bir başlangıç noktasıdır.
 
 ## <a name="additional-packages"></a>Ek paketleri
 
 | Paket adı | Kararlı bir sürüm | Açıklama | İndirme |
 |-------------------------------|-----------------------|------------|----|
-| Microsoft.ApplicationInsights.AzureWebSites | 2.6.5 | Bu uzantı, bir Azure App Service Application Insights izleme sağlar. SDK'sı sürüm 2.6.1. Yönergeler: 'Appınsıghts_ınstrumentatıonkey' uygulama ayarları, ikey değerini ekleyin ve webapp etkili olması için yeniden başlatın.| [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AzureWebSites/) |
+| Microsoft.ApplicationInsights.AzureWebSites | 2.6.5 | Bu uzantı, bir Azure App Service Application Insights izleme sağlar. SDK'sı sürüm 2.6.1. Yönergeler: Uygulama ayarları, ikey 'Appınsıghts_ınstrumentatıonkey' ekleyin ve webapp etkili olması için yeniden başlatın.| [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AzureWebSites/) |
 | Microsoft.ApplicationInsights.Injector | 2.6.7 | Bu paket Kodsuz Application Insights ekleme işlemi için gereken dosyaları içerir. | [Paketini indirme](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Injector/) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- İzleyici [ASP.NET Core](app-insights-asp-net-core.md).
+- İzleyici [ASP.NET Core](../azure-monitor/app/asp-net-core.md).
 - ASP.NET Core profil [Azure Linux web app'ler](app-insights-profiler-aspnetcore-linux.md).
 - ASP.NET hata ayıklama [anlık görüntüleri](app-insights-snapshot-debugger.md).

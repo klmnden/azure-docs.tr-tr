@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 3a65b66619351462fcd9c77c3fb9b935cf99ebcc
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 46791468e094ffb17a6dc9993b2cf8623a72b9b3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496464"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53968817"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Azure HDInsight'ta ML Services ile çalışmaya başlama
 
@@ -22,8 +22,8 @@ Azure HDInsight, ML Services kümesi oluşturmanızı sağlar. R betikleri kulla
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Bir Azure aboneliği**: Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Daha fazla bilgi için bkz. [Microsoft Azure ücretsiz denemesini alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Güvenli Kabuk (SSH) istemcisi**: HDInsight kümesine uzaktan bağlanmak ve komutları doğrudan küme üzerinde çalıştırmak için bir SSH istemcisi kullanılır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Bir Azure aboneliğine**: Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Daha fazla bilgi için bkz. [Microsoft Azure ücretsiz denemesini alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Güvenli Kabuk (SSH) istemcisi**: Bir SSH istemcisi uzaktan HDInsight kümesine bağlanmak ve komutları doğrudan küme üzerinde çalıştırmak için kullanılır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 <a name="create-hdi-custer-with-aure-portal"></a>
@@ -31,24 +31,24 @@ Azure HDInsight, ML Services kümesi oluşturmanızı sağlar. R betikleri kulla
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
-2. **Kaynak oluştur** > **Veri ve Analiz** > **HDInsight** seçeneğine tıklayın.
+2. Gidin **+ kaynak Oluştur** > **Analytics** > **HDInsight**.
 
 3. **Temel Bilgiler** bölümünden aşağıdaki bilgileri girin:
 
-    * **Küme Adı**: HDInsight kümesinin adı.
-    * **Abonelik**: Kullanılacak abonelik.
-    * **Küme oturumu kullanıcı adı** ve **Küme oturumu parolası**: HTTPS üzerinden kümeye erişirken kullanılan oturum açma bilgileri. Apache Ambari Web kullanıcı Arabirimi veya REST API gibi hizmetlere erişmek için bu kimlik bilgilerini kullanın.
+    * **Küme adı**: HDInsight kümesinin adı.
+    * **Abonelik**: Kullanılacak aboneliği seçin.
+    * **Küme oturum açma kullanıcı adı** ve **küme oturum açma parolası**: HTTPS üzerinden kümeye erişirken oturum açın. Apache Ambari Web kullanıcı Arabirimi veya REST API gibi hizmetlere erişmek için bu kimlik bilgilerini kullanın.
     * **Güvenli Kabuk (SSH) kullanıcı adı**: SSH üzerinden kümeye erişirken kullanılan oturum açma bilgileri. Varsayılan olarak parola, küme oturum açma parolası ile aynıdır.
-    * **Kaynak Grubu**: Kümenin oluşturulduğu kaynak grubu.
-    * **Konum**: Kümenin oluşturulacağı Azure bölgesi.
+    * **Kaynak grubu**: İçinde kümenin oluşturulduğu kaynak grubu.
+    * **Konum**: İçinde kümenin oluşturulacağı Azure bölgesi.
 
         ![Küme temel ayrıntıları](./media/r-server-get-started/clustername.png)
 
 4. **Küme türü**’nü seçin, ardından **Küme yapılandırması** bölümünde aşağıdaki değerleri ayarlayın:
 
-    * **Küme Türü**: ML Services
+    * **Küme türü**: ML Services
 
-    * **İşletim Sistemi**: Linux
+    * **İşletim sistemi**: Linux
 
     * **Sürüm**: ML Server 9.3 (HDI 3.6). ML Server 9.3 sürüm notlarına [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-machine-learning-server) adresinden ulaşabilirsiniz.
 
@@ -66,7 +66,7 @@ Azure HDInsight, ML Services kümesi oluşturmanızı sağlar. R betikleri kulla
 
     ![HDInsight depolama hesabı ayarlarını belirleme](./media/r-server-get-started/clustersummary.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Kümenin oluşturulması 20 dakika sürebilir.
 
 <a name="connect-to-rstudio-server"></a>
@@ -78,15 +78,16 @@ HDInsight kümenizin parçası olarak RStudio Server Community Edition’ı yük
 
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
-* **2. Seçenek** - Azure portalında, **Hızlı bağlantılar** bölümünde **ML Services Panoları**’na tıklayarak ML Services kümesini açın.
-
-     ![HDInsight depolama hesabı ayarlarını belirleme](./media/r-server-get-started/dashboard-quick-links.png)
-
-    **Küme Panoları**’nda **R Studio Server** seçeneğine tıklayın.
+* **2. seçenek** -Azure portalını kullanın.
+Portaldan:
+  1. Seçin **tüm hizmetleri** sol menüden.
+  2. Altında **ANALYTICS**seçin **HDInsight kümeleri**.
+  3. Küme adınızı seçin **HDInsight kümeleri** sayfası.
+  4. Gelen **ML Hizmetleri panolar**seçin **R Studio server**. 
 
     ![HDInsight depolama hesabı ayarlarını belirleme](./media/r-server-get-started/r-studio-server-dashboard.png)
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Kullanılan yöntem ne olursa olsun, ilk kez oturum açtığınızda iki kez kimlik doğrulaması yapmanız gerekir.  Birinci kimlik doğrulaması isteminde *kümenin Yönetici kullanıcı kimliğini* ve *parolasını* belirtin. İkinci kimlik doğrulaması isteminde *SSH kullanıcı kimliğini* ve *parolasını* belirtin. Sonraki oturumlarda yalnızca SSH kimlik bilgileri gerekli olacaktır.
 
 Bağlandıktan sonra ekranınız aşağıdaki ekran görüntüsüne benzemelidir:
@@ -221,11 +222,11 @@ SDK’yı ve PowerShell’i kullanarak HDInsight için ML Services kümesi oluş
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
-HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](../hdinsight-administer-use-portal-linux.md#create-clusters).
+HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, Azure HDInsight üzerinde yeni bir ML Services kümesinin nasıl oluşturulacağını ve bir SSH oturumundan R konsolunu kullanmanın temel adımlarını öğrendiniz. Aşağıdaki makalelerde HDInsight üzerinde ML Services’ı yönetme ve ML Services ile çalışma için diğer yöntemler açıklanmaktadır:
+Bu makalede, Azure HDInsight ve bir SSH oturumundan R konsolunu kullanmanın temel adımlarını yeni ML Hizmetleri kümesi oluşturulacağını öğrendiniz. Aşağıdaki makalelerde HDInsight üzerinde ML Services’ı yönetme ve ML Services ile çalışma için diğer yöntemler açıklanmaktadır:
 
 * [Visual Studio için R Araçları’ndan iş gönderme](r-server-submit-jobs-r-tools-vs.md)
 * [HDInsight üzerinde ML Services kümesini yönetme](r-server-hdinsight-manage.md)

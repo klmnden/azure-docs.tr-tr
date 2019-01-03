@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 1bba25d0b7fd6bbe4efeb9c2164fc663b22bed11
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: cd84704c7926bfa9ace0d801b2532d2c77296075
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139376"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810517"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek kümeleri hakkında SSS
 
@@ -167,48 +167,16 @@ Kodu Windows ve Linux'ı destekler.
 Daha fazla bilgi için [oluşturma veya güncelleştirme bir sanal makine ölçek kümesi](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### <a name="example-of-self-signed-certificate"></a>Otomatik olarak imzalanan sertifika örneği
+### <a name="example-of-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>Azure Service Fabric kümeleri için sağlanan otomatik olarak imzalanan sertifikalar örneği.
+En son örnek kullanmak için aşağıdaki azure CLI ifade azure shell içinde Service dokularını CLI modül stdout yazdırılır örnek belgeleri, okuyun:
 
-1.  Bir anahtar Kasası'nda otomatik olarak imzalanan bir sertifika oluşturun.
+```bash
+az sf cluster create -h
+```
 
-    Aşağıdaki PowerShell komutlarını kullanın:
+Lütfen azure'daki en son desteklenen API sertifika işlemleri için keyvaults belgelerini inceleyin.
 
-    ```powershell
-    Import-Module "C:\Users\mikhegn\Downloads\Service-Fabric-master\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-
-    Connect-AzureRmAccount
-
-    Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
-    ```
-
-    Bu komut, Azure Resource Manager şablonu giriş sağlar.
-
-    Bir anahtar Kasası'nda otomatik olarak imzalanan bir sertifika oluşturmak nasıl bir örnek için bkz [Service Fabric kümesi güvenlik senaryoları](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
-
-2.  Resource Manager şablonunu değiştirin.
-
-    Bu özellik ekleyin **virtualMachineProfile**, sanal makinenin bir parçası olarak ölçek kümesi kaynak:
-
-    ```json 
-    "osProfile": {
-        "computerNamePrefix": "[variables('namingInfix')]",
-        "adminUsername": "[parameters('adminUsername')]",
-        "adminPassword": "[parameters('adminPassword')]",
-        "secrets": [
-            {
-                "sourceVault": {
-                    "id": "[resourceId('KeyVault', 'Microsoft.KeyVault/vaults', 'MikhegnVault')]"
-                },
-                "vaultCertificates": [
-                    {
-                        "certificateUrl": "https://mikhegnvault.vault.azure.net:443/secrets/VMSSCert/20709ca8faee4abb84bc6f4611b088a4",
-                        "certificateStore": "My"
-                    }
-                ]
-            }
-        ]
-    }
-    ```
+Otomatik olarak imzalanan sertifikaları, sertifika yetkilisi tarafından sağlanan dağıtılmış güven için kullanılamaz ve konak Kurumsal üretim çözümleri için hedeflenen tüm Service Fabric kümesi için kullanılmamalıdır; Ek Service Fabric güvenliği yönergelerini gözden geçirmeniz [Azure Service Fabric en iyi güvenlik uygulamaları](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices) ve [Service Fabric kümesi güvenlik senaryoları](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
   
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Ben, Linux sanal makine ölçek kümesi bir Resource Manager şablonundan SSH kimlik doğrulaması için kullanılacak SSH anahtar çifti belirtebilir miyim?  
@@ -277,7 +245,7 @@ Bir örnek için bkz. [101 vm sshkey GitHub Hızlı Başlangıç şablonu](https
  
 ### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Ne zaman çalıştırabilir `Update-AzureRmVmss` birden fazla sertifika aynı anahtar kasasından ekledikten sonra şu iletiyi görüyorum:
  
->Update-AzureRmVmss: Liste gizli /subscriptions/ < my abonelik-kimliği > yinelenen örneklerini içerir. / Form veya resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev izin verilmiyor.
+>Update-AzureRmVmss: Liste gizli /subscriptions/ < my abonelik-kimliği > yinelenen örneklerini içeren / form veya resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev izin verilmiyor.
  
 Bu var olan bir kaynak kasası için yeni bir kasa sertifika kullanmak yerine aynı kasaya yeniden eklemeyi denerseniz oluşabilir. `Add-AzureRmVmssSecret` Komut düzgün çalışmaz ek gizli dizileri ekliyorsanız.
  
@@ -510,7 +478,7 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -
 Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS 
 ```
 
-### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>Bir özel depolama hesabında barındırılan özel bir betik yürütmek gerekir. Betik başarıyla çalıştırıldıktan depolama genel olduğunda, ancak bir paylaşılan erişim imzası (SAS) kullanmaya çalıştığınızda, başarısız olur. Bu ileti görüntülenir: "zorunlu parametreler için geçerli bir paylaşılan erişim imzası eksik". Bağlantı + SAS yerel Bilgisayarım tarayıcıdan düzgün çalışır.
+### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>Bir özel depolama hesabında barındırılan özel bir betik yürütmek gerekir. Betik başarıyla çalıştırıldıktan depolama genel olduğunda, ancak bir paylaşılan erişim imzası (SAS) kullanmaya çalıştığınızda, başarısız olur. Bu ileti görüntülenir: "Zorunlu parametreler için geçerli paylaşılan erişim imzası eksik". Bağlantı + SAS yerel Bilgisayarım tarayıcıdan düzgün çalışır.
 
 Bir özel depolama hesabında barındırılan özel bir betik yürütmek için korunan ayarları depolama hesabı anahtarı ve adı ile ayarlayın. Daha fazla bilgi için [için özel betik uzantısı Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
@@ -559,7 +527,7 @@ Evet. Bir ağ güvenlik grubunun doğrudan bir ölçek kümesi ağ profili Netwo
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Aynı bölgede ve aynı abonelik içinde sanal makine ölçek kümeleri için bir VIP takası ne yapmalıyım?
 
-İki sanal makine ölçek kümeleri ile Azure Load Balancer ön uçları sahip ve aynı abonelik ve aynı bölgede olmaları, her bir genel IP adreslerini serbest bırakın ve diğer atayın. Bkz: [VIP takas: Mavi-yeşil dağıtım Azure Resource Manager'daki](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) örneğin. Bu gecikme gelmez serbest/ayrılan ağ kaynakları gibi ancak düzeyi. Azure Application Gateway iki arka uç havuzları ve yönlendirme kuralı'nı kullanmayı daha hızlı bir seçenektir. Alternatif olarak, uygulamanızla barındırabilir [Azure uygulama Hizmeti'ni](https://azure.microsoft.com/services/app-service/) hazırlama ve üretim yuvası arasında hızlı geçiş yapmak için destek sağlar.
+İki sanal makine ölçek kümeleri ile Azure Load Balancer ön uçları sahip ve aynı abonelik ve aynı bölgede olmaları, her bir genel IP adreslerini serbest bırakın ve diğer atayın. Bkz: [VIP değiştirme: Mavi-yeşil dağıtım Azure Resource Manager'daki](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) örneğin. Bu gecikme gelmez serbest/ayrılan ağ kaynakları gibi ancak düzeyi. Azure Application Gateway iki arka uç havuzları ve yönlendirme kuralı'nı kullanmayı daha hızlı bir seçenektir. Alternatif olarak, uygulamanızla barındırabilir [Azure uygulama Hizmeti'ni](https://azure.microsoft.com/services/app-service/) hazırlama ve üretim yuvası arasında hızlı geçiş yapmak için destek sağlar.
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Statik özel IP adresi ayırma kullanmak için özel IP adresleri aralığı nasıl belirtebilirim?
 
@@ -573,7 +541,7 @@ Sanal makine ölçek kümesi için mevcut bir Azure sanal ağı dağıtmak için
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>İlk VM IP adresini bir şablon çıktısı için bir sanal makine ölçek nasıl ekleyebilirim?
 
-Şablon çıktısı için bir sanal makine ölçek ilk VM IP adresini eklemek için bkz [Azure Resource Manager: Get sanal makine ölçek kümeleri özel IP'ler](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Şablon çıktısı için bir sanal makine ölçek ilk VM IP adresini eklemek için bkz [Azure Resource Manager: Alma sanal makine ölçek kümeleri özel IP'ler](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Ölçek kümeleri hızlandırılmış ağ ile kullanabilir miyim?
 

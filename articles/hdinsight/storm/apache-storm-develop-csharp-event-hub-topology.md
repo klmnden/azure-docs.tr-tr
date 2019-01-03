@@ -9,34 +9,34 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 027c8155c84959ca429eb9b093a155ac22aaf324
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 85d95354d24a3f107fc518b367ab1187da43269d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582225"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633785"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>HDInsight üzerinde Apache Storm ile Azure Event hubs'tan olay işleme (C#)
 
-Azure Event Hubs'dan ile çalışmayı öğrenin [Apache Storm](http://storm.apache.org/) HDInsight üzerinde. Bu belgede, Event Hubs'dan veri yazma ve okuma için bir C# Storm topolojisi kullanır.
+Azure Event Hubs'dan ile çalışmayı öğrenin [Apache Storm](https://storm.apache.org/) HDInsight üzerinde. Bu belgede, Event Hubs'dan veri yazma ve okuma için bir C# Storm topolojisi kullanır.
 
-> [!NOTE]
+> [!NOTE]  
 > Bu proje Java sürümü için bkz: [(Java) HDInsight üzerinde Apache Storm ile Azure Event hubs'tan olay işleme](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
 ## <a name="scpnet"></a>SCP.NET
 
 Bu belgedeki adımlarda SCP.NET, HDInsight üzerinde Storm ile C# topolojileri ve kullanmak için bileşenler oluşturmanızı kolaylaştıran bir NuGet paketini kullanın.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgedeki adımlarda Visual Studio ile bir Windows geliştirme ortamı kullanır, ancak Linux kullanan HDInsight kümesi üzerinde Storm için derlenmiş proje gönderilebilir. Yalnızca Linux tabanlı kümeler 28 Ekim 2016'dan sonra oluşturulan SCP.NET topolojileri destekler.
 
-C# topolojileri çalıştırmak için HDInsight 3.4 ve Mono büyük kullanın. Bu belgede kullanılan örnekte, HDInsight 3.6 ile birlikte çalışır. HDInsight için kendi .NET çözümleri oluşturmayı planlıyorsanız, kontrol [Mono uyumluluğu](http://www.mono-project.com/docs/about-mono/compatibility/) olası uyumsuzluklar için belge.
+C# topolojileri çalıştırmak için HDInsight 3.4 ve Mono büyük kullanın. Bu belgede kullanılan örnekte, HDInsight 3.6 ile birlikte çalışır. HDInsight için kendi .NET çözümleri oluşturmayı planlıyorsanız, kontrol [Mono uyumluluğu](https://www.mono-project.com/docs/about-mono/compatibility/) olası uyumsuzluklar için belge.
 
 ### <a name="cluster-versioning"></a>Küme sürümü oluşturma
 
 Projeniz için kullandığınız kullandığı Microsoft.SCP.Net.SDK NuGet paketini HDInsight üzerinde yüklü olan Storm ana sürümüyle eşleşmesi gerekir. HDInsight sürüm 3.5 ve 3.6 kullanın: Storm 1.x, dolayısıyla bu kümeleriyle SCP.NET sürüm 1.0.x.x izlemeniz gerekir.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Örnekte, bu belgede, HDInsight 3.5 veya 3.6 kümesi bekliyor.
 >
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -47,7 +47,7 @@ C# topolojileri ayrıca .NET 4.5 hedeflemesi gerekir.
 
 Microsoft, Storm topolojisindeki Event Hubs ile iletişim kurmak için kullanılan bir Java bileşenlerini sunmaktadır. Bu bileşenler bir HDInsight 3.6 uyumlu sürümü içeren Java arşiv (JAR) dosyasını bulabilirsiniz [ https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar ](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bileşenleri Java dilinde yazılır, ancak bunları bir C# topolojisi kolayca kullanabilirsiniz.
 
 Bu örnekte aşağıdaki bileşenleri kullanılır:
@@ -99,7 +99,7 @@ topologyBuilder.SetJavaBolt(
         .shuffleGrouping("Spout");
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Bu örnekte kullanmak yerine, bir dize olarak geçirilen bir Clojure ifade **JavaComponentConstructor** oluşturmak için bir **EventHubBoltConfig**, spout örnek yaptığınız gibi. Her iki yöntem çalışır. Sizin için en iyi hissettirir yöntemi kullanın.
 
 ## <a name="download-the-completed-project"></a>Projeyi yükle
@@ -110,7 +110,7 @@ Bu öğreticide oluşturulan proje tam sürümü indirebilirsiniz [GitHub](https
 
 * Bir [HDInsight kümesi sürüm 3.5 veya 3.6 üzerinde Apache Storm](apache-storm-tutorial-get-started-linux.md).
 
-    > [!WARNING]
+    > [!WARNING]  
     > Bu belgede kullanılan örnekte, HDInsight sürüm 3.5 veya 3.6 üzerinde Storm gerektirir. Bu, HDInsight, eski sürümleriyle sınıfı adı değişiklikler nedeniyle çalışmaz. Bu örnek daha eski kümeleri ile birlikte çalışan sürümü için bkz: [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases).
 
 * Bir [Azure olay hub'ı](../../event-hubs/event-hubs-create.md).

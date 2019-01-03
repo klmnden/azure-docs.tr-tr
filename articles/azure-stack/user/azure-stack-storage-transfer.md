@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 45bf9bbffdbba22336da08c81df069ce0267686f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 40df81d496e04ab2d549923cc0645afb8eddaf57
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092669"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724462"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Azure Stack depolama için veri aktarım araçları kullanın
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Microsoft Azure Stack diskler, bloblar, tablolar, kuyruklar ve hesap yönetimi işlevleri için depolama hizmetleri sunmaktadır. Yönetmek veya için veya Azure Stack depolama alanından verileri taşımak istiyorsanız, bir dizi Azure storage araçları kullanabilirsiniz. Bu makalede, kullanılabilen araçlara genel bakış sağlar.
 
@@ -48,7 +48,7 @@ Aşağıdaki araçlar hangisinin sizin için en uygun gereksinimlerinizi belirle
 
     Sanal dosya sistemi sürücüsü için mevcut blok blobu verileriniz depolama hesabınızda Linux dosya sistemi üzerinden erişmenize olanak sağlayan Azure Blob Depolama. 
 
-Azure ve Azure Stack arasında depolama hizmetleri farklar nedeniyle aşağıdaki bölümlerde açıklanan her aracı için bazı belirli gereksinimleri olabilir. Azure Stack depolama ve Azure depolama arasında bir karşılaştırma için bkz. [Azure Stack Depolama: farklılıklar ve dikkat edilmesi gerekenler](azure-stack-acs-differences.md).
+Azure ve Azure Stack arasında depolama hizmetleri farklar nedeniyle aşağıdaki bölümlerde açıklanan her aracı için bazı belirli gereksinimleri olabilir. Azure Stack depolama ve Azure depolama arasında bir karşılaştırma için bkz. [Azure Stack Depolama: Farklılıklar ve dikkat edilmesi gerekenler](azure-stack-acs-differences.md).
 
 ## <a name="azcopy"></a>AzCopy
 
@@ -59,13 +59,14 @@ AzCopy, en iyi performansı sunan basit komutlar kullanılarak Microsoft Azure b
 AzCopy yardımcı programını iki sürümü vardır: Windows ve Linux üzerinde AzCopy üzerinde AzCopy.
 
  - **Windows üzerinde AzCopy**
-    - Azure Stack için AzCopy'nın desteklenen sürümünü indirin. Yükleme ve AzCopy Azure Stack'te Azure aynı şekilde kullanın. Daha fazla bilgi için bkz. [Windows üzerinde AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
-        - 1802 güncelleştirme veya daha yeni sürümlerini [AzCopy 7.1.0 indirme](https://aka.ms/azcopyforazurestack20170417).
-        - Önceki sürümler için [AzCopy 5.0.0 indirme](https://aka.ms/azcopyforazurestack20170417).
+    - Azure Stack için AzCopy'nın desteklenen sürümünü indirin. Yükleme ve AzCopy Azure Stack'te Azure aynı şekilde kullanın. Daha fazla bilgi için [Windows üzerinde AzCopy](../../storage/common/storage-use-azcopy.md).
+        - 1811 güncelleştirme veya daha yeni sürümlerini [AzCopy 7.3.0 indirme](https://aka.ms/azcopyforazurestack20171109).
+        - Önceki sürümleri (1802 için 1809 güncelleştirme) [AzCopy 7.1.0 indirme](https://aka.ms/azcopyforazurestack20170417).
 
  - **Linux üzerinde AzCopy**
 
-    - Linux üzerinde AzCopy, Azure Stack 1802 güncelleştirmesi veya daha yeni sürümleri destekler. Yükleme ve AzCopy Azure Stack'te Azure aynı şekilde kullanın. Daha fazla bilgi için bkz. [Linux üzerinde AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+    - Yükleme ve AzCopy Azure Stack'te Azure aynı şekilde kullanın. Daha fazla bilgi için [Linux üzerinde AzCopy](../../storage/common/storage-use-azcopy-linux.md).
+    - (1802 için 1809 güncelleştirmeler) önceki sürümleri için bkz: [AzCopy 7.1 ve önceki sürümleri için yükleme adımlarını](../../storage/common/storage-use-azcopy-linux.md#installation-steps-for-azcopy-71-and-earlier-versions).
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Veri aktarımı için AzCopy komut örnekleri
 
@@ -75,36 +76,36 @@ Aşağıdaki örnekler ve Azure Stack bloblarından veri kopyalamak için tipik 
 
 **Windows**
 
-````AzCopy
+```shell
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
-````
+```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source https://myaccount.blob.local.azurestack.external/mycontainer \
     --destination /mnt/myfiles \
     --source-key <key> \
     --recursive
-````
+```
 
 ### <a name="upload-single-file-to-virtual-directory"></a>Tek Dosyalı sanal dizine yükleyin
 
 **Windows**
 
-```AzCopy
+```shell
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source /mnt/myfiles/abc.txt \
     --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
     --dest-key <key>
-````
+```
 
 ### <a name="move-data-between-azure-and-azure-stack-storage"></a>Azure ve Azure Stack depolama arasında veri taşıma
 
@@ -112,13 +113,13 @@ Azure depolama ve Azure Stack arasında zaman uyumsuz veri aktarımı desteklenm
 
 **Windows**
 
-````AzCopy
+```shell
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-````
+```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
     --destination https://myaccount2.blob.core.windows.net/myContainer/ \
@@ -126,7 +127,7 @@ azcopy \
     --dest-key <key2> \
     --include "abc.txt" \
     --sync-copy
-````
+```
 
 ### <a name="azcopy-known-issues"></a>Azcopy bilinen sorunlar
 
@@ -217,28 +218,27 @@ New-Item -Path $DestinationFolder -ItemType Directory -Force
 $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 # end
-````
+```
 
 ### <a name="powershell-known-issues"></a>PowerShell bilinen sorunlar
 
 Azure Stack için geçerli uyumlu Azure PowerShell modülü sürüm için kullanıcı işlemlerini 1.2.11 ' dir. Azure PowerShell'in en son sürümünden farklıdır. Bu fark, depolama hizmetleri işlemi etkiler:
 
-* Dönüş değeri biçimi `Get-AzureRmStorageAccountKey` sürümünde 1.2.11 iki özelliğe sahiptir: `Key1` ve `Key2`, geçerli Azure sürümü tüm hesap anahtarları içeren bir dizi döndürür.
+Dönüş değeri biçimi `Get-AzureRmStorageAccountKey` sürümünde 1.2.11 iki özelliğe sahiptir: `Key1` ve `Key2`, geçerli Azure sürümü tüm hesap anahtarları içeren bir dizi döndürür.
 
-   ```
-   # This command gets a specific key for a storage account, 
-   # and works for Azure PowerShell version 1.4, and later versions.
-   (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
-   -AccountName "MyStorageAccount").Value[0]
+```powershell
+# This command gets a specific key for a storage account, 
+# and works for Azure PowerShell version 1.4, and later versions.
+(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+-AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a storage account, 
-   # and works for Azure PowerShell version 1.3.2, and previous versions.
-   (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
-   -AccountName "MyStorageAccount").Key1
+# This command gets a specific key for a storage account, 
+# and works for Azure PowerShell version 1.3.2, and previous versions.
+(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+-AccountName "MyStorageAccount").Key1
+```
 
-   ```
-
-   Daha fazla bilgi için [Get-AzureRmStorageAccountKey](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
+Daha fazla bilgi için [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey).
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -265,7 +265,7 @@ Bu betiği çalıştırmadan önce başarıyla için bağlanabilir ve hedef Azur
 4. Gerekirse, betiği şu yürütülebilir, şekilde işaretle: `chmod +x my_storage_sample.sh`
 5. Bu betiği yürütün. Örneğin, Bash hizmetinde: `./my_storage_sample.sh`
 
-```bash
+```azurecli
 #!/bin/bash
 # A simple Azure Stack storage example script
 
@@ -296,7 +296,7 @@ echo "Downloading the file..."
 az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --account-name $AZURESTACK_STORAGE_ACCOUNT_NAME --name $AZURESTACK_STORAGE_BLOB_NAME --file $DESTINATION_FILE --output table
 
 echo "Done"
-````
+```
 
 ## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Depolama Gezgini
 
@@ -317,20 +317,20 @@ Azure Stack Geliştirme Seti, blobEndpoint olmalıdır `myaccount.blob.local.azu
 
 AccountKey ve sasToken yalnızca yapılandırılmış birer birer olabileceğini lütfen unutmayın. Depolama hesabı anahtarı verildiğinde, kimlik bilgilerini yapılandırma dosyasını aşağıdaki biçimdedir: 
 
-```text  
-    accountName myaccount 
-    accountKey myaccesskey== 
-    containerName mycontainer 
-    blobEndpoint myaccount.blob.local.azurestack.external
+```
+accountName myaccount 
+accountKey myaccesskey== 
+containerName mycontainer 
+blobEndpoint myaccount.blob.local.azurestack.external
 ```
 
 Paylaşılan erişim belirteci verildiğinde, kimlik bilgilerini yapılandırma dosyasını aşağıdaki biçimdedir:
 
-```text  
-    accountName myaccount 
-    sasToken ?mysastoken 
-    containerName mycontainer 
-    blobEndpoint myaccount.blob.local.azurestack.external
+```  
+accountName myaccount 
+sasToken ?mysastoken 
+containerName mycontainer 
+blobEndpoint myaccount.blob.local.azurestack.external
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -4,19 +4,19 @@ description: MySQL için Azure veritabanı çevrimiçi geçişleri ile bilinen s
 services: database-migration
 author: HJToland3
 ms.author: scphang
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282885"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724156"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>PostgreSQL için Azure DB online geçişleri ile bilinen sorunları/geçiş sınırlamaları
 
@@ -76,22 +76,22 @@ Bilinen sorunlar ve sınırlamalar online geçişleri PostgreSQL için Azure ver
 
 ## <a name="datatype-limitations"></a>DataType sınırlamaları
 
-- **Sınırlama**: kaynak PostgreSQL veritabanına bir sabit listesi veri türü varsa, geçiş sırasında sürekli eşitleme başarısız olur.
+- **Sınırlama**: Kaynak PostgreSQL veritabanına bir sabit listesi veri türü varsa, geçiş sırasında sürekli eşitleme başarısız olur.
 
-    **Geçici çözüm**: PostgreSQL için Azure veritabanı'nda değişen karakter için değişiklik Numaralandırma veri türü.
+    **Geçici çözüm**: PostgreSQL için Azure veritabanı'nda değişen karakter sabit listesi veri türüne değiştirin.
 
-- **Sınırlama**: tablolarda birincil anahtar varsa, sürekli eşitleme başarısız olur.
+- **Sınırlama**: Tablolarda birincil anahtar varsa, sürekli eşitleme başarısız olur.
 
-    **Geçici çözüm**: Tablo için geçiş devam etmek için bir birincil anahtar geçici olarak ayarlar. Veri geçişi tamamlandıktan sonra birincil anahtarı kaldırabilirsiniz.
+    **Geçici çözüm**: Bir birincil anahtar tablosu geçişe devam etmek için geçici olarak ayarlar. Veri geçişi tamamlandıktan sonra birincil anahtarı kaldırabilirsiniz.
 
 ## <a name="lob-limitations"></a>LOB sınırlamaları
 Büyük nesne (LOB) sütunları fazla büyüyebilir sütunlarıdır. PostgreSQL için örnekleri LOB veri türleri, XML, JSON, resim, metin, vb. içerir.
 
-- **Sınırlama**: veri türleri, LOB birincil anahtar olarak kullanılan, geçiş başarısız olur.
+- **Sınırlama**: LOB veri türleri birincil anahtarlar kullanılıyorsa, geçiş başarısız olur.
 
-    **Geçici çözüm**: diğer veri türleri veya LOB olmayan sütunları birincil anahtarıyla değiştirin.
+    **Geçici çözüm**: Birincil anahtar, diğer veri türleri veya LOB olmayan sütunlar ile değiştirin.
 
-- **Sınırlama**: büyük nesne (LOB) sütun uzunluğu 32 KB'den daha büyük ise, hedefte veri kesilmiş. Bu sorguyu kullanarak LOB sütunu uzunluğunu kontrol edebilirsiniz:
+- **Sınırlama**: Büyük nesne (LOB) sütun uzunluğu 32 KB'den daha büyük ise, hedefte veri kesilebilir. Bu sorguyu kullanarak LOB sütunu uzunluğunu kontrol edebilirsiniz:
 
     ```
     SELECT max(length(cast(body as text))) as body FROM customer_mail
@@ -99,9 +99,9 @@ Büyük nesne (LOB) sütunları fazla büyüyebilir sütunlarıdır. PostgreSQL 
 
     **Geçici çözüm**: 32 KB'den büyük LOB nesne varsa, mühendislik ekibiyle iletişime geçin. [ dmsfeedback@microsoft.com ](mailto:dmsfeedback@microsoft.com).
 
-- **Sınırlama**: tablodaki LOB sütunları vardır ve birincil anahtar ödenmez tablo için verileri bu tablo için geçirilmiş olabilir değil.
+- **Sınırlama**: Tablodaki LOB sütunları vardır ve birincil anahtar ödenmez tablo için verileri bu tablo için geçirilmiş olabilir değil.
 
-    **Geçici çözüm**: Tablo için geçiş devam etmek için bir birincil anahtar geçici olarak ayarlar. Veri geçişi tamamlandıktan sonra birincil anahtarı kaldırabilirsiniz.
+    **Geçici çözüm**: Bir birincil anahtar tablosu geçişe devam etmek için geçici olarak ayarlar. Veri geçişi tamamlandıktan sonra birincil anahtarı kaldırabilirsiniz.
 
 ## <a name="postgresql10-workaround"></a>PostgreSQL10 geçici çözüm
 PostgreSQL 10.x pg_xlog klasör adları ve bu nedenle geçiş beklendiği gibi çalışmıyor neden çeşitli değişiklikler yapar. PostgreSQL geçiş yapıyorsanız 10.x PostgreSQL 10.3 için Azure veritabanı kaynak PostgreSQL veritabanında pg_xlog işlevleri çevresinde sarmalayıcı işlevi oluşturmak için aşağıdaki betiği yürütün.

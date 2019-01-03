@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 3416d257a23e94460199a1ddfe63302ff55ad5a5
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 58e853a3e9df0c3ba78b41f0c62e37bbcc3cdb5a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285059"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754042"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümenizi Windows işletim sistemi düzeltme eki
 
@@ -43,7 +43,7 @@ Orchestration düzeltme eki uygulama, aşağıdaki özellikleri sağlar:
 
 Orchestration düzeltme eki uygulama aşağıdaki bileşenleri oluşur:
 
-- **Düzenleyicisi hizmeti**: Bu durum bilgisi olan hizmet sorumludur:
+- **Düzenleyicisi hizmeti**: Bu durum bilgisi olan hizmet için sorumludur:
     - Tüm küme üzerinde Windows güncelleştirme işi koordine.
     - Tamamlanan Windows güncelleştirme işlemleri sonucu depolama.
 - **Düğüm Aracısı**: Bu durum bilgisi olmayan hizmet tüm Service Fabric küme düğümleri üzerinde çalışır. Hizmet için sorumludur:
@@ -153,10 +153,10 @@ Düzeltme eki düzenleme uygulamanın davranış şekli, gereksinimlerinizi kar�
 |TaskApprovalPolicy   |Sabit listesi <br> {NodeWise, UpgradeDomainWise}                          |Service Fabric küme düğümleri arasında Windows güncelleştirmeleri yüklemek için Düzenleyici hizmeti tarafından kullanılacak olan ilke TaskApprovalPolicy gösterir.<br>                         İzin verilen değerler şunlardır: <br>                                                           <b>NodeWise</b>. Windows güncelleştirme yüklü tek bir düğüm bir kerede olur. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update, aynı anda yüklü bir yükseltme etki alanıdır. (En bir yükseltme etki alanına ait olan tüm düğümleri için Windows Update gidebilirsiniz.)<br> Başvurmak [SSS](#frequently-asked-questions) , uygun ilke kümeniz için en iyi olduğuna karar vermeye yönelik bölümü.
 |LogsDiskQuotaInMB   |Uzun  <br> (Varsayılan: 1024)               |Yerel olarak düğümlerinde kalıcı MB, düzeltme eki düzenleme uygulama en büyük boyutunu kaydeder.
 | WUQuery               | dize<br>(Varsayılan: "IsInstalled = 0")                | Windows güncelleştirmeleri almak için sorgulayın. Daha fazla bilgi için [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Boole <br> (varsayılan: True)                 | Bu bayrak yüklenecek Windows işletim sistemi güncelleştirmeleri sağlar.            |
-| WUOperationTimeOutInMinutes | Int <br>(Varsayılan: 90).                   | (Arama ya da indirme veya yükleme) herhangi bir Windows güncelleştirme işlemi için zaman aşımını belirtir. İşlemi belirtilen süre içinde tamamlanmazsa, iptal edildi.       |
-| WURescheduleCount     | Int <br> (Varsayılan: 5).                  | Bir işlem kalıcı olarak başarısız olması durumunda en fazla kaç kez Windows hizmeti tarih değiştirdiğinde güncelleştirin.          |
-| WURescheduleTimeInMinutes | Int <br>(Varsayılan: 30). | Hata devam ederse durumunda, hizmet Windows update tarih değiştirdiğinde aralığı. |
+| InstallWindowsOSOnlyUpdates | Boole <br> (varsayılan: Doğru)                 | Bu bayrak yüklenecek Windows işletim sistemi güncelleştirmeleri sağlar.            |
+| WUOperationTimeOutInMinutes | Int <br>(Varsayılan: 90)                   | (Arama ya da indirme veya yükleme) herhangi bir Windows güncelleştirme işlemi için zaman aşımını belirtir. İşlemi belirtilen süre içinde tamamlanmazsa, iptal edildi.       |
+| WURescheduleCount     | Int <br> (Varsayılan: 5)                  | Bir işlem kalıcı olarak başarısız olması durumunda en fazla kaç kez Windows hizmeti tarih değiştirdiğinde güncelleştirin.          |
+| WURescheduleTimeInMinutes | Int <br>(Varsayılan: 30) | Hata devam ederse durumunda, hizmet Windows update tarih değiştirdiğinde aralığı. |
 | WUFrequency           | Virgülle ayrılmış bir dize (varsayılan: "Haftalık, Çarşamba, 7:00:00")     | Windows güncelleştirme sıklığı. Biçim ve olası değerler şunlardır: <br>-Örneğin, aylık, 5, 12 aylık, gg ss: 22:32. <br> -Örneğin, haftalık, Salı, 12:22:32 için haftalık, gün, ss.  <br> -Örneğin, günlük, 12:22:32 günlük, ss.  <br> -Hiçbiri, Windows güncelleştirme yapılması olmamalıdır belirtir.  <br><br> Saatleri UTC biçiminde olduğunu unutmayın.|
 | AcceptWindowsUpdateEula | Boole <br>(Varsayılan: true) | Bu bayrak ayarlandığında, uygulamayı Windows güncelleştirmesi için son kullanıcı lisans sözleşmesi makinenin sahibi adına kabul eder.              |
 
@@ -316,7 +316,7 @@ Kümenizi yükseltme etki alanları N-1 sayısı daha sonra ilkeyi 'UpgradeDomai
 
 S. **Ne kadar zaman mevcut bir düğüm düzeltme eki uygulama Al?**
 
-A. Bir düğüm düzeltme eki uygulama dakika sürebilir (örneğin: [Windows Defender tanım güncelleştirmeleri](https://www.microsoft.com/wdsi/definitions)) saat için (örneğin: [Windows toplu güncelleştirmeleri](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Bir düğüm düzeltme eki için gereken süre, çoğunlukla bağlıdır 
+A. Bir düğüm düzeltme eki uygulama dakika sürebilir (örneğin: [Windows Defender tanım güncelleştirmeleri](https://www.microsoft.com/wdsi/definitions)) saat için (örneğin: [Windows toplu güncelleştirmeler](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Bir düğüm düzeltme eki için gereken süre, çoğunlukla bağlıdır 
  - Güncelleştirmeleri boyutu
  - Düzeltme eki uygulayan bir pencere içinde uygulanacak olan güncelleştirme sayısı
  - Bu güncelleştirmeleri yüklemek, (gerekirse) düğümü yeniden başlatma ve yeniden başlatma sonrası yükleme adımlarını tamamlamak için geçen süre.
@@ -327,7 +327,7 @@ S. **Ne kadar bir kümenin tamamını düzeltme eki sürer?**
 A. Bir kümenin tamamını düzeltme eki için gereken süre aşağıdaki etkenlere bağlıdır:
 
 - Bir düğüm düzeltme eki için gereken süre.
-- İlke Düzenleyicisi hizmeti. -Varsayılan ilke `NodeWise`, sonuçları daha yavaş olacaktır bir anda yalnızca tek bir düğüme düzeltme `UpgradeDomainWise`. Örneğin: bir düğüm yama uygulanacak yaklaşık 1 saat sürerse, 20 düğüm (düğüm aynı türü) düzeltme eki uygulama edebilmesi küme 5 yükseltme etki alanları ile her biri 4 düğüm içeren.
+- İlke Düzenleyicisi hizmeti. -Varsayılan ilke `NodeWise`, sonuçları daha yavaş olacaktır bir anda yalnızca tek bir düğüme düzeltme `UpgradeDomainWise`. Örneğin: Bir düğüm yama uygulanacak yaklaşık 1 saat sürerse, 20 düğüm (düğüm aynı türü) düzeltme eki uygulama edebilmesi küme 5 yükseltme etki alanları ile her biri 4 düğüm içeren.
     - İlke, tüm küme düzeltme eki yaklaşık 20 saat sürer `NodeWise`
     - İlke yaklaşık 5 saat sürer `UpgradeDomainWise`
 - Küme yükleme - düzeltme eki uygulama işlemi her müşterinin iş yükü için kullanılabilir diğer küme düğümleri yeniden konumlandırma gerektirir. Düzeltme eki aşamasında düğüm olacak [devre dışı bırakılması](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) bu süre boyunca durum. Küme yoğun yük çalışıyorsa, devre dışı bırakma işlemi uzun sürecektir. Bu nedenle genel düzeltme eki uygulama işlemini vurgulu böylesi yavaş görünebilir.

@@ -15,17 +15,17 @@ ms.date: 07/07/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2d035883534430e76d251b22dfc95d34e4eb03cd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8b0277d1e82e655edd9308f8b8afa7d6dcec434e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723576"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754841"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Uygulamalarınızı Visual Studio'da Azure Application Insights ile hata ayıklama
 Visual Studio’da (2015 ve sonraki sürümler) hem hata ayıklama hem de üretim sırasında [Azure Application Insights](app-insights-overview.md)’tan alınan telemetri verilerini kullanarak, ASP.NET web uygulamanızdaki performansı çözümleyebilir ve sorunları tanılayabilirsiniz.
 
-ASP.NET web uygulamanızı Visual Studio 2017 veya sonraki bir sürümle oluşturduysanız, Application Insights SDK’sı zaten yüklüdür. Diğer sürümlerde, henüz yapmadıysanız [uygulamanıza Application Insights ekleyin](app-insights-asp-net.md).
+ASP.NET web uygulamanızı Visual Studio 2017 veya sonraki bir sürümle oluşturduysanız, Application Insights SDK’sı zaten yüklüdür. Diğer sürümlerde, henüz yapmadıysanız [uygulamanıza Application Insights ekleyin](../azure-monitor/app/asp-net.md).
 
 Uygulamanızı canlı üretim sırasında izlemek için, normalde uyarlar ayarlayıp güçlü izleme araçları uygulayabileceğiniz [Azure portaldaki](https://portal.azure.com) Application Insights telemetrisini görüntülersiniz. Ancak, hata ayıklama için ayrıca Visual Studio’da telemetriyi arayıp çözümleyebilirsiniz. Hem üretim merkezinizden hem de çalıştırmaları geliştirme makinenizde hata ayıklama gelen telemetriyi analiz etmek için Visual Studio'yu kullanabilirsiniz. İkinci durumda, SDK’yı henüz Azure portala telemetri gönderecek şekilde yapılandırmadıysanız bile hata ayıklama çalıştırmalarını çözümleyebilirsiniz. 
 
@@ -60,7 +60,7 @@ Başarısız isteklerin veya özel durumların tanılanmasına yardımcı olmas�
 ![İstek Ayrıntıları altında ilgili öğelere gidin](./media/app-insights-visual-studio/41.png)
 
 ## <a name="view-exceptions-and-failed-requests"></a>Görünüm özel durumları ve başarısız istekler
-Arama penceresinde özel durum raporları gösterilir. (ASP.NET uygulamasının bazı eski türlerinde, çerçeve tarafından işlenen özel durumları görmek için [özel durum izlemeyi ayarlamanız](app-insights-asp-net-exceptions.md) gerekir.)
+Arama penceresinde özel durum raporları gösterilir. (ASP.NET uygulamasının bazı eski türlerinde, çerçeve tarafından işlenen özel durumları görmek için [özel durum izlemeyi ayarlamanız](../azure-monitor/app/asp-net-exceptions.md) gerekir.)
 
 Yığın izlemesi almak için bir özel duruma tıklayın. Visual Studio’da uygulamanın kodu açıksa yığın izlemesinden tıklayarak ilgili kod satırına gidebilirsiniz.
 
@@ -72,7 +72,7 @@ Kod odağında her bir işleyici yönteminin, istekleri ve Application Insights 
 ![Özel durum yığın izlemesi](./media/app-insights-visual-studio/21.png)
 
 > [!NOTE] 
-> Kod Odağı, Application Insights verilerini yalnızca [uygulamanızı Application Insights portalına telemetri gönderecek şekilde yapılandırdıysanız](app-insights-asp-net.md) gösterir.
+> Kod Odağı, Application Insights verilerini yalnızca [uygulamanızı Application Insights portalına telemetri gönderecek şekilde yapılandırdıysanız](../azure-monitor/app/asp-net.md) gösterir.
 >
 
 [Kod Odağı’nda Application Insights hakkında daha fazla bilgi](app-insights-visual-studio-codelens.md)
@@ -93,7 +93,7 @@ Verilerinizdeki anormallikleri bulmak için "Görünüm Türü" açılır listes
 
 Daha önce uygulamanızın önceki bir sürümünü yayımladıysanız bu iyi bir şeydir. Hata ayıklama oturumlarınızdan alınan telemetrinin, yayımlanan uygulamanın Application Insights portalındaki telemetriyle karışmasını istemezsiniz.
 
-Telemetriyi portala göndermeden önce hatalarını ayıklamak istediğiniz [özel telemetri](app-insights-api-custom-events-metrics.md) verilerine sahip olmanız da yararlı olur.
+Telemetriyi portala göndermeden önce hatalarını ayıklamak istediğiniz [özel telemetri](../azure-monitor/app/api-custom-events-metrics.md) verilerine sahip olmanız da yararlı olur.
 
 * *Başlangıçta, Application Insights’ı portala telemetri gönderecek şekilde tam olarak yapılandırdım. Ancak, artık telemetriyi yalnızca Visual Studio'da görmek istiyorum.*
   
@@ -104,6 +104,6 @@ Telemetriyi portala göndermeden önce hatalarını ayıklamak istediğiniz [öz
 ## <a name="next-steps"></a>Sonraki adımlar
 |  |  |
 | --- | --- |
-| **[Daha fazla veri ekleme](app-insights-asp-net-more.md)**<br/>Kullanımı, kullanılabilirliği, bağımlılıkları, özel durumları izleyin. Günlük altyapılarından izlemeleri tümleştirin. Özel telemetri yazın. |![Visual studio](./media/app-insights-visual-studio/64.png) |
-| **[Application Insights portalıyla çalışma](app-insights-dashboards.md)**<br/>Panolar, güçlü tanılama ve analiz araçları, uyarılar, Canlı bağımlılık haritası, uygulama ve dışarı aktarılan telemetri verileri görüntüleyin. |![Visual studio](./media/app-insights-visual-studio/62.png) |
+| **[Daha fazla veri ekleme](../azure-monitor/app/asp-net-more.md)**<br/>Kullanımı, kullanılabilirliği, bağımlılıkları, özel durumları izleyin. Günlük altyapılarından izlemeleri tümleştirin. Özel telemetri yazın. |![Visual studio](./media/app-insights-visual-studio/64.png) |
+| **[Application Insights portalıyla çalışma](../azure-monitor/app/app-insights-dashboards.md)**<br/>Panolar, güçlü tanılama ve analiz araçları, uyarılar, Canlı bağımlılık haritası, uygulama ve dışarı aktarılan telemetri verileri görüntüleyin. |![Visual studio](./media/app-insights-visual-studio/62.png) |
 

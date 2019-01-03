@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 8c347c9ab15b68325a9a7ebc645a3146f4b7a180
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 5086c0758e7c535b65c877917dc790dafa46f763
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754586"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994734"
 ---
 # <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
@@ -199,14 +199,14 @@ Remove-AzResourceGroup -Name $resourceGroup
 Kaynak grubunu ve yeni depolama hesabı dahil olmak üzere ilişkili kaynakları kaldırmak için [az group delete](/cli/azure/group#az_group_delete) komutunu kullanın.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name storage-quickstart-resource-group
 ```
 
 ---
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, genel amaçlı bir standart depolama hesabı oluşturdunuz. Depolama hesabınıza/hesabınızdan blobları karşıya yüklemeyi ve indirmeyi öğrenmek için, Blob depolama hızlı başlangıcı ile devam edin.
+Bu hızlı başlangıçta, genel amaçlı v2 standart depolama hesabı oluşturdunuz. Depolama hesabınıza/hesabınızdan blobları karşıya yüklemeyi ve indirmeyi öğrenmek için, Blob depolama hızlı başlangıcı ile devam edin.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
@@ -221,6 +221,6 @@ Bu hızlı başlangıçta, genel amaçlı bir standart depolama hesabı oluştur
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [Azure CLI kullanarak blob depolama alanı ile çalışma](../blobs/storage-quickstart-blobs-cli.md)
+> [Azure CLI kullanarak blobları ile çalışma](../blobs/storage-quickstart-blobs-cli.md)
 
 ---

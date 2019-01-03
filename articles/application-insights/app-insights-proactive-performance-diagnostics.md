@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b9428e4451ebef921907809b1250238bf084706d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bd7b4bd2e1c3116f2a722b0a06d24ecc43e6ccb2
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864970"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975010"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Akıllı algılama - performans Anomalileri
 
 [Application Insights](app-insights-overview.md) otomatik olarak web uygulamanızın performansını analiz eder ve olası sorunlar hakkında sizi uyarabilir. Bizim akıllı algılama bildirim aldığından, bu okuma.
 
-Bu özellik, uygulamanız için Application Insights yapılandırma dışında hiçbir özel kurulum gerektirir (üzerinde [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), veya [Node.js](app-insights-nodejs.md)hem de [web sayfası kod](app-insights-javascript.md)). Uygulamanızı yeterli telemetri oluşturduğunda etkin değil.
+Bu özellik, uygulamanız için Application Insights yapılandırma dışında hiçbir özel kurulum gerektirir (üzerinde [ASP.NET](../azure-monitor/app/asp-net.md), [Java](../azure-monitor/app/java-get-started.md), veya [Node.js](app-insights-nodejs.md)hem de [web sayfası kod](../azure-monitor/app/javascript.md)). Uygulamanızı yeterli telemetri oluşturduğunda etkin değil.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>Bir akıllı algılama bildirim ne zaman elde edersiniz?
 
@@ -69,22 +69,22 @@ Akıllı algılama performans anomalileri hakkında e-posta, Application Insight
 ## <a name="faq"></a>SSS
 
 * *Bu nedenle, Microsoft personeli verilerimi geldi mi?*
-  * Hayır. Hizmeti tamamen otomatik olarak yapılır. Yalnızca bildirimleri alın. Verileriniz [özel](app-insights-data-retention-privacy.md).
+  * Hayır. Hizmeti tamamen otomatik olarak yapılır. Yalnızca bildirimleri alın. Verileriniz [özel](../azure-monitor/app/data-retention-privacy.md).
 * *Application Insights tarafından toplanan tüm verileri analiz etmeye?*
   * Değil şu anda. Şu anda isteği yanıt süresi, bağımlılık yanıt süresi ve sayfa yükleme süresi analiz ediyoruz. Ek ölçümler analizini ileriye doğru arama çalışıyoruz ' dir.
 
 * Ne tür bir uygulama için bu çalışır?
-  * Bu performans düşüşü yaşanması uygun telemetri oluşturması herhangi bir uygulamada algılanır. Web uygulamanızda Application Insights'ı yüklediyseniz, ardından istekleri ve bağımlılıkları otomatik olarak izlenir. Ancak, arka uç Hizmetleri ya da diğer uygulamalarda çağrıları eklediyseniz [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) veya [TrackDependency](app-insights-api-custom-events-metrics.md#trackdependency), akıllı algılama aynı şekilde çalışmayacaktır.
+  * Bu performans düşüşü yaşanması uygun telemetri oluşturması herhangi bir uygulamada algılanır. Web uygulamanızda Application Insights'ı yüklediyseniz, ardından istekleri ve bağımlılıkları otomatik olarak izlenir. Ancak, arka uç Hizmetleri ya da diğer uygulamalarda çağrıları eklediyseniz [TrackRequest()](../azure-monitor/app/api-custom-events-metrics.md#trackrequest) veya [TrackDependency](../azure-monitor/app/api-custom-events-metrics.md#trackdependency), akıllı algılama aynı şekilde çalışmayacaktır.
 
 * *Kendi anomali algılama kuralları oluşturun veya miyim mevcut kurallarını özelleştirme?*
 
   * Henüz, ancak şunları yapabilirsiniz:
-    * [Uyarıları Ayarlama](app-insights-alerts.md) , bilgi, ne zaman bir ölçüm eşiği aştığında.
-    * [Telemetriyi dışarı aktarma](app-insights-export-telemetry.md) için bir [veritabanı](app-insights-code-sample-export-sql-stream-analytics.md) veya [Power BI için](app-insights-export-power-bi.md), burada, bunu kendiniz analiz edebilirsiniz.
+    * [Uyarıları Ayarlama](../azure-monitor/app/alerts.md) , bilgi, ne zaman bir ölçüm eşiği aştığında.
+    * [Telemetriyi dışarı aktarma](../azure-monitor/app/export-telemetry.md) için bir [veritabanı](../azure-monitor/app/code-sample-export-sql-stream-analytics.md) veya [Power BI için](app-insights-export-power-bi.md), burada, bunu kendiniz analiz edebilirsiniz.
 * *Ne sıklıkta çözümleme yapılır?*
 
   * Analiz günlük önceki günün (UTC saat dilimine tam gün) telemetrisi üzerinde çalıştırıyoruz.
-* *Bu nedenle, bu Değiştir mu [ölçüm uyarıları](app-insights-alerts.md)?*
+* *Bu nedenle, bu Değiştir mu [ölçüm uyarıları](../azure-monitor/app/alerts.md)?*
   * Hayır.  Olağan dışı düşünebilirsiniz her davranış algılama için işleme yok.
 
 
@@ -101,7 +101,7 @@ Yavaş ve başarısız yanıtları kendi deneyiminden bildiğiniz gibi web sites
 
 Etkisi ifadesi (etkilenen kullanıcılar veya trafik yüzdesi) genel bir kılavuz olarak kullanın, ancak hikayenin tamamını olmadığını unutmayın. Onaylamak için başka bir kanıt toplayın.
 
-Sorunun parametreleri göz önünde bulundurun. Coğrafya bağlı ise, ayarlanan [kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md) bu bölge dahil olmak üzere: yalnızca ağ ilgili sorunlar olabilir, bu alanına.
+Sorunun parametreleri göz önünde bulundurun. Coğrafya bağlı ise, ayarlanan [kullanılabilirlik testleri](../azure-monitor/app/monitor-web-app-availability.md) bu bölge dahil olmak üzere: yalnızca ağ ilgili sorunlar olabilir, bu alanına.
 
 ### <a name="diagnose-slow-page-loads"></a>Yavaş sayfa yüklemelerinin tanılayın
 Sorun nerede? Sunucu yavaş yanıt, sayfa çok uzun veya çok görüntülemek için iş yapmak tarayıcı sahip?
@@ -109,16 +109,16 @@ Sorun nerede? Sunucu yavaş yanıt, sayfa çok uzun veya çok görüntülemek i�
 Tarayıcılar ölçüm dikey penceresini açın. Tarayıcı sayfa yükleme süresi gösterir zaman nerede bulunacağını segmentli görüntüsü. 
 
 * Varsa **isteği gönderdiğinizde** olduğundan yüksek ya da sunucu yavaş yanıt veya istek çok fazla veri içeren bir postadır. Bakmak [performans ölçümlerini](app-insights-web-monitor-performance.md#metrics) yanıt süreleri araştırmak için.
-* Ayarlanan [bağımlılık izleme](app-insights-asp-net-dependencies.md) yavaşlık dış hizmetlere veya veritabanınızı nedeniyle olup olmadığına bakın.
-* Varsa **yanıt alma** yaygındır, sayfanız ve bağımlı bölümleri - JavaScript, CSS, görüntü ve benzeri (ancak zaman uyumsuz olarak yüklenen veriler) uzun. Ayarlanmış bir [kullanılabilirlik testi](app-insights-monitor-web-app-availability.md)ve bağımlı bölümleri Yükle seçeneği ayarladığınızdan emin olun. Bazı sonuçlar elde ettiğinizde, bir sonuç ayrıntılarını açın ve farklı dosyaların yükleme sürelerini görmek için genişletin.
+* Ayarlanan [bağımlılık izleme](../azure-monitor/app/asp-net-dependencies.md) yavaşlık dış hizmetlere veya veritabanınızı nedeniyle olup olmadığına bakın.
+* Varsa **yanıt alma** yaygındır, sayfanız ve bağımlı bölümleri - JavaScript, CSS, görüntü ve benzeri (ancak zaman uyumsuz olarak yüklenen veriler) uzun. Ayarlanmış bir [kullanılabilirlik testi](../azure-monitor/app/monitor-web-app-availability.md)ve bağımlı bölümleri Yükle seçeneği ayarladığınızdan emin olun. Bazı sonuçlar elde ettiğinizde, bir sonuç ayrıntılarını açın ve farklı dosyaların yükleme sürelerini görmek için genişletin.
 * Yüksek **istemci işleme süresi** betikleri yavaş çalışıyor önerir. Nedeni açık değilse, bazı zamanlama kod eklemeyi göz önünde bulundurun ve trackMetric çağrılarında gönderim zamanları.
 
 ### <a name="improve-slow-pages"></a>Yavaş sayfa geliştirin
 Burada tüm yinelenecek denemez şekilde sunucu yanıtları ve sayfa yükleme sürelerinin iyileştirme önerileri, tam bir web yoktur. Burada, büyük olasılıkla hakkında düşünmek hemen başlamanızı sağlayacak bildiğiniz birkaç ipucu verilmiştir:
 
-* Yavaş büyük dosyalar nedeniyle yükleniyor: betikler ve diğer bölümleri zaman uyumsuz olarak yükleyin. Betik paketini kullanın. Ana sayfaya verilerini ayrı olarak yüklenen pencere öğeleri bölün. Uzun tablolar için düz eski HTML gönderme: veri, JSON ya da diğer kompakt bir biçime istemek için bir betik kullanın, sonra yerinde tablosunu doldurmak. Tüm bu konuda yardım sağlayacak harika çerçeveleri vardır. (Bunlar da büyük komut dosyaları, Elbette dahildir.)
-* Yavaş sunucu bağımlılıkları: coğrafi konumları bileşenleriniz göz önünde bulundurun. Örneğin, Azure kullanıyorsanız, web sunucusu ve veritabanı aynı bölgede olduğundan emin olun. Sorgular, ihtiyaç duydukları daha fazla bilgi almak? Önbelleğe alma veya Yardım toplu işleme musunuz?
-* Kapasite sorunları: ara sunucu ölçümlerine yanıt sürelerinin ve istek sayısı. Yanıt sürelerinin orantısız başa istek sayısını en üst seviyeye çıkarsa, sunucularınızı uzatılır olasıdır.
+* Büyük dosyalar nedeniyle yavaş yükleniyor: Betikler ve diğer bölümleri zaman uyumsuz olarak yükleyin. Betik paketini kullanın. Ana sayfaya verilerini ayrı olarak yüklenen pencere öğeleri bölün. Uzun tablolar için düz eski HTML gönderme: veri, JSON ya da diğer kompakt bir biçime istemek için bir betik kullanın, sonra yerinde tablosunu doldurmak. Tüm bu konuda yardım sağlayacak harika çerçeveleri vardır. (Bunlar da büyük komut dosyaları, Elbette dahildir.)
+* Yavaş sunucu bağımlılıkları: Coğrafi konumları bileşenleriniz göz önünde bulundurun. Örneğin, Azure kullanıyorsanız, web sunucusu ve veritabanı aynı bölgede olduğundan emin olun. Sorgular, ihtiyaç duydukları daha fazla bilgi almak? Önbelleğe alma veya Yardım toplu işleme musunuz?
+* Kapasite sorunları: Yanıt sürelerinin server ölçümlerine bakıyor ve istek sayısı. Yanıt sürelerinin orantısız başa istek sayısını en üst seviyeye çıkarsa, sunucularınızı uzatılır olasıdır.
 
 
 ## <a name="server-response-time-degradation"></a>Sunucu yanıt süresinde performans düşüşü
@@ -185,9 +185,9 @@ Bu tanılama araçları, uygulamanızdan alınan telemetri incelemenize yardımc
 * [Profil Oluşturucu](app-insights-profiler.md) 
 * [Anlık görüntü hata ayıklayıcısı](app-insights-snapshot-debugger.md)
 * [Analizler](../azure-monitor/log-query/get-started-portal.md)
-* [Analytics akıllı tanılama](app-insights-analytics.md)
+* [Analytics akıllı tanılama](../azure-monitor/app/analytics.md)
 
 Akıllı algılama tamamen otomatik olarak yapılır. Ancak belki de daha fazla bazı uyarıları ayarlamak ister misiniz?
 
-* [El ile yapılandırılan ölçüm uyarıları](app-insights-alerts.md)
-* [Kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md)
+* [El ile yapılandırılan ölçüm uyarıları](../azure-monitor/app/alerts.md)
+* [Kullanılabilirlik web testleri](../azure-monitor/app/monitor-web-app-availability.md)

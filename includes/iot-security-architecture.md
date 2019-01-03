@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: a6564877c05dcd5c611c6bbf7a09c65ac2f1f406
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: f2c7111373ac880d27298deb4fc919d797713f3e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51293210"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53995800"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Nesnelerin interneti (IOT) güvenlik mimarisi
 
@@ -169,15 +169,15 @@ Bu bölümde, tehdit modelleme odağı yukarıda özetlenen mimarisi inceler ve 
 
 Her Azure IOT mimaride özetlenen kategorileri, bu örnek veri/bilgi bulunmaktadır farklı aşamaları boyunca birkaç farklı tehditleri azaltmak çalışır: işlem, iletişimi ve depolama. En yaygın olanlarından bu tehditleri en iyi şekilde nasıl giderilebilir genel bir bakış tarafından izlenen "işlem" kategorisi için genel bir bakış aşağıdadır:
 
-**(S) yanıltma**: bir saldırganın bir CİHAZDAN ya da yazılım veya donanım düzeyinde şifreleme anahtar malzemesi ayıklayın ve ardından anahtar malzemesi cihaz kimliği altında farklı bir fiziksel veya sanal cihaz ile sisteme erişme öğesinden alınmıştır. Uzaktan, herhangi bir TV etkinleştirebilir ve popüler prankster araçları olan denetimler buna iyi bir örnektir.
+**(S) yanıltma**: Bir saldırganın ya da yazılım veya donanım düzeyinde ve sonradan gelen anahtar malzemesi cihazın kimliği altında farklı bir fiziksel veya sanal cihaz sistemiyle gerçekleştirilen erişim bir cihaz şifreleme anahtar malzemesi Al. Uzaktan, herhangi bir TV etkinleştirebilir ve popüler prankster araçları olan denetimler buna iyi bir örnektir.
 
-**Hizmet (D) reddi**: bir cihazı çalışmıyor veya radyo frekansları veya kesme kablo ile uğratarak iletişim kuramadığı işlenebilir. Örneğin, kasıtlı olarak gizleyen güç veya ağ bağlantısı olan bir gözetim kamera hiç veri bildiremezsiniz.
+**(D) hizmet reddi**: Bir cihazı çalışmıyor veya radyo frekansları veya kesme kablo ile uğratarak iletişim kuramadığı işlenebilir. Örneğin, kasıtlı olarak gizleyen güç veya ağ bağlantısı olan bir gözetim kamera hiç veri bildiremezsiniz.
 
-**(T) oynama**: bir saldırgan kısmen veya tamamen cihaz üzerinde çalışan yazılımı potansiyel olarak değiştirilen yazılım anahtar malzemesi veya bulunduran şifreleme özellikleri anahtar, cihaz kimliğini kullanmasına izin vererek değiştirebilir malzemeleri gerçekleşiyorsa program için kullanılabilir. Örneğin, bir saldırganın kesecek ve iletişim yolunun cihazda verileri gösterme ve çalınan anahtar malzemesi ile kimlik doğrulaması false veri yerine ayıklanan anahtar malzemesi yararlanarak.
+**(T) oynama**: Bir saldırganın kısmen veya tamamen cihaz üzerinde çalışan yazılımı büyük olasılıkla değiştirilen yazılım anahtar malzemesi veya anahtar malzeme bulunduran şifreleme özellikleri kullanılabilir değilse, cihaz kimliğini kullanmasına izin vererek değiştirebilir gerçekleşiyorsa program. Örneğin, bir saldırganın kesecek ve iletişim yolunun cihazda verileri gösterme ve çalınan anahtar malzemesi ile kimlik doğrulaması false veri yerine ayıklanan anahtar malzemesi yararlanarak.
 
-**Bilgi İfşası (ı)**: cihaz yönetilebilen yazılım çalışıyorsa, yönetilebilen yazılımla büyük olasılıkla yetkisiz taraflara veri dışarıya sızmasına neden olabilecek. Örneğin, bir saldırganın, kendisi cihaz denetleyicisi veya alan ağ geçidi veya bilgileri siphon için bulut ağ geçidi arasındaki iletişim yolunun uygulamasına eklemesine ayıklanan anahtar malzemesi yararlanarak.
+**Bilgi İfşası (ı)**: Cihaz yönetilebilen yazılım çalışıyorsa, yönetilebilen yazılımla yetkisiz taraflara veri sızıntı. Örneğin, bir saldırganın, kendisi cihaz denetleyicisi veya alan ağ geçidi veya bilgileri siphon için bulut ağ geçidi arasındaki iletişim yolunun uygulamasına eklemesine ayıklanan anahtar malzemesi yararlanarak.
 
-**Yükseltme ayrıcalık (E)**: başka bir şey için belirli bir işlevi gerçekleştiren bir cihaz zorlanabilir. Örneğin, yarı yol açmak için programlanmış bir Vana tamamen açmak için sağladı.
+**(E) ayrıcalık yükseltme**: Belirli bir işlevi gerçekleştiren bir cihaz başka bir şey zorlanabilir. Örneğin, yarı yol açmak için programlanmış bir Vana tamamen açmak için sağladı.
 
 | **Bileşen** | **Tehdit** | **Risk azaltma** | **Risk** | **Uygulama** |
 | --- | --- | --- | --- | --- |
@@ -190,33 +190,33 @@ Her Azure IOT mimaride özetlenen kategorileri, bu örnek veri/bilgi bulunmaktad
 
 Tehditleri bu kategorideki bazı örnekleri aşağıda verilmiştir:
 
-**Kimlik sahtekarlığı**: bir saldırgan, bir CİHAZDAN ya da yazılım veya donanım düzeyinde şifreleme anahtar malzemesi ayıklamak ve daha sonra erişimi sistemiyle kimliği altında farklı bir fiziksel veya sanal cihaz cihazın anahtar malzemesi gelen alınmış.
+**Kimlik sahtekarlığı**: Bir saldırganın ya da yazılım veya donanım düzeyinde ve sonradan gelen anahtar malzemesi cihazın kimliği altında farklı bir fiziksel veya sanal cihaz sistemiyle gerçekleştirilen erişim bir cihaz şifreleme anahtar malzemesi Al.
 
-**Hizmet reddi**: bir cihazı çalışmıyor veya radyo frekansları veya kesme kablo ile uğratarak iletişim kuramadığı işlenebilir. Örneğin, kasıtlı olarak gizleyen güç veya ağ bağlantısı olan bir gözetim kamera hiç veri bildiremezsiniz.
+**Hizmet reddi**: Bir cihazı çalışmıyor veya radyo frekansları veya kesme kablo ile uğratarak iletişim kuramadığı işlenebilir. Örneğin, kasıtlı olarak gizleyen güç veya ağ bağlantısı olan bir gözetim kamera hiç veri bildiremezsiniz.
 
-**İzinsiz**: bir saldırgan kısmen veya tamamen cihaz üzerinde çalışan yazılımı potansiyel olarak değiştirilen yazılım anahtar malzemesi veya bulunduran şifreleme özellikleri anahtar, cihaz kimliğini kullanmasına izin vererek değiştirebilir malzemeleri gerçekleşiyorsa program için kullanılabilir.
+**İzinsiz**: Bir saldırganın kısmen veya tamamen cihaz üzerinde çalışan yazılımı büyük olasılıkla değiştirilen yazılım anahtar malzemesi veya anahtar malzeme bulunduran şifreleme özellikleri kullanılabilir değilse, cihaz kimliğini kullanmasına izin vererek değiştirebilir gerçekleşiyorsa program.
 
-**İzinsiz**: boş bir koridor spektrumun görünen resmi gösteren bir gözetim kamera bu tür bir koridor hello'nun amaçlayan. Duman veya yangın algılayıcı birisi altındaki bir açık tutarak raporlama. Her iki durumda da, cihaz teknik Sistem tamamen güvenilir olabilir, ancak yönetilebilen bilgileri raporlar.
+**İzinsiz**: Boş bir koridor spektrumun görünen resmi gösteren bir gözetim kamera bu tür bir koridor hello'nun amaçlayan. Duman veya yangın algılayıcı birisi altındaki bir açık tutarak raporlama. Her iki durumda da, cihaz teknik Sistem tamamen güvenilir olabilir, ancak yönetilebilen bilgileri raporlar.
 
-**İzinsiz**: bir saldırgan kesecek ve iletişim yolunun cihazda verileri gösterme ve çalınan anahtar malzemesi ile kimlik doğrulaması false veri yerine ayıklanan anahtar malzemesi yararlanarak.
+**İzinsiz**: Bir saldırganın kesecek ve iletişim yolunun cihazda verileri gösterme ve çalınan anahtar malzemesi ile kimlik doğrulaması false veri yerine ayıklanan anahtar malzemesi yararlanarak.
 
-**İzinsiz**: bir saldırgan kısmen veya tamamen cihaz üzerinde çalışan yazılımı büyük olasılıkla değiştirilen yazılım, cihaz kimliğini kullanmasına izin vererek değiştirebilir anahtar malzemesi veya bulunduran şifreleme özellikleri anahtar malzeme gerçekleşiyorsa program için kullanılabilir.
+**İzinsiz**: Bir saldırganın kısmen veya tamamen cihaz üzerinde çalışan yazılımı potansiyel olarak değiştirilen yazılım anahtar malzemesi veya anahtar malzeme bulunduran şifreleme özellikleri kullanılabilir değilse, cihaz kimliğini kullanmasına izin vererek değiştirebilir gerçekleşiyorsa program.
 
-**Bilgilerin açığa çıkması**: cihaz yönetilebilen yazılım çalışıyorsa, yönetilebilen yazılımla büyük olasılıkla yetkisiz taraflara veri dışarıya sızmasına neden olabilecek.
+**Bilgilerin açığa çıkması**: Cihaz yönetilebilen yazılım çalışıyorsa, yönetilebilen yazılımla yetkisiz taraflara veri sızıntı.
 
-**Bilgilerin açığa çıkması**: bir saldırganın kendisi bilgileri siphon için bulut ağ geçidi ve cihaz denetleyicisi veya alan ağ geçidi arasındaki iletişim yolunun uygulamasına eklemesine ayıklanan anahtar malzemesi yararlanarak.
+**Bilgilerin açığa çıkması**: Bir saldırganın, kendisi cihaz denetleyicisi veya alan ağ geçidi veya bilgileri siphon için bulut ağ geçidi arasındaki iletişim yolunun uygulamasına eklemesine ayıklanan anahtar malzemesi yararlanarak.
 
-**Hizmet reddi**: cihaz devre dışı bırakılmış veya bir moduna iletişim (olduğu birçok endüstriyel makinelere kasıtlı) mümkün olmadığı yerde açık.
+**Hizmet reddi**: Cihaz devre dışı bırakılmış veya iletişim (birçok endüstriyel makinelere kasıtlı olmayan) mümkün olduğu bir moduna açık.
 
-**İzinsiz**: denetim sistemine (dışında bilinen ayar parametreleri) bilinmeyen bir durumda çalışır ve bu nedenle anlaşılabilir veri sağlamak için cihazı yapılandırılması
+**İzinsiz**: Denetim sistemine (dışında bilinen ayar parametreleri) bilinmeyen bir durumda çalışır ve bu nedenle anlaşılabilir veri sağlamak için cihazı yapılandırılması
 
-**Ayrıcalık yükseltme**: başka bir şey için belirli bir işlevi gerçekleştiren bir cihaz zorlanabilir. Örneğin, yarı yol açmak için programlanmış bir Vana tamamen açmak için sağladı.
+**Ayrıcalık yükseltme**: Belirli bir işlevi gerçekleştiren bir cihaz başka bir şey zorlanabilir. Örneğin, yarı yol açmak için programlanmış bir Vana tamamen açmak için sağladı.
 
-**Hizmet reddi**: cihaz iletişimi olduğu olası bir duruma kapatılabilir.
+**Hizmet reddi**: Cihaz iletişimi mümkün olduğu bir duruma kapatılabilir.
 
-**İzinsiz**: denetim sistemine (dışında bilinen ayar parametreleri) bilinmeyen bir durumda çalışır ve bu nedenle anlaşılabilir veri sağlamak için cihazı yapılandırılması.
+**İzinsiz**: Cihaz, denetim sistemine (dışında bilinen ayar parametreleri) bilinmeyen bir durumda çalışır ve bu nedenle anlaşılabilir veri sağlamak için yapılandırılabilen.
 
-**Kimlik sahtekarlığı/kurcalama/Red**: güvenli değilse (olduğu nadiren durum tüketici uzaktan kumandalar), bir saldırganın bir cihazın durumunu anonim olarak işleyebilirsiniz. Uzaktan, herhangi bir TV etkinleştirebilir ve popüler prankster araçları olan denetimler buna iyi bir örnektir.
+**Kimlik sahtekarlığı/değişiklik/Red**: Güvenli olmayan (olduğu nadiren durum tüketici uzaktan kumandalar), bir saldırganın bir cihazın durumunu anonim olarak işleyebilirsiniz. Uzaktan, herhangi bir TV etkinleştirebilir ve popüler prankster araçları olan denetimler buna iyi bir örnektir.
 
 #### <a name="communication"></a>İletişim
 
@@ -232,9 +232,9 @@ Cihazlar, cihazlar ve alan ağ geçitleri ve cihaz ve bulut ağ geçidi arasınd
 
 Tehditleri bu kategorideki bazı örnekleri aşağıda verilmiştir:
 
-**Hizmet reddi**: kısıtlanmış cihazlar, genellikle DoS tehlike altında bir saldırganın paralel olarak birçok Bağlantıları'nı açın ve değil bunları hizmet veya hizmet çünkü bunlar etkin olarak gelen bağlantılara veya bir ağda istenmeyen veri birimleri için dinlerken bunları yavaş veya cihaz ile istekte bulunulmamış trafik yayılmamış olabilir. Her iki durumda da, cihazın etkin ağ üzerinde çalışamaz işlenebilir.
+**Hizmet reddi**: Bunlar etkin olarak gelen bağlantılara veya bir ağda istenmeyen veri birimi için bir saldırgan paralel olarak birçok Bağlantıları'nı açın ve değil bunları hizmet veya yavaş hizmet veya cihaz olabilir çünkü dinlerken kısıtlanmış cihazlar genellikle DoS tehlike altında olan istekte bulunulmamış trafik ile yayılan. Her iki durumda da, cihazın etkin ağ üzerinde çalışamaz işlenebilir.
 
-**Yanıltma, bilgi İfşası**: kısıtlanmış cihazları ve özel amaçlı cihazlar genellikle parola veya PIN koruma gibi tüm için bir güvenlik olanakları sahip veya bunlar tamamen güvenen erişimi vermek, yani ağ üzerinde güvenin bir cihaz aynı ağ ve o ağ üzerinde olduğunda bilgiler, yalnızca paylaşılan bir anahtar tarafından korunur. Cihaz veya ağ paylaşılan gizli diziyi bildirilen, bu cihazı denetlemek veya CİHAZDAN yayılan veriler gözlemek mümkün olduğunu anlamına gelir.  
+**Yanıltma, bilgi İfşası**: Kısıtlanmış cihazları ve özel amaçlı cihazlar genellikle parola veya PIN koruma veya tamamen güvenen bir cihaz aynı ağ ve o ağ üzerinde olduğunda bunlar bilgilere erişim anlamı ağ üzerinde kullanan gibi tüm için bir güvenlik olanakları sahiptir genellikle yalnızca bir paylaşılan anahtar korunuyor. Cihaz veya ağ paylaşılan gizli diziyi bildirilen, bu cihazı denetlemek veya CİHAZDAN yayılan veriler gözlemek mümkün olduğunu anlamına gelir.  
 
 **Kimlik sahtekarlığı**: bir saldırgan kesebilen veya kısmen yayın geçersiz kılmak ve gönderene (ortadaki adam) sızmasını
 
@@ -263,7 +263,7 @@ Bulut ağ geçidi genellikle özel oluşturulmuş alan ağ geçidi ve cihazları
 
 Bir denetim sistemidir (veya denetleyicisi) bir cihaz veya alan ağ geçidi ya da bir veya birden çok cihaz denetlemek amacıyla ve/veya toplamanıza ve/veya depolamak ve/veya cihaz verilerini sunumu, analiz etmek için bulut Ağ Geçidi Arabirimi bir yazılım çözümü olan veya sonraki denetim amaçlar. Denetim sistemleri, kullanıcılarla etkileşim hemen kolaylaştırabilir bu tartışma kapsamında yalnızca varlıklardır. Cihazlarda, cihazı kapatıp veya diğer özelliklerini değiştirmek bir kişi izin veren bir anahtar gibi ve var olan dijital olarak erişilebilen işlevsel eşdeğeri Ara fiziksel denetimi yüzeyleri durumlardır.
 
-Ara fiziksel denetimi yüzeyleri aittir mantığını yöneten Fiziksel denetimi yüzeyinde işlevi eşdeğer bir işlev Uzaktan yeniden başlatılabilir ya da uzak giriş giriş çakışıyor önlenmiş – olacak şekilde kısıtlar burada gibi intermediated Denetim yüzeyleri cihaz paralel olarak eklenmesi herhangi bir uzaktan denetim sistemi olarak aynı temel işlevsellikten yararlanan bir yerel denetimi sistemine kavramsal olarak eklenir. Bulut bilgi işlem olabilir, okuma için en çok karşılaşılan tehditler [bulut güvenliği İttifakı (CSA)](https://cloudsecurityalliance.org/research/top-threats/) sayfası.
+Ara fiziksel denetimi yüzeyleri aittir mantığını yöneten Fiziksel denetimi yüzeyinde işlevi eşdeğer bir işlev Uzaktan yeniden başlatılabilir ya da uzak giriş giriş çakışıyor önlenmiş – olacak şekilde kısıtlar burada gibi intermediated Denetim yüzeyleri cihaz paralel olarak eklenmesi herhangi bir uzaktan denetim sistemi olarak aynı temel işlevsellikten yararlanan bir yerel denetimi sistemine kavramsal olarak eklenir. Bulut bilgi işlem olabilir, okuma için en çok karşılaşılan tehditler [bulut güvenliği İttifakı (CSA)](https://cloudsecurityalliance.org/articles/csa-releases-top-threats-to-cloud-computing-deep-dive/) sayfası.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

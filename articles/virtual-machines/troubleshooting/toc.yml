@@ -56,6 +56,12 @@ items:
   items:
   - name: SSH hakkındaki sorunları giderme
     href: troubleshoot-ssh-connection.md
+  - name: Dosya sistemi hatalarını giderme
+    href: https://support.microsoft.com/help/3213321
+  - name: Çekirdekle ilgili önyükleme sorunları giderme
+    href: https://support.microsoft.com/help/4091524
+  - name: Fstab hatalarını giderme
+    href: https://support.microsoft.com/help/3206699
   - name: SSH hakkındaki sorunları gidermeyle ilgili ayrıntılar
     href: detailed-troubleshoot-ssh-connection.md
 - name: Genel hata iletileri
@@ -105,6 +111,8 @@ items:
   href: unexpected-reboots-attached-vhds.md
 - name: Windows etkinleştirme sorunları
   href: troubleshoot-activation-problems.md
+- name: Zorlamalı tünel oluşturmayla ilgili etkinleştirme sorunu
+  href: custom-routes-enable-kms-activation.md
 - name: 0Uygulama erişimi sorunları
   href: troubleshoot-app-connection.md
 - name: Yeni VM dağıtımları
@@ -162,9 +170,9 @@ items:
   href: understand-vm-reboot.md
 - name: Uzaktan sorun giderme araçları
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: af1f284108a326b3ce099ee49cb15a8f51cc61af
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b745b9e42c700ea446d934df7d2e3201b555f075
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434870"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976333"

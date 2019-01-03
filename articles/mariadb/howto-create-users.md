@@ -3,24 +3,22 @@ title: Kullanıcılar, MariaDB sunucusu için Azure veritabanı'nda oluşturma
 description: Bu makalede, MariaDB server için Azure veritabanı ile etkileşim kurmak için yeni kullanıcı hesaplarını nasıl oluşturabileceğiniz açıklanır.
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 50154a7fee63eb3ff9e08155123f9e5962bbfcf0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 189e122e04d56d28c1e1e94d328569647614a124
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946128"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542136"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'nda kullanıcıları oluşturun 
 Bu makalede nasıl kullanıcılar Azure veritabanı'nda MariaDB için oluşturabileceğiniz açıklanır.
 
 MariaDB için Azure veritabanınızı ilk oluşturduğunuzda, bir Sunucu Yöneticisi oturum açma kullanıcı adı ve parola sağlanan. Daha fazla bilgi için izleyebileceğiniz [hızlı](quickstart-create-mariadb-server-database-using-azure-portal.md). Sunucu Yöneticisi oturum açma kullanıcı adını Azure portalında bulabilirsiniz.
 
-Sunucu yönetici kullanıcısı belirli ayrıcalıklara sunucunuzun listelendiği gibi alır: seçin, Ekle, Güncelleştir, Sil, oluşturma, bırakma, yeniden yükleme, işlem, başvuruları, dizin, ALTER, Göster veritabanları, geçici tablolar oluşturmak, kilit tablolar, yürütme, çoğaltma bağımlı, çoğaltma İSTEMCİ, GÖRÜNÜMÜ OLUŞTURMAK, GÖRÜNÜMÜ GÖSTER, RUTİN OLUŞTURMA, YORDAM ALTER, KULLANICI, OLAY TETİKLEYİCİSİ OLUŞTURMA
+Sunucu yönetici kullanıcısı belirli ayrıcalıklara listelendiği gibi sunucunuzun alır: SEÇİN, EKLE, GÜNCELLEŞTİR, SİL, OLUŞTURMA, BIRAKMA, YENİDEN, İŞLEM, BAŞVURULARI, INDEX, ALTER, VERİTABANLARI, GÖSTER GEÇİCİ TABLOLAR OLUŞTURMA, KİLİTLEME TABLOLAR, YÜRÜTÜN, İKİNCİL ÇOĞALTMA, ÇOĞALTMA İSTEMCİSİ, OLUŞTUR, GÖRÜNTÜLE, GÖRÜNÜMÜ GÖSTER, RUTİN OLUŞTURMAK, ALTER YORDAMI, KULLANICI OLUŞTURMA , OLAY TETİKLEYİCİSİ
 
 MariaDB için Azure veritabanı oluşturulduktan sonra ek kullanıcılar oluşturma ve yönetici erişim vereceğinizi ilk sunucu yöneticisi kullanıcı hesabını kullanabilirsiniz. Ayrıca, sunucu yöneticisi hesabı, tek veritabanı şemalarını erişimi daha az ayrıcalıklı kullanıcı oluşturmak için kullanılabilir.
 
@@ -85,6 +83,6 @@ MariaDB için Azure veritabanı oluşturulduktan sonra ek kullanıcılar oluştu
 MariaDB belgeleri için kullanıcı hesabı yönetimi hakkında daha fazla bilgi için bkz. [kullanıcı hesabı Yönetimi](https://mariadb.com/kb/en/library/user-account-management/), [verme söz dizimi](https://mariadb.com/kb/en/library/grant/), ve [ayrıcalıkları](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bunların bağlanmasına imkan yeni kullanıcılar Makine IP adresleri için güvenlik duvarını açmak: [oluşturun ve Azure portalını kullanarak Azure veritabanı MariaDB için güvenlik duvarı kurallarını yönetme](howto-manage-firewall-portal.md)  
+Bunların bağlanmasına imkan yeni kullanıcılar Makine IP adresleri için Güvenlik Duvarı'nı açın: [Oluşturma ve Azure portalını kullanarak Azure veritabanı MariaDB için güvenlik duvarı kurallarını yönetme](howto-manage-firewall-portal.md)  
 
 <!--or [Azure CLI](howto-manage-firewall-using-cli.md).-->

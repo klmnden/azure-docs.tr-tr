@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 308ab9d35e07c8376fb183c794fcad77a74a1df9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 39d0813eab49f526842eec171e3355326bd13c44
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295572"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727811"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarında kaynak dağıtmaya sırasını tanımlayın
 Belirli bir kaynak için kaynak dağıtılmadan önce mevcut olmalıdır diğer kaynakları olabilir. Örneğin, bir SQL server, SQL veritabanı dağıtmaya çalışmadan önce mevcut olması gerekir. Bu ilişki, diğer kaynağına bağlı olarak bir kaynak olarak işaretleyerek tanımlayın. Bir bağımlılık ile tanımladığınız **dependsOn** öğesini kullanarak veya **başvuru** işlevi. 
@@ -145,16 +145,7 @@ Bağımlılıklarını belirtmek için bu öğe veya öğe dependsOn kullanabili
 
 Daha fazla bilgi için bkz. [başvuru işlevi](resource-group-template-functions-resource.md#reference).
 
-## <a name="recommendations-for-setting-dependencies"></a>Bağımlılıkları ayarlamak için öneriler
-
-Ayarlamak için hangi bağımlılıkların karar verirken aşağıdaki yönergeleri kullanın:
-
-* Mümkün olduğu kadar az bağımlılıklar ayarlayın.
-* Alt kaynak kendi üst kaynağına bağımlı olarak ayarlayın.
-* Kullanım **başvuru** işlevi ve bir özellik paylaşmak için gereken kaynaklar arasında örtük bağımlılıkları ayarlamak üzere kaynak adı geçirin. Açık bir bağımlılık ekleme (**dependsOn**) ne zaman önceden tanımladığınız dolaylı bir bağımlılığı. Bu yaklaşım, gereksiz bağımlılıkları yaşama riskini azaltır. 
-* Bir kaynak olamaz, bir bağımlılık ayarlayın **oluşturulan** başka bir kaynaktan işlevselliği olmadan. Kaynakları yalnızca dağıtımdan sonra etkileşim, bir bağımlılık ayarlamanız gerekmez.
-* Açıkça ayarlamadan basamaklı bağımlılıkları sağlar. Örneğin, sanal makinenize bir sanal ağ arabiriminde bağlıdır ve sanal ağ arabirimi bir sanal ağ ve genel IP adresleri bağlıdır. Bu nedenle, dağıtılan tüm üç kaynak sanal makine olduğu halde tüm üç kaynaklara bağlı olarak sanal makine açıkça ayarlamanız gerekmez. Bu yaklaşım, bağımlılık sırası açıklar ve daha sonra şablonu değiştirmek kolaylaştırır.
-* Dağıtımdan önce bir değer belirlenemezse olmayan kaynak dağıtma deneyin. Örneğin, bir yapılandırma değeri başka bir kaynak adı gerekiyorsa, bir bağımlılık gerekmeyebilir. Bu kılavuz, bazı kaynaklar diğer kaynak varlığını doğrulamak için her zaman çalışmaz. Bir hata alırsanız, bağımlılık ekleme. 
+## <a name="circular-dependencies"></a>Döngüsel bağımlılıklar
 
 Resource Manager şablon doğrulaması sırasında döngüsel bağımlılıklar tanımlar. Döngüsel bağımlılık var olduğunu bildiren bir hata alırsanız, herhangi bir bağımlılığın gerekli değildir ve Kaldırılabilir görmek için şablonunuzun değerlendirin. Bağımlılıkları kaldırma işe yaramazsa, bazı dağıtım işlemlerini sonra döngüsel bağımlılığı olan kaynakların dağıtıldığı alt kaynakları içine taşıyarak döngüsel bağımlılıklar önleyebilirsiniz. Örneğin, iki sanal makineler dağıtırken, ancak diğer başvuran her birinde özelliklerini ayarlamalısınız varsayalım. Bunları şu sırayla dağıtabilirsiniz:
 
@@ -168,6 +159,7 @@ Dağıtım sırası değerlendirmek ve bağımlılık hatalarını çözme hakk�
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bir öğreticiyi incelemek için bkz: [öğretici: Azure Resource Manager şablonları ile bağımlı kaynaklarını oluşturmak](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
+* Bağımlılıkları ayarlarken öneriler için bkz: [Azure Resource Manager şablonu iyi](template-best-practices.md).
 * Bağımlılıkları dağıtımı sırasında sorun giderme hakkında bilgi edinmek için [Azure Resource Manager ile yaygın Azure dağıtım hatalarını giderme](resource-manager-common-deployment-errors.md).
 * Azure Resource Manager şablonları oluşturma hakkında bilgi edinmek için [şablonları yazma](resource-group-authoring-templates.md). 
 * Bir şablonda kullanabileceğiniz işlevler listesi için bkz. [şablon işlevleri](resource-group-template-functions.md).

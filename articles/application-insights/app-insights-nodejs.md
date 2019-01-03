@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: a2ac309afc6b25f7fdb4667b767ead59cae3b696
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 9d8b5a487898a81517eb25563fbbef8ffc489d01
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877329"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808545"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights ile Node.js hizmetlerinizi ve uygulamalarınızı izleme
 
-[Azure Application Insights](app-insights-overview.md), [performans ve diğer sorunları keşfetmeye ve hızlıca tanılamaya](app-insights-detect-triage-diagnose.md) yardımcı olmak üzere, arka uç hizmetlerinizi ve bileşenlerini dağıtımdan sonra izler. Application Insights'ı veri merkezinizde, Azure VM'lerinde, web uygulamalarında ve hatta diğer genel bulutlarda barındırılan Node.js hizmetleri için kullanabilirsiniz.
+[Azure Application Insights](app-insights-overview.md), [performans ve diğer sorunları keşfetmeye ve hızlıca tanılamaya](../azure-monitor/app/detect-triage-diagnose.md) yardımcı olmak üzere, arka uç hizmetlerinizi ve bileşenlerini dağıtımdan sonra izler. Application Insights'ı veri merkezinizde, Azure VM'lerinde, web uygulamalarında ve hatta diğer genel bulutlarda barındırılan Node.js hizmetleri için kullanabilirsiniz.
 
 İzleme verilerinizi almak, depolamak ve araştırmak için SDK'yı kodunuza ekleyin ve Azure'da karşılık gelen Application Insights kaynağını ayarlayın. SDK daha fazla analiz ve araştırma için verileri bu kaynağa gönderir.
 
@@ -107,8 +107,8 @@ SDK gönderilecek verileri toplu hale getirdiği için öğelerin portalde göst
 
 * Uygulamayı kullanmaya devam edin. Daha fazla telemetri oluşturmak için daha fazla eylem gerçekleştirin.
 * Portal kaynak görünümünde **Yenile**’ye tıklayın. Grafikler belirli aralıklarla otomatik olarak yenilenir ancak el ile yenilerseniz anında yenilenir.
-* [Gerekli giden bağlantı noktalarının](app-insights-ip-addresses.md) açık olduğunu doğrulayın.
-* Belirli olayları aramak için [Arama](app-insights-diagnostic-search.md) sekmesini kullanın.
+* [Gerekli giden bağlantı noktalarının](../azure-monitor/app/ip-addresses.md) açık olduğunu doğrulayın.
+* Belirli olayları aramak için [Arama](../azure-monitor/app/diagnostic-search.md) sekmesini kullanın.
 * [SSS][FAQ] sayfasını inceleyin.
 
 
@@ -133,7 +133,7 @@ appInsights.setup("<instrumentation_key>")
 
 ## <a name="telemetryclient-api"></a>TelemetryClient API'si
 
-TelemetryClient API'sinin tam açıklaması için bkz. [Özel olaylar ve ölçümler için Application Insights API'si](app-insights-api-custom-events-metrics.md).
+TelemetryClient API'sinin tam açıklaması için bkz. [Özel olaylar ve ölçümler için Application Insights API'si](../azure-monitor/app/api-custom-events-metrics.md).
 
 Application Insights Node.js SDK'sını kullanarak herhangi bir istek, olay, ölçüm veya özel durumu izleyebilirsiniz. Aşağıdaki kod örneği, kullanabileceğiniz API'lerden bazılarını göstermektedir:
 
@@ -210,7 +210,7 @@ server.on("listening", () => {
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Portalda telemetrinizi izleme](app-insights-dashboards.md)
+* [Portalda telemetrinizi izleme](../azure-monitor/app/app-insights-dashboards.md)
 * [Telemetriniz üzerinden Analiz sorguları yazma](../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

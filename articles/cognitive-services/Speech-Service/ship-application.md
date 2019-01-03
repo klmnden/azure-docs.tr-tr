@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 4999639356fd440b6358983f1e4859fb3c505fc7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8c230143a4b3ab15e5a43d8b565d1973bc47ec29
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106507"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599034"
 ---
 # <a name="ship-an-application"></a>Bir uygulama teslim edin
 
@@ -55,7 +55,7 @@ Uygulamanızı eşleşen sürümünü (x86, x64) seçtiğinizden emin olun. Linu
 * CURL kitaplığı (`libcurl.so.4`)
 * ALSA uygulamalar için paylaşılan kitaplığı (`libasound.so.2`)
 
-Ubuntu 16.04 üzerinde örneğin, GNU C kitaplıklarını zaten varsayılan olarak yüklü olması gerekir. Son üç şu komutları kullanarak yüklenebilir:
+Örneğin, ubuntu 16.04 veya 18.04, GNU C kitaplıklarını zaten varsayılan olarak yüklenmelidir. Son üç şu komutları kullanarak yüklenebilir:
 
 ```sh
 sudo apt-get update

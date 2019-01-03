@@ -1,20 +1,17 @@
 ---
 title: Performans ayarlama ve MySQL için Azure veritabanı'nda veritabanı bakımı için kullanım sys_schema nasıl
 description: Bu makalede, performans sorunlarını bulun ve MySQL için Azure veritabanı sürdürmek için sys_schema kullanmayı açıklar.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/01/2018
-ms.openlocfilehash: 1e10e3b1b5f4518732408f254eb5767acb8485c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 993c77056c09c1dc21d5317ddbfe8e937341718d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446916"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542858"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı performans ayarlama ve veritabanı bakımı için sys_schema kullanma
 
@@ -24,15 +21,15 @@ MySQL performance_schema, ilk MySQL 5. 5'da, kullanılabilir bellek ayırma, sak
 
 İçinde sys_schema 52 görünüm vardır ve her görünüm aşağıdaki ön ekleri birine sahiptir:
 
-- Host_summary veya g/ç: g/ç gecikme süreleriyle ilgili.
+- Host_summary veya GÇ: G/ç gecikme süreleriyle ilgili.
 - Innodb: Innodb arabellek durumu ve kilitler.
-- Bellek: Bellek kullanımı konak ve kullanıcılar tarafından.
-- Şema: Şema ile ilgili bilgileri otomatik artış, dizinler, vb. gibi.
-- Deyimi: SQL deyimleri bilgiler; Bu, tam bir tablo taraması veya uzun sorgu süresi sonuçlanan ifade olabilir.
-- Kullanıcı: Kaynaklar tüketilen ve kullanıcılara göre gruplandırılmış. Dosya g/ç, bağlantılar ve bellek verilebilir.
-- Bekleme: ana bilgisayar veya kullanıcı tarafından gruplandırılmış olay bekleyin.
+- Bellek: Kullanıcılar ve ana bilgisayar bellek kullanımı.
+- Şema: Şema ile ilgili bilgiler için otomatik artırma, dizinler, vb. gibi.
+- deyimi: SQL deyimleri bilgiler; Bu, tam bir tablo taraması veya uzun sorgu süresi sonuçlanan ifade olabilir.
+- Kullanıcı: Tüketilen ve kullanıcılara göre gruplandırılmış kaynaklar. Dosya g/ç, bağlantılar ve bellek verilebilir.
+- Bekleme süresi: Ana bilgisayar veya kullanıcı tarafından gruplandırılmış olay bekleyin.
 
-Artık sys_schema bazı ortak kullanım desenleri bakalım. Başlangıç olarak, biz kullanım düzenlerine iki kategoriler halinde gruplandırmak: **performans ayarlama** ve **veritabanı bakım**.
+Artık sys_schema bazı ortak kullanım desenleri bakalım. Başlangıç olarak, biz kullanım düzenlerine iki kategoride Grup: **Performans ayarlama** ve **veritabanı bakım**.
 
 ## <a name="performance-tuning"></a>Performans ayarı
 
@@ -44,11 +41,11 @@ GÇ veritabanında en pahalı bir işlemdir. İçin ortalama g/ç gecikme süres
 
 MySQL için Azure veritabanı, 1 TB'ye kadar sağlanan depolama artırma sonra depolama göre g/ç ölçeklendirilir çünkü 571 ms ile my g/ç gecikme süresini azaltır.
 
-![g/ç gecikme süresi: 1TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
+![GÇ gecikmesi: 1TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
 
 ### <a name="sysschematableswithfulltablescans"></a>*sys.schema_tables_with_full_table_scans*
 
-Çok sayıda sorgu, dikkatli planlama rağmen yine de tam tablo taramaya sonuçlanabilir. Dizinler ve bunları en iyi duruma getirme türleri hakkında ek bilgi için bu makaleye bakabilirsiniz: [sorgu performansı sorunlarını giderme](./howto-troubleshoot-query-performance.md). Tam tablo taramasından kaynak kullanımı yoğun ve veritabanınızın performansı düşürebilir. En hızlı yolu tam tablo taraması tablolarla bulmak için sorgu *sys.schema_tables_with_full_table_scans* görünümü.
+Çok sayıda sorgu, dikkatli planlama rağmen yine de tam tablo taramaya sonuçlanabilir. Dizinler ve bunları en iyi duruma getirme türleri hakkında ek bilgi için bu makalede başvurabilir: [Sorgu performansı sorunlarını giderme](./howto-troubleshoot-query-performance.md). Tam tablo taramasından kaynak kullanımı yoğun ve veritabanınızın performansı düşürebilir. En hızlı yolu tam tablo taraması tablolarla bulmak için sorgu *sys.schema_tables_with_full_table_scans* görünümü.
 
 ![tam tablo tarama](./media/howto-troubleshoot-sys-schema/full-table-scans.png)
 

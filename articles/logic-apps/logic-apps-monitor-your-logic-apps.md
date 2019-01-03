@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 3779260d2dd6036e65be39b4a59ceb1459d01b9e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e06bf20a04c6a57ae5988d4cc334ec7a3cdd4bf1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434265"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543865"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Azure Logic Apps için uyarılarını Aç durumunu izleme ve tanılama günlük kaydını ayarlama
 
@@ -156,7 +156,7 @@ Bir filtre ekleyerek sorgunuzu iyileştirmek için seçin **+ Ekle**.
 Azure Log Analytics ile birlikte mantıksal uygulamanızın tanılama verilerini diğer Azure hizmetleriyle örneğin kullanma genişletebilirsiniz: 
 
 * [Azure depolama alanında Azure tanılama günlüklerini arşivleme](../azure-monitor/platform/archive-diagnostic-logs.md)
-* [Azure Event hubs'a Stream Azure tanılama günlükleri](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
+* [Azure Event hubs'a Stream Azure tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
 İzleme telemetri ve diğer hizmetlerden analytics kullanarak gerçek zamanlı Get ister sonra yapabilecekleriniz [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) ve [Power BI](../azure-monitor/platform/powerbi.md). Örneğin:
 

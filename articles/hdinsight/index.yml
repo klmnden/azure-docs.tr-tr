@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bf2b326b6e0003b9a690e560d5a312f16659dad9
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 52f96a97aaf4ced4cf7b0e1170014f327ff6e192
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53406752"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975808"
 documentType: LandingData
 title: Azure HDInsight Belgeleri
 metadata:
@@ -75,7 +75,7 @@ sections:
     - html: Apache Kafka &#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Kafka ile yapılandırılmış akış</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">HDInsight üzerinde Storm ile kullanma</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Kafka Üretici ve Tüketici API’lerini kullanma</a>
     - html: Apache HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Bir sanal ağda HBase kümeleri oluşturma</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Apache Phoenix kullanma</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Spark’a bağlanma</a>
     - html: Etkileşimli Sorgu &#58; <a href="/azure/hdinsight/interactive-query/apache-hadoop-connect-hive-power-bi-directquery">Doğrudan Sorgu kullanarak Power BI’ya bağlanma</a>
-    - html: Apache Storm &#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Java dilinde Storm topolojisi oluşturma</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">HDInsight üzerinde Storm topolojileri dağıtma</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Storm’dan Data Lake Store’a yazma</a>
+    - html: Apache Storm &#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Java dilinde Storm topolojisi oluşturma</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">HDInsight üzerinde Storm topolojileri dağıtma</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Storm’dan Data Lake Storage’a yazma</a>
     - html: ML Services &#58; <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Visual Studio için R Araçlarını kullanma</a>
 - title: Başvuru
   items:

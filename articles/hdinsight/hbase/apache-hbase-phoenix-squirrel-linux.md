@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4b673423bcf3785b29cc287e025d1ee52bc402f7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 51707baeba4a511d2766161afacd512a4338cf24
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312911"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653994"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>HDInsight kümelerinde Linux tabanlı Apache HBase ile Apache Phoenix kullanma
-Nasıl kullanacağınızı öğrenin [Apache Phoenix](http://phoenix.apache.org/) Azure HDInsight ve SQLLine kullanma. Phoenix hakkında daha fazla bilgi için bkz: [Phoenix 15 dakika veya daha az](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix dilbilgisi için bkz: [Phoenix Dilbilgisi](http://phoenix.apache.org/language/index.html).
+Nasıl kullanacağınızı öğrenin [Apache Phoenix](https://phoenix.apache.org/) Azure HDInsight ve SQLLine kullanma. Phoenix hakkında daha fazla bilgi için bkz: [Apache Phoenix 15 dakika veya daha az](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Phoenix dilbilgisi için bkz: [Apache Phoenix Dilbilgisi](https://phoenix.apache.org/language/index.html).
 
-> [!NOTE]
-> Phoenix sürüm HDInsight hakkında bilgi için [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler](../hdinsight-component-versioning.md).
+> [!NOTE]  
+> Phoenix sürüm HDInsight hakkında bilgi için [HDInsight tarafından sağlanan Apache Hadoop küme sürümlerindeki yenilikler](../hdinsight-component-versioning.md).
 >
 >
 
@@ -61,7 +61,7 @@ Bir HBase kümesi için bağlandığınızda birine bağlanması gereken [Apache
 
         !quit
 
-Daha fazla bilgi için [SQLLine el ile](http://sqlline.sourceforge.net/#manual) ve [Apache Phoenix Dilbilgisi](http://phoenix.apache.org/language/index.html).
+Daha fazla bilgi için [SQLLine el ile](http://sqlline.sourceforge.net/#manual) ve [Apache Phoenix Dilbilgisi](https://phoenix.apache.org/language/index.html).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, HDInsight Apache Phoenix kullanmayı öğrendiniz. Daha fazla bilgi için şu makalelere bakın:

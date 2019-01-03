@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: ef61ee9f15253c6a270cd4089625776a458df2ee
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 715e536d7356a4e37f512027a23236b1fd37cbac
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499332"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651308"
 ---
 # <a name="install-published-application---cask-data-application-platform-cdap"></a>Yayımlanan uygulama - Cask Data Application Platform (CDAP) yükleme
 
-Bu makalede, yüklemek ve çalıştırmak açıklanır [CDAP](http://cask.co/products/cdap/) yayımlanan [Apache Hadoop](https://hadoop.apache.org/) Azure HDInsight uygulaması. HDInsight uygulama platformu için genel bir bakış ve bir liste, kullanılabilen bağımsız yazılım satıcısı (ISV) için bkz. yayımlanan uygulamalar [üçüncü taraf Apache Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md). Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
+Bu makalede, yüklemek ve çalıştırmak açıklanır [CDAP](https://cask.co/products/cdap/) yayımlanan [Apache Hadoop](https://hadoop.apache.org/) Azure HDInsight uygulaması. HDInsight uygulama platformu için genel bir bakış ve bir liste, kullanılabilen bağımsız yazılım satıcısı (ISV) için bkz. yayımlanan uygulamalar [üçüncü taraf Apache Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md). Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-cdap"></a>CDAP hakkında
 
@@ -30,7 +30,7 @@ Cask Data Application Platform (CDAP), büyük veriler için bir tümleştirme p
 
 Üst düzey kavramlarını ve geliştiricilerinin aşina soyutlama CDAP kullanır. Bu soyutlama, iç sistemleri karmaşıklığını gizleyebilir ve çözümleri kullanılırlığı teşvik edin.
 
-CDAP uzantı adlandırılan [Cask Hydrator](http://cask.co/products/hydrator/) geliştirin ve veri işlem hatlarını yönetmek için bir kullanıcı arabirimi sağlar. Veri komut zinciri çeşitli oluşur * görevleri eklentileri, veri alma, dönüştürme, analiz ve çalıştırma sonrası işlemleri ister.
+CDAP uzantı adlandırılan [Cask Hydrator](https://cask.co/products/hydrator/) geliştirin ve veri işlem hatlarını yönetmek için bir kullanıcı arabirimi sağlar. Veri komut zinciri çeşitli oluşur * görevleri eklentileri, veri alma, dönüştürme, analiz ve çalıştırma sonrası işlemleri ister.
 
 Her CDAP eklentinin iyi tanımlanmış bir arabirim sahiptir; böylece değerlendirme farklı teknolojiler uygulama geri kalanını touch gerek kalmadan başka bir, bir eklenti değiştirme adımlarından oluşur.
 
@@ -42,7 +42,7 @@ Aşağıdaki örnek bir veri işlem hattı, gerçek zamanlı twitter verilerini 
 
 Bu uçtan uca işlem hattı kullanılarak oluşturulan **Cask Hydrator UI**, her aşama arasında bağlantı eklenti arabirimi ve sürükle ve bırak işlevlerini kullanma. Yalıtmak ve her eklentinin işlevlerini bağımsız olarak değiştirin. CDAP kullanarak, benzer bir işlem hatları oluşturulabilen ve saat olarak doğrulandı. Tipik Hadoop dünyasında, bu tür çözümler oluşturmak, birkaç gün sürebilir.
 
-CDAP ayrıca adlı bir uzantı sağlar [Cask İzleyicisi](http://cask.co/products/tracker/) görsel olarak izleme verilerinin için akışlar uygulama. Cask İzleyicisi ekler *veri yönetimi* sisteme veri varlıklarını izlerse uygulama genelinde yönetilebilmeleri için vmm'nin. Her veri noktasının rengini kökenini izlemek, ilgili ölçümleri toplamak ve denetim işlemi boyunca veri kaydı.
+CDAP ayrıca adlı bir uzantı sağlar [Cask İzleyicisi](https://cask.co/products/tracker/) görsel olarak izleme verilerinin için akışlar uygulama. Cask İzleyicisi ekler *veri yönetimi* sisteme veri varlıklarını izlerse uygulama genelinde yönetilebilmeleri için vmm'nin. Her veri noktasının rengini kökenini izlemek, ilgili ölçümleri toplamak ve denetim işlemi boyunca veri kaydı.
 
 Yukarıdaki işlem hattı, verileri nasıl geçiyor, bir gösterim şu şekildedir:
 
@@ -52,7 +52,7 @@ Yukarıdaki işlem hattı, verileri nasıl geçiyor, bir gösterim şu şekilded
 
 Bu uygulamayı yeni bir HDInsight kümesi veya mevcut bir kümeye yüklemek için aşağıdaki yapılandırmaya sahip olmalıdır:
 
-* Küme katmanı: standart
+* Küme katmanı: Standart
 * Küme türü: HBase
 * Küme sürümü: 3.4, 3.5
 
@@ -126,9 +126,9 @@ Bu ve diğer kullanılabilir ISV uygulamalarını yükleme hakkında adım adım
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Cask belgeleri](http://cask.co/resources/documentation/).
+* [Cask belgeleri](https://cask.co/resources/documentation/).
 * [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md): HDInsight için yayımlanmamış bir HDInsight uygulamasının nasıl dağıtılacağını öğrenin.
-* [HDInsight uygulamalarını yayımlama](hdinsight-apps-publish-applications.md): Özel HDInsight uygulamalarınızı Azure Marketi’nde nasıl yayımlayacağınızı öğrenin.
-* [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını nasıl tanımlayacağınızı öğrenin.
-* [Betik eylemi kullanarak Linux tabanlı HDInsight kümelerini özelleştirin](hdinsight-hadoop-customize-cluster-linux.md): ek uygulamalar yüklemek için betik eylemi kullanmayı öğrenin.
+* [HDInsight uygulamaları yayımlama](hdinsight-apps-publish-applications.md): Özel HDInsight uygulamalarınızı Azure Marketi'nde yayımlama konusunda bilgi edinin.
+* [MSDN: Bir HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını nasıl tanımlayacağınızı öğrenin.
+* [Betik eylemi kullanarak Linux tabanlı HDInsight kümelerini özelleştirin](hdinsight-hadoop-customize-cluster-linux.md): Ek uygulamalar yüklemek için betik eylemi kullanmayı öğrenin.
 * [HDInsight içinde boş kenar düğümlerini kullanma](hdinsight-apps-use-edge-node.md): HDInsight kümeleri erişmek ve test etmek ve HDInsight uygulamalarını barındırmak için boş bir kenar düğümünü kullanmayı öğrenin.

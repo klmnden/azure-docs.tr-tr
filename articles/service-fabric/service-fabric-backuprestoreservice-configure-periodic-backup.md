@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722386"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794252"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service fabric'te düzenli yedekleme yapılandırması anlama
 
 Durum bilgisi olan Reliable services ve Reliable Actors düzenli yedekleme, aşağıdaki adımlardan oluşur:
 
-1. **Yedekleme ilkelerini oluşturulmasını**: Bu adımda, bir veya daha fazla yedekleme ilkelerini gereksinimlerine bağlı olarak oluşturulur.
+1. **Yedekleme ilkelerini oluşturulmasını**: Bu adımda, bir veya daha fazla yedekleme ilkeleri gereksinimlerine bağlı olarak oluşturulur.
 
-2. **Yedeklemeyi etkinleştirme olanağı**: Bu adımda oluşturulan yedekleme ilkeleri ilişkilendirmek **1. adım** gerekli varlıklara _uygulama_, _hizmet_, veya bir  _Bölüm_.
+2. **Yedeklemeyi etkinleştirme olanağı**: Bu adımda oluşturulan yedekleme ilkeleri ilişkilendirmek **1. adım** gerekli varlıklara _uygulama_, _hizmet_, veya bir _bölüm_.
 
 ## <a name="create-backup-policy"></a>Yedekleme ilkesi oluşturma
 
 Bir yedekleme İlkesi, aşağıdaki yapılandırmaları oluşur:
 
-* **Veri kaybı geri yükleme otomatik**: bir veri kaybı olayından bölüm deneyimleri durumunda otomatik olarak en son kullanılabilir yedek kullanarak geri yüklemeyi tetikleyecek belirtir.
+* **Veri kaybı geri yükleme otomatik**: Bir veri kaybı olayından bölüm deneyimleri durumunda otomatik olarak en son kullanılabilir yedek kullanarak geri yüklemeyi tetikleyecek belirtir.
 
-* **En fazla artımlı yedeklemeler**: en fazla iki tam yedeklemeler arasında yapılacak artımlı yedeklemelerin sayısını tanımlar. Artımlı yedeklemeler en fazla boyut üst sınırı belirtin. Belirtilen sayıda artımlı yedeklemeler aşağıdaki koşullardan biri tamamlanmadan önce bir tam yedekleme alınmış olabilir
+* **En fazla artımlı yedeklemeler**: En fazla iki tam yedeklemeler arasında yapılacak artımlı yedeklemelerin sayısını tanımlar. Artımlı yedeklemeler en fazla boyut üst sınırı belirtin. Belirtilen sayıda artımlı yedeklemeler aşağıdaki koşullardan biri tamamlanmadan önce bir tam yedekleme alınmış olabilir
 
     1. Birincil haline gelmiştir olduğundan çoğaltma hiçbir zaman bir tam yedekleme duruma getirdi.
 
@@ -43,9 +43,9 @@ Bir yedekleme İlkesi, aşağıdaki yapılandırmaları oluşur:
 
     3. Çoğaltma MaxAccumulatedBackupLogSizeInMB sınırı geçirildi.
 
-* **Yedekleme zamanlaması**: düzenli yedeklemeler almak sıklığı ve süresi. Bir belirtilen zaman aralığı veya bir sabit anında yinelenen günlük / haftalık yedeklemeler zamanlayabilirsiniz.
+* **Yedekleme zamanlaması**: Düzenli yedeklemeler almak sıklığı ve zaman. Bir belirtilen zaman aralığı veya bir sabit anında yinelenen günlük / haftalık yedeklemeler zamanlayabilirsiniz.
 
-    1. **Yedekleme zamanlaması sıklığı tabanlı**: gereken veri yedekleme sabit aralıklarla almak için ise bu zamanlama türü kullanılmalıdır. İki ardışık yedeklemeler arasındaki istenen zaman aralığını ISO8601 biçimini kullanarak tanımlanır. Yedekleme zamanlaması sıklığı tabanlı aralığı çözümleme en fazla dakika destekler.
+    1. **Yedekleme zamanlaması sıklığı tabanlı**: Bu zamanlama türü sabit aralıklarla veri yedek almak için gereken ise kullanılması gerekir. İki ardışık yedeklemeler arasındaki istenen zaman aralığını ISO8601 biçimini kullanarak tanımlanır. Yedekleme zamanlaması sıklığı tabanlı aralığı çözümleme en fazla dakika destekler.
         ```json
         {
             "ScheduleKind": "FrequencyBased",
@@ -53,7 +53,7 @@ Bir yedekleme İlkesi, aşağıdaki yapılandırmaları oluşur:
         }
         ```
 
-    2. **Zamana bağlı bir yedekleme zamanlaması**: gereken veri yedekleme gün veya haftanın belirli zamanlarda yararlanmak için ise bu zamanlama türü kullanılmalıdır. Zamanlama sıklık türü, günlük veya haftalık ya da olabilir.
+    2. **Zamana bağlı bir yedekleme zamanlaması**: Bu zamanlama türü gün veya haftanın belirli zamanlarda veri yedek almak için gereken ise kullanılması gerekir. Zamanlama sıklık türü, günlük veya haftalık ya da olabilir.
         1. **_Günlük_ zamana bağlı bir yedekleme zamanlaması**: Bu zamanlama türü kullanılmalıdır gereksinim kimliği günün belirli zamanlarında verileri yedekleyin. Bu belirtmek için ayarlayın `ScheduleFrequencyType` için _günlük_; ve `RunTimes` istenen saat ISO8601 biçiminde günde bir listesi için belirtilen süre yanı sıra tarih göz ardı edilir. Örneğin, `0001-01-01T18:00:00` temsil _6: 00'dan_ her gün, tarih bölümü yok sayılıyor _0001-01-01_. Aşağıdaki örnekte tetikleyici günlük yedekleme için yapılandırmayı gösterir _9: 00'da_ ve _6: 00'dan_ günlük.
 
             ```json
@@ -87,8 +87,8 @@ Bir yedekleme İlkesi, aşağıdaki yapılandırmaları oluşur:
             }
             ```
 
-* **Yedekleme depolama**: yedeklemeleri yüklenecek konumu belirtir. Depolama, olması ya da Azure blob depolama veya dosya paylaşımı.
-    1. **Azure blob depolama**: azure'da yedeklemeleri oluşturulan depolamak için gereken olduğunda bu depolama türü seçilmelidir. Her ikisi de _tek başına_ ve _Azure tabanlı_ kümeleri, bu depolama türü kullanabilirsiniz. Bu depolama türü için açıklama bağlantı dizesini ve yedeklemeleri yüklenmek üzere gereken yere kapsayıcının adı gerektirir. Ardından belirtilen ada sahip kapsayıcı mevcut değilse, bir yedekleme karşıya yükleme sırasında oluşturulan.
+* **Yedekleme depolama**: Yedeklemeleri yüklenecek konumu belirtir. Depolama, olması ya da Azure blob depolama veya dosya paylaşımı.
+    1. **Azure blob depolama**: Azure yedeklemeleri oluşturulan depolamak için gereken olduğunda bu depolama türü seçilmelidir. Her ikisi de _tek başına_ ve _Azure tabanlı_ kümeleri, bu depolama türü kullanabilirsiniz. Bu depolama türü için açıklama bağlantı dizesini ve yedeklemeleri yüklenmek üzere gereken yere kapsayıcının adı gerektirir. Ardından belirtilen ada sahip kapsayıcı mevcut değilse, bir yedekleme karşıya yükleme sırasında oluşturulan.
         ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -127,8 +127,8 @@ Bir yedekleme İlkesi, aşağıdaki yapılandırmaları oluşur:
 > Depolama güvenilirliği karşıladığından veya yedekleme verilerinin Güvenilirlik gereksinimleri aşıyor emin olun.
 >
 
-* **Bekletme İlkesi**: yapılandırılmış depolama yedekleri tutma ilkesini belirtir. Yalnızca temel bekletme ilkesi desteklenir.
-    1. **Bekletme İlkesi temel**: en iyi depolama kullanımı artık gerekli yedekleme dosyaları kaldırarak emin olmak için bu bekletme ilkesi sağlar. `RetentionDuration` Yedekleme depolama alanında saklanması gereken zaman aralığını ayarlamanıza imkan belirtilebilir. `MinimumNumberOfBackups` yedeklemeleri belirtilen sayıda bakılmadan, her zaman korunur emin olmak için belirtilebilen isteğe bağlı bir parametredir `RetentionDuration`. Yedeklemeler için korumak için yapılandırma aşağıdaki örnekte gösterilmiştir _10_ gün ve aşağıdaki Git yedeklerini izin vermiyor _20_.
+* **Bekletme İlkesi**: Yapılandırılmış depolama yedekleri tutma ilkesini belirtir. Yalnızca temel bekletme ilkesi desteklenir.
+    1. **Temel Bekletme İlkesi**: Artık gerekli yedekleme dosyaları kaldırarak en iyi depolama kullanımı sağlamak için bu bekletme ilkesi sağlar. `RetentionDuration` Yedekleme depolama alanında saklanması gereken zaman aralığını ayarlamanıza imkan belirtilebilir. `MinimumNumberOfBackups` yedeklemeleri belirtilen sayıda bakılmadan, her zaman korunur emin olmak için belirtilebilen isteğe bağlı bir parametredir `RetentionDuration`. Yedeklemeler için korumak için yapılandırma aşağıdaki örnekte gösterilmiştir _10_ gün ve aşağıdaki Git yedeklerini izin vermiyor _20_.
 
         ```json
         {
@@ -137,6 +137,9 @@ Bir yedekleme İlkesi, aşağıdaki yapılandırmaları oluşur:
             "MinimumNumberOfBackups": 20
         }
         ```
+
+> [!IMPORTANT]
+> Çalışma zamanında bir sorun nedeniyle, bekletme ilkesi bekletme süresi 24 günden az olacak şekilde yapılandırılır; Aksi takdirde, çekirdek kayıp çoğaltma yük devretme sonrasında gitmek için yedekleme geri yükleme hizmeti neden olacağından emin olun.
 
 ## <a name="enable-periodic-backup"></a>Dönemsel yedeklemeyi etkinleştirme
 Veri yedekleme gereksinimlerini karşılamak için yedekleme İlkesi tanımladıktan sonra yedekleme İlkesi uygun şekilde ya da ile ilişkilendirilmesi gereken bir _uygulama_, veya _hizmet_, veya bir _bölüm_.
@@ -215,6 +218,11 @@ Askıya alma gereksinimini bittikten sonra düzenli yedekleme ilgili sürdürme 
 
 * Askıya alma, uygulandıysa bir _bölüm_, kullanarak sürdürülmesini sonra [bölüm yedeklemeyi Sürdür](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
 
+### <a name="difference-between-suspend-and-disable-backups"></a>Askıya alma ve devre dışı yedeklemeler arasındaki fark
+Devre dışı yedekleme, yedekleme artık belirli bir uygulama, hizmet veya bölüm için gerekli olduğunda kullanılmalıdır. Bir can de true olması da var olan tüm yedeklemeler de silinir anlamına gelir devre dışı yedekleme isteği temiz yedeklemeleri parametresi ile birlikte çağırın. Ancak, askıya alma burada bir istediği yedeklemeleri, yerel disk tam olduğunda gibi geçici olarak devre dışı bırakmayı veya yedekleme karşıya yükleme vb. bilinen ağ sorunu nedeniyle başarısız senaryolarda kullanılır. 
+
+Yalnızca bir düzeyinde devre dışı bırakma çağrılabilir olsa önceden yedekleme explicilty için askıya alma, şu anda yedekleme için ya da doğrudan etkinleştirilen herhangi bir düzeyde veya devralma yoluyla ancak uygulanabilir etkin / hiyerarşisi. Örneğin, bir uygulama düzeyinde yedekleme etkinleştirilirse, bir devre dışı bırakma çalıştırabilirsiniz ancak yalnızca uygulama düzeyinde askıya uygulama, hizmet veya uygulama altında bölüm çağrılabilir. 
+
 ## <a name="auto-restore-on-data-loss"></a>Veri kaybı otomatik geri yükleme
 Hizmet bölüm beklenmeyen hatalar nedeniyle veri kaybedebilirsiniz. Örneğin, bir bölüm (birincil çoğaltma dahil) için iki tanesi üç çoğaltmalar için disk bozuk silinebilen veya.
 
@@ -237,11 +245,11 @@ Bu API'ler ayrıca sonuçlarını sayfalandırma destekler, _maxresults bağıms
 
 Desteklenen türevleri hakkında kısa bilgiler verilmiştir.
 
-- [Uygulama yedekleme listesini alma](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): yedekleme için belirli bir Service Fabric uygulaması ait her bölüm için kullanılabilir listesini döndürür.
+- [Uygulama yedekleme listesini alma](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): Belirli bir Service Fabric uygulaması ait her bölüm için mevcut yedekleme listesini döndürür.
 
-- [Hizmet yedekleme listesini alma](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): belirli bir Service Fabric hizmeti ait her bölüm için mevcut yedekleme listesini döndürür.
+- [Hizmet yedekleme listesini alma](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): Service Fabric hizmet ait her bölüm için mevcut yedekleme listesini döndürür.
  
-- [Bölüm yedekleme listesini alma](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): yedekleme için belirtilen bölüm kullanılabilir listesini döndürür.
+- [Bölüm yedekleme listesini alma](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): Yedekleme için belirtilen bölüm kullanılabilir listesini döndürür.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Yedekleme geri yükleme REST API Başvurusu](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: b667cfad6eb2a2a13e4b84dacaad0bcd3dfa91b9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: af604dbabe9df56322342230eaec70548f53c927
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017142"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794507"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight'ta Apache HBase örneğiyle çalışmaya başlama
 
-Oluşturmayı bir [Apache HBase](http://hbase.apache.org/) küme HDInsight, HBase tabloları oluşturmak ve tabloları kullanarak sorgu [Apache Hive](https://hive.apache.org/).  Genel HBase bilgileri için bkz. [HDInsight HBase’e genel bakış][hdinsight-hbase-overview].
+Oluşturmayı bir [Apache HBase](https://hbase.apache.org/) küme HDInsight, HBase tabloları oluşturmak ve tabloları kullanarak sorgu [Apache Hive](https://hive.apache.org/).  Genel HBase bilgileri için bkz. [HDInsight HBase’e genel bakış][hdinsight-hbase-overview].
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -31,7 +31,7 @@ Bu HBase örneğini denemeye başlamadan önce aşağıdakilere sahip olmanız g
 * [curl](https://curl.haxx.se/download.html).
 
 ## <a name="create-apache-hbase-cluster"></a>Apache HBase kümesi oluşturma
-Aşağıdaki yordamda HBase kümesi ve bağlı varsayılan Azure Depolama hesabı oluşturmak için Azure Resource Manager şablonu kullanılmaktadır. Yordamda ve diğer küme oluşturma yöntemlerinde kullanılan parametreleri anlamak için bkz. [HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md). Data Lake Storage Gen2'yi kullanma hakkında daha fazla bilgi için bkz. [Hızlı başlangıç: HDInsight'ta kümeleri ayarlama](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+Aşağıdaki yordamda HBase kümesi ve bağlı varsayılan Azure Depolama hesabı oluşturmak için Azure Resource Manager şablonu kullanılmaktadır. Yordamda ve diğer küme oluşturma yöntemlerinde kullanılan parametreleri anlamak için bkz. [HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md). Data Lake depolama Gen2 kullanma hakkında daha fazla bilgi için bkz. [hızlı başlangıç: HDInsight kümelerinde ayarlama](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın. Şablon, [Azure Hızlı Başlangıç şablonları](https://azure.microsoft.com/resources/templates/) içinde bulunur.
    
@@ -39,24 +39,24 @@ Aşağıdaki yordamda HBase kümesi ve bağlı varsayılan Azure Depolama hesab�
 2. **Özel dağıtım** dikey penceresine şu değerleri girin:
    
    * **Abonelik**: Kümeyi oluşturmak için kullanılan Azure aboneliğinizi seçin.
-   * **Kaynak grubu**: bir Azure Resource management grubu oluşturun veya var olanı kullanın.
+   * **Kaynak grubu**: Bir Azure Resource management grubu oluşturun veya var olanı kullanın.
    * **Konum**: Kaynak grubu konumunu belirtin. 
    * **ClusterName**: HBase kümesi için bir ad girin.
-   * **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı **admin** şeklindedir.
-   * **SSH kullanıcı adı ve parolası**: Varsayılan kullanıcı adı **sshuser** şeklindedir.  Bunu yeniden adlandırabilirsiniz.
+   * **Küme oturum açma adı ve parola**: Varsayılan oturum açma adı **admin**’dir.
+   * **SSH kullanıcı adı ve parola**: Varsayılan kullanıcı adı **sshuser** şeklindedir.  Bunu yeniden adlandırabilirsiniz.
      
      Diğer parametreler isteğe bağlıdır.  
      
      Her kümenin bir Azure Depolama hesabı bağımlılığı vardır. Bir küme silindikten sonra veriler depolama hesabında saklanır. Kümenin varsayılan depolama hesabı adı, "depo" ifadesi eklenmiş küme adıdır. Şablon değişkenleri bölümüne sabit kodlanır.
 3. **Yukarıdaki hüküm ve koşulları kabul ediyorum**’u seçip **Satın al**’a tıklayın. Bir küme oluşturmak yaklaşık 20 dakika sürer.
 
-> [!NOTE]
+> [!NOTE]  
 > Bir HBase kümesi silindikten sonra aynı varsayılan blob kapsayıcısını kullanarak başka bir HBase kümesi oluşturabilirsiniz. Yeni küme özgün kümede oluşturduğunuz HBase tablolarını seçer. Tutarsızlıkları önlemek için kümeyi silmeden önce HBase tablolarını devre dışı bırakmanız önerilir.
 > 
 > 
 
 ## <a name="create-tables-and-insert-data"></a>Tablo oluşturma ve veri ekleme
-HBase kümelerine bağlanmak ve daha sonra kullanmak için SSH kullanabilirsiniz [Apache HBase Kabuğu](http://hbase.apache.org/0.94/book/shell.html) HBase tabloları oluşturmak için veri ve sorgu veri ekleyin. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+HBase kümelerine bağlanmak ve daha sonra kullanmak için SSH kullanabilirsiniz [Apache HBase Kabuğu](https://hbase.apache.org/0.94/book/shell.html) HBase tabloları oluşturmak için veri ve sorgu veri ekleyin. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Çoğu kişi için veriler tablo biçiminde görünür:
 
@@ -109,7 +109,7 @@ HBase içinde (uygulaması [bulut BigTable](https://cloud.google.com/bigtable/))
 
 **Verileri kişi HBase tablosuna toplu olarak yüklemek için**
 
-HBase’de verileri tablolara yüklemek için bazı yöntemler vardır.  Daha fazla bilgi için bkz. [Toplu yükleme](http://hbase.apache.org/book.html#arch.bulk.load).
+HBase’de verileri tablolara yüklemek için bazı yöntemler vardır.  Daha fazla bilgi için bkz. [Toplu yükleme](https://hbase.apache.org/book.html#arch.bulk.load).
 
 Örnek veri dosyası, ortak blob kapsayıcısı *wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt* içinde bulunabilir.  Veri dosyasının içeriği şudur:
 
@@ -126,9 +126,8 @@ HBase’de verileri tablolara yüklemek için bazı yöntemler vardır.  Daha fa
 
 İsterseniz, bir metin dosyası oluşturabilir ve dosyayı kendi depolama hesabınıza yükleyebilirsiniz. Yönergeler için bkz. [HDInsight Apache Hadoop işleri için verileri karşıya yükleme][hdinsight-upload-data].
 
-> [!NOTE]
+> [!NOTE]  
 > Bu yordam son yordamda oluşturduğunuz Kişiler HBase tablosunu kullanır.
-> 
 
 1. SSH’de, veri dosyalarını StoreFiles’a dönüştürmek ve Dimporttsv.bulk.output tarafından belirtilen göreli bir yola depolamak için aşağıdaki komutu çalıştırın.  HBase Kabuğu'ndan çıkış yapmak için çıkış komutunu kullanın.
 
@@ -208,8 +207,8 @@ REST API’sinin güvenliği [temel kimlik doğrulaması](https://en.wikipedia.o
    
     -d anahtarında belirtilen değerleri base64 ile kodlamanız gerekir. Örnekte:
    
-   * MTAwMA==: 1000
-   * UGVyc29uYWw6TmFtZQ==: Personal:Name
+   * MTAwMA ==: 1000
+   * UGVyc29uYWw6TmFtZQ ==: Kişisel: adı
    * Sm9obiBEb2xl: John Dole
      
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) birden fazla (toplu) değer eklemenizi sağlar.
@@ -224,7 +223,7 @@ REST API’sinin güvenliği [temel kimlik doğrulaması](https://en.wikipedia.o
 
 HBase Rest hakkında daha fazla bilgi için bkz. [Apache HBase Başvuru Kılavuzu](https://hbase.apache.org/book.html#_rest).
 
-> [!NOTE]
+> [!NOTE]  
 > Thrift, HDInsight’ta HBase tarafından desteklenmez.
 >
 > Curl’ü veya WebHCat ile başka bir REST iletişimini kullanırken HDInsight küme yöneticisinin kullanıcı adı ve parolasını sağlayarak isteklerin kimliğini doğrulamanız gerekir. Ayrıca, sunucuya istek göndermek için kullanılan Tekdüzen Kaynak Tanımlayıcısı’nın (URI) bir parçası olarak küme adını kullanmanız gerekir:
@@ -265,21 +264,21 @@ Tutarsızlıkları önlemek için kümeyi silmeden önce HBase tablolarını dev
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
-HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](../hdinsight-administer-use-portal-linux.md#create-clusters).
+HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, bir Apache HBase kümesi oluşturma ve tabloları oluşturma ve verileri tabloların HBase kabuğundan görüntülemeyi öğrendiniz. Ayrıca HBase tablolarındaki veriler üzerinde bir Hive sorgusu kullanmayı, HBase C# REST API’lerini kullanarak bir HBase tablosu oluşturmayı ve tablodan veri almayı öğrendiniz.
 
 Daha fazla bilgi için bkz:
 
-* [HDInsight Hbase'e genel bakış][hdinsight-hbase-overview]: Apache HBase, Apache büyük miktarlarda yapılandırmamış ve yarı yapılandırılmış veri için rastgele erişim ve güçlü tutarlılık sağlayan Hadoop'ta yerleşik bir Apache, açık kaynak, NoSQL veritabanı olan .
+* [HDInsight Hbase'e genel bakış][hdinsight-hbase-overview]: Apache HBase, büyük miktarlarda yapılandırmamış ve yarı yapılandırılmış veri için rastgele erişim ve güçlü tutarlılık sağlayan, Apache Hadoop üzerinde kurulu bir Apache, açık kaynaklı NoSQL veritabanıdır.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
-[hbase-reference]: http://hbase.apache.org/book.html#importtsv
+[hbase-reference]: https://hbase.apache.org/book.html#importtsv
 [hbase-schema]: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf
-[hbase-quick-start]: http://hbase.apache.org/book.html#quickstart
+[hbase-quick-start]: https://hbase.apache.org/book.html#quickstart
 
 
 

@@ -12,12 +12,12 @@ services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: e71de2d543c8f29b7195e74d574855bcbe739162
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9dd4ca4b4f156823aff3b8a475e06ea63f98be6c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260559"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975313"
 ---
 # <a name="aerial-image-classification"></a>Havadan görünüm sınıflandırması
 
@@ -174,7 +174,7 @@ Bir HDInsight kümesi oluşturmak için önerilen yöntem, bu proje, "Code\01_Da
 
 1. HDInsight Spark kümesi bu projenin "Code\01_Data_Acquisition_and_Understanding\01_HDInsight_Spark_Provisioning" alt "template.json" dosyayı şablonudur. Varsayılan olarak, şablon 40 çalışan düğümleri ile bir Spark kümesi oluşturur. Bu sayıyı ayarlamanız gerekir, şablonu, sık kullandığınız metin düzenleyicisinde açın ve "40" sürümünün tüm örneklerini dilediğiniz çalışan düğüm sayısı ile değiştirin.
     - Daha sonra seçtiğiniz çalışan düğümlerinin sayısını küçükse, bellek yetersiz hatalarla karşılaşabilirsiniz. Bellek hatalarını mücadele etmek için eğitim ve kullanıma hazır hale getirme betikleri kullanılabilir verilerin bir alt kümesi üzerinde bu belgenin sonraki bölümlerinde açıklandığı şekilde çalıştırabilirsiniz.
-2. Benzersiz bir ad ve parola için HDInsight kümesi ve bunları yazma seçin aşağıdaki komutta belirtilen yerlerde: ardından komutlar göndererek kümesi oluşturabilirsiniz:
+2. Benzersiz bir ad ve parola için HDInsight kümesi ve bunları yazma seçin aşağıdaki komutta belirtilen yerlerde: Ardından komutlar göndererek kümesi oluşturabilirsiniz:
 
     ```
     set HDINSIGHT_CLUSTER_NAME=[HDInsight cluster name]
@@ -332,7 +332,7 @@ pip install matplotlib azure-storage==0.36.0 pillow scikit-learn azure-mgmt-batc
 
 ## <a name="data-acquisition-and-understanding"></a>Veri edinme ve anlama
 
-Bu senaryo genel kullanıma açık hava tanımayı verileri kullanan [Ulusal Tarım tanımayı Program](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) 1 ölçerin çözünürlükte. Biz kara etiket göre sıralanır ve özgün NAIP verilerden kırpılmış 224 piksel x 224 piksel PNG dosya kümelerini oluşturulmasını [Ulusal Land kapsayan veritabanı](https://www.mrlc.gov/nlcd2011.php). "Developed" etiketli bir örnek görüntü tam boyutuyla gösterilmektedir:
+Bu senaryo genel kullanıma açık hava tanımayı verileri kullanan [Ulusal Tarım tanımayı Program](https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/) 1 ölçerin çözünürlükte. Biz kara etiket göre sıralanır ve özgün NAIP verilerden kırpılmış 224 piksel x 224 piksel PNG dosya kümelerini oluşturulmasını [Ulusal Land kapsayan veritabanı](https://www.mrlc.gov/data/references/national-land-cover-database-2011-nlcd2011). "Developed" etiketli bir örnek görüntü tam boyutuyla gösterilmektedir:
 
 ![Geliştirilmiş olan örnek kutucuk](media/scenario-aerial-image-classification/sample-tile-developed.png)
 

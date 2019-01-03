@@ -10,18 +10,18 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 9880afb6c4fd2b7fe1e97b5390c4769c8cafb4ed
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e293c27faa69fe5c79b776a98bcae0f72e85c3ee
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634627"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811163"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL veri ambarı iş zekası iş ortakları
 Uçtan uca veri ambarı çözümünüzü oluşturmak için çok çeşitli sektör lideri araçları seçin.  Bu makalede, Azure SQL veri ambarı destekleyen iş zekası (BI) çözümleri ile Microsoft iş ortağı şirketlerden vurgulanır.
 
 ## <a name="our-business-intelligence-partners"></a>İş Zekası ortaklarımız
-| Partner | Açıklama | Bağlantılar | Videolar |
+| İş ortağı | Açıklama | Bağlantılar | Videolar |
 | --- | --- | --- | --- |
 | ![Birst][1] |**Birst**<br>Birst bulut BI ve analiz küresel bir lider olan. Kuruluşlar, güvenilen bir kaynak veri her önemli iş kullanıcı bağlamında oluşturabilirsiniz. Ardından, kuruluşunuzdaki iş kullanıcıları raporlayın ve birinci sınıf BI araçları ile ilgili bilgileri analiz edin. |[Market][birst_marketplace]<br>[Web sitesi][birst_website]<br>[Twitter][birst_twitter]<br>[YouTube][birst_youtube] | |
 | ![ClearStory veri][2] |**ClearStory veri**<br>ClearStory verileri SQL veri ambarı'nda depolanan farklı veri arasında döngüsü hızlı analiz sağlar. Spark tabanlı platform ve analiz uygulama hızlı veri erişimi ve birbirinden farklı veri kümelerinden harmonization clearStory'nın tümleşik. Öngörüler elde etmek için kendi olmasını iş kullanıcılara da güç kazandırır hızlı, işbirliğine dayalı araştırma tanırlar. |[Web sitesi][clearstory_website]<br>[Veri sayfası][clearstory_datasheet]<br>[Twitter][clearstory_twitter]<br>[YouTube][clearstory_youtube] | |
@@ -34,7 +34,7 @@ Uçtan uca veri ambarı çözümünüzü oluşturmak için çok çeşitli sektö
 | ![SiSense][9] |**SiSense**<br>SiSense, analiz etmek ve görselleştirmek için bir işletme ihtiyaçları araçları ile birlikte gelen bir tam yığın iş zekası yazılımıdır: yüksek performanslı bir analiz veritabanı, birden çok kaynakları, basit veri ayıklama (ETL) ve web tabanlı bir veri birleştirme olanağı Görselleştirme. Analiz ve büyük veri kümeleri SiSense BI ve analiz ile bugün görselleştirmek başlatın. |[Web sitesi][sisense_website]<br>[Veri sayfası][sisense_datasheet]<br>[Twitter][sisense_twitter]<br>[YouTube][sisense_youtube] |[![video sisense](./media/sql-data-warehouse-partner-business-intelligence/sisense_video.jpg)](https://www.youtube.com/watch?v=6N3mkTWI5R4) |
 | ![Tableau][10] |**Tableau**<br>Tableau'nın Self Servis analizler herkes görebilir ve pek çok veritabanlarına düz dosyalardan veri arasında kendi verilerini anlamanıza yardımcı olur. Tableau, Microsoft Azure SQL veri ambarı için canlı verileri hem de bellek içi analiz destekleyen yerel, en iyi duruma getirilmiş bir bağlayıcı vardır. |[Market][tableau_marketplace]<br>[Web sitesi][tableau_website]<br>[Veri sayfası][tableau_datasheet]<br>[Twitter][tableau_twitter]<br>[YouTube][tableau_youtube] |[![tableau video](./media/sql-data-warehouse-partner-business-intelligence/tableau_video.jpg)](https://www.youtube.com/watch?v=TwbkI3ZzCHE) |
 | ![Targit][11] |**Targit**<br>Targit karar gerçek zamanlı panolar, Self Servis analizler, kullanıcı dostu raporlama, mobil şaşırtıcı özellik ve basit veri bulma teknoloji tek bir çözümde sunar BI ve analiz platformu sağlar. Targit şirketler cesareti davranmasına izin verir. |[Market][targit_marketplace]<br>[Web sitesi][targit_website]<br>[Twitter][targit_twitter]<br>[YouTube][targit_youtube] |[![video targit](./media/sql-data-warehouse-partner-business-intelligence/targit_video.jpg)](https://www.youtube.com/watch?v=A0vET80Ker4) |
-| ![İş][12] |**İş**<br>Bulut BI satıcı tarafından BARC geçici raporlama ve panolar için dereceli bir üst iş olur; BI Survey. Azure SQL veri ambarı'na bağlanın, sonra oluşturun ve güzel raporlar ve panolar işbirliğine dayalı BI ve konum zekası özellikleri ödüllü ile paylaşın. |[Market][yellowfin_marketplace]<br>[Web sitesi][yellowfin_website]<br>[Veri] [yellowfin_datasheet]<br>[Twitter][yellowfin_twitter]<br>[YouTube][yellowfin_youtube] |[![İş video](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_video.jpg)](https://www.youtube.com/watch?v=i1q33AftI0A) |
+| ![İş][12] |**İş**<br>Bulut BI satıcı tarafından BARC geçici raporlama ve panolar için dereceli bir üst iş olur; BI Survey. Azure SQL veri ambarı'na bağlanın, sonra oluşturun ve güzel raporlar ve panolar işbirliğine dayalı BI ve konum zekası özellikleri ödüllü ile paylaşın. |[Market][yellowfin_marketplace]<br>[Web sitesi][yellowfin_website]<br>[Veri sayfası][yellowfin_datasheet]<br>[Twitter][yellowfin_twitter]<br>[YouTube][yellowfin_youtube] |[![İş video](./media/sql-data-warehouse-partner-business-intelligence/yellowfin_video.jpg)](https://www.youtube.com/watch?v=i1q33AftI0A) |
 
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
@@ -95,12 +95,17 @@ Diğer ortaklarımızdan bazılarının hakkında daha fazla bilgi için bkz: [v
 
 [tableau_datasheet]:http://www.tableau.com/stories/workbook/azure-sql-data
 
-<!--[targit_datasheet]:--> [yellowfin_datasheet]:http://www.yellowfinbi.com/Document.i4?DocumentId=877299
+<!--[targit_datasheet]:-->
+
+[yellowfin_datasheet]:http://www.yellowfinbi.com/Document.i4?DocumentId=877299
 
 <!--Marketplace Links -->
+
 [birst_marketplace]:https://azure.microsoft.com/marketplace/partners/birst/birst/
 
-<!--[clearstory_marketplace]:--> [dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner
+<!--[clearstory_marketplace]:-->
+
+[dell_statistica_marketplace]:https://azure.microsoft.com/marketplace/partners/dell-software/statistica-data-miner
 
 [dundas_bi_marketplace]:https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/ 
 
@@ -118,15 +123,24 @@ Diğer ortaklarımızdan bazılarının hakkında daha fazla bilgi için bkz: [v
 
 <!--Press links-->
 
-<!--[birst_press]:--> [clearstory_press]:http://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/
+<!--[birst_press]:-->
 
-<!--[dell_statistica_press]:--> [dundas_bi_press]:https://www.dundas.com/about/news/24-06-2015-dundas-data-visualization-provides-seamless-integration-with-microsoft-azure-and-azure-sql-data-warehouse
+[clearstory_press]:http://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/
 
-<!--[jinfonet_press]:--> [logianalytics_press]:http://www.logianalytics.com/logi-news/announcing-logi-info-integration-with-azure-sql-data-warehouse/ [looker_press]:https://looker.com/news/press/looker-brings-self-serve-analytics-to-microsoft-azure
+<!--[dell_statistica_press]:-->
+
+[dundas_bi_press]:https://www.dundas.com/about/news/24-06-2015-dundas-data-visualization-provides-seamless-integration-with-microsoft-azure-and-azure-sql-data-warehouse
+
+<!--[jinfonet_press]:-->
+
+[logianalytics_press]:http://www.logianalytics.com/logi-news/announcing-logi-info-integration-with-azure-sql-data-warehouse/
+[looker_press]:https://looker.com/news/press/looker-brings-self-serve-analytics-to-microsoft-azure
 
 <!--[qlik_press]:-->
 
-<!--[sisense_press]:--> [tableau_press]:https://www.tableau.com/about/blog/2015/7/visualizing-data-cloud-microsoft-azure-tableau-online-40832 
+<!--[sisense_press]:-->
+
+[tableau_press]:https://www.tableau.com/about/blog/2015/7/visualizing-data-cloud-microsoft-azure-tableau-online-40832 
 
 <!--[targit_press]:-->
 <!--[yellowfin_press]:-->

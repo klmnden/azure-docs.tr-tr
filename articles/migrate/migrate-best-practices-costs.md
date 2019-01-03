@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 9d1acabd07e7c01445c55a57be9b0c9a36140aa5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: b8ff1ae2f4c07dc59bd1ffb631378817493b96b0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163778"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995057"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Maliyet ve boyutlandırma iş yükleri için en iyi uygulamaları için Azure geçişi
 
@@ -117,7 +117,7 @@ Azure, farklı türlerde depolama hesapları ve performans katmanları sağlar.
 
 **Hesap türü** | **Ayrıntılar** | **Kullanım**
 --- | --- | ---
-**Genel amaçlı v2 standart** | BLOB'larını destekler (engellemek, sayfa, ekleme), dosyalar, diskler, kuyruklar ve tablolar.<br/><br/> Sık erişimli, seyrek erişimli ve Arşiv erişim katmanı destekler. ZRS desteklenir. | Çoğu senaryo ve çoğu veri türleri için kullanın. Standart depolama hesapları, HHD veya SSD tabanlı olabilir.
+**Genel amaçlı v2 standart** | BLOB'larını destekler (engellemek, sayfa, ekleme), dosyalar, diskler, kuyruklar ve tablolar.<br/><br/> Sık erişimli, seyrek erişimli ve Arşiv erişim katmanı destekler. ZRS desteklenir. | Çoğu senaryo ve çoğu veri türleri için kullanın. Standart depolama hesapları, HDD veya SSD tabanlı olabilir.
 **Genel amaçlı v2 Premium** | BLOB Depolama verilerini (sayfa blobları) destekler. Sık erişimli, seyrek erişimli ve Arşiv erişim katmanı destekler. ZRS desteklenir.<br/><br/> SSD üzerinde depolanır. | Microsoft, tüm VM'ler için kullanılmasını önerir.
 **Genel amaçlı v1** | Erişim katmanı desteklenmiyor. ZRS desteklemiyor | Uygulamaları Azure Klasik dağıtım modeli gerekiyorsa kullanın.
 **Blob** | Yapılandırılmamış nesneleri depolamak için özel depolama hesabı'nı tıklatın. Blok blobları sağlar ve ekleme blobları yalnızca (hiçbir dosya, kuyruk, tablo veya Disk Depolama Hizmetleri). Aynı dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans genel amaçlı v2 olarak sağlar. | Sayfa bloblarını bu hesaplarda depolayamaz ve bu nedenle VHD dosyalarını da depolayamazsınız. Erişim katmanı sık erişimli veya seyrek erişimli olarak ayarlayabilirsiniz.
@@ -248,7 +248,7 @@ Azure'da, kaynakları tüketilir ve bunlar değilken ödemeyin kullandıkların�
 **Daha fazla bilgi edinin:**
 - Genel Bakış [Azure İzleyici](https://docs.microsoft.com/azure/azure-monitor/overview) ve [Azure Danışmanı](https://docs.microsoft.com/azure/advisor/advisor-overview).
 - [Alma](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations) Advisor maliyet önerileri.
-- [Bilgi nasıl [önerilerden maliyetlerini iyileştirme](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json), ve [beklenmeyen ücretlerden](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+- [Bilgi nasıl [önerilerden maliyetlerini iyileştirme](https://docs.microsoft.com/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json), ve [beklenmeyen ücretlerden](https://docs.microsoft.com/azure/billing/billing-getting-started).
 - [Hakkında bilgi edinin](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit/) Azure kaynak iyileştirme (ARO) Araç Seti
 
 ## <a name="best-practice-implement-resource-group-budgets"></a>En iyi yöntem: Kaynak grubu bütçelerini uygulayın

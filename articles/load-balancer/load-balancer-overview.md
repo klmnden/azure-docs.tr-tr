@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 3b1f2374618a0fdb446c4d0bf59fa14a828639ea
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 55cb1eee1c0319f9b1037476da208de377e0c47b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185622"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971197"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer nedir?
 
@@ -68,7 +68,7 @@ Load Balancer, TCP ve UDP uygulamaları için aşağıdaki temel özellikleri su
 
 * **Bağlantı noktası iletme**
 
-    Load Balancer ile, IP adresinin belirli bir ön ucundaki belirli bir bağlantı noktasından trafiği sanal ağ içindeki belirli bir arka uçtaki belirli bir bağlantı noktasına iletmek için bir gelen NAT kuralı oluşturabilirsiniz. Bu işlem de yük dengeleme ile aynı karma tabanlı dağıtım kullanılarak gerçekleştirilir. Bu özellikle ilgili yaygın senaryolar Azure Sanal Ağı içindeki VM örnekleriyle kurulan Uzak Masaüstü Protokolü (RDP) veya Secure Shell (SSH) oturumlarıdır. Birden fazla iç uç noktayı aynı ön uç IP adresi üzerindeki farklı bağlantı noktalarına eşleyebilirsiniz. Ön uç IP adreslerini kullanarak VM'lerinizi ek bir atlama kutusu olmadan internet üzerinden uzaktan yönetebilirsiniz.
+    Load Balancer ile, IP adresinin belirli bir ön ucundaki belirli bir bağlantı noktasından trafiği sanal ağ içindeki belirli bir arka uçtaki belirli bir bağlantı noktasına iletmek için bir gelen NAT kuralı oluşturabilirsiniz. Bu işlem de yük dengeleme ile aynı karma tabanlı dağıtım kullanılarak gerçekleştirilir. Bu özellikle ilgili yaygın senaryolar Azure Sanal Ağı içindeki VM örnekleriyle kurulan Uzak Masaüstü Protokolü (RDP) veya Secure Shell (SSH) oturumlarıdır. Birden fazla iç uç noktayı aynı ön uç IP adresi üzerindeki farklı bağlantı noktalarına eşleyebilirsiniz. Ön uç IP adreslerini sanal makinelerinize ek atlama kutusunu gerek kalmadan internet üzerinden uzaktan kullanabilirsiniz.
 
 * **Uygulamadan bağımsız ve saydam**
 

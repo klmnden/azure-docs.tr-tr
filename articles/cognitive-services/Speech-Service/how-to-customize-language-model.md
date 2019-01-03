@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Konuşma Tanıma Hizmeti ile bir dil modeli oluşturma'
+title: 'Öğretici: Konuşma hizmeti sayesinde bir dil modeli oluşturma'
 titlesuffix: Azure Cognitive Services
 description: Konuşma Tanıma Hizmeti ile bir dil modeli oluşturmayı öğrenin. Bu özel dil modeli uygulamanıza sesli etkileşim eklemek için mevcut durumu resim konuşma modelleri Microsoft ile birlikte kullanın.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 0eb946babaa3a01ca933a1290122755978fa017b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e65fa21eefcc103f553f8e1bc47792ac372c59e3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093480"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975450"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Öğretici: Özel dil modeli oluşturma
 
@@ -100,9 +100,7 @@ Eylem gerçekleştirilmeden önce uygun dil ayarının seçilmesi gerekir. Geçe
 
 Create Language Model (Dil Modeli Oluştur) sayfasında kullanılan veri kümesi gibi bu modelle ilgili bilgileri izlemenize yardımcı olacak **Name** (Ad) ve **Description** (Açıklama) bilgilerini girin. Ardından açılan menüden **Base Language Model** (Temel Dil Modeli) öğesini seçin. Bu model, özelleştirme işlemlerinizin başlangıç noktasıdır.
 
-İki temel dil modelinden birini seçebilirsiniz. Search and Dictation modeli; komutlar, arama sorguları veya dikte gibi bir uygulamaya yönlendirilen konuşmalar için uygundur. Conversational modeli, günlük konuşma tarzındaki konuşmaları tanımak için uygundur. Bu konuşma türü genelde başka bir kişiye hitaben yapılır ve çağrı merkezlerinde veya toplantılarda kullanılır.
-
-Search and Dictation modeli; komutlar, arama sorguları veya dikte gibi bir uygulamaya yönlendirilen konuşmalar için uygundur. Conversational modeli, günlük konuşma tarzındaki konuşmaları tanımak için uygundur. Bu konuşma türü genelde başka bir kişiye hitaben yapılır ve çağrı merkezlerinde veya toplantılarda kullanılır. "Universal" adlı yeni bir model de genel kullanıma sunulmuştur. Universal, tüm senaryoları kapsamayı hedeflemektedir ve ileride Search and Dictation ile Conversational modellerinin yerini alacaktır.
+İki temel dil modelinden birini seçebilirsiniz. Search and Dictation modeli; komutlar, arama sorguları veya dikte gibi bir uygulamaya yönlendirilen konuşmalar için uygundur. Conversational modeli, günlük konuşma tarzındaki konuşmaları tanımak için uygundur. Bu konuşma türü genelde başka bir kişiye hitaben yapılır ve çağrı merkezlerinde veya toplantılarda kullanılır. "Universal" adlı yeni bir model de genel kullanıma sunulmuştur. Universal, tüm senaryoları kapsamayı hedeflemektedir ve ileride Search and Dictation ile Conversational modellerinin yerini alacaktır.
 
 Aşağıdaki örnekte gösterildiği gibi, temel dil modelini belirledikten sonra **Dil Verileri** açılan menüsünü kullanarak özelleştirme için kullanmak istediğiniz dil veri kümesini seçin.
 

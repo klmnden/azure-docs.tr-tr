@@ -1,5 +1,5 @@
 ---
-title: Azure IOT Çözüm Hızlandırıcıları ile ilgili SSS | Microsoft Docs
+title: IOT Çözüm Hızlandırıcıları SSS - Azure | Microsoft Docs
 description: IOT Çözüm Hızlandırıcıları için sık sorulan sorular
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 294eae1dd5e591d12fdb82f62ea013ba54489686
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 59271a96c5ad1a92483ca585fc30f1e9de0ed4f7
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253355"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608758"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IOT Çözüm Hızlandırıcıları için sık sorulan sorular
 
@@ -40,7 +40,28 @@ DevKit cihaz kullanıyorsanız, kaynakları ve örnekleri bulabilirsiniz [IOT De
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>Yeni güncelleştirme yeni açık kaynaklı mikro hizmet tabanlı mimariye sağladığı avantajları sağlar?
 
-Son iki yıl içinde bulut mimarisi büyük ölçüde geliştirilmiştir. Mikro hizmetler geliştirme hızdan ödün vermeden ölçek ve esneklik elde etmek için harika bir düzen olarak ortaya çıkmıştır. Bu mimari deseni harika güvenilirlik ve ölçeklenebilirlik sonuçları ile çeşitli Microsoft hizmetleriyle dahili olarak kullanılır. Biz bu uygulamada böylece bunları müşterilerimizin yararlı öğrenme yerleştirirsiniz.
+Son iki yıl içinde bulut mimarisi büyük ölçüde geliştirilmiştir. Mikro hizmetler geliştirme hızdan ödün vermeden ölçek ve esneklik elde etmek için harika bir düzen olarak ortaya çıkmıştır. Bu mimari deseni harika güvenilirlik ve ölçeklenebilirlik sonuçları ile çeşitli Microsoft hizmetleriyle dahili olarak kullanılır. Böylece müşteriler, bunları avantaj elde Microsoft Çözüm Hızlandırıcısı uygulama içinde bu dersleri koyuyor.
+
+### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-azure-ad-tenant-how-do-i-complete-this-task"></a>Ben bir Hizmet Yöneticisi ve Aboneliğimi ve belirli bir arasında dizin eşlemesini değiştirmek istediğiniz Azure AD kiracısı. Bu görevi nasıl tamamlamak?
+
+Bkz: [Azure AD dizininize mevcut bir aboneliğe eklemek için](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
+
+### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Bir Hizmet Yöneticisi veya bir kuruluş hesabıyla oturum açıldığında ortak yöneticiyi değiştirmek istiyorum
+
+Destek makalesine bakın [Hizmet Yöneticisi değiştiriliyor ve bir kuruluş hesabıyla oturum açıldığında ortak yönetici](https://azure.microsoft.com/support/changing-service-admin-and-co-admin).
+
+### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Bu hatayı neden görüyorum? "Hesabınız bir çözüm oluşturmak için uygun izinlere sahip değil. Lütfen hesap yöneticinize başvurun veya farklı bir hesap ile deneyin."
+
+Yönergeler için aşağıdaki çizime bakın:
+
+![İzinleri akış çizelgesi](media/iot-accelerators-faq/flowchart.png)
+
+> [!NOTE]
+> Doğruladıktan sonra hatayı görmeye devam ederseniz Azure AD kiracısının genel Yöneticisi ve aboneliğin ortak yöneticisi olan, hesap yöneticinizden kullanıcıyı kaldırmasını ve gerekli izinleri şu sırayla yeniden atama vardır. İlk olarak, kullanıcının genel yönetici olarak ekleyin ve ardından kullanıcı Azure aboneliğinin ortak yönetici olarak ekleyin. Sorunlar devam ederse, başvurun [Yardım ve Destek](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>Bir Azure aboneliğim varken bu hatayı neden görüyorum? "Azure aboneliğinin önceden yapılandırılmış çözümler oluşturmak için gereklidir. Ücretsiz bir deneme hesabı yalnızca birkaç dakika içinde oluşturabilirsiniz."
+
+Bir Azure aboneliğiniz varsa, Kiracı, aboneliğiniz için eşlemesini doğrulayın ve açılır menüden doğru kiracının seçili olup olmadığını denetleyin. Kiracının doğru olduğunu onayladıysanız yukarıdaki diyagramı izleyin ve aboneliğinizi ve bu Azure AD Kiracı eşlemesini doğrulayın.
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>Uzaktan izleme çözümünün önceki sürümü hakkında bilgileri nerede bulabilirim?
 
@@ -52,12 +73,12 @@ Evet, yeni Uzaktan izleme aynı coğrafi bölgelerde kullanılabilir.
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Azure portalında bir kaynak grubu silmek ile azureiotsuite.com'da bir çözüm Hızlandırıcı üzerinde delete tuşuna basarak arasındaki fark nedir?
 
-* Çözüm Hızlandırıcısını içinde silerseniz [azureiotsuite.com](https://www.azureiotsolutions.com/), çözüm Hızlandırıcısını oluşturduğunuzda sağlanan tüm kaynakları silin. Bir kaynak grubuna ek kaynaklar eklediyseniz, bu kaynaklar da silinir.
+* Çözüm Hızlandırıcısını içinde silerseniz [azureiotsuite.com](https://www.azureiotsolutions.com/), çözüm Hızlandırıcısını oluşturduğunuzda dağıtılan tüm kaynakları silin. Bir kaynak grubuna ek kaynaklar eklediyseniz, bu kaynaklar da silinir.
 * Kaynak grubunu silerseniz [Azure portalında](https://portal.azure.com), yalnızca bu kaynak grubundaki kaynakları silin. Ayrıca çözüm Hızlandırıcı ile ilişkili Azure Active Directory uygulamasını silmek gerekir.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Azure IOT Çözüm Hızlandırıcıları olarak my mevcut yatırımlardan yararlanma devam edebilir?
 
-Evet. Bugün var olan herhangi bir çözümü Azure aboneliğinizde çalışmaya devam eder ve kaynak kodu Github'da kullanılabilir durumda kalır.
+Evet. Bugün var olan herhangi bir çözümü Azure aboneliğinizde çalışmaya devam eder ve kaynak kodu Github'da kullanılabilir kalır.
 
 ### <a name="how-many-iot-hub-instances-can-i-provision-in-a-subscription"></a>Bir abonelikte kaç IoT Hub örneği sağlayabilirim?
 
@@ -78,7 +99,7 @@ Elli. Oluşturabileceğiniz bir [Azure destek bileti](https://portal.azure.com/#
 
 Şu anda bir çözüm Hızlandırıcı ile oluşturamazsınız. bir [DreamSpark için Microsoft Azure](https://azure.microsoft.com/pricing/member-offers/imagine/) hesabı. Ancak, oluşturabileceğiniz bir [ücretsiz deneme hesabı için Azure](https://azure.microsoft.com/free/) çözüm Hızlandırıcısını sağlayan yalnızca birkaç dakika içinde oluşturun.
 
-### <a name="how-do-i-delete-an-aad-tenant"></a>Bir AAD kiracısını nasıl silerim?
+### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Azure AD kiracısını nasıl silerim?
 
 Eric Golpe'un blog gönderisini inceleyin [bir Azure AD Kiracısını silme Kılavuzu](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
 

@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2ccb4d2ff7beeeac53bafe726122c3b47682db03
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 48432b4a415c0c544c4a64444c89cf818fa00e1f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955438"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972437"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights ile kullanım analizi
 
@@ -28,17 +28,28 @@ Web veya mobil uygulamanızı hangi özelliklerinin en popüler misiniz? Kullan�
 
 Application Insights hem uygulama sunucu kodunuzda ve web sayfalarınızda yükleyerek en iyi deneyimi elde edilir. Uygulamanızın istemci ve sunucu bileşenleri telemetri analizi için Azure portalı için geri gönderin.
 
-1. **Sunucu kodu:** için uygun modülünü yüklemek, [ASP.NET](app-insights-asp-net.md), [Azure](app-insights-overview.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), veya [diğer](app-insights-platforms.md) uygulama.
+1. **Sunucu kodu:** İçin uygun modülünü yüklemek, [ASP.NET](../azure-monitor/app/asp-net.md), [Azure](app-insights-overview.md), [Java](../azure-monitor/app/java-get-started.md), [Node.js](app-insights-nodejs.md), veya [diğer](app-insights-platforms.md) uygulama.
 
     * *Sunucu kodu yüklemek istemiyor musunuz? Yalnızca [Azure Application Insights kaynağı oluşturma](app-insights-create-new-resource.md).*
 
-2. **Web sayfası koduna:** açın [Azure portalında](https://portal.azure.com), uygulamanız için Application Insights kaynağını açın ve ardından açın **Başlarken > İzleme ve tanılama istemci tarafı**. 
+2. **Web sayfası koduna:** Kapatmadan önce web sayfası için aşağıdaki betiği ekleyin ``</head>``. Uygun değere Application Insights kaynağınızın izleme anahtarını değiştirin:
 
-    ![Betik ana web sayfanızın baş kopyalayın.](./media/app-insights-usage-overview/02-monitor-web-page.png)
+   ```javascript
+      <script type="text/javascript">
+        var appInsights=window.appInsights||function(a){
+            function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
+        }({
+            instrumentationKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
+        });
+        
+        window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+    </script>
+    ```
+    Web sitelerini izlemek için kullanabileceğiniz daha gelişmiş yapılandırmalar hakkında bilgi edinmek için [JavaScript SDK API başvurusunu](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md) inceleyin.
 
-3. **Mobil uygulama kodu:** uygulamanızdan olayları toplayabilir ve bu olayların kopyalarını göre Analiz için Application Insights'a gönderme için App Center SDK'sını kullanın [bu kılavuzu izleyerek](app-insights-mobile-center-quickstart.md).
+3. **Mobil uygulama kodu:** Uygulamanızdan olayları toplayabilir ve bu olayların kopyalarını göre Analiz için Application Insights'a gönderme için App Center SDK'sını kullanın [bu kılavuzu izleyerek](app-insights-mobile-center-quickstart.md).
 
-4. **Telemetri alın:** projeniz için bir kaç dakika hata ayıklama modunda çalıştırabilir ve sonuçları Application ınsights'ta genel bakış dikey penceresinde bulun.
+4. **Telemetri alın:** Projeniz için bir kaç dakika hata ayıklama modunda çalıştırabilir ve sonuçları Application ınsights'ta genel bakış dikey penceresinde bulun.
 
     Uygulamanızın performansını izleyin ve uygulamanızla kullanıcıların ne yaptıklarını bulmak için uygulamanızı yayımlayın.
 
@@ -103,7 +114,7 @@ Veya sunucu tarafı:
 
 Böylece filtrelemek veya olayları portalda incelediğinizde bölme bu olayları, özellik değerlerini ekleyebilirsiniz. Ayrıca, standart bir özellikler kümesini bir dizi bireysel bir kullanıcı etkinliklerini izlemenizi sağlayan anonim kullanıcı kimliği gibi her bir olay eklenir.
 
-Daha fazla bilgi edinin [özel olaylar](app-insights-api-custom-events-metrics.md#trackevent) ve [özellikleri](app-insights-api-custom-events-metrics.md#properties).
+Daha fazla bilgi edinin [özel olaylar](../azure-monitor/app/api-custom-events-metrics.md#trackevent) ve [özellikleri](../azure-monitor/app/api-custom-events-metrics.md#properties).
 
 ### <a name="slice-and-dice-events"></a>Dilimlediği olayları
 
@@ -121,7 +132,7 @@ Bu yöntem için ayrı özellik değerlerini uygulamanızın her sürüm tarafı
 
 Application Insights portalında, filtreleme ve farklı sürümleri karşılaştırmak için özellik değerleri, verilerinizde bölebilirsiniz.
 
-Bunu yapmak için [bir telemetri Başlatıcısı kümesi](app-insights-api-filtering-sampling.md##add-properties-itelemetryinitializer):
+Bunu yapmak için [bir telemetri Başlatıcısı kümesi](../azure-monitor/app/api-filtering-sampling.md##add-properties-itelemetryinitializer):
 
 ```csharp
 

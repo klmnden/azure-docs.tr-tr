@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: b110a57526d6e23ba53afce0a91d735fad6d247c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 06ecdf31c2627eda5bf651667703ddcf39c9d307
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215810"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604108"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Media Services REST API çağrıları için Postman'ı yapılandırma
 
@@ -30,7 +30,7 @@ Bu makalede nasıl yapılacağı gösterilmektedir **Postman** böylece Azure Me
 - İçin gereken bilgileri elde [API'lere erişim](access-api-cli-how-to.md)
 - AMS REST öğreticilerinden bazılarında gösterilen REST API'lerini yürütmek için [Postman](https://www.getpostman.com/) REST istemcisini yükleyin. 
 
-    Biz **Postman**'ı kullanıyoruz, ancak herhangi bir REST aracı da olabilir. Diğer seçenekler şunlardır: REST eklentili **Visual Studio Code** veya **Telerik Fiddler**. 
+    Biz **Postman**'ı kullanıyoruz, ancak herhangi bir REST aracı da olabilir. Diğer Seçenekler şunlardır: **Visual Studio Code** REST eklentisiyle veya **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Postman dosyalarını indirme
 
@@ -75,7 +75,7 @@ Bu bölümde Postman yapılandırılmaktadır.
 
 AMS v3 kaynakları düzenleme başlamadan önce almak ve hizmet sorumlusu kimlik doğrulaması için Azure AD belirteç ayarlamak gerekir.
 
-1. Postman'ın sol penceresinde, "Adım 1: AAD Kimlik doğrulama belirteci alma"'yı seçin.
+1. Postman sol penceresinde, seçin "1. adım: AAD kimlik doğrulaması belirteci alma".
 2. Sonra, "Hizmet Sorumlusu Kimlik Doğrulaması için Azure AD Belirteci alma"'yı seçin.
 3. **Gönder**’e basın.
 
@@ -85,7 +85,7 @@ AMS v3 kaynakları düzenleme başlamadan önce almak ve hizmet sorumlusu kimlik
     https://login.microsoftonline.com/:tenantId/oauth2/token
     ```
 
-4. Yanıt belirteç ile gelir ve "AccessToken" ortam değişkenini belirteç değerine ayarlar. "AccessToken"'ı ayarlayan kodu görmek için **Testler** sekmesine tıklayın. 
+4. Yanıt belirteç ile gelir ve "AccessToken" ortam değişkenini belirteç değerine ayarlar.  
 
     ![AAD belirteci alma](./media/develop-with-postman/postman-get-aad-auth-token.png)
 

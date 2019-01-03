@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: feb2e2f9f36ab20c0b96fab9432df41faf4f9569
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3131afb31fd08903bb349f86634d2b9e6449c59e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407941"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752665"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application ınsights'ta sistem performans sayaçları
 
@@ -42,7 +42,7 @@ Windows sağlayan çok çeşitli [performans sayaçları](https://docs.microsoft
          - ASP.NET Applications\\Requests In Application Queue
          - Processor(_Total)\\% Processor Time
 
-Tek bir yerde tüm faydalı grafikleri görmek için oluşturun bir [Pano](app-insights-dashboards.md) ve bunları sabitleyin.
+Tek bir yerde tüm faydalı grafikleri görmek için oluşturun bir [Pano](../azure-monitor/app/app-insights-dashboards.md) ve bunları sabitleyin.
 
 ## <a name="add-counters"></a>Sayaçları ekleme
 
@@ -99,7 +99,7 @@ Veya, oluşturduğunuz özel ölçümler ile aynı şeyi yapmak için:
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Analytics'te performans sayaçları
-Arama ve performans sayacı raporlarda görüntüleme [Analytics](app-insights-analytics.md).
+Arama ve performans sayacı raporlarda görüntüleme [Analytics](../azure-monitor/app/analytics.md).
 
 **PerformanceCounters** şema sunan `category`, `counter` adı ve `instance` her performans sayacının adı.  Her uygulama için telemetriyi yalnızca bu uygulama için sayaçları görürsünüz. Örneğin, görmek için hangi sayaçları kullanılabilir: 
 
@@ -120,15 +120,15 @@ Gibi diğer telemetri **performanceCounters** bir sütunda da `cloud_RoleInstanc
 
 * *Özel durum oranı* bir sistem performans sayacı. CLR atılır ve toplam aralığı uzunluğu tarafından bir örnekleme aralığındaki böler tüm işlenen ve yakalanamayan özel durumları sayar. Application Insights SDK'sı, bu sonuç toplar ve portala gönderir.
 
-* *Özel durumlar* grafiğin örnekleme aralığı portalda tarafından alınan TrackException raporlarının sayısı. Burada yazdığınız TrackException kodunuzda çağırır ve tüm içermez yalnızca işlenen özel durumları içerir [işlenmeyen özel durumları](app-insights-asp-net-exceptions.md). 
+* *Özel durumlar* grafiğin örnekleme aralığı portalda tarafından alınan TrackException raporlarının sayısı. Burada yazdığınız TrackException kodunuzda çağırır ve tüm içermez yalnızca işlenen özel durumları içerir [işlenmeyen özel durumları](../azure-monitor/app/asp-net-exceptions.md). 
 
 ## <a name="performance-counters-in-aspnet-core-applications"></a>ASP.Net Core uygulamalarında performans sayaçları
 Performans sayaçları, uygulamanın tam .NET Framework yalnızca hedeflediği ise desteklenir. .Net Core için performans sayaçlarını toplama yeteneği yoktur uygulamalar.
 
 ## <a name="alerts"></a>Uyarılar
-Diğer ölçümler gibi yapabilecekleriniz [uyarı ayarlama](app-insights-alerts.md) bir performans sayacı belirttiğiniz sınırı dışında aşması durumunda sizi uyarır. Uyarılar bölmesini açın ve eklemek uyarı tıklayın.
+Diğer ölçümler gibi yapabilecekleriniz [uyarı ayarlama](../azure-monitor/app/alerts.md) bir performans sayacı belirttiğiniz sınırı dışında aşması durumunda sizi uyarır. Uyarılar bölmesini açın ve eklemek uyarı tıklayın.
 
 ## <a name="next"></a>Sonraki adımlar
-* [Bağımlılık izleme](app-insights-asp-net-dependencies.md)
-* [Özel durum izleme](app-insights-asp-net-exceptions.md)
+* [Bağımlılık izleme](../azure-monitor/app/asp-net-dependencies.md)
+* [Özel durum izleme](../azure-monitor/app/asp-net-exceptions.md)
 

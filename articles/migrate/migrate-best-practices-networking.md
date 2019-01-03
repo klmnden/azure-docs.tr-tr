@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 1493eb6978b00771aa8ed4d8cfc28c37a9dde5b6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c6a995c20beefb3a939aa1421eed537137037922
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139757"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994972"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>İş yükleri için ağ kurma için en iyi uygulamaları için Azure geçişi
 
@@ -37,7 +37,7 @@ Azure sanal ağları (Vnet) sağlar:
 
 Nesnelerin interneti ihtiyacınız olduğunda IP adresini düzenlemek nasıl dahil olmak üzere sanal ağ topolojinizi planlama, nasıl uygulanacağını bir merkez-uç ağ alanları hakkında düşünmek birçok nasıl Azure kullanılabilirlik alanları uygulayan sanal ağlar, alt ağlara ayırabilir ve DNS ayarlamalısınız.
 
-## <a name="best-practice-plan-ip-addressing"></a>En iyi yöntem: planlama IP adresleme
+## <a name="best-practice-plan-ip-addressing"></a>En iyi yöntem: IP adresleme planlama
 
 Sanal ağlar, geçişin bir parçası oluşturduğunuzda, sanal ağ IP adresi alanınıza planlamanız önemlidir.
 
@@ -53,7 +53,7 @@ Sanal ağlar, geçişin bir parçası oluşturduğunuzda, sanal ağ IP adresi al
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) ağ kısıtlamaları.
 
 
-## <a name="best-practice-implement-a-hub-spoke-network-topology"></a>En iyi yöntem: bir merkez-uç ağ topolojisi uygulama
+## <a name="best-practice-implement-a-hub-spoke-network-topology"></a>En iyi yöntem: Merkez-uç ağ topolojisi uygulama
 
 Merkez-uç ağ topolojisi, kimlik ve güvenlik gibi hizmetleri paylaşırken iş yüklerini yalıtır.
 - Hub merkezi bir bağlantı noktası davranan Azure sanal ağı ' dir.
@@ -76,7 +76,7 @@ Aşağıdaki topluluklara bir göz atın:
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) VNet eşlemesi.
 
 
-## <a name="best-practice-design-subnets"></a>En iyi yöntem: alt ağları tasarlama
+## <a name="best-practice-design-subnets"></a>En iyi yöntem: Tasarım alt ağlar
 
 İçinde bir sanal ağ yalıtımı sağlamak için bir veya daha fazla alt ağa bölün ve her alt ağ için alt ağın adres alanının bir bölümü ayırın.
 - Her sanal ağ içindeki birden çok alt ağ oluşturabilirsiniz.
@@ -101,7 +101,7 @@ GELİŞTİRME DB EUS2 | 10.245.24.0/23 | 507 | Veritabanı VM'ler
 - [Bilgi nasıl](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure) kurgusal bir şirkette (Contoso) ağ altyapılarını geçiş için hazır.
 
 
-## <a name="best-practice-set-up-a-dns-server"></a>En iyi yöntem: bir DNS sunucusunu ayarlayın
+## <a name="best-practice-set-up-a-dns-server"></a>En iyi yöntem: Bir DNS sunucusunu ayarlayın
 
 Sanal ağ dağıtma, azure varsayılan olarak bir DNS sunucusu ekler. Bu, sanal ağlar hızlı bir şekilde oluşturup kaynakları dağıtma sağlar. Ancak, bu DNS sunucusu bu VNet üzerinde yalnızca kaynaklara hizmetleri sağlar. Birden çok sanal ağları birbirine bağlama veya bir şirket içi sunucusuna ait sanal ağlar bağlanmak istiyorsanız, ek ad çözümlemesi becerileri gerekir. Örneğin, sanal ağlar arasında DNS adlarını çözümlemek için Active Directory gerekebilir. Bunu yapmak için azure'da kendi özel DNS sunucusu dağıtın.
 
@@ -118,10 +118,10 @@ Sanal ağ dağıtma, azure varsayılan olarak bir DNS sunucusu ekler. Bu, sanal 
 
 **Daha fazla bilgi edinin:**
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure) kendi DNS sunucunuzu kullanırken ad çözümlemesi.
-- [Hakkında bilgi edinin](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) DNS adlandırma kuralları ve kısıtlamalar.
+- [Hakkında bilgi edinin](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) DNS adlandırma kuralları ve kısıtlamalar.
 
 
-## <a name="best-practice-set-up-availability-zones"></a>En iyi yöntem: kullanılabilirlik bölgelerini ayarlayın
+## <a name="best-practice-set-up-availability-zones"></a>En iyi yöntem: Kullanılabilirlik alanları ayarlayın
 
 Kullanılabilirlik alanları, uygulamalarınızın ve verilerinizin veri merkezi arızasına karşı korumak için yüksek kullanılabilirlik artırın.
 
@@ -134,8 +134,8 @@ Kullanılabilirlik alanları, uygulamalarınızın ve verilerinizin veri merkezi
     ![Kullanılabilirlik alanı](./media/migrate-best-practices-networking/availability-zone.png) *kullanılabilirlik alanı*
 
 - Planlama ve yüksek kullanılabilirlik, işlem, depolama, ağ ve şirket içi veri kaynaklarına bir bölge içinde birlikte bulundurma ve bunları diğer bölgelere çoğaltma tarafından geçiş Mimarinizi oluşturun. Kullanılabilirlik alanlarını destekleyen azure Hizmetleri'nin iki kategoriye ayrılır:
-    - Bölgesel hizmetler: kaynak belirli bir bölge ile ilişkilendirin. Örnek VM'ler için yönetilen diskler, IP adresleri).
-    - Bölgesel olarak yedekli Hizmetleri: kaynak dilimlerinde otomatik olarak çoğaltır. Örneğin, bölgesel olarak yedekli depolama, Azure SQL veritabanı.
+    - Bölgesel hizmetler: Bir kaynak belirli bir bölge ile ilişkilendirebilirsiniz. Örnek VM'ler için yönetilen diskler, IP adresleri).
+    - Bölgesel olarak yedekli Hizmetleri: Kaynak dilimlerinde otomatik olarak çoğaltır. Örneğin, bölgesel olarak yedekli depolama, Azure SQL veritabanı.
 - İnternet'e yönelik iş yükleri veya bölgesel hataya dayanıklılık sağlamak için uygulama katmanı, dengeli standart bir Azure yük dağıtabilirsiniz.
 
     ![Yük Dengeleyici](./media/migrate-best-practices-networking/load-balancer.png) *yük dengeleyici*
@@ -149,14 +149,14 @@ Kullanılabilirlik alanları, uygulamalarınızın ve verilerinizin veri merkezi
 
 Başarılı bir geçiş için şirket içi Kurumsal ağlara Azure'a bağlanmak için önemlidir. Bu hizmetleri Azure'dan sağlandığını burada bir karma bulut ağ olarak da bilinen bir her zaman açık bağlantı oluşturur şirket kullanıcılarına bulut. Bu ağ türü oluşturmak için iki seçenek vardır:
 
-- **Siteden siteye VPN:** siteden siteye dağıtılan Azure VPN ağ geçidi ile uyumlu şirket içi VPN cihazınız arasında sanal ağ içinde bağlantı. Şirket içi yetkili kaynak, sanal ağlar erişebilir. Siteden siteye iletişim, internet üzerinden şifrelenmiş bir tünel aracılığıyla gönderilir. 
-- **Azure ExpressRoute:** bir ExpressRoute iş ortağı aracılığıyla şirket içi ağınız ve Azure arasında bir Azure ExpressRoute bağlantı kuramadı. Bu bağlantı özeldir ve trafiği internet üzerinden Git değil.
+- **Siteden siteye VPN:** Siteden siteye dağıtılan Azure VPN ağ geçidi ile uyumlu şirket içi VPN cihazınız arasında sanal ağ içinde bağlantı. Şirket içi yetkili kaynak, sanal ağlar erişebilir. Siteden siteye iletişim, internet üzerinden şifrelenmiş bir tünel aracılığıyla gönderilir. 
+- **Azure ExpressRoute:** Bir ExpressRoute iş ortağı aracılığıyla şirket içi ağınız ve Azure arasında bir Azure ExpressRoute bağlantısı kurun. Bu bağlantı özeldir ve trafiği internet üzerinden Git değil.
 
 **Daha fazla bilgi edinin:**
 
 - [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/vpn) karma bulut ağı hakkında.
 
-## <a name="best-practice-implement-a-highly-available-site-to-site-vpn"></a>En iyi yöntem: yüksek oranda kullanılabilir bir siteden siteye VPN uygulayın
+## <a name="best-practice-implement-a-highly-available-site-to-site-vpn"></a>En iyi yöntem: Yüksek oranda kullanılabilir bir siteden siteye VPN uygulayın
 
 Siteden siteye VPN uygulamak için Azure VPN ağ geçidi ayarlayın.
 - Bir VPN ağ geçidi, belirli bir genel Internet üzerinden bir Azure sanal ağı ve şirket içi konum arasında şifrelenmiş trafik göndermek için kullanılan sanal ağ geçidi türüdür.
@@ -193,7 +193,7 @@ Siteden siteye VPN ayarlama, aşağıdakileri yapın:
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview) Azure VPN ağ geçitleri ile BGP ayarı.
 
 
-### <a name="best-practice-configure-a-gateway-for-vpn-gateways"></a>En iyi yöntem: bir ağ geçidi için VPN ağ geçitleri yapılandırın
+### <a name="best-practice-configure-a-gateway-for-vpn-gateways"></a>En iyi yöntem: VPN ağ geçitleri için bir ağ geçidi yapılandırma
 
 Azure VPN ağ geçidi oluşturduğunuzda, GatewaySubnet adlı özel bir alt ağı kullanmalıdır. Bu alt ağ Not Bu en iyi uygulamaları oluştururken:
 
@@ -205,7 +205,7 @@ Azure VPN ağ geçidi oluşturduğunuzda, GatewaySubnet adlı özel bir alt ağ�
 **Daha fazla bilgi edinin:**
 - [Bu aracı kullanmak](https://gallery.technet.microsoft.com/scriptcenter/Address-prefix-calculator-a94b6eed) IP adresi alanınıza belirlemek için.
 
-## <a name="best-practice-implement-azure-virtual-wan-for-branch-offices"></a>En iyi yöntem: uygulama Azure sanal WAN şubeler için
+## <a name="best-practice-implement-azure-virtual-wan-for-branch-offices"></a>En iyi yöntem: Azure sanal WAN şube ofisleri için uygulama
 
 Birden çok VPN bağlantıları için Azure sanal WAN üzerinden Azure en iyi duruma getirilmiş ve otomatik dal dal bağlantı sağlayan bir ağ hizmetidir.
 - Sanal WAN, Azure ile iletişim kurmak için dal cihazlarını bağlamanızı ve yapılandırmanızı sağlar. Bu, el ile veya bir sanal WAN iş ortağı aracılığıyla tercih edilen sağlayıcısı cihazları kullanarak yapılabilir.
@@ -215,7 +215,7 @@ Birden çok VPN bağlantıları için Azure sanal WAN üzerinden Azure en iyi du
 **Daha fazla bilgi edinin:**
 [öğrenin](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-about) Azure sanal WAN.
 
-### <a name="best-practice-implement-expressroute-for-mission-critical-connections"></a>En iyi yöntem: uygulama ExpressRoute için Görev açısından kritik bağlantıları
+### <a name="best-practice-implement-expressroute-for-mission-critical-connections"></a>En iyi yöntem: ExpressRoute için Görev açısından kritik bağlantıları uygulama
 
 Azure ExpressRoute hizmeti, Azure sanal veri merkezi arasında özel bağlantılar oluşturarak, şirket içi altyapınızı Microsoft bulutuna genişletmenizi sağlar ve şirket içi ağlara.
 - ExpressRoute bağlantıları, herhangi bir ağdan herhangi bir (IP VP) ağ noktadan noktaya Ethernet ağı üzerinden veya bağlantı sağlayıcısı üzerinden olabilir. Bunlar, genel internet üzerinden kurulmaz.
@@ -280,7 +280,7 @@ Sanal ağlar güvenliğini sağlama sorumluluğunu Microsoft ile sizin arasında
 - [Genel bakışın](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices) ağ güvenliği için en iyi yöntemler.
 - [Bilgi edinmek için nasıl](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm#security) güvenli ağlar için tasarım.
 
-## <a name="best-practice-implement-an-azure-perimeter-network"></a>En iyi yöntem: bir Azure çevre ağındaki uygulama
+## <a name="best-practice-implement-an-azure-perimeter-network"></a>En iyi yöntem: Bir Azure çevre ağındaki uygulama
 
 Microsoft bulut altyapısını koruma konusunda yoğun yatırım alışkanlıklarını olsa da, bulut Hizmetleri ve kaynak gruplarını korumanız gerekir. Çok katmanlı bir güvenlik yaklaşımı, en iyi savunma sağlar. Yerinde bir çevre ağına koyma, savunma stratejisinin önemli bir parçasıdır.
 
@@ -301,7 +301,7 @@ Aşağıdaki şekilde, iki güvenlik sınırları ile bir kurumsal ağda tek alt
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid) Azure ile şirket içi veri merkezi arasında bir çevre ağına dağıtılıyor.
 
 
-## <a name="best-practice-filter-vnet-traffic-with-nsgs"></a>En iyi yöntem: Filtre ağa trafik Nsg'ler ile
+## <a name="best-practice-filter-vnet-traffic-with-nsgs"></a>En iyi yöntem: Nsg'ler ile sanal ağ trafiğini filtreleme
 
 Ağ güvenlik grupları (NSG), kaynaklara gelen ve giden trafiği filtrelemek birden çok gelen ve giden güvenlik kuralları içerir. Filtreleme, kaynak ve hedef IP adresi, bağlantı noktası ve protokol olabilir. 
 - Nsg'ler izin veren veya gelen ağ trafiği (veya giden ağ trafiği) reddeden güvenlik kuralları içerir birçok türde Azure kaynağı. Her kural için kaynak, hedef, bağlantı noktası ve protokol belirtebilirsiniz.
@@ -336,11 +336,11 @@ Hizmet etiketleri, bir kural Azure hizmetlerinin gruplara atamaya dışında el 
 
 **Daha fazla bilgi edinin:**
 
-- [Hakkında bilgi edinin](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) Nsg'ler.
+- [Hakkında bilgi edinin](https://docs.microsoft.com/azure/virtual-network/security-overview) Nsg'ler.
 - [Gözden geçirme](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) hizmet etiketleri Nsg'ler için kullanılabilir.
 
 
-## <a name="best-practice-use-application-security-groups"></a>En iyi yöntem: uygulama güvenlik grupları kullanın
+## <a name="best-practice-use-application-security-groups"></a>En iyi yöntem: Uygulama güvenlik grupları kullanın
 
 Uygulama güvenlik grupları ağ güvenliğini uygulamanın yapısının doğal bir uzantısı yapılandırmanıza olanak sağlar.
 
@@ -365,9 +365,9 @@ NIC4 | AsgDb
 
     **Kural adı** | **Amacı** | **Ayrıntılar**
     --- | --- | ---   
-    Allow-HTTP-Inbound-Internet | Trafik, internet'ten web sunucuları sağlar. Ek bir kural AsgLogic veya AsgDb uygulama güvenlik grupları için gereken şekilde internet'ten gelen trafiği DenyAllInbound varsayılan güvenlik kuralı tarafından reddedildi. | Öncelik: 100<br/><br/> Kaynak: internet<br/><br/> Kaynak bağlantı noktası: *<br/><br/> Hedef: AsgWeb<br/><br/> Hedef bağlantı noktası: 80<br/><br/> Protokol: TCP<br/><br/> Erişim: izin verin.
-    Deny-Database-All | Aynı sanal ağ kaynakları arasındaki tüm iletişim Allowvnetınbound varsayılan güvenlik kuralından sağlar, bu kural, tüm kaynaklardan trafiği reddetmeye yönelik gereklidir. | Öncelik: 120<br/><br/> Kaynak: *<br/><br/> Kaynak bağlantı noktası: *<br/><br/> Hedef: AsgDb<br/><br/> Hedef bağlantı noktası: 1433<br/><br/> Protokol: tüm<br/><br/> Erişim: reddet.
-    Allow-Database-BusinessLogic | Trafik AsgLogic uygulama güvenlik grubuna AsgDb uygulama güvenlik grubuna izin verin. Bu kuralın önceliğini Reddet veritabanı tüm kural yüksektir ve söz konusu kuralı önce işlenir, AsgLogic uygulama güvenlik grubuna gelen trafiğe izin verilir ve diğer tüm trafik engellenir. | Öncelik: 110<br/><br/> Kaynak: AsgLogic<br/><br/> Kaynak bağlantı noktası: *<br/><br/> Hedef: AsgDb<br/><br/> Hedef bağlantı noktası: 1433<br/><br/> Protokol: TCP<br/><br/> Erişim: izin verin.
+    Allow-HTTP-Inbound-Internet | Trafik, internet'ten web sunucuları sağlar. Ek bir kural AsgLogic veya AsgDb uygulama güvenlik grupları için gereken şekilde internet'ten gelen trafiği DenyAllInbound varsayılan güvenlik kuralı tarafından reddedildi. | Önceliği: 100<br/><br/> Kaynak: internet<br/><br/> Kaynak bağlantı noktası: *<br/><br/> Hedef: AsgWeb<br/><br/> Hedef bağlantı noktası: 80<br/><br/> Protokol: TCP<br/><br/> Erişim: İzin verir.
+    Deny-Database-All | Aynı sanal ağ kaynakları arasındaki tüm iletişim Allowvnetınbound varsayılan güvenlik kuralından sağlar, bu kural, tüm kaynaklardan trafiği reddetmeye yönelik gereklidir. | Önceliği: 120<br/><br/> Kaynak: *<br/><br/> Kaynak bağlantı noktası: *<br/><br/> Hedef: AsgDb<br/><br/> Hedef bağlantı noktası: 1433<br/><br/> Protokol: Tümü<br/><br/> Erişim: İzin verme.
+    Allow-Database-BusinessLogic | Trafik AsgLogic uygulama güvenlik grubuna AsgDb uygulama güvenlik grubuna izin verin. Bu kuralın önceliğini Reddet veritabanı tüm kural yüksektir ve söz konusu kuralı önce işlenir, AsgLogic uygulama güvenlik grubuna gelen trafiğe izin verilir ve diğer tüm trafik engellenir. | Önceliği: 110<br/><br/> Kaynak: AsgLogic<br/><br/> Kaynak bağlantı noktası: *<br/><br/> Hedef: AsgDb<br/><br/> Hedef bağlantı noktası: 1433<br/><br/> Protokol: TCP<br/><br/> Erişim: İzin verir.
 
 - Bir uygulama güvenlik grubunu kaynak veya hedef olarak belirten kurallar yalnızca uygulama güvenlik grubuna üye olan ağ arabirimlerine uygulanır. Ağ arabirimi bir uygulama güvenlik grubuna üye değilse, ağ güvenlik grubu alt ağ ile ilişkilendirilmiş olsa dahi kural ağ arabirimine uygulanmaz.
 
@@ -376,7 +376,7 @@ NIC4 | AsgDb
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups) uygulama güvenlik grupları.
 
 
-### <a name="best-practice-secure-access-to-paas-using-vnet-service-endpoints"></a>En iyi yöntem: sanal ağ hizmet uç noktaları kullanarak PaaS için erişiminin güvenliğini sağlama
+### <a name="best-practice-secure-access-to-paas-using-vnet-service-endpoints"></a>En iyi yöntem: Sanal ağ hizmet uç noktaları kullanarak PaaS hizmetlerine güvenli erişim
 
 Sanal ağ hizmet uç noktaları, sanal ağ özel adres alanınızı ve kimlik Azure hizmetlerine doğrudan bağlantı üzerinden genişletin.
 
@@ -392,7 +392,7 @@ Sanal ağ hizmet uç noktaları, sanal ağ özel adres alanınızı ve kimlik Az
 - [Hakkında bilgi edinin](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) sanal ağ hizmet uç noktaları.
 
 
-## <a name="best-practice-control-public-ip-addresses"></a>En iyi yöntem: denetim genel IP adresleri
+## <a name="best-practice-control-public-ip-addresses"></a>En iyi yöntem: Denetim genel IP adresleri
 
 Azure'da genel IP adresleri, sanal makineleri, yük Dengeleyiciler, uygulama ağ geçitleri ve VPN ağ geçitleri ile ilişkilendirilebilir.
 
@@ -452,7 +452,7 @@ Azure Web uygulaması Güvenlik Duvarı (WAF), Azure application Gateway özelli
 - [Gözden geçirme](https://docs.microsoft.com/azure/application-gateway/application-gateway-waf-configuration) WAF sınırlamalar ve özel durumlar.
 
 
-## <a name="best-practice-implement-azure-network-watcher"></a>En iyi yöntem: uygulama Azure Ağ İzleyicisi
+## <a name="best-practice-implement-azure-network-watcher"></a>En iyi yöntem: Uygulama Azure Ağ İzleyicisi
 
 Azure Ağ İzleyicisi, kaynaklar ve bir Azure sanal ağ iletişimi izlemek için araçlar sağlar. Örneğin, bir VM'nin başka bir VM veya FQDN, kaynakları görüntüle ve bir sanal ağ içindeki kaynak ilişkileri gibi bir uç nokta arasındaki iletişimin izlemek ya da ağ trafiği sorunları tanılayın.
 
@@ -480,7 +480,7 @@ Daha karmaşık ağ topolojisi, belirli bir ağ sanal Gereçleri (Nva), Microsof
 - İçinde çok sayıda satıcılardan NVA kullanılabilir [Azure Marketi](https://azuremarketplace.microsoft.com/). 
  
 
-## <a name="best-practice-implement-firewalls-and-nvas-in-hub-networks"></a>En iyi yöntem: uygulama güvenlik duvarları ve nva'ları hub ağlarda
+## <a name="best-practice-implement-firewalls-and-nvas-in-hub-networks"></a>En iyi yöntem: Uygulama güvenlik duvarları ve hub ağlardaki nva'ları
 
 Hub'ında Web uygulaması güvenlik duvarları (Waf) ile veya bir güvenlik duvarı Grup, bir Azure güvenlik duvarı aracılığıyla çevre ağındaki (ile internet erişimi) normal şekilde yönetilir. Aşağıdaki karşılaştırmalar göz önünde bulundurun.
 

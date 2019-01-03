@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 308527bce2048921c2af65aa78a12d8ef2c2bed2
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0119e05ce5cb8d1c2e27936dc44896b7acef9312
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497780"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725975"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight'ın bir Azure sanal ağı kullanarak genişletme
 
@@ -27,10 +27,10 @@ HDInsight ile kullanmayı öğrenin bir [Azure sanal ağı](../virtual-network/v
 
 * Doğrudan erişim [Apache Hadoop](https://hadoop.apache.org/) genel internet üzerinden kullanılabilir olmayan hizmetler. Örneğin, [Apache Kafka](https://kafka.apache.org/) API'leri veya [Apache HBase](https://hbase.apache.org/) Java API'si.
 
-> [!WARNING]
+> [!WARNING]  
 > Bu belgedeki bilgiler, TCP/IP ağ'ın bilinmesini gerektirir. TCP/IP ağ bağlantısı ile ilgili bilgi sahibi değilseniz, üretim ağları için değişiklik yapmadan önce olan bir kullanıcıyla ortak.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight için şirket içi bağlanma konusunda adım adım yönergeler arıyorsanız, Azure sanal ağı kullanarak ağ, bkz [HDInsight'ı şirket içi ağınıza bağlama](connect-on-premises-network.md) belge.
 
 ## <a name="planning"></a>Planlama
@@ -53,7 +53,7 @@ Bir sanal ağda HDInsight'ı yüklemek planlama yaparken yanıt sorular şunlard
 
 Nasıl yeni bir HDInsight mevcut bir Azure sanal ağına eklemek keşfetmek için bu bölümdeki adımları kullanın.
 
-> [!NOTE]
+> [!NOTE]  
 > Bir sanal ağa var olan bir HDInsight kümesine eklenemiyor.
 
 1. Sanal ağ için bir Klasik veya Resource Manager dağıtım modelini kullanıyor musunuz?
@@ -88,7 +88,7 @@ Nasıl yeni bir HDInsight mevcut bir Azure sanal ağına eklemek keşfetmek içi
 
         Daha fazla bilgi için [ağ güvenlik gruplarında sorun giderme](../virtual-network/diagnose-network-traffic-filter-problem.md) belge.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Ağ güvenlik grubu kuralları kural önceliği temelinde sırayla uygulanır. Trafik deseni ile eşleşen ilk kural uygulanır ve hiçbir diğerleri için o trafiğe uygulanır. Sipariş en esnek en katı kuralları. Daha fazla bilgi için [ağ güvenlik grupları ile ağ trafiğini filtreleme](../virtual-network/security-overview.md) belge.
 
     * Kullanıcı tanımlı yollar
@@ -112,7 +112,7 @@ Nasıl yeni bir HDInsight mevcut bir Azure sanal ağına eklemek keşfetmek içi
     * [Klasik Azure CLI kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Bir Azure Resource Manager şablonu kullanarak HDInsight oluşturma](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > HDInsight'ı bir sanal ağa ekleyerek bir isteğe bağlı yapılandırma adımdır. Küme yapılandırma sırasında sanal ağ'ı seçtiğinizden emin olun.
 
 ## <a id="multinet"></a>Birden çok ağları bağlama
@@ -132,7 +132,7 @@ Azure sanal ağında yüklü olan Azure Hizmetleri için ad çözümleme sağlar
 
 Varsayılan ad çözümlemesini yapar __değil__ sanal ağa katılan ağlardaki kaynakların adlarını çözümlemek HDInsight izin. Örneğin, sanal ağa şirket içi ağınıza katılmak için yaygındır. Yalnızca varsayılan ad çözümlemesi ile HDInsight adına göre şirket ağındaki kaynaklara erişemez. Şirket içi ağınızdaki kaynaklara adına göre sanal ağ içindeki kaynaklarla erişilemiyor, bunun tersi de geçerlidir.
 
-> [!WARNING]
+> [!WARNING]  
 > Özel DNS sunucusu oluşturup HDInsight küme oluşturmadan önce kullanmak için sanal ağ yapılandırmanız gerekir.
 
 Sanal ağ ve birleştirilmiş ağlardaki kaynaklar arasında ad çözümlemesine etkinleştirmek için aşağıdaki eylemleri gerçekleştirmeniz gerekir:
@@ -141,7 +141,7 @@ Sanal ağ ve birleştirilmiş ağlardaki kaynaklar arasında ad çözümlemesine
 
 2. Sanal ağ özel DNS sunucusunu kullanacak şekilde yapılandırın.
 
-3. Azure sanal ağınız için DNS son eki atanan bulun. Bu değer benzer `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. DNS son eki bulma hakkında daha fazla bilgi için bkz. [örnek: özel DNS](#example-dns) bölümü.
+3. Azure sanal ağınız için DNS son eki atanan bulun. Bu değer benzer `0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net`. DNS son eki bulma hakkında daha fazla bilgi için bkz. [örneği: Özel DNS](#example-dns) bölümü.
 
 4. DNS sunucuları arasında iletim yapılandırın. Yapılandırma, uzak ağ türüne bağlıdır.
 
@@ -153,7 +153,7 @@ Sanal ağ ve birleştirilmiş ağlardaki kaynaklar arasında ad çözümlemesine
 
             * Şirket içi DNS sunucusuna tüm istekleri iletin. Şirket içi DNS diğer ad çözümleme isteklerinin Microsoft.com gibi Internet kaynaklarına yönelik bile istekleri işler.
 
-        * __Şirket içi DNS__: özel bir DNS sunucusu için sanal ağ DNS soneki için istekleri iletmek. Özel DNS sunucusu için Azure özyinelemeli çözümleyici ardından iletir.
+        * __Şirket içi DNS__: Özel DNS sunucusu için sanal ağ DNS soneki için istekleri iletmek. Özel DNS sunucusu için Azure özyinelemeli çözümleyici ardından iletir.
 
         Bu yapılandırma yollar istekleri için sanal ağ özel DNS sunucusuna DNS sonekinde etki alanı adları tam. Diğer tüm istekler (hatta için genel internet adresleri), şirket içi DNS sunucusu tarafından işlenir.
 
@@ -167,7 +167,7 @@ Sanal ağ ve birleştirilmiş ağlardaki kaynaklar arasında ad çözümlemesine
 
         DNS sunucusu DNS son ekini temel alınarak her ağ diğer istekleri iletir. Azure yinelemeli çözümleyici kullanarak diğer istekleri çözümlenir.
 
-    Her yapılandırma örneği için bkz: [örnek: özel DNS](#example-dns) bölümü.
+    Her yapılandırma örneği için bkz: [örneği: Özel DNS](#example-dns) bölümü.
 
 Daha fazla bilgi için [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) belge.
 
@@ -201,7 +201,7 @@ Apache Ambari ve sanal ağ üzerinden diğer web sayfalarına bağlanmak için a
 
     Döndürülen düğümleri listesinde, FQDN için baş düğümlerine bulup, Ambari ve diğer web hizmetlerine bağlanmak için FQDN'leri kullanın. Örneğin, `http://<headnode-fqdn>:8080` Ambari erişmek için.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Baş düğümler üzerinde barındırılan bazı hizmetler aynı anda yalnızca bir düğümde etkin olan. Bir baş düğüm üzerinde bir hizmete erişim deneyin ve bir 404 hatası döndürürse diğer baş düğümüne geçin.
 
 2. Düğüm ve kullanılabilir bir hizmet bağlantı noktasını belirlemek için bkz: [HDInsight üzerindeki Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](./hdinsight-hadoop-port-settings-for-services.md) belge.
@@ -212,7 +212,7 @@ Aşağıdaki yöntemleri kullanarak bir Azure sanal ağlarda ağ trafiğini dene
 
 * **Ağ güvenlik grupları** (NSG) ağa gelen ve giden trafiği filtrelemenize olanak tanır. Daha fazla bilgi için [ağ güvenlik grupları ile ağ trafiğini filtreleme](../virtual-network/security-overview.md) belge.
 
-    > [!WARNING]
+    > [!WARNING]  
     > HDInsight, giden trafiği kısıtlama desteklemez. Tüm giden trafiğe izin verilmesi.
 
 * **Kullanıcı tanımlı yollar** (UDR) ağdaki kaynakları arasındaki trafiğin nasıl akacağını tanımlayın. Daha fazla bilgi için [kullanıcı tanımlı yollar ve IP iletme](../virtual-network/virtual-networks-udr-overview.md) belge.
@@ -248,7 +248,7 @@ Zorlamalı tünel bir kullanıcı tanımlı yönlendirme burada tüm trafiğin b
 
 ## <a id="hdinsight-ip"></a> Gerekli IP adresleri
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Azure sistem durumu ve Yönetim Hizmetleri, HDInsight ile iletişim kurabildiğini olmalıdır. Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, IP adresleri HDInsight ulaşmak bu hizmetler için gelen trafiğe izin vermeniz.
 >
 > Bu bölümde, trafiği denetlemek için ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanmazsanız, yoksayabilirsiniz.
@@ -266,7 +266,7 @@ Ağ güvenlik grupları veya kullanıcı tanımlı yollar kullanıyorsanız, HDI
 
 2. Ardından HDInsight kümenizi aşağıdaki bölgelerden birinde ise bölge için listelenen IP adreslerinden gelen trafiğe izin vermeniz gerekir:
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Kullanmakta olduğunuz Azure bölgesi listede yoksa, yalnızca adım 1'deki dört IP adreslerini kullanır.
 
     | Ülke | Bölge | İzin verilen IP adresleri | İzin verilen bağlantı noktası | Yön |
@@ -330,14 +330,14 @@ Aşağıdaki kaynak yönetimi şablonu, gelen trafiği kısıtlar ancak HDInsigh
 
 * [Güvenli bir Azure sanal ağ ve bir HDInsight Hadoop kümesi dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu örnekte, kullanmakta olduğunuz Azure bölgesi eşleştirmek için kullanılan IP adreslerini değiştirin. Bu bilgiler bulabilirsiniz [HDInsight ile ağ güvenlik gruplarını ve kullanıcı tanımlı yollar](#hdinsight-ip) bölümü.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 Gelen trafiği sınırlayan ve Kuzey Avrupa bölgesinde için IP adreslerinden gelen trafiğe izin veren bir sanal ağ oluşturmak için aşağıdaki PowerShell betiğini kullanın.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu örnekte, kullanmakta olduğunuz Azure bölgesi eşleştirmek için kullanılan IP adreslerini değiştirin. Bu bilgiler bulabilirsiniz [HDInsight ile ağ güvenlik gruplarını ve kullanıcı tanımlı yollar](#hdinsight-ip) bölümü.
 
 ```powershell
@@ -435,7 +435,7 @@ Set-AzureRmVirtualNetworkSubnetConfig `
 $vnet | Set-AzureRmVirtualNetwork
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu örnek, gerekli IP adreslerini gelen trafiğe izin vermek için kural eklemek üzere nasıl gösterir. Diğer kaynaklardan gelen erişimi kısıtlamak için bir kuralı içermiyor.
 >
 > Aşağıdaki örnek, Internet'ten SSH erişimini etkinleştirmek gösterilmektedir:
@@ -458,7 +458,7 @@ Gelen trafiği kısıtlar ancak HDInsight tarafından gerekli IP adreslerinden g
 
 2. Azure HDInsight sistem durumu ve yönetim hizmetinden 443 numaralı bağlantı noktasında gelen iletişime izin verecek yeni bir ağ güvenlik grubu kuralları eklemek için aşağıdakileri kullanın. Değiştirin **RESOURCEGROUPNAME** ile Azure sanal ağı içeren kaynak grubunun adı.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Bu örnekte, kullanmakta olduğunuz Azure bölgesi eşleştirmek için kullanılan IP adreslerini değiştirin. Bu bilgiler bulabilirsiniz [HDInsight ile ağ güvenlik gruplarını ve kullanıcı tanımlı yollar](#hdinsight-ip) bölümü.
 
     ```azurecli
@@ -490,7 +490,7 @@ Gelen trafiği kısıtlar ancak HDInsight tarafından gerekli IP adreslerinden g
 
     Bu komut tamamlandığında, sanal ağa HDInsight yükleyebilirsiniz.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu adımlar, yalnızca Azure bulut üzerindeki HDInsight sistem durumu ve yönetim hizmetine erişim açın. HDInsight küme sanal ağ dışındaki diğer tüm erişim engellenir. Sanal Ağ dışından erişim etkinleştirmek için ek ağ güvenlik grubu kuralları eklemeniz gerekir.
 >
 > Aşağıdaki örnek, Internet'ten SSH erişimini etkinleştirmek gösterilmektedir:
@@ -580,7 +580,7 @@ Bu örnek aşağıdaki varsayımların yapar:
 
 4. Koşullu ileticisi şirket içi DNS sunucusuna ekleyin. Adım 1'den özel DNS sunucusuna DNS soneki için istekleri göndermeye koşullu ileticisi yapılandırın.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Koşullu ileticisi ekleme hakkında daha fazla ayrıntı için DNS yazılımınızın belgelerine bakın.
 
 Bu adımları tamamladıktan sonra tam etki alanı adlarını (FQDN) kullanarak ya da ağ içindeki kaynaklarla bağlanabilirsiniz. HDInsight, artık sanal ağa yükleyebilirsiniz.

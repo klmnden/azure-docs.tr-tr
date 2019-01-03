@@ -3,17 +3,15 @@ title: MariaDB için Azure veritabanı uygulamaları bağlama
 description: Bu belge, uygulamalarının (C#) ADO.NET, JDBC, Node.js, ODBC, PHP, Python ve Ruby dahil olmak üzere MariaDB için Azure veritabanı ile bağlanmak şu anda desteklenen bağlantı dizelerini listeler.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 706bf395df98bd78fa36273a4948a11d4b59067d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 70cd25ff63101fa2a477cde2502d5d286b289366
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967940"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536583"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı uygulamalara bağlanma
 Bu konu, şablonları ve örnekler ile birlikte MariaDB için Azure veritabanı tarafından desteklenmeyen bağlantı dize türleri listeler. Bağlantı dizenizi farklı parametreler ve ayarları olabilir.
@@ -64,7 +62,7 @@ client = Mysql2::Client.new(username: "{username@servername}", password: {your_p
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Bağlantı dizesi ayrıntılarını Azure portaldan alın.
-İçinde [Azure portalında](https://portal.azure.com)MariaDB için Azure veritabanı sunucunuza gidin ve ardından **bağlantı dizeleri** Örneğiniz için dize listesini almak için: ![Azure bağlantı dizeleri bölmesi Portal](./media/howto-connection-strings/connection-strings-on-portal.png)
+İçinde [Azure portalında](https://portal.azure.com)MariaDB için Azure veritabanı sunucunuza gidin ve ardından **bağlantı dizeleri** Örneğiniz için dize listesini almak için: ![Azure portalında bağlantı dizeleri bölmesi](./media/howto-connection-strings/connection-strings-on-portal.png)
 
 Dizeyi bağlantı parametrelerini sürücü, sunucu ve diğer veritabanı gibi ayrıntıları sağlar. Bu örnekler, veritabanı adı, parola ve benzeri gibi kendi parametrelerini kullanmak için değiştirin. Ardından, kodlarınızı ve uygulamalarınızı sunucusuna bağlanmak için şu dizeyi kullanabilirsiniz.
 

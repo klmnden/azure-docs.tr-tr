@@ -14,16 +14,16 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 1f41172a493f3e5e1b98cbba32b0180cee16c072
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: eab4365b6b86a82f29dbd1a79d4fda6dc9b30e0e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019286"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971333"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>Azure önbelleği için Redis nedir
 
-Azure önbelleği için Redis popüler açık kaynak üzerinde temel [Azure önbelleği için Redis](https://redis.io/). Genellikle, arka uç veri depolarını yoğun bir şekilde bağımlı olan sistemlerin performans ve ölçeklenebilirliğini artırmak için önbellek olarak kullanılır. Performans, sık erişilen veriler uygulamaya yakın bir konumdaki hızlı depolama alanına geçici olarak kopyalanarak iyileştirilir. İle [Azure önbelleği için Redis](https://redis.io/), bu hızlı bulunduğu bellek içi ile Azure önbelleği için Redis diskten yerine bir veritabanı tarafından yüklenen depolamadır.
+Azure önbelleği için Redis popüler yazılım tabanlı [Redis](https://redis.io/). Genellikle, arka uç veri depolarını yoğun bir şekilde bağımlı olan sistemlerin performans ve ölçeklenebilirliğini artırmak için önbellek olarak kullanılır. Performans, sık erişilen veriler uygulamaya yakın bir konumdaki hızlı depolama alanına geçici olarak kopyalanarak iyileştirilir. İle [Azure önbelleği için Redis](https://redis.io/), bu hızlı bulunduğu bellek içi ile Azure önbelleği için Redis diskten yerine bir veritabanı tarafından yüklenen depolamadır.
 
 Azure önbelleği için Redis bellek içi veri yapısı deposu, ilişkisel olmayan dağıtılmış bir veritabanı ve ileti Aracısı da kullanılabilir. Redis altyapısının düşük gecikmeli, yüksek aktarım hızına sahip performansından yararlanılarak uygulama performansı iyileştirilir.
 

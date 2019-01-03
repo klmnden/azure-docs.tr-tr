@@ -17,20 +17,20 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 731b68e3f7dbb46f2fa51a18cb5b3da6b4626fa6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 57c207af3a48eb03b9d526197aed85d7755ad370
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963943"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975959"
 ---
-# <a name="quickstart-set-up-a-dev-environment"></a>Hızlı başlangıç: Geliştirme ortamını ayarlama
+# <a name="quickstart-set-up-a-dev-environment"></a>Hızlı Başlangıç: Geliştirme ortamı kurma
 
-Microsoft kimlik platformu geliştiricilerin çok çeşitli özel Microsoft 365 ortamlarını ve kimliklerini hedefleyen uygulamalar derlemesine olanak tanır. Microsoft kimlik platformunu kullanmaya başlamak için, Azure AD kiracısı olarak da adlandırılan ve uygulamaları kaydedip yönetebilen, Microsoft 365 verilerine erişimi olan ve özel Koşullu Erişim ve kiracı kısıtlamaları dağıtan bir ortama erişeceksiniz. 
+Microsoft kimlik platformu geliştiricilerin çok çeşitli özel Microsoft 365 ortamlarını ve kimliklerini hedefleyen uygulamalar derlemesine olanak tanır. Microsoft kimlik platformu ile çalışmaya başlamak için kaydolun ve uygulamaları yönetme, Microsoft 365 verilerine erişimi ve özel koşullu erişim ve Kiracı kısıtlamaları dağıtma bir Azure AD kiracısı olarak da bilinir, bir ortama erişimi gerekir.
 
-Kiracı, bir kuruluşun gösterimidir. Kuruluş veya uygulama geliştirici Microsoft'la bir ilişki oluşturduğunda, örneğin Azure'a, Microsoft Intune'a veya Microsoft 365'e kaydolduğunda kuruluşun veya uygulama geliştiricinin aldığı özel bir Azure AD örneğidir. 
+Bir kiracı, bir kuruluşun gösterimidir. Kuruluş veya uygulama geliştirici Microsoft'la bir ilişki oluşturduğunda, örneğin Azure'a, Microsoft Intune'a veya Microsoft 365'e kaydolduğunda kuruluşun veya uygulama geliştiricinin aldığı özel bir Azure AD örneğidir.
 
-Her Azure AD kiracısı ayrıdır ve diğer Azure AD kiracılarından ayrılmıştır. Kendi iş ve okul kimlikleri, tüketici kimlikleri (bir Azure AD B2C kiracısıysa) ve uygulama kayıtları gösterimi vardır. Kiracınızın içinde yapılan bir uygulama kaydı, yalnızca kiracınızın veya tüm kiracıların içinden hesapların kimlik doğrulaması yapmasına izin verebilir. 
+Her Azure AD kiracısı ayrıdır ve diğer Azure AD kiracılarından ayrılmıştır. Kendi iş ve okul kimlikleri, tüketici kimlikleri (bir Azure AD B2C kiracısıysa) ve uygulama kayıtları gösterimi vardır. Kiracınızın içinde yapılan bir uygulama kaydı, yalnızca kiracınızın veya tüm kiracıların içinden hesapların kimlik doğrulaması yapmasına izin verebilir.
 
 ## <a name="determining-environment-type"></a>Ortam türünü saptama
 
@@ -69,7 +69,7 @@ Henüz bir Azure AD kiracınız yoksa veya geliştirme için yeni kiracı oluşt
 
 ## <a name="social-and-local-accounts"></a>Sosyal ve yerel hesaplar
 
-Sosyal ve yerel hesapların oturumunu açan bir uygulama derlemeye başlamak için, bir Azure AD B2C kiracısı oluşturmanız gerekir. Başlamak için, [Azure AD B2C kiracısı oluşturma](../../active-directory-b2c/tutorial-create-tenant.md) yönergelerini izleyin. 
+Sosyal ve yerel hesapların oturumunu açan bir uygulama derlemeye başlamak için, bir Azure AD B2C kiracısı oluşturmanız gerekir. Başlamak için, [Azure AD B2C kiracısı oluşturma](../../active-directory-b2c/tutorial-create-tenant.md) yönergelerini izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

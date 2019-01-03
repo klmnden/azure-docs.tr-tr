@@ -1,5 +1,5 @@
 ---
-title: 'Oluşturun ve RADIUS P2S bağlantıları için VPN istemcisi yapılandırma dosyalarını yükleyin: PowerShell: Azure | Microsoft Docs'
+title: 'Oluşturma ve RADIUS P2S bağlantıları için VPN istemcisi yapılandırma dosyalarını yükleyin: PowerShell: Azure | Microsoft Docs'
 description: Windows, Mac OS X ve Linux VPN istemcisi RADIUS kimlik doğrulaması kullanan bağlantılar için yapılandırma dosyalarını oluşturun.
 services: vpn-gateway
 documentationcenter: na
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/07/2018
 ms.author: cherylmc
 ms.openlocfilehash: 52c7734c2af80d29433c20191d8b5b7c0ee0fe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
+ms.lasthandoff: 12/21/2018
 ms.locfileid: "51252017"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>P2S RADIUS kimlik doğrulaması için VPN istemcisi yapılandırma dosyalarını yükleme ve oluşturma
@@ -62,9 +62,9 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
  
 Komut çalıştıran bir bağlantıyı döndürür. İndirmek için bir web tarayıcısı bağlantısını kopyalayıp **VpnClientConfiguration.zip**. Aşağıdaki klasörlerin görüntülemek için dosyanın sıkıştırmasını açın: 
  
-* **WindowsAmd64** ve **WindowsX86**: Bu klasörleri Windows 64-bit ve 32-bit yükleyici paketleri içerir. 
+* **WindowsAmd64** ve **WindowsX86**: Bu klasörler sırasıyla Windows 64-bit ve 32-bit yükleyici paketleri içerir. 
 * **Genel**: Bu klasör, kendi VPN istemci yapılandırması oluşturmak için kullandığınız genel bilgiler içerir. Bu klasör için kullanıcı adı/parola kimlik doğrulaması yapılandırmalarıyla gerekmez.
-* **Mac**: sanal ağ geçidi oluşturduğunuzda, Ikev2 yapılandırdıysanız, adlı bir klasör gördüğünüz **Mac** içeren bir **mobileconfig** dosya. Bu dosya, Mac istemcileri yapılandırmak için kullanın.
+* **Mac**: Sanal ağ geçidi oluşturduğunuzda, Ikev2 yapılandırdıysanız, adlı bir klasör gördüğünüz **Mac** içeren bir **mobileconfig** dosya. Bu dosya, Mac istemcileri yapılandırmak için kullanın.
 
 İstemci yapılandırması dosyaları zaten oluşturduysanız, bunları kullanarak alabileceğiniz `Get-AzureRmVpnClientConfiguration` cmdlet'i. Ancak örneğin VPN protokol türü veya kimlik doğrulama türü, P2S VPN yapılandırmanıza, herhangi bir değişiklik yaparsanız yapılandırmasını otomatik olarak güncelleştirilmez. Çalıştırmalısınız `New-AzureRmVpnClientConfiguration` yeni bir yapılandırma yükleme oluşturmak için cmdlet'i.
 
@@ -193,7 +193,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -A
 
 Komut çalıştıran bir bağlantıyı döndürür. Bağlantıyı kopyalayıp VpnClientConfiguration.zip indirmek için bir web tarayıcısına yapıştırın. Aşağıdaki klasörlerin görüntülemek için dosyanın sıkıştırmasını açın:
 
-* **WindowsAmd64** ve **WindowsX86**: Bu klasörleri Windows 64-bit ve 32-bit yükleyici paketleri içerir. 
+* **WindowsAmd64** ve **WindowsX86**: Bu klasörler sırasıyla Windows 64-bit ve 32-bit yükleyici paketleri içerir. 
 * **GenericDevice**: Bu klasör, kendi VPN istemci yapılandırması oluşturmak için kullanılan genel bilgiler içerir.
 
 İstemci yapılandırması dosyaları zaten oluşturduysanız, bunları kullanarak alabileceğiniz `Get-AzureRmVpnClientConfiguration` cmdlet'i. Ancak örneğin VPN protokol türü veya kimlik doğrulama türü, P2S VPN yapılandırmanıza, herhangi bir değişiklik yaparsanız yapılandırmasını otomatik olarak güncelleştirilmez. Çalıştırmalısınız `New-AzureRmVpnClientConfiguration` yeni bir yapılandırma yükleme oluşturmak için cmdlet'i.
@@ -267,7 +267,7 @@ Farklı kimlik doğrulama türü (örneğin, OTP) kullanın veya farklı kimlik 
 3. **GenenericDevice** klasörde adlı bir XML dosyası **VpnSettings**. Bu dosya, gerekli tüm bilgileri içerir:
 
    * **VpnServer**: Azure VPN ağ geçidi FQDN'si. Bu, istemcinin bağlandığı adresidir.
-   * **VpnType**: tünel bağlanmak için kullandığınız türü.
+   * **VpnType**: Bağlanmak için kullandığınız tünel türü.
    * **Yollar**: Azure sanal ağı için bağlı olan tek trafik P2S tüneli üzerinden gönderilmesi profilinizde yapılandırmak zorunda yollar.
    
    **GenenericDevice** klasör adı verilen bir .cer dosyasına da içerir **VpnServerRoot**. Bu dosyayı, P2S bağlantısı Kurulum sırasında Azure VPN ağ geçidini doğrulamak için gerekli kök sertifika içerir. Azure sanal ağına bağlanan tüm cihazlarda, sertifikayı yükleyin.

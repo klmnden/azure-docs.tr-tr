@@ -17,12 +17,12 @@ ms.date: 09/14/2018
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f47faaf5c0536ce7041e00686d630427c72771aa
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a7034e65b0c1e804326e5c087b320f8e7ffde907
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426093"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557112"
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 kimlik doğrulama kitaplıkları
 
@@ -37,15 +37,15 @@ Bir güvenlik geliştirme yaşam döngüsü (SDL) yöntemleri gibi izleyen Proto
 
 Azure AD v2.0 uç noktası, iki tür kitaplıkları ile çalışır:
 
-* **İstemci kitaplıkları**: yerel istemcileri ve sunucuları Microsoft Graph gibi bir kaynak çağırmak için erişim belirteçlerini almak için istemci kitaplıkları kullanın.
-* **Server ara yazılım kitaplıklarını**: Web apps, kullanıcı oturum açma için server ara yazılım kitaplıklarını kullanın. Web API'leri, diğer sunucuları veya yerel istemciler tarafından gönderilen belirteçleri doğrulamak için sunucu ara yazılım kitaplıkları kullanın.
+* **İstemci kitaplıkları**: Yerel istemcileri ve sunucuları Microsoft Graph gibi bir kaynak çağırmak için erişim belirteçlerini almak için istemci kitaplıkları'nı kullanın.
+* **Server ara yazılım kitaplıklarını**: Web uygulamaları, kullanıcı oturum açma için server ara yazılım kitaplıklarını kullanın. Web API'leri, diğer sunucuları veya yerel istemciler tarafından gönderilen belirteçleri doğrulamak için sunucu ara yazılım kitaplıkları kullanın.
 
 ## <a name="library-support"></a>Kitaplık desteği
 
 Kitaplıkları iki destek kategoriye ayrılır:
 
 * **Microsoft tarafından desteklenen**: Microsoft bu kitaplıklar için düzeltme sağlayan ve SDL işlemi yapana aksaklıkla Bu kitaplıklar üzerinde.
-* **Uyumlu**: Microsoft temel senaryolarda bu kitaplıklar test ve çalıştıkları v2.0 uç noktası ile onaylandı. Bu kitaplıklar için düzeltmeler ve bu kitaplıklar incelenmesi yapmış değil Microsoft sağlamaz. Sorunları ve özellik istekleri kitaplığın açık kaynak projesine yönlendirilebilir.
+* **Uyumlu**: Microsoft, temel senaryolarda bu kitaplıklar test ve çalıştıkları v2.0 uç noktası ile onaylandı. Bu kitaplıklar için düzeltmeler ve bu kitaplıklar incelenmesi yapmış değil Microsoft sağlamaz. Sorunları ve özellik istekleri kitaplığın açık kaynak projesine yönlendirilebilir.
 
 V2.0 uç nokta ile çalışmaya kitaplıkları listesi için bu makalenin sonraki bölümlere bakın.
 
@@ -54,7 +54,7 @@ V2.0 uç nokta ile çalışmaya kitaplıkları listesi için bu makalenin sonrak
 Korumalı bir Web API'sini çağırmak için bir belirteç almak için kullanılan istemci kimlik doğrulama kitaplıkları
 
 | Platform | Kitaplık | İndirme | Kaynak kod | Örnek | Başvuru | Kavramsal belge | Yol Haritası |
-| --- | --- | --- | --- | --- | --- | --- | ---| ---|
+| --- | --- | --- | --- | --- | --- | --- | ---|
 | ![JavaScript](media/sample-v2-code/logo_js.png) | MSAL.js (Önizleme) | [NPM](https://www.npmjs.com/package/msal) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  [Tek sayfalı uygulama](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) |  | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki)|
 |![Angular JS](media/sample-v2-code/logo_angular.png) | MSAL Angular JS | [NPM](https://www.npmjs.com/package/@azure/msal-angularjs) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md) |  |  | |
 ![Angular](media/sample-v2-code/logo_angular.png) | MSAL Angular(Preview) | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
@@ -79,7 +79,7 @@ Ara yazılım kitaplıkları, Web uygulamaları ve Web API'leri korumak için ku
 |![JavaScript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
 | ![Java](media/sample-v2-code/logo_java.png) | [Java içerdiğini açıklayın](https://github.com/scribejava/scribejava) | [Sürüm 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/) | |
 | ![PHP](media/sample-v2-code/logo_php.png) | [PHP ligi oauth2 istemci](https://github.com/thephpleague/oauth2-client) | [Sürüm 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2 istemci](https://github.com/thephpleague/oauth2-client/) | |
-| ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
+| ![Ruby](media/sample-v2-code/logo_ruby.png) |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1<br />omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)<br />[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |  |
 ![iOS](media/sample-v2-code/logo_iOS.png) |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Yerel uygulama örneği](active-directory-v2-devquickstarts-ios.md) |
 
 İçin standartlara uygun bir kitaplık v2.0 uç noktası kullanabilirsiniz. böylece desteği için nereye bilmek önemlidir.

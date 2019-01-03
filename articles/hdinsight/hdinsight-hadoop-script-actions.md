@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0d6c22d54de0486ad679f93343f0e7b208f21f4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 5db4387c2fd610313aaac032c122366aa45dc7f9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384078"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720195"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Betik eylemi betikleri HDInsight Windows tabanlı kümeler için geliştirme
 HDInsight için betik eylemi betikleri yazmayı öğrenin. Betik eylemi betikleri kullanma hakkında daha fazla bilgi için bkz. [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md). Linux tabanlı HDInsight kümeleri için yazılmış aynı makalesi için bkz [HDInsight için betik eylemi geliştirme betikleri](hdinsight-hadoop-script-actions-linux.md).
@@ -32,8 +32,6 @@ Betik eylemi, bir Apache Hadoop kümesinde çalışan ek yazılımlar yüklemek 
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage: ' % S'terim 'HDIFile Kaydet' cmdlet'i, işlev, komut dosyası veya çalıştırılabilir program adı olarak tanınmıyor. Adının yazımını denetleyin veya bir yol varsa, yolun doğru olduğundan emin olun ve yeniden deneyin.
 > 
 > Yardımcı yöntemler eklemediğiniz olmasıdır.  Bkz: [özel komut dosyaları için yardımcı yöntemler](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
->
->
 
 ## <a name="sample-scripts"></a>Örnek komut dosyaları
 Betik eylemi, Windows işletim sisteminde HDInsight kümeleri oluşturmak için Azure PowerShell Betiği verilmiştir. Aşağıdaki komut dosyasını site yapılandırma dosyalarını yapılandırmaya ilişkin bir örnek verilmiştir:

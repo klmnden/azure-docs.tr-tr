@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: ''
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a95c9f1edd6983c915316f2900885a8131245860
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 57897060e79ffbd750b47b21e97bb16d651f835c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437842"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583519"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Karma Runbook çalışanları sorunlarını giderme
 
@@ -34,7 +34,7 @@ Runbook yürütmesi başarısız oluyor ve aşağıdaki hatayı alırsınız:
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Runbook'unuzda, kısa süre içinde üç kez yürütmek denemeden sonra askıya alınır. Runbook başarıyla tamamlanmasını kesintiye uğratabilecek koşullar vardır ve ilgili hata iletisini nedenini gösteren ek bilgiler içermez.
+Kısa bir süre içinde üç kez yürütülecek denemeden sonra runbook askıya alındı. Runbook'un tamamlanmasını kesintiye uğratabilecek koşullar vardır. Bu durumda, ilgili hata iletisini neden belirten ek bilgileri içermeyebilir.
 
 #### <a name="cause"></a>Nedeni
 
@@ -46,25 +46,49 @@ Olası nedenleri şunlardır:
 
 * Runbook'lar yerel kaynakları ile kimlik doğrulaması yapamaz
 
-* Karma Runbook çalışanı özelliğini çalıştırmak için belirtilen bilgisayarın en düşük donanım gereksinimlerini karşılıyor.
+* Karma Runbook çalışanı özelliğini çalıştırmak için yapılandırılmış bilgisayar en düşük donanım gereksinimlerini karşılıyor.
 
 #### <a name="resolution"></a>Çözüm
 
 Bilgisayar bağlantı noktası 443 üzerinde *.azure-automation.net giden erişimi olduğunu doğrulayın.
 
-Karma Runbook çalışanı çalıştıran bilgisayarlar, bu özellik barındırmak için atamadan önce en düşük donanım gereksinimlerini karşılamalıdır. Aksi takdirde, diğer arka plan işlemleri ve runbook yürütme can sırasında Çekişme kaynak kullanımını bağlı olarak neden bilgisayar üzerinde kullanılan olur ve bu runbook işi gecikmeler veya zaman aşımları neden.
+Bu özellik barındırmak için yapılandırılmadan önce karma Runbook çalışanı çalıştıran bilgisayarların en düşük donanım gereksinimlerini karşılamalıdır. Runbook'ları ve kullandıkları arka plan işlemleri sistemin üzerinde kullanılan ve runbook işi gecikmeler veya zaman aşımları neden neden olabilir.
 
-Karma Runbook çalışanı özelliğini çalıştırmak için belirtilen bilgisayarın en düşük donanım gereksinimlerini karşıladığını doğrulayın. Aksi halde, karma Runbook çalışanı işlemlerinin performansını ve Windows arasındaki herhangi bir ilişki belirlemek için CPU ve bellek kullanımı izleyin. Bellek veya CPU baskısı ise, bu yükseltme ek işlemci ekleyin veya kaynak sorununu giderin ve hatayı gidermek için bellek artırmak için gereken gösterebilir. Alternatif olarak, iş yükü taleplerini artıştır gerekli belirttiğinizde, ölçek ve en düşük gereksinimlerini destekleyen farklı bilgi işlem kaynağı seçin.
+Karma Runbook çalışanı özelliğini çalıştıran bilgisayarın en düşük donanım gereksinimlerini karşıladığını doğrulayın. Aksi halde İzleyici CPU ve bellek karma Runbook çalışanı işlemlerin performansını ve Windows arasındaki herhangi bir ilişki belirlemek için kullanın. Bellek veya CPU baskısı ise, bu kaynakları yükseltmek gösterebilir. İş yükü taleplerini artıştır gerekli belirttiğinizde, ölçek ve en düşük gereksinimlerini destekleyen bir farklı işlem kaynağı de seçebilirsiniz.
 
 Denetleme **Microsoft SMA** açıklamasıyla karşılık gelen bir olay için olay günlüğünü *Win32 işlemden çıkıldı [4294967295] kodla*. Bu hatanın nedenini kimlik doğrulaması, runbook'larında yapılandırılmış veya karma çalışanı grubu için farklı çalıştır kimlik bilgilerinin henüz ' dir. Gözden geçirme [Runbook izinleri](../automation-hrw-run-runbooks.md#runbook-permissions) doğru şekilde yapılandırdığınız kimlik doğrulaması için runbook'larınızı onaylamak için.
+
+### <a name="no-cert-found"></a>Senaryo: Karma Runbook çalışanında sertifika deposunda sertifika bulunamadı
+
+#### <a name="issue"></a>Sorun
+
+Bir karma Runbook çalışanı üzerinde çalışan bir runbook şu hata iletisiyle başarısız olur:
+
+```error
+Connect-AzureRmAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
+At line:3 char:1
++ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : CloseError: (:) [Connect-AzureRmAccount], ArgumentException
+    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
+```
+
+#### <a name="cause"></a>Nedeni
+
+Kullanmayı denediğinizde, bu hata oluşur. bir [farklı çalıştır hesabı](../manage-runas-account.md) karma Runbook çalışanı nerede farklı çalıştır hesabı sertifikası değil mevcut üzerinde çalışan bir runbook'ta. Karma Runbook çalışanları sertifika varlığı, farklı çalıştır hesabı tarafından düzgün çalışması için gerekli olan varsayılan olarak, yerel olarak yok.
+
+#### <a name="resolution"></a>Çözüm
+
+Bir Azure sanal makinesi, karma Runbook çalışanı ise kullanabileceğiniz [Azure kaynakları için yönetilen kimlikleri](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) yerine. Bu senaryo, farklı çalıştır hesabı yerine Azure VM'nin yönetilen kimlik kullanarak, kimlik doğrulaması basitleştirme Azure kaynaklarında kimlik doğrulamasını sağlar. Karma Runbook çalışanı şirket içi makine, makine üzerinde farklı çalıştır hesabı sertifikası yüklemeniz gerekir. Sertifikayı yüklemek öğrenmek için adımları çalıştırmak için bkz. [dışarı aktarma RunAsCertificateToHybridWorker](../automation-hrw-run-runbooks.md#runas-script) runbook.
 
 ## <a name="linux"></a>Linux
 
 Linux karma Runbook çalışanı çalışan kaydetme, runbook işlerini alabilir ve durumunu raporlamak için OMS aracısı üzerinde Otomasyon hesabınız ile iletişim kurmak Linux bağlıdır. Çalışan kaydı başarısız olursa hatanın bazı olası nedenleri şunlardır:
 
-### <a name="oms-agent-not-running"></a>Senaryo: Linux için OMS Aracısı çalışmıyor.
+### <a name="oms-agent-not-running"></a>Senaryo: Linux için OMS Aracısı çalışmıyor
 
-Linux için OMS Aracısı çalışmıyorsa bu Linux karma Runbook çalışanı Azure Otomasyonu ile iletişim kurmasını engeller. Aracı, aşağıdaki komutu girerek çalıştığını doğrulamak: `ps -ef | grep python`. Python işlemlerle aşağıdakine benzer bir çıktı görmeniz gerekir **nxautomation** kullanıcı hesabı. Güncelleştirme yönetimi veya Azure Otomasyon çözümleri olmayan etkinleştirilirse, aşağıdaki işlemler hiçbiri çalışıyor.
+
+Linux için OMS Aracısı çalışmıyorsa Linux karma Runbook çalışanı Azure Otomasyonu ile iletişim kurmasını önler. Aracı, aşağıdaki komutu girerek çalıştığını doğrulamak: `ps -ef | grep python`. Python işlemlerle aşağıdakine benzer bir çıktı görmeniz gerekir **nxautomation** kullanıcı hesabı. Güncelleştirme yönetimi veya Azure Otomasyon çözümleri olmayan etkinleştirilirse, aşağıdaki işlemler hiçbiri çalışıyor.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -74,11 +98,12 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 Aşağıdaki listede, bir Linux karma Runbook çalışanı için başlatılan işlemleri gösterilmektedir. Tüm bulunan `/var/opt/microsoft/omsagent/state/automationworker/` dizin.
 
-* **OMS.conf** -bu işlem çalışan manager işlemidir, bu işlem, doğrudan DSC başlatılır.
+
+* **OMS.conf** -çalışan manager işlemi değerdir. Doğrudan DSC başlatıldı.
 
 * **Worker.conf** -bu işlem otomatik kayıtlı karma çalışan işlemi, çalışan Yöneticisi tarafından başlatılır. Bu işlem, güncelleştirme yönetimi tarafından kullanılır ve kullanıcı için saydamdır. Bu işlem, güncelleştirme yönetimi çözümü makine üzerinde etkin değilse mevcut değil.
 
-* **Diy/Worker.conf** -bu işlem kendin YAP karma çalışanı işlemidir. Kendin YAP karma çalışan işlemi, kullanıcı runbook'ları karma Runbook çalışanı üzerinde yürütmek için kullanılır. Yalnızca farklıdır, otomatik karma çalışan işlemi farklı bir yapılandırma kullandığı anahtar ayrıntılı olarak kayıtlı. Azure Otomasyon çözümünü etkin değil ve kendin YAP Linux karma çalışanı kayıtlı değilse bu işlem mevcut değil.
+* **Diy/Worker.conf** -bu işlem kendin YAP karma çalışanı işlemidir. Kendin YAP karma çalışan işlemi, kullanıcı runbook'ları karma Runbook çalışanı üzerinde yürütmek için kullanılır. Yalnızca farklıdır, otomatik karma çalışan işlemi farklı bir yapılandırma kullandığı anahtar ayrıntılı olarak kayıtlı. Azure Otomasyon çözümünü devre dışıysa ve kendin YAP Linux karma çalışanı kayıtlı değilse, bu işlem mevcut değil.
 
 Linux çalışmadığı için OMS Aracısı hizmeti başlatmak için aşağıdaki komutu çalıştırırsanız: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
@@ -94,7 +119,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 Windows karma Runbook çalışanı çalışan kaydetme, runbook işlerini alabilir ve durumunu raporlamak için Otomasyon hesabı ile iletişim kurmak için Microsoft Monitoring Agent bağlıdır. Çalışan kaydı başarısız olursa hatanın bazı olası nedenleri şunlardır:
 
-### <a name="mma-not-running"></a>Senaryo: Microsoft Monitoring Agent çalışmıyor.
+### <a name="mma-not-running"></a>Senaryo: Microsoft Monitoring Agent çalışmıyor
 
 #### <a name="issue"></a>Sorun
 
@@ -102,7 +127,7 @@ Windows karma Runbook çalışanı çalışan kaydetme, runbook işlerini alabil
 
 #### <a name="cause"></a>Nedeni
 
-Microsoft İzleme Aracısı Windows hizmeti çalışmıyorsa, bu senaryo, karma Runbook çalışanı Azure Otomasyonu ile iletişim kurmasını önler.
+Microsoft İzleme Aracısı Windows hizmeti çalışmıyorsa bu durum, karma Runbook çalışanı Azure Otomasyonu ile iletişim kurmasını engeller.
 
 #### <a name="resolution"></a>Çözüm
 

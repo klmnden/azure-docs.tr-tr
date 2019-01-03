@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0c153a2585261aaf84bc4e70b7348ebcc94e6c84
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9b3a65446a6f55101e93fdee4c437cde7408b7ca
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959317"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973086"
 documentType: LandingData
 title: Application Gateway Belgeleri
 metadata:
@@ -73,4 +73,4 @@ sections:
     - title: Diller
       html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="/javascript/api/azure-arm-network/ApplicationGateways">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-network/azure.mgmt.network.v2018_08_01.operations.application_gateways_operations.applicationgatewaysoperations?view=azure-python">Python</a></p>
     - title: REST
-      html: <p><a href="https://msdn.microsoft.com/library/mt684941">İşlem REST API’si Başvurusu</a></p>
+      html: <p><a href="https://msdn.microsoft.com/library/mt684941">Eksiksiz REST API Başvurusu</a></p>

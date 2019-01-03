@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 860d602ecba257ed9015d1e080e5dcb1aa5ab872
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 9c85ee23f433e7b14278d8cc0ca3bff3e1ab4b94
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624633"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752580"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Azure Active Directory raporlama API'SİYLE çalışmaya başlama
 
@@ -48,6 +48,11 @@ Ayrıntılı yönergeler için bkz. [Azure Active Directory raporlama API'SİYLE
 
 Microsoft Graph API uç nokta için denetim günlüklerini `https://graph.microsoft.com/beta/auditLogs/directoryAudits` ve oturum açma işlemleri için Microsoft Graph API uç noktası `https://graph.microsoft.com/beta/auditLogs/signIns`. Daha fazla bilgi için [denetim API'si başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) ve [oturum açma, API Başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signIn).
 
+Ayrıca, kullanabileceğiniz [kimlik koruması risk olayları API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) Microsoft Graph'ı kullanarak güvenlik algılamaları programlı erişim elde etmek için. Daha fazla bilgi için [Microsoft Graph ve Azure Active Directory kimlik koruması ile çalışmaya başlama](../identity-protection/graph-get-started.md). 
+
+> [!NOTE]
+>  **Https:\/\/graph.windows.net\/\<Kiracı adı\>\/raporları\/**  uç nokta kullanım dışı bırakılmıştır. Etkinlik ve güvenlik raporları program aracılığıyla erişmek için yukarıda açıklanan yeni API uç noktalarını kullanın.
+  
 ## <a name="apis-with-graph-explorer"></a>API'leri ile Graph Gezgini
 
 Kullanabileceğiniz [explorer MSGraph](https://developer.microsoft.com/graph/graph-explorer) oturum açma işleminizi doğrulamak ve API veri denetleyebilirsiniz. Oturum açma düğmelerinin her ikisi de Graph Gezgini Arabiriminde kullanarak hesabınızda oturum açtığınızdan emin olun ve ayarlama **AuditLog.Read.All** ve **Directory.Read.All** gösterildiği kiracınız için izinleri.   

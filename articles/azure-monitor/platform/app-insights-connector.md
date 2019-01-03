@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8c601bdd7fbba536aa5b8a4d1965f4ef2bb906f9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187860"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726237"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Bağlayıcısı yönetim çözümü (Önizleme)
 
@@ -161,8 +161,8 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 - Kullanılabilirlik
 - Özel durumlar
 - İstekler
-- Sayfa görünümleri – sayfa görüntülemesi almak bir çalışma alanınız için bu bilgileri toplamak için uygulamalarınızı yapılandırmanız gerekir. Daha fazla bilgi için bkz. [PageViews](../../application-insights/app-insights-api-custom-events-metrics.md#page-views).
-- Özel olaylar – özel olaylarını almak bir çalışma alanınız için bu bilgileri toplamak için uygulamalarınızı yapılandırmanız gerekir. Daha fazla bilgi için bkz. [TrackEvent](../../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
+- Sayfa görünümleri – sayfa görüntülemesi almak bir çalışma alanınız için bu bilgileri toplamak için uygulamalarınızı yapılandırmanız gerekir. Daha fazla bilgi için bkz. [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views).
+- Özel olaylar – özel olaylarını almak bir çalışma alanınız için bu bilgileri toplamak için uygulamalarınızı yapılandırmanız gerekir. Daha fazla bilgi için bkz. [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
 Uygun olduğunda verilerini Application ınsights'tan Log Analytics tarafından alınır.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: d74c9c30932bd2db9059738c8dfbc21e4b1b046a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316980"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629911"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Java'da Azure Search kullanmaya başlama
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Bu örneği derlemek ve test etmek için aşağıdaki yazılımı kullandık:
 * [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>Veriler hakkında
-Bu örnek uygulama, [Birleşik Devletler Jeoloji Hizmetleri (USGS)](http://geonames.usgs.gov/domestic/download_data.htm)'nin, veri kümesi boyutunu küçültmek için Rhode Island eyaletinde filtrelenen verilerini kullanır. Akarsular, göller ve zirveler gibi jeolojik özelliklerin yanı sıra, hastaneler ve okullar gibi önemli binaları döndüren bir arama uygulaması derlemek için bu verileri kullanacağız.
+Bu örnek uygulama, [Birleşik Devletler Jeoloji Hizmetleri (USGS)](https://geonames.usgs.gov/domestic/download_data.htm)'nin, veri kümesi boyutunu küçültmek için Rhode Island eyaletinde filtrelenen verilerini kullanır. Akarsular, göller ve zirveler gibi jeolojik özelliklerin yanı sıra, hastaneler ve okullar gibi önemli binaları döndüren bir arama uygulaması derlemek için bu verileri kullanacağız.
 
 Bu uygulamada **SearchServlet.java** programı, filtrelenmiş USGS veri kümesini ortak bir Azure SQL Database'den alan bir [Oluşturucu](https://msdn.microsoft.com/library/azure/dn798918.aspx) yapısı kullanarak dizini derler ve yükler. Çevrimiçi veri kaynağına yönelik önceden tanımlanmış kimlik bilgileri ve bağlantı bilgileri program kodu içinde sağlanır. Veri erişimi açısından ek yapılandırma gerekli değildir.
 
@@ -87,7 +87,7 @@ Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki d
 ## <a name="configure-the-service-url-and-api-key"></a>Hizmet URL'sini ve api anahtarını yapılandırma
 1. **Proje Gezgini**'nde, sunucu adını ve api anahtarını içeren yapılandırma ayarlarını düzenlemek için **config.properties**'e çift tıklayın.
 2. Bu makalenin, [Azure Portal](https://portal.azure.com)'da hizmet URL'sini ve api anahtarını bulduğunuz önceki adımlarına bakarak, şimdi **config.properties**'e gireceğiniz değerleri alabilirsiniz.
-3. **config.properties**'de, "Api Anahtarı"nı hizmetinizin api anahtarı ile değiştirin. Ardından, hizmet adı (URL ilk bileşeni http://servicename.search.windows.net) değiştirir "hizmet adı" aynı dosyada.
+3. **config.properties**'de, "Api Anahtarı"nı hizmetinizin api anahtarı ile değiştirin. Ardından, hizmet adı (URL ilk bileşeni https://servicename.search.windows.net) değiştirir "hizmet adı" aynı dosyada.
    
     ![][5]
 
@@ -105,7 +105,7 @@ Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki d
 7. **Son**'a tıklayın.
 8. **Window (Pencere)** > **Preferences (Tercihler)** > **Java** > **Installed JREs (Yüklü JRE'ler)** > **Add (Ekle)** seçeneğini belirleyin.
 9. **Add JRE (JRE Ekle)** bölümünde **Standard VM (Standart VM)** öğesini seçin.
-10. **İleri**'ye tıklayın.
+10. **İleri**’ye tıklayın.
 11. JRE Tanımı'nda, JRE giriş alanında **Directory (Dizin)** seçeneğine tıklayın.
 12. **Program Files (Program Dosyaları)** > **Java**'ya gidin ve daha önce yüklediğiniz JDK'yı seçin. JDK'yı JRE olarak seçmek önemlidir.
 13. Yüklü JRE'ler içinde **JDK**'yı seçin. Ayarlarınız aşağıdaki ekran görüntüsüne benzer görünmelidir.

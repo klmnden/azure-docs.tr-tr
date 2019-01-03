@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c73a802cd67c9ecb94482cfcd6aac51fc8bbc19e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d90a4272f843cc9f2b66aa202ddefe54e7b1a361
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317483"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632170"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Azure arama ile Azure Blob Depolama'da belgelerin dizin oluşturma
 Bu makalede, belgelerin dizinini oluşturmak için Azure Search kullanma gösterilmektedir (PDF gibi Microsoft Office belge ve diğer birçok ortak biçimleri) Azure Blob Depolama alanında depolanır. İlk olarak ayarlama ve blob dizin oluşturucu yapılandırma temellerini açıklar. Ardından, davranışların bir daha ayrıntılı keşfi sunar ve karşılaşabileceğiniz olası senaryolar.
@@ -97,7 +97,7 @@ Aranabilir bir dizin oluşturmak nasıl işte `content` bloblarından ayıklanan
 
 Dizin oluşturma hakkında daha fazla bilgi için bkz. [dizin oluştur](https://docs.microsoft.com/rest/api/searchservice/create-index)
 
-### <a name="step-3-create-an-indexer"></a>3. adım: Dizin oluşturucu oluşturma
+### <a name="step-3-create-an-indexer"></a>3. Adım: Dizin oluşturucu oluşturma
 Bir dizin oluşturucu, bir veri kaynağı ile bir hedef arama dizinine bağlar ve veri yenilemeyi otomatikleştirmek için bir zamanlama sağlar.
 
 Dizinin ve veri kaynağının oluşturulan dizin oluşturucu oluşturmaya hazırsınız:
@@ -334,7 +334,7 @@ Bloblarını dizine ekleme, zaman alıcı bir işlem olabilir. BLOB'ları dizin 
 
 "Belgeleri dizininize birden çok kaynaktan bir araya getirmek" isteyebilirsiniz. Örneğin, Cosmos DB'de depolanan diğer meta veriler BLOB metin birleştirmek isteyebilirsiniz. Birden fazla bölümü arama belgeleri oluşturulacak API dizin birlikte çeşitli oluşturucular anında iletme bile kullanabilirsiniz. 
 
-Bunun işe yaraması için tüm dizin oluşturucuların ve diğer bileşenleri belge anahtarı kabul etmeniz gerekir. Ayrıntılı bir Rehber için bu dış makaleye bakın: [Azure Search'te diğer verilerle belgeleri birleştirmeniz ](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+Bunun işe yaraması için tüm dizin oluşturucuların ve diğer bileşenleri belge anahtarı kabul etmeniz gerekir. Ayrıntılı bir Rehber için bu dış makaleye bakın: [Azure Search'te diğer verilerle belgeleri birleştirmeniz ](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>Dizin oluşturma düz metin 

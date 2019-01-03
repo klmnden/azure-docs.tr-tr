@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2018
 ms.author: patricka
-ms.openlocfilehash: 32c268c1e4a0ff4d17c5b03f0ffd33b0ddf5b927
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 8b478c1ba60df679d69d5fced660836c16079e6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901490"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727099"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack altyapısını güvenlik durumu
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri*
 
 Güvenlik hususlarının yanı sıra uyumluluk düzenlemelerini kullanarak karma Bulutlar için ana sürücüleri arasındadır. Azure Stack, bu senaryolar için tasarlanmıştır. Bu makalede, Azure Stack için güvenlik denetimleri açıklanmaktadır.
 
@@ -40,7 +40,7 @@ Altyapı iyi tanımlanmış donanım ve yazılım, Azure Stack üzerinde çalı�
 Azure Stack tümleşik bir sistem halinde teslim edildiğinden, Azure Stack altyapısının güvenlik duruşunu Microsoft tarafından tanımlanır. Tıpkı Azure'da kiracılar Kiracı iş yüklerini güvenlik duruşunu sorumludur. Bu belge, Azure Stack altyapısının güvenlik açısından duruşunu temel bilgi sağlar.
 
 ## <a name="data-at-rest-encryption"></a>Veri bekleyen şifreleme
-Tüm Azure Stack altyapı ve Kiracı verileri, Bitlocker kullanılarak, bekleme sırasında şifrelenir. Bu şifreleme, fiziksel kaybedilmesi veya çalınması Azure Stack depolama bileşenleri karşı korur. 
+Tüm Azure Stack altyapı ve Kiracı verileri, Bitlocker kullanılarak, bekleme sırasında şifrelenir. Bu şifreleme, fiziksel kaybedilmesi veya çalınması Azure Stack depolama bileşenleri karşı korur. Daha fazla bilgi için [verileri Azure Stack'te bekleyen şifreleme](azure-stack-security-bitlocker.md).
 
 ## <a name="data-in-transit-encryption"></a>Veri aktarım sırasında şifreleme
 Azure Stack altyapı bileşenleri, TLS 1.2 ile şifrelenmiş kanalları kullanarak iletişim kurar. Şifreleme sertifikaları Self altyapısı tarafından yönetilir. 

@@ -3,16 +3,15 @@ title: PostgreSQL server sorgu istatistikleri koleksiyonu için Azure veritaban�
 description: Bu makalede, PostgreSQL sunucusu için Azure veritabanı üzerinde sorgu istatistikleri koleksiyonu nasıl iyileştirebileceğiniz de açıklanır.
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 076442d85d7f628504cca95c36f3e99f4d0c5117
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: df54693aee9a9a23b8202c90a6c23008ff7a7cb6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966696"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548724"
 ---
 # <a name="optimize-query-statistics-collection-in-azure-database-for-postgresql-server"></a>PostgreSQL için Azure veritabanı'nda sorgu istatistikleri koleksiyonu en iyi duruma getirme 
 Sorgu istatistikleri koleksiyonu PostgreSQL sunucusu için Azure veritabanı içinde iyileştirmek için bu makalede açıklanır.

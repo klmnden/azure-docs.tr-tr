@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9a5c45b66e775ce83625e1f6d9507aaf456c7c7b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9ec502f63df23bab311a45972e31e6df13fa9281
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843997"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792991"
 ---
 # <a name="about-migration"></a>Geçiş hakkında
 
@@ -21,9 +21,9 @@ Nasıl hızlı bir genel bakış için bu makaleyi okuyun [Azure Site Recovery](
 
 İşte değiştirebilecekleriniz Site Recovery kullanarak geçirme:
 
-- **Şirket içinden Azure'a geçirme**: şirket içi Hyper-V Vm'leri, VMware Vm'leri ve fiziksel sunucuları Azure'a geçirin. Geçişten sonra şirket içi makinelerde çalışan iş yükleri Azure VM'ler üzerinde çalışacaktır. 
-- **Azure içinde geçiş**: Azure VM’lerini bir Azure bölgesinden diğerine geçirin. 
-- **AWS geçirme**: AWS Windows örneklerini Azure IaaS’ye geçirin. 
+- **Şirket içinden Azure'a geçirme**: Şirket içi Hyper-V Vm'leri, VMware Vm'leri ve fiziksel sunucuları Azure'a geçirin. Geçişten sonra şirket içi makinelerde çalışan iş yükleri Azure VM'ler üzerinde çalışacaktır. 
+- **Azure içinde geçiş**: Azure Vm'lerinin Azure bölgeleri arasında geçiş yapma. 
+- **AWS geçirme**: AWS Windows örneklerini Azure Iaas'ye geçirin. 
 
 
 ## <a name="what-do-we-mean-by-migration"></a>Geçiş ile kast edilen nedir?

@@ -3,27 +3,26 @@ title: Azure Stack için hizmet sorumlusu oluşturma | Microsoft Docs
 description: Azure Kaynak Yöneticisi'nde rol tabanlı erişim denetimi ile kaynaklara erişimi yönetmek için kullanılabilir bir hizmet sorumlusu oluşturmayı açıklar.
 services: azure-resource-manager
 documentationcenter: na
-author: sethmanheim
+author: mattbriggs
 manager: femila
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
-ms.author: sethm
+ms.date: 12/12/2018
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4c205055239b7bf16bbb73448c21818de419e623
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958323"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715843"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Hizmet sorumluları oluşturma tarafından Azure Stack kaynaklara uygulamaları erişimi verin
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Azure Stack kaynaklara bir hizmet sorumlusu Azure Resource Manager kullanan oluşturarak, bir uygulama erişimi verebilirsiniz. Bir hizmet sorumlusu kullanarak temsilci belirli izinleri sağlayan [rol tabanlı erişim denetimi](azure-stack-manage-permissions.md).
 
@@ -52,7 +51,7 @@ Azure Stack için Active Directory yapılandırdığınız şekilde, bir hizmet 
 
 Hizmet sorumlusuna bir rol aynı Azure için atama adımlarını AD ve AD FS. Hizmet sorumlusu oluşturduktan sonra [temsilci izinleri](azure-stack-create-service-principals.md#assign-role-to-service-principal) role atayarak.
 
-## <a name="create-a-service-principal-for-azure-ad"></a>Azure AD hizmet sorumlusu oluşturma
+## <a name="create-service-principal-for-azure-ad"></a>Azure AD hizmet sorumlusu oluşturma
 
 Azure Stack, Azure AD kimlik deposu olarak kullanıyorsa, bir hizmet sorumlusu Azure, Azure portalını kullanarak olduğu gibi aynı adımları kullanarak oluşturabilirsiniz.
 
@@ -95,11 +94,11 @@ AD FS kimlik deposu olarak kullanarak Azure Stack dağıttıysanız, aşağıdak
 * Hizmet sorumlusu, rol atayın.
 * Hizmet sorumlusunun kimliğini kullanarak oturum açın.
 
-Hizmet sorumlusu oluşturma hakkında daha fazla ayrıntı için bkz. [AD FS için hizmet sorumlusu oluşturma](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
+Hizmet sorumlusu oluşturma hakkında daha fazla ayrıntı için bkz. [AD FS için hizmet sorumlusu oluşturma](../azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Hizmet sorumlusu, rol atama
 
-Aboneliğinizdeki kaynaklara erişmek için uygulamaya bir rol atamanız gerekir. Uygulama için doğru izinlere rolünü karar verin. Kullanılabilir roller hakkında bilgi edinmek için [RBAC: yerleşik roller](../../role-based-access-control/built-in-roles.md).
+Aboneliğinizdeki kaynaklara erişmek için uygulamaya bir rol atamanız gerekir. Uygulama için doğru izinlere rolünü karar verin. Kullanılabilir roller hakkında bilgi edinmek için [RBAC: Yerleşik roller](../../role-based-access-control/built-in-roles.md).
 
 >[!NOTE]
 Bir abonelik, kaynak grubu veya bir kaynak düzeyinde bir rolün kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam için izinler devralınmıştır. Örneğin, bir kaynak grubu için okuyucu rolüne sahip bir uygulama, uygulama kaynak grubundaki kaynakların okuyabilirsiniz anlamına gelir.
@@ -114,9 +113,7 @@ Aşağıdaki adımlar, bir hizmet sorumlusuna bir rol atamak için bir kılavuz 
 
 3. Seçin **erişim denetimi (IAM)** abonelik için.
 
-     ![Erişim denetimi seçin](./media/azure-stack-create-service-principal/image17.png)
-
-4. **Add (Ekle)** seçeneğini belirleyin.
+4. Seçin **rol ataması Ekle**.
 
 5. Uygulamayı atamak istediğiniz rolü seçin.
 

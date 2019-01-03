@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1b4ca22faf8ef01cab4b2e7231fea8ed49f0fcb3
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 698806bdedd9994f2c9de53118cb42c9df1c36cd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494583"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724411"
 ---
 # <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-apache-hadoop-services"></a>Hata ayıklama ve Apache Hadoop Hizmetleri çözümlemek için Blob Depolama alanında toplama yığın dökümleri
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
@@ -23,8 +23,8 @@ Yığın dökümlerini değişkenlerin değerleri döküm oluşturulduğu zaman 
 
 Çeşitli Hizmetleri için yığın dökümlerini koleksiyonunu tek tek Küme Hizmetleri için etkinleştirilmesi gerekir. Bu özellik için bir küme için devre dışı olmasını varsayılandır. Toplama etkinleştirildikten sonra nereye kaydedildiklerini Blob Depolama hesabı izleme önerilir, bu nedenle bu yığın dökümlerini büyük olabilir.
 
-> [!IMPORTANT]
-> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Bu makaledeki bilgiler, yalnızca Windows tabanlı HDInsight için geçerlidir. Linux tabanlı HDInsight hakkında daha fazla bilgi için bkz: [etkin yığın dökümleri Linux tabanlı HDInsight üzerinde Apache Hadoop Hizmetleri için](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+> [!IMPORTANT]  
+> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Bu makaledeki bilgiler, yalnızca Windows tabanlı HDInsight için geçerlidir. Linux tabanlı HDInsight hakkında daha fazla bilgi için bkz: [etkin yığın dökümleri Linux tabanlı HDInsight üzerinde Apache Hadoop Hizmetleri için](hdinsight-hadoop-collect-debug-heap-dump-linux.md).
 
 
 ## <a name="eligible-services-for-heap-dumps"></a>Uygun hizmetler için yığın dökümlerini

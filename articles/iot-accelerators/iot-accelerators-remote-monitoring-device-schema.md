@@ -2,24 +2,27 @@
 title: Cihaz şema Uzaktan izleme çözümünde - Azure | Microsoft Docs
 description: Bu makalede Uzaktan izleme çözümünde bir simülasyon cihazı tanımlayan bir JSON şeması.
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 12/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: f312f29e14c371e7b500f3eee6471151e3544513
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 54e21e0b5f522b226ec1abb71a1c5ab5b245df05
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338864"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635536"
 ---
 # <a name="understand-the-device-model-schema"></a>Cihaz modeli şemasını anlama
 
-Sanal cihazlar, Uzaktan izleme çözümünde davranışını test etmek için kullanabilirsiniz. Uzaktan izleme çözümünü dağıttığınızda, sanal cihaz koleksiyonunu otomatik olarak sağlanır. Mevcut sanal cihazlar özelleştirme veya kendinizinkini oluşturun.
+Sanal cihazlar, Uzaktan izleme çözümünde davranışını test etmek için kullanabilirsiniz. Uzaktan izleme çözümü, sanal cihazlar çalıştırmak için bir cihaz benzetimi hizmeti içerir. Uzaktan izleme çözümünü dağıttığınızda, sanal cihaz koleksiyonunu otomatik olarak sağlanır. Mevcut sanal cihazlar özelleştirme veya kendinizinkini oluşturun.
 
 Bu makalede, bir sanal cihaz davranışını ve özellikleri belirten cihaz modeli şemasını açıklar. Cihaz modeli, bir JSON dosyasında depolanır.
+
+> [!NOTE]
+> Bu cihaz modeli şemasını, yalnızca cihaz benzetimi hizmette barındırılan sanal cihazlar içindir. Fiziksel bir cihaz oluşturmak istiyorsanız, bkz. [Cihazınızı Uzaktan izleme çözüm hızlandırıcısına bağlamayı](iot-accelerators-connecting-devices.md).
 
 Aşağıdaki makaleler için geçerli makalenin ilgili:
 

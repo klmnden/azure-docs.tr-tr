@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
 ms.author: jeconnoc
-ms.openlocfilehash: b288c6a64572287c460e82cd8746a8504d264933
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: bae1e7de3c24ff6fbf943ef93ad449d784feb0c8
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322952"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788705"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure bulut hizmetiniz için performans sayaçlarını Topla
 
@@ -84,7 +84,7 @@ Bulut hizmetiniz Azure Tanılama veya Application Insights için bir performans 
 
 ### <a name="application-insights"></a>Application Insights
 
-Bulut Hizmetleri için Azure Application Insights, belirttiğiniz toplamak istediğiniz hangi performans sayaçlarını sağlar. Çalıştırdıktan sonra [projenize Application Insights ekleme](../application-insights/app-insights-cloudservices.md#sdk), adlı bir yapılandırma dosyası **Applicationınsights.config** Visual Studio projenize eklenir. Bu yapılandırma dosyası, hangi türde bilgileri Application ınsights'ı toplar ve Azure'a gönderilmeden tanımlar.
+Bulut Hizmetleri için Azure Application Insights, belirttiğiniz toplamak istediğiniz hangi performans sayaçlarını sağlar. Çalıştırdıktan sonra [projenize Application Insights ekleme](../azure-monitor/app/cloudservices.md#sdk), adlı bir yapılandırma dosyası **Applicationınsights.config** Visual Studio projenize eklenir. Bu yapılandırma dosyası, hangi türde bilgileri Application ınsights'ı toplar ve Azure'a gönderilmeden tanımlar.
 
 Açık **Applicationınsights.config** dosya ve bulma **Applicationınsights** > **TelemetryModules** öğesi. Her `<Add>` alt öğesi yapılandırmasıyla birlikte toplanacak telemetri türü tanımlar. Performans sayacı telemetri modülü türü `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`. Bu öğe zaten tanımlanmış olması durumunda, ikinci kez eklemeyin. Adlı bir düğüm altında her performans sayacı toplamak için tanımlanan `<Counters>`. Sürücü performans sayaçlarını toplayan bir örnek aşağıda verilmiştir:
 
@@ -116,7 +116,7 @@ Application Insights, aşağıdaki performans sayaçları otomatik olarak toplar
 * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 * \Processor(_Total)\% Processor Time
 
-Daha fazla bilgi için [sistem performans sayaçları Application ınsights'ta](../application-insights/app-insights-performance-counters.md) ve [Azure Cloud Services için Application Insights](../application-insights/app-insights-cloudservices.md#performance-counters).
+Daha fazla bilgi için [sistem performans sayaçları Application ınsights'ta](../application-insights/app-insights-performance-counters.md) ve [Azure Cloud Services için Application Insights](../azure-monitor/app/cloudservices.md#performance-counters).
 
 ### <a name="azure-diagnostics"></a>Azure Tanılama
 
@@ -294,7 +294,7 @@ Daha önce belirtildiği gibi toplamak istediğiniz performans sayaçlarını ta
 
 ## <a name="more-information"></a>Daha fazla bilgi
 
-- [Azure Cloud Services için Application Insights](../application-insights/app-insights-cloudservices.md#performance-counters)
+- [Azure Cloud Services için Application Insights](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Application ınsights'ta sistem performans sayaçları](../application-insights/app-insights-performance-counters.md)
 - [Bir sayaç yolunu belirtme](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Azure tanılama şeması - performans sayaçları](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: 4b5f884fe6e1f1fdc12d7993418f7a10614a4cbe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 76a509c1cb9277ac72f99ec9ebfc239bfd71390c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602964"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969191"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Mantıksal Uygulamayı API olarak içeri aktarma
 
@@ -31,10 +31,10 @@ Bu makalede şunları öğreneceksiniz:
 > * Azure portalında API’yi test etme
 > * Geliştirici portalında API’yi test etme
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-+ Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md)
-+ Aboneliğinizde bir Mantıksal Uygulama olduğundan emin olun. Daha fazla bilgi için [İlk Mantıksal Uygulamanızı oluşturun](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md)
+* Bir HTTP uç noktasını kullanıma sunar, aboneliğinizde bir mantıksal uygulama olduğundan emin olun. Daha fazla bilgi için [HTTP uç noktaları ile iş akışlarını tetikler](../logic-apps/logic-apps-http-endpoint.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -44,7 +44,7 @@ Bu makalede şunları öğreneceksiniz:
 2. **Yeni API ekleyin** listesinden **Mantıksal Uygulama**’yı seçin.
 
     ![Mantıksal uygulama](./media/import-logic-app-as-api/logic-app-api.png)
-3. Aboneliğinizdeki Mantıksal Uygulamaların listesini görmek için **Gözat**’a basın.
+3. Tuşuna **Gözat** çağrılabilir Logic Apps, aboneliğinizdeki listesini görmek için.
 4. Uygulamayı seçin. APIM, seçili uygulamayla ilişkili Swagger’ı bulur, getirir ve içeri aktarır. 
 5. API URL'si soneki ekleyin. Sonek, bu belirli API’yi bu APIM örneğinde tanımlayan bir addır. Son ekin bu APIM örneğinde benzersiz olması gerekir.
 6. API’yi bir ürünle ilişkilendirerek yayımlayın. Bu durumda, "*Sınırsız*" ürünü kullanılır.  API’nin yayımlanmasını ve geliştiricilerin kullanımına sunulmasını istiyorsanız, bir ürüne ekleyin. Bunu API oluşturması sırasında yapabilir ya da daha sonra ayarlayabilirsiniz.

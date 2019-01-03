@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 1c99b7a3eecdd7938b4813647afb9e48fb0173a0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739286"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791056"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Ölçek kümeleri için tasarım konuları
 Bu makalede, sanal makine ölçek kümeleri için tasarım konuları açıklanmaktadır. Sanal makine ölçek kümeleri nelerdir hakkında daha fazla bilgi için bkz [sanal makine ölçek kümelerine genel bakış](virtual-machine-scale-sets-overview.md).
@@ -71,7 +71,7 @@ Bir Market görüntüsü (platform görüntüsü olarak da bilinir) üzerinde ol
 
 Bir ölçek kümesi kullanıcı tarafından yönetilen depolama hesapları ile yapılandırılan 100 VM ile şu anda sınırlı olmasına (ve 5 depolama hesapları, bu ölçek birimi için önerilir).
 
-Özel bir görüntü (birisi sizin tarafınızdan oluşturulmuş) temel alan bir ölçek kümesi, Azure yönetilen diskler ile yapılandırıldığında 300 adede kadar VM kapasitesine sahip olabilir. Ölçek kümesi, kullanıcı tarafından yönetilen depolama hesapları ile yapılandırılmışsa, bir depolama hesabı içindeki tüm işletim sistemi diski VHD oluşturmanız gerekir. Sonuç olarak, özel bir görüntü yerleşik bir ölçek kümesi sanal makine sayısı üst sınırı önerilen ve kullanıcı tarafından yönetilen depolama 20'dir. Açıdan kapalı kapatırsanız, 40'a kadar gidebilirsiniz.
+Özel bir görüntü (birisi sizin tarafınızdan oluşturulmuş) temel alan bir ölçek kümesi, Azure yönetilen diskler ile yapılandırıldığında, en fazla 600 VM kapasitesine sahip olabilir. Ölçek kümesi, kullanıcı tarafından yönetilen depolama hesapları ile yapılandırılmışsa, bir depolama hesabı içindeki tüm işletim sistemi diski VHD oluşturmanız gerekir. Sonuç olarak, özel bir görüntü yerleşik bir ölçek kümesi sanal makine sayısı üst sınırı önerilen ve kullanıcı tarafından yönetilen depolama 20'dir. Açıdan kapalı kapatırsanız, 40'a kadar gidebilirsiniz.
 
 Daha fazla sanal makine için limitler izin verdiğinden, gösterildiği gibi birden çok ölçek kümelerini dağıtmak ihtiyacınız [Bu şablon](https://github.com/Azure/azure-quickstart-templates/tree/master/301-custom-images-at-scale).
 

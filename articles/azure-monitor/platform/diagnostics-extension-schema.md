@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 42ed050606dd242e43903ed980a5670b4aa6f3df
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 064c1b8100e165627d5227b9f24b87aefae2e769
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343182"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790767"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure tanılama uzantısı yapılandırma şeması sürümleri ve geçmişi
 Bu sayfa dizinlerinin Azure tanılama Uzantı Şeması sürümleri, Microsoft Azure SDK'sı bir parçası olarak gönderildiğini.  
@@ -175,7 +175,7 @@ PublicConfig için eklenen depolama türü. StorageType olabilir *tablo*, *Blob*
 Event Hubs'a yönlendirmek için özelliği eklendi.
 
 ### <a name="diagnostics-extension-15"></a>Tanılama uzantısı 1.5
-Havuzlarını öğesi ve Tanılama verileri gönderme olanağı eklendi [Application Insights](../../application-insights/app-insights-cloudservices.md) sistem ve altyapı düzeyinde yanı sıra, uygulama genelinde sorunları tanılamak kolaylaştırır.
+Havuzlarını öğesi ve Tanılama verileri gönderme olanağı eklendi [Application Insights](../../azure-monitor/app/cloudservices.md) sistem ve altyapı düzeyinde yanı sıra, uygulama genelinde sorunları tanılamak kolaylaştırır.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 ve tanılama uzantısı 1.3
 Visual Studio'da bulut hizmeti projeleri için aşağıdaki değişiklikler yapılmıştır. (Bu değişiklikleri da Azure SDK'sının daha yeni sürümler için geçerlidir.)

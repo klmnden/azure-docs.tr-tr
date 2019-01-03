@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 06e9b443c5b0dc1c23b325c7127511f8542a1a11
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: de758d38626107f28211f79a4772c3e887085776
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964841"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599844"
 ---
 # <a name="split-merge-security-configuration"></a>Ayırma-birleştirme güvenliği yapılandırma
 Ayırma/birleştirme hizmetini kullanmak için doğru güvenlik yapılandırmanız gerekir. Hizmet, Microsoft Azure SQL veritabanı'nın esnek ölçeklendirme özelliği bir parçasıdır. Daha fazla bilgi için [esnek ölçek bölme ve birleştirme Service Öğreticisi](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -43,7 +43,7 @@ Bu seçenek kullanılabilir değilse, oluşturabileceğiniz **otomatik olarak im
     Yüklü değilse, şuraya gidin:
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* WDK gelen alma [Windows 8.1: setleri ve araçları indirme](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* WDK gelen alma [Windows 8.1: Yükleme setleri ve araçları](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>SSL sertifikası yapılandırma
 Bir SSL sertifikası, iletişimi şifrelemek ve sunucu kimlik doğrulaması için gereklidir. Aşağıdaki üç senaryo en uygun seçin ve tüm adımları yürütün:

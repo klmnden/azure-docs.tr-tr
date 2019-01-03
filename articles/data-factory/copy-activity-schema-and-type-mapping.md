@@ -1,6 +1,6 @@
 ---
-title: Şema eşleme kopyalama etkinliğinde | Microsoft Docs
-description: Kopya etkinliği Azure Data factory'de veri kopyalama işlemi sırasında veri havuzu için şemaları ve verileri türlerinden kaynak verileri nasıl eşlendiğini hakkında bilgi edinin.
+title: Şema eşleme kopyalama etkinliğindeki | Microsoft Docs
+description: Kopyalama etkinliği Azure Data factory'de veri veri kopyalarken havuz şemaları ve veri türleri kaynak verilerden nasıl eşlendiğini hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,48 +11,48 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 16275ddc4d4ad85bdac54244ceeec568603fdfef
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 54c334aa9363ac5ca75cc4ad5b107524f502011e
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112108"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810620"
 ---
-# <a name="schema-mapping-in-copy-activity"></a>Şema eşleme kopyalama etkinliğinde
-Şema eşleme ve veri türü eşlemesi veri kaynağı verilerden Azure Data Factory kopyalama etkinliği nasıl yapar bu makalede veri kopyalamayı yapılırken.
+# <a name="schema-mapping-in-copy-activity"></a>Kopyalama etkinliğindeki şema eşleme
+Bu makalede Azure Data Factory kopyalama etkinliği, şema eşleme ve veri türü eşlemesi veri kaynağı verilerden nasıl yaptığını açıklar, veri kopyalama yürütün.
 
-## <a name="column-mapping"></a>Sütun eşlemesi
+## <a name="column-mapping"></a>Sütun eşleme
 
-Varsayılan olarak, kopya etkinliği **eşleme sütun adlarına göre havuz için kaynak verilerini**sürece [açık sütun eşlemesi](#explicit-column-mapping) yapılandırılır. Kopyalama etkinliği daha açık belirtmek gerekirse:
+Sütun eşlemesi şeklinde tablosal veri arasında veri kopyalama işlemi sırasında uygulanır. Varsayılan olarak, kopyalama etkinliği **sütun adlarına göre havuz için kaynak verileri eşleme**sürece [açık sütun eşlemesi](#explicit-column-mapping) yapılandırılır. Kopyalama etkinliği daha açık belirtmek gerekirse:
 
-1. Veri kaynağından okumak ve kaynak şema belirleme
+1. Veri kaynağından okumak ve kaynağı şemasını belirleme
 
-    * Veri deposu/dosya biçimi, örneğin, veritabanları/dosyalarıyla, meta veriler (Avro/ORC/Parquet/metin üstbilgiyle), önceden tanımlanmış şemasıyla veri kaynakları için kaynak şema sorgu sonucu veya dosya meta verilerden ayıklanır.
-    * Esnek şeması, örneğin, Azure tablo/Cosmos DB veri kaynakları için kaynak şema sorgusu sonucundan algılanır. Veri kümesi "yapı" sağlayarak üzerine yazabilirsiniz.
-    * Üst bilgi içermeyen metin dosyası için varsayılan sütun adları desenle "Prop_0", "Prop_1" üretilir... Veri kümesi "yapı" sağlayarak üzerine yazabilirsiniz.
-    * Dynamics kaynağı için veri kümesi "yapısı" bölümünde şema bilgileri girmeniz gerekir.
+    * Veri deposu/dosya biçimi, örneğin, veritabanları/dosya meta veri (Avro/ORC/Parquet/metin üst bilgisiyle), önceden tanımlı bir şema ile veri kaynakları için sorgu sonucunu veya dosya meta verilerinden kaynak şema ayıklanır.
+    * Örneğin, Azure tablo/Cosmos DB, esnek şema ile veri kaynakları için kaynak şema sorgu sonuç algılanır. Veri kümesinde "yapı" yapılandırarak üzerine yazabilirsiniz.
+    * Üst bilgi içermeyen metin dosyası için varsayılan sütun adları deseni "Prop_0", "Prop_1" oluşturulan... Veri kümesinde "yapı" yapılandırarak üzerine yazabilirsiniz.
+    * Dynamics kaynağı için veri kümesi "yapı" bölümünde şema bilgileri sağlamanız gerekir.
 
-2. Açık sütun eşlemesi belirtilmişse uygulayın.
+2. Açık sütun eşleme, belirtilmişse uygulayın.
 
-3. Havuz için veri yazma
+3. Havuz veri yazma
 
-    * Önceden tanımlı bir şeması ile veri depoları için aynı ada sahip sütun için veri yazılır.
-    * Veri depoları sabit şemasına olmadan ve dosya biçimleri için sütun adları/meta veri kaynağının şemasını temel alan oluşturulur.
+    * Önceden tanımlı bir şema ile veri depoları için sütunları aynı ada sahip veri yazılır.
+    * Sabit olmayan veri depoları ve dosya biçimleri için sütun adları/meta veri kaynağı şemasını temel alan oluşturulur.
 
-### <a name="explicit-column-mapping"></a>Açık sütun eşlemesi
+### <a name="explicit-column-mapping"></a>Açık sütun eşleme
 
-Belirleyebileceğiniz **columnMappings** içinde **typeProperties** açık sütun eşlemesi yapmak için kopyalama etkinliği bölümü. Bu senaryoda, "yapısı" bölümü, giriş ve çıkış veri kümeleri için gereklidir. Sütun eşlemesi destekler **eşleme tüm veya "yapısı" havuz kümesindeki tüm sütunlara "yapısı" kaynak veri kümesinde sütun alt kümesini**. Bir özel durum neden hata koşulları şunlardır:
+Belirtebileceğiniz **Bunun amacı** içinde **typeProperties** bölümünü açık sütun eşleme için kopyalama etkinliği. Bu senaryoda, "yapı" bölümü, girdi ve çıktı veri kümeleri için gereklidir. Sütun eşleme destekler **eşleme tüm veya kaynak veri kümesindeki tüm sütunları havuz veri kümesi "yapı" içinde "yapısına" sütun alt kümesi**. Bir özel durumu hata koşulları şunlardır:
 
-* Sorgu sonucu girdi veri kümesi "yapısı" bölümünde belirtilen bir sütun adı yok kaynak veri deposu.
-* Havuz veri deposu (şemasıyla önceden tanımlanmış değilse) çıkış veri kümesi "yapısı" bölümünde belirtilen bir sütun adı yok.
-* Daha az sütun veya "eşlemede belirtilen yapısını" havuz veri kümesi'den daha fazla sütun.
+* Sorgu sonucu giriş veri kümesi "yapı" bölümünde belirtilen bir sütun adı yok. kaynak veri deposu.
+* Havuz veri deposu (ile önceden tanımlı bir şeması varsa) çıkış veri kümesi "yapı" bölümünde belirtilen bir sütun adı yok.
+* Daha az sütun veya daha fazla sütun "eşlemesinde belirtilen yapısını" havuz veri kümesi.
 * Yinelenen eşleme.
 
 #### <a name="explicit-column-mapping-example"></a>Açık sütun eşleme örneği
 
-Bu örnekte, Giriş tablosunda bir yapı ve bir şirket içi SQL veritabanındaki bir tablo işaret.
+Bu örnekte, Giriş tablosunda bir yapıya sahiptir ve bir şirket içi SQL veritabanındaki bir tabloda işaret.
 
 ```json
 {
@@ -76,7 +76,7 @@ Bu örnekte, Giriş tablosunda bir yapı ve bir şirket içi SQL veritabanındak
 }
 ```
 
-Bu örnek, çıktı tablosu yapısının ve bir Azure SQL veritabanındaki bir tablo işaret.
+Bu örnekte, çıktı tablosu bir yapıya sahiptir ve Azure SQL veritabanı tablosuna işaret.
 
 ```json
 {
@@ -100,7 +100,7 @@ Bu örnek, çıktı tablosu yapısının ve bir Azure SQL veritabanındaki bir t
 }
 ```
 
-Aşağıdaki JSON ardışık düzeninde kopyalama etkinliği tanımlar. Kaynak havuzu sütuna eşlenen sütunlarından (**columnMappings**) kullanarak **Çeviricisi** özelliği.
+Aşağıdaki JSON bir işlem hattında kopyalama etkinliği tanımlar. Kaynak havuzu sütuna eşlenmiş sütunlarından (**Bunun amacı**) kullanarak **translator** özelliği.
 
 ```json
 {
@@ -135,30 +135,105 @@ Aşağıdaki JSON ardışık düzeninde kopyalama etkinliği tanımlar. Kaynak h
 }
 ```
 
-Söz dizimi kullanıyorsanız `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` sütun eşlemesi belirtmek için hala olarak desteklenmektedir-değil.
+Söz dizimini kullanıyorsanız `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` sütun eşlemesi belirtmek için hala olarak desteklenmektedir-olduğu.
 
-**Sütun eşlemesi akışı:**
+**Sütun eşlemesi akış:**
 
-![Sütun eşlemesi akışı](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
+![Sütun eşleme akış](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
+
+## <a name="schema-mapping"></a>Şema eşleme
+
+Şema eşleme hiyerarşik biçimli verileri ve tablo şeklinde verileri arasında veri kopyalamayı örn kopyaladığınızda, MongoDB/geri KALANINDAN metin dosyası ve SQL bir kopyasından Azure Cosmos DB MongoDB API'si için geçerlidir. Kopyalama etkinliği aşağıdaki özellikler desteklenir `translator` bölümü:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Kopyalama etkinliği Çeviricisi öğesinin type özelliği ayarlanmalıdır: **TabularTranslator** | Evet |
+| schemaMapping | Anahtar-değer çiftleri tablo yan eşleme ilişkisindeki hiyerarşik tarafına temsil eden koleksiyonu.<br/>- **Anahtar:** tanımlanan veri kümesi yapısında tablosal veri sütununun adı.<br/>- **Değer:** ayıklayın ve eşlemek her bir alan için JSON yolu ifadesini. Kök nesne altındaki alanlar için root $ ile, `collectionReference` özelliği tarafından seçilen dizinin içindeki alanlar için ise dizi öğesiyle başlayın.  | Evet |
+| collectionReference | Yineleme ve veri nesneleri ayıklamak istiyorsanız **bir dizi alanındaki** nesne başına daha fazla satır arası uygulamak için o dizinin JSON yolunu belirtmek için dönüştürme ve aynı deseni. Bu özellik yalnızca hiyerarşik veri kaynağı olduğunda desteklenir. | Hayır |
+
+**Örnek: SQL Mongodb'den kopyalayın:**
+
+Örneğin, aşağıdaki içerikle MongoDB belge varsa: 
+
+```json
+{
+    "id": {
+        "$oid": "592e07800000000000000000"
+    },
+    "number": "01",
+    "date": "20170122",
+    "orders": [
+        {
+            "prod": "p1",
+            "price": 23
+        },
+        {
+            "prod": "p2",
+            "price": 13
+        },
+        {
+            "prod": "p3",
+            "price": 231
+        }
+    ],
+    "city": [ { "name": "Seattle" } ]
+}
+```
+
+ve bunu bir Azure SQL tablosuna aşağıdaki biçimde dizi içindeki verileri düzleştirme tarafından kopyalamak istediğiniz *(order_pd ve order_price)* ve ortak kök bilgiyle katılın arası *(sayı, tarih ve şehir)* :
+
+| orderNumber | orderDate | order_pd | order_price | city |
+| --- | --- | --- | --- | --- |
+| 01 | 20170122 | P1 | 23 | Seattle |
+| 01 | 20170122 | P2 | 13 | Seattle |
+| 01 | 20170122 | P3 | 231 | Seattle |
+
+Şema eşleme kuralının aşağıdaki kopyalama etkinliği JSON örneği yapılandırın:
+
+```json
+{
+    "name": "CopyFromMongoDBToSqlAzure",
+    "type": "Copy",
+    "typeProperties": {
+        "source": {
+            "type": "MongoDbV2Source"
+        },
+        "sink": {
+            "type": "SqlSink"
+        },
+        "translator": {
+            "type": "TabularTranslator",
+            "schemaMapping": {
+                "orderNumber": "$.number", 
+                "orderDate": "$.date", 
+                "order_pd": "prod", 
+                "order_price": "price",
+                "city": " $.city[0].name"
+            },
+            "collectionReference":  "$.orders"
+        }
+    }
+}
+```
 
 ## <a name="data-type-mapping"></a>Veri türü eşlemesi
 
-Kopya etkinliği aşağıdaki 2 adımlı yaklaşımda eşleme türler havuz için kaynak türleri gerçekleştirir:
+Kopyalama etkinliği kaynak türleri için aşağıdaki 2 adımlı yaklaşım ile eşleme türleri havuz gerçekleştirir:
 
-1. Azure Data Factory geçici veri türleri için yerel kaynak türlerinden Dönüştür
+1. Azure veri fabrikası geçici veri türleri için yerel kaynak türlerinden dönüştürme
 2. Azure Data Factory geçici veri türlerinden yerel havuz türüne dönüştürün
 
-Her bağlayıcı konu "Veri eşleme türü" bölümünde geçiş türü için yerel tür arasında eşleme bulabilirsiniz.
+Her bir bağlayıcı konuda "Veri eşleme türü" bölümündeki geçiş türü için yerel bir tür arasındaki eşlemeyi bulabilirsiniz.
 
 ### <a name="supported-data-types"></a>Desteklenen veri türleri
 
-Veri fabrikası aşağıdaki geçici veri türlerini destekler: tür bilgileri sağlanırken altındaki değerler belirtebilirsiniz [veri kümesi yapısı](concepts-datasets-linked-services.md#dataset-structure) yapılandırma:
+Data Factory, aşağıdaki geçici veri türlerini destekler: Tür bilgilerini yapılandırırken değerleri belirtebilirsiniz [dataset yapısını](concepts-datasets-linked-services.md#dataset-structure) yapılandırma:
 
-* Byte]
+* Bayt]
 * Boole
 * Tarih saat
 * Datetimeoffset
-* Ondalık
+* Onluk
 * çift
 * Guid
 * Int16
@@ -170,29 +245,29 @@ Veri fabrikası aşağıdaki geçici veri türlerini destekler: tür bilgileri s
 
 ### <a name="explicit-data-type-conversion"></a>Açık veri türü dönüşümü
 
-Kaynak ve havuz olduğunda farklı türü aynı sütunda, verileri veri kopyalama sabit şemasıyla, örneğin, SQL Server/Oracle, depoladığında kaynak tarafta açık tür dönüşümü bildirilmesi gerekir:
+Aynı sütunda farklı kaynak ve havuz sahip olduğunda sabit şema ile Örneğin, SQL Server/Oracle, veri kopyalama veri depolarıyla çalışırken açık tür dönüştürme kaynak tarafı içinde bildirilmesi gerekir:
 
-* Dosya kaynağını, örneğin, CSV/Avro, tür dönüştürme kaynak yapısı (kaynak tarafı sütun adı ve havuz yan türü) tam sütun listesiyle aracılığıyla bildirilmesi
-* (Örneğin, SQL/Oracle) ilişkisel kaynağı için tür dönüştürme sorgu deyimi içinde açık tür atama tarafından elde.
+* Dosya kaynağı için örneğin, CSV/Avro tür dönüştürme kaynak yapısı (kaynak tarafında sütun adı ve havuz yan türü) tam sütun listesiyle aracılığıyla bildirilmesi
+* İlişkisel bir kaynak için (örneğin, SQL/Oracle), tür dönüştürme açık tür dönüştürme sorgu deyimi tarafından elde.
 
 ## <a name="when-to-specify-dataset-structure"></a>Veri kümesi "yapısı" belirtmek ne zaman
 
-İçinde senaryolar "yapısı" kümesindeki gereklidir:
+İçinde senaryoları, "yapı" veri kümesindeki gereklidir:
 
-* Uygulama [açık veri türü dönüştürme](#explicit-data-type-conversion) dosya kaynaklarını kopyalama (girdi veri kümesi) sırasında için
-* Uygulama [açık sütun eşlemesi](#explicit-column-mapping) (her ikisi de giriş ve çıkış dataset) kopyalama sırasında
-* Dynamics 365 / CRM kaynağından (girdi veri kümesi) kopyalama
-* Kaynağı JSON dosyaları (çıktı veri kümesi) olmadığında Cosmos DB iç içe nesne olarak kopyalama
+* Uygulama [açık veri türü dönüştürme](#explicit-data-type-conversion) (girdi veri kümesi) kopyalama sırasında dosya kaynakları için
+* Uygulama [açık sütun eşlemesi](#explicit-column-mapping) (her ikisi de girdi ve çıktı veri kümesi) kopyalama sırasında
+* Dynamics 365 / CRM kaynaktan (girdi veri kümesi) kopyalama
+* Kaynak JSON dosyaları (çıktı veri kümesi) olmadığında Cosmos DB'ye iç içe geçmiş nesne olarak kopyalama
 
-Senaryolar, veri kümesi "yapısında" önerilen:
+Senaryolarda, veri kümesi "yapı" önerilen:
 
-* Üstbilgi (girdi veri kümesi) olmadan metin dosyasından kopyalama. Metin dosyası sütunlarla açık sütun eşlemesi sağlama kaydetmek için karşılık gelen havuz, hizalama için sütun adlarını belirtebilirsiniz.
-* Verileri kopyalama esnek şeması ile Örneğin, Azure tablo/Cosmos DB (girdi veri kümesi) depolar, üzerinden yerine let kopyalama kopyalanmasını beklenen verileri (sütunları) güvence altına almak için etkinlik her etkinlik sırasında üzerinde üst satırlara göre şema olarak Infer.
+* (Giriş veri kümesi) üst bilgisi olmayan metin dosyasından kopyalama. Açık sütun eşlemesi yapılandırmasını kaydetmek için karşılık gelen havuz sütunları içeren, hizalama metin dosyası sütun adlarını belirtebilirsiniz.
+* Veri kopyalama ile esnek şemaya, örneğin, Azure tablo/Cosmos DB (girdi veri kümesi) depolar, etkinlik üzerinden let kopyalama yerine kopyalanan beklenen verileri (sütun) garanti etmek için üst satır her bir etkinlik çalıştırması sırasında dayalı şema çıkarsa.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir kopyalama etkinliği makalelere bakın:
 
-- [Kopya etkinliği genel bakış](copy-activity-overview.md)
-- [Etkinlik hata toleransı kopyalayın](copy-activity-fault-tolerance.md)
-- [Kopya etkinliği performansının](copy-activity-performance.md)
+- [Kopyalama etkinliği'ne genel bakış](copy-activity-overview.md)
+- [Kopyalama etkinliği hataya dayanıklılık](copy-activity-fault-tolerance.md)
+- [Kopyalama etkinliği performansı](copy-activity-performance.md)

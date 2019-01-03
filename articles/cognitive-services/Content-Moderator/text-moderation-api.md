@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 4c4a0ccfc93a6a48a0178183b94cc03cb576930a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0948251c18ad8eece974914ee33dff18b5930553
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226577"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53535812"
 ---
 # <a name="text-moderation"></a>Metin denetimi
 
@@ -149,7 +149,7 @@ Otomatik düzeltmeye sorarsanız yanıt düzeltilmiş metin sürümünü içerir
 Varsayılan olarak genel koşulları listesini çoğu durum için mükemmel çalışırken, iş gereksinimlerinize özel terimleri karşı ekran isteyebilirsiniz. Örneğin, kullanıcılar tarafından gönderileri herhangi rekabetçi marka adları filtrelemek isteyebilirsiniz.
 
 > [!NOTE]
-> Bir maksimum sınırı **5 terim listeleri** her listesine ile **10.000 koşulları aşmayacak**.
+> En çok **5 terim listeniz** olabilir ve her listedeki **terimlerin sayısı 10.000'i aşmamalıdır**.
 >
 
 Aşağıdaki örnek, eşleşen liste kimliği gösterir:

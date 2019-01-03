@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 2418de5c20c34ae82ad36a914955fb338afd2822
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e3fb703d49b97b7e8fa4136f8cd49fed20ee12a9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877193"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720729"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Bulut veritabanlarında dağıtılmış işlemler
 Elastik veritabanı işlemleri için Azure SQL veritabanı (SQL DB) SQL DB'de birkaç veritabanlarına yayılan işlemler çalıştırmanıza olanak tanır. SQL veritabanı için elastik veritabanı işlem ADO .NET kullanarak .NET uygulamaları için kullanılabilir ve tanıdık programlama deneyimi kullanarak ile tümleştirme [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) sınıfları. Kitaplık almak için bkz. [.NET Framework 4.6.1 (Web Yükleyicisi)](https://www.microsoft.com/download/details.aspx?id=49981).
@@ -30,7 +30,7 @@ Elastik veritabanı işlemleri için Azure SQL veritabanı (SQL DB) SQL DB'de bi
 SQL veritabanı için elastik veritabanı işlem uygulamaları birkaç farklı SQL veritabanlarında depolanan verileri atomik değişiklik yapmak etkinleştirin. C# ve .NET istemci tarafı geliştirme deneyimlerinde Önizleme odaklanır. T-SQL kullanarak sunucu tarafı deneyimi, daha sonraki bir zamana planlanmaktadır.  
 Elastik veritabanı işlemleri, aşağıdaki senaryolarda hedefler:
 
-* Azure'da çok veritabanı uygulamaları: farklı veri türleri farklı veritabanları üzerinde bulunan gibi bu senaryoyla veriler dikey olarak SQL DB çeşitli veritabanları arasında bölümlenirken. Bazı işlemler, iki veya daha fazla veritabanı içinde tutulan verilerde yapılan değişiklikleri gerektirir. Uygulama, elastik veritabanı işlem veritabanlarında değişikliklerini koordine etmek ve kararlılık emin olmak için kullanır.
+* Azure'da çok veritabanı uygulamaları: Farklı veri türleri farklı veritabanları üzerinde bulunan, bu senaryo ile veri dikey olarak SQL DB çeşitli veritabanları arasında bölümlenir. Bazı işlemler, iki veya daha fazla veritabanı içinde tutulan verilerde yapılan değişiklikleri gerektirir. Uygulama, elastik veritabanı işlem veritabanlarında değişikliklerini koordine etmek ve kararlılık emin olmak için kullanır.
 * Azure uygulamalarında parçalı veritabanlarını: Bu senaryo ile veri katmanı kullanan [elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) veya yatay SQL veritabanında çok sayıda veritabanı arasında verileri bölümlemek için self-parçalama. Bir tanınmış bir kullanım örneği değişiklikleri kiracıya yayılabilir, parçalı çok kiracılı bir uygulama için atomik değişiklikleri gerçekleştirmek için gerekli değildir. Örneğin bir kiracıdaki bir aktarım hem bulunan farklı veritabanları üzerinde başka bir düşünün. Sırayla genellikle aynı Kiracı için kullanılan çeşitli veritabanları arasında esnetme bazı atomik işlemler gerektiği anlamına gelir, büyük bir kiracı için kapasite gereksinimlerini karşılamak için ayrıntılı parçalama ikinci durumdur. Veritabanları arasında çoğaltılan verilerini başvurmak için atomik güncelleştirmeleri buna üçüncü bir durumdur. Bu satırlar boyunca atomik, hizmetteki, işlemleri artık Önizleme kullanarak birçok veritabanı arasında Eşgüdümlü.
   Elastik veritabanı işlem iki aşamalı tamamlama işlem kararlılık veritabanlarında emin olmak için kullanın. Sadece tek bir işlem içinde her defasında 100 veritabanları gerektiren işlemler için uygun değil. Bu sınırlar zorlanmamış, ancak bir performans ve başarı oranları bu sınırlar aşıldığında yaşanmaya elastik veritabanı işlemleri için beklemeniz gerekir.
 
@@ -92,7 +92,7 @@ SQL veritabanı için elastik veritabanı işlemleri de destekler, kullandığı
 
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Azure Cloud Services için .NET yükleme
-Azure .NET uygulamalarını barındırmak için çeşitli teklifleri sağlar. Farklı teklifleri karşılaştırması kullanılabilir [Azure App Service, Cloud Services ve Virtual Machines karşılaştırması](../app-service/choose-web-site-cloud-service-vm.md). ' % S'konuk işletim sistemi teklifin .NET 4.6.1 elastik işlemler için gerekli daha küçükse 4.6.1 için konuk işletim sistemi yükseltme gerekir. 
+Azure .NET uygulamalarını barındırmak için çeşitli teklifleri sağlar. Farklı teklifleri karşılaştırması kullanılabilir [Azure App Service, Cloud Services ve Virtual Machines karşılaştırması](../app-service/overview-compare.md). ' % S'konuk işletim sistemi teklifin .NET 4.6.1 elastik işlemler için gerekli daha küçükse 4.6.1 için konuk işletim sistemi yükseltme gerekir. 
 
 Azure uygulama hizmetleri için konuk işletim sistemi yükseltmeleri şu anda desteklenmemektedir. Azure sanal makineleri için yalnızca VM'de oturum açın ve en son .NET framework için yükleyiciyi çalıştırın. Azure bulut Hizmetleri için başlangıç görevleri dağıtımınızın daha yeni bir .NET sürümü yüklemesine eklemeniz gerekir. Kavramlar ve adımlar bölümünde belgelendirilen [.NET bulut hizmeti rolündeki yükleme](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 
@@ -123,17 +123,17 @@ Elastik veritabanı işlemleri, Azure SQL veritabanı'nda mantıksal farklı sun
 Elastik veritabanı işlemleri için çapraz-sunucu iletişimi ilişkileri yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın:
 
 * **Yeni AzureRmSqlServerCommunicationLink**: Azure SQL DB'de iki mantıksal sunucuları arasında yeni bir iletişim ilişkisi oluşturmak için bu cmdlet'i kullanın. Her iki sunucuyu diğer sunucu işlemleri başlatabilirsiniz yani simetrik ilişkidir.
-* **Get-AzureRmSqlServerCommunicationLink**: var olan iletişimi ilişkileri ve özellikleri almak için bu cmdlet'i kullanın.
-* **Remove-AzureRmSqlServerCommunicationLink**: Use this cmdlet to remove an existing communication relationship. 
+* **Get-AzureRmSqlServerCommunicationLink**: Mevcut iletişim ilişkileri ve özellikleri almak için bu cmdlet'i kullanın.
+* **Remove-AzureRmSqlServerCommunicationLink**: Mevcut bir iletişim ilişkiyi kaldırmak için bu cmdlet'i kullanın. 
 
 ## <a name="monitoring-transaction-status"></a>İşlem durumunu izleme
-Dinamik Yönetim görünümlerini (Dmv'ler) İzleyici durumunu ve ilerlemesini, devam eden bir elastik veritabanı işlem için SQL DB kullanın. SQL veritabanında dağıtılmış işlemler için işlem ilişkili tüm Dmv'leri ilgilidir. Karşılık gelen listesini Dmv'leri burada bulabilirsiniz: [işlem ilgili dinamik yönetimi görünümleri ve işlevleri (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
+Dinamik Yönetim görünümlerini (Dmv'ler) İzleyici durumunu ve ilerlemesini, devam eden bir elastik veritabanı işlem için SQL DB kullanın. SQL veritabanında dağıtılmış işlemler için işlem ilişkili tüm Dmv'leri ilgilidir. Karşılık gelen listesini Dmv'leri burada bulabilirsiniz: [İşlemle ilgili dinamik yönetimi görünümleri ve işlevleri (Transact-SQL)](https://msdn.microsoft.com/library/ms178621.aspx).
 
 Bu Dmv'leri özellikle yararlı olur:
 
-* **sys.DM\_tran\_etkin\_işlemleri**: geçerli durumda etkin işlemlerin ve durumlarını listeler. UOW (iş birimi) sütunu için aynı dağıtılmış işlem ait farklı alt işlemlerin tanımlayabilirsiniz. Tüm işlemler aynı dağıtılmış işlem içinde aynı UOW değeri getirir. Bkz: [DMV belgeleri](https://msdn.microsoft.com/library/ms174302.aspx) daha fazla bilgi için.
-* **sys.DM\_tran\_veritabanı\_işlemleri**: işlem günlüğünde yerleştirme gibi işlemleri hakkında ek bilgi sağlar. Bkz: [DMV belgeleri](https://msdn.microsoft.com/library/ms186957.aspx) daha fazla bilgi için.
-* **sys.DM\_tran\_kilitleri**: şu anda devam eden işlemler tarafından tutulan kilitleri hakkında bilgi sağlar. Bkz: [DMV belgeleri](https://msdn.microsoft.com/library/ms190345.aspx) daha fazla bilgi için.
+* **sys.DM\_tran\_etkin\_işlemleri**: Geçerli durumda etkin işlemlerin ve durumlarını listeler. UOW (iş birimi) sütunu için aynı dağıtılmış işlem ait farklı alt işlemlerin tanımlayabilirsiniz. Tüm işlemler aynı dağıtılmış işlem içinde aynı UOW değeri getirir. Bkz: [DMV belgeleri](https://msdn.microsoft.com/library/ms174302.aspx) daha fazla bilgi için.
+* **sys.DM\_tran\_veritabanı\_işlemleri**: İşlem günlüğünde yerleştirme gibi işlemleri hakkında ek bilgi sağlar. Bkz: [DMV belgeleri](https://msdn.microsoft.com/library/ms186957.aspx) daha fazla bilgi için.
+* **sys.DM\_tran\_kilitleri**: Şu anda devam eden işlemler tarafından tutulan kilitleri hakkında bilgi sağlar. Bkz: [DMV belgeleri](https://msdn.microsoft.com/library/ms190345.aspx) daha fazla bilgi için.
 
 ## <a name="limitations"></a>Sınırlamalar
 SQL DB, esnek veritabanı işlem şu anda aşağıdaki sınırlamalar geçerlidir:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 0fdf768008161fbb72e48dae937a4172222dbb63
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1b6660a1565b3c119cc1dec0823870c7dd5bd24f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239755"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654096"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>SQL Server Yedekleme ve geri yükleme için Azure depolama kullanma
 ## <a name="overview"></a>Genel Bakış
@@ -32,13 +32,13 @@ Bu konuda, neden Azure depolama için SQL yedeklerini kullanmayı seçebilirsini
 ## <a name="benefits-of-using-the-azure-blob-service-for-sql-server-backups"></a>SQL Server yedeklemeleri için Azure Blob hizmetini kullanmanın avantajları
 SQL Server'ı yedeklerken karşılaştığı çeşitli zorluklar vardır. Bu zorluklar, Depolama Yönetimi, erişim şirket dışı depolama ve donanım yapılandırması için depolama hatası riskini içerir. Bu zorluklar birçoğu, SQL Server yedeklemeleri için Azure Blob Depolama hizmetini kullanarak ele alınır. Şu avantajları göz önünde bulundurun:
 
-* **Kullanım kolaylığı**: yedeklemelerinizi Azure bloblarında depolamaya kullanışlı olabilir, esnek ve şirket dışı seçeneğine erişmek kolaydır. SQL Server yedeklemeleriniz mevcut betikleri/kullanmak için işlerinizi değiştirme gibi kolay için şirket dışı depolama alanı oluşturulurken **URL'ye yedekleme** söz dizimi. Şirket dışı depolama, genellikle şirket dışı ve üretim veritabanı konumları etkileyebilecek tek bir olağanüstü durum önlemek için yeteri kadar üretim veritabanı konumdan olmalıdır. İçin seçerek [coğrafi çoğaltma, Azure BLOB'ları](../../../storage/common/storage-redundancy.md), ek bir tam bölge etkileyebilecek olağanüstü bir koruma katmanı vardır.
-* **Yedekleme arşiv**: Azure Blob Depolama hizmeti, yedekleme arşivlemek için sık kullanılan bant seçeneği için daha iyi bir alternatif sunar. Bant Depolama fiziksel nakliye medyayı korumak için bir şirket dışı tesis ve ölçüler gerektirebilir. Anlık sağlar, yedeklemelerinizi Azure Blob Storage'da depolamak, yüksek oranda kullanılabilir ve dayanıklı bir seçenek arşivleme.
-* **Yönetilen donanım**: hiçbir Azure hizmetleriyle donanım yönetiminin getirdiği ek yüke yoktur. Azure Hizmetleri donanımını yönetme ve coğrafi çoğaltma, yedeklilik ve donanım hatalarına karşı koruma sağlayın.
+* **Kullanım kolaylığı**: Yedeklemelerinizi Azure bloblarında depolamaya kullanışlı olabilir, esnek ve şirket dışı seçeneğine erişmek kolaydır. SQL Server yedeklemeleriniz mevcut betikleri/kullanmak için işlerinizi değiştirme gibi kolay için şirket dışı depolama alanı oluşturulurken **URL'ye yedekleme** söz dizimi. Şirket dışı depolama, genellikle şirket dışı ve üretim veritabanı konumları etkileyebilecek tek bir olağanüstü durum önlemek için yeteri kadar üretim veritabanı konumdan olmalıdır. İçin seçerek [coğrafi çoğaltma, Azure BLOB'ları](../../../storage/common/storage-redundancy.md), ek bir tam bölge etkileyebilecek olağanüstü bir koruma katmanı vardır.
+* **Yedekleme arşiv**: Azure Blob Depolama hizmetinin yedeklemeleri arşivlemek için sık kullanılan bant seçeneği için daha iyi bir alternatif sunar. Bant Depolama fiziksel nakliye medyayı korumak için bir şirket dışı tesis ve ölçüler gerektirebilir. Anlık sağlar, yedeklemelerinizi Azure Blob Storage'da depolamak, yüksek oranda kullanılabilir ve dayanıklı bir seçenek arşivleme.
+* **Yönetilen donanım**: Azure hizmetleriyle donanım yönetim zahmetine yoktur. Azure Hizmetleri donanımını yönetme ve coğrafi çoğaltma, yedeklilik ve donanım hatalarına karşı koruma sağlayın.
 * **Sınırsız depolama**: Azure BLOB'ları için doğrudan bir yedekleme etkinleştirerek, neredeyse sınırsız depolama erişebilirsiniz. Alternatif olarak, azure'a yedekleme bir Azure sanal makine diski makine boyutuna göre limitleri vardır. Yedeklemeler için bir Azure sanal makinesi ekleyebileceğiniz disk sayısı için bir sınır yoktur. Bu, çok büyük bir örnek için 16 disk ve daha küçük örnekler için daha az sınırdır.
-* **Yedekleme kullanılabilirlik**: Azure blob'larda depolanan yedeklemeler her yerden ve herhangi bir zamanda kullanılabilir ve bir şirket içi SQL Server'ı veya başka bir SQL Server çalıştıran bir Azure sanal Makinesi'nde, gerek kalmadan geri yüklemeler için kolayca erişilebilir Veritabanı İliştir/Ayır veya indiriliyor ve VHD ekleniyor.
-* **Maliyet**: kullanılan yalnızca hizmeti Kullandıkça Ödeme yaparsınız. Şirket dışı ve yedekleme arşiv isteğe bağlı olarak uygun maliyetli hale getirilebilmektedir. Bkz: [Azure fiyatlandırma hesaplayıcısı](https://go.microsoft.com/fwlink/?LinkId=277060 "fiyatlandırma hesaplayıcısı")ve [Azure fiyatlandırma makalesi](https://go.microsoft.com/fwlink/?LinkId=277059 "fiyatlandırma makalesi") daha fazla bilgi için.
-* **Depolama anlık görüntüleri**: veritabanı dosyalarını bir Azure blob içinde depolanır ve SQL Server 2016'yı kullanıyorsanız, kullanabileceğiniz [dosya anlık görüntüsü backup](https://msdn.microsoft.com/library/mt169363.aspx) neredeyse anında yedekleme ile son derece hızlı geri yüklemeler gerçekleştirmeyi.
+* **Yedekleme kullanılabilirlik**: Azure blob'larda depolanan yedeklemeler her yerden ve herhangi bir zamanda kullanılabilir ve bir şirket içi SQL Server veya başka bir SQL çalıştıran bir Azure sanal Makinesi'nde, veritabanı İliştir/Ayır gerek kalmadan veya indirme sunucuya geri yüklemeler için kolayca erişilebilir ve VHD ekleniyor.
+* **Maliyet**: Kullanılan yalnızca hizmeti Kullandıkça Ödeme yaparsınız. Şirket dışı ve yedekleme arşiv isteğe bağlı olarak uygun maliyetli hale getirilebilmektedir. Bkz: [Azure fiyatlandırma hesaplayıcısı](https://go.microsoft.com/fwlink/?LinkId=277060 "fiyatlandırma hesaplayıcısı")ve [Azure fiyatlandırma makalesi](https://go.microsoft.com/fwlink/?LinkId=277059 "fiyatlandırma makalesi") daha fazla bilgi için.
+* **Depolama anlık görüntüleri**: Veritabanı dosyalarını bir Azure blob içinde depolanır ve SQL Server 2016'yı kullanıyorsanız, kullanabileceğiniz [dosya anlık görüntüsü backup](https://msdn.microsoft.com/library/mt169363.aspx) neredeyse anında yedekleme ile son derece hızlı geri yüklemeler gerçekleştirmeyi.
 
 Daha fazla ayrıntı için [SQL Server Yedekleme ve geri yükleme ile Azure Blob Depolama hizmetinin](https://go.microsoft.com/fwlink/?LinkId=271617).
 
@@ -62,7 +62,7 @@ Aşağıdaki SQL Server bileşenleri için Azure Blob Depolama hizmetinin yedekl
 | **Kimlik bilgisi** |Bağlanmak ve Azure Blob Depolama hizmetinde kimlik doğrulaması için gerekli olan bilgileri, bir kimlik bilgisi olarak depolanır.  SQL Server'ın yedeklemeler için bir Azure Blob veya geri yükleme ondan yazmak için sırada bir SQL Server kimlik bilgileri oluşturulmalıdır. Daha fazla bilgi için [SQL sunucusu kimlik bilgisi](https://msdn.microsoft.com/library/ms189522.aspx). |
 
 > [!NOTE]
-> Kopyala ve yedekleme dosyasını Azure Blob Depolama hizmetine yüklemek tercih ederseniz, bu dosya için geri yükleme işlemlerini kullanmayı planlıyorsanız, depolama seçeneği olarak bir sayfa blob türü kullanmanız gerekir. Bir blok blob türü geri yükleme, bir hata ile başarısız olur.
+> SQL Server 2016, blok blobları desteklemek için güncelleştirildi. Lütfen bkz [Öğreticisi: Microsoft Azure Blob Depolama hizmetinin SQL Server 2016 veritabanlarıyla kullanarak](https://msdn.microsoft.com/library/dn466438.aspx) daha fazla ayrıntı için.
 > 
 > 
 
@@ -70,8 +70,8 @@ Aşağıdaki SQL Server bileşenleri için Azure Blob Depolama hizmetinin yedekl
 1. Zaten yoksa, bir Azure hesabı oluşturun. Azure değerlendiriyorsanız göz önünde bulundurun [ücretsiz deneme sürümü](https://azure.microsoft.com/free/).
 2. Ardından aracılığıyla bir depolama hesabı oluşturma ve geri yükleme gerçekleştirme konusunda sizi yönlendiren aşağıdaki öğreticilerden birine gidin.
    
-   * **SQL Server 2014**: [Öğreticisi: SQL Server 2014'ü yedekleme ve geri yükleme için Microsoft Azure Blob Depolama hizmeti](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
-   * **SQL Server 2016**: [Öğreticisi: SQL Server 2016 veritabanları ile Microsoft Azure Blob Depolama hizmetinin kullanma](https://msdn.microsoft.com/library/dn466438.aspx)
+   * **SQL Server 2014**: [Öğretici: SQL Server 2014'ü yedekleme ve geri yükleme için Microsoft Azure Blob Depolama hizmeti](https://msdn.microsoft.com/library/jj720558\(v=sql.120\).aspx).
+   * **SQL Server 2016**: [Öğretici: Microsoft Azure Blob Depolama hizmetinin SQL Server 2016 veritabanları ile kullanma](https://msdn.microsoft.com/library/dn466438.aspx)
 3. Ek belgeler başlayarak gözden [SQL Server Yedekleme ve geri yükleme işlemi Microsoft Azure Blob Depolama hizmetinin](https://msdn.microsoft.com/library/jj919148.aspx).
 
 Herhangi bir sorun varsa, bu konuyu gözden geçirin [URL en iyi yöntemler ve sorun giderme için SQL Server Yedekleme](https://msdn.microsoft.com/library/jj919149.aspx).

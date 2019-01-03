@@ -3,17 +3,15 @@ title: MariaDB için Azure veritabanı'na veri çoğaltmak için veri çoğaltma
 description: Bu makalede, veri çoğaltma için Azure veritabanı MariaDB için ayarlanacağını açıklar.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f75b3e33cbd5719211bb30b22ab8d53c344b5579
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 3897c402e45962836880ccebbeb252d189188d3c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212769"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548910"
 ---
 # <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>MariaDB veri çoğaltma için Azure veritabanını yapılandırma
 

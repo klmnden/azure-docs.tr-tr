@@ -4,19 +4,19 @@ description: Veritabanı geçişleri gerçekleştirmek için Azure veritabanı g
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: f1f67921e7eadded4292f244f5754c8f00341a15
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 12/19/2018
+ms.openlocfilehash: b8001729c85c8447ab22bafffe24a32524a0662a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887113"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714704"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti kullanma hakkında SSS
 Bu makalede, Azure veritabanı geçiş hizmeti ilgili yanıtları ile birlikte kullanma hakkında sık sorulan soruların listelenmektedir.
@@ -28,7 +28,7 @@ Azure veritabanı geçiş hizmeti, birden çok veritabanı kaynağını sorunsuz
 - Sorunsuz geçişler sürekli yatırım.
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>S. Hangi kaynak-hedef çiftlerinin Azure veritabanı geçiş hizmeti şu anda destekliyor mu?
-Hizmet şu anda SQL Server'dan Azure SQL veritabanı destekler ve bu senaryo için Azure veritabanı geçiş hizmeti kullanmaya başlamak için Azure portalına artık gidebilirsiniz. Azure SQL veritabanı, Oracle gibi diğer kaynak-hedef çiftlerinin sınırlı bir özel Önizleme kullanılabilir. Sınırlı önizlemede olan bu senaryolara katılmak bir fırsat için kaydolun [burada](https://aka.ms/dms-preview/).
+Hizmet şu anda çeşitli geçiş senaryolarını destekler. Her bir kullanılabilir geçiş senaryosu durumunu tam listesi için bkz [Azure veritabanı geçiş hizmeti tarafından desteklenen geçiş senaryoları durumunu](https://docs.microsoft.com/azure/dms/resource-scenario-status). Diğer geçiş senaryoları, sınırlı Önizleme aşamasındadır ve DMS Önizleme sitesi aracılığıyla ADAYLIK gönderme gerektirir. Sınırlı Önizleme aşamasındadır ve kaydolmak için bu teklifleri biriyle particpate senaryoları tam bir listesi için bkz. [DMS Önizleme site](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>S. Nasıl Azure veritabanı geçiş hizmeti veritabanı geçiş Yardımcısı (DMA) veya SQL Server Geçiş Yardımcısı (SSMA) gibi diğer Microsoft veritabanı geçiş araçları arasındaki fark nedir?
 Azure veritabanı geçiş hizmeti, uygun ölçekte Microsoft azure'a veritabanı geçişi için tercih edilen yöntemdir. Veritabanı Geçiş Araçları nasıl diğer Microsoft Azure veritabanı geçiş hizmeti karşılaştırır üzerinde daha fazla ayrıntı için ve Web günlüğü yayınlama çeşitli senaryolar için hizmetinin kullanılmasıyla ilgili öneriler için bkz. [farklılaştırılması Microsoft'un veritabanı Geçiş Araçları ve Hizmetleri](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).

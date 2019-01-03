@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: ed02174247de1a99f3d9a4880fd0afa60f867552
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: b17f6301a41dbb1f64edf9d027dff0f57c09282c
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139384"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808783"
 ---
 # <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Anahtarlar ve gizli anahtar kasasında depolanan kullanan bir örnek uygulaması
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure Stack'te bir anahtar Kasası'ndaki anahtarları ve gizli anahtarları alır. örnek uygulaması (HelloKeyVault) çalıştırmak için bu makaledeki adımları izleyin.
+Adlandırılmış bir örnek uygulamayı çalıştırmak için bu makaledeki adımları **HelloKeyVault** , anahtarları alır ve gizli diziler bir anahtar kasası Azure Stack'te.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -46,7 +46,7 @@ Azure yığını aşağıdaki önkoşulları yükleyebilirsiniz [Geliştirme Set
 >[!NOTE]
 >Varsayılan olarak, PowerShell Betiği Active Directory'de yeni bir uygulama oluşturur. Bununla birlikte, mevcut uygulamalarınızı birini kaydedebilirsiniz.
 
- Aşağıdaki komut dosyasını çalıştırmadan önce değerleri için sağladığınız emin olun `aadTenantName` ve `applicationPassword` değişkenleri. İçin bir değer belirtmezseniz `applicationPassword`, bu betik, rastgele bir parola oluşturur.
+Aşağıdaki komut dosyasını çalıştırmadan önce değerleri için sağladığınız emin olun `aadTenantName` ve `applicationPassword` değişkenleri. İçin bir değer belirtmezseniz `applicationPassword`, bu betik, rastgele bir parola oluşturur.
 
 ```powershell
 $vaultName           = 'myVault'
@@ -69,7 +69,7 @@ Function GenerateSymmetricKey()
 Write-Host 'Please log into your Azure Stack user environment' -foregroundcolor Green
 
 $tenantARM = "https://management.local.azurestack.external"
-$aadTenantName = "PLEASE FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
+$aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
 
 # Configure the Azure Stack operator’s PowerShell environment.
 Add-AzureRMEnvironment `
@@ -134,10 +134,9 @@ Write-Host "Paste the following settings into the app.config file for the HelloK
 '<add key="AuthClientId" value="' + $servicePrincipal.ApplicationId + '"/>'
 '<add key="AuthClientSecret" value="' + $applicationPassword + '"/>'
 Write-Host
-
 ```
 
-Sonraki ekran görüntüsü yakalamayı anahtar kasası oluşturmak için kullanılan komut dosyası çıktısını gösterir:
+Aşağıdaki görüntüde, anahtar kasası oluşturmak için kullanılan komut dosyası çıktısı gösterilmektedir:
 
 ![Anahtar kasası ile erişim tuşları](media/azure-stack-kv-sample-app/settingsoutput.png)
 
@@ -145,23 +144,23 @@ Not **VaultUrl**, **AuthClientId**, ve **AuthClientSecret** önceki komut dosyas
 
 ## <a name="download-and-configure-the-sample-application"></a>İndirme ve örnek uygulamayı yapılandırma
 
-Azure anahtar kasası örneği indirin [anahtar kasası istemci örnekleri](https://www.microsoft.com/en-us/download/details.aspx?id=45343) sayfası. Geliştirme iş istasyonunuzda .zip dosyasının içeriğini ayıklayın. Örnekler klasörüne iki uygulama vardır, bu makalede HelloKeyVault kullanır.
+Azure anahtar kasası örneği indirin [anahtar kasası istemci örnekleri](https://www.microsoft.com/download/details.aspx?id=45343) sayfası. Geliştirme iş istasyonunuzda .zip dosyasının içeriğini ayıklayın. Örnekler klasörüne iki uygulama vardır. Bu makalede **HelloKeyVault**.
 
-HelloKeyVault örneği yüklemek için:
+Yüklenecek **HelloKeyVault** örnek:
 
 * Gözat **Microsoft.Azure.KeyVault.Samples** > **örnekleri** > **HelloKeyVault** klasör.
-* HelloKeyVault uygulamayı Visual Studio'da açın.
+* Açık **HelloKeyVault** Visual Studio'da uygulama.
 
 ### <a name="configure-the-sample-application"></a>Örnek uygulamayı yapılandırma
 
 Visual Studio'da:
 
-* HelloKeyVault\App.config dosyasını açın ve bulmak için Gözat &lt; **appSettings** &gt; öğesi.
-* Güncelleştirme **VaultUrl**, **AuthClientId**, ve **AuthClientSecret** anahtarlarla anahtar kasası oluşturmak için kullanılan tarafından döndürülen değerler. (Varsayılan olarak, App.config dosyası için bir yer tutucu sahip *AuthCertThumbprint*. Bu yer tutucu ile değiştirin *AuthClientSecret*.)
+* HelloKeyVault\App.config dosyasını açın ve bulma &lt; **appSettings** &gt; öğesi.
+* Güncelleştirme **VaultUrl**, **AuthClientId**, ve **AuthClientSecret** anahtarlarla anahtar kasası oluşturmak için kullanılan olanlar tarafından döndürülen değerler. Varsayılan olarak, App.config dosyası için bir yer tutucu sahip `AuthCertThumbprint`. Bu yer tutucu ile değiştirin `AuthClientSecret`.
 
   ![Uygulama ayarları](media/azure-stack-kv-sample-app/appconfig.png)
 
-* Çözümü yeniden oluşturun.
+* Çözümü yeniden derleyin.
 
 ## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
@@ -170,10 +169,9 @@ HelloKeyVault çalıştırdığınızda, uygulamanın Azure AD'ye açar ve sonra
 HelloKeyVault örneğe kullanabilirsiniz:
 
 * Anahtarları ve gizli anahtarları gibi oluştururken, şifrelemek, Kaydır ve silme temel işlemleri gerçekleştirin.
-* Gibi parametreler *şifrelemek* ve *şifresini* HelloKeyVault için ve bir anahtar kasasına belirtilen değişiklikleri uygulayın.
+* Gibi parametreler `encrypt` ve `decrypt` HelloKeyVault için ve bir anahtar kasasına belirtilen değişiklikleri uygulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Anahtar Kasası parolası ile VM dağıtma](azure-stack-kv-deploy-vm-with-secret.md)
-
-[Anahtar kasası sertifikası ile VM dağıtma](azure-stack-kv-push-secret-into-vm.md)
+- [Anahtar Kasası parolası ile VM dağıtma](azure-stack-kv-deploy-vm-with-secret.md)
+- [Anahtar kasası sertifikası ile VM dağıtma](azure-stack-kv-push-secret-into-vm.md)

@@ -10,20 +10,20 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 900180c9991932f4efaa07f9881e9f3f897cd99e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8981f6a2b2d42627530fb8bf820ff8373e8f50b0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498276"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971674"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Storm-starter örneklerini kullanarak HDInsight üzerinde Apache Storm ile çalışmaya başlama
 
-Nasıl kullanacağınızı öğrenin [Apache Storm](http://storm.apache.org/) storm-starter örneklerini kullanarak HDInsight içinde.
+Nasıl kullanacağınızı öğrenin [Apache Storm](https://storm.apache.org/) storm-starter örneklerini kullanarak HDInsight içinde.
 
 Apache Storm, veri akışlarını işlemeye yönelik ölçeklenebilir, hataya dayanıklı, dağıtılmış ve gerçek zamanlı bir işlem sistemidir. Azure HDInsight’ta Storm ile büyük veri analizini gerçek zamanlı olarak gerçekleştiren bulut tabanlı bir Storm kümesi oluşturabilirsiniz.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -38,26 +38,28 @@ Apache Storm, veri akışlarını işlemeye yönelik ölçeklenebilir, hataya da
 
 HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
-1. [Azure portalında](https://portal.azure.com) **+Kaynak oluştur**, **Veri ve Analiz**, **HDInsight** adımlarını izleyin.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+
+1. Gidin **+ kaynak Oluştur** > **Analytics** > **HDInsight**.
 
     ![HDInsight kümesi oluşturma](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
 2. **Temel bilgiler** bölümünde aşağıdaki bilgileri girin:
 
-    * **Küme Adı**: HDInsight kümesinin adı.
-    * **Abonelik**: Kullanılacak abonelik.
-    * **Küme oturumu kullanıcı adı** ve **Küme oturumu parolası**: HTTPS üzerinden kümeye erişirken kullanılan oturum açma bilgileri. Ambari Web kullanıcı arabirimi veya REST API gibi hizmetlere erişmek için bu kimlik bilgilerini kullanın.
+    * **Küme adı**: HDInsight kümesinin adı.
+    * **Abonelik**: Kullanılacak aboneliği seçin.
+    * **Küme oturum açma kullanıcı adı** ve **küme oturum açma parolası**: HTTPS üzerinden kümeye erişirken oturum açın. Ambari Web kullanıcı arabirimi veya REST API gibi hizmetlere erişmek için bu kimlik bilgilerini kullanın.
     * **Güvenli Kabuk (SSH) kullanıcı adı**: SSH üzerinden kümeye erişirken kullanılan oturum açma bilgileri. Varsayılan olarak parola, küme oturum açma parolası ile aynıdır.
-    * **Kaynak Grubu**: Kümenin oluşturulduğu kaynak grubu.
-    * **Konum**: Kümenin oluşturulacağı Azure bölgesi.
+    * **Kaynak grubu**: İçinde kümenin oluşturulduğu kaynak grubu.
+    * **Konum**: İçinde kümenin oluşturulacağı Azure bölgesi.
 
    ![Abonelik seçme](./media/apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
 3. **Küme türü**’nü seçin, ardından **Küme yapılandırması** bölümünde aşağıdaki değerleri ayarlayın:
 
-    * **Küme Türü**: Storm
+    * **Küme türü**: Storm
 
-    * **İşletim Sistemi**: Linux
+    * **İşletim sistemi**: Linux
 
     * **Sürüm**: Storm 1.1.0 (HDI 3.6)
 
@@ -67,7 +69,7 @@ HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
 4. Küme türünü seçtikten sonra __Seç__ düğmesini kullanarak küme türünü ayarlayın. Ardından, __İleri__ düğmesini kullanarak temel yapılandırmayı tamamlayın.
 
-5. **Depolama** bölümünden bir depolama hesabı seçin veya oluşturun. Bu belgedeki adımlar için bu bölümdeki diğer alanları varsayılan değerlerinde bırakın. __İleri__ düğmesini kullanarak depolama yapılandırmasını kaydedin. Data Lake Storage Gen2'yi kullanma hakkında daha fazla bilgi için bkz. [Hızlı başlangıç: HDInsight'ta kümeleri ayarlama](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+5. **Depolama** bölümünden bir depolama hesabı seçin veya oluşturun. Bu belgedeki adımlar için bu bölümdeki diğer alanları varsayılan değerlerinde bırakın. __İleri__ düğmesini kullanarak depolama yapılandırmasını kaydedin. Data Lake depolama Gen2 kullanma hakkında daha fazla bilgi için bkz. [hızlı başlangıç: HDInsight kümelerinde ayarlama](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![HDInsight depolama hesabı ayarlarını belirleme](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
@@ -84,10 +86,10 @@ HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    > [!TIP]
+    > [!TIP]  
     > SSH istemciniz konak bilgisayarın orijinalliğinin sağlanamadığını belirtebilir. Bu durumda devam etmek için `yes` girin.
 
-    > [!NOTE]
+    > [!NOTE]  
     > SSH kullanıcı hesabınızın güvenliğini sağlamak için parola kullandıysanız parolayı girmeniz istenir. Bir ortak anahtar kullandıysanız eşleşen özel anahtarı belirtmek için `-i` parametresini kullanmanız gerekebilir. Örneğin, `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`.
 
     Bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -98,7 +100,7 @@ HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
 
     Bu komut, kümede örnek WordCount topolojisini başlatır. Bu topoloji, rastgele tümceler oluşturur ve kelimelerin tekrarlama sayısını belirler. Bu topolojinin kolay adı: `wordcount`.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Kümeye kendi topolojilerinizi gönderirken `storm` komutunu kullanmadan önce kümeyi içeren jar dosyasını kopyalamanız gerekir. Dosyayı kopyalamak için `scp` komutunu kullanın. Örneğin, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
     >
     > WordCount örneği ve diğer storm-starter örnekleri `/usr/hdp/current/storm-client/contrib/storm-starter/` konumunda kümenize zaten dahil edilmiştir.
@@ -113,7 +115,7 @@ Storm Kullanıcı Arabirimini kullanarak topolojiyi izlemek için aşağıdaki a
 
 1. Storm kullanıcı arabirimini görüntülemek için bir web tarayıcısı açarak `https://CLUSTERNAME.azurehdinsight.net/stormui` adresine gidin. **CLUSTERNAME** değerini kümenizin adıyla değiştirin.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Bir kullanıcı adı ve parola girmeniz istenirse kümeyi oluştururken kullandığınız küme yöneticisi (yönetici) ve parolayı girin.
 
 2. **Topoloji özeti** altında **Ad** sütunundaki **wordcount** girişini seçin. Topoloji hakkında bilgiler görüntülenir.
@@ -124,7 +126,7 @@ Storm Kullanıcı Arabirimini kullanarak topolojiyi izlemek için aşağıdaki a
 
     * **Topoloji istatistikleri** - Topoloji performansı hakkında zaman pencereleri halinde düzenlenmiş temel bilgiler.
 
-        > [!NOTE]
+        > [!NOTE]  
         > Belirli bir zaman penceresinin seçilmesi sayfanın diğer bölümlerinde gösterilen bilgiler için zaman penceresini değiştirir.
 
     * **Spout’lar** - Her bir spout’un döndürdüğü son hata dahil olmak üzere spout’lar hakkında temel bilgi.
@@ -139,7 +141,7 @@ Storm Kullanıcı Arabirimini kullanarak topolojiyi izlemek için aşağıdaki a
 
     * **Devre dışı bırak** - Çalışan topolojiyi duraklatır.
 
-    * **Yeniden dengele** - Topolojinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Yeniden dengeleme, kümede artan/azalan düğüm sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır. Daha fazla bilgi için [Apache Storm topolojisinin paralelliğini anlama](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    * **Yeniden dengele** - Topolojinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Yeniden dengeleme, kümede artan/azalan düğüm sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır. Daha fazla bilgi için [Apache Storm topolojisinin paralelliğini anlama](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
     * **Sonlandır** - Belirtilen zaman aşımından sonra Storm topolojisini sonlandırır.
 
@@ -151,7 +153,7 @@ Storm Kullanıcı Arabirimini kullanarak topolojiyi izlemek için aşağıdaki a
 
     * **Spout/Cıvata istatistikleri** - Bileşen performansı hakkında zaman pencereleri halinde düzenlenmiş temel bilgiler.
 
-        > [!NOTE]
+        > [!NOTE]  
         > Belirli bir zaman penceresinin seçilmesi sayfanın diğer bölümlerinde gösterilen bilgiler için zaman penceresini değiştirir.
 
     * **Girdi istatistikleri** (yalnızca cıvata) - Cıvata tarafından kullanılan verileri üreten bileşenler hakkında bilgi.
@@ -183,7 +185,7 @@ Word-count topolojisi için **Topoloji özeti** sayfasına geri dönün ve ardı
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-HDInsight kümesi oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](../hdinsight-administer-use-portal-linux.md#create-clusters).
+HDInsight kümesi oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a id="next"></a>Sonraki adımlar
 
@@ -198,7 +200,7 @@ HDInsight üzerinde Storm ile kullanılabilecek örnek topolojiler için şu ör
 * [HDInsight üzerinde Apache Storm için örnek topolojiler](apache-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
-[stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
+[stormdocs]: https://storm.incubator.apache.org/documentation/Documentation.html
 [stormstarter]: https://github.com/apache/storm/tree/master/examples/storm-starter
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

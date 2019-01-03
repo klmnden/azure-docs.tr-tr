@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: d0180a32f2a4258cb728869e2cb9f2abd57cc545
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 06430bf476c2e9f3af2102272fb54d201a3f1066
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845969"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790818"
 ---
 # <a name="install-the-mobility-service-manually-on-vmware-vms-and-physical-servers"></a>VMware Vm'leri ve fiziksel sunucuları üzerinde Mobility hizmetini el ile yükleme
 
@@ -91,7 +91,7 @@ Kullanım | UnifiedAgent.exe/role < MS|MT > /InstallLocation  <Install Location>
 Kurulum günlükleri | % ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log altında.
 / Rol | Zorunlu yükleme parametresi. Mobility hizmetinin (MS) veya ana hedef (MT) yüklü olup olmadığını belirtir.
 /InstallLocation| İsteğe bağlı parametre. Mobility hizmeti yükleme konumuna (herhangi bir klasör) belirtir.
-/ Platform | Zorunlu. Mobility hizmetinin yüklendiği platformunu belirtir. **VMware** Mware VM'ler/fiziksel sunucuları için; **Azure** Azure sanal makineler için. 
+/ Platform | Zorunlu. Mobility hizmetinin yüklendiği platformunu belirtir. **VMware** VMware Vm'lerini/fiziksel sunucuları için; **Azure** Azure sanal makineler için. 
 / Silent| İsteğe bağlı. Yükleyici sessiz modda çalıştırılıp çalıştırılmayacağını belirtir.
 
 #### <a name="registration-settings"></a>Kayıt ayarları
@@ -129,7 +129,7 @@ Aracı yapılandırma günlükleri | % ProgramData%\ASRSetupLogs\ASRUnifiedAgent
 Kullanım | . / install -d <Install Location> - r < MS|MT > - v, VmWare - q
 -r | Zorunlu yükleme parametresi. Mobility hizmetinin (MS) veya ana hedef (MT) yüklü olup olmadığını belirtir.
 -d | İsteğe bağlı parametre. Mobility hizmeti yükleme konumunu belirtir: /usr/local/ASR.
--v | Zorunlu. Mobility hizmetinin yüklendiği platformunu belirtir. **VMware** Mware VM'ler/fiziksel sunucuları için; **Azure** Azure sanal makineler için. 
+-v | Zorunlu. Mobility hizmetinin yüklendiği platformunu belirtir. **VMware** VMware Vm'lerini/fiziksel sunucuları için; **Azure** Azure sanal makineler için. 
 -q | İsteğe bağlı. Yükleyici sessiz modda çalıştırılıp çalıştırılmayacağını belirtir.
 
 #### <a name="registration-settings"></a>Kayıt ayarları

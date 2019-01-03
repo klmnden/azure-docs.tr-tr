@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: da8814cfd8fca8da061c27d9c5b69af15bff5007
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 42fd1c19a9cda0aa3d5d62bd265467327250a784
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054413"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606036"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Wingtip bilet ile çalışmak için genel kılavuz örnek SaaS uygulamaları
 
@@ -57,7 +57,7 @@ Bu değerleri ayarı burada yalnızca, bu her betik dağıtımına özgü değer
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>F5 tuşuna basarak betikleri çalıştırma
 
-Birçok betik kullanmak *$PSScriptRoot* klasörleri gidin ve *$PSScriptRoot* tuşlarına basarak komut dosyaları yürütme sırasında yalnızca değerlendirilir **F5**.  Vurgulama ve bir seçim çalıştıran (**F8**) hatalara neden, bu nedenle basın **F5** betikleri çalışırken.
+Birçok betik kullanmak *$PSScriptRoot* klasörleri gidin ve *$PSScriptRoot* tuşlarına basarak komut dosyaları yürütme sırasında yalnızca değerlendirilir **F5**.  Vurgulama ve bir seçim çalıştıran (**F8**) hatalara neden, bu nedenle basın **F5** betikleri çalışırken.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Uygulamayı incelemek üzere betiklerde ilerleme
 
@@ -94,7 +94,7 @@ Başarılı tanıtım bağlantısı sağlamak için tüm sunucularda yüklü bir
 
    ![katalog sunucusu seçeneğine tıklayın](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Tanıtım kimlik bilgileri: Kullanıcı adı = *developer*, Parola = *P@ssword1*
+3. Tanıtım kimlik bilgileri şunlardır: Oturum açma = *Geliştirici*, parola = *P@ssword1*
 
     Oturum açma için aşağıdaki görüntüde gösterilmiştir *Kiracı başına veritabanı* deseni. 
     ![bağlantı](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 11/27/2018
-ms.openlocfilehash: 4aaaf2e7a918ab91aebd1e1f1f6d166d6cadf19a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: de77dfc40306f014a10e1ab11f2581392d3c160b
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437077"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993752"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Sanal çekirdek hizmet katmanları, Azure hibrit avantajı ve geçiş
 
@@ -33,9 +33,9 @@ vCore modeli de kullanmanıza olanak verir [SQL Server için Azure hibrit avanta
 
 ## <a name="service-tier-characteristics"></a>Hizmet katmanı özellikleri
 
-İki hizmet katmanıyla genel amaçlı ve iş açısından kritik vCore modeli sağlar. Hizmet katmanları, bir dizi işlem boyutları, yüksek kullanılabilirlik tasarımı, hata yalıtımı, depolama türleri ve g/ç aralığı tarafından ayrılır. Müşteri, gerekli depolama ve saklama dönemi yedeklemeler için ayrı olarak yapılandırmanız gerekir. Ayrı olarak, gerekli depolama ve saklama dönemi yedeklemeleri için yapılandırmanız gerekir. Azure portalında (veritabanı değil) sunucusuna gidin > Yönetilen yedekleme > ilkesini yapılandırma > noktası içinde zaman geri yükleme yapılandırması > 7-35 gün.
+Üç hizmet katmanı genel amaçlı, Hiper ölçekli ve iş açısından kritik vCore modeli sağlar. Hizmet katmanları, bir dizi işlem boyutları, yüksek kullanılabilirlik tasarımı, hata yalıtımı, türler ve depolama alanının boyutunu ve g/ç aralığı tarafından ayrılır. Ayrı olarak, gerekli depolama ve saklama dönemi yedeklemeleri için yapılandırmanız gerekir. Azure portalında (veritabanı değil) sunucusuna gidin > Yönetilen yedekleme > ilkesini yapılandırma > noktası içinde zaman geri yükleme yapılandırması > 7-35 gün.
 
-Aşağıdaki tabloda, bu iki katmanı arasındaki farklar anlamanıza yardımcı olur:
+Aşağıdaki tabloda, üç katmanı arasındaki farkları yardımcı olur:
 
 ||**Genel amaçlı**|**İş açısından kritik**|**Hiper ölçekli (Önizleme)**|
 |---|---|---|---|
@@ -63,7 +63,7 @@ Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtla
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hibrit Avantajı
 
-Sanal çekirdek tabanlı satın alma modeli, mevcut lisanslarınızı kullanarak SQL veritabanı üzerinde indirimli fiyatlar için exchange [SQL Server için Azure hibrit avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Bu Azure avantajını Yazılım Güvencesi içeren şirket içi SQL Server lisanslarınızı kullanarak Azure SQL veritabanı'nda % 30 kaydetmek için şirket içi SQL Server lisanslarınızı kullanmanıza olanak tanır.
+Sanal çekirdek tabanlı satın alma modeli, mevcut lisanslarınızı kullanarak SQL veritabanı üzerinde indirimli fiyatlar için exchange [SQL Server için Azure hibrit avantajı](https://azure.microsoft.com/pricing/hybrid-benefit/). Bu Azure avantajını Yazılım Güvencesi içeren şirket içi SQL Server lisanslarınızı kullanarak Azure SQL veritabanı'nda % 30 kaydetmek için şirket içi SQL Server lisanslarınızı kullanmanıza olanak tanır.
 
 ![fiyatlandırma](./media/sql-database-service-tiers/pricing.png)
 

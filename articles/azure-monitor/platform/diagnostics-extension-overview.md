@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3b7b06b7ab9076b992e6e3349763d633f9b255ef
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dc8b8e37224201062d0cf53174f3248f04ca0cc3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338167"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789765"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure tanılama uzantısı nedir
 Azure tanılama uzantısı, azure'da dağıtılan bir uygulamada tanılama verilerinin toplanmasını etkinleştiren aracısıdır. Bir dizi farklı kaynaktan tanılama uzantısını kullanabilirsiniz. Şu anda desteklenen olan Azure bulut hizmeti (Klasik) Web ve çalışan rolleri, sanal makineler, sanal makine ölçek kümeleri ve Service Fabric. Diğer Azure Hizmetleri tanılama farklı yöntemleri vardır. Bkz: [Azure'da izlemeye genel bakış](../../azure-monitor/overview.md).
@@ -42,7 +42,7 @@ Azure tanılama uzantısı, aşağıdaki veri türlerini toplayabilirsiniz:
 ## <a name="data-storage"></a>Veri depolama
 Uzantı verilerini depolayan bir [Azure depolama hesabı](diagnostics-extension-to-storage.md) belirttiğiniz.
 
-Buna da gönderebilirsiniz [Application Insights](../../application-insights/app-insights-cloudservices.md). Kendisine akış için başka bir seçenektir [olay hub'ı](../../event-hubs/event-hubs-about.md), daha sonra Azure dışı izleme hizmetlerine göndermek sağlar.
+Buna da gönderebilirsiniz [Application Insights](../../azure-monitor/app/cloudservices.md). Kendisine akış için başka bir seçenektir [olay hub'ı](../../event-hubs/event-hubs-about.md), daha sonra Azure dışı izleme hizmetlerine göndermek sağlar.
 
 ### <a name="azure-monitor"></a>Azure İzleyici
 Ayrıca, Azure İzleyici, veri gönderme seçeneğiniz de vardır. Şu anda bu havuz yalnızca performans sayaçları için geçerlidir. VM'NİZDE VMSS, toplanan performans sayaçlarını göndermek veya Bulut hizmeti için özel ölçümleriniz Azure İzleyici olanak tanır. Azure Monitor havuzu destekler:
@@ -66,7 +66,7 @@ Hangi hizmeti üzerinde tanı toplama ve kullanmaya başlamak için aşağıdaki
 
 Daha gelişmiş konular için bkz.
 
-* [Azure Tanılama, Cloud Services için Application Insights ile kullanma](../../application-insights/app-insights-cloudservices.md)
+* [Azure Tanılama, Cloud Services için Application Insights ile kullanma](../../azure-monitor/app/cloudservices.md)
 * [Azure Tanılama ile bulut Hizmetleri uygulamasının akışı izleme](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [Bulut hizmetleri üzerinde tanılamayı ayarlamak için PowerShell kullanma](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

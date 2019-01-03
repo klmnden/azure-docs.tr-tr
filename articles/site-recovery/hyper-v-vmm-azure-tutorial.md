@@ -1,20 +1,7 @@
 ---
-title: Azure Site Recovery ile azure'a VMM bulutlarındaki şirket içi Hyper-V sanal makineleri olağanüstü durum kurtarma ayarlama | Microsoft Docs
-description: Azure, System Center VMM bulutlarında Azure Site Recovery hizmeti ile şirket içi Hyper-V sanal makineleri olağanüstü durum kurtarmayı ayarlayın öğrenin.
-services: site-recovery
-author: rayne-wiselman
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: raynew
-ms.custom: MVC
-ms.openlocfilehash: c4b5a200780761decfdd98289f7e7332244e5645
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846445"
----
+Başlık: Azure Site Recovery ile azure'a VMM bulutlarındaki şirket içi Hyper-V sanal makineleri olağanüstü durum kurtarma ayarlama | Microsoft Docs açıklaması: Azure, System Center VMM bulutlarında Azure Site Recovery hizmeti ile şirket içi Hyper-V sanal makineleri olağanüstü durum kurtarmayı ayarlayın öğrenin.
+Hizmetler: site recovery Yazar: rayne wiselman ms.service: site recovery ms.topic: kavramsal ms.date: 27/12/2018 ms.author: raynew MS.özel: MVC
+
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Azure'a VMM bulutlarındaki şirket içi Hyper-V sanal makineleri olağanüstü durum kurtarmayı ayarlayın
 
 [Azure Site Recovery](site-recovery-overview.md) hizmeti, şirket içi makinelerin ve Azure sanal makinelerinin (VM) çoğaltma, yük devretme ve yeniden çalışma işlemlerini yöneterek ve düzenleyerek olağanüstü durum kurtarma stratejinize katkı sağlar.

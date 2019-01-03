@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 770d8950e25431e1edc496e0710cf199b45e5847
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 12f9f55544f46bc9c88cab7234f78ad7ee7de2d2
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283845"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790903"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Dağıtılmış izleme ve Service Bus mesajlaşması ile bağıntı
 
@@ -45,9 +45,9 @@ Sürüm 3.0.0 ile başlayan [.NET için Microsoft Azure Service Bus istemci](/do
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) zengin performans izleme özelliğini automagical istek ve bağımlılık izleme gibi özellikleri sağlar.
 
 Proje türüne bağlı olarak, Application Insights SDK'sını yükleyin:
-- [ASP.NET](../application-insights/app-insights-asp-net.md) -sürüm 2.5-beta2 yükleyin veya üzeri
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) -sürüm 2.2.0-beta2 yükleyin veya üzeri.
-Bu bağlantılar, SDK'sını yükleme, kaynakları oluşturma ve (gerekirse) SDK'sını yapılandırma ayrıntıları sağlar. ASP.NET olmayan uygulamalar için başvurmak [konsol uygulamaları için Azure Application Insights](../application-insights/application-insights-console.md) makalesi.
+- [ASP.NET](../azure-monitor/app/asp-net.md) -sürüm 2.5-beta2 yükleyin veya üzeri
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) -sürüm 2.2.0-beta2 yükleyin veya üzeri.
+Bu bağlantılar, SDK'sını yükleme, kaynakları oluşturma ve (gerekirse) SDK'sını yapılandırma ayrıntıları sağlar. ASP.NET olmayan uygulamalar için başvurmak [konsol uygulamaları için Azure Application Insights](../azure-monitor/app/console.md) makalesi.
 
 Kullanırsanız [ileti işleyicisi deseni](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) iletileri işlemek üzere işiniz: hizmetiniz tarafından yapılan tüm Service Bus çağrıları otomatik olarak izlenir ve diğer telemetriyi öğeleriyle ilişkili. Aksi takdirde, el ile ileti işleme izleme için aşağıdaki örneğe bakın.
 
@@ -83,7 +83,7 @@ async Task ProcessAsync(Message message)
 Bu örnekte, `RequestTelemetry` bir zaman damgası, süresi ve sonucu (başarılı) işlenen her ileti için bildirilir. Telemetriyi de bağıntı özellikler kümesi vardır.
 İç içe geçmiş izlemeleri ve özel durum iletisi işleme sırasında bildirilen ayrıca damgalı bunları 'alt' temsil eden bağıntı özellikleriyle `RequestTelemetry`.
 
-İleti işleme sırasında desteklenen dış bileşenler çağrı yapmak durumunda, bunlar da otomatik olarak bağıntılı ve izlenmesi. Başvurmak [Application Insights .NET SDK ile özel işlemleri izleme](../application-insights/application-insights-custom-operations-tracking.md) el ile izleme ve bağıntı için.
+İleti işleme sırasında desteklenen dış bileşenler çağrı yapmak durumunda, bunlar da otomatik olarak bağıntılı ve izlenmesi. Başvurmak [Application Insights .NET SDK ile özel işlemleri izleme](../azure-monitor/app/custom-operations-tracking.md) el ile izleme ve bağıntı için.
 
 ### <a name="tracking-without-tracing-system"></a>İzleme sistemi olmadan izleme
 Durumda, izleme sistemi otomatik Service Bus çağrıları izleme desteklemiyor, bu tür destek bir izleme sistemine veya uygulamanıza ekleme içine arıyor olabilirsiniz. Bu bölümde, Service Bus .NET istemci tarafından gönderilen Tanılama Olayları açıklanmaktadır.  
@@ -155,27 +155,27 @@ Her 'Stop' olayının `Status` özelliğiyle `TaskStatus` zaman uyumsuz işlemi 
 
 | İşlem Adı | İzlenen API | Belirli yükü özellikleri|
 |----------------|-------------|---------|
-| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> gönderilen iletileri - ileti listesi |
-| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | İleti - işlenen ileti<br/>DateTimeOffset ScheduleEnqueueTimeUtc - zamanlanmış iletileri uzaklığı<br/>uzun SequenceNumber - (olay yükü 'Stop') zamanlanmış iletinin sıra numarası |
-| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | uzun SequenceNumber - iptal edilecek metin iletinin sıra numarası | 
-| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) |int RequestedMessageCount - alınan iletilerin sayısı.<br/>IList<Message> iletileri - alınan iletiler (olay yükü 'Stop') listesi |
-| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | int FromSequenceNumber - toplu iletiler göz atmak başlangıç noktası.<br/>int RequestedMessageCount - alınacak ileti sayısı.<br/>IList<Message> iletileri - alınan iletiler (olay yükü 'Stop') listesi |
-| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | IEnumerable<long> numaraları - almak için sıra numaralarını içeren liste.<br/>IList<Message> iletileri - alınan iletiler (olay yükü 'Stop') listesi |
-| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | IList<string> kilit işareti var - kilit belirteçleri tamamlamak için karşılık gelen iletileri içeren liste.|
-| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | dize LockToken - abandon karşılık gelen iletinin kilit belirteci. |
-| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | dize LockToken - erteleneceği karşılık gelen iletinin kilit belirteci. | 
-| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | dize LockToken - edilemeyen karşılık gelen iletinin kilit belirteci. | 
-| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | dize LockToken - kilidini Yenile karşılık gelen iletinin kilit belirteci.<br/>DateTime LockedUntilUtc - yeni kilit belirteci süre sonu tarihi ve saati UTC biçiminde. (Olay yükü 'Stop')|
-| Microsoft.Azure.ServiceBus.Process | İleti işleyici lambda işlevi içinde sağlanan [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | İleti - işlenen ileti. |
-| Microsoft.Azure.ServiceBus.ProcessSession | İleti oturumu işleyici lambda işlevi içinde sağlanan [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | İleti - işlenen ileti.<br/>IMessageSession oturumun - işlenen oturum |
-| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | RuleDescription kuralı - eklemek için kural sağlayan kural açıklaması. |
-| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | dize - RuleName kuralının adını kaldırmak için. |
-| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | IEnumerable<RuleDescription> abonelikle ilişkili kural tüm kuralları. (Yalnızca 'Stop' yükü) |
-| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | oturum kimliği - iletileri oturum kimliği dizesi. |
-| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | oturum kimliği - iletileri oturum kimliği dizesi.<br/>bayt [] durumu - oturum durumu (olay yükü 'Stop') |
-| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | oturum kimliği - iletileri oturum kimliği dizesi.<br/>bayt [] durumu - oturum durumu |
-| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | oturum kimliği - iletileri oturum kimliği dizesi. |
-| Microsoft.Azure.ServiceBus.Exception | İzleme eklenmiş tüm API'leri| Özel durum özel durum - özel durum örneği |
+| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages` -Gönderilen iletilerin listesi |
+| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` -İşlenen ileti<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` -Zamanlanmış iletileri uzaklığı<br/>`long SequenceNumber` -Zamanlanmış iletileri (olay yükü 'Stop') seri numarası |
+| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | `long SequenceNumber` -İptal edilecek metin iletisinin sıra numarası | 
+| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) | `int RequestedMessageCount` -En fazla alınan ileti sayısı.<br/>`IList<Message> Messages` -Alınan iletiler (olay yükü 'Stop') listesi |
+| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | `int FromSequenceNumber` -Başlangıç noktası toplu iletiler göz atın.<br/>`int RequestedMessageCount` -Alınacak ileti sayısı.<br/>`IList<Message> Messages` -Alınan iletiler (olay yükü 'Stop') listesi |
+| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | `IEnumerable<long> SequenceNumbers` -Almak için sıra numaralarını içeren listesi.<br/>`IList<Message> Messages` -Alınan iletiler (olay yükü 'Stop') listesi |
+| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | `IList<string> LockTokens` -Kilit belirteçleri tamamlamak için karşılık gelen iletilerin içeren listesi.|
+| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | `string LockToken` -Karşılık gelen bırakılacak iletinin kilit belirteci. |
+| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | `string LockToken` -Karşılık gelen ertelenecek iletinin kilit belirteci. | 
+| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | `string LockToken` -Edilemeyen karşılık gelen iletinin kilit belirteci. | 
+| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | `string LockToken` -Karşılık gelen iletinin kilidini Yenile kilit belirteci.<br/>`DateTime LockedUntilUtc` -Belirteç sona erme tarihi ve saati UTC biçiminde yeni kilidi. (Olay yükü 'Stop')|
+| Microsoft.Azure.ServiceBus.Process | İleti işleyici lambda işlevi içinde sağlanan [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) | `Message Message` -İşlenen ileti. |
+| Microsoft.Azure.ServiceBus.ProcessSession | İleti oturumu işleyici lambda işlevi içinde sağlanan [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) | `Message Message` -İşlenen ileti.<br/>`IMessageSession Session` -İşlenen oturum |
+| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | `RuleDescription Rule` -Kural eklemek için sağlar kural açıklaması. |
+| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | `string RuleName` -Kaldırmak için kuralın adı. |
+| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | `IEnumerable<RuleDescription> Rules` -Abonelikle ilişkili tüm kurallar. (Yalnızca 'Stop' yükü) |
+| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | `string SessionId` -SessionID iletileri yok. |
+| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | `string SessionId` -SessionID iletileri yok.<br/>`byte [] State` -Oturum durumu (olay yükü 'Stop') |
+| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | `string SessionId` -SessionID iletileri yok.<br/>`byte [] State` -Oturum durumu |
+| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | `string SessionId` -SessionID iletileri yok. |
+| Microsoft.Azure.ServiceBus.Exception | İzleme eklenmiş tüm API'leri| `Exception Exception` -Özel durum örneği |
 
 Her durumda, erişebileceğiniz `Activity.Current` , geçerli işlem bağlamı içerir.
 
@@ -227,6 +227,6 @@ Birden çok varlığı içinde `DiagnosticSource` dinleyicileri aynı kaynak iç
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Application Insights bağıntı](../application-insights/application-insights-correlation.md)
-* [Application Insights bağımlılıklarını İzle](../application-insights/app-insights-asp-net-dependencies.md) REST, SQL ve diğer dış kaynaklara, yavaşlatmadan olmadığını görmek için.
-* [Application Insights .NET SDK ile özel işlemleri izleme](../application-insights/application-insights-custom-operations-tracking.md)
+* [Application Insights bağıntı](../azure-monitor/app/correlation.md)
+* [Application Insights bağımlılıklarını İzle](../azure-monitor/app/asp-net-dependencies.md) REST, SQL ve diğer dış kaynaklara, yavaşlatmadan olmadığını görmek için.
+* [Application Insights .NET SDK ile özel işlemleri izleme](../azure-monitor/app/custom-operations-tracking.md)

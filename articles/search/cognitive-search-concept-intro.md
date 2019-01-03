@@ -1,5 +1,5 @@
 ---
-title: Bilişsel arama veri ayıklama için yapay ZEKA doğal dil işleme - Azure Search
+title: Bilişsel arama, veri ayıklama, doğal dil yapay ZEKA işlem - Azure Search
 description: İçerik ayıklama, doğal dil işlemeyi (NLP) ve görüntü dizin bilişsel beceriler ve yapay ZEKA algoritmaları kullanarak Azure Search aranabilir içeriği oluşturmak için işleme.
 manager: cgronlun
 author: HeidiSteen
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 62d2e7af40d6abf6f316789051dfe78f73208eb3
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2bb32ccaeb5960fa69dcdc356523abc199fd5f4f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315620"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633802"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>"Bilişsel arama" Azure Search nedir?
 

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b98b528d2d78d2285977dec49da18081df47e9d6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3d029c91debfc8ed3ac24e831224426a2780b763
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166141"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791089"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Node.js kullanarak bir konuşma Öğrenici model oluşturma
 
@@ -112,14 +112,11 @@ Yukarıdaki yönergeleri genel boş bot başlatıldı.  Bir öğretici çalışt
   npm run demo-password
   npm run demo-pizza
   npm run demo-storage
-  npm run demo-vrapp
   ```
 
 4. Zaten değilseniz, konuşma Öğrenici Web Arabirimine chrome'da yükleyerek geçiş http://localhost:5050/home. 
 
-5. "İçeri aktarma eğitimler"'a tıklayın (yalnızca bir kez gerçekleştirilmesi gerekir).  Bu işlem yaklaşık bir dakika sürer ve konuşma Öğrenici modelleri öğreticileri için konuşma Öğrenici hesabınıza kopyalar.
-
-6. Konuşma Öğrenici başlattığınız tanıtım için karşılık gelen kullanıcı arabiriminde tanıtım modeli tıklayın.
+5. "İçeri aktarma eğitimler" tıklayın ve konuşma Öğrenici başlattığınız tanıtım için karşılık gelen kullanıcı arabiriminde tanıtım modeli seçin.
 
 Tanıtımları için kaynak dosyaları `cl-bot-01/src/demos`
 
@@ -181,4 +178,4 @@ Bu proje [Microsoft Open Source Code of Conduct](https://opensource.microsoft.co
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Merhaba Dünya](./tutorials/1-hello-world.md)
+> [Merhaba Dünya](./tutorials/01-hello-world.md)

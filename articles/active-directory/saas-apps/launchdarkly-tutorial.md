@@ -1,159 +1,160 @@
 ---
-title: 'Öğretici: Azure Active Directory LaunchDarkly ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: LaunchDarkly ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve LaunchDarkly arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
-ms.assetid: 0e9cb37e-16bf-493b-bfc8-8d9840545a1e
-ms.service: active-directory
-ms.component: saas-app-tutorial
+manager: mtillman
+ms.reviewer: barbkess
+ms.assetid: 3f0671bc-f93f-496e-b465-b9ce8c6633fa
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/27/2018
+ms.topic: tutorial
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 54bf459f6acd7649f3ad1a546bef1d0429393161
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9677d021de9cb89760afad3db583e6954790ecad
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420768"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971189"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Öğretici: Azure Active Directory LaunchDarkly ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Öğretici: LaunchDarkly ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile LaunchDarkly tümleştirme konusunda bilgi edinin.
-
 LaunchDarkly Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- LaunchDarkly erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak imzalanan için LaunchDarkly (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* LaunchDarkly erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) LaunchDarkly için kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi LaunchDarkly ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
-- LaunchDarkly çoklu oturum açma abonelik etkin.
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* LaunchDarkly çoklu oturum açma abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. LaunchDarkly galeri ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* LaunchDarkly destekler **SP ve IDP** tarafından başlatılan
+* LaunchDarkly destekler **zamanında** kullanıcı sağlama
 
 ## <a name="adding-launchdarkly-from-the-gallery"></a>LaunchDarkly galeri ekleme
+
 LaunchDarkly tümleştirmesi Azure AD'de yapılandırmak için LaunchDarkly Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden LaunchDarkly eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Yeni Uygulama düğmesi][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **LaunchDarkly**seçin **LaunchDarkly** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Sonuç listesinde LaunchDarkly](./media/launchdarkly-tutorial/tutorial_launchdarkly_addfromgallery.png)
+4. Arama kutusuna **LaunchDarkly**seçin **LaunchDarkly** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+
+     ![Sonuç listesinde LaunchDarkly](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı LaunchDarkly ile test edin.
+Bu bölümde, yapılandırma ve Azure AD'ye tek temelinde oturum açma adlı bir test kullanıcısı [uygulama adı] ile test etme **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve [uygulama adı] ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
-Tek iş için oturum açma için Azure AD ne LaunchDarkly karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve LaunchDarkly ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
-
-Yapılandırma ve Azure AD çoklu oturum açma LaunchDarkly ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma [uygulama adı] ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[LaunchDarkly test kullanıcısı oluşturma](#create-a-launchdarkly-test-user)**  - kullanıcı Azure AD gösterimini bağlı LaunchDarkly Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[LaunchDarkly çoklu oturum açmayı yapılandırma](#configure-launchdarkly-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[LaunchDarkly test kullanıcısı oluşturma](#create-launchdarkly-test-user)**  - kullanıcı Azure AD gösterimini bağlı LaunchDarkly Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve LaunchDarkly uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma LaunchDarkly ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **LaunchDarkly** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **LaunchDarkly** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![Çoklu oturum açma iletişim kutusu](./media/launchdarkly-tutorial/tutorial_launchdarkly_samlbase.png)
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-1. Üzerinde **LaunchDarkly etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    ![LaunchDarkly etki alanı ve URL'ler tek oturum açma bilgileri](./media/launchdarkly-tutorial/tutorial_launchdarkly_url.png)
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    a. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna URL'yi yazın: `app.launchdarkly.com`
+4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu, aşağıdaki adımları gerçekleştirin:
 
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://app.launchdarkly.com/trust/saml2/acs/<customers-unique-id>`
-    
+    ![LaunchDarkly etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
+
+    a. İçinde **tanımlayıcı** metin kutusuna bir URL yazın: `app.launchdarkly.com`
+
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://app.launchdarkly.com/trust/saml2/acs/<customers-unique-id>`
+
     > [!NOTE]
-    > Yanıt URL'si değeri gerçek değil. Bu öğreticinin ilerleyen bölümlerinde açıklanan gerçek yanıt URL'si ile değeri güncelleştirir.
+    > Yanıt URL'si değeri gerçek değil. Bu öğreticinin ilerleyen bölümlerinde açıklanan gerçek yanıt URL'si ile değeri güncelleştirir. Uygulamada kullanmak amaçlanıyorsa **IDP** bırakmak için gereksinim duyduğunuz modu **oturum açma URL'si** boş alan, aksi halde oturum açma işlemi başlatmak mümkün olmayacak **IDP**. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-1. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
-    ![LaunchDarkly etki alanı ve URL'ler tek oturum açma bilgileri](./media/launchdarkly-tutorial/tutorial_launchdarkly_url1.png)
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://app.launchdarkly.com`
 
-    İçinde **oturum açma URL'si** metin kutusuna URL'yi yazın: `https://app.launchdarkly.com`
+    ![LaunchDarkly etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![Sertifika indirme bağlantısı](./media/launchdarkly-tutorial/tutorial_launchdarkly_certificate.png) 
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-1. Tıklayın **Kaydet** düğmesi.
+7. Üzerinde **LaunchDarkly kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/launchdarkly-tutorial/tutorial_general_400.png)
-    
-1. Üzerinde **LaunchDarkly yapılandırma** bölümünde **yapılandırma LaunchDarkly** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-    ![LaunchDarkly yapılandırma](./media/launchdarkly-tutorial/tutorial_launchdarkly_configure.png)
+    a. Oturum Açma URL'si:
+
+    b. Azure Ad tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-launchdarkly-single-sign-on"></a>LaunchDarkly tek oturum açmayı yapılandırın
 
 1. Farklı bir web tarayıcı penceresinde LaunchDarkly şirket sitenize yönetici olarak oturum.
 
-1. Seçin **hesap ayarları** sol gezinti panelinde.
+2. Seçin **hesap ayarları** sol gezinti panelinde.
 
     ![LaunchDarkly yapılandırma](./media/launchdarkly-tutorial/configure1.png)
 
-1. Tıklayın **güvenlik** sekmesi.
+3. Tıklayın **güvenlik** sekmesi.
 
     ![LaunchDarkly yapılandırma](./media/launchdarkly-tutorial/configure2.png)
 
-1. Tıklayın **etkinleştir SSO** ardından **düzenleme SAML yapılandırma**.
+4. Tıklayın **etkinleştir SSO** ardından **düzenleme SAML yapılandırma**.
 
     ![LaunchDarkly yapılandırma](./media/launchdarkly-tutorial/configure3.png)
 
-1. Üzerinde **SAML yapılandırmanızı Düzenle** bölümünde, aşağıdaki adımları gerçekleştirin:
+5. Üzerinde **SAML yapılandırmanızı Düzenle** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![LaunchDarkly yapılandırma](./media/launchdarkly-tutorial/configure4.png)
 
     a. Kopyalama **SAML tüketici hizmeti URL'si** örneğinizin ve yanıt URL'si metin kutusuna yapıştırın **LaunchDarkly etki alanı ve URL'ler** bölümü Azure portalı.
 
-    b. İçinde **oturum açma URL'si** metin kutusu, yapıştırma **çoklu oturum açma hizmeti URL'si** Azure portaldan kopyaladığınız değeri.
+    b. İçinde **oturum açma URL'si** metin kutusu, yapıştırma **oturum açma URL'si** Azure portaldan kopyaladığınız değeri.
 
     c. İndirilen sertifikanın Not Defteri'ne Azure portalından açın, içeriği kopyalayın ve ardından yapıştırın **X.509 sertifikası** kutusu veya doğrudan yükleyebileceği sertifika tıklayarak **karşıya**.
 
@@ -163,95 +164,70 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve L
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/launchdarkly-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/launchdarkly-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/launchdarkly-tutorial/create_aaduser_03.png)
-
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/launchdarkly-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
-
-### <a name="create-a-launchdarkly-test-user"></a>LaunchDarkly test kullanıcısı oluşturma
-
-Bu bölümün amacı LaunchDarkly Britta Simon adlı bir kullanıcı oluşturmaktır. LaunchDarkly tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa LaunchDarkly erişme denemesi sırasında oluşturulur.
->[!Note]
->Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [LaunchDarkly istemci Destek ekibine](mailto:support@launchdarkly.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için LaunchDarkly erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **LaunchDarkly**.
 
-**Britta Simon LaunchDarkly için atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **LaunchDarkly**.
 
-    ![Kullanıcı Ata][201] 
+    ![Uygulamalar listesinde LaunchDarkly bağlantı](common/all-applications.png)
 
-1. Uygulamalar listesinde **LaunchDarkly**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Uygulamalar listesinde LaunchDarkly bağlantı](./media/launchdarkly-tutorial/tutorial_launchdarkly_app.png)  
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Atama Ekle bölmesi][203]
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+### <a name="create-launchdarkly-test-user"></a>LaunchDarkly test kullanıcısı oluşturma
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+Bu bölümün amacı LaunchDarkly Britta Simon adlı bir kullanıcı oluşturmaktır. LaunchDarkly tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, henüz yoksa LaunchDarkly erişme denemesi sırasında oluşturulur.
+
+> [!Note]
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [LaunchDarkly istemci Destek ekibine](mailto:support@launchdarkly.com).
 
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde LaunchDarkly kutucuğa tıkladığınızda, otomatik olarak LaunchDarkly uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli LaunchDarkly kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama LaunchDarkly için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/launchdarkly-tutorial/tutorial_general_01.png
-[2]: ./media/launchdarkly-tutorial/tutorial_general_02.png
-[3]: ./media/launchdarkly-tutorial/tutorial_general_03.png
-[4]: ./media/launchdarkly-tutorial/tutorial_general_04.png
-
-[100]: ./media/launchdarkly-tutorial/tutorial_general_100.png
-
-[200]: ./media/launchdarkly-tutorial/tutorial_general_200.png
-[201]: ./media/launchdarkly-tutorial/tutorial_general_201.png
-[202]: ./media/launchdarkly-tutorial/tutorial_general_202.png
-[203]: ./media/launchdarkly-tutorial/tutorial_general_203.png
-
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

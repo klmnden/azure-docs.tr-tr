@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/18/2018
 ms.author: adgera
-ms.openlocfilehash: b22bf34a06966f917cdcdd07c28ead2d042061c1
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 92ff8cb732c7c10c525d8a8ec76180cb435bd466
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164005"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975024"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure dijital çiftleri için Postman'ı yapılandırma
 
@@ -31,7 +31,7 @@ Azure AD uygulamanız OAuth 2.0 örtülü izin akışı kullanmak için yapılan
 
 1. Bağlantısındaki [Bu hızlı başlangıçta](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) tür yerel bir Azure AD uygulaması oluşturmak için. Veya var olan bir yerel uygulama kaydı yeniden kullanabilirsiniz.
 
-1. Altında **gerekli izinler**, girin `Azure Digital Twins` seçip **Temsilcili izinler**. Ardından **izinler**.
+1. Altında **gerekli izinler**seçin **Ekle** girin **Azure dijital İkizlerini** altında **API erişimi Ekle**. Arama sonucunda API görüntülenmezse **Azure Smart Spaces** araması yapın. Ardından, **izinler > Temsilcili izinler** ve **Bitti**.
 
     ![Azure AD uygulama kayıtları API ekleme](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
@@ -64,8 +64,8 @@ Ardından, ayarlama ve Azure AD belirteçlerini almak için Postman'ı yapıland
 
     | Alan  | Değer |
     |---------|---------|
-    | İzin verme türü | `Implicit` |
-    | Geri çağırma URL'si | [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback) |
+    | İzin Verme Türü | `Implicit` |
+    | Geri çağırma URL'si | `https://www.getpostman.com/oauth2/callback` |
     | Kimlik doğrulama URL'si | Kullanım **yetkilendirme URL'si** gelen yukarıdaki 2. adım |
     | İstemci Kimliği | Kullanım **uygulama kimliği** oluşturulmuş veya başka bir amaçla kullanılması önceki bölümden bir Azure AD uygulamasının |
     | Kapsam | Boş bırakın |

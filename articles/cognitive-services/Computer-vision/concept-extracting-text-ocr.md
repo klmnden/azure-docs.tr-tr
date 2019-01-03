@@ -10,22 +10,23 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 52b6265722d5cfbf8baf54e1785ace627aa0892f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 07d3f5d365fa5c552ccb61c97532a9931b7e282e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341676"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583689"
 ---
-# <a name="extracting-text-with-ocr"></a>OCR ile metin ayıklama
+# <a name="extracting-text-with-optical-character-recognition"></a>Ayıklanan metin ile optik karakter tanıma
 
-Görüntü işleme optik karakter tanıma (OCR) teknolojisi, bir resimdeki metin içeriğini algılar ve tanımlanan metin bir makine tarafından okunabilir bir karakter akışı halinde ayıklar. Sonuç, arama ve tıbbi kayıtları, güvenlik ve bankacılığa gibi çeşitli amaçlar için kullanabilirsiniz. Dili otomatik olarak algılar. OCR, zaman tasarrufu sağlar ve kullanıcılara metin yerine metnin fotoğrafını çekme olanağı tanıyarak kolaylık sunar.
+Görüntü işleme optik karakter tanıma (OCR) teknolojisi, bir resimdeki metin içeriğini algılar ve tanımlanan metin bir makine tarafından okunabilir bir karakter akışı halinde ayıklar. Sonucu, arama yapmak için veya tıbbi kayıtlar, güvenlik ve bankacılık gibi çok çeşitli amaçlarla kullanabilirsiniz. Dili otomatik olarak algılar. OCR, zaman tasarrufu sağlar ve kullanıcılara, metni yazmak yerine bunların fotoğrafını çekme olanağı tanıyarak kolaylık sunar.
 
-OCR, 25 dilleri destekler. Bu diller: Arapça, Basitleştirilmiş Çince, Geleneksel Çince, Çekçe, Danca, Felemenkçe, İngilizce, Fince, Fransızca, Almanca, Yunanca, Macarca, İtalyanca, Japonca, Korece, Norveççe, Lehçe, Portekizce, Rumence, Rusça, Sırpça (Kiril ve Latin) Slovakça, İspanyolca, İsveççe ve Türkçe.
+OCR, 25 dili destekler. Bu diller şunlardır: Arapça, Çince, Geleneksel Çince, Basitleştirilmiş Çekçe, Danca, Felemenkçe, İngilizce, Fince, Fransızca, Almanca, Yunanca, Macarca, İtalyanca, Japonca, Korece, Norveççe, Lehçe, Portekizce, Rumence, Rusça, Sırpça (Kiril ve Latin), Slovakya, İspanyolca, İsveççe ve Türkçe.
 
-Gerekirse, OCR tanınan metnin yatay görüntü ekseni etrafında derece döndürme düzeltir. OCR aşağıdaki çizimde görüldüğü gibi her bir sözcüğün çerçeve koordinatları sağlar.
+Gerekirse, OCR tanınan metnin yönünü yatay görüntü ekseninde derece olarak düzeltir. OCR aşağıdaki çizimde görüldüğü gibi her bir sözcüğün çerçeve koordinatları sağlar.
 
-![OCR genel bakış](./Images/vision-overview-ocr.png)
+![Döndürülmüş görüntüyü gösteren diyagram ve okuma ve makaleyle metin](./Images/vision-overview-ocr.png)
 
 ## <a name="ocr-requirements"></a>OCR gereksinimleri
 
@@ -39,15 +40,15 @@ Girdi görüntüsünün 90 derece birden fazla ve en fazla 40 derece küçük bi
 
 ## <a name="improving-ocr-accuracy"></a>OCR doğruluğunu artırma
 
-Metin tanıma doğruluğunu görüntü kalitesini üzerinde bağlıdır. Yanlış bir okuma tarafından aşağıdaki durumlarda oluşabilir:
+Metin tanımanın doğruluğu görüntünün kalitesine bağlıdır. Aşağıdaki durumlar yanlış okumaya yol açabilir:
 
 * Bulanık görüntüler.
-* El yazısı veya el yazısı metin.
-* Artistik yazı tipi stili.
+* El yazısı veya bitişik el yazısı metin.
+* Artistik yazı tipi stilleri.
 * Küçük metin boyutu.
-* Karmaşık bir arka plan, gölgeler veya içinde metin veya perspektif bozulma önleyici.
-* Sözcükleri başındaki eksik veya büyük boyutlu büyük harf
-* Alt simge, üst simge ya da üstü çizili metin.
+* Karmaşık arka planlar, gölgeler ya da metnin üzerinde parlama veya perspektif bozukluk.
+* Sözcüklerin başındaki aşırı büyük veya eksik büyük harfler
+* Alt simge, üst simge veya üstü çizili metin.
 
 ### <a name="ocr-limitations"></a>OCR sınırlamaları
 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 8ebc07f68e2d26126d0bd387f32204255404d6e1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: eb27bed02b44cad791a0c1fa2c8e0ed0b54537cd
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605322"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972558"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Öğretici: Azure Key Vault ile Azure Windows sanal makinesine .NET kullanma
 
@@ -162,7 +162,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 Ardından sınıfı içeren dosyaya değiştirin kod aşağıda. Bu bir 2 adımlı bir işlemdir. 
-1. Hangi inturn Azure Active Directory'den bir belirteç getirir VM'deki yerel MSI uç noktasından bir belirteç getirilemedi
+1. Buna karşılık Azure Active Directory'den bir belirteç getirir VM'de yerel MSI uç noktasından bir belirteç getirilemedi
 2. Anahtar Kasası'na belirtecin geçip ve gizli anahtarı getirilemedi 
 
 ```
@@ -211,7 +211,7 @@ Ardından sınıfı içeren dosyaya değiştirin kod aşağıda. Bu bir 2 adıml
 ```
 
 
-Yukarıdaki kod, Azure Key Vault içinde bir Azure Linux sanal makine ile işlem yapma gösterir. 
+Yukarıdaki kod, Azure Key Vault içinde bir Azure Windows sanal makine ile işlem yapma gösterir. 
 
 
 

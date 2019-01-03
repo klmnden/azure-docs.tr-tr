@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/24/2018
+ms.date: 12/202018
 ms.author: jingwang
-ms.openlocfilehash: 1f3e9be3a0048c4bf2e87ac23cbdc76b1aaa649f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 61ac0eeeb177ffccbe10d4ab049d3541ac6aeb60
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166415"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810432"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir HTTP uç noktasından veri kopyalama
 
@@ -28,6 +28,12 @@ ms.locfileid: "49166415"
 
 Bu makalede, kopyalama etkinliği Azure Data Factory'de bir HTTP uç noktasından veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Makaleyi yapılar [Azure veri fabrikasında kopyalama etkinliği](copy-activity-overview.md), kopyalama etkinliği genel bir bakış sunar.
 
+Bu HTTP Bağlayıcısı arasındaki fark [REST'e bağlayıcı](connector-rest.md) ve [Web tablo Bağlayıcısı](connector-web-table.md) şunlardır:
+
+- **REST'e bağlayıcı** özellikle RESTful API'lerinden; verileri kopyalama desteği 
+- **HTTP Bağlayıcısı** örn herhangi bir HTTP uç noktasından veri almaya genel dosya indirilemedi. REST'e bağlayıcı kullanılabilir olmadan önce desteklenen ancak daha az işlevsel REST'e bağlayıcı karşılaştırma olduğu RESTful API'den verileri kopyalamak için HTTP Bağlayıcısı'nı kullanmak için oluşabilir.
+- **Web tablosu Bağlayıcısı** tablo bir HTML Web sayfası içeriği ayıklar.
+
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
 Bir HTTP kaynağından tüm desteklenen havuz veri deposuna veri kopyalayabilirsiniz. Kopyalama etkinliği kaynak ve havuz olarak desteklediğini veri listesini depolar için bkz: [desteklenen veri depoları ve biçimler](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -35,10 +41,8 @@ Bir HTTP kaynağından tüm desteklenen havuz veri deposuna veri kopyalayabilirs
 Bu HTTP Bağlayıcısı için kullanabilirsiniz:
 
 - HTTP kullanarak bir HTTP/S uç noktasından veri **alma** veya **POST** yöntemleri.
-- Aşağıdaki kimlik doğrulama kullanarak veri: **anonim**, **temel**, **Özet**, **Windows**, veya  **ClientCertificate**.
+- Aşağıdaki kimlik doğrulama kullanarak veri: **Anonim**, **temel**, **Özet**, **Windows**, veya **ClientCertificate**.
 - HTTP yanıt olarak kopyalama- ya da kullanarak ayrıştırmayı [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md).
-
-Bu bağlayıcı arasındaki farkı ve [Web tablo Bağlayıcısı](connector-web-table.md) olduğu Web tablo Bağlayıcısı'nı bir HTML Web sayfasından tablo içeriğini ayıklar.
 
 > [!TIP]
 > Data Factory'de HTTP bağlayıcısını yapılandırabilmeniz için önce bir HTTP isteği için veri alma test etmek için API belirtimine üstbilgi ve gövde gereksinimleri hakkında bilgi edinin. Doğrulamak için Postman veya bir web tarayıcısı gibi araçları kullanabilirsiniz.
@@ -65,7 +69,7 @@ HTTP bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Ayarlama **authenticationType** özelliğini **temel**, **Özet**, veya **Windows**. Önceki bölümde açıklanan genel özelliklerine ek olarak aşağıdaki özellikleri belirtin:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 |:--- |:--- |:--- |
 | Kullanıcı adı | HTTP uç noktasına erişmek için kullanılacak kullanıcı adı. | Evet |
 | password | Kullanıcının parolasını ( **kullanıcıadı** değeri). Bu alan olarak işaretlemek bir **SecureString** Data Factory'de güvenle depolamak için türü. Ayrıca [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
@@ -98,7 +102,7 @@ Ayarlama **authenticationType** özelliğini **temel**, **Özet**, veya **Window
 
 ClientCertificate kimlik doğrulaması kullanacak şekilde ayarlama **authenticationType** özelliğini **ClientCertificate**. Önceki bölümde açıklanan genel özelliklerine ek olarak aşağıdaki özellikleri belirtin:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 |:--- |:--- |:--- |
 | embeddedCertData | Sertifikayı Base64 ile kodlanmış veriler. | Seçeneklerinden birini belirtin **embeddedCertData** veya **Certthumbprınt**. |
 | Certthumbprınt | Şirket içinde barındırılan tümleştirme çalışma zamanı makinenizin sertifika deposunda yüklü sertifika parmak izi. Yalnızca şirket içinde barındırılan tümleştirme çalışma zamanı türü olarak belirtildiğinde geçerlidir **connectVia** özelliği. | Seçeneklerinden birini belirtin **embeddedCertData** veya **Certthumbprınt**. |
@@ -131,7 +135,7 @@ Kullanırsanız **Certthumbprınt** yerel bilgisayarın kişisel depoda kimlik d
 }
 ```
 
-**Örnek 2: embeddedCertData kullanma**
+**Örnek 2: EmbeddedCertData kullanma**
 
 ```json
 {
@@ -170,13 +174,13 @@ HTTP veri kopyalamak için ayarlanmış **türü** veri kümesine özelliği **H
 | requestMethod | HTTP yöntemi. İzin verilen değerler **alma** (varsayılan) ve **Post**. | Hayır |
 | additionalHeaders | Ek HTTP isteği üstbilgileri. | Hayır |
 | Includesearchresults: true | HTTP isteğinin gövdesi. | Hayır |
-| Biçim | HTTP uç noktası olarak veri almak istiyorsanız-ayrıştırma olmadan ve verilerin bir dosya tabanlı depolama alanına kopyalayın atla **biçimi** girdi ve çıktı veri kümesi tanımları bölümünde.<br/><br/>Kopyalama sırasında HTTP yanıt içeriği ayrıştırılamıyor istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ve **ParquetFormat**. Altında **biçimi**ayarlayın **türü** özelliğini şu değerlerden biri. Daha fazla bilgi için [JSON biçimine](supported-file-formats-and-compression-codecs.md#json-format), [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquetbiçimi](supported-file-formats-and-compression-codecs.md#parquet-format). |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Daha fazla bilgi için [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler: **Optimal** ve **en hızlı**. |Hayır |
+| biçim | HTTP uç noktası olarak veri almak istiyorsanız-ayrıştırma olmadan ve verilerin bir dosya tabanlı depolama alanına kopyalayın atla **biçimi** girdi ve çıktı veri kümesi tanımları bölümünde.<br/><br/>Kopyalama sırasında HTTP yanıt içeriği ayrıştırılamıyor istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ve **ParquetFormat**. Altında **biçimi**ayarlayın **türü** özelliğini şu değerlerden biri. Daha fazla bilgi için [JSON biçimine](supported-file-formats-and-compression-codecs.md#json-format), [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquetbiçimi](supported-file-formats-and-compression-codecs.md#parquet-format). |Hayır |
+| Sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Daha fazla bilgi için [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler:  **En iyi** ve **hızlı**. |Hayır |
 
 > [!NOTE]
 > Desteklenen HTTP isteği yükü boyutu yaklaşık 500 KB'dir. Web uç noktanıza geçirmek istediğiniz yükü boyutu 500 KB boyutundan büyükse, yükü daha küçük öbekler halinde toplu işleme göz önünde bulundurun.
 
-**Örnek 1: (varsayılan) alma yöntemini kullanma**
+**Örnek 1: Get yöntemi (varsayılan) kullanma**
 
 ```json
 {

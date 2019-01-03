@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 77c0baba1c30153730e87181e24137d9a20ea6b1
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: fe9c33f5a872c60ad30faf7cc5074004f5d6fc50
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012479"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973814"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Geliştirme, Test ve üretim telemetri ayırma
 
 Bir web uygulaması'nın sonraki sürümü geliştirirken karışımı istemediğiniz [Application Insights](app-insights-overview.md) alınan telemetri yeni sürüm ve zaten yayımlanmış sürümü. Karışıklığı önlemek için farklı geliştirme aşamalarına (ikey'leri) ayrı izleme anahtarı ile Application Insights kaynakları ayırmak için telemetri gönderin. Bir sürüm bir aşamadan diğerine taşınırken izleme anahtarını değiştirmek daha kolay hale getirmek için yapılandırma dosyasında değil, kod içinde ikey değerini ayarlamak yararlı olabilir. 
 
-(Sisteminizin Azure bulut hizmeti ise yoktur [ayrı ikey'leri ayarlamanın başka bir yöntem](app-insights-cloudservices.md).)
+(Sisteminizin Azure bulut hizmeti ise yoktur [ayrı ikey'leri ayarlamanın başka bir yöntem](../azure-monitor/app/cloudservices.md).)
 
 ## <a name="about-resources-and-instrumentation-keys"></a>Kaynaklar ve izleme anahtarları hakkında
 
@@ -32,7 +32,7 @@ Web uygulamanız için Application Insights izleme ayarladığınızda, Applicat
 Genellikle ayrı kaynaklar ya da tek bir paylaşılan kaynak farklı senaryolarda kullanmayı seçin:
 
 * Farklı ve bağımsız uygulamalar için - her uygulama için ayrı kaynak ve ikey değerini kullanın.
-* Birden çok bileşenleri veya bir iş kolu uygulaması - rolleri bir [tek bir paylaşılan kaynak](app-insights-app-map.md) tüm bileşen uygulamaları için. Telemetri, filtre veya cloud_RoleName özelliğiyle bölümlenmiş.
+* Birden çok bileşenleri veya bir iş kolu uygulaması - rolleri bir [tek bir paylaşılan kaynak](../azure-monitor/app/app-map.md) tüm bileşen uygulamaları için. Telemetri, filtre veya cloud_RoleName özelliğiyle bölümlenmiş.
 * Geliştirme, Test ve yayın - ayrı kaynak ve ikey 'damga' içinde sistem sürümleri veya üretim aşaması için kullanın.
 * A | B test - tek bir kaynak kullanın. Bir özellik çeşitler tanımlayan telemetri eklemek için bir Telemetryınitializer oluşturun.
 
@@ -56,7 +56,7 @@ Bir ASP.NET hizmetinde global.aspx.cs gibi bir başlatma yöntemi anahtarını a
 Bu örnekte, web yapılandırma dosyası farklı sürümlerini farklı kaynaklar için ikey'leri yerleştirilir. -Release betiğinin bir parçası bunu yapabilirsiniz - web yapılandırma dosyasını değiştirme, hedef kaynağın değiştireceksiniz.
 
 ### <a name="web-pages"></a>Web sayfaları
-İKey Ayrıca, uygulamanızın web sayfaları'nda kullanılan [aldığınız hızlı başlangıç dikey penceresinden betik](app-insights-javascript.md). Tam anlamıyla betiğe kodlama yerine, sunucu durumu oluşturun. Örneğin, bir ASP.NET uygulamasında:
+İKey Ayrıca, uygulamanızın web sayfaları'nda kullanılan [aldığınız hızlı başlangıç dikey penceresinden betik](../azure-monitor/app/javascript.md). Tam anlamıyla betiğe kodlama yerine, sunucu durumu oluşturun. Örneğin, bir ASP.NET uygulamasında:
 
 *Razor, JavaScript*
 
@@ -98,7 +98,7 @@ Oluşturduğunuz kaynağın izleme anahtarını tanımlar.
 ## <a name="filter-on-build-number"></a>Derleme numarası üzerinde filtreleme
 Uygulamanızın yeni bir sürüm yayımladığınızda, telemetri farklı derlemelerden ayırmak mümkün olmasını istersiniz.
 
-Uygulama sürümü özelliği ayarlayabilirsiniz, böylece, filtreleyebilirsiniz [arama](app-insights-diagnostic-search.md) ve [ölçüm Gezgini](app-insights-metrics-explorer.md) sonuçları.
+Uygulama sürümü özelliği ayarlayabilirsiniz, böylece, filtreleyebilirsiniz [arama](../azure-monitor/app/diagnostic-search.md) ve [ölçüm Gezgini](app-insights-metrics-explorer.md) sonuçları.
 
 ![Bir özellik üzerinde filtreleme](./media/app-insights-separate-resources/050-filter.png)
 
@@ -107,7 +107,7 @@ Uygulama sürümü özelliğinin ayarlanması birkaç farklı yöntem vardır.
 * Doğrudan ayarlayın:
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
-* Bu satırda kaydırma bir [telemetri başlatıcısını](app-insights-api-custom-events-metrics.md#defaults) için tüm TelemetryClient örneklerini tutarlı bir şekilde ayarlandığından emin olun.
+* Bu satırda kaydırma bir [telemetri başlatıcısını](../azure-monitor/app/api-custom-events-metrics.md#defaults) için tüm TelemetryClient örneklerini tutarlı bir şekilde ayarlandığından emin olun.
 * [ASP.NET] Sürüm kümesinde `BuildInfo.config`. Web modülü sürüm BuildLabel düğümünden'kurmak seçer. Bu dosyayı projenize eklemek ve Çözüm Gezgini'nde her zaman Kopyala özelliğini ayarlamayı unutmayın.
 
     ```XML
@@ -148,15 +148,15 @@ Uygulama sürümünü izlemek için `buildinfo.config` dosyasının Microsoft Bu
     </PropertyGroup>
 ```
 
-Yapı bilgisi mevcut olduğunda Application Insights web modülü **Uygulama sürümünü** telemetrinin her bir öğesine bir özellik olarak ekler. Bu sayede, [tanılama aramaları](app-insights-diagnostic-search.md) gerçekleştirirken veya [ölçümleri keşfederken](app-insights-metrics-explorer.md) sürüme göre filtreleyebilirsiniz.
+Yapı bilgisi mevcut olduğunda Application Insights web modülü **Uygulama sürümünü** telemetrinin her bir öğesine bir özellik olarak ekler. Bu sayede, [tanılama aramaları](../azure-monitor/app/diagnostic-search.md) gerçekleştirirken veya [ölçümleri keşfederken](app-insights-metrics-explorer.md) sürüme göre filtreleyebilirsiniz.
 
 Bununla birlikte, derleme sürüm numarasının Visual Studio’daki geliştirici derlemesi tarafından değil de yalnızca Microsoft Build Engine tarafından oluşturulduğunu fark edersiniz.
 
 ### <a name="release-annotations"></a>Sürüm ek açıklamaları
-Azure DevOps kullanırsanız, yapabilecekleriniz [ek açıklama işaretçisi](app-insights-annotations.md) grafiklerinize yeni bir sürümün her eklendi. Aşağıdaki görüntüde bu işaretin nasıl göründüğü gösterilmiştir.
+Azure DevOps kullanırsanız, yapabilecekleriniz [ek açıklama işaretçisi](../azure-monitor/app/annotations.md) grafiklerinize yeni bir sürümün her eklendi. Aşağıdaki görüntüde bu işaretin nasıl göründüğü gösterilmiştir.
 
 ![Bir grafikteki örnek sürüm ek açıklamasının ekran görüntüsü](media/app-insights-separate-resources/release-annotation.png)
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Birden çok rol için paylaşılan kaynaklar](app-insights-monitor-multi-role-apps.md)
-* [Bir ayırt etmek için bir Telemetri Başlatıcısı oluştur | B çeşitleri](app-insights-api-filtering-sampling.md#add-properties)
+* [Birden çok rol için paylaşılan kaynaklar](../azure-monitor/app/app-map.md)
+* [Bir ayırt etmek için bir Telemetri Başlatıcısı oluştur | B çeşitleri](../azure-monitor/app/api-filtering-sampling.md#add-properties)

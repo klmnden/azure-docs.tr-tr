@@ -10,21 +10,19 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: f9ee5946d9748388cc1f606d89d4edeacb0b9c02
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2a566312e70e0c1d5f85a540f30ecdf0adc0e7e7
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498082"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653722"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Bir machine learning uygulama oluşturmak ve bir veri kümesini analiz etmek için Apache Spark MLlib kullanın
 
 Apache Spark'ı kullanmayı öğrenin [MLlib](https://spark.apache.org/mllib/) bir machine learning açık bir veri kümesini basit Tahmine dayalı analiz yapmak için uygulama oluşturmak için. Kitaplıkları Spark'ın yerleşik makine öğrenimi, bu örnekte *sınıflandırma* Lojistik regresyon aracılığıyla. 
 
-> [!TIP]
+> [!TIP]  
 > Bu örnek olarak da kullanılabilir bir [Jupyter not defteri](https://jupyter.org/) üzerinde oluşturduğunuz HDInsight Spark (Linux) kümesi. Not Defteri deneyimi not defterinden Python kod çalıştırmanıza olanak tanır. Öğreticinin bir not defteri içinde takip etmek için bir Spark kümesi oluşturma ve Jupyter not defteri başlatın (`https://CLUSTERNAME.azurehdinsight.net/jupyter`). Ardından, Not Defteri çalıştırma **Spark Machine Learning - MLlib.ipynb kullanarak yemek İnceleme veri üzerinde Tahmine dayalı analiz** altında **Python** klasör.
->
->
 
 MLlib için uygun yardımcı programlar da dahil olmak üzere, makine öğrenimi görevlerini yararlı birçok yardımcı programlar sağlayan bir çekirdek Spark kitaplığıdır:
 
@@ -178,7 +176,7 @@ Hangi veri kümesini içeren bir fikir almak şimdi başlayın.
     SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
     ```
 
-    `%%sql` Sihirli arkasından `-o countResultsdf` sorgunun çıkışı (genellikle bir kümenin baş) Jupyter sunucu üzerinde yerel olarak kalıcı olmasını sağlar. Çıktı olarak kalıcı bir [Pandas](http://pandas.pydata.org/) belirtilen ada sahip bir dataframe **countResultsdf**. Hakkında daha fazla bilgi için `%%sql` sihrinin yanı sıra, PySpark çekirdeği kullanılabilen diğer sihirler bkz [Apache Spark HDInsight kümeleri ile Jupyter not defterlerinde kullanılabilen çekirdekler](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+    `%%sql` Sihirli arkasından `-o countResultsdf` sorgunun çıkışı (genellikle bir kümenin baş) Jupyter sunucu üzerinde yerel olarak kalıcı olmasını sağlar. Çıktı olarak kalıcı bir [Pandas](https://pandas.pydata.org/) belirtilen ada sahip bir dataframe **countResultsdf**. Hakkında daha fazla bilgi için `%%sql` sihrinin yanı sıra, PySpark çekirdeği kullanılabilen diğer sihirler bkz [Apache Spark HDInsight kümeleri ile Jupyter not defterlerinde kullanılabilen çekirdekler](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
     Çıktı.
 
@@ -211,7 +209,7 @@ Hangi veri kümesini içeren bir fikir almak şimdi başlayın.
     - Koşullar ile geçirin
     - İş dışında
 
-    Yemek İnceleme sonuçlarını tahmin etmek için üzerinde ihlalleri dayalı bir model geliştirmektir gerekir. Lojistik regresyon ikili sınıflandırma yöntemi olduğundan, sonuçta elde edilen veri iki kategoriler altında gruplandırmak için mantıklıdır: **başarısız** ve **geçirmek**:
+    Yemek İnceleme sonuçlarını tahmin etmek için üzerinde ihlalleri dayalı bir model geliştirmektir gerekir. Lojistik regresyon ikili sınıflandırma yöntemi olduğundan, sonuçta elde edilen veri iki kategoriler altında gruplandırmak için mantıklıdır: **Başarısız** ve **geçirmek**:
 
     - Geçiş
         - Geçiş
@@ -382,11 +380,11 @@ Artık yardımcı olması için son bir görselleştirme oluşturabilirsiniz bu 
 Uygulamayı çalıştırmayı tamamladıktan sonra kaynakları serbest bırakmak için Not defterini kapatmanız gerekir. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın. Bu işlem kapanır ve not defterini kapatır.
 
 ## <a name="seealso"></a>Ayrıca bkz.
-* [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
+* [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
 * [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma

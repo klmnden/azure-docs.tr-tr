@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.openlocfilehash: 3f7cfbea414561a50152f88ac9061d7f62c89e2a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bc8688e06b430522d2aeb1bcc67f72dae2e9ac6a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192422"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728423"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Bilgisayar grupları Log analytics'te günlük aramaları
 
@@ -31,7 +31,7 @@ Aşağıdaki tabloda yöntemlerden birini kullanarak Log analytics'te bilgisayar
 |:--- |:--- |
 | Günlük araması |Bilgisayar listesi döndüren bir günlük araması oluşturun. |
 | Log Arama API’si |Günlük arama API'si, program aracılığıyla bir günlük araması sonuçlarına göre bir bilgisayar grubu oluşturmak için kullanın. |
-| Active Directory |Otomatik olarak bir Active Directory etki alanının üyesi olan ve bir grubu Log Analytics'te için her güvenlik grubu oluşturun. herhangi bir aracı bilgisayarların grup üyeliği tarayın. |
+| Active Directory |Otomatik olarak bir Active Directory etki alanının üyesi olan ve bir grubu Log Analytics'te için her güvenlik grubu oluşturun. herhangi bir aracı bilgisayarların grup üyeliği tarayın. (Yalnızca Windows makinelerde)|
 | Configuration Manager | System Center Configuration Manager'dan koleksiyonları içeri aktarmak ve Log Analytics'te her biri için bir grup oluşturun. |
 | Windows Server Update Services |Otomatik olarak WSUS sunucular veya istemciler grupları hedeflemek için tarama ve Log Analytics'te her biri için bir grup oluşturun. |
 
@@ -60,7 +60,10 @@ Azure portalında günlük araması bir bilgisayar grubu oluşturmak için aşa�
 
 
 ### <a name="active-directory"></a>Active Directory
-Log Analytics, Active Directory grup üyeliklerini içeri aktarmak için yapılandırdığınızda, Log Analytics aracısını sahip herhangi bir etki alanına katılmış bilgisayarların grup üyeliği analiz eder.  Bir bilgisayar grubu, Log Analytics'te her Active Directory güvenlik grubu oluşturulur ve her bilgisayarın üyesi olduğu güvenlik gruplarına karşılık gelen bilgisayar gruplarına eklenir.  Bu üyelik sürekli olarak 4 saatte bir güncelleştirilir.  
+Log Analytics, Active Directory grup üyeliklerini içeri aktarmak için yapılandırdığınızda, Log Analytics aracısını ile tüm Windows etki alanına katılmış bilgisayarların grup üyeliği analiz eder.  Bir bilgisayar grubu, Log Analytics'te her Active Directory güvenlik grubu oluşturulur ve her Windows bilgisayarı üyesi olduğu güvenlik gruplarına karşılık gelen bilgisayar gruplarına eklenir.  Bu üyelik sürekli olarak 4 saatte bir güncelleştirilir.  
+
+> [!NOTE]
+> İçeri aktarılan Active Directory grupları, yalnızca Windows makineleri içerir.
 
 Log Analytics, Log Analytics'ten Active Directory güvenlik gruplarını almak için yapılandırdığınız **Gelişmiş ayarlar** Azure portalında.  Seçin **bilgisayar grupları**, **Active Directory**, ardından **alma Active Directory grup üyeliklerini bilgisayarlardan**.  Başka bir yapılandırma işlemi gerekmez.
 

@@ -4,14 +4,14 @@ description: Azure geçişi hakkında sık sorulan sorular adresleri
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: snehaa
-ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 787e3f53cb75b33b03c29b61b319270fdf7a63ca
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257803"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975483"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçişi - sık sorulan sorular (SSS)
 
@@ -48,12 +48,13 @@ Azure geçişi planlama aracı geçiş ve Azure Site Recovery dağıtım planlay
 
 ### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Hangi Azure coğrafyaları Azure geçişi tarafından destekleniyor mu?
 
-Azure geçişi şu anda Amerika Birleşik Devletleri ve Azure kamu proje coğrafi destekler. Geçiş projeleri yalnızca bu coğrafi bölgelerde oluşturabilirsiniz, ancak yine de makineleriniz için değerlendirebilirsiniz [birden çok hedef konumları](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Proje Coğrafya, yalnızca bulunan meta verileri depolamak için kullanılır.
+Azure geçişi şu anda Avrupa, ABD ve Azure kamu proje coğrafi destekler. Geçiş projeleri yalnızca bu coğrafi bölgelerde oluşturabilirsiniz, ancak yine de makineleriniz için değerlendirebilirsiniz [birden çok hedef konumları](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Proje Coğrafya, yalnızca bulunan meta verileri depolamak için kullanılır.
 
 **Coğrafya** | **Meta veri depolama konumu**
 --- | ---
-Durumları sahip | Batı Orta ABD veya Doğu ABD
 Azure Kamu | ABD Devleti Virginia
+Avrupa | Kuzey Avrupa veya Batı Avrupa
+Durumları sahip | Batı Orta ABD, Doğu ABD
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Şirket içi siteyle Azure geçişi için nasıl bağlanıyor?
 

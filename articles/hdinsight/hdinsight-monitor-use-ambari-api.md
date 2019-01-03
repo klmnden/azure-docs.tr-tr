@@ -9,20 +9,18 @@ ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 062925f7e072651f4b4189cec7ca73144c0cf994
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7967459e1318e85e1e179e21bc803bf00ee329cd
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436339"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743802"
 ---
 # <a name="monitor-apache-hadoop-clusters-in-hdinsight-using-the-apache-ambari-api"></a>Apache Ambari API'sini kullanarak HDInsight Apache Hadoop kümelerini izleme
 Apache Ambari API'lerini kullanarak HDInsight kümelerini izleme hakkında bilgi edinin.
 
 > [!NOTE]  
 > Bu makalede, Ambari REST API'yi salt okunur bir sürümünü sağlayın. öncelikle Windows tabanlı HDInsight kümeleri için bilgilerdir. Linux tabanlı kümeler için bkz: [Apache Ambari kullanarak yönetme Apache Hadoop kümelerini](hdinsight-hadoop-manage-ambari.md).
-> 
-> 
 
 ## <a name="what-is-ambari"></a>Ambari nedir?
 [Apache Ambari] [ ambari-home] sağlama, yönetme ve Apache Hadoop kümelerini izleme için kullanılır. Bu, kümelerin çalışmasını kolaylaştırarak, işleç araçlarının sezgisel bir koleksiyonunu ve Hadoop’un karmaşıklığı gizleyen sağlam bir API kümesini içerir. API'leri hakkında daha fazla bilgi için bkz. [Ambari API Başvurusu][ambari-api-reference]. 
@@ -38,8 +36,7 @@ Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
   
   > [!NOTE]  
   > Ne zaman Windows, seçenek değerlerinin tek tırnak işaretleri yerine çift tırnak işaretleri kullan cURL komutunu kullanın.
-  > 
-  > 
+
 * **Bir Azure HDInsight kümesi**. Küme sağlama hakkında yönergeler için bkz. [HDInsight kullanmaya başlama] [ hdinsight-get-started] veya [sağlama HDInsight kümeleri][hdinsight-provision]. Bu öğreticiyi incelemek için aşağıdaki veriler ihtiyacınız vardır:
   
   | Küme özelliği | Azure PowerShell değişken adı | Değer | Açıklama |
@@ -146,13 +143,13 @@ Artık Apache Ambari izleme API çağrılarının nasıl kullanılacağını ö�
 * [HDInsight belgeleri][hdinsight-documentation]
 * [HDInsight ile çalışmaya başlama][hdinsight-get-started]
 
-[ambari-home]: http://ambari.apache.org/
+[ambari-home]: https://ambari.apache.org/
 [ambari-api-reference]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
-[curl]: http://curl.haxx.se
+[curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html
 
-[microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
+[microsoft-hadoop-SDK]: https://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: https://technet.microsoft.com/library/ee176949.aspx

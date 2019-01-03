@@ -9,14 +9,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a6ab4d751be74b66d9e75a37f88bc8d441f9b003
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499139"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653739"
 ---
-# <a name="optimize-apache-spark-jobs"></a>Apache Spark işlerini en iyi duruma getirme
+# <a name="optimize-apache-spark-jobs"></a>Apache Spark işlerini iyileştirme
 
 Nasıl iyileştirebileceğinizi öğrenmek [Apache Spark](https://spark.apache.org/) belirli iş yükünüz için küme yapılandırması.  En sık karşılaşılan hatalı yapılandırmalar (özellikle yanlış boyutlu yürütücüler), uzun süre çalışan işlemleri ve Kartezyen işlemlerinde neden görevler nedeniyle bellek baskısı zorluktur. İşleri uygun önbelleğe alma ve verme için hızlandırabilirsiniz [veri dengesizliği](#optimize-joins-and-shuffles). En iyi performans için izleme ve uzun süre çalışan ve kaynak tüketen Spark iş yürütmeleri gözden geçirin.
 
@@ -27,41 +27,41 @@ Aşağıdaki bölümlerde, yaygın bir Spark işi iyileştirmeler ve önerileri 
 Soyut veri ve Spark 1.x kullandığı Rdd spark 2.x sunulan veri çerçevelerini ve veri kümeleri. Şu göreli değeri göz önünde bulundurun:
 
 * **Veri çerçevelerini**
-    * Çoğu durumda en iyi seçimi
-    * Sorgu iyileştirme Catalyst ile sağlar
-    * Tüm aşama kod oluşturma
-    * Doğrudan bellek erişimi
-    * Düşük atık toplama (GC) kullanımı
-    * Değil olarak Geliştirici dostu veri kümeleri, herhangi bir derleme zamanı denetimleri veya etki alanı nesnesi programlama olduğundan
+    * Çoğu durumda en iyi bir seçimdir.
+    * Sorgu iyileştirme Catalyst ile sağlar.
+    * Tüm aşama kodu oluşturma.
+    * Doğrudan bellek erişimi.
+    * Çöp toplama (GC) ek yükü düşük.
+    * Değil olarak Geliştirici dostu veri kümeleri, herhangi bir derleme zamanı denetimleri veya etki alanı nesnesi programlama olduğundan.
 * **Veri kümeleri**
-    * Performans etkisi kabul edilebilir olduğu karmaşık ETL işlem hatları hazır
-    * Burada, performans etkisini önemli ölçüde olabilir toplamada iyi değil
-    * Sorgu iyileştirme Catalyst ile sağlar
-    * Etki alanı nesnesi programlama ve derleme zamanı denetimleri sağlayarak Geliştirici dostu
-    * Serileştirme/seri durumundan çıkarma yükü ekler
-    * Yüksek GC ek yükü
-    * Tüm aşama kod oluşturma keser
+    * Performans etkisi kabul edilebilir olduğu karmaşık ETL işlem hatları hazır.
+    * Burada, performans etkisini önemli ölçüde olabilir toplamada iyi değil.
+    * Sorgu iyileştirme Catalyst ile sağlar.
+    * Etki alanı nesnesi programlama ve derleme zamanı denetimleri sağlayarak Geliştirici kullanımı kolay.
+    * Serileştirme/seri durumundan çıkarma yükü ekler.
+    * Yüksek GC yükü.
+    * Tüm aşama kod oluşturma keser.
 * **Rdd**
-    * Spark 2.x gerektirmeyen Rdd, kullanılacak yeni bir özel RDD oluşturmaya gerekmedikçe
-    * Hiçbir sorgu iyileştirme Catalyst ile
-    * Tüm aşama kod üretme
-    * Yüksek GC ek yükü
-    * Spark 1.x eski kullanmalısınız API'leri
+    * Spark 2.x gerektirmeyen Rdd, kullanılacak yeni bir özel RDD oluşturmaya gerekmedikçe.
+    * Catalyst aracılığıyla sorgu iyileştirmesi yok.
+    * Tüm aşama kod üretme.
+    * Yüksek GC yükü.
+    * Spark 1.x eski kullanmalısınız API'leri.
 
 ## <a name="use-optimal-data-format"></a>En iyi veri biçimini kullanın
 
-Spark, csv, json, xml, parquet, orc ve avro gibi birçok biçimi destekler. Spark uzatabilirsiniz dış veri kaynaklarıyla - pek çok daha fazla biçimde desteklemek daha fazla bilgi için bkz: [Spark paketleri](https://spark-packages.org).
+Spark, csv, json, xml, parquet, orc ve avro gibi birçok biçimi destekler. Spark uzatabilirsiniz dış veri kaynaklarıyla - pek çok daha fazla biçimde desteklemek daha fazla bilgi için bkz: [Apache Spark paketleri](https://spark-packages.org).
 
 En iyi performans ile parquet biçimi *snappy sıkıştırma*, Spark varsayılan değer olan 2.x. Parquet, verileri sütunlu biçiminde depolar ve Spark, yüksek oranda iyileştirilmiştir.
 
 ## <a name="select-default-storage"></a>Varsayılan depolama alanı seçin
 
-Yeni bir Spark kümesi oluşturduğunuzda, kümenin varsayılan depolama alanı olarak Azure Blob Depolama veya Azure Data Lake Store tercih yapma seçeneğine sahip olursunuz. Kümenizi sildiğinizde, verilerinizi otomatik olarak silinmez için iki seçenek de uzun vadeli depolama avantajı geçici kümeler için size. Geçici bir küme oluşturun ve verilerinize erişmeye devam edebilirsiniz.
+Yeni bir Spark kümesi oluşturduğunuzda, kümenin varsayılan depolama alanı olarak Azure Blob Depolama veya Azure Data Lake Storage tercih yapma seçeneğine sahip olursunuz. Kümenizi sildiğinizde, verilerinizi otomatik olarak silinmez için iki seçenek de uzun vadeli depolama avantajı geçici kümeler için size. Geçici bir küme oluşturun ve verilerinize erişmeye devam edebilirsiniz.
 
 | Store türü | Dosya Sistemi | Hız | Geçici | Kullanım Örnekleri |
 | --- | --- | --- | --- | --- |
 | Azure Blob Depolama | **wasb:**//url/ | **Standart** | Evet | Geçici küme |
-| Azure Data Lake Store | **Adl:**//url/ | **Daha hızlı** | Evet | Geçici küme |
+| Azure Data Lake Storage | **Adl:**//url/ | **Daha hızlı** | Evet | Geçici küme |
 | Yerel HDFS | **hdfs:**//url/ | **Hızlı** | Hayır | Etkileşimli 7/24 küme |
 
 ## <a name="use-the-cache"></a>Önbellek kullanma
@@ -73,7 +73,7 @@ Spark gibi farklı yöntemler üzerinden kullanılabilecek kendi yerel önbelle�
     * Hangi Spark yayınlarda gelecekte değişebilir bölümleme ile değil çalışır.
 
 * (Önerilen) depolama düzeyi önbelleğe alma
-    * Kullanılarak uygulanan [Alluxio](http://www.alluxio.org/).
+    * Kullanılarak uygulanan [Alluxio](https://www.alluxio.org/).
     * Belleğe ve SSD önbelleği kullanır.
 
 * Yerel HDFS (önerilir)
@@ -119,9 +119,9 @@ Benzeyebilir veri bölümleme için benzer, ancak her bir demete sütun değerle
 
 Bazı gelişmiş benzeyebilir özellikleri şunlardır:
 
-* En iyi duruma getirme benzeyebilir meta-bilgilere göre sorgulama
-* En iyi duruma getirilmiş toplama
-* En iyi duruma getirilmiş birleştirmeler
+* Sorgu en iyi duruma getirme benzeyebilir meta-bilgilere göre.
+* En iyi duruma getirilmiş toplama.
+* En iyi duruma getirilmiş birleştirmeler.
 
 Bölümlendirme ve aynı anda benzeyebilir kullanabilirsiniz.
 
@@ -176,7 +176,7 @@ Yürütücü yapılandırmanızı karar verirken, Java atık toplama (GC) yükü
     2. Yürütücüler (N2) arasında açık bağlantıları üzerinde daha büyük kümeleri azaltmak (> 100 yürütücüler).
     3. Bellek kullanımı yoğun görevleri için uyum sağlamak için yığın boyutunu artırın.
     4. İsteğe bağlı: Yürütücü başına bellek yükünü azaltın.
-    5. İsteğe bağlı: kullanımı ve eşzamanlılık CPU oversubscribing tarafından artırın.
+    5. İsteğe bağlı: Kullanımı ve eşzamanlılık CPU oversubscribing tarafından artırın.
 
 Bir genel kural Yürütücü boyutu seçerken karşısında:
     
@@ -202,7 +202,7 @@ Zaman Çizelgesi Görünümü, SQL grafiği, iş istatistiklerini ve benzeri bak
 Performans sorunları için düzenli olarak, çalışan işleri izleyin. Bazı sorunları daha fazla içgörüye ihtiyacınız varsa, profil oluşturma araçları aşağıdaki performans birini göz önünde bulundurun:
 
 * [Intel PAL aracı](https://github.com/intel-hadoop/PAT) CPU, depolama ve ağ bant genişliği kullanımını izler.
-* [Oracle Java 8 görev denetimi](http://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) Spark hem de Yürütücü kodu profiller.
+* [Oracle Java 8 görev denetimi](https://www.oracle.com/technetwork/java/javaseproducts/mission-control/java-mission-control-1998576.html) Spark hem de Yürütücü kodu profiller.
 
 Spark 2.x sorgu performansı için anahtar üzerinde tam aşamalı kod oluşturma bağlıdır Tungsten altyapısıdır. Bazı durumlarda, tam aşamalı kod oluşturmayı devre dışı bırakılabilir. Örneğin değişemeyen bir türü kullanıyorsanız (`string`) toplama ifadesindeki `SortAggregate` yerine görünür `HashAggregate`. Örneğin, daha iyi performans için aşağıdakileri deneyin ve kod oluşturma'ı yeniden etkinleştirin:
 

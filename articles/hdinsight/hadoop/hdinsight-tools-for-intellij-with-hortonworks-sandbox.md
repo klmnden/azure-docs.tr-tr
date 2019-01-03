@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 56747179c69e6495e9a764f81e0827e29cb077e6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: aaebad004e5d426ca1c593941b15a2515c4476de
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017415"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635672"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks korumalı alanı ile Intellij için HDInsight araçları kullanma
 
@@ -27,7 +27,7 @@ Apache Scala uygulamaları geliştirin ve uygulamalar üzerinde test etmek için
 
 Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
-- Hortonworks Data Platform (HDP) 2.4 yerel bilgisayarınızda çalışan Hortonworks korumalı. HDP ayarlamak için bkz [Hadoop ekosistemi ile bir sanal makinede bir Hadoop korumalı alanı içinde kullanmaya başlayın](apache-hadoop-emulator-get-started.md). 
+- Hortonworks Data Platform (HDP) 2.4 yerel bilgisayarınızda çalışan Hortonworks korumalı. HDP ayarlamak için bkz [Apache Hadoop ekosistemindeki bir sanal makinede bir Hadoop korumalı alanı ile çalışmaya başlama](apache-hadoop-emulator-get-started.md). 
     > [!NOTE]
     > Intellij için HDInsight araçları yalnızca HDP 2.4 ile test edilmiştir. HDP 2.4 almak için genişletin **Hortonworks Sandbox arşiv** üzerinde [Hortonworks korumalı alanı site yüklemeleri](https://hortonworks.com/downloads/#sandbox).
 
@@ -44,7 +44,7 @@ Eklentileri yüklemek için:
   5. Yüklemeyi tamamlamak için seçin **yeniden Intellij Idea**.
   6. 4 ve 5 yüklemek için **Intellij için Azure Araç Seti**. Daha fazla bilgi için [Intellij için Azure Araç Seti'ni yükleme](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
 
-## <a name="create-a-spark-scala-application"></a>Bir Scala Spark uygulaması oluşturma
+## <a name="create-an-apache-spark-scala-application"></a>Apache Spark Scala uygulama oluşturma
 
 Bu bölümde, Intellij Idea'yı kullanarak bir örnek Scala projesi oluşturun. Proje göndermeden önce sonraki bölümde, Intellij Idea Hortonworks Sandbox (öykünücü) bağlayın.
 
@@ -53,8 +53,8 @@ Bu bölümde, Intellij Idea'yı kullanarak bir örnek Scala projesi oluşturun. 
    1. **HDInsight** > **HDInsight’ta Spark (Scala)** seçeneğini belirleyin.
    2. İçinde **derleme aracı** tabanlı senaryonuz üzerinde listesinde, aşağıdakilerden birini seçin:
 
-    * **Maven**: Scala için Proje Oluşturma Sihirbazı'nı desteği.
-    * **SBT**: bağımlılık yönetimi ve Scala projeyi oluşturmak için.
+    * **Maven**: Scala Proje Oluşturma Sihirbazı'nı desteği.
+    * **SBT**: Bağımlılık yönetimi ve için Scala projesi oluşturma.
 
    ![Yeni Proje iletişim kutusu](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
@@ -149,14 +149,14 @@ Bir projeye bir öykünücü göndermek için:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bilgi edinmek için nasıl [Spark HDInsight Spark Linux kümesi için uygulamalar oluşturmak için Intellij için Azure araç seti, HDInsight araçları kullanma](../spark/apache-spark-intellij-tool-plugin.md).
+- Bilgi edinmek için nasıl [bir HDInsight Spark Linux kümesi için Apache Spark uygulamaları oluşturmak için Intellij için Azure araç seti, HDInsight araçları kullanma](../spark/apache-spark-intellij-tool-plugin.md).
 
-- Intellij için HDInsight araçları hakkında video için bkz. [geliştirme Spark için Intellij için HDInsight araçları tanıtmak](https://www.youtube.com/watch?v=YTZzYVgut6c).
+- Intellij için HDInsight araçları hakkında video için bkz. [geliştirme Apache Spark için Intellij için HDInsight araçları tanıtmak](https://www.youtube.com/watch?v=YTZzYVgut6c).
 
-- Bilgi edinmek için nasıl [SSH üzerinden Intellij için Azure araç seti ile bir HDInsight kümesi üzerinde Spark uygulamalarında uzaktan hata ayıklama](../spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md).
+- Bilgi edinmek için nasıl [SSH üzerinden Intellij için Azure araç seti ile bir HDInsight kümesi üzerinde Apache Spark uygulamaları uzaktan hata ayıklama](../spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md).
 
-- Bilgi edinmek için nasıl [uzaktan bir HDInsight Spark Linux kümesi üzerinde Spark uygulamalarında hata ayıklamak amacıyla Intellij için Azure araç seti, HDInsight araçları kullanmak](../spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
+- Bilgi edinmek için nasıl [Apache Spark uygulamaları bir HDInsight Spark Linux kümesi üzerinde uzaktan hata ayıklama için Intellij için Azure araç seti, HDInsight araçları kullanma](../spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md).
 
-- Bilgi edinmek için nasıl [Spark uygulamaları oluşturmak Eclipse için Azure araç seti, HDInsight Araçları](../spark/apache-spark-eclipse-tool-plugin.md).
+- Bilgi edinmek için nasıl [Apache Spark uygulamaları oluşturmak Eclipse için Azure araç seti, HDInsight Araçları](../spark/apache-spark-eclipse-tool-plugin.md).
 
 - Eclipse için HDInsight araçları hakkında video için bkz. [Spark uygulamaları oluşturmak Eclipse için HDInsight Araçları](https://mix.office.com/watch/1rau2mopb6fha).

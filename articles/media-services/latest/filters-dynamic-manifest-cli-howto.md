@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a16024ad5d8b9d2355b579b9b508ef0de91f2ccd
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5aa617edf13aee9c5899a59c46aeb729f202719f
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133868"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744216"
 ---
 # <a name="creating-filters-with-cli"></a>CLI ile filtre oluşturma 
 
@@ -37,7 +37,7 @@ Bu konuda bir Video isteğe bağlı varlık için bir filtre yapılandırın ve 
 
 ## <a name="define-a-filter"></a>Bir filtre tanımlar 
 
-Aşağıdaki örnek, son bildirimine eklenmesini izleme seçimi koşulları tanımlar. Bu filtre EC-3 ile İngilizce olan tüm ses parçalarını ve 0-1000000 hızına sahip olan herhangi bir video parçaları içerir aralığı.
+Aşağıdaki örnek, son bildirimine eklenmesini izleme seçimi koşulları tanımlar. Bu filtre EC-3 olan tüm ses parçalarını ve 0-1000000 hızına sahip olan herhangi bir video parçaları içerir aralığı.
 
 REST içinde tanımlanan filtrelerini "Özellikler" sarmalayıcı JSON nesnesi içerir.  
 
@@ -48,11 +48,6 @@ REST içinde tanımlanan filtrelerini "Özellikler" sarmalayıcı JSON nesnesi i
             {
                 "property": "Type",
                 "value": "Audio",
-                "operation": "Equal"
-            },
-            {
-                "property": "Language",
-                "value": "en",
                 "operation": "Equal"
             },
             {
@@ -83,8 +78,16 @@ REST içinde tanımlanan filtrelerini "Özellikler" sarmalayıcı JSON nesnesi i
 
 Aşağıdaki [az ams hesabına-filtre](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) komut olan izleme seçimlerini Filtresi ile bir hesabı filtresi oluşturur [daha önce tanımlanan](#define-a-filter). 
 
+Aşağıdaki komutu bir seçenek sağlar `--tracks` kabul eden bir dosya. Azure CLI'yı yerel olarak kullanıyorsanız, tüm dosya yolu belirtin:
+
 ```azurecli
-az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @C:\tracks.json
+az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @c:\tracks.json
+```
+
+Azure Cloud Shell kullanıyorsanız Cloud Shell (Bul Kabuk pencerenin üstünde karşıya yükleme/indirme dosyaları düğme) dosyanızı yükleyin. Ardından, böyle bir dosya başvurabilirsiniz:
+
+```azurecli
+az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @tracks.json
 ```
 
 Ayrıca bkz [filtreleri için JSON örnekler](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create_an_account_filter).
@@ -93,8 +96,11 @@ Ayrıca bkz [filtreleri için JSON örnekler](https://docs.microsoft.com/rest/ap
 
 Aşağıdaki [az ams varlığı-filtre](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) komut olan izleme seçimlerini Filtresi ile bir varlık filtresi oluşturur [daha önce tanımlanan](#define-a-filter). 
 
+> [!TIP]
+> Önceki bölümde dosya adı konumunu belirtme hakkında bilgi için bkz.
+
 ```azurecli
-az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @C:\tracks.json
+az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @tracks.json
 ```
 
 Ayrıca bkz [filtreleri için JSON örnekler](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter).

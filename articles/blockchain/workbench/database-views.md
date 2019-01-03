@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 893e44b3298a03559b7dea4721e3bbbab0c65897
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4d5b98ab001bcb30091590880954c7075701e53b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615934"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607362"
 ---
 # <a name="database-views-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench uygulamasında veritabanı görünümleri
 
@@ -27,7 +27,7 @@ Bu bölümde, veritabanı görünümleri ve içerdikleri veriler genel bir bakı
 
 > [!NOTE]
 > Veritabanı mümkün sırasında bu görünümleri dışında bulunan veritabanı tablolarını doğrudan kullanımı desteklenmiyor.
-> 
+>
 
 ## <a name="vwapplication"></a>vwApplication
 
@@ -39,11 +39,11 @@ Bu görünüm, hakkında ayrıntılı bilgi sağlar. **uygulamaları** Azure Blo
 | ApplicationName                  | nvarchar(50)  | Hayır          | Uygulamanın adı |
 | ApplicationDescription           | nvarchar(255) | Evet         | Uygulama açıklaması |
 | ApplicationDisplayName           | nvarchar(255) | Hayır          | Bir kullanıcı arabiriminde görüntülenecek adı |
-| ApplicationEnabled               | Bit           | Hayır          | Uygulama şu anda etkin olup olmadığını tanımlar</br> **Not:** uygulama veritabanında devre dışı olarak yansıtılan olsa da, ilişkili sözleşmelerin uygun blok zinciri kalır ve bu sözleşmeler hakkındaki verileri, veritabanında kalır. |
+| ApplicationEnabled               | Bit           | Hayır          | Uygulama şu anda etkin olup olmadığını tanımlar<br /> **Not:** Bir uygulama veritabanında devre dışı olarak yansıtılan olsa da, ilişkili sözleşmelerin uygun blok zinciri kalır ve bu sözleşmeler hakkındaki verileri veritabanında kalır. |
 | UploadedDtTm                     | datetime2(7)  | Hayır          | Tarih ve saat sözleşme karşıya yüklendi |
 | UploadedByUserId                 | int           | Hayır          | Uygulamanın karşıya kullanıcının kimliği. |
 | UploadedByUserExternalId         | nvarchar(255) | Hayır          | Uygulamanın karşıya kullanıcı dış tanımlayıcı. Varsayılan olarak, bu consortium için Azure Active Directory'den kullanıcı kimliğidir.                                                                                                |
-| UploadedByUserProvisioningStatus | int           | Hayır          | Sağlama işlemi kullanıcının geçerli durumunu tanımlar. Olası değerler şunlardır: </br>0 – kullanıcı API tarafından oluşturuldu<br>1 – bir anahtar veritabanındaki kullanıcıyla ilişkilendirilmiş</br>2 – kullanıcı tam olarak sağlandığından                         |
+| UploadedByUserProvisioningStatus | int           | Hayır          | Sağlama işlemi kullanıcının geçerli durumunu tanımlar. Olası değerler şunlardır: <br />0 – kullanıcı API tarafından oluşturuldu<br />1 – bir anahtar veritabanındaki kullanıcıyla ilişkilendirilmiş<br />2 – kullanıcı tam olarak sağlandığından                         |
 | UploadedByUserFirstName          | nvarchar(50)  | Evet         | Sözleşme karşıya kullanıcının ilk adını |
 | UploadedByUserLastName           | nvarchar(50)  | Evet         | Sözleşme karşıya kullanıcının Soyadı |
 | UploadedByUserEmailAddress       | nvarchar(255) | Evet         | Sözleşme karşıya kullanıcının e-posta adresi |
@@ -81,7 +81,7 @@ Bu görünüm, Azure Blockchain Workbench uygulamalar ve bunlarla ilişkili kull
 | ApplicationRoleDescription | nvarchar(255) | Evet         | Rol açıklaması                                                                                                                                                                                                             |
 | UserId                     | int           | Hayır          | Rol ile ilişkili kullanıcı kimliği |
 | UserExternalId             | nvarchar(255) | Hayır          | Dış tanımlayıcı rolüyle ilişkilendirilmiş kullanıcı. Varsayılan olarak, bu consortium için Azure Active Directory'den kullanıcı kimliğidir.                                                                     |
-| UserProvisioningStatus     | int           | Hayır          | Sağlama işlemi kullanıcının geçerli durumunu tanımlar. Olası değerler şunlardır: </br>0 – kullanıcı API tarafından oluşturuldu</br>1 – bir anahtar veritabanındaki kullanıcıyla ilişkilendirilmiş<br>2 – kullanıcı tam olarak sağlandığından |
+| UserProvisioningStatus     | int           | Hayır          | Sağlama işlemi kullanıcının geçerli durumunu tanımlar. Olası değerler şunlardır: <br />0 – kullanıcı API tarafından oluşturuldu<br />1 – bir anahtar veritabanındaki kullanıcıyla ilişkilendirilmiş<br />2 – kullanıcı tam olarak sağlandığından |
 | UserFirstName              | nvarchar(50)  | Evet         | Rolle ilişkili kullanıcı adını |
 | UserLastName               | nvarchar(255) | Evet         | Son rolüyle ilişkilendirilmiş kullanıcı adı |
 | UserEmailAddress           | nvarchar(255) | Evet         | Rol ile ilişkili kullanıcının e-posta adresi |
@@ -103,7 +103,7 @@ Bu görünüm, Azure Blockchain Workbench içinde tanımlanan bağlantıları ve
 | LedgerDisplayName        | nvarchar(255) | Hayır          | Kullanıcı Arabiriminde görüntülemek için bir kayıt defteri adı |
 | UserId                   | int           | Hayır          | Bağlantı ile ilişkili kullanıcı kimliği |
 | UserExternalId           | nvarchar(255) | Hayır          | Dış bağlantı ile ilişkili kullanıcı tanımlayıcısı. Varsayılan olarak, bu consortium için Azure Active Directory'den kullanıcı kimliğidir. |
-| UserProvisioningStatus   | int           | Hayır          |Sağlama işlemi kullanıcının geçerli durumunu tanımlar. Olası değerler şunlardır: </br>0 – kullanıcı API tarafından oluşturuldu</br>1 – bir anahtar veritabanındaki kullanıcıyla ilişkilendirilmiş<br>2 – kullanıcı tam olarak sağlandığından |
+| UserProvisioningStatus   | int           | Hayır          |Sağlama işlemi kullanıcının geçerli durumunu tanımlar. Olası değerler şunlardır: <br />0 – kullanıcı API tarafından oluşturuldu<br />1 – bir anahtar veritabanındaki kullanıcıyla ilişkilendirilmiş<br />2 – kullanıcı tam olarak sağlandığından |
 | UserFirstName            | nvarchar(50)  | Evet         | Bağlantıyla ilişkili kullanıcı adını |
 | UserLastName             | nvarchar(255) | Evet         | Son bağlantı ile ilişkili kullanıcı adı |
 | UserEmailAddress         | nvarchar(255) | Evet         | Bağlantıyla ilişkili kullanıcının e-posta adresi |
@@ -129,7 +129,7 @@ Bu görünüm, dağıtılan sözleşmeler hakkındaki ayrıntıları sağlar. He
 | ApplicationId                            | int            | Hayır          | Uygulama için benzersiz bir tanımlayıcı |
 | ApplicationName                          | nvarchar (50)  | Hayır          | Uygulamanın adı |
 | ApplicationDisplayName                   | nvarchar (255) | Hayır          | Bir kullanıcı arabiriminde görüntülenecek adı |
-| ApplicationEnabled                       | Bit            | Hayır          | Uygulama şu anda etkin olup olmadığını tanımlar.</br> **Not:** uygulama veritabanında devre dışı olarak yansıtılan olsa da, ilişkili sözleşmelerin uygun blok zinciri kalır ve bu sözleşmeler hakkındaki verileri, veritabanında kalır.  |
+| ApplicationEnabled                       | Bit            | Hayır          | Uygulama şu anda etkin olup olmadığını tanımlar.<br /> **Not:** Bir uygulama veritabanında devre dışı olarak yansıtılan olsa da, ilişkili sözleşmelerin uygun blok zinciri kalır ve bu sözleşmeler hakkındaki verileri veritabanında kalır.  |
 | Workflowıd                               | int            | Hayır          | Bir sözleşme ile ilişkili iş akışı için benzersiz bir tanımlayıcı |
 | WorkflowName                             | nvarchar(50)   | Hayır          | Bir sözleşme ile ilişkili iş akışının adı |
 | WorkflowDisplayName                      | nvarchar(255)  | Hayır          | Kullanıcı arabiriminde görüntülenen sözleşme ile ilişkili iş akışının adı |
@@ -138,11 +138,11 @@ Bu görünüm, dağıtılan sözleşmeler hakkındaki ayrıntıları sağlar. He
 | ContractFileName                         | int            | Hayır          | Bu iş akışı için akıllı sözleşme kodu içeren dosyanın adı. |
 | ContractUploadedDtTm                     | int            | Hayır          | Tarih ve saat sözleşme kodu yüklendi |
 | ContractId                               | int            | Hayır          | Anlaşma için benzersiz tanımlayıcı |
-| ContractProvisioningStatus               | int            | Hayır          | Anlaşma için sağlama işlemini geçerli durumunu tanımlar. Olası değerler şunlardır: </br>0 – sözleşme veritabanı API'si tarafından oluşturuldu</br>1 – sözleşme muhasebe gönderildi</br>2-anlaşma için bir kayıt defteri başarıyla dağıtıldı</br>3 veya 4 - sözleşme muhasebe dağıtılması başarısız oldu</br>5 - anlaşma için bir kayıt defteri başarıyla dağıtıldı </br></br>Sürüm 1.5 başlayarak, değerleri 0 ile 5 desteklenir. İçin geriye dönük uyumluluk görünümü geçerli sürümde **vwContractV0** yalnızca destekler değerleri 0 ile 2 kullanılabilir. |
+| ContractProvisioningStatus               | int            | Hayır          | Anlaşma için sağlama işlemini geçerli durumunu tanımlar. Olası değerler şunlardır: <br />0 – sözleşme veritabanı API'si tarafından oluşturuldu<br />1 – sözleşme muhasebe gönderildi<br />2-anlaşma için bir kayıt defteri başarıyla dağıtıldı<br />3 veya 4 - sözleşme muhasebe dağıtılması başarısız oldu<br />5 - anlaşma için bir kayıt defteri başarıyla dağıtıldı <br /><br />Sürüm 1.5 başlayarak, değerleri 0 ile 5 desteklenir. İçin geriye dönük uyumluluk görünümü geçerli sürümde **vwContractV0** yalnızca destekler değerleri 0 ile 2 kullanılabilir. |
 | ContractLedgerIdentifier                 | nvarchar (255) |             | Sözleşme dağıtılan kullanıcının e-posta adresi |
 | ContractDeployedByUserId                 | int            | Hayır          | Dış tanımlayıcı sözleşme dağıtılan kullanıcı. Varsayılan olarak, kullanıcının Azure Active Directory Kimliğini temsil eden GUID budur.                                                                                                          |
 | ContractDeployedByUserExternalId         | nvarchar(255)  | Hayır          | Sözleşme dağıtılan kullanıcı için dış tanımlayıcı. Varsayılan olarak, kullanıcının Azure Active Directory Kimliğini temsil eden GUID budur.                                                                                                         |
-| ContractDeployedByUserProvisioningStatus | int            | Hayır          | Geçerli kullanıcı için sağlama işlemini durumunu tanımlar. Olası değerler şunlardır: </br>0 – kullanıcı API tarafından oluşturuldu</br>1 – bir anahtar veritabanındaki kullanıcıyla ilişkilendirilmiş </br>2 – kullanıcı tam olarak sağlandığından                     |
+| ContractDeployedByUserProvisioningStatus | int            | Hayır          | Geçerli kullanıcı için sağlama işlemini durumunu tanımlar. Olası değerler şunlardır: <br />0 – kullanıcı API tarafından oluşturuldu<br />1 – bir anahtar veritabanındaki kullanıcıyla ilişkilendirilmiş <br />2 – kullanıcı tam olarak sağlandığından                     |
 | ContractDeployedByUserFirstName          | nvarchar(50)   | Evet         | Sözleşme dağıtılan kullanıcının ilk adını |
 | ContractDeployedByUserLastName           | nvarchar(255)  | Evet         | Sözleşme dağıtılan kullanıcının Soyadı |
 | ContractDeployedByUserEmailAddress       | nvarchar(255)  | Evet         | Sözleşme dağıtılan kullanıcının e-posta adresi |
@@ -170,7 +170,7 @@ Bu görünüm, sözleşmeler üzerinde gerçekleştirilen eylemler ile ilgili bi
 | WorkflowDisplayName                      | nvarchar(255) | Hayır          | Bir kullanıcı arabiriminde görüntülenecek iş akışının adı |
 | WorkflowDescription                      | nvarchar(255) | Evet         | İş akışı tanımı |
 | ContractId                               | int           | Hayır          | Anlaşma için benzersiz bir tanımlayıcı |
-| ContractProvisioningStatus               | int           | Hayır          | Anlaşma için sağlama işlemini geçerli durumunu tanımlar. Olası değerler şunlardır: </br>0 – sözleşme veritabanı API'si tarafından oluşturuldu</br>1 – sözleşme muhasebe gönderildi</br>2-anlaşma için bir kayıt defteri başarıyla dağıtıldı</br>3 veya 4 - sözleşme muhasebe dağıtılması başarısız oldu</br>5 - anlaşma için bir kayıt defteri başarıyla dağıtıldı </br></br>Sürüm 1.5 başlayarak, değerleri 0 ile 5 desteklenir. İçin geriye dönük uyumluluk görünümü geçerli sürümde **vwContractActionV0** yalnızca destekler değerleri 0 ile 2 kullanılabilir. |
+| ContractProvisioningStatus               | int           | Hayır          | Anlaşma için sağlama işlemini geçerli durumunu tanımlar. Olası değerler şunlardır: <br />0 – sözleşme veritabanı API'si tarafından oluşturuldu<br />1 – sözleşme muhasebe gönderildi<br />2-anlaşma için bir kayıt defteri başarıyla dağıtıldı<br />3 veya 4 - sözleşme muhasebe dağıtılması başarısız oldu<br />5 - anlaşma için bir kayıt defteri başarıyla dağıtıldı <br /><br />Sürüm 1.5 başlayarak, değerleri 0 ile 5 desteklenir. İçin geriye dönük uyumluluk görünümü geçerli sürümde **vwContractActionV0** yalnızca destekler değerleri 0 ile 2 kullanılabilir. |
 | ContractCodeId                           | int           | Hayır          | Kod uygulaması sözleşme için benzersiz bir tanımlayıcı |
 | ContractLedgerIdentifier                 | nvarchar(255) | Evet         | Dağıtılan belirli bir dağıtılmış kayıt defteri için akıllı bir sözleşme sürümü ile ilişkili benzersiz bir tanımlayıcı. Örneğin, Ethereum. |
 | ContractDeployedByUserId                 | int           | Hayır          | Sözleşme dağıtılan kullanıcının benzersiz tanımlayıcısı |
@@ -183,12 +183,12 @@ Bu görünüm, sözleşmeler üzerinde gerçekleştirilen eylemler ile ilgili bi
 | WorkflowFunctionDisplayName              | nvarchar(255) | Hayır          | Kullanıcı arabiriminde görüntülenecek bir işlevin adı |
 | WorkflowFunctionDescription              | nvarchar(255) | Hayır          | İşlev açıklaması |
 | ContractActionId                         | int           | Hayır          | Bir sözleşme eylemi için benzersiz tanımlayıcı |
-| ContractActionProvisioningStatus         | int           | Hayır          | Sözleşme eylemi için sağlama işlemini geçerli durumunu tanımlar. Olası değerler şunlardır: </br>0 – sözleşme eylem veritabanı API'si tarafından oluşturuldu</br>1 – sözleşme eylemi muhasebe gönderildi</br>2-sözleşme eylem için bir kayıt defteri başarıyla dağıtıldı</br>3 veya 4 - sözleşme muhasebe dağıtılması başarısız oldu</br>5 - anlaşma için bir kayıt defteri başarıyla dağıtıldı </br></br>Sürüm 1.5 başlayarak, değerleri 0 ile 5 desteklenir. İçin geriye dönük uyumluluk görünümü geçerli sürümde **vwContractActionV0** yalnızca destekler değerleri 0 ile 2 kullanılabilir. |
+| ContractActionProvisioningStatus         | int           | Hayır          | Sözleşme eylemi için sağlama işlemini geçerli durumunu tanımlar. Olası değerler şunlardır: <br />0 – sözleşme eylem veritabanı API'si tarafından oluşturuldu<br />1 – sözleşme eylemi muhasebe gönderildi<br />2-sözleşme eylem için bir kayıt defteri başarıyla dağıtıldı<br />3 veya 4 - sözleşme muhasebe dağıtılması başarısız oldu<br />5 - anlaşma için bir kayıt defteri başarıyla dağıtıldı <br /><br />Sürüm 1.5 başlayarak, değerleri 0 ile 5 desteklenir. İçin geriye dönük uyumluluk görünümü geçerli sürümde **vwContractActionV0** yalnızca destekler değerleri 0 ile 2 kullanılabilir. |
 | ContractActionTimestamp                  | DateTime(2,7) | Hayır          | Sözleşme eylem zaman damgası |
 | ContractActionExecutedByUserId           | int           | Hayır          | Sözleşme eylem yürütüldü kullanıcının benzersiz tanımlayıcısı |
 | ContractActionExecutedByUserFirstName    | int           | Evet         | Sözleşme eylemi gerçekleştiren kullanıcının adı |
 | ContractActionExecutedByUserLastName     | nvarchar(50)  | Evet         | Sözleşme eylemi gerçekleştiren kullanıcının Soyadı |
-| ContractActionExecutedByUserExternalId   | nvarchar(255) | Evet         | Sözleşme eylemi gerçekleştiren kullanıcının dış tanımlayıcısı.  Varsayılan olarak kimliklerini Azure Active Directory consortium içinde temsil eden GUID budur. |
+| ContractActionExecutedByUserExternalId   | nvarchar(255) | Evet         | Sözleşme eylemi gerçekleştiren kullanıcının dış tanımlayıcısı. Varsayılan olarak kimliklerini Azure Active Directory consortium içinde temsil eden GUID budur. |
 | ContractActionExecutedByUserEmailAddress | nvarchar(255) | Evet         | Sözleşme eylemi gerçekleştiren kullanıcının e-posta adresi |
 | WorkflowFunctionParameterId              | int           | Hayır          | İşlevinin bir parametresi için benzersiz bir tanımlayıcı |
 | WorkflowFunctionParameterName            | nvarchar(50)  | Hayır          | İşlevinin bir parametresi adı |
@@ -204,7 +204,7 @@ Bu görünüm, sözleşmeler üzerinde gerçekleştirilen eylemler ile ilgili bi
 | TransactionTo                            | nvarchar(255) | Evet         | İle işlem temelli taraf |
 | TransactionHash                          | nvarchar(255) | Evet         | Bir işlem karması |
 | TransactionIsWorkbenchTransaction        | Bit           | Evet         | Azure Blockchain Workbench işlem hareket ise tanımlayan bir bit |
-| TransactionProvisioningStatus            | int           | Evet         | Geçerli işlem için sağlama işlemini durumunu tanımlar. Olası değerler şunlardır: </br>0 – işlem veritabanı API'si tarafından oluşturuldu</br>1 – işlem defterine gönderildi</br>2 – işlem için bir kayıt defteri başarıyla dağıtıldı                 |
+| TransactionProvisioningStatus            | int           | Evet         | Geçerli işlem için sağlama işlemini durumunu tanımlar. Olası değerler şunlardır: <br />0 – işlem veritabanı API'si tarafından oluşturuldu<br />1 – işlem defterine gönderildi<br />2 – işlem için bir kayıt defteri başarıyla dağıtıldı                 |
 | TransactionValue                         | decimal(32,2) | Evet         | İşlem değeri |
 
 ## <a name="vwcontractproperty"></a>vwContractProperty
@@ -223,13 +223,13 @@ Bu görünüm bir sözleşme ile ilişkili özellikler ilgili bilgilerin çoğun
 | ApplicationId                      | int           | Hayır          | Uygulama için benzersiz bir tanımlayıcı |
 | ApplicationName                    | nvarchar(50)  | Hayır          | Uygulamanın adı |
 | ApplicationDisplayName             | nvarchar(255) | Hayır          | Bir kullanıcı arabiriminde görüntülenecek adı |
-| ApplicationEnabled                 | Bit           | Hayır          | Uygulama şu anda etkin olup olmadığını tanımlar.</br>**Not:** uygulama veritabanında devre dışı olarak yansıtılan olsa da, ilişkili sözleşmelerin uygun blok zinciri kalır ve bu sözleşmeler hakkındaki verileri, veritabanında kalır.                      |
+| ApplicationEnabled                 | Bit           | Hayır          | Uygulama şu anda etkin olup olmadığını tanımlar.<br />**Not:** Bir uygulama veritabanında devre dışı olarak yansıtılan olsa da, ilişkili sözleşmelerin uygun blok zinciri kalır ve bu sözleşmeler hakkındaki verileri veritabanında kalır.                      |
 | Workflowıd                         | int           | Hayır          | İş akışı için benzersiz tanımlayıcı |
 | WorkflowName                       | nvarchar(50)  | Hayır          | İş akışının adı |
 | WorkflowDisplayName                | nvarchar(255) | Hayır          | Kullanıcı arabiriminde görüntülenen iş akışının adı |
 | WorkflowDescription                | nvarchar(255) | Evet         | İş akışı tanımı |
 | ContractId                         | int           | Hayır          | Anlaşma için benzersiz tanımlayıcı |
-| ContractProvisioningStatus         | int           | Hayır          | Anlaşma için sağlama işlemini geçerli durumunu tanımlar. Olası değerler şunlardır: </br>0 – sözleşme veritabanı API'si tarafından oluşturuldu</br>1 – sözleşme muhasebe gönderildi</br>2-anlaşma için bir kayıt defteri başarıyla dağıtıldı</br>3 veya 4 - sözleşme muhasebe dağıtılması başarısız oldu</br>5 - anlaşma için bir kayıt defteri başarıyla dağıtıldı </br></br>Sürüm 1.5 başlayarak, değerleri 0 ile 5 desteklenir. İçin geriye dönük uyumluluk görünümü geçerli sürümde **vwContractPropertyV0** yalnızca destekler değerleri 0 ile 2 kullanılabilir. |
+| ContractProvisioningStatus         | int           | Hayır          | Anlaşma için sağlama işlemini geçerli durumunu tanımlar. Olası değerler şunlardır: <br />0 – sözleşme veritabanı API'si tarafından oluşturuldu<br />1 – sözleşme muhasebe gönderildi<br />2-anlaşma için bir kayıt defteri başarıyla dağıtıldı<br />3 veya 4 - sözleşme muhasebe dağıtılması başarısız oldu<br />5 - anlaşma için bir kayıt defteri başarıyla dağıtıldı <br /><br />Sürüm 1.5 başlayarak, değerleri 0 ile 5 desteklenir. İçin geriye dönük uyumluluk görünümü geçerli sürümde **vwContractPropertyV0** yalnızca destekler değerleri 0 ile 2 kullanılabilir. |
 | ContractCodeId                     | int           | Hayır          | Kod uygulaması sözleşme için benzersiz bir tanımlayıcı |
 | ContractLedgerIdentifier           | nvarchar(255) | Evet         | Dağıtılan belirli bir dağıtılmış kayıt defteri için akıllı bir sözleşme sürümü ile ilişkili benzersiz bir tanımlayıcı. Örneğin, Ethereum. |
 | ContractDeployedByUserId           | int           | Hayır          | Sözleşme dağıtılan kullanıcının benzersiz tanımlayıcısı |
@@ -263,14 +263,14 @@ Bu görünüm, belirli bir sözleşme durumunu ilgili bilgilerin çoğunu göste
 | ApplicationId                      | int           | Hayır          | Uygulama için benzersiz bir tanımlayıcı |
 | ApplicationName                    | nvarchar(50)  | Hayır          | Uygulamanın adı |
 | ApplicationDisplayName             | nvarchar(255) | Hayır          | Bir kullanıcı arabiriminde görüntülenecek adı |
-| ApplicationEnabled                 | Bit           | Hayır          | Uygulama şu anda etkin olup olmadığını tanımlar.</br>**Not:** uygulama veritabanında devre dışı olarak yansıtılan olsa da, ilişkili sözleşmelerin uygun blok zinciri kalır ve bu sözleşmeler hakkındaki verileri, veritabanında kalır. |
+| ApplicationEnabled                 | Bit           | Hayır          | Uygulama şu anda etkin olup olmadığını tanımlar.<br />**Not:** Bir uygulama veritabanında devre dışı olarak yansıtılan olsa da, ilişkili sözleşmelerin uygun blok zinciri kalır ve bu sözleşmeler hakkındaki verileri veritabanında kalır. |
 | Workflowıd                         | int           | Hayır          | İş akışı için benzersiz bir tanımlayıcı |
 | WorkflowName                       | nvarchar(50)  | Hayır          | İş akışının adı |
 | WorkflowDisplayName                | nvarchar(255) | Hayır          | Kullanıcı arabiriminde görüntülenen adı |
 | WorkflowDescription                | nvarchar(255) | Evet         | İş akışı tanımı |
 | ContractLedgerImplementationId     | nvarchar(255) | Evet         | Dağıtılan belirli bir dağıtılmış kayıt defteri için akıllı bir sözleşme sürümü ile ilişkili benzersiz bir tanımlayıcı. Örneğin, Ethereum. |
 | ContractId                         | int           | Hayır          | Anlaşma için benzersiz bir tanımlayıcı |
-| ContractProvisioningStatus         | int           | Hayır          |Anlaşma için sağlama işlemini geçerli durumunu tanımlar. Olası değerler şunlardır: </br>0 – sözleşme veritabanı API'si tarafından oluşturuldu</br>1 – sözleşme muhasebe gönderildi</br>2-anlaşma için bir kayıt defteri başarıyla dağıtıldı</br>3 veya 4 - sözleşme muhasebe dağıtılması başarısız oldu</br>5 - anlaşma için bir kayıt defteri başarıyla dağıtıldı </br></br>Sürüm 1.5 başlayarak, değerleri 0 ile 5 desteklenir. İçin geriye dönük uyumluluk görünümü geçerli sürümde **vwContractStateV0** yalnızca destekler değerleri 0 ile 2 kullanılabilir. |
+| ContractProvisioningStatus         | int           | Hayır          |Anlaşma için sağlama işlemini geçerli durumunu tanımlar. Olası değerler şunlardır: <br />0 – sözleşme veritabanı API'si tarafından oluşturuldu<br />1 – sözleşme muhasebe gönderildi<br />2-anlaşma için bir kayıt defteri başarıyla dağıtıldı<br />3 veya 4 - sözleşme muhasebe dağıtılması başarısız oldu<br />5 - anlaşma için bir kayıt defteri başarıyla dağıtıldı <br /><br />Sürüm 1.5 başlayarak, değerleri 0 ile 5 desteklenir. İçin geriye dönük uyumluluk görünümü geçerli sürümde **vwContractStateV0** yalnızca destekler değerleri 0 ile 2 kullanılabilir. |
 | ConnectionID                       | int           | Hayır          | Blok zinciri iş akışı örneği için benzersiz bir tanımlayıcı dağıtılır |
 | ContractCodeId                     | int           | Hayır          | Kod uygulaması sözleşme için benzersiz bir tanımlayıcı |
 | ContractDeployedByUserId           | int           | Hayır          | Sözleşme dağıtılan kullanıcının benzersiz tanımlayıcısı |
@@ -297,7 +297,7 @@ Bu görünüm, Azure Blockchain Workbench'i kullanabilmeniz için sağlanan cons
 |--------------------|---------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Kimlik                 | int           | Hayır          | Bir kullanıcı için benzersiz bir tanımlayıcı |
 | externalID =         | nvarchar(255) | Hayır          | Bir kullanıcı için dış tanımlayıcı. Varsayılan olarak, kullanıcının Azure Active Directory Kimliğini temsil eden GUID budur. |
-| ProvisioningStatus | int           | Hayır          |Sağlama işlemi kullanıcının geçerli durumunu tanımlar. Olası değerler şunlardır: </br>0 – kullanıcı API tarafından oluşturuldu</br>1 – bir anahtar veritabanındaki kullanıcıyla ilişkilendirilmiş<br>2 – kullanıcı tam olarak sağlandığından |
+| ProvisioningStatus | int           | Hayır          |Sağlama işlemi kullanıcının geçerli durumunu tanımlar. Olası değerler şunlardır: <br />0 – kullanıcı API tarafından oluşturuldu<br />1 – bir anahtar veritabanındaki kullanıcıyla ilişkilendirilmiş<br />2 – kullanıcı tam olarak sağlandığından |
 | FirstName          | nvarchar(50)  | Evet         | Kullanıcı adı |
 | LastName           | nvarchar(50)  | Evet         | Kullanıcının soyadı |
 | EmailAddress       | nvarchar(255) | Evet         | Kullanıcının e-posta adresi |
@@ -331,7 +331,7 @@ Bu görünümün Ayrıntılar çekirdek iş akışı meta veriler hem de iş ak�
 
 ## <a name="vwworkflowfunction"></a>vwWorkflowFunction
 
-Bu görünümün Ayrıntılar çekirdek iş akışı meta veriler hem de iş akışının işlevleri ve parametreleri temsil eder. Raporlama için tasarlanmış, bu da iş akışı ile ilişkili uygulama hakkındaki meta verileri içerir. Bu görünüm, iş akışlarında raporlama kolaylaştırmak için birden çok temel alınan tablodaki verileri içerir.  Her iş akışı işlevi için bu görünümü olarak aşağıdaki verileri içerir:
+Bu görünümün Ayrıntılar çekirdek iş akışı meta veriler hem de iş akışının işlevleri ve parametreleri temsil eder. Raporlama için tasarlanmış, bu da iş akışı ile ilişkili uygulama hakkındaki meta verileri içerir. Bu görünüm, iş akışlarında raporlama kolaylaştırmak için birden çok temel alınan tablodaki verileri içerir. Her iş akışı işlevi için bu görünümü olarak aşağıdaki verileri içerir:
 
 -   İlişkili uygulama tanımı
 -   İlişkili iş akışı tanımı
@@ -371,7 +371,7 @@ Bu görünüm için bir iş akışı tanımlı özelliklerini temsil eder. Her b
 | ApplicationId                | int           | Hayır          | Uygulama için benzersiz bir tanımlayıcı |
 | ApplicationName              | nvarchar(50)  | Hayır          | Uygulamanın adı |
 | ApplicationDisplayName       | nvarchar(255) | Hayır          | Bir kullanıcı arabiriminde görüntülenecek adı |
-| ApplicationEnabled           | Bit           | Hayır          | Uygulama şu anda etkin olup olmadığını tanımlar.</br>**Not:** uygulama veritabanında devre dışı olarak yansıtılan olsa da, ilişkili sözleşmelerin uygun blok zinciri kalır ve bu sözleşmeler hakkındaki verileri, veritabanında kalır. |
+| ApplicationEnabled           | Bit           | Hayır          | Uygulama şu anda etkin olup olmadığını tanımlar.<br />**Not:** Bir uygulama veritabanında devre dışı olarak yansıtılan olsa da, ilişkili sözleşmelerin uygun blok zinciri kalır ve bu sözleşmeler hakkındaki verileri veritabanında kalır. |
 | Workflowıd                   | int           | Hayır          | İş akışı için benzersiz bir tanımlayıcı |
 | WorkflowName                 | nvarchar(50)  | Hayır          | İş akışının adı |
 | WorkflowDisplayName          | nvarchar(255) | Hayır          | Bir kullanıcı arabirimi iş akışında için görüntülenecek adı |
@@ -398,7 +398,7 @@ Bu görünüm, bir iş akışı ile ilişkili özellikleri temsil eder. Her bir 
 | ApplicationId                | int           | Hayır          | Uygulama için benzersiz bir tanımlayıcı |
 | ApplicationName              | nvarchar(50)  | Hayır          | Uygulamanın adı |
 | ApplicationDisplayName       | nvarchar(255) | Hayır          | Uygulama açıklaması |
-| ApplicationEnabled           | Bit           | Hayır          | Uygulama şu anda etkin olup olmadığını tanımlar.</br>**Not:** uygulama veritabanında devre dışı olarak yansıtılan olsa da, ilişkili sözleşmelerin uygun blok zinciri kalır ve bu sözleşmeler hakkındaki verileri, veritabanında kalır. |
+| ApplicationEnabled           | Bit           | Hayır          | Uygulama şu anda etkin olup olmadığını tanımlar.<br />**Not:** Bir uygulama veritabanında devre dışı olarak yansıtılan olsa da, ilişkili sözleşmelerin uygun blok zinciri kalır ve bu sözleşmeler hakkındaki verileri veritabanında kalır. |
 | Workflowıd                   | int           | Hayır          | İş akışı için benzersiz tanımlayıcı |
 | WorkflowName                 | nvarchar(50)  | Hayır          | İş akışının adı |
 | WorkflowDisplayName          | nvarchar(255) | Hayır          | İş akışı için kullanıcı arabiriminde görüntülenen adı |

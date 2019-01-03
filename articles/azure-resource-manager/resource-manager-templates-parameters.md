@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 83ba1b94413990c0eb8dff42c49d46456a658d5a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fd6fcff6ac556abe3b2d34c7e8b1b0290208f5b0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417778"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722151"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarının parametreler bölümü
 Şablon parametreleri bölümünde kaynakları dağıtırken giriş değerleri belirtin. Bu parametre değerleri (örneğin, geliştirme, test ve üretim) belirli bir ortam için uygun değerleri sağlayarak bir dağıtımı özelleştirmek etkinleştirin. Şablonunuzdaki parametrelerle sağlamanıza gerek yoktur, ancak parametre olmadan, şablonunuzu her zaman aynı adları, konumları ve özellikleri ile aynı kaynakları dağıtmak için kullanacağınız.
@@ -91,8 +91,8 @@ Yukarıdaki örnekte parametre bölümünde kullanabileceğiniz özellikleri yal
 | izin verilen değerler |Hayır |Doğru değeri sağlandığından emin olmak parametresi için izin verilen değerler dizisi. |
 | minValue |Hayır |İnt türü parametreleri için en düşük değer, bu değer büyük/küçük harf dahildir. |
 | maxValue |Hayır |İnt türü parametreleri için maksimum değeri, bu değeri de dahildir. |
-| minLength |Hayır |Dize, securestring ve dizi tür parametreleri için minimum uzunluğu, bu değer büyük/küçük harf dahildir. |
-| maxLength |Hayır |Dize, securestring ve dizi tür parametreleri için en fazla uzunluk, bu değeri de dahildir. |
+| minLength |Hayır |Dize, güvenli dize ve dizi tür parametreleri için minimum uzunluğu, bu değer büyük/küçük harf dahildir. |
+| maxLength |Hayır |Dize, güvenli dize ve dizi tür parametreleri için en fazla uzunluk, bu değer büyük/küçük harf dahildir. |
 | açıklama |Hayır |Portal aracılığıyla kullanıcılara görüntülenen parametre açıklaması. |
 
 ## <a name="template-functions-with-parameters"></a>Parametrelerle şablon işlevleri
@@ -188,74 +188,6 @@ Daha sonra alt parametresinin nokta işlecini kullanarak başvuru.
 ]
 ```
 
-## <a name="recommendations"></a>Öneriler
-Parametreler ile çalışırken aşağıdaki bilgiler yararlı olabilir:
-
-* Parametreleri kullanımını en aza indirin. Mümkün olduğunda, bir değişken veya sabit bir değer kullanın. Parametreleri yalnızca bu senaryolar için kullanın:
-   
-   * Ortam (SKU, boyutu, Kapasite) göre çeşitleri kullanmak istediğiniz ayarları.
-   * Kolay bir şekilde tanımlanması için belirtmek istediğiniz kaynak adları.
-   * (Örneğin, bir yönetici kullanıcı adı) diğer görevleri tamamlamak için sık kullandığınız değerler.
-   * Gizli anahtarları (parolalar gibi).
-   * Sayı veya değerleri dizisi, bir kaynak türü birden fazla örneğini oluştururken kullanılacak.
-* Parametre adları için ortası büyük harf kullanın.
-* Her parametre meta verilerinde açıklamasını girin:
-
-   ```json
-   "parameters": {
-       "storageAccountType": {
-           "type": "string",
-           "metadata": {
-               "description": "The type of the new storage account created to store the VM disks."
-           }
-       }
-   }
-   ```
-
-* (Hariç, parola ve SSH anahtarlarını) parametrelerinin varsayılan değerleri tanımlayın. Varsayılan bir değer belirterek, parametrenin dağıtım sırasında isteğe bağlı olur. Varsayılan değer boş bir dize olabilir. 
-   
-   ```json
-   "parameters": {
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_GRS",
-            "metadata": {
-                "description": "The type of the new storage account created to store the VM disks."
-            }
-        }
-   }
-   ```
-
-* Kullanım **securestring** tüm parolalar ve gizli dizileri. Bir JSON nesnesi, hassas verileri geçirmeniz kullanırsanız **secureObject** türü. Şablon parametreleri securestring veya secureObject türleriyle kaynak dağıtımdan sonra okunamıyor. 
-   
-   ```json
-   "parameters": {
-       "secretValue": {
-           "type": "securestring",
-           "metadata": {
-               "description": "The value of the secret to store in the vault."
-           }
-       }
-   }
-   ```
-
-* Konumu belirtmek için bir parametre kullanın ve bu parametre değeri mümkün olduğunca aynı konumda olma olasılığı olan kaynaklar ile paylaşın. Bu yaklaşım kullanıcılar Konum bilgileri vermeniz istenir sayısını en aza indirir. Bir kaynak türü konumları, yalnızca sınırlı sayıda destekleniyorsa, doğrudan şablonunda geçerli bir konum belirtin veya başka bir konum parametresi eklemek isteyebilirsiniz. Bir kuruluş, kullanıcılarına izin verilen bölgelerin sınırlar olduğunda **resourceGroup () .location** ifadesi, bir kullanıcı şablonunu dağıtmanızı engelleyebilir. Örneğin, bir kullanıcı, bir bölgede bir kaynak grubu oluşturur. İkinci bir kullanıcı bu kaynak grubuna dağıtmanız gerekir, ancak erişim bölgesine sahip değil. 
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
-         "location": "[parameters('location')]",
-         ...
-     }
-   ]
-   ```
-    
-* Bir kaynak türü için API sürümü için bir parametre veya değişken kullanmaktan kaçının. Kaynak özelliklerini ve değerlerini sürüm numarasına göre farklılık gösterebilir. API sürümü, bir parametre veya değişken ayarlandığında, kod düzenleyicisindeki IntelliSense doğru şemayı belirlenemiyor. Bunun yerine, şablonda kod sabit API sürümü.
-* Şablonunuzda bir dağıtım komutu parametresinde eşleşen bir parametre adı belirtmekten kaçının. Resource Manager sonek ekleyerek bu ad çakışmasını giderir **FromTemplate** şablon parametresi için. Örneğin, adında bir parametre eklerseniz **ResourceGroupName** ile çakışıyor, şablonunuzda **ResourceGroupName** parametresinde [New-AzureRmResourceGroupDeployment ](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet'i. Dağıtım sırasında için bir değer sağlamanız istenir **ResourceGroupNameFromTemplate**.
-
 ## <a name="example-templates"></a>Örnek şablonları
 
 Bu örnek şablon parametrelerini kullanarak bazı senaryolar gösterilmektedir. Farklı senaryolarda parametreleri nasıl işleneceğini test etmek için bunları dağıtın.
@@ -269,5 +201,5 @@ Bu örnek şablon parametrelerini kullanarak bazı senaryolar gösterilmektedir.
 
 * Farklı türlerde çözümler için tam şablonları görüntülemek üzere bkz. [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/documentation/templates/).
 * Dağıtım sırasında parametre değerlerini giriş nasıl [Azure Resource Manager şablonu ile uygulama dağıtma](resource-group-template-deploy.md). 
-* Kullanabileceğiniz gelen içinde şablon işlevleri hakkında daha fazla ayrıntı için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
+* Şablonları oluşturma hakkında daha fazla öneri için bkz. [Azure Resource Manager şablonu iyi](template-best-practices.md).
 * Bir parametre nesnesi kullanma hakkında daha fazla bilgi için bkz: [bir Azure Resource Manager şablonunda bir parametre olarak bir nesne kullanmasını](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).

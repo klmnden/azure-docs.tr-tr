@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274573"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993303"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hibrit Azure Active Directory join uygulamanızı planlama
 
@@ -146,9 +146,9 @@ Ortamınızı etki alanları yönettiği, hibrit Azure AD'ye katılım'ı destek
 
 ## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>Hibrit Azure AD'ye katılma alternatif oturum açma kimliği desteği
 
-Windows 10 hibrit Azure AD'ye katılım için sınırlı destek sağlar [alternatif oturum açma kimliklerini](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) alternatif oturum açma kimliği türüne göre [kimlik doğrulama yöntemi](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn), etki alanı türü ve Windows 10 sürümü. Ortamınızda bulunabilir alternatif oturum açma kimliklerini iki türü vardır.
+Windows 10 hibrit Azure AD'ye katılım için sınırlı destek sağlar [alternatif oturum açma kimliklerini](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) alternatif oturum açma kimliği türüne göre [kimlik doğrulama yöntemi](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), etki alanı türü ve Windows 10 sürümü. Ortamınızda bulunabilir alternatif oturum açma kimliklerini iki türü vardır.
 
- - Yönlendirilebilir alternatif bir oturum açma kimliği: Bir etki alanı kayıt şirketi ile kayıtlı geçerli bir doğrulanmış etki alanı, yönlendirilebilir alternatif bir oturum açma kimliği vardır. Birincil etki alanı contoso.com ise contoso.org ve contoso.co.uk Contoso tarafından sahip olunan geçerli etki alanları gibi cihazlar ve [Azure AD'de doğrulanmış](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)
+ - Yönlendirilebilir alternatif bir oturum açma kimliği: Bir etki alanı kayıt şirketi ile kayıtlı geçerli bir doğrulanmış etki alanı, yönlendirilebilir alternatif bir oturum açma kimliği vardır. Birincil etki alanı contoso.com ise contoso.org ve contoso.co.uk Contoso tarafından sahip olunan geçerli etki alanları gibi cihazlar ve [Azure AD'de doğrulanmış](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
  
  - Yönlendirilebilir olmayan alternatif bir oturum açma kimliği: Yönlendirilemeyen alternatif bir oturum açma kimliği doğrulanmış bir etki alanı yok. Yalnızca kuruluşunuzun özel ağına içinde geçerlidir. Örneğin, birincil etki alanı contoso.com ise contoso.local Internet doğrulanabilir bir etki alanı değil ancak Contoso'nun ağ içinde kullanılır.
  

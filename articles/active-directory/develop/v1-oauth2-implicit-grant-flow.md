@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 90c636d57189518cb95291510f3e83ef8e7a8a75
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 818801a7f36e82d0065f85b5cf9e36288ccbff32
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422040"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970399"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Azure Active Directory (AD) OAuth2 örtük verme akışı anlama
 
@@ -57,11 +57,11 @@ Yeniden yönlendirme tabanlı uygulamalar genellikle yaklaşım JavaScript uygul
 
 Ancak, bir JavaScript uygulama kullanıcıdan kimlik bilgilerini tekrar tekrar sormadan erişim belirteçlerini yenileme kendi elden başka bir mekanizma vardır. Uygulamanın Azure ad yetkilendirme uç noktasına yönelik yeni belirteç isteklerini gerçekleştirmek için gizli bir iframe kullanın: tarayıcı hala etkin bir oturuma sahip olduğu sürece (okuma: oturum tanımlama bilgisi varsa) Azure AD etki alanına göre kimlik doğrulama isteği olabilir Kullanıcı etkileşimi gerek kalmadan başarıyla oluşur.
 
-Bu model, JavaScript uygulama bağımsız olarak erişim belirteçlerini yenileme ve (kullanıcının daha önce bunlar için onaylı koşuluyla. yeni bir API için yeni bir tane bile alma olanağı verir. Bu, alma, sürdürme ve bir yenileme belirteci gibi bir yüksek değerli yapıt korumaya ek yükünü ortadan kaldırır. Sessiz yenileme gelebilecek yapıt Azure AD oturum tanımlama bilgisinin uygulamanın dışında yönetilir. Bu yaklaşımın başka bir avantajı, bir kullanıcının Azure AD'den Azure AD'ye tarayıcı sekmeleri birini çalıştıran, oturum açmış uygulamalarından herhangi birini kullanarak oturum açabilirsiniz olmasıdır. Bu Azure AD oturum tanımlama bilgisinin silinmesine neden olur ve JavaScript uygulama otomatik olarak kullanıma oturum açmış kullanıcının belirteçleri yenileme özelliği kaybedilmesine neden olur.
+Bu model, JavaScript uygulama bağımsız olarak erişim belirteçlerini yenileme ve yenilerini yeni bir API için (kullanıcı daha önce bunlar için onaylı şartıyla) bile alma olanağı verir. Bu, alma, sürdürme ve bir yenileme belirteci gibi bir yüksek değerli yapıt korumaya ek yükünü ortadan kaldırır. Sessiz yenileme gelebilecek yapıt Azure AD oturum tanımlama bilgisinin uygulamanın dışında yönetilir. Bu yaklaşımın başka bir avantajı, bir kullanıcının Azure AD'den Azure AD'ye tarayıcı sekmeleri birini çalıştıran, oturum açmış uygulamalarından herhangi birini kullanarak oturum açabilirsiniz olmasıdır. Bu Azure AD oturum tanımlama bilgisinin silinmesine neden olur ve JavaScript uygulama otomatik olarak kullanıma oturum açmış kullanıcının belirteçleri yenileme özelliği kaybedilmesine neden olur.
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>Uygulamam için örtük vermeyi uygundur?
 
-Örtük vermeyi diğer verir değerinden daha fazla risk sunar ve dikkat edilmesi gereken ihtiyacınız alanları iyi belgelenmiştir. Örneğin, [kötüye, erişim belirtecini örtük akış, kaynak sahibi taklit] [ OAuth2-Spec-Implicit-Misuse] ve [OAuth 2.0 tehdit modeli ve güvenlik konuları] [ OAuth2-Threat-Model-And-Security-Implications]). Ancak, büyük ölçüde etkin kod, bir tarayıcıya uzak bir kaynak tarafından sunulan yürütülen uygulamalarda etkinleştirmek için tasarlanmıştır alınmamasından ötürü olabilir, daha yüksek risk profili olur. Planlıyorsanız, bir SPA mimari hiçbir arka uç bileşenlerine sahip veya JavaScript aracılığıyla bir Web API'sini çağırmak mı istiyordunuz, belirteç edinme için örtük akış kullanılması önerilir.
+Örtük vermeyi diğer verir değerinden daha fazla riskine neden olur ve ihtiyacınız dikkat edilmesi gereken alanları iyi belgelenmiştir (örneğin, [kötüye, erişim belirtecini örtük akış, kaynak sahibi taklit] [ OAuth2-Spec-Implicit-Misuse]ve [OAuth 2.0 tehdit modeli ve güvenlik konuları][OAuth2-Threat-Model-And-Security-Implications]). Ancak, büyük ölçüde etkin kod, bir tarayıcıya uzak bir kaynak tarafından sunulan yürütülen uygulamalarda etkinleştirmek için tasarlanmıştır alınmamasından ötürü olabilir, daha yüksek risk profili olur. Planlıyorsanız, bir SPA mimari hiçbir arka uç bileşenlerine sahip veya JavaScript aracılığıyla bir Web API'sini çağırmak mı istiyordunuz, belirteç edinme için örtük akış kullanılması önerilir.
 
 Örtük akış, uygulamanızı bir yerel istemciyse, harika uygun değildir. Azure AD oturum tanımlama bilgisinin yerel bir istemci bağlamında olmaması, uzun süreli oturumunun bakımını yapma toplanabilmesini uygulamanızdan deprives. Yani uygulamanızı sürekli olarak yeni kaynaklar için erişim belirteci alınırken girmesini ister.
 

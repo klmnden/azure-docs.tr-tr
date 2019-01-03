@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f382aab5a00030b922fb890e82110454e7f3839
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c0f4af863162d004b6a557f8c7a04e31ee66d9b7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384505"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713565"
 ---
 # <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>Yükleme ve Windows tabanlı HDInsight kümeleri üzerinde Apache Solr kullanma
 
@@ -38,7 +38,7 @@ Bu konuda kullanılan örnek betik, belirli bir yapılandırma ile bir Windows t
 * [HDInsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions.md).
 
 ## <a name="what-is-solr"></a>Solr nedir?
-<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> veriler üzerinde güçlü tam metin araması sağlayan bir kurumsal arama platformudur. Hadoop depolamak ve yönetmek çok büyük miktarda veri etkinleştirse bile, Apache Solr hızlıca veri almak için arama özellikleri sağlar.
+<a href="https://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> veriler üzerinde güçlü tam metin araması sağlayan bir kurumsal arama platformudur. Hadoop depolamak ve yönetmek çok büyük miktarda veri etkinleştirse bile, Apache Solr hızlıca veri almak için arama özellikleri sağlar.
 
 ## <a name="install-solr-using-portal"></a>Portalı kullanarak Solr yükleme
 1. Kullanarak bir küme oluşturmaya başlayın **özel Oluştur** anlatıldığı gibi seçeneği [Apache Hadoop kümeleri oluşturma HDInsight](hdinsight-provision-clusters.md).
@@ -156,7 +156,7 @@ Solr ile bazı veri dosyalarının dizinini oluşturarak ile başlamalıdır. So
           </response>
       ```
       
-   2. Uzak bir oturumda {SOLR_HOME için} gidin\{koleksiyon} \data. Bu örnek betik oluşturulan küme için olmalıdır `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Bu konumda benzer bir ad ile oluşturulmuş bir anlık görüntü klasörü görmelisiniz **anlık görüntü.\*zaman damgası**\*.
+   2. Uzak bir oturumda {SOLR_HOME için} gidin\{koleksiyon} \data. Bu örnek betik oluşturulan küme için olmalıdır `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`. Bu konumda benzer bir ad ile oluşturulmuş bir anlık görüntü klasörü görmelisiniz **anlık görüntü.* zaman damgası ***.
    
    3. Anlık görüntü klasörü zip ve Azure Blob depolama alanına yükleyin. Hadoop komut satırından aşağıdaki komutu kullanarak anlık görüntü klasörü konumuna gidin:
 

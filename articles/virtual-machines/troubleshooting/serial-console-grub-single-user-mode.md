@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 43f9d7d39cfcdd7b670aca6184533def0b6966f5
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f22e5159acc93d9632c8cd268e24e8f972cbd7dd
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211392"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580153"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>GRUB ve tek kullanıcı modu erişmek için seri Konsolu
 GRUB genel birleşik Şifresizdir ' dir. GRUB ' diğer özelliklerin yanı sıra tek kullanıcı moduna önyükleme, önyükleme yapılandırması üzerinde değişiklik yapabilirsiniz.
@@ -28,10 +28,10 @@ Tek kullanıcı modunda, en az bir işlevselliğe sahip en az bir ortamdır. Ön
 
 Tek kullanıcı modunda burada VM'nizi yalnızca oturum açmak için SSH anahtarları kabul edecek şekilde yapılandırılmış olabilir durumlarda da kullanışlıdır. Bu durumda parola kimlik doğrulaması ile hesap oluşturmak için tek kullanıcı modunda kullanmanız mümkün olabilir.
 
-Tek kullanıcı moduna girmek için yedekleme, sanal Makinenizin önyükleme yaparken GRUB girin ve GRUB önyükleme yapılandırmasında değişiklik gerekecektir. Bu sanal makine seri konsolu ile yapılabilir. 
+Tek kullanıcı moduna girmek için yedekleme, sanal Makinenizin önyükleme yaparken GRUB girin ve GRUB önyükleme yapılandırmasında değişiklik gerekecektir. Bu sanal makine seri konsolu ile yapılabilir.
 
 ## <a name="general-grub-access"></a>Genel GRUB erişim
-GRUB erişmek için seri konsol dikey penceresini açık tutarken, sanal Makinenizin yeniden başlatmanız gerekir. Bazı dağıtım paketlerini GRUB, diğer otomatik olarak birkaç saniye GRUB Göster ve zaman aşımı iptal etmek kullanıcı klavye girişini izin sırada gösterilecek klavye girdisi gerektirir. 
+GRUB erişmek için seri konsol dikey penceresini açık tutarken, sanal Makinenizin yeniden başlatmanız gerekir. Bazı dağıtım paketlerini GRUB, diğer otomatik olarak birkaç saniye GRUB Göster ve zaman aşımı iptal etmek kullanıcı klavye girişini izin sırada gösterilecek klavye girdisi gerektirir.
 
 GRUB sanal Makinenize erişim tek kullanıcı moduna aktarabilmek için etkinleştirildiğinden emin olmak isteyeceksiniz. Distro bağlı olarak GRUB etkinleştirildiğinden emin olmak için bazı Kurulumu iş olabilir. Distro özgü bilgiler aşağıda hem de kullanılabilir [bu bağlantıyı](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
@@ -63,11 +63,11 @@ RHEL tek kullanıcı modunda varsayılan olarak devre dışı etkinleştirilmesi
 
 1. Red Hat sisteme SSH aracılığıyla oturum açın
 1. Kök dizinine geçin
-1. Kök kullanıcı parolası etkinleştir 
+1. Kök kullanıcı parolası etkinleştir
     * `passwd root` (güçlü bir kök parola ayarlayın)
 1. Kök kullanıcı yalnızca ttyS0 oturum açabildiğinizden emin olun.
     * `edit /etc/ssh/sshd_config` ve PermitRootLogIn Hayır ayarlandığından emin olun
-    * `edit /etc/securetty file` yalnızca oturum açma ttyS0 aracılığıyla izin vermek için 
+    * `edit /etc/securetty file` yalnızca oturum açma ttyS0 aracılığıyla izin vermek için
 
 Sistem tek kullanıcı modunda önyükleniyorsa artık, kök parolası ile oturum açabilir.
 
@@ -83,7 +83,7 @@ Ayarlamış olduğunuz, yukarıdaki yönergeleri ile erişim GRUB ve kök ve ard
 1. Şu satırın sonuna ekleyin: `systemd.unit=rescue.target`
     * Bu tek kullanıcı moduna önyükleme yapmaz. Acil durum modu kullanmak istiyorsanız, ekleme `systemd.unit=emergency.target` yerine satır sonuna `systemd.unit=rescue.target`
 1. Uygulanan ayarları ile yeniden başlatma işleminden çıkmak için Ctrl + X tuşlarına basın.
-1. Yönetici parolasını sizden istenir tek kullanıcı moduna girmek için - bu, yukarıdaki yönergeleri oluşturduğunuz parolayı    
+1. Yönetici parolasını sizden istenir tek kullanıcı moduna girmek için - bu, yukarıdaki yönergeleri oluşturduğunuz parolayı
 
     ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
@@ -104,11 +104,11 @@ Kök kullanıcı etkinleştirmek için yukarıdaki adımları gitti değil ise, 
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
-> Not: düzenleme gibi görevleri de yapabilmesi için yukarıdaki yönergeleri ile çalışan, Acil Durum kabuğundan bıraktı.%n%ndizinleri `fstab`. Ancak, tek kullanıcı moduna girmek için kullanın ve kök parolanızı sıfırlamak için genel olarak kabul edilen öneri olur. 
+> Not: Yukarıdaki yönergeleri ile çalışan bırakın, Acil Durum kabuğundan de düzenleme gibi görevleri yapabilmeniz `fstab`. Ancak, tek kullanıcı moduna girmek için kullanın ve kök parolanızı sıfırlamak için genel olarak kabul edilen öneri olur.
 
 
 ## <a name="access-for-centos"></a>CentOS erişimi
-Çok gibi Red Hat Enterprise Linux, CentOS tek kullanıcı modunda GRUB ve kök kullanıcı etkinleştirilmesini gerektirir. 
+Çok gibi Red Hat Enterprise Linux, CentOS tek kullanıcı modunda GRUB ve kök kullanıcı etkinleştirilmesini gerektirir.
 
 ### <a name="grub-access-in-centos"></a>CentOS GRUB erişim
 CentOS yepyeni etkin GRUB ile gelir. GRUB girmek için VM yeniden başlatma `sudo reboot` ve herhangi bir tuşa basın. GRUB ekranın görünmesini görürsünüz.
@@ -116,8 +116,8 @@ CentOS yepyeni etkin GRUB ile gelir. GRUB girmek için VM yeniden başlatma `sud
 ### <a name="single-user-mode-in-centos"></a>CentOS tek kullanıcı modunda
 CentOS tek kullanıcı modunda etkinleştirmek için yukarıdaki RHEL yönergelerini izleyin.
 
-## <a name="access-for-ubuntu"></a>Ubuntu için erişim 
-Ubuntu görüntüleri bir kök parola gerektirmez. Sistem tek kullanıcı modunda önyükleniyorsa ek kimlik bilgileri olmadan kullanabilirsiniz. 
+## <a name="access-for-ubuntu"></a>Ubuntu için erişim
+Ubuntu görüntüleri bir kök parola gerektirmez. Sistem tek kullanıcı modunda önyükleniyorsa ek kimlik bilgileri olmadan kullanabilirsiniz.
 
 ### <a name="grub-access-in-ubuntu"></a>Ubuntu GRUB erişim
 GRUB erişmek için basılı VM yedekleme önyüklenirken 'Esc'.
@@ -137,8 +137,17 @@ Otomatik olarak, normal şekilde önyükleme işlemi yapamıyorsanız Ubuntu tek
 1. Ekleme `single` sonra `ro`, kalmasını sağlama önce ve sonra bir boşluk olup `single`
 1. Bu ayarlarla yeniden başlatın ve tek kullanıcı moduna girmek için Ctrl + X tuşlarına basın.
 
+### <a name="using-grub-to-invoke-bash-in-ubuntu"></a>Ubuntu bash'te çağrılacak GRUB'ı kullanma
+Burada yine yukarıdaki yönergeleri denedikten sonra Ubuntu VM tek kullanıcı modunda erişemiyor olabilir durumlarda (örneğin, bir kök Unutulan parolayı) olabilir. Ayrıca, bir bash kabuğunda verin ve sistem bakımı için izin sistemi init yerine init /bin/bash çalışacak şekilde çekirdek söyleyebilirsiniz. Aşağıdaki yönergeleri kullanın:
+
+1. GRUB ' (Ubuntu girişi), önyükleme girişi düzenlemek için ' e basın
+1. İle başlayan satırı bulun `linux`, ardından Ara `ro`
+1. Değiştirin `ro` ile `rw init=/bin/bash`
+    - Bu, dosya sistemi okuma-yazma olarak bağlayın ve /bin/bash başlatma işlemi kullanın
+1. Bu ayarlarla yeniden başlatma için Ctrl + X tuşlarına basın.
+
 ## <a name="access-for-coreos"></a>CoreOS erişimi
-CoreOS tek kullanıcı modunda GRUB etkinleştirilmesini gerektirir. 
+CoreOS tek kullanıcı modunda GRUB etkinleştirilmesini gerektirir.
 
 ### <a name="grub-access-in-coreos"></a>CoreOS GRUB erişim
 GRUB erişmek için yedekleme, sanal Makinenizin önyükleme yaparken herhangi bir tuşa basın.
@@ -151,13 +160,13 @@ Otomatik olarak, normal şekilde önyükleme işlemi yapamıyorsanız CoreOS tek
 1. Bu ayarlarla yeniden başlatın ve tek kullanıcı moduna girmek için Ctrl + X tuşlarına basın.
 
 ## <a name="access-for-suse-sles"></a>SUSE SLES için erişim
-Yeni görüntüler, SLES 12 SP3 + seri Konsolu aracılığıyla erişim sağlar, bu durumda sistem Acil Modu'nda önyüklenir. 
+Yeni görüntüler, SLES 12 SP3 + seri Konsolu aracılığıyla erişim sağlar, bu durumda sistem Acil Modu'nda önyüklenir.
 
 ### <a name="grub-access-in-suse-sles"></a>GRUB erişim SUSE SLES
 SLES GRUB erişim YaST aracılığıyla şifresizdir yapılandırma gerektirir. Bunu yapmak için bu yönergeleri izleyin:
 
-1. SSH, SLES VM ve çalışma `sudo yast bootloader`. Kullanım `tab` anahtar `enter` anahtar ve menüsünde gezinmek için ok tuşlarını. 
-1. Gidin `Kernel Parameters`ve `Use serial console`. 
+1. SSH, SLES VM ve çalışma `sudo yast bootloader`. Kullanım `tab` anahtar `enter` anahtar ve menüsünde gezinmek için ok tuşlarını.
+1. Gidin `Kernel Parameters`ve `Use serial console`.
 1. Ekleme `serial --unit=0 --speed=9600 --parity=no` konsol bağımsız
 
 1. Ayarlarınızı kaydedip çıkmak için F10 tuşlarına basın
@@ -176,7 +185,7 @@ SLES normal şekilde önyükleme işlemi yapamıyorsanız Acil shell'e otomatik 
 > Unutmayın, Acil Durum kabuğunda oturum bırakılacak bir _salt okunur_ dosya sistemi. Tüm dosyalara düzenlemeler yapmak istiyorsanız, okuma-yazma izinlerine sahip bir dosya sistemi yeniden bağlamak gerekir. Bunu yapmak için girin `mount -o remount,rw /` Kabuk içine
 
 ## <a name="access-for-oracle-linux"></a>Oracle Linux için erişim
-Çok gibi Red Hat Enterprise Linux, Oracle Linux tek kullanıcı modunda GRUB ve kök kullanıcı etkinleştirilmesini gerektirir. 
+Çok gibi Red Hat Enterprise Linux, Oracle Linux tek kullanıcı modunda GRUB ve kök kullanıcı etkinleştirilmesini gerektirir.
 
 ### <a name="grub-access-in-oracle-linux"></a>Oracle Linux'ta GRUB erişim
 Oracle Linux, kullanıma hazır etkin GRUB ile birlikte gelir. GRUB girmek için VM ile yeniden `sudo reboot` 'Esc' tuşuna basın. GRUB ekranın görünmesini görürsünüz.

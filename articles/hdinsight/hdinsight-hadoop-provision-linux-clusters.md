@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: e760b67c1b971613de6b21102687c8ffeb556ed8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ce39b431adfd333db1e771913ed28881a193b327
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386885"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790852"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka ve daha fazlasıyla HDInsight kümelerinde ayarlama
 
@@ -107,12 +107,12 @@ Küme konumu açıkça belirtmeniz gerekmez: Varsayılan depolama alanı ile ayn
 
 ## <a name="storage-endpoints-for-clusters"></a>Kümeler için depolama uç noktaları
 
-Bulutta Hadoop şirket içi yüklemesini kümede depolama için Hadoop dağıtılmış dosya sistemi (HDFS) kullansa da, kümeye bağlı depolama uç noktaları kullanın. HDInsight kümeleri kullanın ya da [Azure Data Lake Store](hdinsight-hadoop-use-data-lake-store.md) veya [Azure Depolama'daki blobları](hdinsight-hadoop-use-blob-storage.md). Azure Depolama'da veya Data Lake Store kullanarak yine de verilerinizi korurken hesaplama için kullanılan HDInsight kümelerinin silebileceğiniz anlamına gelir. 
+Bulutta Hadoop şirket içi yüklemesini kümede depolama için Hadoop dağıtılmış dosya sistemi (HDFS) kullansa da, kümeye bağlı depolama uç noktaları kullanın. HDInsight kümeleri kullanın ya da [Azure Data Lake Storage](hdinsight-hadoop-use-data-lake-store.md) veya [Azure Depolama'daki blobları](hdinsight-hadoop-use-blob-storage.md). Azure Depolama'da veya Data Lake Storage kullanarak yine de verilerinizi korurken hesaplama için kullanılan HDInsight kümelerinin silebileceğiniz anlamına gelir. 
 
 > [!WARNING]  
 > HDInsight kümesinden farklı bir konumda ek depolama hesabı kullanma desteklenmiyor.
 
-Yapılandırma sırasında varsayılan depolama uç noktası için bir Data Lake Store ile bir Azure depolama hesabı veya bir blob kapsayıcısını belirtin. Uygulama ve sistem varsayılan depolama alanı içeren günlükleri. İsteğe bağlı olarak, ek bağlı Azure depolama hesapları ve kümeye erişmek Data Lake Store hesapları belirtebilirsiniz. HDInsight kümesi ve bağımlı depolama hesapları aynı Azure konumunda olmalıdır.
+Yapılandırma sırasında varsayılan depolama uç noktası için bir Azure depolama hesabı veya Data Lake Storage bir blob kapsayıcısını belirtin. Uygulama ve sistem varsayılan depolama alanı içeren günlükleri. İsteğe bağlı olarak, ek bağlı Azure Storage hesaplarını ve kümeye erişmek Data Lake Storage hesaplarını belirtebilirsiniz. HDInsight kümesi ve bağımlı depolama hesapları aynı Azure konumunda olmalıdır.
 
 ![Küme depolama ayarları: HDFS uyumlu depolama uç noktaları](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 
@@ -247,7 +247,7 @@ Bir Azure sanal ağ içindeki iki küme türleri kullanma örneği için bkz: [k
 
 ## <a name="troubleshoot-access-control-issues"></a>Erişim denetimi sorunlarını giderme
 
-HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-administer-use-portal-linux.md#create-clusters).
+HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

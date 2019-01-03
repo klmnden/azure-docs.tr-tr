@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/17/2018
 ms.author: juliako
-ms.openlocfilehash: 5cc670a94958b123ac71b49cbf25661d567e4629
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 32b9664d12d6fe3a44329665c730dbc8709430f2
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083420"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650850"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Media Services REST API'si ile filtre oluşturma
 
@@ -31,12 +31,13 @@ Bu konuda bir Video isteğe bağlı varlık için bir filtre tanımlar ve oluşt
 Bu konu başlığı altında açıklanan adımları tamamlamak için için gerekenler:
 
 - Gözden geçirme [filtreleri ve dinamik bildirimlere](filters-dynamic-manifest-overview.md).
-- [Bir Media Services hesabı oluşturma](create-account-cli-how-to.md). Kaynak grubu adı ve Media Services hesap adını hatırlamak emin olun. 
 - [Azure Media Services REST API çağrıları için Postman yapılandırma](media-rest-apis-with-postman.md).
+
+    Konunun son adımı takip edin [Azure AD belirteci Al](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## <a name="define-a-filter"></a>Bir filtre tanımlar  
 
-Aşağıdaki **istek gövdesi** bildirimine eklenmesini izleme seçimi koşullarını tanımlayan örnek. Bu filtre EC-3 ile İngilizce olan tüm ses parçalarını ve 0-1000000 hızına sahip olan herhangi bir video parçaları içerir aralığı.
+Aşağıdaki **istek gövdesi** bildirimine eklenmesini izleme seçimi koşullarını tanımlayan örnek. Bu filtre EC-3 olan tüm ses parçalarını ve 0-1000000 hızına sahip olan herhangi bir video parçaları içerir aralığı.
 
 ```json
 {
@@ -50,14 +51,9 @@ Aşağıdaki **istek gövdesi** bildirimine eklenmesini izleme seçimi koşullar
                         "operation": "Equal"
                     },
                     {
-                        "property": "Language",
-                        "value": "en",
-                        "operation": "Equal"
-                    },
-                    {
                         "property": "FourCC",
                         "value": "EC-3",
-                        "operation": "NotEqual"
+                        "operation": "Equal"
                     }
                 ]
             },
@@ -86,7 +82,9 @@ Aşağıdaki **istek gövdesi** bildirimine eklenmesini izleme seçimi koşullar
 
 **PUT** HTTP istek yöntemine benzerdir:
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/accountFilters/{filterName}?api-version=2018-07-01
+```
 
 Seçin **gövdesi** sekmesi ve Yapıştır json kodunu [daha önce tanımlanan](#define-a-filter).
 
@@ -98,11 +96,13 @@ Daha fazla bilgi için [oluşturma veya güncelleştirme](https://docs.microsoft
 
 ## <a name="create-asset-filters"></a>Varlık filtre oluşturma  
 
-İndirdiğiniz "Media Services v3" Postman koleksiyonu içinde seçin **varlıklar**-> ** oluşturma veya güncelleştirme varlık filtre.
+İndirdiğiniz "Media Services v3" Postman koleksiyonu içinde seçin **varlıklar**->**oluşturma veya güncelleştirme varlık filtre**.
 
 **PUT** HTTP istek yöntemine benzerdir:
 
+```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/assets/{assetName}/assetFilters/{filterName}?api-version=2018-07-01
+```
 
 Seçin **gövdesi** sekmesi ve Yapıştır json kodunu [daha önce tanımlanan](#define-a-filter).
 

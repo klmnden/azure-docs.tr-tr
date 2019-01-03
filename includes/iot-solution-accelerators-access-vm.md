@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: b2b4bfc6aa03039a7eca402f7a9af083a44f0829
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: db1af4f046bd8849fddee299e949d6edbdaae86a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345878"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53609098"
 ---
 ## <a name="access-the-virtual-machine"></a>Sanal makineye erişim
 
@@ -35,7 +35,7 @@ Aşağıdaki adımları kullanın `az` Azure Cloud shell'de komutu. İsterseniz,
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
-    Yalnızca test ve geliştirme sırasında SSH erişimini etkinleştirin. SSH, etkinleştirirseniz [yeniden olabildiğince çabuk devre dışı](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices#disable-rdpssh-access-to-azure-virtual-machines).
+    Yalnızca test ve geliştirme sırasında SSH erişimini etkinleştirin. SSH, etkinleştirirseniz [yeniden olabildiğince çabuk devre dışı](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices#disable-rdpssh-access-to-virtual-machines).
 
 1. Parolasını güncelleştirin **azureuser** bildiğiniz bir parola sanal makine hesabında. Aşağıdaki komutu çalıştırdığınızda, kendi parola seçin:
 

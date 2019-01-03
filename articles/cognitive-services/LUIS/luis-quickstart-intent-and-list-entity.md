@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: d416cb176de6f6f79d5b7964462488216421a7a2
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: bf4fd5d2a3a9bb06882dcd1b4674ccdf8ad894ee
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753583"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971418"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Öğretici: Bir utterance tam metni eşleştirilen veri alma
 
@@ -173,7 +173,7 @@ Birincil _kurallı_, her öğe için bölüm adı adı. Eş Anlamlılar her kura
 
 ## <a name="related-information"></a>İlgili bilgiler
 
-* [Varlık listesinde](luis-concept-entity-types.md#exact-match) kavramsal bilgiler
+* [Varlık listesinde](luis-concept-entity-types.md#list-entity) kavramsal bilgiler
 * [Eğitme](luis-how-to-train.md)
 * [Yayımlama nasıl yapılır?](luis-how-to-publish-app.md)
 * [LUIS portalında test etme](luis-interactive-test.md)

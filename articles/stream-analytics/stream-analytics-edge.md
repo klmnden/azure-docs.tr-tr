@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: bf290343634f9f9f836a87ab15f13cc1dac6f86f
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9d5a0cf9fa4f9ad8b5a673cd2420416f92edda91
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141960"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994989"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>IoT Edge üzerinde Azure Stream Analytics
  
-IOT Edge üzerinde Azure Stream Analytics (ASA), böylece cihaz tarafından üretilen verilerin tüm değerini açığa çıkarabilirsiniz yakın neredeyse gerçek zamanlı analitik zekayı IOT cihazlarına dağıtmak için geliştiricilerin güçlendirir. Azure Stream Analytics, düşük gecikme süresi, dayanıklılık, bant genişliği ve uyumluluk verimli kullanımı için tasarlanmıştır. Kuruluşlar artık endüstriyel işlemler yakın Denetim mantığı dağıtabilir ve bulutta yapılan büyük veri analizi tamamlar.  
+IOT Edge üzerinde Azure Stream Analytics (ASA), böylece cihaz tarafından üretilen verilerin tüm değerini açığa çıkarabilirsiniz yakın neredeyse gerçek zamanlı analitik zekayı IOT cihazlarına dağıtmak için geliştiricilerin güçlendirir. Azure Stream Analytics düşük gecikme süresi, dayanıklılık, bant genişliğinin verimli kullanımı ve uyumluluk için tasarlanmıştır. Kuruluşlar artık endüstriyel işlemler yakın Denetim mantığı dağıtabilir ve bulutta yapılan büyük veri analizi tamamlar.  
 
 IOT Edge üzerinde Azure Stream Analytics, çalışan içinde [Azure IOT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. İçinde ASA işi oluşturulduktan sonra dağıtabilir ve IOT hub'ı kullanarak yönetebilirsiniz.
 
@@ -26,9 +26,9 @@ IOT Edge üzerinde Azure Stream Analytics, çalışan içinde [Azure IOT Edge](h
 ![IOT Edge üst düzey diyagramı](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
 
 * **Düşük gecikme süreli komut ve Denetim**: Örneğin, güvenlik sistemleri üretim işlem verilerine son derece düşük gecikme süresi ile yanıt vermelidir. IOT Edge üzerinde ASA ile algılayıcı verileri neredeyse gerçek zamanlı ve bir makine durdurmak veya uyarıları tetiklemek için anomalileri algılayın, komutları sorunu çözümleyebilirsiniz.
-*   **Bulut bağlantısının sınırlı**: çözümlemek ve bulut bağlantısı kesintili olduğunda bile veri tepki vermek uzaktan araştırma donanım, bağlı tekneler veya yurtdışında incelediğinizde gibi görev açısından kritik sistemleri gerekir. ASA, akış mantığınızı ağ bağlantısı bağımsız olarak çalışır ve hangi buluta daha fazla işleme veya depolama için gönderdiğiniz seçebilirsiniz.
-* **Sınırlı bant genişliği**: veri hacmi jet motoru tarafından üretilen ya da bağlı arabalar veri filtre veya gereken ön işlemden buluta göndermeden önce çok büyük olabilir. ASA kullanarak filtreleyin veya buluta gönderilmesi gereken veri toplama.
-* **Uyumluluk**: yönetmeliklere uygunluk, bazı verileri yerel olarak anonim hale getirilen veya buluta gönderilmeden önce toplanan gerektirebilir.
+*   **Bulut bağlantısının sınırlı**: Uzaktan araştırma donanım, bağlı tekneler veya yurtdışında incelediğinizde gibi görev açısından kritik sistemleri analiz ve veri için bulut bağlantısı kesintili olduğunda bile react gerekir. ASA, akış mantığınızı ağ bağlantısı bağımsız olarak çalışır ve hangi buluta daha fazla işleme veya depolama için gönderdiğiniz seçebilirsiniz.
+* **Sınırlı bant genişliği**: Veri hacmi jet motoru tarafından üretilen ya da bağlı arabalar veri filtre veya gereken ön işlemden buluta göndermeden önce çok büyük olabilir. ASA kullanarak filtreleyin veya buluta gönderilmesi gereken veri toplama.
+* **Uyumluluk**: Yasal uyumluluk bazı verileri yerel olarak anonim hale getirilen veya buluta gönderilmeden önce toplanan gerektirebilir.
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Azure Stream Analytics Edge işi
 ### <a name="what-is-an-edge-job"></a>"Edge" işi nedir?
@@ -144,7 +144,7 @@ Bu örnek aşağıdaki yolları tanımlar:
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Bulut işlerine kıyasla IOT Edge işleri için geçerli sınırlamalar
 Eşlik sahip olmaktır IOT Edge işleri ve bulut işleri arasında. Çoğu SQL sorgu dil özellikleri zaten desteklenir.
 Ancak aşağıdaki özellikleri, edge işleri için henüz desteklenmiyor:
-* Kullanıcı tanımlı işlevler (UDF) JavaScript içinde. UDF kullanılabilir [ C# IOT Edge işleri için](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-edge-csharp-udf) (Önizleme).
+* Kullanıcı tanımlı işlevler (UDF) JavaScript içinde. UDF kullanılabilir [ C# IOT Edge işleri için](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (Önizleme).
 * Kullanıcı tanımlı toplamlarda (UDA).
 * Azure ML işlevleri
 * Tek bir adımda 14'ten fazla toplamaları kullanma.
@@ -167,7 +167,7 @@ IOT Edge üzerinde ASA çalıştırmak için çalıştırmak üzere cihazları g
 
 ASA ve Azure IOT Edge'i kullanma **Docker** kapsayıcıları (Windows, Linux) birden çok konak işletim sistemlerinde çalışan taşınabilir bir çözüm sağlamak için.
 
-IOT Edge üzerinde ASA, x86 64 veya Azure Resource Manager mimarileri üzerinde çalışan Windows ve Linux görüntüleri olarak kullanılabilir. 
+IOT Edge üzerinde ASA, x86 64 veya ARM (Gelişmiş RISC makineler) mimarileri üzerinde çalışan Windows ve Linux görüntüleri olarak kullanılabilir. 
 
 
 ### <a name="input-and-output"></a>Giriş ve çıkış

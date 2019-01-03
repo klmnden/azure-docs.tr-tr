@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 70feaae718bc6ff8e3f956f0fbc6aa395ba27061
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: ede900e135960141ed65b54dc876b1c0c2b90aaa
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410406"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809276"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB'de farklı API'ler ile ilgili sık sorulan sorular
 
@@ -26,7 +26,7 @@ Bir DocumentDB API'si hesabınız önce varsa, artık herhangi bir değişiklik 
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Azure DocumentDB hizmeti olarak ne oldu?
 
-Azure DocumentDB hizmetinin artık Azure Cosmos DB hizmetini bir parçası ve SQL API'si biçiminde ortaya çıkmaktadır. Azure DocumentDB üzerinde oluşturulan uygulamalar hiçbir değişiklik yapmadan Azure Cosmos DB SQL API'sine karşı çalışır. Ayrıca, Azure Cosmos DB Gremlin API, tablo API'si, MongoDB API'sini ve Cassandra API'si (Önizleme) destekler.
+Azure DocumentDB hizmetinin artık Azure Cosmos DB hizmetini bir parçası ve SQL API'si biçiminde ortaya çıkmaktadır. Azure DocumentDB üzerinde oluşturulan uygulamalar hiçbir değişiklik yapmadan Azure Cosmos DB SQL API'sine karşı çalışır. Cosmos DB ayrıca uygulayan [Cassandra](cassandra-introduction.md), [MongoDB](mongodb-introduction.md), [Gremlin](graph-introduction.md) ve [Azure tablo depolama](table-introduction.md) protokolleri hizmette doğrudan bağlayabilirsiniz. Bu, istemci sürücüleri (ve araçlar) işaret edecek şekilde doğrudan Cosmos veritabanınız için yaygın olarak kullanılan NoSQL API'leri sağlar.
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Azure Cosmos DB için genel kullanım örnekleri nelerdir?
 
@@ -36,11 +36,11 @@ Azure Cosmos DB için yeni web, mobil, oyun, iyi bir seçimdir ve IOT uygulamala
 
 A [istek birimi](request-units.md) (RU) olan bir Azure Cosmos DB'de aktarım hızı ölçümü. 1 RU aktarım hızı için 1 KB boyutundaki bir belgeyi GET işlemesine karşılık gelir. Okuma, yazma, SQL sorguları ve saklı yordam yürütmeleri dahil olmak üzere Azure Cosmos DB'deki her işlemin, işlemi tamamlamak için gereken aktarım hızına göre belirleyici bir RU değerine sahiptir. CPU, GÇ, bellek ve bunların uygulama işlemesini nasıl etkilediğini hakkında düşünmek yerine tek RU ölçü açısından düşünebilirsiniz.
 
-Her Azure Cosmos DB kapsayıcısı RU saniye başına aktarım hızı açısından sağlanan aktarım hızı ile ayırabilirsiniz. Her ölçekten uygulama için RU değerlerini ölçmek için istekleri ayrı ayrı kıyaslayabilir ve tüm istekler genelinde istek birimlerinin toplam işlemek için bir kapsayıcı sağlayın. Ayrıca, ölçeği büyütün veya ihtiyaçları, uygulama geliştikçe, kapsayıcının aktarım hızını ölçeklendirin. İstek birimleri hakkında daha fazla bilgi ve Yardım için kapsayıcı belirleme deneyin gereksinimlerini [aktarım hızı hesaplayıcı](https://www.documentdb.com/capacityplanner). Terim *kapsayıcı* burada bir SQL API'si koleksiyonu, Gremlin API grafiği, MongoDB API koleksiyon ve tablo API'si tablo ifade eder.
+Her Azure Cosmos DB kapsayıcısı RU saniye başına aktarım hızı açısından sağlanan aktarım hızı ile yapılandırabilirsiniz. Her ölçekten uygulama için RU değerlerini ölçmek için istekleri ayrı ayrı kıyaslayabilir ve tüm istekler genelinde istek birimlerinin toplam işlemek için bir kapsayıcı sağlayın. Ayrıca, ölçeği büyütün veya ihtiyaçları, uygulama geliştikçe, kapsayıcının aktarım hızını ölçeklendirin. İstek birimleri hakkında daha fazla bilgi ve Yardım için kapsayıcı belirleme deneyin gereksinimlerini [aktarım hızı hesaplayıcı](https://www.documentdb.com/capacityplanner).
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Azure Cosmos DB anahtar/değer, sütun, belge ve graf gibi çeşitli veri modellerini nasıl destekler?
 
-Anahtar/değer (tablo) sütunlu, belge ve graf verilerini modelleri tüm yerel olarak (bir Atom, kayıt ve dizileri) ARS nedeniyle desteklenen Azure Cosmos DB yerleşik olarak tasarlayın. Atom, kayıt ve dizileri kolayca eşlenen ve çeşitli veri modelleri için öngörülen. Apı'lerdir kullanılabilir şu anda (SQL, MongoDB, tablo ve Gremlin API'leri) modellerinin bir alt kümesi için ve başkaları için ek veri modelleri belirli gelecekte kullanıma sunulacaktır.
+Anahtar/değer (tablo) sütunlu, belge ve graf verilerini modelleri tüm yerel olarak (bir Atom, kayıt ve dizileri) ARS nedeniyle desteklenen Azure Cosmos DB yerleşik olarak tasarlayın. Atom, kayıt ve dizileri kolayca eşlenen ve çeşitli veri modelleri için öngörülen. Kullanılabilir şu anda (SQL, MongoDB, tablo ve Gremlin) API modellerin bir alt kümesi için olan ve başka veri modelleri için belirli bir diğer gelecekte kullanıma sunulacaktır.
 
 Azure Cosmos DB, bir şema şemadan bağımsız dizinleme altyapısı otomatik olarak tüm verilerin herhangi bir şema veya ikincil dizinler ' geliştiriciden gerek kalmadan alır, şemalardan sahiptir. Altyapı, dizin ve sorgu işleme alt sistemlerin depolama düzeni ayırın (ters, sütunlu, ağacı) mantıksal dizin düzenleri kümesi kullanır. Cosmos DB kablo protokolleri ve API'leri bir dizi Genişletilebilir biçimde destekler ve verimli bir şekilde çekirdek veri modeli (1) ve (2) birden fazla veri modelini yerel olarak destekleyen benzersiz olarak özellikli getirerek mantıksal dizin düzenleri çevirmek olanağı da vardır.
 
@@ -62,7 +62,7 @@ Evet her iki mod tam olarak her zaman şifrelenir.
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Azure Cosmos DB nin ücreti ne kadardır?
 
-Ayrıntılar için başvurmak [fiyatlandırma ayrıntıları Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) sayfası. Azure Cosmos DB kullanım ücretleri, sağlanan kapsayıcılar, kapsayıcıları çevrimiçi saat sayısına göre belirlenir ve her kapsayıcı için sağlanan aktarım hızı. Terim kapsayıcı burada SQL API koleksiyonu, Gremlin API (grafik), MongoDB API'si koleksiyonu ve tablo API'si tabloları ifade eder.
+Ayrıntılar için başvurmak [fiyatlandırma ayrıntıları Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) sayfası. Azure Cosmos DB kullanım ücretleri, sağlanan kapsayıcılar, kapsayıcıları çevrimiçi saat sayısına göre belirlenir ve her kapsayıcı için sağlanan aktarım hızı.
 
 ### <a name="is-a-free-account-available"></a>Ücretsiz bir hesap var mı?
 
@@ -105,7 +105,7 @@ Azure Cosmos DB'yi deneyin abonelikler için aşağıdaki koşullar geçerlidir:
 
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Azure Cosmos DB için nasıl kaydolabilirim?
 
-Azure Cosmos DB, Azure portalında kullanılabilir. İlk olarak, bir Azure aboneliği için kaydolun. Açtıktan sonra Azure aboneliğinizde bir SQL API, Gremlin API, tablo API'si, MongoDB API'si veya Cassandra API hesabı ekleyebilirsiniz.
+Azure Cosmos DB, Azure portalında kullanılabilir. İlk olarak, bir Azure aboneliği için kaydolun. Açtıktan sonra Azure aboneliğinizde bir Azure Cosmos DB hesabı ekleyebilirsiniz.
 
 ### <a name="what-is-a-master-key"></a>Ana anahtar nedir?
 
@@ -153,7 +153,7 @@ Evet, SQL API'si, JavaScript saklı yordamları ve Tetikleyicileri olarak ifade 
 
 Bir grup belgeleri ve bunların ilişkili JavaScript uygulama mantığının bir kapsayıcıdır. Faturalanabilir bir varlık kapsayıcıdır burada [maliyet](performance-levels.md) kullanılan depolama ve aktarım hızı tarafından belirlenir. Kapsayıcılar, bir veya daha fazla bölümleri veya sunucuları kapsayabilir ve neredeyse sınırsız miktarda depolama veya işlemeyi işleyebilecek şekilde ölçeklendirilebilir.
 
-* SQL ve MongoDB API hesabı, kapsayıcı bir koleksiyona eşler.
+* SQL API'sini ve MongoDB hesabı için Cosmos DB API'si için bir kapsayıcı bir koleksiyona eşler.
 * Cassandra ve tablo API'si hesapları için bir kapsayıcı bir tabloya eşler.
 * Gremlin API hesapları için bir kapsayıcı için bir grafik eşler.
 
@@ -183,7 +183,7 @@ SQL API'si, HTTP varlık etiketleri veya Etag'ler aracılığıyla iyimser eşza
 
 ### <a name="how-do-i-perform-transactions-in-the-sql-api"></a>SQL API'SİNDE nasıl işlemleri yaptınız?
 
-SQL API'si, JavaScript saklı yordamları ve Tetikleyicileri aracılığıyla dil ile tümleşik işlemleri destekler. Betiklerin içindeki tüm veritabanı işlemleri, anlık görüntü yalıtımı altında yürütülür. Tek bölümlü bir koleksiyon olduğundan, yürütme koleksiyona kapsamlıdır. Koleksiyon bölümlere ayrılmışsa, yürütme koleksiyondaki aynı bölüm anahtarı değerine sahip belgelerde kapsamlıdır. Belge sürümlerinin anlık görüntüsü (ETag'ler) ise işlem başlangıcında alınır ve yalnızca betik başarılı olursa uygulanır. JavaScript bir hata oluşturursa işlem geri alınır. Daha fazla bilgi için [Azure Cosmos DB için sunucu tarafı JavaScript programlama](programming.md).
+SQL API'si, JavaScript saklı yordamları ve Tetikleyicileri aracılığıyla dil ile tümleşik işlemleri destekler. Betiklerin içindeki tüm veritabanı işlemleri, anlık görüntü yalıtımı altında yürütülür. Tek bölümlü bir koleksiyon olduğundan, yürütme koleksiyona kapsamlıdır. Koleksiyon bölümlere ayrılmışsa, yürütme koleksiyondaki aynı bölüm anahtarı değerine sahip belgelerde kapsamlıdır. Belge sürümlerinin anlık görüntüsü (ETag'ler) ise işlem başlangıcında alınır ve yalnızca betik başarılı olursa uygulanır. JavaScript bir hata oluşturursa işlem geri alınır. Daha fazla bilgi için [Azure Cosmos DB için sunucu tarafı JavaScript programlama](stored-procedures-triggers-udfs.md).
 
 ### <a name="how-can-i-bulk-insert-documents-into-cosmos-db"></a>Nasıl miyim toplu belgeleri Cosmos DB'ye ekleme?
 
@@ -191,7 +191,7 @@ Toplu belgeleri Azure Cosmos DB'ye aşağıdaki yollardan biriyle ekleme:
 
 * Bölümünde anlatıldığı gibi toplu Yürütücü aracı [kullanarak toplu Yürütücü .NET kitaplığı](bulk-executor-dot-net.md) ve [kullanarak toplu Yürütücü Java kitaplığı](bulk-executor-java.md)
 * Bölümünde anlatıldığı gibi veri geçiş aracı [Azure Cosmos DB için veritabanı geçiş aracı](import-data.md).
-* Saklı yordamlar, açıklandığı [Azure Cosmos DB için sunucu tarafı JavaScript programlama](programming.md).
+* Saklı yordamlar, açıklandığı [Azure Cosmos DB için sunucu tarafı JavaScript programlama](stored-procedures-triggers-udfs.md).
 
 ### <a name="ive-set-up-my-container-to-use-lazy-indexing-i-see-that-my-queries-dont-return-expected-results"></a>My kapsayıcısı ayarlamak yavaş dizinleme kullanılacak ayarladım, Sorgularım beklenen sonuçları döndürmeyin görüyorum.
 
@@ -213,32 +213,32 @@ Bu JavaScript sınırlamasıdır. JavaScript IEEE 754 belirtildiği gibi çift d
 
 İzinler ResourceTokens kullanarak oluşturma kapsayıcı düzeyinde ve alt öğelerini (örneğin, belgeler, ekleri) izin verilir. Bu veritabanını bir izin oluşturmak çalışan gelir veya bir hesap düzeyi şu anda izin verilmiyor.
 
-## <a name="mongodb-api"></a>MongoDB API’si
+## <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB'nin MongoDB API'si
 
-### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB MongoDB için API nedir?
+### <a name="what-is-the-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB MongoDB API'si nedir?
 
-MongoDB için Azure Cosmos DB API uygulamaları kolayca ve şeffaf bir şekilde var olan ve topluluk tarafından desteklenen Apache MongoDB API'leri ve sürücüleri kullanarak yerel Azure Cosmos DB veritabanı altyapısı ile iletişim kurmasına olanak sağlayan bir uyumluluk katmanıdır. Geliştiriciler artık, Azure Cosmos DB yararlanan uygulamalar oluşturmak için var olan MongoDB takımlarına ve becerileri kullanabilirsiniz. Otomatik dizin oluşturma işlemi, yedekleme bakım, finansal destekli bir hizmet düzeyi sözleşmeleri (SLA'lar) vb. içeren benzersiz özelliklerinden Azure Cosmos DB, geliştiricilerin yararlanır.
+Azure Cosmos DB MongoDB API'si uygulamaları kolayca ve şeffaf bir şekilde var olan ve topluluk tarafından desteklenen SDK'ları ve sürücülerini kullanarak yerel Azure Cosmos DB veritabanı altyapısı ile iletişim kurmasına olanak sağlayan bir kablo protokolünü uyumluluk katmanıdır MongoDB.Developers artık, Azure Cosmos DB yararlanan uygulamalar oluşturmak için mevcut MongoDB araç zincirleriyle ve becerileri kullanabilirsiniz. Çok yöneticili çoğaltma, otomatik dizin oluşturma işlemi, yedekleme bakım ile küresel dağıtım gibi benzersiz Azure Cosmos DB, yeteneklerini geliştiriciler avantajından finansal hizmet düzeyi sözleşmeleri (SLA'lar) vb. desteklenir.
 
-### <a name="how-do-i-connect-to-my-api-for-mongodb-database"></a>MongoDB veritabanı benim API'sine nasıl bağlanabilirim?
+### <a name="how-do-i-connect-to-my-database"></a>Veritabanım için nasıl bağlanabilirim?
 
-MongoDB için baş üzerinden için Azure Cosmos DB API'sine bağlanmak için en hızlı yolu [Azure portalında](https://portal.azure.com). Hesabınıza gidin ve ardından, sol gezinti menüsünde **Hızlı Başlangıç**. Hızlı Başlangıç, veritabanınıza bağlanmak için kod parçacıkları almak için en iyi bir yoludur.
+MongoDB için baş üzerinden için Azure Cosmos DB API'si ile Cosmos veritabanına bağlanmak için en hızlı yolu [Azure portalında](https://portal.azure.com). Hesabınıza gidin ve ardından, sol gezinti menüsünde **Hızlı Başlangıç**. Hızlı Başlangıç, veritabanınıza bağlanmak için kod parçacıkları almak için en iyi bir yoludur.
 
 Azure Cosmos DB, katı güvenlik gereksinimleri ve standartları zorunlu kılar. Azure Cosmos DB hesapları kimlik doğrulaması ve SSL ile güvenli bağlantı gerekir, bu nedenle TLSv1.2 kullandığınızdan emin olun.
 
-Daha fazla bilgi için [API'nize MongoDB veritabanına bağlan](connect-mongodb-account.md).
+Daha fazla bilgi için [Azure Cosmos DB'nin MongoDB API'si ile Cosmos veritabanınıza bağlanma](connect-mongodb-account.md).
 
-### <a name="are-there-additional-error-codes-for-an-api-for-mongodb-database"></a>MongoDB veritabanı için bir API için ek hata kodları vardır?
+Ek hata kodları, MongoDB için Azure Cosmos DB'nin API'sini kullanarak çıkılacağını ihtiyacım var mı?
 
-Ortak MongoDB hata kodlarıyla birlikte kendi belirli hata kodlarıyla MongoDB API'si vardır:
+Ortak MongoDB hata kodlarıyla birlikte Azure Cosmos DB MongoDB API'si, kendi belirli hata kodlarıyla sahiptir:
 
 | Hata               | Kod  | Açıklama  | Çözüm  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | İstek birimleri tüketilen toplam sayısı, koleksiyon için sağlanan istek birimi hızdan daha ve kısıtlanan. | Bir kapsayıcı veya bir dizi kapsayıcılar için Azure portal veya deneniyor yeniden atanan aktarım hızını ölçeklendirmeyi düşünün. |
 | ExceededMemoryLimit | 16501 | Çok kiracılı bir hizmet, istemcinin bellek birimi işlemi geçti. | Destek ile iletişime geçin veya daha kısıtlayıcı bir sorgu ölçütü ile bir işlem kapsamını azaltın [Azure portalında](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Örnek:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {adı: "Andy"}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {yaş: -1}}<br> &nbsp; &nbsp; &nbsp;&nbsp;])*) |
 
-### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmosdb-mongodb-api"></a>Azure CosmosDB MongoDB API'si ile kullanmak için desteklenen mongodb Simba sürücü mı?
+### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>Simba sürücü kullanımı için Azure Cosmos DB API'si ile MongoDB için desteklenen MongoDB için mi?
 
-Evet, Azure CosmosDB MongoDB API'si ile Simba'nın Mongo ODBC sürücüsü kullanabilirsiniz.
+Evet, Mongo ODBC sürücüsü Simba'nın Azure Cosmos DB API'si ile MongoDB için kullanabilirsiniz
 
 ## <a id="table"></a>Tablo API’si
 

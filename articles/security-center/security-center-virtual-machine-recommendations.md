@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2018
+ms.date: 12/12/2018
 ms.author: rkarlin
-ms.openlocfilehash: dd7858b9723d8d3ee9eb9299b2cee11596563a33
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b77e814f9f339dff4539a04ab8b492e9777abe0d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340717"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537656"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Azure Güvenlik Merkezi kaynak önerilerini anlama
 
@@ -60,7 +60,7 @@ Aşağıdaki tablolar kullanılabilir işlem anlamanıza yardımcı olması içi
 | Web uygulaması için desteklenen en son Node.js sürümünü kullanın | En son güvenlik sınıfları için en son Node.js sürümünü kullanmanızı önerir. Eski sınıfları ve türleri kullanma, uygulamanızı saldırılara açık hale getirebilirsiniz. |
 | CORS her kaynağın işlev uygulamanıza erişmek izin vermemelidir | Web uygulamanızla etkileşim kurmak yalnızca gerekli etki alanlarına izin önerir. Kaynak kaynak paylaşımı (CORS) tüm etki alanlarının işlev uygulamanıza erişmek izin vermemelisiniz. |
 | İşlev uygulaması için özel etki alanları kullanın | Bir işlev uygulaması, kimlik avı gibi genel saldırılara ve DNS ile ilgili diğer saldırılara karşı korumak için özel etki alanları kullanmanızı önerir. |
-| İşlev uygulaması için IP kısıtlamalarını yapılandırma | Uygulamanıza erişmek için izin verilen IP adreslerinin bir listesi tanımladığınız önerir. IP kısıtlamaları kullanımını bir işlev uygulaması genel saldırılara karşı korur. |
+| İşlev Uygulaması için IP kısıtlamalarını yapılandır | Uygulamanıza erişmek için izin verilen IP adreslerinin bir listesi tanımladığınız önerir. IP kısıtlamaları kullanımını bir işlev uygulaması genel saldırılara karşı korur. |
 | İşlev uygulaması yalnızca HTTPS üzerinden erişilebilir olmalıdır | İşlev uygulamaları, erişim HTTPS üzerinden sınırı, yalnızca, önerir. |
 | Uzaktan hata ayıklama için işlev uygulaması kapatılmalıdır | Bunu kullanmak artık ihtiyacınız yoksa işlev uygulaması için hata ayıklamasını kapatma önerir. Uzaktan hata ayıklama, gelen bağlantı noktası üzerinde bir işlev uygulaması açılmasını gerektirir. |
 | İşlev uygulaması için Web yuvalarını devre dışı bırakılmalıdır | İşlev uygulamaları içinde Web yuvaları kullanımını dikkatle gözden geçirin önerir. Web yuvaları Protokolü farklı güvenlik tehdidi türlerine savunmasızdır. |

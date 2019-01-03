@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: ace025f096b756259d25ca2adb347dd23a12a910
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 280d56951053870d5dc1bb8fba52cc089e842757
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409533"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743881"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Apache Ambari web kullanıcı Arabirimi, JobHistory, NameNode, Apache Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel oluşturmayı kullanma
 
@@ -47,7 +47,7 @@ Betik eylemleri, kümenizin özelleştirmek için kullandığınız herhangi bir
 
 * SOCKS5 Ara sunucusunu kullanacak şekilde yapılandırılmış bir web tarayıcısı.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Windows Internet ayarlarına yerleşik SOCKS proxy desteği SOCKS5 desteklemiyor ve bu belgedeki adımlar ile çalışmıyor. Aşağıdaki tarayıcılardan Windows proxy ayarlarını kullanan ve şu anda bu belgedeki adımlar ile çalışmaz:
     >
     > * Microsoft Edge
@@ -78,7 +78,7 @@ Komut bittikten sonra yerel bilgisayarda 9876 numaralı bağlantı noktasına g�
 
 ## <a name="useputty"></a>PuTTY kullanarak tünel oluşturma
 
-[PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty) grafiksel bir SSH istemcisi Windows için. PuTTY ile ilgili bilgi sahibi değilseniz bkz [PuTTY belgeleri](http://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). PuTTY kullanarak SSH tüneli oluşturmak için aşağıdaki adımları kullanın:
+[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty) grafiksel bir SSH istemcisi Windows için. PuTTY ile ilgili bilgi sahibi değilseniz bkz [PuTTY belgeleri](https://www.chiark.greenend.org.uk/~sgtatham/putty/docs.html). PuTTY kullanarak SSH tüneli oluşturmak için aşağıdaki adımları kullanın:
 
 ### <a name="create-or-load-a-session"></a>Veya bir oturum yüklenemiyor
 
@@ -120,7 +120,7 @@ Komut bittikten sonra yerel bilgisayarda 9876 numaralı bağlantı noktasına g�
    > [!NOTE]  
    > Seçme **uzak DNS** HDInsight kümesi kullanarak etki alanı adı sistemi (DNS) istekleri giderir. Bu ayar kümesinin baş düğümünü kullanarak DNS çözümleniyor.
 
-2. Tünel bir siteyi ziyaret ederek gibi çalıştığını doğrulamak [ http://www.whatismyip.com/ ](http://www.whatismyip.com/). Döndürülen IP, bir Microsoft Azure veri merkezi tarafından kullanılan olmalıdır.
+2. Tünel bir siteyi ziyaret ederek gibi çalıştığını doğrulamak [ https://www.whatismyip.com/ ](https://www.whatismyip.com/). Döndürülen IP, bir Microsoft Azure veri merkezi tarafından kullanılan olmalıdır.
 
 ## <a name="verify-with-ambari-web-ui"></a>Ambari web kullanıcı Arabirimi ile doğrulama
 

@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.date: 09/01/2016
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 9f7f7731490467ff32a72507239bfeedc794f2f2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3fe57fe0aac4c355b65b55ee37213221eb854a5c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000546"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976569"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Geliştirici analizleri: programlama dilleri, platformlar ve tümleştirmeler
 Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygulamalardır. Bunlardan bazıları üçüncü taraflar aracılığıyla sunulur.
 
 ## <a name="languages---officially-supported-by-application-insights-team"></a>Application Insights ekibi tarafından resmi olarak desteklenen programlama dilleri
-* [C#|VB (.NET)](app-insights-asp-net.md)
-* [Java](app-insights-java-get-started.md)
-* [JavaScript web sayfaları](app-insights-javascript.md)
+* [C#|VB (.NET)](../azure-monitor/app/asp-net.md)
+* [Java](../azure-monitor/app/java-get-started.md)
+* [JavaScript web sayfaları](../azure-monitor/app/javascript.md)
 * [Node.JS](app-insights-nodejs.md)
 
 ## <a name="languages---community-supported"></a>Topluluk tarafından desteklenen programlama dilleri
@@ -37,22 +37,22 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 * [Diğer her şey](#projects)
 
 ## <a name="platforms-and-frameworks"></a>Platformlar ve altyapıları
-* [ASP.NET](app-insights-asp-net.md)
-* [ASP.NET - zaten canlı olan uygulamalar için](app-insights-monitor-performance-live-website-now.md)
-* [ASP.NET Core](app-insights-asp-net-core.md)
+* [ASP.NET](../azure-monitor/app/asp-net.md)
+* [ASP.NET - zaten canlı olan uygulamalar için](../azure-monitor/app/monitor-performance-live-website-now.md)
+* [ASP.NET Core](../azure-monitor/app/asp-net-core.md)
 * [Android](app-insights-mobile-center-quickstart.md) (App Center)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (App Center)
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
-* [Azure Web Apps](app-insights-azure-web-apps.md)
-* [Azure Bulut Hizmetleri](app-insights-cloudservices.md)&#151;hem web hem de çalışan rolleri dahil
+* [Azure App Service](../azure-monitor/app/azure-web-apps.md)
+* [Azure Bulut Hizmetleri](../azure-monitor/app/cloudservices.md)&#151;hem web hem de çalışan rolleri dahil
 * [Azure İşlevleri](https://github.com/christopheranderson/azure-functions-app-insights-sample)
-* [Docker](app-insights-docker.md)
+* [Docker](../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](app-insights-mobile-center-quickstart.md) (App Center)
 * [Ionic](https://github.com/SoftwarePioniere/ionic-application-insights)
 * [iOS](https://github.com/Microsoft/ApplicationInsights-iOS) (App Center)
-* [J2EE](app-insights-java-get-started.md)
-* [J2EE - zaten canlı olan uygulamalar için](app-insights-java-live.md)
+* [J2EE](../azure-monitor/app/java-get-started.md)
+* [J2EE - zaten canlı olan uygulamalar için](../azure-monitor/app/java-live.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [OSX](https://github.com/Microsoft/ApplicationInsights-OSX)
 * [SAFE Yığını](https://safe-stack.github.io/docs/template-azure-ai/)
@@ -63,8 +63,8 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 * [Diğer her şey](#projects)
 
 ## <a name="logging-frameworks"></a>Günlük altyapıları
-* [Log4Net, NLog veya System.Diagnostics.Trace](app-insights-asp-net-trace-logs.md)
-* [Java, Log4J veya Logback](app-insights-java-trace-logs.md)
+* [Log4Net, NLog veya System.Diagnostics.Trace](../azure-monitor/app/asp-net-trace-logs.md)
+* [Java, Log4J veya Logback](../azure-monitor/app/java-trace-logs.md)
 * [Semantik Günlük (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - [Semantik Günlük Uygulama Bloğu](https://msdn.microsoft.com/library/dn440729.aspx) ile tümleşir
 * [Bulut tabanlı yük testi](https://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash eklentisi](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)

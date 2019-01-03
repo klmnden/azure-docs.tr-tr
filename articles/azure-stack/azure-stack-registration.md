@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 12/28/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58dfb3f02b338d62fcfb10e4d8c1bc492cdacbda
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: b036f0b1c38222b6bb3ebee1a3fab0d1613260f7
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890560"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811027"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -300,15 +300,15 @@ Azure Stack ortamına, Get-AzsActivationKey oluşturulan etkinleştirme anahtar�
 
 ## <a name="verify-azure-stack-registration"></a>Azure Stack kayıt doğrulayın
 
-Azure Stack, Azure ile başarılı bir şekilde kaydedildiğini doğrulamak için aşağıdaki adımları kullanın.
+Kullanabileceğiniz **bölge Yönetimi** Azure Stack kaydın başarılı olduğunu doğrulamak için bir kutucuk. Bu kutucuk, Yönetici portalı'nda varsayılan pano üzerinde kullanılabilir. Durum kayıtlı veya kayıtlı değil. Kaydettiyseniz, Azure Stack adını ve kayıt kaynak grubunun yanı sıra kaydolmak için kullandığınız ayrıca Azure abonelik Kimliğini gösterir.
 
-1. Azure Stack oturum [Yönetim Portalı](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;bölge >. &lt;fqdn >*.
-2. Seçin **tüm hizmetleri**ve ardından altındaki **Yönetim** kategorisi, select **Market Yönetim** > **azure'danEkle**.
+1. Oturum [Azure Stack Yönetim Portalı](https://adminportal.local.azurestack.external).
 
-(Örneğin, WordPress) azure'dan kullanılabilir öğeleri listesini görürseniz, etkinleştirme başarılı oldu. Ancak, bağlantısı kesilmiş ortamlarda, Azure Stack marketini Azure Market öğeleri tarafından görülmez.
+2. Panoda **bölge Yönetimi**.
 
-> [!Note]  
-> Kayıt tamamlandıktan sonra değil kaydetmek için etkin uyarı görünmeyecek.
+    [ ![Bölge Yönetimi kutucuğu](media/azure-stack-registration/admin1sm.png "bölge Yönetimi kutucuğu") ](media/azure-stack-registration/admin1.png#lightbox)
+
+3. Seçin **özellikleri**. Bu dikey pencere, ortamınızın ayrıntılarını ve durumunu gösterir. Durum olabilir **kayıtlı** veya **kayıtlı**. Kaydettiyseniz, Azure Stack, adını ve kayıt kaynak grubunun yanı sıra kaydolmak için kullandığınız ayrıca Azure abonelik Kimliğini gösterir.
 
 ## <a name="renew-or-change-registration"></a>Yenileme veya kaydı değiştirme
 
@@ -434,9 +434,9 @@ Cmdlet'i çalıştırmak için ihtiyacınız vardır:
 | AzureContext | PSObject |  |
 | ResourceGroupName | Dize |  |
 | ResourceGroupLocation | Dize |  |
-| BillingModel | Dize | Faturalandırma modeli, aboneliğinizin kullanır. İzin verilen bu parametre için değerler: kapasite PayAsYouUse ve geliştirme. |
+| BillingModel | Dize | Faturalandırma modeli, aboneliğinizin kullanır. Bu parametre için izin verilen değerler şunlardır: Kapasite, PayAsYouUse ve geliştirme. |
 | MarketplaceSyndicationEnabled | True/False | Portalda Market yönetim özelliği kullanılabilir olup olmadığını belirler. İnternet bağlantısı ile kaydetme gerekiyorsa true olarak ayarlayın. Bağlantısı kesilmiş ortamlarda kaydediliyor false olarak ayarlayın. Bağlantısı kesilmiş kayıtları için [çevrimdışı dağıtım aracı](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) Market öğelerini indirme için kullanılabilir. |
-| UsageReportingEnabled | True/False | Azure Stack, varsayılan olarak kullanım ölçümleri raporları. Kapasite kullanır veya bağlantısı kesilmiş bir ortam destekleyen işleçlerle kullanım bildirimini devre dışı bırak gerekecektir. İzin verilen bu parametre için değerler: True, False. |
+| UsageReportingEnabled | True/False | Azure Stack, varsayılan olarak kullanım ölçümleri raporları. Kapasite kullanır veya bağlantısı kesilmiş bir ortam destekleyen işleçlerle kullanım bildirimini devre dışı bırak gerekecektir. Bu parametre için izin verilen değerler şunlardır: TRUE, False. |
 | AgreementNumber değeri | Dize |  |
 | registrationName | Dize | Kayıt betiği Azure Stack birden fazla örneğinde aynı Azure abonelik kimliği kullanarak çalıştırıyorsanız kayıt için benzersiz bir ad ayarlayın. Parametrenin varsayılan değeri **AzureStackRegistration**. Azure Stack birden fazla örneğinde aynı adı kullanın, ancak komut başarısız olur. |
 
@@ -456,9 +456,9 @@ Get-AzsRegistrationToken giriş parametrelerini kayıt belirtecinizi oluşturur.
 | AzureContext | PSObject |  |
 | ResourceGroupName | Dize |  |
 | ResourceGroupLocation | Dize |  |
-| BillingModel | Dize | Faturalandırma modeli, aboneliğinizin kullanır. İzin verilen bu parametre için değerler: kapasite PayAsYouUse ve geliştirme. |
+| BillingModel | Dize | Faturalandırma modeli, aboneliğinizin kullanır. Bu parametre için izin verilen değerler şunlardır: Kapasite, PayAsYouUse ve geliştirme. |
 | MarketplaceSyndicationEnabled | True/False |  |
-| UsageReportingEnabled | True/False | Azure Stack, varsayılan olarak kullanım ölçümleri raporları. Kapasite kullanır veya bağlantısı kesilmiş bir ortam destekleyen işleçlerle kullanım bildirimini devre dışı bırak gerekecektir. İzin verilen bu parametre için değerler: True, False. |
+| UsageReportingEnabled | True/False | Azure Stack, varsayılan olarak kullanım ölçümleri raporları. Kapasite kullanır veya bağlantısı kesilmiş bir ortam destekleyen işleçlerle kullanım bildirimini devre dışı bırak gerekecektir. Bu parametre için izin verilen değerler şunlardır: TRUE, False. |
 | AgreementNumber değeri | Dize |  |
 
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 3106e523e3f8edd17cc27991181267acfab4308b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7f3746fc340b382c58f7a9501cb0828a6b6befe8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002132"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976044"
 ---
-# <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>İzlenecek yol: Microsoft Dynamics CRM Online Application Insights ile Telemetri etkinleştirme
+# <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Çözüm: Microsoft Dynamics CRM Online Application Insights ile Telemetri etkinleştirme
 Bu makalede telemetri verilerinin alınacağı gösterilmektedir [Microsoft Dynamics CRM Online](https://www.dynamics.com/) kullanarak [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Veri ve veri görselleştirme yakalama uygulamanıza Application Insights betiğini ekleme tam işlemi gösterilecektir.
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Uygulamanızı izlemek için bir Application Insights SDK'sını uygulamanıza e
     ![Tıklama +, geliştirici Hizmetleri, Application Insights.](./media/app-insights-sample-mscrm/01.png)
 
     Uygulama türü olarak ASP.NET’i seçin.
-3. Yönergelerini izleyin [uygulamanız için JavaScript SDK'sı betik alma](app-insights-javascript.md#set-up-application-insights-for-your-web-page), JavaScript kod parçacığını kopyalayın ve izleme anahtarı, Application Insights kaynağı için geçerli bir değer ile değiştirdiğinizden emin olun.
+3. Yönergelerini izleyin [uygulamanız için JavaScript SDK'sı betik alma](../azure-monitor/app/javascript.md#set-up-application-insights-for-your-web-page), JavaScript kod parçacığını kopyalayın ve izleme anahtarı, Application Insights kaynağı için geçerli bir değer ile değiştirdiğinizden emin olun.
 
 ### <a name="create-a-javascript-web-resource-in-microsoft-dynamics-crm"></a>Microsoft Dynamics CRM JavaScript web kaynak oluştur
 1. Oturum açma ve CRM Online örneği yönetici ayrıcalıklarıyla açın.
@@ -134,5 +134,5 @@ Bunu daha da derin analizi yapabilirsiniz, [Microsoft Power BI için verileri d�
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 * [Application Insights nedir?](app-insights-overview.md)
-* [Web sayfaları için Application Insights](app-insights-javascript.md)
+* [Web sayfaları için Application Insights](../azure-monitor/app/javascript.md)
 * [Daha fazla örnekleri ve izlenecek yollar](app-insights-overview.md)

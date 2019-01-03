@@ -1,5 +1,5 @@
 ---
-title: 'Intellij için Azure Araç Seti: SSH üzerinden uzaktan hata ayıklama Spark uygulamaları '
+title: 'Intellij için Azure Araç Seti: Spark uygulamalarında SSH üzerinden uzaktan hata ayıklama '
 description: HDInsight uygulamaları uzaktan hata ayıklama için Intellij için Azure araç seti, HDInsight araçları kullanma hakkında adım adım rehberlik SSH üzerinden kümeleri
 keywords: Uzaktan hata ayıklama işlemi ıntellij, uzaktan hata ıntellij ssh, ıntellij, hdınsight, ıntellij, hata ayıklama hata ayıklama
 services: hdinsight
@@ -10,24 +10,24 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/25/2017
-ms.openlocfilehash: ae22319c54335695a52e803c0c030858e2782c38
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 1c94f184e57c125ce2520b857b47a9da99a9e517
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582488"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601619"
 ---
-# <a name="debug-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Spark uygulamalarında yerel olarak veya uzaktan Azure araç seti ile HDInsight kümesinde SSH üzerinden Intellij için hata ayıklama
+# <a name="debug-apache-spark-applications-locally-or-remotely-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Apache Spark uygulamaları yerel olarak veya uzaktan Azure araç seti ile HDInsight kümesinde SSH üzerinden Intellij için hata ayıklama
 
 Bu makalede, HDInsight araçları kullanma hakkında adım adım yönergeleri sağlanır. [Intellij için Azure Araç Seti](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) bir HDInsight kümesi üzerinde uzaktan uygulamalarında hata ayıklamak için. Projenizin hatalarını ayıklama için ayrıca görüntüleyebilirsiniz [Intellij için Azure araç seti ile hata ayıklama HDInsight Spark uygulamaları](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ) video.
 
 **Önkoşullar**
 * **Intellij için Azure Araç Seti HDInsight Araçları**. Bu araç Intellij için Azure Araç Takımı'nın bir parçasıdır. Daha fazla bilgi için [Intellij için Azure Araç Seti'ni yükleme](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation). Ve **Intellij için Azure Araç Seti**. Bu araç seti, HDInsight kümesi için Apache Spark uygulamaları oluşturmak için kullanın. Daha fazla bilgi için bölümündeki yönergeleri [bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak Intellij için Azure Araç Seti'ni kullanma](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-intellij-tool-plugin).
 
-* **Kullanıcı adı ve parola yönetimi ile HDInsight SSH hizmeti**. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) ve [Ambari erişim için tünel SSH kullanma web kullanıcı Arabirimi, JobHistory, NameNode, Oozie ve diğer web kullanıcı arabirimleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
+* **Kullanıcı adı ve parola yönetimi ile HDInsight SSH hizmeti**. Daha fazla bilgi için [SSH kullanarak HDInsight (Apache Hadoop) bağlanma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) ve [Ambari erişim için tünel SSH kullanma web kullanıcı Arabirimi, JobHistory, NameNode, Apache Oozie ve diğer web kullanıcı arabirimleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-linux-ambari-ssh-tunnel). 
  
 ## <a name="learn-how-to-perform-local-run-and-debugging"></a>Çalıştırma ve hata ayıklama yerel gerçekleştirme hakkında bilgi edinin
-### <a name="scenario-1-create-a-spark-scala-application"></a>1. Senaryo: bir Scala Spark uygulaması oluşturma 
+### <a name="scenario-1-create-a-spark-scala-application"></a>Senaryo 1: Bir Scala Spark uygulaması oluşturma 
 
 1. IntelliJ IDEA’yı başlatın ve sonra bir proje oluşturun. **Yeni Proje** iletişim kutusunda aşağıdakileri yapın:
 
@@ -70,9 +70,9 @@ Bu makalede, HDInsight araçları kullanma hakkında adım adım yönergeleri sa
 ### <a name="prerequisite-for-windows"></a>Windows önkoşulları
 Bir Windows bilgisayarda yerel Scala Spark uygulaması çalışıyor olsa da açıklandığı gibi özel durum alabilir [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356). Windows üzerinde WinUtils.exe eksik olduğu için özel durum oluşur. 
 
-Bu hatayı gidermek için [yürütülebilir dosyayı indir](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) gibi bir konuma **C:\WinUtils\bin**. Ardından, ortam değişkenini ekledikten **HADOOP_HOME**, için değişkenin değerini ayarlayıp **C:\WinUtils**.
+Bu hatayı gidermek için [yürütülebilir dosyayı indir](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) gibi bir konuma **C:\WinUtils\bin**. Ardından, ortam değişkenini ekledikten **HADOOP_HOME**, için değişkenin değerini ayarlayıp **C:\WinUtils**.
 
-### <a name="scenario-2-perform-local-run"></a>Senaryo 2: yerel çalıştırma gerçekleştirin
+### <a name="scenario-2-perform-local-run"></a>Senaryo 2: Yerel çalıştırma gerçekleştirin
 1. Açık **SparkCore_wasbloTest** komut dosyası, Kod Düzenleyicisi'ni sağ tıklatın ve seçeneğini **'[Spark işi] XXX' çalıştırma** yerel çalıştırma gerçekleştirmek için.
 1. Bir kez yerel çalıştırma tamamlandı, geçerli proje gezgininizde kaydetme çıkış dosyası görebilirsiniz **veri** > **__varsayılan__**.
 
@@ -81,11 +81,11 @@ Bu hatayı gidermek için [yürütülebilir dosyayı indir](http://public-repo-1
 
     ![Yerel çalıştırma yapılandırma](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/local-run-configuration.png)
     - [Ortam değişkenlerini](#prerequisite-for-windows): Sistem ortam değişkeni zaten ayarlanmışsa **HADOOP_HOME** için **C:\WinUtils**, bunu otomatik olarak ölçeklendirilebilen algılayan el ile eklemeniz gerekmez.
-    - [WinUtils.exe konumu](#prerequisite-for-windows): Sistem ortam değişkeninin ayarlı değil, kendi düğmesine tıklayarak konumu bulabilirsiniz.
+    - [WinUtils.exe konumu](#prerequisite-for-windows): Sistem ortam değişkeninin ayarlı değil, konumu, düğmesine tıklayarak bulabilirsiniz.
     - Yalnızca iki seçenekten birini seçin ve MacOS ve Linux'ta gerekmez.
 1. Yerel çalıştırma ve yerel hata ayıklama işlemini gerçekleştirmeden önce el ile yapılandırma de ayarlayabilirsiniz. Önceki ekran görüntüsünde, artı işaretini seçin (**+**). Ardından **Azure HDInsight Spark işi** seçeneği. İçin bilgi girin **adı**, **ana sınıf adı** kaydetmek için ardından yerel çalıştırma düğmesine tıklayın.
 
-### <a name="scenario-3-perform-local-debugging"></a>Senaryo 3: yerel hata ayıklama gerçekleştirin
+### <a name="scenario-3-perform-local-debugging"></a>Senaryo 3: Yerel hata ayıklama gerçekleştirin
 1. Açık **SparkCore_wasbloTest** komut dosyası, kesme noktaları belirleyin.
 1. Kod Düzenleyicisi'ni sağ tıklatın ve ardından seçeneğini **'[Spark işi] XXX' hata ayıklama** yerel hata ayıklama gerçekleştirmek için.   
 
@@ -121,7 +121,7 @@ Bu hatayı gidermek için [yürütülebilir dosyayı indir](http://public-repo-1
 
 
 
-### <a name="scenario-2-perform-remote-debugging"></a>Senaryo 2: uzaktan hata ayıklama gerçekleştirin
+### <a name="scenario-2-perform-remote-debugging"></a>Senaryo 2: Uzaktan hata ayıklama gerçekleştirin
 1. Kesme noktaları ayarlayın ve ardından **uzaktan hata ayıklama** simgesi. Uzak gönderme ile yapılandırılması için SSH kullanıcı adı/parola gereken farktır.
 
    ![Hata Ayıkla simgesi seçin](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-icon.png)
@@ -130,7 +130,7 @@ Bu hatayı gidermek için [yürütülebilir dosyayı indir](http://public-repo-1
 
    ![Hata ayıklama sekmesi](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debugger-tab.png)
 
-### <a name="scenario-3-perform-remote-debugging-and-bug-fixing"></a>Senaryo 3: Uzak hata ayıklama ve hata düzeltme gerçekleştirme
+### <a name="scenario-3-perform-remote-debugging-and-bug-fixing"></a>Senaryo 3: Uzaktan hata ayıklama ve hata düzeltme gerçekleştirme
 1. İki kesme noktaları ayarlayın ve ardından **hata ayıklama** uzaktan hata ayıklama işlemi başlatmak için simge.
 
 1. İlk kesme noktasına kod durdurur ve parametre ve değişken bilgi gösterilir **değişkenleri** bölmesi. 
@@ -154,16 +154,16 @@ Bu hatayı gidermek için [yürütülebilir dosyayı indir](http://public-repo-1
    ![Özel durum hata ayıklama](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
 
 ## <a name="seealso"></a>Sonraki adımlar
-* [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
+* [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>Tanıtım
-* Scala proje oluştur (video): [Apache Spark Scala uygulamaları oluşturma](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Uzaktan hata ayıklama (video): [uzaktan bir HDInsight kümesi üzerinde Apache Spark uygulamalarında hata ayıklamak amacıyla Intellij için Azure Araç Seti'ni kullanma](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Scala proje (video) oluşturun: [Apache Spark Scala uygulamaları oluşturma](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Uzaktan hata ayıklama (video): [Apache Spark uygulamalarında uzaktan bir HDInsight kümesi üzerinde hata ayıklamak amacıyla Intellij için Azure Araç Seti'ni kullanma](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma

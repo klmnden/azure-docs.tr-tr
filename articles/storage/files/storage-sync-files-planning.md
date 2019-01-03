@@ -8,17 +8,19 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 89ab5ecb4e1a6a39e785a51c61e1344631b1f394
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 76bec0f0e924fe193519f47effb8dd45f6262697
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335189"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630334"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure Dosya Eşitleme dağıtımı planlama
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
 
 Bu makalede Azure dosya eşitleme dağıtımı için önemli hususlar açıklanmaktadır. Ayrıca okumanızı öneririz [bir Azure dosyaları dağıtımını planlama](storage-files-planning.md). 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="azure-file-sync-terminology"></a>Azure dosya eşitleme terminolojisi
 Bir Azure dosya eşitleme dağıtımı planlama ayrıntılarını almadan önce terminolojiyi anlamanız önemlidir.
@@ -27,16 +29,16 @@ Bir Azure dosya eşitleme dağıtımı planlama ayrıntılarını almadan önce 
 Depolama eşitleme hizmeti Azure dosya eşitleme için üst düzey Azure kaynağıdır. Depolama eşitleme hizmeti kaynak depolama hesabı kaynağı eşdüzeyde ve Azure kaynak grupları için benzer şekilde dağıtılabilir. Depolama hesabı kaynağı farklı bir üst düzey kaynaktan gerekir çünkü depolama eşitleme hizmeti birden çok eşitleme grupları aracılığıyla birden fazla depolama hesabı ile eşitleme ilişkisi oluşturabilirsiniz. Bir abonelikte dağıtılmış birden çok depolama eşitleme hizmeti kaynakları olabilir.
 
 ### <a name="sync-group"></a>Eşitleme grubu
-Eşitleme grubu, bir dosya kümesi için eşitleme topolojisini tanımlar. Bir eşitleme grubu içindeki uç noktaları birbiriyle eşitlenir. Örneğin, iki ayrı Azure dosya eşitleme ile yönetmek istediğiniz dosyaları kümesi varsa, iki eşitleme grubu oluşturma ve farklı uç noktaları her eşitleme grubuna ekleyin. Depolama eşitleme hizmeti, ihtiyacınız kadar eşitleme grupları barındırabilirsiniz.  
+Eşitleme grubu, bir dosya kümesi için eşitleme topolojisini tanımlar. Bir eşitleme grubu içindeki uç noktalar, birbiriyle eşitlenmiş durumda tutulur. Örneğin, iki ayrı Azure dosya eşitleme ile yönetmek istediğiniz dosyaları kümesi varsa, iki eşitleme grubu oluşturma ve farklı uç noktaları her eşitleme grubuna ekleyin. Depolama eşitleme hizmeti, ihtiyacınız kadar eşitleme grupları barındırabilirsiniz.  
 
 ### <a name="registered-server"></a>Kayıtlı sunucu
 Sunucu (veya küme) arasında bir güven ilişkisi kayıtlı sunucu nesnesini temsil eder ve depolama eşitleme hizmeti. Depolama eşitleme hizmeti örneğine istediğiniz sayıda sunucusu kaydedebilirsiniz. Ancak, bir sunucu (veya küme) aynı anda yalnızca bir depolama eşitleme hizmeti ile kaydedilebilir.
 
 ### <a name="azure-file-sync-agent"></a>Azure dosya eşitleme Aracısı
 Azure Dosya Eşitleme aracısı, Windows Server’ın bir Azure dosya paylaşımı ile eşitlenmesini sağlayan indirilebilir bir pakettir. Azure dosya eşitleme aracısının üç ana bileşeni vardır: 
-- **FileSyncSvc.exe**: arka plan sunucusu uç noktalarda değişiklik izleme ve Azure oturumlarını eşitleme başlatma sorumlu Windows hizmeti.
+- **FileSyncSvc.exe**: Arka plan sunucusu uç noktalarda değişiklik izleme ve Azure oturumlarını eşitleme başlatma sorumlu Windows hizmeti.
 - **StorageSync.sys**: Azure dosyaları'na katmanlama dosyaları için sorumlu olan Azure dosya eşitleme dosya sistemi filtresi (ne zaman bulut katmanlaması etkin).
-- **PowerShell Yönetimi cmdlet'leri**: Microsoft.StorageSync Azure kaynak sağlayıcısı ile etkileşim kurmak için kullandığınız PowerShell cmdlet'leri. Bunlar aşağıdaki (varsayılan) konumda bulabilirsiniz:
+- **PowerShell Yönetimi cmdlet'leri**: PowerShell cmdlet'leri Microsoft.StorageSync Azure kaynak sağlayıcısı ile etkileşim kurmak için kullanın. Bunlar aşağıdaki (varsayılan) konumda bulabilirsiniz:
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
@@ -68,7 +70,7 @@ Bulut katmanlaması olduğundan, sık erişilen dosyaları önbelleğe alınır 
 Bu bölümde, Azure dosya eşitleme Aracısı sistem gereksinimleri ve Windows Server özelliklerini ve rollerini ve üçüncü taraf çözümlerle birlikte çalışabilirlik kapsar.
 
 ### <a name="evaluation-tool"></a>Değerlendirme Aracı
-Azure dosya eşitleme dağıtmadan önce sisteminizin Azure dosya eşitleme Değerlendirme Aracı'nı kullanma ile uyumlu olduğunu değerlendirmelidir. Bu araç, dosya sistemi ve veri kümesi gibi desteklenmeyen karakterler veya desteklenmeyen bir işletim sistemi sürümü ile ilgili olası sorunları denetleyen bir AzureRM PowerShell cmdlet'i kullanılır. Kendi denetimleri en kapsayan Not ancak tüm Aşağıda sözü edilen Özellikler; dağıtımınızın düzgün gider dikkatli bir şekilde sağlamak için bu bölümün geri kalanında okuma öneririz. 
+Azure dosya eşitleme dağıtmadan önce sisteminizin Azure dosya eşitleme Değerlendirme Aracı'nı kullanma ile uyumlu olduğunu değerlendirmelidir. Bu araç için dosya sistemini ve veri kümesi gibi desteklenmeyen karakterler veya desteklenmeyen bir işletim sistemi sürümü ile ilgili olası sorunları kontrol eden bir Azure PowerShell cmdlet'i kullanılır. Kendi denetimleri en kapsayan Not ancak tüm Aşağıda sözü edilen Özellikler; dağıtımınızın düzgün gider dikkatli bir şekilde sağlamak için bu bölümün geri kalanında okuma öneririz. 
 
 #### <a name="download-instructions"></a>Yükleme yönergeleri
 1. PackageManagement en son sürümüne sahip ve PowerShellGet yüklü olduğundan emin olun (Bu, Önizleme modülleri yüklemenize olanak tanır)
@@ -82,29 +84,29 @@ Azure dosya eşitleme dağıtmadan önce sisteminizin Azure dosya eşitleme Değ
 3. Modülleri yükleme
     
     ```PowerShell
-        Install-Module -Name AzureRM.StorageSync -AllowPrerelease
+        Install-Module -Name Az.StorageSync -AllowPrerelease -AllowClobber -Force
     ```
 
 #### <a name="usage"></a>Kullanım  
 Değerlendirme araç birkaç farklı yollarla çağırabilirsiniz: sistem denetimleri, veri kümesi denetimleri veya her ikisi de gerçekleştirebilirsiniz. Sistem ve veri kümesi denetimleri gerçekleştirmek için: 
 
 ```PowerShell
-    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path>
+    Invoke-AzStorageSyncCompatibilityCheck -Path <path>
 ```
 
 Yalnızca Veri kümenizi test etmek için:
 ```PowerShell
-    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+    Invoke-AzStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
 ```
  
 Yalnızca sistem gereksinimleri test etmek için:
 ```PowerShell
-    Invoke-AzureRmStorageSyncCompatibilityCheck -ComputerName <computer name>
+    Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name>
 ```
  
 CSV sonuçları görüntülemek için:
 ```PowerShell
-    $errors = Invoke-AzureRmStorageSyncCompatibilityCheck […]
+    $errors = Invoke-AzStorageSyncCompatibilityCheck […]
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```
 
@@ -170,9 +172,9 @@ Bulut katmanlaması etkin olmayan birimler için Windows Server yinelenen verile
 ### <a name="distributed-file-system-dfs"></a>Dağıtılmış dosya sistemi (DFS)
 Azure dosya eşitleme DFS ad alanları (DFS-N) ve DFS Çoğaltma (DFS-R) ile başlayan ile birlikte desteklediği [Azure dosya eşitleme aracısının 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
 
-**DFS ad alanları (DFS-N)**: Azure dosya eşitleme DFS-N sunucularında tam olarak desteklenir. Bir veya daha fazla DFS-N üye sunucu uç noktaları ve bulut uç noktası arasında verileri eşitleme için Azure dosya eşitleme aracısını yükleyebilirsiniz. Daha fazla bilgi için [DFS ad alanlarına genel bakış](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS ad alanları (DFS-N)**: Azure dosya eşitleme DFS-N sunucularına tam olarak desteklenir. Bir veya daha fazla DFS-N üye sunucu uç noktaları ve bulut uç noktası arasında verileri eşitleme için Azure dosya eşitleme aracısını yükleyebilirsiniz. Daha fazla bilgi için [DFS ad alanlarına genel bakış](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
-**DFS Çoğaltma (DFS-R)**: beri DFS-R ile Azure dosya eşitleme çoğu durumda hem de çoğaltma çözümleri, Azure dosya eşitleme ile DFS-R değiştirerek öneririz. DFS-R ve Azure dosya eşitleme birkaç senaryo istediğiniz birlikte kullanabilirsiniz ancak vardır:
+**DFS Çoğaltma (DFS-R)**: Çoğu durumda, hem de çoğaltma çözümleri DFS-R ve Azure dosya eşitleme olduğundan DFS-R Azure dosya eşitleme ile değiştirerek öneririz. DFS-R ve Azure dosya eşitleme birkaç senaryo istediğiniz birlikte kullanabilirsiniz ancak vardır:
 
 - Azure dosya eşitleme dağıtımı için DFS-R dağıtımdan geçiriliyor. Daha fazla bilgi için [DFS Çoğaltma (DFS-R) dağıtımı için Azure dosya eşitleme geçirme](storage-sync-files-deployment-guide.md#migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync).
 - Dosya verilerinizin bir kopyasının gereken her şirket içi sunucu doğrudan internet'e bağlanabilir.

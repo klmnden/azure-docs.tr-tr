@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 71be338aeb6d0234d22d412d6838e36a26797b20
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5a74097521cc7dceea2c47f78c1dbb2f17e292aa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002122"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726689"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Kullanarak mevcut Node.js Azure Mobile Services'ı App Service'a yükseltme
 App Service Mobile, Microsoft Azure kullanarak mobil uygulamalar derlemek için yepyeni bir yoludur. Daha fazla bilgi için bkz. [Mobile Apps nedir?].
@@ -98,7 +98,7 @@ Dağıtım sırasında aşağıdakileri yapmanız gerekir:
 2. **+YENİ** > **Web + Mobil** > **Mobil Uygulama**’ya tıklayıp Mobile Uygulama arka ucu için bir ad verin.
 3. **Kaynak Grubu** için yeni bir kaynak grubu seçin ya da yeni bir tane oluşturun (uygulamanızla aynı adı kullanarak).
 
-    Başka bir App Service planı seçin veya yeni bir tane oluşturun. Uygulama Hizmetleri planları, farklı fiyatlandırma katmanında ve tercih ettiğiniz konumda yeni plan oluşturma hakkında daha fazla bilgi için bkz. [Azure App Service planlarına ayrıntılı genel bakış](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+    Başka bir App Service planı seçin veya yeni bir tane oluşturun. Uygulama Hizmetleri planları, farklı fiyatlandırma katmanında ve tercih ettiğiniz konumda yeni plan oluşturma hakkında daha fazla bilgi için bkz. [Azure App Service planlarına ayrıntılı genel bakış](../app-service/overview-hosting-plans.md).
 4. **App Service planı** için, varsayılan plan ([Standart katman](https://azure.microsoft.com/pricing/details/app-service/)’da) seçilidir. Aynı zamanda başka bir plan da seçebilir veya [yeni bir tane oluşturabilirsiniz](../app-service/app-service-plan-manage.md#create-an-app-service-plan). App Service planının ayarları belirlemek [konumu, özellikleri, maliyeti ve işlem kaynaklarını](https://azure.microsoft.com/pricing/details/app-service/) uygulamanızla ilişkili.
 
     Planla ilgili kararı verdikten sonra **Oluştur**’a tıklayın. Böylece Mobil Uygulama arka uç oluşturulur.
@@ -162,7 +162,7 @@ Yeni istemci sürümü hazır olduğunda, yükseltilen sunucu projenizi karşı 
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [App Service fiyatlandırması]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Kimlik doğrulaması kavramları]: ../app-service/app-service-authentication-overview.md
+[Kimlik doğrulaması kavramları]: ../app-service/overview-authentication-authorization.md
 [Kimlik doğrulama-hızlı başlangıç]: app-service-mobile-auth.md
 
 [Azure Portal]: https://portal.azure.com/

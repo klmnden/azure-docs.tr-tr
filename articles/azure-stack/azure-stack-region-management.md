@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/27/2018
 ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 9a10d4fc90b916b3cb1eda7b9bac99c5d5f9deba
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 80a8414d98eba984f2427f5f746cd0e1061248a4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160792"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726927"
 ---
 # <a name="region-management-in-azure-stack"></a>Azure stack'teki bölge Yönetimi
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Azure Stack kavramını kullanır *bölgeleri*, Azure Stack altyapısını oluşturan donanım kaynakları oluşan mantıksal varlıkların olduğu. Bölge Yönetimi'nde, Azure Stack altyapısının başarılı biçimde çalışması için gerekli tüm kaynakları bulabilirsiniz.
 
@@ -34,11 +34,11 @@ Bir tümleşik sistemi dağıtımı (olarak adlandırılan bir *Azure Stack bulu
 
 Azure Stack sahip bir dizi içinde kullanılabilen bölge yönetim özellikleri **bölge Yönetimi** Döşe. Bu kutucuk, Yönetici portalı'ndaki varsayılan Panoda Azure Stack operatörü için kullanılabilir. Bu kutucuğu aracılığıyla izleyin ve Azure Stack bölgeniz ve bölgeye özgü bileşenlerinden güncelleştirin.
 
-![Bölge Yönetimi kutucuğu](media/azure-stack-manage-region/image1.png)
+![Bölge Yönetimi kutucuğu](media/azure-stack-region-management/image1.png)
 
 Bir bölgede tıklarsanız **bölge Yönetimi** kutucuğu, aşağıdaki bilgileri erişebilirsiniz:
 
-![Bölge Yönetimi dikey penceresinde bölmeleri açıklaması](media/azure-stack-manage-region/image2.png)
+[ ![Bölge Yönetimi dikey penceresinde bölmeleri açıklamasını](media/azure-stack-region-management/regionssm.png "bölge Yönetimi dikey penceresi") ](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **Kaynak menüsünde**. Belirli bir altyapı Yönetimi alanlara erişmek ve görüntüleyin ve depolama hesapları ve sanal ağlar gibi kullanıcı kaynaklarını yönetin.
 
@@ -49,6 +49,8 @@ Bir bölgede tıklarsanız **bölge Yönetimi** kutucuğu, aşağıdaki bilgiler
 4. **Kaynak sağlayıcıları**. Azure Stack'i çalıştırmak için gerekli bileşenler tarafından sunulan kullanıcı işlevselliği yönetin. Her kaynak sağlayıcısı, bir yönetim deneyimi ile birlikte gelir. Bu deneyim, belirli bir sağlayıcıyı, ölçümleri ve diğer yönetim özelliklerini kaynak sağlayıcıya özel uyarıları içerebilir.
 
 5. **Altyapı rollerini**. Azure Stack'i çalıştırmak için gereken bileşenler. Uyarı raporu altyapı rolleri listelenir. Bir rolü seçerek rolü ve bu rolün çalıştığı rol örneği ile ilişkili uyarıları görüntüleyebilirsiniz.
+
+6. **Özellikleri**. Kayıt durumu ve bölge yönetim dikey penceresindeki ortamınızın ayrıntılarını. Durum olabilir **kayıtlı** veya **kayıtlı**. Kaydettiyseniz, Azure Stack, adını ve kayıt kaynak grubunun yanı sıra kaydolmak için kullandığınız ayrıca Azure abonelik Kimliğini gösterir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

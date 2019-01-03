@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Veri Ambarı'na Bağlanma sqlcmd | Microsoft Belgeleri
-description: Bir Azure SQL Veri Ambarı’na bağlanmak ve sorgu göndermek için [sqlcmd][sqlcmd] komut satırı yardımcı programını kullanın.
+description: Bağlanmak ve bir Azure SQL Data Warehouse'u sorgulamak için SQLCMD komut satırı yardımcı programını kullanın.
 services: sql-data-warehouse
 author: kavithaj
 manager: craigg
@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 94f3955f9ce94fa52e89180fa649c4e412b80109
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2534d668132db4c66b5e54c33849b76a8f93c348
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247722"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976418"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>sqlcmd ile SQL Data Warehouse'a bağlanma
 > [!div class="op_single_selector"]
@@ -32,14 +32,14 @@ Bir Azure SQL Veri Ambarı’na bağlanmak ve sorgu göndermek için [sqlcmd][sq
 ## <a name="1-connect"></a>1. Bağlan
 **Sqlcmd** kullanmaya başlamadan önce komut istemini açın ve [sqlcmd][sqlcmd] öğesinden sonra SQL Veri Ambarı veritabanınızın bağlantı dizesini girin. Bağlantı dizesi için aşağıdaki parametreler gereklidir:
 
-* **Server (-S):** `<`Sunucu Adı`>`.database.windows.net biçiminde belirtilmiş sunucu
-* **Database (-d):** Veritabanı adı.
-* **Tırnak İşaretli Tanımlayıcıları Etkinleştir (-I):** Bir SQL Veri Ambarı örneğine bağlanmak için tırnak işaretli tanımlayıcıların etkinleştirilmesi gerekir.
+* **Sunucu (-S):** Sunucu biçiminde `<`sunucu adı`>`. database.windows.net
+* **Veritabanı (-d):** Veritabanı adı.
+* **Enable Quoted tanımlayıcıları (-ı):** Bir SQL Data Warehouse örneğine bağlanmak için tırnak işaretli tanımlayıcıların etkinleştirilmesi gerekir.
 
 SQL Server Kimlik Doğrulamasını kullanmak için kullanıcı adı/parola parametrelerini eklemeniz gerekir:
 
-* **User (-U):** `<`Kullanıcı`>` biçimindeki sunucu kullanıcısı
-* **Password (-P):** Kullanıcıyla ilişkili parola.
+* **Kullanıcı (-U):** Biçimindeki sunucu kullanıcısı `<`kullanıcı`>`
+* **Parola (-P):** Kullanıcıyla ilişkili parola.
 
 Örneğin, bağlantı dizeniz aşağıdaki gibi görünebilir:
 

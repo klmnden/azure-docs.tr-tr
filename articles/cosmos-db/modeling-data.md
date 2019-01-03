@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: 5b75f620194a58aa7801fe390148a327a319c4a3
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0197c11673f49214dc2cea09b53290993a00c6b3
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166651"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744947"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>NoSQL veritabanları için belge verilerini modelleme
 
@@ -71,7 +71,7 @@ Yazma işlemleri, tek bir kişi, iletişim ayrıntılarını ve adresleri ile g�
         ] 
     }
 
-Artık sahibiz yukarıdaki yaklaşımı kullanarak **normalleştirilmişlikten çıkarılmış** kişi nereye kaydetmek size **katıştırılmış** gibi kendi kişi ayrıntıları ve adresler, bu kişi, tek bir JSON ile ilgili tüm bilgileri Belge.
+Artık sahibiz yukarıdaki yaklaşımı kullanarak **normalleştirilmişlikten çıkarılmış** kişi nereye kaydetmek size **katıştırılmış** gibi kendi kişi ayrıntıları ve adresler, bu kişinin tek bir JSON ile ilgili tüm bilgileri Belge.
 Ayrıca, biz için sabit bir şema sınırlı değil çünkü biz farklı şekiller kişi ayrıntılarını tamamen sahip gibi şeyleri esnekliğine sahipsiniz. 
 
 Veritabanından bir tam kişi kaydı alma tek bir okuma işlemi tek bir koleksiyon karşı ve tek bir belgenin sunulmuştur. Bir kişi kaydı, iletişim ayrıntılarını ve adresleri ile güncelleştirilmesi, bir tek bir yazma işlemi tek bir belge olan.
@@ -172,7 +172,7 @@ Bu JSON parçacığı yararlanın.
         ]
     }
 
-Bu, bir kişinin stok Portföy temsil eder. Portföy her belge için stok bilgileri eklemek seçtik. İlgili veriler sıklıkla değişiyorsa olduğu bir ortamda uygulama alım-satım, sık sık değişen veriler Katıştırılıyor stok gibi bir hisse senedi satılan her zaman her Portföy belge sürekli olarak güncelleştirdiğiniz anlamına zordur.
+Bu, bir kişinin stok Portföy temsil eder. Her Portföy belgesine hisse senedi bilgi eklemek seçtik. İlgili veriler sıklıkla değişiyorsa olduğu bir ortamda uygulama alım-satım, sık sık değişen veriler Katıştırılıyor stok gibi bir hisse senedi satılan her zaman her Portföy belge sürekli olarak güncelleştirdiğiniz anlamına zordur.
 
 Hisse senedi *zaza* yüzlerce kez tek bir satılan gün ve binlerce kullanıcıya sahip olabilir *zaza* Portföyüne üzerinde. Yukarıdaki birçok kez yüzlerce Portföy belgeleri güncelleştirmek için gerekir gibi bir veri modeli ile bir sisteme önde gelen her gün, iyi ölçeklendirme olmaz. 
 
@@ -259,7 +259,7 @@ Biz, Yayımcılar ve kitapları modeller JSON yanıtına aşağıdaki bakarsanı
     ...
     {"id": "100", "name": "Learn about Azure Cosmos DB" }
     ...
-    {"id": "1000", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
 
 Yayımcı başına books sayısı ile sınırlı büyüme küçükse, ardından yayımcı belge içinde kitap başvuru depolamak yararlı olabilir. Yayımcı başına books sayısını sınırsız olarak ise, ancak daha sonra bu veri modeli Yukarıdaki örnek yayımcı belgeyi olduğu gibi değişebilir, büyüyen dizilerine sunulmasını sağlar. 
 
@@ -278,7 +278,7 @@ Bir bit etrafında şeyler geçiş hala aynı verileri temsil eder, ancak artık
     ...
     {"id": "100","name": "Learn about Azure Cosmos DB", "pub-id": "mspress"}
     ...
-    {"id": "1000","name": "Deep Dive in to Azure Cosmos DB", "pub-id": "mspress"}
+    {"id": "1000","name": "Deep Dive into Azure Cosmos DB", "pub-id": "mspress"}
 
 Yukarıdaki örnekte, biz yayımcı belge üzerinde sınırsız koleksiyon bırakılan. Bunun yerine yalnızca yayımcı başvuru her kitap belgeyi sahibiz.
 
@@ -298,7 +298,7 @@ Belgeleri kullanarak aynı şeyi çoğaltmak, aşağıdakine benzer bir veri mod
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users" }
     {"id": "b3", "name": "Taking over the world one JSON doc at a time" }
     {"id": "b4", "name": "Learn about Azure Cosmos DB" }
-    {"id": "b5", "name": "Deep Dive in to Azure Cosmos DB" }
+    {"id": "b5", "name": "Deep Dive into Azure Cosmos DB" }
 
     Joining documents: 
     {"authorId": "a1", "bookId": "b1" }
@@ -319,7 +319,7 @@ Aşağıdakileri göz önünde bulundurun.
     {"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
-    {"id": "b4", "name": "Deep Dive in to Azure Cosmos DB", "authors": ["a2"]}
+    {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
 
 Artık, ı yazar varsa hemen yazılmış hangi kitapları biliyorum ve ben yüklenen bir kitap belge varsa buna karşılık yazarları kimliklerini biliyorum. Bu, sunucu sayısını gidiş dönüşleri uygulamanızın yapması gereken tablo birleştirme azaltma karşı Ara sorgu kaydeder. 
 
@@ -381,7 +381,7 @@ Emin yazarın adı değiştirilmiş ya da fotoğrafını güncelleştirme istedi
 
 Örnekte, vardır **toplamalar'önceden hesaplanan** okuma işlemi pahalı işleme kaydetmek için değerler. Örnekte, yazar belgeye gömülü verilerin bazıları, çalışma zamanında hesaplanır verilerdir. Yeni bir kitap her yayımlandığında bir kitap belge oluşturulur **ve** countOfBooks alanı belirli bir yazar için mevcut kitap belgelerin göre hesaplanan bir değere ayarlanır. Bu iyileştirme biz okuma iyileştirmek için yazma işlemleri üzerinde hesaplamalar yapmak burada gücünüze okuma yoğun sistemleri yararlı olabilir.
 
-Azure Cosmos DB desteklediğinden önceden hesaplanan alanlar modeliyle yeteneğini mümkün hale getirilir **çok belgeli işlemler**. Birçok NoSQL deposu, belgeler arasında işlemleri yapmak ve tasarım kararları, "her zaman her şeyi, bu sınırlama nedeniyle ekleme" gibi bu nedenle Danışmanı. Azure Cosmos DB ile sunucu tarafı Tetikleyiciler veya books ekleyebileceğiniz ve yazarlar bir ACID işlemi içinde tüm güncelleştirme saklı yordamları kullanabilirsiniz. Sizin artık **sahip** her şeyi yalnızca verilerinizi tutarlı kalmasından emin olmak için bir belge için katıştırmak için.
+Azure Cosmos DB desteklediğinden önceden hesaplanan alanlar modeliyle yeteneğini mümkün hale getirilir **çok belgeli işlemler**. Birçok NoSQL deposu, belgeler arasında işlemleri yapmak ve tasarım kararları, "her zaman her şeyi, bu sınırlama nedeniyle ekleme" gibi bu nedenle Danışmanı. Azure Cosmos DB ile sunucu tarafı Tetikleyiciler veya books ekleyebileceğiniz ve yazarlar bir ACID işlemi içinde tüm güncelleştirme saklı yordamları kullanabilirsiniz. Sizin artık **sahip** her şeyi yalnızca verilerinizi tutarlı kalmasından emin olmak için bir belgeye gömülecek.
 
 ## <a name="NextSteps"></a>Sonraki adımlar
 Şemadan bağımsız bir dünyada modelleme verileri olarak şimdiye kadar önemli olduğunu anlamak için bu makaledeki büyük paketler var. 

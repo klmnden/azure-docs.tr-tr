@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4496a0fd3ec220d03c4cc279876234b503b0dbb6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231643"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720875"
 ---
-# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS koruması: en iyi uygulamalar ve başvuru mimarileri
+# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS koruması: En iyi yöntemler ve başvuru mimarileri
 
 Bu makalede, BT karar alma mekanizmaları ve personel güvenlik içindir. Azure ile ilgili bilgi sahibi olduğunuz bekliyor ağ ve güvenlik.
 
@@ -81,7 +81,7 @@ Uygulamanın bir uygulama tarafından hedeflenen hizmet reddi işlemek için day
 
 Bir sistemin artan yükü ne kadar iyi işleyebilir ölçeklenebilirlik özelliğidir. Uygulamalarınıza tasarlamanız gerekir [yatay olarak genişletmek](https://docs.microsoft.com/azure/architecture/guide/design-principles/scale-out) özellikle bir DDoS saldırısının olması durumunda, yükseltilmiş bir yük talebi karşılamak üzere. Uygulamanızın bağımlı hizmetinin tek bir örneği, bir tek hata noktası oluşturur. Birden fazla sağlama sisteminize karşı daha dayanıklı ve daha ölçeklenebilir hale getirir.
 
-İçin [Azure App Service](../app-service/app-service-value-prop-what-is.md)seçin bir [App Service planı](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) , birden çok örneği sunar. Azure Cloud Services için her rolünüz kullanmak için yapılandırma [birden çok örneği](../cloud-services/cloud-services-choose-me.md). İçin [Azure sanal makineler](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), sanal makine (VM) Mimarinizi birden fazla VM içerir ve her VM'nin dahil olun bir [kullanılabilirlik kümesi](../virtual-machines/virtual-machines-windows-manage-availability.md). Kullanmanızı öneririz [sanal makine ölçek kümeleri](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) otomatik ölçeklendirme özellikleri için.
+İçin [Azure App Service](../app-service/app-service-value-prop-what-is.md)seçin bir [App Service planı](../app-service/overview-hosting-plans.md) , birden çok örneği sunar. Azure Cloud Services için her rolünüz kullanmak için yapılandırma [birden çok örneği](../cloud-services/cloud-services-choose-me.md). İçin [Azure sanal makineler](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), sanal makine (VM) Mimarinizi birden fazla VM içerir ve her VM'nin dahil olun bir [kullanılabilirlik kümesi](../virtual-machines/virtual-machines-windows-manage-availability.md). Kullanmanızı öneririz [sanal makine ölçek kümeleri](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) otomatik ölçeklendirme özellikleri için.
 
 ### <a name="defense-in-depth"></a>Derinlemesine savunma
 
@@ -96,7 +96,7 @@ Genellikle müşterilerin şirket kaynakları Azure kaynaklarını birlikte Sald
 
 ## <a name="azure-offerings-for-ddos-protection"></a>DDoS koruması için Azure teklifleri
 
-Azure (Katman 3 ve 4) ağ saldırılarına karşı koruma sağlamak için iki DDoS hizmet teklifleri sahiptir: DDoS koruması temel ve standart DDoS koruma. 
+Azure (Katman 3 ve 4) ağ saldırılarına karşı koruma sağlamak için iki DDoS hizmet teklifleri sahiptir: DDoS koruması temel ve DDoS koruma standardını. 
 
 ### <a name="ddos-protection-basic"></a>DDoS koruması temel
 

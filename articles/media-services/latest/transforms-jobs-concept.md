@@ -9,20 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/20/2018
 ms.author: juliako
-ms.openlocfilehash: e13afe26d06f5b5b2dcf7eddf00f9ee481312b2c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 95079813cf3ade41d17393168116e4767ca26e99
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024271"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742788"
 ---
-# <a name="transforms-and-jobs"></a>Dönüşümler ve işler
+# <a name="transforms-and-jobs"></a>Dönüşümler ve İşler
  
-Azure Media Services v3 tanıtır kodlamak ve/veya adlı videolarınızı analiz için kullanmak istediğiniz bir tarif için yeni bir şablonlu iş akışı kaynak [dönüştüren](https://docs.microsoft.com/rest/api/media/transforms). **Dönüşümler** kodlama veya videoları analiz için ortak görevler yapılandırmak için kullanılabilir. Her **dönüştürme** bir tarif veya bir iş akışı, video veya ses dosyalarını işlemek için görevler açıklanmaktadır. 
+Kullanım [dönüştüren](https://docs.microsoft.com/rest/api/media/transforms) kodlama veya videoları analiz için ortak görevler yapılandırmak için. Her **dönüştürme** bir tarif veya bir iş akışı, video veya ses dosyalarını işlemek için görevler açıklanmaktadır. 
 
-A **iş** uygulamak için Azure Media Services için fiili istek **dönüştürme** belirli bir giriş video veya ses içeriği için. **İş** konumun video giriş ve çıkış konumunu gibi bilgileri belirtir. Giriş video kullanarak konumu belirtebilirsiniz: HTTPs URL'leri, SAS URL'lerini veya [medya Hizmetleri varlıklar](https://docs.microsoft.com/rest/api/media/assets).  
+A [iş](https://docs.microsoft.com/rest/api/media/jobs) uygulamak için Azure Media Services için fiili istek **dönüştürme** belirli bir giriş video veya ses içeriği için. **İş** konumun video giriş ve çıkış konumunu gibi bilgileri belirtir. Giriş video kullanarak konumu belirtebilirsiniz: HTTPS URL'leri, SAS URL'lerini veya [medya Hizmetleri varlıklar](https://docs.microsoft.com/rest/api/media/assets).  
 
 ## <a name="typical-workflow"></a>Tipik iş akışı
 

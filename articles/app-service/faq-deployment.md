@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 833b655246035fa3eb9a820316a95b73eed5b2bd
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07d233ba50f4253b4ea3097748b9c58142e08a91
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389151"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549437"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure Web Apps'te dağıtım hakkında SSS
 
@@ -36,7 +36,7 @@ Web uygulaması kodunuzu yayımlamak için bazı seçenekler şunlardır:
 *   Visual Studio kullanarak dağıtın. Visual Studio çözümünüz varsa, web uygulaması projesine sağ tıklayın ve ardından **Yayımla**.
 *   Bir FTP istemcisi kullanarak dağıtın. Azure portalında, kodunuzu dağıtmak istediğiniz web uygulaması için yayımlama profili indirin. Ardından, dosyaları \site\wwwroot için yayımlama profili FTP kimlik bilgilerini kullanarak yükleyin.
 
-Daha fazla bilgi için [uygulamanızı App Service'e dağıtma](app-service-deploy-local-git.md).
+Daha fazla bilgi için [uygulamanızı App Service'e dağıtma](deploy-local-git.md).
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Visual Studio'dan dağıtmak çalıştığınızda bir hata iletisi konusuna bakın. Bu nasıl giderebilirim?
 
@@ -51,7 +51,7 @@ Bu hatayı gidermek için yükseltme [en son SDK'sı](https://azure.microsoft.co
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Dağıtım kimlik bilgileri farklı türleri nelerdir?
 
-App Service, yerel Git dağıtımı ve FTP/S dağıtımı için iki tür kimlik bilgilerini destekler. Dağıtım kimlik bilgilerini yapılandırma hakkında daha fazla bilgi için bkz. [App Service için dağıtım kimlik bilgilerini yapılandırma](app-service-deployment-credentials.md).
+App Service, yerel Git dağıtımı ve FTP/S dağıtımı için iki tür kimlik bilgilerini destekler. Dağıtım kimlik bilgilerini yapılandırma hakkında daha fazla bilgi için bkz. [App Service için dağıtım kimlik bilgilerini yapılandırma](deploy-configure-credentials.md).
 
 ## <a name="what-is-the-file-or-directory-structure-of-my-app-service-web-app"></a>My App Service web uygulaması dosya veya dizin yapısı nedir?
 
@@ -63,7 +63,7 @@ Bu iletiyi görürseniz, bir disk kotası web uygulamanız için service planın
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>App Service web Uygulamam için sürekli dağıtımı nasıl ayarlayabilirim?
 
-Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox ve diğer Git depoları da dahil olmak üzere çeşitli kaynaklardan sürekli dağıtım ayarlayabilirsiniz. Bu seçenekler, portalda kullanılabilir. [App Service'e sürekli dağıtımı](app-service-continuous-deployment.md) sürekli dağıtımı ayarlamak üzere nasıl açıklayan yardımcı bir öğreticidir.
+Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox ve diğer Git depoları da dahil olmak üzere çeşitli kaynaklardan sürekli dağıtım ayarlayabilirsiniz. Bu seçenekler, portalda kullanılabilir. [App Service'e sürekli dağıtımı](deploy-continuous-deployment.md) sürekli dağıtımı ayarlamak üzere nasıl açıklayan yardımcı bir öğreticidir.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>GitHub ve bitbucket aracılığıyla sürekli dağıtım ile ilgili sorunları nasıl giderebilirim?
 
@@ -100,4 +100,4 @@ Kod sürekli dağıtım için bu seçeneklerin mevcut Geliştirici iş akışlar
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Uygulamam için App Service dağıtmak için FTP veya FTPS nasıl kullanırım?
 
-Web uygulamanızı App Service'e dağıtmak için FTP veya FTPS kullanma hakkında daha fazla bilgi için bkz: [FTP/S kullanarak uygulamanızı App Service'e dağıtma](app-service-deploy-ftp.md).
+Web uygulamanızı App Service'e dağıtmak için FTP veya FTPS kullanma hakkında daha fazla bilgi için bkz: [FTP/S kullanarak uygulamanızı App Service'e dağıtma](deploy-ftp.md).

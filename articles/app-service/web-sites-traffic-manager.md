@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 85405a96d141188203ddc88410c96654667fa83a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 11e5a654f2bfcb497eec3a4dfea81f3684f5b551
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270119"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599817"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Azure Traffic Manager ile Azure App Service trafiğini denetleme
 > [!NOTE]
@@ -52,7 +52,7 @@ Azure Traffic Manager ile Azure kullanırken aşağıdaki noktaları göz önün
 * Bu gibi durumlarda, bir App Service uç nokta bölge başına yalnızca bir profilinde belirtebilirsiniz. Bir bölge için bir uç nokta olarak bir uygulama seçtiğinizde, bu bölgedeki diğer uygulamalar bu profil için seçimi için kullanılamaz duruma gelir.
 * Bir Azure Traffic Manager profilinde belirttiğiniz uygulama hizmet uç noktaları altında görünür **etki alanı adları** bölümünde Yapılandır sayfasında uygulama profilinde, ancak için yapılandırılabilir vardır.
 * Bir profil için bir uygulamayı ekledikten sonra **Site URL'si** bir ayarlamış olduğunuz uygulamasının özel etki alanı URL'si uygulamanın portal sayfasının panosunda görüntülenir. Aksi takdirde, Traffic Manager profil URL'sini gösterir (örneğin, `contoso.trafficmanager.net`). Hem doğrudan etki alanı adı uygulamanın ve Traffic Manager URL'si altında uygulamanın yapılandırma sayfasında görünür **etki alanı adları** bölümü.
-* Özel etki alanı adlarınızı beklendiği gibi ancak bunları uygulamalarınıza ekleyerek ek olarak iş, DNS haritanızı Traffic Manager URL'sine işaret edecek şekilde yapılandırmanız da gerekir. Bir App Service uygulaması için özel bir etki alanı ayarlama hakkında daha fazla bilgi için bkz: [mevcut bir özel DNS adını Azure Web Apps ile eşleme](app-service-web-tutorial-custom-domain.md).
+* Özel etki alanı adlarınızı beklendiği gibi ancak bunları uygulamalarınıza ekleyerek ek olarak iş, DNS haritanızı Traffic Manager URL'sine işaret edecek şekilde yapılandırmanız da gerekir. Bir App Service uygulaması için özel bir etki alanı ayarlama hakkında daha fazla bilgi için bkz: [mevcut bir özel DNS adını Azure App Service'e eşlemek](app-service-web-tutorial-custom-domain.md).
 * Yalnızca standart veya premium modunda bir Azure Traffic Manager profili için uygulamalar ekleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar

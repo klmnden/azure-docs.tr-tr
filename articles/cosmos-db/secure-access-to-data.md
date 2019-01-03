@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2018
 ms.author: rafats
-ms.openlocfilehash: 1d1bc011de579588567fac3debe9d0b4af5d29f7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c203334b0ea1b47aa1884155f477e34bd8f2e1db
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878357"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724768"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Azure Cosmos DB verilere erişimin güvenliğini sağlama
 Bu makalede depolanan verilere erişimin güvenliğini sağlama genel bir bakış sağlar [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -128,7 +128,7 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 Bir Cosmos DB izni kaynak bir Cosmos DB kullanıcıyla ilişkili olur.  Her bir kullanıcı, sıfır veya daha fazla Cosmos DB izinleri içerebilir.  Bir izni kaynak kullanıcının belirli bir uygulama bir kaynağa erişmeye çalışırken gereken bir güvenlik belirteci erişim sağlar.
 Bir izni kaynak tarafından sağlanan iki kullanılabilir erişim düzeyi vardır:
 
-* Tümü: Kullanıcı, kaynağın tam izne sahiptir.
+* Tüm: Kullanıcı, kaynağın tam izni vardır.
 * Okuma: Kullanıcı yalnızca kaynak içeriğini okuyabilir, ancak yazma, güncelleştirme veya silme işlemleri kaynak üzerinde gerçekleştirilemiyor.
 
 > [!NOTE]
@@ -188,7 +188,7 @@ Azure Cosmos DB hesabı okuyucusu erişimi kullanıcı hesabınıza eklemek içi
 Varlık, artık Azure Cosmos DB kaynaklarını okuyabilir.
 
 ## <a name="delete-or-export-user-data"></a>Kullanıcı verilerini dışarı aktarma veya silme
-Azure Cosmos DB, arayın, seçin, değiştirmek ve veritabanı veya koleksiyon içinde bulunan herhangi bir kişisel verilerini silme sağlar. Azure Cosmos DB API'leri bulup ancak kişisel verilerini silme sağlar, API'leri ve kişisel verileri silmek için gerekli mantığı tanımlamak için sizin sorumluluğunuzdadır. Farklı dil aramak ve kişisel verilerini silme yöntemlerini içeren SDK'ları her çok modelli bir API (SQL API'si, MongoDB API, Gremlin API'si, Cassandra API, tablo API'si) sağlar. Ayrıca etkinleştirebilirsiniz [süresi (TTL) canlı](time-to-live.md) belirli bir süre sonra otomatik olarak silmek herhangi bir ek ücret ödemeden veri özelliği.
+Azure Cosmos DB, arayın, seçin, değiştirmek ve veritabanı veya koleksiyon içinde bulunan herhangi bir kişisel verilerini silme sağlar. Azure Cosmos DB API'leri bulup ancak kişisel verilerini silme sağlar, API'leri ve kişisel verileri silmek için gerekli mantığı tanımlamak için sizin sorumluluğunuzdadır. Her çok modelli bir API (SQL, MongoDB, Gremlin, Cassandra, tablo) farklı dil aramak ve kişisel verilerini silme yöntemlerini içeren SDK'lar sağlar. Ayrıca etkinleştirebilirsiniz [süresi (TTL) canlı](time-to-live.md) belirli bir süre sonra otomatik olarak silmek herhangi bir ek ücret ödemeden veri özelliği.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

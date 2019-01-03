@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 6a9f3fcb372606e7f608b5137fb1ed15376d72d9
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6f6dac37d1114e8a9faa16c07fd5c14a90a5b0fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407346"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976741"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux'ta App Service için Java Geliştirici Kılavuzu
 
@@ -28,7 +28,7 @@ Bu kılavuzu temel kavramları ve Linux için App Service kullanarak Java geliş
 
 ## <a name="logging-and-debugging-apps"></a>Günlüğe kaydetme ve hata ayıklama uygulamaları
 
-Performans raporları, trafiği görselleştirmeler ve sistem durumu denetlemeler Azure portalı üzerinden eeach uygulama için kullanılabilir. Bkz: [Azure App Service tanılama genel bakış](/azure/app-service/app-service-diagnostics) erişmek ve bu tanılama araçları kullanma hakkında daha fazla bilgi için.
+Performans raporları, trafiği görselleştirmeler ve sistem durumu denetlemeler Azure portalı üzerinden eeach uygulama için kullanılabilir. Bkz: [Azure App Service tanılama genel bakış](/azure/app-service/overview-diagnostics) erişmek ve bu tanılama araçları kullanma hakkında daha fazla bilgi için.
 
 ## <a name="application-performance-monitoring"></a>Uygulama performansı izleme
 
@@ -54,11 +54,11 @@ Konsolu kullanarak günlükleri akışını `az webapp log tail`:
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-Daha fazla bilgi için [akış günlükleri Azure CLI ile](../web-sites-enable-diagnostic-log.md#streaming-with-azure-cli).
+Daha fazla bilgi için [akış günlükleri Azure CLI ile](../troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
 
 ### <a name="app-logging"></a>Uygulama günlüğü
 
-Etkinleştirme [uygulama günlüğü](/azure/app-service/web-sites-enable-diagnostic-log#enablediag) Azure portalından veya [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) App Service'nın yerel, uygulamanızın standart konsol çıkışı ve standart konsol hatası akış yazmak için yapılandırmak için dosya sistemi veya Azure Blob Depolama. Yerel App Service dosya sisteminde oturum örnek 12 saat yapılandırıldıktan sonra devre dışı bırakıldı. Daha uzun bekletme süresi gerekiyorsa, bir Blob Depolama kapsayıcısına çıkışını yazmak için uygulamayı yapılandırma.
+Etkinleştirme [uygulama günlüğü](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) Azure portalından veya [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) App Service'nın yerel, uygulamanızın standart konsol çıkışı ve standart konsol hatası akış yazmak için yapılandırmak için dosya sistemi veya Azure Blob Depolama. Yerel App Service dosya sisteminde oturum örnek 12 saat yapılandırıldıktan sonra devre dışı bırakıldı. Daha uzun bekletme süresi gerekiyorsa, bir Blob Depolama kapsayıcısına çıkışını yazmak için uygulamayı yapılandırma.
 
 Uygulamanız kullanıyorsa [Logback](https://logback.qos.ch/) veya [Log4j](https://logging.apache.org/log4j) izleme için günlüğekaydetmeçerçevesiyapılandırmayönergelerikullanarakgözdengeçirmeiçinAzureApplicationInsightsiçindebuizlemeleriniletebilir[Keşfedin Java izleme günlükleri Application Insights'ta](/azure/application-insights/app-insights-java-trace-logs). 
 
@@ -173,9 +173,6 @@ Tomcat, Java veritabanı bağlantısı (JDBC) veya Java Kalıcılık API (JPA) k
 
 Veya "Uygulama ayarlar" dikey penceresinde Azure portalında ortam değişkenlerini ayarlayın.
 
->[!NOTE]
-> Postgres için Azure veritabanı'nı kullanıyorsanız, değiştirin `ssl=true` ile `sslmode=require` JDBC bağlantı dizesi içinde.
-
 Ardından, veri kaynağı bir uygulama veya Tomcat servlet üzerinde çalışan tüm uygulamalar için kullanılabilir olup olmayacağını belirler.
 
 #### <a name="for-application-level-data-sources"></a>Uygulama düzeyi veri kaynakları için: 
@@ -259,7 +256,7 @@ Ardından, veri kaynağı bir uygulama veya Tomcat servlet üzerinde çalışan 
 
     3. SFTP istemcinizi ile yerel tünel bağlantı noktasına bağlanmak ve dosyaları karşıya yükleme `/home/tomcat/lib` klasör.
 
-    Alternatif olarak, JDBC sürücüsünü yüklenecek bir FTP istemcisi kullanabilirsiniz. Aşağıdaki adımları [FTP kimlik bilgilerinizi almak için yönergeler](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+    Alternatif olarak, JDBC sürücüsünü yüklenecek bir FTP istemcisi kullanabilirsiniz. Aşağıdaki adımları [FTP kimlik bilgilerinizi almak için yönergeler](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. Sunucu düzeyinde veri kaynağı oluşturduysanız, App Service Linux uygulamayı yeniden başlatın. Tomcat sıfırlanır `CATALINA_HOME` için `/home/tomcat/conf` ve güncelleştirilmiş yapılandırmayı kullanın.
 

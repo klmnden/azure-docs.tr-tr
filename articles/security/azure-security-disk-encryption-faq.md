@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: ba955e9e71926a513f6c083acb6508b3ec330d17
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: cc9368bfe95aba3da3dba3a4ac4293790bb09cd3
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094568"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754093"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk şifrelemesi için Iaas Vm'leri SSS
 
@@ -44,10 +44,10 @@ Azure Disk şifrelemesi, aşağıdaki Linux sunucusu dağıtımları ve sürüml
 | --- | --- |--- |
 | Ubuntu | 16.04 GÜNLÜK LTS | İşletim sistemi ve veri diski |
 | Ubuntu | 14.04.5-DAILY-LTS | İşletim sistemi ve veri diski |
-| RHEL | 7.5 | Veri diski * |
-| RHEL | 7.4 | Veri diski * |
-| RHEL | 7.3 | Veri diski * |
-| RHEL | 7.2 | Veri diski * |
+| RHEL | 7.5 | İşletim sistemi ve veri disk * |
+| RHEL | 7.4 | İşletim sistemi ve veri disk * |
+| RHEL | 7.3 | İşletim sistemi ve veri disk * |
+| RHEL | 7.2 | İşletim sistemi ve veri disk * |
 | RHEL | 6.8 | Veri diski * |
 | RHEL | 6.7 | Veri diski * |
 | CentOS | 7.4 | İşletim sistemi ve veri diski |
@@ -61,13 +61,13 @@ Azure Disk şifrelemesi, aşağıdaki Linux sunucusu dağıtımları ve sürüml
 | CentOS | 6.5 | Veri diski |
 | openSUSE | 13.2 | Veri diski |
 | SLES | 12 SP1 | Veri diski |
-| SLES | Önceliği: 12-SP1 | Veri diski |
+| SLES | Önceliği: 12 SP1 | Veri diski |
 | SLES | HPC 12 | Veri diski |
 | SLES | Önceliği: 11-SP4 | Veri diski |
 | SLES | 11 SP4 | Veri diski |
 
 
-*__ADE RHEL için veri diski için desteklenir. Geçerli ADE uygulama işletim sistemi diski için çalışır, ancak tüm dünyada şu anda desteklenmiyor. Microsoft ve Red Hat ortaklaşa desteklenen bir çözüm üzerinde çalışıyoruz. Bu arada, başvurabileceğiniz [Linux için Azure Disk şifrelemesi](azure-security-disk-encryption-linux.md) makalesi.__
+*__Yeni ADE uygulama RHEL işletim sistemi ve veri diski RHEL7 Kullandıkça Öde görüntüleri için desteklenir. ADE RHEL Getir Your-kendi-abonelik (BYOS) görüntüler için şu anda desteklenmiyor. Ayrıca bkz [Linux için Azure Disk şifrelemesi](azure-security-disk-encryption-linux.md) makale daha fazla bilgi için.__
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Azure Disk şifrelemesi kullanılarak nasıl başlayabilirsiniz?
 

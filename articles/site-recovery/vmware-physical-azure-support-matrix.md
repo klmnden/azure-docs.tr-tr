@@ -4,15 +4,16 @@ description: VMware Vm'lerini ve fiziksel sunucudan azure'a Azure Site Recovery 
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 12/12/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 7593183093a722f55b2bd638ef551fb1343433c4
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5d457a6b7eb96486a24ca53d9093ffa4f573b774
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323482"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974429"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için destek matrisi
 
@@ -48,12 +49,12 @@ Boş disk alanı | Bekletme sürücüsü için gereken alanı 600 GB.
 İşletim sistemi  | Windows Server 2012 R2 veya Windows Server 2016 |
 İşletim sistemi yerel ayarı | İngilizce (en-us)
 Powerclı | [Powerclı 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "Powerclı 6.0") yüklü olması gerekir.
-Windows Server rolleri | Etkinleştirme: <br> - Active Directory Domain Services <br>- İnternet Bilgi Hizmetleri <br> - Hyper-V |
-Grup İlkeleri| Etkinleştirme: <br> -Komut istemine erişimi engelleyin. <br> -Kayıt defteri düzenleme araçlarına erişimi engelleyin. <br> -Mantıksal dosya ekleri için güven. <br> -Betik yürütmeyi açma. <br> [Daha fazla bilgi](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
-IIS | Emin olun:<br/><br/> -Önceden var olan bir varsayılan Web sitesi yok <br> -Etkinleştir [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Etkinleştir [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı  <br> -Önceden var olan Web sitesi/uygulama bağlantı noktası 443 üzerinde dinleme yok<br>
+Windows Server rolleri | Etkinleştirme: <br/> - Active Directory Domain Services <br/>- İnternet Bilgi Hizmetleri <br/> - Hyper-V |
+Grup İlkeleri| Etkinleştirme: <br/> -Komut istemine erişimi engelleyin. <br/> -Kayıt defteri düzenleme araçlarına erişimi engelleyin. <br/> -Mantıksal dosya ekleri için güven. <br/> -Betik yürütmeyi açma. <br/> [Daha fazla bilgi](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+IIS | Emin olun:<br/><br/> -Önceden var olan bir varsayılan Web sitesi yok <br/> -Etkinleştir [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> -Etkinleştir [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı  <br/> -Önceden var olan Web sitesi/uygulama bağlantı noktası 443 üzerinde dinleme yok<br/>
 NIC türü | VMXNET3 (VMware VM olarak dağıtıldığında)
 IP adresi türü | Statik
-Bağlantı Noktaları | denetim kanalı düzenleme için kullanılan 443)<br>Veri taşıma için kullanılan 9443
+Bağlantı Noktaları | denetim kanalı düzenleme için kullanılan 443)<br/>Veri taşıma için kullanılan 9443
 
 ## <a name="replicated-machines"></a>Çoğaltılan makineler
 
@@ -62,8 +63,8 @@ Site Recovery, desteklenen bir makinede çalışan tüm iş yüklerini çoğalt�
 **Bileşen** | **Ayrıntılar**
 --- | ---
 Makine ayarları | Azure'a çoğaltılan makineler karşılamalıdır [Azure gereksinimleri](#azure-vm-requirements).
-Windows işletim sistemi | 64 bit Windows Server 2016 (Sunucu Çekirdeği, masaüstü deneyimi ile sunucu), Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1. </br></br>  [Windows Server 2008 ile en az SP2 - 32 bit ve 64 bit](migrate-tutorial-windows-server-2008.md) (yalnızca geçiş). </br></br> Windows 2016 Nano sunucu desteklenmiyor.
-Linux işletim sistemi | Red Hat Enterprise Linux: 5.2 için 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.5 <br/><br/>CentOS: 5.2 için 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (çekirdek sürümleri desteklenir)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2 SP3 [ (çekirdek sürümleri desteklenir)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6,8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, Red Hat uyumlu çekirdek veya kesilemeyen Enterprise çekirdeği sürüm 3 (UEK3) çalıştıran 7.5 <br/><br/></br>-Çoğaltılan makineler için SP4 SUSE Linux Enterprise Server 11 SP3 ' yükseltme desteklenmez. Yükseltmek için çoğaltmayı devre dışı bırakın ve yükseltmeden sonra yeniden etkinleştirin.</br></br> - [Daha fazla bilgi edinin](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) Linux ve açık kaynak teknolojisi azure'da desteği hakkında. Site Recovery Azure'da Linux sunucuları çalıştırmak için yük devretme işlemlerini yönetir. Ancak Linux satıcılar yalnızca son yaşam geçmediği dağıtım sürümleri için destek sınırlayabilir.<br/><br/> -Linux dağıtımlarında dağıtım podverze yayın/güncelleştirmenin parçası olan stok çekirdekler desteklenir.<br/><br/> -Korumalı makineler arasında önemli Linux dağıtım sürümleri desteklenmez yükseltme. Yükseltmek için çoğaltmayı devre dışı bırak, işletim sistemini yükseltin ve ardından çoğaltmayı yeniden etkinleştirin.<br/><br/> -Red Hat Enterprise Linux 5.2-5.11 veya CentOS 5.2-5.11 çalıştıran sunucular olmalıdır [Linux Integration Services (LIS) bileşenleri](https://www.microsoft.com/download/details.aspx?id=55106) makineler Azure'da önyüklemesini yapmak için yüklü.
+Windows işletim sistemi | 64 bit Windows Server 2016 (Sunucu Çekirdeği, masaüstü deneyimi ile sunucu), Windows Server 2012 R2, Windows Server 2012, Itanium tabanlı sistemler için Windows Server 2008 R2 ile en az SP1. <br/><br/>  [Windows Server 2008 ile en az SP2 - 32 bit ve 64 bit](migrate-tutorial-windows-server-2008.md) (yalnızca geçiş). <br/><br/> Windows 2016 Nano sunucu desteklenmiyor.
+Linux işletim sistemi | Red Hat Enterprise Linux: 5.2 için 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.5 <br/><br/>CentOS: 5.2 için 5.11<b>\*\*</b>, 6.1 için 6.10<b>\*\*</b>, 7.0 için 7.5 <br/><br/>Ubuntu 14.04 LTS server[ (çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS server[ (çekirdek sürümleri desteklenir)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (çekirdek sürümleri desteklenir)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2 SP3 [ (çekirdek sürümleri desteklenir)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * <br/><br/>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6,8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, Red Hat uyumlu çekirdek veya kesilemeyen Enterprise çekirdeği sürüm 3 (UEK3) çalıştıran 7.5 <br/><br/><br/>-Çoğaltılan makineler için SP4 SUSE Linux Enterprise Server 11 SP3 ' yükseltme desteklenmez. Yükseltmek için çoğaltmayı devre dışı bırakın ve yükseltmeden sonra yeniden etkinleştirin.<br/><br/> - [Daha fazla bilgi edinin](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) Linux ve açık kaynak teknolojisi azure'da desteği hakkında. Site Recovery Azure'da Linux sunucuları çalıştırmak için yük devretme işlemlerini yönetir. Ancak Linux satıcılar yalnızca son yaşam geçmediği dağıtım sürümleri için destek sınırlayabilir.<br/><br/> -Linux dağıtımlarında dağıtım podverze yayın/güncelleştirmenin parçası olan stok çekirdekler desteklenir.<br/><br/> -Korumalı makineler arasında önemli Linux dağıtım sürümleri desteklenmez yükseltme. Yükseltmek için çoğaltmayı devre dışı bırak, işletim sistemini yükseltin ve ardından çoğaltmayı yeniden etkinleştirin.<br/><br/> -Red Hat Enterprise Linux 5.2-5.11 veya CentOS 5.2-5.11 çalıştıran sunucular olmalıdır [Linux Integration Services (LIS) bileşenleri](https://www.microsoft.com/download/details.aspx?id=55106) makineler Azure'da önyüklemesini yapmak için yüklü.
 
 
 
@@ -99,9 +100,9 @@ Debian 8 | [9.16](https://support.microsoft.com/en-in/help/4278275/update-rollup
 
 **Yayın** | **Mobility hizmeti sürümü** | **Çekirdek sürümü** |
 --- | --- | --- |
-SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.20 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için</br></br>SP3 4.4.73-5-default 4.4.156-94.64-default için |
-SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.19 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.96-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.85-default için</br></br>SP3 4.4.73-5-default 4.4.140-94.42-default için |
-SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.18 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için</br></br> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.96-default için</br></br> SP2 4.4.21-69-default 4.4.120-92.70-default için</br></br>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.85-default için</br></br>SP3 4.4.73-5-default 4.4.138-94.39-default için |
+SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.20 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.107-default için<br/><br/> SP2 4.4.21-69-default 4.4.120-92.70-default için<br/><br/>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.98-default için<br/><br/>SP3 4.4.73-5-default 4.4.156-94.64-default için |
+SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.19 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.96-default için<br/><br/> SP2 4.4.21-69-default 4.4.120-92.70-default için<br/><br/>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.85-default için<br/><br/>SP3 4.4.73-5-default 4.4.140-94.42-default için |
+SUSE Linux Enterprise Server (SP1, SP2 SP3) 12 | 9.18 | SP1 3.12.49-11-default 3.12.74-60.64.40-default için<br/><br/> SP1(LTSS) 3.12.74-60.64.45-default 3.12.74-60.64.96-default için<br/><br/> SP2 4.4.21-69-default 4.4.120-92.70-default için<br/><br/>SP2(LTSS) 4.4.121-92.73-default 4.4.121-92.85-default için<br/><br/>SP3 4.4.73-5-default 4.4.138-94.39-default için |
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux dosya sistemleri/Konuk depolama
 
@@ -112,9 +113,11 @@ Birim Yöneticisi | Önce [9.20 sürüm](https://support.microsoft.com/en-in/hel
 Parasanallaştırılmış depolama cihazları | Parasanallaştırılmış sürücüler tarafından dışarı aktarılan cihazlar desteklenmez.
 Birden fazla kuyruk blok g/ç cihazları | Desteklenmiyor.
 HP CCISS depolama denetleyicisi ile fiziksel sunucuları | Desteklenmiyor.
+
+Cihaz/bağlama noktası adlandırma kuralı | Cihaz adı veya bağlama noktası adı benzersiz olmalıdır. Hiçbir iki cihazları/bağlama noktaları büyük/küçük harfe duyarlı adlara sahip olduğundan emin olun. </br> Örnek: Aynı sanal makineye iki cihazını adlandırma *cihaz1* ve *cihaz1* izin verilmiyor.
 Dizinler | Önce [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. Aşağıdaki dizinleri (varsa ayrı bölümler/dosya-sistemleri ayarlanmış) tüm kaynak sunucuyla aynı işletim sistemi diskinde olmalıdır: / (root), makinesiyse, / usr, / usr/local, /var, / etc.</br>2. makinesiyse bir disk bölümünde olmalı ve LVM birim olmaması gerekir.<br/><br/> Gelen [9.20 sürüm](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) ve sonraki sürümlerde, kısıtlama geçerli değildir.
-Boş alan gereksinimleri| 2 GB/root bölümdeki <br/><br/> Yükleme klasöründeki 250 MB
-XFSv5 | Mobilite hizmeti sürümünden 9.10 ileriye doğru XFS dosya sistemleri gibi meta veri sağlama XFSv5 özellikleri desteklenir. Süper blok XFS kullanarak bölümü için denetlenecek xfs_info yardımcı programını kullanın. Ftype 1 olarak ayarlarsanız, XFSv5 özellikleri kullanılıyor olabilir.
+
+Boş alanı gereksinimleri | 2 GB/root bölümdeki <br/><br/> Yükleme klasöründeki XFSv5 250 MB | Mobilite hizmeti sürümünden 9.10 ileriye doğru XFS dosya sistemleri gibi meta veri sağlama XFSv5 özellikleri desteklenir. Süper blok XFS kullanarak bölümü için denetlenecek xfs_info yardımcı programını kullanın. Ftype 1 olarak ayarlarsanız, XFSv5 özellikleri kullanılıyor olabilir.
 
 ## <a name="vmdisk-management"></a>VM/Disk Yönetimi
 
@@ -163,7 +166,7 @@ Konak vsan'ı | VMware için Evet<br/><br/> Fiziksel sunucular için yok
 Konak çok yollu (MPIO) | Evet, Microsoft DSM EMC PowerPath 5.7 SP4, EMC PowerPath DSM ile CLARiiON için test
 Konak sanal birimler (VVols) | VMware için Evet<br/><br/> Fiziksel sunucular için yok
 Konuk/sunucu VMDK | Evet
-Konuk/server EFI/UEFI'ye| Kısmi (geçiş Azure Windows Server 2012 ve üzeri) </br></br> Tablonun sonundaki nota bakın
+Konuk/server EFI/UEFI'ye| Kısmi (geçiş Azure Windows Server 2012 ve üzeri) <br/><br/> Tablonun sonundaki nota bakın
 Konuk/sunucu paylaşılan küme diskine | Hayır
 Konuk/sunucu şifreli disk | Hayır
 Konuk/sunucu NFS | Hayır
@@ -172,7 +175,7 @@ Konuk/sunucu RDM | Evet<br/><br/> Fiziksel sunucular için yok
 Konuk/sunucu disk > 1 TB | Evet<br/><br/>4.095 GB'a kadar
 Konuk/sunucu disk ile 4 K mantıksal ve 4 k fiziksel kesim boyutu | Evet
 Konuk/sunucu disk ile 4K mantıksal ve fiziksel kesim boyutu 512 bayt | Evet
-Bölüştürülmüş bir disk ile Konuk/sunucusu birimi > 4 TB <br><br/>Mantıksal birim yönetimi (LVM)| Evet
+Bölüştürülmüş bir disk ile Konuk/sunucusu birimi > 4 TB <br/><br/>Mantıksal birim yönetimi (LVM)| Evet
 Konuk/sunucu - depolama alanları | Hayır
 Konuk/sunucu sık erişimli Ekle/Kaldır disk | Hayır
 Konuk/sunucu - disk dışlama | Evet
@@ -218,8 +221,8 @@ Azure'a Çoğalttığınız şirket içi Vm'leri bu tabloda özetlenen Azure VM 
 Konuk işletim sistemi | Doğrulama [desteklenen işletim sistemleri](#replicated-machines) çoğaltılan makineler için. | Onay desteklenmeyen başarısız olur.
 Konuk işletim sistemi mimarisi | 64-bit. | Onay desteklenmeyen başarısız olur.
 İşletim sistemi disk boyutu | 2.048 GB. | Onay desteklenmeyen başarısız olur.
-İşletim sistemi disk sayısı | 1 | Onay desteklenmeyen başarısız olur.  
-Veri diski sayısı | 64 veya daha az. | Onay desteklenmeyen başarısız olur.  
+İşletim sistemi disk sayısı | 1 | Onay desteklenmeyen başarısız olur.
+Veri diski sayısı | 64 veya daha az. | Onay desteklenmeyen başarısız olur.
 Veri diski boyutu | 4.095 GB'a kadar | Onay desteklenmeyen başarısız olur.
 Ağ bağdaştırıcıları | Birden çok bağdaştırıcı desteklenir. |
 Paylaşılan VHD | Desteklenmiyor. | Onay desteklenmeyen başarısız olur.

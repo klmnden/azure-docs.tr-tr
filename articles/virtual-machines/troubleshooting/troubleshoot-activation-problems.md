@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 16876a7831ab374637e28165c44d47e0ab059712
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824311"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976381"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Azure Windows sanal makine etkinleştirme sorunlarını giderme
 
@@ -40,7 +40,7 @@ Azure Windows VM etkinleştirmeyi denediğinizde bir hatayla karşılaştıysan�
 **Hata: 0xC004F074 yazılım LicensingService bilgisayarın etkinleştirilemediğini bildirdi. Hiçbir anahtar ManagementService (KMS) bağlantı kurulamadı. Lütfen ek bilgi için uygulama olay günlüğüne bakın.**
 
 ## <a name="cause"></a>Nedeni
-Genellikle, Azure sanal makine etkinleştirme sorunlarını uygun KMS istemci kurulum anahtarı kullanarak Windows VM yapılandırılmamış veya Windows VM (kms.core.windows.net, bağlantı noktası 1668) Azure KMS hizmetine bir bağlantı sorunu varsa oluşur. 
+Genellikle, Azure sanal makine etkinleştirme sorunlarını uygun KMS istemci kurulum anahtarı kullanarak Windows VM yapılandırılmamış veya Windows VM (kms.core.windows.net, bağlantı noktası 1688) Azure KMS hizmetine bir bağlantı sorunu varsa oluşur. 
 
 ## <a name="solution"></a>Çözüm
 
@@ -86,7 +86,7 @@ Bu adım Windows 2012 veya Windows 2008 R2 için geçerli değildir. Yalnızca W
     ```
     iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    Komut döndürmelidir: anahtar yönetimi hizmeti makine adı için kms.core.windows.net:1688 başarılı bir şekilde ayarlayın.
+    Komutun döndürülmesi gerekir: Anahtar Yönetimi Hizmeti makine adı için kms.core.windows.net:1688 başarıyla ayarlandı.
 
 4. KMS sunucusunda bağlantınız Psping kullanarak doğrulayın. Pstools.zip indirme ayıkladığınız klasöre geçin ve sonra aşağıdaki komutu çalıştırın:
   
@@ -94,7 +94,7 @@ Bu adım Windows 2012 veya Windows 2008 R2 için geçerli değildir. Yalnızca W
     \psping.exe kms.core.windows.net:1688
     ```
   
-  Çıkış saniye son satırında gördüğünüz emin olun: gönderilen = 4, alınan = 4, kayıp = 0 (% 0 kaybı olan).
+  Çıkış saniye son satırında gördüğünüz emin olun: Gönderilen = 4, alınan = 4, kayıp = 0 (% 0 kaybı olan).
 
   Kayıp 0 (sıfır)'dan büyükse, VM KMS sunucusu bağlantısı yok. Bu durumda, bir sanal ağda VM ise ve özel bir DNS sunucusu belirttiği, DNS sunucusunun emin olmanız gerekir kms.core.windows.net çözebilirsiniz. Veya kms.core.windows.net gideren bir DNS sunucusunu değiştirin.
 
@@ -126,5 +126,5 @@ Evet.
  
 Yetkisiz kullanım süresi doldu ve Windows hala etkin olduğunda, Windows Server 2008 R2 ve sonraki Windows sürümlerinde etkinleştirme hakkında ilave bildirimler gösterilir. Masaüstü duvar kağıdını siyah kalır ve Windows Update, güvenlik ve yalnızca kritik güncelleştirmeler, ancak isteğe bağlı değil güncelleştirmeleri yükler. Alt kısmındaki bildirimler bölümüne bakın [lisans koşulları](https://technet.microsoft.com/library/ff793403.aspx) sayfası.   
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
+## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun.
 Hala yardıma ihtiyacınız varsa [desteğe](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi için.

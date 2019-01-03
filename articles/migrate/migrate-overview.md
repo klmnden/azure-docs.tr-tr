@@ -4,15 +4,15 @@ description: Azure Geçişi hizmetine genel bir bakış sağlar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: fcf26b8a5eff407d6dde092ae645084fb20a14a8
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c511ef8fc4ae580f869ef90da3e2c8764a146881
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250600"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969140"
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -37,8 +37,9 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 -  Bu gibi durumlarda, Azure geçişi projesini yalnızca aşağıdaki coğrafyalardaki oluşturabilirsiniz. Bu ancak diğer değerlendirmeler oluşturup oluşturamayacağınız kısıtlamaz Azure konumları hedefleyin.
     **Coğrafya** | **Depolama konumu**
     --- | ---
-    Durumları sahip | Batı Orta ABD veya Doğu ABD
     Azure Kamu | ABD Devleti Virginia
+    Avrupa | Kuzey Avrupa veya Batı Avrupa
+    Durumları sahip | Doğu ABD ve Batı Orta ABD
 
     Geçiş proje ile ilişkili Coğrafya, şirket içi ortamda bulunan meta verileri depolamak için kullanılır. Meta veri geçiş projesi için belirtilen coğrafyaya göre bölgelerden birine depolanır. Yeni bir Log Analytics çalışma alanı oluşturarak bağımlılık görselleştirmesi kullanırsanız, çalışma alanını proje ile aynı bölgede oluşturulur.
 - Bağımlılık görselleştirme işlevini Azure Kamu'da kullanılabilir değil.

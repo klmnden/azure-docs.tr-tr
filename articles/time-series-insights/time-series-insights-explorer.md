@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights Gezgini veri keşfi - Azure Time Series Insights Gezginini kullanarak verileri keşfedin | Microsoft Docs
+title: Azure Time Series Insights Gezginini kullanarak verileri keşfedin | Microsoft Docs
 description: Bu makalede hızla büyük verilerinize ilişkin genel bir görünüm görün ve IOT ortamınızı doğrulamak için web tarayıcınızda Azure Time Series Insights gezgininin kullanmayı açıklar.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.custom: seodec18
-ms.openlocfilehash: 7508db8bd4b7f21308f2e7b0e92c44570dfc7b18
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: d65ce83465f54a30b96bc1ee6644319e1b4fb020
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273145"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556603"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Gezgini
 Bu makalede, çeşitli özellikleri ve seçenekleri Time Series Insights Gezgini web app içinde kullanılabilir keşfediyor. Görselleştirilmiş oluşturmak için web tarayıcınızda Time Series Insights gezginini kullanın.
@@ -37,7 +37,7 @@ Bu videoda Video zaman serisi görüşleri oluşturur:
 ## <a name="prerequisites"></a>Önkoşullar
 
 Time Series Insights gezgininin kullanabilmeniz için önce şunları yapmalısınız:
-- Zaman serisi görüşleri ortamı oluşturma
+- Time Series Insights ortamı oluşturma
 - Ortamında, hesabınıza erişim sağlayın
 - Veri almak ve depolamak için bir olay kaynağı ekleme
 

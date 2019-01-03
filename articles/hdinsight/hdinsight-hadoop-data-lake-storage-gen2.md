@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.openlocfilehash: 2ae11afe1ecbe500a4851aab6d56e612fbe79ee6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b7cde3a8990a51e95a8ce9ad85bca524d5669e0c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975133"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721130"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Azure HDInsight, Apache Hadoop ile Azure Data Lake depolama Gen2'ı kullanma
 
@@ -21,15 +21,15 @@ Azure Data Lake depolama Gen1 özellikleri gibi bir Hadoop uyumlu bir dosya sist
 
 ## <a name="core-functionality-of-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2'ın çekirdek işlevselliği
 
-- Hadoop uyumlu erişim: Azure Data Lake depolama Gen2'ye ve bir Hadoop dağıtılmış dosya sistemi (HDFS) ile olduğu gibi veri erişimi yönetmesine olanak tanır. ABFS sürücü, Data Lake depolama 2. nesil'deki depolanan verilere erişmek için Azure HDInsight ve Azure Databricks dahil olmak üzere tüm Apache Hadoop ortamlarında kullanılabilir.
+- Hadoop uyumlu erişim: Azure Data Lake depolama Gen2, yönetmek ve bir Hadoop dağıtılmış dosya sistemi (HDFS) ile olduğu gibi veri erişim sağlar. ABFS sürücü, Data Lake depolama 2. nesil'deki depolanan verilere erişmek için Azure HDInsight ve Azure Databricks dahil olmak üzere tüm Apache Hadoop ortamlarında kullanılabilir.
 
 - POSIX izinleri kümesi: ACL ve POSIX izinlerle birlikte için Data Lake depolama Gen2'ye özel bazı ek ayrıntı Data Lake Gen2 güvenlik modelini destekler. Ayarları, Yönetim Araçları veya Apache Hive ve Apache Spark gibi çerçeveleri aracılığıyla yapılandırılabilir.
 
 - Uygun maliyetli: Data Lake depolama Gen2, düşük maliyetli depolama kapasitesi ve işlem sunar. Azure Blob Depolama yaşam döngüsü gibi özellikler, veri yaşam döngüsü ile hareket ettikçe faturalandırma ücretleri ayarlayarak maliyetleri yardımcı olur.
 
-- Blob Depolama Araçlar, çerçeveler ve uygulamalar ile çalışır: Data Lake depolama Gen2'ye bir çeşit Araçlar, çerçeveler ve Blob Depolama için bugün mevcut uygulamaları çalışmak devam eder.
+- Blob Depolama Araçlar, çerçeveler ve uygulamalar ile çalışır: Data Lake depolama Gen2'ye bir çeşit Araçlar, çerçeveler ve Blob Depolama için bugün mevcut uygulamaları ile çalışmaya devam eder.
 
-- En iyi duruma getirilmiş sürücü: ABFS sürücü, özellikle büyük veri analizi için getirilmiştir. Karşılık gelen REST API'leri dfs uç noktası aracılığıyla çıkmış dfs.core.windows.net.
+- En iyi duruma getirilmiş sürücü: ABFS sürücü, özellikle büyük veri analizi için optimize edilmiştir. Karşılık gelen REST API'leri dfs uç noktası aracılığıyla çıkmış dfs.core.windows.net.
 
 ## <a name="whats-new-about-azure-data-lake-storage-gen-2"></a>Azure Data Lake depolama Gen 2 yenilikler
 
@@ -45,7 +45,7 @@ Apache Hadoop uygulamaları yerel olarak okuma ve yerel disk depolama alanından
 
 Daha önce Hadoop dosya sistemi sürücü tüm dosya sistemi işlemleri Azure depolama REST API çağrıları istemci tarafında dönüştürün ve ardından REST API çağırma. Birden çok REST API ile sonuçlandı. Bu istemci-tarafı dönüştürme, ancak dosyayı yeniden adlandırma gibi bir tek bir dosya sistemi işlemi için çağırır. ABFS bazı Hadoop dosya sistemi mantığı istemci tarafı sunucu tarafı ve ADLS 2. nesil API için şimdi Blob API ile paralel çalışır taşınmıştır. Genel bir Hadoop dosya sistemi işlemleri artık yürütülebilir olduğundan bu geçiş, performansı geliştirir. bir REST API çağrısı ile.
 
-Daha fazla bilgi için [Azure Blob dosya sistemi sürücü (ABFS): Hadoop için adanmış bir Azure depolama sürücüsü](../storage/data-lake-storage/abfs-driver.md).
+Daha fazla bilgi için [Azure Blob dosya sistemi sürücü (ABFS): Apache Hadoop için adanmış bir Azure depolama sürücüsü](../storage/data-lake-storage/abfs-driver.md).
 
 ### <a name="adls-gen-2-uri-scheme"></a>ADLS Gen 2 URI şeması
 
@@ -68,7 +68,7 @@ abfss://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapr
 abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
 ```
 
-> [!Note]
+> [!NOTE]  
 > Dosya adı `hadoop-examples.jar` HDInsight sürüm 2.1 ve 1.6 kümelerinde. HDInsight dışında dosyalarla çalışırken, yardımcı programların çoğu ABFS biçimlendirmek ve bunun yerine bir temel yol biçimi gibi bekler tanımaz `example/jars/hadoop-mapreduce-examples.jar`.
 
 Daha fazla bilgi için [Azure Data Lake depolama Gen2 URI'si kullanma](../storage/data-lake-storage/introduction-abfs-uri.md).

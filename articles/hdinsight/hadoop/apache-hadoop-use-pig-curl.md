@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 855ee1b7396be97c6529480b8fa8200bb8167ee6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 653d3e357e3a02659a225b4e26c386ca54b6288f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434027"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715435"
 ---
 # <a name="run-apache-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>Apache Pig işleri, REST kullanarak HDInsight üzerinde Apache Hadoop ile çalıştırın
 
@@ -101,7 +101,7 @@ Bir Azure HDInsight kümesi için REST istekleri yaparak Apache Pig Latin işler
 
 İş durumunu değiştiği için **başarılı**, iş sonuçları alabilir. `statusdir` Sorguyla geçirilen parametre içerir; bu durumda, çıkış dosyasının konumu `/example/pigcurl`.
 
-HDInsight, Azure depolama veya Azure Data Lake Storage varsayılan veri deposu olarak kullanabilirsiniz. Hangisinin bağlı olarak, kullandığınız veri almanın çeşitli yolları vardır. Daha fazla bilgi için bkz. depolama bölümünü [Linux tabanlı HDInsight bilgi](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-store) belge.
+HDInsight, Azure depolama veya Azure Data Lake Storage varsayılan veri deposu olarak kullanabilirsiniz. Hangisinin bağlı olarak, kullandığınız veri almanın çeşitli yolları vardır. Daha fazla bilgi için bkz. depolama bölümünü [Linux tabanlı HDInsight bilgi](../hdinsight-hadoop-linux-information.md#hdfs-azure-storage-and-data-lake-storage) belge.
 
 ## <a id="summary"></a>Özet
 
