@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: d7c3134c36707fcfa079968d19d93b73d7a5f5cc
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5e9ba42e33fb763256cd31c255ea42593146dfb7
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724086"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969327"
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>SCOM için Application Insights kullanarak uygulama performansı izleme
-Sunucularınızı yönetmek için System Center Operations Manager (SCOM) kullanırsanız, performans izleme ve Yardım performans sorunlarını tanılayın [Azure Application Insights](app-insights-asp-net.md). Application Insights, web uygulamanızın gelen istekler, REST ve SQL çağrıları, özel durumlar ve günlük izlemelerini giden izler. Bu panolar ölçüm grafikleri ve akıllı uyarılar yanı sıra güçlü tanılama araması ve analitik sorguları bu telemetrisi üzerinde sağlar. 
+Sunucularınızı yönetmek için System Center Operations Manager (SCOM) kullanırsanız, performans izleme ve Yardım performans sorunlarını tanılayın [Azure Application Insights](../azure-monitor/app/asp-net.md). Application Insights, web uygulamanızın gelen istekler, REST ve SQL çağrıları, özel durumlar ve günlük izlemelerini giden izler. Bu panolar ölçüm grafikleri ve akıllı uyarılar yanı sıra güçlü tanılama araması ve analitik sorguları bu telemetrisi üzerinde sağlar. 
 
 Application Insights izleme temel bir SCOM Yönetim paketini kullanarak geçiş yapabilirsiniz.
 
@@ -35,7 +35,7 @@ Varsayılır:
 * Uygulama framework sürümü, .NET 4.5 veya sonrası.
 * Bir abonelikte erişiminiz [Microsoft Azure](https://azure.com) ve oturum açarak [Azure portalında](https://portal.azure.com). Kuruluşunuz bir aboneliğe sahip ve Microsoft hesabınızı ekleyebilirsiniz.
 
-(Geliştirme ekibi oluşturabilir [Application Insights SDK'sı](app-insights-asp-net.md) web uygulamasına. Bu derleme araçları, bunları özel telemetri yazma daha fazla esneklik sağlar. Ancak, önemli değildir: veya SDK'sı yerleşiktir belirtmeden burada açıklanan adımları takip edebilirsiniz.)
+(Geliştirme ekibi oluşturabilir [Application Insights SDK'sı](../azure-monitor/app/asp-net.md) web uygulamasına. Bu derleme araçları, bunları özel telemetri yazma daha fazla esneklik sağlar. Ancak, önemli değildir: veya SDK'sı yerleşiktir belirtmeden burada açıklanan adımları takip edebilirsiniz.)
 
 ## <a name="one-time-install-application-insights-management-pack"></a>(Bir kez) Application Insights Yönetimi paketini yükleyin
 Operations Manager çalıştırıldığı makinede:
@@ -92,13 +92,13 @@ Uygulamanın hangi örneklerinin bulduğu doğrulayabilirsiniz:
 ![İzleme, Application ınsights'ı açın](./media/app-insights-scom/100.png)
 
 ## <a name="view-telemetry-in-application-insights"></a>Application ınsights telemetrisini görüntüleme
-İçinde [Azure portalında](https://portal.azure.com), uygulamanız için kaynak göz atın. [Telemetri gösteren grafikleri görmek](app-insights-dashboards.md) uygulamanızdan. (Ana sayfasında göze henüz gösterilen taşınmadığından, Canlı ölçümleri Stream'ı tıklatın.)
+İçinde [Azure portalında](https://portal.azure.com), uygulamanız için kaynak göz atın. [Telemetri gösteren grafikleri görmek](../azure-monitor/app/app-insights-dashboards.md) uygulamanızdan. (Ana sayfasında göze henüz gösterilen taşınmadığından, Canlı ölçümleri Stream'ı tıklatın.)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Bir Pano Ayarla](app-insights-dashboards.md) bu ve diğer uygulamaları izleme en önemli grafikleri bir araya getirmek için.
+* [Bir Pano Ayarla](../azure-monitor/app/app-insights-dashboards.md) bu ve diğer uygulamaları izleme en önemli grafikleri bir araya getirmek için.
 * [Ölçümler hakkında bilgi edinin](app-insights-metrics-explorer.md)
-* [Uyarılar ayarlayın](app-insights-alerts.md)
-* [Performans sorunlarını tanılama](app-insights-detect-triage-diagnose.md)
-* [Güçlü analiz sorguları](app-insights-analytics.md)
-* [Kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md)
+* [Uyarılar ayarlayın](../azure-monitor/app/alerts.md)
+* [Performans sorunlarını tanılama](../azure-monitor/app/detect-triage-diagnose.md)
+* [Güçlü analiz sorguları](../azure-monitor/app/analytics.md)
+* [Kullanılabilirlik web testleri](../azure-monitor/app/monitor-web-app-availability.md)
 

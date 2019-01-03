@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4e478c2559ac534f595393fdc36b95ad8e9c989a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409267"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725040"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK'sını kullanma
 
@@ -153,14 +153,14 @@ Portal kullanarak bir Node.js Mobile Apps arka ucu oluşturduğunuzda **Hızlı 
 Aşağıdaki yordam, hızlı başlangıç proje kodu indirmek için bir Git deposu kullanır:
 
 1. Zaten yapmadıysanız, Git, yükleyin. Git'i yüklemek için gerekli adımlar, işletim sistemleri arasında farklılık gösterir. İşletim sistemine özgü dağıtımları ve yükleme yönergeleri için bkz. [yükleme Git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
-1. Bkz: [deponuzu hazırlama](../app-service/app-service-deploy-local-git.md#prepare-your-repository) arka uç sitenizde Git deposunu etkinleştirmenize. Dağıtım kullanıcı adı ve parolayı not edin.
-1. Mobile Apps arka ucu için bölmesinde Not **Git kopya URL'si** ayarı.
-1. Yürütme `git clone` Git kopya URL'si kullanarak komutu. Gerektiğinde, aşağıdaki örnekte olduğu gibi parolanızı girin:
+2. Bkz: [deponuzu hazırlama](../app-service/deploy-local-git.md#prepare-your-repository) arka uç sitenizde Git deposunu etkinleştirmenize. Dağıtım kullanıcı adı ve parolayı not edin.
+3. Mobile Apps arka ucu için bölmesinde Not **Git kopya URL'si** ayarı.
+4. Yürütme `git clone` Git kopya URL'si kullanarak komutu. Gerektiğinde, aşağıdaki örnekte olduğu gibi parolanızı girin:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
 
-1. Yerel dizine gözatın (`/todolist` önceki örnekte) ve proje dosyaları yüklendi dikkat edin. Todoitem.json dosyasında `/tables` dizin. Bu dosya, tablo üzerinde izinleri tanımlar. Ayrıca aynı dizinde todoitem.js dosyayı bulun. Bu tablo için CRUD işlemi betikleri tanımlar.
-1. Proje dosyalarını eklemek için aşağıdaki komutları çalıştırın, değişiklikleri yaptıktan sonra kaydedin ve ardından değişiklikleri siteye karşıya yükleyin:
+5. Yerel dizine gözatın (`/todolist` önceki örnekte) ve proje dosyaları yüklendi dikkat edin. Todoitem.json dosyasında `/tables` dizin. Bu dosya, tablo üzerinde izinleri tanımlar. Ayrıca aynı dizinde todoitem.js dosyayı bulun. Bu tablo için CRUD işlemi betikleri tanımlar.
+6. Proje dosyalarını eklemek için aşağıdaki komutları çalıştırın, değişiklikleri yaptıktan sonra kaydedin ve ardından değişiklikleri siteye karşıya yükleyin:
 
         $ git commit -m "updated the table script"
         $ git push origin master
@@ -968,10 +968,10 @@ Azure portalını kullanarak Node.js arka uç komut dosyalarınızı App Service
 [Google kimlik doğrulamasını yapılandırma]: ../app-service/configure-authentication-provider-google.md
 [Microsoft kimlik doğrulamasını yapılandırma]: ../app-service/configure-authentication-provider-microsoft.md
 [Twitter kimlik doğrulamasını yapılandırma]: ../app-service/configure-authentication-provider-twitter.md
-[Azure App Service Dağıtım Kılavuzu]: ../app-service/app-service-deploy-local-git.md
+[Azure App Service Dağıtım Kılavuzu]: ../app-service/deploy-local-git.md
 [Azure uygulama hizmeti izleme]: ../app-service/web-sites-monitor.md
-[Azure App Service'te tanılama günlük kaydını etkinleştirme]: ../app-service/web-sites-enable-diagnostic-log.md
-[Visual Studio Azure App Service'te ilgili sorunları giderme]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
+[Azure App Service'te tanılama günlük kaydını etkinleştirme]: ../app-service/troubleshoot-diagnostic-logs.md
+[Visual Studio Azure App Service'te ilgili sorunları giderme]: ../app-service/troubleshoot-dotnet-visual-studio.md
 [Düğüm sürümü belirtin]: ../nodejs-specify-node-version-azure-apps.md
 [Düğüm modüllerini kullanın]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/

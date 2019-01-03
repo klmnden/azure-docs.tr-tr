@@ -16,17 +16,20 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 87f5153ef71f74a0fa1a6be3c527fba03b65bf83
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 04287d286aed872a2b951c47e0f67a93bd19c7b3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095576"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583485"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcılar ve grupların Azure Active Directory'den uygulamalara otomatik olarak sağlamak için sistem etki alanları arası Kimlik Yönetimi (SCIM) kullanma
 
 ## <a name="overview"></a>Genel Bakış
 Azure Active Directory (Azure AD) otomatik olarak kullanıcı sağlama ve tanımlanan arabirimi ile bir web hizmeti tarafından fronted herhangi bir uygulama veya kimlik deposu için gruplar [etki alanları arası Kimlik Yönetimi (SCIM) 2.0 protokolü için sistemi belirtimi](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory oluşturma, değiştirme isteği gönderebilir veya web hizmetine silme atanan kullanıcı ve grupları. Web hizmeti bu istekleri hedef kimlik deposu işlemler ardından çevirebilir. 
+
+>[!IMPORTANT]
+>Azure AD SCIM uygulama davranışını son 18 Aralık 2018'de güncelleştirildi. Değişiklikler hakkında daha fazla bilgi için bkz: [SCIM 2.0 protokolü uyumluluk Azure AD kullanıcı sağlama hizmetinin](application-provisioning-config-problem-scim-compatibility.md).
 
 ![][0]
 *Şekil 1: Bir web hizmeti aracılığıyla bir kimlik deposu için Azure Active Directory'den sağlama*
@@ -73,6 +76,10 @@ Bu makalede açıklanan SCIM profilini destekleyen uygulamalar, Azure Active Dir
 6. İçinde **Kiracı URL'si** uygulamanın SCIM uç nokta URL'sini girin. Örnek: https://api.contoso.com/scim/v2/
 7. SCIM uç noktanın bir OAuth taşıyıcı belirtecinden bir veren Azure AD dışındaki gerektiriyorsa, gerekli OAuth taşıyıcı belirteci sonra isteğe bağlı kopyalayın **gizli belirteç** alan. Bu alan boş bırakılırsa, Azure AD OAuth taşıyıcı belirteci her isteği ile Azure AD tarafından verilen dahil. Azure AD kimlik sağlayıcısı bu Azure AD'ye doğrulayabilirsiniz olarak kullanan uygulamalar-belirteç.
 8. Tıklayın **Test Bağlantısı** düğmesine sahip Azure Active Directory SCIM uç noktaya bağlanmayı deneyin. Denemesi başarısız olursa hata bilgileri görüntülenir.  
+
+    >[!NOTE]
+    >**Bağlantıyı Sına** SCIM uç nokta Azure AD yapılandırmasında seçili eşleşen özellik olarak rastgele bir GUID kullanarak mevcut olmayan bir kullanıcı için sorgular. Beklenen doğru yanıt, bir boş SCIM ListResponse iletisiyle HTTP 200 OK. 
+
 9. Uygulama başarılı olmasına bağlanmaya çalışırsa, ardından tıklatın **Kaydet** yönetici kimlik bilgilerini kaydetmek için.
 10. İçinde **eşlemeleri** bölümünde, iki seçilebilir öznitelik eşlemelerini kümesi vardır: biri kullanıcı, nesneyi, diğeri için Grup nesneleri. Uygulamanızı Azure Active Directory'den eşitlenen öznitelikler gözden geçirmek için her birini seçin. Seçilen öznitelikler **eşleşen** özellikleri, kullanıcıları ve grupları güncelleştirme işlemleri için uygulamanızda eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
@@ -149,6 +156,10 @@ Azure ad sağlama isteklerini kabul edebilen bir SCIM uç noktası uygulamak iç
 6. İçinde **Kiracı URL'si** internet açık URL ve bağlantı noktası SCIM uç noktanızı girin. Giriş aşağıdakine benzer olan http://testmachine.contoso.com:9000 veya internet olduğu < IP adresi > http://<ip-address>:9000/, kullanıma sunulan IP adresi.  
 7. SCIM uç noktanın bir OAuth taşıyıcı belirtecinden bir veren Azure AD dışındaki gerektiriyorsa, gerekli OAuth taşıyıcı belirteci sonra isteğe bağlı kopyalayın **gizli belirteç** alan. Bu alan boş bırakılırsa, Azure AD her isteği ile Azure AD tarafından verilen bir OAuth taşıyıcı belirtecini içerir. Azure AD kimlik sağlayıcısı bu Azure AD'ye doğrulayabilirsiniz olarak kullanan uygulamalar-belirteç.
 8. Tıklayın **Test Bağlantısı** düğmesine sahip Azure Active Directory SCIM uç noktaya bağlanmayı deneyin. Denemesi başarısız olursa hata bilgileri görüntülenir.  
+
+    >[!NOTE]
+    >**Bağlantıyı Sına** SCIM uç nokta Azure AD yapılandırmasında seçili eşleşen özellik olarak rastgele bir GUID kullanarak mevcut olmayan bir kullanıcı için sorgular. Beklenen doğru yanıt, bir boş SCIM ListResponse iletisiyle HTTP 200 OK.
+
 9. Uygulama başarılı olmasına bağlanmaya çalışırsa, ardından tıklatın **Kaydet** yönetici kimlik bilgilerini kaydetmek için.
 10. İçinde **eşlemeleri** bölümünde, iki seçilebilir öznitelik eşlemelerini kümesi vardır: biri kullanıcı, nesneyi, diğeri için Grup nesneleri. Uygulamanızı Azure Active Directory'den eşitlenen öznitelikler gözden geçirmek için her birini seçin. Seçilen öznitelikler **eşleşen** özellikleri, kullanıcıları ve grupları güncelleştirme işlemleri için uygulamanızda eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 11. Altında **ayarları**, **kapsam** alanı grupları ve hangi kullanıcıların eşitleneceğini tanımlar. "Eşitleme yalnızca atanan kullanıcı ve grupları (önerilen)" seçerek kullanıcıları yalnızca eşitlendiğini ve atanan gruplar **kullanıcılar ve gruplar** sekmesi.
@@ -163,7 +174,7 @@ Azure ad sağlama isteklerini kabul edebilen bir SCIM uç noktası uygulamak iç
 ### <a name="development-libraries"></a>Geliştirme kitaplıkları
 SCIM Belirtimi'ne kendi web hizmeti geliştirmek için önce aşağıdaki kitaplıklar geliştirme süreci hızlandırmak için Microsoft tarafından sağlanan tanıyın: 
 
-1. Ortak dil altyapısı (CLI) kitaplıkları, C# gibi bu altyapısının temel dilleri ile kullanım için sunulur. Bu kitaplıklar birini [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), aşağıdaki çizimde gösterilen bir arabirim Microsoft.SystemForCrossDomainIdentityManagement.IProvider, bildirir: A Bu arabirim için genel bir sağlayıcı olarak başvurulabilir bir sınıf kitaplıkları kullanarak Geliştirici uygulayabilir. SCIM belirtimine uyan bir web hizmetini dağıtmak geliştirici kitaplıkları sağlar. Web hizmeti Internet Information Services veya herhangi bir yürütülebilir ortak dil altyapısı derleme içinde ya da barındırılabilir. İstek, geliştirici tarafından bazı kimlik deposu üzerinde çalışılacak programlanmak sağlayıcının yöntemlere yapılan çağrılar veri dönüştürülür.
+1. Ortak dil altyapısı (CLI) kitaplıkları, C# gibi bu altyapısının temel dilleri ile kullanım için sunulur. Bu kitaplıklar birini [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), aşağıdaki çizimde gösterilen bir arabirim Microsoft.SystemForCrossDomainIdentityManagement.IProvider, bildirir:  Kitaplıklar kullanılarak bir geliştirici için genel bir sağlayıcı olarak başvurulabilir bir sınıf, arabirim uygulayabilir. SCIM belirtimine uyan bir web hizmetini dağıtmak geliştirici kitaplıkları sağlar. Web hizmeti Internet Information Services veya herhangi bir yürütülebilir ortak dil altyapısı derleme içinde ya da barındırılabilir. İstek, geliştirici tarafından bazı kimlik deposu üzerinde çalışılacak programlanmak sağlayıcının yöntemlere yapılan çağrılar veri dönüştürülür.
   
    ![][3]
   
@@ -375,7 +386,7 @@ Grup kaynaklarının şema tanımlayıcısı tarafından tanımlanan http://sche
 | telefon numarası |PhoneNumber [türü eq "İş"] .value |
 | Kullanıcı PrincipalName |Kullanıcı adı |
 
-### <a name="table-2-default-group-attribute-mapping"></a>Tablo 2: Varsayılan grup öznitelik eşlemesi
+### <a name="table-2-default-group-attribute-mapping"></a>Tablo 2: Varsayılan grubu öznitelik eşlemesi
 
 | Azure Active Directory grubu | http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group |
 | --- | --- |
@@ -544,7 +555,7 @@ Aşağıdaki çizimde gösterildiği Azure Active Directory kullanıcı başka b
 
    Bir kullanıcının geçerli durumunu almak için bir istek örnekte parametreleri bağımsız değişkenin değeri sağlanan nesne özelliklerinin değerleri aşağıdaki gibidir: 
   
-   * Tanımlayıcısı: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * Tanımlayıcı: "54D382A4-2050-4C03-94D1-E769F1D15682"
    * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 4. Azure Active Directory kimlik deposu olarak başvuru özniteliğinin geçerli değeri hizmet tarafından zaten fronted olup olmadığını belirlemek üzere hizmeti sorgular ardından güncelleştirilmesi için bir başvuru özniteliği ise bu özniteliği Azure Active değerle eşleşir Dizin. Kullanıcılar için bu şekilde sorgulanan geçerli değeri yalnızca öznitelik manager özniteliğidir. Belirli kullanıcı nesnesinin manager özniteliği şu anda belirli bir değere sahip olup olmadığını belirlemek için bir isteğin bir örnek aşağıda verilmiştir: 
@@ -559,13 +570,13 @@ Aşağıdaki çizimde gösterildiği Azure Active Directory kullanıcı başka b
    Hizmet SCIM Hizmetleri uygulamak için Microsoft tarafından sağlanan ortak dil altyapısı kitaplıklar kullanılarak oluşturulduysa, isteği hizmet sağlayıcısının sorgu yöntemine bir çağrı çevrilir. Parametre bağımsız değişkenin değeri sağlanan nesne özelliklerini değerini aşağıdaki gibidir: 
   
    * Parametreler. AlternateFilters.Count: 2
-   * Parametreler. AlternateFilters.ElementAt(x). AttributePath: "ID"
+   * Parametreler. AlternateFilters.ElementAt(x). AttributePath: "Kimlik"
    * Parametreler. AlternateFilters.ElementAt(x). ComparisonOperator: ComparisonOperator.Equals
-   * Parametreler. AlternateFilter.ElementAt(x). ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
+   * Parametreler. AlternateFilter.ElementAt(x). ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
    * Parametreler. AlternateFilters.ElementAt(y). AttributePath: "Yönetici"
    * Parametreler. AlternateFilters.ElementAt(y). ComparisonOperator: ComparisonOperator.Equals
-   * Parametreler. AlternateFilter.ElementAt(y). ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
-   * Parametreler. RequestedAttributePaths.ElementAt(0): "ID"
+   * Parametreler. AlternateFilter.ElementAt(y). ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
+   * Parametreler. RequestedAttributePaths.ElementAt(0): "Kimlik"
    * Parametreler. SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
    Burada, dizinin x değeri 0 olabilir ve dizin y değeri 1 ' olabilir veya 1 x değeri olabilir ve y değeri 0, filtre sorgu parametresinin ifadelerin düzene bağlı olarak olabilir.   
@@ -684,7 +695,7 @@ Aşağıdaki çizimde gösterildiği Azure Active Directory kullanıcı başka b
    * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Path.AttributePath: "Yönetici"
    * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Value.Count: 1
    * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Value.ElementAt(0). Başvuru: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
-   * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Value.ElementAt(0). Değer: 2819c223-7f76-453a-919d-413861904646
+   * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Value.ElementAt(0). Değer: 2819c223-7f76-453A-919d-413861904646
 
 6. Bir kullanıcı bir SCIM hizmeti tarafından fronted kimlik mağazadan sağlamasını için Azure AD gibi bir istek gönderir: 
 
@@ -718,7 +729,7 @@ Aşağıdaki çizimde gösterildiği Azure AcD bir grubu başka bir kimlik depos
 * Bir başvuru özniteliği, belirli bir değere sahip olup olmadığını belirlemek üzere istekleri üyeleri özniteliği hakkında isteklerdir.  
 
 ![][5]
-*Şekil 6: hazırlama ve sağlamayı dizisi grubu*
+*Şekil 6: Grup sağlama ve sağlamayı dizisi*
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [Kullanıcı sağlama/sağlamayı kaldırma SaaS uygulamaları için otomatik hale getirin](user-provisioning.md)

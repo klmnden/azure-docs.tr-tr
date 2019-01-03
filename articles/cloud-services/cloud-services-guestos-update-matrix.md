@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/08/2018
+ms.date: 12/14/2018
 ms.author: raiye
-ms.openlocfilehash: 35888b205822e5d7c9576c9855610bad814901b6
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 2a4dd769d3a08873dfd6592413b6bd6a1210d15e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346176"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548894"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler ile bulut Hizmetleri için sürümleri sağlar. Bu bilgiler bir konuk işletim sistemi devre dışı bırakılmasına sıranız yükseltme yolunuza planlamanıza yardımcı olur. Kullanılacak rollerinizi yapılandırırsanız *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -43,6 +43,9 @@ Konuk işletim sisteminizi güncelleştirin konusunda emin değilseniz? Denetlem
 
 ## <a name="news-updates"></a>Haber güncelleştirmeleri
 
+###### <a name="december-14-2018"></a>**14 Aralık 2018'e**
+Kasım konuk işletim sistemi kullanıma sundu.
+
 ###### <a name="november-8-2018"></a>**8 Kasım 2018**
 Ekim konuk işletim sistemi kullanıma sundu.
 
@@ -61,15 +64,11 @@ Haziran konuk işletim sistemi kullanıma sundu.
 ###### <a name="june-1-2018"></a>**1 Haziran 2018'den**
 Olabilir konuk işletim sistemi kullanıma sundu.
 
-###### <a name="may-4-2018"></a>**4 Mayıs 2018**
-Nisan konuk işletim sistemi kullanıma sundu.
-
-
 ## <a name="releases"></a>Yayınlar
 ## <a name="family-5-releases"></a>Ailesi 5 yayınlar
 **Windows Server 2016**
 
-.NET Framework'ün yüklü: 3.5, 4.6.2
+.NET framework yüklü: 3.5, 4.6.2
 
 > [!NOTE]
 > İşletim sistemi ailesi 5 RDP parolasını en az 10 karakter uzunluğunda olmalıdır.
@@ -77,58 +76,58 @@ Nisan konuk işletim sistemi kullanıma sundu.
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-5.25_201811-01 |14 Aralık 2018'e |POST 5.27 |
 | WA-GUEST-OS-5.24_201810-01 |8 Kasım 2018 |POST 5.26 |
-| WA-GUEST-OS-5.23_201809-01 |12 Ekim 2018 |POST 5.25 |
+|~~WA-GUEST-OS-5.23_201809-01~~ |12 Ekim 2018 |14 Aralık 2018'e |
 |~~WA-GUEST-OS-5.22_201808-01~~ |12 Eylül 2018'den |8 Kasım 2018 |
 |~~WA-GUEST-OS-5.21_201807-02~~ |3 Ağustos 2018 |12 Ekim 2018 |
 |~~WA-GUEST-OS-5.20_201806-01~~ |3 Temmuz 2018 |12 Eylül 2018'den |
 |~~WA-GUEST-OS-5.19_201805-01~~ |1 Haziran 2018'den |3 Ağustos 2018 |
-|~~WA-GUEST-OS-5.18_201804-01~~ |4 Mayıs 2018 |3 Temmuz 2018 |
 
 ## <a name="family-4-releases"></a>Ailesi 4 yayınlar
 **Windows Server 2012 R2**
 
-.NET Framework'ün yüklü: 3.5, 4.5.1
+.NET framework yüklü: 3.5, 4.5.1
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-4.60_201811-01 |14 Aralık 2018'e |POST 4.62 |
 | WA-GUEST-OS-4.59_201810-01 |8 Kasım 2018 |POST 4.61 |
-| WA-GUEST-OS-4.58_201809-01 |12 Ekim 2018 |POST 4.60 |
+|~~WA-GUEST-OS-4.58_201809-01~~ |12 Ekim 2018 |14 Aralık 2018'e |
 |~~WA-GUEST-OS-4.57_201808-01~~ |12 Eylül 2018'den |8 Kasım 2018 |
 |~~WA-GUEST-OS-4.56_201807-02~~ |3 Ağustos 2018 |12 Ekim 2018 |
 |~~WA-GUEST-OS-4.55_201806-01~~ |3 Temmuz 2018 |12 Eylül 2018'den |
 |~~WA-GUEST-OS-4.54_201805-01~~ |1 Haziran 2018'den |3 Ağustos 2018 |
-|~~WA-GUEST-OS-4.53_201804-01~~ |4 Mayıs 2018 |3 Temmuz 2018 |
 
 ## <a name="family-3-releases"></a>Aile 3 yayınlar
 **Windows Server 2012**
 
-.NET Framework'ün yüklü: 3.5, 4.5
+.NET framework yüklü: 3.5, 4.5
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-3.67_201811-01 |14 Aralık 2018'e |POST 3,69 |
 | WA-GUEST-OS-3.66_201810-01 |8 Kasım 2018 |POST 3.68 |
-| WA-GUEST-OS-3.65_201809-01 |12 Ekim 2018 |POST 3.67 |
+|~~WA-GUEST-OS-3.65_201809-01~~ |12 Ekim 2018 |14 Aralık 2018'e |
 |~~WA-GUEST-OS-3.64_201808-01~~ |12 Eylül 2018'den |8 Kasım 2018 |
 |~~WA-GUEST-OS-3.63_201807-02~~ |3 Ağustos 2018 |12 Ekim 2018 |
 |~~WA-GUEST-OS-3.62_201806-01~~ |3 Temmuz 2018 |12 Eylül 2018'den |
 |~~WA-GUEST-OS-3.61_201805-01~~ |1 Haziran 2018'den |3 Ağustos 2018 |
-|~~WA-GUEST-OS-3.60_201804-01~~ |4 Mayıs 2018 |3 Temmuz 2018 |
 
 ## <a name="family-2-releases"></a>Ailesi 2 yayınlar
 **Windows Server 2008 R2 SP1**
 
-.NET Framework'ün yüklü: 3.5 (2.0 ve 3.0 içerir)
+.NET framework yüklü: 3.5 (2.0 ve 3.0 içerir)
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak |
 | --- | --- | --- |
+| WA-GUEST-OS-2.80_201811-01 |14 Aralık 2018'e |POST 2.82 |
 | WA-GUEST-OS-2.79_201810-01 |8 Kasım 2018 |POST 2.81 |
-| WA-GUEST-OS-2.78_201809-01 |12 Ekim 2018 |POST 2,80 |
+|~~WA-GUEST-OS-2.78_201809-01~~|12 Ekim 2018 |14 Aralık 2018'e |
 |~~WA-GUEST-OS-2.77_201808-01~~ |12 Eylül 2018'den |8 Kasım 2018 |
 |~~WA-GUEST-OS-2.76_201807-02~~ |3 Ağustos 2018 |12 Ekim 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 Temmuz 2018 |12 Eylül 2018'den |
 |~~WA-GUEST-OS-2.74_201805-01~~ |1 Haziran 2018'den |3 Ağustos 2018|
-|~~WA-GUEST-OS-2.73_201804-01~~ |4 Mayıs 2018 |3 Temmuz 2018 |
 
 ## <a name="msrc-patch-updates"></a>MSRC düzeltme eki güncelleştirmeleri
 Aylık her konuk işletim sistemi sürüm ile birlikte gelen düzeltme eklerinin listesini kullanılabilir [burada][patches].

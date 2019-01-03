@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965402"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714858"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack ile coğrafi olarak dağıtılmış bir uygulama çözümü oluşturma
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Trafiği coğrafi olarak dağıtılmış uygulamaları desenini kullanarak, çeşitli ölçümlere göre belirli Uç noktalara yönlendirmek öğrenin. Traffic Manager'ı oluşturma, coğrafi tabanlı Yönlendirme ve uç nokta yapılandırma profili bilgileri bölgesel gereksinimleri, kurumsal ve uluslararası düzenleme ve verileri gereksinimlerinize göre Uç noktalara yönlendirilir sağlar.
 
@@ -59,15 +59,15 @@ Bu çözüm ölçeklenebilirliği hakkında hususlar olduğu gibi doğrudan kull
 
 Bir dağıtılmış uygulama Ayak izi kullanıma yapılandırmadan önce aşağıdaki bilgi sağlamak için yardımcı olur:
 
--   **Uygulama için özel etki alanı:** müşteriler, uygulamaya erişmek için kullanacağı özel etki alanı adı nedir? Örnek uygulama için özel etki alanı adıdır *www.scalableasedemo.com.*
+-   **Uygulama için özel etki alanı:** Müşteriler, uygulamaya erişmek için kullanacağı özel etki alanı adı nedir? Örnek uygulama için özel etki alanı adıdır *www.scalableasedemo.com.*
 
--   **Traffic Manager etki alanına:** bir etki alanı adı oluşturulurken seçilmesi gerekir bir [Azure Traffic Manager profilini](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles). Bu ad ile birlikte *trafficmanager.net* soneki Traffic Manager tarafından yönetilen bir etki alanı girişi kaydetmek için kullanılır. Örnek uygulama için adı seçilen olduğu *ase tanıtım ölçeklenebilir*. Sonuç olarak, Traffic Manager tarafından yönetilen tam etki alanı adıdır *ase demo.trafficmanager.net ölçeklenebilir*.
+-   **Traffic Manager etki alanı:** Bir etki alanı adı oluşturulurken seçilmesi gerekir bir [Azure Traffic Manager profilini](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles). Bu ad ile birlikte *trafficmanager.net* soneki Traffic Manager tarafından yönetilen bir etki alanı girişi kaydetmek için kullanılır. Örnek uygulama için adı seçilen olduğu *ase tanıtım ölçeklenebilir*. Sonuç olarak, Traffic Manager tarafından yönetilen tam etki alanı adıdır *ase demo.trafficmanager.net ölçeklenebilir*.
 
--   **Uygulama Ayak izi ölçeklendirme stratejisi:** uygulama Ayak izi tek bir bölgede birden fazla App Service ortamları genelinde dağıtılmış? Birden çok bölgede? Her iki yaklaşım bir karışımını? Karar ne kadar iyi bir uygulamanın arka uç altyapısı destekleme rest ölçeklendirebilirsiniz yanı sıra burada müşteri trafiğinden kaynaklanan beklentilerini bağlı olmalıdır. Örneğin, durum bilgisi olmayan bir % 100 uygulama ile birlikte uygulama yüksek düzeyde Azure bölgelerinde dağıtılan App Service ortamları ile çarpılır Azure bölgesi başına birden fazla App Service ortamları oluşan birleşimlerin kullanıldığı ölçeklendirilebilir. 15 + genel olan Azure bölgeleri seçim yapabileceğiniz, müşterilerin gerçek anlamda bir dünya çapında hiper ölçekli uygulama Ayak izi oluşturabilirsiniz. Bu makalede kullanılan örnek uygulama için bir tek bir Azure bölgesinde (Güney Orta ABD) üç App Service ortamları oluşturuldu.
+-   **Uygulama Ayak izi ölçeklendirme stratejisi:** Uygulama Ayak izi, tek bir bölgede birden fazla App Service ortamları arasında dağıtılır? Birden çok bölgede? Her iki yaklaşım bir karışımını? Karar ne kadar iyi bir uygulamanın arka uç altyapısı destekleme rest ölçeklendirebilirsiniz yanı sıra burada müşteri trafiğinden kaynaklanan beklentilerini bağlı olmalıdır. Örneğin, durum bilgisi olmayan bir % 100 uygulama ile birlikte uygulama yüksek düzeyde Azure bölgelerinde dağıtılan App Service ortamları ile çarpılır Azure bölgesi başına birden fazla App Service ortamları oluşan birleşimlerin kullanıldığı ölçeklendirilebilir. 15 + genel olan Azure bölgeleri seçim yapabileceğiniz, müşterilerin gerçek anlamda bir dünya çapında hiper ölçekli uygulama Ayak izi oluşturabilirsiniz. Bu makalede kullanılan örnek uygulama için bir tek bir Azure bölgesinde (Güney Orta ABD) üç App Service ortamları oluşturuldu.
 
--   **App Service ortamları için adlandırma kuralı:** her App Service ortamı, benzersiz bir ad gerektirir. Bir veya iki App Service ortamları, her bir App Service ortamı belirlemenize yardımcı olması için bir adlandırma kuralınızın bulunduğundan yardımcı olur. Örnek uygulama için basit bir adlandırma kuralı kullanıldı. Üç App Service ortamları adlarıdır *fe1ase*, *fe2ase*, ve *fe3ase*.
+-   **App Service ortamları için adlandırma kuralı:** Her App Service ortamı, benzersiz bir ad gerektirir. Bir veya iki App Service ortamları, her bir App Service ortamı belirlemenize yardımcı olması için bir adlandırma kuralınızın bulunduğundan yardımcı olur. Örnek uygulama için basit bir adlandırma kuralı kullanıldı. Üç App Service ortamları adlarıdır *fe1ase*, *fe2ase*, ve *fe3ase*.
 
--   **Uygulamalar için adlandırma kuralı:** uygulamayı birden çok örneğini dağıtılacak olduğundan, dağıtılan uygulamanın her örneği için bir ad gereklidir. App Service ortamları ile aynı uygulama adı birden fazla App Service ortamları arasında kullanılabilir. Her App Service ortamı benzersiz etki alanı soneki olduğundan, geliştiricilere her ortamda tam olarak aynı uygulama adı yeniden seçebilirsiniz. Örneğin, bir geliştirici uygulamaları gibi adlı sahip olabilirsiniz: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*vb. Her uygulama örneği, bu senaryoda bir uygulama için benzersiz bir adı vardır. Kullanılan uygulama örneği adları *webfrontend1*, *webfrontend2*, ve *webfrontend3*.
+-   **Uygulamalar için adlandırma kuralı:** Uygulama birden çok örneğini dağıtılacak olduğundan, dağıtılan uygulamanın her örneği için bir ad gereklidir. App Service ortamları ile aynı uygulama adı birden fazla App Service ortamları arasında kullanılabilir. Her App Service ortamı benzersiz etki alanı soneki olduğundan, geliştiricilere her ortamda tam olarak aynı uygulama adı yeniden seçebilirsiniz. Örneğin, bir geliştirici uygulamaları gibi adlı sahip olabilirsiniz: *myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*vb. Her uygulama örneği, bu senaryoda bir uygulama için benzersiz bir adı vardır. Kullanılan uygulama örneği adları *webfrontend1*, *webfrontend2*, ve *webfrontend3*.
 
 > [!Tip]  
 > ![karma pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
@@ -75,7 +75,7 @@ Bir dağıtılmış uygulama Ayak izi kullanıma yapılandırmadan önce aşağ�
 > 
 > Teknik incelemeyi [karma uygulamaları için tasarım konuları](https://aka.ms/hybrid-cloud-applications-pillars) (yerleştirme, ölçeklenebilirlik, kullanılabilirlik, dayanıklılık, yönetilebilirlik ve güvenlik) yazılım kalitesinin yapı taşları tasarlama, dağıtma ve çalıştırma için gözden geçirmeleri karma uygulamalar. Tasarım konuları, üretim ortamlarında sorunlarını en aza karma uygulama tasarımının en iyi duruma getirme yardımcı olur.
 
-## <a name="part-1-create-a-geo-distributed-app"></a>1. Bölüm: coğrafi olarak dağıtılmış bir uygulama oluşturma
+## <a name="part-1-create-a-geo-distributed-app"></a>1. Bölüm: Coğrafi olarak dağıtılmış bir uygulama oluşturma
 
 Bu bölümünde, bir web uygulaması oluşturacaksınız.
 
@@ -122,7 +122,7 @@ Azure ve Azure Stack Web uygulamasına dağıtmak için karma CI/CD ayarlama ve 
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Her iki bulut Web uygulama dağıtımı oluşturma
 
-1.  Düzen **WebApplication.csproj** dosya: seçin **Runtimeidentifier** ve ekleme **win10 x64**. (Bkz [Self-contained dağıtım](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) belgelerine.)
+1.  Düzen **WebApplication.csproj** dosyası: Seçin **Runtimeidentifier** ve ekleme **win10 x64**. (Bkz [Self-contained dağıtım](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) belgelerine.)
 
     ![Alternatif metin](media/azure-stack-solution-geo-distributed/image3.png)
 
@@ -240,9 +240,9 @@ Azure DevOps ve Azure DevOps sunucusu yüksek oranda yapılandırılabilir ve y�
 > [!Note]  
 >  Görevler için bazı ayarları otomatik olarak tanımlanmış olabilir [ortam değişkenlerini](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) bir şablondan bir yayın tanımı oluşturduğunuzda. Bu ayarlar görev ayarlarını değiştirilemez; Bunun yerine, bu ayarları düzenleyebilmeniz için üst ortam öğesi seçmelisiniz.
 
-## <a name="part-2-update-web-app-options"></a>2. Bölüm: Güncelleştirme web uygulaması seçenekleri
+## <a name="part-2-update-web-app-options"></a>2. Bölüm: Web uygulama seçenekleri güncelleştir
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. 
+[Azure App Service](https://docs.microsoft.com/azure/app-service/overview), yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. 
 
 ![Alternatif metin](media/azure-stack-solution-geo-distributed/image27.png)
 
@@ -255,7 +255,7 @@ Azure DevOps ve Azure DevOps sunucusu yüksek oranda yapılandırılabilir ve y�
 > [!Note]  
 >  Tüm özel DNS adlarını bir kök etki alanı dışında (example,northwind.com) için bir CNAME kullanın.
 
-Canlı siteyi ve onun DNS etki alanı adını App Service'e geçirmek için, bkz. [Etkin DNS adını Azure App Service'e geçirme](https://docs.microsoft.com/azure/app-service/app-service-custom-domain-name-migrate).
+Canlı siteyi ve onun DNS etki alanı adını App Service'e geçirmek için, bkz. [Etkin DNS adını Azure App Service'e geçirme](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
 ### <a name="prerequisites"></a>Önkoşullar
 
@@ -276,7 +276,7 @@ Etki alanı için DNS bölge dosyasını güncelleştirin. Azure AD'ye özel etk
 Örneğin, DNS girişlerini fornorthwindcloud.comand www.northwindcloud.com eklemek için thenorthwindcloud.com kök etki alanı için DNS ayarlarını yapılandırın.
 
 > [!Note]  
->  Kullanarak bir etki alanı adı satın alınabilecek [Azure portalında](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).  
+>  Kullanarak bir etki alanı adı satın alınabilecek [Azure portalında](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).  
 > Özel DNS adını web uygulamasına eşlemek için, web uygulamasının [App Service planı](https://azure.microsoft.com/pricing/details/app-service/) ücretli bir katmanda (**Paylaşılan**, **Temel**, **Standart** veya **Premium** olmalıdır).
 
 
@@ -359,7 +359,7 @@ CNAME ekledikten sonra DNS kayıtları sayfası aşağıdaki örnekteki gibi gö
 
 Daha önce yapılandırılmış olan DNS adlarına göz atın (örneğin, `northwindcloud.com`, www.northwindcloud.com.
 
-## <a name="part-3-bind-a-custom-ssl-cert"></a>3. Bölüm: Bağlama özel bir SSL sertifikası
+## <a name="part-3-bind-a-custom-ssl-cert"></a>3. Bölüm: Özel bir SSL sertifikası bağlama
 
 Bu bölümünde:
 

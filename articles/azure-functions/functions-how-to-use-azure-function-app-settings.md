@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: d9fa5d70a633f423c82457759d7ed18047167e3e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7497255dcad55cea86e0c640e2f1423d7d763a7f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999909"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713635"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure portalında işlev uygulaması yönetme 
 
@@ -126,7 +126,7 @@ App Service ayarları ile çalışma hakkında daha fazla bilgi için bkz. [Azur
 
 | | |
 |-|-|
-| ![Azure portalında işlev uygulaması kimlik](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | İşlevleri HTTP tetikleyicisi kullandığınızda, ilk kimlik doğrulaması için çağrılar gerektirebilir. App Service, Azure Active Directory kimlik doğrulaması ve oturum açın. Facebook, Microsoft ve Twitter gibi sosyal sağlayıcılardan destekler. Özel kimlik doğrulama sağlayıcılarını yapılandırma hakkında daha fazla bilgi için bkz [Azure App Service kimlik doğrulamasına genel bakış](../app-service/app-service-authentication-overview.md). |
+| ![Azure portalında işlev uygulaması kimlik](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | İşlevleri HTTP tetikleyicisi kullandığınızda, ilk kimlik doğrulaması için çağrılar gerektirebilir. App Service, Azure Active Directory kimlik doğrulaması ve oturum açın. Facebook, Microsoft ve Twitter gibi sosyal sağlayıcılardan destekler. Özel kimlik doğrulama sağlayıcılarını yapılandırma hakkında daha fazla bilgi için bkz [Azure App Service kimlik doğrulamasına genel bakış](../app-service/overview-authentication-authorization.md). |
 
 ![Bir işlev uygulaması için kimlik doğrulamasını yapılandırma](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 

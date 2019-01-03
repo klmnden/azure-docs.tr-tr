@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 71b0739bacd8df586267b61a9135f448aa76479d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f732391cc73f0a7cb417409cd6f6f2b3c54f93d6
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082246"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994139"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Veri kaynakları için soru-cevap Oluşturucu içeriği
 
@@ -25,9 +25,9 @@ Aşağıdaki tabloda, soru-cevap Oluşturucu tarafından desteklenen içeriği v
 
 |Kaynak Türü|İçerik Türü| Örnekler|
 |--|--|--|
-|URL'si|Sık sorulan sorular (düz, bölümleri veya ile konuları giriş sayfası)|[Düz SSS](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [bağlantılarla SSS](https://www.microsoft.com/software-download/faq), [konuları giriş sayfası ile ilgili SSS](https://support.microsoft.com/products/windows?os=windows-10)|
-|PDF / DOC|Yapılandırılmış bir soru-cevap, vb. SSS sayfaları, ürün el ile broşürler, inceleme, El İlanı ilke ve Destek Kılavuzu.|[QnA.doc yapılandırılmış](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [örnek Ürün Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf), [örnek yarı structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx), [beyaz paper.pdf örneği](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
-|Excel|Yapılandırılmış soru-cevap dosyası (RTF dahil olmak üzere HTML desteği)|[Soru-cevap FAQ.xls örneği](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|URL'si|SSS<br> (Düz, bölümleri veya konuları giriş sayfası ile)<br>Destek sayfaları <br> (Sorun giderme makaleleri vb. tek sayfalı nasıl yapılır makaleleri,.)|[Düz SSS](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[SSS bağlantılarla](https://www.microsoft.com/software-download/faq),<br> [Konuları giriş sayfası ile ilgili SSS](https://support.microsoft.com/products/windows?os=windows-10)<br>[Destek makalesi](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
+|PDF / DOC|Sık sorulan sorular<br> Ürün el ile<br> Broşür<br> Kağıt<br> El İlanı İlkesi<br> Destek Kılavuzu<br> Yapılandırılmış soru-cevap<br> VS.|[QnA.doc yapılandırılmış](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Örnek Ürün Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Örnek Yarı structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Beyaz paper.pdf örneği](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
+|Excel|Yapılandırılmış soru-cevap dosyası<br> (RTF dahil olmak üzere HTML desteği)|[Soru-cevap FAQ.xls örneği](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|Yapılandırılmış soru-cevap dosyası|[Örnek chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
 ## <a name="data-source-locations"></a>Veri kaynağı konumları
@@ -36,7 +36,7 @@ Yalnızca genel URL, tüm veri kaynakları için geçerlidir. Kimlik doğrulamas
 
 ## <a name="faq-urls"></a>SSS URL'leri
 
-Soru-cevap Oluşturucu SSS web sayfaları 3 farklı formlarda destekleyebilir: düz SSS sayfaları, SSS sayfaları bağlantılarla birlikte, SSS sayfaları konuları giriş sayfası.
+Soru-cevap Oluşturucu SSS web sayfaları 3 farklı biçimlerde destekler: Düz SSS sayfaları, SSS sayfaları bağlantılarla birlikte, SSS sayfaları konuları giriş sayfası.
 
 ### <a name="plain-faq-pages"></a>Düz SSS sayfaları
 
@@ -65,6 +65,16 @@ Aşağıdaki konular giriş sayfası bağlantıları için farklı sayfalara SSS
  ![Bilgi Bankası için ayrıntılı bağlantı SSS sayfası örneği](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
+### <a name="support-urls"></a>Destek URL'si
+
+Soru-cevap Oluşturucu, belirli bir görevi gerçekleştirme, belirli bir sorunu tanılamak ve çözmek nasıl ve verilen bir işlem için en iyi uygulamalar nelerdir açıklayan web makaleleri gibi yarı yapılandırılmış Destek web sayfaları işleyebilir. Ayıklama açık bir yapı hiyerarşik başlıkları olan içeriği, en iyi şekilde çalışır.
+
+> [!NOTE]
+> Destek makaleleri için ayıklama yeni bir özelliktir ve erken aşamalarında. Bu da yapılandırılmış ve karmaşık üstbilgi/altbilgi içermeyen basit sayfaları, en iyi şekilde çalışır.
+
+![Soru-cevap Oluşturucu ayıklama açık bir yapı hiyerarşik başlıklarla Burada sunulan yarı yapılandırılmış web sayfalarından destekler](../media/qnamaker-concepts-datasources/support-web-pages-with-heirarchical-structure.png)
+
+
 ## <a name="pdf-doc-files"></a>PDF / DOC dosyaları
 
 Soru-cevap Oluşturucu, yarı yapılandırılmış bir PDF veya belge dosyanın içeriğini işlemek ve Bankalarıyla dönüştürün. İyi ayıklanabileceği iyi bir dosya olduğu içerik bazı yapılandırılmış biçimde düzenlenmiştir ve iyi tanımlanmış bölümlerinde gösterilen olan biridir. Aşağıdaki bölümlerde daha fazla alt bölümleri veya alt konuları bölünebilir. Ayıklama, en iyi açık bir yapı hiyerarşik başlıkları olan belgeler üzerinde çalışır.
@@ -84,7 +94,7 @@ El ile bir dizin sayfası ve hiyerarşik içerik ilişkin bir örnek aşağıda 
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>Broşürler, kılavuzlar, incelemeler ve diğer dosyaları
 
-Açık bir yapı ve düzeni olması kaydıyla, QA çiftleri oluşturmak için ayrıca diğer türlerde belgeleri işlenebilir. Bunlar: broşür yönergeleri, raporları, incelemeler, bilimsel incelemeler, ilkeleri, kitaplar, vb. beyaz. Bir örnek görmek [burada](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
+Açık bir yapı ve düzeni olması kaydıyla, QA çiftleri oluşturmak için ayrıca diğer türlerde belgeleri işlenebilir. Bunlar: Broşürler, yönergeleri, raporlar, teknik incelemeler, bilimsel incelemeler, ilkeleri, kitaplar, vb. Bir örnek görmek [burada](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx).
 
 Dizin olmadan, yarı yapılandırılmış bir belge örneği aşağıdadır:
 

@@ -1,6 +1,6 @@
 ---
-title: Web uygulamaları - Azure App Service'ı yapılandırma
-description: Azure uygulama Hizmetleri'nde bir web uygulamasını yapılandırma
+title: Uygulamalar - Azure App Service'ı yapılandırma
+description: Azure App Service'te bir uygulama yapılandırma
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -15,22 +15,20 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: deb3b155af464e69c6811414135913917cf2193a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269439"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716472"
 ---
-# <a name="configure-web-apps-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde Web uygulamalarını yapılandırma
+# <a name="configure-apps-in-azure-app-service"></a>Azure App Service'te uygulamaları yapılandırma
 
-Bu konu başlığında, bir web uygulamasını kullanarak yapılandırmak açıklanmaktadır [Azure Portal].
-
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+Bu konu başlığında, bir web uygulaması, mobil arka uç veya API uygulamasını kullanarak yapılandırmak açıklanmaktadır [Azure Portal].
 
 ## <a name="application-settings"></a>Uygulama ayarları
-1. İçinde [Azure Portal], web uygulaması dikey penceresini açın.
-3. **Uygulama ayarları**’na tıklayın.
+1. İçinde [Azure Portal], uygulama dikey penceresini açın.
+2. **Uygulama ayarları**’na tıklayın.
 
 ![Uygulama Ayarları][configure01]
 
@@ -47,14 +45,14 @@ Bu konu başlığında, bir web uygulamasını kullanarak yapılandırmak açık
 Teknik nedenlerle, uygulamanız için Java'yı etkinleştirme .NET, PHP ve Python seçenekleri devre dışı bırakır.
 
 <a name="platform"></a>
-**Platform**. 32 bit veya 64-bit bir ortamda web uygulamanızı çalıştıran olup olmadığını belirler. 64-bit ortam, temel veya standart katman gerektirir. Ücretsiz ve paylaşılan katmanın her zaman bir 32-bit ortamında çalıştırın.
+**Platform**. 32 bit veya 64-bit bir ortamda, uygulamanızı çalıştıran olup olmadığını belirler. 64-bit ortam, temel veya standart katman gerektirir. Ücretsiz ve paylaşılan katmanın her zaman bir 32-bit ortamında çalıştırın.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-**Web yuvaları**. Ayarlama **ON** WebSocket Protokolü; etkinleştirmek için örneğin, web uygulamanızın kullandığı [ASP.NET SignalR] veya [socket.io](https://socket.io/).
+**Web yuvaları**. Ayarlama **ON** WebSocket Protokolü; etkinleştirmek için örneğin, uygulamanızın kullandığı [ASP.NET SignalR] veya [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
-**Her zaman açık**. Belirli bir süre için boşta olmaları durumunda varsayılan olarak, web uygulamaları kaldırılır. Bu kaynak tasarrufu yapmak sistemi sağlar. Temel veya standart modunda etkinleştirebilirsiniz **Always On** uygulama korumak için her zaman yüklenir. Sürekli WebJobs uygulamanız çalışırken veya çalıştırmaları WebJobs tetiklenen bir CRON ifadesi kullanarak, etkinleştirmeniz gereken **Always On**, ya da web işleri güvenilir bir şekilde çalışmayabilir.
+**Her zaman açık**. Varsayılan olarak, belirli bir süre için boşta olmaları durumunda uygulamalar kaldırılır. Bu kaynak tasarrufu yapmak sistemi sağlar. Temel veya standart modunda etkinleştirebilirsiniz **Always On** uygulama korumak için her zaman yüklenir. Sürekli WebJobs uygulamanız çalışırken veya çalıştırmaları WebJobs tetiklenen bir CRON ifadesi kullanarak, etkinleştirmeniz gereken **Always On**, ya da web işleri güvenilir bir şekilde çalışmayabilir.
 
 **Yönetilen ardışık düzen sürümü**. IIS ayarlar [ardışık düzen modu]. Bu IIS daha eski bir sürümünü gerektiren eski bir uygulama olmadığı sürece tümleşik (varsayılan) bırakın.
 
@@ -65,13 +63,13 @@ Teknik nedenlerle, uygulamanız için Java'yı etkinleştirme .NET, PHP ve Pytho
 
 **ARR benzeşimi**. Bir uygulamada, out birden çok sanal makine örneklerine, ARR benzeşimi tanımlama bilgilerini istemci oturumunun ömrü aynı örneğine yönlendirilir garanti ölçeklendirilir. Durum bilgisiz uygulamaların performansını artırmak için bu seçeneği belirlemek **kapalı**.   
 
-**Otomatik Takas**. Otomatik Takas için bir dağıtım yuvası etkinleştirirseniz, bu yuva için bir güncelleştirme gönderdiğinizde App Service otomatik olarak web uygulamasını üretim ortamında değiştireceksiniz. Daha fazla bilgi için [hazırlama yuvaları için Azure App Service'te web uygulamalarını dağıtma](web-sites-staged-publishing.md).
+**Otomatik Takas**. Otomatik Takas için bir dağıtım yuvası etkinleştirirseniz, bu yuva için bir güncelleştirme gönderdiğinizde App Service otomatik olarak uygulama üretime değiştireceksiniz. Daha fazla bilgi için [hazırlama yuvaları Azure App Service'teki uygulamalar için dağıtma](deploy-staging-slots.md).
 
 ### <a name="debugging"></a>Hata ayıklama
-**Uzaktan hata ayıklama**. Uzaktan hata ayıklamasını etkinleştirir. Etkin olduğunda, web uygulamanızı doğrudan bağlanmak için Visual Studio uzaktan hata ayıklayıcıyı kullanabilirsiniz. Uzaktan hata ayıklama 48 saat boyunca etkin kalır. 
+**Uzaktan hata ayıklama**. Uzaktan hata ayıklamasını etkinleştirir. Etkin olduğunda, doğrudan uygulamanızın bağlanmak için Visual Studio uzaktan hata ayıklayıcıyı kullanabilirsiniz. Uzaktan hata ayıklama 48 saat boyunca etkin kalır. 
 
 ### <a name="app-settings"></a>Uygulama ayarları
-Bu bölümde, web uygulamanızın başlangıç yükleyecek ad/değer çiftleri içerir. 
+Bu bölüm, uygulamanız başlatıldığında yükleyecek ad/değer çiftleri içerir. 
 
 * .NET uygulamaları için .NET yapılandırmanızın bu ayarları eklenmiş `AppSettings` çalışma zamanında mevcut ayarları geçersiz kılar. 
 * App Service Linux veya, kapsayıcılar için Web App için sizin adınıza json anahtar yapısı iç içe ister `ApplicationInsights:InstrumentationKey` sahip olması gerekir `ApplicationInsights__InstrumentationKey` anahtar adı. Bu nedenle herhangi bir fark `:` tarafından değiştirilmelidir `__` (yani çift alt çizgi).
@@ -102,7 +100,7 @@ Bağlantı dizeleri çözümlenebilir Key Vault kullanarak [Key Vault başvuran]
 ### <a name="default-documents"></a>Varsayılan belgeler
 Varsayılan belge kök URL'si için bir Web sitesi görüntülenir bir web sayfasıdır.  Listedeki ilk eşleşen dosya kullanılır. 
 
-Web uygulamaları, URL yolu tabanlı yerine, bu nedenle hiçbir varsayılan belge statik içerik sunan bu durumda var olan modülleri kullanabilir.    
+URL rota tabanlı yerine, bu nedenle hiçbir varsayılan belge statik içerik sunan bu durumda var olan modülleri uygulamaları kullanabilir.    
 
 ### <a name="handler-mappings"></a>İşleyici eşlemeleri
 Belirli dosya uzantıları için istekleri işleyecek bir özel betik işleyicileri eklemek için bu alanı kullanın. 
@@ -117,7 +115,7 @@ Sanal uygulamaları ve dizinleri yapılandırmak için her bir sanal dizin ve We
 ## <a name="enabling-diagnostic-logs"></a>Tanılama günlüklerini etkinleştirme
 Tanılama günlüklerini etkinleştirmek için:
 
-1. Web uygulamanızın dikey penceresinde **tüm ayarlar**.
+1. Uygulamanızın dikey penceresinde **tüm ayarlar**.
 2. **Tanılama günlükleri**’ne tıklayın. 
 
 Günlük destekleyen bir web uygulamasından tanılama günlükleri yazmak için seçenekleri: 
@@ -134,31 +132,31 @@ Günlük destekleyen bir web uygulamasından tanılama günlükleri yazmak için
 
 Günlük dosyalarını görüntülemek için FTP kimlik bilgileri, şu şekilde oluşturmanız gerekir:
 
-1. Web uygulamanızın dikey penceresinde **tüm ayarlar**.
+1. Uygulamanızın dikey penceresinde **tüm ayarlar**.
 2. Tıklayın **dağıtım kimlik bilgileri**.
 3. Bir kullanıcı adı ve parola girin.
 4. **Kaydet**’e tıklayın.
 
 ![Dağıtım kimlik bilgilerini ayarlama][configure03]
 
-Tam FTP kullanıcı adı "app\username" olduğu *uygulama* web uygulamanızın adıdır. Kullanıcı adı altında web uygulaması dikey penceresinde listelenen **Essentials**.
+Tam FTP kullanıcı adı "app\username" olduğu *uygulama* uygulamanızın adıdır. Kullanıcı adı uygulaması dikey penceresinde, altında listelenen **Essentials**.
 
 ![FTP dağıtım kimlik bilgileri][configure02]
 
 ## <a name="other-configuration-tasks"></a>Diğer yapılandırma görevleri
 ### <a name="ssl"></a>SSL
-Temel veya standart modunda özel etki alanı için SSL sertifikaları karşıya yükleyebilirsiniz. Daha fazla bilgi için [bir web uygulaması için HTTPS'yi etkinleştirme](app-service-web-tutorial-custom-ssl.md). 
+Temel veya standart modunda özel etki alanı için SSL sertifikaları karşıya yükleyebilirsiniz. Daha fazla bilgi için [bir uygulama için HTTPS'yi etkinleştir](app-service-web-tutorial-custom-ssl.md). 
 
 Karşıya yüklenen sertifikaların görüntülemek için tıklayın **tüm ayarlar** > **özel etki alanları ve SSL**.
 
 ### <a name="domain-names"></a>Etki alanı adları
-Web uygulamanız için özel etki alanı adlarını ekleyin. Daha fazla bilgi için [Azure App Service'te bir web uygulaması için özel etki alanı adı yapılandırma](app-service-web-tutorial-custom-domain.md).
+Uygulamanız için özel etki alanı adlarını ekleyin. Daha fazla bilgi için [Azure App Service'te bir uygulama için bir özel etki alanı adı yapılandırma](app-service-web-tutorial-custom-domain.md).
 
 Etki alanı adlarınızı görüntülemek için tıklayın **tüm ayarlar** > **özel etki alanları ve SSL**.
 
 ### <a name="deployments"></a>Dağıtımlar
-* Sürekli dağıtım ayarlayın. Bkz: [kullanarak Azure App Service'te Web uygulamalarını dağıtmak için Git](app-service-deploy-local-git.md).
-* Dağıtım yuvaları. Bkz: [Azure App Service'te Web uygulamaları için hazırlama ortamlarını dağıtma].
+* Sürekli dağıtım ayarlayın. Bkz: [kullanarak Azure App Service'te uygulamaları dağıtmak için Git](deploy-local-git.md).
+* Dağıtım yuvaları. Bkz: [Azure App Service için hazırlama ortamlarını dağıtma].
 
 Dağıtım yuvaları görüntülemek için tıklayın **tüm ayarlar** > **dağıtım yuvalarını**.
 
@@ -167,29 +165,23 @@ Temel veya standart modunda Üçe kadar coğrafi olarak dağıtılmış konumlar
 
 Daha fazla bilgi için [Nasıl Yapılır: Web uç noktası durumunu izleme].
 
-> [!NOTE]
-> Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin] sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
-> 
-> 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure App Service'te özel etki alanı adını yapılandırma]
 * [Azure App Service'te bir uygulama için HTTPS'yi etkinleştirme]
-* [Azure App Service'te bir web uygulamasını ölçeklendirme]
-* [Azure App Service'te Web uygulamaları için temel izleme]
+* [Azure App Service'te bir uygulama ölçeklendirme]
+* [Azure App Service içindeki temel izleme]
 
 <!-- URL List -->
 
 [ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Azure App Service'te özel etki alanı adını yapılandırma]: ./app-service-web-tutorial-custom-domain.md
-[Azure App Service'te Web uygulamaları için hazırlama ortamlarını dağıtma]: ./web-sites-staged-publishing.md
+[Azure App Service için hazırlama ortamlarını dağıtma]: ./deploy-staging-slots.md
 [Azure App Service'te bir uygulama için HTTPS'yi etkinleştirme]: ./app-service-web-tutorial-custom-ssl.md
 [Nasıl Yapılır: Web uç noktası durumunu izleme]: https://go.microsoft.com/fwLink/?LinkID=279906
-[Azure App Service'te Web uygulamaları için temel izleme]: ./web-sites-monitor.md
+[Azure App Service içindeki temel izleme]: ./web-sites-monitor.md
 [Ardışık Düzen modu]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Azure App Service'te bir web uygulamasını ölçeklendirme]: ./web-sites-scale.md
-[App Service’i Deneyin]: https://azure.microsoft.com/try/app-service/
+[Azure App Service'te bir uygulama ölçeklendirme]: ./web-sites-scale.md
 
 <!-- IMG List -->
 

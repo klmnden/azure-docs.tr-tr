@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 331ec4bd7e91e8283f6a44b0fd440a9d73e28710
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 17826bb250f1cc7c4d512f76400eeb43c2637c73
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024180"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994802"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure örnek meta veri hizmeti
 
@@ -76,8 +76,8 @@ Aşağıdaki tablo, diğer veri biçimlerini API'leri destekleyebilir bir başvu
 
 API | Varsayılan veri biçimi | Diğer biçimler
 --------|---------------------|--------------
-/instance | JSON | metin
-/scheduledevents | JSON | yok
+/instance | json | metin
+/scheduledevents | json | yok
 
 Varsayılan olmayan yanıt biçimi erişmek için istenen biçimi istek sorgu dizesi parametresi olarak belirtin. Örneğin:
 
@@ -288,7 +288,7 @@ location | Azure bölgesi VM çalışıyor | 2017-04-02
 ad | VM adı | 2017-04-02
 Teklif | VM görüntüsü için bilgi sağlar. Bu değer, yalnızca Azure görüntü Galerisi'nden dağıtılan görüntülerin bulunur. | 2017-04-02
 Yayımcı | VM görüntü yayımcısı | 2017-04-02
-SKU | Belirli SKU için VM görüntüsü | 2017-04-02
+sku | Belirli SKU için VM görüntüsü | 2017-04-02
 version | VM görüntüsü sürümü | 2017-04-02
 osType | Linux veya Windows | 2017-04-02
 platformUpdateDomain |  [Güncelleme etki alanı](manage-availability.md) VM'nin çalışır durumda | 2017-04-02
@@ -412,6 +412,51 @@ Azure, çeşitli bağımsız bulutlarda gibi sahiptir [Azure kamu](https://azure
   }
  
   Write-Host $environment
+```
+
+### <a name="failover-clustering-in-windows-server"></a>Windows Server Yük devretme
+
+Belirli senaryolar, örnek meta veri hizmeti Yük Devretme Kümelemesi ile sorgulanırken bir yolu yönlendirme tablosuna eklemek gereklidir.
+
+1. Yönetici ayrıcalıklarıyla bir komut istemi açın.
+
+2. Aşağıdaki komutu çalıştırın ve bir hedef ağ arabiriminin adresini not alın (`0.0.0.0`) IPv4 yönlendirme tablosuna.
+
+```bat
+route print
+```
+
+> [!NOTE] 
+> Aşağıdaki örnek çıktıda etkin yük devretme kümesi ile bir Windows Server VM'den yalnızca IPv4 için rota tablosu Basitlik içerir.
+
+```bat
+IPv4 Route Table
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
+         10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
+        10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
+        10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
+        10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
+        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+      169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
+    169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
+  169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
+        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+        224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
+        224.0.0.0        240.0.0.0         On-link         10.0.1.10    266
+  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+  255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
+  255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
+```
+
+3. Aşağıdaki komutu çalıştırın ve için hedef ağ arabiriminin adresini kullanın (`0.0.0.0`) olduğu (`10.0.1.10`) Bu örnekte.
+
+```bat
+route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>VM içindeki farklı dilleri kullanarak meta verileri hizmete çağrı yapma örnekleri 

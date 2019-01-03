@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: e35a8cf720fffa3a3b4c7d9f1b83c2323041b1c4
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 09f4637c24b146394dc0299e60e729c07420150a
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833321"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974395"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Bir Linux ana hedef sunucusu yeniden çalışma için yükleyin
 Sanal makinelerinizi azure'a yük devretme sonra sanal makineleri şirket içi siteye geri dönebilirsiniz. Yeniden çalışma için sanal makine azure'dan şirket içi siteye yeniden korumanız gerekir. Bu işlem için trafiği almak için bir şirket içi ana hedef sunucusu gerekir. 
@@ -20,6 +20,7 @@ Bir Windows sanal makine, korumalı sanal makine ise, Windows ana hedef gerekir.
 
 > [!IMPORTANT]
 > 9.10.0 sürümünden itibaren ana hedef sunucu, en son ana hedef sunucusu yalnızca bir Ubuntu 16.04 sunucusuna yüklenebilir. Yeni yüklemeler CentOS6.6 sunucuları üzerinde izin verilmez. Ancak eski ana hedef sunucularınızın 9.10.0 kullanarak yükseltmeye devam edebilirsiniz sürümü.
+> Ana hedef sunucusunda LVM desteklenmiyor.
 
 ## <a name="overview"></a>Genel Bakış
 Bu makalede, bir Linux ana hedef yüklemek yönergeleri sağlanır.
@@ -59,7 +60,7 @@ Aşağıdaki desteklenen Ubuntu çekirdekler desteklenir.
 
 Aşağıdaki adımlar Ubuntu 16.04.2 64-bit işletim sistemini yüklemek için.
 
-1.   Git [indirme bağlantısı](https://www.ubuntu.com/download/server/thank-you?version=16.04.2&architecture=amd64), en yakın yansıtma anddownload Ubuntu 16.04.2 en az 64 bit ISO seçin.
+1.   Git [indirme bağlantısı](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), en yakın yansıtma anddownload Ubuntu 16.04.2 en az 64 bit ISO seçin.
 DVD sürücüsüne bir Ubuntu 16.04.2 en az 64 bit ISO tutun ve sistem başlatın.
 
 1.  Seçin **İngilizce** olarak tercih edilen dili ve ardından **Enter**.
@@ -259,7 +260,7 @@ Bekletme diski oluşturmak için aşağıdaki adımları kullanın:
     
     Seçin **Ekle** dosyayı düzenlemeye başlayabilmesi için. Yeni bir satır oluşturun ve sonra aşağıdaki metni ekleyin. Önceki komutta alınan vurgulanan çok yollu kimliği temel disk çok yollu Kimliğini düzenleyin.
 
-    **/dev/Eşleyici/<Retention disks multipath id> /mnt/saklama ext4 rw 0 0**
+     **/dev/Eşleyici/ <Retention disks multipath id> /mnt/saklama ext4 rw 0 0**
 
     Seçin **Esc**, Anahtar'a tıklayın ve **: wq** (yazma ve Çık) Düzenleyicisi penceresini kapatın.
 
