@@ -19,7 +19,7 @@ ms.locfileid: "50252169"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure işlevleri için Host.JSON başvurusu 1.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Azure Functions çalışma zamanının sürümünü seçin: "]
 > * [Sürüm 1](functions-host-json-v1.md)
 > * [Sürüm 2](functions-host-json.md)
 
