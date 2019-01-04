@@ -18,7 +18,7 @@ ms.lasthandoff: 01/02/2019
 ms.locfileid: "53969939"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Amazon basit depolama hizmeti Azure Data Factory kullanarak veri kopyalama
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
 > * [Sürüm 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Geçerli sürüm](connector-amazon-simple-storage-service.md)
 
