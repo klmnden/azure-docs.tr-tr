@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: d306629e552686e180a3927108fca276bcad2aa5
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e91f6ecb4ff510b1ba93b56d0bfb0bda0a156cf1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971708"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019835"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config veya .xml ile Application Insights SDK yapılandırma
 Application Insights .NET SDK'sı NuGet paketlerini birtakım oluşur. [Çekirdek paket](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights'a telemetri göndermek için API sağlar. [Ek paketleri](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) telemetri sağlamak *modülleri* ve *başlatıcılar* telemetri uygulamanız ve onun içeriği otomatik olarak izlemek için. Yapılandırma dosyası ayarlayarak, etkinleştirmek veya telemetri modülleri ve başlatıcılar devre dışı bırakın ve bunlardan bazıları için parametreleri ayarlayın.
@@ -46,7 +46,7 @@ Yapılandırma dosyasında her bir modül için bir düğüm yok. Bir modül dev
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet paketi.
 
 ### <a name="performance-collector"></a>Performans Toplayıcı
-[Sistem performans sayaçlarını toplar](../../application-insights/app-insights-performance-counters.md) gibi CPU, bellek ve ağ IIS yüklemelerinden yükleyin. Performans sayaçları, tuttuğumuz dahil olmak üzere, hangi sayaçları toplamak için belirtebilirsiniz.
+[Sistem performans sayaçlarını toplar](../../azure-monitor/app/performance-counters.md) gibi CPU, bellek ve ağ IIS yüklemelerinden yükleyin. Performans sayaçları, tuttuğumuz dahil olmak üzere, hangi sayaçları toplamak için belirtebilirsiniz.
 
 * `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule`
 * [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet paketi.
@@ -125,7 +125,7 @@ Standart başlatıcılar tüm Web veya Windows Server NuGet paketi tarafından a
 * `OperationNameTelemetryInitializer` güncelleştirmeleri `Name` özelliği `RequestTelemetry` ve `Name` özelliği `Operation` bağlam tüm telemetri öğelerinin temel HTTP yöntemi, aynı zamanda adlarını ASP.NET MVC denetleyici ve eylem isteği işlemek üzere çağrılır.
 * `OperationIdTelemetryInitializer` veya `OperationCorrelationTelemetryInitializer` güncelleştirmeleri `Operation.Id` bağlam özelliği tüm telemetri öğelerinin izlenen otomatik olarak oluşturulan bir isteği işlerken `RequestTelemetry.Id`.
 * `SessionTelemetryInitializer` güncelleştirmeleri `Id` özelliği `Session` ayıklanan değerle tüm telemetri öğeleri için bağlam `ai_session` tanımlama bilgisi kullanıcının tarayıcısında çalışan Applicationınsights JavaScript izleme kodu tarafından oluşturulur.
-* `SyntheticTelemetryInitializer` veya `SyntheticUserAgentTelemetryInitializer` güncelleştirmeleri `User`, `Session`, ve `Operation` tüm telemetri öğelerinin bağlamları özelliklerini, bir kullanılabilirlik testi veya arama motoru robot gibi yapay bir kaynaktan bir isteği işlerken izlenir. Varsayılan olarak, [ölçüm Gezgini](../../application-insights/app-insights-metrics-explorer.md) yapay telemetri görüntülemez.
+* `SyntheticTelemetryInitializer` veya `SyntheticUserAgentTelemetryInitializer` güncelleştirmeleri `User`, `Session`, ve `Operation` tüm telemetri öğelerinin bağlamları özelliklerini, bir kullanılabilirlik testi veya arama motoru robot gibi yapay bir kaynaktan bir isteği işlerken izlenir. Varsayılan olarak, [ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md) yapay telemetri görüntülemez.
 
     `<Filters>` Tanımlama isteklerinin özelliklerini ayarlayın.
 * `UserTelemetryInitializer` güncelleştirmeleri `Id` ve `AcquisitionDate` özelliklerini `User` ayıklanan değerlere sahip tüm telemetri öğeleri için bağlam `ai_user` tanımlama bilgisi kullanıcının çalışan Application Insights JavaScript izleme kodu tarafından oluşturulan Tarayıcı.
@@ -154,7 +154,7 @@ Bu, varsayılan olarak etkindir. Uygulamanız çok miktarda telemetri gönderir,
 
 Parametre elde etmek için algoritma çalışır bir hedef sağlar. Sunucunuz birden çok makine kümesi ise gerçek telemetri hacmi uygun şekilde çarpılmasına şekilde SDK'ın her örnek bağımsız olarak çalışır.
 
-[Örnekleme hakkında daha fazla bilgi](../../application-insights/app-insights-sampling.md).
+[Örnekleme hakkında daha fazla bilgi](../../azure-monitor/app/sampling.md).
 
 #### <a name="fixed-rate-sampling-telemetry-processor-from-200-beta1"></a>Sabit fiyat örnekleme telemetri işlemciden (2.0.0-beta1)
 Ayrıca bir standart olan [telemetri işlemci örnekleme](../../azure-monitor/app/api-filtering-sampling.md) (Başlangıç 2.0.1):
@@ -233,7 +233,7 @@ Yerel diskte kalıcı depolama için ayrılan MB en büyük boyutunu belirler. B
 
 #### <a name="local-forwarder"></a>Yerel iletici
 
-[Yerel ileticisi](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) Application Insights tarafından toplanan bir aracı veya [OpenCensus](https://opencensus.io/) çeşitli SDK'lar ve çerçeveleri alınan telemetri ve uygulama anlayışları'na yönlendirir. Bu, Windows ve Linux altında çalıştırma yeteneğine sahiptir. Application Insights Java SDK ile birlikte olduğunda yerel ileticisi için tam destek sağlar. [Canlı ölçümleri](../../application-insights/app-insights-live-stream.md) ve Uyarlamalı örnekleme.
+[Yerel ileticisi](https://docs.microsoft.com/azure/application-insights/opencensus-local-forwarder) Application Insights tarafından toplanan bir aracı veya [OpenCensus](https://opencensus.io/) çeşitli SDK'lar ve çerçeveleri alınan telemetri ve uygulama anlayışları'na yönlendirir. Bu, Windows ve Linux altında çalıştırma yeteneğine sahiptir. Application Insights Java SDK ile birlikte olduğunda yerel ileticisi için tam destek sağlar. [Canlı ölçümleri](../../azure-monitor/app/live-stream.md) ve Uyarlamalı örnekleme.
 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">

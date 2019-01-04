@@ -9,17 +9,16 @@ ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a20ba54226e5cdcec242e29344110840615a0c95
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: e053fa52b7b7cea1c35b68a0f2079eb5a590a76a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317534"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021586"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory ve Batch kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
@@ -595,7 +594,7 @@ Bu adımda, data factory özel etkinliği çalıştırmak için kullanılan Batc
 
 1. Bağlı hizmeti dağıtmak için komut çubuğunda **Dağıt**’ı seçin.
 
-#### <a name="step-3-create-datasets"></a>3. adım: Veri kümeleri oluşturma
+#### <a name="step-3-create-datasets"></a>3. Adım: Veri kümeleri oluşturma
 Bu adımda, girdi ve çıktı verilerini temsil eden veri kümeleri oluşturun.
 
 #### <a name="create-the-input-dataset"></a>Girdi veri kümesini oluşturma

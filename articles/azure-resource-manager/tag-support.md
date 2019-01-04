@@ -4,14 +4,14 @@ description: Etiketlerin hangi Azure kaynak türlerini destekleyen gösterir. Ay
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 12/21/2018
+ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: ef365cdf0a5df168c438abd0428e41200b07756c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 50ea7a2446b5560bd208b2da128fa877068ce452
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753787"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000300"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure kaynakları için etiketi desteği
 Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etiketleme](resource-group-using-tags.md).
@@ -24,15 +24,20 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 ## <a name="ad-hybrid-health-service"></a>AD karma sistem durumu hizmeti
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
-| services | Hayır | 
-| addsservices | Hayır | 
-| yapılandırma | Hayır | 
-| aracılar | Hayır | 
+| addsservices | Hayır |
 | aadsupportcases | Hayır | 
-| raporlar | Hayır | 
-| servicehealthmetrics | Hayır | 
-| günlükler | Hayır | 
+| aracılar | Hayır | 
 | anonymousapiusers | Hayır | 
+| yapılandırma | Hayır | 
+| günlükler | Hayır | 
+| raporlar | Hayır | 
+| services | Hayır | 
+| servicehealthmetrics | Hayır | 
+
+## <a name="aks"></a>AKS
+| Kaynak türü | Etiketleri destekler |
+| ------------- | ----------- |
+| managedClusters | Evet | 
 
 ## <a name="analysis-services"></a>Analysis Services
 | Kaynak türü | Etiketleri destekler |
@@ -43,11 +48,11 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
 | apiManagementAccounts | Hayır | 
-| apiManagementAccounts/connectionProviders | Hayır | 
-| apiManagementAccounts/bağlantıları | Hayır | 
-| apiManagementAccounts/connectionAcls | Hayır | 
-| apiManagementAccounts/connectionProviderAcls | Hayır | 
 | apiManagementAccounts/API'leri | Hayır | 
+| apiManagementAccounts/connectionAcls | Hayır | 
+| apiManagementAccounts/connectionProviders | Hayır | 
+| apiManagementAccounts/connectionProviderAcls | Hayır | 
+| apiManagementAccounts/bağlantıları | Hayır | 
 
 ## <a name="api-management"></a>API Management
 | Kaynak türü | Etiketleri destekler |
@@ -58,11 +63,48 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
 | AutomationAccounts | Evet | 
-| automationAccounts/runbook'ları | Evet | 
 | automationAccounts/yapılandırmalar | Evet | 
-| automationAccounts/Web kancaları | Hayır | 
-| automationAccounts/softwareUpdateConfigurations | Hayır | 
 | automationAccounts/işleri | Hayır | 
+| automationAccounts/runbook'ları | Evet | 
+| automationAccounts/softwareUpdateConfigurations | Hayır | 
+| automationAccounts/Web kancaları | Hayır | 
+
+## <a name="azure-database-for-mariadb"></a>MariaDB için Azure Veritabanı
+| Kaynak türü | Etiketleri destekler |
+| ------------- | ----------- |
+| sunucu | Evet | 
+| sunucuları/yapılandırmalar | Hayır |
+| sunucuları/veritabanları | Hayır |
+| sunucuları/firewallRules | Hayır |
+| sunucuları/recoverableServers | Hayır | 
+| sunucuları/securityAlertPolicies | Hayır |
+| sunucuları/virtualNetworkRules | Hayır | 
+
+## <a name="azure-database-for-mysql"></a>MySQL için Azure Veritabanı
+| Kaynak türü | Etiketleri destekler |
+| ------------- | ----------- |
+| sunucu | Evet | 
+| sunucuları/yapılandırmalar | Hayır |
+| sunucuları/veritabanları | Hayır |
+| sunucuları/firewallRules | Hayır |
+| sunucuları/recoverableServers | Hayır | 
+| sunucuları/securityAlertPolicies | Hayır |
+| sunucuları/virtualNetworkRules | Hayır | 
+
+## <a name="azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı
+| Kaynak türü | Etiketleri destekler |
+| ------------- | ----------- |
+| sunucu | Evet | 
+| sunucuları/danışmanları | Hayır | 
+| sunucuları/yapılandırmalar | Hayır |
+| sunucuları/veritabanları | Hayır |
+| sunucuları/firewallRules | Hayır |
+| sunucuları/queryTexts | Hayır | 
+| sunucuları/recoverableServers | Hayır | 
+| sunucuları/securityAlertPolicies | Hayır |
+| sunucuları/topQueryStatistics | Hayır | 
+| sunucuları/virtualNetworkRules | Hayır | 
+| sunucuları/waitStatistics | Hayır | 
 
 ## <a name="batch"></a>Batch
 | Kaynak türü | Etiketleri destekler |
@@ -87,12 +129,12 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 ## <a name="cdn"></a>CDN
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
+| edgenodes | Hayır | 
 | Profilleri | Evet | 
 | profilleri/uç noktaları | Evet | 
-| uç noktalar/profilleri/kaynakları | Hayır | 
 | uç noktalar/profilleri/customdomains | Hayır | 
+| uç noktalar/profilleri/kaynakları | Hayır | 
 | validateProbe | Hayır | 
-| edgenodes | Hayır | 
 
 ## <a name="classic-compute"></a>Klasik İşlem
 | Kaynak türü | Etiketleri destekler |
@@ -114,8 +156,8 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
 | virtualNetworks | Hayır | 
-| virtualNetworks/virtualNetworkPeerings | Hayır | 
 | virtualNetworks/remoteVirtualNetworkPeeringProxies | Hayır | 
+| virtualNetworks/virtualNetworkPeerings | Hayır | 
 
 ## <a name="classic-storage"></a>Klasik depolama
 | Kaynak türü | Etiketleri destekler |
@@ -127,23 +169,23 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
 | availabilitySets | Evet | 
-| virtualMachines | Evet | 
-| virtualMachines ve uzantıları | Evet | 
-| virtualMachineScaleSets | Evet | 
-| virtualMachineScaleSets ve uzantıları | Hayır | 
-| virtualMachineScaleSets/virtualMachines | Hayır | 
-| virtualMachineScaleSets/networkınterface'lerden bazıları | Hayır | 
-| virtualMachineScaleSets/virtualMachines/networkınterface'lerden bazıları | Hayır | 
-| virtualMachineScaleSets/publicIPAddresses | Hayır | 
+| diskler | Evet | 
+| images | Evet | 
 | restorePointCollections | Evet | 
 | restorePointCollections/restorePoints | Hayır | 
-| virtualMachines/diagnosticSettings | Hayır | 
-| virtualMachines/metricDefinitions | Hayır | 
 | sharedVMImages | Evet | 
 | sharedVMImages/sürümleri | Evet | 
-| diskler | Evet | 
 | anlık görüntüler | Evet | 
-| images | Evet | 
+| virtualMachines | Evet | 
+| virtualMachines/diagnosticSettings | Hayır | 
+| virtualMachines ve uzantıları | Evet | 
+| virtualMachines/metricDefinitions | Hayır | 
+| virtualMachineScaleSets | Evet | 
+| virtualMachineScaleSets ve uzantıları | Hayır | 
+| virtualMachineScaleSets/networkınterface'lerden bazıları | Hayır | 
+| virtualMachineScaleSets/publicIPAddresses | Hayır | 
+| virtualMachineScaleSets/virtualMachines | Hayır | 
+| virtualMachineScaleSets/virtualMachines/networkınterface'lerden bazıları | Hayır | 
 
 ## <a name="container"></a>Kapsayıcı
 | Kaynak türü | Etiketleri destekler |
@@ -155,6 +197,14 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | ------------- | ----------- |
 | containerGroups | Evet | 
 | serviceAssociationLinks | Hayır | 
+
+## <a name="container-registry"></a>Container Kayıt Defteri
+| Kaynak türü | Etiketleri destekler |
+| ------------- | ----------- |
+| kayıt defterleri | Evet | 
+| kayıt defterleri/çoğaltmalar | Evet |
+| kayıt defterleri/görevleri | Evet |
+| kayıt defterleri/Web kancaları | Evet |
 
 ## <a name="container-service"></a>Kapsayıcı Hizmeti
 | Kaynak türü | Etiketleri destekler |
@@ -177,6 +227,11 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | ------------- | ----------- |
 | Bağlayıcılar | Evet | 
 
+## <a name="data-box"></a>Data Box
+| Kaynak türü | Etiketleri destekler |
+| ------------- | ----------- |
+| işler | Evet | 
+
 ## <a name="data-box-edge"></a>Data Box Edge
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
@@ -196,11 +251,11 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
 | dataFactories | Evet | 
-| fabrikaları | Evet | 
-| fabrikaları/integrationRuntimes | Hayır | 
 | dataFactories/diagnosticSettings | Hayır | 
 | dataFactories/metricDefinitions | Hayır | 
 | dataFactorySchema | Hayır | 
+| fabrikaları | Evet | 
+| fabrikaları/integrationRuntimes | Hayır | 
 
 ## <a name="devices"></a>Cihazlar
 | Kaynak türü | Etiketleri destekler |
@@ -218,9 +273,24 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
 | Laboratuvarları | Evet | 
-| Zamanlamaları | Evet | 
-| Labs/virtualMachines | Evet | 
+| Labs/artifactsources | Evet |
+| Labs/maliyetleri | Evet |
+| Labs/customimages | Evet |
+| Labs/formülleri | Evet |
+| Labs/notificationchannels | Evet |
+| Labs/policysets/ilkeler | Evet |
+| Labs/zamanlamaları | Evet |
 | Labs/serviceRunners | Evet | 
+| Labs/kullanıcılar | Evet |
+| Labs/kullanıcı/diskleri | Evet |
+| Labs/kullanıcı/ortamları | Evet |
+| Labs/kullanıcı/gizli | Evet |
+| Labs/kullanıcı/servicefabrics | Evet |
+| Labs/kullanıcı/servicefabrics/zamanlamaları | Evet |
+| Labs/virtualMachines | Evet | 
+| Labs/virtualmachines/zamanlamaları | Evet |
+| Labs/virtualnetworks | Evet |
+| Zamanlamaları | Evet | 
 
 ## <a name="dynamics-lcs"></a>Dynamics LCS
 | Kaynak türü | Etiketleri destekler |
@@ -232,18 +302,23 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 ## <a name="event-grid"></a>Event Grid
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
-| eventSubscriptions | Hayır | 
-| konuları | Evet | 
 | etki alanları | Evet | 
 | etki alanı/konuları | Hayır | 
-| topicTypes | Hayır | 
+| eventSubscriptions | Hayır | 
 | extensionTopics | Hayır | 
+| konuları | Evet | 
+| topicTypes | Hayır | 
 
 ## <a name="event-hub"></a>Olay Hub'ı
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
-| Ad alanları | Evet | 
 | Kümeleri | Evet | 
+| Ad alanları | Evet | 
+| ad/authorizationrules öğesine | Hayır |
+| ad/disasterRecoveryConfigs | Hayır |
+| ad/eventhubs | Hayır |
+| ad/eventhubs/authorizationrules öğesine | Hayır |
+| ad/eventhubs/consumergroups | Hayır |
 
 ## <a name="hana-on-azure"></a>Azure'da Hana
 | Kaynak türü | Etiketleri destekler |
@@ -265,28 +340,31 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
 | actionGroups | Evet |
-| Bileşenleri | Evet | 
-| bileşenleri/sorgu | Hayır | 
-| bileşenleri/ölçümleri | Hayır | 
-| bileşenleri/olaylar | Hayır | 
-| Web testleri | Evet | 
-| sorgu | Hayır | 
-| scheduledqueryrules | Evet | 
-| bileşenleri/pricingPlans | Hayır | 
-| migrateToNewPricingModel | Hayır | 
-| rollbackToLegacyPricingModel | Hayır | 
+| activityLogAlerts | Evet |
+| alertrules | Evet |
 | automatedExportSettings | Hayır | 
-| Çalışma kitapları | Evet | 
-| myWorkbooks | Hayır | 
+| Bileşenleri | Evet | 
+| bileşenleri/olaylar | Hayır | 
+| bileşenleri/ölçümleri | Hayır | 
+| bileşenleri/pricingPlans | Hayır | 
+| bileşenleri/sorgu | Hayır | 
 | günlükler | Hayır | 
+| metricAlerts | Evet |
+| migrateToNewPricingModel | Hayır | 
+| myWorkbooks | Hayır | 
+| sorgu | Hayır | 
+| rollbackToLegacyPricingModel | Hayır | 
+| scheduledqueryrules | Evet | 
+| Web testleri | Evet | 
+| Çalışma kitapları | Evet | 
 
 ## <a name="key-vault"></a>Key Vault
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
-| kasaları | Evet | 
-| Kasalar/parolalar | Hayır | 
-| kasaları/accessPolicies | Hayır | 
 | deletedVaults | Hayır | 
+| kasaları | Evet | 
+| kasaları/accessPolicies | Hayır | 
+| Kasalar/parolalar | Hayır | 
 
 ## <a name="log-analytics"></a>Log Analytics
 | Kaynak türü | Etiketleri destekler |
@@ -296,8 +374,8 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 ## <a name="logic"></a>Mantık
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
-| İş akışları | Evet | 
 | integrationAccounts | Evet | 
+| İş akışları | Evet | 
 
 ## <a name="machine-learning-services"></a>Machine Learning Services
 | Kaynak türü | Etiketleri destekler |
@@ -310,13 +388,6 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | ------------- | ----------- |
 | Kimlikler | Hayır | 
 | Userassignedıdentities | Evet | 
-
-## <a name="mariadb"></a>MariaDB
-| Kaynak türü | Etiketleri destekler |
-| ------------- | ----------- |
-| sunucu | Evet | 
-| sunucuları/recoverableServers | Hayır | 
-| sunucuları/virtualNetworkRules | Hayır | 
 
 ## <a name="marketplace-apps"></a>Marketplace uygulamaları
 | Kaynak türü | Etiketleri destekler |
@@ -333,64 +404,57 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
 | mediaservices | Evet | 
+| mediaservices/accountFilters | Hayır | 
 | mediaservices/varlıklar | Hayır | 
+| varlıklar/mediaservices/assetFilters | Hayır | 
 | mediaservices/contentKeyPolicies | Hayır | 
-| mediaservices/streamingLocators | Hayır | 
-| mediaservices/streamingPolicies | Hayır | 
 | mediaservices/eventGridFilters | Hayır | 
-| mediaservices/dönüştürme | Hayır | 
-| dönüşümler/mediaservices/işleri | Hayır | 
-| mediaservices/akış | Evet | 
+| mediaservices/liveEventOperations | Hayır | 
 | mediaservices/liveEvents | Evet | 
 | liveEvents/mediaservices/liveOutputs | Hayır | 
-| mediaservices/streamingEndpointOperations | Hayır | 
-| mediaservices/liveEventOperations | Hayır | 
 | mediaservices/liveOutputOperations | Hayır | 
-| varlıklar/mediaservices/assetFilters | Hayır | 
-| mediaservices/accountFilters | Hayır | 
-
-## <a name="mysql"></a>MySQL
-| Kaynak türü | Etiketleri destekler |
-| ------------- | ----------- |
-| sunucu | Evet | 
-| sunucuları/recoverableServers | Hayır | 
-| sunucuları/virtualNetworkRules | Hayır | 
+| mediaservices/akış | Evet | 
+| mediaservices/streamingEndpointOperations | Hayır | 
+| mediaservices/streamingLocators | Hayır | 
+| mediaservices/streamingPolicies | Hayır | 
+| mediaservices/dönüştürme | Hayır | 
+| dönüşümler/mediaservices/işleri | Hayır | 
 
 ## <a name="network"></a>Ağ
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
-| virtualNetworks | Evet | 
-| publicIPAddresses | Evet | 
-| networkınterface'lerden bazıları | Evet | 
+| applicationGateways | Evet | 
+| Applicationsecuritygroup | Evet | 
+| azureFirewalls | Evet | 
+| bağlantılar | Evet | 
+| ddosProtectionPlans | Evet | 
+| expressRouteCircuits | Evet | 
+| frontdoors | Evet | 
+| frontdoorWebApplicationFirewallPolicies | Evet | 
 | interfaceEndpoints | Evet | 
 | Sonraki | Evet | 
-| networkSecurityGroups | Evet | 
-| Applicationsecuritygroup | Evet | 
-| serviceEndpointPolicies | Evet | 
+| localNetworkGateways | Evet | 
 | networkIntentPolicies | Evet | 
-| routeTables | Evet | 
-| publicIPPrefixes | Evet | 
+| networkınterface'lerden bazıları | Evet | 
+| networkProfiles | Evet | 
+| networkSecurityGroups | Evet | 
 | networkWatchers | Evet | 
 | networkWatchers/connectionMonitors | Evet | 
 | networkWatchers/merceklerden | Evet | 
 | networkWatchers/pingMeshes | Evet | 
-| virtualNetworkGateways | Evet | 
-| localNetworkGateways | Evet | 
-| bağlantılar | Evet | 
-| applicationGateways | Evet | 
-| expressRouteCircuits | Evet | 
-| routeFilters | Evet | 
-| virtualWans | Evet | 
-| vpnSites | Evet | 
-| virtualHubs | Evet | 
-| vpnGateways | Evet | 
-| azureFirewalls | Evet | 
-| virtualNetworkTaps | Evet | 
 | privateLinkServices | Evet | 
-| ddosProtectionPlans | Evet | 
-| networkProfiles | Evet | 
-| frontdoors | Evet | 
-| frontdoorWebApplicationFirewallPolicies | Evet | 
+| publicIPAddresses | Evet | 
+| publicIPPrefixes | Evet | 
+| routeFilters | Evet | 
+| routeTables | Evet | 
+| serviceEndpointPolicies | Evet | 
+| virtualHubs | Evet | 
+| virtualNetworks | Evet | 
+| virtualNetworkGateways | Evet | 
+| virtualNetworkTaps | Evet | 
+| virtualWans | Evet | 
+| vpnGateways | Evet | 
+| vpnSites | Evet | 
 | webApplicationFirewallPolicies | Evet | 
 
 ## <a name="notification-hubs"></a>Notification Hubs
@@ -398,6 +462,20 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | ------------- | ----------- |
 | Ad alanları | Evet | 
 | ad/notificationHubs | Evet | 
+
+## <a name="operational-insights"></a>Operasyonel İçgörüler
+| Kaynak türü | Etiketleri destekler |
+| ------------- | ----------- |
+| çalışma alanı | Evet |
+| çalışma alanları/veri kaynakları | Evet |
+| çalışma alanları/linkedServices | Evet |
+| çalışma alanları/savedSearches | Hayır |
+| çalışma alanları/storageInsightConfigs | Evet |
+
+## <a name="operations-management"></a>Operations Management
+| Kaynak türü | Etiketleri destekler |
+| ------------- | ----------- |
+| çözümler | Hayır |
 
 ## <a name="portal"></a>Portal
 | Kaynak türü | Etiketleri destekler |
@@ -409,17 +487,6 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | ------------- | ----------- |
 | rootResources | Evet | 
 
-## <a name="postgresql"></a>PostgreSQL
-| Kaynak türü | Etiketleri destekler |
-| ------------- | ----------- |
-| sunucu | Evet | 
-| sunucuları/recoverableServers | Hayır | 
-| sunucuları/virtualNetworkRules | Hayır | 
-| sunucuları/topQueryStatistics | Hayır | 
-| sunucuları/queryTexts | Hayır | 
-| sunucuları/waitStatistics | Hayır | 
-| sunucuları/danışmanları | Hayır | 
-
 ## <a name="power-bi"></a>Power BI
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
@@ -428,8 +495,8 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 ## <a name="recovery-services"></a>Kurtarma Hizmetleri
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
-| kasaları | Evet | 
 | backupProtectedItems | Hayır | 
+| kasaları | Evet | 
 
 ## <a name="relay"></a>Geçiş
 | Kaynak türü | Etiketleri destekler |
@@ -451,8 +518,8 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 ## <a name="search"></a>Arama
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
-| searchServices | Evet | 
 | resourceHealthMetadata | Hayır | 
+| searchServices | Evet | 
 
 ## <a name="security"></a>Güvenlik
 | Kaynak türü | Etiketleri destekler |
@@ -495,6 +562,64 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | applicationDefinitions | Evet | 
 | jitRequests | Evet | 
 
+## <a name="sql"></a>SQL
+| Kaynak türü | Etiketleri destekler |
+| ------------- | ----------- |
+| Konum/instanceFailoverGroups | Hayır |
+| managedInstances | Evet |
+| managedInstances/veritabanları | Evet |
+| veritabanları/managedInstances/backupShortTermRetentionPolicies | Hayır |
+| veritabanları/managedInstances/şemaları/sütunlar/tablolar/sensitivityLabels | Hayır |
+| veritabanları/managedInstances/vulnerabilityAssessments | Hayır |
+| managedInstances/veritabanları/vulnerabilityAssessments/kuralları/temelleri | Hayır |
+| managedInstances/encryptionProtector | Hayır |
+| managedInstances/anahtarları | Hayır |
+| restorableDroppedDatabases/managedInstances/backupShortTermRetentionPolicies | Hayır |
+| managedInstances/vulnerabilityAssessments | Hayır |
+| sunucu | Evet |
+| sunucuları/yöneticileri | Hayır |
+| sunucuları/danışmanları | Hayır |
+| sunucuları/auditingSettings | Hayır |
+| sunucuları/backupLongTermRetentionVaults | Hayır |
+| sunucuları/communicationLinks | Hayır |
+| sunucuları/connectionPolicies | Hayır |
+| sunucuları/veritabanları | Evet |
+| veritabanları/sunucuları/danışmanları | Hayır |
+| veritabanları/sunucuları/auditingSettings | Hayır |
+| veritabanları/sunucuları/backupLongTermRetentionPolicies | Hayır |
+| veritabanları/sunucuları/backupShortTermRetentionPolicies | Hayır |
+| veritabanları/sunucuları/connectionPolicies | Hayır |
+| veritabanları/sunucuları/dataMaskingPolicies | Hayır |
+| sunucuları veya veritabanları/dataMaskingPolicies/kurallara | Hayır |
+| veritabanları/sunucuları/extendedAuditingSettings | Hayır |
+| sunucuları ve veritabanları/uzantıları | Hayır |
+| veritabanları/sunucuları/geoBackupPolicies | Hayır |
+| veritabanları/sunucuları/şemaları/sütunlar/tablolar/sensitivityLabels | Hayır |
+| veritabanları/sunucuları/securityAlertPolicies | Hayır |
+| veritabanları/sunucuları/syncGroups | Hayır |
+| sunucuları/veritabanları/syncGroups/syncMembers | Hayır |
+| veritabanları/sunucuları/transparentDataEncryption | Hayır |
+| veritabanları/sunucuları/vulnerabilityAssessments | Hayır |
+| sunucuları/veritabanları/vulnerabilityAssessments/kuralları/temelleri | Hayır |
+| sunucuları/disasterRecoveryConfiguration | Hayır |
+| sunucuları/dnsAliases | Hayır |
+| sunucuları/elasticPools | Evet |
+| sunucuları/encryptionProtector | Hayır |
+| sunucuları/extendedAuditingSettings | Hayır |
+| sunucuları/failoverGroups | Evet |
+| sunucuları/firewallRules | Hayır |
+| sunucuları/jobAgents | Evet |
+| sunucuları/jobAgents/kimlik bilgileri | Hayır |
+| sunucuları/jobAgents/işleri | Hayır |
+| sunucuları/jobAgents/iş/yürütme | Hayır |
+| sunucuları/jobAgents/iş/adımları | Hayır |
+| Hedef sunucuları/jobAgents/grupları | Hayır |
+| sunucuları/anahtarları | Hayır |
+| sunucuları/securityAlertPolicies | Hayır |
+| sunucuları/syncAgents | Hayır |
+| sunucuları/virtualNetworkRules | Hayır |
+| sunucuları/vulnerabilityAssessments | Hayır |
+
 ## <a name="sql-virtual-machine"></a>SQL sanal makinesi
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
@@ -505,20 +630,20 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | ------------- | ----------- |
 | storageAccounts | Evet | 
 | storageAccounts/blobServices | Hayır | 
-| storageAccounts/tableServices | Hayır | 
-| storageAccounts/queueServices | Hayır | 
 | storageAccounts/fileServices | Hayır | 
+| storageAccounts/queueServices | Hayır | 
 | storageAccounts/services | Hayır | 
 | storageAccounts/services/metricDefinitions | Hayır | 
+| storageAccounts/tableServices | Hayır | 
 
 ## <a name="storage-sync"></a>Depolama eşitleme
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
 | storageSyncServices | Evet | 
+| storageSyncServices/registeredServers | Hayır | 
 | storageSyncServices/syncGroups | Hayır | 
 | syncGroups/storageSyncServices/cloudEndpoints | Hayır | 
 | syncGroups/storageSyncServices/serverEndpoints | Hayır | 
-| storageSyncServices/registeredServers | Hayır | 
 | storageSyncServices/iş akışları | Hayır | 
 
 ## <a name="storsimple"></a>Storsimple
@@ -548,53 +673,50 @@ Bu makalede, bir kaynak türünü destekleyip desteklemediğini açıklar [etike
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
 | account | Evet | 
-| hesabı/proje | Evet | 
 | hesabı/uzantısı | Evet | 
-| account | Evet | 
 | hesabı/proje | Evet | 
-| hesabı/uzantısı | Evet | 
 
 ## <a name="web"></a>Web
 | Kaynak türü | Etiketleri destekler |
 | ------------- | ----------- |
-| Site/örnekleri | Hayır | 
-| yuvaları/site/örnekleri | Hayır | 
-| Örnek/Site/uzantıları | Hayır | 
-| Siteler ve yuvaları/örnekleri/uzantıları | Hayır | 
-| publishingUsers | Hayır | 
-| Doğrulama | Hayır | 
-| sourceControls | Hayır | 
-| Site/hostNameBindings | Hayır | 
-| Site/domainOwnershipIdentifiers | Hayır | 
-| yuvaları/site/hostNameBindings | Hayır | 
+| apiManagementAccounts | Hayır | 
+| apiManagementAccounts/apiAcls | Hayır | 
+| apiManagementAccounts/API'leri | Hayır | 
+| API/apiManagementAccounts/apiAcls | Hayır | 
+| API/apiManagementAccounts/connectionAcls | Hayır | 
+| API/apiManagementAccounts/bağlantıları | Hayır | 
+| apiManagementAccounts/API/bağlantı/connectionAcls | Hayır | 
+| API/apiManagementAccounts/localizedDefinitions | Hayır | 
+| apiManagementAccounts/connectionAcls | Hayır | 
+| apiManagementAccounts/bağlantıları | Hayır | 
+| billingMeters | Hayır | 
 | sertifika | Evet | 
+| connectionGateways | Evet | 
+| bağlantılar | Evet | 
+| customApis | Evet | 
+| deletedSites | Hayır | 
+| işlevler | Hayır | 
+| hostingEnvironments | Evet | 
+| hostingEnvironments/ölçümleri | Hayır | 
+| hostingEnvironments/multiRolePools | Hayır | 
+| hostingEnvironments/workerPools | Hayır | 
+| publishingUsers | Hayır | 
 | serverFarms | Evet | 
 | serverFarms/çalışanları | Hayır | 
 | siteler | Evet | 
-| Site/Yuvalar | Evet | 
+| Site/domainOwnershipIdentifiers | Hayır | 
+| Site/hostNameBindings | Hayır | 
+| Site/örnekleri | Hayır | 
+| Örnek/Site/uzantıları | Hayır | 
 | Site/ölçümleri | Hayır | 
-| yuvaları/site/ölçümleri | Hayır | 
 | Site/premieraddons | Evet | 
-| hostingEnvironments | Evet | 
-| hostingEnvironments/multiRolePools | Hayır | 
-| hostingEnvironments/workerPools | Hayır | 
-| hostingEnvironments/ölçümleri | Hayır | 
-| işlevler | Hayır | 
-| deletedSites | Hayır | 
-| apiManagementAccounts | Hayır | 
-| apiManagementAccounts/bağlantıları | Hayır | 
-| apiManagementAccounts/connectionAcls | Hayır | 
-| apiManagementAccounts/API/bağlantı/connectionAcls | Hayır | 
-| API/apiManagementAccounts/connectionAcls | Hayır | 
-| apiManagementAccounts/apiAcls | Hayır | 
-| API/apiManagementAccounts/apiAcls | Hayır | 
-| apiManagementAccounts/API'leri | Hayır | 
-| API/apiManagementAccounts/localizedDefinitions | Hayır | 
-| API/apiManagementAccounts/bağlantıları | Hayır | 
-| bağlantılar | Evet | 
-| customApis | Evet | 
-| connectionGateways | Evet | 
-| billingMeters | Hayır | 
+| Site/Yuvalar | Evet | 
+| yuvaları/site/hostNameBindings | Hayır | 
+| yuvaları/site/örnekleri | Hayır | 
+| Siteler ve yuvaları/örnekleri/uzantıları | Hayır | 
+| yuvaları/site/ölçümleri | Hayır | 
+| sourceControls | Hayır | 
+| Doğrulama | Hayır | 
 | verifyHostingEnvironmentVnet | Hayır | 
 
 ## <a name="xrm"></a>XRM

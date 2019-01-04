@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 9df2e8762d546e6115dc1205548e927cfee7bb60
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1214df922e8e656ba2ff566571d878b0031fea9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341889"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000266"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Ve MQTT protokolünü kullanarak IOT hub ile iletişim
 
@@ -279,11 +279,12 @@ Bir cihaz bağlandığında, IOT hub'ı bildirim konuya gönderir. `$iothub/twin
 ```json
 {
     "telemetrySendFrequency": "5m",
-    "route": null
+    "route": null,
+    "$version": 8
 }
 ```
 
-Özellik güncelleştirmeleri, olduğu gibi `null` değerleri, JSON nesne üyesi silindiğini anlamına gelir.
+Özellik güncelleştirmeleri, olduğu gibi `null` değerleri, JSON nesne üyesi silindiğini anlamına gelir. Ayrıca, `$version` ikizinin istenen özellikleri bölümünde yeni sürümünü gösterir.
 
 > [!IMPORTANT]
 > Yalnızca cihazları bağlı IOT hub'ı değişiklik bildirimleri oluşturur. Uygulamak emin [cihaz yeniden akış] [ lnk-devguide-twin-reconnection] istenen özellikleri IOT Hub cihaz uygulaması arasında eşitlenmiş tutmak için.

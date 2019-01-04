@@ -1,19 +1,19 @@
 ---
 title: Azure dijital İkizlerini genel Önizleme hizmet sınırları | Microsoft Docs
-description: Azure dijital İkizlerini genel Önizleme hizmet sınırları anlama
+description: Azure dijital İkizlerini genel Önizleme hizmet sınırları anlayın.
 author: dwalthermsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 01/03/2019
 ms.author: dwalthermsft
-ms.openlocfilehash: 86ae75118dd1311ea2ae92fb718fe4c58b8e5673
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7d9686b9bcc6cb89fabf4fdaa79bf5b8c6c45ddc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961764"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020634"
 ---
 # <a name="public-preview-service-limits"></a>Genel önizleme hizmet sınırları
 
@@ -35,21 +35,25 @@ Genel Önizleme sırasında her bir Azure aboneliği oluşturun veya aynı anda 
 
 Buna karşılık her Azure dijital İkizlerini örneğine sahip olabilir:
 
-- Bir **IoTHub** kaynak.
-- Bir **EventHub** olay türü için uç nokta **DeviceMessage**.
+- Tam olarak bir **IoTHub** kaynak.
+- Tam olarak bir **EventHub** olay türü için uç nokta **DeviceMessage**.
 - En fazla üç **EventHub**, **ServiceBus**, veya **EventGrid** olay türündeki uç noktalar **SensorChange**, **SpaceChange** , **TopologyOperation**, veya **UdfCustom**.
 
-## <a name="management-api-limits"></a>Yönetim API'si sınırları
+> [!NOTE]
+> Yukarıdaki Azure IOT varlıklarını oluşturma genellikle tanımlanan bazı parametreler genel Önizleme sırasında gerekli değildir.
+> - Başvurun [Swagger başvuru belgeleri](./how-to-use-swagger.md) en son API belirtimleri için.
 
-Yönetim API'niz için istek oran sınırları şunlardır:
+## <a name="azure-digital-twins-management-api-limits"></a>Azure dijital İkizlerini yönetim API sınırları
 
-- Yönetim API'si saniyede 100 istek.
-- Tek bir yönetim API sorgu tarafından döndürülen en fazla 1.000 nesneleri. 
+Azure dijital İkizlerini yönetim API isteği oran sınırlarını şunlardır:
+
+- Azure dijital İkizlerini yönetim API'si saniyede 100 istek.
+- Tek bir Azure dijital İkizlerini yönetim API'si sorgu tarafından döndürülen en fazla 1.000 nesneleri.
 
 > [!IMPORTANT]
 > 1000 nesne sınırı aşarsa, bir hatayla karşılaştıysanız ve sorgunuzu basitleştirmeniz gerekir.
 
-## <a name="udf-rate-limits"></a>UDF oran sınırları
+## <a name="user-defined-functions-rate-limits"></a>Kullanıcı tanımlı işlevleri oran sınırları
 
 Azure dijital İkizlerini Örneğinize yapılan tüm kullanıcı tanımlı işlev çağrılarının toplam sayısı aşağıdaki sınırları ayarlayın:
 
@@ -59,7 +63,7 @@ Azure dijital İkizlerini Örneğinize yapılan tüm kullanıcı tanımlı işle
 > [!NOTE]
 > Aşağıdaki işlemleri geçici olarak uygulanacak ek oran sınırları neden olabilir:
 > - Topoloji nesne meta verilerde yapılan düzenlemeler
-> - UDF tanımı için yapılan güncelleştirmeler
+> - Kullanıcı tanımlı işlev tanımında yapılan güncelleştirmeler
 > - İlk kez telemetri gönderen cihazları
 
 ## <a name="device-telemetry-limits"></a>Cihazın telemetri sınırları

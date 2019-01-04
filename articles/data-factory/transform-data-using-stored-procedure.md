@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: douglasl
-ms.openlocfilehash: 54d0ce39ea511958824acb753bcf7102d33a6c90
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 9a724f8e319e652b85941810a6312c35a5036120
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444037"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025734"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory'de SQL Server saklı yordam etkinliği kullanarak verileri dönüştürme
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +26,7 @@ ms.locfileid: "52444037"
 Data Factory'de veri dönüştürme etkinlikleri kullanma [işlem hattı](concepts-pipelines-activities.md) dönüştürmek ve Öngörüler ve öngörüleri ham verileri işlemek için. Saklı yordam etkinliği, Data Factory destekler dönüştürme etkinlikleri biridir. Bu makalede yapılar [verileri dönüştürme](transform-data.md) makalesi, veri dönüştürme ve Data Factory desteklenen dönüştürme etkinliklerinin genel bir bakış sunar.
 
 > [!NOTE]
-> Azure Data Factory kullanmaya yeni başladıysanız, okumak [Azure Data Factory'ye giriş](introduction.md) ve öğreticiyi uygulamak: [öğretici: verileri dönüştürme](tutorial-transform-data-spark-powershell.md) bu makaleyi okuduktan önce. 
+> Azure Data Factory kullanmaya yeni başladıysanız, okumak [Azure Data Factory'ye giriş](introduction.md) ve öğretici uygulayın: [Öğretici: verileri dönüştürme](tutorial-transform-data-spark-powershell.md) bu makaleyi okuduktan önce. 
 
 Saklı yordam etkinliği, kuruluşunuzda veya bir Azure sanal makine'de (VM) aşağıdaki veri depolarını birinde bir saklı yordam çağırmak için kullanabilirsiniz: 
 
@@ -67,7 +66,7 @@ Bir saklı yordam etkinliğine tanımlamak için JSON biçimi şu şekildedir:
 
 Aşağıdaki tabloda, bu JSON özellikleri açıklanmaktadır:
 
-| Özellik                  | Açıklama                              | Gerekli |
+| Özellik                  | Açıklama                              | Gereklidir |
 | ------------------------- | ---------------------------------------- | -------- |
 | ad                      | Etkinliğin adı                     | Evet      |
 | açıklama               | Etkinliğin ne için kullanıldığını açıklayan metin | Hayır       |

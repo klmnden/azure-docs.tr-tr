@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 81bfd5e0354fefea4690e6871dd5e846f41dc6d8
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981151"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015531"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Java web uygulamanıza telemetri filtreleme
 
@@ -31,7 +31,7 @@ Kullanıma hazır filtreler aşağıdakileri içerir:
 
 > [!NOTE]
 > Filtreler, uygulamanızın ölçümleri eğme. Örneğin, yavaş yanıtlar tanılamak için hızlı yanıt süresi atmak için bir filtre ayarlamanız, karar verebilirsiniz. Ancak, Application Insights tarafından bildirilen ortalama yanıt sürelerinin ardından true hızından daha yavaş olur ve isteklerinin sayısı gerçek sayısından daha küçük farkında olmanız gerekir.
-> Bu bir konudur kullanırsanız [örnekleme](../../application-insights/app-insights-sampling.md) yerine.
+> Bu bir konudur kullanırsanız [örnekleme](../../azure-monitor/app/sampling.md) yerine.
 
 ## <a name="setting-filters"></a>Filtre ayarlama
 
@@ -262,4 +262,4 @@ Applicationınsights.XML içinde:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Örnekleme](../../application-insights/app-insights-sampling.md) -örnekleme ölçümlerinizi eğme olmayan alternatif olarak göz önünde bulundurun.
+* [Örnekleme](../../azure-monitor/app/sampling.md) -örnekleme ölçümlerinizi eğme olmayan alternatif olarak göz önünde bulundurun.

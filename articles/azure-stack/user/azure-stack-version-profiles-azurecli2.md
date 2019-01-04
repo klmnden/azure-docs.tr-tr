@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 01/03/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: dacc28c1cfe2ee896597aeaf92a22c7f6e13c306
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2ab696436a8cf139eff92edc3b8ff2c27b40a7aa
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726621"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018396"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack'te Azure CLI ile API Sürüm profillerini kullanma
 
@@ -26,7 +26,7 @@ Linux, Mac ve Windows istemci platformlarını Azure Stack geliştirme Seti'ni k
 
 ## <a name="install-cli"></a>CLI yükleme
 
-Geliştirme iş istasyonunda oturum açın ve CLI'yı yükleyin. Azure Stack 2.0 veya Azure CLI'ın sonraki bir sürümünü gerektirir. Bu bölümünde açıklanan adımları kullanarak yükleyin [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) makalesi. Yüklemenin başarılı olup olmadığını doğrulamak için bir terminal veya komut istemi penceresi açın ve aşağıdaki komutu çalıştırın:
+Geliştirme iş istasyonunda oturum açın ve CLI'yı yükleyin. Azure Stack 2.0 veya Azure CLI'ın sonraki bir sürümünü gerektirir. İçinde açıklanan adımları kullanarak bu sürümü yükleyebilirsiniz [Azure CLI'yı yükleme](/cli/azure/install-azure-cli) makalesi. Yüklemenin başarılı olup olmadığını doğrulamak için bir terminal veya komut istemi penceresi açın ve aşağıdaki komutu çalıştırın:
 
 ```azurecli
 az --version
@@ -40,11 +40,11 @@ Azure CLI ve bilgisayarınızda yüklü diğer bağımlı kitaplıkların sürü
 
 1. Makinenizde sertifika konumu bulun. Konum, Python yüklediğiniz bağlı olarak değişiklik gösterebilir. Sahip olması gerekir [pip](https://pip.pypa.io) ve [certifi](https://pypi.org/project/certifi/) Modülü yüklü. Aşağıdaki bash isteminde Python komutunu kullanabilirsiniz:
 
-  ```bash  
+    ```bash  
     python -c "import certifi; print(certifi.where())"
-  ```
+    ```
 
-  Sertifika konumunu not edin. Örneğin, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Belirli yolunuzu işletim sisteminiz ve yüklemiş olduğunuz Python sürümünü bağlıdır.
+    Sertifika konumunu not edin; Örneğin, `~/lib/python3.5/site-packages/certifi/cacert.pem`. İşletim sisteminiz ve yüklemiş olduğunuz Python sürümünü belirli yolunuzu bağlıdır.
 
 ### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>Bir geliştirme makineniz için yol içinde Ayarla
 
@@ -56,13 +56,11 @@ sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 
 ### <a name="set-the-path-for-a-development-machine-outside-the-cloud"></a>Bir geliştirme makineniz yolunu dışında Ayarla
 
-CLI bir makineden çalıştırıyorsanız **dışında** Azure Stack ortamı:  
+CLI Azure Stack ortam dışındaki bir makineden çalıştırıyorsanız:  
 
-1. Kurmanız [Azure Stack için VPN bağlantısı](azure-stack-connect-azure-stack.md).
-
+1. Ayarlanan [Azure Stack için VPN bağlantısı](azure-stack-connect-azure-stack.md).
 1. Azure Stack operatörü aldığınız PEM sertifikası kopyalayın ve not edin (PATH_TO_PEM_FILE) dosyasının konumu.
-
-1. Geliştirme iş istasyonunun işletim sisteminde bitiş bağlı olarak aşağıdaki komutları çalıştırın.
+1. Aşağıdaki bölümlerde, geliştirme iş istasyonunuzu işletim sistemine bağlı olarak komutları çalıştırın.
 
 #### <a name="linux"></a>Linux
 
@@ -84,7 +82,7 @@ $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Down
 $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
 $root.Import($pemFile)
 
-Write-Host "Extracting needed information from the cert file"
+Write-Host "Extracting required information from the cert file"
 $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
 $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
 $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
@@ -104,21 +102,20 @@ $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n"
 Write-Host "Adding the certificate content to Python Cert store"
 Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
 
-Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
+Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
 ```
 
 ## <a name="get-the-virtual-machine-aliases-endpoint"></a>Sanal makine diğer adlar uç noktası alma
 
-Kullanıcılar, CLI kullanarak sanal makineleri oluşturmadan önce bunlar Azure Stack operatörü başvurun ve sanal makine diğer adlar uç noktası URI'si alın. Örneğin, aşağıdaki URI Azure kullanır: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. Bulut yöneticisine benzer bir uç nokta ayarlama, Azure Stack Market'te kullanıma sunulan görüntüleri ile Azure Stack için ayarlamanız gerekir. Kullanıcılar uç noktası URI'si geçmesi için `endpoint-vm-image-alias-doc` parametresi `az cloud register` sonraki bölümde gösterildiği gibi komutu. 
-   
-
+CLI kullanarak sanal makineleri oluşturmadan önce Azure Stack operatörü başvurun ve sanal makine diğer adlar uç noktası URI'si alın. Örneğin, aşağıdaki URI Azure kullanır: `https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json`. Bulut yöneticisine benzer bir uç nokta ayarlama, Azure Stack Market'te kullanıma sunulan görüntüleri ile Azure Stack için ayarlamanız gerekir. Uç noktası URI'si geçmesi gereken, `endpoint-vm-image-alias-doc` parametresi `az cloud register` komutu, sonraki bölümde gösterildiği gibi. 
+  
 ## <a name="connect-to-azure-stack"></a>Azure Stack'e Bağlanma
 
 Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
 
 1. Azure Stack ortamınıza çalıştırarak kayıt `az cloud register` komutu.
    
-   a. Kaydedilecek *bulut Yönetim* ortamı kullanın:
+    a. Kaydedilecek *bulut Yönetim* ortamı kullanın:
 
       ```azurecli
       az cloud register \ 
@@ -128,7 +125,7 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
-   b. Kaydedilecek *kullanıcı* ortamı kullanın:
+    b. Kaydedilecek *kullanıcı* ortamı kullanın:
 
       ```azurecli
       az cloud register \ 
@@ -166,14 +163,14 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
       ```
 1. Aşağıdaki komutları kullanarak etkin ortam ayarlayın.
    
-   a. İçin *bulut Yönetim* ortamı kullanın:
+    a. İçin *bulut Yönetim* ortamı kullanın:
 
       ```azurecli
       az cloud set \
         -n AzureStackAdmin
       ```
 
-   b. İçin *kullanıcı* ortamı kullanın:
+    b. İçin *kullanıcı* ortamı kullanın:
 
       ```azurecli
       az cloud set \
@@ -182,18 +179,18 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
 
 1. Azure Stack belirli API Sürüm profili kullanmak için ortamınızdaki yapılandırmayı güncelleştirin. Yapılandırmasını güncelleştirmek için aşağıdaki komutu çalıştırın:
 
-   ```azurecli
-   az cloud update \
-     --profile 2018-03-01-hybrid
+    ```azurecli
+    az cloud update \
+      --profile 2018-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >Azure Stack 1808 yapıdan önceki bir sürümünü çalıştırıyorsanız, API Sürüm profili kullanmak zorunda olacaktır **2017-03-09-profile** API Sürüm profili yerine **2018-03-01-karma**.
+    >Azure Stack sürümü 1808 yapıdan çalıştırıyorsanız, API Sürüm profili kullanmalısınız **2017-03-09-profile** API Sürüm profili yerine **2018-03-01-karma**.
 
-1. Azure Stack ortamınıza kullanarak oturum açın `az login` komutu. Azure Stack ortamına veya bir kullanıcı olarak oturum bir [hizmet sorumlusu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
+1. Azure Stack ortamınıza kullanarak oturum açın `az login` komutu. Azure Stack ortamına veya bir kullanıcı olarak oturum bir [hizmet sorumlusu](../../active-directory/develop/app-objects-and-service-principals.md). 
 
     * Azure AD ortamları
-      * Olarak oturum bir *kullanıcı*: Kullanıcı adı ve parola doğrudan içinde ya da belirtebilirsiniz `az login` komutu veya bir tarayıcı kullanarak kimlik doğrulaması. Çok faktörlü kimlik doğrulaması etkin hesabınız varsa, ikincisi yapmanız gerekir.
+      * Olarak oturum bir *kullanıcı*: Kullanıcı adı ve parola doğrudan içinde ya da belirtebilirsiniz `az login` komutunu ya da bir tarayıcı kullanarak kimlik doğrulaması. Çok faktörlü kimlik doğrulaması etkin hesabınız varsa, ikincisi yapmanız gerekir:
 
       ```azurecli
       az login \
@@ -202,7 +199,7 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
       ```
 
       > [!NOTE]
-      > Çok faktörlü kimlik doğrulaması etkin kullanıcı hesabınız varsa kullanabileceğiniz `az login command` sağlamadan `-u` parametresi. Komut çalıştıran bir URL ve kimlik doğrulaması yapmak için kullanmanız gereken kodu sağlar.
+      > Çok faktörlü kimlik doğrulaması etkin kullanıcı hesabınız varsa kullanabileceğiniz `az login command` sağlamadan `-u` parametresi. Bu komut çalıştıran bir URL ve kimlik doğrulaması yapmak için kullanmanız gereken kodu sağlar.
    
       * Olarak oturum bir *hizmet sorumlusu*: Oturum açarken, önce [Azure Portalı aracılığıyla hizmet sorumlusu oluşturma](azure-stack-create-service-principals.md) veya CLI ve bir rol atayın. Aşağıdaki komutu kullanarak şimdi oturum açın:
 
@@ -230,9 +227,9 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
         
           1. Hizmet sorumlusu oturum açma için kullanılacak .pem dosyasını hazırlayın.
 
-            * Asıl oluşturulduğu istemci makinede hizmet sorumlusu sertifikasını bir pfx ile özel anahtarı dışarı aktar (konumundaki `cert:\CurrentUser\My;` sertifika adı asıl aynı ada sahip).
+            * Bir pfx özel anahtarla konumundaki gibi asıl oluşturulduğu istemci makinede hizmet sorumlusu sertifikasını dışarı aktarma `cert:\CurrentUser\My`; sertifika adı, sorumlu aynı ada sahip.
         
-            * Pfx pem (kullanım OpenSSL yardımcı programı) dönüştürün.
+            * Pfx için pem (OpenSSL yardımcı programını kullanın) dönüştürün.
 
           2.  CLI için oturum açın:
             ```azurecli  
@@ -245,7 +242,7 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
 
 ## <a name="test-the-connectivity"></a>Bağlantısını test etme
 
-Her şeyi ayarladığımıza göre artık Kurulum, Azure Stack içinde kaynaklar için CLI kullanalım. Örneğin, bir uygulama için bir kaynak grubu oluşturun ve bir sanal makine ekleyin. "MyResourceGroup" adlı bir kaynak grubu oluşturmak için aşağıdaki komutu kullanın:
+Her şeyi ayarlamak, CLI Azure Stack içinde kaynaklar oluşturabiliriz. Örneğin, bir uygulama için bir kaynak grubu oluşturun ve bir sanal makine ekleyin. "MyResourceGroup" adlı bir kaynak grubu oluşturmak için aşağıdaki komutu kullanın:
 
 ```azurecli
 az group create \
@@ -257,16 +254,15 @@ Kaynak grubu başarıyla oluşturulursa, önceki komutta aşağıdaki özellikle
 ![Çıkış kaynak grubu oluşturun](media/azure-stack-connect-cli/image1.png)
 
 ## <a name="known-issues"></a>Bilinen sorunlar
-CLI, Azure Stack'te kullanırken dikkat edilmesi gereken bazı bilinen sorunlar vardır:
 
- - CLI etkileşimli mod yani `az interactive` komutu, Azure Stack'te henüz desteklenmiyor.
- - Azure Stack'te kullanılabilir sanal makine görüntüleri listesini almak için kullanın `az vm image list --all` komutu yerine `az vm image list` komutu. Belirtme `--all` yanıt yalnızca Azure Stack ortamınıza kullanılabilir görüntüleri döndürdüğünden emin olur.
+Burada Azure Stack CLI kullanarak karşılaşılan bilinen sorunlar verilmiştir:
+
+ - CLI etkileşimli mod; Örneğin, `az interactive` komutu, henüz Azure Stack'te desteklenmiyor.
+ - Azure Stack'te kullanılabilir sanal makine görüntüleri listesini almak için kullanın `az vm image list --all` komutu yerine `az vm image list` komutu. Belirtme `--all` seçeneği sağlar yanıt yalnızca Azure Stack ortamınıza kullanılabilir görüntüleri döndürür.
  - Azure'da kullanılabilen sanal makine görüntüsü diğer adlar, Azure Stack için geçerli olmayabilir. Sanal makine görüntüleri kullanarak, tüm URN parametresini kullanmanız gerekir (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) yerine görüntü diğer adı. Bu URN görüntü belirtimleri ten türetildiği haliyle eşleşmelidir `az vm images list` komutu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Şablonları Azure CLI ile dağıtma](azure-stack-deploy-template-command-line.md)
-
-[Azure Stack kullanıcıları (işleç) için Azure CLI'yi etkinleştirme](../azure-stack-cli-admin.md)
-
-[Kullanıcı izinlerini yönetme](azure-stack-manage-permissions.md)
+- [Şablonları Azure CLI ile dağıtma](azure-stack-deploy-template-command-line.md)
+- [Azure Stack kullanıcıları (işleç) için Azure CLI'yi etkinleştirme](../azure-stack-cli-admin.md)
+- [Kullanıcı izinlerini yönetme](azure-stack-manage-permissions.md) 

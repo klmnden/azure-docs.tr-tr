@@ -2,19 +2,19 @@
 title: Azure HDInsight için sürüm notları
 description: Azure HDInsight için en son sürüm notları. Geliştirme ipuçları ve ayrıntıları, Hadoop, Spark, R Server, Hive ve daha fazlasını alın.
 services: hdinsight
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/01/2018
-ms.author: hrasheed
-ms.openlocfilehash: 0555fa7de7ed85cf6d26f85b93f0010b2ab6fa53
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 01/02/2019
+ms.openlocfilehash: 49087792efa5e377beadc78746bcf99c88954e9b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976979"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000096"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight için sürüm notları
 
@@ -1308,6 +1308,16 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 |**Zeppelin**|[**ZEPPELIN 3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Zamanlayıcı'yı devre dışı bırakmaya yönelik seçenek |**Etkilenen bileşeni:** Zeppelin-sunucu<br /><br />**Önceki davranışı:** Zeppelin önceki sürümlerde, Zamanlayıcı'yı devre dışı bırakma seçeneği bulunmamaktadır.<br /><br />**Yeni davranışı:** Varsayılan olarak, kullanıcılar varsayılan olarak devre dışı olarak Zamanlayıcı, artık görür.<br /><br />**Geçici çözüm ve beklenen müşteri eylemi:** Zamanlayıcı'yı etkinleştirmek istiyorsanız, Ambari Zeppelin ayarlarında özel zeppelin site altında true değeriyle azeppelin.notebook.cron.enable eklemeniz gerekir.|
 
 ## <a name="known-issues"></a>Bilinen sorunlar
+
+-   **ADLS Gen 2 HDInsight tümleştirmesiyle** kullanıcı dizinleri ve izinleri ile Azure Data Lake depolama Gen 2 kullanarak HDInsight ESP kümelerinde iki sorun vardır:
+   
+   1. Kullanıcılar için giriş dizini baş düğüm 1'de oluşturulmaz. Geçici bir çözüm olarak dizinleri el ile oluşturup sahipliğini değiştirmek için ilgili kullanıcının UPN'si.
+   
+   2. /Hdp dizin izinlerini şu anda ayarlanmadı 751 için. Bu ayarlanması gerekir 
+      ```bash
+      chmod 751 /hdp 
+      chmod –R 755 /hdp/apps
+      ```
 
 -   **Spark 2.3**
 

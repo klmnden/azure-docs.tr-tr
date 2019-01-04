@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089710"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000572"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Mantıksal uygulamalar dağıtmak için Azure Resource Manager şablonları oluşturma
 
@@ -27,11 +27,11 @@ Resource Manager şablonları hakkında daha fazla bilgi için bkz. [Azure Resou
 
 Bir mantıksal uygulama, üç temel bileşeni vardır:
 
-* **Mantıksal uygulama kaynağı**: fiyatlandırma planı, konum ve iş akışı tanımı gibi birçok şey hakkında bilgiler içerir.
-* **İş akışı tanımı**: mantıksal uygulamanızın iş akışı adımları ve Logic Apps altyapısı iş akışının nasıl yürütüleceğini açıklar.
+* **Mantıksal uygulama kaynağı**: Fiyatlandırma planı, konum ve iş akışı tanımı gibi birçok şey hakkında bilgi içerir.
+* **İş akışı tanımı**: Mantıksal uygulamanızın iş akışı adımları ve Logic Apps altyapısı iş akışının nasıl yürütüleceğini açıklar.
 Bu tanım, mantıksal uygulamanızın içinde görüntüleyebilirsiniz **kod görünümü** penceresi.
 Mantıksal uygulama kaynağı içinde bu tanımında bulabilirsiniz `definition` özelliği.
-* **Bağlantıları**: ayrı bir bağlantı dizesi ve bir erişim belirteci gibi herhangi bir bağlayıcı bağlantısı hakkındaki meta verileri güvenli bir şekilde saklayın kaynaklarını ifade eder.
+* **Bağlantıları**: Ayrı bir bağlantı dizesi ve bir erişim belirteci gibi herhangi bir bağlayıcı bağlantısı hakkındaki meta verileri güvenli bir şekilde saklayın kaynaklarını ifade eder.
 Mantıksal uygulama kaynağı içinde mantıksal uygulamanız bu kaynaklara başvuran `parameters` bölümü.
 
 Var olan mantıksal uygulamalar'ın bu parçaların tamamı gibi bir araç kullanarak görüntüleyebileceğiniz [Azure kaynak Gezgini](http://resources.azure.com).
@@ -187,7 +187,7 @@ Altında github'daki bir örnek betiği yoktur [LogicAppConnectionAuth](https://
 <a name="team-services"></a>
 ## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Azure işlem hatları
 
-Dağıtma ve bir ortamı yönetmek için yaygın bir senaryo, bir mantıksal uygulama dağıtım şablonu ile Azure DevOps, Azure işlem hatları gibi bir araçla kullanmaktır. Azure DevOps içeren bir [Azure kaynak grubu dağıtma](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) eklemek için herhangi bir derleme veya yayın işlem hattı görev. İhtiyacınız bir [hizmet sorumlusu](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) için dağıtmak için yetkilendirme ve ardından, yayın ardışık düzeni oluşturabilir.
+Dağıtma ve bir ortamı yönetmek için yaygın bir senaryo, bir mantıksal uygulama dağıtım şablonu ile Azure DevOps, Azure işlem hatları gibi bir araçla kullanmaktır. Azure DevOps içeren bir [Azure kaynak grubu dağıtma](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) eklemek için herhangi bir derleme veya yayın işlem hattı görev. İhtiyacınız bir [hizmet sorumlusu](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) için dağıtmak için yetkilendirme ve ardından, yayın ardışık düzeni oluşturabilir.
 
 1. Azure işlem hatlarında, seçin **boş** böylece boş bir işlem hattı oluşturun.
 

@@ -1,5 +1,5 @@
 ---
-title: CLI kullanarak Azure Key Vault yönetme | Microsoft Docs
+title: Azure anahtar Kasası'nın CLI - Azure Key Vault kullanarak yönetme | Microsoft Docs
 description: Azure CLI kullanarak anahtar Kasası'nda ortak görevleri otomatik hale getirmek için bu makaleyi kullanın.
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: f3b91e73cbfe9972969f5a061768a2c2bbfa7d1b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 632620bf8140ba855198a9354fbd7e50604e18c3
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256468"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000317"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI ile anahtar Kasası'nı yönetme 
 
@@ -133,8 +133,8 @@ az keyvault create --name 'ContosoKeyVault' --resource-group 'ContosoResourceGro
 
 Bu komutun çıktısı, oluşturduğunuz anahtar kasasının özelliklerini gösterir. En önemli iki özellik şunlardır:
 
-* **ad**: Bu örnekte ContosoKeyVault addır. Bu adı diğer Key Vault komutları için kullanacaksınız.
-* **vaultUri**: Bu örnekte URI'dir https://contosokeyvault.vault.azure.net. REST API'si aracılığıyla kasanızı kullanan uygulamaların bu URI'yi kullanması gerekir.
+* **Ad**: Bu örnekte, ContosoKeyVault adıdır. Bu adı diğer Key Vault komutları için kullanacaksınız.
+* **vaultUri**: Örnekte, URI'dir https://contosokeyvault.vault.azure.net. REST API'si aracılığıyla kasanızı kullanan uygulamaların bu URI'yi kullanması gerekir.
 
 Azure hesabınız artık bu anahtar kasasında herhangi bir işlemi gerçekleştirmeye yetkilidir. Henüz itibariyle, sizden başka kimse yetkisi.
 
@@ -228,18 +228,18 @@ az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec
 
 Kullanım [az keyvault update](/cli/azure/keyvault#az-keyvault-update) anahtar kasası için Gelişmiş ilkelerini etkinleştirmek için. 
 
- Key Vault dağıtım için etkinleştir: kasasından gizli diziler olarak depolanan sertifikaları almak için sanal makineler sağlar.
+ Key Vault dağıtım için etkinleştir: Kasasından gizli diziler olarak depolanan sertifikaları almak için sanal makineler sağlar.
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-deployment 'true'
  ``` 
 
-Anahtar kasası disk şifrelemesi için etkinleştir: kasa, Azure Disk şifrelemesi için kullanılırken gereklidir.
+Anahtar kasası disk şifrelemesi için etkinleştir: Kasa Azure Disk şifrelemesi için kullanılırken gereklidir.
 
  ```azurecli
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-disk-encryption 'true'
  ```  
 
-Şablon dağıtımı için Key Vault etkinleştir: gizli dizileri kasadan almak için Resource Manager sağlar.
+Key Vault için şablon dağıtımı etkinleştir: Gizli dizileri kasadan almak için Kaynak Yöneticisi'ni sağlar.
  ```azurecli 
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
  ```

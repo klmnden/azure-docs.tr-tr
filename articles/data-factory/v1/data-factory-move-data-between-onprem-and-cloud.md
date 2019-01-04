@@ -9,17 +9,16 @@ ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1bf915bf702cdf9492cce1f32886c0049fbf9867
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bd9df4553a50f162a4fb2142b7085f813311754f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242849"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015840"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma
 > [!NOTE]
@@ -63,7 +62,7 @@ Bu adımda, Azure portalında adlı bir Azure Data Factory örneği oluşturmak 
     ![Başlangıç panosuna Ekle](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **veri fabrikası adı "ADFTutorialOnPremDF" kullanılamıyor**(örneğin, yournameADFTutorialOnPremDF) veri fabrikasının adını değiştirin ve yeniden oluşturmayı deneyin. Bu öğreticinin geri kalan adımları gerçekleştirirken ADFTutorialOnPremDF yerine bu adı kullanın.
+   > Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **Veri Fabrikası adı "ADFTutorialOnPremDF" kullanılamıyor**(örneğin, yournameADFTutorialOnPremDF) veri fabrikasının adını değiştirin ve yeniden oluşturmayı deneyin. Bu öğreticinin geri kalan adımları gerçekleştirirken ADFTutorialOnPremDF yerine bu adı kullanın.
    >
    > Veri fabrikasının adı olarak kaydedilmiş olabilir bir **DNS** gelecekte ve herkese görünür hale gelmiş adı.
    >
@@ -281,7 +280,7 @@ Bu adımda, kopyalama işlemi için girdi ve çıktı verilerini temsil eden gir
    * **folderPath** ayarlanır **adftutorial/outfromonpremdf** outfromonpremdf klasörü adftutorial kapsayıcısında olduğu. Oluşturma **adftutorial** zaten yoksa, kapsayıcı.
    * **availability** **hourly** olarak ayarlanmıştır (**frequency** **hour**, **interval** de **1** olarak ayarlanmıştır).  Data Factory hizmetinin her saat bir çıktı veri dilimi oluşturur **emp** Azure SQL veritabanı tablosunda.
 
-   Belirtmezseniz, bir **fileName** için bir **çıktı tablosu**'de oluşturulan dosyaları **folderPath** şu biçimde adlandırılır: Data.<Guid>. txt (örneğin:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
+   Belirtmezseniz, bir **fileName** için bir **çıktı tablosu**'de oluşturulan dosyaları **folderPath** şu biçimde adlandırılır: Veriler. <Guid>.txt (örnek:: Data.0a405f8a-93ff-4C6F-B3BE-f69616f1df7a.txt.).
 
    Ayarlanacak **folderPath** ve **fileName** göre dinamik olarak **SliceStart** saat, partitionedBy özelliğini kullanın. Aşağıdaki örnekte, folderPath SliceStart’taki (işlemdeki dilimin başlangıç zamanı) Yıl, Ay ve Gün öğelerini, fileName ise SliceStart’taki Saat öğesini kullanır. Örneğin, dilim 2014-10-20T08:00:00 için oluşturulduysa, folderName wikidatagateway/wikisampledataout/2014/10/20, fileName de 08.csv olarak ayarlanır.
 

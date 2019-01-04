@@ -9,17 +9,16 @@ ms.assetid: 5474d9a1-e278-429f-bc31-db34551d3881
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d291d7ecd5ee9b8bf5645296ef345ac436f1d047
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 952a8aa2dbfdabfb7f0df198a7453b847c33f7e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495914"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019090"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - müşteri örnek olay incelemeleri
 Veri Fabrikası taşımayı ve dönüştürmeyi otomatikleştiren bulut tabanlı bilgi yönetimi hizmetidir. Birçok sektörle müşteriler, kendi analiz işlem hatları oluşturun ve iş sorunlarını çözmek için veri fabrikası ve diğer Azure Hizmetleri kullanın.  Neden ve nasıl Data Factory kullanıyorsanız doğrudan müşterilerimizden öğrenin.

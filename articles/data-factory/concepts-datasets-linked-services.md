@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c9c9f07eab395df716a4575338f881f07d573b74
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38581275"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019138"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Veri kümeleri ve Azure veri fabrikasında bağlı hizmetler 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +35,7 @@ Artık, bir **veri kümesi** yalnızca işaret eden veya kullanmak istediğiniz 
 
 Bir veri kümesi oluşturmadan önce oluşturmanız gerekir bir **bağlı hizmet** data factory'de veri deponuza bağlamak için. Bağlı hizmetler, dış kaynaklara bağlanmak için Data Factory’ye gereken bağlantı bilgilerini tanımlayan bağlantı dizelerine çok benzer. Bunu, bu şekilde düşünün; veri kümesi bağlı veri depolarındaki veri yapısını temsil eder ve bağlı hizmet, veri kaynağına bağlantı tanımlar. Örneğin, bir Azure depolama bir depolama hesabını veri fabrikasına bağlı hizmeti. Bir Azure Blob veri kümesi blob kapsayıcıyı ve işlenecek giriş bloblarını içeren Azure depolama hesap dahilindeki klasörü temsil eder.
 
-Örnek senaryo aşağıda verilmiştir. Verileri Blob depolama alanından SQL veritabanına kopyalamak için iki bağlı hizmet oluşturursunuz: Azure depolama ve Azure SQL veritabanı. Ardından, iki veri kümesi oluşturun: (Azure depolama bağlı hizmetini ifade eder) Azure Blob veri kümesi ve Azure SQL tablosu veri kümesi (Bu, Azure SQL veritabanı bağlı hizmetini ifade eder). Azure depolama ve Azure SQL veritabanı bağlı hizmeti, Data Factory, Azure depolama ve Azure SQL veritabanı, sırasıyla bağlanmak için çalışma zamanında kullandığı bağlantı dizeleri içerir. Azure Blob veri kümesi blob kapsayıcısı ve Blob Depolama alanınızda giriş bloblarını içeren blob klasörü belirtir. Azure SQL tablosu veri kümesi, verilerin kopyalanacağı olduğu SQL veritabanınızda SQL tablosunu belirtir.
+Örnek senaryo aşağıda verilmiştir. Verileri Blob depolama alanından SQL veritabanına kopyalamak için iki bağlı hizmet oluşturursunuz: Azure depolama ve Azure SQL veritabanı. Ardından, iki veri kümesi oluşturursunuz: (Azure depolama bağlı hizmetini ifade eder) azure Blob veri kümesi ve Azure SQL tablosu veri kümesi (Bu, Azure SQL veritabanı bağlı hizmetini ifade eder). Azure depolama ve Azure SQL veritabanı bağlı hizmeti, Data Factory, Azure depolama ve Azure SQL veritabanı, sırasıyla bağlanmak için çalışma zamanında kullandığı bağlantı dizeleri içerir. Azure Blob veri kümesi blob kapsayıcısı ve Blob Depolama alanınızda giriş bloblarını içeren blob klasörü belirtir. Azure SQL tablosu veri kümesi, verilerin kopyalanacağı olduğu SQL veritabanınızda SQL tablosunu belirtir.
 
 Aşağıdaki diyagramda, Data Factory'de işlem hattı, etkinlik, veri kümesi ve bağlı hizmet arasındaki ilişkiler gösterilmektedir:
 
@@ -63,10 +62,10 @@ Bağlı hizmet, Data Factory JSON biçiminde şu şekilde tanımlanır:
 
 Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
 
-Özellik | Açıklama | Gerekli |
+Özellik | Açıklama | Gereklidir |
 -------- | ----------- | -------- |
 ad | Bağlı hizmetin adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
-type | Bağlı hizmet türü. Örneğin: AzureStorage (veri deposu) veya AzureBatch (işlem). TypeProperties açıklamasına bakın. | Evet |
+type | Bağlı hizmet türü. Örneğin: (Veri deposu) AzureStorage veya AzureBatch (işlem). TypeProperties açıklamasına bakın. | Evet |
 typeProperties | Tür özellikleri için her veri deposunun farklı veya işlem. <br/><br/> Türler ve tür özellikleri için desteklenen veri deposuna, bkz: [veri kümesi türü](#dataset-type) bu makaledeki tablo. Bir veri deposuna belirli tür özellikleri hakkında bilgi edinmek için veri deposu Bağlayıcısı makalesi gidin. <br/><br/> Desteklenen işlem türleri ve tür özellikleri için bkz. [işlem bağlı Hizmetleri](compute-linked-services.md). | Evet |
 connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel bir ağda yer alıyorsa) Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Hayır
 
@@ -120,7 +119,7 @@ Bir veri kümesinde Data Factory JSON biçiminde şu şekilde tanımlanır:
 ```
 Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:
 
-Özellik | Açıklama | Gerekli |
+Özellik | Açıklama | Gereklidir |
 -------- | ----------- | -------- |
 ad | Veri kümesinin adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
 type | Veri kümesi türü. Data Factory tarafından desteklenen türlerinden birini belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [veri kümesi türleri](#dataset-type). | Evet |
@@ -186,12 +185,12 @@ Farklı türlerde veri kümeleri, kullandığınız veri deposuna bağlı olarak
 
 Her sütunda yapısı aşağıdaki özellikleri içerir:
 
-Özellik | Açıklama | Gerekli
+Özellik | Açıklama | Gereklidir
 -------- | ----------- | --------
 ad | Sütunun adı. | Evet
-type | Sütunun veri türü. Data Factory, izin verilen değerler olarak aşağıdaki geçici veri türlerini destekler: **Int16, Int32, Int64, tek, Double, ondalık, bayt [], Boolean, dize, Guid, Datetime, Datetimeoffset ve Timespan** | Hayır
-Kültür | . Türü bir .NET türü olduğunda kullanılacak kültürü NET tabanlı: `Datetime` veya `Datetimeoffset`. Varsayılan, `en-us` değeridir. | Hayır
-Biçim | Biçim türü .NET türü olduğunda kullanılacak dize: `Datetime` veya `Datetimeoffset`. Başvurmak [özel tarih ve saat biçim dizeleri](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) datetime biçimine üzerinde. | Hayır
+type | Sütunun veri türü. Data Factory izin verilen değerler aşağıdaki geçici veri türlerini destekler: **Int16, Int32, Int64, tek, Double, ondalık, bayt [], Boolean, dize, Guid, Datetime, Datetimeoffset ve Timespan** | Hayır
+Kültür | . Türü bir .NET türü olduğunda kullanılacak kültürü NET tabanlı: `Datetime` veya `Datetimeoffset`. Varsayılan değer: `en-us`. | Hayır
+biçim | Biçim türü .NET türü olduğunda kullanılacak dize: `Datetime` veya `Datetimeoffset`. Başvurmak [özel tarih ve saat biçim dizeleri](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) datetime biçimine üzerinde. | Hayır
 
 ### <a name="example"></a>Örnek
 Aşağıdaki örnekte, kaynak Blob verilerini CSV biçiminde ve üç sütun içeren varsayalım: kullanıcı kimliği, adı ve lastlogindate. Bunlar Int64, dize ve Datetime haftanın günü için Fransızca kısaltılmış kullanarak özel bir tarih saat biçiminde türüdür.

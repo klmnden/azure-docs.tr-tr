@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: e5e1a415ce5c5bd14a8afef41e506259555d79f6
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: b5cc0004edf105d8875ff83240b659e210b18e41
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970262"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019954"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>.NET izleme günlüklerini Application ınsights'ı keşfedin
 NLog, log4Net veya System.Diagnostics.Trace ASP.NET uygulamanızı Tanılama izleme için kullanırsanız, gönderilen günlüklerinizi olabilir [Azure Application Insights][start], burada, arama ve keşfedebilirsiniz bunları. Günlüklerinizi, böylece her kullanıcı isteği hizmet ile ilişkilendirilmiş izlemeleri tanımlamak ve bunları diğer olayları ve özel durum raporları ilişkilendirmek uygulamanızdan gelen telemetri ile birleştirilir.
@@ -160,7 +160,7 @@ Uygulamanızın genel bakış dikey penceresinde [Application Insights portalın
 * Bu sayfa yapılandırmasını sık kullanılan olarak Kaydet
 
 > [!NOTE]
-> **Örnekleme.** Uygulamanız çok miktarda veri gönderiyorsa ve ASP.NET sürüm 2.0.0-beta3 veya daha sonraki uygulamalar için Application Insights SDK kullanıyorsanız, uyarlamalı örnekleme özelliği telemetrenizin yalnızca yüzdesini çalıştırır ve gönderir. [Örnekleme hakkında daha fazla bilgi edinin.](../../application-insights/app-insights-sampling.md)
+> **Örnekleme.** Uygulamanız çok miktarda veri gönderiyorsa ve ASP.NET sürüm 2.0.0-beta3 veya daha sonraki uygulamalar için Application Insights SDK kullanıyorsanız, uyarlamalı örnekleme özelliği telemetrenizin yalnızca yüzdesini çalıştırır ve gönderir. [Örnekleme hakkında daha fazla bilgi edinin.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -194,7 +194,7 @@ Bazen tüm olayları ve istek ardışık düzenine ulaşması biraz sürebilir.
 Çeşitli faktörler, korunan veri miktarı etkiler. Bkz: [sınırları](../../azure-monitor/app/api-custom-events-metrics.md#limits) daha fazla bilgi için müşteri olay ölçümleri sayfasının bölümünde. 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>Bazı beklediğim günlük girişlerini görüyorum değil
-Uygulamanız çok miktarda veri gönderiyorsa ve ASP.NET sürüm 2.0.0-beta3 veya daha sonraki uygulamalar için Application Insights SDK kullanıyorsanız, uyarlamalı örnekleme özelliği telemetrenizin yalnızca yüzdesini çalıştırır ve gönderir. [Örnekleme hakkında daha fazla bilgi edinin.](../../application-insights/app-insights-sampling.md)
+Uygulamanız çok miktarda veri gönderiyorsa ve ASP.NET sürüm 2.0.0-beta3 veya daha sonraki uygulamalar için Application Insights SDK kullanıyorsanız, uyarlamalı örnekleme özelliği telemetrenizin yalnızca yüzdesini çalıştırır ve gönderir. [Örnekleme hakkında daha fazla bilgi edinin.](../../azure-monitor/app/sampling.md)
 
 ## <a name="add"></a>Sonraki adımlar
 * [Kullanılabilirlik ve yanıt hızını testleri ayarlama][availability]

@@ -1,13 +1,10 @@
 ---
-title: Azure (Klasik) IP adresi türleri | Microsoft Docs
+title: IP adresi türleri azure'da (Klasik)
+titlesuffix: Azure Virtual Network
 description: Azure ortak ve özel IP adresleri (Klasik) hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
-editor: tysonn
-tags: azure-service-management
-ms.assetid: 2f8664ab-2daf-43fa-bbeb-be9773efc978
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 81699764952e50cb18c1f299c9c4f7c524b0a332
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f96ac14d68d98937cf230b04b45503e21c5e0187
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011716"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024578"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>IP adresi türleri ve ayırma yöntemleri (Azure'da Klasik)
 Diğer Azure kaynaklarıyla, şirket içi ağınızla ve İnternet’le iletişim kurmak için Azure kaynaklarına IP adresleri atayabilirsiniz. Azure'da kullanabileceğiniz IP adreslerinin iki tür vardır: Genel ve özel.
@@ -30,7 +27,7 @@ Genel IP adresleri, genel kullanıma yönelik Azure Hizmetleri dahil olmak üzer
 Ağınızı Azure'a genişletmek için bir VPN ağ geçidi veya ExpressRoute bağlantı hattı kullandığınızda bir Azure sanal ağı (VNet), bir bulut hizmeti ve şirket içi ağınız içinde iletişim kurmak için özel IP adresleri kullanılır.
 
 > [!IMPORTANT]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md).  Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager kullanmanızı önerir. Kaynak Yöneticisi'nde IP adresleri hakkında bilgi edinmek [IP adresleri](virtual-network-ip-addresses-overview-arm.md) makalesi.
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md).  Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager kullanmanızı önerir. Kaynak Yöneticisi'nde IP adresleri hakkında bilgi edinmek [IP adresleri](virtual-network-ip-addresses-overview-arm.md) makalesi.
 
 ## <a name="public-ip-addresses"></a>Genel IP adresleri
 Genel IP adresleri gibi İnternet'e ve Azure genel kullanıma yönelik hizmetler ile iletişim kurmak Azure kaynaklarını izin [Azure önbelleği için Redis](https://azure.microsoft.com/services/cache/), [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [SQL veritabanları](../sql-database/sql-database-technical-overview.md), ve [Azure depolama](../storage/common/storage-introduction.md).
@@ -44,7 +41,7 @@ Genel bir IP adresi, aşağıdaki kaynak türleriyle ilişkilendirilir:
 * Uygulama ağ geçitleri
 
 ### <a name="allocation-method"></a>Ayırma yöntemi
-Azure kaynağına atanmış genel IP adresi gerektiğinde olduğu *dinamik olarak* kaynağın oluşturulduğu konum içinde kullanılabilir genel IP adresi havuzundan ayrılan. Bu IP adresi kaynağı durdurulduğunda serbest bırakılır. Tüm rol örneklerine durdurulduğunda böyle bir bulut hizmeti, durumda olan önlenmiş kullanarak bir *statik* (ayrılmış) IP adresi (bkz [Cloud Services](#Cloud-services)).
+Azure kaynağına atanmış genel IP adresi gerektiğinde olduğu *dinamik olarak* kaynağın oluşturulduğu konum içinde kullanılabilir genel IP adresi havuzundan ayrılan. Bu IP adresi kaynağı durdurulduğunda serbest bırakılır. Tüm rol örneklerine, hangi kullanılarak önlenebilir durdurulduğunda böyle bulut hizmetiyle bir *statik* (ayrılmış) IP adresi (bkz [Cloud Services](#Cloud-services)).
 
 > [!NOTE]
 > İçinden genel IP adresleri Azure kaynaklarına ayrılan IP aralıklarının Listesi sayfasında yayımlanır [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -52,7 +49,7 @@ Azure kaynağına atanmış genel IP adresi gerektiğinde olduğu *dinamik olara
 > 
 
 ### <a name="dns-hostname-resolution"></a>DNS ana bilgisayar adı çözümlemesi
-Bir bulut hizmeti ya da bir Iaas VM oluşturduğunuzda, azure'da tüm kaynaklar arasında benzersiz olan bir bulut hizmeti DNS adı sağlamanız gerekir. Bu Azure tarafından yönetilen DNS sunucuları için bir eşleme oluşturur *dnsname*. cloudapp.net kaynağın genel IP adresi için. Örneğin, oluşturduğunuzda, bir bulut hizmeti bir bulut hizmeti DNS adı ile **contoso**, tam etki alanı adı (FQDN) **contoso.cloudapp.net** bir genel IP adresine (VIP) çözümler Bulut hizmeti. Bu FQDN’yi kullanarak Azure’daki genel IP adresini işaret eden özel bir etki alanı CNAME kaydı oluşturabilirsiniz.
+Bir bulut hizmeti ya da bir Iaas VM oluşturduğunuzda, azure'da tüm kaynaklar arasında benzersiz olan bir bulut hizmeti DNS adı sağlamanız gerekir. Bu Azure tarafından yönetilen DNS sunucuları için bir eşleme oluşturur *dnsname*. cloudapp.net kaynağın genel IP adresi için. Örneğin, oluşturduğunuzda, bir bulut hizmeti bir bulut hizmeti DNS adı ile **contoso**, tam etki alanı adı (FQDN) **contoso.cloudapp.net** bir genel IP adresine bulut (VIP) çözümler hizmeti. Bu FQDN’yi kullanarak Azure’daki genel IP adresini işaret eden özel bir etki alanı CNAME kaydı oluşturabilirsiniz.
 
 ### <a name="cloud-services"></a>Bulut hizmetleri
 Bir bulut hizmeti, her zaman bir sanal IP adresi (VIP) başvurulan bir genel IP adresi vardır. VM'ler ve bulut hizmetindeki rol örneği iç bağlantı noktalarına VIP farklı bağlantı noktaları ilişkilendirmek için bir bulut hizmetinde uç noktaları oluşturabilirsiniz. 
@@ -63,7 +60,7 @@ Bir bulut hizmetinin genel IP adresi aynı kalır, hatta tüm rol örneklerine, 
 
 Statik (ayrılmış) genel IP adresleri yaygın olarak, bir bulut hizmeti yerlerde senaryolarda kullanılır:
 
-* güvenlik duvarı kuralları, son kullanıcılar tarafından kurulum olmasını gerektirir.
+* güvenlik duvarı kuralları, son kullanıcılar tarafından kurulu olmasını gerektirir.
 * dış DNS adı çözünürlüğüne bağlıdır ve dinamik IP A kayıtlarının güncelleştirilmesini gerektirir.
 * IP tabanlı güvenlik modeli kullandığınız dış web hizmetlerini kullanır.
 * bir IP adresine bağlı SSL sertifikaları kullanır.
@@ -107,7 +104,7 @@ Azure Klasik dağıtım modelinde, aşağıdaki Azure kaynakları için özel bi
 * Uygulama ağ geçidi
 
 ### <a name="iaas-vms-and-paas-role-instances"></a>Iaas Vm'leri ve PaaS rol örnekleri
-Klasik dağıtım modeliyle oluşturulan sanal makineleri (VM'ler) her zaman bir bulut hizmeti, PaaS rol örneklerine benzer yerleştirilir. Özel IP adresleri davranışını bu nedenle bu kaynaklar için benzer.
+Klasik dağıtım modeliyle oluşturulan sanal makineleri (VM'ler) her zaman bir bulut hizmeti, PaaS rol örneklerine benzer yerleştirilir. Bu nedenle, bu kaynaklar için özel IP adresleri davranışını benzerdir.
 
 Bir bulut hizmeti iki şekilde dağıtılabilir dikkat edin önemlidir:
 
@@ -130,7 +127,7 @@ Statik özel IP adresleri yaygın olarak şunlar için kullanılır:
 #### <a name="internal-dns-hostname-resolution"></a>İç DNS ana bilgisayar adı çözümlemesi
 Tüm Azure Vm'leri ve PaaS rolü örnekleri ile yapılandırılan [Azure tarafından yönetilen DNS sunucuları](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) varsayılan olarak, siz açıkça özel DNS sunucuları yapılandırmadığınız sürece. Bu DNS sunucuları, Vm'leri ve aynı VNet veya Bulut hizmetinde bulunan rol örnekleri için iç ad çözümleme sağlar.
 
-Bir VM oluşturduğunuzda, Azure tarafından yönetilen DNS sunucularına ana bilgisayar adı için özel IP adresine yönelik bir eşleme eklenir. Multi-NIC VM olması durumunda, ana bilgisayar adı birincil NIC özel IP adresine eşlenir. Ancak, bu eşleme bilgileri aynı bulut hizmetinde veya sanal ağ içindeki kaynaklara sınırlıdır.
+Bir VM oluşturduğunuzda, Azure tarafından yönetilen DNS sunucularına ana bilgisayar adı için özel IP adresine yönelik bir eşleme eklenir. Multi-NIC VM ile ana bilgisayar adı birincil NIC özel IP adresine eşlenir. Ancak, bu eşleme bilgileri aynı bulut hizmetinde veya sanal ağ içindeki kaynaklara sınırlıdır.
 
 Durumunda, bir *tek başına* bulut hizmeti, tüm VM'ler/rol örnekleri yalnızca aynı bulut hizmetinde ana bilgisayar adlarını çözmek mümkün olacaktır. Sanal ağ içinde bir bulut hizmeti olması durumunda, sanal ağ içindeki tüm VM'ler/rol örnekleri ana bilgisayar adlarını çözmek mümkün olacaktır.
 

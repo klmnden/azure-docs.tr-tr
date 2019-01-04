@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 036daad8898d12874c86b22429627cbebfcfce37
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 14dd5eef90ff4e6b3281f5a1337b9b59796277e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974735"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018764"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET web siteniz için Application Insights'ı ayarlama
 
@@ -102,14 +102,14 @@ Daha fazla ayrıntı görmek için portalda istediğiniz kutucuğa veya grafiğe
 [Azure portalında Application Insights kullanma hakkında daha fazla bilgi edinin](../../azure-monitor/app/app-insights-dashboards.md).
 
 ## <a name="step-4-publish-your-app"></a>4. adım: Uygulamanızı yayımlama
-Uygulamanızı IIS sunucunuza veya Azure’a yayımlayın. Her şeyin sorunsuz çalıştığından emin olmak için [Canlı Ölçümler Akışı](../../application-insights/app-insights-metrics-explorer.md#live-metrics-stream)’nı izleyin.
+Uygulamanızı IIS sunucunuza veya Azure’a yayımlayın. Her şeyin sorunsuz çalıştığından emin olmak için [Canlı Ölçümler Akışı](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream)’nı izleyin.
 
 Telemetriniz Application Insights portalında biriktirilir ve burada ölçümlerinizi izleyebilir, telemetrinizde arama yapabilir ve [panolar](../../azure-monitor/app/app-insights-dashboards.md) ayarlayabilirsiniz. Ayrıca, güçlü [Log Analytics sorgu dili](https://aka.ms/LogAnalyticsLanguage)’ni kullanarak kullanımı ve performansı analiz edebilir ya da belirli olayları bulabilirsiniz.
 
 Telemetrinizi tanılama araması ve [eğilimler](../../application-insights/app-insights-visual-studio-trends.md) gibi araçlarla [Visual Studio](../../application-insights/app-insights-visual-studio.md)’da analiz etmeye de devam edebilirsiniz.
 
 > [!NOTE]
-> Uygulamanız [azaltma sınırlarına](../../application-insights/app-insights-pricing.md#limits-summary) yaklaşmak için yeterli telemetri gönderiyorsa, otomatik [örnekleme](../../application-insights/app-insights-sampling.md) etkinleştirilir. Örnekleme, tanılama amaçlı bağlantı verilerini korurken uygulamanızdan gönderilen telemetri miktarını azaltır.
+> Uygulamanız [azaltma sınırlarına](../../azure-monitor/app/pricing.md#limits-summary) yaklaşmak için yeterli telemetri gönderiyorsa, otomatik [örnekleme](../../azure-monitor/app/sampling.md) etkinleştirilir. Örnekleme, tanılama amaçlı bağlantı verilerini korurken uygulamanızdan gönderilen telemetri miktarını azaltır.
 >
 >
 
@@ -159,4 +159,4 @@ ApplicationInsights.config’de herhangi bir özelleştirme gerçekleştirdiysen
 
 ### <a name="automation"></a>Otomasyon
 
-* [Application Insights kaynağı oluşturmayı otomatikleştirme](../../application-insights/app-insights-powershell.md)
+* [Application Insights kaynağı oluşturmayı otomatikleştirme](../../azure-monitor/app/powershell.md)

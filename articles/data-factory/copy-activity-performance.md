@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 7602524675edbf0e3ca96c74a2aba2eac48c417b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3096fa77913ef1dd4eb491b3c0e5d7fa236f6c65
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084082"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020903"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performansı ve ayarlama Kılavuzu kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -263,9 +262,9 @@ Kopyalama etkinliği, Data Factory hizmetine performansını ayarlamak için aş
 
 Kopyalama etkinliği, bir şirket içinde barındırılan tümleştirme çalışma zamanını yürütülürse, aşağıdakilere dikkat edin:
 
-**Kurulum**: konak tümleştirme çalışma zamanı için ayrılmış bir makine kullanmanız önerilir. Bkz: [şirket içinde barındırılan tümleştirme çalışma zamanını kullanma konuları](concepts-integration-runtime.md).
+**Kurulum**: Integration Runtime konak ayrılmış bir makineye kullanmanızı öneririz. Bkz: [şirket içinde barındırılan tümleştirme çalışma zamanını kullanma konuları](concepts-integration-runtime.md).
 
-**Ölçeği genişletme**: tek bir mantıksal şirket içinde barındırılan tümleştirme çalışma zamanı bir veya daha fazla düğüme sahip aynı anda aynı anda birden fazla kopyalama etkinliği çalıştırma görebilir. Karma veri hareketi çok sayıda eşzamanlı kopyalama etkinliği çalıştırma veya büyük miktarlarda veri kopyalamak için üzerinde ağır gerekmesi durumunda için göz önünde [şirket içinde barındırılan tümleştirme çalışma zamanı ölçeğinizi](create-self-hosted-integration-runtime.md#high-availability-and-scalability) için daha fazla kaynak sağlamak için kopyalama güçlendirin.
+**Ölçeği genişletme**: Tek bir mantıksal şirket içinde barındırılan tümleştirme çalışma zamanı bir veya daha fazla düğüme sahip aynı anda aynı anda birden fazla kopyalama etkinliği çalıştırma görebilir. Karma veri hareketi çok sayıda eşzamanlı kopyalama etkinliği çalıştırma veya büyük miktarlarda veri kopyalamak için üzerinde ağır gerekmesi durumunda için göz önünde [şirket içinde barındırılan tümleştirme çalışma zamanı ölçeğinizi](create-self-hosted-integration-runtime.md#high-availability-and-scalability) için daha fazla kaynak sağlamak için kopyalama güçlendirin.
 
 ## <a name="considerations-for-the-source"></a>Kaynağı için konular
 
@@ -281,13 +280,13 @@ Microsoft veri depoları için bkz: [izleme ve ayarlama konuları](#performance-
 
 ### <a name="file-based-data-stores"></a>Dosya tabanlı veri depoları
 
-* **Dosya boyutu ve dosya sayısı ortalaması**: kopyalama etkinliği, bir kerede bir veri dosyası aktarır. İle aynı taşınacak veri miktarına, hizmetin genel performansını veriler nedeniyle her dosya için önyükleme aşaması birkaç büyük dosyalar yerine çok sayıda küçük dosya oluşuyorsa düşüktür. Bu nedenle, mümkünse, küçük dosyaları daha yüksek performans elde etmek için daha büyük dosyalarına birleştirin.
-* **Dosya biçimi ve sıkıştırma**: performansı artırmak daha fazla yolu için bkz [serileştirme ve seri durumundan çıkarma için Değerlendirmeler](#considerations-for-serialization-and-deserialization) ve [sıkıştırma dikkate alınacak noktalar](#considerations-for-compression) bölümler.
+* **Dosya boyutu ve dosya sayısı ortalaması**: Kopyalama etkinliği, bir kerede veri bir dosya aktarır. İle aynı taşınacak veri miktarına, hizmetin genel performansını veriler nedeniyle her dosya için önyükleme aşaması birkaç büyük dosyalar yerine çok sayıda küçük dosya oluşuyorsa düşüktür. Bu nedenle, mümkünse, küçük dosyaları daha yüksek performans elde etmek için daha büyük dosyalarına birleştirin.
+* **Dosya biçimi ve sıkıştırma**: Performansı artırmak daha fazla yolu için bkz. [serileştirme ve seri durumundan çıkarma için Değerlendirmeler](#considerations-for-serialization-and-deserialization) ve [sıkıştırma dikkate alınacak noktalar](#considerations-for-compression) bölümler.
 
 ### <a name="relational-data-stores"></a>İlişkisel veri deposu
 
 * **Veri modelini**: Tablo şemanızı kopyalama aktarım hızını etkiler. Büyük satır boyutu, küçük satır boyutu, aynı miktarda veri kopyalamak için daha iyi bir performans sunar. Veritabanı daha az satır içeren veri daha az toplu işler daha verimli bir şekilde alabilirsiniz nedenidir.
-* **Sorgu veya saklı yordam**: sorgu veya saklı yordam, belirttiğiniz verileri daha verimli bir şekilde getirmek için kopyalama etkinliği kaynak mantığını iyileştirin.
+* **Sorgu veya saklı yordam**: Sorgu veya saklı yordam verileri daha verimli bir şekilde getirmek için kopyalama etkinliği kaynak belirttiğiniz mantığını iyileştirin.
 
 ## <a name="considerations-for-the-sink"></a>Havuz için dikkat edilmesi gerekenler
 
@@ -303,12 +302,12 @@ Microsoft veri depoları için başvurmak [izleme ve ayarlama konuları](#perfor
 
 ### <a name="file-based-data-stores"></a>Dosya tabanlı veri depoları
 
-* **Kopyalama davranışı**: farklı dosya tabanlı veri deposundan verileri kopyalarsanız, kopyalama etkinliği ile üç seçenek vardır. **copyBehavior** özelliği. Hiyerarşi korur, hiyerarşi düzleştirir veya dosyayı birleştirir. Koruma veya hiyerarşi düzleştirme çok az kayıpla veya hiç performansa sahiptir, ancak dosyaları birleştirme artırmak performansa neden olur.
-* **Dosya biçimi ve sıkıştırma**: bkz [serileştirme ve seri durumundan çıkarma için Değerlendirmeler](#considerations-for-serialization-and-deserialization) ve [sıkıştırma dikkate alınacak noktalar](#considerations-for-compression) performansını artırmak daha yollarını bölümler.
+* **Kopyalama davranışı**: Farklı dosya tabanlı veri deposundan verileri kopyalarsanız, kopyalama etkinliği ile üç seçenek vardır. **copyBehavior** özelliği. Hiyerarşi korur, hiyerarşi düzleştirir veya dosyayı birleştirir. Koruma veya hiyerarşi düzleştirme çok az kayıpla veya hiç performansa sahiptir, ancak dosyaları birleştirme artırmak performansa neden olur.
+* **Dosya biçimi ve sıkıştırma**: Bkz [serileştirme ve seri durumundan çıkarma için Değerlendirmeler](#considerations-for-serialization-and-deserialization) ve [sıkıştırma dikkate alınacak noktalar](#considerations-for-compression) performansını artırmak daha yollarını bölümler.
 
 ### <a name="relational-data-stores"></a>İlişkisel veri deposu
 
-* **Kopyalama davranışı**: özellikler için ayarladığınız bağlı olarak **sqlSink**, kopyalama etkinliği farklı şekillerde hedef veritabanına veri yazar.
+* **Kopyalama davranışı**: Bağlı olarak özellikleri için ayarladığınız **sqlSink**, kopyalama etkinliği farklı şekillerde hedef veritabanına veri yazar.
   * Varsayılan olarak, en iyi performans sağlayan modu, veri taşıma hizmeti kullandığı veri eklemek için toplu kopyalama API ekleyin.
   * Havuza bir saklı yordam yapılandırırsanız, veritabanı veri bir satırı toplu yükleme yerine anda geçerlidir. Performansı ciddi ölçüde düştüğü. Veri kümeniz varsa, büyük ise kullanmayı göz önünde bulundurun **preCopyScript** özelliği.
   * Yapılandırırsanız **preCopyScript** çalıştırmak için her bir kopyalama etkinliği özelliği, hizmeti betik tetikler ve sonra verileri eklemek için toplu kopyalama API'sini kullanırsınız. Örneğin, en son verileriyle tüm tablo üzerine yazmak için önce toplu yeni veri kaynağından yükleme önce tüm kayıtları silmek için bir betik belirtebilirsiniz.
@@ -319,7 +318,7 @@ Microsoft veri depoları için başvurmak [izleme ve ayarlama konuları](#perfor
 ### <a name="nosql-stores"></a>NoSQL depoları
 
 * İçin **tablo depolama**:
-  * **Bölüm**: veri araya eklemeli bölümlere önemli ölçüde yazma performansı bozar. Veri kaynağınızı bölüm anahtarına göre sıralama verileri verimli bir şekilde bir bölüme diğerinden sonra eklenir veya tek bir bölüm için veri yazmak için mantığı ayarlayın.
+  * **bölüm**: Araya eklemeli bölümlere önemli ölçüde veri yazma, performansı düşürür. Veri kaynağınızı bölüm anahtarına göre sıralama verileri verimli bir şekilde bir bölüme diğerinden sonra eklenir veya tek bir bölüm için veri yazmak için mantığı ayarlayın.
 
 ## <a name="considerations-for-serialization-and-deserialization"></a>Serileştirme ve seri durumundan çıkarma için dikkat edilmesi gerekenler
 
@@ -333,17 +332,17 @@ Serileştirme ve seri durumundan çıkarma girdi veri kümesini veya çıkış v
   * Farklı dosya biçimleri veya sınırlayıcılar gibi farklı yapılandırmaları, veri taşıma Hizmeti'nde girdi ve çıktı veri kümeleri hem olduğunda akışı, dönüştürme ve belirttiğiniz çıkış biçimine seri hale için kaynak verileri seri durumdan çıkarır. Bu işlem ek yükü diğer senaryolarda kıyasla çok daha önemli bir performans sonuçlanır.
 * (Örneğin, bir dosya tabanlı depolama alanından ilişkisel bir veri deposuna) dosya tabanlı olmayan bir veri deposuna/deposundan veri dosyalarını kopyalarken, serileştirme veya seri durumundan çıkarma adım gereklidir. Bu adım, önemli performans ek yükü oluşur.
 
-**Dosya biçimi**: seçtiğiniz dosya biçimi kopyalama performansı etkileyebilir. Örneğin, Avro verileriyle meta verileri depolar sıkıştırılmış bir ikili biçimi ' dir. Hadoop ekosistemindeki işleme ve sorgulama için geniş destek vardır. Ancak, Avro daha pahalı serileştirme ve seri kaldırma metin biçimine kıyasla daha düşük kopyalama aktarım hızı ile sonuçlanır. Dosya biçimi işleme akışı boyunca tercih ettiğiniz bütünlüklü olarak yapın. Hangi veri formu ile Başlat, kaynak veri depolarını veya dış sistemlerden ayıklanacak depolanır; Depolama, analitik işleme ve sorgulama için en iyi biçimi; ve hangi biçimde uygulamasına raporlama ve görselleştirme araçları için veri reyonları veri verilmesi. Bazen için yetersiz bir dosya biçimi okuma ve yazma performansını genel analitik işlemi düşünürken iyi bir seçim olabilir.
+**Dosya biçimi**: Seçtiğiniz dosya biçimi kopyalama performansı etkileyebilir. Örneğin, Avro verileriyle meta verileri depolar sıkıştırılmış bir ikili biçimi ' dir. Hadoop ekosistemindeki işleme ve sorgulama için geniş destek vardır. Ancak, Avro daha pahalı serileştirme ve seri kaldırma metin biçimine kıyasla daha düşük kopyalama aktarım hızı ile sonuçlanır. Dosya biçimi işleme akışı boyunca tercih ettiğiniz bütünlüklü olarak yapın. Hangi veri formu ile Başlat, kaynak veri depolarını veya dış sistemlerden ayıklanacak depolanır; Depolama, analitik işleme ve sorgulama için en iyi biçimi; ve hangi biçimde uygulamasına raporlama ve görselleştirme araçları için veri reyonları veri verilmesi. Bazen için yetersiz bir dosya biçimi okuma ve yazma performansını genel analitik işlemi düşünürken iyi bir seçim olabilir.
 
 ## <a name="considerations-for-compression"></a>Sıkıştırma dikkate alınacak noktalar
 
 Giriş veya çıkış veri kümesi bir dosya olduğunda, hedef konuma verileri yazar gibi sıkıştırma veya sıkıştırmayı açma gerçekleştirmek için kopyalama etkinliği ayarlayabilirsiniz. Sıkıştırma seçtiğinizde, giriş/çıkış (g/ç) arasında bir denge duruma ve CPU. Bilgi işlem kaynaklarının ek veri maliyetlerini sıkıştırma. Ancak, ağ g/ç ve depolama azaltır. Verilere bağlı olarak bir artırma genel kopyalama aktarım hızının görebilirsiniz.
 
-**Codec**: her bir sıkıştırma codec avantajları vardır. Örneğin, bzıp2 düşük kopyalama aktarım hızına sahip, ancak işleme için bölme çünkü bzıp2 ile en iyi Hive sorgu performansı elde. Gzip en dengeli bir seçenektir ve en sık kullanılır. Uçtan uca senaryonuza uygun codec bileşeni seçin.
+**Codec**: Her bir sıkıştırma codec avantajları vardır. Örneğin, bzıp2 düşük kopyalama aktarım hızına sahip, ancak işleme için bölme çünkü bzıp2 ile en iyi Hive sorgu performansı elde. Gzip en dengeli bir seçenektir ve en sık kullanılır. Uçtan uca senaryonuza uygun codec bileşeni seçin.
 
-**Düzey**: her bir sıkıştırma codec için iki seçenek arasından seçim yapabilirsiniz: hızlı sıkıştırılmış ve verimli sıkıştırılmış. Sıkıştırılmış en hızlı seçenek bile elde edilen dosyanın en uygun şekilde sıkıştırılmamış veri, mümkün olan en kısa sürede sıkıştırır. En uygun şekilde sıkıştırılmış seçeneği sıkıştırma üzerinde daha fazla zaman harcadığını ve en az miktarda veri ortaya çıkarır. İki seçenek de durumunuzdaki genel daha iyi performans sağlayan görmek için test edebilirsiniz.
+**Düzey**: Her bir sıkıştırma codec için iki seçenek arasından seçim yapabilirsiniz: hızlı sıkıştırılmış ve verimli sıkıştırılmış. Sıkıştırılmış en hızlı seçenek bile elde edilen dosyanın en uygun şekilde sıkıştırılmamış veri, mümkün olan en kısa sürede sıkıştırır. En uygun şekilde sıkıştırılmış seçeneği sıkıştırma üzerinde daha fazla zaman harcadığını ve en az miktarda veri ortaya çıkarır. İki seçenek de durumunuzdaki genel daha iyi performans sağlayan görmek için test edebilirsiniz.
 
-**Önemli bir unsur**: çok miktarda bir şirket içi depolama ile bulut arasında veri kopyalamak için kullanmayı [kopyalama aşamalı](#staged-copy) ile sıkıştırma etkin. Geçici depolama kullanarak şirket ağınıza ve Azure hizmetlerinizi bant sınırlayan faktör ve giriş veri kümesi ve çıktı veri kümesi hem sıkıştırılmamış biçiminde olmasını istediğiniz olduğunda yararlıdır.
+**Önemli bir unsur**: Büyük miktarda bir şirket içi depolama ile bulut arasında veri kopyalamak için kullanmayı [kopyalama aşamalı](#staged-copy) ile sıkıştırma etkin. Geçici depolama kullanarak şirket ağınıza ve Azure hizmetlerinizi bant sınırlayan faktör ve giriş veri kümesi ve çıktı veri kümesi hem sıkıştırılmamış biçiminde olmasını istediğiniz olduğunda yararlıdır.
 
 ## <a name="considerations-for-column-mapping"></a>Sütun eşlemesi için dikkat edilmesi gerekenler
 
@@ -359,17 +358,17 @@ Kopyalamak istediğiniz veri boyutu büyükse, her kopyalama etkinliği çalış
 
 Veri kümeleri ve aynı anda aynı veri deposuna bağlanmak Data Factory gerektiren kopyalama etkinlikleri hakkında dikkatli olun. Birçok eş zamanlı kopyası işleri bir veri deposu azaltma ve performansın düşmesine neden, kopyalama işi iç deneme ve bazı durumlarda, yürütme hatalarını sağlama.
 
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Örnek senaryo: bir şirket içi SQL Server'dan Blob Depolama Kopyala
+## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Örnek senaryo: Bir şirket içi SQL Server'dan Blob depolamaya kopyalama
 
-**Senaryo**: bir işlem hattı, bir şirket içi SQL Server'dan Blob Depolama alanında CSV biçimi veri kopyalamak için oluşturulmuştur. Kopyalama işini daha hızlı hale getirmek için CSV dosyaları bzıp2 biçimine sıkıştırılmasının gerekli.
+**Senaryo**: Bir işlem hattı, bir şirket içi SQL Server'dan Blob Depolama alanında CSV biçimi veri kopyalamak için oluşturulmuştur. Kopyalama işini daha hızlı hale getirmek için CSV dosyaları bzıp2 biçimine sıkıştırılmasının gerekli.
 
-**Test ve analiz**: performans Kıyaslama yavaş olduğu değerinden 2 MB/sn aktarım hızı kopyalama etkinliği olan.
+**Test ve analiz**: Performans Kıyaslama yavaş olduğu değerinden 2 MB/sn aktarım hızı kopyalama etkinliği var.
 
-**Performans Analizi ve ayarlama**: performans sorunu gidermek için nasıl veri işlenen taşınır ve konumunda göz atalım.
+**Performans Analizi ve ayarlama**: Performans sorunu gidermek için nasıl veri işlenen taşınır ve adresindeki gözden geçirelim.
 
-1. **Veri Okuma**: tümleştirme çalışma zamanı SQL Server için bir bağlantı açar ve sorguyu gönderir. SQL Server Integration runtime intranet üzerinden veri akışını göndererek yanıt verir.
-2. **Seri hale getirmek ve verileri sıkıştırmak**: tümleştirme çalışma zamanı CSV biçimi veri akışa serileştirir ve bir bzıp2 akış verileri sıkıştırır.
-3. **Veri yazma**: tümleştirme çalışma zamanı bzıp2 akış Internet üzerinden Blob depolamaya yükler.
+1. **Veri Okuma**: Tümleştirme çalışma zamanı SQL Server için bir bağlantı açar ve sorguyu gönderir. SQL Server Integration runtime intranet üzerinden veri akışını göndererek yanıt verir.
+2. **Seri hale getirmek ve verileri sıkıştırmak**: Integration runtime, veri akışı CSV biçimine serileştiren ve bzıp2 akış verileri sıkıştırır.
+3. **Veri yazma**: Integration runtime bzıp2 akış Internet üzerinden Blob depolamaya yükler.
 
 Gördüğünüz gibi verileri ettiğinden işlenir ve akış sıralı bir şekilde taşındı: SQL Server > LAN > Integration runtime > WAN > Blob Depolama. **Genel performansını en düşük aktarım hızı ile işlem hattı Geçitli**.
 
@@ -377,14 +376,14 @@ Gördüğünüz gibi verileri ettiğinden işlenir ve akış sıralı bir şekil
 
 Bir veya daha fazla aşağıdaki faktörleri performans sorunu neden olabilir:
 
-* **Kaynak**: SQL Server aktarım hızının düşük olmasını nedeniyle ağır yükleri vardır.
+* **Kaynak**: SQL Server kendisini aktarım hızının düşük olmasını nedeniyle ağır yükleri vardır.
 * **Barındırılan tümleştirme çalışma zamanını**:
-  * **LAN**: tümleştirme çalışma zamanı gölgeden uzak SQL Server makinesinde bulunduğu yer ve düşük bant genişliğine sahip bağlantısı vardır.
-  * **Integration runtime**: tümleştirme çalışma zamanı, aşağıdaki işlemleri gerçekleştirmek için kendi yük sınırlamaları ulaştı:
-    * **Serileştirme**: veri akışı CSV biçimi için seri hale getirme sahip yavaş aktarım hızı.
-    * **Sıkıştırma**: yavaş sıkıştırma codec (Core i7 ile 2.8 MB/sn, örneğin, bzıp2,) seçtiniz.
+  * **LAN**: Integration runtime gölgeden uzak SQL Server makinesinde bulunduğu yer ve düşük bant genişliğine sahip bağlantısı vardır.
+  * **Integration runtime**: Tümleştirme çalışma zamanı aşağıdaki işlemleri gerçekleştirmek için kendi yük sınırlamaları ulaştı:
+    * **Serileştirme**: CSV biçimi için veri akışı seri hale getirme, yavaş aktarım hızına sahip.
+    * **Sıkıştırma**: Yavaş sıkıştırma codec (Core i7 ile 2.8 MB/sn, örneğin, bzıp2,) seçtiğiniz.
   * **WAN**: Kurumsal ağ ve Azure hizmetlerinizi arasında bant genişliği düşük olduğu (örneğin, T1 1,544 kbps; = T2 6,312 kbps =).
-* **Havuz**: Blob depolama alanına sahip düşük aktarım hızı. (En az 60 MB/sn kendi SLA'sı garanti eder, çünkü bu senaryo bir olasılıktır.)
+* **Havuz**: BLOB Depolama, aktarım hızının düşük olmasını sahiptir. (En az 60 MB/sn kendi SLA'sı garanti eder, çünkü bu senaryo bir olasılıktır.)
 
 Bu durumda, bzıp2 veri sıkıştırma tüm işlem hattını yavaşlatmasını. Gzip sıkıştırma codec bileşenine geçiş, bu performans sorunu kolaylaştırmak.
 
@@ -394,10 +393,10 @@ Performans izleme ve desteklenen veri depolarının bazılarını başvuruları 
 
 * Azure Storage (Blob Depolama ve tablo depolama gibi): [Azure depolama ölçeklenebilirlik hedefleri](../storage/common/storage-scalability-targets.md) ve [Azure depolama performansı ve ölçeklenebilirlik denetim listesi](../storage/common/storage-performance-checklist.md)
 * Azure SQL veritabanı: Yapabilecekleriniz [performansını izleme](../sql-database/sql-database-single-database-monitor.md) ve veritabanı işlem birimi (DTU) yüzde denetleyin
-* Azure SQL veri ambarı: Kendi yeteneği veri ambarı birimi (Dwu) ölçülür bkz: [Yönet işlem gücünü Azure SQL veri ambarı (Genel)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
+* Azure SQL veri ambarı: Kendi özellik veri ambarı birimi (Dwu) ölçülür bkz: [Yönet işlem gücünü Azure SQL veri ambarı (Genel)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [Azure Cosmos DB'de performans düzeyleri](../cosmos-db/performance-levels.md)
-* Şirket içi SQL Server: [izleme ve performansı ayarlama](https://msdn.microsoft.com/library/ms189081.aspx)
-* Şirket içi dosya sunucusu: [dosya sunucuları için performans ayarlama](https://msdn.microsoft.com/library/dn567661.aspx)
+* Şirket içi SQL Server: [İzleme ve performansı ayarlama](https://msdn.microsoft.com/library/ms189081.aspx)
+* Şirket içi dosya sunucusu: [Dosya sunucuları için performans ayarı](https://msdn.microsoft.com/library/dn567661.aspx)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir kopyalama etkinliği makalelere bakın:

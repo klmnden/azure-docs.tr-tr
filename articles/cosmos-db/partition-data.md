@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: 5dd1926496351f5bbfe8e5b3e4d1e0b68e82d272
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 38f587fc24478beff3ab236207de3ed8a892c915
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283402"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998957"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Bölümleme ve Azure Cosmos DB'de yatay ölçeklendirme
 
 Bu makalede, Azure Cosmos DB ve bölümleme ve ölçeklendirme için en iyi fiziksel ve mantıksal bölümleri hakkında açıklanmaktadır. 
 
-## <a name="logical-partitions"></a>Mantıksal bölümleri
+## <a name="logical-partitions"></a>Mantıksal bölümler
 
 Bir mantıksal bölüm aynı bölüm anahtarına bir öğe kümesi oluşur. Örneğin, burada tüm öğeleri içeren bir kapsayıcıya göz önünde bir `City` özelliği, sonra kullanabileceğiniz `City` kapsayıcısı için bölüm anahtarı olarak. Öğe için belirli değerlerle gruplarını `City` "London", "İstanbul", "NYC" vb. gibi farklı bir mantıksal bölüm oluşturacak.
 
@@ -29,7 +29,7 @@ Kapsayıcıya yeni öğeler eklendiğinde veya kapsayıcıdaki sağlanmış olan
 
 ## <a name="physical-partitions"></a>Fiziksel bölümler
 
-Bir Cosmos kapsayıcı, çok sayıda mantıksal bölümler arasında veri ve üretilen işi dağıtarak ölçeklendirilir. Bir veya daha fazla mantıksal bölümler için dahili olarak, eşlenen bir **kaynak bölümü** bir dizi çoğaltma kümesi olarak da adlandırılan çoğaltmaları oluşur. Her bir çoğaltma kümesi Cosmos Veritabanı Altyapısı'nın bir örneğini barındıran. Çoğaltma kümesi kaynak bölümü dayanıklı, yüksek oranda kullanılabilir ve tutarlı içinde depolanan verileri sağlar. Kaynak bölümü, depolama ve RU sabit, en yüksek miktarda destekler. Kaynak bölümü oluşan her çoğaltma depolama kotası devralır. Ve tüm kaynak bölüm çoğaltmalarını topluca kaynak bölümü için ayrılan aktarım hızı destekler. Aşağıdaki görüntüde mantıksal bölümler, küresel olarak dağıtılan fiziksel bölümlere eşlendi:
+Bir Cosmos kapsayıcı, çok sayıda mantıksal bölümler arasında veri ve üretilen işi dağıtarak ölçeklendirilir. Bir veya daha fazla mantıksal bölümler için dahili olarak, eşlenen bir **fiziksel bölüm** bir dizi çoğaltma kümesi olarak da adlandırılan çoğaltmaları oluşur. Her bir çoğaltma kümesi Cosmos Veritabanı Altyapısı'nın bir örneğini barındıran. Çoğaltma kümesi fiziksel bölüm dayanıklı, yüksek oranda kullanılabilir ve tutarlı içinde depolanan verileri sağlar. Bir fiziksel bölüm, depolama ve RU sabit, en yüksek miktarda destekler. Fiziksel bölüm kapsayan her çoğaltma depolama kotası devralır. Ve tüm fiziksel bölüm çoğaltmalarını topluca fiziksel bölüm için ayrılan aktarım hızı destekler. Aşağıdaki görüntüde mantıksal bölümler, küresel olarak dağıtılan fiziksel bölümlere eşlendi:
 
 ![Azure Cosmos DB bölümleme](./media/partition-data/logical-partitions.png)
 

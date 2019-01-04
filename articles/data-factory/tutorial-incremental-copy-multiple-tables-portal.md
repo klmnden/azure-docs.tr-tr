@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: e25cdd0677efce0ea8d40ad1c8ae07a5d071a67f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 65dae64a43fb145f34c6933f0b74f8e798f5e373
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969798"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016333"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server’daki birden fazla tablodan Azure SQL veritabanı’na artımlı olarak veri yükleme
 Bu öğreticide, değişim verileri şirket içi SQL Server’daki birden çok tablodan Azure SQL Veritabanına yükleyen bir Azure veri fabrikası işlem hattı oluşturacaksınız.    
@@ -248,7 +247,7 @@ END
 1. Data factory için **konum** seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 1. **Panoya sabitle**’yi seçin.     
 1. **Oluştur**’a tıklayın.      
-1. Panoda şu kutucuğu ve üzerinde şu durumu görürsünüz: **Veri fabrikası dağıtılıyor**. 
+1. Panoda durumuna sahip aşağıdaki kutucuğu görürsünüz: **Veri Fabrikası dağıtılıyor**. 
 
     ![veri fabrikası dağıtılıyor kutucuğu](media/tutorial-incremental-copy-multiple-tables-portal/deploying-data-factory.png)
 1. Oluşturma işlemi tamamlandıktan sonra, resimde gösterildiği gibi **Data Factory** sayfasını görürsünüz.
@@ -277,7 +276,7 @@ END
 1. **Ad** için **MySelfHostedIR** adını girip **İleri**’ye tıklayın. 
 
    ![Şirket içinde barındırılan IR adı](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-1. **1. Seçenek: Hızlı kurulum** bölümünde **Bu bilgisayarda hızlı kurulumu başlatmak için buraya tıklayın** seçeneğine tıklayın. 
+1. Tıklayın **bu bilgisayarda hızlı kurulumu başlatmak için buraya tıklayın** içinde **1. seçenek: Hızlı Kurulum** bölümü. 
 
    ![Hızlı kurulum bağlantısına tıklayın](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. **Tümleştirme Çalışma Zamanı (Şirket İçinde Barındırılan) Hızlı Kurulum** penceresinde **Kapat**’a tıklayın. 

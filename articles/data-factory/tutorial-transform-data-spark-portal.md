@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: 64dacb33a8cd235e155a640d57d868f384f93d76
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 34580687c047e842bfbfa12730c7c2d9868187b0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959018"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014157"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Azure Data Factory'de bir Spark etkinliği kullanarak verileri bulutta dönüştürme
 Bu öğreticide, Azure portalını kullanarak bir Azure Data Factory işlem hattı oluşturursunuz. Bu işlem hattı bir Spark etkinliği ve isteğe bağlı bir Azure HDInsight bağlı hizmetini kullanarak verileri dönüştürür. 
@@ -32,7 +31,7 @@ Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * **Azure depolama hesabı**. Bir Python betiği ve giriş dosyası oluşturup Azure Depolama hizmetine yüklersiniz. Spark programının çıktısı bu depolama hesabında depolanır. İsteğe bağlı Spark kümesi, birincil depolama alanıyla aynı depolama hesabını kullanır.  
 
 > [!NOTE]
@@ -102,7 +101,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 1. **Sürüm** bölümünde **V2**'yi seçin.
 1. **Konum** için, veri fabrikasının konumunu seçin. 
 
-   Data Factory'nin kullanılabileceği Azure bölgelerinin bir listesi için bir sonraki sayfada ilgilendiğiniz bölgeleri seçin ve **Analytics**'i genişleterek **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) (Bölgeye göre kullanılabilir durumdaki ürünler) bölümünü bulun. Data Factory tarafından kullanılan veri depoları (Azure Depolama ve Azure SQL Veritabanı) ve işlemler (HDInsight gibi) başka bölgelerde olabilir.
+   Data Factory kullanılabildiği şu anda Azure bölgelerinin listesi için aşağıdaki sayfada faiz ve ardından genişletin bölgeleri seçin **Analytics** bulunacak **Data Factory**: [Bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/). Data Factory tarafından kullanılan veri depoları (Azure Depolama ve Azure SQL Veritabanı) ve işlemler (HDInsight gibi) başka bölgelerde olabilir.
 
 1. **Oluştur**’u seçin.
 
@@ -229,7 +228,7 @@ adftutorial kapsayıcısının spark/otuputfiles/wordcount klasöründe çıktı
 
 ![Çıkış dosyasının konumu](./media/tutorial-transform-data-spark-portal/verity-output.png)
 
-Dosya, girdi metin dosyasındaki her bir sözcüğü ve sözcüğün dosyada görünme sayısını içermelidir. Örnek: 
+Dosya, girdi metin dosyasındaki her bir sözcüğü ve sözcüğün dosyada görünme sayısını içermelidir. Örneğin: 
 
 ```
 (u'This', 1)
@@ -251,7 +250,7 @@ Bu örnekteki işlem hattı, Spark etkinliğini ve isteğe bağlı bir HDInsight
 Sanal ağdaki bir Azure HDInsight kümesinde Hive betiği çalıştırarak verileri dönüştürme hakkında bilgi almak için sonraki öğreticiye ilerleyin: 
 
 > [!div class="nextstepaction"]
-> [Öğretici: Azure Sanal Ağ’da Hive kullanarak verileri dönüştürme](tutorial-transform-data-hive-virtual-network-portal.md).
+> [Öğretici: Azure sanal ağ'da Hive kullanarak verileri dönüştürme](tutorial-transform-data-hive-virtual-network-portal.md).
 
 
 

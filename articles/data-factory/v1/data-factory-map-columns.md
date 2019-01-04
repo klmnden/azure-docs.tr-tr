@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory veri kümesi sütun eşlemesi | Microsoft Docs
-description: Kaynak sütunları hedef sütun eşleme öğrenin.
+title: Azure Data factory'de veri kümesi sütunlarını eşleme | Microsoft Docs
+description: Kaynak sütunlar hedef sütunlara eşlemek öğrenin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -8,40 +8,39 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f1dd8c4c5e38547492887425bb5732d87d5f8071
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1b009ac2ca42e9804b88989b55b2e73524732550
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045893"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017472"
 ---
-# <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Kaynak veri kümesi sütunları hedef veri kümesi sütun eşleme
+# <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Hedef dataset sütunları için kaynak veri kümesi sütunlarını eşleme
 > [!NOTE]
-> Bu makale, veri fabrikası 1 sürümü için geçerlidir. 
+> Bu makale, Data Factory’nin 1. sürümü için geçerlidir. 
 
-Sütun eşlemesi, """tablosunun yapısı Havuz belirtilen" Kaynak Tablo eşleme yapısı sütunlarına içinde belirtilen sütunlar nasıl belirtmek için kullanılabilir. **ColumnMapping** özelliği bulunan **typeProperties** kopyalama etkinliği bölümü.
+Sütun eşlemesi, """tablosunun yapısı Havuz belirtilen" Kaynak Tablo eşleme yapısı sütunlarına içinde belirtilen sütunları nasıl belirtmek için kullanılabilir. **Columnmapping'in** özelliği kullanılabilir **typeProperties** bölümünü kopyalama etkinliği.
 
-Sütun eşlemesi aşağıdaki senaryoları destekler:
+Sütun eşlemesi, aşağıdaki senaryoları destekler:
 
 * Kaynak veri kümesi yapısında tüm sütunları havuz veri kümesi yapısında tüm sütunları eşlenir.
-* Kaynak veri kümesi yapısında bir sütun alt kümesini havuz veri kümesi yapısında tüm sütunları eşleştirilir.
+* Kaynak veri kümesi yapısında sütunların bir alt kümesini tüm sütunları havuz veri kümesi yapısında eşleştirilir.
 
-Bir özel durum neden hata koşulları şunlardır:
+Bir özel durumu hata koşulları şunlardır:
 
-* Daha az sütun veya "eşleme içinde belirtilen"tablosunun yapısı havuz'den daha fazla sütun.
+* Daha az sütun veya "eşlemesinde belirtilen"tablosunun yapısı havuz daha fazla sütun.
 * Yinelenen eşleme.
-* SQL sorgu sonucu eşleme içinde belirtilen bir sütun adı yok.
+* SQL sorgu sonucu eşlemesinde belirtilen bir sütun adı yok.
 
 > [!NOTE]
-> Aşağıdaki örnekler Azure SQL ve Azure Blob ancak dikdörtgen veri kümeleri destekleyen herhangi bir veri deposuna uygulanabilir. Veri kümesi ve ilgili veri kaynağındaki işaret etmek için örnekleri bağlantılı hizmet tanımlarında ayarlayın.
+> Aşağıdaki örnekler, Azure SQL ve Azure Blob içindir ancak dikdörtgen veri kümeleri destekleyen herhangi bir veri deposuna geçerlidir. Veri kümesi ve bağlı hizmet tanımları örneklerde ilgili veri kaynağındaki işaret edecek şekilde ayarlayın.
 
-## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Örnek 1 – sütun Azure SQL Azure blob eşleme
-Bu örnekte, Giriş tablosunda bir yapı ve bir Azure SQL veritabanı bir SQL tablosuna işaret.
+## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Örnek 1 – Azure SQL Azure blobuna eşleme sütun
+Bu örnekte, Giriş tablosunda bir yapıya sahiptir ve bir Azure SQL veritabanında bir SQL tablosunu işaret eder.
 
 ```json
 {
@@ -74,7 +73,7 @@ Bu örnekte, Giriş tablosunda bir yapı ve bir Azure SQL veritabanı bir SQL ta
 }
 ```
 
-Bu örnek, çıktı tablosu yapısının ve bir Azure blob storage'da bir blob işaret.
+Bu örnekte, çıktı tablosu bir yapıya sahiptir ve Azure blob depolama alanındaki bir bloba işaret.
 
 ```json
 {
@@ -107,7 +106,7 @@ Bu örnek, çıktı tablosu yapısının ve bir Azure blob storage'da bir blob i
 }
 ```
 
-Aşağıdaki JSON ardışık düzeninde kopyalama etkinliği tanımlar. Kaynak havuzu sütuna eşlenen sütunlarından (**columnMappings**) kullanarak **Çeviricisi** özelliği.
+Aşağıdaki JSON bir işlem hattında kopyalama etkinliği tanımlar. Kaynak havuzu sütuna eşlenmiş sütunlarından (**Bunun amacı**) kullanarak **Translator** özelliği.
 
 ```json
 {
@@ -137,12 +136,12 @@ Aşağıdaki JSON ardışık düzeninde kopyalama etkinliği tanımlar. Kaynak h
         }
 }
 ```
-**Sütun eşlemesi akışı:**
+**Sütun eşleme akış:**
 
-![Sütun eşlemesi akışı](./media/data-factory-map-columns/column-mapping-flow.png)
+![Sütun eşleme akış](./media/data-factory-map-columns/column-mapping-flow.png)
 
-## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Örnek 2 – sütun SQL sorgusuna Azure SQL Azure blob ile eşleme
-Bu örnekte, bir SQL sorgusu yalnızca tablo adını ve sütun adları "yapısı" bölümünde belirtmek yerine Azure SQL veri ayıklamak için kullanılır. 
+## <a name="sample-2--column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Örnek 2: sütun Azure blob'a SQL sorgusunu Azure SQL ile eşleme
+Bu örnekte, bir SQL sorgusu yalnızca tablo adını ve sütun adları "yapı" bölümünde belirtmek yerine Azure SQL veri ayıklamak için kullanılır. 
 
 ```json
 {
@@ -174,13 +173,13 @@ Bu örnekte, bir SQL sorgusu yalnızca tablo adını ve sütun adları "yapısı
         }
 }
 ```
-Bu durumda, sorgu sonuçları kaynak "yapısı" içinde belirtilen sütun için ilk eşlenir. Ardından, kaynak "yapısı" sütunlarından havuz "yapısı" sütunlara columnMappings içinde belirtilen kuralları ile eşlenir.  Sorgunun döndürdüğü 5 sütun, "" kaynağının yapısı içinde belirtilenlerden iki sütun daha varsayalım.
+Bu durumda, sorgu sonuçları kaynak "yapısı" içinde belirtilen sütun için ilk eşlenir. Ardından, "yapı" kaynağından sütunları havuz "yapı" sütunlar Bunun amacı belirtilen kuralları ile eşlenir.  Sorgunun döndürdüğü 5 sütun, "" kaynağının yapısı içinde belirtilenlerden iki sütun daha varsayalım.
 
-**Sütun eşlemesi akışı**
+**Sütun eşleme akış**
 
-![Sütun eşlemesi akış-2](./media/data-factory-map-columns/column-mapping-flow-2.png)
+![Akış-2 sütun eşleme](./media/data-factory-map-columns/column-mapping-flow-2.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kopyalama etkinliği kullanma hakkında bir öğretici makalesine bakın: 
+Kopyalama etkinliği'ni kullanma hakkında bir öğretici için bkz: 
 
-- [Verileri Blob depolama alanından SQL veritabanına kopyalamak.](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Verileri Blob depolama alanından SQL veritabanına kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)

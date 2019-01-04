@@ -9,17 +9,16 @@ ms.assetid: e07d55cf-8051-4203-9966-bdfa1035104b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5345ca3a9c2f35b45669a3a54ecb42ca627cde32
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb7d6531da330bcfbf6de786ffb19984cfd1964e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259828"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017438"
 ---
 # <a name="use-case---customer-profiling"></a>Kullanım Örneği - Müşteri Profili Oluşturma
 Azure Data Factory Çözüm Hızlandırıcıları, Cortana Intelligence Suite uygulamak için kullanılan birçok hizmetlerden biridir.  Cortana Intelligence hakkında daha fazla bilgi için ziyaret [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). Bu belgede, Azure Data Factory ortak analytics sorunlarını nasıl çözebilirsiniz anlama ile çalışmaya başlamanıza yardımcı olmak için basit bir kullanım örneği açıklanmaktadır.
@@ -53,7 +52,7 @@ Erişmek ve bu basit bir kullanım örneği denemek için ihtiyacınız olan bir
 
     ![Data Factory dikey penceresi](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
-## <a name="solution-overview"></a>Çözüme genel bakış
+## <a name="solution-overview"></a>Çözüme Genel Bakış
 Bu basit bir kullanım örneği içe alma, hazırlama, dönüştürme, analiz ve veri yayımlama için Azure Data Factory nasıl kullanabileceğinize bir örnek olarak kullanılabilir.
 
 ![Uçtan uca iş akışı](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)

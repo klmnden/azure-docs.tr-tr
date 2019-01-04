@@ -1,13 +1,10 @@
 ---
-title: Bir Azure sanal ağ eşlemesi oluşturma - farklı dağıtım modelleri - farklı abonelikler | Microsoft Docs
+title: Bir Azure sanal ağ eşlemesi oluşturma - farklı dağıtım modelleri - farklı abonelikler
+titlesuffix: Azure Virtual Network
 description: Farklı Azure aboneliklerinde mevcut Azure farklı dağıtım modelleriyle oluşturulmuş sanal ağlar arasında eşleme bir sanal ağ oluşturmayı öğrenin.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 666e4c434d05bb953950893f32c262183055becd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 45dd31ecca4f09a595fbf1dae5fe61623fb2be3c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728183"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025870"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Oluşturma bir sanal ağ eşlemesi - farklı dağıtım modelleri ve abonelikler
 
@@ -51,8 +48,8 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
     - **Adres alanı**: *10.0.0.0/16*
     - **Alt ağ adı**: *varsayılan*
     - **Alt ağ adres aralığı**: *10.0.0.0/24*
-    - **Abonelik**: A. aboneliği seçin
-    - **Kaynak grubu**: seçin **Yeni Oluştur** girin *myResourceGroupA*
+    - **Abonelik**: A aboneliği seçin
+    - **Kaynak grubu**: Seçin **Yeni Oluştur** girin *myResourceGroupA*
     - **Konum**: *Doğu ABD*
 4. İçinde **kaynak Ara** türü portalın üst kısmındaki kutusu *myVnetA*. Tıklayın **myVnetA** arama sonuçlarında görüntülendiğinde. Bir dikey pencere görünür **myVnetA** sanal ağ.
 5. İçinde **myVnetA** görüntülenen dikey **erişim denetimi (IAM)** dikey dikey pencerenin sol tarafındaki Seçenekleri listesinden.
@@ -69,8 +66,8 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
     - **Adres alanı**: *10.1.0.0/16*
     - **Alt ağ adı**: *varsayılan*
     - **Alt ağ adres aralığı**: *10.1.0.0/24*
-    - **Abonelik**: b aboneliği seçin
-    - **Kaynak grubu**: seçin **Yeni Oluştur** girin *myResourceGroupB*
+    - **Abonelik**: B aboneliği seçin
+    - **Kaynak grubu**: Seçin **Yeni Oluştur** girin *myResourceGroupB*
     - **Konum**: *Doğu ABD*
 
 14. İçinde **kaynak Ara** türü portalın üst kısmındaki kutusu *myVnetB*. Tıklayın **myVnetB** arama sonuçlarında görüntülendiğinde. Bir dikey pencere görünür **myVnetB** sanal ağ.
@@ -83,16 +80,16 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
 21. İçinde **myVnetA - eşlemeler** görünen dikey **+ Ekle**
 22. İçinde **Ekle eşlemesi** görüntülenen dikey girin veya aşağıdaki seçenekleri belirleyin, ardından tıklayın **Tamam**:
      - **Adı**: *myVnetAToMyVnetB*
-     - **Sanal ağ dağıtım modeli**: seçin **Klasik**.
-     - **Kaynak Kimliğimi biliyorum**: Bu onay kutusunu işaretleyin.
+     - **Sanal ağ dağıtım modeli**:  Seçin **Klasik**.
+     - **Kaynak Kimliğimi biliyorum**: Bu kutuyu işaretleyin.
      - **Kaynak Kimliği**: 15. adımdan myVnetB kaynak Kimliğini girin.
-     - **Sanal ağ erişimine izin ver:** emin **etkin** seçilir.
+     - **Sanal ağ erişimine izin ver:** Emin **etkin** seçilir.
     Diğer bir ayarları, bu öğreticide kullanılır. Tüm eşleme ayarları hakkında bilgi edinmek için [sanal ağ eşlemelerini yönetme](virtual-network-manage-peering.md#create-a-peering).
 23. ' I tıklattıktan sonra **Tamam** önceki adımda **Eşlemesi Ekle** dikey penceresi kapanır ve gördüğünüz **myVnetA - eşlemeler** yeniden dikey. Birkaç saniye sonra oluşturduğunuz eşleme dikey penceresinde görünür. **Bağlı** listelenir **eşleme durumu** sütunu için **myVnetAToMyVnetB** , eşleme oluşturulur. Eşleme artık gerçekleştirilir. Sanal ağ (Resource Manager) (Klasik) sanal ağ ile eşleyebilme gerek yoktur.
 
     Her iki sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adresleri birbirleriyle iletişim kurabilir. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, kaynakların sanal ağlarda bulunan sanal ağlar arasında adlarını çözümlemek alamıyoruz. Bir eşleme de sanal ağlar arasında adlarını çözümlemek dilerseniz kendi DNS sunucunuzu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucunuzu kullanarak ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-24. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden, bağlantıyı doğrulamak için bağlantı.
+24. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden diğerine, bağlantıyı doğrulamak için bağlanın.
 25. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynakları silmek için'ndaki adımları tamamlayın. [Sil kaynakları](#delete-portal) bu makalenin.
 
 ## <a name="cli"></a>Oluşturma eşleme - Azure CLI
@@ -176,7 +173,7 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
 
     Her iki sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adresleri birbirleriyle iletişim kurabilir. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, kaynakların sanal ağlarda bulunan sanal ağlar arasında adlarını çözümlemek alamıyoruz. Bir eşleme de sanal ağlar arasında adlarını çözümlemek dilerseniz kendi DNS sunucunuzu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucunuzu kullanarak ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-10. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden, bağlantıyı doğrulamak için bağlantı.
+10. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden diğerine, bağlantıyı doğrulamak için bağlanın.
 11. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynakları silmek için'ndaki adımları tamamlayın. [Sil kaynakları](#delete-cli) bu makaledeki.
 
 ## <a name="powershell"></a>Oluşturma eşleme - PowerShell
@@ -266,7 +263,7 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
 
     Her iki sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adresleri birbirleriyle iletişim kurabilir. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, kaynakların sanal ağlarda bulunan sanal ağlar arasında adlarını çözümlemek alamıyoruz. Bir eşleme de sanal ağlar arasında adlarını çözümlemek dilerseniz kendi DNS sunucunuzu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucunuzu kullanarak ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-12. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden, bağlantıyı doğrulamak için bağlantı.
+12. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden diğerine, bağlantıyı doğrulamak için bağlanın.
 13. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynakları silmek için'ndaki adımları tamamlayın. [Sil kaynakları](#delete-powershell) bu makaledeki.
 
 ## <a name="delete"></a>Kaynakları silme

@@ -10,22 +10,21 @@ ms.assetid: d5b14e9e-e358-45be-943c-5297435d402d
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f3dc27b35f35f3aaa649b03777ff13d385561673
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 426a8f3df67ee00ded0591024447770e4cfedc32
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732235"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020719"
 ---
-# <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak ilk veri fabrikanızı oluşturma
+# <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak ilk data factory'nizi derleme
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-build-your-first-pipeline.md)
-> * [Azure portalındaki](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Azure Resource Manager şablonu](data-factory-build-your-first-pipeline-using-arm.md)
@@ -33,18 +32,18 @@ ms.locfileid: "45732235"
 
 
 > [!NOTE]
-> Bu makale, Azure Data Factory’nin genel kullanıma açık olan 1. sürümü için geçerlidir. Data Factory'nin geçerli sürümünü kullanıyorsanız [Hızlı Başlangıç: Data Factory'yi kullanarak veri fabrikası oluşturma](../quickstart-create-data-factory-dot-net.md) konusunu inceleyin.
+> Bu makale, Azure Data Factory’nin genel kullanıma açık olan 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [hızlı başlangıç: Data Factory kullanarak veri fabrikası oluşturma](../quickstart-create-data-factory-dot-net.md).
 
 Bu makalede, [Azure portalını](https://portal.azure.com/) kullanarak ilk veri fabrikanızı oluşturmayı öğrenirsiniz. Öğreticiyi diğer araçları/SDK’ları kullanarak uygulamak için açılır listedeki seçeneklerden birini belirleyin. 
 
 Bu öğreticideki işlem hattı bir etkinlik içerir: Azure HDInsight Hive etkinliği. Bu etkinlik, HDInsight kümesi üzerinde çıktı verileri üretmek üzere girdi verilerini dönüştüren bir Hive betiği çalıştırır. İşlem hattı, belirtilen başlangıç ve bitiş saatleri arasında ayda bir kez çalışacak şekilde zamanlanmıştır. 
 
 > [!NOTE]
-> Bu öğreticideki veri işlem hattı, çıkış verileri üretmek üzere giriş verilerini dönüştürür. Data Factory kullanarak verileri kopyalama öğreticisi için bkz. [Öğretici: Azure Blob depolamadan Azure SQL Veritabanı’na veri kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Bu öğreticideki veri işlem hattı, çıkış verileri üretmek üzere giriş verilerini dönüştürür. Data Factory kullanarak verileri kopyalama öğreticisi için bkz: [Öğreticisi: Verileri Azure Blob depolama alanından Azure SQL veritabanı'na kopyalamak](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > Bir işlem hattında birden fazla etkinlik olabilir. Bir etkinliğin çıkış veri kümesini diğer etkinliğin giriş veri kümesi olarak ayarlayarak iki etkinliği zincirleyebilir, yani bir etkinliğin diğerinden sonra çalıştırılmasını sağlayabilirsiniz. Daha fazla bilgi için bkz. [Data Factory'de zamanlama ve yürütme](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 [Öğreticiye genel bakış](data-factory-build-your-first-pipeline.md) bölümünü okuyun ve "Önkoşullar" bölümündeki adımları izleyin.
 
 Bu makale, Data Factory hizmetine kavramsal bir genel bakış sağlamaz. Hizmet hakkında daha fazla bilgi için [Azure Data Factory'ye giriş](data-factory-introduction.md) konusunu okuyun.  
@@ -327,7 +326,7 @@ Bu adımda, bir HDInsightHive etkinliğiyle ilk işlem hattınızı oluşturursu
 
     İşlem hattının **start** ve **end** özellikleri işlem hattının etkin dönemini belirtir.
 
-    Etkinlik JSON’unda, Hive betiğinin **linkedServiceName** – **HDInsightOnDemandLinkedService** tarafından belirtilen işlemde çalışacağını belirtirsiniz.
+    JSON etkinliği Hive betiği tarafından belirtilen işlemde çalışacağını belirtirsiniz **linkedServiceName**: **Hdınsightondemandlinkedservice**.
 
    > [!NOTE]
    > Örnekte kullanılan JSON özellikleri hakkında daha fazla bilgi için [Data Factory’deki işlem hatları ve etkinlikler](data-factory-create-pipelines.md) sayfasındaki “İşlem Hattı JSON’u” bölümüne bakın.
@@ -434,7 +433,7 @@ Bu öğreticide, HDInsight Hadoop kümesindeki Hive betiği çalıştırılarak 
 * Bir HDInsight Hive etkinliği içeren bir işlem hattı oluşturun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede, isteğe bağlı HDInsight kümesinde bir Hive betiği çalıştıran dönüştürme etkinliğine (HDInsight etkinliği) sahip işlem hattı oluşturdunuz. Kopyalama etkinliği kullanarak blob depolamadaki verileri bir SQL veritabanına nasıl aktarabileceğinizi öğrenmek için bkz. [Öğretici: Blob depolamadan SQL Veritabanı’na veri kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Bu makalede, isteğe bağlı HDInsight kümesinde bir Hive betiği çalıştıran dönüştürme etkinliğine (HDInsight etkinliği) sahip işlem hattı oluşturdunuz. Verileri blob depolama alanından SQL veritabanına kopyalamak için kopyalama etkinliği'ni kullanma hakkında bilgi için bkz: [Öğreticisi: Blob depolama alanından SQL veritabanı'na veri kopyalamak](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 | Konu | Açıklama |

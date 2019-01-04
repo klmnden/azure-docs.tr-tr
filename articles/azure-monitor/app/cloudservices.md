@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: ec6fbcc7de9a5fe15231373a23f7c8491ac8c122
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 9ab256526ccba3fa84d4979ba536f6b681a7df89
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975976"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001677"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services için Application Insights
 [Microsoft Azure Cloud hizmeti uygulamaları](https://azure.microsoft.com/services/cloud-services/), Application Insights SDK'larındaki verilerle Bulut Hizmetlerinizdeki [Azure Tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) verileri birleştirilerek kullanılabilirlik, performans, hata ve kullanım açısından [Application Insights][start] tarafından izlenebilir. Uygulamanızın gerçek hayattaki performansı ve etkinliğine ilişkin aldığınız geri bildirimlerden yararlanarak her geliştirme yaşam döngüsünde tasarımın yönü konusunda bilinçli kararlar alabilirsiniz.
@@ -39,7 +39,7 @@ Bulut hizmetinizi Application Insights ile izlemenin en hızlı ve kolay yolu, u
 
 Bu seçenek çalışma zamanında uygulamanızı izleyerek web rolünüzdeki istekleri, özel durumları ve bağımlılıkları izlemek için ihtiyacınız olan tüm telemetri öğelerinin yanı sıra çalışan rollerinizden performans sayaçlarını izlemenize imkan tanır. Uygulamanız tarafından oluşturulan tüm tanılama izlemeleri Application Insights’a da gönderilir.
 
-Tek ihtiyacınız olan buysa başka bir şey yapmanız gerekmez! Sonraki adımlar [uygulamanızdan alınan ölçümleri görüntüleme](../../application-insights/app-insights-metrics-explorer.md), [Analytics ile verilerinizi sorgulama](../../azure-monitor/app/analytics.md) ve isteğe bağlı olarak bir [pano](../../azure-monitor/app/app-insights-dashboards.md) ayarlama üzerinedir. Tarayıcıda performansı izlemek için [kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md) ayarlamak ve [web sayfalarınıza kod eklemek](../../azure-monitor/app/javascript.md) isteyebilirsiniz.
+Tek ihtiyacınız olan buysa başka bir şey yapmanız gerekmez! Sonraki adımlar [uygulamanızdan alınan ölçümleri görüntüleme](../../azure-monitor/app/metrics-explorer.md), [Analytics ile verilerinizi sorgulama](../../azure-monitor/app/analytics.md) ve isteğe bağlı olarak bir [pano](../../azure-monitor/app/app-insights-dashboards.md) ayarlama üzerinedir. Tarayıcıda performansı izlemek için [kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md) ayarlamak ve [web sayfalarınıza kod eklemek](../../azure-monitor/app/javascript.md) isteyebilirsiniz.
 
 Bununla birlikte, daha fazla seçeneğe de sahip olabilirsiniz:
 
@@ -75,7 +75,7 @@ Bu durumdan kaçınmak istiyorsanız her bir derleme yapılandırması veya sist
 Uygun kaynaklara telemetri göndermek için Application Insights SDK’sını derleme yapılandırmasına göre farklı bir izleme anahtarı alacak şekilde yapılandırabilirsiniz. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Her rol için bir Application Insights kaynağı oluşturma
-Her rol için ayrı bir kaynak oluşturmaya, hatta her derleme yapılandırması için ayrı bir küme oluşturmaya karar verdiyseniz, bunların tümünü Application Insights portalında oluşturmak en kolay yöntemdir. (Çok kaynak oluşturuyorsanız [işlemi otomatikleştirebilirsiniz](../../application-insights/app-insights-powershell.md).
+Her rol için ayrı bir kaynak oluşturmaya, hatta her derleme yapılandırması için ayrı bir küme oluşturmaya karar verdiyseniz, bunların tümünü Application Insights portalında oluşturmak en kolay yöntemdir. (Çok kaynak oluşturuyorsanız [işlemi otomatikleştirebilirsiniz](../../azure-monitor/app/powershell.md).
 
 1. [Azure portalında][portal] yeni bir Application Insights kaynağı oluşturun. Uygulama türü olarak ASP.NET uygulamasını seçin. 
 
@@ -129,7 +129,7 @@ Visual Studio’da her bulut uygulaması projesi için Application Insights SDK�
     (.config dosyasında, izleme anahtarını oraya eklemenizi isteyen mesajlar görürsünüz. Ancak, bulut uygulamaları için ondan ayarlamak iyidir ``.cscfg file``. Bu, portalda rolün doğru tanımlanmasını sağlar.)
 
 #### <a name="run-and-publish-the-app"></a>Uygulamayı çalıştırma ve yayımlama
-Uygulamanızı çalıştırın ve Azure'da oturum açın. Oluşturduğunuz Application Insights kaynaklarını açtığınızda, [Ara](../../azure-monitor/app/diagnostic-search.md) kutucuğunda tek tek veri noktalarının, [Ölçüm Gezgini](../../application-insights/app-insights-metrics-explorer.md)’nde ise toplu verilerin göründüğünü görebilirsiniz. 
+Uygulamanızı çalıştırın ve Azure'da oturum açın. Oluşturduğunuz Application Insights kaynaklarını açtığınızda, [Ara](../../azure-monitor/app/diagnostic-search.md) kutucuğunda tek tek veri noktalarının, [Ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md)’nde ise toplu verilerin göründüğünü görebilirsiniz. 
 
 Daha fazla telemetri ekleyin (aşağıdaki bölümlere bakın) ve sonra canlı tanılama ve kullanım geri bildirimi almak için uygulamanızı yayımlayın. 
 
@@ -146,7 +146,7 @@ Application Insights'ta [Azure Tanılama](https://docs.microsoft.com/azure/monit
 * Windows olay günlükleri izlemeler ve özel olaylar olarak gösterilir.
 * Uygulama günlükleri, ETW günlükleri ve varsa tanılama altyapısı günlükleri izlemeler olarak görünür.
 
-Performans sayaçlarını ve olay sayısını görmek için [Ölçüm Gezgini](../../application-insights/app-insights-metrics-explorer.md)’ni açıp yeni bir grafik ekleyin:
+Performans sayaçlarını ve olay sayısını görmek için [Ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md)’ni açıp yeni bir grafik ekleyin:
 
 ![Azure tanılama verileri](./media/cloudservices/23-wad.png)
 
@@ -231,8 +231,8 @@ Sisteminiz tarafından Stream Analytics gibi diğer Azure hizmetleri kullanılı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Tanılama verilerinin Application Insights’a gönderimini yapılandırma](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
-* [Application Insights kaynakları oluşturmayı otomatikleştirme](../../application-insights/app-insights-powershell.md)
-* [Azure tanılamayı otomatikleştirme](../../application-insights/app-insights-powershell-azure-diagnostics.md)
+* [Application Insights kaynakları oluşturmayı otomatikleştirme](../../azure-monitor/app/powershell.md)
+* [Azure tanılamayı otomatikleştirme](../../azure-monitor/app/powershell-azure-diagnostics.md)
 * [Azure İşlevleri](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: ../../azure-monitor/app/api-custom-events-metrics.md

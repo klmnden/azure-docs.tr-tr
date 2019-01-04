@@ -1,74 +1,80 @@
 ---
-title: Uygulama verilerini Azure'da yüksek oranda kullanılabilir hale getirme | Microsoft Belgeleri
+title: "Öğretici: Uygulama verilerini Azure'da yüksek oranda kullanılabilir hale getirme | Microsoft Belgeleri"
 description: Okuma erişimli coğrafi olarak yedekli depolamayı kullanarak uygulama verilerinizi yüksek oranda kullanılabilir yapma
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/26/2018
+ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: 162b30444a22ea193d93e8a6a2c7374dcd2f5fd3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: e6b64c7545e7a36b9178af84f88ee89b498077b0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415993"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019105"
 ---
-# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Öğretici: Uygulama verilerinizi Azure depolama ile yüksek oranda kullanılabilir yapma
+# <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Öğretici: Azure depolama ile uygulama verilerinizi yüksek oranda kullanılabilir hale getirme
 
-Bu öğretici, uygulama verilerinizi Azure’da yüksek oranda kullanılabilir hale getirmeyi açıklayan bir serinin ilk bölümüdür. Öğreticiyi tamamladığınızda [okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) bir depolama hesabına blob yükleyen ve buradan blob alan bir konsol uygulamanız olur. RA-GRS, birincil bölgedeki işlemleri ikincil bölgede çoğaltarak çalışır. Bu çoğaltma işlemi, ikincil bölgedeki verilerin nihai olarak tutarlı olmasını sağlar. Uygulama, hangi uç noktaya bağlanılacağını belirlemek için [Devre Kesici](/azure/architecture/patterns/circuit-breaker) düzenini kullanır. Bir hatanın simülasyonu yapıldığında uygulama ikincil uç noktaya geçer.
+Bu öğretici, bir dizinin birinci bölümüdür. İçinde uygulama verilerinizi azure'da yüksek oranda kullanılabilir hale getirme hakkında bilgi edinin.
+
+Bu öğreticiyi tamamladıktan sonra yükler ve bir blobun alan bir konsol uygulaması gerekir bir [okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) depolama hesabı.
+
+RA-GRS, işlem birincil bir bölgeden ikincil bir bölgeye çoğaltarak çalışır. Bu çoğaltma işlemi, ikincil bölgedeki verilerin nihai olarak tutarlı olmasını sağlar. Uygulamanın kullandığı [devre kesici](/azure/architecture/patterns/circuit-breaker) belirlemek hangi uç noktaya bağlanmak için uç noktalar olarak hataları arasında otomatik olarak geçiş desen ve kurtarmalar benzetimi.
+
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 Serinin birinci bölümünde şunları öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Depolama hesabı oluşturma
-> * Örneği indirme
 > * Bağlantı dizesini ayarlama
 > * Konsol uygulamasını çalıştırma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
- 
+
 # <a name="net-tabdotnet"></a>[.NET] (#sekme/dotnet)
+
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)’yi aşağıdaki iş yükleri ile yükleyin:
   - **Azure geliştirme**
 
   ![Azure geliştirme (Web ve Bulut altında)](media/storage-create-geo-redundant-storage/workloads.png)
 
-* (İsteğe bağlı) [Fiddler](https://www.telerik.com/download/fiddler)’ı indirip yükleme
- 
-# <a name="python-tabpython"></a>[Python] (#sekme/python) 
+# <a name="python-tabpython"></a>[Python] (#sekme/python)
 
 * [Python](https://www.python.org/downloads/)’ı yükleyin
 * [Python için Azure Depolama SDK’sını](https://github.com/Azure/azure-storage-python) indirip yükleme
-* (İsteğe bağlı) [Fiddler](https://www.telerik.com/download/fiddler)’ı indirip yükleme
 
-# <a name="java-tabjava"></a>[Java] (#tab/java)
+# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK] (# sekme/java-v7)
 
 * [Maven](http://maven.apache.org/download.cgi)’ı yükleyip komut satırından çalışacak şekilde yapılandırma
-* [JDK](https://aka.ms/azure-jdks)’yı yükleme ve yapılandırma
+* [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)’yı yükleme ve yapılandırma
+
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (# sekme/java-v10)
+
+* [Maven](http://maven.apache.org/download.cgi)’ı yükleyip komut satırından çalışacak şekilde yapılandırma
+* [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)’yı yükleme ve yapılandırma
 
 ---
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
-
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+[Azure Portal](https://portal.azure.com/) oturum açın.
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-Depolama hesabı, Azure Storage veri nesnelerinizi depolamak ve bunlara erişmek için benzersiz ad alanı sağlar.
+Depolama hesabı, Azure Storage veri nesnelerinizi depolamak ve erişmek için benzersiz bir ad alanı sağlar.
 
 Okuma erişimli coğrafi olarak yedekli depolama hesabı oluşturmak için aşağıdaki adımları izleyin:
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** düğmesini seçin.
-
-2. **Yeni** sayfasında **Depolama**’yı seçin ve **Öne Çıkanlar**’ın altında **Depolama hesabı - blob, dosya, tablo, kuyruk**’u seçin.
-3. Aşağıdaki bilgileri kullanarak depolama hesabı formunu alttaki resimde gösterildiği gibi doldurun ve **Oluştur**’u seçin:
+2. Seçin **depolama** gelen **yeni** sayfası.
+3. Seçin **depolama hesabı - blob, dosya, tablo, kuyruk** altında **öne çıkan**.
+4. Aşağıdaki bilgileri kullanarak depolama hesabı formunu alttaki resimde gösterildiği gibi doldurun ve **Oluştur**’u seçin:
 
    | Ayar       | Önerilen değer | Açıklama |
    | ------------ | ------------------ | ------------------------------------------------- |
@@ -77,7 +83,6 @@ Okuma erişimli coğrafi olarak yedekli depolama hesabı oluşturmak için aşa�
    | **Hesap türü** | StorageV2 | Hesap türleri hakkında ayrıntılı bilgi almak için bkz. [depolama hesabı türleri](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performans** | Standart | Standart, örnek senaryo için yeterli olacaktır. |
    | **Çoğaltma**| Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) | Örneğin çalışması için bunun seçilmesi gereklidir. |
-   |**Güvenli aktarım gerekir** | Devre dışı| Bu senaryo için güvenli aktarım gerekli değildir. |
    |**Abonelik** | aboneliğiniz |Abonelikleriniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.windowsazure.com/Subscriptions). |
    |**ResourceGroup** | myResourceGroup |Geçerli kaynak grubu adları için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    |**Konum** | Doğu ABD | Konum seçin. |
@@ -93,7 +98,8 @@ Okuma erişimli coğrafi olarak yedekli depolama hesabı oluşturmak için aşa�
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
 ```
-# <a name="python-tabpython"></a>[Python] (#sekme/python) 
+
+# <a name="python-tabpython"></a>[Python] (#sekme/python)
 
 [Örnek projeyi indirin](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) ve storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip dosyasını ayıklayın (sıkıştırmasını açın). Geliştirme ortamına uygulamanın bir kopyasını indirmek için [git](https://git-scm.com/) de kullanılabilir. Örnek proje temel bir Python uygulaması içerir.
 
@@ -101,56 +107,168 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-tabjava"></a>[Java] (#tab/java)
+# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK] (# sekme/java-v7)
+
 [Örnek projeyi indirin](https://github.com/Azure-Samples/storage-java-ha-ra-grs) ve storage-java-ragrs.zip dosyasını ayıklayın. Geliştirme ortamına uygulamanın bir kopyasını indirmek için [git](https://git-scm.com/) de kullanılabilir. Örnek proje, temel bir Java uygulaması içerir.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 ```
+
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (# sekme/java-v10)
+
+[Örnek projeyi indirin](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs) ve storage-java-ragrs.zip dosyasını ayıklayın. Geliştirme ortamına uygulamanın bir kopyasını indirmek için [git](https://git-scm.com/) de kullanılabilir. Örnek proje, temel bir Java uygulaması içerir.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
+```
+
 ---
 
+# <a name="net-tabdotnet"></a>[.NET] (#sekme/dotnet)
 
-## <a name="set-the-connection-string"></a>Bağlantı dizesini ayarlama
+Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Uygulamayı çalıştıran yerel makine üzerindeki bu bağlantı dizesi bir ortam değişkeninde depolamanız önerilir. Ortam değişkenini oluşturmak için İşletim Sisteminize bağlı olarak aşağıdaki örneklerden birini izleyin.
 
-Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Bu bağlantı dizesini uygulamayı çalıştıran yerel makine üzerindeki bir ortam değişkeninde depolamanız önerilir. Ortam değişkenini oluşturmak için İşletim Sisteminize bağlı olarak aşağıdaki örneklerden birini izleyin.
+Azure portalında depolama hesabınıza gidin. Depolama hesabınızdaki **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Birincil veya ikincil anahtardaki **bağlantı dizesini** kopyalayın. İşletim Sisteminize göre aşağıdaki komutlardan birini çalıştırarak \<yourconnectionstring\> değerini kendi bağlantı dizenizle değiştirin. Bu komut, yerel makinede bir ortam değişkeni kaydeder. Yeniden yükleninceye kadar Windows içinde ortam değişkeni kullanılamıyor **komut istemi** veya kullanmakta olduğunuz Kabuk. Aşağıdaki örnekte **\<storageConnectionString\>**’i değiştirin:
 
-Azure portalında depolama hesabınıza gidin. Depolama hesabınızdaki **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Birincil veya ikincil anahtardaki **bağlantı dizesini** kopyalayın. İşletim Sisteminize göre aşağıdaki komutlardan birini çalıştırarak \<yourconnectionstring\> değerini kendi bağlantı dizenizle değiştirin. Bu komut, yerel makinede bir ortam değişkeni kaydeder. Bu ortam değişkeni, Windows’da **Komut İstemi** veya kullanmakta olduğunuz kabuk yeniden yüklenene kadar kullanılamaz. Aşağıdaki örnekte **\<storageConnectionString\>**’i değiştirin:
+### <a name="linux"></a>Linux
 
-# <a name="linux-tablinux"></a>[Linux] (#sekme/linux) 
+```
 export storageconnectionstring=\<yourconnectionstring\> 
+```
+### <a name="windows"></a>Windows
 
-# <a name="windows-tabwindows"></a>[Windows] (#sekme/windows) 
+```PowerShell
 setx storageconnectionstring "\<yourconnectionstring\>"
+```
+
+# <a name="python-tabpython"></a>[Python] (#sekme/python)
+
+Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Uygulamayı çalıştıran yerel makine üzerindeki bu bağlantı dizesi bir ortam değişkeninde depolamanız önerilir. Ortam değişkenini oluşturmak için İşletim Sisteminize bağlı olarak aşağıdaki örneklerden birini izleyin.
+
+Azure portalında depolama hesabınıza gidin. Depolama hesabınızdaki **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Birincil veya ikincil anahtardaki **bağlantı dizesini** kopyalayın. İşletim Sisteminize göre aşağıdaki komutlardan birini çalıştırarak \<yourconnectionstring\> değerini kendi bağlantı dizenizle değiştirin. Bu komut, yerel makinede bir ortam değişkeni kaydeder. Yeniden yükleninceye kadar Windows içinde ortam değişkeni kullanılamıyor **komut istemi** veya kullanmakta olduğunuz Kabuk. Aşağıdaki örnekte **\<storageConnectionString\>**’i değiştirin:
+
+### <a name="linux"></a>Linux
+
+```
+export storageconnectionstring=\<yourconnectionstring\> 
+```
+### <a name="windows"></a>Windows
+
+```PowerShell
+setx storageconnectionstring "\<yourconnectionstring\>"
+```
+
+# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK] (# sekme/java-v7)
+
+Uygulamada, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Uygulamayı çalıştıran yerel makine üzerindeki bu bağlantı dizesi bir ortam değişkeninde depolamanız önerilir. Ortam değişkenini oluşturmak için İşletim Sisteminize bağlı olarak aşağıdaki örneklerden birini izleyin.
+
+Azure portalında depolama hesabınıza gidin. Depolama hesabınızdaki **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin. Birincil veya ikincil anahtardaki **bağlantı dizesini** kopyalayın. İşletim Sisteminize göre aşağıdaki komutlardan birini çalıştırarak \<yourconnectionstring\> değerini kendi bağlantı dizenizle değiştirin. Bu komut, yerel makinede bir ortam değişkeni kaydeder. Yeniden yükleninceye kadar Windows içinde ortam değişkeni kullanılamıyor **komut istemi** veya kullanmakta olduğunuz Kabuk. Aşağıdaki örnekte **\<storageConnectionString\>**’i değiştirin:
+
+### <a name="linux"></a>Linux
+
+```
+export storageconnectionstring=\<yourconnectionstring\> 
+```
+### <a name="windows"></a>Windows
+
+```PowerShell
+setx storageconnectionstring "\<yourconnectionstring\>"
+```
+
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (# sekme/java-v10)
+
+Bu örnek, güvenli bir şekilde adını ve anahtarını depolama hesabınızın depolama gerektirir. Bunları örneği çalıştıran makinede yerel ortam değişkenlerini Store. Linux veya Windows örnek, işletim sisteminize bağlı olarak, ortam değişkenlerini oluşturmak için kullanın. Yeniden yükleninceye kadar Windows içinde ortam değişkeni kullanılamıyor **komut istemi** veya kullanmakta olduğunuz Kabuk.
+
+### <a name="linux-example"></a>Linux örneği
+
+```
+export AZURE_STORAGE_ACCOUNT="<youraccountname>"
+export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
+```
+
+### <a name="windows-example"></a>Windows örneği
+
+```
+setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
+setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
+```
 
 ---
-
 
 ## <a name="run-the-console-application"></a>Konsol uygulamasını çalıştırma
 
 # <a name="net-tabdotnet"></a>[.NET] (#sekme/dotnet)
-Visual Studio'da **F5**’e basarak veya **Başlat**’ı seçerek uygulamada hata ayıklamaya başlayın. Visual Studio, yapılandırılmışsa eksik NuGet paketlerini otomatik olarak geri yükler. Daha fazla bilgi edinmek için [Paket geri yükleme özelliğiyle paketleri yükleme ve yeniden yükleme](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) makalesini ziyaret edin.
 
-Bir konsol penceresi açılır ve uygulama çalışmaya başlar. Uygulama, çözümdeki **HelloWorld.png** resmini depolama hesabına yükler. Uygulama, resmin ikincil RA-GRS uç noktasında çoğaltıldığını denetler. Ardından, resmi 999 kereye kadar indirmeye başlar. Her okuma işlemi bir **P** veya **S** ile temsil edilir. Burada, **P** birincil uç nokta ve **S** ikincil uç nokta demektir.
+Visual Studio'da **F5** veya **Başlat** uygulama hata ayıklamayı başlatmak için. Visual studio otomatik olarak eksik yapılandırdıysanız, NuGet paketlerini geri yüklemeler ziyaret [yükleme ve paket geri yükleme paketleri yeniden yükleme](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) daha fazla bilgi için.
+
+Bir konsol penceresi açılır ve uygulama çalışmaya başlar. Uygulama, çözümdeki **HelloWorld.png** resmini depolama hesabına yükler. Uygulama, resmin ikincil RA-GRS uç noktasında çoğaltıldığını denetler. Ardından, resmi 999 kereye kadar indirmeye başlar. Her okuma tarafından temsil edilen bir **P** veya **S**. Burada, **P** birincil uç nokta ve **S** ikincil uç nokta demektir.
 
 ![Çalışan konsol uygulaması](media/storage-create-geo-redundant-storage/figure3.png)
 
 Örnek kodda, [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) yöntemini kullanarak depolama hesabından bir resim indirmek için `Program.cs` dosyasındaki `RunCircuitBreakerAsync` görevi kullanılmaktadır. İndirme işlemi öncesinde bir [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet) (İşlem Bağlamı) tanımlanır. İşlem bağlamı, indirme işlemi başarıyla tamamlandığında veya indirme işlemi başarısız olup yeniden denendiğinde başlatılan olay işleyicilerini tanımlar.
 
-# <a name="python-tabpython"></a>[Python] (#sekme/python) 
-Uygulamayı bir terminalde veya komut isteminde çalıştırmak için **circuitbreaker.py** dizinine gidip `python circuitbreaker.py` komutunu girin. Uygulama, çözümdeki **HelloWorld.png** resmini depolama hesabına yükler. Uygulama, resmin ikincil RA-GRS uç noktasında çoğaltıldığını denetler. Ardından, resmi 999 kereye kadar indirmeye başlar. Her okuma işlemi bir **P** veya **S** ile temsil edilir. Burada, **P** birincil uç nokta ve **S** ikincil uç nokta demektir.
+# <a name="python-tabpython"></a>[Python] (#sekme/python)
+
+Uygulamayı bir terminalde veya komut isteminde çalıştırmak için **circuitbreaker.py** dizinine gidip `python circuitbreaker.py` komutunu girin. Uygulama, çözümdeki **HelloWorld.png** resmini depolama hesabına yükler. Uygulama, resmin ikincil RA-GRS uç noktasında çoğaltıldığını denetler. Ardından, resmi 999 kereye kadar indirmeye başlar. Her okuma tarafından temsil edilen bir **P** veya **S**. Burada, **P** birincil uç nokta ve **S** ikincil uç nokta demektir.
 
 ![Çalışan konsol uygulaması](media/storage-create-geo-redundant-storage/figure3.png)
 
 Örnek kodda, [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html) yöntemini kullanarak depolama hesabından bir resim indirmek için `circuitbreaker.py` dosyasındaki `run_circuit_breaker` yöntemi kullanılmaktadır. 
 
 Depolama nesnesi yeniden deneme işlevi, doğrusal bir yeniden deneme ilkesine ayarlıdır. Yeniden deneme işlevi, isteklerin yeniden denenip denenmeyeceğini belirler ve isteği yeniden denemeden önce kaç saniye bekleneceğini belirtir. Birincile yapılan istek başarısız olursa aynı isteğin ikincile yeniden denenmesini istiyorsanız **retry\_to\_secondary** değerini true olarak ayarlayın. Örnek uygulamada depolama nesnesinin `retry_callback` işlevinde özel bir yeniden deneme ilkesi tanımlanmıştır.
- 
+
 İndirme işlemi öncesinde Hizmet nesnesinin [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) ve [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) işlevleri tanımlanır. Bu işlevler, indirme işlemi başarıyla tamamlandığında veya indirme işlemi başarısız olup yeniden denendiğinde başlatılan olay işleyicilerini tanımlar.  
 
-# <a name="java-tabjava"></a>[Java] (#tab/java)
+# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK] (# sekme/java-v7)
+
 İndirilen uygulama klasörü kapsamlı bir terminal veya komut istemi açarak uygulamayı çalıştırabilirsiniz. Buradan `mvn compile exec:java` komutunu girerek uygulamayı çalıştırın. Uygulama, dizinden depolama hesabınıza **HelloWorld.png** görüntüsünü yükler ve görüntünün ikincil RA-GRS uç noktasına çoğaltılıp çoğaltılmadığını denetler. Denetim tamamlandıktan sonra uygulama art arda görüntüyü indirmeye başlar, bir yandan da içinden indirme işlemini yaptığı uç noktaya geri bildirimde bulunur.
 
 Depolama nesnesi yeniden deneme işlevi, doğrusal bir yeniden deneme ilkesini kullanacak şekilde ayarlıdır. Yeniden deneme işlevi, isteklerin yeniden denenip denenmeyeceğini belirler ve her bir yeniden denemeden önce kaç saniye bekleneceğini belirtir. **BlobRequestOptions** öğenizin **LocationMode** özelliği, **PRIMARY\_THEN\_SECONDARY** olarak ayarlanır. Bu, uygulamanın **HelloWorld.png** dosyasını indirmeye çalışırken birincil konuma ulaşamaması durumunda otomatik olarak ikincil konuma geçmesine olanak sağlar.
+
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (# sekme/java-v10)
+
+Örneği çalıştırmak için komut satırında Maven'i kullanın.
+
+1. bir kabuk açın ve **storage-blobs-java-v10-quickstart** komutuyla kopyalanmış dizininize içinde.
+2. `mvn compile exec:java` yazın.
+
+Bu örnek, varsayılan dizininizde bir sınama dosyası oluşturur, bu dizin için windows kullanıcıları **AppData\Local\Temp**. Örnek daha sonra girebilirsiniz komutların aşağıdaki seçenekler sunar:
+
+- Girin **P** blob koyma işlemi yürütmek için bu geçici bir dosya, depolama hesabına yükler.
+- Girin **L** blobu listeleme işlemi gerçekleştirmek için şu anda kapsayıcıdaki blobları listeler.
+- Girin **G** blob alma işlemi gerçekleştirmek için bu dosya depolama hesabınızdan yerel makinenize indirir.
+- Girin **D** blob silme işlemi yürütmek için bu blob depolama hesabınızdan siler.
+- Girin **E** örnek kapatmak için bu da tüm kaynakları oluşturulan örnek siler.
+
+Bu örnekte uygulamayı Windows'da çalıştırdığınızda elde edeceğiniz çıkış gösterilmiştir.
+
+```
+Created quickstart container
+Enter a command
+(P)utBlob | (L)istBlobs | (G)etBlob | (D)eleteBlobs | (E)xitSample
+# Enter a command :
+P
+Uploading the sample file into the container: https://<storageaccount>.blob.core.windows.net/quickstart
+# Enter a command :
+L
+Listing blobs in the container: https://<storageaccount>.blob.core.windows.net/quickstart
+Blob name: SampleBlob.txt
+# Enter a command :
+G
+Get the blob: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
+The blob was downloaded to C:\Users\<useraccount>\AppData\Local\Temp\downloadedFile13097087873115855761.txt
+# Enter a command :
+D
+Delete the blob: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
+
+# Enter a command :
+>> Blob deleted: https://<storageaccount>.blob.core.windows.net/quickstart/SampleBlob.txt
+E
+Cleaning up the sample and exiting!
+```
+
+Örneğin denetimi sizdedir; bu nedenle, kodu çalıştırmasını sağlamak için komutları girin. Girdi büyük/küçük harfe duyarlıdır.
 
 ---
 
@@ -189,7 +307,7 @@ private static void OperationContextRetrying(object sender, RequestEventArgs e)
 ### <a name="request-completed-event-handler"></a>İstek tamamlandı olay işleyicisi
 
 `OperationContextRequestCompleted` olay işleyicisi, resmin indirilmesi işlemi başarılı olduğunda çağrılır. Uygulama ikincil uç noktayı kullanıyorsa bu uç noktayı 20 kereye kadar daha kullanmaya devam eder. 20 kereden sonra uygulama [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) değerini yeniden `PrimaryThenSecondary` olarak ayarlar ve birincil uç noktayı tekrar dener. Bir istek başarılı olursa uygulama birincil uç noktadan okumaya devam eder.
- 
+
 ```csharp
 private static void OperationContextRequestCompleted(object sender, RequestEventArgs e)
 {
@@ -249,7 +367,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-tabjava"></a>[Java] (#tab/java)
+# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK] (# sekme/java-v7)
 
 Java ile, **BlobRequestOptions** öğenizin **LocationMode** özelliği, **PRIMARY\_THEN\_SECONDARY** olarak ayarlanırsa geri çağırma işleyicilerinin tanımlanması gerekmez. Bu, uygulamanın **HelloWorld.png** dosyasını indirmeye çalışırken birincil konuma ulaşamaması durumunda otomatik olarak ikincil konuma geçmesine olanak sağlar.
 
@@ -261,18 +379,23 @@ Java ile, **BlobRequestOptions** öğenizin **LocationMode** özelliği, **PRIMA
 
     blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
 ```
----
 
+# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (# sekme/java-v10)
+
+Java V10 SDK'sı ile geri çağırma işleyicilerinin tanımlanması hala gereksizdir ve SDK'sı artık V7 SDK'dan bazı temel farklar vardır. İkincil sahibiz LocationMode yerine **işlem hattı**. İkincil bir işlem hattı aracılığıyla tanımlayabilir **RequestRetryOptions** ve tanımlanmışsa, verilerinizi birincil ardışık düzeninden ulaşmak başarısız olursa otomatik olarak ikincil ardışık düzenine geçmek uygulama izin verir.
+
+```java
+// We create pipeline options here so that they can be easily used between different pipelines
+PipelineOptions myOptions = new PipelineOptions();
+myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, accountName + "-secondary.blob.core.windows.net"));
+// We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
+final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
+```
+---
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Serinin bu ilk bölümünde RA-GRS depolama hesaplarını kullanarak bir uygulamayı yüksek oranda kullanılabilir hale getirme hakkında bilgi edinip aşağıdakilerin nasıl yapılacağını öğrendiniz:
-
-> [!div class="checklist"]
-> * Depolama hesabı oluşturma
-> * Örneği indirme
-> * Bağlantı dizesini ayarlama
-> * Konsol uygulamasını çalıştırma
+Bölümünde bir dizi uygulamaya RA-GRS depolama hesapları ile yüksek oranda kullanılabilir yapma hakkında bilgi edindiniz.
 
 Bir hata simülasyonu yapıp uygulamanızı ikincil RA-GRS uç noktasını kullanmaya zorlamayı öğrenmek için serinin ikinci bölümüne geçin.
 

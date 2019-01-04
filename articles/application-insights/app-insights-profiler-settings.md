@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: d96b4a99b2ea66cdeff43f06c1789dd133c2c31a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: db3142837c5bb2c5758e47ddf017da284b2e0f0e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723015"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017744"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler'ı Yapılandır
 
@@ -43,7 +43,7 @@ ASE'NİZİN nasıl yapılandırıldığına bağlı olarak, aracı durumunu dene
 Profiler el ile bir düğme tıklatma ile tetiklenebilir. Web performans testi çalıştırdığınızı varsayın. Web uygulamanızı yük altında nasıl performans gösterdiğini anlamak için izlemeleri gerekir. Yük testi çalıştırma, ancak bu rastgele bir örnekleme aralığı kaçırabilirsiniz bildiğiniz izlemeleri olduğunda yakalandığını denetime sahip olmak önemlidir.
 Aşağıdaki adımlar, bu senaryoda nasıl çalıştığını göstermektedir:
 
-### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(İsteğe bağlı) 1. adım: web performans testi başlatarak trafiğin web uygulamanıza oluşturur.
+### <a name="optional-step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>(İsteğe bağlı) 1. adım: Web performans testi başlatarak web uygulamanıza trafiği oluşturur
 
 Web uygulamanıza gelen trafik varsa veya trafiği el ile oluşturmak istiyorsanız, bu bölümü atlayın ve adım 2'ye geçin.
 
@@ -61,13 +61,13 @@ Yeni test durumu 'Sürüyor' izleyen ilk olarak sıraya alınır görürsünüz.
 
 ![devam eden yük testi çalışırken][load-test-in-progress]
 
-### <a name="step-2-start-profiler-on-demand"></a>2. adım: Profil Oluşturucu üzerine Başlat
+### <a name="step-2-start-profiler-on-demand"></a>2. Adım: Profil Oluşturucu üzerine Başlat
 
 Yük testi çalışmaya başladığında, biz yük alırken web uygulamasında izlemeleri yakalamak amacıyla profil oluşturucu başlayabilirsiniz.
 Yapılandırma Profiler bölmesine gidin:
 
 
-### <a name="step-3-view-traces"></a>3. adım: Görünüm izlemeleri
+### <a name="step-3-view-traces"></a>3. Adım: Görünüm izlemeleri
 
 Profil Oluşturucu çalışmayı tamamladıktan sonra performans sayfası ve görünüm izlemeleri gitmek için bildirim yönergeleri izleyin.
 
@@ -86,7 +86,7 @@ Bu hatayı neden gördüğünüz iki nedeni olabilir:
 En son Profiler'ı yüklemek ve denetlemek için aşağıdaki adımları izleyin:
 
 1. Uygulama Hizmetleri uygulama ayarlarına gidin ve aşağıdaki ayarları ayarlanıp ayarlanmadığını denetleyin:
-    * **Appınsıghts_ınstrumentatıonkey**: Application Insights için uygun bir izleme anahtarı ile değiştirin.
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Application Insights için uygun bir izleme anahtarı ile değiştirin.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 Bu ayarlardan herhangi birini ayarlanmazsa, en son site uzantısını yüklemek için Application ınsights'ı etkinleştirme bölmesine gidin.
 
@@ -103,7 +103,7 @@ En son Profiler'ı yüklemek ve denetlemek için aşağıdaki adımları izleyin
     ![App ınsights kaydedin ve değiştirme][change-and-save-appinsights]
 
 1. Geri Git **uygulama ayarları** App Service uygulama ayarları aşağıdakileri denetleyin sekmesinde ayarlanır:
-    * **Appınsıghts_ınstrumentatıonkey**: application ınsights için uygun bir izleme anahtarı ile değiştirin.
+    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Application ınsights için uygun bir izleme anahtarı ile değiştirin.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
@@ -116,15 +116,15 @@ En son Profiler'ı yüklemek ve denetlemek için aşağıdaki adımları izleyin
 ## <a name="next-steps"></a>Sonraki Adımlar
 [Profiler etkinleştirme ve görüntüleme izlemeleri](app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
-[profiler-on-demand]: ./media/app-insights-profiler/Profiler-on-demand.png
-[configure-profiler-entry]: ./media/app-insights-profiler/configure-profiler-entry.png
-[create-performance-test]: ./media/app-insights-profiler/new-performance-test.png
-[configure-performance-test]: ./media/app-insights-profiler/configure-performance-test.png
-[load-test-queued]: ./media/app-insights-profiler/load-test-queued.png
-[load-test-in-progress]: ./media/app-insights-profiler/load-test-inprogress.png
-[enable-app-insights]: ./media/app-insights-profiler/enable-app-insights-blade-01.png
-[update-site-extension]: ./media/app-insights-profiler/update-site-extension-01.png
-[change-and-save-appinsights]: ./media/app-insights-profiler/change-and-save-appinsights-01.png
-[app-settings-for-profiler]: ./media/app-insights-profiler/appsettings-for-profiler-01.png
-[check-for-extension-update]: ./media/app-insights-profiler/check-extension-update-01.png
-[profiler-timeout]: ./media/app-insights-profiler/profiler-timeout.png
+[profiler-on-demand]: ./media/app-insights-profiler-settings/Profiler-on-demand.png
+[configure-profiler-entry]: ./media/app-insights-profiler-settings/configure-profiler-entry.png
+[create-performance-test]: ./media/app-insights-profiler-settings/new-performance-test.png
+[configure-performance-test]: ./media/app-insights-profiler-settings/configure-performance-test.png
+[load-test-queued]: ./media/app-insights-profiler-settings/load-test-queued.png
+[load-test-in-progress]: ./media/app-insights-profiler-settings/load-test-inprogress.png
+[enable-app-insights]: ./media/app-insights-profiler-settings/enable-app-insights-blade-01.png
+[update-site-extension]: ./media/app-insights-profiler-settings/update-site-extension-01.png
+[change-and-save-appinsights]: ./media/app-insights-profiler-settings/change-and-save-appinsights-01.png
+[app-settings-for-profiler]: ./media/app-insights-profiler-settings/appsettings-for-profiler-01.png
+[check-for-extension-update]: ./media/app-insights-profiler-settings/check-extension-update-01.png
+[profiler-timeout]: ./media/app-insights-profiler-settings/profiler-timeout.png

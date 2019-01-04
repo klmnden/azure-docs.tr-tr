@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 2a17bca6f7b95850f84781b5838719617d45bdd2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b712b576e1dd47698de66889d4edf9dda026a16c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077826"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017999"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>Google AdWords Azure Data Factory (Önizleme) kullanarak verileri kopyalama
 
@@ -48,7 +47,7 @@ Google AdWords bağlı hizmeti için aşağıdaki özellikler desteklenir:
 | type | Type özelliği ayarlanmalıdır: **GoogleAdWords** | Evet |
 | clientCustomerID | Rapor verileri getirmek istediğiniz AdWords hesabını istemci müşteri kimliği.  | Evet |
 | developerToken | Geliştirici belirteç AdWords API'ye erişim için kullandığınız yönetici hesabı ile ilişkili.  Bu alanı ADF içinde güvenli bir şekilde depolayın veya Azure anahtar Kasası'nda parolayı depolamak için bir SecureString olarak işaretleyin ve veri kopyalama gerçekleştirirken acitivty çekme buradan kopyalama - daha fazla bilgi ADF seçebileceğiniz [anahtar Kasası'nda kimlik bilgileri Store](store-credentials-in-key-vault.md). | Evet |
-| authenticationType | Kimlik doğrulaması için kullanılan OAuth 2.0 kimlik doğrulama mekanizması. ServiceAuthentication yalnızca şirket içinde barındırılan IR üzerinde kullanılabilir <br/>İzin verilen değerler: **ServiceAuthentication**, **UserAuthentication** | Evet |
+| authenticationType | Kimlik doğrulaması için kullanılan OAuth 2.0 kimlik doğrulama mekanizması. ServiceAuthentication yalnızca şirket içinde barındırılan IR üzerinde kullanılabilir <br/>İzin verilen değerler şunlardır: **ServiceAuthentication**, **UserAuthentication** | Evet |
 | refreshToken | İçin UserAuthentication AdWords erişim yetkisi vermek için Google'dan alınan yenileme belirteci. Bu alanı ADF içinde güvenli bir şekilde depolayın veya Azure anahtar Kasası'nda parolayı depolamak için bir SecureString olarak işaretleyin ve veri kopyalama gerçekleştirirken acitivty çekme buradan kopyalama - daha fazla bilgi ADF seçebileceğiniz [anahtar Kasası'nda kimlik bilgileri Store](store-credentials-in-key-vault.md). | Hayır |
 | ClientID | Yenileme belirteci almak için kullanılan google uygulama istemci kimliği. Bu alanı ADF içinde güvenli bir şekilde depolayın veya Azure anahtar Kasası'nda parolayı depolamak için bir SecureString olarak işaretleyin ve veri kopyalama gerçekleştirirken acitivty çekme buradan kopyalama - daha fazla bilgi ADF seçebileceğiniz [anahtar Kasası'nda kimlik bilgileri Store](store-credentials-in-key-vault.md). | Hayır |
 | ClientSecret | Yenileme belirteci almak için kullanılan google uygulama istemci gizli bilgisi. Bu alanı ADF içinde güvenli bir şekilde depolayın veya Azure anahtar Kasası'nda parolayı depolamak için bir SecureString olarak işaretleyin ve veri kopyalama gerçekleştirirken acitivty çekme buradan kopyalama - daha fazla bilgi ADF seçebileceğiniz [anahtar Kasası'nda kimlik bilgileri Store](store-credentials-in-key-vault.md). | Hayır |

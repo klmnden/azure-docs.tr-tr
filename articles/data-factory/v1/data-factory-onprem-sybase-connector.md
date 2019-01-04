@@ -9,17 +9,16 @@ ms.assetid: b379ee10-0ff5-4974-8c87-c95f82f1c5c6
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0832d5a3f5b529a815046bb6f12755ad733ff03c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0de8d4145ff41b498149774af8ed74c56375dea9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260576"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023675"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Sybase Azure Data Factory ile verileri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,8 +48,8 @@ Sybase SQL her yerden (ASA) sürüm 16 SAP ve üstünde desteklenir. IQ ve ASE d
 ## <a name="getting-started"></a>Başlarken
 Farklı araçlar/API'lerini kullanarak bir şirket içi Cassandra veri deposundan veri taşıyan kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. 
 
-- Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz. 
-- Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
+- Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz. 
+- Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**ve  **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
 
 API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -58,7 +57,7 @@ API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için 
 2. Oluşturma **veri kümeleri** kopyalama işleminin girdi ve çıktı verilerini göstermek için. 
 3. Oluşturma bir **işlem hattı** bir veri kümesini girdi ve çıktı olarak bir veri kümesini alan kopyalama etkinliği ile. 
 
-Sihirbazı'nı kullandığınızda, bu Data Factory varlıklarını (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın.  Şirket içi Sybase veri deposundan veri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları ile bir örnek için bkz. [JSON örneği: veri kopyalama Sybase'den Azure Blobuna](#json-example-copy-data-from-sybase-to-azure-blob) bu makalenin. 
+Sihirbazı'nı kullandığınızda, bu Data Factory varlıklarını (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın.  Şirket içi Sybase veri deposundan veri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları ile bir örnek için bkz. [JSON örneği: Verileri Sybase'den Azure Blob kopyalama](#json-example-copy-data-from-sybase-to-azure-blob) bu makalenin. 
 
 Aşağıdaki bölümler, Data Factory varlıklarını belirli bir Sybase veri deposuna tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılı bilgi sağlar:
 
@@ -81,7 +80,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikleri tam
 
 TypeProperties bölümünün her tür veri kümesi için farklıdır ve verilerin veri deposundaki konumu hakkında bilgi sağlar. **TypeProperties** türü için veri kümesi bölümünü **RelationalTable** (Sybase veri kümesini içeren) aşağıdaki özelliklere sahiptir:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 | --- | --- | --- |
 | tableName |Bağlı hizmeti Sybase veritabanı örneğinde tablonun adını gösterir. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
 
@@ -92,12 +91,12 @@ Oysa etkinliğin typeProperties bölümündeki özellikler her etkinlik türü i
 
 Kaynak türü olduğunda **RelationalSource** (Sybase içeren), aşağıdaki özellikler kullanılabilir **typeProperties** bölümü:
 
-| Özellik | Açıklama | İzin verilen değerler | Gerekli |
+| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
 | --- | --- | --- | --- |
 | sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: seçin * MyTable öğesinden. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
 
-## <a name="json-example-copy-data-from-sybase-to-azure-blob"></a>JSON örneği: veri kopyalama Sybase'den Azure Blob
+## <a name="json-example-copy-data-from-sybase-to-azure-blob"></a>JSON örneği: Verileri Sybase'den Azure Blob kopyalama
 Aşağıdaki örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar, Sybase veritabanından Azure Blob depolama alanına veri kopyalama işlemini göstermektedir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.   
 
 Örnek, aşağıdaki data factory varlıklarını sahiptir:
@@ -150,7 +149,7 @@ Aşağıdaki örnek kullanarak bir işlem hattı oluşturmak için kullanabilece
 
 Örnek, Sybase "MyTable" bir tablo oluşturdunuz ve zaman serisi verileri için "TIMESTAMP" adlı bir sütun içerdiği varsayılır.
 
-"Dış" ayarı: true, bu veri kümesi dış veri fabrikasına ve veri fabrikasında bir etkinliği tarafından üretilen değil Data Factory hizmetinin bildirir. Dikkat **türü** bağlı hizmetin adı kümesine: **RelationalTable**.
+"Dış" ayarı: true, bu veri kümesi dış veri fabrikasına ve veri fabrikasında bir etkinliği tarafından üretilen değil Data Factory hizmetinin bildirir. Dikkat **türü** bağlı hizmetin adı ayarlamak: **RelationalTable**.
 
 ```JSON
 {

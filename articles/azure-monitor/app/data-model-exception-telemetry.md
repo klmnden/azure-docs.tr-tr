@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: eaba4572d9b7a83d27c98cf83eeef8fbd699c467
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 5800bbc71158da42bc0baf21a4219be3ce54b22b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812507"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000538"
 ---
 # <a name="exception-telemetry-application-insights-data-model"></a>Özel durum telemetrisi: Application Insights veri modeli
 
@@ -49,4 +49,4 @@ En fazla uzunluk: 1024 karakter
 
 - Bkz: [veri modeli](data-model.md) için Application Insights türleri ve veri modeli.
 - Bilgi edinmek için nasıl [Application Insights ile web uygulamalarınızda özel durumları tanılama](../../azure-monitor/app/asp-net-exceptions.md).
-- Kullanıma [platformları](../../application-insights/app-insights-platforms.md) Application Insights tarafından desteklenir.
+- Kullanıma [platformları](../../azure-monitor/app/platforms.md) Application Insights tarafından desteklenir.

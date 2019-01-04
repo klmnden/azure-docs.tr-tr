@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 7e69fb74226aaaad13b0a5410e0a46a152d73533
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 0f294b25bda39b44ea577f70bf63c61a4ce43093
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812546"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002153"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Olay telemetri: Application Insights veri modeli
 
@@ -43,4 +43,4 @@ En fazla uzunluk: 512 karakteri
 
 - Bkz: [veri modeli](data-model.md) için Application Insights türleri ve veri modeli.
 - [Özel olay telemetri yazma](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)
-- Kullanıma [platformları](../../application-insights/app-insights-platforms.md) Application Insights tarafından desteklenir.
+- Kullanıma [platformları](../../azure-monitor/app/platforms.md) Application Insights tarafından desteklenir.

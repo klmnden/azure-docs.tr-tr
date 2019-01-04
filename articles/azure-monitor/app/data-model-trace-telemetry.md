@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: b777928295d37b0824287d2b9e08526eae29e0f9
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: a80c96891f3d91a920519db2915932742bd84d72
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976503"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002306"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>İzleme telemetrisi: Application Insights veri modeli
 
@@ -43,4 +43,4 @@ En fazla uzunluk: 32.768 karakter
 - [İzleme günlükleri Application Insights Java keşfedin](../../azure-monitor/app/java-trace-logs.md).
 - Bkz: [veri modeli](data-model.md) için Application Insights türleri ve veri modeli.
 - [Özel İzleme telemetrisi yazma](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)
-- Kullanıma [platformları](../../application-insights/app-insights-platforms.md) Application Insights tarafından desteklenir.
+- Kullanıma [platformları](../../azure-monitor/app/platforms.md) Application Insights tarafından desteklenir.

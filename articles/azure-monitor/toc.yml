@@ -155,7 +155,7 @@ items:
       - name: Çalışma Alanları
         href: platform/manage-access.md
       - name: Uygulamalar
-        href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
+        href: app/resources-roles-access-control.md
       - name: IP adresleri
         href: app/ip-addresses.md
     - name: Uygulamaları izleme
@@ -273,7 +273,7 @@ items:
           - name: Genel Bakış
             href: ../application-insights/app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json
           - name: App Service için Profiler’ı etkinleştirme
-            href: ../application-insights/app-insights-profiler.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler.md
           - name: Bulut Hizmeti için Profiler’ı etkinleştirme
             href: ../application-insights/app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json
           - name: Service Fabric Uygulaması için Profiler’ı etkinleştirme
@@ -304,7 +304,7 @@ items:
           href: app/asp-net-core.md
           items:
           - name: Linux Uygulama hizmetleri için Profil Oluşturucu
-            href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-aspnetcore-linux.md
         - name: Konsol
           href: app/console.md
         - name: Uygulama panosu
@@ -324,7 +324,7 @@ items:
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
         - name: Anlık Görüntü Hata Ayıklayıcı
-          href: ../application-insights/app-insights-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
+          href: app/snapshot-debugger.md
       - name: Java uygulamaları
         items:
         - name: Web uygulamaları
@@ -366,22 +366,22 @@ items:
         - name: SharePoint siteleri
           href: ../application-insights/app-insights-sharepoint.md?toc=/azure/azure-monitor/toc.json
         - name: Dynamics CRM
-          href: ../application-insights/app-insights-sample-mscrm.md?toc=/azure/azure-monitor/toc.json
+          href: app/sample-mscrm.md
       - name: Akıllı Algılama
         href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
         items:
         - name: Hata anomalileri
-          href: ../application-insights/app-insights-proactive-failure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-failure-diagnostics.md
         - name: Performans anomalileri
-          href: ../application-insights/app-insights-proactive-performance-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-performance-diagnostics.md
         - name: Performans düşüşünü izleme
-          href: ../application-insights/app-insights-proactive-trace-severity.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-trace-severity.md
         - name: Özel durum hacmi
-          href: ../application-insights/app-insights-proactive-exception-volume.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-exception-volume.md
         - name: Bellek sızıntısı
-          href: ../application-insights/app-insights-proactive-potential-memory-leak.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-potential-memory-leak.md
         - name: Kaynak kullanımı
-          href: ../application-insights/app-insights-proactive-low-utilization-cloud-resources.md?toc=/azure/azure-monitor/toc.json
+          href: app/proactive-low-utilization-cloud-resources.md
         - name: Güvenlik algılama
           href: app/proactive-application-security-detection-pack.md
         - name: Azure Cloud Services
@@ -433,7 +433,7 @@ items:
       - name: Configuration Manager
         href: platform/collect-sccm.md
       - name: SCOM Kullanarak Uygulama Performansı İzleme
-        href: ../application-insights/app-insights-scom.md?toc=/azure/azure-monitor/toc.json
+        href: app/scom.md
     - name: Veri yönlendirme
       items:
       - name: Etkinlik günlüğünü arşivleme
@@ -478,7 +478,7 @@ items:
         - name: Uygulama Eşlemesi
           href: app/app-map.md
         - name: İşlem tanılamaları
-          href: ../application-insights/app-insights-transaction-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: app/transaction-diagnostics.md
         - name: HockeyApp verileri
           href: app/hockeyapp-bridge-app.md
       - name: Visual Studio
@@ -880,7 +880,7 @@ items:
       - name: Filtreleme ve telemetri ön işleme
         href: app/api-filtering-sampling.md
       - name: Örnekleme
-        href: ../application-insights/app-insights-sampling.md?toc=/azure/azure-monitor/toc.json
+        href: app/sampling.md
     - name: İzleme çözümleri
       items:
       - name: Tasarım ve derleme
@@ -989,9 +989,9 @@ items:
     - name: Log Analytics hizmet güncelleştirmeleri
       href: https://azure.microsoft.com/updates/?product=log-analytics
     - name: SDK sürüm notları
-      href: ../application-insights/app-insights-release-notes.md
+      href: app/release-notes.md
     - name: Developer Analytics Tools için sürüm notları
-      href: ../application-insights/app-insights-release-notes-vsix.md
+      href: app/release-notes-vsix.md
   - name: Windows Analizi
     href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
   - name: Bölgesel kullanılabilirlik
@@ -1004,9 +1004,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kod örnekleri
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 89f30238656021e02fe36fe3e0fede0bc0988cae
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0cfca3a41157065f2e64c0da8062ebd011375f70
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002136"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016132"

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: eaafc8acb73dd48e213d05d953d9ada457c53132
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0cccef6a50d6e93a13f27b8585fe7e605c75deb9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957274"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025547"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Değişiklik izleme bilgilerini kullanarak Azure SQL Veritabanından Azure Blob Depolama alanına verileri artımlı olarak yükleme 
 Bu öğreticide, kaynak Azure SQL veritabanındaki **değişiklik izleme** bilgilerine dayanan değişiklik verilerini Azure blob depolamasına yükleyen bir işlem hattına sahip olan bir Azure veri fabrikası oluşturursunuz.  
@@ -171,7 +170,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 5. Data factory için **konum** seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 6. **Panoya sabitle**’yi seçin.     
 7. **Oluştur**’a tıklayın.      
-8. Panoda şu kutucuğu ve üzerinde şu durumu görürsünüz: **Veri fabrikası dağıtılıyor**. 
+8. Panoda durumuna sahip aşağıdaki kutucuğu görürsünüz: **Veri Fabrikası dağıtılıyor**. 
 
     ![veri fabrikası dağıtılıyor kutucuğu](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. Oluşturma işlemi tamamlandıktan sonra, resimde gösterildiği gibi **Data Factory** sayfasını görürsünüz.
@@ -453,7 +452,7 @@ Dosyada yalnızca Azure SQL veritabanındaki değişiklik verileri olmalıdır. 
 1,update,10,2,U
 6,new,50,1,I
 ```
-İlk üç sütun, data_source_table tablosundaki değiştirilmiş verilerdir. Son iki sütun, değişiklik izleme sistem tablosundaki meta verilerdir. Dördüncü sütun, değiştirilen her satıra ilişkin SYS_CHANGE_VERSION değeridir. Beşinci sütun ise işlemdir: U = güncelleştirme, I = ekleme.  Değişiklik izleme bilgileri hakkında daha fazla ayrıntı için bkz. [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+İlk üç sütun, data_source_table tablosundaki değiştirilmiş verilerdir. Son iki sütun, değişiklik izleme sistem tablosundaki meta verilerdir. Dördüncü sütun, değiştirilen her satıra ilişkin SYS_CHANGE_VERSION değeridir. Beşinci sütun ise işlemdir:  U = güncelleştirme, ı = ekleme.  Değişiklik izleme bilgileri hakkında daha fazla ayrıntı için bkz. [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
 
 ```
 ==================================================================

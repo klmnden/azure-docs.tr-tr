@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 688aab6c6e67b259931e4e2331e2d632e87f1db9
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: c058cfa3bc9fa976726731cedeb80eb76a1f0810
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651478"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999280"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Öğretici: HDInsight Power BI'ı kullanarak Apache Spark verileri analiz etme 
 
@@ -103,7 +103,7 @@ Spark ile çalışmanın ilk adımları, Power BI Desktop’ta kümeye bağlanma
 
         Diyagram şuna benzer:
 
-        ![Apache Spark BI kullanarak Spark veri görselleştirmeleri oluşturma](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Apache Spark BI kullanarak Spark veri görselleştirmeleri oluşturma")
+        ![Apache Spark BI kullanarak Spark veri görselleştirmeleri oluşturma](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Apache Spark BI kullanarak Spark veri görselleştirmeleri oluşturma")
 
         Varsayılan olarak görselleştirme, **ActualTemp** ve **TargetTemp** değerlerinin toplamını gösterir. Görselleştirmeler bölmesindeki **ActualTemp** ve **TragetTemp** değerlerinin yanında bulunan aşağı oka tıkladığınızda **Toplam** seçeneğinin işaretli olduğunu görebilirsiniz.
 
@@ -113,7 +113,7 @@ Spark ile çalışmanın ilk adımları, Power BI Desktop’ta kümeye bağlanma
 
         Veri görselleştirmeniz, ekran görüntüsünde gösterilene benzer olmalıdır. İlgili verilere ilişkin araç ipuçları almak üzere imlecinizi görselleştirmenin üzerine getirin.
 
-        ![Apache Spark BI kullanarak Spark veri görselleştirmeleri oluşturma](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "Apache Spark BI kullanarak Spark veri görselleştirmeleri oluşturma")
+        ![Apache Spark BI kullanarak Spark veri görselleştirmeleri oluşturma](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "Apache Spark BI kullanarak Spark veri görselleştirmeleri oluşturma")
 
 7. **Dosya** ve ardından **Kaydet**’e tıklayın ve dosya için `BuildingTemperature.pbix` adını girin. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell Betiği: veri kopyalama bulutta Azure Data Factory kullanarak | Microsoft Docs'
+title: 'PowerShell Betiği: Azure Data Factory kullanarak verileri buluta kopyalama | Microsoft Docs'
 description: Bu PowerShell Betiği verileri Azure Blob depolama alanındaki bir konumdan Blob depolama alanındaki başka bir konuma kopyalar.
 services: data-factory
 author: linda33wj
@@ -8,16 +8,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: jingwang
-ms.openlocfilehash: 1fbf09968c6dc3dfc60b27656691504a363a5a6b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: e36887e755d772a408fd31d05ed10a9a7c678bd9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127046"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021518"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-in-the-cloud"></a>Bulutta veri kopyalamak için bir veri fabrikası işlem hattı oluşturmak için PowerShell kullanma
 

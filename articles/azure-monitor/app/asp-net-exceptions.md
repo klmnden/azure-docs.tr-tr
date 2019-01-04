@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: 76ce5f0c44dd1985fbf47d493b4566634f4894d0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6f534858194719a0d3059808073ae057f150b599
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976690"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021025"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Application Insights ile web uygulamalarınızda özel durumları tanılama
 Canlı web uygulamanızdaki özel durumları tarafından bildirilen [Application Insights](../../application-insights/app-insights-overview.md). Böylece hızla nedenlerini tanılayabilirsiniz başarısız istekler, özel durumlar ve diğer olaylarla hem istemci hem de sunucu ilişkilendirebilirsiniz.
@@ -90,7 +90,7 @@ Bu olayları görmek için [arama](../../azure-monitor/app/diagnostic-search.md)
 ![Detaylandırma](./media/asp-net-exceptions/viewCustomEvents.png)
 
 > [!NOTE]
-> Uygulamanız çok sayıda telemetri oluşturuyorsa, uyarlamalı örnekleme modülü olayların yalnızca bir temsilci fraksiyonunu göndererek portala gönderilen hacmi otomatik olarak azaltır. Aynı işlemin bir parçası olan olayları seçtikten veya bir grup olarak seçili, böylece ilgili olaylar arasında gezinebilirsiniz. [Örnekleme hakkında bilgi edinin.](../../application-insights/app-insights-sampling.md)
+> Uygulamanız çok sayıda telemetri oluşturuyorsa, uyarlamalı örnekleme modülü olayların yalnızca bir temsilci fraksiyonunu göndererek portala gönderilen hacmi otomatik olarak azaltır. Aynı işlemin bir parçası olan olayları seçtikten veya bir grup olarak seçili, böylece ilgili olaylar arasında gezinebilirsiniz. [Örnekleme hakkında bilgi edinin.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -489,4 +489,4 @@ Bu Application Insights portalında TrackException raporları sayım tarafından
 ## <a name="next-steps"></a>Sonraki adımlar
 * [REST, SQL ve diğer bağımlılıklara yapılan çağrıları izleme](../../azure-monitor/app/asp-net-dependencies.md)
 * [Sayfa yükleme süreleri, tarayıcı özel durumları ve AJAX çağrıları izleme](../../azure-monitor/app/javascript.md)
-* [İzleyici performans sayaçları](../../application-insights/app-insights-performance-counters.md)
+* [İzleyici performans sayaçları](../../azure-monitor/app/performance-counters.md)

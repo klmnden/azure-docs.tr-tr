@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 45289a972854237d0b6848e796d40305d9321113
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 91f6254fe756f256a2c88429fb4d96156867ef4a
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812479"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001915"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>İstek telemetrisi: Application Insights veri modeli
 
@@ -84,4 +84,4 @@ Daha fazla üzerinde istek sonucu okuyabilirsiniz kodu ve durum kodunu [blog gö
 - [Özel bir istek telemetri yazma](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
 - Bkz: [veri modeli](data-model.md) için Application Insights türleri ve veri modeli.
 - Bilgi edinmek için nasıl [ASP.NET Core yapılandırma](../../azure-monitor/app/asp-net.md) Application Insights ile uygulama.
-- Kullanıma [platformları](../../application-insights/app-insights-platforms.md) Application Insights tarafından desteklenir.
+- Kullanıma [platformları](../../azure-monitor/app/platforms.md) Application Insights tarafından desteklenir.

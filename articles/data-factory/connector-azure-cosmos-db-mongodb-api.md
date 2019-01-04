@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 2cffc99eade88d50e3de212b5680b640c14fa7a7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 3f60ffcde43bd1ee43b5dd7d1e86da3a8bf2c521
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812570"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002119"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-mongodb-api-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Cosmos DB (MongoDB API'SİYLE) gelen veya veri kopyalama
 
@@ -172,7 +172,7 @@ Kopyalama etkinliği aşağıdaki özellikler desteklenir **havuz** bölümü:
 |:--- |:--- |:--- |
 | type | **Türü** kopyalama etkinliği havuz özelliği ayarlanmalıdır **CosmosDbMongoDbApiSink**. |Evet |
 | WriteBehavior |Azure Cosmos DB'ye veri yazmak açıklar. İzin verilen değerler: **Ekle** ve **upsert**.<br/><br/>Davranışını **upsert** aynı Kimliğe sahip bir belge zaten varsa belge değiştirmek üzere; Aksi takdirde, belge ekleyin.<br /><br />**Not**: Bir kimliği, özgün belgenin veya sütun eşlemesi tarafından belirtilmezse veri fabrikası otomatik olarak bir belge için bir kimlik üretir. İçin emin olmanız gerekir, yani **upsert** beklendiği şekilde çalışması için belgeyi bir kimliği vardır. |Hayır<br />(varsayılan değer **Ekle**) |
-| writeBatchSize | **WriteBatchSize** özelliği, her toplu yazmak için belgeler boyutunu denetler. Değerini artırmayı deneyin **writeBatchSize** performansını ve değeri, azalan Belge boyutunuz büyük olması. |Hayır<br />(varsayılan değer **5**) |
+| writeBatchSize | **WriteBatchSize** özelliği, her toplu yazmak için belgeler boyutunu denetler. Değerini artırmayı deneyin **writeBatchSize** performansını ve değeri, azalan Belge boyutunuz büyük olması. |Hayır<br />(varsayılan değer **10.000**) |
 | writeBatchTimeout | Batch için bekleme süresi, işlemin zaman aşımına uğramadan önce tamamlanmasını ekleyin. İzin verilen timespan değerdir. | Hayır<br/>(varsayılan değer **00:30:00** - 30 dakika) |
 
 **Örnek**

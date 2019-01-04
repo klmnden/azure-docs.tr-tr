@@ -9,20 +9,19 @@ ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 17a8e6f6d6d374c6f8620ecb525727e6fee8c4b9
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: de730004b55f72cb645c6a31c02fd1fe28a52ecd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501886"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013188"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Azure Databricks üzerinde bir Python etkinliği çalıştırarak verileri dönüştürme
 
-Azure Databricks Python etkinliğinde bir [Data Factory işlem hattı](concepts-pipelines-activities.md) bir Python dosyası, Azure Databricks kümesinde çalışır. Bu makalede yapılar [veri dönüştürme etkinlikleri](transform-data.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar. Azure Databricks, Apache Spark'ı çalıştırmaya yönelik bir yönetilen bir platformdur.
+Azure Databricks Python etkinliğinde bir [Data Factory işlem hattı](concepts-pipelines-activities.md) bir Python dosyası, Azure Databricks kümesinde çalışır. Bu makalede yapılar [veri dönüştürme etkinlikleri](transform-data.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar. Azure Databricks, Apache Spark'ı çalıştırmaya yönelik bir yönetilen bir platformdur.
 
 Bu özelliğe yönelik on bir dakikalık bir giriş ve tanıtım için, aşağıdaki videoyu izleyin:
 
@@ -63,12 +62,12 @@ Bir Databricks Python etkinliği örnek JSON tanımı aşağıda verilmiştir:
 
 Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmaktadır:
 
-|Özellik|Açıklama|Gerekli|
+|Özellik|Açıklama|Gereklidir|
 |---|---|---|
 |ad|İşlem hattındaki bir etkinliğin adı.|Evet|
 |açıklama|Etkinliğin ne yaptığını açıklayan metin.|Hayır|
 |type|Databricks Python etkinliği için etkinlik DatabricksSparkPython türüdür.|Evet|
-|linkedServiceName|Databricks bağlı Python etkinliğin çalıştığı hizmetin adı. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.|Evet|
+|linkedServiceName|Databricks bağlı Python etkinliğin çalıştığı hizmetin adı. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.|Evet|
 |pythonFile|Yürütülecek Python dosyası URI'si. Yalnızca DBFS yolları desteklenir.|Evet|
 |parametreler|Python dosyasına geçirilecek komut satırı parametreleri. Bu dizeler dizisidir.|Hayır|
 |Kitaplıkları|İşi yürütecek kümede yüklenecek kitaplıkların bir listesi. Bir dizi olabilir < dize, Nesne >|Hayır|

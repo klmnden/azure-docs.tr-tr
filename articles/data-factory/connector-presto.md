@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 905431c73488ddc6ebf2d13823e4bb705d16304c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b0bbfe973f18067284514e39d36442a63bd3efc8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102019"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019274"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Presto Azure Data Factory (Önizleme) kullanarak verileri kopyalama
 
@@ -50,7 +49,7 @@ Presto bağlı hizmeti için aşağıdaki özellikleri destekler:
 | serverVersion | Presto sunucu sürümü. (yani 0.148-t)  | Evet |
 | katalog | Katalog sunucusuna yönelik tüm istek bağlamı.  | Evet |
 | port | Presto sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. Varsayılan değer 8080'dir.  | Hayır |
-| authenticationType | Presto sunucuya bağlanmak için kullanılan kimlik doğrulama mekanizması. <br/>İzin verilen değerler: **anonim**, **LDAP** | Evet |
+| authenticationType | Presto sunucuya bağlanmak için kullanılan kimlik doğrulama mekanizması. <br/>İzin verilen değerler şunlardır: **Anonim**, **LDAP** | Evet |
 | kullanıcı adı | Presto sunucuya bağlanmak için kullanılan kullanıcı adı.  | Hayır |
 | password | Kullanıcı adına karşılık gelen parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
 | enableSsl | Sunucusuna bağlantılarda SSL kullanarak şifrelenip şifrelenmeyeceğini belirtir. Varsayılan değer false'tur.  | Hayır |

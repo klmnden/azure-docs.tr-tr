@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: ddd5bc574dcef548a62fbe7d3a0300a71ce73cf3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: fb3e61b2b43194cb550a7c87c6841e91b4025560
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558847"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002765"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric küme ayarlarını özelleştirme
 Bu makalede, Service Fabric kümenizin özelleştirebileceğiniz çeşitli yapı ayarları açıklanır. Azure'da barındırılan kümeler için ayarları aracılığıyla özelleştirebilirsiniz [Azure portalında](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak. Daha fazla bilgi için [Azure kümesine yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-azure.md). Tek başına kümeler için ayarlarını güncelleştirerek özelleştirdiğiniz *ClusterConfig.json* dosyası ve bir yapılandırmasını gerçekleştirmek kümenizde yükseltin. Daha fazla bilgi için [tek başına küme yapılandırmasını yükseltme](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -306,6 +306,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |ApplicationUpgradeTimeout| Zaman aralığı, Common::TimeSpan::FromSeconds(360) varsayılandır|Dinamik| Saniye cinsinden zaman aralığı belirtin. Uygulama yükseltmesi için zaman aşımı. Zaman aşımı "ActivationTimeout" dağıtıcı başarısız olur daha az ise. |
 |ContainerServiceArguments|Varsayılan bir dize ise "-H 2375 -H npipe: / /"|Statik|Service Fabric (BT) docker Daemon programını yönetir (Win10 gibi windows istemci makinelerinde hariç). Bu yapılandırma, başlatma sırasında docker cinini geçirilmelidir özel bağımsız değişkenlerini belirtmek kullanıcı sağlar. Özel bağımsız değişkenler belirtildiğinde, Service Fabric geçirmeyin hiçbir bağımsız değişkeni Docker altyapısına dışında '--pidfile' bağımsız değişkeni. Bu nedenle kullanıcıların değil belirtmelisiniz '--pidfile' bağımsız değişkeni müşteri bağımsız bir parçası olarak. Ayrıca, özel bağımsız değişkenler docker daemon dinlediği varsayılan adı kanalda Windows üzerinde emin olmanız gerekir (veya UNIX etki alanı yuva Linux'ta) ile iletişim kurabilmesi Service Fabric için.|
 |ContainerServiceLogFileMaxSizeInKb|int, varsayılan 32768 olduğu|Statik|Docker kapsayıcıları tarafından oluşturulan günlük dosyası maksimum dosya boyutu.  Yalnızca Windows.|
+|Containerımagedownloadtimeout|int, saniye sayısı varsayılan değer 1200 (20 dakika)|Dinamik|Görüntü indirilmesi zaman aşımına uğramadan önce beklenecek saniye sayısı.|
 |ContainerImagesToSkip|dize, dikey çizgi karakteriyle ayırarak görüntü adları varsayılan değer ""|Statik|Silinmemesi gereken bir veya daha fazla kapsayıcı görüntülerini adı.  PruneContainerImages parametresiyle birlikte kullanılır.|
 |ContainerServiceLogFileNamePrefix|"sfcontainerlogs" varsayılan bir dize ise|Statik|Docker kapsayıcıları tarafından oluşturulan günlük dosyaları için dosya adı ön eki.  Yalnızca Windows.|
 |ContainerServiceLogFileRetentionCount|Int, varsayılan 10'dur|Statik|Docker kapsayıcıları günlük dosyalarını önce tarafından oluşturulan günlük dosyası sayısı üzerine yazılır.  Yalnızca Windows.|

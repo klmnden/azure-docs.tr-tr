@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 48432b4a415c0c544c4a64444c89cf818fa00e1f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e0e5d25d92b6b90ae95d639d6deef55730f9060f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972437"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999263"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights ile kullanım analizi
 
@@ -28,7 +28,7 @@ Web veya mobil uygulamanızı hangi özelliklerinin en popüler misiniz? Kullan�
 
 Application Insights hem uygulama sunucu kodunuzda ve web sayfalarınızda yükleyerek en iyi deneyimi elde edilir. Uygulamanızın istemci ve sunucu bileşenleri telemetri analizi için Azure portalı için geri gönderin.
 
-1. **Sunucu kodu:** İçin uygun modülünü yüklemek, [ASP.NET](../azure-monitor/app/asp-net.md), [Azure](app-insights-overview.md), [Java](../azure-monitor/app/java-get-started.md), [Node.js](app-insights-nodejs.md), veya [diğer](app-insights-platforms.md) uygulama.
+1. **Sunucu kodu:** İçin uygun modülünü yüklemek, [ASP.NET](../azure-monitor/app/asp-net.md), [Azure](app-insights-overview.md), [Java](../azure-monitor/app/java-get-started.md), [Node.js](../azure-monitor/app/nodejs.md), veya [diğer](../azure-monitor/app/platforms.md) uygulama.
 
     * *Sunucu kodu yüklemek istemiyor musunuz? Yalnızca [Azure Application Insights kaynağı oluşturma](app-insights-create-new-resource.md).*
 

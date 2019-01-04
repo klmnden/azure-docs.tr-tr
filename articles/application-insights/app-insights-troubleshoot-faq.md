@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1c0167fd7f6ef8a66968e70df26d1e7a6ed845b1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 5cd720225144a34163f8d4802b63aca6a439e2c7
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975262"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017676"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık Sorulan Sorular
 
@@ -39,20 +39,20 @@ ms.locfileid: "53975262"
 
 * [Web uygulamaları - şirket içi bir IIS sunucusunda veya VM](../azure-monitor/app/asp-net.md)
 * [Java web uygulamaları](../azure-monitor/app/java-get-started.md)
-* [Node.js uygulamaları](app-insights-nodejs.md)
+* [Node.js uygulamaları](../azure-monitor/app/nodejs.md)
 * [Azure'da Web uygulamaları](../azure-monitor/app/azure-web-apps.md)
 * [Azure'da bulut Hizmetleri](../azure-monitor/app/cloudservices.md)
 * [Docker'ı çalıştıran uygulama sunucuları](../azure-monitor/app/docker.md)
 * [Tek sayfa web uygulamaları](../azure-monitor/app/javascript.md)
 * [SharePoint](app-insights-sharepoint.md)
 * [Windows masaüstü uygulaması](app-insights-windows-desktop.md)
-* [Diğer platformlar](app-insights-platforms.md)
+* [Diğer platformlar](../azure-monitor/app/platforms.md)
 
 ## <a name="is-it-free"></a>Ücretsiz mi?
 
 Evet, Deneysel için kullanın. Temel fiyatlandırma planı, uygulamanızın bir belirli kullanım hakkı her ay ücretsiz olarak gönderebilir. Ücretsiz Kullanım Hakkı kapak geliştirme ve az sayıda kullanıcı için bir uygulama yayımlama için yeteri kadar büyük. Belirtilen veri miktarından fazla işlenmekte olan önlemek için üst sınır ayarlayabilirsiniz.
 
-Daha büyük miktarda telemetri Gb ile ücretlendirilir. Nasıl yapılır ilgili bazı ipuçları sağlıyoruz [ücretlerinizin sınırlamak](app-insights-pricing.md).
+Daha büyük miktarda telemetri Gb ile ücretlendirilir. Nasıl yapılır ilgili bazı ipuçları sağlıyoruz [ücretlerinizin sınırlamak](../azure-monitor/app/pricing.md).
 
 Kurumsal plan, her web sunucusu düğümüne telemetri gönderen her gün için bir ücret doğurur. Büyük ölçekte sürekli dışarı aktarma'yı kullanmak istiyorsanız uygundur.
 
@@ -86,7 +86,7 @@ Ayrıntılar projenin türüne bağlıdır. Bir web uygulaması için:
 * (Yeni, yalnızca - projelerin, [var olan bir projeye Application Insights ekleme][start], bu el ile yapmanız gerekir.) Application Insights kaynak kimliği ile bunları başlatmak için istemci ve sunucu kod parçacıkları ekler Örneğin, bir MVC uygulamasında kodu ana sayfaya Views/Shared/_Layout.cshtml eklenir
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Daha eski SDK sürümlerinden nasıl yükseltebilirim?
-Bkz: [sürüm notları](app-insights-release-notes.md) uygulama türüne uygun SDK'sı.
+Bkz: [sürüm notları](../azure-monitor/app/release-notes.md) uygulama türüne uygun SDK'sı.
 
 ## <a name="update"></a>Hangi Azure kaynak Projem için veri gönderen nasıl değiştirebilirim?
 Çözüm Gezgini'nde sağ `ApplicationInsights.config` ve **güncelleştirme Application Insights**. Azure'da mevcut veya yeni bir kaynak veri gönderebilir. Güncelleştirme Sihirbazı'nı izleme anahtarını sunucu SDK'sı verilerinizi göndereceği yeri belirler applicationınsights.config dosyasını değiştirir. "Tümünü Güncelleştir" kaldırmadıysanız, web sayfaları'nda göründüğü anahtarı da değişecektir.
@@ -104,7 +104,7 @@ Sunucu web uygulamaları:
 * HTTP istekleri
 * [Bağımlılıkları](../azure-monitor/app/asp-net-dependencies.md). Çağrı: SQL veritabanı; Dış hizmetler için HTTP çağrıları; Azure Cosmos DB, tablo, blob depolama ve kuyruk. 
 * [Özel durumlar](../azure-monitor/app/asp-net-exceptions.md) ve Yığın izlemeleri.
-* [Performans sayaçları](app-insights-performance-counters.md) - kullanırsanız [Durum İzleyicisi](../azure-monitor/app/monitor-performance-live-website-now.md), [Azure izleme](../azure-monitor/app/azure-web-apps.md), veya [Application Insights toplanan yazıcı](../azure-monitor/app/java-collectd.md).
+* [Performans sayaçları](../azure-monitor/app/performance-counters.md) - kullanırsanız [Durum İzleyicisi](../azure-monitor/app/monitor-performance-live-website-now.md), [Azure izleme](../azure-monitor/app/azure-web-apps.md), veya [Application Insights toplanan yazıcı](../azure-monitor/app/java-collectd.md).
 * [Özel olaylar ve ölçümler](../azure-monitor/app/api-custom-events-metrics.md) , kod.
 * [İzleme günlükleri](../azure-monitor/app/asp-net-trace-logs.md) uygun Toplayıcı yapılandırırsanız.
 
@@ -201,7 +201,7 @@ Tek bir kaynak tüm bileşenleri veya rolleri için tek bir iş sisteminde kulla
 
 ## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Neden arama ve ölçümler grafiklerde sayıları eşit?
 
-[Örnekleme](app-insights-sampling.md) gerçekten portala uygulamanızdan gönderilen telemetri öğelerinin (istekler, özel olaylar vb.) sayısını azaltır. Aramada, gerçekte alınan öğe sayısını görürsünüz. Olayların sayısını görüntüleyen ölçüm grafiklerde oluştu özgün olay sayısını görürsünüz. 
+[Örnekleme](../azure-monitor/app/sampling.md) gerçekten portala uygulamanızdan gönderilen telemetri öğelerinin (istekler, özel olaylar vb.) sayısını azaltır. Aramada, gerçekte alınan öğe sayısını görürsünüz. Olayların sayısını görüntüleyen ölçüm grafiklerde oluştu özgün olay sayısını görürsünüz. 
 
 Her öğe taşıyan iletilen bir `itemCount` kaç tane özgün olay öğeyi gösteren bir özelliği temsil eder. Örnekleme işleminde gözlemlemek için Analytics'te bu sorguyu çalıştırabilirsiniz:
 
@@ -214,7 +214,7 @@ Her öğe taşıyan iletilen bir `itemCount` kaç tane özgün olay öğeyi gös
 
 ### <a name="configuring-application-insights"></a>Application Insights'ı yapılandırma
 
-Yapabilecekleriniz [PowerShell betikleri yazma](app-insights-powershell.md) için Azure Kaynak İzleyicisi'ni kullanma:
+Yapabilecekleriniz [PowerShell betikleri yazma](../azure-monitor/app/powershell.md) için Azure Kaynak İzleyicisi'ni kullanma:
 
 * Oluşturun ve Application Insights kaynaklarını güncelleştirin.
 * Fiyatlandırma planı ayarlayın.
@@ -241,7 +241,7 @@ Bu işlem, Application Insights kaynağınız burada barındırılan bağımlı 
 
 ## <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Application ınsights'ı portala telemetri gönderebilir miyim?
 
-SDK'larımızda kullanın ve kullanmak öneririz [SDK API'si](../azure-monitor/app/api-custom-events-metrics.md). Çeşitli için SDK çeşitlerini vardır [platformları](app-insights-platforms.md). Bu SDK'ları, arabelleğe alma, sıkıştırma, azaltma, yeniden denemeler ve benzeri işler. Ancak, [alımı şema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) ve [uç nokta Protokolü](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) ortaktır.
+SDK'larımızda kullanın ve kullanmak öneririz [SDK API'si](../azure-monitor/app/api-custom-events-metrics.md). Çeşitli için SDK çeşitlerini vardır [platformları](../azure-monitor/app/platforms.md). Bu SDK'ları, arabelleğe alma, sıkıştırma, azaltma, yeniden denemeler ve benzeri işler. Ancak, [alımı şema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) ve [uç nokta Protokolü](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) ortaktır.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Bir intranet web sunucusu izleyebilirim?
 
@@ -299,6 +299,6 @@ Bizim [web testleri](../azure-monitor/app/monitor-web-app-availability.md) düny
 <!--Link references-->
 
 [data]: ../azure-monitor/app/data-retention-privacy.md
-[platforms]: app-insights-platforms.md
+[platforms]: ../azure-monitor/app/platforms.md
 [start]: app-insights-overview.md
 [windows]: app-insights-windows-get-started.md

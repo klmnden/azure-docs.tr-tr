@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5aa617edf13aee9c5899a59c46aeb729f202719f
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 471277433f0fc9a54a28baa158f1e20f1efb613f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744216"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000537"
 ---
 # <a name="creating-filters-with-cli"></a>CLI ile filtre oluşturma 
 
@@ -78,7 +78,8 @@ REST içinde tanımlanan filtrelerini "Özellikler" sarmalayıcı JSON nesnesi i
 
 Aşağıdaki [az ams hesabına-filtre](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) komut olan izleme seçimlerini Filtresi ile bir hesabı filtresi oluşturur [daha önce tanımlanan](#define-a-filter). 
 
-Aşağıdaki komutu bir seçenek sağlar `--tracks` kabul eden bir dosya. Azure CLI'yı yerel olarak kullanıyorsanız, tüm dosya yolu belirtin:
+Komut isteğe bağlı geçirmenize olanak `--tracks` izleme seçimlerini temsil eden JSON içeren bir parametre.  Kullanım @{file} JSON bir dosyadan yüklenemiyor. Azure CLI'yı yerel olarak kullanıyorsanız, tüm dosya yolu belirtin:
+
 
 ```azurecli
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @c:\tracks.json

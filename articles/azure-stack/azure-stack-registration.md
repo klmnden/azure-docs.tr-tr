@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: b036f0b1c38222b6bb3ebee1a3fab0d1613260f7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811027"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002493"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack Azure ile kaydedin
 
@@ -309,6 +309,11 @@ Kullanabileceğiniz **bölge Yönetimi** Azure Stack kaydın başarılı olduğu
     [ ![Bölge Yönetimi kutucuğu](media/azure-stack-registration/admin1sm.png "bölge Yönetimi kutucuğu") ](media/azure-stack-registration/admin1.png#lightbox)
 
 3. Seçin **özellikleri**. Bu dikey pencere, ortamınızın ayrıntılarını ve durumunu gösterir. Durum olabilir **kayıtlı** veya **kayıtlı**. Kaydettiyseniz, Azure Stack, adını ve kayıt kaynak grubunun yanı sıra kaydolmak için kullandığınız ayrıca Azure abonelik Kimliğini gösterir.
+
+Alternatif olarak, Market yönetim özelliğini kullanarak kaydınız başarılı olup olmadığını doğrulayabilirsiniz. Market öğesi Market yönetim dikey penceresindeki listesini görürseniz kaydınız başarılı oldu. Ancak, bağlantısı kesilmiş ortamlarda, Market yönetiminde Market öğeleri görmesi mümkün olmayacaktır. Ancak, kaydı doğrulamak için çevrimdışı Aracı'nı kullanabilirsiniz.
+
+> [!NOTE]
+> Kayıt tamamlandıktan sonra değil kaydetmek için etkin uyarı görünmeyecek. Bağlantısı kesilmiş senaryolarda Market yönetim başarıyla kayıtlı olsa bile, kaydetme ve Azure Stack, etkinleştirmek için soran bir ileti görürsünüz.
 
 ## <a name="renew-or-change-registration"></a>Yenileme veya kaydı değiştirme
 

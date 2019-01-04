@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory'de işlem hattı etkinliği yürütmek | Microsoft Docs
-description: Başka bir Data Factory işlem hattı gelen bir Data Factory işlem hattı çağrılacak yürütme ardışık düzen etkinlik nasıl kullanabileceğinizi öğrenin.
+title: Azure Data Factory'de işlem hattı etkinliğini yürütmek | Microsoft Docs
+description: İşlem hattı yürütme etkinliği bir Data Factory işlem hattı başka bir Data Factory işlem hattından çağırmak için nasıl kullanabileceğinizi öğrenin.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -9,19 +9,18 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2aa25004fb9c2e914cd8c669095953e174686197
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f36d9eed11685d1bb35a46a97eb58fe870970075
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051772"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019444"
 ---
-# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı etkinliği yürütmek
-Ardışık Düzen yürütme etkinliği başka bir işlem hattı çağırmak Data Factory işlem hattı sağlar.
+# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı Etkinlik yürütme
+İşlem hattı yürütme etkinliği bir Data Factory işlem hattının başka bir işlem hattını çağırmasını sağlar.
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -60,21 +59,21 @@ Ardışık Düzen yürütme etkinliği başka bir işlem hattı çağırmak Data
 ```
 
 ## <a name="type-properties"></a>Tür özellikleri
-Özellik | Açıklama | İzin verilen değerler | Gerekli
+Özellik | Açıklama | İzin verilen değerler | Gereklidir
 -------- | ----------- | -------------- | --------
-ad | Yürütme ardışık düzen etkinlik adı. | Dize | Evet
-type | Ayarlanmalıdır: **ExecutePipeline**. | Dize | Evet
-ardışık düzen | Bu ardışık düzen çağırır bağımlı ardışık ardışık düzen başvuru. Ardışık Düzen başvuru nesnesi iki özelliklere sahiptir: **başvuruadı** ve **türü**. Başvuruadı özelliği başvuru ardışık düzen adını belirtir. Type özelliği PipelineReference için ayarlamanız gerekir. | PipelineReference | Evet
-parametreler | Çağrılan ardışık düzene geçirilecek Parametreler | Parametre adları bağımsız değişken değerine eşleyen bir JSON nesnesi | Hayır
-waitOnCompletion | Etkinlik yürütme bağımlı ardışık düzen yürütmesi tamamlanmasını bekleyip beklemediğini tanımlar. | Varsayılan değer false’tur. | Boole | Hayır
+ad | İşlem hattı yürütme etkinliğinin adı. | Dize | Evet
+type | Ayarlamanız gerekir: **ExecutePipeline**. | Dize | Evet
+ardışık düzen | Bu işlem hattını çağıran bağımlı işlem hattının işlem hattı başvuru. Bir işlem hattı başvuru nesnesi iki özelliğe sahiptir: **başvuru adını** ve **türü**. Başvuru adını Özellik Başvurusu işlem hattının adını belirtir. PipelineReference için type özelliği ayarlanmalıdır. | PipelineReference | Evet
+parametreler | Çağrılan işlem hattına geçirilen parametreleri | Parametre adları ve bağımsız değişken değerleri eşleyen bir JSON nesnesi | Hayır
+waitOnCompletion | Etkinlik yürütme tamamlanması için bağımlı bir işlem hattı yürütme beklemediğini tanımlar. | Varsayılan değer false’tur. | Boole | Hayır
 
 ## <a name="sample"></a>Örnek
-Bu senaryo iki ardışık düzenler şunlardır:
+Bu senaryo, iki işlem hattı sahiptir:
 
-- **Ana ardışık düzen** -bu ardışık düzen çağrılan ardışık düzen çağıran bir yürütme ardışık etkinlik vardır. Ana ardışık iki parametre alır: `masterSourceBlobContainer`, `masterSinkBlobContainer`.
-- **Çağrılan işlem hattı** -bu ardışık düzen, verileri Azure Blob havuz için bir Azure Blob kaynaktan kopyalayan bir kopyalama etkinliği vardır. Çağrılan işlem hattı iki parametre alır: `sourceBlobContainer`, `sinkBlobContainer`.
+- **Ana işlem hattı** -çağrılan işlem hattını çağıran bir işlem hattı yürütme etkinliği bu işlem hattı içerir. Ana işlem hattı iki parametre alır: `masterSourceBlobContainer`, `masterSinkBlobContainer`.
+- **Çağrılan işlem hattı** -bir Azure Blob kaynağından için havuz Azure Blob veri kopyalayan bir kopyalama etkinliği bu işlem hattı içerir. Çağrılan işlem hattı iki parametre alır: `sourceBlobContainer`, `sinkBlobContainer`.
 
-### <a name="master-pipeline-definition"></a>Ana ardışık düzen tanımı
+### <a name="master-pipeline-definition"></a>Ana işlem hattı
 
 ```json
 {
@@ -93,7 +92,7 @@ Bu senaryo iki ardışık düzenler şunlardır:
               "value": "@pipeline().parameters.masterSourceBlobContainer",
               "type": "Expression"
             },
-            "sinkBlobCountainer": {
+            "sinkBlobContainer": {
               "value": "@pipeline().parameters.masterSinkBlobContainer",
               "type": "Expression"
             }
@@ -116,7 +115,7 @@ Bu senaryo iki ardışık düzenler şunlardır:
 
 ```
 
-### <a name="invoked-pipeline-definition"></a>Çağrılan ardışık düzen tanımı
+### <a name="invoked-pipeline-definition"></a>Çağrılan işlem hattı
 
 ```json
 {
@@ -199,7 +198,7 @@ Bu senaryo iki ardışık düzenler şunlardır:
 }
 ```
 
-**Veri kümesi havuzu**
+**Havuz veri kümesi**
 ```json
 {
     "name": "sinkBlobDataset",
@@ -219,9 +218,9 @@ Bu senaryo iki ardışık düzenler şunlardır:
 }
 ```
 
-### <a name="running-the-pipeline"></a>Ardışık Düzen çalıştırma
+### <a name="running-the-pipeline"></a>İşlem hattını çalıştırma
 
-Bu örnekte ana ardışık düzen çalıştırmak için aşağıdaki değerleri masterSourceBlobContainer ve masterSinkBlobContainer parametrelerini geçirilir: 
+Bu örnekte ana işlem hattını çalıştırmak için aşağıdaki değerleri masterSourceBlobContainer ve masterSinkBlobContainer parametrelerini geçirilir: 
 
 ```json
 {
@@ -230,7 +229,7 @@ Bu örnekte ana ardışık düzen çalıştırmak için aşağıdaki değerleri 
 }
 ```
 
-Ana ardışık düzen, aşağıdaki örnekte gösterildiği gibi bu değerleri çağrılan ardışık düzene iletir: 
+Aşağıdaki örnekte gösterildiği gibi ana işlem hattı çağrılan işlem hattı için bu değerleri iletir: 
 
 ```json
 {
@@ -245,7 +244,7 @@ Ana ardışık düzen, aşağıdaki örnekte gösterildiği gibi bu değerleri �
           "value": "@pipeline().parameters.masterSourceBlobContainer",
           "type": "Expression"
         },
-        "sinkBlobCountainer": {
+        "sinkBlobContainer": {
           "value": "@pipeline().parameters.masterSinkBlobContainer",
           "type": "Expression"
         }
@@ -256,7 +255,7 @@ Ana ardışık düzen, aşağıdaki örnekte gösterildiği gibi bu değerleri �
 
 ```
 ## <a name="next-steps"></a>Sonraki adımlar
-Data Factory ile desteklenen diğer denetim akışı etkinlikleri bakın: 
+Data Factory tarafından desteklenen diğer denetim akışı etkinlikleri bakın: 
 
 - [Her etkinlik için](control-flow-for-each-activity.md)
 - [Meta Veri Alma Etkinliği](control-flow-get-metadata-activity.md)

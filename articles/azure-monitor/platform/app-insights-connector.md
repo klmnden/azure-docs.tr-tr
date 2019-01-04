@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5e6d750d62ccd31a85cbf47e13c12be078bcb2c4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726237"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023133"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Bağlayıcısı yönetim çözümü (Önizleme)
 
@@ -142,7 +142,7 @@ Application Insights Bağlayıcısı dikey pencereleri seçili Application Insig
 
 ### <a name="sample-corrected-data"></a>Veri örnek düzeltildi
 
-Application ınsights *[düzeltme örnekleme](../../application-insights/app-insights-sampling.md)* telemetri trafiğini azaltmak için. Application Insights uygulamanızı örnekleme etkinleştirdiğinizde, azaltılmış bir Application ınsights ve Log Analytics içinde depolanan girdi sayısı alın. Veri tutarlılığı de korunur ancak **Application Insights Bağlayıcısı** sayfası ve bakış açıları, örneklenen verileri özel sorgularınızı el ile düzeltmeniz gerekir.
+Application ınsights *[düzeltme örnekleme](../../azure-monitor/app/sampling.md)* telemetri trafiğini azaltmak için. Application Insights uygulamanızı örnekleme etkinleştirdiğinizde, azaltılmış bir Application ınsights ve Log Analytics içinde depolanan girdi sayısı alın. Veri tutarlılığı de korunur ancak **Application Insights Bağlayıcısı** sayfası ve bakış açıları, örneklenen verileri özel sorgularınızı el ile düzeltmeniz gerekir.
 
 Örnekleme düzeltme günlük arama sorgusu içindeki bir örnek aşağıda verilmiştir:
 

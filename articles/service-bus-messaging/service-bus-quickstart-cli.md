@@ -9,14 +9,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 8beabfb8c77d4d62b9b15dca8ae3146c34c3b20a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 522447b73454016bff5188d07b27702fa21cb748
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634821"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998685"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Hızlı başlangıç: Azure CLI ve Java kullanarak iletileri gönderme ve alma
+# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Hızlı Başlangıç: Azure CLI ve Java kullanarak ileti alma ve gönderme
 
 Microsoft Azure Service Bus, güvenli mesajlaşma ve yüksek güvenilirlik sağlayan bir kurumsal tümleştirme ileti aracısıdır. Tipik bir Service Bus senaryosu genellikle iki veya daha fazla uygulama, hizmet veya işlemi ayırmayı (uygulamaların aynı anda çevrimiçi olması gerekmez), durum veya veri değişikliklerini aktarmayı ve uygulamalar arasında ileti göndermeyi içerir. 
 
@@ -66,7 +66,7 @@ Son komut çalıştıktan sonra, bağlantı dizesini ve seçtiğiniz kuyruk adı
 
 ## <a name="send-and-receive-messages"></a>İleti alma ve gönderme
 
-Ad alanı ve kuyruğun oluşturulmasının ve gerekli kimlik bilgilerine sahip olmanızın ardından ileti gönderip almaya hazırsınız demektir. [Bu GitHub örnek klasöründeki](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java) kodu inceleyebilirsiniz.
+Ad alanı ve kuyruğun oluşturulmasının ve gerekli kimlik bilgilerine sahip olmanızın ardından ileti gönderip almaya hazırsınız demektir. [Bu GitHub örnek klasöründeki](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters) kodu inceleyebilirsiniz.
 
 1. Cloud Shell'in açık olduğundan Bash isteminin görüntülendiğinden emin olun.
 
@@ -108,7 +108,7 @@ az group delete --resource-group myResourceGroup
 
 ## <a name="understand-the-sample-code"></a>Örnek kodu anlama
 
-Bu bölümde, örnek kodun temel bölümleri hakkında daha fazla ayrıntı bulunmaktadır. [Burada](https://github.com/Azure/azure-service-bus/blob/master/samples/Java/quickstarts-and-tutorials/quickstart-java/src/main/java/samples/quickstart/SendAndReceiveMessages.java) GitHub deposunda bulunan koda gözatabilirsiniz.
+Bu bölümde, örnek kodun temel bölümleri hakkında daha fazla ayrıntı bulunmaktadır. [Burada](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters) GitHub deposunda bulunan koda gözatabilirsiniz.
 
 ### <a name="get-connection-string-and-queue"></a>Bağlantı dizesini ve kuyruğu alma
 

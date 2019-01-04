@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: eae0dc1d38b06a451091d79946bc95ed722ac861
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 5e882bf0a9b7cbc8a3e96c0184cc1ad53893e989
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994848"
+ms.locfileid: "53999229"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Birleştirilmiş uyarılar ve Azure İzleyici'de izleme Klasik uyarı ve izleme değiştirir.
 
@@ -31,9 +31,9 @@ Azure İzleyicisi'nin daha yeni ölçüm platformu artık Application Insights i
 
 Yeni birleştirilmiş izleme ve uyarı verme için Application Insights içerir:
 
-- **Application Insights Platform ölçümleri** – Application Insights ürün önceden oluşturulmuş yaygın olarak kullanılan ölçümleri sağlar. Kullanma hakkında daha fazla bilgi için bu makalede bkz [Platform ölçümler için Application ınsights'ı yeni Azure İzleyicisi](../../application-insights/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
+- **Application Insights Platform ölçümleri** – Application Insights ürün önceden oluşturulmuş yaygın olarak kullanılan ölçümleri sağlar. Kullanma hakkında daha fazla bilgi için bu makalede bkz [Platform ölçümler için Application ınsights'ı yeni Azure İzleyicisi](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics).
 - **Application Insights kullanılabilirlik ve Web test** -Bu, web uygulamanızı veya sunucu kullanılabilirliğini ve yanıt hızını değerlendirmek olanağı sağlar. Kullanma hakkında daha fazla bilgi için bu makalede bkz [kullanılabilirlik testleri ve Application ınsights'ı yeni Azure İzleyicisi için uyarı](../../azure-monitor/app/monitor-web-app-availability.md).
-- **Application Insights özel ölçümleri** – olanak sağlayan tanımlama ve izleme ve Uyarılar için kendi ölçümleri göster. Kullanma hakkında daha fazla bilgi için bu makalede bkz [özel ölçüm için Application ınsights'ı yeni Azure İzleyicisi](../../application-insights/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+- **Application Insights özel ölçümleri** – olanak sağlayan tanımlama ve izleme ve Uyarılar için kendi ölçümleri göster. Kullanma hakkında daha fazla bilgi için bu makalede bkz [özel ölçüm için Application ınsights'ı yeni Azure İzleyicisi](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 - **Application Insights hata Anomalileri (Akıllı algılama parçası)** –, otomatik olarak bildirir, neredeyse gerçek zamanlı olarak web uygulamanızın olağandışı artışı başarısız HTTP isteklerini veya bağımlılık çağrıları oranını karşılaşırsa. Application Insights hata Anomalileri (Akıllı algılama parçası) yeni Azure İzleyici, bir parçası olarak kullanılabilir olan en kısa sürede ve bunu-önümüzdeki aylarda kullanıma gibi bu belgenin sonraki yineleme bağlantıları ile güncelleştireceğiz.
 
 ## <a name="unified-metrics--alerts-for-other-azure-resources"></a>Birleşik Ölçümler ve diğer Azure kaynakları için uyarılar

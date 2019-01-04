@@ -1,6 +1,6 @@
 ---
 title: Service Fabric güvenilir hizmeti programlama modeline genel bakış | Microsoft Docs
-description: Service Fabric'ın güvenilir hizmet programlama modeli hakkında bilgi edinin ve kendi Hizmetleri yazma çalışmaya başlayın.
+description: Service Fabric'in Reliable Services programlama modeline hakkında bilgi edinin ve hizmetlerinizi yazmaya başlayın.
 services: Service-Fabric
 documentationcenter: .net
 author: masnider
@@ -14,103 +14,103 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: masnider
-ms.openlocfilehash: 474cc78a4ceb872742ca7eb10837eeb89dcc1bdb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 37f956606075cb21075d6f50bb53e04075936997
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213189"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999042"
 ---
 # <a name="reliable-services-overview"></a>Reliable Services özelliğine genel bakış
-Azure Service Fabric, yazma ve durum bilgisiz ve durum bilgisi olan güvenilir hizmetler yönetme basitleştirir. Bu konu şunları içerir:
+Azure Service Fabric, yazma ve durum bilgisiz ve durum bilgisi olan Reliable Services yönetme kolaylaştırır. Bu konu şunları içerir:
 
 * Durum bilgisiz ve durum bilgisi olan hizmetler için Reliable Services programlama modeli.
-* Güvenilir bir hizmet yazılırken yapmak zorunda seçenekleri.
+* Seçenekler bir güvenilir hizmet yazarken yapmanız gerekir.
 * Bazı senaryolar ve örnekler Reliable Services kullanmak ne zaman ve nasıl yazılır.
 
-Güvenilir hizmetler biridir programlama modelleri Service Fabric üzerinde kullanılabilir. Diğeri aktör sanal bir programlama modelini Reliable Services model üzerinde sağlayan güvenilir aktör programlama modeli. Reliable Actors programlama modeli hakkında daha fazla bilgi için bkz: [Service Fabric Reliable Actors giriş](service-fabric-reliable-actors-introduction.md).
+Reliable Services, Service Fabric üzerinde kullanılabilir programlama modelleri biridir. Diğer bir Reliable Services model üzerinde sanal aktör programlama modeli sağlar Reliable Actor programlama modeli var. Reliable Actors programlama modeli hakkında daha fazla bilgi için bkz. [Service Fabric Reliable Actors hizmetine giriş](service-fabric-reliable-actors-introduction.md).
 
-Service Fabric aracılığıyla Hizmetleri'nden, sağlama ve dağıtım yükseltme ve silme, aracılığıyla ömrü yönetir [Service Fabric uygulaması Yönetimi](service-fabric-deploy-remove-applications.md).
+Service Fabric Hizmetleri, sağlama ve dağıtım yükseltme ve silme ile ömrünü aracılığıyla yöneten [Service Fabric uygulama yönetimini](service-fabric-deploy-remove-applications.md).
 
-## <a name="what-are-reliable-services"></a>Güvenilir hizmetler nelerdir?
-Güvenilir hizmetler, uygulamanız için önemli olan express yardımcı olması için bir basit, güçlü, üst düzey programlama modeli sağlar. Güvenilir programlama modeli Hizmetleri ile şunları alırsınız:
+## <a name="what-are-reliable-services"></a>Reliable Services nedir?
+Reliable Services uygulamanızı önemli express yardımcı olması için bir basit, güçlü, üst düzey programlama modeli sağlar. Güvenilir programlama modeli Hizmetleri olursunuz:
 
-* API programlama Service Fabric kalan erişim. Service Fabric olarak Modellenen Hizmetleri aksine [Konuk yürütülebilir dosyalar](service-fabric-guest-executables-introduction.md), güvenilir hizmetler almak Service Fabric API rest doğrudan kullanmak. Bu hizmetleri sağlar:
+* Rest API'leri programlama Service fabric'in erişim. Service Fabric olarak modellenir hizmetlerinin aksine [Konuk yürütülebilir dosyaları](service-fabric-guest-executables-introduction.md), Reliable Services get Service Fabric API'leri rest doğrudan kullanın. Bu hizmetleri sağlar:
   * sistemi sorgulama
   * küme içindeki varlıklar hakkında rapor durumu
-  * Yapılandırma ve kodun değişiklikler hakkında bildirim almak
-  * bulma ve diğer hizmetleri ile iletişim
-  * (isteğe bağlı) kullanmak [güvenilir koleksiyonları](service-fabric-reliable-services-reliable-collections.md)
+  * Yapılandırma ve kod değişiklikleri ile ilgili bildirimleri alma
+  * bulma ve diğer hizmetlerle iletişim kurma
+  * (isteğe bağlı olarak) [güvenilir koleksiyonlar](service-fabric-reliable-services-reliable-collections.md)
   * ...ve erişim diğer birçok yetenekleri için birinci sınıf bir programlama modeli çeşitli programlama dillerinde çekmenize onların.
-* Kendi kodunuzu çalıştırmak için basit bir model için kullanılan modellerini programlama gibi görünüyor. Kodunuzu bir iyi tanımlanmış giriş noktası ve kolayca yönetilebilir yaşam döngüsü vardır.
-* Takılabilir iletişim modelini. HTTP ile gibi tercih ettiğiniz taşıması kullanan [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, özel TCP protokolleri ya da başka bir şey. Güvenilir hizmetler, Giden kutusu seçeneklerini kullanabilirsiniz ya da kendi sağlayabilir bazı harika sağlar.
-* Durum bilgisi olan hizmetler için güvenilir hizmetler programlama modeli kullanarak durumunuza sağ hizmetinizi iç tutarlı ve güvenilir bir şekilde depolamak sağlar [güvenilir koleksiyonları](service-fabric-reliable-services-reliable-collections.md). C# koleksiyonları kullanan herkes için tanıdık gelecektir yüksek oranda kullanılabilir ve güvenilir koleksiyon sınıfları basit bir dizi güvenilir koleksiyonlarıdır. Geleneksel olarak, dış sistemler güvenilir durum yönetimi için gereken hizmetleri. Güvenilir koleksiyonlarla aynı yüksek kullanılabilirlik ve güvenilirlik yüksek oranda kullanılabilir dış depoları beklenir gelen yanında, işlem durumunuza depolayabilirsiniz. Hesaplama ve çalışması için gereken durumu birlikte bulundurmak çünkü bu modeli gecikme süresi de geliştirir.
+* Kendi kodunuzu çalıştıran basit bir model programlama modellerini olduğunuz gibi görünüyor. Kodunuz, iyi tanımlanmış bir giriş noktası ve kolayca yönetilen yaşam döngüsü vardır.
+* Bir iletişim takılabilir modeli. HTTP ile gibi tercih ettiğiniz bir aktarım kullanın [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, özel TCP protokolleri ya da başka bir şey. Reliable Services Giden kutusu seçenekleri kullanabilirsiniz veya kendi sağlayabilir bazı harika sağlar.
+* Durum bilgisi olan hizmetler için Reliable Services programlama modeli kullanarak, hizmet içinde durumunu tutarlı ve güvenilir bir şekilde depolamak sağlar [güvenilir koleksiyonlar](service-fabric-reliable-services-reliable-collections.md). Güvenilir koleksiyonlar kullanan herkese tanıdık gelecektir yüksek kullanılabilirliğe sahip ve güvenilir koleksiyon sınıfları daha basit bir dizi olan C# koleksiyonları. Geleneksel olarak, hizmetleri güvenilir durum yönetimi için dış sistemler gerekli. Güvenilir koleksiyonlar ile aynı yüksek kullanılabilirlik ve güvenilirlik, yüksek oranda kullanılabilir bir dış mağazalardan beklenir karşılaşmışsınızdır yanındaki işlem durumunuzu depolayabilirsiniz. İşlem ve çalışması için durum birlikte bulundurmak için bu modeli gecikme süresi de artırır.
 
-Bu genel bir bakış güvenilir hizmetler için Microsoft Virtual Academy videosunu izleyin. <center>
+Reliable services özelliğinin genel bir bakış için bu Microsoft Virtual Academy videosunu izleyin. <center>
 <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">
 <img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244" />
 </a>
 </center>
 
-## <a name="what-makes-reliable-services-different"></a>Güvenilir hizmetler farklı ne yapar?
-Service Fabric güvenilir Hizmetleri'nde önce yazılmış Hizmetleri'nden farklıdır. Service Fabric, güvenilirlik, kullanılabilirlik, tutarlılık ve ölçeklenebilirlik sağlar.
+## <a name="what-makes-reliable-services-different"></a>Reliable Services farklı yapan nedir?
+Service Fabric güvenilir hizmetler önce yazılmış hizmetlerinden farklıdır. Service Fabric, güvenilirlik, kullanılabilirlik, tutarlılık ve ölçeklenebilirlik sağlar.
 
-* **Güvenilirlik** - hizmet kalır yukarı güvenilir olmayan ortamlarda bile makinelerinizi başarısız veya ağ sorunları isabet olduğu veya nerede Hizmetleri kendilerini hataları ve kilitlenme karşılaşırsanız veya başarısız durumda. Durum bilgisi olan hizmetler için ağ veya diğer hataları varlığında olsa bile, durumu korunur.
-* **Kullanılabilirlik** -, erişilebilir ve esnek bir hizmettir. Service Fabric kopyaları çalışan istenen numaranızı tutar.
-* **Ölçeklenebilirlik** - Hizmetleri belirli donanım ayrılmış ve büyütür veya eklenmesi veya kaldırılması donanım veya diğer kaynakları aracılığıyla gerektiği gibi küçültür. Hizmetleri kolayca bölümlenmiş (durum bilgisi olan durumda özellikle) hizmetini ölçeklendirebilirsiniz emin olmak için ve işlemek kısmi hatalar. Hizmetleri oluşturulabilir ve müşteri isteklerine yanıt olarak dinamik olarak çalışmaya gerektiği gibi başlar için daha fazla örnekler etkinleştirme kodu aracılığıyla silinmiş söyleyin. Son olarak, Service Fabric Hizmetleri basit olmasını önerir. Service Fabric Hizmetleri tek bir işlem yerine gerektiren veya ayrılması tüm işletim sistemi örneği veya hizmet tek bir örneğine işlemleri içinde sağlanacak binlerce sağlar.
-* **Tutarlılık** -bu hizmetinde depolanan tüm bilgileri tutarlı olmasını güvence altına alınabilir. Bu hizmet içinde birden çok güvenilir koleksiyonları arasında bile geçerlidir. İşlemsel olarak atomik bir biçimde bir hizmet kapsamındaki koleksiyonları arasında değişiklik yapılabilir.
+* **Güvenilirlik** - hizmet kalır yukarı güvenilir olmayan ortamlarda bile makineleriniz nerede başarısız veya ağ karşılaşıp karşılaşmadığını veya burada Hizmetleri hata ve kilitlenme karşılaştığınız veya başarısız durumda. Durum bilgisi olan hizmetler için durumu, ağ veya diğer hatalar varsa bile korunur.
+* **Kullanılabilirlik** -hizmetiniz, erişilebilir ve hızlı. Service Fabric, istenen numaranızı kopyalarını çalıştırma tutar.
+* **Ölçeklenebilirlik** - Hizmetleri belirli donanım ayrılmış ve büyütün veya eklenmesi veya kaldırılmasını donanım veya diğer kaynaklar ile gerektiği gibi Daralt. Hizmetleri kolayca bölümlenmiş (durum bilgisi olan durumda özellikle) hizmetini ölçeklendirebilirsiniz sağlamak ve kısmi hata işleme. Hizmetleri oluşturulabilir ve müşteri isteklerine yanıt olarak dinamik olarak etkinleştirme çalışmaya gerektiği şekilde başlar için daha fazla örnek kod aracılığıyla silindi varsayalım. Son olarak, Service Fabric Hizmetleri basit olmasını önerir. Service Fabric hizmetleri gerektiren veya ayrılmış tüm işletim sistemi örnekleri veya hizmetinin tek bir örneği için işlemler yerine tek bir işlem içinde sağlanacak binlerce sağlar.
+* **Tutarlılık** -bu hizmette depolanan tüm bilgileri tutarlı olmasını güvence altına alınabilir. Bu hizmet içinde birden çok güvenilir koleksiyonlar arasında bile geçerlidir. İşlemsel olarak kararlı bir şekilde bir hizmet içinde koleksiyonlar arasında değişiklik yapılabilir.
 
 ## <a name="service-lifecycle"></a>Hizmet yaşam döngüsü
-Durum bilgisi olan veya durum bilgisiz hizmetinizi olup olmadığını belirtir, hızlı bir şekilde kodunuzda takın ve çalışmaya başlama sağlayan basit bir yaşam döngüsü güvenilir hizmetler sağlar.  Hizmetinizi çalışır almak için uygulamanız gereken yalnızca bir veya iki yöntem vardır.
+Reliable Services, durum bilgisi olan veya durum bilgisi olmayan, hizmeti olup olmadığını hızlı bir şekilde kodunuzda takın ve çalışmaya başlama olanak tanıyan basit bir yaşam döngüsü sağlar.  Hizmetinizi çalışır almak için uygulamanız gereken yalnızca bir veya iki yöntem vardır.
 
-* **CreateServiceReplicaListeners/CreateServiceInstanceListeners** -bu hizmeti kullanmak istediği iletişimi stack(s) burada tanımlar bir yöntemdir. Aşağıdaki gibi iletişim yığın [Web API](service-fabric-reliable-services-communication-webapi.md), ne dinleme bitiş noktasını veya (nasıl istemcileri hizmete erişmek) hizmeti için uç noktalar tanımlar değil. Görüntülenen iletileri servis kodunu geri kalanı ile nasıl etkileşim tanımlar.
-* **RunAsync** -hizmetiniz, iş mantığını çalıştığı ve burada bu hizmetin ömrü boyunca çalışması gerektiğini herhangi bir arka plan görevi devre dışı kazandırın bu yöntemidir. Sağlanan iptal belirteci zaman bu iş durması gerektiğini sinyaldir. Örneğin, hizmet iletileri güvenilir bir sıra dışında çekmek ve bunları işlemek gerekirse, bu iş yeri olur budur.
+* **CreateServiceReplicaListeners/Createserviceınstancelisteners** -burada kullanmak istediği iletişimi stack(s) hizmeti tanımlayan bu yöntemidir. Aşağıdaki gibi iletişim yığın [Web API](service-fabric-reliable-services-communication-webapi.md), olan uç noktaları ya da (nasıl istemciler hizmete erişmek) hizmeti için uç nokta tanımlar. Ayrıca, görünen iletileri hizmet kodunu geri kalanı ile etkileşimini tanımlar.
+* **RunAsync** -hizmetinizin iş mantığını çalıştığı ve burada, hizmet ömrü boyunca çalışması gereken herhangi bir arka plan görevi hız kazandırın, bu yöntem kullanılır. Sağlanan iptal belirtecini bu çalışmanın ne zaman durması gerektiğini sinyaldir. Örneğin, hizmet iletileri güvenilir bir sıra dışında çekme ve bunları işlemeniz gerekiyorsa, bu iş nerede olacağını budur.
 
-İlk kez güvenilir hizmetler öğrendiğiniz okumaya devam edin! Güvenilir hizmetler yaşam döngüsü için ayrıntılı bilgileri arıyorsanız, üzerinden için head [bu makalede](service-fabric-reliable-services-lifecycle.md).
+Reliable services ilk kez öğrendiğiniz okumaya devam edin! Reliable services yaşam döngüsü için ayrıntılı bilgileri arıyorsanız, attıktan [bu makalede](service-fabric-reliable-services-lifecycle.md).
 
 ## <a name="example-services"></a>Örnek Hizmetleri
-Bu programlama modeli bilerek bir hızlı parçaların nasıl bir araya getireceğinizi görmek için iki farklı hizmet bakalım.
+Bu programlama modeli bilerek parçaların birbirine nasıl uyduğunu görmek için iki farklı Hizmetleri hızlı bir göz atalım.
 
-### <a name="stateless-reliable-services"></a>Durum bilgisiz güvenilir hizmetler
-Bir durum bilgisi olmayan hizmetin bir yerdir hizmet içinde çağrıları arasında tutulan bir durum yok. Mevcut herhangi bir durum tamamen atılabilir ve eşitleme, çoğaltma, sürdürme veya yüksek kullanılabilirlik gerektirmez.
+### <a name="stateless-reliable-services"></a>Güvenilir durum bilgisi olmayan hizmetler
+Durum bilgisi olmayan hizmet tek yerdir çağrıları arasında hizmetinde saklanan durum yoktur. Mevcut olan herhangi bir durumu tamamen atılabilir ve eşitleme, çoğaltma, Kalıcılık veya yüksek kullanılabilirlik gerektirmez.
 
-Örneğin, belleğe sahip değil ve tüm koşulları ve aynı anda gerçekleştirmek için işlemleri alan bir hesap makinesi göz önünde bulundurun.
+Örneğin, bellek ve tüm hüküm ve aynı anda gerçekleştirilecek işlemleri alır bir hesap makinesi göz önünde bulundurun.
 
-Bu durumda, `RunAsync()` (C#) veya `runAsync()` (Java) hiçbir arka plan görevi hizmet yapmak için gereken işleme olduğundan hizmet boş olabilir. Hesaplayıcı hizmet oluşturulduğunda döndürür bir `ICommunicationListener` (C#) veya `CommunicationListener` (Java) (örneğin [Web API](service-fabric-reliable-services-communication-webapi.md)), açılan bazı bağlantı noktası üzerinde dinleyen bir uç noktası. Bu dinleme bitiş noktası için farklı hesaplama yöntemleri kancalarını (örnek: "Ekle (n1, n2)") hesap makinesi genel API'si tanımlayın.
+Bu durumda, `RunAsync()` (C#) veya `runAsync()` (Java) hiçbir arka plan görev hizmeti yapmak için gereken işleme olduğundan hizmet boş olabilir. Hesaplayıcı hizmet oluşturulduğunda döndürür bir `ICommunicationListener` (C#) veya `CommunicationListener` (Java) (örneğin [Web API](service-fabric-reliable-services-communication-webapi.md)) bazı bağlantı noktası üzerinde dinleyen bir uç noktası'kurmak açılır. Bu uç noktaları için farklı olan hesaplamayı yöntemleri kancaları (örnek: "Ekleyin. (n1, n2)") Makinesi'ni Genel API tanımlayın.
 
-Bir istemciden bir çağrısı yapıldığında uygun yöntemi çağrılır ve hesap makinesi hizmetinin sağlanan veriler üzerinde işlemler gerçekleştirir ve sonucu döndürür. Herhangi bir durum depolamak değil.
+Bir istemciden bir çağrı yapıldığında, uygun yöntemi çağrılır ve hesaplayıcı hizmet sağlanan veriler üzerinde işlem gerçekleştirir ve sonucu döndürür. Bu, herhangi bir durumu depolamaz.
 
-Herhangi bir iç durum depolamayın Bu örnek hesaplayıcı kolaylaştırır. Ancak çoğu Hizmetleri gerçekten durum bilgisiz değil. Bunun yerine, bunlar başka bir deposunda durumlarına hale getirmesini sağlayarak. (Örneğin, bir yedekleme deposu veya önbelleği oturum durumu tutmayı güvenen herhangi bir web uygulamasına durum bilgisiz değildir.)
+Herhangi bir iç durum depolamayın Bu örnek hesaplayıcı basitleştirir. Ancak, çoğu Hizmetleri gerçekten durum bilgisiz değildir. Bunun yerine, başka bir deposunda durumlarına federasyonda. (Örneğin, bir yedekleme deposu veya cache oturum durumu tutmayı kullanan herhangi bir web uygulamasını durum bilgisiz değildir.)
 
-Yaygın bir örneği durum bilgisi olmayan hizmetler kullanılan nasıl Service Fabric bir ön uç web uygulaması için genel kullanıma yönelik API gösteren gibidir. Ön uç hizmeti sonra bir kullanıcı isteği tamamlamak için durum bilgisi olan hizmetlere konuşmaları. Bu durumda, istemcilerden gelen çağrıları burada durum bilgisi olmayan hizmetin dinleme yaptığı bir bilinen bağlantı noktasına, 80 gibi yönlendirilir. Bu durum bilgisiz hizmet çağrıyı alır ve çağrı güvenilir bir tarafın olup olmadığını ve hangi hizmet belirler için hedeflenen.  Ardından, durum bilgisiz hizmet durum bilgisi olan hizmetin doğru bölüm çağrısı iletir ve yanıt bekler. Durum bilgisiz hizmeti bir yanıtı aldığında, özgün istemciye yanıt verir. Bu tür bir hizmet, bizim örneklerimizi örneğidir [C#](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) / [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Actors/VisualObjectActor/VisualObjectWebService). Bu örnekte bu deseni yalnızca bir örneği, vardır başkalarının diğer örneklerinde.
+Sık kullanılan bir örnek olarak bir ön uç web uygulaması için genel kullanıma yönelik API sunan Service Fabric durum bilgisi olmayan hizmetler kullanılan nasıl. Ön uç hizmeti daha sonra bir kullanıcı isteğini tamamlamak için durum bilgisi olan hizmetler hakkında konuşuyor. Bu durumda, istemcilerden gelen çağrıları burada durum bilgisi olmayan hizmet dinlediği bir bilinen bağlantı noktası için 80 gibi yönlendirilir. Bu durum bilgisi olmayan hizmet çağrısı alır ve çağrı güvenilir bir tarafın olup olmadığını ve hangi hizmet belirler için yönlendirilir.  Ardından, durum bilgisi olmayan hizmet doğru bölüm durum bilgisi olan hizmet çağrısı iletir ve bir yanıt bekler. Durum bilgisi olmayan hizmet bir yanıtı aldığında, özgün istemciye yanıt verir. Böyle bir hizmet içinde örneklerimizi örneğidir [ C# ](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)  /  [Java](https://github.com/Azure-Samples/service-fabric-java-getting-started). Bu örneklerdeki bu düzeni yalnızca bir örnektir, vardır diğerleri de diğer örnekleri.
 
-### <a name="stateful-reliable-services"></a>Durum bilgisi olan güvenilir hizmetler
-Durum bilgisi olan hizmet durumu işlevi için tutarlı ve hizmet için sırada mevcut tutulan kısmı olmalıdır biridir. Sürekli olarak çalışırken ortalama aldığı güncelleştirmelerine göre belirli bir değerin hesaplar bir hizmeti kullanmayı düşünün. Bunu yapmak için işlem ve geçerli ortalama için gereken gelen istekleri geçerli kümesi olmalıdır. Alır, işler ve (örneğin, bir Azure blob veya tablo deposu Bugün) bir dış deposunda bilgileri depolayan herhangi durum bilgisi olan hizmetidir. Yalnızca durumuna dış durum deposunda saklar.
+### <a name="stateful-reliable-services"></a>Durum bilgisi olan Reliable Services
+Durum bilgisi olan hizmet durumu işlevi için tutarlı ve hizmetin mevcut tutulan kısmı olmalıdır biridir. Sürekli olarak aldığı güncelleştirmelerini temel alarak belirli bir değerin yuvarlanmış ortalamasını hesaplar bir hizmeti kullanmayı düşünün. Bunu yapmak için ihtiyaç duyduğu işlem ve geçerli ortalama gelen isteklerin geçerli kümesi olmalıdır. Durum bilgisi olan (örneğin, bir Azure blob veya tablo deposunu Bugün) bir dış depolama bilgilerini depolar alır ve işler herhangi bir hizmeti. Yalnızca durumuna dış durum deposunda tutar.
 
-Dış deponun için bu duruma güvenilirlik, kullanılabilirlik, ölçeklenebilirlik ve tutarlılık sağladıkları olduğundan çoğu Hizmetleri bugün durumlarına harici olarak depolar. Service Fabric içinde Hizmetleri durumlarına harici olarak depolamak için gerekmez. Service Fabric hizmeti kodunu ve hizmet durumu için bu gereksinimleri ilgilenir.
+Dış depo olduğundan bu durum için ne güvenilirlik, kullanılabilirlik, ölçeklenebilirlik ve tutarlılık sağlar hizmetlerin çoğu bugün durumlarına harici olarak depolar. Service Fabric'te Hizmetleri durumlarına harici olarak depolamak gerekmez. Service Fabric hizmet kodunu hem de hizmet durumu için bu gereksinimlerin üstlenir.
 
-Resimlerini işleyen bir hizmet yazma istiyoruz varsayalım. Hizmeti bunu yapmak için bu görüntüyü gerçekleştirmek için bir görüntü ve bir dizi dönüşümleri alır. (Şimdi onu bir Webapı olduğunu varsayın) bu hizmeti iletişimi dinleyici düzenlemenizi sağlayan bir API ister döndürür `ConvertImage(Image i, IList<Conversion> conversions)`. Bir istek aldığında, hizmet depolar bir `IReliableQueue`ve böylece istek izleyebilirsiniz istemciye bazı kimliğini döndürür.
+Resimleri işleyen bir hizmet yazılacak istediğimizi varsayalım. Hizmeti bunu yapmak için bu görüntüyü üzerinde gerçekleştirmek için bir görüntü ve bir dizi dönüşümleri alır. (Şimdi onu bir Webapı olduğunu varsayın) Bu hizmet iletişim dinleyicisini kullanıma sunan bir API gibi sağladığı döndürür `ConvertImage(Image i, IList<Conversion> conversions)`. Bir isteği aldığında, hizmet depolar bir `IReliableQueue`ve istek izleyebilmek için istemci bazı kimliğini döndürür.
 
-Bu hizmette `RunAsync()` daha karmaşık olabilir. Hizmet bir döngü içinde sahip kendi `RunAsync()` dışı istekleri çeker `IReliableQueue` ve istenen dönüşümleri gerçekleştirir. Sonuçları depolanan bir `IReliableDictionary` ne zaman istemci geri gelir böylece dönüştürülen resimlerinin elde edebilirsiniz. Bir şey görüntü başarısız olsa bile emin olmak için kaybı olmadığından, bu güvenilir hizmet sıranın dışında çekme, dönüşümlerini gerçekleştirmek ve tümünü tek bir işlemde sonucu depolamak. Bu durumda, ileti kuyruktan silinir ve yalnızca dönüşümleri tamamlandığında sonuçları Sonuç sözlükte depolanır. Alternatif olarak, hizmet görüntünün sıradaki çekme ve hemen bir uzak depolama alanında depolar. Bu durumu yönetmek için hizmetin sahip miktarını azaltır, ancak Uzak Depolama yönetmek için gerekli meta verileri tutmak hizmet itibaren artar karmaşıklık sahiptir. Bir şey ortadaki başarısız olursa ya da bir yaklaşım ile istek işlenmeyi bekleyen kuyruğunda kalır.
+Bu hizmette `RunAsync()` daha karmaşık olabilir. Hizmet bir döngü içinde olan kendi `RunAsync()` tanesi istekleri çeker `IReliableQueue` ve istenen dönüştürmeleri gerçekleştirir. Sonuçları depolanan bir `IReliableDictionary` ne zaman istemci geri gelir, dönüştürülen resimlerinin alabilirsiniz. Bir görüntü başarısız olsa bile emin olmak için kayıp değilse, bu güvenilir hizmet sıranın dışında çekme, dönüştürmeler gerçekleştirmek ve sonucu tek bir işlemde tüm depolar. Bu durumda, ileti kuyruktan silinir ve dönüştürmeler tamamlandığında sonuçları Sonuç sözlükte depolanır. Alternatif olarak, hizmet sıradaki görüntü çekme ve hemen sonra bir uzak depoda saklayabilirsiniz. Bu durumu yönetmek için hizmette olduğunu miktarını azaltır, ancak uzak depoda yönetmek için gerekli meta verileri tutmak hizmet beri arttıkça karmaşıklığı sahiptir. Ortada bir şey başarısız olursa her iki yaklaşım ile istek işlenmeyi bekleyen kuyruğunda kalır.
 
-Bu hizmet hakkında dikkat edilecek bir gibi normal bir .NET hizmetine sesleri şeydir! Yalnızca kullanılan veri yapıları farktır (`IReliableQueue` ve `IReliableDictionary`) Service Fabric tarafından sağlanan ve yüksek oranda güvenilir, kullanılabilir ve tutarlı.
+Bu hizmet hakkında dikkat edilecek bir normal bir .NET hizmetine gibi ses şeydir! Tek fark, kullanılan veri yapıları olan (`IReliableQueue` ve `IReliableDictionary`) Service Fabric tarafından sağlanır ve yüksek oranda güvenilir, kullanılabilir ve tutarlı.
 
-## <a name="when-to-use-reliable-services-apis"></a>Güvenilir hizmetler API'ları kullanma zamanı
-Aşağıdakilerden birini uygulama hizmeti gereksinimlerinizi niteleyen bile güvenilir hizmetler API'leri düşünmeniz gerekir:
+## <a name="when-to-use-reliable-services-apis"></a>Güvenilir hizmetler API'lerini kullanmak ne zaman
+Ardından uygulama hizmeti gereksinimlerinizi niteleyen aşağıdakilerden herhangi biri, güvenilir hizmetler API'lerini dikkate almanız gerekir:
 
-* Hizmetinizin kodunu istediğiniz (ve isteğe bağlı olarak durumu) yüksek oranda kullanılabilir ve güvenilir olması için
-* İşlem garanti durumu (örneğin, siparişler ve satır öğeleri sipariş) birden çok birimi arasında gerekir.
-* Uygulamanızın durumu doğal olarak güvenilir sözlükler ve Kuyruklar modellenebilir.
-* Uygulamaların kod ya da durum düşük gecikme süresi okuma ve yazma işlemleri ile yüksek oranda kullanılabilir olması gerekir.
-* Eşzamanlılık veya uygulaması yapılan işlemler kesinliği bir veya daha fazla güvenilir koleksiyonlarındaki denetlemek uygulamanız gerekir.
-* Duyuruları yönetmek veya hizmetinizi bölümleme düzenini denetlemek istediğinizde.
+* Hizmetinizin kodunuzun (ve isteğe bağlı olarak durumu) yüksek oranda kullanılabilir ve güvenilir olması
+* İşlem garanti arasında birden çok birimi durumunun (örneğin, sipariş ve sipariş satır öğeleri) gerekir.
+* Uygulamanızın durumunu, doğal olarak güvenilir bir sözlük ve Kuyruklar modellenebilir.
+* Uygulama kodu veya durumu düşük gecikme süreli okuma ve yazma işlemleri ile yüksek oranda kullanılabilir olması gerekir.
+* Ayrıntı düzeyi, işlemler ve eşzamanlılık, bir veya daha fazla güvenilir koleksiyonlar kontrol etmek uygulamanız gerekir.
+* Duyuruları yönetmek veya hizmetiniz için bölümleme düzeni denetlemek istiyorsunuz.
 * Kodunuzu bir ücretsiz iş parçacıklı çalışma zamanı ortamı gerekir.
-* Dinamik olarak oluşturmak veya güvenilir sözlükler veya sıralar veya çalışma zamanında tüm hizmetleri yok etmek uygulamanız gerekir.
-* Program aracılığıyla sağlanan Service Fabric yedekleme denetlemek ve geri yükleme özellikleri hizmetinizin durumu için gerekir.
-* Kendi durumu birimleri için değişiklik geçmişini korumak uygulamanız gerekir.
-* Geliştirme veya üçüncü taraf geliştirilmiş, özel durum sağlayıcılarının kullanmak istiyor.
+* Dinamik olarak oluşturmak veya güvenilir bir sözlük veya kuyruklar veya çalışma zamanında tüm hizmetleri yok etmek uygulamanız gerekir.
+* Program aracılığıyla denetlemek Service Fabric tarafından sağlanan yedekleme ve geri yükleme özellikleri hizmetinizin durumu için gerekir.
+* Değişiklik geçmişi durumu onun birim korumak uygulamanız gerekir.
+* Geliştirme veya üçüncü taraf geliştirilen, özel durum sağlayıcılarının kullanmak istiyorsunuz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Güvenilir hizmetler hızlı başlangıç](service-fabric-reliable-services-quick-start.md)
-* [Güvenilir koleksiyonları](service-fabric-reliable-services-reliable-collections.md)
+* [Reliable Services hızlı başlangıç](service-fabric-reliable-services-quick-start.md)
+* [Güvenilir koleksiyonlar](service-fabric-reliable-services-reliable-collections.md)
 * [Reliable Actors programlama modeli](service-fabric-reliable-actors-introduction.md)

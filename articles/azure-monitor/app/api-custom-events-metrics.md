@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0a31f5450ad5847951393e18e8af648060eb2e1f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2fa7c4c7dc3af28dcc49371a086c2e7555278b99
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971367"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015228"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olaylar ve ölçümler için Application Insights API
 
@@ -51,7 +51,7 @@ Application Insights SDK'sı hakkında başvuru henüz yoksa:
 
   * [ASP.NET projesi](../../azure-monitor/app/asp-net.md)
   * [Java projesi](../../azure-monitor/app/java-get-started.md)
-  * [Node.js projesi](../../application-insights/app-insights-nodejs.md)
+  * [Node.js projesi](../../azure-monitor/app/nodejs.md)
   * [Her bir Web sayfasındaki JavaScript](../../azure-monitor/app/javascript.md) 
 * Cihazınıza veya web sunucusu kodunuza şunu ekleyin:
 
@@ -113,7 +113,7 @@ Node.js projelerinde kullanabileceğiniz `new applicationInsights.TelemetryClien
 
 ## <a name="trackevent"></a>TrackEvent
 
-Application ınsights'ta bir *özel olay* görüntülemek için bir veri noktasıdır [ölçüm Gezgini](../../application-insights/app-insights-metrics-explorer.md) toplam bir sayı olarak ve buna [tanılama araması](../../azure-monitor/app/diagnostic-search.md) olarak tek tek tekrar. (Bu MVC veya diğer framework "olaylar" ilgili değildir)
+Application ınsights'ta bir *özel olay* görüntülemek için bir veri noktasıdır [ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md) toplam bir sayı olarak ve buna [tanılama araması](../../azure-monitor/app/diagnostic-search.md) olarak tek tek tekrar. (Bu MVC veya diğer framework "olaylar" ilgili değildir)
 
 INSERT `TrackEvent` çeşitli olaylarının kodunuzda çağırır. Ne sıklıkla kullanıcıların belirli bir özellik, ne sıklıkta bunlar belirli hedeflere ulaşmak veya hatalarının belirli türlerini yaptıkları belki de ne sıklıkta seçin.
 
@@ -153,7 +153,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 Telemetriyi kullanılabilir `customEvents` tablosundaki [Application Insights Analytics](analytics.md). Her satır için bir çağrı temsil eden `trackEvent(..)` uygulamanızda.
 
-Varsa [örnekleme](../../application-insights/app-insights-sampling.md) ItemCount özelliği 1'den büyük bir değer gösterir, işlemde olduğu. İçin örnek ItemCount == trackEvent() 10 çağrısına örnekleme işlemi yalnızca bir tanesi aktarılan 10 anlamına gelir. Özel olaylar doğru sayısını almak için bu nedenle gibi bir kod kullanın kullanmalısınız `customEvents | summarize sum(itemCount)`.
+Varsa [örnekleme](../../azure-monitor/app/sampling.md) ItemCount özelliği 1'den büyük bir değer gösterir, işlemde olduğu. İçin örnek ItemCount == trackEvent() 10 çağrısına örnekleme işlemi yalnızca bir tanesi aktarılan 10 anlamına gelir. Özel olaylar doğru sayısını almak için bu nedenle gibi bir kod kullanın kullanmalısınız `customEvents | summarize sum(itemCount)`.
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -440,7 +440,7 @@ Bkz: [Application Insights .NET SDK ile özel işlemleri izleme](../../azure-mon
 
 İçinde [Application Insights Analytics](analytics.md), içinde Göster istekleri `requests` tablo.
 
-Varsa [örnekleme](../../application-insights/app-insights-sampling.md) olduğundan, işlem ItemCount özelliği bir değer 1'den büyük gösterir. İçin örnek ItemCount == trackRequest() 10 çağrısına örnekleme işlemi yalnızca bir tanesi aktarılan 10 anlamına gelir. İstek ve ortalama süresi isteğin adlarına göre segmentlere doğru sayısını almak için kod aşağıdaki gibi kullanın:
+Varsa [örnekleme](../../azure-monitor/app/sampling.md) olduğundan, işlem ItemCount özelliği bir değer 1'den büyük gösterir. İçin örnek ItemCount == trackRequest() 10 çağrısına örnekleme işlemi yalnızca bir tanesi aktarılan 10 anlamına gelir. İstek ve ortalama süresi isteğin adlarına göre segmentlere doğru sayısını almak için kod aşağıdaki gibi kullanın:
 
 ```kusto
 requests
@@ -451,7 +451,7 @@ requests
 
 Özel durumlar, Application Insights'a gönder:
 
-* İçin [saymanız](../../application-insights/app-insights-metrics-explorer.md), olarak sıklık bir sorunun göstergesidir.
+* İçin [saymanız](../../azure-monitor/app/metrics-explorer.md), olarak sıklık bir sorunun göstergesidir.
 * İçin [ayrı ayrı örnekleri inceleyin](../../azure-monitor/app/diagnostic-search.md).
 
 Raporlar, yığın izlemelerini içerir.
@@ -522,7 +522,7 @@ Her zaman TrackException açıkça çağırmak zorunda kalmamak için SDK'ları 
 
 İçinde [Application Insights Analytics](analytics.md), özel durumlar gösterilir `exceptions` tablo.
 
-Varsa [örnekleme](../../application-insights/app-insights-sampling.md) işleminde, `itemCount` özelliği değeri 1'den büyük gösterir. İçin örnek ItemCount == 10 trackException() çağrıları ekleme, örnekleme işlemi yalnızca bir tanesi aktarılan 10 anlamına gelir. Özel durum türüne göre segmentlere özel durumlarını doğru sayısını almak için kod aşağıdaki gibi kullanın:
+Varsa [örnekleme](../../azure-monitor/app/sampling.md) işleminde, `itemCount` özelliği değeri 1'den büyük gösterir. İçin örnek ItemCount == 10 trackException() çağrıları ekleme, örnekleme işlemi yalnızca bir tanesi aktarılan 10 anlamına gelir. Özel durum türüne göre segmentlere özel durumlarını doğru sayısını almak için kod aşağıdaki gibi kullanın:
 
 ```kusto
 exceptions
@@ -603,7 +603,7 @@ telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties
 
 İçinde [Application Insights Analytics](analytics.md), TrackTrace çağrıları gösterilir `traces` tablo.
 
-Varsa [örnekleme](../../application-insights/app-insights-sampling.md) ItemCount özelliği 1'den büyük bir değer gösterir, işlemde olduğu. İçin örnek ItemCount == 10, 10 yapılan çağrıların anlamına gelir `trackTrace()`, örnekleme işlemi yalnızca bir tanesi aktarılan. İzleme çağrıları doğru sayısını almak için bu nedenle kod gibi kullanmalısınız `traces | summarize sum(itemCount)`.
+Varsa [örnekleme](../../azure-monitor/app/sampling.md) ItemCount özelliği 1'den büyük bir değer gösterir, işlemde olduğu. İçin örnek ItemCount == 10, 10 yapılan çağrıların anlamına gelir `trackTrace()`, örnekleme işlemi yalnızca bir tanesi aktarılan. İzleme çağrıları doğru sayısını almak için bu nedenle kod gibi kullanmalısınız `traces | summarize sum(itemCount)`.
 
 ## <a name="trackdependency"></a>TrackDependency
 
@@ -678,7 +678,7 @@ C# ' de standart bağımlılık izleme Modülü'devre dışı bırakmak için d�
 
 İçinde [Application Insights Analytics](analytics.md), trackDependency çağrıları Göster `dependencies` tablo.
 
-Varsa [örnekleme](../../application-insights/app-insights-sampling.md) ItemCount özelliği 1'den büyük bir değer gösterir, işlemde olduğu. İçin örnek ItemCount == trackDependency() 10 çağrısına örnekleme işlemi yalnızca bir tanesi aktarılan 10 anlamına gelir. Bölümlenmiş hedef bileşen tarafından bağımlılıkları doğru sayısını almak için kod aşağıdaki gibi kullanın:
+Varsa [örnekleme](../../azure-monitor/app/sampling.md) ItemCount özelliği 1'den büyük bir değer gösterir, işlemde olduğu. İçin örnek ItemCount == trackDependency() 10 çağrısına örnekleme işlemi yalnızca bir tanesi aktarılan 10 anlamına gelir. Bölümlenmiş hedef bileşen tarafından bağımlılıkları doğru sayısını almak için kod aşağıdaki gibi kullanın:
 
 ```kusto
 dependencies
@@ -764,7 +764,7 @@ Uygulamanız kullanıcıların hesaplarına veri grupları, Hesapla (aynı karak
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-İçinde [ölçüm Gezgini](../../application-insights/app-insights-metrics-explorer.md), sayan bir grafik oluşturabilir miyim **kimliği doğrulanmış kullanıcılar,**, ve **kullanıcı hesaplarını**.
+İçinde [ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md), sayan bir grafik oluşturabilir miyim **kimliği doğrulanmış kullanıcılar,**, ve **kullanıcı hesaplarını**.
 
 Ayrıca [arama](../../azure-monitor/app/diagnostic-search.md) belirli kullanıcı adları ve hesapları ile istemci veri noktaları için.
 
@@ -897,7 +897,7 @@ requests
 Şunlara dikkat edin:
 
 * CustomDimensions veya customMeasurements JSON değeri ayıklamak, dinamik türünde ve bu nedenle, gereken dönüştürme, `tostring` veya `todouble`.
-* Hesaba algılanması için [örnekleme](../../application-insights/app-insights-sampling.md), kullanmanız gereken `sum(itemCount)`değil `count()`.
+* Hesaba algılanması için [örnekleme](../../azure-monitor/app/sampling.md), kullanmanız gereken `sum(itemCount)`değil `count()`.
 
 ## <a name="timed"></a> Zamanlama olayları
 
@@ -1141,7 +1141,7 @@ Bu değerlerden herhangi birini kendinize ayarlarsanız, ilgili satırından kal
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
-Veri hızı sınırı ulaşmaktan kaçınmak için kullanın [örnekleme](../../application-insights/app-insights-sampling.md).
+Veri hızı sınırı ulaşmaktan kaçınmak için kullanın [örnekleme](../../azure-monitor/app/sampling.md).
 
 Veriler tutulur ne kadar süreyle belirlemek için bkz: [veri saklama ve gizlilik](../../azure-monitor/app/data-retention-privacy.md).
 

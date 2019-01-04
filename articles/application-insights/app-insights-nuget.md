@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: d8d48a41f9100abc3bc8ba306c766d9511f80026
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: adf055983ad4247101401b907024328607a19bfe
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972082"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017149"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet paketleri
 
@@ -82,5 +82,5 @@ Bu paketler, çalışma zamanını izleme çekirdek işlevselliğini parçası o
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - İzleyici [ASP.NET Core](../azure-monitor/app/asp-net-core.md).
-- ASP.NET Core profil [Azure Linux web app'ler](app-insights-profiler-aspnetcore-linux.md).
-- ASP.NET hata ayıklama [anlık görüntüleri](app-insights-snapshot-debugger.md).
+- ASP.NET Core profil [Azure Linux web app'ler](../azure-monitor/app/profiler-aspnetcore-linux.md).
+- ASP.NET hata ayıklama [anlık görüntüleri](../azure-monitor/app/snapshot-debugger.md).

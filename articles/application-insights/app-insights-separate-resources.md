@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: fe9c33f5a872c60ad30faf7cc5074004f5d6fc50
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 58ccfefa0a0d76334734c67688ef50230881e945
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973814"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018816"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Geliştirme, Test ve üretim telemetri ayırma
 
@@ -78,15 +78,15 @@ Telemetri aynı bileşenin farklı Damgalar (geliştirme/test/üretim) veya fark
 
 ![Yeni, Application Insights öğesine tıklayın](./media/app-insights-separate-resources/01-new.png)
 
-* **Uygulama türü** genel bakış dikey ve bulunan özelliklerin gördüğünüz etkiler [ölçüm Gezgini](app-insights-metrics-explorer.md). Uygulama türünü görmüyorsanız, web sayfaları için web türlerinden birini seçin.
-* **Kaynak grubu** gibi özelliklerini yönetmek için bir kolaylık [erişim denetimi](app-insights-resources-roles-access-control.md). Geliştirme, test ve üretim için ayrı kaynak gruplarını kullanabilirsiniz.
+* **Uygulama türü** genel bakış dikey ve bulunan özelliklerin gördüğünüz etkiler [ölçüm Gezgini](../azure-monitor/app/metrics-explorer.md). Uygulama türünü görmüyorsanız, web sayfaları için web türlerinden birini seçin.
+* **Kaynak grubu** gibi özelliklerini yönetmek için bir kolaylık [erişim denetimi](../azure-monitor/app/resources-roles-access-control.md). Geliştirme, test ve üretim için ayrı kaynak gruplarını kullanabilirsiniz.
 * **Abonelik** ödeme hesabınız azure'da.
 * **Konum** olan verilerinizi burada saklarız. Şu anda değiştirilemez. 
 * **Panoya ekleme** kaynağınızın hızlı erişim kutucuk Azure giriş sayfanızda koyar. 
 
 Kaynak oluşturma, birkaç saniye sürer. İşlem tamamlandığında, bir uyarı görürsünüz.
 
-(Yazabileceğiniz bir [PowerShell Betiği](app-insights-powershell-script-create-resource.md) otomatik olarak bir kaynak oluşturun.)
+(Yazabileceğiniz bir [PowerShell Betiği](../azure-monitor/app/powershell-script-create-resource.md) otomatik olarak bir kaynak oluşturun.)
 
 ### <a name="getting-the-instrumentation-key"></a>İzleme anahtarını alma
 Oluşturduğunuz kaynağın izleme anahtarını tanımlar. 
@@ -98,7 +98,7 @@ Oluşturduğunuz kaynağın izleme anahtarını tanımlar.
 ## <a name="filter-on-build-number"></a>Derleme numarası üzerinde filtreleme
 Uygulamanızın yeni bir sürüm yayımladığınızda, telemetri farklı derlemelerden ayırmak mümkün olmasını istersiniz.
 
-Uygulama sürümü özelliği ayarlayabilirsiniz, böylece, filtreleyebilirsiniz [arama](../azure-monitor/app/diagnostic-search.md) ve [ölçüm Gezgini](app-insights-metrics-explorer.md) sonuçları.
+Uygulama sürümü özelliği ayarlayabilirsiniz, böylece, filtreleyebilirsiniz [arama](../azure-monitor/app/diagnostic-search.md) ve [ölçüm Gezgini](../azure-monitor/app/metrics-explorer.md) sonuçları.
 
 ![Bir özellik üzerinde filtreleme](./media/app-insights-separate-resources/050-filter.png)
 
@@ -148,7 +148,7 @@ Uygulama sürümünü izlemek için `buildinfo.config` dosyasının Microsoft Bu
     </PropertyGroup>
 ```
 
-Yapı bilgisi mevcut olduğunda Application Insights web modülü **Uygulama sürümünü** telemetrinin her bir öğesine bir özellik olarak ekler. Bu sayede, [tanılama aramaları](../azure-monitor/app/diagnostic-search.md) gerçekleştirirken veya [ölçümleri keşfederken](app-insights-metrics-explorer.md) sürüme göre filtreleyebilirsiniz.
+Yapı bilgisi mevcut olduğunda Application Insights web modülü **Uygulama sürümünü** telemetrinin her bir öğesine bir özellik olarak ekler. Bu sayede, [tanılama aramaları](../azure-monitor/app/diagnostic-search.md) gerçekleştirirken veya [ölçümleri keşfederken](../azure-monitor/app/metrics-explorer.md) sürüme göre filtreleyebilirsiniz.
 
 Bununla birlikte, derleme sürüm numarasının Visual Studio’daki geliştirici derlemesi tarafından değil de yalnızca Microsoft Build Engine tarafından oluşturulduğunu fark edersiniz.
 

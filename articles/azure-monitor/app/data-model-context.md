@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: fc2b5a5badcf38f7bc94a876f9f0a21af4f558b7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7c1f47c9b88bd68b326b3c8923ba5b81d425c3e4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812447"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015483"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Telemetri Bağlam: Application Insights veri modeli
 
@@ -84,7 +84,7 @@ En fazla uzunluk: 64
 
 Anonim kullanıcı kimliği. Son kullanıcı uygulamasının temsil eder. Bir hizmetten telemetri gönderildiğinde, kullanıcı bağlamı hizmetinde işlemi başlatan kullanıcı hakkındadır.
 
-[Örnekleme](../../application-insights/app-insights-sampling.md) toplanan telemetri miktarını en aza indirmek için teknikleri biridir. Her iki örnek veya tüm ilişkili telemetri dışa örnekleme algoritması dener. Anonim kullanıcı kimliği, puan nesil örnekleme için kullanılır. Bu nedenle anonim kullanıcı kimliği yeterince rastgele bir değer olmalıdır. 
+[Örnekleme](../../azure-monitor/app/sampling.md) toplanan telemetri miktarını en aza indirmek için teknikleri biridir. Her iki örnek veya tüm ilişkili telemetri dışa örnekleme algoritması dener. Anonim kullanıcı kimliği, puan nesil örnekleme için kullanılır. Bu nedenle anonim kullanıcı kimliği yeterince rastgele bir değer olmalıdır. 
 
 Anonim kullanıcı kimliği kullanıcı adı depolamak için bir alan b.internet kullanmaktır. Kimliği doğrulanmış kullanıcı kimliği kullanın.
 

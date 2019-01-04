@@ -7,16 +7,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: fae74d3912bb608afec93b7aa587885f66af4e53
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: ec5ebfa29af13b5a34617be7f423fd7bc220636b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115068"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017761"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Data Factory fiyatlandırma örnekleri anlama
 
@@ -40,11 +39,11 @@ Senaryoyu gerçekleştirmek için aşağıdaki öğeleri içeren bir işlem hatt
 | --- | --- |
 | Bağlı hizmet oluşturma | 2 okuma/yazma varlık  |
 | Veri kümeleri oluşturma | 4 okuma/yazma varlıkları (veri kümesi oluşturmak için 2, bağlı hizmet başvuruları için 2) |
-| İşlem hattı oluşturma | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
+| Ardışık Düzen Oluştur | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
 | İşlem hattına sahip | 1 okuma/yazma varlık |
 | İşlem hattı çalıştırma | 2 etkinlik çalıştırması (tetikleyici çalıştırması, etkinlik çalıştırması için 1 için 1) |
 | 10 dakikalık kopyalama veri varsayım: yürütme süresi = | 10 \* 4 azure Integration Runtime (varsayılan DIU ayarı = 4) veri tümleştirme birimleri ve kopyalama performansı iyileştirme hakkında daha fazla bilgi için bkz. [bu makalede](copy-activity-performance.md) |
-| İzleyici ardışık düzen varsayım: Yalnızca 1 oluştu çalıştırın | 2 Çalıştır izleme kayıtları (1 işlem hattı çalıştırmasında, etkinlik çalıştırması için 1) yeniden denenir. |
+| İşlem hattı varsayım İzleyici: Yalnızca 1 oluştu çalıştırın | 2 Çalıştır izleme kayıtları (1 işlem hattı çalıştırmasında, etkinlik çalıştırması için 1) yeniden denenir. |
 
 **Toplam senaryo fiyatlandırma: $0.16811**
 
@@ -71,11 +70,11 @@ Senaryoyu gerçekleştirmek için aşağıdaki öğeleri içeren bir işlem hatt
 | --- | --- |
 | Bağlı hizmet oluşturma | 3 okuma/yazma varlık  |
 | Veri kümeleri oluşturma | 4 okuma/yazma varlıkları (veri kümesi oluşturmak için 2, bağlı hizmet başvuruları için 2) |
-| İşlem hattı oluşturma | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
+| Ardışık Düzen Oluştur | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
 | İşlem hattına sahip | 1 okuma/yazma varlık |
 | İşlem hattı çalıştırma | 3 etkinlik çalıştırması (tetikleyici çalıştırması, etkinlik çalışması için 2 için 1) |
 | 10 dakikalık kopyalama veri varsayım: yürütme süresi = | 10 \* 4 azure Integration Runtime (varsayılan DIU ayarı = 4) veri tümleştirme birimleri ve kopyalama performansı iyileştirme hakkında daha fazla bilgi için bkz. [bu makalede](copy-activity-performance.md) |
-| İzleyici ardışık düzen varsayım: Yalnızca 1 oluştu çalıştırın | 3 Çalıştır izleme kayıtları (1 işlem hattı çalıştırmasında, etkinlik çalıştırması için 2) ile yeniden denenir. |
+| İşlem hattı varsayım İzleyici: Yalnızca 1 oluştu çalıştırın | 3 Çalıştır izleme kayıtları (1 işlem hattı çalıştırmasında, etkinlik çalıştırması için 2) ile yeniden denenir. |
 | Databricks etkinlik varsayım yürütün: yürütme süresi 10 dakika = | 10 dakikalık dış işlem hattı etkinliği çalıştırma |
 
 **Toplam senaryo fiyatlandırma: $0.16916**
@@ -105,11 +104,11 @@ Senaryoyu gerçekleştirmek için aşağıdaki öğeleri içeren bir işlem hatt
 | --- | --- |
 | Bağlı hizmet oluşturma | 3 okuma/yazma varlık  |
 | Veri kümeleri oluşturma | 4 okuma/yazma varlıkları (veri kümesi oluşturmak için 2, bağlı hizmet başvuruları için 2) |
-| İşlem hattı oluşturma | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
+| Ardışık Düzen Oluştur | 3 okuma/yazma varlıkları (işlem hattı oluşturmak için 1, 2 veri kümesi başvurular için) |
 | İşlem hattına sahip | 1 okuma/yazma varlık |
 | İşlem hattı çalıştırma | 4 etkinlik çalıştırması (tetikleyici çalıştırması, etkinlik çalışması için 3 için 1) |
 | 10 dakikalık kopyalama veri varsayım: yürütme süresi = | 10 \* 4 azure Integration Runtime (varsayılan DIU ayarı = 4) veri tümleştirme birimleri ve kopyalama performansı iyileştirme hakkında daha fazla bilgi için bkz. [bu makalede](copy-activity-performance.md) |
-| İzleyici ardışık düzen varsayım: Yalnızca 1 oluştu çalıştırın | 4 Çalıştır izleme kayıtları (1 işlem hattı çalıştırmasında, etkinlik çalıştırması için 3) ile yeniden denenir. |
+| İşlem hattı varsayım İzleyici: Yalnızca 1 oluştu çalıştırın | 4 Çalıştır izleme kayıtları (1 işlem hattı çalıştırmasında, etkinlik çalıştırması için 3) ile yeniden denenir. |
 | Arama etkinliği varsayım yürütün: yürütme süresi 1 dakika = | 1 dakika işlem hattı Etkinlik yürütme |
 | Databricks etkinlik varsayım yürütün: yürütme süresi 10 dakika = | 10 dakikalık dış işlem hattı Etkinlik yürütme |
 

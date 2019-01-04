@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0f16f61e99e059c8cf21ec4ffa85eef0a04702bc
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 63045ce1ac06bfb87595675395a411978a17f95a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973001"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017064"
 ---
 # <a name="set-alerts-in-application-insights"></a>Uygulama anlayışları'nda uyarılar ayarlayın
 [Azure Application Insights] [ start] web uygulamanızdaki performansı ya da kullanım ölçümleri değişikliklere uyarabilir. 
@@ -41,7 +41,7 @@ Uyarı kuralları dikey penceresini açın ve ardından Ekle düğmesini kullan�
 * Kaynak önce diğer özelliklerini ayarlayın. **"(Bileşenler)" kaynağı seçin** performans ya da kullanım ölçümlerine göre uyarıları ayarlamak istiyorsanız.
 * Uyarı veren adı (uygulamanız yalnızca) kaynak grubu içinde benzersiz olmalıdır.
 * Eşik değerini girmeniz istenir birimleri Not dikkat edin.
-* "E-posta sahipleri..." kutuyu işaretlerseniz, uyarılar, bu kaynak grubu erişimi olan herkes için e-posta ile gönderilir. Bu kişi kümesi genişletmek için bunları Ekle [kaynak grubuna veya aboneliğe](../../application-insights/app-insights-resources-roles-access-control.md) (kaynak değil).
+* "E-posta sahipleri..." kutuyu işaretlerseniz, uyarılar, bu kaynak grubu erişimi olan herkes için e-posta ile gönderilir. Bu kişi kümesi genişletmek için bunları Ekle [kaynak grubuna veya aboneliğe](../../azure-monitor/app/resources-roles-access-control.md) (kaynak değil).
 * "Ek e-postaları" belirtirseniz, uyarılar, bu kişiler veya gruplara (olsun veya olmasın, "e-posta sahipleri..." onay kutusunun işareti) gönderilir. 
 * Ayarlanmış bir [Web kancası adresi](../../azure-monitor/platform/alerts-webhooks.md) uyarılara yanıt veren web uygulaması ayarladıysanız. Uyarı etkinleştirildiğinde hem çözüldüğünde çağrılır. (Ancak şu anda sorgu parametreleri Web kancası özellikleri geçirilecek değil olduğunu unutmayın.)
 * Devre dışı bırakabilir veya uyarıyı etkinleştir: dikey penceresinin üstündeki düğmeleri bakın.
@@ -51,7 +51,7 @@ Uyarı kuralları dikey penceresini açın ve ardından Ekle düğmesini kullan�
 * Bir kuruluş hesabı kullanıyorsunuz? Sahibi veya katkıda bulunan bu uygulama kaynağına erişimi varsa, uyarılar ayarlayabilirsiniz. Erişim denetimi dikey penceresinde göz atın. [Erişim denetimi hakkında bilgi edinin][roles].
 
 > [!NOTE]
-> Uyarılar dikey penceresinde,, zaten var. bir uyarı kümesi bakın: [Proaktif tanılama](../../application-insights/app-insights-proactive-failure-diagnostics.md). Otomatik uyarı bir belirli ölçüm, istek hata oranı izler. Proaktif uyarı devre dışı bırakmak karar vermediğiniz sürece, istek hata oranı üzerinde kendi uyarı ayarlama gerekmez. 
+> Uyarılar dikey penceresinde,, zaten var. bir uyarı kümesi bakın: [Proaktif tanılama](../../azure-monitor/app/proactive-failure-diagnostics.md). Otomatik uyarı bir belirli ölçüm, istek hata oranı izler. Proaktif uyarı devre dışı bırakmak karar vermediğiniz sürece, istek hata oranı üzerinde kendi uyarı ayarlama gerekmez. 
 > 
 > 
 
@@ -89,10 +89,10 @@ Popüler uyarılar şunlardır:
 * **Sunucu yanıt süresi** sunucu tarafı web uygulamaları için. Uyarıları Ayarlama yanı sıra bu ölçüm, orantısız ile yüksek istek hızları değişiyorsa görmek için takip: değişim uygulamanızı kaynaklar yetersiz çalıştığını gösterebilir. 
 * **Sunucu özel durumları** - bunları görmek için bazı yapmanız gereken [ek kurulum](../../azure-monitor/app/asp-net-exceptions.md).
 
-Gerektiğini unutmayın [öngörülü hata oranı tanılama](../../application-insights/app-insights-proactive-failure-diagnostics.md) otomatik olarak, uygulamanızın yanıt vereceğini hata kodlarıyla isteklerine oranı izleyin. 
+Gerektiğini unutmayın [öngörülü hata oranı tanılama](../../azure-monitor/app/proactive-failure-diagnostics.md) otomatik olarak, uygulamanızın yanıt vereceğini hata kodlarıyla isteklerine oranı izleyin. 
 
 ## <a name="automation"></a>Otomasyon
-* [Uyarıları Ayarlama otomatikleştirmek için PowerShell kullanma](../../application-insights/app-insights-powershell-alerts.md)
+* [Uyarıları Ayarlama otomatikleştirmek için PowerShell kullanma](../../azure-monitor/app/powershell-alerts.md)
 * [Uyarılara yanıt verme otomatikleştirmek için Web kancalarını kullanma](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="video"></a>Video
@@ -101,14 +101,14 @@ Gerektiğini unutmayın [öngörülü hata oranı tanılama](../../application-i
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Kullanılabilirlik web testleri](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Uyarıları Ayarlama otomatikleştirin](../../application-insights/app-insights-powershell-alerts.md)
+* [Uyarıları Ayarlama otomatikleştirin](../../azure-monitor/app/powershell-alerts.md)
 * [Proaktif tanılama](../../application-insights/app-insights-proactive-diagnostics.md) 
 
 <!--Link references-->
 
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [client]: ../../azure-monitor/app/javascript.md
-[platforms]: ../../application-insights/app-insights-platforms.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[platforms]: ../../azure-monitor/app/platforms.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [start]: ../../application-insights/app-insights-overview.md
 

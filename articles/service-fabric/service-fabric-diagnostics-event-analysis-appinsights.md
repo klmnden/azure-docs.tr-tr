@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: f51d132d3cdc2d8aed65919df5fa225711508c60
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 25e8d0aafc8593c9c759dd8ac1d7d1d495c9e026
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753104"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001779"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Olay analizi ve Application Insights ile Görselleştirme
 
@@ -120,7 +120,7 @@ EventFlow ve WAD toplama çözümler olarak, çıkış EventFlow değiştirmek i
 
 Application Insights olayları ve günlükleri için bir çıktı olarak yapılandırdıktan sonra bilgi birkaç dakika içinde Application Insights kaynağınıza görünmesini başlamanız gerekir. Application Insights kaynağı panoya sürer Application Insights kaynağına gidin. Tıklayın **arama** görev çubuğunda Application Insights alındığında son izlemelere bakın ve bunları filtrelemek için.
 
-*Ölçüm Gezgini* , uygulamalarınıza, hizmetlerinize ve küme raporlama ölçümlere göre özel panolar oluşturmak için kullanışlı bir araçtır. Bkz: [keşfetmeye ölçümler Application ınsights'da](../application-insights/app-insights-metrics-explorer.md) birkaç grafikleri kendiniz toplama verileri temel alan için ayarlanacak.
+*Ölçüm Gezgini* , uygulamalarınıza, hizmetlerinize ve küme raporlama ölçümlere göre özel panolar oluşturmak için kullanışlı bir araçtır. Bkz: [keşfetmeye ölçümler Application ınsights'da](../azure-monitor/app/metrics-explorer.md) birkaç grafikleri kendiniz toplama verileri temel alan için ayarlanacak.
 
 Tıklayarak **Analytics** burada olaylarla ve izlemelerle daha fazla kapsam ve isteğe bağlı olma sorgulayabilirsiniz sizi Application Insights Analytics portalına götürür. Şu anda hakkında daha fazla bilgiyi [Application Insights analiz](../azure-monitor/app/analytics.md).
 

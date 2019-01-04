@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 561e672436c38cd0b3e637b794662483fc630676
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: df8d337e7950400a86dcab14de4484f4811f43e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706730"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025088"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Azure SQL veritabanı yönetilen kullanarak Azure Data Factory örneği gelen ve giden veri kopyalama
 
@@ -156,7 +155,7 @@ Verileri Azure SQL veritabanı yönetilen örneği kopyalamak için kopyalama et
 - Varsa **sqlReaderQuery** belirtilen SqlSource için kopyalama etkinliği çalıştığında bu sorgu veri almak için yönetilen örneği kaynağında. Alternatif olarak, bir saklı yordam belirterek belirtebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (saklı yordamın parametreleri sürerse).
 - "SqlReaderQuery" veya "sqlReaderStoredProcedureName" özelliğini belirtmezseniz, sütunları veri kümesi JSON "yapı" bölümünde tanımlanan bir sorgu oluşturmak için kullanılır (`select column1, column2 from mytable`) yönetilen örneğine karşı çalıştırılacak. Veri kümesi tanımı "yapı" yoksa, tüm sütunları tablodan seçilir.
 
-**Örnek: bir SQL sorgusu kullanma**
+**Örnek: Bir SQL sorgusunu kullanarak**
 
 ```json
 "activities":[
@@ -188,7 +187,7 @@ Verileri Azure SQL veritabanı yönetilen örneği kopyalamak için kopyalama et
 ]
 ```
 
-**Örnek: bir saklı yordam kullanma**
+**Örnek: Bir saklı yordam kullanma**
 
 ```json
 "activities":[
@@ -260,7 +259,7 @@ Azure SQL veritabanı yönetilen örneği için verileri kopyalamak için kopyal
 > [!TIP]
 > Azure SQL veritabanı yönetilen örneği için verileri kopyalama, kopyalama etkinliği havuz tabloya verileri varsayılan olarak ekler. UPSERT ya da ek iş mantığını gerçekleştirmek için SqlSink içinde saklı yordamı kullanın. Daha ayrıntılı bilgi edinin [SQL havuz için saklı yordam çağırma](#invoking-stored-procedure-for-sql-sink).
 
-**Örnek 1: veri ekleme**
+**Örnek 1: Veri ekleme**
 
 ```json
 "activities":[
@@ -292,7 +291,7 @@ Azure SQL veritabanı yönetilen örneği için verileri kopyalamak için kopyal
 ]
 ```
 
-**Örnek 2: upsert için kopyalama sırasında bir saklı yordam çağırma**
+**Örnek 2: Upsert için kopyalama sırasında bir saklı yordam çağırma**
 
 Daha ayrıntılı bilgi edinin [SQL havuz için saklı yordam çağırma](#invoking-stored-procedure-for-sql-sink).
 

@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: jingwang
-ms.openlocfilehash: bc98fc2465c280c41a77823de239a5572c5d27e4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7550eac600f5b504d80bcc6b5465e24e8d423d2a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409586"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015092"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri öğesinden ve salesforce'a kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -73,7 +72,7 @@ Aşağıdaki özellikler Salesforce bağlı hizmeti için desteklenir.
 >[!IMPORTANT]
 >Salesforce verileri kopyaladığınızda, kopyası yürütmek için varsayılan Azure Integration Runtime kullanılamaz. Kaynağınıza bağlı diğer bir deyişle, hizmet bir belirtilen bir tümleştirme çalışma zamanı açıkça yok [Azure tümleştirme çalışma zamanı oluşturma](create-azure-integration-runtime.md#create-azure-ir) Salesforce örneğinizin yakın bir konum. Aşağıdaki örnekte olduğu gibi Salesforce bağlı hizmet ilişkilendirin.
 
-**Örnek: kimlik bilgileri, Data Factory'de Store**
+**Örnek: Data factory'de Store kimlik bilgileri**
 
 ```json
 {
@@ -99,7 +98,7 @@ Aşağıdaki özellikler Salesforce bağlı hizmeti için desteklenir.
 }
 ```
 
-**Örnek: kimlik, anahtar Kasası'nda Store**
+**Örnek: Anahtar Kasası'nda Store kimlik bilgileri**
 
 ```json
 {
@@ -168,7 +167,7 @@ Gelen ve Salesforce veri kopyalamak için dataset öğesinin type özelliği aya
 ```
 
 >[!NOTE]
->Geriye dönük uyumluluk için: önceki "RelationalTable" türü veri kümesini kullanıyorsanız, Salesforce veri kopyaladığınızda, yeni bir "SalesforceObject" türe dönüştürmek için bir öneri görmenize rağmen bu çalışmaya devam eder.
+>Geriye dönük uyumluluk için: Önceki "RelationalTable" türü veri kümesini kullanıyorsanız, Salesforce veri kopyaladığınızda, yeni bir "SalesforceObject" türe dönüştürmek için bir öneri gördüğünüz sırasında çalışmaya devam eder.
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
@@ -227,7 +226,7 @@ Salesforce veri kopyalamak için kopyalama etkinliği için kaynak türünü aya
 ```
 
 >[!NOTE]
->Geriye dönük uyumluluk için: önceki "RelationalSource" türü kopya kullanırsanız, Salesforce veri kopyaladığınızda, yeni bir "SalesforceSource" türe dönüştürmek için bir öneri görmenize rağmen kaynak çalışmaya devam eder.
+>Geriye dönük uyumluluk için: Önceki "RelationalSource" türü kopya kullanırsanız, Salesforce veri kopyaladığınızda, yeni bir "SalesforceSource" türe dönüştürmek için bir öneri görmenize rağmen kaynak çalışmaya devam eder.
 
 ### <a name="salesforce-as-a-sink-type"></a>Bir havuz türü olarak Salesforce
 
@@ -239,9 +238,9 @@ Salesforce veri kopyalamak için kopyalama etkinliğine de Havuz türü ayarlay�
 | WriteBehavior | İşlem için yazma davranışı.<br/>İzin verilen değerler **Ekle** ve **Upsert**. | Hayır (varsayılan değer ekleme) |
 | externalIdFieldName | Upsert işlem Dış kimlik alanının adı. Belirtilen alan, Salesforce nesne "Dış kimlik alanı" tanımlanmalıdır. İlgili girdi verileri NULL değerlere sahip olamaz. | "Upsert" için Evet |
 | writeBatchSize | Salesforce'a her toplu işlemde yazılan veriler satır sayısı. | Hayır (varsayılan değer 5000) |
-| ignoreNullValues | Giriş verilerinden NULL değerler yazma işlemi sırasında yok sayılacak belirtir.<br/>İzin verilen değerler **true** ve **false**.<br>- **True**: bir upsert veya güncelleştirme işlemi yaptığınızda hedef nesnedeki verileri değiştirmeden bırakın. Bir ekleme işlemi yaptığınızda, tanımlanan varsayılan bir değer ekleyin.<br/>- **False**: bir upsert veya güncelleştirme işlemi yaptığınızda verileri hedef nesne NULL olarak güncelleştirin. Bir ekleme işlemi yaptığınızda, bir NULL değer ekleyin. | Hayır (varsayılan değer: false) |
+| ignoreNullValues | Giriş verilerinden NULL değerler yazma işlemi sırasında yok sayılacak belirtir.<br/>İzin verilen değerler **true** ve **false**.<br>- **True**: Verileri hedef nesneyi bir upsert veya güncelleştirme işlemi yaptığınızda değiştirmeden bırakın. Bir ekleme işlemi yaptığınızda, tanımlanan varsayılan bir değer ekleyin.<br/>- **False**: Bir upsert veya güncelleştirme işlemi yaptığınızda hedef nesnedeki verileri NULL olarak güncelleştirin. Bir ekleme işlemi yaptığınızda, bir NULL değer ekleyin. | Hayır (varsayılan değer: false) |
 
-**Örnek: Salesforce havuzunda bir kopyalama etkinliği**
+**Örnek: Kopyalama etkinliğindeki havuz Salesforce**
 
 ```json
 "activities":[
@@ -314,15 +313,15 @@ Salesforce veri kopyaladığınızda, aşağıdaki eşlemeler Salesforce veri t�
 |:--- |:--- |
 | Otomatik numarası |Dize |
 | Onay kutusu |Boole |
-| Para birimi |Ondalık |
+| Para birimi |Onluk |
 | Tarih |DateTime |
 | Tarih/Saat |DateTime |
 | Email |Dize |
 | Kimlik |Dize |
 | Arama ilişkisi |Dize |
 | Çoklu seçim yapılabilen seçim listesi |Dize |
-| Sayı |Ondalık |
-| Yüzde |Ondalık |
+| Sayı |Onluk |
+| Yüzde |Onluk |
 | Telefon |Dize |
 | Seçim listesi |Dize |
 | Metin |Dize |

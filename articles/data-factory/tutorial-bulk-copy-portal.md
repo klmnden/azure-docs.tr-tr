@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: e7c134881cbf8745a4e4ef9102a418f7d47a6f8c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 37aa248af30c4beae3f9d170174842c908933339
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43098037"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020022"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory kullanarak birden çok tabloyu toplu olarak kopyalama
 Bu öğreticide **Azure SQL Veritabanından Azure SQL Veri Ambarı'na birkaç tabloyu kopyalama** işlemi gösterilmektedir. Aynı düzeni diğer kopyalama senaryolarında da uygulayabilirsiniz. Örneğin, SQL Server/Oracle’dan Azure SQL Veritabanı/Veri Ambarı/Azure Blob’a tablo kopyalama, Blob’dan Azure SQL Veritabanı tablolarına farklı yollar kopyalama.
@@ -93,10 +92,10 @@ Hem SQL Veritabanı hem de SQL Veri Ambarı için Azure hizmetlerinin SQL sunucu
          
       Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
 1. **Sürüm** için **V2**'yi seçin.
-1. Data factory için **konum** seçin. Data Factory'nin kullanılabileceği Azure bölgelerinin bir listesi için bir sonraki sayfada ilgilendiğiniz bölgeleri seçin ve **Analytics**'i genişleterek **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) (Bölgeye göre kullanılabilir durumdaki ürünler) bölümünü bulun. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
+1. Data factory için **konum** seçin. Data Factory kullanılabildiği şu anda Azure bölgelerinin listesi için aşağıdaki sayfada faiz ve ardından genişletin bölgeleri seçin **Analytics** bulunacak **Data Factory**: [Bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/). Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 1. **Panoya sabitle**’yi seçin.     
 1. **Oluştur**’a tıklayın.
-1. Panoda şu kutucuğu ve üzerinde şu durumu görürsünüz: **Veri fabrikası dağıtılıyor**. 
+1. Panoda durumuna sahip aşağıdaki kutucuğu görürsünüz: **Veri Fabrikası dağıtılıyor**. 
 
     ![veri fabrikası dağıtılıyor kutucuğu](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
 1. Oluşturma işlemi tamamlandıktan sonra, resimde gösterildiği gibi **Data Factory** sayfasını görürsünüz.
@@ -208,7 +207,7 @@ Bu öğreticide, kaynak ve hedef SQL tabloları veri kümesi tanımında sabit k
     ![Veri kümesi parametresi derleyici](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
 
 ## <a name="create-pipelines"></a>İşlem hattı oluşturma
-Bu öğreticide, iki işlem hattı oluşturursunuz: **IterateAndCopySQLTables** ve **GetTableListAndTriggerCopyData**. 
+Bu öğreticide, iki işlem hattı oluşturacaksınız: **Iterateandcopysqltables** ve **GetTableListAndTriggerCopyData**. 
 
 **GetTableListAndTriggerCopyData** işlem hattı iki adım gerçekleştirir:
 
@@ -400,7 +399,7 @@ Bu işlem hattı iki adım gerçekleştirir:
         ]
     }
     ```    
-1. **İşlem Hattı Çalıştırmaları** görünümüne dönmek için üstteki **İşlem hatları** bağlantısına tıklayın. **IterateAndCopySQLTables** işlem hattı için **Etkinlik Çalıştırmalarını Görüntüle** bağlantısına (**Eylemler** sütunundaki ilk bağlantı) tıklayın. Aşağıdaki resimde gösterilen çıkışı görüyor olmalısınız: **Arama** etkinliği çıkışında her tablo için bir **Kopyalama** etkinliği olduğuna dikkat edin. 
+1. **İşlem Hattı Çalıştırmaları** görünümüne dönmek için üstteki **İşlem hatları** bağlantısına tıklayın. **IterateAndCopySQLTables** işlem hattı için **Etkinlik Çalıştırmalarını Görüntüle** bağlantısına (**Eylemler** sütunundaki ilk bağlantı) tıklayın. Aşağıdaki görüntüde gösterildiği gibi bir çıktı görmeniz gerekir: Bir fark **kopyalama** etkinliği çıkışında her tablo **arama** etkinlik çıkışı. 
 
     ![Etkinlik çalıştırmaları](./media/tutorial-bulk-copy-portal/activity-runs-2.png)
 1. Verilerin, bu öğreticide kullandığınız hedef SQL Veri Ambarı'na kopyalandığından emin olun. 

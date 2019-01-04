@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: b1e951ecdadd28dbce96e89dce428c375836ba35
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 4db0deac72adc5e51294cf7e4c6da334259a5531
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973817"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000445"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Bağımlılık telemetrisi: Application Insights veri modeli
 
@@ -70,4 +70,4 @@ Başarılı veya başarısız çağrı göstergesi.
 - Bağımlılık izleme ayarlama [Java](../../azure-monitor/app/java-agent.md).
 - [Özel bağımlılık telemetri yazma](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
 - Bkz: [veri modeli](data-model.md) için Application Insights türleri ve veri modeli.
-- Kullanıma [platformları](../../application-insights/app-insights-platforms.md) Application Insights tarafından desteklenir.
+- Kullanıma [platformları](../../azure-monitor/app/platforms.md) Application Insights tarafından desteklenir.

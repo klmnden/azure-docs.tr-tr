@@ -11,12 +11,12 @@ author: hning86
 ms.author: haining
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 95d7fc06d1ea7db3eddd0ac228263f3b6a07a719
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: da84d6361d80db8aea797827ed3d7bc612e2eda3
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810262"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999059"
 ---
 # <a name="quickstart-use-the-python-sdk-to-get-started-with-azure-machine-learning"></a>Hızlı Başlangıç: Azure Machine Learning'i kullanmaya başlamak için Python SDK'sını kullanma
 
@@ -134,7 +134,7 @@ pip install azureml-sdk[databricks]
 
    Siz kodu yürütürken, Azure hesabınızda oturum açmanız istenebilir. Oturum açtıktan sonra kimlik doğrulama belirteci yerel önbelleğe alınır.
 
-1. Viewe için anahtar kasasını, ilişkili depolama ve kapsayıcı kayıt defteri gibi bir çalışma alanı ayrıntıları aşağıdaki kodu girin:
+1. Çalışma alanını görüntülemek için aşağıdaki kodu ilişkili depolama, kapsayıcı kayıt defteri ve anahtar kasası gibi ayrıntılarını girin:
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
 
@@ -197,7 +197,7 @@ Machine Learning öğreticileri ile kodu kullanmak için ortamınızda birkaç d
     pip install azureml-sdk[automl]
     ```
 
-Bu paketler yüklendikten sonra eğitmek ve bir modell dağıtmak için öğretici ile devam edin. 
+Bu paketler yüklendikten sonra eğitmek ve model dağıtma için öğreticileri ile devam edin. 
 
 > [!div class="nextstepaction"]
 > [Öğretici: Bir görüntü sınıflandırma modeli eğitme](tutorial-train-models-with-aml.md)

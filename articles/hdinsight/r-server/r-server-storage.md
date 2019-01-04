@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 2c5a584bd5c235eb143c8e1911006aa6e142ff0d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 4aae44745981951fa61836fe52d8d6b799c6cadf
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605645"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001524"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight üzerinde ML Hizmetleri için Azure depolama çözümleri
 
 HDInsight üzerinde ML Hizmetleri, depolama çözümleri çeşitli veri, kod veya Analiz sonuçlarını içeren nesneleri kalıcı hale getirmek için kullanabilirsiniz. Bunlar, aşağıdaki seçenekleri içerir:
 
 - [Azure Blob](https://azure.microsoft.com/services/storage/blobs/)
-- [Azure Data Lake depolama](https://azure.microsoft.com/services/data-lake-store/)
+- [Azure Data Lake depolama](https://azure.microsoft.com/services/storage/data-lake-storage/)
 - [Azure dosya depolama](https://azure.microsoft.com/services/storage/files/)
 
 Ayrıca, birden çok Azure depolama hesabı veya HDInsight kümenizle kapsayıcıları erişme seçeneğiniz de vardır. Azure dosya depolama, uygun veri depolama seçeneğini kullanmak için bir Azure depolama alanı dosya paylaşımını bağlayabilmeniz, örneğin, sağlar kenar düğümündeki Linux dosya sistemi ' dir. Ancak, Azure dosya paylaşımlarını bağlanır ve Windows veya Linux gibi desteklenen bir işletim sistemine sahip tüm sistemler tarafından kullanılan. 

@@ -9,14 +9,14 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: b03a0538e92ac126a50a1346eb1bf7fb003189f9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fb3358775881f102ecea62fbd20a1e4d85dda308
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966868"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001645"
 ---
-# <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Öğretici: Azure portalı ve konuları/abonelikleri kullanarak envanter güncelleştirme
+# <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Öğretici: Azure portalı ve konular/abonelikler aracılığıyla Envanter güncelleştirme
 
 Microsoft Azure Service Bus, uygulamalar ve hizmetler arasında bilgi gönderen çok kiracılı bir bulut mesajlaşma hizmetidir. Zaman uyumsuz işlemler esnek ve aracılı mesajlaşmanın yanı sıra ilk giren ilk çıkar (FIFO) yöntemiyle yapılandırılmış mesajlaşma ve yayımlama/abonelik olanakları da sunar. Bu öğretici, bir perakende stok senaryosunda, Azure portal ve .NET kullanan yayımlama/abonelik kanallarıyla Service Bus konu başlıklarını ve abonelikleri kullanmayı göstermektedir.
 
@@ -70,7 +70,7 @@ Yeni bir ad alanı oluşturulduğunda, her biri ad alanının tüm yönleri üze
 1. **Tüm kaynaklar**’a ve sonra yeni oluşturulan ad alanı adına tıklayın.
 2. Ad alanı penceresinde **Paylaşılan erişim ilkeleri**'ne tıklayın.
 3. **Paylaşılan erişim ilkeleri** ekranında **RootManageSharedAccessKey** seçeneğine tıklayın.
-4. **İlke: RootManageSharedAccessKey** penceresinde **Birincil Bağlantı Dizesi**'nin yanındaki **Kopyala** düğmesine tıklayın ve bağlantı dizesini daha sonra kullanmak üzere panonuza kopyalayın. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın.
+4. İçinde **İlkesi: RootManageSharedAccessKey** penceresinde tıklayın **kopyalama** düğmesinin yanındaki **PRIMARY CONNECTION Strıng'i**, bağlantı dizesini Panonuza daha sonra kullanmak üzere kopyalayın. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın.
 
     ![bağlantı dizesi][connection-string]
 5. **Birincil Anahtar** değerini daha sonra kullanmak üzere geçici bir konuma kopyalayarak önceki adımı tamamlayın.
@@ -91,7 +91,7 @@ Bir Service Bus konu başlığı oluşturmak için konu başlığının altında
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Aboneliklerde filtre kuralları oluşturma
 
-Ad alanı ve konu başlıkları/abonelikler sağlandıktan ve gerekli kimlik bilgilerini edindikten sonra, aboneliklerde filtre kuralları oluşturmaya ve ileti gönderip almaya hazır olursunuz. [Bu GitHub örnek klasöründeki](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted/BasicSendReceiveTutorialwithFilters) kodu inceleyebilirsiniz.
+Ad alanı ve konu başlıkları/abonelikler sağlandıktan ve gerekli kimlik bilgilerini edindikten sonra, aboneliklerde filtre kuralları oluşturmaya ve ileti gönderip almaya hazır olursunuz. [Bu GitHub örnek klasöründeki](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters) kodu inceleyebilirsiniz.
 
 ### <a name="send-and-receive-messages"></a>İleti alma ve gönderme
 

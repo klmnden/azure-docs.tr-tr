@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: c0f68304a73f8489668fafb98c51bd1e78b7588f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 653a636ca2d71c573ffde2e9e70a06cf3fcc95fb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972660"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021892"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Gezinti ve panolar Application Insights portalında
 Sonra [projenize Application ınsights'ı ayarlama](../../application-insights/app-insights-overview.md), uygulamanızın performansı ve kullanımıyla ilgili telemetri verilerini projenizin Application Insights kaynağını görünür [Azure portalında](https://portal.azure.com).
@@ -96,7 +96,7 @@ Bir panoyu oluşturduktan sonra diğer kullanıcılarla paylaşabilirsiniz.
 
 ![Pano üstbilgisinde Paylaş'ı tıklatın.](./media/app-insights-dashboards/41.png)
 
-Hakkında bilgi edinin [rolleri ve erişim denetimi](../../application-insights/app-insights-resources-roles-access-control.md).
+Hakkında bilgi edinin [rolleri ve erişim denetimi](../../azure-monitor/app/resources-roles-access-control.md).
 
 ## <a name="create-dashboards-programmatically"></a>Panolar program aracılığıyla oluşturma
 Pano oluşturma'yı kullanarak otomatikleştirebilirsiniz [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) ve basit bir JSON Düzenleyicisi.
@@ -109,7 +109,7 @@ Genel Bakış dikey penceresinde uygulamanız hakkında daha fazla bilgi için a
 ### <a name="overview-blade-buttons"></a>Genel Bakış dikey penceresi düğmeleri
 ![Genel Bakış dikey penceresinin üst gezinti çubuğu](./media/app-insights-dashboards/app-overview-top-nav.png)
 
-* [**Ölçüm Gezgini** ](../../application-insights/app-insights-metrics-explorer.md) -performans ve kullanım kendi grafikler oluşturun.
+* [**Ölçüm Gezgini** ](../../azure-monitor/app/metrics-explorer.md) -performans ve kullanım kendi grafikler oluşturun.
 * [**Arama** ](../../azure-monitor/app/diagnostic-search.md) - olayları istekleri, özel durumlar gibi belirli örneklerini inceleyin veya günlük izlemelerini.
 * [**Analytics** ](../../azure-monitor/app/analytics.md) -telemetriniz üzerinde güçlü sorgular.
 * **Zaman aralığı** -dikey penceresinde tüm grafikler tarafından görüntülenen aralığını ayarlayın.
@@ -123,14 +123,14 @@ Genel Bakış dikey penceresinde uygulamanız hakkında daha fazla bilgi için a
 
 * **Genel Bakış** -uygulama genel bakış dikey penceresine dönün.
 * **Etkinlik günlüğü** -uyarılar ve Azure yönetim etkinlikleri.
-* [**Erişim denetimi** ](../../application-insights/app-insights-resources-roles-access-control.md) -takım üyeleri ve diğerleri erişim sağlama.
+* [**Erişim denetimi** ](../../azure-monitor/app/resources-roles-access-control.md) -takım üyeleri ve diğerleri erişim sağlama.
 * [**Etiketleri** ](../../azure-resource-manager/resource-group-using-tags.md) -uygulamanızı diğerleriyle gruplandırmak için etiketleri kullanın.
 
 ARAŞTIRMA
 
 * [**Uygulama Haritası** ](app-map.md) -uygulamanızı bileşenlerini gösteren etkin harita türetilmiş bağımlılık bilgileri.
 * [**Akıllı algılama** ](../../application-insights/app-insights-proactive-diagnostics.md) -son performans uyarıları gözden geçirin.
-* [**Stream canlı** ](../../application-insights/app-insights-live-stream.md) - neredeyse anında ölçümler, yeni bir yapı dağıtma yararlı bir dizi sabit veya hata ayıklama A.
+* [**Stream canlı** ](../../azure-monitor/app/live-stream.md) - neredeyse anında ölçümler, yeni bir yapı dağıtma yararlı bir dizi sabit veya hata ayıklama A.
 * [**Kullanılabilirlik / Web testleri** ](../../azure-monitor/app/monitor-web-app-availability.md) -normal istekleri web uygulamanızdan world.* geçici olarak gönder
 * [**Hatalar, performans** ](../../application-insights/app-insights-web-monitor-performance.md) -özel durumlar ve hata oranları istekleri için uygulamanızı ve uygulamanıza gelen istekleri için yanıt sürelerini [bağımlılıkları](../../azure-monitor/app/asp-net-dependencies.md).
 * [**Performans** ](../../application-insights/app-insights-web-monitor-performance.md) -yanıt süresi, bağımlılık yanıt süreleri.
@@ -145,14 +145,14 @@ YAPILANDIR
 * [Uyarılar](../../azure-monitor/app/alerts.md) -ölçüm uyarı yapılandırması.
 * [Sürekli dışarı aktarma](../../azure-monitor/app/export-telemetry.md) -Azure depolama alanına telemetri dışarı aktarma yapılandırın.
 * [Performans testi](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests) -yapay bir yük kullanarak Web sitenizde ayarlayın.
-* [Kota ve fiyatlandırma](../../application-insights/app-insights-pricing.md) ve [alım örneklemesi](../../application-insights/app-insights-sampling.md).
+* [Kota ve fiyatlandırma](../../azure-monitor/app/pricing.md) ve [alım örneklemesi](../../azure-monitor/app/sampling.md).
 * **API erişimi** -oluşturma [sürüm ek açıklamaları](annotations.md) ve veri erişimi API'si için.
 * [**İş öğeleri** ](../../azure-monitor/app/diagnostic-search.md#create-work-item) -bir iş izleme sistemini telemetri denetlenirken hatalar oluşturabilmeniz bağlanın.
 
 AYARLAR
 
 * [**Kilitler** ](../../azure-resource-manager/resource-group-lock-resources.md) -Azure kaynakları kilitleme
-* [**Otomasyon betiği** ](../../application-insights/app-insights-powershell.md) -yeni kaynaklar oluşturmak için şablon olarak kullanabilirsiniz, böylece bir Azure kaynak tanımını dışarı aktarın.
+* [**Otomasyon betiği** ](../../azure-monitor/app/powershell.md) -yeni kaynaklar oluşturmak için şablon olarak kullanabilirsiniz, böylece bir Azure kaynak tanımını dışarı aktarın.
 
 
 ## <a name="video"></a>Video
@@ -163,6 +163,6 @@ AYARLAR
 
 |  |  |
 | --- | --- |
-| [Ölçüm Gezgini](../../application-insights/app-insights-metrics-explorer.md)<br/>Filtreleyin ve bölümlendirin ölçümleri |![Arama örneği](./media/app-insights-dashboards/64.png) |
+| [Ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md)<br/>Filtreleyin ve bölümlendirin ölçümleri |![Arama örneği](./media/app-insights-dashboards/64.png) |
 | [Tanılama araması](../../azure-monitor/app/diagnostic-search.md)<br/>Bul ve olayları, ilgili olayları inceleyin ve hatalar oluşturun |![Arama örneği](./media/app-insights-dashboards/61.png) |
 | [Analizler](../../azure-monitor/app/analytics.md)<br/>Güçlü sorgu dili |![Arama örneği](./media/app-insights-dashboards/63.png) |

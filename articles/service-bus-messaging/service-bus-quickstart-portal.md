@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: be08be43269dfb332dca1d5f62ce661940d311cc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bfe6c48b2e83c1ebbbad446f79cebd1f513db57e
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259386"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002680"
 ---
-# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Hızlı başlangıç: Azure portalı ve .NET kullanarak iletileri gönderme ve alma
+# <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Hızlı Başlangıç: Azure portalı ve .NET kullanarak ileti alma ve gönderme
 
 Microsoft Azure Service Bus, güvenli mesajlaşma ve son derece yüksek güvenilirlik sağlayan bir kurumsal tümleştirme ileti aracısıdır. Tipik bir Service Bus senaryosunda çoğunlukla iki veya daha çok uygulama, hizmet veya işlem birbirinden ayrılır ve durum veya veri değişiklikleri aktarılır. Bu tür senaryolar başka bir uygulama veya hizmetlerde birden çok toplu işin zamanlanmasını veya sipariş karşılama işleminin tetiklenmesini içerebilir. Örneğin, bir perakende şirketi satış noktası verilerini yenileme ve stok güncelleştirmeleri için bir arka ofise veya bölgesel dağıtım merkezine gönderebilir. Bu senaryoda, istemci uygulaması Service Bus kuyruğuna iletiler gönderir ve o kuyruktan ileti alır.  
 
@@ -27,7 +27,7 @@ Bu hızlı başlangıçta, mesajlaşma ad alanı ve o ad alanı içinde bir kuyr
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][] oluşturabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için şunları yüklediğinizden emin olun:
 
@@ -59,7 +59,7 @@ Yeni bir ad alanı oluşturulduğunda, her biri ad alanının tüm yönleri üze
 1.  **Tüm kaynaklar**’a ve sonra yeni oluşturulan ad alanı adına tıklayın.
 2. Ad alanı penceresinde **Paylaşılan erişim ilkeleri**'ne tıklayın.
 3. **Paylaşılan erişim ilkeleri** ekranında **RootManageSharedAccessKey** seçeneğine tıklayın.
-4. **İlke: RootManageSharedAccessKey** penceresinde **Birincil Bağlantı Dizesi**'nin yanındaki **Kopyala** düğmesine tıklayın ve bağlantı dizesini daha sonra kullanmak üzere panonuza kopyalayın. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın. 
+4. İçinde **İlkesi: RootManageSharedAccessKey** penceresinde tıklayın **kopyalama** düğmesinin yanındaki **PRIMARY CONNECTION Strıng'i**, bağlantı dizesini Panonuza daha sonra kullanmak üzere kopyalayın. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın. 
 
     ![bağlantı dizesi][connection-string]
 5. **Birincil Anahtar** değerini daha sonra kullanmak üzere geçici bir konuma kopyalayarak önceki adımı tamamlayın.
@@ -77,7 +77,7 @@ Bir Service Bus kuyruğu oluşturmak için kuyruğun altında oluşturulmasını
 
 ## <a name="send-and-receive-messages"></a>İleti alma ve gönderme
 
-Ad alanı ve kuyruğun sağlanmasının ve gerekli kimlik bilgilerine sahip olmanızın ardından ileti gönderip almaya hazırsınız demektir. [Bu GitHub örnek klasöründeki](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-jms) kodu inceleyebilirsiniz.
+Ad alanı ve kuyruğun sağlanmasının ve gerekli kimlik bilgilerine sahip olmanızın ardından ileti gönderip almaya hazırsınız demektir. [Bu GitHub örnek klasöründeki](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters) kodu inceleyebilirsiniz.
 
 Kodu çalıştırmak için aşağıdakileri yapın:
 

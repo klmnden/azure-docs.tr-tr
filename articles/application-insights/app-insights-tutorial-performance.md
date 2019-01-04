@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 669d5995b66322a2a6ad346643444d5a46c4b6f8
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: b870383634412c5b095738e2a7f79b9cf4dcf78a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744420"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018220"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights ile performans sorunlarını bulma ve tanılama
 
@@ -36,7 +36,7 @@ Bu öğreticiyi tamamlamak için:
     - ASP.NET ve web geliştirme
     - Azure geliştirme
 - Azure’a .NET uygulaması dağıtma ve [Application Insights SDK’sını etkinleştirme](../azure-monitor/app/asp-net.md).
-- Uygulamanız için [Application Insights profil oluşturucuyu etkinleştirme](app-insights-profiler.md#installation).
+- Uygulamanız için [Application Insights profil oluşturucuyu etkinleştirme](../azure-monitor/app/profiler.md#installation).
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
@@ -61,7 +61,7 @@ Application Insights, uygulamanızdaki farklı işlemlerin performans ayrıntıl
 
     ![Süre dağılımı](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  Toplam işlem süresini en çok Fabrikamaccount başlıklı Azure Tablosuna yapılan çağrının etkilediğini bir bakışta görebilirsiniz. Ayrıca, işlemin başarısız olmasına neden olan bir özel durum oluştuğunu da görebilirsiniz. Sağ tarafta ayrıntılarını görmek istediğiniz herhangi bir öğeye tıklayabilirsiniz. [İşlem tanılama deneyimi hakkında daha fazla bilgi edinin](app-insights-transaction-diagnostics.md)
+5.  Toplam işlem süresini en çok Fabrikamaccount başlıklı Azure Tablosuna yapılan çağrının etkilediğini bir bakışta görebilirsiniz. Ayrıca, işlemin başarısız olmasına neden olan bir özel durum oluştuğunu da görebilirsiniz. Sağ tarafta ayrıntılarını görmek istediğiniz herhangi bir öğeye tıklayabilirsiniz. [İşlem tanılama deneyimi hakkında daha fazla bilgi edinin](../azure-monitor/app/transaction-diagnostics.md)
 
     ![İşlem ayrıntıları](media/app-insights-tutorial-performance/operation-details.png)
     

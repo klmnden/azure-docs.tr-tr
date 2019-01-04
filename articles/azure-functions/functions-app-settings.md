@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: e8d880534a39651024b60ef10a9fbadb9e109a4e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 336fe8241a65009e9e100dccd12d88f45df4751d
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138254"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999365"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure işlevleri için uygulama ayarları başvurusu
 
@@ -179,7 +179,7 @@ Varsayılan olarak, yeni bir HTTP isteği oluşturmak yerine, işlev uygulaması
 
 |Anahtar|Değer|Açıklama|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Yerel işlev içindeki bir işleve işaret eden bir arka uç URL'si ile çağrıları artık doğrudan işleve gönderilecek ve bunun yerine işlev uygulaması için geri HTTP ön ucu yönlendirilirsiniz|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Yerel bir işleve işaret eden bir arka uç URL'si ile çağrıları işlev uygulaması artık doğrudan işlevini gönderilir ve bunun yerine işlev uygulaması için geri HTTP ön ucu yönlendirilirsiniz|
 |AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Varsayılan değer budur. Yerel bir işleve işaret eden bir arka uç URL'si ile çağrıları işlev uygulaması bu işleve iletilir.|
 
 

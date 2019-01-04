@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f9b2d1a227a210b09e64db8a61d99b216b9b362a
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 657211378d7b38b88ccd40aa31a175058e1ad67c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653161"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015565"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Sağlayın ve tahmin edilebilir bir biçimde azure'da mikro Hizmetleri dağıtın
 Bu öğreticide, sağlamak ve oluşan bir uygulamayı dağıtmak gösterilir [mikro Hizmetler](https://en.wikipedia.org/wiki/Microservices) içinde [Azure App Service](https://azure.microsoft.com/services/app-service/) tek bir birim olarak ve JSON kaynak grubu şablonları kullanarak tahmin edilebilir bir biçimde ve PowerShell komut dosyası. 
@@ -269,3 +269,14 @@ DevOps, Yinelenebilirlik ve tahmin edilebilirlik mikro hizmetlerden oluşan yük
 * [Azure PowerShell’i Azure Resource Manager ile kullanma](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Azure'da kaynak grubu dağıtımıyla ilgili sorunları giderme](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 
+## <a name="next-steps"></a>Sonraki adımlar
+
+Hakkında bilgi edinmek için bu makalede JSON söz dizimi ve kaynak türleri için özellikleri dağıtılırsa, bkz:
+
+* [Microsoft.Sql/servers](/azure/templates/microsoft.sql/servers)
+* [Microsoft.Sql/servers/databases](/azure/templates/microsoft.sql/servers/databases)
+* [Microsoft.Sql/servers/firewallRules](/azure/templates/microsoft.sql/servers/firewallrules)
+* [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
+* [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
+* [Microsoft.Web/sites/slots](/azure/templates/microsoft.web/sites/slots)
+* [Microsoft.Insights/autoscalesettings](/azure/templates/microsoft.insights/autoscalesettings)

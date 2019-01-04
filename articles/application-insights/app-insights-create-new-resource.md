@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3e642e5954a8c1154ca5b07f06f9450e4e9ee39a
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 68155b69c1122d645eca5fe121d32bd9353db2da
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807933"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002731"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights kaynağı oluşturma
 Azure Application Insights, Microsoft Azure'da uygulamanızla ilgili verileri görüntüler *kaynak*. Yeni kaynak oluşturma, bu nedenle parçası [yeni bir uygulama izlemek için Application ınsights'ı ayarlama][start]. Çoğu durumda, bir kaynak oluşturma otomatik olarak IDE tarafından yapılabilir. Ancak bazı durumlarda, bir kaynak el ile - Örneğin, geliştirme için ayrı kaynaklar için oluşturmanız ve uygulamanızı üretim oluşturur.
@@ -66,18 +66,18 @@ Görmek için arama kutucuğuna tıklayın [tanılama araması][diagnostic]ilk o
 Daha fazla veri bekliyorsanız, tıklayın **Yenile** birkaç saniye sonra.
 
 ## <a name="creating-a-resource-automatically"></a>Bir kaynağı otomatik olarak oluşturma
-Yazabileceğiniz bir [PowerShell Betiği](app-insights-powershell.md) otomatik olarak bir kaynak oluşturun.
+Yazabileceğiniz bir [PowerShell Betiği](../azure-monitor/app/powershell.md) otomatik olarak bir kaynak oluşturun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Pano oluşturma](../azure-monitor/app/app-insights-dashboards.md)
 * [Tanılama Araması](../azure-monitor/app/diagnostic-search.md)
-* [Ölçümleri keşfetme](app-insights-metrics-explorer.md)
+* [Ölçümleri keşfetme](../azure-monitor/app/metrics-explorer.md)
 * [Analytics sorguları yazma](../azure-monitor/app/analytics.md)
 
 <!--Link references-->
 
 [api]: ../azure-monitor/app/api-custom-events-metrics.md
 [diagnostic]: ../azure-monitor/app/diagnostic-search.md
-[metrics]: app-insights-metrics-explorer.md
+[metrics]: ../azure-monitor/app/metrics-explorer.md
 [start]: app-insights-overview.md
 

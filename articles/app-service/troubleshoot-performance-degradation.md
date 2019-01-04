@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 790aab75b311b116e6ca03af016e181c11019e27
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 25b8b66e67450cb96cd988efd6dd5ffd03377fde
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726655"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016554"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Azure App Service'te uygulama yavaş performans sorunlarını giderme
 Bu makale, uygulama yavaş performans sorunlarını gidermenize yardımcı olur. [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -114,7 +114,7 @@ Ayrıntılı performans izlemeleri yakalama başlatmak Application Insights Prof
 
 Application Insights Profiler, hangi kod satırının yavaş yanıtlar neden gösteren yanıt süresi içinde her bir web çağrısı ve izlemeler için istatistikler sağlar. App Service uygulaması belirli kod içinde bir yüksek performanslı yazılmaz çünkü bazen yavaş yolu. Kilit çakışması veritabanı paralel ve istenmeyen çalıştırılabilir sıralı kod örnekleri içerir. Bu performans sorunlarını kodda kaldırma uygulamanın performansı artırır ancak ayrıntılı izlemelerini ve günlüklerini ayarlama olmadan algılanması zor olur. Application Insights Profiler ' ı tarafından toplanan izlemeleri, uygulamayı yavaşlatan kod satırlarını tanımlama yardımcı olur ve App Service uygulamaları için bu zorluğun üstesinden gelmek.
 
- Daha fazla bilgi için [Azure App Service Application Insights ile canlı uygulamalarında profil oluşturma](../application-insights/app-insights-profiler.md).
+ Daha fazla bilgi için [Azure App Service Application Insights ile canlı uygulamalarında profil oluşturma](../azure-monitor/app/profiler.md).
 
 ##### <a name="use-remote-profiling"></a>Uzaktan profil oluşturma kullanın
 Azure App Service web apps, API apps, mobil arka uçlar ve Web işleri uzaktan profil oluşturulabilir. Uygulama kaynak erişimi ve sorunu yeniden oluşturmak nasıl bildiğiniz ya da tam zaman aralığını biliyorsanız, performans sorunu olur, bu seçeneği belirleyin.

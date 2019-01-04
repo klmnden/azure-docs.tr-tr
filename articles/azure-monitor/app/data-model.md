@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 6920e1878a8d31072480a6b604e404bb9913f634
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 85541d649a0b2720e3d33b98cea7883b3725f609
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812463"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025156"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Application Insights telemetri veri modeli
 
@@ -55,5 +55,5 @@ Veri modeli veya şema sorunları ve önerileri kullanın GitHub bildirmek için
 
 - [Özel telemetri yazma](../../azure-monitor/app/api-custom-events-metrics.md)
 - Bilgi edinmek için nasıl [genişletmek ve telemetri filtreleme](../../azure-monitor/app/api-filtering-sampling.md).
-- Kullanım [örnekleme](../../application-insights/app-insights-sampling.md) telemetri veri modelini temel alan miktarını en aza indirmek için.
-- Kullanıma [platformları](../../application-insights/app-insights-platforms.md) Application Insights tarafından desteklenir.
+- Kullanım [örnekleme](../../azure-monitor/app/sampling.md) telemetri veri modelini temel alan miktarını en aza indirmek için.
+- Kullanıma [platformları](../../azure-monitor/app/platforms.md) Application Insights tarafından desteklenir.

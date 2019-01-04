@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7df4cb5e988b4037675d5bf1c45ee103d5939568
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322781"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999331"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Öğretici: Zendesk otomatik kullanıcı hazırlama için yapılandırma
 
@@ -168,6 +168,7 @@ Azure AD günlüklerini sağlama okuma hakkında daha fazla bilgi için bkz. [he
 
 ## <a name="connector-limitations"></a>Bağlayıcı sınırlamaları
 * Zendesk gruplarının kullanımı, yalnızca aracı rolleri ile kullanıcılar için destekler. Daha fazla bilgi için bkz [Zendesk'ın belgeleri](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
+* Bir kullanıcı ve/veya grup için özel bir rol atandığında, sağlama hizmetini Azure AD'ye otomatik kullanıcı aynı zamanda varsayılan rol atama **aracı**. Yalnızca **aracıları** özel bir rol atanabilir. Daha fazla bilgi için bu başvuru [Zendesk API belgeleri](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests).  
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

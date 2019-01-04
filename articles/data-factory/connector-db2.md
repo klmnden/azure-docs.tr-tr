@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: f9d1d2181649cf24784dc7ad11638946c9ee4406
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42059260"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019631"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory kullanarak gelen DB2 veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,7 +64,7 @@ DB2 bağlı hizmeti için aşağıdaki özellikleri destekler:
 | type | Type özelliği ayarlanmalıdır: **Db2** | Evet |
 | sunucu |DB2 sunucusunun adı. Aşağıdaki örneğin virgül ile ayrılmış sunucu adı bağlantı noktası numarasını belirtebilirsiniz `server:port`. |Evet |
 | veritabanı |DB2 veritabanı adı. |Evet |
-| authenticationType |DB2 veritabanına bağlanmak için kullanılan kimlik doğrulaması türü.<br/>Değer izin verilen: **temel**. |Evet |
+| authenticationType |DB2 veritabanına bağlanmak için kullanılan kimlik doğrulaması türü.<br/>İzin verilen değeri şudur: **Temel**. |Evet |
 | kullanıcı adı |DB2 veritabanına bağlanmak için kullanıcı adı belirtin. |Evet |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
@@ -182,8 +181,8 @@ DB2'den veri kopyalama işlemi sırasında aşağıdaki eşlemeler DB2 veri tür
 | Tarih |Tarih saat |
 | DB2DynArray |Dize |
 | DbClob |Dize |
-| Ondalık |Ondalık |
-| DecimalFloat |Ondalık |
+| Onluk |Onluk |
+| DecimalFloat |Onluk |
 | çift |çift |
 | Kayan |çift |
 | Grafiği |Dize |
@@ -191,7 +190,7 @@ DB2'den veri kopyalama işlemi sırasında aşağıdaki eşlemeler DB2 veri tür
 | LONGVARBINARY |Bayt] |
 | LongVarChar |Dize |
 | LongVarGraphic |Dize |
-| Sayısal |Ondalık |
+| Sayısal |Onluk |
 | Real |Tek |
 | Tamsayı |Int16 |
 | Zaman |Zaman aralığı |

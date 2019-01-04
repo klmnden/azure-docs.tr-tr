@@ -1,6 +1,6 @@
 ---
-title: Program aracılığıyla bir Azure data factory izleme | Microsoft Docs
-description: Farklı yazılım geliştirme setleri (SDK) kullanarak bir veri fabrikasında ardışık düzeni izlemek öğrenin.
+title: Program aracılığıyla bir Azure data factory izleyin | Microsoft Docs
+description: Farklı yazılım geliştirme setleri (SDK'lar) kullanarak bir veri fabrikasında bir işlem hattını izleme hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -9,30 +9,29 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 343af57cc8f3e63965dc1fe1827b2945009ea8bf
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e004dc6b7d78849705f8d3fa3545efe7318d3911
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045791"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022810"
 ---
-# <a name="programmatically-monitor-an-azure-data-factory"></a>Program aracılığıyla bir Azure data factory izleme
-Bu makalede, farklı yazılım geliştirme setleri (SDK) kullanarak bir veri fabrikasında ardışık düzeni izlemek açıklar. 
+# <a name="programmatically-monitor-an-azure-data-factory"></a>Program aracılığıyla bir Azure data factory izleyin
+Bu makalede, farklı yazılım geliştirme setleri (SDK'lar) kullanarak bir veri fabrikasında bir işlem hattı izlemek açıklar. 
 
 ## <a name="data-range"></a>Veri aralığı
 
-Veri Fabrikası yalnızca ardışık düzen veri 45 gün çalıştırmak depolar. Sorguladığınızda program aracılığıyla Data Factory işlem hattı çalışır hakkında-veriler için örneğin, PowerShell komutuyla `Get-AzureRmDataFactoryV2PipelineRun` -isteğe bağlı için en fazla tarih vardır `LastUpdatedAfter` ve `LastUpdatedBefore` parametreleri. Ancak, sorgu için veri ve geçen yıl, örneğin, sorgu bir hata döndürmez, ancak yalnızca döndürür, son 45 gün çalışma veri kanalı.
+Veri Fabrikası işlem hattı 45 gün boyunca veri çalıştırması yalnızca depolar. Sorguladığınızda programlı olarak Data Factory işlem hattı çalıştırmaları - ilgili veriler için örnek PowerShell komutuyla `Get-AzureRmDataFactoryV2PipelineRun` -tarih yok için isteğe bağlı `LastUpdatedAfter` ve `LastUpdatedBefore` parametreleri. Ancak, verileri sorgulamak için önceki yıl, örneğin, sorgu bir hata döndürmez, ancak yalnızca döndürür, son 45 güne ait çalıştırma veri işlem hattı.
 
-Kendi tanılama günlük kaydıyla 45 günden fazla bir süre için veri çalıştırmak ardışık düzen kalıcı hale getirmek istiyorsanız, ayarlama [Azure İzleyici](monitor-using-azure-monitor.md).
+İşlem hattı 45 gün boyunca veri çalıştırması kalıcı hale getirmek isterseniz, kendi tanılama günlüğüne kaydetme ile ayarlama [Azure İzleyici](monitor-using-azure-monitor.md).
 
 ## <a name="net"></a>.NET
-Oluşturma ve .NET SDK kullanarak bir işlem hattı izleme izlenecek tam yol için bkz: [bir veri fabrikası oluşturun ve .NET kullanarak kanal](quickstart-create-data-factory-dot-net.md).
+Oluşturma ve .NET SDK'sını kullanarak bir işlem hattı izlemek üzere izlenecek tam yol için bkz: [veri fabrikası oluşturma ve .NET kullanarak işlem hattı](quickstart-create-data-factory-dot-net.md).
 
-1. Sürekli olarak veri kopyalama sonlanana kadar çalıştırmak ardışık düzen durumunu denetlemek için aşağıdaki kodu ekleyin.
+1. İşlem hattı verileri kopyalama işlemi tamamlanıncaya kadar çalıştırma durumunu sürekli olarak denetlemek için aşağıdaki kodu ekleyin.
 
     ```csharp
     // Monitor the pipeline run
@@ -49,7 +48,7 @@ Oluşturma ve .NET SDK kullanarak bir işlem hattı izleme izlenecek tam yol iç
     }
     ```
 
-2. Aşağıdaki kodu ayrıntıları, örneğin, çalıştırmak, alır kopyalama etkinliği için okunur/yazılır veri boyutu ekleyin.
+2. Çalıştırma ayrıntıları, örneğin, bu alır kopyalama etkinliğine okunan/yazılan verilerin boyutu aşağıdaki kodu ekleyin.
 
     ```csharp
     // Check the copy activity run details
@@ -65,12 +64,12 @@ Oluşturma ve .NET SDK kullanarak bir işlem hattı izleme izlenecek tam yol iç
     Console.ReadKey();
     ```
 
-.NET SDK'sı kapsamlı belgeler için bkz: [veri fabrikası .NET SDK'sı başvurusu](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
+.NET SDK'sı ile ilgili kapsamlı belgeler için bkz. [Data Factory .NET SDK başvuru](/dotnet/api/microsoft.azure.management.datafactory?view=azure-dotnet).
 
 ## <a name="python"></a>Python
-Oluşturma ve Python SDK'sını kullanarak bir işlem hattı izleme izlenecek tam yol için bkz: [bir veri fabrikası oluşturun ve Python kullanarak kanal](quickstart-create-data-factory-python.md).
+Oluşturma ve Python SDK'sını kullanarak bir işlem hattı izlemek üzere izlenecek tam yol için bkz: [veri fabrikası oluşturma ve Python kullanarak işlem hattı](quickstart-create-data-factory-python.md).
 
-Ardışık Düzen Çalıştır izlemek için aşağıdaki kodu ekleyin:
+İşlem hattı çalıştırmasını izlemek için aşağıdaki kodu ekleyin:
 
 ```python
 #Monitor the pipeline run
@@ -81,10 +80,10 @@ activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name
 print_activity_run_details(activity_runs_paged[0])
 ```
 
-Python SDK'sı kapsamlı belgeler için bkz: [veri fabrikası Python SDK'sı başvurusu](/python/api/overview/azure/datafactory?view=azure-python).
+Python SDK'sı ile ilgili kapsamlı belgeler için bkz. [Data Factory Python SDK başvurusu](/python/api/overview/azure/datafactory?view=azure-python).
 
 ## <a name="rest-api"></a>REST API
-Oluşturma ve REST API kullanarak bir işlem hattı izleme izlenecek tam yol için bkz: [bir veri fabrikası oluşturun ve REST API kullanarak kanal](quickstart-create-data-factory-rest-api.md).
+Oluşturma ve REST API kullanarak bir işlem hattı izlemek üzere izlenecek tam yol için bkz: [veri fabrikası oluşturma ve REST API kullanarak işlem hattı](quickstart-create-data-factory-rest-api.md).
  
 1. İşlem hattı çalıştırma durumunu, verileri kopyalama işlemi tamamlanıncaya kadar sürekli olarak denetlemek için aşağıdaki betiği çalıştırın.
 
@@ -111,10 +110,10 @@ Oluşturma ve REST API kullanarak bir işlem hattı izleme izlenecek tam yol iç
     $response | ConvertTo-Json
     ```
 
-REST API üzerindeki tüm belgeler için bkz: [veri fabrikası REST API Başvurusu](/rest/api/datafactory/).
+REST API ile ilgili kapsamlı belgeler için bkz. [Data Factory REST API Başvurusu](/rest/api/datafactory/).
 
 ## <a name="powershell"></a>PowerShell
-Oluşturma ve PowerShell kullanarak bir işlem hattı izleme izlenecek tam yol için bkz: [bir veri fabrikası oluşturun ve PowerShell kullanarak kanal](quickstart-create-data-factory-powershell.md).
+Oluşturma ve PowerShell kullanarak bir işlem hattı izlemek üzere izlenecek tam yol için bkz: [veri fabrikası oluşturma ve PowerShell kullanarak işlem hattı](quickstart-create-data-factory-powershell.md).
 
 1. İşlem hattı çalıştırma durumunu, verileri kopyalama işlemi tamamlanıncaya kadar sürekli olarak denetlemek için aşağıdaki betiği çalıştırın.
 
@@ -148,8 +147,8 @@ Oluşturma ve PowerShell kullanarak bir işlem hattı izleme izlenecek tam yol i
     $result.Error -join "`r`n"
     ```
 
-PowerShell cmdlet'leri hakkında kapsamlı belgeler için bkz: [veri fabrikası PowerShell cmdlet başvurusunun](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
+PowerShell cmdlet'leri hakkında kapsamlı belgeler için bkz. [Data Factory PowerShell cmdlet başvurusu](/powershell/module/azurerm.datafactoryv2/?view=azurermps-4.4.1).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bkz: [İzleyici ardışık düzenleri Azure İzleyicisi'ni kullanarak](monitor-using-azure-monitor.md) makale Data Factory işlem hatlarını izlemek için Azure İzleyicisi'ni kullanma hakkında bilgi edinin. 
+Bkz: [işlem hatlarını izleme Azure İzleyicisi'ni kullanarak](monitor-using-azure-monitor.md) makale, Data Factory işlem hatlarını izlemek için Azure İzleyicisi'ni kullanma hakkında bilgi edinmek için. 
 

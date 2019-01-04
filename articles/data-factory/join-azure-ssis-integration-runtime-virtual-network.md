@@ -6,19 +6,18 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 1afd98026a2aad552258b636ba078ca4f9bd2d58
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a228bba9effeb803fcc664e06448646b06645d5e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723151"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015636"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure-SSIS tümleştirme çalışma zamanını bir sanal ağa katılın
 Bir Azure sanal ağına aşağıdaki senaryolarda, Azure-SSIS Integration runtime (IR) katılın: 
@@ -124,7 +123,7 @@ Veya kullanıcı tanımlı yollar (Udr) bir güvenlik duvarı veya bir çevre ko
 
 Her iki durumda da, sonraki atlama türü ile 0.0.0.0/0 rota uygulamak **Internet** Azure-SSIS IR barındıran ve böylece Data Factory hizmeti olan Azure-SSIS IR arasındaki iletişimi başarılı olabilmesi için alt ağda. 
 
-![Bir rota ekleyin](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
+![Yol ekleme](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
 
 Bu alt ağdan giden Internet trafiğini denetleme olanağı kaybetmekten endişeleriniz varsa da bir NSG kuralı Giden hedeflere kısıtlamak için alt ağda ekleyebilirsiniz [Azure veri merkezi IP adresleri](https://www.microsoft.com/download/details.aspx?id=41653). 
 

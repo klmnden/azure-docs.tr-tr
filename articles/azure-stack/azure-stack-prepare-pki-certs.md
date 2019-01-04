@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5f31d995ba4390eb5a893c3ebde49ee4e96e8023
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631490"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021144"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Azure Stack PKI sertifikaları dağıtımı veya döndürme kullanım için hazırlama
 Sertifika dosyalarını [seçim, CA'dan alınan](azure-stack-get-pki-certs.md) içeri ve dışarı Azure yığını'nın sertifika gereksinimleri eşleşen özelliklere sahip.
@@ -73,7 +73,14 @@ Sertifika Yöneticisi MMC konsolu açın ve yerel makine sertifika deposuna bağ
 
 1. Seçin **Evet, özel anahtarı dışarı aktar**ve ardından **sonraki**.
 
-1. Dışarı aktarma dosyası biçimi bölümünde **tüm genişletilmiş özellikleri dışarı** ve ardından **sonraki**.
+1. Dışarı aktarma dosyası biçimi bölümüne:
+    
+    - Seçin **mümkünse sertifika tüm sertifikaları dahil et**.  
+    - Seçin **tüm genişletilmiş özellikleri dışarı**.  
+    - Seçin **etkinleştirme sertifika gizlilik**.  
+    - **İleri**’ye tıklayın.  
+    
+    ![Sertifika Dışarı Aktarma Sihirbazı ile seçili Seçenekler](./media/prepare-pki-certs\azure-stack-save-cert.png)
 
 1. Seçin **parola** ve sertifikalar için bir parola belirtin. Dağıtım parametresi olarak kullanıldığından, bu parolayı unutmayın. **İleri**’yi seçin.
 
@@ -82,4 +89,5 @@ Sertifika Yöneticisi MMC konsolu açın ve yerel makine sertifika deposuna bağ
 1. **Son**’u seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 [PKI sertifikalarını doğrulama](azure-stack-validate-pki-certs.md)

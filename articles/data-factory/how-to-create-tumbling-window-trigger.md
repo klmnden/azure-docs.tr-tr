@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: shlo
-ms.openlocfilehash: 4f124be9ef2247ab91d1e968b4533297ee8dba02
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6efccdb3034bb25e60904c858f346ff9a5695fc0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437257"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019733"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Bir atlayan pencere üzerinde bir işlem hattı çalıştırmalarını tetiği oluşturma
 Bu makalede, oluşturmak, başlatmak ve bir atlayan pencere tetikleyicisi izlemek için adımları sağlar. Tetikleyiciler ve desteklenen türler hakkında genel bilgi için bkz. [işlem hattı yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
@@ -76,7 +75,7 @@ Bir atlayan pencere aşağıdaki tetikleyici türü özellikleri vardır:
 
 Aşağıdaki tabloda, ilgili yinelenmesi ve zamanlanmasıyla atlayan pencere tetikleyicisi olan ana JSON öğeleri üst düzey bir genel bakış sağlar:
 
-| JSON öğesi | Açıklama | Tür | İzin verilen değerler | Gerekli |
+| JSON öğesi | Açıklama | Tür | İzin verilen değerler | Gereklidir |
 |:--- |:--- |:--- |:--- |:--- |
 | **type** | Tetikleyici türü. Sabit değer "TumblingWindowTrigger." türüdür | Dize | "TumblingWindowTrigger" | Evet |
 | **runtimeState** | Çalışma zamanı tetikleyicisinin geçerli durumu.<br/>**Not**: Bu öğe \<salt okunur >. | Dize | "Started" "Stopped" "Disabled" | Evet |

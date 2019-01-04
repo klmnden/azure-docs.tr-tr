@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory'de Azure tümleştirme çalışma zamanı oluşturma | Microsoft Docs
-description: Azure veri veri kopyalamak ve dönüştürme etkinlikleri gönderme için kullanılan fabrikada Azure tümleştirme çalışma zamanı oluşturmayı öğrenin.
+description: Azure Integration runtime, Azure veri dönüştürme etkinliklerini gönderme ve veri kopyalama için kullanılan Factory'de oluşturmayı öğrenin.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -8,40 +8,39 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: douglasl
-ms.openlocfilehash: cb1a263c0a33a291a44e7c60b3c032d7f9dc16a3
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f9dfb2dde4c49d9ca167b0f4ea6af28bd1db6872
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054084"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013596"
 ---
-# <a name="how-to-create-and-configure-azure-integration-runtime"></a>Oluşturma ve Azure tümleştirmesi çalışma zamanı yapılandırma
-Tümleştirme çalışma zamanı (IR), farklı ağ ortamlar genelinde veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır. IR hakkında daha fazla bilgi için bkz: [tümleştirmesi çalışma zamanı](concepts-integration-runtime.md).
+# <a name="how-to-create-and-configure-azure-integration-runtime"></a>Oluşturma ve Azure tümleştirme çalışma zamanını yapılandırma
+Integration Runtime (IR) Azure Data Factory tarafından farklı ağ ortamları veri tümleştirme özellikleri sağlamak için kullanılan işlem altyapısıdır. IR hakkında daha fazla bilgi için bkz: [Integration runtime](concepts-integration-runtime.md).
 
-Azure IR yerel işlem Hdınsight gibi hizmetleri için veri hareketlerini ve gönderme veri dönüştürme etkinlikleri gerçekleştirmek için tam olarak yönetilen bir işlem sağlar. Azure Ortamı'nda barındırılan ve ortak erişilebilir uç noktaları ortak ağ ortamında kaynaklara bağlanmayı destekler.
+Azure IR işlem HDInsight gibi hizmetleri için veri taşıma ve dağıtım veri dönüştürme etkinlikleri yerel olarak gerçekleştirilecek tam olarak yönetilen bir işlem sağlar. Bu, Azure ortamında barındırılan ve genel erişime açık Uç noktalara sahip genel ağ ortamında kaynaklarına bağlanmayı destekler.
 
-Bu belge nasıl oluşturma ve Azure tümleştirmesi çalışma zamanı yapılandırma tanıtır. 
+Bu belge, nasıl oluşturabilir ve Azure Integration Runtime yapılandırma tanıtır. 
 
 ## <a name="default-azure-ir"></a>Varsayılan Azure IR
-Varsayılan olarak, her veri fabrikası Azure IR verileri depolar ve ortak ağ Hizmetleri'nde işlem buluttaki işlemlerini destekleyen arka uç vardır. Bu Azure IR otomatik Çözümle konumdur. Varsa **connectVia** Özelliği Azure IR kullanılan varsayılan bağlantılı hizmet tanımı'nda belirtilmedi. Yalnızca bir Azure IR açıkça IR konumunu tanımlamak istersiniz veya neredeyse yönetim amaçla farklı IRS üzerinde etkinlik yürütmeleri Grup istiyorsanız açıkça oluşturmanız gerekir. 
+Varsayılan olarak, her veri fabrikasının bulut veri depoları ve işlem hizmetlerini ortak ağ işlemleri destekler arka Azure IR vardır. Bu Azure IR konumunu otomatik çözümleme ' dir. Varsa **connectVia** Özelliği Azure IR kullanılır. varsayılan bağlı hizmet tanımında belirtilmedi. Azure IR açıkça IR konumunu tanımlamak istediğiniz zaman ya da Yönetim amaçla farklı IRS üzerinde Etkinlik yürütme neredeyse Grup istiyorsanız açıkça oluşturmanız yeterlidir. 
 
 ## <a name="create-azure-ir"></a>Azure IR oluşturma
-Tümleştirme çalışma zamanı kullanılarak oluşturulabilir **kümesi AzureRmDataFactoryV2IntegrationRuntime** PowerShell cmdlet'i. Bir Azure IR oluşturmak için ad, konum ve türünü komutu belirtin. Bir Azure IR "Batı Avrupa" ayarladığınız konumu oluşturmak için bir örnek komut şöyledir:
+Tümleştirme çalışma zamanı kullanılarak oluşturulabilir **kümesi AzureRmDataFactoryV2IntegrationRuntime** PowerShell cmdlet'i. Azure IR oluşturmak için adını, konumunu ve komut türü belirtin. Azure IR konumunu ayarla "Batı Avrupa'ya" oluşturmak için bir örnek komutu aşağıda verilmiştir:
 
 ```powershell
 Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName "SampleV2DataFactory1" -Name "MySampleAzureIR" -ResourceGroupName "ADFV2SampleRG" -Type Managed -Location "West Europe"
 ```  
-Azure IR türü ayarlamak **yönetilen**. Bu tam olarak özellikler esnek bulutta yönetildiğinden dolayı işlem ayrıntılarını belirtmek gerekmez. İşlem belirtin zaman Azure SSIS IR oluşturmak istediğinizi düğüm boyutu ve düğüm sayısı gibi ayrıntıları Daha fazla bilgi için bkz: [oluşturma ve yapılandırma Azure SSIS IR](create-azure-ssis-integration-runtime.md).
+Azure IR için türü ayarlanmalıdır **yönetilen**. Tam olarak esnek bir şekilde bulutta yönetilen işlem ayrıntılarını belirtmeniz gerekmez. İşlem belirtin, Azure-SSIS IR oluşturmak istediğiniz düğüm boyutunu ve düğüm sayısı gibi ayrıntıları Daha fazla bilgi için [oluşturma ve yapılandırma Azure-SSIS IR](create-azure-ssis-integration-runtime.md).
 
-Set-AzureRmDataFactoryV2IntegrationRuntime PowerShell cmdlet'ini kullanarak konumunu değiştirmek için varolan bir Azure IR yapılandırabilirsiniz. Bir Azure IR konumu hakkında daha fazla bilgi için bkz: [tümleştirmesi çalışma zamanı giriş](concepts-integration-runtime.md).
+Set-AzureRmDataFactoryV2IntegrationRuntime PowerShell cmdlet'ini kullanarak konumunu değiştirmek için mevcut Azure IR yapılandırabilirsiniz. Azure IR konumu hakkında daha fazla bilgi için bkz: [tümleştirme çalışma zamanı giriş](concepts-integration-runtime.md).
 
 ## <a name="use-azure-ir"></a>Azure IR kullanın
 
-Bir Azure IR oluşturulduktan sonra bağlantılı hizmet tanımında başvuruda bulunabilir. Aşağıda Azure tümleştirmesi çalışma zamanı nasıl başvurabilir, bir örnek yukarıda Azure depolama bağlantılı hizmetinden oluşturulur:  
+Azure IR oluşturulduktan sonra bağlı hizmet tanımında başvuruda bulunabilir. Aşağıda Azure tümleştirme çalışma zamanının nasıl başvurabileceğiniz bir örnek yukarıda bir Azure depolama bağlı hizmet oluşturulur:  
 
 ```json
 {
@@ -67,5 +66,5 @@ Bir Azure IR oluşturulduktan sonra bağlantılı hizmet tanımında başvuruda 
 Tümleştirme çalışma zamanları diğer türleri oluşturma konusunda aşağıdaki makalelere bakın:
 
 - [Kendinden konak tümleştirme çalışma zamanı oluşturma](create-self-hosted-integration-runtime.md)
-- [Azure SSIS tümleştirmesi çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md)
+- [Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md)
  

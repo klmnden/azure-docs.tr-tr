@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 90c36e728a8ec91606f93c080258eeca9c3825e6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423737"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020787"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach etkinliği, Azure Data Factory
 ForEach etkinliği, işlem hattınızda yinelenen bir denetim akışını tanımlar. Bu etkinlik bir koleksiyon üzerinde yinelemek için kullanılır ve bir döngüde belirtilen etkinlikleri yürütür. Bu etkinliğin döngü uygulaması, programlama dillerindeki Foreach döngü yapısına benzer.
@@ -70,14 +69,14 @@ ForEach etkinliği, işlem hattınızda yinelenen bir denetim akışını tanım
 
 ## <a name="type-properties"></a>Tür özellikleri
 
-Özellik | Açıklama | İzin verilen değerler | Gerekli
+Özellik | Açıklama | İzin verilen değerler | Gereklidir
 -------- | ----------- | -------------- | --------
 ad | İçin-her etkinliğin adı. | Dize | Evet
 type | Ayarlanmalıdır **ForEach** | Dize | Evet
 isSequential | Sıralı veya paralel döngü gerçekleştirilip gerçekleştirilmeyeceğini belirtir.  En fazla 20 döngü yinelemesi aynı anda paralel olarak gerçekleştirilebilir). Örneğin, bir ForEach etkinliği bir kopyalama etkinliği ile 10 farklı kaynak ve havuz veri kümeleri üzerinde yineleme varsa **isSequential** False olarak ayarlanırsa, tüm kopyaları aynı anda çalıştırılır. False varsayılan değerdir. <br/><br/> "İsSequential" False olarak ayarlarsanız, birden fazla yürütülebilir dosyaları çalıştırmasına doğru bir yapılandırma olduğundan emin olun. Aksi takdirde, bu özellik yazma çakışmalarını ücretlendirmeden kaçınmak için dikkatli kullanılmalıdır. Daha fazla bilgi için [Paralel yürütme](#parallel-execution) bölümü. | Boole | Hayır. False varsayılan değerdir.
 batchCount | (İsSequential false olarak ayarlandığında) paralel yürütme sayısını kontrol etmek için kullanılacak toplu iş sayısı. | Tamsayı (maksimum 50) | Hayır. Varsayılan 20'dir.
 Öğeler | Bir JSON dizisi üzerinde yinelenir döndüren bir ifade. | (Bir JSON dizisi döndüren) ifadesi | Evet
-Etkinlikler | Yürütülecek etkinlikler. | Etkinlikler listesi | Evet
+Etkinlikler | Yürütülecek etkinlikler. | Etkinlikler Listesi | Evet
 
 ## <a name="parallel-execution"></a>Paralel yürütme
 Varsa **isSequential** 20 eş zamanlı yinelemeler için en fazla paralel etkinlik yinelenir false olarak ayarlayın. Bu ayarı dikkatli kullanılmalıdır. Eş zamanlı yinelemeleri aynı klasöre ancak farklı dosyalar yazıyorsanız, bu iyi bir yaklaşımdır. Eş zamanlı yinelemeleri tam aynı dosyaya eşzamanlı olarak yazıyorsanız, bu yaklaşım büyük olasılıkla bir hataya neden olur. 
@@ -86,7 +85,7 @@ Varsa **isSequential** 20 eş zamanlı yinelemeler için en fazla paralel etkinl
 ForEach etkinliği, üzerinde özellik için yinelendiğinde için bir dizi sağlamak **öğeleri**. " Kullanım `@item()` ForEach etkinliği, tek bir sabit listesi yinelemek için. Örneğin, varsa **öğeleri** dizisi: [1, 2, 3], `@item()` ilk yinelemeyi ikinci Yineleme 2 ve 3'te üçüncü yineleme 1 döndürür.
 
 ## <a name="iterating-over-a-single-activity"></a>Tek bir etkinlik yineleme yapma
-**Senaryo:** Azure Blob aynı kaynak dosyada bir kopyasından birden çok hedef dosyaları Azure BLOB için.
+**Senaryo:** Azure Blob aynı kaynak dosyada Azure Blob içinde birden çok hedef dosyaları kopyalayın.
 
 ### <a name="pipeline-definition"></a>İşlem hattı
 
@@ -237,7 +236,7 @@ Birden çok etkinlik yinelemek mümkündür (örneğin: kopyalama ve web etkinli
 
 ```
 ### <a name="example"></a>Örnek
-**Senaryo:** Iterate bir ForEach etkinliği ile işlem hattı yürütme etkinliği içinde bir InnerPipeline üzerinden. İç işlem hattı ile parametreli şema tanımları kopyalar.
+**Senaryo:** Bir ForEach etkinliği ile işlem hattı yürütme etkinliği içinde bir InnerPipeline üzerinden yineleme yapma. İç işlem hattı ile parametreli şema tanımları kopyalar.
 
 #### <a name="master-pipeline-definition"></a>Ana işlem hattı
 

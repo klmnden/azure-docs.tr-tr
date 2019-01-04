@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: f733a321470321b5b0f8bce48b4ac7978027fab7
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 193e024b4691b76b08bcbe15ace35ccafd45c394
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973477"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023456"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtreleme ve telemetri, Application Insights SDK'sı ön işleme
 
 
 Yazma ve nasıl telemetri yakalanır ve Application Insights hizmetine gönderilmeden önce işlenen özelleştirmek Application Insights SDK için eklentileri yapılandırın.
 
-* [Örnekleme](../../application-insights/app-insights-sampling.md) istatistiklerinizi etkilemeden telemetri hacmini azaltır. Birlikte tutar ilgili veri noktaları, aralarında bir sorun tanılarken gidebilirsiniz. Portalda, örnekleme için dengelemek için toplam sayısı çarpılır.
+* [Örnekleme](../../azure-monitor/app/sampling.md) istatistiklerinizi etkilemeden telemetri hacmini azaltır. Birlikte tutar ilgili veri noktaları, aralarında bir sorun tanılarken gidebilirsiniz. Portalda, örnekleme için dengelemek için toplam sayısı çarpılır.
 * Telemetri işlemcilerle filtreleme [ASP.NET](#filtering) veya [Java](../../azure-monitor/app/java-filter-telemetry.md) seçin ya da sunucuya gönderilmeden önce SDK telemetri değiştirme sağlar. Örneğin, istekleri robotlar hariç tutarak telemetri hacmini azaltabilir. Ancak filtreleme topluyor trafiğini azaltmak için daha basit bir yaklaşım. Ne iletilen üzerinde daha fazla denetim sağlar, ancak tüm başarılı isteklerini filtrelerseniz bu istatistiklerinizi - Örneğin, etkiler dikkat etmelisiniz.
 * [Telemetri başlatıcılar Ekle özellikleri](#add-properties) uygulamanızdan telemetri standart modüllerden dahil olmak üzere gönderilen tüm telemetri için. Örneğin, hesaplanan değerler ekleyebilirsiniz; veya sürüm numaraları, Portalı'nda verilere filtre uygulamak.
 * [SDK API'si](../../azure-monitor/app/api-custom-events-metrics.md) özel olaylar ve ölçümler göndermek için kullanılır.
@@ -43,7 +43,7 @@ Telemetri filtreleme için telemetri işlemci yazma ve SDK'sı ile kaydedin. Tü
 > [!WARNING]
 > SDK'sından gönderilen telemetri filtreleme işlemci kullanma portalında gördüğünüz istatistikleri eğriltmek ve onu ilgili öğeleri takip etmek zor hale getirebilirsiniz.
 >
-> Bunun yerine, kullanmayı [örnekleme](../../application-insights/app-insights-sampling.md).
+> Bunun yerine, kullanmayı [örnekleme](../../azure-monitor/app/sampling.md).
 >
 >
 
@@ -371,5 +371,5 @@ Telemetri işlemciler ve telemetri başlatıcılar arasındaki fark nedir?
 
 ## <a name="next"></a>Sonraki adımlar
 * [Arama olayları ve günlükleri](../../azure-monitor/app/diagnostic-search.md)
-* [Örnekleme](../../application-insights/app-insights-sampling.md)
+* [Örnekleme](../../azure-monitor/app/sampling.md)
 * [Sorun giderme](../../application-insights/app-insights-troubleshoot-faq.md)

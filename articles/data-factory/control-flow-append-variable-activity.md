@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: douglasl
-ms.openlocfilehash: 03652ce20d82565d5714cdc43a01a9e7c3074f6a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e904075908fe7108c0566856b25fe03be0b7fd86
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904381"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023827"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Azure Data factory'de değişken etkinlik ekleme
 
@@ -26,7 +25,7 @@ Değişken Ekle etkinliği, bir veri fabrikası ardışık düzeninde tanımlana
 
 ## <a name="type-properties"></a>Tür özellikleri
 
-Özellik | Açıklama | Gerekli
+Özellik | Açıklama | Gereklidir
 -------- | ----------- | --------
 ad | İşlem hattındaki etkinliğin adı | Evet
 açıklama | Etkinliğin ne yaptığını açıklayan metin | hayır

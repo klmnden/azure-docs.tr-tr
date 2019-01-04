@@ -1,6 +1,6 @@
 ---
 ms.assetid: ''
-title: Azure Key Vault güvenlik duvarları ve sanal ağları yapılandırma
+title: Azure Key Vault güvenlik duvarları ve sanal ağları - Azure Key Vault yapılandırma
 description: Key Vault güvenlik duvarları ve sanal ağları yapılandırmak için adım adım yönergeler
 services: key-vault
 author: amitbapat
@@ -8,14 +8,14 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/31/2018
+ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: 7dd768d3f0059f4b26f09298992483553f1508d2
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 09a19b92a496650f94be208d4f463f1fb3fa4256
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681255"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001864"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Azure Key Vault güvenlik duvarları ve sanal ağları yapılandırma
 
@@ -115,7 +115,7 @@ PowerShell kullanarak Key Vault güvenlik duvarları ve sanal ağları yapıland
 ## <a name="references"></a>Başvurular
 
 * Azure CLI 2.0 komutlarını: [az keyvault ağ-rule](https://docs.microsoft.com/cli/azure/keyvault/network-rule?view=azure-cli-latest)
-* Azure PowerShell cmdlet'leri: [Get-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurermkeyvault), [Ekle AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureRmKeyVaultNetworkRule), [Remove-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureRmKeyVaultNetworkRule), [ Güncelleştirme AzureRmKeyVaultNetworkRuleSet](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureRmKeyVaultNetworkRuleSet)
+* Azure PowerShell cmdlet'leri: [Get-AzureRmKeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurermkeyvault), [ekleme AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureRmKeyVaultNetworkRule), [Remove-AzureRmKeyVaultNetworkRule](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureRmKeyVaultNetworkRule), [AzureRmKeyVaultNetworkRuleSet güncelleştirme](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureRmKeyVaultNetworkRuleSet)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

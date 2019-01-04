@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 8bc725a5d9e3e9cdf82a01693aed83bff1f16c04
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: c2202a194c3912bd9a8b8f534df792e6f1a3543b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991698"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998702"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Node.js Web Uygulamanızı İzlemeye Başlama
 
@@ -23,7 +23,7 @@ Azure Application Insights ile web uygulamanızı kullanılabilirlik, performans
 
 Bu hızlı başlangıç, Node.js için Application Insights SDK sürüm 0.22’yi var olan bir Node.js web uygulamasına eklerken size kılavuzluk eder.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 
@@ -124,7 +124,7 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
    ![Sunucu ölçüm grafiği](./media/app-insights-nodejs-quick-start/009-Black.png)
 
-Node.js izleme hakkında daha fazla bilgi için [ek App Insights Node.js belgelerine](app-insights-nodejs.md) bakın.
+Node.js izleme hakkında daha fazla bilgi için [ek App Insights Node.js belgelerine](../azure-monitor/app/nodejs.md) bakın.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

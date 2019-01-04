@@ -1,6 +1,6 @@
 ---
-title: Data Factory kullanarak Cassandra veri taşıma | Microsoft Docs
-description: Azure Data Factory kullanarak bir şirket içi Cassandra veritabanından veri taşıma hakkında bilgi edinin.
+title: Data Factory ile Cassandra ' veri taşıma | Microsoft Docs
+description: Azure Data Factory kullanarak bir şirket içi Cassandra veritabanındaki verileri veri taşıma hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,115 +9,114 @@ ms.assetid: 085cc312-42ca-4f43-aa35-535b35a102d5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c4ed3a22d3ad4e227178e8ac265cc97050e31ee6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: dd90834a2e112effbfd6876b84dfe8b3ca87fcf3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054318"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015653"
 ---
-# <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Azure Data Factory kullanarak bir şirket içi Cassandra veritabanından veri taşıma
+# <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Azure Data Factory kullanarak şirket içi Cassandra veritabanındaki veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](data-factory-onprem-cassandra-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-cassandra.md)
 
 > [!NOTE]
-> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 Cassandra Bağlayıcısı](../connector-cassandra.md).
+> Bu makale, Data Factory’nin 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 Cassandra bağlayıcısında](../connector-cassandra.md).
 
-Bu makalede kopya etkinliği Azure Data Factory'de bir şirket içi Cassandra veritabanından veri taşımak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi.
+Bu makalede, bir şirket içi Cassandra veritabanındaki verileri taşımak için Azure Data Factory kopyalama etkinliği kullanmayı açıklar. Yapılar [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalesi, kopyalama etkinliği ile verileri taşıma genel bir bakış sunar.
 
-Bir şirket içi Cassandra veri deposundan verileri herhangi bir desteklenen havuz veri deposuna kopyalayabilirsiniz. Veri depoları havuzlarını kopyalama etkinliği tarafından desteklenen bir listesi için bkz: [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Veri Fabrikası şu anda yalnızca veri taşımayı Cassandra veri deposundan diğer veri depolarına, ancak verileri diğer veri depolarına Cassandra veri deposuna taşıma değil destekler. 
+Şirket içi Cassandra veri deposundan desteklenen bir havuz veri deposuna veri kopyalayabilirsiniz. Havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Data factory şu anda yalnızca veri taşımayı Cassandra veri deposundan verileri diğer veri depolarına bir Cassandra veri deposuna taşımak için değil ancak diğer veri depolarını destekler. 
 
 ## <a name="supported-versions"></a>Desteklenen sürümler
-Cassandra bağlayıcı Cassandra aşağıdaki sürümlerini destekler: 2.x ve 3.x. Self-hosted tümleştirme çalışma zamanı, 3.x IR sürüm 3.7'den itibaren ve üstünde desteklenir Cassandra çalışan etkinliği.
+Cassandra bağlayıcı Cassandra aşağıdaki sürümlerini destekler: 2.x ve 3.x. Şirket içinde barındırılan tümleştirme çalışma zamanı, Cassandra 3.x IR sürüm 3.7'den itibaren ve üstünde desteklenir üzerinde çalışan etkinlik için.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Azure Data Factory hizmetinin şirket içi Cassandra veritabanınıza bağlanmak veritabanını barındıran aynı makine üzerindeki veya veritabanı ile kaynakları için rekabete önlemek için ayrı bir makine veri yönetimi ağ geçidi yüklemeniz gerekir. Veri Yönetimi ağ geçidi, şirket içi veri kaynakları bulut hizmetlerine güvenli ve yönetilen bir şekilde birbirine bağlayan bir bileşenidir. Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) makale veri yönetimi ağ geçidi hakkında ayrıntılı bilgi için. Bkz: [buluta şirket içinden veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale verileri taşımak veri ardışık ağ geçidi kurun ayarı ilişkin adım adım yönergeler.
+Azure Data Factory hizmetinin şirket içi Cassandra veritabanına bağlanabilmesi için bir veri yönetimi ağ geçidi veritabanını barındıran aynı makinede veya veritabanı ile kaynakları için rekabete önlemek için ayrı bir makineye yüklemeniz gerekir. Veri Yönetimi ağ geçidi, şirket içi veri kaynaklarına bulut hizmetlerine güvenli ve yönetilen bir şekilde bağlayan bir bileşenidir. Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) veri yönetimi ağ geçidi hakkında bilgi için makalenin. Bkz: [buluta şirket içinden veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale verileri taşımak ağ geçidini ayarlamadan bir veri işlem hattı adım adım yönergeler için.
 
-Veritabanı bulutta, örneğin, bir Azure Iaas sanal bile barındırılıyorsa Cassandra veritabanına bağlanmak için ağ geçidi kullanmanız gerekir. Y, veritabanını barındıran aynı VM ağ geçidi olabilir veya ağ geçidi olarak uzunluğunda ayrı bir VM'de veritabanına bağlanabilirsiniz.  
+Veritabanı bulutta, örneğin, Azure Iaas sanal makinesine barındırılıyor olsa bile bir Cassandra veritabanına bağlanmak için ağ geçidi kullanmanız gerekir. Y, veritabanını barındıran aynı VM'de ağ geçidine sahip olabilir veya ağ geçidi olarak uzun ayrı bir VM üzerindeki veritabanına bağlanabilirsiniz.  
 
-Ağ geçidi yüklediğinizde, Cassandra veritabanına bağlanmak için kullanılan bir Microsoft Cassandra ODBC sürücüsü otomatik olarak yükler. Bu nedenle, Cassandra veritabanından veri kopyalama işlemi sırasında herhangi bir sürücüsü ağ geçidi makinesi üzerinde el ile yüklemeniz gerekmez. 
+Ağ geçidini yüklerken Cassandra veritabanına bağlanmak için kullanılan bir Microsoft Cassandra ODBC sürücüsü otomatik olarak yükler. Bu nedenle, Cassandra veritabanından veri kopyalama işlemi sırasında herhangi bir sürücü ağ geçidi makinesinde el ile yüklemeniz gerekmez. 
 
 > [!NOTE]
-> Bkz: [ağ geçidi sorunlarını giderme](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) ilgili sorunlar bağlantı/ağ geçidi sorun giderme ipuçları için.
+> Bkz: [ağ geçidiyle ilgili sorunları giderme](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) bağlantı/ağ geçidi sorunlarını giderme ipuçları için ilgili sorunlar.
 
 ## <a name="getting-started"></a>Başlarken
-Farklı araçlar/API'lerini kullanarak bir şirket içi Cassandra veri deposundan verileri taşır kopyalama etkinliği ile işlem hattı oluşturun. 
+Farklı araçlar/API'lerini kullanarak bir şirket içi Cassandra veri deposundan veri taşıyan kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. 
 
-- Bir işlem hattı oluşturmak için en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz. 
-- Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
+- Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz. 
+- Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**ve  **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
 
-Araçlar ya da API'leri kullanıp bir havuz veri deposu için bir kaynak veri deposundan verileri taşır bir ardışık düzen oluşturmak için aşağıdaki adımları gerçekleştirin:
+API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin:
 
-1. Oluşturma **bağlantılı Hizmetleri** girdi ve çıktı verilerini bağlamak için veri fabrikanıza depolar.
-2. Oluşturma **veri kümeleri** kopyalama işlemi için girdi ve çıktı verilerini temsil etmek için. 
-3. Oluşturma bir **ardışık düzen** bir giriş olarak bir veri kümesi ve bir veri kümesini çıktı olarak alan kopyalama etkinliği ile. 
+1. Oluşturma **bağlı hizmetler** girdi ve çıktı verilerini bağlamak için veri fabrikanıza depolar.
+2. Oluşturma **veri kümeleri** kopyalama işleminin girdi ve çıktı verilerini göstermek için. 
+3. Oluşturma bir **işlem hattı** bir veri kümesini girdi ve çıktı olarak bir veri kümesini alan kopyalama etkinliği ile. 
 
-Sihirbazı'nı kullandığınızda, bu Data Factory varlıkları (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, JSON biçimini kullanarak bu Data Factory varlıklarını tanımlayın.  Bir şirket içi Cassandra veri deposundan verileri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları içeren bir örnek için bkz: [JSON örnek: veri kopyalama Cassandra Azure Blob](#json-example-copy-data-from-cassandra-to-azure-blob) bu makalenin. 
+Sihirbazı'nı kullandığınızda, bu Data Factory varlıklarını (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın.  Şirket içi Cassandra veri deposundan veri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları ile bir örnek için bkz. [JSON örneği: Veri Cassandra ' Azure Blob kopyalama](#json-example-copy-data-from-cassandra-to-azure-blob) bu makalenin. 
 
 Aşağıdaki bölümler, Data Factory varlıklarını belirli bir Cassandra veri deposuna tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılı bilgi sağlar:
 
-## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
-Aşağıdaki tabloda, JSON öğeleri Cassandra bağlantılı hizmete özgü açıklamasını sağlar.
+## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
+Aşağıdaki tabloda, JSON öğeleri Cassandra bağlantılı hizmete özgü açıklama belirler.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
 | type |Type özelliği ayarlanmalıdır: **OnPremisesCassandra** |Evet |
-| konak |Bir veya daha fazla IP adresleri veya ana bilgisayar adlarını Cassandra sunucuları.<br/><br/>IP adreslerini veya aynı anda tüm sunucularına bağlanmak için ana bilgisayar adlarını virgülle ayrılmış listesini belirtin. |Evet |
-| port |İstemci bağlantılarını dinlemek için Cassandra sunucusunun kullandığı TCP bağlantı noktası. |Hayır, varsayılan değer: 9042 |
-| authenticationType |Basic veya Anonymous |Evet |
+| konak |Bir veya daha fazla IP adresleri veya Cassandra sunucusunun ana bilgisayar adını.<br/><br/>IP adreslerini veya aynı anda tüm sunuculara bağlanmak için ana bilgisayar adlarını virgülle ayrılmış listesini belirtin. |Evet |
+| port |Cassandra sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. |Hayır, varsayılan değer: 9042 |
+| authenticationType |Temel veya anonim |Evet |
 | kullanıcı adı |Kullanıcı hesabının kullanıcı adını belirtin. |Evet, authenticationType temel olarak ayarlanmışsa. |
 | password |Kullanıcı hesabı için parola belirtin. |Evet, authenticationType temel olarak ayarlanmışsa. |
 | gatewayName |Şirket içi Cassandra veritabanına bağlanmak için kullanılan ağ geçidi adı. |Evet |
 | encryptedCredential |Ağ Geçidi tarafından şifrelenmiş kimlik bilgileri. |Hayır |
 
 >[!NOTE]
->Şu anda Cassandra SSL kullanarak bağlantı desteklenmiyor.
+>Cassandra SSL kullanarak bağlantı şu anda desteklenmiyor.
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
-Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler yapısı, kullanılabilirlik ve bir veri kümesi JSON İlkesi gibi tüm veri türleri (Azure SQL, Azure blob, Azure tablo, vs.) için benzer.
+Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikleri tam listesi için bkz [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler bir veri kümesi JSON İlkesi yapısı ve kullanılabilirlik gibi tüm veri kümesi türleri (Azure SQL, Azure blob, Azure tablo, vs.) için benzer.
 
-**TypeProperties** bölüm veri kümesi her tür için farklıdır ve verilerin veri deposunda konumu hakkında bilgi sağlar. TypeProperties bölüm türü veri kümesi için **CassandraTable** aşağıdaki özelliklere sahip
+**TypeProperties** bölümünde her veri kümesi türü için farklıdır ve verilerin veri deposundaki konumu hakkında bilgi sağlar. TypeProperties bölümü için veri kümesi türü **CassandraTable** aşağıdaki özelliklere sahiptir
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 | --- | --- | --- |
-| keyspace |Keyspace veya Cassandra veritabanındaki şema adı. |Evet (varsa **sorgu** için **CassandraSource** tanımlı değil). |
-| tableName |Cassandra veritabanı tablosunun adı. |Evet (varsa **sorgu** için **CassandraSource** tanımlı değil). |
+| anahtar alanı |Anahtar alanı veya Cassandra veritabanındaki şema adı. |Evet (varsa **sorgu** için **CassandraSource** tanımlı değil). |
+| tableName |Cassandra veritabanındaki tablonun adı. |Evet (varsa **sorgu** için **CassandraSource** tanımlı değil). |
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
-Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve ilke gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
+Bölümleri & etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları oluşturma](data-factory-create-pipelines.md) makalesi. İlke adı ve açıklaması, girdi ve çıktı tabloları gibi özellikler, tüm etkinlik türleri için kullanılabilir.
 
-Oysa etkinliğin typeProperties bölümündeki özellikler her etkinlik türü ile farklılık gösterir. Kopya etkinliği için bunlar türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
+Oysa etkinliğin typeProperties bölümündeki özellikler her etkinlik türü ile farklılık gösterir. Kopyalama etkinliği için kaynaklar ve havuzlar türlerine bağlı olarak farklılık gösterir.
 
 Kaynak türü olduğunda **CassandraSource**, typeProperties bölümünde aşağıdaki özellikler kullanılabilir:
 
-| Özellik | Açıklama | İzin verilen değerler | Gerekli |
+| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
 | --- | --- | --- | --- |
-| sorgu |Verileri okumak için özel sorgu kullanın. |SQL-92 sorgusu veya CQL sorgusu. Bkz: [CQL başvuru](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>SQL sorgusu kullanırken belirtin **keyspace name.table adı** sorgulamak istediğiniz tabloyu temsil etmek için. |Hayır (tableName ve veri kümesi üzerinde keyspace tanımlanmışsa). |
-| consistencyLevel |Tutarlılık düzeyi kaç çoğaltmaları Okuma isteği için veri istemci uygulamasına geri dönmeden önce yanıt vermesi gereken belirtir. Cassandra Okuma isteği karşılamak veriler için çoğaltmaları belirtilen sayısını denetler. |BİR, İKİ, ÜÇ, ÇEKİRDEK, TÜMÜ, LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Bkz: [veri tutarlılığını yapılandırma](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) Ayrıntılar için. |Hayır. Varsayılan değer biridir. |
+| sorgu |Verileri okumak için özel sorgu kullanın. |92 SQL sorgusu veya CQL sorgusu. Bkz: [CQL başvuru](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>SQL sorgu kullanarak belirtmeniz **anahtar alanı name.table adı** sorgulamak istediğiniz tablosunu temsil edecek. |Hayır (tableName ve veri kümesi üzerinde anahtar alanı tanımlanmışsa). |
+| consistencyLevel |Tutarlılık düzeyi, istemci uygulamasına veri döndürmeden önce kaç çoğaltmalar için Okuma isteği yanıtlamalıdır belirtir. Cassandra Okuma isteği karşılamak veriler için çoğaltmaları belirtilen sayısını denetler. |BİR, İKİ, ÜÇ SANAL ÇEKİRDEK, TÜMÜ LOCAL_QUORUM EACH_QUORUM, LOCAL_ONE. Bkz: [veri tutarlılığını yapılandırma](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) Ayrıntılar için. |Hayır. Varsayılan değer biridir. |
 
-## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>JSON örnek: veri kopyalama Cassandra Azure Blob
-Bu örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bir Azure Blob depolama alanına bir şirket içi Cassandra veritabanından veri kopyalamak nasıl gösterir. Ancak, veri herhangi belirtildiği havuzlarını kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopya etkinliği Azure Data Factory kullanarak.
+## <a name="json-example-copy-data-from-cassandra-to-azure-blob"></a>JSON örneği: Azure Blob için veri cassanra'dan kopyalama
+Bu örnekte kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bu, verileri bir şirket içi Cassandra veritabanındaki verileri Azure Blob Depolama'ya kopyalamak nasıl gösterir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
 
 > [!IMPORTANT]
-> Bu örnek, JSON parçacıklarını sağlar. Data factory oluşturmak için adım adım yönergeler içermez. Bkz: [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale adım adım yönergeler için.
+> Bu örnek JSON parçacıklarını sağlar. Veri Fabrikası oluşturmaya yönelik adım adım yönergeler içermez. Bkz: [Bulut ve şirket içi konumlar arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale adım adım yönergeler için.
 
-Örnek aşağıdaki data factory varlıklarını sahiptir:
+Örnek, aşağıdaki data factory varlıklarını sahiptir:
 
 * Bağlı hizmet türü [OnPremisesCassandra](#linked-service-properties).
 * Bağlı hizmet türü [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-* Bir giriş [dataset](data-factory-create-datasets.md) türü [CassandraTable](#dataset-properties).
-* Bir çıkış [dataset](data-factory-create-datasets.md) türü [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-* A [ardışık düzen](data-factory-create-pipelines.md) kullanan kopyalama etkinliği ile [CassandraSource](#copy-activity-properties) ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+* Girdi [veri kümesi](data-factory-create-datasets.md) türü [CassandraTable](#dataset-properties).
+* Bir çıkış [veri kümesi](data-factory-create-datasets.md) türü [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* A [işlem hattı](data-factory-create-pipelines.md) kullanan bir kopyalama etkinliği ile [CassandraSource](#copy-activity-properties) ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-**Bağlantılı Cassandra hizmeti:**
+**Cassandra bağlı hizmeti:**
 
-Bu örnekte **Cassandra** bağlı hizmeti. Bkz: [Cassandra bağlantılı hizmeti](#linked-service-properties) bu bağlantılı hizmet tarafından desteklenen özellikler bölümü.  
+Bu örnekte **Cassandra** bağlı hizmeti. Bkz: [Cassandra bağlı hizmet](#linked-service-properties) bu bağlı hizmeti tarafından desteklenen özellikler bölümü.  
 
 ```json
 {
@@ -138,7 +137,7 @@ Bu örnekte **Cassandra** bağlı hizmeti. Bkz: [Cassandra bağlantılı hizmeti
 }
 ```
 
-**Azure Storage bağlı hizmeti:**
+**Azure depolama bağlı hizmeti:**
 
 ```json
 {
@@ -180,11 +179,11 @@ Bu örnekte **Cassandra** bağlı hizmeti. Bkz: [Cassandra bağlantılı hizmeti
 }
 ```
 
-Ayarı **dış** için **true** Data Factory hizmetinin veri kümesi data factory dış ve veri fabrikasında bir etkinlik tarafından üretilen değil bildirir.
+Ayarı **dış** için **true** Data Factory hizmetinin veri kümesi dış veri fabrikasına ve veri fabrikasında bir etkinliği tarafından üretilen değil bildirir.
 
-**Azure Blob dataset çıktı:**
+**Azure Blob çıktı veri kümesi:**
 
-Veri her saat yeni bir bloba yazılır (sıklığı: saat, aralığı: 1).
+Veriler her saat yeni bir bloba yazılır (Sıklık: saat, interval: 1).
 
 ```json
 {
@@ -206,9 +205,9 @@ Veri her saat yeni bir bloba yazılır (sıklığı: saat, aralığı: 1).
 }
 ```
 
-**Etkinlik Cassandra kaynak ve Blob havuz sahip işlem hattı kopyalayın:**
+**Cassandra kaynak ve havuz Blob ile bir işlem hattındaki kopyalama etkinliği:**
 
-Ardışık Düzen giriş ve çıkış veri kümeleri kullanmak üzere yapılandırıldığı ve saatte çalışacak şekilde zamanlanır kopyalama etkinliği içerir. JSON tanımını düzenindeki **kaynak** türü ayarlanmış **CassandraSource** ve **havuz** türü ayarlanmış **BlobSink**.
+İşlem hattının giriş ve çıkış veri kümelerini kullanmak için yapılandırıldığı ve saatte bir çalışacak şekilde zamanlanmış bir kopyalama etkinliği içeriyor. JSON tanımı, işlem hattındaki **kaynak** türü ayarlandığında **CassandraSource** ve **havuz** türü ayarlandığında **BlobSink**.
 
 Bkz: [RelationalSource türü özellikleri](#copy-activity-properties) RelationalSource tarafından desteklenen özelliklerin listesi için.
 
@@ -260,14 +259,14 @@ Bkz: [RelationalSource türü özellikleri](#copy-activity-properties) Relationa
 }
 ```
 
-### <a name="type-mapping-for-cassandra"></a>Tür eşlemesi için Cassandra
-| Cassandra türü | .NET türü temelinde |
+### <a name="type-mapping-for-cassandra"></a>Cassandra için tür eşlemesi
+| Cassandra türü | .NET türüne göre |
 | --- | --- |
 | ASCII |Dize |
 | BIGINT |Int64 |
-| BLOB |Byte] |
+| BLOB |Bayt] |
 | BOOLE DEĞERİ |Boole |
-| ONDALIK |Ondalık |
+| ONDALIK |Onluk |
 | ÇİFT |çift |
 | KAYAN NOKTA |Tek |
 | INET |Dize |
@@ -277,51 +276,51 @@ Bkz: [RelationalSource türü özellikleri](#copy-activity-properties) Relationa
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |Dize |
-| VARINT |Ondalık |
+| VARINT |Onluk |
 
 > [!NOTE]
-> Türleri (harita, kümesi, liste, vb.), başvurmak için koleksiyonu [iş Cassandra koleksiyon türlerini sanal tablosunu kullanarak](#work-with-collections-using-virtual-table) bölümü.
+> Türler (harita, set, list, vb.), başvurmak için koleksiyon [iş Cassandra koleksiyon türlerini kullanarak sanal bir tablo](#work-with-collections-using-virtual-table) bölümü.
 >
 > Kullanıcı tanımlı türler desteklenmez.
 >
-> İkili sütun ve dize sütunu uzunluklarını uzunluğu 4000'den büyük olamaz.
+> İkili bir sütunu ve dize sütunu uzunlukları uzunluğu 4000 ' büyük olamaz.
 >
 >
 
-## <a name="work-with-collections-using-virtual-table"></a>Sanal tablosunu kullanarak koleksiyonları ile çalışma
-Azure Data Factory bağlanmak ve Cassandra veritabanınızdan verileri kopyalamak için yerleşik bir ODBC sürücüsü kullanır. Harita, kümesi ve listesi dahil olmak üzere koleksiyon türü için karşılık gelen sanal tablolara veri sürücüsü renormalizes. Özellikle, bir tablo tüm koleksiyon sütunları içeriyorsa, sürücü aşağıdaki sanal tablolar oluşturur:
+## <a name="work-with-collections-using-virtual-table"></a>Sanal tablosunu kullanarak collections ile çalışma
+Azure Data Factory, bağlanma ve Cassandra veritabanınızdan veri kopyalamak için yerleşik bir ODBC sürücüsünü kullanır. Harita, küme ve liste gibi koleksiyon türleri için karşılık gelen sanal tablolarına veri sürücü renormalizes. Özellikle, bir tablo koleksiyonu sütunlar içeriyorsa, sürücü aşağıdaki sanal tablolar oluşturur:
 
-* A **temel tablo**, koleksiyon sütunları hariç gerçek tablosu olarak aynı verileri içerir. Temel tablo aynı adını temsil ettiği gerçek tablo olarak kullanır.
-* A **sanal tablo** her koleksiyon sütun için hangi genişletir iç içe veri. Koleksiyonları temsil eden sanal tablolar ayırıcı gerçek tablosunun adı kullanılarak adlandırılmış "*vt*" ve sütunun adı.
+* A **temel tablo**, aynı verileri toplama sütunları hariç gerçek tablosu içerir. Temel tablo adıyla temsil ettiği gerçek tablosu olarak kullanır.
+* A **sanal tablo** her toplama sütunu için genişleyen iç içe geçmiş verileri. Gerçek bir ayırıcı tablonun adını kullanarak koleksiyonları temsil eden sanal tablolar adlı "*vt*" sütun adı.
 
-Sanal tablolar Normalleştirilmemiş verilere erişmek sürücüyü etkinleştirme gerçek tablodaki verileri bakın. Ayrıntılar için örnek bölümüne bakın. Sorgulamak ve sanal tabloları birleştirme Cassandra koleksiyonların içeriğe erişebilir.
+Sanal tablolar normalleştirilmişlikten çıkarılmış verilere erişmek sürücüyü etkinleştirme gerçek tablodaki verileri bakın. Ayrıntılar için örnek bölümüne bakın. Cassandra koleksiyonları içeriğini sorgulama ve sanal tabloları birleştirme erişebilirsiniz.
 
-Kullanabileceğiniz [Kopyalama Sihirbazı'nı](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) sezgisel sanal tablolar dahil olmak üzere Cassandra veritabanındaki tabloların listesini görüntülemek ve içindeki verilerin önizlemesini görüntülemek için. Ayrıca, kopyalama Sihirbazı'nda bir sorgu oluşturun ve sonuçları görmek için Doğrula.
+Kullanabileceğiniz [Kopyalama Sihirbazı'nı](data-factory-data-movement-activities.md#create-a-pipeline-with-copy-activity) sezgisel sanal tablolar da dahil olmak üzere Cassandra veritabanındaki tabloların listesini görüntülemek ve içindeki verileri önizlemek için. Kopyalama Sihirbazı'nı bir sorgu oluşturun ve sonuçları görmek için doğrulayın.
 
 ### <a name="example"></a>Örnek
-Örneğin, aşağıdaki "ExampleTable", "pk_int", değer adlı bir text sütunu, bir liste sütunu, sütun eşleme ve ("StringSet" olarak adlandırılır) bir sütunu Ayarla adlı bir tamsayı birincil anahtar sütunu içeren bir Cassandra veritabanı tablosu verilmiştir.
+Örneğin, aşağıdaki "ExampleTable", "pk_int", değer adlı bir metin sütunu, bir liste sütunu, sütun eşleme ve ("StringSet" adlı) bir kümesi sütunu adlı bir tamsayı birincil anahtar sütunu içeren bir Cassandra veritabanı tablosu olur.
 
 | pk_int | Değer | Liste | Eşleme | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"örnek değeri 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"örnek value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
 
-Sürücü bu tek tablo göstermek için birden çok sanal tablo oluşturur. Sanal tablolardaki yabancı anahtar sütunları gerçek tablosundaki birincil anahtar sütunlarının başvuru ve sanal tablo satırı karşılık gelen gerçek tablo satırı belirtmenize.
+Sürücü bu tek tabloda temsil etmek için birden çok sanal tablolar oluşturur. Sanal tablolarındaki yabancı anahtar sütunları gerçek tablosundaki birincil anahtar sütunlarını başvuru ve sanal tablo satırı karşılık gelen gerçek tablosu satırı belirtmenize.
 
-İlk sanal "ExampleTable" adlı temel tablo aşağıdaki tabloda gösterilen tablodur. Temel tablo özgün veritabanı tablosunun bu tablodan atlanmış ve diğer sanal tablolarda genişletilmiş koleksiyonları dışında aynı verileri içerir.
+İlk sanal "ExampleTable" adlı temel tablo aşağıdaki tabloda gösterilen bir tablodur. Temel tablo, bu tablodan atlanmış ve diğer sanal tablolarında genişletilmiş koleksiyonları dışında özgün veritabanı tablosunu aynı verileri içerir.
 
 | pk_int | Değer |
 | --- | --- |
 | 1 |"örnek değeri 1" |
 | 3 |"örnek value 3" |
 
-Aşağıdaki tablolarda listesi, eşleme ve StringSet sütunları verilerden renormalize sanal tablolar gösterilmektedir. Yalnızca "_index" veya "_anahtar" ile biten adlarını sütunlarla özgün listesi veya eşlemesi içinde veri konumunu belirtin. Yalnızca "_value" ile biten adlarını sütunlarla koleksiyondan genişletilmiş verileri içerir.
+Aşağıdaki tablolar, liste ve eşleme StringSet sütundaki verileri normalleştirebilir sanal tabloları gösterir. "_Index" veya "_anahtarı" ile biten sütunları verilerin özgün liste veya harita içinde konumunu belirtin. Koleksiyon genişletilmiş verileri "_Değeri" ile biten sütunları içerir.
 
 #### <a name="table-exampletablevtlist"></a>Tablo "ExampleTable_vt_List":
 | pk_int | List_index | List_value |
 | --- | --- | --- |
-| 1 |0 |1 |
-| 1 |1 |2 |
+| 1 |0 |1. |
+| 1. |1. |2 |
 | 1 |2 |3 |
 | 3 |0 |100 |
 | 3 |1 |101 |
@@ -333,7 +332,7 @@ Aşağıdaki tablolarda listesi, eşleme ve StringSet sütunları verilerden ren
 | --- | --- | --- |
 | 1 |S1 |A |
 | 1 |S2 |b |
-| 3 |S1 |T |
+| 3 |S1 |t |
 
 #### <a name="table-exampletablevtstringset"></a>Tablo "ExampleTable_vt_StringSet":
 | pk_int | StringSet_value |
@@ -344,11 +343,11 @@ Aşağıdaki tablolarda listesi, eşleme ve StringSet sütunları verilerden ren
 | 3 |A |
 | 3 |E |
 
-## <a name="map-source-to-sink-columns"></a>Kaynak havuzu sütunları eşleme
-Havuz dataset sütunlara kaynak kümesindeki eşleme sütunları hakkında bilgi edinmek için [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).
+## <a name="map-source-to-sink-columns"></a>Sütunları havuz için kaynak eşlemesi
+Kaynak veri kümesindeki sütunları havuz veri kümesi için eşleme sütunları hakkında bilgi edinmek için bkz. [Azure Data factory'de veri kümesi sütunlarını eşleme](data-factory-map-columns.md).
 
-## <a name="repeatable-read-from-relational-sources"></a>İlişkisel kaynaklardan yinelenebilir okuma
-İlişkisel veri kopyalama verileri depoladığında, Yinelenebilirlik istenmeyen sonuçları önlemek için göz önünde bulundurun. Azure Data Factory'de bir dilim el ile çalıştırabilirsiniz. Bir hata oluştuğunda bir dilimi yeniden çalıştırmak için bir veri kümesi için yeniden deneme ilkesi de yapılandırabilirsiniz. Bir dilim iki yolla yeniden çalıştırıldığında, aynı veri dilimi çalıştırmak kaç kez geçtiğinden bağımsız okuduğunuzdan emin olmanız gerekir. Bkz: [ilişkisel kaynaktan okumak Repeatable](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+## <a name="repeatable-read-from-relational-sources"></a>İlişkisel kaynaklardan tekrarlanabilir okuma
+İlişkisel veri kopyalama verileri depoladığında yinelenebilirliği istenmeyen sonuçlar önlemek için göz önünde bulundurun. Azure Data Factory'de bir dilim el ile çalıştırabilirsiniz. Bir hata oluştuğunda bir dilimi yeniden çalıştırmak için bir veri kümesi için yeniden deneme ilkesi de yapılandırabilirsiniz. Bir dilim her iki yolla yeniden çalıştırıldığında, aynı veri dilimi çalıştırılan kaç kez olursa olsun okuma emin olmanız gerekir. Bkz: [ilişkisel kaynaktan okumak Repeatable](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Performans ve ayarlama
-Bkz: [kopya etkinliği performansının & ayarlama Kılavuzu](data-factory-copy-activity-performance.md) bu veri taşıma (kopyalama etkinliği) Azure Data Factory ve onu en iyi duruma getirmek için çeşitli yollar etkisi performansını anahtar Etkenler hakkında bilgi edinmek için.
+Bkz: [kopyalama etkinliği performansı ve ayarlama Kılavuzu](data-factory-copy-activity-performance.md) veri taşıma (kopyalama etkinliği) Azure Data Factory ve bunu en iyi duruma getirmek için çeşitli yollar, performansı etkileyebilir anahtar Etkenler hakkında bilgi edinmek için.

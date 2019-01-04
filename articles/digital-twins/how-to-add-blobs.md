@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 604093dcec048b0991bbc9beac3ef998cc47e351
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6bb1709d10a406d88378189cd68b9a36abed2c8d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974531"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017575"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure dijital İkizlerini nesnelerine BLOB Ekle
 
@@ -28,23 +28,7 @@ Azure dijital İkizlerini cihazlara, boşluk ve kullanıcılara düğmelere blob
 
 Çok bölümlü istekleri, özel uç noktaları ve onların ilgili işlevleri blobları karşıya yüklemek için kullanabilirsiniz.
 
-> [!IMPORTANT]
-> Çok bölümlü istekleri üç parça bilgi gerekir:
-> * A **Content-Type** üst bilgi:
->   * `application/json; charset=utf-8`
->   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`
-> * A **içerik düzeni**: `form-data; name="metadata"`
-> * Karşıya yüklenecek dosya içeriği
->
-> **Content-Type** ve **Content-Disposition** bilgi kullanım senaryosuna bağlı olarak farklılık gösterir.
-
-Azure dijital İkizlerini yönetim API'leri için çok bölümlü isteklerini iki bölümden oluşur:
-
-* Gösterildiği şekilde ilişkili olan bir MIME türü gibi meta veriler BLOB **Content-Type** ve **Content-Disposition** bilgileri
-
-* BLOB içeriklerini (dosya yapılandırılmamış içeriğini)  
-
-İki bölümü hiçbiri için gerekli olan **düzeltme eki** istekleri. Her ikisi için gerekli olan **POST** veya oluşturma işlemleri.
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ### <a name="blob-metadata"></a>Blob meta verileri
 

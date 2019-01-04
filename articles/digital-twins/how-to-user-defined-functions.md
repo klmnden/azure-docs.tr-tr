@@ -1,20 +1,20 @@
 ---
 title: Azure dijital İkizlerini kullanıcı tanımlı işlevler oluşturma | Microsoft Docs
-description: Kullanıcı tanımlı işlevler, matchers ve rol atamaları Azure ile dijital İkizlerini oluşturma kılavuzu.
+description: Kullanıcı tanımlı işlevler, matchers ve rol atamaları Azure dijital İkizlerini oluşturma
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 01/02/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 91c0b5700fbc648f1fcd1355a438694cecc07a04
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 06c6d2935358650eb9f7ef1cda55d5292e203daf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993422"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019937"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Azure dijital İkizlerini kullanıcı tanımlı işlevler oluşturma
 
@@ -73,19 +73,13 @@ JSON gövdesi ile:
 
 ## <a name="create-a-user-defined-function"></a>Kullanıcı tanımlı işlev oluşturma
 
-Karşıya yükleme aşağıdaki işlevi parçacığıyla matchers oluşturulduktan sonra HTTP kimlik doğrulaması **POST** isteği:
+Matchers oluşturulduktan sonra aşağıdaki kimliği doğrulanmış çok bölümlü HTTP POST isteği işlevi parçacığıyla karşıya yükleyin:
+
+[!INCLUDE [Digital Twins multipart requests](../../includes/digital-twins-multipart.md)]
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
-
-> [!IMPORTANT]
-> - Üst bilgileri içerdiğini doğrulayın: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
-> - Sağlanan gövdesi çok bölümlü:
->   - İlk Kısım gerekli UDF meta veriler içerir.
->   - İkinci bölümü, JavaScript işlem mantığını içerir.
-> - İçinde **USER_DEFINED_BOUNDARY** bölümünde, değiştirin **spaceId** (`YOUR_SPACE_IDENTIFIER`) ve **matchers**(`YOUR_MATCHER_IDENTIFIER`) değerleri.
-> - JavaScript UDF olarak sağlanan Not `Content-Type: text/javascript`.
 
 Aşağıdaki JSON gövdesi kullanın:
 
@@ -116,6 +110,15 @@ function process(telemetry, executionContext) {
 | USER_DEFINED_BOUNDARY | Çok bölümlü içerik sınır adı |
 | YOUR_SPACE_IDENTIFIER | Alanı tanımlayıcısı  |
 | YOUR_MATCHER_IDENTIFIER | Kullanmak istediğiniz Eşleştiricisi kimliği |
+
+1. Üst bilgileri içerdiğini doğrulayın: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Çok bölümlü gövde olduğundan emin olun:
+
+   - İlk bölümü, kullanıcı tanımlı işlev gerekli meta veriler içerir.
+   - İkinci bölümü, JavaScript işlem mantığını içerir.
+
+1. İçinde **USER_DEFINED_BOUNDARY** bölümünde, değiştirin **spaceId** (`YOUR_SPACE_IDENTIFIER`) ve **matchers** (`YOUR_MATCHER_IDENTIFIER`) değerleri.
+1. JavaScript kullanıcı tanımlı işlevi olarak sağlanır doğrulayın `Content-Type: text/javascript`.
 
 ### <a name="example-functions"></a>Örnek işlevleri
 
@@ -192,14 +195,14 @@ Bir daha karmaşık kullanıcı tanımlı işlev kod örneği için bkz. [dolulu
 
 Altında çalıştırılacak kullanıcı tanımlı işlevi için bir rol ataması oluşturun. Kullanıcı tanımlı işlev için hiçbir rol ataması zaten varsa, grafik nesnelerde eylemler gerçekleştirme erişimine sahiptir ya da Yönetim API ile etkileşim için doğru izinleri olmaz. Bir kullanıcı tanımlı işlev gerçekleştirebilir eylemleri belirtilir ve rol tabanlı erişim denetimi içinde Azure dijital İkizlerini yönetim API'leri aracılığıyla tanımlanır. Örneğin, kullanıcı tanımlı işlevleri kapsamda belirli roller ya da belirli erişim denetimi yolları belirterek sınırlı olabilir. Daha fazla bilgi için [rol tabanlı erişim denetimi](./security-role-based-access-control.md) belgeleri.
 
-1. [Sistem API sorgu](./security-create-manage-role-assignments.md#all) , UDF için atamak istediğiniz rolü Kimliği almak tüm roller için. Kimliği doğrulanmış bir HTTP GET isteği yaparak bunu:
+1. [Sistem API sorgu](./security-create-manage-role-assignments.md#all) kullanıcı tanımlı işlevinize atamak istediğiniz rolü Kimliği almak tüm roller için. Kimliği doğrulanmış bir HTTP GET isteği yaparak bunu:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    Korumak istediğiniz rol kimliği. JSON gövdesi özniteliği olarak geçirilecek **Roleıd** (`YOUR_DESIRED_ROLE_IDENTIFIER`) altında.
 
-1. **objectID** (`YOUR_USER_DEFINED_FUNCTION_ID`) daha önce oluşturulan UDF kimliği olacaktır.
+1. **objectID** (`YOUR_USER_DEFINED_FUNCTION_ID`) daha önce oluşturulan kullanıcı tanımlı işlev kimliği olacaktır.
 1. Değerini bulun **yolu** (`YOUR_ACCESS_CONTROL_PATH`), boşluk ile sorgulamak `fullpath`.
 1. Döndürülen kopyalama `spacePaths` değeri. Kullanacağınız aşağıda. Kimliği doğrulanmış bir HTTP GET isteği olun:
 
@@ -211,7 +214,7 @@ Altında çalıştırılacak kullanıcı tanımlı işlevi için bir rol atamas�
     | --- | --- |
     | YOUR_SPACE_NAME | Kullanmak istediğiniz alanı adı |
 
-1. Döndürülen yapıştırın `spacePaths` içine değer **yolu** UDF rol ataması kimliği doğrulanmış bir HTTP POST isteği yaparak oluşturmak için:
+1. Döndürülen yapıştırın `spacePaths` içine değer **yolu** kimliği doğrulanmış bir HTTP POST isteği yaparak kullanıcı tanımlı işlev rol ataması oluşturmak için:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -230,12 +233,12 @@ Altında çalıştırılacak kullanıcı tanımlı işlevi için bir rol atamas�
     | Değer | Şununla değiştir |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | İstenen rol tanımlayıcısı |
-    | YOUR_USER_DEFINED_FUNCTION_ID | Kullanmak istediğiniz UDF kimliği |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | UDF türünü belirterek kimliği |
+    | YOUR_USER_DEFINED_FUNCTION_ID | Kullanmak istediğiniz kullanıcı tanımlı işlev kimliği |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | Kullanıcı tanımlı işlev türü belirtme kimliği |
     | YOUR_ACCESS_CONTROL_PATH | Erişim denetimi yolu |
 
 >[!TIP]
-> Makaleyi okuyun [oluşturmak ve rol atamalarını yönetmek nasıl](./security-create-manage-role-assignments.md) UDF ile ilgili yönetim API işlemleri ve uç noktaları hakkında daha fazla bilgi.
+> Makaleyi okuyun [oluşturmak ve rol atamalarını yönetmek nasıl](./security-create-manage-role-assignments.md) kullanıcı tanımlı işlev yönetim API işlemleri ve uç noktaları hakkında daha fazla bilgi.
 
 ## <a name="send-telemetry-to-be-processed"></a>İşlenecek telemetri gönderme
 

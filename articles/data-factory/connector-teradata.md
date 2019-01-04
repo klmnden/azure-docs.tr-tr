@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 37e7281af87a8cfc57aae95411eb2d4cce9eef65
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e9fd818990c8a985a77c2e7eeea19bf63c440e4e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228071"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019002"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Teradata, Azure Data Factory kullanarak verileri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +56,7 @@ Bağlı Teradata hizmeti için aşağıdaki özellikleri destekler:
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Teradata** | Evet |
 | sunucu | Teradata sunucusunun adı. | Evet |
-| authenticationType | Teradata veritabanına bağlanmak için kullanılan kimlik doğrulaması türü.<br/>İzin verilen değerler: **temel**, ve **Windows**. | Evet |
+| authenticationType | Teradata veritabanına bağlanmak için kullanılan kimlik doğrulaması türü.<br/>İzin verilen değerler şunlardır: **Temel**, ve **Windows**. | Evet |
 | kullanıcı adı | Teradata veritabanına bağlanmak için kullanıcı adı belirtin. | Evet |
 | password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Belirtildiği gibi bir şirket içinde barındırılan tümleştirme çalışma zamanı gereklidir [önkoşulları](#prerequisites). |Evet |
@@ -171,7 +170,7 @@ Teradata veri kopyalama işlemi sırasında aşağıdaki eşlemeler Teradata ver
 | Char |Dize |
 | CLOB |Dize |
 | Tarih |DateTime |
-| Ondalık |Ondalık |
+| Onluk |Onluk |
 | çift |çift |
 | Grafiği |Dize |
 | Tamsayı |Int32 |

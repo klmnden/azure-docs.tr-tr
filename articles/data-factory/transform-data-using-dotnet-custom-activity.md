@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: douglasl
-ms.openlocfilehash: 424de36dbbd3b09e635679900110148b9edd0242
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 58afbdf3488850a643e7d4b8979bf860f93141df
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422891"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014123"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -97,17 +96,19 @@ Bu örnekte, helloworld.exe resourceLinkedService içinde kullanılan Azure depo
 
 Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özellikleri açıklanmaktadır. 
 
-| Özellik              | Açıklama                              | Gerekli |
+| Özellik              | Açıklama                              | Gereklidir |
 | :-------------------- | :--------------------------------------- | :------- |
 | ad                  | İşlem hattındaki etkinliğin adı     | Evet      |
 | açıklama           | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
 | type                  | Özel bir etkinlik için etkinlik türdür **özel**. | Evet      |
 | linkedServiceName     | Azure Batch için bağlı hizmeti. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.  | Evet      |
 | command               | Yürütülecek özel uygulama komutu. Uygulama zaten Azure Batch havuzu düğüm üzerinde kullanılabilir haldeyse, folderPath ve resourceLinkedService atlanabilir. Örneğin, komut olarak belirtebilirsiniz `cmd /c dir`, yerel olarak desteklendiği Windows Batch havuzu düğümü tarafından. | Evet      |
-| resourceLinkedService | Özel uygulama depolandığı depolama hesabı için Azure depolama bağlı hizmeti | Hayır       |
-| folderPath            | Özel uygulama ve tüm bağımlılıklarını klasörünün yolu<br/><br/>Hiyerarşik klasör yapısı altında alt klasörlerinde - diğer bir deyişle, depolanan bağımlılıkları varsa *folderPath* -klasör yapısı şu anda Azure Batch'e dosyaları kopyalarken düzleştirilir. Diğer bir deyişle, tüm dosyaları hiçbir alt klasör tek bir klasöre kopyalanır. Bu davranışa geçici bir çözüm için dosyalar sıkıştırılıyor, sıkıştırılmış dosya kopyalamayı ve ardından, istenen konumu özel kodla sıkıştırması açılırken göz önünde bulundurun. | Hayır       |
+| resourceLinkedService | Özel uygulama depolandığı depolama hesabı için Azure depolama bağlı hizmeti | Yok&#42;       |
+| folderPath            | Özel uygulama ve tüm bağımlılıklarını klasörünün yolu<br/><br/>Hiyerarşik klasör yapısı altında alt klasörlerinde - diğer bir deyişle, depolanan bağımlılıkları varsa *folderPath* -klasör yapısı şu anda Azure Batch'e dosyaları kopyalarken düzleştirilir. Diğer bir deyişle, tüm dosyaları hiçbir alt klasör tek bir klasöre kopyalanır. Bu davranışa geçici bir çözüm için dosyalar sıkıştırılıyor, sıkıştırılmış dosya kopyalamayı ve ardından, istenen konumu özel kodla sıkıştırması açılırken göz önünde bulundurun. | Yok&#42;       |
 | referenceObjects      | Mevcut bağlı hizmetleri ve veri kümeleri dizisi. Data Factory kaynaklarını özel kodunuz başvurabilmeniz başvurulan bağlı hizmetleri ve veri kümeleri JSON biçimindeki özel uygulamaya geçirilir | Hayır       |
 | ExtendedProperties    | Özel kodunuz ek özellikler başvurabilir, böylece JSON biçimindeki özel uygulamaya geçirilen kullanıcı tanımlı Özellikler | Hayır       |
+
+&#42;Özellikleri `resourceLinkedService` ve `folderPath` gerekir ya da her ikisi de belirtilmesi veya her ikisi de etmeyebilirsiniz.
 
 ## <a name="custom-activity-permissions"></a>Özel Etkinlik izinleri
 
@@ -353,7 +354,7 @@ Türü özelliklerine erişmek için *SecureString* özel bir etkinlikten okuma 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure batch otomatik olarak ölçeklendirme
 Bir Azure Batch havuzu de oluşturabilirsiniz **otomatik ölçeklendirme** özelliği. Örneğin, 0 adanmış VM'ler ve Bekleyen Görevler sayısına bağlı olarak bir otomatik ölçeklendirme formülü ile bir azure batch havuzu oluşturabilirsiniz. 
 
-Burada örnek formülü aşağıdaki davranışı elde eder: havuz başlangıçta oluşturulduğunda, 1 sanal makine ile başlar. $PendingTasks ölçüm çalışan + (kuyruğa alınmış) etkin içindeki görevlerin sayısını tanımlar durumu.  Formül, Son 180 saniye cinsinden ortalama sayısı Bekleyen Görevler bulur ve TargetDedicated uygun şekilde ayarlar. TargetDedicated hiçbir zaman 25 VM'lerin ötesine geçen gider sağlar. Bu nedenle, yeni görevler gönderilen, havuzu otomatik olarak büyür ve görevler tamamlanınca ücretsiz tek tek sanal makineleri olur ve bu sanal makineler için otomatik ölçeklendirme küçültür. startingNumberOfVMs ve maxNumberofVMs ihtiyaçlarınıza göre ayarlanabilir.
+Burada örnek formülü aşağıdaki davranışı elde eder: Havuz başlangıçta oluşturulduğunda, 1 sanal makine ile başlar. $PendingTasks ölçüm çalışan + (kuyruğa alınmış) etkin içindeki görevlerin sayısını tanımlar durumu.  Formül, Son 180 saniye cinsinden ortalama sayısı Bekleyen Görevler bulur ve TargetDedicated uygun şekilde ayarlar. TargetDedicated hiçbir zaman 25 VM'lerin ötesine geçen gider sağlar. Bu nedenle, yeni görevler gönderilen, havuzu otomatik olarak büyür ve görevler tamamlanınca ücretsiz tek tek sanal makineleri olur ve bu sanal makineler için otomatik ölçeklendirme küçültür. startingNumberOfVMs ve maxNumberofVMs ihtiyaçlarınıza göre ayarlanabilir.
 
 Otomatik ölçeklendirme formülü:
 

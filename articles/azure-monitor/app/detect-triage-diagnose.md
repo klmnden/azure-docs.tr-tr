@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5cc5e0e9bf1d05bde273d1c26c03165a38e02122
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ea2e0513ef2674fdbe6d28f77c4f709848a0d2eb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976656"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016384"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps için Application Insights’a genel bakış
 
@@ -78,7 +78,7 @@ Burada kaynak sınırlaması ile ilgili hiçbir belirti yok göründüğünden s
 ## <a name="set-alerts-to-meet-goals"></a>Hedeflere ulaşmak için uyarılar ayarlama
 Bununla birlikte, yanıt sürelerinden gözünü ayırmamak ister. Çok yükselirlerse bunu hemen bilmek istemektedir.
 
-Bu nedenle, belirli bir eşikten yüksek olan yanıt süreleri için [uyarı](../../application-insights/app-insights-metrics-explorer.md) ayarlar. Yanıt süreleri yavaşsa bunu öğreneceği için bu ona güven verir.
+Bu nedenle, belirli bir eşikten yüksek olan yanıt süreleri için [uyarı](../../azure-monitor/app/metrics-explorer.md) ayarlar. Yanıt süreleri yavaşsa bunu öğreneceği için bu ona güven verir.
 
 ![Uyarı dikey penceresi ekleme](./media/detect-triage-diagnose/07-alerts.png)
 
@@ -184,7 +184,7 @@ Tanılama hata ayıklama ile pek aynı değildir. Kodu izlemeye başlamadan önc
 
 Bazı yavaş bağımlılık sorunları coğrafi konum sorunlarıdır. Fabrikam Bank, Azure sanal makinelerini kullanmaktadır ve Web sunucuları ile hesap sunucularının yanlışlıkla farklı ülkelerde konumlandırıldığı keşfedilir. Bunlardan biri geçirildiğinde çarpıcı bir iyileşme yaşanmıştır.
 
-**Biz ne yaptık?** Sorun bağımlılıkta değil görünüyorsa ve hiçbir zaman da olmadıysa büyük olasılıkla buna son zamanlarda yapılan bir değişiklik neden olmuştur. Ölçüm ve olay grafikleri tarafından sağlanan geçmiş perspektif, tüm ani değişiklikleri dağıtımlarla ilişkilendirmeyi kolaylaştırır. Bu durum, sorunun aranacağı yeri daraltır. Uygulama kodundaki hangi satırların performansı yavaşlattığını belirlemek için Application Insights Profiler’ı etkinleştirin. Lütfen [Application Insights ile canlı Azure Web uygulamalarının profilini oluşturma](./../../application-insights/app-insights-profiler.md) sayfasına bakın. Profiler etkinleştirildikten sonra, aşağıdakine benzer bir izleme görürsünüz. Bu örnekte, soruna *GetStorageTableData* yönteminin neden olduğu kolayca görülebilir.  
+**Biz ne yaptık?** Sorun bağımlılıkta değil görünüyorsa ve hiçbir zaman da olmadıysa büyük olasılıkla buna son zamanlarda yapılan bir değişiklik neden olmuştur. Ölçüm ve olay grafikleri tarafından sağlanan geçmiş perspektif, tüm ani değişiklikleri dağıtımlarla ilişkilendirmeyi kolaylaştırır. Bu durum, sorunun aranacağı yeri daraltır. Uygulama kodundaki hangi satırların performansı yavaşlattığını belirlemek için Application Insights Profiler’ı etkinleştirin. Lütfen [Application Insights ile canlı Azure Web uygulamalarının profilini oluşturma](./../../azure-monitor/app/profiler.md) sayfasına bakın. Profiler etkinleştirildikten sonra, aşağıdakine benzer bir izleme görürsünüz. Bu örnekte, soruna *GetStorageTableData* yönteminin neden olduğu kolayca görülebilir.  
 
 ![App Insights Profiler İzlemesi](./media/detect-triage-diagnose/AppInsightsProfiler.png)
 
@@ -229,7 +229,7 @@ Uygulamanızın özelliklerine bağlı olarak çeşitli şekillerde başlayabili
 
 * [ASP.NET Web uygulaması](../../azure-monitor/app/asp-net.md)
 * [Java Web uygulaması](../../azure-monitor/app/java-get-started.md)
-* [Node.js Web uygulaması](../../application-insights/app-insights-nodejs.md)
+* [Node.js Web uygulaması](../../azure-monitor/app/nodejs.md)
 * [IIS](../../azure-monitor/app/monitor-web-app-availability.md), [J2EE](../../azure-monitor/app/java-live.md) veya [Azure](../../application-insights/app-insights-overview.md) üzerinde barındırılan önceden dağıtılmış uygulamalar.
 * [Web sayfaları](../../azure-monitor/app/javascript.md) -Tek Sayfalık Uygulama veya normal Web sayfası - bunu kendi başına veya sunucu seçeneklerinden herhangi biriyle birlikte kullanın.
 * Uygulamanızı genel İnternet'ten test etmek için [kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md).

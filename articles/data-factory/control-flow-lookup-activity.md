@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426800"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019325"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data factory'de arama etkinliği
 
@@ -106,7 +105,7 @@ Bu örnekte, kopyalama etkinliği verileri bir SQL tablosunu Azure SQL veritaban
 Bu örnek yalnızca ilk satır için arama gösterir. Örneklerde tüm satırları ve sonuçları ile ForEach etkinliği zincirleyebilir, yani için arama için bkz. [Azure Data Factory kullanarak birden çok tabloyu toplu olarak kopyalama](tutorial-bulk-copy.md).
 
 ### <a name="pipeline"></a>İşlem hattı
-Bu işlem hattı iki etkinlik içerir: arama ve kopyalama. 
+Bu işlem hattı iki etkinlik içerir: Arama ve kopyalama. 
 
 - Arama etkinliği kullanacak şekilde yapılandırılmış **LookupDataset**, Azure Blob depolama alanındaki bir konuma başvuruyor. Arama etkinliği SQL tablosunun adı bu konumda bir JSON dosyasından okur. 
 - SQL tablosunun adı arama etkinliğin çıktı kopyalama etkinliği kullanır. **TableName** özelliğinde **SourceDataset** arama etkinliğinden gelen çıkış kullanacak şekilde yapılandırıldı. SQL tablosundan etkinlik kopya verileri Azure Blob depolama alanındaki bir konuma kopyalayın. Tarafından belirtilen konuma **SinkDataset** özelliği. 

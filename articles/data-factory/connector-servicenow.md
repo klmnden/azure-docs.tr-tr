@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 67658d75f7ad4a6db1af5db97a525774b0ab6e61
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1e91bcdf3980b0f03967c09b0b7a75aa3d3a520a
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095287"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014633"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Servicenow'ı Azure Data Factory kullanarak verileri kopyalama
 
@@ -44,7 +43,7 @@ Servicenow'ı bağlı hizmeti için aşağıdaki özellikleri destekler:
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **ServiceNow** | Evet |
 | endpoint | ServiceNow sunucu uç noktası (`http://<instance>.service-now.com`).  | Evet |
-| authenticationType | Kullanılacak kimlik doğrulaması türü. <br/>İzin verilen değerler: **temel**, **OAuth2** | Evet |
+| authenticationType | Kullanılacak kimlik doğrulaması türü. <br/>İzin verilen değerler şunlardır: **Temel**, **OAuth2** | Evet |
 | kullanıcı adı | Temel ve OAuth2 kimlik doğrulaması için ServiceNow sunucusuna bağlanmak için kullanılan kullanıcı adı.  | Evet |
 | password | Temel ve OAuth2 kimlik doğrulaması için kullanıcı adına karşılık gelen parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 | ClientID | OAuth2 kimlik doğrulaması için istemci kimliği.  | Hayır |
@@ -118,8 +117,8 @@ Servicenow'ı verileri kopyalamak için kopyalama etkinliği için kaynak türü
 - **Şema:** şeması olarak belirtmek `Actual` veya `Display` adresinden parametresi olarak bakabilirsiniz ServiceNow sorgusunda `sysparm_display_value` true veya false çağırırken olarak [ServiceNow restful API'leri](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Sütun:** altında gerçek değer için sütun adı `Actual` şeması `[columne name]_value`sırada altında görüntüleme değeri için `Display` şeması `[columne name]_display_value`. Not sütun adı, sorguda kullanılan şema eşlemesine gerekir.
 
-**Örnek Sorgu:** 
- `SELECT col_value FROM Actual.alm_asset` veya 
+**Örnek Sorgu:**
+`SELECT col_value FROM Actual.alm_asset` VEYA 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **Örnek:**

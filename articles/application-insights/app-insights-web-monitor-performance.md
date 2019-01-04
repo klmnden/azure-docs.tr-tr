@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 9af2dd3a17eb150d44bf69cda86e480a083a3164
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 6731b19984c0b2e0a663e93b2a6ef00c530a4d48
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971214"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014650"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Web uygulamalarının performansını izleme
 
@@ -116,7 +116,7 @@ Bulma ve performans sorunlarını tanılamak için bazı ipuçları şunlardır:
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Bulun ve performans araştırma deneyimi ile performans sorunlarını giderin
 
-Performans araştırma deneyimi, Web uygulamanız yavaş gerçekleştirme işlemleri gözden geçirmek için kullanabilirsiniz. Hızlı bir şekilde yavaş bir işlem seçin ve kullanmak [Profiler](app-insights-profiler.md) kök kod aşağı yavaş işlemleri neden olur. Seçilen işlem için ne deneyimi müşterileriniz için bozuk bir bakışta hızla değerlendirebilirsiniz gösterilen yeni süre dağılımı kullanma. Yavaş her işlem için kullanıcı etkileşimi kaç etkilendiğini görebilirsiniz. Aşağıdaki örnekte, GET Customers/Details işlemi deneyimini birine daha yakından bakalım biz karar verdiniz. Süre dağılımı içinde üç ani artışlar olduğunu görebiliriz. En soldaki depo yaklaşık 400 ms olan ve hızlı yanıt veren deneyiminin mükemmel temsil eder. Orta depo, 1.2 s ve temsil kendinizi kurtarın deneyimi. Son olarak, 3.6 s sahibiz müşterilerimizin memnun bırakın yol açabilen 99. yüzdebirlik deneyimi temsil eden başka bir küçük ani artış gerçekleşti. Bu deneyimi on kez harika bir deneyim için aynı işlemi yavaştır. 
+Performans araştırma deneyimi, Web uygulamanız yavaş gerçekleştirme işlemleri gözden geçirmek için kullanabilirsiniz. Hızlı bir şekilde yavaş bir işlem seçin ve kullanmak [Profiler](../azure-monitor/app/profiler.md) kök kod aşağı yavaş işlemleri neden olur. Seçilen işlem için ne deneyimi müşterileriniz için bozuk bir bakışta hızla değerlendirebilirsiniz gösterilen yeni süre dağılımı kullanma. Yavaş her işlem için kullanıcı etkileşimi kaç etkilendiğini görebilirsiniz. Aşağıdaki örnekte, GET Customers/Details işlemi deneyimini birine daha yakından bakalım biz karar verdiniz. Süre dağılımı içinde üç ani artışlar olduğunu görebiliriz. En soldaki depo yaklaşık 400 ms olan ve hızlı yanıt veren deneyiminin mükemmel temsil eder. Orta depo, 1.2 s ve temsil kendinizi kurtarın deneyimi. Son olarak, 3.6 s sahibiz müşterilerimizin memnun bırakın yol açabilen 99. yüzdebirlik deneyimi temsil eden başka bir küçük ani artış gerçekleşti. Bu deneyimi on kez harika bir deneyim için aynı işlemi yavaştır. 
 
 ![GET Customers/Details üç süresi ani](./media/app-insights-web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
@@ -159,8 +159,8 @@ Performans araştırma deneyimi yanı sıra ilgili içgörüler odaklanmak için
 [redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
-[livestream]: app-insights-live-stream.md
-[snapshot]: app-insights-snapshot-debugger.md
+[livestream]: ../azure-monitor/app/live-stream.md
+[snapshot]: ../azure-monitor/app/snapshot-debugger.md
 
 
 

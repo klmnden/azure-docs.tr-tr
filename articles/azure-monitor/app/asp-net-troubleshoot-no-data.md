@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 48e1b06328f02ebad77f98acc480c146793f124c
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c2695f4e2dcd2441b0a8845bd194d4e393e1d7ca
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970467"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020481"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
 *Uygulama anlayışları'nda, yalnızca bir kesir uygulamamı tarafından oluşturulan olayların görüyorum.*
 
-* Aynı kesir sürekli görüyorsanız, büyük olasılıkla nedeniyle Uyarlamalı olan [örnekleme](../../application-insights/app-insights-sampling.md). Bunu doğrulamak için (genel bakış dikey penceresinden) araması'nı açın ve bir istek veya diğer olay örneğini bakın. Özellikler bölümü altındaki tam özellik ayrıntılarını almak için "..." tıklayın. Varsa sayısı > 1 istek ve örnekleme işlemi olduğundan. 
-* Aksi takdirde, aldığınızı olası bir [veri hızı sınırı](../../application-insights/app-insights-pricing.md#limits-summary) fiyatlandırma planınız için. Bu sınırlar, dakika başına uygulanır.
+* Aynı kesir sürekli görüyorsanız, büyük olasılıkla nedeniyle Uyarlamalı olan [örnekleme](../../azure-monitor/app/sampling.md). Bunu doğrulamak için (genel bakış dikey penceresinden) araması'nı açın ve bir istek veya diğer olay örneğini bakın. Özellikler bölümü altındaki tam özellik ayrıntılarını almak için "..." tıklayın. Varsa sayısı > 1 istek ve örnekleme işlemi olduğundan. 
+* Aksi takdirde, aldığınızı olası bir [veri hızı sınırı](../../azure-monitor/app/pricing.md#limits-summary) fiyatlandırma planınız için. Bu sınırlar, dakika başına uygulanır.
 
 ## <a name="no-data-from-my-server"></a>My sunucusundan veri yok
 *Uygulamamı my web sunucusunda yüklü ve artık tüm telemetrisini göremiyorum. Geliştirme makineme Tamam çalıştınız.*
@@ -51,7 +51,7 @@ Olası nedenler:
 
 * Application Insights portalıyla iletişim başarısız oldu; veya
 * Azure hesabınızda bir sorun yoktur;
-* Yalnızca [abonelik veya burada denemeye yeni kaynak oluşturmak için grubu okuma erişimini](../../application-insights/app-insights-resources-roles-access-control.md).
+* Yalnızca [abonelik veya burada denemeye yeni kaynak oluşturmak için grubu okuma erişimini](../../azure-monitor/app/resources-roles-access-control.md).
 
 Düzeltme:
 
@@ -95,7 +95,7 @@ Varsayılan tarayıcınızı en son kullanılan Microsoft oturum açma erişimi 
 * - Belki de bir iş ve kişisel Microsoft hesabı birden fazla Microsoft hesabınız var mı? Varsayılan tarayıcınızı en son kullanılan oturum açma erişimi olan olandan farklı bir hesap aitti [projeye Application Insights ekleyin](../../azure-monitor/app/asp-net.md). 
   
   * Düzeltme: Adınızı, tarayıcı penceresinin sağ üst ve oturum kapatma. Daha sonra erişimi olan hesapla oturum açın. Sonra sol gezinti çubuğunda Application Insights'ı tıklatın ve uygulamanızı seçin.
-* Başka birinin Application Insights projeye eklenir ve size unuttunuz [kaynak grubuna erişim](../../application-insights/app-insights-resources-roles-access-control.md) , oluşturulduğu. 
+* Başka birinin Application Insights projeye eklenir ve size unuttunuz [kaynak grubuna erişim](../../azure-monitor/app/resources-roles-access-control.md) , oluşturulduğu. 
   
   * Düzeltme: Bunlar bir kurumsal hesap kullandıysanız, takıma ekleyebilirsiniz; veya, kaynak grubuna bireysel erişim verebilirsiniz.
 
@@ -167,7 +167,7 @@ Performans verileri (CPU, GÇ oranı vb.) için kullanılabilir [Java web Hizmet
 * Veri noktalarının aylık kota ulaşmış olabilirsiniz? Ayarlar/kota ve fiyatlandırma öğrenmek için açın. Bu durumda, planınızı yükseltin veya ek kapasite için ödeme yaparsınız. Bkz: [düzeni fiyatlandırma](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Bekleniyor verilerini göremiyorum
-Uygulamanız çok miktarda veri gönderir ve ASP.NET sürüm 2.0.0-beta3 veya daha sonra Application Insights SDK kullanıyorsanız [Uyarlamalı örnekleme](../../application-insights/app-insights-sampling.md) özellik çalışır ve yalnızca bir yüzdesini telemetrinizi gönderme. 
+Uygulamanız çok miktarda veri gönderir ve ASP.NET sürüm 2.0.0-beta3 veya daha sonra Application Insights SDK kullanıyorsanız [Uyarlamalı örnekleme](../../azure-monitor/app/sampling.md) özellik çalışır ve yalnızca bir yüzdesini telemetrinizi gönderme. 
 
 Devre dışı bırakabilirsiniz, ancak bu önerilmemektedir. Örnekleme, ilgili telemetri doğru tanılama amacıyla iletilen şekilde tasarlanmıştır. 
 

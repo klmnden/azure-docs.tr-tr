@@ -1,6 +1,6 @@
 ---
 title: Veri Yönetimi ağ geçidi sorunlarını giderme | Microsoft Docs
-description: Veri Yönetimi ağ geçidi ile ilgili sorunları gidermek için ipuçları verilmektedir.
+description: Veri Yönetimi ağ geçidi için ilgili sorunları gidermek için ipuçları sağlar.
 services: data-factory
 author: nabhishek
 manager: craigg
@@ -8,127 +8,126 @@ ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 9453099af8d9be21a97808733ffa8f8bfe5a364a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b39fb3ed6dbcf8fde2dadf0de59d154285eb8587
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047573"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022547"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Veri Yönetimi Ağ Geçidi kullanımıyla ilgili sorunları giderme
 Bu makalede, veri yönetimi ağ geçidi kullanarak sorunlarını giderme hakkında bilgi sağlar.
 
 > [!NOTE]
-> Bu makalede Azure Data Factory 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [veri fabrikasında tümleştirmesi çalışma zamanı'kendi kendini barındıran](../create-self-hosted-integration-runtime.md).
+> Bu makale, Azure Data Factory’nin 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [barındırılan Data factory'de tümleştirme çalışma zamanını](../create-self-hosted-integration-runtime.md).
 
-Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) ağ geçidi hakkında ayrıntılı bilgi için makalenin. Bkz: [şirket içi ve bulut arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) veri ağ geçidi'ni kullanarak bir şirket içi SQL Server veritabanından Microsoft Azure Blob Depolama birimine taşıma makale kılavuz.
+Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) makale ağ geçidi hakkında ayrıntılı bilgi için. Bkz: [şirket içi ile bulut arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) veri ağ geçidi kullanarak bir şirket içi SQL Server veritabanındaki verileri Microsoft Azure Blob depolama alanına taşıyarak, makale kılavuz.
 
-## <a name="failed-to-install-or-register-gateway"></a>Yüklemek veya ağ geçidini kaydetmek başarısız oldu
+## <a name="failed-to-install-or-register-gateway"></a>Yükleyemedi veya ağ geçidini kaydetme
 ### <a name="1-problem"></a>1. Sorun
-Yüklerken ve ağ geçidi yükleme dosyası indirilirken bir ağ geçidi özellikle kaydetme bu hata iletisini görürsünüz.
+Yükleme ve bir ağ geçidi, özellikle, ağ geçidi yükleme dosyası indirilirken kaydetme bu hata iletisi görürsünüz.
 
 `Unable to connect to the remote server". Please check your local settings (Error Code: 10003).`
 
 #### <a name="cause"></a>Nedeni
-Ağ geçidini Yüklemeye çalıştığınız makine bir ağ sorunu nedeniyle İndirme Merkezi'nden en son ağ geçidi yükleme dosyasını karşıdan yüklemek başarısız oldu.
+Ağ geçidini Yüklemeye çalıştığınız makine bir ağ sorunu nedeniyle İndirme Merkezi'nden en son ağ geçidi yükleme dosyasını indirmek başarısız oldu.
 
 #### <a name="resolution"></a>Çözüm
-Ayarları bilgisayardan ağ bağlantısı engelleme olup olmadığını görmek için güvenlik duvarı proxy sunucu ayarlarını kontrol edin [İndirme Merkezinden](https://download.microsoft.com/)ve güncelleştirme ayarları buna göre.
+Ayarları bilgisayardaki ağ bağlantısı block olup olmadığını görmek için güvenlik duvarı proxy sunucunuzun ayarları denetleyin [İndirme Merkezinden](https://download.microsoft.com/)ve sonra ayarları güncelleştirmek uygun şekilde.
 
-Alternatif olarak, en son ağ geçidi'nden yükleme dosyasını karşıdan yükleyebileceğiniz [İndirme Merkezinden](https://www.microsoft.com/download/details.aspx?id=39717) diğer makinelere Yükleme Merkezi'nden erişebilirsiniz. Ardından, yükleyici dosyasını ağ geçidi ana bilgisayara kopyalayın ve el ile yükleyin ve ağ geçidi'ni çalıştırın.
+Alternatif olarak, en son ağ geçidini yükleme dosyasını indirebilirsiniz [İndirme Merkezinden](https://www.microsoft.com/download/details.aspx?id=39717) diğer makinelere indirme Merkezi'ne erişebilirsiniz. Ardından, ağ geçidi ana bilgisayarına yükleyici dosyasını kopyalayın ve el ile yükleyin ve ağ geçidi güncelleştirmek için çalıştırın.
 
 ### <a name="2-problem"></a>2. Sorun
-Tıklayarak bir ağ geçidi yüklemek girişimde bulunduğunuzda bu hatayı görmek **doğrudan bu bilgisayar Yükle** Azure portalında.
+Tıklayarak bir ağ geçidini Yüklemeye çalıştığınız olduğunda bu hatayı görmeye **doğrudan bu bilgisayara yüklemek** Azure portalında.
 
 `Error:  Abort installing a new gateway on this computer because this computer has an existing installed gateway and a computer without any installed gateway is required for installing a new gateway.`  
 
 #### <a name="cause"></a>Nedeni
-Bir ağ geçidi makinede zaten yüklü.
+Bir ağ geçidi, makinede zaten yüklü.
 
 #### <a name="resolution"></a>Çözüm
-Makinedeki mevcut ağ geçidi kaldırın ve tıklatın **doğrudan bu bilgisayar Yükle** yeniden bağlanın.
+Makinede mevcut ağ geçidini kaldırın ve tıklayın **doğrudan bu bilgisayara yüklemek** yeniden bağlanın.
 
 ### <a name="3-problem"></a>3. Sorun
-Yeni bir ağ geçidi kaydederken, bu hatayı görebilirsiniz.
+Yeni bir ağ geçidi kaydedilirken bu hatayı görebilirsiniz.
 
 `Error: The gateway has encountered an error during registration.`
 
 #### <a name="cause"></a>Nedeni
-Aşağıdaki nedenlerden birinden dolayı bu iletiyi görebilirsiniz:
+Aşağıdaki nedenlerden biri için bu iletiyi görebilirsiniz:
 
-* Ağ geçidi anahtarı biçimi geçersiz.
-* Ağ geçidi anahtarı geçersiz kılındı.
-* Ağ geçidi anahtarı portalından yeniden.  
+* Ağ geçidi anahtarının biçimi geçersiz.
+* Ağ geçidi anahtarı geçersiz hale getirildi.
+* Ağ geçidi anahtarı portaldan üretildi.  
 
 #### <a name="resolution"></a>Çözüm
-Portal doğru ağ geçidi anahtarı kullanarak doğrulayın. Gerekirse, bir anahtarı yeniden oluşturmak ve ağ geçidini kaydetmek için kayıt anahtarını kullanın.
+Portaldan doğru ağ geçidi anahtarı kullanarak doğrulayın. Gerekirse, bir anahtar ve ağ geçidini kaydetmek için anahtarını kullanın.
 
 ### <a name="4-problem"></a>4. Sorun
-Bir ağ geçidi kaydederken aşağıdaki hata iletisini görebilirsiniz.
+Bir ağ geçidi kaydedilirken, aşağıdaki hata iletisini görebilirsiniz.
 
 `Error: The content or format of the gateway key "{gatewayKey}" is invalid, please go to azure portal to create one new gateway or regenerate the gateway key.`
 
 
 
-![İçerik veya anahtar biçimi geçersiz](media/data-factory-troubleshoot-gateway-issues/invalid-format-gateway-key.png)
+![İçerik veya anahtarının biçimi geçersiz](media/data-factory-troubleshoot-gateway-issues/invalid-format-gateway-key.png)
 
 #### <a name="cause"></a>Nedeni
-İçerik veya giriş ağ geçidi anahtarı biçimi doğru değil. Nedenlerden biri dolayısıyla anahtar yalnızca bir kısmını portalından kopyalandığından veya geçersiz bir anahtar kullandığınız olabilir.
+İçerik veya giriş ağ geçidi anahtarının biçimi doğru değil. Nedenlerden biri, anahtarın yalnızca bir kısmını portaldan kopyaladığınız veya geçersiz bir anahtar kullandığınız olabilir.
 
 #### <a name="resolution"></a>Çözüm
 Portalda bir ağ geçidi anahtarı oluşturun ve tüm anahtar kopyalamak için Kopyala düğmesini kullanın. Ardından ağ geçidini kaydetmek için bu penceresine yapıştırın.
 
 ### <a name="5-problem"></a>5. Sorun
-Bir ağ geçidi kaydederken aşağıdaki hata iletisini görebilirsiniz.
+Bir ağ geçidi kaydedilirken, aşağıdaki hata iletisini görebilirsiniz.
 
 `Error: The gateway key is invalid or empty. Specify a valid gateway key from the portal.`
 
-![Ağ geçidi anahtarı geçersiz veya boş değil](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
+![Ağ geçidi anahtarı geçersiz veya boş.](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### <a name="cause"></a>Nedeni
-Ağ geçidi anahtar yeniden oluşturulacak veya Azure portalında ağ geçidi silinmiş olabilir. Veri Yönetimi ağ geçidi Kurulum en son değilse de oluşabilir.
+Ağ geçidi anahtar yeniden oluşturulacak veya Azure portalında bir ağ geçidi silinmiş olabilir. Veri Yönetimi ağ geçidi Kurulum en son değilse de oluşabilir.
 
 #### <a name="resolution"></a>Çözüm
-Veri Yönetimi ağ geçidi Kurulum en son sürüm ise bulabilirsiniz en son sürümünü Microsoft denetleyin [İndirme Merkezinden](https://go.microsoft.com/fwlink/p/?LinkId=271260).
+Veri Yönetimi ağ geçidi Kurulum en son sürüm ise bulabilirsiniz en son sürümü Microsoft denetleyin [İndirme Merkezinden](https://go.microsoft.com/fwlink/p/?LinkId=271260).
 
-Kurulum, geçerli / son ise ve ağ geçidi portalında hala var, Azure portalında ağ geçidi anahtarını yeniden ve tüm anahtar kopyalamak için Kopyala düğmesini kullanın ve ağ geçidini kaydetmek için bu pencerede yapıştırın. Aksi takdirde, ağ geçidini yeniden oluşturun ve baştan başlayın.
+Kurulumu, geçerli / latest ve ağ geçidi, portalı hala mevcut olduğundan, Azure portalında, ağ geçidi anahtarı yeniden ve tüm anahtar kopyalamak için Kopyala düğmesini kullanın ve ardından ağ geçidini kaydetmek için bu pencereyi yapıştırın. Aksi takdirde, ağ geçidini yeniden oluşturun ve baştan başlayın.
 
 ### <a name="6-problem"></a>6. Sorun
-Bir ağ geçidi kaydederken aşağıdaki hata iletisini görebilirsiniz.
+Bir ağ geçidi kaydedilirken, aşağıdaki hata iletisini görebilirsiniz.
 
 `Error: Gateway has been online for a while, then shows “Gateway is not registered” with the status “Gateway key is invalid”`
 
-![Ağ geçidi anahtarı geçersiz veya boş değil](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
+![Ağ geçidi anahtarı geçersiz veya boş.](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
 
 #### <a name="cause"></a>Nedeni
-Bu hata, ağ geçidi silinmiş olabilir ya da ilişkili ağ geçidi anahtarı yeniden olmadığından gerçekleşebilir.
+Bu hata, ağ geçidi silinmiş olabilir veya ilişkili bir ağ geçidi anahtar yeniden oluşturulacak nedeniyle gerçekleşebilir.
 
 #### <a name="resolution"></a>Çözüm
-Ağ geçidi sildiyseniz Portalı'ndan Ağ Geçidi yeniden oluşturmak, tıklatın **kaydetmek**portaldan anahtarı kopyalayın, yapıştırın ve ağ geçidini kaydetmeyi deneyin.
+Ağ geçidi silinmiş olması durumunda, portaldan ağ geçidini yeniden oluşturmak, tıklayın **kaydetme**, anahtar portaldan kopyalayın, yapıştırın ve ağ geçidi kaydetmeyi deneyin.
 
-Ağ geçidi hala var, ancak kendi anahtar yeniden oluşturulacak yeni anahtarı ağ geçidini kaydetmek için kullanın. Anahtar yoksa, yeniden portalından tuşunu yeniden oluşturun.
+Ağ geçidi hala var, ancak anahtarıyla yeniden, ağ geçidini kaydetmek için yeni anahtarı kullanın. Anahtar yoksa, Portalı'ndan yeniden tuşunu yeniden oluşturun.
 
 ### <a name="7-problem"></a>7. Sorun
-Bir ağ geçidi kaydedilirken yolu ve parola için bir sertifika girmeniz gerekebilir.
+Bir ağ geçidi kaydettirmekte zaman için bir sertifika yolu ve parola girmeniz gerekebilir.
 
 ![Sertifika belirtin](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
 
 #### <a name="cause"></a>Nedeni
-Ağ geçidi, önce diğer makinelere kaydedildi. Bir ağ geçidi ilk kaydı sırasında bir şifreleme sertifikası ağ geçidi ile ilişkilendirilmiş. Sertifika ağ geçidi tarafından otomatik olarak oluşturulan veya kullanıcı tarafından sağlanan.  Bu sertifika, veri deposu (bağlantılı hizmeti) kimlik bilgilerini şifrelemek için kullanılır.  
+Ağ geçidi, diğer makinelere önce kaydedildi. Bir ağ geçidi ilk kayıt sırasında bir şifreleme sertifikası ağ geçidi ile ilişkilendirilmiş. Sertifika kendi ağ geçidi tarafından oluşturulan veya kullanıcı tarafından sağlanan.  Bu sertifika, veri deposunun (bağlı hizmet) kimlik bilgilerini şifrelemek için kullanılır.  
 
 ![Sertifikayı dışarı aktarma](media/data-factory-troubleshoot-gateway-issues/export-certificate.png)
 
-Farklı bir konak makinesi üzerinde ağ geçidi geri yüklerken, daha önce bu sertifikayla şifrelenmiş kimlik bilgileri şifresini çözmek Bu sertifika için Kayıt Sihirbazı'nı sorar.  Bu sertifika olmadan kimlik bilgilerini yeni ağ geçidi tarafından şifresi çözülemiyor ve bu yeni ağ geçidi ile ilişkili sonraki kopyalama etkinliği yürütmeleri başarısız olur.  
+Ağ geçidi farklı bir konak makinesi üzerinde geri yüklerken, daha önce bu sertifika ile şifrelenmiş kimlik bilgilerinin şifresini çözmek Bu sertifika için Kayıt Sihirbazı'nı ister.  Bu sertifika olmadan kimlik bilgilerini yeni ağ geçidi tarafından şifresi çözülemiyor ve bu yeni ağ geçidi ile ilişkili sonraki kopyalama etkinliği yürütme başarısız olur.  
 
 #### <a name="resolution"></a>Çözüm
-Kimlik bilgileri sertifikası özgün ağ geçidi makineden kullanarak dışa aktardığınız varsa **verme** düğmesini **ayarları** sekmesinde Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi'nde, sertifika kullan Burada.
+Kimlik bilgisi sertifikası özgün ağ geçidi makineden kullanarak dışa aktardığınız varsa **dışarı** düğmesini **ayarları** sekmesinde Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi'nde, sertifikayı kullanın Burada.
 
-Bu aşamada, ağ geçidi kurtarırken atlayamazsınız. Sertifika yoksa portaldan ağ geçidini silin ve yeni bir ağ geçidi yeniden oluşturmanız gerekir.  Ayrıca, ağ geçidi için kimlik bilgilerini yeniden girme ilişkili tüm bağlantılı Hizmetleri güncelleştirin.
+Bu aşamada, ağ geçidi kurtarırken atlayamazsınız. Sertifika yoksa, portaldan ağ geçidini silin ve yeni bir ağ geçidi yeniden oluşturmanız gerekir.  Ayrıca, kullanıcıların kimlik bilgilerini yeniden girildi tarafından ağ geçidine ilgili tüm bağlantılı Hizmetleri güncelleştirin.
 
 ### <a name="8-problem"></a>8. Sorun
 Aşağıdaki hata iletisini görebilirsiniz.
@@ -136,42 +135,42 @@ Aşağıdaki hata iletisini görebilirsiniz.
 `Error: The remote server returned an error: (407) Proxy Authentication Required.`
 
 #### <a name="cause"></a>Nedeni
-Bu hata, ağ geçidiniz Internet kaynakların ya da proxy'nın kimlik doğrulaması parola erişmek için bir HTTP proxy değiştirilir, ancak uygun şekilde güncelleştirilmez gerektiren bir ortamda olduğunda oluşur. ağ geçidiniz içinde.
+Ağ geçidi, proxy kimlik doğrulaması parola veya Internet kaynaklarına erişmek için bir HTTP proxy'sinin değişir ancak uygun şekilde güncelleştirilmez gerektiren bir ortamda olduğunda bu hata oluşur, ağ geçidi'nde.
 
 #### <a name="resolution"></a>Çözüm
-' Ndaki yönergeleri izleyin [Proxy sunucusu hususları](#proxy-server-considerations) bu bölümü makalesi ve veri yönetimi ağ geçidi Yapılandırma Yöneticisi ile proxy ayarlarını yapılandırın.
+Bölümündeki yönergeleri [Proxy server konuları](#proxy-server-considerations) bu bölümünü makalesini inceleyin ve veri yönetimi ağ geçidi Yapılandırma Yöneticisi ile proxy ayarlarını yapılandırın.
 
-## <a name="gateway-is-online-with-limited-functionality"></a>Ağ geçidi ile sınırlı işlevsellik çevrimiçi duruma
+## <a name="gateway-is-online-with-limited-functionality"></a>Ağ geçidi sınırlı işlevsellikle çevrimiçi
 ### <a name="1-problem"></a>1. Sorun
-Sınırlı işlevlerle çevrimiçi olarak ağ geçidi durumunu görebilir.
+Sınırlı işlevsellikle çevrimiçi olarak ağ geçidinin durumunu görürsünüz.
 
 #### <a name="cause"></a>Nedeni
-Ağ geçidi durumunun çevrimiçi olarak sınırlı işlevlerle aşağıdaki nedenlerden birinden dolayı görürsünüz:
+Ağ geçidinin durumunu çevrimiçi olarak sınırlı işlevsellikle aşağıdakilerden birini görürsünüz:
 
-* Ağ geçidi, Azure Service Bus aracılığıyla bulut hizmetine bağlanamıyor.
-* Bulut hizmeti, Service Bus aracılığıyla ağ geçidine bağlanamıyor.
+* Ağ geçidi, Azure Service Bus üzerinden bulut hizmetine bağlanamıyor.
+* Bulut hizmeti, ağ geçidi üzerinden Service Bus ile bağlantı kuramıyor.
 
-Ağ geçidi ile sınırlı işlevsellik çevrimiçi olduğunda, şirket içi veri depolarına bilgisayardan veya veri kopyalamak için verileri ardışık düzen oluşturmak için Data Factory Kopyalama Sihirbazı'nı kullanmak mümkün olmayabilir. Geçici bir çözüm olarak, portal, Visual Studio veya Azure PowerShell Data Factory düzenleyici kullanabilirsiniz.
+Ağ geçidi sınırlı işlevsellikle çevrimiçi olduğunda ya da şirket içi veri depolarından veri kopyalamak için veri işlem hatları oluşturmak için Data Factory Kopyalama Sihirbazı'nı kullanmayı mümkün olmayabilir. Geçici bir çözüm olarak, portal, Visual Studio veya Azure PowerShell, Data Factory Düzenleyicisi'ni kullanabilirsiniz.
 
 #### <a name="resolution"></a>Çözüm
-Bu sorun için çözüm (sınırlı işlevsellik ile çevrimiçi) ağ geçidi bulut hizmeti veya diğer bir yol için bağlantı kuramıyor üzerinde temel alır. Aşağıdaki bölümler bu çözümleri sağlar.
+Bu sorunun çözümü (sınırlı işlevsellikle çevrimiçi) ağ geçidi bulut hizmeti ya da başka bir şekilde bağlantı kurulamıyor üzerinde temel alır. Aşağıdaki bölümlerde, bu çözümleri sağlayın.
 
 ### <a name="2-problem"></a>2. Sorun
 Aşağıdaki hatayı görürsünüz.
 
 `Error: Gateway cannot connect to cloud service through service bus`
 
-![Ağ geçidi bulut hizmetine bağlanamıyor](media/data-factory-troubleshoot-gateway-issues/gateway-cannot-connect-to-cloud-service.png)
+![Ağ geçidi, bulut hizmetine bağlanamıyor](media/data-factory-troubleshoot-gateway-issues/gateway-cannot-connect-to-cloud-service.png)
 
 #### <a name="cause"></a>Nedeni
-Ağ geçidi, Service Bus aracılığıyla bulut hizmetine bağlanamıyor.
+Ağ geçidi, Service Bus üzerinden bulut hizmetine bağlanamıyor.
 
 #### <a name="resolution"></a>Çözüm
-Ağ geçidi çevrimiçine almak için şu adımları izleyin:
+Ağ geçidi çevrimiçine almak için aşağıdaki adımları izleyin:
 
-1. IP adresi ağ geçidi makinesindeki ve kurumsal güvenlik duvarı giden kuralları izin verir. IP adresleri Windows olay günlüğünden bulabilirsiniz (kimliği 401 ==): bir yuva, erişim izinleri XX Yasak bir şekilde erişmek için bir girişimde bulunuldu. XX. XX. XX:9350.
-* Ağ geçidinde proxy ayarlarını yapılandırın. Bkz: [Proxy sunucusu hususları](#proxy-server-considerations) ayrıntıları bölümü.
-* Giden bağlantı noktası 5671 ve 9350-9354 hem Windows Güvenlik Duvarı ağ geçidi bilgisayarında ve kurumsal Güvenlik Duvarı'nı etkinleştirin. Bkz: [bağlantı noktalarını ve Güvenlik Duvarı](#ports-and-firewall) ayrıntıları bölümü. Bu adım isteğe bağlıdır, ancak performans açıklamasında öneririz.
+1. IP adresi, ağ geçidi makinesi ve kurumsal güvenlik duvarının giden kuralları sağlar. Windows olay günlüğünden IP adresleri bulabilirsiniz (kimliği 401 ==): Bir yuva erişim izinlerini XX tarafından yasaklanmış bir şekilde erişmek için girişimde bulunuldu. XX. XX. XX:9350.
+* Ağ geçidi üzerinde proxy ayarlarını yapılandırın. Bkz: [Proxy server konuları](#proxy-server-considerations) ayrıntıları bölümü.
+* Giden bağlantı noktası 5671 ve 9350-9354 hem Windows Güvenlik Duvarı ağ geçidi makinesinde ve kurumsal Güvenlik Duvarı'nı etkinleştirin. Bkz: [bağlantı noktaları ve Güvenlik Duvarı](#ports-and-firewall) ayrıntıları bölümü. Bu adım isteğe bağlıdır, ancak performans meselesi öneririz.
 
 ### <a name="3-problem"></a>3. Sorun
 Aşağıdaki hatayı görürsünüz.
@@ -182,107 +181,107 @@ Aşağıdaki hatayı görürsünüz.
 Ağ bağlantısı geçici bir hata.
 
 #### <a name="resolution"></a>Çözüm
-Ağ geçidi çevrimiçine almak için şu adımları izleyin:
+Ağ geçidi çevrimiçine almak için aşağıdaki adımları izleyin:
 
-1. Birkaç dakika bekleyin, hata kaldırılmıştır olduğunda bağlantısı otomatik olarak kurtarılacak.
-* Sorun devam ederse, ağ geçidi hizmeti yeniden başlatın.
+1. Birkaç dakika bekleyin, bağlantı kayboldu hatası olduğunda otomatik olarak kurtarılır.
+* Sorun devam ederse, ağ geçidi hizmetini yeniden başlatın.
 
-## <a name="failed-to-author-linked-service"></a>Bağlantılı hizmet yazmak başarısız oldu
+## <a name="failed-to-author-linked-service"></a>Bağlı hizmet oluşturmak başarısız oldu
 ### <a name="problem"></a>Sorun
-Yeni bir bağlı hizmeti için kimlik bilgilerini girin veya mevcut bir bağlı hizmeti için kimlik bilgilerini güncelleştirmek için portalda kimlik bilgisi Yöneticisi'ni kullanmaya çalıştığınızda bu hatayı görebilirsiniz.
+Yeni bağlı hizmet kimlik bilgilerini girin veya mevcut bir bağlı hizmeti için kimlik bilgilerini güncelleştirmek için portalda kimlik bilgisi Yöneticisi'ni kullanmaya çalıştığınızda bu hatayı görebilirsiniz.
 
 `Error: The data store '<Server>/<Database>' cannot be reached. Check connection settings for the data source.`
 
-Bu hata gördüğünüzde, veri yönetimi ağ geçidi Yapılandırma Yöneticisi'nin Ayarları sayfası aşağıdaki ekran görüntüsü gibi görünebilir.
+Bu hatayı gördüğünüzde, Ayarlar sayfasında, veri yönetimi ağ geçidi Yapılandırma Yöneticisi aşağıdaki ekran görüntüsüne benzer görünebilir.
 
-![Veritabanına erişilemiyor](media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png)
+![Veritabanına ulaşılamıyor](media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png)
 
 #### <a name="cause"></a>Nedeni
-SSL sertifikası ağ geçidi makinesinde kesilmiş olabilir. Ağ geçidi bilgisayarı SSL şifreleme için kullanılan sertifika şu anda yüklenemiyor. Olay günlüğünde aşağıdaki iletiye benzer bir hata iletisi de görebilirsiniz.
+SSL sertifikası bir ağ geçidi makinesinde kesilmiş olabilir. Ağ geçidi bilgisayar SSL şifreleme için kullanılan sertifika şu anda yüklenemiyor. Olay günlüğünde aşağıdaki iletiye benzer bir hata iletisi de görebilirsiniz.
 
  `Unable to get the gateway settings from cloud service. Check the gateway key and the network connection. (Certificate with thumbprint cannot be loaded.)`
 
 #### <a name="resolution"></a>Çözüm
-Sorunu çözmek için şu adımları izleyin:
+Sorunu çözmek için aşağıdaki adımları izleyin:
 
 1. Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi'ni başlatın.
 2. **Ayarlar** sekmesine geçin.  
-3. Tıklatın **değiştirmek** SSL sertifikasını değiştirmek için düğmesi.
+3. Tıklayın **değiştirme** SSL sertifikasını değiştirilecek düğmesi.
 
    ![Değişiklik sertifika düğmesi](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
-4. SSL sertifikası olarak yeni bir sertifika seçin. Sizin tarafınızdan oluşturulan herhangi bir SSL sertifikası veya herhangi bir kuruluştaki kullanabilirsiniz.
+4. SSL sertifikası olarak yeni bir sertifika seçin. Sizin tarafınızdan oluşturulan herhangi bir SSL sertifikası veya herhangi bir kuruluşun kullanabilirsiniz.
 
    ![Sertifika belirtin](media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png)
 
 ## <a name="copy-activity-fails"></a>Kopyalama etkinliği başarısız
 ### <a name="problem"></a>Sorun
-Ardışık Düzen portalında kurduktan sonra aşağıdaki "UserErrorFailedToConnectToSqlserver" hatası fark edebilirsiniz.
+Portalda bir işlem hattı ayarladıktan sonra aşağıdaki "UserErrorFailedToConnectToSqlserver" hatası fark edebilirsiniz.
 
 `Error: Copy activity encountered a user error: ErrorCode=UserErrorFailedToConnectToSqlServer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server`
 
 #### <a name="cause"></a>Nedeni
-Bu farklı nedenlerden kaynaklanabilir ve azaltma buna göre değişir.
+Bu farklı nedenlerden kaynaklanıyor ve risk azaltma buna göre değişir.
 
 #### <a name="resolution"></a>Çözüm
-Bir SQL veritabanına bağlanmadan önce bağlantı noktası TCP/1433 veri yönetimi ağ geçidi istemci tarafında üzerinden giden TCP bağlantılarını sağlar.
+Bir SQL veritabanına bağlanmadan önce veri yönetimi ağ geçidi istemci tarafında TCP/1433 numaralı bağlantı noktası üzerinden giden TCP bağlantılarına izin.
 
-Hedef veritabanının Azure SQL veritabanını, SQL Server için Güvenlik Duvarı ayarlarını Azure de kontrol edin.
+Hedef veritabanının Azure SQL veritabanı, SQL Server için Güvenlik Duvarı ayarlarını Azure de denetleyin.
 
-Şirket içi veri deposuna bağlantıyı sınamak için aşağıdaki bölüme bakın.
+Şirket içi veri deposuna olan bağlantıyı sınamak için aşağıdaki bölüme bakın.
 
-## <a name="data-store-connection-or-driver-related-errors"></a>Veri deposu bağlantısı veya sürücüsü ile ilgili hataları
-Veri deposunda bağlantı veya sürücü ilgili hatalar görürseniz, aşağıdaki adımları tamamlayın:
+## <a name="data-store-connection-or-driver-related-errors"></a>Veri deposu bağlantısı veya sürücü ile ilgili hataları
+Verileri Bağlantısı veya sürücü ile ilgili hatalar görürseniz, aşağıdaki adımları tamamlayın:
 
-1. Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi ağ geçidi makinede başlatın.
+1. Ağ geçidi makinesinde veri yönetimi ağ geçidi Yapılandırma Yöneticisi'ni başlatın.
 2. Geçiş **tanılama** sekmesi.
 3. İçinde **Bağlantıyı Sına**, ağ geçidi Grup değerlerini ekleyin.
-4. Tıklatın **Test** , şirket içi veri kaynağına ağ geçidi makineden bağlantı bilgilerini ve kimlik bilgilerini kullanarak bağlanabildiğinizi görmek için. Bir sürücü yükledikten sonra bağlantı testi yine başarısız olursa, ağ geçidini son değişiklikleri alması için yeniden başlatın.
+4. Tıklayın **Test** için şirket içi veri kaynağına ağ geçidi makine kimlik bilgileri ve bağlantı bilgilerini kullanarak bağlanıp bağlanamadığınızı görün. Bir sürücü yükledikten sonra bağlantı testi yine başarısız olursa, ağ geçidini son değişiklikleri alması için yeniden başlatın.
 
-![Tanılama sekmesinde bağlantıyı Sına](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
+![Tanılama sekmesi içinde Bağlantıyı Sına](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
 
 ## <a name="gateway-logs"></a>Ağ geçidi günlükleri
-### <a name="send-gateway-logs-to-microsoft"></a>Ağ geçidi günlüklerini Microsoft'a gönderme
-Ağ geçidi sorunlarını giderme konusunda yardım almak için Microsoft Support başvurduğunuzda, ağ geçidi günlüklerinizi paylaşmak istenebilir. Ağ geçidi sürümle birlikte, gerekli ağ geçidi günlüklerini iki düğme tıklama veri yönetimi ağ geçidi Yapılandırma Yöneticisi ile paylaşabilirsiniz.    
+### <a name="send-gateway-logs-to-microsoft"></a>Ağ geçidi günlükleri Microsoft'a gönder
+Ağ geçidi sorunlarını giderme konusunda yardım almak için Microsoft Support başvurduğunuzda gateway günlüklerinizi paylaşmak istemediğiniz sorulabilir. Ağ Geçidi'nın yayınlanmasıyla birlikte, gerekli ağ geçidi günlükleri iki düğme tıklamaları veri yönetimi ağ geçidi Yapılandırma Yöneticisi ile paylaşabilirsiniz.    
 
-1. Geçiş **tanılama** sekmesini veri yönetimi ağ geçidi Yapılandırma Yöneticisi.
+1. Geçiş **tanılama** sekmesi veri yönetimi ağ geçidi Yapılandırma Yöneticisi.
 
     ![Veri Yönetimi ağ geçidi Tanılama sekmesi](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-diagnostics-tab.png)
-2. Tıklatın **günlükleri Gönder** aşağıdaki iletişim kutusunu görmek için.
+2. Tıklayın **günlükleri Gönder** aşağıdaki iletişim kutusunu görmek için.
 
     ![Veri Yönetimi ağ geçidi Gönder günlükleri](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png)
-3. (İsteğe bağlı) Tıklatın **günlüklerini görüntülemek** gözden geçirmek için günlükleri Olay Görüntüleyicisi'ni.
-4. (İsteğe bağlı) Tıklatın **gizlilik** Microsoft web hizmetleri gizlilik bildirimi gözden geçirmek için.
-5. Olduğunuzda, nelerdir ile karşıya yüklemek, tıklatın **günlükleri Gönder** gerçekten günlükleri son yedi gün Microsoft'a sorun giderme için gönderilecek. Aşağıdaki ekran görüntüsünde gösterildiği gibi gönderme günlükleri işlemin durumunu görmeniz gerekir.
+3. (İsteğe bağlı) Tıklayın **günlükleri görüntüleyebilir** gözden geçirmek için günlükleri Olay Görüntüleyicisi.
+4. (İsteğe bağlı) Tıklayın **gizlilik** Microsoft web hizmetleri gizlilik bildirimi gözden geçirmek için.
+5. Olduğunuzda olduklarınız ile yüklemek için tıklayın **günlükleri Gönder** gerçekten günlükleri son yedi günden sorun giderme amacıyla Microsoft'a gönderilecek. Aşağıdaki ekran görüntüsünde gösterildiği gibi günlükleri gönderme işleminin durumunu görmeniz gerekir.
 
     ![Veri Yönetimi ağ geçidi gönderme durumu günlüğe kaydeder](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
 6. İşlem tamamlandıktan sonra aşağıdaki ekran görüntüsünde gösterildiği gibi bir iletişim kutusu görürsünüz.
 
     ![Veri Yönetimi ağ geçidi gönderme durumu günlüğe kaydeder](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
-7. Kaydet **rapor kimliği** ve Microsoft Support paylaşın. Rapor Kimliği, sorun giderme için karşıya ağ geçidi günlüklerini bulmak için kullanılır.  Rapor Kimliği, Olay Görüntüleyicisi'ni de kaydedilir.  Olay Kimliği "25" bakarak bulun ve tarih ve saat denetleyin.
+7. Kaydet **rapor kimliği** ve Microsoft Support paylaşın. Rapor Kimliği, sorun giderme için yüklediğiniz ağ geçidi günlüklerini bulmak için kullanılır.  Rapor Kimliği, Olay Görüntüleyicisi'ni de kaydedilir.  Olay Kimliği "25" bakarak bulun ve tarih ve saat denetleyin.
 
-    ![Veri Yönetimi ağ geçidi Gönderme Raporu Kimliği günlüğe kaydeder](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
+    ![Veri Yönetimi ağ geçidi gönderme günlükleri Raporu Kimliği](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
 
-### <a name="archive-gateway-logs-on-gateway-host-machine"></a>Ağ geçidi ana makinede arşiv gateway günlükleri
-Burada ağ geçidi sorunları varsa ve ağ geçidi günlüklerini doğrudan paylaşamaz bazı senaryolar vardır:
+### <a name="archive-gateway-logs-on-gateway-host-machine"></a>Ağ geçidi ana makinede arşiv ağ geçidi günlükleri
+Burada, ağ geçidiyle ilgili sorunları varsa ve ağ geçidi günlükleri doğrudan paylaşamaz bazı senaryolar vardır:
 
-* El ile ağ geçidini yükleyin ve ağ geçidini kaydedin.
-* Veri Yönetimi ağ geçidi Yapılandırma Yöneticisi yeniden anahtar ile ağ geçidini kaydetmeyi deneyin.
-* Günlükleri tekrar göndermeye çalıştığında ve ağ geçidi ana bilgisayar hizmetine bağlanamaz.
+* El ile ağ geçidi yüklemeniz ve ağ geçidi kaydedin.
+* Anahtar yeniden oluşturuldu veri yönetimi ağ geçidi Configuration Manager ile ağ geçidini kaydetmek deneyin.
+* Günlükleri göndermek deneyin ve ağ geçidi ana bilgisayar hizmeti bağlanamaz.
 
-Bu senaryolarda, ağ geçidi günlüklerini bir zip dosyası olarak kaydetmek ve Microsoft desteğe başvurduğunuzda paylaşın. Örneğin, ağ geçidi olarak kaydettiğiniz sırada bir hata alırsanız, aşağıdaki ekran görüntüsünde gösterilen.   
+Bu senaryolar için ağ geçidi günlükleri zip dosyası olarak kaydedin ve Microsoft Destek ekibiyle iletişime geçtiğinizde paylaşabilirsiniz. Örneğin, ağ geçidi olarak kaydetme sırasında bir hata alırsanız aşağıdaki ekran görüntüsünde gösterilir.   
 
 ![Veri Yönetimi ağ geçidi kayıt hatası](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-registration-error.png)
 
-Tıklatın **arşiv gateway günlükleri** arşivlemek ve günlükleri kaydedin bağlamak ve zip dosyası Microsoft desteği ile paylaşabilirsiniz.
+Tıklayın **arşiv ağ geçidi günlükleri** arşivlemek ve günlükleri kaydedin bağlamak ve zip dosyası Microsoft desteği ile paylaşın.
 
 ![Veri Yönetimi ağ geçidi arşiv günlükleri](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-archive-logs.png)
 
-### <a name="locate-gateway-logs"></a>Ağ geçidi günlüklerini bulun
-Ayrıntılı ağ geçidi günlük bilgilerini Windows olay günlüklerini bulabilirsiniz.
+### <a name="locate-gateway-logs"></a>Ağ geçidi günlükleri bulun
+Windows olay günlüklerindeki ayrıntılı ağ geçidi günlüğü bilgilerini bulabilirsiniz.
 
 1. Windows Başlat **Olay Görüntüleyicisi'ni**.
 2. Günlüklerde bulun **uygulama ve hizmet günlükleri** > **veri yönetimi ağ geçidi** klasör.
 
- Ağ geçidi ile ilgili sorunları gidermeye çalışıyorsanız, hata düzeyi olayları için Olay Görüntüleyicisi'ni arayın.
+ Ağ geçidi ile ilgili sorunları gidermeye çalışıyorsanız, hata düzeyi olaylarına bakın, Olay Görüntüleyicisi'ni arayın.
 
-![Veri Yönetimi ağ geçidi Olay Görüntüleyicisi'nde günlüğe kaydeder](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
+![Veri Yönetimi ağ geçidi Olay Görüntüleyicisi'nde günlüğe kaydeder.](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)

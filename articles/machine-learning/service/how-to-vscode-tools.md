@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 898fd7d0416d1e1b27a25cabf524e72a7de44fde
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 902c659d2c51d69f2e9d0ef3a7401326e0e530eb
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269607"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013154"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code için Azure Machine Learning'i kullanmaya başlayın
 
@@ -80,7 +80,8 @@ VS Code kullanarak makine öğrenimi modelleri dağıtma, oluşturmanız gerekir
 
 1. Visual Studio Code etkinlik çubuğundaki Azure simgesine tıklayın. Azure Machine Learning Kenar çubuğunda görünür.
 
-   [![Kenar Çubuğu](./media/vscode-tools-for-ai/CreateNewWorkspace.gif)](./media/vscode-tools-for-ai/CreateNewWorkspace.gif#lightbox)
+   [![Yükleme](./media/vscode-tools-for-ai/CreateaWorkspace.gif)](./media/vscode-tools-for-ai/CreateaWorkspace.gif#lightbox)
+
 
 1. Azure aboneliğinize sağ tıklayıp **çalışma alanı oluştur**. Bir liste görüntülenir. Animasyonlu görüntüde, abonelik adı 'Ücretsiz deneme sürümü' ve 'TeamWorkspace' çalışma alanıdır. 
 
@@ -96,11 +97,11 @@ VS Code kullanarak makine öğrenimi modelleri dağıtma, oluşturmanız gerekir
  
 1. ENTER tuşuna basın ve yeni bir deneme oluşturulur. Çalışma alanı adı altındaki ağacın görüntülenir.
 
-1. Deneme adına sağ tıklayın ve seçin **deneme ekleme klasörüne**. Bu klasör, yerel Python betiklerini içermelidir. Klasörü, bulutta deneme sonra bağlandı. 
+1. Bir çalışma alanında bir denemeyi sağ tıklayın ve 'Etkin deneyim olarak Ayarla' seçin. **'Active'** deneme denemeyi olduğundan şu anda kullanmakta olduğunuz ve bulutta bu deneme için VS code'da açık klasörünüze bağlanacak. Bu klasör, yerel Python betiklerini içermelidir.
 
    Artık her denemenizi denemenizi ile önemli ölçümlerinizin tamamını deneme geçmişinde depolanacak ve eğittiğiniz modeli otomatik olarak Azure Machine Learning için karşıya yüklenen ve, deneme ölçüm ve günlükleri ile depolanan çalışır.
 
-   [![VS code'da bir klasör ekleme](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif)](./media/vscode-tools-for-ai/CreateNewExperimentandFolder.gif#lightbox)
+   [![VS code'da bir klasör ekleme](./media/vscode-tools-for-ai/CreateAnExperiment.gif)](./media/vscode-tools-for-ai/CreateAnExperiment.gif#lightbox)
 
 ### <a name="use-keyboard-shortcuts"></a>Klavye kısayollarını kullanma
 

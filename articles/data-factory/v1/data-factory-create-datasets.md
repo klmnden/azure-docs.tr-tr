@@ -9,17 +9,16 @@ ms.assetid: 0614cd24-2ff0-49d3-9301-06052fd4f92a
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f33ff3f588dac49e295a5aa96d71557d32407e46
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 77e81dce7857433481f501410419f1067a51c3fc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38667447"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020345"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data factory'deki veri kümelerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +40,7 @@ Bir etkinliğin sıfır veya daha fazla giriş sürebilir **veri kümeleri**ve b
 
 Bir veri kümesi oluşturmadan önce oluşturun bir **bağlı hizmet** data factory'de veri deponuza bağlamak için. Bağlı hizmetler, dış kaynaklara bağlanmak için Data Factory’ye gereken bağlantı bilgilerini tanımlayan bağlantı dizelerine çok benzer. Veri kümeleri, SQL tablolarını, dosyalar, klasörler ve belgeler gibi bağlı veri depolarındaki verileri tanımlar. Örneğin, bir Azure depolama bir depolama hesabını veri fabrikasına bağlı hizmeti. Bir Azure Blob veri kümesi blob kapsayıcıyı ve işlenecek giriş bloblarını içeren klasörü temsil eder. 
 
-Örnek senaryo aşağıda verilmiştir. Verileri Blob depolama alanından SQL veritabanına kopyalamak için iki bağlı hizmet oluşturursunuz: Azure depolama ve Azure SQL veritabanı. Ardından, iki veri kümesi oluşturun: (Azure depolama bağlı hizmetini ifade eder) Azure Blob veri kümesi ve Azure SQL tablosu veri kümesi (Bu, Azure SQL veritabanı bağlı hizmetini ifade eder). Azure depolama ve Azure SQL veritabanı bağlı hizmeti, Data Factory, Azure depolama ve Azure SQL veritabanı, sırasıyla bağlanmak için çalışma zamanında kullandığı bağlantı dizeleri içerir. Azure Blob veri kümesi blob kapsayıcısı ve Blob Depolama alanınızda giriş bloblarını içeren blob klasörü belirtir. Azure SQL tablosu veri kümesi, verilerin kopyalanacağı olduğu SQL veritabanınızda SQL tablosunu belirtir.
+Örnek senaryo aşağıda verilmiştir. Verileri Blob depolama alanından SQL veritabanına kopyalamak için iki bağlı hizmet oluşturursunuz: Azure depolama ve Azure SQL veritabanı. Ardından, iki veri kümesi oluşturursunuz: (Azure depolama bağlı hizmetini ifade eder) azure Blob veri kümesi ve Azure SQL tablosu veri kümesi (Bu, Azure SQL veritabanı bağlı hizmetini ifade eder). Azure depolama ve Azure SQL veritabanı bağlı hizmeti, Data Factory, Azure depolama ve Azure SQL veritabanı, sırasıyla bağlanmak için çalışma zamanında kullandığı bağlantı dizeleri içerir. Azure Blob veri kümesi blob kapsayıcısı ve Blob Depolama alanınızda giriş bloblarını içeren blob klasörü belirtir. Azure SQL tablosu veri kümesi, verilerin kopyalanacağı olduğu SQL veritabanınızda SQL tablosunu belirtir.
 
 Aşağıdaki diyagramda, Data Factory'de işlem hattı, etkinlik, veri kümesi ve bağlı hizmet arasındaki ilişkiler gösterilmektedir: 
 
@@ -80,7 +79,7 @@ Bir veri kümesinde Data Factory JSON biçiminde şu şekilde tanımlanır:
 
 Aşağıdaki tabloda yukarıdaki JSON özellikleri açıklanmaktadır:   
 
-| Özellik | Açıklama | Gerekli | Varsayılan |
+| Özellik | Açıklama | Gereklidir | Varsayılan |
 | --- | --- | --- | --- |
 | ad |Veri kümesinin adı. Bkz: [Azure Data Factory - adlandırma kuralları](data-factory-naming-rules.md) adlandırma kuralları. |Evet |NA |
 | type |Veri kümesi türü. Data Factory tarafından desteklenen türlerinden birini belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [veri kümesi türü](#Type). |Evet |NA |
@@ -193,12 +192,12 @@ structure:
 
 Her sütunda yapısı aşağıdaki özellikleri içerir:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 | --- | --- | --- |
 | ad |Sütunun adı. |Evet |
 | type |Sütunun veri türü.  |Hayır |
-| Kültür |. Türü bir .NET türü olduğunda kullanılacak kültürü NET tabanlı: `Datetime` veya `Datetimeoffset`. Varsayılan, `en-us` değeridir. |Hayır |
-| Biçim |Biçim türü .NET türü olduğunda kullanılacak dize: `Datetime` veya `Datetimeoffset`. |Hayır |
+| Kültür |. Türü bir .NET türü olduğunda kullanılacak kültürü NET tabanlı: `Datetime` veya `Datetimeoffset`. Varsayılan değer: `en-us`. |Hayır |
+| biçim |Biçim türü .NET türü olduğunda kullanılacak dize: `Datetime` veya `Datetimeoffset`. |Hayır |
 
 Aşağıdaki yönergeleri yapı bilgileri içerecek şekilde ne zaman ve ne eklenecek belirlemenize yardımcı **yapısı** bölümü.
 
@@ -236,9 +235,9 @@ Aşağıdaki kullanılabilirlik bölümü çıktı veri kümesinin saatlik oluş
 
 Aşağıdaki tabloda kullanılabilirlik bölümünde kullanabileceğiniz özellikleri açıklanmaktadır:
 
-| Özellik | Açıklama | Gerekli | Varsayılan |
+| Özellik | Açıklama | Gereklidir | Varsayılan |
 | --- | --- | --- | --- |
-| frequency |Veri kümesi dilim üretim yönelik zaman birimini belirtir.<br/><br/><b>Sıklık desteklenen</b>: dakika, saat, gün, hafta, ay |Evet |NA |
+| frequency |Veri kümesi dilim üretim yönelik zaman birimini belirtir.<br/><br/><b>Sıklık desteklenen</b>: Dakika, saat, gün, hafta, ay |Evet |NA |
 | interval |Sıklığı çarpanı belirtir.<br/><br/>"X sıklık aralığı" ne sıklıkta dilim üretilir belirler. Örneğin, veri kümesinin saatlik olarak dilimlenmiş gerekiyorsa, ayarladığınız <b>sıklığı</b> için <b>saat</b>, ve <b>aralığı</b> için <b>1</b>.<br/><br/>Belirttiğiniz gerçekleştiriyorsanız **sıklığı** olarak **dakika**, aralığı en az 15'e ayarlamanız gerekir. |Evet |NA |
 | Stil |Dilim başlangıç veya Bitiş aralığı olarak üretilen belirtir.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Varsa **sıklığı** ayarlanır **ay**, ve **stili** ayarlanır **EndOfInterval**, ayın son gününde dilim üretilir. Varsa **stili** ayarlanır **StartOfInterval**, ayın ilk gününde dilim üretilir.<br/><br/>Varsa **sıklığı** ayarlanır **gün**, ve **stili** ayarlanır **EndOfInterval**, günün son bir saat içinde dilim üretilir.<br/><br/>Varsa **sıklığı** ayarlanır **saat**, ve **stili** ayarlanır **EndOfInterval**, saatin sonunda dilim üretilir. Örneğin, 2 saat 13 - PM dönem için bir dilim için 2 saat dilim üretilir. |Hayır |EndOfInterval |
 | anchorDateTime |Zamanlayıcı tarafından veri kümesi dilim sınırlarını hesaplamak için kullanılan zaman içinde mutlak konum tanımlar. <br/><br/>Not Bu propoerty belirtilen sıklığından daha ayrıntılı tarih kısımlarını varsa, daha ayrıntılı bölümleri göz ardı edilir. Örneğin, varsa **aralığı** olduğu **saatlik** (Sıklık: saat ve aralığı: 1) ve **anchorDateTime** içeren **dakika ve saniye**, ardından dakika ve saniye bölümlerini **anchorDateTime** göz ardı edilir. |Hayır |01/01/0001 |
@@ -283,7 +282,7 @@ Aşağıdaki veri kümesi aylık ve 8: 00'da, her ayın 3 üretilir (`3.08:00:00
 **İlke** veri kümesi tanımı bölümünde ölçütleri veya veri kümesinin dilimlerini karşılamalıdır koşulu tanımlar.
 
 ### <a name="validation-policies"></a>Doğrulama ilkeleri
-| İlke adı | Açıklama | Uygulanan | Gerekli | Varsayılan |
+| İlke adı | Açıklama | Uygulanan | Gereklidir | Varsayılan |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Doğrulama verilerde **Azure Blob Depolama** (megabayt cinsinden) en küçük boyut gereksinimlerini karşılıyor. |Azure Blob depolama |Hayır |NA |
 | minimumRows |Doğrulama verilerde bir **Azure SQL veritabanı** veya bir **Azure tablo** en az sayıda satır içerir. |<ul><li>Azure SQL veritabanı</li><li>Azure tablosu</li></ul> |Hayır |NA |
@@ -319,7 +318,7 @@ Dış veri kümeleri, çalışan bir veri fabrikasındaki işlem hattı tarafın
 
 Bir veri kümesi Data Factory tarafından üretilen sürece bu olarak işaretlenmelidir **dış**. Etkinlik veya işlem hattı zincirleme kullanılmadığı sürece bu ayar genellikle, işlem hattındaki ilk etkinlik girişleri için geçerlidir.
 
-| Ad | Açıklama | Gerekli | Varsayılan değer |
+| Ad | Açıklama | Gereklidir | Varsayılan değer |
 | --- | --- | --- | --- |
 | dataDelay |Belirtilen dilim için dış veri kullanılabilirliğini kontrolü gecikme süresini. Örneğin, bu ayarı kullanarak bir saatlik onay erteleyebilirsiniz.<br/><br/>Ayar, yalnızca zamandan için geçerlidir.  Örneğin, 13: 00'te şu anda ise ve bu değer 10 dakikadır doğrulama 13: 10'te başlatır.<br/><br/>Bu ayar geçmiş dilimler etkilemez unutmayın. İle dilimler **dilim bitiş zamanı** + **dataDelay** < **artık** herhangi bir gecikme olmadan işlenir.<br/><br/>23:59 büyüktür saatleri saat kullanarak belirtilmelidir `day.hours:minutes:seconds` biçimi. Örneğin, 24 saat belirtmek için 24:00:00 kullanmayın. Bunun yerine, 1.00:00:00 kullanın. 24:00:00 kullanırsanız, 24 gün (24.00:00:00) kabul edilir. 1 gün ve 4 saat, 1:04:00:00 belirtin. |Hayır |0 |
 | Retryınterval |Bir hata ile sonraki denemesi arasındaki bekleme süresi. Bu ayar, mevcut bir süre için geçerlidir. Önceki başarısız çalışırsanız, sonraki try sonradır **Retryınterval** süresi. <br/><br/>1:00 PM şu anda ise, ilk denemede başlamadan. İlk doğrulama denetimini tamamlamak için süre 1 dakika ve işlem başarısız oldu, sonraki yeniden deneme ise 1:00 + 1 dakika (süre) + 1 dakika (yeniden deneme aralığı) 13: 02'te =. <br/><br/>Geçmiş dilimler için gecikme yoktur. Yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 dakika) |

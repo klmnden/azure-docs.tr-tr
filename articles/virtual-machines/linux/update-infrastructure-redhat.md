@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: borisb
-ms.openlocfilehash: 0755d472ef6b2566d7faa51019da7d49266fa199
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 79d9ab603b8548269647b7922c6eb01dcc228c4c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993221"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019597"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure'da isteğe bağlı Red Hat Enterprise Linux VM'ler için Red Hat güncelleştirme altyapısı
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gibi Red Hat barındırılan depo içeriğini yansıtmak için özel depolar ile Azure özgü içerik oluşturmak ve son kullanıcı VM'ler için kullanılabilir hale getirmek amacıyla bulut sağlayıcıları sağlar.
@@ -48,22 +48,23 @@ Bazı müşterilerin belirli RHEL alt yayın, RHEL Vm'lerine kilitleme isteyebil
 > Bu, yalnızca RHEL 7.2 7.5 için geçerlidir
 
 1. EUS olmayan depoları devre dışı bırakın:
-    ```
+    ```bash
     sudo yum --disablerepo=* remove rhui-azure-rhel7
     ```
 
 1. EUS depoları ekleyin:
-    ```
+    ```bash
     yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
     ```
 
 1. Kilit releasever değişkeni:
-    ```
+    ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
 
     >[!NOTE]
     > Yukarıdaki yönerge RHEL ikincil sürümü için geçerli alt sürüm kilitleyecek. Yükseltme ve en son olmayan daha sonra ikincil sürümü kilitlemek için arıyorsanız, belirli bir ikincil sürüm girin. Örneğin, `echo 7.5 > /etc/yum/vars/releasever` RHEL 7.5, RHEL sürümüne kilitler
+
 1. RHEL VM'nize güncelleştir
     ```bash
     sudo yum update

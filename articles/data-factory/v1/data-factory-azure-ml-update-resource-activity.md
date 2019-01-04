@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7a5c0866bc08c5a73888d9baca41980106a62ae2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0c0e0e3983344bba76f5f305ecaf73f91110f3bc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954955"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020090"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Kaynak güncelleştirme etkinliği kullanarak Azure Machine Learning modellerini güncelleştirme
 
@@ -38,7 +37,7 @@ ms.locfileid: "49954955"
 > [!NOTE]
 > Bu makale, Data Factory’nin 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [Data factory'de machine learning modellerini güncelleştirme](../update-machine-learning-models.md).
 
-Bu makalede ana Azure Data Factory - Azure Machine Learning tümleştirme makale tamamlar: [Azure Machine Learning ve Azure Data Factory kullanarak öngörülebilir komut zincirleri oluşturma](data-factory-azure-ml-batch-execution-activity.md). Zaten yapmadıysanız, bu makalede okumadan önce ana makalesini gözden geçirin. 
+Bu makalede, ana Azure Data Factory - Azure Machine Learning tümleştirme makale tamamlar: [Azure Machine Learning ve Azure Data Factory kullanarak öngörülebilir komut zincirleri oluşturma](data-factory-azure-ml-batch-execution-activity.md). Zaten yapmadıysanız, bu makalede okumadan önce ana makalesini gözden geçirin. 
 
 ## <a name="overview"></a>Genel Bakış
 Zaman içinde yeni bir giriş veri kümeleri kullanarak eğitilebileceği Azure ML denemeleri Puanlama Tahmine dayalı modelleri gerekir. Yeniden eğitme ile işiniz bittiğinde ile retrained ML model Puanlama web hizmeti güncelleştirmek istediğiniz. Web Hizmetleri aracılığıyla Azure ML modelleri yeniden eğitme ve güncelleştirme etkinleştirmek için tipik adımları şunlardır:

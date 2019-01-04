@@ -9,19 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 58fffafe9658919a96d1aef2881424c0d324e688
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 6d0524471ddc62e1ff6285bd0c80049917e726a6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876486"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014956"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı çalıştırma ve tetikleyiciler
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
 > * [Sürüm 1](v1/data-factory-scheduling-and-execution.md)
 > * [Geçerli sürüm](concepts-pipeline-execution-triggers.md)
 
@@ -92,7 +91,7 @@ POST
 https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGroup/providers/Microsoft.DataFactory/factories/myDataFactory/pipelines/copyPipeline/createRun?api-version=2017-03-01-preview
 ```
 
-Eksiksiz bir örnek için bkz. [Hızlı başlangıç: REST API kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-rest-api.md).
+Eksiksiz bir örnek için bkz. [hızlı başlangıç: REST API kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-rest-api.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Aşağıdaki örnek komutta Azure PowerShell kullanarak işlem hattınızı nasıl el ile çalıştırabileceğiniz gösterilmiştir:
@@ -118,7 +117,7 @@ Yanıt yükü, işlem hattı çalıştırmasının benzersiz kimliği olur:
 }
 ```
 
-Eksiksiz bir örnek için bkz. [Hızlı başlangıç: Azure PowerShell kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-powershell.md).
+Eksiksiz bir örnek için bkz. [hızlı başlangıç: Azure PowerShell kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-powershell.md).
 
 ### <a name="net-sdk"></a>.NET SDK
 Aşağıdaki örnek çağrıda .NET SDK kullanarak işlem hattınızı nasıl el ile çalıştırabileceğiniz gösterilmiştir:
@@ -127,7 +126,7 @@ Aşağıdaki örnek çağrıda .NET SDK kullanarak işlem hattınızı nasıl el
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
 ```
 
-Eksiksiz bir örnek için bkz. [Hızlı başlangıç: .NET SDK kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-dot-net.md).
+Eksiksiz bir örnek için bkz. [hızlı başlangıç: .NET SDK kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-dot-net.md).
 
 > [!NOTE]
 > .NET SDK kullanarak Azure İşlevleri'nden, kendi web hizmetlerinizden Data Factory işlem hatları çağırma gibi işlemler yapabilirsiniz.
@@ -139,7 +138,7 @@ Tetikleyiciler, işlem hattı çalıştırmasını yürütmenin bir diğer yolud
 
 - Atlayan pencere tetikleyicisi: Durumunu koruyarak düzenli bir aralıkta çalışan bir tetikleyici.
 
-- Olay tabanlı tetikleyici: Bir olaya yanıt veren tetikleyicidir.
+- Olay tabanlı tetikleyici: Bir olaya yanıt veren bir tetikleyici.
 
 İşlem hatları ve tetikleyiciler çoka çok ilişkisine sahiptir. Birden çok tetikleyici tek bir işlem hattını başlatabilirken, bir tetikleyici birden fazla işlem hattını başlatabilir. Aşağıdaki tetikleyici tanımında, **pipelines** özelliği belirli bir tetikleyici tarafından tetiklenen işlem hattı listesini ifade eder. Özellik tanımı, işlem hattı parametrelerinin değerlerini içerir.
 
@@ -275,7 +274,7 @@ Aşağıdaki tabloda bir tetikleyicinin yinelenmesi ve zamanlanmasıyla ilgili a
 
 ### <a name="schema-defaults-limits-and-examples"></a>Şema varsayılanları, sınırlar ve örnekler
 
-| JSON özelliği | Tür | Gerekli | Varsayılan değer | Geçerli değerler | Örnek |
+| JSON özelliği | Tür | Gereklidir | Varsayılan değer | Geçerli değerler | Örnek |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | dize | Evet | None | ISO 8601 tarih-saatleri | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | object | Evet | None | Yinelenme nesnesi | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
@@ -370,7 +369,7 @@ Aşağıdaki tabloda atlayan pencere tetikleyicisi ile zamanlama tetikleyicisini
 |:--- |:--- |:--- |
 | **Doldurma senaryoları** | Destekleniyor. Geçmişteki aralıklar için işlem hattı çalıştırmaları zamanlanabilir. | Desteklenmiyor. İşlem hattı çalıştırmaları yalnızca geçerli zamandan sonraki ve gelecekteki zaman dönemlerinde yürütülebilir. |
 | **Güvenilirlik** | %100 güvenilirlik. Belirtilen bir başlangıç tarihinden itibaren boşluk olmayacak şekilde tüm aralıklar için işlem hattı çalıştırması zamanlanabilir. | Daha az güvenilir. |
-| **Yeniden deneme özelliği** | Destekleniyor. Başarısız işlem hattı çalıştırmaları varsayılan olarak 0 yeniden deneme ilkesine veya kullanıcı tarafından tetikleyici tanımında belirtilen bir ilkeye sahiptir. İşlem hattı çalıştırmaları eş zamanlılık/sunucu/azaltma sınırları (yani 400: Kullanıcı Hatası, 429: Çok fazla istek var ve 500: İç Sunucu hatası durum kodları) nedeniyle başarısız olursa otomatik olarak yeniden denenir. | Desteklenmiyor. |
+| **Yeniden deneme özelliği** | Destekleniyor. Başarısız işlem hattı çalıştırmaları varsayılan olarak 0 yeniden deneme ilkesine veya kullanıcı tarafından tetikleyici tanımında belirtilen bir ilkeye sahiptir. İşlem hattı çalıştırmaları eşzamanlılık/sunucu/azaltma limitleri nedeniyle başarısız olduğunda otomatik olarak yeniden dener (yani 400 durum kodları: Kullanıcı hatası, 429: Çok fazla istek ve 500: İç sunucu hatası). | Desteklenmiyor. |
 | **Eşzamanlılık** | Destekleniyor. Kullanıcılar tetikleyicinin eş zamanlılık sınırlarını açıkça ayarlayabilir. 1 ile 50 arasında eş zamanlı tetikleyici işlem hattı çalıştırmasına izin verir. | Desteklenmiyor. |
 | **Sistem değişkenleri** | **WindowStart** ve **WindowEnd** sistem değişkenlerinin kullanımını destekler. Kullanıcılar, tetikleyici tanımında tetikleyici sistem değişkenleri olarak `triggerOutputs().windowStartTime` ve `triggerOutputs().windowEndTime` değişkenine erişebilir. Değerler sırasıyla aralık başlangıç zamanı ve aralık bitiş zamanı olarak kullanılır. Örneğin, saat başı çalışan bir atlayan pencere tetikleyicisi için 01.00 ile 02.00 arası aralığın tanımı `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` ve `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z` şeklinde olur. | Desteklenmiyor. |
 | **İşlem hattı-tetikleyici ilişkisi** | Bire bir ilişkileri destekler. Yalnızca bir işlem hattı tetiklenebilir. | Çoka çok ilişkileri destekler. Birden çok tetikleyici tek bir işlem hattını başlatabilir. Tek bir tetikleyici birden fazla işlem hattını başlatabilir. | 
@@ -378,6 +377,6 @@ Aşağıdaki tabloda atlayan pencere tetikleyicisi ile zamanlama tetikleyicisini
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki öğreticilere bakın:
 
-- [Hızlı başlangıç: .NET SDK kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-dot-net.md)
+- [Hızlı Başlangıç: .NET SDK kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-dot-net.md)
 - [Zamanlama tetikleyicisi oluşturma](how-to-create-schedule-trigger.md)
 - [Atlayan pencere tetikleyicisi oluşturma](how-to-create-tumbling-window-trigger.md)

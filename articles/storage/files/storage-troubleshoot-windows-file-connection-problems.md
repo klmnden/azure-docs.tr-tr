@@ -6,15 +6,15 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: caa078aa522e20a0e09d0b4d97461358c1698fc7
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: a7ab2e76280458326539fe83d3507dfb4e4a486e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744250"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023116"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows Azure dosyaları sorunlarını giderme
 
@@ -261,6 +261,15 @@ Bu sorunu çözmek için ayarlama **DirectoryCacheEntrySizeMax** istemci makine 
  
 Örneğin, 0x100000 için ayarlayabilir ve performansını daha iyi hale gelirse bakın.
 
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Azure dosyaları "Kiracı kimliği aad Kiracı kimliği etkin bir kiracıyla bulmak için yapılandırılamıyor" Azure Active Directory kimlik doğrulamasının etkinleştirilmesinde hata AadDsTenantNotFound
+
+### <a name="cause"></a>Nedeni
+
+Hata AadDsTenantNotFound olur, çalıştığınızda [Azure dosyaları için Azure Active Directory (AAD) kimlik doğrulamasını etkinleştirme](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-enable) bir depolama hesabı üzerinde nereye [AAD etki alanı Service(AAD DS)](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-overview) AAD'de oluşturulmaz. ilişkili abonelik kiracısıdır.  
+
+### <a name="solution"></a>Çözüm
+
+AAD DS AAD kiracısı için Dağıtılmış depolama hesabınızın abonelik etkinleştirin. Yönetilen bir etki alanı oluşturmak için AAD Kiracı yönetici ayrıcalıkları gerekir. Azure AD Kiracı yöneticisi değilseniz, yöneticisine başvurun ve adım adım yönergeleri [etkinleştirme Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 ## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun.
 Hala yardıma ihtiyacınız varsa [Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi alınamıyor.

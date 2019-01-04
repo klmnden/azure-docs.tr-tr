@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
 ms.author: jeconnoc
-ms.openlocfilehash: bae1e7de3c24ff6fbf943ef93ad449d784feb0c8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: d332a792f693b099ce925e9b5705f09e52507522
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788705"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000249"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure bulut hizmetiniz için performans sayaçlarını Topla
 
@@ -116,7 +116,7 @@ Application Insights, aşağıdaki performans sayaçları otomatik olarak toplar
 * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 * \Processor(_Total)\% Processor Time
 
-Daha fazla bilgi için [sistem performans sayaçları Application ınsights'ta](../application-insights/app-insights-performance-counters.md) ve [Azure Cloud Services için Application Insights](../azure-monitor/app/cloudservices.md#performance-counters).
+Daha fazla bilgi için [sistem performans sayaçları Application ınsights'ta](../azure-monitor/app/performance-counters.md) ve [Azure Cloud Services için Application Insights](../azure-monitor/app/cloudservices.md#performance-counters).
 
 ### <a name="azure-diagnostics"></a>Azure Tanılama
 
@@ -295,6 +295,6 @@ Daha önce belirtildiği gibi toplamak istediğiniz performans sayaçlarını ta
 ## <a name="more-information"></a>Daha fazla bilgi
 
 - [Azure Cloud Services için Application Insights](../azure-monitor/app/cloudservices.md#performance-counters)
-- [Application ınsights'ta sistem performans sayaçları](../application-insights/app-insights-performance-counters.md)
+- [Application ınsights'ta sistem performans sayaçları](../azure-monitor/app/performance-counters.md)
 - [Bir sayaç yolunu belirtme](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Azure tanılama şeması - performans sayaçları](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

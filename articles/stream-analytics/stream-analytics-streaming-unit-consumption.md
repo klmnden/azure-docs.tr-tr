@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 0907739bc0e67228f9f7f12594df7b9067e32578
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 84f0c000f54852bbab60a53ecb686656ac86b3de
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984987"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002663"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Anlayabilmemiz ve akış birimleri
 
-Akış birimleri (su), bir işin yürütülmesi için ayrılan işlem kaynakları temsil eder. Sayı SUs işiniz için daha fazla CPU ve bellek kaynakları ayrılmış. Bu sorgu mantığına odaklanabilir kapasite sağlar ve, Stream Analytics'i çalıştırmak için donanım yönetmenize gerek zamanında iş özetleri.
+Akış birimleri (su), bir işin yürütülmesi için ayrılan işlem kaynakları temsil eder. SU sayısı ne kadar büyük olursa işe ayrılan CPU ve bellek kaynakları o kadar fazla olur. Bu sorgu mantığına odaklanabilir kapasite sağlar ve, Stream Analytics'i çalıştırmak için donanım yönetmenize gerek zamanında iş özetleri.
 
-Düşük gecikme süreli akış işlemesi elde etmek için Azure Stream Analytics işleri bellekte tüm işlemleri gerçekleştirin. Bellek yetersiz çalıştırırken, iş akışında başarısız olur. Sonuç olarak, bir üretim iş için bir akış işin kaynak kullanımını izlemek ve 7/24 çalışan işleri tutmak için ayrılmış yeterli kaynak bulunduğundan emin olun önemlidir.
+Düşük gecikme süreli akış işlemeyi başarabilmek için, Azure Stream Analytics işleri tüm işlemi bellekte gerçekleştirir. Bellek yetersiz çalıştırırken, iş akışında başarısız olur. Sonuç olarak, bir üretim iş için bir akış işin kaynak kullanımını izlemek ve 7/24 çalışan işleri tutmak için ayrılmış yeterli kaynak bulunduğundan emin olun önemlidir.
 
-% 0, % 100 aralıkları, SU % utilization ölçümünü iş yükünüz bellek kullanımını açıklar. Bu ölçüm, en küçük ayak izine sahip bir akış işi için %10 20 arasında genellikle olur. SU kullanım yüzdesi düşüktür ve giriş olaylarını biriktirme listesine alınan, yükünüz büyük olasılıkla SUs sayısını artırmanız gerektiren daha fazla işlem kaynakları gerektirir. % Zaman iniş hesap için 80 aşağıda SU ölçüm tutmak en iyisidir. Microsoft, Kaynak Tükenmesi önlemek için % 80 SU kullanım ölçüm uyarı ayarını önerir. Daha fazla bilgi için [öğretici: Azure Stream Analytics işleri için uyarıları ayarlama](stream-analytics-set-up-alerts.md).
+% 0, % 100 aralıkları, SU % utilization ölçümünü iş yükünüz bellek kullanımını açıklar. Bu ölçüm, en küçük ayak izine sahip bir akış işi için %10 20 arasında genellikle olur. SU kullanım yüzdesi düşüktür ve giriş olaylarını biriktirme listesine alınan, yükünüz büyük olasılıkla SUs sayısını artırmanız gerektiren daha fazla işlem kaynakları gerektirir. % Zaman iniş hesap için 80 aşağıda SU ölçüm tutmak en iyisidir. Microsoft, Kaynak Tükenmesi önlemek için % 80 SU kullanım ölçüm uyarı ayarını önerir. Daha fazla bilgi için [Öğreticisi: Azure Stream Analytics işleri için uyarıları ayarlama](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Stream Analytics, akış birimleri (su) yapılandırma
 1. [Azure portalda](https://portal.azure.com/) oturum açın.
@@ -48,7 +48,7 @@ Belirli bir proje için gerekli SUs sayısını seçme girişleri ve iş içinde
 
 Genel olarak, kullanmayan sorgular için 6 SUs başlatmak için en iyi yöntem olacaktır **PARTITION BY**. Ardından tatlı nokta temsili miktarda veri aktarmak ve SU % Utilization ölçümünü inceleyin sonra SUs sayısını değiştirerek bir deneme yanılma yöntemini kullanarak belirler. Stream Analytics işi tarafından kullanılan akış birimi sayısı, iş ve her bir adımın bölüm sayısı için tanımlanan sorgu, adım sayısı bağlıdır. Sınırları hakkında daha fazla bilgi [burada](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
-SUs doğru sayıda seçme hakkında daha fazla bilgi için bu sayfaya bakın: [verimliliğini artırmak için ölçek Azure Stream Analytics işleri](stream-analytics-scale-jobs.md)
+SUs doğru sayıda seçme hakkında daha fazla bilgi için bu sayfaya bakın: [Verimliliği artırmak için Azure Stream Analytics işlerini ölçeklendirme](stream-analytics-scale-jobs.md)
 
 > [!Note]
 > Kaç su seçerek belirli bir işin girişler için bölümlendirme yapılandırmasına ve iş için tanımlanan sorguya bağlıdır için gereklidir. SUs kota bir iş için en fazla seçebilirsiniz. Varsayılan olarak, her Azure aboneliği, belirli bir bölgede bir kota analytics işleri için en fazla 200 sus'tan sahiptir. Aboneliğiniz bu kotayı aşan SUs artırmak için bağlantı [Microsoft Support](https://support.microsoft.com). İş başına SUs için geçerli değerler şunlardır: 1, 3, 6 ve 6'lık artışlarla.
@@ -57,13 +57,15 @@ SUs doğru sayıda seçme hakkında daha fazla bilgi için bu sayfaya bakın: [v
 
 Zamana bağlı sorgu (zaman tabanlı), durum bilgisi olan işleçleri Stream Analytics tarafından sağlanan dizi temel öğeleridir. Stream Analytics, kullanıcı adına bu işlemleri dahili olarak durumunu bellek tüketimi, dayanıklılık ve durumu kurtarma için denetim noktası hizmeti yükseltmeleri sırasında yöneterek yönetir. Stream Analytics, tamamen durumları yöneten olsa da, bir dizi kullanıcılar göz önünde bulundurmanız gereken en iyi yöntem önerileri vardır.
 
+Not bile, sürekli olarak giriş olayları alamayan, yüksek SU kullanım yüzdesi karmaşık sorgu mantığı ile bir iş olabilir. Bu, sonra giriş ve çıkış olayları ani bir artış oluşabilir. İş sorgusu karmaşıksa, bellekte durumunu korumak üzere devam edebilir.
+
 ## <a name="stateful-query-logicin-temporal-elements"></a>Durum bilgisi olan sorgu mantığının zamana bağlı öğeleri
 Azure Stream Analytics işi benzersiz yeteneğinin, pencereli toplamlar, zamana bağlı birleştirmeler ve geçici analiz işlevleri gibi durum bilgisi olan işlem gerçekleştirmektir. Bu işleçlerden her biri, durum bilgilerini tutar. Bu sorgu öğeleri için maksimum pencere boyutunu yedi gündür. 
 
 Geçici pencere kavramı çeşitli Stream Analytics sorgu öğelerin görünür:
-1. Pencereli toplamlar: grubu tarafından atlaması ve windows kayan atlayan,
+1. Pencereli toplamlar: Grup tarafından atlaması ve windows kayan atlayan,
 
-2. Zamana bağlı birleştirmeler: DATEDIFF işlevi ile birleştirme
+2. Zamana bağlı birleşimler: DATEDIFF işlevi ile birleştirme
 
 3. Zamana bağlı analitik İşlevler: ISFİRST, LAST ve GECİKME süresi sınırı
 

@@ -1,5 +1,5 @@
 ---
-title: Öğretici - Azure Key Vault ile Azure Windows sanal makinesine .NET kullanma | Microsoft Docs
+title: Öğretici - Azure Key Vault ile Azure Windows sanal makine .NET - Azure içinde kullanmak için Key Vault nasıl | Microsoft Docs
 description: Öğretici Anahtar Kasasından gizli dizi okumak için bir ASP.NET Core uygulaması yapılandırma
 services: key-vault
 documentationcenter: ''
@@ -9,15 +9,15 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: key-vault
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: eb27bed02b44cad791a0c1fa2c8e0ed0b54537cd
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f12d73904b547da6531e24a899277eca7dd46660
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972558"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998770"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-net"></a>Öğretici: Azure Key Vault ile Azure Windows sanal makinesine .NET kullanma
 
@@ -34,7 +34,7 @@ Bu öğreticide, Azure kaynakları için yönetilen kimliklerle bilgilerini Azur
 > * Anahtar kasasından verileri okumak konsol uygulaması için gerekli izinleri verin.
 > * Key Vault'tan gizli dizilerini alma
 
-İlerlemeden önce lütfen [temel kavramları](key-vault-whatis.md#basic-concepts) okuyun.
+Size daha fazla ayrıntıya önce okuyun [temel kavramları](key-vault-whatis.md#basic-concepts).
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Tüm platformlar:
@@ -45,6 +45,7 @@ Bu öğreticide, Azure kaynakları için yönetilen kimliklerle bilgilerini Azur
 Bu öğreticide, yönetilen hizmet kimliğini kullanma hale getirir.
 
 ## <a name="what-is-managed-service-identity-and-how-does-it-work"></a>Yönetilen Hizmet Kimliği nedir ve nasıl çalışır?
+
 Daha fazla ilerlemeden önce, MSI'yi anlayalım. Azure Key Vault kimlik bilgilerini güvenle depolayabilir ve bunlar kodunuzda yer almaz, ama bunları almak için Azure Key Vault'ta kimliğinizi doğrulamanız gerekir. Key Vault'ta kimlik doğrulaması yapmak için kimlik bilgilerine ihtiyacınız vardır! Klasik bir önyükleme sorunu. Azure'un ve Azure AD'nin büyüsü sayesinde MSI işleri başlatmayı çok basitleştiren bir “önyükleme kimliği” sağlar.
 
 Şöyle çalışır! Sanal Makineler, App Service veya İşlevler gibi bir Azure hizmeti için MSI'yi etkinleştirdiğinizde, Azure hizmetin örneği için Azure Active Directory'de bir [Hizmet Sorumlusu](key-vault-whatis.md#basic-concepts) oluşturur ve Hizmet Sorumlusunun kimlik bilgilerini hizmetin örneğine ekler. 
@@ -54,9 +55,9 @@ Daha fazla ilerlemeden önce, MSI'yi anlayalım. Azure Key Vault kimlik bilgiler
 Ardından, kodunuzu bir erişim belirteci almak için Azure kaynak üzerinde kullanılabilir olan bir yerel meta veri hizmeti çağırır.
 Kodunuz yerel MSI_ENDPOINT'ten aldığı erişim belirtecini kullanarak Azure Key Vault hizmetinde kimlik doğrulaması yapar. 
 
-## <a name="log-in-to-azure"></a>Azure'da oturum açma
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-Azure CLI'yi kullanarak Azure'da oturum açmak için, şunları girin:
+Azure CLI'yi kullanarak Azure'da oturum açmanız için şunu girin:
 
 ```azurecli
 az login
@@ -109,13 +110,13 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 [Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
 ## <a name="assign-identity-to-virtual-machine"></a>Sanal makineye kimlik atama
-Bu adımda Azure CLI aşağıdaki komutu çalıştırarak sanal makineye atanan kimliği bir sistem oluşturuyoruz
+Bu adımda, Azure CLI aşağıdaki komutu çalıştırarak sanal makineye atanan kimliği bir sistem oluşturuyoruz
 
 ```
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Lütfen aşağıda gösterilen systemAssignedIdentity unutmayın. Yukarıdaki komut çıktısı olacaktır 
+Aşağıda gösterilen systemAssignedIdentity unutmayın. Yukarıdaki komut çıktısı olacaktır 
 
 ```
 {
@@ -131,7 +132,7 @@ Lütfen aşağıda gösterilen systemAssignedIdentity unutmayın. Yukarıdaki ko
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="login-to-the-virtual-machine"></a>Sanal makineye oturum açma
+## <a name="sign-in-to-the-virtual-machine"></a>Sanal makinede oturum açın
 
 Bu takip edebilirsiniz [Öğreticisi](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon)
 
@@ -143,7 +144,7 @@ Bu adımları uygulayarak .NET Core yükleyin [makale](https://www.microsoft.com
 
 Bir komut istemi açın
 
-Çalıştırarak aşağıdaki "Hello World" konsola yazdırılmasını gördüğünüz komutları
+Çalıştırarak aşağıdaki komutları, "Hello World" konsola yazdırılmasını görmeniz gerekir
 
 ```
 dotnet new console -o helloworldapp
@@ -161,7 +162,8 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
-Ardından sınıfı içeren dosyaya değiştirin kod aşağıda. Bu bir 2 adımlı bir işlemdir. 
+Ardından sınıfı içeren dosyaya değiştirin kod aşağıda. Bu bir 2 adımlı bir işlemdir.
+
 1. Buna karşılık Azure Active Directory'den bir belirteç getirir VM'de yerel MSI uç noktasından bir belirteç getirilemedi
 2. Anahtar Kasası'na belirtecin geçip ve gizli anahtarı getirilemedi 
 

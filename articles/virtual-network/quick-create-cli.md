@@ -1,14 +1,11 @@
 ---
-title: Sanal ağ oluşturma - hızlı başlangıç - Azure CLI | Microsoft Docs
+title: Sanal ağ - hızlı başlangıç - Azure CLI'yı oluşturma
+titlesuffix: Azure Virtual Network
 description: Bu hızlı başlangıçta, Azure CLI kullanarak bir sanal ağ oluşturmayı öğrenin. Bir sanal ağ, sanal makineler gibi Azure kaynaklarının sağlar, birbiriyle ve internet ile özel olarak iletişim.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: quickstart
@@ -16,13 +13,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: 5219ba0885c15d68bd17f07fb8f1f41e856dad0c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 650c90ff5c193896806ded50e5b7c9ed22b3afde
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321367"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013613"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Hızlı Başlangıç: Azure CLI kullanarak bir sanal ağ oluşturma
 

@@ -6,19 +6,23 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/09/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2055ad9baff0c6acc05c9287ca1b8fb08731f8bc
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5165dd16b77a242ca83d3e5864b6e60f3e12a567
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315994"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002646"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Portalda Azure Search hizmeti oluşturma
 
-Portalda Azure Search hizmeti oluşturmayı veya sağlamayı öğrenin. 
+Azure arama, bir arama deneyimi için özel uygulamalar eklemek için kullanılan tek başına bir kaynaktır. Azure Search kolayca diğer birçok Azure hizmetleriyle tümleştirilmiştir olsa da, kendisi tarafından Ayrıca ağ sunucularda barındırılan uygulamaları veya diğer bulut platformlarında çalışan yazılımı ile kullanabilirsiniz. 
+
+Bu makalede, bir Azure Search kaynağı oluşturmayı öğrenin [Azure portalında](https://portal.azure.com/). 
+
+![Portalda Azure Search kaynak](media/search-create-service-portal/azure-search-resource-label.png)
 
 PowerShell’i mi tercih ediyorsunuz? Azure Resource Manager [hizmet şablonunu](https://azure.microsoft.com/resources/templates/101-azure-search-create/) kullanın. Başlangıç konusunda yardım için [PowerShell ile Azure Search’ü yönetme](search-manage-powershell.md) bölümüne bakarak arka planı öğrenin.
 
@@ -31,13 +35,15 @@ Alternatif olarak, [MSDN abone avantajlarınızı etkinleştirin](https://azure.
 ## <a name="find-azure-search"></a>Azure Search’ü bulma
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Sol üst köşedeki artı işaretine ("+ Kaynak Oluştur") tıklayın.
-3. **Web** > **Azure Search**’ü seçin.
+3. Kaynağa gidin veya "Azure Search" bulmak için arama çubuğunu kullanın **Web** > **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
 ## <a name="name-the-service-and-url-endpoint"></a>Hizmet ve URL uç noktasını adlandırma
 
-Hizmet adı, API çağrılarının düzenlendiği URL uç noktasının bir kısmıdır: `https://your-service-name.search.windows.net`. **URL** alanına hizmet adınızı girin. 
+Hizmet adı, API çağrılarının düzenlendiği URL uç noktasının bir kısmıdır: `https://your-service-name.search.windows.net`. **URL** alanına hizmet adınızı girin.
+
+Örneğin, uç istiyorsanız `https://my-app-name-01.search.windows.net`, şunu yazarsınız: `my-app-name-01`.
 
 Hizmet adı gereksinimleri:
    * search.windows.net ad alanı içinde benzersiz olmalıdır
@@ -51,6 +57,8 @@ Birden fazla aboneliğiniz varsa, veri veya dosya depolama hizmetleri de içeren
 
 ## <a name="select-a-resource-group"></a>Kaynak grubu seçme
 Kaynak grubu, birlikte kullanılan Azure hizmetleri ve kaynakları koleksiyonudur. Örneğin, bir SQL veritabanının dizinini oluşturmak için Azure Search kullanıyorsanız, her iki hizmet de aynı kaynak grubunun parçası olmalıdır.
+
+Tek bir grup olarak birleştirip olmayan ya da mevcut kaynak gruplarını ilgisiz çözümlerinde kullanılan kaynaklarla doldurulursa, yalnızca Azure Search kaynağınız için yeni bir kaynak grubu oluşturun.
 
 > [!TIP]
 > Bir kaynak grubu silindiğinde, o kaynak grubunun içindeki hizmetler de silinir. Birden fazla hizmet kullanan prototip projeler için, tüm bunların aynı kaynak grubuna yerleştirilmesi, proje bittikten sonra temizleme işlemini kolaylaştırır. 
@@ -109,7 +117,7 @@ Müşterilerin çoğu yalnızca bir hizmet kullansa da, işletim gereksinimleri 
 Yüksek düzeyde kullanılabilirlik için ikinci bir hizmet gerekmez. Aynı hizmette 2 veya daha fazla çoğaltma kullandığınızda sorguların yüksek kullanılabilirliği elde edilir. Çoğaltma güncelleştirmeleri sıralıdır; başka bir deyişle bir hizmet güncelleştirmesi kullanıma sunulduğunda en az biri işlevsel olur. Çalışma süresi hakkında daha fazla bilgi için bkz. [Hizmet Düzeyi Sözleşmeleri](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir Azure Search hizmeti sağlandıktan sonra, verilerinizi karşıya yükleyip arayabilmeniz için [bir dizin tanımlamaya](search-what-is-an-index.md) hazır olursunuz. 
+Azure Search Hizmeti sağlandıktan sonra portalda ilk dizininizi oluşturmaya devam edebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [.NET’te Azure Search kullanma](search-howto-dotnet-sdk.md)
+> [Öğretici: Verileri içeri aktarma, dizin ve Portalı'nda sorgu çalıştırma](search-get-started-portal.md)

@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory kullanarak MySQL'den veri kopyalama | Microsoft Docs
-description: Bir havuz desteklenen bir veri deposu için bir MySQL veritabanından veri kopyalamanıza olanak veren bir Azure veri fabrikası'nda MySQL Bağlayıcısı hakkında bilgi edinin.
+title: Mysql'i Azure Data Factory kullanarak verileri kopyalama | Microsoft Docs
+description: MySQL connector bir havuz olarak desteklenen bir veri deposuna bir MySQL veritabanından veri kopyalamanıza olanak veren bir Azure Data Factory hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,58 +9,57 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: bb3179f1db077aacc7e36acf16486ee77a7f36e7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1f3d6434c7226465f9e054d5e5bf35fbb228b311
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051272"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014496"
 ---
-# <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory kullanarak MySQL verilerini
+# <a name="copy-data-from-mysql-using-azure-data-factory"></a>MySQL Azure Data Factory kullanarak verileri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Geçerli sürüm](connector-mysql.md)
 
-Bu makalede kopya etkinliği Azure Data Factory'de bir MySQL veritabanından veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede, kopyalama etkinliği Azure Data Factory'de bir MySQL veritabanından veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Tüm desteklenen havuz veri deposuna MySQL veritabanından veri kopyalayabilirsiniz. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Tüm desteklenen havuz veri deposuna MySQL veritabanından veri kopyalayabilirsiniz. Kaynakları/havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Özellikle, bu MySQL bağlayıcı MySQL destekler **sürüm 5.1 ve yukarıdaki**.
+Bu MySQL bağlayıcısını MySQL özellikle destekleyen **sürüm 5.1 ve üzeri**.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-MySQL veritabanınız genel olarak erişilebilir durumda değilse, Self-hosted tümleştirmesi çalışma zamanı ayarlamanız gerekir. Kendini barındıran tümleştirme çalışma zamanları hakkında bilgi edinmek için [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md) makalesi. Tümleştirme çalışma zamanı 3.7 sürümünden başlayarak yerleşik bir MySQL sürücüsünün sağlar, bu nedenle herhangi bir sürücüsü el ile yüklemeniz gerekmez.
+MySQL veritabanınızı genel olarak erişilebilir durumda değilse, şirket içinde barındırılan tümleştirme çalışma zamanını oluşturan ayarlayın gerekir. Şirket içinde barındırılan tümleştirme çalışma zamanları hakkında bilgi edinmek için [şirket içinde barındırılan tümleştirme çalışma zamanı](create-self-hosted-integration-runtime.md) makalesi. Tümleştirme çalışma zamanı 3.7 sürümünden itibaren yerleşik bir MySQL sürücüsünün sağlar, bu nedenle herhangi bir sürücü el ile yüklemeniz gerekmez.
 
-Yüklemenize gerek 3.7 düşük Self-Hosted IR sürümü için [MySQL Connector/Net için Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) 6.6.5 6.10.7 tümleştirmesi çalışma zamanı makinede arasındaki sürüm. Bu 32 bit sürücü IR 64 bit ile uyumlu değil
+3.7 düşük şirket içinde barındırılan IR sürümü için yüklemeniz gerekir. [MySQL Connector/Net için Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) 6.6.5 ve tümleştirme çalışma zamanı makinesinde 6.10.7 arasında sürümü. Bu 32 bit sürücü IR 64 bit ile uyumlu değil
 
 ## <a name="getting-started"></a>Başlarken
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Aşağıdaki bölümler, belirli Data Factory varlıklarını MySQL bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümler belirli Data Factory varlıkları için MySQL bağlayıcısını tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
-## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
+## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
-Aşağıdaki özellikleri, bağlantılı MySQL hizmeti için desteklenir:
+MySQL bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **MySql** | Evet |
-| connectionString | MySQL örneği için Azure veritabanına bağlanmak için gereken bilgileri belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+| bağlantı dizesi | MySQL örneği için Azure veritabanına bağlanmak için gereken bilgileri belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
+| connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
-Tipik bağlantı dizesi `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Daha fazla özellik durumunuz ayarlayabilirsiniz:
+Bir bağlantı dizesi olan `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Daha fazla özellik durumunuz ayarlayabilirsiniz:
 
-| Özellik | Açıklama | Seçenekler | Gerekli |
+| Özellik | Açıklama | Seçenekler | Gereklidir |
 |:--- |:--- |:--- |:--- |:--- |
-| SSLMode | Bu seçenek sürücü SSL şifreleme ve doğrulama için MySQL bağlanırken kullanıp kullanmadığını belirtir. Örneğin `SSLMode=<0/1/2/3/4>`| Devre dışı (0) / tercih edilen (1) **(varsayılan)** / gerekli (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Hayır |
-| useSystemTrustStore | Bu seçenek bir CA sertifikası sistem güven deposundan veya belirtilen PEM dosyası kullanılıp kullanılmayacağını belirtir. Örneğin `UseSystemTrustStore=<0/1>;`| (1) etkin / devre dışı (0) **(varsayılan)** | Hayır |
+| SSLMode | Bu seçenek sürücü SSL şifreleme ve doğrulama Mysql'e bağlanırken kullanıp kullanmayacağını belirtir. Örneğin `SSLMode=<0/1/2/3/4>`| Devre dışı (0) / tercih edilen (1) **(varsayılan)** / gerekli (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Hayır |
+| useSystemTrustStore | Bu seçenek, bir CA sertifikası sistem güven deposu veya belirtilen bir PEM dosyası kullanılıp kullanılmayacağını belirtir. Örneğin `UseSystemTrustStore=<0/1>;`| (1) etkin / devre dışı (0) **(varsayılan)** | Hayır |
 
 **Örnek:**
 
@@ -83,7 +82,7 @@ Tipik bağlantı dizesi `Server=<server>;Port=<port>;Database=<database>;UID=<us
 }
 ```
 
-Aşağıdaki yük ile bağlantılı MySQL hizmeti kullanıyorsanız, hala olarak desteklenmektedir-ileride yeni bir kullanmak için önerilir, açıkken.
+Aşağıdaki yük ile bağlantılı MySQL hizmeti kullanıyorsanız, hala olarak desteklenmektedir-olan ancak bundan sonra yeni bir tane kullanmak için önerilir.
 
 **Önceki yükü:**
 
@@ -111,14 +110,14 @@ Aşağıdaki yük ile bağlantılı MySQL hizmeti kullanıyorsanız, hala olarak
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için veri kümeleri makalesine bakın. Bu bölümde, MySQL veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için veri kümeleri makalesine bakın. Bu bölümde, MySQL veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Verileri MySQL'den kopyalamak için kümesine tür özelliği ayarlamak **RelationalTable**. Aşağıdaki özellikler desteklenir:
+Mysql'i veri kopyalamak için dataset öğesinin type özelliği ayarlamak **RelationalTable**. Aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Veri kümesi türü özelliği ayarlamak: **RelationalTable** | Evet |
-| tableName | MySQL veritabanı tablosunun adı. | ("Sorgu" etkinliği kaynağındaki belirtilmişse) yok |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **RelationalTable** | Evet |
+| tableName | MySQL veritabanı tablosunun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -139,16 +138,16 @@ Verileri MySQL'den kopyalamak için kümesine tür özelliği ayarlamak **Relati
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde, MySQL kaynak tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, MySQL kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
 ### <a name="mysql-as-source"></a>MySQL kaynak olarak
 
-Verileri MySQL'den kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **RelationalSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
+Mysql'i veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **RelationalSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **RelationalSource** | Evet |
-| sorgu | Verileri okumak için özel SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | (Veri kümesinde "tableName" belirtilmişse) yok |
+| type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **RelationalSource** | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM MyTable"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 
@@ -184,7 +183,7 @@ Verileri MySQL'den kopyalamak için kopyalama etkinliği için kaynak türünü 
 
 ## <a name="data-type-mapping-for-mysql"></a>MySQL için eşleme veri türü
 
-Verileri MySQL'den kopyalarken, aşağıdaki eşlemelerini MySQL veri türlerinden Azure Data Factory geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) nasıl kopyalama etkinliği kaynak şema ve veri türü için havuz eşlemeleri hakkında bilgi edinmek için.
+Mysql'i veri kopyalama işlemi sırasında aşağıdaki eşlemeler MySQL veri türlerinden Azure veri fabrikası geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) eşlemelerini nasıl yapar? kopyalama etkinliği kaynak şema ve veri türü için havuz hakkında bilgi edinmek için.
 
 | MySQL veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
@@ -231,4 +230,4 @@ Verileri MySQL'den kopyalarken, aşağıdaki eşlemelerini MySQL veri türlerind
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory kullanarak SFTP sunucusundan veri kopyalama | Microsoft Docs
-description: Bir havuz desteklenen bir veri deposu için bir SFTP sunucusundan veri kopyalamanıza olanak veren bir Azure veri fabrikası'nda MySQL Bağlayıcısı hakkında bilgi edinin.
+title: SFTP sunucusundan Azure Data Factory kullanarak verileri kopyalama | Microsoft Docs
+description: MySQL connector bir havuz olarak desteklenen bir veri deposuna bir SFTP sunucusundan veri kopyalamanıza olanak veren bir Azure Data Factory hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,61 +9,60 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 3425558ac1ffa9e8d5146a5126f01c4ac55050dc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 28802b018711b3cd95946b60a8505684089dca18
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049639"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019223"
 ---
-# <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>Azure Data Factory kullanarak SFTP sunucusundan veri kopyalama
+# <a name="copy-data-from-sftp-server-using-azure-data-factory"></a>SFTP sunucusundan Azure Data Factory kullanarak veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-sftp-connector.md)
 > * [Geçerli sürüm](connector-sftp.md)
 
-Bu makalede kopya etkinliği Azure Data Factory'de bir SFTP sunucusundan veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede, kopyalama etkinliği Azure Data Factory'de bir SFTP sunucusundan veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-SFTP sunucudan verileri herhangi bir desteklenen havuz veri deposuna kopyalayabilirsiniz. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+SFTP sunucusundan tüm desteklenen havuz veri deposuna veri kopyalayabilirsiniz. Kaynakları/havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Özellikle, bu SFTP bağlayıcı destekler:
+Özellikle, bu SFTP Bağlayıcısı destekler:
 
-- Dosya kopyalarken kullanarak **temel** veya **SshPublicKey** kimlik doğrulaması.
-- Dosyaları olarak kopyalama- ya da dosyalarıyla ayrıştırma [desteklenen dosya biçimleri ve sıkıştırma codec](supported-file-formats-and-compression-codecs.md).
+- Dosyalar kopyalanıyor kullanarak **temel** veya **SshPublicKey** kimlik doğrulaması.
+- Dosyaları olarak kopyalama- ya da dosyaları ayrıştırma [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="get-started"></a>başlarken
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Aşağıdaki bölümler için SFTP Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümler, Data Factory varlıklarını belirli SFTP'ye tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
-## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
+## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
-Aşağıdaki özellikleri, bağlantılı SFTP hizmeti için desteklenir:
+SFTP bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlanmalıdır: **Sftp**. |Evet |
-| konak | SFTP sunucunun adı veya IP adresi. |Evet |
-| port | SFTP sunucunun dinlediği bağlantı noktası.<br/>İzin verilen değerler: tamsayı, varsayılan değer: **22**. |Hayır |
-| skipHostKeyValidation | Ana anahtar doğrulama atlamak bu seçeneği belirtin.<br/>İzin verilen değerler: **true**, **false** (varsayılan).  | Hayır |
-| hostKeyFingerprint | Ana makine anahtarı, parmak izi belirtin. | "SkipHostKeyValidation" false olarak ayarlarsanız Evet.  |
-| authenticationType | Kimlik doğrulama türü belirtin.<br/>İzin verilen değerler: **temel**, **SshPublicKey**. Başvurmak [kullanarak temel kimlik doğrulaması](#using-basic-authentication) ve [kullanarak SSH ortak anahtar kimlik doğrulaması](#using-ssh-public-key-authentication) daha fazla özellikleri ve JSON örnekleri sırasıyla bölümler. |Evet |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+| type | Type özelliği ayarlanmalıdır: **SFTP**. |Evet |
+| konak | SFTP sunucusunun adı veya IP adresi. |Evet |
+| port | SFTP sunucusunun dinlediği bağlantı noktası.<br/>İzin verilen değerler: tamsayı, varsayılan değerdir **22**. |Hayır |
+| skipHostKeyValidation | Konak anahtar doğrulamasını atlayın verilip verilmeyeceğini belirtin.<br/>İzin verilen değerler: **true**, **false** (varsayılan).  | Hayır |
+| hostKeyFingerprint | Konak anahtarı parmak izi belirtin. | "SkipHostKeyValidation" false olarak ayarlanmışsa Evet.  |
+| authenticationType | Kimlik doğrulama türünü belirtin.<br/>İzin verilen değerler şunlardır: **Temel**, **SshPublicKey**. Başvurmak [kullanarak temel kimlik doğrulaması](#using-basic-authentication) ve [kullanarak SSH ortak anahtarı kimlik doğrulaması](#using-ssh-public-key-authentication) daha fazla özellik ve JSON örneklerini sırasıyla bölümler. |Evet |
+| connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel ağında bulunuyorsa), Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 ### <a name="using-basic-authentication"></a>Temel kimlik doğrulaması kullanma
 
-Temel kimlik doğrulaması kullanmak için "authenticationType" özelliğini ayarlamak **temel**ve SFTP bağlayıcı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
+Temel kimlik doğrulaması kullanmak için "authenticationType" özelliğini ayarlamak **temel**ve SFTP Bağlayıcısı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 |:--- |:--- |:--- |
 | Kullanıcı adı | SFTP sunucusuna erişimi olan kullanıcı. |Evet |
-| password | (Kullanıcı adı) kullanıcının parolası. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
+| password | (Kullanıcı adı) kullanıcı parolası. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
 
 **Örnek:**
 
@@ -94,21 +93,21 @@ Temel kimlik doğrulaması kullanmak için "authenticationType" özelliğini aya
 }
 ```
 
-### <a name="using-ssh-public-key-authentication"></a>SSH ortak anahtar kimlik doğrulaması kullanma
+### <a name="using-ssh-public-key-authentication"></a>SSH ortak anahtarı kimlik doğrulaması kullanma
 
-SSH ortak anahtar kimlik doğrulaması kullanmak üzere ayarlanmış "authenticationType" özelliği olarak **SshPublicKey**ve SFTP bağlayıcı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
+SSH ortak anahtar kimlik doğrulamasını kullanmak için "authenticationType" özelliği olarak ayarlanmış **SshPublicKey**ve SFTP Bağlayıcısı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 |:--- |:--- |:--- |
 | Kullanıcı adı | SFTP sunucusuna erişimi olan kullanıcı |Evet |
-| privateKeyPath | Tümleştirme çalışma zamanı erişmek için özel anahtar dosyasının mutlak yolu belirtin. Yalnızca kendi kendini barındıran türü Integration zamanının "connectVia" belirtildiğinde geçerlidir. | Belirtin `privateKeyPath` veya `privateKeyContent`.  |
-| privateKeyContent | Base64 olarak kodlanmış SSH özel anahtar içeriği. SSH özel anahtarı, OpenSSH biçiminde olmalıdır. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Belirtin `privateKeyPath` veya `privateKeyContent`. |
-| Parola | Geçişi tümcecik/anahtar dosyası bir parola deyimi tarafından korunuyorsa, özel anahtarın şifresini çözmek için parola belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet, özel anahtar dosyası bir parola deyimi tarafından korunuyorsa. |
+| privateKeyPath | Integration Runtime'nın erişebileceği özel anahtar dosyasının mutlak yolu belirtin. Yalnızca şirket içinde barındırılan tümleştirme çalışma zamanının türünü "connectVia içinde" belirtildiğinde geçerlidir. | Seçeneklerinden birini belirtin `privateKeyPath` veya `privateKeyContent`.  |
+| privateKeyContent | SSH özel anahtar içeriğini Base64 ile kodlanmış. SSH özel anahtarı, OpenSSH biçiminde olmalıdır. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Seçeneklerinden birini belirtin `privateKeyPath` veya `privateKeyContent`. |
+| Parola | Geçişi tümcecik/anahtar dosyası bir parola deyimi tarafından korunuyorsa, özel anahtarın şifresini çözmek için parola belirtin. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Özel anahtar dosyasını bir parola deyimi tarafından korunuyorsa, Evet. |
 
 > [!NOTE]
-> SFTP bağlayıcı RSA/DSA OpenSSH anahtarını destekler. Anahtar dosyası içeriğinizi "---Başlangıç [RSA/DSA] özel ANAHTARLA---" başlatır emin olun. Özel anahtar dosyası ppk biçim dosyası ise, lütfen .ppk OpenSSH biçimine dönüştürmek için Putty Aracı'nı kullanın. 
+> SFTP Bağlayıcısı RSA/DSA OpenSSH anahtarını destekler. "---Başlangıç RSA/DSA özel ANAHTARA sahip---" anahtar dosyası içeriğinizi başlar emin olun. Özel anahtar dosyası ppk-format dosyası ise, .ppk OpenSSH biçimine dönüştürmek için Putty aracını kullanın. 
 
-**Örnek 1: özel anahtar filePath kullanarak SshPublicKey kimlik doğrulaması**
+**Örnek 1: Özel anahtar dosya yolu kullanarak SshPublicKey kimlik doğrulaması**
 
 ```json
 {
@@ -137,7 +136,7 @@ SSH ortak anahtar kimlik doğrulaması kullanmak üzere ayarlanmış "authentica
 }
 ```
 
-**Örnek 2: özel anahtar içeriği kullanarak SshPublicKey kimlik doğrulaması**
+**Örnek 2: Özel anahtar içeriğini kullanarak SshPublicKey kimlik doğrulaması**
 
 ```json
 {
@@ -171,23 +170,23 @@ SSH ortak anahtar kimlik doğrulaması kullanmak üzere ayarlanmış "authentica
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için veri kümeleri makalesine bakın. Bu bölümde SFTP veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için veri kümeleri makalesine bakın. Bu bölümde, SFTP veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-SFTP verileri kopyalamak için kümesine tür özelliği ayarlamak **FileShare**. Aşağıdaki özellikler desteklenir:
+SFTP verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **FileShare**. Aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Veri kümesi türü özelliği ayarlamak: **dosya paylaşımı** |Evet |
-| folderPath | Klasör yolu. Joker karakter filtresi desteklenmiyor. Örneğin: klasör/alt / |Evet |
-| fileName |  **Adı veya joker karakter filtresini** belirtilen "folderPath" altında dosyalar için. Bu özellik için bir değer belirtmezseniz, veri kümesi klasördeki tüm dosyaları işaret eder. <br/><br/>Filtre için joker karakter verilir: `*` (sıfır veya daha fazla karakterle eşleşir) ve `?` (eşleşen sıfır veya tek bir karakter).<br/>-Örnek 1: `"fileName": "*.csv"`<br/>-Örnek 2: `"fileName": "???20180427.txt"`<br/>Kullanım `^` , gerçek dosya adı joker karakter ya da bu kaçış karakteri içinde varsa kaçınmak için. |Hayır |
-| Biçimi | İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın.<br/><br/>Belirli bir biçime sahip dosyaları ayrıştırma istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Json biçimine](supported-file-formats-and-compression-codecs.md#json-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquet biçimi](supported-file-formats-and-compression-codecs.md#parquet-format) bölümler. |Hayır (yalnızca ikili kopyalama senaryosu) |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Daha fazla bilgi için bkz: [desteklenen dosya biçimleri ve sıkıştırma codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler: **Optimal** ve **en hızlı**. |Hayır |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **Dosya Paylaşımı** |Evet |
+| folderPath | Klasör yolu. Joker karakter filtresi desteklenmez. Örneğin: klasör/alt / |Evet |
+| fileName |  **Adı veya joker karakter filtresi** belirtilen "folderPath" altında dosyaları için. Bu özellik için bir değer belirtmezseniz, klasördeki tüm dosyaları için veri kümesini işaret eder. <br/><br/>Filtre için joker karakterlere izin verilir: `*` (sıfır veya daha fazla karakter ile eşleşir) ve `?` (eşleşen sıfır ya da tek bir karakter).<br/>-Örnek 1: `"fileName": "*.csv"`<br/>-Örnek 2: `"fileName": "???20180427.txt"`<br/>Kullanım `^` joker karakter veya içinde bu kaçış karakteri, gerçek dosya adı varsa, kaçış için. |Hayır |
+| biçim | İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın.<br/><br/>Belirli bir biçime sahip dosyalarını ayrıştırmak istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Json biçimine](supported-file-formats-and-compression-codecs.md#json-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquetbiçimi](supported-file-formats-and-compression-codecs.md#parquet-format) bölümler. |Hayır (yalnızca ikili kopya senaryosu için) |
+| Sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Daha fazla bilgi için [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Desteklenen türler şunlardır: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyleri şunlardır: **En iyi** ve **hızlı**. |Hayır |
 
 >[!TIP]
->Bir klasörü altındaki tüm dosyaları kopyalamak için belirtin **folderPath** yalnızca.<br>Belirli bir ada sahip tek bir dosya kopyalamak için belirtin **folderPath** klasörü bölümüyle ve **fileName** dosya adına sahip.<br>Bir klasör altındaki dosyalar kümesini kopyalamak için belirtin **folderPath** klasörü bölümüyle ve **fileName** joker karakter Filtresi ile.
+>Bir klasör altındaki tüm dosyaları kopyalamak için belirtin **folderPath** yalnızca.<br>Belirli bir ada sahip tek bir dosya kopyalamak için belirtin **folderPath** klasör bölümüyle ve **fileName** dosya adına sahip.<br>Bir alt klasörü altında bulunan dosyaları kopyalamak için belirtin **folderPath** klasör bölümüyle ve **fileName** joker karakter Filtresi ile.
 
 >[!NOTE]
->Dosya filtresi için "fileFilter" özelliğini kullanıyorsanız, hala olarak desteklenmektedir-"ileride dosyaadı" eklenen yeni filtre özellikten yararlanabilmek için önerilen, açıkken.
+>Dosya filtresi için "fileFilter" özelliğini kullanıyorsanız, hala olarak desteklenmektedir-olduğu sırada "bundan sonra dosya adı için" eklenen yeni filtre özelliği kullanmak için önerilir.
 
 **Örnek:**
 
@@ -221,16 +220,16 @@ SFTP verileri kopyalamak için kümesine tür özelliği ayarlamak **FileShare**
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde SFTP kaynak tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, SFTP kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="sftp-as-source"></a>Kaynak olarak SFTP
+### <a name="sftp-as-source"></a>SFTP kaynağı olarak
 
-SFTP verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **FileSystemSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
+SFTP verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **FileSystemSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **FileSystemSource** |Evet |
-| özyinelemeli | Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. Özyinelemeli true ve havuz için ayarlandığında Not dosya tabanlı depolama, boş klasör/alt-folder havuz kopyalanır ve oluşturulan olmaz.<br/>İzin verilen değerler: **true** (varsayılan), **false** | Hayır |
+| type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **FileSystemSource** |Evet |
+| özyinelemeli | Belirtilen klasörün alt klasörleri ya da yalnızca veri yinelemeli olarak okunur olup olmadığını belirtir. Özyinelemeli true ve havuz için ayarlandığında Not dosya tabanlı depolama, boş klasör/alt-folder havuz kopyalanan/oluşturulmuş olmaz.<br/>İzin verilen değerler: **true** (varsayılan), **false** | Hayır |
 
 **Örnek:**
 
@@ -266,4 +265,4 @@ SFTP verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarl
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).
+Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).

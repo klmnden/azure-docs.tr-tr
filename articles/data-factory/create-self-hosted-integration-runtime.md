@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: f0040f7e84fefd745b3ca097a4808dc685dd5b72
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9a3e061902de53859ea98791048453db8cf00085
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969490"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021127"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Oluşturma ve şirket içinde barındırılan tümleştirme çalışma zamanını yapılandırma
 Integration runtime (IR) farklı ağ ortamları veri tümleştirme özellikleri sağlamak üzere Azure Data Factory kullanan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
@@ -155,8 +154,8 @@ On iki dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
 
 ### <a name="terminology"></a>Terminoloji
 
-- **IR paylaşılan**: özgün şirket içinde barındırılan bir fiziksel altyapısı üzerinde çalışan IR.  
-- **IR bağlı**: başvuran başka bir IR paylaşılan IR Bu mantıksal bir IR ve başka bir şirket içinde barındırılan IR (paylaşılan) altyapısını kullanır.
+- **IR paylaşılan**: Bir fiziksel altyapısı üzerinde çalışan özgün şirket içinde barındırılan IR.  
+- **IR bağlı**: IR başka başvuran IR paylaşılan Bu mantıksal bir IR ve başka bir şirket içinde barındırılan IR (paylaşılan) altyapısını kullanır.
 
 ### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>Bağlantılı bir şirket içinde barındırılan IR oluşturmaya yönelik üst düzey adımları
 
@@ -257,8 +256,8 @@ Kurumsal ağ ortamınızı, internet'e bir proxy sunucusu kullanıyorsa, şirket
 
 Üç yapılandırma seçeneği vardır:
 
-- **Proxy kullanmayın**: şirket içinde barındırılan tümleştirme çalışma zamanının açıkça her Proxy'yi bulut hizmetlerine bağlanmak için kullanmaz.
-- **Sistem Ara sunucu kullanmak**: şirket içinde barındırılan tümleştirme çalışma zamanı yapılandırılmış diahost.exe.config ve diawp.exe.config ayarının proxy kullanır. Proxy diahost.exe.config ve diawp.exe.config yapılandırılmışsa, şirket içinde barındırılan tümleştirme çalışma zamanı bir ara sunucu olmadan doğrudan bulut hizmetine bağlanır.
+- **Proxy kullanmayın**: Şirket içinde barındırılan tümleştirme çalışma zamanının açıkça her Proxy'yi bulut hizmetlerine bağlanmak için kullanmaz.
+- **Sistem Ara sunucu kullanmak**: Şirket içinde barındırılan tümleştirme çalışma zamanı diahost.exe.config ve diawp.exe.config yapılandırılan proxy ayarı kullanır. Proxy diahost.exe.config ve diawp.exe.config yapılandırılmışsa, şirket içinde barındırılan tümleştirme çalışma zamanı bir ara sunucu olmadan doğrudan bulut hizmetine bağlanır.
 - **Özel ara sunucu kullanmak**: HTTP proxy diahost.exe.config ve diawp.exe.config yapılandırmaları kullanmak yerine şirket içinde barındırılan tümleştirme çalışma zamanı için kullanılacak ayarı yapılandırın. **Adresi** ve **bağlantı noktası** gereklidir. **Kullanıcı adı** ve **parola** , proxy kimlik doğrulama ayarlarına bağlı olarak isteğe bağlıdır. Tüm ayarları şirket içinde barındırılan tümleştirme çalışma zamanını Windows DPAPI ile şifrelenen ve makinede yerel olarak depolanır.
 
 Integration runtime konak hizmeti, güncelleştirilen proxy ayarlarını kaydettikten sonra otomatik olarak başlatır.
@@ -345,4 +344,4 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Adım adım yönergeler için şu öğreticilere bakın: [öğretici: şirket içi verileri buluta](tutorial-hybrid-copy-powershell.md).
+Adım adım yönergeler için aşağıdaki öğreticiye bakın: [Öğretici: Şirket içi verileri buluta](tutorial-hybrid-copy-powershell.md).

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 115a78993929b900b835450ea52d590e00ff7461
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1902091978233ecaf80f04e3a08c70c20aee42c9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604982"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000028"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>"İşlevler çalışma zamanı erişilemiyor" sorunlarını giderme
 
@@ -37,6 +37,7 @@ Dört en yaygın hata durumları, belirleme ve nasıl çözümleneceğini her du
 1. Depolama hesabı uygulama ayarlarını silindi
 1. Depolama hesabı kimlik bilgileri geçersiz
 1. Depolama hesabına erişilemiyor
+1. Günlük yürütme kotası tam
 
 ## <a name="storage-account-deleted"></a>Depolama hesabı silindi
 
@@ -79,6 +80,13 @@ Depolama anahtarlarını yeniden, yukarıdaki depolama hesabı bağlantı dizele
 * İşlev uygulamaları doğru ağ kuralları App Service ortamları için Dağıtılmış depolama hesabına gelen ve giden trafiğe izin vermek için
 * Depolama hesabı güvenlik duvarı etkinleştirilir ve işlevleri gelen ve giden trafiğine izin verecek şekilde yapılandırılmadı. [Burada depolama hesabının güvenlik duvarı yapılandırması hakkında daha fazla bilgi](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 
+## <a name="daily-execution-quota-full"></a>Günlük yürütme kotası tam
+
+Yapılandırılmış günlük yürütme kota varsa, işlev uygulamanızı geçici olarak devre dışı bırakılır ve portal denetimleri birçoğu kullanılamaz hale gelir. 
+
+* Onay doğrulamak için Platform özellikleri açın > portalında işlev uygulaması ayarları. Kota kullanıyorsanız aşağıdaki iletiyi görürsünüz.
+    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+* Kota kaldırın ve sorunu çözmek için uygulamanızı yeniden başlatın.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

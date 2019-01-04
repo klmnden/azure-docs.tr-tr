@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9402be4045b9b3113623cfe3e441c944f62296cc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5088d1d4f5b80e4de3dca1d8d41ee48feea12a46
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079391"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019750"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Hive Azure Data Factory kullanarak verileri kopyalama 
 
@@ -45,9 +44,9 @@ Hive bağlı hizmeti için aşağıdaki özellikleri destekler:
 | type | Type özelliği ayarlanmalıdır: **Hive** | Evet |
 | konak | IP adresi veya ana bilgisayar adı (yalnızca serviceDiscoveryMode etkin olduğunda) birden çok konak için ';' ile ayrılmış Hive sunucusu.  | Evet |
 | port | Hive sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. Azure Hdınsights bağlarsanız, bağlantı noktası 443 belirtin. | Evet |
-| Sunucu türü | Hive sunucusu tür. <br/>İzin verilen değerler: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Hayır |
-| thriftTransportProtocol | Thrift katmanda kullanılacak taşıma protokol. <br/>İzin verilen değerler: **ikili**, **SASL**, **HTTP** | Hayır |
-| authenticationType | Hive sunucuya erişmek için kullanılan kimlik doğrulama yöntemi. <br/>İzin verilen değerler: **anonim**, **kullanıcıadı**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
+| Sunucu türü | Hive sunucusu tür. <br/>İzin verilen değerler şunlardır: **HiveServer1**, **HiveServer2**, **HiveThriftServer** | Hayır |
+| thriftTransportProtocol | Thrift katmanda kullanılacak taşıma protokol. <br/>İzin verilen değerler şunlardır: **İkili**, **SASL**, **HTTP** | Hayır |
+| authenticationType | Hive sunucuya erişmek için kullanılan kimlik doğrulama yöntemi. <br/>İzin verilen değerler şunlardır: **Anonim**, **kullanıcıadı**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
 | serviceDiscoveryMode | ZooKeeper hizmeti yanlış kullanmayan belirtmek için true.  | Hayır |
 | zooKeeperNameSpace | Ad alanı üzerinde ZooKeeper düğümleri altında hangi Hive Server 2 eklenir.  | Hayır |
 | useNativeQuery | Sürücü yerel HiveQL sorgularını kullanır veya eşdeğer bir HiveQL formunda dönüştürür olup olmadığını belirtir.  | Hayır |

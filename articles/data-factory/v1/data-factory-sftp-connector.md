@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory kullanarak SFTP sunucudan veri taşıma | Microsoft Docs
-description: Şirket içi veya Azure Data Factory kullanarak bulut SFTP sunucusundan veri taşıma hakkında bilgi edinin.
+title: SFTP sunucusundan Azure Data Factory ile verileri taşıma | Microsoft Docs
+description: Şirket içi veya Bulut SFTP sunucusundan Azure Data Factory ile veri taşıma hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -8,69 +8,68 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c22d2cba23e8bae965fa7c5746c9fff69ad3fa9e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2aa272c126e06b758dc3903a8ec71b7043491057
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054424"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017659"
 ---
-# <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Azure Data Factory kullanarak bir SFTP sunucudan veri taşıma
+# <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Azure Data Factory kullanarak bir SFTP sunucusundan veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](data-factory-sftp-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-sftp.md)
 
 > [!NOTE]
-> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 SFTPconnector](../connector-sftp.md).
+> Bu makale, Data Factory’nin 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2'de SFTPconnector](../connector-sftp.md).
 
-Bu makalede kopya etkinliği Azure Data Factory'de desteklenen havuz veri deposu için bir şirket içi/bulut SFTP sunucusundan veri taşımak için nasıl kullanılacağı açıklanmaktadır. Bu makalede derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale kopyalama etkinliği ve kaynakları/havuzlarını desteklenen veri depoları listesi ile veri taşıma için genel bir bakış sunar.
+Bu makalede, kopyalama etkinliği Azure Data Factory'de bir desteklenen havuz veri deposu için bir şirket içi/bulut SFTP sunucusundan verileri taşımak için nasıl kullanılacağını özetlenmektedir. Bu makalede yapılar [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ve kaynakları/havuz desteklenen veri depolarının listesi ile veri taşıma genel bir bakış sunan makalesi.
 
-Veri Fabrikası şu anda yalnızca veri taşımayı SFTP sunucusundan diğer veri depolarına, ancak verileri diğer veri depolarına bir SFTP sunucuya taşımak için değil de destekler. Her iki şirket içi destekler ve SFTP sunucuları bulut.
+Data factory şu anda yalnızca veri taşımayı bir SFTP sunucusundan verileri diğer veri depolarına bir SFTP sunucusuna taşımak için değil ancak diğer veri depolarını destekler. Hem şirket içi destekler ve SFTP sunucuları bulut.
 
 > [!NOTE]
-> Hedefe başarıyla kopyalandıktan sonra kopyalama etkinliği kaynak dosyasını silmez. Kaynak dosya sonra başarılı bir kopyasını silmeniz gerekirse, dosyayı silin ve ardışık düzeninde etkinlik kullanmak için özel bir aktivite oluşturun. 
+> Hedefine başarıyla kopyalandıktan sonra kopyalama etkinliği kaynak dosya silinmez. Kopyalama başarılı sonra kaynak dosyayı silmek için ihtiyacınız varsa dosyayı silin ve işlem hattı, etkinlik kullanmak için özel bir etkinlik oluşturun. 
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Desteklenen senaryolar ve kimlik doğrulama türleri
-Bu SFTP bağlayıcı veri kopyalamak için kullanabileceğiniz **SFTP sunucuları ve şirket içi SFTP sunucuları hem de bulut**. **Temel** ve **SshPublicKey** SFTP sunucuya bağlanırken kimlik doğrulama türleri desteklenir.
+Bu SFTP Bağlayıcısı veri kopyalamak için kullanabileceğiniz **SFTP sunucusu ve şirket içi SFTP sunucusu hem de bulut**. **Temel** ve **SshPublicKey** SFTP sunucusuna bağlanırken kimlik doğrulaması türleri desteklenir.
 
-Bir şirket içi SFTP sunucusundan veri kopyalama işlemi sırasında şirket içi ortamına/Azure VM veri yönetimi ağ geçidi yüklemeniz gerekir. Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) ağ geçidi hakkında ayrıntılı bilgi için. Bkz: [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale ağ geçidi kurun ayarlama ve kullanmaya ilişkin adım adım yönergeler.
+Bir şirket içi SFTP sunucusundan veri kopyalama yapılırken, şirket içi ortam/Azure VM veri yönetimi ağ geçidi yüklemeniz gerekir. Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) ağ geçidi hakkında ayrıntılı bilgi için. Bkz: [Bulut ve şirket içi konumlar arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale ağ geçidini ayarlamadan ve kullanmaya ilişkin adım adım yönergeler.
 
 ## <a name="getting-started"></a>Başlarken
-Farklı araçlar/API'lerini kullanarak bir SFTP kaynaktan verileri taşır kopyalama etkinliği ile işlem hattı oluşturun.
+Farklı araçlar/API'lerini kullanarak bir SFTP kaynaktan veri taşıyan kopyalama etkinliği ile işlem hattı oluşturabilirsiniz.
 
-- Bir işlem hattı oluşturmak için en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz.
+- Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz.
 
-- Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. JSON örnekleri verileri Azure Blob depolama alanına SFTP sunucudan kopyalamak, bkz: [JSON örnek: veri kopyalama SFTP sunucusundan Azure blob](#json-example-copy-data-from-sftp-server-to-azure-blob) bu makalenin.
+- Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**ve  **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. SFTP sunucusundan verileri Azure Blob Depolama'ya kopyalamak JSON örnekleri için bkz [JSON örneği: Verileri Azure blob için SFTP sunucusundan kopyalama](#json-example-copy-data-from-sftp-server-to-azure-blob) bu makalenin.
 
-## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
-Aşağıdaki tabloda, JSON öğeleri bağlantılı hizmet FTP belirli açıklamasını sağlar.
+## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
+Aşağıdaki tabloda, bağlı hizmet FTP özgü JSON öğeleri için açıklama sağlar.
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- | --- |
-| type | Type özelliği ayarlamak `Sftp`. |Evet |
-| konak | SFTP sunucunun adı veya IP adresi. |Evet |
-| port |SFTP sunucunun dinlediği bağlantı noktası. Varsayılan değer: 21 |Hayır |
-| authenticationType |Kimlik doğrulama türü belirtin. İzin verilen değerler: **temel**, **SshPublicKey**. <br><br> Başvurmak [kullanarak temel kimlik doğrulaması](#using-basic-authentication) ve [kullanarak SSH ortak anahtar kimlik doğrulaması](#using-ssh-public-key-authentication) daha fazla özellikleri ve JSON örnekleri sırasıyla bölümler. |Evet |
-| skipHostKeyValidation | Ana anahtar doğrulama atlamak bu seçeneği belirtin. | Hayır. Varsayılan değeri: false |
-| hostKeyFingerprint | Ana makine anahtarı, parmak izi belirtin. | Yanıt Evet ise `skipHostKeyValidation` false olarak ayarlayın.  |
-| gatewayName |Bir şirket içi SFTP sunucusuna bağlanmak için veri yönetimi ağ geçidi adı. | Bir şirket içi SFTP sunucusundan veri kopyalama, Evet. |
-| encryptedCredential | SFTP sunucuya erişmek için şifrelenmiş kimlik bilgileri'ı seçin. Otomatik olarak oluşturulan Kopyalama Sihirbazı'nı veya ClickOnce açılan iletişim temel kimlik doğrulaması (kullanıcı adı + parola) veya SshPublicKey kimlik (kullanıcı adı + özel anahtar yolu veya içerik) belirttiğinizde. | Hayır. Yalnızca bir şirket içi SFTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
+| type | Type özelliği ayarlanmalıdır `Sftp`. |Evet |
+| konak | SFTP sunucusunun adı veya IP adresi. |Evet |
+| port |SFTP sunucusunun dinlediği bağlantı noktası. Varsayılan değerdir: 21 |Hayır |
+| authenticationType |Kimlik doğrulama türünü belirtin. İzin verilen değerler: **Temel**, **SshPublicKey**. <br><br> Başvurmak [kullanarak temel kimlik doğrulaması](#using-basic-authentication) ve [kullanarak SSH ortak anahtarı kimlik doğrulaması](#using-ssh-public-key-authentication) daha fazla özellik ve JSON örneklerini sırasıyla bölümler. |Evet |
+| skipHostKeyValidation | Konak anahtar doğrulamasını atlayın verilip verilmeyeceğini belirtin. | Hayır. Varsayılan değer: false |
+| hostKeyFingerprint | Konak anahtarı parmak izi belirtin. | Yanıt Evet ise `skipHostKeyValidation` false olarak ayarlanır.  |
+| gatewayName |Şirket içi SFTP sunucusuna bağlanmak için veri yönetimi ağ geçidi adı. | Bir şirket içi SFTP sunucusundan veri kopyalama, Evet. |
+| encryptedCredential | SFTP sunucusuna erişmek için şifrelenmiş kimlik bilgileri'ı seçin. Otomatik olarak oluşturulan temel kimlik doğrulaması (kullanıcı adı ve parola) ya da SshPublicKey kimlik doğrulaması (kullanıcı adı ve özel anahtar yolu veya içerik) Kopyalama Sihirbazı'nı veya ClickOnce açılan iletişim kutusunda belirttiğiniz zaman. | Hayır. Yalnızca bir şirket içi SFTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
 
 ### <a name="using-basic-authentication"></a>Temel kimlik doğrulaması kullanma
 
-Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` olarak `Basic`ve SFTP bağlayıcı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
+Temel kimlik doğrulaması kullanmak için ayarlanmış `authenticationType` olarak `Basic`ve SFTP Bağlayıcısı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 | --- | --- | --- | --- |
 | kullanıcı adı | SFTP sunucusuna erişimi olan kullanıcı. |Evet |
-| password | (Kullanıcı adı) kullanıcının parolası. | Evet |
+| password | (Kullanıcı adı) kullanıcı parolası. | Evet |
 
-#### <a name="example-basic-authentication"></a>Örnek: Temel kimlik doğrulaması
+#### <a name="example-basic-authentication"></a>Örnek: Temel kimlik doğrulama
 ```json
 {
     "name": "SftpLinkedService",
@@ -90,7 +89,7 @@ Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` ol
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>Örnek: Temel kimlik doğrulaması ile şifrelenmiş kimlik bilgileri
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>Örnek: Şifrelenmiş kimlik bilgileri ile temel kimlik doğrulaması
 
 ```JSON
 {
@@ -111,21 +110,21 @@ Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` ol
 }
 ```
 
-### <a name="using-ssh-public-key-authentication"></a>SSH ortak anahtar kimlik doğrulaması kullanma
+### <a name="using-ssh-public-key-authentication"></a>SSH ortak anahtarı kimlik doğrulaması kullanma
 
-SSH ortak anahtar kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` olarak `SshPublicKey`ve SFTP bağlayıcı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
+SSH ortak anahtar kimlik doğrulamasını kullanmak için ayarlanmış `authenticationType` olarak `SshPublicKey`ve SFTP Bağlayıcısı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 | --- | --- | --- | --- |
 | kullanıcı adı |SFTP sunucusuna erişimi olan kullanıcı |Evet |
-| privateKeyPath | Belirtin özel anahtar dosyasının mutlak yolu, ağ geçidi erişebilir. | Belirtin `privateKeyPath` veya `privateKeyContent`. <br><br> Yalnızca bir şirket içi SFTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
-| privateKeyContent | Özel anahtar içeriğinin seri hale getirilmiş bir dize. Kopyalama Sihirbazı'nı, özel anahtar dosyası okumak ve özel anahtar içeriği otomatik olarak ayıklayın. Tüm diğer aracı/SDK kullanıyorsanız, bunun yerine privateKeyPath özelliğini kullanın. | Belirtin `privateKeyPath` veya `privateKeyContent`. |
-| Parola | Geçişi tümcecik/anahtar dosyası bir parola deyimi tarafından korunuyorsa, özel anahtarın şifresini çözmek için parola belirtin. | Evet, özel anahtar dosyası bir parola deyimi tarafından korunuyorsa. |
+| privateKeyPath | Belirtin özel anahtar dosyasının mutlak yolu, ağ geçidinin erişebilir. | Seçeneklerinden birini belirtin `privateKeyPath` veya `privateKeyContent`. <br><br> Yalnızca bir şirket içi SFTP sunucusundan veri kopyalama işlemi sırasında uygulanır. |
+| privateKeyContent | Özel anahtar içeriği seri hale getirilmiş bir dize. Kopyalama Sihirbazı'nı, özel anahtar dosyasını okuma ve özel anahtar içeriği otomatik olarak ayıklayın. Herhangi diğer araca/SDK'ya kullanıyorsanız privateKeyPath özelliğini kullanın. | Seçeneklerinden birini belirtin `privateKeyPath` veya `privateKeyContent`. |
+| Parola | Geçişi tümcecik/anahtar dosyası bir parola deyimi tarafından korunuyorsa, özel anahtarın şifresini çözmek için parola belirtin. | Özel anahtar dosyasını bir parola deyimi tarafından korunuyorsa, Evet. |
 
 > [!NOTE]
-> SFTP bağlayıcı RSA/DSA OpenSSH anahtarını destekler. Anahtar dosyası içeriğinizi "---Başlangıç [RSA/DSA] özel ANAHTARLA---" başlatır emin olun. Özel anahtar dosyası ppk biçim dosyası ise, lütfen .ppk OpenSSH biçimine dönüştürmek için Putty Aracı'nı kullanın.
+> SFTP Bağlayıcısı RSA/DSA OpenSSH anahtarını destekler. "---Başlangıç RSA/DSA özel ANAHTARA sahip---" anahtar dosyası içeriğinizi başlar emin olun. Özel anahtar dosyası ppk-format dosyası ise, .ppk OpenSSH biçimine dönüştürmek için Putty aracını kullanın.
 
-#### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>Örnek: özel anahtar filePath kullanarak SshPublicKey kimlik doğrulaması
+#### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>Örnek: Özel anahtar dosya yolu kullanarak SshPublicKey kimlik doğrulaması
 
 ```json
 {
@@ -146,7 +145,7 @@ SSH ortak anahtar kimlik doğrulaması kullanmak üzere ayarlanmış `authentica
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Örnek: özel anahtar içeriği kullanarak SshPublicKey kimlik doğrulaması
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Örnek: Özel anahtar içeriğini kullanarak SshPublicKey kimlik doğrulaması
 
 ```json
 {
@@ -167,27 +166,27 @@ SSH ortak anahtar kimlik doğrulaması kullanmak üzere ayarlanmış `authentica
 ```
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
-Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler yapısı, kullanılabilirlik ve bir veri kümesi JSON İlkesi gibi tüm veri kümesi türleri için benzerdir.
+Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikleri tam listesi için bkz [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler bir veri kümesi JSON İlkesi yapısı ve kullanılabilirlik gibi tüm veri kümesi türleri için benzerdir.
 
-**TypeProperties** bölümü, her veri kümesi türü için farklıdır. Veri kümesi türüne özgü bilgiler sağlar. TypeProperties bölüm türü veri kümesi için **FileShare** veri kümesine aşağıdaki özelliklere sahiptir:
+**TypeProperties** bölümünde her veri kümesi türü için farklıdır. Veri kümesi türüne özgü bilgiler sağlar. TypeProperties bölüm türü için bir veri kümesi **FileShare** veri kümesi, aşağıdaki özelliklere sahiptir:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 | --- | --- | --- |
-| folderPath |Klasörün alt yolu. Kaçış karakteri kullanmak ' \ ' dize özel karakter. Bkz: [örnek bağlantılı hizmeti ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekleri için.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün dilimine dayalı yol başlangıç/bitiş tarih saatleri. |Evet |
-| fileName |Dosya adını belirtin **folderPath** klasöründeki belirli bir dosya belirtmek için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tablonun klasördeki tüm dosyaları işaret eder.<br/><br/>FileName bir çıkış veri kümesi için belirtilmediğinde oluşturulan dosya adı aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
-| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>Örnek 1: `"fileFilter": "*.log"`<br/>Örnek 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter bir giriş FileShare veri kümesi için geçerlidir. Bu özellik ile HDFS desteklenmiyor. |Hayır |
-| partitionedBy |partitionedBy filename zaman serisi veri için dinamik bir folderPath belirtmek için kullanılabilir. Örneğin, her veri saat için parametreli folderPath. |Hayır |
-| Biçimi | Şu biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**,  **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın. |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
-| useBinaryTransfer |Belirtin olup ikili aktarım modunu kullanın. İkili mod ve false ASCII için true. Varsayılan değer: True. İlişkili bağlantılı hizmet türü türü olduğunda bu özellik yalnızca kullanılabilir: Ftp_sunucusu. |Hayır |
+| folderPath |Alt klasörünün yolu. Çıkış karakterini kullanma ' \ ' dizesinde özel karakterler için. Bkz: [örnek bağlantılı hizmet ve veri kümesi tanımları](#sample-linked-service-and-dataset-definitions) örnekler.<br/><br/>Bu özellik ile birleştirebilirsiniz **partitionBy** klasörün yol tabanlı slice başlangıç/bitiş tarih saatleri. |Evet |
+| fileName |Dosya adı belirtin **folderPath** klasördeki belirli bir dosyaya başvurmak için tablo istiyorsanız. Bu özellik için herhangi bir değer belirtmezseniz, tabloda bir klasördeki tüm dosyaları işaret eder.<br/><br/>Oluşturulan dosyanın adını bir çıktı veri kümesi için dosya adı belirtilmediği durumlarda, aşağıdaki olacaktır bu biçimi: <br/><br/>Veriler. <Guid>.txt (örnek: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Hayır |
+| fileFilter |Tüm dosyalar yerine folderPath dosyaları kümesini seçmek için kullanılacak bir filtre belirtin.<br/><br/>İzin verilen değerler: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/><br/>1. örnekler: `"fileFilter": "*.log"`<br/>Örnek 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter girdi FileShare veri kümesi için geçerlidir. Bu özellik, HDFS ile desteklenmiyor. |Hayır |
+| partitionedBy |partitionedBy dinamik bir folderPath, zaman serisi verileri için dosya adı belirtmek için kullanılabilir. Örneğin, verilerin her saat için parametreli folderPath. |Hayır |
+| biçim | Şu biçim türlerini destekler: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquetbiçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. <br><br> İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın. |Hayır |
+| Sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler şunlardır: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyleri şunlardır: **En iyi** ve **hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| useBinaryTransfer |Belirtin olup ikili aktarım modunu kullanın. İkili mod ve false ASCII için true. Varsayılan değer: TRUE. Bu özellik, yalnızca ilişkili bağlantılı hizmet türü türü olduğunda kullanılabilir: Ftp_sunucusu. |Hayır |
 
 > [!NOTE]
 > Dosya adı ve fileFilter aynı anda kullanılamaz.
 
 ### <a name="using-partionedby-property"></a>PartionedBy özelliğini kullanma
-Önceki bölümde belirtildiği gibi dinamik bir folderPath, zaman serisi veri partitionedBy ile dosya adını belirtebilirsiniz. Veri Fabrikası makroları ve sistem değişkeni SliceStart, verilen veri dilimi için mantıksal süre belirtmek SliceEnd bunu yapabilirsiniz.
+Önceki bölümde belirtildiği gibi bir dinamik folderPath, partitionedBy ile zaman serisi verileri için dosya adı belirtebilirsiniz. Data Factory makroları ve sistem değişkeni SliceStart, mantıksal bir zaman aralığı için belirtilen veri dilimi belirtmek SliceEnd ile bunu yapabilirsiniz.
 
-Zaman serisi veri kümeleri, zamanlama ve dilimleri hakkında bilgi edinmek için [veri kümeleri oluşturma](data-factory-create-datasets.md), [zamanlama ve yürütme](data-factory-scheduling-and-execution.md), ve [oluşturma ardışık düzen](data-factory-create-pipelines.md) makaleleri.
+Zaman serisi veri kümeleri, zamanlama ve dilimleri hakkında bilgi edinmek için [veri kümeleri oluşturma](data-factory-create-datasets.md), [zamanlama ve yürütme](data-factory-scheduling-and-execution.md), ve [işlem hatları oluşturma](data-factory-create-pipelines.md) makaleler.
 
 #### <a name="sample-1"></a>Örnek 1:
 
@@ -198,7 +197,7 @@ Zaman serisi veri kümeleri, zamanlama ve dilimleri hakkında bilgi edinmek içi
     { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
 ],
 ```
-Bu örnekte {dilim} belirtilen veri fabrikası sistem değişkenin değerini SliceStart (YYYYMMDDHH) biçiminde ile değiştirilir. Dilimin başlangıç SliceStart başvuruyor. FolderPath her dilim için farklıdır. Örnek: wikidatagateway/wikisampledataout/2014100103 veya wikidatagateway/wikisampledataout/2014100104.
+Bu örnekte {dilim} belirtilen değeri (YYYYMMDDHH) biçiminde Data Factory sistem değişkeni SliceStart ile değiştirilir. Slicestart'taki saat diliminin başlangıç ifade eder. FolderPath için her bir dilimi farklıdır. Örnek: wikidatagateway/wikisampledataout/2014100103 veya wikidatagateway/wikisampledataout/2014100104.
 
 #### <a name="sample-2"></a>Örnek 2:
 
@@ -213,42 +212,42 @@ Bu örnekte {dilim} belirtilen veri fabrikası sistem değişkenin değerini Sli
     { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 ],
 ```
-Bu örnekte, folderPath ve fileName özellikleri tarafından kullanılan ayrı değişkenleri içine yıl, ay, gün ve saat SliceStart ayıklanır.
+Bu örnekte, folderPath ve dosya adı özellikleri tarafından kullanılan ayrı değişkenleri içine yıl, ay, gün ve saat SliceStart ayıklanır.
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
-Bölümler & özellikleri etkinlikleri tanımlamak için kullanılabilir tam listesi için bkz: [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Ad, açıklama, giriş ve çıkış tabloları ve ilkeleri gibi özellikler etkinlikleri tüm türleri için kullanılabilir.
+Bölümleri & etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları oluşturma](data-factory-create-pipelines.md) makalesi. Ad, açıklama, girdi ve çıktı tabloları ve ilkeleri gibi özellikler, tüm etkinlik türleri için kullanılabilir.
 
-Oysa etkinliğin typeProperties bölümündeki özellikler her etkinlik türü ile farklılık gösterir. Kopya etkinliği için tür özellikleri türlerini kaynakları ve havuzlarını bağlı olarak farklılık gösterir.
+Oysa etkinliğin typeProperties bölümündeki özellikler her etkinlik türü ile farklılık gösterir. Kopyalama etkinliği için tür özellikleri, kaynaklar ve havuzlar türlerine bağlı olarak farklılık gösterir.
 
 [!INCLUDE [data-factory-file-system-source](../../../includes/data-factory-file-system-source.md)]
 
 ## <a name="supported-file-and-compression-formats"></a>Desteklenen dosya ve sıkıştırma biçimleri
-Bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md) makale ayrıntıları.
+Bkz: [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md) ilişkin ayrıntıları.
 
-## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>JSON örnek: veri SFTP sunucusundan Azure blob kopyalama
-Aşağıdaki örneği kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar veri SFTP kaynaktan Azure Blob depolama alanına kopyalama gösterilmektedir. Ancak, veriler kopyalanabilir **doğrudan** herhangi birinden herhangi birine belirtildiği havuzlarını kaynakları [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopya etkinliği Azure Data Factory kullanarak.
+## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>JSON örneği: Azure blob SFTP sunucusundan veri kopyalayın
+Aşağıdaki örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar Azure Blob depolama alanına SFTP kaynaktan veri kopyalama işlemini göstermektedir. Ancak, veriler kopyalanabilir **doğrudan** herhangi birinden herhangi birine belirtilen havuzlarını kaynakları [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.
 
 > [!IMPORTANT]
-> Bu örnek, JSON parçacıklarını sağlar. Data factory oluşturmak için adım adım yönergeler içermez. Bkz: [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale adım adım yönergeler için.
+> Bu örnek JSON parçacıklarını sağlar. Veri Fabrikası oluşturmaya yönelik adım adım yönergeler içermez. Bkz: [Bulut ve şirket içi konumlar arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale adım adım yönergeler için.
 
-Örnek aşağıdaki data factory varlıklarını sahiptir:
+Örnek, aşağıdaki data factory varlıklarını sahiptir:
 
 * Bağlı hizmet türü [sftp](#linked-service-properties).
 * Bağlı hizmet türü [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-* Bir giriş [dataset](data-factory-create-datasets.md) türü [FileShare](#dataset-properties).
-* Bir çıkış [dataset](data-factory-create-datasets.md) türü [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-* A [ardışık düzen](data-factory-create-pipelines.md) kullanan kopyalama etkinliği ile [FileSystemSource](#copy-activity-properties) ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+* Girdi [veri kümesi](data-factory-create-datasets.md) türü [FileShare](#dataset-properties).
+* Bir çıkış [veri kümesi](data-factory-create-datasets.md) türü [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+* A [işlem hattı](data-factory-create-pipelines.md) kullanan bir kopyalama etkinliği ile [FileSystemSource](#copy-activity-properties) ve [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Örnek verileri saatte bir Azure blob bir SFTP sunucusundan kopyalar. Bu örnekler kullanılan JSON özellikleri örnekleri aşağıdaki bölümlerde açıklanmıştır.
+Örnek verileri saatte bir Azure blobuna bir SFTP sunucusundan kopyalar. Bu örneklerde kullanılan JSON özellikleri örnekleri aşağıdaki bölümlerde açıklanmıştır.
 
-**SFTP bağlı hizmet**
+**SFTP bağlı hizmeti**
 
-Bu örnekte, kullanıcı adı ve parola düz metin ile temel kimlik doğrulaması kullanır. Aşağıdaki yöntemlerden birini kullanabilirsiniz:
+Bu örnek, kullanıcı adı ve parola düz metin ile temel kimlik doğrulaması kullanır. Aşağıdaki yöntemlerden birini kullanabilirsiniz:
 
 * Şifrelenmiş kimlik bilgileri ile temel kimlik doğrulaması
-* SSH ortak anahtar kimlik doğrulaması
+* SSH ortak anahtarı kimlik doğrulaması
 
-Bkz: [FTP bağlantılı hizmeti](#linked-service-properties) bölümü için farklı tür kimlik doğrulaması kullanabilirsiniz.
+Bkz: [FTP bağlı hizmet](#linked-service-properties) bölüm için farklı türde kimlik doğrulaması kullanabilirsiniz.
 
 ```JSON
 
@@ -284,9 +283,9 @@ Bkz: [FTP bağlantılı hizmeti](#linked-service-properties) bölümü için far
 ```
 **SFTP girdi veri kümesi**
 
-Bu veri kümesi SFTP klasöre başvuruyor `mysharedfolder` ve dosya `test.csv`. Ardışık Düzen dosya hedefe kopyalar.
+Bu veri kümesi SFTP klasörüne başvurur `mysharedfolder` ve dosya `test.csv`. İşlem hattı, dosyayı hedefe kopyalar.
 
-"Dış" ayarı: "true" bildirir Data Factory hizmetinin veri kümesi data factory dış ve veri fabrikasında bir etkinlik tarafından üretilen değil.
+"Dış" ayarını: "true" bildirir Data Factory hizmetinin veri kümesi dış veri fabrikasına ve veri fabrikasında bir etkinliği tarafından üretilen değil.
 
 ```JSON
 {
@@ -309,7 +308,7 @@ Bu veri kümesi SFTP klasöre başvuruyor `mysharedfolder` ve dosya `test.csv`. 
 
 **Azure Blob çıktı veri kümesi**
 
-Veri her saat yeni bir bloba yazılır (sıklığı: saat, aralığı: 1). Blob klasör yolu dinamik işlenmekte olan dilim başlangıç zamanı temel alınarak değerlendirilir. Klasör yolu yıl, ay, gün ve saat bölümleri başlangıç saatini kullanır.
+Veriler her saat yeni bir bloba yazılır (Sıklık: saat, interval: 1). Blob için klasör yolu işlenmekte olan dilimin başlangıç zamanı temel alınarak dinamik olarak değerlendirilir. Yıl, ay, gün ve saat bölümlerini başlangıç zamanı klasör yolu kullanır.
 
 ```JSON
 {
@@ -367,9 +366,9 @@ Veri her saat yeni bir bloba yazılır (sıklığı: saat, aralığı: 1). Blob 
 }
 ```
 
-**Kopyalama etkinliği ile kanalı**
+**Kopyalama etkinliği ile işlem hattı**
 
-Ardışık Düzen giriş ve çıkış veri kümeleri kullanmak üzere yapılandırıldığı ve saatte çalışacak şekilde zamanlanır kopyalama etkinliği içerir. JSON tanımını düzenindeki **kaynak** türü ayarlanmış **FileSystemSource** ve **havuz** türü ayarlanmış **BlobSink**.
+İşlem hattının giriş ve çıkış veri kümelerini kullanmak için yapılandırıldığı ve saatte bir çalışacak şekilde zamanlanmış bir kopyalama etkinliği içeriyor. JSON tanımı, işlem hattındaki **kaynak** türü ayarlandığında **FileSystemSource** ve **havuz** türü ayarlandığında **BlobSink**.
 
 ```JSON
 {
@@ -410,9 +409,9 @@ Ardışık Düzen giriş ve çıkış veri kümeleri kullanmak üzere yapıland�
 ```
 
 ## <a name="performance-and-tuning"></a>Performans ve ayarlama
-Bkz: [kopya etkinliği performansının & ayarlama Kılavuzu](data-factory-copy-activity-performance.md) bu veri taşıma (kopyalama etkinliği) Azure Data Factory ve onu en iyi duruma getirmek için çeşitli yollar etkisi performansını anahtar Etkenler hakkında bilgi edinmek için.
+Bkz: [kopyalama etkinliği performansı ve ayarlama Kılavuzu](data-factory-copy-activity-performance.md) veri taşıma (kopyalama etkinliği) Azure Data Factory ve bunu en iyi duruma getirmek için çeşitli yollar, performansı etkileyebilir anahtar Etkenler hakkında bilgi edinmek için.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Aşağıdaki makalelere bakın:
 
-* [Kopya etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak için adım adım yönergeler için.
+* [Kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmaya yönelik adım adım yönergeler için.

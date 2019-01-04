@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a0cfd65aa2444956336e5363d20acab61a404c68
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d1e44eae7e87a450ac5f36e621d559fca92ca74
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309187"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016163"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi hakkında SSS
 
-**S: Ben kısa bir süre önce cihazın kayıtlı. Azure portalındaki kullanıcı Bilgilerim altında cihazın neden göremiyorum? Veya neden yok hibrit Azure AD'ye katılmış cihazlar için cihaz sahibi işaretlenmiş?**
+**S: Ben kısa bir süre önce cihazın kayıtlı. Azure portalındaki kullanıcı Bilgilerim altında cihazın neden göremiyorum? Veya neden yok hibrit Azure AD'ye katılmış cihazlar için cihaz sahibi işaretlenmiş? ** 
  **Y:** Hibrit Azure AD'ye katılmış olan Windows 10 cihazları altında kullanıcı cihazları gösterilmez.
 Azure portalında tüm cihazları görüntüle kullanmanız gerekir. PowerShell de kullanabilirsiniz [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet'i.
 
@@ -107,14 +107,14 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 
 ---
 
-**S: Kullanıcılarım silinmiş veya Azure AD'de devre dışı Azure AD'ye katılmış cihazlar oturum açarak?**
+**S: Kullanıcılarım silinmiş veya Azure AD'de devre dışı Azure AD'ye katılmış cihazlar oturum açarak? ** 
  **Y:** Evet. Windows, kullanıcılar Masaüstü bile ağ bağlantısı hızlıca erişmek için önceden günlüğe yazılan izin vermek için oturum açma özelliği önbelleğe almıştır. Cihazın silindi veya Azure AD'de devre dışı olduğunda Windows cihaza bilinmiyor. Bu nedenle, daha önce oturum kullanıcılar Masaüstü önbelleğe alınmış oturum açma ile erişmeye devam edebilir. Ancak, cihazın silinmesi veya devre dışı olarak Kullanıcılar Cihaz tabanlı koşullu erişim tarafından korunan herhangi bir kaynağa erişemez. 
 
 Önbelleğe alınmış oturum açma için etkin olarak zaten oturum açmadıysanız kullanıcıların cihaz erişemez. 
 
 ---
 
-**S: Devre dışı bırakılan veya silinen kullanıcılar Azure AD'ye katılmış cihazlar için oturum açabilir?**
+**S: Devre dışı bırakılan veya silinen kullanıcılar Azure AD'ye katılmış cihazlar için oturum açabilir? ** 
  **Y:** Evet, ancak yalnızca sınırlı bir süreliğine. Bir kullanıcı silindi veya Azure AD'de devre dışı olduğunda Windows cihaza hemen bilinmiyor. Bu nedenle, daha önce oturum Masaüstü önbelleğe alınmış oturum açma ile kullanıcıların erişim sağlayabilir. Cihaz (genellikle kısa 4 saat) kullanıcı durumu uyumlu hale geldikten sonra Windows kullanıcılarla Masaüstü erişmesini engeller. Kullanıcı silindi veya Azure AD'de devre dışı olarak bunlar herhangi bir kaynağa erişilemiyor. Bu nedenle tüm belirteçlerin, iptal edilir. 
 
 Önbelleğe alınmış oturum açma için bunları etkin olduğundan, daha önce oturum açmadıysanız silinmiş veya devre dışı bırakılmış kullanıcılar bir cihaz erişemez. 
@@ -127,7 +127,7 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 
 ---
 
-**S: Nasıl bir uzak Azure AD'ye bağlanabilirim katılmış?**
+**S: Nasıl bir uzak Azure AD'ye bağlanabilirim katılmış? ** 
  **Y:** Makalesine bakın https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc Ayrıntılar için.
 
 ---
@@ -180,6 +180,9 @@ Windows 10 ve Windows Server 2016, birleşim durumu temizlemek için AD etki ala
 
 - [Bilgisayarları Azure AD'ye Windows alt düzey istemciler için katılmış etki alanının otomatik kayıt sorunlarını giderme](troubleshoot-hybrid-join-windows-legacy.md)
  
+**S: Yinelenen bir Azure AD neden görüyorum my Windows 10 hibrit Azure AD'ye kayıtlı kaydı alanına katılmış cihaz Azure AD'ye cihaz listesinde?**
+
+**Y:** Kullanıcılarınızın etki alanına katılmış cihazda uygulamalar için kendi hesap eklediğinizde, "Windows için Hesap Ekle"? görüntülenebilir. "Evet" satırına tıklayarak cihazı Azure AD'ye kayıtlı olması olmasına neden olur ve güven türü kayıtlı Azure AD işaretlenmiş. Hibrit Azure AD'ye katılma kuruluşunuzda etkinleştirdikten sonra cihaz hibrit Azure AD'ye katılmış de alır. Sonuç olarak, aynı cihaza için gösteren iki cihaz durumları olacaktır. Ancak, hibrit Azure AD'ye katılım Azure AD'ye kayıtlı durumu öncelik kazanır. Bu nedenle Cihazınızı hibrit Azure AD'ye katılımı için herhangi bir kimlik doğrulama ve koşullu erişim değerlendirmesinin kabul edilir. Bu nedenle, Azure AD Portalı'ndan kayıtlı Azure AD cihaz kaydı güvenli bir şekilde silebilirsiniz. Lütfen inceleyin [Bu bölümde](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know) karma Azure AD'ye katılmasına nasıl önleneceğini anlamak için makaleyi veya temizleme Windows 10 makinesi üzerinde bu ikili durum. 
 
 ---
 

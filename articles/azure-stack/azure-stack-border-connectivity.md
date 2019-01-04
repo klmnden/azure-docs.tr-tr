@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 39edcb97f062693d11fd5c0ce332c206ebd4b54a
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 12219e2df875d317aece73cabebdfb55115f7b41
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343562"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021093"
 ---
 # <a name="border-connectivity"></a>Kenarlık bağlantısı 
 Tümleştirme ağ planlaması, başarılı Azure Stack tümleşik sistemleri dağıtımı, operasyon ve yönetimi için önemli bir önkoşuldur. Kenarlık bağlantı planlama, sınır ağ geçidi Protokolü (BGP) dinamik yönlendirme kullanılıp kullanılmayacağı seçerek başlar. Bu bir 16 bit BGP Otonom sistem numarası (genel veya özel) atama gerektirir veya statik yönlendirme kullanarak, burada statik bir varsayılan yol kenarlığı cihazlara atanır.
@@ -29,9 +29,9 @@ Tümleştirme ağ planlaması, başarılı Azure Stack tümleşik sistemleri da�
 > Raf üstü (TOR) anahtarları üst katman 3 yukarı bağlantılar ile noktadan noktaya IP'ler gerektirir (/ 30 ağlar) fiziksel arabirimleri üzerinde yapılandırılmış. Katman 2 Yukarı bağlantılar ile Azure Stack işlemlerini destekleyen TOR anahtarlarını kullanmak için desteklenmiyor. 
 
 ## <a name="bgp-routing"></a>BGP yönlendirme
-BGP gibi dinamik yönlendirme protokolü kullanarak sisteminizi her zaman ağ değişikliklerden haberdar olur ve yönetimini kolaylaştırır garanti eder. 
+BGP gibi dinamik yönlendirme protokolü kullanarak sisteminizi her zaman ağ değişikliklerden haberdar olur ve yönetimini kolaylaştırır garanti eder. Gelişmiş güvenlik için bir parola TOR ve kenarlığı arasında eşleme BGP üzerinde ayarlanabilir. 
 
-Aşağıdaki diyagramda gösterildiği gibi özel IP'si ile reklam TOR anahtarında temel alan bir ön ek listesini kullanarak sınırlıdır. Özel IP alt ağları ve yol haritası TOR kenarlığı arasındaki bağlantı olarak uygulama ön ek listesini tanımlar.
+Aşağıdaki diyagramda gösterildiği gibi özel IP'si ile reklam izlerinin TOR anahtarında alan bir ön ek listesini kullanarak engellenir. Ön ek listesini özel ağ'ın Tanıtımı reddeder ve TOR kenarlığı arasındaki bağlantıyı haritada rota olarak uygulanır.
 
 VIP adresleri dinamik olarak tanıtabilir miyim için Azure Stack çözüm içinde çalışan yazılım yük dengeleyici (SLB) TOR cihazlara eşler.
 

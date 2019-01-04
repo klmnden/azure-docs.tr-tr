@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 8e764bfc4481343a1e1fb710df7d09f7a38f4f78
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: 856ffe050fce204d52d6666025a7284788bb0893
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420379"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022249"
 ---
 # <a name="start-monitoring-your-website"></a>Web sitenizi izlemeye başlama
 
@@ -23,7 +23,7 @@ Azure İzleyici Application Insights ile web sitenizi kullanılabilirlik, perfor
 
 Bu hızlı başlangıçta web sitenizin ziyaretçileri için istemci/tarayıcı tarafı deneyimi anlamanızı sağlayan [açık kaynak Application Insights JavaScript SDK'sını](https://github.com/Microsoft/ApplicationInsights-JS) ekleme yönergeleri gösterilmektedir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 
@@ -117,7 +117,7 @@ Application Insights, şirket içinde veya bulutta çalışan İnternet’e bağ
 
    ![Belirli bir süre içindeki kullanıcı isteklerinin analiz grafiği](./media/app-insights-website-monitoring/analytics-query.png)
 
-3. **Genel Bakış** sayfasına geri gidin. **Araştır** başlığındaki **Tarayıcı** girişine tıklayın ve **Performans**'ı seçin. Burada web sitenizle ilgili ölçümleri ve performans verilerini görebilirsiniz. Ayrıca web sitenizdeki hataları ve özel durumları analiz etmek için kullanabileceğiniz bir görünüm de bulunur. **Örnekler**'e tıklayarak işlem ayrıntılarına inebilirsiniz. Açılan sayfadan [uçtan uca işlem ayrıntıları](app-insights-transaction-diagnostics.md) deneyimine ulaşabilirsiniz.
+3. **Genel Bakış** sayfasına geri gidin. **Araştır** başlığındaki **Tarayıcı** girişine tıklayın ve **Performans**'ı seçin. Burada web sitenizle ilgili ölçümleri ve performans verilerini görebilirsiniz. Ayrıca web sitenizdeki hataları ve özel durumları analiz etmek için kullanabileceğiniz bir görünüm de bulunur. **Örnekler**'e tıklayarak işlem ayrıntılarına inebilirsiniz. Açılan sayfadan [uçtan uca işlem ayrıntıları](../azure-monitor/app/transaction-diagnostics.md) deneyimine ulaşabilirsiniz.
 
    ![Sunucu ölçüm grafiği](./media/app-insights-website-monitoring/browser-performance.png)
 

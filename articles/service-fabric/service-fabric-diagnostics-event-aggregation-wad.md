@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: d670b90404d441876727336fc50a848965082de5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: baa86fe70c394aaea31a6fa775073bb26d062c49
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232504"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002408"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyon
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Azure depolama, olayları toplayarak göre [Log Analytics'i ayarlama](service-fa
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Tanılama uzantısını Azure Resource Manager aracılığıyla dağıtma
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Tanılama uzantısı ile küme oluşturma
-Kaynak Yöneticisi'ni kullanarak bir küme oluşturmak için küme oluşturmadan önce tam bir Resource Manager şablonu için tanılama yapılandırması JSON eklemeniz gerekir. Resource Manager şablonu örneklerimizi parçası olarak eklenen tanılama yapılandırması ile örnek beş sanal makine küme kaynak yöneticisi şablonu sunuyoruz. Azure Örnekler Galerisi bu konumda görebilirsiniz: [tanılama Kaynak Yöneticisi şablonu örnek ile beş düğümlü küme](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Kaynak Yöneticisi'ni kullanarak bir küme oluşturmak için tam bir Resource Manager şablon için JSON tanılama yapılandırması eklemeniz gerekir. Resource Manager şablonu örneklerimizi parçası olarak eklenen tanılama yapılandırması ile örnek beş sanal makine küme kaynak yöneticisi şablonu sunuyoruz. Azure Örnekler Galerisi bu konumda görebilirsiniz: [Tanılama Kaynak Yöneticisi şablonu örnek ile beş düğümlü küme](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Resource Manager şablonu tanılama ayarı görmek için azuredeploy.json dosyasını açın ve arama **IaaSDiagnostics**. Bu şablonu kullanarak bir küme oluşturmak için Seç **azure'a Dağıt** düğmesini önceki bağlantıda kullanılabilir.
 
@@ -196,7 +196,7 @@ Uzantısı tarafından doldurulan tabloları beri büyüdükçe kota isabet kada
 ## <a name="log-collection-configurations"></a>Günlük toplama yapılandırmaları
 Diğer kanalları günlüklerinden de koleksiyonu için kullanılabilir olan, Azure'da çalışan kümeler için şablonda yapabileceğiniz yapılandırmaların çoğu bazıları aşağıda verilmiştir.
 
-* İşlevsel kanal - temel: varsayılan, Service Fabric ile dağıtılan, yeni bir uygulama, yakında bir düğüm için olayları dahil olmak üzere, küme tarafından gerçekleştirilen üst düzey işlemleri Nebo yükseltme bir geri alma vb. Olayların bir listesi için başvurmak [işletimsel kanal olayları](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
+* İşlevsel kanal - tabanı: Varsayılan olarak, Service Fabric ve olaylar, yaklaşan bir düğüm, dağıtılmakta olan yeni bir uygulama veya yükseltme bir geri alma dahil olmak üzere, küme tarafından gerçekleştirilen üst düzey işlem etkin vb. Olayların bir listesi için başvurmak [işletimsel kanal olayları](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational).
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
@@ -207,13 +207,13 @@ Diğer kanalları günlüklerinden de koleksiyonu için kullanılabilir olan, Az
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* Veri ve ileti kanalı - temel: kritik günlüklerini ve olayları (şu anda yalnızca ReverseProxy) Mesajlaşma ve veri yolu, ayrıntılı işlevsel kanal günlüklerine ek olarak oluşturulan. Bu, işlenen isteklerin yanı sıra, istek hataları ve diğer kritik sorunları Reverseproxy'ye işleme olaylardır. **Bu kapsamlı günlüğe kaydetme için Bizim önerimiz,**. Visual Studio Tanılama Olay Görüntüleyicisi'nde bu olayları görüntülemek için Ekle "Microsoft-ServiceFabric:4:0x4000000000000010" ETW sağlayıcıları listesi.
+* Veri ve ileti kanalı - oluşturun: Kritik günlükleri ve (şu anda yalnızca ReverseProxy) Mesajlaşma ve veri yolu, ayrıntılı işlevsel kanal günlüklerine ek olarak oluşturulan olayları. Bu, işlenen isteklerin yanı sıra, istek hataları ve diğer kritik sorunları Reverseproxy'ye işleme olaylardır. **Bu kapsamlı günlüğe kaydetme için Bizim önerimiz,**. Visual Studio Tanılama Olay Görüntüleyicisi'nde bu olayları görüntülemek için Ekle "Microsoft-ServiceFabric:4:0x4000000000000010" ETW sağlayıcıları listesi.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"
   ```
 
-* & Ayrıntılı ileti kanalı - veri: veri ve küme ve ayrıntılı işlevsel kanal Mesajlaşma kritik olmayan tüm günlükleri içeren ayrıntılı kanal. Ayrıntılı sorun giderme tüm ters proxy olayları için başvurmak [ters proxy tanılama Kılavuzu](service-fabric-reverse-proxy-diagnostics.md).  Visual Studio Tanılama Olay Görüntüleyicisi'nde bu olayları görüntülemek için Ekle "Microsoft-ServiceFabric:4:0x4000000000000020" ETW sağlayıcıları listesi.
+* & Ayrıntılı olan Mesajlaşma kanalını - veri: Veri ve küme ve ayrıntılı işlevsel kanal Mesajlaşma kritik olmayan tüm günlükleri içeren ayrıntılı kanal. Ayrıntılı sorun giderme tüm ters proxy olayları için başvurmak [ters proxy tanılama Kılavuzu](service-fabric-reverse-proxy-diagnostics.md).  Visual Studio Tanılama Olay Görüntüleyicisi'nde bu olayları görüntülemek için Ekle "Microsoft-ServiceFabric:4:0x4000000000000020" ETW sağlayıcıları listesi.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387944"

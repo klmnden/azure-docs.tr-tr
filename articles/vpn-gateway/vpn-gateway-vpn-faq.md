@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: yushwang
-ms.openlocfilehash: a6390203ecc4ae672f968b19d83eafc8a552ec3a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 7545000e0dda959195d3669da877a77c5bedea40
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994867"
+ms.locfileid: "54002068"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway SSS
 
@@ -42,7 +42,7 @@ Aşağıdaki şirket içi ve dışı bağlantılar desteklenmektedir:
 * Noktadan Siteye – SSTP (Güvenli Yuva Tünel Protokolü) veya IKE v2 üzerinden VPN bağlantısı. Bu bağlantıya VPN cihazı gerekmez. Daha fazla bilgi için bkz. [Noktadan Siteye](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * Sanal Ağdan Sanal Ağa – Bu bağlantı türü, Siteden Siteye yapılandırmasıyla aynıdır. VNet - VNet, IPsec üzerinden (IKE v1 ve IKE v2) bir VPN bağlantısıdır. VPN cihazı gerekmez. Daha fazla bilgi için bkz. [Sanal Ağdan Sanal Ağa](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Çok Siteli – Birden çok şirket içi sitenin bir sanal ağa bağlanmasına olanak sağlayan Siteden Siteye yapılandırmanın bir çeşididir. Daha fazla bilgi için bkz. [Çok Siteli](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
-* ExpressRoute – ExpressRoute genel İnternet üzerinden VPN bağlantısı değil, WAN bağlantınızdan Azure’e doğrudan yapılan bir bağlantıdır. Daha fazla bilgi için bkz. [ExpressRoute’a Teknik Genel Bakış](../expressroute/expressroute-introduction.md) ve [ExpressRoute SSS](../expressroute/expressroute-faqs.md).
+* ExpressRoute – ExpressRoute özel bir bağlantı için VPN bağlantısı genel Internet üzerinden değil WAN bağlantınızdan azure'dur. Daha fazla bilgi için bkz. [ExpressRoute’a Teknik Genel Bakış](../expressroute/expressroute-introduction.md) ve [ExpressRoute SSS](../expressroute/expressroute-faqs.md).
 
 VPN ağ geçidi bağlantıları hakkında daha fazla bilgi için bkz. [VPN Gateway Hakkında](vpn-gateway-about-vpngateways.md).
 

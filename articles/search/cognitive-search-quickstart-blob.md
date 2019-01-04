@@ -1,31 +1,34 @@
 ---
-title: 'Hızlı Başlangıç: Azure portal - Azure Search işlem hattında Bilişsel arama'
+title: Yapay ZEKA destekli Azure portalı - Azure Search dizini oluşturmak için bilişsel arama işlem hattı oluşturma
 description: Örnek veriler kullanılarak Azure portalında veri ayıklama, doğal dil ve görüntü işleme becerileri örneği.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/01/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7d579bfdaf38b6c06b26cfa7b36f8e4d2ac5a1f2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 50b2973f2b245cfb42ed7212e443fec1c66217cf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386273"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015281"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Hızlı Başlangıç: Bilişsel arama yetenekleri ve örnek verileri kullanarak işlem hattı oluşturma
 
-Bilişsel arama (önizleme), Azure Search dizin oluşturma işlem hattına veri ayıklama, doğal dil işleme (NLP) ve görüntü işleme becerileri ekleyerek aranamayan veya yapılandırılmamış içeriği daha aranabilir hale getirir. Varlık tanıma veya görüntü analizi gibi bir beceri tarafından oluşturulan bilgiler, Azure Search’te bir dizine eklenir.
+Bilişsel arama (önizleme), Azure Search dizin oluşturma işlem hattına veri ayıklama, doğal dil işleme (NLP) ve görüntü işleme becerileri ekleyerek aranamayan veya yapılandırılmamış içeriği daha aranabilir hale getirir. 
 
-Bu hızlı başlangıçta, tek bir kod satırı yazmadan önce [Azure portalındaki](https://portal.azure.com) zenginleştirme işlem hattını deneyin:
+Bilişsel arama işlem hattı tümleşir [Bilişsel hizmetler kaynakları](https://azure.microsoft.com/services/cognitive-services/) - gibi [OCR](cognitive-search-skill-ocr.md), [dil algılama](cognitive-search-skill-language-detection.md), [varlık tanıma](cognitive-search-skill-entity-recognition.md)- bir dizin oluşturma işlemine. Bilişsel hizmetler, yapay ZEKA algoritması, temel Azure Search'te tam metin araması çözümlerinde, yapılar ve kullanılabilir metinsel içeriği döndüren kaynak verilerdeki desenleri, özellikleri ve özelliklerini bulmak için kullanılır.
 
-* Azure Blob depolamada örnek verileri kullanmaya başlama
-* Dizin oluşturma ve zenginleştirme için [Veri içeri aktarma sihirbazı](search-import-data-portal.md)’nı yapılandırma 
-* Sihirbazı çalıştırma (bir varlık becerisi, kişileri, konumu ve kuruluşları algılar)
-* Zenginleştirilmiş verileri sorgulamak için [Arama gezgini](search-explorer.md)’ni kullanın.
+Bu hızlı başlangıçta, ilk zenginleştirme hattınızı oluşturma [Azure portalında](https://portal.azure.com) tek satırlık bir kod yazmadan önce:
+
+> [!div class="checklist"]
+> * Azure Blob depolamada örnek verileri kullanmaya başlama
+> * Yapılandırma [ **verileri içeri aktarma** ](search-import-data-portal.md) bilişsel dizin oluşturma ve zenginleştirme Sihirbazı 
+> * Sihirbazı çalıştırma (bir varlık becerisi, kişileri, konumu ve kuruluşları algılar)
+> * Kullanım [ **arama Gezgini** ](search-explorer.md) zenginleştirilmiş verileri sorgulamak için
 
 ## <a name="supported-regions"></a> Desteklenen bölgeler
 
@@ -58,8 +61,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu senaryoda özel olarak Azure hizmetleri kullanılır. İhtiyaç duyduğunuz hizmetleri oluşturma, hazırlığın bir parçasını oluşturur.
 
-+ Azure Blob depolama, kaynak veriler sağlar.
-+ Azure Search, veri alımı ve dizin oluşturmayı, bilişsel arama zenginleştirmesini ve tam metin arama sorgularını işler.
++ [Azure Blob Depolama](https://azure.microsoft.com/services/storage/blobs/) kaynak verileri sağlar
++ [Bilişsel Hizmetler](https://azure.microsoft.com/services/cognitive-services/) (oluşturabileceğiniz bu kaynakları satır içi, işlem hattı belirtirken) yapay ZEKA sağlar
++ [Azure Search'ü](https://azure.microsoft.com/services/search/) özel apps'te kullanılmak üzere zenginleştirilmiş dizinleme işlem hattına ve zengin serbest biçimli metin arama deneyimi sağlar.
 
 ### <a name="set-up-azure-search"></a>Azure Search ayarlama
 
@@ -71,16 +75,16 @@ Bu senaryoda özel olarak Azure hizmetleri kullanılır. İhtiyaç duyduğunuz h
 
   ![Pano portalı](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Portalda Azure Search hizmeti oluşturma")
 
-1. Kaynak grubu için, bu hızlı başlangıçta oluşturduğunuz tüm kaynakları içerecek bir kaynak grubu oluşturun. Böylece, hızlı başlangıcı tamamladıktan sonra kaynakları temizlemeniz kolaylaşır.
+1. Kaynak grubu için bu hızlı başlangıçta oluşturduğunuz tüm kaynakları içeren yeni bir kaynak grubu oluşturun. Böylece, hızlı başlangıcı tamamladıktan sonra kaynakları temizlemeniz kolaylaşır.
 
-1. Konum için aşağıdakilerden birini seçin [desteklenen bölgeler](#supported-regions) Bilişsel arama için.
+1. Konum için aşağıdakilerden birini seçin [desteklenen bölgeler](#supported-regions) bilişsel arama için.
 
 1. Fiyatlandırma katmanı için, **Ücretsiz** bir hizmet oluşturarak öğreticileri ve hızlı başlangıçları tamamlayabilirsiniz. Kendi verilerinizi kullanarak daha ayrıntılı araştırma yapmak için **Temel** veya **Standart** gibi bir [ücretli hizmet](https://azure.microsoft.com/pricing/details/search/) oluşturun. 
 
   Ücretsiz hizmet; 3 dizin, 16 MB maksimum blob boyutu ve 2 dizinleme dakikası ile sınırlıdır ve bu da bilişsel aramanın tüm yeteneklerini uygulamak için yeterli değildir. Farklı katmanlara ilişkin sınırları gözden geçirmek için bkz. [Hizmet Sınırları](search-limits-quotas-capacity.md).
 
-  ![Portalda Hizmet tanım sayfası](./media/cognitive-search-tutorial-blob/create-search-service1.png "portalında hizmet tanımı sayfası")
-  ![portalında hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service2.png "hizmet tanımı sayfasında portal")
+  ![Portaldaki hizmet tanımı sayfası](./media/cognitive-search-tutorial-blob/create-search-service2.png "Portaldaki hizmet tanımı sayfası")
+
   > [!NOTE]
   > Bilişsel arama genel önizleme aşamasındadır. Beceri kümesi yürütme şu anda ücretsiz katman da dahil olmak üzere tüm katmanlarda kullanılabilir. Ücretli bir Bilişsel hizmetler kaynağı ilişkilendirmeden zenginleştirmelerinin sınırlı sayıda gerçekleştirmek mümkün olacaktır. Bilgi [daha fazla](cognitive-search-attach-cognitive-services.md).
 
@@ -94,79 +98,88 @@ Zenginleştirme işlem hattı, [Azure Search dizin oluşturucuları](search-inde
 
 1. Farklı türlerden oluşan küçük bir dosya kümesini içeren [örnek verileri indirin](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). 
 
-1. Azure Blob depolamaya kaydolun, bir depolama hesabı oluşturun, Depolama Gezgini’nde oturum açın ve bir kapsayıcı oluşturun. Tüm adımlardaki yönergeler için bkz. [Azure Depolama Gezgini Hızlı Başlangıcı](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
+1. Azure Blob Depolama için kaydolun, depolama hesabı oluşturma, Blob Hizmetleri sayfalarını açın ve bir kapsayıcı oluşturun. Genel erişim düzeyini ayarlayın, kapsayıcıdaki **kapsayıcı**. Daha fazla bilgi için ["bir kapsayıcı oluşturma" bölümünde](../storage/blobs/storage-unstructured-search.md#create-a-container) içinde *yapılandırılmamış verileri arama* öğretici.
 
-1. Azure Depolama Gezgini’ni kullanarak, oluşturduğunuz kapsayıcıda **Karşıya Yükle**’ye tıklayarak örnek dosyaları karşıya yükleyin.
+1. Oluşturduğunuz kapsayıcıya tıklayın **karşıya** önceki bir adımda indirdiğiniz örnek dosyalarını karşıya yüklemek için.
 
   ![Azure blob depolamadaki kaynak dosyalar](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 ## <a name="create-the-enrichment-pipeline"></a>Zenginleştirme işlem hattı oluşturma
 
-Azure Search hizmeti panosu sayfasına geri dönün ve komut çubuğundaki **Verileri İçeri Aktar**’a tıklayarak dört adımda zenginleştirmeyi ayarlayın.
+Azure Search Hizmeti Pano sayfasına dönün ve **verileri içeri aktarma** dört adımda bilişsel zenginleştirme ayarlamak için komut çubuğunda.
+
+  ![Verileri içeri aktar komutu](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
 ### <a name="step-1-create-a-data-source"></a>1. Adım: Veri kaynağı oluşturma
 
-**Verilerinize bağlanın** > **Azure Blob depolama** bölümünde, oluşturduğunuz hesabı ve kapsayıcıyı seçin. Veri kaynağına bir ad verin ve geri kalanı için varsayılan değerleri kullanın. 
+İçinde **verilerinize bağlanın**, seçin **Azure Blob Depolama**, kapsayıcı oluşturduğunuz ve hesabı seçin. Veri kaynağına bir ad verin ve geri kalanı için varsayılan değerleri kullanın. 
 
-   ![Azure blob yapılandırması](./media/cognitive-search-quickstart-blob/blob-datasource2.png)
+  ![Azure blob yapılandırması](./media/cognitive-search-quickstart-blob/blob-datasource.png)
 
+Bir sonraki sayfasına devam edin.
 
-**Tamam**'a tıklayarak veri kaynağını oluşturun.
-
-**Verileri içeri aktar** sihirbazını kullanmanın bir avantajı, dizininizi de oluşturabilmesidir. Veri kaynağı oluşturulduğunda sihirbaz aynı anda bir dizin şeması oluşturur. Dizin oluşturulması birkaç saniye sürebilir.
+  ![Bilişsel arama için sonraki sayfa düğmesi](media/cognitive-search-quickstart-blob/next-button-add-cog-search.png)
 
 ### <a name="step-2-add-cognitive-skills"></a>2. Adım: Bilişsel yetenekler Ekle
 
-Daha sonra dizin oluşturma işlem hattına zenginleştirme adımları ekleyin. Portal size görüntü analizi ve metin analizi için önceden tanımlanmış bilişsel beceriler sunar. Portalda beceri kümesi, tek bir kaynak alanının üzerinde çalışır. Bu küçük bir hedef gibi görünebilir, ancak Azure blobları için `content` alanı, blob belgesinin çoğunu içerir (örneğin, Word belgesi veya PowerPoint destesi). Aynı şekilde bir blobun tüm içeriği de bu alanda bulunduğundan bu alan ideal bir giriştir.
+Daha sonra dizin oluşturma işlem hattına zenginleştirme adımları ekleyin. Bilişsel hizmetler kaynağı yoksa 20 işlem günlük sağlayan ücretsiz bir sürümü için kaydolabilirsiniz. Bu sihirbazı çalıştırdıktan sonra günlük ayrılan çoğunlukla kullanılacak böylece örnek verileri 14 dosyasından oluşur.
 
-Bazen tarayıcı tarafından oluşturulan bir PDF gibi çoğunlukla taranmış görüntülerden oluşan dosyaların metinsel gösterimini ayıklamak istersiniz. Azure Search, belgedeki ekli görüntülerin içeriklerini otomatik olarak ayıklayabilir. Bunu yapmak için **OCR’yi etkinleştirip tüm metni merged_content alanına birleştirin** seçeneğini belirleyin. Bu işlem otomatik olarak, belgeden ayıklanmış metin ile birlikte belgede eklenmiş olan görüntülerin metinsel gösterimini içeren bir `merged_content` alanı oluşturur. Bu seçeneği belirlediğinizde `Source data field`, `merged_content` olarak ayarlanır.
+1. Genişletin **ekleme Bilişsel Hizmetler** kaynaklama Bilişsel hizmetler API'leri için seçenekleri görmek için. Bu öğreticinin amaçları doğrultusunda, kullandığınız **ücretsiz** kaynak.
 
-**Bilişsel beceriler ekle** bölümünde, doğal dil işleme gerçekleştiren becerileri seçin. Bu hızlı başlangıç için, kişiler, kuruluşlar ve konumlar için varlık tanımayı seçin.
+  ![Bilişsel Hizmetleri Ekleme](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
-**Tamam**’a tıklayarak tanımı kabul edin.
-   
-  ![Beceri kümesi tanımı](./media/cognitive-search-quickstart-blob/skillset.png)
+2. Genişletin **ekleme Zenginleştirmelerinin** ve doğal dil işleme gerçekleştirme yetenekleri seçin. Bu hızlı başlangıç için, kişiler, kuruluşlar ve konumlar için varlık tanımayı seçin.
 
-Doğal dil işleme becerileri, örnek veri kümesindeki metin içeriği üzerinde çalışır. Herhangi bir görüntü işleme seçeneği belirlemediysek, örnek veri kümesinde bulunan JPEG dosyaları bu hızlı başlangıçta işlenmeyecektir. 
+  ![Bilişsel Hizmetleri Ekleme](media/cognitive-search-quickstart-blob/skillset.png)
+
+  Portal, OCR işleme ve metin analizi için yerleşik yetenekler sunar. Portalda beceri kümesi, tek bir kaynak alanının üzerinde çalışır. Bu küçük bir hedef gibi görünebilir, ancak Azure blobları için `content` alanı, blob belgesinin çoğunu içerir (örneğin, Word belgesi veya PowerPoint destesi). Aynı şekilde bir blobun tüm içeriği de bu alanda bulunduğundan bu alan ideal bir giriştir.
+
+3. Bir sonraki sayfasına devam edin.
+
+  ![Sonraki sayfa dizini özelleştirme](media/cognitive-search-quickstart-blob/next-button-customize-index.png)
+
+> [!NOTE]
+> Doğal dil işleme becerileri, örnek veri kümesindeki metin içeriği üzerinde çalışır. Biz OCR seçeneğini seçmediyseniz olduğundan, bu hızlı başlangıçta örnek veri kümesinde bulunan JPEG ve PNG dosyaları işlenmez. 
 
 ### <a name="step-3-configure-the-index"></a>3. Adım: Dizini yapılandırma
 
-Veri kaynağıyla oluşturulan dizini hatırlıyor musunuz? Bu adımda, bunun şemasını görüntüleyebilir ve olası tüm ayarları düzeltebilirsiniz. 
+Sihirbaz, genellikle varsayılan bir dizin çıkarabilir. Bu adımda oluşturulan dizin şemasını görüntülemek ve potansiyel olarak tüm ayarları gözden geçirin. Aşağıda varsayılan dizini için tanıtım Blob veri kümesi oluşturulur.
 
 Bu hızlı başlangıç, makul varsayılanlar ayarlanması konusunda iyi bir iş çıkarır: 
 
-+ Her dizinin bir adı olmalıdır. Bu veri kaynağı türü için varsayılan ad, *azureblob-index* şeklindedir.
++ Varsayılan ad *azureblob dizin*.
++ Varsayılan anahtar *metadata_storage_path* (Bu alan, benzersiz değerler içeren).
++ Varsayılan veri türleri ve öznitelikleri, tam metin arama senaryoları için geçerlidir.
 
-+ Her belgenin bir anahtarı olmalıdır. Sihirbaz, benzersiz değerler içeren bir alan seçer. Bu hızlı başlangıçta anahtar, *metadata_storage_path* şeklindedir.
+Temizleme göz önünde bulundurun **alınabilir** gelen `content` alan. Bloblar, bu alan binlerce satır çalıştırabilirsiniz. Bu içerik ağır dosyaları Word belgeleri veya PowerPoint Desteleri gibi JSON olarak bir arama sonuçları listesinde görüntülemek üzere olacaktır ne kadar zor hayal edebilirsiniz. 
 
-+ Her alan koleksiyonu, alanın değerlerini açıklayan bir veri tipini içeren alanlara sahiptir ve her alan, arama senaryosunda nasıl kullanıldığını açıklayan dizin özniteliklerine sahip olmalıdır. 
+Bir beceri kümesi tanımlanmadığından, sihirbaz, özgün kaynak veri alanı yanı sıra bilişsel işlem hattı tarafından oluşturulan çıkış alanları istediğinizi varsayar. Bu nedenle portal, `content`, `people`, `organizations` ve `locations` için dizin alanları ekler. Sihirbaz otomatik olarak etkinleştirdiğini unutmayın **alınabilir** ve **aranabilir** bu alanlar için. **Aranabilir** bir alan aranabilir gösterir. **Alınabilir** bunu döndürülmesi sonuçlarında anlamına gelir. 
 
-Bir beceri kümesi tanımlamış olduğunuzdan sihirbaz, kaynak veri alanını istediğinizi ve beceriler tarafından çıktı alanlarının oluşturulduğunu varsayar. Bu nedenle portal, `content`, `people`, `organizations` ve `locations` için dizin alanları ekler. Sihirbazın bu alanlar için otomatik olarak Alınabilir ve Aranabilir seçeneklerini etkinleştirmesine dikkat edin.
+  ![Dizin alanları](media/cognitive-search-quickstart-blob/index-fields.png)
+  
+Bir sonraki sayfasına devam edin.
 
-**Dizini özelleştir** bölümünde, alanlardaki özniteliklerin bir dizinde nasıl kullanıldığını görmek için bu öznitelikleri gözden geçirin. Aranabilir seçeneği, bir alanın aranabileceğini belirtir. Alınabilir seçeneği, alanın sonuçlarda döndürülebileceği anlamına gelir. 
-
-`content` alanından Alınabilir seçeneğinin işaretini kaldırın. Bloblarda bu alan binlerce satıra ulaşabilir ve **Arama gezgini** gibi bir araçta okunması zor olur.
-
-**Tamam**’a tıklayarak dizin tanımını kabul edin.
-
-  ![Dizin alanları](./media/cognitive-search-quickstart-blob/index-fields.png)
-
-> [!NOTE]
-> Kalabalığı önlemek için, kullanılmayan alanlar ekran görüntüsünden kesilmiştir. Portalda ilerlerseniz listeniz ek alanları gösterir.
+  ![Sonraki sayfaya dizin oluşturucu oluşturma](media/cognitive-search-quickstart-blob/next-button-create-indexer.png)
 
 ### <a name="step-4-configure-the-indexer"></a>4. adım: Dizin oluşturucuyu yapılandırma
 
-Dizin oluşturucu, dizin oluşturma işlemini destekleyen, yüksek düzeyli bir kaynaktır. Veri kaynağı adını, dizini ve yürütme sıklığını belirtir. **Verileri içeri aktar** sihirbazının nihai sonucunda her zaman art arda çalıştırabileceğiniz bir dizin oluşturucu elde edilir.
+Dizin oluşturucu, dizin oluşturma işlemini destekleyen, yüksek düzeyli bir kaynaktır. Bu veri kaynağı adı, hedef dizin ve yürütme sıklığı belirtir. **Verileri içeri aktar** sihirbazının nihai sonucunda her zaman art arda çalıştırabileceğiniz bir dizin oluşturucu elde edilir.
 
-**Dizin Oluşturucu** sayfasında, dizin oluşturucuya bir ad verin ve "bir kez çalıştır" varsayılan ayarını kullanarak hemen çalıştırın. 
+İçinde **dizin oluşturucu** sayfasında, varsayılan adı kabul edin ve kullanın **bir kez çalıştır** zamanlama hemen çalıştırmak için seçenek. 
 
-  ![Dizin oluşturucu tanımı](./media/cognitive-search-quickstart-blob/indexer-def.png)
+  ![Dizin oluşturucu tanımı](media/cognitive-search-quickstart-blob/indexer-def.png)
 
-**Tamam**’a tıklayarak verileri içeri aktarın, zenginleştirin ve dizinini oluşturun.
+Tıklayın **Gönder** oluşturmak ve aynı anda dizin oluşturucuyu çalıştırmak için.
+
+## <a name="monitor-indexing"></a>Dizin oluşturma İzleyicisi
+
+Zenginleştirme adımları metin tabanlı tipik dizin daha tamamlanması daha uzun sürer. İlerleme durumunu izleyebilmeniz için sihirbazın genel bakış sayfasında dizin oluşturucu listesini açın. Kendi kendine gezintiye genel bakış sayfasında ve tıklayın Git **dizin oluşturucular**.
+
+Uyarı JPG ve PNG dosyaları görüntü dosyaları ve biz bu işlem hattından OCR beceri atlanmış oluşur. Kesme bildirimleri da bulabilirsiniz. Azure arama, ücretsiz katmanda 32.000 karakter ayıklama sınırlar.
 
   ![Azure Search bildirimi](./media/cognitive-search-quickstart-blob/indexer-notification.png)
 
-Dizin oluşturma ve zenginleştirme zaman alabilir; ilk keşif için daha küçük veri kümelerinin önerilmesinin nedeni budur. Azure portalının Bildirimler sayfasında dizin oluşturmayı izleyebilirsiniz. 
+Dizin oluşturma ve zenginleştirme zaman alabilir; ilk keşif için daha küçük veri kümelerinin önerilmesinin nedeni budur. 
 
 ## <a name="query-in-search-explorer"></a>Arama gezgininde sorgulama
 
@@ -176,19 +189,17 @@ Bir dizin oluşturulduktan sonra, dizinden belgeleri döndürmek için sorgular 
 
 1. Oluşturduğunuz dizini seçmek için üst kısımdaki **Dizini değiştir**'e tıklayın.
 
-1. Dizini sorgulamak için "John F. Kennedy" gibi bir arama dizesi girin.
+1. Gibi dizini sorgulamak için bir arama dizesi girin `search=Microsoft&searchFields=organizations`.
 
-Sonuçlar JSON olarak döndürülür, bu nedenle özellikle de Azure bloblardan gelen büyük belgelerde ayrıntılı ve okuması zor olabilir. 
+Sonuçlar JSON olarak döndürülür, bu nedenle özellikle de Azure bloblardan gelen büyük belgelerde ayrıntılı ve okuması zor olabilir. Sonuçları kolayca tarayamazsanız, belgeler içinde arama yapmak için CTRL-F tuşlarını kullanın. Bu sorgu için özel terimleri JSON içinde arama yapabilirsiniz. 
 
-Sonuçları kolayca tarayamazsanız, belgeler içinde arama yapmak için CTRL-F tuşlarını kullanın. Bu sorgu için, JSON içinde "John F. Kennedy" aramasını yaparak o arama teriminin örneklerini görüntüleyebilirsiniz. 
-
-CTRL-F tuş birleşimi, belirli bir sonuç kümesinde kaç tane belgenin bulunduğunu belirlemenize de yardımcı olabilir. Her değer belge için benzersiz olduğundan Azure blobları için portal, anahtar olarak "metadata_storage_path" öğesini seçer. CTRL-F kullanarak, "metadata_storage_path" araması yapıp belgelerin sayısını alın. Bu sorgu için sonuç kümesindeki iki belge, "John F. Kennedy" terimini içerir.
+CTRL-F tuş birleşimi, belirli bir sonuç kümesinde kaç tane belgenin bulunduğunu belirlemenize de yardımcı olabilir. Her değer belge için benzersiz olduğundan Azure blobları için portal, anahtar olarak "metadata_storage_path" öğesini seçer. CTRL-F kullanarak, "metadata_storage_path" araması yapıp belgelerin sayısını alın. 
 
   ![Arama gezgini örneği](./media/cognitive-search-quickstart-blob/search-explorer.png)
 
 ## <a name="takeaways"></a>Paketler
 
-Şimdi ilk zenginleştirilmiş dizin oluşturma çalışmanızı tamamladınız. Bu hızlı başlangıcın amacı, kendi verilerinizi kullanarak hızlı şekilde bir bilişsel arama çözümünün prototipini oluşturabilmeniz için sihirbazda size yol göstermek ve önemli kavramları tanıtmaktır.
+Artık, ilk bilişsel zenginleştirilmiş dizinleme alıştırma tamamladınız. Bu hızlı başlangıcın amacı, kendi verilerinizi kullanarak hızlı şekilde bir bilişsel arama çözümünün prototipini oluşturabilmeniz için sihirbazda size yol göstermek ve önemli kavramları tanıtmaktır.
 
 Topladığınız bazı temel kavramlar, Azure veri kaynaklarına bağımlılık içerir. Bilişsel arama zenginleştirmesi, dizin oluşturuculara bağlıdır ve dizin oluşturucular, Azure’a ve kaynağa özgüdür. Bu hızlı başlangıçta Azure Blob depolama kullanılsa da, başka Azure veri kaynakları da mümkündür. Daha fazla bilgi için bkz. [Azure Search’te dizin oluşturucular](search-indexer-overview.md).
 
@@ -206,7 +217,7 @@ Her iki hizmeti de aynı gruba koyduğunuz varsayılarak, şimdi bu çalışmada
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Farklı beceriler ve kaynak veri alanları ile sihirbazı yeniden çalıştırarak dizin oluşturma ve zenginleştirme ile deneme yapabilirsiniz. Adımları yinelemek için, dizini ve dizin oluşturucuyu silin, ardından dizin oluşturucuyu yeni seçimlerle yeniden oluşturun.
+Bilişsel hizmetler kaynağı nasıl sağladığınız bağlı olarak, dizin oluşturma ve zenginleştirme ile farklı becerileri ve kaynak veri alanları ile sihirbazını yeniden çalıştırarak denemeler yapabilirsiniz. Adımları yinelemek için, dizini ve dizin oluşturucuyu silin, ardından dizin oluşturucuyu yeni seçimlerle yeniden oluşturun.
 
 + **Genel Bakış** > **Dizinler** bölümünde, oluşturduğunuz dizini seçin ve sonra **Sil**’e tıklayın.
 

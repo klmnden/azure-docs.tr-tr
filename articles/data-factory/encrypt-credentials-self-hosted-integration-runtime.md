@@ -1,6 +1,6 @@
 ---
-title: Azure veri fabrikası'nda kimlik bilgilerini şifrelemek | Microsoft Docs
-description: Şifrelemek ve bir makinede kendini barındıran tümleştirmesi çalışma zamanı ile şirket içi veri depoları için kimlik bilgilerini depolamak öğrenin.
+title: Azure Data factory'de kimlik bilgilerini şifreleme | Microsoft Docs
+description: Şifreleme ve şirket içinde barındırılan tümleştirme çalışma zamanı olan bir makinede, şirket içi veri depoları için kimlik bilgilerini saklamak hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -9,26 +9,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b577c276627c3a187215cd0da551428fbb32791f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8e8a4cabd948783278981c61fa718e51b679ad72
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050915"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014174"
 ---
-# <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Şirket içi veri depolarında Azure veri fabrikası için kimlik bilgilerini şifrelemek
-Şifreleme ve kendi kendini barındıran tümleştirmesi çalışma zamanı olan bir makinede, şirket içi veri depoları (hassas bilgiler ile bağlantılı hizmetler) için kimlik bilgilerini depolamak. 
+# <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Azure Data factory'de şirket içi veri depoları için kimlik bilgilerini şifrele
+Şifreleme ve kimlik bilgilerini şirket içinde barındırılan tümleştirme çalışma zamanı olan bir makinede, şirket içi veri depoları (bağlı hizmetler ile hassas bilgileri) depolamak. 
 
-JSON tanım dosyası kimlik bilgileriyle geçirin <br/>[**AzureRmDataFactoryV2LinkedServiceEncryptedCredential yeni** ](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential?view=azurermps-4.4.0) şifrelenmiş kimlik bilgileri ile bir çıktı JSON tanım dosyası oluşturmak için cmdlet'i. Ardından, bağlı hizmetler oluşturma için güncelleştirilmiş JSON tanımını kullanın.
+Bir JSON tanımı dosyası kimlik bilgileriyle geçirin <br/>[**Yeni-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** ](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential?view=azurermps-4.4.0) şifrelenmiş kimlik bilgileriyle bir çıkış JSON tanımı dosyası oluşturmak için cmdlet'i. Ardından, güncelleştirilen JSON tanımı bağlı hizmet oluşturmak için kullanın.
 
-## <a name="author-sql-server-linked-service"></a>Yazar bağlı SQL Server hizmeti
-Adlı bir JSON dosyası oluşturun **SqlServerLinkedService.json** aşağıdaki içeriğe sahip herhangi bir klasörde:  
+## <a name="author-sql-server-linked-service"></a>Yazar SQL Server bağlı hizmeti
+Adlı bir JSON dosyası oluşturun **C:\adfv2tutorial** herhangi bir klasörde aşağıdaki içerikle:  
 
-Değiştir `<servername>`, `<databasename>`, `<username>`, ve `<password>` dosyayı kaydetmeden önce SQL Server'ınızdaki değerlere sahip. Ve değiştirme `<integration runtime name>` tümleştirmesi çalışma zamanı adı. 
+Değiştirin `<servername>`, `<databasename>`, `<username>`, ve `<password>` dosyayı kaydetmeden önce SQL Server için değerlerle. Ve Değiştir `<integration runtime name>` tümleştirme çalışma zamanınızın adıyla. 
 
 ```json
 {
@@ -50,19 +49,19 @@ Değiştir `<servername>`, `<databasename>`, `<username>`, ve `<password>` dosya
 ```
 
 ## <a name="encrypt-credentials"></a>Kimlik bilgilerini şifrele
-Bir şirket içi kendi kendini barındıran tümleştirme çalışma zamanında JSON yükü hassas verileri şifrelemek için Çalıştır **yeni AzureRmDataFactoryV2LinkedServiceEncryptedCredential**ve JSON yükü geçirin. Bu cmdlet, kimlik bilgileri DPAPI kullanarak ve kendi kendini barındıran tümleştirmesi çalışma zamanı düğüm üzerinde yerel olarak depolanan şifrelenmiş sağlar. Çıktı yükü şifrelenmiş kimlik bilgileri içeren başka bir JSON dosyası için (Bu durumda 'encryptedLinkedService.json'), yönlendirilebilir.
+Bir şirket içi şirket içinde barındırılan tümleştirme çalışma zamanı üzerinde JSON yükünden hassas verileri şifrelemek için **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential**ve JSON yükünü geçirebiliriz. Bu cmdlet, DPAPI kullanılarak ve şirket içinde barındırılan tümleştirme çalışma zamanı düğümüne yerel olarak depolanan kimlik bilgileri şifrelenir sağlar. Çıktı yükü, şifrelenmiş kimlik bilgilerini içeren başka bir JSON dosyasına (Bu örnekte 'encryptedLinkedService.json') yönlendirilebilir.
 
 ```powershell
 New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "SqlServerLinkedService" -DefinitionFile ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
 ```
 
-## <a name="use-the-json-with-encrypted-credentials"></a>JSON ile şifrelenmiş kimlik bilgilerini kullan
-Şimdi kurmak için şifreli kimlik bilgilerini içeren önceki komutu çıktı JSON dosyasından kullanın **SqlServerLinkedService**.
+## <a name="use-the-json-with-encrypted-credentials"></a>Şifrelenmiş kimlik bilgileriyle JSON kullanın
+Şimdi, ayarlamak için şifrelenmiş kimlik bilgileri içeren önceki komuttan çıkış JSON dosyasını kullanın **SqlServerLinkedService**.
 
 ```powershell
 Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -DefinitionFile ".\encryptedSqlServerLinkedService.json" 
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Veri taşıma için güvenlik konuları hakkında daha fazla bilgi için bkz: [veri taşıma güvenlik konuları](data-movement-security-considerations.md).
+Veri taşıma için güvenlik konuları hakkında daha fazla bilgi için bkz. [veri taşıma güvenlik konuları](data-movement-security-considerations.md).
 

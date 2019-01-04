@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 6d752eb5d638171aa510bbbf17a197eddd2b6f60
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: dcc54b0f67b9bf08df602c3eb9a4bcb0ea699ee7
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127219"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023439"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>PayPal Azure Data Factory (Önizleme) kullanarak verileri kopyalama
 
@@ -76,7 +75,12 @@ PayPal bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [veri kümeleri](concepts-datasets-linked-services.md) makalesi. Bu bölümde, PayPal veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-PayPal verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **PayPalObject**. Ek bir türe özel özellik bu tür bir veri kümesi yok.
+PayPal verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **PayPalObject**. Aşağıdaki özellikler desteklenir:
+
+| Özellik | Açıklama | Gerekli |
+|:--- |:--- |:--- |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **PayPalObject** | Evet |
+| tableName | Tablonun adı. | Hayır (etkinlik kaynağı "sorgu" belirtilmişse) |
 
 **Örnek**
 
@@ -88,7 +92,8 @@ PayPal verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **
         "linkedServiceName": {
             "referenceName": "<PayPal linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -97,14 +102,14 @@ PayPal verileri kopyalamak için dataset öğesinin type özelliği ayarlamak **
 
 Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, PayPal kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="paypalsource-as-source"></a>Kaynak olarak PayPalSource
+### <a name="paypal-as-source"></a>Kaynak olarak PayPal
 
 PayPal verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **PayPalSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **PayPalSource** | Evet |
-| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Payment_Experience"`. | Evet |
+| sorgu | Verileri okumak için özel bir SQL sorgusu kullanın. Örneğin: `"SELECT * FROM Payment_Experience"`. | Yok (veri kümesinde "TableName" değeri belirtilmişse) |
 
 **Örnek:**
 

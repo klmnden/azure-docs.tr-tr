@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 39c4a6108f4a5133e2c77904dcd67bf235801956
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0d6a370884e6648aaf131892759ee45b29ed3693
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265143"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001660"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB'de çevrimiçi yedekleme ve isteğe bağlı veri geri yükleme
 
@@ -25,7 +25,7 @@ Azure Cosmos DB ile yalnızca verilerinizi, ancak ayrıca verilerinizin yedekler
 Yedeklemelerin performansını veya uygulamanızın kullanılabilirliğini etkilemeden alınır. Azure Cosmos DB veri yedekleme herhangi ek sağlanan aktarım hızına (RU) kullanan veya veritabanınızın kullanılabilirliğini ve performansı etkileyen arka planda gerçekleştirir.
 
 Gerçek verileri yerel olarak Azure Cosmos DB içinde bulunduğu ise azure Cosmos DB, otomatik yedeklemeler Azure Blob Depolama alanında depolar. Düşük gecikme süresi garanti için anlık görüntü yedeklemenizin geçerli yazma bölgesine (veya bir çok yöneticili yapılandırması varsa yazma bölgeleri biri) aynı bölgede Azure Blob storage'da depolanır Cosmos DB veritabanı hesabı. Bölgesel bir olağanüstü durum karşı dayanıklılık için her anlık görüntü yedekleme verilerinin Azure Blob depolama alanındaki başka bir bölgede coğrafi olarak yedekli depolama (GRS) aracılığıyla yeniden çoğaltılır. Yedekleme için çoğaltılır bölge, kaynak bölge ve kaynak bölgeyle ilişkili bölgesel çift temel alır. Daha fazla bilgi için bkz. [Azure bölgelerinin coğrafi olarak yedekli çiftleri listesi](../best-practices-availability-paired-regions.md) makalesi. Bu yedekleme doğrudan erişemez. Azure Cosmos DB Bu yedekleme kullanırsanız yalnızca bir yedekleme geri yükleme başlatılır.
-Aşağıdaki görüntüde, nasıl Batı ABD'deki tüm üç birincil kaynak bölümleri olan bir Azure Cosmos kapsayıcı Batı ABD uzak bir Azure Blob Depolama hesabında yedeklenebilir ve ardından Doğu ABD olarak kopyalandığı gösterilmektedir:
+Aşağıdaki görüntüde, nasıl bir Azure Cosmos kapsayıcısı ile üç birincil fiziksel'ındaki tüm bölümler Batı ABD Batı ABD uzak bir Azure Blob Depolama hesabında yedeklenebilir ve ardından Doğu ABD olarak kopyalandığı gösterilmektedir:
 
 ![GRS Azure depolama alanındaki tüm Cosmos DB varlıklarını, düzenli aralıklarla tam yedekler](./media/online-backup-and-restore/automatic-backup.png)
 

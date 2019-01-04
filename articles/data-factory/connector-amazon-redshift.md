@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 686b602828856e75300152c41bfe4c35cd6a8219
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7c790d03143eece9b0c827a033bdd46bfd1a8f45
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970170"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024374"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Azure Data Factory kullanarak Amazon Redshift'ten verileri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -132,7 +131,7 @@ Verileri Amazon Redshift'ten kopyalamak için kopyalama etkinliği kaynak türü
 | s3LinkedServiceName | Bir Amazon S3 How-to-edilecek bir geçiş deposu olarak kullanılan "AmazonS3" türündeki bağlı hizmetin adı belirterek başvuruyor. | UNLOAD kullanıyorsanız Evet |
 | bucketName | Geçici verileri depolamak için S3 demetini gösterir. Sağlanmazsa, Data Factory hizmeti, otomatik olarak oluşturur.  | UNLOAD kullanıyorsanız Evet |
 
-**Örnek: UNLOAD kullanarak kopyalama etkinliği, Amazon Redshift kaynak**
+**Örnek: Amazon Redshift kaynakta Kaldır'ı kullanarak kopyalama etkinliği**
 
 ```json
 "source": {
@@ -214,7 +213,7 @@ Verileri Amazon Redshift'ten kopyalama yapılırken, aşağıdaki eşlemeler Ama
 | BOOLE DEĞERİ |Dize |
 | CHAR |Dize |
 | DATE |DateTime |
-| ONDALIK |Ondalık |
+| ONDALIK |Onluk |
 | ÇİFT DUYARLIK |çift |
 | TAMSAYI |Int32 |
 | GERÇEK |Tek |

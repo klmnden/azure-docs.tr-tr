@@ -9,17 +9,16 @@ ms.assetid: dbe3bfd6-fa6a-491a-9638-3a9a10d396d1
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a9dba65591479033a892615ff053eebd0862851e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: b4485344f0bb85cb5dd2a2d621833d0fed15a8e0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125679"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022487"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Salesforce veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +34,7 @@ Bu makalede, kopyalama etkinliği Azure data factory'de Salesforce'tan havuz sü
 Azure Data Factory şu anda yalnızca Salesforce verileri destekler [havuz veri depolarına desteklenen](data-factory-data-movement-activities.md#supported-data-stores-and-formats), ancak diğer veriler veri taşıma desteği için Salesforce depolar.
 
 ## <a name="supported-versions"></a>Desteklenen sürümler
-Bu bağlayıcı Salesforce aşağıdaki sürümleri destekler: Geliştirici sürümü, Professional sürümü, Enterprise Edition veya sınırsız sürümü. Ve Salesforce üretim, korumalı ve özel etki alanı kopyalamayı destekler.
+Bu bağlayıcı, Salesforce aşağıdaki sürümleri destekler: Geliştirici sürümü, Professional sürümü, Enterprise Edition veya sınırsız sürümü. Ve Salesforce üretim, korumalı ve özel etki alanı kopyalamayı destekler.
 
 ## <a name="prerequisites"></a>Önkoşullar
 * API izin etkinleştirilmesi gerekir. Bkz: [nasıl izin kümesi tarafından API erişimi salesforce'taki etkinleştirebilirim?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
@@ -52,9 +51,9 @@ Her iki senaryoda da "REQUEST_LIMIT_EXCEEDED" hatası alabilirsiniz. "API isteğ
 ## <a name="getting-started"></a>Başlarken
 Farklı araçlar/API'lerini kullanarak Salesforce veri taşıyan kopyalama etkinliği ile işlem hattı oluşturabilirsiniz.
 
-Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz.
+Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz.
 
-Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
+Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**ve  **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
 
 API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için bir kaynak veri deposundan veri taşıyan bir işlem hattı oluşturmak için aşağıdaki adımları gerçekleştirin: 
 
@@ -62,7 +61,7 @@ API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için 
 2. Oluşturma **veri kümeleri** kopyalama işleminin girdi ve çıktı verilerini göstermek için. 
 3. Oluşturma bir **işlem hattı** bir veri kümesini girdi ve çıktı olarak bir veri kümesini alan kopyalama etkinliği ile. 
 
-Sihirbazı'nı kullandığınızda, bu Data Factory varlıklarını (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın.  Salesforce veri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları ile bir örnek için bkz. [JSON örneği: veri kopyalama Salesforce'tan Azure Blobuna](#json-example-copy-data-from-salesforce-to-azure-blob) bu makalenin. 
+Sihirbazı'nı kullandığınızda, bu Data Factory varlıklarını (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın.  Salesforce veri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları ile bir örnek için bkz. [JSON örneği: Verileri Azure Blob Salesforce'tan kopyalama](#json-example-copy-data-from-salesforce-to-azure-blob) bu makalenin. 
 
 Aşağıdaki bölümler, Data Factory varlıklarını belirli Salesforce'a tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılı bilgi sağlar: 
 
@@ -82,7 +81,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir olan özellikler
 
 **TypeProperties** bölümünde her veri kümesi türü için farklıdır ve verilerin veri deposundaki konumu hakkında bilgi sağlar. TypeProperties bölüm türü için bir veri kümesi **RelationalTable** aşağıdaki özelliklere sahiptir:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 | --- | --- | --- |
 | tableName |Salesforce'taki tablosunun adı. |Hayır (varsa bir **sorgu** , **RelationalSource** belirtilir) |
 
@@ -98,7 +97,7 @@ Etkinlik typeProperties bölümünün kullanılabilir özellikleri, diğer yanda
 
 Kopya etkinlikteki kaynak türü olduğunda, **RelationalSource** (Salesforce içeren), typeProperties bölümünde aşağıdaki özellikler kullanılabilir:
 
-| Özellik | Açıklama | İzin verilen değerler | Gerekli |
+| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
 | --- | --- | --- | --- |
 | sorgu |Verileri okumak için özel sorgu kullanın. |Bir SQL 92 sorgu veya [Salesforce nesne sorgu dili (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) sorgu. Örneğin:  `select * from MyTable__c`. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
@@ -125,7 +124,7 @@ Salesforce Geri Dönüşüm Kutusu'nu geçici silinen kayıtlarını sorgulamak 
 * Yalnızca silinen kayıtlar sorgulamak için belirtin "seçin * MyTable__c gelen **burada IsDeleted = 1**"
 * Tüm mevcut ve Silinen dahil olmak üzere kayıtları sorgulamak için belirtin "seçin * MyTable__c gelen **burada IsDeleted = 0 ya da IsDeleted = 1**"
 
-## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>JSON örneği: veri kopyalama Salesforce'tan Azure Blob
+## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>JSON örneği: Azure Blob Salesforce veri kopyalayın
 Aşağıdaki örnek kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar, verileri Azure Blob depolama alanına Salesforce'tan kopyalamak nasıl gösterir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.   
 
 Senaryoyu uygulamak için oluşturmak için ihtiyacınız olan Data Factory yapıtlarının aşağıda verilmiştir. Listenin aşağıdaki bölümlerde bu adımlar hakkında ayrıntılı bilgi sağlar.
@@ -289,15 +288,15 @@ Bkz: [RelationalSource türü özellikleri](#copy-activity-properties) Relationa
 | --- | --- |
 | Otomatik numarası |Dize |
 | Onay kutusu |Boole |
-| Para birimi |Ondalık |
+| Para birimi |Onluk |
 | Tarih |DateTime |
 | Tarih/Saat |DateTime |
 | Email |Dize |
 | Kimlik |Dize |
 | Arama ilişkisi |Dize |
 | Çoklu seçim yapılabilen seçim listesi |Dize |
-| Sayı |Ondalık |
-| Yüzde |Ondalık |
+| Sayı |Onluk |
+| Yüzde |Onluk |
 | Telefon |Dize |
 | Seçim listesi |Dize |
 | Metin |Dize |

@@ -10,16 +10,15 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: f61399a3a6cb5c67343e28e4364d8d796ffbc066
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: e733b82e1b5870d98de5d65771bd621d9bffdf44
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457102"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024901"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory'de etkinlik meta verilerini al
 GetMetadata etkinliği, almak için kullanılabilir **meta verileri** Azure Data factory'deki herhangi bir veri. Bu etkinlik, aşağıdaki senaryolarda kullanılabilir:
@@ -129,7 +128,7 @@ Alınacak GetMetadata etkinliği alan listesinde, aşağıdaki meta veri türler
 
 Şu anda GetMetadata etkinliği, meta veri bilgilerini aşağıdaki türleri getirebilir.
 
-Özellik | Açıklama | Gerekli
+Özellik | Açıklama | Gereklidir
 -------- | ----------- | --------
 alan listesi | Gerekli meta veri bilgilerini türlerini listeler. Ayrıntılara bakın [meta veri seçenekleri](#metadata-options) desteklenen meta veriler bölümü. | Evet 
 Veri kümesi | GetMetadata etkinliği tarafından alınmasına izin, meta verileri etkinliği olan başvuru veri kümesi. Bkz: [desteklenen yetenekler](#supported-capabilities) bölüm üzerinde desteklenen bağlayıcılar ve veri kümesi söz dizimi ayrıntıları bağlayıcı konusuna bakın. | Evet

@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 140c92d260ac6423127e478e304cbebcf9c42124
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 27686cf036f69a9a4597c499e9b8b7d66d77e1e9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056017"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019682"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Azure Logic Apps'te Liquid şablonları ile Gelişmiş JSON dönüştürmeleri gerçekleştirebilirsiniz
 
@@ -34,7 +34,7 @@ Mantıksal uygulamanızda Liquid dönüştürme gerçekleştirmek için önce bu
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Liquid şablonu veya tümleştirme hesabı için harita oluşturma
 
 1. Bu örnekte, bu adımda açıklandığı gibi örnek Liquid şablonu oluşturun.
-Liquid şablonunuzda herhangi bir filtre kullanmak istiyorsanız, bu filtreleri ile büyük Başlat emin olun. Daha fazla bilgi edinin [sıvı filtreler](https://shopify.github.io/liquid/basics/introduction/#filters). 
+Liquid şablonunuzda herhangi bir filtre kullanmak istiyorsanız, bu filtreleri ile büyük Başlat emin olun. Daha fazla bilgi edinin [sıvı filtreler](https://shopify.github.io/liquid/basics/introduction/#filters), kullanım [DotLiquid](https://dotliquidmarkup.org/) ve C# adlandırma kuralları.
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
@@ -80,7 +80,7 @@ Liquid şablonunuzda herhangi bir filtre kullanmak istiyorsanız, bu filtreleri 
 
 2. Logic Apps Tasarımcısı'nda ekleme [istek tetikleyicisi](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) mantıksal uygulamanız için.
 
-3. Tetikleyici altında seçin **yeni adım**. Arama kutusuna filtreniz olarak "Sıvı" girin ve şu eylemi seçin: **dönüştürme JSON-JSON - Sıvı**
+3. Tetikleyici altında seçin **yeni adım**. Arama kutusuna filtreniz olarak "Sıvı" girin ve şu eylemi seçin: **Sıvı olan JSON - JSON dönüştürmesi Uygula**
 
    ![Bulma ve Liquid eylemini seçin](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
@@ -117,7 +117,7 @@ Sıvı yalnızca JSON dönüştürmeleri için sınırlı değildir. Sıvı kull
    ``` json
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
-   Örnek giriş ve çıkış şunlardır:
+   Örnek giriş ve çıkışları şunlardır:
   
    ![Metin çıktı JSON örneği](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
 
@@ -130,7 +130,7 @@ Sıvı yalnızca JSON dönüştürmeleri için sınırlı değildir. Sıvı kull
         {{item}}
     {% endJSONArrayFor -%}]
    ```
-   Örnek giriş ve çıkış şunlardır:
+   Örnek giriş ve çıkışları şunlardır:
 
    ![Örnek Çıktı XML-JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
 
@@ -142,7 +142,7 @@ Sıvı yalnızca JSON dönüştürmeleri için sınırlı değildir. Sıvı kull
    {{content.firstName | Append: ' ' | Append: content.lastName}}
    ```
 
-   Örnek giriş ve çıkış şunlardır:
+   Örnek giriş ve çıkışları şunlardır:
 
    ![Metin çıktı XML örneği](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 

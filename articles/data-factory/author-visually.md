@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/7/2018
 ms.author: shlo
-ms.openlocfilehash: 7a0d72ac67b329cb6d25be955205a2bbcef38e81
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: afaa5ae622f962dcffec52dbdbea8a754ba260ab
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281702"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025394"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory'de görsel yazma
 Görsel olarak yazma ve herhangi bir kod yazmak zorunda kalmadan, veri fabrikanızın kaynakları dağıtma Azure Data Factory kullanıcı arabirimi deneyimi (UX) sağlar. Etkinlikler bir işlem hattı tuvaline sürükleyin, test çalıştırmaları yapın, yinelemeli olarak, hata ayıklama ve dağıtabilir ve işlem hattı çalıştırmalarınızı izleyin. Görsel yazma gerçekleştirmek için kullanıcı Deneyimini kullanarak iki yaklaşım vardır:
@@ -47,7 +46,7 @@ Azure depoları Git tümleştirmesiyle görsel yazma data factory işlem hatlar�
 ### <a name="configure-an-azure-repos-git-repository-with-azure-data-factory"></a>Azure Data Factory ile bir Azure depoları Git deposu yapılandırma
 Bir Azure depoları Git deposu ile veri fabrikası iki yöntemleri yapılandırabilirsiniz.
 
-#### <a name="method1"></a> Yapılandırma yöntemine (Azure depoları Git deposu) 1: başlayalım sayfası
+#### <a name="method1"></a> Yapılandırma yöntemine 1 (Azure depoları Git deposu): Başlayalım sayfası
 
 Azure Data Factory'de Git **başlayalım** sayfası. Seçin **kod deposunu yapılandırma**:
 
@@ -70,7 +69,7 @@ Bölmesinde, aşağıdaki Azure depoları kod depo ayarları gösterir:
 | **Kök klasör** | Kök klasör Azure depoları işbirliği dalınızdaki. | <your root folder name> |
 | **Mevcut Data Factory kaynaklarını depoya İçeri Aktar** | Mevcut data factory kaynaklarını UX'dan içeri aktarmak etkinleştirilip etkinleştirilmeyeceğini belirtir **yazma tuvalinde** Azure depoları Git deponuzla. JSON biçiminde ilişkili Git deposu, data factory kaynaklarını almak için kutusunu seçin. Bu eylem her kaynak ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlı hizmetler ayrı Json'lerini aktarılır). Bu kutusu seçili değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
 
-#### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Yapılandırma yöntemine (Azure depoları Git deposu) 2: UX yazma tuvali
+#### <a name="configuration-method-2-azure-repos-git-repo-ux-authoring-canvas"></a>Yapılandırma yöntemine 2 (Azure depoları Git deposu): Yazma tuvali UX
 Azure Data Factory UX içinde **yazma tuvalinde**, veri fabrikanızın bulun. Seçin **Data Factory** öğelerine tıklayın ve ardından **kod deposunu Yapılandır**.
 
 Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında daha fazla ayrıntı için bkz: açıklamasında <a href="#method1">yapılandırma yöntemi 1</a>.
@@ -164,7 +163,7 @@ Dokuz dakikalık bir giriş ve bu özelliği için şu videoyu izleyin:
 
 Bir GitHub deposu ile veri fabrikası iki yöntemleri yapılandırabilirsiniz.
 
-**Yapılandırma yöntemine (genel deponun) 1: başlayalım sayfası**
+**Yapılandırma yöntemine 1 (genel deponun): Başlayalım sayfası**
 
 Azure Data Factory'de Git **başlayalım** sayfası. Seçin **kod deposunu yapılandırma**:
 
@@ -186,7 +185,7 @@ Bölmesinde, aşağıdaki Azure depoları kod depo ayarları gösterir:
 | **Mevcut Data Factory kaynaklarını depoya İçeri Aktar** | Mevcut data factory kaynaklarını UX'dan içeri aktarmak etkinleştirilip etkinleştirilmeyeceğini belirtir **yazma tuvalinde** içine bir GitHub deposu. JSON biçiminde ilişkili Git deposu, data factory kaynaklarını almak için kutusunu seçin. Bu eylem her kaynak ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlı hizmetler ayrı Json'lerini aktarılır). Bu kutusu seçili değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
 | **Dal kaynağını içeri aktarmak için**                       | Veri Fabrikası Kaynakları (işlem hatları, veri kümeleri, bağlı hizmetler vb.) hangi dala içe aktarılacağını belirler. Aşağıdaki dalları biri kaynakların içeri aktarabilirsiniz: bir. İşbirliği b. Yeni c oluşturun. Var Olanı Kullan                                                                                                                                                                                                     |                    |
 
-#### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Yapılandırma yöntemine 2 (ortak depo): UX yazma tuvali
+#### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Yapılandırma yöntemine 2 (ortak depo): Yazma tuvali UX
 
 Azure Data Factory UX içinde **yazma tuvalinde**, veri fabrikanızın bulun. Seçin **Data Factory** öğelerine tıklayın ve ardından **kod deposunu Yapılandır**.
 
@@ -196,7 +195,7 @@ Bir yapılandırma bölmesi görüntülenir. Yapılandırma ayarları hakkında 
 
 GitHub Enterprise depo ile veri fabrikası iki yöntemleri yapılandırabilirsiniz.
 
- #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Yapılandırma yöntemine (Kurumsal depo) 1: başlayalım sayfası
+ #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Yapılandırma yöntemine 1 (Kurumsal depo): Başlayalım sayfası
 
 Azure Data Factory'de Git **başlayalım** sayfası. Seçin **kod deposunu yapılandırma**:
 
@@ -220,7 +219,7 @@ Bölmesinde, aşağıdaki Azure depoları kod depo ayarları gösterir:
 | **Mevcut Data Factory kaynaklarını depoya İçeri Aktar** | Mevcut data factory kaynaklarını UX'dan içeri aktarmak etkinleştirilip etkinleştirilmeyeceğini belirtir **yazma tuvalinde** içine bir GitHub deposu. JSON biçiminde ilişkili Git deposu, data factory kaynaklarını almak için kutusunu seçin. Bu eylem her kaynak ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlı hizmetler ayrı Json'lerini aktarılır). Bu kutusu seçili değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
 | **Dal kaynağını içeri aktarmak için**                       | Veri Fabrikası Kaynakları (işlem hatları, veri kümeleri, bağlı hizmetler vb.) hangi dala içe aktarılacağını belirler. Aşağıdaki dalları biri kaynakların içeri aktarabilirsiniz: bir. İşbirliği b. Yeni c oluşturun. Var Olanı Kullan                                                                                                                                                                                                     |                    |
 
-#### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Yapılandırma yöntemine (Kurumsal depo) 2: UX yazma tuvali
+#### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Yapılandırma yöntemine 2 (Kurumsal depo): Yazma tuvali UX
 
 Azure Data Factory UX içinde **yazma tuvalinde**, veri fabrikanızın bulun. Seçin **Data Factory** öğelerine tıklayın ve ardından **kod deposunu Yapılandır**.
 

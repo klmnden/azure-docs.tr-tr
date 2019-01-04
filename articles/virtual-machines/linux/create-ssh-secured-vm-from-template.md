@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 01/03/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 33b0b2b4148a8cfbe97413bf3cdec23d375206bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c6e4e142025e40e77afee01d70de9cef68eca1f0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983897"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013205"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile Linux sanal makinesi oluşturma
 
@@ -32,7 +32,6 @@ Bu makalede Azure Resource Manager şablonları ve Azure CLI ile Linux sanal mak
 
 ## <a name="templates-overview"></a>Şablonlara genel bakış
 Azure Resource Manager şablonları altyapı ve Azure çözümünüzü yapılandırmasını tanımlayan JSON dosyalarıdır. Bir şablon kullanarak çözümünü yaşam döngüsü boyunca defalarca dağıtabilir ve kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. Biçimi şablon ve nasıl oluşturulacağı hakkında daha fazla bilgi için bkz: [ilk Azure Resource Manager şablonunuzu oluşturma](../../azure-resource-manager/resource-manager-create-first-template.md). Kaynak türleri için JSON söz dizimini görüntülemek üzere bkz. [Azure Resource Manager şablonlarında kaynak tanımlama](/azure/templates/).
-
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir sanal makineden önce bir kaynak grubu oluşturulmalıdır. Aşağıdaki örnekte adlı bir kaynak grubu oluşturur *Eastus* içinde *eastus* bölgesi:
@@ -73,3 +72,11 @@ ssh azureuser@<ipAddress>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu örnekte, temel bir Linux VM oluşturdunuz. Daha karmaşık ortamları oluşturun ya da uygulama çerçeveleri içeren daha fazla için Resource Manager şablonları, Gözat [Azure hızlı başlangıç şablonları Galerisi'ne](https://azure.microsoft.com/documentation/templates/).
+
+Şablonları oluşturma hakkında daha fazla bilgi için JSON söz dizimi ve dağıttığınız kaynak türleri için özellikleri görüntüleyin:
+
+* [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
+* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+* [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

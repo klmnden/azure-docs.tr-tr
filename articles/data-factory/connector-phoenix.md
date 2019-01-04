@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f155ee7dbea697c72bbd53b933a7410faa828b6c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 012057c7d01924ab1998a010b6ea0c7d83651a4d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089930"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017812"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Phoenix Azure Data Factory kullanarak verileri kopyalama 
 
@@ -46,7 +45,7 @@ Phoenix bağlı hizmeti için aşağıdaki özellikleri destekler:
 | konak | Phoenix sunucusunun IP adresi veya ana bilgisayar adı. (diğer bir deyişle, 192.168.222.160)  | Evet |
 | port | Phoenix sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. 8765 varsayılan değerdir. Azure Hdınsights bağlarsanız, bağlantı noktası 443 belirtin. | Hayır |
 | httpPath | Phoenix sunucuya karşılık gelen kısmi URL. (diğer bir deyişle, /gateway/sandbox/phoenix/version). Belirtin `/hbasephoenix0` Hdınsights küme kullanıyorsanız.  | Hayır |
-| authenticationType | Phoenix sunucuya bağlanmak için kullanılan kimlik doğrulama mekanizması. <br/>İzin verilen değerler: **anonim**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
+| authenticationType | Phoenix sunucuya bağlanmak için kullanılan kimlik doğrulama mekanizması. <br/>İzin verilen değerler şunlardır: **Anonim**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
 | kullanıcı adı | Phoenix sunucuya bağlanmak için kullanılan kullanıcı adı.  | Hayır |
 | password | Kullanıcı adına karşılık gelen parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
 | enableSsl | Sunucusuna bağlantılarda SSL kullanarak şifrelenip şifrelenmeyeceğini belirtir. Varsayılan değer false'tur.  | Hayır |

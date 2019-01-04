@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: da5064c7a064498378b37972fd76dc1c9a8d16e0
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 52c07ee66e37f6bc14c5c9d6414bc47a1225af65
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807899"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000383"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Klasik Windows Masaüstü uygulamalarında kullanımı ve performansı izleme
 
@@ -79,6 +79,6 @@ ms.locfileid: "53807899"
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Pano oluşturma](../azure-monitor/app/app-insights-dashboards.md)
 * [Tanılama Araması](../azure-monitor/app/diagnostic-search.md)
-* [Ölçümleri keşfetme](app-insights-metrics-explorer.md)
+* [Ölçümleri keşfetme](../azure-monitor/app/metrics-explorer.md)
 * [Analytics sorguları yazma](../azure-monitor/app/analytics.md)
 

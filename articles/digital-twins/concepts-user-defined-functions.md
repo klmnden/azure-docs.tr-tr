@@ -1,19 +1,19 @@
 ---
 title: Veri işleme ve kullanıcı tanımlı işlevleri ile Azure dijital İkizlerini | Microsoft Docs
-description: Veri işleme, matchers ve kullanıcı tanımlı işlevleri ile Azure dijital İkizlerini genel bakış
+description: Veri işleme, matchers ve kullanıcı tanımlı işlevleri ile Azure dijital İkizlerini genel bakış.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 2703778cd2eab582a9e7311aaf2024f100261889
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 915c57033209ff982946163c408cf8557515e2f5
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624531"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999212"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Veri işleme ve kullanıcı tanımlı işlevleri
 
@@ -21,29 +21,31 @@ Azure dijital İkizlerini Gelişmiş bilgi işlem özellikleri sunar. Geliştiri
 
 ## <a name="data-processing-flow"></a>Veri işleme akış
 
-Cihazları Azure dijital çiftleri için telemetri verilerini gönderdikten sonra geliştiricilerin dört aşamada veri işleyebilir: doğrulayın, eşleşen, işlem ve gönderme.
+Cihazları Azure dijital çiftleri için telemetri verilerini gönderdikten sonra geliştiricilerin dört aşamada veri işleyebilir: *doğrulama*, *eşleşen*, *işlem*, ve *gönderme* .
 
 ![Azure dijital İkizlerini veri işleme akış][1]
 
-1. Doğrulama aşamasında bir anlaşılır gelen telemetri iletiye dönüştürür [veri aktarımı nesnesi](https://en.wikipedia.org/wiki/Data_transfer_object) biçimi. Bu aşama, ayrıca cihaz ve algılayıcıyı doğrulama yürütür.
-1. Eşleştirme aşaması, uygun bir kullanıcı tanımlı işlevler (UDF'ler) çalıştırılacak bulur. Önceden tanımlanmış matchers cihaz, sensör ve gelen telemetri iletileriyle alanı bilgileri temel alarak UDF'ler bulun.
-1. İşlem aşama önceki aşamada eşleşen UDF'ler çalıştırır. Bu işlevler okuyun ve uzamsal hesaplanan değerleri güncelleştirme grafik düğümleri ve özel bildirimleri gönderebilir.
+1. Doğrulama aşamasında bir anlaşılır gelen telemetri iletiye dönüştürür [veri aktarımı nesnesi](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) biçimi. Bu aşama, ayrıca cihaz ve algılayıcıyı doğrulama yürütür.
+1. Eşleştirme aşaması çalıştırmak için uygun olan kullanıcı tanımlı işlevleri bulur. Önceden tanımlanmış matchers cihaz, sensör ve gelen telemetri iletileriyle alanı bilgileri temel alarak kullanıcı tanımlı işlevleri bulun.
+1. İşlem aşama önceki aşamada eşleşen kullanıcı tanımlı işlevleri çalışır. Bu işlevler okuyun ve uzamsal hesaplanan değerleri güncelleştirme grafik düğümleri ve özel bildirimleri gönderebilir.
 1. Dağıtım aşaması, herhangi bir özel işlem aşaması bildirim grafikte tanımlanan Uç noktalara yönlendirir.
 
 ## <a name="data-processing-objects"></a>Veri işleme nesneleri
 
-Azure dijital İkizlerini veri işlemeye oluşur üç nesneleri tanımlama: matchers, kullanıcı tanımlı işlevler ve rol atamaları.
+Azure dijital İkizlerini veri işlemeye oluşur üç nesneleri tanımlama: *matchers*, *kullanıcı tanımlı işlevleri*, ve *rol atamaları*.
 
 ![Azure dijital İkizlerini veri işleme nesneleri][2]
+
+<div id="matcher"></div>
 
 ### <a name="matchers"></a>Matchers
 
 Matchers bir dizi hangi işlemlerin zaman gelen algılayıcı telemetrisi göz önünde bulundurularak değerlendirme koşulları tanımlayın. Eşleşme belirlemek için koşullar özelliklerinden algılayıcı, algılayıcının üst cihaz ve algılayıcının üst alanı içerebilir. Koşullar karşılaştırmalar olarak ifade edilir bir [JSON yolu](http://jsonpath.com/) Bu örnekte özetlendiği gibi:
 
-- Veri türünün tüm algılayıcılar **sıcaklık**
+- Veri türünün tüm algılayıcılar **sıcaklık** kaçan dize değeri tarafından temsil edilen `\"Temperature\"`
 - Sahip `01` kendi bağlantı noktası
-- Genişletilmiş özellik anahtarı ile cihazlara ait **üretici** değerine ayarlayın `"GoodCorp"`
-- Tür alanları için ait olduğu `"Venue"`
+- Genişletilmiş özellik anahtarı ile cihazlara ait **üretici** kaçan dize değerine ayarlayın `\"GoodCorp\"`
+- Atlanan dizesi tarafından belirtilen türün alanlarına ait olduğu `\"Venue\"`
 - Üst alt öğeleri olan **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
 ```JSON
@@ -90,28 +92,30 @@ Matchers bir dizi hangi işlemlerin zaman gelen algılayıcı telemetrisi göz �
 
 ### <a name="user-defined-functions"></a>Kullanıcı tanımlı işlevler
 
-Kullanıcı tanımlı bir işlev içinde Azure dijital İkizlerini yalıtılmış bir ortamda çalışan özel bir işlev değil. Bu alındı olarak UDF'ler ham algılayıcı telemetri iletisi erişebilir. UDF uzamsal grafiği ve dağıtıcı hizmetine de erişebilirler. UDF grafiğin içinde kaydedildikten sonra UDF çalıştırma zamanı belirtmek için (yukarıda açıklanmıştır) bir Eşleştiricisi oluşturulması gerekir. Azure dijital İkizlerini verilen algılayıcıdan yeni telemetri aldığında, eşleşen UDF hareketli ortalama son birkaç sensör okumaları, örneğin hesaplayabilirsiniz.
+Kullanıcı tanımlı bir işlev içinde yalıtılmış bir Azure dijital İkizlerini ortam yürütülen özel bir işlev değil. Alınan gibi kullanıcı tanımlı işlevleri ham algılayıcı telemetri iletileriyle erişebilir. Kullanıcı tanımlı işlevleri uzamsal graf ve dağıtıcı hizmeti de erişebilir. Kullanıcı tanımlı işlevi bir grafik içinde bir Eşleştiricisi kaydedildikten sonra (ayrıntılı [yukarıda](#matcher)) işlevin yürütüldüğü belirtmeyi oluşturulması gerekir. Örneğin, Azure dijital İkizlerini verilen algılayıcıdan yeni telemetri aldığında, eşleşen kullanıcı tanımlı işlevi bir son birkaç sensör okumaları hareketli ortalamayı hesaplayabilirsiniz.
 
-JavaScript UDF'leri yazılabilir. Geliştiriciler, özel kod parçacıkları algılayıcı telemetri iletilerini karşı kod yürütebilir. Yardımcı yöntemler kullanıcı tanımlı yürütme ortamında graph ile etkileşim kurun. Bir UDF ile geliştiriciler şunları yapabilir:
+Kullanıcı tanımlı işlevler, JavaScript dilinde yazılabilir. Yardımcı yöntemler kullanıcı tanımlı yürütme ortamında graph ile etkileşim kurun. Geliştiriciler, özel kod parçacıkları algılayıcı telemetri iletilerini karşı kod yürütebilir. Örneklere şunlar dahildir:
 
 - Graf algılayıcı nesnesinde üzerine doğrudan okuma algılayıcı ayarlayın.
 - Graftaki bir alanı içindeki farklı sensör okumaları göre eylem gerçekleştirin.
 - Bir gelen algılayıcı okuma için belirli koşullar karşılandığında bir bildirim oluşturun.
 - Graf meta verileri bildirim gönderilmeden önce okuma algılayıcı iliştirin.
 
-Daha fazla bilgi için [kullanıcı tanımlı işlevler kullanma](how-to-user-defined-functions.md).
+Daha fazla bilgi için [kullanıcı tanımlı işlevler kullanma](./how-to-user-defined-functions.md).
 
 ### <a name="role-assignment"></a>Rol ataması
 
-UDF'ın eylemleri hizmetindeki verilerin güvenliğini sağlamak için Azure dijital İkizlerini rol tabanlı erişim denetimi tabidir. Rol atamaları verilen UDF uzamsal grafik ile etkileşim için uygun izinlere sahip olduğundan emin olun. Örneğin, bir UDF oluşturma, okuma, güncelleştirme veya belirli bir alanı altında graf verilerini silme girişiminde bulunabilir. UDF'ın erişim düzeyini UDF graf verilerimi isterse veya bir eylem çalışır denetlenir. Daha fazla bilgi için [rol tabanlı erişim denetimi](security-create-manage-role-assignments.md).
+Azure dijital İkizlerini tabi kullanıcı tanımlı işlevin eylemlerdir [rol tabanlı erişim denetimi](./security-role-based-access-control.md) hizmetindeki verilerin güvenliğini sağlamak için. Rol atamaları, hangi kullanıcı tanımlı işlevleri uzamsal grafiği ve varlıklarını etkileşim için uygun izinlere sahip tanımlayın. Örneğin, bir kullanıcı tanımlı işlev özelliği ve izni olabilir *Oluştur*, *okuma*, *güncelleştirme*, veya *Sil* grafiği verileri belirli bir alanı altında. Kullanıcı tanımlı işlev graf verilerimi isterse veya bir eylem çalışır bir kullanıcı tanımlı işlevin erişim düzeyini denetlenir. Daha fazla bilgi için [rol tabanlı erişim denetimi](./security-create-manage-role-assignments.md).
 
-Rol ataması yok bir UDF tetiklemek bir Eşleştiricisi için mümkündür. Bu durumda, UDF herhangi bir veri Graph'tan okuma başarısız olur.
+Rol ataması yok kullanıcı tanımlı bir işlev tetiklemek bir Eşleştiricisi için mümkündür. Bu durumda, kullanıcı tanımlı işlevi herhangi bir veri Graph'tan okuma başarısız olur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Olay ve telemetri iletilerini diğer Azure hizmetlerine yönlendirme hakkında daha fazla bilgi edinmek için [olayları ve iletileri yönlendirmek](concepts-events-routing.md).
+- Olay ve telemetri iletilerini diğer Azure hizmetlerine yönlendirme hakkında daha fazla bilgi edinmek için [olayları ve iletileri yönlendirmek](./concepts-events-routing.md).
 
-* Rol atamaları matchers ve kullanıcı tanımlı işlevler oluşturma hakkında daha fazla bilgi edinmek için [kullanıcı tanımlı işlevler kullanma Kılavuzu](how-to-user-defined-functions.md).
+- Rol atamaları matchers ve kullanıcı tanımlı işlevler oluşturma hakkında daha fazla bilgi edinmek için [kullanıcı tanımlı işlevler kullanma Kılavuzu](./how-to-user-defined-functions.md).
+
+- Gözden geçirme [kullanıcı tanımlı işlev istemci Kitaplığı Başvurusu belgeleri](./reference-user-defined-functions-client-library.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-data-processing-flow.png

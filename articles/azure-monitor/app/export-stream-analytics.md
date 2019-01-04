@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: a6e9df1b5be0565e859c866b6ceb8ef44e6b271a
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 8afe994f2441e736d660a306746508e9c6d13691
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812547"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001847"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Application ınsights'tan dışarı aktarılan verileri işlemek için Stream Analytics'i kullanma
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) veri işleme için ideal araçtır [Application Insights'tan dışarı aktarılan](export-telemetry.md). Stream Analytics, çeşitli kaynaklardan veri çekebilirsiniz. Bu dönüştürme ve verileri filtreleyin ve ardından çeşitli havuzlarını yönlendirmek.
@@ -64,7 +64,7 @@ Depolama oluşturmanız gerekir. böylece sürekli dışarı aktarmayı her zama
 
     ![Olay türü seçin](./media/export-stream-analytics/080.png)
 
-1. Accumulate bazı veriler sağlar. Arkanıza yaslanın ve insanların uygulamanızı bir süredir kullanın. Telemetri vardır ve istatistiksel grafikte gördüğünüz [ölçüm Gezgini](../../application-insights/app-insights-metrics-explorer.md) ve olayları tek tek [tanılama araması](../../azure-monitor/app/diagnostic-search.md). 
+1. Accumulate bazı veriler sağlar. Arkanıza yaslanın ve insanların uygulamanızı bir süredir kullanın. Telemetri vardır ve istatistiksel grafikte gördüğünüz [ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md) ve olayları tek tek [tanılama araması](../../azure-monitor/app/diagnostic-search.md). 
    
     Ve ayrıca, veri depolama dışarı aktarır. 
 2. Dışarı aktarılan verileri inceleyin. Visual Studio'da **görüntülemek / Cloud Explorer**ve Azure / depolama. (Bu menü seçeneği yoksa, Azure SDK'yı yüklemeniz gerekir: Yeni Proje iletişim kutusunu açın ve görseli açmak C# / bulut / .NET için Microsoft Azure SDK'sını edinme.)

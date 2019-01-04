@@ -1,13 +1,10 @@
 ---
-title: Oluşturma, değiştirme veya bir Azure genel IP adresi öneki silme | Microsoft Docs
+title: Oluşturma, değiştirme veya bir Azure genel IP adresi öneki Sil
+titlesuffix: Azure Virtual Network
 description: Oluşturma, değiştirme veya genel bir IP adresi ön eki Sil öğrenin.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: a0ae1f3fbf9189068cae4b18ac92f0bea0498f67
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 4207698c57b907cf60fd860bc409c8f8d5a4c565
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427582"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015296"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Oluşturma, değiştirme veya genel bir IP adresi ön eki Sil
 
@@ -29,7 +26,7 @@ Genel bir IP adresi ön eki ve oluşturmak, değiştirmek ve silmek hakkında bi
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 > [!IMPORTANT]
-> Genel IP öneki sınırlı sayıda bölgedeki bir genel Önizleme aşamasındadır. Yapabilecekleriniz [önizlemede olmasını geldiğini öğrenin](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Genel IP ön eki şu anda kullanılabilir: Batı Orta ABD, Batı ABD, Batı ABD 2, Orta ABD, Kuzey Avrupa, Batı Avrupa ve Güneydoğu Asya. Bölgelerin güncelleştirilmiş bir listesi için lütfen [Azure güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network).
+> Genel IP öneki sınırlı sayıda bölgedeki bir genel Önizleme aşamasındadır. Yapabilecekleriniz [önizlemede olmasını geldiğini öğrenin](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Genel IP önek, şu anda kullanılabilir: Batı Orta ABD, Batı ABD, Batı ABD 2, Orta ABD, Kuzey Avrupa, Batı Avrupa ve Güneydoğu Asya. Bölgelerin güncelleştirilmiş bir listesi için lütfen [Azure güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network).
 
 Bu makalenin bir bölümündeki adımları tamamlamadan önce aşağıdaki görevleri tamamlayın:
 
@@ -84,8 +81,8 @@ Bir önek oluşturduktan sonra statik IP adresi ön ekini oluşturmanız gerekir
 1. Metni içeren kutuya *kaynak Ara* Azure portalının üst kısmında, yazın *genel IP adresi ön eki*. Zaman **genel IP adresi ön eklerini** arama sonuçlarında görünmesini, onu seçin.
 2. Görüntülemek istediğiniz ayarları değiştirin ya da listeden silmek genel IP adresi ön adını seçin.
 3. Görüntüleyin, silin veya genel IP adresi ön eki değiştirmek istediğinize bağlı olarak aşağıdaki seçeneklerden birini tamamlayın.
-    - **Görünüm**: **genel bakış** öneki gibi genel IP adresi ön anahtar ayarları bölümünde gösterilir.
-    - **Silme**: genel IP adresi ön eki silmek için seçin **Sil** içinde **genel bakış** bölümü. Adres ön eki içinde genel IP adresi kaynaklarına ilişkiliyse, genel IP adresi kaynakları silmeniz gerekir. Bkz: [bir genel IP adresini silmek](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
+    - **Görünüm**: **Genel bakış** öneki gibi genel IP adresi ön anahtar ayarları bölümünde gösterilir.
+    - **Silme**: Genel IP adresi ön eki silmek için seçin **Sil** içinde **genel bakış** bölümü. Adres ön eki içinde genel IP adresi kaynaklarına ilişkiliyse, genel IP adresi kaynakları silmeniz gerekir. Bkz: [bir genel IP adresini silmek](virtual-network-public-ip-address.md#view-change-settings-for-or-delete-a-public-ip-address).
 
 **Komutları**
 

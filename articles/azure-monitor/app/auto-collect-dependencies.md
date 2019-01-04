@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 08/13/2018
 ms.reviewer: mbullwin
 ms.author: nimolnar
-ms.openlocfilehash: 4c06436961c45268cc7ae8ff2b7a5a4f06b24858
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 68a504f43463a25a0aba8d7d72881cddbcfba816
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973120"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999348"
 ---
 # <a name="dependency-auto-collection"></a>Bağımlılık otomatik toplama
 
@@ -98,4 +98,4 @@ Uygulama kodlarınızdaki ek değişiklik gerektirmeden bağımlılıkları olar
 - Özel bağımlılık izleme ayarlama [Java](../../azure-monitor/app/java-agent.md).
 - [Özel bağımlılık telemetri yazma](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
 - Bkz: [veri modeli](../../azure-monitor/app/data-model.md) için Application Insights türleri ve veri modeli.
-- Kullanıma [platformları](../../application-insights/app-insights-platforms.md) Application Insights tarafından desteklenir.
+- Kullanıma [platformları](../../azure-monitor/app/platforms.md) Application Insights tarafından desteklenir.

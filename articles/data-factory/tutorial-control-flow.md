@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 9aab9df353ea5691b4132741e9b4a97b0afd9d17
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 93f8a5e806bd10824a78dd62351fd3d9be0cf32c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262157"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025836"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory işlem hattında dallanma ve zincirleme etkinlikleri
 Bu öğreticide, bazı denetim akışı özelliklerini gösteren bir Data Factory işlem hattı oluşturacaksınız. Bu işlem hattı, Azure Blob Depolama içindeki kapsayıcıdan aynı depolama hesabındaki başka bir kapsayıcıya basit bir kopyalama işlemi yapar. Kopyalama etkinliği başarılı olursa, başarılı kopyalama işleminin ayrıntılarını (örneğin, yazılan veri miktarı) bir başarı e-postası ile göndermek istersiniz. Kopyalama etkinliği başarısız olursa, kopyalama hatasının ayrıntılarını (örneğin, hata iletisi) bir hata e-postası ile göndermek istersiniz. Öğretici boyunca parametreleri nasıl geçireceğinizi göreceksiniz.
@@ -95,7 +94,7 @@ Visual Studio 2015/2017'yi kullanarak bir C# .NET konsol uygulaması oluşturun.
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
 
-2. Bu statik değişkenleri **Program sınıfına** ekleyin. Yer tutucuları kendi değerlerinizle değiştirin. Data Factory'nin kullanılabileceği Azure bölgelerinin bir listesi için bir sonraki sayfada ilgilendiğiniz bölgeleri seçin ve **Analytics**'i genişleterek **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) (Bölgeye göre kullanılabilir durumdaki ürünler) bölümünü bulun. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
+2. Bu statik değişkenleri **Program sınıfına** ekleyin. Yer tutucuları kendi değerlerinizle değiştirin. Data Factory kullanılabildiği şu anda Azure bölgelerinin listesi için aşağıdaki sayfada faiz ve ardından genişletin bölgeleri seçin **Analytics** bulunacak **Data Factory**: [Bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/). Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 
     ```csharp
         // Set variables
@@ -204,7 +203,7 @@ Aşağıdaki kodu bir **Azure blob veri kümesi** oluşturan **Main** yöntemine
 
 Azure Blob’da kaynak verilerini temsil eden bir veri kümesi tanımlayın. Bu Blob veri kümesi, önceki adımda oluşturduğunuz Azure Depolama bağlı hizmetini ifade eder:
 
-- Blob kopyalama kaynağı: **FolderPath** ve **FileName**;
+- Blob kopyalama kaynağı konumu: **FolderPath** ve **FileName**;
 - FolderPath için parametre kullanımına dikkat edin. “sourceBlobContainer” parametrenin adıdır ve ifade, işlem hattı çalıştırmasında geçirilen değerlerle değiştirilir. Parametreleri tanımlamaya yönelik söz dizimi `@pipeline().parameters.<parameterName>`
 
 Program.cs dosyanızda "SourceBlobDatasetDefinition" işlevi oluşturma
@@ -258,7 +257,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSourceDataset
 client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetName, SinkBlobDatasetDefinition(client));
 ```
 
-## <a name="create-a-c-class-emailrequest"></a>C# sınıfı oluşturma: EmailRequest
+## <a name="create-a-c-class-emailrequest"></a>Oluşturma bir C# sınıfı: EmailRequest
 C# projenizde **EmailRequest** adlı bir sınıf oluşturun. Bu sınıf, bir e-posta gönderirken işlem hattının gövde isteğinde gönderdiği özellikleri tanımlar. Bu öğreticide işlem hattı, işlem hattından e-postaya dört özellik gönderir:
 
 - **İleti**: E-postanın gövdesi. Kopyalama başarılı olursa bu özellik, çalıştırmanın ayrıntılarını (yazılan veri sayısı) içerir. Kopyalama başarısız olursa, bu özellik hatanın ayrıntılarını içerir.

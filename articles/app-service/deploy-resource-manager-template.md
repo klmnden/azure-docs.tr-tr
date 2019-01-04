@@ -9,15 +9,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 8c3eac208a4e1b0fd55e56956035b3fb5a23fc00
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1431ba658a6eb898553804f0c81b3babb23f4fe2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731440"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015211"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak web uygulaması Dağıtma Kılavuzu
 
@@ -138,3 +138,4 @@ Anahtar kasanızı seçin **sertifikaları** ve **Oluştur/içeri aktarma** sert
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bir şablon ile web uygulaması dağıtma ilişkin bir öğretici için bkz. [sağlayın ve tahmin edilebilir bir biçimde azure'da mikro hizmetlerin dağıtımı](deploy-complex-application-predictably.md).
+* JSON söz dizimi ve özellikleri şablonlarında kaynak türleri hakkında bilgi edinmek için bkz. [Azure Resource Manager şablon başvurusu](/azure/templates/).

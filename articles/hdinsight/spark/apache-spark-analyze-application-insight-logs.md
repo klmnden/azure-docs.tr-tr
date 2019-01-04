@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: fb3826a2c93ee19e1bb84028a6621d637ce27077
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 161158157e3af92b1ac4fe81a664d95aa6816490
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810722"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001575"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>HDInsight üzerinde Apache Spark ile Application Insights telemetri günlüklerini çözümleme
 
@@ -35,7 +35,7 @@ Nasıl kullanacağınızı öğrenin [Apache Spark](https://spark.apache.org/) A
 
 Aşağıdaki kaynaklar, geliştirme ve bu belgeye sınama kullanılıyordu:
 
-* Application Insights telemetri verilerini kullanarak oluşturulan bir [Node.js web uygulamasına Application Insights'ı kullanacak şekilde yapılandırılmış](../../application-insights/app-insights-nodejs.md).
+* Application Insights telemetri verilerini kullanarak oluşturulan bir [Node.js web uygulamasına Application Insights'ı kullanacak şekilde yapılandırılmış](../../azure-monitor/app/nodejs.md).
 
 * HDInsight kümesi sürüm 3.5 üzerinde Linux tabanlı bir Spark, verileri çözümlemek için kullanıldı.
 

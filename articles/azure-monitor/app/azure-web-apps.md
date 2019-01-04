@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: a5aea15c2563a81f4e915baa1b332beda64a1a70
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: d96a7b775ec051f3511a179ebd4e879f50b9af32
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970976"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019650"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service performansını izleme
 İçinde [Azure portalı](https://portal.azure.com) web uygulamaları, mobil arka uçlar ve API apps için uygulama performans izleme özelliğini ayarlayabilirsiniz [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../application-insights/app-insights-overview.md), uygulamanızı izleyerek uygulama etkinlikleriyle ilgili telemetriyi Application Insights hizmetine gönderir ve telemetri burada depolanıp analiz edilir. Burada, sorunların tanılanmasına, performansın geliştirilmesine ve kullanımın değerlendirilmesine yardımcı olan ölçüm grafikleri ve arama araçları kullanılabilir.
@@ -97,7 +97,7 @@ Application Insights, uygulamanıza bir SDK yükleyerek daha ayrıntılı teleme
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Canlı uygulamanızda profil oluşturucuyu çalıştırın](../../application-insights/app-insights-profiler.md).
+* [Canlı uygulamanızda profil oluşturucuyu çalıştırın](../../azure-monitor/app/profiler.md).
 * [Azure İşlevleri](https://github.com/christopheranderson/azure-functions-app-insights-sample) - Application Insights ile Azure İşlevlerini izleyin
 * Application Insights’a gönderilmek üzere [Azure tanılamayı etkinleştirin](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 * Hizmetinizin kullanılabilir ve yanıt verir durumda oluğundan emin olmak için [hizmet durumu ölçümlerini izleyin](../../azure-monitor/platform/data-collection.md).

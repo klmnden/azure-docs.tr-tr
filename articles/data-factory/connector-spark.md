@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 39b5a7a99f56c33aee0b0db9211f4f45a058f418
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 370da046e5a964d91b668ea80730b8d331065d29
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094348"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019971"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Azure Data Factory kullanarak spark'tan veri kopyalama 
 
@@ -45,9 +44,9 @@ Bağlı bir Spark hizmeti için aşağıdaki özellikleri destekler:
 | type | Type özelliği ayarlanmalıdır: **Spark** | Evet |
 | konak | Spark sunucusunun IP adresi veya ana bilgisayar adı  | Evet |
 | port | Spark sunucusunun istemci bağlantıları için dinlemek üzere kullandığı TCP bağlantı noktası. Azure Hdınsights bağlarsanız, bağlantı noktası 443 belirtin. | Evet |
-| Sunucu türü | Spark sunucusu türü. <br/>İzin verilen değerler: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Hayır |
-| thriftTransportProtocol | Thrift katmanda kullanılacak taşıma protokol. <br/>İzin verilen değerler: **ikili**, **SASL**, **HTTP** | Hayır |
-| authenticationType | Spark sunucuya erişmek için kullanılan kimlik doğrulama yöntemi. <br/>İzin verilen değerler: **anonim**, **kullanıcıadı**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
+| Sunucu türü | Spark sunucusu türü. <br/>İzin verilen değerler şunlardır: **SharkServer**, **SharkServer2**, **SparkThriftServer** | Hayır |
+| thriftTransportProtocol | Thrift katmanda kullanılacak taşıma protokol. <br/>İzin verilen değerler şunlardır: **İkili**, **SASL**, **HTTP** | Hayır |
+| authenticationType | Spark sunucuya erişmek için kullanılan kimlik doğrulama yöntemi. <br/>İzin verilen değerler şunlardır: **Anonim**, **kullanıcıadı**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Evet |
 | kullanıcı adı | Spark sunucusuna erişmek için kullandığınız kullanıcı adı.  | Hayır |
 | password | Kullanıcıya karşılık gelen parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Hayır |
 | httpPath | Spark sunucuya karşılık gelen kısmi URL.  | Hayır |

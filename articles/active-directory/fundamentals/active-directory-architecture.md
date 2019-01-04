@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: c23bdba74ab528a0774b73598dbee8888ebfdc7e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6d53de431ea619dfc8865ef23439146517d37764
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076126"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013307"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Azure Active Directory mimarisini nedir?
 Azure Active Directory (Azure AD), kullanıcılarınız için Azure hizmet ve kaynaklarına erişimi güvenli bir şekilde yönetmenizi sağlar. Azure AD ile birlikte eksiksiz kimlik yönetimi olanakları sunulur. Azure AD özellikleri hakkında daha fazla bilgi için bkz. [Azure Active Directory nedir?](active-directory-whatis.md)
@@ -34,7 +34,7 @@ Bu makalede aşağıdaki mimari öğeler ele alınmaktadır:
  *  Veri merkezleri
 
 ### <a name="service-architecture-design"></a>Hizmet mimarisi tasarımı
-Erişilebilir bir oluşturmanın en yaygın yolu ve bağımsız yapı taşları veya Azure AD veri katmanı ölçek birimleri çağrılır için ölçek birimleri üzerinden kullanılabilir ve veri açısından zengin bir sistem olan *bölümler*. 
+Erişilebilir bir oluşturmanın en yaygın yolu ve veri açısından zengin kullanılabilir sistem bağımsız yapı taşları veya ölçek birimleri. Azure AD veri katmanı ölçek birimleri çağrılır için *bölümler*. 
 
 Veri katmanında, okuma-yazma özelliği sağlayan çok sayıda ön uç hizmeti bulunur. Aşağıdaki diyagramda, tek dizinli bir bölüme bileşenlerinin coğrafi olarak dağıtılmış veri merkezlerine nasıl teslim edildiğini gösterir. 
 
@@ -66,7 +66,7 @@ Azure AD'nin bölüm tasarımı, Kurumsal dikkatle düzenlenmiş ve belirleyici 
 
 **Hataya dayanıklılık**
 
-Bir sistem donanım, ağ ve yazılım hatalarına dayanıklı ise kullanılabilirliği daha yüksektir. Dizin üzerindeki her bölüm için yüksek oranda kullanılabilir bir ana çoğaltma mevcuttur: birincil çoğaltma. Bu çoğaltma üzerinde yalnızca bölüme yazma işlemleri gerçekleştirilir. Bu çoğaltma sürekli olarak ve yakından izlenirken, bir hata algılanması durumunda yazma işlemleri hemen başka bir çoğaltmaya kaydırılabilir (bu çoğaltma yeni birincil çoğaltma olur). Yük devretme sırasında genellikle 1-2 dakikalık yazma kullanılabilirliği kaybı olabilir. Bu süre boyunca okuma kullanılabilirliği etkilenmez.
+Bir sistem donanım, ağ ve yazılım hatalarına dayanıklı ise kullanılabilirliği daha yüksektir. Dizin üzerindeki her bölüm için yüksek oranda kullanılabilir bir ana çoğaltma mevcuttur: Birincil çoğaltma. Bu çoğaltma üzerinde yalnızca bölüme yazma işlemleri gerçekleştirilir. Bu çoğaltma sürekli olarak ve yakından izlenirken, bir hata algılanması durumunda yazma işlemleri hemen başka bir çoğaltmaya kaydırılabilir (bu çoğaltma yeni birincil çoğaltma olur). Yük devretme sırasında genellikle 1-2 dakikalık yazma kullanılabilirliği kaybı olabilir. Bu süre boyunca okuma kullanılabilirliği etkilenmez.
 
 Okuma işlemleri (yazma işlemlerinden onlarca kat fazladır) yalnızca ikincil çoğaltmalara gider. İkincil çoğaltmalar bir kez etkili olduğundan, okumalar genellikle aynı veri merkezinde bulunan başka bir çoğaltmaya yönlendirilerek belirli bir bölümdeki herhangi bir çoğaltmanın kaybı kolayca telafi edilebilir.
 

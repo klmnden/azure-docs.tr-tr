@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7780c10233a0ce256ee6e9015f40ea789516c25b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c7266d840a8d60275a40cf31291d3a8f524131f9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726908"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016758"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Azure Application Insights ile profil üretim uygulamaları
 ## <a name="enable-profiler-for-your-application"></a>Uygulamanız için Profiler'ı etkinleştir
@@ -26,7 +26,7 @@ Application Insights Profiler, üretim ortamında çalışan uygulamalar için p
 
 Profil Oluşturucu, aşağıdaki Azure hizmetleri üzerinde dağıtılan .net uygulamaları ile birlikte çalışır. Her hizmet türü için Profiler'ı etkinleştirmek için özel yönergeler aşağıdaki bağlantılarda içindir.
 
-* [Uygulama Hizmetleri](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Uygulama Hizmetleri](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric uygulamaları](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Sanal makineler ve sanal makine Scalesets](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -49,10 +49,10 @@ Bir istek yürütülürken harcanan süre kod düzeyinde dökümünü görüntü
 
 İzleme Gezgini, aşağıdaki bilgileri görüntüler:
 
-* **Etkin yolu Göster**: açılır en büyük, düğüm yaprak veya en az bir şey kapatın. Çoğu durumda bu, bir performans sorununun düğümüdür.
-* **Etiket**: işlev veya olay adı. Ağaç, kod ve (SQL ve HTTP olayları gibi) oluşan olaylar bir karışımını görüntüler. Üst olay genel istek süresini temsil eder.
-* **Geçen**: işleminin başlangıç ve bitiş işlemin arasındaki zaman aralığı.
-* **Zaman**: işlev veya olay çalışırken ilişkisinde diğer işlevlere zaman.
+* **Etkin yolu Göster**: Açılır en büyük düğüm yaprak veya en az bir şey kapatın. Çoğu durumda bu, bir performans sorununun düğümüdür.
+* **Etiket**: İşlev veya olayın adı. Ağaç, kod ve (SQL ve HTTP olayları gibi) oluşan olaylar bir karışımını görüntüler. Üst olay genel istek süresini temsil eder.
+* **Geçen**: İşlem başlangıcı ve işleminin sonunu arasındaki zaman aralığı.
+* **Zaman**: İşlev veya olay ilişkisinde diğer işlevlere çalıştığı süre.
 
 ## <a name="how-to-read-performance-data"></a>Performans verileri okuma
 
@@ -124,11 +124,11 @@ Profiler rastgele Profiler izlemeleri yakalama için etkinleştirilmiş olan bir
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Azure uygulamanız için Application Insights Profiler ' ı etkinleştir
-* [Uygulama Hizmetleri](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Uygulama Hizmetleri](../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Cloud Services](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric uygulamaları](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Sanal makineler ve sanal makine Scalesets](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
-[performance-blade]: ./media/app-insights-profiler/performance-blade-v2-examples.png
-[trace-explorer]: ./media/app-insights-profiler/trace-explorer.png
+[performance-blade]: ./media/app-insights-profiler-overview/performance-blade-v2-examples.png
+[trace-explorer]: ./media/app-insights-profiler-overview/trace-explorer.png

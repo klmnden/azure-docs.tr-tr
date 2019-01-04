@@ -1,22 +1,22 @@
 ---
-title: "Hızlı Başlangıç: Node web uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma| Microsoft Docs"
-description: "Hızlı Başlangıç: .NET web uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma"
+title: "Hızlı Başlangıç: Bir düğüm web uygulaması - Azure Key Vault kullanarak Azure Key Vault'tan bir gizli dizi alma ve ayarlama | Microsoft Docs"
+description: "Hızlı Başlangıç: .NET web uygulaması kullanarak Azure Key Vault'tan bir gizli dizi alma ve ayarlama"
 services: key-vault
 author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: a53130dcc489764ce9284f15b8de0de37e0827e5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 20d47ecaea8ce393f60cba93c3dbcf7ca4a076c8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686679"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002612"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Hızlı Başlangıç: .NET web uygulaması kullanarak Azure Key Vault'tan gizli dizi ayarlama ve alma
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Hızlı Başlangıç: .NET web uygulaması kullanarak Azure Key Vault'tan bir gizli dizi alma ve ayarlama
 
 Bu hızlı başlangıçta, bir Azure web uygulamasının Azure kaynakları için yönetilen kimlikleri kullanarak Azure Key Vault’tan bilgi okumasını sağlamak için gerekli adımları uygulayacaksınız. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
@@ -77,7 +77,7 @@ Az önce oluşturduğunuz kaynak grubu bu makale boyunca kullanılır.
 
 Ardından, önceki adımda oluşturduğunuz kaynak grubunda bir anahtar kasası oluşturursunuz. Şu bilgileri belirtin:
 
-* Anahtar kasası adı: Adı 3-24 karakterden oluşan bir dize olmalı ve yalnızca (0-9, a-z, A-Z ve -) karakterlerini içermelidir.
+* Anahtar kasası adı: Ad 3-24 karakter dizesi olmalı ve yalnızca içermelidir (0-9, a-z, A-Z ve -).
 * Kaynak grubu adı.
 * Konum: **Doğu ABD**.
 

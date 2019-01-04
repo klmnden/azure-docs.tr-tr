@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 55f388ed15167c5bc7262e194e09e4a92ba50af4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866075"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024799"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric kapsayıcı ağ modları
 
@@ -35,7 +35,7 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
 
 ## <a name="set-up-open-networking-mode"></a>Açık ağ Modu'nu ayarla
 
-1. Azure Resource Manager şablonu ayarlayın. İçinde **fabricSettings** bölümünde, DNS hizmeti ve IP sağlayıcısı etkinleştir: 
+1. Azure Resource Manager şablonu ayarlayın. İçinde **fabricSettings** bölümüne küme kaynağı, DNS hizmeti ve IP sağlayıcısı etkinleştir: 
 
     ```json
     "fabricSettings": [
@@ -77,8 +77,10 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
                 }
             ],
     ```
+    
+2. Sanal makine ölçek kümesi kaynak ağ profili bölümünü ayarlayın. Bu, kümedeki her düğümde yapılandırılması birden çok IP adresi sağlar. Aşağıdaki örnek bir Windows/Linux Service Fabric kümesi için düğüm başına beş adet IP adresi ayarlar. Her düğümde bağlantı noktasını dinleyen beş hizmet örnekleri olabilir. Beş Azure yük Dengeleyiciden erişilebilir IP sağlamak için aşağıda gösterildiği gibi beş IP'ler Azure yük dengeleyici arka uç adres havuzunu kaydedin.  Değişkenler bölümünde şablonunuzda üstüne değişkenleri eklemek için neeed kazandırır.
 
-2. Ağ profili bölümünü, kümedeki her düğümde yapılandırılması birden çok IP adresi izin verecek şekilde ayarlayın. Aşağıdaki örnek bir Windows/Linux Service Fabric kümesi için düğüm başına beş adet IP adresi ayarlar. Her düğümde bağlantı noktasını dinleyen beş hizmet örnekleri olabilir. Beş Azure yük Dengeleyiciden erişilebilir IP sağlamak için aşağıda gösterildiği gibi beş IP'ler Azure yük dengeleyici arka uç adres havuzunu kaydedin.
+    Bu bölümde, değişkenleri ekleyin:
 
     ```json
     "variables": {
@@ -97,6 +99,11 @@ Bir kapsayıcı hizmeti yeniden başlatılıyor veya kümedeki başka bir düğ�
         "lbHttpProbeID0": "[concat(variables('lbID0'),'/probes/FabricHttpGatewayProbe')]",
         "lbNatPoolID0": "[concat(variables('lbID0'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]"
     }
+    ```
+    
+    Bu bölümde, sanal makine ölçek kümesi kaynak ekleyin:
+
+    ```json   
     "networkProfile": {
                 "networkInterfaceConfigurations": [
                   {

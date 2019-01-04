@@ -1,6 +1,6 @@
 ---
-title: Veri Fabrikası işlevleri ve sistem değişkenleri | Microsoft Docs
-description: Azure Data Factory işlevler ve sistem değişkenleri listesini sağlar
+title: Data Factory işlevleri ve sistem değişkenleri | Microsoft Docs
+description: Azure Data Factory işlevleri ve sistem değişkenlerini bir listesini sağlar
 documentationcenter: ''
 author: sharonlo101
 manager: craigg
@@ -9,38 +9,37 @@ ms.assetid: b6b3c2ae-b0e8-4e28-90d8-daf20421660d
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b4d9a684c2c21ed9ec00b04963432f9ebcff7493
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 48a0bf2a7209812af23c3dd9eec9703ec5826fa9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048463"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019580"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - işlevler ve sistem değişkenleri
 > [!NOTE]
-> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [veri fabrikasında sistem değişkenleri](../control-flow-system-variables.md).
+> Bu makale, Data Factory’nin 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [sistem değişkenlerini Data factory'de](../control-flow-system-variables.md).
 
-Bu makalede, işlevleri ve değişkenler Azure Data Factory ile desteklenen hakkında bilgi sağlar.
+Bu makalede, işlevleri ve Azure Data Factory tarafından desteklenen değişkenler hakkında bilgi sağlar.
 
-## <a name="data-factory-system-variables"></a>Veri Fabrikası sistem değişkenleri
+## <a name="data-factory-system-variables"></a>Data Factory sistem değişkenleri
 | Değişken adı | Açıklama | Nesne kapsamı | JSON kapsamı ve kullanım örnekleri |
 | --- | --- | --- | --- |
-| WindowStart |Geçerli etkinlik penceresini çalıştırmak için zaman aralığı başlangıcı |etkinlik |<ol><li>Veri seçimi sorguları belirtin. Başvurulan bağlayıcı makalelerine bakın [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalesi.</li> |
-| WindowEnd |Geçerli etkinlik penceresini çalıştırmak için zaman aralığı sonu |etkinlik |WindowStart ile aynıdır. |
-| SliceStart |Zaman aralığı için üretilen veri dilimi başlangıcı |etkinlik<br/>Veri kümesi |<ol><li>Dinamik klasör yolu belirtin ve dosya adları ile çalışırken [Azure Blob](data-factory-azure-blob-connector.md) ve [dosya sistemi veri kümeleri](data-factory-onprem-file-system-connector.md).</li><li>Veri Fabrikası işlevleriyle etkinlik girişleri koleksiyonu giriş bağımlılıkları belirtin.</li></ol> |
-| SliceEnd |Geçerli veri dilimi için zaman aralığı sonu. |etkinlik<br/>Veri kümesi |SliceStart ile aynıdır. |
+| WindowStart |Zaman aralığı için geçerli etkinlik penceresini çalıştırma başlangıcı |etkinlik |<ol><li>Veri seçimi sorgularında belirtin. Başvuru Bağlayıcısı makalelerine bakın [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalesi.</li> |
+| WindowEnd |Geçerli etkinlik penceresini çalıştırma için zaman aralığı sonu |etkinlik |WindowStart ile aynıdır. |
+| SliceStart |Üretilen veri dilimi için zaman aralığı başlangıcı |etkinlik<br/>Veri kümesi |<ol><li>Dinamik klasör yolları belirtin ve dosya adları ile çalışırken [Azure Blob](data-factory-azure-blob-connector.md) ve [dosya sistemi veri kümeleri](data-factory-onprem-file-system-connector.md).</li><li>Data factory işlevleriyle etkinlik giriş koleksiyonuna giriş bağımlılıkları belirtin.</li></ol> |
+| SliceEnd |Zaman aralığı için geçerli bir veri dilimine sonu. |etkinlik<br/>Veri kümesi |SliceStart ile aynıdır. |
 
 > [!NOTE]
-> Şu anda veri fabrikası etkinliğin tam olarak belirtilen zamanlaması çıktı veri kümesi kullanılabilirliğini içinde belirtilen zamanlaması eşleştiğini gerektirir. Bu nedenle, WindowStart, WindowEnd ve SliceStart ve SliceEnd her zaman aynı zaman dilimi ve tek bir çıktı dilim eşlenir.
+> Şu anda data factory etkinliğinde tam olarak belirtilen zamanlamayı çıktı veri kümesinin kullanılabilirlik belirtilen zamanlaması eşleştiğini gerektirir. Bu nedenle, WindowStart, WindowEnd ve SliceStart ve SliceEnd her zaman aynı süre ve tek çıktı dilimi eşlenir.
 > 
 
-### <a name="example-for-using-a-system-variable"></a>Bir sistem değişkeni kullanma örneği
-Aşağıdaki örnek, yıl, ay, gün ve saati de **SliceStart** tarafından kullanılan ayrı değişkenleri içine ayıklanan **folderPath** ve **fileName** özellikleri.
+### <a name="example-for-using-a-system-variable"></a>Örneğin, bir sistem değişkeni kullanılarak
+Aşağıdaki örnekte, yıl, ay, gün ve saati de **SliceStart** tarafından kullanılan ayrı değişkenleri ayıklanan **folderPath** ve **fileName** özellikleri.
 
 ```json
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -54,17 +53,17 @@ Aşağıdaki örnek, yıl, ay, gün ve saati de **SliceStart** tarafından kulla
 ],
 ```
 
-## <a name="data-factory-functions"></a>Veri Fabrikası işlevleri
-Aşağıdaki amaçlarla sistem değişkenleri yanı sıra veri fabrikasında işlevleri kullanabilirsiniz:
+## <a name="data-factory-functions"></a>Data Factory işlevleri
+Aşağıdaki amaçlarla sistem değişkenleri yanı sıra data factory'de işlevleri kullanabilirsiniz:
 
-1. Veri seçimi sorguları belirtme (başvurduğu bağlayıcı makalelerine bakın [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalesi.
+1. Veri seçimi sorgularında belirtme (tarafından başvurulan bağlayıcı makalelerine bakın [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makalesi.
    
-   Bir veri fabrikası işlevi çağırmak için söz dizimi: **$$ <function>** veri seçim sorguları ve diğer özellikleri etkinliği ve veri kümeleri için.  
-2. Veri Fabrikası işlevleriyle etkinlik girişleri koleksiyonu giriş bağımlılıkları belirtme.
+   Bir veri fabrikası işlevi çağırmak için sözdizimi aşağıdaki gibidir: **$$ <function>** veri seçimi sorgularında ve etkinlik ve veri kümelerinde diğer özellikler için.  
+2. Data factory işlevleriyle etkinlik giriş koleksiyonuna giriş bağımlılıklarını belirtme.
    
-    $$ Giriş bağımlılık ifadeleri belirtmek için gerekli değildir.     
+    $ Giriş bağımlılık ifadeleri belirtmek için gerekli değildir.     
 
-Aşağıdaki örnekte, **sqlReaderQuery** bir JSON dosyası bir özellik tarafından döndürülen bir değer atanması `Text.Format` işlevi. Bu örnek ayrıca adlı bir sistem değişkeni kullanır **WindowStart**, etkinlik penceresinin başlangıç zamanı temsil eder.
+Aşağıdaki örnekte, **sqlReaderQuery** bir JSON dosyası bir özellik tarafından döndürülen bir değer atanır `Text.Format` işlevi. Bu örnek adlı bir sistem değişkeni de kullanır. **WindowStart**, etkinlik çalıştırması penceresinin başlangıç zamanı temsil eder.
 
 ```json
 {
@@ -73,37 +72,37 @@ Aşağıdaki örnekte, **sqlReaderQuery** bir JSON dosyası bir özellik tarafı
 }
 ```
 
-Bkz: [özel tarih ve saat biçim dizeleri](https://msdn.microsoft.com/library/8kb3ddd4.aspx) kullanabileceğiniz farklı biçimlendirme seçenekleri açıklar konu (örneğin: yyyy karşılaştırması ay). 
+Bkz: [özel tarih ve saat biçim dizeleri](https://msdn.microsoft.com/library/8kb3ddd4.aspx) kullanabileceğiniz farklı biçimlendirme seçeneklerini açıklayan bir konu (örneğin: yyyy karşılaştırması ay). 
 
 ### <a name="functions"></a>İşlevler
-Aşağıdaki tablolarda, Azure Data Factory uygulamasında tüm işlevleri listelenmektedir:
+Aşağıdaki tablolarda Azure Data Factory içindeki tüm işlevlere listeleyin:
 
 | Kategori | İşlev | Parametreler | Açıklama |
 | --- | --- | --- | --- |
-| Zaman |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Y saatleri verilen süre X ekler. <br/><br/>Örnek: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Zaman |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |Verilen süre X Y saat ekler. <br/><br/>Örnek: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Zaman |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |Y dakika X ekler.<br/><br/>Örnek: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| Zaman |StartOfHour(X) |X: Datetime |X saat bileşeni tarafından temsil edilen bir saat için başlangıç saatini alır. <br/><br/>Örnek: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
-| Tarih |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |Y günleri X ekler. <br/><br/>Örnek: 9/15/2013 12:00:00 PM + 2 gün = 9/17/2013 12:00:00 PM.<br/><br/>Negatif bir sayı Y belirterek gün çok çıkarabilirsiniz.<br/><br/>Örnek: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
-| Tarih |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |X Y ay ekler.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Negatif bir sayı Y belirterek ay çok çıkarabilirsiniz.<br/><br/>Örnek: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| Tarih |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Y ekler * x 3 ay.<br/><br/>Örnek: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
-| Tarih |AddWeeks(X,Y) |X: DateTime<br/><br/>Y: int |Y ekler * x 7 gün<br/><br/>Örnek: 9/15/2013 12:00:00 PM + 1 hafta = 9/22/2013 12:00:00 PM<br/><br/>Negatif bir sayı Y belirterek hafta çok çıkarabilirsiniz.<br/><br/>Örnek: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
-| Tarih |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |Y yıl X ekler.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Negatif bir sayı Y belirterek yıl çok çıkarabilirsiniz.<br/><br/>Örnek: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
-| Tarih |Day(X) |X: DateTime |X değerinin gün bileşenini alır.<br/><br/>Örnek: `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Zaman |StartOfHour(X) |X: Tarih saat |X saat bileşeni tarafından temsil edilen saat için başlangıç saatini alır. <br/><br/>Örnek: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Tarih |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |X-Y gün ekler. <br/><br/>Örnek: 15/9/2013 12:00:00 PM'den + 2 gün = 9/17/2013 12:00:00 PM.<br/><br/>Y negatif bir sayı olarak belirterek gün çok çıkarabilirsiniz.<br/><br/>Örnek: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Tarih |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |X-Y ay ekler.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Y negatif bir sayı olarak belirterek ay çok çıkarabilirsiniz.<br/><br/>Örnek: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Tarih |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |Ekler Y * x 3 ay.<br/><br/>Örnek: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Tarih |AddWeeks(X,Y) |X: DateTime<br/><br/>Y: int |Ekler Y * x 7 gün<br/><br/>Örnek: 15/9/2013 12:00:00 PM'den + 1 hafta = 9/22 //Build/ 2013 12:00:00 PM<br/><br/>Y negatif bir sayı olarak belirterek hafta çok çıkarabilirsiniz.<br/><br/>Örnek: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Tarih |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |X-Y yıl ekler.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Y negatif bir sayı olarak belirterek yıl çok çıkarabilirsiniz.<br/><br/>Örnek: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Tarih |Day(X) |X: DateTime |X gün bileşenini alır.<br/><br/>Örnek: `Day of 9/15/2013 12:00:00 PM is 9`. |
 | Tarih |DayOfWeek(X) |X: DateTime |Haftanın günü bileşenini x alır.<br/><br/>Örnek: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
 | Tarih |DayOfYear(X) |X: DateTime |X yıl bileşenini tarafından temsil edilen yılın günü alır.<br/><br/>Örnekler:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
 | Tarih |DaysInMonth(X) |X: DateTime |X parametresi ay bileşenini tarafından temsil edilen aydaki gün alır.<br/><br/>Örnek: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
 | Tarih |EndOfDay(X) |X: DateTime |Tarih-saat x (gün bileşenini) gün sonunu temsil eden alır.<br/><br/>Örnek: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
-| Tarih |EndOfMonth(X) |X: DateTime |X parametresi ay bileşen tarafından temsil edilen ayın sonunu alır. <br/><br/>Örnek: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (güncel Eylül ayın sonunu temsil eden saat) |
-| Tarih |StartOfDay(X) |X: DateTime |X parametresi gün bileşeni tarafından temsil edilen günün başlangıcını alır.<br/><br/>Örnek: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
-| DateTime |FROM(X) |X: dize |Tarih saat X dizeye ayrıştırılamıyor. |
-| DateTime |Ticks(X) |X: DateTime |Ticks X parametresi özelliğini alır. Bir değer 100 nanosaniye eşittir. Bu özelliğin değeri, 12:00:00 gece'den itibaren 1 Ocak 0001 geçen çizgilerine sayısını temsil eder. |
-| Metin |Format(X) |X: Dize değişkeni |Metin biçimleri (kullanmak `\\'` kaçınmak için birleşimi `'` karakter).|
+| Tarih |EndOfMonth(X) |X: DateTime |Ay bileşeninin X parametresi tarafından temsil edilen ayın sonunu alır. <br/><br/>Örnek: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM` (tarihi Eylül ayın sonunu temsil eden saat) |
+| Tarih |StartOfDay(X) |X: DateTime |Parametre X gün bileşenini tarafından temsil edilen günün başlangıcını alır.<br/><br/>Örnek: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
+| DateTime |FROM(X) |X: Dize |Bir tarih saat dizesi X ayrıştırılamıyor. |
+| DateTime |Ticks(X) |X: DateTime |İşaretleri X parametresinin özelliğini alır. Bir değer çizgisi 100 nanosaniyelik eşittir. Bu özelliğin değeri, 12:00:00 gece yarısından itibaren 1 Ocak 0001 geçen tıklarının sayısını temsil eder. |
+| Metin |Format(X) |X: String değişkeni |Metin biçimleri (kullanın `\\'` kaçış birleşimi `'` karakter).|
 
 > [!IMPORTANT]
-> Başka bir işlev içinde bir işlevi kullanılırken kullanmak gerekmez **$$** iç işlevi için önek. Örneğin: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' ve RowKey ge \\' {0: yyyy-aa-gg ss: dd:}\\'', Time.AddHours (SliceStart, -6)). Bu örnekte, dikkat **$$** için önek kullanılmaz **Time.AddHours** işlevi. 
+> Başka bir işlev içinde bir işlevi kullanılırken kullanın gerekmez **$$** iç işlev için önek. Örneğin: $$Text.Format ('PartitionKey eq \\' my_pkey_filter_value\\' ve RowKey ge \\' {0: yyyy-aa-gg SS}\\'', Time.AddHours (SliceStart, -6)). Bu örnekte, dikkat **$$** ön eki için kullanılmaz **Time.AddHours** işlevi. 
 
 #### <a name="example"></a>Örnek
-Aşağıdaki örnekte, Hive etkinliği için girdi ve çıktı parametreleri kullanılarak belirlenir `Text.Format` işlevi ve SliceStart sistem değişkeni. 
+Aşağıdaki örnekte, Hive etkinliğiyle ilgili girdi ve çıktı parametreleri kullanılarak belirlenir `Text.Format` işlevi ve SliceStart sistem değişkeni. 
 
 ```json  
 {
@@ -144,7 +143,7 @@ Aşağıdaki örnekte, Hive etkinliği için girdi ve çıktı parametreleri kul
 
 ### <a name="example-2"></a>Örnek 2
 
-Aşağıdaki örnekte, DateTime parametresi saklı yordam etkinliği için metin kullanılarak belirlenir. İşlev ve SliceStart değişkeni biçimlendirin. 
+Aşağıdaki örnekte, DateTime parametresi için saklı yordam etkinliğine metin kullanılarak belirlenir. Biçimlendirme işlevinde ve SliceStart değişkeni. 
 
 ```json
 {
@@ -179,7 +178,7 @@ Aşağıdaki örnekte, DateTime parametresi saklı yordam etkinliği için metin
 ```
 
 ### <a name="example-3"></a>Örnek 3
-SliceStart tarafından temsil edilen gün yerine önceki gün verilerini okumak için aşağıdaki örnekte gösterildiği gibi AddDays işlevini kullanın: 
+Önceki günden SliceStart tarafından temsil edilen gün yerine verileri okumak için aşağıdaki örnekte gösterildiği gibi AddDays işlevi kullanın: 
 
 ```json
 {
@@ -230,5 +229,5 @@ SliceStart tarafından temsil edilen gün yerine önceki gün verilerini okumak 
 }
 ```
 
-Bkz: [özel tarih ve saat biçim dizeleri](https://msdn.microsoft.com/library/8kb3ddd4.aspx) kullanabileceğiniz farklı biçimlendirme seçenekleri açıklar konu (örneğin: yy yyyy karşılaştırması). 
+Bkz: [özel tarih ve saat biçim dizeleri](https://msdn.microsoft.com/library/8kb3ddd4.aspx) kullanabileceğiniz farklı biçimlendirme seçeneklerini açıklayan bir konu (örneğin: yyyy karşılaştırması yy). 
 

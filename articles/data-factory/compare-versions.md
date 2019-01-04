@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: f898b21e84cc57327991c97d2694e9e44e608417
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638254"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014905"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Azure Data Factory ile Data Factory sürüm 1'in karşılaştırılması
 Bu makale Data Factory ile Data Factory sürüm 1’i karşılaştırır. Data Factory hakkında giriş bilgileri için bkz. [Data Factory'ye giriş](introduction.md).Data Factory sürüm 1 hakkında giriş bilgileri için bkz. [Azure Data Factory'ye Giriş](v1/data-factory-introduction.md). 
@@ -68,7 +67,7 @@ Durum da dahil olmak üzere etkinlik çıktıları, işlem hattının sonraki bi
 [İşlem Hattı Yürütme etkinliği](control-flow-execute-pipeline-activity.md) bir Data Factory işlem hattının başka bir işlem hattını çağırmasını sağlar.
 
 ### <a name="delta-flows"></a>Delta akışlar
-ETL düzenlerindeki bir anahtar kullanım örneği, bir işlem hattının son yinelenmesinden itibaren yalnızca verilerin değiştiği “değişiklik yüklemeleri”dir. Geçerli sürümdeki [arama etkinliği](control-flow-lookup-activity.md), esnek zamanlama ve denetim akışı gibi yeni özellikler, bu kullanım örneğini doğal bir biçimde sunar. Adım adım yönergeler içeren bir öğretici için bkz. [Öğretici: Artımlı kopya](tutorial-incremental-copy-powershell.md).
+ETL düzenlerindeki bir anahtar kullanım örneği, bir işlem hattının son yinelenmesinden itibaren yalnızca verilerin değiştiği “değişiklik yüklemeleri”dir. Geçerli sürümdeki [arama etkinliği](control-flow-lookup-activity.md), esnek zamanlama ve denetim akışı gibi yeni özellikler, bu kullanım örneğini doğal bir biçimde sunar. Adım adım yönergeler içeren bir öğretici için bkz [Öğreticisi: Artımlı kopyalama](tutorial-incremental-copy-powershell.md).
 
 ### <a name="other-control-flow-activities"></a>Diğer denetim akışı etkinlikleri
 Data Factory'nin geçerli sürümü tarafından desteklenen denetim akışı etkinliklerinin bazıları aşağıda verilmiştir. 
@@ -117,13 +116,13 @@ Daha fazla bilgi için bkz. [Data Factory ve sürüm 1’de özel etkinlikler ar
 ## <a name="sdks"></a>SDK’lar
  Data Factory'nin geçerli sürümü işlem hatlarını yazmak, yönetmek ve izlemek için kullanılabilen daha geniş SDK seçenekleri sunar.
 
-- **.NET SDK**: .NET SDK, geçerli sürüm için güncelleştirilmiştir.
+- **.NET SDK'SI**: .NET SDK'ın geçerli sürümünde güncelleştirilir.
 
-- **PowerShell**: PowerShell cmdlet'leri geçerli sürüm için güncelleştirilmiştir. Geçerli sürümün cmdlet’lerinin adında **DataFactoryV2** bulunur, örneğin: Get-AzureRmDataFactoryV2. 
+- **PowerShell**: Geçerli sürümde PowerShell cmdlet'leri güncelleştirildi. Cmdlet'ler geçerli sürümü için olan **DataFactoryV2** adında, örneğin: Get-AzureRmDataFactoryV2. 
 
-- **Python SDK**: Bu SDK geçerli sürüm içindir.
+- **Python SDK'sı**: Bu SDK'ın geçerli sürümünde yenidir.
 
-- **REST API**: REST API, geçerli sürüm için güncelleştirilmiştir. 
+- **REST API**: REST API, geçerli sürümde güncelleştirilir. 
 
 Geçerli sürüm için güncelleştirilmiş olan SDK'lar V1 istemcileriyle uyumlu değildir. 
 
@@ -147,4 +146,4 @@ Geçerli sürümde [Azure İzleyici](monitor-using-azure-monitor.md)’yi kullan
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Veri fabrikası oluşturma hakkında bilgi edinmek için şu hızlı başlangıçlarda verilen adım adım yönergeleri izleyin: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md). 
+Adım adım yönergeler için şu hızlı başlangıçlarda izleyerek veri fabrikası oluşturmayı öğrenin: [PowerShell](quickstart-create-data-factory-powershell.md), [.NET](quickstart-create-data-factory-dot-net.md), [Python](quickstart-create-data-factory-python.md), [REST API](quickstart-create-data-factory-rest-api.md). 

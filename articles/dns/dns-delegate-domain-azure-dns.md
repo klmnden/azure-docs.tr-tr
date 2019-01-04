@@ -3,32 +3,31 @@ title: "Öğretici: Etki alanınızı ve alt etki alanınızı Azure DNS'de bar�
 description: Bu öğreticide Azure DNS'yi DNS bölgelerinizi barındıracak şekilde yapılandırmayı öğreneceksiniz.
 services: dns
 author: vhorne
-manager: jeconnoc
 ms.service: dns
 ms.topic: tutorial
-ms.date: 6/13/2018
+ms.date: 10/30/2018
 ms.author: victorh
-ms.openlocfilehash: ea0dc257d691326bc073b4cbff37e847a6990f02
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
-ms.translationtype: HT
+ms.openlocfilehash: a952eb679810f36008425ae5daacc4261db50c77
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452315"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999627"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Öğretici: Azure DNS’te etki alanınızı barındırma
 
 Azure DNS'yi DNS etki alanınızı barındırmak ve DNS kayıtlarınızı yönetmek için kullanabilirsiniz. Etki alanlarınızı Azure'da barındırarak DNS kayıtlarınızı diğer Azure hizmetlerinde kullandığınız kimlik bilgileri, API’ler, araçlar ve faturalarla yönetebilirsiniz. 
 
-Örneğin, contoso.net etki alanını bir etki alanı adı kayıt şirketinden satın aldığınızı ve Azure DNS'de contoso.net adlı bir bölge oluşturduğunuzu varsayalım. Etki alanının sahibi olduğunuzdan, kayıt şirketiniz size etki alanınız için ad sunucusu (NS) kayıtlarını yapılandırma seçeneğini sunar. Kayıt kuruluşu bu NS kayıtlarını .net üst alanında depolar. Ardından, dünya genelindeki İnternet kullanıcıları contoso.net’teki DNS kayıtlarını çözümlemeye çalışırken Azure DNS bölgesindeki etki alanınıza yönlendirilir.
+Örneğin, contoso.net etki alanını bir etki alanı adı kayıt şirketinden satın aldığınızı ve Azure DNS'de contoso.net adlı bir bölge oluşturduğunuzu varsayalım. Etki alanının sahibi olduğunuzdan, kayıt şirketiniz size etki alanınız için ad sunucusu (NS) kayıtlarını yapılandırma seçeneğini sunar. Kayıt kuruluşu bu NS kayıtlarını .net üst alanında depolar. Contoso.NET'teki DNS kayıtlarını çözümlemeye çalıştıklarında dünyanın dört bir yanındaki kullanıcılara Internet, Azure DNS bölgesindeki etki alanınıza yönlendirilir.
 
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * DNS bölgesi oluşturma
-> * Ad sunucularının listesini alma
-> * Etki alanını devretme
-> * Devretme özelliğinin çalıştığını doğrulama
+> * Bir DNS bölgesi oluşturun.
+> * Ad sunucularının bir listesini alın.
+> * Etki alanı temsilcisi.
+> * Temsilci seçmeyi çalıştığını doğrulayın.
 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
@@ -46,17 +45,14 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
    |---|---|---|
    |**Ad**|[etki alanı adınız] |Satın aldığınız etki alanı adı. Bu öğreticide örnek olarak contoso.net kullanılmıştır.|
    |**Abonelik**|[Aboneliğiniz]|Bölgenin oluşturulacağı bir abonelik seçin.|
-   |**Kaynak grubu**|**Yeni oluştur:** contosoRG|Bir kaynak grubu oluşturun. Kaynak grubu adı, seçtiğiniz abonelik içinde benzersiz olmalıdır. |
+   |**Kaynak grubu**|**Yeni oluştur:** contosoRG|Bir kaynak grubu oluşturun. Kaynak grubu adı, seçtiğiniz abonelik içinde benzersiz olmalıdır.<br>Kaynak grubunun konumunu ifade eder ve DNS bölgesini etkilemez. DNS bölgesinin konumu her zaman "Genel" şeklindedir ve gösterilmiyor.|
    |**Konum**|Doğu ABD||
-
-> [!NOTE]
-> Kaynak grubunun konumunu ifade eder ve DNS bölgesini etkilemez. DNS bölgesinin konumu her zaman “genel” şeklindedir ve gösterilmez.
 
 ## <a name="retrieve-name-servers"></a>Ad sunucularını alma
 
 DNS bölgenizi Azure DNS'ye devretmeden önce, bölgenizin ad sunucularını bilmeniz gerekir. Azure DNS, her bölge oluşturmada bir havuzdan ad sunucuları ayırır.
 
-1. Oluşturulan DNS bölgesiyle, Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’ı seçin. **Tüm kaynaklar** sayfasında DNS bölgenizi seçin. Seçtiğiniz abonelikte zaten çeşitli kaynaklar varsa, uygulama ağ geçidine kolaylıkla erişmek için **Ada göre filtrele** kutusuna etki alanı adınızı girebilirsiniz. 
+1. Oluşturulan DNS bölgesiyle, Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’ı seçin. **Tüm kaynaklar** sayfasında DNS bölgenizi seçin. Zaten seçili aboneliği çeşitli kaynaklar varsa, etki alanı adınızı girin **ada göre filtrele** uygulama ağ geçidine kolaylıkla erişmek için kutusu. 
 
 1. DNS bölgesi sayfasından ad sunucularını alın. Bu örnekte, contoso.net bölgesine *ns1-01.azure-dns.com*, *ns2-01.azure-dns.net*, *ns3-01.azure-dns.org* ve *ns4-01.azure-dns.info* ad sunucuları atanmıştır:
 
@@ -64,53 +60,56 @@ DNS bölgenizi Azure DNS'ye devretmeden önce, bölgenizin ad sunucularını bil
 
 Azure DNS, bölgenizdeki yetkili NS kayıtlarını atanan ad sunucularını içerecek şekilde otomatik olarak oluşturur.
 
-
 ## <a name="delegate-the-domain"></a>Etki alanını devretme
 
-Artık DNS bölgesi oluşturulduğuna ve ad sunucularınız olduğuna göre, üst etki alanını Azure DNS ad sunucularıyla güncelleştirmeniz gerekir. Her kayıt şirketi, bir etki alanının ad sunucusu kayıtlarını değiştirmek için kendi DNS yönetim araçlarına sahiptir. Kayıt şirketinin DNS yönetim sayfasında NS kayıtlarını düzenleyin ve NS kayıtlarını Azure DNS ad sunucularıyla değiştirin.
+Artık DNS bölgesi oluşturulduğuna ve ad sunucularınız olduğuna göre, üst etki alanını Azure DNS ad sunucularıyla güncelleştirmeniz gerekir. Her kayıt şirketi, bir etki alanının ad sunucusu kayıtlarını değiştirmek için kendi DNS yönetim araçlarına sahiptir. 
 
-Bir etki alanını Azure DNS'ye devrederken Azure DNS tarafından sağlanan ad sunucularını kullanmanız gerekir. Etki alanınızın adından bağımsız olarak dört ad sunucusunun tamamını kullanmanız önerilir. Etki alanı temsilcisi, bir ad sunucusunun etki alanınızla aynı üst düzey etki alanını kullanmasını gerektirmez.
+1. Kayıt şirketinin DNS yönetim sayfasında NS kayıtlarını düzenleyin ve NS kayıtlarını Azure DNS ad sunucularıyla değiştirin.
+
+1. Bir etki alanını Azure DNS'ye devretme, Azure DNS tarafından sağlanan ad sunucularını kullanmanız gerekir. Etki alanınızın adından bağımsız olarak tüm dört ad sunucusunun kullanın. Etki alanı temsilcisi, bir ad sunucusunun etki alanınızla aynı üst düzey etki alanını kullanmasını gerektirmez.
 
 > [!NOTE]
-> Ad sunucusu adreslerini kopyalarken adresinin sonundaki noktayı da kopyaladığınızdan emin olun. Sondaki nokta bir tam etki alanı adının sonuna gösterir. NS adının sonunda yoksa, bazı kaydediciler noktayı ekleyebilir. Ancak her kaydedicinin bunu yapacağını varsaymanız doğru olmayacağından DNS RFC ile uyumlu olması için sondaki noktayı eklemelisiniz.
+> Ad sunucusu adreslerini kopyalarken adresinin sonundaki noktayı da kopyaladığınızdan emin olun. Sondaki nokta bir tam etki alanı adının sonuna gösterir. NS adın sonunda yoksa, bazı kaydedicilerin dönemin sonuna ekleyin. DNS RFC ile uyumlu olması için sondaki nokta içerir.
 
-Kendi bölgenizdeki ad sunucularını kullanan ve bazen *gösterim ad sunucuları* olarak adlandırılan temsilci seçimleri şu anda Azure DNS'de desteklenmemektedir.
+Kendi bölgenizdeki ad sunucularını kullanan temsilciler olarak da adlandırılır *gösterim ad sunucuları*, Azure DNS'de şu anda desteklenmemektedir.
 
-## <a name="verify-that-the-delegation-is-working"></a>Devretme özelliğinin çalıştığını doğrulama
+## <a name="verify-the-delegation"></a>Temsilci seçmeyi doğrulayın
 
-Temsilci seçmeyi tamamladıktan sonra, bölgenizin Yetki Başlangıcı (SOA) kaydını sorgulamak için *nslookup* gibi bir araç kullanarak çalışıp çalışmadığını doğrulayabilirsiniz. SOA kaydı, bölge oluşturulurken otomatik olarak oluşturulur. Başarılı bir şekilde çalışıp çalışmadığını kontrol edebilmek için devretme işlemini tamamladıktan sonra 10 dakika veya daha fazla beklemeniz gerekebilir. Değişikliklerin DNS sisteminde yayılması daha uzun sürebilir.
+Temsilci seçmeyi tamamladıktan sonra bir aracı gibi kullanarak çalışmakta olduğunu doğrulayabilirsiniz *nslookup* bölgenizin yetki başlangıcı (SOA) kaydı sorgulanamıyor. SOA kaydı, bölge oluşturulurken otomatik olarak oluşturulur. 10 dakika beklemeniz gerekebilir veya başarıyla önce temsilci seçmeyi tamamladıktan sonra daha fazla çalışır durumda olduğunu doğrulayın. Değişikliklerin DNS sisteminde yayılması daha uzun sürebilir.
 
 Azure DNS ad sunucularını belirtmeniz gerekmez. Temsilci seçimi doğru ayarlanmışsa normal DNS çözümleme işlemi ad sunucularını otomatik olarak bulur.
 
-Komut isteminden aşağıdakine benzer bir nslookup komutu yazın:
+1. Bir komut isteminden, aşağıdaki örneğe benzer bir nslookup komutu girin:
 
-```
-nslookup -type=SOA contoso.net
-```
+   ```
+   nslookup -type=SOA contoso.net
+   ```
 
-Aşağıda önceki komuttan bir yanıt örneği gösterilmektedir:
+1. Yanıtınız nslookup aşağıdaki çıktıya benzer doğrulayın:
 
-```
-Server: ns1-04.azure-dns.com
-Address: 208.76.47.4
+   ```
+   Server: ns1-04.azure-dns.com
+   Address: 208.76.47.4
 
-contoso.net
-primary name server = ns1-04.azure-dns.com
-responsible mail addr = msnhst.microsoft.com
-serial = 1
-refresh = 900 (15 mins)
-retry = 300 (5 mins)
-expire = 604800 (7 days)
-default TTL = 300 (5 mins)
-```
+   contoso.net
+   primary name server = ns1-04.azure-dns.com
+   responsible mail addr = msnhst.microsoft.com
+   serial = 1
+   refresh = 900 (15 mins)
+   retry = 300 (5 mins)
+   expire = 604800 (7 days)
+   default TTL = 300 (5 mins)
+   ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bir sonraki öğreticiye geçmeyi düşünüyorsanız **contosoRG** kaynak grubunu tutabilirsiniz. Aksi halde **contosoRG** kaynak grubunu silerek bu öğreticide oluşturulan kaynakları silebilirsiniz. Bunu yapmak **contosoRG** kaynak grubuna ve ardından **Kaynak grubunu sil**'e tıklayın. 
+Bir sonraki öğreticiye geçmeyi düşünüyorsanız **contosoRG** kaynak grubunu tutabilirsiniz. Aksi halde **contosoRG** kaynak grubunu silerek bu öğreticide oluşturulan kaynakları silebilirsiniz.
+
+- Seçin **contosoRG** kaynak grubunu ve ardından **kaynak grubunu Sil**. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide etki alanınız için bir DNS bölgesi oluşturdunuz ve bunu Azure DNS'ye devrettiniz. Azure DNS ve web uygulamaları hakkında daha fazla bilgi için web uygulaması öğreticileriyle devam edebilirsiniz.
+Bu öğreticide, etki alanınız için DNS bölgesi oluşturduğunuz ve Azure DNS için temsilci. Azure DNS ve web uygulamaları hakkında daha fazla bilgi için web uygulaması öğreticileriyle devam edebilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Özel etki alanında bir web uygulaması için DNS kayıtları oluşturma](./dns-web-sites-custom-domain.md)

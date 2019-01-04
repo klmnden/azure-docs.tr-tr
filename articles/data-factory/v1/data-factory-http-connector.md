@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 06eb11132d7e3968850aadb4bfdaa53261f14ada
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167486"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017268"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir HTTP kaynaktan veri taşıma
 
@@ -36,7 +35,7 @@ Data Factory şu anda yalnızca taşıma HTTP kaynak verileri diğer veri depola
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Desteklenen senaryolar ve kimlik doğrulama türleri
 
-Bu HTTP Bağlayıcısı verileri almak için kullanabileceğiniz *hem bulut hem de şirket içi HTTP/S uç nokta* HTTP kullanarak **alma** veya **POST** yöntemleri. Aşağıdaki kimlik doğrulaması türleri desteklenir: **anonim**, **temel**, **Özet**, **Windows**, ve  **ClientCertificate**. Bu bağlayıcı arasındaki farka dikkat edin ve [Web tablo Bağlayıcısı](data-factory-web-table-connector.md). Web tablosu Bağlayıcısı, bir HTML Web sayfasından tablo içeriğini ayıklar.
+Bu HTTP Bağlayıcısı verileri almak için kullanabileceğiniz *hem bulut hem de şirket içi HTTP/S uç nokta* HTTP kullanarak **alma** veya **POST** yöntemleri. Aşağıdaki kimlik doğrulaması türleri desteklenir: **Anonim**, **temel**, **Özet**, **Windows**, ve **ClientCertificate**. Bu bağlayıcı arasındaki farka dikkat edin ve [Web tablo Bağlayıcısı](data-factory-web-table-connector.md). Web tablosu Bağlayıcısı, bir HTML Web sayfasından tablo içeriğini ayıklar.
 
 Bir şirket içi HTTP uç noktasından veri kopyaladığınızda, şirket içi ortamda veya bir Azure sanal veri yönetimi ağ geçidi yüklemeniz gerekir. Ağ geçidini ayarlamak adım adım yönergeler ve veri yönetimi ağ geçidi hakkında bilgi edinmek için [Bulut ve şirket içi konumlar arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md).
 
@@ -44,7 +43,7 @@ Bir şirket içi HTTP uç noktasından veri kopyaladığınızda, şirket içi o
 
 Farklı araçlar veya API'leri kullanarak bir HTTP kaynaktan verileri taşımak için kopyalama etkinliği içeren işlem hattı oluşturabilirsiniz:
 
-- Bir işlem hattı oluşturmanın en kolay yolu, veri kopyalama Sihirbazı'nı kullanmaktır. Veri Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı kılavuz için bkz. [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md).
+- Bir işlem hattı oluşturmanın en kolay yolu, veri kopyalama Sihirbazı'nı kullanmaktır. Veri Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı kılavuz için bkz. [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md).
 
 - Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**e **Azure Resource Manager Şablon**, **.NET API**, veya **REST API**. Kopyalama etkinliği içeren işlem hattı oluşturma konusunda adım adım yönergeler için bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). JSON HTTP kaynağı bu kopya verileri Azure Blob Depolama örnekleri için bkz: [JSON örnekler](#json-examples).
 
@@ -67,7 +66,7 @@ Bir şirket içi HTTP Bağlayıcısı veri kaynağı için kimlik bilgilerini ay
 
 Ayarlama **authenticationType** için **temel**, **Özet**, veya **Windows**. Önceki bölümde açıklanan genel HTTP Bağlayıcısı özelliklerine ek olarak, aşağıdaki özellikleri ayarlayın:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 | --- | --- | --- |
 | kullanıcı adı | HTTP uç noktasına erişmek için kullanılacak kullanıcı adı. | Evet |
 | password | Kullanıcının parolasını (**kullanıcıadı**). | Evet |
@@ -95,7 +94,7 @@ Ayarlama **authenticationType** için **temel**, **Özet**, veya **Windows**. Ö
 
 Temel kimlik doğrulaması kullanmak için ayarlanmış **authenticationType** için **ClientCertificate**. Önceki bölümde açıklanan genel HTTP Bağlayıcısı özelliklerine ek olarak, aşağıdaki özellikleri ayarlayın:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 | --- | --- | --- |
 | embeddedCertData | PFX dosyasının ikili verileri Base64 ile kodlanmış içeriği. | Seçeneklerinden birini belirtin **embeddedCertData** veya **Certthumbprınt** |
 | Certthumbprınt | Ağ geçidi makinenizin sertifika deposunda yüklü sertifika parmak izi. Bir şirket içi HTTP kaynaktan veri kopyalarken uygulayın. | Seçeneklerinden birini belirtin **embeddedCertData** veya **Certthumbprınt** |
@@ -108,7 +107,7 @@ Kullanırsanız **Certthumbprınt** yerel bilgisayarın kişisel depoda kimlik d
 3. Kişisel deposundan sertifikaya sağ tıklayın ve ardından **tüm görevler** >**özel anahtarları Yönet**.
 3. Üzerinde **güvenlik** sekmesinde, altında veri yönetimi ağ geçidi ana bilgisayar hizmeti çalışıyor, sertifika okuma erişimi olan kullanıcı hesabı ekleyin.  
 
-**Örnek: bir istemci sertifikası kullanma**
+**Örnek: Bir istemci sertifikası kullanarak**
 
 Bu veri fabrikanıza şirket içi HTTP web sunucusuna bağlı hizmeti. Veri Yönetimi ağ geçidi yüklü olan bir makinede yüklü bir istemci sertifikası kullanır.
 
@@ -130,7 +129,7 @@ Bu veri fabrikanıza şirket içi HTTP web sunucusuna bağlı hizmeti. Veri Yön
 }
 ```
 
-**Örnek: bir dosyayı bir istemci sertifikası kullanma**
+**Örnek: Bir dosyayı bir istemci sertifikası kullanarak**
 
 Bu veri fabrikanıza şirket içi HTTP web sunucusuna bağlı hizmeti. Veri Yönetimi ağ geçidi yüklü olan makine bir istemci sertifika dosyasını kullanır.
 
@@ -166,10 +165,10 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir olan özellikler
 | requestMethod | HTTP yöntemi. İzin verilen değerler **alma** ve **POST**. | Hayır <br />(varsayılan değer **alma**) |
 | additionalHeaders | Ek HTTP isteği üstbilgileri. | Hayır |
 | Includesearchresults: true | HTTP isteğinin gövdesi. | Hayır |
-| Biçim | İsterseniz *bir HTTP uç noktasından veri alma-olan* ayrıştırma olmadan, atlama **biçimi** ayarı. <br><br> Kopyalama sırasında HTTP yanıt içeriği ayrıştırılamıyor istiyorsanız, şu biçim türlerini desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, ve **ParquetFormat**. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [JSON biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquetbiçimi](data-factory-supported-file-and-compression-formats.md#parquet-format). |Hayır |
-| Sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
+| biçim | İsterseniz *bir HTTP uç noktasından veri alma-olan* ayrıştırma olmadan, atlama **biçimi** ayarı. <br><br> Kopyalama sırasında HTTP yanıt içeriği ayrıştırılamıyor istiyorsanız, şu biçim türlerini destekler: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, ve **ParquetFormat**. Daha fazla bilgi için [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [JSON biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquetbiçimi](data-factory-supported-file-and-compression-formats.md#parquet-format). |Hayır |
+| Sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **En iyi** ve **hızlı**. Daha fazla bilgi için [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
-**Örnek: (varsayılan) alma yöntemini kullanma**
+**Örnek: (Varsayılan) alma yöntemini kullanma**
 
 ```json
 {
@@ -222,9 +221,9 @@ Kullanılabilir özellikler **typeProperties** etkinlik bölümünü her etkinli
 
 Şu anda, kopyalama etkinliği kaynak olduğunda **HttpSource** türü, aşağıdaki özellikler desteklenir:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | Zaman aşımı ( **TimeSpan** değeri) bir yanıt almak HTTP isteği için. Yanıt verileri okumak için zaman aşımını değil bir yanıt almak için zaman aşımı olan. | Hayır<br />(varsayılan değer: **00:01:40**) |
+| httpRequestTimeout | Zaman aşımı ( **TimeSpan** değeri) bir yanıt almak HTTP isteği için. Yanıt verileri okumak için zaman aşımını değil bir yanıt almak için zaman aşımı olan. | Hayır<br />(varsayılan değer: **00: 01:40**) |
 
 ## <a name="supported-file-and-compression-formats"></a>Desteklenen dosya ve sıkıştırma biçimleri
 
@@ -234,7 +233,7 @@ Bkz: [dosya ve sıkıştırma biçimleri Azure Data factory'de](data-factory-sup
 
 Aşağıdaki örnekler kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlamak [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnekler, bir HTTP kaynağından Azure Blob depolama alanına veri kopyalama işlemini göstermektedir. Ancak, veriler kopyalanabilir *doğrudan* herhangi birinden herhangi birine havuzlarını kaynakları [desteklenen](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Azure veri fabrikasında kopyalama etkinliği kullanarak.
 
-**Örnek: bir HTTP kaynaktan veri, Azure Blob depolama alanına kopyalayın.**
+**Örnek: Bir HTTP kaynağından Azure Blob depolama alanına veri kopyalama**
 
 Bu örnek Data Factory çözümü, aşağıdaki Data Factory varlıklarını içerir:
 

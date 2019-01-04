@@ -10,12 +10,12 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8ab6782a63c019bea11d047af8588c4489d8b580
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e68e236c54083862bbe1524ec2f7fc3ee6c52ef2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812526"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002221"
 ---
 # <a name="what-is-distributed-tracing"></a>Dağıtılmış izleme nedir?
 
@@ -51,7 +51,7 @@ Uygun Application Insights yüklenmiş ve yapılandırılmış SDK ile izleme bi
 
 Application Insights SDK'ları yanı sıra Application Insights ile dağıtılmış izleme de destekler [OpenCensus](https://opencensus.io/). Bir açık kaynak, bağımsız satıcı, kitaplıkların tek dağıtım ölçümleri toplama ve dağıtılmış izleme hizmetleri sunmak için OpenCensus olur. Ayrıca, Redis gibi Memcached veya MongoDB popüler teknolojileri ile dağıtılmış izlemeyi etkinleştirmek açık kaynak topluluğundan da sağlar. [Microsoft ortak çalışmalarla OpenCensus üzerinde çeşitli diğer izleme ve bulut iş ortakları ile](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-İlk dağıtılmış izleme özellikleri OpenCensus, bir uygulamaya eklemek için [yükleme ve Application Insights yerel ileticisi yapılandırma](./../../application-insights/opencensus-local-forwarder.md). Buradan, yerel ileticisi dağıtılmış İzleme verilerine yönlendirmek için OpenCensus yapılandırın. Her ikisi de [Python](./../../application-insights/opencensus-python.md) ve [Git](./../../application-insights/opencensus-go.md) desteklenir.
+İlk dağıtılmış izleme özellikleri OpenCensus, bir uygulamaya eklemek için [yükleme ve Application Insights yerel ileticisi yapılandırma](./../../azure-monitor/app/opencensus-local-forwarder.md). Buradan, yerel ileticisi dağıtılmış İzleme verilerine yönlendirmek için OpenCensus yapılandırın. Her ikisi de [Python](./../../azure-monitor/app/opencensus-python.md) ve [Git](./../../azure-monitor/app/opencensus-go.md) desteklenir.
 
 OpenCensus Web sitesi için API başvuru belgeleri tutar [Python](https://opencensus.io/api/python/trace/usage.html) ve [Git](https://godoc.org/go.opencensus.io), çeşitli farklı kılavuzları OpenCensus kullanmak için ek olarak. 
 

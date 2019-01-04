@@ -1,5 +1,5 @@
 ---
-title: "Öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma | Microsoft Belgeleri"
+title: "Öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma | Microsoft Docs"
 description: Bu öğreticide, Data Factory ile desteklenen Kopyalama Sihirbazı’nı kullanarak Kopyalama Etkinlikli bir Azure Data Factory işlem hattı oluşturursunuz
 services: data-factory
 documentationcenter: ''
@@ -9,19 +9,18 @@ ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 85cea4bea0b1cff65464a2ad692e500efdc50c10
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: ace2ffdacf775a3c0c5a579e9a4208641c20f661
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095383"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025768"
 ---
-# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Öğretici: Data Factory Kopyalama Sihirbazı kullanarak Kopyalama Etkinliği ile işlem hattı oluşturma
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Öğretici: Data Factory Kopyalama Sihirbazı'nı kullanarak kopyalama Etkinlikli bir işlem hattı oluşturma
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kopyalama Sihirbazı](data-factory-copy-data-wizard-tutorial.md)
@@ -42,7 +41,7 @@ Azure Data Factory **Kopyalama Sihirbazı**, verileri desteklenen kaynak veri de
 
 Bu öğretici bir Azure veri fabrikası oluşturma ve Kopyalama Sihirbazı’nı başlatma işlemlerini göstermesinin yanı sıra veri alma/taşıma senaryonuza ilişkin ayrıntılar sağlayan bir dizi adım uygular. Sihirbazdaki adımları tamamladığınızda sihirbaz bir Azure blob depolama alanından Azure SQL veritabanına veri kopyalamak için Kopyalama Etkinliği içeren bir işlem hattını otomatik olarak oluşturur. Kopyalama Etkinliği hakkında daha fazla bilgi için bkz. [veri taşıma etkinlikleri](data-factory-data-movement-activities.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi uygulamadan önce [Öğreticiye Genel Bakış](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) makalesinde listelenen önkoşulları tamamlayın.
 
 ## <a name="create-data-factory"></a>Veri fabrikası oluşturma
@@ -64,7 +63,7 @@ Bu adımda **ADFTutorialDataFactory** adlı bir Azure data factory oluşturmak i
       - Var olan bir kaynak grubu seçmek için **Var olanı kullan**’ı seçin.
       - Bir kaynak grubunun adını girmek için **Yeni oluştur**’u seçin.
           
-        Bu öğreticideki adımlardan bazıları kaynak grubu için şu adı kullandığınızı varsayar: **ADFTutorialResourceGroup**. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../../azure-resource-manager/resource-group-overview.md).
+        Bu öğreticideki adımlardan bazıları adı kullandığınızı varsayar: **ADFTutorialResourceGroup** kaynak grubu için. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../../azure-resource-manager/resource-group-overview.md).
    4. Veri fabrikası için bir **konum** seçin.
    5. Dikey pencerenin alt kısmındaki **Panoya sabitle** onay kutusunu seçin.  
    6. **Oluştur**’ tıklayın.

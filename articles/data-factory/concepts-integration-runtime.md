@@ -9,23 +9,22 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 7f8eacf11f2333abc348efaa82c92ecbe05136ef
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 29105f97385b11e59ccd3af9d13521ea803bfdb0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966186"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024238"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory'deki tümleştirme çalışma zamanı
 Integration Runtime (IR), Azure Data Factory tarafından farklı ağ ortamlarında aşağıdaki veri tümleştirme özelliklerini sunmak için kullanılan işlem altyapısıdır:
 
-- **Veri taşıma**: Ortak ağdaki veri depoları ile özel ağ (şirket içi veya sanal özel ağ) üzerindeki veri depoları arasında veri taşıyın. Yerleşik bağlayıcılar, biçim dönüştürme, sütun eşleme, performanslı ve ölçeklenebilir veri aktarımı desteği sunar.
-- **Etkinlik dağıtma**: Azure HDInsight, Azure Machine Learning, Azure SQL Veritabanı, SQL Server ve diğer bazı işlem hizmetlerinde çalıştırılan dönüştürme etkinliklerinin dağıtılması ve izlenmesini de destekler.
-- **SSIS paketi yürütme**: SQL Server Integration Services (SSIS) paketlerini yönetilen bir Azure işlem ortamında yerel olarak yürütün.
+- **Veri taşıma**: Ortak Ağ ve veri depoları (şirket içinde veya sanal özel ağ) özel ağdaki veri depoları arasında veri taşıyın. Yerleşik bağlayıcılar, biçim dönüştürme, sütun eşleme, performanslı ve ölçeklenebilir veri aktarımı desteği sunar.
+- **Etkinlik dağıtma**:  Azure HDInsight, Azure Machine Learning, Azure SQL veritabanı, SQL Server ve daha fazlası gibi işlem hizmetlerini çeşitli çalışan gönderim ve İzleyici dönüştürme etkinlikleri.
+- **SSIS paketi yürütme**: Yerel olarak SQL Server Integration Services (SSIS) paketlerini yönetilen bir Azure işlem ortamında yürütme.
 
 Data Factory'de etkinlik, gerçekleştirilecek eylemi tanımlar. Bağlı hizmet, bir hedef veri deposunu veya işlem hizmetini tanımlar. Tümleştirme çalışma zamanı, etkinlik ile bağlı Hizmetler arasında köprü görevi görür.  Bağlı hizmet tarafından başvurulur ve etkinliği çalıştığı veya dağıtıldığı işlem ortamını sağlar.  Bu şekilde etkinlik hedef veri deposuna veya işlem hizmetine en yakın bölgeden en yüksek performansla gerçekleştirilirken güvenlik ve uyum gereksinimleri korunmuş olur.
 
@@ -52,7 +51,7 @@ Aşağıdaki şemada gelişmiş veri tümleştirme özellikleri ve ağ desteği 
 Azure tümleştirme çalışma zamanları şunları yapabilir:
 
 - Bulut veri depoları arasında kopyalama etkinliği gerçekleştirme
-- Ortak ağda şu dönüştürme etkinliklerini dağıtma: HDInsight Hive etkinliği, HDInsight Pig etkinliği, HDInsight MapReduce etkinliği, HDInsight Spark etkinliği, HDInsight Streaming etkinliği, Machine Learning Batch Execution etkinliği, Machine Learning Update Resource etkinlikleri, Stored Procedure etkinliği, Data Lake Analytics U-SQL etkinliği, .Net özel etkinliği, Web etkinliği, Lookup etkinliği ve Get Metadata etkinliği.
+- Ortak ağda şu dönüştürme etkinliklerini dağıtma: HDInsight Hive etkinliği, HDInsight Pig etkinliği, HDInsight MapReduce etkinliği, HDInsight Spark etkinliği, HDInsight Streaming etkinliği, Machine Learning Batch Execution etkinliği, Machine Learning Update Resource etkinlikleri, Stored Procedure etkinliği, Data Lake Analytics U-SQL etkinliği, .net özel etkinliği, Web etkinliği, Lookup etkinliği ve Get Metadata etkinliği.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR ağ ortamı
 Azure Integration Runtime, ortak ağda yer alan ve ortak erişime açık uç noktalara sahip olan veri depolarına ve işlem hizmetlerine bağlanmayı destekler. Azure Sanal Ağ ortamı için kendiliğinden konak tümleştirme çalışma zamanı kullanın.
@@ -70,7 +69,7 @@ Azure IR oluşturma ve yapılandırma hakkında bilgi almak için nasıl yapıl�
 Kendinden konak IR şu özelliklere sahiptir:
 
 - Bulut veri depoları ve özel ağdaki veri deposu arasında kopyalama etkinliği çalıştırma.
-- Şu dönüştürme etkinliklerini Şirket İçi veya Azure Sanal Ağ içindeki işlem kaynaklarında dağıtma: HDInsight Hive etkinliği (BYOC), HDInsight Pig etkinliği (BYOC), HDInsight MapReduce etkinliği (BYOC), HDInsight Spark etkinliği (BYOC), HDInsight Streaming etkinliği (BYOC), Machine Learning Batch Execution etkinliği, Machine Learning Update Resource etkinlikleri, Stored Procedure etkinliği, Data Lake Analytics U-SQL etkinliği, .Net özel etkinliği, Lookup etkinliği ve Get Metadata etkinliği.
+- Şirket içi veya Azure sanal ağ bilgi işlem kaynaklarının karşı şu dönüştürme etkinliklerini dağıtma: HDInsight Hive etkinliği (BYOC), HDInsight Pig etkinliği (BYOC), HDInsight MapReduce etkinliği (BYOC), HDInsight Spark etkinliği (BYOC), HDInsight Streaming etkinliği (BYOC), Machine Learning Batch Execution etkinliği, Machine Learning kaynak güncelleştirme etkinlikleri, Stored Procedure etkinliği, Data Lake Analytics U-SQL etkinliği, .net özel etkinliği, arama etkinliği ve Get Metadata etkinliği.
 
 > [!NOTE] 
 > SAP Hana ve MySQL gibi kendi sürücünü getir düzenine sahip veri depolarını desteklemek için kendinden konak tümleştirme çalışma zamanını kullanın.  Daha fazla bilgi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -97,7 +96,7 @@ Daha fazla bilgi için nasıl yapılır kılavuzlarında Azure SSIS IR oluşturm
 Azure-SSIS çalışma zamanı hakkında daha fazla bilgi için aşağıdaki makalelere bakın: 
 
 - [Öğretici: SSIS paketlerini Azure’a dağıtma](tutorial-create-azure-ssis-runtime-portal.md). Bu makale bir Azure-SSIS IR oluşturmaya ilişkin adım adım yönergeler sağlar ve SSIS kataloğunu barındırmak için bir Azure SQL veritabanı kullanır. 
-- [Nasıl yapılır: Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makale öğreticiyi genişletip ve Azure SQL veritabanı yönetilen örneği kullanma ve IR'yi bir sanal ağa ekleme hakkında yönergeler sağlar. 
+- [Nasıl Yapılır: Bir Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makale öğreticiyi genişletip ve Azure SQL veritabanı yönetilen örneği kullanma ve IR'yi bir sanal ağa ekleme hakkında yönergeler sağlar. 
 - [Azure-SSIS IR’yi izleme](monitor-integration-runtime.md#azure-ssis-integration-runtime). Bu makalede bir Azure-SSIS IR ile ilgili bilgileri ve döndürülen bilgilerdeki durumların açıklamalarını alma işlemi gösterilmektedir. 
 - [Azure-SSIS IR’yi yönetme](manage-azure-ssis-integration-runtime.md). Bu makale bir Azure-SSIS IR’yi durdurma, başlatma veya kaldırma işlemini gösterir. Ayrıca, IR’ye daha fazla düğüm ekleyerek Azure-SSIS IR’nizi ölçeklendirmeyi gösterir. 
 - [Azure-SSIS IR’yi bir sanal ağa ekleyin](join-azure-ssis-integration-runtime-virtual-network.md). Bu makale Azure-SSIS IR’yi bir Azure sanal ağına ekleme hakkında kavramsal bilgiler sağlar. Ayrıca, Azure portalını kullanarak Azure-SSIS IR’nin sanal ağa katılmasını sağlayacak şekilde sanal ağı yapılandırma adımlarını da sunar. 

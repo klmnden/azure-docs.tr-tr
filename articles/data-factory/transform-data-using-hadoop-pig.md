@@ -1,6 +1,6 @@
 ---
-title: Hadoop Pig etkinliği Azure Data Factory kullanarak veri dönüştürme | Microsoft Docs
-description: Pig etkinlik bir Azure data factory'de bir üzerinde-isteğe bağlı/bilgisayarınızı kendi Hdınsight kümesinde Pig betikleri çalıştırmak için nasıl kullanabileceğinizi öğrenin.
+title: Azure Data Factory'de Hadoop Pig etkinliği kullanarak verileri dönüştürme | Microsoft Docs
+description: Pig etkinliği Azure data factory'de bir üzerinde-istek/bilgisayarınızı kendi HDInsight kümesinde Pig betikleri çalıştırmak için nasıl kullanacağınızı öğrenin.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -8,25 +8,24 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 9e769cc436011defe89b12680150e6f9c3b3faf8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a29bd64c6b18d41028c8952f531698bbfa9e01e2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049330"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014718"
 ---
-# <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Hadoop Pig etkinliği Azure Data Factory kullanarak veri dönüştürme
+# <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Azure Data Factory'de Hadoop Pig etkinliği kullanarak verileri dönüştürme
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-pig-activity.md)
 > * [Geçerli sürüm](transform-data-using-hadoop-pig.md)
 
-Veri Fabrikası Hdınsight Pig etkinliğinde [ardışık düzen](concepts-pipelines-activities.md) üzerinde Pig sorguları yürüten [kendi](compute-linked-services.md#azure-hdinsight-linked-service) veya [isteğe bağlı](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Hdınsight kümesi. Bu makalede derlemeler [veri dönüştürme etkinlikleri](transform-data.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar.
+Data Factory, HDInsight Pig etkinliği [işlem hattı](concepts-pipelines-activities.md) üzerinde Pig sorguları yürüten [kendi](compute-linked-services.md#azure-hdinsight-linked-service) veya [üzerine](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight kümesi. Bu makalede yapılar [veri dönüştürme etkinlikleri](transform-data.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar.
 
-Azure Data Factory yeniyseniz okuyun [Azure Data Factory'ye giriş](introduction.md) ve [öğretici: verileri](tutorial-transform-data-spark-powershell.md) bu makaleyi okumadan önce. 
+Azure Data Factory kullanmaya yeni başladıysanız, okumak [Azure Data Factory'ye giriş](introduction.md) yapıp [öğretici: verileri dönüştürme](tutorial-transform-data-spark-powershell.md) bu makaleyi okuduktan önce. 
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -55,28 +54,28 @@ Azure Data Factory yeniyseniz okuyun [Azure Data Factory'ye giriş](introduction
     }   
 }
 ```
-## <a name="syntax-details"></a>Sözdizimi ayrıntıları
+## <a name="syntax-details"></a>Söz dizimi ayrıntıları
 
-| Özellik            | Açıklama                              | Gerekli |
+| Özellik            | Açıklama                              | Gereklidir |
 | ------------------- | ---------------------------------------- | -------- |
-| ad                | Etkinlik adı                     | Evet      |
-| açıklama         | Etkinlik hangi amaçla kullanıldığına açıklayan metin | Hayır       |
-| type                | Hive etkinliği için etkinlik türü HDinsightPig değil. | Evet      |
-| linkedServiceName   | Bir Hdınsight kümesine başvuru veri fabrikasında bağlı hizmet olarak kayıtlı. Bu bağlantılı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi. | Evet      |
-| scriptLinkedService | Bir Azure depolama bağlı hizmeti başvuru yürütülecek Pig betiği depolamak için kullanılır. Bu bağlı hizmetin belirtmezseniz, Azure depolama bağlı Hdınsight bağlı hizmeti tanımlanan hizmeti kullanılır. | Hayır       |
-| scriptPath          | ScriptLinkedService tarafından başvurulan Azure storage'da depolanan komut dosyası yolunu girin. Dosya adı büyük/küçük harf duyarlıdır. | Hayır       |
-| Getdebugınfo        | Günlük dosyaları için Azure Storage zaman kopyalanır belirtir Hdınsight kümesi tarafından kullanılan (veya) scriptLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: yok. | Hayır       |
-| bağımsız değişkenler           | Bir Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenler, her görevin komut satırı bağımsız değişkenleri olarak geçirilir. | Hayır       |
-| tanımlar             | Parametreler, Pig komut dosyası içinde başvurmak için anahtar/değer çiftleri olarak belirtin. | Hayır       |
+| ad                | Etkinliğin adı                     | Evet      |
+| açıklama         | Etkinliğin ne için kullanıldığını açıklayan metin | Hayır       |
+| type                | Hive etkinliği için etkinlik türü HDinsightPig olduğu. | Evet      |
+| linkedServiceName   | Data Factory öğesinde bağlantılı hizmet olarak HDInsight kümesine başvuru kayıtlı. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi. | Evet      |
+| scriptLinkedService | Bir Azure depolama bağlı hizmeti başvuru yürütülecek Pig betiği depolamak için kullanılır. Bu bağlı hizmeti belirtmezseniz, Azure depolama bağlı HDInsight bağlı hizmette tanımlanan hizmeti kullanılır. | Hayır       |
+| ScriptPath          | ScriptLinkedService tarafından başvurulan Azure storage'da depolanan betik dosyasının yolunu belirtin. Dosya adı büyük/küçük harfe duyarlıdır. | Hayır       |
+| Getdebugınfo        | Günlük dosyaları Azure depolama için ne zaman kopyalanır belirtir HDInsight küme tarafından kullanılan (veya) scriptLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: Yok. | Hayır       |
+| bağımsız değişkenler           | Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenleri, her görev için komut satırı bağımsız değişkenleri geçirilir. | Hayır       |
+| tanımlar             | Parametreler, Pig betiği içinde başvurmak için anahtar/değer çiftleri belirtin. | Hayır       |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Diğer yollarla verileri dönüştürmek açıklanmaktadır aşağıdaki makalelere bakın: 
+Anlatan farklı yollarla verileri dönüştürmek aşağıdaki makalelere bakın: 
 
 * [U-SQL etkinliği](transform-data-using-data-lake-analytics.md)
 * [Hive etkinliği](transform-data-using-hadoop-hive.md)
 * [MapReduce etkinliği](transform-data-using-hadoop-map-reduce.md)
-* [Hadoop akış etkinliği](transform-data-using-hadoop-streaming.md)
+* [Hadoop akış etkinliğinde](transform-data-using-hadoop-streaming.md)
 * [Spark etkinliği](transform-data-using-spark.md)
 * [.NET özel etkinliği](transform-data-using-dotnet-custom-activity.md)
-* [Machine Learning toplu iş yürütme etkinliği](transform-data-using-machine-learning.md)
+* [Machine Learning Batch yürütme etkinliği](transform-data-using-machine-learning.md)
 * [Saklı yordam etkinliği](transform-data-using-stored-procedure.md)

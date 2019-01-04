@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault anahtarlara, parolalara ve sertifikalara hakkında
+title: Azure Key Vault anahtarlara, parolalara ve sertifikalara - Azure Key Vault hakkında
 description: Azure anahtar kasası REST arabirimi ve geliştirici ayrıntılarını anahtarlara, parolalara ve sertifikalara genel bakış.
 services: key-vault
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 6d158f14afa305dd547392722abb5f81380de31f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 464574716971388f3785879ba40ad3e8a624fc7f
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384794"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002629"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarlar, parolalar ve sertifikalar hakkında
 
@@ -36,7 +36,7 @@ Key Vault hakkında daha fazla genel bilgi için bkz. [Azure anahtar kasası ned
 
 Aşağıdaki bölümlerde, Key Vault hizmeti, uygulama ilgili genel bilgiler sunar.
 
-###  <a name="supporting-standards"></a>Standartlarını destekleyen
+### <a name="supporting-standards"></a>Standartlarını destekleyen
 
 JavaScript nesne gösterimi (JSON) ve JavaScript nesne imzalama ve şifreleme (JOSE) belirtimleri önemli bilgiler var.  
 
@@ -60,7 +60,7 @@ Anahtarlar, şifreleme ve imzalama için ilgili veri türleri için JOSE belirti
 -   **Kimlik** - bir kimlik gelen Azure Active Directory (AAD).  
 -   **IntDate** - 1970'ten saniye sayısını temsil eden bir JSON ondalık değeri-01-kadar belirtilen UTC tarihi/saati UTC 01T0:0:0Z. Özellikle ilişkin ayrıntılarla ilgili genel date/times RFC3339 ve UTC bakın.  
 
-###  <a name="objects-identifiers-and-versioning"></a>Nesne tanımlayıcıları ve sürüm oluşturma
+### <a name="objects-identifiers-and-versioning"></a>Nesne tanımlayıcıları ve sürüm oluşturma
 
 Yeni bir örneğini bir nesne oluşturulduğunda, anahtar Kasası'nda depolanan nesnelere tutulur. Her sürüm, bir benzersiz tanımlayıcı ve URL atanır. Bir nesne ilk oluşturulduğunda verilen benzersiz sürüm tanımlayıcısı ve nesnenin geçerli sürümü olarak işaretlenmiş. Aynı nesne adı ile yeni bir örneğinin oluşturulmasını, yeni nesne geçerli sürümü duruma neden olan bir benzersiz sürüm tanımlayıcısı sağlar.  
 
@@ -85,7 +85,7 @@ Konumlar:
 
 ## <a name="key-vault-keys"></a>Key Vault anahtarları
 
-###  <a name="keys-and-key-types"></a>Anahtarları ve anahtar türleri
+### <a name="keys-and-key-types"></a>Anahtarları ve anahtar türleri
 
 Şifreleme anahtarları Key vault'ta JSON Web anahtarı [JWK] nesneler olarak temsil edilir. Temel belirtimler JWK/JWA da anahtar kasası uygulama için benzersiz anahtar türleri etkinleştirmek için genişletilir. Örneğin, anahtarları HSM satıcıya özgü paketleme kullanarak içeri aktarma, anahtar kasası Hsm'lerde yalnızca kullanılan anahtarların güvenli taşıma sağlar.  
 
@@ -209,12 +209,12 @@ Aşağıdaki izinleri, üzerinde verilebilecek bir kullanıcı / hizmet sorumlus
   - *Alma*: Bir anahtar yanı sıra, özniteliklerini ortak bölümünü okuyun
   - *Liste*: Bir anahtar Kasası'nda depolanan bir anahtarın sürümlerini ve anahtarlar listesi
   - *Güncelleştirme*: Bir anahtar için öznitelikleri güncelleştir
-  - *oluşturma*: Yeni anahtarlar oluşturun
+  - *Oluşturma*: Yeni anahtarlar oluşturun
   - *İçeri aktarma*: Bir anahtar kasasına bir anahtar aktarma
   - *Silme*: Anahtar nesnesi Sil
   - *Kurtarma*: Silinen bir anahtar kurtarma
   - *Yedekleme*: Bir anahtarı bir anahtar kasasına yedekleme
-  - *geri yükleme*: Yedeklenen bir key vault için anahtarı geri yükleme
+  - *Geri yükleme*: Yedeklenen bir key vault için anahtarı geri yükleme
 
 - Şifreleme işlemleri için izinleri
   - *şifre çözme*: Bayt dizisi korumasını kaldırmak için kullanma
@@ -271,7 +271,7 @@ Aşağıdaki izinleri, bir asıl başına temelinde bir kasasındaki gizli dizil
   - *Silme*: Gizli anahtarı silme  
   - *Kurtarma*: Silinen bir gizli dizi Kurtar
   - *Yedekleme*: Bir anahtar kasasındaki gizli dizi yedekleyin
-  - *geri yükleme*: Yedeklenen bir gizli bir anahtar kasası için yedekleme geri yükleme
+  - *Geri yükleme*: Yedeklenen bir gizli bir anahtar kasası için yedekleme geri yükleme
 
 - Ayrıcalıklı işlemleri için izinleri
   - *Temizleme*: Temizle (kalıcı) silinen bir gizli dizi
@@ -425,12 +425,12 @@ Ardından bir sertifika ilkesi için otomatik yenileme ayarlarsanız, aşağıda
   - *Alma*: Geçerli sertifika sürümü veya herhangi bir sürümünü bir sertifika alın 
   - *Liste*: Geçerli bir sertifika veya sertifika sürümleri listesi  
   - *Güncelleştirme*: Bir sertifikayı güncelleştirmek
-  - *oluşturma*: Bir anahtar kasası sertifikası oluşturma
+  - *Oluşturma*: Bir anahtar kasası sertifikası oluşturma
   - *İçeri aktarma*: Sertifika malzemeleri bir Key Vault sertifikayı içeri aktarma
   - *Silme*: Bir sertifikanın, ilke ve tüm sürümlerini Sil  
   - *Kurtarma*: Silinen bir sertifika Kurtar
   - *Yedekleme*: Sertifikayı key vault'ta yedekleme
-  - *geri yükleme*: Bir anahtar kasasına bir yedeklediğiniz sertifikayı geri
+  - *Geri yükleme*: Bir anahtar kasasına bir yedeklediğiniz sertifikayı geri
   - *managecontacts*: Key Vault sertifika kişileri Yönet  
   - *manageissuers*: Key Vault sertifika yetkilileri/verenler yönetme
   - *getissuers*: Bir sertifika yetkilileri/verenler Al
@@ -465,7 +465,7 @@ Aşağıdaki izinleri, kullanıcı veya uygulama asıl yetkilendirirken yönetil
   - *Silme*: Bir depolama hesabını silme  
   - *Kurtarma*: Silinen bir depolama hesabı Kurtar
   - *Yedekleme*: Bir depolama hesabı yedekleme
-  - *geri yükleme*: Bir yedekleme depolama hesabı, bir anahtar Kasası'na geri yükleme
+  - *Geri yükleme*: Bir yedekleme depolama hesabı, bir anahtar Kasası'na geri yükleme
   - *ayarlama*: Bir depolama hesabı güncelle
   - *üretir*: Bir depolama hesabı için belirtilen bir anahtar değeri yeniden oluştur
   - *getsas*: Bir depolama hesabı için bir SAS tanımı hakkında bilgi alın

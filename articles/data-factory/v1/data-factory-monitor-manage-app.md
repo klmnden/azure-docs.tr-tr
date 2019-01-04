@@ -1,6 +1,6 @@
 ---
-title: İzleme ve veri ardışık - Azure yönetme | Microsoft Docs
-description: Azure data factory'leri ve ardışık düzen yönetmek ve izlemek için izleme ve yönetim uygulaması kullanmayı öğrenin.
+title: İzleme ve yönetme veri komut zincirlerini - Azure | Microsoft Docs
+description: Azure veri fabrikası ve işlem hatlarını yönetmek ve izlemek için izleme ve yönetim uygulaması kullanmayı öğrenin.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -9,174 +9,173 @@ ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3f234e49f1a28fd0881e47ede13ae72483ed31f3
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5b70edd4f65538b52c70881258bc500a34b04d80
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053125"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025428"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>İzleme ve Azure Data Factory işlem hatlarını izleme ve yönetim uygulaması kullanarak yönetme
 > [!div class="op_single_selector"]
 > * [Azure portal/Azure PowerShell kullanma](data-factory-monitor-manage-pipelines.md)
-> * [Kullanılarak izleme ve yönetim uygulaması](data-factory-monitor-manage-app.md)
+> * [Kullanarak izleme ve yönetim uygulaması](data-factory-monitor-manage-app.md)
 >
 >
 
 > [!NOTE]
-> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [izleme ve yönetme, Data Factory işlem hatlarını](../monitor-visually.md).
+> Bu makale, Data Factory’nin 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [izlemek ve yönetmek, Data Factory işlem hatlarını](../monitor-visually.md).
 
-Bu makalede izleme ve yönetim uygulama izleme, yönetme ve Data Factory işlem hatlarınızı hata ayıklamak için nasıl kullanılacağını açıklar. Aşağıdaki videoyu izleyerek uygulamayı kullanmaya başlayabilirsiniz:
+Bu makalede izleme ve yönetim uygulaması izleme, yönetme ve Data Factory işlem hatlarınızı hata ayıklamak için nasıl kullanılacağını açıklar. Uygulama aşağıdaki videoyu izleyerek kullanmaya başlayabilirsiniz:
 
 > [!NOTE]
-> Portalı'nda bkz videoda gösterilen kullanıcı arabirimi tam olarak eşleşmiyor olabilir. Biraz daha eski olduğu, ancak kavramları aynı kalır. 
+> Portalda görmek videoda gösterilen kullanıcı arabirimi tam olarak eşleşmiyor olabilir. Biraz daha eski, ancak aynı kavramlar kalır. 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Data-Factory-Monitoring-and-Managing-Big-Data-Piplines/player]
 >
 
-## <a name="launch-the-monitoring-and-management-app"></a>İzleme ve yönetim uygulama başlatma
-İzleme ve yönetim uygulaması başlatmak için tıklatın **İzleyici & Yönet** döşemesinin **Data Factory** veri fabrikanızın dikey.
+## <a name="launch-the-monitoring-and-management-app"></a>İzleme ve Yönetimi uygulamasını başlatma
+İzleme ve yönetim uygulaması başlatmak için tıklayın **izleme ve yönetme** kutucuğundan **Data Factory** veri fabrikanızın dikey.
 
-![Data Factory giriş sayfasında izleme kutucuğu](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
+![Data Factory giriş sayfasında kutucuk izleme](./media/data-factory-monitor-manage-app/MonitoringAppTile.png)
 
 Ayrı bir pencerede açmak izleme ve yönetim uygulaması görmeniz gerekir.  
 
 ![İzleme ve Yönetim uygulaması](./media/data-factory-monitor-manage-app/AppLaunched.png)
 
 > [!NOTE]
-> Web tarayıcısının "Yetkilendiriliyor..." durumunda takıldığını görürseniz, temizleyin **üçüncü taraf tanımlama bilgilerini engelleyebilir ve site verileri** onay kutusu--veya seçili, Canlı oluşturmak için bir özel durum **login.microsoftonline.com**, ve ardından uygulamayı açmayı yeniden deneyin.
+> Web tarayıcısının "Yetkilendiriliyor..." durumunda takıldığını görürseniz Temizle **ve site verilerini üçüncü taraf tanımlama bilgilerini engelle** onay kutusu--veya seçili, Canlı oluşturmak için bir özel durum **login.microsoftonline.com**, ve sonra uygulamayı yeniden başlatmayı deneyin.
 
 
-Orta bölmede etkinlik Windows listesinde, her bir etkinlik çalışması için bir etkinlik penceresini görürsünüz. Örneğin, beş saatlik saatte bir çalışacak şekilde zamanlanmış etkinlik varsa, beş veri dilimi ile ilişkili beş etkinlik windows bakın. Etkinlik pencerelerine alttaki listede görmüyorsanız, aşağıdakileri yapın:
+Orta bölmede etkinlik Windows listesinde bir etkinlik penceresi için bir etkinlik çalıştırmalarını görürsünüz. Örneğin, beş saate saatte bir çalışacak şekilde zamanlanan bir etkinlik varsa, beş veri dilimi ile ilişkili beş etkinlik pencereleri bakın. Etkinlik pencereleri alttaki listede görmüyorsanız, aşağıdakileri yapın:
  
-- Güncelleştirme **başlangıç zamanı** ve **bitiş saati** filtreleri hattınızı başlangıç ve bitiş zamanları eşleşen ve ardından üst **Uygula** düğmesi.  
-- Etkinlik Windows listesi otomatik olarak yenilenmez. Tıklatın **yenileme** araç çubuğunda **etkinlik Windows** listesi.  
+- Güncelleştirme **başlangıç saati** ve **bitiş saati** filtreleri değerlerini işlem hattınızın başlangıç ve bitiş zamanlarını eşleşen ve ardından üstteki **Uygula** düğmesi.  
+- Etkinlik Windows listesi otomatik olarak yenilenmez. Tıklayın **Yenile** araç çubuğunda düğme **etkinlik Windows** listesi.  
 
-Bu adımları ile test etmek için bir veri fabrikası uygulaması yoksa, öğreticiyi yapın: [veri kopyalama Blob depolama alanından SQL Data Factory kullanarak veritabanına](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Bu adımları test etmek için bir Data Factory uygulamanız yoksa, öğreticiyi uygulamak: [Blob depolamadan SQL veritabanına veri kopyalama kullanarak veri fabrikası için](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="understand-the-monitoring-and-management-app"></a>İzleme ve yönetim uygulaması anlama
-Soldaki bölmede üç sekme vardır: **kaynak Gezgini**, **izleme görünümleri**, ve **uyarıları**. İlk sekme (**kaynak Gezgini**) varsayılan olarak seçilidir.
+Soldaki üç sekme bulunur: **Kaynak Gezgini**, **izleme görünümleriyle**, ve **uyarılar**. İlk sekme (**kaynak Gezgini**) varsayılan olarak seçilidir.
 
 ### <a name="resource-explorer"></a>Kaynak Gezgini
 Aşağıdakilere bakın:
 
-* Kaynak Gezgini **ağaç görünümü** sol bölmede.
-* **Diyagram görünümü** Orta bölmede üstünde.
-* **Etkinlik Windows** Orta bölmede altındaki listesi.
-* **Özellikleri**, **etkinlik penceresini Explorer**, ve **betik** sağ bölmedeki sekmeleri.
+* Kaynak Gezgini **ağaç görünümü** sol bölmesinde.
+* **Diyagram görünümü** ortadaki bölmesinde üst.
+* **Etkinlik Windows** Orta bölmede alttaki liste.
+* **Özellikleri**, **etkinlik penceresi Gezgini**, ve **betik** sağ bölmede sekme.
 
-Kaynak Gezgini, ağaç görünümünde veri fabrikasında tüm kaynakları (komut zincirleri, veri kümeleri, bağlı hizmetler) bakın. Ne zaman kaynak Gezgini, bir nesne seçin:
+Kaynak Gezgini'nde bir ağaç görünümünde data factory'de tüm kaynakları (işlem hatları, veri kümeleri, bağlı hizmetler) bakın. Zaman içinde kaynak Gezgini, bir nesne seçin:
 
-* İlişkili veri fabrikası Varlık diyagram Görünümü'nde vurgulanır.
-* [Etkinlik pencerelerine ilişkili](data-factory-scheduling-and-execution.md) altındaki etkinlik Windows listesinde vurgulanır.  
-* Sağ bölmede Özellikleri penceresinde seçili nesnenin özelliklerini gösterilmektedir.
-* Seçilen nesneyi JSON tanımını gösterilen varsa. Örneğin: bağlı hizmet, bir veri kümesi veya işlem hattı.
+* İlişkili bir Data Factory varlığının diyagram Görünümü'nde vurgulanır.
+* [Etkinlik pencereleri ilişkili](data-factory-scheduling-and-execution.md) etkinlik Windows listenin altındaki vurgulanır.  
+* Özellikler penceresinde sağ bölmede seçili nesnenin özellikleri gösterilmektedir.
+* JSON tanımı seçili nesnenin gösterilen varsa. Örneğin: bağlı hizmet, bir veri kümesi veya işlem hattı.
 
 ![Kaynak Gezgini](./media/data-factory-monitor-manage-app/ResourceExplorer.png)
 
-Bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) etkinlik windows hakkında ayrıntılı kavramsal bilgi için makalenin.
+Bkz: [zamanlama ve yürütme](data-factory-scheduling-and-execution.md) etkinlik pencereleri hakkında ayrıntılı kavramsal bilgi makalesi.
 
 ### <a name="diagram-view"></a>Diyagram Görünümü
-Veri Fabrikası diyagram görünümünü bölmeden bir veri fabrikası ve varlıklarını yönetmek ve izlemek için cam sağlar. Diyagram Görünümü'nde bir Data Factory varlığı (dataset/ardışık düzeni) seçtiğinizde:
+Veri fabrikasının diyagram görünümünü, veri fabrikası ve varlıklarını yönetmek ve izlemek için tek bir panel sağlar. Diyagram Görünümü'nde bir (veri kümesi/işlem hattı) Data Factory varlığı seçtiğinizde:
 
-* Veri Fabrikası varlık ağaç görünümünde seçilir.
-* İlişkili etkinlik windows etkinlik Windows listesinde vurgulanır.
-* Özellikler penceresinde seçili nesnenin özelliklerini gösterilmektedir.
+* Data factory varlığı, ağaç görünümünde seçilir.
+* İlgili etkinlik pencerelerini etkinlik Windows listesinde vurgulanır.
+* Seçili nesnenin özelliklerini Özellikler penceresinde gösterilir.
 
-Ardışık Düzen (duraklatılmış durumda değil) etkin olduğunda, yeşil bir çizgiyle gösterilir:
+İşlem hattı (duraklatılmış durumda değil) etkin olduğunda, yeşil bir çizgiyle gösterilmektedir:
 
-![Çalışan işlem hattı](./media/data-factory-monitor-manage-app/PipelineRunning.png)
+![İşlem hattı çalıştırma](./media/data-factory-monitor-manage-app/PipelineRunning.png)
 
-Duraklatma, sürdürme veya diyagram görünümünde seçerek ve komut çubuğunda düğmeleri kullanarak bir ardışık düzen sonlandırmak.
+Duraklatma, sürdürme veya diyagram Görünümü'nde seçerek ve Komut çubuğundaki düğmeleri kullanarak bir işlem hattı sonlandırın.
 
-![Komut çubuğunda Duraklat/Sürdür](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Komut çubuğunda duraklatın/sürdürün](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
  
-Diyagram görünümünde ardışık düzeni için üç komut çubuğu düğmelerini vardır. Ardışık Düzen duraklatmak için ikinci düğmesini kullanabilirsiniz. Duraklatma çalışmakta etkinlikleri sonlandırmak değil ve bunları tamamlanıncaya kadar devam olanak tanır. Üçüncü düğme ardışık duraklatır ve onun etkinlikleri yürütme varolan sona erer. İlk düğme ardışık sürdürür. İşlem hattınızı duraklatıldığında, ardışık düzen rengini değiştirir. Örneğin, duraklatılmış bir ardışık düzen aşağıdaki görüntüde şuna benzer: 
+Diyagram görünümünde işlem hattının üç komut çubuğu düğme vardır. İşlem hattı duraklatmak için ikinci bir düğme kullanabilirsiniz. Duraklatma şu anda çalışan etkinlikler işlemi sonlandırmaz ve bunları tamamlanana kadar devam olanak tanır. Alan üçüncü düğmeye, işlem hattı duraklatır ve mevcut etkinlikler yürütme sona erer. İlk düğmeyi, işlem hattı sürdürür. İşlem hattınızı duraklatıldığında, işlem hattı rengini değiştirir. Örneğin, duraklatılmış bir işlem hattı aşağıdaki görüntüde şuna benzer: 
 
-![Ardışık Düzen duraklatıldı](./media/data-factory-monitor-manage-app/PipelinePaused.png)
+![İşlem hattı duraklatıldı](./media/data-factory-monitor-manage-app/PipelinePaused.png)
 
-Ctrl tuşunu kullanarak çoklu seçim iki veya daha fazla ardışık düzen olabilir. Komut çubuğu düğmelerini Duraklat/birden çok ardışık düzen aynı anda Sürdür için kullanabilirsiniz.
+Ctrl tuşunu kullanarak çoklu seçim iki veya daha fazla işlem hattı kullanabilirsiniz. Birden fazla işlem hattını aynı anda duraklatın/sürdürün için komut çubuğu düğmelerini kullanabilirsiniz.
 
-Ayrıca, bir işlem hattı sağ tıklatın ve askıya alma, sürdürme veya bir işlem hattı sonlandırmak için seçenekleri seçin. 
+Ayrıca, bir işlem hattı sağ tıklayın ve askıya alma, sürdürme veya bir işlem hattı sonlandırmak için seçenekleri belirleyin. 
 
-![Ardışık düzeni için bağlam menüsü](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
+![İşlem hattı için bağlam menüsü](./media/data-factory-monitor-manage-app/right-click-menu-for-pipeline.png)
 
-Tıklatın **açık işlem hattı** işlem hattındaki tüm etkinlikleri görmek için seçeneği. 
+Tıklayın **ardışık düzeni Aç** işlem hattındaki tüm etkinlikleri görmek için Seçenekler. 
 
 ![İşlem hattı menüsünü açma](./media/data-factory-monitor-manage-app/OpenPipelineMenu.png)
 
-Açılan ardışık düzen Görünümü'nde, işlem hattındaki tüm etkinlikleri görürsünüz. Bu örnekte, yalnızca bir etkinlik yok: kopyalama etkinliği. 
+Açık işlem hattı Görünümü'nde işlem hattındaki tüm etkinlikleri bakın. Bu örnekte, yalnızca bir etkinlik vardır: Kopyalama etkinliği. 
 
-![Açılan ardışık düzen](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
+![Açık işlem hattı](./media/data-factory-monitor-manage-app/OpenedPipeline.png)
 
-Önceki görünüme geri dönmek için veri fabrikası adı üstteki içerik haritası menüsünde tıklatın.
+Önceki görünüme dönmek için üstteki içerik haritası menüsünde veri fabrikasının adını tıklayın.
 
-Bir çıkış veri kümesini veya çıkış veri kümesinde farenizi taşıdığınızda seçtiğinizde ardışık düzen görünümünde, bu veri kümesi için etkinlik Windows açılır pencere görürsünüz.
+İşlem hattı Görünümü'nde bir çıktı veri kümesini veya çıkış veri kümesi üzerinde fare taşıdığınızda seçtiğinizde söz konusu veri kümesi için etkinlik Windows açılır pencere görürsünüz.
 
 ![Etkinlik Windows açılır penceresi](./media/data-factory-monitor-manage-app/ActivityWindowsPopup.png)
 
-İçinde için ayrıntıları görmek için bir etkinlik penceresini tıklayabilirsiniz **özellikleri** penceresinin sağ bölmesinde.
+İçinde ayrıntıları görmek için bir etkinlik penceresi tıklayabilirsiniz **özellikleri** penceresinin sağ bölmesinde.
 
-![Etkinlik penceresini özellikleri](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
+![Etkinlik penceresinin Özellikler](./media/data-factory-monitor-manage-app/ActivityWindowProperties.png)
 
-Sağ bölmede geçmek **etkinlik penceresini Explorer** daha fazla ayrıntı için sekmesi.
+Sağ bölmede, geçiş **etkinlik penceresi Gezgini** daha fazla ayrıntı için sekmesinde.
 
-![Etkinlik penceresini Gezgini](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![Etkinlik penceresi Gezgini](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
-Ayrıca bkz: **değişkenleri çözülmüş** bir etkinliğin her çalıştırma denemesi için **denemeleri** bölümü.
+Ayrıca bkz: **değişkenleri çözümlenen** bir etkinlik için her çalıştırma denemesi için **denemeleri** bölümü.
 
 ![Çözümlenen değişkenleri](./media/data-factory-monitor-manage-app/ResolvedVariables.PNG)
 
-Geçiş **betik** sekmesi seçili nesne için JSON betik tanımına bakın.   
+Geçiş **betik** seçili nesne için JSON kod tanımını görmek için sekmesinde.   
 
 ![Komut dosyası sekmesi](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
-Etkinlik pencerelerine üç yerde görebilirsiniz:
+Etkinlik pencereleri üç yerde görebilirsiniz:
 
 * Diyagram görünümünde (Orta bölme) etkinlik Windows açılır.
-* Sağ bölmede etkinlik penceresini Gezgini.
-* Alt bölme etkinlik Windows listesinde.
+* Sağ bölmede etkinlik penceresi Gezgini.
+* Alt bölmede etkinlik Windows liste.
 
-Etkinlik pencerelerine açılır ve etkinlik penceresini Gezgini sol ve sağ ok kullanarak önceki hafta ve sonraki hafta gezinebilirsiniz.
+Etkinlik Windows açılır ve etkinlik penceresi Gezgini, sol ve sağ ok kullanarak önceki hafta ve sonraki hafta gezinebilirsiniz.
 
-![Etkinlik penceresini Explorer sol/sağ ok](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
+![Etkinlik penceresi Gezgini sol/sağ okları](./media/data-factory-monitor-manage-app/ActivityWindowExplorerLeftRightArrows.png)
 
-Diyagram görünümü en altında bu düğmeleri Bkz: Yakınlaştır, uzaklaştırma, yakınlaştırma sığacak şekilde, yakınlaştırma % 100, kilit düzeni. **Kilit düzeni** düğmesi önler yanlışlıkla tablolar ve ardışık düzen diyagram Görünümü'nde taşınmasını. Bu varsayılan olarak açıktır. Uygulamayı kapatın ve varlıkları diyagramında hareket ettirin. Devre dışı bıraktığınızda, tablolar ve ardışık düzen otomatik Konumlandır için Son düğmesini kullanabilirsiniz. Fare tekerleği kullanarak içeri veya dışarı ayrıca yakınlaştırabilirsiniz.
+Diyagram görünümü sonunda, bu düğmeler bakın: Yakınlaştır, uzaklaştırma, yakınlaştırma sığacak şekilde, % 100 kilit Düzen yakınlaştırın. **Kilit Düzen** düğmesi engeller, yanlışlıkla tablolar ve işlem hatlarını diyagram Görünümü'nde taşınmasını. Bu varsayılan olarak açıktır. Uygulamayı kapatın ve diyagramda varlıkları taşıyabilirsiniz. Devre dışı bıraktığınızda, tablolar ve işlem hatlarını otomatik olarak yerleştirmek için Son düğmesini kullanabilirsiniz. Fare tekerleğini kullanarak veya Ayrıca yakınlaştırabilirsiniz.
 
 ![Diyagram görünümü yakınlaştırma komutları](./media/data-factory-monitor-manage-app/DiagramViewZoomCommands.png)
 
 ### <a name="activity-windows-list"></a>Etkinlik Pencereleri listesi
-Etkinlik Windows orta bölmesinde altındaki tüm etkinlik windows kaynak Gezgini ya da diyagram görünümünde seçilen veri kümesi için görüntüler. Varsayılan olarak, en son etkinlik pencerenin en üstünde gördüğünüz anlamına gelir, azalan sırada listesidir.
+Orta bölmenin alt kısmındaki etkinlik Windows Kaynak Gezgini veya diyagram Görünümü'nde seçilen veri kümesi için tüm etkinlik pencerelerini listeler. Varsayılan olarak, en son etkinlik penceresinin en üstünde gördüğünüzü anlamına gelir, azalan sırada listesidir.
 
 ![Etkinlik Pencereleri listesi](./media/data-factory-monitor-manage-app/ActivityWindowsList.png)
 
-Bu liste otomatik yenileme değil, bu nedenle el ile yenilemek için araç çubuğunda Yenile düğmesini kullanın.  
+Bu listede değil, otomatik olarak yenile Yenile düğmesini el ile yenilemek için araç çubuğunda kullanın.  
 
-Etkinlik pencerelerine aşağıdaki durumlardan biri olabilir:
+Etkinlik pencereleri aşağıdaki durumlardan biri olabilir:
 
 <table>
 <tr>
-    <th align="left">Durum</th><th align="left">Alt durum</th><th align="left">Açıklama</th>
+    <th align="left">Durum</th><th align="left">Alt durumu</th><th align="left">Açıklama</th>
 </tr>
 <tr>
-    <td rowspan="8">Bekleniyor</td><td>ScheduleTime</td><td>Zaman çalıştırmak ilişkin etkinlik penceresinin gelen kurmadı.</td>
+    <td rowspan="8">Bekleniyor</td><td>ScheduleTime</td><td>Zaman çalıştırmaya ilişkin etkinlik penceresinin gelen edilmemiş.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>Yukarı Akış bağımlılıkları hazır değil.</td>
 </tr>
 <tr>
-<td>ComputeResources</td><td>İşlem kaynakları kullanılabilir değil.</td>
+<td>ComputeResources</td><td>İşlem kaynakları kullanılamıyor.</td>
 </tr>
 <tr>
-<td>ConcurrencyLimit</td> <td>Tüm etkinlik örnekleri diğer etkinlik windows çalıştıran meşgul.</td>
+<td>ConcurrencyLimit</td> <td>Tüm etkinlik örnekleri diğer etkinlik pencereleri çalıştırmakla meşgul.</td>
 </tr>
 <tr>
-<td>ActivityResume</td><td>Etkinlik duraklatıldı ve sürdürülene kadar etkinlik windows çalıştıramaz.</td>
+<td>ActivityResume</td><td>Etkinlik duraklatıldı ve sürdürülene kadar etkinlik pencerelerini çalıştırılamaz.</td>
 </tr>
 <tr>
 <td>Yeniden Dene</td><td>Etkinlik yürütme yeniden deneniyor.</td>
@@ -185,115 +184,115 @@ Etkinlik pencerelerine aşağıdaki durumlardan biri olabilir:
 <td>Doğrulama</td><td>Doğrulama henüz başlatılmadı.</td>
 </tr>
 <tr>
-<td>ValidationRetry</td><td>Doğrulama işleminin yeniden gerçekleştirilmesi bekleniyor.</td>
+<td>ValidationRetry</td><td>Doğrulama denenmesi için bekliyor.</td>
 </tr>
 <tr>
 <tr>
-<td rowspan="2">İlerliyor</td><td>Doğrulanıyor</td><td>Doğrulama devam ediyor.</td>
+<td rowspan="2">Devam Ediyor</td><td>Doğrulanıyor</td><td>Doğrulama işlemi devam ediyor.</td>
 </tr>
 <td>-</td>
-<td>Etkinlik penceresinin işleniyor.</td>
+<td>Etkinlik penceresi işleniyor.</td>
 </tr>
 <tr>
-<td rowspan="4">Başarısız</td><td>Süresi sona erdi</td><td>Etkinlik yürütme etkinlik tarafından izin daha uzun sürdü.</td>
+<td rowspan="4">Başarısız</td><td>Zaman aşımına uğradı</td><td>Etkinlik yürütme etkinliği tarafından izin verilenden daha uzun sürdü.</td>
 </tr>
 <tr>
-<td>İptal edildi</td><td>Etkinlik penceresinin kullanıcı eylemi tarafından iptal edildi.</td>
+<td>İptal edildi</td><td>Etkinlik penceresi tarafından bir kullanıcı eylemi iptal edildi.</td>
 </tr>
 <tr>
 <td>Doğrulama</td><td>Doğrulama başarısız oldu.</td>
 </tr>
 <tr>
-<td>-</td><td>Etkinlik penceresinin oluşturulan ya da doğrulanması başarısız oldu.</td>
+<td>-</td><td>Etkinlik penceresi oluşturulan ya da doğrulanması başarısız oldu.</td>
 </tr>
-<td>Hazır</td><td>-</td><td>Etkinlik penceresinin tüketimi için hazırdır.</td>
-</tr>
-<tr>
-<td>Atlandı</td><td>-</td><td>Etkinlik penceresinin işlenen değildi.</td>
+<td>Hazır</td><td>-</td><td>Etkinlik penceresi tüketimi için hazırdır.</td>
 </tr>
 <tr>
-<td>None</td><td>-</td><td>Bir etkinlik penceresini farklı bir durum ile var olmuş ancak sıfırlanmış.</td>
+<td>Atlandı</td><td>-</td><td>Etkinlik penceresi işlenen değildi.</td>
+</tr>
+<tr>
+<td>None</td><td>-</td><td>Bir etkinlik penceresi farklı bir durum ile kullanılan, ancak sıfırlandı.</td>
 </tr>
 </table>
 
 
-Listenin etkinliği penceresindeki tıklattığınızda içinde ayrıntılarını görmek **etkinlik Windows Explorer** veya **özellikleri** penceresini sağdaki.
+Bir etkinlik penceresi listesinde'ye tıkladığınızda ayrıntılarını görmek **etkinlik Windows Explorer** veya **özellikleri** penceresini sağdaki.
 
-![Etkinlik penceresini Gezgini](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![Etkinlik penceresi Gezgini](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
-### <a name="refresh-activity-windows"></a>Etkinlik pencerelerine Yenile
-Ayrıntıları otomatik olarak yenilenir değil, bu nedenle etkinlik windows listesini el ile yenilemek için komut çubuğunda (ikinci düğme) Yenile düğmesini kullanın.  
+### <a name="refresh-activity-windows"></a>Etkinlik pencereleri Yenile
+Ayrıntılarını otomatik olarak yenilenir olmayan, bu nedenle etkinlik pencereleri listesinden el ile yenilemek için komut çubuğunda Yenile düğmesine (ikinci düğme) kullanın.  
 
 ### <a name="properties-window"></a>Özellik penceresi
-Özellikler penceresini izleme ve yönetim uygulaması en sağ bölmesinde bulunur.
+Özellikler penceresinde, izleme ve yönetim uygulaması en sağ bölmesinde bulunur.
 
 ![Özellik penceresi](./media/data-factory-monitor-manage-app/PropertiesWindow.png)
 
-Kaynak Gezgini (ağaç görünümü), diyagram görünümü veya etkinlik Windows liste seçili öğenin özelliklerini görüntüler.
+Kaynak Gezgini (ağaç görünümü), diyagram görünümü veya etkinlik Windows listedeki seçili öğenin özelliklerini gösterir.
 
-### <a name="activity-window-explorer"></a>Etkinlik penceresini Gezgini
-**Etkinlik penceresini Explorer** izleme ve yönetim uygulaması en sağdaki bölmede bir penceredir. Etkinlik Windows açılır penceresi veya etkinlik Windows listedeki seçili etkinlik penceresinin hakkındaki ayrıntıları görüntüler.
+### <a name="activity-window-explorer"></a>Etkinlik penceresi Gezgini
+**Etkinlik penceresi Gezgini** izleme ve yönetim uygulaması en sağdaki bölmede bir penceredir. Bu etkinlik Windows açılır pencere veya etkinlik Windows listedeki seçili etkinlik penceresinin ayrıntılarını görüntüler.
 
-![Etkinlik penceresini Gezgini](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
+![Etkinlik penceresi Gezgini](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-3.png)
 
-Üst Takvim görünümünde tıklayarak başka bir etkinlik penceresine geçiş yapabilirsiniz. Etkinlik Windows'dan önceki haftanın ya da sonraki hafta görmek için sayfanın üstünde sol ok/sağ ok düğmelerini de kullanabilirsiniz.
+Takvim görünümünde üst tıklatarak için başka bir etkinlik penceresi arasında geçiş yapabilirsiniz. Ayrıca, etkinlik pencereleri önceki hafta veya sonraki hafta görmek için en üstünde sol ok sağ ok düğmelerini kullanabilirsiniz.
 
-Etkinlik penceresinin yeniden çalıştırın veya ayrıntılar bölmesinde yenilemek için alt bölmesinde araç çubuğu düğmelerini kullanın.
+Etkinlik penceresi yeniden veya ayrıntılar bölmesini yenilemek için alt bölmede araç çubuğu düğmelerini kullanabilirsiniz.
 
 ### <a name="script"></a>Betik
-Kullanabileceğiniz **betik** seçili Data Factory varlığı (bağlantılı hizmet, veri kümesi veya işlem hattı) JSON tanımını görüntülemek için.
+Kullanabileceğiniz **betik** (bağlı hizmet, veri kümesi veya işlem hattı) seçilen Data Factory varlığın JSON tanımını görüntüleme için sekmesinde.
 
 ![Komut dosyası sekmesi](./media/data-factory-monitor-manage-app/ScriptTab.png)
 
 ## <a name="use-system-views"></a>Sistem görünümleri kullanma
-İzleme ve yönetim uygulaması önceden derlenmiş sistem görünümleri içerir (**son etkinlik windows**, **başarısız etkinliği windows**, **ilerleme durumu etkinlik windows**), izin ver en son/başarısız/Süren etkinlik windows veri fabrikanızın görüntülemek için.
+İzleme ve yönetim uygulaması önceden oluşturulmuş sistem görünümleri içerir (**son etkinlik pencereleri**, **başarısız etkinlik pencereleri**, **devam eden etkinlik pencereleri**) izin veren Veri fabrikanızın son/başarısız/Süren etkinlik pencerelerini görüntülemek için.
 
 Geçiş **izleme görünümleri** sekmesini tıklatarak soldaki.
 
 ![İzleme görünümleri sekmesi](./media/data-factory-monitor-manage-app/MonitoringViewsTab.png)
 
-Şu anda desteklenen üç sistem görünümleri vardır. Son Etkinlik windows, başarısız etkinliği windows veya devam eden etkinlik windows etkinlik Windows listesinde (orta bölmesinde altındaki) görmek için bir seçenek belirleyin.
+Şu anda desteklenen üç sistem görünümleri vardır. Son Etkinlik pencereleri, başarısız olan etkinliği windows veya devam eden etkinlik pencereleri etkinlik Windows listesinde (Orta bölmenin altındaki) görmek için bir seçenek belirleyin.
 
-Seçtiğinizde, **son etkinlik windows** seçeneği, azalan sırada olan tüm son etkinlik windows görmek **zaman'son deneme**.
+Seçtiğinizde, **son etkinlik pencereleri** seçeneği, azalan tüm son etkinlik pencereleri görürsünüz **son zaman'ı denemek**.
 
-Kullanabileceğiniz **başarısız etkinliği windows** listesindeki tüm başarısız etkinliği windows görmek için görünümü. İçinde ayrıntılarını görmek için listedeki bir başarısız etkinliği penceresi seçin **özellikleri** penceresi veya **etkinlik penceresini Explorer**. Ayrıca, başarısız olan etkinliği penceresi için herhangi bir günlük indirebilirsiniz.
+Kullanabileceğiniz **başarısız etkinlik pencereleri** tüm başarısız etkinlik pencereleri listesinden görüntüleyin. İçinde ayrıntılarını görmek için listedeki bir başarısız etkinlik penceresi seçin **özellikleri** penceresi veya **etkinlik penceresi Gezgini**. Başarısız etkinlik penceresi için tüm günlükleri de indirebilirsiniz.
 
-## <a name="sort-and-filter-activity-windows"></a>Sıralama ve filtreleme etkinliği windows
-Değişiklik **başlangıç zamanı** ve **bitiş saati** filtre etkinlik Windows Komut çubuğunda ayarlar. Başlangıç ve bitiş zamanı değiştirdikten sonra etkinlik Windows listesini yenilemek için bitiş zamanı yanındaki düğmesini tıklatın.
+## <a name="sort-and-filter-activity-windows"></a>Etkinlik pencereleri sıralama ve filtreleme
+Değişiklik **başlangıç saati** ve **bitiş saati** filtre etkinliği Windows Komut çubuğu ayarları. Başlangıç ve bitiş zamanı değiştirdikten sonra etkinlik Windows listeyi yenilemek için bitiş zamanı yanındaki düğmeye tıklayın.
 
-![Başlangıç ve bitiş zamanlarını](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
+![Başlangıç ve bitiş saatleri](./media/data-factory-monitor-manage-app/StartAndEndTimes.png)
 
 > [!NOTE]
-> Şu anda, izleme ve yönetim uygulaması UTC biçiminde her zaman uygun.
+> Şu anda her zaman UTC biçiminde izleme ve yönetim uygulaması edilmektedir.
 >
 >
 
-İçinde **etkinlik Windows listesi**, bir sütun adına tıklayın (örneğin: durum).
+İçinde **etkinlik Windows liste**, bir sütun adına tıklayın (örneğin: Durumu).
 
-![Etkinlik Windows liste sütun menüsü](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
+![Etkinlik Windows listesi sütun menüsü](./media/data-factory-monitor-manage-app/ActivityWindowsListColumnMenu.png)
 
-Aşağıdakileri yapabilirsiniz:
+Bunu, aşağıdakileri yapabilirsiniz:
 
-* Artan sırada Sırala.
-* Azalan sırada sıralayın.
-* Bir veya daha fazla değerlerle (hazır, bekliyor vb.) filtreleyin.
+* Artan düzende sıralayın.
+* Azalan düzende sırala.
+* Bir veya daha fazla değerlerine göre (hazır, bekliyor vb.) filtreleyin.
 
-Bir sütunda bir filtre belirttiğinizde, filtrelenmiş değerleri sütundaki değerleri gösterir bu sütun için etkin filtre düğmesini bakın.
+Bir sütun üzerinde bir filtre belirttiğinizde, filtrelenmiş değerleri sütundaki değerleri gösterir, sütun etkin filtre düğmesine bakın.
 
-![Etkinlik pencerelerine listesinin bir sütuna filtre](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
+![Etkinlik Windows listesinin bir sütun üzerinde filtreleme](./media/data-factory-monitor-manage-app/ActivityWindowsListFilterInColumn.png)
 
-Aynı açılır pencere Filtreleri temizlemek için kullanabilirsiniz. Etkinlik pencerelerine listesi için tüm filtreleri temizlemek için komut çubuğunda Filtreyi düğmesini tıklatın.
+Filtreleri temizlemek için aynı açılır penceresini kullanabilirsiniz. Etkinlik Windows liste için tüm filtreleri temizlemek için Komut çubuğundaki filtreyi Temizle düğmesine tıklayın.
 
-![Etkinlik pencerelerine listesi için tüm filtreleri temizlemek](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
+![Etkinlik Windows liste için tüm filtreleri temizle](./media/data-factory-monitor-manage-app/ClearAllFiltersActivityWindowsList.png)
 
 ## <a name="perform-batch-actions"></a>Toplu işlemleri
-### <a name="rerun-selected-activity-windows"></a>Seçili etkinlik windows yeniden çalıştırın
-Bir etkinlik penceresi seçin, ilk komut çubuğu düğmesi için aşağı oka tıklayın ve seçin **yeniden Çalıştır** / **ile upstream ardışık düzeninde yeniden**. Seçtiğinizde, **ile upstream ardışık düzeninde yeniden** seçeneği, tüm Yukarı Akış etkinliği windows de yeniden çalıştırır.
-    ![Bir etkinlik penceresi yeniden](./media/data-factory-monitor-manage-app/ReRunSlice.png)
+### <a name="rerun-selected-activity-windows"></a>Seçili etkinlik pencereleri yeniden çalıştırın
+Bir etkinlik penceresi seçin, ilk komut çubuğunda düğme için aşağı oka tıklayın ve seçin **yeniden** / **ile Yukarı Akış işlem hattını yeniden çalıştırma**. Seçtiğinizde, **ile Yukarı Akış işlem hattını yeniden çalıştırma** seçeneği, onu tüm Yukarı Akış etkinlik pencerelerini de yeniden çalıştırır.
+    ![Bir etkinlik penceresi yeniden çalıştırın](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
-Ayrıca, birden çok etkinlik windows listeden seçin ve bunları aynı anda yeniden çalıştırın. Etkinlik windows durumlarına göre filtre uygulamak istediğiniz (örneğin: **başarısız**)--ve başarısız olan etkinliği windows etkinlik windows başarısız olmasına neden olan sorunu düzelttikten sonra yeniden çalıştırın. Etkinlik pencerelerine listesinde filtreleme hakkında ayrıntılar için aşağıdaki bölüme bakın.  
+Ayrıca, listede birden çok etkinlik penceresi seçin ve bunları aynı anda yeniden çalıştırın. Etkinlik pencereleri durumu temelinde filtrelemek isteyebilirsiniz (örneğin: **Başarısız**)--ve başarısız olan etkinliği windows etkinlik pencerelerini başarısız olmasına neden olan sorunu düzelttikten sonra yeniden çalıştırın. Etkinlik pencereleri listesinden filtreleme hakkında ayrıntılar için aşağıdaki bölüme bakın.  
 
-### <a name="pauseresume-multiple-pipelines"></a>Birden çok ardışık düzen Duraklat/Sürdür
-Ctrl tuşunu kullanarak çoklu iki veya daha fazla ardışık düzen olabilir. Bunları Duraklat/Sürdür için (hangi aşağıdaki görüntüde kırmızı dikdörtgen içinde vurgulanır) komut çubuğu düğmelerini kullanabilirsiniz.
+### <a name="pauseresume-multiple-pipelines"></a>Birden fazla işlem hattını duraklatın/sürdürün
+Ctrl tuşunu kullanarak çoklu seçim yapılabilen iki veya daha fazla işlem hattı kullanabilirsiniz. Bunları duraklatın/sürdürün için (Bu kırmızı dikdörtgeninde aşağıdaki resimde vurgulanmıştır) komut çubuğu düğmelerini kullanabilirsiniz.
 
-![Komut çubuğunda Duraklat/Sürdür](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
+![Komut çubuğunda duraklatın/sürdürün](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)

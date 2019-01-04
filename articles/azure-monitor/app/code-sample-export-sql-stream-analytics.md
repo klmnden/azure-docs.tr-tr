@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: f9b1096f2d409f46e3b9e48a2d59420930150c1a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8ed645066eef93ae02722858381af77854d7d1eb
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974565"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001898"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Çözüm: Stream Analytics kullanarak Application Insights'tan SQL'e aktarma
 Bu makale, telemetri verilerini taşıma [Azure Application Insights] [ start] kullanarak bir Azure SQL veritabanı'na [sürekli dışarı aktarma] [ export] ve [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -70,7 +70,7 @@ Depolama oluşturmanız gerekir. böylece sürekli dışarı aktarmayı her zama
     ![Olay türü seçin](./media/code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Accumulate bazı veriler sağlar. Arkanıza yaslanın ve insanların uygulamanızı bir süredir kullanın. Telemetri vardır ve istatistiksel grafikte gördüğünüz [ölçüm Gezgini](../../application-insights/app-insights-metrics-explorer.md) ve olayları tek tek [tanılama araması](../../azure-monitor/app/diagnostic-search.md). 
+1. Accumulate bazı veriler sağlar. Arkanıza yaslanın ve insanların uygulamanızı bir süredir kullanın. Telemetri vardır ve istatistiksel grafikte gördüğünüz [ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md) ve olayları tek tek [tanılama araması](../../azure-monitor/app/diagnostic-search.md). 
    
     Ve ayrıca, veri depolama dışarı aktarır. 
 2. Dışarı aktarılan verileri, portaldaki ya da inceleyin - seçme **Gözat**, depolama hesabınızı seçin ve ardından **kapsayıcıları** - ya da Visual Studio'da. Visual Studio'da **görüntülemek / Cloud Explorer**ve Azure / depolama. (Bu menü seçeneği yoksa, Azure SDK'yı yüklemeniz gerekir: Yeni Proje iletişim kutusunu açın ve görseli açmak C# / bulut / .NET için Microsoft Azure SDK'sını edinme.)
@@ -258,7 +258,7 @@ Birkaç dakika sonra SQL Server Yönetim Araçları için geri dönün ve veri i
 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [export]: ../../azure-monitor/app/export-telemetry.md
-[metrics]: ../../application-insights/app-insights-metrics-explorer.md
+[metrics]: ../../azure-monitor/app/metrics-explorer.md
 [portal]: https://portal.azure.com/
 [start]: ../../application-insights/app-insights-overview.md
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7b7aad2cb8aa9b4faeada795f20c818995f62fb6
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: fc30dc928afbee0de2cd0d11a147c08b9f47cef1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720448"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024629"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Etkinleştirme veya Application Insights Profiler ' ı görüntüleme sorunlarını giderme
 
@@ -128,12 +128,12 @@ D:\ProgramData\ApplicationInsightsProfiler\config.json
 ```
 Profil oluşturucu komut satırında ikey doğru olduğundan emin olun. 
 
-Üçüncü olarak, yukarıdaki config.json dosyasında bulunan yolunu kullanarak, profil oluşturucu günlük dosyasını denetleyin. Profil Oluşturucu gelen durum ve hata iletileri ve profil oluşturucuyu kullanarak ayarlarını belirten hata ayıklama bilgilerini gösterecektir. Profil Oluşturucu, uygulamanızın istekleri alırken çalışıyorsa, bu iletiyi görürsünüz: etkinlik iKey algılandı. İzleme karşıya yüklendiğinde, bu iletiyi görürsünüz: izleme yüklenmeye başlıyor. 
+Üçüncü olarak, yukarıdaki config.json dosyasında bulunan yolunu kullanarak, profil oluşturucu günlük dosyasını denetleyin. Profil Oluşturucu gelen durum ve hata iletileri ve profil oluşturucuyu kullanarak ayarlarını belirten hata ayıklama bilgilerini gösterecektir. Profil Oluşturucu, uygulamanızın istekleri alırken çalışıyorsa, bu iletiyi görürsünüz: Etkinlik iKey algılandı. İzleme karşıya yüklendiğinde, bu iletiyi görürsünüz: İzleme yüklenmeye başlıyor. 
 
 
-[profiler-search-telemetry]:./media/app-insights-profiler/Profiler-Search-Telemetry.png
-[Profil Oluşturucu webjob]:./media/app-insights-profiler/Profiler-webjob.png
-[Profil Oluşturucu webjob günlüğü]:./media/app-insights-profiler/Profiler-webjob-log.png
+[profiler-search-telemetry]:./media/app-insights-profiler-troubleshooting/Profiler-Search-Telemetry.png
+[Profil Oluşturucu webjob]:./media/app-insights-profiler-troubleshooting/Profiler-webjob.png
+[Profil Oluşturucu webjob günlüğü]:./media/app-insights-profiler-troubleshooting/Profiler-webjob-log.png
 
 
 

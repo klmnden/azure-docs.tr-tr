@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: mbullwin
-ms.openlocfilehash: a3cab6af86a18e23199437c91b6d07102e783cd1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c906f313ae367fcc660d1ce1df0b3d667c7f04a3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971282"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016135"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights dışa aktarma veri modeli
 Bu tabloda gönderilen telemetri özelliklerinin [Application Insights](../../application-insights/app-insights-overview.md) SDK'ları portalı.
 Bu özellikler, veri çıkışı görürsünüz [sürekli dışarı aktarma](export-telemetry.md).
-Ayrıca özellik filtrelerini görünürler [ölçüm Gezgini'nde](../../application-insights/app-insights-metrics-explorer.md) ve [tanılama araması](../../azure-monitor/app/diagnostic-search.md).
+Ayrıca özellik filtrelerini görünürler [ölçüm Gezgini'nde](../../azure-monitor/app/metrics-explorer.md) ve [tanılama araması](../../azure-monitor/app/diagnostic-search.md).
 
 Dikkat edilecek noktalar:
 
@@ -158,7 +158,7 @@ Tarafından oluşturulan özel olaylar [TrackEvent()](../../azure-monitor/app/ap
 
 | Yol | Tür | Notlar |
 | --- | --- | --- |
-| [0] olay sayısı |integer |100 / ([örnekleme](../../application-insights/app-insights-sampling.md) oranı). Örneğin, 4 =&gt; % 25. |
+| [0] olay sayısı |integer |100 / ([örnekleme](../../azure-monitor/app/sampling.md) oranı). Örneğin, 4 =&gt; % 25. |
 | [0] olay adı |dize |Olay adı.  Maks. uzunluk 250. |
 | Olay [0] URL'si |dize | |
 | Olay [0] urlData.base |dize | |
@@ -170,7 +170,7 @@ Raporları [özel durumları](../../azure-monitor/app/asp-net-exceptions.md) sun
 | Yol | Tür | Notlar |
 | --- | --- | --- |
 | basicException [0] derlemesi |dize | |
-| [0] basicException sayısı |integer |100 / ([örnekleme](../../application-insights/app-insights-sampling.md) oranı). Örneğin, 4 =&gt; % 25. |
+| [0] basicException sayısı |integer |100 / ([örnekleme](../../azure-monitor/app/sampling.md) oranı). Örneğin, 4 =&gt; % 25. |
 | [0] basicException exceptionGroup |dize | |
 | exceptionType basicException [0] |dize | |
 | [0] basicException failedUserCodeMethod |dize | |
@@ -211,7 +211,7 @@ TrackDependency tarafından gönderilir. Rapor performansını ve kullanımını
 | [0] remoteDependency zaman uyumsuz |boole | |
 | [0] remoteDependency baseName |dize | |
 | [0] remoteDependency commandName |dize |Örneğin "home/Index" |
-| [0] remoteDependency sayısı |integer |100 / ([örnekleme](../../application-insights/app-insights-sampling.md) oranı). Örneğin, 4 =&gt; % 25. |
+| [0] remoteDependency sayısı |integer |100 / ([örnekleme](../../azure-monitor/app/sampling.md) oranı). Örneğin, 4 =&gt; % 25. |
 | [0] remoteDependency dependencyTypeName |dize |HTTP SQL... |
 | [0] remoteDependency durationMetric.value |number |Bağımlılık yanıt tamamlanmasından çağrı süresi |
 | remoteDependency [0] kimliği |dize | |
@@ -229,7 +229,7 @@ Tarafından gönderilen [TrackRequest](../../azure-monitor/app/api-custom-events
 
 | Yol | Tür | Notlar |
 | --- | --- | --- |
-| [0] istek sayısı |integer |100 / ([örnekleme](../../application-insights/app-insights-sampling.md) oranı). Örneğin: 4 =&gt; % 25. |
+| [0] istek sayısı |integer |100 / ([örnekleme](../../azure-monitor/app/sampling.md) oranı). Örneğin: 4 =&gt; % 25. |
 | İstek [0] durationMetric.value |number |İstekten gelen yanıt süresi. 1e7 1s == |
 | [0] istek kimliği |dize |İşlem kimliği |
 | [0] istek adı |dize |GET/POST + temel URL'si.  Maks. uzunluk 250 |
@@ -264,7 +264,7 @@ TrackPageView() tarafından gönderilen veya [stopTrackPage](../../azure-monitor
 
 | Yol | Tür | Notlar |
 | --- | --- | --- |
-| [0] görüntüleme sayısı |integer |100 / ([örnekleme](../../application-insights/app-insights-sampling.md) oranı). Örneğin, 4 =&gt; % 25. |
+| [0] görüntüleme sayısı |integer |100 / ([örnekleme](../../azure-monitor/app/sampling.md) oranı). Örneğin, 4 =&gt; % 25. |
 | [0] durationMetric.value görüntüleyin |integer |Değeri trackPageView() veya startTrackPage() - isteğe bağlı olarak ayarlanmış stopTrackPage(). Aynı clientPerformance değerleri. |
 | [0] Görünüm adı |dize |Sayfa başlığı.  Maks. uzunluk 250 |
 | Görünüm [0] URL'si |dize | |
@@ -279,7 +279,7 @@ Raporları [kullanılabilirlik web testleri](../../azure-monitor/app/monitor-web
 | --- | --- | --- |
 | Kullanılabilirlik [0] availabilityMetric.name |dize |availability |
 | Kullanılabilirlik [0] availabilityMetric.value |number |1.0 ya da 0.0 |
-| Kullanılabilirlik [0] sayısı |integer |100 / ([örnekleme](../../application-insights/app-insights-sampling.md) oranı). Örneğin, 4 =&gt; % 25. |
+| Kullanılabilirlik [0] sayısı |integer |100 / ([örnekleme](../../azure-monitor/app/sampling.md) oranı). Örneğin, 4 =&gt; % 25. |
 | Kullanılabilirlik [0] dataSizeMetric.name |dize | |
 | Kullanılabilirlik [0] dataSizeMetric.value |integer | |
 | Kullanılabilirlik [0] durationMetric.name |dize | |
@@ -341,7 +341,7 @@ Diğer alanları amacı, portala trafiğini azaltmak için SDK, toplanacak ölç
 
 Yukarıdaki tablolarda, biz nadiren kullanılan alanların sayısı, min, max, stdDev ve sampledValue atlanmış.
 
-Önceden toplama ölçümleri yerine kullanabileceğiniz [örnekleme](../../application-insights/app-insights-sampling.md) telemetri hacmini azaltmak gerekiyorsa.
+Önceden toplama ölçümleri yerine kullanabileceğiniz [örnekleme](../../azure-monitor/app/sampling.md) telemetri hacmini azaltmak gerekiyorsa.
 
 ### <a name="durations"></a>Süreleri
 Aksi takdirde belirtilenler dışında süreleri 10000000.0 1 saniye anlamına onda mikrosaniye ölçeğinde, biri gösterilir.

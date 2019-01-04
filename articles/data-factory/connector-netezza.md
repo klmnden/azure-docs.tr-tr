@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8e2b65f83395c9e8991338864d2037d0572dd269
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 676eac6853c8cead40cb702855090eac5e2ce7d8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078015"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025666"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Netezza'dan verileri kopyalama 
 
@@ -50,7 +49,7 @@ Bir bağlantı dizesi olan `Server=<server>;Port=<port>;Database=<database>;UID=
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| SecurityLevel | Veri deposuna bağlantı için sürücüyü kullanır (SSL/TLS) güvenlik düzeyi. Örnek: `SecurityLevel=preferredSecured`. Desteklenen değerler şunlardır:<br/>- **Yalnızca güvenli** (**onlyUnSecured**): sürücü SSL kullanmaz.<br/>- **Güvenli olmayan (preferredUnSecured) (varsayılan) tercih edilen**: sunucu sunar, sürücü SSL kullanmaz. <br/>- **Güvenli (preferredSecured) tercih edilen**: sunucu sunar, sürücü SSL kullanır. <br/>- **Yalnızca (onlySecured) güvenli**: bir SSL bağlantısı yoksa sürücüsü bağlama değil. | Hayır |
+| SecurityLevel | Veri deposuna bağlantı için sürücüyü kullanır (SSL/TLS) güvenlik düzeyi. Örnek: `SecurityLevel=preferredSecured`. Desteklenen değerler şunlardır:<br/>- **Yalnızca güvenli** (**onlyUnSecured**): Sürücü SSL kullanmaz.<br/>- **Güvenli olmayan (preferredUnSecured) (varsayılan) tercih edilen**: Sunucu sunar, sürücü SSL kullanmaz. <br/>- **Güvenli (preferredSecured) tercih edilen**: Sunucu sunar, sürücü SSL kullanır. <br/>- **Yalnızca (onlySecured) güvenli**: Bir SSL bağlantısı yoksa sürücüsü bağlama değil. | Hayır |
 | CASertifikaDosyası | Sunucu tarafından kullanılan SSL sertifikasının tam yolu. Örnek: `CaCertFile=<cert path>;`| SSL etkinleştirilmişse, Evet |
 
 **Örnek**

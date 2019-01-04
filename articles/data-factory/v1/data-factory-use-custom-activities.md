@@ -9,17 +9,16 @@ ms.assetid: 8dd7ba14-15d2-4fd9-9ada-0b2c684327e9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: b7a2f9350633be5ec0cb8d5a7c6e7cc5048f956a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b2d9bdd8a7faee81794beef7cf6a764aeea666ae
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276015"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020124"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -81,7 +80,7 @@ Bu kılavuzda bir parçası olarak gerçekleştireceğiniz iki üst düzey adım
 2. Özel Etkinlik kullanan bir işlem hattı ile bir Azure veri fabrikası oluşturun.
 
 ### <a name="create-a-custom-activity"></a>Özel etkinlik oluşturma
-.NET özel etkinliği oluşturmak için bir **.NET sınıf kitaplığı** uygulayan bir sınıf ile proje **Idotnetactivity** arabirimi. Bu arabirim yalnızca bir yöntemi vardır: [yürütme](https://msdn.microsoft.com/library/azure/mt603945.aspx) ve imzası:
+.NET özel etkinliği oluşturmak için bir **.NET sınıf kitaplığı** uygulayan bir sınıf ile proje **Idotnetactivity** arabirimi. Bu arabirim, yalnızca bir yöntemi vardır: [Yürütme](https://msdn.microsoft.com/library/azure/mt603945.aspx) ve imzası:
 
 ```csharp
 public IDictionary<string, string> Execute(
@@ -419,14 +418,14 @@ Bu bölümde gerçekleştireceğiniz adımlar şunlardır:
 > [!NOTE]
 > Oluşturma **dosya.txt** ve zaten yapmadıysanız blob kapsayıcısına yükleyin. Önceki bölümdeki yönergelere bakın.   
 
-### <a name="step-1-create-the-data-factory"></a>1. adım: veri fabrikası oluşturma
+### <a name="step-1-create-the-data-factory"></a>1. Adım: Veri Fabrikası oluşturma
 1. Azure portalında oturum açtıktan sonra aşağıdaki adımları uygulayın:
    1. Tıklayın **kaynak Oluştur** sol menüsünde.
    2. Tıklayın **veri ve analiz** içinde **yeni** dikey penceresi.
    3. **Veri analizi** dikey penceresinde **Data Factory**’ye tıklayın.
    
     ![Yeni Azure Data Factory menüsü](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. İçinde **yeni veri fabrikası** dikey penceresinde girin **CustomActivityFactory** adı. Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **veri fabrikası adı "CustomActivityFactory" kullanılamıyor**, veri fabrikasının adını değiştirin (örneğin, **yournameCustomActivityFactory**) ve oluşturmayı yeniden deneyin.
+2. İçinde **yeni veri fabrikası** dikey penceresinde girin **CustomActivityFactory** adı. Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **Veri Fabrikası adı "CustomActivityFactory" kullanılamıyor**, veri fabrikasının adını değiştirin (örneğin, **yournameCustomActivityFactory**) ve oluşturmayı yeniden deneyin.
 
     ![Yeni Azure Data Factory dikey penceresi](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Tıklayın **kaynak grubu adı**, mevcut bir kaynak grubunu seçin ve bir kaynak grubu oluşturun.
@@ -437,7 +436,7 @@ Bu bölümde gerçekleştireceğiniz adımlar şunlardır:
     
     ![Data Factory dikey penceresi](media/data-factory-use-custom-activities/data-factory-blade.png)
 
-### <a name="step-2-create-linked-services"></a>2. adım: bağlı hizmetler oluşturma
+### <a name="step-2-create-linked-services"></a>2. Adım: Bağlı hizmetler oluşturma
 Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory’ye bağlar. Bu adımda, Azure depolama hesabınız ve Azure Batch hesabı veri fabrikanıza bağlarsınız.
 
 #### <a name="create-azure-storage-linked-service"></a>Azure Storage bağlı hizmeti oluşturma
@@ -482,7 +481,7 @@ Bağlı hizmetler veri depolarını veya işlem hizmetlerini Azure data factory�
 
     
 
-### <a name="step-3-create-datasets"></a>3. adım: veri kümeleri oluşturma
+### <a name="step-3-create-datasets"></a>3. Adım: Veri kümeleri oluşturma
 Bu adımda, girdi ve çıktı verilerini temsil eden veri kümeleri oluşturun.
 
 #### <a name="create-input-dataset"></a>Girdi veri kümesi oluşturma
@@ -511,7 +510,7 @@ Bu adımda, girdi ve çıktı verilerini temsil eden veri kümeleri oluşturun.
     }
     ```
 
-   Başlangıç saatine sahip bu kılavuzda daha sonra bir işlem hattı oluşturursunuz: 2016-11-16T00:00:00Z ve bitiş zamanı: 2016-11-16T05:00:00Z. Beş girdi/çıktı dilimleri olduklarından, verileri üretmek üzere planlanmıştır (arasında **00**: 00:00 -> **05**: 00:00).
+   Başlangıç saatine sahip bu kılavuzda daha sonra bir işlem hattı oluşturun: 2016-11-16T00:00:00Z ve bitiş zamanı: 2016-11-16T05:00:00Z. Beş girdi/çıktı dilimleri olduklarından, verileri üretmek üzere planlanmıştır (arasında **00**: 00:00 -> **05**: 00:00).
 
    **Sıklığı** ve **aralığı** giriş veri kümesi ayarlanmıştır **saat** ve **1**, giriş dilimi saatlik kullanılabilir olduğunu anlamına gelir. Bu örnekte, buna intputfolder aynı dosyada (dosya.txt) var.
 
@@ -554,7 +553,7 @@ Bu adımda, girdi ve çıktı verilerini temsil eden veri kümeleri oluşturun.
 
     Bir çıkış blob/dosyası, her giriş dilimi için oluşturulur. İşte bir çıktı dosyası için her bir dilimi nasıl adlandırılır. Bir klasörde oluşturulan tüm çıktı dosyaları: **adftutorial\customactivityoutput**.
 
-   | Dilim | Başlangıç zamanı | Çıktı dosyası |
+   | Dilim | Başlangıç saati | Çıktı dosyası |
    |:--- |:--- |:--- |
    | 1 |2016-11-16T00:00:00 |2016-11-16-00.txt |
    | 2 |2016-11-16T01:00:00 |2016-11-16-01.txt |
@@ -687,7 +686,7 @@ Sorun giderme birkaç temel teknikten oluşur:
     ```
     Error in Activity: Job encountered scheduling error. Code: BlobDownloadMiscError Category: ServerError Message: Miscellaneous error encountered while downloading one of the specified Azure Blob(s).
     ``` 
-2. Aşağıdaki hatayı görürseniz, CS dosyasında sınıfın adı için belirttiğiniz ad eşleştiğini doğrulamak **EntryPoint** JSON işlem hattının özelliği. Bu izlenecek yolda, sınıf adıdır: MyDotNetActivity ve JSON EntryPoint: MyDotNetActivityNS. **MyDotNetActivity**.
+2. Aşağıdaki hatayı görürseniz, CS dosyasında sınıfın adı için belirttiğiniz ad eşleştiğini doğrulamak **EntryPoint** JSON işlem hattının özelliği. Bu izlenecek yolda, sınıfın adıdır: MyDotNetActivity ve JSON EntryPoint şöyledir: MyDotNetActivityNS. **MyDotNetActivity**.
 
     ```
     MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly
@@ -729,7 +728,7 @@ Sorun giderme birkaç temel teknikten oluşur:
 Özel Etkinlik için kodu güncelleştirmeniz gerekirse oluşturun ve blob depolama alanına yeni ikili dosyaları içeren bir ZIP dosyasını karşıya yükleme.
 
 ## <a name="appdomain-isolation"></a>Uygulama etki alanı yalıtımı
-Bkz: [çapraz AppDomain örnek](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) , Data Factory başlatıcısı tarafından kullanılan derleme sürümlerini kısıtlı değil özel bir etkinlik oluşturma işlemini gösterir (örnek: WindowsAzure.Storage verze 4.3.0, aynı zamanda Newtonsoft.Json v6.0.x.).
+Bkz: [çapraz AppDomain örnek](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) , Data Factory başlatıcısı tarafından kullanılan derleme sürümlerini kısıtlı değil özel bir etkinlik oluşturma işlemini gösterir (örnek: WindowsAzure.Storage verze 4.3.0, aynı zamanda Newtonsoft.Json v6.0.x, vb.).
 
 ## <a name="access-extended-properties"></a>Genişletilmiş özellikler erişim
 Genişletilmiş özellikler, aşağıdaki örnekte gösterildiği gibi JSON etkinliğinde bildirebilirsiniz:
@@ -769,7 +768,7 @@ foreach (KeyValuePair<string, string> entry in extendedProperties)
 ## <a name="auto-scaling-of-azure-batch"></a>Azure batch otomatik olarak ölçeklendirme
 Bir Azure Batch havuzu de oluşturabilirsiniz **otomatik ölçeklendirme** özelliği. Örneğin, 0 adanmış VM'ler ve Bekleyen Görevler sayısına bağlı olarak bir otomatik ölçeklendirme formülü ile bir azure batch havuzu oluşturabilirsiniz. 
 
-Burada örnek formülü aşağıdaki davranışı elde eder: havuz başlangıçta oluşturulduğunda, 1 sanal makine ile başlar. $PendingTasks ölçüm çalışan + (kuyruğa alınmış) etkin içindeki görevlerin sayısını tanımlar durumu.  Formül, Son 180 saniye cinsinden ortalama sayısı Bekleyen Görevler bulur ve TargetDedicated uygun şekilde ayarlar. TargetDedicated hiçbir zaman 25 VM'lerin ötesine geçen gider sağlar. Bu nedenle, yeni görevler gönderilen, havuzu otomatik olarak büyür ve görevler tamamlanınca ücretsiz tek tek sanal makineleri olur ve bu sanal makineler için otomatik ölçeklendirme küçültür. startingNumberOfVMs ve maxNumberofVMs ihtiyaçlarınıza göre ayarlanabilir.
+Burada örnek formülü aşağıdaki davranışı elde eder: Havuz başlangıçta oluşturulduğunda, 1 sanal makine ile başlar. $PendingTasks ölçüm çalışan + (kuyruğa alınmış) etkin içindeki görevlerin sayısını tanımlar durumu.  Formül, Son 180 saniye cinsinden ortalama sayısı Bekleyen Görevler bulur ve TargetDedicated uygun şekilde ayarlar. TargetDedicated hiçbir zaman 25 VM'lerin ötesine geçen gider sağlar. Bu nedenle, yeni görevler gönderilen, havuzu otomatik olarak büyür ve görevler tamamlanınca ücretsiz tek tek sanal makineleri olur ve bu sanal makineler için otomatik ölçeklendirme küçültür. startingNumberOfVMs ve maxNumberofVMs ihtiyaçlarınıza göre ayarlanabilir.
 
 Otomatik ölçeklendirme formülü:
 

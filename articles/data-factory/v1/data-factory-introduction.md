@@ -1,6 +1,6 @@
 ---
 title: Bir veri tümleştirme hizmeti olan Data Factory’ye giriş | Microsoft Belgeleri
-description: 'Azure Data Factory’nin ne olduğunu öğrenin: verilerin taşınmasını ve dönüştürülmesini düzenleyen ve otomatikleştiren bir bulut veri tümleştirme hizmetidir.'
+description: 'Azure Data Factory nedir öğrenin: Taşımayı ve dönüştürmeyi düzenleyen ve otomatikleştiren bir bulut veri tümleştirme hizmetidir.'
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -9,17 +9,16 @@ ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0cdf10f4898ba103f9b6f65179300a10c9e33cdf
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 9bf8c51fda6985f88ecffa60b32c1c62e364a511
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087180"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014939"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory'ye giriş 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -120,7 +119,7 @@ Bağlı hizmetler Data Factory'de iki nedenle kullanılır:
 
 ### <a name="relationship-between-data-factory-entities"></a>Data Factory varlıkları arasındaki ilişki
 
-![Diyagram: Bir bulut veri tümleştirme hizmeti olan Data Factory - temel kavramlar](./media/data-factory-introduction/data-integration-service-key-concepts.png)
+![Diyagram: Veri fabrikası, bir bulut veri tümleştirme hizmeti - temel kavramlar](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>Desteklenen bölgeler
 Şu anda Batı ABD, Doğu ABD ve Kuzey Avrupa bölgelerinde veri fabrikaları oluşturabilirsiniz. Ancak, verileri veri depoları arasında taşımak ve işlem hizmetlerini kullanarak verileri işlemek amacıyla veri fabrikası başka Azure bölgelerindeki veri depolarına ve işlem hizmetlerine erişebilir.

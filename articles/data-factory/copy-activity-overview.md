@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 36c94a035c7585d655f4482239de70cd2e1a5cc6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082655"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014140"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure veri fabrikasında kopyalama etkinliği
 
@@ -55,7 +54,7 @@ Kopyalama etkinliği, verileri bir kaynaktan havuza kopyalamak için aşağıdak
 
 Kopyalama etkinliği için kullanabileceğiniz **olarak dosya kopyalama-olan** içinde çalışması verilerin kopyalandığı verimli bir şekilde tüm serileştirme/seri kaldırma, iki dosya tabanlı veri depoları arasında.
 
-Kopyalama etkinliği dosyaları belirtilen biçimde yazma ve okuma da destekler: **metin, JSON, Avro, ORC ve Parquet**ve sıkıştırma codec **GZip, Deflate, Bzıp2 ve ZipDeflate** desteklenir. Bkz: [desteklenen dosya ve sıkıştırma biçimleri](supported-file-formats-and-compression-codecs.md) ayrıntılarla.
+Kopyalama etkinliği, okuma ve yazma belirtilen biçimde dosyalara da destekler: **Metin, JSON, Avro, ORC ve Parquet**ve sıkıştırma codec **GZip, Deflate, Bzıp2 ve ZipDeflate** desteklenir. Bkz: [desteklenen dosya ve sıkıştırma biçimleri](supported-file-formats-and-compression-codecs.md) ayrıntılarla.
 
 Örneğin, aşağıdaki kopyalama etkinlikleri yapabilirsiniz:
 
@@ -130,7 +129,7 @@ Kopyalama etkinliği, aşağıdaki şablon desteklenen özelliklerin kapsamlı b
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği öğesinin type özelliği ayarlanmalıdır: **kopyalama** | Evet |
+| type | Kopyalama etkinliği öğesinin type özelliği ayarlanmalıdır: **Kopyala** | Evet |
 | girişler | Kaynak verileri hangi noktalara oluşturduğunuz veri kümesi belirtin. Kopyalama etkinliği, yalnızca tek bir giriş destekler. | Evet |
 | çıkışlar | Havuz veri hangi noktalara oluşturduğunuz veri kümesi belirtin. Kopyalama etkinliği, yalnızca tek bir çıktı destekler. | Evet |
 | typeProperties | Kopyalama etkinliği yapılandırmak için özellikler grubu. | Evet |

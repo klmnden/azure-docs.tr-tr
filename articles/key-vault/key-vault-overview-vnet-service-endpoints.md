@@ -1,27 +1,27 @@
 ---
 ms.assetid: ''
-title: Sanal ağ hizmet uç noktaları Azure Key Vault için | Microsoft Docs
+title: Sanal ağ hizmet uç noktaları Azure Key Vault - Azure Key Vault için | Microsoft Docs
 description: Sanal ağ hizmet uç noktaları için Key Vault genel bakış
 services: key-vault
 author: amitbapat
 ms.author: ambapat
 manager: mbaldwin
-ms.date: 08/31/2018
+ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 656007268dcf57910e4a655d85285da4fbd37425
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 1d53fc6cef022f627bb1cd1f832ebf65698207a9
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681526"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002441"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Sanal ağ hizmet uç noktaları Azure Key Vault için
 
 Azure Key Vault için sanal ağ hizmet uç noktalarını belirtilen bir sanal ağa erişimi sınırlamak sağlar. Bitiş IPv4 (internet Protokolü sürüm 4) adres aralıkları listesine erişimi sınırlamak sağlar. Key vault'ta dışındaki kaynaklarda bağlanan herhangi bir kullanıcı, erişim reddedildi.
 
-Bu kısıtlama için önemli bir istisna yoktur. Bir kullanıcı kabul güvenilen Microsoft hizmetlerinin izin vermek için açma, bu hizmetlerinden gelen bağlantıları güvenlik duvarı üzerinden izin. Örneğin, bu hizmetler Office 365 Exchange Online içerir, Office 365 SharePoint Online, Azure işlem, Azure Resource Manager ve Azure Backup. Bu kullanıcılar hala geçerli bir Azure Active Directory belirteci sunmak gereken ve gerekir istenen işlemi gerçekleştirmek için sahip izinleri (erişim ilkeleri olarak yapılandırılır). Daha fazla ayrıntı için [sanal ağ hizmet uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md).
+Bu kısıtlama için önemli bir istisna yoktur. Bir kullanıcı kabul güvenilen Microsoft hizmetlerinin izin vermek için açma, bu hizmetlerinden gelen bağlantıları güvenlik duvarı üzerinden izin. Örneğin, bu hizmetler Office 365 Exchange Online içerir, Office 365 SharePoint Online, Azure işlem, Azure Resource Manager ve Azure Backup. Bu kullanıcılar hala geçerli bir Azure Active Directory belirteci sunmak gereken ve gerekir istenen işlemi gerçekleştirmek için sahip izinleri (erişim ilkeleri olarak yapılandırılır). Daha fazla bilgi için [sanal ağ hizmet uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="usage-scenarios"></a>Kullanım senaryoları
 
@@ -31,6 +31,7 @@ Yapılandırabileceğiniz [Key Vault güvenlik duvarları ve sanal ağlar](key-v
 > Key Vault güvenlik duvarları ve sanal ağ kuralları yalnızca geçerli [veri düzlemi](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) anahtar kasası. Anahtar kasası denetim düzlemi işlemleri (gibi oluşturma, silme ve işlemleri, erişim ilkeleri ayarlama, ayar güvenlik duvarları ve sanal ağ kuralları değiştirme), güvenlik duvarları ve sanal ağ kuralları tarafından etkilenmez.
 
 Hizmet uç noktaları nasıl kullanabileceğinize ilişkin bazı örnekler şunlardır:
+
 * Key Vault, şifreleme anahtarları, uygulama gizli dizilerini ve sertifikaları depolamak için kullandığınız ve genel internet'ten anahtar kasanız için erişimi engellemek istiyorsunuz.
 * Anahtar kasanıza erişim yalnızca uygulamanız veya atanmış konaklar, kısa bir listesi için anahtar kasanıza bağlanabilmesi için kilitlemek istediğiniz.
 * Azure sanal ağınızda çalışan bir uygulamaya sahiptir ve tüm gelen ve giden trafik için bu sanal ağ kilitlenmiştir. Uygulama parolaları veya sertifikaları getirme veya şifreleme anahtarlarını kullanmak için anahtar Kasası'na bağlanmak hala gerekir.
@@ -38,12 +39,13 @@ Hizmet uç noktaları nasıl kullanabileceğinize ilişkin bazı örnekler şunl
 ## <a name="configure-key-vault-firewalls-and-virtual-networks"></a>Key Vault güvenlik duvarları ve sanal ağları yapılandırma
 
 Güvenlik duvarları ve sanal ağları yapılandırmak için gereken adımlar aşağıda verilmiştir. PowerShell, Azure CLI veya Azure portalı kullanıp kullanmadığınızı aşağıdaki adımları uygulayın.
+
 1. Etkinleştirme [anahtar kasası günlüğü](key-vault-logging.md) ayrıntılı erişim günlükleri görmek için. Güvenlik duvarları ve sanal ağ kuralları bir anahtar kasasına erişim engellediğinizde bu Tanılama'da yardımcı olur. (Bu adım isteğe bağlıdır ancak uygulanması önemle önerilir.)
 2. Etkinleştirme **hizmet uç noktalarını key vault için** hedef sanal ağlar ve alt ağlar için.
 3. Güvenlik duvarları ve sanal özel ağlar, alt ağlar ve IPv4 adres aralıklarını, anahtar Kasası'na erişimi kısıtlamak bir anahtar kasası için sanal ağ kuralları ayarlayın.
 4. Bu anahtar kasası, tüm güvenilen Microsoft Hizmetleri tarafından erişilebilir olması gereken, izin vermek için bu seçeneği etkinleştirin. **güvenilen Azure hizmetlerinin** anahtar Kasası'na bağlanmak için.
 
-Daha fazla ayrıntı için [Azure anahtar Kasası'nı yapılandırma güvenlik duvarları ve sanal ağlar](key-vault-network-security.md).
+Daha fazla bilgi için [Azure anahtar Kasası'nı yapılandırma güvenlik duvarları ve sanal ağlar](key-vault-network-security.md).
 
 > [!IMPORTANT]
 > Güvenlik duvarı kuralları etkin olduktan sonra kullanıcılar yalnızca Key Vault gerçekleştirebilir [veri düzlemi](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) isteklerinde kaynaklanan olduğunda işlemlerine izin sanal ağlara veya IPv4 adres aralıklarını. Bu, aynı zamanda Key Vault Azure portalından erişmek için geçerlidir. Kullanıcılar, Azure portalından bir anahtar Kasası'na göz atabilir olsa da, kendi istemci makine izin verilenler listesinde değilse, bunlar liste anahtarlarını, gizli dizileri veya sertifikaları mümkün olmayabilir. Bu anahtar kasası Seçici tarafından diğer Azure hizmetleri de etkiler. Kullanıcılar anahtar kasalarının listesi bakın, ancak güvenlik duvarı kurallarını istemci makine engelliyorsa anahtarları listesi değil mümkün olabilir.
@@ -57,6 +59,7 @@ Daha fazla ayrıntı için [Azure anahtar Kasası'nı yapılandırma güvenlik d
 > * Şu anda yalnızca IPv4 adresleri desteklenir.
 
 ## <a name="trusted-services"></a>Güvenilir hizmetler
+
 İşte bir listesi, bir anahtar kasasına erişmek için izin verilen güvenilir hizmetlerin **izin güvenilir Hizmetleri** seçeneği etkin olduğunda.
 
 |Güvenilir hizmet|Kullanım senaryoları|

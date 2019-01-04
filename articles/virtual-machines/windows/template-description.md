@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5856824ba4aec2998ad38ac73cc5acc0840584cd
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987705"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023847"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Sanal makineler bir Azure Resource Manager şablonu
 
@@ -374,7 +374,7 @@ Yönetilen bir görüntüden sanal makine oluşturmak istiyorsanız, Imagerefere
 
 ## <a name="extensions"></a>Uzantılar
 
-Ancak [uzantıları](extensions-features.md) ayrı bir kaynak, Vm'lere yakından bağlıdır. Uzantılar alt kaynak sanal makinenin veya ayrı bir kaynak olarak eklenebilir. Örnekte gösterildiği [tanılama uzantısını](extensions-diagnostics-template.md) Vm'lere eklenen:
+Ancak [uzantıları](extensions-features.md) ayrı bir kaynak, Vm'lere yakından bağlı değilsiniz. Uzantılar alt kaynak sanal makinenin veya ayrı bir kaynak olarak eklenebilir. Örnekte gösterildiği [tanılama uzantısını](extensions-diagnostics-template.md) Vm'lere eklenen:
 
 ```
 { 
@@ -436,7 +436,7 @@ Bir VM'ye yükleyebilirsiniz birçok uzantılar vardır, ancak büyük olasılı
 }
 ```
 
-Start.ps1 betiği çok sayıda yapılandırma görevleri gerçekleştirebilirsiniz. Örneğin, örnekte vm'lere eklenen veri disklerini başlatılamadı; özel bir betik, bunları başlatmak için kullanabilirsiniz. Birden çok başlangıç görevleri yapmak için varsa, Azure depolama alanında başka PowerShell betikleri çağrılacak start.ps1 dosyası kullanabilirsiniz. Örnek PowerShell'i kullanmaktadır, ancak işletim sistemi üzerinde kullanılabilir olan herhangi bir komut dosyası yöntemi kullanabilirsiniz.
+Start.ps1 betiği çok sayıda yapılandırma görevleri gerçekleştirebilirsiniz. Örneğin, örnekte vm'lere eklenen veri disklerini başlatılmış değil; özel bir betik, bunları başlatmak için kullanabilirsiniz. Birden çok başlangıç görevleri yapmak için varsa, Azure depolama alanında başka PowerShell betikleri çağrılacak start.ps1 dosyası kullanabilirsiniz. Bu örnek PowerShell kullanır ancak kullanmakta olduğunuz işletim sisteminde kullanılabilir olan herhangi bir komut dosyası yöntemi kullanabilirsiniz.
 
 Yüklü uzantılar portalında uzantılarının ayarlarından durumunu görebilirsiniz:
 
@@ -448,7 +448,7 @@ Uzantı bilgileri kullanarak da alabilirsiniz **Get-AzureRmVMExtension** PowerSh
 
 Şablon dağıtımı yaptığınızda Azure kaynakları bir grup olarak dağıtılan ve otomatik olarak dağıtılan bu grup için bir ad atar izler. Dağıtım adı şablon adı ile aynıdır.
 
-Kaynakların dağıtım durumu hakkında merak ediyorsanız, Azure portalında kaynak grubu dikey penceresini kullanabilirsiniz:
+Kaynakların dağıtım durumu hakkında merak ediyorsanız, Azure portalında kaynak grubunu görüntüleyin:
 
 ![Dağıtım bilgileri Al](./media/template-description/virtual-machines-deployment-info.png)
     
@@ -459,3 +459,4 @@ Bu kaynakları oluşturmak veya var olan kaynakları güncelleştirme için ayn�
 - Kendi şablonunu kullanarak oluşturduğunuz [Azure Resource Manager şablonları yazma](../../resource-group-authoring-templates.md).
 - Kullanılarak oluşturulan şablonu dağıtma [Resource Manager şablonu ile Windows sanal makine oluşturma](ps-template.md).
 - Geçirerek, oluşturduğunuz sanal makineleri yönetmeyi öğrenin [oluşturun ve Azure PowerShell modülü ile Windows Vm'leri yönetme](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- JSON söz dizimi ve özelliklerini şablonlarında kaynak türleri için bkz [Azure Resource Manager şablon başvurusu](/azure/templates/).

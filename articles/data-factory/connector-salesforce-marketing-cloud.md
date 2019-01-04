@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: a9916a412341d0b345bfc7a0e0f28d8e0add1846
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6b45284f8fe4bd7fb45e89eeecf13ae7b9b2969b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081467"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016690"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Salesforce pazarlama Azure Data Factory (Önizleme) kullanarak buluttaki verileri kopyalama
 
@@ -45,7 +44,7 @@ Salesforce pazarlama bağlantılı bulut hizmeti için aşağıdaki özellikleri
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlanmalıdır: **eklendi** | Evet |
+| type | Type özelliği ayarlanmalıdır: **Eklendi** | Evet |
 | ClientID | Salesforce Marketing Cloud uygulama ile ilişkili istemci kimliği.  | Evet |
 | ClientSecret | Salesforce Marketing Cloud uygulamayla ilişkili gizli. Bu alanı ADF içinde güvenli bir şekilde depolayın veya Azure anahtar Kasası'nda parolayı depolamak için bir SecureString olarak işaretleyin ve veri kopyalama gerçekleştirirken acitivty çekme buradan kopyalama - daha fazla bilgi ADF seçebileceğiniz [anahtar Kasası'nda kimlik bilgileri Store](store-credentials-in-key-vault.md). | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |

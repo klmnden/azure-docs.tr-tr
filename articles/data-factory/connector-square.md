@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 80389be735d337f72426f0745fee5717b96fa78a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 68ac03a8aba4042a842b5e740d67ab4198236275
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100880"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013171"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak kareden veri kopyalama
 
@@ -45,7 +44,7 @@ Kare bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlanmalıdır: **kare** | Evet |
+| type | Type özelliği ayarlanmalıdır: **Kare** | Evet |
 | konak | Kare örneğinin URL'si. (yani mystore.mysquare.com)  | Evet |
 | ClientID | Kare uygulamanızla ilişkili istemci kimliği.  | Evet |
 | ClientSecret | Kare uygulamanızla ilişkili istemci gizli anahtarı. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |

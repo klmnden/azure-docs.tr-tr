@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: 072201dd552f5d68a9b6621b2ca7c83acd76a1f5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6b8940f62b94615b4622f60786e411b9a18b2dee
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440530"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001626"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Kullanım ve Tahmini maliyetler izleme
 
@@ -22,7 +22,7 @@ ms.locfileid: "53440530"
 > Bu makalede, kullanım ve Tahmini maliyetler arasında farklı fiyatlandırma modelleri için birden çok Azure İzleme özelliklerini görüntülemek açıklar.  İlgili bilgiler için aşağıdaki makalelere göz atın.
 > - [Veri hacmi ve saklama Log analytics'te kontrol ederek maliyet yönetme](../../azure-monitor/platform/manage-cost-storage.md) veri saklama döneminizin değiştirerek maliyetlerinizi denetlemek nasıl açıklar.
 > - [Log analytics'te veri kullanımını çözümleme](../../azure-monitor/platform/data-usage.md) analiz ve veri kullanımınızı uyarı açıklar.
-> - [Application ınsights fiyatlandırma ve veri hacmini yönetme](../../application-insights/app-insights-pricing.md) Application ınsights'ta veri kullanımını çözümleme açıklar.
+> - [Application ınsights fiyatlandırma ve veri hacmini yönetme](../../azure-monitor/app/pricing.md) Application ınsights'ta veri kullanımını çözümleme açıklar.
 
 Azure portal'ın İzleyici hub'ında **kullanım ve Tahmini maliyetler** sayfası izleme özellikleri gibi Çekirdek kullanımını açıklar [bildirimleri ölçümleri, uyarılar](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics ](https://azure.microsoft.com/pricing/details/log-analytics/), ve [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Nisan 2018 tarihinden önce kullanılabilir fiyatlandırma planları müşteriler, bu öngörüleri satın alınan Log Analytics kullanımı da içerir ve analizi sunar.
 

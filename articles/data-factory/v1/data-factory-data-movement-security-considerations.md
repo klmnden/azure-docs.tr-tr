@@ -8,17 +8,16 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 3c4bd08d2ba3aa4aeceb38a0ae498786f681d800
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 197762255a1a693821b8416227b4abf52755eb31
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960694"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015755"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - veri taşıma için güvenlik konuları
 
@@ -181,14 +180,14 @@ Beyaz listeye ekleme IP adresinin ağ geçidi makinesinde aşağıdaki bulut ver
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-**Soru:** ağ geçidi farklı veri fabrikaları arasında paylaşılabilir?
-**Yanıt:** henüz bu özellik desteklemiyoruz. Etkin olarak üzerinde çalışıyoruz.
+**Soru:** Ağ geçidi, farklı veri fabrikaları arasında paylaşılabilir?
+**Yanıt:** Bu özellik henüz desteklemiyoruz. Etkin olarak üzerinde çalışıyoruz.
 
-**Soru:** ağ geçidinin çalışması bağlantı noktası gereksinimleri nelerdir?
-**Yanıt:** ağ geçidi, internet'i açmak için HTTP tabanlı bağlantılar sağlar. **Giden bağlantı noktası 443 ve 80** ağ geçidi için bu bağlantıyı açık olması gerekir. Açık **gelen bağlantı noktası 8050** yalnızca makine düzeyinde (düzeyinde Kurumsal güvenlik duvarı) için kimlik bilgileri Yöneticisi uygulaması. Azure SQL veritabanı veya Azure SQL veri ambarı kullanılıyorsa farklı kaynak / hedef, sonra gerek açmak **1433** de bağlantı noktası. Daha fazla bilgi için [güvenlik duvarı yapılandırmaları ve IP adreslerini beyaz listeye ekleme](#firewall-configurations-and-whitelisting-ip-address-of gateway) bölümü. 
+**Soru:** Ağ geçidinin çalışması bağlantı noktası gereksinimleri nelerdir?
+**Yanıt:** Ağ geçidi, internet'i açmak için HTTP tabanlı bağlantılar oluşturur. **Giden bağlantı noktası 443 ve 80** ağ geçidi için bu bağlantıyı açık olması gerekir. Açık **gelen bağlantı noktası 8050** yalnızca makine düzeyinde (düzeyinde Kurumsal güvenlik duvarı) için kimlik bilgileri Yöneticisi uygulaması. Azure SQL veritabanı veya Azure SQL veri ambarı kullanılıyorsa farklı kaynak / hedef, sonra gerek açmak **1433** de bağlantı noktası. Daha fazla bilgi için [güvenlik duvarı yapılandırmaları ve IP adreslerini beyaz listeye ekleme](#firewall-configurations-and-whitelisting-ip-address-of gateway) bölümü. 
 
-**Soru:** ağ geçidi için sertifika gereksinimleri nelerdir?
-**Yanıt:** geçerli ağ geçidi, veri deposu kimlik bilgilerini güvenli bir şekilde ayarlamak için kimlik bilgileri Yöneticisi uygulaması tarafından kullanılan bir sertifika gerektirir. Bu sertifika oluşturulur ve ağ geçidi yapılandırılmış otomatik olarak imzalanan bir sertifikadır. Kullanabileceğiniz kendi TLS / SSL sertifikası yerine. Daha fazla bilgi için bkz. [tıklayın-bir kez Yöneticisi uygulaması kimlik bilgisi](#click-once-credentials-manager-app) bölümü. 
+**Soru:** Ağ geçidi için sertifika gereksinimleri nelerdir?
+**Yanıt:** Geçerli bir ağ geçidi, veri deposu kimlik bilgilerini güvenli bir şekilde ayarlamak için kimlik bilgileri Yöneticisi uygulaması tarafından kullanılan bir sertifika gerektirir. Bu sertifika oluşturulur ve ağ geçidi yapılandırılmış otomatik olarak imzalanan bir sertifikadır. Kullanabileceğiniz kendi TLS / SSL sertifikası yerine. Daha fazla bilgi için bkz. [tıklayın-bir kez Yöneticisi uygulaması kimlik bilgisi](#click-once-credentials-manager-app) bölümü. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Kopyalama etkinliği performansı hakkında daha fazla bilgi için bkz. [kopyalama etkinliği performansı ve ayarlama Kılavuzu](data-factory-copy-activity-performance.md).

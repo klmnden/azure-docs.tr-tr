@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8bb36111da04ad44f5c13ef3dce2b1684784094e
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: b4d87ab62503bee1ff54ba9713f7c49d09a2e547
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808393"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015075"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights'tan Power BI akışı
 [Power BI](https://www.powerbi.com/) verileri analiz etmek ve öngörüleri paylaşmak yardımcı olan bir iş araçları paketidir. Her cihazda kullanılabilen zengin panolar. Analytics sorguları da dahil olmak üzere pek çok kaynaktan veri birleştirebilir [Azure Application Insights](app-insights-overview.md).
@@ -119,7 +119,7 @@ Veri kümesini analiz sorgusundan gelen azaltma gereksinimlerinizi karşılamıy
  ```
 
 ## <a name="about-sampling"></a>Örnekleme hakkında
-Uygulamanız tarafından gönderilen verilerin miktarına bağlı olarak, telemetrinizi yalnızca bir yüzdesini gönderen Uyarlamalı örnekleme özelliği kullanmak isteyebilirsiniz. Aynı el ile SDK'sında ya da alımdan örnekleme ayarladıysanız, geçerlidir. [Örnekleme hakkında daha fazla bilgi](app-insights-sampling.md).
+Uygulamanız tarafından gönderilen verilerin miktarına bağlı olarak, telemetrinizi yalnızca bir yüzdesini gönderen Uyarlamalı örnekleme özelliği kullanmak isteyebilirsiniz. Aynı el ile SDK'sında ya da alımdan örnekleme ayarladıysanız, geçerlidir. [Örnekleme hakkında daha fazla bilgi](../azure-monitor/app/sampling.md).
 
 ## <a name="power-bi-adapter-deprecated"></a>Power BI bağdaştırıcısı (kullanım dışı)
 Bu yöntem telemetri tamamlanmış bir Pano oluşturur. İlk veri kümesi önceden ancak daha fazla veri ekleyebilirsiniz.

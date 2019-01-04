@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: cbe4d3931a5e7b279218a1f56a3842efbc238780
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1874473b3ad091ce1da0a48367548cd4432737a2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053576"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016503"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Üzerinde Azure Data Lake Analytics U-SQL betikleri çalıştırarak verileri dönüştürme 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +34,7 @@ Oluşturduğunuz bir **Azure Data Lake Analytics** bir Azure Data Lake Analytics
 
 Aşağıdaki tabloda JSON tanımında kullanılan genel özellikleri için açıklamalar sağlar. 
 
-| Özellik                 | Açıklama                              | Gerekli                                 |
+| Özellik                 | Açıklama                              | Gereklidir                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | Type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. | Evet                                      |
 | **accountName**          | Azure Data Lake Analytics hesap adı.  | Evet                                      |
@@ -54,7 +53,7 @@ Hizmet sorumlusu izni kullanarak Azure Data Lake Anatlyics [kullanıcı ekleme s
 
 Hizmet sorumlusu kimlik doğrulaması, aşağıdaki özellikleri belirterek kullanın:
 
-| Özellik                | Açıklama                              | Gerekli |
+| Özellik                | Açıklama                              | Gereklidir |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Uygulamanın istemci kimliği belirtin.     | Evet      |
 | **serviceprincipalkey değerleri** | Uygulama anahtarını belirtin.           | Evet      |
@@ -118,7 +117,7 @@ Aşağıdaki JSON kod parçacığında, bir Data Lake Analytics U-SQL etkinliği
 
 Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özellikleri açıklanmaktadır. 
 
-| Özellik            | Açıklama                              | Gerekli |
+| Özellik            | Açıklama                              | Gereklidir |
 | :------------------ | :--------------------------------------- | :------- |
 | ad                | İşlem hattındaki etkinliğin adı     | Evet      |
 | açıklama         | Etkinliğin ne yaptığını açıklayan metin.  | Hayır       |
@@ -130,7 +129,7 @@ Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü olan özel
 | öncelik            | Sıraya alınan tüm önce çalıştırılması gerektiğini belirler. Alt sayısı, öncelik o kadar yüksektir. | Hayır       |
 | parametreler          | U-SQL betiğe geçirilecek parametreler.    | Hayır       |
 | runtimeVersion      | Çalışma zamanı sürümünü kullanmak için U-SQL altyapısı. | Hayır       |
-| CompilationMode     | <p>U-SQL derleme modu. Şu değerlerden biri olmalıdır: **Semantic:** yalnızca anlam denetimleri ve gerekli sağlamlık denetimleri gerçekleştirmek **tam:** sözdizimi denetimi, en iyi duruma getirme, kod oluşturma, vb. dahil olmak üzere tam derleme gerçekleştirmek., **SingleBox:** SingleBox TargetType ayarı ile tam derleme gerçekleştirin. Bu özellik için bir değer belirtmezseniz, sunucunun en iyi derleme modu belirler. | Hayır |
+| CompilationMode     | <p>U-SQL derleme modu. Şu değerlerden biri olmalıdır: **Anlam:** Yalnızca anlam denetimleri ve gerekli sağlamlık denetimleri gerçekleştirmek **tam:** Sözdizimi denetimi, en iyi duruma getirme, kod oluşturma, vb. dahil olmak üzere tam derleme gerçekleştirmek **SingleBox:** TargetType ayarıyla SingleBox tam derleme gerçekleştirin. Bu özellik için bir değer belirtmezseniz, sunucunun en iyi derleme modu belirler. | Hayır |
 
 Veri Fabrikası gönderen bakın [SearchLogProcessing.txt betik tanımı](#sample-u-sql-script) betik tanımı. 
 

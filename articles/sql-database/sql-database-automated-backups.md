@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: b8c7abacbf99bfbf68b7dd76a01011c8220bf9f2
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608469"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001286"
 ---
 # <a name="automated-backups"></a>Otomatik yedeklemeler
 
@@ -105,13 +105,19 @@ Veritabanı DTU tabanlı hizmet katmanı varsayılan PITR bekletme 35 gün ile b
 Azure portalı, PowerShell veya REST API'yi kullanarak varsayılan PITR yedek saklama süresini değiştirebilirsiniz. Desteklenen değerler şunlardır: 7, 14, 21, 28 veya 35 gün sayısı. Aşağıdaki örnekler için 28 gün PITR bekletmeyi değiştirme işlemini göstermektedir.
 
 > [!NOTE]
-> Bu API'leri yalnızca PITR saklama süresini etkiler. Veritabanınız için LTR yapılandırdıysanız, etkilenmeyecektir. LTR bekletme period(s) değiştirme hakkında daha fazla bilgi için bkz. [uzun süreli saklama](sql-database-long-term-retention.md).
+> Bu API'ler, yalnızca PITR saklama süresini etkiler. Veritabanınız için LTR yapılandırdıysanız, etkilenmeyecektir. LTR bekletme period(s) değiştirme hakkında daha fazla bilgi için bkz. [uzun süreli saklama](sql-database-long-term-retention.md).
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Azure portalını kullanarak PITR yedekleme bekletme süresi değiştirme
 
-Azure portalını kullanarak PITR yedekleme bekletme süresi değiştirmek için veritabanına, değiştirmek istediğiniz saklama süresi ve ardından gidin **genel bakış**.
+Azure portalını kullanarak PITR yedekleme bekletme süresini değiştirmek, saklama dönemi, portalın içinde değiştirin ve ardından uygun seçeneği belirleyin istediğiniz sunucu nesnesi gitmek hangi sunucu nesnesi üzerinde değişiklik yaptığınız temel. 
 
-![Değiştirme PITR Azure portalı](./media/sql-database-automated-backup/configure-backup-retention.png)
+#### <a name="change-pitr-for-a-logical-server"></a>Bir mantıksal sunucu için PITR Değiştir
+
+![Değiştirme PITR Azure portalı](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
+
+#### <a name="change-pitr-for-a-managed-instance"></a>Yönetilen örnek için PITR Değiştir
+
+![Değiştirme PITR Azure portalı](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>PowerShell kullanarak değişiklik PITR yedekleme bekletme süresi
 

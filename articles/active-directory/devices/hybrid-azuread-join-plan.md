@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 02699e5072801dbb8f4a8f97c88db006d31e6e0f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993303"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022045"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hibrit Azure Active Directory join uygulamanızı planlama
 
@@ -111,6 +111,11 @@ Kuruluşunuz, kimliği doğrulanmış bir giden bağlantı proxy'si aracılığ�
 
 
 Hibrit Azure AD'ye katılma, Azure AD ile şirket içi etki alanına katılmış cihazlarınızı otomatik olarak kaydedilecek bir işlemdir. Otomatik olarak kaydetmek için tüm cihazlar burada istemediğiniz durumlar vardır. Bu sizin için doğru olup olmadığını [cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl](hybrid-azuread-join-control.md).
+
+Windows 10 etki alanına katılmış ise zaten cihazlardır [kayıtlı Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) kiracınız için hibrit Azure AD'ye katılma etkinleştirmeden önce bu duruma kaldırmayı düşünmelisiniz. Bir cihaz hibrit Azure AD'ye katılım hem de Azure AD kayıtlı olmasını ikili durumu desteklenmiyor. Windows 10 1809 yayından çift bu durumu önlemek için aşağıdaki değişiklikler yapılmıştır: 
+ - Hibrit Azure AD'ye katılmış cihaz olduktan sonra herhangi bir mevcut Azure AD kayıtlı durumu otomatik olarak kaldırılması. 
+ - Etki alanına katılmış cihaz Azure AD'ye bu kayıt defteri anahtarı - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" ekleyerek kayıtlı olmasını engelleyebilir = DWORD: 00000001
+
 
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Cihazlarınızı hibrit Azure AD'ye katılma denetlemek nasıl gözden geçirin
 

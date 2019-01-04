@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 0971122ee7b9cde0664ee661454a8b7824f4b7d5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3d82becf209e44fe66711c964f825ce78d691b2d
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093921"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024848"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarı veri kopyalayın 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -69,8 +68,8 @@ Bir Azure SQL veri ambarı bağlı hizmeti için aşağıdaki özellikleri deste
 Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örnekleri aşağıdaki bölümlere bakın:
 
 - [SQL kimlik doğrulaması](#sql-authentication)
-- Azure AD uygulama belirteci kimlik doğrulamasını: [hizmet sorumlusu](#service-principal-authentication)
-- Azure AD uygulama belirteci kimlik doğrulamasını: [kimliklerini Azure kaynakları için yönetilen](#managed-identity)
+- Azure AD uygulama belirteci kimlik doğrulaması: [Hizmet sorumlusu](#service-principal-authentication)
+- Azure AD uygulama belirteci kimlik doğrulaması: [Azure kaynakları için yönetilen kimlikler](#managed-identity)
 
 >[!TIP]
 >Hata olarak "UserErrorFailedToConnectToSqlServer" hata koduyla isabet ve gibi ileti "veritabanı için oturum sınırı xxx ve üst sınırına ulaşıldı.", ekleme `Pooling=false` bağlantı dizesi ve yeniden deneyin.

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 63e35a32cb4a031ea9848486c4ecda7058707914
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9f96b4cbe95d918a94ea0d02f9b8fdd8f663eeec
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599902"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001473"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Azure İşlevleri'ni kullanarak sunucusuz bir API oluşturma
 
@@ -104,7 +104,7 @@ Proxy'nizi oluşturacağınız yeni bir işlev uygulaması oluşturmak için [İ
     | Alan | Örnek değer | Açıklama |
     |---|---|---|
     | Ad | HelloProxy | Yalnızca yönetim için kullanılan kolay ad |
-    | Yol şablonu | /api/hello | Bu proxy'yi çağırmak için kullanılacak yolu belirler |
+    | Yol şablonu | / api/remotehello | Bu proxy'yi çağırmak için kullanılacak yolu belirler |
     | Arka uç URL'si | https://%HELLO_HOST%/api/hello | İsteğe proxy uygulanacak uç noktayı belirtir |
     
 1. Proxy'ler `/api` temel yol ön ekini sağlamaz ve bu ekin yol şablonuna dahil edilmesi gerekir.
@@ -112,9 +112,9 @@ Proxy'nizi oluşturacağınız yeni bir işlev uygulaması oluşturmak için [İ
 1. **Oluştur**’a tıklayın.
 1. Yeni proxy'yi denemek için Proxy URL'sini kopyalayıp tarayıcıda veya sık kullandığınız HTTP istemcisinde test edebilirsiniz.
     1. Anonim işlev için şunu kullanın:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"`
     1. Yetkilendirme özelliğine sahip işlev için şunu kullanın:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"`
 
 ## <a name="create-a-mock-api"></a>Sahte API oluşturma
 
@@ -132,7 +132,7 @@ Bu noktaya kadar gösterilen adımları uyguladıysanız proxies.json dosyanız 
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         }
@@ -148,7 +148,7 @@ Bu noktaya kadar gösterilen adımları uyguladıysanız proxies.json dosyanız 
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         },

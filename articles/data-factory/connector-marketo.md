@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 8c3210a560c079f66cd21dbb30be4a4b823a6502
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 332687d14593024bb4354e2cd59ff0d50ae0aaef
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078217"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017319"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Marketo'dan veri kopyalama
 
@@ -34,7 +33,7 @@ Marketo'dan veri tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Kayna
 Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürücü sağlar, bu nedenle bu bağlayıcıyı kullanarak herhangi bir sürücü el ile yüklemeniz gerekmez.
 
 >[!NOTE]
->Bu Marketo bağlayıcı Marketo REST API temelinde oluşturulmuştur. Marketo olduğuna dikkat [eşzamanlı istek sınırı](http://developers.marketo.com/rest-api/) hizmet tarafındaki. Hataları belirten ulaşırsanız "REST API'sini kullanmayı çalışırken hata: en yüksek hızı sınırı '100' ile '20' aşıldı saniye (606)" veya "REST API kullanmaya çalışırken hata: eş zamanlı erişim '10' sınırına (615)", eşzamanlı kopyalama etkinliği çalışır azaltmak için göz önünde bulundurun hizmete istek sayısını azaltın.
+>Bu Marketo bağlayıcı Marketo REST API temelinde oluşturulmuştur. Marketo olduğuna dikkat [eşzamanlı istek sınırı](http://developers.marketo.com/rest-api/) hizmet tarafındaki. Hataları belirten ulaşırsanız "REST API kullanma girişimi sırasında hata oluştu: En fazla oranı sınırı '100' ile '20' aşıldı saniye (606) "veya" REST API kullanma girişimi sırasında hata oluştu: Eş zamanlı erişim (615) ulaşıldı. '10' limit ", hizmete istek sayısını azaltmak için eşzamanlı kopyalama etkinlik çalıştırmalarını azaltmak için göz önünde bulundurun.
 
 ## <a name="getting-started"></a>Başlarken
 

@@ -9,20 +9,19 @@ ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: a47d0130cd06a936da456ec6d78bde99907072f2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8a271359f09ca63e1a0c3a143994739ee7db8aab
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526309"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014191"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Azure Databricks'te bir Jar etkinliği çalıştırarak verileri dönüştürme
 
-Azure Databricks etkinlik Jar bir [Data Factory işlem hattı](concepts-pipelines-activities.md) Jar Spark, Azure Databricks kümesinde çalışır. Bu makalede yapılar [veri dönüştürme etkinlikleri](transform-data.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar. Azure Databricks, Apache Spark'ı çalıştırmaya yönelik bir yönetilen bir platformdur.
+Azure Databricks etkinlik Jar bir [Data Factory işlem hattı](concepts-pipelines-activities.md) Jar Spark, Azure Databricks kümesinde çalışır. Bu makalede yapılar [veri dönüştürme etkinlikleri](transform-data.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar. Azure Databricks, Apache Spark'ı çalıştırmaya yönelik bir yönetilen bir platformdur.
 
 Bu özelliğe yönelik on bir dakikalık bir giriş ve tanıtım için, aşağıdaki videoyu izleyin:
 
@@ -57,12 +56,12 @@ Bir Databricks etkinlik Jar örnek JSON tanımı aşağıda verilmiştir:
 
 Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmaktadır:
 
-|Özellik|Açıklama|Gerekli|
+|Özellik|Açıklama|Gereklidir|
 |:--|---|:-:|
 |ad|İşlem hattındaki bir etkinliğin adı.|Evet|
 |açıklama|Etkinliğin ne yaptığını açıklayan metin.|Hayır|
 |type|Databricks Jar etkinliği için etkinlik DatabricksSparkJar türüdür.|Evet|
-|linkedServiceName|Databricks bağlı Jar etkinliğin çalıştığı hizmetin adı. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.|Evet|
+|linkedServiceName|Databricks bağlı Jar etkinliğin çalıştığı hizmetin adı. Bu bağlı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.|Evet|
 |mainClassName|Yürütülecek main metodunu içeren sınıfın tam adı. Bu sınıf kitaplığı olarak sağlanan bir JAR bulunması gerekir.|Evet|
 |parametreler|Main yöntemi için geçirilecek parametreler.  Bu dizeler dizisidir.|Hayır|
 |Kitaplıkları|İşi yürütecek kümede yüklenecek kitaplıkların bir listesi. Bir dizi olabilir < dize, Nesne >|Evet (en az bir mainClassName yöntemi içeren)|

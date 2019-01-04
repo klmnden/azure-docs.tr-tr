@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Web Uygulamasından Azure Key Vault’u kullanma | Microsoft Docs'
+title: Azure Key Vault kullanan bir Web uygulaması Öğreticisi - Azure Key Vault | Microsoft Docs
 description: Bu öğretici, web uygulamasından Azure Key Vault’u kullanmayı öğrenmenize yardımcı olacaktır.
 services: key-vault
 author: barclayn
@@ -9,14 +9,14 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 01/02/2019
 ms.author: barclayn
-ms.openlocfilehash: 85eb7762437bff8d9f6f6a360fc9cc1ea2e6e145
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 79bccbcbcf78de18504c5cb0235e29930d90ede8
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718223"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999314"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Öğretici: Bir web uygulamasından Azure Key Vault'u kullanma
 
@@ -71,8 +71,6 @@ web.config dosyasına aşağıdaki şekilde eklenmesi gereken üç uygulama ayar
     <add key="SecretUri" value="secreturi" />
     <!-- If you aren't hosting your app as an Azure Web App, then you should use the actual ClientId, Client Secret, and Secret URI values -->
 ```
-
-
 
 ## <a id="gettoken"></a>Erişim belirteci almak için bir metot ekleme
 
@@ -188,7 +186,7 @@ Bu komutları çalıştırdıktan sonra uygulamayı Azure AD'de görebilirsiniz.
 
 Şimdi Web Uygulamanıza sertifikaya erişmesi ve onu kullanarak kimlik doğrulaması yapması için gerekli kodları ekleyeceğiz. 
 
-İlk olarak, sertifika erişmek için gerekli koda bakalım. StoreLocation değerinin LocalMachine değil CurrentUser olduğuna dikkat edin. Test sertifikası kullandığımızdan Find metoduna 'false' değeri veriyoruz.
+İlk olarak, sertifika erişmek için gerekli koda bakalım. LocalMachine yerine CurrentUser depo konumudur. Test sertifikası kullandığımızdan Find metoduna 'false' değeri veriyoruz.
 
 ```cs
 //Add this using statement

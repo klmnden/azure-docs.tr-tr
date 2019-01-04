@@ -7,12 +7,12 @@ author: kanshiG
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.openlocfilehash: 8461797e0c3b8d92466c37c5564df895e494ce74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: afc3b9dbb1965ea28995d67f8f5e174721d73197
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957598"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999450"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>İzleyici ve Azure Cosmos DB'de ölçümlerle hata ayıklama
 
@@ -38,7 +38,7 @@ Düzensiz aktarım hızı dağıtım neden *sık erişimli* daraltılmış istek
 
 ## <a name="determine-the-storage-distribution-across-partitions"></a>Bölümler arasında depolama dağıtım belirleme
 
-İyi bir kardinalite bölümünüzün sahip, ölçeklenebilir bir uygulama için gereklidir. Bölümler tarafından ayrılmış herhangi bir bölünmüş kapsayıcı aktarım hızı dağıtımını belirlemek için ölçümler dikey penceresine gidin [Azure portalında](https://portal.azure.com). Aktarım hızı sekmede RU/saniye her bir fiziksel bölüm grafik tarafından kullanılan en fazla depolama dökümü gösterilir. Aşağıdaki grafikte, en sol tarafındaki dengesiz bölümü tarafından gösterilen veri düşük bir dağıtım gösterilmektedir.
+İyi bir kardinalite bölümünüzün sahip, ölçeklenebilir bir uygulama için gereklidir. Bölümler tarafından ayrılmış herhangi bir bölünmüş kapsayıcı depolama dağıtımını belirlemek için ölçümler dikey penceresine gidin [Azure portalında](https://portal.azure.com). Depolama sekmede verilerdeki depolama dökümü gösterilen + dizin üst bölüm anahtarları grafik tarafından kullanılan depolama miktarı. Aşağıdaki grafikte en sol tarafındaki dengesiz bölüm gösterildiği gibi veri depolama, düşük bir dağıtım gösterilmektedir.
 
 ![Zayıf veri dağıtım örneği](media/use-metrics/metrics-07.png)
 

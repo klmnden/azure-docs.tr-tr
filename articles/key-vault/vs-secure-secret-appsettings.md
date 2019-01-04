@@ -1,5 +1,5 @@
 ---
-title: Güvenli bir şekilde bir web uygulaması için gizli uygulama ayarları kaydediliyor. | Microsoft Docs
+title: Güvenli bir şekilde bir web uygulaması - Azure anahtar kasası için gizli uygulama ayarları kaydediliyor. | Microsoft Docs
 description: Güvenli bir şekilde Azure kimlik bilgileri veya üçüncü taraf API gibi gizli uygulama ayarlarını kaydetmek için ASP.NET kullanarak anahtarlarını Key Vault sağlayıcısının, kullanıcının gizliliği ya da .NET 4.7.1 çekirdek nasıl yapılandırma oluşturucular
 services: visualstudio
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 01/02/2019
 ms.author: cawa
-ms.openlocfilehash: 4c54fe7c9ae5555ad1b8ba6919c70c8f7fa49125
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5ed0f861e17c646a66d9fa636e17ce0ba9c7c91a
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252123"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999161"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Güvenli bir şekilde bir web uygulaması için gizli uygulama ayarlarını Kaydet
 

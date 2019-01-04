@@ -11,18 +11,18 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 2188451e987aad7e4edfaa2097a828ab9714d706
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4a77f73f4d87f7def7c8a841c7a59aed04b9bee2
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793793"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020056"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>İzleme ve Application Insights ile bir Azure Batch .NET uygulama hatalarını ayıklama
 
 [Application Insights](../application-insights/app-insights-overview.md) geliştiriciler Azure Hizmetleri için dağıtılan izleme ve hata ayıklama uygulamaları için zarif ve güçlü bir yol sağlar. Application Insights izleme performans sayaçları ve özel durumların yanı sıra gereç özel Ölçümler ve izleme ile kodunuzu kullanın. Application Insights ile Azure toplu işlem uygulamanızı tümleştirme davranışları derin Öngörüler elde edin ve sorunları neredeyse gerçek zamanlı olarak araştırmak sağlar.
 
-Bu makalede, ekleme, Azure Batch .NET çözümünüze Application Insights Kitaplığı'nı yapılandırma ve uygulama kodunuz izleme gösterilmektedir. Ayrıca, uygulamanızı Azure portal aracılığıyla izlemek ve özel panolar oluşturmak için yol gösterir. Application Insights'ı diğer dillerde desteği sağlamak için bakmak [dilleri, platformlar ve tümleştirmeler belgeleri](../application-insights/app-insights-platforms.md).
+Bu makalede, ekleme, Azure Batch .NET çözümünüze Application Insights Kitaplığı'nı yapılandırma ve uygulama kodunuz izleme gösterilmektedir. Ayrıca, uygulamanızı Azure portal aracılığıyla izlemek ve özel panolar oluşturmak için yol gösterir. Application Insights'ı diğer dillerde desteği sağlamak için bakmak [dilleri, platformlar ve tümleştirmeler belgeleri](../azure-monitor/app/platforms.md).
 
 Bu makalede eşlik eden kodunu içeren bir örnek C# çözüm edinilebilir [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). Bu örnek için Application Insights izleme kodu ekler [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) örnek. Bu örnek oluşturma ve TopNWords ilk çalıştırma deneyin bilmiyorsanız. Bunun yapılması, bir dizi bir giriş bloblarını birden çok işlem düğümlerinde paralel işleme temel bir Batch workflow anlamanıza yardımcı olur. 
 
@@ -338,12 +338,12 @@ pool.StartTask = new StartTask()
 
 ## <a name="throttle-and-sample-data"></a>Azaltma ve örnek veriler 
 
-Azure Batch uygulamalarıyla üretimde çalışan büyük ölçekli yapısı nedeniyle, maliyetleri yönetmek için Application Insights tarafından toplanan veri miktarını sınırlamak isteyebilirsiniz. Bkz: [Application Insights'ta örnekleme](../application-insights/app-insights-sampling.md) Bunu başarmak bazı mekanizmalar için.
+Azure Batch uygulamalarıyla üretimde çalışan büyük ölçekli yapısı nedeniyle, maliyetleri yönetmek için Application Insights tarafından toplanan veri miktarını sınırlamak isteyebilirsiniz. Bkz: [Application Insights'ta örnekleme](../azure-monitor/app/sampling.md) Bunu başarmak bazı mekanizmalar için.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Daha fazla bilgi edinin [Application Insights](../application-insights/app-insights-overview.md).
 
-* Application Insights'ı diğer dillerde desteği sağlamak için bakmak [dilleri, platformlar ve tümleştirmeler belgeleri](../application-insights/app-insights-platforms.md).
+* Application Insights'ı diğer dillerde desteği sağlamak için bakmak [dilleri, platformlar ve tümleştirmeler belgeleri](../azure-monitor/app/platforms.md).
 
 

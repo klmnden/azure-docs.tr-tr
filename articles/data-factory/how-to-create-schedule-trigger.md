@@ -9,16 +9,15 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: f6b7764bf994079f7f3ef9e6243720da0d2f4a28
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 70f8533843668a86607e31a551e6ebf9abeab6c4
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868234"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54016639"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Bir işlem hattını bir zamanlamaya göre çalışan bir Tetikleyici oluşturma
 Bu makalede, zamanlama tetikleyicisi ve oluşturmak için başlatın ve zamanlama tetikleyicisi izlemek için gereken adımlar hakkında bilgi sağlar. Diğer tetikleyici türleri için bkz: [işlem hattı yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
@@ -246,7 +245,7 @@ Tetikleyici izlemek için çalışır ve işlem hattı çalıştırmalarını Az
 Bir Azure Resource Manager şablonu, bir tetikleyici oluşturmak için kullanabilirsiniz. Adım adım yönergeler için bkz: [Resource Manager şablonu kullanarak bir Azure veri fabrikası oluşturma](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Tetikleyici başlangıç zamanı için bir işlem hattı geçirin
-Azure Data Factory sürüm 1, sistem değişkenlerini kullanarak bölümlenmiş verileri yazma veya okuma destekler: **SliceStart**, **SliceEnd**, **WindowStart**ve **WindowEnd**. Azure Data Factory'nın geçerli sürümünde, bir işlem hattı parametre kullanarak bu davranışı elde edebilirsiniz. Tetikleyici için zamanlanan saat ve başlangıç zamanı, işlem hattı parametresinin değeri olarak ayarlanır. Aşağıdaki örnekte, tetikleyici için zamanlanan süreden ardışık düzene bir değer olarak geçirilir **scheduledRunTime** parametresi:
+Azure Data Factory sürüm 1, sistem değişkenlerini kullanarak bölümlenmiş verileri yazma veya okuma destekler: **SliceStart**, **SliceEnd**, **WindowStart**, ve **WindowEnd**. Azure Data Factory'nın geçerli sürümünde, bir işlem hattı parametre kullanarak bu davranışı elde edebilirsiniz. Tetikleyici için zamanlanan saat ve başlangıç zamanı, işlem hattı parametresinin değeri olarak ayarlanır. Aşağıdaki örnekte, tetikleyici için zamanlanan süreden ardışık düzene bir değer olarak geçirilir **scheduledRunTime** parametresi:
 
 ```json
 "parameters": {
@@ -323,7 +322,7 @@ Aşağıdaki tabloda bir tetikleyicinin yinelenmesi ve zamanlanmasıyla ilgili a
 
 ### <a name="schema-defaults-limits-and-examples"></a>Şema varsayılanları, sınırlar ve örnekler
 
-| JSON özelliği | Tür | Gerekli | Varsayılan değer | Geçerli değerler | Örnek |
+| JSON özelliği | Tür | Gereklidir | Varsayılan değer | Geçerli değerler | Örnek |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | Dize | Evet | None | ISO-8601 Tarih-Saatleri | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | Nesne | Evet | None | Yinelenme nesnesi | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |

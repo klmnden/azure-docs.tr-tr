@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 600bec9e4cfe356dcd28d489707d20ab47f5b013
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 62ee1c880987d0f9ad358f1a0d31af4a73263725
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753651"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017982"
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
 
@@ -28,7 +28,7 @@ ms.locfileid: "53753651"
 
 ## <a name="application-insights-pricing-and-limits"></a>Application Insights fiyatlandırma ve limitler
 
-Application Insights Tümleştirmesi ile işlev uygulamaları ücretsiz deneyebilirsiniz. Ancak, ne kadar veri ücretsiz işlenebilecek bir günlük sınır ve test sırasında bu sınırı neden olabilir. Günlük limitinize yaklaştığınıza olduğunda azure portalında ve e-posta bildirimleri sağlar.  Ancak bu uyarıları kaçırmayın ve sınırına, Application Insights sorgularda yeni günlükler görünmez. Bu nedenle gereksiz sorun giderme süresini önlemek için sınırını unutmayın. Daha fazla bilgi için [Application ınsights fiyatlandırma ve veri hacmini yönetme](../application-insights/app-insights-pricing.md).
+Application Insights Tümleştirmesi ile işlev uygulamaları ücretsiz deneyebilirsiniz. Ancak, ne kadar veri ücretsiz işlenebilecek bir günlük sınır ve test sırasında bu sınırı neden olabilir. Günlük limitinize yaklaştığınıza olduğunda azure portalında ve e-posta bildirimleri sağlar.  Ancak bu uyarıları kaçırmayın ve sınırına, Application Insights sorgularda yeni günlükler görünmez. Bu nedenle gereksiz sorun giderme süresini önlemek için sınırını unutmayın. Daha fazla bilgi için [Application ınsights fiyatlandırma ve veri hacmini yönetme](../azure-monitor/app/pricing.md).
 
 ## <a name="enable-app-insights-integration"></a>App Insights tümleştirmesini etkinleştirme
 
@@ -85,7 +85,7 @@ Application Insights tümleştirmesini ayarlama önceki bölümlerde gösterildi
 
 1. Seçin **Yenile** düzenli aralıklarla işlev çağrılarını listesinde görünene kadar.
 
-   Bu listenin görünecek şekilde iletilmesi için sunucunun telemetri istemci toplu verileri nedeniyle 5 dakika kadar sürebilir. (Bu gecikme uygulanmaz [Canlı ölçümleri Stream](../application-insights/app-insights-live-stream.md). Günlükleri doğrudan sayfaya aktarılır, böylece sayfa yüklediğinizde bu hizmeti işlevleri ana bilgisayara bağlanır.)
+   Bu listenin görünecek şekilde iletilmesi için sunucunun telemetri istemci toplu verileri nedeniyle 5 dakika kadar sürebilir. (Bu gecikme uygulanmaz [Canlı ölçümleri Stream](../azure-monitor/app/live-stream.md). Günlükleri doğrudan sayfaya aktarılır, böylece sayfa yüklediğinizde bu hizmeti işlevleri ana bilgisayara bağlanır.)
 
    ![Çağrılarını listesi](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -115,7 +115,7 @@ Azure portalında bir işlev uygulamasından Application Insights'ı açmak içi
 
 Application Insights'ı kullanma hakkında daha fazla bilgi için bkz: [Application Insights belgeleri](https://docs.microsoft.com/azure/application-insights/). Bu bölümde, Application Insights verilerini görüntüleme ile ilgili bazı örnekler gösterilmektedir. Application Insights ile bilginiz varsa, doğrudan gidebilirsiniz [yapılandırma ve telemetri verilerini özelleştirme hakkında bölümlere](#configure-categories-and-log-levels).
 
-İçinde [ölçüm Gezgini](../application-insights/app-insights-metrics-explorer.md)grafikler oluşturabilirsiniz ve uyarılar gibi ölçümlere dayalı olarak işlev çağrılarını, yürütme süresi ve başarı oranı sayısı.
+İçinde [ölçüm Gezgini](../azure-monitor/app/metrics-explorer.md)grafikler oluşturabilirsiniz ve uyarılar gibi ölçümlere dayalı olarak işlev çağrılarını, yürütme süresi ve başarı oranı sayısı.
 
 ![Ölçüm Gezgini](media/functions-monitoring/metrics-explorer.png)
 
@@ -123,7 +123,7 @@ Application Insights'ı kullanma hakkında daha fazla bilgi için bkz: [Applicat
 
 ![Hatalar](media/functions-monitoring/failures.png)
 
-Üzerinde [performans](../application-insights/app-insights-performance-counters.md) sekmesinde, performans sorunlarını çözümleyebilirsiniz.
+Üzerinde [performans](../azure-monitor/app/performance-counters.md) sekmesinde, performans sorunlarını çözümleyebilirsiniz.
 
 ![Performans](media/functions-monitoring/performance.png)
 
@@ -131,7 +131,7 @@ Application Insights'ı kullanma hakkında daha fazla bilgi için bkz: [Applicat
 
 ![Sunucular](media/functions-monitoring/servers.png)
 
-[Canlı ölçümleri Stream](../application-insights/app-insights-live-stream.md) sekmesi, gerçek zamanlı olarak oluşturulduğundan ölçüm verilerini gösterir.
+[Canlı ölçümleri Stream](../azure-monitor/app/live-stream.md) sekmesi, gerçek zamanlı olarak oluşturulduğundan ölçüm verilerini gösterir.
 
 ![Canlı akış](media/functions-monitoring/live-stream.png)
 
@@ -329,7 +329,7 @@ Günlükleri, işlev kodunuzun tarafından yazılan, "İşlev" kategorisi olan v
 
 ## <a name="configure-sampling"></a>Örnekleme yapılandırma
 
-Application Insights'ı olan bir [örnekleme](../application-insights/app-insights-sampling.md) zamanlarda, yoğun yük çok fazla telemetri verileri üreten gelen Koruyabileceğiniz özelliği. Gelen telemetri oranı belirtilen eşiği aşarsa, rastgele gelen öğelerden bazıları yok saymak Application ınsights'ı başlatır. 5 saniye başına öğe sayısı için varsayılan ayardır. Örnekleme yapılandırabileceğiniz [host.json](functions-host-json.md).  Bir örneği aşağıda verilmiştir:
+Application Insights'ı olan bir [örnekleme](../azure-monitor/app/sampling.md) zamanlarda, yoğun yük çok fazla telemetri verileri üreten gelen Koruyabileceğiniz özelliği. Gelen telemetri oranı belirtilen eşiği aşarsa, rastgele gelen öğelerden bazıları yok saymak Application ınsights'ı başlatır. 5 saniye başına öğe sayısı için varsayılan ayardır. Örnekleme yapılandırabileceğiniz [host.json](functions-host-json.md).  Bir örneği aşağıda verilmiştir:
 
 ### <a name="version-2x"></a>Sürüm 2.x 
 
@@ -360,7 +360,7 @@ Application Insights'ı olan bir [örnekleme](../application-insights/app-insigh
 ```
 
 > [!NOTE]
-> [Örnekleme](../application-insights/app-insights-sampling.md) varsayılan olarak etkindir. Veriler eksik görünüyorsa, yalnızca belirli izleme senaryonuza uygun örnekleme ayarları ayarlamanız gerekebilir.
+> [Örnekleme](../azure-monitor/app/sampling.md) varsayılan olarak etkindir. Veriler eksik görünüyorsa, yalnızca belirli izleme senaryonuza uygun örnekleme ayarları ayarlamanız gerekebilir.
 
 ## <a name="write-logs-in-c-functions"></a>C# işlevleri günlüklerini yazma
 

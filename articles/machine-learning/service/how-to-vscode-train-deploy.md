@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0910cce92c410a68dce6e2c44d29e72e594cd153
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e7df9086fa5ffc6273a6cb063bdee3cfdfa73e34
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271717"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013324"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Visual Studio Code eğitmek ve makine öğrenimi modelleri dağıtmak için kullanın
 
@@ -43,7 +43,7 @@ Bu uzantı, Azure Machine Learning için birkaç farklı uzak işlem hedeflerini
 
 **İşlem hedefi oluşturmak için:**
 
-1. Visual Studio Code etkinlik çubuğundaki Azure simgesine tıklayın. Azure: Machine Learning kenar çubuğu görünür.
+1. Visual Studio Code etkinlik çubuğundaki Azure simgesine tıklayın. Azure Machine Learning Kenar çubuğunda görünür.
 
 2. Ağaç görünümünde, Azure aboneliğinizi ve Azure Machine Learning hizmeti çalışma alanında genişletin. Animasyonlu görüntüde, abonelik adı 'Ücretsiz deneme sürümü' ve 'TeamWorkspace' çalışma alanıdır. 
 
@@ -51,27 +51,25 @@ Bu uzantı, Azure Machine Learning için birkaç farklı uzak işlem hedeflerini
 
 4. İşlem hedef listeden seçin. 
 
-5. Herhangi bir Gelişmiş özellikleri yeni bir sekmede açılır JSON yapılandırma dosyası belirtin. Bu dosyayı, işlem hedefi için benzersiz bir ad belirtebilirsiniz.
+5. Komut paletini içinde bir sanal makine boyutu seçin.
 
-6. İşiniz bittiğinde işlem hedef yapılandırma, tıklayın **Gönder** sağ alt.
+6. Komut paletini işlem hedef alan için bir ad girin. 
 
-Azure Machine Learning işlem (AMLCompute) için bir örnek aşağıda verilmiştir: [![VS Code'da AML işlem oluşturma](./media/vscode-tools-for-ai/CreateAMLCompute.gif)](./media/vscode-tools-for-ai/CreateAMLCompute.gif#lightbox)
+7. Herhangi bir Gelişmiş özellikleri yeni bir sekmede açılır JSON yapılandırma dosyası belirtin. En yüksek düğüm sayısı gibi özellikleri belirtebilirsiniz...
 
-### <a name="use-remote-computes-for-experiments-in-vs-code"></a>VS code'da denemeleri için Uzak hesaplar kullanın
+8. İşiniz bittiğinde işlem hedef yapılandırma, tıklayın **Gönder** ekranının sağ alt köşesindeki.
 
-Uzak işlem hedefi eğitimindeki kullanmak için bir çalıştırma yapılandırma dosyası oluşturmanız gerekir. Azure Machine Learning denemenizi çalıştırmak nerede değil yalnızca bu dosya bildirir ancak ortamı hazırlama nasıl de.
+Bir Azure Machine Learning işlem (AMLCompute) oluşturmaya yönelik bir örnek aşağıda verilmiştir: [![VS Code'da AML işlem oluşturma](./media/vscode-tools-for-ai/CreateARemoteCompute.gif)](./media/vscode-tools-for-ai/CreateARemoteCompute.gif#lightbox)
 
 #### <a name="the-run-configuration-file"></a>'Çalıştırma Yapılandırması' dosyası
 
-VS Code uzantısı için bir çalıştırma yapılandırması otomatik olarak oluşturur, **yerel** ve **docker** yerel bilgisayarınızda ortamları.
+VS Code uzantısı otomatik olarak yerel işlem hedefi oluşturmak ve çalıştırmak için yapılandırmaları, **yerel** ve **docker** yerel bilgisayarınızda ortamları. Çalıştırma yapılandırma dosyaları ilişkili işlem hedefi altında bulunamadı. 
 
-Yapılandırma dosyasını çalıştırın varsayılan bir kod parçacığı budur.
-
-Tüm kitaplıkları/bağımlılıklarınızı yüklemek istiyorsanız, `userManagedDependencies: True` ve yerel deneme çalıştırmalarınızın VS Code Python uzantısı tarafından belirlenen varsayılan Python ortamınızı daha sonra kullanır.
+Varsayılan yerel çalıştırma yapılandırma dosyasından bir kod parçacığı budur. Varsayılan olarak, `userManagedDependencies: True` yerel deneme çalıştırmalarınızın VS Code Python uzantısı tarafından belirlenen varsayılan Python ortamınızı daha sonra kullanır ve tüm kitaplıklar/bağımlılıklarınızı kendiniz yüklemeniz gerekir.
 
 ```yaml
-# user_managed_dependencies=True indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
-    userManagedDependencies: False
+# user_managed_dependencies = True indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
+    userManagedDependencies: True
 # The python interpreter path
     interpreterPath: python
 # Path to the conda dependencies file to use for this run. If a project
@@ -83,6 +81,30 @@ Tüm kitaplıkları/bağımlılıklarınızı yüklemek istiyorsanız, `userMana
 # Set True to perform this run inside a Docker container.
     enabled: false
 ```
+
+## <a name="train-and-tune-models"></a>Modelleri eğitme ve ayarlama
+
+Azure Machine Learning (Önizleme) VS Code için hızlı bir şekilde kodunuz üzerinde yineleme, adım adım ve hata ayıklama ve kaynak kod denetimi çözümünüzü tercih ettiğiniz kullanmak için kullanın. 
+
+**Denemenizi Azure Machine Learning ile yerel olarak çalıştırmak için:**
+
+1. Visual Studio Code etkinlik çubuğundaki Azure simgesine tıklayın. Azure Machine Learning Kenar çubuğunda görünür.
+
+1. Ağaç görünümünde, Azure aboneliğinizi ve Azure Machine Learning hizmeti çalışma alanında genişletin. 
+
+1. Çalışma alanı düğümünde genişletin **işlem** düğümünü seçip sağ tıklayın **çalıştırma yapılandırma** kullanmak istediğiniz işlem. 
+
+1. Seçin **denemeyi çalıştırma**.
+
+1. Dosya Gezgini'nden çalıştırılacak betik seçin. 
+
+1. Tıklayın **görünümü, denemeyi çalıştırma** çalıştırmalarınızı izleyin ve eğitilen Modellerinizi görmek için tümleşik Azure Machine Learning portalı görmek için.
+
+Bir deney yerel olarak çalıştırmaya yönelik bir örnek aşağıda verilmiştir: [![Bir deney yerel olarak çalıştırma](./media/vscode-tools-for-ai/RunExperimentLocally.gif)](./media/vscode-tools-for-ai/RunExperimentLocally.gif#lightbox)
+
+### <a name="use-remote-computes-for-experiments-in-vs-code"></a>VS code'da denemeleri için Uzak hesaplar kullanın
+
+Uzak işlem hedefi eğitimindeki kullanmak için bir çalıştırma yapılandırma dosyası oluşturmanız gerekir. Azure Machine Learning denemenizi çalıştırmak nerede değil yalnızca bu dosya bildirir ancak ortamı hazırlama nasıl de.
 
 #### <a name="the-conda-dependencies-file"></a>Conda bağımlılıkları dosyasının
 
@@ -101,6 +123,7 @@ dependencies:
   # Currently Azure ML only supports 3.5.2 and later.
 
 - python=3.6.2
+- tensorflow
 
 - pip:
     # Required packages for AzureML execution, history, and data preparation.
@@ -111,21 +134,24 @@ dependencies:
 
 ```
 
-## <a name="train-and-tune-models"></a>Modelleri eğitme ve ayarlama
+**Azure Machine Learning ile denemenizi bir uzaktan çalıştırmak için hedef işlem:**
 
-Azure Machine Learning (Önizleme) VS Code için hızlı bir şekilde kodunuz üzerinde yineleme, adım adım ve hata ayıklama ve kaynak kod denetimi çözümünüzü tercih ettiğiniz kullanmak için kullanın. 
-
-**Azure Machine Learning denemenizi çalıştırmak için:**
-
-1. Visual Studio Code etkinlik çubuğundaki Azure simgesine tıklayın. Azure: Machine Learning kenar çubuğu görünür.
+1. Visual Studio Code etkinlik çubuğundaki Azure simgesine tıklayın. Azure Machine Learning Kenar çubuğunda görünür.
 
 1. Ağaç görünümünde, Azure aboneliğinizi ve Azure Machine Learning hizmeti çalışma alanında genişletin. 
 
-1. Çalışma alanı düğümünde genişletin **işlem** düğüm ve sağ **çalıştırma yapılandırma** kullanmak istediğiniz işlem. 
+1. Düzenleyici penceresinde python betiğinizi üzerinde sağ tıklayıp **AML: Azure deneme Çalıştır**. 
 
-1. Seçin **denemeyi çalıştırma**.
+1. Komut paletini işlem hedefini seçin. 
+
+1. Komut paletini içinde alanında çalışma yapılandırması adını girin. 
+
+1. Deneme çalışma zamanı bağımlılıklarını belirtin ve ardından conda_dependencies.yml dosyasını düzenleyerek **Gönder** ekranının sağ alt köşesindeki. 
 
 1. Tıklayın **görünümü, denemeyi çalıştırma** çalıştırmalarınızı izleyin ve eğitilen Modellerinizi görmek için tümleşik Azure Machine Learning portalı görmek için.
+
+Uzak işlem hedefte bir denemeyi çalıştırmak için bir örnek aşağıda verilmiştir: [![Uzaktan bir hedef bir denemeyi çalıştırma](./media/vscode-tools-for-ai/runningOnARemoteTarget.gif)](./media/vscode-tools-for-ai/runningOnARemoteTarget.gif#lightbox)
+
 
 ## <a name="deploy-and-manage-models"></a>Model dağıtıp yönetmek
 Azure Machine Learning dağıtma ve yönetme, makine öğrenimi modellerini Bulut ve uçta sağlar. 
@@ -137,18 +163,21 @@ Kayıtlı modelleri izlenir ve dağıtılabilir.
 
 **Modelinizi kaydetmek için:**
 
-1. Visual Studio Code etkinlik çubuğundaki Azure simgesine tıklayın. Azure: Machine Learning kenar çubuğu görünür.
+1. Visual Studio Code etkinlik çubuğundaki Azure simgesine tıklayın. Azure Machine Learning Kenar çubuğunda görünür.
 
 1. Ağaç görünümünde, Azure aboneliğinizi ve Azure Machine Learning hizmeti çalışma alanında genişletin.
 
 1. Çalışma alanı düğümü altında sağ **modelleri** ve **modelini kaydettirmek**.
 
+1. Komut paletini içinde bir model ad alanını girin. 
+
 1. Listeden yüklemek isteyip istemediğinizi seçin. bir **model dosyası** (tek modelleri için) bir **model klasörünü** (için modeller Tensorflow gibi birden çok dosya ile). 
 
 1. Klasör veya dosyayı seçin.
 
-1. İşiniz bittiğinde, model özellikleri yapılandırmak, tıklayın **Gönder** sağ alt. 
+1. İşiniz bittiğinde, model özellikleri yapılandırmak, tıklayın **Gönder** ekranının sağ alt köşesindeki. 
 
+AML modelinize kaydetmek için bir örnek aşağıda verilmiştir: [![AML modeline kaydediliyor](./media/vscode-tools-for-ai/RegisteringAModel.gif)](./media/vscode-tools-for-ai/RegisteringAModel.gif#lightbox)
 
 
 ### <a name="deploy-your-service-from-vs-code"></a>VS Code hizmetinizden dağıtma
@@ -163,7 +192,7 @@ Daha fazla bilgi edinin [Azure Machine Learning ile dağıtım](how-to-deploy-an
 
 **Bir web hizmetini dağıtmak için:**
 
-1. Visual Studio Code etkinlik çubuğundaki Azure simgesine tıklayın. Azure: Machine Learning kenar çubuğu görünür.
+1. Visual Studio Code etkinlik çubuğundaki Azure simgesine tıklayın. Azure Machine Learning Kenar çubuğunda görünür.
 
 1. Ağaç görünümünde, Azure aboneliğinizi ve Azure Machine Learning hizmeti çalışma alanınızı genişletin.
 
@@ -173,15 +202,17 @@ Daha fazla bilgi edinin [Azure Machine Learning ile dağıtım](how-to-deploy-an
 
 1. Komut paletini, listeden dağıtılacağı işlem hedefi seçin. 
 
-1. Bu hizmet için bir ad alanına girin. 
+1. Komut paletini içinde alanına bu hizmet için bir ad girin.  
 
 1. Komut paletini içinde klavyenizde ve komut dosyasını seçmek için Enter tuşuna basın.
 
 1. Komut paletini klavyenizde ve conda bağımlılık dosyasını seçmek için Enter tuşuna basın.
 
-1. İşiniz bittiğinde, hizmet özellikleri yapılandırmak, tıklayın **Gönder** sağ alt. Hizmet Özellikleri dosyasında bu yerel bir Docker dosyası veya kullanmak istediğiniz schema.json dosyası belirtebilirsiniz.
+1. İşiniz bittiğinde, hizmet özellikleri yapılandırmak, tıklayın **Gönder** dağıtmak için ekranının sağ alt köşesindeki. Hizmet Özellikleri dosyasında bu yerel bir Docker dosyası veya kullanmak istediğiniz schema.json dosyası belirtebilirsiniz.
 
 Web hizmeti artık dağıtılır.
+
+Bir web hizmeti dağıtmak için bir örnek aşağıda verilmiştir: [![Bir web Hizmeti'ni dağıtma](./media/vscode-tools-for-ai/CreatingAnImage.gif)](./media/vscode-tools-for-ai/CreatingAnImage.gif#lightbox)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

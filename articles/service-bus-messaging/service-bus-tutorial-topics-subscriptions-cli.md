@@ -9,14 +9,14 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 1d2be579dda9f90f06897f11d62ccd08076f892e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.openlocfilehash: fbfb6a030d4979f9bd6a27f4c5b6908e62ffd9ab
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413579"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001762"
 ---
-# <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Öğretici: CLI'yi ve konuları/abonelikleri kullanarak envanter güncelleştirme
+# <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Öğretici: CLI ile konular/abonelikler Envanter güncelleştirme
 
 Microsoft Azure Service Bus, uygulamalar ve hizmetler arasında bilgi gönderen çok kiracılı bir bulut mesajlaşma hizmetidir. Zaman uyumsuz işlemler esnek ve aracılı mesajlaşmanın yanı sıra ilk giren ilk çıkar (FIFO) yöntemiyle yapılandırılmış mesajlaşma ve yayımlama/abonelik olanakları da sunar. Bu öğretici, bir perakende stok senaryosunda, Azure CLI ve Java kullanan yayımlama/abone olma kanallarıyla Service Bus konu başlıklarını ve abonelikleri kullanmayı göstermektedir.
 
@@ -34,7 +34,7 @@ Bu senaryonun bir örneği, birden çok perakende mağazası için stok sınıfl
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap][] oluşturabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Java ile bir Service Bus uygulaması geliştirebilmeniz için şunlar yüklü olmalıdır:
 
@@ -126,7 +126,7 @@ Son komut çalıştıktan sonra, bağlantı dizesini ve seçtiğiniz kuyruk adı
 
 ## <a name="create-filter-rules-on-subscriptions"></a>Aboneliklerde filtre kuralları oluşturma
 
-Ad alanı ve konu başlıkları/abonelikler sağlandıktan ve gerekli kimlik bilgilerini edindikten sonra, aboneliklerde filtre kuralları oluşturmaya ve ileti gönderip almaya hazır olursunuz. [Bu GitHub örnek klasöründeki](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/tutorial-topics-subscriptions-filters-java/src/main/java/com/microsoft/azure/) kodu inceleyebilirsiniz.
+Ad alanı ve konu başlıkları/abonelikler sağlandıktan ve gerekli kimlik bilgilerini edindikten sonra, aboneliklerde filtre kuralları oluşturmaya ve ileti gönderip almaya hazır olursunuz. [Bu GitHub örnek klasöründeki](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters) kodu inceleyebilirsiniz.
 
 ## <a name="send-and-receive-messages"></a>İleti alma ve gönderme
 

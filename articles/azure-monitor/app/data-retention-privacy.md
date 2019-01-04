@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 42a15e7513fb0aa84734f0965ad8e305cabc0b28
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 21b72a6999b58e7896a79766073ba5a8fa35a734
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971858"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023018"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -87,7 +87,7 @@ Ham veri noktalarını (diğer bir deyişle, Analytics'te sorgu ve arama İncele
 
 Toplanan verileri (diğer bir deyişle, sayıları, ortalamalar ve ölçüm Gezgini'nde gördüğünüz diğer istatistiksel veriler), 90 gün boyunca 1 dakikalık bir dilimi korunur.
 
-[Anlık görüntü hata ayıklama](../../application-insights/app-insights-snapshot-debugger.md) yedi gün boyunca saklanır. Bu bekletme ilkesi, bir uygulama başına temelinde ayarlanır. Bu değeri arttırmak gerekiyorsa, Azure portalında bir destek talebi açarak artışı isteyebilirsiniz.
+[Anlık görüntü hata ayıklama](../../azure-monitor/app/snapshot-debugger.md) yedi gün boyunca saklanır. Bu bekletme ilkesi, bir uygulama başına temelinde ayarlanır. Bu değeri arttırmak gerekiyorsa, Azure portalında bir destek talebi açarak artışı isteyebilirsiniz.
 
 ## <a name="who-can-access-the-data"></a>Verilere kimler erişebilir?
 Verileri sizin için görünür olur ve bir kuruluş hesabı veya takım üyeleriniz varsa. 
@@ -294,7 +294,7 @@ Bu ürünü MaxMind kullanılabilir tarafından oluşturulan GeoLite2 veri içer
 [config]: ../../azure-monitor/app/configuration-with-applicationinsights-config.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [java]: ../../azure-monitor/app/java-get-started.md
-[platforms]: ../../application-insights/app-insights-platforms.md
+[platforms]: ../../azure-monitor/app/platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../application-insights/app-insights-overview.md

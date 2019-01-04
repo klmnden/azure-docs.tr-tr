@@ -10,17 +10,16 @@ ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736419"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015823"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory işlem hatlarını Spark programlarını çağırma
 
@@ -46,7 +45,7 @@ Spark etkinliğini biridir [veri dönüştürme etkinlikleri](data-factory-data-
 > - Spark etkinliği, HDInsight Spark kümeleri, birincil depolama olarak Azure Data Lake Store kullanma desteklemiyor.
 > - Spark etkinliği, HDInsight Spark kümeleri (kendi) yalnızca mevcut destekler. Bunu yapmak için bir isteğe bağlı HDInsight bağlı hizmeti desteklemiyor.
 
-## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>İzlenecek yol: bir Spark etkinliği ile işlem hattı oluşturma
+## <a name="walkthrough-create-a-pipeline-with-a-spark-activity"></a>Çözüm: Spark etkinliği ile işlem hattı oluşturma
 Spark etkinliği ile bir veri fabrikası işlem hattı oluşturmak için tipik adımları şunlardır: 
 
 * Veri fabrikası oluşturma.
@@ -327,7 +326,7 @@ Bir Spark etkinliği ile işlem hattı JSON tanımını örnek aşağıda verilm
 
 Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmaktadır.
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 | -------- | ----------- | -------- |
 | ad | İşlem hattındaki bir etkinliğin adı. | Evet |
 | açıklama | Etkinliğin ne yaptığını açıklayan metin. | Hayır |
@@ -338,7 +337,7 @@ Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmak
 | className | Uygulamanın Java/Spark temel sınıfı. | Hayır |
 | bağımsız değişkenler | Spark programı için komut satırı bağımsız değişkenleri listesi. | Hayır |
 | Proxyuserpassword | Spark programının yürütülecek kimliğine bürünmek için kullanıcı hesabı. | Hayır |
-| sparkConfig | Listelenen Spark yapılandırma özellikleri için değerleri belirtin [Spark yapılandırması: uygulama özellikleri](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Hayır |
+| sparkConfig | Listelenen Spark yapılandırma özellikleri için değerleri belirtin [Spark yapılandırması: Uygulama özellikleri](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Hayır |
 | Getdebugınfo | HDInsight küme tarafından kullanılan depolama Spark günlük dosyalarının ne zaman kopyalanır belirtir (veya) sparkJobLinkedService belirtilir. İzin verilen değerler, her zaman veya hata yok. Varsayılan değer, Yok'tur. | Hayır |
 | sparkJobLinkedService | Depolama bağlı iş dosyası, bağımlılıklar ve günlükleri Spark tutan hizmeti. Bu özellik için bir değer belirtmezseniz, HDInsight kümesi ile ilişkili depolama kullanılır. | Hayır |
 
@@ -347,7 +346,7 @@ Spark etkinliği bir satır içi betik Pig olarak desteklemez ve Hive etkinlikle
 
 HDInsight bağlı hizmeti tarafından başvurulan blob depolama alanındaki aşağıdaki klasör yapısını oluşturun. Ardından, uygun alt tarafından temsil edilen kök klasöründe bağımlı dosya yükleme **entryFilePath**. Örneğin, Python dosyaları pyFiles alt klasöre yüklemek ve jar dosyaları dışındaki kök klasörün alt dosyalarını jar. Çalışma zamanında Data Factory hizmeti blob depolamada aşağıdaki klasör yapısına bekliyor: 
 
-| Yol | Açıklama | Gerekli | Tür |
+| Yol | Açıklama | Gereklidir | Tür |
 | ---- | ----------- | -------- | ---- |
 | . | Spark işi depolama bağlı hizmeti kök yolu. | Evet | Klasör |
 | &lt;Kullanıcı tanımlı &gt; | Spark işi giriş dosyasına işaret eden yol. | Evet | Dosya |

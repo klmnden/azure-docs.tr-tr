@@ -9,17 +9,16 @@ ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 848616bb69aa0eae384b9c4e7ea1c2ac3da3c04e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167129"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024918"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Oracle şirket içi veri kopyalayın
 
@@ -56,7 +55,7 @@ Oracle Azure altyapısının hizmet (Iaas) sanal makine olarak barındırılıyo
 
 Bu Oracle Bağlayıcısı sürücülerin iki sürümlerini destekler:
 
-- **(Önerilen) Oracle için Microsoft sürücüsü**: otomatik olarak ağ geçidi ile yüklenen Oracle için veri yönetimi ağ geçidi sürüm 2.7, Microsoft sürücüsü başlangıcı. Yükleme veya Oracle bağlantı kurmak için bir sürücü güncelleştirmeniz gerekmez. Bu sürücü kullanarak, daha iyi bir kopyalama performansı da oluşabilir. Oracle veritabanları bu sürümleri desteklenir:
+- **(Önerilen) Oracle için Microsoft sürücüsü**: Oracle için Microsoft sürücüsü, veri yönetimi ağ geçidi sürüm 2.7 başlayarak, ağ geçidi ile otomatik olarak yüklenir. Yükleme veya Oracle bağlantı kurmak için bir sürücü güncelleştirmeniz gerekmez. Bu sürücü kullanarak, daha iyi bir kopyalama performansı da oluşabilir. Oracle veritabanları bu sürümleri desteklenir:
     - Oracle 12c R1 (12,1)
     - Oracle 11g R1, R2 (11.1, 11.2)
     - Oracle 10g R1, R2 (10,1, 10.2)
@@ -70,7 +69,7 @@ Bu Oracle Bağlayıcısı sürücülerin iki sürümlerini destekler:
     > Şu anda Microsoft sürücüsü Oracle için Oracle yalnızca veri kopyalamayı destekler. Oracle sürücüsü desteklememektedir. Veri Yönetimi ağ geçidi üzerinde test bağlantı özelliği **tanılama** sekme, bu sürücüyü desteklemiyor. Alternatif olarak, bağlantıyı doğrulamak için kopyalama Sihirbazı'nı kullanabilirsiniz.
     >
 
-- **.NET için Oracle veri sağlayıcısı**: gelen veya Oracle veri kopyalamak için Oracle veri sağlayıcısı'nı kullanabilirsiniz. Bu bileşen yer aldığı [için Oracle veri erişim bileşenleri Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). İlgili sürüm (32 bit veya 64-bit), ağ geçidinin yüklü olduğu bir makineye yükleyin. [Oracle veri sağlayıcısı .NET 12,1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) Oracle veritabanı 10 g sürüm 2 ve üzeri sürümler erişebilirsiniz.
+- **.NET için Oracle veri sağlayıcısı**: Gelen veya Oracle veri kopyalamak için Oracle veri sağlayıcısı'nı kullanabilirsiniz. Bu bileşen yer aldığı [için Oracle veri erişim bileşenleri Windows](http://www.oracle.com/technetwork/topics/dotnet/downloads/). İlgili sürüm (32 bit veya 64-bit), ağ geçidinin yüklü olduğu bir makineye yükleyin. [Oracle veri sağlayıcısı .NET 12,1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) Oracle veritabanı 10 g sürüm 2 ve üzeri sürümler erişebilirsiniz.
 
     Seçerseniz **XCopy yükleme**, readme.htm dosyasında açıklanan adımları izleyin. Kullanıcı arabirimini (XCopy yükleyici değil) olan yükleyici seçmenizi öneririz.
 
@@ -82,7 +81,7 @@ Kopyalama Sihirbazı'nı kopyalama işlem hattını oluşturmak için kullandı�
 
 Kopyalama etkinliği içeren işlem hattı oluşturabilirsiniz. İşlem hattı farklı araçları veya API'leri kullanarak ya da şirket içi Oracle veritabanından veri taşır.
 
-Bir işlem hattı oluşturmanın en kolay yolu kopyalama Sihirbazı'nı kullanmaktır. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz.
+Bir işlem hattı oluşturmanın en kolay yolu kopyalama Sihirbazı'nı kullanmaktır. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz.
 
 Ayrıca aşağıdaki araçlardan birini bir işlem hattı oluşturmak için kullanabilirsiniz: **Azure portalında**, **Visual Studio**, **Azure PowerShell**e **Azure Resource Manager Şablon**, **.NET API**, veya **REST API**. Bkz: [kopyalama etkinliği Öğreticisi](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği içeren işlem hattı oluşturma konusunda adım adım yönergeler için.
 
@@ -111,7 +110,7 @@ Aşağıdaki tabloda, Oracle bağlantılı hizmete özgü JSON öğeleri açıkl
 **Örnek: Microsoft sürücüsü kullanma**
 
 > [!TIP]
-> Bildiren bir hata görürseniz "ORA-01025: UPI parametre aralık dışında" ve Oracle sürümü 8i, ekleme `WireProtocolMode=1` bağlantı dizesi ve yeniden deneyin:
+> Bildiren bir hata görürseniz "ORA-01025: UPI parametre aralık dışında"ve Oracle sürümü 8i, ekleme `WireProtocolMode=1` bağlantı dizesi ve yeniden deneyin:
 
 ```json
 {
@@ -127,7 +126,7 @@ Aşağıdaki tabloda, Oracle bağlantılı hizmete özgü JSON öğeleri açıkl
 }
 ```
 
-**Örnek: ODP sürücü kullanma**
+**Örnek: ODP sürücüsü kullanarak**
 
 İzin verilen biçimler hakkında bilgi edinmek için [ODP .NET için Oracle veri sağlayıcısı](https://www.connectionstrings.com/oracle-data-provider-for-net-odp-net/).
 
@@ -153,7 +152,7 @@ Yapı, kullanılabilirlik ve ilke gibi bir veri kümesi JSON dosyası bölümler
 
 **TypeProperties** bölümünde her veri kümesi türü için farklıdır ve verilerin veri deposundaki konumu hakkında bilgi sağlar. **TypeProperties** türü için veri kümesi bölümünü **OracleTable** aşağıdaki özelliklere sahiptir:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 | --- | --- | --- |
 | tableName |Tabloda bir Oracle veritabanına başvuran bağlı hizmetin adı. |Hayır (varsa **oracleReaderQuery** veya **OracleSource** belirtilir) |
 
@@ -172,7 +171,7 @@ Kullanılabilir özellikler **typeProperties** etkinlik bölümünü her etkinli
 
 Kopya etkinlikteki kaynak olduğunda, **OracleSource** türü, aşağıdaki özellikler kullanılabilir **typeProperties** bölümü:
 
-| Özellik | Açıklama | İzin verilen değerler | Gerekli |
+| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
 | --- | --- | --- | --- |
 | oracleReaderQuery |Verileri okumak için özel sorgu kullanın. |Bir SQL sorgu dizesi. Örneğin, "seçin \* gelen **MyTable**". <br/><br/>Belirtilmemişse, bu SQL deyimi yürütülür: "seçin \* gelen **MyTable**" |Hayır<br />(varsa **tableName** , **veri kümesi** belirtilir) |
 
@@ -180,7 +179,7 @@ Kopya etkinlikteki kaynak olduğunda, **OracleSource** türü, aşağıdaki öze
 
 **OracleSink** aşağıdaki özellikleri destekler:
 
-| Özellik | Açıklama | İzin verilen değerler | Gerekli |
+| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
 | --- | --- | --- | --- |
 | writeBatchTimeout |Batch için bekleme süresi, işlemin zaman aşımına uğramadan önce tamamlanması ekleyin. |**Zaman aralığı**<br/><br/> Örnek: 00:30:00 (30 dakika) |Hayır |
 | writeBatchSize |Arabellek boyutu değerini ulaştığında veri SQL tablosuna ekler **writeBatchSize**. |Tamsayı (satır sayısı) |Hayır (varsayılan: 100) |
@@ -191,7 +190,7 @@ Kopya etkinlikteki kaynak olduğunda, **OracleSource** türü, aşağıdaki öze
 
 Aşağıdaki örnekler kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlamak [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Örnekler öğesinden veya bir Oracle veritabanına ya da Azure Blob depolamadan/depolamaya veri kopyalama işlemini göstermektedir. Ancak, veriler herhangi bir listelenen havuzlarını kopyalanabilir [desteklenen veri depoları ve biçimler](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Azure veri fabrikasında kopyalama etkinliği kullanarak.   
 
-**Örnek: verileri Oracle'dan Azure Blob depolamaya kopyalama**
+**Örnek: Oracle'dan Azure Blob depolama alanına veri kopyalama**
 
 Örnek, aşağıdaki Data Factory varlıklarını sahiptir:
 
@@ -377,7 +376,7 @@ Veriler her saat yeni bir bloba yazılır (**sıklığı**: **saat**, **aralığ
 }
 ```
 
-**Örnek: verileri Azure Blob depolama alanından Oracle'a kopyalama**
+**Örnek: Azure Blob depolamadan/depolamaya veri Oracle'a kopyalama**
 
 Bu örnek bir Azure Blob Depolama hesabındaki bir şirket içi Oracle veritabanına veri kopyalama işlemi gösterilmektedir. Ancak, veri kopyalayabilirsiniz *doğrudan* herhangi listelenen kaynakları [desteklenen veri depoları ve biçimler](data-factory-data-movement-activities.md#supported-data-stores-and-formats) Azure veri fabrikasında kopyalama etkinliği kullanarak.  
 

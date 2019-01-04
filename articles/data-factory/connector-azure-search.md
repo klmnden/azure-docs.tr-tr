@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory kullanarak Search dizinine veri kopyalama | Microsoft Docs
-description: İtme veya kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak bir Azure search dizinine veri kopyalama hakkında bilgi edinin.
+title: Azure Data Factory kullanarak verileri arama dizinine kopyalama | Microsoft Docs
+description: Anında iletme veya bir Azure Data Factory işlem hattında kopyalama etkinliği'ni kullanarak bir Azure search dizinine veri kopyalama hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,48 +9,47 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: d31859a2af0402789b03447510d510a9658961de
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aa6c6a35a66569d5db182e1871012b9697c2802c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051017"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023354"
 ---
-# <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Search dizini için veri kopyalama
+# <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Azure Data Factory kullanarak bir Azure Search dizinine veri kopyalama
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-azure-search-connector.md)
 > * [Geçerli sürüm](connector-azure-search.md)
 
-Bu makalede kopya etkinliği Azure Data Factory'de Azure Search dizinine verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede, Azure Search dizinine veri kopyalamak için Azure veri fabrikasında kopyalama etkinliği kullanma açıklanmaktadır. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Tüm desteklenen kaynak veri deposundan verileri Azure Search dizinine kopyalayabilirsiniz. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Tüm desteklenen kaynak veri deposundan verileri Azure Search dizinine kopyalayabilirsiniz. Kaynakları/havuz kopyalama etkinliği tarafından desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
 ## <a name="getting-started"></a>Başlarken
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Aşağıdaki bölümler, Azure Search bağlayıcıya Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümler, Data Factory varlıklarını belirli Azure Search bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
-## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
+## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
-Aşağıdaki özellikleri, bağlantılı Azure Search hizmeti için desteklenir:
+Bağlı Azure Search hizmeti için aşağıdaki özellikleri destekler:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlanmalıdır: **AzureSearch** | Evet |
+| type | Type özelliği ayarlanmalıdır: **Azure Search** | Evet |
 | url | Azure Search hizmeti için URL. | Evet |
-| anahtar | Azure Search hizmeti için yönetici anahtarı. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+| anahtar | Azure Search hizmeti için yönetici anahtarı. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). | Evet |
+| connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel ağında bulunuyorsa), Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 > [!IMPORTANT]
-> Azure Search'te Azure Search dizinine bir bulut veri deposundan veri kopyalama hizmet bağlandığında, Azure tümleştirmesi çalışma zamanı connactVia açık bölgede ile başvurmanız gerekir. Bölge, Azure Search bulunduğu bir ayarlayın. ' Dan daha fazla bilgi edinin [Azure tümleştirmesi çalışma zamanı](concepts-integration-runtime.md#azure-integration-runtime).
+> Azure Search'te Azure Search dizinine bir bulut veri deposundan veri kopyalamayı bağlı hizmeti, Azure tümleştirme çalışma zamanı connactVia açık bölgede ile başvurmanız gerekir. Bölge, Azure Search bulunan biri ayarlayın. Daha fazla bilgi [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Örnek:**
 
@@ -76,14 +75,14 @@ Aşağıdaki özellikleri, bağlantılı Azure Search hizmeti için desteklenir:
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için veri kümeleri makalesine bakın. Bu bölümde Azure Search'te veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için veri kümeleri makalesine bakın. Bu bölümde, Azure Search veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-Azure Search verileri kopyalamak için kümesine tür özelliği ayarlamak **RelationalTable**. Aşağıdaki özellikler desteklenir:
+Azure Search'e veri kopyalamak için dataset öğesinin type özelliği ayarlamak **RelationalTable**. Aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Veri kümesi türü özelliği ayarlamak: **AzureSearchIndex** | Evet |
-| indexName | Azure Search dizini adı. Veri Fabrikası dizinini oluşturmaz. Azure Search'te dizin mevcut olması gerekir. | Evet |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **AzureSearchIndex** | Evet |
+| indexName | Azure Search dizininin adı. Veri fabrikası, Dizin oluşturulmaz. Azure Search'te dizin varolmalıdır. | Evet |
 
 **Örnek:**
 
@@ -105,32 +104,32 @@ Azure Search verileri kopyalamak için kümesine tür özelliği ayarlamak **Rel
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Azure Search kaynak tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, Azure Search kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
-### <a name="azure-search-as-sink"></a>Havuz olarak Azure arama
+### <a name="azure-search-as-sink"></a>Havuz olarak, Azure Search'ü
 
-Azure Search verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **AzureSearchIndexSink**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **havuz** bölümü:
+Azure Search'e veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **AzureSearchIndexSink**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **havuz** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **AzureSearchIndexSink** | Evet |
-| WriteBehavior | Birleştir veya bir belge dizinde zaten mevcut olduğunda Değiştir belirtir. Bkz: [WriteBehavior özelliği](#writebehavior-property).<br/><br/>İzin verilen değerler: **birleştirme** (varsayılan), ve **karşıya**. | Hayır |
-| writeBatchSize | Arabellek boyutu writeBatchSize ulaştığında Azure Search dizinine veri yükler. Bkz: [WriteBatchSize özelliği](#writebatchsize-property) Ayrıntılar için.<br/><br/>İzin verilen değerler: tamsayı 1 için 1.000; Varsayılan 1000'dir. | Hayır |
+| type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **AzureSearchIndexSink** | Evet |
+| WriteBehavior | Bir belge dizinde zaten mevcut olduğunda değiştirin ya da birleştirme belirtir. Bkz: [WriteBehavior özelliği](#writebehavior-property).<br/><br/>İzin verilen değerler şunlardır: **Birleştirme** (varsayılan), ve **karşıya**. | Hayır |
+| writeBatchSize | Arabellek boyutu writeBatchSize ulaştığında, verileri Azure Search dizinine yükler. Bkz: [WriteBatchSize özelliği](#writebatchsize-property) Ayrıntılar için.<br/><br/>İzin verilen değerler: 1 ila 1.000; tamsayı Varsayılan 1000'dir. | Hayır |
 
 ### <a name="writebehavior-property"></a>WriteBehavior özelliği
 
-Verileri yazarken AzureSearchSink upserts. Diğer bir deyişle, belge anahtarı Azure arama dizini zaten varsa bir belge yazarken, Azure Search çakışma özel durum atma yerine varolan bir belgeyi güncelleştirir.
+Veri yazarken AzureSearchSink upsert eder. Diğer bir deyişle, Azure Search dizin belge anahtarı zaten varsa belge yazarken, Azure Search çakışma özel durum yerine var olan bir belgeyi güncelleştirir.
 
-AzureSearchSink (AzureSearch SDK kullanılarak) aşağıdaki iki upsert davranışlar sağlar:
+AzureSearchSink (Azure Search SDK'sı kullanılarak) aşağıdaki iki upsert davranışları sağlar:
 
-- **Birleştirme**: yeni belgedeki tüm sütunları mevcut birleştirin. Yeni belge null değere sahip sütunlar için mevcut değeri korunur.
-- **Karşıya yükleme**: varolan bir yeni belge değiştirir. Yeni belge içinde belirtilmeyen sütunlar için değer olup olmadığını değeri null olmayan mevcut belgede veya null olarak ayarlanır.
+- **Birleştirme**: var olan bir yeni belge içindeki tüm sütunları birleştirin. Yeni belge null değere sahip sütunları için var olan bir değeri korunur.
+- **Karşıya yükleme**: Var olan bir yeni belge değiştirir. Yeni belge içinde belirtilmeyen sütunlar için değer olup olmadığını null olmayan bir değer var olan bir belgeyi veya null olarak ayarlanır.
 
 Varsayılan davranış **birleştirme**.
 
 ### <a name="writebatchsize-property"></a>WriteBatchSize özelliği
 
-Azure Search Hizmeti yazma belgeleri toplu iş olarak destekler. Bir toplu iş için 1 1.000 eylemler içerebilir. Bir eylem karşıya yükleme/birleştirme işlemi gerçekleştirmek için bir belge işler.
+Azure arama hizmeti, toplu iş olarak belge yazma destekler. Bir toplu iş 1 ila 1.000 eylemleri içerebilir. Karşıya yükleme/birleştirme işlemi gerçekleştirmek için bir belge bir eylem gerçekleştirir.
 
 **Örnek:**
 
@@ -168,7 +167,7 @@ Azure Search Hizmeti yazma belgeleri toplu iş olarak destekler. Bir toplu iş i
 
 Aşağıdaki tabloda, bir Azure Search veri türü veya desteklenip desteklenmediğini belirtir.
 
-| Azure arama veri türü | Azure arama havuzunda desteklenir |
+| Azure Search veri türü | Azure Search'ü havuz desteklenen |
 | ---------------------- | ------------------------------ |
 | Dize | E |
 | Int32 | E |
@@ -180,4 +179,4 @@ Aşağıdaki tabloda, bir Azure Search veri türü veya desteklenip desteklenmed
 | GeographyPoint | N |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).
+Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).

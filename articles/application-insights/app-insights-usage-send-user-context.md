@@ -10,16 +10,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 08/02/2017
+ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 5a224d7a78e35776b36b162228f6ba4c72677069
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 29e76338b8d19ce70dedea971d26a49544e9f152
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636212"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54018152"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application ınsights'ta kullanım deneyimlerini etkinleştirmelerine olanak kimlikleri kullanıcı bağlamı gönderme
 
@@ -34,10 +34,11 @@ Application Insights izlemek ve ürün kullanım araçlar kümesi yoluyla kullan
 
 Zaman içinde bir kullanıcı ne yaptığını izlemek için her bir kullanıcı veya oturum için Application Insights bir kimliği gerekir. Aşağıdaki kimlikler her özel olay veya sayfa görünümünde içerir.
 
-- Kullanıcılar, Huniler, bekletme ve Kohortlar: kullanıcı kimliğini içerir
-- Oturumlarının: oturum kimliği Ekle
+- Kullanıcılar, Huniler, bekletme ve Kohortlar: Kullanıcı kimliğini içerir
+- Oturumlar: Oturum kimliği Ekle
 
-Uygulamanız ile tümleşikse [JavaScript SDK'sı](https://docs.microsoft.com/azure/application-insights/app-insights-javascript#set-up-application-insights-for-your-web-page), kullanıcı kimliği otomatik olarak izlenir.
+> [!NOTE]
+> Bu, kullanıcı etkinliği Application Insights ile izleme için manuel adımlar anahat oluşturma, Gelişmiş bir makaledir. Birçok web uygulamalarıyla **adımları gerekli olmayabilir**, varsayılan sunucu tarafı olarak SDK'ları ile birlikte [tarayıcı/istemci-tarafı JavaScript SDK'sı](app-insights-website-monitoring.md), genellikle otomatik olarak izlemek yeterli olur kullanıcı etkinliği. Yapılandırmadıysanız, [istemci-tarafı izleme](app-insights-website-monitoring.md) sunucu tarafı SDK'sı ek olarak, öncelikle bunu ve kullanıcı davranış analizi araçları beklendiği gibi işlemi yapıyorsanız görmek için test edin.
 
 ## <a name="choosing-user-ids"></a>Kullanıcı kimliklerini seçme
 
@@ -51,7 +52,7 @@ Kimliği bir GUID veya başka bir dize yeterince karmaşık her kullanıcıyı b
 
 Kimliği kullanıcıyla ilgili kişisel tanımlama bilgileri içeriyorsa, bu Application ınsights'ı bir kullanıcı kimliği olarak göndermek için uygun bir değer değil Böyle bir kimlik olarak gönderdiğiniz bir [kimliği doğrulanmış kullanıcı kimliği](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users), ancak kullanım senaryoları için kullanıcı kimliği gereksinimi karşılamıyordur.
 
-## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET uygulamaları: kullanıcı bağlamı içinde bir ITelemetryInitializer ayarlama
+## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET uygulamaları: Kullanıcı bağlamı içinde bir ITelemetryInitializer ayarlama
 
 Ayrıntılı olarak açıklandığı bir telemetri Başlatıcısı oluşturma [burada](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer). Oturum kimliği istek telemetrisi aracılığıyla geçirin ve Context.User.Id Context.Session.Id ayarlayın.
 
@@ -138,7 +139,7 @@ namespace MvcWebRole.Telemetry
 - Kullanım deneyimlerini etkinleştirmek için göndermeye başlayın [özel olaylar](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) veya [sayfa görünümleri](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
 - Özel olay veya sayfa görüntülemesi zaten gönderirseniz, kullanıcıların hizmetinizin nasıl öğrenmek için kullanım araçları keşfedin.
     - [Kullanıma genel bakış](app-insights-usage-overview.md)
-    - [Kullanıcılar, oturumlar ve olaylar](app-insights-usage-segmentation.md)
+    - [Kullanıcılar, Oturumlar ve Etkinlikler](app-insights-usage-segmentation.md)
     - [Huniler](usage-funnels.md)
     - [Bekletme](app-insights-usage-retention.md)
     - [Çalışma kitapları](app-insights-usage-workbooks.md)

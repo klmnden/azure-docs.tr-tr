@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 7a1577e3c352c24983cc3a586c11ad43c416acc4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091052"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000555"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream analytics'te sorgu paralelleştirmesinden
 Bu makalede, Azure Stream Analytics'te paralelleştirme yararlanmak işlemini göstermektedir. Giriş bölümlerini yapılandırma ve analytics Sorgu tanımını ayarlayarak Stream Analytics işlerini ölçeklendirmeyi öğrenin.
@@ -41,12 +41,13 @@ Stream Analytics ile çalışırken, yapılandırma çıkışları bölümleme y
 -   Azure İşlevleri
 -   Azure Tablosu
 -   Blob depolama (bölüm anahtarı, açıkça ayarlayabilirsiniz)
--   CosmosDB (bölüm anahtarı açıkça ayarlamak için gereklidir)
--   EventHub (bölüm anahtarı açıkça ayarlamak için gereklidir)
+-   Cosmos DB (bölüm anahtarı açıkça ayarlamak için gereklidir)
+-   Event hubs'ı (bölüm anahtarı açıkça ayarlamak için gereklidir)
 -   IOT hub'ı (bölüm anahtarı açıkça ayarlamak için gereklidir)
 -   Service Bus
+- SQL ve isteğe bağlı bölümleme ile SQL veri ambarı: hakkında daha fazla bilgi [çıktı Azure SQL veritabanı sayfasına](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
 
-Power BI, SQL ve SQL veri ambarı çıkışları bölümleme desteklemez. Bununla birlikte, yine de giriş bölümünde anlatıldığı gibi bölümleyebilirsiniz [bu bölümü](#multi-step-query-with-different-partition-by-values) 
+Power BI, bölümleme desteklemiyor. Bununla birlikte, yine de giriş bölümünde anlatıldığı gibi bölümleyebilirsiniz [bu bölümü](#multi-step-query-with-different-partition-by-values) 
 
 Bölümleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
@@ -75,7 +76,7 @@ Aşağıdaki bölümlerde utandırıcı derecede paralel bazı örnek senaryolar
 
 ### <a name="simple-query"></a>Basit sorgu
 
-* Giriş: 8 bölüm olay hub'ı
+* Giriş: Olay hub'ı 8 bölüm ile
 * Çıkış: Olay hub'ı 8 bölüm ile
 
 Sorgu:
@@ -90,8 +91,8 @@ Bu sorguyu basit bir filtredir. Bu nedenle, olay hub'ına gönderilen giriş bö
 
 ### <a name="query-with-a-grouping-key"></a>Bir gruplandırma anahtar ile sorgulama
 
-* Giriş: 8 bölüm olay hub'ı
-* Çıkış: Blob Depolama
+* Giriş: Olay hub'ı 8 bölüm ile
+* Çıkış: Blob depolama
 
 Sorgu:
 
@@ -108,19 +109,19 @@ Bu sorgu, bir gruplandırma anahtarına sahiptir. Bu nedenle, gruplandırılmı�
 Önceki bölümde, biz utandırıcı derecede paralel bazı senaryolar gösterilmiştir. Bu bölümde, utandırıcı derecede paralel olarak tüm gereksinimlerini senaryoları ele alır. 
 
 ### <a name="mismatched-partition-count"></a>Uyuşmayan bölüm sayısı
-* Giriş: 8 bölüm olay hub'ı
+* Giriş: Olay hub'ı 8 bölüm ile
 * Çıkış: Olay hub'ı ile 32 bölümlü
 
 Bu durumda, sorgu nedir önemi yoktur. Giriş bölüm sayısı olan çıkış bölüm sayısı eşleşmezse, topoloji utandırıcı derecede değil paralel. + ancak biz yine de bazı düzeyi veya paralelleştirme elde edebilirsiniz.
 
 ### <a name="query-using-non-partitioned-output"></a>Bölümlenmemiş çıkış kullanarak sorgulama
-* Giriş: 8 bölüm olay hub'ı
+* Giriş: Olay hub'ı 8 bölüm ile
 * Çıkış: Power BI
 
-Power BI çıkış bölümleme şu anda desteklemiyor. Bu nedenle, bu senaryo utandırıcı derecede paralel değil.
+Power BI çıkışı bölümleme şu anda desteklemiyor. Bu nedenle, bu senaryo utandırıcı derecede paralel değil.
 
 ### <a name="multi-step-query-with-different-partition-by-values"></a>Çok adımlı sorgunun PARTITION BY farklı değerlerle
-* Giriş: 8 bölüm olay hub'ı
+* Giriş: Olay hub'ı 8 bölüm ile
 * Çıkış: Olay hub'ı 8 bölüm ile
 
 Sorgu:

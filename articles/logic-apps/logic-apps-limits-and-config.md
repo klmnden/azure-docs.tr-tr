@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: c7eaecf74f56035c39267407e6a965c57897b1ef
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853838"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015449"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limitler ve yapılandırma bilgilerini Azure Logic Apps
 
@@ -88,7 +88,7 @@ Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 | Tetikleyici eşzamanlılık | 50 | Varsayılan sınırı 20'dir. Aynı anda ya da paralel mantıksal uygulama örneği sayısı bu sınırı açıklar. <p><p>Varsayılan sınır 1 ile 50 arasında bir değer aralığında değiştirmek için bkz: [değişiklik tetikleyici eşzamanlılık](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) veya [tetikleme örnekleri sırayla](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
 | En fazla bekleme çalıştırmalar | 100 | Varsayılan sınır 10'dur. Mantıksal uygulamanızı zaten en fazla eşzamanlı örneği çalışırken çalıştırmak için bekleyebileceği mantıksal uygulama örneği sayısı bu sınırı açıklar. <p><p>Varsayılan sınırı 0 ile 100 arasında bir değer aralığında değiştirmek için bkz: [değişiklik bekleme çalıştırmaları sınırlamak](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
 | Foreach öğeleri | 100.000 | Bu sınır en fazla bir "for each" döngüsü işleyebilen dizi öğe sayısını açıklar. <p><p>Daha büyük dizileri filtrelemek için kullanabileceğiniz [sorgu eylemi](../connectors/connectors-native-query.md). | 
-| Foreach yineleme | 50 | Varsayılan sınırı 20'dir. "For each" en fazla sayısı bu sınırı açıklar aynı anda ya da paralel yineleme döngüsü. <p><p>Varsayılan sınır 1 ile 50 arasında bir değer aralığında değiştirmek için bkz. ["for each" eşzamanlılık değiştirmek](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) veya ["for each" çalıştırma sırayla döngü](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
+| Foreach eşzamanlılık | 50 | Varsayılan sınırı 20'dir. "For each" en fazla sayısı bu sınırı açıklar aynı anda ya da paralel yineleme döngüsü. <p><p>Varsayılan sınır 1 ile 50 arasında bir değer aralığında değiştirmek için bkz. ["for each" eşzamanlılık değiştirmek](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) veya ["for each" çalıştırma sırayla döngü](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | SplitOn öğeleri | 100.000 | | 
 | Yinelemelere kadar | 5.000 | | 
 |||| 
@@ -101,10 +101,10 @@ Bir tek bir mantıksal uygulama çalıştırması sınırları şunlardır:
 
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 
-| Eylem: Yürütme 5 dakika başına | 300,000 | Varsayılan sınır 100. 000 ' dir. Varsayılan sınırı değiştirmek için bkz ["yüksek aktarım hızı" modunda mantıksal uygulamanızı çalıştırın](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), Önizleme aşamasında olduğu. Veya iş yükü, gerektiğinde birden fazla mantıksal uygulama arasında dağıtabilirsiniz. | 
+| Eylem: Yürütme başına 5 dakika | 300,000 | Varsayılan sınır 100. 000 ' dir. Varsayılan sınırı değiştirmek için bkz ["yüksek aktarım hızı" modunda mantıksal uygulamanızı çalıştırın](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), Önizleme aşamasında olduğu. Veya iş yükü, gerektiğinde birden fazla mantıksal uygulama arasında dağıtabilirsiniz. | 
 | Eylem: Eş zamanlı giden çağrılar | ~2,500 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
-| Çalışma zamanı uç noktası: eş zamanlı gelen çağrılar | ~1,000 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
-| Çalışma zamanı uç noktası: çağrılar 5 dakika başına okuma  | 60,000 | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. | 
+| Çalışma zamanı uç noktası: Eş zamanlı gelen çağrılar | ~1,000 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
+| Çalışma zamanı uç noktası: Okuma çağrısı 5 dakika başına  | 60,000 | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. | 
 | Çalışma zamanı uç noktası: 5 dakika başına çağrıları | 45,000 | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. | 
 | İçerik aktarım hızı 5 dakika başına | 600 MB | İş yükü, gerektiğinde birden fazla uygulama arasında dağıtabilirsiniz. | 
 |||| 
@@ -238,10 +238,10 @@ Her bir tümleştirme hesabı yapıtları sayısına yönelik sınırlar aşağ�
 | ---- | ----- | ----- | 
 | Şema | 8 MB | 2 MB'tan büyük dosyaları yüklemek için kullandığınız [URI blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Harita (XSLT dosyası) | 2 MB | | 
-| Çalışma zamanı uç noktası: çağrılar 5 dakika başına okuma | 60,000 | İş yükü, gerektiğinde birden fazla hesap genelinde dağıtabilirsiniz. | 
+| Çalışma zamanı uç noktası: Okuma çağrısı 5 dakika başına | 60,000 | İş yükü, gerektiğinde birden fazla hesap genelinde dağıtabilirsiniz. | 
 | Çalışma zamanı uç noktası: 5 dakika başına çağrıları | 45,000 | İş yükü, gerektiğinde birden fazla hesap genelinde dağıtabilirsiniz. | 
-| Çalışma zamanı uç noktası: 5 dakika başına çağrıları izleme | 45,000 | İş yükü, gerektiğinde birden fazla hesap genelinde dağıtabilirsiniz. | 
-| Çalışma zamanı uç noktası: eş zamanlı çağrılar engelleme | ~1,000 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
+| Çalışma zamanı uç noktası: İzleme çağrıları 5 dakika başına | 45,000 | İş yükü, gerektiğinde birden fazla hesap genelinde dağıtabilirsiniz. | 
+| Çalışma zamanı uç noktası: Eş zamanlı çağrılar engelleme | ~1,000 | Eş zamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>
@@ -259,7 +259,7 @@ B2B protokolleri için uygulanan limitler şunlardır:
 
 <a name="configuration"></a>
 
-## <a name="configuration-ip-addresses"></a>Yapılandırması: IP adresleri
+## <a name="configuration-ip-addresses"></a>Yapılandırma: IP adresleri
 
 ### <a name="azure-logic-apps-service"></a>Azure Logic Apps hizmetinin
 

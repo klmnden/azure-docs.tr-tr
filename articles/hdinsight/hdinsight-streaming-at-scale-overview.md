@@ -8,18 +8,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 77a3685f59c7b15473deda1894f6fd6934fafc1f
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 01db1de5c6b533c346ce35c8474d996213873d10
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993425"
+ms.locfileid: "54002204"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight’ta ölçeğe göre akış
 
 İçinde hareket olan veriler üzerinde gerçek zamanlı büyük veri çözümleri işlevi görür. Genellikle, bu verileri kendi varış sırasındaki çok değerlidir. Gelen veri akışını o an işlenebilecek miktardan daha büyük hale gelirse, kaynakları kısıtlama gerekebilir. Alternatif olarak, bir HDInsight kümesi isteğe bağlı düğümleri ekleyerek akış çözümünüzü karşılamak için ölçeği artırabilirsiniz.
 
+
 Akış bir uygulamada, bir veya daha fazla veri kaynağı hızla herhangi yararlı bilgiler bırakmadan alınan gereken olayları (bazen saniye başına milyonlarca) oluşturduğunuzdan. Gelen olayları ile işlenir *akışı arabelleğe alma*ayrıca adlı *olay sıraya alma*, gibi bir hizmet tarafından [Apache Kafka](kafka/apache-kafka-introduction.md) veya [Event Hubs](https://azure.microsoft.com/services/event-hubs/). Ardından olayları topladıktan sonra gerçek zamanlı analiz sisteminde kullanarak verileri çözümleyebilir *akış işleme* gibi katman [Apache Storm](storm/apache-storm-overview.md) veya [Apache Spark akışı](spark/apache-spark-streaming-overview.md). İşlenen verilerin uzun vadeli depolama sistemlerinde gibi depolanabilir [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)ve gibi gerçek zamanlı bir iş zekası Panosu üzerinde görüntülenen [Power BI](https://powerbi.microsoft.com), Tableau veya özel bir web Sayfa.
+
 
 ![HDInsight akış desenleri](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 

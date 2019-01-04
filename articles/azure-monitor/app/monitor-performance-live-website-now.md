@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: a993e35282c0c49ae4e3f2ff9f2314f12d779438
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8de7ed00114a11b4c765bfa9f9ae42529ef53f7f
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981183"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024034"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Application Insights ile çalışma zamanında web uygulamalarını izleme
 
@@ -38,7 +38,7 @@ Burada, her yöntemle kazanacaklarınızın bir özeti verilmiştir:
 | İstekler ve özel durumlar |Evet |Evet |
 | [Daha ayrıntılı özel durumlar](../../azure-monitor/app/asp-net-exceptions.md) | |Yes |
 | [Bağımlılık tanılaması](../../azure-monitor/app/asp-net-dependencies.md) |.NET 4.6+ üzerinde ancak daha az ayrıntılı |Evet, tam ayrıntılı: sonuç kodları, SQL komut metni, HTTP fiili|
-| [Sistem performans sayaçları](../../application-insights/app-insights-performance-counters.md) |Evet |Evet |
+| [Sistem performans sayaçları](../../azure-monitor/app/performance-counters.md) |Evet |Evet |
 | [Özel telemetri için API][api] |Evet |Hayır |
 | [İzleme günlüğü tümleştirmesi](../../azure-monitor/app/asp-net-trace-logs.md) |Evet |Hayır |
 | [Sayfa görünümü ve kullanıcı verileri](../../azure-monitor/app/javascript.md) |Evet |Hayır |
@@ -256,7 +256,7 @@ Derleme zamanında zaten izlenmekte olan uygulamalar için:
 
 Telemetrinizi görüntüleyin:
 
-* Performans ve kullanımı izlemek için [ölçümleri keşfedin](../../application-insights/app-insights-metrics-explorer.md)
+* Performans ve kullanımı izlemek için [ölçümleri keşfedin](../../azure-monitor/app/metrics-explorer.md)
 * Sorunların tanımlanması için [Olayları ve günlükleri arayın][diagnostic]
 * Daha gelişmiş sorgular için [analiz](../../azure-monitor/app/analytics.md)
 * [Panolar oluşturun](../../azure-monitor/app/app-insights-dashboards.md)
@@ -275,5 +275,5 @@ Daha fazla telemetri ekleyin:
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [qna]: ../../application-insights/app-insights-troubleshoot-faq.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md
 [usage]: ../../azure-monitor/app/javascript.md

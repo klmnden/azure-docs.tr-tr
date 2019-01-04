@@ -4,22 +4,20 @@ description: Dağıtım bilgilerini almak için bir Azure Resource Manager şabl
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2018
+ms.date: 01/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: d802af1d48405518f26f4b52ecc3023cbb15caff
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 110b909106f5b9eae639639adf418647e3e8bea9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407363"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022351"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Dağıtım işlevleri için Azure Resource Manager şablonları 
 
@@ -97,6 +95,8 @@ Deployment() ana şablon URİ'SİNDE tabanlı başka bir şablona bağlamak içi
     "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"  
 }
 ```  
+
+Portaldaki dağıtım geçmişinden bir şablonu yeniden dağıtın, şablonu yerel dosya olarak dağıtılır. `templateLink` Özellik dağıtım işlevinde döndürülen değil. Şablonunuzu dayanıyorsa `templateLink` başka bir şablon için bir bağlantı oluşturmak için portalı yeniden dağıtmak için kullanmayın. Bunun yerine, başlangıçta şablonu dağıtmak için kullandığınız komutları kullanın.
 
 ### <a name="example"></a>Örnek
 

@@ -1,5 +1,5 @@
 ---
-title: 'Veri Fabrikası Öğreticisi: ilk veri işlem hattı | Microsoft Docs'
+title: 'Veri Fabrikası Öğreticisi: İlk veri işlem hattı | Microsoft Docs'
 description: Bu Azure Data Factory öğreticide oluşturma ve bir Hadoop kümesinde Hive betiği kullanarak veri işleyen bir veri fabrikası zamanlama gösterilmektedir.
 services: data-factory
 documentationcenter: ''
@@ -10,17 +10,16 @@ ms.assetid: 81f36c76-6e78-4d93-a3f2-0317b413f1d0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 63ae8699af5213634eeac7dfc5045a3fc888b6c0
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 266d16311115f788283eadc60ca16f95b433d6b0
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734261"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015959"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Öğretici: Hadoop kümesi kullanarak verileri dönüştürmek için ilk işlem hattınızı oluşturma
 > [!div class="op_single_selector"]
@@ -33,11 +32,11 @@ ms.locfileid: "45734261"
 
 
 > [!NOTE]
-> Bu makale, Data Factory’nin 1. sürümü için geçerlidir. Data Factory'nin geçerli sürümünü kullanıyorsanız [Hızlı Başlangıç: Azure Data Factory'yi kullanarak veri fabrikası oluşturma](../quickstart-create-data-factory-dot-net.md) konusunu inceleyin.
+> Bu makale, Data Factory’nin 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [hızlı başlangıç: Azure Data Factory kullanarak veri fabrikası oluşturma](../quickstart-create-data-factory-dot-net.md).
 
 Bu öğreticide, bir veri işlem hattı ile ilk Azure veri fabrikanızı oluşturun. İşlem hattı, çıkış verileri üretmek üzere bir Azure HDInsight (Hadoop) kümesinde Hive betiği çalıştırarak giriş verilerini dönüştürür.  
 
-Bu makalede, genel bakış ve öğreticisi için Önkoşullar sağlar. Önkoşulları tamamladıktan sonra aşağıdaki araçlardan/Sdk'lardan birini kullanarak öğreticiyi uygulamak: Azure portal, Visual Studio, PowerShell, REST API Resource Manager şablonu. Başlangıcında (veya) bağlantıları aşağıdaki seçeneklerden birini kullanarak öğreticiyi uygulamak için bu makalenin sonunda açılır listedeki seçeneklerden birini belirleyin.    
+Bu makalede, genel bakış ve öğreticisi için Önkoşullar sağlar. Önkoşulları tamamladıktan sonra öğretici aşağıdaki araçlardan/Sdk'lardan birini kullanarak bunu yapabilirsiniz: Azure portal, Visual Studio, PowerShell, REST API Resource Manager şablonu. Başlangıcında (veya) bağlantıları aşağıdaki seçeneklerden birini kullanarak öğreticiyi uygulamak için bu makalenin sonunda açılır listedeki seçeneklerden birini belirleyin.    
 
 ## <a name="tutorial-overview"></a>Öğreticiye genel bakış
 Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
@@ -45,7 +44,7 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 1. Oluşturma bir **veri fabrikası**. Veri fabrikası, taşıma ve dönüştürme bir veya daha fazla veri işlem hattı içerebilir. 
 
     Bu öğreticide, data factory'de bir işlem hattı oluşturun. 
-2. Oluşturma bir **işlem hattı**. İşlem hattında bir veya daha fazla etkinlik bulunabilir (Örnek: Kopya Etkinliği, HDInsight Hive Etkinliği). Bu örnek, bir HDInsight Hadoop kümesinde bir Hive betiği çalıştıran HDInsight Hive etkinliği kullanır. Betik ilk olarak Azure blob depolamada depolanan ham web günlüğü verilerine başvuran bir tablo oluşturur ve ardından ham verileri yıl ve aya göre bölümler.
+2. Oluşturma bir **işlem hattı**. İşlem hattında bir veya daha fazla etkinlik olabilir (örnek: Kopyalama) etkinliği, HDInsight Hive etkinliği. Bu örnek, bir HDInsight Hadoop kümesinde bir Hive betiği çalıştıran HDInsight Hive etkinliği kullanır. Betik ilk olarak Azure blob depolamada depolanan ham web günlüğü verilerine başvuran bir tablo oluşturur ve ardından ham verileri yıl ve aya göre bölümler.
 
     Bu öğreticide, işlem hattı, bir Azure HDInsight Hadoop kümesinde Hive sorgusu çalıştırarak verileri dönüştürme için Hive etkinliği kullanır. 
 3. Oluşturma **bağlı hizmetler**. Bir veri deposunu veya işlem hizmetini, veri fabrikasına bağlamak için bir bağlı hizmet oluşturursunuz. Azure Depolama gibi bir veri deposu, veri işlem hattındaki etkinliklerin giriş/çıkış verilerini tutar. HDInsight Hadoop kümesi gibi bir işlem hizmeti verileri işler/dönüştürür.
@@ -103,7 +102,7 @@ Bu öğreticiye başlamadan önce aşağıdaki önkoşullara sahip olmanız gere
 Azure portalı ve Visual Studio, veri fabrikaları oluşturma GUI yoludur. PowerShell ve Resource Manager şablonu REST API seçenekleri sağlar ise, veri fabrikaları oluşturmayı komut programlama yolu.
 
 > [!NOTE]
-> Bu öğreticideki veri işlem hattı, çıkış verileri üretmek üzere giriş verilerini dönüştürür. Bir kaynak veri deposundan hedef veri deposuna verileri kopyalamaz. Azure Data Factory kullanarak verileri kopyalama öğreticisi için bkz. [Öğretici: Blob Depolama’dan SQL Veritabanı’na veri kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Bu öğreticideki veri işlem hattı, çıkış verileri üretmek üzere giriş verilerini dönüştürür. Bir kaynak veri deposundan hedef veri deposuna verileri kopyalamaz. Azure Data Factory kullanarak veri kopyalama hakkında bir öğretici için bkz. [Öğreticisi: Blob depolama alanından SQL veritabanı'na veri kopyalamak](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 > 
 > Bir etkinliğin çıkış veri kümesini diğer etkinliğin giriş veri kümesi olarak ayarlayarak iki etkinliği zincirleyebilir, yani bir etkinliği diğerinden sonra çalıştırılmasını sağlayabilirsiniz. Ayrıntılı bilgi için bkz. [Data Factory’de zamanlama ve yürütme](data-factory-scheduling-and-execution.md). 
 

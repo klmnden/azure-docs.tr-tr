@@ -1,13 +1,10 @@
 ---
-title: Bir Azure sanal ağ eşleme - Resource Manager - farklı abonelikler oluşturun | Microsoft Docs
+title: Bir Azure sanal ağ eşleme - Resource Manager - farklı abonelikler oluşturun
+titlesuffix: Azure Virtual Network
 description: Resource Manager aracılığıyla oluşturulan Azure farklı Aboneliklerde bulunan sanal ağlar arasında eşleme bir sanal ağ oluşturmayı öğrenin.
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 04ed8e0e99f0aba4ca067700f8a651b6d6c52423
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f06f0b5392ebb60cd852d3c2eb201478b31ae167
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727486"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014979"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Bir sanal ağ eşleme - oluşturma-Resource Manager, farklı abonelikler
 
@@ -53,8 +50,8 @@ Aşağıdaki adımlar, her abonelik için farklı hesaplar kullanma. İki abonel
     - **Adres alanı**: *10.0.0.0/16*
     - **Alt ağ adı**: *varsayılan*
     - **Alt ağ adres aralığı**: *10.0.0.0/24*
-    - **Abonelik**: A. aboneliği seçin
-    - **Kaynak grubu**: seçin **Yeni Oluştur** girin *myResourceGroupA*
+    - **Abonelik**: A aboneliği seçin
+    - **Kaynak grubu**: Seçin **Yeni Oluştur** girin *myResourceGroupA*
     - **Konum**: *Doğu ABD*
 4. İçinde **kaynak Ara** türü portalın üst kısmındaki kutusu *myVnetA*. Seçin **myVnetA** arama sonuçlarında görüntülendiğinde. 
 5. Seçin **erişim denetimi (IAM)** seçenekleri sol taraftaki dikey listesinden.
@@ -70,8 +67,8 @@ Aşağıdaki adımlar, her abonelik için farklı hesaplar kullanma. İki abonel
     - **Adres alanı**: *10.1.0.0/16*
     - **Alt ağ adı**: *varsayılan*
     - **Alt ağ adres aralığı**: *10.1.0.0/24*
-    - **Abonelik**: b aboneliği seçin
-    - **Kaynak grubu**: seçin **Yeni Oluştur** girin *myResourceGroupB*
+    - **Abonelik**: B aboneliği seçin
+    - **Kaynak grubu**: Seçin **Yeni Oluştur** girin *myResourceGroupB*
     - **Konum**: *Doğu ABD*
 
 13. İçinde **kaynak Ara** türü portalın üst kısmındaki kutusu *myVnetB*. Seçin **myVnetB** arama sonuçlarında görüntülendiğinde.
@@ -84,10 +81,10 @@ Aşağıdaki adımlar, her abonelik için farklı hesaplar kullanma. İki abonel
 20. Altında **myVnetA - eşlemeler**seçin **+ Ekle**
 21. Altında **Ekle eşlemesi**, girin veya seçin, aşağıdaki seçeneklerden sonra seçin **Tamam**:
      - **Adı**: *myVnetAToMyVnetB*
-     - **Sanal ağ dağıtım modeli**: seçin **Resource Manager**.
-     - **Kaynak Kimliğimi biliyorum**: Bu onay kutusunu işaretleyin.
-     - **Kaynak Kimliği**: 14. adımdan kaynak Kimliğini girin.
-     - **Sanal ağ erişimine izin ver:** emin **etkin** seçilir.
+     - **Sanal ağ dağıtım modeli**:  **Resource Manager**’ı seçin.
+     - **Kaynak Kimliğimi biliyorum**: Bu kutuyu işaretleyin.
+     - **Kaynak Kimliği**: Adımda 14 kaynak Kimliğini girin.
+     - **Sanal ağ erişimine izin ver:** Emin **etkin** seçilir.
     Diğer bir ayarları, bu öğreticide kullanılır. Tüm eşleme ayarları hakkında bilgi edinmek için [sanal ağ eşlemelerini yönetme](virtual-network-manage-peering.md#create-a-peering).
 22. Oluşturduğunuz eşleme seçtikten sonra kısa bir beklemeden görünür **Tamam** önceki adımda. **Başlatılan** listelenir **eşleme durumu** sütunu için **myVnetAToMyVnetB** , eşleme oluşturulur. MyVnetA myVnetB için eşlenmiş, ancak artık myVnetB myVnetA için eş gerekir. Eşleme birbirleri ile iletişim kurmak için sanal ağlarda bulunan kaynaklar etkinleştirmek için her iki yönde oluşturulmalıdır.
 23. Portalından UserA olarak oturum açın ve UserB oturum açın.
@@ -95,7 +92,7 @@ Aşağıdaki adımlar, her abonelik için farklı hesaplar kullanma. İki abonel
 25. Seçtikten sonra birkaç saniye **Tamam** myVnetB için eşlemesi oluşturmak için **myVnetBToMyVnetA** oluşturdunuz eşlemesi ile listelendiğini **bağlı** içinde**Eşleme durumu** sütun.
 26. Portalda UserB olarak dışında oturum ve UserA oturum açın.
 27. 17-19. adımları tekrar tamamlayın. **Eşleme durumu** için **myVnetAToVNetB** eşleme özelliği artık **bağlı**. Gördükten sonra Eşleme başarıyla oluşturulmuş **bağlı** içinde **eşleme durumu** eşlemesindeki her iki sanal ağ için sütun. Her iki sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adresleri birbirleriyle iletişim kurabilir. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, kaynakların sanal ağlarda bulunan sanal ağlar arasında adlarını çözümlemek alamıyoruz. Bir eşleme de sanal ağlar arasında adlarını çözümlemek dilerseniz kendi DNS sunucunuzu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucunuzu kullanarak ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
-28. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden, bağlantıyı doğrulamak için bağlantı.
+28. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden diğerine, bağlantıyı doğrulamak için bağlanın.
 29. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynakları silmek için'ndaki adımları tamamlayın. [Sil kaynakları](#delete-portal) bu makalenin.
 
 ## <a name="cli"></a>Oluşturma eşleme - Azure CLI
@@ -173,7 +170,7 @@ CLI'yı ve bağımlılıklarını yüklemek yerine Azure Cloud Shell'i kullanabi
     > [!NOTE]
     > Eşleme durumunu olana kadar eşleme yapılandırılmadı **bağlı** her iki sanal ağ için.
 
-11. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden, bağlantıyı doğrulamak için bağlantı.
+11. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden diğerine, bağlantıyı doğrulamak için bağlanın.
 12. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynakları silmek için'ndaki adımları tamamlayın. [Sil kaynakları](#delete-cli) bu makaledeki.
 
 Her iki sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adresleri birbirleriyle iletişim kurabilir. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, kaynakların sanal ağlarda bulunan sanal ağlar arasında adlarını çözümlemek alamıyoruz. Bir eşleme de sanal ağlar arasında adlarını çözümlemek dilerseniz kendi DNS sunucunuzu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucunuzu kullanarak ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
@@ -243,7 +240,7 @@ Bu öğreticide, farklı hesapları her abonelik için kullanılır. İki abonel
 
     Her iki sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adresleri birbirleriyle iletişim kurabilir. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, kaynakların sanal ağlarda bulunan sanal ağlar arasında adlarını çözümlemek alamıyoruz. Bir eşleme de sanal ağlar arasında adlarını çözümlemek dilerseniz kendi DNS sunucunuzu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucunuzu kullanarak ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-13. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden, bağlantıyı doğrulamak için bağlantı.
+13. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden diğerine, bağlantıyı doğrulamak için bağlanın.
 14. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynakları silmek için'ndaki adımları tamamlayın. [Sil kaynakları](#delete-powershell) bu makaledeki.
 
 ## <a name="template"></a>Eşleme - oluşturma Resource Manager şablonu
@@ -285,10 +282,10 @@ Sanal ağlar farklı Aboneliklerde olması ve aboneliklerin farklı Azure Active
 
 3. Azure'a UserA olarak oturum açın ve şablon kullanarak dağıtma [portalı](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine), veya [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Örnek json metin için 2. adımda kaydettiğiniz dosyanın adını belirtin.
 4. Adım 2 ' örnek JSON dosyasını bilgisayarınızdaki bir dosyaya kopyalayın ve ile başlayan satırlar değişiklik:
-    - **adı**: değişiklik *myVnetA/myVnetAToMyVnetB* için *myVnetB/myVnetBToMyVnetA*.
-    - **Kimliği**: değiştirin `<subscription ID>` Kullanıcıb'in abonelik kimliği ve değişiklik *myVnetB* için *myVnetA*.
+    - **Ad**: Değişiklik *myVnetA/myVnetAToMyVnetB* için *myVnetB/myVnetBToMyVnetA*.
+    - **Kimliği**: Değiştirin `<subscription ID>` Kullanıcıb'in abonelik kimliği ve değişiklik *myVnetB* için *myVnetA*.
 5. 3. adım tam yeniden Azure'a UserB oturum açmış.
-6. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden, bağlantıyı doğrulamak için bağlantı.
+6. **İsteğe bağlı**: Bu öğreticide sanal makinelerin oluşturulmasını kapsamında olmayan da, her bir sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden diğerine, bağlantıyı doğrulamak için bağlanın.
 7. **İsteğe bağlı**: Bu öğreticide oluşturduğunuz kaynakları silmek için'ndaki adımları tamamlayın. [Sil kaynakları](#delete) bölümü Azure portalı, PowerShell veya Azure CLI'yı kullanarak, bu makalenin.
 
 ## <a name="delete"></a>Kaynakları silme

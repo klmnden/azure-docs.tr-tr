@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: be08740024e87179a48f3dfd6f8406fa6a2bbca6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 11de58a64f956bd7dd1cc9c4ca8498de8c0b9d05
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963530"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023966"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Değişiklik izleme bilgilerini kullanarak Azure SQL Veritabanından Azure Blob Depolama alanına verileri artımlı olarak yükleme 
 Bu öğreticide, kaynak Azure SQL veritabanındaki **değişiklik izleme** bilgilerine dayanan değişiklik verilerini Azure blob depolamasına yükleyen bir işlem hattına sahip olan bir Azure veri fabrikası oluşturursunuz.  
@@ -189,7 +188,7 @@ Aşağıdaki noktalara dikkat edin:
     The specified Data Factory name 'ADFIncCopyChangeTrackingTestFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Data Factory örnekleri oluşturmak için, Azure’da oturum açarken kullandığınız kullanıcı hesabı, **katkıda bulunan** veya **sahip** rollerinin üyesi ya da bir Azure aboneliğinin **yöneticisi** olmalıdır.
-* Data Factory'nin kullanılabileceği Azure bölgelerinin bir listesi için bir sonraki sayfada ilgilendiğiniz bölgeleri seçin ve **Analytics**'i genişleterek **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) (Bölgeye göre kullanılabilir durumdaki ürünler) bölümünü bulun. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
+* Data Factory kullanılabildiği şu anda Azure bölgelerinin listesi için aşağıdaki sayfada faiz ve ardından genişletin bölgeleri seçin **Analytics** bulunacak **Data Factory**: [Bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/). Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 
 
 ## <a name="create-linked-services"></a>Bağlı hizmetler oluşturma
@@ -198,7 +197,7 @@ Veri depolarınızı ve işlem hizmetlerinizi veri fabrikasına bağlamak için 
 ### <a name="create-azure-storage-linked-service"></a>Azure Depolama bağlı hizmeti oluşturma.
 Bu adımda, Azure Depolama Hesabınızı veri fabrikasına bağlarsınız.
 
-1. **:\ADFTutorials\IncCopyChangeTrackingTutorial** klasöründe şu içeriğe sahip **AzureStorageLinkedService.json** adlı bir JSON dosyası oluşturun: (Böyle bir klasör mevcut değilse, bunu oluşturun.) Dosyayı kaydetmeden önce `<accountName>`, `<accountKey>` değerlerini Azure depolama hesabınızın adı ve anahtarıyla değiştirin.
+1. Adlı bir JSON dosyası oluşturun **C:\adfv2tutorial** içinde **C:\ADFTutorials\IncCopyChangeTrackingTutorial** klasöründe aşağıdaki içeriğe sahip: (Zaten yoksa, klasör oluşturun.). Dosyayı kaydetmeden önce `<accountName>`, `<accountKey>` değerlerini Azure depolama hesabınızın adı ve anahtarıyla değiştirin.
 
     ```json
     {
@@ -215,7 +214,7 @@ Bu adımda, Azure Depolama Hesabınızı veri fabrikasına bağlarsınız.
     }
     ```
 2. **Azure PowerShell** içinde **C:\ADFTutorials\IncCopyChgTrackingTutorial** klasörüne geçiş yapın.
-3. **AzureStorageLinkedService** bağlı hizmetini oluşturmak için **Set-AzureRmDataFactoryV2LinkedService** cmdlet’ini çalıştırın. Aşağıdaki örnekte, **ResourceGroupName** ve **DataFactoryName** parametrelerinin değerlerini geçirirsiniz. 
+3. Çalıştırma **Set-AzureRmDataFactoryV2LinkedService** bağlı hizmetini oluşturmak için cmdlet: **AzureStorageLinkedService**. Aşağıdaki örnekte, **ResourceGroupName** ve **DataFactoryName** parametrelerinin değerlerini geçirirsiniz. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -233,7 +232,7 @@ Bu adımda, Azure Depolama Hesabınızı veri fabrikasına bağlarsınız.
 ### <a name="create-azure-sql-database-linked-service"></a>Azure SQL Veritabanı bağlı hizmeti oluşturun.
 Bu adımda, Azure SQL veritabanınızı veri fabrikasına bağlarsınız.
 
-1. **C:\ADFTutorials\IncCopyChangeTrackingTutorial** klasöründe, **AzureSQLDatabaseLinkedService.json** adlı ve şu içeriğe sahip bir JSON dosyası oluşturun: Dosyayı kaydetmeden önce **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt; ve &lt;password&gt;** değerlerini Azure SQL sunucunuzun adı, veritabanınızın adı, kullanıcı kimliği ve parola ile değiştirin. 
+1. Adlı bir JSON dosyası oluşturun **C:\adftutorials\ınccopymultitabletutorial** içinde **C:\ADFTutorials\IncCopyChangeTrackingTutorial** klasöründe aşağıdaki içeriğe sahip: Dosyayı kaydetmeden önce server database name **, &lt;user id&gt; ve &lt;password&gt;** değerlerini Azure SQL sunucunuzun adı, veritabanınızın adı, kullanıcı kimliği ve parola ile değiştirin. 
 
     ```json
     {
@@ -249,7 +248,7 @@ Bu adımda, Azure SQL veritabanınızı veri fabrikasına bağlarsınız.
         }
     }
     ```
-2. **Azure PowerShell**’de **AzureSQLDatabaseLinkedService** bağlı hizmetini oluşturmak için **Set-AzureRmDataFactoryV2LinkedService** cmdlet’ini çalıştırın. 
+2. İçinde **Azure PowerShell**çalıştırın **Set-AzureRmDataFactoryV2LinkedService** bağlı hizmetini oluşturmak için cmdlet: **AzureSQLDatabaseLinkedService**. 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -288,7 +287,7 @@ Bu adımda, kaynak verileri temsil etmek için bir veri kümesi oluşturursunuz.
     }   
     ```
 
-2.  SourceDataset veri kümesini oluşturmak için Set-AzureRmDataFactoryV2Dataset cmdlet’ini çalıştırın
+2.  Veri kümesini oluşturmak için Set-AzureRmDataFactoryV2Dataset cmdlet'ini çalıştırın: SourceDataset
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
@@ -330,7 +329,7 @@ Bu adımda, kaynak veri deposundan kopyalanan verileri temsil etmek için bir ve
     ```
 
     Önkoşulların bir parçası olarak, Azure Blob Depolama’nızda adftutorial kapsayıcısını oluşturursunuz. Henüz yoksa kapsayıcıyı oluşturun (veya) var olan bir kapsayıcının adına ayarlayın. Bu öğreticide, çıkış dosyasının adı şu ifade kullanılarak dinamik biçimde oluşturulur: @CONCAT('Incremental-', pipeline().RunId, '.txt').
-2.  SinkDataset veri kümesini oluşturmak için Set-AzureRmDataFactoryV2Dataset cmdlet’ini çalıştırın
+2.  Veri kümesini oluşturmak için Set-AzureRmDataFactoryV2Dataset cmdlet'ini çalıştırın: SinkDataset
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
@@ -368,7 +367,7 @@ Bu adımda değişiklik izleme sürümünü depolamak için bir veri kümesi olu
     ```
 
     Önkoşulların bir parçası olarak table_store_ChangeTracking_version tablosunu oluşturursunuz.
-2.  WatermarkDataset veri kümesini oluşturmak için Set-AzureRmDataFactoryV2Dataset cmdlet’ini çalıştırın
+2.  Veri kümesini oluşturmak için Set-AzureRmDataFactoryV2Dataset cmdlet'ini çalıştırın: WatermarkDataset
     
     ```powershell
     Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
@@ -387,7 +386,7 @@ Bu adımda değişiklik izleme sürümünü depolamak için bir veri kümesi olu
 ## <a name="create-a-pipeline-for-the-full-copy"></a>Tam kopya için işlem hattı oluşturma
 Bu adımda, kaynak veri deposundaki (Azure SQL Veritabanı) tüm verileri hedef veri deposuna (Azure Blob Depolama) kopyalayan bir kopyalama etkinliğine sahip bir işlem hattı oluşturursunuz.
 
-1. Şu içeriğe sahip klasörde bir FullCopyPipeline.json adlı bir JSON dosyası oluşturun: 
+1. Bir JSON dosyası oluşturun: Aşağıdaki içeriğe sahip klasörde bir fullcopypipeline.JSON adlı: 
 
     ```json
     {
@@ -417,7 +416,7 @@ Bu adımda, kaynak veri deposundaki (Azure SQL Veritabanı) tüm verileri hedef 
         }
     }
     ```
-2. FullCopyPipeline işlem hattını oluşturmak için Set-AzureRmDataFactoryV2Pipeline cmdlet'ini çalıştırın.
+2. İşlem hattını oluşturmak için Set-AzureRmDataFactoryV2Pipeline cmdlet'ini çalıştırın: FullCopyPipeline.
     
    ```powershell
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "FullCopyPipeline" -File ".\FullCopyPipeline.json"
@@ -434,7 +433,7 @@ Bu adımda, kaynak veri deposundaki (Azure SQL Veritabanı) tüm verileri hedef 
    ```
  
 ### <a name="run-the-full-copy-pipeline"></a>Tam kopyalama işlem hattını çalıştırma
-**Invoke-AzureRmDataFactoryV2Pipeline** cmdlet’ini kullanarak **FullCopyPipeline** işlem hattını çalıştırın. 
+İşlem hattını çalıştırın: **FullCopyPipeline** kullanarak **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet'i. 
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
@@ -495,7 +494,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>Değişiklik kopyası için bir işlem hattı oluşturma
 Bu adımda, aşağıdaki etkinliklerle bir işlem hattı oluşturursunuz ve bunu düzenli olarak çalıştırırsınız. **Arama etkinlikleri**, eski ve yeni SYS_CHANGE_VERSION değerlerini Azure SQL Veritabanı’ndan alır ve bunu kopyalama etkinliğine geçirir. **Kopyalama etkinliği**, SYS_CHANGE_VERSION değerleri arasındaki eklenen/güncelleştirilen/silinen verileri Azure SQL Veritabanı’ndan Azure Blob Depolama’ya kopyalar. **Saklı yordam etkinliği**, SYS_CHANGE_VERSION değerini bir sonraki işlem hattı çalıştırmasında güncelleştirir.
 
-1. Aşağıdaki içeriğe sahip klasörde bir IncrementalCopyPipeline.json adlı bir JSON dosyası oluşturun: 
+1. Bir JSON dosyası oluşturun: Aşağıdaki içeriğe sahip klasörde bir ıncrementalcopypipeline.JSON adlı: 
 
     ```json
     {
@@ -606,7 +605,7 @@ Bu adımda, aşağıdaki etkinliklerle bir işlem hattı oluşturursunuz ve bunu
     }
     
     ```
-2. FullCopyPipeline işlem hattını oluşturmak için Set-AzureRmDataFactoryV2Pipeline cmdlet'ini çalıştırın.
+2. İşlem hattını oluşturmak için Set-AzureRmDataFactoryV2Pipeline cmdlet'ini çalıştırın: FullCopyPipeline.
     
    ```powershell
     Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
@@ -623,7 +622,7 @@ Bu adımda, aşağıdaki etkinliklerle bir işlem hattı oluşturursunuz ve bunu
    ```
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Artımlı kopyalama işlem hattını çalıştırma
-**Invoke-AzureRmDataFactoryV2Pipeline** cmdlet’ini kullanarak **IncrementalCopyPipeline** işlem hattını çalıştırın. 
+İşlem hattını çalıştırın: **Incrementalcopypipeline** kullanarak **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet'i. 
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
@@ -650,7 +649,7 @@ Dosyada yalnızca Azure SQL veritabanındaki değişiklik verileri olmalıdır. 
 1,update,10,2,U
 6,new,50,1,I
 ```
-İlk üç sütun, data_source_table tablosundaki değiştirilmiş verilerdir. Son iki sütun, değişiklik izleme sistem tablosundaki meta verilerdir. Dördüncü sütun, değiştirilen her satıra ilişkin SYS_CHANGE_VERSION değeridir. Beşinci sütun ise işlemdir: U = güncelleştirme, I = ekleme.  Değişiklik izleme bilgileri hakkında daha fazla ayrıntı için bkz. [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+İlk üç sütun, data_source_table tablosundaki değiştirilmiş verilerdir. Son iki sütun, değişiklik izleme sistem tablosundaki meta verilerdir. Dördüncü sütun, değiştirilen her satıra ilişkin SYS_CHANGE_VERSION değeridir. Beşinci sütun ise işlemdir:  U = güncelleştirme, ı = ekleme.  Değişiklik izleme bilgileri hakkında daha fazla ayrıntı için bkz. [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
 
 ```
 ==================================================================

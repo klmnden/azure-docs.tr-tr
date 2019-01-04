@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: 6c8f4fa1fdfdb18d57f001308a6b2105acf9a08d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: f5c8241907459a06f0a6206ae6865cdf3fe9ab89
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788863"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998974"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Yapılandırma sunucusu sorunlarını giderme
 
@@ -33,13 +33,13 @@ Kaynak makine, mobility Aracısı yüklemesi sırasında yapılandırma sunucusu
     - Sorunları giderdikten sonra verilen yönergeleri izleyerek [burada](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) kaydını el ile yeniden denemek için.
 4. Yukarıdaki dize bulunamazsa, kaynak makineye gidin ve C:\ProgramData\ASRSetupLogs\UploadedLogs günlüğünü kontrol edin\* ASRUnifiedAgentInstaller.log ProgramData, gizli bir klasör olabilir. Bırakamıyorsanız bulunacak gösterin için klasör deneyin. Hataları nedeniyle birden çok sorunlar olabilir. Arama dizesi için "istek gönderin: (7) - uygulanamadı sunucuya bağlanın". Varsa bulunan
     - Kaynak makine ve yapılandırma sunucusu arasında ağ sorunları çözün. Bu yapılandırma sunucusu ping traceroute, web tarayıcısı vb. gibi ağ araçlarını kullanarak kaynak makineden erişilebilir olduğundan emin olun, bu kaynak makinenin yapılandırma sunucusu bağlantı noktası 443 üzerinden ulaşabildiğinden emin olun.
-    - Kaynak makinede herhangi bir güvenlik duvarı kuralları varsa onay kaynak makine ile yapılandırma sunucusu arasındaki bağlantıyı engelliyor. Çalışmak bağlantı sorunlarına engelini kaldırmak için ağ yöneticileri.
+    - Kaynak makinede herhangi bir güvenlik duvarı kuralları varsa onay kaynak makine ile yapılandırma sunucusu arasındaki bağlantıyı engelliyor. Çalışmak ağ yöneticiniz bağlantı sorunlarına engelini kaldırmak için.
     - Belirtilen klasörleri olun [burada](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) virüsten koruma yazılımından hariç tutulur.
     - Ağ sorunları giderdikten sonra kayıt verilen aşağıdaki tarafından yeniden deneme yönergeleri [burada](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 5. Aksi durumda, aynı günlük arama dizesi için bulunan "istek: (60) - eş sertifika kimlik doğrulaması ile CA sertifikalarını. ". Varsa bulunan 
     - Yapılandırma sunucusu sertifikasının süresi doldu veya kaynak makine TLS 1.0 desteklemiyor ve SSL protokolleri, veya kaynak makine ve yapılandırma sunucusu arasında SSL iletişimi engelleyen bir güvenlik duvarı bu hata olabilir.
     - Yapılandırma sunucusunun IP adresi https:// URI'ın yardımıyla kaynak makinedeki bir web tarayıcısı kullanarak bağlanmak çözmek için<CSIPADDRESS>: 443 /. Bu kaynak makinenin yapılandırma sunucusu bağlantı noktası 443 üzerinden ulaşabildiğinden emin olun.
-    - Varsa herhangi bir güvenlik duvarı kurallarını ekleme/kaldırma yapıldığında CS'e konuşmak kaynak makinenin olmasını kaynak makinede denetleyin. Nedeni bu yana birçok farklı güvenlik duvarı yazılımı, gerekli yapılandırmaları listesinde, lütfen müşteri ağ yöneticileri ile çalışarak mümkün değildir.
+    - Kaynak makinede herhangi bir güvenlik duvarı kuralları varsa onay kaynak makine ile yapılandırma sunucusu arasındaki bağlantıyı engelliyor. Çalışmak ağ yöneticiniz bağlantı sorunlarına engelini kaldırmak için.
     - Belirtilen klasörleri olun [burada](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) virüsten koruma yazılımından hariç tutulur.  
     - Sorunları giderdikten sonra kayıt verilen aşağıdaki tarafından yeniden deneme yönergeleri [burada](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 6. < INSTALLATION_DIR > /etc/drscout.conf platformdan değerini bozuksa, Linux ardından kayıt başarısız olur. Tanımlamak için günlük /var/log/ua_install.log gidin. "VM_PLATFORM değeri null ya da olduğu gibi yapılandırma durduruluyor VmWare/Azure değil." dizesi bulabilirsiniz. Platform, "VmWare" veya "Azure" olarak ayarlanmalıdır. Drscout.conf dosyası bozulmuş gibi tavsiye edilir [kaldırma](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) mobility Aracısı ile yeniden yükleyin. Yüklemeyi başarısız olursa izleyin aşağıdaki adımları:

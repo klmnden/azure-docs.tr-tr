@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: d58e72c4487a3ab6d7b562fd328098d98761da5e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: f40be655481481946929c4d79210cb360797f174
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620345"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017166"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veri kopyalama kaynak ve hedef (Common Data Service) Dynamics 365 veya Dynamics CRM
 
@@ -278,7 +277,7 @@ Dynamics veri kopyalamak için kopyalama etkinliğine de Havuz türü ayarlayın
 | type | Kopyalama etkinliği havuz öğesinin type özelliği ayarlanmalıdır **DynamicsSink**. | Evet |
 | WriteBehavior | İşlemi yazma davranışını.<br/>Değer izin verilen **"Upsert"**. | Evet |
 | writeBatchSize | Her toplu Dynamics yazılan veriler satır sayısı. | Hayır (varsayılan: 10) |
-| ignoreNullValues | (Anahtar alanı dışında) giriş verilerinden null değerler yazma işlemi sırasında yok sayılacak belirtir.<br/>İzin verilen değerler **true** ve **false**.<br>- **True**: upsert/güncelleştirme işlemi yaptığınızda hedef nesnedeki verileri değiştirmeden bırakın. Bir ekleme işlemi yaptığınızda, tanımlanan varsayılan bir değer ekleyin.<br/>- **False**: upsert/güncelleştirme işlemi yaptığınızda verileri hedef nesne NULL olarak güncelleştirin. Bir ekleme işlemi yaptığınızda, bir NULL değer ekleyin. | Hayır (varsayılan değer: false) |
+| ignoreNullValues | (Anahtar alanı dışında) giriş verilerinden null değerler yazma işlemi sırasında yok sayılacak belirtir.<br/>İzin verilen değerler **true** ve **false**.<br>- **True**: Verileri hedef nesneyi upsert/güncelleştirme işlemi yaptığınızda değiştirmeden bırakın. Bir ekleme işlemi yaptığınızda, tanımlanan varsayılan bir değer ekleyin.<br/>- **False**: Upsert/güncelleştirme işlemi yaptığınızda hedef nesnedeki verileri NULL olarak güncelleştirin. Bir ekleme işlemi yaptığınızda, bir NULL değer ekleyin. | Hayır (varsayılan değer: false) |
 
 >[!NOTE]
 >Havuz varsayılan değerini "**writeBatchSize**"ve kopyalama etkinliği"**[parallelCopies](copy-activity-performance.md#parallel-copy)**" Dynamics havuz için her iki 10 olan. Bu nedenle, 100 kayıtları Dynamics eşzamanlı olarak gönderilir.
@@ -333,14 +332,14 @@ Karşılık gelen Data Factory veri türü, kaynak Dynamics veri türü eşlemes
 | AttributeTypeCode.Boolean | Boole | ✓ | ✓ |
 | AttributeType.Customer | Guid | ✓ | | 
 | AttributeType.DateTime | Tarih saat | ✓ | ✓ |
-| AttributeType.Decimal | Ondalık | ✓ | ✓ |
+| AttributeType.Decimal | Onluk | ✓ | ✓ |
 | AttributeType.Double | çift | ✓ | ✓ |
 | AttributeType.EntityName | Dize | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓ (ile ilişkili tek hedef) |
 | AttributeType.ManagedProperty | Boole | ✓ | |
 | AttributeType.Memo | Dize | ✓ | ✓ |
-| AttributeType.Money | Ondalık | ✓ | ✓ |
+| AttributeType.Money | Onluk | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |

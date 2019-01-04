@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f207cdb3af3f7e328cd5843053240bbbe15980e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f1a40c09c2d08eddedd3b6b51d2a138ec403f6bc
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418352"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014922"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure veri fabrikasında kopyalama etkinliği, hataya dayanıklılık
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,15 +34,15 @@ Kopyalama etkinliği algılama, atlanıyor ve uyumsuz verilerini günlüğe kayd
 
 - **Kaynak veri türü ve havuz yerel türü arasındaki uyumsuzluk**. 
 
-    Örneğin: veri kopyalama Blob Depolama alanında bir CSV dosyasından SQL veritabanına üç INT türü sütunlar içeren şema tanımına sahip. CSV dosyası satırları 123,456,789 gibi sayısal veri içermesi için havuz deposu başarıyla kopyalanır. Ancak, 123,456 gibi sayısal olmayan değerleri içeren satırları abc uyumsuz olarak algılanır ve atlanır.
+    Örneğin: Bir SQL veritabanına üç INT türü sütunlar içeren bir şema tanımı ile Blob Depolama alanında bir CSV dosyasından verileri kopyalayın. CSV dosyası satırları 123,456,789 gibi sayısal veri içermesi için havuz deposu başarıyla kopyalanır. Ancak, 123,456 gibi sayısal olmayan değerleri içeren satırları abc uyumsuz olarak algılanır ve atlanır.
 
 - **Kaynak ve havuz arasında sütun sayısında uyuşmazlık**.
 
-    Örneğin: veri kopyalama Blob Depolama alanında bir CSV dosyasından SQL veritabanına altı sütunları içeren bir şema tanımı. Altı sütunları içeren CSV dosyası satırları başarıyla için havuz deposu olarak kopyalanır. Daha fazla veya altıdan az sütun içeren CSV dosyası satırları, uyumsuz olarak algılanır ve atlanır.
+    Örneğin: Bir SQL veritabanına altı sütunları içeren bir şema tanımı ile Blob Depolama alanında bir CSV dosyasından verileri kopyalayın. Altı sütunları içeren CSV dosyası satırları başarıyla için havuz deposu olarak kopyalanır. Daha fazla veya altıdan az sütun içeren CSV dosyası satırları, uyumsuz olarak algılanır ve atlanır.
 
 - **SQL Server/Azure SQL veritabanı/Azure Cosmos DB'ye yazarken birincil anahtar ihlali**.
 
-    Örneğin: veri kopyalama SQL Server'dan SQL veritabanı'na. Havuz SQL veritabanı'nda birincil anahtar tanımlı, ancak böyle bir birincil anahtar kaynak SQL server tanımlanır. Havuz için kaynak olarak mevcut yinelenen satırları kopyalanamıyor. Kopyalama etkinliği, kaynak verilerin yalnızca ilk satır havuz kopyalar. Yinelenen birincil anahtar değeri içeren sonraki kaynak satırları, uyumsuz olarak algılanır ve atlanır.
+    Örneğin: Verileri SQL Server'dan SQL veritabanı'na kopyalayın. Havuz SQL veritabanı'nda birincil anahtar tanımlı, ancak böyle bir birincil anahtar kaynak SQL server tanımlanır. Havuz için kaynak olarak mevcut yinelenen satırları kopyalanamıyor. Kopyalama etkinliği, kaynak verilerin yalnızca ilk satır havuz kopyalar. Yinelenen birincil anahtar değeri içeren sonraki kaynak satırları, uyumsuz olarak algılanır ve atlanır.
 
 >[!NOTE]
 >- Verileri SQL Data Warehouse'a veri yüklemek için PolyBase kullanarak PolyBase'nın yerel hata dayanıklılık ayarlarını yapılandırmak reddedin ilkeleri aracılığıyla belirterek "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" kopyalama etkinliğindeki. Yeniden yönlendirme PolyBase uyumsuz satırların Blob veya ADLS aşağıda gösterildiği gibi normal olarak yine de etkinleştirebilirsiniz.
@@ -72,7 +71,7 @@ Aşağıdaki örnek, kopyalama etkinliğinde uyumsuz satırları yapılandırmak
 }
 ```
 
-Özellik | Açıklama | İzin verilen değerler | Gerekli
+Özellik | Açıklama | İzin verilen değerler | Gereklidir
 -------- | ----------- | -------------- | -------- 
 Enableskipıncompatiblerow | Veya kopyalama sırasında uyumsuz satırların atlanmayacağını belirtir. | True<br/>False (varsayılan) | Hayır
 Redirectıncompatiblerowsettings | Zaman uyumsuz satırları günlüğe kaydetmek istediğiniz bir grup olabilir özellik belirtildi. | &nbsp; | Hayır

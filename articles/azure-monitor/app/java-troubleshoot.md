@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: a3af54b01de1966240484c7266e7906490d7db4e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1b2e1300c200619f5d1177e9761ad948c62c1239
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981180"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54013817"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java için Application Insights Sorun Giderme, Soru ve Yanıt
 Sorular veya sorunlar [Azure Application Insights Java][java]? Burada, bazı ipuçları verilmektedir.
@@ -48,7 +48,7 @@ Sorular veya sorunlar [Azure Application Insights Java][java]? Burada, bazı ipu
 * Doğru yapay ZEKA kaynak mı arıyorsunuz? Lütfen uygulamanızın telemetri burada beklediğiniz kaynağına ait iKey eşleştirin. Bunlar aynı olmalıdır.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Bekleniyor verilerini göremiyorum
-* Kullanım açın ve olup tahmini maliyet sayfası ve onay [örnekleme](../../application-insights/app-insights-sampling.md) işleminde. (% 100 iletim örnekleme işlemi olmadığı anlamına gelir.) Application Insights hizmetine ulaşan uygulamanızdan telemetri yalnızca bir bölümünü kabul edecek şekilde ayarlayabilirsiniz. Bu telemetrinin aylık kota içinde tutmanıza yardımcı olur.
+* Kullanım açın ve olup tahmini maliyet sayfası ve onay [örnekleme](../../azure-monitor/app/sampling.md) işleminde. (% 100 iletim örnekleme işlemi olmadığı anlamına gelir.) Application Insights hizmetine ulaşan uygulamanızdan telemetri yalnızca bir bölümünü kabul edecek şekilde ayarlayabilirsiniz. Bu telemetrinin aylık kota içinde tutmanıza yardımcı olur.
 * SDK'sı açık örnekleme var mı? Yanıt Evet ise, veri uygulanabilir tüm türleri için belirtilen oranlar örneklenen.
 * Java SDK'sı daha eski bir sürümünü kullanıyorsunuz? 2.0.1 sürümünden itibaren yerel sürücülerde veri kalıcılığı yanı sıra aralıklı ağ ve arka uç hataları işlemek için hataya dayanıklılık mekanizması ekledik.
 * Kaynaklarınızın azaltılıp nedeniyle aşırı telemetri? BİLGİLERİNİ günlüğe kaydetmeyi varsa, bir günlük göreceksiniz "Uygulamayı kısıtladığı" iletisi. Geçerli packfile 32 bin telemetri öğelerin saniye başına ' dir.
@@ -165,7 +165,7 @@ Application Insights'ı kullanan `org.apache.http`. Bu içinde Application Insig
 [data]: ../../azure-monitor/app/data-retention-privacy.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[platforms]: ../../application-insights/app-insights-platforms.md
+[platforms]: ../../azure-monitor/app/platforms.md
 [track]: ../../azure-monitor/app/api-custom-events-metrics.md
 [usage]: javascript.md
 

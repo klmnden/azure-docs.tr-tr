@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: 5f03f4fe1422f1665d857269c98a50827ed75d55
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: b880a80e19c5a85a35d5e1d78022fe4acc74f0e1
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958367"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999178"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Eski Java Service Fabric uygulamanızı Maven’dan Java kitaplıklarını alacak şekilde güncelleştirme
 Service Fabric Java ikili dosyalarını yakın zamanda Service Fabric Java SDK’dan Maven’a taşıdık. En son Service Fabric Java bağımlılıklarını almak için artık **mavencentral**’ı kullanabilirsiniz. Bu hızlı başlangıç, daha önce Service Fabric Java SDK ile kullanılacak şekilde Yeoman veya Eclipse kullanarak oluşturduğunuz mevcut Java uygulamalarını Maven tabanlı derlemeyle uyumlu olacak şekilde güncelleştirmenize yardımcı olur.
@@ -220,7 +220,7 @@ task copyDeps <<{
     }
 }
 ```
-Genel olarak bir Service Fabric durum bilgisi olmayan Java hizmetinde betiğin nasıl olması gerektiği hakkında genel bir fikir edinmek için başlarken örneklerimizdeki herhangi bir örneğe bakabilirsiniz. EchoServer örneği için [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/Services/EchoServer/EchoServer1.0/EchoServerService/build.gradle) böyledir.
+Genel olarak bir Service Fabric durum bilgisi olmayan Java hizmetinde betiğin nasıl olması gerektiği hakkında genel bir fikir edinmek için başlarken örneklerimizdeki herhangi bir örneğe bakabilirsiniz. EchoServer örneği için [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/reliable-services-actor-sample/build.gradle) böyledir.
 
 ## <a name="migrating-service-fabric-actor-service"></a>Service Fabric Aktör Hizmetini Geçirme
 

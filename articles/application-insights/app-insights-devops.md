@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: e9c3f9018965908ae065cedb63149190080d7f07
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1a160cd6d81ab7cb760a85ee7cbdbedf55c17167
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970245"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998242"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights ile ayrıntılı web uygulaması ve hizmet tanılama
 ## <a name="why-do-i-need-application-insights"></a>Application Insights neden gerekiyor?
@@ -156,7 +156,7 @@ Bir uyarı oluştuğunda, Application Insights izleme sistemi işinizi otomatik 
 ## <a name="but-what-about"></a>Ancak ne...?
 * [Gizlilik ve depolama](../azure-monitor/app/data-retention-privacy.md) -telemetrinizi Azure güvenli sunucularda tutulur.
 * -Performans etkisi çok düşüktür. Telemetri toplu.
-* [Fiyatlandırma](app-insights-pricing.md) -, ücretsiz kullanmaya başlayabilir ve düşük birimi iken sürdürür.
+* [Fiyatlandırma](../azure-monitor/app/pricing.md) -, ücretsiz kullanmaya başlayabilir ve düşük birimi iken sürdürür.
 
 
 ## <a name="video"></a>Video
@@ -167,6 +167,6 @@ Bir uyarı oluştuğunda, Application Insights izleme sistemi işinizi otomatik 
 Application Insights ile çalışmaya başlamak kolaydır. Ana Seçenekler şunlardır:
 
 * Zaten çalışan bir web uygulaması izleme. Bu, tüm yerleşik performans telemetrisine sağlar. İçin kullanılabilir [Java](../azure-monitor/app/java-live.md) ve [IIS sunucuları](../azure-monitor/app/monitor-performance-live-website-now.md), için ve ayrıca [Azure App Service](app-insights-overview.md).
-* Projeniz, geliştirme sırasında izleyin. Bunu yapabilmeniz [ASP.NET](../azure-monitor/app/asp-net.md) veya [Java](../azure-monitor/app/java-get-started.md) uygulamaları yanı [Node.js](app-insights-nodejs.md) ve çok sayıda [diğer türleri](app-insights-platforms.md). 
+* Projeniz, geliştirme sırasında izleyin. Bunu yapabilmeniz [ASP.NET](../azure-monitor/app/asp-net.md) veya [Java](../azure-monitor/app/java-get-started.md) uygulamaları yanı [Node.js](../azure-monitor/app/nodejs.md) ve çok sayıda [diğer türleri](../azure-monitor/app/platforms.md). 
 * Gereç [herhangi bir web sayfasında](../azure-monitor/app/javascript.md) kısa kod parçacığını ekleyerek.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 188c6148e169da62dec342e1695bf20ca57e3256
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c8ff6abe72a55be24b35b254a4bfc2a446b13c0b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974888"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999690"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights’ta nasıl ... yapabilirim?
 ## <a name="get-an-email-when-"></a>E-posta...
@@ -54,7 +54,7 @@ veya:
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Grafik oluşturma [ölçüm Gezgini](../../application-insights/app-insights-metrics-explorer.md) , uyarı görmek için:
+Grafik oluşturma [ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md) , uyarı görmek için:
 
 ![](./media/how-do-i/010-alarm.png)
 
@@ -77,7 +77,7 @@ Dikkat edilmesi gereken bazı noktalar:
 [Yeni uyarılar oluşturmak için PowerShell kullanma](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Application Insights'ı yönetmek için PowerShell'i kullanma
-* [Yeni kaynaklar oluşturma](../../application-insights/app-insights-powershell-script-create-resource.md)
+* [Yeni kaynaklar oluşturma](../../azure-monitor/app/powershell-script-create-resource.md)
 * [Yeni uyarılar oluşturun](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Farklı sürümlerine ait ayrı telemetri
@@ -91,7 +91,7 @@ Dikkat edilmesi gereken bazı noktalar:
 
 ## <a name="visualize-data"></a>Verileri görselleştirme
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Birden fazla uygulama ölçümleri içeren Pano
-* İçinde [ölçüm Gezgini'nde](../../application-insights/app-insights-metrics-explorer.md)grafiğinizi özelleştirin ve bir sık kullanılan olarak kaydedebilirsiniz. Azure panosuna sabitleyin.
+* İçinde [ölçüm Gezgini'nde](../../azure-monitor/app/metrics-explorer.md)grafiğinizi özelleştirin ve bir sık kullanılan olarak kaydedebilirsiniz. Azure panosuna sabitleyin.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Diğer kaynakları ve Application Insights verilerini içeren Pano
 * [Telemetri Power BI'a aktarma](../../application-insights/app-insights-export-power-bi.md).
@@ -132,7 +132,7 @@ Hangi sayfaların gibi verileri içeren bir liste istiyorsanız, bunlar bakın v
 * Web sayfalarınızda Ajax çağrılarının sayısı sınırı her sayfa görüntülemesindeki bildirdi. Kod parçacığında sonra `instrumentationKey:...` , Ekle: `,maxAjaxCallsPerView:3` (veya uygun bir sayı).
 * Kullanıyorsanız [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), ölçüm değerleri toplu işlerin toplam sonuç göndermeden önce işlem. Bir aşırı yüklemesini sağlayan için TrackMetric() yoktur.
 
-Daha fazla bilgi edinin [fiyatlandırma ve kotaları](../../application-insights/app-insights-pricing.md).
+Daha fazla bilgi edinin [fiyatlandırma ve kotaları](../../azure-monitor/app/pricing.md).
 
 ## <a name="disable-telemetry"></a>Telemetri devre dışı bırak
 İçin **dinamik olarak durdurmak ve başlatmak** sunucudan telemetri iletimini ve koleksiyon:
@@ -159,5 +159,5 @@ Daha fazla bilgi edinin [fiyatlandırma ve kotaları](../../application-insights
 * **UNIX sunucusu** - [toplanan yükleyin](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Daha fazla performans sayaçlarını görüntülemek için
-* İlk olarak, [yeni bir grafik ekleyin](../../application-insights/app-insights-metrics-explorer.md) ve sayaç sunuyoruz temel kümesinde olup olmadığına bakın.
-* Aksi halde [performansı sayaç modülü tarafından toplanan kümesi sayaç eklemek](../../application-insights/app-insights-performance-counters.md).
+* İlk olarak, [yeni bir grafik ekleyin](../../azure-monitor/app/metrics-explorer.md) ve sayaç sunuyoruz temel kümesinde olup olmadığına bakın.
+* Aksi halde [performansı sayaç modülü tarafından toplanan kümesi sayaç eklemek](../../azure-monitor/app/performance-counters.md).

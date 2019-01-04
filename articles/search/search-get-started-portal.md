@@ -1,32 +1,34 @@
 ---
-title: Dizin oluşturma, sorgulama ve filtreleme Azure portal - Azure Search Öğreticisi
-description: Bu öğreticide Azure portalı ve önceden tanımlanmış örnek verileri kullanarak Azure Search’te bir dizin oluşturacaksınız. Tam metin arama, filtreler, modeller, belirsiz arama, coğrafi arama ve daha fazlasını keşfedin.
+title: Azure portal - Azure Search kullanarak dizin oluşturma ve sorgulama hızlı başlangıç Öğreticisi
+description: Bu hızlı başlangıç öğreticisinde Azure Search'te bir dizin oluşturmak için yerleşik örnek veriler ve Azure Portalı'nı kullanın. Tam metin arama, filtreler, modeller, belirsiz arama, coğrafi arama ve daha fazlasını keşfedin.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d8b95aaab99fc4f0aa5df21374d6ec023f869b7d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3f75cd61d948f3f6df34124a9b16b333f6c5e6d5
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314032"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001796"
 ---
-# <a name="tutorial-use-built-in-portal-tools-for-azure-search-indexing-and-queries"></a>Öğretici: Azure arama dizini oluşturma ve sorgular için yerleşik portal araçlarını kullanma
+# <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Hızlı Başlangıç: Azure Search içeri aktarma, dizin oluşturma ve sorgular için yerleşik portal araçlarını kullanma
 
-Azure Search kavramlarına hızlı bir genel bakış için Azure portaldaki Azure Search hizmet sayfasında bulunan yerleşik araçları kullanabilirsiniz. Bu araçlar, .NET ve REST API'lerinin tüm işlevlerine sahip olmayabilir. Ancak sihirbazlar ve düzenleyiciler, kod yazmadan Azure Search'ü kullanmaya başlamanızı ve doğrudan örnek veri kümesine ilgi çekici sorgular yazmanızı sağlar.
+Bir hızlı mvc'deki için Azure Search kavramları, Azure portalında yerleşik araçları deneyebilirsiniz. Sihirbazlar ve düzenleyicileri .NET ve REST API'leri ile tam eşlik sağlamaz, ancak hızlı bir şekilde kod gerektirmeyen bir giriş, dakika içinde örnek veriler ilgi çekici sorguları yazma başlayabilirsiniz.
 
 > [!div class="checklist"]
-> * Genel örnek verilerle başlayın ve **Verileri içeri aktar** sihirbazıyla otomatik olarak bir Azure Search dizini oluşturun.
-> * Azure Search'te yayımlanmış tüm dizinlerin şemasını ve özniteliklerini görüntüleyin.
-> * **Search Gezgini** ile tam metin arama, filtreler, modeller, belirsiz arama ve coğrafi aramayı keşfedin.  
+> * Azure üzerinde barındırılan ücretsiz ortak örnek veri kümesi ile başlayın
+> * Çalıştırma **verileri içeri aktarma** Azure Search'te veri yükleme ve bir dizin oluşturmak için Sihirbazı
+> * Portalda dizin oluşturma ilerleme durumunu izleyin
+> * Varolan bir dizini ve onu değiştirmek için seçenekleri görüntüleme
+> * Tam metin arama, filtreler, modeller, belirsiz arama ve ile coğrafi aramayı keşfedin **arama Gezgini**
 
-Araçlar sizi çok sınırlıyorsa [.NET ile Azure Search'te programlamaya kod tabanlı giriş](search-howto-dotnet-sdk.md) veya [REST API çağrıları için web testi araçları](search-fiddler.md) konularını inceleyebilirsiniz.
+Araçları çok sınırlama, önünde bir [. NET'te Azure Search programlamaya kod tabanlı giriş](search-howto-dotnet-sdk.md) veya [Postman veya fiddler'ı REST API çağrıları yapmak için](search-fiddler.md).
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. Bu [Azure Search’e Genel Bakış videosunun](https://channel9.msdn.com/Events/Connect/2016/138) üçüncü dakikasından izlemeye başlayarak bu öğreticideki adımların 6 dakikalık bir gösterimini izleyebilirsiniz.
 
@@ -44,82 +46,95 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Birçok müşteri ücretsiz hizmetle başlar. Bu sürüm üç dizin, üç veri kaynağı ve üç dizin oluşturucu ile sınırlıdır. Başlamadan önce ek öğeler için yeriniz olduğundan emin olun. Bu öğreticide her nesneden birer tane oluşturulur.
 
-> [!TIP]
-> Hizmet panosundaki kutucuklar, şu anda kaç dizin, dizin oluşturucu ve veri kaynağına sahip olduğunuzu gösterir. Dizin oluşturucu kutucuğu, başarı ve başarısızlık göstergelerini gösterir. Dizin oluşturucu sayısını görüntülemek için kutucuğa tıklayın.
->
-> ![Dizin oluşturucular ve veri kaynakları için kutucuklar][1]
->
+Hizmet panosundaki bölümleri kaç dizin, dizin oluşturucular ve veri kaynaklarına sahip olduğunuzu gösterir. 
+
+! [Dizin, dizin oluşturucular ve veri kaynakları listesi] [media/search-get-started-portal/tiles-indexers-datasources2.png]
 
 ## <a name="create-index"></a> Dizin oluşturma ve verileri yükleme
 
 Arama sorguları aranabilir veriler, meta veriler ve arama davranışlarını iyileştiren ek yapılar içeren bir [*dizin*](search-what-is-an-index.md) kullanır.
 
-Bu öğreticide **Verileri içeri aktar** sihirbazı aracılığıyla bir [*dizin oluşturucu*](search-indexer-overview.md) kullanılarak gezilebilen yerleşik bir örnek veri kümesi kullanacağız. Dizin oluşturucu, kaynağa özgü bir gezgindir ve desteklenen Azure veri kaynaklarındaki meta verileri ve içeriği okuyabilir. Bu dizin oluşturuculara portalın **Verileri içeri aktar** sihirbazından ulaşabilirsiniz. Daha sonra programlama ile dizin oluşturucuları bağımsız kaynaklar olarak oluşturabilir ve yönetebilirsiniz.
+Bu öğreticide **Verileri içeri aktar** sihirbazı aracılığıyla bir [*dizin oluşturucu*](search-indexer-overview.md) kullanılarak gezilebilen yerleşik bir örnek veri kümesi kullanacağız. Dizin oluşturucu, kaynağa özgü bir gezgindir ve desteklenen Azure veri kaynaklarındaki meta verileri ve içeriği okuyabilir. Normalde, dizin oluşturucular programlı olarak kullanılır, ancak bloblarda erişim Portalı'nda **verileri içeri aktarma** Sihirbazı. 
 
-### <a name="step-1-start-the-import-data-wizard"></a>1. Adım: Veri içeri aktarma Sihirbazını Başlat
+### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>1. adım - Veri Alma Sihirbazı'nı başlatın ve bir veri kaynağı oluşturun
 
-1. Sihirbazı başlatmak için Azure Search hizmet panosunun komut çubuğundan **Verileri içeri aktar**'a tıklayın. Bu sihirbaz, arama dizini oluşturma ve doldurma konusunda size yardımcı olur.
+1. Azure Search Hizmeti panosunda **verileri içeri aktarma** oluşturmak ve search dizinini doldurmak için komut çubuğunda.
 
-    ![Verileri içeri aktar komutu][2]
+   ![Verileri içeri aktar komutu](media/search-get-started-portal/import-data-cmd2.png)
 
-2. Sihirbazda **Verilerinize bağlanın** > **Örnekler** > **realestate-us-sample** yolunu izleyin. Bu veri kaynağı önceden bir ad, tür ve bağlantı bilgileriyle adlandırılır. Oluşturulan kaynak, diğer içeri aktarma işlemlerinde yeniden kullanılabilecek bir “mevcut veri kaynağı” olur.
+2. Sihirbazda **Verilerinize bağlanın** > **Örnekler** > **realestate-us-sample** yolunu izleyin. Bu veri kaynağı yerleşiktir. Kendi veri kaynağı oluşturuyorsanız, ad, tür ve bağlantı bilgilerini belirtmek gerekir. Oluşturulan kaynak, diğer içeri aktarma işlemlerinde yeniden kullanılabilecek bir “mevcut veri kaynağı” olur.
 
-    ![Örnek veri kümesi seçme][9]
+   ![Örnek veri kümesi seçme](media/search-get-started-portal/import-datasource-sample2.png)
 
-3. Kullanmak için **Tamam**’a tıklayın.
+3. Bir sonraki sayfasına devam edin.
 
-### <a name="skip-cognitive-skills"></a>Bilişsel yetenekleri atlama
+   ![Bilişsel arama için sonraki sayfa düğmesi](media/search-get-started-portal/next-button-add-cog-search.png)
 
-**Verileri içeri aktar** sihirbazı, dizin oluşturma aşamasına özel yapay zeka algoritmaları eklemenizi sağlayan isteğe bağlı bir bilişsel yetenekler adımı sunar. Şimdilik bu adımı atlayıp **Hedef dizini özelleştir** adımına geçin.
+### <a name="step-2---skip-cognitive-skills"></a>Adım 2 - Atla Bilişsel beceriler
+
+Oluşturma Sihirbazı'nı destekleyen bir [bilişsel beceriler işlem hattı](cognitive-search-concept-intro.md) Bilişsel Hizmetleri yapay ZEKA algoritmaları dizin içine ekleme için. 
+
+Biz şimdilik bu adımı atlayın ve doğrudan geçin **hedef dizini Özelleştir**.
+
+   ![Bilişsel beceri adımını atlama](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
 > Azure Search'teki yeni bilişsel arama özelliğini denemek isterseniz [bilişsel arama hızlı başlangıcına](cognitive-search-quickstart-blob.md) veya [öğreticisine](cognitive-search-tutorial-blob.md) göz atabilirsiniz.
 
-   ![Bilişsel beceri adımını atlama][11]
+### <a name="step-3---configure-index"></a>3. adım: dizin yapılandırın
 
-### <a name="step-2-define-the-index"></a>2. Adım: Bir dizin tanımla
-
-Dizin oluşturma genelde kod ile gerçekleştirilen bir aşamadır. Bu öğreticide sihirbaz, gezinebileceği tüm veri kaynakları için dizin oluşturabilir. Dizin için en azından bir ad ve alan koleksiyonu gerekir ve her belgenin benzersiz olarak tanımlanabilmesi için bir alanın belge anahtarı olarak işaretlenmiş olması gerekir.
+Genellikle dizin oluşturma, veriler yüklenmeden önce tamamlanan kod tabanlı bir alıştırma, oluşur. Ancak, bu öğreticide da anlaşılacağı gibi sihirbaz gezinebileceği tüm veri kaynağı için temel bir dizin oluşturabilirsiniz. Dizin için en azından bir ad ve alan koleksiyonu gerekir ve her belgenin benzersiz olarak tanımlanabilmesi için bir alanın belge anahtarı olarak işaretlenmiş olması gerekir. Otomatik Tamamlama istiyorsanız buna ek olarak, dil Çözümleyicileri veya öneri araçları belirtebilirsiniz veya önerilen sorgular.
 
 Alanların veri türleri ve öznitelikleri vardır. Üstteki onay kutuları, alanın nasıl kullanılacağını denetleyen *dizin öznitelikleridir*.
 
 * **Alınabilir**, arama sonuçları listesinde çıktığı anlamına gelir. Örneğin, alanlar yalnızca filtre ifadelerinde kullanıldığında bu onay kutusunun işaretini kaldırarak alanları arama sonuçları için kapsam dışı olarak işaretleyebilirsiniz.
-* **Filtrelenebilir**, **Sıralanabilir** ve **Modellenebilir** seçeneği bir alanın filtre, sıralama veya model gezinti yapısında kullanılıp kullanılamayacağını belirler.
+* **Anahtar** belgenin benzersiz tanımlayıcısı. Her zaman bir dize olduğu ve gerekli değildir.
+* **Filtrelenebilir**, **sıralanabilir**, ve **modellenebilir** alanları bir filtre, sıralama veya çok yönlü gezinme yapısı kullanılıp kullanılmayacağını belirler.
 * **Aranabilir**, bir alanın tam metin aramasına dahil olduğu anlamına gelir. Dizelerde arama yapılabilir. Sayısal alanlar ve Boolean alanları genellikle aranamaz olarak işaretlenir.
+
+Depolama gereksinimleri seçiminizi sonucunda değişiklik yok. Örneğin, ayarlarsanız **alınabilir** depolama gereksinimleri değil Yukarı Git özniteliği birden çok alan.
 
 Varsayılan olarak sihirbaz tarafından anahtar alanının temeli olarak benzersiz tanımlayıcıların bulunması için veri kaynağı taranır. Dizelere alınabilir ve aranabilir öznitelikler atanmıştır. Tam sayılara alınabilir, filtrelenebilir, sıralanabilir ve modellenebilir öznitelikler atanmıştır.
 
-  ![Emlak dizini oluşturuldu][3]
+1. Tüm Varsayılanları kabul edin.
 
-Dizini oluşturmak için **Tamam**’a tıklayın.
+  ![Emlak dizini oluşturuldu](media/search-get-started-portal/realestateindex2.png)
 
-### <a name="step-3-define-the-indexer"></a>3. adım: Dizin oluşturucuyu tanımlama
+2. Bir sonraki sayfasına devam edin.
+
+  ![Sonraki sayfaya dizin oluşturucu oluşturma](media/search-get-started-portal/next-button-create-indexer.png)
+
+### <a name="step-4---configure-indexer"></a>4. adım: dizin oluşturucuyu yapılandırma
 
 **Verileri içeri aktarma** sihirbazından çıkmadan **Dizin Oluşturucu** > **Ad**’a tıklayın ve dizin oluşturucu için bir ad yazın.
 
-Bu nesne, yürütülebilir bir işlemi tanımlar. Bunu yinelenen bir zamanlamaya göre çalıştırabilirsiniz, ancak şimdilik dizin oluşturucunun **Tamam**’a tıkladığınızda bir kere çalışması için varsayılan seçeneği kullanın.  
+Bu nesne, yürütülebilir bir işlemi tanımlar. Yinelenen bir zamanlamaya göre put ancak şimdilik dizin oluşturucunun bir kez çalıştırmak için varsayılan seçeneği kullanmanız hemen.
 
-  ![emlak dizini oluşturucu][8]
+Tıklayın **Gönder** oluşturmak ve aynı anda dizin oluşturucuyu çalıştırmak için.
 
-### <a name="check-progress"></a>İlerleme durumunu denetleme
+  ![emlak dizini oluşturucu](media/search-get-started-portal/realestate-indexer2.png)
 
-Verilerin içeri aktarılmasını izlemek için hizmet panosuna dönün, sayfayı aşağı kaydırın ve **Dizin Oluşturucular** kutucuğuna tıklayarak dizin oluşturucuların listesini açın. Yeni oluşturulan ve durumu “sürüyor” ya da başarılı olan dizin oluşturucuyu ve dizine eklenen belge sayısını görebilirsiniz.
+## <a name="monitor-progress"></a>İlerlemeyi İzle
 
-   ![Dizin oluşturucu ilerleme durumu iletisi][4]
+Sihirbaz burada ilerleme durumunu izleyebilirsiniz. dizin oluşturucular listeye almanız gerekir. Kendi kendine gezintiye genel bakış sayfasında ve tıklayın Git **dizin oluşturucular**.
 
-### <a name="step-4-view-the-index"></a>4. adım: Dizini görüntüleme
+Portalın sayfanın birkaç dakika sürebilir ve durumunu gösteren ile listesinde yeni oluşturulan dizin oluşturucu görmeniz gerekir "Sürüyor" ya da başarılı dizine eklenen belge sayısını.
 
-Hizmet panosundaki kutucuklar, kaynaklardaki çeşitli nesnelerle ilgili özet bilginin yanı sıra ayrıntılı bilgilere erişme imkanı sunar. **Dizinler** kutucuğu, bir önceki adımda oluşturduğunuz *realestate-us-sample* dahil olmak üzere var olan dizinleri listeler.
+   ![Dizin oluşturucu ilerleme durumu iletisi](media/search-get-started-portal/indexers-inprogress2.png)
 
-*realestate-us-sample* dizinine tıklayarak portal seçeneklerini görüntüleyebilirsiniz. **Alan Ekle/Düzenle** seçeneği, yeni alan oluşturmanızı ve özniteliklerini düzenlemenizi sağlar. Var olan alanlar Azure Search'te fiziksel olarak temsil edildiğinden kod ile dahi değişiklik yapılamaz. Var olan bir alanı tamamen değiştirmek için yeni bir tane oluşturun ve özgün alanı bırakın.
+## <a name="view-the-index"></a>Dizini görüntüleme
 
-   ![Örnek dizin tanımı][10]
+**Dizinleri** listesi dahil olmak üzere mevcut dizinleri gösterir *realestate-us-sample* Sihirbazı'nda yeni oluşturduğunuz dizin.
+
+Bu listeden dizin şemasını görüntülemek ve isteğe bağlı olarak yeni alan ekleyebilir, ancak varolan alanların değiştiremezsiniz. Var olan alanlar Azure Search'te fiziksel olarak temsil edildiğinden kod ile dahi değişiklik yapılamaz. Temelde varolan bir alanı değiştirmek için özgün bırakmadan yeni bir dizin oluşturun.
+
+   ![Örnek dizin tanımı](media/search-get-started-portal/sample-index-def.png)
 
 Puanlama profilleri ve CORS seçenekleri gibi diğer yapılar herhangi bir noktada eklenebilir.
 
-Dizin tasarımı sırasında düzenleme yapabileceğiniz ve yapamayacağınız alanları kavramak için birkaç dakikanızı ayırarak dizin tanımı seçeneklerini görüntüleyin. Gri renkli seçenekler, bir değerin değiştirme veya silme işlemleri için uygun olmadığını gösterir. Benzer şekilde Çözümleyici ve Öneri aracı onay kutularını da şimdilik atlayabilirsiniz.
+Dizin tasarımı sırasında düzenleme yapabileceğiniz ve yapamayacağınız alanları kavramak için birkaç dakikanızı ayırarak dizin tanımı seçeneklerini görüntüleyin. Gri renkli seçenekler, bir değerin değiştirme veya silme işlemleri için uygun olmadığını gösterir. 
 
-## <a name="query-index"></a> Dizini sorgulama
+## <a name="query-index"></a> Arama Gezgini'ni kullanarak sorgulama
 
 Artık yerleşik [**Arama gezgini**](search-explorer.md) sorgu sayfasını kullanarak sorgulayabileceğiniz bir arama dizinine sahipsiniz. Bu sayfada rastgele sorgu dizelerini test etmek için kullanabileceğiniz bir arama kutusu bulunur.
 
@@ -129,29 +144,33 @@ Artık yerleşik [**Arama gezgini**](search-explorer.md) sorgu sayfasını kulla
 
 1. Komut çubuğunda **Arama gezgini**'ne tıklayın.
 
-   ![Search gezgini komutu][5]
+   ![Search gezgini komutu](media/search-get-started-portal/search-explorer-cmd2.png)
 
 2. *realestate-us-sample* öğesine geçmek için komut çubuğundan **Dizini değiştir**’e tıklayın. Hangi REST API’lerin kullanılabildiğini görmek için komut çubuğundan **API sürümünü ayarla**’ya tıklayın. Aşağıdaki sorgular için genel kullanıma sunulan sürümü (2017-11-11) kullanın.
 
-   ![Dizin ve API komutları][6]
+   ![Dizin ve API komutları](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 
 3. Arama kutusuna aşağıdaki sorgu dizelerini girin ve **Ara**’ya tıklayın.
 
     > [!NOTE]
-    > **Arama gezgini** yalnızca [REST API isteğini](https://docs.microsoft.com/rest/api/searchservice/search-documents) işleyebilecek şekilde tasarlanmıştır. Hem [basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) hem de [tam Lucene sorgu ayrıştırıcısına](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) yönelik söz dizimlerinin yanı sıra [Belgede Arama](https://docs.microsoft.com/rest/api/searchservice/search-documents) işlemlerinde kullanılabilen arama parametrelerini kabul eder.
+    > **Arama Gezgini** işlemek için yalnızca donatılmış [REST API istekleri](https://docs.microsoft.com/rest/api/searchservice/search-documents). Hem [basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) hem de [tam Lucene sorgu ayrıştırıcısına](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) yönelik söz dizimlerinin yanı sıra [Belgede Arama](https://docs.microsoft.com/rest/api/searchservice/search-documents) işlemlerinde kullanılabilen arama parametrelerini kabul eder.
     >
+
+## <a name="example-queries"></a>Örnek sorgular
+
+Hüküm ve ifadeler, Bing veya Google arama veya tam olarak belirtilen sorgu ifadeleri neler için benzer girebilirsiniz. Sonuçları ayrıntılı JSON belgeleri olarak döndürülür.
 
 ### <a name="simple-query-with-top-n-results"></a>İlk N sonucu içeren basit sorgu
 
-#### <a name="example-string-searchseattle"></a>Örnek (dize): `search=seattle`
+#### <a name="example-string-query-searchseattle"></a>Örnek (dize sorgusu): `search=seattle`
 
 * Bu durumda tam metin aramak üzere anahtar sözcük arama girişi yapmak için **search** parametresi kullanılmıştır ve belgedeki aranabilir alanların herhangi birinde *Seattle* ifadesini içeren Washington eyaletinin King County bölgesindeki listelemeler döndürülmüştür.
 
-* **Search gezgini** sonuçları JSON biçiminde döndürülür. Bu biçim ayrıntılı olmakla birlikte, belgelerin yoğun bir yapısı varsa okunması zordur. Bu kasıtlı olarak yapılmıştır. Özellikle test aşamasında belgenin tamamının görünür durumda olması geliştirme açısından önemlidir. Daha iyi bir kullanıcı deneyimi sunmak için [arama sonuçlarını işleyerek](search-pagination-page-layout.md) önemli öğeleri öne çıkaran bir kod yazmanız gerekir.
+* **Search gezgini** sonuçları JSON biçiminde döndürülür. Bu biçim ayrıntılı olmakla birlikte, belgelerin yoğun bir yapısı varsa okunması zordur. Bu kasıtlıdır; Tüm belgeyi görünürlük özellikle test sırasında geliştirme amacıyla önemlidir. Daha iyi bir kullanıcı deneyimi sunmak için [arama sonuçlarını işleyerek](search-pagination-page-layout.md) önemli öğeleri öne çıkaran bir kod yazmanız gerekir.
 
-* Belgeler, dizinde "alınabilir" olarak işaretlenmiş tüm alanlardan oluşur. Portalda dizin özniteliklerini görüntülemek için **Dizinler** kutucuğundaki *realestate-us-sample* öğesine tıklayın.
+* Belgeler, dizinde "alınabilir" olarak işaretlenmiş tüm alanlardan oluşur. Portalda dizin özniteliklerini görüntülemek için tıklayın *realestate-us-sample* içinde **dizinleri** listesi.
 
-#### <a name="example-parameterized-searchseattlecounttruetop100"></a>Örnek (parametreli): `search=seattle&$count=true&$top=100`
+#### <a name="example-parameterized-query-searchseattlecounttruetop100"></a>Örnek (Parametreli sorgu): `search=seattle&$count=true&$top=100`
 
 * **&** simgesi, herhangi bir sırada belirtilebilen arama parametreleri eklemek için kullanılır.
 
@@ -231,35 +250,22 @@ Arama uygulamanız "yakınımda bul" özelliği içeriyorsa ya da harita navigas
 
 ## <a name="takeaways"></a>Paketler
 
-Bu öğreticide Azure portal ile Azure Search kullanımına hızlı bir giriş yaptınız.
+Bu öğreticide, Azure portalını kullanarak Azure Search için hızlı bir giriş sağlanır.
 
 **Verileri içeri aktar** sihirbazını kullanarak arama dizini oluşturmayı öğrendiniz. [Dizin oluşturucuların](search-indexer-overview.md) yanı sıra [yayımlanmış dizinler için desteklenen değişiklikler](https://docs.microsoft.com/rest/api/searchservice/update-index) gibi dizin tasarımıyla ilgili temel iş akışı hakkında bilgi edindiniz.
 
 Azure portalda **Arama gezginini** kullanarak filtreler, sonuç vurgulama, belirsiz arama ve coğrafi arama gibi önemli özelliklerin gösterildiği örneklerle temel sorgu söz dizimini öğrendiniz.
 
-Ayrıca portal panosundaki arama dizini, dizin oluşturucu ve veri kaynakları kutucuklarını kullanmayı öğrendiniz. Gelecekte yeni verilerle karşılaştığınızda portalı kullanarak tanımlarını veya alan koleksiyonlarını hızlı bir şekilde denetleyebilirsiniz.
+Portalda dizin, dizin oluşturucular ve veri kaynaklarını bulma ayrıca öğrendiniz. Gelecekte yeni verilerle karşılaştığınızda portalı kullanarak tanımlarını veya alan koleksiyonlarını hızlı bir şekilde denetleyebilirsiniz.
 
 ## <a name="clean-up"></a>Temizleme
 
-Azure Search hizmetini ilk kez bu öğreticide kullandıysanız Azure Search hizmetini içeren kaynak grubunu seçin. Değilse hizmet listesinden doğru kaynak grubunu bulun ve silin.
+Bu öğreticide ilk Azure Search hizmetini kullanımınız, Azure Search Hizmeti içeren kaynak grubunu silin. Değilse hizmet listesinden doğru kaynak grubunu bulun ve silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Programlama araçlarını kullanarak Azure Search hakkında daha fazla şey keşfedebilirsiniz:
 
-* [.NET SDK'sını kullanarak dizin oluşturma](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+* [.NET SDK'sını kullanarak bir dizin oluşturun](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [REST API'lerini kullanarak dizin oluşturma](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Azure Search REST API'lerini çağırmak için Postman veya Fiddler gibi web test araçlarını](search-fiddler.md) kullanma
-
-<!--Image references-->
-[1]: ./media/search-get-started-portal/tiles-indexers-datasources2.png
-[2]: ./media/search-get-started-portal/import-data-cmd2.png
-[3]: ./media/search-get-started-portal/realestateindex2.png
-[4]: ./media/search-get-started-portal/indexers-inprogress2.png
-[5]: ./media/search-get-started-portal/search-explorer-cmd2.png
-[6]: ./media/search-get-started-portal/search-explorer-changeindex-se2.png
-[7]: ./media/search-get-started-portal/search-explorer-query2.png
-[8]: ./media/search-get-started-portal/realestate-indexer2.png
-[9]: ./media/search-get-started-portal/import-datasource-sample2.png
-[10]: ./media/search-get-started-portal/sample-index-def.png
-[11]: ./media/search-get-started-portal/skip-cog-skill-step.png
+* [Postman veya fiddler'ı ve Azure Search REST API'lerini kullanarak dizini oluşturma](search-fiddler.md)

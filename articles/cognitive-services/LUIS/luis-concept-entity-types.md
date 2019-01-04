@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 79c279e351ce467bea8affc313da09ce8087bd2a
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 9149cef7ba7fa2d0a3d853c3b8e26d364f22d954
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994904"
+ms.locfileid: "53999994"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Varlık türleri ve bunların amacıyla LUIS
 
@@ -167,7 +167,6 @@ Pattern.Any yalnızca bir desenin şablon utterance varlık burada başlar ve bi
 İyi bir varlıktır ne zaman uygun:
 
 * Varlığın son utterance kalan metinle çakışabilir. 
-
 [Öğretici](luis-tutorial-pattern.md)<br>
 [Varlık için örnek JSON yanıtı](luis-concept-data-extraction.md#patternany-entity-data)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7cde9fa0849729ba9db9b604dd0ad26cf362a484
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: de260560f141691fc1a7c0dd3bfad262d2d79598
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969871"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025581"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application ınsights'ı ayarlayın: Bağımlılık izleme
 A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşen. Bu genellikle adlı HTTP veya bir veritabanı veya dosya sistemi kullanılarak bir hizmettir. [Application Insights](../../application-insights/app-insights-overview.md) ne sıklıkta bağımlılık çağrı başarısız olur ve uygulama bağımlılıkları için bekleyeceği süreyi ölçer. Belirli çağrıları incelemek ve bunları istekler ve özel durumlar için ilişkilendirebilirsiniz.
@@ -121,7 +121,7 @@ Farklı bir durumda, özellikle uzun çağrı yok bağımlılık yoktur. Ancak Z
 
 ### <a name="profile-your-live-site"></a>Sitenizin Canlı profil
 
-Hiçbir fikriniz olduğu zaman gider? [Application Insights Profiler'ı](../../application-insights/app-insights-profiler.md) HTTP canlı sitenize çağırır ve kodunuzda hangi işlevleri gösterir izlemeleri geçen en uzun süre.
+Hiçbir fikriniz olduğu zaman gider? [Application Insights Profiler'ı](../../azure-monitor/app/profiler.md) HTTP canlı sitenize çağırır ve kodunuzda hangi işlevleri gösterir izlemeleri geçen en uzun süre.
 
 ## <a name="failed-requests"></a>Başarısız istekler
 Başarısız istekler başarısız bağımlılık çağrıları ile ilişkili olabilir. Yine, biz aracılığıyla sorunu izlemek için tıklayabilirsiniz.

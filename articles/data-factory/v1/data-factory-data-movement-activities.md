@@ -9,17 +9,16 @@ ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6b13c70d86af195e50190083aa562811236cdd4b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3d0a3014fa224d6b5c85142e492afb0679f9f0b1
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299869"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014690"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Kopyalama etkinliği'ni kullanarak veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +78,7 @@ Data Factory’deki Kopyalama Etkinliği bir kaynak veri deposundan havuz veri d
 ### <a name="supported-file-formats"></a>Desteklenen dosya biçimleri
 Kopyalama etkinliği için kullanabileceğiniz **olarak dosya kopyalama-olan** iki dosya tabanlı veri depoları arasında atlayabilirsiniz [format bölümünde](data-factory-create-datasets.md) girdi ve çıktı veri kümesi tanımlarında. Verileri verimli bir şekilde tüm serileştirme/seri kaldırma kopyalanır.
 
-Kopyalama etkinliği de okur ve belirtilen biçimde dosyaları Yazar: **metin, JSON, Avro, ORC ve Parquet**ve sıkıştırma codec **GZip, Deflate, Bzıp2 ve ZipDeflate** desteklenir. Bkz: [desteklenen dosya ve sıkıştırma biçimleri](data-factory-supported-file-and-compression-formats.md) ayrıntılarla.
+Kopyalama etkinliği, ayrıca okur ve belirtilen biçimde dosyaları Yazar: **Metin, JSON, Avro, ORC ve Parquet**ve sıkıştırma codec **GZip, Deflate, Bzıp2 ve ZipDeflate** desteklenir. Bkz: [desteklenen dosya ve sıkıştırma biçimleri](data-factory-supported-file-and-compression-formats.md) ayrıntılarla.
 
 Örneğin, aşağıdaki kopyalama etkinlikleri yapabilirsiniz:
 
@@ -120,7 +119,7 @@ Hem kaynak hem de havuz veri depolarına bulutta olduğunda, Data Factory hizmet
 | &nbsp; | Güney Hindistan | Orta Hindistan |
 | Japonya | Japonya Doğu | Japonya Doğu |
 | &nbsp; | Japonya Batı | Japonya Doğu |
-| Kore | Kore Orta | Kore Orta |
+| Güney Kore | Kore Orta | Kore Orta |
 | &nbsp; | Kore Güney | Kore Orta |
 
 Alternatif olarak, açıkça belirterek kopyalama işlemini gerçekleştirmek için kullanılacak Data Factory hizmetinin bölgeyi belirtebilirsiniz `executionLocation` kopyalama etkinliği'nin altındaki özelliğini `typeProperties`. Bu özellik için desteklenen değerler listelenmiştir yukarıda **bölge veri taşıma için kullanılan** sütun. Verilerinizi bu bölge kopyalama sırasında kablo üzerinden geçer unutmayın. Örneğin arasında kopyalamak için belirtebileceğiniz depolayan Kore'de Azure `"executionLocation": "Japan East"` Japonya bölge üzerinden yönlendirmek için (bkz [JSON örneği](#by-using-json-scripts) başvuru olarak).
@@ -139,7 +138,7 @@ Ne zaman veri şuraya kopyalanıyor şirket içinde (veya Azure sanal makineler/
 Data Factory Kopyalama Sihirbazı, kopyalama etkinliği ile işlem hattı oluşturmak için yardımcı olur. Bu işlem hattı veri desteklenen kaynaklardan hedeflere kopyalamanıza olanak sağlayan *JSON yazmadan* bağlı hizmetler, veri kümeleri ve işlem hatları için tanımlar. Bkz: [Data Factory Kopyalama Sihirbazı](data-factory-copy-wizard.md) Sihirbazı hakkında daha fazla ayrıntı için.  
 
 ### <a name="by-using-json-scripts"></a>JSON betikleri kullanarak
-(Kopyalama etkinliği kullanarak) bir işlem hattı için bir JSON tanımı oluşturmak için Azure portal, Visual Studio veya Azure PowerShell Data Factory Düzenleyicisi'ni kullanabilirsiniz. Ardından, Data Factory'de işlem hattı oluşturmak için dağıtabilirsiniz. Bkz: [öğretici: kullanımı bir Azure Data Factory işlem hattında kopyalama etkinliği](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) adım adım yönergeleri içeren öğretici.    
+(Kopyalama etkinliği kullanarak) bir işlem hattı için bir JSON tanımı oluşturmak için Azure portal, Visual Studio veya Azure PowerShell Data Factory Düzenleyicisi'ni kullanabilirsiniz. Ardından, Data Factory'de işlem hattı oluşturmak için dağıtabilirsiniz. Bkz: [Öğreticisi: Bir Azure Data Factory işlem hattında kopyalama etkinliği kullanmak](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) adım adım yönergeleri içeren öğretici.    
 
 JSON özellikleri (örneğin, ad, açıklama, girdi ve çıktı tabloları ve ilkeleri), tüm etkinlik türleri için kullanılabilir. Kullanılabilir özellikler `typeProperties` etkinlik bölümünü her etkinlik türü ile farklılık gösterir.
 

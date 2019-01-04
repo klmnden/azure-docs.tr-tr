@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9b7f49571aa78a262a464f9626b7b98a85f8187f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c2a7b5a1f90ddc6ccfdbc568113a5c265dd9ac84
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973341"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022963"
 ---
 # <a name="using-search-in-application-insights"></a>Uygulama anlayışları'nda arama kullanma
 Arama özelliği, [Application Insights](../../application-insights/app-insights-overview.md) bulmak ve sayfa görüntülemeleri, özel durumlar gibi tek bir telemetri öğelerini keşfedin veya web istekleri için kullanın. Ve günlük izlemeleri ve kodlanmış olayları görüntüleyebilir.
@@ -129,7 +129,7 @@ Kullanabileceğiniz arama ifadeleri şunlardır:
 ## <a name="sampling"></a>Örnekleme
 Uygulamanız çok sayıda telemetri oluşturuyorsa (ve ASP.NET SDK sürüm 2.0.0-Beta3 veya daha sonra), Uyarlamalı örnekleme modülü olayların yalnızca bir temsilci fraksiyonunu göndererek portala gönderilen hacmi otomatik olarak azaltır. Ancak aynı istekle ilgili olayları seçtikten veya bir grup olarak seçili, böylece ilgili olaylar arasında gezinebilirsiniz. 
 
-[Örnekleme hakkında bilgi edinin](../../application-insights/app-insights-sampling.md).
+[Örnekleme hakkında bilgi edinin](../../azure-monitor/app/sampling.md).
 
 ## <a name="create-work-item"></a>İş öğesi oluştur
 Tüm telemetri öğesinin Ayrıntıları ile GitHub ya da Azure DevOps bir hata oluşturabilirsiniz. 
@@ -153,7 +153,7 @@ Application Insights SDK'sı tarafından gönderilen kullanıma hazır telemetri
 ## <a name="questions"></a>SORU- CEVAP
 ### <a name="limits"></a>Ne kadar veri tutulur?
 
-Bkz: [sınırları özeti](../../application-insights/app-insights-pricing.md#limits-summary).
+Bkz: [sınırları özeti](../../azure-monitor/app/pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>Gönderme verisi sunucu isteklerim nasıl görebilirim?
 Gönderme verisi otomatik olarak oturum yok, ancak kullanabileceğiniz [TrackTrace ya da günlük aramaları](../../azure-monitor/app/asp-net-trace-logs.md). Gönderme verisi ileti parametreyi yerleştirin. İletide, özelliklerde filtre aynı şekilde filtre uygulanamıyor, ancak boyut sınırını uzundur.

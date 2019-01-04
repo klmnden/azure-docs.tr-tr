@@ -9,17 +9,16 @@ ms.assetid: 888d9ebc-2500-4071-b6d1-0f6bd1b5997c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7357b609909c3db0bc42d58cb2cd32436c864f66
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2f964ac77ade69f14692a337f17011e93f85f68c
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235879"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025717"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>PostgreSQL Azure Data Factory ile verileri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,7 +48,7 @@ Veri Yönetimi PostgreSQL veritabanına bağlanmak ağ geçidi için yükleme [N
 ## <a name="getting-started"></a>Başlarken
 Farklı araçlar/API'lerini kullanarak bir şirket içi PostgreSQL veri deposundan veri taşıyan kopyalama etkinliği ile işlem hattı oluşturabilirsiniz. 
 
-- Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz. 
+- Bir işlem hattı oluşturmanın en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [Öğreticisi: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma hızlı bir kılavuz. 
 - Ayrıca, bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: 
     - Azure portal
     - Visual Studio
@@ -66,7 +65,7 @@ API'ler ve Araçlar kullanmanıza bakılmaksızın, bir havuz veri deposu için 
 2. Oluşturma **veri kümeleri** kopyalama işleminin girdi ve çıktı verilerini göstermek için. 
 3. Oluşturma bir **işlem hattı** bir veri kümesini girdi ve çıktı olarak bir veri kümesini alan kopyalama etkinliği ile. 
 
-Sihirbazı'nı kullandığınızda, bu Data Factory varlıklarını (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın.  Şirket içi PostgreSQL veri deposundan veri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları ile bir örnek için bkz. [JSON örneği: veri kopyalama PostgreSQL için Azure Blob](#json-example-copy-data-from-postgresql-to-azure-blob) bu makalenin. 
+Sihirbazı'nı kullandığınızda, bu Data Factory varlıklarını (bağlı hizmetler, veri kümeleri ve işlem hattı) için JSON tanımları sizin için otomatik olarak oluşturulur. Araçlar/API'leri (dışında .NET API'si) kullandığınızda, bu Data Factory varlıkları JSON biçimini kullanarak tanımlayın.  Şirket içi PostgreSQL veri deposundan veri kopyalamak için kullanılan Data Factory varlıkları için JSON tanımları ile bir örnek için bkz. [JSON örneği: Veri PostgreSQL için Azure Blob kopyalama](#json-example-copy-data-from-postgresql-to-azure-blob) bu makalenin. 
 
 Aşağıdaki bölümler, Data Factory varlıklarını belirli bir PostgreSQL veri deposuna tanımlamak için kullanılan JSON özellikleri hakkında ayrıntılı bilgi sağlar:
 
@@ -89,7 +88,7 @@ Bölümleri ve veri kümeleri tanımlamak için kullanılabilir özellikleri tam
 
 TypeProperties bölümünün her tür veri kümesi için farklıdır ve verilerin veri deposundaki konumu hakkında bilgi sağlar. TypeProperties bölümü için veri kümesi türü **RelationalTable** (PostgreSQL veri kümesini içeren) aşağıdaki özelliklere sahiptir:
 
-| Özellik | Açıklama | Gerekli |
+| Özellik | Açıklama | Gereklidir |
 | --- | --- | --- |
 | tableName |Bağlı hizmeti PostgreSQL veritabanı örneğinde tablonun adını gösterir. TableName, büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** , **RelationalSource** belirtilir) |
 
@@ -100,7 +99,7 @@ Oysa etkinliğin typeProperties bölümündeki özellikler her etkinlik türü i
 
 Kaynak türü olduğunda **RelationalSource** (PostgreSQL içeren), typeProperties bölümünde aşağıdaki özellikler kullanılabilir:
 
-| Özellik | Açıklama | İzin verilen değerler | Gerekli |
+| Özellik | Açıklama | İzin verilen değerler | Gereklidir |
 | --- | --- | --- | --- |
 | sorgu |Verileri okumak için özel sorgu kullanın. |SQL sorgu dizesi. Örneğin: `"query": "select * from \"MySchema\".\"MyTable\""`. |Hayır (varsa **tableName** , **veri kümesi** belirtilir) |
 
@@ -111,7 +110,7 @@ Kaynak türü olduğunda **RelationalSource** (PostgreSQL içeren), typeProperti
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
-## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON örneği: veri kopyalama PostgreSQL için Azure Blob
+## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON örneği: PostgreSQL için Azure Blob kopyalama verileri
 Bu örnekte kullanarak bir işlem hattı oluşturmak için kullanabileceğiniz örnek JSON tanımları sağlar, [Azure portalında](data-factory-copy-activity-tutorial-using-azure-portal.md) veya [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) veya [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Bunlar veri PostgreSQL veritabanı'ndan Azure Blob Depolama'ya kopyalama işlemini göstermektedir. Ancak, veriler belirtilen havuzlarını birine kopyalanabilir [burada](data-factory-data-movement-activities.md#supported-data-stores-and-formats) kopyalama etkinliğini kullanarak Azure Data Factory'de.   
 
 > [!IMPORTANT]
@@ -334,8 +333,8 @@ PostgreSQL için veri taşıma, aşağıdaki eşlemeler PostgreSQL türünden .N
 | satır | |Bayt [], dize |&nbsp;
 | lseg | |Bayt [], dize |&nbsp;
 | macaddr | |Bayt [], dize |&nbsp;
-| para | |Ondalık |&nbsp;
-| sayısal [(p, s)] |ondalık [(p, s)] |Ondalık |
+| para | |Onluk |&nbsp;
+| sayısal [(p, s)] |ondalık [(p, s)] |Onluk |
 | numrange | |Dize |&nbsp;
 | OID | |Int32 |&nbsp;
 | yol | |Bayt [], dize |&nbsp;

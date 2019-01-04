@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: e78f456a7c69e308257b450a7572f6317dfa6eec
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 95d8825b8359b0ba8649c4c4e145ef488a486b21
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715452"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001932"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux’ta HDInsight kullanma ile ilgili bilgiler
 
@@ -106,7 +106,7 @@ HDInsight'ı kullanırken, veri dosyalarını Azure Blob Depolama ve isteğe ba�
 * Web siteleri, dosya karşıya yükleme/indirme yardımcı programlar, çeşitli dil SDK'ları ve web tarayıcıları gibi dış hizmetlerden erişilebilirlik.
 * Büyük dosya kapasite ve büyük ölçeklenebilir depolama.
 
-Daha fazla bilgi için [anlama blobları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) ve [Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/).
+Daha fazla bilgi için [anlama blobları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) ve [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
 Azure depolama ya da Data Lake Storage kullanırken, verilere erişmek için HDInsight özel bir şey yapmanız gerekmez. Örneğin, aşağıdaki komut dosyalarında listeler `/example/data` olup Azure Depolama'da veya Data Lake Store üzerinde depolandığından bağımsız olarak klasörü:
 
@@ -177,7 +177,7 @@ HDInsight küme dışından verileri erişmek için bir çeşitli yolları vard�
 Kullanıyorsanız __Azure depolama__, verilerinize erişebilirsiniz yolları için aşağıdaki bağlantılara bakın:
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Azure ile çalışmaya yönelik komut satırı arabirimi komutları. Yükledikten sonra `az storage` depolama kullanma hakkında Yardım için komut veya `az storage blob` blob özgü komutlar için.
-* [blobxfer.PY](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): Azure Depolama'daki blobları ile çalışmak için python betiği.
+* [blobxfer.PY](https://github.com/Azure/blobxfer): Azure Depolama'daki blobları ile çalışmak için python betiği.
 * Çeşitli SDK'lar:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)

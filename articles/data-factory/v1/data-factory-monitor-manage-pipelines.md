@@ -9,17 +9,16 @@ ms.assetid: 9b0fdc59-5bbe-44d1-9ebc-8be14d44def9
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 843b92c20b2ec930ce67659802a4287328a08650
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 77c55657f57af655b5b8154dbcf58472434396a6
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618878"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015501"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>İzleme ve Azure portalı ve PowerShell kullanarak Azure Data Factory işlem hatlarını yönetme
 > [!div class="op_single_selector"]
@@ -116,7 +115,7 @@ Data factory veri kümesi dilimleri aşağıdaki durumlardan birine sahip olabil
 </tr>
 <tr>
 <tr>
-<td rowspan="2">İlerliyor</td><td>Doğrulanıyor</td><td>Doğrulama işlemi devam ediyor.</td>
+<td rowspan="2">Devam Ediyor</td><td>Doğrulanıyor</td><td>Doğrulama işlemi devam ediyor.</td>
 </tr>
 <td>-</td>
 <td>Dilim işleniyor.</td>
@@ -162,7 +161,7 @@ Veri Fabrikası dağıtabiliyorum ve işlem hatlarını geçerli etkin bir süre
 
 ![Durum Diyagramı](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-Data factory'de veri kümesi durumu geçiş akışı aşağıdaki gibidir: bekleme içinde-ilerleme/Sürüyor (doğrulama) -> -> hazır/başarısız oldu.
+Data factory'de veri kümesi durumu geçiş akışı aşağıdaki gibidir: Bekletme -> içinde-ilerleme / (doğrulama) sürüyor hazır/başarısız oldu->.
 
 Dilim başlatılacağı bir **bekleyen** yürütülmeden önce karşılanması gereken önkoşulları bekleme durumu. Ardından etkinlik çalıştırmaya başlar ve dilim girmeyeceğini bir **sürüyor** durumu. Etkinlik yürütme başarılı veya başarısız. Dilim olarak işaretlenmiş **hazır** veya **başarısız**göre yürütmenin sonucu.
 

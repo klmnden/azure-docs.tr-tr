@@ -9,17 +9,16 @@ ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5fb4034d49982d600fe5b0de17d0b198e3ee653e
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 145a1d24e877cc4083706310694005c01c8c8fbf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056275"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54020158"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>1 TB 15 dakika Data Factory ile Azure SQL Data Warehouse'a veri yükleme
 > [!NOTE]
@@ -30,7 +29,7 @@ ms.locfileid: "42056275"
 
 Azure SQL veri ambarı ile çalışmaya başlama, artık her zamankinden kullanmaktan daha kolay **Azure Data Factory**.  Azure Data Factory, SQL veri ambarı mevcut sistemi ve SQL veri ambarı değerlendirmek ve analizlerinizi oluşturmaya çalışırken, önemli ölçüde zaman kaydetme verilerle doldurmak için kullanılan bir tam olarak yönetilen bulut tabanlı veri tümleştirme hizmeti çözümler. Azure SQL Data Azure Data Factory kullanarak Warehouse'a veri yükleme önemli avantajları şunlardır:
 
-* **Kolay ayarlama**: 5 adımlı sezgisel Sihirbazı ile gerekli komut dosyası yok.
+* **Kolay ayarlama**: hiçbir gerekli komut ile sezgisel Sihirbazı 5 adımlı.
 * **Zengin veri deposu desteği**: zengin bir şirket içi ve bulut tabanlı veri depoları için yerleşik destek.
 * **Güvenli ve uyumlu**: verileri HTTPS veya ExpressRoute üzerinden aktarılır ve küresel hizmet varlığı sağlar verilerinizin hiçbir zaman ayrılmaz coğrafi sınır
 * **PolyBase kullanarak benzersiz bir performansın** – Polybase kullanarak, Azure SQL Data Warehouse'a veri taşımak için en verimli yoludur. Hazırlama blob özelliğini kullanarak Azure Blob Depolama, Polybase varsayılan destekliyor yanı sıra veri depolarının tüm türlerinden yüksek yükleme hızları elde edebilirsiniz.
@@ -42,7 +41,7 @@ Bu makalede, kopyalama Sihirbazı'nı kullanarak Azure SQL Data Warehouse'a veri
 > [!NOTE]
 >  / Azure SQL veri ambarı veri taşımada genel Data Factory özellikleri hakkında daha fazla bilgi için [gelen Azure Data Factory kullanarak Azure SQL veri ambarı ve veri taşıma](data-factory-azure-sql-data-warehouse-connector.md) makalesi.
 >
-> Ayrıca, Azure portalı, Visual Studio, PowerShell kullanarak işlem hatları oluşturabilirsiniz vs. Bkz: [öğretici: verileri Azure Blobundan Azure SQL veritabanına kopyalama](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliğini kullanarak Azure Data Factory'de için adım adım yönergeleri içeren hızlı bir kılavuz.  
+> Ayrıca, Azure portalı, Visual Studio, PowerShell kullanarak işlem hatları oluşturabilirsiniz vs. Bkz: [Öğreticisi: Verileri Azure Blobundan Azure SQL veritabanı'na kopyalamak](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliğini kullanarak Azure Data Factory'de için adım adım yönergeleri içeren hızlı bir kılavuz.  
 >
 >
 
@@ -118,7 +117,7 @@ Bu makalede, kopyalama Sihirbazı'nı kullanarak Azure SQL Data Warehouse'a veri
 3. İçinde **yeni veri fabrikası** bölmesi:
 
    1. Girin **LoadIntoSQLDWDataFactory** için **adı**.
-       Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **veri fabrikası adı "LoadIntoSQLDWDataFactory" kullanılamıyor**(örneğin, yournameLoadIntoSQLDWDataFactory) veri fabrikasının adını değiştirin ve yeniden oluşturmayı deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.  
+       Azure veri fabrikasının adı genel olarak benzersiz olmalıdır. Hatayı alırsanız: **Veri Fabrikası adı "LoadIntoSQLDWDataFactory" kullanılamıyor**(örneğin, yournameLoadIntoSQLDWDataFactory) veri fabrikasının adını değiştirin ve yeniden oluşturmayı deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](data-factory-naming-rules.md) konusuna bakın.  
    2. Azure **aboneliğinizi** seçin.
    3. Kaynak Grubu için aşağıdaki adımlardan birini uygulayın:
       1. Var olan bir kaynak grubu seçmek için **Var olanı kullan**’ı seçin.
@@ -136,7 +135,7 @@ Bu makalede, kopyalama Sihirbazı'nı kullanarak Azure SQL Data Warehouse'a veri
    >
    >
 
-## <a name="step-1-configure-data-loading-schedule"></a>1. adım: veri yükleme zamanlamasını yapılandırma
+## <a name="step-1-configure-data-loading-schedule"></a>1. Adım: Zamanlama yükleniyor verilerini Yapılandır
 İlk adım, veri yükleme zamanlaması yapılandırmaktır.  
 
 **Özellikler** sayfasında:
@@ -147,7 +146,7 @@ Bu makalede, kopyalama Sihirbazı'nı kullanarak Azure SQL Data Warehouse'a veri
 
     ![Kopyalama Sihirbazı - Özellikler sayfası](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
-## <a name="step-2-configure-source"></a>2. adım: kaynak yapılandırma
+## <a name="step-2-configure-source"></a>2. Adım: Kaynağı yapılandırma
 Bu bölümde, kaynak yapılandırma adımları gösterilir: Azure Blob içeren 1 TB TPC-H satır öğesi dosyaları.
 
 1. Seçin **Azure Blob Depolama** verileri depolamak ve tıklayın **sonraki**.
@@ -166,7 +165,7 @@ Bu bölümde, kaynak yapılandırma adımları gösterilir: Azure Blob içeren 1
 
     ![Kopyalama Sihirbazı'nı - dosya biçimi ayarları](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
-## <a name="step-3-configure-destination"></a>3. adım: hedef yapılandırma
+## <a name="step-3-configure-destination"></a>3. Adım: Hedef yapılandırma
 Bu bölümde, hedef yapılandırma işlemini göstermektedir: `lineitem` Azure SQL veri ambarı veritabanındaki tablo.
 
 1. Seçin **Azure SQL veri ambarı** hedef olarak depolamak ve tıklayın **sonraki**.

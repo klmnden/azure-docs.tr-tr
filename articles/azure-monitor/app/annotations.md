@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 24b737b8403c185bc118b18473cadb3535ad1c34
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 126c0d63a7d59b76361a25844575ee6556a475b1
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808732"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002085"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application ınsights ölçüm grafikleri ek açıklamalar
 
-Ek açıklamalar [ölçüm Gezgini](../../application-insights/app-insights-metrics-explorer.md) grafikleri, yeni bir derleme veya diğer önemli olay dağıtıldığı gösterir. Bunlar, değişikliklerinizi uygulamanızın performansını herhangi bir etkisi sahip olup olmadığını görmek kolaylaştırır. Tarafından otomatik olarak oluşturulabilir [Azure DevOps Hizmetleri derleme sistemi](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Bayrak olarak istediğiniz herhangi bir olay için ek açıklamaları da oluşturabilirsiniz [Powershell'den oluşturarak](#create-annotations-from-powershell).
+Ek açıklamalar [ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md) grafikleri, yeni bir derleme veya diğer önemli olay dağıtıldığı gösterir. Bunlar, değişikliklerinizi uygulamanızın performansını herhangi bir etkisi sahip olup olmadığını görmek kolaylaştırır. Tarafından otomatik olarak oluşturulabilir [Azure DevOps Hizmetleri derleme sistemi](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Bayrak olarak istediğiniz herhangi bir olay için ek açıklamaları da oluşturabilirsiniz [Powershell'den oluşturarak](#create-annotations-from-powershell).
 
 > [!NOTE]
 > Bu makalede kullanım dışı yansıtır **Klasik ölçüm deneyimi**. Ek açıklamalara sahip Klasik deneyim ve şu anda kullanılabilir yalnızca  **[çalışma kitapları](../../application-insights/app-insights-usage-workbooks.md)**. Currrent hakkında daha fazla bilgi için ölçümler deneyimi, size başvurabilirsiniz [bu makalede](../../azure-monitor/platform/metrics-charts.md).
@@ -107,4 +107,4 @@ Her Azure DevOps hizmet yayın şablonu için ayrı bir API anahtarı alma gerek
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [İş öğeleri oluşturma](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [PowerShell ile Automation](../../application-insights/app-insights-powershell.md)
+* [PowerShell ile Automation](../../azure-monitor/app/powershell.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory: Sık sorulan sorular | Microsoft Docs'
+title: 'Azure veri fabrikası: Sık sorulan sorular | Microsoft Docs'
 description: Azure Data Factory hakkında sık sorulan soruların yanıtlarını alın.
 services: data-factory
 documentationcenter: ''
@@ -9,16 +9,15 @@ ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249596"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024102"
 ---
 # <a name="azure-data-factory-faq"></a>Azure veri fabrikası ile ilgili SSS
 Bu makalede Azure Data Factory hakkında sık sorulan soruların yanıtlarını sağlar.  
@@ -50,7 +49,7 @@ Veri fabrikası, veri tümleştirmesi için gerekli ve isteğe bağlı veya bir 
 - Delta akışlar:
     - Parametreleri kullanın ve bir ilişkisel mağazadan şirket içinde veya bulutta verileri göle yüklemek için boyut ya da başvuru tablolarını taşırken, yüksek su işareti delta kopya için tanımlayın. 
 
-Daha fazla bilgi için [öğretici: Denetim Akışları](tutorial-control-flow.md).
+Daha fazla bilgi için [Öğreticisi: Denetim Akışları](tutorial-control-flow.md).
 
 ### <a name="transform-your-data-at-scale-with-code-free-pipelines"></a>Uygun ölçekte kod ücretsiz işlem hatları ile veri dönüştürme
 Yeni bir tarayıcı tabanlı bir araç deneyimi, kod gerektirmeyen bir işlem hattı yazma ve dağıtım ile bir modern, etkileşimli web tabanlı deneyim sağlar.
@@ -92,9 +91,9 @@ PowerShell, SDK veya Visual izleme araçları tarayıcı kullanıcı arabirimi a
 ## <a name="what-is-integration-runtime"></a>Tümleştirme çalışma zamanı nedir?
 Integration runtime, çeşitli ağ ortamlarında aşağıdaki veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır:
 
-- **Veri taşıma**: yerleşik bağlayıcılar, biçim dönüştürme, sütun eşleme ve yüksek performanslı ve ölçeklenebilir veri aktarımı için destek sağlarken kaynak ve hedef veri depoları arasında veri taşıma işlemi için tümleştirme çalışma zamanı verileri taşır.
-- **Gönderme etkinlikleri**:, dönüştürme işlemi için tümleştirme çalışma zamanı, SSIS paketlerini yerel olarak yürütülebilmesi özelliği sağlar.
-- **SSIS paketlerini yürütme**: SSIS paketlerini yönetilen bir Azure işlem ortamında yerel olarak yürütür. Integration Runtime ayrıca Azure HDInsight, Azure Machine Learning, Azure SQL Veritabanı, SQL Server ve diğer bazı işlem hizmetlerinde çalıştırılan dönüştürme etkinliklerinin dağıtılması ve izlenmesini de destekler.
+- **Veri taşıma**: Integration Runtime, veri taşıma işlemi için verileri kaynak ve hedef veri depoları arasında taşırken yerleşik bağlayıcılar, biçim dönüştürme, sütun eşleme, iyi performanslı ve ölçeklenebilir veri aktarımı için de destek sağlar.
+- **Gönderme etkinlikleri**: Integration Runtime, dönüştürme işlemi için SSIS paketlerinin yerel olarak yürütülebilmesi özelliği sağlar.
+- **SSIS paketlerini yürütme**: Yerel olarak SSIS paketlerini yönetilen bir Azure işlem ortamında yürütür. Integration Runtime ayrıca Azure HDInsight, Azure Machine Learning, Azure SQL Veritabanı, SQL Server ve diğer bazı işlem hizmetlerinde çalıştırılan dönüştürme etkinliklerinin dağıtılması ve izlenmesini de destekler.
 
 Bir veya birçok Integration runtime örneği veri taşımak ve dönüştürmek için gerektiği şekilde dağıtabilirsiniz. Integration runtime, Azure genel ağında veya özel bir ağda (şirket içi, Azure sanal ağ veya Amazon Web Hizmetleri sanal özel bulutundaki [VPC]) çalıştırılabilir. 
 
@@ -179,5 +178,5 @@ Kullanabileceğiniz `@coalesce` null değerlerini düzgün biçimde işlemesi i�
 ## <a name="next-steps"></a>Sonraki adımlar
 Veri Fabrikası oluşturmak adım adım yönergeler için aşağıdaki öğreticilere bakın:
 
-- [Hızlı Başlangıç: veri fabrikası oluşturma](quickstart-create-data-factory-dot-net.md)
-- [Öğretici: buluta veri kopyalama](tutorial-copy-data-dot-net.md)
+- [Hızlı Başlangıç: Veri Fabrikası oluşturma](quickstart-create-data-factory-dot-net.md)
+- [Öğretici: Bulutta veri kopyalama](tutorial-copy-data-dot-net.md)

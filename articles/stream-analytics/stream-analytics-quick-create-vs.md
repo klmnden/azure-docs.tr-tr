@@ -1,24 +1,23 @@
 ---
-title: Visual Studio için Azure Stream Analytics araçlarını kullanarak bir Stream Analytics işi oluşturma | Microsoft Docs
+title: Visual Studio için Azure Stream Analytics araçları kullanarak bir Stream Analytics işi oluşturma
 description: Bu hızlı başlangıçta Visual Studio ile bir Stream Analytics işi oluşturma, girdileri ve çıktıları yapılandırma ve bir sorgu tanımlama yoluyla çalışmaya nasıl başlayacağınız gösterilmektedir.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 06/15/2018
+ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-manager: kfile
-ms.openlocfilehash: be4c906535981c6b05c1a72aa23e4e1f78f57edf
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: 1a72e2874e28a2aa5b69866bd959743707ea9d99
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954776"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54021926"
 ---
-# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Hızlı başlangıç: Visual Studio için Azure Stream Analytics araçlarını kullanarak bir Stream Analytics işi oluşturma
+# <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Hızlı Başlangıç: Visual Studio için Azure Stream Analytics araçları kullanarak bir Stream Analytics işi oluşturma
 
-Bu hızlı başlangıçta Visual Studio için Azure Stream Analytics araçlarını kullanarak bir Stream Analytics işi oluşturma ve çalıştırma adımları gösterilmektedir. Örnek iş, Azure blob depolamadan akış verilerini okur. Bu hızlı başlangıçta kullanılan girdi verileri dosyası yalnızca tanım amaçlı statik veriler içerir. Gerçek dünya senaryolarında bir Stream Analytics işi için akışı yapılan girdi verilerini kullanırsınız. Bu hızlı başlangıçta 100° üzerindeki ortalama sıcaklığı hesaplayan ve sonuç olaylarını yeni bir dosyaya yazan bir iş tanımlayacaksınız.
+Bu hızlı başlangıçta Visual Studio için Azure Stream Analytics araçlarını kullanarak bir Stream Analytics işi oluşturma ve çalıştırma adımları gösterilmektedir. Örnek Proje bir IOT Hub CİHAZDAN akış verilerini okur. Blob depolama üzerinde 27 ° ve yeni bir dosya için olayları sonuç çıktısı Yazar ortalama sıcaklık hesaplar olan bir işi tanımlarsınız.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -32,33 +31,54 @@ Bu hızlı başlangıçta Visual Studio için Azure Stream Analytics araçların
 
 ## <a name="prepare-the-input-data"></a>Girdi verilerini hazırlama
 
-Stream Analytics işini tanımlamadan önce işe girdi olarak yapılandırılan verileri hazırlamanız gerekir. İş için gereken girdi verilerini hazırlamak için aşağıdaki adımları uygulayın:
+Stream Analytics işini tanımlamadan önce daha sonra iş girdi olarak yapılandırılan verileri hazırlamanız gerekir. İş için gereken girdi verilerini hazırlamak için aşağıdaki adımları tamamlayın:
 
-1. GitHub’dan [örnek sensör verilerini](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) indirin. Örnek veriler aşağıdaki JSON biçiminde sensör bilgilerini içerir:  
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
-   ```json
-   {
-     "time": "2018-01-26T21:18:52.0000000",
-     "dspl": "sensorC",
-     "temp": 87,
-     "hmdt": 44
-   }
-   ```
-2. [Azure Portal](https://portal.azure.com/) oturum açın.
+2. **Kaynak oluştur** > **Nesnelerin İnterneti** > **Iot Hub** seçeneğini belirleyin.
 
-3. Azure portalının sol üst köşesinden **Kaynak oluştur** > **Depolama** > **Depolama hesabı**’nı seçin. Depolama hesabı işi sayfasını **Ad** değeri "asaquickstartstorage", **Konum** değeri "Batı ABD", **Kaynak grubu** "asaquickstart-resourcegroup" olarak ayarlanmış şekilde doldurun (daha yüksek performans için depolama hesabını Akış işiyle aynı kaynak grubunda barındırın). Diğer ayarlar varsayılan değerlerinde bırakılabilir.  
+3. İçinde **IOT hub'ı** bölmesinde aşağıdaki bilgileri girin:
+   
+   |**Ayar**  |**Önerilen değer**  |**Açıklama**  |
+   |---------|---------|---------|
+   |Abonelik  | \<Aboneliğiniz\> |  Kullanmak istediğiniz Azure aboneliğini seçin. |
+   |Kaynak grubu   |   asaquickstart-resourcegroup  |   **Yeni Oluştur**’u seçin ve hesabınız için yeni bir kaynak grubu adı girin. |
+   |Bölge  |  \<Kullanıcılarınıza en yakın bölgeyi seçin\> | Burada, IOT Hub'ınıza barındırabilirsiniz coğrafi bir konum seçin. Kullanıcılarınıza en yakın konumu kullanın. |
+   |IoT Hub Adı  | MyASAIoTHub  |   IOT Hub'ınız için bir ad seçin.   |
 
-   ![Depolama hesabı oluştur](./media/stream-analytics-quick-create-vs/create-a-storage-account-vs.png)
+   ![IoT Hub'ı oluşturma](./media/stream-analytics-quick-create-vs/create-iot-hub.png)
 
-4. **Tüm kaynaklar** sayfasında, önceki adımda oluşturduğunuz depolama hesabını bulun. **Genel Bakış** sayfasını ve ardından **Bloblar** kutucuğunu açın.  
+4. Seçin **sonraki: Boyut ve ölçek kümesi**.
 
-5. **Blob Hizmeti** sayfasında **Kapsayıcı**'yı seçin, kapsayıcınıza bir **Ad** verin (*container1* gibi) ve **Tamam**'ı seçin.  
+5. **Fiyatlandırma ve ölçek katmanınızı** seçin. Bu hızlı başlangıçta seçin **F1 - ücretsiz** aboneliğinizde hala kullanılabilir durumdaysa katmanı. Ücretsiz katmanı kullanılamıyorsa, kullanılabilir en düşük katmanlı seçin. Daha fazla bilgi için [IOT Hub fiyatlandırması](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-   ![Bir kapsayıcı oluşturma](./media/stream-analytics-quick-create-vs/create-a-storage-container.png)
+   ![Boyut ve IOT Hub'ınıza ölçeklendirin](./media/stream-analytics-quick-create-vs/iot-hub-size-and-scale.png)
 
-6. Önceki adımda oluşturduğunuz kapsayıcıya gidin. **Karşıya yükle**’yi seçin ve ilk adımda elde ettiğiniz algılayıcı verilerini karşıya yükleyin.  
+6. **İncele ve oluştur**’u seçin. IOT Hub bilgilerinizi gözden geçirin ve tıklayın **Oluştur**. IOT Hub'ınızın oluşturulması birkaç dakika sürebilir. İlerleme durumunu **Bildirimler** bölmesinden izleyebilirsiniz.
 
-   ![Örnek verileri bloba yükleme](./media/stream-analytics-quick-create-vs/upload-sample-data-to-blob.png)
+7. IOT hub'ı Gezinti menüsüne **Ekle** altında **IOT cihazları**. Ekleme bir **cihaz kimliği** tıklatıp **Kaydet**.
+
+   ![IOT Hub'ınıza bir cihaz ekleyin](./media/stream-analytics-quick-create-vs/add-device-iot-hub.png)
+
+8. Cihaz oluşturulduktan sonra CİHAZDAN açın **IOT cihazları** listesi. Kopyalama **bağlantı dizesi – birincil anahtar** ve daha sonra kullanmak üzere Not Defteri'ne kaydedin.
+
+   ![IOT Hub cihaz bağlantı dizesini kopyalayın](./media/stream-analytics-quick-create-vs/save-iot-device-connection-string.png)
+
+## <a name="create-blob-storage"></a>BLOB Depolama oluşturma
+
+1. Azure portalının sol üst köşesinden **Kaynak oluştur** > **Depolama** > **Depolama hesabı**’nı seçin.
+
+2. İçinde **depolama hesabı oluşturma** bölmesinde, bir depolama hesabı adı, konum ve kaynak grubu girin. Aynı konum ve kaynak grubu oluşturduğunuz IOT Hub'ı seçin. Ardından **gözden geçir + Oluştur** hesabı oluşturmak için.
+
+   ![Depolama hesabı oluştur](./media/stream-analytics-quick-create-portal/create-storage-account.png)
+
+3. Depolama hesabınız oluşturulduktan sonra seçin **Blobları** kutucuğundan **genel bakış** bölmesi.
+
+   ![Depolama hesabına genel bakış](./media/stream-analytics-quick-create-portal/blob-storage.png)
+
+4. Gelen **Blob hizmeti** sayfasında **kapsayıcı** ve gibi kapsayıcınız için bir ad verin *kapsayıcı1*. Bırakın **genel erişim düzeyi** olarak **özel (anonim erişim yok)** seçip **Tamam**.
+
+   ![Blob kapsayıcısı oluşturma](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
 ## <a name="create-a-stream-analytics-project"></a>Stream Analytics projesi oluşturma
 
@@ -92,12 +112,11 @@ Azure Stream Analytics projesine dahil edilen öğelere dikkat edin.
    |**Ayar**  |**Önerilen değer**  |**Açıklama**   |
    |---------|---------|---------|
    |Girdi Diğer Adı  |  Girdi   |  İşin girdisini tanımlamak için bir ad girin.   |
-   |Kaynak Türü   |  Veri Akışı |  Uygun giriş kaynağını seçin: Veri Akışı veya Başvuru Verileri.   |
-   |Kaynak  |  Blob Depolama |  Uygun giriş kaynağını seçin.   |
+   |Kaynak Türü   |  Veri Akışı |  Uygun giriş kaynağı seçin: Veri Stream veya başvuru verileriyle.   |
+   |Kaynak  |  IoT Hub |  Uygun giriş kaynağını seçin.   |
    |Kaynak  | Geçerli hesaptaki veri kaynağını seçin | Verileri el ile girin veya var olan bir hesabı seçin.   |
-   |Abonelik  |  \<Aboneliğiniz\>   | Oluşturduğunuz depolama hesabını içeren Azure aboneliğini seçin. Depolama hesabı, aynı veya farklı bir abonelikte olabilir. Bu örnekte, aynı abonelikte depolama hesabı oluşturduğunuz varsayılır.   |
-   |Depolama Hesabı  |  asaquickstartstorage   |  Depolama hesabının adını seçin veya girin. Depolama hesabı adları aynı abonelikte oluşturulursa otomatik olarak algılanır.   |
-   |Kapsayıcı  |  kapsayıcı1   |  Depolama hesabınızda oluşturduğunuz mevcut kapsayıcıyı seçin.   |
+   |Abonelik  |  \<Aboneliğiniz\>   | Oluşturduğunuz IOT Hub'ına Azure aboneliğini seçin.   |
+   |IoT Hub  |  MyASAIoTHub   |  Seçin veya IOT Hub'ınızın adını girin. IOT hub'ı adları, aynı abonelikte oluşturulursa otomatik olarak algılanır.   |
    
 3. Diğer seçenekleri varsayılan değerlerinde bırakın ve ayarları kaydetmek **Kaydet**’i seçin.  
 
@@ -130,16 +149,10 @@ Azure Stream Analytics projesine dahil edilen öğelere dikkat edin.
 2. Aşağıdaki sorguyu ekleyin:
 
    ```sql
-   SELECT 
-   System.Timestamp AS OutputTime,
-   dspl AS SensorName,
-   Avg(temp) AS AvgTemperature
-   INTO
-     Output
-   FROM
-     Input TIMESTAMP BY time
-   GROUP BY TumblingWindow(second,30),dspl
-   HAVING Avg(temp)>100
+   SELECT *
+   INTO BlobOutput
+   FROM IoTHubInput
+   HAVING Temperature > 27
    ```
 
 ## <a name="submit-a-stream-analytics-query-to-azure"></a>Azure'a bir Stream Analytics sorgusu gönderme
@@ -150,13 +163,23 @@ Azure Stream Analytics projesine dahil edilen öğelere dikkat edin.
 
    ![İşi Azure'a gönderme](./media/stream-analytics-quick-create-vs/stream-analytics-job-to-azure.png)
 
+## <a name="run-the-iot-simulator"></a>IOT simülatör'ü çalıştırma
+
+1. Açık [Raspberry Pi Azure IOT çevrimiçi simülatör](https://azure-samples.github.io/raspberry-pi-web-simulator/) yeni tarayıcı sekmesinde veya penceresinde.
+
+2. Satırı 15 yer tutucuyu, önceki bölümde kaydettiğiniz Azure IOT Hub cihaz bağlantı dizesiyle değiştirin.
+
+3. **Çalıştır**’a tıklayın. Çıktı, IOT Hub'ına gönderilen iletileri ve sensör verilerini göstermelidir.
+
+   ![Raspberry Pi Azure IOT çevrimiçi simülatör](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
+
 ## <a name="start-the-stream-analytics-job-and-check-output"></a>Stream Analytics işini başlatıp çıktıyı denetleyin
 
 1. İşiniz oluşturulduğunda otomatik olarak iş görünümü açılır. İşi başlatmak için yeşil ok düğmesini seçin.
 
    ![Stream Analytics işini başlatma](./media/stream-analytics-quick-create-vs/start-stream-analytics-job-vs.png)
 
-2. **Özel Zaman**'ı `2018-01-01` olarak değiştirip **Başlat**'ı seçin.
+2. Değişiklik **iş çıkışı başlangıç modu** için **JobStartTime** seçip **Başlat**.
 
    ![İş yapılandırmasını başlatma](./media/stream-analytics-quick-create-vs/stream-analytics-start-configuration.png)
 
@@ -180,7 +203,7 @@ Artık gerekli olmadığında kaynak grubunu, akış işini ve tüm ilgili kayna
 
 Bu hızlı başlangıçta Visual Studio kullanarak basit bir Stream Analytics işi dağıttınız. Stream Analytics işlerini [Azure portalı](stream-analytics-quick-create-portal.md) ve [PowerShell](stream-analytics-quick-create-powershell.md)’i kullanarak da dağıtabilirsiniz. 
 
-Diğer girdi kaynaklarını yapılandırma ve gerçek zamanlı algılama hakkında bilgi almak için aşağıdaki makaleye geçin:
+Visual Studio için Azure Stream Analytics araçları hakkında bilgi edinmek için aşağıdaki makaleye geçin:
 
 > [!div class="nextstepaction"]
-> [Azure Stream Analytics kullanarak gerçek zamanlı sahtekarlık algılama](stream-analytics-real-time-fraud-detection.md)
+> [Azure Stream Analytics işleri görüntülemek için Visual Studio](stream-analytics-vs-tools.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 6757f887376e1b399d6af18f114e203991c16a67
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 7f4c03c4335f9936d78890ad2e3903d0986f86d8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807695"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025683"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Azure Cosmos veritabanı, kapsayıcıları ve öğeleri ile çalışma
 
@@ -77,10 +77,10 @@ Bir Azure Cosmos kapsayıcısı, sistem tarafından tanımlanan özellikler küm
 
 | **Sistem tarafından tanımlanan özelliği** | **Sistem oluşturulan veya kullanıcı ayarlanabilir** | **Amacı** | **SQL API'Sİ** | **Cassandra API'si** | **Azure Cosmos DB'nin MongoDB API'si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__rid | Sistem tarafından oluşturulan | Kapsayıcı benzersiz tanıtıcısı | Evet | Hayır | Hayır | Hayır | Hayır |
-|__etag | Sistem tarafından oluşturulan | İyimser eşzamanlılık denetimi için kullanılan varlık etiketi | Evet | Hayır | Hayır | Hayır | Hayır |
-|__ts | Sistem tarafından oluşturulan | Kapsayıcının son güncelleştirilen zaman damgası | Evet | Hayır | Hayır | Hayır | Hayır |
-|__self | Sistem tarafından oluşturulan | Kapsayıcının adreslenebilir URI'si | Evet | Hayır | Hayır | Hayır | Hayır |
+|_rid | Sistem tarafından oluşturulan | Kapsayıcı benzersiz tanıtıcısı | Evet | Hayır | Hayır | Hayır | Hayır |
+|_etag | Sistem tarafından oluşturulan | İyimser eşzamanlılık denetimi için kullanılan varlık etiketi | Evet | Hayır | Hayır | Hayır | Hayır |
+|_ts | Sistem tarafından oluşturulan | Kapsayıcının son güncelleştirilen zaman damgası | Evet | Hayır | Hayır | Hayır | Hayır |
+|_self | Sistem tarafından oluşturulan | Kapsayıcının adreslenebilir URI'si | Evet | Hayır | Hayır | Hayır | Hayır |
 |id | Kullanıcı tarafından yapılandırılabilir | Kullanıcı tanımlı kapsayıcının benzersiz adı | Evet | Evet | Evet | Evet | Evet |
 |indexingPolicy | Kullanıcı tarafından yapılandırılabilir | Dizin yolu, kendi duyarlık ve bir tutarlılık modelini değiştirme olanağı sağlar. | Evet | Hayır | Hayır | Hayır | Evet |
 |TimeToLive | Kullanıcı tarafından yapılandırılabilir | Öğeleri belirli bir zaman aralığına sonra otomatik olarak bir kapsayıcıdan silme olanağı sağlar. Daha fazla ayrıntı için [Time To Live](time-to-live.md) makalesi. | Evet | Hayır | Hayır | Hayır | Evet |
@@ -113,10 +113,10 @@ Her Azure Cosmos öğesi aşağıdaki sistem tanımlı özelliklerine sahiptir. 
 
 |**Sistem tarafından tanımlanan özelliği** | **Sistem oluşturulan veya kullanıcı ayarlanabilir**| **Amacı** | **SQL API'Sİ** | **Cassandra API'si** | **Azure Cosmos DB'nin MongoDB API'si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|__id | Sistem tarafından oluşturulan | Öğenin benzersiz tanıtıcısı | Evet | Hayır | Hayır | Hayır | Hayır |
-|__etag | Sistem tarafından oluşturulan | İyimser eşzamanlılık denetimi için kullanılan varlık etiketi | Evet | Hayır | Hayır | Hayır | Hayır |
-|__ts | Sistem tarafından oluşturulan | Öğesinin son güncelleştirilen zaman damgası | Evet | Hayır | Hayır | Hayır | Hayır |
-|__self | Sistem tarafından oluşturulan | Öğenin adreslenebilir URI'si | Evet | Hayır | Hayır | Hayır | Hayır |
+|_kimliği | Sistem tarafından oluşturulan | Öğenin benzersiz tanıtıcısı | Evet | Hayır | Hayır | Hayır | Hayır |
+|_etag | Sistem tarafından oluşturulan | İyimser eşzamanlılık denetimi için kullanılan varlık etiketi | Evet | Hayır | Hayır | Hayır | Hayır |
+|_ts | Sistem tarafından oluşturulan | Öğesinin son güncelleştirilen zaman damgası | Evet | Hayır | Hayır | Hayır | Hayır |
+|_self | Sistem tarafından oluşturulan | Öğenin adreslenebilir URI'si | Evet | Hayır | Hayır | Hayır | Hayır |
 |id | Ya da | Mantıksal bölüm içindeki kullanıcı tanımlı benzersiz adı. Kullanıcı Kimliği belirtmiyorsa, sistemin bir otomatik olarak oluşturur. | Evet | Evet | Evet | Evet | Evet |
 |Kullanıcı tanımlı isteğe bağlı özellikler | Kullanıcı tanımlı | Yerel API gösterimi (JSON, BSON, CQL, vb.) temsil edilen kullanıcı tanımlı Özellikler | Evet | Evet | Evet | Evet | Evet |
 

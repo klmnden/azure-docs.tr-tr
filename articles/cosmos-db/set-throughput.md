@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 54b2ada0f269bca681305efc2e1eb7c2f9776ab7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 5b2847914007df414c37397d61632567c277d1b2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543011"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999435"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>Azure Cosmos kapsayıcılar ve veritabanları sağlama aktarım hızı
 
@@ -27,9 +27,9 @@ Bir kapsayıcı sağlanan aktarım hızı ayarlama yaygın olarak kullanılan bi
 
 Garantili performans kapsayıcısı için istediğiniz zaman, kapsayıcı ayrıntı düzeyinde aktarım hızı yapılandırmanız önerilir.
 
-Bir Azure Cosmos kapsayıcı sağlanan aktarım hızı, tüm mantıksal bölümler kapsayıcının olarak eşit dağıtılır. Kaynak bölümü tarafından barındırılan bir veya daha fazla mantıksal bölümleri olan bir kapsayıcı olduğundan, fiziksel bölümler yalnızca kapsayıcıya ait ve kapsayıcıdaki sağlanmış olan aktarım hızı destekler. Aşağıdaki görüntüde, kaynak bölümü bir veya daha fazla mantıksal bölümleri olan bir kapsayıcı nasıl barındıran gösterilmektedir:
+Bir Azure Cosmos kapsayıcı sağlanan aktarım hızı, tüm mantıksal bölümler kapsayıcının olarak eşit dağıtılır. Bir fiziksel bölüm tarafından barındırılan bir veya daha fazla mantıksal bölümleri olan bir kapsayıcı olduğundan, fiziksel bölümler yalnızca kapsayıcıya ait ve kapsayıcıdaki sağlanmış olan aktarım hızı destekler. Aşağıdaki resimde, bir fiziksel bölüm bir veya daha fazla mantıksal bölümleri olan bir kapsayıcı nasıl barındıran gösterilmektedir:
 
-![Kaynak bölümü](./media/set-throughput/resource-partition.png)
+![Fiziksel bölüm](./media/set-throughput/resource-partition.png)
 
 ## <a name="setting-throughput-on-a-database"></a>Veritabanı aktarım hızını ayarlama
 
@@ -49,9 +49,9 @@ Birden çok kapsayıcıya aktarım hızı paylaşmak istediğiniz, ancak belirli
 
 Sağlanan aktarım hızına sahip bir veritabanı içinde oluşturulan tüm kapsayıcıları bir bölüm anahtarı ile oluşturulması gerekir. Belirli bir anda zaman, tüm mantıksal bölümler bu kapsayıcı, bir veritabanı içinde bir kapsayıcıya ayrılan aktarım hızı dağıtılır. Aktarım hızı seçmeli olarak sağlanan aktarım hızı bir veritabanında paylaşımı kapsayıcılar varsa, belirli bir kapsayıcı veya mantıksal bir bölümü için uygulanamıyor. Bir mantıksal bölüm iş yüküne en fazla aktarım hızı belirli bir mantıksal birime atanan kullanırsa, işlemlerinizin oranı sınırlı olur. Hız sınırlama ortaya çıktığında, kapsayıcının tamamı verimliliğini artırmak veya işlemi yeniden deneyin. Bölümleme hakkında daha fazla bilgi için bkz: [mantıksal bölümler](partition-data.md).
 
-Bir veritabanı için sağlanan işleme paylaşımı birden çok mantıksal bölümleri tek kaynak bölüm üzerinde barındırılabilir. Tek bir mantıksal bölüm kapsayıcısının her zaman içinde kaynak bölümü kapsamlıdır, ancak 'L' 'C' kapsayıcıları için sağlanan aktarım hızına bir veritabanının paylaşımı arasında mantıksal bölümler eşlenen ve 'R' fiziksel bölümler barındırılan. Kaynak bölümü farklı bir veritabanı kapsayıcılara ait bir veya daha fazla mantıksal bölümler nasıl barındırabilir, aşağıdaki resimde gösterilmektedir:
+Bir veritabanı için sağlanan işleme paylaşımı birden çok mantıksal bölümleri tek bir fiziksel bölüm üzerinde barındırılabilir. Tek bir mantıksal bölüm kapsayıcısının her zaman içinde bir fiziksel bölüm kapsamlıdır, ancak 'L' 'C' kapsayıcıları için sağlanan aktarım hızına bir veritabanının paylaşımı arasında mantıksal bölümler eşlenen ve 'R' fiziksel bölümler barındırılan. Aşağıdaki resimde, bir veritabanı içinde farklı kapsayıcılar ait bir veya daha fazla mantıksal bölümler bir fiziksel bölüm nasıl barındırabilir gösterilmektedir:
 
-![Kaynak bölümü](./media/set-throughput/resource-partition2.png)
+![Fiziksel bölüm](./media/set-throughput/resource-partition2.png)
 
 ## <a name="setting-throughput-on-a-database-and-a-container"></a>Bir veritabanı ve kapsayıcı aktarım hızı ayarlama
 

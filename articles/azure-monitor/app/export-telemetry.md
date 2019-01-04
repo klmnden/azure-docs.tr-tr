@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c93b23e3b06afe754ea1ca2472806d26c70f4c92
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c6323a4b8243791cc7a9f847c7d08e5bd5946e96
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973273"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54025275"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights'tan telemetriyi dışarı aktarma
 Telemetrinizi standart saklama süresinden daha uzun süre tutmak mı istiyorsunuz? Veya özel bir şekilde işlemek? Sürekli dışarı aktarma için idealdir. Application Insights portalında gördüğünüz olayları için Microsoft Azure Depolama'da JSON biçiminde dışarı aktarılabilir. Buradan verilerinizi indirin ve, kod yazma, işlemeniz gerekir.  
@@ -71,14 +71,14 @@ Dışarı aktarma kalıcı olarak durdurmak için silin. Bunun yapılması, veri
 ## <a name="analyze"></a> Hangi olayların elde ederim?
 Şu hesapla konum verileri istemci IP adresinden eklediğimiz dışarı aktarılan verileri uygulamanızdan aldığımız ham telemetri olmasıdır.
 
-Tarafından atılan veri [örnekleme](../../application-insights/app-insights-sampling.md) dışarı aktarılan verileri dahil değildir.
+Tarafından atılan veri [örnekleme](../../azure-monitor/app/sampling.md) dışarı aktarılan verileri dahil değildir.
 
 Diğer hesaplanmış ölçüler dahil edilmez. Örneğin, ortalama CPU kullanımı biz vermeyin ancak biz içinden ortalaması hesaplanır ham telemetriyi dışarı aktarma.
 
 Veriler ayrıca sonuçları herhangi içerir [kullanılabilirlik web testleri](../../azure-monitor/app/monitor-web-app-availability.md) ayarlamış olduğunuz.
 
 > [!NOTE]
-> **Örnekleme.** Uygulamanız çok miktarda veri gönderiyorsa örnekleme özelliği çalışır ve yalnızca bir kesir oluşturulan telemetri gönderin. [Örnekleme hakkında daha fazla bilgi edinin.](../../application-insights/app-insights-sampling.md)
+> **Örnekleme.** Uygulamanız çok miktarda veri gönderiyorsa örnekleme özelliği çalışır ve yalnızca bir kesir oluşturulan telemetri gönderin. [Örnekleme hakkında daha fazla bilgi edinin.](../../azure-monitor/app/sampling.md)
 >
 >
 
@@ -194,4 +194,4 @@ Büyük ölçekleri üzerinde düşünün [HDInsight](https://azure.microsoft.co
 <!--Link references-->
 
 [exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../application-insights/app-insights-resources-roles-access-control.md
+[roles]: ../../azure-monitor/app/resources-roles-access-control.md

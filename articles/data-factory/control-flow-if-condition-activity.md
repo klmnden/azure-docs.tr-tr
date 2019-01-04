@@ -9,16 +9,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 5077982bdef4d0e8fbf1ab485566909b4dc97a8a
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 799348c14bba80909d6e443f09d232e5a4783f25
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857387"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54015160"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data factory'de etkinlik koşul
 If Koşulu etkinliği, programlama dilerindeki If deyimiyle aynı işlevselliği sağlar. Koşul `true` sonucunu verdiğinde bir dizi etkinliği, `false` sonucu verdiğinde ise başka bir dizi etkinliği değerlendirmeye alır. 
@@ -65,11 +64,11 @@ If Koşulu etkinliği, programlama dilerindeki If deyimiyle aynı işlevselliği
 
 ## <a name="type-properties"></a>Tür özellikleri
 
-Özellik | Açıklama | İzin verilen değerler | Gerekli
+Özellik | Açıklama | İzin verilen değerler | Gereklidir
 -------- | ----------- | -------------- | --------
 ad | IF-condition etkinliği adı. | Dize | Evet
 type | Ayarlanmalıdır **IfCondition** | Dize | Evet
-ifade | True veya false değerlendirmelidir ifadesi | İfade sonucu ile Boole türü | Evet
+İfade | True veya false değerlendirmelidir ifadesi | İfade sonucu ile Boole türü | Evet
 ifTrueActivities | İfade sonucunu verdiğinde çalıştırılan etkinlik kümesini `true`. | Dizi | Evet
 ifFalseActivities | İfade sonucunu verdiğinde çalıştırılan etkinlik kümesini `false`. | Dizi | Evet
 
@@ -246,7 +245,7 @@ Bu örnekteki işlem hattı, verileri bir girdi klasöründen bir çıktı klas�
 ```
 
 ### <a name="powershell-commands"></a>PowerShell komutları
-Bu komutlarda, klasöre JSON dosyalarını kaydettiğiniz varsayılmaktadır: C:\ADF. 
+Bu komutlar, JSON dosyaları klasöre kaydettiğiniz varsayın: C:\ADF. 
 
 ```powershell
 Connect-AzureRmAccount

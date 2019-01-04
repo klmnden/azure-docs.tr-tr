@@ -8,16 +8,15 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: e3aefc23cd0f4d8043232214591155aa893f4522
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 09b5f387b0c7f765ea0835dcef79932203d68338
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390145"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54014361"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data factory'de veri dönüştürme
 > [!div class="op_single_selector"]
@@ -62,7 +61,7 @@ Zaman içinde yeni bir giriş veri kümeleri kullanarak eğitilebileceği deneme
 Bkz: [kullanım Machine Learning etkinlikleri](transform-data-using-machine-learning.md) bu Machine Learning etkinlikleri hakkında ayrıntılı bilgi için. 
 
 ## <a name="stored-procedure-activity"></a>Depolanan yordam etkinliği
-Aşağıdaki veri depolarını birinde bir saklı yordam çağırmak için bir Data Factory işlem hattı, SQL Server saklı yordam etkinliğini kullanabilirsiniz: Azure SQL veritabanı, Azure SQL veri ambarı, SQL Server veritabanı kuruluşunuza veya bir Azure VM. Bkz: [saklı yordam etkinliği](transform-data-using-stored-procedure.md) makale Ayrıntılar için.  
+Aşağıdaki veri depolarını birinde bir saklı yordam çağırmak için bir Data Factory işlem hattı, SQL Server saklı yordam etkinliğine kullanabilirsiniz: Azure SQL veritabanı, Azure SQL veri ambarı, SQL Server veritabanı kuruluşunuza veya bir Azure VM. Bkz: [saklı yordam etkinliği](transform-data-using-stored-procedure.md) makale Ayrıntılar için.  
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL etkinliği
 Data Lake Analytics U-SQL etkinliği, bir Azure Data Lake Analytics kümesinde bir U-SQL betiği çalıştırır. Bkz: [Data Analytics U-SQL etkinliği](transform-data-using-data-lake-analytics.md) makale Ayrıntılar için. 
@@ -87,10 +86,10 @@ R yüklü HDInsight kümenizde R betiklerini çalıştırmak için özel bir etk
 ## <a name="compute-environments"></a>Ortam işlem
 İşlem ortamı için bağlı hizmet oluşturup ardından bağlı hizmet bir dönüştürme etkinliği tanımlarken kullanılır. Data Factory tarafından desteklenen işlem ortamlarının iki türü vardır. 
 
-- **İsteğe bağlı**: Bu durumda, bilgi işlem ortamınız Data Factory tarafından tamamen yönetilir. Bir iş verileri işlemek için gönderilen ve iş tamamlandığında kaldırıldı önce Data Factory hizmeti tarafından otomatik olarak oluşturulur. Yapılandırma ve iş yürütme, küme yönetimi ve önyükleme eylemleri için isteğe bağlı işlem ortamının ayrıntılı ayarları denetler. 
-- **Kendi bilgisayarınızı getirin**: Bu durumda, Data Factory öğesinde bağlantılı hizmet olarak kendi bilgi işlem ortamı (örneğin, HDInsight kümesi) kaydedebilirsiniz. Bilgi işlem ortamınız sizin tarafınızdan yönetilen ve Data Factory hizmetinin etkinlikleri yürütmek için kullanır. 
+- **İsteğe bağlı**:  Bu durumda, bilgi işlem ortamınız, Data Factory tarafından tamamen yönetilir. Bir iş verileri işlemek için gönderilen ve iş tamamlandığında kaldırıldı önce Data Factory hizmeti tarafından otomatik olarak oluşturulur. Yapılandırma ve iş yürütme, küme yönetimi ve önyükleme eylemleri için isteğe bağlı işlem ortamının ayrıntılı ayarları denetler. 
+- **Kendi işleyicinizi getirin**: Bu durumda, Data Factory öğesinde bağlantılı hizmet olarak kendi bilgi işlem ortamı (örneğin, HDInsight kümesi) kaydedebilirsiniz. Bilgi işlem ortamınız sizin tarafınızdan yönetilen ve Data Factory hizmetinin etkinlikleri yürütmek için kullanır. 
 
 Bkz: [işlem bağlı Hizmetleri](compute-linked-services.md) makale, Data Factory tarafından desteklenen işlem hizmetlerinin hakkında bilgi edinmek için. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir dönüştürme etkinliği kullanma örneği için şu öğreticilere bakın: [öğretici: Spark kullanarak verileri dönüştürme](tutorial-transform-data-spark-powershell.md)
+Bir dönüştürme etkinliği kullanma örneği için aşağıdaki öğreticiye bakın: [Öğretici: Spark kullanarak verileri dönüştürme](tutorial-transform-data-spark-powershell.md)

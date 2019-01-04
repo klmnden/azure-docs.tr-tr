@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 44b80a395ce29d67912f822c806246bdd97b59b6
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ce259c2091fc2aec81cd85d4b1e3bd85ee92c806
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972847"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024357"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights, akıllı algılama
  Akıllı algılama, web uygulamanızdaki olası performans sorunlarını otomatik olarak sizi uyarır. Uygulamanızın gönderdiği telemetri öngörülü analiz gerçekleştirir [Application Insights](app-insights-overview.md). Hata oranları ani bir artış ya da istemci veya sunucu performans anormal desenleri ise bir uyarı alırsınız. Bu özellik, herhangi bir yapılandırma gerekir. Uygulamanızı yeterli telemetri gönderiyorsa çalışır.
@@ -41,8 +41,8 @@ Ayrıntılarını görmek için bir uyarı seçin.
 ## <a name="what-problems-are-detected"></a>Algılanan sorunları?
 Algılama üç tür vardır:
 
-* [Akıllı algılama - hata Anomalileri](app-insights-proactive-failure-diagnostics.md). Yük ve diğer faktörlere ile ilişkilendirmek, uygulamanız için başarısız isteklerin beklenen oranını ayarlamak için machine learning kullanırız. Hata oranı beklenen zarfının dışında kalırsa bir uyarı göndereceğiz.
-* [Akıllı algılama - performans Anomalileri](app-insights-proactive-performance-diagnostics.md). Yanıt süresi bir işlemi ya da bağımlılık süresi geçmiş taban çizgisine göre yavaşlamasıdır veya yanıt süresi veya sayfa yükleme süresi anormal bir düzen tanımlamanız durumunda bildirim alın.   
+* [Akıllı algılama - hata Anomalileri](../azure-monitor/app/proactive-failure-diagnostics.md). Yük ve diğer faktörlere ile ilişkilendirmek, uygulamanız için başarısız isteklerin beklenen oranını ayarlamak için machine learning kullanırız. Hata oranı beklenen zarfının dışında kalırsa bir uyarı göndereceğiz.
+* [Akıllı algılama - performans Anomalileri](../azure-monitor/app/proactive-performance-diagnostics.md). Yanıt süresi bir işlemi ya da bağımlılık süresi geçmiş taban çizgisine göre yavaşlamasıdır veya yanıt süresi veya sayfa yükleme süresi anormal bir düzen tanımlamanız durumunda bildirim alın.   
 * [Akıllı algılama - Azure bulut hizmeti sorunları](https://azure.microsoft.com/blog/proactive-notifications-on-cloud-service-issues-with-azure-diagnostics-and-application-insights/). Uygulamanızı Azure Cloud Services'da barındırılan ve rol örneği başlatma hataları, sık geri dönüştürme veya çalışma zamanı kilitlenmeleri varsa uyarı alın.
 
 (Her bildirim Yardım bağlantıları için ilgili makaleleri göz önüne almanız.)
@@ -54,7 +54,7 @@ Algılama üç tür vardır:
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu tanılama araçları, uygulamanızdan alınan telemetri incelemenize yardımcı:
 
-* [Ölçüm Gezgini](app-insights-metrics-explorer.md)
+* [Ölçüm Gezgini](../azure-monitor/app/metrics-explorer.md)
 * [Arama Gezgini](../azure-monitor/app/diagnostic-search.md)
 * [Analytics - güçlü sorgu dili](../azure-monitor/log-query/get-started-portal.md)
 
