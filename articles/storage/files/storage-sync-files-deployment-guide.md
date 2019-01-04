@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 58afaacb6e0165582f9f54c3ec3c273e2a063804
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: eeaedc84e860cebc0b001300ace4fe1594375af2
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753259"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999416"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Dosya Eşitleme’yi dağıtma
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -202,18 +202,18 @@ if ($resourceGroups -notcontains $resourceGroup) {
 # the following command creates an AFS context 
 # it enables subsequent AFS cmdlets to be executed with minimal 
 # repetition of parameters or separate authentication 
-Login-AzStorageSync `
+Login-AzureRmStorageSync `
     -SubscriptionId $subID `
     -ResourceGroupName $resourceGroup `
     -TenantId $tenantID `
     -Location $region
 ```
 
-Azure dosya eşitleme bağlamı ile oluşturduktan sonra `Login-AzStorageSync` cmdlet, depolama eşitleme hizmeti oluşturabilirsiniz. Değiştirdiğinizden emin olun `<my-storage-sync-service>` istenen, depolama eşitleme hizmeti adı.
+Azure dosya eşitleme bağlamı ile oluşturduktan sonra `Login-AzureR,StorageSync` cmdlet, depolama eşitleme hizmeti oluşturabilirsiniz. Değiştirdiğinizden emin olun `<my-storage-sync-service>` istenen, depolama eşitleme hizmeti adı.
 
 ```PowerShell
 $storageSyncName = "<my-storage-sync-service>"
-New-AzStorageSyncService -StorageSyncServiceName $storageSyncName
+New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 ```
 
 ---
@@ -239,7 +239,7 @@ Uygun bilgileri seçtikten sonra seçin **kaydetme** sunucu kaydını tamamlamak
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
-$registeredServer = Register-AzStorageSyncServer -StorageSyncServiceName $storageSyncName
+$registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $storageSyncName
 ```
 
 ---
@@ -269,7 +269,7 @@ Eşitleme grubu oluşturmak için aşağıdaki PowerShell yürütün. Değiştir
 
 ```PowerShell
 $syncGroupName = "<my-sync-group>"
-New-AzStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
+New-AzureRmStorageSyncGroup -SyncGroupName $syncGroupName -StorageSyncService $storageSyncName
 ```
 
 Eşitleme grubu başarıyla oluşturulduktan sonra bulut uç noktası oluşturabilirsiniz. Değiştirdiğinizden emin olun `<my-storage-account>` ve `<my-file-share>` beklenen değerleri.
@@ -302,7 +302,7 @@ if ($fileShare -eq $null) {
 }
 
 # Create the cloud endpoint
-New-AzStorageSyncCloudEndpoint `
+New-AzureRmStorageSyncCloudEndpoint `
     -StorageSyncServiceName $storageSyncName `
     -SyncGroupName $syncGroupName ` 
     -StorageAccountResourceId $storageAccount.Id `
@@ -345,7 +345,7 @@ if ($cloudTieringDesired) {
     }
 
     # Create server endpoint
-    New-AzStorageSyncServerEndpoint `
+    New-AzureRmStorageSyncServerEndpoint `
         -StorageSyncServiceName $storageSyncName `
         -SyncGroupName $syncGroupName `
         -ServerId $registeredServer.Id `
@@ -355,7 +355,7 @@ if ($cloudTieringDesired) {
 }
 else {
     # Create server endpoint
-    New-AzStorageSyncServerEndpoint `
+    New-AzureRmStorageSyncServerEndpoint `
         -StorageSyncServiceName $storageSyncName `
         -SyncGroupName $syncGroupName `
         -ServerId $registeredServer.Id `

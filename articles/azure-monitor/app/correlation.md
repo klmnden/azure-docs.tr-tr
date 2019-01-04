@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: 69427336cbc616affdbf11a55c9f410aeec596fc
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 946d0895ff25509a0e35695fe27c783b3c50784b
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975177"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53999588"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application ınsights telemetri bağıntısı
 
@@ -168,7 +168,7 @@ telemetryClient.getContext().getCloud().setRole("My Component Name");
 
 - [Özel telemetri yazma](../../azure-monitor/app/api-custom-events-metrics.md)
 - [Daha fazla bilgi edinin](../../azure-monitor/app/app-map.md#set-cloudrolename) için diğer SDK'lar cloud_RoleName ayarlama.
-- Yerleşik mikro hizmet Application Insights'ın tüm bileşenleri. Kullanıma [desteklenen platformlar](../../application-insights/app-insights-platforms.md).
+- Yerleşik mikro hizmet Application Insights'ın tüm bileşenleri. Kullanıma [desteklenen platformlar](../../azure-monitor/app/platforms.md).
 - Bkz: [veri modeli](../../azure-monitor/app/data-model.md) için Application Insights türleri ve veri modeli.
 - Bilgi edinmek için nasıl [genişletmek ve telemetri filtreleme](../../azure-monitor/app/api-filtering-sampling.md).
 - [Application Insights yapılandırma başvurusu](configuration-with-applicationinsights-config.md)

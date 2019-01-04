@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a6f18222e5683d2d9663b699a8f6bab399d4f45b
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 6cf32ba50e83b95d51493244ef8e8646433b0b02
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299869"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54024952"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack ortak anahtar altyapısı sertifika gereksinimleri
 
@@ -31,7 +31,7 @@ Azure Stack, küçük bir Azure Stack hizmetlerinin ve büyük olasılıkla Kira
 - Hazırlama, doğrulamak ve dağıtımı sırasında bu sertifikaları kullanın
 
 > [!Note]  
-> Dağıtım sırasında sertifikalar (Azure karşı AD veya AD FS) dağıtmakta olduğunuz kimlik sağlayıcısı ile eşleşen dağıtım klasörüne kopyalamanız gerekir. Tüm uç noktalar için tek bir sertifika kullanıyorsanız, bu sertifika dosyasını aşağıdaki tabloda özetlendiği gibi her dağıtım klasörüne kopyalamanız gerekir. Klasör yapısını dağıtım sanal makinede önceden oluşturulmuş ve şurada bulunabilir: C:\CloudDeployment\Setup\Certificates. 
+> Dağıtım sırasında sertifikalar (Azure karşı AD veya AD FS) dağıtmakta olduğunuz kimlik sağlayıcısı ile eşleşen dağıtım klasörüne kopyalamanız gerekir. Tüm uç noktalar için tek bir sertifika kullanıyorsanız, bu sertifika dosyasını aşağıdaki tabloda özetlendiği gibi her dağıtım klasörüne kopyalamanız gerekir. Klasör yapısı dağıtım sanal makinede önceden oluşturulmuş ve şurada bulunabilir: C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Sertifika gereksinimleri
 Aşağıdaki listede, Azure Stack dağıtmak için gerekli sertifika gereksinimleri açıklanmaktadır: 
@@ -62,7 +62,7 @@ Bu bölümde yer alan tabloda her iki Azure AD için gerekli olan Azure Stack ge
 
 Her Azure Stack genel altyapı uç noktası için uygun DNS adlarına sahip sertifikaları gereklidir. Her uç noktasının DNS adı biçiminde ifade edilir:  *&lt;önek >.&lt; bölge >. &lt;fqdn >*. 
 
-Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure Stack sisteminiz için seçtiğiniz dış etki alanı adlarının eşleşmesi gerekir. Örneğin bölge adı varsa, *Redmond* ve dış etki alanı adı *contoso.com*, DNS adlarını biçimi gerekir *&lt;önek >. redmond.contoso.com*. *&lt;Önek >* değerleri predesignated güvenliği sertifika ile sağlanan uç nokta tanımlamak amacıyla Microsoft tarafından. Ayrıca,  *&lt;önek >* değerler dış altyapı uç noktalarının belirli uç noktasını kullanan Azure Stack hizmeti bağlıdır. 
+Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure Stack sisteminiz için seçtiğiniz dış etki alanı adlarının eşleşmesi gerekir. Örneğin bölge adı varsa, *Redmond* ve dış etki alanı adı *contoso.com*, DNS adlarını biçimi gerekir *&lt;önek >. redmond.contoso.com*.  *&lt;Önek >* değerleri predesignated güvenliği sertifika ile sağlanan uç nokta tanımlamak amacıyla Microsoft tarafından. Ayrıca,  *&lt;önek >* değerler dış altyapı uç noktalarının belirli uç noktasını kullanan Azure Stack hizmeti bağlıdır. 
 
 > [!note]  
 > Üretim ortamları için ayrı sertifikalar her uç nokta için oluşturulan ve karşılık gelen dizinine kopyalanır öneririz. Geliştirme ortamları için sertifika konusu ve konu alternatif adı (SAN) alanlarındaki tüm dizinlere kopyalanır tüm ad alanlarını kapsayan bir tek bir joker sertifikası olarak sağlanabilir. Tüm uç noktaları ve hizmetler kapsayan tek bir sertifikayı güvenli bir duruş salt geliştirme bu nedenle ' dir. Unutmayın, iki seçenek de joker karakterli sertifikalar için bitiş noktaları gibi kullanmanızı gerektirir **acs** ve gerekli nerede anahtar kasası. 

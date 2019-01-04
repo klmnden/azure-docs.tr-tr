@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 7c1d3adec6fd718df12abde1b56a89e662de284e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 81f76b31f7af3643e2b654e8e26c70d0481d60b8
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538999"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017115"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure işlev proxy'leri ile çalışma
 
@@ -47,13 +47,13 @@ Azure işlev proxy'lerini ile isteklerini ve arka uç alınan yanıtları deği�
 
 Varsayılan olarak, özgün istek bir kopyası olarak arka uç isteği başlatıldı. Arka uç URL'si ayarlamanın yanı sıra HTTP yöntemi, üst bilgiler ve sorgu dizesi parametreleri değişiklik yapabilirsiniz. Değiştirilmiş değerlere başvurabilirsiniz [uygulama ayarları] ve [Özgün istemci İstek parametreleri].
 
-Arka uç istekleri değiştirilebilir portalda expading tarafından *geçersiz kılma isteği* bölümünü proxy Ayrıntıları sayfası. 
+Arka uç istekleri değiştirilebilir portalda genişleterek *geçersiz kılma isteği* bölümünü proxy Ayrıntıları sayfası. 
 
 ### <a name="modify-response"></a>Yanıtı değiştirebilir
 
 Varsayılan olarak, istemci yanıtı arka uç yanıtı bir kopyası olarak başlatılır. Yanıtın durum kodu, neden ifadesini, üstbilgi ve gövde değişiklik yapabilirsiniz. Değiştirilmiş değerlere başvurabilirsiniz [uygulama ayarları], [Özgün istemci İstek parametreleri], ve [arka uç yanıtı Parametreler].
 
-Arka uç istekleri değiştirilebilir portalda expading tarafından *geçersiz kılmayı Yanıtla* bölümünü proxy Ayrıntıları sayfası. 
+Arka uç istekleri değiştirilebilir portalda genişleterek *geçersiz kılmayı Yanıtla* bölümünü proxy Ayrıntıları sayfası. 
 
 ## <a name="using-variables"></a>Değişkenlerini kullanma
 
@@ -176,12 +176,13 @@ Birçok uygulama ayarları tarafından proxy davranışı denetlenebilir. Bunlar
 
 ### <a name="reservedChars"></a> Ayrılmış karakterleri (biçimlendirme dizesi)
 
-Tüm dizeleri yorumu hariç, küme ayracı ve eğik çizgi olmadan proxy'leri oku
+Proxy'leri oku tüm dizeler dışında bir JSON dosyası, kullanarak \ kaçış sembol olarak. Proxy'leri, küme ayraçları ayrıca yorumlayın. Eksiksiz bir örneklere bakın.
 
 |Karakter|Kaçan karakter|Örnek|
 |-|-|-|
 |{veya}|{{veya}}|`{{ example }}` --> `{ example }`
-|/|///| `example.com///text.html` --> `example.com/text.html`
+| \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
+|"|\\\"| `\"example\"` --> `"example"`
 
 ### <a name="requestOverrides"></a>RequestOverrides nesnesi tanımlayın
 

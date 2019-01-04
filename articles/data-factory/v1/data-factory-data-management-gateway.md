@@ -9,17 +9,16 @@ ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 728adae62677eb2edb1e203df9b0d9f11f6acecf
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698766"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54022317"
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
@@ -51,7 +50,7 @@ Veri Yönetimi ağ geçidi, aşağıdaki özellikleri sağlar:
 ### <a name="command-flow-and-data-flow"></a>Komut akışını ve veri akışı
 Şirket içi ve bulut arasında veri kopyalamak için kopyalama etkinliğini kullandığınızda, etkinlik bir ağ geçidi bulut geçme veya tam tersi şirket içi veri kaynağından veri aktarımı için kullanır.
 
-Veri ağ geçidi ile kopyalama için adımların özeti ve üst düzey veri akışı şöyledir: ![ağ geçidini kullanarak veri akışı](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
+Üst düzey veri akışı için ve veri ağ geçidi ile kopyalama adımları özeti aşağıda verilmiştir: ![Ağ geçidi kullanarak veri akışı](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
 1. Veri Geliştirici oluşturur bir ağ geçidi kullanarak bir Azure Data Factory'deki [Azure portalında](https://portal.azure.com) veya [PowerShell cmdlet'i](https://docs.microsoft.com/powershell/module/azurerm.datafactories/).
 2. Veri geliştirici, ağ geçidi belirterek bir şirket içi veri deposu için bağlı hizmet oluşturur. Bağlı hizmet oluşturma işleminin bir parçası olarak, kimlik doğrulama türleri ve kimlik bilgilerini belirtmek için kimlik bilgilerini ayarlama uygulama veri geliştiricisi kullanır.  Kimlik bilgilerini ayarlama uygulama iletişim bağlantı ve kimlik bilgilerini kaydetmek için ağ geçidi test etmek için veri deposuyla iletişim kurar.
@@ -182,8 +181,8 @@ Ağ geçidi, bulut hizmetine bağlanmak için proxy sunucusunu kullanır. Tıkla
 
 Üç yapılandırma seçeneği vardır:
 
-* **Proxy kullanmayın**: ağ geçidi açıkça kullanmayan her Proxy'yi bulut hizmetlerine bağlanmak için.
-* **Sistem Ara sunucu kullanmak**: ağ geçidi yapılandırılmış diahost.exe.config ve diawp.exe.config ayarının proxy kullanır.  Proxy diahost.exe.config ve diawp.exe.config yapılandırılmışsa, Ara sunucu üzerinden geçmeden doğrudan ağ geçidi bulut hizmetine bağlanır.
+* **Proxy kullanmayın**: Ağ geçidi açıkça her Proxy'yi bulut hizmetlerine bağlanmak için kullanmaz.
+* **Sistem Ara sunucu kullanmak**: Ağ geçidi diahost.exe.config ve diawp.exe.config yapılandırılan proxy ayarı kullanır.  Proxy diahost.exe.config ve diawp.exe.config yapılandırılmışsa, Ara sunucu üzerinden geçmeden doğrudan ağ geçidi bulut hizmetine bağlanır.
 * **Özel ara sunucu kullanmak**: HTTP proxy yapılandırması diahost.exe.config ve diawp.exe.config kullanma yerine ağ geçidi için kullanılacak ayarı yapılandırın.  Adres ve bağlantı noktası gereklidir.  Kullanıcı adı ve parola, proxy kimlik doğrulama ayarlarına bağlı olarak isteğe bağlıdır.  Tüm ayarları Ağ Geçidi kimlik bilgisi sertifikası ile şifrelenir ve ağ geçidi ana makinede yerel olarak depolanır.
 
 Veri Yönetimi ağ geçidi ana bilgisayar hizmeti, güncelleştirilen proxy ayarlarını kaydettikten sonra otomatik olarak başlatır.
@@ -236,7 +235,7 @@ Bu noktaları ek olarak, ayrıca Microsoft Azure, şirketinizin izin verilenler 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Olası Belirtiler güvenlik duvarınızdan ve Ara sunucu ilgili sorunlar
 Aşağıdaki ayarlara benzer hatalarla karşılaşırsanız, kendi kimliğini doğrulamak için ağ geçidinin veri Fabrikasına bağlanmasını engelleyen güvenlik duvarı veya Ara sunucunun yanlış yapılandırması nedeniyle olasıdır. Güvenlik duvarınızı emin olmak için önceki bölüme bakın ve proxy sunucusu düzgün yapılandırılmış.
 
-1. Ağ geçidini kaydetmek çalıştığınızda şu hatayı alıyorsunuz: "ağ geçidi anahtarı kaydedilemedi. Ağ geçidi anahtarı kaydettirmeyi yeniden denemeden önce veri yönetimi ağ geçidi bağlı bir durumda ve veri yönetimi ağ geçidi ana bilgisayar hizmetinin başlatıldığından emin olun."
+1. Ağ geçidini kaydetmek çalıştığınızda şu hatayı alıyorsunuz: "Ağ geçidi anahtarı kaydedilemedi. Ağ geçidi anahtarı kaydettirmeyi yeniden denemeden önce veri yönetimi ağ geçidi bağlı bir durumda ve veri yönetimi ağ geçidi ana bilgisayar hizmetinin başlatıldığından emin olun."
 2. Yapılandırma Yöneticisi'ni açın, durum "Bağlantı kesildi" veya "Bağlanıyor" görürsünüz Windows olay günlükleri, "Olay Görüntüleyicisi" görüntülerken > "Uygulama ve hizmet günlükleri" > "Veri yönetimi ağ geçidi", şu hata gibi hata iletilerine bakın: `Unable to connect to the remote server`
    `A component of Data Management Gateway has become unresponsive and restarts automatically. Component name: Gateway.`
 

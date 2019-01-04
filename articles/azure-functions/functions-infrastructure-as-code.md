@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: glenga
-ms.openlocfilehash: 428e1bed4e62b4fcbd7a4e03601cfc5c630b6583
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 488b3797c7e18855a60b84a77a05e4e0a5654475
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715537"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54023677"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure işlevleri'nde işlev uygulamanız için kaynak dağıtımını otomatikleştirme
 
@@ -36,6 +36,12 @@ Bir işlev uygulaması, bu kaynakları gerektirir:
 * Bir [Azure depolama](../storage/index.yml) hesabı
 * Bir barındırma planı (tüketim planı veya App Service planı)
 * Bir işlev uygulaması 
+
+JSON söz dizimi ve bu kaynaklar için özellikler için bkz:
+
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
+* [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)
 
 ### <a name="storage-account"></a>Depolama hesabı
 
