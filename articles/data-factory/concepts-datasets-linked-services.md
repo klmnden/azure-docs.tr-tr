@@ -20,7 +20,7 @@ ms.lasthandoff: 01/04/2019
 ms.locfileid: "54019138"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Veri kümeleri ve Azure veri fabrikasında bağlı hizmetler 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
 > * [Sürüm 1](v1/data-factory-create-datasets.md)
 > * [Geçerli sürüm](concepts-datasets-linked-services.md)
 
