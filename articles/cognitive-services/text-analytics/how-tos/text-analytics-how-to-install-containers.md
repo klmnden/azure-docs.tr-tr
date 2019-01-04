@@ -9,40 +9,43 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 11798c3bfd4032ad10c738032a816a2a0488ce67
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e3b1655207f3baba6ea6e3cf2f00e3540a3602ad
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090542"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969378"
 ---
-# <a name="install-and-run-containers"></a>Kapsayıcıları yükleme ve çalıştırma
+# <a name="install-and-run-text-analytics-containers"></a>Yükleme ve metin analizi kapsayıcıları çalıştırma
 
-Kapsayıcı, bir uygulama veya hizmet bir kapsayıcı görüntüsüne paketlenmiştir yazılım dağıtım için kullanılan bir yaklaşımdır. Yapılandırma ve bağımlılıklarla uygulama veya hizmet için kapsayıcı görüntüsüne eklenir. Kapsayıcı görüntüsü, bir kapsayıcı konağında çok az kayıpla veya hiç değişiklik ile sonra dağıtılabilir. Birbirine ve bir sanal makine değerinden daha küçük bir kaplama alanı ile temel işletim sistemi, yalıtılmış kapsayıcılardır. Kapsayıcılar için kısa vadeli görevleri kapsayıcı görüntülerinden oluşturulan ve artık gerekli olmadığında kaldırıldı.
-
-Metin analizi, her biri işlevlerinin bir alt kümesini içeren Docker kapsayıcıları, aşağıdaki kümesini sağlar:
-
-| Kapsayıcı| Açıklama |
-|----------|-------------|
-|Anahtar İfade Ayıklama | Ana noktaları belirleyin, anahtar ifadeleri ayıklar. Örneğin, "The food was delicious and there were wonderful staff" (Yemekler lezzetliydi ve personel harikaydı) giriş metni olduğunda API, "food" (yemek) ve "wonderful staff" (personel harikaydı) ana konuşma noktalarını döndürür. |
-|Dil Algılama | En fazla 120 dil için algılar ve raporları giriş metni hangi dilde yazılır. Kapsayıcı, istekte bulunan her belge için bir tek dil kodu bildirir. Dil kodu, puanın ağırlığını belirten bir puanla eşleştirilir. |
-|Duygu Analizi | Ham metin pozitif veya negatif yaklaşım hakkında ipuçları için analiz eder. API, her belge için 0 ile 1 arasında bir yaklaşım puanı döndürür ve 1 en pozitif değerdir. Analiz modelleri metin ve doğal dil Microsoft teknolojilerinin kapsamlı bir gövdesi kullanarak önceden eğitilir. API, [seçili dillerde](../language-support.md) sağladığınız ham metni analiz edip puanlayabilir ve sonuçları doğrudan çağrıyı yapan uygulamaya döndürebilir. |
+Metin analizi kapsayıcılar sağlar ham metin üzerinde Gelişmiş doğal dil işleme ve üç ana işlev içerir: yaklaşım analizi, anahtar ifade ayıklama ve dil algılama. Varlık bağlama, bir kapsayıcıda şu anda desteklenmiyor. 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
+## <a name="prerequisites"></a>Önkoşullar
+
+Herhangi bir metin analizi kapsayıcıları çalıştırmak için aşağıdakilere sahip olmanız gerekir:
 
 ## <a name="preparation"></a>Hazırlık
 
 Metin analizi kapsayıcıları kullanmadan önce aşağıdaki gereksinimleri karşılaması gerekir:
 
-**Docker altyapısı**: Docker altyapısının yerel olarak yüklü olması gerekir. Docker üzerinde Docker ortamını yapılandıran paketler sağlar [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), ve [Windows](https://docs.docker.com/docker-for-windows/). Windows Docker Linux kapsayıcıları destekleyecek şekilde yapılandırılması gerekir. Docker kapsayıcıları da dağıtılabilir doğrudan [Azure Kubernetes hizmeti](/azure/aks/), [Azure Container Instances](/azure/container-instances/), veya bir [Kubernetes](https://kubernetes.io/) içindağıtılanküme[Azure Stack](/azure/azure-stack/). Kubernetes için Azure Stack dağıtma hakkında daha fazla bilgi için bkz. [Azure Stack dağıtma Kubernetes](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+|Gereklidir|Amaç|
+|--|--|
+|Docker altyapısı| Docker Altyapısı'nın kurulu ihtiyacınız bir [ana bilgisayar](#the-host-computer). Docker üzerinde Docker ortamını yapılandıran paketler sağlar [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), ve [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Docker ve kapsayıcı temelleri hakkında bilgi için bkz: [Docker'a genel bakış](https://docs.docker.com/engine/docker-overview/).<br><br> Docker, kapsayıcılar ile bağlanma ve faturalama verileri Azure'a göndermek izin verecek şekilde yapılandırılmalıdır. <br><br> **Windows üzerinde**, Docker de Linux kapsayıcıları destekler şekilde yapılandırılmalıdır.<br><br>|
+|Docker ile aşinalık | Bir temel kavramlarını Docker kayıt defterleri, havuzları, kapsayıcılar ve kapsayıcı görüntülerinin yanı sıra temel bilgi gibi olmalıdır `docker` komutları.| 
+|Metin analizi kaynak |Kapsayıcı kullanabilmeniz için şunlara sahip olmalısınız:<br><br>A [ _metin analizi_ ](text-analytics-how-to-access-key.md) fatura uç noktası URI'si ve ilişkili faturalandırma anahtarı almak için Azure kaynak. Her iki değeri de Azure portalının metin Analizi'ne genel bakış ve anahtarları sayfalarında kullanılabilir ve kapsayıcı başlatma için gereklidir.<br><br>**{BILLING_KEY}** : kaynak anahtarı<br><br>**{BILLING_ENDPOINT_URI}** : uç nokta URI'si örnektir: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
-Docker, kapsayıcılar ile bağlanma ve faturalama verileri Azure'a göndermek izin verecek şekilde yapılandırılmalıdır.
+### <a name="the-host-computer"></a>Ana bilgisayar
 
-**Microsoft Container Registry ve Docker konusunda**: bir temel kavramlarını hem Microsoft Container Registry ve Docker kayıt defterleri, depoları, kapsayıcılar ve kapsayıcı görüntülerinin yanı sıra bilgisi gibi olmalıdır temel `docker` komutları.  
+**Konak** , docker kapsayıcısı çalıştıran bilgisayardır. Bu, bir bilgisayara şirket içinde veya Azure dahil olmak üzere hizmeti barındıran bir docker olabilir:
 
-Docker ve kapsayıcı temelleri hakkında bilgi için bkz: [Docker'a genel bakış](https://docs.docker.com/engine/docker-overview/).
+* [Azure Kubernetes Service](../../../aks/index.yml)
+* [Azure Container Instances](../../../container-instances/index.yml)
+* [Kubernetes](https://kubernetes.io/) kümesi dağıtıldı için [Azure Stack](../../../azure-stack/index.yml). Daha fazla bilgi için [Azure Stack dağıtma Kubernetes](../../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+
 
 ### <a name="container-requirements-and-recommendations"></a>Kapsayıcı gereksinimleri ve önerileri
 
@@ -54,9 +57,11 @@ Aşağıdaki tabloda açıklanmıştır en düşük ve önerilen CPU çekirdekle
 |Dil Algılama | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |
 |Duygu Analizi | 1 çekirdek, 2 GB bellek | 1 çekirdek, 4 GB bellek |
 
-## <a name="download-container-images-from-microsoft-container-registry"></a>Microsoft kapsayıcı kayıt defterinden kapsayıcı görüntülerini yükle
+Çekirdek ve bellek karşılık `--cpus` ve `--memory` parçası olarak kullanılan ayarları `docker run` komutu.
 
-Microsoft kapsayıcı kayıt defterinden kapsayıcı görüntülerini metin analizi için kullanılabilir. Aşağıdaki tabloda, depo yok Microsoft kapsayıcı kayıt defterinden metin analizi kapsayıcılar için listeler. Her depo kapsayıcıyı yerel olarak çalıştırmak için karşıdan yüklenmesi gereken bir kapsayıcı görüntüsü içerir.
+## <a name="get-the-container-image-with-docker-pull"></a>İle kapsayıcı görüntüsünü Al `docker pull`
+
+Microsoft kapsayıcı kayıt defterinden kapsayıcı görüntülerini metin analizi için kullanılabilir. 
 
 | Kapsayıcı | Havuz |
 |-----------|------------|
@@ -64,11 +69,7 @@ Microsoft kapsayıcı kayıt defterinden kapsayıcı görüntülerini metin anal
 |Dil Algılama | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Duygu Analizi | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Kullanım [docker isteği](https://docs.docker.com/engine/reference/commandline/pull/) bir depodan kapsayıcı görüntüsünü indirmek için komutu. Örneğin, depodan en son anahtar ifade ayıklama kapsayıcı görüntüsünü indirmek için aşağıdaki komutu kullanın:
-
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
-```
+Kullanım [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) Microsoft kapsayıcı kayıt defterinden bir kapsayıcı görüntüsü indirilemedi komut...
 
 Metin analizi kapsayıcılar için kullanılabilir etiketler tam bir açıklaması için aşağıdaki kapsayıcıların Docker Hub bakın:
 
@@ -76,68 +77,109 @@ Metin analizi kapsayıcılar için kullanılabilir etiketler tam bir açıklamas
 * [Dil algılama](https://go.microsoft.com/fwlink/?linkid=2018759)
 * [Yaklaşım analizi](https://go.microsoft.com/fwlink/?linkid=2018654)
 
-> [!TIP]
-> Kullanabileceğiniz [docker görüntüleri](https://docs.docker.com/engine/reference/commandline/images/) indirilen kapsayıcı görüntülerinizi listelemek için komutu. Örneğin, aşağıdaki komut kimliği, havuz ve tablo olarak biçimlendirilmiş her indirilen kapsayıcı görüntüsünün etiketi listeler:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->  ```
->
 
-## <a name="instantiate-a-container-from-a-downloaded-container-image"></a>İndirilen kapsayıcı görüntüsünden bir kapsayıcı örneği
-
-Kullanım [docker run](https://docs.docker.com/engine/reference/commandline/run/) indirilen kapsayıcı görüntüsünden bir kapsayıcı örneği için komutu. Örneğin, aşağıdaki komutu:
-
-* Yaklaşım analizi kapsayıcı görüntüsünden bir kapsayıcı oluşturur
-* Bir CPU Çekirdeği ve 8 gigabayt (GB) bellek ayırır.
-* 5000 numaralı TCP bağlantı noktasını kullanıma sunar ve sahte TTY için kapsayıcı ayırır.
-* Kapsayıcı, çıktıktan sonra otomatik olarak kaldırır
+### <a name="docker-pull-for-the-key-phrase-extraction-container"></a>Docker isteği için anahtar tümcecik ayıklama kapsayıcısı
 
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 8g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=0123456789
-
+docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 ```
+
+### <a name="docker-pull-for-the-language-detection-container"></a>Dil algılama kapsayıcısı için docker isteği
+
+```Docker
+docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
+```
+
+### <a name="docker-pull-for-the-sentiment-container"></a>Docker isteği yaklaşım kapsayıcısı için
+
+```Docker
+docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
+```
+
+### <a name="listing-the-containers"></a>Kapsayıcı listeleme
+
+Kullanabileceğiniz [docker görüntüleri](https://docs.docker.com/engine/reference/commandline/images/) indirilen kapsayıcı görüntülerinizi listelemek için komutu. Örneğin, aşağıdaki komut kimliği, havuz ve tablo olarak biçimlendirilmiş her indirilen kapsayıcı görüntüsünün etiketi listeler:
+
+```Docker
+docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
+```
+
+
+## <a name="how-to-use-the-container"></a>Kapsayıcı kullanma
+
+Kapsayıcı açıldığında [ana bilgisayar](#the-host-computer), kapsayıcı ile çalışmak için aşağıdaki işlemi kullanın.
+
+1. [Kapsayıcıyı çalıştırmak](#run-the-container-with-docker-run), gerekli faturalama ayarları. Daha fazla [örnekler](../text-analytics-resource-container-config.md#example-docker-run-commands) , `docker run` komutu kullanılabilir. 
+1. [Kapsayıcının tahmini uç nokta sorgu](#query-the-containers-prediction-endpoint). 
+
+## <a name="run-the-container-with-docker-run"></a>Kapsayıcı ile çalıştırma `docker run`
+
+Kullanım [docker run](https://docs.docker.com/engine/reference/commandline/run/) üç kapsayıcı birini çalıştırmak için komutu. Komutu şu parametreleri kullanır:
+
+| Yer tutucu | Değer |
+|-------------|-------|
+|{BILLING_KEY} | Bu anahtar kapsayıcısı başlatmak için kullanılır ve Azure portalının metin analizi anahtarlar sayfasında bulabilirsiniz.  |
+|{BILLING_ENDPOINT_URI} | Fatura uç noktası URI değerini Azure portalının metin Analizi'ne genel bakış sayfasında kullanılabilir.|
+
+Bu parametreleri aşağıdaki örnekte kendi değerlerinizle değiştirin `docker run` komutu.
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+mcr.microsoft.com/azure-cognitive-services/keyphrase \
+Eula=accept \
+Billing={BILLING_ENDPOINT_URI} \
+ApiKey={BILLING_KEY}
+```
+
+Bu komut:
+
+* Bir anahtar tümcecik kapsayıcı kapsayıcı görüntüsünü çalıştırır.
+* Bir CPU çekirdek ve 4 gigabayt (GB) bellek ayırır.
+* 5000 numaralı TCP bağlantı noktasını kullanıma sunar ve sahte TTY için kapsayıcı ayırır.
+* Bunu çıktıktan sonra kapsayıcı otomatik olarak kaldırır. Kapsayıcı görüntüsü ana bilgisayarda kullanılabilir durumda kalır. 
+
+Daha fazla [örnekler](../text-analytics-resource-container-config.md#example-docker-run-commands) , `docker run` komutu kullanılabilir. 
 
 > [!IMPORTANT]
-> `Eula`, `Billing`, Ve `ApiKey` kapsayıcı örneği oluşturmak için komut satırı seçenekleri belirtilmelidir; Aksi takdirde, kapsayıcı başlatılamıyor.  Daha fazla bilgi için [faturalama](#billing).
+> `Eula`, `Billing`, Ve `ApiKey` kapsayıcıyı çalıştırmak için seçenekler belirtilmelidir; Aksi takdirde, kapsayıcı başlatılamıyor.  Daha fazla bilgi için [faturalama](#billing).
 
-Oluşturulduktan sonra kapsayıcının konak URI'si kullanarak kapsayıcıdan işlemler çağırabilir. Örneğin, aşağıdaki URI ana önceki örnekte örneklenmiş yaklaşım analizi kapsayıcıyı temsil eder:
+## <a name="query-the-containers-prediction-endpoint"></a>Sorgu kapsayıcının tahmini uç noktası
 
-```http
-http://localhost:5000/
-```
+Kapsayıcı, REST tabanlı sorgu tahmin uç nokta API'leri sağlar. 
+
+Ana bilgisayarını kullanmak https://localhost:5000, kapsayıcı API'leri için.
+
+## <a name="stop-the-container"></a>Kapsayıcı Durdur
+
+[!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
+
+## <a name="troubleshooting"></a>Sorun giderme
+
+Kapsayıcı içeren bir çıktı çalıştırırsanız [bağlama](../text-analytics-resource-container-config.md#mount-settings) ve günlüğe kaydetme etkin, kapsayıcı başlatma veya kapsayıcı çalıştırma sırasında gerçekleşen sorunları gidermek yararlı olan günlük dosyalarını oluşturur. 
+
+## <a name="containers-api-documentation"></a>Kapsayıcının API belgeleri
+
+Kapsayıcı uç noktaları için belgeleri tam bir dizi sağlar hem de bir `Try it now` özelliği. Bu özellik, web tabanlı bir HTML formuna ayarlarınızı girdikten ve herhangi bir kod yazmak zorunda kalmadan sorgu yapmanıza olanak tanır. Sorgunun döndürdüğü CURL komutu bir örnek sağlanır sonra HTTP üst bilgilerini gösterme ve gerekli biçim gövde. 
 
 > [!TIP]
-> Erişebildiğiniz [Openapı belirtimi](https://swagger.io/docs/specification/about/) (eski adıyla Swagger belirtimi) den örneklenmiş bir kapsayıcı tarafından desteklenen işlemleri açıklayan `/swagger` bu kapsayıcı için göreli URI. Örneğin, aşağıdaki URI, önceki örnekte örneklenmiş yaklaşım analizi kapsayıcı Openapı belirtimi için erişim sağlar:
+> Okuma [Openapı belirtimi](https://swagger.io/docs/specification/about/), gelen kapsayıcı tarafından desteklenen API işlemleri açıklayan `/swagger` göreli URI'si. Örneğin:
 >
 >  ```http
 >  http://localhost:5000/swagger
 >  ```
 
-Yapabilirsiniz veya [REST API işlemleri çağırmak](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-call-api) kullanılabilir kapsayıcı veya kullanım [Azure Bilişsel hizmetler metin analizi SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics) istemci kitaplığı bu işlemleri çağırmak için.  
-> [!IMPORTANT]
-> Azure Bilişsel hizmetler metin analizi SDK sürüm 2.1.0 olmalıdır veya üzeri ile kapsayıcınız için istemci kitaplığını kullanmak istiyorsanız.
+## <a name="billing"></a>Faturalandırma
 
-Tek fark, kapsayıcıdaki belirli bir işlem çağırma ve azure'da karşılık gelen bir hizmetten aynı işlemi, bir Azure bölgesi URI'sini konak yerine kapsayıcınızın URI ana bilgisayar işlemi çağırmak için kullanacağınız olduğunu çağırma arasında. Örneğin, Batı ABD Azure bölgesinde çalıştırılan bir metin analizi örneğini kullanmak istiyorsanız, aşağıdaki REST API işlem çağrısı:
+Azure için fatura, kullanarak metin analizi kapsayıcıları Gönder bir _metin analizi_ Azure hesabınız kaynaktaki. 
 
-```http
-POST https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
-```
+Bilişsel hizmetler kapsayıcıları, kullanım ölçümü için Azure'a bağlanmadan çalıştırmak için lisanslanmaz. Müşteriler, her zaman faturalandırma bilgileri ölçüm hizmeti ile iletişim kurmak kapsayıcıları etkinleştirmeniz gerekiyor. Bilişsel hizmetler kapsayıcılar, Microsoft müşteri verilerini göndermeyin. 
 
-Varsayılan yapılandırması altında yerel makinenizde çalışan bir anahtar ifade ayıklama kapsayıcınızı kullanmak isterseniz, aşağıdaki REST API işlemi çağırırsınız:
-
-```http
-POST http://localhost:5000/text/analytics/v2.0/keyPhrases
-```
-
-### <a name="billing"></a>Faturalandırma
-
-Metin analizi kapsayıcıları faturalandırma bilgileri, Azure hesabınızda karşılık gelen metin analizi kaynağını kullanarak Azure'a gönderin. Aşağıdaki komut satırı seçenekleri, metin analizi kapsayıcıları tarafından faturalandırma için kullanılır:
+`docker run` Komutu, faturalama amacıyla aşağıdaki değişkenleri kullanır:
 
 | Seçenek | Açıklama |
 |--------|-------------|
-| `ApiKey` | Fatura bilgileri izlemek için kullanılan metin analizi kaynak API anahtarı.<br/>Bu seçeneğin değeri, belirtilen sağlanan metin analizi Azure kaynağı için bir API anahtarı ayarlanmalıdır `Billing`. |
-| `Billing` | Fatura bilgileri izlemek için kullanılan metin analizi kaynak uç noktası.<br/>Bu seçeneğin değeri, sağlanan bir metin analizi Azure kaynağın URI'sini uç noktasına ayarlamanız gerekir.|
+| `ApiKey` | API anahtarı _metin analizi_ kaynak faturalandırma bilgileri izlemek için kullanılır. |
+| `Billing` | Uç noktası _metin analizi_ kaynak faturalandırma bilgileri izlemek için kullanılır.|
 | `Eula` | Kapsayıcı lisansını kabul ettiğiniz gösterir.<br/>Bu seçenek değeri ayarlanmalıdır `accept`. |
 
 > [!IMPORTANT]
@@ -161,6 +203,5 @@ Bu makalede, kavramlar ve indirme, yükleme ve metin analizi kapsayıcıları ç
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Gözden geçirme [kapsayıcıları yapılandırma](../text-analytics-resource-container-config.md) yapılandırma ayarları
-* Gözden geçirme [metin Analizi'ne genel bakış](../overview.md) anahtar ifade algılama, dil algılama ve yaklaşım analizi hakkında daha fazla bilgi edinmek için  
-* Başvurmak [metin analizi API'si](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) kapsayıcı tarafından desteklenen yöntemleri hakkında ayrıntılar için.
-* Başvurmak [sık sorulan sorular (SSS)](../text-analytics-resource-faq.md) görüntü işleme işlevselliği ile ilgili sorunları gidermek için.
+* Başvurmak [sık sorulan sorular (SSS)](../text-analytics-resource-faq.md) işlevselliği ile ilgili sorunları gidermek için.
+

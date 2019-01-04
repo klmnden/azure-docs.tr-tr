@@ -9,14 +9,14 @@ ms.topic: article
 ms.service: storage
 ms.component: blobs
 ms.custom: seodec18
-ms.openlocfilehash: c7c8fd487bef0da7da84a23e18a4e999645106b3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 852b7a32bc27b0aa67d66c25d3b54ab864ee1612
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076432"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628264"
 ---
-# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Hızlı Başlangıç: PowerShell ile web uç noktasına rota depolama olaylarına
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>Hızlı Başlangıç: PowerShell ile web uç noktası için Depolama olaylarını yönlendirme
 
 Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Blob Depolama olaylarını bir olay tetikleyicisi abone olmak için Azure PowerShell kullanın ve sonucu görüntülemek. 
 
@@ -28,14 +28,16 @@ Normalde olayları, olay verilerini işleyen ve eylemler gerçekleştiren bir u�
 
 ## <a name="setup"></a>Kurulum
 
-Bu makale, Azure PowerShell'in en son sürümünü çalıştırıyorsanız gerekir. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Bu makale, Azure PowerShell'in en son sürümünü çalıştırıyorsanız gerekir. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/install-Az-ps).
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-Azure aboneliğinizde oturum açın `Connect-AzureRmAccount` izleyin ve komut ekrandaki kimlik doğrulaması yapın.
+Azure aboneliğinizde oturum açın `Connect-AzAccount` izleyin ve komut ekrandaki kimlik doğrulaması yapın.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Bu örnekte **westus2** ve seçim kullanılmak üzere bir değişkende depolar.
@@ -48,27 +50,27 @@ $location = "westus2"
 
 Event Grid konuları Azure kaynaklarıdır ve bir Azure kaynak grubuna yerleştirilmelidir. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal koleksiyondur.
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutu ile yeni bir kaynak grubu oluşturun.
+Bir kaynak grubu oluşturun [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu.
 
 Aşağıdaki örnek **westus2** konumunda **gridResourceGroup** adlı bir kaynak grubu oluşturur.  
 
 ```powershell
 $resourceGroup = "gridResourceGroup"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
 Blob depolama olayları, genel amaçlı v2 depolama hesaplarında ve Blob depolama hesaplarında kullanılabilir. **Genel amaçlı v2** depolama hesapları; Bloblar, Dosyalar, Kuyruklar ve Tablolar dahil olmak üzere tüm depolama hizmetlerine yönelik tüm özellikleri destekler. **Blob depolama hesabı**, yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage’da depolamanıza yönelik özel depolama hesabıdır. Blob Storage hesapları, genel amaçlı depolama hesaplarınıza benzer ve blok blobları ve ilave blobları için %100 API tutarlığı dahil günümüzde kullandığınız tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır. Daha fazla bilgi için bkz. [Azure depolama hesabına genel bakış](../common/storage-account-overview.md).
 
-Kullanarak LRS çoğaltma ile Blob Depolama hesabı oluşturma [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount), ardından kullanılacak depolama hesabını tanımlayan depolama hesabı bağlamını alın. Depolama hesabında bir işlem gerçekleştirirken, kimlik bilgilerini tekrar tekrar sağlamak yerine bağlama başvurursunuz. Bu örnek adlı bir depolama hesabı oluşturur **gridstorage** ile yerel olarak yedekli depolama (LRS). 
+Kullanarak LRS çoğaltma ile Blob Depolama hesabı oluşturma [yeni AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount), ardından kullanılacak depolama hesabını tanımlayan depolama hesabı bağlamını alın. Depolama hesabında bir işlem gerçekleştirirken, kimlik bilgilerini tekrar tekrar sağlamak yerine bağlama başvurursunuz. Bu örnek adlı bir depolama hesabı oluşturur **gridstorage** ile yerel olarak yedekli depolama (LRS). 
 
 > [!NOTE]
 > Depolama hesabı adları bir genel ad alanında olduğundan bu betikte sağlanan adı rastgele bazı karakterleri eklemek gerekir.
 
 ```powershell
 $storageName = "gridstorage"
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageName `
   -Location $location `
   -SkuName Standard_LRS `
@@ -87,7 +89,7 @@ Konuya abone olmadan önce olay iletisi için uç noktayı oluşturalım. Normal
 ```powershell
 $sitename="<your-site-name>"
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName $resourceGroup `
   -TemplateUri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" `
   -siteName $sitename `
@@ -105,10 +107,10 @@ Dağıtımın tamamlanması birkaç dakika sürebilir. Dağıtım başarıyla ge
 Event Grid’e hangi olayları izlemek istediğinizi bildirmek için bir konuya abone olursunuz. Aşağıdaki örnek, oluşturduğunuz depolama hesabına abone olur ve web uygulamanızın URL’sini olay bildirimi için uç nokta olarak geçirir. Web uygulamanızın uç noktası `/api/updates/` sonekini içermelidir.
 
 ```powershell
-$storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
+$storageId = (Get-AzStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
 $endpoint="https://$sitename.azurewebsites.net/api/updates"
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -EventSubscriptionName gridBlobQuickStart `
   -Endpoint $endpoint `
   -ResourceId $storageId
@@ -124,11 +126,11 @@ Web uygulamanızı yeniden görüntüleyin ve buna bir abonelik doğrulama olay�
 
 ```powershell
 $containerName = "gridcontainer"
-New-AzureStorageContainer -Name $containerName -Context $ctx
+New-AzStorageContainer -Name $containerName -Context $ctx
 
 echo $null >> gridTestFile.txt
 
-Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
+Set-AzStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
 Olayı tetiklediniz ve Event Grid, iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Az önce gönderdiğiniz olayı görmek için web uygulamanızı görüntüleyin.
@@ -164,7 +166,7 @@ Olayı tetiklediniz ve Event Grid, iletiyi abone olurken yapılandırdığınız
 Bu depolama hesabı ve olay aboneliğiyle çalışmaya devam etmeyi planlıyorsanız, kaynakları oluşturulan temizlemeyin bu makaledeki. Devam etmeyi planlamıyorsanız, bu makalede oluşturduğunuz kaynakları silmek için aşağıdaki komutu kullanın.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

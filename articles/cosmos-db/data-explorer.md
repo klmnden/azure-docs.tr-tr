@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: dech
-ms.openlocfilehash: 6e1317084ce60fb8dce64ccd7d1d93fe1ae1d9e9
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c1af73d57255b3c74bbab4c69767d1756b24a6da
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140770"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541583"
 ---
 # <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>Verilerinizi yönetmek için Azure Cosmos DB Gezgini'ni kullanma 
 
@@ -51,4 +51,4 @@ Azure Cosmos DB Gezgini'ni görüntülemek ve Azure Cosmos DB'de depolanan veril
 ## <a name="next-steps"></a>Sonraki adımlar
 Sonraki verilerinizi yönetmek için Azure Cosmos DB Gezgini ile çalışmaya başlama gerçekleştirmeyi öğrendiniz, şunları yapabilirsiniz:
 
-* Tanımlamaya başlayın [sorguları](sql-api-query-reference.md) gerçekleştirmek ve SQL söz dizimini kullanarak [sunucu tarafı programlama](programming.md) UDF'ler, saklı yordamlar'ni kullanarak tetikler. 
+* Tanımlamaya başlayın [sorguları](sql-api-query-reference.md) gerçekleştirmek ve SQL söz dizimini kullanarak [sunucu tarafı programlama](stored-procedures-triggers-udfs.md) UDF'ler, saklı yordamlar'ni kullanarak tetikler. 

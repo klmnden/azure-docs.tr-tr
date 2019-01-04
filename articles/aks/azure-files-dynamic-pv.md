@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 022ffeaf75f8f03447b931ed9c3a474286a17f89
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 841c65fd8420fdfe681cb99ee7054cb4edd5fcd3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067814"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969004"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Dinamik olarak oluşturabilen ve Azure dosyaları Azure Kubernetes Service (AKS) ile kalıcı hacim kullanma
 
@@ -24,7 +24,7 @@ Kubernetes sürekli birimleri hakkında daha fazla bilgi için bkz. [Kubernetes 
 
 Bu makalede, var olan bir AKS kümesi olduğunu varsayar. AKS hızlı bir AKS kümesi gerekirse bkz [Azure CLI kullanarak] [ aks-quickstart-cli] veya [Azure portalını kullanarak][aks-quickstart-portal].
 
-Ayrıca Azure CLI Sürüm 2.0.46 gerekir veya daha sonra yüklü ve yapılandırılmış. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI yükleme][install-azure-cli].
+Ayrıca Azure CLI sürüm 2.0.46 veya üzerini yüklemiş ve yapılandırmış olmanız gerekir. Çalıştırma `az --version` sürümü bulmak için. Gerekirse yüklemek veya yükseltmek bkz [Azure CLI yükleme][install-azure-cli].
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
@@ -184,7 +184,7 @@ Pod ile oluşturma [kubectl uygulamak] [ kubectl-apply] komutu.
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-Artık takılabilir diskinizi Azure ile çalışan bir pod sahip */mnt/azure* dizin. Bu yapılandırma ile pod incelenirken görülebilir `kubectl describe pod mypod`. Aşağıdaki sıkıştırılmış örneğe çıktı kapsayıcıda takılı birim gösterir:
+Artık Azure dosya paylaşımınızı takılabilir ile çalışan bir pod sahip */mnt/azure* dizin. Bu yapılandırma ile pod incelenirken görülebilir `kubectl describe pod mypod`. Aşağıdaki sıkıştırılmış örneğe çıktı kapsayıcıda takılı birim gösterir:
 
 ```
 Containers:

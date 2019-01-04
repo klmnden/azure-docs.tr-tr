@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: b9f7a1144be21b425ff0bed9e2e6cb47315c13a2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0b171c7ed13eab84d84bb797e154a3acec8fbac7
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974902"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633689"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Azure Data Lake depolama Gen2 önizlemesi Azure HDInsight kümeleri ile kullanma
 
@@ -63,17 +63,17 @@ Hive, MapReduce, Hadoop akış ve Pig dahil olmak üzere birden çok WebHCat iş
 
 Verileri HDFS yerine Azure Depolama’da depolamanın çeşitli avantajları vardır:
 
-* **Verileri yeniden kullanma ve paylaşma:** HDFS’deki veriler işlem kümesi içinde bulunur. Yalnızca işlem kümesi erişimi olan uygulamalar HDFS API'lerini kullanarak verileri kullanabilir. Azure depolamada bulunan verilere HDFS API'si aracılığıyla veya [Blob Depolama REST API'leri][blob-storage-restAPI] aracılığıyla erişilir. Bu nedenle, daha büyük uygulama kümeleri (diğer HDInsight kümeleri dahil olmak üzere) ve araçları veri üretmek ve kullanmak için kullanılabilir.
+* **Verileri yeniden kullanma ve paylaşma:** HDFS'deki veriler işlem kümesi içinde bulunur. Yalnızca işlem kümesi erişimi olan uygulamalar HDFS API'lerini kullanarak verileri kullanabilir. Azure depolamada bulunan verilere HDFS API'si aracılığıyla veya [Blob Depolama REST API'leri][blob-storage-restAPI] aracılığıyla erişilir. Bu nedenle, daha büyük uygulama kümeleri (diğer HDInsight kümeleri dahil olmak üzere) ve araçları veri üretmek ve kullanmak için kullanılabilir.
 
-* **Veri arşivleme:** Verileri Azure depolamada depolamak, hesaplama için kullanılan HDInsight kümelerinin kullanıcı verilerini kaybetmeden güvenle silinmesini sağlar.
+* **Veri arşivleme:** Verileri Azure depolamada depolamak, hesaplama için kullanılan kullanıcı verilerini kaybetmeden güvenle silinmesini HDInsight kümeleri sağlar.
 
-* **Veri depolama maliyeti:** uzun vadeli işlem kümesinin maliyeti Azure depolama maliyeti yüksek olduğu için verileri Azure depolamada depolamaktan daha maliyetlidir, verileri yerel HDFS'de depolamak. Ayrıca, verilerin her işlem kümesi oluşturmada yeniden yüklenmesi gerekmediğinden, veri yükleme maliyetlerinden de tasarruf edersiniz.
+* **Veri depolama maliyeti:** Verileri yerel HDFS'de için uzun vadeli depolama, işlem kümesinin maliyeti Azure depolama maliyeti yüksek olduğu için verileri Azure depolamada depolamaktan daha maliyetlidir. Ayrıca, verilerin her işlem kümesi oluşturmada yeniden yüklenmesi gerekmediğinden, veri yükleme maliyetlerinden de tasarruf edersiniz.
 
-* **Esnek ölçeklendirme:** HDFS size ölçeklendirilmiş dosya sistemi sağlamakla birlikte, ölçek, kümeniz için oluşturduğunuz düğüm sayısı tarafından belirlenir. Ölçeği değiştirmek, Azure depolamada otomatik olarak aldığınız esnek ölçeklendirme özelliklere bağlı kalmaktan daha karmaşık bir işlem haline gelebilir.
+* **Esnek ölçeklendirme:** HDFS size ölçeklendirilmiş dosya sistemi ile sağlar ancak ölçek kümeniz için oluşturduğunuz düğüm sayısı tarafından belirlenir. Ölçeği değiştirmek, Azure depolamada otomatik olarak aldığınız esnek ölçeklendirme özelliklere bağlı kalmaktan daha karmaşık bir işlem haline gelebilir.
 
 * **Coğrafi çoğaltma:** Azure depolama verilerinizin coğrafi olarak çoğaltılmış olabilir. Bu özelliği size coğrafi kurtarma ve veri yedekliği sağlamakla rağmen coğrafi olarak çoğaltılmış konumu için bir yük devretme ciddi bir şekilde destekleyen, performansı etkiler ve ek ücrete neden olabilir. Bu nedenle dikkatli bir şekilde ve yalnızca coğrafi çoğaltma seçin verilerin değeri ek maliyetlere değer durumdaysa.
 
-* **Veri yaşam döngüsü yönetimi:** herhangi bir dosya sistemi tüm verileri kendi yaşam döngüsü gider. Veri, genellikle çok değerli ve sık erişilen olan kapalı başlatır, küçük değerli ve daha az erişmesi için geçiş ve sonuçta arşiv veya silinmesi gerekir. Azure depolama, veri katmanı ve yaşam döngüsü uygun şekilde kendi yaşam döngüsü aşaması için katmanlı bir veri yönetimi ilkeleri sağlar.
+* **Veri yaşam döngüsü yönetimi:** Herhangi bir dosya sistemi tüm verileri kendi yaşam döngüsü gider. Veri, genellikle çok değerli ve sık erişilen olan kapalı başlatır, küçük değerli ve daha az erişmesi için geçiş ve sonuçta arşiv veya silinmesi gerekir. Azure depolama, veri katmanı ve yaşam döngüsü uygun şekilde kendi yaşam döngüsü aşaması için katmanlı bir veri yönetimi ilkeleri sağlar.
 
 Bazı MapReduce işleri ve paketleri gerçekte Azure depolamada depolamak istemediğiniz ara sonuçlar oluşturabilir. Bu durumda, verileri yerel HDFS’de depolamak üzere seçebilirsiniz. Aslında, HDInsight Hive işleri ve diğer işlemlerdeki bu Ara sonuçların bazıları için (DFS adlandırılır) yerel HDFS uygulamasına kullanır.
 
@@ -101,35 +101,39 @@ Portaldan bir HDInsight kümesi oluştururken, depolama hesabı ayrıntıların�
 
 ### <a name="use-azure-powershell"></a>Azure PowerShell kullanma
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Varsa, [Azure PowerShell yüklenmiş ve yapılandırılmışsa][powershell-install], bir depolama hesabı ve kapsayıcı oluşturmak için Azure PowerShell isteminde aşağıdaki kodu kullanabilirsiniz:
 
 [!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
 
-    $SubscriptionID = "<Your Azure Subscription ID>"
-    $ResourceGroupName = "<New Azure Resource Group Name>"
-    $Location = "WEST US 2"
+```azurepowershell
+$SubscriptionID = "<Your Azure Subscription ID>"
+$ResourceGroupName = "<New Azure Resource Group Name>"
+$Location = "WEST US 2"
 
-    $StorageAccountName = "<New Azure Storage Account Name>"
-    $containerName = "<New Azure Blob Container Name>"
+$StorageAccountName = "<New Azure Storage Account Name>"
+$containerName = "<New Azure Blob Container Name>"
 
-    Connect-AzureRmAccount
-    Select-AzureRmSubscription -SubscriptionId $SubscriptionID
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId $SubscriptionID
 
-    # Create resource group
-    New-AzureRmResourceGroup -name $ResourceGroupName -Location $Location
+# Create resource group
+New-AzResourceGroup -name $ResourceGroupName -Location $Location
 
-    # Create default storage account
-    New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName `
-      -Name StorageAccountName `
-      -Location $Location `
-      -SkuName Standard_LRS `
-      -Kind StorageV2 
-      -HierarchialNamespace $True
+# Create default storage account
+New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
+  -Name StorageAccountName `
+  -Location $Location `
+  -SkuName Standard_LRS `
+  -Kind StorageV2 
+  -HierarchialNamespace $True
 
-    # Create default blob containers
-    $storageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
-    New-AzureStorageContainer -Name $containerName -Context $destContext
+# Create default blob containers
+$storageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -StorageAccountName $StorageAccountName)[0].Value
+$destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+New-AzStorageContainer -Name $containerName -Context $destContext
+```
 
 > [!NOTE]
 > Bir kapsayıcı oluşturmak, Data Lake depolama Gen2'ye bir dosya sistemi oluşturma ile eşanlamlıdır.
@@ -209,7 +213,7 @@ Daha fazla bilgi için bkz.
 * [Hadoop, Spark, Kafka ve daha fazlası ile Azure Data Lake depolama Gen2 kullanarak HDInsight kümelerini ayarlama](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 * [Azure Data Lake depolama Gen2 distcp kullanarak veri alma](data-lake-storage-use-distcp.md)
 
-[powershell-install]: /powershell/azureps-cmdlets-docs
+[powershell-install]: /powershell/azure/install-az-ps
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md
 
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx

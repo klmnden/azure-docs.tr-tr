@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 11/13/2018
+ms.date: 12/28/2018
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: 42aa275e692e4e2e9b7ca38825c828c1f56247fb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e81b8fb06240d566e46ca0b45a0910e014dee329
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628225"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53995798"
 ---
 Rol tabanlı erişim denetimi, erişim izinleri ve rolleri yönetmek için bir devralma temelli güvenlik stratejisidir. Bloğun rolleri üst rollerden izinleri devralır. Üst rolden devralınan olmadan izinler de atanabilir. Bir rol gerektiği şekilde özelleştirmek için de atanabilir.
 

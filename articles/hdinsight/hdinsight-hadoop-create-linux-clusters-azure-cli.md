@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: f82ac972e54dac6df5a913a8059417b701e2f7e0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: c9b1f3570ae3f9b945c87c2ce316c3f72e32b4ad
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191589"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792059"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Klasik Azure CLI kullanarak HDInsight kümeleri oluşturma
 
@@ -70,7 +70,7 @@ PowerShell veya Bash gibi bir komut satırından aşağıdaki adımlar gerçekle
 
     * Değiştirin `storagename` depolama hesabı için benzersiz bir ada sahip.
 
-        > [!NOTE]
+        > [!NOTE]  
         > Bu komutta kullanılan parametreler hakkında daha fazla bilgi için `azure storage account create -h` bu komut için Yardım görüntülemek için.
 
 5. Depolama hesabına erişmek için kullanılan anahtarı alın.
@@ -90,7 +90,7 @@ PowerShell veya Bash gibi bir komut satırından aşağıdaki adımlar gerçekle
 
     * Değiştirin `Hadoop` oluşturmak istediğiniz küme türüne sahip. Örneğin, `Hadoop`, `HBase`, `Kafka`, `Spark`, veya `Storm`.
 
-      > [!IMPORTANT]
+      > [!IMPORTANT]  
       > HDInsight kümeleri, çeşitli türleri, küme için ayarlanan teknoloji ve iş yükü karşılık gelen. Bir küme üzerinde Storm ve HBase gibi birden birleştiren bir küme oluşturmak için desteklenen bir yöntem yoktur.
 
     * Değiştirin `location` önceki adımlarda kullandığınız konumun aynısını ile.
@@ -105,7 +105,7 @@ PowerShell veya Bash gibi bir komut satırından aşağıdaki adımlar gerçekle
 
     * Değiştirin `sshuser` ve `sshuserpassword` kullanıcı adı ve SSH kullanarak kümeye erişirken kullanmak için parola
 
-      > [!IMPORTANT]
+      > [!IMPORTANT]  
       > Bu örnekte, iki çalışan düğümleri ile bir küme oluşturur. Çalışan düğümü sayısı ayrıca Küme oluşturulduktan sonra ölçeklendirme işlemleri gerçekleştirerek de değiştirebilirsiniz. 32'den fazla çalışan düğümleri kullanmayı planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB RAM ile seçmeniz gerekir. Baş düğüm boyutunu kullanarak ayarlayabilirsiniz `--headNodeSize` küme oluşturma sırasında parametre.
       >
       > Düğüm boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırması](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -114,7 +114,7 @@ PowerShell veya Bash gibi bir komut satırından aşağıdaki adımlar gerçekle
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
-HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-administer-use-portal-linux.md#create-clusters).
+HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -124,7 +124,7 @@ Klasik CLI kullanarak bir HDInsight kümesi başarıyla oluşturuldu, kümenizi 
 
 * [Apache Hive, HDInsight ile kullanma](hadoop/hdinsight-use-hive.md)
 * [Apache Pig, HDInsight ile kullanma](hadoop/hdinsight-use-pig.md)
-* [HDInsight ile Apache Hadoop MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase kümeleri
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 63967face89c12f6769d397bd5be78c23bc9f851
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 55686972979c5ac3015802c340cef7dffebdb9bd
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259148"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973137"
 ---
 # <a name="azure-storage-security-overview"></a>Azure depolama güvenliğine genel bakış
 
@@ -67,11 +67,11 @@ Aktarım sırasında şifreleme ağlar üzerinden iletilirken, veri koruma, bir 
 İstemci tarafı şifreleme hakkında daha fazla bilgi edinin:
 
 * [Microsoft Azure depolama istemci tarafı şifreleme](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-* [Bulut güvenlik denetimleri serisi: Aktarımdaki verileri şifreleme](https://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+* [Bulut güvenliği serisi denetler: Aktarımdaki verileri şifreleme](https://cloudblogs.microsoft.com/microsoftsecure/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## <a name="encryption-at-rest"></a>Bekleme sırasında şifreleme
 
-Birçok kuruluşta [bekleyen verileri şifreleme](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) veri gizlilik, uyumluluk ve veri egemenliği doğru zorunlu bir adımdır. Üç Azure özellikleri, bekleyen verileri şifrelenmesi sağlar:
+Birçok kuruluşta [bekleyen verileri şifreleme](https://cloudblogs.microsoft.com/microsoftsecure/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) veri gizlilik, uyumluluk ve veri egemenliği doğru zorunlu bir adımdır. Üç Azure özellikleri, bekleyen verileri şifrelenmesi sağlar:
 
 * [Depolama hizmeti şifrelemesi](../storage/common/storage-security-guide.md#encryption-at-rest) depolama hizmeti otomatik olarak verileri Azure depolama alanına yazarken şifrelemeniz istemenizi sağlar.
 * [İstemci tarafı şifreleme](../storage/common/storage-security-guide.md#client-side-encryption) bekleyen şifreleme özelliği de sağlar.

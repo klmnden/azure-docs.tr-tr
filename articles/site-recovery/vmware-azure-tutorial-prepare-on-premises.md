@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: da5643f707a2f891fcf6663ec88f5a5dff40ac86
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 505acdde07c23654ddd3875fa600046a67e04aea
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846649"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970823"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Şirket içi VMware sunucularını Azure’a olağanüstü durum kurtarmaya hazırlama
 
@@ -67,8 +67,8 @@ Hesabı aşağıdaki gibi hazırlayın:
 
 VM üzerinde yükleme izinleri ile bir etki alanı veya yerel hesap hazırlayın.
 
-- **Windows VM'leri**: Windows VM'lerine yüklemek için, bir etki alanı hesabı kullanmıyorsanız yerel makinede Uzak Kullanıcı Erişim denetimini devre dışı bırakın. Bunu yapmak için kayıt defterinde > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** altında **LocalAccountTokenFilterPolicy** adlı DWORD girişini 1 değeriyle ekleyin.
-- **Linux VM'leri**: Linux VM'lerine yüklemek için, kaynak Linux sunucusunda bir kök hesabı hazırlayın.
+- **Windows Vm'leri**: Bir etki alanı hesabı kullanmıyorsanız Windows Vm'lerinde yüklemek için yerel makinede uzak kullanıcı erişim denetimini devre dışı bırakın. Bunu yapmak için kayıt defterinde > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** altında **LocalAccountTokenFilterPolicy** adlı DWORD girişini 1 değeriyle ekleyin.
+- **Linux Vm'leri**: Linux VM üzerinde yüklemek için, kaynak Linux sunucusunda bir kök hesabı hazırlayın.
 
 
 ## <a name="check-vmware-requirements"></a>VMware gereksinimlerini denetleme
@@ -80,6 +80,7 @@ VMware sunucularının ve sanal makinelerin gereksinimlerle uyumlu olduğundan e
 3. Şirket içi [ağ](vmware-physical-azure-support-matrix.md#network) ve [depolama](vmware-physical-azure-support-matrix.md#storage) desteğini denetleyin. 
 4. Yük devretmenin ardından [Azure ağ](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [depolama](vmware-physical-azure-support-matrix.md#azure-storage) ve [işlem](vmware-physical-azure-support-matrix.md#azure-compute) için nelerin desteklendiğini denetleyin.
 5. Azure’a çoğalttığınız şirket içi sanal makineleriniz, [Azure sanal makinesi gereksinimleri](vmware-physical-azure-support-matrix.md#azure-vm-requirements) ile uyumlu olmalıdır.
+6. Linux sanal makinelerinin, cihaz adı veya bağlama noktası adı benzersiz olmalıdır. Hiçbir iki cihazları/bağlama noktaları büyük/küçük harfe duyarlı adlara sahip olduğundan emin olun. Örneğin, aynı sanal makineye iki cihazını adlandırma *cihaz1* ve *cihaz1* izin verilmiyor.
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Yük devretmeden sonra Azure VM'lerine bağlanmak için hazırlık yapma

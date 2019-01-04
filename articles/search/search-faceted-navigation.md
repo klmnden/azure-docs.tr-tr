@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 3/10/2017
+ms.date: 03/10/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 337ee5259e980509c73099f0e3417bb31ec3276d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 67cc955e4a265a2b29893bd0484dd905f4f2c2b2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313947"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632442"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Azure Arama'da çok yönlü navigasyon
 Çok yönlü gezinme, kendinden yönlendirmeli detayına gitme Gezinti arama uygulamalarda sağlayan filtreleme bir mekanizmadır. ' % S'terim 'çok yönlü gezinme' bilinmiyor olabilir, ancak büyük olasılıkla daha önce kullanılmış. Aşağıdaki örnekte gösterildiği gibi çok yönlü gezinme sonuçları filtrelemek için kullanılan kategorileri başka bir şey var.
@@ -34,7 +34,7 @@ Uygulama geliştirme çalışmalarınızı sorguları oluşturan kod yazma, topl
 ## <a name="sample-code-and-demo"></a>Örnek kod ve tanıtım
 Bu makalede örnek olarak bir iş araması portalını kullanır. Örneğin, bir ASP.NET MVC uygulaması uygulanır.
 
--   Görebilir ve test sırasında çevrimiçi çalışma Tanıtımı [Azure arama iş Portal Tanıtımı](http://azjobsdemo.azurewebsites.net/).
+-   Görebilir ve test sırasında çevrimiçi çalışma Tanıtımı [Azure arama iş Portal Tanıtımı](https://azjobsdemo.azurewebsites.net/).
 
 -   Kodu indir [github'daki Azure örnekleri deposu](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -371,7 +371,7 @@ Filtre örnekler bulabilirsiniz [OData ifadesi söz dizimi (Azure Search)](https
 ## <a name="try-the-demo"></a>Demoyu deneyin
 Azure arama iş Portal Tanıtımı, bu makalede bahsedilen örnekler içerir.
 
--   Görebilir ve test sırasında çevrimiçi çalışma Tanıtımı [Azure arama iş Portal Tanıtımı](http://azjobsdemo.azurewebsites.net/).
+-   Görebilir ve test sırasında çevrimiçi çalışma Tanıtımı [Azure arama iş Portal Tanıtımı](https://azjobsdemo.azurewebsites.net/).
 
 -   Kodu indir [github'daki Azure örnekleri deposu](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -396,12 +396,12 @@ Arama sonuçları ile çalışırken, sorgu oluşturma değişiklikleri URL'sini
 <a name="nextstep"></a>
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
-İzleme [Azure Search'ü yakından](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). 45:25 modelleri uygulama konusunda bir demo yoktur.
+İzleme [Azure Search'ü yakından](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). 45:25 modelleri uygulama konusunda bir demo yoktur.
 
 Çok yönlü gezinme için tasarım ilkeleri hakkında daha fazla öngörü için aşağıdaki bağlantıları öneririz:
 
 * [Çok yönlü arama için tasarlama](http://www.uie.com/articles/faceted_search/)
-* [Tasarım desenleri: Çok yönlü navigasyon](http://alistapart.com/article/design-patterns-faceted-navigation)
+* [Tasarım desenleri: Çok yönlü navigasyon](https://alistapart.com/article/design-patterns-faceted-navigation)
 
 
 <!--Anchors-->
@@ -431,7 +431,7 @@ Arama sonuçları ile çalışırken, sorgu oluşturma değişiklikleri URL'sini
 
 <!--Link references-->
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
+[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/

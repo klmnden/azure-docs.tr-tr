@@ -1,106 +1,72 @@
 ---
-title: Azure IOT çözüm hızlandırıcıları ve Azure Active Directory | Microsoft Docs
-description: Azure IOT Çözüm Hızlandırıcıları kullanma Azure Active Directory izinlerini yönetmek açıklar.
+title: Azure IOT çözümleri sitesini - Azure | Microsoft Docs
+description: Çözüm hızlandırıcınız dağıtmak için AzureIoTSolutions.com Web sitesi kullanmayı açıklar.
 author: dominicbetts
-manager: timlt
+manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 12/13/2018
 ms.author: dobett
-ms.openlocfilehash: e45954389c8dd1b484a7009460c541bf35266973
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713859"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601092"
 ---
-# <a name="permissions-on-the-azureiotsolutionscom-site"></a>Azureiotsolutions.com sitesindeki izinler
+# <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Çözüm hızlandırıcınız dağıtılacağı azureiotsolutions.com sitesini kullan
 
-## <a name="what-happens-when-you-sign-in"></a>Oturum açtığınızda ne olur
+Azure IOT Çözüm Hızlandırıcıları Azure aboneliğinizden dağıtabileceğiniz [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators). Microsoft açık kaynak ve iş ortağı Çözüm Hızlandırıcıları AzureIoTSolutions.com barındırır. Bu çözüm Hızlandırıcıları ile hizalanan [Azure IOT başvuru mimarisi](https://aka.ms/iotrefarchitecture). Site, hızlı bir çözüm Hızlandırıcı bir tanıtım veya üretim ortamı olarak dağıtmak için kullanabilirsiniz.
 
-İlk kez oturum açtığınızda, [azureiotsuite.com][lnk-azureiotsolutions], bağlı Azure aboneliği ve şu anda seçili olan Azure Active Directory (AAD) Kiracı üzerinde izin düzeyleri site belirler.
+![AzureIoTSolutions.com](media/iot-accelerators-permissions/iotsolutionscom.png)
 
-1. İlk olarak, kullanıcı adınızın yanında görülen kiracılar listesini doldurmak için site Azure'dan ait hangi AAD kiracılarına. Şu anda site aynı anda yalnızca tek bir kiracı için kullanıcı belirteci edinebilirsiniz. Sağ üst köşede açılır menüyü kullanarak kiracılar arasında geçiş yaptığınızda, bu nedenle, site size ilgili kiracının belirteçlerini almak için bu kiracıda kaydeder.
+> [!TIP]
+> Dağıtım işlemi hakkında daha fazla denetime ihtiyacınız varsa, kullanabileceğiniz [çözüm Hızlandırıcısını dağıtmayı CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-2. Site daha sonra, seçilen kiracı ile hangi aboneliğin ilişkilendirildiğini Azure’dan öğrenir. Yeni bir çözüm Hızlandırıcı oluşturduğunuzda kullanılabilir abonelikleri görürsünüz.
+Çözüm Hızlandırıcıları aşağıdaki yapılandırmaları dağıtabilirsiniz:
 
-3. Son olarak, site tüm kaynakları abonelikler ve kaynak gruplarını Çözüm Hızlandırıcıları etiketlenmiş ve giriş sayfasındaki kutucukları doldurur alır.
+* **Standart**: Bir üretim ortamında geliştirmek için bir genişletilmiş altyapı dağıtımı. Azure Container Service, mikro Hizmetleri birden fazla Azure sanal makinelerine dağıtır. Kubernetes mikro hizmetleri tek tek barındıran Docker kapsayıcılarını düzenler.
+* **Temel**: Düşük maliyet bir Tanıtım amaçlı ya da bir sürümünü dağıtımı test etmek için. Tüm mikro hizmetler tek bir Azure sanal makinesine dağıtılır.
+* **Yerel**: Test ve geliştirme için yerel makine dağıtım. Bu yaklaşım, mikro hizmetler için yerel bir Docker kapsayıcısı dağıtır ve IOT Hub, Azure Cosmos DB ile buluttaki Azure depolama hizmetlerine bağlar.
 
-Aşağıdaki bölümlerde erişimi denetleyen roller açıklanmıştır Çözüm Hızlandırıcıları için.
+Her Çözüm Hızlandırıcıları, IOT Hub, Azure Stream Analytics ve Cosmos DB gibi Azure Hizmetleri farklı bir birleşimini kullanır. Daha fazla bilgi için ziyaret [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) ve çözüm Hızlandırıcısını seçin.
 
-## <a name="aad-roles"></a>AAD rolleri
+## <a name="sign-in-at-azureiotsolutionscom"></a>Azureiotsolutions.com oturum açın
 
-AAD rolleri, kullanıcılara ve Çözüm Hızlandırıcısı, bazı Azure Hizmetleri yönetme olanağı sağlama Çözüm Hızlandırıcıları için denetler.
+Çözüm Hızlandırıcısını dağıtmadan önce bir Azure aboneliği ile ilişkili kimlik bilgilerini kullanarak AzureIoTSolutions.com oturum açmalısınız. Hesabınız birden fazla Microsoft Azure Active Directory (AD) kiracısı ile ilişkili ise, kullanabileceğiniz **hesap seçimi açılan listesini** için kullanılacak dizini seçin.
 
-AAD'de yönetici rolleri hakkında daha fazla bilgi bulabilirsiniz [Azure AD'de yönetici rolleri atama][lnk-aad-admin]. Bu makalede odaklanır **genel yönetici** ve **kullanıcı** Çözüm Hızlandırıcıları tarafından kullanılan dizin rolleri.
+Çözüm Hızlandırıcısı dağıtma, kullanıcıları yönetme ve Azure hizmetlerini yönetmek için izinleriniz seçili dizin rolünüze bağlıdır. Çözüm Hızlandırıcıları ile ilgili yaygın Azure AD rolleri şunlardır:
 
-### <a name="global-administrator"></a>Genel yönetici
+* **Genel yönetici**: Birçok da olabilir [genel Yöneticiler](../active-directory/users-groups-roles/directory-assign-admin-roles.md) Azure AD Kiracı başına:
 
-AAD kiracısı başına çok sayıda genel yönetici olabilir:
+  * Azure AD kiracısı oluşturduğunuzda varsayılan olarak bu kiracının genel Yöneticisi olursunuz.
+  * Genel yönetici, temel ve standart Çözüm Hızlandırıcıları dağıtabilirsiniz.
 
-* Bir AAD kiracısı oluşturduğunuzda varsayılan olarak bu kiracının genel yöneticisi olursunuz.
-* Genel yönetici (temel dağıtımı tek bir Azure sanal makine kullanır) bir temel ve standart Çözüm Hızlandırıcıları sağlayabilirsiniz.
+* **Etki alanı kullanıcısı**: Azure AD kiracısı başına çok sayıda etki alanı kullanıcıları olabilir. Bir etki alanı kullanıcısı temel çözüm Hızlandırıcısını dağıtabilirsiniz.
 
-### <a name="domain-user"></a>Etki alanı kullanıcısı
+* **Konuk kullanıcı**: Azure AD kiracısı başına çok sayıda Konuk kullanıcı olabilir. Konuk kullanıcıları Azure AD kiracısında bir çözüm Hızlandırıcı dağıtamazsınız.
 
-AAD kiracısı başına çok sayıda etki alanı kullanıcıları olabilir:
+Azure AD'de kullanıcıları ve rolleri hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-* Bir etki alanı kullanıcısı aracılığıyla temel çözüm Hızlandırıcısını sağlayabilirsiniz [azureiotsolutions.com] [ lnk-azureiotsolutions] site.
-* Bir etki alanı kullanıcısı, CLI kullanarak temel bir çözüm Hızlandırıcısını oluşturabilirsiniz.
+* [Azure Active Directory'de kullanıcıları oluşturma](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+* [Uygulamalar için kullanıcı atama](../active-directory/manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="guest-user"></a>Konuk kullanıcı
+## <a name="choose-your-device"></a>Cihazınızı seçin
 
-AAD kiracısı başına çok sayıda Konuk kullanıcı olabilir. Konuk kullanıcılar AAD kiracısında sınırlı bir haklar kümesine sahiptir. Sonuç olarak, Konuk kullanıcılar AAD kiracısında çözüm Hızlandırıcısını sağlayamazsınız.
+AzureIoTSolutions.com site bağlantıları [IOT cihaz kataloğu için Azure sertifikalı](https://catalog.azureiotsolutions.com/).
 
-Kullanıcılar ve AAD rolleri hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
+Katalog onaylı IOT donanım cihazlarının IOT çözümünüzü oluşturmaya başlamak için çözüm hızlandırıcılarınız bağlanabilir yüzlerce listeler.
 
-* [Azure AD'de kullanıcı oluşturma][lnk-create-edit-users]
-* [Uygulamalar için kullanıcı atama][lnk-assign-app-roles]
+![Cihaz kataloğu](media/iot-accelerators-permissions/devicecatalog.png)
 
-## <a name="azure-subscription-administrator-roles"></a>Azure abonelik yöneticisi rolleri
-
-Azure yöneticisi rolleri bir Azure aboneliği bir AAD kiracısıyla eşleme özelliğini denetler.
-
-Bu makalede Azure yönetici rolleri hakkında daha fazla bilgi edinin [ekleme veya değiştirme Azure aboneliği yöneticileri][lnk-admin-roles].
-
-## <a name="faq"></a>SSS
-
-### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Hizmet yöneticisiyim ve aboneliğim ile belirli bir AAD kiracısı arasında dizin eşlemesini değiştirmek istiyorum. Bu görevi nasıl tamamlamak?
-
-Bkz: [Azure AD dizininize mevcut bir aboneliğe eklemek için](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory)
-
-### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organizational-account"></a>Bir Hizmet Yöneticisi veya bir kuruluş hesabıyla oturum açıldığında ortak yöneticiyi değiştirmek istiyorum
-
-Destek makalesine bakın [Hizmet Yöneticisi değiştiriliyor ve bir kuruluş hesabıyla oturum açıldığında ortak yönetici][lnk-service-admins].
-
-### <a name="why-am-i-seeing-this-error-your-account-does-not-have-the-proper-permissions-to-create-a-solution-please-check-with-your-account-administrator-or-try-with-a-different-account"></a>Bu hatayı neden görüyorum? "Hesabınız bir çözüm oluşturmak için uygun izinlere sahip değil. Lütfen hesap yöneticinize başvurun veya farklı bir hesap ile deneyin."
-
-Yönergeler için aşağıdaki çizime bakın:
-
-![][img-flowchart]
-
-> [!NOTE]
-> Doğruladıktan sonra hatayı görmeye devam ederseniz olan AAD kiracısının genel Yöneticisi ve aboneliğin ortak yönetici, hesap yöneticinizden kullanıcıyı kaldırmasını ve gerekli izinleri şu sırayla yeniden atama vardır. İlk olarak, kullanıcının genel yönetici olarak ekleyin ve ardından kullanıcı Azure aboneliğinin ortak yönetici olarak ekleyin. Sorunlar devam ederse, başvurun [Yardım ve Destek][lnk-help-support].
-
-### <a name="why-am-i-seeing-this-error-when-i-have-an-azure-subscription-an-azure-subscription-is-required-to-create-pre-configured-solutions-you-can-create-a-free-trial-account-in-just-a-couple-of-minutes"></a>Bir Azure aboneliğim varken bu hatayı neden görüyorum? "Azure aboneliğinin önceden yapılandırılmış çözümler oluşturmak için gereklidir. Ücretsiz bir deneme hesabı yalnızca birkaç dakika içinde oluşturabilirsiniz."
-
-Bir Azure aboneliğinizin olduğundan eminseniz aboneliğinizin kiracı eşlemesini doğrulayın ve açılır menüden doğru kiracının seçildiğinden emin olun. İstenilen kiracının doğru olduğunu onayladıysanız yukarıdaki diyagramı izleyin ve aboneliğiniz ile bu AAD kiracısının eşlemesini doğrulayın.
+Donanım üreticisi değilseniz tıklayın **bir iş ortağı** IOT programı için sertifikalı Microsoft ile iş ortaklığı hakkında bilgi edinmek için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-IOT Çözüm Hızlandırıcıları hakkında daha fazla bilgi için bkz nasıl [çözüm Hızlandırıcısını özelleştirme][lnk-customize].
 
-[img-flowchart]: media/iot-accelerators-permissions/flowchart.png
+IoT çözüm hızlandırıcılarından birini denemek için hızlı başlangıçları inceleyin:
 
-[lnk-azureiotsolutions]: https://www.azureiotsolutions.com
-[lnk-rm-github-repo]: https://github.com/Azure/remote-monitoring-services-dotnet
-[lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
-[lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
-[lnk-aad-admin]:../active-directory/users-groups-roles/directory-assign-admin-roles.md
-[lnk-portal]: https://portal.azure.com
-[lnk-create-edit-users]:../active-directory/fundamentals/active-directory-users-profile-azure-portal.md
-[lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
-[lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin
-[lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
-[lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[lnk-customize]: iot-accelerators-remote-monitoring-customize.md
+* [Uzaktan izleme çözümü deneyin](quickstart-remote-monitoring-deploy.md)
+* [Bağlı fabrika çözümünü deneyin](quickstart-connected-factory-deploy.md)
+* [Tahmine dayalı bakım çözümünü deneyin](quickstart-predictive-maintenance-deploy.md)
+* [Cihaz benzetimi çözümünü deneyin](quickstart-device-simulation-deploy.md)

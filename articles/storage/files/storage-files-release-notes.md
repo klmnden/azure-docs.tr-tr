@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 5bea4c655e9a8970d8d0d946827cc3e46e7efa7a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 87e6f2c956766011adef23ce9a8565625483a244
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255168"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635553"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure dosya eşitleme Aracısı sürüm notları
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Windows Server yüklemeleriniz, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürülür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilirsiniz. Dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -65,7 +65,7 @@ Bu sürümde giderilen sorunlar listesi:
 Aşağıdaki sürüm notları (13 Kasım 2018 yayımlanan) Azure dosya eşitleme aracısının sürümü için 4.0.1.0 ' dir.
 
 ### <a name="evaluation-tool"></a>Değerlendirme Aracı
-Azure dosya eşitleme dağıtmadan önce sisteminizin Azure dosya eşitleme Değerlendirme Aracı'nı kullanma ile uyumlu olduğunu değerlendirmelidir. Bu araç, dosya sistemi ve veri kümesi gibi desteklenmeyen karakterler veya desteklenmeyen bir işletim sistemi sürümü ile ilgili olası sorunları denetleyen bir AzureRM PowerShell cmdlet'i kullanılır. Yükleme ve kullanım yönergeleri için bkz. [Değerlendirme Aracı](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) Planlama Kılavuzu'nda bölümü. 
+Azure dosya eşitleme dağıtmadan önce sisteminizin Azure dosya eşitleme Değerlendirme Aracı'nı kullanma ile uyumlu olduğunu değerlendirmelidir. Bu araç için dosya sistemini ve veri kümesi gibi desteklenmeyen karakterler veya desteklenmeyen bir işletim sistemi sürümü ile ilgili olası sorunları kontrol eden bir Azure PowerShell cmdlet'i kullanılır. Yükleme ve kullanım yönergeleri için bkz. [Değerlendirme Aracı](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) Planlama Kılavuzu'nda bölümü. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Aracı yükleme ve sunucu yapılandırması
 Yükleme ve Azure dosya eşitleme aracısını Windows Server ile yapılandırma hakkında daha fazla bilgi için bkz. [bir Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md) ve [Azure dosya eşitleme dağıtmayı](storage-sync-files-deployment-guide.md).
@@ -140,7 +140,7 @@ Bu sürüm aşağıdaki düzeltmeyi içerir:
 Aşağıdaki sürüm notları (19 Temmuz 2018'den yayımlanan) Azure dosya eşitleme aracısının sürümü için 3.1.0.0 ' dir.
 
 ### <a name="evaluation-tool"></a>Değerlendirme Aracı
-Azure dosya eşitleme dağıtmadan önce sisteminizin Azure dosya eşitleme Değerlendirme Aracı'nı kullanma ile uyumlu olduğunu değerlendirmelidir. Bu araç, dosya sistemi ve veri kümesi gibi desteklenmeyen karakterler veya desteklenmeyen bir işletim sistemi sürümü ile ilgili olası sorunları denetleyen bir AzureRM PowerShell cmdlet'i kullanılır. Yükleme ve kullanım yönergeleri için bkz. [Değerlendirme Aracı](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) Planlama Kılavuzu'nda bölümü. 
+Azure dosya eşitleme dağıtmadan önce sisteminizin Azure dosya eşitleme Değerlendirme Aracı'nı kullanma ile uyumlu olduğunu değerlendirmelidir. Bu araç için dosya sistemini ve veri kümesi gibi desteklenmeyen karakterler veya desteklenmeyen bir işletim sistemi sürümü ile ilgili olası sorunları kontrol eden bir Azure PowerShell cmdlet'i kullanılır. Yükleme ve kullanım yönergeleri için bkz. [Değerlendirme Aracı](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) Planlama Kılavuzu'nda bölümü. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Aracı yükleme ve sunucu yapılandırması
 Yükleme ve Azure dosya eşitleme aracısını Windows Server ile yapılandırma hakkında daha fazla bilgi için bkz. [bir Azure dosya eşitleme dağıtımı planlama](storage-sync-files-planning.md) ve [Azure dosya eşitleme dağıtmayı](storage-sync-files-deployment-guide.md).

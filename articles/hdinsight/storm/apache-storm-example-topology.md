@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 985bb755e4754d2aa371d7b86594297c16fedd27
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 73a7c2ef80291920a6d19f0c3ab01b45c1d6b22a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583576"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53627733"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Örnek Apache Storm topolojilerini ve HDInsight üzerinde Apache Storm bileşenleri
 
-Bir liste oluşturulur ve ile kullanmak için Microsoft tarafından yönetilen örneklerinden verilmiştir [Apache Storm](http://storm.apache.org/) HDInsight üzerinde. Bu örneklerde temel oluşturmasını konular çeşitli kapsayan C# ve Event Hubs, Cosmos DB, SQL veritabanı gibi Azure hizmetleriyle çalışmak için Java topolojileri [Apache HBase](http://hbase.apache.org/) HDInsight ve Azure depolama. Bazı örnekler, ayrıca SignalR ve Socket.IO gibi Azure olmayan veya hatta Microsoft dışı teknolojiler ile nasıl çalışılacağını göstermektedir.
+Bir liste oluşturulur ve ile kullanmak için Microsoft tarafından yönetilen örneklerinden verilmiştir [Apache Storm](https://storm.apache.org/) HDInsight üzerinde. Bu örneklerde temel oluşturmasını konular çeşitli kapsayan C# ve Event Hubs, Cosmos DB, SQL veritabanı gibi Azure hizmetleriyle çalışmak için Java topolojileri [Apache HBase](https://hbase.apache.org/) HDInsight ve Azure depolama. Bazı örnekler, ayrıca SignalR ve Socket.IO gibi Azure olmayan veya hatta Microsoft dışı teknolojiler ile nasıl çalışılacağını göstermektedir.
 
-| Açıklama | Gösterir | Dil/Framework |
+| Açıklama | Gösteriler | Dil/Framework |
 |:--- |:--- |:--- |
-| [Azure Data Lake Store için Apache Storm yazma](apache-storm-write-data-lake-store.md) |Azure Data Lake Store için yazma |Java |
+| [Apache Storm Azure Data Lake depolamaya yazma](apache-storm-write-data-lake-store.md) |Azure Data Lake depolamaya yazma |Java |
 | [Event Hubs Spout ve Bolt kaynağı](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |Olay hub'ı Spout ve Bolt kaynağı |Java |
 | [HDInsight üzerinde Apache Storm için Java tabanlı topolojiler geliştirme][5797064f] |Maven |Java |
 | [Visual Studio kullanarak HDInsight üzerinde Apache Storm için C# topolojileri geliştirme][16fce2d1] |Visual Studio için HDInsight Araçları |C#, Java |
@@ -35,7 +35,7 @@ Bir liste oluşturulur ve ile kullanmak için Microsoft tarafından yönetilen �
 | [HDInsight üzerinde Apache Storm ile Python kullanma](apache-storm-develop-python-topology.md) |Python bileşenlerini Flux topolojisini |Python |
 | [HDInsight üzerinde Apache Storm ile Apache kafka'yı kullanma](../hdinsight-apache-storm-with-kafka.md) | Okuma ve yazma için Apache Kafka Apache Storm | Java |
 
-> [!WARNING]
+> [!WARNING]  
 > C# örnekleri bu listedeki ilk olarak oluşturulan ve Windows tabanlı HDInsight ve Mayıs doğru bir şekilde Linux tabanlı HDInsight kümeleriyle çalışma test yok. Linux tabanlı kümeler, Mono .NET kodu çalıştırmak için kullanın ve örnekte kullanılan paketler ve çerçeveler uyumluluk sorunlarına sahip olabilir.
 >
 > Linux üzerinde HDInsight sürüm 3.4 veya üzeri kullanılan tek işletim sistemidir.

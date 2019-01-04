@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: efccea36dd94120934b1a9729f583e0596316bc7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2a222e66b896886d724572982626fd0bc2c277a8
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338575"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809973"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -446,7 +446,7 @@ En fazla eş zamanlı işlev çağrılarını sayısı tarafından denetlenir bl
 
 [Tüketim planı](functions-scale.md#how-the-consumption-plan-works) 1,5 GB bellek bir sanal makineye (VM) üzerinde bir işlev uygulaması sınırlar. Bellek her eş zamanlı olarak yürütülen bir işlev örneği ve İşlevler çalışma zamanının kendisi tarafından kullanılır. Blob ile tetiklenen bir işlev tüm blob belleğine yükler, blobları için bu işlev tarafından kullanılan en fazla belleği 24'tür * en yüksek blob boyutu. Örneğin, üç blob ile tetiklenen işlev ve varsayılan ayarlarla bir işlev uygulaması 3 * 24 = 72 VM başına en fazla eşzamanlılığı gerekir işlev çağrıları.
 
-JavaScript işlevleri belleğe tüm blob yükleme ve C# işlevlerini yaparsanız, adlarınıza `string`, `Byte[]`, veya POCO.
+JavaScript ve Java işlevleri, belleğe, tüm blob yüklemek ve C# işlevleri yaparsanız, adlarınıza `string`, `Byte[]`, veya POCO.
 
 ## <a name="trigger---polling"></a>Tetikleme - yoklama
 
@@ -462,7 +462,7 @@ Dile özgü örneğe bakın:
 
 * [C#](#input---c-example)
 * [C# betiği (.csx)](#input---c-script-example)
-* [Java](#input---java-example)
+* [Java](#input---java-examples)
 * [JavaScript](#input---javascript-example)
 * [Python](#input---python-example)
 
@@ -630,22 +630,61 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
     return inputblob
 ```
 
-### <a name="input---java-example"></a>Giriş - Java örnek
+### <a name="input---java-examples"></a>Giriş - Java örnekleri
 
-Aşağıdaki örnek bir kuyruk tetikleyicisi ve giriş blob bağlama kullanan bir Java işlevidir. Kuyruk iletisi blob adını içerir ve işlev blob boyutu günlüğe kaydeder.
+Bu bölüm aşağıdaki örnekleri içerir:
+
+* [HTTP tetikleyicisi, blob adı Sorgu dizesinden Ara](#http-trigger-look-up-blob-name-from-query-string-java)
+* [Tetikleyici kuyruk, blob adı sıraya ileti Al](#queue-trigger-receive-blob-name-from-queue-message-java)
+
+#### <a name="http-trigger-look-up-blob-name-from-query-string-java"></a>HTTP tetikleyicisi, blob adı (Java) Sorgu dizesinden Ara
+
+ Aşağıdaki örnek, kullanan bir Java işlev gösterir. ```HttpTrigger``` bir blob depolama kapsayıcısında bir dosya adını içeren bir parametre almak için ek açıklama. ```BlobInput``` Dosyasını okur ve içeriği görmesine geçirir ardından ek açıklama bir ```byte[]```.
 
 ```java
-@FunctionName("getBlobSize")
-@StorageAccount("AzureWebJobsStorage")
-public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-items") String filename,
-                    @BlobInput(name = "file", dataType = "binary", path = "samples-workitems/{queueTrigger") byte[] content,
-       final ExecutionContext context) {
+  @FunctionName("getBlobSizeHttp")
+  @StorageAccount("Storage_Account_Connection_String")
+  public HttpResponseMessage blobSize(
+    @HttpTrigger(name = "req", 
+      methods = {HttpMethod.GET}, 
+      authLevel = AuthorizationLevel.ANONYMOUS) 
+    HttpRequestMessage<Optional<String>> request,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{Query.file}") 
+    byte[] content,
+    final ExecutionContext context) {
+      // build HTTP response with size of requested blob
+      return request.createResponseBuilder(HttpStatus.OK)
+        .body("The size of \"" + request.getQueryParameters().get("file") + "\" is: " + content.length + " bytes")
+        .build();
+  }
+```
+
+#### <a name="queue-trigger-receive-blob-name-from-queue-message-java"></a>Tetikleyici kuyruk, blob adı alma kuyruk iletisi (Java)
+
+ Aşağıdaki örnek, kullanan bir Java işlev gösterir. ```QueueTrigger``` bir blob depolama kapsayıcısında bir dosya adını içeren bir ileti almak için ek açıklama. ```BlobInput``` Dosyasını okur ve içeriği görmesine geçirir ardından ek açıklama bir ```byte[]```.
+
+```java
+  @FunctionName("getBlobSize")
+  @StorageAccount("Storage_Account_Connection_String")
+  public void blobSize(
+    @QueueTrigger(
+      name = "filename", 
+      queueName = "myqueue-items-sample") 
+    String filename,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{queueTrigger}") 
+    byte[] content,
+    final ExecutionContext context) {
       context.getLogger().info("The size of \"" + filename + "\" is: " + content.length + " bytes");
- }
- ```
+  }
+```
 
-  İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@BlobInput` ek açıklama parametreleri değeri bir blobun gelmesi.  Bu ek açıklama yerel Java türler, pojo'ları veya kullanarak boş değer atanabilir değer ile kullanılabilir `Optional<T>`.
-
+İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@BlobInput` ek açıklama parametreleri değeri bir blobun gelmesi.  Bu ek açıklama yerel Java türler, pojo'ları veya kullanarak boş değer atanabilir değer ile kullanılabilir `Optional<T>`.
 
 ## <a name="input---attributes"></a>Giriş - öznitelikleri
 
@@ -728,7 +767,7 @@ Dile özgü örneğe bakın:
 
 * [C#](#output---c-example)
 * [C# betiği (.csx)](#output---c-script-example)
-* [Java](#output---java-example)
+* [Java](#output---java-examples)
 * [JavaScript](#output---javascript-example)
 * [Python](#output---python-example)
 
@@ -915,23 +954,72 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
     outputblob.set(inputblob)
 ```
 
-### <a name="output---java-example"></a>Çıkış - Java örnek
+### <a name="output---java-examples"></a>Çıkış - Java örnekleri
 
-Aşağıdaki örnekte gösterildiği blob giriş ve çıkış bağlamaları bir Java işlev. İşlevi, bir metin blob bir kopyasını oluşturur. İşlevin blob kopyalama adını içeren bir kuyruk iletisi tarafından tetiklenir. Yeni blob {originalblobname} adlı-Kopyala
+Bu bölüm aşağıdaki örnekleri içerir:
+
+* [HTTP tetikleyicisi, OutputBinding kullanma](#http-trigger-using-outputbinding-java)
+* [İşlev dönüş değeri kullanarak, kuyruk tetikleyicisi](#queue-trigger-using-function-return-value-java)
+
+#### <a name="http-trigger-using-outputbinding-java"></a>OutputBinding (Java) kullanarak, HTTP tetikleyicisi
+
+ Aşağıdaki örnek, kullanan bir Java işlev gösterir. ```HttpTrigger``` bir blob depolama kapsayıcısında bir dosya adını içeren bir parametre almak için ek açıklama. ```BlobInput``` Dosyasını okur ve içeriği görmesine geçirir ardından ek açıklama bir ```byte[]```. ```BlobOutput``` Ek açıklama bağlanır ```OutputBinding outputItem```, ardından işlevin giriş blob içeriğini yapılandırılmış depolama kapsayıcısına yazmak için kullanılır.
 
 ```java
-@FunctionName("copyTextBlob")
-@StorageAccount("AzureWebJobsStorage")
-@BlobOutput(name = "target", path = "samples-workitems/{queueTrigger}-Copy")
-public String blobCopy(
-    @QueueTrigger(name = "filename", queueName = "myqueue-items") String filename,
-    @BlobInput(name = "source", path = "samples-workitems/{queueTrigger}") String content ) {
+  @FunctionName("copyBlobHttp")
+  @StorageAccount("Storage_Account_Connection_String")
+  public HttpResponseMessage copyBlobHttp(
+    @HttpTrigger(name = "req", 
+      methods = {HttpMethod.GET}, 
+      authLevel = AuthorizationLevel.ANONYMOUS) 
+    HttpRequestMessage<Optional<String>> request,
+    @BlobInput(
+      name = "file", 
+      dataType = "binary", 
+      path = "samples-workitems/{Query.file}") 
+    byte[] content,
+    @BlobOutput(
+      name = "target", 
+      path = "myblob/{Query.file}-CopyViaHttp")
+    OutputBinding<String> outputItem,
+    final ExecutionContext context) {
+      // Save blob to outputItem
+      outputItem.setValue(new String(content, StandardCharsets.UTF_8));
+
+      // build HTTP response with size of requested blob
+      return request.createResponseBuilder(HttpStatus.OK)
+        .body("The size of \"" + request.getQueryParameters().get("file") + "\" is: " + content.length + " bytes")
+        .build();
+  }
+```
+
+#### <a name="queue-trigger-using-function-return-value-java"></a>İşlev dönüş değeri (Java) kullanarak, kuyruk tetikleyicisi
+
+ Aşağıdaki örnek, kullanan bir Java işlev gösterir. ```QueueTrigger``` bir blob depolama kapsayıcısında bir dosya adını içeren bir ileti almak için ek açıklama. ```BlobInput``` Dosyasını okur ve içeriği görmesine geçirir ardından ek açıklama bir ```byte[]```. ```BlobOutput``` Ek açıklama, ardından giriş blob içeriğini yapılandırılmış depolama kapsayıcısına yazmak için çalışma zamanı tarafından kullanılan işlev dönüş değeri bağlanır.
+
+```java
+  @FunctionName("copyBlobQueueTrigger")
+  @StorageAccount("Storage_Account_Connection_String")
+  @BlobOutput(
+    name = "target", 
+    path = "myblob/{queueTrigger}-Copy")
+  public String copyBlobQueue(
+    @QueueTrigger(
+      name = "filename", 
+      dataType = "string",
+      queueName = "myqueue-items") 
+    String filename,
+    @BlobInput(
+      name = "file", 
+      path = "samples-workitems/{queueTrigger}") 
+    String content,
+    final ExecutionContext context) {
+      context.getLogger().info("The content of \"" + filename + "\" is: " + content);
       return content;
- }
- ```
+  }
+```
 
- İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@BlobOutput` değeri blob depolama içinde bir nesneye yazılabilir işlevi parametrelere ilişkin açıklama.  Parametre türü olmalıdır `OutputBinding<T>`, burada T bir POJO'ya herhangi bir yerel Java türü.
-
+ İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@BlobOutput` değeri blob depolama içinde bir nesneye yazılabilir işlevi parametrelere ilişkin açıklama.  Parametre türü olmalıdır `OutputBinding<T>`Burada T herhangi bir yerel Java türü veya bir POJO'ya adıdır.
 
 ## <a name="output---attributes"></a>Çıkış - öznitelikleri
 

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 878d9e635d82e52d8a47d47a135ba865f140c9e9
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 3a8b3a22eb4bdaed0142f8afc6f92128be32eca3
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321895"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971129"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Apache Hadoop bileşenleri ve sürümleri HDInsight ile kullanılabilen nelerdir?
 
@@ -33,7 +33,7 @@ HDInsight küme sürümleri ile ilişkili bileşen sürümü aşağıdaki tablod
 
 | Bileşen | HDInsight (Önizleme) 4.0 | HDInsight 3.6 (varsayılan) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- | --- |--- |
-| Hortonworks Veri Platformu |3,0 |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
+| Hortonworks Veri Platformu |3.0 |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | Apache Hadoop ve YARN |3.1.1 |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
 | Apache Tez |0.9.1 |0.7.0 |0.7.0 |0.7.0 |0.7.0 |0.5.2 |0.4.0 |-|
 | Apache Pig |0.16.0 |0.16.0 |0.16.0 |0.15.0 |0.15.0 |0.14.0 |0.12.1 |0.12.0 |
@@ -60,7 +60,7 @@ HDInsight küme sürümleri ile ilişkili bileşen sürümü aşağıdaki tablod
 
 HDInsight küme sürümleri ile ilişkili Hadoop ekosistemi bileşen sürümü, HDInsight için güncelleştirmeleri ile değiştirebilirsiniz. Hadoop bileşenleri denetimi ve bir küme için hangi sürümlerinin kullanıldığını doğrulamak için Ambari REST API'yi kullanın. **GetComponentInformation** komutu, hizmet bileşenleri hakkında bilgi alır. Ayrıntılar için bkz [Apache Ambari belgeleri][ambari-docs].
 
-> [!IMPORTANT]  
+> [!IMPORTANT]    
 > Linux üzerinde HDInsight sürüm 3.4 veya üzeri kullanılan tek işletim sistemidir. Daha fazla bilgi için [HDInsight üzerinde Windows emeklilik](#hdinsight-windows-retirement).
 
 ### <a name="release-notes"></a>Sürüm notları
@@ -139,9 +139,9 @@ Kurumsal güvenlik HDInsight kümenizi oluşturma küme iş akışının parças
 - Spark
 - Interactive Query
 
-### <a name="support-for-azure-data-lake-store"></a>Azure Data Lake Store desteği
+### <a name="support-for-azure-data-lake-storage"></a>Azure Data Lake depolama desteği
 
-Birincil depolama alanı ve ek depolama Azure Data Lake Store kullanarak kurumsal güvenlik paketi destekler.
+Birincil depolama alanı ve ek depolama Azure Data Lake Storage kullanarak kurumsal güvenlik paketi destekler.
 
 ### <a name="pricing-and-sla"></a>Fiyatlandırma ve SLA
 Kurumsal güvenlik paketi için fiyatlandırma ve SLA hakkında ek bilgi için bkz: [HDInsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -149,7 +149,7 @@ Kurumsal güvenlik paketi için fiyatlandırma ve SLA hakkında ek bilgi için b
 ## <a name="hdinsight-windows-retirement"></a>HDInsight Windows'un devre dışı bırakılması
 Microsoft Azure HDInsight sürüm 3.3 Windows üzerinde HDInsight son sürümünü oluştu. 31 Temmuz 2018'den Windows üzerinde HDInsight için kullanımdan kaldırma tarihtir. Tüm HDInsight kümeleri Windows 3.3 veya önceki sürümleri varsa, (HDInsight sürüm 3.5 veya sonraki sürümler) Linux'ta HDInsight için 31 Temmuz 2018'den önce geçirmeniz gerekir. Linux işletim sistemine geçiş oluşturun ya da HDInsight kümeleri yeniden boyutlandırma özelliği korumak sağlar. HDInsight sürümü 3.3 Windows üzerinde desteği, 27 Haziran 2016 tarihinde süresi doldu.
 
-HDInsight sürüm 3.4 ile başlayarak, Microsoft HDInsight yalnızca Linux işletim sisteminde kullanıma sundu. Sonuç olarak, bazı bileşenlerin HDInsight içinde yalnızca Linux için kullanılabilir. Bunlar [Apache Ranger](https://ranger.apache.org/), [Apache Kafka](https://kafka.apache.org/), etkileşimli sorgu [Apache Spark](https://spark.apache.org/), HDInsight uygulamalarını ve Azure Data Lake Store birincil dosya sistemi olarak. HDInsight'ın gelecek sürümlerini, yalnızca Linux işletim sisteminde kullanılabilir. Hiçbir Windows üzerinde HDInsight'ın gelecek sürümlerini olacaktır. 
+HDInsight sürüm 3.4 ile başlayarak, Microsoft HDInsight yalnızca Linux işletim sisteminde kullanıma sundu. Sonuç olarak, bazı bileşenlerin HDInsight içinde yalnızca Linux için kullanılabilir. Bunlar [Apache Ranger](https://ranger.apache.org/), [Apache Kafka](https://kafka.apache.org/), etkileşimli sorgu [Apache Spark](https://spark.apache.org/), HDInsight uygulamalarını ve Azure Data Lake Storage birincil dosya sistemi olarak. HDInsight'ın gelecek sürümlerini, yalnızca Linux işletim sisteminde kullanılabilir. Hiçbir Windows üzerinde HDInsight'ın gelecek sürümlerini olacaktır. 
 
 ## <a name="faqs"></a>SSS
 
@@ -172,7 +172,7 @@ Azure portalında, HDInsight kümesine Genel Bakış sayfasına gidin ve bulmak 
 HDInsight Windows kümesi olarak çalıştırır-olduğunu, ancak yeni bir HDInsight Windows kümesi oluşturma, veya var olan HDInsight Windows kümesi yeniden boyutlandırın. 
 
 ### <a name="my-cluster-has-a-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>Kümem bir .NET bağımlılığı vardır. Bu bağımlılık Linux üzerinde nasıl giderebilirim?
-Kullanarak, Linux küme bağımlılık çözümleyebilir [Mono projesi](http://www.mono-project.com/). Bu açık kaynak uygulaması .NET HDInsight Linux kümeleri için kullanılabilir. Daha fazla bilgi [HDInsight dokumentu migrace](hdinsight-migrate-from-windows-to-linux.md). 
+Kullanarak, Linux küme bağımlılık çözümleyebilir [Mono projesi](https://www.mono-project.com/). Bu açık kaynak uygulaması .NET HDInsight Linux kümeleri için kullanılabilir. Daha fazla bilgi [HDInsight dokumentu migrace](hdinsight-migrate-from-windows-to-linux.md). 
 
 ### <a name="im-a-new-customer-for-hdinsight-on-windows-how-can-i-create-an-hdinsight-windows-cluster"></a>Windows üzerinde HDInsight için yeni bir müşteri ortağıyım. Bir Windows HDInsight kümesine nasıl oluşturabilirim?
 3 Temmuz 2017'den itibaren yalnızca var olan HDInsight Windows müşterilerin yeni HDInsight Windows kümeleri oluşturabilirsiniz. Yeni müşteriler PowerShell veya SDK'sını kullanarak Azure portalında bir Windows HDInsight kümesi oluşturulamıyor. Yeni müşteriler Linux HDInsight kümesi oluşturmanızı öneririz. Mevcut müşterileri yeni HDInsight Windows HDInsight kadar Windows üzerinde devre dışı bırakılacağı tarihten kümeler oluşturabilirsiniz. 
@@ -186,7 +186,7 @@ Hayır, fiyatlandırma ya da OS HDInsight için aynıdır.
 * Açık kaynak topluluğu tarafından etkin olarak geliştirme Hadoop ve diğer büyük veri teknolojileri için çalışma olanağı
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>Linux üzerinde HDInsight sistemlerdekinden Windows üzerinde HDInsight içinde ek işlevsellik sağlar mı?
-HDInsight sürüm 3.4 ile başlayarak, Microsoft HDInsight yalnızca Linux işletim sisteminde kullanıma sundu. Sonuç olarak, bazı bileşenlerin HDInsight içinde yalnızca Linux için kullanılabilir. Apache Ranger, Kafka, Interactive Query, Spark, HDInsight uygulamaları, bunlar ve birincil dosya sistemi olarak Azure Data Lake Store. 
+HDInsight sürüm 3.4 ile başlayarak, Microsoft HDInsight yalnızca Linux işletim sisteminde kullanıma sundu. Sonuç olarak, bazı bileşenlerin HDInsight içinde yalnızca Linux için kullanılabilir. Apache Ranger, Kafka, Interactive Query, Spark, HDInsight uygulamaları, bunlar ve birincil dosya sistemi olarak Azure Data Lake Storage. 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight küme sürümleri için hizmet düzeyi sözleşmesi
 Hizmet düzeyi sözleşmesi (SLA) de tanımlanan bir _destek penceresi_. Destek, Microsoft Müşteri Hizmetleri ve desteği tarafından desteklenen bir HDInsight kümesi sürüm süre penceredir. Sürüm varsa, bir _destek sona erme tarihi_ geçirilen, HDInsight kümesi desteği penceresi dışında. Desteklenen sürümler hakkında daha fazla bilgi için bkz: listesini [desteklenen HDInsight küme sürümleri](hdinsight-migrate-from-windows-to-linux.md). Belirtilen bir HDInsight sürüm (yeni bir X + 1 sürümü kullanıma sunulduktan sonra) X desteği sona erme tarihini sonraki hesaplanır biri:  
@@ -203,10 +203,10 @@ _Devre dışı bırakılacağı tarihten_ sonra küme sürümünü oluşturulam�
 
 Bölüm sürüm notları için HDInsight ile kullanılan Apache bileşenleri ve Hortonworks Data Platform dağıtımları için bağlantılar sağlar.
 * HDInsight kümesi sürüm 4.0 temel alan bir Hadoop dağıtımı kullanır [Hortonworks veri platformu 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html)
-* HDInsight küme sürümü 3.6 temel alan bir Hadoop dağıtımı kullanır [Hortonworks Data Platform 2.6](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html).
-* HDInsight kümesi sürüm 3.5 temel alan bir Hadoop dağıtımı kullanır [Hortonworks Data Platform 2.5](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/ch_relnotes_v250.html). HDInsight kümesi sürüm 3.5 _varsayılan_ Azure portalında oluşturduğunuz Hadoop kümesi.
-* HDInsight küme sürümü 3.4 temel alan bir Hadoop dağıtımı kullanır [Hortonworks veri platformu 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html).
-* HDInsight kümesi sürüm 3.3 temel alan bir Hadoop dağıtımı kullanır [Hortonworks veri platformu 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
+* HDInsight küme sürümü 3.6 temel alan bir Hadoop dağıtımı kullanır [Hortonworks Data Platform 2.6](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html).
+* HDInsight kümesi sürüm 3.5 temel alan bir Hadoop dağıtımı kullanır [Hortonworks Data Platform 2.5](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.5.0/bk_release-notes/content/ch_relnotes_v250.html). HDInsight kümesi sürüm 3.5 _varsayılan_ Azure portalında oluşturduğunuz Hadoop kümesi.
+* HDInsight küme sürümü 3.4 temel alan bir Hadoop dağıtımı kullanır [Hortonworks veri platformu 2.4](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html).
+* HDInsight kümesi sürüm 3.3 temel alan bir Hadoop dağıtımı kullanır [Hortonworks veri platformu 2.3](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
 
   * [Apache Storm sürüm notları](https://storm.apache.org/2015/11/05/storm0100-released.html) Apache Web sitesinde mevcuttur.
   * [Apache Hive sürüm notları](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843) Apache Web sitesinde mevcuttur.
@@ -230,11 +230,11 @@ Aşağıdaki tablolar, HDInsight kümeleri için varsayılan sanal makine (VM) b
 
   | Küme türü | Hadoop | HBase | Interactive Query | Storm | Spark  | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | HEAD: varsayılan VM boyutu |D3 v2 |D3 v2 | D13,<br/> D14 |A4 v2 |D12 v2 |D12 v2 |
+  | HEAD: varsayılan VM boyutu |D12 v2 |D12 v2 | D13 v2 |A3 |D12 v2 |D12 v2 |
   | HEAD: Önerilen VM boyutları |D3 v2<br/> D4 v2<br/> D12 v2 |D3 v2<br/> D4 v2<br/> D12 v2  | D13,<br/> D14 |A4 v2<br/> A8 v2<br/> A2m v2 |D12 v2<br/> D13 v2<br/> D14 v2 |D12 v2<br/> D13 v2<br/> D14 v2 |
-  | Çalışan: varsayılan VM boyutu |D3 v2 |D3 v2  | D13,<br/> D14 |D3 v2 |D4 v2 | D4 v2 |
+  | Çalışan: varsayılan VM boyutu |D4 v2 |D4 v2| D14 v2|D3 v2 |D13 v2 | D4 v2 |
   | Çalışan: Önerilen VM boyutları |D3 v2<br/> D4 v2<br/> D12 v2 |D3 v2<br/> D4 v2<br/> D12 v2  | D13,<br/> D14 |D3 v2<br/> D4 v2<br/> D12 v2 |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |
-  | ZooKeeper: varsayılan VM boyutu | |A4 v2 | |A2 v2 | | |
+  | ZooKeeper: varsayılan VM boyutu | |A4 v2 |A4 v2 |A4 v2 | | A2 v2|
   | ZooKeeper: Önerilen VM boyutları | |A4 v2<br/> A8 v2<br/> A2m v2 | | A2 v2<br/> A4 v2<br/> A8 v2 | | |
   | Edge: varsayılan VM boyutu | | | | | |D4 v2 |
   | Sınırı: Önerilen VM boyut | | | | | |D4 v2<br/> D12 v2<br/> D13 v2<br/> D14 v2 |
@@ -242,11 +242,11 @@ Aşağıdaki tablolar, HDInsight kümeleri için varsayılan sanal makine (VM) b
 
   | Küme türü | Hadoop | HBase | Interactive Query |Storm | Spark | ML Services |
   | --- | --- | --- | --- | --- | --- | --- |
-  | HEAD: varsayılan VM boyutu |D3 |D3  | D13,<br/> D14 |A3 |D12 |D12 |
+  | HEAD: varsayılan VM boyutu |D12 |D12  | D13 |A3 |D12 |D12 |
   | HEAD: Önerilen VM boyutları |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3<br/> A4<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |
-  | Çalışan: varsayılan VM boyutu |D3 |D3  | D13,<br/> D14 |D3 |D4 |D4 |
+  | Çalışan: varsayılan VM boyutu |D4 |D4  |  D14 |D3 |D13 |D4 |
   | Çalışan: Önerilen VM boyutları |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |D3,<br/> D4,<br/> D12 |D4,<br/> D12,<br/> D13,<br/> D14 | D4,<br/> D12,<br/> D13,<br/> D14 |
-  | ZooKeeper: varsayılan VM boyutu | |A2 | | A2 | | |
+  | ZooKeeper: varsayılan VM boyutu | |A4 v2 | A4 v2| A4 v2 | | A2 v2|
   | ZooKeeper: Önerilen VM boyutları | |A2<br/> A3<br/> A4 | |A2<br/> A3<br/> A4 | | |
   | Edge: varsayılan VM boyutları | | | | | |D4 |
   | Edge: Önerilen VM boyutları | | | | | |D4,<br/> D12,<br/> D13,<br/> D14 |
@@ -270,16 +270,16 @@ Aşağıdaki tablolar, HDInsight kümeleri için varsayılan sanal makine (VM) b
 
 [hdp-2-2]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.9/bk_HDP_RelNotes/content/ch_relnotes_v229.html
 
-[hdp-2-1-7]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html
+[hdp-2-1-7]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html
 
-[hdp-2-1-1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html
+[hdp-2-1-1]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html
 
-[hdp-2-0-8]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
+[hdp-2-0-8]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
 
-[hdp-1-3-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
+[hdp-1-3-0]: https://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
 
 [hdp-1-1-0]: https://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.1.1.16_1.html
 
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
-[zookeeper]: http://zookeeper.apache.org/
+[zookeeper]: https://zookeeper.apache.org/

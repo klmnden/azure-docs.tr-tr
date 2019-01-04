@@ -9,16 +9,22 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 9a16498c527af2d23840c53af11103f7580d80bb
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434775"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582567"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>Windows Aracısı onay sonuçları güncelleştirme yönetimini anlama
 
 Makinenizde görüntülenmiyorsa birçok nedeni olabilir **hazır** güncelleştirme yönetimi. Ortamında güncelleştirme yönetimi, arka plandaki sorunu belirlemek için bir karma çalışanı aracı durumunu kontrol edebilirsiniz. Bu makalede Azure portalı ve Azure olmayan makineler Azure makineler için sorun giderici çalıştırın anlatılmaktadır [çevrimdışı senaryosu](#troubleshoot-offline).
+
+Aşağıdaki listede, bir makine olabilir üç hazır olma durumlarından şunlardır:
+
+* **Hazır** -Güncelleştirme Aracısı dağıtılır ve son 1 saatten önce görüldü.
+* **Bağlantısı kesilmiş** -Güncelleştirme Aracısı dağıtıldıktan ve üzerinde 1 saat önce son kez görüldü.
+* **Yapılandırılmamış** -Windows update Aracısı, bulunamadığında veya ekleme işlemi tamamlanmadı.
 
 ## <a name="start-the-troubleshooter"></a>Sorun Gidericisi
 

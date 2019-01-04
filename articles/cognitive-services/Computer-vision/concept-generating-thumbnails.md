@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 7d914f394ecfcf02ed26f41cd8fe2ef799cf6103
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: 371fa639b2edc300e44cc495393e89c9fce9c4bf
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966747"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580867"
 ---
-# <a name="generating-thumbnails"></a>Küçük resimler oluşturma
+# <a name="generating-smart-cropped-thumbnails-with-computer-vision"></a>Akıllı kırpılmış küçük görüntü işleme ile oluşturma
 
 Bir küçük resim görüntü azaltılmış boyutlu gösterimidir. Küçük resimler ve diğer veriler daha ekonomik, Düzen kullanımı kolay bir şekilde temsil etmek için kullanılır. Görüntü işleme API'si, sezgisel küçük resimleri için belirli bir görüntü oluşturmak için akıllı kırpma, görüntüyü yeniden boyutlandırma ile birlikte kullanır.
 
@@ -42,9 +43,9 @@ Aşağıdaki tabloda tipik küçük örnek görüntüleri için görüntü işle
 
 | Görüntü | Küçük resim |
 |-------|-----------|
-|![Dış Mekanda Dağ](./Images/mountain_vista.png) | ![Dış Mekanda Sıradağlar küçük resmi](./Images/mountain_vista_thumbnail.png) |
-|![Görüntü Analizi Çiçek](./Images/flower.png) | ![İşleme analiz çiçek küçük resmi](./Images/flower_thumbnail.png) |
-|![Çatıda Kadın](./Images/woman_roof.png) | ![Kadın tavan küçük resmi](./Images/woman_roof_thumbnail.png) |
+|![Üzerinde bir Sıradağlar rock gün batımı duran bir kişi](./Images/mountain_vista.png) | ![Dış Mekanda Sıradağlar küçük resmi](./Images/mountain_vista_thumbnail.png) |
+|![Yeşil bir arka plan beyaz çiçek](./Images/flower.png) | ![İşleme analiz çiçek küçük resmi](./Images/flower_thumbnail.png) |
+|![Bir grup oluşturma çatıyı üzerinde bir kadın](./Images/woman_roof.png) | ![Kadın tavan küçük resmi](./Images/woman_roof_thumbnail.png) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

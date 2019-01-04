@@ -9,32 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 8e46cd7b588355b157eb9da71bdfa44a09a379c4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 91a9646e88adbfaf6d3c3fc0b06b341c647e773f
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726383"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753702"
 ---
-# <a name="tutorial-5-extract-contextually-related-data"></a>Öğretici 5: Bağlamsal olarak ilişkili verileri ayıklama
-Bu öğreticide bağlama göre ilgili veri parçalarını bulacaksınız. Örneğin, bir bina ya da ofisten başka bir bina ya da ofise fiziksel olarak taşınmada çıkış ve varış konumları. Bir çalışma sırası oluşturmak için her iki veri parçasının da mevcut ve birbirleriyle ilişkili olması gerekir.  
+# <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Öğretici: Bir utterance bağlamsal ilgili verileri ayıklayın
 
-Bu uygulama bir çalışanın hangi kaynak konumdan (bina ve ofis) hangi hedef konuma (bina ve ofis) taşınacağını belirler. Konuşma içindeki konumları belirlemek için hiyerarşik varlığı kullanır. **Hiyerarşik** varlığın amacı, bağlama bağlı olarak konuşma içindeki ilgili verileri bulmaktır. 
+Bu öğreticide bağlama göre ilgili veri parçalarını bulacaksınız. Örneğin, bir kaynak ve hedef konumların bir şehir için başka bir aktarımı için. Her iki veri parçasını gerekli olabilir ve birbiriyle ilgilidir.  
 
-İki veri parçası şu özelliklere sahip olduğundan hiyerarşik varlık bu veri türü için iyi bir seçimdir:
-
-* Basit varlıklardır.
-* Konuşma bağlamında birbiriyle ilişkilidir.
-* Her bir konumu belirtmek için belirli bir sözcük kullanır. Bu sözcüklere örnekler şunlardır: from/to, leaving/headed to, away from/toward (çıkış/varış, ayrılıyor/gidiyor, kaynaktan/hedefe doğru)
-* Konumların ikisi de genelde aynı konuşmada bulunur. 
-* İstemci uygulama tarafından bir bilgi birimi olarak gruplanmaları ve işlenmeleri gerekir.
-
-**Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
+**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
 
 > [!div class="checklist"]
-> * Mevcut öğretici uygulamasını kullanma
+> * Yeni uygulama oluşturma
 > * Amaç ekleme 
 > * Çıkış ve varış alt öğelerine sahip konum hiyerarşik varlığını ekleme
 > * Eğitim
@@ -43,47 +34,47 @@ Bu uygulama bir çalışanın hangi kaynak konumdan (bina ve ofis) hangi hedef k
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
-Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
+## <a name="hierarchical-data"></a>Hiyerarşik veriler
 
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
+Bu uygulama, bir çalışan hedef şehri kaynak city taşınacak olduğu belirler. Konuşma içindeki konumları belirlemek için hiyerarşik varlığı kullanır. 
 
-1.  [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-list-HumanResources.json) indirip kaydedin.
+Hiyerarşik varlık olduğundan bu veri türü için uygun olan iki parça verilerin alt konumları:
 
-2. JSON'ı yeni bir uygulamaya içeri aktarın.
+* Basit varlıklardır.
+* Konuşma bağlamında birbiriyle ilişkilidir.
+* Her varlık belirtmek için belirli bir sözcük seçimi kullanın. Bu sözcüklere örnekler şunlardır: from/to, leaving/headed to, away from/toward (çıkış/varış, ayrılıyor/gidiyor, kaynaktan/hedefe doğru)
+* Her iki alt sık aynı utterance var. 
+* İstemci uygulama tarafından bir bilgi birimi olarak gruplanmaları ve işlenmeleri gerekir.
 
-3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `hier` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez. 
+## <a name="create-a-new-app"></a>Yeni bir uygulama oluşturma
 
-## <a name="remove-prebuilt-number-entity-from-app"></a>Uygulamadaki önceden oluşturulmuş sayı varlığını kaldırma
-Tüm utterance görebilir ve hiyerarşik alt işaretlemek için [geçici olarak önceden oluşturulmuş sayı varlık kaldırma](luis-prebuilt-entities.md#marking-entities-containing-a-prebuilt-entity-token). 
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
+
+## <a name="create-an-intent-to-move-employees-between-cities"></a>Çalışanların şehirler arasında taşımak için bir hedefi oluşturma
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Sol menüden **Entities** (Varlıklar) öğesini seçin.
+1. **Create new intent** (Yeni amaç oluştur) öğesini seçin. 
 
-3. Listedeki sayı varlığının sol tarafındaki onay kutusunu seçin. **Sil**’i seçin. 
+1. Açılan iletişim kutusuna `MoveEmployeeToCity` girip **Done** (Bitti) öğesini seçin. 
 
-## <a name="add-utterances-to-moveemployee-intent"></a>MoveEmployee amacına konuşmalar ekleme
+    ![Create new intent (Yeni amaç oluştur) iletişim kutusunun ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/create-new-intent-move-employee-to-city.png)
 
-1. Sol menüden **Intents** (Amaçlar) öğesini seçin.
-
-2. Amaç listesinden **MoveEmployee** girişini seçin.
-
-3. Aşağıdaki örnek konuşmaları ekleyin:
+1. Amaca örnek konuşmalar ekleyin.
 
     |Örnek konuşmalar|
     |--|
-    |Move John W. Smith **to** a-2345 (John W. Smith'i a-2345'e taşıyın)|
-    |Direct Jill Jones **to** b-3499 (Jill Jones'u b-3499'a yönlendirin)|
-    |Organize the move of x23456 **from** hh-2345 **to** e-0234 (x23456 numaralı ofisin hh-2345'ten e-0234'e taşınmasını organize edin)|
-    |Begin paperwork to set x12345 **leaving** a-3459 **headed to** f-34567 (a-3459'dan f-34567'ye geçen x12345 için gerekli evrakları hazırlayın)|
-    |Displace 425-555-0000 **away from** g-2323 **toward** hh-2345 (425-555-0000 numaralı hattı g-2323'ten hh-2345'e yönlendirin)|
+    |John W. Seattle bırakarak Smith için Dallas vizyonumuzdan Taşı|
+    |Jill Jones Seattle'dan Cairo için Aktarım|
+    |Atlanta için gelen bir yerde John Jackson Tampa, işlerini hayatınızdan çıkarın |
+    |Gamze Doughtery Tulsa için Dallas taşıyın.|
+    |MV Tampa için Jill Cairo bırakarak Jones vizyonumuzdan|
+    |Redmond'dan Oakland için Shift Alice Anderson|
+    |San Francisco gelen Carl Chamerlin Redmond için|
+    |San Diego Bellevue doğru Steve Standish aktarımı |
+    |Kansas Şehir ve shift Etikan Thompson Şikago'ya yükseltme|
 
     [ ![MoveEmployee amacındaki yeni konuşmaları gösteren LUIS uygulaması ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
-
-    [Liste varlığı](luis-quickstart-intent-and-list-entity.md) öğreticisinde bir çalışan ad, e-posta adresi, dahili telefon, cep telefonu numarası veya ABD federal sosyal güvenlik numarası ile tanımlanmaktadır. Bu çalışan numaraları konuşmalarda kullanılmaktadır. Yukarıdaki örnek konuşmalarda kaynak ve hedef konumlar kalın yazı tipiyle gösterilen farklı biçimlere sahiptir. Yalnızca birkaç konuşmada bilinçli olarak hedefler belirtilmiştir. Bu durum, LUIS uygulamasının kaynak belirtilmediğinde bu konumların konuşmadaki yerini anlamasına yardımcı olmaktadır.     
-
-    [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>Konum varlığı oluşturma
 LUIS uygulamasının konuşmalardaki kaynak ve hedef konumları etiketleyerek konumun ne olduğunu anlaması gerekir. Konuşmayı belirteç (ham) görünümünde görmek isterseniz konuşmaların üzerinde çubukta yer alan **Entities View** (Varlık Görünümü) denetimini seçin. Anahtarı açık duruma getirdikten sonra denetim **Tokens View** (Belirteç Görünümü) olarak etiketlenir.
@@ -91,170 +82,104 @@ LUIS uygulamasının konuşmalardaki kaynak ve hedef konumları etiketleyerek ko
 Aşağıdaki konuşmaya bir göz atın:
 
 ```json
-mv Jill Jones from a-2349 to b-1298
+move John W. Smith leaving Seattle headed to Dallas
 ```
 
-Konuşmada `a-2349` ve `b-1298` olmak üzere iki konum belirtilmiştir. Harfin bina adına, sayının da bu bina içindeki ofislere karşılık geldiğini düşünün. İstemci uygulamadaki isteğin tamamlanması için konuşmadan her iki veri parçasının da ayıklanması gerektiği ve bunlar birbirleriyle ilişkili olduğu için ikisinin de `Locations` hiyerarşik varlığının alt öğeleri olarak gruplanması uygun olacaktır. 
+Konuşmada `Seattle` ve `Dallas` olmak üzere iki konum belirtilmiştir. Hem alt öğeleri hiyerarşik bir varlık olarak gruplandırılır `Location`, çünkü istemci uygulamasındaki bir isteği tamamlamaya utterance ayıklanacak hem veri parçasını gerekir ve birbiriyle ilişkili. 
  
 Hiyerarşik varlığın alt öğelerinden yalnızca bir tanesi (çıkış veya varış) mevcut olduğunda da ayıklama işlemi gerçekleştirilir. Bir veya birden fazla öğenin ayıklanması için tüm alt öğelerin bulunması gerekmez. 
 
-1. `Displace 425-555-0000 away from g-2323 toward hh-2345` konuşmasının içinde `g-2323` sözcüğünü seçin. En üstte bir metin kutusu bulunan açılan menü görüntülenir. `Locations` metin kutusuna varlık adını girip açılan menüden **Create new entity** (Yeni varlık oluştur) öğesini seçin. 
+1. `move John W. Smith leaving Seattle headed to Dallas` konuşmasının içinde `Seattle` sözcüğünü seçin. En üstte bir metin kutusu bulunan açılan menü görüntülenir. `Location` metin kutusuna varlık adını girip açılan menüden **Create new entity** (Yeni varlık oluştur) öğesini seçin. 
 
-    [![Hedefi sayfasında yeni varlık oluşturma işleminin ekran görüntüsü](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "hedefi sayfasında yeni varlık oluşturma işleminin ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
+    [![Hedefi sayfasında yeni varlık oluşturma işleminin ekran görüntüsü](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png "hedefi sayfasında yeni varlık oluşturma işleminin ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/create-location-hierarchical-entity-from-example-utterance.png#lightbox)
 
-2. Açılır pencerede **Hierarchical** (Hiyerarşik) varlık türünü ve `Origin` ile `Destination` alt varlıkları seçin. **Done** (Bitti) öğesini seçin.
+1. Açılır pencerede **Hierarchical** (Hiyerarşik) varlık türünü ve `Origin` ile `Destination` alt varlıkları seçin. **Done** (Bitti) öğesini seçin.
 
     ![Varlık için yeni konum varlık oluşturma açılır iletişim kutusunun ekran görüntüsü](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "varlık için yeni konum varlık oluşturma açılır iletişim kutusunun ekran görüntüsü")
 
-3. LUIS, terimin çıkış mı, varış mı yoksa ikisi dışında bir değer mi olduğunu bilmediğinden `g-2323` etiketi `Locations` olarak işaretlenir. `g-2323` öğesini ve ardından **Locations** (Konumlar) girişini seçip sağ taraftaki menüden `Origin` öğesini seçin.
+1. LUIS, terimin çıkış mı, varış mı yoksa ikisi dışında bir değer mi olduğunu bilmediğinden `Seattle` etiketi `Location` olarak işaretlenir. Seçin `Seattle`, ardından **konumu**, sonra sağ menü izleyin ve seçin `Origin`.
 
-    [![Konumları varlık alt değiştirmek için ekran açılır iletişim kutusu etiketleme varlığın](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "açılır iletişim kutusu etiketleme varlık konumları varlık alt değiştirmek için ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
+    [![Konumları varlık alt değiştirmek için ekran açılır iletişim kutusu etiketleme varlığın](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png "açılır iletişim kutusu etiketleme varlık konumları varlık alt değiştirmek için ekran görüntüsü")](media/luis-quickstart-intent-and-hier-entity/choose-hierarchical-child-entity-from-example-utterance.png#lightbox)
 
-5. Konuşmadaki binayı ve ofisi seçtikten sonra Locations (Konumlar) öğesini ve ardından sağdaki menüden `Origin` veya `Destination` öğesini seçerek diğer konuşmalardaki konumları etiketleyin. Tüm konumlar etiketlendikten sonra **Tokens View** (Belirteç Görünümü) desen gibi görünmeye başlar. 
+1. Diğer tüm sesleri başka konumlarda etiketleyin. Tüm Konumlar işaretlendiğinde, bir desen gibi görünmesini konuşma başlayın. 
 
-    [![Konuşma etiketlenmiş ekran görüntüsü, konumları varlık](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "konuşma etiketlenmiş ekran görüntüsü, konumları varlık")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
+    [![Konuşma etiketlenmiş ekran görüntüsü, konumları varlık](media/luis-quickstart-intent-and-hier-entity/all-intents-marked-with-origin-and-destination-location.png "konuşma etiketlenmiş ekran görüntüsü, konumları varlık")](media/luis-quickstart-intent-and-hier-entity/all-intents-marked-with-origin-and-destination-location.png#lightbox)
 
-## <a name="add-prebuilt-number-entity-to-app"></a>Uygulamaya önceden oluşturulmuş sayı varlığı ekleme
-Önceden oluşturulmuş sayı varlığını uygulamaya tekrar ekleyin.
+    Kırmızı alt çizgi LUIS varlık hakkında başarılara olduğunu gösterir. Eğitim Bu çözümler. 
 
-1. Sol gezinti menüsünden **Entities** (Varlıklar) öğesini seçin.
+## <a name="add-example-utterances-to-the-none-intent"></a>Örnek konuşma hiçbiri hedefi ekleme 
 
-2. **Add prebuilt entity** (Önceden oluşturulan varlık ekle) düğmesini seçin.
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-3. Önceden oluşturulmuş varlık listesinden **sayıyı** ve ardından **Done** (Bitti) öğesini seçin.
-
-    ![Önceden oluşturulmuş varlıklar iletişim kutusunda sayının seçildiğini gösteren ekran görüntüsü](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
-
-## <a name="train-the-luis-app"></a>LUIS uygulamasını eğitme
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Uygulama hedefi değişiklikleri test edilebilir şekilde eğitme 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Uç nokta URL'sini almak için uygulamayı yayımlama
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Eğitilen modelin uç noktasından sorgulanabilir, bu nedenle, uygulamayı yayımlama
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Uç noktayı farklı bir konuşmayla sorgulama
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Uç noktasından amacı ve varlık öngörü Al
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-2. Adres çubuğundaki URL'nin sonuna gidip `Please relocation jill-jones@mycompany.com from x-2345 to g-23456` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `MoveEmployee` amacını hiyerarşik varlık ayıklanmış şekilde döndürmelidir.
+1. Adres çubuğundaki URL'nin sonuna gidip `Please move Carl Chamerlin from Tampa to Portland` yazın. Son sorgu dizesi parametresi ifade **s**orgusu olan `q` öğesidir. Bu konuşma, etiketlenmiş olan konuşmalarla aynı olmadığından iyi bir testtir ve `MoveEmployee` amacını hiyerarşik varlık ayıklanmış şekilde döndürmelidir.
 
     ```json
     {
-      "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
+      "query": "Please move Carl Chamerlin from Tampa to Portland",
       "topScoringIntent": {
-        "intent": "MoveEmployee",
-        "score": 0.9966052
+        "intent": "MoveEmployeeToCity",
+        "score": 0.979823351
       },
       "intents": [
         {
-          "intent": "MoveEmployee",
-          "score": 0.9966052
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.0325253047
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.006137873
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.00462633232
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.00415637763
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.00382325822
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00249120337
+          "intent": "MoveEmployeeToCity",
+          "score": 0.979823351
         },
         {
           "intent": "None",
-          "score": 0.00130756292
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00119622645
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 1.26910036E-05
+          "score": 0.0156363435
         }
       ],
       "entities": [
         {
-          "entity": "jill - jones @ mycompany . com",
-          "type": "Employee",
-          "startIndex": 18,
-          "endIndex": 41,
-          "resolution": {
-            "values": [
-              "Employee-45612"
-            ]
-          }
+          "entity": "portland",
+          "type": "Location::Destination",
+          "startIndex": 41,
+          "endIndex": 48,
+          "score": 0.6044041
         },
         {
-          "entity": "x - 2345",
-          "type": "Locations::Origin",
-          "startIndex": 48,
-          "endIndex": 53,
-          "score": 0.8520272
-        },
-        {
-          "entity": "g - 23456",
-          "type": "Locations::Destination",
-          "startIndex": 58,
-          "endIndex": 64,
-          "score": 0.974032
-        },
-        {
-          "entity": "-2345",
-          "type": "builtin.number",
-          "startIndex": 49,
-          "endIndex": 53,
-          "resolution": {
-            "value": "-2345"
-          }
-        },
-        {
-          "entity": "-23456",
-          "type": "builtin.number",
-          "startIndex": 59,
-          "endIndex": 64,
-          "resolution": {
-            "value": "-23456"
-          }
+          "entity": "tampa",
+          "type": "Location::Origin",
+          "startIndex": 32,
+          "endIndex": 36,
+          "score": 0.739491045
         }
       ]
     }
     ```
     
-    Doğru amaç tahmin edilir ve varlıklar dizisinde ilgili **varlık** özelliğinde çıkış ve varış değerlerinin ikisi de vardır.
+    Doğru amacını tahmin edilen ve karşılık gelen kaynak ve hedef değer varlıkları dizi **varlıkları** özelliği.
     
-
-## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>Her konum için normal ifade kullanmak mümkün mü?
-Evet. Normal ifadeyi çıkış ve varış rolleriyle oluşturup bir desende kullananın.
-
-Bu örnekteki konumlarda `a-1234` gibi bir veya iki harf, kısa çizgi ve 4 ya da 5 basamaklı sayı kullanılan bir biçim kullanılmıştır. Bu veriler her bir konum için bir role sahip olan normal ifade varlığı olarak tanımlanabilir. Roller yalnızca desenler için kullanılabilir. Bu konuşmaları temel alan desenler oluşturduktan sonra konum biçimi için bir normal ifade oluşturup desenlere ekleyebilirsiniz. 
-
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
-## <a name="hierarchical-entities-versus-roles"></a>Hiyerarşik varlıklarla rollerin karşılaştırılması
+## <a name="related-information"></a>İlgili bilgiler
 
-Daha fazla bilgi için bkz. [Rollerle hiyerarşik varlıkların karşılaştırması](luis-concept-roles.md#roles-versus-hierarchical-entities).
+* [Hiyerarşik varlık](luis-concept-entity-types.md) kavramsal bilgiler
+* [Eğitme](luis-how-to-train.md)
+* [Yayımlama nasıl yapılır?](luis-how-to-publish-app.md)
+* [LUIS portalında test etme](luis-interactive-test.md)
+* [Hiyerarşik varlıkları ve rolleri](luis-concept-roles.md#roles-versus-hierarchical-entities)
+* [Desenler ile Öngörüler geliştirin](luis-concept-patterns.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide yeni bir amaç oluşturuldu ve çıkış ve varış konumlarının bağlamsal olarak öğrenilen verileri için örnek konuşmalar eklendi. Uygulama eğitilip yayımlandıktan sonra bir istemci uygulama bu bilgileri ilgili bilgilerle bir taşınma bileti oluşturmak için kullanabilir.
+
+Bu öğreticide, oluşturulan yeni bir hedefi ve kaynak ve hedef konumların öğrenilen bağlamsal veriler için örnek konuşma eklenir. Uygulama eğitilip yayımlandıktan sonra bir istemci uygulama bu bilgileri ilgili bilgilerle bir taşınma bileti oluşturmak için kullanabilir.
 
 > [!div class="nextstepaction"] 
 > [Bileşik varlık eklemeyi öğrenin](luis-tutorial-composite-entity.md) 

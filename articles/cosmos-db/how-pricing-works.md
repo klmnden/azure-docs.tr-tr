@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: rimman
-ms.openlocfilehash: 44c561386b00ca60dc537360145ea62177b6d5d6
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5651e7ee8196eec9d1b1bf20e84ed73e484afb4b
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263926"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542406"
 ---
 # <a name="pricing-model-of-azure-cosmos-db"></a>Azure Cosmos DB'nin fiyatlandırma modeli 
 
@@ -26,11 +26,11 @@ Azure Cosmos DB fiyatlandırma modelini maliyeti basitleştirir yönetimi ve pla
 
 Sağlanan aktarım hızı, belirtilen [istek birimi](request-units.md) saniye başına (RU/sn), kapsayıcıları veya veritabanlarına veri yazma veya Okuma olanak tanır. Yapabilecekleriniz [sağlama aktarım hızı bir veritabanı veya bir kapsayıcı](set-throughput.md). İş yükü gereksinimlerinize bağlı olarak, aktarım hızının yukarı/aşağı dilediğiniz zaman artırabilirsiniz. Azure Cosmos DB fiyatlandırma, elastik olan ve bir veritabanı veya bir kapsayıcı yapılandırmanızı aktarım hızı orantılıdır. En düşük aktarım hızı ve depolama değerleri ve ölçeği artırır, fiyat elastikliği spektrumun karşılaştırması çeşitli müşteriler, tüm parçalarını küçük ölçekli büyük ölçekli kapsayıcıları için gelen sağlar. Her bir veritabanı veya bir kapsayıcı, depolama miktarı GB ve 100 RU/sn, birimi en az 400 RU/sn, sağlanan aktarım hızı için saatlik olarak faturalandırılır. Sağlanan aktarım hızı depolama tüketim temelinde faturalandırılır. Diğer bir deyişle, herhangi bir depolama alanı önceden ayırmanıza gerek yoktur. Yalnızca tükettiğiniz depolama için faturalandırılırsınız.
 
-Daha fazla bilgi için [Cosmos DB fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cosmos-db/) ve [Cosmos DB faturanızı anlama](understand-your-bill.md).
+Daha fazla bilgi için [Fiyatlandırma sayfasında Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) ve [Azure Cosmos DB faturanızı anlama](understand-your-bill.md).
 
-Azure Cosmos DB fiyatlandırma modelinde tüm API'leri arasında tutarlıdır. Daha fazla bilgi için bkz. [fiyatlandırma modeli nasıl Cosmos DB, müşterilerin uygun maliyetli](total-cost-ownership.md). Bir veritabanı veya bir kapsayıcı SLA'lar emin olmak için gereken en az bir aktarım hızı yoktur ve artırmak ya da sağlanan aktarım hızı, her 100 RU/sn için 6 ile azaltın.
+Azure Cosmos DB fiyatlandırma modelinde tüm API'leri arasında tutarlıdır. Daha fazla bilgi için bkz. [nasıl Azure Cosmos fiyatlandırma modeli DB, müşterilerin uygun maliyetli](total-cost-ownership.md). Bir veritabanı veya bir kapsayıcı SLA'lar emin olmak için gereken en az bir aktarım hızı yoktur ve artırmak ya da sağlanan aktarım hızı, her 100 RU/sn için 6 ile azaltın.
 
-Şu anda hem veritabanı hem de kapsayıcı tabanlı işleme için en düşük fiyat aylık $24 olur (bkz [Cosmos DB fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cosmos-db/) en son bilgi. İş yükünüz birden çok kapsayıcı kullanıyorsa, bu maliyet için veritabanı düzeyi aktarım hızını kapsayıcılar arasında aktarım hızı paylaşımı veritabanındaki herhangi bir sayıda kapsayıcı olması izin verdiğinden, veritabanı düzeyinde aktarım hızını kullanarak iyileştirilebilir. Sağlanan aktarım hızı ve maliyetleri farklı varlıklar için aşağıdaki tabloda özetlenmiştir:
+Şu anda hem veritabanı hem de kapsayıcı tabanlı işleme için en düşük fiyat aylık $24 olur (bkz [Fiyatlandırma sayfasında Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) en son bilgi. İş yükünüz birden çok kapsayıcı kullanıyorsa, bu maliyet için veritabanı düzeyi aktarım hızını kapsayıcılar arasında aktarım hızı paylaşımı veritabanındaki herhangi bir sayıda kapsayıcı olması izin verdiğinden, veritabanı düzeyinde aktarım hızını kullanarak iyileştirilebilir. Sağlanan aktarım hızı ve maliyetleri farklı varlıklar için aşağıdaki tabloda özetlenmiştir:
 
 |**Varlık**  | **En düşük aktarım hızı ve maliyet** |**Ölçeği artırır ve maliyet** |**Kapsam sağlama** |
 |---------|---------|---------|-------|
@@ -45,7 +45,7 @@ Azure Cosmos DB, ücretsiz, geliştiricilere çeşitli seçenekler sunar. Bu se�
 
 * **Ücretsiz Azure hesabı**: Azure tekliflerini bir [ücretsiz katmanı](https://azure.microsoft.com/free/) , 200 ABD Doları değerinde Azure kredisine sahip olun, ilk 30 gün ve sınırlı bir miktar 12 ay boyunca Ücretsiz Hizmetler için sağlar. Daha fazla bilgi için bkz. [Ücretsiz Azure hesabı](../billing/billing-avoid-charges-free-account.md). Azure Cosmos DB, Azure ücretsiz hesabı bir parçasıdır. Azure Cosmos DB için özellikle, bu ücretsiz hesaba yılın tamamı için 5 GB'lık depolama ve sağlanan aktarım hızı 400 Ru'ya sunar. 
 
-* **Azure Cosmos DB'yi ücretsiz deneyin**: Azure Cosmos DB sunar zaman sınırlaması deneyimini kullanarak Azure Cosmos DB için ücretsiz hesaplar deneyin. Bir Azure Cosmos DB hesabı oluşturma, veritabanı ve koleksiyon oluşturma ve hızlı Başlangıçlar ve öğreticilerle kullanarak bir örnek uygulamayı çalıştırın. Bir Azure hesabına abone olma ya da kredi kartınızı kullanarak olmadan, örnek uygulamayı çalıştırabilirsiniz. [Cosmos DB'yi ücretsiz deneyin](https://azure.microsoft.com/try/cosmosdb/) bir ay boyunca Azure Cosmos DB herhangi sayıda hesabınızı yenileme olanağı sunar.
+* **Azure Cosmos DB'yi ücretsiz deneyin**: Azure Cosmos DB sunar zaman sınırlaması deneyimini kullanarak Azure Cosmos DB için ücretsiz hesaplar deneyin. Bir Azure Cosmos DB hesabı oluşturma, veritabanı ve koleksiyon oluşturma ve hızlı Başlangıçlar ve öğreticilerle kullanarak bir örnek uygulamayı çalıştırın. Bir Azure hesabına abone olma ya da kredi kartınızı kullanarak olmadan, örnek uygulamayı çalıştırabilirsiniz. [Azure Cosmos DB'yi ücretsiz deneyin](https://azure.microsoft.com/try/cosmosdb/) bir ay boyunca Azure Cosmos DB herhangi sayıda hesabınızı yenileme olanağı sunar.
 
 * **Azure Cosmos DB öykünücüsü'nü**: Azure Cosmos DB öykünücüsü'nü geliştirme amacıyla Azure Cosmos DB hizmetine öykünür yerel bir ortam sağlar. Öykünücü, hiçbir ücret ödemeden ve bulut hizmeti yüksek doğrulukla sunulur. Azure Cosmos DB öykünücüsü'nü kullanarak geliştirme ve bir Azure aboneliği oluşturmadan veya masraf yapmadan uygulamalarınızı yerel olarak test etmek. Uygulamalarınızı öykünücüsü kullanarak yerel olarak üretime geçmeden önce geliştirebilirsiniz. Öykünücü karşı uygulamanın işlevselliğini memnun kaldığınızda, bulutta Azure Cosmos DB hesabı kullanmaya geçmek ve önemli ölçüde maliyet tasarrufu. Öykünücü hakkında daha fazla bilgi için bkz: [geliştirme ve test için Azure Cosmos DB kullanarak](local-emulator.md) makale daha fazla ayrıntı için.
 
@@ -60,12 +60,11 @@ Ayrılmış kapasite bir fatura oranında indirim sağlar ve Azure Cosmos DB kay
 Aşağıdaki makalelerde, Azure Cosmos DB kaynaklarını maliyetlerini en iyi duruma getirme hakkında daha fazla bilgi edinebilirsiniz:
 
 * Hakkında bilgi edinin [en iyi duruma getirme için geliştirme ve test etme](optimize-dev-test.md)
-
-* Daha fazla bilgi edinin [Cosmos DB faturanızı anlama](understand-your-bill.md)
+* Daha fazla bilgi edinin [Azure Cosmos DB faturanızı anlama](understand-your-bill.md)
 * Daha fazla bilgi edinin [aktarım hızı maliyeti en iyi duruma getirme](optimize-cost-throughput.md)
 * Daha fazla bilgi edinin [depolama maliyetini en iyi duruma getirme](optimize-cost-storage.md)
 * Daha fazla bilgi edinin [okuma ve yazma işlemleri maliyetini en iyi duruma getirme](optimize-cost-reads-writes.md)
 * Daha fazla bilgi edinin [sorguları maliyetini en iyi duruma getirme](optimize-cost-queries.md)
 * Daha fazla bilgi edinin [çok bölgeli Cosmos hesapları maliyetini en iyi duruma getirme](optimize-cost-regions.md)
-* Hakkında bilgi edinin [Cosmos DB ayrılan kapasite](cosmos-db-reserved-capacity.md)
-* Hakkında bilgi edinin [Cosmos DB öykünücüsü'nü](local-emulator.md)
+* Hakkında bilgi edinin [Azure Cosmos DB ayrılan kapasite](cosmos-db-reserved-capacity.md)
+* Hakkında bilgi edinin [Azure Cosmos DB öykünücüsü'nü](local-emulator.md)

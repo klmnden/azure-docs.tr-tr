@@ -1,6 +1,6 @@
 ---
 title: Azure tablo depolaması için tam metin arama - Azure Search dizini içeriği
-description: Azure arama ile Azure tablo depolama depolanan veri dizini öğrenin.
+description: Bir Azure Search Dizin Oluşturucu ile Azure tablo depolamada depolanan veriler hakkında bilgi edinin.
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 39455669dd739309ac0201de49b390c2390e0067
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 9532f4331b4dbbc8d687778b29f63179cca6b4d4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317279"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632968"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Azure Search dizini Azure tablo depolama
 Bu makalede, Azure Search için Azure tablo depolamada depolanan dizin verilerini nasıl kullanılacağını gösterir.
@@ -95,7 +95,7 @@ Bir dizin oluşturmak için:
 
 Dizinler oluşturma ile ilgili daha fazla bilgi için bkz: [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-### <a name="step-3-create-an-indexer"></a>3. adım: Dizin oluşturucu oluşturma
+### <a name="step-3-create-an-indexer"></a>3. Adım: Dizin oluşturucu oluşturma
 Bir dizin oluşturucu, bir veri kaynağı ile bir hedef arama dizinine bağlar ve veri yenilemeyi otomatikleştirmek için bir zamanlama sağlar. 
 
 Veri kaynağı ve dizin oluşturulduktan sonra Dizin Oluşturucu oluşturmaya hazırsınız:

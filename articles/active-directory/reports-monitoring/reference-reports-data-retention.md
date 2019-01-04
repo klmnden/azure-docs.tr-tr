@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: abd64b7d2fa7930f5b6177c7ac037840da34dc18
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6188b141ec1a514d999f290366cd9ffbafc1d96c
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333590"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753141"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory rapor saklama ilkeleri
 
@@ -53,17 +53,19 @@ Kullanılacak katılımı, güvenlik sinyalleri için toplama işlemi başlar **
 
 **Etkinlik raporları**    
 
-| Rapor                 | Azure AD Ücretsiz | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--                 | :--                 |
-| Dizin Denetimi        | 7 gün        | 30 gün             | 30 gün             |
-| Oturum Açma Etkinliği       | Yok           | 30 gün             | 30 gün             |
-| Azure MFA kullanımı        | 30 gün       | 30 gün             | 30 gün             |
+| Rapor                 | Azure AD Ücretsiz | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--            | :--                 | :--                 |
+| Dizin Denetimi        | 7 gün        |  7 gün        | 30 gün             | 30 gün             |
+| Oturum Açma Etkinliği       | Yok           |  Yok           | 30 gün             | 30 gün             |
+| Azure MFA kullanımı        | 30 gün       |  30 gün       | 30 gün             | 30 gün             |
+
+Azure İzleyicisi'ni kullanarak bir Azure depolama hesabına yönlendirerek yukarıda özetlenen varsayılan saklama süresinden daha uzun denetim ve oturum açma etkinliği verileri koruyabilirsiniz. Daha fazla bilgi için [arşiv Azure AD için bir Azure depolama hesabı günlükleri](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
 **Güvenlik sinyalleri**
 
-| Rapor         | Azure AD Ücretsiz | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--            | :--           | :--                 | :--                 |
-| Risk altındaki kullanıcılar  | 7 gün        | 30 gün             | 90 gün             |
-| Riskli oturum açma işlemleri | 7 gün        | 30 gün             | 90 gün             |
+| Rapor         | Azure AD Ücretsiz | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--            | :--           | :--            | :--                 | :--                 |
+| Risk altındaki kullanıcılar  | 7 gün        | 7 gün         | 30 gün             | 90 gün             |
+| Riskli oturum açma işlemleri | 7 gün        | 7 gün         |  30 gün            | 90 gün             |
 
 ---

@@ -4,17 +4,17 @@ description: Azure Stack depolama Geliştirme Araçları'nı kullanmaya başlama
 services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/05/2018
+ms.date: 12/03/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a218cf9b3d89236128c83d8b879691940e432a55
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 56814cc44874fe0c169e5fb51dc6cbff5a225231
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341567"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727862"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack depolama geliştirme araçları ile çalışmaya başlama
 
@@ -29,9 +29,9 @@ Bu makalede, Azure Stack depolama geliştirme araçları ile çalışmaya başla
 
 ## <a name="azure-client-libraries"></a>Azure istemci kütüphaneleri
 
-Desteklenen REST API'si için Azure Stack depolama 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, 2015-04-05 1802 güncelleştirme ya da daha yeni sürümleri için ve önceki sürümleri için 2015-04-05 sürümleridir. Azure Stack uç noktaları, en son sürümü Azure depolama REST API ile tam eşlik yoktur. İçin depolama istemci kitaplıkları, REST API ile uyumlu sürümü farkında olmanız gerekir.
+İçin depolama istemci kitaplıkları, REST API ile uyumlu bir sürümünün unutmayın. Azure Stack uç nokta da kodunuzda belirtmeniz gerekir.
 
-### <a name="1802-update-or-newer-versions"></a>1802 güncelleştirmesi veya daha yeni sürümleri
+### <a name="1811-update-or-newer-versions"></a>1811 güncelleştirmesi veya daha yeni sürümleri
 
 | İstemci kitaplığı | Azure Stack desteklenen sürüm | Bağlantı | Uç nokta belirtimi |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
@@ -45,22 +45,22 @@ Desteklenen REST API'si için Azure Stack depolama 2017-04-17, 2016-05-31, 2015-
 
 #### <a name="install-php-client-via-composer---current"></a>Composer - geçerli PHP istemcisi yükleme
 
-Oluşturucusu yüklemek için: (örnek olarak blob Al).
+Oluşturucusu yüklemek için: (örnek olarak blob alın).
 
 1. Adlı bir dosya oluşturun **composer.json** aşağıdaki kodla proje kökündeki:
 
-  ```php
+    ```json
     {
       "require": {
-      "Microsoft/azure-storage-blob":"1.0.0"
+      "Microsoft/azure-storage-blob":"1.2.0"
       }
     }
-  ```
+    ```
 
 2. İndirme [composer.phar](http://getcomposer.org/composer.phar) proje kök dizini.
 3. Çalıştır: `php composer.phar install`.
 
-### <a name="previous-versions"></a>Önceki sürümler
+### <a name="previous-versions-1802-to-1809-update"></a>Önceki sürümler (1802 için 1809 güncelleştirme)
 
 |İstemci kitaplığı|Azure Stack desteklenen sürüm|Bağlantı|Uç nokta belirtimi|
 |---------|---------|---------|---------|
@@ -74,19 +74,19 @@ Oluşturucusu yüklemek için: (örnek olarak blob Al).
 
 #### <a name="install-php-client-via-composer---previous"></a>PHP istemci Oluşturucusu - önceki aracılığıyla yükleme
 
-Oluşturucusu yüklemek için:
+Oluşturucusu yüklemek için: (örnek olarak blob Al).
 
 1. Adlı bir dosya oluşturun **composer.json** aşağıdaki kodla proje kökündeki:
 
-  ```php
+  ```json
     {
-          "require":{
-          "Microsoft/azure-storage":"0.15.0"
-          }
+      "require": {
+      "Microsoft/azure-storage-blob":"1.0.0"
+      }
     }
   ```
 
-2. İndirme [composer.phar](http://getcomposer.org/composer.phar) içine proje kök dizini.
+2. İndirme [composer.phar](http://getcomposer.org/composer.phar) proje kök dizini.
 3. Çalıştır: `php composer.phar install`.
 
 ## <a name="endpoint-declaration"></a>Uç nokta bildirimini
@@ -101,7 +101,7 @@ Uç noktanız hakkında emin değilseniz, bulut yöneticinize başvurun.
 
 Azure Stack için uç nokta soneki app.config dosyasında belirtilir:
 
-```
+```xml
 <add key="StorageConnectionString"
 value="DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;
 EndpointSuffix=local.azurestack.external;" />
@@ -111,7 +111,7 @@ EndpointSuffix=local.azurestack.external;" />
 
 Azure Stack için uç nokta soneki bağlantı dizesinin ayarında belirtilen:
 
-```
+```java
 public static final String storageConnectionString =
     "DefaultEndpointsProtocol=http;" +
     "AccountName=your_storage_account;" +
@@ -123,7 +123,7 @@ public static final String storageConnectionString =
 
 Azure Stack için uç nokta son eki bildirimi örneğinde belirtilir:
 
-```
+```nodejs
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```
@@ -132,7 +132,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 
 Azure Stack için uç nokta soneki bağlantı dizesinin ayarında belirtilen:
 
-```
+```cpp
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;
 AccountName=your_storage_account;
 AccountKey=your_storage_account_key;
@@ -143,7 +143,7 @@ EndpointSuffix=local.azurestack.external"));
 
 Azure Stack için uç nokta soneki bağlantı dizesinin ayarında belirtilen:
 
-```
+```php
 $connectionString = 'BlobEndpoint=http://<storage account name>.blob.local.azurestack.external/;
 QueueEndpoint=http:// <storage account name>.queue.local.azurestack.external/;
 TableEndpoint=http:// <storage account name>.table.local.azurestack.external/;
@@ -154,7 +154,7 @@ AccountName=<storage account name>;AccountKey=<storage account key>'
 
 Azure Stack için uç nokta son eki bildirimi örneğinde belirtilir:
 
-```
+```python
 block_blob_service = BlockBlobService(account_name='myaccount',
 account_key='mykey',
 endpoint_suffix='local.azurestack.external')
@@ -164,7 +164,7 @@ endpoint_suffix='local.azurestack.external')
 
 Azure Stack için uç nokta soneki bağlantı dizesinin ayarında belirtilen:
 
-```
+```ruby
 set
 AZURE_STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;
 AccountName=myaccount;

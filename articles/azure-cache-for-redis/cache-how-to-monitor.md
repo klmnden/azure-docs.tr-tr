@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ab2f1df72f04b6456f1083de6870fb86bad6616
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438310"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582720"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Azure önbelleği için Redis izleme
 Azure önbelleği için Redis kullandığı [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) önbelleği örneklerinizin izlemek için çeşitli seçenekler sağlayacak. Ölçümleri görüntüleyin, ölçüm grafikleri başlangıç panosuna sabitlemek, tarih ve saat aralığı grafikleri izleme özelleştirme, ekleyin ve ölçümleri grafikten kaldırabileceğiniz ve belirli koşullar karşılandığında uyarılar ayarlayın. Bu araçlar, Azure önbelleği için Redis örneği ve önbelleğe alma uygulamalarınızı yönetmenize yardımcı durumunu izlemenize olanak tanır.
@@ -79,7 +79,7 @@ Varsayılan olarak, Azure İzleyici'de önbellek ölçümleridir [30 gün saklan
 >
 >
 
-Ölçümlerinizin erişmek için daha önce bu makalede açıklanan Azure portalında görüntüleyebilir ve bunları da erişebilirsiniz kullanarak [Azure İzleyici ölçümleri REST API](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
+Ölçümlerinizin erişmek için daha önce bu makalede açıklanan Azure portalında görüntüleyebilir ve bunları da erişebilirsiniz kullanarak [Azure İzleyici ölçümleri REST API](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
 > Depolama hesaplarını değiştirirseniz, önceden yapılandırılmış depolama hesabındaki verileri indirme için kullanılabilir kalır, ancak Azure portalında görüntülenmez.  
@@ -142,7 +142,7 @@ Etkinlik günlükleri, Azure önbelleği için Redis örneği üzerinde gerçekl
 
 Önbellek hesabınız için etkinlik günlüklerini görüntülemek için tıklayın **etkinlik günlüklerini** gelen **kaynak menüsünde**.
 
-Etkinlik günlükleri hakkında daha fazla bilgi için bkz. [Azure etkinlik günlüğü'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Etkinlik günlükleri hakkında daha fazla bilgi için bkz. [Azure etkinlik günlüğü'ne genel bakış](../azure-monitor/platform/activity-logs-overview.md).
 
 
 

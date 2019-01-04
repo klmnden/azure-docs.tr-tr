@@ -3,16 +3,17 @@ title: Azure Site Recovery ile olağanüstü durum kurtarma Hyper-V için kapasi
 description: Azure Site Recovery hizmeti ile olağanüstü durum kurtarmayı ayarlarken kapasitesini tahmin etmek için bu makaleyi kullanın.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: d8ba4fa1b5f5efd671c13ad2201b0cd34642d346
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844949"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976724"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Hyper-V VM'LERİNDE olağanüstü durum kurtarma için kapasite planlama 
 
@@ -34,7 +35,7 @@ Kaynak ortamı ve iş yüklerini analiz etmek için Site Recovery Capacity Plann
 Aracı iki modda çalıştırabilirsiniz:
 
 * **Hızlı planlama**: VM'ler, diskler, depolama ve değişim hızı, bir ortalama sayısına göre ağ ve sunucu tahminleri sağlar.
-* **Ayrıntılı planlama**: her iş yükü VM düzeyinde ayrıntılarını sağlar. VM uyumluluğu analiz edin ve ağ ve sunucu tahminlerini alın.
+* **Ayrıntılı planlama**: Her iş yükü VM düzeyinde ayrıntılarını sağlar. VM uyumluluğu analiz edin ve ağ ve sunucu tahminlerini alın.
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
@@ -65,17 +66,17 @@ Aracı iki modda çalıştırabilirsiniz:
 
 4. Değerler için kaynak ortamı girdikten sonra görüntülenen çıktının içerir:
 
-   * **(İçinde megabit/sn) değişiklik çoğaltması için gereken bant genişliği**: değişiklik çoğaltması için ağ bant genişliği, ortalama günlük veri değişikliği hızınıza hesaplanır.
-   * **(Megabit/sn), ilk çoğaltma için gereken bant genişliği**: ilk çoğaltma için ağ bant genişliği, girdiğiniz ilk çoğaltma değerlerine hesaplanır.
-   * **Depolama (GB) gerekli**: gereken toplam Azure depolama alanı.
-   * **Standart depolama IOPS toplam**: sayı, 8 K IOPS birim boyutu toplam standart depolama hesaplarında temelinde hesaplanır. Hızlı Planlayıcıyı tüm kaynak VM disk numarası dayalı olarak hesaplanır ve günlük veri değişim oranı. Ayrıntılı Planlayıcıyı sayı dayalı olarak standart Azure Vm'lerine eşlenen VM'lerin toplam sayısı hesaplanır ve veri değişim oranı bu vm'lerdeki.
-   * **Standart depolama hesabı gerekli**: standart depolama hesapları Vm'leri korumak için gereken toplam sayısı. Bir standart depolama hesabı, standart depolama alanında tüm sanal makinelerde en fazla 20.000 IOPS basılı tutabilirsiniz. Disk başına en fazla 500 IOPS desteklenir.
-   * **Gerekli Blob disk sayısını**: Azure depolama üzerinde oluşturulan disk sayısı.
-   * **Premium hesap gerekiyor sayısı**: premium depolama hesapları Vm'leri korumak için gereken toplam sayısı. Kaynak VM ile (20. 000 ' büyük) yüksek IOPS, premium depolama hesabı gerekir. Premium depolama hesabı, en fazla 80.000 IOPS barındırabilir.
-   * **Premium depolama IOPS toplam**: sayı, 256 K IOPS birim boyutu toplam premium depolama hesaplarında temelinde hesaplanır. Hızlı Planlayıcıyı tüm kaynak VM disk numarası dayalı olarak hesaplanır ve günlük veri değişim oranı. Ayrıntılı Planlayıcıyı sayı dayalı olarak premium Azure Vm'lere (DS ve GS serisi) eşlenmiş VM'lerin toplam sayısı hesaplanır ve veri değişim oranı bu vm'lerdeki.
-   * **Yapılandırma gereken sunucu sayısına göre**: kaç yapılandırma sunucusu dağıtım için gerekli olduğunu gösterir.
-   * **Gereken ek işlem sunucularının sayısı**: ek işlem sunucularının varsayılan olarak yapılandırma sunucusunda çalıştırılan işlem sunucusu yanı sıra gerekli olup olmadığını gösterir.
-   * **% 100 kaynak ek depolama alanı**: kaynak konumda ek depolama alanı gerekli olup olmadığını gösterir.
+   * **(İçinde megabit/sn) değişiklik çoğaltması için gereken bant genişliği**: Değişiklik çoğaltması için ağ bant genişliğini ortalama günlük veri değişikliği hızınıza hesaplanır.
+   * **(Megabit/sn), ilk çoğaltma için gereken bant genişliği**: İlk çoğaltma için ağ bant genişliği, girdiğiniz ilk çoğaltma değerlerine hesaplanır.
+   * **Depolama (GB) gerekli**: Gereken toplam Azure depolama alanı.
+   * **Standart depolama IOPS toplam**: Sayısı 8 K IOPS birim boyutu toplam standart depolama hesaplarına göre hesaplanır. Hızlı Planlayıcıyı tüm kaynak VM disk numarası dayalı olarak hesaplanır ve günlük veri değişim oranı. Ayrıntılı Planlayıcıyı sayı dayalı olarak standart Azure Vm'lerine eşlenen VM'lerin toplam sayısı hesaplanır ve veri değişim oranı bu vm'lerdeki.
+   * **Standart depolama hesabı gerekli**: Standart depolama hesapları Vm'leri korumak için gereken toplam sayısı. Bir standart depolama hesabı, standart depolama alanında tüm sanal makinelerde en fazla 20.000 IOPS basılı tutabilirsiniz. Disk başına en fazla 500 IOPS desteklenir.
+   * **Gerekli Blob disk sayısını**: Azure depolama üzerinde oluşturulan disklerini sayısı.
+   * **Premium hesap gerekiyor sayısı**: Premium depolama hesapları Vm'leri korumak için gereken toplam sayısı. Kaynak VM ile (20. 000 ' büyük) yüksek IOPS, premium depolama hesabı gerekir. Premium depolama hesabı, en fazla 80.000 IOPS barındırabilir.
+   * **Premium depolama IOPS toplam**: Sayı toplam premium depolama hesapları 256 K IOPS birimi boyutuna göre hesaplanır. Hızlı Planlayıcıyı tüm kaynak VM disk numarası dayalı olarak hesaplanır ve günlük veri değişim oranı. Ayrıntılı Planlayıcıyı sayı dayalı olarak premium Azure Vm'lere (DS ve GS serisi) eşlenmiş VM'lerin toplam sayısı hesaplanır ve veri değişim oranı bu vm'lerdeki.
+   * **Yapılandırma gereken sunucu sayısına göre**: Kaç tane yapılandırma sunucusu dağıtım için gerekli olduğunu gösterir.
+   * **Gereken ek işlem sunucularının sayısı**: Ek işlem sunucularının varsayılan olarak yapılandırma sunucusunda çalıştırılan işlem sunucusu yanı sıra gerekli olup olmadığını gösterir.
+   * **% 100 kaynak ek depolama alanı**: Kaynak konumda ek depolama alanı gerekli olup olmadığını gösterir.
 
       ![Çıktı](./media/site-recovery-capacity-planner/output.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Değiştirme ve bir mikro hizmet yeniden dağıtma | Microsoft Docs
+title: Değiştirin ve yeniden bir mikro hizmet - Azure | Microsoft Docs
 description: Bu öğreticide değiştirmek ve bir mikro hizmet Uzaktan izleme yeniden dağıtma işlemi gösterilmektedir
 author: dominicbetts
 ms.author: dobett
@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20e86220fffe95fc38b5fa15dd5603db4331203f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 563de3d062b2c49d6b7ba23ae405e75283270815
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315766"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631915"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Bir mikro hizmeti özelleştirme ve yeniden dağıtma
 
-Bu öğreticide birini düzenlemek gösterilir [mikro Hizmetler](http://azure.com/microservices) Uzaktan izleme çözümünde, mikro hizmet görüntüsü oluşturun, görüntüyü docker hub'ınızı dağıtmak ve sonra Uzaktan izleme çözümünde kullanabilirsiniz. Bu kavram, öğretici temel senaryo burada bir mikro hizmet API çağrısı ve durum ileti "Etkin tutma ve iyi" değiştirin "Yeni Made burada düzenlemeleri için!" kullanır
+Bu öğreticide birini düzenlemek gösterilir [mikro Hizmetler](https://azure.com/microservices) Uzaktan izleme çözümünde, mikro hizmet görüntüsü oluşturun, görüntüyü docker hub'ınızı dağıtmak ve sonra Uzaktan izleme çözümünde kullanabilirsiniz. Bu kavram, öğretici temel senaryo burada bir mikro hizmet API çağrısı ve durum ileti "Etkin tutma ve iyi" değiştirin "Yeni Made burada düzenlemeleri için!" kullanır
 
 Uzaktan izleme çözümü, bir docker hub'ından çekilir docker görüntüleri kullanılarak oluşturulan bir mikro hizmetler kullanır. 
 
@@ -77,7 +77,7 @@ Bu bölümünde varsayılan IOT hub Yöneticisi mikro hizmet API çağrısı. AP
     
     veya Windows üzerinde:
     
-    ```
+    ```cmd
     ./build.cmd
     ```
 

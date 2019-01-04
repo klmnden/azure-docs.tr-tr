@@ -10,20 +10,20 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/09/2017
+ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: 0895d31475de5d78c82f3bfedc0765e5a9549339
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b9d51cb4462f5f2fdf6126dfd7ecbcb6b255adc1
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877607"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970738"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Akıllı algılama - hata Anomalileri
 [Application Insights](app-insights-overview.md) otomatik olarak web uygulamanızın olağandışı başarısız istek oranı artışı karşılaşırsa neredeyse gerçek zamanlı olarak bildirir. Bu, HTTP isteklerini veya başarısız olarak raporlanır bağımlılık çağrıları oranını olağan dışı bir artış algılar. Başarısız istekler, istekleri için yanıt kodları 400 veya daha yüksek olan genellikle biçimindedir. Önceliklendirmenize ve sorunu tanılamanıza yardımcı olmak için hataları ve ilgili telemetriyi özelliklerini analizini bildiriminde sağlanır. Daha ileri tanılama için Application Insights portalına bağlantıları vardır. Normal hata oranı tahmin etmek için makine öğrenimi algoritmaları kullanır gibi özellik Kurulum ya da yapılandırması gerekir.
 
-Bu özellik, bulutta ya da kendi sunucularınızda bulunan Java ve ASP.NET web uygulamaları için çalışır. Çağıran bir çalışan rolü varsa, örneğin, istek veya bağımlılık telemetri - oluşturan herhangi bir uygulama için de çalışır [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) veya [TrackDependency()](app-insights-api-custom-events-metrics.md#trackdependency).
+Bu özellik, bulutta ya da kendi sunucularınızda bulunan Java ve ASP.NET web uygulamaları için çalışır. Çağıran bir çalışan rolü varsa, örneğin, istek veya bağımlılık telemetri - oluşturan herhangi bir uygulama için de çalışır [TrackRequest()](../azure-monitor/app/api-custom-events-metrics.md#trackrequest) veya [TrackDependency()](../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
 Ayarladıktan sonra [projeniz için Application Insights](app-insights-overview.md), ve uygulamanızı belirli bir en düşük miktarda telemetri oluşturur sağlanan hata anomalileri, akıllı algılama silinmeden önce uygulamanızın normal davranışını öğrenmek için 24 saat sürer. açık ve Uyarıları gönderebilirsiniz.
 
@@ -45,10 +45,10 @@ Size bildirir dikkat edin:
 * İlgili aramalar Application ınsights telemetrisi üzerinde doğrudan bağlantılar.
 
 ## <a name="benefits-of-smart-detection"></a>Akıllı algılama avantajları
-Sıradan [ölçüm uyarıları](app-insights-alerts.md) size bir sorun olabilir. Ancak, akıllı algılama, aksi takdirde kendiniz yapmak zorunda olabilirsiniz analiz çok fazla gerçekleştirmek için tanılama iş başlatır. Düzgünce paketlenmiş, sonuçları, sorunun kök hızlı bir şekilde almak için Yardım alın.
+Sıradan [ölçüm uyarıları](../azure-monitor/app/alerts.md) size bir sorun olabilir. Ancak, akıllı algılama, aksi takdirde kendiniz yapmak zorunda olabilirsiniz analiz çok fazla gerçekleştirmek için tanılama iş başlatır. Düzgünce paketlenmiş, sonuçları, sorunun kök hızlı bir şekilde almak için Yardım alın.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
-Akıllı algılama belirli ve uygulamanızdan alınan telemetri izler hata oranları. Bu kural istekleri için sayar `Successful request` özelliği false olduğunda ve kendisi için çağrılarının bağımlılık sayısı `Successful call` özellik değer false. Varsayılan olarak, istekleri `Successful request == (resultCode < 400)` (özel kod yazdığınız sürece [filtre](app-insights-api-filtering-sampling.md#filtering) ya da kendi oluşturma [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest) çağırır). 
+Akıllı algılama belirli ve uygulamanızdan alınan telemetri izler hata oranları. Bu kural istekleri için sayar `Successful request` özelliği false olduğunda ve kendisi için çağrılarının bağımlılık sayısı `Successful call` özellik değer false. Varsayılan olarak, istekleri `Successful request == (resultCode < 400)` (özel kod yazdığınız sürece [filtre](../azure-monitor/app/api-filtering-sampling.md#filtering) ya da kendi oluşturma [TrackRequest](../azure-monitor/app/api-custom-events-metrics.md#trackrequest) çağırır). 
 
 Uygulamanızın performansını davranış tipik bir düzen vardır. Bazı istekler veya bağımlılık çağrıları diğerlerine göre hataya daha hatalara açık olacaktır. ve genel hata oranı yük arttıkça gidebilir. Akıllı algılama bu anormallikleri bulmak için makine öğrenimini kullanıyor.
 
@@ -60,7 +60,15 @@ Hizmetinizin telemetri çağrıları ile işaretlenmiş, bir özel durum ve bu i
 
 Sonuçta elde edilen analiz için yapılandırmış olduğunuz sürece, uyarı gönderilir.
 
-Gibi [el ile ayarladığınız uyarıları](app-insights-alerts.md), uyarının durumunu incelemek ve Application Insights kaynağınıza uyarılar dikey penceresinden yapılandırın. Ancak diğer uyarılar farklı olarak ayarlamak veya akıllı algılama yapılandırmak gerekmez. İsterseniz, devre dışı bırakın ya da kendi hedef e-posta adreslerini değiştirin.
+Gibi [el ile ayarladığınız uyarıları](../azure-monitor/app/alerts.md), uyarının durumunu incelemek ve Application Insights kaynağınıza uyarılar dikey penceresinden yapılandırın. Ancak diğer uyarılar farklı olarak ayarlamak veya akıllı algılama yapılandırmak gerekmez. İsterseniz, devre dışı bırakın ya da kendi hedef e-posta adreslerini değiştirin.
+
+### <a name="alert-logic-details"></a>Uyarı mantığı ayrıntıları
+
+Uyarılar için size tam uygulama ayrıntılarını paylaşamaz öğrenme algoritmasına makinemizi özel tarafından tetiklenir. Bu kullanıcıyla Bununla birlikte, bazen temel mantığını nasıl çalıştığı hakkında daha fazla bilgi edinmek için ihtiyacınız olduğunu biliyoruz. Uyarıyı tetikleyen belirlemek için değerlendirilen temel unsurlar şunlardır: 
+
+* İstekleri/bağımlılıkları 20 dakika çalışırken zaman penceresi içinde hata yüzdesi analizi.
+* Son 40 dakika ve son yedi gün ve X kez aşan önemli sapmaları için standart sapma isteyen son 20 dakikası oranına hatası yüzdesi karşılaştırması.
+* Bir Uyarlamalı sınırı için en düşük hatası yüzdesi kullanarak gerçekleştirmediğine, istekleri/bağımlılıkları, uygulamanın hacmine dayalı.
 
 ## <a name="configure-alerts"></a>Uyarı yapılandırma
 Akıllı algılama devre dışı bırakın, e-posta alıcılarını değiştirmek, bir Web kancası oluşturma veya ayrıntılı uyarı iletileri kabul et.
@@ -89,9 +97,9 @@ Etkilenen kullanıcı sayısı veya isteklerin sınıflandırılacak nasıl soru
 
 Diğer bazı ipuçları vardır. Örneğin, bu örnekte bağımlılık hatası oranı (%89.3) özel durum oranı aynıdır. Bu özel durumun doğrudan bağımlılık hatası - kodunuzda bakmaya başlamak burada NET bir fikir veren gelen ortaya önerir.
 
-Daha fazla araştırmak için her bölümdeki bağlantılar, için düz sürer bir [arama sayfası](app-insights-diagnostic-search.md) ilgili istekleri, özel durum, bağımlılık veya izlemeleri filtrelendi. Veya açabileceğiniz [Azure portalında](https://portal.azure.com), uygulamanız için Application Insights kaynağına gidin ve hataları dikey penceresini açın.
+Daha fazla araştırmak için her bölümdeki bağlantılar, için düz sürer bir [arama sayfası](../azure-monitor/app/diagnostic-search.md) ilgili istekleri, özel durum, bağımlılık veya izlemeleri filtrelendi. Veya açabileceğiniz [Azure portalında](https://portal.azure.com), uygulamanız için Application Insights kaynağına gidin ve hataları dikey penceresini açın.
 
-Bu örnekte, 'bağımlılık hatalarının Ayrıntıları Görüntüle' bağlantıya tıklamak, Application Insights arama dikey penceresi açılır. Örnek olarak kök neden olan SQL deyimi gösterilmektedir: null değerlere zorunlu alanları sağlandı ve kaydetme sırasında doğrulamayı geçemedi işlemi.
+Bu örnekte, 'bağımlılık hatalarının Ayrıntıları Görüntüle' bağlantıya tıklamak, Application Insights arama dikey penceresi açılır. Bu örnek olarak kök neden olan SQL deyimi gösterilmektedir: Null değerlere zorunlu alanları sağlandı ve kaydetme sırasında doğrulamayı geçemedi işlemi.
 
 ![Tanılama arama](./media/app-insights-proactive-failure-diagnostics/051.png)
 
@@ -105,7 +113,7 @@ Tıklayın **akıllı algılama** en son uyarı almak için:
 ## <a name="whats-the-difference-"></a>Fark nedir...
 Hata anomalileri, akıllı algılama tamamlar diğer benzer ancak farklı Application Insights özellikleri.
 
-* [Ölçüm uyarıları](app-insights-alerts.md) sizin tarafınızdan ayarlanır ve çok çeşitli CPU doluluğu, istek hızları, sayfa yükleme süreleri ve benzeri gibi ölçümleri izleyebilirsiniz. Daha fazla kaynak eklemeniz gerekir, örneğin, uyarmak için kullanabilirsiniz. Bunun aksine, neredeyse gerçek zamanlı şekilde sonra web uygulamanızın başarısız oldu, isteği web uygulamasının için önemli ölçüde karşılaştırıldığında hızı artar bildirmek için tasarlanmış küçük bir aralık kritik ölçüm (şu anda yalnızca başarısız istek oranında olağandışı), hata anomalileri, akıllı algılama kapsar Normal davranış.
+* [Ölçüm uyarıları](../azure-monitor/app/alerts.md) sizin tarafınızdan ayarlanır ve çok çeşitli CPU doluluğu, istek hızları, sayfa yükleme süreleri ve benzeri gibi ölçümleri izleyebilirsiniz. Daha fazla kaynak eklemeniz gerekir, örneğin, uyarmak için kullanabilirsiniz. Bunun aksine, neredeyse gerçek zamanlı şekilde sonra web uygulamanızın başarısız oldu, isteği web uygulamasının için önemli ölçüde karşılaştırıldığında hızı artar bildirmek için tasarlanmış küçük bir aralık kritik ölçüm (şu anda yalnızca başarısız istek oranında olağandışı), hata anomalileri, akıllı algılama kapsar Normal davranış.
 
     Akıllı algılama eşiğini yaygınlaşan koşullarına yanıt otomatik olarak ayarlar.
 
@@ -123,7 +131,7 @@ Hata anomalileri, akıllı algılama tamamlar diğer benzer ancak farklı Applic
 
 *Bu nedenle, guys my verilere bakmak?*
 
-* Hayır. Hizmeti tamamen otomatik olarak yapılır. Yalnızca bildirimleri alın. Verileriniz [özel](app-insights-data-retention-privacy.md).
+* Hayır. Hizmeti tamamen otomatik olarak yapılır. Yalnızca bildirimleri alın. Verileriniz [özel](../azure-monitor/app/data-retention-privacy.md).
 
 *Bu uyarıya abone gerekiyor mu?*
 
@@ -145,10 +153,10 @@ Hata anomalileri, akıllı algılama tamamlar diğer benzer ancak farklı Applic
 Bu tanılama araçları, uygulamanızdan alınan telemetri incelemenize yardımcı:
 
 * [Ölçüm Gezgini](app-insights-metrics-explorer.md)
-* [Arama Gezgini](app-insights-diagnostic-search.md)
+* [Arama Gezgini](../azure-monitor/app/diagnostic-search.md)
 * [Analytics - güçlü sorgu dili](../azure-monitor/log-query/get-started-portal.md)
 
 Akıllı algılama tamamen otomatik olarak yapılır. Ancak belki de daha fazla bazı uyarıları ayarlamak ister misiniz?
 
-* [El ile yapılandırılan ölçüm uyarıları](app-insights-alerts.md)
-* [Kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md)
+* [El ile yapılandırılan ölçüm uyarıları](../azure-monitor/app/alerts.md)
+* [Kullanılabilirlik web testleri](../azure-monitor/app/monitor-web-app-availability.md)

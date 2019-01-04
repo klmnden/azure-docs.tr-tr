@@ -1,178 +1,185 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Slack | Microsoft Docs'
+title: 'Öğretici: Slack ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve Slack arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: ffc5e73f-6c38-4bbb-876a-a7dd269d4e1c
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/14/2018
+ms.topic: tutorial
+ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 5b1099e46cf1aa2fd4b948fee8407cfd859390ce
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: fd868e02987c61e6bdd992c45a95cb775d1778ca
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129129"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969556"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-slack"></a>Öğretici: Azure Active Directory Slack ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-slack"></a>Öğretici: Slack ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Slack, Azure Active Directory (Azure AD) ile tümleştirme konusunda bilgi edinin.
-
 Slack Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Slack erişimi, Azure AD'de denetleyebilirsiniz
-- Otomatik olarak imzalanan için Slack (çoklu oturum açma) ile Azure AD hesaplarına açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilirsiniz.
+* Slack erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak (çoklu oturum açma) için Slack kendi Azure AD hesapları ile oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile Slack yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Bir Slack çoklu oturum açma abonelik etkin.
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Slack çoklu oturum açma abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Slack galeri ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* Slack destekler **SP** tarafından başlatılan
+* Slack destekler **zamanında** kullanıcı sağlama
+* Slack destekler [ **otomatik** kullanıcı sağlama](slack-provisioning-tutorial.md)
 
 ## <a name="adding-slack-from-the-gallery"></a>Slack galeri ekleme
+
 Azure AD'de Slack tümleştirmesini yapılandırmak için Slack galerideki yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Slack eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Active Directory][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Uygulamalar][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Uygulamalar][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **Slack**.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/slack-tutorial/tutorial_slack_search.png)
+4. Arama kutusuna **Slack**seçin **Slack** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-1. Sonuçlar panelinde seçin **Slack**ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+     ![Sonuçlar listesinde Slack](common/search-new-app.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/slack-tutorial/tutorial_slack_addfromgallery.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Yapılandırma ve test Azure AD çoklu oturum açma
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Slack sınayın.
-
-Tek çalışmak için oturum açma için Azure AD ne Slack karşılığı kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve Slack ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
-
-Slack içinde değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Slack adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve Slack ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma Slack ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açmayı yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Bir Slack test kullanıcısı oluşturma](#creating-a-slack-test-user)**  - kullanıcı Azure AD gösterimini bağlı Slack içinde bir karşılığı Britta simon'un sağlamak için.
-1. **[Azure AD test kullanıcı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açma testi](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Slack çoklu oturum açmayı yapılandırma](#configure-slack-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Slack test kullanıcısı oluşturma](#create-slack-test-user)**  - kullanıcı Azure AD gösterimini bağlı Slack içinde bir karşılığı Britta simon'un sağlamak için.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Slack uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma Slack ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma Slack ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **Slack** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Slack** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açmayı yapılandırın][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/slack-tutorial/tutorial_slack_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **Slack etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/slack-tutorial/tutorial_slack_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<companyname>.slack.com`
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    b. İçinde **tanımlayıcı** metin değeri üzerinde oturum URL'si ile güncelleştirin. Bu, çalışma alanı etki alanıdır. Örneğin, `https://contoso.slack.com`
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-1. Slack uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirme sayfasında bölümü. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/slack-tutorial/tutorial_slack_attribute.png)
+    ![Çoklu oturum açma bilgileri Slack etki alanı ve URL'ler](common/sp-identifier.png)
+
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<companyname>.slack.com`.
+
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusunda, değeri üzerinde oturum URL'si ile güncelleştirin. Bu, çalışma alanı etki alanıdır. Örneğin: `https://contoso.slack.com`.
+
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirin. İlgili kişi [Slack istemci Destek ekibine](https://slack.com/help/contact) bu değerleri almak için. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
+
+5. Slack uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
+
+    ![image](common/edit-attribute.png)
 
     > [!NOTE] 
     > Atanan kullanıcılar varsa **e-posta adresi** bir Office 365 lisansı değil **User.Email** talep SAML belirteci görünmez. Bu gibi durumlarda kullanarak olan öneririz **user.userprincipalname** olarak **User.Email** öznitelik değeri olarak eşleştirmek için **benzersiz tanımlayıcı** yerine.
 
-1. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda **user.mail** olarak **kullanıcı tanımlayıcısı** ve gösterilen her satır için Aşağıdaki tabloda, aşağıdaki adımları gerçekleştirin:
-    
-    | Öznitelik Adı | Öznitelik Değeri |
+6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
+
+    | Ad | Kaynak özniteliği |
     | --- | --- |
     | first_name | User.givenName |
     | Soyadı | User.surname |
-    | User.Email | User.Mail |  
+    | User.Email | User.Mail |
     | User.Username | User.userPrincipalName |
 
-    a. Tıklayarak **özniteliği** açmak için **özniteliğini Düzenle** iletişim kutusu ve aşağıdaki adımları gerçekleştirin:
+    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/slack-tutorial/tutorial_slack_attribute1.png)
+    ![image](common/new-save-attribute.png)
 
-    a. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
+    ![image](common/new-attribute-details.png)
 
-    b. Gelen **değer** listesinde, ilgili satır için gösterilen öznitelik değeri seçin.
+    b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
     c. Bırakın **Namespace** boş.
 
-    d. **Tamam**’a tıklayın.
+    d. Kaynağı olarak **özniteliği**.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/slack-tutorial/tutorial_slack_certificate.png)
+    f. Tıklayın **Tamam**
 
-1. Tıklayın **Kaydet** düğmesi.
+    g. **Kaydet**’e tıklayın.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/slack-tutorial/tutorial_general_400.png)
+7. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-1. Üzerinde **Slack yapılandırma** bölümünde **yapılandırma Slack** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/slack-tutorial/tutorial_slack_configure.png)
+8. Üzerinde **Slack kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
+
+    a. Oturum Açma URL'si:
+
+    b. Azure Ad tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-slack-single-sign-on"></a>Slack çoklu oturum açmayı yapılandırın
 
 1. Farklı bir web tarayıcı penceresinde bir Slack şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-1. Gidin **Microsoft Azure AD** ardından **takım ayarları**.
+2. Gidin **Microsoft Azure AD** ardından **takım ayarları**.
 
      ![Çoklu oturum açma uygulama tarafında yapılandırma](./media/slack-tutorial/tutorial_slack_001.png)
 
-1. İçinde **takım ayarları** bölümünde **kimlik doğrulaması** sekmesine ve ardından **ayarlarını değiştir**.
+3. İçinde **takım ayarları** bölümünde **kimlik doğrulaması** sekmesine ve ardından **ayarlarını değiştir**.
 
     ![Çoklu oturum açma uygulama tarafında yapılandırma](./media/slack-tutorial/tutorial_slack_002.png)
 
-1. Üzerinde **SAML kimlik doğrulaması ayarlarını** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **SAML kimlik doğrulaması ayarlarını** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açma uygulama tarafında yapılandırma](./media/slack-tutorial/tutorial_slack_003.png)
 
-    a.  İçinde **SAML 2.0 uç noktası (HTTP)** metin değerini yapıştırın **SAML çoklu oturum açma hizmeti URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
+    a.  İçinde **SAML 2.0 uç noktası (HTTP)** metin değerini yapıştırın **oturum açma URL'si**, hangi Azure Portalı'ndan kopyaladığınız.
 
-    b.  İçinde **kimlik sağlayıcısını veren** metin değerini yapıştırın **SAML varlık kimliği**, hangi Azure Portalı'ndan kopyaladığınız.
+    b.  İçinde **kimlik sağlayıcısını veren** metin değerini yapıştırın **Azure Ad tanımlayıcısı**, hangi Azure Portalı'ndan kopyaladığınız.
 
     c.  İndirilen sertifika dosyasını Not Defteri'nde açın, içeriğini, panoya kopyalayın ve ardından ona yapıştırın **ortak sertifika** metin.
 
@@ -180,38 +187,58 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve S
 
     e.  Tıklayın **yapılandırmayı kaydetmek**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
+
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-![Azure AD kullanıcısı oluşturun][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. İçinde **Azure portalında**, sol gezinti bölmesinde **Azure Active Directory** simgesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/slack-tutorial/create_aaduser_01.png) 
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/slack-tutorial/create_aaduser_02.png) 
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-1. Açmak için **kullanıcı** iletişim kutusunda, tıklayın **Ekle** iletişim kutusunun üst kısmındaki.
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/slack-tutorial/create_aaduser_03.png)
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-1. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
-
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/slack-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** metin kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** metin kutusuna **e-posta adresi** BrittaSimon biri.
-
-    c. Seçin **Göster parola** ve değerini yazma **parola**.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
 
-### <a name="creating-a-slack-test-user"></a>Bir Slack test kullanıcısı oluşturma
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+
+Bu bölümde, Azure çoklu oturum açma kullanmak için Slack erişim vererek Britta Simon etkinleştirin.
+
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Slack**.
+
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **Slack**.
+
+    ![Slack, uygulamalar listesinde bağlantı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-slack-test-user"></a>Slack test kullanıcısı oluşturma
 
 Bu bölümün amacı, Slack Britta Simon adlı bir kullanıcı oluşturmaktır. Slack tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı henüz mevcut değilse, Slack erişme denemesi sırasında oluşturulur. Slack ayrıca otomatik kullanıcı hazırlama, destekleyen daha fazla ayrıntı bulabilirsiniz [burada](slack-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
 
@@ -221,59 +248,18 @@ Bu bölümün amacı, Slack Britta Simon adlı bir kullanıcı oluşturmaktır. 
 > [!NOTE]
 > Azure AD Connect, şirket içi Active Directory kimlikleriniz Azure AD'ye eşitleyebilirsiniz eşitleme aracı ve ardından bu eşitlenmiş kullanıcıları gibi diğer bulut kullanıcıları gibi uygulamalar da kullanabilirsiniz.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama
-
-Bu bölümde, Azure çoklu oturum açma kullanmak için Slack erişim vererek Britta Simon etkinleştirin.
-
-![Kullanıcı Ata][200]
-
-**Britta Simon için Slack atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201] 
-
-1. Uygulamalar listesinde **Slack**.
-
-    ![Çoklu oturum açmayı yapılandırın](./media/slack-tutorial/tutorial_slack_app.png) 
-
-1. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    ![Kullanıcı Ata][202] 
-
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
-
-    ![Kullanıcı Ata][203]
-
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
-
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="testing-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Slack kutucuğa tıkladığınızda, erişim Paneli'nde, otomatik olarak Slack uygulamanıza açan.
+Slack kutucuğa tıkladığınızda, erişim Paneli'nde, otomatik olarak için SSO'yu ayarladığınız Slack oturum. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
 * [Kullanıcı sağlamayı yapılandırma](slack-provisioning-tutorial.md)
-
-
-<!--Image references-->
-
-[1]: ./media/slack-tutorial/tutorial_general_01.png
-[2]: ./media/slack-tutorial/tutorial_general_02.png
-[3]: ./media/slack-tutorial/tutorial_general_03.png
-[4]: ./media/slack-tutorial/tutorial_general_04.png
-
-[100]: ./media/slack-tutorial/tutorial_general_100.png
-
-[200]: ./media/slack-tutorial/tutorial_general_200.png
-[201]: ./media/slack-tutorial/tutorial_general_201.png
-[202]: ./media/slack-tutorial/tutorial_general_202.png
-[203]: ./media/slack-tutorial/tutorial_general_203.png

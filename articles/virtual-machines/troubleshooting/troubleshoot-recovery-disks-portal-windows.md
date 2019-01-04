@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: c68febc7bd6aac0262c41cc8b33602f8496eb215
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0b6ade7a6031b957f2405e525d61c9ca1d2dac3d
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436409"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809106"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>İşletim sistemi diskini bir kurtarma Azure portalını kullanarak sanal Makinesine ekleyerek bir Windows sanal makinesinin sorunlarını giderme
 Azure'da Windows sanal makinesi (VM), önyükleme veya disk bir hatasıyla karşılaşırsa, sanal sabit diskin kendisinde sorun giderme adımları gerçekleştirmeniz gerekebilir. Yaygın olarak karşılaşılan örneklerden VM başarıyla önyükleme engelleyen bir uygulamanın güncelleştirme olacaktır. Bu makalede, sanal sabit diskinizi başka bir Windows varsa hataları düzeltin ve ardından orijinal VM'yi yeniden oluşturmak için VM'ye bağlanmak için Azure portalını kullanma işlemi açıklanmaktadır.
@@ -133,7 +133,7 @@ Mevcut sanal sabit diski sorun giderme, hataları çözümlendikten sonra çıka
     VM başarıyla veri diski devam etmeden önce ayrılmış kadar bekleyin.
 
 ## <a name="create-vm-from-original-hard-disk"></a>Orijinal sabit diskten VM oluşturma
-Özgün sanal sabit diskten bir VM oluşturmak için kullanın [bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). Şablonun, önceki komuttan VHD URL'sini kullanarak mevcut bir sanal ağına bir VM dağıtır. Tıklayın **azure'a Dağıt** düğmesi gibi:
+Özgün sanal sabit diskten bir VM oluşturmak için kullanın [bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet). Şablonun, önceki komuttan VHD URL'sini kullanarak mevcut veya yeni sanal ağına, bir VM dağıtır. Tıklayın **azure'a Dağıt** düğmesi gibi:
 
 ![Github'dan şablondan VM dağıtma](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
 

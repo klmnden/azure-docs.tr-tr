@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: babad23743a0a3c9631c0bcf406de3521174264a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 115a78993929b900b835450ea52d590e00ff7461
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887228"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604982"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>"İşlevler çalışma zamanı erişilemiyor" sorunlarını giderme
 
@@ -54,7 +54,7 @@ Bir depolama hesabı bağlantı dizesi yoksa önceki adımda, silinmiş veya üz
 
 ### <a name="required-application-settings"></a>Gerekli uygulama ayarları
 
-* Gerekli
+* Gereklidir
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 * Tüketim planı işlevleri için gerekli
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#websitecontentazurefileconnectionstring)
@@ -92,5 +92,5 @@ Depolama anahtarlarını yeniden, yukarıdaki depolama hesabı bağlantı dizele
   İşlevlerinizi test etmek için çeşitli araçları ve teknikleri açıklar.
 * [Azure İşlevlerini ölçeklendirme](functions-scale.md)  
   Tüketim barındırma planı dahil olmak üzere, Azure İşlevlerinde kullanılabilen hizmet planlarını ve doğru planın nasıl seçileceğini açıklar. 
-* [Azure Uygulama Hizmeti hakkında daha fazla bilgi edinin](../app-service/app-service-web-overview.md)  
+* [Azure Uygulama Hizmeti hakkında daha fazla bilgi edinin](../app-service/overview.md)  
   Azure İşlevleri; dağıtımlar, ortam değişkenleri ve tanılama gibi temel işlevler için Azure App Service’i kullanır. 

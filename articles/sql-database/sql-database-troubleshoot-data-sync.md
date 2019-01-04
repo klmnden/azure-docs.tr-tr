@@ -12,18 +12,21 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: c08a76711a74f5b0fd119e579c6db54fc13ecfbb
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 87f3b9de2ff86016f11a0996cbe448651ee6844f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685829"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723901"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>SQL Data Sync ile ilgili sorunları giderme
 
 Bu makalede, Azure SQL Data Sync ile ilgili bilinen sorunlar giderilir açıklar. Bir sorun için bir çözüm varsa, burada sağlanır.
 
 SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync mu **değil** şu anda Azure SQL veritabanı yönetilen örneği destekler.
 
 ## <a name="sync-issues"></a>Eşitleme sorunları
 
@@ -37,7 +40,7 @@ SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync ile birden
 
 - [Önemli bir performans düşüşü görüyorum](#sync-perf)
 
-- [Bu iletiyi görüyorum: "sütununa NULL değer eklenemiyor <column>. Sütun null değerlere izin vermiyor." Bunun anlamı nedir ve nasıl düzeltebilirim?](#sync-nulls)
+- [Bu iletiyi görüyorum: "Sütununa NULL değer eklenemiyor <column>. Sütun null değerlere izin vermiyor." Bunun anlamı nedir ve nasıl düzeltebilirim?](#sync-nulls)
 
 - [Veri eşitleme, döngüsel başvurular nasıl işliyor? Diğer bir deyişle, ne zaman aynı verileri birden çok eşitleme gruplarında eşitlenen ve bunun sonucunda değişir mi?](#sync-circ)
 
@@ -102,7 +105,7 @@ Performansınızı önemli ölçüde büyük olasılıkla veri eşitleme UI bile
 
 - **Çözüm**. En iyi önleme açıklanmıştır. Eşitleme gruplarınızı döngüsel başvurular olmadığından emin olun. Bir eşitleme grubu tarafından eşitlenen herhangi bir satırın başka bir eşitleme grubu ile eşitlenemiyor.
 
-### <a name="sync-nulls"></a> Bu iletiyi görüyorum: "sütununa NULL değer eklenemiyor <column>. Sütun null değerlere izin vermiyor." Bunun anlamı nedir ve nasıl düzeltebilirim? 
+### <a name="sync-nulls"></a> Bu iletiyi görüyorum: "Sütununa NULL değer eklenemiyor <column>. Sütun null değerlere izin vermiyor." Bunun anlamı nedir ve nasıl düzeltebilirim? 
 Bu hata iletisini iki aşağıdaki sorunlardan biri oluştuğunu gösterir:
 -  Bir tabloda bir birincil anahtar yok. Bu sorunu gidermek için birincil anahtarı eşitleniyor tüm tabloları ekleyin.
 -  CREATE INDEX deyiminde WHERE yan tümcesi yoktur. Veri eşitleme, bu durum işlemiyor. Bu sorunu gidermek için WHERE yan tümcesini kaldırın veya tüm veritabanları için el ile değişiklik. 
@@ -241,7 +244,7 @@ SQL Data Sync hakkında daha fazla bilgi için bkz:
 
 -   Genel Bakış - [verileri Eşitle birden fazla Bulut ve şirket içi veritabanı arasında Azure SQL Data Sync ile](sql-database-sync-data.md)
 -   Data Sync'i Ayarla
-    - Portalda - [öğretici: Azure SQL veritabanı ve SQL Server arasında verileri eşitlemek amacıyla şirket içi SQL Data Sync'i Ayarla](sql-database-get-started-sql-data-sync.md)
+    - Portalda - [Öğreticisi: Azure SQL veritabanı ve SQL Server arasında verileri eşitlemek amacıyla şirket içi SQL Data Sync'i Ayarla](sql-database-get-started-sql-data-sync.md)
     - PowerShell ile
         -  [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)

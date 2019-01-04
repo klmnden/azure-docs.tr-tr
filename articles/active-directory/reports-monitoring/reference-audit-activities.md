@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: db801acbed649c4baa039858ce1d097237c8e227
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622883"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971384"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD denetim etkinliği başvurusu
 
@@ -166,7 +166,7 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Yetkilendirme|V1 uygulamaları alma|
 |Yetkilendirme|V2 uygulaması alma|
 |Yetkilendirme|V2 uygulamaları alma|
-|Yetkilendirme|B2C dizin kaynağı alma|
+|Yetkilendirme|B2C dizini kaynağını Al|
 |Yetkilendirme|Kiracıdaki özel etki alanlarının listesini alma|
 |Yetkilendirme|Kullanıcı yolculuğu alma|
 |Yetkilendirme|Kullanıcı yolculuğu için izin verilen uygulama taleplerini alma|
@@ -227,9 +227,9 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Yetkilendirme|İlkeyi güncelleştirme|
 |Yetkilendirme|Kullanıcı özniteliğini güncelleştirme|
 |Yetkilendirme|CPIM şifrelenmiş anahtarını karşıya yükleme|
-|Yetkilendirme|Kullanıcı Yetkilendirmesi: Kiracı featureset için API devre dışı bırakıldı|
-|Yetkilendirme|Kullanıcı Yetkilendirmesi: Kullanıcıya 'Kiracı Yöneticisi' olarak erişim izni verildi|
-|Yetkilendirme|Kullanıcı Yetkilendirmesi: Kullanıcıya 'Kimliği Doğrulanmış Kullanıcılar' erişim hakları verildi|
+|Yetkilendirme|Kullanıcı yetkilendirmesi: Kiracı featureset için API devre dışı bırakıldı|
+|Yetkilendirme|Kullanıcı yetkilendirmesi: Kullanıcıya 'Kiracı Yöneticisi olarak erişim izni|
+|Yetkilendirme|Kullanıcı yetkilendirmesi: Kullanıcıya 'Kimliği doğrulanmış kullanıcılar' erişim hakları verildi|
 |Yetkilendirme|B2C özelliğinin etkinleştirildiğini doğrulama|
 |Yetkilendirme|Özelliğin etkinleştirildiğini doğrulama|
 |Yetkilendirme|Program oluşturma|
@@ -395,7 +395,7 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Dizin Yönetimi|Bir abonelikteki B2C dizin kaynaklarını alma|
 |Dizin Yönetimi|Özel IDP alma|
 |Dizin Yönetimi|IDP alma|
-|Dizin Yönetimi|B2C dizin kaynağı alma|
+|Dizin Yönetimi|B2C dizini kaynağını Al|
 |Dizin Yönetimi|Kullanıcı yolculuğu alma|
 |Dizin Yönetimi|Kullanıcı yolculuğu için izin verilen uygulama taleplerini alma|
 |Dizin Yönetimi|Kullanıcı yolculuğu için izin verilen otomatik olarak onaylanan talepler alma|
@@ -515,10 +515,10 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Grup Yönetimi|İstek onayı isteğini gözden geçirme|
 |Grup Yönetimi|Erişim Gözden Geçirmesini Güncelleştirme|
 |Grup Yönetimi|Erişim gözden geçirmesi posta bildirimi ayarlarını güncelleştirme|
-|Grup Yönetimi|Erişim gözden geçirmesi yineleme sayısı ayarını güncelleştirme|
-|Grup Yönetimi|Erişim gözden geçirmesi yineleme gün sayısını güncelleştirme|
-|Kullanıcı Yönetimi|Erişim gözden geçirmesi yineleme bitiş türü ayarını güncelleştirme|
-|Kullanıcı Yönetimi|Erişim gözden geçirmesi yineleme türü ayarını güncelleştirme|
+|Grup Yönetimi|Erişim gözden geçirme yineleme sayısı ayarını güncelleştir|
+|Grup Yönetimi|Erişim gözden geçirme gün cinsinden yineleme sayısı ayarını güncelleştir|
+|Kullanıcı Yönetimi|Erişim gözden geçirme yineleme bitiş türü ayarını güncelleştir|
+|Kullanıcı Yönetimi|Erişim gözden geçirme yineleme türü ayarını güncelleştir|
 
 
 

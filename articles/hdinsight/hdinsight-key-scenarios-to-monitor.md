@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 22b9a63ab595b4d0b003d999bcd0f131e50aeabf
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 83cbb2a54ed712f8aa5084408ab852432470b73c
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383944"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742482"
 ---
 # <a name="monitor-cluster-performance"></a>Küme performansını izleme
 
@@ -77,10 +77,10 @@ Bir kümenin performans sorunu depolama düzeyinde oluşabilir. Bu tür bir perf
 
 Azure depolama, depolama ile ilgili sorunları izleme hakkında bilgi kullanıyorsanız, dahil olmak üzere azaltma, bkz [izleme, tanılama ve sorun giderme Microsoft Azure depolama](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 
-Azure Data Lake Store (ADLS) kümenizin yedekleme deposu ise, azaltma nedeniyle bant genişliği sınırlarını kaynaklanıyor olabilir. Azaltma bu durumda görevi günlüklerde gözlemci azaltma hataları tarafından tanımlanabilir. ADLS için şu makalelere uygun hizmet için azaltma bölümüne bakın:
+Azure Data Lake Storage (ADLS) kümenizin yedekleme deposu ise, azaltma nedeniyle bant genişliği sınırlarını kaynaklanıyor olabilir. Azaltma bu durumda görevi günlüklerde gözlemci azaltma hataları tarafından tanımlanabilir. ADLS için şu makalelere uygun hizmet için azaltma bölümüne bakın:
 
 * [Apache Hive HDInsight ve Azure Data Lake Store için performans ayarlama Kılavuzu](../data-lake-store/data-lake-store-performance-tuning-hive.md)
-* [Azure Data Lake Store ve HDInsight’ta MapReduce için performans ayarlama kılavuzu](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
+* [HDInsight ve Azure Data Lake Storage MapReduce için performans ayarlama Kılavuzu](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
 * [HDInsight ve Azure Data Lake Store üzerinde Apache Storm için performans ayarlama Kılavuzu](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 1556c228aa2e00cf18f16cc26eefab4691f6de23
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184959"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540277"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Toplamak ve Log analytics'te Azure etkinlik günlüklerini çözümleme
 
 ![Azure etkinlik günlüklerini simgesi](./media/collect-activity-logs/activity-log-analytics.png)
 
-Etkinlik günlüğü analizi çözümü arayın ve çözümlemenize yardımcı olur. [Azure etkinlik günlüğü](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) tüm Azure abonelikleri arasında. Azure etkinlik günlüğü aboneliklerinizdeki kaynakları üzerinde gerçekleştirilen işlemleri hakkında Öngörüler sunan bir günlüktür. Etkinlik günlüğü önceden olarak biliniyordu *denetim günlüklerini* veya *işlem günlüklerini* olayları Abonelikleriniz için raporları olduğundan.
+Etkinlik günlüğü analizi çözümü arayın ve çözümlemenize yardımcı olur. [Azure etkinlik günlüğü](../../azure-monitor/platform/activity-logs-overview.md) tüm Azure abonelikleri arasında. Azure etkinlik günlüğü aboneliklerinizdeki kaynakları üzerinde gerçekleştirilen işlemleri hakkında Öngörüler sunan bir günlüktür. Etkinlik günlüğü önceden olarak biliniyordu *denetim günlüklerini* veya *işlem günlüklerini* olayları Abonelikleriniz için raporları olduğundan.
 
 Etkinlik günlüğü'nü kullanarak belirleyebilirsiniz *ne*, *kimin*, ve *olduğunda* işlemlerini (PUT, POST, DELETE), aboneliğinizdeki kaynaklar için yapılan herhangi bir yazma için. Ayrıca, işlemleri ve diğer ilgili özellikler durumunu anlayabilirsiniz. Etkinlik günlüğünü okuma (GET) işlemlerini ya da Klasik dağıtım modelini kullanan kaynakları işlemlerinde dahil değildir.
 

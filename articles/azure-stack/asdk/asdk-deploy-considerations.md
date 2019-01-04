@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/12/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 22032f9d2e60d3c51546c32df8b98f9633c95535
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864987"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726553"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack dağıtım planlama konuları
 Azure Stack geliştirme Seti'ni (ASDK) dağıtmadan önce Geliştirme Seti ana bilgisayarınız bu makalede açıklanan gereksinimleri karşıladığından emin olun.
@@ -29,17 +29,17 @@ Azure Stack geliştirme Seti'ni (ASDK) dağıtmadan önce Geliştirme Seti ana b
 ## <a name="hardware"></a>Donanım
 | Bileşen | Minimum | Önerilen |
 | --- | --- | --- |
-| Disk sürücüleri: İşletim Sistemi |Sistem bölümü için en az 200 GB'lık kullanılabilir alana sahip 1 işletim sistemi diski (SSD veya HDD) |Sistem bölümü için en az 200 GB'lık kullanılabilir alana sahip 1 işletim sistemi diski (SSD veya HDD) |
-| Disk sürücüleri: Genel Geliştirme Seti veri<sup>*</sup>  |4 disk. Her disk, en az 140 GB'lık kapasiteye (SSD veya HDD) sahiptir. Kullanılabilir tüm diskler kullanılır. |4 disk. Her disk, en az 250 GB'lık kapasiteye (SSD veya HDD) sahiptir. Kullanılabilir tüm diskler kullanılır. |
-| İşlem: CPU |Çift Yuvalı: 12 Fiziksel Çekirdek (toplam) |Çift Yuvalı: 16 Fiziksel Çekirdek (toplam) |
-| İşlem: Bellek |96 GB RAM |128 GB RAM (Bu, PaaS kaynak sağlayıcıları desteklemek için en düşük gerekliliktir.)|
+| Disk sürücüler: İşletim Sistemi |1 işletim sistemi diski ile en az 200 GB (SSD veya HDD) sistem bölümü için kullanılabilir |Sistem bölümü için en az 200 GB'lık kullanılabilir alana sahip 1 işletim sistemi diski (SSD veya HDD) |
+| Disk sürücüler: Genel Geliştirme Seti veri<sup>*</sup>  |4 disk. Her disk en az 240 GB'lık kapasiteye (SSD veya HDD) sahiptir. Kullanılabilir tüm diskler kullanılır. |4 disk. Her disk en az 400 GB'lık kapasiteye (SSD veya HDD) sahiptir. Kullanılabilir tüm diskler kullanılır. |
+| İşlem: CPU |Çift yuvalı: 16 fiziksel çekirdek (toplam) |Çift yuvalı: 20 fiziksel çekirdek (toplam) |
+| İşlem: Bellek |192 GB RAM |256 GB RAM |
 | İşlem: BIOS |Hyper-V Etkin (SLAT desteğiyle) |Hyper-V Etkin (SLAT desteğiyle) |
-| Ağ: NIC |NIC için Windows Server 2012 R2 Sertifikası gerekir; özelleştirilmiş herhangi bir özellik gerekmez |NIC için Windows Server 2012 R2 Sertifikası gerekir; özelleştirilmiş herhangi bir özellik gerekmez |
+| Ağ: NIC |Windows Server 2012 R2 sertifikası'ı seçin. Özelleştirilmiş gerekli herhangi bir özellik |Windows Server 2012 R2 sertifikası'ı seçin. Özelleştirilmiş gerekli herhangi bir özellik |
 | Donanım logosu sertifikası |[Windows Server 2012 R2 için sertifikalıdır](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2016 için sertifikalı](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> Daha fazla kapasite birçok eklemeyi planlıyorsanız bu önerilir ihtiyacınız [Market öğesi](asdk-marketplace-item.md) azure'dan.
 
-**Veri disk sürücüsü yapılandırması:** tüm veri sürücüleri aynı türde (tümü SAS, tüm SATA veya tüm NVMe) ve kapasite olması gerekir. SAS disk sürücüleri kullanılıyorsa disk sürücülerinin (MPIO kullanılmaz, çok yollu destek sağlanır) tek bir yolla bağlanması gerekir.
+**Veri disk sürücüsü yapılandırması:** Tüm veri sürücüleri aynı türü (tümü SAS, tüm SATA veya tüm NVMe) ve kapasitede olmalıdır. SAS disk sürücüleri kullanılıyorsa disk sürücülerinin (MPIO kullanılmaz, çok yollu destek sağlanır) tek bir yolla bağlanması gerekir.
 
 **HBA yapılandırma seçenekleri**
 
@@ -59,12 +59,12 @@ Azure Stack geliştirme Seti'ni (ASDK) dağıtmadan önce Geliştirme Seti ana b
 
 <sup>*</sup> Geçiş özelliği olmayan RAID denetleyicileri, medya türünü tanıyamaz. Bu tür denetleyiciler, hem HDD ve SSD belirtilmemiş olarak işaretler. Bu durumda, önbelleğe alma cihazları yerine kalıcı depolama olarak SSD kullanılır. Bu nedenle, Geliştirme Seti Bu Sdd'ler üzerinde dağıtabilirsiniz.
 
-**Örnek HBA'lar**: geçiş modunda LSI 9207-8i, LSI-9300-8i veya LSI-9265-8i
+**Örnek HBA'lar**: LSI 9207-8i, LSI-9300-8i veya LSI-9265-8i modunda
 
 Örnek OEM yapılandırmaları kullanılabilir.
 
 ## <a name="operating-system"></a>İşletim sistemi
-|  | **Gereksinimleri** |
+|  | **Gereksinimler** |
 | --- | --- |
 | **İşletim sistemi sürümü** |Windows Server 2016 veya sonraki sürümleri. Dağıtım başlamadan önce Azure Stack yüklemede VHD'ye önyüklemeden ana bilgisayar önyükleme kritik işletim sistemi sürümü değildir. İşletim sistemini ve gerekli tüm düzeltme eklerini görüntüye önceden tümleştirilmiştir. Tüm anahtarları Geliştirme Seti kullanılan herhangi bir Windows Server örneklerine etkinleştirmek için kullanmayın. |
 

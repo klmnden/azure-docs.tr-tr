@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 103f4b10d5fbb7fbcf9c3721a82fe4075abe0dc4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 17725f830b347839ddc57eba61ef7c65d5253568
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877624"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970891"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights’ta örnekleme
 
@@ -57,7 +57,7 @@ Bu tür bir örnekleme, uygulamanızı genellikle, aylık kota geçer ve örnekl
 
 Örnekleme diğer türleri gibi ilgili telemetri öğelerinin algoritma korur. Örneğin, arama telemetriyi incelerken, belirli bir özel durumla ilişkili istek bulmak mümkün olacaktır. İstek oranı gibi ölçüm sayar ve özel durum oranı doğru bir şekilde korunur.
 
-Örnekleme tarafından atılan veri noktaları kullanılabilir değil herhangi bir Application Insights özellik gibi [sürekli dışarı aktarma](app-insights-export-telemetry.md).
+Örnekleme tarafından atılan veri noktaları kullanılabilir değil herhangi bir Application Insights özellik gibi [sürekli dışarı aktarma](../azure-monitor/app/export-telemetry.md).
 
 SDK tabanlı uyarlamalı veya sabit oranı örnekleme çalışırken alım örneklemesi çalışmaz. Visual Studio'da ASP.NET SDK etkin olduğunda varsayılan veya Durum İzleyicisi'ni kullanarak Uyarlamalı örnekleme etkin olduğunu unutmayın ve alım örneklemesi devre dışı bırakılır. SDK'sı örnekleme Oranı % 100'den az ise, ayarladığınız alımı örnekleme oranını göz ardı edilir.
 
@@ -83,7 +83,7 @@ Projenizin NuGet paketlerini en son sürüme güncelleştirin *yayın öncesi* A
 
 ### <a name="configuring-adaptive-sampling"></a>Uyarlamalı örnekleme yapılandırma ###
 
-İçinde [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md), çeşitli parametreleri ayarlayabileceğiniz `AdaptiveSamplingTelemetryProcessor` düğümü. Gösterilen rakamları, varsayılan değerler şunlardır:
+İçinde [Applicationınsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md), çeşitli parametreleri ayarlayabileceğiniz `AdaptiveSamplingTelemetryProcessor` düğümü. Gösterilen rakamları, varsayılan değerler şunlardır:
 
 * `<MaxTelemetryItemsPerSecond>5</MaxTelemetryItemsPerSecond>`
   
@@ -112,11 +112,11 @@ Projenizin NuGet paketlerini en son sürüme güncelleştirin *yayın öncesi* A
 
 * `<ExcludedTypes>Trace;Exception</ExcludedTypes>`
   
-    Örneklenen istemediğiniz türleri noktalı virgülle ayrılmış liste. Türler tanınan: bağımlılık, olay, özel durum, sayfa görüntülemesi, istek, izleme. Belirtilen tür tüm örneklerine iletilir; örneklenen belirtilmeyen türleri.
+    Örneklenen istemediğiniz türleri noktalı virgülle ayrılmış liste. Tanınan türleri şunlardır: Olay, özel durum, sayfa görüntülemesi, isteği, bağımlılık izleme. Belirtilen tür tüm örneklerine iletilir; örneklenen belirtilmeyen türleri.
 
 * `<IncludedTypes>Request;Dependency</IncludedTypes>`
   
-    Örneklenen istediğiniz türlerini noktalı virgülle ayrılmış liste. Türler tanınan: bağımlılık, olay, özel durum, sayfa görüntülemesi, istek, izleme. Belirtilen tür örneklenen; Tüm diğer örnek türleri her zaman aktarılmaz.
+    Örneklenen istediğiniz türlerini noktalı virgülle ayrılmış liste. Tanınan türleri şunlardır: Olay, özel durum, sayfa görüntülemesi, isteği, bağımlılık izleme. Belirtilen tür örneklenen; Tüm diğer örnek türleri her zaman aktarılmaz.
 
 
 **Geçmek** Uyarlamalı örnekleme, AdaptiveSamplingTelemetryProcessor düğümünde applicationınsights yapılandırma dosyasından kaldırın.
@@ -167,14 +167,14 @@ Kaldırma `AdaptiveSamplingTelemetryProcessor` .config dosyasını düğümünde
 
 ```
 
-([Telemetri işlemcileri hakkında bilgi edinin](app-insights-api-filtering-sampling.md#filtering).)
+([Telemetri işlemcileri hakkında bilgi edinin](../azure-monitor/app/api-filtering-sampling.md#filtering).)
 
 <a name="other-web-pages"></a>
 
 ## <a name="sampling-for-web-pages-with-javascript"></a>JavaScript ile web sayfaları için örnekleme
 Web sayfaları için herhangi bir sunucudan sabit oranı örnekleme yapılandırabilirsiniz. 
 
-Olduğunda, [web sayfaları için Application Insights yapılandırma](app-insights-javascript.md), Application Insights portalından aldığınız JavaScript kod parçacığını değiştirmek. (ASP.NET uygulamalarında kod parçacığını genellikle _Layout.cshtml içinde sağlanabilir.)  Gibi bir satır Ekle `samplingPercentage: 10,` izleme anahtarını önce:
+Olduğunda, [web sayfaları için Application Insights yapılandırma](../azure-monitor/app/javascript.md), Application Insights portalından aldığınız JavaScript kod parçacığını değiştirmek. (ASP.NET uygulamalarında kod parçacığını genellikle _Layout.cshtml içinde sağlanabilir.)  Gibi bir satır Ekle `samplingPercentage: 10,` izleme anahtarını önce:
 
     <script>
     var appInsights= ... 
@@ -206,7 +206,7 @@ Yaklaşık olarak doğru olduklarından emin ölçüm Gezgini'nde için örnekle
 ### <a name="configuring-fixed-rate-sampling-in-aspnet"></a>ASP.NET'te sabit oranı örnekleme yapılandırma ###
 
 1. **Projenizin NuGet paketlerini güncelleştirme** en son *yayın öncesi* Application Insights'ın sürümü. Visual Studio'da Çözüm Gezgini'nde projeye sağ tıklayın, NuGet paketlerini Yönet'i seçin denetleyin **ön sürümü dahil et** Microsoft.applicationınsights.Web arayın. 
-2. **Uyarlamalı örnekleme devre dışı**: içinde [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md)kaldırın veya açıklama `AdaptiveSamplingTelemetryProcessor` düğümü.
+2. **Uyarlamalı örnekleme devre dışı**: İçinde [Applicationınsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md)kaldırın veya açıklama `AdaptiveSamplingTelemetryProcessor` düğümü.
    
     ```xml
    
@@ -220,7 +220,7 @@ Yaklaşık olarak doğru olduklarından emin ölçüm Gezgini'nde için örnekle
 
     ```
 
-3. **Sabit fiyat örnekleme modülü etkinleştirin.** Bu kod parçacığını [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md):
+3. **Sabit fiyat örnekleme modülü etkinleştirin.** Bu kod parçacığını [Applicationınsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md):
    
     ```XML
    
@@ -237,7 +237,7 @@ Yaklaşık olarak doğru olduklarından emin ölçüm Gezgini'nde için örnekle
 
 ### <a name="configuring-fixed-rate-sampling-in-java"></a>JAVA'da sabit oranı örnekleme yapılandırma ###
 
-1. İndirme ve web uygulamanızı en son yapılandırma [application ınsights java SDK'sı](app-insights-java-get-started.md)
+1. İndirme ve web uygulamanızı en son yapılandırma [application ınsights java SDK'sı](../azure-monitor/app/java-get-started.md)
 
 2. **Sabit fiyat örnekleme modülündeki** Applicationınsights.xml dosyasını aşağıdaki kod parçacığını ekleyerek.
 
@@ -263,7 +263,7 @@ Yaklaşık olarak doğru olduklarından emin ölçüm Gezgini'nde için örnekle
         <IncludedType>Exception</IncludedType>
     </IncludedTypes>
 ```
-Dahil veya gelen örnekleme dışlanan telemetri türleri şunlardır: bağımlılık, olay, özel durum, sayfa görüntülemesi, istek ve izleme.
+Dahil edilecek veya gelen örnekleme dışlanan telemetri türleri şunlardır: Bağımlılık, olay, özel durum, sayfa görüntülemesi, istek ve izleme.
 
 > [!NOTE]
 > Örnekleme yüzdesi, yakın 100/N N bir tamsayı olduğu bir yüzdesini seçin.  Şu anda örnekleme diğer değerleri desteklemiyor.
@@ -291,7 +291,7 @@ Dahil veya gelen örnekleme dışlanan telemetri türleri şunlardır: bağıml�
 
 ```
 
-([Telemetri işlemcileri hakkında bilgi edinin](app-insights-api-filtering-sampling.md#filtering).)
+([Telemetri işlemcileri hakkında bilgi edinin](../azure-monitor/app/api-filtering-sampling.md#filtering).)
 
 ## <a name="when-to-use-sampling"></a>Ne zaman örnekleme kullanılır?
 ASP.NET SDK sürüm 2.0.0-beta3 kullanıyorsanız, Uyarlamalı örnekleme etkin otomatik olarak veya üzeri. Hangi kullandığınız SDK sürüm ne olursa olsun alım örneklemesi Application Insights'ı toplanan verileri örneklemek izin verecek şekilde etkinleştirebilirsiniz.
@@ -316,7 +316,7 @@ Genel olarak, birçok küçük ve orta ölçekli uygulamalar için örnekleme ge
 **Sabit fiyat, örnekleme kullanın:**
 
 * ASP.NET web Hizmetleri sürüm 2.0.0 için Application Insights SDK'sını kullanarak veya üzeri ya da Java SDK'sı v2.0.1 veya sonraki bir sürümü ve
-* Olayları zaman araştırdığınızı böylece istemci ve sunucu arasında eşitlenen örnekleme istediğiniz [arama](app-insights-diagnostic-search.md), istemci ve sunucu, sayfa görüntülemeleri ve http istekleri gibi ilgili olaylar arasında gezinebilirsiniz.
+* Olayları zaman araştırdığınızı böylece istemci ve sunucu arasında eşitlenen örnekleme istediğiniz [arama](../azure-monitor/app/diagnostic-search.md), istemci ve sunucu, sayfa görüntülemeleri ve http istekleri gibi ilgili olaylar arasında gezinebilirsiniz.
 * Uygulamanız için uygun örnekleme yüzdesini emin olursunuz. Doğru ölçümleri almak için yüksek olmalıdır, ancak fiyatlandırma kota ve azaltma sınırları aşıyor oranı. 
 
 **Uyarlamalı örnekleme kullanın:**
@@ -324,7 +324,7 @@ Genel olarak, birçok küçük ve orta ölçekli uygulamalar için örnekleme ge
 Bir örnekleme biçimlerinin koşulları uygulamazsanız, Uyarlamalı örnekleme öneririz. Bu varsayılan olarak ASP.NET sunucusu SDK'sı sürüm 2.0.0-beta3 etkin veya üzeri. Belirli bir minimum fiyatı ulaşılana kadar trafik azaltmaz, bu nedenle, düşük kullanımlı siteleri etkilenmez.
 
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>Örnekleme işlemi olup olmadığını nasıl anlarım?
-Uygulanmış nerede olursa olsun gerçek örnekleme hızını bulmak için kullanmak bir [Analytics sorgusu](app-insights-analytics.md) bunun gibi:
+Uygulanmış nerede olursa olsun gerçek örnekleme hızını bulmak için kullanmak bir [Analytics sorgusu](../azure-monitor/app/analytics.md) bunun gibi:
 
 ```
 union * 
@@ -396,5 +396,5 @@ Sabit fiyat örnekleme sunucu tarafı SDK'sı ile birlikte, istemci-tarafı (Jav
 * TelemetryClient ile yeni bir TelemetryConfiguration (varsayılan etkin) ayrı bir örneğini başlatır. Bu, nadir olayları göndermek için kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Filtreleme](app-insights-api-filtering-sampling.md) ne SDK'nızı gönderir, katı daha fazla denetim sağlar.
+* [Filtreleme](../azure-monitor/app/api-filtering-sampling.md) ne SDK'nızı gönderir, katı daha fazla denetim sağlar.
 

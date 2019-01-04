@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: barclayn
-ms.openlocfilehash: bf3aba431e7b417b2213bc3410fd7722d7888d15
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 39ae2108c327f38dbf41981ec6aabe7722b77685
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302026"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717390"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Azure anahtar kasası anahtar döndürme ve denetleme ile ayarlama
 
@@ -414,7 +414,7 @@ Ve aşağıdaki içeriğe sahip project.json adlı bir dosya ekleyin:
 
 Bağlı **Kaydet**, Azure işlevleri, gerekli ikili dosyaları indirir.
 
-Geçiş **tümleştir** sekmesini ve Zamanlayıcı parametresi işlev içinde kullanmak için anlamlı bir ad verin. İsteğe bağlı olarak önceki kodda, çağrılacak Zamanlayıcı bekliyor *myTimer*. Belirtin bir [CRON ifadesi](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) şu şekilde: 0 \* \* \* \* \* bir dakika çalışacak şekilde işlev neden olacak Zamanlayıcı için.
+Geçiş **tümleştir** sekmesini ve Zamanlayıcı parametresi işlev içinde kullanmak için anlamlı bir ad verin. İsteğe bağlı olarak önceki kodda, çağrılacak Zamanlayıcı bekliyor *myTimer*. Belirtin bir [CRON ifadesi](../app-service/webjobs-create.md#CreateScheduledCRON) gibi: 0 \* \* \* \* \* bir dakika çalışacak şekilde işlev neden olacak Zamanlayıcı için.
 
 Aynı **tümleştir** sekmesinde, türündeki bir girdi ekleyin **Azure Blob Depolama**. Bu işlev tarafından attınız son olayın zaman damgası içeren sync.txt dosyasını işaret edecek. Bu işlevin parametre adı içindeki kullanılabilir olacaktır. Önceki kodda, Azure Blob depolamaya giriş parametre adı olmasını bekliyor. *inputBlob*. Sync.txt dosyanın bulunacağı depolama hesabı seçin (Bu aynı veya farklı bir depolama hesabı olabilir). Yol alanı nerede dosya biçimi {container-name}/path/to/sync.txt. yaşıyor yolunu belirtin
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 2e8c5b3d9624d3a622f16d770f68bc8614993d36
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 99cca60fe13b9757b3328d00cf66b673c95f66ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387491"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558439"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Azure İzleyicisi'ni kullanarak veri fabrikalarını izleme ve uyarı
 Bulut uygulamaları ile birçok hareketli parçadan karmaşıktır. İzleme, uygulama güncel kalıp emin olmak için veri ve sağlam bir durumda çalışmasını sağlar. Ayrıca olası sorunları stave veya olanları sorun gidermeye yardımcı olur. Ayrıca, uygulamanızı daha ayrıntılı Öngörüler elde etmek için izleme verilerini kullanabilirsiniz. Bu bilgi bakım ya da uygulama performansı artırmak için yardımcı veya aksi halde el ile müdahale gerektiren eylemleri otomatikleştirme.
@@ -26,24 +26,24 @@ Bulut uygulamaları ile birçok hareketli parçadan karmaşıktır. İzleme, uyg
 Azure İzleyici, çoğu Microsoft Azure Hizmetleri için temel düzeyde altyapı ölçüm ve günlükleri sağlar. Ayrıntılar için bkz [izlemeye genel bakış](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure tanılama günlükleri, kaynak işlemiyle ilgili zengin, sık sık veri sağlayan bir kaynak tarafından gösterilen günlüklerdir. Data Factory, Azure İzleyici'de tanılama günlükleri çıkarır.
 
 ## <a name="persist-data-factory-data"></a>Veri Fabrikası verileri kalıcı hale
-Veri Fabrikası işlem hattı 45 gün boyunca veri çalıştırması yalnızca depolar. Azure İzleyicisi'ni kullanarak işlem hattı verileri çalıştırması fazla 45 gün için kalıcı hale getirmek istiyorsanız, yalnızca tanılama günlüklerini analiz için yönlendirebilir değil, seçtiğiniz süre için Fabrika bilgi alacak şekilde, bunları bir depolama hesabına kalıcı hale getirebilirsiniz.
+Veri Fabrikası işlem hattı 45 gün boyunca veri çalıştırması yalnızca depolar. Azure İzleyicisi'ni kullanarak işlem hattı 45 gün boyunca veri çalıştırması kalıcı hale getirmek istiyorsanız, analiz için tanılama günlükleri yalnızca Yönlendirme yapamazsınız, seçtiğiniz süre için Fabrika bilgi alacak şekilde, bunları bir depolama hesabına kalıcı hale getirebilirsiniz.
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
 
 * Kaydetmek için bir **depolama hesabı** denetim veya el ile İnceleme. Tanılama ayarlarını kullanarak elde tutma süresi (gün cinsinden) belirtebilirsiniz.
-* Bunları Stream **Event Hubs** alımı üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
+* Bunları Stream **Event Hubs** alımı bir üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
 * Bunları analiz **Log Analytics**
 
 Günlükleri yayan kaynak ile aynı abonelikte değil bir depolama hesabına veya olay hub'ı ad alanını kullanabilirsiniz. Ayarı yapılandıran kullanıcının her iki aboneliğin uygun rol tabanlı erişim denetimi (RBAC) erişimi olması gerekir.
 
-## <a name="set-up-diagnostic-logs"></a>Tanılama günlüklerini ayarlayın
+## <a name="set-up-diagnostic-logs"></a>Tanılama günlükleri ayarlama
 
 ### <a name="diagnostic-settings"></a>Tanılama ayarları
 Olmayan işlem kaynakları için tanılama günlükleri, tanılama ayarları kullanılarak yapılandırılır. Kaynak denetimi için tanılama ayarları:
 
-* Burada tanılama günlüklerini (depolama hesabı, olay hub'ları ve/veya Log Analytics) gönderilir.
+* Burada tanılama günlüklerini (depolama hesabı, olay hub'ları veya Log Analytics) gönderilir.
 * Hangi günlük kategorileri gönderilir.
-* Bir depolama hesabında günlük kategorileri ne kadar süre tutulacağını
+* Günlük kategorileri bir depolama hesabında ne kadar süre tutulacağını.
 * Bekletme günü sayısının sıfır günlükler süresiz olarak tutulur anlamına gelir. Aksi takdirde, değeri herhangi bir sayıda gün 1 ile 2147483647 arasında olabilir.
 * Bekletme ilkeleri ayarlanır ancak günlükleri bir depolama hesabında depolama devre dışı bırakıldı (örneğin, yalnızca olay hub'ları veya Log Analytics seçenekleri seçilidir), bekletme ilkeleri etkisi yoktur.
 * Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silindi. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir.
@@ -59,7 +59,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ```
 
 **Üst Bilgiler**
-* Değiştirin `{api-version}` ile `2016-09-01`.
+* `{api-version}` yerine `2016-09-01` yazın.
 * Değiştirin `{resource-id}` kendisi için istediğiniz tanılama ayarlarını düzenlemek kaynak kaynak kimliği. Daha fazla bilgi için [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-portal.md).
 * Ayarlama `Content-Type` başlığına `application/json`.
 * Yetkilendirme üst bilgisi, Azure Active Directory'den al bir JSON web belirteci ayarlayın. Daha fazla bilgi için [isteklerinde kimlik doğrulama](../active-directory/develop/authentication-scenarios.md).
@@ -177,7 +177,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ```
 
 **Üst Bilgiler**
-* Değiştirin `{api-version}` ile `2016-09-01`.
+* `{api-version}` yerine `2016-09-01` yazın.
 * Değiştirin `{resource-id}` kendisi için istediğiniz tanılama ayarlarını düzenlemek kaynak kaynak kimliği. Daha fazla bilgi için kaynak kullanarak Azure kaynaklarınızı yönetmek için gruplar.
 * Ayarlama `Content-Type` başlığına `application/json`.
 * Yetkilendirme üst bilgisi bir JSON Web Azure Active Directory'den edindiğiniz belirteci ayarlayın. Daha fazla bilgi için bkz: kimlik doğrulama istekleri.
@@ -465,15 +465,7 @@ Yukarıdaki ölçümlerini görselleştirmek, bu ölçümleri arkasında sorgula
 
 ## <a name="alerts"></a>Uyarılar
 
-Data factory'de desteklenen ölçümler üzerinde uyarılar oluşturabilir. Tıklayın **uyarılar** Data Factory düğmesinde **İzleyici** sayfası.
-
-![Uyarılar seçeneği](media/monitor-using-azure-monitor/alerts_image1.png)
-
-Sayfasına yönlendirileceksiniz **uyarılar** sayfası.
-
-![Uyarılar sayfası](media/monitor-using-azure-monitor/alerts_image2.png)
-
-Ayrıca Azure portalında oturum açın ve tıklayın **İzleyicisi -&gt; uyarılar** ulaşmak için **uyarılar** doğrudan sayfa.
+Azure portalında oturum açın ve tıklayın **İzleyicisi -&gt; uyarılar** uyarıları oluşturun.
 
 ![Portal menüsünde uyarıları](media/monitor-using-azure-monitor/alerts_image3.png)
 
@@ -509,4 +501,5 @@ Ayrıca Azure portalında oturum açın ve tıklayın **İzleyicisi -&gt; uyarı
     ![Eylem grubu, ekran 4 / 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bkz: [izleme ve işlem hatlarını programlama yoluyla yönetme](monitor-programmatically.md) makalede izleme ve işlem hatlarını çalıştırarak yönetme hakkında bilgi edinmek için.
+
+Bkz: [izleme ve işlem hatlarını programlama yoluyla yönetme](monitor-programmatically.md) makalede izleme ve işlem hattı kodu ile yönetme hakkında bilgi edinmek için.

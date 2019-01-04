@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 999b5ca1f229677b9e11068f4beaa6e2704afd3d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 62056b27669f334f1d8007d5284979ac4701f9d9
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012581"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650516"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Apache Spark uzak bir HDInsight Spark kümesine göndermek için REST API kullanma
 
-Nasıl kullanacağınızı öğrenin [Apache Livy](https://livy.incubator.apache.org/), [Apache Spark](https://spark.apache.org/) REST API, uzak bir Azure HDInsight Spark kümesine göndermek için kullanılır. Ayrıntılı belgeler için bkz. [ http://livy.incubator.apache.org/ ](http://livy.incubator.apache.org/).
+Nasıl kullanacağınızı öğrenin [Apache Livy](https://livy.incubator.apache.org/), [Apache Spark](https://spark.apache.org/) REST API, uzak bir Azure HDInsight Spark kümesine göndermek için kullanılır. Ayrıntılı belgeler için bkz. [ https://livy.incubator.apache.org/ ](https://livy.incubator.apache.org/).
 
 Etkileşimli Spark Kabukları çalıştırmak veya Spark üzerinde çalıştırılacak toplu iş göndermek için Livy kullanabilirsiniz. Bu makalede, toplu işleri göndermek için Livy kullanma hakkında konuşuyor. Bu makalede kod parçacıkları, Livy Spark uç noktası için REST API çağrıları gerçekleştirmek için cURL kullanın.
 
@@ -172,9 +172,9 @@ Uzak iş gönderme için Spark kümeleri için Livy kullanırken karşılaşabil
 
 ### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>Ek depolama biriminden bir dış jar kullanılması desteklenmiyor
 
-**Sorun:** , Livy Spark işi, kümeyle ilişkili ek depolama hesabından bir dış jar başvuruyorsa, işi başarısız oluyor.
+**Sorun:** Livy Spark işinizi kümeyle ilişkili ek depolama hesabından bir dış jar başvuruyorsa, işi başarısız oluyor.
 
-**Çözüm:** kullanmak istediğiniz jar HDInsight kümeyle ilişkilendirilmiş varsayılan depolama alanı kullanılabilir olduğundan emin olun.
+**Çözüm:** Kullanmak istediğiniz jar HDInsight kümeyle ilişkilendirilmiş varsayılan depolama alanı kullanılabilir olduğundan emin olun.
 
 
 
@@ -182,7 +182,7 @@ Uzak iş gönderme için Spark kümeleri için Livy kullanırken karşılaşabil
 
 ## <a name="next-step"></a>Sonraki adım
 
-* [Apache Livy REST API belgeleri](http://livy.incubator.apache.org/docs/latest/rest-api.html)
+* [Apache Livy REST API belgeleri](https://livy.incubator.apache.org/docs/latest/rest-api.html)
 * [Azure HDInsight’ta Apache Spark kümesi kaynaklarını yönetme](apache-spark-resource-manager.md)
 * [HDInsight’ta bir Apache Spark kümesinde çalışan işleri izleme ve hata ayıklama](apache-spark-job-debugging.md)
 

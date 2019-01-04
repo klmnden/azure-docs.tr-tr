@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: e9309f8cb46b31ded46b705308465ac6f6c89204
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: c2827a4badd61aeb8de556795834dee39769e85e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585195"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554512"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Azure Stack kullanıcıları için Azure CLI'yi etkinleştirme
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Böylece kendi geliştirme makinelerinde Azure CLI'yi kullanabilirsiniz, Azure Stack kullanıcıları için CA kök sertifikasını sağlayabilirsiniz. Kullanıcılarınızın CLI aracılığıyla kaynaklarını yönetmek için sertifika gerekir.
 
@@ -38,7 +38,7 @@ Aşağıdaki bölümlerde, bu değerleri almak nasıl açıklanmaktadır.
 Azure Stack CA kök sertifikasını Geliştirme Seti ve Geliştirme Seti ortamında çalışan bir kiracı sanal makine bulabilirsiniz. PEM biçiminde Azure Stack kök sertifikasını dışarı aktarmak için Geliştirme Seti veya Kiracı sanal makine için oturum açın ve aşağıdaki betiği çalıştırın:
 
 ```powershell
-$label = "AzureStackSelfSignedRootCert"
+$label = "<Your Azure Stack CA root certificate name>"
 Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
 $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
 if (-not $root)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: eafd6a75b4297056bcf4c5415f77179cefde6541
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9d3b1c14ce872cd02fc8d4a8c2596d7d1e270895
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256698"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754382"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Öğretici: Oluşturun ve kapsayıcı görüntülerini Azure Container kayıt defteri görevler ile bulutta dağıtın
 
@@ -201,12 +201,12 @@ az keyvault secret set \
   --value $(az ad sp create-for-rbac \
                 --name $ACR_NAME-pull \
                 --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role reader \
+                --role acrpull \
                 --query password \
                 --output tsv)
 ```
 
-Önceki komutta yer alan `--role` bağımsız değişkeni, kayıt defterine yalnızca çekme erişimi veren *reader* rolü ile hizmet sorumlusunu yapılandırır. Hem gönderme hem de çekme erişimi vermek için `--role` bağımsız değişkenini *katkıda bulunan* olarak değiştirin.
+`--role` Önceki komutta bağımsız değişkeni ile hizmet sorumlusu yapılandırır *acrpull* rolü çoğaltılmadığı kayıt defterine erişim verir. Hem İtme hem de çekme erişim vermek için değiştirme `--role` bağımsız değişkeni *acrpush*.
 
 Ardından, hizmet sorumlusunun *uygulama kimliğini* kasada depolayın. Bu değer, kimlik doğrulaması için Azure Container Registry’ye geçirdiğiniz **kullanıcı adıdır**:
 

@@ -9,27 +9,27 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab
+ms.reviewer: jrasnick, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 2de57a4ade91293fb1164815f83e87517068544e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d8ddbb2590852ed80ce02f147886dc125815fc23
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277903"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605985"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL veritabanı'nda dosya alanı yönetme
 Bu makalede, Azure SQL veritabanı ve açıkça yönetilecek gereksinimlerini elastik havuzlar ve veritabanları için ayrılan dosya alanı gerçekleştirilen adımlar, depolama alanının farklı türleri açıklanmaktadır.
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure SQL veritabanı'nda vardır iş yükü düzenleri ayırma veritabanları için temel alınan veri dosyaları burada kullanılan veri sayfaları tutardan daha büyük olabilir. Kullanılan alan artar ve veri sonradan silindiğinde, bu durum ortaya çıkabilir. Bunun nedeni, veri silindiğinde ayrılmış dosya alanı otomatik olarak alınmaz olmasıdır.
+Azure SQL veritabanı'nda vardır iş yükü düzenleri ayırma veritabanları için temel alınan veri dosyaları burada kullanılan veri sayfaları tutardan daha büyük olabilir. Bu durum kullanılan alanın artması ve sonrasında verilerin silinmesi durumunda ortaya çıkabilir. Bunun nedeni, veri silindiğinde ayrılmış dosya alanı otomatik olarak alınmaz olmasıdır.
 
-Aşağıdaki senaryolarda dosya alanı kullanımı izleme ve veri dosyalarını daraltma gerekebilir:
-- Veritabanları için ayrılan dosya alanı havuz en büyük boyutuna ulaştığında bir elastik havuzdaki veri artışı sağlar.
-- Tek veritabanı veya elastik Havuzu'nu maksimum boyutunu azaltarak izin verir.
-- Tek veritabanı veya elastik Havuzu'nu farklı hizmet katmanını veya performans katmanı daha düşük bir maksimum boyut ile değiştirerek izin verin.
+Aşağıdaki senaryolarda dosya alanı kullanımının izlenmesi ve veri dosyalarının küçültülmesi gerekli olabilir:
+- Bir elastik havuzun veritabanları için ayrılan dosya alanının maksimum havuz boyutuna erişmesi durumunda veri artışına izin verilmesi.
+- Tek bir veritabanının veya elastik havuzun maksimum boyutunun küçülmesine izin verilmesi.
+- Tek bir veritabanının veya elastik havuzun daha düşük maksimum boyuta sahip farklı bir hizmet katmanına veya performans katmanına geçmesine izin verilmesi.
 
 ### <a name="monitoring-file-space-usage"></a>Dosya alanı kullanımı izleme
 Azure portalı ve aşağıdaki API'leri gösterilen Çoğu depolama alanı ölçümleri yalnızca kullanılan veri sayfaların boyutu ölçü:

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b884fc15770e91268d1033dc4bab9bf96766de94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 44b80a395ce29d67912f822c806246bdd97b59b6
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868953"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972847"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights, akıllı algılama
  Akıllı algılama, web uygulamanızdaki olası performans sorunlarını otomatik olarak sizi uyarır. Uygulamanızın gönderdiği telemetri öngörülü analiz gerçekleştirir [Application Insights](app-insights-overview.md). Hata oranları ani bir artış ya da istemci veya sunucu performans anormal desenleri ise bir uyarı alırsınız. Bu özellik, herhangi bir yapılandırma gerekir. Uygulamanızı yeterli telemetri gönderiyorsa çalışır.
@@ -55,11 +55,11 @@ Algılama üç tür vardır:
 Bu tanılama araçları, uygulamanızdan alınan telemetri incelemenize yardımcı:
 
 * [Ölçüm Gezgini](app-insights-metrics-explorer.md)
-* [Arama Gezgini](app-insights-diagnostic-search.md)
+* [Arama Gezgini](../azure-monitor/app/diagnostic-search.md)
 * [Analytics - güçlü sorgu dili](../azure-monitor/log-query/get-started-portal.md)
 
 Akıllı algılama tamamen otomatik olarak gerçekleşir. Ancak belki de daha fazla bazı uyarıları ayarlamak ister misiniz?
 
-* [El ile yapılandırılan ölçüm uyarıları](app-insights-alerts.md)
-* [Kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md) 
+* [El ile yapılandırılan ölçüm uyarıları](../azure-monitor/app/alerts.md)
+* [Kullanılabilirlik web testleri](../azure-monitor/app/monitor-web-app-availability.md) 
 

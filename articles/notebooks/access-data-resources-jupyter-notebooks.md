@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 425c1019a9c67ac726d03955d60d1389bef7cae2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a034e41f5b12ffb8f043f14d90284617316f18d2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084949"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723051"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Bir not defteri bulut verilerine erişim
 
@@ -69,7 +69,7 @@ Azure depolama, ilişkisel olmayan depolama, sahip olduğunuz veriler ve nasıl 
 Azure Cosmos DB tamamen dizinli bir NoSQL deposu için JSON belgelerini sağlar). Aşağıdaki makaleler birkaç python'dan Cosmos DB ile çalışmak için farklı yollar sunar:
 
 - [Python ile uygulama oluşturma bir SQL API'si](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [MongoDB API'si ile bir Flask uygulaması derleme](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
+- [MongoDB API'si için Azure Cosmos DB ile bir Flask uygulaması derleme](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
 - [Python ve Gremlin API kullanarak bir grafik veritabanı oluşturma](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [Python ve Azure Cosmos DB ile Cassandra uygulaması derleme](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [API uygulaması, Python ve Azure Cosmos DB ile tablo oluşturma](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
@@ -80,12 +80,12 @@ Cosmos DB ile çalışırken kullanabileceğiniz [azure cosmosdb tablo](https://
 
 Azure, bir dizi kullanabileceğiniz diğer veritabanı türleri sağlar. Aşağıdaki makaleleri veritabanlarınızdaki Python'dan erişmeye yönelik rehberlik sağlar:
 
-- [PostgreSQL için Azure veritabanı: Python kullanarak bağlanmak ve veri sorgulamak için](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [Hızlı Başlangıç: Python ile Azure Redis cache'i kullanma](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [MySQL için Azure veritabanı: Python kullanarak bağlanmak ve veri sorgulamak için](https://docs.microsoft.com/azure/mysql/connect-python)
+- [PostgreSQL için Azure veritabanı: Bağlanmak ve veri sorgulamak için Python kullanma](https://docs.microsoft.com/azure/postgresql/connect-python)
+- [Hızlı Başlangıç: Python ile Azure Redis Cache kullanma](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
+- [MySQL için Azure veritabanı: Bağlanmak ve veri sorgulamak için Python kullanma](https://docs.microsoft.com/azure/mysql/connect-python)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Azure Data Factory Kopyalama Sihirbazı](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Nasıl yapılır: Proje veri dosyalarıyla çalışma](work-with-project-data-files.md)
+- [Nasıl Yapılır: Proje veri dosyalarıyla çalışma](work-with-project-data-files.md)

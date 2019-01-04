@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 97352cdc89aabe312bf500901347acaf5238e871
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b05b3fee5c49f69979f5e778f897d4be863a3715
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437002"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809888"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: AD DS bağlayıcı hesap izinlerini yapılandırma 
 
@@ -219,7 +219,7 @@ Bu cmdlet şu izinler ayarlanır:
 |-----|-----|-----|-----| 
 |İzin Ver |AD DS bağlayıcı hesabı |Genel okuma/yazma |Alt grup nesneleri| 
 |İzin Ver |AD DS bağlayıcı hesabı |Alt nesne oluşturma/silme |Bu nesne ve tüm alt nesneleri| 
-|İzin Ver |AD DS bağlayıcı hesabı |Silme/Delete bir nesne ve tüm onun alt öğeleri |Bu nesne ve tüm alt nesneleri|
+|İzin Ver |AD DS bağlayıcı hesabı |Bir nesne ve onun alt öğeleri oluşturma/silme |Bu nesne ve tüm alt nesneleri|
 
 ### <a name="permissions-for-exchange-hybrid-deployment"></a>Exchange karma dağıtımı için izinleri 
 Exchange karma dağıtımı kullanırken AD DS bağlayıcı hesabının izinlerini ayarlamak için çalıştırın: 

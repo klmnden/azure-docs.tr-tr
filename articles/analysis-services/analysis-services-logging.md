@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f3a3261fa1b7aa2075a05d7b87ea3fc29c5b9fab
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f2e0767e78119b224f7be9256ab7050deca37e32
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385882"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546989"
 ---
 # <a name="setup-diagnostic-logging"></a>Tanılama günlüğüne kaydetmeyi ayarlama
 
-Herhangi bir Analysis Services çözümü önemli bir parçası sunucularınızı performansını izler. İle [Azure kaynak tanılama günlükleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), izleyebilir ve günlükleri Gönder [Azure depolama](https://azure.microsoft.com/services/storage/), kendisine akış [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)ve bunları dışarı aktarma [günlüğü Analytics](https://azure.microsoft.com/services/log-analytics/), hizmetinde [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Herhangi bir Analysis Services çözümü önemli bir parçası sunucularınızı performansını izler. İle [Azure kaynak tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-overview.md), izleyebilir ve günlükleri Gönder [Azure depolama](https://azure.microsoft.com/services/storage/), kendisine akış [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)ve bunları dışarı aktarma [günlüğü Analytics](https://azure.microsoft.com/services/log-analytics/), hizmetinde [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
 
 ![Depolama, Event Hubs veya Log Analytics için tanılama günlüğüne kaydetme](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -304,6 +304,6 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi edinin [Azure kaynak tanılama günlüğüne kaydetme](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Daha fazla bilgi edinin [Azure kaynak tanılama günlüğüne kaydetme](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 Bkz: [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting) PowerShell Yardım.

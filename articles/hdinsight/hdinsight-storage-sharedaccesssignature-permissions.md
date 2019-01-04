@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c3cb9b7988269f394615b6498bbe7af5bb0ab1e1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409930"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743366"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>HDInsight ile verilere erişimi kısıtlamak için Azure depolama paylaşılan erişim imzaları kullanma
 
@@ -180,10 +180,10 @@ SAS'ı kullanan bir HDInsight kümesi oluşturmanın bir örneği yer aldığı 
    > [!IMPORTANT]  
    > HTTP/s veya SSH kullanıcı adı ve parola istendiğinde, aşağıdaki ölçütlere uyan bir parola sağlamanız gerekir:
    >
-   > * En az 10 karakter uzunluğunda olmalıdır
-   > * En az bir rakam içermelidir
-   > * En az bir alfasayısal olmayan karakter içermelidir
-   > * En az bir büyük veya küçük harf içermelidir
+   > * En az 10 karakter uzunluğunda olmalıdır.
+   > * En az bir rakam içermelidir.
+   > * En az bir alfasayısal olmayan karakter içermelidir.
+   > * En az bir büyük veya küçük harf içermelidir.
 
 Bir süredir bu betik, tamamlanması genellikle yaklaşık 15 dakika sürer. Betik herhangi bir hata olmadan tamamlandığında, küme oluşturuldu.
 
@@ -290,10 +290,10 @@ Kümeye bağlandıktan sonra SAS depolama hesabına yalnızca okuma ve liste ö�
 
 **Çözüm**: Aşağıdaki ölçütlere uyan bir parola kullanın:
 
-* En az 10 karakter uzunluğunda olmalıdır
-* En az bir rakam içermelidir
-* En az bir alfasayısal olmayan karakter içermelidir
-* En az bir büyük veya küçük harf içermelidir
+* En az 10 karakter uzunluğunda olmalıdır.
+* En az bir rakam içermelidir.
+* En az bir alfasayısal olmayan karakter içermelidir.
+* En az bir büyük veya küçük harf içermelidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

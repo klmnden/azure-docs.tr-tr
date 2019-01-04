@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 80a2ed779fa65c669be81fdf8212b7d018325ee5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262327"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634516"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure depolama ölçümlerini ve günlüğe kaydetme, AzCopy ve ileti Çözümleyicisi kullanarak uçtan uca sorun giderme
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -94,6 +94,8 @@ Yapılandırmak için günlüğe kaydetme ve depolama için ölçümleri kullana
 
 **PowerShell**
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Azure PowerShell ile çalışmaya başlamak için bkz. [Azure PowerShell'i yükleme ve yapılandırma işlemini](/powershell/azure/overview).
 
 1. Kullanım [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet'i PowerShell penceresine Azure kullanıcı hesabınızı eklemek için:
@@ -114,13 +116,13 @@ Azure PowerShell ile çalışmaya başlamak için bkz. [Azure PowerShell'i yükl
 4. Blob hizmeti için depolama günlük kaydını etkinleştir:
    
     ```powershell
-    Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 5. Ayarlanacak sağlamaktan Blob hizmetinin, depolama ölçümlerini etkinleştirme **- MetricsType** için `Minute`:
    
     ```powershell
-    Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
+    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
     ```
 
 ### <a name="configure-net-client-side-logging"></a>.NET istemci tarafı günlük kaydını yapılandırma
@@ -198,11 +200,11 @@ Microsoft Message Analyzer, yakalama, görüntüleme ve trafik, olayları ve di�
 2. İleti Çözümleyicisi'ni başlatın.
 3. Gelen **Araçları** menüsünde **varlık Yöneticisi**. İçinde **varlık Yöneticisi** iletişim kutusunda **indirir**, ardından filtre **Azure depolama**. Aşağıdaki resimde gösterildiği gibi Azure depolama varlıkları görürsünüz.
 4. Tıklayın **eşitleme tüm görüntülenen öğelerin** Azure depolama varlıkları yüklemek için. Kullanılabilir Varlıklar içerir:
-   * **Azure depolama renk kurallarını:** Azure depolama renk kurallarını içeren bir izleme özgü bilgiler iletileri vurgulamak için yazı tipi rengi ve metin stilleri kullanan özel filtreler tanımlamak etkinleştirin.
-   * **Azure depolama grafikleri:** Azure depolama grafikleri olan sunucu günlük verilerini grafik önceden tanımlanmış grafikler. Şu anda Azure depolama grafikleri kullanmak için yalnızca sunucu günlüğü analizi kılavuza yükleyebilir olduğunu unutmayın.
-   * **Azure depolama Çözümleyicileri:** Azure depolama Çözümleyicileri bunları analiz kılavuzunda görüntülemek için Azure depolama istemci, sunucu ve HTTP günlükleri ayrıştırılamıyor.
-   * **Azure depolama filtreler:** Azure depolama filtrelerdir verilerinizi analiz kılavuzunda sorgulamak için kullanabileceğiniz önceden tanımlanmış ölçütleri.
-   * **Azure depolama görünüm düzenleri:** Azure depolama görünüm düzenleri: önceden tanımlanmış sütun düzenleri ve analiz kılavuzunda gruplandırmaları.
+   * **Azure depolama renk kurallarını:** Azure depolama renk kurallarını içeren bir izleme özgü bilgiler iletileri vurgulamak için renk, metin ve yazı tipi stillerini kullanan özel filtreler tanımlamak etkinleştirin.
+   * **Azure depolama grafikler:** Azure depolama grafikleri, sunucu günlük verilerini grafik önceden tanımlanmış grafikleri ' dir. Şu anda Azure depolama grafikleri kullanmak için yalnızca sunucu günlüğü analizi kılavuza yükleyebilir olduğunu unutmayın.
+   * **Azure depolama Çözümleyicileri:** Azure depolama Çözümleyicileri, bunları analiz kılavuzunda görüntülemek için Azure depolama istemci, sunucu ve HTTP günlükleri ayrıştırılamıyor.
+   * **Azure depolama filtreler:** Azure depolama filtreleri, verilerinizi analiz kılavuzunda sorgulamak için kullanabileceğiniz önceden tanımlanmış ölçütlerdir.
+   * **Azure depolama görünüm düzenleri:** Azure depolama görünüm düzenleri şunlardır: önceden tanımlanmış sütun düzenleri ve analiz kılavuzunda gruplandırmaları.
 5. Varlıkları yükledikten sonra ileti Çözümleyicisi'ni yeniden başlatın.
 
 ![İleti Çözümleyicisi varlık Yöneticisi](./media/storage-e2e-troubleshooting/mma-start-page-1.png)

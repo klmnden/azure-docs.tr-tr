@@ -8,18 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: dobett
-ms.openlocfilehash: c20b1d5f3a84e950e37a3236272256db620a5985
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 838a33fd390b28fec609c42487dca225ddc6eaa8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831109"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628213"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>Raspberry Pi'yi Cihazınızı Uzaktan izleme çözüm hızlandırıcısına (C) bağlama
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Bu öğreticide, fiziksel bir cihazı Uzaktan izleme çözüm hızlandırıcısına bağlamayı gösterilmektedir. Kısıtlanmış cihazlarında çalışan en katıştırılmış uygulamalarında olduğu gibi Raspberry Pi cihaz uygulaması için istemci kodu c dilinde yazılan Bu öğreticide, Raspbian işletim sistemi çalıştıran Raspberry Pi üzerinde uygulama oluşturun.
+Bu öğreticide, gerçek bir cihaz Uzaktan izleme çözüm hızlandırıcısına bağlamayı gösterilmektedir. Kısıtlanmış cihazlarında çalışan en katıştırılmış uygulamalarında olduğu gibi Raspberry Pi cihaz uygulaması için istemci kodu c dilinde yazılan Bu öğreticide, Raspbian işletim sistemi çalıştıran Raspberry Pi üzerinde uygulama oluşturun.
+
+Bir cihazın benzetimini gerçekleştirme isterseniz, bkz. [oluşturma ve test yeni bir simülasyon cihazı](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ### <a name="required-hardware"></a>Gerekli donanım
 
@@ -36,7 +38,7 @@ Raspberry Pi komut satırında bilgisayarlarına uzaktan bağlanabilmelerini sa�
 
 Komut satırı Raspberry Pi üzerinde uzaktan erişim sağlamak için Masaüstü makinenizde SSH istemcisi gerekir.
 
-- Windows, bir SSH istemcisi içermez. Kullanmanızı öneririz [PuTTY](http://www.putty.org/).
+- Windows, bir SSH istemcisi içermez. Kullanmanızı öneririz [PuTTY](https://www.putty.org/).
 - Çoğu Linux dağıtımları ve MAC'te SSH komut satırı yardımcı programı içerir. Daha fazla bilgi için [SSH kullanarak Linux veya Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
 ### <a name="required-raspberry-pi-software"></a>Raspberry Pi'yi yazılım gerekli

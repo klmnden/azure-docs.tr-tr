@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3536fb21d50dd54ec71615eba25c2d60fc727f34
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 8072d72dbb164d5012ad42d5cba66c8b425e99a1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583304"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787912"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Spark kümesi kaynaklarını yönetme 
 
@@ -34,7 +34,7 @@ Spark geçmiş tamamlanmış ve çalışan Spark uygulamaları için kullanıcı
 
 **Spark geçmiş sunucusu Web kullanıcı arabirimini açmak için**
 
-1. Gelen [Azure portalında](https://portal.azure.com/), Spark kümesini açın. Daha fazla bilgi için [kümeleri Listele ve Göster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. Gelen [Azure portalında](https://portal.azure.com/), Spark kümesini açın. Daha fazla bilgi için [kümeleri Listele ve Göster](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Gelen **hızlı bağlantılar**, tıklayın **küme Panosu**ve ardından **Spark geçmiş sunucusu**
 
     ![Spark geçmiş sunucusu](./media/apache-spark-resource-manager/launch-history-server.png "Spark geçmiş sunucusu")
@@ -54,15 +54,13 @@ Spark geçmiş sunucusu web kullanıcı Arabirimi gibi görünür:
 ## <a name="open-the-yarn-ui"></a>Yarn UI'ı açın
 YARN UI kullanarak Spark kümesi üzerinde çalışmakta olan uygulamaları izlemek için kullanabilirsiniz.
 
-1. Gelen [Azure portalında](https://portal.azure.com/), Spark kümesini açın. Daha fazla bilgi için [kümeleri Listele ve Göster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. Gelen [Azure portalında](https://portal.azure.com/), Spark kümesini açın. Daha fazla bilgi için [kümeleri Listele ve Göster](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. Gelen **hızlı bağlantılar**, tıklayın **küme Panosu**ve ardından **YARN**.
 
     ![YARN kullanıcı arabirimini Başlat](./media/apache-spark-resource-manager/launch-yarn-ui.png)
 
-   > [!TIP]
+   > [!TIP]  
    > Alternatif olarak, Ambari UI YARN kullanıcı Arabiriminden da başlatabilirsiniz. Ambari UI başlatmak için tıklayın **küme Panosu**ve ardından **HDInsight küme Panosu**. Ambari Arabiriminden tıklayın **YARN**, tıklayın **hızlı bağlantılar**etkin Kaynak Yöneticisi'ni tıklatın ve ardından **kaynak yöneticisi kullanıcı Arabirimi**.
-   >
-   >
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Kümeleri Spark uygulamaları için en iyi duruma getirme
 Uygulama gereksinimlerine bağlı olarak Spark yapılandırması için kullanılabilecek üç anahtar parametreleri `spark.executor.instances`, `spark.executor.cores`, ve `spark.executor.memory`. Bir yürütücü Spark uygulaması için başlatılan bir işlemdir. Çalışan düğümü üzerinde çalışan ve uygulama için görevleri yürütmek için sorumludur. Varsayılan yürütücü ve her küme için Yürütücü boyutları sayısını çalışan düğümlerine ve çalışan düğümü boyutu sayısı hesaplanır. Bu bilgiler saklanır `spark-defaults.conf` küme baş düğümlerine.
@@ -158,8 +156,8 @@ Yarn UI makalenin başında gösterildiği gibi başlatın. Ekranın en üstünd
 
 ### <a name="for-data-analysts"></a>Veri analistleri için
 
-* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 * [HDInsight Apache Spark'ı kullanarak application Insight telemetri verilerinin analizi](apache-spark-analyze-application-insight-logs.md)
 * [Azure HDInsight Spark üzerinde dağıtılmış derin öğrenme için Caffe kullanma](apache-spark-deep-learning-caffe.md)
@@ -167,7 +165,7 @@ Yarn UI makalenin başında gösterildiği gibi başlatın. Ekranın en üstünd
 ### <a name="for-apache-spark-developers"></a>Apache Spark geliştiricileri için
 
 * [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
+* [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
 * [Spark Scala uygulamaları oluşturmak ve göndermek amacıyla IntelliJ IDEA için HDInsight Araçları Eklentisini kullanma](apache-spark-intellij-tool-plugin.md)
 * [Apache Spark uygulamalarında uzaktan hata ayıklamak amacıyla Intellij Idea için HDInsight araçları eklentisi kullanma](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [HDInsight üzerinde Apache Spark kümesi ile Apache Zeppelin not defterlerini kullanma](apache-spark-zeppelin-notebook.md)

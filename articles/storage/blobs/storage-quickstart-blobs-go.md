@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 2939bd5c7b32cc9fe05326ee72dbb7367a72ef7f
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 5bafceca09cfe5a981365a39e4f3803b5865ce73
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711166"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754824"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Hızlı Başlangıç: Go kullanarak blobları yükleme, indirme ve listeleme
+# <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Hızlı Başlangıç: Karşıya yükleme, indirme ve Go kullanarak blobları Listele
 
 Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok bloblarını karşıya yüklemek, indirmek ve listelemek için Go programlama dilini nasıl kullanabileceğinizi öğreneceksiniz. 
 
@@ -51,14 +51,14 @@ Bu komut, depoyu yerel Git klasörünüze kopyalar. Blob depolama alanının Go 
 ## <a name="configure-your-storage-connection-string"></a>Depolama bağlantı dizelerinizi yapılandırma
 Bu çözüm, depolama hesabı adınızın ve anahtarınızın çözümü çalıştıran makinede yerel olarak bulunan ortam değişkenlerinde güvenli bir şekilde depolanmasını gerektirir. Ortam değişkenlerini oluşturmak için işletim sisteminize bağlı olarak aşağıdaki örneklerden birini izleyin.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/Linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
-# <a name="windowstabwindows"></a>[Windows](#tab/Windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
@@ -148,7 +148,7 @@ handleErrors(err)
 
 Blob depolama blok blobları, ekleme bloblarını ve sayfa bloblarını destekler. Blok blobları en sık kullanılan bloblardır ve bu hızlı başlangıçta bu bloblar kullanılmıştır.  
 
-Bloba dosya yüklemek için, **os.Open** kullanarak dosyayı açın. Ardından, dosyayı belirtilen yola yüklemek için REST API'lerden birini kullanabilirsiniz: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
+Bloba dosya yüklemek için, **os.Open** kullanarak dosyayı açın. Ardından, belirtilen yola REST API'lerden birini kullanarak dosyayı karşıya yükleyebilirsiniz: Karşıya yükleme (PutBlob) StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
 Alternatif olarak, SDK alt düzey REST API'lerinin üstüne yapılandırılmış [üst düzey API'ler](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) sağlar. Örnek vermek gerekirse, ***UploadFileToBlockBlob*** işlevi, aktarım hızını iyileştirmek için StageBlock (PutBlock) işlemlerini kullanarak bir dosyayı öbekler halinde eşzamanlı olarak karşıya yükler. Dosya 256 MB'den küçükse, aktarımı tek işlemde tamamlamak için onun yerine Upload (PutBlob) kullanır.
 

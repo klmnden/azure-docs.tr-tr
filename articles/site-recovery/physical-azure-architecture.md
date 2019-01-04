@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 3f31fa8d26b0fb5f247a0b4c8c65abd50c5bc1e4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5602e68e546c59e3ee43442fdf0cdf33b9cf6a29
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865310"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975041"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>Fiziksel sunucuya Azure olağanüstü durum kurtarma mimarisi
 
@@ -63,15 +63,15 @@ Gerektiği şekilde çoğaltma ayarlanır ve her şeyin beklendiği gibi çalı�
 - İlk yük devretmeyi tetiklemeden sonra Azure VM üzerindeki iş yüküne erişmeye başlamak üzere yürütürsünüz.
 - Birincil şirket içi siteniz yeniden kullanılabilir olduğunda siteyi yeniden çalıştırabilirsiniz.
 - Yeniden çalışma altyapısı ayarlarsınız, gerek dahil olmak üzere:
-    - **Azure'da geçici işlem sunucusu**: Azure'dan yeniden çalışma için bir Azure VM'yi azure'dan çoğaltmayı düzenlemek için bir işlem sunucusu olarak davranacak şekilde ayarlarsınız. Yeniden çalışma sona erdikten sonra bu VM'yi silebilirsiniz.
-    - **VPN bağlantısı**: yeniden çalışma için bir VPN bağlantısı (veya Azure ExpressRoute) Azure ağından şirket içi siteye gerekir.
-    - **Ayrı bir ana hedef sunucusu**: varsayılan olarak, yapılandırma sunucusunda şirket içi VMware VM ile yüklenen ana hedef sunucusu yeniden çalışma işler. Bununla birlikte, geri büyük hacimli trafikte başarısız gerekiyorsa, bu amaç için ayrı şirket içi ana hedef sunucusu ayarlamanız ayarlamanız gerekir.
-    - **Yeniden çalışma ilkesi**: Şirket içi sitenize geri çoğaltmak için bir yeniden çalışma ilkeniz olmalıdır. Şirket içinden Azure'a çoğaltma ilkenizi oluşturduğunuzda otomatik olarak oluşturuldu.
-    - **VMware altyapısı**: yeniden çalışma için bir VMware altyapınız olmalıdır. Bir fiziksel sunucuda yeniden çalışamazsınız.
+    - **Azure'da geçici işlem sunucusu**: Azure'dan yeniden çalışma için azure'dan çoğaltmayı düzenlemek için bir işlem sunucusu olarak görev yapacak bir Azure VM'yi ayarlayın. Yeniden çalışma sona erdikten sonra bu VM'yi silebilirsiniz.
+    - **VPN bağlantısı**: Yeniden çalışma için bir VPN bağlantısı (veya Azure ExpressRoute) Azure ağından şirket içi siteye gerekir.
+    - **Ayrı bir ana hedef sunucusu**: Varsayılan olarak, yapılandırma sunucusunda şirket içi VMware VM ile yüklenen ana hedef sunucusu yeniden çalışma işler. Bununla birlikte, geri büyük hacimli trafikte başarısız gerekiyorsa, bu amaç için ayrı şirket içi ana hedef sunucusu ayarlamanız ayarlamanız gerekir.
+    - **Yeniden çalışma ilkesi**: Şirket içi siteye geri çoğaltılması için bir yeniden çalışma ilkesi gerekir. Şirket içinden Azure'a çoğaltma ilkenizi oluşturduğunuzda otomatik olarak oluşturuldu.
+    - **VMware altyapısı**: Yeniden çalışma için bir VMware altyapısı gerekir. Bir fiziksel sunucuda yeniden çalışamazsınız.
 - Bileşenleri hazır olduktan sonra yeniden çalışma üç aşamada gerçekleşir:
-    - 1. Aşama: Azure Vm'lerini yeniden koruma, böylece bunlar Azure'dan çoğaltmak şirket içi VMware Vm'lerini geri dönün.
-    - 2. Aşama: şirket içi siteye yük devretme çalıştırın.
-    - 3. Aşama: iş yüklerini geri başarısız olduktan sonra çoğaltmayı yeniden etkinleştirin.
+    - 1. Aşama: Böylece bunlar Azure'dan çoğaltma Azure Vm'lerini yeniden koruma şirket içi VMware Vm'lerini geri dönün.
+    - 2. Aşama: Şirket içi siteye yük devretme çalıştırın.
+    - 3. Aşama: İş yüklerini geri başarısız olduktan sonra çoğaltmayı yeniden etkinleştirin.
 
 **Azure'dan VMware**
 

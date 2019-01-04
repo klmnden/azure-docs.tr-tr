@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: f7567d0c3bfdfc7bd44b918c9f2feda7499386e8
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f4307da2e74846507cafb9f767a6ccae855e42a2
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984088"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554682"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Azure Stream Analytics işi verimliliğini artırmak için ölçeklendirme
 Bu makalede, Streaming Analytics işlerini verimliliğini artırmak için bir Stream Analytics sorgu nasıl ayarlanacağını gösterir. İşinizi daha yüksek bir yükü işlemek ve daha fazla sistem kaynakları (örneğin, daha fazla bant genişliği, daha fazla CPU kaynaklarının, daha fazla bellek) yararlanmak için ölçeklendirmek için aşağıdaki kılavuzu kullanabilirsiniz.
@@ -34,7 +34,7 @@ Sorgunuzu giriş bölümler arasında tam olarak kendiliğinden paralelleştiril
 4.  6 SU iş ulaşıp ulaşamadığını sınırları belirledikten sonra belirli bölüm "sıcak" yapan, herhangi bir veri dengesizliği yoksa varsayılarak daha fazla SUs ekledikçe, doğrusal olarak işin işlem kapasitesini tahmin
 
 > [!NOTE]
-> Doğru sayıda akış birimi seçin: Stream Analytics, eklenen her 6 SU için bir işlem düğümü oluşturduğundan, bölümleri düğümler arasında eşit olarak dağıtılabilir bir bölen giriş bölüm sayısı, düğüm sayısını olmak en iyisidir.
+> Doğru sayıda akış birimi seçin: Stream Analytics, bir işlem düğümü, eklenen her 6 SU oluşturduğundan, bölümleri düğümler arasında eşit olarak dağıtılabilir bir bölen giriş bölüm sayısı, düğüm sayısını olmak en iyisidir.
 > Örneğin, 6 ölçülen SU iş elde edebileceğiniz 4 MB/s işleme hızı ve, giriş bölüm sayısı olan 4. Yaklaşık 8 MB/sn işleme hızını elde etmek için 12 SU veya 16 MB/sn elde etmek için 24 SU işinizi çalıştırmayı seçebilirsiniz. Ardından işin hangi değere giriş oranınız işlevi olarak SU sayıyı artırmak ne zaman karar verebilirsiniz.
 
 
@@ -48,15 +48,16 @@ Sorgunuzu utandırıcı derecede paralel değilse, aşağıdaki adımları izley
 
 Sorgu:
 
-    WITH Step1 AS (
-    SELECT COUNT(*) AS Count, TollBoothId, PartitionId
-    FROM Input1 Partition By PartitionId
-    GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
-    )
-    SELECT SUM(Count) AS Count, TollBoothId
-    FROM Step1
-    GROUP BY TumblingWindow(minute, 3), TollBoothId
-
+ ```SQL
+ WITH Step1 AS (
+ SELECT COUNT(*) AS Count, TollBoothId, PartitionId
+ FROM Input1 Partition By PartitionId
+ GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
+ )
+ SELECT SUM(Count) AS Count, TollBoothId
+ FROM Step1
+ GROUP BY TumblingWindow(minute, 3), TollBoothId
+ ```
 Yukarıdaki sorguda, bölüm başına Ücretli standına başına otomobiller sayım ve sayı tüm bölümleri birbirine ekleme.
 
 En fazla 6 SU, 6 sahip her bölüm, adımın her bölüm için bölümlenmiş sonra tahsis SU her bölüm kendi işlem düğümünde yerleştirilebilir en olduğundan.

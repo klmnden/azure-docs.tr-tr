@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/10/2018
 ms.author: kgremban
-ms.openlocfilehash: ccd38dd7570dc451a1a5b87163bfdd7aea51dad5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: dbe9f18f5a38284e2b263d636656c88b1743d7ea
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567443"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555651"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta yükleme
 
@@ -175,6 +175,39 @@ Kısıtlanmış bir kaynak cihazlarda ayarlamanız önerilir *OptimizeForPerform
 
 Bir proxy sunucusu varsa, ağ adımları izlerseniz [bir proxy sunucu üzerinden iletişim kurmak için IOT Edge Cihazınızı yapılandırma](how-to-configure-proxy-support.md).
 
+## <a name="uninstall-iot-edge"></a>IOT Edge kaldırma
+
+IOT Edge yükleme Linux cihazınızdan kaldırmak istiyorsanız, komut satırından aşağıdaki komutları kullanın. 
+
+IoT Edge çalışma zamanını kaldırın. 
+
+```bash
+sudo apt-get remove --purge iotedge
+```
+
+IOT Edge çalışma zamanı kaldırıldığında, oluşturulan kapsayıcı durduruldu ancak Cihazınızda mevcut. Hangilerinin kalır görmek için tüm kapsayıcıları görüntüleyin. 
+
+```bash
+sudo docker ps -a
+```
+
+Kapsayıcıları iki çalışma zamanı kapsayıcılarındaki dahil olmak üzere cihazınızın silin. 
+
+```bash
+sudo docker rm -f <container name>
+```
+
+Son olarak, kapsayıcı çalışma zamanı cihazınızdan kaldırın. 
+
+```bash 
+sudo apt-get remove --purge moby-cli
+sudo apt-get remove --purge moby-engine
+```
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
+Yüklü olan çalışma zamanı ile sağlanan bir IOT Edge cihazına sahip olduğunuza göre şunları yapabilirsiniz [IOT Edge modüllerini dağıtmak](how-to-deploy-modules-portal.md).
+
 Düzgün bir şekilde yükleme Edge çalışma zamanı ile ilgili sorunlar yaşıyorsanız başvurmak [sorun giderme](troubleshoot.md#stability-issues-on-resource-constrained-devices) sayfası.
+
+Var olan bir yüklemesini IOT Edge en yeni sürüme güncelleştirmek için bkz: [IOT Edge güvenlik arka plan programı ve çalışma zamanını güncelleştirme](how-to-update-iot-edge.md).

@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f286d8b2ba254cfad542db14b8719d6f3f676222
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2108de8988e973644e0622a4b76a04408949298e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093752"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635162"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>Apache Spark, Azure HDInsight'ı kullanarak sorun giderme
 
@@ -218,7 +218,7 @@ Bu özel durumun en olası nedeni, Java sanal makineleri (JVMs) yeterli yığın
 
 ### <a name="additional-reading"></a>Ek okuma
 
-- [Apache Spark bellek yönetimine genel bakış](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
+- [Apache Spark bellek yönetimine genel bakış](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [Bir HDInsight kümesi üzerinde bir Apache Spark uygulamasının hatasını ayıklama](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
 
 

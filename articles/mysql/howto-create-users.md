@@ -1,38 +1,35 @@
 ---
-title: Kullanıcılar Azure veritabanı'nda MySQL sunucusu için oluşturma
-description: Bu makalede, MySQL sunucusu için bir Azure veritabanıyla etkileşim kurmak için yeni kullanıcı hesapları nasıl oluşturabileceğiniz açıklanmaktadır.
-services: mysql
+title: Kullanıcılar, MySQL sunucusu için Azure veritabanı'nda oluşturma
+description: Bu makalede, MySQL için Azure veritabanı ile etkileşim kurmak için yeni kullanıcı hesaplarını nasıl oluşturabileceğiniz açıklanır.
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
-manager: kfile
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: ee74ea9e114f6401bfcafe44ca3caedfcd0005c5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e8714777b1f9f08de4d02fcb44c25197cdc48899
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265627"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546020"
 ---
-# <a name="create-users-in-azure-database-for-mysql-server"></a>Kullanıcılar Azure veritabanı'nda MySQL sunucusu için oluşturma 
-Bu makalede, MySQL sunucusu için bir Azure veritabanındaki kullanıcıların nasıl oluşturabileceğiniz açıklanmaktadır.
+# <a name="create-users-in-azure-database-for-mysql-server"></a>Kullanıcılar, MySQL sunucusu için Azure veritabanı'nda oluşturma 
+Bu makalede, bir MySQL sunucusu için Azure veritabanı'nda kullanıcılara nasıl oluşturabileceğiniz açıklanır.
 
-MySQL için öncelikle Azure veritabanınızı oluşturduğunuzda, bir Sunucu Yöneticisi oturum açma kullanıcı adı ve parola sağlanan. Daha fazla bilgi için izlediğiniz [Hızlı Başlangıç](quickstart-create-mysql-server-database-using-azure-portal.md). Sunucu yönetici oturum açma kullanıcı adınızı Azure portalından bulabilirsiniz.
+MySQL için Azure veritabanınızı ilk oluşturduğunuzda, bir Sunucu Yöneticisi oturum açma kullanıcı adı ve parola sağlanan. Daha fazla bilgi için izleyebileceğiniz [hızlı](quickstart-create-mysql-server-database-using-azure-portal.md). Sunucu Yöneticisi oturum açma kullanıcı adını Azure portalında bulabilirsiniz.
 
-Sunucu yönetici kullanıcısı sunucunuz için belirli ayrıcalıklara listelendiği gibi alır: seçin, Ekle, Güncelleştir, Sil, oluşturma, bırakma, yeniden yükleme, işlem, başvuruları, dizin, ALTER, Göster veritabanları, geçici tablolar oluşturma, kilit tablo, yürütme, çoğaltma bağımlı, çoğaltma İSTEMCİ, GÖRÜNÜM OLUŞTURUN, GÖRÜNÜMÜ GÖSTER, RUTİN OLUŞTURMA, YORDAMI ALTER, KULLANICI, OLAY, TETİKLEYİCİ OLUŞTURMA
+Sunucu yönetici kullanıcısı belirli ayrıcalıklara listelendiği gibi sunucunuzun alır: SEÇİN, EKLE, GÜNCELLEŞTİR, SİL, OLUŞTURMA, BIRAKMA, YENİDEN, İŞLEM, BAŞVURULARI, INDEX, ALTER, VERİTABANLARI, GÖSTER GEÇİCİ TABLOLAR OLUŞTURMA, KİLİTLEME TABLOLAR, YÜRÜTÜN, İKİNCİL ÇOĞALTMA, ÇOĞALTMA İSTEMCİSİ, OLUŞTUR, GÖRÜNTÜLE, GÖRÜNÜMÜ GÖSTER, RUTİN OLUŞTURMAK, ALTER YORDAMI, KULLANICI OLUŞTURMA , OLAY TETİKLEYİCİSİ
 
-MySQL sunucusu için Azure veritabanı oluşturulduktan sonra ek kullanıcılar oluşturma ve bunları yönetim erişim vermek için ilk sunucu yönetici kullanıcı hesabını kullanabilirsiniz. Ayrıca, sunucu yönetici hesabı, tek tek veritabanı şemalarını erişimi daha az ayrıcalıklı kullanıcıları oluşturmak için kullanılabilir.
+MySQL sunucusu için Azure veritabanı oluşturulduktan sonra ek kullanıcılar oluşturma ve yönetici erişim vereceğinizi ilk sunucu yöneticisi kullanıcı hesabını kullanabilirsiniz. Ayrıca, sunucu yöneticisi hesabı, tek veritabanı şemalarını erişimi daha az ayrıcalıklı kullanıcı oluşturmak için kullanılabilir.
 
-## <a name="how-to-create-additional-admin-users-in-azure-database-for-mysql"></a>Ek yönetici kullanıcılar Azure veritabanı'nda MySQL için oluşturma
-1. Bağlantı bilgileri ve yönetici kullanıcı adını alır.
-   Veritabanı sunucusuna bağlanmak için tam sunucu adı ve yönetici oturum açma kimlik bilgileri gerekir. Sunucu adını ve oturum açma bilgilerini sunucusundan kolayca bulabilirsiniz **genel bakış** sayfa veya **özellikleri** Azure portalında sayfası. 
+## <a name="how-to-create-additional-admin-users-in-azure-database-for-mysql"></a>Ek yönetici kullanıcılara, MySQL için Azure veritabanı'nda oluşturma
+1. Bağlantı bilgileri ve yönetici kullanıcı adını alın.
+   Veritabanı sunucusuna bağlanmak için tam sunucu adı ve yönetici oturum açma kimlik bilgileri gerekir. Sunucu adını ve sunucu oturum açma bilgilerini kolayca bulabilirsiniz **genel bakış** sayfası veya **özellikleri** Azure portalında sayfası. 
 
-2. Veritabanı sunucusuna bağlanmak için yönetici hesabı ve parolayı kullanın. MySQL çalışma ekranı, mysql.exe, HeidiSQL veya diğerleri gibi tercih edilen istemci aracını kullanın. 
-   Bağlanmak nasıl emin değilseniz bkz [kullanım MySQL çalışma ekranı bağlanmak ve verileri sorgulamak için](./connect-workbench.md)
+2. Veritabanı sunucunuza bağlanmak için yönetici hesabı ve parolayı kullanın. MySQL Workbench, mysql.exe, HeidiSQL veya diğerleri gibi tercih edilen istemci aracını kullanın. 
+   Bağlanmak nasıl emin değilseniz bkz [bağlanmak ve veri sorgulamak için kullanım MySQL Workbench](./connect-workbench.md)
 
-3. Düzenleyebilir ve aşağıdaki SQL kodu çalıştırın. Yer tutucu değerini için yeni kullanıcı adınızı değiştirin `new_master_user`. Bu sözdiziminin tüm veritabanı şemalarını listelenen ayrıcalıklarını verir (*.*) kullanıcı adına (Bu örnekte new_master_user). 
+3. Düzenleyin ve aşağıdaki SQL kodu çalıştırın. Yer tutucu değerini için yeni kullanıcı adınızı değiştirin `new_master_user`. Bu söz dizimi listelenen tüm veritabanı şemalarını ayrıcalıklar verir (*.*) kullanıcı adına (Bu örnekte new_master_user). 
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';
@@ -49,17 +46,17 @@ MySQL sunucusu için Azure veritabanı oluşturulduktan sonra ek kullanıcılar 
    SHOW GRANTS FOR 'new_master_user'@'%';
    ```
 
-## <a name="how-to-create-database-users-in-azure-database-for-mysql"></a>Veritabanı kullanıcıları Azure veritabanı'nda MySQL için oluşturma
+## <a name="how-to-create-database-users-in-azure-database-for-mysql"></a>Nasıl MySQL için Azure veritabanı'nda veritabanı kullanıcıları oluşturma
 
-1. Bağlantı bilgileri ve yönetici kullanıcı adını alır.
-   Veritabanı sunucusuna bağlanmak için tam sunucu adı ve yönetici oturum açma kimlik bilgileri gerekir. Sunucu adını ve oturum açma bilgilerini sunucusundan kolayca bulabilirsiniz **genel bakış** sayfa veya **özellikleri** Azure portalında sayfası. 
+1. Bağlantı bilgileri ve yönetici kullanıcı adını alın.
+   Veritabanı sunucusuna bağlanmak için tam sunucu adı ve yönetici oturum açma kimlik bilgileri gerekir. Sunucu adını ve sunucu oturum açma bilgilerini kolayca bulabilirsiniz **genel bakış** sayfası veya **özellikleri** Azure portalında sayfası. 
 
-2. Veritabanı sunucusuna bağlanmak için yönetici hesabı ve parolayı kullanın. MySQL çalışma ekranı, mysql.exe, HeidiSQL veya diğerleri gibi tercih edilen istemci aracını kullanın. 
-   Bağlanmak nasıl emin değilseniz bkz [kullanım MySQL çalışma ekranı bağlanmak ve verileri sorgulamak için](./connect-workbench.md)
+2. Veritabanı sunucunuza bağlanmak için yönetici hesabı ve parolayı kullanın. MySQL Workbench, mysql.exe, HeidiSQL veya diğerleri gibi tercih edilen istemci aracını kullanın. 
+   Bağlanmak nasıl emin değilseniz bkz [bağlanmak ve veri sorgulamak için kullanım MySQL Workbench](./connect-workbench.md)
 
-3. Düzenleyebilir ve aşağıdaki SQL kodu çalıştırın. Yer tutucu değerini değiştirin `db_user` hedeflenen yeni bir kullanıcı adı ve yer tutucu değerini `testdb` kendi veritabanı adıyla.
+3. Düzenleyin ve aşağıdaki SQL kodu çalıştırın. Yer tutucu değerini değiştirin `db_user` hedeflenen yeni bir kullanıcı adı ve yer tutucu değerini `testdb` veritabanınızın adı ile.
 
-   Bu sql kod sözdizimini testdb örnek amacıyla adlı yeni bir veritabanı oluşturur. MySQL hizmeti yeni bir kullanıcı oluşturur ve yeni veritabanı şeması tüm ayrıcalıkları verir (testdb.\*) bu kullanıcı için. 
+   Bu sql kod söz dizimi testdb örneklerde adlı yeni bir veritabanı oluşturur. MySQL hizmeti yeni bir kullanıcı oluşturur ve yeni veritabanı şemasına tüm ayrıcalıkları verir (testdb.\*) söz konusu kullanıcı için. 
 
    ```sql
    CREATE DATABASE testdb;
@@ -71,20 +68,20 @@ MySQL sunucusu için Azure veritabanı oluşturulduktan sonra ek kullanıcılar 
    FLUSH PRIVILEGES;
    ```
 
-4. Veritabanı içinde verir doğrulayın.
+4. Veritabanı içinde bir onayları doğrulayın.
    ```sql
    USE testdb;
    
    SHOW GRANTS FOR 'db_user'@'%';
    ```
 
-5. Yeni bir kullanıcı adı ve parola kullanarak belirlenen veritabanı belirtme sunucuya oturum açın. Bu örnek, mysql komut satırı gösterir. Bu komutla, kullanıcı adı için parola istenir. Kendi sunucu adı, veritabanı adı ve kullanıcı adı ile değiştirin.
+5. Yeni kullanıcı adı ve parola kullanarak belirli bir veritabanı belirtme sunucuya oturum açın. Bu örnek, mysql komut satırını gösterir. Bu komutla birlikte, kullanıcı adı için parola istenir. Kendi sunucu adı, veritabanı adı ve kullanıcı adını değiştirin.
 
    ```azurecli-interactive
    mysql --host mydemoserver.mysql.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bunların bağlanmasına etkinleştirmek için yeni kullanıcılar makinelerin IP adresleri için Güvenlik Duvarı'nı açın: [oluşturma ve Azure portalını kullanarak Azure veritabanı için MySQL güvenlik duvarı kurallarını yönetme](howto-manage-firewall-using-portal.md) veya [Azure CLI](howto-manage-firewall-using-cli.md).
+Bunların bağlanmasına imkan yeni kullanıcılar Makine IP adresleri için Güvenlik Duvarı'nı açın: [Oluşturma ve Azure portalını kullanarak Azure veritabanı için MySQL güvenlik duvarı kurallarını yönetme](howto-manage-firewall-using-portal.md) veya [Azure CLI](howto-manage-firewall-using-cli.md).
 
-Kullanıcı hesabı yönetimi ile ilgili daha fazla bilgi için MySQL için ürün belgelerine bakın [kullanıcı hesabı Yönetimi](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html), [GRANT sözdizimi](https://dev.mysql.com/doc/refman/5.7/en/grant.html), ve [ayrıcalıkları](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).
+Kullanıcı hesabı yönetimi hakkında daha fazla bilgi için MySQL ürün belgeleri için bkz. [kullanıcı hesabı Yönetimi](https://dev.mysql.com/doc/refman/5.7/en/user-account-management.html), [verme söz dizimi](https://dev.mysql.com/doc/refman/5.7/en/grant.html), ve [ayrıcalıkları](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html).

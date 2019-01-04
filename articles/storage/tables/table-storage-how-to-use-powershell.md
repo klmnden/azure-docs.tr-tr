@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/14/2018
 ms.author: rogarana
 ms.component: cosmosdb-table
-ms.openlocfilehash: 219b5aa3c1f280ce02d2579f3fe2cc7ca7da490d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9aa3431e91196d7c33582d17494ddf0c32fba704
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125794"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634482"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure tablo depolama işlemleri 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -32,7 +32,9 @@ Bu nasıl yapılır makalesi, yaygın Azure tablo depolama işlemleri kapsar. A�
 
 Bu nasıl yapılır makalesi işiniz bittiğinde, kolayca, bu nedenle yeni bir kaynak grubunda yeni bir Azure depolama hesabı oluşturma işlemini gösterir. Bunun yerine mevcut bir depolama hesabını kullanmayı tercih ediyorsanız, bunun yerine bunu yapabilirsiniz.
 
-Azure PowerShell modülü sürüm 4.4.0 örneği gerektirir veya üzeri. Bir PowerShell penceresinde çalıştırın `Get-Module -ListAvailable AzureRM` sürümü bulmak için. Hiçbir şey görüntülenmez veya yükseltme için ihtiyacınız [Azure PowerShell modülü yükleme](/powershell/azure/install-azurerm-ps). 
+Örneği Azure PowerShell modülünü gerektirir `AzureRM` 4.4.0 sürümü veya üzeri. Bir PowerShell penceresinde çalıştırın `Get-Module -ListAvailable AzureRM` sürümü bulmak için. Hiçbir şey görüntülenmez veya yükseltme için ihtiyacınız [Azure PowerShell modülü yükleme](/powershell/azure/install-azurerm-ps).
+
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 Azure PowerShell yüklenmiş veya güncelleştirildikten sonra modülünü yükleme **AzureRmStorageTable**, bunları yönetmek için komutlar vardır. Bu modülü yüklemek için PowerShell'i yönetici olarak çalıştırıp kullanım çalıştırmak **Install-Module** komutu.
 

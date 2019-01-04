@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: rajanaki
-ms.openlocfilehash: 351213749dcec2b4c16728c04230c75a12179118
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: e7644128a3f0e0ea531933286e95b15149fdebd3
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411079"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557878"
 ---
 # <a name="upgrade-windows-server-2012-r2-hosts-scvmm-2012-r2-configured-with-azure-site-recovery-to-windows-server-2016--scvmm-2016"></a>Windows Server 2012 R2 ana bilgisayarları, Windows Server 2016 & SCVMM 2016 Azure Site Recovery ile yapılandırılmış SCVMM 2012 R2 yükseltme
 
@@ -49,7 +49,7 @@ Yükseltmeden önce aşağıdakilere dikkat edin:-
     - 2012R2 birincil ve kurtarma VMM sunucuları VMM Kimliğini not alın. Kayıt defterinden "HKLM:\SOFTWARE\Microsoft\Microsoft System Center Virtual Machine Manager Server\Setup" VMM kimliği bulunamadı.
     - Önceden olarak, kümeye eklemek yeni SCVMMs aynı adları geçerli olduğundan emin olun. 
 
-- Arasında çoğaltıyorsanız, iki sitelerinizi SCVMMs tarafından yönetilen her iki kenarı da yapıyorsanız, birincil tarafı yükseltmeden önce kurtarma tarafı önce yükseltmeniz emin olun.
+- Her iki kenarı da SCVMMs tarafından yönetilen sitelerinizden ikisi arasında çoğaltıyorsanız, birincil tarafı yükseltmeden önce kurtarma tarafı önce yükseltmeniz emin olun.
 > [!WARNING]
 > İçin Dağıtılmış anahtar yönetimi altında SCVMM 2012 R2 yükseltilirken seçin **şifreleme anahtarlarını Active Directory'de depolamak**. Hizmet hesabını ve dağıtılmış anahtar yönetimi ayarlarını dikkatle seçin. Gibi şablonlardaki parolalar değil yükseltmeden sonra kullanılabilir ve büyük olasılıkla için yaptığınız seçime göre şifrelenmiş veriler Azure Site Recovery ile çoğaltmayı etkiler
 
@@ -109,5 +109,5 @@ Windows Server 2012 R2 konaklarınız yükseltmeden önce SCVMM 2012 R2'yi SCVMM
 4.  Azure portalına gidin ve kurtarma Hizmetleri kasası içindeki sanal makinelere çoğaltılmış sistem durumunu doğrulayın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Konak yükseltme gerçekleştirildikten sonra gerçekleştirebileceğiniz bir [yük devretme testi](tutorial-dr-drill-azure.md) çoğaltma ve olağanüstü durum recovey durumunuzu durumunu test etmek için.
+Konak yükseltme gerçekleştirildikten sonra gerçekleştirebileceğiniz bir [yük devretme testi](tutorial-dr-drill-azure.md) çoğaltma ve olağanüstü durum kurtarma durumunuzu durumunu test etmek için.
 

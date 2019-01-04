@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: e11c34b2587dcb7602161d36ba4deda1dca73c82
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9af2dd3a17eb150d44bf69cda86e480a083a3164
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720983"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971214"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Web uygulamalarının performansını izleme
 
@@ -32,11 +32,11 @@ Application Insights, hem Java hem de ASP.NET web uygulamaları ve Hizmetleri, W
 ## <a name="setup"></a>Performans izlemeyi ayarlama
 (Diğer bir deyişle, Applicationınsights.config yoksa), projenize Application ınsights'ı henüz eklemediniz varsa, başlamak için aşağıdaki yöntemlerden biriyle seçin:
 
-* [ASP.NET web uygulamaları](app-insights-asp-net.md)
-  * [Özel durum izleme Ekle](app-insights-asp-net-exceptions.md)
-  * [Bağımlılık izleme ekleme](app-insights-monitor-performance-live-website-now.md)
-* [J2EE web uygulamaları](app-insights-java-get-started.md)
-  * [Bağımlılık izleme ekleme](app-insights-java-agent.md)
+* [ASP.NET web uygulamaları](../azure-monitor/app/asp-net.md)
+  * [Özel durum izleme Ekle](../azure-monitor/app/asp-net-exceptions.md)
+  * [Bağımlılık izleme ekleme](../azure-monitor/app/monitor-performance-live-website-now.md)
+* [J2EE web uygulamaları](../azure-monitor/app/java-get-started.md)
+  * [Bağımlılık izleme ekleme](../azure-monitor/app/java-agent.md)
 
 ## <a name="view"></a>Performans ölçümleri keşfetme
 İçinde [Azure portalında](https://portal.azure.com), uygulamanız için ayarladığınız Application Insights kaynağına göz atın. Genel Bakış dikey temel performans verilerini gösterir:
@@ -152,11 +152,11 @@ Performans araştırma deneyimi yanı sıra ilgili içgörüler odaklanmak için
 
 <!--Link references-->
 
-[availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-asp-net.md
+[availability]: ../azure-monitor/app/monitor-web-app-availability.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
+[redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
 [livestream]: app-insights-live-stream.md

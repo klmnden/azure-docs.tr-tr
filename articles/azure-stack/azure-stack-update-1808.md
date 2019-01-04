@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7979bbafda6373c7f25c6e9c7d5cd997fbf5c3eb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 86f4e99401278d13a17f40c4c021060e8bd15f8a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098109"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754552"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 güncelleştirme
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri*
 
 Bu makalede 1808 güncelleştirme paketinin içeriğini açıklar. Güncelleştirme paketinin bu sürümü, Azure Stack için bilinen sorunlar geliştirmeleri ve düzeltmeleri içerir. Bu makalede, güncelleştirmeyi indirebilmesi bağlantıyı da içerir. Bilinen sorunlar için güncelleştirme işlemini doğrudan ilgili sorunları ve derleme (yükleme sonrası) ile ilgili sorunlar ayrılır.
 
@@ -43,7 +43,7 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir.
 - **Tüm Azure Stack ortamlarında artık Eşgüdümlü Evrensel Saat (UTC) saat dilimi biçimini kullanın.**  Tüm günlük verileri ve ilgili bilgileri artık UTC biçiminde görüntüler. UTC saat kullanarak yüklenmedi önceki bir sürümden güncelleştirmezseniz ortamınız UTC kullanmak için güncelleştirilir. 
 
 <!-- 2437250  | IS  ASDK --> 
-- **Yönetilen diskleri desteklenir.** Azure Stack sanal makineler ve sanal makine ölçek kümeleri artık yönetilen diskler kullanabilirsiniz. Daha fazla bilgi için [Azure Stack yönetilen diskler: farklılıklar ve dikkat edilmesi gerekenler](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
+- **Yönetilen diskleri desteklenir.** Azure Stack sanal makineler ve sanal makine ölçek kümeleri artık yönetilen diskler kullanabilirsiniz. Daha fazla bilgi için [Azure Stack yönetilen diskler: Farklılıklar ve dikkat edilmesi gerekenler](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
 
 <!-- 2563799  | IS  ASDK --> 
 - **Azure İzleyici**. Azure'da Azure İzleyici gibi Azure Stack'te Azure İzleyici, temel düzeyde altyapı ölçümlerini ve günlüklerini çoğu hizmetleri sağlar. Daha fazla bilgi için [Azure Stack'te Azure İzleyici](/azure/azure-stack/user/azure-stack-metrics-azure-data).
@@ -226,16 +226,16 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 - Uyarıları görebilirsiniz **sistem durumu denetleyicisi** aşağıdaki ayrıntıları olan bir bileşeni:  
 
    Uyarı #1:
-   - ADI: Sağlıksız altyapı rolü
-   - Önem DERECESİ: uyarı
-   - BİLEŞENİ: Sistem durumu denetleyicisi
-   - Açıklama: Sistem durumu denetleyici sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.  
+   - ADI:  Sağlıksız altyapı rolü
+   - ÖNEM DERECESİ: Uyarı
+   - BİLEŞEN: Denetleyici sistem durumu
+   - AÇIKLAMA: Sistem durumu denetleyici sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.  
 
   Uyarı #2:
-   - ADI: Sağlıksız altyapı rolü
-   - Önem DERECESİ: uyarı
-   - BİLEŞENİ: Sistem durumu denetleyicisi
-   - Açıklama: Hata tarayıcı durumu denetleyicisi kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.
+   - ADI:  Sağlıksız altyapı rolü
+   - ÖNEM DERECESİ: Uyarı
+   - BİLEŞEN: Denetleyici sistem durumu
+   - AÇIKLAMA: Sistem durumu denetleyicisi hata tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.
 
   Her iki uyarılar güvenle yoksayılabilir ve zaman içinde otomatik olarak kapatılması.  
 
@@ -243,16 +243,15 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 <!-- 2812138 | IS --> 
 - İçin bir uyarı görebileceğiniz **depolama** aşağıdaki ayrıntıları içeren bileşeni:
 
-   - Ad: Depolama hizmeti iç iletişim hatası  
-   - Önem DERECESİ: kritik  
-   - Bileşen: depolama  
-   - Açıklama: Aşağıdaki düğümlere istekleri gönderirken, depolama hizmeti iç iletişim hatası oluştu.  
+   - ADI: Depolama hizmeti iç iletişim hatası  
+   - ÖNEM DERECESİ: Kritik  
+   - BİLEŞEN: Depolama  
+   - AÇIKLAMA: Aşağıdaki düğümlere istekleri gönderirken, depolama hizmeti iç iletişim hatası oluştu.  
 
     Uyarıyı güvenle yoksayılabilir, ancak uyarıyı el ile kapatmanız gerekir.
 
 <!-- 2368581 - IS. ASDK --> 
 - Düşük bellek uyarısı alırsanız ve Kiracı sanal makinelerini başarısız ile dağıtmak bir Azure Stack operatörü bir **Fabric VM oluşturma hatası**, Azure Stack damga kullanılabilir bellek yetersiz olabilir. Kullanım [Azure Stack Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) iş yükleriniz için kapasite en iyi anlamak için.
-
 
 ### <a name="compute"></a>İşlem
 
@@ -283,17 +282,17 @@ Azure Stack kullanım API'leri üretilen kullanım raporları, doğru miktarlar�
    - Kota değeri 0'a güncelleştirin, 2048 GiB varsayılan değerini eşdeğer olacaktır. Geçici çözüm olarak, kota değeri 1 olarak ayarlayın.
 
 <!-- 2869209 – IS, ASDK --> 
-- Kullanırken [ **Ekle AzsPlatformImage** cmdlet'i](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), kullanmalısınız **- OsUri** parametre olarak depolama hesabı URI'si disk nereye yüklenir. Yerel yol diskin kullanırsanız, cmdlet şu hatayla başarısız olur: *işlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu*. 
+- Kullanırken [ **Ekle AzsPlatformImage** cmdlet'i](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), kullanmalısınız **- OsUri** parametre olarak depolama hesabı URI'si disk nereye yüklenir. Yerel yol diskin kullanırsanız, cmdlet şu hatayla başarısız olur: *İşlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu*. 
 
 <!--  2966665 – IS, ASDK --> 
-- Premium boyutuna SSD veri diskleri ekleme, yönetilen disk sanal makineler (DS, DSv2, Fs, Fs_V2) bir hatayla başarısız oluyor: *'vmname' hata sanal makinenin diskleri güncelleştirilemedi: İstenen işlem gerçekleştirilemiyor depolama hesabı türü ' Premium_LRS'VM boyutu için desteklenmeyen ' Standard_DS/Ds_V2/FS/Fs_v2)*
+- SSD ekleme yönetilen disk sanal makineler (DS, DSv2, Fs, Fs_V2) bir hatayla başarısız oluyor premium boyutuna veri diskleri:  *'Vmname' hata sanal makinenin diskleri güncelleştirilemedi: İstenen işlem gerçekleştirilemiyor, depolama hesabı türü 'Premium_LRS' VM boyutu için desteklenmediğinden ' Standard_DS/Ds_V2/FS/Fs_v2)*
 
    Bu sorunu geçici olarak çözmek için kullanın *Standard_LRS* veri diskleri yerine *Premium_LRS diskleri*. Kullanım *Standard_LRS* veri diskleri IOPS veya fatura ücreti değiştirmez. 
 
 <!--  2795678 – IS, ASDK --> 
 - VM, portalı sanal makineler (VM) oluşturmak için bir premium VM boyutu (DS, Ds_v2, FS, FSv2) kullandığınızda, bir standart depolama hesabı oluşturulur. Bir standart depolama hesabı oluşturma IOPS, işlevsel olarak, etkilemez ya da fatura. 
 
-   Bildiren bir uyarıyı güvenle yok sayabilirsiniz: *premium diskleri destekleyen bir boyutta standart disk kullanmayı seçtiniz. Bu işletim sisteminin performansını etkileyebilir ve önerilmez. Premium depolamayı (SSD) kullanmayı düşünün.*
+   Bildiren bir uyarıyı güvenle yok sayabilirsiniz: *Premium diskleri destekleyen bir boyutta standart disk kullanmayı seçtiniz. Bu işletim sisteminin performansını etkileyebilir ve önerilmez. Premium depolamayı (SSD) kullanmayı düşünün.*
 
 <!-- 2967447 - IS, ASDK --> 
 - Sanal makine ölçek kümesi (VMSS) deneyimi oluşturmasına 7.2 CentOS tabanlı dağıtım için bir seçenek olarak sağlar. Bu görüntüyü Azure Stack üzerinde kullanılabilir olmadığından, dağıtımınız için başka bir işletim sistemi seçin veya Market'ten dağıtımdan işleciyle indirildi başka bir CentOS görüntüsü belirten bir Azure Resource Manager şablonu kullanın.  
@@ -315,7 +314,7 @@ Azure Stack kullanım API'leri üretilen kullanım raporları, doğru miktarlar�
 
    Sanal makine için CPU yüzdesi grafik bulmak için Git **ölçümleri** dikey penceresinde ve desteklenen tüm Windows VM show Konuk ölçümleri.
 
-
+- Bir Ubuntu 18.04 etkinleştirilmiş SSH yetkilendirme ile oluşturulan VM, oturum açmak için SSH anahtarları kullanmak izin vermez. Geçici bir çözüm olarak Lütfen VM erişimi Linux uzantısı için SSH anahtarları sağladıktan sonra uygulamak için kullanmak veya parola tabanlı kimlik doğrulaması kullanın.
 
 ### <a name="networking"></a>Ağ  
 
@@ -361,8 +360,10 @@ Azure Stack kullanım API'leri üretilen kullanım raporları, doğru miktarlar�
 
 
 ## <a name="download-the-update"></a>Güncelleştirmeyi indirin
-Azure Stack 1808 güncelleştirme paketinden indirebileceğiniz [burada](https://aka.ms/azurestackupdatedownload).
-  
+
+Azure Stack 1808 güncelleştirme paketinden indirebileceğiniz [burada](https://aka.ms/azurestackupdatedownload). 
+
+Yalnızca bağlı senaryolarda Azure Stack dağıtımları güvenli bir uç nokta düzenli aralıklarla denetleyin ve bulut için bir güncelleştirme varsa, otomatik olarak bilgilendirme. Daha fazla bilgi için [Azure Stack için güncelleştirmeleri yönetme](azure-stack-updates.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Azure Stack tümleşik sistemleri ve desteklenen bir duruma sisteminizi tutmak için yapmanız gerekenlere bakım ilkeyi gözden geçirmek için bkz: [Azure Stack hizmet İlkesi](azure-stack-servicing-policy.md).  

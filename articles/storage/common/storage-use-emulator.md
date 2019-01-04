@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 529612aeecfcea1d775c2f4359c5135ca3c6885e
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 22c7adc5db044568b4aa49dbbb0e36d2c919f6a6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052552"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629637"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Geliştirme ve test için Azure depolama öykünücüsü kullanma
 
@@ -88,21 +88,24 @@ Yüklü ve depolama öykünücüsü başlatıldı sonra kodunuzu test edebilirsi
 Bağlantı dizeleri hakkında daha fazla bilgi için bkz. [yapılandırma Azure Storage bağlantı dizelerini](../storage-configure-connection-string.md).
 
 ### <a name="authorize-with-a-shared-access-signature"></a>Paylaşılan erişim imzası ile yetkilendirme
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Xamarin kitaplığı gibi bazı Azure depolama istemci kitaplıkları, yalnızca paylaşılan erişim imzası (SAS) belirteci ile kimlik doğrulamasını destekler. Bir aracı gibi kullanarak SAS belirteci oluşturabilirsiniz [Depolama Gezgini](http://storageexplorer.com/) veya paylaşılan anahtar kimlik doğrulamasını destekleyen başka bir uygulama.
 
 Ayrıca, Azure PowerShell kullanarak bir SAS belirteci oluşturabilirsiniz. Aşağıdaki örnek, bir blob kapsayıcısı için tam izinlere sahip bir SAS belirteci oluşturur:
 
-1. Henüz yapmadıysanız yükleme Azure PowerShell (Azure PowerShell cmdlet'leri önerilen en son sürümünü kullanarak). Yükleme yönergeleri için bkz. [yüklemek ve Azure PowerShell yapılandırma](/powershell/azure/install-azurerm-ps).
+1. Henüz yapmadıysanız yükleme Azure PowerShell (Azure PowerShell cmdlet'leri önerilen en son sürümünü kullanarak). Yükleme yönergeleri için bkz. [yüklemek ve Azure PowerShell yapılandırma](/powershell/azure/install-Az-ps).
 2. Azure PowerShell'i açın ve değiştirerek aşağıdaki komutları çalıştırın `CONTAINER_NAME` seçtiğiniz bir ada sahip:
 
 ```powershell
-$context = New-AzureStorageContext -Local
+$context = New-AzStorageContext -Local
 
-New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+New-AzStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
 $now = Get-Date
 
-New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+New-AzStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
 ```
 
 Yeni bir kapsayıcı elde edilen paylaşılan erişim imzası URI'si aşağıdakine benzer olmalıdır:
@@ -166,11 +169,11 @@ Seçenek listesini görüntülemek için komut satırına `/help` yazın.
 
 | Seçenek | Açıklama | Komut | Bağımsız Değişkenler |
 | --- | --- | --- | --- |
-| **Start** |Depolama öykünücüsü'kurmak başlatır. |`AzureStorageEmulator.exe start [-inprocess]` |*-InProcess*: yeni bir işlem oluşturmak yerine geçerli işlemdeki öykünücüyü başlatın. |
+| **Start** |Depolama öykünücüsü'kurmak başlatır. |`AzureStorageEmulator.exe start [-inprocess]` |*-InProcess*: Yeni bir işlem oluşturmak yerine geçerli işlemdeki öykünücüyü başlatın. |
 | **Durdur** |Depolama öykünücüsü durdurur. |`AzureStorageEmulator.exe stop` | |
 | **Durum** |Depolama öykünücüsü durumunu yazdırır. |`AzureStorageEmulator.exe status` | |
-| **Temizle** |Komut satırında belirtilen tüm hizmetleri verileri temizler. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*BLOB*: blob verilerini temizler. <br/>*Kuyruk*: sırası verileri temizler. <br/>*Tablo*: tablo verilerini temizler. <br/>*tüm*: tüm hizmetleri tüm verileri temizler. |
-| **Init** |Öykünücünün kurulumunu için tek seferlik başlatma gerçekleştirir. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server Sunucuadı\örnekadı*: SQL örneği barındıran sunucunun belirtir. <br/>*-sqlınstance InstanceName*: varsayılan sunucu örneğinde kullanılacak SQL örneğinin adını belirtir. <br/>*-forcecreate*: zaten mevcut olsa bile, SQL veritabanı oluşturma zorlar. <br/>*-skipcreate*: SQL veritabanı oluşturma atlanıyor. Bu,-forcecreate öncelik kazanır.<br/>*-reserveports*: hizmetleriyle ilişkili HTTP bağlantı noktalarını ayırma dener.<br/>*-unreserveports*: girişimleri için HTTP bağlantı noktalarını ayırmaları kaldırmak için ilişkili Hizmetleri ile. Bu,-reserveports öncelik kazanır.<br/>*-InProcess*: yeni bir işlem UNICODE yerine geçerli işlemdeki başlatmayı gerçekleştirir. Geçerli işlem, bağlantı noktası ayırmaları değişiyorsa yükseltilmiş izinlerle başlatılmalıdır. |
+| **Temizle** |Komut satırında belirtilen tüm hizmetleri verileri temizler. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*BLOB*: Blob verileri temizler. <br/>*Kuyruk*: Kuyruk verileri temizler. <br/>*Tablo*: Temizler, veri tablosu. <br/>*Tüm*: Tüm hizmetlerdeki tüm verileri temizler. |
+| **Init** |Öykünücünün kurulumunu için tek seferlik başlatma gerçekleştirir. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server Sunucuadı\örnekadı*: SQL örneğini barındıran sunucuyu belirtir. <br/>*-sqlınstance InstanceName*: Varsayılan sunucu örneğinde kullanılacak SQL örneğinin adını belirtir. <br/>*-forcecreate*: Zaten mevcut olsa bile, SQL veritabanı oluşturulmasını zorlar. <br/>*-skipcreate*: SQL veritabanı oluşturma atlanıyor. Bu,-forcecreate öncelik kazanır.<br/>*-reserveports*: Hizmetleri ile ilişkili HTTP bağlantı noktalarını ayırma dener.<br/>*-unreserveports*: Hizmetleri ile ilişkili HTTP bağlantı noktaları için ayırmaları kaldırmayı dener. Bu,-reserveports öncelik kazanır.<br/>*-InProcess*: Yeni bir işlem UNICODE yerine geçerli işlemdeki başlatma gerçekleştirir. Geçerli işlem, bağlantı noktası ayırmaları değişiyorsa yükseltilmiş izinlerle başlatılmalıdır. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Depolama öykünücüsü ve Azure depolama arasındaki farklar
 Depolama öykünücüsü yerel bir SQL örneğinde çalışan benzetilmiş bir ortam olduğundan, işlevsel farklılıklar öykünücü ve Azure depolama hesabı arasında bulutta vardır:

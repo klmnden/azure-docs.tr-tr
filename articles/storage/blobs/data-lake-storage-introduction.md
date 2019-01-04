@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 0b3c4a4c21bc9b124a98b1f204f85e6e78ff233e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ac36499475ffe02ae4d5140f35507530e6cf089e
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099571"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994343"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake depolama Gen2 Önizleme giriş
 
-Azure Data Lake depolama Gen2 önizlemesi üzerinde oluşturulmuş, büyük veri analizi için ayrılmış özellikleri kümesidir [Azure Blob Depolama](storage-blobs-introduction.md). Data Lake depolama Gen2 bizim iki var olan depolama hizmetleri, Azure Blob Depolama ve Azure Data Lake depolama Gen1 yeteneklerini yakınsamaya sonucudur. Öğesinden özellikleri [Azure Data Lake depolama Gen1](https://docs.microsoft.com/en-us/azure/data-lake-store/index)gibi dosya sistemi sematiğini, dizin ve dosya düzeyinde güvenlik ve ölçek ile düşük maliyetli, katmanlı depolama, yüksek kullanılabilirlik/olağanüstü durum kurtarma özelliklerini birleştirilir[Azure Blob Depolama](storage-blobs-introduction.md).
+Azure Data Lake depolama Gen2 önizlemesi üzerinde oluşturulmuş, büyük veri analizi için ayrılmış özellikleri kümesidir [Azure Blob Depolama](storage-blobs-introduction.md). Data Lake depolama Gen2 bizim iki var olan depolama hizmetleri, Azure Blob Depolama ve Azure Data Lake depolama Gen1 yeteneklerini yakınsamaya sonucudur. Öğesinden özellikleri [Azure Data Lake depolama Gen1](https://docs.microsoft.com/azure/data-lake-store/index)gibi dosya sistemi sematiğini, dizin ve dosya düzeyinde güvenlik ve ölçek ile düşük maliyetli, katmanlı depolama, yüksek kullanılabilirlik/olağanüstü durum kurtarma özelliklerini birleştirilir[Azure Blob Depolama](storage-blobs-introduction.md).
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Kurumsal büyük veri analizi için tasarlanmış
 
@@ -43,7 +43,7 @@ Geçmişte, bulut tabanlı analiz performansı, yönetim ve güvenlik alanların
 
 -   **Uygun maliyetli**: Data Lake depolama Gen2, düşük maliyetli depolama kapasitesi ve işlem sunar. Tam yaşam döngüsü aracılığıyla veri geçişi faturalandırma ücretleri tutma maliyetleri minimum yerleşik özellikleri aracılığıyla geçin; örneğin [Azure Blob Depolama yaşam döngüsü](storage-lifecycle-management-concepts.md).
 
--   **En iyi duruma getirilmiş sürücü**: abfs sürücü [özellikle en iyi duruma getirilmiş](data-lake-storage-abfs-driver.md) büyük veri analizi için. Karşılık gelen REST API'leri dfs uç noktası aracılığıyla çıkmış dfs.core.windows.net.
+-   **En iyi duruma getirilmiş sürücü**: Abfs sürücü [özellikle en iyi duruma getirilmiş](data-lake-storage-abfs-driver.md) büyük veri analizi için. Karşılık gelen REST API'leri dfs uç noktası aracılığıyla çıkmış dfs.core.windows.net.
 
 ### <a name="scalability"></a>Ölçeklenebilirlik
 

@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 45d1275ac3b78836cbb77c4e1508d0689c215d69
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 98ceaddab192a146aa61223d883c78dc7c6af730
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998600"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970381"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java Web Uygulamanızı İzlemeye Başlama
 
@@ -130,7 +130,7 @@ Application Insights, şirket içinde veya bulutta çalışmasından bağımsız
 
    ![Sunucu ölçüm grafikleri](./media/app-insights-java-quick-start/livemetricsjava.png)
 
-Java izleme hakkında daha fazla bilgi için [ek App Insights Java belgelerine](./app-insights-java-get-started.md) bakın.
+Java izleme hakkında daha fazla bilgi için [ek App Insights Java belgelerine](./../azure-monitor/app/java-get-started.md) bakın.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

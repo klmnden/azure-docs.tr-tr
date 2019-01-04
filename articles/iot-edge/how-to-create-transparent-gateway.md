@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094364"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556229"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Saydam bir ağ geçidi olarak görev yapacak bir IOT Edge cihazı yapılandırma
 
@@ -41,7 +41,7 @@ Aşağıdaki adımlarda sertifikaları oluşturma ve bunları doğru yerlerde y�
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bir ağ geçidi olarak yapılandırmak için Azure IOT Edge cihazı. Geliştirme makinenizde veya bir sanal makine adımları aşağıdaki işletim sistemleri için bir IOT Edge cihazı olarak kullanabilirsiniz:
-* [Windows](./how-to-install-iot-edge-windows-with-windows.md)
+* [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
@@ -60,7 +60,7 @@ OpenSSL için Windows sertifikalarını oluşturmak için kullanmakta olduğunuz
    >[!NOTE]
    >Windows Cihazınızda yüklü OpenSSL zaten varsa bu adımı atlayın ancak bu openssl.exe uygulamanız yol ortam değişkeninde kullanılabilir olduğundan emin olun.
 
-* **Daha kolay:** indirin ve yükleyin [üçüncü taraf OpenSSL ikili](https://wiki.openssl.org/index.php/Binaries), örneğin, gelen [SourceForge bu projede](https://sourceforge.net/projects/openssl/). Tam yolunu openssl.exe, PATH ortam değişkenine ekleyin. 
+* **Daha kolay:** İndirin ve yükleyin [üçüncü taraf OpenSSL ikili](https://wiki.openssl.org/index.php/Binaries), örneğin, gelen [SourceForge bu projede](https://sourceforge.net/projects/openssl/). Tam yolunu openssl.exe, PATH ortam değişkenine ekleyin. 
    
 * **Önerilen:** OpenSSL kaynak kodunu indirebilir ve ikili dosyaları makinenizde sizin tarafınızdan veya aracılığıyla derleme [vcpkg](https://github.com/Microsoft/vcpkg). Aşağıda listelenen yönergeleri vcpkg kaynak kodu, derleme ve yükleme OpenSSL kolay adımda Windows makinenize indirmek için kullanın.
 

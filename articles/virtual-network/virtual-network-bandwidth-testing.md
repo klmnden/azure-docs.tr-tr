@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: 45efaebb9539c4c0e2542966df6ab890b64d12ee
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: fa0adef58ae1eda8604cefc9c3d7e3a4c32d63d0
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023840"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793548"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Bant genişliği/aktarım hızı (NTTTCP) test etme
 
@@ -29,10 +29,11 @@ Aracı aynı boyutta iki Azure sanal makinelerine kopyalayın. Bir VM GÖNDEREN�
 
 #### <a name="deploying-vms-for-testing"></a>Test etmek için Vm'leri dağıtma
 Bu testin amaçları doğrultusunda, böylece biz de iç Ip'lerini kullanın ve test çalıştırmasından yük Dengeleyiciler hariç iki VM aynı bulut hizmeti veya aynı kullanılabilirlik kümesi içinde olmalıdır. VIP ile test edilebilir, ancak bu tür testler bu belgenin kapsamı dışındadır.
- 
+
 ALICININ IP adresini not edin. Bu IP "a.b.c.r" adlandıralım
 
-VM çekirdek sayısını not edin. Bu adlandıralım "\#num\_çekirdek"  
+VM çekirdek sayısını not edin. Bu adlandıralım "\#num\_çekirdek"
+
 NTTTCP test VM gönderen ve alıcı VM 300 saniye (veya 5 dakika) çalıştırın.
 
 İpucu: Bu test ilk kez ayarlarken daha erken geri bildirim almak için daha kısa bir test süre çalışabilir. Aracı beklendiği gibi çalışmaya başladığında, 300 saniye en doğru sonuçlar için test süresi içinde genişletin.

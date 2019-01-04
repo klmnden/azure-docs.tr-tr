@@ -9,33 +9,32 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5e00c52c17eac92edc3273e2d765d6c5fd76f59b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1601663266f59668918e6799b5c4a7ff606431c4
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970697"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600021"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Azure HDInsight üzerinde çalışan Apache Spark işlerinde hata ayıklama
 
-Bu makalede, izleme ve hata ayıklama hakkında bilgi edinin [Apache Spark](https://spark.apache.org/) üzerinde çalışan işleri kullanarak HDInsight kümelerini [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI, Spark UI ve Spark geçmiş sunucusu. Mevcut bir Not Defteri kullanarak Spark kümesi ile bir Spark işi başlatmak **Machine learning: Gıda denetimi verileri MLLib kullanarak Tahmine dayalı analiz**. Örneğin, gönderilen tüm diğer yaklaşımı de kullanarak bir uygulama izlemek için aşağıdaki adımları kullanabilirsiniz **spark-submit**.
+Bu makalede, izleme ve hata ayıklama hakkında bilgi edinin [Apache Spark](https://spark.apache.org/) üzerinde çalışan işleri kullanarak HDInsight kümelerini [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI, Spark UI ve Spark geçmiş sunucusu. Mevcut bir Not Defteri kullanarak Spark kümesi ile bir Spark işi başlatmak **makine öğrenimi: Gıda denetimi verileri MLLib kullanarak Tahmine dayalı analiz**. Örneğin, gönderilen tüm diğer yaklaşımı de kullanarak bir uygulama izlemek için aşağıdaki adımları kullanabilirsiniz **spark-submit**.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Aşağıdakilere sahip olmanız gerekir:
 
 * Azure aboneliği. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * HDInsight üzerinde bir Apache Spark kümesi. Yönergeler için bkz. [Azure HDInsight'ta Apache Spark kümeleri oluşturma](apache-spark-jupyter-spark-sql.md).
-* Not Defteri çalıştırma başlaması gereken  **[Machine learning: Gıda denetimi verileri MLLib kullanarak Tahmine dayalı analiz](apache-spark-machine-learning-mllib-ipython.md)**. Bu not defteri çalıştırmak yönergeler için bağlantıyı izleyin.  
+* Not Defteri çalıştırma başlaması gereken  **[makine öğrenimi: Gıda denetimi verileri MLLib kullanarak Tahmine dayalı analiz](apache-spark-machine-learning-mllib-ipython.md)**. Bu not defteri çalıştırmak yönergeler için bağlantıyı izleyin.  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>YARN kullanıcı arabiriminde bir uygulama izleme
 1. YARN UI başlatın. Tıklayın **Yarn** altında **küme panoları**.
    
     ![YARN kullanıcı arabirimini Başlat](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
-   > [!TIP]
-   > Alternatif olarak, Ambari UI YARN kullanıcı Arabiriminden da başlatabilirsiniz. Ambari UI başlatmak için tıklayın **Ambari giriş** altında **küme panoları**. Ambari Arabiriminden tıklayın **YARN**, tıklayın **hızlı bağlantılar**etkin Kaynak Yöneticisi'ni tıklatın ve ardından **kaynak yöneticisi kullanıcı Arabirimi**.    
-   > 
-   > 
+   > [!TIP]  
+   > Alternatif olarak, Ambari UI YARN kullanıcı Arabiriminden da başlatabilirsiniz. Ambari UI başlatmak için tıklayın **Ambari giriş** altında **küme panoları**. Ambari Arabiriminden tıklayın **YARN**, tıklayın **hızlı bağlantılar**etkin Kaynak Yöneticisi'ni tıklatın ve ardından **kaynak yöneticisi kullanıcı Arabirimi**. 
+
 2. Jupyter not defterlerini kullanarak Spark işi başlatıldığından, uygulama adına sahip **remotesparkmagics** (Not defterlerinden başlatılan tüm uygulamalara ilişkin ad budur). İşle ilgili daha fazla bilgi almak için uygulama kimliği uygulama adı karşı tıklayın. Bu, uygulama görünümü çalıştırır.
    
     ![Spark uygulaması kimliği bulunamıyor](./media/apache-spark-job-debugging/find-application-id.png)
@@ -72,10 +71,9 @@ Spark kullanıcı Arabiriminde daha önce başlatıldı uygulama tarafından ür
    
     Bu, bir zaman çizelgesi biçiminde Spark olayları görüntüler. Zaman Çizelgesi Görünümü üç düzeyde işindeki ve aşama içinde işleri arasında kullanılabilir. Yukarıdaki resimde, belirli bir aşama için zaman çizelgesi görünümü yakalar.
    
-   > [!TIP]
+   > [!TIP]  
    > Seçerseniz **etkinleştirmek** onay kutusu kaydırma sola ve sağa arasında zaman çizelgesi görünümü.
-   > 
-   > 
+
 6. Spark Arabirimindeki diğer sekmelere de Spark örneğinde hakkında yararlı bilgiler sağlar.
    
    * Uygulamanızı bir Rdd oluşturursa, depolama sekmesi - olanlar depolama sekmesi hakkında bilgi bulabilirsiniz.
@@ -92,10 +90,9 @@ Bir iş tamamlandığında, işle ilgili bilgiler Spark geçmiş sunucusu kalıc
    
     ![Spark geçmiş sunucusu başlatma](./media/apache-spark-job-debugging/launch-spark-history-server.png)
    
-   > [!TIP]
+   > [!TIP]  
    > Alternatif olarak, Ambari UI Spark geçmiş sunucusu Arabiriminden da başlatabilirsiniz. Ambari UI, genel bakış dikey penceresinden başlatmak için tıklayın **Ambari giriş** altında **küme panoları**. Ambari Arabiriminden tıklayın **Spark**, tıklayın **hızlı bağlantılar**ve ardından **Spark geçmiş sunucusu kullanıcı Arabiriminin**.
-   > 
-   > 
+
 2. Listelenen tüm tamamlanan uygulamalar görürsünüz. Bir uygulama kimliği, bir uygulamaya daha fazla bilgi için detaya gitmek için tıklayın.
    
     ![Spark geçmiş sunucusu başlatma](./media/apache-spark-job-debugging/view-completed-applications.png)
@@ -106,8 +103,8 @@ Bir iş tamamlandığında, işle ilgili bilgiler Spark geçmiş sunucusu kalıc
 
 ### <a name="for-data-analysts"></a>Veri analistleri için
 
-* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 * [HDInsight Apache Spark'ı kullanarak application Insight telemetri verilerinin analizi](apache-spark-analyze-application-insight-logs.md)
 * [Azure HDInsight Spark üzerinde dağıtılmış derin öğrenme için Caffe kullanma](apache-spark-deep-learning-caffe.md)

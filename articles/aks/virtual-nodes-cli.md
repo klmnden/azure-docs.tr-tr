@@ -6,12 +6,12 @@ author: iainfoulds
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: ee16165352edbacddac0c91f1ff68109982577de
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 7d12e0f53796713df83b1cbb9e55695598c29077
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856755"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607396"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Oluşturma ve Azure CLI kullanarak sanal düğümü kullanmak için Azure Kubernetes Hizmetleri (AKS) kümesi yapılandırma
 
@@ -23,6 +23,26 @@ Uygulama iş yüklerini bir Azure Kubernetes Service (AKS) kümesi içinde hızl
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 Sanal düğümler ACI çalıştırma pod'ların ve AKS kümesi arasındaki ağ iletişimini etkinleştirin. Bu iletişim sağlamak için bir sanal ağ alt ağı oluşturulur ve temsilci izinleri atanır. Yalnızca iş ile AKS küme kullanılarak oluşturulan sanal düğümü *Gelişmiş* ağ. Varsayılan olarak, AKS kümeleri ile oluşturulan *temel* ağ. Bu makalede, bir sanal ağ oluşturup alt ağları ve ağ Gelişmiş kullanan bir AKS kümesi dağıtma işlemini göstermektedir.
+
+ACI daha önce kullanmadıysanız, hizmet sağlayıcısı, aboneliğiniz ile kaydedin. ACI sağlayıcı kaydı kullanarak durumu denetleyebilirsiniz [az sağlayıcı listesi] [ az-provider-list] aşağıdaki örnekte gösterildiği gibi komut:
+
+```azurecli-interactive
+az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
+```
+
+*Microsoft.ContainerInstance* sağlayıcısı olarak raporlamalıdır *kayıtlı*aşağıdaki örnek çıktıda gösterildiği gibi:
+
+```
+Namespace                    RegistrationState
+---------------------------  -------------------
+Microsoft.ContainerInstance  Registered
+```
+
+Sağlayıcı olarak gösteriliyorsa *NotRegistered*, kullanarak sağlayıcısını kaydedin [az provider register] [ az-provider-register] aşağıdaki örnekte gösterildiği gibi:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerInstance
+```
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell'i başlatma
 
@@ -278,13 +298,13 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query
 az network profile delete --id $NETWORK_PROFILE_ID -y
 
 # Get the service association link (SAL) ID
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name myVnet --name myAKSSubnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
+SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name myVnet --name myVirtualNodeSubnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
 
 # Delete the default SAL ID for the subnet
 az resource delete --ids $SAL_ID --api-version 2018-07-01
 
 # Delete the subnet delegation to Azure Container Instances
-az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --name myAKSSubnet --remove delegations 0
+az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --name myVirtualNodeSubnet --remove delegations 0
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -319,3 +339,5 @@ Sanal düğümler genellikle bir AKS ölçeklendirme bir çözümde bileşenidir
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
+[az-provider-list]: /cli/azure/provider#az-provider-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

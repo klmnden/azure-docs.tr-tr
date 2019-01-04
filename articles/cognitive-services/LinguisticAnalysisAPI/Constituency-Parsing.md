@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8d6e768e5cf846cb2c34ceb61d269854418e1dc5
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238633"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976605"
 ---
 # <a name="constituency-parsing"></a>Ayrıştırma
 
 > [!IMPORTANT]
-> Dil analizi önizlemesi, 9 Ağustos 2018 tarihinde kullanımdan. Kullanmanızı öneririz [Azure Machine Learning metin analiz modüllerini](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) metin işleme ve analiz için.
+> Dilbilimsel Analiz önizleme sürümü 9 Ağustos 2018 tarihinde kullanımdan kaldırılmıştır. Metin işleme ve analiz için [Azure Machine Learning metin analizi modüllerini](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) kullanmanızı öneririz.
 
 ("Ayrıştırma olarak da bilinen aşama yapısı") ayrıştırma amacı, metin tümcecikleri belirlemektir.
 Bu bilgiler metinden ayıklanırken yararlı olabilir.
@@ -61,7 +61,7 @@ Bu tümcecikleri doğal bir temsilini aşağıdaki gibi bir ağaç verilmiştir:
 ![Ağaç](./Images/tree.png)
 
 Bu ağacında "NP" işaretli dalları isim deyime dikkat etmelisiniz.
-Bu tür ifadeleri vardır: *miyim*, *yeni bir karma otomobil*, *Bluetooth*, ve *Bluetooth ile yeni bir karma otomobil*.
+Bu tür ifadeleri vardır: *Ben*, *yeni bir karma otomobil*, *Bluetooth*, ve *Bluetooth ile yeni bir karma otomobil*.
 
 ## <a name="phrase-types"></a>İfade türleri
 
@@ -97,4 +97,4 @@ Bu tür ifadeleri vardır: *miyim*, *yeni bir karma otomobil*, *Bluetooth*, ve *
 
 ## <a name="specification"></a>Belirtimi
 
-Buraya ağacı gelen S ifadeleri kullanın [da Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Buraya ağacı gelen S ifadeleri kullanın [da Treebank](https://catalog.ldc.upenn.edu/LDC99T42).

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 9c36920d2d1d201a874abaeeaac9eb965e0e641b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 820f43a8caa5e0d6d9960985fd1d46271071b0fb
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084026"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742839"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights ile çalışma zamanı özel durumlarını bulma ve tanılama
 
@@ -39,7 +39,7 @@ Bu öğreticiyi tamamlamak için:
     - Azure geliştirme
 - [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger)’ı indirin ve yükleyin.
 - [Visual Studio Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)’ı etkinleştirme
-- Azure’a .NET uygulaması dağıtma ve [Application Insights SDK’sını etkinleştirme](app-insights-asp-net.md). 
+- Azure’a .NET uygulaması dağıtma ve [Application Insights SDK’sını etkinleştirme](../azure-monitor/app/asp-net.md). 
 - Bu öğretici uygulamanızdaki bir özel durumun belirlenmesini izlediğinden, geliştirme veya test ortamındaki kodunuzu özel durum oluşturacak şekilde değiştirin. 
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma

@@ -9,14 +9,14 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 61d3869559d88e14c0b9a3c3e23cd8a1f9c2b6c4
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 701f97a006e7457fcbdcc835f87832b269f986a8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627815"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630351"
 ---
-# <a name="view-system-test-results"></a>Sistemin test sonuçlarını görüntüle
+# <a name="view-system-test-results"></a>Sistem test sonuçlarını görüntüleme
 
 Eğitim başarılı olduğunda, eğitim sonuçlarınızı çözümlemek için sistem testleri gözden geçirin. Dağıtım isteği eğitim modeli için eğitim Sonuçlardan memnun kalırsanız yerleştirin. 
 
@@ -26,13 +26,13 @@ Bir proje seçin ve ardından bu projenin modelleri sekmesini seçin, son olarak
 
 Test sekmesi, gösterir:
 
-1.  Sistem Test sonuçları: Eğitimleri test işleminin sonucu. Test işleminin BLEU puanı üretir.
+1.  **Sistem Test sonuçları:** eğitimleri test işleminin sonucu. Test işleminin BLEU puanı üretir.
 
-    **Tümce sayısı:** kaç paralel cümleler test kümesi kullanıldı.
+    **Tümce sayısı:** Kaç paralel cümleler test kümesi kullanıldı.
 
-     **BLEU puanı:** BLEU puan modeli için eğitim tamamlandıktan sonra oluşturulur.
+     **BLEU puan:** BLEU puan modeli için eğitim tamamlandıktan sonra oluşturulur.
 
-    **Durum:** test işlemi tamamlandığında veya ilerleme durumunu gösterir.
+    **Durum:** Test işlemi tamamlandığında veya ilerleme durumunu gösterir.
 
     ![Sistem test sonuçları](media/how-to/how-to-system-test-results.png)
 
@@ -40,9 +40,9 @@ Test sekmesi, gösterir:
 
 3.  Test sonuç ayrıntıları sayfasındaki tablonun - çiftindeki her dil için iki sütun vardır. Kaynak dili için sütun çevrilemeyen cümlenin gösterir. Her bir satırdaki iki cümle hedef dil için sütun içerir.
 
-    **Ref:** şu cümleyi test veri kümesinde belirtilen kaynak cümlenin başvuru çevrilmesidir.
+    **Ref:** Bu cümleyi test veri kümesinde belirtilen kaynak cümlenin başvuru çevrilmesidir.
 
-    **MT:** şu cümleyi eğitim yürütülen sonra oluşturulan model tarafından yapılan kaynak cümle otomatik çevrilmesidir.
+    **MT:** Bu cümleyi eğitim yürütülen sonra oluşturulan model tarafından yapılan kaynak cümle otomatik çevrilmesidir.
 
     ![Sistemin test sonuçları karşılaştırma](media/how-to/how-to-system-test-results-2.png)
 
@@ -54,11 +54,11 @@ Zip dosyasını indirmek için indirme çevirilerini bağlantıya tıklayın. Ma
 
 Bu indirilen ZIP arşivini üç dosyalarını içerir.
 
-1.  Custom.MT.txt: Bu dosya kaynak dili cümle hedef kullanıcının verileriyle eğitilen model tarafından yapılan dilde makine çevirileri içerir.
+1.  **Custom.MT.txt:** Bu dosya, kaynak dili cümle hedef kullanıcının verileriyle eğitilen model tarafından yapılan dilde makine çevirileri içerir.
 
-2.  Ref.txt: kullanıcı tarafından sağlanan Çeviriler kaynak dili cümle hedef dilde bu dosya içerir.
+2.  **Ref.txt:** Bu dosya, kullanıcı tarafından sağlanan Çeviriler kaynak dili cümle hedef dilde içerir.
 
-3.  Source.txt: Bu dosya kaynak dili cümlelerde içerir.
+3.  **Source.txt:** Bu dosya, kaynak dili cümlelerde içerir.
 
     ![İndirilen sistem test sonuçları](media/how-to/how-to-download-system-test.png)
 
@@ -73,14 +73,29 @@ Bir dağıtım talep için:
     ![Model dağıtma](media/how-to/how-to-deploy-model.png)
 
 3.  Tıklayarak dağıtma.
-4.  Dağıtılacak modelinizi istediğiniz olduğu bölgelerin seçin ve Kaydet'e tıklayın. Birden çok bölgede seçebilirsiniz.
+4.  Seçin **dağıtıldı** için olduğu bölgelerin istediğiniz modelinizin dağıtılması ve Kaydet'e tıklayın. Seçebileceğiniz **dağıtıldı** birden çok bölgeye yönelik.
 
     ![Model dağıtma](media/how-to/how-to-deploy-model-regions.png)
 
 5.  Model durumu "Durum" sütununda görüntüleyebilirsiniz.
 
+## <a name="update-deployment-settings"></a>Güncelleştirme dağıtım ayarları
+
+Dağıtım ayarları güncelleştirmek için:
+
+1.  Bir projeyi seçin ve Git **modelleri** sekmesi.
+
+2. Başarıyla dağıtılan bir model için bunu gösterir bir **güncelleştirme** düğmesi.
+
+    ![Model dağıtma](media/how-to/how-to-update-undeploy-model.png)
+
+3.  Seçin **güncelleştirme**.
+4.  Seçin **dağıtıldı** veya **Undeployed** dağıtılan veya dağıtımı geri modelinizi istediğiniz olduğu bölgelerin için ardından **Kaydet**.
+
+    ![Model dağıtma](media/how-to/how-to-undeploy-model.png)
+
 >[!Note]
->Bir model zaten dağıttıysanız, bu model için bir "Undeploy" düğmesi görürsünüz. Model dağıtımı geri için "Undeploy" tıklayın.
+>Seçerseniz **Undeployed** tüm bölgeler için model tüm bölgelerden dağıtımı geri ve dağıtılmamış bir duruma getirir. Kullanım için artık kullanılamıyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

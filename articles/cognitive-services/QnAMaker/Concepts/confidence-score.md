@@ -6,17 +6,17 @@ services: cognitive-services
 author: tulasim88
 manager: pchoudh
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 8fe4ecfe241422c03a2de8d0634ef1e1395aa050
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9f5aedfc28c8aa0835c865cc2041f66abef39d5f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081328"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724700"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası güvenilirlik puanı
 Kullanıcı sorgusu karşı Bilgi Bankası eşleştiğinde, soru-cevap Oluşturucu bir güven puanı yanı sıra ilgili yanıt verir. Bu puanı güvenle yanıt verilen kullanıcı sorgusu için doğru eşleşme olduğunu gösterir. 
@@ -38,7 +38,7 @@ Aşağıdaki tabloda tipik güvenilirlik için belirli bir puan ilişkili göste
 
 |Puanı değeri|Puan anlama|Örnek sorgu|
 |--|--|--|
-|90 - 100|Bir kullanıcı sorgu KB soru ve tam eşleşme yakın|"Bilgi Bankası'ndaki Değişikliklerimi güncelleştirmeyen yayımlama sonrasında"|
+|90 - 100|Bir kullanıcı sorgu KB soru ve tam eşleşme yakın|"Değişikliklerimi KB güncelleştirmeyen yayımlama sonrasında"|
 |70 >|Yüksek güvenle - tamamen kullanıcının sorgu yanıt veren genellikle iyi bir cevap|"BB'mi yayımladım ancak değil güncelleştirildi"|
 |50 - 70|Orta güven - genellikle bir kullanıcı sorgusu ana amacı yanıt oldukça iyi yanıt|"I BB'mi yayımlamadan önce güncelleştirmelerim kaydetmeliyim?"|
 |30 - 50|Düşük güven - kullanıcının amacı kısmen yanıtladığı genellikle bir ilgili yanıt|"Kaydet ve eğitme ne yapar?"|
@@ -58,7 +58,7 @@ Eşiğine seçerken, doğruluk ve kapsamı arasındaki dengeyi göz önünde bul
 > Soru-cevap Oluşturucu daha yeni sürümlerini Puanlama mantığı için geliştirmeler içerir ve eşiğine etkileyebilir. İstediğiniz zaman hizmet güncelleştirmesi, test edin ve gerekiyorsa eşik ince emin olun. Soru-cevap hizmet sürümü denetleyebilirsiniz [burada](https://www.qnamaker.ai/UserSettings)ve son gelişmeleri öğrenin [burada](../How-To/troubleshooting-runtime.md).
 
 ## <a name="improve-confidence-scores"></a>Güven puanlarını geliştirmeleri
-Belirli bir kullanıcı sorgu yanıt güvenilirlik puanı geliştirmek için alternatif bir soru, yanıt olarak Bilgi Bankası'na kullanıcı sorgusu ekleyebilirsiniz.
+Belirli bir kullanıcı sorgu yanıt güvenilirlik puanı geliştirmek için alternatif bir soru, yanıt olarak Bilgi Bankası'na kullanıcı sorgusu ekleyebilirsiniz. Ayrıca [word değişiklikleri](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) , KB anahtar sözcükleri eş anlamlılar eklemek için.
 
 
 ## <a name="similar-confidence-scores"></a>Benzer güven puanları

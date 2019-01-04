@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 327bc964f8dedeee03220e7cd7db1ef7c1e00de6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435778"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726299"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>Azure Bilişsel hizmetler isteklerine kimlik doğrulaması
 
@@ -34,7 +34,7 @@ Hızlı bir şekilde Azure Bilişsel hizmetler ile kullanmak için kullanılabil
 
 | Üst bilgi | Açıklama |
 |--------|-------------|
-| Ocp-Apim-Subscription-Key | Belirli bir hizmet için bir abonelik anahtarı veya bir hizmet birden çok abonelik anahtarı ile kimlik doğrulaması için bu üstbilgiyi kullanır. Olarak bir hizmet birden çok abonelik anahtarı kullanıyorsanız, aboneliğiniz için bölge belirtilmelidir `Ocp-Apim-Subscription-Region` başlığı. |
+| Ocp-Apim-Subscription-Key | Belirli bir hizmet için bir abonelik anahtarı veya bir hizmet birden çok abonelik anahtarı ile kimlik doğrulaması için bu üstbilgiyi kullanır. |
 | Ocp-Apim-abonelik-bölge | Bu üst bilgi amaçlıdır bir hizmet birden çok abonelik anahtarı ile kullanırken gerekli [Translator Text API](./Translator/reference/v3-0-reference.md). Abonelik bölgeyi belirtmek için bu üstbilgiyi kullanır. |
 | Yetkilendirme | Bir kimlik doğrulama belirteci kullanıyorsanız bu üstbilgiyi kullanır. Bir belirteç değişimi gerçekleştirmek için adımlar aşağıdaki bölümlerde ayrıntılı olarak açıklanmaktadır. Sağlanan değer şu biçimdedir: `Bearer <TOKEN>`. |
 

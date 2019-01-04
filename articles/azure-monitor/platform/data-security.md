@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 12/19/2018
 ms.author: magoedte
-ms.openlocfilehash: fa7d89d749d50d62ce54ea71d604831e8919b454
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 581d5ddc0930a84bad4dd74a0e8dbcc3787f1a16
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189855"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652073"
 ---
 # <a name="log-analytics-data-security"></a>Oturum Analytics veri güvenliği
 Bu belge özelliği hakkında bilgiler tamamlamak için Azure İzleyici, Log Analytics, özel bilgiler sağlamak için tasarlanmıştır [Azure Güven Merkezi](../../security/security-microsoft-trust-center.md).  
@@ -60,7 +60,7 @@ Log Analytics hizmeti tarafından alınan ve verilerinizi sonra veriler hizmet b
 ## <a name="data-retention"></a>Veri saklama
 Dizinli günlük arama verilerin depolandığı ve fiyatlandırma planınıza göre saklanır. Daha fazla bilgi için [Log Analytics fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-Bir parçası olarak, [Abonelik Sözleşmesi](https://azure.microsoft.com/support/legal/subscription-agreement/), Microsoft, koşulları kabul ettiğiniz sözleşmenin verilerinizi korur.  Veriler silindiğinde, biz de verilerin bulunduğu Azure depolama hesabını silin.  Müşteri verilerini kaldırıldığında, fiziksel sürücü yok edilir.  
+Bir parçası olarak, [Abonelik Sözleşmesi](https://azure.microsoft.com/support/legal/subscription-agreement/), Microsoft, koşulları kabul ettiğiniz sözleşmenin verilerinizi korur.  Müşteri verilerini kaldırıldığında, fiziksel sürücü yok edilir.  
 
 Aşağıdaki tabloda kullanılabilir çözümler bazılarını listeler ve bunların toplamak veri türü örnekler sağlar.
 
@@ -150,7 +150,7 @@ Kuruluşunuzun verilerini Log Analytics'e göndermek, ortamınızda veya diğer 
 * [Kuruluş Kimliği](../../active-directory/fundamentals/sign-up-organization.md)
 * [Microsoft hesabı - Outlook, Office Live, MSN](https://account.microsoft.com/account)
 
-Burada veri, toplu, analiz, sunulan ve toplanan bir Log Analytics çalışma alanıdır. Bir çalışma alanı öncelikle verileri bölümlemek için bir yol olarak kullanılır ve her bir çalışma alanı benzersizdir. Örneğin, bir çalışma alanıyla yönetilen üretim verilerinizi ve yönetilen başka bir çalışma alanı ile test verilerini isteyebilirsiniz. Çalışma alanları, verilere bir yönetici kullanıcı erişimini denetlemek de yardımcı olur. Her çalışma alanı kendisiyle ilişkilendirilmiş birden çok kullanıcı hesabı içerebilir ve her kullanıcı hesabı, birden fazla Log Analytics çalışma alanına erişebilir. Veri Merkezi bölgeyi temel alan çalışma alanları oluşturun. Her bir çalışma alanı, Log Analytics hizmeti kullanılabilirliği için öncelikle, bölge diğer veri merkezlerine çoğaltılır.
+Burada veri, toplu, analiz, sunulan ve toplanan bir Log Analytics çalışma alanıdır. Bir çalışma alanı öncelikle verileri bölümlemek için bir yol olarak kullanılır ve her bir çalışma alanı benzersizdir. Örneğin, bir çalışma alanıyla yönetilen üretim verilerinizi ve yönetilen başka bir çalışma alanı ile test verilerini isteyebilirsiniz. Çalışma alanları, verilere bir yönetici kullanıcı erişimini denetlemek de yardımcı olur. Her çalışma alanı kendisiyle ilişkilendirilmiş birden çok kullanıcı hesabı içerebilir ve her kullanıcı hesabı, birden fazla Log Analytics çalışma alanına erişebilir. Veri Merkezi bölgeyi temel alan çalışma alanları oluşturun.
 
 Operations Manager için Operations Manager yönetim grubu Log Analytics hizmetiyle bir bağlantı kurar. Ardından, toplamak ve hizmete veri göndermek için hangi yönetim grubunda aracıyla yönetilen sistemi izin yapılandırın. Etkinleştirdiğiniz çözümüne bağlı olarak, bu çözümleri verilerden olan Log Analytics hizmetine veya aracıyla yönetilen sistemi tarafından toplanan verilerin hacmi nedeniyle doğrudan bir Operations Manager yönetim sunucusundan onlara gönderilen ya da doğrudan gönderilir Hizmet Aracısı. Operations Manager tarafından izlenecek olmayan sistemler için her güvenli bir şekilde Log Analytics hizmetine doğrudan bağlanır.
 

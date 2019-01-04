@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: 54aa6f12afd83d4fb180b718ed420f62a8663ff6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 9b9ad2f4fd3b0ccf928dcec58b7c55778bcbdc95
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019876"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558711"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Oluşturma ve Azure Cache için Redis Klasik Azure CLI kullanarak yönetme
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ Tüm Azure önbelleği için Redis komutları ve parametreleri görmek için `az
     help:    Delete an existing Azure Cache for Redis
     help:      rediscache delete [--name <name> --resource-group <resource-group> ]
     help:
-    help:    List all Azure Cache for Rediss within your Subscription or Resource Group
+    help:    List all Azure Cache for Redis within your Subscription or Resource Group
     help:      rediscache list [options]
     help:
     help:    Show properties of an existing Azure Cache for Redis
@@ -150,15 +150,15 @@ Bu komut hakkında daha fazla bilgi için `azure rediscache delete -h` komutu.
     help:
     help:    Current Mode: arm (Azure Resource Management)
 
-## <a name="list-all-azure-cache-for-rediss-within-your-subscription-or-resource-group"></a>Tüm Azure Cache için abonelik veya kaynak grubu içinde Rediss listesi
-Tüm Azure Cache için abonelik veya kaynak grubu içinde Rediss listelemek için aşağıdaki komutu kullanın:
+## <a name="list-all-azure-cache-for-redis-within-your-subscription-or-resource-group"></a>Tüm Azure Cache, Redis abonelik veya kaynak grubu için liste
+Tüm Azure Cache, Redis abonelik veya kaynak grubu için listelemek için aşağıdaki komutu kullanın:
 
     azure rediscache list [options]
 
 Bu komut hakkında daha fazla bilgi için `azure rediscache list -h` komutu.
 
     C:\>azure rediscache list -h
-    help:    List all Azure Cache for Rediss within your Subscription or Resource Group
+    help:    List all Azure Cache for Redis within your Subscription or Resource Group
     help:
     help:    Usage: rediscache list [options]
     help:

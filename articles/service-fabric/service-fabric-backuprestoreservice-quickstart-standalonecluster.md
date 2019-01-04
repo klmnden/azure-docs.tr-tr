@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: hrushib
-ms.openlocfilehash: 2ff7221a3742f59cdef2c5c7c220cc80148b94d0
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b8f7142b2bd8e07e4b92c37b7e06bc4fe09efb73
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721570"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580425"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Düzenli yedekleme ve geri yükleme Azure Service fabric'te
 > [!div class="op_single_selector"]
@@ -146,6 +146,9 @@ $url = "http://localhost:19080/BackupRestore/BackupPolicies/$/Create?api-version
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ```
 
+> [!IMPORTANT]
+> Çalışma zamanında bir sorun nedeniyle, bekletme ilkesi bekletme süresi 24 günden az olacak şekilde yapılandırılır; Aksi takdirde, çekirdek kayıp çoğaltma yük devretme sonrasında gitmek için yedekleme geri yükleme hizmeti neden olacağından emin olun.
+
 ### <a name="enable-periodic-backup"></a>Dönemsel yedeklemeyi etkinleştirme
 Uygulamanın veri koruma gereksinimlerini karşılamak üzere İlkesi tanımladıktan sonra yedekleme ilkesini uygulama ile ilişkili olması gerekir. Yedekleme İlkesi gereksinim bağlı olarak, bir uygulama, hizmet veya bir bölümü ile ilişkili olabilir.
 
@@ -222,9 +225,13 @@ CreationTimeUtc         : 2018-04-01T20:09:44Z
 FailureError            : 
 ```
 
+## <a name="known-issues"></a>Bilinen Sorunlar
+- Bekletme süresi 24 günden az olacak şekilde yapılandırıldığından emin olun. 
+- Yedekleme Geri Yükleme hizmeti değil gündeme ondalık ayırıcısı olduğu dışındaki yerel ayarlar için '.'
+- GMSA tabanlı güvenlik ile güvenliği sağlanan kümesi görünmesi hizmet yedekleme geri yükleme başarısız olur.
+
 ## <a name="limitation-caveats"></a>Sınırlama / uyarılar
 - Herhangi bir Service Fabric PowerShell cmdlet'leri yerleşik.
-- Service Fabric CLI desteği yok.
 - Linux üzerinde Service Fabric desteği kümeleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -3,21 +3,19 @@ title: MariaDB için Azure veritabanı fiyatlandırma katmanları
 description: Bu makalede fiyatlandırma katmanları için MariaDB için Azure veritabanı açıklanır.
 author: jan-eng
 ms.author: janeng
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 561244efd653294694cc16a1115962473e9a7cec
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: b85737adb8f1c9481fb4b7b2005d2856d2bce9f5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249041"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544592"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Fiyatlandırma katmanları MariaDB için Azure veritabanı
 
-Üç farklı fiyatlandırma katmanlarından birini MariaDB server için Azure veritabanı oluşturabilirsiniz: temel, genel amaçlı ve bellek için iyileştirilmiş. Fiyatlandırma katmanları tarafından sağlanabilen sanal çekirdek ve bellek sanal çekirdek başına verileri depolamak için kullanılan depolama teknolojisi olarak işlem miktarını ayrılır. Tüm kaynaklar MariaDB sunucu düzeyinde sağlanır. Bir sunucu, bir veya birden çok veritabanına sahip olabilir.
+Üç farklı fiyatlandırma katmanlarından birini MariaDB server için Azure veritabanı oluşturabilirsiniz: Temel, genel amaçlı ve bellek için iyileştirilmiş. Fiyatlandırma katmanları tarafından sağlanabilen sanal çekirdek ve bellek sanal çekirdek başına verileri depolamak için kullanılan depolama teknolojisi olarak işlem miktarını ayrılır. Tüm kaynaklar MariaDB sunucu düzeyinde sağlanır. Bir sunucu, bir veya birden çok veritabanına sahip olabilir.
 
 |    | **Temel** | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 |:---|:----------|:--------------------|:---------------------|
@@ -60,9 +58,9 @@ G/ç tüketiminiz Azure portalında veya Azure CLI komutlarını kullanarak izle
 
 ### <a name="reaching-the-storage-limit"></a>Depolama sınırı ulaşma
 
-Boş depolama alanı miktarı az 5 GB veya sağlanan depolama alanı, %5 ulaştığında sunucu salt okunur olarak işaretlenmiş, küçüktür. Örneğin, 100 GB depolama alanı sağlamış ve gerçek kullanımı gider salt okunur 95 GB, sunucunun işaretlenir. 5 GB depolama alanını sağladıysanız, boş depolama alanı 250 MB'tan az ulaştığında alternatif olarak, sunucunun salt okunur işaretlenir.  
+Boş depolama alanı miktarı 5 GB veya sağlanan depolama alanının %5'i (hangisi daha düşükse) olduğunda sunucu salt okunur olarak işaretlenir. Örneğin, 100 GB depolama alanı sağlamış ve gerçek kullanımı gider salt okunur 95 GB, sunucunun işaretlenir. Alternatif olarak, 5 GB depolama alanı sağladıysanız boş depolama alanı 250 MB seviyesinin altına düştüğünde sunucu salt okunur olarak işaretlenir.  
 
-Hizmet sunucusunu salt okunur hale getirmek çalışır, ancak tüm yeni yazma işlemi talepleri engellenir ve mevcut etkin işlemler yürütülmeye devam eder. Sunucu salt okunur ayarlandığında, tüm sonraki yazma işlemleri ve işlem başarısız kaydeder. Okuma sorguları kesintisiz olarak çalışmaya devam eder. Sağlanan depolama artırdıktan sonra sunucu yeniden yazma işlemleri kabul etmeye hazır olacaktır.
+Hizmet sunucuyu salt okunur duruma getirdiğinde tüm yeni yazma işlemi istekleri engellenir ve var olan etkin işlemler yürütülmeye devam eder. Sunucu salt okunur olarak ayarlandığında sonraki tüm yazma girişimleri ve işlemler başarısız olur. Okuma sorguları kesintisiz olarak çalışmaya devam eder. Sağlanan depolama alanını artırdıktan sonra sunucu yazma işlemlerini kabul etmeye hazır hale gelir.
 
 Salt okunur duruma girmesini önlemek için sunucu depolama alanınızın eşiği yaklaşırken bildiren bir uyarı ayarlamanızı öneririz. 
 

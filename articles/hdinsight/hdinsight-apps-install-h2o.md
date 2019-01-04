@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: d2aeb41c2fcc11c37ec56707932eabcf63e026a0
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4be346163fd54c0c5f962d15bc2433c7fab49e0b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497201"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650952"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>Yayımlanan uygulama - H2O Sparkling Water yükleme
 
-Bu makalede, yüklemek ve çalıştırmak açıklanır [H20 Sparkling Water](http://www.h2o.ai/) yayımlanan [Apache Hadoop](https://hadoop.apache.org/) Azure HDInsight uygulaması. HDInsight uygulama platformu için genel bir bakış ve bir liste, kullanılabilen bağımsız yazılım satıcısı (ISV) için bkz. yayımlanan uygulamalar [üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md). Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
+Bu makalede, yüklemek ve çalıştırmak açıklanır [H20 Sparkling Water](https://www.h2o.ai/) yayımlanan [Apache Hadoop](https://hadoop.apache.org/) Azure HDInsight uygulaması. HDInsight uygulama platformu için genel bir bakış ve bir liste, kullanılabilen bağımsız yazılım satıcısı (ISV) için bkz. yayımlanan uygulamalar [üçüncü taraf Hadoop uygulamaları yükleme](hdinsight-apps-install-applications.md). Kendi uygulamanızı yükleme yönergeleri için bkz. [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-h2o-sparkling-water"></a>H2O Sparkling Water hakkında
 
@@ -34,7 +34,7 @@ H2O Sparkling Water sağlar:
 ### <a name="resource-links"></a>Kaynak bağlantıları
 
 * [H2O.ai mühendislik yol haritası](http://jira.h2o.ai/)
-* [H2O.ai giriş](http://www.h2o.ai/)
+* [H2O.ai giriş](https://www.h2o.ai/)
 * [H2O.ai belgeleri](http://docs.h2o.ai/)
 * [H2O.ai desteği](https://support.h2o.ai/)
 * [H2O.ai açık kaynak kod temeli](https://github.com/h2oai/)
@@ -43,7 +43,7 @@ H2O Sparkling Water sağlar:
 
 Bu uygulamayı yeni bir HDInsight kümesi veya mevcut bir kümeye yüklemek için aşağıdaki yapılandırmaya sahip olmalıdır:
 
-* Küme katmanları: standart veya Premium
+* Küme katmanları: Standart veya Premium
 * Küme türü: Spark
 * Küme sürümleri: 3.5 veya 3.6
 
@@ -55,7 +55,7 @@ Bu ve diğer kullanılabilir ISV uygulamalarını yükleme hakkında adım adım
 
 1. Yükleme sonrasında, H2O Sparkling Water (sparklingwater h2o) kullanarak Azure portalında kümenizin açarak başlamak için kullanabileceğiniz [Jupyter not defterleri](https://jupyter.org/) (`https://<ClusterName>.azurehdinsight.net/jupyter`). Jupyter için seçerek de sahip olabilirsiniz **küme Panosu** sonra portalda, küme bölmesinden seçerek **Jupyter not defteri**. Kimlik bilgilerinizi girmeniz istenir. Küme oluşturma sırasında belirtilen kümenin Hadoop kimlik bilgilerini girin.
 
-2. Jupyter'de, üç klasör görürsünüz: H2O PySparkling örnekler, örnekler PySpark ve Scala örnekleri. Seçin **H2O PySparkling örnekler** klasör.
+2. Jupyter'de, üç klasör bakın: H2O PySparkling örnekler, örnekler PySpark ve Scala örnekleri. Seçin **H2O PySparkling örnekler** klasör.
 
     ![Jupyter not defterleri giriş](./media/hdinsight-apps-install-h2o/jupyter-home.png)
 
@@ -69,7 +69,7 @@ Bu ve diğer kullanılabilir ISV uygulamalarını yükleme hakkında adım adım
 
 5. H2O küme çalışır duruma geldikten sonra H2O akış giderek açın **`https://<ClusterName>-h2o.apps.azurehdinsight.net:443`**.
 
-    > [!NOTE]
+    > [!NOTE]  
     > H2O akış açık tarayıcı önbelleğinizi temizlemeyi deneyin. Yine oluşturulamıyor ulaşmak büyük olasılıkla yeterli kaynakları kümenizde erişiminiz yok. Altında çalışan düğümleri sayısını artırmayı deneyin **ölçek kümesi** kümesi bölmenizi seçeneği.
 
     ![H2O Flow Panosu](./media/hdinsight-apps-install-h2o/h2o-flow.png)
@@ -96,7 +96,7 @@ Bu ve diğer kullanılabilir ISV uygulamalarını yükleme hakkında adım adım
 
 * [H2O belgeleri](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/index.html)
 * [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md): HDInsight için yayımlanmamış bir HDInsight uygulamasının nasıl dağıtılacağını öğrenin.
-* [HDInsight uygulamalarını yayımlama](hdinsight-apps-publish-applications.md): Özel HDInsight uygulamalarınızı Azure Marketi’nde nasıl yayımlayacağınızı öğrenin.
-* [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını nasıl tanımlayacağınızı öğrenin.
-* [Betik eylemi kullanarak Linux tabanlı HDInsight kümelerini özelleştirin](hdinsight-hadoop-customize-cluster-linux.md): ek uygulamalar yüklemek için betik eylemi kullanmayı öğrenin.
+* [HDInsight uygulamaları yayımlama](hdinsight-apps-publish-applications.md): Özel HDInsight uygulamalarınızı Azure Marketi'nde yayımlama konusunda bilgi edinin.
+* [MSDN: Bir HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını nasıl tanımlayacağınızı öğrenin.
+* [Betik eylemi kullanarak Linux tabanlı HDInsight kümelerini özelleştirin](hdinsight-hadoop-customize-cluster-linux.md): Ek uygulamalar yüklemek için betik eylemi kullanmayı öğrenin.
 * [HDInsight içinde boş kenar düğümlerini kullanma](hdinsight-apps-use-edge-node.md): HDInsight kümeleri erişmek ve test etmek ve HDInsight uygulamalarını barındırmak için boş bir kenar düğümünü kullanmayı öğrenin.

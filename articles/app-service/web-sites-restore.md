@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 603a6bab75c4a5da4425bcc57d2cc5ccda728636
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1e8bebdb3f54ac59ec19ef798cc3e794473bbec0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274148"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721470"
 ---
 # <a name="restore-an-app-in-azure"></a>Uygulamanızı Azure’a geri yükleme
-Bu makalede, uygulamanızı geri yükleme işlemini göstermektedir [Azure App Service](../app-service/app-service-web-overview.md) önceden yedeklediğiniz (bkz [uygulamanızı Azure'a yedekleme](web-sites-backup.md)). Uygulamanızı isteğe bağlı olarak bağlı veritabanlarıyla birlikte önceki bir duruma geri yükleyebilir veya özgün uygulamanızın bir yedeğini temel alan yeni bir uygulama oluşturabilirsiniz. Azure App Service, yedekleme ve geri yükleme için şu veritabanlarını destekler:
+Bu makalede, uygulamanızı geri yükleme işlemini göstermektedir [Azure App Service](../app-service/overview.md) önceden yedeklediğiniz (bkz [uygulamanızı Azure'a yedekleme](manage-backup.md)). Uygulamanızı isteğe bağlı olarak bağlı veritabanlarıyla birlikte önceki bir duruma geri yükleyebilir veya özgün uygulamanızın bir yedeğini temel alan yeni bir uygulama oluşturabilirsiniz. Azure App Service, yedekleme ve geri yükleme için şu veritabanlarını destekler:
 - [SQL Veritabanı](https://azure.microsoft.com/services/sql-database/)
 - [MySQL için Azure Veritabanı](https://azure.microsoft.com/services/mysql)
 - [PostgreSQL için Azure Veritabanı](https://azure.microsoft.com/services/postgresql)
@@ -91,8 +91,8 @@ Yedekleme Yönetimi betiklerle kullanarak otomatikleştirebilirsiniz [Azure CLI]
 
 Örnekleri için bkz:
 
-- [Azure CLI örnekleri](app-service-cli-samples.md)
-- [Azure PowerShell örnekleri](app-service-powershell-samples.md)
+- [Azure CLI örnekleri](samples-cli.md)
+- [Azure PowerShell örnekleri](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

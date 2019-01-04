@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 034f182cc282f50eb3a4a1de05331f42957f49fe
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9f3d84b1f2e179d265c811faf2d35bd55bc1410f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339816"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607010"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli arka planda işleme için Azure WebJobs SDK ile çalışmaya başlama
 
@@ -54,7 +54,7 @@ Web işleri SDK'sı sürüm 2.x proje oluşturma yönergeleri söyleyin. 3.x, We
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu makalede, sahip olduğunuz varsayılır [bir Azure hesabı](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) ve deneyimini [Azure App Service'te uygulamaları](app-service-web-overview.md). Bu makaledeki adımları tamamlayabilmeniz için:
+Bu makalede, sahip olduğunuz varsayılır [bir Azure hesabı](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) ve deneyimini [Azure App Service'te uygulamaları](overview.md). Bu makaledeki adımları tamamlayabilmeniz için:
 
 * [Visual Studio 2017'yi](https://docs.microsoft.com/visualstudio/install/) ile **Azure geliştirme** iş yükü. Zaten Visual Studio yüklü ancak bu iş yükü yüklü değilse, iş yükü seçerek ekleyin **Araçlar > araçları ve özellikleri Al**.
 * [Bir App Service uygulaması oluşturma](app-service-web-get-started-dotnet-framework.md). Webjob'a dağıtabileceğiniz bir hesabınız varsa, yeni bir tane oluşturmak yerine bunu kullanabilirsiniz.

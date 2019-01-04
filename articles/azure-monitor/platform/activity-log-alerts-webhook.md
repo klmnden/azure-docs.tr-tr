@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 3fb68370f9b26aacc33d0e2e6090fe819010f468
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0f72097ad9e8b8675d78654c07a62fb6baf90f4a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53285014"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582312"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure etkinlik günlüğü uyarıları için Web kancaları
 Bir eylem grubu tanımının bir parçası olarak, etkinlik günlüğü uyarı bildirimleri almak için Web kancası uç noktaları yapılandırabilirsiniz. Web kancaları sayesinde işlem sonrası veya özel eylemler için diğer sistemlere bu bildirimleri yönlendirebilirsiniz. Bu makalede bir Web kancası HTTP POST yükü nasıl göründüğünü gösterir.
@@ -161,9 +161,9 @@ POST işlemi içinde yer alan JSON yükü yükü'nın data.context.activityLog.e
 }
 ```
 
-Belirli şeması hakkında ayrıntılı bilgi için hizmet sistem durumu bildirimi etkinlik günlüğü uyarıları görmek [hizmet durumu bildirimlerini](../../monitoring-and-diagnostics/monitoring-service-notifications.md). Ayrıca, bilgi nasıl [mevcut sorun yönetimi çözümleriyle hizmet sistem durumu Web kancası bildirimleri yapılandırma](../../service-health/service-health-alert-webhook-guide.md).
+Belirli şeması hakkında ayrıntılı bilgi için hizmet sistem durumu bildirimi etkinlik günlüğü uyarıları görmek [hizmet durumu bildirimlerini](../../azure-monitor/platform/service-notifications.md). Ayrıca, bilgi nasıl [mevcut sorun yönetimi çözümleriyle hizmet sistem durumu Web kancası bildirimleri yapılandırma](../../service-health/service-health-alert-webhook-guide.md).
 
-Belirli şeması hakkında ayrıntılı bilgi için diğer tüm etkinlik günlüğü uyarıları görmek [Azure etkinlik günlüğü'ne genel bakış](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Belirli şeması hakkında ayrıntılı bilgi için diğer tüm etkinlik günlüğü uyarıları görmek [Azure etkinlik günlüğü'ne genel bakış](../../azure-monitor/platform/activity-logs-overview.md).
 
 | Öğe adı | Açıklama |
 | --- | --- |
@@ -196,7 +196,7 @@ Belirli şeması hakkında ayrıntılı bilgi için diğer tüm etkinlik günlü
 | alt durumu |Genellikle, karşılık gelen REST çağrısı HTTP durum kodunu içerir. Ayrıca, alt açıklayan diğer dizeleri de içerebilir. Ortak substatus değerler arasında Tamam (HTTP durum kodu: 200) oluşturuldu (HTTP durum kodu: 201) kabul edildi (HTTP durum kodu: 202), içerik yok (HTTP durum kodu: 204), hatalı istek (HTTP durum kodu: 400) bulunamadı (HTTP durum kodu: 404), çakışma (HTTP durum kodu: 409), iç sunucu hatası (HTTP durum kodu: 500), hizmet kullanılamıyor (HTTP durum kodu: 503) ve ağ geçidi zaman aşımı (HTTP durum kodu: 504). |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Etkinlik günlüğü hakkında daha fazla bilgi](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+* [Etkinlik günlüğü hakkında daha fazla bilgi](../../azure-monitor/platform/activity-logs-overview.md).
 * [Azure uyarılarını Azure Otomasyon betikleri (Runbook'lar) yürütme](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Azure bir uyarıdan Twilio aracılığıyla SMS göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Bu örnek için ölçüm uyarıları, ancak bir etkinlik günlüğü uyarısı ile çalışacak şekilde değiştirilebilir.
 * [Azure bir uyarıdan bir Slack iletisi göndermek için bir mantıksal uygulama kullanmak](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Bu örnek için ölçüm uyarıları, ancak bir etkinlik günlüğü uyarısı ile çalışacak şekilde değiştirilebilir.

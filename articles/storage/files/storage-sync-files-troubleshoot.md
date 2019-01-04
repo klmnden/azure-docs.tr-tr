@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0f6075bcbaae14fc60df6f33f4e65cd4abcec731
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: c9e31bdc2b526c442b4ac62d98725254a38e5967
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409471"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794558"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -23,6 +23,8 @@ Bu makalede, sorun giderme ve Azure dosya eşitleme dağıtımınıza karşıla�
 1. [Azure depolama Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [Azure dosyaları UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 3. Microsoft Desteği. Azure portalında yeni bir destek isteği oluşturmak için **yardımcı** sekmesinde **Yardım + Destek** düğmesini ve ardından **yeni destek isteği**.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>My server (eşitleme, bulut katmanlama, vb..) Azure dosya eşitleme ile ilgili bir sorun yaşıyorum. Kaldırın ve paylaşabilirim my server uç noktası yeniden?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -132,9 +134,9 @@ Depolama eşitleme İzleyicisi işlemi çalışmıyor veya sunucunun bir proxy v
 
 Bu sorunu çözmek için aşağıdaki adımları gerçekleştirin:
 
-1. Sunucuda Görev Yöneticisi'ni açın ve depolama eşitleme İzleyicisi (AzureStorageSyncMonitor.exe) işleminin çalıştığını doğrulayın. İşlem çalışmıyorsa önce sunucuyu yeniden başlatmayı deneyin. En son Azure dosya eşitleme için sunucunun yeniden başlatılması sorunu çözmezse, yükseltme [aracı sürümü](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes).
+1. Sunucuda Görev Yöneticisi'ni açın ve Depolama Eşitleme İzleyicisi (AzureStorageSyncMonitor.exe) işleminin çalıştığından emin olun. İşlem çalışmıyorsa önce sunucuyu yeniden başlatmayı deneyin. En son Azure dosya eşitleme için sunucunun yeniden başlatılması sorunu çözmezse, yükseltme [aracı sürümü](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes).
 2. Güvenlik Duvarı ve Proxy ayarlarının doğru yapılandırıldığından doğrulayın:
-    - Sunucu bir güvenlik duvarının arkasındaysa, 443 giden bağlantı noktası izin verilen doğrulayın. Güvenlik Duvarı trafiği belirli etki alanlarına erişimi kısıtlıyorsa, Güvenlik Duvarı'nda listelenen etki alanları onaylayın [belgeleri](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) erişilebilir.
+    - Sunucu bir güvenlik duvarının arkasındaysa 443 numaralı bağlantı noktası üzerinden giden bağlantılara izin verildiğinden emin olun. Güvenlik Duvarı trafiği belirli etki alanlarına erişimi kısıtlıyorsa, Güvenlik Duvarı'nda listelenen etki alanları onaylayın [belgeleri](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) erişilebilir.
     - Sunucu bir proxy'nin arkasındaysa, Proxy adımları izleyerek makineye veya uygulamaya özel proxy ayarlarını yapılandırın [belgeleri](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy).
 
 <a id="endpoint-noactivity-sync"></a>**Sunucu uç noktası "No etkinlik" sistem durumunu ve kayıtlı sunucuları dikey penceresinde sunucu durumu "Çevrimiçi"**  
@@ -468,15 +470,23 @@ Bu kayıt defteri değeri ayarlandığında Azure Dosya Eşitleme aracısı, ver
 | **Hata dizesi** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **Düzeltme gerekli** | Evet |
 
-Bu hata genellikle sunucu saatinin yanlış veya kimlik doğrulaması için kullanılan sertifikanın süresi dolmuş oluşur. Sunucu saatinin doğru ise, süresi dolmuş bir sertifikayı yenilemek için aşağıdaki adımları gerçekleştirin:
+Bu hataya neden olabilir:
 
-1. Sertifikalar MMC ek bileşenini açın, bilgisayar hesabını seçin ve sonra da için sertifikalar (yerel bilgisayar) \Personal\Certificates gidin.
-2. İstemci kimlik doğrulama sertifikasının süresi doldu, kontrol edin. Sertifikanın süresi dolmuş sertifikalar MMC ek bileşenini ve kalan adımlarla proceeed kapatın. 
-3. Azure dosya eşitleme Aracısı sürüm 4.0.1.0 doğrulayın veya üstü yüklü.
-4. Sunucuda aşağıdaki PowerShell komutlarını çalıştırın:
+- Sunucu saati yanlış
+- Sunucu uç noktası silinemedi
+- Kimlik doğrulaması için kullanılan sertifikanın süresi doldu. 
+    Sertifikanın süresi dolmuş olmadığını denetlemek için aşağıdaki adımları gerçekleştirin:  
+    1. Sertifikalar MMC ek bileşenini açın, bilgisayar hesabını seçin ve sonra da için sertifikalar (yerel bilgisayar) \Personal\Certificates gidin.
+    2. İstemci kimlik doğrulama sertifikasının süresi doldu, kontrol edin.
+
+Sunucu saatinin doğru ise, bu sorunu çözmek için aşağıdaki adımları gerçekleştirin:
+
+1. Azure dosya eşitleme Aracısı sürüm 4.0.1.0 doğrulayın veya üstü yüklü.
+2. Sunucuda aşağıdaki PowerShell komutlarını çalıştırın:
 
     ```PowerShell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Login-AzureRmStorageSync -SubscriptionID <guid> -TenantID <guid>
     Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 
@@ -562,14 +572,14 @@ Bu hata, eşitleme veritabanı ile dahili bir sorun nedeniyle oluşur. Bu hata o
 
 ### <a name="common-troubleshooting-steps"></a>Genel sorun giderme adımları
 <a id="troubleshoot-storage-account"></a>**Depolama hesabının var olduğunu doğrulayın.**  
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Depolama eşitleme hizmeti içindeki eşitleme grubuna gidin.
 2. Eşitleme grubu içinde bulut uç noktası seçin.
 3. Açılan bölmede Azure dosya paylaşımı adını not edin.
 4. Bağlı depolama hesabını seçin. Bu bağlantı başarısız olursa, başvurulan depolama hesabı kaldırıldı.
     ![Bir depolama hesabı bağlantısını içeren bulut uç noktası ayrıntıları bölmesinin gösteren ekran görüntüsü.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
 # Variables for you to populate based on your configuration
 $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
@@ -583,20 +593,20 @@ Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
 
 # Log into the Azure account and put the returned account information
 # in a reference variable.
-$acctInfo = Connect-AzureRmAccount
+$acctInfo = Connect-AzAccount
 
 # this variable stores your subscription ID 
 # get the subscription ID by logging onto the Azure portal
 $subID = $acctInfo.Context.Subscription.Id
 
 # this variable holds your Azure Active Directory tenant ID
-# use Login-AzureRMAccount to get the ID from that context
+# use Login-AzAccount to get the ID from that context
 $tenantID = $acctInfo.Context.Tenant.Id
 
 # Check to ensure Azure File Sync is available in the selected Azure
 # region.
 $regions = [System.String[]]@()
-Get-AzureRmLocation | ForEach-Object { 
+Get-AzLocation | ForEach-Object { 
     if ($_.Providers -contains "Microsoft.StorageSync") { 
         $regions += $_.Location 
     } 
@@ -609,7 +619,7 @@ if ($regions -notcontains $region) {
 
 # Check to ensure resource group exists and create it if doesn't
 $resourceGroups = [System.String[]]@()
-Get-AzureRmResourceGroup | ForEach-Object { 
+Get-AzResourceGroup | ForEach-Object { 
     $resourceGroups += $_.ResourceGroupName 
 }
 
@@ -656,7 +666,7 @@ $cloudEndpoint = Get-AzureRmStorageSyncCloudEndpoint `
     -SyncGroupName $syncGroup
 
 # Get reference to storage account
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
     $_.Id -eq $cloudEndpoint.StorageAccountResourceId
 }
 
@@ -667,12 +677,12 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-network-rules"></a>**Depolama hesabı herhangi bir ağ kuralı içermediğinden emin olmak için kontrol edin.**  
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Depolama hesabında bir kez seçin **güvenlik duvarları ve sanal ağlar** depolama hesabının sol tarafındaki.
 2. Depolama hesabı içinde **tüm ağlardan erişime izin ver** radyo düğmesini seçili olmalıdır.
     ![Bir depolama hesabı güvenlik duvarı ve ağ kuralları devre dışı gösteren ekran görüntüsü.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
@@ -683,12 +693,12 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**Azure dosya paylaşımının var olduğundan emin olun.**  
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Tıklayın **genel bakış** ana depolama hesabını sayfasına dönmek için sol taraftaki İçindekiler üzerinde.
 2. Seçin **dosyaları** dosya paylaşımlarının listesini görüntülemek için.
 3. Bulut uç noktası tarafından başvurulan dosya paylaşımı (Bu yukarıdaki 1. adımda not ettiğiniz) dosya paylaşımları listesinde göründüğünü doğrulayın.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell
 $fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
@@ -702,7 +712,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**Azure dosya eşitleme depolama hesabına erişimi olduğundan emin olun.**  
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 1. Tıklayın **erişim denetimi (IAM)** soldaki İçindekiler üzerinde.
 1. Tıklayın **rol atamaları** kullanıcılar ve uygulamalar listesi için sekmesinde (*hizmet sorumluları*), depolama hesabınıza erişimi vardır.
 1. Doğrulama **karma dosya eşitleme hizmeti** listesinde görünür **okuyucu ve veri erişimi** rol. 
@@ -715,10 +725,10 @@ if ($fileShare -eq $null) {
     - İçinde **rol** alanın, Seç **okuyucu ve veri erişimi**.
     - İçinde **seçin** alanına **karma dosya eşitleme hizmeti**, rolü seçin ve tıklayın **Kaydet**.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```PowerShell    
 $foundSyncPrincipal = $false
-Get-AzureRmRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
+Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
     if ($_.DisplayName -eq "Hybrid File Sync Service") {
         $foundSyncPrincipal = $true
         if ($_.RoleDefinitionName -ne "Reader and Data Access") {
@@ -829,11 +839,11 @@ Dosyaları çağrılmaya başarısız olursa:
 > Çağırmak bir dosya başarısız olursa, bir olay kimliği 9006 saatte bir Telemetri olay günlüğüne kaydedilir (hata kodu bir olay günlüğe kaydedilir). Bir sorunu tanılamak için ek bilgi gerekiyorsa işlemsel ve tanılama günlüklerinin kullanılmalıdır.
 
 <a id="files-unexpectedly-recalled"></a>**Beklenmedik bir şekilde bir sunucuya geri dosyaları sorunlarını giderme**  
-Bunlar Atla çevrimdışı özniteliğe dikkat edip ilgili dosyaların içeriğini okumayı atlamadıkları sürece virüsten koruma, yedekleme ve çok sayıda dosya okuma diğer uygulamalar istenmeyen geri çekme neden. Ürünler için çevrimdışı dosya atlanıyor. Bu seçeneği sağlar, destek kaçının istenmeyen geri çekme virüsten koruma taraması veya yedekleme işleri gibi işlemleri sırasında.
+Bunlar Atla çevrimdışı özniteliğe dikkat edip ilgili dosyaların içeriğini okumayı atlamadıkları sürece virüsten koruma, yedekleme ve çok sayıda dosya okuma diğer uygulamalar istenmeyen geri çekme neden. Bu seçeneği destekleyen ürünler için çevrimdışı dosyaları atlamak, virüsten koruma taramaları veya yedekleme işleri gibi işlemler sırasında istenmeyen geri çekme olaylarından kaçınılmasına yardımcı olabilir.
 
-Çevrimdışı dosyaları okuma atlamak için çözümün nasıl yapılandırılacağını öğrenmek için yazılım satıcınıza başvurun.
+Çözümlerinin çevrimdışı dosyaları okumayı atlayacak şekilde yapılandırılması konusunda bilgi almak için yazılım satıcınızla iletişime geçin.
 
-İstenmeyen geri çekme de zaman dosya Gezgini'nde dosyaları tarama gibi diğer senaryolarda oluşabilir. Bulut katmanlı dosyaları dosya Gezgini'nden sunucuda olan bir klasörü açarak istenmeyen geri çekme neden olabilir. Virüsten koruma çözümü sunucuda etkinse, daha büyük olasılıkla budur.
+İstenmeyen geri çekme de zaman dosya Gezgini'nde dosyaları tarama gibi diğer senaryolarda oluşabilir. Dosya Gezgini'nde bulut katmanlı dosyalara sahip bir klasörün açılması, istenmeyen geri çekme işlemlerine neden olabilir. Bu durumun gerçekleşme olasılığı, sunucuda virüsten koruma çözümünün etkinleştirilmiş olması halinde daha yüksektir.
 
 ## <a name="general-troubleshooting"></a>Genel sorun giderme
 Bir sunucuda Azure dosya eşitleme ile sorunlarla karşılaşırsanız, aşağıdaki adımları tamamlayarak başlayın:

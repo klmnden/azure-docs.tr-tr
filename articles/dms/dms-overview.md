@@ -4,18 +4,18 @@ description: Birçok veritabanı kaynaklarından sorunsuz geçişler için Azure
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: ''
+manager: craigg
 ms.reviewer: douglasl
-ms.service: database-migration
+ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/12/2018
-ms.openlocfilehash: b3509917f0473795ec204c6672a630b2857ff37c
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 12/19/2018
+ms.openlocfilehash: 68fb6497141d79dc721af7dfa5a8f69102c7e239
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343930"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722209"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti nedir?
 Azure veritabanı geçiş hizmeti, birden çok veritabanı kaynağını Azure data platformlarına çok az kesinti (çevrimiçi geçiş) ile sorunsuz geçişleri sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir.
@@ -24,7 +24,7 @@ Azure veritabanı geçiş hizmeti, birden çok veritabanı kaynağını Azure da
 Azure veritabanı geçiş hizmeti mevcut araç ve Hizmetleri işlevlerinden bazıları tümleştirir. Bu müşteriler ile kapsamlı, yüksek oranda kullanılabilir bir çözüm sağlar. Hizmeti kullandığı [Data Migration Yardımcısı](https://aka.ms/dma) geçiş işlemi gerçekleştirmeden önce gerekli değişiklikler size yol gösterecek öneriler sağlayan değerlendirme raporları oluşturmak için. Bu gerekli herhangi bir düzeltme gerçekleştirmek için size aittir. Geçiş işlemine başlamaya hazır olduğunuzda, Azure Veritabanı Geçiş Hizmeti tüm gerekli adımları uygular. Harekete ve işlem yararlanır Microsoft tarafından belirlenen şekilde en iyi yöntemler bilerek rahat, geçiş projelerinizi unutmayın.
 
 > [!NOTE]
-> Çevrimiçi bir geçiş gerçekleştirmek için Azure veritabanı geçiş hizmeti kullanarak, fiyatlandırma katmanına göre Premium (Önizleme) bağlı olarak bir örnek oluşturmak gerekir.
+> Azure veritabanı geçiş hizmeti çevrimiçi bir geçiş gerçekleştirmek için Premium fiyatlandırma katmanını temel alan bir örneği oluşturmanız gerekir.
 
 ## <a name="regional-availability"></a>Bölgesel kullanılabilirlik
 Bölgesel kullanılabilirlik Azure veritabanı geçiş hizmeti hakkında güncel bilgi için bkz. [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/?products=database-migration).

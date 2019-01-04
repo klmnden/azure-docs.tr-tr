@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 899792be583f3b2e2a16e42472fcdf87bf751893
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 74aea3ad4c3dda8abc69275ad4d683fbcf485ccc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635501"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722915"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Bağlı hizmetler (WebJob Proje) Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -182,7 +182,7 @@ public static void GracefulShutdownDemo(
 }
 ```
 
-**Not:** durumunu ve kapatıldığından işlevler çıkışını Pano doğru şekilde göstermeyebilir.
+**Not:** Pano, durumunu ve kapatıldığından işlevler çıkışını doğru şekilde göstermeyebilir.
 
 Daha fazla bilgi için [WebJobs kapatılmasını](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR).   
 
@@ -477,7 +477,7 @@ static void Main(string[] args)
 }
 ```
 
-**Not:** kuyruk, tablo ve blob adları çözümlenmiş her zaman bir işlevi çağrılır, ancak blob kapsayıcısı adları yalnızca uygulama başladığında çözümlendi. İş çalışırken blob kapsayıcı adı değiştirilemiyor.
+**Not:** Kuyruk, tablo ve blob adları, her bir işlev çağrılır, ancak yalnızca uygulama başladığında blob kapsayıcı adları çözümlenir çözümlenir. İş çalışırken blob kapsayıcı adı değiştirilemiyor.
 
 ## <a name="how-to-trigger-a-function-manually"></a>Bir işlev el ile tetikleme
 Bir işlev el ile tetiklemek için kullanmak **çağrı** veya **CallAsync** metodunda **JobHost** nesne ve **NoAutomaticTrigger** Aşağıdaki örnekte gösterildiği gibi işlev özniteliği.
@@ -514,7 +514,7 @@ Konsol yöntemleri, bir işlev çağrısında veya buna çıktısını **Main()*
 
 Aynı anda birçok iş işlevlerini çalışabilir ancak tek iş parçacıklı, konsolu olduğu için konsol çıktısı bir belirli yöntem çağırma için bağlanamaz. İşte bu nedenle kendi benzersiz günlük yazıcı nesnesi ile her bir işlevi çağırmayı SDK sağlar.
 
-Yazılacak [uygulama izleme günlükleri](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), kullanın **Console.Out** (bilgisi olarak işaretlenmiş günlükleri oluşturur) ve **Console.Error dosyası** (hata olarak işaretlenmiş günlükleri oluşturur). Kullanmaya alternatiftir [izleme veya TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), uyarı, ayrıntı, sağlar ve kritik bilgileri ve hata yanı sıra düzeyleri. Uygulama izleme günlükleri web uygulaması günlük dosyalarında, Azure tabloları, görünür veya Azure web uygulamanıza nasıl yapılandırdığınıza bağlı olarak Azure blobları. Tüm konsol çıkışını true olduğu gibi en son 100 uygulama günlüklerini sayfa işlevi çağırma için değil WebJob için Pano sayfasında da görünür.
+Yazılacak [uygulama izleme günlükleri](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview), kullanın **Console.Out** (bilgisi olarak işaretlenmiş günlükleri oluşturur) ve **Console.Error dosyası** (hata olarak işaretlenmiş günlükleri oluşturur). Kullanmaya alternatiftir [izleme veya TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), uyarı, ayrıntı, sağlar ve kritik bilgileri ve hata yanı sıra düzeyleri. Uygulama izleme günlükleri web uygulaması günlük dosyalarında, Azure tabloları, görünür veya Azure web uygulamanıza nasıl yapılandırdığınıza bağlı olarak Azure blobları. Tüm konsol çıkışını true olduğu gibi en son 100 uygulama günlüklerini sayfa işlevi çağırma için değil WebJob için Pano sayfasında da görünür.
 
 Konsol çıktısı, programın yerel olarak çalışmıyorsa yalnızca program bir Azure WebJob içinde çalışıyorsa bu Panoda veya başka bir ortama görünür.
 
@@ -550,7 +550,7 @@ Sürekli bir WebJob uygulama günlükleri/data/iş/sürekli/içinde gösterilmes
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-Uygulama günlükleri görünümü şunun gibi bir Azure blob: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Merhaba Dünya! 2014 -09-26T21:01:13, hata, contosoadsnew, 491e54, 635473620738373502,0,17404,19,Console.Error - Merhaba Dünya!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Merhaba Dünya!,
+Uygulama günlükleri görünümü şunun gibi bir Azure blob: 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Merhaba Dünya!, 2014-09-26T21 : 01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Merhaba Dünya!,
 
 Bir Azure tablosu ve **Console.Out** ve **Console.Error dosyası** günlükleri şuna benzeyebilir:
 

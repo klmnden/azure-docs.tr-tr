@@ -13,22 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 217f19b02ccd5561ee499388bb62d5a6639086ac
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: cccc42cd925c123b52c0f2416599bb989ce44d8a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436203"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713506"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Linux için Log Analytics Aracısı'ndan Nagios ve Zabbix'ten Azure İzleyicisi'nde uyarılarını Topla 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-<<<<<<< Baş [Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan izleme araçları açık kaynak. Diğer kaynaklardan günlük verileri çözümlemek için yararlı Azure İzleyici ile bu Araçları'ndan uyarılar toplayabilirsiniz.  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için Log Analytics aracısını yapılandırmak açıklar.
+
+[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan izleme araçları açık kaynak. Diğer kaynaklardan günlük verileri çözümlemek için yararlı Azure İzleyici ile bu Araçları'ndan uyarılar toplayabilirsiniz.  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için Log Analytics aracısını yapılandırmak açıklar.
 
 > [!NOTE]
 > [Azure İzleyici tarafından oluşturulan uyarıların](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) günlük verilerinden ayrı olarak depolanan ve günlük sorgularından erişilebilir değil.
-=======
-[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan izleme araçları açık kaynak. Uyarıları şu araçlarından Log Analytics'e bunları ile birlikte analiz etmek için Toplayabileceğiniz [diğer kaynaklardan alınan uyarıları](../../azure-monitor/platform/alerts-overview.md).  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için Log Analytics aracısını yapılandırmak açıklar.
->>>>>>> 98b6f1655e9ada6d4b6a408ada0f1e4c9ed727d2
+
  
 ## <a name="prerequisites"></a>Önkoşullar
 Linux için Log Analytics aracısını sürümüne Nagios toplama uyarıları destekleyen 4.2.x ve Zabbix sürümüne 2.x.

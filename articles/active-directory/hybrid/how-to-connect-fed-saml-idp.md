@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: SAML 2.0 kimlik sağlayıcısı için çoklu oturum açma kullanın | Microsoft Docs'
+title: 'Azure AD Connect: Çoklu oturum açma için SAML 2.0 kimlik sağlayıcısı kullanın | Microsoft Docs'
 description: Bu belgede, çoklu oturum açma için SAML 2.0 uyumlu IDP kullanma açıklanmaktadır.
 services: active-directory
 author: billmath
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e3bd48cf56650e266f5002a179d20177b3127f25
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 8f8503f560985e1170105199212734dd704d81c1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426418"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743536"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Çoklu oturum açma için SAML 2.0 kimlik sağlayıcısı (IDP) kullanın
 
@@ -167,7 +167,7 @@ SAML 2.0 kimlik sağlayıcısı ve Azure AD arasındaki iletişimi etkinleştirm
 ## <a name="install-windows-powershell-for-sign-on-with-saml-20-identity-provider"></a>SAML 2.0 kimlik sağlayıcısı ile oturum açma için Windows PowerShell'i yükleme
 Azure AD ile oturum açma, SAML 2.0 kimlik sağlayıcısı kullanmak için yapılandırdıktan sonra sonraki adımda Azure Active Directory için Windows PowerShell modülü yükleyip sağlamaktır. Yüklendikten sonra Azure AD etki alanlarınızı Federasyon etki alanları yapılandırmak için bu cmdlet'leri kullanır.
 
-Azure Active Directory için Windows PowerShell modülü, Azure AD'de Kuruluş verilerinizde yönetmeye yönelik bir yüklemedir. Bu modül için Windows PowerShell cmdlet'leri kümesini yükler; Azure ad çoklu oturum açma erişimi ayarlamak için bu cmdlet'leri çalıştırın ve ardından tüm bulut hizmetlerine abone olduğunuz. İndirin ve cmdlet'lerini yükleme hakkında yönergeler için bkz: [https://technet.microsoft.com/library/jj151815.aspx](httpss://technet.microsoft.com/library/jj151815.aspx)
+Azure Active Directory için Windows PowerShell modülü, Azure AD'de Kuruluş verilerinizde yönetmeye yönelik bir yüklemedir. Bu modül için Windows PowerShell cmdlet'leri kümesini yükler; Azure ad çoklu oturum açma erişimi ayarlamak için bu cmdlet'leri çalıştırın ve ardından tüm bulut hizmetlerine abone olduğunuz. İndirin ve cmdlet'lerini yükleme hakkında yönergeler için bkz: [https://technet.microsoft.com/library/jj151815.aspx](https://technet.microsoft.com/library/jj151815.aspx)
 
 ## <a name="set-up-a-trust-between-your-saml-identity-provider-and-azure-ad"></a>SAML kimlik sağlayıcısı ve Azure AD arasında güven oluşturma
 Bir Azure AD etki alanında Federasyon yapılandırmadan önce yapılandırılmış özel bir etki alanının olması gerekir. Microsoft tarafından sağlanan varsayılan etki alanı federasyona eklenemez. Microsoft gelen varsayılan etki alanı "onmicrosoft.com" ile biter.
@@ -183,14 +183,14 @@ Aşağıdaki yordam, SAML 2.0 SP-Lite'ı kullanarak bir Federasyon etki alanına
 ## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>Federasyon için Azure AD dizininizde bir etki alanını yapılandırma
 
 
-1. Azure AD dizininiz Kiracı yönetici olarak bağlanın: Connect-MsolService.
+1. Azure AD dizininiz için Kiracı Yöneticisi olarak bağlanın: Connect-MsolService.
 2.  SAML 2.0 ile Federasyon kullanmak için istenen Office 365 etki alanınızı yapılandırın: `$dom = "contoso.com" $BrandName - "Sample SAML 2.0 IDP" $LogOnUrl = "https://WS2012R2-0.contoso.com/passiveLogon" $LogOffUrl = "https://WS2012R2-0.contoso.com/passiveLogOff" $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" $MyURI = "urn:uri:MySamlp2IDP" $MySigningCert = @" MIIC7jCCAdagAwIBAgIQRrjsbFPaXIlOG3GTv50fkjANBgkqhkiG9w0BAQsFADAzMTEwLwYDVQQDEyh BREZTIFNpZ25pbmcgLSBXUzIwMTJSMi0wLnN3aW5mb3JtZXIuY29tMB4XDTE0MDEyMDE1MTY0MFoXDT E1MDEyMDE1MTY0MFowMzExMC8GA1UEAxMoQURGUyBTaWduaW5nIC0gV1MyMDEyUjItMC5zd2luZm9yb WVyLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKe+rLVmXy1QwCwZwqgbbp1/kupQ VcjKuKLitVDbssFyqbDTjP7WRjlVMWAHBI3kgNT7oE362Gf2WMJFf1b0HcrsgLin7daRXpq4Qi6OA57 sW1YFMj3sqyuTP0eZV3S4+ZbDVob6amsZIdIwxaLP9Zfywg2bLsGnVldB0+XKedZwDbCLCVg+3ZWxd9 T/jV0hpLIIWr+LCOHqq8n8beJvlivgLmDJo8f+EITnAxWcsJUvVai/35AhHCUq9tc9sqMp5PWtabAEM b2AU72/QlX/72D2/NbGQq1BWYbqUpgpCZ2nSgvlWDHlCiUo//UGsvfox01kjTFlmqQInsJVfRxF5AcC AwEAATANBgkqhkiG9w0BAQsFAAOCAQEAi8c6C4zaTEc7aQiUgvnGQgCbMZbhUXXLGRpjvFLKaQzkwa9 eq7WLJibcSNyGXBa/SfT5wJgsm3TPKgSehGAOTirhcqHheZyvBObAScY7GOT+u9pVYp6raFrc7ez3c+ CGHeV/tNvy1hJNs12FYH4X+ZCNFIT9tprieR25NCdi5SWUbPZL0tVzJsHc1y92b2M2FxqRDohxQgJvy JOpcg2mSBzZZIkvDg7gfPSUXHVS1MQs0RHSbwq/XdQocUUhl9/e/YWCbNNxlM84BxFsBUok1dH/gzBy Sx+Fc8zYi7cOq9yaBT3RLT6cGmFGVYZJW4FyhPZOCLVNsLlnPQcX3dDg9A==" "@ $uri = "http://WS2012R2-0.contoso.com/adfs/services/trust" $Protocol = "SAMLP" Set-MsolDomainAuthentication -DomainName $dom -FederationBrandName $dom -Authentication Federated -PassiveLogOnUri $MyURI -ActiveLogOnUri $ecpUrl -SigningCertificate $MySigningCert -IssuerUri $uri -LogOffUri $url -PreferredAuthenticationProtocol $Protocol` 
 
 3.  İmzalama sertifikasını base64 ile kodlanmış dize IDP meta verileri dosyanızdan elde edebilirsiniz. Bu konum örneği sağlanmadı ancak uygulamanız üzerinde biraz göre farklılık gösterebilir.
 
     `<IDPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"> <KeyDescriptor use="signing"> <KeyInfo xmlns="https://www.w3.org/2000/09/xmldsig#"> <X509Data> <X509Certificate>MIIC5jCCAc6gAwIBAgIQLnaxUPzay6ZJsC8HVv/QfTANBgkqhkiG9w0BAQsFADAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwHhcNMTMxMTA0MTgxMzMyWhcNMTQxMTA0MTgxMzMyWjAvMS0wKwYDVQQDEyRBREZTIFNpZ25pbmcgLSBmcy50ZWNobGFiY2VudHJhbC5vcmcwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCwMdVLTr5YTSRp+ccbSpuuFeXMfABD9mVCi2wtkRwC30TIyPdORz642MkurdxdPCWjwgJ0HW6TvXwcO9afH3OC5V//wEGDoNcI8PV4enCzTYFe/h//w51uqyv48Fbb3lEXs+aVl8155OAj2sO9IX64OJWKey82GQWK3g7LfhWWpp17j5bKpSd9DBH5pvrV+Q1ESU3mx71TEOvikHGCZYitEPywNeVMLRKrevdWI3FAhFjcCSO6nWDiMqCqiTDYOURXIcHVYTSof1YotkJ4tG6mP5Kpjzd4VQvnR7Pjb47nhIYG6iZ3mR1F85Ns9+hBWukQWNN2hcD/uGdPXhpdMVpBAgMBAAEwDQYJKoZIhvcNAQELBQADggEBAK7h7jF7wPzhZ1dPl4e+XMAr8I7TNbhgEU3+oxKyW/IioQbvZVw1mYVCbGq9Rsw4KE06eSMybqHln3w5EeBbLS0MEkApqHY+p68iRpguqa+W7UHKXXQVgPMCpqxMFKonX6VlSQOR64FgpBme2uG+LJ8reTgypEKspQIN0WvtPWmiq4zAwBp08hAacgv868c0MM4WbOYU0rzMIR6Q+ceGVRImlCwZ5b7XKp4mJZ9hlaRjeuyVrDuzBkzROSurX1OXoci08yJvhbtiBJLf3uPOJHrhjKRwIt2TnzS9ElgFZlJiDIA26Athe73n43CT0af2IG6yC7e6sK4L3NEXJrwwUZk=</X509Certificate> </X509Data> </KeyInfo> </KeyDescriptor>` 
 
-"Set-MsolDomainAuthentication" hakkında daha fazla bilgi için bkz: [ https://technet.microsoft.com/library/dn194112.aspx ](httpss://technet.microsoft.com/library/dn194112.aspx).
+"Set-MsolDomainAuthentication" hakkında daha fazla bilgi için bkz: [ https://technet.microsoft.com/library/dn194112.aspx ](https://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
 >Kullanım çalıştırmanız gerekir "$ecpUrl ="https://WS2012R2-0.contoso.com/PAOS"" için kimlik sağlayıcınıza ECP uzantı ayarlarsanız. Outlook Web uygulaması (OWA) hariç olmak üzere, Exchange Online istemcilerin güvendiği bir GÖNDERİ etkin uç noktasına bağlı. Shibboleth'ın ECP uygulamasına yönelik etkin bir uç noktayı benzer bir etkin uç noktası, SAML 2.0 STS uyguluyorsa Exchange Online hizmetiyle etkileşim kurmak bu zengin istemciler mümkün olabilir.
@@ -207,7 +207,7 @@ Windows PowerShell, Azure AD'ye yeni kullanıcı ekleme otomatikleştirme ve şi
 Bu yordam, tek bir kullanıcı Azure AD'ye ekleme gösterilmektedir.
 
 
-1. Azure AD dizininiz Kiracı yönetici olarak bağlanın: Connect-MsolService.
+1. Azure AD dizininiz için Kiracı Yöneticisi olarak bağlanın: Connect-MsolService.
 2.  Yeni bir kullanıcı asıl oluşturun: ` New-MsolUser
         -UserPrincipalName elwoodf1@contoso.com
         -ImmutableId ABCDEFG1234567890
@@ -218,7 +218,7 @@ Bu yordam, tek bir kullanıcı Azure AD'ye ekleme gösterilmektedir.
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-"New-MsolUser" kullanıma alma hakkında daha fazla bilgi için [https://technet.microsoft.com/library/dn194096.aspx](httpss://technet.microsoft.com/library/dn194096.aspx)
+"New-MsolUser" kullanıma alma hakkında daha fazla bilgi için [https://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
 >"UserPrinciplName" değer "IDPEmail için", SAML 2.0 talebi gönderecek bir değerle eşleşmelidir ve "Immutableıd" değer "Nameıd" değerinizi gönderilen değerle eşleşmelidir.
@@ -254,13 +254,13 @@ SAML 2.0 tabanlı kimlik sağlayıcınız test etmek için kullanabileceğiniz b
 2.  Başlamak için Şimdi Yükle'ye tıklayın. aracı yükleyip.
 3.  "Office 365, Azure veya Azure Active Directory kullanan diğer hizmetlerde ile Federasyon oluşturamıyorum" seçin.
 4.  Araç, indirilen ve çalışır durumdaysa, bağlantı tanılama penceresinde görürsünüz. Aracı'nı Federasyon bağlantınızı test sürecinde adım adım anlatır.
-5.  Bağlantı Çözümleyicisi'ni, oturum açma, test ettiğiniz kullanıcı asıl için kimlik bilgilerini girin, SAML 2.0 IDP'yi açılır: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  Bağlantı Çözümleyicisi'ni, oturum açma, sınamakta olduğunuz kullanıcı asıl için kimlik bilgilerini girin, SAML 2.0 IDP'yi açılır: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  Federasyon test oturum açma penceresinde, SAML 2.0 kimlik sağlayıcınız ile federasyona eklenmesi için yapılandırılmış Azure AD kiracısı için bir hesap adı ve parola girmelisiniz. Aracı bu kimlik bilgilerini kullanarak oturum açın dener ve oturum açma denemesi sırasında gerçekleştirilen testin ayrıntılı sonuçları çıktı olarak sağlanacaktır.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. Bu pencere, başarısız bir test sonucunu gösterir. Tıklayarak gözden geçirme ayrıntılı sonuçları gerçekleştirildiği her test sonuçlarıyla ilgili bilgileri gösterir. Ayrıca, bunları paylaşmak için disk sonuçlarını da kaydedebilirsiniz.
  
 >[!NOTE]
->Bağlantı Çözümleyicisi'ni kullanarak WS * aktif Federasyonu da test-tabanlı ve ECP/PAOS protokoller. Bunları kullanmıyorsanız şu hatayı atlayabilirsiniz: kimlik sağlayıcınızın aktif Federasyonu uç noktayı kullanarak etkin oturum açma akışını test etme.
+>Bağlantı Çözümleyicisi'ni kullanarak WS * aktif Federasyonu da test-tabanlı ve ECP/PAOS protokoller. Bunları kullanmıyorsanız şu hatayı alırsanız göz ardı edebilirsiniz: Kimlik sağlayıcınızın aktif Federasyonu uç noktayı kullanarak etkin oturum açma akışını test etme.
 
 ### <a name="manually-verify-that-single-sign-on-has-been-set-up-correctly"></a>Bu çoklu oturum açma doğru şekilde ayarlandığını gösterdiğinde el ile doğrulama
 El ile doğrulama, SAML 2.0 kimlik sağlayıcısı pek çok senaryoda düzgün çalıştığından emin olmak için uygulayabileceğiniz ek adımları sağlar.
@@ -268,7 +268,7 @@ Bu çoklu oturum açma doğru şekilde ayarlandığını gösterdiğinde doğrul
 
 
 1. Etki alanına katılmış bir bilgisayarda oturum için Kurumsal kimlik bilgilerinizi aynı oturum açma adını kullanarak bulut hizmetinizi açın.
-2.  Parola kutusunun içine tıklayın. Çoklu oturum açma ayarlandığından, parola kutusu gölgeli olur ve aşağıdaki iletiyi görürsünüz: ", oturum açmanız artık gereklidir &lt;şirketinizin&gt;."
+2.  Parola kutusunun içine tıklayın. Çoklu oturum açma ayarlanıp ayarlanmadığını parola kutusu gölgeli olur ve aşağıdaki iletiyi görürsünüz: "Artık, oturum açmanız gereklidir &lt;şirketinizin&gt;."
 3.  Oturum açmada tıklayın &lt;şirketinizin&gt; bağlantı. Mümkünse oturum açma, tek oturum açma ayarlandığını gösterdiğinde.
 
 ## <a name="next-steps"></a>Sonraki Adımlar

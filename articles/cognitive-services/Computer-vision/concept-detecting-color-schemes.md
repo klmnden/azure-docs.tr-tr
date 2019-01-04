@@ -10,22 +10,23 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 5d0cb6ca751c844846288e8fe26f6ae542e89831
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 90eacdb120603fdb68c0f6c3de3457964ec5fd75
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339501"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579371"
 ---
-# <a name="detecting-color-schemes"></a>Renk şemalarını algılama
+# <a name="detect-color-schemes-in-images"></a>Görüntüleri renk düzenleri algılayın
 
-Görüntü işleme, bir resimden renkleri ayıklar. Renkleri, sonra üç farklı bağlamda analiz edilir: baskın ön plan rengi, baskın arka plan rengini ve bir bütün olarak görüntü için baskın renkler. Bunlar 12 baskın vurgu rengine ayrılarak gruplandırılır. Vurgu renklerdir siyah, mavi, brown, gri, yeşil, orange, pembe, mor, red, Deniz Mavisi, teknik ve sarı. Görüntü işleme, izleyiciler, birlikte baskın renk doygunluğu ve görüntü için en canlı rengi temsil eden bir Vurgu rengi döndürülecek bir görüntüden ayıklanan renkleri analiz eder. Görüntü renkleri bağlı olarak, basit siyah beyaz mı vurgu rengine ayrılarak onaltılık renk kodlarını döndürülebilir. Görüntü işleme, ayrıca bir resmin siyah olmadığını gösteren bir Boole değeri döndürür ve beyaz.
+Görüntü işleme, bir resimden renkleri ayıklar. Renkleri, sonra üç farklı bağlamda analiz edilir: baskın ön plan rengi, baskın arka plan rengini ve bir bütün olarak görüntü için baskın renkler. Bunlar 12 baskın vurgu rengine ayrılarak gruplandırılır. Bu vurgu renkleri beyaz, deniz mavisi, gri, kahverengi, kırmızı, mavi, mor, pembe, sarı, siyah, turuncu ve yeşildir. Görüntü işleme, izleyiciler, birlikte baskın renk doygunluğu ve görüntü için en canlı rengi temsil eden bir Vurgu rengi döndürülecek bir görüntüden ayıklanan renkleri analiz eder. Görüntüdeki renklere bağlı olarak, basit siyah ve beyaz veya vurgu renkleri onaltılık renk kodlarıyla döndürülebilir. Görüntü işleme, ayrıca bir resmin siyah olmadığını gösteren bir Boole değeri döndürür ve beyaz.
 
 ## <a name="color-scheme-detection-examples"></a>Renk şeması algılama örnekleri
 
 Aşağıdaki örnek, örnek görüntüde renk düzenini tespit edilirken, görüntü işleme tarafından döndürülen JSON yanıtı gösterir. Bu durumda, örnek görüntüde Siyah & beyaz bir görüntü değil ancak baskın ön ve arka plan renkleri siyah olur ve baskın bir bütün olarak resmin siyah beyaz renklerdir.
 
-![Dış Sıradağlar](./Images/mountain_vista.png)
+![Dış Mekanda Dağ](./Images/mountain_vista.png)
 
 ```json
 {
@@ -51,8 +52,8 @@ Aşağıdaki tabloda, baskın ön plan, arka plan ve görüntü işleme tarafın
 
 | Görüntü | Baskın renkler |
 |-------|-----------------|
-|![İşleme çiçek analiz edin](./Images/flower.png)| Ön plan: siyah<br/>Arka plan: beyaz<br/>Renkler: Siyah, beyaz, yeşil|
-![Görüntü işleme Train istasyon analiz edin](./Images/train_station.png) | Ön plan: siyah<br/>Arka plan: siyah<br/>Renkler: siyah |
+|![Yeşil bir arka plan beyaz çiçek](./Images/flower.png)| Ön plan: Siyah<br/>Arka planı: Beyaz<br/>Renkler: Siyah, beyaz-yeşil|
+![İstasyonu çalışan bir eğitimi](./Images/train_station.png) | Ön plan: Siyah<br/>Arka planı: Siyah<br/>Renkler: Siyah |
 
 ### <a name="accent-color-examples"></a>Vurgu rengi örnekleri
 
@@ -60,9 +61,9 @@ Aşağıdaki tabloda, baskın ön plan, arka plan ve görüntü işleme tarafın
 
 | Görüntü | Vurgu rengi |
 |-------|--------------|
-|![Dış Sıradağlar](./Images/mountain_vista.png) | #BB6D10 |
-|![İşleme çiçek analiz edin](./Images/flower.png) | #C6A205 |
-|![Görüntü işleme Train istasyon analiz edin](./Images/train_station.png) | #474A84 |
+|![Üzerinde bir Sıradağlar rock gün batımı duran bir kişi](./Images/mountain_vista.png) | #BB6D10 |
+|![Yeşil bir arka plan beyaz çiçek](./Images/flower.png) | #C6A205 |
+|![İstasyonu çalışan bir eğitimi](./Images/train_station.png) | #474A84 |
 
 ### <a name="black--white-detection-examples"></a>Siyah & Beyaz algılama örnekleri
 
@@ -70,8 +71,8 @@ Aşağıdaki tabloda, her bir örnek görüntü siyah olup olmadığını belirt
 
 | Görüntü | Siyah & Beyaz? |
 |-------|----------------|
-|![İşleme analiz oluşturma](./Images/bw_buildings.png) | true |
-|![Görüntü merkezi Yard analiz edin](./Images/house_yard.png) | false |
+|![Siyah beyaz Manhattan stockholm'deki resmi](./Images/bw_buildings.png) | true |
+|![Mavi bir ev ve ön yard](./Images/house_yard.png) | false |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

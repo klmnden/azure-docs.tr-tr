@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 83dfd77c311e1b3324540d352432ec7a6b706d78
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 8bb36111da04ad44f5c13ef3dce2b1684784094e
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993371"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808393"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights'tan Power BI akışı
 [Power BI](https://www.powerbi.com/) verileri analiz etmek ve öngörüleri paylaşmak yardımcı olan bir iş araçları paketidir. Her cihazda kullanılabilen zengin panolar. Analytics sorguları da dahil olmak üzere pek çok kaynaktan veri birleştirebilir [Azure Application Insights](app-insights-overview.md).
@@ -25,7 +25,7 @@ ms.locfileid: "52993371"
 Application Insights verilerini Power BI'a verme üç yöntem vardır:
 
 * [**Analiz sorguları dışarı aktar**](#export-analytics-queries). Tercih edilen yöntem budur. Herhangi bir yazma sorgu istediğiniz ve Power BI'a aktarın. Bu sorgu, herhangi bir veri yanı sıra bir Pano üzerinde yerleştirebilirsiniz.
-* [**Sürekli dışarı aktarma ve Azure Stream Analytics**](app-insights-export-stream-analytics.md). Bu yöntem, verilerinizi uzun sürelerle depolamak istiyorsanız kullanışlıdır. Bir genişletilmiş veri saklama gereksinimine sahip değilseniz, dışarı aktarma analytics sorgu yöntemini kullanın. Sürekli dışarı aktarma ve Stream Analytics, daha fazla ayarlamak için iş ve ek depolama ek yükü içerir.
+* [**Sürekli dışarı aktarma ve Azure Stream Analytics**](../azure-monitor/app/export-stream-analytics.md). Bu yöntem, verilerinizi uzun sürelerle depolamak istiyorsanız kullanışlıdır. Bir genişletilmiş veri saklama gereksinimine sahip değilseniz, dışarı aktarma analytics sorgu yöntemini kullanın. Sürekli dışarı aktarma ve Stream Analytics, daha fazla ayarlamak için iş ve ek depolama ek yükü içerir.
 * [**Power BI bağdaştırıcısı**](#power-pi-adapter). Grafikler dizi önceden tanımlanmış, ancak diğer kaynaklardan gelen kendi sorgularınızı ekleyebilirsiniz.
 
 > [!NOTE]
@@ -119,7 +119,7 @@ Veri kümesini analiz sorgusundan gelen azaltma gereksinimlerinizi karşılamıy
  ```
 
 ## <a name="about-sampling"></a>Örnekleme hakkında
-Uygulamanız çok miktarda veri gönderiyorsa, telemetrinizi yalnızca bir yüzdesini gönderen Uyarlamalı örnekleme özelliği kullanmak isteyebilirsiniz. Aynı el ile SDK'sında ya da alımdan örnekleme ayarladıysanız, geçerlidir. [Örnekleme hakkında daha fazla bilgi](app-insights-sampling.md).
+Uygulamanız tarafından gönderilen verilerin miktarına bağlı olarak, telemetrinizi yalnızca bir yüzdesini gönderen Uyarlamalı örnekleme özelliği kullanmak isteyebilirsiniz. Aynı el ile SDK'sında ya da alımdan örnekleme ayarladıysanız, geçerlidir. [Örnekleme hakkında daha fazla bilgi](app-insights-sampling.md).
 
 ## <a name="power-bi-adapter-deprecated"></a>Power BI bağdaştırıcısı (kullanım dışı)
 Bu yöntem telemetri tamamlanmış bir Pano oluşturur. İlk veri kümesi önceden ancak daha fazla veri ekleyebilirsiniz.

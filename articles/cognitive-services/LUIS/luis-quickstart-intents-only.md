@@ -1,7 +1,7 @@
 ---
 title: Amaçları tahmin edin
 titleSuffix: Azure Cognitive Services
-description: Bir kullanıcının amacını tahmin eden özel bir uygulama oluşturun. E-posta adresleri veya tarihler gibi konuşma metinlerinden çeşitli veri öğeleri ayıklamadığından bu uygulama en basit LUIS uygulaması türüdür.
+description: Bu öğreticide, bir kullanıcının engellemekse tahmin eden özel bir uygulama oluşturun. E-posta adresleri veya tarihler gibi konuşma metinlerinden çeşitli veri öğeleri ayıklamadığından bu uygulama en basit LUIS uygulaması türüdür.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,22 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b1a9718fdf7222dae06f7fe9b3a0f14b50293c08
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 20cd3931488f3d3cf4728b3022316b685da3277a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097803"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754277"
 ---
-# <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Öğretici 1: Kullanıcı amaçlarını belirlemek için özel bir uygulama geliştirin
+# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Öğretici: Kullanıcı amaçları belirlemek için LUIS uygulaması oluşturma
 
-Bu öğreticide, konuşmaya (metne) göre bir kullanıcının amacını tahmin eden özel bir İnsan Kaynakları (İK) uygulaması oluşturacaksınız. İşlemi tamamladığınızda bulut üzerinde çalışan bir LUIS uç noktasına sahip olacaksınız.
-
-Uygulama amacı, doğal konuşma dili metninin amacını belirlemektir. Bunlar **Amaçlar** şeklinde kategorilere ayrılır. Bu uygulamanın birkaç amacı vardır. İlk amaç olan **`GetJobInformation`**, kullanıcının şirket içindeki işler hakkında bilgi istediğini belirtir. İkinci amaç olan **`None`**, kullanıcının bu uygulamanın _etki alanı_ (kapsamı) dışında kalan tüm konuşmaları için kullanılır. Daha sonra üçüncü amaç olan **`ApplyForJob`**, bir iş başvurusuyla ilgili konuşma için eklenir. Üçüncü amaç `GetJobInformation` amacından farklıdır çünkü birisi iş başvurusu yaptığında iş bilgileri zaten bilinmelidir. Bununla birlikte sözcük seçimine bağlı olarak hangi amaç olduğunu belirlemek zorluk çıkarabilir çünkü her ikisi de işle ilgilidir.
-
-JSON yanıtı döndürdükten sonra LUIS’in istekle işi biter. LUIS kullanıcı konuşmalarını yanıtlamaz, yalnızca doğal dilde sorulan bilgi türünü tanımlar. 
+Bu öğreticide, konuşmaya (metne) göre bir kullanıcının amacını tahmin eden özel bir İnsan Kaynakları (İK) uygulaması oluşturacaksınız. 
 
 **Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
 
@@ -36,120 +32,138 @@ JSON yanıtı döndürdükten sonra LUIS’in istekle işi biter. LUIS kullanıc
 > * Uygulama yayımlama
 > * Uç noktadan amaç alma
 
+
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="user-intentions-as-intents"></a>Hedefleri olarak kullanıcı amaçları
+
+Uygulama amacı, konuşma, doğal dil metinlerinde amacınıza belirlemektir: 
+
+`Are there any new positions in the Seattle office?`
+
+Bunlar **Amaçlar** şeklinde kategorilere ayrılır. 
+
+Bu uygulamanın birkaç amacı vardır. 
+
+|Amaç|Amaç|
+|--|--|
+|ApplyForJob|Kullanıcı bir iş uyguluyor belirleyin.|
+|GetJobInformation|Kullanıcı işleri genel olarak veya belirli bir işin hakkında bilgi için arıyor, belirleyin.|
+|None|Kullanıcı bir şey istemesi durumunda belirlemek uygulama yanıtlamak için gereken değil. Bu amaç, uygulama oluşturmanın bir parçası sağlanan ve silinemez. |
 
 ## <a name="create-a-new-app"></a>Yeni bir uygulama oluşturma
 
-1. [https://www.luis.ai](https://www.luis.ai) URL’si ile LUIS portalında oturum açın. 
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-2. **Yeni uygulama oluştur**'u seçin.  
+## <a name="create-intent-for-job-information"></a>İş bilgileri için hedefi oluşturma
 
-    [![Ekran görüntüsü, arama Language Understanding (LUIS) uygulamalarım sayfası](media/luis-quickstart-intents-only/app-list.png "ekran görüntüsü, arama Language Understanding (LUIS) uygulamalarım sayfası")](media/luis-quickstart-intents-only/app-list.png#lightbox)
-
-3. Açılan iletişim kutusunda, `HumanResources` adını girin ve varsayılan kültürü **İngilizce** olarak tutun. Açıklamayı boş bırakın.
-
-    ![LUIS yeni İnsanKaynakları uygulaması oluşturma](./media/luis-quickstart-intents-only/create-app.png)
-
-    Sonra uygulama **Amaçlar** sayfasını **Yok** amacıyla birlikte gösterir.
-
-## <a name="getjobinformation-intent"></a>GetJobInformation amacı
-
-1. **Create new intent** (Yeni amaç oluştur) öğesini seçin. Yeni amaç adı olarak `GetJobInformation` girin. Kullanıcı, şirketteki açık pozisyonlar hakkında bilgi istediğinde bu amaç tahmin edilir.
+1. **Create new intent** (Yeni amaç oluştur) öğesini seçin. Yeni amaç adı olarak `GetJobInformation` girin. Bir kullanıcı şirket açık işler hakkında bilgi istediğinde bu hedefi tahmin edildiğinde. 
 
     ![Ekran görüntüsü, arama Language Understanding (LUIS) yeni hedefi iletişim](media/luis-quickstart-intents-only/create-intent.png "ekran görüntüsü, arama Language Understanding (LUIS) yeni hedefi iletişim kutusu")
 
-2. _Örnek konuşmalar_ sağlayarak, LUIS’i bu amaç için ne tür konuşmaların tahmin edilmesi gerektiği konusunda eğitiyorsunuz. Bu amaca kullanıcının sormasını beklediğiniz birkaç konuşma girin; örneğin:
+1. **Done** (Bitti) öğesini seçin.
+
+2. Birkaç örnek konuşma beklediğiniz istemek için bir kullanıcı bu amaç için ekleme:
 
     | Örnek konuşmalar|
     |--|
     |Any new jobs posted today? (Bugün yayımlanan yeni iş ilanı var mı?)|
-    |What positions are available for Senior Engineers? (Kıdemli Mühendisler için uygun olan pozisyonlar hangileri?)|
-    |Is there any work in databases? (Veritabanı alanında iş var mı?)|
-    |Looking for a new situation with responsibilities in accounting (Muhasebe alanında yeni bir iş arayışım mevcut)|
-    |Where is the job listings (İş ilanları nerede?)|
-    |New jobs? (Yeni iş var mı?)|
     |Are there any new positions in the Seattle office? (Seattle ofisinde yeni pozisyon var mı?)|
+    |Herhangi bir uzak çalışan vardır veya mühendislerinin işleri açık işletmenizi?|
+    |Is there any work in databases? (Veritabanı alanında iş var mı?)|
+    |Bir ortak çalışma durum tampa Office arıyorum.|
+    |San francisco ofiste bir Stajyerlik mı?|
+    |Yarı zamanlı işlerinizi üniversite kişilere var mı?|
+    |Looking for a new situation with responsibilities in accounting (Muhasebe alanında yeni bir iş arayışım mevcut)|
+    |New york city işinde için iki dilli konuşmacıları aranıyor.|
+    |Hesap sorumlulukları ile yeni bir durum aranıyor.|
+    |New jobs? (Yeni iş var mı?)|
+    |Son 2 gün içinde eklenen mühendisleri için tüm işleri göster.|
+    |Günümüzde iş gönderilerinin?|
+    |Hangi hesap konumları Londra Office'te Aç misiniz?|
+    |What positions are available for Senior Engineers? (Kıdemli Mühendisler için uygun olan pozisyonlar hangileri?)|
+    |Where is the job listings (İş ilanları nerede?)|
 
     [![Yeni Konuşma DepolamaAlanım hedefi için girme ekran görüntüsü](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "DepolamaAlanım hedefi için yeni konuşma girme ekran görüntüsü")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
+    Sağlayarak _örnek konuşma_, ne tür bir konuşma bu amaç için tahmin edilen hakkında eğitim LUIS olan. 
+
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
+## <a name="add-example-utterances-to-the-none-intent"></a>Örnek konuşma hiçbiri hedefi ekleme 
 
-## <a name="none-intent"></a>Amaç yok 
-İstemci uygulamasının, konuşmanın uygulamanın konu etki alanı dışında olup olmadığını bilmesi gerekir. LUIS, bir konuşma için **Yok** amacını döndürdüğünde istemci uygulamanız kullanıcının konuşmayı sonlandırmak isteyip istemediğini sorabilir. Kullanıcının konuşmayı sonlandırmak istememesi durumunda istemci uygulaması konuşmaya devam etme talimatları verebilir. 
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-Konu etki alanı dışındaki bu örnek konuşmalar **Yok** amacına gruplandırılır. Bu bölümü boş bırakmayın. 
-
-1. Sol panelden **Intents** (Amaçlar) öğesini seçin.
-
-2. **None** (Yok) amacını seçin. Kullanıcınızın girebileceği ancak İnsan Kaynakları uygulamanızla ilgili olmayan üç konuşma girin. Uygulama iş ilanlarınızla ilgiliyse **Yok** konuşmalarına örnek olarak şunlar verilebilir:
-
-    | Örnek konuşmalar|
-    |--|
-    |Barking dogs are annoying (Havlayan köpekler rahatsız eder)|
-    |Order a pizza for me (Bana bir pizza söyle)|
-    |Penguins in the ocean (Okyanustaki penguenler)|
-
-
-## <a name="train"></a>Eğitim 
+## <a name="train-the-app-before-testing-or-publishing"></a>Uygulamayı test etme ve yayımlama önce eğitin
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Yayımlama
+## <a name="publish-the-app-to-query-from-the-endpoint"></a>Uç noktasından sorguya uygulamayı yayımlama
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
-## <a name="get-intent"></a>Amaç alma
+## <a name="get-intent-prediction-from-the-endpoint"></a>Uç noktasından hedefi öngörü Al
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Adres çubuğundaki URL'nin sonuna gidip `I'm looking for a job with Natural Language Processing` yazın. Son sorgu dizesi parametresi konuşma **sorgusu** olan `q` öğesidir. Bu konuşma, örnek konuşmalarından hiçbiriyle aynı değil. İyi bir test olduğundan `GetJobInformation` amacını en yüksek puanlı amaç olarak döndürmelidir. 
+1. Adres çubuğundaki URL'nin sonuna gidip `I'm looking for a job with Natural Language Processing` yazın. Son sorgu dizesi parametresi konuşma **sorgusu** olan `q` öğesidir. Bu konuşma, örnek konuşmalarından hiçbiriyle aynı değil. İyi bir test olduğundan `GetJobInformation` amacını en yüksek puanlı amaç olarak döndürmelidir. 
 
     ```JSON
     {
       "query": "I'm looking for a job with Natural Language Processing",
       "topScoringIntent": {
         "intent": "GetJobInformation",
-        "score": 0.8965092
+        "score": 0.9923871
       },
       "intents": [
         {
           "intent": "GetJobInformation",
-          "score": 0.8965092
+          "score": 0.9923871
         },
         {
           "intent": "None",
-          "score": 0.147104025
+          "score": 0.007810574
         }
       ],
       "entities": []
     }
     ```
 
-    Sonuçlar uygulamadaki **tüm hedefleri** içerir, şu anda 2 amaç var. Bu uygulamanın şu anda bir varlığı olmadığından varlıklar dizisi boştur. 
+    `verbose=true` Querystring parametresi dahil anlamına gelir; **tüm hedefleri** uygulamanın sorgu sonuçları. Bu uygulamanın şu anda bir varlığı olmadığından varlıklar dizisi boştur. 
 
     JSON sonucu, en yüksek puanlı amacı **`topScoringIntent`** özelliği olarak tanımlar. Tüm puanlar 1 ile 0 arasındadır ve 1'e yakın olan puanlar daha iyidir. 
 
-## <a name="applyforjob-intent"></a>ApplyForJob amacı
-LUIS web sitesine geri dönün ve kullanıcı konuşmasının bir iş başvurusuyla ilgili olup olmadığını belirlemek için yeni bir amaç oluşturun.
+## <a name="create-intent-for-job-applications"></a>İş uygulamaları için hedefi oluşturma
+
+LUIS portala geri dönün ve bir proje için uygulama hakkında kullanıcı utterance olup olmadığını belirlemek için yeni bir hedefi oluşturma.
 
 1. Uygulama derleme ekranına dönmek için sağ üstten **Build** (Derle) öğesini seçin.
 
-2. Sol menüden **Intents** (Amaçlar) öğesini seçin.
+1. Seçin **hedefleri** ıntents listesini almak için sol menüden.
 
-3. **Create new intent** (Yeni amaç oluştur) öğesini seçin ve `ApplyForJob` adını girin. 
+1. **Create new intent** (Yeni amaç oluştur) öğesini seçin ve `ApplyForJob` adını girin. 
 
     ![LUIS Create new intent (Yeni amaç oluştur) iletişim kutusu](./media/luis-quickstart-intents-only/create-applyforjob-intent.png)
 
-4. Bu amaca kullanıcının sormasını beklediğiniz birkaç konuşma girin; örneğin:
+1. Bu amaca kullanıcının sormasını beklediğiniz birkaç konuşma girin; örneğin:
 
     | Örnek konuşmalar|
     |--|
-    |I want to apply for the new accounting job (Yeni muhasebe işine başvurmak istiyorum)|
     |Fill out application for Job 123456 (123456 numaralı iş için başvuru yap)|
-    |Submit resume for engineering position (Mühendislik pozisyonu için özgeçmişimi gönder)|
     |Here is my c.v. for position 654234 (654234 numaralı pozisyon için özgeçmişimi gönderiyorum)|
+    |My sürdürme zamanlı resepsiyonist gönderi için aşağıda verilmiştir.|
+    |Bu belgeler resim Masası işlemiyle için uygulama.|
+    |Araştırma ve geliştirme, San Diego Yaz üniversite Stajyerlik için uygulama|
+    |My sürdürme kafeterya geçici konuma göndermek istiyorum.|
+    |My sürdürme Kolomb, OH yeni Autocar ekibinden sorumlu gönderme|
+    |I want to apply for the new accounting job (Yeni muhasebe işine başvurmak istiyorum)|
+    |İş 456789 muhasebe Stajyerlik belgeleri aşağıda verilmiştir|
     |Job 567890 and my paperwork (567890 numaralı iş için belgelerim)|
+    |My incelemeler tulsa muhasebe Stajyerlik için eklenir.|
+    |Tatil teslim konumunun My belgeleri|
+    |Lütfen seattle'my edecek yeni hesap oluşturma işi Gönder|
+    |Submit resume for engineering position (Mühendislik pozisyonu için özgeçmişimi gönder)|
+    |This is my c.v. POST 234123 Tampa içinde.|
 
     [![Yeni konuşma ApplyForJob hedefi için girme ekran görüntüsü](media/luis-quickstart-intents-only/utterance-applyforjob.png "ApplyForJob hedefi için yeni konuşma girme ekran görüntüsü")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
 
@@ -163,7 +177,7 @@ LUIS web sitesine geri dönün ve kullanıcı konuşmasının bir iş başvurusu
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
-## <a name="get-intent-again"></a>Yeniden amaç alma
+## <a name="get-intent-prediction-again"></a>Yeniden hedefi öngörü Al
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -174,20 +188,20 @@ LUIS web sitesine geri dönün ve kullanıcı konuşmasının bir iş başvurusu
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {
         "intent": "ApplyForJob",
-        "score": 0.9166808
+        "score": 0.9634406
       },
       "intents": [
         {
           "intent": "ApplyForJob",
-          "score": 0.9166808
+          "score": 0.9634406
         },
         {
           "intent": "GetJobInformation",
-          "score": 0.07162977
+          "score": 0.0171300638
         },
         {
           "intent": "None",
-          "score": 0.0262826588
+          "score": 0.00670867041
         }
       ],
       "entities": []
@@ -196,13 +210,28 @@ LUIS web sitesine geri dönün ve kullanıcı konuşmasının bir iş başvurusu
 
     Sonuçlar, yeni amaç olan **ApplyForJob** ile birlikte mevcut amaçları da içerir. 
 
+## <a name="client-application-next-steps"></a>İstemci uygulaması sonraki adımlar
+
+JSON yanıtı döndürdükten sonra LUIS’in istekle işi biter. LUIS kullanıcı konuşmalarını yanıtlamaz, yalnızca doğal dilde sorulan bilgi türünü tanımlar. Konuşma izleme, Azure robot gibi istemci uygulaması tarafından sağlanır. 
+
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
+## <a name="related-information"></a>İlgili bilgiler
+
+* [Varlık türleri](luis-concept-entity-types.md)
+* [Eğitme](luis-how-to-train.md)
+* [Yayımlama nasıl yapılır?](luis-how-to-publish-app.md)
+* [LUIS portalında test etme](luis-interactive-test.md)
+* [Azure robot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
+
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğretici, İnsan Kaynakları (İK) uygulamasını oluşturdu, 2 amaç oluşturdu, her amaca örnek konuşmalar ekledi, Yok amacına örnek konuşmalar ekledi, eğitti, yayımladı, ve uç noktada test etti. Bunlar, LUIS modeli oluşturmanın temel adımlarıdır. 
+
+Bu uygulama ile devam [basit bir varlık ve deyim listesi ekleme](luis-quickstart-primary-and-secondary-data.md).
 
 > [!div class="nextstepaction"]
 > [Bu uygulamaya önceden derlenmiş amaçlar ve varlıklar ekleme](luis-tutorial-prebuilt-intents-entities.md)

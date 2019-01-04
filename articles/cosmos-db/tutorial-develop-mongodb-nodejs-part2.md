@@ -1,5 +1,5 @@
 ---
-title: Node.Js, MongoB API (Bölüm 2) kullanarak Angular uygulaması
+title: Angular uygulama API'si ile Azure Cosmos DB'nin MongoDB için oluşturma - Node.js Express uygulaması oluşturma
 titleSuffix: Azure Cosmos DB
 description: Azure Cosmos DB üzerinde Angular ve Node ile MongoDB için kullandığınız aynı API'leri kullanarak bir MongoDB uygulaması oluşturma öğreticisi dizisinin 2. bölümü.
 author: johnpapa
@@ -7,19 +7,19 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 53e3f4d975ec18b32d6b8166f978bfad2c064f1d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 8e122ab62009463ae12d5635323655be708aa29d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716441"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788064"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app"></a>Angular ve Azure Cosmos DB - bölüm 2 ile bir MongoDB uygulaması oluşturun: Bir Node.js Express uygulaması oluşturma
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Angular uygulama API'si ile Azure Cosmos DB'nin MongoDB için oluşturma - Node.js Express uygulaması oluşturma
 
-Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yazılmış yeni bir uygulama oluşturun ve buna bağlanmak gösterilmektedir, [MongoDB API'si için yapılandırılmış Cosmos hesabı](mongodb-introduction.md).
+Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yazılmış yeni bir uygulama oluşturun ve buna bağlanmak gösterilmektedir, [MongoDB için Cosmos DB API'si ile yapılandırılan Cosmos hesabı](mongodb-introduction.md).
 
 Öğreticinin 2. bölümünde [giriş bölümündeki](tutorial-develop-mongodb-nodejs.md) konular genişletilir ve aşağıdaki görevler yer alır:
 

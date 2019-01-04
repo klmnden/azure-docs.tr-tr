@@ -9,26 +9,25 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: da105be19f7d546e530298f87974fe7f3f78989f
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7326cf6a1153d5dc1f7e5f910a376a21b05db606
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012224"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725449"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-windows-based-hdinsight"></a>Windows tabanlı HDInsight üzerinde erişim Apache Hadoop YARN uygulama günlüklerine
 Bu belge için günlüklere nasıl erişeceğinizi açıklar [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) Windows tabanlı bir Apache Hadoop üzerine tamamlanmış uygulamalar Azure HDInsight küme
 
-> [!IMPORTANT]
-> Bu belgedeki bilgiler yalnızca Windows tabanlı HDInsight kümeleri için geçerlidir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı HDInsight kümelerinde günlüklerini YARN erişme hakkında bilgi için bkz. [erişim Apache Hadoop YARN uygulama günlüklerine Apache Hadoop'ta Linux tabanlı HDInsight üzerinde](hdinsight-hadoop-access-yarn-app-logs-linux.md)
->
+> [!IMPORTANT]  
+> Bu belgedeki bilgiler yalnızca Windows tabanlı HDInsight kümeleri için geçerlidir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı HDInsight kümelerinde günlüklerini YARN erişme hakkında bilgi için bkz. [erişim Apache Hadoop YARN uygulama günlüklerine Apache Hadoop'ta Linux tabanlı HDInsight üzerinde](hdinsight-hadoop-access-yarn-app-logs-linux.md).
 
 
 ### <a name="prerequisites"></a>Önkoşullar
 * Bir Windows tabanlı HDInsight kümesi.  Bkz: [oluşturma Windows tabanlı Apache Hadoop kümeleri HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>YARN Timeline sunucusu
-<a href="http://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Apache Hadoop YARN Timeline sunucusu</a> genel bilgiler tamamlanmış uygulamaları iki farklı arabirimler üzerinden de olarak çerçeveye özgü uygulama bilgileri sağlar. Bu avantajlar şunlardır:
+<a href="https://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Apache Hadoop YARN Timeline sunucusu</a> genel bilgiler tamamlanmış uygulamaları iki farklı arabirimler üzerinden de olarak çerçeveye özgü uygulama bilgileri sağlar. Bu avantajlar şunlardır:
 
 * Depolama ve HDInsight kümelerinde genel uygulama bilgilerin alınmasını 3.1.1.374 sürümüyle etkin ya da daha yüksek olmuştur.
 * HDInsight kümelerinde çerçeveye özgü uygulama bilgileri bileşenini Timeline sunucusu şu anda kullanılamıyor.
@@ -75,7 +74,7 @@ YARN ResourceManager kullanıcı Arabirimi, küme baş düğümüne üzerinde ç
 3. Üst menüsünde **Pano**. Yeni bir tarayıcıda açılan bir sayfa görürsünüz sekmesi adı verilen **HDInsight sorgu Konsolu**.
 4. Gelen **HDInsight sorgu Konsolu**, tıklayın **Yarn UI**.
 
-[YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
+[YARN-timeline-server]:https://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
 [log-aggregation]:https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315

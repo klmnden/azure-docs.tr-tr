@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: f7f247da93290aafaec62fe68158a036bc6cb887
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c6086c3d3bc025feaf9da2d4c26d7f008b304b57
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723357"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788132"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>React ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma  
 
-Bu çok parçalı videolu öğretici, React ön ucuyla hero izleme uygulaması oluşturmayı gösterir. Uygulama sunucusu için kullanılan, Node ve Express, Azure Cosmos DB ile bağlandığı [Azure Cosmos DB MongoDB API'si için](mongodb-introduction.md)ve ardından React ön ucunu uygulamanın sunucu bölümüne bağlar. Öğreticide ayrıca Azure Portal’da Azure Cosmos DB’nin tıklayarak ölçeklendirilme ve uygulamayı İnternet'e dağıtarak herkesin sık kullanılan hero'larını izlemesini sağlama konuları gösterilmiştir. 
+Bu çok parçalı videolu öğretici, React ön ucuyla hero izleme uygulaması oluşturmayı gösterir. Uygulama, Node ve Express sunucusu için kullanılan, Cosmos veritabanı ile yapılandırılmış bağlandığı [Azure Cosmos DB'nin MongoDB API'si](mongodb-introduction.md)ve ardından React ön ucunu uygulamanın sunucu bölümüne bağlar. Öğreticinin ayrıca nasıl üzerine ve tıklama Cosmos DB Azure portalında ölçeklendirme yapın ve herkesin, sık kullanılan hero'ları izlemek için uygulamayı internet'e dağıtmak nasıl gösterir. 
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) MongoDB istemci bağlantılarını destekler, böylece Azure Cosmos DB MongoDB yerine kullanabilirsiniz.  
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) destekleyen Azure Cosmos DB MongoDB yerine kullanmak istemcileri etkinleştirme ile MongoDB, protokol uyumluluk bağlayabilirsiniz.  
 
 Bu çok bölümlü öğretici aşağıdaki görevleri içerir:
 

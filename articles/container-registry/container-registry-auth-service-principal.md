@@ -1,18 +1,18 @@
 ---
-title: Azure Container Registry kimlik doğrulama ile hizmet sorumluları
-description: Özel kapsayıcı kayıt defterinizde görüntüleri bir Azure Active Directory Hizmet sorumlusu kullanarak erişmeyi öğrenin.
+title: Bir hizmet sorumlusu ile Azure Container Registry kimlik doğrulaması
+description: Bir Azure Active Directory Hizmet sorumlusu kullanarak özel kapsayıcı kayıt defterinizde görüntülerine erişim sağlar.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 30f0eb04b4b7d07785854e3079bc6656889edec6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854499"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754212"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Azure Container Registry kimlik doğrulama ile hizmet sorumluları
 
@@ -20,9 +20,9 @@ Kapsayıcı görüntüsünü sağlamak için bir Azure Active Directory (Azure A
 
 ## <a name="what-is-a-service-principal"></a>Bir hizmet sorumlusu nedir?
 
-Azure AD *hizmet sorumluları* , aboneliğiniz kapsamındaki Azure kaynaklarına erişim sağlama. Bir hizmeti "hizmet" herhangi bir uygulama, hizmet veya kaynaklara erişmesi platformu olduğu asıl kullanıcı kimliği için bir hizmet olarak düşünebilirsiniz. Yalnızca belirttiğiniz kaynakları için kapsamlı erişim haklarına sahip bir hizmet sorumlusu yapılandırabilirsiniz. Ardından, uygulamanızın veya hizmetinizin bu kaynakları erişmek için hizmet sorumlusunun kimlik bilgilerini kullanmak için yapılandırabilirsiniz.
+Azure AD *hizmet sorumluları* , aboneliğiniz kapsamındaki Azure kaynaklarına erişim sağlama. Bir hizmeti "hizmet" herhangi bir uygulama, hizmet veya kaynaklara erişmesi platformu olduğu asıl kullanıcı kimliği için bir hizmet olarak düşünebilirsiniz. Yalnızca belirttiğiniz kaynakları için kapsamlı erişim haklarına sahip bir hizmet sorumlusu yapılandırabilirsiniz. Ardından, uygulamanızın veya hizmetinizin bu kaynakları erişmek için hizmet sorumlusunun kimlik bilgilerini kullanmak için yapılandırın.
 
-Azure Container Registry bağlamında, bir Azure AD hizmet sorumlusu çekme, gönderme ve çekme veya sahip izinleri ile azure'da özel Docker kayıt oluşturabilir.
+Azure Container Registry bağlamında, bir Azure AD hizmet sorumlusu çekme, gönderme ve çekme veya diğer izinler ile azure'da özel kayıt defterinize oluşturabilirsiniz. Tam bir listesi için bkz. [Azure Container Registry rolleri ve izinleri](container-registry-roles.md).
 
 ## <a name="why-use-a-service-principal"></a>Bir hizmet sorumlusu neden kullanmalısınız?
 

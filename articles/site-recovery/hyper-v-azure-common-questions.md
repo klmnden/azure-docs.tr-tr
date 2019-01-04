@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 3e71c4e31c6d57cb54a654e0e1c28dcb0fa82cda
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 8ba188db87ffc0d428c7349c902cf60bec65d30f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875340"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788489"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Sık sorulan sorular - Hyper-V'den Azure'a olağanüstü durum kurtarma
 
@@ -55,11 +55,11 @@ Evet, hem şifreleme-aktarım sırasında ve [azure'da şifreleme](https://docs.
 
 ### <a name="what-can-i-do-with-hyper-v-to-azure-replication"></a>Hyper-V ile Azure'a çoğaltma için neler yapabilirim?
 
-- **Olağanüstü durum kurtarma**: tam olağanüstü durum kurtarması da ayarlayabilirsiniz. Bu senaryoda, Azure Depolama'ya şirket içi Hyper-V Vm'lerini çoğaltma:
+- **Olağanüstü durum kurtarma**: Tam olağanüstü durum kurtarması da ayarlayabilirsiniz. Bu senaryoda, Azure Depolama'ya şirket içi Hyper-V Vm'lerini çoğaltma:
     - Sanal makinelerini Azure'a çoğaltabilirsiniz. Şirket içi altyapınızı kullanılamıyorsa, Azure'a yük devretme.
     - Yük devretme, çoğaltılan verileri kullanarak Azure Vm'leri oluşturulur. Uygulamaları ve iş yüklerini Azure sanal makinelerinde erişebilirsiniz.
     - Şirket içi veri merkezinizi yeniden kullanılabilir olduğunda, Azure'dan şirket içi sitenize başarısız olabilir.
-- **Geçiş**: şirket içi Hyper-V Vm'lerini Azure depolama alanına geçirmek için Site RECOVERY'yi kullanabilirsiniz. Ardından, şirket içinden Azure'a yük devretme. Yük devretme sonrasında kullanılabilir ve Azure vm'lerinde çalışan iş yükleri ve uygulamalar.
+- **Geçiş**: Şirket içi Hyper-V Vm'lerini Azure depolama alanına geçirmek için Site RECOVERY'yi kullanabilirsiniz. Ardından, şirket içinden Azure'a yük devretme. Yük devretme sonrasında kullanılabilir ve Azure vm'lerinde çalışan iş yükleri ve uygulamalar.
 
 
 ### <a name="what-do-i-need-on-premises"></a>Ne şirket içi gerekiyor?
@@ -197,8 +197,8 @@ Azure esneklik için tasarlanmıştır. Site kurtarma, ikincil bir Azure veri me
 
 1. Azure planlı yük devretme birkaç farklı seçenek kullanarak şirket içi siteye başlatabilir:
 
-    - Kapalı kalma süresini: Bu seçeneği kullanırsanız, Site Recovery yük devretmeden önce verileri eşitler. Bu işlem için değiştirilen veri bloklarını denetler ve şirket içi sitesine, Azure VM tutar çalışıyor, kapalı kalma süresini en aza indirir. El ile yük devretmeyi tamamlamanız gerekir belirttiğinizde, Azure VM'yi kapatın, son delta değişiklikleri kopyalanır ve yük devretme başlatır.
-    - Tam yükleme: Bu seçenekle yük devretme sırasında veri eşitlenir. Bu seçenek, tüm diskin yükler. Hiçbir sağlama toplamları hesaplanır, ancak daha fazla kapalı kalma süresi yoktur çünkü daha hızlıdır. Azure Vm'lerini çoğaltma için biraz zaman çalıştırıyorsunuz veya şirket içi VM silinmişse bu seçeneği kullanın.
+    - Kapalı kalma süresini en aza indirir: Bu seçeneği kullanırsanız, Site Recovery yük devretmeden önce verileri eşitler. Bu işlem için değiştirilen veri bloklarını denetler ve şirket içi sitesine, Azure VM tutar çalışıyor, kapalı kalma süresini en aza indirir. El ile yük devretmeyi tamamlamanız gerekir belirttiğinizde, Azure VM'yi kapatın, son delta değişiklikleri kopyalanır ve yük devretme başlatır.
+    - Tam indirme: Bu seçenekle yük devretme sırasında veri eşitlenir. Bu seçenek, tüm diskin yükler. Hiçbir sağlama toplamları hesaplanır, ancak daha fazla kapalı kalma süresi yoktur çünkü daha hızlıdır. Azure Vm'lerini çoğaltma için biraz zaman çalıştırıyorsunuz veya şirket içi VM silinmişse bu seçeneği kullanın.
 
 2. Aynı sanal makine veya alternatif bir VM başarısız seçeneğini belirleyebilirsiniz. Zaten yoksa Site Recovery VM oluşturması gerektiğini belirtebilirsiniz.
 3. İlk eşitleme tamamlandıktan sonra yük devretmeyi tamamlamak için seçin. Tamamlandıktan sonra her şeyin beklendiği gibi çalıştığını denetlemek için şirket içi VM oturum açabilir. Azure portalında Azure Vm'lerini durduruldu mu olduğunu görebilirsiniz.

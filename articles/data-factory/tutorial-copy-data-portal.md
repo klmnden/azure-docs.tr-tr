@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: f7d6f34c75069f91e06d58c960249d040b2bda8a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 6e3ab097b08e3a15d012ccc644307bc8f4b281ab
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299212"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971691"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Blob depolama alanında SQL veritabanına veri kopyalama
 Bu öğreticide, Azure Data Factory kullanıcı arabirimini (UI) kullanarak bir veri fabrikası oluşturursunuz. Bu veri fabrikasındaki işlem hattı, verileri Azure Blob Depolama alanından SQL veritabanına kopyalar. Bu öğreticideki yapılandırma düzeni, dosya tabanlı bir veri deposundan ilişkisel bir veri deposuna kopyalama için geçerlidir. Kaynak ve havuz olarak desteklenen veri depolarının listesi için [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablosuna bakın.
@@ -36,7 +36,7 @@ Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 > * İşlem hattını bir zamanlamaya göre tetikleme.
 > * İşlem hattı ve etkinlik çalıştırmalarını izleme.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * **Azure aboneliği**. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 * **Azure depolama hesabı**. Blob depolama alanını *kaynak* veri deposu olarak kullanabilirsiniz. Depolama hesabınız yoksa, oluşturma adımları için bkz. [Azure depolama hesabı oluşturma](../storage/common/storage-quickstart-create-account.md).
 * **Azure SQL Veritabanı**. Veritabanını *havuz* veri deposu olarak kullanabilirsiniz. SQL veritabanınız yoksa, oluşturma adımları için bkz. [SQL veritabanı oluşturma](../sql-database/sql-database-get-started-portal.md).
@@ -217,7 +217,7 @@ Bu öğreticide işlem hattını oluşturmaya başlayacaksınız. Daha sonra iş
 
     ![İşlem hattı sekmesi](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
 
-### <a name="confugure-mapping"></a>Eşlemeyi yapılandırma
+### <a name="configure-mapping"></a>Eşlemeyi yapılandırma
 
 **Özellikler** penceresinin altındaki **Eşleme** sekmesine gidin ve **Şemaları İçeri Aktar**’ı seçin. Kaynak dosyadaki birinci ve ikinci sütunların SQL veritabanındaki **FirstName** ve **LastName** alanlarına eşlendiğini görebilirsiniz.
 

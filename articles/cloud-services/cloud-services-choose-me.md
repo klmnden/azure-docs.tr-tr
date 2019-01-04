@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 309c7275a1e775ed2bd689520ac39501e8bd6052
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857831"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603836"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Azure bulut hizmetlerine genel bakış
-Azure Cloud Services, örneği bir [bir hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Gibi [Azure App Service](../app-service/app-service-web-overview.md), bu teknoloji, ölçeklenebilir, güvenilir ve uygun maliyetli uygulamaları desteklemek için tasarlanmıştır. App Service sanal makinelerinde (VM'ler), bu nedenle barındırıldığını aynı şekilde Azure Cloud Services çok uzun. Ancak, sanal makineleri hakkında daha fazla denetime sahip. Azure Cloud Services kullanan Vm'lerde kendi yazılım yükleyebilirsiniz ve Uzaktan erişim.
+Azure Cloud Services, örneği bir [bir hizmet olarak platform](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Gibi [Azure App Service](../app-service/overview.md), bu teknoloji, ölçeklenebilir, güvenilir ve uygun maliyetli uygulamaları desteklemek için tasarlanmıştır. App Service sanal makinelerinde (VM'ler), bu nedenle barındırıldığını aynı şekilde Azure Cloud Services çok uzun. Ancak, sanal makineleri hakkında daha fazla denetime sahip. Azure Cloud Services kullanan Vm'lerde kendi yazılım yükleyebilirsiniz ve Uzaktan erişim.
 
 ![Azure bulut Hizmetleri diyagramı](./media/cloud-services-choose-me/diagram.png)
 
@@ -29,7 +29,7 @@ Daha fazla denetim aynı zamanda daha az kullanım kolaylığı anlamına gelir.
 
 Azure Cloud Services rolleri iki tür vardır. İkisi arasındaki tek fark, rolünüzün Vm'lerinde barındırılan nasıl şöyledir:
 
-* **Web rolü**: otomatik olarak dağıtır ve uygulamanızı IIS üzerinden barındırır.
+* **Web rolü**: Otomatik olarak dağıtır ve uygulamanızı IIS üzerinden barındırır.
 
 * **Çalışan rolü**: IIS kullanmaz ve, uygulama başına çalıştırır.
 

@@ -9,18 +9,40 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d5dd2e2943d78291fc9c4903c15fb4d3767edbea
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: b8f77f404a8e5d2d1625a327a1e50c0e169b6135
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442021"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744437"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux'ta Azure dosyaları sorunlarını giderme
 
-Bu makalede Linux istemcilerden bağlandığınızda, Microsoft Azure dosyaları'na ilgili genel sorunları listeler. Ayrıca olası nedenleri ve çözümlemeleri için bu sorunları sağlar. 
+Bu makalede Linux istemcilerden bağladığınızda, Azure dosyaları'na ilgili genel sorunları listeler. Ayrıca olası nedenleri ve çözümlemeleri için bu sorunları sağlar. 
 
 Bu makalede sorun giderme adımları ek olarak, kullandığınız [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) Linux istemci önkoşulları doğru olduğundan emin olmak için. Bu makalede değinilen belirtileri çoğunu algılanması AzFileDiagnostics otomatikleştirir. En iyi performansı elde etmek için ortamınızı ayarlama yardımcı olur. Bu bilgiler de bulabilirsiniz [Azure dosyaları paylaşımlarını sorun giderici](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares). Sorun giderici bağlanma, eşleme ve Azure dosya paylaşımlarını oluşturma sorunları yardımcı olması için adımları sağlar.
+
+<a id="mounterror13"></a>
+## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>"Error(13) bağlayın: İzin reddedildi"Azure dosya paylaşımını bağlama zaman
+
+### <a name="cause-1-unencrypted-communication-channel"></a>1. neden: Şifrelenmemiş iletişim kanalı
+
+Güvenlik nedenleriyle, Azure dosya paylaşımlarını bağlantı iletişim kanalını şifreli değildir ve Azure dosya paylaşımlarını bulunduğu aynı veri merkezlerinden bağlantı girişimi yapılmadan değil engellenir. Aynı veri merkezindeki şifrelenmemiş bağlantıları da ise engellenir [güvenli aktarım gerekli](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) depolama hesabı seçeneği etkinleştirilmiştir. Şifreli iletişim kanalı, yalnızca kullanıcının istemci işletim sistemi SMB şifrelemesi destekliyorsa sağlanır.
+
+Daha fazla bilgi için bkz. [Linux ve CIFS-utils paketi ile bir Azure dosya bağlama önkoşulları paylaşır](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux#prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package). 
+
+### <a name="solution-for-cause-1"></a>Çözüm nedeni 1 için
+
+1. SMB Şifrelemesi'ni destekleyen bir istemciyi bağlanmak veya aynı veri merkezinde Azure dosya paylaşımı için kullanılan Azure depolama hesabı olarak bir sanal makinesinden bağlanabilirsiniz.
+2. Doğrulama [güvenli aktarım gerekli](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) ayarı devre dışı depolama hesabında istemci SMB şifrelemesi desteklemiyorsa.
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>2. neden: Sanal ağ veya güvenlik duvarı kuralları depolama hesabı etkinleştirilir 
+
+Sanal ağ (VNET) ve güvenlik duvarı kuralları depolama hesabında yapılandırılmışsa, istemci IP adresi veya sanal ağ erişimine izin verilmesini sürece ağ trafiğini erişimi reddedilir.
+
+### <a name="solution-for-cause-2"></a>Neden 2 çözümü
+
+Sanal ağ ve güvenlik duvarı kuralları depolama hesabı düzgün şekilde yapılandırıldığından doğrulayın. Sanal ağ veya güvenlik duvarı kuralları neden sorun varsa test etmek için geçici olarak depolama hesabı için ayarı değiştirmeniz **tüm ağlardan erişime izin ver**. Daha fazla bilgi için bkz. [yapılandırma Azure depolama güvenlik duvarlarını ve sanal ağlar](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>"[izin reddedildi;] Disk kotası aşıldı" bir dosyayı açmaya çalıştığınızda
@@ -47,7 +69,7 @@ Bazı işler kapatarak eşzamanlı açık işleyicilerin sayısını azaltın ve
     - Kullanım [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) bir şirket içi bilgisayarda dosya paylaşımları arasında.
 
 <a id="error112"></a>
-## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>"Error(112) bağlama: ana bilgisayar kapalı olduğu için" yeniden bağlantı zaman aşımı nedeniyle
+## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>"Error(112) bağlayın: Yeniden bağlanma zaman aşımı nedeniyle konak kapalı"
 
 Bir "112" bağlama hatası istemci uzun bir süredir boşta Linux istemcide gerçekleşir. Genişletilmiş bir boşta kalma süresi sonra istemci bağlantısını keser ve bağlantı zaman aşımına uğrar.  
 
@@ -64,10 +86,10 @@ Linux çekirdeğinin bu yeniden bağlanma sorunu artık aşağıdaki değişikli
 
 - [Düzeltme yeniden smb3 oturumu erteleme değil uzun yuva yeniden bağlandıktan sonra yeniden bağlanın](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/fs/cifs?id=4fcd1813e6404dd4420c7d12fb483f9320f0bf93)
 - [Yuva hemen yeniden bağlandıktan sonra echo hizmet çağrısı](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=b8c600120fc87d53642476f48c8055b38d6e14c7)
-- [CIFS: olası bellek yeniden bağlanma sırasında bozulmasıyla](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
-- [CIFS: bir olası çift mutex (çekirdek v4.9 ve üzeri) yeniden bağlanma sırasında kilitleme Düzelt](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
+- [CIFS: Yeniden bağlanma sırasında bir olası bellek bozulmayı düzeltmek](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
+- [CIFS: Bir olası çift mutex (çekirdek v4.9 ve üzeri) yeniden bağlanma sırasında kilitleme Düzelt](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-Ancak, bu değişiklikler henüz tüm Linux dağıtımları için unity'nin değil. Aşağıdaki popüler Linux çekirdekler bu düzeltmeyi ve diğer yeniden düzeltmeleri olan: 4.4.40 4.8.16 ve 4.9.1. Bu önerilen çekirdek sürümlerinden birini yükselterek bu düzeltme elde edebilirsiniz.
+Ancak, bu değişiklikler henüz tüm Linux dağıtımları için unity'nin değil. Bu düzeltme ve diğer yeniden düzeltmeleri şu popüler Linux çekirdeklerinin şunlardır: 4.4.40 4.8.16 ve 4.9.1. Bu önerilen çekirdek sürümlerinden birini yükselterek bu düzeltme elde edebilirsiniz.
 
 ### <a name="workaround"></a>Geçici çözüm
 
@@ -76,7 +98,7 @@ Bir sabit bağlanması belirterek bu sorunu geçici olarak çalışabilir. Sabit
 En son çekirdek sürümlerine yükseltme yapamazsınız, her 30 saniyede bir veya daha az yazma Azure Dosya paylaşımındaki dosya tutarak bu sorunu geçici olarak çalışabilir. Bu dosya üzerinde oluşturulan veya değiştirilen tarihi yeniden yazma gibi bir yazma işlemi olması gerekir. Aksi takdirde, önbelleğe alınan sonuçları alabilirsiniz ve işleminizi yeniden tetikleyebilir değil.
 
 <a id="error115"></a>
-## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Error(115) bağlama: İşlem Sürüyor" olduğunda, bağlama Azure dosyaları SMB 3.0 kullanarak
+## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Error(115) bağlayın: İşlem Sürüyor"olduğunda, bağlama Azure dosyaları SMB 3.0 kullanarak
 
 ### <a name="cause"></a>Nedeni
 
@@ -87,6 +109,27 @@ Bazı Linux dağıtımlarında, henüz de SMB 3.0 şifreleme özellikleri destek
 Linux için SMB 3.0 şifreleme özelliği 4.11 Çekirdeği'nde kullanıma sunulmuştur. Bu özellik, şirket içinde veya farklı bir Azure bölgesinde Azure dosya paylaşımını bağlama olanağı sağlar. Yayımlama zaman bu işlev, Ubuntu 17.04 ve Ubuntu 16.10 backported olmuştur. 
 
 Şifreleme, Linux SMB istemcisinin desteklemiyorsa, bağlama Azure dosya paylaşımı ile aynı veri merkezinde bulunan bir Azure Linux VM gelen SMB 2.1 kullanarak dosyaları. Doğrulayın [güvenli aktarım gerekli]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) ayarı depolama hesabı devre dışı. 
+
+<a id="accessdeniedportal"></a>
+## <a name="error-access-denied-when-browsing-to-an-azure-file-share-in-the-portal"></a>"Erişim reddedildi" hatası portalında bir Azure dosya paylaşımına göz atarken
+
+Portalda bir Azure dosya paylaşımına göz attığınızda aşağıdaki hata iletisini alabilirsiniz:
+
+Erişim reddedildi  
+Erişim izniniz yok  
+Bu içeriğe erişime izniniz yok gibi görünüyor. Erişim almak için lütfen sahibiyle iletişime geçin.  
+
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>1. neden: Kullanıcı hesabınızın, depolama hesabına erişimi yok
+
+### <a name="solution-for-cause-1"></a>Çözüm nedeni 1 için
+
+Azure dosya paylaşımının bulunduğu depolama hesabına Gözat'a tıklayın **erişim denetimi (IAM)** ve kullanıcı hesabınızın, depolama hesabına erişimi olduğunu doğrulayın. Daha fazla bilgi için bkz. [rol tabanlı erişim denetimi (RBAC) ile depolama hesabınızın güvenliğini sağlamak nasıl](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac).
+
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>2. neden: Sanal ağ veya güvenlik duvarı kuralları depolama hesabı etkinleştirilir
+
+### <a name="solution-for-cause-2"></a>Neden 2 çözümü
+
+Sanal ağ ve güvenlik duvarı kuralları depolama hesabı düzgün şekilde yapılandırıldığından doğrulayın. Sanal ağ veya güvenlik duvarı kuralları neden sorun varsa test etmek için geçici olarak depolama hesabı için ayarı değiştirmeniz **tüm ağlardan erişime izin ver**. Daha fazla bilgi için bkz. [yapılandırma Azure depolama güvenlik duvarlarını ve sanal ağlar](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Azure dosya paylaşımını yavaş performans Linux sanal makinesine bağlı
@@ -163,11 +206,11 @@ Sorunu gidermek için [Azure dosyaları Linux'ta bağlama hataları için sorun 
 * Kendi kendine düzeltme üzerinde normatif bir Rehber sağlar.
 * Tanılama izlemeleri toplanır.
 
-## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: erişemiyor '&lt;yolu&gt;': girdi/çıktı hatası
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: erişemiyor '&lt;yolu&gt;': Giriş/Çıkış hatası
 
 Bir Azure Dosya paylaşımındaki dosyaları listeleme ls komutunu kullanarak denediğinizde, komut dosyaları listelemenin kilitleniyor. Aşağıdaki hatayı alıyorsunuz:
 
-**ls: erişemiyor '&lt;yolu&gt;': girdi/çıktı hatası**
+**ls: erişemiyor '&lt;yolu&gt;': Giriş/Çıkış hatası**
 
 
 ### <a name="solution"></a>Çözüm
@@ -178,7 +221,7 @@ Bu sorun için düzeltme sahip aşağıdaki sürümler için Linux çekirdeğini
 - 4.12.11+
 - Büyüktür veya eşittir 4.13 tüm sürümler
 
-## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Sembolik bağlantılar - oluşturulamıyor ln: sembolik bağlantı 't oluşturma başarısız oldu ': işlem desteklenmiyor
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>Sembolik bağlantılar - oluşturulamıyor ln: sembolik bağlantı 't oluşturma başarısız oldu ': İşlem desteklenmiyor
 
 ### <a name="cause"></a>Nedeni
 Varsayılan olarak, Azure dosya paylaşımlarını CIFS kullanarak Linux'ta bağlama simgesel bağlantılar (çözümlemeyin) için destek sağlamaz. Bu gibi bir hata görürsünüz:
@@ -203,6 +246,6 @@ sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <
 
 Daha sonra çözümlemeyin oluşturabilirsiniz üzerinde önerilen [wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
 
-## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun.
+## <a name="need-help-contact-support"></a>Yardıma mı ihtiyacınız var? Desteğe başvurun.
 
 Hala yardıma ihtiyacınız varsa [Destek ekibiyle iletişime geçin](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) sorununuzun hızlıca çözülebilmesi alınamıyor.

@@ -1,19 +1,17 @@
 ---
 title: MySQL için Azure veritabanı Gelişmiş tehdit koruması - | Microsoft Docs
 description: Gelişmiş tehdit koruması veritabanına olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini algılar.
-services: mysql
 author: bolzmj
-manager: kfile
-ms.service: mysql
-ms.topic: article
-ms.date: 09/20/2018
 ms.author: mbolz
-ms.openlocfilehash: e123acd09e4cbfdbaf0531db72598dbd478fa1c9
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.service: mysql
+ms.topic: conceptual
+ms.date: 09/20/2018
+ms.openlocfilehash: 739e1637eaeef86028848e5b8c8a453fcbc6195e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069395"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543818"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>MySQL için Azure veritabanı Gelişmiş tehdit koruması
 
@@ -22,7 +20,7 @@ MySQL için Azure Veritabanı Gelişmiş Tehdit Koruması, veritabanlarınıza e
 Gelişmiş tehdit koruması için Gelişmiş güvenlik özellikleri birleştirilmiş bir pakettir gelişmiş veri güvenliği sunan bir parçasıdır. Gelişmiş tehdit koruması erişilebilen ve aracılığıyla yönetilen [Azure portalında](https://portal.azure.com) ve şu anda Önizleme aşamasındadır.
 
 > [!NOTE]
-> Gelişmiş tehdit Koruması özelliği **değil** aşağıdaki Azure devlet kurumları ve bağımsız bulut bölgelerde kullanılabilir: ABD Devleti Texas, ABD Devleti Arizona, ABD Devleti Iowa, ABD Devleti Virginia, ABD DoD Doğu, ABD DoD Orta, Almanya Orta, Almanya Doğu Çin Doğu, Kuzey Çin 2 Lütfen [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/) genel ürün kullanılabilirliği için.
+> Gelişmiş tehdit Koruması özelliği **değil** aşağıdaki Azure devlet kurumları ve bağımsız bulut bölgelerde kullanılabilir: ABD Devleti Texas, ABD Devleti Arizona, ABD Devleti Iowa, ABD Devleti Virginia, US DoD Doğu, ABD DoD Orta, Almanya Orta, Almanya Kuzey, Doğu Çin, Doğu Çin 2. Lütfen [bölgelere göre kullanılabilir ürünler](https://azure.microsoft.com/global-infrastructure/services/) genel ürün kullanılabilirliği için.
 > 
 
 ## <a name="what-is-advanced-threat-protection"></a>Gelişmiş tehdit Koruması nedir?
@@ -33,11 +31,11 @@ MySQL için Azure veritabanı için Gelişmiş tehdit koruması, yeni katmanı m
 
 ## <a name="advanced-threat-protection-alerts"></a>Gelişmiş tehdit koruması uyarıları 
 MySQL için Azure veritabanı için Gelişmiş tehdit koruması erişim veritabanı açıklıklarından yararlanmaya yönelik sıra dışı ve zararlı olabilecek girişimleri gösteren anormal etkinlikleri algılar ve aşağıdaki uyarılar tetikleyebilirsiniz:
-- **Olağan dışı bir konumdan erişim**: Burada birisi oturum açmış MySQL sunucusu için Azure veritabanı olağan dışı bir coğrafi konumdan, MySQL sunucusu için Azure veritabanına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir. Bazı durumlarda uyarı güvenli işlemleri (yeni bir uygulama veya geliştirici bakımı gibi) de algılar. Diğer durumlarda, uyarı kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
-- **Azure veri merkezinden erişim**: Burada birisi oturum açmış sunucuya bu sunucuda görünen bir Azure veri merkezi, MySQL sunucusu için Azure veritabanına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir kısa süre. Bazı durumlarda uyarı güvenli işlemleri (Azure, Power BI, Azure veritabanı için MySQL sorgu Düzenleyicisi'ni yeni, uygulamanızda) algılar. Diğer durumlarda, uyarı Azure kaynağı/hizmetinden kaynaklanan kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
-- **Erişim**: Burada birisi oturum açmış bir sorumludan (MySQL kullanıcısı için Azure veritabanı) kullanarak sunucuyu, MySQL sunucusu için Azure veritabanına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir. Bazı durumlarda uyarı güvenli işlemleri (yeni uygulama ve geliştirici bakımı gibi) de algılar. Diğer durumlarda, uyarı kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
-- **Zararlı olabilecek bir uygulamadan erişim**: Bu uyarı, zararlı olabilecek bir uygulama veritabanına erişmeye çalıştığında tetiklenir. Bazı durumlarda, uyarı güvenlik testlerini algılar. Diğer durumlarda, yarı yaygın saldırı araçlarının kullandığı saldırıları algılar.
-- **Azure veritabanı için MySQL kimlik bilgilerinin yanılma**: Bu uyarı bir olağandışı yüksek sayıda farklı kimlik bilgileri başarısız oturum açma denemesi olduğunda tetiklenir. Bazı durumlarda, uyarı güvenlik testlerini algılar. Diğer durumlarda, uyarı deneme yanılma saldırılarını algılar.
+- **Olağan dışı bir konumdan erişim**: MySQL sunucusu, burada birisi MySQL sunucusu için Azure veritabanına olağan dışı bir coğrafi konumdan oturum açmış olduğu için Azure veritabanına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir. Bazı durumlarda uyarı güvenli işlemleri (yeni bir uygulama veya geliştirici bakımı gibi) de algılar. Diğer durumlarda, uyarı kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
+- **Azure veri merkezinden erişim**: MySQL sunucusu, burada birisi sunucuya bu sunucuda son dönemde görülmemiş bir Azure veri Merkezi'nde oturum açmış olduğu için Azure veritabanına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir. Bazı durumlarda uyarı güvenli işlemleri (Azure, Power BI, Azure veritabanı için MySQL sorgu Düzenleyicisi'ni yeni, uygulamanızda) algılar. Diğer durumlarda, uyarı Azure kaynağı/hizmetinden kaynaklanan kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
+- **Erişim**: MySQL sunucusu, burada birisi bir sorumludan (MySQL kullanıcısı için Azure veritabanı) kullanarak sunucuya oturum açmış olduğu için Azure veritabanına erişim deseninde değişiklik olduğunda bu uyarı tetiklenir. Bazı durumlarda uyarı güvenli işlemleri (yeni uygulama ve geliştirici bakımı gibi) de algılar. Diğer durumlarda, uyarı kötü amaçlı işlemleri (önceki çalışan ve şirket dışı saldırgan gibi) algılar.
+- **Zararlı olabilecek bir uygulamadan erişim**: Zararlı bir uygulama veritabanına erişmek için kullanıldığında, bu uyarı tetiklenir. Bazı durumlarda, uyarı güvenlik testlerini algılar. Diğer durumlarda, yarı yaygın saldırı araçlarının kullandığı saldırıları algılar.
+- **Azure veritabanı için MySQL kimlik bilgilerinin yanılma**: Bu uyarı, bir olağandışı yüksek sayıda farklı kimlik bilgileri başarısız oturum açma denemesi olduğunda tetiklenir. Bazı durumlarda, uyarı güvenlik testlerini algılar. Diğer durumlarda, uyarı deneme yanılma saldırılarını algılar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

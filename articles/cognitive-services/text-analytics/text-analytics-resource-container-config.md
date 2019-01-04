@@ -9,168 +9,167 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 7e993b9ccc57359ac64186765b7b704535eb5a57
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: acab20f7fa9594d6b86a2cc63a69e91759b57b38
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086683"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975568"
 ---
-# <a name="configure-containers"></a>Kapsayıcıları yapılandırma
+# <a name="configure-text-analytics-docker-containers"></a>Metin analizi docker kapsayıcıları yapılandırın
 
 Metin analizi, ortak bir yapılandırma çerçeve ile her bir kapsayıcı sağlar, böylece kolayca yapılandırabilir ve depolama, günlüğe kaydetme ve telemetri ve güvenlik ayarları için kapsayıcılarınızı yönetin.
 
 ## <a name="configuration-settings"></a>Yapılandırma ayarları
 
-Hiyerarşik yapılandırma ayarlarını metin analizi-kapsayıcılarında ve tüm kapsayıcıları aşağıdaki üst düzey yapıya dayanarak, paylaşılan bir hiyerarşi:
+[!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
-* [ApiKey](#apikey-configuration-setting)
-* [ApplicationInsights](#applicationinsights-configuration-settings)
-* [Kimlik doğrulaması](#authentication-configuration-settings)
-* [Faturalandırma](#billing-configuration-setting)
-* [EULA'sı](#eula-configuration-setting)
-* [Fluentd](#fluentd-configuration-settings)
-* [Günlüğe kaydetme](#logging-configuration-settings)
-* [Bağlar](#mounts-configuration-settings)
-
-Kullanabilirsiniz [ortam değişkenlerini](#configuration-settings-as-environment-variables) veya [komut satırı bağımsız değişkenleri](#configuration-settings-as-command-line-arguments) metin analizi kapsayıcıların bir kapsayıcı örneği oluşturulurken yapılandırma ayarlarını belirtmek için.
-
-Ortam değişkeni değerlerini, kapsayıcı görüntüsü için varsayılan değerleri sırayla geçersiz komut satırı bağımsız değişkeni değerlerini geçersiz kılar. Diğer bir deyişle, farklı değerler bir ortam değişkeni ve bir komut satırı bağımsız değişkeni aynı yapılandırma ayarı için aşağıdakiler gibi belirtirseniz `Logging:Disk:LogLevel`, ardından bir kapsayıcı örneği, ortam değişkeninin değeri kullanılır tarafından oluşturulmuş kapsayıcı.
-
-### <a name="configuration-settings-as-environment-variables"></a>Ortam değişkenleri olarak yapılandırma ayarları
-
-Kullanabileceğiniz [ASP.NET Core ortam değişkeni sözdizimini](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#configuration-by-environment) yapılandırma ayarlarını belirtmek için.
-
-Kapsayıcı örneği oluşturulduğunda kapsayıcı kullanıcı ortam değişkenlerini okur. Bir ortam değişkeni varsa, ortam değişkeninin değerini belirtilen bir yapılandırma ayarı için varsayılan değeri geçersiz kılar. Ortam değişkenlerini kullanmanın avantajı, birden çok yapılandırma ayarları, kapsayıcı örneğini oluşturmadan önce ayarlanabilir ve birden çok kapsayıcı otomatik olarak aynı yapılandırma ayarları kümesini kullanabilirsiniz ' dir.
-
-Örneğin, aşağıdaki komutları için konsol günlüğe kaydetme düzeyini yapılandırmak için bir ortam değişkenini kullanmak [LogLevel.Information](https://msdn.microsoft.com), ardından yaklaşım analizi kapsayıcı görüntüsünden bir kapsayıcı oluşturur. Ortam değişkeninin değerini, varsayılan yapılandırma ayarını geçersiz kılar.
-
-  ```Docker
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=0123456789
-  ```
-
-### <a name="configuration-settings-as-command-line-arguments"></a>Komut satırı bağımsız değişkenleri olarak yapılandırma ayarları
-
-Kullanabileceğiniz [ASP.NET Core komut satırı bağımsız değişkeni sözdizimini](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#arguments) yapılandırma ayarlarını belirtmek için.
-
-İsteğe bağlı yapılandırma ayarlarını belirtebilirsiniz `ARGS` parametresinin [docker run](https://docs.docker.com/engine/reference/commandline/run/) indirilen kapsayıcı görüntüsünden bir kapsayıcı örneği oluşturmak için kullanılan komutu. Her kapsayıcı farklı bir özel yapılandırma ayarları kümesini kullanabileceğiniz komut satırı bağımsız değişkenleri kullanmanın faydası olur.
-
-Örneğin, aşağıdaki komut, yaklaşım analizi kapsayıcı görüntüsünden bir kapsayıcı oluşturur ve günlük düzeyi için varsayılan yapılandırma ayarı geçersiz kılma LogLevel.Information, konsol yapılandırır.
-
-  ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=0123456789 Logging:Console:LogLevel=Information
-  ```
+> [!IMPORTANT]
+> [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), Ve [ `Eula` ](#eula-setting) ayarları birlikte kullanılır ve bunları; Aksi takdirde, tüm üç için geçerli değerler sağlamanız gerekir kapsayıcınızı başlatılamıyor. Bir kapsayıcı örneği oluşturmak için bu yapılandırma ayarlarını kullanma hakkında daha fazla bilgi için bkz. [faturalama](how-tos/text-analytics-how-to-install-containers.md#billing).
 
 ## <a name="apikey-configuration-setting"></a>ApiKey yapılandırma ayarı
 
-`ApiKey` Yapılandırma ayarı metin analizi kaynağının yapılandırma anahtarı kapsayıcısı için fatura bilgileri izlemek için kullanılan Azure üzerinde belirtir. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve değer için belirtilen metin analizi kaynak için geçerli yapılandırma anahtar olmalıdır [ `Billing` ](#billing-configuration-setting) yapılandırma ayarı.
+`ApiKey` Ayar kapsayıcısı için fatura bilgileri izlemek için kullanılan Azure kaynak anahtarını belirtir. ApiKey için bir değer belirtmeniz gerekir ve değer için geçerli bir anahtar olmalıdır _metin analizi_ için belirtilen kaynak [ `Billing` ](#billing-setting) yapılandırma ayarı.
 
-> [!IMPORTANT]
-> [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), Ve [ `Eula` ](#eula-configuration-setting) yapılandırma ayarlarını birlikte kullanılır ve üçünü de için geçerli değerler sağlamanız gerekir bunları; Aksi takdirde kapsayıcınızı başlatılamıyor. Bir kapsayıcı örneği oluşturmak için bu yapılandırma ayarlarını kullanma hakkında daha fazla bilgi için bkz. [faturalama](how-tos/text-analytics-how-to-install-containers.md#billing).
+Bu ayar, aşağıdaki yerinde bulunabilir:
 
-## <a name="applicationinsights-configuration-settings"></a>Applicationınsights yapılandırma ayarları
+* Azure portalı: **Metin analizi'nın** kaynak yönetimi altında **anahtarları**
 
-Yapılandırma ayarlarında `ApplicationInsights` bölümü eklemenizi sağlayan [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) kapsayıcınızı telemetri desteği. Application Insights, kapsayıcınızın kod düzeyine derinlemesine izleme sunar. Kapsayıcınızı kullanılabilirliğini, performansını ve kullanımını kolayca izleyebilir. Ayrıca hızlı bir şekilde tanımlamak ve bunları rapor bir kullanıcının bildirmesini beklemeden kapsayıcınızda hatalarını tanılayın.
+## <a name="applicationinsights-setting"></a>Applicationınsights ayarı
 
-Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmaktadır `ApplicationInsights` bölümü.
-
-| Ad | Veri türü | Açıklama |
-|------|-----------|-------------|
-| `InstrumentationKey` | Dize | İzleme anahtarı Application Insights örneğinin hangi telemetri veri kapsayıcısı için gönderilir. Daha fazla bilgi için [ASP.NET Core için Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). |
-
-## <a name="authentication-configuration-settings"></a>Kimlik doğrulaması yapılandırma ayarları
-
-`Authentication` Kapsayıcınız için Azure güvenlik seçenekleri yapılandırma ayarlarını belirtin. Bu bölümdeki yapılandırma ayarlarını metin analizi-kapsayıcılarında tüm kapsayıcıları kullanılabilir olsa da, her kapsayıcı için yapılandırma ayarı değerleri kullanılan şekilde özgüdür ve kapsayıcılar Bu bölümde hiç kullanamazsınız.
-
-Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmaktadır `Authentication` bölümü.
-
-| Ad | Veri türü | Açıklama |
-|------|-----------|-------------|
-| `ApiKey` | dize veya dizi | Kapsayıcı tarafından gerekirse diğer Azure kaynaklarına erişmek için kapsayıcı tarafından kullanılan Azure aboneliği anahtarlar.<br/> Birden fazla abonelik anahtarı kapsayıcı tarafından kullanılıyorsa, bu değer bir dize dizisi belirtilen; Aksi takdirde, bir dize değeri, kapsayıcı tarafından kullanılan bir tek bir abonelik anahtarı belirtmek için kullanılır. |
+[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
 ## <a name="billing-configuration-setting"></a>Yapılandırma ayarı faturalama
 
-`Billing` Yapılandırma ayarı, Azure üzerinde metin analizi kaynağın URI'sini kullanılan kapsayıcısı için fatura bilgileri ölçmek için uç nokta belirtir. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve Azure üzerinde bir metin analizi kaynak için geçerli bir uç noktası URI değeri olmalıdır.
+`Billing` Ayar uç noktası URI'si belirtir, _metin analizi_ azure'da kaynak kapsayıcısı için fatura bilgileri ölçmek için kullanılır. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve bir _ için geçerli bir uç noktası URI değeri olmalıdır_metin analizi_ azure'da kaynak.
+
+Bu ayar, aşağıdaki yerinde bulunabilir:
+
+* Azure portalı: **Metin analizi'nın** etiketli genel bakış `Endpoint`
+
+|Gereklidir| Ad | Veri türü | Açıklama |
+|--|------|-----------|-------------|
+|Evet| `Billing` | Dize | Faturalandırma uç noktası URI'si<br><br>Örnek:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0` |
+
+## <a name="eula-setting"></a>EULA'yı ayarlama
+
+[!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
+
+## <a name="fluentd-settings"></a>Fluentd ayarları
+
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+
+## <a name="logging-settings"></a>Günlük ayarları
+ 
+[!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
+
+## <a name="mount-settings"></a>Bağlama ayarları
+
+Kullanım bağlama okumak ve kapsayıcı gelen ve giden veri yazmak için bağlar. Bir giriş bağlama belirtin veya çıkış bağlama belirterek `--mount` seçeneğini [docker run](https://docs.docker.com/engine/reference/commandline/run/) komutu.
+
+Giriş metin analizi kapsayıcıları kullanma ya da eğitim veya hizmeti verilerini depolamak için çıkış bağlar. 
+
+Konak bağlama konumu söz dizimi konak işletim sistemine göre değişir. Ayrıca, [ana bilgisayar](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)'s bağlama konumu docker hizmet hesabı tarafından kullanılan izinler arasında bir çakışma nedeniyle erişilebilir olmayabilir ve konak yeri izinleri bağlayın. 
+
+|İsteğe bağlı| Ad | Veri türü | Açıklama |
+|-------|------|-----------|-------------|
+|İzin verilmedi| `Input` | Dize | Metin analizi kapsayıcıları bu kullanmayın.|
+|İsteğe bağlı| `Output` | Dize | Çıkış bağlama hedefi. Varsayılan değer `/output` şeklindedir. Bu günlükler konumdur. Bu, kapsayıcı günlükleri içerir. <br><br>Örnek:<br>`--mount type=bind,src=c:\output,target=/output`|
+
+## <a name="hierarchical-settings"></a>Hiyerarşik ayarları
+
+[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
+
+## <a name="example-docker-run-commands"></a>Örnek docker komutlarını çalıştırın 
+
+Aşağıdaki örnekler, yazma ve kullanma göstermek için yapılandırma ayarlarını kullanır. `docker run` komutları.  Kapsayıcıyı çalıştıran sonra dek çalıştırmaya devam [Durdur](how-tos/text-analytics-how-to-install-containers.md#stop-the-container) bu.
+
+* **Satır devamlılığı karakteri**: Aşağıdaki bölümlerde docker komutları ters eğik çizgi kullanın `\`, satır devamı karakteri olarak. Bu konak işletim sisteminin gereksinimlerine göre kaldırın veya değiştirin. 
+* **Bağımsız değişken sırası**: Docker kapsayıcıları ile çok iyi bilmiyorsanız, bağımsız değişkenlerin sırası değiştirmeyin.
+
+Yerine {_argument_name_} kendi değerlerinizle:
+
+| Yer tutucu | Değer | Biçim veya örnek |
+|-------------|-------|---|
+|{BILLING_KEY} | Azure portalının metin analizi anahtarlar sayfasında bulunan metin analizi kaynak uç noktası anahtarı. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT_URI} | Fatura uç nokta değerini Azure portalının metin Analizi'ne genel bakış sayfasında kullanılabilir.|`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
 
 > [!IMPORTANT]
-> [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), Ve [ `Eula` ](#eula-configuration-setting) yapılandırma ayarlarını birlikte kullanılır ve üçünü de için geçerli değerler sağlamanız gerekir bunları; Aksi takdirde kapsayıcınızı başlatılamıyor. Bir kapsayıcı örneği oluşturmak için bu yapılandırma ayarlarını kullanma hakkında daha fazla bilgi için bkz. [faturalama](how-tos/text-analytics-how-to-install-containers.md#billing).
+> `Eula`, `Billing`, Ve `ApiKey` kapsayıcıyı çalıştırmak için seçenekler belirtilmelidir; Aksi takdirde, kapsayıcı başlatılamıyor.  Daha fazla bilgi için [faturalama](how-tos/text-analytics-how-to-install-containers.md#billing).
+> ApiKey değer **anahtar** Azure metin analizi kaynak anahtarlar sayfasındaki. 
 
-## <a name="eula-configuration-setting"></a>EULA'yı yapılandırma ayarı
+## <a name="keyphrase-extraction-container-docker-examples"></a>Anahtar cümlesi ayıklama kapsayıcı docker örnekleri
 
-`Eula` Yapılandırma ayarı, kapsayıcı lisansını kabul ettiğiniz belirtir. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve değer ayarlanmalıdır `accept`.
+Aşağıdaki docker için anahtar cümlesi ayıklama kapsayıcı verilebilir. 
 
-> [!IMPORTANT]
-> [ `ApiKey` ](#apikey-configuration-setting), [ `Billing` ](#billing-configuration-setting), Ve [ `Eula` ](#eula-configuration-setting) yapılandırma ayarlarını birlikte kullanılır ve üçünü de için geçerli değerler sağlamanız gerekir bunları; Aksi takdirde kapsayıcınızı başlatılamıyor. Bir kapsayıcı örneği oluşturmak için bu yapılandırma ayarlarını kullanma hakkında daha fazla bilgi için bkz. [faturalama](how-tos/text-analytics-how-to-install-containers.md#billing).
-
-Bilişsel hizmetler kapsayıcıları altında lisanslanır [sözleşmenize](https://go.microsoft.com/fwlink/?linkid=2018657) Azure kullanımınızı. Azure kullanımınızı var olan bir anlaşma değilse, Azure'un kullanımını düzenleyen sözleşmenize olduğunu kabul ediyorum [Microsoft çevrimiçi Abonelik Sözleşmesi](https://go.microsoft.com/fwlink/?linkid=2018755) (kullanımımın [çevrimiçi hizmet koşulları ](https://go.microsoft.com/fwlink/?linkid=2018760)). Önizlemeler için de kabul [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://go.microsoft.com/fwlink/?linkid=2018815). Kapsayıcı kullanarak bu koşulları kabul etmiş olursunuz.
-
-## <a name="fluentd-configuration-settings"></a>Fluentd yapılandırma ayarları
-
-`Fluentd` Bölümü için yapılandırma ayarlarını yönetir [Fluentd](https://www.fluentd.org), birleştirilmiş günlük kaydı için bir açık kaynak veri toplayıcısı. Metin analizi kapsayıcıları kapsayıcınızı günlüğüne yazmak sağlayan bir Fluentd oturum açma sağlayıcısı içerir ve isteğe bağlı olarak ölçüm verileri Fluentd sunucusuna.
-
-Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmaktadır `Fluentd` bölümü.
-
-| Ad | Veri türü | Açıklama |
-|------|-----------|-------------|
-| `Host` | Dize | Fluentd sunucusunun DNS ana bilgisayar adını veya IP adresi. |
-| `Port` | Tamsayı | Fluentd sunucusunun bağlantı noktası.<br/> 24224 varsayılan değerdir. |
-| `HeartbeatMs` | Tamsayı | Milisaniye cinsinden sinyal aralığı. Bu aralığı süresi dolmadan önce olay trafik gönderildi, bir sinyal Fluentd sunucuya gönderilir. 60000 milisaniye (1 dakika) varsayılan değerdir. |
-| `SendBufferSize` | Tamsayı | Gönderme işlemleri için ayrılan bayt cinsinden ağ arabellek alanı. 32768 bayt (32 kilobayt) varsayılan değerdir. |
-| `TlsConnectionEstablishmentTimeoutMs` | Tamsayı | Zaman aşımı, Fluentd sunucusuyla bir SSL/TLS bağlantı kurmak için milisaniye cinsinden. 10000 milisaniye (10 saniye) varsayılan değerdir.<br/> Varsa `UseTLS` yanlış olarak bu değeri yok sayıldı ayarlanmış. |
-| `UseTLS` | Boole | Kapsayıcı Fluentd sunucusu ile iletişim kurmak için SSL/TLS kullanıp kullanmayacağını belirtir. Varsayılan değer false'tur. |
-
-## <a name="logging-configuration-settings"></a>Günlük kaydı yapılandırma ayarları
-
-`Logging` Yapılandırma ayarlarını yönetmek kapsayıcınız için ASP.NET Core oturum açma desteği. Bir ASP.NET Core uygulaması için yapabileceğiniz kapsayıcınız için aynı yapılandırma ayarları ve değerleri kullanabilirsiniz. Aşağıdaki günlük kaydı sağlayıcıları, metin analizi kapsayıcıları tarafından desteklenir:
-
-* [Console](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)  
-  ASP.NET Core `Console` oturum açma sağlayıcısı. Tüm ASP.NET Core yapılandırma ayarlarını ve bu oturum açma sağlayıcısı için varsayılan değerleri desteklenir.
-* [Hata ayıklama](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)  
-  ASP.NET Core `Debug` oturum açma sağlayıcısı. Tüm ASP.NET Core yapılandırma ayarlarını ve bu oturum açma sağlayıcısı için varsayılan değerleri desteklenir.
-* Disk  
-  JSON oturum açma sağlayıcısı. Bu oturum açma sağlayıcısı için çıktı bağlama günlük verilerini yazar.  
-  `Disk` Oturum açma sağlayıcısı, aşağıdaki yapılandırma ayarları destekler:  
-
-  | Ad | Veri türü | Açıklama |
-  |------|-----------|-------------|
-  | `Format` | Dize | Günlük dosyaları için çıkış biçimi.<br/> **Not:** bu değer ayarlanmalıdır `json` günlük sağlayıcısını etkinleştirmek için. Bu değer aynı zamanda bir kapsayıcı örneği oluşturulurken bir çıkış bağlama belirtmeden belirtilirse, bir hata oluşur. |
-  | `MaxFileSize` | Tamsayı | Megabayt (MB) günlük dosyasının en büyük boyutu. Yeni bir günlük dosyası, geçerli günlük dosyası boyutunu karşıladığından veya bu değeri aşarsa, oturum açma sağlayıcısı tarafından başlatılır. -1 belirtilmezse, günlük dosyasının boyutu, çıkış bağlama yalnızca en büyük dosya boyutuyla sınırlıdır. Varsayılan değer 1'dir. |
-
-ASP.NET Core günlük desteği yapılandırma hakkında daha fazla bilgi için bkz. [ayarları dosya Yapılandırması](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
-
-## <a name="mounts-configuration-settings"></a>Yapılandırma ayarları bağlar
-
-Metin analizi kapsayıcıları tarafından sağlanan Docker kapsayıcıları, durum bilgisiz ve sabit olacak şekilde tasarlanmıştır. Diğer bir deyişle, bir kapsayıcı içinde oluşturulan dosyalar kapsayıcı çalışıyor ve kolayca erişilemez, devam eden bir yazılabilir kapsayıcı katmanında depolanır. Bu kapsayıcı durdurulmuş veya kaldırılmış, onunla ilgili kapsayıcının içinde oluşturulan dosyalar yok edilir.
-
-Ancak, Docker kapsayıcıları olduğunuzdan, birimler gibi Docker depolama seçenekleri kullanın ve okuma ve kapsayıcı destekliyorsa, kapsayıcısı dışındaki kalıcı veri yazma başlatmalar, bağlama. Belirtin ve Docker depolama seçenekleri yönetme hakkında daha fazla bilgi için bkz. [Docker yönetme](https://docs.docker.com/storage/).
-
-> [!NOTE]
-> Genellikle, bu yapılandırma ayarlarını değerlerini değiştirmek gerekmez. Bunun yerine, kapsayıcınız için girdi ve çıktı takar belirtirken, bu yapılandırma ayarlarını hedef olarak belirtilen değerleri kullanacaksınız. Giriş ve çıkış takar belirtme hakkında daha fazla bilgi için bkz. [giriş ve çıkış takar](#input-and-output-mounts).
-
-Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmaktadır `Mounts` bölümü.
-
-| Ad | Veri türü | Açıklama |
-|------|-----------|-------------|
-| `Input` | Dize | Giriş bağlama hedefi. Varsayılan değer `/input` şeklindedir. |
-| `Output` | Dize | Çıkış bağlama hedefi. Varsayılan değer `/output`. |
-
-### <a name="input-and-output-mounts"></a>Giriş ve çıkış başlatmalar
-
-Varsayılan olarak, her kapsayıcı destekleyebilir bir *giriş bağlama*, hangi kapsayıcı verileri okuyabilir gelen ve *çıkış bağlama*, için hangi kapsayıcı veri yazabilirsiniz. Ancak, kapsayıcıları başlatmalar, çıkış veya giriş desteklemek için gerekli değildir ve her kapsayıcı, girdi ve çıktı takar metin analizi kapsayıcıları tarafından desteklenen günlük kaydı seçeneklerine ek olarak, kapsayıcı özgü amacıyla kullanabilirsiniz. Aşağıdaki tablo listeleri giriş ve çıkış için metin analizi kapsayıcıları her kapsayıcıyı desteği.
-
-| Kapsayıcı | Giriş bağlama | Çıkış bağlama |
-|-----------|-------------|--------------|
-|[Anahtar ifade ayıklama](#working-with-key-phrase-extraction) | Desteklenmiyor | İsteğe bağlı |
-|[Dil algılama](#working-with-language-detection) | Desteklenmiyor | İsteğe bağlı |
-|[Yaklaşım analizi](#working-with-sentiment-analysis) | Desteklenmiyor | İsteğe bağlı |
-
-Bir giriş bağlama belirtin veya çıkış bağlama belirterek `--mount` seçeneğini [docker run](https://docs.docker.com/engine/reference/commandline/run/) indirilen kapsayıcı görüntüsünden bir kapsayıcı örneği oluşturmak için kullanılan komutu. Varsayılan olarak, giriş bağlama kullanımları `/input` hedefine ve çıktısını kullanan bağlama gibi `/output` hedefine olarak. Docker kapsayıcı konağı için kullanılabilen tüm Docker depolama seçeneği belirtilebilir `--mount` seçeneği.
-
-Örneğin, aşağıdaki komutu için Docker bağlama bağlama tanımlar `D:\Output` klasörü çıkış bağlama olarak konak makinedeki sonra JSON biçiminde çıktı bağlama için günlük dosyalarını kaydetme yaklaşım analizi kapsayıcı görüntüsünden bir kapsayıcı oluşturur.
+### <a name="basic-example"></a>Temel örnek 
 
   ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0 ApiKey=0123456789 Logging:Disk:Format=json
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
   ```
+
+### <a name="logging-example-with-command-line-arguments"></a>Komut satırı bağımsız değişkenleri ile günlük örnek
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  ```
+
+### <a name="logging-example-with-environment-variable"></a>Günlük örnek ortam değişkeni
+
+  ```Docker
+  SET Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase  Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  ```
+
+## <a name="language-detection-container-docker-examples"></a>Dil algılama kapsayıcı docker örnekleri
+
+Aşağıdaki docker için dil algılama kapsayıcı verilebilir. 
+
+### <a name="basic-example"></a>Temel örnek
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  ```
+
+### <a name="logging-example-with-command-line-arguments"></a>Komut satırı bağımsız değişkenleri ile günlük örnek
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  ```
+
+### <a name="logging-example-with-environment-variable"></a>Günlük örnek ortam değişkeni
+
+  ```Docker
+  SET Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/language  Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  ```
+ 
+## <a name="sentiment-analysis-container-docker-examples"></a>Yaklaşım analizi kapsayıcı docker örnekleri
+
+Aşağıdaki docker yaklaşım analizi kapsayıcısı verilebilir. 
+
+### <a name="basic-example"></a>Temel örnek
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  ```
+
+### <a name="logging-example-with-command-line-arguments"></a>Komut satırı bağımsız değişkenleri ile günlük örnek
+
+  ```Docker
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel=Information
+  ```
+
+### <a name="logging-example-with-environment-variable"></a>Günlük örnek ortam değişkeni
+
+  ```Docker
+  SET Logging:Console:LogLevel=Information
+  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/sentiment Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY}
+  ```
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* Gözden geçirme [yükleme ve kapsayıcıları çalıştırın](how-tos/text-analytics-how-to-install-containers.md)

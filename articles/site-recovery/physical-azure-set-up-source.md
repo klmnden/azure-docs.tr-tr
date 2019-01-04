@@ -2,17 +2,18 @@
 title: Fiziksel sunucuları Azure Site Recovery kullanarak azure'a olağanüstü durum kurtarması için yapılandırma sunucusunu ayarlama | Microsoft Docs
 description: Bu makalede şirket içi fiziksel sunucularını azure'a olağanüstü durum kurtarma için şirket içi yapılandırma sunucusu nasıl kurulur.
 services: site-recovery
-author: rayne-wiselman
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: raynew
-ms.openlocfilehash: 04d080d9acd74bea128c0e101165031119900dd1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: ramamill
+ms.openlocfilehash: 2e5b90f36a6dc5c88db3f6f449c911d22de680b1
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848417"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976809"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Fiziksel sunucuları azure'a olağanüstü durum kurtarması için yapılandırma sunucusunu ayarlama
 
@@ -35,7 +36,7 @@ Aşağıdaki tabloda, en düşük donanım, yazılım ve yapılandırma sunucusu
 ## <a name="choose-your-protection-goals"></a>Koruma hedeflerinizi seçme
 
 1. Azure portalında Git **kurtarma Hizmetleri** dikey kasaları ve kasanızı seçin.
-2. İçinde **kaynak** kasa menüsünü **Başlarken** > **Site Recovery** > **1. adım: altyapıyı hazırlama**   >  **Koruma hedefi**.
+2. İçinde **kaynak** kasa menüsünü **Başlarken** > **Site Recovery** > **1. adım: Altyapıyı hazırlama** > **koruma hedefi**.
 
     ![Hedefleri seçme](./media/physical-azure-set-up-source/choose-goals.png)
 3. İçinde **koruma hedefi**seçin **Azure'a** ve **sanallaştırılmamış/diğer**ve ardından **Tamam**.

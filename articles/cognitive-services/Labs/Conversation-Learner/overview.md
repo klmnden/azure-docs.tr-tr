@@ -1,7 +1,7 @@
 ---
-title: Konuşma öğrenen nedir? -Microsoft Bilişsel hizmetler | Microsoft Docs
+title: Konuşma Öğrenici nedir? -Microsoft Bilişsel hizmetler | Microsoft Docs
 titleSuffix: Azure
-description: Konuşma öğrenen ve nasıl çalıştığı hakkında bilgi edinin.
+description: Konuşma Öğrenici ve nasıl çalıştığı hakkında bilgi edinin.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,38 +10,38 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9cbf0e60382ef17d68aab47cf5f24ea9b8434f13
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0d2cca335206ee59b922a31ed3cf3ba24ef4ecd7
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353992"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790784"
 ---
-# <a name="what-is-conversation-learner"></a>Konuşma öğrenen nedir?
+# <a name="what-is-conversation-learner"></a>Konuşma Öğrenici nedir?
 
-Konuşma öğrenen oluşturmanıza ve örnek etkileşimlerini öğrenin konuşma arabirimleri öğretmek olanak sağlar. 
+Konuşma Öğrenici örnek etkileşimlerinden öğrenin damıtarak konuşma bağlamında kullanılabilen arabirimleri öğretmek ve oluşturmanıza olanak sağlar. 
 
-Geleneksel yaklaşım, konuşma öğrenen yanıtları geliştirmek ve daha ilgi çekici kullanıcı deneyimleri için bir iletişim kutusu uçtan uca bağlamında göz önünde bulundurur. Göreve dayalı çok sayıda kapsayıcı kullanım örnekleri, konuşma öğrenen makine öğrenme arka planda bot ve kullanıcıları rahatsız, ek müşteri hizmeti ücrete neden olasılığı daha akıllı aracıları yapma ve daha sezgisel ile etkileşim kurmak için geçerlidir.
+Geleneksel yaklaşım, konuşma Öğrenici yanıtları artırmak ve daha ilgi çekici kullanıcı deneyimleri için bir iletişim kutusu uçtan uca bağlamında göz önünde bulundurur. Kapsayan çok sayıda görev odaklı kullanım örnekleri, konuşma Öğrenici robotlar ve akıllı aracıları kullanıcıları rahatsız, ek müşteri hizmeti ücrete neden olma olasılığını hale getirmek için arka planda machine learning uygulanır ve daha fazla spur daha sezgisel etkileşimler.
 
-Başlamak için geliştirici taklit istediği Prototipik iletişim kutuları girer. Daha fazla iletişim kutuları girerken, model sürekli olarak güncelleştirilir ve geliştirici ne kadar iyi modeli genelleme görebilirsiniz. Model iyi çalışan sonra bot son kullanıcılara dağıtılabilir. Konuşma öğrenen görüşmeleri kullanıcılarla kaydeder ve geliştirici gözden geçirebilirsiniz. Hataları anlaþýlmaz, geliştirici üzerinde--nokta düzeltme yapabilirsiniz ve hemen retrained ve kullanılabilir modelidir.
+Geliştiriciler, girdiklerini taklit ederek istedikleri Prototipik iletişim kutuları girerek başlayın. Daha fazla iletişim kutuları girildiği gibi Model öğrenir. Bot, modeli de çalışmaya başladığında, son kullanıcılara dağıtılabilir. Konuşma Öğrenici konuşmaları kullanıcılarla kaydeder ve geliştirici gözden geçirebilirsiniz. Hataları anlaþýlmaz, geliştirici üzerinde--nokta düzeltme yapabilir ve hemen retrained ve kullanılabilir modelidir.
 
-Bu yaklaşım, el ile iletişim kutusu denetim mantığını kodlama azaltır ve işletme sahipleri veya etki alanı uzmanlar bir konuşma arabirimi olmadan önceki makineyi bilgi öğrenme katkıda bulunmak etkinleştirir. Bot, akıllı aygıt ya da akıllı Aracısı bir parçası olarak dağıtılan olup olmadığını konuşma öğrenen hızlı bir şekilde yeni yetenekler, davranışları veya yetkinlikleri yinelemek ve hızlı bir şekilde kendi kalitesini artırmak. 
+Bu yaklaşım, el ile iletişim kutusu denetim mantığının kodlama azaltan ve işletme sahipleri veya etki alanı uzmanları damıtarak konuşma bağlamında kullanılabilen bir arabirim önceki makine öğrenimi bilgi katkıda bulunmak sağlar. Bot, akıllı cihaz veya akıllı Aracısı bir parçası olarak dağıtılan olsun, konuşma Öğrenici hızla yeni beceriler, davranışları ve yetkinlikleri yineleme ve bunların kalitesinin hızlı bir şekilde geliştirin. 
 
-Konuşma öğrenen geliştiriciler Microsoft Bot Framework ya da kendi altyapısını kullanarak tek başına birden çok konuşma kanallardan hızı Pazar ve sürücü başarılı bitirmenize arttırırsınız güçlendirir.
+Konuşma Öğrenici geliştiricilerin Microsoft Bot Framework ya da kendi altyapınızı kullanarak tek başına birden çok damıtarak konuşma bağlamında kullanılabilen kanallarından hızlı pazara açılma ve sürücü başarılı bitirmenize arttırırsınız güçlendirir.
 
-Özet ve vurgular:
+Summary ve vurgular:
 
-- Konuşma öğrenen görev odaklı aracılarını oluşturmanın bir AI ilk yoludur.
+- Konuşma Öğrenici görev odaklı botlar oluşturmanın bir yapay ZEKA ilk yoludur.
 
-- Bir uçtan uca yinelenen sinir ağı üzerinde (LSTM) kullanır ve sohbetleri doğrudan çok Aç örnekleri öğrenir. 
+- Bir uçtan uca yinelenen sinir ağı üzerinde (LSTM) kullanır ve konuşmaları doğrudan çok Aç örnekleri öğrenir. 
 
-- Tasarımcılar, geliştiriciler, işletme kullanıcılarının ve Arama Merkezi çalışanları oluşturmasına ve aracılarını korumasına olanak sağlar. 
+- Tasarımcılar, geliştiriciler, iş kullanıcıları ve çağrı merkezi çalışanları oluşturmasına ve botlar korumasına olanak tanır. 
 
-- İş kuralları ve sağduyunuzu kodda express olanağı sağlar.
+- İş kuralları ve kod genel anlamda express olanağı sağlar.
 
-- Oturumları eğitme sırasında sinir ağı modelinin beklenen Eylemler sonraki kümesini konuşmada Puanlama amacıyla kullanılır. Bot Geliştirici sonra doğru bir eylem seçin ve düzgün yanıt sağlamak için ağ eğitmek.
+- Oturumlarının eğitiminde sırasında sinir ağı modelinin sonraki beklenen eylemleri kümesini konuşmada puanlamak için kullanılır. Bot Geliştirici sonra doğru eylemi seçin ve düzgün yanıt sağlamak için ağ eğitin.
  
-- Eğitim tamamlandıktan sonra Geliştirici bot yanıtları düzeltmeler yapmak ve model yeniden eğitme kullanıcı etkileşimleri günlük iletişim kutularını kullanabilirsiniz. 
+- Alıştırma tamamlandıktan sonra Geliştirici bot yanıtları düzeltmeler yapmak ve modeli yeniden eğitme Kullanıcı etkileşimlerine günlük iletişim kutularını kullanabilirsiniz. 
 
 - Görevleri tamamlamak için etki alanına özgü ve üçüncü taraf API'leri çağırabilirsiniz.
 

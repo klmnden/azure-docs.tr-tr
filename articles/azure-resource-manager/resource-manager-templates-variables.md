@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager şablonu değişkenleri | Microsoft Docs
-description: Bildirim temelli JSON sözdizimini kullanarak, Azure Resource Manager şablonları değişkenleri tanımlayın açıklar.
+title: Azure Resource Manager şablon değişkenleri | Microsoft Docs
+description: Bildirim temelli JSON söz dizimini kullanarak bir Azure Resource Manager şablonlarında değişkenleri tanımlayın açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 08728a3c0b4d4578939004e2d1b1ee2d30a682ab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f6c629182fdcce83c566869860480d9c70488797
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359297"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53712755"
 ---
-# <a name="variables-section-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları değişkenler bölümü
-Değişkenler bölümünde şablonunuzu kullanılabilir değerleri oluşturun. Değişkenleri tanımlayın gerekmez, ancak bunlar karmaşık ifadeler azaltarak genellikle şablonunuzu basitleştirin.
+# <a name="variables-section-of-azure-resource-manager-templates"></a>Değişkenler bölümünde Azure Resource Manager şablonları
+Değişkenler bölümünde kullanılabilir değerler, şablonun tamamında oluşturun. Değişkenleri tanımlamanız gerekmez, ancak bunlar karmaşık ifadeleri azaltarak genellikle şablonunuzu basitleştirin.
 
 ## <a name="define-and-use-a-variable"></a>Tanımlama ve değişken kullanma
 
-Aşağıdaki örnekte, değişken tanımını gösterir. Depolama hesabı adı için bir dize değeri oluşturur. Bir parametre değeri almak ve benzersiz bir dize birleştirmek için birkaç şablon işlevleri kullanır.
+Aşağıdaki örnek, bir değişken tanımı gösterilmektedir. Bir depolama hesabı adı için bir dize değeri oluşturur. Bir parametre değeri alın ve benzersiz bir dizeye bitiştirmek için birkaç şablon işlevleri kullanır.
 
 ```json
 "variables": {
@@ -43,9 +43,9 @@ Kaynak tanımlarken değişkeni kullanın.
     ...
 ```
 
-## <a name="available-definitions"></a>Kullanılabilir tanımları
+## <a name="available-definitions"></a>Kullanılabilen tanımlar
 
-Önceki örnekte bir değişkeni tanımlamak için bir yol gösterilmiştir. Aşağıdaki tanımları birini kullanabilirsiniz:
+Yukarıdaki örnekte, bir değişken tanımlamak için bir yol gösterilmiştir. Şu tanımlamalardan herhangi biri kullanabilirsiniz:
 
 ```json
 "variables": {
@@ -95,7 +95,7 @@ Karmaşık JSON türleri, bir ortam için ilgili değerleri tanımlamak için ku
 },
 ```
 
-Parametreleri kullanmak için hangi yapılandırma değerlerini gösteren bir değeri oluşturun.
+Parametreleri kullanmak için yapılandırma değerlerini gösteren bir değeri oluşturun.
 
 ```json
 "parameters": {
@@ -109,15 +109,15 @@ Parametreleri kullanmak için hangi yapılandırma değerlerini gösteren bir de
 },
 ```
 
-Geçerli ayarlarla Al:
+Geçerli ayarlarla aldığınız:
 
 ```json
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
 ```
 
-## <a name="use-copy-element-in-variable-definition"></a>Copy öğesi değişken tanımında kullanın
+## <a name="use-copy-element-in-variable-definition"></a>Copy öğesinde değişken tanımında kullanın
 
-Kullanabileceğiniz **kopyalama** birden çok öğe bir dizi bir değişken oluşturmak için sözdizimi. Öğe sayısı için bir sayım sağlar. Her öğe içinde özellikler içerir **giriş** nesnesi. Kopya bir değişken içinde veya bir değişken oluşturmak için kullanabilirsiniz. Ne zaman bir değişken tanımlama ve kullanma **kopya** bu değişkenin içinde bir dizi özelliği olan bir nesneyi oluşturun. Kullandığınızda **kopyalama** en üst düzeyinde ve bir tane tanımlayacaksınız veya daha fazla değişken içindeki bir veya daha fazla diziler oluşturma. Her iki yaklaşımın aşağıdaki örnekte gösterilmiştir:
+Kullanabileceğiniz **kopyalama** çeşitli öğelerin bir dizisi bir değişken oluşturmak için söz dizimi. Öğe sayısı için sayısını sağlar. Her öğe içinde özellikleri içeren **giriş** nesne. İçinde bir değişken veya değişken oluşturmak için kopyalama kullanabilirsiniz. Ne zaman bir değişken tanımlayın ve kullanın **kopyalama** bu değişkenin içinde oluşturduğunuz bir dizi özelliği olan bir nesne. Kullanırken **kopyalama** en üst düzeyde ve tanımlayan bir veya daha fazla değişkenleri içindeki bir veya daha fazla dizi oluşturma. Her iki yaklaşım, aşağıdaki örnekte gösterilmiştir:
 
 ```json
 "variables": {
@@ -148,7 +148,7 @@ Kullanabileceğiniz **kopyalama** birden çok öğe bir dizi bir değişken olu�
 },
 ```
 
-Değişkeni **disk dizisi üzerinde nesnesi** adlı bir dizi ile aşağıdaki nesnesini içeren **diskleri**:
+Değişken **nesne üzerindeki disk dizisi** şu nesne adlı bir diziyi içeren **diskleri**:
 
 ```json
 {
@@ -172,7 +172,7 @@ Değişkeni **disk dizisi üzerinde nesnesi** adlı bir dizi ile aşağıdaki ne
 }
 ```
 
-Değişkeni **üst düzey dizi diskleri** aşağıdaki dizisi içerir:
+Değişken **üst düzey dizi diskleri** aşağıdaki dizi içeriyor:
 
 ```json
 [
@@ -194,7 +194,7 @@ Değişkeni **üst düzey dizi diskleri** aşağıdaki dizisi içerir:
 ]
 ```
 
-Birden fazla nesne kopyalama değişkenleri oluşturmak üzere kullanılırken de belirtebilirsiniz. Aşağıdaki örnekte iki dizi değişkenleri olarak tanımlar. Bir adlandırılan **üst düzey dizi diskleri** ve beş öğesine sahip. Diğer adlı **a farklı-dizi** ve üç öğeye sahiptir.
+Birden fazla nesne, kopya değişkenleri oluşturmak üzere kullanırken de belirtebilirsiniz. Aşağıdaki örnek, iki dizi değişkenleri olarak tanımlar. Bir adlandırılmış **üst düzey dizi diskleri** ve beş öğeye sahiptir. Diğer adlı **a farklı-dizi** ve üç öğe vardır.
 
 ```json
 "variables": {
@@ -221,7 +221,7 @@ Birden fazla nesne kopyalama değişkenleri oluşturmak üzere kullanılırken d
 },
 ```
 
-İyi parametre değerlerini almak ve bir şablon değeri doğru biçimde olduklarından emin olmak gerektiğinde bu yaklaşım çalışır. Aşağıdaki örnekte güvenlik kurallarını tanımlama kullanılacak parametre değerlerini biçimlendirir:
+Bu yaklaşım da parametre değerleri alır ve bunlar için bir şablon değeri doğru biçimde olduğundan emin olun, ihtiyacınız olduğunda çalışır. Aşağıdaki örnek, güvenlik kuralları tanımlama kullanılacak parametre değerlerini biçimlendirir:
 
 ```json
 {
@@ -269,26 +269,19 @@ Birden fazla nesne kopyalama değişkenleri oluşturmak üzere kullanılırken d
 }
 ```
 
-## <a name="recommendations"></a>Öneriler
-Değişkenleri ile çalışırken aşağıdaki bilgiler yararlı olabilir:
-
-* Birden çok kez bir şablon kullanmak için gereken değerleri için değişkenlerini kullanın. Bir değer yalnızca bir kez kullandıysanız, sabit kodlanmış bir değer şablonunuzu okumak kolaylaştırır.
-* Kullanamazsınız [başvuru](resource-group-template-functions-resource.md#reference) işlevi **değişkenleri** şablon bölümünü. **Başvuru** işlevi kaynağın çalışma zamanı durumunu değerinden türetilir. Ancak, ilk şablonunu Ayrıştırma sırasında çözümlenen değişkenlerdir. Yapı değerleri gereken **başvuru** doğrudan işlev **kaynakları** veya **çıkarır** şablon bölümünü.
-* Benzersiz kaynak adları için değişkenleri içerir.
-
 ## <a name="example-templates"></a>Örnek şablonları
 
-Bu örnek şablonları değişkenleri kullanmak için bazı senaryolar gösterilmektedir. Değişkenleri farklı senaryolarda nasıl işleneceğini test etmek için bunları dağıtın. 
+Bu örnek şablon değişkenleri kullanmakla bazı senaryolar gösterilmektedir. Değişkenleri farklı senaryolarda nasıl işleneceğini test etmek için bunları dağıtın. 
 
 |Şablon  |Açıklama  |
 |---------|---------|
-| [değişken tanımları](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Değişkenleri farklı uygulama türleri gösterilmektedir. Şablonu herhangi bir kaynağa dağıtmaz. Değişken değerleri oluşturur ve bu değerleri döndürür. |
-| [yapılandırma değişkeni](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Yapılandırma değerleri tanımlayan bir değişken kullanımını göstermektedir. Şablonu herhangi bir kaynağa dağıtmaz. Değişken değerleri oluşturur ve bu değerleri döndürür. |
-| [Ağ güvenlik kuralları](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) ve [parametre dosyası](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Bir ağ güvenlik grubu güvenlik kuralları atamak için doğru biçimde bir dizi oluşturur. |
+| [değişken tanımları](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variables.json) | Farklı türde değişkenleri gösterir. Şablon kaynakları dağıtmaz. Bu değişken değerlerini oluşturur ve bu değerleri döndürür. |
+| [yapılandırma değişkeni](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/variablesconfigurations.json) | Yapılandırma değerlerini tanımlayan bir değişken kullanımını gösterir. Şablon kaynakları dağıtmaz. Bu değişken değerlerini oluşturur ve bu değerleri döndürür. |
+| [Ağ güvenlik kuralından](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) ve [parametre dosyası](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json) | Bir ağ güvenlik grubu güvenlik kuralları atamak için doğru biçimde bir dizi oluşturur. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Farklı türlerde çözümler için tam şablonları görüntülemek üzere bkz. [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/documentation/templates/).
-* Kullanabileceğiniz gelen bir şablonda işlevleri hakkında daha fazla ayrıntı için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
-* Birden fazla şablon dağıtımı sırasında birleştirmek için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
-* Farklı bir kaynak grubu içinde mevcut kaynakları kullanmanız gerekebilir. Bu senaryo, depolama hesapları veya birden çok kaynak grupları arasında paylaşılan sanal ağlar ile çalışırken yaygındır. Daha fazla bilgi için bkz: [ResourceId işlevi](resource-group-template-functions-resource.md#resourceid).
+* Kullanabileceğiniz gelen içinde şablon işlevleri hakkında daha fazla ayrıntı için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
+* Şablonları oluşturma hakkında daha fazla öneri için bkz. [Azure Resource Manager şablonu iyi](template-best-practices.md).
+* Farklı bir kaynak grubu içinde mevcut kaynakları kullanmanız gerekebilir. Bu depolama hesaplarını veya birden fazla kaynak grubu arasında paylaşılan sanal ağlar ile çalışırken yaygın senaryodur. Daha fazla bilgi için [ResourceId işlevi](resource-group-template-functions-resource.md#resourceid).

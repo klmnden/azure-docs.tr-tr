@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 3a106b0fe570fe44f96529d830271dfe4912437f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4aa6f8fdf4eaa8e439c1a8c8c0202cf49a04433c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336502"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584318"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve ölçüm uyarıları Azure İzleyicisi'ni kullanarak yönetme
 
@@ -33,7 +33,7 @@ Aşağıdaki yordamda, Azure portalında bir ölçüm uyarısı kuralının olu�
 
 3. Tıklayın **hedefi seçme**, yükler içerik bölmesinde, değiştirmek istediğiniz bir hedef kaynak seçin. Kullanım **abonelik** ve **kaynak türü** izlemek istediğiniz kaynak bulmak için açılan listeler. Kaynak bulmak için arama çubuğunu da kullanabilirsiniz.
 
-4. Seçilen kaynak ölçümleri, uyarılar oluşturabilirsiniz varsa **kullanılabilir sinyaller** altta sağ ölçümleri içerir. Bu ölçüm uyarıları için desteklenen kaynak türleri tam listesini görüntüleyebileceğiniz [makale](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)
+4. Seçilen kaynak ölçümleri, uyarılar oluşturabilirsiniz varsa **kullanılabilir sinyaller** altta sağ ölçümleri içerir. Bu ölçüm uyarıları için desteklenen kaynak türleri tam listesini görüntüleyebileceğiniz [makale](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
 
 5. Hedef kaynak seçtikten sonra tıklayarak **Ölçüt Ekle**
 
@@ -130,4 +130,4 @@ Görüntüleyebilir ve ölçüm uyarı kuralları altında uyarı kurallarını 
 
 - [Azure Resource Manager şablonlarını kullanarak ölçüm uyarıları oluşturma](../../azure-monitor/platform/alerts-enable-template.md).
 - [Nasıl iş ölçüm uyarıları anlamak](alerts-metric-overview.md).
-- [Ölçüm uyarıları için web kancası şeması anlama](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#payload-schema)
+- [Ölçüm uyarıları için web kancası şeması anlama](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)

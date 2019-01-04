@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 777b0e6e98c0d8d726b69f0fc169f2d2752b4b6d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: dd6a9ee00ba6244e5a0d04f654e6b57db8896ea6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865021"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603956"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL veritabanı esnek sorgu genel bakış (Önizleme)
 
@@ -56,8 +56,8 @@ Elastik sorgu veritabanlarını SQL Server Management Studio veya Visual Studio 
 
 Müşteri senaryoları için esnek sorgu, aşağıdaki topolojilerden tarafından belirlenir:
 
-* **Dikey bölümleme - veritabanları arası sorgular** (topoloji 1): bir dizi veri katmanındaki veritabanları arasında veri dikey olarak bölümlenmiş. Genellikle, farklı veritabanları üzerinde tablolar farklı kümesi bulunur. Şema farklı veritabanları üzerinde farklı olduğu anlamına gelir. Hesap oluşturma ile ilgili tüm tabloları üzerinde ikinci bir veritabanı örneği için envanteri için tüm tabloları bir veritabanında bağlıdır. Bu topoloji ile genel kullanım örnekleri arasında sorgu ya da birden fazla veritabanı tablolarında arasında raporlar derlemek için gerektirir.
-* **Yatay bölümleme - parçalama** (topolojisi 2): veri bölümlenmiş yatay satır ölçeği genişletilmiş veri arasında dağıtmak için katmanı. Bu yaklaşımda, katılan tüm veritabanlarında şema aynıdır. Bu yaklaşım, "parçalama" olarak da adlandırılır. Parçalama gerçekleştirilebilir ve kitaplıkları veya (2) self-parçalama yönetilen kullanarak (1) esnek veritabanı araçları. Elastik sorgu, sorgu veya rapor birçok parça arasında derleme için kullanılır.
+* **Dikey bölümleme - veritabanları arası sorgular** (topoloji 1): Veri birkaç veri katmanındaki veritabanları arasında dikey olarak bölümlenmiş. Genellikle, farklı veritabanları üzerinde tablolar farklı kümesi bulunur. Şema farklı veritabanları üzerinde farklı olduğu anlamına gelir. Hesap oluşturma ile ilgili tüm tabloları üzerinde ikinci bir veritabanı örneği için envanteri için tüm tabloları bir veritabanında bağlıdır. Bu topoloji ile genel kullanım örnekleri arasında sorgu ya da birden fazla veritabanı tablolarında arasında raporlar derlemek için gerektirir.
+* **Yatay bölümleme - parçalama** (topoloji 2): Veri bölümlenmiş yatay satır ölçeği genişletilmiş veri arasında dağıtmak için katmanı. Bu yaklaşımda, katılan tüm veritabanlarında şema aynıdır. Bu yaklaşım, "parçalama" olarak da adlandırılır. Parçalama gerçekleştirilebilir ve kitaplıkları veya (2) self-parçalama yönetilen kullanarak (1) esnek veritabanı araçları. Elastik sorgu, sorgu veya rapor birçok parça arasında derleme için kullanılır.
 
 > [!NOTE]
 > Esnek sorgu, işlem (filtreleme, toplama) çoğu dış kaynak tarafında nereye gerçekleştirilebilir senaryoları raporlama için en iyi çalışır. Büyük miktarda veri uzak veritabanlarından burada aktarıldığı ETL işlemleri için uygun değildir. Raporlama ağır iş yükleri veya veri ambarı senaryoları daha karmaşık sorgular ile için ayrıca kullanmayı [Azure SQL veri ambarı](https://azure.microsoft.com/services/sql-data-warehouse/).
@@ -73,13 +73,13 @@ Elastik sorgu, diğer SQL veritabanları için kullanılabilen bir SQL veritaban
 > ALTER ANY dış veri kaynağı iznine sahip olması gerekir. Bu izne ALTER DATABASE izni dahil edilir. Temel alınan veri kaynağına başvurmak için ALTER ANY dış veri kaynağı izinleri gereklidir.
 >
 
-**Başvuru verileri**: topoloji başvuru verileri yönetimi için kullanılır. Aşağıdaki çizimde, iki tablo (T1 ve T2) başvuru verileriyle adanmış bir veritabanında tutulur. Elastik sorgu kullanarak, artık tabloları T1 ve T2 uzaktan diğer veritabanlarındaki verileri aşağıdaki şekilde gösterildiği gibi erişebilirsiniz. Kullanım topoloji başvuru tabloları küçük ya da uzak sorguları başvuru tablosu varsa 1 seçmeli koşullar vardır.
+**Başvuru verileri**: Topoloji başvuru verileri yönetimi için kullanılır. Aşağıdaki çizimde, iki tablo (T1 ve T2) başvuru verileriyle adanmış bir veritabanında tutulur. Elastik sorgu kullanarak, artık tabloları T1 ve T2 uzaktan diğer veritabanlarındaki verileri aşağıdaki şekilde gösterildiği gibi erişebilirsiniz. Kullanım topoloji başvuru tabloları küçük ya da uzak sorguları başvuru tablosu varsa 1 seçmeli koşullar vardır.
 
 **Şekil 2** dikey bölümleme - elastik sorgu için sorgu başvuru verilerini kullanma
 
 ![Dikey bölümleme - elastik sorgu için sorgu başvuru verilerini kullanma][3]
 
-**Çapraz veritabanı sorgulama**: esnek sorgular birkaç SQL veritabanlarında sorgulama gerektiren etkinleştir kullanım örnekleri. Şekil 3'te, dört farklı veritabanı gösterir: CRM, Envanter, İK ve ürünler. Veritabanlarından birini gerçekleştirilen sorgular ayrıca bir veya tüm diğer veritabanlarına erişim gerekir. Elastik sorgu kullanarak, birkaç basit DDL deyimleri her dört veritabanı çalıştırarak veritabanınızı bu çalışması için yapılandırabilirsiniz. Bu tek seferlik yapılandırmadan sonra uzak tabloya erişim, T-SQL sorguları ya da BI araçları, yerel bir tabloya başvuran olarak kadar kolaydır. Uzak sorgular büyük sonuç döndürmezse bu yaklaşım önerilir.
+**Çapraz veritabanı sorgulama**: Elastik sorgular birkaç SQL veritabanlarında sorgulama gerektiren durumlara etkinleştirin. Şekil 3'te, dört farklı veritabanı gösterir: CRM, Envanter, İK ve ürünler. Veritabanlarından birini gerçekleştirilen sorgular ayrıca bir veya tüm diğer veritabanlarına erişim gerekir. Elastik sorgu kullanarak, birkaç basit DDL deyimleri her dört veritabanı çalıştırarak veritabanınızı bu çalışması için yapılandırabilirsiniz. Bu tek seferlik yapılandırmadan sonra uzak tabloya erişim, T-SQL sorguları ya da BI araçları, yerel bir tabloya başvuran olarak kadar kolaydır. Uzak sorgular büyük sonuç döndürmezse bu yaklaşım önerilir.
 
 **Şekil 3** dikey bölümleme - çeşitli veritabanı arasında esnek sorgu için sorgu kullanma
 

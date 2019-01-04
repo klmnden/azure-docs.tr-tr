@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: c2f68afb685cb04d456e06cadf378bd1c3ebb1fb
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0bca7281c390388bd860219fb6f2eacb96b99df0
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385003"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742397"
 ---
 # <a name="http-application-routing"></a>HTTP uygulaması yönlendirme
 
@@ -28,10 +28,10 @@ Eklenti etkinleştirildiğinde, aboneliğinizde bir DNS bölgesi oluşturur. DNS
 
 Eklenti iki bileşenlerini dağıtır: bir [Kubernetes giriş denetleyicisine] [ ingress] ve [dış DNS] [ external-dns] denetleyicisi.
 
-- **Giriş denetleyicisine**: Giriş denetleyicisine, internet'e LoadBalancer türünde bir Kubernetes hizmetini kullanarak gösterilir. Giriş denetleyicisine izler ve uygulayan [Kubernetes giriş kaynakları][ingress-resource], uygulama uç noktaları için rotalar oluşturur.
-- **Dış DNS denetleyicisi**: Kubernetes için giriş kaynakları izler ve kümeye özgü DNS bölgesinde DNS A kayıtlarını da oluşturur.
+- **Giriş denetleyicisine**: Giriş denetleyicisine LoadBalancer türünde bir Kubernetes hizmetini kullanarak internet'e açıktır. Giriş denetleyicisine izler ve uygulayan [Kubernetes giriş kaynakları][ingress-resource], uygulama uç noktaları için rotalar oluşturur.
+- **Dış DNS denetleyicisi**: Kubernetes giriş kaynakları izler ve kümeye özgü DNS bölgesinde DNS A kayıtlarını da oluşturur.
 
-## <a name="deploy-http-routing-cli"></a>HTTP yönlendirme dağıtma: CLI
+## <a name="deploy-http-routing-cli"></a>HTTP yönlendirme dağıtın: CLI
 
 HTTP uygulama yönlendirme eklentisi, Azure CLI ile bir AKS kümesi dağıtırken etkinleştirilebilir. Bunu yapmak için [az aks oluşturma] [ az-aks-create] komutunu `--enable-addons` bağımsız değişken.
 
@@ -55,7 +55,7 @@ Result
 9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io
 ```
 
-## <a name="deploy-http-routing-portal"></a>HTTP yönlendirme dağıtma: Portal
+## <a name="deploy-http-routing-portal"></a>HTTP yönlendirme dağıtın: Portal
 
 HTTP uygulama yönlendirme eklentisi, bir AKS kümesi dağıtırken Azure portalı üzerinden etkinleştirilebilir.
 
@@ -174,6 +174,36 @@ HTTP yönlendirme çözümü Azure CLI kullanarak kaldırabilirsiniz. Bunu yapma
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
+HTTP uygulama yönlendirme eklentiyi devre dışı bırakıldığında, kümedeki bazı Kubernetes kaynakları kalabilir. Bu kaynaklar içerir *configMaps* ve *gizli dizileri*ve oluşturulan *kube-system* ad alanı. Temiz bir küme korumak için bu kaynakları kaldırmak isteyebilirsiniz.
+
+Aranan *eklentisi-http-uygulaması-yönlendirme* aşağıdakileri kullanarak kaynakları [kubectl alma] [ kubectl-get] komutları:
+
+```console
+kubectl get deployments --namespace kube-system
+kubectl get services --namespace kube-system
+kubectl get configmaps --namespace kube-system
+kubectl get secrets --namespace kube-system
+```
+
+Silinmesi gereken configMaps aşağıdaki örnek çıktı gösterilmektedir:
+
+```
+$ kubectl get configmaps --namespace kube-system
+
+NAMESPACE     NAME                                                       DATA   AGE
+kube-system   addon-http-application-routing-nginx-configuration         0      9m7s
+kube-system   addon-http-application-routing-tcp-services                0      9m7s
+kube-system   addon-http-application-routing-udp-services                0      9m7s
+```
+
+Kaynakları silmek için kullanın [kubectl Sil] [ kubectl-delete] komutu. Kaynak türü, kaynak adı ve ad alanı belirtin. Aşağıdaki örnek, bir önceki configmaps siler:
+
+```console
+kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
+```
+
+Önceki yineleyin `kubectl delete` adım için tüm *eklentisi-http-uygulaması-yönlendirme* kümenizde kalan kaynaklar.
+
 ## <a name="troubleshoot"></a>Sorun giderme
 
 Kullanım [kubectl günlükleri] [ kubectl-logs] dış DNS uygulama için uygulama günlüklerini görmek için komutu. Günlükler, bir A ve TXT DNS kaydı, başarıyla oluşturuldu onaylamalıdır.
@@ -256,6 +286,7 @@ AKS içinde bir HTTPS güvenli giriş denetleyicisine yükleme hakkında daha fa
 [external-dns]: https://github.com/kubernetes-incubator/external-dns
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [ingress-resource]: https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource

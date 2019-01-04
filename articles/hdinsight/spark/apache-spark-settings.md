@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 127bd965fdce93ae44fbb38a037477174c9cb3fe
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 91f706b882c4f245dbd111b0f9cac269db6fd65f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583253"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652244"
 ---
 # <a name="configure-apache-spark-settings"></a>Apache Spark ayarlarını yapılandırma
 
@@ -33,7 +33,7 @@ Kümeniz için en iyi Spark sürümü kullanın.  HDInsight hizmeti, Spark hem k
 Yeni bir küme oluşturduğunuzda, aralarından seçim yapabileceğiniz birden fazla Spark sürümü vardır. Listenin tamamını görmek için [HDInsight bileşenleri ve sürümleri](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)
 
 
-> [!NOTE]
+> [!NOTE]  
 > Apache Spark'ın varsayılan sürüm HDInsight hizmetinde değiştirilebilir. Bir sürüm bağımlılığı varsa, Microsoft .NET SDK'sı, Azure PowerShell ve klasik Azure CLI kullanarak kümeleri oluşturduğunuzda, bu belirli sürümü belirttiğiniz önerir.
 
 Apache Spark, üç sistem yapılandırma konuma sahiptir:
@@ -76,7 +76,7 @@ Görmek ve tek tek Spark yapılandırma değerlerini değiştirmek için bağlan
 
 Yapılandırma değerlerini varsayılan olmayan kümesi oluşturursanız, yapılandırma güncelleştirmelerini geçmişini de görebilirsiniz.  Bu yapılandırma geçmişi en iyi performansı hangi varsayılan olmayan yapılandırma olduğunu görmek yararlı olabilir.
 
-> [!NOTE]
+> [!NOTE]  
 > Bkz. ancak, ortak Spark küme yapılandırma ayarları, değiştirmemek için seçin **ortam** en üst düzey sekmesinde **Spark işi UI** arabirimi.
 
 ## <a name="configuring-spark-executors"></a>Spark Yürütücü yapılandırma
@@ -89,7 +89,7 @@ Spark işlerinde Spark Yürütücü çalışan düğümü için yapılandırma d
 
 Uygulama gereksinimleri iyileştirmek için Spark yapılandırmaları ayarlamak için genellikle ayarlanan üç anahtar parametreleri `spark.executor.instances`, `spark.executor.cores`, ve `spark.executor.memory`. Bir yürütücü Spark uygulaması için başlatılan bir işlemdir. Bir yürütücü çalışan düğümü üzerinde çalışan ve uygulama için görevleri sorumludur. Her küme için varsayılan sayısı yürütücüler ve yürütücü boyutları tabanlı çalışan düğümlerine ve çalışan düğümü boyutu sayısı hesaplanır. Bunlar depolanır `spark-defaults.conf` küme baş düğümlerine.  Seçerek, çalışan bir kümede bu değerleri düzenleyebilirsiniz **özel spark-varsayılanları** Ambari Web kullanıcı Arabiriminde bağlantı.  Değişiklikler yaptıktan sonra kullanıcı tarafından istenir **yeniden** etkilenen tüm hizmetler.
 
-> [!NOTE]
+> [!NOTE]  
 > Bu üç yapılandırma parametrelerini (için küme üzerinde çalışan tüm uygulamalar) küme seviyesinde yapılandırılmış ve da tek tek her uygulama için belirtilmiş.
 
 Başka bir Spark Yürütücü tarafından kullanılmakta olan kaynaklar hakkında bilgi Spark uygulama UI kaynağıdır.  Spark Arabiriminde seçin **yürütücüler** Özet ve ayrıntı görünümlerini yürütücüleri tarafından kullanılan kaynakları ve yapılandırmayı görüntülemek için sekmesinde.  Bu görünümler olup tüm küme için Spark Yürütücü için varsayılan değerleri değiştirmek belirlemenize yardımcı olabilir veya belirli bir iş yürütmeleri ayarlayın.
@@ -123,15 +123,15 @@ YARN her Spark düğümde kapsayıcıları tarafından kullanılan bellek en yü
 
 HDInsight Spark kümelerinde varsayılan olarak çeşitli bileşenler içerir. Bu bileşenlerin her birinin gerektiği gibi geçersiz kılınabilir varsayılan yapılandırma değerlerini içerir.
 
-* Spark Core - Spark Core, Spark SQL, akış API'leri, GraphX ve Mllib'i Spark
-* Anaconda - Yöneticisi bir python paketi
-* [Apache Livy](https://livy.incubator.apache.org/) -Apache Spark uzak bir HDInsight Spark kümesine göndermek için kullanılan REST API'LERİNE,
-* [Jupyter](https://jupyter.org/) ve [Apache Zeppelin](https://zeppelin.apache.org/) not defterlerini - Spark kümenizle etkileşim kurmak için kullanabileceğiniz etkileşimli tarayıcı tabanlı kullanıcı Arabirimi
-* ODBC sürücüsü - HDInsight Spark kümelerinde Microsoft Power BI ve Tableau gibi iş zekası (BI) araçları bağlar
+* Spark Core - Spark Core, Spark SQL, akış API'leri, GraphX ve Apache Spark MLlib Spark.
+* Anaconda - Yöneticisi bir python paket.
+* [Apache Livy](https://livy.incubator.apache.org/) -Apache Spark uzak bir HDInsight Spark kümesine göndermek için kullanılan REST API'LERİNE,.
+* [Jupyter](https://jupyter.org/) ve [Apache Zeppelin](https://zeppelin.apache.org/) not defterlerini - Spark kümenizle etkileşim kurmak için kullanabileceğiniz etkileşimli tarayıcı tabanlı kullanıcı Arabirimi.
+* ODBC sürücüsü - Microsoft Power BI ve Tableau gibi iş zekası (BI) araçları için HDInsight Spark kümelerinde bağlanır.
 
 Jupyter not defteri çalışan uygulamalar için `%%configure` komut yapılandırmasını yapmak için dizüstü içinde gelen değiştirir. Bu yapılandırma değişikliklerini, not defteri örneğinden Spark işler uygulanır. Bu değişiklikler, birinci kod hücresini çalıştırmadan önce uygulama başlangıcında olmanız gerekir. Değiştirilen yapılandırma ne zaman oluşturulduğunu Livy oturuma uygulanır.
 
-> [!NOTE]
+> [!NOTE]  
 > Uygulama daha sonraki bir aşamasında yapılandırmasını değiştirmek için kullanın `-f` (zorla) parametre. Ancak, uygulamanın tüm devam eden kaybolur.
 
 Aşağıdaki kod, bir Jupyter not defteri çalışan bir uygulama için yapılandırmayı değiştirme işlemi gösterilmektedir.

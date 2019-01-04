@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
 ms.author: daleche
-ms.reviewer: ''
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 53061cde5621be06df8f992278a6510d62e51934
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5610679756e91637ac4713059a510bebb882ca7a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872587"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600565"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Azure SQL veritabanı bağlantı sorunlarını giderme
 Azure SQL veritabanı bağlantısı başarısız olduğunda, aldığınız [hata iletileri](sql-database-develop-error-messages.md). Bu makalede, Azure SQL veritabanı bağlantısı sorunları gidermenize yardımcı olan merkezi bir konudur. Tanıttığı [yaygın nedenleri](#cause) bağlantı sorunları, önerir [sorun giderme aracını](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) kimlik sorun yardımcı olur ve çözmek için sorun giderme adımlarını sağlar [geçici hataları](#troubleshoot-transient-errors) ve [kalıcı veya geçici olmayan hatalar](#troubleshoot-persistent-errors). 

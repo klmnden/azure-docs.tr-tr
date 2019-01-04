@@ -14,16 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0f4ff7c11952e6e222104b3953c547a91b4fc124
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 487872b1e9344aaefad5ca0953c41b59f01027b0
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223081"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753974"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Market ve Appsource'ta yayımlama Kılavuzu
 
 Market yayımlama Kılavuzu, yeni yardımcı olmak için tasarlanmıştır ve mevcut yayımcıların vitrinler olarak kullanmayı öğrenmek [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Microsoft AppSource](https://appsource.microsoft.com) iş ortaklığı işletmelerini büyütme için Microsoft uygulamaları ve hizmetleri listeleme tarafından.
+
+>[!Note]
+>Market Burada, Azure Market ve AppSource için ifade eder.  Bkz: [bir Market, iki vitrinin](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace) daha fazla bilgi için.
 
 Bu kılavuzda aşağıdaki konular ele alınmaktadır: 
 *   Market nedir ve nasıl çalışır? 
@@ -52,7 +55,7 @@ Marketi yeni pazarlar, parçaları ve Microsoft bulut çözümleri portföyünü
 
 Yukarı satış ve çapraz çözümlerinizi iş yüklerini buluta taşıma işlemi sonrasında, müşteri sorunları gidererek satış. Satıyor veya dağıtıyor Market aracılığıyla dağıtma, satış uzatmaya projeleri hızlandırmak ve eksiksiz çözümler, hedef belirli iş yükleri ve sektör senaryoları satarak anlaşma karlılığını artırın. 
 
-### <a name="get-actionable-insights"></a>Eyleme dönüştürülebilir öngörüler elde edin 
+### <a name="get-actionable-insights"></a>Eyleme dönüştürülebilir içgörüler elde edin 
 
 Öngörüler, listelerinin performansını aracılığıyla Market aracılığıyla kullanılabilir olan Analiz ve Öngörüler edinin. Kampanya performansı, sipariş ve ödemeler ve kampanyalarını çözümünüz için en iyi şekilde nasıl hakkında daha fazla bilgi edinin.
 
@@ -62,9 +65,9 @@ Market'teki yeni kayıtlara, iş ortaklarının işletmelerini markette büyütm
 
 *   Teknik: İhtiyacınız olan her şey, uygulamanızın başlatma için hazır hale getirmek. Teknik Destek, uygulama tasarımı ve Mimari Tasarım, geliştirme ve test için Azure kredisine sahip olun. 
 
-*   Ortak pazarlama: İhtiyacınız olan her şey teklifinizi başlatmak. Microsoft Go-To-Market başlatma başlatın ve çözümünüzü tanıtın yardımcı olması için temel bilgiler ücretsiz erişim. Ek Microsoft pazarlama kampanyası ekleme ve Market'te yayınlanmak üzere fırsatları için uygun olabilir.
+*   Ortak pazarlama: Her şeyi teklifinizi açmanız gerekir. Microsoft Go-To-Market başlatma başlatın ve çözümünüzü tanıtın yardımcı olması için temel bilgiler ücretsiz erişim. Ek Microsoft pazarlama kampanyası ekleme ve Market'te yayınlanmak üzere fırsatları için uygun olabilir.
 
-*   Ortak satış: Başlayamaz veya Market aracılığıyla Microsoft ile satış sürecinizi hızlandırın. Programlar ve Microsoft teams ile ortak satış sürücü için desteğe erişin.
+*   Ortak satış: Başlamak veya Market aracılığıyla Microsoft ile satış sürecinizi hızlandırın. Programlar ve Microsoft teams ile ortak satış sürücü için desteğe erişin.
 
 Çalıştırdıktan sonra [çözümünüzü gönderme](https://azuremarketplace.microsoft.com/sell/signup) Market'te, ekleme ekibimiz, yayımlama deneyiminizi desteklemek için bağlantı kurar.
 

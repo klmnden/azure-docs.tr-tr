@@ -4,17 +4,17 @@ description: Bu hızlı başlangıçta bir IOT Edge cihazı oluşturma ve ardın
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/14/2018
+ms.date: 12/31/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6479bfbb81468649108ed648035122e4623041e3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: af95c2a5182a8adca9aeb40f047c7767413b9b1c
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555515"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973681"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Hızlı Başlangıç: Bir Linux x64 cihaza, ilk IOT Edge modülü dağıtma
 
@@ -60,6 +60,8 @@ IoT Edge cihazı:
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
+
+   Bu, oluşturmak ve yeni sanal makineyi başlatmak için birkaç dakika sürebilir. 
 
    Yeni bir sanal makine oluşturduğunuzda, Not **Publicıpaddress**, oluşturma komut çıktısı bir parçası olarak sağlanır. Bu hızlı başlangıcın sonraki bölümlerinde sanal makineye bağlanmak için bu genel IP adresi kullanın.
 
@@ -196,12 +198,12 @@ Güvenlik daemon'u sistem hizmeti olarak yüklenir ve bu sayede IoT Edge çalı�
    sudo systemctl restart iotedge
    ```
 
->[!TIP]
->`iotedge` komutlarını çalıştırmak için yükseltilmiş ayrıcalıklara ihtiyacınız olacaktır. Makinenizdeki oturumu kapattıktan sonra IoT Edge çalışma zamanını yükleyip oturum açtığınızda izinleriniz otomatik olarak güncelleştirilir. O zamana kadar komutların önüne **sudo** eklemenize gerekir. 
-
 ### <a name="view-the-iot-edge-runtime-status"></a>IoT Edge çalışma zamanı durumunu görüntüleme
 
 Çalışma zamanının başarıyla yüklendiğinden ve yapılandırıldığından emin olun.
+
+>[!TIP]
+>`iotedge` komutlarını çalıştırmak için yükseltilmiş ayrıcalıklara ihtiyacınız olacaktır. Makinenizdeki oturumu kapattıktan sonra IoT Edge çalışma zamanını yükleyip oturum açtığınızda izinleriniz otomatik olarak güncelleştirilir. O zamana kadar komutların önüne **sudo** eklemenize gerekir. 
 
 1. Edge Güvenlik Daemon'unun sistem hizmeti olarak çalışıp çalışmadığını kontrol edin.
 
@@ -246,15 +248,18 @@ IoT Edge cihazınızda komut istemini yeniden açın. Buluttan dağıtılan mod�
 
    ![Cihazınızda üç modül görüntüleme](./media/quickstart-linux/iotedge-list-2.png)
 
-tempSensor modülünden gönderilen iletileri görüntüleyin:
+Sıcaklık algılayıcısı modülünden gönderilmekte olan iletileri görüntüleyin:
 
    ```bash
-   sudo iotedge logs tempSensor -f
+   sudo iotedge logs SimulatedTemperatureSensor -f
    ```
 
-![Verileri modülünüzden görüntüleme](./media/quickstart-linux/iotedge-logs.png)
+   >[!TIP]
+   >Modül adlarını söz konusu olduğunda, IOT Edge komutları büyük küçük harfe duyarlıdır.
 
-Günlüğün son satırında `Using transport Mqtt_Tcp_Only` varsa sıcaklık sensörü modülü Edge Hub'ına bağlanmayı bekliyor olabilir. Modülü sonlandırıp Edge Aracısı tarafından yeniden başlatılmasını sağlayın. `sudo docker stop tempSensor` komutuyla sonlandırabilirsiniz.
+   ![Verileri modülünüzden görüntüleme](./media/quickstart-linux/iotedge-logs.png)
+
+Sıcaklık algılayıcısı modülü günlükte gördüğünüz son satır olması durumunda, Edge hub'a bağlanmak için bekliyor olabilir **taşıma Mqtt_Tcp_Only kullanarak**. Deneyin modülü durdurma ve yeniden Edge aracısı sağlar. Komutu ile Durdur `sudo docker stop SimulatedTemperatureSensor`.
 
 Kullanarak IOT hub'ınıza gelen iletileri izlemek isterseniz [Visual Studio Code için Azure IOT hub'ı Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (eski adıyla Azure IOT Toolkit uzantısını). 
 
@@ -288,10 +293,10 @@ IoT Edge çalışma zamanı kaldırıldığında, oluşturduğu kapsayıcılar d
    sudo docker ps -a
    ```
 
-IoT Edge çalışma zamanı tarafından cihazınızda oluşturulan kapsayıcıları silin. Farklı bir ad verdiyseniz, tempSensor kapsayıcısının adını değiştirin. 
+IoT Edge çalışma zamanı tarafından cihazınızda oluşturulan kapsayıcıları silin. 
 
    ```bash
-   sudo docker rm -f tempSensor
+   sudo docker rm -f SimulatedTemperatureSensor
    sudo docker rm -f edgeHub
    sudo docker rm -f edgeAgent
    ```

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b00982cbc30b2345d9eacea376e3c5164ce1b078
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cf7ef6f8e5dc157d3c3e89c9dfe3735c255694fa
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408689"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745066"
 ---
-# <a name="run-apache-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Windows tabanlı HDInsight Apache Hadoop MapReduce örneklerini çalıştırma
+# <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>Windows tabanlı HDInsight MapReduce örneklerini çalıştırma
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 Örnekler kümesi, Azure HDInsight'ı kullanarak Apache Hadoop kümelerini kullanmaya başlama çalışan MapReduce işleri almanıza yardımcı olması için sağlanmıştır. Bu örneklerin her oluşturduğunuz yönetilen HDInsight kümeleri kullanıma sunulur. Bu örnekleri çalıştırmaya tanıyın, Hadoop kümelerinde işlerini çalıştırmak için Azure PowerShell cmdlet'lerini kullanarak ile.
@@ -167,7 +167,7 @@ Bu örnek için sağlanan betiğini Hadoop jar işi gönderir ve en fazla 16 har
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>10 GB Graysort
-Bu örnek, oldukça hızlı bir şekilde çalıştırılabilir böylece büyüklükteki bir 10 GB veri kullanmaktadır. Owen O'Malley ve yıllık genel amaçlı ("daytona") terabayt sıralama Kıyaslama 0.578 TB/dak (100 TB 173 dakika cinsinden) fiyatı 2009 kazanılan Arun Murthy tarafından geliştirilen MapReduce uygulamalar kullanır. Bu ve diğer sıralama değerlendirmeleri hakkında daha fazla bilgi için bkz. [Sortbenchmark](http://sortbenchmark.org/) site.
+Bu örnek, oldukça hızlı bir şekilde çalıştırılabilir böylece büyüklükteki bir 10 GB veri kullanmaktadır. Owen O'Malley ve yıllık genel amaçlı ("daytona") terabayt sıralama Kıyaslama 0.578 TB/dak (100 TB 173 dakika cinsinden) fiyatı 2009 kazanılan Arun Murthy tarafından geliştirilen MapReduce uygulamalar kullanır. Bu ve diğer sıralama değerlendirmeleri hakkında daha fazla bilgi için bkz. [Sortbenchmark](https://sortbenchmark.org/) site.
 
 Bu örnek, üç adet MapReduce programlarını kullanır:
 
@@ -383,7 +383,7 @@ Pi estimator Eşleyici ve azaltıcı işlevlerini içeren Java kod incelemesi a�
 * "License"); you may not use this file except in compliance
 * with the License. You may obtain a copy of the License at
 *
-* http://www.apache.org/licenses/LICENSE-2.0
+* https://www.apache.org/licenses/LICENSE-2.0
 *
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
@@ -722,7 +722,7 @@ Bu bölümdeki İnceleme TeraSort MapReduce programını kodunu sunulur.
     * "License"); you may not use this file except in compliance
     * with the License.  You may obtain a copy of the License at
     *
-    *     http://www.apache.org/licenses/LICENSE-2.0
+    *     https://www.apache.org/licenses/LICENSE-2.0
     *
     * Unless required by applicable law or agreed to in writing, software
     * distributed under the License is distributed on an "AS IS" BASIS,

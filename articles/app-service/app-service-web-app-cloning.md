@@ -1,6 +1,6 @@
 ---
 title: PowerShell - Azure App Service ile uygulama kopyalama
-description: PowerShell kullanarak yeni Web Apps için Web Apps kopyalama hakkında bilgi edinin.
+description: PowerShell kullanarak yeni bir uygulama için App Service uygulamanızı kopyalama hakkında bilgi edinin.
 services: app-service\web
 documentationcenter: ''
 author: ahmedelnably
@@ -15,24 +15,22 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 87bae4db64c0a22790b7f52f919601f82aa548df
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 9d4b664c9b1fc0deb10794a5f0b29c2b600d19e2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261876"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53712672"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Azure App Service uygulaması PowerShell kullanarak kopyalama
-Microsoft Azure PowerShell sürüm 1.1.0 sürümünde yeni bir seçenek eklendi `New-AzureRMWebApp` olanak tanıyan yeni oluşturulan bir uygulamanın farklı bir bölgede ya da aynı bölgede bulunan mevcut bir Web uygulamasını kopyalayın. Bu seçenek, müşterilerin uygulama sayısı farklı bölgeler arasında hızlı ve kolay bir şekilde dağıtmasına olanak sağlar.
+Microsoft Azure PowerShell sürüm 1.1.0 sürümünde yeni bir seçenek eklendi `New-AzureRMWebApp` olanak tanıyan yeni oluşturulmuş uygulamayı farklı bir bölgede ya da aynı bölgede var olan bir App Service uygulamasına kopyalayın. Bu seçenek, müşterilerin uygulama sayısı farklı bölgeler arasında hızlı ve kolay bir şekilde dağıtmasına olanak sağlar.
 
-Uygulama kopyalama şu anda yalnızca premium katmanı app service planları için desteklenir. Yeni özellik, Web Apps yedeklemesini özelliği olarak onunla aynı sınırlamalara kullanır, bkz: [Azure App Service'te bir web uygulamasını yedekleme](web-sites-backup.md).
-
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+Uygulama kopyalama şu anda yalnızca premium katmanı app service planları için desteklenir. Yeni bir özellik App Service yedekleme özelliğini onunla aynı sınırlamalara kullanır, bkz: [bir uygulamasını Azure App Service'te yedekleme](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Mevcut bir uygulamayı kopyalama
-Senaryo: Orta Güney ABD bölgesinde ve var olan bir web uygulamasında Kuzey Orta ABD bölgesinde yeni bir web uygulaması içeriği kopyalamak istersiniz. İle yeni bir web uygulaması oluşturmak için Azure Resource Manager sürümünü PowerShell cmdlet'ini kullanarak gerçekleştirilebilir `-SourceWebApp` seçeneği.
+Senaryo: Orta Güney ABD bölgesinde ve mevcut bir uygulamayı Kuzey Orta ABD bölgesinde yeni bir uygulama içeriği kopyalamak istersiniz. İle yeni bir uygulama oluşturmak için Azure Resource Manager sürümünü PowerShell cmdlet'ini kullanarak gerçekleştirilebilir `-SourceWebApp` seçeneği.
 
-Kaynak web uygulamasını içeren kaynak grubu adını bilmek, kaynak web uygulamasının bilgi almak için aşağıdaki PowerShell komutunu kullanabilirsiniz (Bu durumda adlı `source-webapp`):
+Kaynak uygulamayı içeren kaynak grubu adını bilmek, kaynak uygulamanın bilgi almak için aşağıdaki PowerShell komutunu kullanabilirsiniz (Bu durumda adlı `source-webapp`):
 
 ```PowerShell
 $srcapp = Get-AzureRmWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
@@ -44,34 +42,34 @@ Yeni bir App Service planı oluşturmak için kullanabileceğiniz `New-AzureRmAp
 New-AzureRmAppServicePlan -Location "South Central US" -ResourceGroupName DestinationAzureResourceGroup -Name NewAppServicePlan -Tier Premium
 ```
 
-Kullanarak `New-AzureRmWebApp` komutu, Kuzey Orta ABD bölgesinde yeni web uygulaması oluşturun ve bir var olan premium katmanı için App Service planı bağlayın. Ayrıca, kaynak web uygulaması olarak aynı kaynak grubunu kullanın veya yeni bir kaynak grubu, aşağıdaki komutta gösterildiği gibi tanımlayın:
+Kullanarak `New-AzureRmWebApp` komutu, Kuzey Orta ABD bölgesinde yeni uygulama oluşturun ve bir var olan premium katmanı için App Service planı bağlayın. Ayrıca, kaynak uygulaması olarak aynı kaynak grubunu kullanın veya yeni bir kaynak grubu, aşağıdaki komutta gösterildiği gibi tanımlayın:
 
 ```PowerShell
 $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-Tüm ilişkili dağıtım yuvalarını dahil olmak üzere mevcut bir web uygulaması kopyalamak için kullanmanız gerekir `IncludeSourceWebAppSlots` parametresi. Aşağıdaki PowerShell komutu ile bu parametre kullanımını gösteren `New-AzureRmWebApp` komutu:
+Tüm ilişkili dağıtım yuvalarını dahil olmak üzere mevcut bir uygulamayı kopyalama için kullanmanız gerekir `IncludeSourceWebAppSlots` parametresi. Aşağıdaki PowerShell komutu ile bu parametre kullanımını gösteren `New-AzureRmWebApp` komutu:
 
 ```PowerShell
 $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
 ```
 
-Kopyalamak aynı bölge içinde mevcut bir web uygulaması için yeni bir kaynak grubu oluşturmanız gerekir ve yeni bir app service planı aynı bölgede ve ardından web uygulamasını kopyalamak için aşağıdaki PowerShell komutunu kullanın
+Aynı bölge içinde mevcut bir uygulamayı kopyalama için yeni bir kaynak grubu oluşturmanız gerekir ve yeni bir app service planı aynı bölgede ve sonra uygulamayı kopyalamak için aşağıdaki PowerShell komutunu kullanın:
 
 ```PowerShell
 $destapp = New-AzureRmWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
 ```
 
 ## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>App Service ortamı için mevcut bir uygulamayı kopyalama
-Senaryo: Orta Güney ABD bölgesinde ve var olan bir web uygulamasında bir mevcut App Service ortamı (ASE) için yeni bir web uygulaması içeriği kopyalamak istersiniz.
+Senaryo: Orta Güney ABD bölgesinde ve mevcut bir uygulamayı bir mevcut App Service ortamı (ASE) için yeni bir uygulama içeriği kopyalamak istersiniz.
 
-Kaynak web uygulamasını içeren kaynak grubu adını bilmek, kaynak web uygulamasının bilgi almak için aşağıdaki PowerShell komutunu kullanabilirsiniz (Bu durumda adlı `source-webapp`):
+Kaynak uygulamayı içeren kaynak grubu adını bilmek, kaynak uygulamanın bilgi almak için aşağıdaki PowerShell komutunu kullanabilirsiniz (Bu durumda adlı `source-webapp`):
 
 ```PowerShell
 $srcapp = Get-AzureRmWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
 ```
 
-ASE'ın adı ve ASE ait olduğu kaynak grubu adı'nı bilerek, yeni web uygulaması mevcut ASE'de, aşağıdaki komutta gösterildiği gibi oluşturabilirsiniz:
+ASE'ın adı ve ASE ait olduğu kaynak grubu adı'nı bilerek, yeni uygulama mevcut ASE'de, aşağıdaki komutta gösterildiği gibi oluşturabilirsiniz:
 
 ```PowerShell
 $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
@@ -80,38 +78,38 @@ $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -N
 `Location` Eski nedeni parametre gerekiyor, ancak bir ASE'de uygulama oluşturduğunuzda göz ardı edilir. 
 
 ## <a name="cloning-an-existing-app-slot"></a>Mevcut bir uygulama yuva kopyalama
-Senaryo: Mevcut bir Web uygulaması yuvası ya da yeni bir Web uygulamasına veya yeni bir Web uygulaması yuvası kopyalamak istersiniz. Yeni Web uygulaması, özgün Web uygulaması yuvası ile aynı bölgedeki veya farklı bir bölgede olabilir.
+Senaryo: Bir uygulamanın ya da yeni bir uygulama için var olan bir dağıtım yuvası veya yeni bir yuva kopyalamak istersiniz. Yeni uygulama, özgün uygulaması yuvası ile aynı bölgedeki veya farklı bir bölgede olabilir.
 
-Kaynak web uygulamasını içeren kaynak grubu adı'nı bilerek kaynağı web uygulaması yuvanın bilgi almak için aşağıdaki PowerShell komutunu kullanabilirsiniz (Bu durumda adlı `source-webappslot`) Web uygulamasına bağlı `source-webapp`:
+Kaynak uygulamayı içeren kaynak grubu adı'nı bilerek kaynak uygulama yuvanın bilgi almak için aşağıdaki PowerShell komutunu kullanabilirsiniz (Bu durumda adlı `source-appslot`) bağlı `source-app`:
 
 ```PowerShell
-$srcappslot = Get-AzureRmWebAppSlot -ResourceGroupName SourceAzureResourceGroup -Name source-webapp -Slot source-webappslot
+$srcappslot = Get-AzureRmWebAppSlot -ResourceGroupName SourceAzureResourceGroup -Name source-app -Slot source-appslot
 ```
 
-Aşağıdaki komut, yeni bir web uygulaması için kaynak web uygulamasının bir kopyasını oluşturma gösterilmektedir:
+Aşağıdaki komutu, yeni bir uygulama için kaynak uygulamasının bir kopyasını oluşturmayı gösterir:
 
 ```PowerShell
-$destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcappslot
+$destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-app -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcappslot
 ```
 
 ## <a name="configuring-traffic-manager-while-cloning-an-app"></a>Bir uygulamayı kopyalama sırasında traffic Manager'ı yapılandırma
-Çok bölgeli web uygulamaları oluşturma ve bu web Apps'e tüm trafiği yönlendirmek için Azure Traffic Manager yapılandırma, müşterilerin uygulamaları yüksek oranda kullanılabilir olmasını sağlamak için önemli bir senaryodur. Mevcut bir web uygulaması kopyalama gerçekleştirilirken hem web uygulamaları yeni bir traffic manager profili ya da mevcut bir bağlanmak için seçeneğiniz vardır. Yalnızca Azure Resource Manager sürümü Traffic Manager'ın desteklenmiyor.
+Çok bölgeli uygulama oluşturmaya ve bu uygulamalar için trafiği yönlendirmek için Azure Traffic Manager yapılandırma, müşterilerin uygulamaları yüksek oranda kullanılabilir olmasını sağlamak için önemli bir senaryo değildir. Mevcut bir uygulamayı kopyalama, her iki uygulama yeni bir traffic manager profili ya da mevcut bir bağlanmak için seçeneğiniz vardır. Yalnızca Azure Resource Manager sürümü Traffic Manager'ın desteklenmiyor.
 
 ### <a name="creating-a-new-traffic-manager-profile-while-cloning-an-app"></a>Bir uygulamayı kopyalama sırasında yeni bir Traffic Manager profili oluşturma
-Senaryo: Hem web uygulamaları içeren bir Azure Resource Manager traffic manager profili yapılandırırken bir web uygulamasını başka bir bölgeye kopyalamak istersiniz. Aşağıdaki komut, yeni bir Traffic Manager profili yapılandırırken yeni bir web uygulaması için kaynak web uygulamasının bir kopyasını oluşturmayı gösterir:
+Senaryo: Her iki uygulama içeren bir Azure Resource Manager traffic manager profili yapılandırırken bir uygulamayı başka bir bölgeye kopyalamak istersiniz. Aşağıdaki komut, yeni bir Traffic Manager profili yapılandırırken kaynak uygulamanın yeni bir uygulama için bir kopya oluşturma gösterilmektedir:
 
 ```PowerShell
 $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 ```
 
-### <a name="adding-new-cloned-web-app-to-an-existing-traffic-manager-profile"></a>Web uygulaması için var olan bir Traffic Manager profili kopyalanan yeni ekleme
-Senaryo: Zaten bir Azure Resource Manager traffic manager profili varsa ve her iki web uygulama uç noktalar olarak eklemek istediğiniz. Önce mevcut trafik derlemek gerekir, bunu yapmak için manager profili kimliği Abonelik kimliği, kaynak grubu adı ve mevcut traffic manager profil adı gerekir.
+### <a name="adding-new-cloned-app-to-an-existing-traffic-manager-profile"></a>Uygulama için var olan bir Traffic Manager profilini kopyalanan yeni ekleme
+Senaryo: Zaten bir Azure Resource Manager traffic manager profili varsa ve her iki uygulama uç noktalar olarak eklemek istediğiniz. Önce mevcut trafik derlemek gerekir, bunu yapmak için manager profili kimliği Abonelik kimliği, kaynak grubu adı ve mevcut traffic manager profil adı gerekir.
 
 ```PowerShell
 $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
 ```
 
-Trafik Yöneticisi kimliği atandıktan sonra aşağıdaki komutu var olan bir Traffic Manager profiline ekleme sırasında yeni bir web uygulaması için kaynak web uygulamasının bir kopyasını oluşturma gösterilmektedir:
+Trafik Yöneticisi kimliği atandıktan sonra aşağıdaki komutu var olan bir Traffic Manager profiline eklenirken kaynak uygulamanın yeni bir uygulama için bir kopya oluşturma gösterilmektedir:
 
 ```PowerShell
 $destapp = New-AzureRmWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
@@ -123,7 +121,7 @@ Bu özellik şu anda önizlemededir ve yeni özellikler zamanla eklenir. Uygulam
 * Otomatik ölçek ayarları klonlanmaz
 * Yedekleme zamanlaması ayarları klonlanmaz
 * Sanal ağ ayarlarını klonlanmaz
-* App Insights otomatik olarak hedef web uygulamasında ayarlanmadınız
+* App Insights otomatik olarak hedef uygulamanın ayarlanmadınız
 * Kolay kimlik doğrulama ayarları klonlanmaz
 * Kudu uzantısı kopyalanmaz
 * İpucu kuralları klonlanmaz
@@ -131,8 +129,8 @@ Bu özellik şu anda önizlemededir ve yeni özellikler zamanla eklenir. Uygulam
 * Giden IP adresleri için farklı bir ölçek birimi kopyalama, değiştirir.
 
 ### <a name="references"></a>Başvurular
-* [Web uygulama kopyalama](app-service-web-app-cloning.md)
-* [Azure App Service'te bir web uygulamasını yedekleme](web-sites-backup.md)
+* [App Service kopyalama](app-service-web-app-cloning.md)
+* [Azure App Service'te bir uygulama yedekleme](manage-backup.md)
 * [Azure Traffic Manager önizlemesi için Azure Resource Manager desteği](../traffic-manager/traffic-manager-powershell-arm.md)
 * [App Service Ortamı’na giriş](environment/intro.md)
 * [Azure PowerShell’i Azure Resource Manager ile kullanma](../azure-resource-manager/powershell-azure-resource-manager.md)

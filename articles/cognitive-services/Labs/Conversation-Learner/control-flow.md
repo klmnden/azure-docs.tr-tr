@@ -1,7 +1,7 @@
 ---
-title: Konuşma öğrenen denetim akışı - Microsoft Bilişsel hizmetler | Microsoft Docs
+title: Konuşma Öğrenici denetim akışı - Microsoft Bilişsel hizmetler | Microsoft Docs
 titleSuffix: Azure
-description: Konuşma öğrenen denetim akışı hakkında bilgi edinin.
+description: Konuşma Öğrenici denetim akışı hakkında bilgi edinin.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,35 +10,35 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 592ca82db7e0ab3ff89d25b61f38f8b226f3bc86
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8007e9e9fe2f404b4d702471610ff76047f7ed86
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35353933"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790937"
 ---
 ## <a name="control-flow"></a>Denetim akışı
 
-Bu belgede görüntülendiği şekilde konuşma öğrenen'ın (CL) denetim akışı açıklanır diyagramı aşağıda.
+Bu belgede gösterilen haliyle konuşma Öğrenici ', (CI) denetim akışı açıklanır diyagram aşağıda.
 
 ![](media/controlflow.PNG)
 
-1. Kullanıcı bir terim veya tümcecik bot Örneğin, 'Seattle'da hava durumu nedir?' girer.
-1. CL varlıklar ayıklar makine öğrenimi modeline kullanıcı girişine geçirir
-    - Bu model konuşma öğrenen tarafından yapıdır ve www.luis.ai tarafından barındırılan
-2. Tüm varlıklar ayıklanır ve metin, kullanıcı giriş bot's kodunuzda varlık algılama geri çağırma yöntemine geçirilen.
-    - Bu kod kümesi/Temizle/işlemek varlık değerleri olabilir
-1. CL sinir ağı ardından varlık ayıklama ve kullanıcı girişi ve tüm eylemleri bot tanımlanan puanları çıktısını alır
-    - Bu örnekte, en yüksek olasılık eylem hava tahmini sağlamaktır:
+1. Kullanıcı bir terimini veya tümceciğini bot Örneğin, 'Seattle hava durumu nedir?' girer.
+1. CL varlıkları ayıklayan makine öğrenme modeli kullanıcı girişine geçirir.
+    - Bu model, derleme tarafından konuşma Öğrenici ve www.luis.ai tarafından barındırılan
+1. Ayıklanan tüm varlıkları ve kullanıcının metin girişinin botun kodunuzda varlık algılama geri çağırma yöntemine geçirilir.
+    - Bu kod varlık kümesi/clear/işlemek değerleri olabilir.
+1. CL sinir ağı sonra varlık ayıklama ve kullanıcı girişi ve bot içinde tanımlanan tüm eylemler puanları çıkışını alır
+    - Bu örnekte, en yüksek olasılık eylem hava durumu tahminini sağlamaktır:
 
-![](media/controlflow_forecast.PNG)
+    ![](media/controlflow_forecast.PNG)
 
-5. Seçilen eylem, bu durumda, hava durumu tahmini almak için bir API çağrısı gerektirir. 
-6. CL kullanarak kayıtlı bu API. AddAPICallback yöntemi, daha sonra çağrılır.  Bu API sonucunu daha sonra kullanıcıya bir ileti--Örneğin, 'Sunny 67'yi yüksek.' döndürülür
-7. Sonra sinir ağı önceki adımı bağlı olarak bir sonraki eylemi belirlemek için çağrı yapılır.
-8. Sinir ağı sonra eylemlerinin bir sonraki kümesini tahmin ve seçilen eylem, bu durumda, 'Başka bir şey?' kullanıcıya görüntülenir
+1. Seçili eylemi, bu durumda, hava durumu tahminini almak için bir API çağrısı gerektirir. 
+1. CL kullanarak kayıtlı bu API. Ardından AddCallback yöntemi çağrılır.  Bu API sonucunu sonra kullanıcıya bir ileti--Örneğin, 'Sunny 67'ın yüksek.' döndürülür
+1. Ardından sinir ağı için önceki adımlara göre sonraki eylemi belirlemek için çağrı yapılır.
+1. Sinir ağı, ardından sonraki olası eylemler kümesini tahmin eder ve seçili eylem, bu durumda, 'Başka bir şey mi?' kullanıcıya
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Konuşma öğrenen ile öğretmeyi nasıl ](./how-to-teach-cl.md)
+> [Konuşma Öğrenici ile öğretmeyi nasıl ](./how-to-teach-cl.md)

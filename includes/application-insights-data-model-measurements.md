@@ -4,12 +4,12 @@ ms.service: application-insights
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3986b77cfad167134bf8ada1e3cbb73ad64dd3ca
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 91141e314bf276d9138157c8a9d85d5262ac5907
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572839"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728991"
 ---
 Özel ölçümler koleksiyonu. Bu koleksiyona telemetri öğeyle ilişkili ölçüm adlı raporu kullanın. Tipik kullanım örnekleridir:
 - Bağımlılık Telemetrisi yükü boyutu
@@ -25,6 +25,6 @@ customEvents
 ```
 
  > [!NOTE]
- > Özel ölçümler, ait oldukları telemetri öğesinin ile ilişkilidir. Bu ölçüler içeren telemetri öğeyle tabi örnekleme değildirler. Diğer telemetri türleri bağımsız bir değere sahip bir ölçüm izlemek için [ölçüm telemetri](../articles/application-insights/app-insights-api-custom-events-metrics.md).
+ > Özel ölçümler, ait oldukları telemetri öğesinin ile ilişkilidir. Bu ölçüler içeren telemetri öğeyle tabi örnekleme değildirler. Diğer telemetri türleri bağımsız bir değere sahip bir ölçüm izlemek için [ölçüm telemetri](../articles/azure-monitor/app/api-custom-events-metrics.md).
 
 En fazla anahtar uzunluğu: 150

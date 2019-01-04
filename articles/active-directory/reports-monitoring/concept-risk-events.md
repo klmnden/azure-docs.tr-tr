@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6c1b9fabe89d254524006a21e3a422221791022d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4bca7ed2f10ce6b0231a260a9cf5b7468476343f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625275"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652158"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory risk olayları
 
@@ -31,7 +31,9 @@ Güvenlik ihlallerini büyük çoğunluğu göz önüne bir yerde saldırganlar�
  - **Azure AD raporlama** -Risk olayları, Azure AD'nin güvenlik parçası olan raporlar. Daha fazla bilgi için [risk altındaki kullanıcılar güvenlik raporu](concept-user-at-risk.md) ve [riskli oturum açma işlemleri güvenlik raporu](concept-risky-sign-ins.md).
 
  - **Azure AD kimlik koruması** -Risk olayları parçası olan Raporlama yeteneklerini [Azure Active Directory kimlik koruması](../active-directory-identityprotection.md).
-    
+
+Ayrıca, kullanabileceğiniz [kimlik koruması risk olayları API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) Microsoft Graph'ı kullanarak güvenlik algılamaları programlı erişim elde etmek için. Daha fazla bilgi için [Microsoft Graph ve Azure Active Directory kimlik koruması ile çalışmaya başlama](../identity-protection/graph-get-started.md). 
+
 Şu anda, Azure Active Directory risk olayları altı tür algılar:
 
 - [Sızdırılan kimlik bilgilerine sahip kullanıcılar](#leaked-credentials) 
@@ -125,9 +127,9 @@ Risk olayının önem kimliğinin tehlike bir tahmin unsuru sinyal gücünü tem
 
 Örneğin, 
 
-* **Yüksek**: yüksek güvenilirlik ve önem derecesi yüksek risk olayı. Bu, kullanıcının kimliğini açığa çıkardığını ve etkilenen tüm kullanıcı hesaplarını hemen düzeltilmesi güçlü göstergeleri olaylardır.
+* **Yüksek**: Yüksek güvenilirlik ve önem derecesi yüksek risk olayı. Bu, kullanıcının kimliğini açığa çıkardığını ve etkilenen tüm kullanıcı hesaplarını hemen düzeltilmesi güçlü göstergeleri olaylardır.
 
-* **Orta**: yüksek öneme sahip, ancak daha düşük güven risk olayı ya da tam tersi. Riskli olabilecek bu olaylar ve etkilenen tüm kullanıcı hesaplarını düzeltilmesi.
+* **Orta**: Yüksek öneme sahip, ancak daha düşük güven risk olayı ya da tam tersi. Riskli olabilecek bu olaylar ve etkilenen tüm kullanıcı hesaplarını düzeltilmesi.
 
 * **Düşük**: Düşük güvenilirlik ve düşük önem derecesi risk olayı. Bu olay bir Acil eylem gerekli değil, ancak diğer risk olayları ile birleştirildiğinde kimlik tehlikeye girmemesini güçlü bir gösterge sağlayabilir.
 

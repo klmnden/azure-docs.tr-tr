@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3939d8dce641d066a2470612068df7102b317a70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271020"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630470"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service ortamı ağ konuları #
 
@@ -49,7 +49,7 @@ ILB ASE, ILB adresini HTTP/S, FTP/S, web dağıtımı ve uzaktan hata ayıklama 
 
 Normal uygulama erişim bağlantı noktaları şunlardır:
 
-| Kullanım | Kimden | Alıcı |
+| Kullanım | Başlangıç fiyatı | Alıcı |
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Kullanıcı tarafından yapılandırılabilir |  80, 443 |
 |  FTP/FTPS    | Kullanıcı tarafından yapılandırılabilir |  21, 990, 10001-10020 |
@@ -59,7 +59,7 @@ Bu, dış ASE veya ILB ASE kullanıyorsanız geçerlidir. Bir dış ASE'de kulla
 
 ## <a name="ase-subnet-size"></a>ASE alt ağ boyutu ##
 
-Bir ASE barındırmak için kullanılan alt ağ boyutunu, ASE dağıtıldıktan sonra değiştirilemez.  ASE her altyapı rol için de her yalıtılmış App Service planı örneği için bir adres kullanır.  Ayrıca, Azure ağ tarafından oluşturulan her alt ağ için kullanılan 5 adresi vardır.  Bir uygulama oluşturmadan önce bir ASE'de App Service planı ile hiç 12 adreslerini kullanır.  ILB ASE ise bu ASE'de uygulama oluşturma önce ardından onu 13 adreslerini kullanır. ASE'nizi ölçeklendirilirken altyapısı rollerinin 15 ve 20 App Service planı örneklerinizin her birden çok eklenir.
+Bir ASE barındırmak için kullanılan alt ağın boyutu ASE dağıtıldıktan sonra değiştirilemez.  ASE her altyapı rol için de her yalıtılmış App Service planı örneği için bir adres kullanır.  Ayrıca, Azure ağ tarafından oluşturulan her alt ağ için kullanılan 5 adresi vardır.  Bir uygulama oluşturmadan önce bir ASE'de App Service planı ile hiç 12 adreslerini kullanır.  ILB ASE ise bu ASE'de uygulama oluşturma önce ardından onu 13 adreslerini kullanır. ASE'nizi ölçeklendirilirken altyapısı rollerinin 15 ve 20 App Service planı örneklerinizin her birden çok eklenir.
 
    > [!NOTE]
    > Başka bir şey alt ancak ASE olabilir. Gelecekteki Büyümeye izin veren bir adres alanı seçtiğinizden emin olun. Bu ayar daha sonra değiştiremezsiniz. Boyutu öneririz `/24` 256 adreslerine sahip.
@@ -72,7 +72,7 @@ Bir ASE barındırmak için kullanılan alt ağ boyutunu, ASE dağıtıldıktan 
 
 ASE gelen bağımlılıklar erişim:
 
-| Kullanım | Kimden | Alıcı |
+| Kullanım | Başlangıç fiyatı | Alıcı |
 |-----|------|----|
 | Yönetim | App Service yönetim adresleri | ASE alt ağı: 454, 455 |
 |  ASE iç iletişimi | ASE alt ağı: Tüm bağlantı noktaları | ASE alt ağı: Tüm bağlantı noktaları
@@ -151,7 +151,7 @@ Bu IP adresleri ASE kullanıcı Arabiriminden kolayca Azure portalında bir ASEv
 
 ### <a name="app-assigned-ip-addresses"></a>Uygulama tarafından atanan IP adresleri ###
 
-Dış ASE ile tek tek uygulamalar için IP adresleri atayabilirsiniz. Bir ILB ASE ile bunu yapamazsınız. Kendi IP adresi sağlamak için uygulamanızı yapılandırma hakkında daha fazla bilgi için bkz. [Azure web Apps'e mevcut özel bir SSL sertifikası bağlama](../app-service-web-tutorial-custom-ssl.md).
+Dış ASE ile tek tek uygulamalar için IP adresleri atayabilirsiniz. Bir ILB ASE ile bunu yapamazsınız. Kendi IP adresi sağlamak için uygulamanızı yapılandırma hakkında daha fazla bilgi için bkz. [mevcut bir özel SSL sertifikasını Azure App Service'e bağlama](../app-service-web-tutorial-custom-ssl.md).
 
 ASE, uygulama kendi IP tabanlı SSL adresi sahip olduğunda, bu IP adresine eşlemek için iki bağlantı noktası ayırır. Bir bağlantı noktası HTTP trafiği için ve HTTPS için diğer bağlantı noktasıdır. Bu bağlantı noktalarını ASE kullanıcı Arabirimine IP adresleri bölümünde listelenir. Trafik Bu bağlantı noktalarını VIP'yi ulaşabilir veya uygulamaları erişilemez. Bu gereksinim, ağ güvenlik grupları (Nsg'ler) yapılandırdığınızda unutmamak önemlidir.
 

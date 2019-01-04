@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 432f1a89979829bd43596d0d6a3ab7a2a3bfb996
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 2b427669fe692704343d5a3c2096df92cffb8d76
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336491"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584002"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında Eylem grupları oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -98,7 +98,7 @@ Kaynak IP adresi aralıkları
     - 13.106.38.148
     - 13.106.57.196
 
-Değişiklikler yapılandırdığınız öneririz bu IP adresleri için güncelleştirmeleri almak için bir [hizmet durumu Uyarısı](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) Eylem grupları hizmeti hakkında bilgi veren bildirimleri için izler.
+Değişiklikler yapılandırdığınız öneririz bu IP adresleri için güncelleştirmeleri almak için bir [hizmet durumu Uyarısı](./../../azure-monitor/platform/service-notifications.md) Eylem grupları hizmeti hakkında bilgi veren bildirimleri için izler.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar ##

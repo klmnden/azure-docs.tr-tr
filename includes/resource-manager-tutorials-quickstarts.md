@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 12/05/2018
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 46618b76f43247199e85c2023a5391c5566f3394
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 711688b5b414e7b9a931190de3f7e6321d97ba3e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52978749"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729348"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Hızlı başlangıçlar ve öğreticiler
 
@@ -39,6 +39,7 @@ Kaynak yöneticisi şablonları geliştirmeyi öğrenmek için aşağıdaki hız
     |------|-----|
     |[Şablon başvurusunda yararlanma](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|Şablon geliştirmek için şablon başvuru belgelerini kullanın. Öğreticide depolama hesabı şemasını bulacak ve şifrelenmiş bir depolama hesabı oluşturmak için bu bilgileri kullanacaksınız.|
     |[Birden çok örnek oluşturma](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|Birden çok Azure kaynağı örneği oluşturma. Öğreticide birden fazla depolama hesabı örneği oluşturacaksınız.|
+    |[Kaynakları taşıma](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|Kaynakları bir kaynak grubundan başka bir kaynak grubuna taşıyın. Öğreticide, iki kaynak grubu ve bir depolama hesabı oluşturmak için var olan bir şablonu çalıştırın ve ardından depolama hesabı başka bir kaynak grubuna taşımak için bir Azure PowerShell cmdlet'ini çalıştırın.|
     |[Kaynak dağıtım sırasını belirleme](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|Kaynak bağımlılıklarını tanımlayın. Öğreticide bir sanal ağ, bir sanal makine ve bağımlı Azure kaynakları oluşturacaksınız. Bağımlılıkların nasıl tanımlandığını öğreneceksiniz.|
     |[Koşulları kullanma](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|Kaynakları bazı parametre değerlerine göre dağıtma. Öğreticide, bir parametre değerine göre yeni bir depolama hesabı oluşturmak veya mevcut bir depolama hesabını kullanmak için bir şablon tanımlayacaksınız.|
     |[Anahtar kasasını tümleştirme](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Azure Key Vault'tan gizli anahtarlar/parolalar alma. Öğreticide bir sanal makine oluşturacaksınız.  Sanal makine yönetici parolası bir Key Vault'tan alınır.|

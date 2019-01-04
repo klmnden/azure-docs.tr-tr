@@ -7,17 +7,19 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.openlocfilehash: c898a206322bbc6acb73d582fcb08c8bbba274d0
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 03344cf989e1381f97b108e82b8d63e9c4653404
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291457"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809820"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Azure Active Directory kimlik doğrulaması SMB üzerinden Azure dosyaları (Önizleme) için etkinleştirin.
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 Azure dosyaları SMB üzerinden Azure AD kimlik doğrulamasını genel bakış için bkz. [genel bakış, Azure Active Directory kimlik doğrulaması SMB üzerinden Azure dosyaları (Önizleme)](storage-files-active-directory-overview.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview-of-the-workflow"></a>İş akışına genel bakış
 Azure dosyaları için SMB üzerinden Azure AD'ye etkinleştirmeden önce doğrulayın, Azure AD ve Azure depolama ortamları düzgün yapılandırılmış. İzlenecek yol, önerilen [önkoşulları](#prerequisites) gerekli tüm adımları gerçekleştirdiğiniz emin olmak için. 
@@ -60,7 +62,7 @@ Azure dosyaları için SMB üzerinden Azure AD'ye etkinleştirmeden önce aşağ
 
     Azure AD kiracınız ile aynı abonelikle ilişkilendirilmiş bir yeni veya mevcut dosya paylaşımını seçin. Yeni bir dosya paylaşımı oluşturma hakkında daha fazla bilgi için bkz: [Azure dosyaları'nda bir dosya paylaşımı oluşturma](storage-how-to-create-file-share.md). 
 
-    SMB üzerinden Azure AD Önizleme için desteklenen bir bölge için Azure AD kiracısını dağıtılması gerekir. Dışındaki tüm ortak bölgelerde Önizleme kullanılabilir: Batı ABD, Batı ABD 2, Orta Güney ABD, Doğu ABD, Doğu ABD 2, Orta ABD, Kuzey Orta ABD, Avustralya Doğu, Batı Avrupa, Kuzey Avrupa.
+    SMB üzerinden Azure AD Önizleme için desteklenen bir bölge için Azure AD kiracısını dağıtılması gerekir. Önizleme dışındaki tüm ortak bölgelerde kullanılabilir: Batı ABD, Batı ABD 2, Orta Güney ABD, Doğu ABD, Doğu ABD 2, Orta ABD, Kuzey Orta ABD, Avustralya Doğu, Batı Avrupa, Kuzey Avrupa.
 
     En iyi performans için dosya paylaşımınızı paylaşıma erişim planladığınız VM ile aynı bölgede olan Microsoft önerir.
 
@@ -88,17 +90,17 @@ Aşağıdaki resimde, Azure AD kimlik doğrulaması üzerinden SMB depolama hesa
   
 ### <a name="powershell"></a>PowerShell  
 
-Azure PowerShell üzerinden SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirmek için önce yükleme `AzureRM.Storage` modülü, sürüm `6.0.0-preview`aşağıdaki gibi. PowerShell'i yükleme hakkında daha fazla bilgi için bkz. [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps):
+Azure PowerShell üzerinden SMB üzerinden Azure AD kimlik doğrulamasını etkinleştirmek için önce önizleme yapısı yüklemeniz `Az.Storage` modülü ile Azure AD desteğini. PowerShell'i yükleme hakkında daha fazla bilgi için bkz. [PowerShellGet ile Windows üzerindeki Azure PowerShell yükleme](https://docs.microsoft.com/powershell/azure/install-Az-ps):
 
 ```powershell
-Install-Module -Name AzureRM.Storage -RequiredVersion 6.0.0-preview -AllowPrerelease
+Install-Module -Name Az.Storage -AllowPrerelease -Force -AllowClobber
 ```
 
-Ardından, yeni bir depolama oluşturma çağrı sonra hesap [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) ve **EnableAzureFilesAadIntegrationForSMB** parametresi **true**. Aşağıdaki örnekte, yer tutucu değerlerini kendi değerlerinizle değiştirin unutmayın.
+Ardından, yeni bir depolama oluşturma çağrı sonra hesap [kümesi AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) ve **EnableAzureFilesAadIntegrationForSMB** parametresi **true**. Aşağıdaki örnekte, yer tutucu değerlerini kendi değerlerinizle değiştirin unutmayın.
 
 ```powershell
 # Create a new storage account
-New-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
+New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Name "<storage-account-name>" `
     -Location "<azure-region>" `
     -SkuName Standard_LRS `
@@ -107,7 +109,7 @@ New-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 # Update an existing storage account
 # Supported for storage accounts created after September 24, 2018 only
-Set-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
+Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Name "<storage-account-name>" `
     -EnableAzureFilesAadIntegrationForSMB $true```
 ```
@@ -152,17 +154,16 @@ Aşağıdaki özel rolü şablonu, bir kimlik okuma, yazma ve silme erişimi pay
   "Name": "<Custom-Role-Name>",
   "Id": null,
   "IsCustom": true,
-  "Description": "Allows for read, write and delete access to Azure File Share",
+  "Description": "Allows for read, write and delete access to Azure File Share over SMB",
   "Actions": [
-    "*"
-  ],
-  "NotActions": [
-      "Microsoft.Authorization/*/Delete",
-    "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action"
+    "Microsoft.Storage/storageAccounts/fileServices/fileshare/*"
   ],
   "DataActions": [
-    "*"
+    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/*"
+  ],
+  "NotDataActions": [
+    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermission",
+    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actasadmin"
   ],
   "AssignableScopes": [
         "/subscriptions/<Subscription-ID>"
@@ -178,12 +179,12 @@ Aşağıdaki özel rolü şablonu, paylaşım düzeyi Okuma izinleri, paylaşım
   "Name": "<Custom-Role-Name>",
   "Id": null,
   "IsCustom": true,
-  "Description": "Allows for read access to Azure File Share",
+  "Description": "Allows for read access to Azure File Share over SMB",
   "Actions": [
-    "*/read"
+    "Microsoft.Storage/storageAccounts/fileServices/fileshare/read"
   ],
   "DataActions": [
-    "*/read"
+    "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read"
   ],
   "AssignableScopes": [
         "/subscriptions/<Subscription-ID>"
@@ -201,7 +202,7 @@ Aşağıdaki PowerShell komutu, şablonları birini temel alan özel bir rol olu
 
 ```powershell
 #Create a custom role based on the sample template above
-New-AzureRmRoleDefinition -InputFile "<custom-role-def-json-path>"
+New-AzRoleDefinition -InputFile "<custom-role-def-json-path>"
 ```
 
 #### <a name="cli"></a>CLI 
@@ -225,11 +226,11 @@ Aşağıdaki örnek komut dosyasını çalıştırırken, yer tutucu değerlerin
 
 ```powershell
 #Get the name of the custom role
-$FileShareContributorRole = Get-AzureRmRoleDefinition "<role-name>"
+$FileShareContributorRole = Get-AzRoleDefinition "<role-name>"
 #Constrain the scope to the target file share
 $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 #Assign the custom role to the target identity with the specified scope.
-New-AzureRmRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
+New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
 
 #### <a name="cli"></a>CLI

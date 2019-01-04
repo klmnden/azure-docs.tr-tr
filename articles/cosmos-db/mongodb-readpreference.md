@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB MongoDB API'si ile MongoDB okuma tercihini kullanma
-description: Azure Cosmos DB MongoDB API'si ile MongoDB okuma tercihini kullanmayı öğrenin
+title: MongoDB API'si ile Azure Cosmos DB'nin MongoDB okuma tercihini kullanarak
+description: Okuma tercihini MongoDB API'si ile Azure Cosmos DB'nin MongoDB için kullanmayı öğrenin
 services: cosmos-db
 author: vidhoonv
 ms.author: sclyon
@@ -9,22 +9,22 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
-ms.openlocfilehash: 4f40a2dac04102a19be7b3209c6bf37be9252cde
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 25c1872a677b05980899307a8de9f9b51fa749f9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875357"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787854"
 ---
-# <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Genel olarak dağıtma ile Azure Cosmos DB MongoDB API'si ile okuma tercihini kullanma okur. 
+# <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB'nin MongoDB kullanarak genel olarak nasıl dağıtacağınızı okur
 
-Bu makalede, okuma işlemleri kullanarak Global olarak dağıtma işlemi gösterilmektedir [MongoDB okuma tercihini](https://docs.mongodb.com/manual/core/read-preference/) Azure Cosmos DB'nin MongoDB API'si ile ayarlar. 
+Bu makalede, okuma işlemleri ile Global olarak dağıtma işlemi gösterilmektedir [MongoDB okuma tercihini](https://docs.mongodb.com/manual/core/read-preference/) Azure Cosmos DB'nin MongoDB kullanarak ayarlar.
 
 ## <a name="prerequisites"></a>Önkoşullar 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
-Bu [hızlı](tutorial-global-distribution-mongodb.md) makale Azure portalını kullanarak Azure Cosmos DB hesabı ile genel dağıtım ayarlayın ve sonra MongoDB API'sini kullanarak bağlanma yönergeleri.
+Bu [hızlı](tutorial-global-distribution-mongodb.md) ayarlamak için Azure portalını kullanarak yönergeleri yukarı genel dağıtım Cosmos hesabıyla ve buna bağlanmak için makalesi.
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
@@ -52,10 +52,10 @@ cd mean
 npm install
 node index.js
 ```
-Uygulama bir MongoDB kaynağına bağlanmayı dener ve bağlantı dizesi geçersiz olduğu için başarısız olur. Bağlantı dizesini güncellemek için Benioku adımları `url`. Ayrıca, güncelleştirme `readFromRegion` Azure Cosmos DB hesabınızdaki bir okuma bölgesine. Aşağıdaki yönergeler, NodeJS örnekten şunlardır:
+Uygulama bir MongoDB kaynağına bağlanmayı dener ve bağlantı dizesi geçersiz olduğu için başarısız olur. Bağlantı dizesini güncellemek için Benioku adımları `url`. Ayrıca, güncelleştirme `readFromRegion` Cosmos hesabınızdaki bir okuma bölgesine. Aşağıdaki yönergeler, NodeJS örnekten şunlardır:
 
 ```
-* Next, substitute the `url`, `readFromRegion` in App.Config with your Cosmos DB account's values. 
+* Next, substitute the `url`, `readFromRegion` in App.Config with your Cosmos account's values. 
 ```
 
 Sonra aşağıdaki adımları, örnek uygulama çalışır ve aşağıdaki çıktıyı üretir:
@@ -74,7 +74,7 @@ readFromSecondaryfunc query completed!
 
 ## <a name="read-using-read-preference-mode"></a>Okuma tercihini modu kullanılarak okuyun
 
-MongoDB, istemcilerin kullanmak aşağıdaki okuma tercihini modları sağlar:
+MongoDB protokolü, istemcilerin kullanmak aşağıdaki okuma tercihini modları sağlar:
 
 1. BİRİNCİL
 2. PRIMARY_PREFERRED
@@ -82,7 +82,7 @@ MongoDB, istemcilerin kullanmak aşağıdaki okuma tercihini modları sağlar:
 4. SECONDARY_PREFERRED
 5. EN YAKIN
 
-Ayrıntılı başvuru [MongoDB okuma tercihini davranışı](https://docs.mongodb.com/manual/core/read-preference-mechanics/#replica-set-read-preference-behavior) her birinin davranışı hakkında ayrıntılar için belgeleri okuyun tercih modları. Azure Cosmos DB'de birincil yazma bölgesi ve ikincil okuma bölgesi eşlenir eşlenir.
+Ayrıntılı başvuru [MongoDB okuma tercihini davranışı](https://docs.mongodb.com/manual/core/read-preference-mechanics/#replica-set-read-preference-behavior) her birinin davranışı hakkında ayrıntılar için belgeleri okuyun tercih modları. Cosmos DB'de birincil yazma bölgesi ve ikincil okuma bölgesi eşlenir eşlenir.
 
 Genel senaryolara bağlı olarak, aşağıdaki ayarları kullanmanızı öneririz:
 
@@ -137,7 +137,7 @@ Diğer platformlar için karşılık gelen örnek uygulama depoları gibi başvu
 
 ## <a name="read-using-tags"></a>Etiketleri kullanarak okuma
 
-Okuma tercihini modu ek olarak, MongoDB, okuma işlemleri yönlendirmek için etiketleri kullanmanıza izin verir. MongoDB API'si için Azure Cosmos DB'de `region` etiketi varsayılan olarak bir parçası olarak dahil `isMaster` yanıt:
+Okuma tercihini modu ek olarak, MongoDB protokolü, okuma işlemleri yönlendirmek için etiketleri kullanımına izin verir. MongoDB, Cosmos DB'nin API'sindeki `region` etiketi varsayılan olarak bir parçası olarak dahil `isMaster` yanıt:
 
 ```json
 "tags": {
@@ -145,7 +145,7 @@ Okuma tercihini modu ek olarak, MongoDB, okuma işlemleri yönlendirmek için et
       }
 ```
 
-Bu nedenle, MongoClient kullanabilirsiniz `region` etiketi okuma işlemlerini belirli bölgelere yönlendirmek için bölge adı. Azure Cosmos DB hesapları için bölge adlarının Azure Portal'da sol altında bulunabilir **ayarlar çoğaltma verilerini genel ->**. Bu ayar, elde etmek için yararlıdır **yalıtım okuma** -yalnızca belirli bir bölgeye okuma işlemleri doğrudan istediğiniz durumlarda hangi istemci uygulaması. Bu ayar, olmayan-üretim/analiz için idealdir, arka planda çalışan ve üretim kritik Hizmetleri senaryoları yazın.
+Bu nedenle, MongoClient kullanabilirsiniz `region` etiketi okuma işlemlerini belirli bölgelere yönlendirmek için bölge adı. Cosmos hesapları için bölge adlarının Azure Portal'da sol altında bulunabilir **ayarlar çoğaltma verilerini genel ->**. Bu ayar, elde etmek için yararlıdır **yalıtım okuma** -yalnızca belirli bir bölgeye okuma işlemleri doğrudan istediğiniz durumlarda hangi istemci uygulaması. Bu ayar, olmayan-üretim/analiz için idealdir, arka planda çalışan ve üretim kritik Hizmetleri senaryoları yazın.
 
 Örnek uygulamayı alınan aşağıdaki kod, nodejs'de etiketlerle okuma tercihini yapılandırma işlemi gösterilmektedir:
 
@@ -160,7 +160,7 @@ Bu nedenle, MongoClient kullanabilirsiniz `region` etiketi okuma işlemlerini be
 
 Diğer platformlar için karşılık gelen örnek uygulama depoları gibi başvurmak [.NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference) ve [Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference).
 
-Bu makalede, Azure Cosmos DB'nin MongoDB API'si ile okuma tercihini kullanma okuma işlemleri genel olarak dağıtmayı öğrendiniz.
+Bu makalede, genel okuma işlemleri için MongoDB API'si ile Azure Cosmos DB'nin okuma tercihini kullanma dağıtmayı öğrendiniz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -172,5 +172,5 @@ Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları uygulayar
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure Cosmos DB’ye MongoDB verileri aktarma](mongodb-migrate.md)
-* [Genel olarak çoğaltılan bir Azure Cosmos DB hesabı kurulumu ve MongoDB API'si ile kullanma](tutorial-global-distribution-mongodb.md)
-* [Öykünücü ile yerel olarak geliştirme](local-emulator.md)
+* [MongoDB için Azure Cosmos DB API'si ile Global olarak dağıtılmış bir veritabanı Kurulumu](tutorial-global-distribution-mongodb.md)
+* [Azure Cosmos DB öykünücüsü ile yerel olarak geliştirme](local-emulator.md)

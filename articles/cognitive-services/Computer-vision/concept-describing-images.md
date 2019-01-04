@@ -1,7 +1,7 @@
 ---
 title: Görüntüleri - görüntü işleme açıklayan
 titleSuffix: Azure Cognitive Services
-description: Görüntü işleme API'sini kullanarak görüntüleri tanımlamaya ilgili kavramları.
+description: Görüntü işleme API'si görüntü açıklama özelliğiyle ilgili kavramları.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,22 +10,23 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 423d1be57bc800108a08a81b72587ca2711bbc3d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 5b920e4ce8df131b81a9ef6ce2d66c7082d8f5e4
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342424"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583417"
 ---
-# <a name="describing-images"></a>Resimleri açıklama
+# <a name="describe-images-with-human-readable-language"></a>Kullanıcı tarafından okunabilen bir dil ile görüntü açıklayın
 
-Görüntü işleme'nın algoritmaları, görüntü içeriği analiz edin. Bu analiz, tam cümlelerden okunabilir dili olarak görüntülenen bir 'description' için temel oluşturur. Açıklama, görüntüde bulunan özetler. Görüntü işleme'nın algoritmaları görüntüde tanımlanmış görsel özelliklere bağlı olarak çeşitli açıklamaları oluşturur. Her açıklaması değerlendirilir ve bir güven puanı oluşturulur. Ardından, güvenilirlik puanı için azalan düzende sıralı bir liste döndürülür.
+Görüntü işleme'nın algoritmaları, görüntü içeriği analiz edin. Bu analiz, tam tümceler halinde insan tarafından okunabilir dilde görüntülenen bir 'açıklamanın' temelini oluşturur. Açıklama, görüntüde nelerin bulunduğunu özetler. Görüntü işleme'nın algoritmaları görüntüde tanımlanmış görsel özelliklere bağlı olarak çeşitli açıklamaları oluşturur. Her açıklaması değerlendirilir ve bir güven puanı oluşturulur. Ardından, güvenilirlik puanı için azalan düzende sıralı bir liste döndürülür.
 
 ## <a name="image-description-example"></a>Resim Açıklama örneği
 
 Görüntü işleme örnek görüntünün görsel özelliklerini anlatırken döndürür aşağıdaki JSON yanıtı gösterir.
 
-![B & W binalar](./Images/bw_buildings.png)
+![Siyah beyaz Manhattan stockholm'deki resmi](./Images/bw_buildings.png)
 
 ```json
 {

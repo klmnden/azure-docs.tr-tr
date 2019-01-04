@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: c8b54631f0d37e0e90135dd9e23ff85591cead1b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 90ba4f2197dc1b00ad2a3d234f3e81e529ae7e4f
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495377"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653926"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Bir HDInsight uygulaması Azure Market'te yayımlama
 Bir Linux tabanlı HDInsight kümesi üzerinde bir Azure HDInsight uygulama yükleyebilirsiniz. Bu makalede, HDInsight uygulama Azure Marketi'nde yayımlama konusunda bilgi edinin. Azure Marketi'nde yayımlama hakkında genel bilgi için bkz. [Azure Marketi'nde teklif yayımlamak](../marketplace/marketplace-publishers-guide.md).
@@ -53,7 +53,7 @@ Ayrıca Geliştirici hesabınızı kaydetmeniz gerekir. Daha fazla bilgi için [
 ## <a name="application-installation-script"></a>Uygulama yükleme betiği
 Bir küme (ya da mevcut bir kümeye ya da yeni bir tane) bir uygulama yüklendiğinde, kenar düğümüne oluşturulur. Uygulama yükleme betiği, kenar düğümünde çalışır.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Uygulama yükleme betiğinin adını belirli bir küme için benzersiz olmalıdır. Betik adı şu biçimde olmalıdır:
   > 
   > "name": "[concat ('hue yükleme v0 ','-', uniquestring('applicationName')]"
@@ -81,9 +81,8 @@ HDInsight uygulamanızı yüklemek için gereken tüm dosyaları içeren bir .zi
 * mainTemplate.json (bir örnek için bkz. [özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).)
 * Gerekli tüm betikler
 
-> [!NOTE]
+> [!NOTE]  
 > Uygulama dosyaları (tüm web uygulama dosyaları dahil), herhangi genel olarak erişilebilen bir uç noktaya barındırabilirsiniz.
-> 
 
 ## <a name="publish-the-application"></a>Uygulamayı yayımlama
 Bir HDInsight uygulamasını yayımlamak için:

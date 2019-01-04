@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: b89c2607a1b21b999e5f95224e4aefc97e321f14
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fef6858383028d62a16472bd530bf456d01ee7d3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251364"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634431"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell ile Azure kuyruk depolama işlemleri
 
@@ -27,16 +27,18 @@ Azure kuyruk depolama, çok sayıda herhangi bir HTTP veya HTTPS aracılığıyl
 > * İleti silme 
 > * Bir kuyruk silme
 
-Bu yöntem, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
+Bu nasıl yapılır, Azure PowerShell modülü Az 0.7 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-Az-ps).
 
 Hiçbir veri düzlemi için kuyrukları için PowerShell cmdlet'leri vardır. Bir ileti okuma gerçekleştirmek veri düzlemi işlemleri gibi bir ileti ekleyin ve ileti silme, PowerShell'de sunulur gibi .NET depolama istemcisi kitaplığı kullanmak zorunda. Bir ileti nesnesi oluşturun ve sonra bu ileti üzerinde işlem gerçekleştirmek için AddMessage gibi komutları kullanabilirsiniz. Bu makalede bunu nasıl yapacağınız gösterilmektedir.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-`Connect-AzureRmAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
+`Connect-AzAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## <a name="retrieve-list-of-locations"></a>Konumların listesini alma
@@ -44,28 +46,28 @@ Connect-AzureRmAccount
 Kullanmak istediğiniz konumdan emin değilseniz, kullanılabilir konumları listeleyebilirsiniz. Liste görüntülendikten sonra, kullanmak istediğiniz öğeyi bulun. Bu alıştırmada kullanacağı **eastus**. Bu değişkende Store **konumu** gelecekte kullanım için.
 
 ```powershell
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "eastus"
 ```
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutu ile yeni bir kaynak grubu oluşturun. 
+Bir kaynak grubu oluşturun [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu. 
 
 Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Kaynak grubu adı, gelecekte kullanım için bir değişkende Store. Bu örnekte, adlı bir kaynak grubu *howtoqueuesrg* oluşturulur *eastus* bölge.
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
-New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
+New-AzResourceGroup -ResourceGroupName $resourceGroup -Location $location
 ```
 
 ## <a name="create-storage-account"></a>Depolama hesabı oluştur
 
-Yerel olarak yedekli depolama (LRS) kullanarak bir genel amaçlı standart depolama hesabı oluşturma [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Kullanılacak depolama hesabını tanımlayan depolama hesabı bağlamını alın. Depolama hesabında bir işlem gerçekleştirirken, kimlik bilgilerini tekrar tekrar sağlamak yerine bağlama başvurursunuz.
+Yerel olarak yedekli depolama (LRS) kullanarak bir genel amaçlı standart depolama hesabı oluşturma [yeni AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). Kullanılacak depolama hesabını tanımlayan depolama hesabı bağlamını alın. Depolama hesabında bir işlem gerçekleştirirken, kimlik bilgilerini tekrar tekrar sağlamak yerine bağlama başvurursunuz.
 
 ```powershell
 $storageAccountName = "howtoqueuestorage"
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName Standard_LRS
@@ -75,27 +77,27 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>Bir kuyruk oluşturma
 
-Aşağıdaki örnek, ilk Azure depolama hesabı adını ve erişim anahtarını içeren depolama hesabı bağlamını kullanarak depolama bağlantı kurar. Ardından, çağıran [yeni AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) cmdlet'ini 'queuename' adında bir kuyruk oluşturun.
+Aşağıdaki örnek, ilk Azure depolama hesabı adını ve erişim anahtarını içeren depolama hesabı bağlamını kullanarak depolama bağlantı kurar. Ardından, çağıran [yeni AzStorageQueue](/powershell/module/azure.storage/new-AzStoragequeue) cmdlet'ini 'queuename' adında bir kuyruk oluşturun.
 
 ```powershell
 $queueName = "howtoqueue"
-$queue = New-AzureStorageQueue –Name $queueName -Context $ctx
+$queue = New-AzStorageQueue –Name $queueName -Context $ctx
 ```
 
 Azure kuyruk hizmeti için adlandırma kuralları hakkında bilgi için bkz: [adlandırma kuyrukları ve meta verileri](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 
 ## <a name="retrieve-a-queue"></a>Bir kuyruğa alma
 
-Sorgulamak ve belirli bir kuyruğa veya bir depolama hesabındaki tüm kuyrukların listesini alır. Aşağıdaki örnekler, depolama hesabındaki tüm kuyrukları ve belirli bir kuyruğa alma göstermektedir; Her iki komutları [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) cmdlet'i.
+Sorgulamak ve belirli bir kuyruğa veya bir depolama hesabındaki tüm kuyrukların listesini alır. Aşağıdaki örnekler, depolama hesabındaki tüm kuyrukları ve belirli bir kuyruğa alma göstermektedir; Her iki komutları [Get-AzStorageQueue](/powershell/module/azure.storage/get-AzStoragequeue) cmdlet'i.
 
 ```powershell
 # Retrieve a specific queue
-$queue = Get-AzureStorageQueue –Name $queueName –Context $ctx
+$queue = Get-AzStorageQueue –Name $queueName –Context $ctx
 # Show the properties of the queue
 $queue
 
 # Retrieve all queues and show their names
-Get-AzureStorageQueue -Context $ctx | select Name
+Get-AzStorageQueue -Context $ctx | select Name
 ```
 
 ## <a name="add-a-message-to-a-queue"></a>Kuyruğa bir ileti ekleyin
@@ -157,11 +159,11 @@ $queue.CloudQueue.DeleteMessage($queueMessage)
 ```
 
 ## <a name="delete-a-queue"></a>Bir kuyruk silme
-Bir kuyruk ve içerdiği tüm iletileri silmek için Remove-AzureStorageQueue cmdlet'ini çağırın. Aşağıdaki örnek Remove-AzureStorageQueue cmdlet'ini kullanarak bu alıştırmada kullanılan belirli bir kuyruğa silme işlemini gösterir.
+Bir kuyruk ve içerdiği tüm iletileri silmek için Remove-AzStorageQueue cmdlet'ini çağırın. Aşağıdaki örnek Remove-AzStorageQueue cmdlet'ini kullanarak bu alıştırmada kullanılan belirli bir kuyruğa silme işlemini gösterir.
 
 ```powershell
 # Delete the queue 
-Remove-AzureStorageQueue –Name $queueName –Context $ctx
+Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
@@ -169,7 +171,7 @@ Remove-AzureStorageQueue –Name $queueName –Context $ctx
 Bu alıştırmada oluşturduğunuz varlıkların tümünü kaldırmak için kaynak grubunu kaldırın. Bu, ayrıca grubun içerdiği tüm kaynakları da siler. Bu durumda, oluşturduğunuz depolama hesabına ve kaynak grubunu kaldırır.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -185,7 +187,7 @@ Nasıl yapılır bu makalede PowerShell ile temel kuyruk Depolama Yönetimi hakk
 > * Bir kuyruk silme
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell depolama cmdlet'leri
-* [Depolama PowerShell cmdlet’leri](/powershell/module/azurerm.storage#storage)
+* [Depolama PowerShell cmdlet’leri](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Depolama Gezgini
 * [Microsoft Azure Depolama Gezgini](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.

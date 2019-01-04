@@ -10,18 +10,22 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 8542b1f6dfe031de58ea6eeb931027ee03bd81f2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5e5392f04b7894f0fe39a940865035d967c2d19a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030974"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629947"
 ---
 # <a name="upgrade-your-qna-maker-service"></a>Soru-Cevap Oluşturma hizmetinizi yükseltme
 Soru-cevap Oluşturucu yığınının tek tek bileşenler ilk oluşturulduktan sonra yükseltmeyi seçebilir. SKU seçimi ve bağımlı bileşenler ayrıntılarını görmek [burada](https://aka.ms/qnamaker-docs-capacity).
 
 ## <a name="upgrade-qna-maker-management-sku"></a>Soru-cevap Oluşturucu Yönetimi SKU yükseltme
+
+Daha fazla sorular ve cevaplar, Bilgi Bankası'ndaki, ihtiyacınız olduğunda geçerli katmanınızı fiyatlandırma katmanı, soru-cevap Oluşturucu hizmetini yükseltin. 
+
 Soru-cevap Oluşturucu yönetim SKU yükseltmek için:
+
 1. Azure Portalı'nda soru-cevap Oluşturucu kaynağınıza gidin ve seçin **fiyatlandırma katmanı**.
 
     ![Soru-cevap Oluşturucu kaynak](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource.png)
@@ -31,6 +35,9 @@ Soru-cevap Oluşturucu yönetim SKU yükseltmek için:
     ![Soru-cevap Oluşturucu fiyatlandırması](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
 ## <a name="upgrade-app-service"></a>App Service'i Yükselt
+
+ Bilgi bankanızı istemci uygulamanıza ilişkin daha fazla isteklere hizmet gerektiğinde, app service fiyatlandırma katmanına yükseltin.
+
 Yapabilecekleriniz [ölçeği](https://docs.microsoft.com/azure/app-service/web-sites-scale) veya uygulama hizmeti ölçeklendirin.
 
 1. Azure portalında uygulama hizmeti kaynağına gidin ve seçin **ölçeği** veya **ölçeğini** gerektiği şekilde Seçenekler.
@@ -38,6 +45,9 @@ Yapabilecekleriniz [ölçeği](https://docs.microsoft.com/azure/app-service/web-
     ![Soru-cevap Oluşturucu app service ölçek](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
 ## <a name="upgrade-azure-search-service"></a>Azure arama hizmetini yükseltin
+
+Birçok bilgi bankaları planlama yaparken, Azure Search hizmetinizin fiyatlandırma katmanına yükseltin. 
+
 Şu anda bir yerinde gerçekleştirmek mümkün değil Azure yükseltmesini SKU arayın. Ancak, yeni bir Azure Search'ü kaynak istenen SKU ile oluşturmak, yeni kaynak için verileri geri ve soru-cevap Oluşturucu yığına Bağla.
 
 1. Azure portalında yeni bir Azure Search'ü kaynak oluşturmak ve istenen SKU seçin.

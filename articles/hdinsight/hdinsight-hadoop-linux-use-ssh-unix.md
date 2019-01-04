@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: bcd550ac8f4b75002648f2e4737a4683349aa45f
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: a7ba66fae3f2a8426cc333cca109a4c6793d1da2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384641"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724340"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>SSH kullanarak HDInsight için (Apache Hadoop) bağlanma
 
@@ -63,7 +63,7 @@ Microsoft Windows, hiçbir SSH istemcisini varsayılan olarak yüklemez. `ssh` v
 
 * [Git (https://git-scm.com/)](https://git-scm.com/): `ssh` Ve `scp` komutlarını GitBash komut satırıyla kullanılabilir.
 
-Ayrıca [PuTTY (http://www.chiark.greenend.org.uk/~sgtatham/putty/)](http://www.chiark.greenend.org.uk/~sgtatham/putty/) ve [MobaXterm (http://mobaxterm.mobatek.net/)](http://mobaxterm.mobatek.net/) gibi birkaç grafik SSH istemcisi bulunur. Bu istemciler HDInsight’a bağlanmak için kullanılabilse de bağlanma işlemi `ssh` yardımcı programını kullanmaktan farklıdır. Daha fazla bilgi için, kullanmakta olduğunuz grafiksel istemcinin belgelerine bakın.
+Ayrıca [PuTTY (https://www.chiark.greenend.org.uk/~sgtatham/putty/)](https://www.chiark.greenend.org.uk/~sgtatham/putty/) ve [MobaXterm (https://mobaxterm.mobatek.net/)](https://mobaxterm.mobatek.net/) gibi birkaç grafik SSH istemcisi bulunur. Bu istemciler HDInsight’a bağlanmak için kullanılabilse de bağlanma işlemi `ssh` yardımcı programını kullanmaktan farklıdır. Daha fazla bilgi için, kullanmakta olduğunuz grafiksel istemcinin belgelerine bakın.
 
 ## <a id="sshkey"></a>Kimlik doğrulaması: SSH anahtarları
 
@@ -252,7 +252,7 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 >
 > * [Azure Depolama kullanarak HDInsight](hdinsight-hadoop-use-blob-storage.md)
 >
-> * [Azure Data Lake Store kullanarak HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+> * [Azure Data Lake Store kullanarak HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

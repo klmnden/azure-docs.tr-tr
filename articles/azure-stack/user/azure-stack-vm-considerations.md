@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8a9fc299f620c7df87544b467cf52535addfe313
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847533"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651512"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack'te sanal makineleri kullanma konuları
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Azure Stack sanal makineleri isteğe bağlı ve ölçeklenebilir işlem kaynağı sağlar. Sanal makineleri (VM'ler) dağıtmadan önce Microsoft Azure ile Azure Stack'te kullanılabilen sanal makine özellikleri arasındaki farkı anlamanız gerekir. Bu makalede, bu farklılıkları açıklar ve sanal makine dağıtımları planlaması için önemli noktalar yer tanımlar. Azure Stack ve Azure arasında üst düzey farklılıklar hakkında bilgi edinmek için bkz. [anahtar konuları](azure-stack-considerations.md) makalesi.
 
-## <a name="cheat-sheet-virtual-machine-differences"></a>Kopya kağıdı: sanal makine farkları
+## <a name="cheat-sheet-virtual-machine-differences"></a>Kopya kağıdı: Sanal makine farkları
 
 | Özellik | Azure (Genel) | Azure Stack |
 | --- | --- | --- |
@@ -39,6 +39,7 @@ Azure Stack sanal makineleri isteğe bağlı ve ölçeklenebilir işlem kaynağ�
 | Sanal makine depolama | Destekler [yönetilen diskler.](../../virtual-machines/windows/managed-disks-overview.md) | Yönetilen diskler, Azure Stack'te 1808 ve üzeri sürümü ile desteklenir. |
 | Sanal makine disk performansı | Disk türünü ve boyutuna bağlıdır. | VM diskleri bağlı VM boyutuna bağlıdır başvurmak için [Azure Stack'te desteklenen sanal makine boyutları](azure-stack-vm-sizes.md) makalesi.
 | API sürümleri | Azure, her zaman tüm sanal makine özellikleri için en son API sürümleri vardır. | Azure yığını, bu hizmetler için belirli Azure hizmetlerinin ve belirli API sürümlerini destekler. Desteklenen API sürümlerinin listesi görüntülemek için başvurmak [API sürümlerini](#api-versions) bu makalenin. |
+| Azure örnek meta veri hizmeti | Azure örnek meta veri hizmeti yönetmek ve sanal makinelerinizi yapılandırmak için kullanılan sanal makine örneklerini çalıştırma hakkında bilgi sağlar.  | Örnek meta veri hizmeti, Azure Stack üzerinde desteklenmiyor. |
 |Sanal makine kullanılabilirlik kümeleri|Birden çok hata etki alanları (2 veya 3 bölge başına)<br>Birden çok güncelleştirme etki alanları<br>Yönetilen disk desteği|Birden çok hata etki alanları (2 veya 3 bölge başına)<br>Birden çok güncelleştirme etki alanı (en fazla 20)<br>Yönetilen disk desteği yok|
 |Sanal makine ölçek kümeleri|Desteklenen otomatik ölçeklendirme|Otomatik ölçeklendirme desteklenmiyor.<br>Portal, Resource Manager şablonları veya PowerShell kullanarak bir ölçek kümesine daha fazla örnek ekleyin.
 

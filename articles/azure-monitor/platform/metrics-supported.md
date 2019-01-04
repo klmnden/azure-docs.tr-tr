@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 19582c59460644d8599034afeaafde8735c04ec3
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1e81f165c3ab38fffae7523efc6cb2ae307a1a25
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53441013"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549641"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyici ile desteklenen ölçümler
 Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümler tam listesi ile Azure İzleyicisi'nin ölçüm ardışık düzen şu anda kullanılabilir. Diğer ölçümleri portalı veya eski API'leri kullanarak mevcut olabilir. Bu listede yalnızca birleştirilmiş Azure İzleyici ölçüm ardışık düzeni'ni kullanarak mevcut olan ölçümler içerir. Sorgulamak ve erişmek için bu ölçümleri lütfen [2018-01-01 API sürümü](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -1572,4 +1572,4 @@ Azure İzleyici, bunları portalda grafik, REST API aracılığıyla erişmesini
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure İzleyici'de ölçümleri hakkında bilgi edinin](../../azure-monitor/platform/data-collection.md)
 * [Ölçümler üzerinde uyarı oluşturma](../../azure-monitor/platform/alerts-overview.md)
-* [Depolama, olay hub'ı veya Log Analytics ölçümleri dışarı aktarma](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Depolama, olay hub'ı veya Log Analytics ölçümleri dışarı aktarma](../../azure-monitor/platform/diagnostic-logs-overview.md)

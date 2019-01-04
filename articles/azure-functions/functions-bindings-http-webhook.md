@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: acd2d5a3448d805b8b3c741139fc5f9a79c40ed2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d2bd74609447463b7ff857aa1037eaf5b6e3abb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317449"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727012"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure işlevleri HTTP Tetikleyicileri ve bağlamaları
 
@@ -491,7 +491,7 @@ Varsayılan olarak, tüm işlevi yollar ile ön ekli *API*. Ayrıca özelleştir
 
 ### <a name="working-with-client-identities"></a>İstemci kimlikleri ile çalışma
 
-İşlev uygulamanızı kullanıyorsa [App Service kimlik doğrulaması / yetkilendirme](../app-service/app-service-authentication-overview.md), kodunuzdan kimlik doğrulamasından geçen istemcilerin ilgili bilgileri görüntüleyebilirsiniz. Bu bilgiler olarak kullanılabilir [istek üst platform tarafından eklenen](../app-service/app-service-authentication-how-to.md#access-user-claims). 
+İşlev uygulamanızı kullanıyorsa [App Service kimlik doğrulaması / yetkilendirme](../app-service/overview-authentication-authorization.md), kodunuzdan kimlik doğrulamasından geçen istemcilerin ilgili bilgileri görüntüleyebilirsiniz. Bu bilgiler olarak kullanılabilir [istek üst platform tarafından eklenen](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
 Ayrıca, veri bağlama gelen bu bilgileri okuyabilir. Bu özellik yalnızca işlevler 2.x çalışma zamanı için kullanılabilir. Ayrıca şu anda yalnızca .NET dilleri için kullanılabilir.
 
@@ -577,7 +577,7 @@ Anahtarları gerektirmeyen anonim isteklere izin verebilirsiniz. Ayrıca ana ana
 
 Tam olarak üretim ortamında işlevi uç noktalarınızı güvenliğini sağlamak için uygulama aşağıdaki işlevi uygulama düzeyinde güvenlik seçeneklerden birini dikkate almanız gerekir:
 
-* App Service kimlik doğrulamasını etkinleştirmek / işlev uygulamanız için yetkilendirme. İstemcilerin kimliğini doğrulamak için Azure Active Directory (AAD) ve çeşitli üçüncü taraf kimlik sağlayıcıları kullanan App Service platformu sağlar. İşlevleriniz için özel yetkilendirme kurallarını uygulamak için bunu kullanabilirsiniz ve işlev kodunuzu kullanıcı bilgileri ile çalışabilirsiniz. Daha fazla bilgi için bkz. [kimlik doğrulama ve yetkilendirme Azure App Service'te](../app-service/app-service-authentication-overview.md) ve [istemci kimliklerle çalışma](#working-with-client-identities).
+* App Service kimlik doğrulamasını etkinleştirmek / işlev uygulamanız için yetkilendirme. İstemcilerin kimliğini doğrulamak için Azure Active Directory (AAD) ve çeşitli üçüncü taraf kimlik sağlayıcıları kullanan App Service platformu sağlar. İşlevleriniz için özel yetkilendirme kurallarını uygulamak için bunu kullanabilirsiniz ve işlev kodunuzu kullanıcı bilgileri ile çalışabilirsiniz. Daha fazla bilgi için bkz. [kimlik doğrulama ve yetkilendirme Azure App Service'te](../app-service/overview-authentication-authorization.md) ve [istemci kimliklerle çalışma](#working-with-client-identities).
 
 * Azure API Management (APIM) isteklerinin kimliğini doğrulamak için kullanın. APIM API'si güvenlik seçenekleri gelen istekler için çeşitli sağlar. Daha fazla bilgi için bkz. [API Management kimlik doğrulama ilkeleri](../api-management/api-management-authentication-policies.md). Yerinde APIM ile işlev uygulamanızı APIM Örneğinize IP adresi yalnızca gelen istekleri kabul edecek şekilde yapılandırabilirsiniz. Daha fazla bilgi için bkz. [IP adresi sınırlamaları](ip-addresses.md#ip-address-restrictions).
 

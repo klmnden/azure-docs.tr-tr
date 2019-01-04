@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: d4d730fe6c72b55a01f7c5f1f95cbd94ff145fba
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f8045153482cdd8b9a13c0a6f2ebdb26627d44e4
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873759"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811418"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB ile .NET için performans ipuçları
 
@@ -30,7 +30,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 ## <a name="networking"></a>Ağ
 <a id="direct-connection"></a>
 
-1. **Bağlantı İlkesi: doğrudan bağlantı modunu kullan**
+1. **Bağlantı İlkesi: Doğrudan bağlantı modunu kullan**
 
     Bir istemci, Azure Cosmos DB'ye nasıl bağlanır? performansını gözlemler istemci tarafı gecikme süresi açısından özellikle önemli etkilere sahiptir. İstemci bağlantı İlkesi – bağlantı yapılandırmak için kullanılabilen iki anahtar yapılandırma ayarları vardır *modu* ve [bağlantı *Protokolü*](#connection-protocol).  Kullanılabilir iki mod şunlardır:
 
@@ -45,7 +45,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
     * TCP
     * HTTPS
 
-    Ağ geçidi modunu kullanırken, Azure Cosmos DB bağlantı noktası 443 ve MongoDB API'si 10250, 10255 ve 10256 bağlantı noktalarını kullanır. Coğrafi çoğaltma ve coğrafi çoğaltma işlevselliği ile bir Mongodb örneğine 10255 olarak/10256 bağlantı noktalarını eşleme olmadan varsayılan bir Mongodb örneğine 10250 bağlantı noktası eşlenir. Bağlantı noktası emin olmanız TCP doğrudan modda, ağ geçidi bağlantı noktalarına ek olarak kullanırken, Azure Cosmos DB dinamik TCP bağlantı noktaları kullandığından 10000 ve 20000 aralığında açın. Bu bağlantı noktalarını açık değildir ve TCP kullanmaya çalışırsanız, 503 Hizmet kullanılamıyor hatası alırsınız. Aşağıdaki tabloda her bir API için farklı API'ler ve hizmet bağlantı noktası kullanıcı için kullanılabilir bağlantı modları gösterilmektedir:
+    Ağ geçidi modunu kullanırken, Cosmos DB bağlantı noktası 443 ve bağlantı noktaları 10250 10255 olarak ve 10256 Azure Cosmos DB'nin MongoDB kullanarak kullanır. Coğrafi çoğaltma ve coğrafi çoğaltma işlevselliği ile bir MongoDB örneğine 10255 olarak/10256 bağlantı noktalarını eşleme olmadan varsayılan bir MongoDB örneğine 10250 bağlantı noktası eşlenir. Bağlantı noktası emin olmanız TCP doğrudan modda, ağ geçidi bağlantı noktalarına ek olarak kullanırken, Azure Cosmos DB dinamik TCP bağlantı noktaları kullandığından 10000 ve 20000 aralığında açın. Bu bağlantı noktalarını açık değildir ve TCP kullanmaya çalışırsanız, 503 Hizmet kullanılamıyor hatası alırsınız. Aşağıdaki tabloda her bir API için farklı API'ler ve hizmet bağlantı noktası kullanıcı için kullanılabilir bağlantı modları gösterilmektedir:
 
     |Bağlantı modu  |Desteklenen protokol  |Desteklenen SDK'ları  |API/hizmet bağlantı noktası  |
     |---------|---------|---------|---------|

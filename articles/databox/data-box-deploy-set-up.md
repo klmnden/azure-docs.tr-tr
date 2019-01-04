@@ -8,14 +8,14 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fb2ec4802ad2ecf25a8fca031553c8209dc4267d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427531"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791328"
 ---
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Öğretici: Azure Data Box’ınız için kabloları bağlama ve bağlanma
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Öğretici: Kablo ve Azure Data Box için bağlanın
 
 Bu öğreticide, Azure Data Box’ınız için kabloları bağlama, bağlanma ve çalıştırma işlemleri açıklanmaktadır.
 
@@ -29,7 +29,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Başlamadan önce aşağıdakilerden emin olun:
 
-1. [Öğretici: Azure Data Box sipariş etme](data-box-deploy-ordered.md) konusunu tamamladınız.
+1. Tamamladığınızda [Öğreticisi: Azure Data Box sipariş](data-box-deploy-ordered.md).
 2. Data Box’ınızı teslim aldınız ve portaldaki sipariş durumu **Teslim Edildi** oldu. 
     - Cihazın üzerindeki etiketin altındaki şeffaf bölüme yerleştirilmiş bir sevkiyat etiketi vardır. Bu etiketi iade için kullanmak üzere saklayın.
     - Bazı Avrupa bölgelerinde bir kutuda paketlenmiş cihaz alabilirsiniz. Cihazın ambalajını açmak ve Kaydet iade sevk irsaliyesi için kutusu emin olun.
@@ -69,7 +69,7 @@ Cihazınızın kablolarını bağlamak için aşağıdaki adımları uygulayın.
 Yerel web kullanıcı arabirimi ve portal kullanıcı arabirimini kullanarak cihazınızı ayarlamak için aşağıdaki adımları uygulayın.
 
 1. Cihaza 192.168.100.5 statik IP adresi ve 255.255.255.0 alt ağı ile bağlanmak için kullanmakta olduğunuz dizüstü bilgisayardaki Ethernet bağdaştırıcısını yapılandırın. 
-2. Cihazınızın MGMT bağlantı noktasına bağlanın ve https://192.168.100.10 konumundaki yerel web kullanıcı arabirimine erişin. Bu işlem, cihaz açıldıktan sonra 5 dakika sürebilir.
+2. Cihazınızı MGMT bağlantı noktasına bağlayın ve kendi yerel web kullanıcı Arabirimi https erişim\:/ / 192.168.100.10. Bu işlem, cihaz açıldıktan sonra 5 dakika sürebilir.
 3. **Ayrıntılar**’a ve sonra **Web sayfasına gidin**’e tıklayın.
 
    ![Yerel web kullanıcı arabirimine bağlanma](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 

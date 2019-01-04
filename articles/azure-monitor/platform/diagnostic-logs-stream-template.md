@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 48f178b7a94e8989f8a0154bea6195834b1ec35f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1d199275d6c17dff72c020bd3a9807f50af8af1e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438685"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544048"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Otomatik olarak bir Resource Manager şablonu kullanarak kaynak oluşturma sırasında tanılama ayarlarını etkinleştirme
 Bu makalede size nasıl kullanabileceğinizi gösterir. bir [Azure Resource Manager şablonu](../../azure-resource-manager/resource-group-authoring-templates.md) oluşturulduğunda kaynak tanılama ayarlarını yapılandırmak için. Bu, otomatik olarak tanılama günlükleri ve ölçümleri Event Hubs, bunları bir depolama hesabında arşivlemek veya bir kaynak oluşturulduğunda bunları Log Analytics'e göndermek için akış başlatmanıza olanak sağlar.
@@ -25,7 +25,7 @@ Bu makalede size nasıl kullanabileceğinizi gösterir. bir [Azure Resource Mana
 
 Resource Manager şablonu kullanarak tanılama günlüklerini etkinleştirme yöntemini kaynak türüne bağlıdır.
 
-* **İşlem dışı** kaynakları (örneğin, ağ güvenlik grupları, Logic Apps, Otomasyon) [bu makalede açıklanan tanılama ayarları](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+* **İşlem dışı** kaynakları (örneğin, ağ güvenlik grupları, Logic Apps, Otomasyon) [bu makalede açıklanan tanılama ayarları](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings).
 * **İşlem** (WAD/LAD tabanlı) kaynakları [WAD/LAD yapılandırma dosyası bu makalede açıklanan](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 Bu makalede şu yöntemlerden birini kullanarak tanılama yapılandırma açıklanmaktadır.
@@ -266,6 +266,6 @@ Bir işlem kaynağı tanılamayı etkinleştirmek için örneğin bir sanal maki
 Örnekler de dahil olmak üzere sürecin tamamı açıklanan [bu belgedeki](../../virtual-machines/extensions/diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure Tanılama Günlükleri](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [Stream Event hubs'a, Azure tanılama günlükleri](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Azure Tanılama Günlükleri](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Stream Event hubs'a, Azure tanılama günlükleri](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 

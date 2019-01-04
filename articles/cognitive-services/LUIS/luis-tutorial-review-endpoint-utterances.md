@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 622aa49a8dffa933499c243bd723ce2d67a4c251
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6cbeb44e5dfca84bc85a6be4c4b44cb59bad783a
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714909"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755130"
 ---
-# <a name="tutorial-1-fix-unsure-predictions"></a>1. Öğretici: Emin olunmayan tahminleri düzeltme
+# <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Öğretici: Konuşma uç noktası inceleyerek emin değilseniz Öngörüler Düzelt
 Bu öğreticide, LUIS HTTP uç noktası üzerinden alınan ifadeleri doğrulayarak veya düzelterek LUIS'in emin olmadığı uygulama tahminlerini geliştireceksiniz. Bazı konuşmaların amaç, diğerlerinin ise varlık için doğrulanması gerekebilir. Zamanlanmış LUIS bakımınızın normal bir parçası olarak uç noktası konuşmalarını gözden geçirmeniz gerekir. 
 
 Bu gözden geçirme işlemi, LUIS için uygulama alanınızı öğrenmenin bir diğer yoludur. LUIS, gözden geçirme listesinde görünen konuşmaları seçmiştir. Bu liste:
@@ -29,11 +29,11 @@ Bu gözden geçirme işlemi, LUIS için uygulama alanınızı öğrenmenin bir d
 
 Uç nokta ifadelerini gözden geçirerek, ifadenin tahmin edilen amacını doğrular veya düzeltirsiniz. Tahmin edilmeyen veya yanlış tahmin edilen özel varlıkları da etiketlersiniz. 
 
-**Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
+**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Mevcut öğretici uygulamasını kullanma
+> * Örnek uygulamayı içeri aktarma
 > * Uç nokta ifadelerini gözden geçirme
 > * Tümcecik listesini güncelleştirme
 > * Uygulamayı eğitme
@@ -42,11 +42,11 @@ Uç nokta ifadelerini gözden geçirerek, ifadenin tahmin edilen amacını doğr
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
+## <a name="import-example-app"></a>Örnek uygulamayı içeri aktarma
 
 Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
+Aşağıdaki adımları kullanın:
 
 1.  [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json) indirip kaydedin.
 

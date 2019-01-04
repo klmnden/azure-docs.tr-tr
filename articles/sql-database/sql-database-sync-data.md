@@ -12,16 +12,19 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: 6963bb44e6377bcfbb2cb647f1508f075b4268be
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a287f985ce015ac6b886f4e5c2b86d6b3793e7d5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101864"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721844"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL Data Sync ile birden fazla Bulut ve şirket içi veritabanı arasında veri eşitleme
 
 SQL Data Sync, birden çok SQL veritabanları ve SQL Server örnekleri arasında çift seçin verileri eşitleyin olanak sağlayan Azure SQL veritabanı üzerinde oluşturulmuş bir hizmettir.
+
+> [!IMPORTANT]
+> Azure SQL Data Sync mu **değil** şu anda Azure SQL veritabanı yönetilen örneği destekler.
 
 ## <a name="architecture-of-sql-data-sync"></a>SQL Data Sync'i mimarisi
 
@@ -51,11 +54,11 @@ Bir eşitleme grubu, aşağıdaki özelliklere sahiptir:
 
 Veri eşitleme veri burada birkaç Azure SQL veritabanı veya SQL Server veritabanlarını güncel tutulması gereken durumlarda yararlıdır. Veri eşitleme için ana kullanım örnekleri şunlardır:
 
--   **Karma veri eşitleme:** Data Sync ile verileri şirket içi veritabanlarınıza ve karma uygulamalar'ı etkinleştirmek için Azure SQL veritabanları arasında eşitlenmiş kalmasını sağlayabilirsiniz. Bu özellik, buluta geçiş düşünüyorsanız ve bazı uygulamalarını Azure'da koymak istediğiniz müşterileri itiraz.
+-   **Karma veri eşitleme:** Veri Eşitleme ile şirket içi veritabanlarınıza ve karma uygulamalar'ı etkinleştirmek için Azure SQL veritabanları arasında verileri tutabilirsiniz. Bu özellik, buluta geçiş düşünüyorsanız ve bazı uygulamalarını Azure'da koymak istediğiniz müşterileri itiraz.
 
--   **Dağıtılmış uygulamalar:** çoğu durumda, farklı iş yüklerini farklı veritabanlarında ayırmak yararlı olacaktır. Örneğin, bir büyük üretim veritabanına sahip, ancak Ayrıca bu veriler üzerinde raporlama veya Analiz iş yükü çalıştırmak gerekir, bu ek iş yükü için ikinci bir veritabanı yararlıdır. Bu yaklaşım, üretim iş yükünüz üzerindeki performans etkisini en aza indirir. Veri eşitleme, bu iki veritabanı eşitlenmiş tutmak için kullanabilirsiniz.
+-   **Dağıtılmış uygulamalar:** Çoğu durumda, farklı iş yüklerini farklı veritabanlarında ayırmak yararlıdır. Örneğin, bir büyük üretim veritabanına sahip, ancak Ayrıca bu veriler üzerinde raporlama veya Analiz iş yükü çalıştırmak gerekir, bu ek iş yükü için ikinci bir veritabanı yararlıdır. Bu yaklaşım, üretim iş yükünüz üzerindeki performans etkisini en aza indirir. Veri eşitleme, bu iki veritabanı eşitlenmiş tutmak için kullanabilirsiniz.
 
--   **Global olarak dağıtılmış uygulamalar:** çok sayıda işletme, çeşitli bölgeleri ve hatta bazı ülkelerde span. Ağ gecikmesini en aza indirmek için size yakın bir bölgede verilerinizin sağlamak en iyisidir. Data Sync ile eşitlenmiş dünyanın dört bir yanındaki bölgelerdeki veritabanlarına kolayca tutabilirsiniz.
+-   **Global olarak dağıtılmış uygulamalar:** Birçok işletme, çeşitli bölgeleri ve hatta bazı ülkelerde yayılır. Ağ gecikmesini en aza indirmek için size yakın bir bölgede verilerinizin sağlamak en iyisidir. Data Sync ile eşitlenmiş dünyanın dört bir yanındaki bölgelerdeki veritabanlarına kolayca tutabilirsiniz.
 
 Veri eşitleme, aşağıdaki senaryolar için tercih edilen bir çözüm değil:
 
@@ -69,11 +72,11 @@ Veri eşitleme, aşağıdaki senaryolar için tercih edilen bir çözüm değil:
 
 ## <a name="how-does-data-sync-work"></a>Veri Eşitleme nasıl çalışır? 
 
--   **Veri değişikliklerini izleme:** tetikleyicilerini Sil Data Sync INSERT kullanarak değişiklikleri izler ve güncelleştirin. Bir kullanıcı veritabanındaki bir yan tablodaki değişiklikler kaydedilir. TOPLU ekleme Tetikleyicileri varsayılan olarak başlatılmıyor olduğunu unutmayın. Fıre_trıggers belirtilmezse hiçbir INSERT tetikleyicisi yürütün. Böylece Data Sync'i Bu eklemeleri izleyebilirsiniz fıre_trıggers seçeneğini ekleyin. 
+-   **Veri değişikliklerini izleme:** Veri eşitleme, INSERT, update ve delete Tetikleyicileri kullanarak değişiklikleri izler. Bir kullanıcı veritabanındaki bir yan tablodaki değişiklikler kaydedilir. TOPLU ekleme Tetikleyicileri varsayılan olarak başlatılmıyor olduğunu unutmayın. Fıre_trıggers belirtilmezse hiçbir INSERT tetikleyicisi yürütün. Böylece Data Sync'i Bu eklemeleri izleyebilirsiniz fıre_trıggers seçeneğini ekleyin. 
 
--   **Veri eşitleme:** veri eşitleme, bir Hub ve bağlı bileşen modeli tasarlanmıştır. Hub'ı ayrı ayrı her bir üyeyi eşitler. Üye değişiklikleri Hub'ından indirilir ve hub'a üye değişikliklerden sonra yüklenir.
+-   **Veri eşitleme:** Veri Eşitleme bir Hub ve bağlı bileşen modeli tasarlanmıştır. Hub'ı ayrı ayrı her bir üyeyi eşitler. Üye değişiklikleri Hub'ından indirilir ve hub'a üye değişikliklerden sonra yüklenir.
 
--   **Çakışmaları giderme:** veri eşitleme çakışma çözümü için iki seçenek sağlar *Hub WINS* veya *üye WINS*.
+-   **Çakışmaları giderme:** Veri eşitleme çakışma çözümü için iki seçenek sağlar *Hub WINS* veya *üye WINS*.
     -   Seçerseniz *Hub WINS*, değişikliklerin hub'ında her zaman üyesi değişiklikleri üzerine.
     -   Seçerseniz *üye WINS*, üye değişikliklerin üzerine yaz hub'ında yapılan değişiklikler. Birden fazla üyesi ise, hangi üye eşitler son değeri bağlıdır.
 

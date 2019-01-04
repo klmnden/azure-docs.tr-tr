@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 146ea6431516f7b78d23cd4b36aff43110639e83
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e91ca12c06a1582b9bb715031a9c379b1a47b04b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633104"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713468"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Yaygın senaryolar ile Service Fabric'i tanılama
 
-Bu makalede izleme ve Tanılama ile Service Fabric'i alanında kullanıcıların karşılaştığı yaygın senaryolar gösterilmektedir. Service fabric'in tüm 3 katmanları sunulan senaryoları kapsayan: uygulama, küme ve altyapı. Her çözüm, her senaryonun tamamlanması için Application Insights ve Log Analytics, Azure izleme araçları kullanır. Her çözüm adımları kullanıcılar, Service Fabric bağlamında Application Insights ve Log Analytics kullanımı hakkında giriş bilgileri sağlar.
+Bu makalede izleme ve Tanılama ile Service Fabric'i alanında kullanıcıların karşılaştığı yaygın senaryolar gösterilmektedir. Service fabric'in tüm 3 katmanları sunulan senaryoları kapsar: Uygulama, küme ve altyapı. Her çözüm, her senaryonun tamamlanması için Application Insights ve Log Analytics, Azure izleme araçları kullanır. Her çözüm adımları kullanıcılar, Service Fabric bağlamında Application Insights ve Log Analytics kullanımı hakkında giriş bilgileri sağlar.
 
 ## <a name="prerequisites-and-recommendations"></a>Önkoşullar ve öneriler
 
@@ -56,7 +56,7 @@ Bu makalede çözümleri aşağıdaki araçları kullanır. Bu küme up ve yapı
 
     ![Yapay ZEKA Uygulama Haritası dikey](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI Uygulama Haritası](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
-    Uygulama Haritası hakkında daha fazla bilgi için ziyaret [Uygulama Haritası belgeleri](../application-insights/app-insights-app-map.md)
+    Uygulama Haritası hakkında daha fazla bilgi için ziyaret [Uygulama Haritası belgeleri](../azure-monitor/app/app-map.md)
 
 ## <a name="how-do-i-create-an-alert-when-a-node-goes-down"></a>Bir düğümü arızalandığında uyarı nasıl oluşturabilirim
 
@@ -139,7 +139,7 @@ Güvenilir performans sayaçlarını tam listesi için bu bağlantıları kontro
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Yapay ZEKA uyarıları ayarlama](../application-insights/app-insights-alerts.md) performans ya da kullanım değişiklikler hakkında bildirim almak için
+* [Yapay ZEKA uyarıları ayarlama](../azure-monitor/app/alerts.md) performans ya da kullanım değişiklikler hakkında bildirim almak için
 * [Akıllı algılama Application ınsights'ta](../application-insights/app-insights-proactive-diagnostics.md) yapay ZEKA, olası performans sorunları sizi uyarabilmek için gönderilen telemetri bir öngörülü analiz gerçekleştirir
 * Log Analytics hakkında daha fazla bilgi [uyarı](../log-analytics/log-analytics-alerts.md) algılama ve tanılama konusunda yardımcı olacak.
 * Şirket içi kümeleri için Log Analytics verilerini Log Analytics'e göndermek için kullanılan bir ağ geçidi (HTTP İleri Proxy) sunar. Uygulamasında hakkında daha fazla [Internet erişimi olmayan bilgisayarları Log Analytics ağ geçidini kullanarak Log Analytics'e bağlanma](../azure-monitor/platform/gateway.md)

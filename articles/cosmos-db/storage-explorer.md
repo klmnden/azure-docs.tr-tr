@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jejiang
 ms.custom: seodec18
-ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: fb758c12d699bb80f81b65db99e1fec68c4efabf
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138135"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809769"
 ---
 # <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Azure Depolama Gezgini'ni kullanarak Azure Cosmos DB kaynaklarını yönetme
 
-Azure Depolama Gezgini’nde Azure Cosmos DB kullanılması, kullanıcıların Azure Cosmos DB varlıklarını yönetmesine, verileri düzenlemesine, saklı yordamların ve tetikleyicilerin yanı sıra Depolama blob’ları ve kuyrukları gibi diğer Azure varlıklarını güncelleştirmesine imkan tanır. Artık farklı Azure varlıklarını aynı aracı kullanarak tek bir yerde yönetebilirsiniz. Azure Depolama Gezgini şu anda SQL, MongoDB, Graf ve Tablo hesaplarını desteklemektedir.
+Azure Depolama Gezgini’nde Azure Cosmos DB kullanılması, kullanıcıların Azure Cosmos DB varlıklarını yönetmesine, verileri düzenlemesine, saklı yordamların ve tetikleyicilerin yanı sıra Depolama blob’ları ve kuyrukları gibi diğer Azure varlıklarını güncelleştirmesine imkan tanır. Artık farklı Azure varlıklarını aynı aracı kullanarak tek bir yerde yönetebilirsiniz. Şu anda, Azure Depolama Gezgini SQL, MongoDB, graf ve tablo API'leri için yapılandırılmış Cosmos hesaplarını destekler.
 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-SQL API<!--or MongoDB API--> için bir Azure Cosmos DB hesabı. Hesabınız yoksa, [Azure Cosmos DB: .NET ve Azure portalı ile bir SQL API'si web uygulaması derleme](create-sql-api-dotnet.md) bölümünde açıklandığı gibi Azure portalından bir hesap oluşturabilirsiniz.
+SQL API veya Azure Cosmos DB'nin MongoDB API'si ile Cosmos hesabı. Bir hesabınız yoksa, Azure Portalı'nda açıklandığı gibi oluşturabileceğiniz [Azure Cosmos DB: .NET ve Azure portalı ile bir SQL API'si web uygulaması derleme](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Yükleme
 
-Şuradan en yeni Azure Depolama Gezgini bileşenlerini yükleyin: [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/) (Windows, Linux ve MAC sürümü artık desteklenmektedir).
+Şuradan en yeni Azure Depolama Gezgini bileşenlerini yükleyin: [Azure Depolama Gezgini](https://azure.microsoft.com/features/storage-explorer/)artık Windows, Linux ve MAC sürümlerini destekliyoruz.
 
 ## <a name="connect-to-an-azure-subscription"></a>Bir Azure aboneliğine Bağlanma
 
@@ -222,9 +222,9 @@ Depolama Gezgini bu "otomatik olarak imzalanan sertifikalardan" biriyle karşıl
 
 1. Açık SSL yükleme
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (basit sürümlerden herhangi biri olabilir)
-     - Mac ve Linux: İşletim sisteminize eklenmelidir
+     - Mac ve Linux için: İşletim sisteminize eklenmelidir
 2. Açık SSL çalıştırma
-    - Windows: Yükleme dizinine gidin, ardından **/bin/** konumuna gidip **openssl.exe** dosyasına çift tıklayın.
+    - Windows: Yükleme dizini Git **/bin/**, sonra çift tıklayarak **openssl.exe**.
     - Mac ve Linux: Bir terminalden **openssl** komutunu yürütün
 3. `s_client -showcerts -connect microsoft.com:443` yürütme
 4. Otomatik olarak imzalanan sertifikaları bulun. Hangisinin otomatik olarak imzalandığından emin değilseniz, konu ("s:") ve veren ("i:") aynı olan sertifikaları bulun.
@@ -241,7 +241,7 @@ Başarıyla oturum açtıktan sonra aboneliklerinizi alamıyorsanız:
 - Doğru ortamı kullanarak oturum açtığınızdan emin olun ([Azure](https://portal.azure.com/), [Azure Çin](https://portal.azure.cn/), [Azure Almanya](https://portal.microsoftazure.de/), [Azure ABD Kamu](https://portal.azure.us/) veya Özel Ortam/Azure Stack)
 - Bir ara sunucunun ardından değilseniz, Depolama Gezgini ara sunucusunu düzgün şekilde yapılandırdığınızdan emin olun
 - Hesabı kaldırıp yeniden eklemeyi deneyin
-- Aşağıdaki dosyaları giriş dizininizden (örn: C:\Users\ContosoUser) silmeyi ve sonra hesabı yeniden eklemeyi deneyin:
+- Aşağıdaki dosyaları giriş dizininizden silmeyi deneyin (örneğin: C:\Users\ContosoUser) ve sonra hesabı yeniden eklemeyi:
   - .adalcache
   - .devaccounts
   - .extaccounts
@@ -305,6 +305,6 @@ Hiçbir çözüm işinize yaramazsa, sorunu düzeltmek için Azure Cosmos DB Gel
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Azure Depolama Gezgini’nde Azure Cosmos DB’yi kullanmayı öğrenmek için şu videoyu izleyin: [Azure Depolama Gezgini’nde Azure Cosmos DB kullanma](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
+* Azure depolama Gezgini'nde Azure Cosmos DB kullanmayı öğrenmek için aşağıdaki videoyu izleyin: [Azure depolama Gezgini'nde Azure Cosmos DB'yi kullanma](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * [Depolama Gezgini ile çalışmaya başlama](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) konusunda Depolama Gezgini hakkında daha fazla bilgi edinin ve daha fazla hizmet bağlayın.
 

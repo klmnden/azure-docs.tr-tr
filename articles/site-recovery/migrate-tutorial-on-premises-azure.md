@@ -4,15 +4,15 @@ description: Bu makalede, Azure Site Recovery kullanarak şirket içi makineleri
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1df09a885d6c636ff6bd4bcbec03d27ff7b44ff9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5023171c4f943b7e698a0b6bbcadef209965e2df
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836993"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789255"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Şirket içi makineleri Azure’a geçirme
 
@@ -63,9 +63,9 @@ Neleri çoğaltmak istediğinizi ve bunları nereye çoğaltacağınızı seçin
 1. **Kurtarma Hizmetleri kasaları** > kasa öğesine tıklayın.
 2. Kaynak Menüsünde, **Site Recovery** > **Altyapıyı Hazırlama** > **Koruma hedefi** seçeneklerine tıklayın.
 3. **Koruma hedefi**’nde, geçişini yapmak istediğiniz öğeyi seçin.
-    - **VMware**: **Azure’a** > **Evet, VMWare vSphere Hiper Yöneticisi ile** öğelerini seçin.
-    - **Fiziksel makine**: **Azure’a** > **Sanallaştırılmamış/Diğer** öğelerini seçin.
-    - **Hyper-V**: **Azure’a** > **Evet, Hyper-V ile** öğelerini seçin. Hyper-V VM’leri VMM tarafından yönetiliyorsa, **Evet**’i seçin.
+    - **VMware**: Seçin **Azure'a** > **Evet, VMWare vSphere Hypervisor ile**.
+    - **Fiziksel makine**: Seçin **Azure'a** > **sanallaştırılmamış/diğer**.
+    - **Hyper-V**: Seçin **Azure'a** > **Evet, Hyper-V ile**. Hyper-V VM’leri VMM tarafından yönetiliyorsa, **Evet**’i seçin.
 
 
 ## <a name="set-up-the-source-environment"></a>Kaynak ortamı ayarlama
@@ -119,7 +119,7 @@ Geçirmek istediğiniz makineler için yük devretmeyi çalıştırın.
 
 
 > [!WARNING]
-> **Devam eden yük devretme işlemini iptal etmeyin**: Yük devretme başlatılmadan önce VM çoğaltma durdurulur. Devam eden bir yük devretme işlemini iptal ederseniz yük devretme durdurulur, ancak VM yeniden çoğaltılmaz.
+> **Devam eden bir yük devretme işlemini iptal etmeyin**: Yük devretme başlatılmadan önce VM çoğaltma durdurulur. Devam eden bir yük devretme işlemini iptal ederseniz yük devretme durdurulur, ancak VM yeniden çoğaltılmaz.
 
 Bazı senaryolarda yük devretme için sekiz ila on dakikada tamamlanan ek işlem gerekebilir. Fiziksel sunucularda, VMware Linux makinelerinde, DHCP hizmeti etkinleştirilmemiş VMware VM’lerinde ve storvsc, vmbus, storflt, intelide, atapi önyükleme sürücülerine sahip olmayan VMware VM’lerinde uzun yük devretme sınama süreleriyle karşılaşabilirsiniz.
 

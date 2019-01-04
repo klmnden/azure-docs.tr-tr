@@ -9,12 +9,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e979930ed504dafe330b774725f4193f1c15ed17
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51301025"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793997"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure işlevleri için Microsoft Graph bağlamaları
 
@@ -63,7 +63,7 @@ Visual Studio kullanıyorsanız, Uzantıları'nı yükleyerek alabilirsiniz [bu 
 
 ### <a name="configuring-authentication--authorization"></a>Yapılandırma kimlik doğrulama / yetkilendirme
 
-Bu makalede açıklanan bağlamaları kullanılacak bir kimlik gerektirir. Bu, Microsoft Graph izinleri uygulamak ve etkileşimleri denetim sağlar. Uygulamanızı veya uygulama erişimi bir kullanıcı kimliği olabilir. Bu kimliğini yapılandırmak için ayarlama [App Service kimlik doğrulaması / yetkilendirme](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) Azure Active Directory ile. İşlevlerinizi gerektiren herhangi bir kaynak izni istemesine izin gerekir.
+Bu makalede açıklanan bağlamaları kullanılacak bir kimlik gerektirir. Bu, Microsoft Graph izinleri uygulamak ve etkileşimleri denetim sağlar. Uygulamanızı veya uygulama erişimi bir kullanıcı kimliği olabilir. Bu kimliğini yapılandırmak için ayarlama [App Service kimlik doğrulaması / yetkilendirme](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) Azure Active Directory ile. İşlevlerinizi gerektiren herhangi bir kaynak izni istemesine izin gerekir.
 
 > [!Note] 
 > Microsoft Graph uzantısı yalnızca Azure AD kimlik doğrulamasını destekler. Kullanıcıların bir iş veya Okul hesabınızla oturum açmanız gerekir.
@@ -80,7 +80,7 @@ Kimlik doğrulama belirteci giriş bağlamasına belirli bir kaynak için bir Az
 Bu bölüm aşağıdaki alt bölümleri içerir:
 
 * [Örnek](#auth-token---example)
-* [Öznitelikleri](#auth-token---attributes)
+* [Öznitelikler](#auth-token---attributes)
 * [Yapılandırma](#auth-token---configuration)
 * [Kullanım](#auth-token---usage)
 
@@ -226,7 +226,8 @@ Bağlama herhangi bir Azure AD izinleri gerektirmez, ancak nasıl kullanıldığ
 
 Belirteç, kodu her zaman bir dize olarak sunulur.
 
-
+> [!Note]
+> Yerel olarak biriyle geliştirirken `userFromId`, `userFromToken` veya `userFromRequest` seçenekleri, gerekli belirteci olabilir [el ile elde edilen](https://github.com/Azure/azure-functions-microsoftgraph-extension/issues/54#issuecomment-392865857) ve belirtilen `X-MS-TOKEN-AAD-ID-TOKEN` çağıran bir istemci uygulamasından istek üstbilgisi.
 
 
 <a name="excel-input"></a>
@@ -237,7 +238,7 @@ Excel tablo giriş bağlaması, Onedrive'da depolanan bir Excel tablosunda içer
 Bu bölüm aşağıdaki alt bölümleri içerir:
 
 * [Örnek](#excel-input---example)
-* [Öznitelikleri](#excel-input---attributes)
+* [Öznitelikler](#excel-input---attributes)
 * [Yapılandırma](#excel-input---configuration)
 * [Kullanım](#excel-input---usage)
 
@@ -385,7 +386,7 @@ Excel çıkış bağlaması, Onedrive'da depolanan bir Excel tablosunda içeriğ
 Bu bölüm aşağıdaki alt bölümleri içerir:
 
 * [Örnek](#excel-output---example)
-* [Öznitelikleri](#excel-output---attributes)
+* [Öznitelikler](#excel-output---attributes)
 * [Yapılandırma](#excel-output---configuration)
 * [Kullanım](#excel-output---usage)
 
@@ -543,7 +544,7 @@ OneDrive dosya giriş bağlaması, Onedrive'da depolanan bir dosyanın içeriği
 Bu bölüm aşağıdaki alt bölümleri içerir:
 
 * [Örnek](#file-input---example)
-* [Öznitelikleri](#file-input---attributes)
+* [Öznitelikler](#file-input---attributes)
 * [Yapılandırma](#file-input---configuration)
 * [Kullanım](#file-input---usage)
 
@@ -686,7 +687,7 @@ OneDrive dosya çıkış bağlaması, Onedrive'da depolanan bir dosyanın içeri
 Bu bölüm aşağıdaki alt bölümleri içerir:
 
 * [Örnek](#file-output---example)
-* [Öznitelikleri](#file-output---attributes)
+* [Öznitelikler](#file-output---attributes)
 * [Yapılandırma](#file-output---configuration)
 * [Kullanım](#file-output---usage)
 
@@ -832,7 +833,7 @@ Outlook ileti bağlama gönderir Outlook posta iletisi çıktı.
 Bu bölüm aşağıdaki alt bölümleri içerir:
 
 * [Örnek](#outlook-output---example)
-* [Öznitelikleri](#outlook-output---attributes)
+* [Öznitelikler](#outlook-output---attributes)
 * [Yapılandırma](#outlook-output---configuration)
 * [Kullanım](#outlook-output---usage)
 
@@ -996,7 +997,7 @@ Microsoft Graph Web kancası tetikleyici için gelen bir Web kancasını Microso
 Bu bölüm aşağıdaki alt bölümleri içerir:
 
 * [Örnek](#webhook-trigger---example)
-* [Öznitelikleri](#webhook-trigger---attributes)
+* [Öznitelikler](#webhook-trigger---attributes)
 * [Yapılandırma](#webhook-trigger---configuration)
 * [Kullanım](#webhook-trigger---usage)
 
@@ -1115,7 +1116,7 @@ Microsoft Graph Web kancası giriş bağlaması bu işlev uygulaması tarafında
 Bu bölüm aşağıdaki alt bölümleri içerir:
 
 * [Örnek](#webhook-input---example)
-* [Öznitelikleri](#webhook-input---attributes)
+* [Öznitelikler](#webhook-input---attributes)
 * [Yapılandırma](#webhook-input---configuration)
 * [Kullanım](#webhook-input---usage)
 
@@ -1266,7 +1267,7 @@ Web kancası aboneliği çıkış bağlaması oluşturma, silme ve Microsoft Gra
 Bu bölüm aşağıdaki alt bölümleri içerir:
 
 * [Örnek](#webhook-output---example)
-* [Öznitelikleri](#webhook-output---attributes)
+* [Öznitelikler](#webhook-output---attributes)
 * [Yapılandırma](#webhook-output---configuration)
 * [Kullanım](#webhook-output---usage)
 

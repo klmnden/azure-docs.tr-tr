@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: abaf69136fbed577095b3efba2ec6d4383907255
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e78f456a7c69e308257b450a7572f6317dfa6eec
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385219"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715452"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux’ta HDInsight kullanma ile ilgili bilgiler
 
 Azure HDInsight kümeleri Apache Hadoop Azure bulutunda çalışan tanıdık bir Linux ortamı sağlar. Çoğu işlemler için tam olarak diğer Linux üzerinde Hadoop yükleme çalışması gerekir. Bu belge farkında olmanız gereken belirli farklılıkları çağırır.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -61,28 +61,28 @@ Bu komut service açıklayan bir JSON belgesini döndürür ve ardından jq yaln
 
     Düz metin kimlik doğrulama - bağlantının güvenli olduğundan emin olmak için her zaman HTTPS kullanın.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Bazı web kullanıcı arabirimleri Ambari kullanılabilir iç etki alanı adını kullanarak düğümlerin içerik modelini erişin. İç etki alanı adları internet üzerinden genel olarak erişilebilir değildir. Bazı özellikler Internet üzerinden erişmeye çalışırken "Sunucu bulunamadı" hatası alabilirsiniz.
     >
     > Ambari web kullanıcı Arabirimi tam işlevselliğini kullanmak için bir SSH tüneli küme baş düğümü için proxy web trafiği için kullanın. Bkz: [kullanım Apache Ambari web kullanıcı Arabirimi, ResourceManager, JobHistory, NameNode, Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername >.azurehdinsight.net/ambari
 
-    > [!NOTE]
+    > [!NOTE]  
     > Küme Yöneticisi kullanıcı adı ve parola kullanarak kimlik doğrulaması.
     >
     > Düz metin kimlik doğrulama - bağlantının güvenli olduğundan emin olmak için her zaman HTTPS kullanın.
 
 * **WebHCat (templeton olarak da)** - https://&lt;clustername >.azurehdinsight.net/templeton
 
-    > [!NOTE]
+    > [!NOTE]  
     > Küme Yöneticisi kullanıcı adı ve parola kullanarak kimlik doğrulaması.
     >
     > Düz metin kimlik doğrulama - bağlantının güvenli olduğundan emin olmak için her zaman HTTPS kullanın.
 
 * **SSH** - &lt;clustername >-ssh.azurehdinsight.net bağlantı noktası 22 veya 23. Bağlantı noktası 22 ikincil veritabanına bağlanmak için 23 kullanılırken birincil baş düğüme bağlanmak için kullanılır. Baş düğümler hakkında daha fazla bilgi için bkz. [içinde HDInsight kümelerinin kullanılabilirliği ve güvenilirliği Apache hadoop'un](hdinsight-high-availability-linux.md).
 
-    > [!NOTE]
+    > [!NOTE]  
     > Yalnızca bir istemci makinesinden SSH küme baş düğümleri erişebilir. Bağlantı kurulduktan sonra bir baş düğümüne SSH kullanarak çalışan düğümlerinin ardından erişebilirsiniz.
 
 Daha fazla bilgi için [HDInsight üzerinde Apache Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları](hdinsight-hadoop-port-settings-for-services.md) belge.
@@ -96,23 +96,23 @@ Hadoop ile ilgili dosyaları küme düğümlerinde bulunabilir `/usr/hdp`. Bu di
 
 Hadoop dağıtılmış dosya sistemi üzerinde örnek verileri ve JAR dosyaları bulunabilir `/example` ve `/HdiSamples`.
 
-## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, Azure depolama ve Data Lake Store
+## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Azure depolama ve Data Lake depolama
 
 Çoğu Hadoop dağıtımları, kümedeki makinelerde yerel depolama tarafından yedeklenen HDFS, veriler depolanır. Yerel depolama ile burada saat veya dakika işlem kaynakları için ücretlendirilirsiniz bulut tabanlı bir çözüm için pahalı olabilir.
 
-HDInsight'ı kullanırken, veri dosyalarını Azure Blob Depolama ve isteğe bağlı olarak Azure Data Lake Store kullanarak bulutta dayanıklı ve ölçeklenebilir bir şekilde depolanır. Bu hizmetler, aşağıdaki avantajları sağlar:
+HDInsight'ı kullanırken, veri dosyalarını Azure Blob Depolama ve isteğe bağlı olarak Azure Data Lake Storage kullanarak bulutta dayanıklı ve ölçeklenebilir bir şekilde depolanır. Bu hizmetler, aşağıdaki avantajları sağlar:
 
 * Uzun vadeli depolama ucuz.
 * Web siteleri, dosya karşıya yükleme/indirme yardımcı programlar, çeşitli dil SDK'ları ve web tarayıcıları gibi dış hizmetlerden erişilebilirlik.
 * Büyük dosya kapasite ve büyük ölçeklenebilir depolama.
 
-Daha fazla bilgi için [anlama blobları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) ve [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+Daha fazla bilgi için [anlama blobları](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) ve [Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/).
 
-Azure Storage'ı veya Data Lake Store, verilere erişmek için HDInsight özel bir şey yapmanız gerekmez. Örneğin, aşağıdaki komut dosyalarında listeler `/example/data` olup Azure Depolama'da veya Data Lake Store üzerinde depolandığından bağımsız olarak klasörü:
+Azure depolama ya da Data Lake Storage kullanırken, verilere erişmek için HDInsight özel bir şey yapmanız gerekmez. Örneğin, aşağıdaki komut dosyalarında listeler `/example/data` olup Azure Depolama'da veya Data Lake Store üzerinde depolandığından bağımsız olarak klasörü:
 
     hdfs dfs -ls /example/data
 
-HDInsight veri depolama kaynaklarını (Azure Blob Depolama ve Azure Data Lake Store) işlem kaynakları birbirinden ayrılmıştır. Bu nedenle, gereksinim ve iş tamamlandığında, daha sonra kümeyi silmek hesaplama yapmak için HDInsight kümeleri oluşturabilir, ihtiyacınız olduğu sürece bu arada, veri dosyalarını tutmak güvenli bir şekilde bulut depolamada kalıcı olan.
+HDInsight veri depolama kaynaklarını (Azure Blob Depolama ve Azure Data Lake depolama), bilgi işlem kaynaklarından birbirinden ayrılmıştır. Bu nedenle, gereksinim ve iş tamamlandığında, daha sonra kümeyi silmek hesaplama yapmak için HDInsight kümeleri oluşturabilir, ihtiyacınız olduğu sürece bu arada, veri dosyalarını tutmak güvenli bir şekilde bulut depolamada kalıcı olan.
 
 ### <a name="uri-and-scheme"></a>URI ve düzeni
 
@@ -126,14 +126,14 @@ Kullanırken __Azure depolama__, aşağıdaki URI düzenleri birini kullanın:
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: Varsayılan olmayan depolama hesabıyla iletişimde kullanılacak. Örneğin, ek bir depolama hesabı veya ne zaman ortak olarak erişilebilen bir depolama hesabında depolanan verilere erişme olduğunda.
 
-Kullanırken __Data Lake Store__, aşağıdaki URI düzenleri birini kullanın:
+Kullanırken __Data Lake Storage__, aşağıdaki URI düzenleri birini kullanın:
 
-* `adl:///`: Küme için varsayılan Data Lake Store erişim.
+* `adl:///`: ' % S'varsayılan Data Lake depolama kümesi için erişim.
 
-* `adl://<storage-name>.azuredatalakestore.net/`: Varsayılan olmayan Data Lake Store ile iletişim kurarken kullanılan. Ayrıca, HDInsight kümenizin kök dizininin dışındaki verilere erişmek için kullanılır.
+* `adl://<storage-name>.azuredatalakestore.net/`: Varsayılan olmayan Data Lake depolama ile iletişim kurarken kullanılan. Ayrıca, HDInsight kümenizin kök dizininin dışındaki verilere erişmek için kullanılır.
 
-> [!IMPORTANT]
-> HDInsight için varsayılan depolama olarak Data Lake Store kullanırken HDInsight depolama kökü olarak kullanılacak bir depo içindeki bir yol belirtmeniz gerekir. Varsayılan yol `/clusters/<cluster-name>/`.
+> [!IMPORTANT]  
+> HDInsight için varsayılan depolama olarak Data Lake Storage'ı kullanırken, HDInsight depolama kökü olarak kullanılacak bir depo içindeki bir yol belirtmeniz gerekir. Varsayılan yol `/clusters/<cluster-name>/`.
 >
 > Kullanırken `/` veya `adl:///` verilere erişmek için yalnızca kök dizininde depolanan verilere erişebilirsiniz (örneğin, `/clusters/<cluster-name>/`) kümesi. Deponun herhangi bir yerindeki verilere erişmek için kullandığı `adl://<storage-name>.azuredatalakestore.net/` biçimi.
 
@@ -152,7 +152,7 @@ Bu komut, aşağıdaki URI benzer bir değer döndürür:
 
     Hesap adı, Azure depolama hesabının adıdır. Kapsayıcı adı kökü olan küme depolama blob kapsayıcısıdır.
 
-* `adl://home` Azure Data Lake Store kullanıyorsanız. Data Lake Store adını almak için aşağıdaki REST çağrısı kullanın:
+* `adl://home` Azure Data Lake Storage kullanılıyorsa. Data Lake Storage adını almak için aşağıdaki REST çağrısı kullanın:
 
     ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 
@@ -188,7 +188,7 @@ Kullanıyorsanız __Azure depolama__, verilerinize erişebilirsiniz yolları iç
     * [.NET](https://github.com/Azure/azure-sdk-for-net)
     * [Depolama REST API’si](https://msdn.microsoft.com/library/azure/dd135733.aspx)
 
-Kullanıyorsanız __Azure Data Lake Store__, verilerinize erişebilirsiniz yolları için aşağıdaki bağlantılara bakın:
+Kullanıyorsanız __Azure Data Lake Storage__, verilerinize erişebilirsiniz yolları için aşağıdaki bağlantılara bakın:
 
 * [Web tarayıcısı](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
@@ -256,9 +256,9 @@ Kendi Betik Eylemlerinizi geliştirme hakkında daha fazla bilgi için bkz. [HDI
 
 Bazı Hadoop teknolojileri öğesinden veya bir MapReduce işi, bir parçası olarak kullanılan işlevler içeren kendi başına bir jar dosyaları sağlanan Pig veya Hive içinde. Bunlar genellikle olmayan herhangi bir ayar gerektiren Küme oluşturulduktan sonra karşıya ve doğrudan kullanılır. Bileşen kümesini yeniden devam eder. emin olmak, jar dosyasını kümeniz (WASB veya ADL) için varsayılan depolama alanında depolayabilirsiniz.
 
-Örneğin, en son sürümünü kullanmak istiyorsanız [DataFu](http://datafu.incubator.apache.org/), projeyi içeren bir jar dosyasını indirin ve HDInsight kümesine yükleyin. Ardından Hive veya Pig kullanma hakkında DataFu belgeleri izleyin.
+Örneğin, en son sürümünü kullanmak istiyorsanız [Apache DataFu](https://datafu.incubator.apache.org/), projeyi içeren bir jar dosyasını indirin ve HDInsight kümesine yükleyin. Ardından Hive veya Pig kullanma hakkında DataFu belgeleri izleyin.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Tek başına jar dosyalarıdır bazı bileşenler, HDInsight ile sağlanan ancak yolu değildir. Belirli bir bileşeni için arıyorsanız, kümenizde aramak için izleme kullanabilirsiniz:
 >
 > ```find / -name *componentname*.jar 2>/dev/null```
@@ -270,7 +270,7 @@ Bir bileşen farklı bir sürümünü kullanmanız gerekir ve işlerinizde kulla
 > [!WARNING]
 > HDInsight kümesi ile sağlanan bileşenler tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
 >
-> Özel bileşenler daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Bu sorunu çözümlemek ya da bu teknoloji için derin bir uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları etkileşim kurmak isteyen neden olabilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Özel bileşenler daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Bu sorunu çözümlemek ya da bu teknoloji için derin bir uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları etkileşim kurmak isteyen neden olabilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Apache projeleri proje siteleri de [ https://apache.org ](https://apache.org), örneğin: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -8,16 +8,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: abb80bb0877f99dfb1623e320078e935f581d833
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498661"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722932"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>HDInsight küme yapılandırmalarını en iyi duruma getirmek için Apache Ambari kullanın
 
-HDInsight sağlar [Apache Hadoop](https://hadoop.apache.org/) kümeleri büyük ölçekli veri işleme uygulamaları için. Bu karmaşık çok düğümlü küme en iyi duruma getirme yönetme ve izleme zor olabilir. [Apache Ambari](http://ambari.apache.org/) yönetmek ve HDInsight Linux kümeleri izlemek için bir web arabirimidir.  Windows kümeleri için kullanan [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
+HDInsight sağlar [Apache Hadoop](https://hadoop.apache.org/) kümeleri büyük ölçekli veri işleme uygulamaları için. Bu karmaşık çok düğümlü küme en iyi duruma getirme yönetme ve izleme zor olabilir. [Apache Ambari](https://ambari.apache.org/) yönetmek ve HDInsight Linux kümeleri izlemek için bir web arabirimidir.  Windows kümeleri için kullanan [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 Ambari Web kullanıcı arabirimini kullanarak bir giriş için bkz. [yönetme HDInsight kümeleri Apache Ambari Web kullanıcı arabirimini kullanarak](hdinsight-hadoop-manage-ambari.md)
 
@@ -82,8 +82,8 @@ Hive iki yürütme altyapısı sağlar: [Apache Hadoop MapReduce](https://hadoop
 
 Hadoop bölme dener (*harita*) paralel olarak birden fazla dosya ve elde edilen işlem tek bir dosyaya dosyaları. Azaltıcının bölmelerini sayısına bağlıdır. Aşağıdaki iki yapılandırma parametrelerini bölmelerini Tez yürütme altyapısı için sayısını sürücü:
 
-* `tez.grouping.min-size`: Gruplandırılmış bölme boyutu 16 MB (16,777,216 bayt), varsayılan değeri alt sınır.
-* `tez.grouping.max-size`: Gruplandırılmış bölme boyutu 1 GB (1.073.741.824 bayt) varsayılan bir değerle üst sınır.
+* `tez.grouping.min-size`: Alt sınır gruplandırılmış bölme boyutu 16 MB (16,777,216 bayt), varsayılan değeri.
+* `tez.grouping.max-size`: Gruplandırılmış bölme boyutu 1 GB (1.073.741.824 bayt) varsayılan bir değerle üst sınırı.
 
 Bir performans kuralı karşısında, gecikme süresini iyileştirmek için daha fazla üretilen iş hacmini artırmak için bu parametrelerin her ikisi de azaltır.
 
@@ -189,7 +189,7 @@ Genel bir kural olarak bölümlenebilir sıkıştırma yöntemi olması önemlid
 
     ![Hive exec sıkıştırma Ara](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Ara dosyaları sıkıştırmak için yüksek oranda sıkıştırma çıkış codec almasa bile maliyet, daha düşük CPU ile sıkıştırma codec bileşeni seçin.
 
 1. Ara sıkıştırma codec ayarlamak için özel özellik ekleme `mapred.map.output.compression.codec` için `hive-site.xml` veya `mapred-site.xml` dosya.
@@ -210,7 +210,7 @@ Genel bir kural olarak bölümlenebilir sıkıştırma yöntemi olması önemlid
 
     Bu, Snappy sıkıştırma kullanarak ara dosyası sıkıştırır. Özellik eklendikten sonra özel hive site bölmesinde görünür.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Bu yordamı değiştirir `$HADOOP_HOME/conf/hive-site.xml` dosya.
 
 ### <a name="compress-final-output"></a>Son çıkış Sıkıştır
@@ -299,12 +299,12 @@ Hive yürütme altyapısı iyileştirmek için ek öneriler:
 
     ![Gelişmiş pig özellikleri](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
-> [!NOTE]
+> [!NOTE]  
 > Özellik değerlerinde oturum düzeyi ayarları geçersiz kılmak `pig.properties` dosya.
 
 ### <a name="tune-execution-engine"></a>Yürütme altyapısı ayarlama
 
-Pig betikleri çalıştırmak iki yürütme motoru kullanılabilir: MapReduce ve Tez. Tez en iyi duruma getirilmiş bir altyapısıdır ve MapReduce hızlıdır.
+İki yürütme altyapısı, Pig betikleri yürütmek kullanılabilir: MapReduce ve Tez. Tez en iyi duruma getirilmiş bir altyapısıdır ve MapReduce hızlıdır.
 
 1. Yürütme altyapısı değiştirmek için **Gelişmiş özellikleri pig** bölmesinde özelliğini bulun `exectype`.
 
@@ -333,7 +333,7 @@ Pig görev düğümler için kullanılabilir hale getirmek için Dağıtılmış
 
 Aşağıdaki bellek ayarları, Pig betiği performansı en iyi duruma yardımcı olabilir.
 
-* `pig.cachedbag.memusage`: Bir paket için ayrılmış bellek miktarı. Bir paket tanımlama grubu oluşan bir koleksiyondur. Bir demet alanları kümesini, ve bir alanın veri parçası. Bir paketi verileri tahsis edilen bellekten ise, geçmiş diske. Kullanılabilir bellek yüzde 20'si temsil eden 0.2 varsayılan değerdir. Bu bellek, bir uygulamada tüm paketleri arasında paylaşılır.
+* `pig.cachedbag.memusage`: Bir paketi için ayrılmış bellek miktarı. Bir paket tanımlama grubu oluşan bir koleksiyondur. Bir demet alanları kümesini, ve bir alanın veri parçası. Bir paketi verileri tahsis edilen bellekten ise, geçmiş diske. Kullanılabilir bellek yüzde 20'si temsil eden 0.2 varsayılan değerdir. Bu bellek, bir uygulamada tüm paketleri arasında paylaşılır.
 
 * `pig.spill.size.threshold`: Paketleri (bayt cinsinden) bu Saçılma boyutu eşik değerinden daha büyük geçmiş diske. Varsayılan değer 5 MB'dir.
 
@@ -344,7 +344,7 @@ Pig, iş yürütme sırasında geçici dosyaları oluşturur. Geçici dosyalar s
 
 * `pig.tmpfilecompression`: TRUE olduğunda, geçici dosya sıkıştırma sağlar. Varsayılan değer false'tur.
 
-* `pig.tmpfilecompression.codec`: Geçici dosyalar sıkıştırılıyor için kullanılacak sıkıştırma codec. Önerilen sıkıştırma codec bileşenleri olan [LZO](https://www.oberhumer.com/opensource/lzo/) ve daha düşük CPU kullanımı için Snappy.
+* `pig.tmpfilecompression.codec`: Geçici dosyalar sıkıştırılıyor için kullanılacak sıkıştırma codec bileşeni. Önerilen sıkıştırma codec bileşenleri olan [LZO](https://www.oberhumer.com/opensource/lzo/) ve daha düşük CPU kullanımı için Snappy.
 
 ### <a name="enable-split-combining"></a>Bölünmüş birleştirme etkinleştir
 
@@ -395,9 +395,9 @@ Okuma önbelleği blok önbelleğidir. Boyutuna göre denetlenir `hfile.block.ca
 
 Tüm düzenlemeleri olarak adlandırılan bellek arabelleği içinde depolanan bir *Memstore*. Bu toplam tek bir işlemde diske yazılan veri miktarını artırır ve en son düzenlemeler sonraki erişim hızlandırır. Memstore boyutu, aşağıdaki iki parametreyi tarafından tanımlanır:
 
-* `hbase.regionserver.global.memstore.UpperLimit`: En yüksek yüzdesi birleşik Memstore kullanabilirsiniz bölge sunucusu tanımlar.
+* `hbase.regionserver.global.memstore.UpperLimit`: Memstore birlikte kullanabileceğiniz bölge sunucusu en fazla yüzdesini tanımlar.
 
-* `hbase.regionserver.global.memstore.LowerLimit`: Minimum yüzdesi birleşik Memstore kullanabilirsiniz bölge sunucusu tanımlar.
+* `hbase.regionserver.global.memstore.LowerLimit`: Memstore birlikte kullanabileceğiniz bölge sunucusu minimum yüzdesini tanımlar.
 
 Rastgele Okuma için en iyi duruma getirme Memstore üst ve alt sınırları azaltabilir.
 
@@ -408,7 +408,7 @@ Rastgele Okuma için en iyi duruma getirme Memstore üst ve alt sınırları aza
 
 ![HBase getirilen satır sayısı](./media/hdinsight-changing-configs-via-ambari/hbase-num-rows-fetched.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bir tarayıcı İleri yöntemi çağırmayı arasındaki süreyi tarayıcı zaman aşımından daha büyük olduğunu değeri ayarlanmadı. Tarayıcı zaman aşımı süresi tarafından tanımlanan `hbase.regionserver.lease.period` özelliği.
 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 815b792f8584e984ff77c32265de65f9b633adb1
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: f51d132d3cdc2d8aed65919df5fa225711508c60
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322798"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753104"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Olay analizi ve Application Insights ile Görselleştirme
 
@@ -39,7 +39,7 @@ Application Insights Service Fabric kullanırken Zengin bir deneyimi vardır. Ge
 
 ![Application Insights'a genel bakış](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 
-Önceki görüntüde sağ panelde listedeki girişleri iki ana türü vardır: istekleri ve olaylar. Bu durumda uygulamanın API'sine HTTP istekleri aracılığıyla yapılan çağrılar isteklerdir ve kodunuzdaki herhangi bir yere ekleyebilirsiniz telemetri olarak davranacak özel olaylar olaylardır. Uygulamalarınızda ölçümlü izleme daha da keşfedebilirsiniz [özel olaylar ve ölçümler için Application Insights API](../application-insights/app-insights-api-custom-events-metrics.md). Bir isteği tıklayarak daha fazla ayrıntı Application ınsights'ı Service Fabric nuget paketinin toplanan Service fabric'e özgü veriler dahil olmak üzere aşağıdaki görüntüde gösterildiği gibi görüntülenebilir. Bu bilgileri, sorun giderme ve uygulamanızın durumunu ne olduğunu bilmek için kullanışlıdır ve bu bilgilerin tümünü Application Insights içinde aranabilir
+Önceki görüntüde sağ panelde listedeki girişleri iki ana türü vardır: istekleri ve olaylar. Bu durumda uygulamanın API'sine HTTP istekleri aracılığıyla yapılan çağrılar isteklerdir ve kodunuzdaki herhangi bir yere ekleyebilirsiniz telemetri olarak davranacak özel olaylar olaylardır. Uygulamalarınızda ölçümlü izleme daha da keşfedebilirsiniz [özel olaylar ve ölçümler için Application Insights API](../azure-monitor/app/api-custom-events-metrics.md). Bir isteği tıklayarak daha fazla ayrıntı Application ınsights'ı Service Fabric nuget paketinin toplanan Service fabric'e özgü veriler dahil olmak üzere aşağıdaki görüntüde gösterildiği gibi görüntülenebilir. Bu bilgileri, sorun giderme ve uygulamanızın durumunu ne olduğunu bilmek için kullanışlıdır ve bu bilgilerin tümünü Application Insights içinde aranabilir
 
 ![Application Insights İstek Ayrıntıları](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
@@ -47,7 +47,7 @@ Application Insights gelen tüm verilerde sorgulama için bir atanan görünüm�
 
 ![Application Insights İstek Ayrıntıları](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
-Application Insights portalında yeteneklerini daha iyi keşfedilebilmesi için attıktan [Application Insights portal belgeleri](../application-insights/app-insights-dashboards.md).
+Application Insights portalında yeteneklerini daha iyi keşfedilebilmesi için attıktan [Application Insights portal belgeleri](../azure-monitor/app/app-insights-dashboards.md).
 
 ### <a name="configuring-application-insights-with-wad"></a>WAD ile Application Insights'ı yapılandırma
 
@@ -114,7 +114,7 @@ EventFlow ve WAD toplama çözümler olarak, çıkış EventFlow değiştirmek i
 
 [Application Insights, mikro hizmetler ve kapsayıcılar için destek](https://azure.microsoft.com/blog/app-insights-microservices/) bazıları gösterilmektedir (yine de şu anda beta) çalışan yeni özelliklerinin hangi izin Application Insights ile daha zengin kullanıma hazır izleme seçeneğiniz vardır. Bu bağımlılık izleme (tüm hizmetleri ve uygulamaları bir küme ve bunların arasındaki iletişimi bir AppMap oluşturulmasında kullanılan) ve daha iyi bağıntısı hizmetlerinizi (daha iyi bir sorun iş akışındaki sunulan içinde yardımcı geldiğini izlemeleri içerir bir uygulama veya hizmet).
 
-.NET ile geliştirme ve büyük olasılıkla Service Fabric'in programlama modelleri ve bu olay ve günlük verilerini çözümleme ve görselleştirme için Application Insights platformunuz kullanmak istediğiniz bazı kullanıp, ardından Application ınsights'ı Git öneririz İzleme ve tanılama iş akışı olarak SDK yolu. Okuma [bu](../application-insights/app-insights-asp-net-more.md) ve [bu](../application-insights/app-insights-asp-net-trace-logs.md) toplamak ve günlüklerinizi görüntülemek için Application Insights'ı kullanmaya başlamak için.
+.NET ile geliştirme ve büyük olasılıkla Service Fabric'in programlama modelleri ve bu olay ve günlük verilerini çözümleme ve görselleştirme için Application Insights platformunuz kullanmak istediğiniz bazı kullanıp, ardından Application ınsights'ı Git öneririz İzleme ve tanılama iş akışı olarak SDK yolu. Okuma [bu](../azure-monitor/app/asp-net-more.md) ve [bu](../azure-monitor/app/asp-net-trace-logs.md) toplamak ve günlüklerinizi görüntülemek için Application Insights'ı kullanmaya başlamak için.
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>Application Insights kaynağı Azure portalında gezinme
 
@@ -122,9 +122,9 @@ Application Insights olayları ve günlükleri için bir çıktı olarak yapıla
 
 *Ölçüm Gezgini* , uygulamalarınıza, hizmetlerinize ve küme raporlama ölçümlere göre özel panolar oluşturmak için kullanışlı bir araçtır. Bkz: [keşfetmeye ölçümler Application ınsights'da](../application-insights/app-insights-metrics-explorer.md) birkaç grafikleri kendiniz toplama verileri temel alan için ayarlanacak.
 
-Tıklayarak **Analytics** burada olaylarla ve izlemelerle daha fazla kapsam ve isteğe bağlı olma sorgulayabilirsiniz sizi Application Insights Analytics portalına götürür. Şu anda hakkında daha fazla bilgiyi [Application Insights analiz](../application-insights/app-insights-analytics.md).
+Tıklayarak **Analytics** burada olaylarla ve izlemelerle daha fazla kapsam ve isteğe bağlı olma sorgulayabilirsiniz sizi Application Insights Analytics portalına götürür. Şu anda hakkında daha fazla bilgiyi [Application Insights analiz](../azure-monitor/app/analytics.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Yapay ZEKA uyarıları ayarlama](../application-insights/app-insights-alerts.md) performans ya da kullanım değişiklikler hakkında bildirim almak için
+* [Yapay ZEKA uyarıları ayarlama](../azure-monitor/app/alerts.md) performans ya da kullanım değişiklikler hakkında bildirim almak için
 * [Akıllı algılama Application ınsights'ta](../application-insights/app-insights-proactive-diagnostics.md) olası performans sorunları sizi uyarabilmek için Application Insights'a gönderilen telemetri bir öngörülü analiz gerçekleştirir

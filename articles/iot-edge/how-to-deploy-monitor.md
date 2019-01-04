@@ -95,7 +95,7 @@ Yapılandırılmış bir dağıtım için tüm modüllerin oluşturduktan sonra 
 
 ### <a name="step-3-specify-routes-optional"></a>3. adım: (İsteğe bağlı) bir yol belirtin.
 
-Modüller birbirleri ile dağıtımında iletişim kurma biçimini yolları tanımlayın. Varsayılan olarak sihirbaz size bir yol olarak adlandırılan **rota** ve tanımlanmış olarak **FROM /* Yukarı Akış $**, modüllerin tarafından çıkış iletileri IOT hub'ına gönderilen anlamına gelir.  
+Modüller birbirleri ile dağıtımında iletişim kurma biçimini yolları tanımlayın. Varsayılan olarak sihirbaz size bir yol olarak adlandırılan **rota** ve tanımlanmış olarak **FROM /\* Yukarı Akış $**, modüllerin tarafından çıkış iletileri IOT hub'ına gönderilen anlamına gelir.  
 
 Ekleme veya yolları alınan bilgilerle güncelleştirme [bildirmek yollar](module-composition.md#declare-routes), ardından **sonraki** gözden geçirme bölüme geçmek için.
 

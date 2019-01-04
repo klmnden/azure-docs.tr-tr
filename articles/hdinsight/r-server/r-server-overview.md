@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 1f53d87d6de76c0ff6954c9bd38d95e05981d822
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a07f052cf89da039bb9fe091f1cd997c19d2fcc7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499461"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584539"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>ML Hizmetleri ve açık kaynak R yeteneklerini HDInsight giriş
 
-> [!NOTE]
+> [!NOTE]  
 > Eylül 2017'de, Microsoft R Server'ın yeni bir adla yayımlanan **Microsoft Machine Learning sunucusu** veya ML Server. Sonuç olarak, HDInsight üzerinde R Server kümesini şimdi adlı **Machine Learning Hizmetleri** veya **ML Hizmetleri** HDInsight kümesinde. R Server ad değişikliği hakkında daha fazla bilgi için bkz. [Microsoft R Server, artık Microsoft Machine Learning sunucusu](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server).
 
 Azure HDInsight kümeleri oluşturduğunuzda Microsoft Machine Learning sunucusu bir dağıtım seçeneği olarak kullanılabilir. Bu seçenek sağlayan küme türü olarak adlandırılır **ML Hizmetleri**. Bu özellik, veri uzmanlarının, istatistikçilerin ve R programcılarının ölçeklenebilir, isteğe bağlı erişim HDInsight üzerinde analitik yöntemlerine dağıtılmış sağlar.
@@ -29,7 +29,7 @@ HDInsight üzerinde ML Hizmetleri, Azure Blob veya Data Lake depolama birimine y
 
 Bir küme kenar düğümüne kümeye bağlanın ve, R betikleri çalıştırmak için uygun bir yer sağlar. Bir kenar düğümüne ile çalıştırmanın dağıtılmış ScaleR işlevlerini Paralel Kenar düğümü sunucusunun çekirdek arasında seçeneğiniz vardır. Ayrıca bunları tüm küme düğümlerine ScaleR'ın Hadoop Map Reduce veya Apache Spark işlem bağlamlarının kullanarak çalıştırabilirsiniz.
 
-Analiz sonucu Öngörüler ve modeller, şirket içi kullanım için indirilebilir. Bunlar ayrıca başka bir yerde, Azure'da özellikle aracılığıyla kullanıma hazır hale getirdiniz [Azure Machine Learning Studio](http://studio.azureml.net) [web hizmetini](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
+Analiz sonucu Öngörüler ve modeller, şirket içi kullanım için indirilebilir. Bunlar ayrıca başka bir yerde, Azure'da özellikle aracılığıyla kullanıma hazır hale getirdiniz [Azure Machine Learning Studio](https://studio.azureml.net) [web hizmetini](../../machine-learning/studio/publish-a-machine-learning-web-service.md).
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>HDInsight üzerinde ML hizmetleri kullanmaya başlayın
 
@@ -72,7 +72,7 @@ Aşağıdaki özellikler HDInsight ML Hizmetleri dahil edilmiştir.
 
 ## <a name="data-storage-options-for-ml-services-on-hdinsight"></a>HDInsight üzerinde ML Hizmetleri için veri depolama seçenekleri
 
-HDInsight kümelerinin HDFS dosya sistemi için varsayılan depolama alanı, bir Azure depolama hesabı veya bir Azure Data Lake Store ile ilişkilendirilebilir. Bu ilişki verileri karşıya yüklendiğini sağlar kümeye depolama analizi sırasında kalıcı hale ve hatta kümesi silindikten sonra veriler sunulur. Veri aktarımı, depolama hesabının portal tabanlı karşıya yükleme olanağı dahil olmak üzere seçtiğiniz depolama seçeneğine işlemeye yönelik çeşitli araçlar vardır ve [AzCopy](../../storage/common/storage-use-azcopy.md) yardımcı programı.
+HDInsight kümelerinin HDFS dosya sistemi için varsayılan depolama alanı, bir Azure depolama hesabı veya bir Azure Data Lake Storage ile ilişkilendirilebilir. Bu ilişki verileri karşıya yüklendiğini sağlar kümeye depolama analizi sırasında kalıcı hale ve hatta kümesi silindikten sonra veriler sunulur. Veri aktarımı, depolama hesabının portal tabanlı karşıya yükleme olanağı dahil olmak üzere seçtiğiniz depolama seçeneğine işlemeye yönelik çeşitli araçlar vardır ve [AzCopy](../../storage/common/storage-use-azcopy.md) yardımcı programı.
 
 Ek Blob erişimini etkinleştirme seçeneğiniz vardır ve küme kullanımı için birincil depolama seçeneğinde bağımsız olarak işlem sağlama sırasında veri gölü depolar. Bkz: [ML Hizmetleri HDInsight kullanmaya başlama](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started) ek hesap için erişim ekleme hakkında bilgi için. Bkz: [ML Hizmetleri için Azure depolama seçeneğinin HDInsight üzerinde](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage) makalenin birden fazla depolama hesabı kullanma hakkında daha fazla bilgi edinin.
 

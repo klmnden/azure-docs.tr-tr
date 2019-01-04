@@ -7,21 +7,21 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 585202203e0828848ea51cc5d0d548c6f1ac6cba
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 364c8d4c0ca9ac9a733ee98fd73b2dfd8497625f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724343"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791296"
 ---
-# <a name="create-an-azure-cosmos-db-for-mongodb-api-app-with-angular-and-cosmos-db"></a>Bir Angular ile MongoDB API uygulaması için Azure Cosmos DB ve Cosmos DB oluşturma
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb"></a>Angular uygulama API'si ile Azure Cosmos DB'nin MongoDB için oluşturun.
 
-Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yazılmış yeni bir uygulama oluşturun ve buna bağlanmak gösterilmektedir, [MongoDB API'si için yapılandırılmış Cosmos hesabı](mongodb-introduction.md).
+Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yazılmış yeni bir uygulama oluşturun ve buna bağlanmak gösterilmektedir, [MongoDB için Cosmos DB API'si ile yapılandırılan Cosmos hesabı](mongodb-introduction.md).
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Hızla oluşturun ve belge, anahtar/değer ve genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz Cosmos DB'nin grafik veritabanlarını sorgulama olanak tanır. 
 
 Bu çok bölümlü öğretici aşağıdaki görevleri içerir:
 

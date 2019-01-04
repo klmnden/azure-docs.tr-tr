@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0621c2d1632dead41463810b9e71ebf0404a8cbe
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6de5fefa3d70c1daecf00909d3ce44d4a4d8561c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077758"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543572"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -27,7 +27,7 @@ ExpressRoute bağlantıları ortak İnternet üzerinden geçmemektedir. Bunlar, 
 
 ### <a name="where-is-the-service-available"></a>Hizmet nerede kullanılabilir?
 
-Hizmet konumu ve kullanılabilirlik için şu sayfaya bakın: [ExpressRoute iş ortakları ve konumları](expressroute-locations.md).
+Hizmet konumu ve kullanılabilirlik için bu sayfaya bakın: [ExpressRoute iş ortakları ve konumları](expressroute-locations.md).
 
 ### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>Ben iş ortaklıkları taşıyıcı ExpressRoute iş ortakları ile yoksa, Microsoft'a bağlanmak için ExpressRoute nasıl kullanabilirim?
 
@@ -166,7 +166,7 @@ Evet. Standart bir ExpressRoute bağlantı hattı ve 100 adede kadar en fazla 10
 
 ### <a name="i-have-multiple-azure-subscriptions-that-contain-virtual-networks-can-i-connect-virtual-networks-that-are-in-separate-subscriptions-to-a-single-expressroute-circuit"></a>Sanal ağlar içeren birden çok Azure aboneliğiniz var. Tek bir ExpressRoute bağlantı hattı için farklı Aboneliklerde bulunan sanal ağlara bağlanabilir?
 
-Evet. Tek bir ExpressRoute bağlantı hattı kullanmak için 10 adede kadar diğer Azure aboneliklerine yetki verebilir. Bu sınır, ExpressRoute premium özelliği etkinleştirerek artırılabilir.
+Evet. En fazla 10 sanal ağlar aynı abonelikte devre ya da farklı Aboneliklerde tek bir ExpressRoute bağlantı hattı kullanılarak bağlayabilirsiniz. Bu sınır, ExpressRoute premium özelliği etkinleştirerek artırılabilir.
 
 Daha fazla bilgi için [bir ExpressRoute bağlantı hattı arasında birden çok abonelik paylaşımı](expressroute-howto-linkvnet-arm.md).
 

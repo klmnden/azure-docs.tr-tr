@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 8801954ec5ff0277614f65217b9abab6bfb67035
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e8e81ab81e33302b9a0da3e0230d1366cc90d208
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098623"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635519"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure depolama güvenlik duvarlarını ve sanal ağları yapılandırma
 
@@ -25,6 +25,8 @@ Bir depolama hesabı ağ kuralları geçerli olduğunda erişen bir uygulama ist
 > Bir Azure sanal ağı (VNet) içinde çalışan bir hizmet isteği gelen sürece depolama hesabınız için güvenlik duvarı kurallarını etkinleştirmek varsayılan olarak, veri gelen istekleri engeller. Engellenen istekleri, Azure portalından, günlük ve ölçüm hizmetlerden, diğer Azure hizmetlerinden gelen içerir ve benzeri.
 >
 > Gelen alt ağ hizmeti örneğinin vererek bir Vnet'te çalışan Azure hizmetlerine erişime izin verebilirsiniz. Etkinleştirme senaryoları ile sınırlı sayıda [özel durumları](#exceptions) aşağıdaki bölümde anlatılan mekanizması. Azure portalına erişmek için ayarladığınız güvenilen sınırları (IP veya VNet) içinde bir makinede olması gerekir.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="scenarios"></a>Senaryolar
 
@@ -65,24 +67,24 @@ Azure portalı, PowerShell veya CLIv2 aracılığıyla depolama hesapları için
 
 #### <a name="powershell"></a>PowerShell
 
-1. Yükleme [Azure PowerShell](/powershell/azure/install-azurerm-ps) ve [oturum](/powershell/azure/authenticate-azureps).
+1. Yükleme [Azure PowerShell](/powershell/azure/install-Az-ps) ve [oturum](/powershell/azure/authenticate-azureps).
 
 1. Depolama hesabı için varsayılan kuralın durumunu görüntüler.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
     ```
 
 1. Varsayılan olarak ağ erişimini engellemek için varsayılan kuralı ayarlayın.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
     ```
 
 1. Varsayılan olarak ağ erişim izni vermek için varsayılan kuralı ayarlayın.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
     ```
 
 #### <a name="cliv2"></a>CLIv2
@@ -153,32 +155,32 @@ Azure portalı, PowerShell veya CLIv2 aracılığıyla depolama hesapları için
 
 #### <a name="powershell"></a>PowerShell
 
-1. Yükleme [Azure PowerShell](/powershell/azure/install-azurerm-ps) ve [oturum](/powershell/azure/authenticate-azureps).
+1. Yükleme [Azure PowerShell](/powershell/azure/install-Az-ps) ve [oturum](/powershell/azure/authenticate-azureps).
 
 1. Sanal ağ kuralları listesi.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
     ```
 
 1. Hizmet uç noktası, bir var olan sanal ağı ve alt ağ üzerinde Azure depolama için etkinleştirin.
 
     ```PowerShell
-    Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzureRmVirtualNetwork
+    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
     ```
 
 1. Bir sanal ağ ve alt ağ için bir ağ kuralı ekleyin.
 
     ```PowerShell
-    $subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
-    Add-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
+    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
+    Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
 
 1. Bir sanal ağ ve alt ağ için bir ağ kuralı kaldırın.
 
     ```PowerShell
-    $subnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzureRmVirtualNetworkSubnetConfig -Name "mysubnet"
-    Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
+    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
+    Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
 
 > [!IMPORTANT]
@@ -261,36 +263,36 @@ Azure portalı, PowerShell veya CLIv2 aracılığıyla depolama hesapları için
 
 #### <a name="powershell"></a>PowerShell
 
-1. Yükleme [Azure PowerShell](/powershell/azure/install-azurerm-ps) ve [oturum](/powershell/azure/authenticate-azureps).
+1. Yükleme [Azure PowerShell](/powershell/azure/install-Az-ps) ve [oturum](/powershell/azure/authenticate-azureps).
 
 1. IP ağ kuralları listesi.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
     ```
 
 1. Tek bir IP adresi için bir ağ kuralı ekleyin.
 
     ```PowerShell
-    Add-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
+    Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
 1. Bir IP adresi aralığı için bir ağ kuralı ekleyin.
 
     ```PowerShell
-    Add-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
+    Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
 1. Tek bir IP adresi için bir ağ kuralı kaldırın.
 
     ```PowerShell
-    Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
+    Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
 1. Ağ kuralı için bir IP adresi aralığı kaldırın.
 
     ```PowerShell
-    Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
+    Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
 > [!IMPORTANT]
@@ -378,24 +380,24 @@ Ağ kuralı özel durumlarını Azure portal, PowerShell veya Azure CLI aracıl�
 
 #### <a name="powershell"></a>PowerShell
 
-1. Yükleme [Azure PowerShell](/powershell/azure/install-azurerm-ps) ve [oturum](/powershell/azure/authenticate-azureps).
+1. Yükleme [Azure PowerShell](/powershell/azure/install-Az-ps) ve [oturum](/powershell/azure/authenticate-azureps).
 
 1. Depolama hesabı ağ kuralları özel durumlarını görüntüler.
 
     ```PowerShell
-    (Get-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
+    (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
     ```
 
 1. Depolama hesabı ağ kuralları için özel durumlar yapılandırın.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
     ```
 
 1. Depolama hesabı ağ kurallarına özel durumları kaldırın.
 
     ```PowerShell
-    Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
+    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
     ```
 
 > [!IMPORTANT]

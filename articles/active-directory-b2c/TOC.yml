@@ -89,6 +89,8 @@ items:
     items:
     - name: Application Insights’ı kullanarak günlük toplama
       href: active-directory-b2c-troubleshoot-custom.md
+    - name: ROPC'yi yapılandırma
+      href: ropc-custom.md
     - name: Kullanıcı erişimini yapılandırma
       href: active-directory-b2c-configure-signup-self-asserted-custom.md
     - name: Özel ilke oluşturma
@@ -276,16 +278,6 @@ items:
     href: b2clogin.md
   - name: Azure AD Graph API’sini kullanma
     href: active-directory-b2c-devquickstarts-graph-dotnet.md
-  - name: Web uygulamaları
-    items:
-    - name: ASP.NET
-      href: active-directory-b2c-devquickstarts-web-dotnet-susi.md
-  - name: Web API'leri
-    items:
-    - name: ASP.NET
-      href: active-directory-b2c-devquickstarts-api-dotnet.md
-    - name: .NET Web API'si çağırma
-      href: active-directory-b2c-devquickstarts-web-api-dotnet.md
   - name: Başvuru
     items:
     - name: Kod örnekleri
@@ -324,9 +316,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Videolar
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: d61d6726d388fd7bf18f1bcbc168078afadd1a71
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: b8a8db0dc15877cc772efbb1e9656c12f27f426a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579813"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788292"

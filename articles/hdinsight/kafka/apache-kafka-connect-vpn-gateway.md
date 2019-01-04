@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 7fd201dd7c766880b1ed892abe3900b523d75145
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a37e67f299262a7e0b353564c24c789859dcec7c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307483"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605016"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Bir Azure sanal ağı üzerinden HDInsight üzerinde Apache kafka'ya bağlanma
 
@@ -49,7 +49,7 @@ HDInsight Kafka için doğrudan bağlantı genel internet üzerinden izin vermez
 
     Daha fazla bilgi için [bir VPN istemcisi ile Apache Kafka Bağlan](#vpnclient) bölümü.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Bu yapılandırma, yalnızca geliştirme amacıyla aşağıdaki sınırlamalar nedeniyle önerilir:
     >
     > * Her bir istemci, yazılım VPN istemcisi kullanarak bağlanmanız gerekir.
@@ -61,7 +61,7 @@ Bir sanal ağda HDInsight kullanma hakkında daha fazla bilgi için bkz. [Azure 
 
 Şirket içi ağınız ile iletişim kuran bir Kafka kümesi oluşturmak için adımları [HDInsight'ı şirket içi ağınıza bağlama](./../connect-on-premises-network.md) belge.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight kümesi oluştururken, seçin __Kafka__ küme türü.
 
 Bu adımlar aşağıdaki yapılandırmayı oluşturun:
@@ -71,7 +71,7 @@ Bu adımlar aşağıdaki yapılandırmayı oluşturun:
 * Azure depolama hesabı (HDInsight tarafından kullanılır)
 * HDInsight üzerinde Kafka
 
-Kafka istemci şirket içinden kümeye bağlantı kurabildiğimizi doğrulamak için içindeki adımları kullanın. [örnek: Python istemcisini](#python-client) bölümü.
+Kafka istemci şirket içinden kümeye bağlantı kurabildiğimizi doğrulamak için içindeki adımları kullanın. [örneği: Python istemcisini](#python-client) bölümü.
 
 ## <a id="vpnclient"></a> Bir VPN istemcisi ile Apache Kafka için bağlama
 
@@ -186,7 +186,7 @@ Aşağıdaki yapılandırmayı oluşturmak için bu bölümdeki adımları kulla
         -VpnClientRootCertificates $p2sRootCert
     ```
 
-    > [!WARNING]
+    > [!WARNING]  
     > Bu, bu işlemin tamamlanması birkaç dakika sürebilir.
 
 5. Azure depolama hesabı ve blob kapsayıcısı oluşturmak için aşağıdaki kodu kullanın:
@@ -232,7 +232,7 @@ Aşağıdaki yapılandırmayı oluşturmak için bu bölümdeki adımları kulla
         -SubnetName $defaultSubnet.Id
     ```
 
-  > [!WARNING]
+  > [!WARNING]  
   > Bu işlemin tamamlanması yaklaşık 15 dakika sürer.
 
 ### <a name="configure-kafka-for-ip-advertising"></a>Kafka IP reklam için yapılandırma
@@ -317,7 +317,7 @@ Kafka bağlanabilirliği doğrulamak için oluşturup bir Python üretici ve tü
 
     Sonraki adımlarda kullanmak için döndürülen bilgi kaydedin.
 
-2. Yüklemek için aşağıdakileri kullanın [kafka python](http://kafka-python.readthedocs.io/) istemci:
+2. Yüklemek için aşağıdakileri kullanın [kafka python](https://kafka-python.readthedocs.io/) istemci:
 
         pip install kafka-python
 

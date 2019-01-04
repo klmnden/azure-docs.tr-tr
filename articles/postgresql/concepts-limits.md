@@ -1,20 +1,17 @@
 ---
 title: PostgreSQL için Azure veritabanı'nda sınırlamaları
 description: Bu makalede, bağlantı ve depolama altyapısı seçenekleri sayısı gibi bir PostgreSQL için Azure veritabanı'nda sınırlamalar açıklanır.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2018
-ms.openlocfilehash: 108d2ac83c0dc317dee2f8c66f95f01d3569a7c4
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4616ab535e7edca6d5f919824e9cadaf90886d5f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311669"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548571"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda sınırlamaları
 Aşağıdaki bölümlerde, kapasite ve veritabanı hizmetinde işlev sınırlamaları açıklanmaktadır.

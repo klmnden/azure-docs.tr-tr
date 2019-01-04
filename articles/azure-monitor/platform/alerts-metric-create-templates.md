@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 6d063eb0ae2a468bc8aa73d18b88135f1f119bec
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a5b82cb5f2ea90876001fe2db0f62d8b1df64f0c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346497"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580255"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager şablonu ile ölçüm uyarısı oluşturma
 
-Bu makalede nasıl kullanabileceğinizi gösteren bir [Azure Resource Manager şablonu](../../azure-resource-manager/resource-group-authoring-templates.md) yapılandırmak için [yeni ölçüm uyarılarının](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) Azure İzleyici'de. Resource Manager şablonları, program aracılığıyla uyarıları ortamlarınızda tutarlı ve tekrarlanabilir bir şekilde ayarlamak etkinleştirin. Yeni ölçüm uyarılarının şu anda kullanılabilir [bu kaynak türleri kümesini](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+Bu makalede nasıl kullanabileceğinizi gösteren bir [Azure Resource Manager şablonu](../../azure-resource-manager/resource-group-authoring-templates.md) yapılandırmak için [yeni ölçüm uyarılarının](../../azure-monitor/platform/alerts-metric-near-real-time.md) Azure İzleyici'de. Resource Manager şablonları, program aracılığıyla uyarıları ortamlarınızda tutarlı ve tekrarlanabilir bir şekilde ayarlamak etkinleştirin. Yeni ölçüm uyarılarının şu anda kullanılabilir [bu kaynak türleri kümesini](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
 > Resource Manager şablonu için ölçüm uyarısı belirtilen kaynak türü için çalışmaz: Microsoft.OperationalInsights/workspaces; Ölçümler ile Log Analytics için desteği Önizleme aşamasındadır. Kaynak şablonu ile Önizleme işlevselliğine kullanmakla ilgilenen kullanıcılar başvurabilirler [Azure uyarıları geri bildirim](mailto:azurealertsfeedback@microsoft.com)

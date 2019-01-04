@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 08/27/2018
-ms.openlocfilehash: 13e9bb045bcce553ba9fdc344baa86ba96260387
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b3bdcc81776067f279c1f95458a0a79a8824f51c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870240"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603058"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Esnek veritabanı araçlarını kullanmaya başlayın
 Bu belge, geliştirici deneyimini tanıtır [elastik veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md) yardımcı olarak örnek uygulamasını çalıştırın. Örnek uygulama, basit bir parçalı uygulama oluşturur ve Azure SQL veritabanı'nın elastik veritabanı araçları özelliği'nin önemli özelliklerini açıklar. Kullanım durumları için odaklanır [parça eşleme Yönetimi](sql-database-elastic-scale-shard-map-management.md), [verilere bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md), ve [çok parçalı sorgulama](sql-database-elastic-scale-multishard-querying.md). İstemci Kitaplığı, Java yanı sıra .NET için kullanılabilir. 
@@ -95,18 +95,18 @@ Tebrikler! Başarıyla oluşturulan ve SQL veritabanı elastik veritabanı araç
 > 
 
 ## <a name="key-pieces-of-the-code-sample"></a>Kod örneği temel
-* **Parça ve parça yönetme eşler**: kod parçaları, aralıkları ve eşlemeler ile nasıl çalışılacağını göstermektedir *ShardManagementUtils.cs* dosya. Daha fazla bilgi için [veritabanları parça eşleme Yöneticisi ile ölçeklendirme](https://go.microsoft.com/?linkid=9862595).  
+* **Parça ve parça yönetme eşler**: Kod parçaları, aralıkları ve eşlemeler ile nasıl çalışılacağını göstermektedir *ShardManagementUtils.cs* dosya. Daha fazla bilgi için [veritabanları parça eşleme Yöneticisi ile ölçeklendirme](https://go.microsoft.com/?linkid=9862595).  
 
-* **Verilere bağımlı yönlendirme**: işlem uygun parçaya yönlendirmesi gösterilir *DataDependentRoutingSample.cs* dosya. Daha fazla bilgi için [verilere bağımlı yönlendirme](https://go.microsoft.com/?linkid=9862596). 
+* **Verilere bağımlı yönlendirme**: İşlemlerin uygun parçaya yönlendirmesi gösterilir *DataDependentRoutingSample.cs* dosya. Daha fazla bilgi için [verilere bağımlı yönlendirme](https://go.microsoft.com/?linkid=9862596). 
 
-* **Birden çok parça üzerinde sorgulama**: parçalar arasında sorgulama içinde gösterilmiştir *MultiShardQuerySample.cs* dosya. Daha fazla bilgi için [çok parçalı sorgulama](https://go.microsoft.com/?linkid=9862597).
+* **Birden çok parça üzerinde sorgulama**: Parçalar arasında sorgulama içinde gösterilmiştir *MultiShardQuerySample.cs* dosya. Daha fazla bilgi için [çok parçalı sorgulama](https://go.microsoft.com/?linkid=9862597).
 
-* **Boş bir parça ekleme**: yeni bir boş parçalar yinelemeli ekleme kodu tarafından gerçekleştirilen *CreateShardSample.cs* dosya. Daha fazla bilgi için [veritabanları parça eşleme Yöneticisi ile ölçeklendirme](https://go.microsoft.com/?linkid=9862595).
+* **Boş bir parça ekleme**: Yeni boş parçalar yinelemeli ekleme kodu tarafından gerçekleştirilen *CreateShardSample.cs* dosya. Daha fazla bilgi için [veritabanları parça eşleme Yöneticisi ile ölçeklendirme](https://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Diğer elastik ölçeklendirme işlemleri
-* **Mevcut bir parça bölme**: özellik parçalara bölmek için bölme-Birleştirme aracı tarafından sağlanır. Daha fazla bilgi için [ölçeği genişletilen bulut veritabanları arasında veri taşıma](sql-database-elastic-scale-overview-split-and-merge.md).
+* **Mevcut bir parça bölme**: Ayırma-Birleştirme aracı tarafından parçalara bölmek olanağı sağlanır. Daha fazla bilgi için [ölçeği genişletilen bulut veritabanları arasında veri taşıma](sql-database-elastic-scale-overview-split-and-merge.md).
 
-* **Varolan parçaların birleştirme**: parça birleştirmeler, bölme-birleştirme aracını kullanarak da gerçekleştirilir. Daha fazla bilgi için [ölçeği genişletilen bulut veritabanları arasında veri taşıma](sql-database-elastic-scale-overview-split-and-merge.md).   
+* **Varolan parçaların birleştirme**: Parça birleştirmeleri bölme-birleştirme aracını kullanarak da gerçekleştirilir. Daha fazla bilgi için [ölçeği genişletilen bulut veritabanları arasında veri taşıma](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 ## <a name="cost"></a>Maliyet
 Elastik veritabanı araçları kitaplığı ücretsizdir. Esnek veritabanı araçlarını kullandığınızda, Azure kullanımınızı maliyetini ötesinde herhangi bir ek ücret uygulanır. 
@@ -122,10 +122,10 @@ Esnek veritabanı araçları hakkında daha fazla bilgi için aşağıdaki makal
   * Esnek veritabanı araçlarını ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [Azure SQL - Entity Framework tümleştirmesi için esnek veritabanı araçları](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Betik Merkezi'nde parça esnekliği](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
-* Blog: [esnek ölçeklendirme Duyurusu](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
-* Kanal 9: [esnek ölçek genel bakış videosu](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+* Blog: [Esnek ölçek Duyurusu](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
+* Kanal 9: [Esnek ölçek genel bakış videosu](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Tartışma forumu: [Azure SQL veritabanının Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
-* Performansını ölçmek için: [parça eşleme Yöneticisi için performans sayaçları](sql-database-elastic-database-client-library.md)
+* Performansını ölçmek için: [Parça eşleme yöneticisi için performans sayaçları](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->
 [The Elastic Scale Sample Application]: #The-Elastic-Scale-Sample-Application

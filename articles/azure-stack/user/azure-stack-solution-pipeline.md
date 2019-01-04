@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 12f9ed6d5b5d4c8dc7e5b0b68a0a394749cc72bd
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967070"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714619"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure uygulama dağıtma yığını
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Öğretici: Azure ve Azure Stack’e uygulama dağıtma
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Bir uygulamayı Azure ve Azure Stack kullanarak karma sürekli tümleştirme/sürekli teslim (CI/CD) işlem hattı dağıtmayı öğrenin.
 
@@ -72,7 +72,7 @@ Bu öğreticide, Azure ve Azure Stack bazı temel bilgi sahibi olduğunuzu varsa
 ### <a name="azure-requirements"></a>Azure gereksinimleri
 
 * Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-* Oluşturma bir [Web uygulaması](https://docs.microsoft.com/azure/app-service/app-service-web-overview) azure'da. Web uygulama URL'sini Not olun, öğreticide kullanmanız gerekir.
+* Oluşturma bir [Web uygulaması](https://docs.microsoft.com/azure/app-service/overview) azure'da. Web uygulama URL'sini Not olun, öğreticide kullanmanız gerekir.
 
 ### <a name="azure-stack-requirements"></a>Azure Stack gereksinimleri
 
@@ -166,7 +166,7 @@ Hizmet uç noktası yapılandırmasının bir parçası olarak, Azure DevOps hiz
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Azure Stack aboneliğine kaynakları dağıtmak için hizmet sorumlusu haklar
 
-Aboneliğinizdeki kaynaklara erişmek için uygulamaya bir rol atamanız gerekir. Hangi rol uygulama için en iyi izinleri temsil eden karar verin. Kullanılabilir roller hakkında bilgi edinmek için [RBAC: yerleşik roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+Aboneliğinizdeki kaynaklara erişmek için uygulamaya bir rol atamanız gerekir. Hangi rol uygulama için en iyi izinleri temsil eden karar verin. Kullanılabilir roller hakkında bilgi edinmek için [RBAC: Yerleşik roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam için izinler devralınmıştır. Örneğin, bir kaynak grubu için okuyucu rolüne uygulamaya ekleme kaynak grubunu ve tüm kaynaklarının okuyabilirsiniz anlamına gelir.
 
@@ -180,9 +180,7 @@ Abonelik, kaynak grubu veya kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha 
 
 3. Visual Studio Enterprise'ı seçin **erişim denetimi (IAM)**.
 
-    ![Access Control (IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
-
-4. **Add (Ekle)** seçeneğini belirleyin.
+4. Seçin **rol ataması Ekle**.
 
     ![Ekle](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
@@ -350,7 +348,7 @@ Karma CI/CD, hem uygulama kodunda hem de altyapı kodunu uygulayabilirsiniz. Kul
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>Uygulama hizmetleri için kendi içinde bir web uygulaması dağıtımı her iki bulut oluşturma
 
-1. Düzenle **WebApplication.csproj** dosya: seçin **Runtimeidentifier** ve ardından ekleyin `win10-x64.` daha fazla bilgi için [müstakil dağıtım](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) belgeleri.
+1. Düzen **WebApplication.csproj** dosyası: Seçin **Runtimeidentifier** ve ardından eklemek `win10-x64.` daha fazla bilgi için [müstakil dağıtım](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) belgeleri.
 
     ![Runtimeidentifier yapılandırın](media/azure-stack-solution-hybrid-pipeline/019_runtimeidentifer.png)
 

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d3705267520087e098e3e2bcc55e677935dc6097
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 5607dd0f3c682915f1a64edcc5e946491bab5279
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275342"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653365"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki oturum açma etkinlik raporları
 
@@ -44,7 +44,7 @@ Bu konu, oturum açma işlemleri raporu genel bir bakış sağlar.
 * Ayrıca, herhangi bir kullanıcı (Yönetici olmayanlar) kendi oturum açma etkinliklerine erişebilir 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Oturum açma etkinliğine erişebilmek için hangi Azure AD lisansınızın olması gerekir?
-* Oturum açma etkinliği raporunun tamamını görebilmek için kiracınız ile ilişkili bir Azure AD Premium lisansınızın olması gerekir
+* Kiracınızın tüm oturum açma etkinliği raporunu görebilmeniz için kendisiyle ilişkili bir Azure AD Premium lisansı olması gerekir. Bkz: [Azure Active Directory Premium ile çalışmaya başlama](../fundamentals/active-directory-get-started-premium.md) , Azure Active Directory sürümünü yükseltmek için.
 
 ## <a name="sign-ins-report"></a>Oturum açma işlemleri raporu
 

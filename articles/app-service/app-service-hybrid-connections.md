@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/26/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 084d5e9453ea5a55bdeeff839e4c70890575c83d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 40ff05e9fbc00747145c653878010ad9da0c37ec
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53258024"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653399"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service karma bağlantılar #
 
@@ -177,7 +177,7 @@ Düzenli güncelleştirmeler sorunları düzeltin ya da geliştirmeleri sağlama
 
 ## <a name="adding-a-hybrid-connection-to-your-app-programmatically"></a>Karma bağlantı programlı olarak uygulamanıza ekleme ##
 
-Aşağıda belirtildiği API'leri, doğrudan web apps hizmetinize bağlı karma bağlantılar'ı yönetmek için kullanılabilir. 
+Aşağıda belirtildiği API'leri, uygulamalarınızı bağlı karma bağlantılar doğrudan yönetmek için kullanılabilir. 
 
     /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
 
@@ -198,7 +198,7 @@ Karma bağlantı ile ilişkili bir JSON nesnesi şu şekilde görünür:
       }
     }
 
-Bu bilgileri yollarından biri olan sayfasından edinebilirsiniz armclient [ARMClient] [ armclient] GitHub projesi. Önceden var olan bir karma bağlantı web uygulamanıza iliştirilirken bir örnek aşağıdadır. Yukarıdaki şemayı gibi her bir JSON dosyası oluşturun:
+Bu bilgileri yollarından biri olan sayfasından edinebilirsiniz armclient [ARMClient] [ armclient] GitHub projesi. Uygulamanıza önceden mevcut olan karma bağlantı iliştirilirken bir örnek aşağıdadır. Yukarıdaki şemayı gibi her bir JSON dosyası oluşturun:
 
     {
       "name": "relay-demo-hc",
@@ -230,7 +230,7 @@ App Service'te tcpping Aracı'nı Gelişmiş araçlar (Kudu) konsolundan çağr�
 
 ## <a name="biztalk-hybrid-connections"></a>BizTalk Karma Bağlantıları ##
 
-Bu özelliğin erken form BizTalk karma bağlantılar çağrıldı. Bu özellik, 31 Mayıs 2018'de, son yaşam oluştu ve işlem ceased. BizTalk karma bağlantıları tüm web uygulamalarından kaldırıldı ve portalı veya API erişilebilir değildir. Ardından bu eski bağlantılar karma Bağlantı Yöneticisi'nde yapılandırılan hala varsa, artık Üretilmiyor durumunu görmek ve son, yaşam deyimi altında görüntüler.
+Bu özelliğin erken form BizTalk karma bağlantılar çağrıldı. Bu özellik, 31 Mayıs 2018'de, son yaşam oluştu ve işlem ceased. BizTalk karma bağlantılar, tüm uygulamalardan kaldırıldı ve portalı veya API erişilebilir değildir. Ardından bu eski bağlantılar karma Bağlantı Yöneticisi'nde yapılandırılan hala varsa, artık Üretilmiyor durumunu görmek ve son, yaşam deyimi altında görüntüler.
 
 ![HCM BizTalk karma bağlantıları][12]
 

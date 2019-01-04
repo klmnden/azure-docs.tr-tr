@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
 ms.custom: seodec18
-ms.openlocfilehash: 174fbd8f3e4c652c25a78911185ef8a98a80bb50
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ab1ae63352e66da557cad49bf5f320b577055877
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260047"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726570"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Uygulamayı azure'daki bir anlık görüntüden geri yükleme
-Bu makalede, uygulamanızı geri yükleme işlemini göstermektedir [Azure App Service](../app-service/app-service-web-overview.md) anlık görüntüden. Uygulamanız, uygulamanızın anlık görüntüleri birini temel alan bir önceki durumuna geri yükleyebilirsiniz. Anlık görüntüleri yedeklemeyi etkinleştirme gerekmez, platform otomatik olarak veri kurtarma amacıyla tüm uygulamalara anlık görüntüsünü kaydeder.
+Bu makalede, uygulamanızı geri yükleme işlemini göstermektedir [Azure App Service](../app-service/overview.md) anlık görüntüden. Uygulamanız, uygulamanızın anlık görüntüleri birini temel alan bir önceki durumuna geri yükleyebilirsiniz. Anlık görüntüleri yedeklemeyi etkinleştirme gerekmez, platform otomatik olarak veri kurtarma amacıyla tüm uygulamalara anlık görüntüsünü kaydeder.
 
-Anlık görüntüleri olan artımlı gölge kopyaları ve bunlar normal kıyasla çeşitli avantajlar sunar [yedeklemeleri](web-sites-backup.md):
+Anlık görüntüleri olan artımlı gölge kopyaları ve bunlar normal kıyasla çeşitli avantajlar sunar [yedeklemeleri](manage-backup.md):
 - Dosya kilitleri nedeniyle dosya kopyalama hatası olmadığını.
 - Depolama boyutu sınırlaması yoktur.
 - Herhangi bir yapılandırma gerekmez.

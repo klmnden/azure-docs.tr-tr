@@ -15,12 +15,12 @@ ms.date: 12/10/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
-ms.openlocfilehash: 3021b919a83d7d5822f2ed5758e7e39cc76663d5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 9453ceb143201e2b66604c0833d6b35dd2d2ad49
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312883"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995193"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'deki yenilikler nelerdir?
 
@@ -38,6 +38,30 @@ Bu sayfaya ay güncelleştirilir, böylece bunu düzenli olarak tekrar ziyaret. 
 
 ---
 ## <a name="novemberdecember-2018"></a>Kasım/aralık 2018
+
+### <a name="users-removed-from-synchronization-scope-no-longer-switch-to-cloud-only-accounts"></a>Kullanıcıları eşitleme kapsamından uzun anahtarı olmadan yalnızca bulutta yer alan hesaplarına kaldırıldı
+
+**Türü:** Sabit  
+**Hizmet kategorisi:** Kullanıcı Yönetimi  
+**Ürün özelliği:** Dizin
+
+Bir kullanıcının DirSyncEnabled bayrağını deneyebileceğinizi moduna geçiş yapılamaz için bir hatayı düzelttik **False** Active Directory etki alanı Hizmetleri (AD DS) nesnesinin eşitleme kapsamının dışında bırakılan ve ardından geri dönüşüm kutusu için taşınır zaman Azure AD üzerinde aşağıdaki eşitleme döngüsü. Kullanıcı eşitleme kapsamının dışında bırakılan ve daha sonra Azure AD Geri Dönüşüm Kutusu'ndan, geri bu düzeltmenin sonucu olarak, kullanıcı hesabı gelen eşitlenmiş olarak kalır AD, beklendiği gibi şirket içinde ve bulutta kaynağına yetki başlangıcı (SoA) olarak kalır beri yönetilemez Böylece, şirket içi AD.
+
+Bu düzeltme önce bir sorun oluştu, DirSyncEnabled bayrağını yanlış olarak değiştirildi. Bu hesaplar için yalnızca bulutta yer alan nesneler dönüştürüldü ve bulutta yönetilen hesapları yanlış izlenimini verdiği. Hesapları geldiğini, SoA şirket içi ve tüm eşitlenmiş özellikleri (gölge öznitelikleri) olarak yine de korunur ancak şirket içi AD. Bu durumun nedeni, Azure AD'de birden çok sorunla ve bu hesaplar AD'den eşitlenen olarak değerlendirilecek bekleniyordu, ancak artık yalnızca bulut hesapları gibi mu davrandığı, diğer bulut iş yüklerini (Exchange Online gibi).
+
+Şu anda gerçekten eşitlenmiş gelen-AD hesabı yalnızca bulut hesabına dönüştürmek için tek DirSync SoA aktarmak için bir arka uç işlemi tetikler ve Kiracı düzeyinde devre dışı bırakarak yoludur. Bu tür bir SoA değişiklik gerektirir (ancak bunlarla sınırlı değil) tüm şirket içi temizleme ilişkili öznitelikleri (LastDirSyncTime gibi ve gölge öznitelikler) ve diğer bulut iş yüklerini yalnızca bulutta yer alan bir hesap için çok dönüştürülen ilgili nesne için sinyal gönderme .
+
+Bu düzeltme, sonuç olarak gerekli olan bazı senaryolarda geçmişte doğrudan İmmutableıd özniteliği AD'den eşitlenen bir kullanıcı güncelleştirmeleri engeller. Adından da anlaşılacağı gibi tasarım gereği, Azure AD'de bir nesnenin Immutableıd sabit olması amaçlanmıştır. Bu tür senaryolara Azure AD Connect Health ve Azure AD Connect eşitlemesi istemcisinde uygulanan yeni özellikler mevcuttur:
+
+- **Tek seferde çok sayıda kullanıcı için büyük ölçekli Immutableıd güncelleştirmeleri**
+
+  Örneğin, Azure AD Connect uygulama çalışırken bir hata yaparsanız ve artık SourceAnchor özniteliği değiştirmeniz gerekir. Çözüm: DirSync ve Kiracı düzeyinde devre dışı bırakın ve tüm geçersiz Immutableıd değerleri temizleyin. Daha fazla bilgi için [Office 365 için dizin eşitleme devre dışı bırakma](/office365/enterprise/turn-off-directory-synchronization).
+
+- **Çok aşamalı bir yaklaşım kullanıcılar için büyük ölçekli Immutableıd güncelleştirme**
+  
+  Örneğin, uzun bir AD DS ormanlar arası geçiş yapmanız gerekir. Çözüm: Azure AD Connect'e kullanın **kaynak bağlantısını yapılandır** ve kullanıcı geçirir, mevcut Immutableıd değerlerini Azure AD'den yerel AD DS kullanıcının ms-DS-tutarlılık-Guid özniteliği yeni ormanın kopyalayın. Daha fazla bilgi için [ms-DS-Consistencyguid'i sourceAnchor olarak kullanma](/azure/active-directory/hybrid/plan-connect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor).
+
+- **Azure AD'de mevcut bir kullanıcının şirket içi kullanıcıyla rematch** Örneğin, AD DS'de yeniden oluşturulmuş bir kullanıcı bir yinelenen bir var olan Azure AD hesabı (yalnız bırakılmış nesneye) ile rematching yerine Azure AD hesabı oluşturur. Çözüm: Azure AD Connect Health, Azure portalında kaynak bağlayıcı/Immutableıd yeniden eşlemek için kullanın. Daha fazla bilgi için [Kitaplar'daki nesne senaryo](/azure/active-directory/hybrid/how-to-connect-health-diagnose-sync-errors#orphaned-object-scenario).
 
 ### <a name="breaking-change-updates-to-the-audit-and-sign-in-logs-schema-through-azure-monitor"></a>Yeni değişiklik: Denetim ve Azure İzleyici aracılığıyla oturum açma günlükleri şema güncelleştirmeleri
 
@@ -103,7 +127,7 @@ Azure AD yöneticileri artık Microsoft Authenticator uygulama içi bildirimler 
 
 - Kısa mesaj
 
-Parola sıfırlama için Microsoft Authenticator uygulamasını kullanma hakkında daha fazla bilgi için bkz. [Azure AD Self Servis parola sıfırlama - mobil uygulama ve SSPR (Önizleme)](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr-preview)
+Parola sıfırlama için Microsoft Authenticator uygulamasını kullanma hakkında daha fazla bilgi için bkz. [Azure AD Self Servis parola sıfırlama - mobil uygulama ve SSPR (Önizleme)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#mobile-app-and-sspr-preview)
 
 ---
 
@@ -218,7 +242,7 @@ Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile Sa
 
 ## <a name="october-2018"></a>Ekim 2018
 
-### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Azure AD günlükleri artık Azure Log Analytics (genel Önizleme) ile çalışma
+### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Azure AD Günlükleri şimdi Azure Log Analytics (Genel önizleme) ile çalışıyor
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Raporlama  
@@ -228,7 +252,7 @@ Azure Log Analytics için artık Azure AD günlüklerinizi iletebilir duyurmakta
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---october-2018"></a>Yeni Federasyon uygulamaları kullanılabilir Azure AD uygulama galerisinde - Ekim 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---october-2018"></a>Azure AD uygulama galerisinde yeni Federasyon Uygulamaları kullanıma sunuldu - Ekim 2018
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Kurumsal Uygulamalar  
@@ -242,7 +266,7 @@ Uygulamalar hakkında daha fazla bilgi için bkz. [Azure Active Directory ile Sa
 
 ---
 
-### <a name="azure-ad-domain-services-email-notifications"></a>E-posta bildirimleri Azure AD etki alanı Hizmetleri
+### <a name="azure-ad-domain-services-email-notifications"></a>Azure AD Domain Services E-posta Bildirimleri
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Azure AD Domain Services  
@@ -256,7 +280,7 @@ Daha fazla bilgi için [bildirim ayarları Azure AD Etki Alanı Hizmetleri'nde](
 
 ---
 
-### <a name="azure-ad-portal-supports-using-the-forcedelete-domain-api-to-delete-custom-domains"></a>Özel etki alanları silinecek ForceDelete etki alanı API kullanarak azure AD portalı destekler 
+### <a name="azure-ad-portal-supports-using-the-forcedelete-domain-api-to-delete-custom-domains"></a>Azure AD portalı, özel etki alanlarını silmek için ForceDelete etki alanı API'sini kullanmayı destekler 
 
 **Türü:** Değişen özellik  
 **Hizmet kategorisi:** Dizin Yönetimi  
@@ -310,7 +334,7 @@ Bu tek tıklamayla deneyimi kullanmaya başlamak için Git **Azure portalında**
 
 ---
 
-### <a name="azure-active-directory---where-is-your-data-located-page"></a>Verilerinizin bulunduğu azure Active Directory -? Sayfa
+### <a name="azure-active-directory---where-is-your-data-located-page"></a>Azure Active Directory - Verileriniz nerede bulunuyor? sayfası
 
 **Türü:** Yeni özellik  
 **Hizmet kategorisi:** Diğer  
@@ -325,7 +349,7 @@ Daha fazla bilgi için bu özelliğe erişmek için [Azure etkin verilerinizin b
 ### <a name="new-deployment-plan-available-for-the-my-apps-access-panel"></a>Uygulamalarım Erişim paneli için yeni dağıtım planı kullanılabilir
 
 **Türü:** Yeni özellik  
-**Hizmet kategorisi:** Uygulamaların  
+**Hizmet kategorisi:** Uygulamalarım  
 **Ürün özelliği:** SSO
 
 My Apps erişim panelinde kullanılabilen yeni dağıtım planını göz atın (https://aka.ms/deploymentplans).

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 311a576381927536386f5852336c3713fca5c3bf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: aee91f6d9b8d16db7f14bbc2372d7c465377ce28
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260761"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971537"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Redis için Azure Önbelleği SSS
 Sık sorulan sorular, desenleri ve en iyi yanıtları Azure önbelleği için Redis için öğrenin.
@@ -83,7 +83,7 @@ Bu bölümdeki SSS'leri ortak izleme ve sorun giderme soruları kapsar. İzleme 
 * [Hangi Azure önbellek teklifi bana uygundur?](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-cache-for-redis"></a>Azure önbelleği için Redis nedir?
-Azure önbelleği için Redis popüler açık kaynak üzerinde temel [Azure önbelleği için Redis](http://redis.io). Güvenli ve adanmış bir Azure önbelleği için Redis, Microsoft tarafından yönetilir ve azure'daki herhangi bir uygulamadan erişilebilir için erişmenizi sağlar. Daha ayrıntılı bir genel bakış için bkz. [Azure önbelleği için Redis](https://azure.microsoft.com/services/cache/) Azure.com'daki ürün sayfası.
+Azure önbelleği için Redis popüler açık kaynak yazılım tabanlı [Redis](https://redis.io/). Güvenli ve adanmış bir Azure önbelleği için Redis, Microsoft tarafından yönetilir ve azure'daki herhangi bir uygulamadan erişilebilir için erişmenizi sağlar. Daha ayrıntılı bir genel bakış için bkz. [Azure önbelleği için Redis](https://azure.microsoft.com/services/cache/) Azure.com'daki ürün sayfası.
 
 ### <a name="how-can-i-get-started-with-azure-cache-for-redis"></a>Nasıl Azure önbelleği için Redis kullanmaya başlayabilir miyim?
 İle Azure önbelleği için Redis oluşturabileceğinize dair birkaç yolu vardır.
@@ -174,7 +174,7 @@ Evet, Azure kamu Bulutu, Azure Çin Bulutu ve Microsoft Azure Almanya'yı Azure 
 Azure önbelleği için Redis ile diğer bulutlarda kullanmayla ilgili konular hakkında daha fazla bilgi için aşağıdaki bağlantılara bakın.
 
 - [Azure kamu veritabanları - Azure önbelleği için Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Azure Çin Bulutu - Azure önbelleği için Redis](https://www.azure.cn/documentation/services/azure-cache-for-redis/)
+- [Azure Çin Bulutu - Azure önbelleği için Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Almanya](https://azure.microsoft.com/overview/clouds/germany/)
 
 Azure Cache için Redis Azure kamu Bulutu, Azure Çin Bulutu ve Microsoft Azure Almanya'yı PowerShell ile kullanma hakkında daha fazla bilgi için bkz: [diğer bulutlarda - Azure önbelleği için Redis PowerShell bağlanma](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).

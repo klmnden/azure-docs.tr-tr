@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 3aa3b2fa0dffb38970b80fe061f1fe09271e15b1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: bc3ee549a4219441b657b89bef56d35dfac6626a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438311"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547499"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure tanılama günlüklerini arşivleme
 
-Bu makalede, biz arşivlemek için Azure portalı, PowerShell cmdlet'leri, CLI veya REST API'sini nasıl kullanabileceğinizi gösterir, [Azure tanılama günlükleri](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) bir depolama hesabında. Bu seçenek, Denetim, statik analiz veya yedekleme için bir isteğe bağlı bekletme ilkesi ile tanılama günlüklerini tutmak istiyorsanız yararlıdır. Ayarı yapılandıran kullanıcının her iki abonelik için uygun RBAC erişimine sahip olduğu sürece, günlükleri yayan kaynak ile aynı abonelikte olması depolama hesabı yok.
+Bu makalede, biz arşivlemek için Azure portalı, PowerShell cmdlet'leri, CLI veya REST API'sini nasıl kullanabileceğinizi gösterir, [Azure tanılama günlükleri](../../azure-monitor/platform/diagnostic-logs-overview.md) bir depolama hesabında. Bu seçenek, Denetim, statik analiz veya yedekleme için bir isteğe bağlı bekletme ilkesi ile tanılama günlüklerini tutmak istiyorsanız yararlıdır. Ayarı yapılandıran kullanıcının her iki abonelik için uygun RBAC erişimine sahip olduğu sürece, günlükleri yayan kaynak ile aynı abonelikte olması depolama hesabı yok.
 
 > [!WARNING]
 > Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -33,7 +33,7 @@ Başlamadan önce yapmanız [depolama hesabı oluşturma](../../storage/common/s
 
 ## <a name="diagnostic-settings"></a>Tanılama ayarları
 
-Aşağıdaki yöntemlerden birini kullanarak, tanılama günlüklerini arşivleme için ayarlamanız bir **tanılama ayarını** belirli bir kaynak için. Bir kaynağın tanılama ayarını günlükleri ve ölçüm verileri bir hedefe (depolama hesabı, Event Hubs ad alanı veya Log Analytics) gönderilen kategorileri tanımlar. Ayrıca her bir kategori günlük ve ölçüm verileri bir depolama hesabında depolanan olayları için bekletme ilkesi (saklanacağı gün sayısı) tanımlar. Bir bekletme ilkesi, sıfır olarak ayarlanırsa, olay günlüğü kategori için (yani, sonsuza kadar söylemek) süresiz olarak depolanır. Bir bekletme ilkesi, aksi takdirde herhangi bir sayıda gün 1 ile 2147483647 arasında olabilir. [Daha fazla tanılama ayarları hakkında](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silinecektir. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar. 
+Aşağıdaki yöntemlerden birini kullanarak, tanılama günlüklerini arşivleme için ayarlamanız bir **tanılama ayarını** belirli bir kaynak için. Bir kaynağın tanılama ayarını günlükleri ve ölçüm verileri bir hedefe (depolama hesabı, Event Hubs ad alanı veya Log Analytics) gönderilen kategorileri tanımlar. Ayrıca her bir kategori günlük ve ölçüm verileri bir depolama hesabında depolanan olayları için bekletme ilkesi (saklanacağı gün sayısı) tanımlar. Bir bekletme ilkesi, sıfır olarak ayarlanırsa, olay günlüğü kategori için (yani, sonsuza kadar söylemek) süresiz olarak depolanır. Bir bekletme ilkesi, aksi takdirde herhangi bir sayıda gün 1 ile 2147483647 arasında olabilir. [Daha fazla tanılama ayarları hakkında](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silinecektir. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar. 
 
 > [!NOTE]
 > Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
@@ -72,7 +72,7 @@ Birkaç dakika sonra yeni ayar, bu kaynak için ayarların listesi görüntülen
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
-| Özellik | Gerekli | Açıklama |
+| Özellik | Gereklidir | Açıklama |
 | --- | --- | --- |
 | ResourceId |Evet |Kaynağın tanılama ayarını ayarlamak istediğiniz kaynak kimliği. |
 | StorageAccountId |Hayır |Tanılama günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
@@ -162,6 +162,6 @@ PT1H.json dosyasına içinde her olay şu biçimi takip "kayıt" dizisinde depol
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Blobları analiz için indirin](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-* [Bir Event Hubs ad alanı için Stream tanılama günlükleri](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Bir Event Hubs ad alanı için Stream tanılama günlükleri](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Azure İzleyici ile Azure Active Directory günlüklerini arşivleme](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
-* [Tanılama günlükleri hakkında daha fazla bilgi](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Tanılama günlükleri hakkında daha fazla bilgi](../../azure-monitor/platform/diagnostic-logs-overview.md)

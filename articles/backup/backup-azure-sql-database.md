@@ -2,25 +2,18 @@
 title: SQL Server veritabanlarını azure'a yedekleyin | Microsoft Docs
 description: Bu öğreticide, SQL Server'ı Azure'a yedekleme açıklanmaktadır. Makalede, SQL Server kurtarma de açıklanmaktadır.
 services: backup
-documentationcenter: ''
 author: rayne-wiselman
 manager: carmonm
-editor: ''
-keywords: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/02/2018
-ms.author: anuragm
-ms.custom: ''
-ms.openlocfilehash: e2e6742fb3eda0523c7333451e836beb069e57ca
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.topic: tutorial
+ms.date: 12/21/2018
+ms.author: raynew
+ms.openlocfilehash: 50085336c59f2284f357e32b875eae08ff90d30f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410372"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790184"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>SQL Server veritabanlarını Azure'a yedekleme
 
@@ -44,9 +37,9 @@ Aşağıdaki öğeler bilinen sınırlamalar genel Önizleme aşamasında:
 - SQL sanal makinesi (VM), Azure genel IP adresleri erişmek için Internet bağlantısı gerektirir. Ayrıntılar için bkz [ağ bağlantısı kurma](backup-azure-sql-database.md#establish-network-connectivity).
 - Bir kurtarma Hizmetleri kasası en fazla 2.000 SQL veritabanlarında koruyun. Ek SQL veritabanı ayrı bir kurtarma Hizmetleri Kasası'nda depolanması gerekir.
 - [Dağıtılmış kullanılabilirlik grupları yedekleri](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) sınırlamaları vardır.
-- SQL Server her zaman üzerinde yük devretme kümesi örnekleri (Fcı'lerde) desteklenmez.
+- SQL Server her zaman üzerinde yük devretme kümesi örnekleri (Fcı'lerde) için yedekleme desteklenmez.
 - SQL Server veritabanlarını korumak için Azure yedeklemeyi yapılandırmak için Azure portalını kullanın. Azure PowerShell, Azure CLI ve REST API'ler şu anda desteklenmemektedir.
-- Yansıtma veritabanı, veritabanı anlık görüntüleri ve FCI altındaki veritabanları için yedekleme/geri yükleme işlemleri desteklenmez.
+- FCI yansıtma veritabanı, veritabanı anlık görüntüleri ve veritabanları için yedekleme/geri yükleme işlemleri desteklenmez.
 - Veritabanı ile çok sayıda dosya korunamaz. Desteklenen dosyalar sayısı, yalnızca dosya sayısına bağlıdır ancak aynı zamanda dosya yolu uzunluğu üzerinde bağlıdır çünkü çok belirleyici bir sayı değil. Böyle durumlarda, ancak daha az yaygın. Bu durumu çözmek için bir çözüm oluşturuyor.
 
 Lütfen [SSS bölümüne](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) destek/değil hakkında daha fazla ayrıntı için desteklenen senaryolar.
@@ -136,7 +129,7 @@ Bir denge seçenekleri, yönetilebilirlik, ayrıntılı bir denetim ve Maliyet '
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>İçin olmayan Market SQL VM'lerin izinleri ayarlama
 
-Bir sanal makineyi yedeklemek için Azure Backup gerektirir **AzureBackupWindowsWorkload** uzantısı yüklenecek. Azure Market sanal makineler kullanırsanız, devam [Bul SQL Server veritabanlarını](backup-azure-sql-database.md#discover-sql-server-databases). Azure Market'ten SQL veritabanlarınızı barındıran sanal makine oluşturulmadı, uzantıyı yüklemek ve uygun izinleri ayarlamak için aşağıdaki yordamı tamamlayın. Ek olarak **AzureBackupWindowsWorkload** uzantısı, Azure Backup, SQL veritabanlarını korumak için SQL sysadmin ayrıcalıkları gerektirir. Eşitlemesini bulmak sanal makinede veritabanları, Azure Backup, hesap oluşturur **NT Service\AzureWLBackupPluginSvc**. Bu hesap, yedekleme ve geri yükleme için kullanılır ve SQL sysadmin iznine sahip olması gerekir. Ayrıca, Azure Backup özelliğinden yararlanır **NT AUTHORITY\SYSTEM** SQL ortak bir oturum açma olacak şekilde bu hesabınızın olması gerekir böylece DB bulma/sorgulama için hesap.
+Bir sanal makineyi yedeklemek için Azure Backup gerektirir **AzureBackupWindowsWorkload** uzantısı yüklenecek. Azure Market sanal makineler kullanırsanız, devam [Bul SQL Server veritabanlarını](backup-azure-sql-database.md#discover-sql-server-databases). Azure Market'ten SQL veritabanlarınızı barındıran sanal makine oluşturulmadı, uzantıyı yüklemek ve uygun izinleri ayarlamak için aşağıdaki yordamı tamamlayın. Ek olarak **AzureBackupWindowsWorkload** uzantısı, Azure Backup, SQL veritabanlarını korumak için SQL sysadmin ayrıcalıkları gerektirir. Eşitlemesini bulmak sanal makinede veritabanları, Azure Backup, hesap oluşturur **NT SERVICE\AzureWLBackupPluginSvc**. Bu hesap, yedekleme ve geri yükleme için kullanılır ve SQL sysadmin iznine sahip olması gerekir. Ayrıca, Azure Backup özelliğinden yararlanır **NT AUTHORITY\SYSTEM** SQL ortak bir oturum açma olacak şekilde bu hesabınızın olması gerekir böylece DB bulma/sorgulama için hesap.
 
 İzinleri yapılandırmak için:
 
@@ -182,7 +175,7 @@ Hatasını alırsanız yükleme işlemi sırasında `UserErrorSQLNoSysadminMembe
 
     ![Oturum Aç - yeni iletişim kutusu, Ara'yı seçin](./media/backup-azure-sql-database/new-login-search.png)
 
-3. Windows sanal hizmet hesabı **NT Service\AzureWLBackupPluginSvc** SQL bulma aşamasından ve sanal makine kaydı sırasında oluşturuldu. Gösterildiği gibi hesap adını girin **Seçilecek nesne adını girin** kutusu. Seçin **Adları Denetle** adı çözümlenemedi.
+3. Windows sanal hizmet hesabı **NT SERVICE\AzureWLBackupPluginSvc** SQL bulma aşamasından ve sanal makine kaydı sırasında oluşturuldu. Gösterildiği gibi hesap adını girin **Seçilecek nesne adını girin** kutusu. Seçin **Adları Denetle** adı çözümlenemedi.
 
     ![Bilinmeyen hizmet adını çözümlemek için adları denetle seçin](./media/backup-azure-sql-database/check-name.png)
 

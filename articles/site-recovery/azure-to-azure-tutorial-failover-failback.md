@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 93928d7eb84ce986c8a9322188183e4c3dd76d99
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1866a5d86d3ee47371a5eb6e14c2976798d2b4da
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847873"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787860"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Azure bölgeleri arasında Azure VM yük devretme ve ilk duruma döndürme
 
@@ -44,9 +44,9 @@ Bu öğretici, tek bir Azure VM’den ikincil bir Azure bölgesine nasıl yük d
 
 2. **Yük devretme** kısmında, yük devredeceğiniz bir **Kurtarma Noktası** seçin. Şu seçeneklerden birini kullanabilirsiniz:
 
-   * **En son** (varsayılan): Bu seçenek, Site Recovery hizmetindeki tüm verileri işler ve en düşük Kurtarma Noktası Hedefi (RPO) sağlar.
-   * **En son işlenen**: Bu seçenek sanal makineyi, Site Recovery hizmeti tarafından işlenmiş en son kurtarma noktasına geri alır.
-   * **Özel**: Belirli bir kurtarma noktasına yük devretmek için bu seçeneği kullanın. Bu seçenek, bir yük devretme testi gerçekleştirmek için faydalıdır.
+   * **En son** (varsayılan): Bu seçenek, Site Recovery hizmetindeki tüm verileri işler ve en düşük kurtarma noktası hedefi (RPO) sağlar.
+   * **En son işlenen**: Bu seçenek, Site Recovery hizmeti tarafından işlenen en son kurtarma noktasını sanal makineye geri döner.
+   * **Özel**: Belirli kurtarma noktasına yük devretmek için bu seçeneği kullanın. Bu seçenek, bir yük devretme testi gerçekleştirmek için faydalıdır.
 
 3. Yük devretmeyi tetiklemeden önce Site Recovery’nin kaynak sanal makineleri kapatma girişiminde bulunmasını istiyorsanız, **Yük devretme başlamadan önce makineyi kapat** seçeneğini belirleyin. Kapatma işlemi başarısız olsa bile yük devretme devam eder.
 

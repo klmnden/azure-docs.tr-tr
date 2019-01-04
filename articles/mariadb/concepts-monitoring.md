@@ -1,20 +1,17 @@
 ---
 title: MariaDB için Azure veritabanı'nda izleme
 description: Bu makalede izleme ve CPU, depolama ve bağlantı istatistikleri de dahil olmak üzere MariaDB için Azure veritabanı için uyarı ölçümleri açıklanır.
-services: mariadb
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 3daa4eb07e626e53d9106abf978174f505e785ab
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 476e74a4d167fb3e9158f07cc5c073f129a74daa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516275"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545901"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'nda izleme
 İzleme verilerini sunucularınız hakkında sorun giderme ve iş yükünüz için iyileştirmenize yardımcı olur. MariaDB için Azure veritabanı sunucunuzu davranışını öngörü sunan çeşitli ölçümleri sağlar.

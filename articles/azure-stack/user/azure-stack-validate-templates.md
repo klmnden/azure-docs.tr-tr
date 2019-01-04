@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.reviewer: jeffgo
-ms.openlocfilehash: 73a0766baee8da782f0192fbc17fb2898a8360ac
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.reviewer: ''
+ms.openlocfilehash: f6ef1dfdef68136ae129faced7443302e738d5b9
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056573"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810382"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Şablonlarınızı Azure Stack için şablon doğrulama aracı ile denetleyin.
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Şablon doğrulama aracını olmadığını denetlemek için kullanabileceğiniz, Azure Resource Manager [şablonları](azure-stack-arm-templates.md) Azure Stack'e dağıtmak için hazır olursunuz. Şablon doğrulama aracı, Azure Stack Araçları'nın bir parçası kullanılabilir. İçinde açıklanan adımları kullanarak Azure Stack araçları indirin [araçları Github'dan indirin](azure-stack-powershell-download.md) makalesi.
 
@@ -32,25 +32,25 @@ ms.locfileid: "42056573"
 
 Bir şablon doğrulamak için bulut yapı özelliklerine sahip dosyası birinci ve doğrulama aracını çalıştırın. Aşağıdaki PowerShell modülleri Azure Stack araçları kullanabilirsiniz:
 
-- İçinde **CloudCapabilities** klasörü:<br>         AzureRM.CloudCapabilities.psm1 Hizmetleri ve Azure Stack bulut sürümlerinde temsil eden bir bulut özellikleri JSON dosyası oluşturur.
+- İçinde **CloudCapabilities** klasörü:<br>         `AzureRM.CloudCapabilities.psm1` Hizmetler ve Azure Stack bulut sürümlerinde temsil eden bir bulut özellikleri JSON dosyası oluşturur.
 - İçinde **TemplateValidator** klasörü:<br>
-AzureRM.TemplateValidator.psm1 dağıtım için şablonlar Azure Stack'te test etmek için bir bulut özellikleri JSON dosyası kullanır.
+`AzureRM.TemplateValidator.psm1` dağıtım için şablonlar Azure Stack'te test etmek için bir bulut özellikleri JSON dosyası kullanır.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Bulut özellikleri dosyası oluşturma
 
-Şablon Doğrulayıcı kullanmadan önce bir JSON dosyası oluşturmak için AzureRM.CloudCapabilities PowerShell modülü çalıştırın.
+Şablon Doğrulayıcı kullanmadan önce çalıştırmak **AzureRM.CloudCapabilities** bir JSON dosyası oluşturmak için PowerShell modülü.
 
 >[!NOTE]
 >Tümleşik sisteminizi güncelleştirin veya herhangi bir yeni hizmetleri veya sanal uzantıları ekleyin, bu modül yeniden çalıştırmanız gerekir.
 
 1. Azure Stack bağlantısı olduğundan emin olun. Bu adımlar, Azure Stack Geliştirme Seti konaktan gerçekleştirilebilir veya kullanabileceğiniz bir [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) istasyonunuzdan bağlanmak için.
-2. AzureRM.CloudCapabilities PowerShell modülünü içeri aktarın:
+2. İçeri aktarma **AzureRM.CloudCapabilities** PowerShell Modülü:
 
     ```PowerShell
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. Bir bulut özellikleri JSON dosyası oluşturun ve hizmet sürümlerini almak için Get-CloudCapabilities cmdlet'ini kullanın. Belirtmezseniz **- OutputPath**, AzureCloudCapabilities.Json geçerli dizinde oluşturulan dosya. Gerçek konumunuz kullanın:
+3. Kullanım `Get-CloudCapabilities` cmdlet'ini hizmet sürümlerini almak ve bir bulut özellikleri JSON dosyası oluşturun. Belirtmezseniz **- OutputPath**, AzureCloudCapabilities.Json geçerli dizinde oluşturulan dosya. Gerçek konumunuz kullanın:
 
     ```PowerShell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -58,9 +58,9 @@ AzureRM.TemplateValidator.psm1 dağıtım için şablonlar Azure Stack'te test e
 
 ## <a name="validate-templates"></a>Şablonları doğrula
 
-Şablonları AzureRM.TemplateValidator PowerShell modülünü kullanarak doğrulamak için aşağıdaki adımları kullanın. Kendi şablonlarınızı kullanın veya doğrulama [Azure Stack hızlı başlangıç şablonları](https://github.com/Azure/AzureStack-QuickStart-Templates).
+Şablonları kullanarak doğrulamak için aşağıdaki adımları kullanın **AzureRM.TemplateValidator** PowerShell modülü. Kendi şablonlarınızı kullanın veya doğrulama [Azure Stack hızlı başlangıç şablonları](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
-1. AzureRM.TemplateValidator.psm1 PowerShell modülünü içeri aktarın:
+1. İçeri aktarma **AzureRM.TemplateValidator.psm1** PowerShell Modülü:
 
     ```PowerShell
     cd "c:\AzureStack-Tools-master\TemplateValidator"
@@ -83,7 +83,7 @@ AzureRM.TemplateValidator.psm1 dağıtım için şablonlar Azure Stack'te test e
 
 Şablon Doğrulayıcı aşağıdaki parametreleri destekler.
 
-| Parametre | Açıklama | Gerekli |
+| Parametre | Açıklama | Gereklidir |
 | ----- | -----| ----- |
 | TemplatePath | Yinelemeli olarak yolu Azure Resource Manager şablonları bulma belirtir | Evet | 
 | TemplatePattern | Eşleştirilecek şablon dosyalarının adını belirtir. | Hayır |
@@ -95,13 +95,13 @@ AzureRM.TemplateValidator.psm1 dağıtım için şablonlar Azure Stack'te test e
 
 ### <a name="examples"></a>Örnekler
 
-Bu örnekte, tüm doğrulama [Azure Stack hızlı başlangıç şablonları](https://github.com/Azure/AzureStack-QuickStart-Templates) yerel depolama birimine yüklenen. Örnek aynı zamanda sanal makine boyutları ve uzantıları Azure Stack geliştirme Seti'ni özellikleri karşı doğrular.
+Bu örnekte, tüm doğrulama [Azure Stack hızlı başlangıç şablonları](https://github.com/Azure/AzureStack-QuickStart-Templates) yerel depolama birimine yüklenen. Örnek aynı zamanda sanal makine boyutları ve uzantıları Azure Stack geliştirme Seti'ni özellikleri karşı doğrular:
 
 ```PowerShell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
--TemplatePattern MyStandardTemplateName.json`
--IncludeComputeCapabilities`
+-TemplatePattern MyStandardTemplateName.json `
+-IncludeComputeCapabilities `
 -Report TemplateReport.html
 ```
 

@@ -12,12 +12,12 @@ ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/25/2018
-ms.openlocfilehash: e947c284843074cf36c2d85dd240df23a1958cd5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 892e4e776479d767326d4895dbf4bd4f30c418b0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971530"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973219"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -175,13 +175,15 @@ Denetim günlükleri bir Azure depolama hesabına yazma seçerseniz, günlükler
 
 Birincil veritabanında Denetimi etkinleştirdiğinizde, coğrafi olarak çoğaltılmış veritabanları ile ikincil veritabanı özdeş bir denetim ilkesi gerekir. İkincil veritabanı üzerinde denetim sağlayarak denetimi ayarlamanız mümkündür **ikincil sunucu**, birincil veritabanından bağımsız olarak.
 
-- Sunucu düzeyinde (**önerilen**): hem de denetimi açma **birincil sunucu** yanı sıra **ikincil sunucu** -her birincil ve ikincil veritabanları denetlenecektir bağımsız olarak, ilgili bir sunucu düzeyi ilkesini temel alarak.
-- Veritabanı düzeyinde: Veritabanı düzeyi denetimi için ikincil veritabanları yalnızca birincil veritabanı denetim ayarları'ndan yapılandırılabilir.
+- Sunucu düzeyinde (**önerilen**): Hem de denetimi açma **birincil sunucu** yanı sıra **ikincil sunucu** -birincil ve ikincil veritabanları her bağımsız olarak kendi ilgili sunucu düzeyindeki ilke göre denetlenir.
+- Veritabanı düzeyinde: İkincil veritabanları için veritabanı düzeyi denetimi yalnızca birincil veritabanı denetim ayarları'ndan yapılandırılabilir.
   - Denetim etkinleştirilmelidir *birincil veritabanının kendisi*, sunucu değil.
   - Birincil veritabanında denetimi etkinleştirildikten sonra ayrıca ikincil veritabanı üzerinde etkin hale.
 
     >[!IMPORTANT]
     >Veritabanı düzeyi denetimi ile ikincil veritabanı için depolama ayarlarını bölgeler arası trafik neden birincil veritabanı için aynı olacaktır. Yalnızca sunucu düzeyi denetimi etkinleştirin ve devre dışı tüm veritabanları için veritabanı düzeyi denetimi bırakın öneririz.
+    > [!WARNING]
+    > Sunucu düzeyinde denetim günlükleri için hedef olay hub'ı veya log analytics kullanarak ikincil coğrafi çoğaltmalı veritabanı şu anda desteklenmiyor.
 
 ### <a id="subheading-6">Depolama anahtarını yeniden üretme</a>
 
@@ -220,12 +222,12 @@ Birincil veritabanında Denetimi etkinleştirdiğinizde, coğrafi olarak çoğal
 
 ## <a id="subheading-7"></a>Azure PowerShell kullanarak SQL veritabanı denetimini yönetme
 
-**PowerShell cmdlet'leri**:
+**PowerShell cmdlet'leri (WHERE yan tümcesi desteği, ek bir filtreleme dahil)**:
 
-- [Denetim İlkesi (Set-AzureRMSqlDatabaseAuditing) veritabanı Blob güncelle][105]
-- [Sunucu Blob denetimi İlkesi (Set-AzureRMSqlServerAuditing) güncelle][106]
-- [Veritabanı Denetim İlkesi alın (Get-AzureRMSqlDatabaseAuditing)][101]
-- [Sunucu Blob denetimi İlkesi alın (Get-AzureRMSqlServerAuditing)][102]
+- [Denetim İlkesi (Set-AzSqlDatabaseAuditing) veritabanı Blob güncelle](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [Sunucu Blob denetimi İlkesi (Set-AzSqlServerAuditing) güncelle](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqlserverauditing)
+- [Veritabanı Denetim İlkesi alın (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [Sunucu Blob denetimi İlkesi alın (Get-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqlserverauditing)
 
 Bir komut dosyası örneği için bkz [PowerShell kullanarak denetim ve tehdit algılamayı yapılandırma](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -245,6 +247,14 @@ Burada yan tümcesi destek ek filtreleme ile genişletilmiş İlkesi:
 - [Veritabanı Al *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Sunucu Al *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
+## <a id="subheading-10"></a>ARM şablonları kullanarak SQL veritabanı denetimini yönetme
+
+Kullanarak Azure SQL veritabanı denetimi yönetebileceğiniz [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) Bu örneklerde gösterildiği gibi şablonları:
+
+- [Denetim günlükleri, Azure blob depolama hesabına yazma etkinleştirilmiş denetim ile bir Azure SQL sunucusu dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Denetim günlüklerini Log Analytics'e yazmak için etkin bir denetim ile bir Azure SQL sunucusu dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Denetim günlükleri Olay hub'ları yazmak için etkin bir denetim ile bir Azure SQL sunucusu dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1
 [Set up auditing for your database]: #subheading-2
@@ -254,6 +264,7 @@ Burada yan tümcesi destek ek filtreleme ile genişletilmiş İlkesi:
 [Manage SQL database auditing using Azure PowerShell]: #subheading-7
 [Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
 [Manage SQL database auditing using REST API]: #subheading-9
+[Manage SQL database auditing using ARM templates]: #subheading-10
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png
@@ -266,10 +277,3 @@ Burada yan tümcesi destek ek filtreleme ile genişletilmiş İlkesi:
 [8]: ./media/sql-database-auditing-get-started/8_auditing_get_started_blob_audit_records.png
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
-
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
-[103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
-[104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing

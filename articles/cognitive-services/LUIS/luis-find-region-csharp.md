@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5d4c564ac797f40d7f6e9b169a6c864d3ef8147b
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: f95dec8a539a92a0397421fbde411f646eeca3ca
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165172"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720093"
 ---
-# <a name="find-endpoint-region-with-c"></a>C# ile uç nokta bölgesi bulma 
+# <a name="programmatically-find-endpoint-region-with-c"></a>Uç nokta bölgesi ile programlı olarak BulC# 
 LUIS uygulama kimliği ve LUIS abonelik kimliği varsa, hangi bölge için uç nokta sorgular bulabilirsiniz.
 
 > [!NOTE] 
-> Tam C# çözüm kullanılabilir [ **LUIS-Samples** GitHub deposu](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/).
+> Tam C# çözüm kullanılabilir [ **Azure-Samples** GitHub deposu](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/find-region/csharp/).
 
 ## <a name="luis-endpoint-query-strategy"></a>LUIS uç nokta sorgu stratejisi
 Her LUIS uç nokta sorgu gerektirir:

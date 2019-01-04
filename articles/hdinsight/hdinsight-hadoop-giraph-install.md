@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 89d1859b521fff8ca8d3e8c7342bcb5a4b8d59fe
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 3ee1cfaa9e5eb08b2fe6ee7d210dcb84a8c39d78
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012989"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715333"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>Yükleme ve Windows tabanlı HDInsight kümeleri üzerinde Apache giraph'ı kullanma
 
 Windows tabanlı HDInsight kümesi Apache Giraph ile betik eylemi kullanarak özelleştirme ve büyük ölçekli grafikleri işlemek için giraph'ı kullanmayı öğrenin. Linux tabanlı küme ile Giraph'ı kullanma hakkında daha fazla bilgi için bkz. [(Linux) HDInsight Hadoop kümeleri üzerinde Apache Giraph'ı yükleme](hdinsight-hadoop-giraph-install-linux.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgede yer alan adımlar, yalnızca Windows tabanlı HDInsight kümeleri ile çalışır. HDInsight yalnızca Windows üzerinde HDInsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Bir Linux tabanlı HDInsight kümesi üzerinde Giraph yükleme hakkında daha fazla bilgi için bkz: [(Linux) HDInsight Hadoop kümeleri üzerinde Apache Giraph'ı yükleme](hdinsight-hadoop-giraph-install-linux.md).
 
 
@@ -34,7 +34,7 @@ Kullanarak Azure HDInsight (Hadoop, Storm, HBase, Spark) kümesinde herhangi bir
 * [HDInsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions.md).
 
 ## <a name="what-is-giraph"></a>Giraph nedir?
-<a href="http://giraph.apache.org/" target="_blank">Apache giraph'ı</a> grafik Hadoop kullanarak işleme yapmanıza olanak tanır ve Azure HDInsight ile kullanılabilir. Graflar sosyal ağlardaki (bazen bir sosyal grafik olarak adlandırılır) kişiler arasındaki ilişkileri veya Internet gibi büyük bir ağda bulunan yönlendiriciler arasındaki bağlantıları gibi nesneler arasındaki ilişkileri modellemek. Grafik işleme nedeni hakkında bir grafta nesneleri arasındaki ilişkileri gibi sağlar:
+<a href="https://giraph.apache.org/" target="_blank">Apache giraph'ı</a> grafik Hadoop kullanarak işleme yapmanıza olanak tanır ve Azure HDInsight ile kullanılabilir. Graflar sosyal ağlardaki (bazen bir sosyal grafik olarak adlandırılır) kişiler arasındaki ilişkileri veya Internet gibi büyük bir ağda bulunan yönlendiriciler arasındaki bağlantıları gibi nesneler arasındaki ilişkileri modellemek. Grafik işleme nedeni hakkında bir grafta nesneleri arasındaki ilişkileri gibi sağlar:
 
 * Geçerli ilişkilerinizi tabanlı olası arkadaş tanımlayıcı.
 * Bir ağda iki bilgisayar arasındaki en kısa yolu tanımlama.
@@ -61,7 +61,7 @@ Kullanarak Azure HDInsight (Hadoop, Storm, HBase, Spark) kümesinde herhangi bir
     Küme üzerinde birden çok bileşenleri yüklemek için birden fazla betik eylemi ekleyebilirsiniz. Komut ekledikten sonra küme oluşturmaya başlamak için onay işaretine tıklayın.
 
 ## <a name="use-giraph"></a>Giraph kullanma
-Temel göstermek için SimpleShortestPathsComputation örnek kullanıyoruz <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> grafikteki nesneler arasındaki en kısa yolu bulmak için uygulama. Örnek verileri ve örnek jar dosyasını karşıya yükleyin, SimpleShortestPathsComputation örnek bir iş çalıştırmak için aşağıdaki adımları kullanın ve sonra sonuçları görüntüleyin.
+Temel göstermek için SimpleShortestPathsComputation örnek kullanıyoruz <a href = "https://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> grafikteki nesneler arasındaki en kısa yolu bulmak için uygulama. Örnek verileri ve örnek jar dosyasını karşıya yükleyin, SimpleShortestPathsComputation örnek bir iş çalıştırmak için aşağıdaki adımları kullanın ve sonra sonuçları görüntüleyin.
 
 1. Bir örnek veri dosyasını Azure Blob depolama alanına yükleyin. Yerel iş istasyonunda, adlı yeni bir dosya oluşturmak **tiny_graph.txt**. Bunu, aşağıdaki satırları içermesi gerekir:
 
@@ -80,7 +80,7 @@ Temel göstermek için SimpleShortestPathsComputation örnek kullanıyoruz <a hr
     ![tiny_graph.txt arasında değişen mesafenin satırlarla bir daire olarak çizilir.](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 2. SimpleShortestPathsComputation örneği çalıştırın. Giriş olarak tiny_graph.txt dosyası kullanarak örneği çalıştırmak için aşağıdaki Azure PowerShell cmdlet'lerini kullanın.
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışı bırakılmış** ve 1 Ocak 2017 tarihinde kaldırılmıştır. Bu belgede yer alan adımlar, Azure Resource Manager ile çalışan yeni HDInsight cmdlet'lerini kullanır.
     >
     > Azure PowerShell’in en son sürümünü yüklemek için lütfen [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs)’daki adımları uygulayın. Azure Resource Manager’la çalışan yeni cmdlet’lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, daha fazla bilgi için bkz. [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](hdinsight-hadoop-development-using-azure-resource-manager.md).
@@ -164,8 +164,8 @@ Bkz: [özelleştirme HDInsight kümelerini betik eylemi kullanarak](hdinsight-ha
 * [HDInsight Apache Hadoop kümeleri oluşturma](hdinsight-provision-clusters.md): HDInsight kümeleri oluşturma hakkında genel bilgi.
 * [Betik eylemi kullanarak HDInsight kümesi özelleştirme][hdinsight-cluster-customize]: HDInsight kümelerini betik eylemi kullanarak özelleştirme hakkında genel bilgiler.
 * [HDInsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions.md).
-* [Yükleme ve Apache Spark HDInsight kümelerinde kullanma][hdinsight-install-spark]: Spark'ı yükleme hakkında daha fazla örnek betik eylemi.
-* [HDInsight kümeleri üzerinde Apache Solr yükleme](hdinsight-hadoop-solr-install.md): Solr yükleme hakkında daha fazla örnek betik eylemi.
+* [Yükleme ve Apache Spark HDInsight kümelerinde kullanma][hdinsight-install-spark]: Spark'ı yükleme hakkında daha fazla betik eylemi örneği.
+* [HDInsight kümeleri üzerinde Apache Solr yükleme](hdinsight-hadoop-solr-install.md): Solr yükleme hakkında daha fazla betik eylemi örneği.
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/

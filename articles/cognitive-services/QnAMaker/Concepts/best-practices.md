@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/18/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 63025a299f6b7b48936be9702522a832a1d77330
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d51cbc7bd88fd9f4baf066210e7b7da8cd175cd6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53074817"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603132"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Soru-cevap Oluşturucu Bilgi Bankası en iyi yöntemleri
 [Bilgi Bankası geliştirme yaşam döngüsü](../Concepts/development-lifecycle-knowledge-base.md) başlangıçtan bitişe kadar KB yönetme konusunda size yol gösterir. Bilgi bankanızı artırmak ve uygulama/sohbet Robotu ait son kullanıcılara daha iyi sonuçlar sağlamak için bu en iyi uygulamaları kullanın.
@@ -67,8 +67,11 @@ Soru-cevap Oluşturucu desteklediği derecelendirme özellikleri en iyi kullanı
 |Kullanılabilir park olan?|Araba park var mı?|cümle yapısı|
  |Merhaba|Yo<br>Hey var!|Word stil veya argo kullanımlar|
 
-### <a name="use-metadata-filters"></a>Meta veri filtresini kullanma
-[Meta veri](../How-To/edit-knowledge-base.md) filtrelere göre kullanıcı sorgunun sonuçlarını daraltmak için özelliği ekler. Sorgu aynı olsa bile, Bilgi Bankası yanıt meta veri etiketine göre değişebilir. Örneğin, *"bulunan park olduğu"* Restoran dalın konumu farklıdır - diğer bir deyişle, meta veriler, farklı bir yanıt olabilir *konumu: Seattle* karşı *konumu: Redmond*.
+<a name="#use-metadata-filters"></a>
+
+### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>Filtre sorular ve yanıtlar için meta veri etiketleri kullanma
+
+[Meta veri](../How-To/edit-knowledge-base.md) tabanlı meta veri etiketleri kullanıcı sorgunun sonuçlarını daraltmak için özelliği ekler. Sorgu aynı olsa bile, Bilgi Bankası yanıt meta veri etiketine göre değişebilir. Örneğin, *"bulunan park olduğu"* Restoran dalın konumu farklıdır - diğer bir deyişle, meta veriler, farklı bir yanıt olabilir *konumu: Seattle* karşı *konumu: Redmond*.
 
 ### <a name="use-synonyms"></a>Eş anlamlıları kullanma
 Eş Anlamlılar İngilizce dilinde bazı desteği olsa da, kullanın [word değişiklikleri](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) farklı biçiminde anahtar sözcükleri eş anlamlılar eklemek için. Eş Anlamlılar soru-cevap Oluşturucu hizmet düzeyinde eklendi ve hizmette tüm bilgi bankalarından tarafından paylaşılan.

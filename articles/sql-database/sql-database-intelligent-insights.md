@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6969744ff52e9aff9d486d2eab6fffc2c3ac8b74
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278143"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608009"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Veritabanı performansı izleme ve sorun giderme için yapay ZEKA kullanarak akıllı Öngörüler
 
@@ -97,7 +97,7 @@ Aşağıdaki örnek, Azure SQL Analytics bir akıllı Öngörüler görüntülen
 
 ### <a name="set-up-with-event-hubs"></a>Event Hubs ile ayarlama
 
-Event Hubs ile akıllı İçgörüler kullanmak için Event Hubs'a akışını görmek için günlük verilerini akıllı İçgörüler yapılandırma [Stream Azure tanılama günlüklerinin Event Hubs'a](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md).
+Event Hubs ile akıllı İçgörüler kullanmak için Event Hubs'a akışını görmek için günlük verilerini akıllı İçgörüler yapılandırma [Stream Azure tanılama günlüklerinin Event Hubs'a](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md).
 
 Özel İzleme ve uyarı kurmak için Event Hubs'ı kullanmak için bkz: [ölçümleri ve tanılama özellikli yapmanız gerekenler günlüklerini, olay hub'ları](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs).
 
@@ -180,4 +180,4 @@ Akıllı İçgörüler günlük dönemdeki hatalı istek sayısı çıkarır. Bu
 - Bilgi edinmek için nasıl [akıllı Öngörüler ile SQL veritabanı performans sorunlarını giderme](sql-database-intelligent-insights-troubleshoot-performance.md).
 - Kullanım [Intelligent Insights SQL veritabanı performans tanılama günlüğü](sql-database-intelligent-insights-use-diagnostics-log.md).
 - Bilgi edinmek için nasıl [SQL Analytics kullanarak SQL veritabanını İzle](../azure-monitor/insights/azure-sql.md).
-- Bilgi edinmek için nasıl [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+- Bilgi edinmek için nasıl [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](../azure-monitor/platform/diagnostic-logs-overview.md).

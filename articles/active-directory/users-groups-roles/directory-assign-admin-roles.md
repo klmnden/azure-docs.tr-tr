@@ -14,12 +14,12 @@ ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 5c880ca15eea6ccf77f93f74c9e1ca41f7fc01ee
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 75fe35a22ccae249b734f05bd4adcaf8ddcab9f8
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276729"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995108"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory'de Yönetici rolü izinleri
 
@@ -41,17 +41,17 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[Uygulama geliştiricisi](#application-developer)**: Bu roldeki kullanıcılar, uygulama kayıtları oluşturabilir, "Kullanıcılar uygulamaları kaydedebilir" ayarı Hayır olarak ayarlayın Bu rolü üyelerinin kendi adınıza onay de sağlar. zaman "Kullanıcı izni verebilir uygulamalara kendileri adına şirket verilerine erişme" ayarı Hayır olarak ayarlayın Yeni uygulama kaydı veya kurumsal uygulamalar oluştururken, bu rolün üyeleri, sahip olarak eklenir.
 
-* **[Faturalama Yöneticisi](#billing-administrator)**: satın alma işlemleri yapar, abonelikleri yönetir, destek biletlerini yönetir ve hizmetin sistem durumunu izler.
+* **[Faturalama Yöneticisi](#billing-administrator)**: Satın alma gerçekleştirir, abonelikleri yönetir, destek biletlerini yönetir ve hizmet sistem durumunu izler.
 
 * **[Bulut uygulaması Yöneticisi](#cloud-application-administrator)**: Bu roldeki kullanıcılar, uygulama proxy'si yönetme olanağı hariç uygulama yöneticisi rolü aynı izinlere sahip. Bu rol oluşturmak ve kurumsal uygulamaları ve uygulama kayıtlarını tüm yönlerini yönetmek için yeteneği verir. Bu rol, ayrıca temsilci izinleri ve Microsoft Graph ve Azure AD Graph hariç olmak üzere uygulama izinleri onayını olanağı verir. Yeni uygulama kaydı veya kurumsal uygulamalar oluştururken, bu rolün üyeleri, sahip olarak eklenmez.
 
   <b>Önemli</b>: Bu rol, uygulama kimlik bilgilerini yönetme olanağı verir. Bu role atanan kullanıcılar, bir uygulamaya kimlik Ekle ve uygulamanın kimliğine bürünülecek bu kimlik bilgilerini kullanın. Ardından uygulamanın kimlik erişimi Azure Active Directory, kullanıcı ya da diğer nesneleri oluştur veya güncelleştir olanağı gibi verilmişse, bu role atanmış bir kullanıcı uygulama kimliğine bürünülürken bu eylemleri gerçekleştirebilir. Uygulamanın kimliğine bürünülecek bu özelliği, kullanıcının rol atamalarının Azure AD'de neler yapabileceğinizi ayrıcalık olabilir. Bulut uygulaması yöneticisi rolü için kullanıcı atama bunları bir uygulamanın kimliğini kimliğine bürünme özelliğini verdiğini anlamak önemlidir.
 
-* **[Bulut cihaz Yöneticisi](#cloud-device-administrator)**: Bu roldeki kullanıcılar etkinleştirmek, devre dışı bırakabilir ve Azure AD'de cihazları silin ve Windows 10 BitLocker anahtarları Azure Portalı'nda (varsa) okuyun. Rol, cihazdaki diğer özelliklerini yönetmek için izinleri tanımaz.
+* **[Bulut cihaz Yöneticisi](#cloud-device-administrator)**: Bu roldeki kullanıcılar etkinleştirebilir, devre dışı bırakma ve Azure AD'de cihazları silin ve Windows 10 BitLocker anahtarları Azure Portalı'nda (varsa) okuyun. Rol, cihazdaki diğer özelliklerini yönetmek için izinleri tanımaz.
 
-* **[Uyumluluk Yöneticisi](#compliance-administrator)**: Bu role sahip kullanıcılar, Office 365 güvenlik ve Uyumluluk Merkezi ve Exchange yönetici merkezini de yönetim izinlerine sahip. Daha fazla bilgiye [hakkında Office 365 Yönetici rolleri](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Uyumluluk Yöneticisi](#compliance-administrator)**: Bu role sahip olan kullanıcılar Office 365 Güvenlik ve Uyumluluk Merkezi ve Exchange Yönetim Merkezi'nde yönetim izinlerine sahiptir. Daha fazla bilgiye [hakkında Office 365 Yönetici rolleri](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **[Koşullu Erişim Yöneticisi](#conditional-access-administrator)**: Bu role sahip olan kullanıcılar Azure Active Directory koşullu erişim ayarlarını yönetme olanağı vardır.
+* **[Koşullu Erişim Yöneticisi](#conditional-access-administrator)**: Bu role sahip olan kullanıcılar, Azure Active Directory koşullu erişim ayarlarını yönetebilir.
   > [!NOTE]
   > Azure'da Exchange ActiveSync koşullu erişim ilkesi dağıtmak için kullanıcının da genel yönetici olması gerekir.
   
@@ -59,11 +59,11 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[Dizin okuyucular](#directory-readers)**: Bu desteklemeyen uygulamalar için atanacak olan, eski bir roldür [onay Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Herhangi bir kullanıcıya atanmamalıdır.
 
-* **[Dizin eşitlemesi hesapları](#directory-synchronization-accounts)**: kullanmayın. Bu rol Azure AD Connect hizmetine otomatik olarak atanır ve değil hedeflenen veya herhangi bir kullanım için desteklenir.
+* **[Dizin eşitlemesi hesapları](#directory-synchronization-accounts)**: Kullanmayın. Bu rol Azure AD Connect hizmetine otomatik olarak atanır ve değil hedeflenen veya herhangi bir kullanım için desteklenir.
 
 * **[Dizin yazıcıları](#directory-writers)**: Bu desteklemeyen uygulamalar için atanacak olan, eski bir roldür [onay Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Herhangi bir kullanıcıya atanmamalıdır.
 
-* **[Dynamics 365 Yönetici / CRM yönetici](#dynamics-365-administrator)**: Bu role sahip kullanıcılar, Microsoft Dynamics 365 hizmet mevcut olduğunda Online içinde genel izinlere olmanın yanı sıra destek biletlerini yönetebilir ve hizmet izlemek için sahip Sistem durumu. Daha fazla bilgiye [kiracınızı yönetmek için Hizmet Yöneticisi rolü kullanmak](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
+* **[Dynamics 365 Yönetici / CRM yönetici](#dynamics-365-administrator)**: Bu role sahip kullanıcılar Microsoft Dynamics 365 hizmet mevcut olduğunda Online içinde genel izinlere sahip olmanın yanı sıra destek biletlerini yönetebilir ve hizmet durumunu izleyebilir. Daha fazla bilgiye [kiracınızı yönetmek için Hizmet Yöneticisi rolü kullanmak](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
   > [!NOTE] 
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Dynamics 365 Hizmet Yöneticisi" tanımlanır. Azure portalında "Dynamics 365 Yönetici" olduğu.
 
@@ -71,7 +71,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Exchange Hizmet Yöneticisi" olarak tanımlanır. Azure portalında "Exchange Yönetici" olduğu.
 
-* **[Genel yönetici / şirket Yöneticisi](#company-administrator)**: Bu role sahip kullanıcılar, Exchange Online gibi Azure Active Directory kimlikleri kullanmak hizmetlerinin yanı sıra Azure Active Directory, tüm yönetim özelliklerine erişim sahibi SharePoint Online ve Skype Kurumsal çevrimiçi. Azure Active Directory kiracısı için kaydolan kişi genel yönetici olur. Yalnızca genel Yöneticiler diğer yönetici rollerini atayabilir. Şirketinizde birden fazla genel yönetici olabilir. Genel Yöneticiler, herhangi bir kullanıcı ve diğer tüm yöneticilerin parolasını sıfırlayabilirsiniz.
+* **[Genel yönetici / şirket Yöneticisi](#company-administrator)**: Bu role sahip kullanıcılar, Azure Active Directory kimlikleri gibi Exchange Online, SharePoint Online ve Skype Kurumsal çevrimiçi sürüm kullanmaya hizmetlerinin yanı sıra Azure Active Directory, tüm yönetim özelliklerine erişebilir. Azure Active Directory kiracısı için kaydolan kişi genel yönetici olur. Yalnızca genel Yöneticiler diğer yönetici rollerini atayabilir. Şirketinizde birden fazla genel yönetici olabilir. Genel Yöneticiler, herhangi bir kullanıcı ve diğer tüm yöneticilerin parolasını sıfırlayabilirsiniz.
 
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Şirket Yöneticisi" tanımlanır. "Genel yönetici" olarak [Azure portalında](https://portal.azure.com).
@@ -80,28 +80,28 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
 * **[Konuk davet eden](#guest-inviter)**: Bu roldeki kullanıcılar, Azure Active Directory B2B Konuk kullanıcı davetlerini yönetebilir, **üyelerini davet edebildiğiniz** kullanıcı ayarı Hayır olarak ayarlayın B2B işbirliği hakkında daha fazla bilgi [hakkında Azure AD B2B işbirliği](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Tüm diğer izinleri içermez.
 
-* **[Bilgi Koruma Yöneticisi](#information-protection-administrator)**: Bu role sahip kullanıcılar Azure Information Protection hizmetinde tüm izinlere sahiptir. Bu rol, Azure Information Protection ilkesi için etiketleri yapılandırma, koruma şablonlarını yönetme ve koruma etkinleştirme sağlar. Bu rol, kimlik koruma Merkezi, Privileged Identity Management, Office 365 hizmet durumunu izleme, veya Office 365 güvenlik ve uyumluluk Merkezi'nde herhangi bir izni tanımaz.
+* **[Bilgi Koruma Yöneticisi](#information-protection-administrator)**: Bu role sahip kullanıcılar Azure Information Protection hizmetinde tüm izinlere sahip. Bu rol, Azure Information Protection ilkesi için etiketleri yapılandırma, koruma şablonlarını yönetme ve koruma etkinleştirme sağlar. Bu rol, kimlik koruma Merkezi, Privileged Identity Management, Office 365 hizmet durumunu izleme, veya Office 365 güvenlik ve uyumluluk Merkezi'nde herhangi bir izni tanımaz.
 
-* **[Intune yönetici](#intune-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Intune Online içinde genel izinlere sahiptir. Ayrıca, bu rol, ilke ilişkilendirmek yanı sıra grupları oluşturmak ve yönetmek için kullanıcıları ve cihazları yönetme olanağı içerir. Daha fazla bilgiye [Intune rol tabanlı yönetim denetimi (RBAC)](https://docs.microsoft.com/intune/role-based-access-control)
+* **[Intune yönetici](#intune-administrator)**: Bu role sahip kullanıcılar, hizmet olduğunda Microsoft Intune Online içinde genel izinlere sahip. Ayrıca, bu rol, ilke ilişkilendirmek yanı sıra grupları oluşturmak ve yönetmek için kullanıcıları ve cihazları yönetme olanağı içerir. Daha fazla bilgiye [Intune rol tabanlı yönetim denetimi (RBAC)](https://docs.microsoft.com/intune/role-based-access-control)
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Intune Hizmet Yöneticisi" olarak tanımlanır. Azure portalında "Intune Yönetici" olduğu.
 
-* **[Lisans Yöneticisi](#license-administrator)**: Bu roldeki kullanıcılar eklemek, kaldırmak ve güncelleştirme lisans atamalarında kullanıcıları, grupları (Grup tabanlı lisanslama kullanarak) ve kullanıcılar üzerindeki kullanım konumu yönetmek. Rol, satın alma veya Aboneliklerini yönetmek, oluşturma veya grupları yönetme veya oluşturma veya ötesinde kullanım konumu yönetme olanağı tanımaz.
+* **[Lisans Yöneticisi](#license-administrator)**: Bu roldeki kullanıcılar ekleyebilir, kaldırma ve güncelleştirme lisans atamalarında kullanıcıları, grupları (Grup tabanlı lisanslama kullanarak) ve kullanım konumu kullanıcıları yönetme. Rol, satın alma veya Aboneliklerini yönetmek, oluşturma veya grupları yönetme veya oluşturma veya ötesinde kullanım konumu yönetme olanağı tanımaz.
 
-* **[İleti Merkezi okuyucu](#message-center-reader)**: Bu roldeki kullanıcılar, bildirimler ve danışmanlık sistem güncelleştirmeleri izleyebilirsiniz [Office 365 ileti Merkezi](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) kuruluşlarında Intune, Exchange gibi yapılandırılmış hizmetleri ve Microsoft Teams. İleti Merkezi okuyucular Haftalık e-posta özetler gönderilerin, güncelleştirmeleri almak ve Office 365 ileti merkezi gönderileri paylaşabilirsiniz. Azure AD'de bu role atanan kullanıcılar yalnızca salt okunur kullanıcılar ve gruplar gibi Azure AD Hizmetleri erişebilir. 
+* **[İleti Merkezi okuyucu](#message-center-reader)**: Bu roldeki kullanıcılar, bildirimler ve danışmanlık sistem güncelleştirmeleri izleyebilirsiniz [Office 365 ileti Merkezi](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) kuruluşlarında Exchange, Intune ve Microsoft Teams gibi yapılandırılmış hizmetleri. İleti Merkezi okuyucular Haftalık e-posta özetler gönderilerin, güncelleştirmeleri almak ve Office 365 ileti merkezi gönderileri paylaşabilirsiniz. Azure AD'de bu role atanan kullanıcılar yalnızca salt okunur kullanıcılar ve gruplar gibi Azure AD Hizmetleri erişebilir. 
 
-* **[İş ortağı Tier1 desteği](#partner-tier1-support)**: kullanmayın. Bu rolü kullanım dışıdır ve gelecekte Azure AD'deki kaldırıldı. Bu rol, az sayıda Microsoft satışıyla iş ortakları tarafından kullanılmak üzere tasarlanmış ve genel kullanıma yönelik değildir.
+* **[İş ortağı Tier1 desteği](#partner-tier1-support)**: Kullanmayın. Bu rolü kullanım dışıdır ve gelecekte Azure AD'deki kaldırıldı. Bu rol, az sayıda Microsoft satışıyla iş ortakları tarafından kullanılmak üzere tasarlanmış ve genel kullanıma yönelik değildir.
 
-* **[İş ortağı Tier2 desteği](#partner-tier2-support)**: kullanmayın. Bu rolü kullanım dışıdır ve gelecekte Azure AD'deki kaldırıldı. Bu rol, az sayıda Microsoft satışıyla iş ortakları tarafından kullanılmak üzere tasarlanmış ve genel kullanıma yönelik değildir.
+* **[İş ortağı Tier2 desteği](#partner-tier2-support)**: Kullanmayın. Bu rolü kullanım dışıdır ve gelecekte Azure AD'deki kaldırıldı. Bu rol, az sayıda Microsoft satışıyla iş ortakları tarafından kullanılmak üzere tasarlanmış ve genel kullanıma yönelik değildir.
 
-* **[Parola Yöneticisi / Yardım Masası Yöneticisi](#helpdesk-administrator)**: Bu role sahip olan kullanıcılar parolaları değiştirme, yenileme belirteçleri geçersiz kılmak, hizmet isteklerini yönetebilir ve hizmet durumunu izleyin. Bir yenileme belirteci geçersiz kılmalarını, kullanıcı yeniden oturum açmak için zorlar. Yardım Masası yöneticileri, parolaları sıfırlama ve yenileme belirteçleri olmayanların olan diğer kullanıcıların veya yalnızca aşağıdaki rollerinin üyeleri geçersiz kıl:
+* **[Parola Yöneticisi / Yardım Masası Yöneticisi](#helpdesk-administrator)**: Bu role sahip olan kullanıcılar parolaları değiştirme, yenileme belirteçleri geçersiz, hizmet isteklerini yönetebilir ve hizmet durumunu izleyebilir. Bir yenileme belirteci geçersiz kılmalarını, kullanıcı yeniden oturum açmak için zorlar. Yardım Masası yöneticileri, parolaları sıfırlama ve yenileme belirteçleri olmayanların olan diğer kullanıcıların veya yalnızca aşağıdaki rollerinin üyeleri geçersiz kıl:
   * Dizin Okuyucular
   * Konuk Davet Eden
   * Yardım Masası Yöneticisi
   * İleti Merkezi Okuyucu
   * Rapor Okuyucu
   
-  <b>Önemli</b>: Bu role sahip kullanıcılar, gizli veya özel bilgiler veya kritik yapılandırması içinde ve dışında Azure Active Directory erişim sahibi kişiler için parolalarını değiştirebilir. Bir kullanıcının parolasını değiştirmek, kullanıcının kimliğine ve izinleri tutarlılığı varsayma olanağı anlamına gelir. Örneğin:
+  <b>Önemli</b>: Bu role sahip kullanıcılar, gizli veya özel bilgiler veya kritik yapılandırması içinde ve dışında Azure Active Directory erişim sahibi kişiler için parolaları değiştirebilirsiniz. Bir kullanıcının parolasını değiştirmek, kullanıcının kimliğine ve izinleri tutarlılığı varsayma olanağı anlamına gelir. Örneğin:
   * Oldukları uygulamaları kimlik bilgilerini yöneten uygulama kaydı ve kurumsal uygulama sahipleri. Bu uygulamaları Azure AD'deki izinleri ayrıcalıklı ve Yardım Masası yöneticileri izni başka bir yerde değil. Yardım Masası Yöneticisi uygulama sahibinin kimliğini varsayar ve daha sonra da mümkün olabilir. Bu yol üzerinden uygulama için kimlik bilgilerini güncelleştirerek ayrıcalıklı bir uygulamanın kimliğini varsayılır.
   * Azure aboneliği sahiplerine, gizli veya özel bilgiler veya kritik yapılandırma Azure'da erişebilirsiniz.
   * Grup üyeliği yönetebilen güvenlik grubu ve Office 365 grubu sahipler. Bu gruplar, gizli veya özel bilgiler veya Azure AD'de önemli yapılandırma ve diğer yerlerde erişim izni verebilir.
@@ -112,7 +112,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Yardım Masası Yöneticisi" tanımlanır. "Parola Yöneticisi" olarak [Azure portalında](https://portal.azure.com/).
   >
   
-* **[Power BI Yöneticisi](#power-bi-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Power BI içinde genel izinlere yanı sıra destek biletlerini yönetebilir ve hizmet durumu izleme olanağı vardır. Daha fazla bilgiye [Power BI yönetici rolünü anlama](https://docs.microsoft.com/power-bi/service-admin-role).
+* **[Power BI Yöneticisi](#power-bi-administrator)**: Bu role sahip olan kullanıcılar hizmet olduğunda Microsoft Power BI içinde genel izinlere sahip olmanın yanı sıra destek biletlerini yönetebilir ve hizmet durumunu izleyebilir. Daha fazla bilgiye [Power BI yönetici rolünü anlama](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Power BI Hizmet Yöneticisi olarak" olarak tanımlanır. Azure portalında "Power BI Yönetici" olduğu.
 
@@ -120,9 +120,9 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
 
   <b>Önemli</b>: Bu rolü genel Yönetici rolüne dahil olmak üzere tüm Azure AD rollerine üyelik yönetme olanağı sağlar. Bu rol, oluşturma veya kullanıcıları güncelleştirerek gibi Azure AD'de herhangi bir ayrıcalıklı yeteneklerini içermez. Ancak, bu role atanan kullanıcılar kendileri veya diğerleri ek ayrıcalık ek rolleri atayarak verebilirsiniz.
 
-* **[Rapor okuyucu](#reports-reader)**: Bu role sahip kullanıcılar, kullanım verileri ve raporları Panoda, Office 365 Yönetim merkezine ve benimseme bağlam paketini Power BI'da raporu görüntüleyebilirsiniz. Ayrıca, rol oturum açma için erişim sağlayan raporları ve etkinlik Azure AD'de ve Microsoft Graph tarafından döndürülen veri raporlama API'si. Rapor okuyucu rolüne atanan bir kullanıcı yalnızca ilgili kullanım ve benimseme ölçümleri erişebilir. Bunlar, ayarları veya Exchange gibi ürüne özel yönetim merkezlerine erişimi yapılandırmak için bir yönetici izinleri yok. 
+* **[Rapor okuyucu](#reports-reader)**: Power BI'da raporları Pano Office 365 Yönetim merkezinde ve benimseme bağlam paketini ve bu role sahip kullanıcılar, kullanım raporlama verileri görüntüleyebilir. Ayrıca, rol oturum açma için erişim sağlayan raporları ve etkinlik Azure AD'de ve Microsoft Graph tarafından döndürülen veri raporlama API'si. Rapor okuyucu rolüne atanan bir kullanıcı yalnızca ilgili kullanım ve benimseme ölçümleri erişebilir. Bunlar, ayarları veya Exchange gibi ürüne özel yönetim merkezlerine erişimi yapılandırmak için bir yönetici izinleri yok. 
 
-* **[Güvenlik Yöneticisi](#security-administrator)**: Bu role sahip kullanıcılar tüm güvenlik okuyucu rolünün yanı sıra, güvenlikle ilgili şu hizmetler için yapılandırma yönetme olanağı, salt okunur izinleri vardır: Azure Active Directory kimlik koruması, Azure Information Protection ve Office 365 güvenlik ve Uyumluluk Merkezi. Office 365 izinler hakkında daha fazla bilgi edinilebilir [Office 365 güvenlik ve uyumluluk Merkezi'nde izinler](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **[Güvenlik Yöneticisi](#security-administrator)**: Bu role sahip kullanıcılar tüm güvenlik okuyucu rolünün yanı sıra, güvenlikle ilgili şu hizmetler için yapılandırma yönetme olanağı, salt okunur izinlere sahiptir: Azure Active Directory kimlik koruması, Azure Information Protection ve Office 365 güvenlik ve Uyumluluk Merkezi. Office 365 izinler hakkında daha fazla bilgi edinilebilir [Office 365 güvenlik ve uyumluluk Merkezi'nde izinler](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
   | İçinde | Yapabilirsiniz |
   | --- | --- |
@@ -130,17 +130,17 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   | Privileged Identity Management |<ul><li>Güvenlik okuyucu rolünün tüm izinleri.<li>**Olamaz** Azure AD rol üyelikleri veya ayarlarını yönetin. |
   | <p>Office 365 hizmet durumunu izleme</p><p>Office 365 Güvenlik ve Uyumluluk Merkezi |<ul><li>Güvenlik okuyucu rolünün tüm izinleri.<li>(Kötü amaçlı yazılım ve virüs koruması, kötü amaçlı URL yapılandırma, URL izleme, vb.) için Gelişmiş tehdit Koruması özelliği, tüm ayarlarını yapılandırabilirsiniz. |
   
-* **[Güvenlik okuyucusu](#security-reader)**: Bu role sahip olan kullanıcılar Azure Active Directory, kimlik koruması, Privileged Identity Management, yanı sıra Azure Active Directory okuma yeteneği tüm bilgiler dahil genel salt okunur erişime sahip oturum açma raporlarını ve Denetim günlükleri. Rol, ayrıca Office 365 güvenlik ve uyumluluk Merkezi'nde salt okunur izni verir. Office 365 izinler hakkında daha fazla bilgi edinilebilir [Office 365 güvenlik ve uyumluluk Merkezi'nde izinler](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+* **[Güvenlik okuyucusu](#security-reader)**: Bu role sahip olan kullanıcılar Azure Active Directory, kimlik koruması, Privileged Identity Management, aynı zamanda Özelliği Azure Active Directory oturum açma raporlarını okuyun ve Denetim günlükleri tüm bilgiler dahil olmak üzere genel salt okunur erişimi vardır. Rol, ayrıca Office 365 güvenlik ve uyumluluk Merkezi'nde salt okunur izni verir. Office 365 izinler hakkında daha fazla bilgi edinilebilir [Office 365 güvenlik ve uyumluluk Merkezi'nde izinler](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
   | İçinde | Yapabilirsiniz |
   | --- | --- |
   | Kimlik Koruma Merkezi |Tüm güvenlik raporları ve güvenlik özellikleri için ayarlar bilgilerini okuyun<ul><li>İstenmeyen postadan koruma<li>Şifreleme<li>Veri kaybı önleme<li>Kötü amaçlı yazılımdan koruma<li>Gelişmiş tehdit koruması<li>Avından<li>Mailflow kuralları |
-  | Privileged Identity Management |<p>Tüm bilgileri salt okunur erişim yapılandırmalarla kullanıma sahip Azure AD PIM'de: güvenlik ilkeleri ve Azure AD rol atamaları için raporları gözden geçirir ve gelecekte Azure AD rol atamanız yanı sıra senaryoları için ilke verilere ve raporlara erişimi'ni okuyun.<p>**Olamaz** herhangi bir değişiklik yapmak veya Azure AD PIM için kaydolun. PIM'ın portalında veya PowerShell aracılığıyla kullanıcı bunları adayı, birisi Bu roldeki ek roller (örneğin, genel yönetici veya ayrıcalıklı Rol Yöneticisi) etkinleştirebilirsiniz. |
+  | Privileged Identity Management |<p>Tüm bilgileri salt okunur erişimi, Azure AD PIM'de ortaya: İlkeleri ve Azure AD rol atamaları için raporları, güvenlik inceler ve gelecekte Azure AD rol atamanız yanı sıra senaryoları için erişim ilkesi veriler ve raporlar için okuyun.<p>**Olamaz** herhangi bir değişiklik yapmak veya Azure AD PIM için kaydolun. PIM'ın portalında veya PowerShell aracılığıyla kullanıcı bunları adayı, birisi Bu roldeki ek roller (örneğin, genel yönetici veya ayrıcalıklı Rol Yöneticisi) etkinleştirebilirsiniz. |
   | <p>Office 365 hizmet durumunu izleme</p><p>Office 365 Güvenlik ve Uyumluluk Merkezi</p> |<ul><li>Okuma ve uyarılar yönetme<li>Güvenlik ilkelerini okuma<li>Tehdit zekası, bulut uygulaması bulma ve arama ve Araştır Karantinasında okuyun<li>Tüm raporları okuma |
 
-* **[Hizmet desteği Yöneticisi](#service-support-administrator)**: Bu role sahip kullanıcılar açabilir destek istekleri ile Microsoft Azure ve Office 365 Hizmetleri ve Azure portalı ve Office 365 Yönetim portalında hizmet panosunu ve ileti merkezini için. Daha fazla bilgiye [hakkında Office 365 Yönetici rolleri](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Hizmet desteği Yöneticisi](#service-support-administrator)**: Bu role sahip olan kullanıcılar Azure ve Office 365 hizmetleri için Microsoft ile destek istekleri açmanın yanı sıra Azure portalı ile Office 365 yönetim portalında hizmet panosunu ve ileti merkezini görüntüleyebilir. Daha fazla bilgiye [hakkında Office 365 Yönetici rolleri](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-* **[SharePoint Yöneticisi](#sharepoint-administrator)**: Bu role sahip olan kullanıcılar hizmet oluşturmak ve tüm Office 365 grupları yönetme, destek biletlerini yönetme olanağı yanı sıra mevcut olduğunda Microsoft SharePoint Online içinde genel izinlere sahiptir ve Hizmet durumunu izleyebilir. Daha fazla bilgiye [hakkında Office 365 Yönetici rolleri](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[SharePoint Yöneticisi](#sharepoint-administrator)**: Bu role sahip kullanıcılar Microsoft SharePoint hizmet mevcut olduğunda Online içinde genel izinlere sahip olmanın yanı sıra oluşturun ve tüm Office 365 grupları yönetme, destek biletlerini yönetebilir ve hizmet durumunu izleyebilir. Daha fazla bilgiye [hakkında Office 365 Yönetici rolleri](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "SharePoint Hizmet Yöneticisi olarak." tanımlanır Azure portalında "SharePoint Yönetici" olduğu.
 
@@ -149,17 +149,17 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "Lync Hizmet Yöneticisi" olarak tanımlanır. "Skype Kurumsal Yöneticisi" olarak [Azure portalında](https://portal.azure.com/).
 
-* **[İletişim yönetici takımlar](#teams-communications-administrator)**: Bu roldeki kullanıcılar, ilgili ses & telefon için Microsoft Teams iş yükü özelliklerini yönetebilir. Bu telefon numarası ataması, ses ve toplantı ilkeleri ve çağrı analizi araç takımı tam erişim için yönetim araçlarını içerir.
+* **[Takımlar iletişimleri Yöneticisi](#teams-communications-administrator)**: Bu roldeki kullanıcılar, ilgili ses & telefon için Microsoft Teams iş yükü özelliklerini yönetebilir. Bu telefon numarası ataması, ses ve toplantı ilkeleri ve çağrı analizi araç takımı tam erişim için yönetim araçlarını içerir.
 
-* **[Takımlar iletişimleri destek mühendisi](#teams-communications-support-engineer)**: Bu roldeki kullanıcılar Microsoft Teams ve Skype Kurumsal sorun giderme araçları kullanarak kullanıcı iş çağrısı içinde Microsoft Teams & Skype iletişim sorun giderme İş Yönetim Merkezi. Bu roldeki kullanıcılar, ilgili tüm katılımcılar için tam çağrı kayıt bilgileri görüntüleyebilirsiniz.
+* **[Takımlar iletişimleri destek mühendisi](#teams-communications-support-engineer)**: Bu roldeki kullanıcılar, Microsoft Teams & Skype Kurumsal'a kullanarak sorun giderme araçları Microsoft Teams ve Skype kurumsal iş Yönetim Merkezi için kullanıcı çağrısı içinde iletişim sorunları giderebilirsiniz. Bu roldeki kullanıcılar, ilgili tüm katılımcılar için tam çağrı kayıt bilgileri görüntüleyebilirsiniz.
 
-* **[Takımlar iletişimleri destek uzmanı](#teams-communications-support-specialist)**: Bu roldeki kullanıcılar Microsoft Teams ve Skype Kurumsal sorun giderme araçları kullanarak kullanıcı iş çağrısı içinde Microsoft Teams & Skype iletişim sorun giderme İş Yönetim Merkezi. Bu roldeki kullanıcılar yalnızca bunlar Aranan kullanıcıyı çağrıda kullanıcı ayrıntıları da görüntüleyebilirsiniz.
+* **[Takımlar iletişimleri destek uzmanı](#teams-communications-support-specialist)**: Bu roldeki kullanıcılar, Microsoft Teams & Skype Kurumsal'a kullanarak sorun giderme araçları Microsoft Teams ve Skype kurumsal iş Yönetim Merkezi için kullanıcı çağrısı içinde iletişim sorunları giderebilirsiniz. Bu roldeki kullanıcılar yalnızca bunlar Aranan kullanıcıyı çağrıda kullanıcı ayrıntıları da görüntüleyebilirsiniz.
 
-* **[Takımlar, yönetici](#teams-administrator)**: Bu roldeki kullanıcılar, iş Yönetim Merkezi ve ilgili PowerShell modülleri için Microsoft Teams iş yükü Microsoft Teams ve Skype üzerinden tüm özelliklerini yönetebilir. Bu, diğer alanları arasında telefon, Mesajlaşma, toplantılar ve takımlar için ilgili tüm Yönetim Araçlar içerir. Bu rol, ayrıca oluşturun ve tüm Office 365 grupları yönetme, destek biletlerini yönetebilir ve hizmet durumu izleme olanağı verir.
+* **[Takımlar, yönetici](#teams-administrator)**: Bu roldeki kullanıcılar Microsoft Teams ve Skype üzerinden Microsoft Teams iş yükü iş Yönetim Merkezi ve ilgili PowerShell modülleri için tüm özelliklerini yönetebilir. Bu, diğer alanları arasında telefon, Mesajlaşma, toplantılar ve takımlar için ilgili tüm Yönetim Araçlar içerir. Bu rol, ayrıca oluşturun ve tüm Office 365 grupları yönetme, destek biletlerini yönetebilir ve hizmet durumu izleme olanağı verir.
   > [!NOTE]
   > Microsoft Graph API, Azure AD Graph API ve Azure AD PowerShell'de bu rol "takımlar Hizmet Yöneticisi" olarak tanımlanır. Azure portalında "Takımlar Yönetici" olduğu.
 
-* **[Kullanıcı hesabı yöneticisi](#user-account-administrator)**: Bu role sahip kullanıcılar kullanıcıları oluşturun ve bazı kısıtlamalar (aşağıya bakın) sahip kullanıcılar tüm özelliklerini yönetebilir. Ayrıca, bu role sahip kullanıcılar oluşturun ve tüm gruplarını yönetin. Bu rolü, oluşturma ve kullanıcı görünümleri yönetme, destek biletlerini yönetebilir ve hizmet durumu izleme olanağı da içerir.
+* **[Kullanıcı hesabı yöneticisi](#user-account-administrator)**: Bu role sahip kullanıcılar, kullanıcılar oluşturun ve bazı kısıtlamalar (aşağıya bakın) sahip kullanıcılar tüm özelliklerini yönetebilir. Ayrıca, bu role sahip kullanıcılar oluşturun ve tüm gruplarını yönetin. Bu rolü, oluşturma ve kullanıcı görünümleri yönetme, destek biletlerini yönetebilir ve hizmet durumu izleme olanağı da içerir.
 
   | | |
   | --- | --- |
@@ -167,7 +167,7 @@ Aşağıdaki Yönetici rollerini kullanılabilir:
   |<p>Tüm yöneticilerin tüm kullanıcılar dahil</p>|<p>Lisanslarını yönetme</p><p>Kullanıcı asıl adı dışındaki tüm kullanıcı özelliklerini yönetme</p>
   |Yönetici olmayan ya da aşağıdakilerden birini sınırlı yönetici rolleri yalnızca kullanıcılar üzerinde:<ul><li>Dizin Okuyucular<li>Konuk Davet Eden<li>Yardım Masası Yöneticisi<li>İleti Merkezi Okuyucu<li>Rapor Okuyucu<li>Kullanıcı Hesabı Yöneticisi|<p>Silme ve geri yükleme</p><p>Devre dışı bırakma ve etkinleştirme</p><p>Geçersiz belirteç yenileme</p><p>Kullanıcı asıl adı dahil olmak üzere tüm kullanıcı özelliklerini yönetme</p><p>Parola sıfırlama</p><p>Güncelleştirme (FIDO) cihaz anahtarları</p>
   
-  <b>Önemli</b>: Bu role sahip kullanıcılar, gizli veya özel bilgiler veya kritik yapılandırması içinde ve dışında Azure Active Directory erişim sahibi kişiler için parolalarını değiştirebilir. Bir kullanıcının parolasını değiştirmek, kullanıcının kimliğine ve izinleri tutarlılığı varsayma olanağı anlamına gelir. Örneğin:
+  <b>Önemli</b>: Bu role sahip kullanıcılar, gizli veya özel bilgiler veya kritik yapılandırması içinde ve dışında Azure Active Directory erişim sahibi kişiler için parolaları değiştirebilirsiniz. Bir kullanıcının parolasını değiştirmek, kullanıcının kimliğine ve izinleri tutarlılığı varsayma olanağı anlamına gelir. Örneğin:
   * Oldukları uygulamaları kimlik bilgilerini yöneten uygulama kaydı ve kurumsal uygulama sahipleri. Bu uygulamaları Azure AD'deki izinleri ayrıcalıklı ve kullanıcı yöneticileri izni başka bir yerde değil. Kullanıcı Yöneticisi uygulama sahibinin kimliğini varsayar ve daha sonra da mümkün olabilir. Bu yol üzerinden uygulama için kimlik bilgilerini güncelleştirerek ayrıcalıklı bir uygulamanın kimliğini varsayılır.
   * Azure aboneliği sahiplerine, gizli veya özel bilgiler veya kritik yapılandırma Azure'da erişebilirsiniz.
   * Grup üyeliği yönetebilen güvenlik grubu ve Office 365 grubu sahipler. Bu gruplar, gizli veya özel bilgiler veya Azure AD'de önemli yapılandırma ve diğer yerlerde erişim izni verebilir.
@@ -245,7 +245,7 @@ Uygulama kayıtları 'kullanıcılar uygulamaları kaydedebilir' bağımsız olu
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Office 365 destek biletleri oluşturun ve yönetin. |
 
-### <a name="desktop-analytics-administrator"></a>Masaüstü Analytics Yöneticisi
+### <a name="desktop-analytics-administrator"></a>Desktop Analytics Yöneticisi
 Erişebilir ve Masaüstü Yönetimi Araçları ve Hizmetleri Intune dahil olmak üzere yönetebilirsiniz.
 
   > [!NOTE]
@@ -300,7 +300,7 @@ Uygulama Ara Sunucusu hariç tüm uygulama kayıtlarını ve kurumsal uygulamala
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Office 365 Hizmet Durumu'nu okuyun ve yapılandırın. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Office 365 destek biletleri oluşturun ve yönetin. |
 
-### <a name="cloud-device-administrator"></a>Bulut cihaz Yöneticisi
+### <a name="cloud-device-administrator"></a>Bulut Cihaz Yöneticisi
 Azure AD'de cihazları yönetmek için tam erişim.
 
 | **Eylemler** | **Açıklama** |
@@ -532,7 +532,7 @@ Yalnızca Azure AD Connect hizmeti tarafından kullanılır.
 | microsoft.aad.directory/servicePrincipals/policies/update | Azure Active Directory'de servicePrincipals.policies özelliğini güncelleştirin. |
 | microsoft.aad.directorySync/allEntities/allTasks | Azure AD Connect'te tüm eylemleri gerçekleştirin. |
 
-### <a name="directory-writers"></a>Dizin Yazıcılar
+### <a name="directory-writers"></a>Dizin Yazıcıları
 Okuma ve yazma temel dizin bilgileri kullanabilirsiniz. Uygulamalara erişim vermek için kullanıcılar için tasarlanmamıştır.
 
 | **Eylemler** | **Açıklama** |
@@ -1012,11 +1012,11 @@ Sınırlı yöneticilerin parolalarını sıfırlama dahil olmak üzere kullanı
 
 Aşağıdaki roller kullanılmamalıdır. Bunlar, kullanım dışı bırakıldı ve gelecekte Azure AD'deki kaldırıldı.
 
-* AdHoc Lisans Yöneticisi
+* Geçici Lisans Yöneticisi
 * Cihaz birleştirme
 * Cihaz Yöneticileri
 * Aygıt kullanıcıları
-* E-posta Adresi Doğrulanan Kullanıcı Oluşturucu
+* E-postayla Doğrulanan Kullanıcı Oluşturucu
 * Posta Kutusu Yöneticisi
 * Cihazla Çalışma Alanına Katılma
 

@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure HDInsight, Apache Spark ile Azure Event Hubs verilerini işleme '
+title: 'Öğretici: Apache Spark, Azure HDInsight ile Azure Event hubs verilerini işleme '
 description: Azure HDInsight, Apache Spark Azure Event Hubs'a bağlanın ve akış verilerini işleme.
 services: hdinsight
 ms.service: hdinsight
@@ -8,17 +8,17 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 537ae87fa694a8b0e82cb2830dd8ad1f62986093
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/28/2018
+ms.openlocfilehash: 81104c7b206d4fe158df1ae9d329084ad88c3bdd
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496420"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976639"
 ---
-# <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Öğretici: Azure Event Hubs ve Apache Spark HDInsight'ı kullanarak bir işlem tweet
+# <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Öğretici: HDInsight Azure Event Hubs ve Apache Spark'ı kullanarak tweetleri işleyin
 
-Bu öğreticide, şunların nasıl oluşturulacağı bir [Apache Spark](https://spark.apache.org/) tweetleri bir Azure olay hub'ına gönderme ve tweetleri event hub'ından okumak için başka bir uygulama oluşturmak için uygulama akış. Spark akış ayrıntılı bir açıklaması için bkz. [Apache Spark'ın genel bakış akış](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight, Azure üzerinde bir Spark kümesi için aynı akış özellikleri sunar.
+Bu öğreticide, şunların nasıl oluşturulacağı bir [Apache Spark](https://spark.apache.org/) tweetleri bir Azure olay hub'ına gönderme ve tweetleri event hub'ından okumak için başka bir uygulama oluşturmak için uygulama akış. Spark akış ayrıntılı bir açıklaması için bkz. [Apache Spark'ın genel bakış akış](https://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight, Azure üzerinde bir Spark kümesi için aynı akış özellikleri sunar.
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
@@ -29,78 +29,104 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **[Öğretici: Azure HDInsight içindeki bir Apache Spark kümesinde veri yükleme ve sorgu çalıştırma](./apache-spark-load-data-run-query.md)** makalesini tamamlayın.
+* **Makaleyi tamamlamak [Öğreticisi: Veri yükleme ve Azure HDInsight, Apache Spark kümesinde sorguları çalıştırma](./apache-spark-load-data-run-query.md)**.
 
 ## <a name="create-a-twitter-application"></a>Twitter uygulaması oluşturma
 
 Tweet’lerin akışını almak için Twitter’da bir uygulama oluşturursunuz. İzleme yönergeleri bir Twitter uygulaması oluşturun ve bu öğreticiyi tamamlamak gereken değerleri not alın.
 
 1. Gözat [Twitter Uygulama Yönetimi](https://apps.twitter.com/).
-2. Seçin **yeni uygulama oluştur**.
-3. Aşağıdaki değerleri sağlayın:
+
+1. Seçin **yeni uygulama oluştur**.
+
+1. Aşağıdaki değerleri sağlayın:
 
     - Ad: uygulama adı sağlayın. Bu öğreticide kullanılan değer **HDISparkStreamApp0423**. Bu ad benzersiz bir adı olması gerekir.
     - Açıklama: uygulama kısa bir açıklamasını sağlayın. Bu öğreticide kullanılan değer **basit bir HDInsight Spark akış uygulaması**.
     - Web sitesi: uygulamanın Web sitesini belirtin. Geçerli Web sitesi yok.  Bu öğreticide kullanılan değer **http://www.contoso.com**.
     - Geri çağırma URL'si: boş bırakılabilir.
 
-4. Seçin **Evet, okuma ve Twitter Geliştirici sözleşmesini kabul**ve ardından **kendi Twitter uygulamanızı oluşturun**.
-5. Seçin **anahtarlar ve erişim belirteçleri** sekmesi.
-6. Seçin **erişim belirtecimi Oluştur** sayfanın sonundaki.
-7. Sayfasından aşağıdaki değerleri yazın.  Öğreticinin ilerleyen bölümlerinde bu değerlere ihtiyacınız olur:
+1. Seçin **Evet, okuma ve Twitter Geliştirici sözleşmesini kabul**ve ardından **kendi Twitter uygulamanızı oluşturun**.
+
+1. Seçin **anahtarlar ve erişim belirteçleri** sekmesi.
+
+1. Seçin **erişim belirtecimi Oluştur** sayfanın sonundaki.
+
+1. Sayfasından aşağıdaki değerleri yazın.  Öğreticinin ilerleyen bölümlerinde bu değerlere ihtiyacınız olur:
 
     - **Tüketici anahtarı (API anahtarı)**    
     - **Tüketici gizli anahtarı (API gizli)**  
     - **Erişim belirteci**
     - **Erişim belirteci gizli anahtarı**   
 
-## <a name="create-an-azure-event-hub"></a>Azure Olay Hub’ı oluşturma
+## <a name="create-an-azure-event-hubs-namespace"></a>Bir Azure Event Hubs ad alanı oluşturma
 
 Tweetleri depolamak için bu olay hub'ı kullanın.
 
-1. [Azure Portal](https://ms.portal.azure.com)’da oturum açın.
-2. Seçin **kaynak Oluştur** , ekranın sol üst köşesindeki.
-3. Seçin **nesnelerin interneti**, ardından **Event Hubs**.
+1. [Azure Portal](https://portal.azure.com) oturum açın. 
+
+1. Sol menüden **tüm hizmetleri**.  
+
+1. Altında **NESNELERİN İNTERNETİ**seçin **Event Hubs**. 
 
     ![Spark akış örneği için oluşturma olay hub'ı](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Spark akış örneği için oluşturma olay hub'ı")
-4. Yeni olay hub'ı ad alanı için aşağıdaki değerleri girin:
 
-    - **Ad**: olay hub'ı için bir ad girin.  Bu öğreticide kullanılan değer **myeventhubns20180403**.
-    - **Fiyat katmanı**: seçin **standart**.
-    - **Kaynak grubu**: Spark kümesi için kaynak grubunu seçin veya yeni bir seçeneğiniz vardır. 
-    - **Konum**: aynı seçin **konumu** gecikme süresini ve maliyetleri azaltmak için HDInsight, Apache Spark kümenizin olarak.
+4. **+ Ekle** öğesini seçin.
+5. Yeni Event Hubs ad alanı için aşağıdaki değerleri girin:
 
-    ![Belirtin Spark akış örneği için bir olay hub'ı adı](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "belirtin Spark akış örneği için bir olay hub'ı adı")
-5. Seçin **Oluştur** ad alanı oluşturmak için.
+    - **Ad**: Olay hub'ı için bir ad girin.  Bu öğreticide kullanılan değer **myeventhubns20180403**.
 
-7. Aşağıdaki yönergeleri kullanarak olay hub'ı ad alanını açın:
+    - **Fiyatlandırma katmanı**: Seçin **standart**.
 
-    1. Portaldan seçin **tüm hizmetleri**.
-    2. Filtre kutusuna **olay hub'ları**.
-    3. Yeni oluşturulan ad alanı seçin.
-    4. Seçin **+ olay hub'ı**.
+    - **Abonelik**: Uygun aboneliğinizi seçin.
 
-8. Aşağıdaki değerleri girin:
+    - **Kaynak grubu**: Aşağı açılan listeden mevcut bir kaynak grubunu seçin ya da seçin **Yeni Oluştur** yeni bir kaynak grubu oluşturmak için.
 
-    - Ad: olay Hub'ınız için bir ad verin.
-    - Bölüm sayısı: 10
-    - İleti bekletme: 1. 
+    - **Konum**: Aynı seçin **konumu** gecikme süresini ve maliyetleri azaltmak için HDInsight, Apache Spark kümenizin olarak.
+
+    - **Otomatik Şişme etkinleştirme**: (İsteğe bağlı)  Otomatik şişme trafiğiniz atanmış üretilen iş Birimi'ne kapasiteyi aştığında, olay hub'ları Namespace için atanan işleme birimleri sayısını otomatik olarak ölçeklendirir.  
+
+    - **Otomatik Şişme en fazla işleme birimi**: (İsteğe bağlı)  Bu kaydırıcı, iade ederseniz yalnızca görünür **etkinleştirmek otomatik Şişme**.  
+
+      ![Belirtin Spark akış örneği için bir olay hub'ı adı](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "belirtin Spark akış örneği için bir olay hub'ı adı")
+6. Seçin **Oluştur** ad alanı oluşturmak için.  Dağıtım birkaç dakika içinde tamamlanır.
+
+## <a name="create-an-azure-event-hub"></a>Bir Azure olay hub'ı oluşturma
+Event Hubs ad alanı dağıtıldıktan sonra bir olay hub'ı oluşturun.  Portaldan:
+
+1. Sol menüden **tüm hizmetleri**.  
+
+1. Altında **NESNELERİN İNTERNETİ**seçin **Event Hubs**.  
+
+1. Event Hubs ad alanınız listeden seçin.  
+
+1. Gelen **olay hub'ları Namespace** sayfasında **+ olay hub'ı**.  
+1. Aşağıdaki değerleri girin **olay hub'ı Oluştur** sayfası:
+
+    - **Ad**: Olay Hub'ınız için bir ad verin. 
+ 
+    - **Bölüm sayısı**: 10.  
+
+    - **İleti bekletme**: 1.   
    
-    ![Olay hub'ı ayrıntılarını belirtin Spark akış örneği için](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Spark akış örneği için olay hub'ı ayrıntılarını sağlayın")
+      ![Olay hub'ı ayrıntılarını belirtin Spark akış örneği için](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Spark akış örneği için olay hub'ı ayrıntılarını sağlayın")
 
-9. **Oluştur**’u seçin.
-10. Seçin **paylaşılan erişim ilkeleri** ad alanı (olay hub'ı paylaşılan erişim ilkeleri değil. Not) ve ardından **RootManageSharedAccessKey**.
+1. **Oluştur**’u seçin.  Dağıtım birkaç saniye içinde tamamlanır ve olay hub'ları Namespace sayfaya döner.
+
+1. Altında **ayarları**seçin **paylaşılan erişim ilkeleri**.
+
+1. Seçin **RootManageSharedAccessKey**.
     
      ![Spark akış örneği için olay hub'ı ilkeler ayarlama](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "örnek akış Spark için Event Hub'ı ayarlama ilkeleri")
 
-11. Değerlerini kaydetmek **birincil anahtar** ve **bağlantı dizesi-birincil anahtar** öğreticinin ilerleyen bölümlerinde kullanmak için.
+1. Değerlerini kaydetmek **birincil anahtar** ve **bağlantı dizesi-birincil anahtar** öğreticinin ilerleyen bölümlerinde kullanmak için.
 
      ![Olay hub'ı ilke anahtarları görüntülemek için örnek akış Spark](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "görünümü olay hub'ı ilke anahtarları için Spark akış örneği")
 
 
 ## <a name="send-tweets-to-the-event-hub"></a>Olay hub'ına tweet gönderin
 
-Jupyter not defteri oluşturun ve adlandırın için ihtiyaç duyduğunuz **SendTweetsToEventHub**. 
+Jupyter not defteri oluşturun ve adlandırın **SendTweetsToEventHub**. 
 
 1. Dış Apache Maven kitaplıkları eklemek için aşağıdaki kodu çalıştırın:
 
@@ -182,7 +208,7 @@ Jupyter not defteri oluşturun ve adlandırın için ihtiyaç duyduğunuz **Send
 
 ## <a name="read-tweets-from-the-event-hub"></a>Olay hub'ından tweet'leri okuma
 
-Başka bir Jupyter not defteri oluşturun ve adlandırın için ihtiyaç duyduğunuz **ReadTweetsFromEventHub**. 
+Başka bir Jupyter not defteri oluşturun ve adlandırın **ReadTweetsFromEventHub**. 
 
 1. Bir dış Apache Maven Kitaplığı eklemek için aşağıdaki kodu çalıştırın:
 
@@ -218,7 +244,7 @@ Başka bir Jupyter not defteri oluşturun ve adlandırın için ihtiyaç duyduğ
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-HDInsight ile verileriniz, Azure Depolama’da veya Azure Data Lake Store’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Sonraki öğretici hemen işe planlıyorsanız, küme tutar, aksi takdirde devam edin ve kümeyi silmek isteyebilirsiniz.
+Kullanımda olmadığında bir kümeyi güvenle silebilirsiniz HDInsight ile Azure depolama veya Azure Data Lake depolama, verilerinizi depolanır. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Sonraki öğretici hemen işe planlıyorsanız, küme tutar, aksi takdirde devam edin ve kümeyi silmek isteyebilirsiniz.
 
 Azure portalında kümeyi açıp **Sil**’i seçin.
 

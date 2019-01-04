@@ -4,17 +4,17 @@ description: Bu hızlı başlangıçta bir IOT Edge cihazı oluşturma ve ardın
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 12/31/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 96c261619a0e6930ea299b5e2a50050dca5471f8
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 2295ed6d3d1b22d70f95d0c9ac4542b59c7ddc09
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554784"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972099"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Hızlı Başlangıç: İlk IOT Edge modülü Azure portalından bir Windows cihazına dağıtma - Önizleme
 
@@ -192,13 +192,16 @@ iotedge list
 
    ![Cihazınızda üç modül görüntüleme](./media/quickstart/iotedge-list-2.png)
 
-tempSensor modülünden buluta gönderilen iletileri görüntüleyin.
+Sıcaklık algılayıcısı modülünden buluta gönderilen iletileri görüntüleyin.
 
 ```powershell
-iotedge logs tempSensor -f
+iotedge logs SimulatedTemperatureSensor -f
 ```
 
-  ![Verileri modülünüzden görüntüleme](./media/quickstart/iotedge-logs.png)
+   >[!TIP]
+   >Modül adlarını söz konusu olduğunda, IOT Edge komutları büyük küçük harfe duyarlıdır.
+
+   ![Verileri modülünüzden görüntüleme](./media/quickstart/iotedge-logs.png)
 
 Kullanarak IOT hub'ınıza gelen iletileri izlemek isterseniz [Visual Studio Code için Azure IOT hub'ı Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (eski adıyla Azure IOT Toolkit uzantısını). 
 
@@ -230,15 +233,18 @@ IoT Edge çalışma zamanını kaldırın. IOT Edge yeniden yüklenmesine planl�
 IoT Edge çalışma zamanı kaldırıldığında, oluşturduğu kapsayıcılar durdurulur, ancak cihazınızda yer almaya devam eder. Tüm kapsayıcıları görüntüleyin.
 
    ```powershell
-   docker ps -a
+   docker -H npipe:////./pipe/iotedge_moby_engine ps -a
    ```
 
-IoT Edge çalışma zamanı tarafından cihazınızda oluşturulan kapsayıcıları silin. Farklı bir ad verdiyseniz, tempSensor kapsayıcısının adını değiştirin.
+   >[!TIP]
+   >**-H** docker komutları (ana) bayrağı noktası IOT Edge çalışma zamanıyla birlikte yüklenen moby altyapısı. Aynı makinede docker hem moby kullanırsanız, konak bayrağı belirli bir komut için kullandığınız hangi altyapısı belirtmenizi sağlar. Yalnızca moby kullanmak istiyorsanız, ayarlayabileceğiniz **DOCKER_HOST** npipe:///./pipe/iotedge_moby_engine için işaret edecek şekilde ortam değişkeni.
+
+IoT Edge çalışma zamanı tarafından cihazınızda oluşturulan kapsayıcıları silin. 
 
    ```powershell
-   docker rm -f tempSensor
-   docker rm -f edgeHub
-   docker rm -f edgeAgent
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f SimulatedTemperatureSensor
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeHub
+   docker -H npipe:////./pipe/iotedge_moby_engine rm -f edgeAgent
    ```
    
 ## <a name="next-steps"></a>Sonraki adımlar

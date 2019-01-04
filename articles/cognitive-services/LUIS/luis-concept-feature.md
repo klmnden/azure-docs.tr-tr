@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 2d6f7e2fd332e1687db1564befeb6f531045c5dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271394"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993083"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS uygulamanızı ifade listesi özellikleri
 
@@ -29,6 +29,10 @@ Bir ifade listesi, aynı sınıfa ait benzer şekilde (örneğin, şehirler ya d
 
 Bir ifade listesi uygulama etki alanının sözlüğü LUIS için ikinci bir sinyal sözcükleri ilgili olarak ekler.
 
+## <a name="phrase-lists-help-all-models"></a>Tüm modelleri tümcecik listeler yardımcı
+
+İfade listeleri bir belirli bir amaç veya varlığa bağlı değildir, ancak tüm modellere bir boost eklenir. Amacı hedefi olan algılama ve varlık sınıflandırma artırmaktır.
+
 ## <a name="how-to-use-phrase-lists"></a>İfade listeleri kullanma
 İnsan Kaynakları uygulamasının [varlığın öğretici](luis-quickstart-primary-and-secondary-data.md), uygulamanın kullandığı bir **iş** Programcı roofer ve dış gibi iş türleri ifade listesi. Şu değerlerden biri olarak makine öğrenilen bir varlık olarak etiketlerseniz LUIS diğer öğrenir. 
 
@@ -40,6 +44,7 @@ Değiştirilebilir veya değiştirilebilir olmayan bir ifade listesi olabilir. B
 |Olmayan değiştirilebilir|Uygulama sözlük, uygulamanıza, genellikle daha başka bir dilde sözcükler için daha fazla belirli.|
 
 İfade yalnızca varlık algılama ile ilgili Yardım listeler ancak aynı zamanda hedefi sınıflandırma değiştirilebilir olmayan burada İngilizce dilinde bilinmemesi sözlük sözcükleri dışında ekleme gibi mantıklıdır.
+
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

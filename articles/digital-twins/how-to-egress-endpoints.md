@@ -1,25 +1,71 @@
 ---
 title: Çıkış ve Azure dijital İkizlerini uç noktaların | Microsoft Docs
-description: Azure ile dijital İkizlerini uç noktaları oluşturma yönergeleri
+description: Azure ile dijital İkizlerini uç noktaları oluşturma hakkında yönergeler.
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 12/31/2018
 ms.author: alinast
-ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636314"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994850"
 ---
 # <a name="egress-and-endpoints"></a>Çıkış ve uç noktaları
 
-Azure dijital İkizlerini kavramını destekler **uç noktaları**. Her uç nokta, kullanıcının Azure aboneliğinde bir ileti veya olay Aracısı temsil eder. Azure Event Hubs, Azure Event Grid ve Azure Service Bus konuları için olayları ve iletileri gönderilebilir.
+Azure dijital İkizlerini *uç noktaları* bir kullanıcının Azure aboneliğinde bir ileti veya olay Aracısı temsil eder. Azure Event Hubs, Azure Event Grid ve Azure Service Bus konuları için olayları ve iletileri gönderilebilir.
 
-Olaylar, önceden tanımlanmış yönlendirme tercihlerini göre uç noktalarına gönderilir. Kullanıcı, hangi uç noktaya aşağıdaki olaylardan herhangi biri alması gereken belirtebilirsiniz: 
+Olayları, önceden tanımlanmış yönlendirme tercihlerini göre Uç noktalara yönlendirilir. Kullanıcılar geçidime hangi *olay türleri* her uç nokta alabilirsiniz.
+
+Olaylar hakkında daha fazla bilgi için Yönlendirme ve olay türlerini başvurmak [yönlendirme olayları ve iletileri Azure dijital İkizlerini](./concepts-events-routing.md).
+
+## <a name="events"></a>Olaylar
+
+Olayları Azure ileti ve olay aracıları tarafından işlenmek IOT nesneler (örneğin, cihazlar ve algılayıcılar) tarafından gönderilir. Olaylar, şunlarla tanımlanır [Azure Event Grid olay şema başvurusu](../event-grid/event-schema.md).
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "subject": "ExtendedPropertyKey",
+  "data": {
+    "SpacesToNotify": [
+      "3a16d146-ca39-49ee-b803-17a18a12ba36"
+    ],
+    "Id": "00000000-0000-0000-0000-000000000000",
+      "Type": "ExtendedPropertyKey",
+    "AccessType": "Create"
+  },
+  "eventType": "TopologyOperation",
+  "eventTime": "2018-04-17T17:41:54.9400177Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
+
+| Öznitelik | Tür | Açıklama |
+| --- | --- | --- |
+| id | dize | Olayın benzersiz tanımlayıcısı. |
+| konu | dize | Yayımcı tarafından tanımlanan olay konu yolu. |
+| veriler | object | Kaynak sağlayıcıya özel olay verileri. |
+| olay türü | dize | Bu olay kaynağı için kayıtlı olay türlerinden biri. |
+| eventTime | dize | Olayın oluşturulduğu zamandan, sağlayıcının UTC saatini temel alan. |
+| dataVersion | dize | Veri nesnesinin şema sürümü. Yayımcı, şema sürümü tanımlar. |
+| metadataVersion | dize | Olay meta verilerinin şema sürümü. Event Grid, şemanın en üst düzey özellikleri tanımlar. Event Grid, bu değeri sağlar. |
+| konu başlığı | dize | Olay kaynağı tam kaynak yolu. Bu alan, yazılabilir değil. Event Grid, bu değeri sağlar. |
+
+Event Grid olay şeması hakkında daha fazla bilgi için:
+
+- Gözden geçirme [Azure Event Grid olay şema başvurusu](../event-grid/event-schema.md).
+- Okuma [Azure EventGrid Node.js SDK'sı EventGridEvent başvuru](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
+
+## <a name="event-types"></a>Olay türleri
+
+Olay türleri olay doğasını sınıflandırmak ve ayarlanan **eventType** alan. Kullanılabilir olay türleri tarafından aşağıdaki listede verilmiştir:
 
 - TopologyOperation
 - UdfCustom
@@ -27,15 +73,11 @@ Olaylar, önceden tanımlanmış yönlendirme tercihlerini göre uç noktaların
 - SpaceChange
 - DeviceMessage
 
-Yönlendirme olayları ve olay türleri temel anlamak için bkz [yönlendirme olayları ve iletileri](concepts-events-routing.md).
-
-## <a name="event-types-description"></a>Olay türleri açıklaması
-
-Olay biçimlerini olay türlerinin her biri için aşağıdaki bölümlerde açıklanmıştır.
+Her bir olay türü için olay biçimlerini aşağıdaki alt bölümlerde daha ayrıntılı açıklanmaktadır.
 
 ### <a name="topologyoperation"></a>TopologyOperation
 
-**TopologyOperation** grafiği değişiklikleri uygular. **Konu** özelliği, etkilenen nesne türünü belirtir. Aşağıdaki nesne türlerini, bu olay tetikleyebilir: 
+**TopologyOperation** grafiği değişiklikleri uygular. **Konu** özelliği, etkilenen nesne türünü belirtir. Aşağıdaki nesne türlerini, bu olay tetikleyebilir:
 
 - Cihaz
 - DeviceBlobMetadata
@@ -86,7 +128,7 @@ Olay biçimlerini olay türlerinin her biri için aşağıdaki bölümlerde aç�
 
 ### <a name="udfcustom"></a>UdfCustom
 
-**UdfCustom** kullanıcı tanımlı işlev tarafından (UDF) gönderilen bir olay. 
+**UdfCustom** kullanıcı tanımlı işlev tarafından (UDF) gönderilen bir olay.
   
 > [!IMPORTANT]  
 > Bu olay, açıkça UDF'yi gönderilmelidir.
@@ -195,10 +237,19 @@ Kullanarak **DeviceMessage**, belirtebileceğiniz bir **EventHub** için ham tel
 
 ## <a name="configure-endpoints"></a>Uç noktaları yapılandırma
 
-Uç nokta yönetim uç noktalarını API aracılığıyla Uygula. Aşağıdaki örnekler, farklı desteklenen uç noktalar yapılandırmak nasıl ekleyebileceğiniz gösterilmektedir. Yönlendirme için uç nokta tanımlar gibi özel olay türleri dizisi dikkat edin:
+Uç nokta yönetim uç noktalarını API aracılığıyla Uygula.
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
+Aşağıdaki örnekler, desteklenen uç noktalar yapılandırmak nasıl ekleyebileceğiniz gösterilmektedir.
+
+>[!IMPORTANT]
+> Dikkatli dikkat **eventTypes** özniteliği. Hangi olay türleri bitiş noktası tarafından işlenir ve bu nedenle, akışı belirler ve tanımlar.
+
+Kimliği doğrulanmış bir HTTP POST isteği
 
 ```plaintext
-POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
+YOUR_MANAGEMENT_API_URL/endpoints
 ```
 
 - Service Bus olay türleri için rota **SensorChange**, **SpaceChange**, ve **TopologyOperation**:

@@ -4,15 +4,15 @@ ms.service: application-insights
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: edd7492dba1352484e1a1e5c361c8041bcd966b0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 669aac4903b2de03fe845193b55e6538a3bf9d6c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572833"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53731689"
 ---
 ## <a name="analytics"></a>Analiz
-* [Genel Bakış](../articles/application-insights/app-insights-analytics.md)
+* [Genel Bakış](../articles/azure-monitor/app/analytics.md)
 * [Analytics turu](../articles/application-insights/app-insights-analytics-tour.md)
   * Buradan başlayın. Önemli özellikleri kapsayan bir öğretici.
 * [Sorgular](../articles/application-insights/app-insights-analytics-reference.md)
@@ -25,5 +25,5 @@ ms.locfileid: "51572833"
   * Analytics kullanımı
 * [Dil Başvurusu](../articles/application-insights/app-insights-analytics-reference.md)
   * Tek sayfalı başvuru.
-* [Sorun giderme](../articles/application-insights/app-insights-analytics-troubleshooting.md)
+* [Sorun giderme](../articles/azure-monitor/app/analytics-troubleshooting.md)
 

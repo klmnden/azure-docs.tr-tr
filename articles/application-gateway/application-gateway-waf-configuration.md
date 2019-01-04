@@ -7,19 +7,16 @@ ms.service: application-gateway
 ms.workload: infrastructure-services
 ms.date: 11/6/2018
 ms.author: victorh
-ms.openlocfilehash: f89841c7712737d2d55601c6525e975274b4a103
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: bed406f90c8da62919337c1fa9f30221b0ba8d90
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036726"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752733"
 ---
-# <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>Web uygulaması güvenlik duvarı istek boyutu sınırları ve hariç tutma listeleri (genel Önizleme)
+# <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web uygulaması güvenlik duvarı istek boyutu sınırları ve hariç tutma listeleri
 
 Azure Application Gateway web uygulaması Güvenlik Duvarı (WAF), web uygulamaları için koruma sağlar. Bu makalede WAF istek boyutu sınırları ve yapılandırma dışlama listeler.
-
-> [!IMPORTANT]
-> WAF istek boyutu sınırları ve hariç tutma listeleri yapılandırması, şu anda genel Önizleme aşamasındadır. Bu önizleme sürümü, bir hizmet düzeyi sözleşmesi olmadan sağlanmaktadır ve üretim iş yükleri için önerilmez. Bazı özellikler desteklenmiyor olabileceği gibi özellikleri sınırlandırılmış da olabilir. Ayrıntılar için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="waf-request-size-limits"></a>WAF istek boyutu sınırları
 
@@ -52,10 +49,10 @@ Bir tam istek üst bilgisini belirtin, tanımlama bilgisi veya sorgu dizesi özn
 
 Desteklenen eşleşme ölçütlerini işleçler şunlardır:
 
-- **Eşittir**: Bu işleci için tam bir eşleşme kullanılır. Adlı bir üst bilgi seçmek için örnek olarak **bearerToken**, eşittir işleci olarak seçiciyi kullanın **bearerToken**.
-- **İle başlayan**: Belirtilen Seçici değerle başlayan tüm alanları bu işleci eşleşir.
-- **İle biten**: Belirtilen seçici değeri ile biten tüm isteği alanları bu işleci eşleşir.
-- **İçeren**: Belirtilen seçici değeri içeren tüm isteği alanları bu işleci eşleşir.
+- **Eşittir**:  Bu işleç, tam bir eşleşme için kullanılır. Adlı bir üst bilgi seçmek için örnek olarak **bearerToken**, eşittir işleci olarak seçiciyi kullanın **bearerToken**.
+- **İle başlayan**: Bu işleç, belirtilen Seçici değerle başlayan tüm alanları eşleşir.
+- **İle biten**:  Bu işleç, belirtilen seçici değeri ile biten tüm isteği alanları eşleşir.
+- **İçeren**: Bu işleç belirtilen seçici değeri içeren tüm isteği alanları eşleşir.
 
 Her durumda eşleştirme büyük küçük harfe duyarlı değildir ve normal ifade Seçici izin verilmiyor.
 

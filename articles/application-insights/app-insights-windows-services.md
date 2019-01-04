@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b760780912642dac664f68c1f2b9d8d4ebf8cbde
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001735"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809905"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>.NET uygulamaları için Application Insights’ı el ile yapılandırma
 
-[Application Insights](app-insights-overview.md)’ı, çok çeşitli uygulamaları veya uygulama rolleri, bileşenler veya mikro hizmetleri izlemek üzere yapılandırabilirsiniz. Web uygulamaları ve hizmetleri için, Visual Studio [tek adımlı yapılandırma](app-insights-asp-net.md) sunar. Arka uç sunucu rolleri veya masaüstü uygulamaları gibi diğer .NET uygulaması türleri için Application Insights’ı el ile yapılandırabilirsiniz.
+[Application Insights](app-insights-overview.md)’ı, çok çeşitli uygulamaları veya uygulama rolleri, bileşenler veya mikro hizmetleri izlemek üzere yapılandırabilirsiniz. Web uygulamaları ve hizmetleri için, Visual Studio [tek adımlı yapılandırma](../azure-monitor/app/asp-net.md) sunar. Arka uç sunucu rolleri veya masaüstü uygulamaları gibi diğer .NET uygulaması türleri için Application Insights’ı el ile yapılandırabilirsiniz.
 
 ![Örnek performans izleme grafikleri](./media/app-insights-windows-services/10-perf.png)
 
@@ -36,7 +36,7 @@ Gerekenler:
 
 'Kaynak', verilerinizin toplandığı ve Azure portalında gösterildiği yerdir. Yeni bir tane oluşturmaya veya mevcut olanı paylaşmaya karar vermeniz gerekir.
 
-### <a name="part-of-a-larger-app-use-existing-resource"></a>Daha büyük bir uygulamanın parçası: Var olan kaynağı kullanma
+### <a name="part-of-a-larger-app-use-existing-resource"></a>Daha büyük bir uygulamanın parçası: Mevcut kaynağı kullan
 
 Web uygulamanızın ön uç web uygulaması ve bir ya da daha fazla arka uç hizmeti gibi birkaç bileşeni varsa, tüm bileşenlerden aynı kaynağa telemetri verileri göndermeniz gerekir. Bunun yapılması, verilerin tek bir Uygulama Eşlemesinde gösterilmesini sağlar ve bir bileşenden diğerine gönderilen isteğin izlenmesini mümkün hale getirir.
 
@@ -44,7 +44,7 @@ Bu nedenle, bu uygulamanın diğer bileşenlerini izliyorsanız aynı kaynağı 
 
 Kaynağı [Azure portalında](https://portal.azure.com/) açın. 
 
-### <a name="self-contained-app-create-a-new-resource"></a>Kendi içinde uygulama: Yeni bir kaynak oluşturma
+### <a name="self-contained-app-create-a-new-resource"></a>Kendi içinde uygulama: Yeni kaynak oluşturma
 
 Yeni uygulama başka uygulamalarla ilgisiz ise, kendi kaynağına sahip olmalıdır.
 
@@ -90,7 +90,7 @@ ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız
 * Koddaki izleme anahtarını ayarlayın, örneğin `main()` içinde: 
   
     `TelemetryConfiguration.Active.InstrumentationKey = "` *anahtarınız* `";` 
-* [API'yi kullanarak kendi telemetrinizi yazın](app-insights-api-custom-events-metrics.md#ikey).
+* [API'yi kullanarak kendi telemetrinizi yazın](../azure-monitor/app/api-custom-events-metrics.md#ikey).
 
 **Diğer Application Insights paketlerini yüklediyseniz** izleme anahtarını ayarlamak için isterseniz .config dosyasını kullanabilirsiniz:
 
@@ -119,7 +119,7 @@ Daha ayrıntılı ölçümler görmek için herhangi bir grafiğe tıklayın. [�
 
 ### <a name="no-data"></a>Veri yok mu?
 * Birkaç telemetri oluşturması için farklı sayfaları açarak uygulamayı kullanın.
-* Olayları tek tek görmek için [Ara](app-insights-diagnostic-search.md) kutucuğunu açın. Bazı durumlarda olayların ölçüm ardışık düzenine ulaşması biraz daha uzun sürer.
+* Olayları tek tek görmek için [Ara](../azure-monitor/app/diagnostic-search.md) kutucuğunu açın. Bazı durumlarda olayların ölçüm ardışık düzenine ulaşması biraz daha uzun sürer.
 * Birkaç saniye bekleyin ve **Yenile**’ye tıklayın. Grafikler kendilerini düzenli olarak yeniler, ancak bazı verilerin görüntülenmesini bekliyorsanız el ile yenileyebilirsiniz.
 * Bkz. [Sorun giderme](app-insights-troubleshoot-faq.md).
 
@@ -134,7 +134,7 @@ Hata ayıklama modunda çalıştırdığınızda telemetri ardışık düzen üz
 Sunucunuzun güvenlik duvarında giden trafik için bağlantı noktalarını açın. Gerekli adreslerin listesi için [bu sayfaya](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses) bakın 
 
 ### <a name="trouble-on-your-build-server"></a>Derleme sunucunuzda sorun mu yaşıyorsunuz?
-Lütfen [bu Sorun Giderme maddesine](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild) bakın.
+Lütfen [bu Sorun Giderme maddesine](../azure-monitor/app/asp-net-troubleshoot-no-data.md#NuGetBuild) bakın.
 
 > [!NOTE]
 > Uygulamanız çok sayıda telemetri oluşturuyorsa, uyarlamalı örnekleme modülü olayların yalnızca bir temsilci fraksiyonunu göndererek portala gönderilen hacmi otomatik olarak azaltır. Ancak, aynı istekle ilişkili olaylar grup olarak seçilir ya da seçimi kaldırılır, böylece ilgili olaylar arasında gezinebilirsiniz. 
@@ -147,5 +147,5 @@ Lütfen [bu Sorun Giderme maddesine](app-insights-asp-net-troubleshoot-no-data.m
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Uygulamanızın 360 derecelik tam görünümünü elde etmek üzere [daha fazla telemetri ekleyin](app-insights-asp-net-more.md).
+* Uygulamanızın 360 derecelik tam görünümünü elde etmek üzere [daha fazla telemetri ekleyin](../azure-monitor/app/asp-net-more.md).
 

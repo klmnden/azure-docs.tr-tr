@@ -4,18 +4,17 @@ description: Python'dan Azure kuyruk hizmeti oluşturmak ve Kuyruklar, silmek i�
 services: storage
 author: tamram
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 12/14/2018
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 827d3ceac267c78be9740adba6c890460ca3f2e9
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0edb90ca7324d47beaa5133d423928e615ff33a9
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162996"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742822"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Python’dan Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -31,7 +30,7 @@ Bu kılavuz Azure kuyruk depolama hizmetini kullanarak, yaygın senaryoları ger
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>İndirin ve Python için Azure depolama SDK'sını yükleyin
 
-Python için Azure depolama SDK, Python 2.7, 3.3, 3.4, 3.5 ve 3.6 gerektirir ve 4 farklı paketlerde gelir: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` ve `azure-storage-queue`. Bu öğreticide kullanılacak kullanacağız `azure-storage-queue` paket.
+[Python için Azure depolama SDK'sı](https://github.com/azure/azure-storage-python) Python 2.7, 3.3, 3.4, 3.5 ve 3.6 gerektirir.
  
 ### <a name="install-via-pypi"></a>Pypı yüklemek
 
@@ -41,15 +40,19 @@ Python paket dizinini (Pypı) yüklemek için şunu yazın:
 pip install azure-storage-queue
 ```
 
-
 > [!NOTE]
-> Azure depolama SDK'sından Python 0.36 veya önceki bir sürümü için yükseltme yapıyorsanız, önce kaldırmak gerekir `pip uninstall azure-storage` artık depolama SDK'sı Python için tek bir paket içinde kullanıma sunacağımız gibi.
-> 
-> 
+> Python 0.36 veya önceki bir sürümü için Azure depolama SDK'sından yükseltme yapıyorsanız, eski SDK'sını kullanarak kaldırma `pip uninstall azure-storage` en yeni paketi yüklemeden önce.
 
-Diğer yükleme yöntemleri için ziyaret [GitHub üzerinde Python için Azure depolama SDK'sı](https://github.com/Azure/azure-storage-python/).
+Diğer yükleme yöntemleri için bkz [Python için Azure depolama SDK'sı](https://github.com/Azure/azure-storage-python/).
+
+## <a name="view-the-sample-application"></a>Örnek uygulamayı görüntüleme
+
+Görüntülemek ve Python ile Azure kuyrukları kullanma gösteren bir örnek uygulama çalıştırmak için bkz: [Azure Depolama: Python'da Azure kuyrukları ile çalışmaya başlama](https://github.com/Azure-Samples/storage-queue-python-getting-started). 
+
+Örnek uygulamayı çalıştırmak için her ikisi de yüklediğinizden emin olun `azure-storage-queue` ve `azure-storage-common` paketleri.
 
 ## <a name="how-to-create-a-queue"></a>Nasıl Yapılır: Kuyruk oluşturma
+
 **QueueService** nesne kuyrukları ile çalışmanıza olanak tanır. Aşağıdaki kod oluşturur bir **QueueService** nesne. Aşağıdaki program aracılığıyla Azure depolamaya erişmek istediğiniz herhangi bir Python dosyası üstüne yakın bir yere ekleyin:
 
 ```python
@@ -129,8 +132,6 @@ Kuyruk depolamanın temellerini öğrendiğinize göre daha fazla bilgi için bu
 
 * [Python Geliştirici Merkezi](https://azure.microsoft.com/develop/python/)
 * [Azure Depolama Hizmetleri REST API'si](https://msdn.microsoft.com/library/azure/dd179355)
-* [Azure Depolama Ekibi Blog’u]
-* [Microsoft Azure depolama için Python SDK'sı]
 
-[Azure Depolama Ekibi Blog’u]: http://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure depolama için Python SDK'sı]: https://github.com/Azure/azure-storage-python

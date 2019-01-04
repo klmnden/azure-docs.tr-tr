@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: a48bd66c335981a76a67206f840f4be69aaa8af1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ddd704b41e6d1463bc635f13135cc9a388e677fe
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273356"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634618"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı için Uyarılar oluşturmak için Azure portalını kullanma
 
@@ -46,13 +46,13 @@ Yapılandırma ve uyarı kuralları kullanma hakkında bilgi edinin
 1. İçinde [portalı](https://portal.azure.com/)izlemek olan kaynağı bulun ve seçin.
 2. Seçin **uyarılar (Klasik)** izleme bölümü altında. Simge ve metin, farklı kaynaklar için biraz değişebilir.  
    
-     ![İzleme](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
+     ![İzleme](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
    - **SQL DW**: Tıklayın **DWU kullanımı** grafiği. Seçin **Klasik uyarıları görüntüleme**
 
 3. Seçin **ölçüm uyarısı Ekle (Klasik)** düğmesine tıklayın ve alanları doldurun.
    
-    ![Uyarı Ekle](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
+    ![Uyarı Ekle](media/sql-database-insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. **Adı** Uyarınız kuralı ve seçin bir **açıklama**, bildirim e-postalarda de gösterilmektedir.
 5. Seçin **ölçüm** izleyin ve ardından istediğiniz bir **koşul** ve **eşiği** ölçüm için değer. Ayrıca **süresi** uyarı tetiklenmeden önce ölçüm kuralının karşılanması gereken süre. Örneğin, "PT5M" süresi kullanıyorsanız ve uyarıyı % 80'in CPU görünüyor, uyarının ne zaman tetikler **ortalama** 5 dakika boyunca % 80'in CPU olmuştur. İlk tetikleyici gerçekleşir sonra ortalama CPU üzerinde 5 dakika % 80 aşağısına olduğunda tekrar tetikler. CPU ölçüm dakikada bir gerçekleşir. Desteklenen zaman pencereleri için aşağıdaki tabloya başvurun ve toplama yazın ve her uyarı kullandığı değil tüm uyarılar, ortalama değer kullanın.   
 6. Denetleme **e-posta sahipleri...**  yöneticileri ve ortak yöneticilerin uyarı tetiklendiğinde almayacağınızı istiyorsanız.
@@ -117,5 +117,5 @@ Bir uyarı oluşturulduktan sonra bunu seçebilirsiniz ve:
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure izleme genel bakışın](../monitoring-and-diagnostics/monitoring-overview.md) toplamak ve izlemek bilgi türleri dahil olmak üzere.
 * Daha fazla bilgi edinin [uyarıları Web kancalarını yapılandırma](../azure-monitor/platform/alerts-webhooks.md).
-* Alma bir [tanılama günlüklerine genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) ve hizmet ayrıntılı yüksek sıklık düzeyindeki ölçümleri toplayın.
+* Alma bir [tanılama günlüklerine genel bakış](../azure-monitor/platform/diagnostic-logs-overview.md) ve hizmet ayrıntılı yüksek sıklık düzeyindeki ölçümleri toplayın.
 * Alma bir [ölçümleri koleksiyonun genel bakış](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) hizmetinizin kullanılabilir ve yanıt verdiğinden emin olmak için.

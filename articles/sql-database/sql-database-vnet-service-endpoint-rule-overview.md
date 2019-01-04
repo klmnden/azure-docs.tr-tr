@@ -11,20 +11,20 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: d4957efa151a0f992d098b2d6355b03f336e3738
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 12/20/2018
+ms.openlocfilehash: 33e0b66541e5ead5f3c05d2310ecc07e8a62324c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438600"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728134"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Azure SQL için sanal ağ hizmet uç noktaları ve kuralları kullanma
 
 *Sanal ağ kuralları* olduğunu denetleyen bir güvenlik duvarı olup Azure [SQL veritabanı](sql-database-technical-overview.md) veya [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) sunucu uygulamasından gönderilen iletişimi kabul eder sanal ağlar içindeki belirli alt ağlar. Bu makalede, sanal ağ kuralı özelliği bazen Azure SQL veritabanı ve SQL veri ambarı iletişimi güvenli bir şekilde izin vermek için en iyi seçenek olup neden açıklar.
 
-> [!NOTE]
-> Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
+> [!IMPORTANT]
+> Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır. Bu makale *değil* uygulamak **Azure SQL veritabanı yönetilen örneği**.
 
 Bir sanal ağ kuralı oluşturmak için öncelikle olmalıdır bir [sanal ağ hizmet uç noktası] [ vm-virtual-network-service-endpoints-overview-649d] kuralın başvurmak.
 
@@ -64,9 +64,8 @@ IP seçeneği elde ederek hurda bir *statik* , VM için IP adresi. Ayrıntılar 
 
 Ancak, statik IP yaklaşım yönetmek zor olabilir ve uygun ölçekte kullanıldıklarında maliyeti yüksek. Sanal ağ kuralları oluşturmak ve yönetmek için daha kolay okunuyor.
 
-### <a name="c-cannot-yet-have-sql-database-on-a-subnet"></a>C. SQL veritabanı, bir alt ağ üzerinde henüz sahip olamaz
-
-Azure SQL veritabanı sunucunuzdaki bir düğümde sanal ağınızdaki bir alt ağ, sanal ağ içindeki tüm düğümleri, SQL veritabanı ile iletişim kurulamadı. Bu durumda, sanal makinelerinizin herhangi bir sanal ağ kuralları veya IP kuralları gerek kalmadan SQL veritabanı ile iletişim kurulamadı.
+> [!NOTE]
+> Bir alt ağ üzerinde SQL veritabanı henüz sahip olamaz. Azure SQL veritabanı sunucunuzdaki bir düğümde sanal ağınızdaki bir alt ağ, sanal ağ içindeki tüm düğümleri, SQL veritabanı ile iletişim kurulamadı. Bu durumda, sanal makinelerinizin herhangi bir sanal ağ kuralları veya IP kuralları gerek kalmadan SQL veritabanı ile iletişim kurulamadı.
 
 Ancak Eylül 2017'den itibaren Azure SQL veritabanı hizmeti henüz bir alt ağa atanabilir hizmetleri arasında değil.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: normesta
-ms.openlocfilehash: d42d05046f4ef133aa3dfb52bbe4e2b72255ccce
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: bc6f59922286663435782623a72345c19adb494c
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322901"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995046"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake depolama Gen2 ile'ilgili bilinen sorunlar
 
@@ -66,10 +66,6 @@ Destek her üçüncü taraf uygulama sağlayıcısının takdirinizdedir. Şu an
 Sürüm 8 AzCopy, Azure Data Lake depolama Gen2 desteklemiyor.
 
 Bunun yerine, en güncel AzCopy önizleme sürümünü kullanın ( [AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json) ) olarak Azure Data Lake depolama Gen2 uç noktalarını destekler.
-
-## <a name="oauth-authentication"></a>OAuth kimlik doğrulaması
-
-HDInsight ve Azure Data Factory gibi hizmetleri, henüz Azure Active Directory (Azure AD) OAuth taşıyıcı belirteci kimlik doğrulaması ile tümleştirme yoktur.
 
 ## <a name="azure-event-grid"></a>Azure Event Grid
 

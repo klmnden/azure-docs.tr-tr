@@ -10,16 +10,16 @@ ms.service: azure-functions; cosmos-db
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 2a501129720447462d1e6e961597b51fa683dc1e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 4c5d7c1ebf50103786aaf07f298b5b4d971ad955
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136214"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971963"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 1.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Azure Functions çalışma zamanının sürümünü seçin: "]
 > * [Sürüm 1](functions-bindings-cosmosdb.md)
 > * [Sürüm 2](functions-bindings-cosmosdb-v2.md)
 
@@ -33,7 +33,7 @@ Bu makalede ile nasıl çalışılacağı açıklanmaktadır [Azure Cosmos DB](.
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Azure Cosmos DB bağlamaları yalnızca SQL API ile kullanım için desteklenir. Tüm diğer Azure Cosmos DB API'leri için veritabanına işlevinizden API'niz için statik bir istemci kullanarak erişmeli dahil olmak üzere [MongoDB API'si](../cosmos-db/mongodb-introduction.md)] (.. /cosmos-DB/mongodb-introduction.MD) [Cassandra API'si](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), ve [tablo API'si](../cosmos-db/table-introduction.md).
+> Azure Cosmos DB bağlamaları yalnızca SQL API ile kullanım için desteklenir. Tüm diğer Azure Cosmos DB API'leri için veritabanına işlevinizden API'niz için statik bir istemci kullanarak erişmeli dahil olmak üzere [Azure Cosmos DB MongoDB API'si için](../cosmos-db/mongodb-introduction.md)] (.. /cosmos-DB/mongodb-introduction.MD) [Cassandra API'si](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md), ve [tablo API'si](../cosmos-db/table-introduction.md).
 
 ## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
@@ -198,8 +198,9 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**leaseAcquireInterval**| **leaseAcquireInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden aralığı bölümler bilinen barındırma örnekleri arasında eşit olarak dağıtılmış, işlem için bir görev başlatabilir tanımlar. 13000 (13 saniye) varsayılandır.
 |**leaseExpirationInterval**| **leaseExpirationInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden kira bir bölüm temsil eden bir kira alınmış aralığı tanımlar. Kira bu aralıkta yenilenmezse, süresi dolacak şekilde neden olur ve bölüm sahipliğini başka bir örneğine taşınır. 60000 (60 saniye) varsayılandır.
 |**leaseRenewInterval**| **leaseRenewInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden geçerli bir örnek tarafından tutulan bölümler için tüm kira yenileme aralığı tanımlar. 17000 (17 saniye) varsayılandır.
-|**checkpointFrequency**| **checkpointFrequency**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden kira kontrol noktaları arasındaki süreyi tanımlar. Başarılı işlev çağrısından sonra her zaman bir varsayılandır.
+|**checkpointFrequency**| **checkpointFrequency**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden kira kontrol noktaları arasındaki süreyi tanımlar. Her zaman her işlev çağrısından sonra varsayılandır.
 |**maxItemsPerInvocation**| **maxItemsPerInvocation**| (İsteğe bağlı) Ayarlandığında, işlev çağrısı alınan öğeleri en uzun süreyi özelleştirir.
+|**startFromBeginning**| **StartFromBeginning**| (İsteğe bağlı) Ayarlandığında, değişiklik geçmişini geçerli zamanı yerine koleksiyonunun başından itibaren okumaya başlamak için tetikleyici söyler. Bu, yalnızca tetikleyici başladığında, sonraki çalıştırmaları, kontrol noktaları gibi zaten depolanmış ilk kez çalışır. Bu ayar `true` olduğunda önceden oluşturulmuş kiraları etkisi yoktur.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9a32ac1ae71cb7bd89c4252157c3a5cd395b2694
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4a18e009f7defc8d41846b867f9b7a65d2b853dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842348"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993340"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>Azure'dan Azure'a VM devam eden çoğaltma sorunlarını giderme
 
@@ -22,13 +22,13 @@ Bu makalede Azure Site Recovery çoğaltma ve Azure sanal makineleri bir bölges
 
 ## <a name="recovery-points-not-getting-generated"></a>Kurtarma noktaları oluşturulmuyor
 
-HATA iletisi: Kilitlenme tutarlı kurtarma noktası yok son 60 dakika içinde VM için kullanılabilir.</br>
+HATA İLETİSİ: Kilitlenme tutarlı kurtarma noktası yok son 60 dakika içinde VM için kullanılabilir.</br>
 HATA KİMLİĞİ: 153007 </br>
 
 Azure Site Recovery, tutarlı bir şekilde veri kaynak bölgesinden olağanüstü durum kurtarma bölgeye çoğaltır. ve 5 dakikada kilitlenmeyle tutarlı noktası oluşturur. Site Recovery 60 dakika için kurtarma noktaları oluşturamıyor, ardından kullanıcıyı uyarır. Aşağıda bu hataya neden nedenleri şunlardır:
 
-**1. neden: [yüksek veri değişim oranı kaynak sanal makinede](#high-data-change-rate-on-the-source-virtal-machine)**    
-**2. neden: [ağ bağlantısı sorunu ](#Network-connectivity-issue)**
+**1. neden: [Kaynak sanal makinedeki yüksek veri değişim hızı](#high-data-change-rate-on-the-source-virtal-machine)**    
+**2. neden: [Ağ bağlantısı sorunu ](#Network-connectivity-issue)**
 
 ## <a name="causes-and-solutions"></a>Nedenler ve çözümler
 
@@ -68,18 +68,18 @@ Veri değişikliği oranı etkilenen sanal makinenin bulunacak. Kaynak sanal mak
 
 Gibi durumlarda bir arada sırada veri veri bloğu ise ve veri değişim hızı (Premium için) 10 MB/sn ile 2 MB/sn (standart için) bir süre değerinden büyükse ve aşağı, gelen çoğaltma Kaçırdığınız. Değişim sıklığı, çoğu zaman iyi desteklenen sınırı aşan ise, ancak ardından aşağıdakilerden birini dikkate almanız gereken mümkünse seçeneği altında:
 
-**1. seçenek:** yüksek veri değişim hızı neden diskini dışarıda tutma: </br>
+**1. seçenek:** Yüksek veri değişim hızı neden olan disk hariç tut: </br>
 Kullanarak disk şu anda hariç tutabilirsiniz [Site Recovery Powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine)
 
-**2. seçenek:** olağanüstü durum kurtarma depolama diski katmanını değiştirebilir: </br>
+**2. seçenek:** Olağanüstü Durum Kurtarma Depolama diski katmanını değiştirin: </br>
 Disk veri değişim sıklığı, 10 MB/sn ise bu seçenek yalnızca mümkündür. Bir VM ile P10 söyleyin izin disk 8 MB/sn ancak 10 MB/sn'den büyük bir veri değişim sıklığı yaşıyor. Müşteri P30 disk için hedef depolama sırasında koruma kullanıyorsanız, sorun çözülebilir.
 
 ### <a name="Network-connectivity-issue"></a>Ağ bağlantısı sorunu
 
 #### <a name="network-latency-to-cache-storage-account-"></a>Önbellek depolama hesabına ağ gecikmesi:
  Site Recovery, önbellek depolama hesabına çoğaltılan veriler gönderir ve daha yavaş sanal makineden önbellek depolama hesabı için verileri karşıya yükleme sorunu meydana gelebilir 3 saniye, 4 MB. Herhangi bir sorun olup olmadığını denetlemek için gecikme kullanımıyla ilgili [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) verileri sanal makineden önbellek depolama hesabına yüklemek için.<br>
-Gecikme süresi yüksek ise vm'lerden giden ağ trafiğinizi denetlemek için bir ağ sanal Gereçleri kullandığınızı kontrol edin. Tüm çoğaltma trafiğinin NVA üzerinden geçerse gereç kısıtlanan. Çoğaltma trafiği için NVA geçmez, bir ağ hizmet uç noktaları sanal ağınızda bulunan "Depolama için" oluşturmanızı öneririz. Başvuru [ağ sanal Gereci yapılandırması](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
+Gecikme süresi yüksek ise vm'lerden giden ağ trafiğinizi denetlemek için bir ağ sanal Gereçleri kullandığınızı kontrol edin. Tüm çoğaltma trafiğinin NVA üzerinden geçerse gereç kısıtlanan. Çoğaltma trafiği için NVA geçmez, bir ağ hizmet uç noktaları sanal ağınızda bulunan "Depolama için" oluşturmanızı öneririz. Başvuru [ağ sanal Gereci yapılandırması](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
 
 #### <a name="network-connectivity"></a>Ağ bağlantısı
 Site Recovery çoğaltması için iş, giden bağlantı için özel URL veya IP aralıkları VM'den gerekli. Sanal makinenize bir güvenlik duvarının arkasındaysa ya da giden bağlantıyı denetlemek için ağ güvenlik grubu (NSG) kuralları kullanıyorsa bu sorunlardan biri karşılaşıyor.</br>
-Başvurmak [Site kurtarma URL'ler için giden bağlantı](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) tüm URL'leri bağlandığınızdan emin olmak için 
+Başvurmak [Site kurtarma URL'ler için giden bağlantı](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) tüm URL'leri bağlandığınızdan emin olmak için 

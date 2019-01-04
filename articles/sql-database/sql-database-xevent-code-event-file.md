@@ -9,15 +9,15 @@ ms.devlang: PowerShell
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 33bd4e39018f9789464d213ccf7921993e2da142
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fdf426d9f4c8744570d0b9c6cc30bea63b06dd6c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864734"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600701"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL veritabanı'nda genişletilmiş olaylar için olay dosyası hedef kodu
 
@@ -50,7 +50,7 @@ Bu konuda, bir iki aşamalı bir kod örneği sunar:
   
   * Modüller komutları gibi - sağlayan **New-AzureStorageAccount**.
 
-## <a name="phase-1-powershell-code-for-azure-storage-container"></a>1. Aşama: Azure depolama kapsayıcısı PowerShell kodu
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>1. Aşama: Azure depolama kapsayıcısı için PowerShell kodu
 
 1. Aşama iki aşamalı kod örneğinin powershell'dir.
 
@@ -230,7 +230,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 
 PowerShell betiğini sona erdiğinde yazdıran birkaç adlandırılmış değerleri not alın. Bu değerler, Aşama 2 aşağıdaki Transact-SQL komut dosyası içine düzenlemeniz gerekir.
 
-## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>2. Aşama: kullanan Azure depolama kapsayıcısı Transact-SQL kodu
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>2. Aşama: Azure depolama kapsayıcısı kullanan transact-SQL kodu
 
 * Bu kod örneği, 1 aşamasında, bir Azure depolama kapsayıcısı oluşturmak için bir PowerShell Betiği çalıştırdınız.
 * Sonraki aşama 2'de, aşağıdaki Transact-SQL betiğini kapsayıcı kullanmanız gerekir.
@@ -530,8 +530,8 @@ Hesapları ve Azure depolama hizmetinde kapsayıcıları hakkında daha fazla bi
 * [Net'ten BLOB storage kullanma](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [Kapsayıcıları, Blobları ve Meta Verileri Adlandırma ve Bunlara Başvurma](https://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [Kök kapsayıcı ile çalışma](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [Ders 1: bir Azure kapsayıcısı üzerinde depolanmış erişim ilkesini ve bir paylaşılan erişim imzası oluşturma](https://msdn.microsoft.com/library/dn466430.aspx)
-  * [2. Ders: paylaşılan erişim imzası kullanarak bir SQL Server kimlik bilgisi oluşturma](https://msdn.microsoft.com/library/dn466435.aspx)
+* [1. Ders: Bir Azure kapsayıcısı üzerinde depolanmış erişim ilkesini ve bir paylaşılan erişim imzası oluşturma](https://msdn.microsoft.com/library/dn466430.aspx)
+  * [2. Ders: Paylaşılan erişim imzası kullanarak bir SQL Server kimlik bilgileri oluşturma](https://msdn.microsoft.com/library/dn466435.aspx)
 * [Microsoft SQL Server için genişletilmiş olaylar](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!--

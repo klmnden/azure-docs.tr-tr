@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3500a29c1cdd8b1997f67a3cf1918090dc4ca812
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e52a7cbb5c81f779ac4d12d2f3e5fd1e4ae62852
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383604"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714024"
 ---
 # <a name="install-and-use-apache-solr-on-hdinsight-hadoop-clusters"></a>Yükleme ve HDInsight Hadoop kümeleri üzerinde Apache Solr kullanma
 
@@ -28,12 +28,12 @@ Betik eylemi kullanarak Azure HDInsight üzerinde Apache Solr yüklemeyi öğren
 
 ## <a name="whatis"></a>Solr nedir
 
-[Apache Solr](http://lucene.apache.org/solr/features.html) veriler üzerinde güçlü tam metin araması sağlayan bir kurumsal arama platformudur. Hadoop depolamak ve yönetmek çok büyük miktarda veri etkinleştirse bile, Apache Solr hızlıca veri almak için arama özellikleri sağlar.
+[Apache Solr](https://lucene.apache.org/solr/features.html) veriler üzerinde güçlü tam metin araması sağlayan bir kurumsal arama platformudur. Hadoop depolamak ve yönetmek çok büyük miktarda veri etkinleştirse bile, Apache Solr hızlıca veri almak için arama özellikleri sağlar.
 
 > [!WARNING]   
 > HDInsight kümesi ile sağlanan bileşenler tamamen Microsoft tarafından desteklenir.
 >
-> Özel bileşenler, Solr gibi daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Microsoft Destek, özel bileşenlerle sorunlarını çözmek mümkün olmayabilir. Yardım almak için açık kaynak topluluklar ilgisini gerekebilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
+> Özel bileşenler, Solr gibi daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Microsoft Destek, özel bileşenlerle sorunlarını çözmek mümkün olmayabilir. Yardım almak için açık kaynak topluluklar ilgisini gerekebilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Apache projeleri proje siteleri de [ https://apache.org ](https://apache.org), örneğin: [Hadoop](https://hadoop.apache.org/).
 
 ## <a name="what-the-script-does"></a>Betik yapar
 
@@ -68,7 +68,7 @@ Solr yüklü olan bir küme oluşturmak için adımları kullanın. [oluşturma 
 ## <a name="usesolr"></a>HDInsight Solr nasıl kullanabilirim
 
 > [!IMPORTANT]  
-> Bu bölümdeki adımları temel Solr işlevlerini göstermektedir. Solr kullanma hakkında daha fazla bilgi için bkz. [Apache Solr site](http://lucene.apache.org/solr/).
+> Bu bölümdeki adımları temel Solr işlevlerini göstermektedir. Solr kullanma hakkında daha fazla bilgi için bkz. [Apache Solr site](https://lucene.apache.org/solr/).
 
 ### <a name="index-data"></a>Verilerin dizinini oluşturma
 

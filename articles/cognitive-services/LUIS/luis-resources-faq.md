@@ -11,14 +11,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 9e5b132a7946bdc648e051c9f7327cc7159f291e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 9a8bfa2e89e6bc0cbbd5af2efdff60aa406b3f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163642"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714211"
 ---
-# <a name="language-understanding-faq"></a>Language Understanding hakkında SSS
+# <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding'i sık sorulan sorular (SSS)
 
 Bu makale, Language Understanding (LUIS) hakkında sık sorulan soruların yanıtlarını içerir.
 
@@ -212,7 +212,7 @@ Aşağıdaki özellikler Build 2018 konferansında yayımlanan:
 |Tümleştirmeler|[Metin analizi](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) tümleştirilmesi [yaklaşım analizi](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Konuşma](https://docs.microsoft.com/azure/cognitive-services/speech) konuşma Hazırlama işlemi ile birlikte tümleştirilmesi [Speech SDK'sı](https://aka.ms/SpeechSDK)|
 |Dağıtım Aracı|Parçası [Botbuilder'da Araçları](https://github.com/Microsoft/botbuilder-tools), gönderme komut satırı [aracı](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) tek LUIS uygulamasına bir Bot daha iyi amaç tanıma için birden çok LUIS ve soru-cevap Oluşturucu uygulamaları birleştirmek için
 
-Ek yazma [API yolları](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) dahil edildi.
+Ek yazma [API yolları](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) dahil edildi.
 
 Videolar:
 * [Azure Friday Build 2018'e en: Bilişsel hizmetler - dil (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)

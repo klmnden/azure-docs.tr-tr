@@ -1,20 +1,17 @@
 ---
 title: MySQL için Azure veritabanı'nda bir sunucuya geri yükleme
 description: Bu makalede Azure portalını kullanarak MySQL için Azure veritabanı'nda bir sunucuya geri yükleme.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 7f75950a0f61c646d6cf36ea0903ebdefbd336ee
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: e1545e830ac04000920c3881486b2add79744201
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138488"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548876"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Nasıl yedeklenir ve Azure portalını kullanarak MySQL için Azure veritabanı'nda bir sunucuya geri yükleme
 
@@ -65,10 +62,10 @@ Aşağıdaki adımlar bir-belirli bir noktaya için örnek sunucuyu geri yükle:
 3. Geri yükleme formunu gerekli bilgiler ile doldurun:
 
    ![MySQL - geri yükleme bilgileri için Azure veritabanı ](./media/howto-restore-server-portal/3-restore.png)
-   - **Geri yükleme noktası**:-geri yüklemek istediğiniz belirli bir noktaya seçin.
-   - **Hedef sunucu**: yeni sunucu için bir ad belirtin.
-   - **Konum**: bölgeyi seçemezsiniz. Varsayılan olarak, kaynak sunucuyla aynıdır.
-   - **Fiyatlandırma katmanı**:-belirli bir noktaya geri yükleme yaparken bu parametrelerin değiştiremezsiniz. Kaynak sunucuyla aynıdır. 
+   - **Geri yükleme noktası**: -Geri yüklemek istediğiniz belirli bir noktaya seçin.
+   - **Hedef sunucu**: Yeni sunucu için bir ad sağlayın.
+   - **Konum**: Bölgeyi seçemezsiniz. Varsayılan olarak, kaynak sunucuyla aynıdır.
+   - **Fiyatlandırma katmanı**: Belirli bir noktaya geri yükleme yaparken bu parametrelerin değiştiremezsiniz. Kaynak sunucuyla aynıdır. 
 
 4. Tıklayın **Tamam** bir-belirli bir noktaya için geri yüklemek için sunucuyu geri yükleyin. 
 
@@ -85,7 +82,7 @@ Coğrafi olarak yedekli yedekleme için sunucunuzu yapılandırdıysanız, bu va
    !["MySQL için Azure veritabanı" seçeneği](./media/howto-restore-server-portal/2_navigate-to-mysql.png)
 
 2. Formun **Kaynağı Seç** açılır listesinde, seçin **yedekleme**. Bu eylem, etkin coğrafi olarak yedekli yedeklemelere sahip sunucularının bir listesini yükler. Yeni sunucunuzun bir kaynak olarak bu yedeklemeler birini seçin.
-   ![Kaynak Seç: Yedekleme ve coğrafi olarak yedekli yedeklemeleri listesi](./media/howto-restore-server-portal/2-georestore.png)
+   ![Kaynağı seçin: Yedekleme ve coğrafi olarak yedekli yedeklemeleri listesi](./media/howto-restore-server-portal/2-georestore.png)
 
    > [!NOTE]
    > Bir sunucu ilk oluşturulduğunda coğrafi geri yükleme için hemen kullanılabilir olmayabilir. Bu doldurulması gerekli meta veriler için birkaç saat sürebilir.

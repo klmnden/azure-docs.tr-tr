@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.component: common
-ms.openlocfilehash: 4ec0d4058c512ce420cd6e1bdc393b8043dbf1b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c9e9dd0eab127fcb0deb3085915bd51eeb309089
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232571"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632849"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>(Yönetilmeyen diskler) Azure Premium depolamaya geçiş
 
@@ -81,13 +81,13 @@ Azure Premium depolama kullanılabilir olduğu bir konum seçin. Bkz: [bölgeye 
 Bir Azure VM oluştururken, bazı VM ayarlarını yapılandırmak için istenecektir. Unutmayın, değiştirebilir veya başkalarının daha sonra ekleme sırasında birkaç ayarlar VM'nin ömrü boyunca sabittir. Bu Azure VM yapılandırma ayarlarını gözden geçirin ve bunları uygun şekilde, iş yükü gereksinimlerinize uyacak şekilde yapılandırıldığından emin olun.
 
 ### <a name="optimization"></a>İyileştirme
-[Azure Premium Depolama: Tasarım için yüksek performanslı](../../virtual-machines/windows/premium-storage-performance.md) Azure Premium depolama kullanan yüksek performanslı uygulamalar oluşturmak için yönergeler sağlar. Performansı en iyi uygulamaları, uygulamanız tarafından kullanılan teknolojiler için geçerli bir araya geldiğinde yönergeleri izleyebilirsiniz.
+[Azure Premium Depolama: Yüksek performans tasarımı](../../virtual-machines/windows/premium-storage-performance.md) Azure Premium depolama kullanan yüksek performanslı uygulamalar oluşturmak için yönergeler sağlar. Performansı en iyi uygulamaları, uygulamanız tarafından kullanılan teknolojiler için geçerli bir araya geldiğinde yönergeleri izleyebilirsiniz.
 
 ## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>Hazırlama ve sanal sabit diskleri (VHD'ler) Premium depolama alanına kopyalama
 Aşağıdaki bölümde, VM'den VHD hazırlama ve Azure Depolama'ya VHD'lerin kopyalanması için yönergeler sağlar.
 
-* [Senaryo 1: "ı var olan Azure sanal makineleri için Azure Premium depolama geçiriyorum."](#scenario1)
-* [Senaryo 2: "ı Vm'leri diğer platformlardan Azure Premium depolama alanına geçiriyorum."](#scenario2)
+* [Senaryo 1: "I var olan Azure Vm'lerinin Azure Premium Depolama'ya geçiriyorum."](#scenario1)
+* [Senaryo 2: "I Vm'leri diğer platformlardan Azure Premium Depolama'ya geçiriyorum."](#scenario2)
 
 ### <a name="prerequisites"></a>Önkoşullar
 VHD'ler geçişe hazırlamak için gerekir:
@@ -105,7 +105,7 @@ VHD'ler geçişe hazırlamak için gerekir:
 >
 >
 
-### <a name="scenario1"></a>Senaryo 1: "ı var olan Azure sanal makineleri için Azure Premium depolama geçiriyorum."
+### <a name="scenario1"></a>Senaryo 1: "I var olan Azure Vm'lerinin Azure Premium Depolama'ya geçiriyorum."
 Var olan Azure sanal makineleri geçiriyorsanız, sanal Makineyi durdurun, istediğiniz VHD türü başına VHD hazırlama ve ardından VHD'yi AzCopy veya PowerShell ile kopyalayın.
 
 VM, temiz bir duruma geçirmek için tamamen aşağı olması gerekiyor. Geçiş tamamlanana kadar bir süre kapalı olacaktır.
@@ -160,10 +160,10 @@ Veri diskleri için standart depolama hesabı (örneğin, harika bir depolama al
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>3. adım. AzCopy veya PowerShell ile VHD'yi kopyalayın
 Bu iki seçeneği işlemek için kapsayıcı yolu ve depolama hesabı anahtarınızı bulmanız gerekir. Kapsayıcı yolu ve depolama hesabı anahtarını bulunabilir **Azure portalı** > **depolama**. URL gibi olacaktır kapsayıcı "https://myaccount.blob.core.windows.net/mycontainer/".
 
-##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>1. seçenek: VHD ile AzCopy (zaman uyumsuz kopya) kopyalayın.
+##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>1. seçenek: AzCopy (zaman uyumsuz kopya) ile bir VHD'yi kopyalayın
 AzCopy kullanarak, Internet üzerinden VHD kolayca karşıya yükleyebilir. VHD'ler boyutuna bağlı olarak, bu zaman alabilir. Bu seçenek kullanıldığında depolama hesabı giriş/çıkış sınırları iade etmeyi unutmayın. Bkz: [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md) Ayrıntılar için.
 
-1. AzCopy buradan indirip: [en güncel AzCopy sürümünü](https://aka.ms/downloadazcopy)
+1. İndirin ve AzCopy buradan yükleyin: [En güncel AzCopy sürümünü](https://aka.ms/downloadazcopy)
 2. Azure PowerShell'i açın ve AzCopy yüklü olduğu klasöre gidin.
 3. "Hedef" için "Kaynak" VHD dosyasından kopyalamak için aşağıdaki komutu kullanın.
 
@@ -179,25 +179,28 @@ AzCopy kullanarak, Internet üzerinden VHD kolayca karşıya yükleyebilir. VHD'
 
     AzCopy komutta kullanılan parametreler açıklamaları aşağıda verilmiştir:
 
-   * **/ Kaynak:  *&lt;kaynak&gt;:***  VHD içeren bir depolama kapsayıcısı URL'si ve klasör konumu.
-   * **/ SourceKey:  *&lt;kaynağı hesap anahtarı&gt;:***  kaynak depolama hesabının depolama hesabı anahtarı.
-   * **/ Hedef:  *&lt;hedef&gt;:***  VHD'ye kopyalamak için depolama kapsayıcısı URL'si.
-   * **/ DestKey:  *&lt;hedef hesap anahtarı&gt;:***  hedef depolama hesabının depolama hesabı anahtarı.
-   * **/ Desen:  *&lt;dosya adı&gt;:***  kopyalamak için VHD dosya adı belirtin.
+   * **/ Kaynak:  *&lt;kaynak&gt;:*** VHD içeren bir depolama kapsayıcısı URL'si ve klasör konumu.
+   * **/ SourceKey:  *&lt;kaynağı hesap anahtarı&gt;:*** Kaynak depolama hesabının depolama hesabı anahtarı.
+   * **/ Hedef:  *&lt;hedef&gt;:*** Depolama kapsayıcısı URL'si için VHD'yi kopyalayın.
+   * **/ DestKey:  *&lt;hedef hesap anahtarı&gt;:*** Hedef depolama hesabının depolama hesabı anahtarı.
+   * **/ Desen:  *&lt;dosya adı&gt;:*** Kopyalamak için VHD dosya adı belirtin.
 
 Aracı AzCopy kullanma hakkında bilgi için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md).
 
-##### <a name="option-2-copy-a-vhd-with-powershell-synchronized-copy"></a>Seçenek 2: VHD PowerShell (Synchronızed kopya) ile kopyalayın.
-Ayrıca, başlangıç AzureStorageBlobCopy PowerShell cmdlet'ini kullanarak VHD dosyasını kopyalayabilirsiniz. Aşağıdaki komut, VHD kopyalamak için Azure PowerShell kullanın. <> Değerleri, kaynak ve hedef depolama hesabınızdan karşılık gelen değerlerle değiştirin. Bu komutu kullanmak için hedef depolama hesabınız VHD adlı bir kapsayıcı olması gerekir. Komutu çalıştırmadan önce bir kapsayıcı mevcut değilse oluşturun.
+##### <a name="option-2-copy-a-vhd-with-powershell-synchronized-copy"></a>2. seçenek: PowerShell (Synchronızed kopya) ile bir VHD'yi kopyalayın
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Ayrıca, başlangıç AzStorageBlobCopy PowerShell cmdlet'ini kullanarak VHD dosyasını kopyalayabilirsiniz. Aşağıdaki komut, VHD kopyalamak için Azure PowerShell kullanın. <> Değerleri, kaynak ve hedef depolama hesabınızdan karşılık gelen değerlerle değiştirin. Bu komutu kullanmak için hedef depolama hesabınız VHD adlı bir kapsayıcı olması gerekir. Komutu çalıştırmadan önce bir kapsayıcı mevcut değilse oluşturun.
 
 ```powershell
 $sourceBlobUri = <source-vhd-uri>
 
-$sourceContext = New-AzureStorageContext  –StorageAccountName <source-account> -StorageAccountKey <source-account-key>
+$sourceContext = New-AzStorageContext  –StorageAccountName <source-account> -StorageAccountKey <source-account-key>
 
-$destinationContext = New-AzureStorageContext  –StorageAccountName <dest-account> -StorageAccountKey <dest-account-key>
+$destinationContext = New-AzStorageContext  –StorageAccountName <dest-account> -StorageAccountKey <dest-account-key>
 
-Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer <dest-container> -DestBlob <dest-disk-name> -DestContext $destinationContext
+Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer <dest-container> -DestBlob <dest-disk-name> -DestContext $destinationContext
 ```
 
 Örnek:
@@ -205,14 +208,14 @@ Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -De
 ```powershell
 C:\PS> $sourceBlobUri = "https://sourceaccount.blob.core.windows.net/vhds/myvhd.vhd"
 
-C:\PS> $sourceContext = New-AzureStorageContext  –StorageAccountName "sourceaccount" -StorageAccountKey "J4zUI9T5b8gvHohkiRg"
+C:\PS> $sourceContext = New-AzStorageContext  –StorageAccountName "sourceaccount" -StorageAccountKey "J4zUI9T5b8gvHohkiRg"
 
-C:\PS> $destinationContext = New-AzureStorageContext  –StorageAccountName "destaccount" -StorageAccountKey "XZTmqSGKUYFSh7zB5"
+C:\PS> $destinationContext = New-AzStorageContext  –StorageAccountName "destaccount" -StorageAccountKey "XZTmqSGKUYFSh7zB5"
 
-C:\PS> Start-AzureStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer "vhds" -DestBlob "myvhd.vhd" -DestContext $destinationContext
+C:\PS> Start-AzStorageBlobCopy -srcUri $sourceBlobUri -SrcContext $sourceContext -DestContainer "vhds" -DestBlob "myvhd.vhd" -DestContext $destinationContext
 ```
 
-### <a name="scenario2"></a>Senaryo 2: "ı Vm'leri diğer platformlardan Azure Premium depolama alanına geçiriyorum."
+### <a name="scenario2"></a>Senaryo 2: "I Vm'leri diğer platformlardan Azure Premium Depolama'ya geçiriyorum."
 VHD olmayan - Azure bulut depolama alanından Azure'a taşıyorsanız, VHD'yi yerel bir dizine ilk vermeniz gerekir. VHD kullanışlı depolandığı bir yerel dizinin tam kaynak yoluna sahip ve AzCopy kullanarak Azure Depolama'ya yükler.
 
 #### <a name="step-1-export-vhd-to-a-local-directory"></a>1. Adım VHD'yi yerel bir dizine dışarı aktarma
@@ -246,7 +249,7 @@ Premium depolama kullanmak, üretim iş yükü için tüm verileri hareket öner
 #### <a name="step-3-upload-the-vhd-to-azure-storage"></a>3. Adım VHD Azure depolamaya yükleme
 Yerel dizinde VHD'nizi sahip olduğunuza göre Azure Depolama'ya .vhd dosyasını yüklemek için AzCopy veya AzurePowerShell kullanabilirsiniz. Her iki seçenek aşağıda verilmiştir:
 
-##### <a name="option-1-using-azure-powershell-add-azurevhd-to-upload-the-vhd-file"></a>1. seçenek: Azure PowerShell Add-AzureVhd .vhd dosyasını karşıya yüklemek için kullanma.
+##### <a name="option-1-using-azure-powershell-add-azurevhd-to-upload-the-vhd-file"></a>1. seçenek: .Vhd dosyasını karşıya yüklemek için Azure PowerShell Add-AzureVhd'ı kullanma
 
 ```powershell
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
@@ -254,10 +257,10 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 
 Bir örnek <Uri> olabilir ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Bir örnek <FileInfo> olabilir ***"C:\path\to\upload.vhd"***.
 
-##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>2. seçenek: .vhd dosyasını karşıya yüklemek için AzCopy kullanarak.
+##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>2. seçenek: .Vhd dosyasını karşıya yüklemek için AzCopy kullanarak
 AzCopy kullanarak, Internet üzerinden VHD kolayca karşıya yükleyebilir. VHD'ler boyutuna bağlı olarak, bu zaman alabilir. Bu seçenek kullanıldığında depolama hesabı giriş/çıkış sınırları iade etmeyi unutmayın. Bkz: [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md) Ayrıntılar için.
 
-1. AzCopy buradan indirip: [en güncel AzCopy sürümünü](https://aka.ms/downloadazcopy)
+1. İndirin ve AzCopy buradan yükleyin: [En güncel AzCopy sürümünü](https://aka.ms/downloadazcopy)
 2. Azure PowerShell'i açın ve AzCopy yüklü olduğu klasöre gidin.
 3. "Hedef" için "Kaynak" VHD dosyasından kopyalamak için aşağıdaki komutu kullanın.
 
@@ -273,12 +276,12 @@ AzCopy kullanarak, Internet üzerinden VHD kolayca karşıya yükleyebilir. VHD'
 
     AzCopy komutta kullanılan parametreler açıklamaları aşağıda verilmiştir:
 
-   * **/ Kaynak:  *&lt;kaynak&gt;:***  VHD içeren bir depolama kapsayıcısı URL'si ve klasör konumu.
-   * **/ SourceKey:  *&lt;kaynağı hesap anahtarı&gt;:***  kaynak depolama hesabının depolama hesabı anahtarı.
-   * **/ Hedef:  *&lt;hedef&gt;:***  VHD'ye kopyalamak için depolama kapsayıcısı URL'si.
-   * **/ DestKey:  *&lt;hedef hesap anahtarı&gt;:***  hedef depolama hesabının depolama hesabı anahtarı.
-   * **/ BlobType: sayfa:** hedef bir sayfa blobu olduğunu belirtir.
-   * **/ Desen:  *&lt;dosya adı&gt;:***  kopyalamak için VHD dosya adı belirtin.
+   * **/ Kaynak:  *&lt;kaynak&gt;:*** VHD içeren bir depolama kapsayıcısı URL'si ve klasör konumu.
+   * **/ SourceKey:  *&lt;kaynağı hesap anahtarı&gt;:*** Kaynak depolama hesabının depolama hesabı anahtarı.
+   * **/ Hedef:  *&lt;hedef&gt;:*** Depolama kapsayıcısı URL'si için VHD'yi kopyalayın.
+   * **/ DestKey:  *&lt;hedef hesap anahtarı&gt;:*** Hedef depolama hesabının depolama hesabı anahtarı.
+   * **/ BlobType: sayfa:** Hedef sayfa blobu olduğunu belirtir.
+   * **/ Desen:  *&lt;dosya adı&gt;:*** Kopyalamak için VHD dosya adı belirtin.
 
 Aracı AzCopy kullanma hakkında bilgi için bkz: [AzCopy komut satırı yardımcı programı ile veri aktarma](storage-use-azcopy.md).
 
@@ -430,7 +433,7 @@ Geçiş için birden fazla VM varsa, PowerShell betikleri aracılığıyla Otoma
 Varsayımların şunlardır:
 
 * Klasik Azure Vm'leri oluşturuyorsunuz.
-* Kaynak işletim sistemi diskleri ve kaynak veri diskleri aynı depolama hesabı ve aynı kapsayıcı içinde olan. İşletim sistemi diskleri ve veri diskleri aynı yerde emin değilseniz, depolama hesapları ve kapsayıcılar üzerinden VHD'ler kopyalamak için AzCopy ya da Azure PowerShell kullanabilirsiniz. Önceki adıma bakın: [kopyalama VHD AzCopy veya PowerShell ile](#copy-vhd-with-azcopy-or-powershell). Senaryonuz karşılamak için bu betiği düzenleme başka bir seçenektir, ancak daha kolay ve hızlı olduğundan AzCopy veya PowerShell kullanmanızı öneririz.
+* Kaynak işletim sistemi diskleri ve kaynak veri diskleri aynı depolama hesabı ve aynı kapsayıcı içinde olan. İşletim sistemi diskleri ve veri diskleri aynı yerde emin değilseniz, depolama hesapları ve kapsayıcılar üzerinden VHD'ler kopyalamak için AzCopy ya da Azure PowerShell kullanabilirsiniz. Önceki adıma bakın: [AzCopy veya PowerShell ile VHD'yi kopyalayın](#copy-vhd-with-azcopy-or-powershell). Senaryonuz karşılamak için bu betiği düzenleme başka bir seçenektir, ancak daha kolay ve hızlı olduğundan AzCopy veya PowerShell kullanmanızı öneririz.
 
 Otomasyon betiği aşağıda verilmiştir. Metin kendi bilgilerinizle değiştirin ve betik kendi senaryonuza ile eşleşecek şekilde güncelleştirin.
 
@@ -610,18 +613,18 @@ Otomasyon betiği aşağıda verilmiştir. Metin kendi bilgilerinizle değiştir
 
     # Get source storage account information, not considering the data disks and os disks are in different accounts
     $sourceStorageAccountName = $sourceOSDisk.MediaLink.Host -split "\." | select -First 1
-    $sourceStorageKey = (Get-AzureStorageKey -StorageAccountName $sourceStorageAccountName).Primary
-    $sourceContext = New-AzureStorageContext –StorageAccountName $sourceStorageAccountName -StorageAccountKey $sourceStorageKey
+    $sourceStorageKey = (Get-AzStorageKey -StorageAccountName $sourceStorageAccountName).Primary
+    $sourceContext = New-AzStorageContext –StorageAccountName $sourceStorageAccountName -StorageAccountKey $sourceStorageKey
 
     # Create destination context
-    $destStorageKey = (Get-AzureStorageKey -StorageAccountName $DestStorageAccount).Primary
-    $destContext = New-AzureStorageContext –StorageAccountName $DestStorageAccount -StorageAccountKey $destStorageKey
+    $destStorageKey = (Get-AzStorageKey -StorageAccountName $DestStorageAccount).Primary
+    $destContext = New-AzStorageContext –StorageAccountName $DestStorageAccount -StorageAccountKey $destStorageKey
 
     # Create a container of vhds if it doesn't exist
-    if ((Get-AzureStorageContainer -Context $destContext -Name vhds -ErrorAction SilentlyContinue) -eq $null)
+    if ((Get-AzStorageContainer -Context $destContext -Name vhds -ErrorAction SilentlyContinue) -eq $null)
     {
         Write-Host "`n[WORKITEM] - Creating a container vhds in the destination storage account." -ForegroundColor Yellow
-        New-AzureStorageContainer -Context $destContext -Name vhds
+        New-AzStorageContainer -Context $destContext -Name vhds
     }
 
 
@@ -634,7 +637,7 @@ Otomasyon betiği aşağıda verilmiştir. Metin kendi bilgilerinizle değiştir
         # from the same vhd blob.
         $ContinueAnswer = Read-Host "`n`t[Warning] You chose to copy data disks only. Moving VM requires removing the original VM (the disks and backing vhd files will NOT be deleted) so that the new VM can boot from the same vhd. This is an irreversible action. Do you wish to proceed right now? (Y/N)"
         If ($ContinueAnswer -ne "Y") { Write-Host "`n Exiting." -ForegroundColor Red;Exit }
-        $destOSVHD = Get-AzureStorageBlob -Blob $sourceOSVHD -Container vhds -Context $sourceContext
+        $destOSVHD = Get-AzStorageBlob -Blob $sourceOSVHD -Container vhds -Context $sourceContext
         Write-Host "`n[WORKITEM] - Removing the original VM (the vhd files are NOT deleted)." -ForegroundColor Yellow
         Remove-AzureVM -Name $SourceVMName -ServiceName $SourceServiceName
 
@@ -652,7 +655,7 @@ Otomasyon betiği aşağıda verilmiştir. Metin kendi bilgilerinizle değiştir
         # copy the os disk vhd
         Write-Host "`n[WORKITEM] - Starting copying os disk $($disk.DiskName) at $(get-date)." -ForegroundColor Yellow
         $allDisksToCopy += @($sourceOSDisk)
-        $targetBlob = Start-AzureStorageBlobCopy -SrcContainer vhds -SrcBlob $sourceOSVHD -DestContainer vhds -DestBlob $sourceOSVHD -Context $sourceContext -DestContext $destContext -Force
+        $targetBlob = Start-AzStorageBlobCopy -SrcContainer vhds -SrcBlob $sourceOSVHD -DestContainer vhds -DestBlob $sourceOSVHD -Context $sourceContext -DestContext $destContext -Force
         $destOSVHD = $targetBlob
     }
 
@@ -664,7 +667,7 @@ Otomasyon betiği aşağıda verilmiştir. Metin kendi bilgilerinizle değiştir
         $blobName = $disk.MediaLink.Segments[2]
         # copy all data disks
         Write-Host "`n[WORKITEM] - Starting copying data disk $($disk.DiskName) at $(get-date)." -ForegroundColor Yellow
-        $targetBlob = Start-AzureStorageBlobCopy -SrcContainer vhds -SrcBlob $blobName -DestContainer vhds -DestBlob $blobName -Context $sourceContext -DestContext $destContext -Force
+        $targetBlob = Start-AzStorageBlobCopy -SrcContainer vhds -SrcBlob $blobName -DestContainer vhds -DestBlob $blobName -Context $sourceContext -DestContext $destContext -Force
         # update the media link to point to the target blob link
         $disk.MediaLink = $targetBlob.ICloudBlob.Uri.AbsoluteUri
     }
@@ -683,7 +686,7 @@ Otomasyon betiği aşağıda verilmiştir. Metin kendi bilgilerinizle değiştir
                 Continue
             }
             $blobName = $disk.MediaLink.Segments[2]
-            $copyState = Get-AzureStorageBlobCopyState -Blob $blobName -Container vhds -Context $destContext
+            $copyState = Get-AzStorageBlobCopyState -Blob $blobName -Container vhds -Context $destContext
             if ($copyState.Status -eq "Success")
             {
                 Write-Host "`n[Status] - Success for disk copy $($disk.DiskName) at $($copyState.CompletionTime)" -ForegroundColor Green
@@ -762,7 +765,7 @@ Ayrıca, Azure depolama ve Azure sanal makineler hakkında daha fazla bilgi içi
 
 * [Azure Depolama](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Sanal Makineler](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Depolama: Azure Sanal Makine İş Yükleri için Yüksek Performanslı Depolama](../../virtual-machines/windows/premium-storage.md)
+* [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../../virtual-machines/windows/premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

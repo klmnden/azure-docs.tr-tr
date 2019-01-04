@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: a0071d651f322da7bbdeb914393ef3d3be650b36
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: ed0dd7e4d86d74d9c8670352fcb249b19cc114f4
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715503"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972865"
 ---
 # <a name="what-is-application-insights"></a>Application Insights nedir?
 Application Insights, farklı platformlardaki web geliştiricilerine yönelik kapsamlı bir Uygulama Performans Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini otomatik olarak algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir.  Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır. .NET, Node.js ve J2EE gibi çok çeşitli platformlarda, şirket içi veya bulutta barındırılan uygulamalar için yararlıdır. DevOps işleminizle tümleştirilir ve çeşitli geliştirme araçlarıyla bağlantı noktaları vardır. Visual Studio App Center ile tümleştirerek mobil uygulamalardan telemetriyi izleyebilir ve çözümleyebilir.
@@ -65,7 +65,7 @@ Verilerinizi keşfetmenin birçok yolu vardır. Aşağıdaki makaleleri inceleyi
 | [**Uygulama eşlemesi**](../azure-monitor/app/app-map.md)<br/>Uygulamanızın bileşenlerinin yanı sıra önemli ölçüm ve uyarılar. |![Uygulama eşlemesi](./media/app-insights-overview/appmap-tn.png)  |
 | [**Profil Oluşturucu**](app-insights-profiler.md)<br/>Örnek isteklerinin yürütme profillerini inceleyin. |![Profil Oluşturucu](./media/app-insights-overview/profiler.png) |
 | [**Kullanım analizi**](app-insights-usage-overview.md)<br/>Kullanıcıların segmentlere nasıl ayrıldığını ve nasıl elde tutulduğunu çözümleyin.|![Elde tutma aracı](./media/app-insights-overview/retention.png) |
-| [**Örnek verileri için tanılama arama**](app-insights-diagnostic-search.md)<br/>İstekler, özel durumlar, bağımlılık çağrıları, günlük izlemeleri ve sayfa görüntülemeleri gibi olaylarda arama yapın ve bunları filtreleyin.  |![Telemetri arama](./media/app-insights-overview/search-tn.png) |
+| [**Örnek verileri için tanılama arama**](../azure-monitor/app/diagnostic-search.md)<br/>İstekler, özel durumlar, bağımlılık çağrıları, günlük izlemeleri ve sayfa görüntülemeleri gibi olaylarda arama yapın ve bunları filtreleyin.  |![Telemetri arama](./media/app-insights-overview/search-tn.png) |
 | [**Toplu veriler için Ölçüm Gezgini**](app-insights-metrics-explorer.md)<br/>İstek, hata ve özel durum oranları; yanıt süreleri, sayfa yükleme süreleri gibi toplu verileri keşfedin, filtreleyin ve bölümlere ayırın. |![Ölçümler](./media/app-insights-overview/metrics-tn.png) |
 | [**Panolar**](../azure-monitor/app/app-insights-dashboards.md#dashboards)<br/>Birden çok kaynaktan toplanan verileri birleştirin ve başkalarıyla paylaşın. Çok bileşenli uygulamalar ve takım odasında sürekli görüntüleme için idealdir. |![Pano örneği](./media/app-insights-overview/dashboard-tn.png) |
 | [**Canlı Ölçüm Akışı**](app-insights-live-stream.md)<br/>Yeni bir derleme dağıttığınızda, her şeyin beklendiği gibi çalıştığından emin olmak için bu neredeyse gerçek zamanlı performans göstergelerini izleyin. |![Canlı ölçüm örneği](./media/app-insights-overview/live-metrics-tn.png) |
@@ -74,12 +74,12 @@ Verilerinizi keşfetmenin birçok yolu vardır. Aşağıdaki makaleleri inceleyi
 | [**Anlık görüntü hata ayıklayıcısı**](app-insights-snapshot-debugger.md)<br/>Dinamik işlemlerden örneklenen anlık görüntülerdeki hataları parametre değerleriyle ayıklayın.|![Visual studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](app-insights-export-power-bi.md)<br/>Kullanım ölçümlerini diğer iş zekası verileriyle tümleştirin.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>Ölçümleriniz ve ham verileriniz üzerinde sorgu çalıştırmak için kod yazın.| ![REST API](./media/app-insights-overview/rest-tn.png) |
-| [**Sürekli dışarı aktarma**](app-insights-export-telemetry.md)<br/>Ham verilerin ulaşır ulaşmaz toplu olarak depolamaya aktarılması. |![Dışarı Aktarma](./media/app-insights-overview/export-tn.png) |
+| [**Sürekli dışarı aktarma**](../azure-monitor/app/export-telemetry.md)<br/>Ham verilerin ulaşır ulaşmaz toplu olarak depolamaya aktarılması. |![Dışarı Aktarma](./media/app-insights-overview/export-tn.png) |
 
 ## <a name="how-do-i-use-application-insights"></a>Application Insights’ı nasıl kullanabilirim?
 
 ### <a name="monitor"></a>İzleme
-Application Insights’ı uygulamanıza yükleyin, [kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md) ayarlayın ve:
+Application Insights’ı uygulamanıza yükleyin, [kullanılabilirlik web testleri](../azure-monitor/app/monitor-web-app-availability.md) ayarlayın ve:
 
 * Yük ve yanıt verme hızının yanı sıra bağımlılıklarınızın, sayfa yüklemelerinizin ve AJAX çağrılarınızın performansını izlemek amacıyla takım odanız için bir [pano](../azure-monitor/app/app-insights-dashboards.md) ayarlayın.
 * En yavaş ve en çok başarısız olan isteklerin hangileri olduğunu keşfedin.
@@ -105,29 +105,29 @@ Application Insights, Microsoft Azure’da barındırılan birçok hizmetten bir
 Hizmeti kullanmaya başlamanın birkaç yolu vardır. Sizin için en uygun yöntemi kullanarak başlayın. Diğerlerini daha sonra ekleyebilirsiniz.
 
 * **Çalışma zamanında: Sunucuda web uygulamanızı izleyin.** Kodda herhangi bir güncelleştirme yapmaktan kaçınır. Sunucunuza yönetici erişiminizin olması gerekir.
-  * [**Şirket içinde veya bir VM’de IIS**](app-insights-monitor-performance-live-website-now.md)
-  * [**Azure web uygulaması veya VM**](app-insights-monitor-performance-live-website-now.md)
-  * [**J2EE**](app-insights-java-live.md)
+  * [**Şirket içinde veya bir VM’de IIS**](../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**Azure web uygulaması veya VM**](../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**J2EE**](../azure-monitor/app/java-live.md)
 * **Geliştirme zamanında: Application Insights’ı kodunuza ekleyin.** Özel telemetri yazmanızın yanı sıra arka uç ve masaüstü uygulamalarını izlemenize imkan tanır.
-  * [Visual Studio](app-insights-asp-net.md) 2013 güncelleştirme 2 veya sonraki bir sürüm.
-  * [Java](app-insights-java-get-started.md)
+  * [Visual Studio](../azure-monitor/app/asp-net.md) 2013 güncelleştirme 2 veya sonraki bir sürüm.
+  * [Java](../azure-monitor/app/java-get-started.md)
   * [Node.js](app-insights-nodejs.md)
   * [Diğer platformlar](app-insights-platforms.md)
-* Sayfa görütüleme, AJAX ve diğer istemci tarafı telemetri verileri bakımından **[web sayfalarınızı izleyin](app-insights-javascript.md)**.
+* Sayfa görütüleme, AJAX ve diğer istemci tarafı telemetri verileri bakımından **[web sayfalarınızı izleyin](../azure-monitor/app/javascript.md)**.
 * Visual Studio App Center ile tümleştirerek **[mobil uygulama kullanımını çözümleyin](app-insights-mobile-center-quickstart.md)**.
-* **[Kullanılabilirlik testleri](app-insights-monitor-web-app-availability.md)**: Sunucularımızdan web sitenize düzenli aralıklarla ping gönderin.
+* **[Kullanılabilirlik testleri](../azure-monitor/app/monitor-web-app-availability.md)**: Sunucularımızdan web sitenize düzenli aralıklarla ping gönderin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Çalışma zamanında şunlarla kullanmaya başlayın:
 
-* [IIS sunucusu](app-insights-monitor-performance-live-website-now.md)
-* [J2EE sunucusu](app-insights-java-live.md)
+* [IIS sunucusu](../azure-monitor/app/monitor-performance-live-website-now.md)
+* [J2EE sunucusu](../azure-monitor/app/java-live.md)
 
 Geliştirme zamanında şunlarla kullanmaya başlayın:
 
-* [ASP.NET](app-insights-asp-net.md)
-* [Java](app-insights-java-get-started.md)
+* [ASP.NET](../azure-monitor/app/asp-net.md)
+* [Java](../azure-monitor/app/java-get-started.md)
 * [Node.js](app-insights-nodejs.md)
 
 ## <a name="support-and-feedback"></a>Destek ve geri bildirim
@@ -150,14 +150,14 @@ Geliştirme zamanında şunlarla kullanmaya başlayın:
 
 [android]: app-insights-mobile-center-quickstart.md
 [azure]: ../insights-perf-analytics.md
-[client]: app-insights-javascript.md
+[client]: ../azure-monitor/app/javascript.md
 [desktop]: app-insights-windows-desktop.md
-[detect]: app-insights-detect-triage-diagnose.md
-[greenbrown]: app-insights-asp-net.md
+[detect]: ../azure-monitor/app/detect-triage-diagnose.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [ios]: app-insights-mobile-center-quickstart.md
-[java]: app-insights-java-get-started.md
+[java]: ../azure-monitor/app/java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: app-insights-platforms.md
 [portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
+[redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md

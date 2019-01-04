@@ -1,7 +1,7 @@
 ---
 title: Yüzleri - görüntü işleme algılama
 titleSuffix: Azure Cognitive Services
-description: Görüntü işleme API'sini kullanarak yüzler algılama için ilgili kavramları.
+description: Görüntü işleme API'si, yüz algılama özelliğiyle ilgili kavramları.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: bf358d1e8f60f989ced8db966bbf0a5179fab25b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 0c6485bff4ad11aab37139cd2aa2d3660bddac0e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342322"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580548"
 ---
-# <a name="detecting-faces"></a>Yüz algılama
+# <a name="face-detection-with-computer-vision"></a>Yüz algılama ile görüntü işleme
 
 Görüntü işleme, bir resimdeki İnsan yüzlerini algılar ve yaş, cinsiyet ve algılanan her yüz için dikdörtgen oluşturur. Görüntü İşleme, [Yüz Tanıma](/azure/cognitive-services/face/)'da bulunan işlevlerin bir alt kümesini sunar ve Yüz tanımanın yanı sıra poz algılama gibi daha ayrıntılı analiz işlemleri için Yüz Tanıma hizmetini kullanabilirsiniz.  
 
@@ -25,7 +26,7 @@ Görüntü işleme, bir resimdeki İnsan yüzlerini algılar ve yaş, cinsiyet v
 
 İlk örnek, tek bir insan yüz içeren bir görüntü için görüntü işleme tarafından döndürülen JSON yanıtı gösterir.
 
-![İşleme kadın tavan yüz analiz edin](./Images/woman_roof_face.png)
+![Görüntü Analizi Damdaki Kadının Yüzü](./Images/woman_roof_face.png)
 
 ```json
 {

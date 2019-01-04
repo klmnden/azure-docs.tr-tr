@@ -12,18 +12,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: 0bbe2ee7436cc03a3780da096a498769d66eb505
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 1865b4fa03f774fb4cbe69a5c8b17b096981ebc8
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277945"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632798"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack hizmet İlkesi
+
 Bu makalede, Azure Stack tümleşik sistemleri ve desteklenen bir duruma sisteminizi tutmak için yapmanız gerekenlere hizmet İlkesi açıklanır. 
+
+## <a name="download-update-packages-for-integrated-systems"></a>Tümleşik sistemler için güncelleştirme paketleri indirin
+
+Microsoft, hem tam aylık güncelleştirme paketleri, aynı zamanda Düzeltme Paketleri belirli sorunları gidermek üzere serbest bırakır. 
+
+Aylık güncelleştirme paketleri, bir güvenli Azure uç noktası barındırılır. Bunları kullanarak el ile indirebilirsiniz [Azure Stack güncelleştirmeleri yükleyici aracı](http://aka.ms/azurestackupdatedownload). Ölçek biriminize bağlıysa, güncelleştirmeyi otomatik olarak Yönetici portalı'nda görünür **güncelleştirme kullanılabilir**. Tam, aylık güncelleştirme paketlerini de her sürümde belgelenmiştir. Her sürüm hakkında daha fazla bilgi için herhangi bir yayın tıklayabilirsiniz [güncelleştirme paketi yayın temposudur](#update-package-release-cadence) bu makalenin.
+
+Düzeltme güncelleştirme paketleri, aynı güvenli Azure uç noktası, barındırılır. Ekli bağlantılar her ilgili düzeltme KB makale el ile kullanarak bunları yükleyebilirsiniz; Örneğin, [Azure Stack düzeltme 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Benzer şekilde tam, aylık güncelleştirme paketleri, Azure Stack operatörleri .xml, .bin ve .exe dosyaları indirebilir ve bunları yordamı kullanarak içeri [güncelleştirmelerini Azure Stack'te](azure-stack-apply-updates.md). Azure Stack operatörleri bağlı ölçek birimleri ile otomatik olarak ileti Yönetici portalı'nda görünür düzeltmeleri görürsünüz **güncelleştirme kullanılabilir**.
+
+Ölçek biriminize bağlı değil ve her düzeltme yayın hakkında bildirim almak istiyorsanız, abone [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) veya [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) her sürümde belirtildiği akışı.  
 
 ## <a name="update-package-types"></a>Güncelleştirme paketi türleri
 
@@ -51,7 +62,7 @@ Düzeltmeleri indirilir ve Azure Stack için yalnızca normal tam güncelleştir
 
 
 ## <a name="keep-your-system-under-support"></a>Sisteminizi desteği altında tutun
-Destek almaya devam etmek için geçerli Azure Stack dağıtımınıza tutmalısınız. Güncelleştirmeleri erteleme İlkesi: Azure Stack dağıtımınıza desteği kalmasına en kısa süre önce yayımlanan bir güncelleştirme sürümünü çalıştırana veya olmalıdır iki önceki güncelleştirme sürümleri birini çalıştırın. Düzeltmeleri önemli güncelleştirme sürümleri olarak kabul edilmez. Azure Stack bulutunuza arkasında tarafından ise *ikiden fazla güncelleştirmeleri*, uyumsuz olarak kabul edilir ve en az destek almak için desteklenen en düşük sürüme güncelleştirmeniz gerekir. 
+Destek almaya devam etmek için geçerli Azure Stack dağıtımınıza tutmalısınız. Güncelleştirmeleri erteleme ilkedir: Azure Stack dağıtımınıza desteği kalmasına en kısa süre önce yayımlanan bir güncelleştirme sürümünü çalıştırana veya ya da iki önceki güncelleştirme sürümleri çalıştırması gerekir. Düzeltmeleri önemli güncelleştirme sürümleri olarak kabul edilmez. Azure Stack bulutunuza arkasında tarafından ise *ikiden fazla güncelleştirmeleri*, uyumsuz olarak kabul edilir ve en az destek almak için desteklenen en düşük sürüme güncelleştirmeniz gerekir. 
 
 Örneğin, 1805 en son kullanılabilir güncelleştirme sürümüdür ve iki önceki güncelleştirme paketlerini 1804 ve 1803 sürümleri olan 1803 hem 1804 desteği kalır. Ancak, destek kapsamı dışında 1802 olur. İlke olduğunda yayın ayda bir veya iki için geçerlidir. Örneğin, geçerli sürümde 1805 ve 1804 yayın vardı, 1803 1802 ve iki önceki güncelleştirme paketlerini desteği kalır.
 

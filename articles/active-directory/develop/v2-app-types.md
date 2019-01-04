@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 12/18/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 24a9b014028bf99673881904e17ec0911d0b5063
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 94a072d3c8bde9e4fb16342db1e0705bfc22cf77
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952061"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539594"
 ---
 # <a name="application-types-for-v20"></a>V2.0 için uygulama türleri
 
@@ -121,7 +121,7 @@ Kullanıcı oturum açtığında bu akışta uygulama v2.0 uç noktasından bir 
 
 ## <a name="daemons-and-server-side-apps"></a>Daemon'ları ve sunucu tarafı uygulamalar
 
-Uzun süre çalışan işlemler sahip olan veya bir kullanıcı etkileşimi olmadan çalışan uygulamalar da Web API'leri gibi güvenli kaynaklara erişmek için bir yol gerekir. Bu uygulamalar, kimlik doğrulaması ve uygulamanın kimliğini kullanarak belirteçleri almak yerine bir kullanıcının kimliği OAuth 2.0 istemci kimlik bilgileri akışı ile temsilci.
+Uzun süre çalışan işlemler sahip olan veya bir kullanıcı etkileşimi olmadan çalışan uygulamalar da Web API'leri gibi güvenli kaynaklara erişmek için bir yol gerekir. Bu uygulamalar, kimlik doğrulaması ve uygulamanın kimliğini kullanarak belirteçleri almak yerine bir kullanıcının kimliği OAuth 2.0 istemci kimlik bilgileri akışı ile temsilci. Uygulamanın kimliğini istemci parolası veya sertifika kullanarak kanıtlayabilirsiniz. Daha fazla bilgi için bkz. [sertifikaları ile arka plan programı uygulamalarında Azure AD'ye kimlik doğrulaması](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
 Bu akışta uygulama doğrudan etkileşime `/token` uç noktaları edinmek için uç nokta:
 

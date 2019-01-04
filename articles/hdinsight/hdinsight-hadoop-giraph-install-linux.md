@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6cedc269e279a9154e63bae241f02e766e06ec96
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 027f8ad854cfc4c412a56a293de3b02a425d6858
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383910"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713837"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>HDInsight Hadoop kümeleri üzerinde Apache giraph'ı yükleyin ve büyük ölçekli grafikleri işlemek için Giraph kullanma
 
 Bir HDInsight kümesi üzerinde Apache giraph'ı yüklemeyi öğrenin. HDInsight betik eylemi özelliği, bir bash betiğini çalıştırarak kümeniz özelleştirmenizi sağlar. Betikler, sırasında ve Küme oluşturulduktan sonra kümeleri özelleştirmek için kullanılabilir.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whatis"></a>Giraph nedir
 
-[Apache giraph'ı](http://giraph.apache.org/) grafik Hadoop kullanarak işleme yapmanıza olanak tanır ve Azure HDInsight ile kullanılabilir. Grafik nesneler arasındaki ilişkileri modellemek. Örneğin, büyük bir ağda bulunan yönlendiriciler arasındaki bağlantıları Internet veya sosyal ağlarda kişiler arasındaki ilişkileri gibi. Grafik işleme nedeni hakkında bir grafta nesneleri arasındaki ilişkileri gibi sağlar:
+[Apache giraph'ı](https://giraph.apache.org/) grafik Hadoop kullanarak işleme yapmanıza olanak tanır ve Azure HDInsight ile kullanılabilir. Grafik nesneler arasındaki ilişkileri modellemek. Örneğin, büyük bir ağda bulunan yönlendiriciler arasındaki bağlantıları Internet veya sosyal ağlarda kişiler arasındaki ilişkileri gibi. Grafik işleme nedeni hakkında bir grafta nesneleri arasındaki ilişkileri gibi sağlar:
 
 * Geçerli ilişkilerinizi tabanlı olası arkadaş tanımlayıcı.
 
@@ -36,7 +36,7 @@ Bir HDInsight kümesi üzerinde Apache giraph'ı yüklemeyi öğrenin. HDInsight
 > [!WARNING]  
 > HDInsight kümesi ile sağlanan bileşenler tam olarak desteklenir: Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
 >
-> Giraph gibi özel bileşenler daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Microsoft Support ve sorunu çözmek için mümkün olabilir. Aksi durumda, bu teknoloji için derin bir uzmanlık bulunduğu açık kaynaklı topluluklar başvurmalısınız. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
+> Giraph gibi özel bileşenler daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Microsoft Support ve sorunu çözmek için mümkün olabilir. Aksi durumda, bu teknoloji için derin bir uzmanlık bulunduğu açık kaynaklı topluluklar başvurmalısınız. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Apache projeleri proje siteleri de [ https://apache.org ](https://apache.org), örneğin: [Hadoop](https://hadoop.apache.org/).
 
 
 ## <a name="what-the-script-does"></a>Betik yapar
@@ -55,7 +55,7 @@ Bir HDInsight kümesi üzerinde Giraph'ı yüklemek için örnek betik, aşağı
 
 Bu bölümde, örnek betik Azure portalını kullanarak kümeyi oluştururken kullanmak hakkında yönergeler açıklanmaktadır.
 
-> [!NOTE]
+> [!NOTE]  
 > Betik eylemi, aşağıdaki yöntemlerden birini kullanarak uygulanabilir:
 > * Azure PowerShell
 > * Klasik Azure CLI
@@ -86,7 +86,7 @@ Bu bölümde, örnek betik Azure portalını kullanarak kümeyi oluştururken ku
 
 ## <a name="usegiraph"></a>Giraph HDInsight içinde nasıl kullanabilirim?
 
-Küme oluşturulduktan sonra Giraph dahil SimpleShortestPathsComputation örneği çalıştırmak için aşağıdaki adımları kullanın. Bu örnekte temel [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) grafikteki nesneler arasındaki en kısa yolu bulmak için uygulama.
+Küme oluşturulduktan sonra Giraph dahil SimpleShortestPathsComputation örneği çalıştırmak için aşağıdaki adımları kullanın. Bu örnekte temel [Pregel](https://people.apache.org/~edwardyoon/documents/pregel.pdf) grafikteki nesneler arasındaki en kısa yolu bulmak için uygulama.
 
 1. SSH kullanarak HDInsight kümesine bağlanma:
 
@@ -146,7 +146,7 @@ Küme oluşturulduktan sonra Giraph dahil SimpleShortestPathsComputation örneğ
    | `-op` |Çıkış konumu. |
    | `-w 2` |Kullanmak için çalışan sayısı. Bu örnekte, 2. |
 
-    Bu ve Giraph örnekleri ile kullanılan diğer parametreleri hakkında daha fazla bilgi için bkz. [Giraph hızlı](http://giraph.apache.org/quick_start.html).
+    Bu ve Giraph örnekleri ile kullanılan diğer parametreleri hakkında daha fazla bilgi için bkz. [Giraph hızlı](https://giraph.apache.org/quick_start.html).
 
 6. İş tamamlandıktan sonra sonuçları depolanan **/example/out/shotestpaths** dizin. Çıkış dosyası adı şununla **bölümü-m -** ve birinci, ikinci, vb. dosya belirten bir sayı ile bitmelidir. Çıkışı görüntülemek için aşağıdaki komutu kullanın:
 

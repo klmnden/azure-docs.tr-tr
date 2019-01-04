@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: douglasl
-ms.openlocfilehash: 60c715e97f6b1d2046fb4050ae41b27146c0610a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 950336db215bbca76f20c15527397212c6fe5ffd
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623812"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554937"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Sürekli tümleştirme ve teslim (CI/CD) Azure Data factory'de
 
@@ -733,12 +733,12 @@ Dağıtımdan önce Tetikleyicileri durdurmak ve Tetikleyicileri daha sonra yeni
 ```powershell
 param
 (
-    [parameter(Mandatory = $false)] [String] $rootFolder="$(env:System.DefaultWorkingDirectory)/Dev/",
-    [parameter(Mandatory = $false)] [String] $armTemplate="$rootFolder\arm_template.json",
-    [parameter(Mandatory = $false)] [String] $ResourceGroupName="sampleuser-datafactory",
-    [parameter(Mandatory = $false)] [String] $DataFactoryName="sampleuserdemo2",
-    [parameter(Mandatory = $false)] [Bool] $predeployment=$true
-
+    [parameter(Mandatory = $false)] [String] $rootFolder,
+    [parameter(Mandatory = $false)] [String] $armTemplate,
+    [parameter(Mandatory = $false)] [String] $ResourceGroupName,
+    [parameter(Mandatory = $false)] [String] $DataFactoryName,
+    [parameter(Mandatory = $false)] [Bool] $predeployment=$true,
+    [parameter(Mandatory = $false)] [Bool] $deleteDeployment=$false
 )
 
 $templateJson = Get-Content $armTemplate | ConvertFrom-Json
@@ -762,7 +762,6 @@ if ($predeployment -eq $true) {
     }
 }
 else {
-
     #Deleted resources
     #pipelines
     Write-Host "Getting pipelines"
@@ -789,7 +788,7 @@ else {
     $integrationruntimesNames = $integrationruntimesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedintegrationruntimes = $integrationruntimesADF | Where-Object { $integrationruntimesNames -notcontains $_.Name }
 
-    #delte resources
+    #Delete resources
     Write-Host "Deleting triggers"
     $deletedtriggers | ForEach-Object { 
         Write-Host "Deleting trigger "  $_.Name
@@ -820,7 +819,25 @@ else {
         Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
 
-    #Start Active triggers - After cleanup efforts (moved code on 10/18/2018)
+    if ($deleteDeployment -eq $true) {
+        Write-Host "Deleting ARM deployment ... under resource group: " $ResourceGroupName
+        $deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName
+        $deploymentsToConsider = $deployments | Where { $_.DeploymentName -like "ArmTemplate_master*" -or $_.DeploymentName -like "ArmTemplateForFactory*" } | Sort-Object -Property Timestamp -Descending
+        $deploymentName = $deploymentsToConsider[0].DeploymentName
+
+       Write-Host "Deployment to be deleted: " $deploymentName
+        $deploymentOperations = Get-AzureRmResourceGroupDeploymentOperation -DeploymentName $deploymentName -ResourceGroupName $ResourceGroupName
+        $deploymentsToDelete = $deploymentOperations | Where { $_.properties.targetResource.id -like "*Microsoft.Resources/deployments*" }
+
+        $deploymentsToDelete | ForEach-Object { 
+            Write-host "Deleting inner deployment: " $_.properties.targetResource.id
+            Remove-AzureRmResourceGroupDeployment -Id $_.properties.targetResource.id
+        }
+        Write-Host "Deleting deployment: " $deploymentName
+        Remove-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Name $deploymentName
+    }
+
+    #Start Active triggers - After cleanup efforts
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
@@ -958,3 +975,17 @@ Aşağıdaki örnek, örnek bir parametreler dosyası gösterir. Bu örnek, kend
     }
 }
 ```
+
+## <a name="linked-resource-manager-templates"></a>Bağlantılı Resource Manager şablonları
+
+Sürekli tümleştirmeyi ve dağıtım (CI/CD), veri fabrikaları için ayarladıysanız, fabrikanızı büyük büyüdükçe, Resource Manager şablonu sınırları sayısı veya kaynaklar bir kaynak en fazla yük gibi yaşadığınız, gözlemleyin Yöneticisi şablonu. Data Factory, tam bir Resource Manager şablonu için bir Fabrika oluşturma yanı sıra bu gibi senaryolar için bağlantılı Resource Manager şablonları artık oluşturur. Sonuç olarak, belirtilen sınırları çalışmasını önlemek için birkaç dosyalarına ayrılmış tüm fabrikanızın yükü sahip olursunuz.
+
+Yapılandırılan Git varsa, bağlı şablonların oluşturulur ve tüm Resource Manager şablonları ile birlikte kaydedilmiş `adf_publish` adlı yeni bir klasör altında bir dal `linkedTemplates`.
+
+![Bağlantılı Resource Manager Şablonları klasörü](media/continuous-integration-deployment/linked-resource-manager-templates.png)
+
+Bağlantılı Resource Manager şablonları, genellikle bir ana şablon ve asıl bağlı alt şablonları kümesi bulunur. Üst şablonun adlı `ArmTemplate_master.json`, ve desen ile alt şablonları adlı `ArmTemplate_0.json`, `ArmTemplate_1.json`ve benzeri. Bağlı şablonlar kullanarak tam Resource Manager şablonu kullanarak kaydırmak için CI/CD göreviniz işaret edecek şekilde güncelleştirme `ArmTemplate_master.json` işaret yerine `ArmTemplateForFactory.json` (diğer bir deyişle, tam Resource Manager şablonu). Resource Manager, dağıtım sırasında Azure tarafından erişilebilmelerini böylece bağlı şablonların bir depolama hesabına veri yükleme gerektirir. Daha fazla bilgi için bkz. [VSTS ile bağlantılı ARM şablonlarını dağıtma](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+
+Önce ve sonra dağıtım görevi, CI/CD işlem hattı, Data Factory komut eklemeyi unutmayın.
+
+Yapılandırılan Git yoksa, bağlı şablonların aracılığıyla erişilebilir **dışarı ARM şablonu** hareketi.

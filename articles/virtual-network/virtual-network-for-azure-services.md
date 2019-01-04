@@ -15,18 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 5b21ec36215dfde964b845a1ee28c02b562e1dd7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4e136d4a0a60838af7d2b1a111982b0c16b06dd2
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340683"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975160"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure Hizmetleri için sanal ağ tümleştirmesi
 
 Azure Hizmetleri için bir Azure sanal ağ tümleştirme özel erişim için hizmet sanal makine veya sanal ağda işlem kaynakları sağlar.
-Azure Hizmetleri, sanal ağınızda aşağıdaki seçeneklerle tümleştirebilirsiniz: Doğrudan bir sanal ağa hizmetinin ayrılmış örnekleri dağıtılıyor. Hizmetler, ardından sanal ağ içinde ve şirket içi ağlardan özel erişim sağlanabilir.
-Bir sanal ağ hizmet uç noktaları aracılığıyla hizmetine genişleterek. Hizmet uç noktaları sanal ağa güvenli olması için bireysel hizmet kaynakları sağlar.
+Azure Hizmetleri, sanal ağınızda aşağıdaki seçeneklerle tümleştirebilirsiniz:
+- Adanmış hizmet örneğini bir sanal ağa dağıtma. Hizmetler, ardından sanal ağ içinde ve şirket içi ağlardan özel erişim sağlanabilir.
+- Bir sanal ağ hizmet uç noktaları aracılığıyla hizmetine genişletme. Hizmet uç noktaları sanal ağa güvenli olması için bireysel hizmet kaynakları sağlar.
 
 Birden çok Azure hizmeti sanal ağınıza tümleştirmek için bir veya daha fazla yukarıdaki desenleri birleştirebilirsiniz. Örneğin, HDInsight, sanal ağınıza dağıtma ve HDInsight alt ağ hizmet uç noktaları aracılığıyla bir depolama hesabına güvenli.
  

@@ -1,5 +1,5 @@
 ---
-title: Azure zaman serisi öngörüleri Önizleme planlama - Azure zaman serisi öngörüleri önizlemesi ortamınızı planlama | Microsoft Docs
+title: Azure zaman serisi öngörüleri önizlemesi ortamınızı planlama | Microsoft Docs
 description: Azure zaman serisi öngörüleri önizlemesi ortamınızı planlayın.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1df4847f20329e924352adfe782faa43d10dde98
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 09fef060a58723624796fe6192fef2444251cc1c
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277055"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556093"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Azure zaman serisi öngörüleri önizlemesi ortamınızı planlama
 
@@ -78,7 +78,7 @@ Bir iyi kural karşısında:
 
 * Store meta verileri, zaman serisi modelindeki
 * Zaman serisi modu, örnek alanları ve olaylar gibi yalnızca gerekli bilgileri içerir:
-  * Zaman serisi kimliği
+  * Zaman Serisi Kimliği
   * Zaman damgası
 
 Daha fazla bilgi için [Şekil olayları](./time-series-insights-send-events.md#json).

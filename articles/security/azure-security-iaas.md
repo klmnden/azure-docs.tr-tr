@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: d4a2daf10fd864f13982f4d327868ad62d1309b3
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 42958576a127fee5e0a275e53203edd4e4dee6f9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321469"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540298"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure Iaas iş yükleri için en iyi güvenlik uygulamaları
 
@@ -68,7 +68,7 @@ Sanal makinenizin yüksek kullanılabilirlik sağlamak için gereken Kritik uygu
 
 Bir kullanılabilirlik kümesi içine yerleştirdiğiniz sanal makine kaynaklarının bir Azure veri merkezinde dağıtılan birbirinden yalıtılmış olmasını sağlamak için Azure'da kullanabileceğiniz bir mantıksal bir gruplandırmasıdır. Azure Vm'leri bir kullanılabilirlik yerleştirdiğiniz birden fazla fiziksel sunucu, işlem raflar, depolama birimi ve ağ anahtarları arasında çalıştırma ayarlamanızı sağlar. Bir donanım veya Azure yazılım hatası oluşursa yalnızca sanal makinelerinizin bir alt etkilenir ve genel uygulama müşterilerinizin kullanımına sunulmaya devam eder. Güvenilir bulut çözümleri oluşturmak istediğinizde kullanılabilirlik kümelerini gerekli özellikleridir.
 
-## <a name="protect-against-malware"></a>Kötü amaçlı yazılımlara karşı koruma
+## <a name="protect-against-malware"></a>Kötü amaçlı yazılımlardan korunun
 Belirlenmesi ve virüslerin, casus yazılımların ve diğer kötü amaçlı yazılım kaldırılmasına yardımcı olmak üzere kötü amaçlı yazılımdan korunma yüklemeniz gerekir. Yükleyebileceğiniz [Microsoft Antimalware](azure-security-antimalware.md) veya bir Microsoft iş ortağı uç nokta koruma çözümüne ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/search/result.aspx?q=Windows+defender+endpoint+protection), ve [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection)).
 
 Microsoft Antimalware gerçek zamanlı koruma, zamanlanmış tarama, kötü amaçlı yazılım düzeltme, imza güncelleştirmeleri, altyapı güncelleştirmeleri, raporlama örnekleri ve dışlama olay koleksiyonu gibi özellikler içerir. Üretim ortamınızdan ayrı olarak barındırılan ortamlar için bulut Hizmetleri ve sanal makinelerinizin korunmasına yardımcı olmak için bir kötü amaçlı yazılımdan koruma uzantısını kullanabilirsiniz.
@@ -137,7 +137,7 @@ VM işlem izin verilenden daha fazla kaynak tüketmesine kaynak uygunsuz bir sor
 
 Kullanmanızı öneririz [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview-metrics.md) kaynağınızın durumu görünürlük elde etmek için. Azure İzleyici özellikleri:
 
-- [Kaynak tanılama günlük dosyaları](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): VM kaynaklarınızı izler ve performans ve kullanılabilirlik riske atabilirdi olası sorunları tanımlar.
+- [Kaynak tanılama günlük dosyaları](../azure-monitor/platform/diagnostic-logs-overview.md): VM kaynaklarınızı izler ve performans ve kullanılabilirlik riske atabilirdi olası sorunları tanımlar.
 - [Azure tanılama uzantısını](../azure-monitor/platform/diagnostics-extension-overview.md): Windows Vm'lerinde izleme ve tanılama olanakları sunar. Bu özellikler uzantısı bir parçası olarak dahil ederek etkinleştirebilirsiniz [Azure Resource Manager şablonu](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 VM performansı izleme kuruluşlar, bazı değişikliklerin performans desenleri normal veya anormal olup olmadığını belirleyemiyor. Normalden daha fazla kaynak tüketmeye bir VM, bir dış kaynağa veya VM'de çalışan güvenliği aşılmış bir işlem bir saldırı olduğunu gösteriyor olabilir.

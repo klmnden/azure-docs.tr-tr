@@ -12,16 +12,16 @@ ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 12/07/2018
-ms.openlocfilehash: 34b3ee54c48040eaa6f7b7569921678869baa84b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f86312ee1d11e5ac4c7626f5fd4c8223dac8b52
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092375"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744709"
 ---
-# <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: Go kullanarak Azure SQL veritabanı sorgulama
+# <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Hızlı Başlangıç: Azure SQL veritabanını sorgulamaya Golang kullanın
 
-Bu hızlı başlangıçta kullanmayı gösterir [Git](https://godoc.org/github.com/denisenkom/go-mssqldb) programlama dilini kullanarak Azure SQL veritabanına bağlanan ve verileri sorgulamak ve değiştirmek için Transact-SQL deyimleri çalıştırın. [Git](https://golang.org/) , bir açık kaynak programlama dilini basit, güvenilir ve verimli yazılım oluşturmayı kolaylaştırır.  
+Bu hızlı başlangıçta kullanacaksınız [Golang](https://godoc.org/github.com/denisenkom/go-mssqldb) programlama dilini kullanarak Azure SQL veritabanına bağlanmak için. Ardından, verileri sorgulamak ve değiştirmek için Transact-SQL deyimleri çalıştıracaksınız. [Golang](https://golang.org/) basit, güvenilir ve verimli yazılım kolaylaştıran bir açık kaynak programlama dilidir.  
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -31,17 +31,17 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 - A [sunucu düzeyinde güvenlik duvarı kuralı](sql-database-get-started-portal-firewall.md) bilgisayarınızın genel IP adresi için yapılandırılmış.
 
-- Go ve ilgili yazılımları yüklü bir işletim sistemi için:
+- Golang ve ilgili yazılımları yüklü bir işletim sistemi için:
 
-    - **MacOS**: Homebrew ve GoLang yükleyin. Bkz. [Adım 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
-    - **Ubuntu**:  GoLang yükleyin. Bkz. [Adım 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
-    - **Windows**: GoLang yükleyin. Bkz. [Adım 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
+    - **macOS**: Homebrew ve Golang yükleyin. Bkz. [Adım 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).
+    - **Ubuntu**:  Golang yükleyin. Bkz. [Adım 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/).
+    - **Windows**: Golang yükleyin. Bkz. [Adım 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/windows/).    
 
 ## <a name="sql-server-connection-information"></a>SQL Server bağlantı bilgileri
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-## <a name="create-go-project-and-dependencies"></a>Go projesi ve bağımlılıklarını oluşturma
+## <a name="create-golang-project-and-dependencies"></a>Golang projesi ve bağımlılıklarını oluşturma
 
 1. Terminalden, **SqlServerSample** adlı yeni bir proje klasörü oluşturun. 
 
@@ -49,7 +49,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
    mkdir SqlServerSample
    ```
 
-2. Dizinine **SqlServerSample** ve Go için SQL Server sürücüsünü yükleyin.
+2. Gidin **SqlServerSample** ve Go için SQL Server sürücüsünü yükleyin.
 
    ```bash
    cd SqlServerSample
@@ -59,7 +59,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 ## <a name="create-sample-data"></a>Örnek veri oluşturma
 
-1. Sık kullandığınız metin düzenleyicinizde adlı bir dosya oluşturun **Sqlserversample** içinde **SqlServerSample** klasör. Dosya Kopyala ve Yapıştır bir şema oluşturur, aşağıdaki T-SQL kodu tablosunu ve birkaç satır ekler.
+1. Bir metin düzenleyicisinde adlı bir dosya oluşturun **Sqlserversample** içinde **SqlServerSample** klasör. Bir şema oluşturur, bu T-SQL kod dosyasına yapıştırın tablo ve birkaç satır ekler.
 
    ```sql
    CREATE SCHEMA TestSchema;
@@ -82,17 +82,17 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
    GO
    ```
 
-2. Kullanım `sqlcmd` veritabanına bağlanmak için yeni oluşturulan SQL betiğini çalıştırın. Sunucunuz, veritabanınız, kullanıcı adınız ve parolanız için uygun değerleri değiştirin.
+2. Kullanım `sqlcmd` veritabanına bağlanın ve yeni oluşturulan SQL komut dosyasını çalıştırın. Sunucunuz, veritabanınız, kullanıcı adınız ve parolanız için uygun değerleri değiştirin.
 
    ```bash
-   sqlcmd -S your_server.database.windows.net -U your_username -P your_password -d your_database -i ./CreateTestData.sql
+   sqlcmd -S <your_server>.database.windows.net -U <your_username> -P <your_password> -d <your_database> -i ./CreateTestData.sql
    ```
 
 ## <a name="insert-code-to-query-sql-database"></a>SQL veritabanını sorgulamak için kod girme
 
 1. **SqlServerSample** klasöründe **sample.go** adlı bir dosya oluşturun.
 
-2. Dosyasını açın ve aşağıdaki kodu yapıştırın. Sunucunuz, veritabanınız, kullanıcı adınız ve parolanız için uygun değerleri ekleyin. Bu örnek, veritabanı sunucusu için etkin bir bağlantı olduğundan emin olmak için GoLang Context metotları kullanır.
+2. Bu kod dosyasına yapıştırın. Sunucu, veritabanı, kullanıcı adı ve parola değerlerini ekleyin. Bu örnekte Golang [context metotları](https://golang.org/pkg/context/) bir etkin veritabanı sunucu bağlantısı olduğundan emin olmak için.
 
    ```go
    package main
@@ -108,11 +108,11 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
    var db *sql.DB
 
-   var server = "your_server.database.windows.net"
+   var server = "<your_server.database.windows.net>"
    var port = 1433
-   var user = "your_username"
-   var password = "your_password"
-   var database = "your_database"
+   var user = "<your_username>"
+   var password = "<your_password>"
+   var database = "<your_database>"
 
    func main() {
        // Build connection string
@@ -311,6 +311,6 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [İlk Azure SQL veritabanınızı tasarlama](sql-database-design-first-database.md)
-- [Microsoft SQL Server için go sürücüsü](https://github.com/denisenkom/go-mssqldb)
+- [Microsoft SQL Server için Golang sürücüsü](https://github.com/denisenkom/go-mssqldb)
 - [Sorun bildirin veya soru sorun](https://github.com/denisenkom/go-mssqldb/issues)
 

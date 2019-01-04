@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 204a3230c782279b0cad4194e97aa4014c940635
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581944"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608503"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Azure HDInsight GÇ Cache (Önizleme) kullanarak Apache Spark iş yüklerinin performansı
 
@@ -20,7 +20,7 @@ GÇ, verileri önbelleğe alma hizmeti için Azure HDInsight, Apache Spark işle
 
 Çoğu SSD'ler, bant genişliği saniye başına 1'den fazla GByte sağlar. İşletim sistemi bellek içi dosyası önbelleği tarafından tamamlanan bu bant genişliği, büyük veri işlem işleme altyapıları Apache Spark'ı yüklemek için yeterli bant genişliği sağlar. İşlem bellek seçeneği gibi yoğun bellek bağımlı görevlerini işlemek Apache Spark için kullanılabilir kalır. Bellek işletme özel kullanımda olan Apache Spark'ın en iyi kaynak kullanımını elde etmek sağlar.  
 
->[!Note]
+>[!Note]  
 >GÇ önbellek şu anda bir önbellek bileşeni olarak RubiX kullanır, ancak bu hizmet sürümlerini gelecekte değişebilir. Lütfen GÇ önbellek arabirimleri kullanır ve herhangi bir bağımlılığın doğrudan RubiX mantığınız yakalayana.
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Azure HDInsight GÇ önbellek avantajları
@@ -45,7 +45,7 @@ Azure HDInsight GÇ önbellek Önizleme'de varsayılan olarak devre dışı bır
 
 1. Etkilenen tüm hizmetlerin kümede yeniden onaylayın.
 
->[!NOTE] 
+>[!NOTE]  
 > Etkin ilerleme çubuğu gösterir olsa da, diğer etkilenen hizmetleri yeniden başlatılana kadar g/ç önbellek gerçekten etkin değil.
 
 ## <a name="troubleshooting"></a>Sorun giderme
@@ -78,4 +78,4 @@ Bu işe yaramazsa, g/ç önbellek devre dışı bırakın.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- Bu blog gönderisinde performans kıyaslamaları dahil olmak üzere, g/ç önbellek hakkında daha fazla bilgi: [Apache Spark işleri HDInsight GÇ Cache ile en fazla 9 x hızlandırmak elde edin](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+- Bu blog gönderisinde performans kıyaslamaları dahil olmak üzere, g/ç önbellek hakkında daha fazlasını okuyun: [Apache Spark işleri HDInsight GÇ Cache ile en fazla 9 x hızlandırmak elde edin](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)

@@ -10,12 +10,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 6f88ff8ecd1aee588cb82c08ae2eda58fe2eb1e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f3d2276c92868bd2f9d98b119bc31aee4db13a81
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627591"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717561"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Özel Translator çalışma alanı nedir?
 
@@ -31,7 +31,7 @@ Proje modeli, belgeler ve test için bir sarmalayıcıdır. Her proje, otomatik 
 
 Kategori, projeniz için – terminoloji ve stil kullanmak istediğiniz alanı – etki alanı tanımlar. Belgelerinizi için en uygun kategoriyi seçin. Bazı durumlarda, seçtiğiniz kategorisi doğrudan özel Translator davranışını etkiler.
 
-Size özel modelleri kategorileri için henüz genel bir temel sistem dışında yok. Ancak yine de kullanıcıların kendi etki alanı için en uygun kategoriyi seçin, böylece bir tanımlayıcıda CategoryID olarak kullanılabilir öneririz. Temel model projenizi kullanabilmek için olacağını, kullanılabilir olduğunda teknoloji etki alanındaki projeleri için "Teknoloji" seçmek sağlar.
+İki temel modelleri sahibiz. Genel ve teknoloji değildirler. Kategori **teknoloji** olan seçili teknolojisi temel modelleri kullanılır. Diğer kategori seçimi için genel temel modelleri kullanılır. Teknoloji temel modeli iyi teknoloji etki alanında yok ancak cümle için çeviri kullanılan teknoloji etki alanı içinde 'un altına düşersek yoksa Düşük Kalite gösterir. Müşteriler yalnızca cümleler teknoloji etki alanı içinde kesinlikle düşersek kategori teknoloji seçmek için öneririz.
 
 Aynı çalışma alanında, farklı kategorilerdeki aynı dil çifti projelerde oluşturabilirsiniz. Özel Translator kategorisi ve aynı dil çifti ile yinelenen bir proje oluşturulmasını engeller. Projenize bir etiketi uygulamak, bu kısıtlama önlemek sağlar. Projenize benzersiz bir etiket projelerinizde CategoryID yansıtılır ekleme olarak birden çok istemciyi için çevirisi sistemleri oluşturmakta olduğunuz sürece etiketleri kullanmayın.
 

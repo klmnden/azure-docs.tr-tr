@@ -1,29 +1,29 @@
 ---
-title: MongoDB API'si için Azure Cosmos DB'den verileri Sorgulama
-description: Azure Cosmos DB ile MongoDB API'si için sorgu yürütmeyi öğrenirsiniz.
+title: MongoDB için Azure Cosmos DB'nin API'si ile verileri Sorgulama
+description: MongoDB için Azure Cosmos DB API'si ile veri sorgulamayı öğrenin.
 services: cosmos-db
-author: SnehaGunda
-ms.author: sngun
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/29/2018
-ms.openlocfilehash: bcfbb0115274c8b0d330426a454530dcd7c170ab
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 12/26/2018
+ms.openlocfilehash: b2bfc48fa0ba8aab0bbdf19e1b127155633e2271
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724666"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793215"
 ---
-# <a name="tutorial-query-data-using-azure-cosmos-db-for-mongodb-api"></a>Öğretici: Azure Cosmos DB için MongoDB API'sini kullanarak verileri Sorgulama
+# <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB için Azure Cosmos DB'nin API'sini kullanarak verileri Sorgulama
 
-[MongoDB için Azure Cosmos DB API’si](mongodb-introduction.md), [MongoDB kabuk sorgularını](https://docs.mongodb.com/manual/tutorial/query-documents/) destekler. 
+[Azure Cosmos DB'nin MongoDB API'si](mongodb-introduction.md) destekler [MongoDB sorguları](https://docs.mongodb.com/manual/tutorial/query-documents/). 
 
 Bu makale aşağıdaki görevleri kapsar: 
 
 > [!div class="checklist"]
-> * MongoDB Kabuğu'nu kullanarak Cosmos veritabanında depolanan QQuerying veri
+> * MongoDB Kabuğu'nu kullanarak Cosmos veritabanında depolanan verileri Sorgulama
 
 Başlamak için bu belgedeki örnekleri kullanabilir ve [Query Azure Cosmos DB with MongoDB shell](https://azure.microsoft.com/resources/videos/query-azure-cosmos-db-data-by-using-the-mongodb-shell/) (Azure Cosmos DB'yi MongoDB kabuğu ile sorgulama) videosunu izleyebilirsiniz.
 
@@ -303,7 +303,7 @@ Sonraki sorgu, çocuk dizisi boyutu 3 olan tüm aileleri döndürür.
 Bu öğreticide aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
-> * MongoDB API'si için yerel destek Cosmos DB kullanarak sorgulamayı öğrendiniz
+> * Cosmos DB'nin MongoDB kullanarak sorgulamayı öğrendiniz
 
 Artık verilerinizi genel olarak nasıl dağıtacağınızı öğrenmek için sonraki öğreticiye ilerleyebilirsiniz.
 

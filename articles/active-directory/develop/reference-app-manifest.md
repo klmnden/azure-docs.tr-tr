@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2018
+ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 372bff911c0925e05297872da66279e727149010
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: a971806b453d34aa8459cb30090024bfca96d342
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086786"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631205"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory Uygulama bildirimi
 
@@ -40,7 +40,7 @@ Uygulama bildirimini yapılandırmak için:
 1. Oturum açma [Azure portalında](https://portal.azure.com).
 1. Seçin **Azure Active Directory** hizmet ve ardından **uygulama kayıtları** veya **uygulama kayıtları (Önizleme)**.
 1. Yapılandırmak istediğiniz uygulamayı seçin.
-1. Uygulamanın gelen **genel bakış** sayfasında **bildirim** bölümü. Portal bildirimi düzenlemenize olanak sağlayan web tabanlı bir bildirim düzenleyicisinde açılır. İsteğe bağlı olarak seçebileceğiniz **indirin** yerel bildirimi düzenleyin ve ardından **karşıya** uygulamanızı uygulamak için.
+1. Uygulamanın **Genel Bakış** sayfasında, **Bildirim** bölümünü seçin. Portal bildirimi düzenlemenize olanak sağlayan web tabanlı bir bildirim düzenleyicisinde açılır. İsteğe bağlı olarak seçebileceğiniz **indirin** yerel bildirimi düzenleyin ve ardından **karşıya** uygulamanızı uygulamak için.
 
 ## <a name="manifest-reference"></a>Bildirimi başvurusu
 
@@ -56,11 +56,11 @@ Uygulama bildirimini yapılandırmak için:
 | `allowPublicClient` | boole | Geri dönüş uygulaması türünü belirtir. Azure AD, varsayılan olarak replyUrlsWithType uygulama türünden çıkarır. Burada Azure AD'ye belirleyemiyor istemci uygulama türüne belirli senaryolar vardır (örneğin [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) burada HTTP isteği bir URL yeniden yönlendirme ' olmuyor akış). Bu gibi durumlarda, Azure AD uygulama türü, bu özelliğin değerine göre görürler. Bu değer, geri dönüş uygulama türünü true olarak ayarlanırsa, bir mobil cihazda çalışan yüklü bir uygulama gibi ortak istemci olarak ayarlanır. Web uygulaması gibi gizli bir istemci geri dönüş uygulaması türüdür yani varsayılan değer false'tur. | `false` |
 | `appId` | Kimlik dizesi | Azure AD tarafından atanmış bir uygulama uygulama için benzersiz tanımlayıcısını belirtir. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Dizi türü | Bir uygulamanın bildirebileceği rolleri koleksiyonunu belirtir. Bu roller, kullanıcıları, grupları veya hizmet sorumlularına atanabilir. Daha fazla örnekler ve bilgi için bkz. [uygulamanızda uygulama rolleri eklemek ve bunları belirteci alma](howto-add-app-roles-in-azure-ad-apps.md) | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
-| `groupMembershipClaims` | dize | Yapılandıran bir bit maskesi `groups` bir kullanıcı veya uygulamanın beklediği OAuth 2.0 erişim belirteci veren talep. Bit maskesi değerleri şunlardır:<br>0: yok<br>1: güvenlik grupları ve Azure AD rolleri<br>2: ayrılmış<br>4: ayrılmış<br>Bit maskesi 7 olarak ayarlanması tüm güvenlik grupları, dağıtım grupları ve oturum açmış kullanıcının üyesi olduğu bir Azure AD Dizin rolleri alırsınız. | `1` |
+| `groupMembershipClaims` | dize | Yapılandırır `groups` bir kullanıcı veya uygulamanın beklediği OAuth 2.0 erişim belirteci veren talep. Bu öznitelik ayarlamak için aşağıdaki geçerli dize değerlerinden birini kullanın:<br/><br/>- `"None"`<br/>- `"SecurityGroup"` (güvenlik grupları ve Azure AD rolleri için)<br/>- `"All"` (Bu tüm güvenlik grupları, dağıtım grupları ve oturum açmış kullanıcının üyesi olduğu bir Azure AD Dizin rolleri alırsınız. | `"SecurityGroup"` |
 | `optionalClaims` | dize | İsteğe bağlı talepleri özel bu uygulama için güvenlik belirteci hizmeti tarafından belirteç döndürdü.<br>Şu anda, hem kişisel hesapları hem de Azure AD (kayıtlı uygulama kayıt portalı üzerinden) destekleyen uygulamalar, isteğe bağlı bir talep kullanamazsınız. Ancak, yalnızca Azure AD v2.0 uç noktası kullanmak için kayıtlı uygulamalar bildiriminde talep isteğe bağlı bir talep elde edebilirsiniz. Daha fazla bilgi için bkz. [isteğe bağlı bir talep](active-directory-optional-claims.md). | `null` |
 | `id` | Kimlik dizesi | Uygulama dizinindeki benzersiz tanımlayıcısı. Bu kimliği, herhangi bir protokol işlem uygulamayı tanımlamak için kullanılan tanımlayıcı değil. Dizin sorguları nesneye başvurmak için kullanılır. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
-| `identifierUris` | Dize dizisi | Çok kiracılı bir uygulama ise, bir Web uygulaması doğrulanmış özel etki alanı veya kendi Azure AD kiracısı içinde benzersiz olarak tanımlayan kullanıcı tanımlı URI(s). | <code>[<br>&nbsp;&nbsp;"https://MyRegistererdApp"<br>]</code> |
-| `informationalUrls` | dize | Uygulamanın koşullarını hizmet ve gizlilik bildirimi bağlantıları belirtir. Koşulları hizmet ve gizlilik bildirimi kullanıcı onayı deneyimi aracılığıyla kullanıcılara çıkarılır. Daha fazla bilgi için bkz. [nasıl yapılır: kayıtlı Azure AD uygulamaları için hizmet ve gizlilik bildirimini koşulları ekleme](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |
+| `identifierUris` | Dize dizisi | Çok kiracılı bir uygulama ise, bir Web uygulaması doğrulanmış özel etki alanı veya kendi Azure AD kiracısı içinde benzersiz olarak tanımlayan kullanıcı tanımlı URI(s). | <code>[<br>&nbsp;&nbsp;"https://MyRegisteredApp"<br>]</code> |
+| `informationalUrls` | dize | Uygulamanın koşullarını hizmet ve gizlilik bildirimi bağlantıları belirtir. Koşulları hizmet ve gizlilik bildirimi kullanıcı onayı deneyimi aracılığıyla kullanıcılara çıkarılır. Daha fazla bilgi için bkz. [nasıl yapılır: Kayıtlı Azure AD uygulamaları için hizmet ve gizlilik bildirimini koşulları ekleme](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |
 | `keyCredentials` | Dizi türü | Uygulama tarafından atanan kimlik bilgileri, paylaşılan gizlilikler dize tabanlı ve X.509 sertifikaları için başvurular içerir. Bu kimlik bilgileri erişim belirteci isteğinde bulunurken kullanılır (uygulama istemci olarak hareket ne zaman yerine, kaynak olarak). | <code>[<br>&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-09-13T00:00:00Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2017-09-12T00:00:00Z",<br>&nbsp;&nbsp;&nbsp;"type":"AsymmetricX509Cert",<br>&nbsp;&nbsp;&nbsp;"usage":"Verify",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;}<br>]</code> |
 | `knownClientApplications` | Dizi türü | İki bölümü içeren bir çözümünüz varsa paket onayı için kullanılan: bir istemci uygulaması hem de özel web API uygulaması. İçinde bu değer istemci uygulamasının uygulama kimliği girin, kullanıcının yalnızca bir kez istemci uygulamasına kabul sahip olur. Azure AD, istemciye yönelik örtük olarak web API'sine yönelik anlamına gelir ve hem istemci hem de web API'si için hizmet sorumluları, aynı anda otomatik olarak sağlamış olduğunu bilirsiniz. Hem istemci hem de web API'si uygulaması aynı kiracıda kayıtlı olması gerekir. | `[GUID]` |
 | `logoUrl` | dize | Portalda karşıya yüklenen logoyu CDN URL'sine işaret eden değerini okur. | `https://MyRegisteredAppLogo` |

@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 98828589832d69ada11205e471314a153a566766
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e8e838fae0da3a47fe1b3ec8d412f956f5f28034
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080274"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975518"
 ---
-# <a name="configure-containers"></a>Kapsayıcıları yapılandırma
+# <a name="configure-language-understanding-docker-containers"></a>Language Understanding docker kapsayıcıları yapılandırın 
 
 Language Understanding (LUIS) kapsayıcı çalışma zamanı ortamı kullanılarak yapılandırılan `docker run` komut bağımsız değişkenleri. LUIS birkaç isteğe bağlı ayarları ile birlikte gerekli birkaç ayar vardır. Birkaç [örnekler](#example-docker-run-commands) komutu kullanılabilir. Giriş kapsayıcısı özgü ayarlar şunlardır [bağlama ayarları](#mount-settings) ve fatura ayarlar. 
 
@@ -32,11 +32,11 @@ Bu kapsayıcı, aşağıdaki yapılandırma ayarları vardır:
 |--|--|--|
 |Evet|[ApiKey](#apikey-setting)|Fatura bilgileri izlemek için kullanılır.|
 |Hayır|[ApplicationInsights](#applicationinsights-setting)|Eklemenizi sağlayan [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) kapsayıcınızı telemetri desteği.|
-|Evet|[Faturalandırma](#billing-setting)|URI uç noktasını belirtir, _Language Understanding_ azure'da kaynak.|
+|Evet|[Faturalandırma](#billing-setting)|Azure'da uç nokta hizmet kaynağın URI'sini belirtir.|
 |Evet|[EULA'sı](#eula-setting)| Kapsayıcı lisansını kabul ettiğiniz gösterir.|
 |Hayır|[Fluentd](#fluentd-settings)|Günlük yazma ve isteğe bağlı olarak ölçüm verileri Fluentd sunucusuna.|
 |Hayır|[Günlüğe kaydetme](#logging-settings)|ASP.NET Core günlüğü kapsayıcınız için destek sağlar. |
-|Evet|[Bağlar](#mount-settings)|Okuma ve yazma verilerinden [ana bilgisayar](luis-container-howto.md#the-host-computer) kapsayıcı ve kapsayıcıya geri ana bilgisayar.|
+|Evet|[Bağlar](#mount-settings)|Okuyup veri kapsayıcısı ana bilgisayarından kapsayıcısından geri ana bilgisayara yazma.|
 
 > [!IMPORTANT]
 > [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), Ve [ `Eula` ](#eula-setting) ayarları birlikte kullanılır ve bunları; Aksi takdirde, tüm üç için geçerli değerler sağlamanız gerekir kapsayıcınızı başlatılamıyor. Bir kapsayıcı örneği oluşturmak için bu yapılandırma ayarlarını kullanma hakkında daha fazla bilgi için bkz. [faturalama](luis-container-howto.md#billing).
@@ -45,84 +45,43 @@ Bu kapsayıcı, aşağıdaki yapılandırma ayarları vardır:
 
 `ApiKey` Ayar kapsayıcısı için fatura bilgileri izlemek için kullanılan Azure kaynak anahtarını belirtir. ApiKey için bir değer belirtmeniz gerekir ve değer için geçerli bir anahtar olmalıdır _Language Understanding_ için belirtilen kaynak [ `Billing` ](#billing-setting) yapılandırma ayarı.
 
-Bu ayar, iki yerde bulunabilir:
+Bu ayar, aşağıdaki konumlarda bulunabilir:
 
-* Azure portalı: **Language Understanding'ın** kaynak yönetimi altında **anahtarları**
-* LUIS portalı: **anahtarları ve uç nokta ayarları** sayfası. 
+* Azure portalı: **Language Understanding'i'nın** kaynak yönetimi altında **anahtarları**
+* LUIS portalı: **Anahtarları ve uç nokta ayarları** sayfası. 
 
 Başlangıç veya geliştirme tuşuna kullanmayın. 
 
 ## <a name="applicationinsights-setting"></a>Applicationınsights ayarı
 
-`ApplicationInsights` Ayarı eklemenizi sağlayan [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) kapsayıcınızı telemetri desteği. Application Insights, kapsayıcının kapsamlı izleme sağlar. Kapsayıcınızı kullanılabilirliğini, performansını ve kullanımını kolayca izleyebilir. Ayrıca bir kolayca belirleyin ve kapsayıcınızda hatalarını tanılayın.
-
-Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmaktadır `ApplicationInsights` bölümü.
-
-|Gerekli| Ad | Veri türü | Açıklama |
-|--|------|-----------|-------------|
-|Hayır| `InstrumentationKey` | Dize | İzleme anahtarı Application Insights örneğinin hangi telemetri veri kapsayıcısı için gönderilir. Daha fazla bilgi için [ASP.NET Core için Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). <br><br>Örnek:<br>`InstrumentationKey=123456789`|
-
+[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
 ## <a name="billing-setting"></a>Faturalandırma ayarı
 
 `Billing` Ayar uç noktası URI'si belirtir, _Language Understanding_ azure'da kaynak kapsayıcısı için fatura bilgileri ölçmek için kullanılır. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve değeri geçerli bir uç noktası URI'si olmalıdır için bir _Language Understanding_ azure'da kaynak.
 
-Bu ayar, iki yerde bulunabilir:
+Bu ayar, aşağıdaki konumlarda bulunabilir:
 
-* Azure portalı: **Language Understanding'ın** etiketli genel bakış `Endpoint`
-* LUIS portalı: **anahtarları ve uç nokta ayarları** URI uç noktasının bir parçası olarak bir sayfa.
+* Azure portalı: **Language Understanding'i'nın** etiketli genel bakış `Endpoint`
+* LUIS portalı: **Anahtarları ve uç nokta ayarları** URI uç noktasının bir parçası olarak bir sayfa.
 
-|Gerekli| Ad | Veri türü | Açıklama |
+|Gereklidir| Ad | Veri türü | Açıklama |
 |--|------|-----------|-------------|
 |Evet| `Billing` | Dize | Faturalandırma uç noktası URI'si<br><br>Örnek:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
 ## <a name="eula-setting"></a>EULA'yı ayarlama
 
-`Eula` Ayarı, kapsayıcı lisansını kabul ettiğiniz belirtir. Bu yapılandırma ayarı için bir değer belirtmeniz gerekir ve değer ayarlanmalıdır `accept`.
-
-|Gerekli| Ad | Veri türü | Açıklama |
-|--|------|-----------|-------------|
-|Evet| `Eula` | Dize | Lisans kabulü<br><br>Örnek:<br>`Eula=accept` |
-
-Bilişsel hizmetler kapsayıcıları altında lisanslanır [sözleşmenize](https://go.microsoft.com/fwlink/?linkid=2018657) Azure kullanımınızı. Azure kullanımınızı var olan bir anlaşma değilse, Azure'un kullanımını düzenleyen sözleşmenize olduğunu kabul ediyorum [Microsoft çevrimiçi Abonelik Sözleşmesi](https://go.microsoft.com/fwlink/?linkid=2018755), kullanımımın [çevrimiçi hizmet koşulları ](https://go.microsoft.com/fwlink/?linkid=2018760). Önizlemeler için de kabul [ek kullanım koşulları Microsoft Azure önizlemeleri için](https://go.microsoft.com/fwlink/?linkid=2018815). Kapsayıcı kullanarak bu koşulları kabul etmiş olursunuz.
+[!INCLUDE [Container shared configuration eula settings](../../../includes/cognitive-services-containers-configuration-shared-settings-eula.md)]
 
 ## <a name="fluentd-settings"></a>Fluentd ayarları
 
-Bir açık kaynak veri toplayıcı birleşik günlük kaydı için Fluentd olur. `Fluentd` Ayarlarını yönetmek için kapsayıcının bağlantı bir [Fluentd](https://www.fluentd.org) sunucusu. LUIS kapsayıcısı, kapsayıcının günlüklerini yazma izni verir Fluentd oturum açma sağlayıcısı içerir ve isteğe bağlı olarak ölçüm verileri Fluentd sunucusuna.
 
-Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmaktadır `Fluentd` bölümü.
-
-| Ad | Veri türü | Açıklama |
-|------|-----------|-------------|
-| `Host` | Dize | Fluentd sunucusunun DNS ana bilgisayar adını veya IP adresi. |
-| `Port` | Tamsayı | Fluentd sunucusunun bağlantı noktası.<br/> 24224 varsayılan değerdir. |
-| `HeartbeatMs` | Tamsayı | Milisaniye cinsinden sinyal aralığı. Bu aralığı süresi dolmadan önce olay trafik gönderildi, bir sinyal Fluentd sunucuya gönderilir. 60000 milisaniye (1 dakika) varsayılan değerdir. |
-| `SendBufferSize` | Tamsayı | Gönderme işlemleri için ayrılan bayt cinsinden ağ arabellek alanı. 32768 bayt (32 kilobayt) varsayılan değerdir. |
-| `TlsConnectionEstablishmentTimeoutMs` | Tamsayı | Zaman aşımı, Fluentd sunucusuyla bir SSL/TLS bağlantı kurmak için milisaniye cinsinden. 10000 milisaniye (10 saniye) varsayılan değerdir.<br/> Varsa `UseTLS` yanlış olarak bu değeri yok sayıldı ayarlanmış. |
-| `UseTLS` | Boole | Kapsayıcı Fluentd sunucusu ile iletişim kurmak için SSL/TLS kullanıp kullanmayacağını belirtir. Varsayılan değer false'tur. |
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
 ## <a name="logging-settings"></a>Günlük ayarları
+ 
+[!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
 
-`Logging` Ayarlarını yönetme kapsayıcınız için ASP.NET Core oturum açma desteği. Bir ASP.NET Core uygulaması için kullandığınız kapsayıcınız için aynı yapılandırma ayarları ve değerleri kullanabilirsiniz. 
-
-Aşağıdaki günlük kaydı sağlayıcıları LUIS kapsayıcı tarafından desteklenir:
-
-|Sağlayıcı|Amaç|
-|--|--|
-|[Console](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|ASP.NET Core `Console` oturum açma sağlayıcısı. Tüm ASP.NET Core yapılandırma ayarlarını ve bu oturum açma sağlayıcısı için varsayılan değerleri desteklenir.|
-|[Hata ayıklama](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|ASP.NET Core `Debug` oturum açma sağlayıcısı. Tüm ASP.NET Core yapılandırma ayarlarını ve bu oturum açma sağlayıcısı için varsayılan değerleri desteklenir.|
-|[Disk](#disk-logging)|JSON oturum açma sağlayıcısı. Bu oturum açma sağlayıcısı için çıktı bağlama günlük verilerini yazar.|
-
-### <a name="disk-logging"></a>Disk günlüğe kaydetme
-  
-`Disk` Oturum açma sağlayıcısı, aşağıdaki yapılandırma ayarları destekler:  
-
-| Ad | Veri türü | Açıklama |
-|------|-----------|-------------|
-| `Format` | Dize | Günlük dosyaları için çıkış biçimi.<br/> **Not:** bu değer ayarlanmalıdır `json` günlük sağlayıcısını etkinleştirmek için. Bu değer aynı zamanda bir kapsayıcı örneği oluşturulurken bir çıkış bağlama belirtmeden belirtilirse, bir hata oluşur. |
-| `MaxFileSize` | Tamsayı | Megabayt (MB) günlük dosyasının en büyük boyutu. Yeni bir günlük dosyası, geçerli günlük dosyası boyutunu karşıladığından veya bu değeri aşarsa, oturum açma sağlayıcısı tarafından başlatılır. -1 belirtilmezse, günlük dosyasının boyutu, çıkış bağlama yalnızca en büyük dosya boyutuyla sınırlıdır. Varsayılan değer 1'dir. |
-
-ASP.NET Core günlük desteği yapılandırma hakkında daha fazla bilgi için bkz. [ayarları dosya Yapılandırması](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
 
 ## <a name="mount-settings"></a>Bağlama ayarları
 
@@ -141,31 +100,8 @@ Aşağıdaki tabloda, desteklenen ayarları açıklanmaktadır.
 
 ## <a name="hierarchical-settings"></a>Hiyerarşik ayarları
 
-LUIS kapsayıcısı için ayarları, hiyerarşik ve tüm kapsayıcıları [ana bilgisayar](luis-container-howto.md#the-host-computer) paylaşılan bir hiyerarşi kullanın.
+[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
 
-Ayarları belirtmek için aşağıdakilerden birini kullanabilirsiniz:
-
-* [Ortam değişkenleri](#environment-variable-settings)
-* [Komut satırı bağımsız değişkenleri](#command-line-argument-settings)
-
-Ortam değişkeni değerlerini, kapsayıcı görüntüsü için varsayılan değerleri sırayla geçersiz komut satırı bağımsız değişkeni değerlerini geçersiz kılar. Bir ortam değişkeni ve bir komut satırı bağımsız değişkeni aynı yapılandırma ayarı için farklı değerler belirtirseniz, ortam değişkeninin değeri örneklenmiş kapsayıcı tarafından kullanılır.
-
-|Öncellik|Konum ayarlama|
-|--|--|
-|1|Ortam değişkeni| 
-|2|Komut Satırı|
-|3|Kapsayıcı görüntüsü varsayılan değeri|
-
-### <a name="environment-variable-settings"></a>Ortam değişkeni ayarlarının
-
-Ortam değişkenlerini kullanmanın avantajları şunlardır:
-
-* Birden çok ayarlar yapılandırılabilir.
-* Birden çok kapsayıcı aynı ayarları kullanabilirsiniz.
-
-### <a name="command-line-argument-settings"></a>Komut satırı bağımsız değişkeni ayarları
-
-Her kapsayıcı farklı ayarlar kullanabileceğiniz komut satırı bağımsız değişkenleri kullanmanın faydası olur.
 
 ## <a name="example-docker-run-commands"></a>Örnek docker komutlarını çalıştırın
 
@@ -173,7 +109,7 @@ Aşağıdaki örnekler, yazma ve kullanma göstermek için yapılandırma ayarla
 
 
 * **Satır devamlılığı karakteri**: Aşağıdaki bölümlerde docker komutları ters eğik çizgi kullanın `\`, satır devamı karakteri olarak. Bu konak işletim sisteminin gereksinimlerine göre kaldırın veya değiştirin. 
-* **Bağımsız değişken sırası**: docker kapsayıcısıyla çok iyi bilmiyorsanız, bağımsız değişkenlerin sırası değiştirmeyin.
+* **Bağımsız değişken sırası**: Docker kapsayıcıları ile çok iyi bilmiyorsanız, bağımsız değişkenlerin sırası değiştirmeyin.
 
 Yerine {_argument_name_} kendi değerlerinizle:
 

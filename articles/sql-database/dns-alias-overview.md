@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek
+ms.reviewer: genemi,ayolubek, jrasnick
 manager: craigg
 ms.date: 02/05/2018
-ms.openlocfilehash: 290414ca07014d5f3bfbe160b0f571397fb13948
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 96627d96acee76516c9dc3db1b58d6e4b7b6ff15
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467146"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601055"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL veritabanı için DNS diğer adı
 
@@ -55,12 +55,12 @@ Bir olağanüstü durum kurtarma için farklı bir coğrafi bölgede SQL veritab
 
 Aşağıdaki özellikler, SQL veritabanı sunucunuz için her bir DNS diğer adı için geçerlidir:
 
-- *Benzersiz ad:* oluşturduğunuz her bir diğer ad tüm Azure SQL veritabanı sunucuları arasında benzersiz olduğundan, yalnızca sunucu olarak adlarıdır.
-- *Sunucu gereklidir:* bir DNS diğer adı oluşturulamıyor tam olarak bir sunucusuna başvuran ve sunucu zaten mevcut olmalıdır. Güncelleştirilmiş bir diğer ad, her zaman tam olarak bir tane mevcut sunucunun başvurmanız gerekir.
+- *Benzersiz adı:* Yalnızca sunucu adları olarak oluşturduğunuz her bir diğer ad tüm Azure SQL veritabanı sunucuları arasında benzersizdir.
+- *Sunucu gereklidir:* Tam olarak bir sunucusuna başvuran ve sunucu zaten mevcut olmalıdır bir DNS diğer adı oluşturulamıyor. Güncelleştirilmiş bir diğer ad, her zaman tam olarak bir tane mevcut sunucunun başvurmanız gerekir.
   - SQL veritabanı sunucusu düşürdüğünüzde, Azure sistem sunucusuna başvuran tüm DNS diğer adları da bırakır.
 - *Herhangi bir bölgesine bağlı değil:* DNS diğer adları bir bölgeye bağlı değil. Herhangi bir DNS diğer adları, herhangi bir coğrafi bölgede bulunan bir Azure SQL veritabanı sunucusuna başvurmak için güncelleştirilebilir.
   - Ancak, başka bir sunucuya başvurmak için bir diğer ad güncelleştirirken, her iki sunucuyu aynı Azure bulunmalıdır *abonelik*.
-- *İzinler:* bir DNS diğer adı'nı yönetmek için kullanıcının olmalıdır *Server Katılımcısı* izinler veya üzeri. Daha fazla bilgi için [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../role-based-access-control/overview.md).
+- *İzinler:* Bir DNS diğer adı'nı yönetmek için kullanıcının olmalıdır *Server Katılımcısı* izinler veya üzeri. Daha fazla bilgi için [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../role-based-access-control/overview.md).
 
 ## <a name="manage-your-dns-aliases"></a>Kendi DNS diğer adları yönetme
 
@@ -96,9 +96,9 @@ DNS diğer adları yönetmek için kullanılan PowerShell cmdlet'lerini bir kod 
 Aşağıdaki kod örneğinde kullanılan cmdlet'ler şunlardır:
 
 - [Yeni-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Azure SQL veritabanı hizmet sistemde yeni bir DNS diğer ad oluşturur. Diğer ad, 1 Azure SQL veritabanı sunucusuna ifade eder.
-- [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): alın ve SQL DB sunucusu 1 atanmış olan tüm DNS diğer adları listesi.
-- [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): diğer adı için yapılandırılmış bir sunucu adı değiştirir, SQL veritabanı sunucusuna 2 1 sunucusundan bakın.
-- [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): diğer adı kullanarak DNS diğer adı 2, SQL DB sunucudan kaldırın.
+- [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Alın ve SQL DB sunucusu 1 atanmış olan tüm DNS diğer adları listesi.
+- [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Diğer adı için yapılandırılmış bir sunucu adı değiştirir, SQL veritabanı sunucusuna 2 1 sunucusundan bakın.
+- [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): DNS diğer adı, diğer adı kullanarak, 2, SQL DB sunucusundan kaldırın.
 
 Önceki cmdlet'ler eklenmiştir **Azurerm.SQL'e** modülü 5.1.1 modül sürümünden itibaren.
 
@@ -106,10 +106,10 @@ Aşağıdaki kod örneğinde kullanılan cmdlet'ler şunlardır:
 
 Şu anda, bir DNS diğer adı aşağıdaki sınırlamalara sahiptir:
 
-- *En fazla 2 dakika gecikme:* kaldırıldı veya güncelleştirilmesi bir DNS diğer adı en fazla 2 dakika sürer.
+- *En fazla 2 dakika gecikmesi:* Kaldırılan veya güncelleştirilmesi bir DNS diğer adı en fazla 2 dakika sürer.
   - Kısa bir gecikme bağımsız olarak eski sunucunun istemci bağlantılarını başvuran diğer hemen durdurur.
-- *DNS araması:* şimdilik yalnızca yetkili gerçekleştirerek belirli bir DNS diğer adı başvurduğu hangi sunucu olup olmadığını denetleyin şekilde bir [DNS araması](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-- *[Tablo denetimi desteklenmiyor](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* bir DNS diğer adı olan bir Azure SQL veritabanı sunucusunda kullanamazsınız *tablo denetleme* bir veritabanında etkin.
+- *DNS araması:* Şimdilik yalnızca yetkili gerçekleştirerek belirli bir DNS diğer adı başvurduğu hangi sunucu olup olmadığını denetleyin şekilde bir [DNS araması](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
+- *[Tablo denetimi desteklenmiyor](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* Bir DNS diğer adı olan bir Azure SQL veritabanı sunucusunda kullanamazsınız *tablo denetleme* bir veritabanında etkin.
   - Tablo denetimi kullanım dışı bırakılmıştır.
   - İçin taşıma öneririz [Blob denetimi](sql-database-auditing.md).
 

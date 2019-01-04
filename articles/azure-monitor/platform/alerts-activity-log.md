@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 5657cfb40e9017918f5842c573895872940b307a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6d0c8f62d109d07a9f08e5190a5a2caa0d66a0c1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273721"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579337"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Etkinlik günlüğü Uyarıları yönetme  
 
@@ -96,7 +96,7 @@ Aşağıdaki yordamı kullanın:
     Etkinleştirme, devre dışı bırakmak, düzenlemek veya silmek bir kural. [Daha fazla bilgi edinin](#view-and-manage-activity-log-alert-rules-in-azure-portal) etkinlik günlüğü kurallarını yönetme hakkında.
 
 
-Alternatif olarak, bir basit benzerleme, uyarı kuralları oluşturulabilir, etkinlik günlüğünde anlama koşullar için olan keşfedin veya aracılığıyla olayları filtrelemek için [Azure portalında etkinlik günlüğü](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). Azure İzleyici - etkinlik günlüğü, bir filtre veya gerekli olay bulabilir ve ardından kullanarak bir uyarı oluşturma **etkinlik günlüğü uyarısı Ekle** düğmesini; ardından adımları 4 ve üzeri öğreticide yukarıda belirtildiği gibi izleyin.
+Alternatif olarak, bir basit benzerleme, uyarı kuralları oluşturulabilir, etkinlik günlüğünde anlama koşullar için olan keşfedin veya aracılığıyla olayları filtrelemek için [Azure portalında etkinlik günlüğü](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). Azure İzleyici - etkinlik günlüğü, bir filtre veya gerekli olay bulabilir ve ardından kullanarak bir uyarı oluşturma **etkinlik günlüğü uyarısı Ekle** düğmesini; ardından adımları 4 ve üzeri öğreticide yukarıda belirtildiği gibi izleyin.
     
  ![ Etkinlik günlüğü uyarısı Ekle](media/alerts-activity-log/add-activity-log.png)
     
@@ -223,4 +223,4 @@ az group deployment create --resource-group myRG --template-file sampleActivityL
 - [Etkinlik günlükleri için Web kancası şeması](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 - [Etkinlik günlüklerine genel bakış](../../azure-monitor/platform/activity-log-alerts.md) 
 - Daha fazla bilgi edinin [Eylem grupları](../../azure-monitor/platform/action-groups.md).  
-- Hakkında bilgi edinin [hizmet durumu bildirimlerini](../../monitoring-and-diagnostics/monitoring-service-notifications.md).
+- Hakkında bilgi edinin [hizmet durumu bildirimlerini](../../azure-monitor/platform/service-notifications.md).

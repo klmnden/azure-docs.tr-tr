@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d34be70e3283869a28f036f0016a0d3f8f241a8a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5086c0758e7c535b65c877917dc790dafa46f763
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634856"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994734"
 ---
 # <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
@@ -26,11 +26,11 @@ Bu hızlı başlangıçta [Azure portalı](https://portal.azure.com/), [Azure Po
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Yok.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Bu hızlı başlangıçta, Azure PowerShell modülü Az 0.7 veya sonraki bir sürümü gerektirir. Geçerli sürümünüzü bulmak için `Get-Module -ListAvailable Az` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-Az-ps).
 
@@ -59,11 +59,11 @@ Ayrıca, Azure CLI’yi yerel olarak yükleyip kullanabilirsiniz. Bu hızlı ba�
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 [Azure Portal](https://portal.azure.com)’da oturum açın.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 `Connect-AzAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyerek kimlik doğrulaması yapın.
 
@@ -91,11 +91,11 @@ Her depolama hesabı bir Azure kaynak grubuna ait olmalıdır. Kaynak grubu, Azu
 
 **Genel amaçlı v2** depolama hesabı, tüm Azure Depolama hizmetlerine erişim sağlar: blob'lar, dosyalar, kuyruklar, tablolar ve diskler. Hızlı başlangıç bir genel amaçlı v2 depolama hesabı oluşturur, ancak herhangi bir türde depolama hesabı oluşturma adımları da benzerdir.   
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 İlk olarak kullanarak PowerShell ile yeni bir kaynak grubu oluşturun. [yeni AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) komutu: 
 
@@ -178,7 +178,7 @@ Kullanılabilir çoğaltma seçenekleri hakkında daha fazla bilgi için bkz. [D
 
 Bu hızlı başlangıç tarafından oluşturulan kaynakları temizlemek isterseniz, kaynak grubunu silmeniz yeterlidir. Kaynak grubunun silinmesi, ilişkili depolama hesabını ve kaynak grubuyla ilişkili diğer tüm kaynakları da siler.
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Azure portalını kullanarak kaynak grubunu kaldırmak için:
 
@@ -186,7 +186,7 @@ Azure portalını kullanarak kaynak grubunu kaldırmak için:
 2. Silinecek kaynak grubunu bulun ve listenin sağ tarafındaki **Daha fazla** düğmesine (**...**) sağ tıklayın.
 3. **Kaynak grubunu sil**'i seçip onaylayın.
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Kaynak grubunu ve yeni depolama hesabı dahil olmak üzere ilişkili kaynakları kaldırmak için kullanın [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) komutu: 
 
@@ -199,21 +199,21 @@ Remove-AzResourceGroup -Name $resourceGroup
 Kaynak grubunu ve yeni depolama hesabı dahil olmak üzere ilişkili kaynakları kaldırmak için [az group delete](/cli/azure/group#az_group_delete) komutunu kullanın.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name storage-quickstart-resource-group
 ```
 
 ---
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, genel amaçlı bir standart depolama hesabı oluşturdunuz. Depolama hesabınıza/hesabınızdan blobları karşıya yüklemeyi ve indirmeyi öğrenmek için, Blob depolama hızlı başlangıcı ile devam edin.
+Bu hızlı başlangıçta, genel amaçlı v2 standart depolama hesabı oluşturdunuz. Depolama hesabınıza/hesabınızdan blobları karşıya yüklemeyi ve indirmeyi öğrenmek için, Blob depolama hızlı başlangıcı ile devam edin.
 
-# <a name="portaltabportal"></a>[Portal](#tab/portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 > [!div class="nextstepaction"]
 > [Azure portalını kullanarak bloblarla çalışma](../blobs/storage-quickstart-blobs-portal.md)
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!div class="nextstepaction"]
 > [PowerShell kullanarak bloblarla çalışma](../blobs/storage-quickstart-blobs-powershell.md)
@@ -221,6 +221,6 @@ Bu hızlı başlangıçta, genel amaçlı bir standart depolama hesabı oluştur
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [Azure CLI kullanarak blob depolama alanı ile çalışma](../blobs/storage-quickstart-blobs-cli.md)
+> [Azure CLI kullanarak blobları ile çalışma](../blobs/storage-quickstart-blobs-cli.md)
 
 ---

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a0d697438c1265b8c4e6802dc2dad62a33f51855
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301557"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548604"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure İşlevleri için sürekli dağıtım
 Azure işlevleri işlev uygulamanızı App Service'e sürekli tümleştirme kullanarak dağıtma kolaylaştırır. İşlevleri, BitBucket, Dropbox, GitHub ve Azure DevOps ile tümleşir. Bu, Azure'a bu tümleşik hizmetler tetikleyici dağıtımı birini kullanarak yapılan işlev kodunu burada güncelleştirmeleri bir iş akışı sağlar. Azure işlevleri'ne yeni başladıysanız, başlayan [Azure işlevlerine genel bakış](functions-overview.md).
@@ -26,7 +26,7 @@ Sürekli dağıtım, birden fazla ve sık gerçekleşen katkıların tümleştir
 * [Bitbucket](https://bitbucket.org/)
 * [Dropbox](https://www.dropbox.com/)
 * Dış depo (Git veya Mercurial)
-* [Yerel Git deposu](../app-service/app-service-deploy-local-git.md)
+* [Yerel Git deposu](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
 * [Azure DevOps Hizmetleri](https://www.visualstudio.com/team-services/)
@@ -52,7 +52,7 @@ Var olan bir işlev uygulaması için sürekli dağıtımını yapılandırmak i
  
     ![Sürekli dağıtımı](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. İçinde **dağıtım kaynağı** dikey penceresinde tıklayın **Kaynak Seç**, seçtiğiniz dağıtım kaynağınız için bilgileri doldurun ve **Tamam**.
+3. İçinde **dağıtım kaynağı** dikey penceresinde tıklayın **Kaynak Seç**, seçtiğiniz dağıtım kaynağınız için bilgileri doldurun ve **Tamam**.
    
     ![Dağıtım kaynağını seçin](./media/functions-continuous-deployment/choose-deployment-source.png)
 
@@ -93,12 +93,12 @@ Oluşturduğunuz ve portalda tutulan, FTP kullanarak, mevcut işlev kod dosyası
 > [!NOTE]
 > Sürekli tümleştirmeyi yapılandırdıktan sonra artık kaynak dosyalarınızı işlevler portalından düzenlemeniz mümkün olacaktır.
 
-- [Nasıl yapılır: dağıtım kimlik bilgilerini yapılandırma](#credentials)
-- [Nasıl yapılır: FTP ile dosya indirme](#downftp)
-- [Nasıl yapılır: yerel Git deposunu kullanarak dosya indirme](#downgit)
+- [Nasıl Yapılır: Dağıtım kimlik bilgilerini yapılandırma](#credentials)
+- [Nasıl Yapılır: FTP kullanarak dosyaları indirme](#downftp)
+- [Nasıl Yapılır: Yerel Git deposunu kullanarak dosyaları indirme](#downgit)
 
 <a name="credentials"></a>
-#### <a name="how-to-configure-deployment-credentials"></a>Nasıl yapılır: dağıtım kimlik bilgilerini yapılandırma
+#### <a name="how-to-configure-deployment-credentials"></a>Nasıl yapılır: Dağıtım kimlik bilgilerini yapılandırma
 FTP veya yerel Git deposu ile işlevi uygulamanızdan dosyalarını indirebilmesinden önce siteye erişmek için kimlik bilgilerinizi yapılandırmanız gerekir. Kimlik bilgileri işlevi uygulama düzeyinde ayarlanır. Azure portalında dağıtım kimlik bilgilerini ayarlamak için aşağıdaki adımları kullanın:
 
 1. İşlev uygulamanıza [Azure portalında](https://portal.azure.com), tıklayın **Platform özellikleri** ve **dağıtım kimlik bilgileri**.
@@ -108,7 +108,7 @@ FTP veya yerel Git deposu ile işlevi uygulamanızdan dosyalarını indirebilmes
 2. Bir kullanıcı adı ve parola yazın ve ardından tıklayın **Kaydet**. Şimdi, işlev uygulamanızı FTP ya da yerleşik Git deposu erişmek için bu kimlik bilgilerini kullanabilirsiniz.
 
 <a name="downftp"></a>
-#### <a name="how-to-download-files-using-ftp"></a>Nasıl yapılır: FTP ile dosya indirme
+#### <a name="how-to-download-files-using-ftp"></a>Nasıl yapılır: FTP kullanarak dosyaları indirme
 
 1. İşlev uygulamanıza [Azure portalında](https://portal.azure.com), tıklayın **Platform özellikleri** ve **özellikleri**, sonra da değerleri kopyalayın **FTP/dağıtım kullanıcısı**, **FTP konak adı**, ve **FTPS konak adı**.  
 
@@ -119,7 +119,7 @@ FTP veya yerel Git deposu ile işlevi uygulamanızdan dosyalarını indirebilmes
 2. FTP istemcinizde, bağlantı bilgilerini kullanın. uygulamanıza bağlanıp işlevleriniz için kaynak dosyalarını indirmek için toplanan.
 
 <a name="downgit"></a>
-#### <a name="how-to-download-files-using-a-local-git-repository"></a>Nasıl yapılır: yerel Git deposunu kullanarak dosya indirme
+#### <a name="how-to-download-files-using-a-local-git-repository"></a>Nasıl yapılır: Yerel Git deposunu kullanarak dosyaları indirme
 
 1. İşlev uygulamanıza [Azure portalında](https://portal.azure.com), tıklayın **Platform özellikleri** ve **dağıtım seçenekleri**. 
    

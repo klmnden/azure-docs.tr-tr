@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1f0ff7bef5c1d30eb6920eaab3767de1dea6b94a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0555fa7de7ed85cf6d26f85b93f0010b2ab6fa53
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438872"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976979"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight için sürüm notları
 
@@ -35,7 +35,7 @@ En yeni güncelleştirmeleri ve özellikleri aşağıdaki kategorilere ayrılır
 
     a.  [**Apache Spark 2.3 yeni özellikler**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    b.  [**Apache Kafka 1.0 yeni özellikler**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
+    b.  [**Apache Kafka 1.0 yeni özellikler**](https://kafka.apache.org/downloads#1.0.0)
 
 2.  ***Machine Learning Hizmetleri 9.3 için R Server 9.1 güncelleştirme*** – bu sürümle birlikte, veri Bilim insanlarının ve mühendislerin en iyi algoritmik yeniliklerini ve kullanıma hazır hale getirme, tüm kullanılabilir kolaylığı ile geliştirilmiş açık kaynak ile sağlıyoruz, tercih edilen dili ile Apache Spark'ın hızı. Bu sürüm, Python, R Server ML Hizmetleri için gelen küme adı değişikliği baştaki desteği eklendi ile R Server'da sunulan üzerine genişletir. 
 
@@ -1300,9 +1300,9 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
 
 |**Apache bileşeni**|**Apache JIRA**|**Özet**|**Ayrıntılar**|
 |--|--|--|--|
-|**Spark 2.3** |**Yok** |**Apache Spark ile belirtildiği gibi değişiklikler sürüm notları** |-Var olan bir "Kullanım dışı bırakma" belge ve "Davranış değişikliği" Kılavuzu https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-SQL bölüm için (kadar 2.2 2.3 için), başka bir ayrıntılı "geçiş" kılavuzu yoktur http://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Spark 2.3** |**Yok** |**Apache Spark ile belirtildiği gibi değişiklikler sürüm notları** |-Var olan bir "Kullanım dışı bırakma" belge ve "Davranış değişikliği" Kılavuzu https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-SQL bölüm için (kadar 2.2 2.3 için), başka bir ayrıntılı "geçiş" kılavuzu yoktur https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE 12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark işi başarıyla tamamlanır ancak HDFS disk kotası tam hata oluşuyor |**Senaryo:** Çalışan **INSERT üzerine** komutu çalıştıran kullanıcının Çöp Kutusu klasöründe bir kota ayarlandığında.<br /><br />**Önceki davranışı:** İş verileri çöp kutusuna taşımak başarısız olsa bile başarılı olur. Sonuç tablosunda daha önce mevcut verilerin bazıları yanlış içerebilir.<br /><br />**Yeni davranışı:** Çöp Kutusu klasörüne taşıma başarısız olduğunda, dosyaların kalıcı olarak silinir.|
-|**Kafka 1.0**|**Yok**|**Apache Spark ile belirtildiği gibi değişiklikler sürüm notları** |http://kafka.apache.org/10/documentation.html#upgrade_100_notable|
+|**Kafka 1.0**|**Yok**|**Apache Spark ile belirtildiği gibi değişiklikler sürüm notları** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive / Ranger** | |INSERT üzerine yazmak için gerekli ek ranger hive İlkesi |**Senaryo:** İçin gerekli ek ranger hive ilkelerini **üzerine Ekle**<br /><br />**Önceki davranışı:** Hive **Ekle üzerine** sorguları zamanki başarılı.<br /><br />**Yeni davranışı:** Hive **Ekle üzerine** sorguları beklenmedik şekilde başarısız hatasıyla HDP-2.6.x yükselttikten sonra:<br /><br />Bildirimi derleme hatası oluştu: BAŞARISIZ OLDU: HiveAccessControlException izni reddedildi: kullanıcı jdoe /tmp/ üzerinde yazma ayrıcalık yok\*(durum = 42000, kod 40000 =)<br /><br />HDP 2.6.0 itibariyle, Hive **Ekle üzerine** sorguları yazma ayrıcalık HDFS İlkesi ile verilen kullanıcı olsa bile yazma işlemleri, izin vermek için bir URI Ranger İlkesi gerektirir.<br /><br />**Geçici çözüm ve beklenen müşteri eylemi:**<br /><br />1. Hive deposu altındaki yeni bir ilke oluşturun.<br />2. Veritabanı gördüğünüz açılır menüde, URI seçin.<br />3. Yol Güncelleştirmesi (örnek: / tmp / *)<br />4. Kullanıcılar ve grupları ekleyin ve kaydedin.<br />5. Ekleme sorgusu yeniden deneyin.|
 |**HDFS**|**Yok** |Birden çok KMS URI'ler için HDFS desteklemelidir |**Önceki davranışı:** dfs.encryption.key.provider.uri özelliği KMS sağlayıcı yolu yapılandırmak için kullanıldı.<br /><br />**Yeni davranış:** dfs.encryption.key.provider.uri KMS sağlayıcı yolu yapılandırmak için hadoop.security.key.provider.path yerine artık kullanım dışı.|
 |**Zeppelin**|[**ZEPPELIN 3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|Zamanlayıcı'yı devre dışı bırakmaya yönelik seçenek |**Etkilenen bileşeni:** Zeppelin-sunucu<br /><br />**Önceki davranışı:** Zeppelin önceki sürümlerde, Zamanlayıcı'yı devre dışı bırakma seçeneği bulunmamaktadır.<br /><br />**Yeni davranışı:** Varsayılan olarak, kullanıcılar varsayılan olarak devre dışı olarak Zamanlayıcı, artık görür.<br /><br />**Geçici çözüm ve beklenen müşteri eylemi:** Zamanlayıcı'yı etkinleştirmek istiyorsanız, Ambari Zeppelin ayarlarında özel zeppelin site altında true değeriyle azeppelin.notebook.cron.enable eklemeniz gerekir.|
@@ -1409,6 +1409,10 @@ Giderilen sorunlar Hortonworks destek daha önceden günlüğe kaydedilen ancak 
             VAL = \_.escape(val);//Line Hayır: 460
             
             Yukarıdaki satırı kaldırdıktan sonra Ranger arabirimini ilkeleri oluşturmanızı sağlayacak özel karakterler ve ilkeyi içeren ilke koşulu ile değerlendirme için aynı ilke başarılı olur.
+
+**HDInsight tümleştirmesiyle ADLS Gen 2: ESP kümeleriyle kullanıcı dizinleri ve izinleri sorunu**
+    1.  Kullanıcılar için giriş dizini baş düğüm 1'de oluşturulmaz. Bu el ile oluşturmak ve ilgili kullanıcının UPN'sini sahipliğini değiştirmek için çözüm olabilir.
+    2.  /Hdp izinler şu anda ayarlanmadı 751 için. Bunu ayarlamak için gereken bir.  chmod 751 /hdp b.  chmod – R 755/hdp/uygulamaları
 
 ## <a name="deprecation"></a>Kullanımdan kaldırma
 

@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: f3e30309b230ec44ddf39648b943f3f76dc7805d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409760"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722660"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Kimlik doğrulama ve yetkilendirme Azure App Service'te özelliğinin Gelişmiş kullanımı
 
-Bu makalede yerleşik özelleştirmek gösterilmektedir [kimlik doğrulama ve yetkilendirme App Service'te](app-service-authentication-overview.md), uygulamanızdan kimlik yönetmek için. 
+Bu makalede yerleşik özelleştirmek gösterilmektedir [kimlik doğrulama ve yetkilendirme App Service'te](overview-authentication-authorization.md), uygulamanızdan kimlik yönetmek için. 
 
 Hızlıca kullanmaya başlamak için aşağıdaki öğreticilerden birine bakın:
 
@@ -37,13 +37,13 @@ Hızlıca kullanmaya başlamak için aşağıdaki öğreticilerden birine bakın
 
 ## <a name="use-multiple-sign-in-providers"></a>Oturum açma birden çok sağlayıcı kullanma
 
-Portal yapılandırma, çoklu oturum açma sağlayıcılarını (örneğin, Facebook ve Twitter için), kullanıcılarınıza sunmak için bir anahtar teslim yol sunmaz. Ancak, web uygulamanıza işlevsellik eklemek zor değildir. Aşağıda belirtilen adımları:
+Portal yapılandırma, çoklu oturum açma sağlayıcılarını (örneğin, Facebook ve Twitter için), kullanıcılarınıza sunmak için bir anahtar teslim yol sunmaz. Ancak, uygulamanıza işlevsellik eklemek zor değildir. Aşağıda belirtilen adımları:
 
 İlk olarak **kimlik doğrulama / yetkilendirme** sayfasında Azure Portalı'nda, etkinleştirmek istediğiniz kimlik sağlayıcısının her yapılandırın.
 
 İçinde **isteğin kimliği doğrulanmamış olduğunda gerçekleştirilecek eylem**seçin **izin anonim istekler (eylem yok)**.
 
-Oturum açma sayfası veya gezinti çubuğunu veya web uygulamanızın başka bir konuma bir oturum açma bağlantısı etkinleştirdiğiniz sağlayıcıların her birine Ekle (`/.auth/login/<provider>`). Örneğin:
+Oturum açma sayfası veya gezinti çubuğunu veya başka bir konuma uygulamanızın oturum açma bağlantısı etkinleştirdiğiniz sağlayıcıların her birine Ekle (`/.auth/login/<provider>`). Örneğin:
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -63,7 +63,7 @@ Kullanıcı sonrası-oturumu açma, bir özel URL'ye yeniden yönlendirmek için
 
 ## <a name="validate-tokens-from-providers"></a>Sağlayıcılardan gelen belirteçleri doğrulamak
 
-Bir istemci yönelik oturum açma, uygulamayı el ile ve sağlayıcı kullanıcı oturum açar ve ardından App Service doğrulaması için kimlik doğrulama belirteci gönderir (bkz [kimlik doğrulama akışı](app-service-authentication-overview.md#authentication-flow)). Bu doğrulama gerçekten istenen uygulama kaynaklarına erişmek, ancak başarılı bir doğrulama uygulama kaynaklarına erişmek için kullanabileceğiniz bir oturum belirteci verir izni yoktur. 
+Bir istemci yönelik oturum açma, uygulamayı el ile ve sağlayıcı kullanıcı oturum açar ve ardından App Service doğrulaması için kimlik doğrulama belirteci gönderir (bkz [kimlik doğrulama akışı](overview-authentication-authorization.md#authentication-flow)). Bu doğrulama gerçekten istenen uygulama kaynaklarına erişmek, ancak başarılı bir doğrulama uygulama kaynaklarına erişmek için kullanabileceğiniz bir oturum belirteci verir izni yoktur. 
 
 Sağlayıcı belirteci doğrulamak için App Service uygulaması istenen sağlayıcı ile önce yapılandırılması gerekir. Sağlayıcınızdan kimlik doğrulama belirteci aldıktan sonra çalışma zamanında belirtece sonrası `/.auth/login/<provider>` doğrulama için. Örneğin: 
 
@@ -186,15 +186,15 @@ Sağlayıcınızın erişim belirtecinin süresi dolduğunda, kullanıcının ye
 - **Microsoft hesabı**: Zaman [Microsoft hesabı kimlik doğrulama ayarları yapılandırma](configure-authentication-provider-microsoft.md)seçin `wl.offline_access` kapsam.
 - **Azure Active Directory**: İçinde [ https://resources.azure.com ](https://resources.azure.com), aşağıdaki adımları uygulayın:
     1. Sayfanın üst kısmında seçin **okuma/yazma**.
-    1. Sol tarayıcıda gidin **abonelikleri** > **_\<abonelik\_adı_**   >  **resourceGroups** > _**\<kaynak\_grubu\_adı >**_   >  **sağlayıcıları** > **Microsoft.Web** > **siteleri** > _**\<uygulama \_adı >**_ > **config** > **authsettings**. 
-    1. **Düzenle**’ye tıklayın.
-    1. Aşağıdaki özelliğini değiştirin. Değiştirin  _\<uygulama\_kimliği >_ erişmek istediğiniz hizmeti Azure Active Directory Uygulama kimliği.
+    2. Sol tarayıcıda gidin **abonelikleri** > **_\<abonelik\_adı_**   >  **resourceGroups** > _**\<kaynak\_grubu\_adı >**_   >  **sağlayıcıları** > **Microsoft.Web** > **siteleri** > _**\<uygulama \_adı >**_ > **config** > **authsettings**. 
+    3. **Düzenle**’ye tıklayın.
+    4. Aşağıdaki özelliğini değiştirin. Değiştirin  _\<uygulama\_kimliği >_ erişmek istediğiniz hizmeti Azure Active Directory Uygulama kimliği.
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    1. Tıklayın **Put**. 
+    5. Tıklayın **Put**. 
 
 Sağlayıcınız yapılandırıldıktan sonra yapabilecekleriniz [yenileme belirtecini ve erişim belirteci süre sonu](#retrieve-tokens-in-app-code) belirteç deposundaki. 
 

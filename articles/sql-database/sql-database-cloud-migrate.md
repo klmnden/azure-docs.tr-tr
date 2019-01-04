@@ -8,17 +8,17 @@ ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: e87f8a0d168db02bf0e93216991767f5a9be584c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 89cf69ba8bc88a40582ea795b6a17fab4f286d64
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863525"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651989"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL veritabanı için SQL Server veritabanı geçişi
 
@@ -33,9 +33,9 @@ Kaynak veritabanı kullanarak Azure SQL veritabanı ile uyumlu olmasını sağla
 > [!NOTE]
 > Microsoft Access, Sybase, MySQL Oracle ve DB2 olmak üzere SQL Server harici veritabanlarını Azure SQL Veritabanına geçirmek için bkz. [SQL Server Geçiş Yardımcısı](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
 
-## <a name="method-1-migration-with-downtime-during-the-migration"></a>Yöntem 1: Geçiş sırasında kapalı kalma süresi ile geçiş
+## <a name="method-1-migration-with-downtime-during-the-migration"></a>1. yöntem: Geçiş sırasında kapalı kalma süresiyle geçiş
 
- Tek veya havuza alınmış bir veritabanı için bazı kapalı kalma süresi durumsa veya ileride geçiş için bir üretim veritabanının test geçişini gerçekleştiriyorsanız, geçirmek için bu yöntemi kullanın. Bir öğretici için bkz. [bir SQL Server veritabanını geçirme](sql-database-migrate-your-sql-server-database.md).
+ Tek veya havuza alınmış bir veritabanı için bazı kapalı kalma süresi durumsa veya ileride geçiş için bir üretim veritabanının test geçişini gerçekleştiriyorsanız, geçirmek için bu yöntemi kullanın. Bir öğretici için bkz. [bir SQL Server veritabanını geçirme](../dms/tutorial-sql-server-to-azure-sql.md).
 
 Aşağıdaki liste, tek bir SQL Server veritabanı geçişi için genel iş akışını veya bu yöntemi kullanarak havuza alınmış bir veritabanı içerir. Yönetilen örneğe geçiş için bkz: [yönetilen örneğe geçiş](sql-database-managed-instance-migrate.md).
 
@@ -65,7 +65,7 @@ Aşağıdaki liste, içeri aktarma işlemi sırasında en iyi performans için �
 
 Geçiş tamamlandıktan sonra tam tarama ile [istatistikleri güncelleştirin](https://msdn.microsoft.com/library/ms187348.aspx).
 
-## <a name="method-2-use-transactional-replication"></a>Yöntem 2: İşlem Çoğaltma Kullanma
+## <a name="method-2-use-transactional-replication"></a>2. yöntem: İşlem çoğaltma kullanma
 
 Geçiş gerçekleşirken SQL Server veritabanınızı üretimden kaldırmak kabul edilebilir bir durum değilse, geçiş çözümü olarak SQL Server işlem çoğaltmayı kullanabilirsiniz. Bu yöntemi kullanmak için, kaynak veritabanının [işlem çoğaltma gereksinimlerini](https://msdn.microsoft.com/library/mt589530.aspx) karşılaması ve Azure SQL Veritabanı ile uyumlu olması gerekir. Her zaman açık SQL çoğaltma hakkında daha fazla bilgi için bkz. [Always On kullanılabilirlik grupları (SQL Server) için çoğaltma yapılandırma](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 

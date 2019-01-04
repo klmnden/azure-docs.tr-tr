@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: 86b10d65ecaa52055244f3530f91c1cabbe219e0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 833f240572b10e9d07da0ded27f5848822a70f46
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435557"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744352"
 ---
 # <a name="apache-phoenix-in-hdinsight"></a>HDInsight üzerinde Apache Phoenix
 
-[Apache Phoenix](http://phoenix.apache.org/) yüksek düzeyde paralel ilişkisel veritabanı katmanı üzerinde oluşturulan bir açık kaynak [Apache HBase](hbase/apache-hbase-overview.md). Phoenix, HBase üzerinde SQL benzeri sorguları kullanmanıza olanak sağlar. Phoenix, oluştur, Sil, SQL tabloları, dizinleri, görünümleri ve dizileri ve upsert satırları ayrı ayrı ve toplu değiştirme olanağı altında JDBC sürücüleri kullanır. Phoenix, HBase üzerinde düşük gecikme süreli uygulamaları oluşturmayı etkinleştirme sorgular derlemek için MapReduce kullanmak yerine noSQL yerel derleme kullanır. Phoenix, verilerle birlikte kod yürüten sunucu adres alanında istemci tarafından sağlanan kod çalıştırılmasını desteklemek üzere coprocessors ekler. Bu yaklaşım istemci/sunucu veri aktarımını en aza indirir.
+[Apache Phoenix](https://phoenix.apache.org/) yüksek düzeyde paralel ilişkisel veritabanı katmanı üzerinde oluşturulan bir açık kaynak [Apache HBase](hbase/apache-hbase-overview.md). Phoenix, HBase üzerinde SQL benzeri sorguları kullanmanıza olanak sağlar. Phoenix, oluştur, Sil, SQL tabloları, dizinleri, görünümleri ve dizileri ve upsert satırları ayrı ayrı ve toplu değiştirme olanağı altında JDBC sürücüleri kullanır. Phoenix, HBase üzerinde düşük gecikme süreli uygulamaları oluşturmayı etkinleştirme sorgular derlemek için MapReduce kullanmak yerine noSQL yerel derleme kullanır. Phoenix, verilerle birlikte kod yürüten sunucu adres alanında istemci tarafından sağlanan kod çalıştırılmasını desteklemek üzere coprocessors ekler. Bu yaklaşım istemci/sunucu veri aktarımını en aza indirir.
 
-Apache Phoenix, olmayan-SQL benzeri bir sözdizimi kullanan geliştiricilerin büyük veri sorgularını açılır programlama yerine. Phoenix yüksek oranda optimize HBase için diğer araçları gibi [Hive](hadoop/hdinsight-use-hive.md) ve Apache Spark SQL. Geliştiriciler için en büyük avantajı yüksek performansa sahip sorgular çok daha az kod yazıyor.
+Apache Phoenix, olmayan-SQL benzeri bir sözdizimi kullanan geliştiricilerin büyük veri sorgularını açılır programlama yerine. Phoenix yüksek oranda optimize HBase için diğer araçları gibi [Apache Hive](hadoop/hdinsight-use-hive.md) ve Apache Spark SQL. Geliştiriciler için en büyük avantajı yüksek performansa sahip sorgular çok daha az kod yazıyor.
 <!-- [Spark SQL](spark/apache-spark-sql-with-hdinsight.md)  -->
 
 Bir SQL sorgusu gönderdiğiniz zaman, Phoenix sorgu HBase yerel çağrıları derler ve iyileştirme paralel tarama (veya planı) çalıştırır. Bu Soyutlama Katmanı iş mantığını ve iş akışını kendi uygulamasına Phoenix'ın büyük veri depolama ve bunun yerine odaklanmak için MapReduce işleri yazmasını Geliştirici serbest bırakır.
@@ -70,17 +70,17 @@ Daha fazla sütun daha eklemek için `ALTER VIEW` deyimi.
 
 ### <a name="skip-scan"></a>Skip tarama
 
-Skip tarama bir bileşik dizin, bir veya daha fazla sütun benzersiz değerleri bulmak için kullanır. Aralık tarama, tarama, sonuçlanmıyor satır içi Atla tarama uygulayan [geliştirilmiş performans](http://phoenix.apache.org/performance.html#Skip-Scan). Tarama sırasında sonraki değer bulunana kadar ilk eşleşen değerin yanı sıra dizin atlanır.
+Skip tarama bir bileşik dizin, bir veya daha fazla sütun benzersiz değerleri bulmak için kullanır. Aralık tarama, tarama, sonuçlanmıyor satır içi Atla tarama uygulayan [geliştirilmiş performans](https://phoenix.apache.org/performance.html#Skip-Scan). Tarama sırasında sonraki değer bulunana kadar ilk eşleşen değerin yanı sıra dizin atlanır.
 
 Skip tarama kullanan `SEEK_NEXT_USING_HINT` HBase filtre numaralandırması. Kullanarak `SEEK_NEXT_USING_HINT`, Atla tarama hangi anahtar kümesini veya anahtarlarının aralıkları izler, için her bir sütunun Aranmakta olan. Skip tarama ardından filtre değerlendirmesi sırasında geçilen ve bileşimlerinden olup olmadığını belirler bir anahtarı alır. Aksi halde, atlamak için bir sonraki en yüksek anahtar Atla tarama değerlendirir.
 
 ### <a name="transactions"></a>İşlemler
 
-HBase satır düzeyinde işlemler sağlasa da, Phoenix ile tümleşir [Tephra](http://tephra.io/) tam satır içi ve geçici tablo işlem desteği eklemek için [ACID](https://en.wikipedia.org/wiki/ACID) semantiği.
+HBase satır düzeyinde işlemler sağlasa da, Phoenix ile tümleşir [Tephra](https://tephra.io/) tam satır içi ve geçici tablo işlem desteği eklemek için [ACID](https://en.wikipedia.org/wiki/ACID) semantiği.
 
 Olarak ile geleneksel SQL işlemleri, Phoenix işlem yöneticisi sağlanan işlemleri başarıyla atomik bir veri birimi üzerinde herhangi bir işlem etkin tabloda upsert işlem başarısız olursa işlemi geri alınıyor upserted, olduğundan emin olmak sağlar.
 
-Phoenix hareketleri etkinleştirmek için bkz: [Apache Phoenix işlem belgeleri](http://phoenix.apache.org/transactions.html).
+Phoenix hareketleri etkinleştirmek için bkz: [Apache Phoenix işlem belgeleri](https://phoenix.apache.org/transactions.html).
 
 Etkin işlemleri yeni bir tablo oluşturmak için `TRANSACTIONAL` özelliğini `true` içinde bir `CREATE` deyimi:
 
@@ -94,7 +94,7 @@ CREATE TABLE my_table (k BIGINT PRIMARY KEY, v VARCHAR) TRANSACTIONAL=true;
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > İşlem olmayan olan geri işlemsel bir tabloda geçiş yapamazsınız.
 
 ### <a name="salted-tables"></a>Salted tabloları

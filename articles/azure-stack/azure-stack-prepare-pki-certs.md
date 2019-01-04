@@ -1,5 +1,5 @@
 ---
-title: Azure Stack ortak anahtar altyapısı sertifikaları Azure Stack tümleşik sistemleri dağıtımı için hazırlama | Microsoft Docs
+title: Azure Stack ortak anahtar altyapısı sertifikaları, Azure Stack tümleşik sistemleri dağıtımı veya gizli döndürme için hazırlama | Microsoft Docs
 description: Azure Stack PKI sertifikaları için Azure Stack tümleşik sistemleri hazırlanma işlemi açıklanmaktadır.
 services: azure-stack
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7a4c0d62fd1ea675c6569840c26ed1fb8e388850
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972047"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631490"
 ---
-# <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Azure Stack PKI sertifikaları dağıtımı için hazırlama
+# <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Azure Stack PKI sertifikaları dağıtımı veya döndürme kullanım için hazırlama
 Sertifika dosyalarını [seçim, CA'dan alınan](azure-stack-get-pki-certs.md) içeri ve dışarı Azure yığını'nın sertifika gereksinimleri eşleşen özelliklere sahip.
 
 
 ## <a name="prepare-certificates-for-deployment"></a>Sertifikaları dağıtımı için hazırlama
-Hazırlama ve Azure Stack PKI sertifikalarını doğrulamak için aşağıdaki adımları kullanın: 
+Hazırlama ve yeni bir Azure Stack ortamınıza dağıtmak için veya mevcut Azure Stack ortamına gizli anahtarları döndürme için kullanılacak olan Azure Stack PKI sertifikalarını doğrulamak için aşağıdaki adımları kullanın: 
 
 ### <a name="import-the-certificate"></a>Sertifika içeri aktarma
 

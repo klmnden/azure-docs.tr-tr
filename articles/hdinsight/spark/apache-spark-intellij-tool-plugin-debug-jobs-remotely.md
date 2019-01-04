@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: e973c1895a331969eea9997f7122268a9ff783bd
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e57257c6965f0da8c2d6ce990d2425847b73884f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584749"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605804"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Apache Spark uygulamalarında uzaktan HDInsight VPN aracılığıyla hata ayıklama Intellij için Azure Araç Seti'ni kullanma
 
@@ -34,20 +34,20 @@ Bu makalede bir HDInsight Spark kümesi üzerinde bir Spark işi göndermek ve m
 * **Oracle Java development Kit'i**. Buradan yükleyebilirsiniz [Oracle Web sitesi](https://aka.ms/azure-jdks).
 * **Intellij Idea**. Bu makalede, sürüm 2017.1 kullanır. Buradan yükleyebilirsiniz [JetBrains Web sitesi](https://www.jetbrains.com/idea/download/).
 * **Intellij için Azure Araç Seti HDInsight Araçları**. Intellij için HDInsight araçları kullanılabilir Intellij için Azure Araç Seti parçası olarak. Azure araç setini yükleme yönergeleri için bkz: [Intellij için Azure Araç Seti'ni yükleme](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
-* **Azure aboneliğinizde oturum Intellij Idea '**. Bölümündeki yönergeleri [Spark HDInsight kümesi için uygulamalar oluşturmak Intellij için Azure Araç Seti'ni kullanma](apache-spark-intellij-tool-plugin.md).
-* **Özel durum geçici çözüm**. Bir Windows bilgisayarda uzaktan hata ayıklama Scala Spark uygulaması çalıştırılırken özel durum alabilir. Bu özel durumun açıklaması [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) ve Windows eksik WinUtils.exe dosyasında nedeniyle oluşur. Bu hatayı çözmek için şunları yapmanız gerekir [yürütülebilir dosyayı indir](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) gibi bir konuma **C:\WinUtils\bin**. Ekleme bir **HADOOP_HOME** ortam değişkeni ve değeri bir değişkene ayarlayın **C\WinUtils**.
+* **Azure aboneliğinizde oturum Intellij Idea '**. Bölümündeki yönergeleri [bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak Intellij için Azure Araç Seti'ni kullanma](apache-spark-intellij-tool-plugin.md).
+* **Özel durum geçici çözüm**. Bir Windows bilgisayarda uzaktan hata ayıklama Scala Spark uygulaması çalıştırılırken özel durum alabilir. Bu özel durumun açıklaması [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356) ve Windows eksik WinUtils.exe dosyasında nedeniyle oluşur. Bu hatayı çözmek için şunları yapmanız gerekir [yürütülebilir dosyayı indir](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) gibi bir konuma **C:\WinUtils\bin**. Ekleme bir **HADOOP_HOME** ortam değişkeni ve değeri bir değişkene ayarlayın **C\WinUtils**.
 
-## <a name="step-1-create-an-azure-virtual-network"></a>1. adım: Azure sanal ağı oluşturma
+## <a name="step-1-create-an-azure-virtual-network"></a>1. Adım: Bir Azure sanal ağı oluşturma
 Bir Azure sanal ağı oluşturmak için aşağıdaki bağlantılardan yönergeleri izleyin ve ardından, masaüstü bilgisayarınızda ve sanal ağ arasındaki bağlantıyı doğrulayın:
 
 * [Azure portalını kullanarak siteden siteye VPN bağlantısı bir VNet oluşturma](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 * [PowerShell kullanarak siteden siteye VPN bağlantısı bir VNet oluşturma](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [PowerShell kullanarak bir sanal ağa noktadan siteye bağlantı yapılandırma](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
-## <a name="step-2-create-an-hdinsight-spark-cluster"></a>2. adım: bir HDInsight Spark kümesi oluşturma
+## <a name="step-2-create-an-hdinsight-spark-cluster"></a>2. Adım: HDInsight Spark kümesi oluşturma
 Ayrıca, oluşturduğunuz Azure sanal ağının parçası olan Azure HDInsight Apache Spark kümesi, oluşturmanızı öneririz. Bulunan bilgileri kullanın [oluşturma Linux tabanlı HDInsight kümelerinde](../hdinsight-hadoop-provision-linux-clusters.md). İsteğe bağlı yapılandırma işleminin bir parçası olarak, önceki adımda oluşturduğunuz Azure sanal ağı seçin.
 
-## <a name="step-3-verify-the-connectivity-between-the-cluster-head-node-and-your-desktop"></a>Adım 3: küme baş düğümü ve Masaüstü arasındaki bağlantıyı doğrulama
+## <a name="step-3-verify-the-connectivity-between-the-cluster-head-node-and-your-desktop"></a>3. Adım: Küme baş düğümü ve Masaüstü arasındaki bağlantıyı doğrulayın
 1. Baş düğümün IP adresini alın. Ambari UI, küme için açın. Küme dikey penceresinden seçin **Pano**.
 
     ![Ambari panoyu seçin](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/launch-ambari-ui.png)
@@ -232,7 +232,7 @@ Ayrıca, oluşturduğunuz Azure sanal ağının parçası olan Azure HDInsight A
 
     ![Uzak çalışma aşağı açılan listesi](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/config-run.png)
 
-## <a name="step-5-run-the-application-in-debug-mode"></a>5. adım: uygulamayı hata ayıklama modunda çalıştırın.
+## <a name="step-5-run-the-application-in-debug-mode"></a>5. adım: Uygulamayı hata ayıklama modunda çalıştırın.
 1. Intellij Idea projenizi açın `SparkSample.scala` ve bir kesme noktası oluşturun `val rdd1`. İçinde **kesme noktası oluşturmak için** açılır menüsünde, select **işlevi executeJob satırında**.
 
     ![Kesme noktası ekleme](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-breakpoint.png)
@@ -259,21 +259,21 @@ Ayrıca, oluşturduğunuz Azure sanal ağının parçası olan Azure HDInsight A
     ![Konsol çıktısı](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete.png)
 
 ## <a name="seealso"></a>Sonraki adımlar
-* [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
+* [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>Tanıtım
-* Scala proje oluştur (video): [Apache Spark Scala uygulamaları oluşturma](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Uzaktan hata ayıklama (video): [uzaktan bir HDInsight kümesi üzerinde Apache Spark uygulamalarında hata ayıklamak amacıyla Intellij için Azure Araç Seti'ni kullanma](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Scala proje (video) oluşturun: [Apache Spark Scala uygulamaları oluşturma](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Uzaktan hata ayıklama (video): [Apache Spark uygulamalarında uzaktan bir HDInsight kümesi üzerinde hata ayıklamak amacıyla Intellij için Azure Araç Seti'ni kullanma](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma
 * [Scala kullanarak tek başına uygulama oluşturma](../hdinsight-apache-spark-create-standalone-application.md)
-* [Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
+* [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
 * [Bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak için Intellij için Azure Araç Seti'ni kullanma](apache-spark-intellij-tool-plugin.md)

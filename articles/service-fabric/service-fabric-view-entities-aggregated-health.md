@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: c6d5954ed3547666236130753dfd53d10475df43
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 09696c606fdf57f5ac55fc50eb06c2c5eea55dfe
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308997"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555260"
 ---
 # <a name="view-service-fabric-health-reports"></a>Service Fabric sistem durumu raporlarını görüntüleme
 Azure Service Fabric tanıtır bir [sistem durumu modeli](service-fabric-health-introduction.md) hangi sistem bileşenleri ve watchdogs yerel koşulları rapor için sistem durumu varlıklarını ile bunların izleme. [Sistem durumu deposu](service-fabric-health-introduction.md#health-store) varlıkları iyi durumda olup olmadığını belirlemek için tüm sistem durumu verileri toplar.
@@ -46,7 +46,7 @@ Bu seçenekler göstermek için yerel bir küme ile beş düğüm kullanalım ve
 Service Fabric Explorer, kümeye görsel görünümünü sağlar. Aşağıdaki görüntüde görebileceğiniz gibi:
 
 * Uygulama **fabric: / WordCount** tarafından raporlanan bir hata olayı sahip olduğundan (hata) kırmızıdır **MyWatchdog** özelliği için **kullanılabilirlik**.
-* Hizmetlerinin birini **fabric: / WordCount/gerçekleştirdiğiniz** sarı (uyarı). Hizmet yedi çoğaltma ile yapılandırıldığı ve küme beş düğüm bulunduğundan iki repicas yerleştirilemez. Burada gösterilmese hizmeti sistem rapordan nedeniyle sarı bölümdür `System.FM` olduğunu belirten `Partition is below target replica or instance count`. Sarı bölümü, sarı hizmet tetikler.
+* Hizmetlerinin birini **fabric: / WordCount/gerçekleştirdiğiniz** sarı (uyarı). Hizmet yedi çoğaltma ile yapılandırıldığı ve yinelemeler yerleştirilemez beş düğüm kümesi bulunduğundan. Burada gösterilmese hizmeti sistem rapordan nedeniyle sarı bölümdür `System.FM` olduğunu belirten `Partition is below target replica or instance count`. Sarı bölümü, sarı hizmet tetikler.
 * Küme kırmızı nedeniyle red uygulamasıdır.
 
 Varsayılan ilkelerden küme bildirimi ve uygulama bildirimi bu değerlendirmeyi kullanır. Bunlar katı ilkeler ve tüm hatasını tolere değil.
@@ -464,7 +464,7 @@ API aracılığıyla hizmet durumu almak için oluşturma bir `FabricClient` ve 
 
 Aşağıdaki örnek, bir hizmeti ile belirtilen hizmet adı (URI) alır:
 
-```charp
+```csharp
 ServiceHealth serviceHealth = await fabricClient.HealthManager.GetServiceHealthAsync(serviceName);
 ```
 
@@ -1030,25 +1030,25 @@ Genel sorgular bir varlık için bir bilinmeyen sistem durumu dönerseniz, siste
 
 İçeren sorgular **HealthState** varlıklar için:
 
-* Düğüm listesini: liste düğümleri kümeye (disk belleği) döndürür.
+* Düğüm listesi: Liste düğümlerine kümenin (disk belleği) döndürür.
   * API: [FabricClient.QueryClient.GetNodeListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getnodelistasync)
   * PowerShell: Get-ServiceFabricNode
-* Uygulama listesi: (disk belleği) kümeye uygulamaların listesini döndürür.
+* Uygulama listesi: (Disk belleği) kümeye uygulamaların listesini döndürür.
   * API: [FabricClient.QueryClient.GetApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getapplicationlistasync)
   * PowerShell: Get-ServiceFabricApplication
-* Hizmet listesi: (disk belleği) bir uygulamanın hizmet listesini döndürür.
+* Hizmet listesi: (Disk belleği) bir uygulamanın hizmet listesini döndürür.
   * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
   * PowerShell: Get-ServiceFabricService
-* Bölüm listesi: (disk belleği) bir hizmet olarak bölümler listesini döndürür.
+* Bölüm listesi: Bölümlerin (disk belleği) bir hizmet olarak döndürür.
   * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
-* Çoğaltma Listesi: (disk belleği) bölümü çoğaltmaların listesini döndürür.
+* Çoğaltma Listesi: (Disk belleği) bölümü çoğaltmaların listesini döndürür.
   * API: [FabricClient.QueryClient.GetReplicaListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getreplicalistasync)
   * PowerShell: Get-servicefabricreplica komutunu
-* Dağıtılan uygulama listesi: bir düğümde dağıtılan uygulamaların listesini döndürür.
+* Dağıtılan uygulama listesi: Bir düğümde dağıtılan uygulamaların listesini döndürür.
   * API: [FabricClient.QueryClient.GetDeployedApplicationListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedapplicationlistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
-* Dağıtılan hizmet paketi listesi: dağıtılan bir uygulamada hizmet paketlerinin listesi döndürür.
+* Dağıtılan hizmet paketi listesi: Dağıtılan bir uygulamada hizmet paketlerinin listesi döndürür.
   * API: [FabricClient.QueryClient.GetDeployedServicePackageListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getdeployedservicepackagelistasync)
   * PowerShell: Get-ServiceFabricDeployedApplication
 

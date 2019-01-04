@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 75a3dcb5aeb3e30da570eb57d0d1495710624e54
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 842a9354cf20648393c3262736c0a1e9654a3c70
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060368"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628349"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>PowerShell kullanarak Azure bağımsız bulutlarda depolama yönetme
 
@@ -23,6 +23,8 @@ ms.locfileid: "42060368"
 * [Çin'de 21Vianet tarafından işletilen Azure Çin Bulutu](http://www.windowsazure.cn/)
 * [Azure Almanya Bulutu](../../germany/germany-welcome.md)
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="using-an-independent-cloud"></a>Bağımsız bir bulut kullanma 
 
 Azure depolama bağımsız bulutlarda birini kullanmak için Azure genel yerine, bir buluta bağlanın. Bağımsız Bulutlar yerine Azure genel birini kullanmak için:
@@ -31,28 +33,28 @@ Azure depolama bağımsız bulutlarda birini kullanmak için Azure genel yerine,
 * Belirlemek ve kullanılabildiği bölgeler kullanın.
 * Azure genel farklı doğru uç noktaya soneki kullanırsınız.
 
-Azure PowerShell modülü sürüm 4.4.0 örneği gerektirir veya üzeri. Bir PowerShell penceresinde çalıştırın `Get-Module -ListAvailable AzureRM` sürümü bulmak için. Hiçbir şey listelenen veya yükseltme için ihtiyacınız [Azure PowerShell modülü yükleme](/powershell/azure/install-azurerm-ps). 
+Örneği, Azure PowerShell modülü Az 0.7 veya üzerini gerektirir. Bir PowerShell penceresinde çalıştırın `Get-Module -ListAvailable Az` sürümü bulmak için. Hiçbir şey listelenen veya yükseltme için ihtiyacınız [Azure PowerShell modülü yükleme](/powershell/azure/install-Az-ps). 
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Çalıştırma [Get-AzureRmEnvironment](/powershell/module/servicemanagement/azurerm.profile/get-azurermenvironment) kullanılabilir Azure ortamları görmek için cmdlet:
+Çalıştırma [Get-AzEnvironment](/powershell/module/az.profile/get-Azenvironment) kullanılabilir Azure ortamları görmek için cmdlet:
    
 ```powershell
-Get-AzureRmEnvironment
+Get-AzEnvironment
 ```
 
 Hesabınıza bağlamak ve ortamı kurun istediğiniz buluta erişimi olan oturum açın. Bu örnek, Azure kamu Bulutu kullanan bir hesapta oturum gösterilmektedir.   
 
 ```powershell
-Connect-AzureRmAccount –Environment AzureUSGovernment
+Connect-AzAccount –Environment AzureUSGovernment
 ```
 
 Çin bulut erişmek için ortamı kullanmak **AzureChinaCloud**. Alman bulut erişmek için **AzureGermanCloud**.
 
-Bu noktada, bir depolama hesabına veya başka bir kaynak oluşturmak için konumlarının listesini gerekirse kullanılarak seçilen bulut için kullanılabilir konumlar sorgulayabilirsiniz [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation).
+Bu noktada, bir depolama hesabına veya başka bir kaynak oluşturmak için konumlarının listesini gerekirse kullanılarak seçilen bulut için kullanılabilir konumlar sorgulayabilirsiniz [Get-AzLocation](/powershell/module/az.resources/get-azlocation).
 
 ```powershell
-Get-AzureRmLocation | select Location, DisplayName
+Get-AzLocation | select Location, DisplayName
 ```
 
 Aşağıdaki tabloda Almanya bulutu için döndürülen konumlarını gösterir.
@@ -67,14 +69,14 @@ Aşağıdaki tabloda Almanya bulutu için döndürülen konumlarını gösterir.
 
 Bu ortamların her birinde için uç nokta soneki Azure genel uç noktasından farklıdır. Örneğin, ortak Azure blob uç noktası soneki olan **blob.core.windows.net**. Kamu bulutu için blob uç noktası sonekidir **blob.core.usgovcloudapi.net**. 
 
-### <a name="get-endpoint-using-get-azurermenvironment"></a>Get-AzureRMEnvironment kullanarak uç noktasını alın 
+### <a name="get-endpoint-using-get-azenvironment"></a>Get-AzEnvironment kullanarak uç noktasını alın 
 
-Uç nokta son eki kullanarak almak [Get-AzureRMEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment). Uç nokta *StorageEndpointSuffix* ortam özelliği. Aşağıdaki kod parçacıkları, bunun nasıl yapılacağını gösterir. Bu komutların tümü bir şey iade "core.cloudapp.net" veya "core.cloudapi.de", vb. gibi. Bu, bu hizmete erişmek için depolama hizmeti ekleyin. Örneğin, "queue.core.cloudapi.de" Almanca bulutta kuyruk hizmeti erişim sağlar.
+Uç nokta son eki kullanarak almak [Get-AzEnvironment](/powershell/module/az.profile/get-azenvironment). Uç nokta *StorageEndpointSuffix* ortam özelliği. Aşağıdaki kod parçacıkları, bunun nasıl yapılacağını gösterir. Bu komutların tümü bir şey iade "core.cloudapp.net" veya "core.cloudapi.de", vb. gibi. Bu, bu hizmete erişmek için depolama hizmeti ekleyin. Örneğin, "queue.core.cloudapi.de" Almanca bulutta kuyruk hizmeti erişim sağlar.
 
 Bu kod parçacığı tüm ortamları ve her biri için uç nokta sonekini alır.
 
 ```powershell
-Get-AzureRmEnvironment | select Name, StorageEndpointSuffix 
+Get-AzEnvironment | select Name, StorageEndpointSuffix 
 ```
 
 Bu komut, aşağıdaki sonuçları döndürür.
@@ -86,10 +88,10 @@ Bu komut, aşağıdaki sonuçları döndürür.
 | AzureGermanCloud | core.cloudapi.de|
 | AzureUSGovernment | Core.usgovcloudapi.NET |
 
-Belirtilen ortam için özelliklerin tümünü almak için arama **Get-AzureRmEnvironment** ve bulut adı belirtin. Bu kod parçacığı özelliklerin bir listesini döndürür; Aranacak **StorageEndpointSuffix** listesinde. Aşağıdaki örnek, Almanya bulutu için aynıdır.
+Belirtilen ortam için özelliklerin tümünü almak için arama **Get-AzEnvironment** ve bulut adı belirtin. Bu kod parçacığı özelliklerin bir listesini döndürür; Aranacak **StorageEndpointSuffix** listesinde. Aşağıdaki örnek, Almanya bulutu için aynıdır.
 
 ```powershell
-Get-AzureRmEnvironment -Name AzureGermanCloud 
+Get-AzEnvironment -Name AzureGermanCloud 
 ```
 
 Sonuçlar aşağıdakine benzer:
@@ -111,7 +113,7 @@ Sonuçlar aşağıdakine benzer:
 Yalnızca depolama uç noktası son eki özelliği almak için belirli bulut almak ve bu bir özellik için isteyin.
 
 ```powershell
-$environment = Get-AzureRmEnvironment -Name AzureGermanCloud
+$environment = Get-AzEnvironment -Name AzureGermanCloud
 Write-Host "Storage EndPoint Suffix = " $environment.StorageEndpointSuffix 
 ```
 
@@ -129,7 +131,7 @@ Ayrıca, uç noktaları almak için bir depolama hesabı özelliklerini inceleye
 # Get a reference to the storage account.
 $resourceGroup = "myexistingresourcegroup"
 $storageAccountName = "myexistingstorageaccount"
-$storageAccount = Get-AzureRmStorageAccount `
+$storageAccount = Get-AzStorageAccount `
   -ResourceGroupName $resourceGroup `
   -Name $storageAccountName 
   # Output the endpoints.
@@ -157,7 +159,7 @@ Burada, depolama hesaplarınızı yönetin ve veri düzlemine makalesinde açık
 Yeni bir kaynak grubu ve bu alıştırma için depolama hesabı oluşturduysanız, kaynak grubunu kaldırarak tüm varlıkları kaldırabilirsiniz. Bu, ayrıca grubun içerdiği tüm kaynakları da siler. Bu durumda, oluşturduğunuz depolama hesabına ve kaynak grubunu kaldırır.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

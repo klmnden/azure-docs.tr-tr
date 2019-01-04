@@ -2,8 +2,7 @@
 title: "Öğretici: Azure Stream Analytics işleri ile Azure işlevleri'ni çalıştırma | Microsoft Docs"
 description: Bu öğreticide, Stream Analytics işlerine bir çıktı havuzu olarak Azure İşlevlerini yapılandırma hakkında bilgi edineceksiniz.
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
@@ -11,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 818c75feffc5dcf09421b22d82b8b0c767cbed7f
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164169"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993017"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Stream Analytics işlerinden Azure İşlevleri’ni çalıştırma 
 
@@ -152,7 +151,7 @@ Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir 
 
 1. Stream Analytics işinizi Azure portalında açın.  
 
-2. İşlevinize göz atın ve **Genel Bakış** > **Çıktılar** > **Ekle**’yi seçin. Yeni bir çıktı eklemek için havuz seçeneği olarak **Azure İşlevi**’ni seçin. Yeni İşlevler çıkış bağdaştırıcısı aşağıdaki özelliklerle kullanılabilir:  
+2. İşlevinize göz atın ve **Genel Bakış** > **Çıktılar** > **Ekle**’yi seçin. Yeni bir çıktı eklemek için havuz seçeneği olarak **Azure İşlevi**’ni seçin. İşlevlerin çıkış bağdaştırıcısı aşağıdaki özelliklere sahiptir:  
 
    |**Özellik adı**|**Açıklama**|
    |---|---|
@@ -160,7 +159,7 @@ Bir olay hub’ı oluşturmak, olay oluşturucu uygulamasını başlamak ve bir 
    |İçeri aktarma seçeneği| Geçerli abonelikteki işlevi kullanabilir veya işlev başka bir abonelikte bulunuyorsa ayarları el ile sağlayabilirsiniz. |
    |İşlev Uygulaması| İşlevler uygulamanızın adı. |
    |İşlev| İşlevler uygulamanızdaki işlevin adı (run.csx işlevinizin adı).|
-   |En Büyük Toplu İş Boyutu|İşlevinize gönderilen her bir çıktı toplu işinin en büyük boyutunu ayarlar. Varsayılan olarak, bu değer 256 KB olarak ayarlanır.|
+   |En Büyük Toplu İş Boyutu|Bayt cinsinden işlevinize gönderilen her çıktı toplu işinin en büyük boyutunu ayarlar. Varsayılan olarak, bu değer 262.144 bayt (256 KB) ayarlanır.|
    |En Büyük Toplu İş Sayısı|İşleve gönderilen her toplu işteki en büyük olay sayısını belirtir. Varsayılan değer 100’dür. Bu özellik isteğe bağlıdır.|
    |Anahtar|Başka bir abonelikteki işlevi kullanmanıza olanak sağlar. İşlevinize erişmek için anahtar değerini sağlayın. Bu özellik isteğe bağlıdır.|
 

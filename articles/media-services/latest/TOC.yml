@@ -30,16 +30,8 @@ items:
   items:
   - name: v2'den v3'e geçiş
     href: migrate-from-v2-to-v3.md
-  - name: İçerik çözümleme
-    href: analyzing-video-audio-files-concept.md
-  - name: İçerik kodlama
-    href: encoding-concept.md
-    items:
-    - name: Media Encoder Standard biçimleri
-      href: media-encoder-standard-formats.md
-    - name: Autogen uyarlamalı bit hızı merdiveni
-      href: autogen-bitrate-ladder.md
-  - name: Varlık inceleme
+  - name: Varlıklar
+    href: entities-overview.md
     items:
     - name: Hesap ve Varlık filtreleri
       href: filters-dynamic-manifest-overview.md
@@ -47,6 +39,8 @@ items:
       href: assets-concept.md
     - name: İçerik anahtarı ilkeleri
       href: content-key-policy-concept.md
+    - name: LiveEvent'ler ve LiveOutput'lar
+      href: live-events-outputs-concept.md
     - name: Akış uç noktaları
       href: streaming-endpoint-concept.md
     - name: Akış bulucuları
@@ -55,8 +49,13 @@ items:
       href: streaming-policy-concept.md
     - name: Dönüşümler ve İşler
       href: transforms-jobs-concept.md
-  - name: Depolama hesaplarını inceleme
-    href: storage-account-concept.md
+  - name: İçerik kodlama
+    href: encoding-concept.md
+    items:
+    - name: Media Encoder Standard biçimleri
+      href: media-encoder-standard-formats.md
+    - name: Autogen uyarlamalı bit hızı merdiveni
+      href: autogen-bitrate-ladder.md
   - name: Event Grid olaylarını işleme
     href: reacting-to-media-services-events.md
   - name: İçerik koruma
@@ -65,6 +64,8 @@ items:
       href: content-protection-overview.md
     - name: Erişim denetimiyle çoklu DRM sistemi
       href: design-multi-drm-system-with-access-control.md
+  - name: İçerik çözümleme
+    href: analyzing-video-audio-files-concept.md
   - name: Canlı olay akışı
     href: live-streaming-overview.md
     items:
@@ -78,6 +79,8 @@ items:
       href: live-event-states-billing.md
     - name: Gecikme süresi
       href: live-event-latency.md
+  - name: Depolama hesapları
+    href: storage-account-concept.md
 - name: Nasıl yapılır kılavuzları
   items:
   - name: Hesap oluşturma - CLI
@@ -182,9 +185,9 @@ items:
     href: limits-quotas-constraints.md
   - name: SSS
     href: frequently-asked-questions.md
-ms.openlocfilehash: aafc49b10a012bab6c3dc3d455480deca44fde32
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 660052b4e82f6e005c096b5ac1edd7a80c2d5339
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632000"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744981"

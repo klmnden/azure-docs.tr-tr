@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: a5150d3f318fce2f66adfa4bdc43ae8aec651223
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 46065a742afd08585707f4f4fdf6ad2e32cd89b2
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251156"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719464"
 ---
 # <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>Application Insights içinde bir Bot ile LUIS sonuçları ekleyinC#
 
@@ -39,7 +39,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!Tip]
 > Zaten bir aboneliğiniz yoksa, kaydolabilirsiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/).
 
-Bu öğreticideki kod tüm kullanılabilir [LUIS örnekleri GitHub deposunda](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) ve Bu öğretici ile ilişkili her bir satır ile geçersiz kılınan `//LUIS Tutorial:`.
+Bu öğreticideki kod tüm kullanılabilir [Azure örnekleri GitHub deposunda](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) ve Bu öğretici ile ilişkili her bir satır ile geçersiz kılınan `//LUIS Tutorial:`.
 
 ## <a name="review-luis-web-app-bot"></a>LUIS web app botu gözden geçirin
 
@@ -127,11 +127,11 @@ Yükleyin ve Visual Studio'da Application Insights'ı yapılandırın.
 
 2. İçinde **Yayımla** penceresinde **yeni profil oluşturma**.
 
-    ![Proje portalında yayımlayın](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
+    ![Yayımlama işleminin bir parçası olarak, yeni profili oluşturun.](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
 
 3. Seçin **profili içeri aktar**seçip **Tamam**.
 
-    ![Proje portalında yayımlayın](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
+    ![Yayımlama işleminin bir parçası olarak, profili içeri aktar](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
 
 4. İçinde **yayımlama ayarları dosyasını içeri aktar** windows gidin, proje klasörünüze gidin `PostDeployScripts` klasöründe biten dosyaları seçin `.PublishSettings`seçip `Open`. Bu proje için yayımlama yapılandırdınız.
 
@@ -204,7 +204,7 @@ LUIS girişlerini görmek için Application ınsights'ı açın.
 
 1. Portalında **tüm kaynakları** ardından web app botu adına göre filtreleyin. Kaynak türü ile tıklayın **Application Insights**. Application ınsights bir ampul simgedir.
 
-    ![App ınsights arayın](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
+    ![App ınsights Azure Portalı'nda arayın](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
 2. Kaynak açıldığında tıklayarak **arama** Sağdaki panelde Büyüteç simgesi. Yeni bir panel için doğru görüntüler. Bağlı olarak ne kadar telemetri verilerini bulunduğunda paneli görüntülemek için birkaç saniye sürebilir. `LUIS` arayın. Listede yalnızca, bu öğreticiyle eklenen LUIS sorgu sonuçlarına daraltıldığı.
 

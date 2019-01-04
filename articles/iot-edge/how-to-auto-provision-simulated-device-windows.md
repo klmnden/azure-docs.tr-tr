@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a251eb3915ee3043ab4b69e0cd4cef8fa2170486
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1ad8435626b35859968bdf93589f22dc81e74e02
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53101611"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53557708"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Windows üzerinde sanal bir TPM Edge cihazı oluşturma ve sağlama
 
@@ -61,14 +61,13 @@ Bireysel kayıt oluşturduktan sonra değerini kaydedin **kayıt kimliği**. IOT
 
 Önceki bölümde tamamladıktan sonra yeni cihazınızın IOT hub'ınızda bir IOT Edge cihazı olarak listelendiğini görmeniz gerekir. Şimdi, cihazınızın IOT Edge çalışma zamanı yüklemeniz gerekir. 
 
-IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Bileşenleri kapsayıcılarında çalıştırmak ve kod ucuna çalıştırabilmeniz için cihaza ek kapsayıcıları dağıtma olanak sağlar. Windows çalıştıran cihazlarda ya da Windows kapsayıcıları ya da Linux kapsayıcıları'ı kullanmayı da tercih edebilirsiniz. Kullanmak istediğiniz kapsayıcıları türünü seçin ve adımları izleyin. Otomatik değil el ile sağlama için IOT Edge çalışma zamanı yapılandırdığınızdan emin olun. 
+IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. Bileşenleri kapsayıcılarında çalıştırmak ve kod ucuna çalıştırabilmeniz için cihaza ek kapsayıcıları dağıtma olanak sağlar.  
 
-Sanal TPM önceki bölümden çalıştıran cihazın IOT Edge çalışma zamanı yüklemek için yönergeleri izleyin. 
+Sanal TPM önceki bölümden çalıştıran cihazın IOT Edge çalışma zamanı yüklemek için yönergeleri izleyin. Otomatik değil el ile sağlama için IOT Edge çalışma zamanı yapılandırdığınızdan emin olun.
 
-DPS'niz bilmeniz **kimlik kapsamı** ve cihaz **kayıt kimliği** Bu makaleler başlamadan önce. 
+DPS'niz bilmeniz **kimlik kapsamı** ve cihaz **kayıt kimliği** IOT Edge Cihazınızda yüklemeden önce. 
 
-* [Windows kapsayıcıları](how-to-install-iot-edge-windows-with-windows.md)
-* [Linux kapsayıcıları](how-to-install-iot-edge-windows-with-linux.md)
+[Yükleme ve IOT Edge otomatik olarak sağlama](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
 
 ## <a name="verify-successful-installation"></a>Yüklemenin başarılı olduğunu doğrulamak
 

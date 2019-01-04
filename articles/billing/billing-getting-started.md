@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: a110d14293b391a6856b56d0d8a84a24a90d33e1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 98ce2127cc9f60128767f8e4409134f2393ac84f
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341669"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582439"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure'da faturalandırma ve maliyet yönetimi ile beklenmeyen ücretlerden
 
@@ -31,9 +31,6 @@ Azure için kaydolduğunuzda, harcamalarınızı hakkında daha iyi bir fikir ed
 - Ücretsiz bir deneme aboneliğiniz varsa [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), açık (AIO) veya BizSpark Azure tüm kredilerinizi kullanıldığında, aboneliğinizi otomatik olarak devre dışı bırakıldı. Hakkında bilgi edinin [harcama limitleri](#spending-limit) beklenmedik bir şekilde devre dışı aboneliğiniz olmamasına özen gösterin.
 
 - İçin açtıysanız [ücretsiz Azure hesabı](https://azure.microsoft.com/free/), [bazı en popüler Azure Hizmetleri 12 ay boyunca ücretsiz kullanabileceğiniz](billing-create-free-services-included-free-account.md). Aşağıda listelenen öneriler birlikte bkz [ücretsiz hesap ücret önlemek](billing-avoid-charges-free-account.md).
-
-> [!div class="nextstepaction"]
-> [Azure faturalama belgelerinin iyileştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Azure Hizmetleri eklemeden önce tahmini maliyetleri alın
 
@@ -170,6 +167,6 @@ Hesap Yöneticisi değilseniz sonra birisi büyük olasılıkla kısmi erişim k
 
 Hesap yöneticiniz, kuruluşunuz artık ise ve faturalandırma, yönetmeniz gereken [bizimle](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

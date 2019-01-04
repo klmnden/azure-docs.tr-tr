@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: tyfox
 ms.custom: seodec18
-ms.openlocfilehash: 13bca67a48d1b9e73dc2f092979e455c72711316
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d353db3554837ebe13cc53f5adac6658b82e31ec
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011344"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717696"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Git Yönetimi SDK önizlemesi
 
 ## <a name="overview"></a>Genel Bakış
 HDInsight Go SDK sınıfları ve işlevleri, HDInsight kümelerinizi yönetmenizi sağlar. Bu, oluşturma, silme, güncelleştirme, listesinde, yeniden boyutlandırma, betik eylemleri yürütmek, izlemek, HDInsight kümelerine ve daha özelliklerini alma işlemlerini içerir.
 
-> [!NOTE]
+> [!NOTE]  
 >Bu SDK için GoDoc başvuru malzemesi olduğunu da [buradan kullanılabilir](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Bir Azure hesabı. Biri yoksa [ücretsiz bir deneme sürümü edinin](https://azure.microsoft.com/free/).
-* [Go](https://golang.org/dl/)
+* [Git](https://golang.org/dl/).
 
 ## <a name="sdk-installation"></a>SDK'sını yükleme
 
@@ -36,8 +36,8 @@ GOPATH konumunuzdan çalıştırın `go get github.com/Azure/azure-sdk-for-go/tr
 
 SDK'sı, ilk Azure aboneliğinizle kimliğinin doğrulanması gerekiyor.  Hizmet sorumlusu oluşturma ve kimlik doğrulaması için kullanmak için aşağıdaki örneği takip edin. Bunu yaptıktan sonra bir örneğine sahip bir `ClustersClient`, yönetim işlemlerini gerçekleştirmek için kullanılan birçok işlev (aşağıdaki bölümde anlatılan) içerir.
 
-> [!NOTE]
-> Başka bir yöntemle yanı sıra kimliğini doğrulamak için aşağıdaki örnekteki, büyük olasılıkla daha gereksinimleriniz için uygun olması. Tüm İşlevler Burada özetlenen: [Go için Azure SDK'da kimlik doğrulama işlevleri](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
+> [!NOTE]  
+> Başka bir yöntemle yanı sıra kimliğini doğrulamak için aşağıdaki örnekteki, büyük olasılıkla daha gereksinimleriniz için uygun olması. Tüm İşlevler burada özetlenmektedir: [Go için Azure SDK'da kimlik doğrulama işlevleri](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
 
 ### <a name="authentication-example-using-a-service-principal"></a>Bir hizmet sorumlusunu kullanarak kimlik doğrulaması örneği
 
@@ -70,7 +70,7 @@ Doğru aboneliğe oturum değil, çalıştırarak doğru olanı seçin:
 az account set -s <name or ID of subscription>
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Zaten HDInsight kaynak sağlayıcısı tarafından başka bir işleve kaydettiğiniz değil durumunda (gibi Azure Portalı aracılığıyla bir HDInsight kümesi oluşturarak), önce kimliklerini yapmanız gerekir. Bu, gelen yapılabilir [Azure Cloud Shell](https://shell.azure.com/bash) aşağıdaki komutu çalıştırarak:
 >```azurecli-interactive
 >az provider register --namespace Microsoft.HDInsight
@@ -133,7 +133,7 @@ func main() {
 
 ## <a name="cluster-management"></a>Küme yönetimi
 
-> [!NOTE]
+> [!NOTE]  
 > Bu bölümde, zaten kimlik doğrulaması ve oluşturulan varsayılır bir `ClusterClient` adlı bir değişkende depolayın ve örnek `client`. Kimlik doğrulaması ve elde etmek için yönergeler bir `ClusterClient` yukarıdaki kimlik doğrulaması bölümünde bulunabilir.
 
 ### <a name="create-a-cluster"></a>Küme oluşturma
@@ -144,7 +144,7 @@ Yeni bir küme çağırarak oluşturulabilir `client.Create()`.
 
 Bu örnek nasıl oluşturulacağını gösterir. bir [Apache Spark](https://spark.apache.org/) kümeye 2 baş düğümü ve 1 çalışan düğümü ile.
 
-> [!NOTE]
+> [!NOTE]  
 > Önce bir kaynak grubu ve depolama hesabı oluşturmak için aşağıda açıklandığı gibi ihtiyacınız. Zaten bu oluşturduysanız, bu adımları atlayabilirsiniz.
 
 ##### <a name="creating-a-resource-group"></a>Bir kaynak grubu oluşturma
@@ -283,7 +283,8 @@ client.List()
 ```golang
 client.ListByResourceGroup("<Resource Group Name>")
 ```
-> [!NOTE]
+
+> [!NOTE]  
 > Her ikisi de `List()` ve `ListByResourceGroup()` dönüş bir `ClusterListResultPage` yapısı. Sonraki sayfayı almak için çağırabilirsiniz `Next()`. Bu kadar yinelenebilir `ClusterListResultPage.NotDone()` döndürür `false`, aşağıdaki örnekte gösterildiği gibi.
 
 #### <a name="example"></a>Örnek
@@ -345,13 +346,13 @@ extClient := hdi.NewExtensionsClient(SUBSCRIPTION_ID)
 extClient.Authorizer, _ = credentials.Authorizer()
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Aşağıda örnekler izleme zaten başlatılmış varsayar bir `ExtensionClient` adlı `extClient` ve kendi `Authorizer` yukarıda da gösterildiği gibi.
 
 ### <a name="enable-oms-monitoring"></a>OMS izlemeyi etkinleştir
 
-> [!NOTE]
-> OMS izlemeyi etkinleştirmek için mevcut bir Log Analytics çalışma alanı olması gerekir. Zaten bir oluşturmadıysanız, bunu burada nasıl edinebilirsiniz: [Azure portalında Log Analytics çalışma alanı oluşturma](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+> [!NOTE]  
+> OMS izlemeyi etkinleştirmek için mevcut bir Log Analytics çalışma alanı olması gerekir. Zaten bir oluşturmadıysanız, burada bunu nasıl edinebilirsiniz: [Azure portalında Log Analytics çalışma alanı oluşturma](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
 Kümenizde OMS izlemeyi etkinleştirmek için:
 
@@ -378,8 +379,9 @@ extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Clust
 ## <a name="script-actions"></a>Betik eylemleri
 
 HDInsight küme özelleştirmek için özel betikler çağıran betik eylemleri adlı bir yapılandırma işlevi sağlar.
-> [!NOTE]
-> Betik eylemleri kullanma hakkında daha fazla bilgi burada bulunabilir: [özelleştirme Linux tabanlı HDInsight kümelerini betik eylemlerini kullanma](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
+
+> [!NOTE]  
+> Betik eylemleri kullanma hakkında daha fazla bilgi burada bulunabilir: [Betik eylemlerini kullanarak Linux tabanlı HDInsight kümeleri özelleştirme](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
 
 ### <a name="execute-script-actions"></a>Betik eylemleri yürütme
 
@@ -397,7 +399,7 @@ scriptActionsClient := hdi.NewScriptActionsClient(SUBSCRIPTION_ID)
 scriptActionsClient.Authorizer, _ = credentials.Authorizer()
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Betik eylemleri örneklerde, zaten başlatılmış varsayılmaktadır bir `ScriptActionsClient` adlı `scriptActionsClient` ve kendi `Authorizer` yukarıda da gösterildiği gibi.
 
 ### <a name="delete-script-action"></a>Betik eylemi Sil
@@ -410,7 +412,7 @@ scriptActionsClient.Delete(context.Background(), "<Resource Group Name>", "<Clus
 
 ### <a name="list-persisted-script-actions"></a>Kalıcı betik eylemleri listeleyin
 
-> [!NOTE]
+> [!NOTE]  
 > Her ikisi de `ListByCluster()` döndürür bir `ScriptActionsListPage` yapısı. Sonraki sayfayı almak için çağırabilirsiniz `Next()`. Bu kadar yinelenebilir `ClusterListResultPage.NotDone()` döndürür `false`, aşağıdaki örnekte gösterildiği gibi.
 
 Belirtilen kümenin tüm kalıcı betik eylemleri listelemek için:
@@ -445,7 +447,7 @@ scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION
 scriptExecutionHistoryClient.Authorizer, _ = credentials.Authorizer()
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Zaten başlatılmış aşağıda varsayar bir `ScriptExecutionHistoryClient` adlı `scriptExecutionHistoryClient` ve kendi `Authorizer` yukarıda da gösterildiği gibi.
 
 Belirtilen kümenin tüm betikleri yürütme geçmişini listelemek için:

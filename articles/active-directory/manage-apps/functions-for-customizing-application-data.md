@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 867fdd57df163f37d86572798aaae6d78d43f479
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105164"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973732"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de öznitelik eşlemeleri için ifadeler yazma
 Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz için öznitelik eşlemelerini türdeki bir ifade eşleme biridir. Bu, kullanıcılarınızın verileri fazla SaaS uygulaması için kabul edilebilir biçimlere dönüştürme olanak tanıyan bir betik gibi ifade yazmanız gerekir.
@@ -27,14 +27,14 @@ Bir SaaS uygulaması için sağlama yapılandırdığınızda, belirtebilmeniz i
 Öznitelik eşlemeleri için ifadeler sözdizimi Applications (VBA) işlevleri için Visual Basic reminiscent aşağıdaki gibidir.
 
 * Tüm ifade İşlevler, bağımsız değişkenleri parantez içinde bir adından oluşur bakımından tanımlanmış olması gerekir: <br>
-  *FunctionName (<< bağımsız değişkeni 1 >> <<argument N>>)*
-* İçindeki diğer işlevleri iç içe. Örneğin: <br> *FunctionOne (FunctionTwo (<<argument1>>))*
+  *FunctionName (`<<argument 1>>`,`<<argument N>>`)*
+* İçindeki diğer işlevleri iç içe. Örneğin: <br> *FunctionOne (FunctionTwo (`<<argument1>>`))*
 * İşlevlere üç farklı türde bağımsız değişkenler geçirebilirsiniz:
   
   1. Öznitelik, köşeli ayraçlar içine alınmalıdır. Örneğin: [attributeName]
   2. Dize sabitleri çift tırnak içine alınmalıdır. Örneğin: "ABD"
-  3. Diğer işlevler. Örneğin: FunctionOne (<<argument1>>, FunctionTwo (<<argument2>>))
-* Dize sabitleri için bir ters eğik çizgi (\) veya tırnak işareti (") dizedeki gerekiyorsa, eğik çizgi (\) simgesiyle kaçınılmalıdır. Örneğin: "şirket adı: \"Contoso\""
+  3. Diğer işlevler. Örneğin: FunctionOne (`<<argument1>>`, FunctionTwo (`<<argument2>>`))
+* Dize sabitleri için bir ters eğik çizgi (\) veya tırnak işareti (") dizedeki gerekiyorsa, eğik çizgi (\) simgesiyle kaçınılmalıdır. Örneğin: "Şirket adı: \"Contoso\""
 
 ## <a name="list-of-functions"></a>İşlevlerin listesi
 [Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [katılın](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [değil](#not) &nbsp; &nbsp; &nbsp; &nbsp; [değiştirin](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Anahtarı](#switch)
@@ -243,7 +243,7 @@ Bir kullanıcı diğer kullanıcının adını, ilk 3 harf ve kullanıcının so
 
 * **Giriş** (givenName): "John"
 * **Giriş** (Soyadı): "Doe"
-* **Çıkış**: "JohDoe"
+* **ÇIKIŞ**:  "JohDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>Bir dizeden Aksanları Kaldır
 Vurgu işaretlerinin içermeyen eşdeğer karakterlerle vurgu işaretleri içeren karakter değiştirmeniz gerekir.
@@ -254,7 +254,7 @@ NormalizeDiacritics([givenName])
 **Örnek giriş/çıkış:** <br>
 
 * **Giriş** (givenName): "Zoë"
-* **Çıkış**: "Zoe"
+* **ÇIKIŞ**:  "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Belirli bir biçimde bir dize olarak çıkış tarihi
 
@@ -268,7 +268,7 @@ Belirli bir biçimdeki bir SaaS uygulamasına tarihleri göndermek istediğiniz.
 **Örnek giriş/çıkış:**
 
 * **Giriş** (extensionAttribute1): "20150123105347.1Z"
-* **ÇIKIŞ**: "2015-01-23"
+* **ÇIKIŞ**:  "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Önceden tanımlanmış seçenekleri kümesi temel alınarak bir değeri değiştirin
 
@@ -282,7 +282,7 @@ Azure AD'de depolanan eyalet koduna göre kullanıcının saat dilimi tanımlama
 **Örnek giriş/çıkış:**
 
 * **Giriş** (durum): "QLD"
-* **Çıkış**: "Avustralya/Brisbane"
+* **ÇIKIŞ**: "Avustralya/Brisbane"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>UserPrincipalName (UPN) özniteliği için benzersiz bir değer oluşturur
 

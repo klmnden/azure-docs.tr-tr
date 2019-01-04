@@ -1,24 +1,23 @@
 ---
 title: MySQL geçiş iş ortakları için Azure veritabanı | Microsoft Docs
 description: MySQL için Azure veritabanı destekleyen çözümler ile üçüncü taraf geçiş iş ortakları listeler.
-services: mysql
 author: HJToland3
 ms.author: jtoland
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: e50cd285d904830bd7332f39d51aaa149f38b82a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8c081c6436939089565425a0f14bbf1856ca7ce8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055159"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536772"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>MySQL geçiş iş ortakları için Azure veritabanı
 Azure veritabanınızı MySQL çözüm problem desteklemek için çok çeşitli sektör lideri iş ortakları ve araçları seçebilirsiniz. Bu makalede, MySQL için Azure veritabanı desteği geçiş çözümleri ile Microsoft iş ortaklarının vurgulanır.
 
 ## <a name="migration-partners"></a>Geçiş iş ortakları
-| Partner | Açıklama | Bağlantılar | Videolar |
+| İş ortağı | Açıklama | Bağlantılar | Videolar |
 | --- | --- | --- | --- |
 | ![SNP teknolojileri][1] |**SNP teknolojileri**<br>SNP teknolojileri, geleceğin işletmeleri için güvenli ve güvenilir çözümleri oluşturmak yalnızca bulut hizmet sağlayıcısıdır. Şirket, işletmeniz için gerçek değeri üretilmesinde inanmaktadır. Yürütme için düşünce SNP teknolojileri istemcilerle yatırımları avantajı oturum açmak için bir genel amaçlı paylaşır.|[Web sitesi][snp_website]<br>[Twitter][snp_twitter]<br>[İlgili kişi][snp_contact] | |
 | ![En iyi DB teknolojileri, LLC][2] |**En iyi DB teknolojileri, LLC**<br>DB en iyi müşteriler en iyi yönetilen bir Azure veritabanı hizmeti yardımcı olur. Şirket, dahil olmak üzere başlamak çeşitli yollar sunar [gelecekteki durumu Mimari Tasarım](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [Microsoft Veri platformu için veri yönetimi iyileştirme](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fdata-management-optimization-for-microsoft-data-platform%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261204561&sdata=DYF9EeMaMdKZP%2FJ9d3mw%2F67hUAxWmINcI1rMbEQZ1DM%3D&reserved=0), [Microsoft Azure Dağıtım Planlama Hizmetleri](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fmicrosoft-azure-deployment-planning-services%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261214574&sdata=Q%2FNJaHWXrrln6eXaVmU1iVb4tJCoKVgSA8cEBQiZaDk%3D&reserved=0), ve [Azure veri platformu hazırlık Eğitimi](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Fazure-data-platform-readiness-training%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261214574&sdata=dX%2BBGSCyq4x9ZPkTN74Y%2FUgHJ%2FqtsNgwEFDJft%2FTkc0%3D&reserved=0).|[Web sitesi][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[İlgili kişi][dbbest_contact] | |

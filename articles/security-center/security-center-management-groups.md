@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
+ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f05c0469dffa074501a301802412901ead3d1e69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964126"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720824"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Güvenlik Merkezi, Kiracı genelinde görünürlük elde edin
 Bu makale Azure Güvenlik Merkezi sağladığı en üst düzeye çeşitli eylemler yaparak başlamanıza yardımcı olur. Bu eylemler gerçekleştirme birden çok güvenlik ilkeleri uygulayarak, kuruluşunuzun güvenlik duruşunu uygun ölçekte tüm Azure Active Directory kiracınız ve etkili bir şekilde bağlanan Azure aboneliklerini yönetme hakkında daha fazla görünürlük elde etmenizi sağlar Abonelikler aggregative bir biçimde.
@@ -71,19 +71,19 @@ Bir Azure Active Directory Kiracı Yöneticisi, Azure abonelikleri doğrudan eri
 
    ![Azure AD özellikleri - ekran görüntüsü](./media/security-center-management-groups/aad-properties.png)
 
-3. Altında **genel yönetici Azure aboneliklerini ve Yönetim gruplarını yönetebilir**, anahtar kümesine **Evet**.
+3. Altında **Azure kaynakları için Access management**, anahtar kümesine **Evet**.
 
    ![Genel yönetici Azure aboneliklerini ve Yönetim gruplarını - ekran görüntüsü yönetebilir.](./media/security-center-management-groups/aad-properties-global-admin-setting.png)
 
-   - Anahtar ayarlandığında **Evet**, Azure RBAC kök kapsamda kullanıcı erişimi yöneticisi rolü genel yönetici hesabınızın (şu anda oturum açmış kullanıcı olarak) eklenir (`/`), size erişim görünümünü ve raporunu için hangi verir Tüm Azure abonelikleri Azure AD kiracınız ile ilişkili.
+   - Anahtar Evet olarak ayarlarsanız, Azure RBAC (/) kök kapsamda kullanıcı erişimi yöneticisi rolü atanır. Bu, tüm Azure abonelikleri ve bu Azure AD dizini ile ilişkili yönetim gruplarını rol atama izni verir. Bu anahtar yalnızca, Azure AD'de genel Yönetici rolüne atanan kullanıcılar için kullanılabilir.
 
-   - Anahtar ayarlandığında **Hayır**, Azure RBAC kullanıcı erişimi yöneticisi rolü genel yönetici hesabınızın (şu anda oturum açmış kullanıcı olarak) kaldırılır. Azure AD kiracısı ile ilişkili tüm Azure abonelikleri göremez ve görüntüleyebilir ve yalnızca erişim için verilmiş Azure aboneliklerini yönetme.
+  - Anahtar Hayır olarak ayarlanırsa, kullanıcı erişimi yöneticisi rolü Azure RBAC kullanıcı hesabınızdan kaldırıldı. Artık tüm Azure abonelikleri ve bu Azure AD dizini ile ilişkili olan Yönetim grupları roller atayabilirsiniz. Görüntüleyebilir ve yalnızca Azure aboneliklerini ve yönetim gruplarına erişim için verilmiş yönetin.
 
 4. Tıklayın **Kaydet** ayarlarınızı kaydetmek için.
 
     - Bu ayar, genel bir özellik değildir ve yalnızca şu anda oturum açmış kullanıcı için geçerlidir.
 
-5. Yükseltilmiş erişim sağlamak için gereken görevleri yapın. İşiniz bittiğinde, anahtar kümesi geri **Hayır**.
+5. Yükseltilmiş erişim sağlamak için gereken görevleri gerçekleştirin. İşiniz bittiğinde, anahtar kümesi geri **Hayır**.
 
 
 ### <a name="assign-rbac-roles-to-users"></a>RBAC rolleri, kullanıcılara ata

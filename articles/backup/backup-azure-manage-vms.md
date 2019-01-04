@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/28/2016
 ms.author: trinadhk
-ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0e599c95f40e62a4bb01a7ab698fe0ce1f738e49
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465729"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635774"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Azure sanal makine yedeklemelerini yönetme
 
-Bu makalede VM yedeklemelerini yönetme hakkında rehberlik sağlar ve portal panosunda yedekleme uyarıları bilgileri açıklar. Kurtarma Hizmetleri kasaları ile Vm'leri kullanarak bu makaledeki yönergeler geçerlidir. Bu makalede, sanal makinelerin oluşturulmasını kapsamaz ya da sanal makineleri korumak nasıl açıklayan yapar. Azure Resource Manager tarafından dağıtılan Vm'leri Azure kurtarma Hizmetleri kasasıyla koruma hakkında bilgi için bkz. [ilk bakış: sanal makineleri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md).
+Bu makalede VM yedeklemelerini yönetme hakkında rehberlik sağlar ve portal panosunda yedekleme uyarıları bilgileri açıklar. Kurtarma Hizmetleri kasaları ile Vm'leri kullanarak bu makaledeki yönergeler geçerlidir. Bu makalede, sanal makinelerin oluşturulmasını kapsamaz ya da sanal makineleri korumak nasıl açıklayan yapar. Azure Resource Manager tarafından dağıtılan Vm'leri Azure kurtarma Hizmetleri kasasıyla koruma hakkında bilgi için bkz. [ilk bakış: Vm'leri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md).
 
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>Kasaları ve korumalı sanal makineleri yönetme
 Azure portalında kurtarma Hizmetleri kasası Pano kasası dahil olmak üzere hakkındaki bilgilere erişim sağlar:
@@ -77,7 +77,7 @@ Bir sanal makine yedekleme ile birçok yönetim görevleri, kasa panosunda açma
 
     ![Yedekleme öğeleri panoyla ayarlar dikey penceresi](./media/backup-azure-manage-vms/item-dashboard-settings.png)
 
-    Kasa öğesi panosundan gibi birçok önemli yönetim görevleri gerçekleştirebilirsiniz:
+    Kasa öğesi panosundan gibi birçok önemli görevleri gerçekleştirebilirsiniz:
 
    * ilkeleri değiştirme veya yeni bir yedekleme ilkesi oluşturma
    * geri yükleme noktalarını görüntüleyin ve tutarlılık durumlarına bakın
@@ -85,7 +85,7 @@ Bir sanal makine yedekleme ile birçok yönetim görevleri, kasa panosunda açma
    * sanal makine korumasını durdurma
    * bir sanal makinenin korumasını sürdürme
    * Yedekleme verileri (veya kurtarma noktası) Sil
-   * [Yedekleme diskleri geri yükle](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
+   * [Yedekleme diskleri geri yükle](backup-azure-arm-restore-vms.md#create-new-restore-disks)
 
 Aşağıdaki yordamlar için başlangıç noktası kasa öğesi panodur.
 
@@ -214,4 +214,4 @@ Aşağıdaki yordam, sanal makine için yedekleme işinin durdurulmuş veya devr
     Bir bildirim iletisi, yedekleme verileri silindi bilmenizi sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir kurtarma noktasından bir sanal makine yeniden oluşturma hakkında daha fazla bilgi için kullanıma [Azure Vm'leri geri yükleme](backup-azure-arm-restore-vms.md). Sanal makinelerinizi koruma hakkında daha fazla bilgi gerekirse bkz [ilk bakış: sanal makineleri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md). Olayları izleme hakkında daha fazla bilgi için bkz. [Azure sanal makine yedeklemeleri için uyarıları izleme](backup-azure-monitor-vms.md).
+Bir kurtarma noktasından bir sanal makine yeniden oluşturma hakkında daha fazla bilgi için kullanıma [Azure Vm'leri geri yükleme](backup-azure-arm-restore-vms.md). Sanal makinelerinizi koruma hakkında daha fazla bilgi gerekirse bkz [ilk bakış: Vm'leri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md). Olayları izleme hakkında daha fazla bilgi için bkz. [Azure sanal makine yedeklemeleri için uyarıları izleme](backup-azure-monitor-vms.md).

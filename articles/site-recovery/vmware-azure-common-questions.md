@@ -4,15 +4,16 @@ description: Azure Site Recovery kullanılarak Azure'da şirket içi VMware vm'l
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 12/11/2018
+services: site-recovery
+ms.date: 12/31/2018
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: d7b3919d0f970190238dbc5899a20f2d9e7d8cd4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.author: rayne
+ms.openlocfilehash: 920ae8ff09cb8e936a1ba70b2c862bd9bc076046
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256528"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974701"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -74,7 +75,7 @@ Herhangi bir uygulamayı veya ile uyumlu bir VMware VM'de çalışan iş yükler
 Site kurtarma verileri, şirket içinden genel bir uç nokta veya ExpressRoute genel eşlemesi kullanarak Azure depolama alanına çoğaltır. Siteden siteye VPN ağ üzerinden çoğaltma desteklenmez.
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>ExpressRoute kullanarak azure'a çoğaltabilir miyim?
-Evet, ExpressRoute Vm'lerini Azure'a çoğaltma için kullanılabilir. Site Recovery genel bir uç nokta bir Azure depolama hesabına veri çoğaltır ve kurmanız gerekecektir [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) Site Recovery çoğaltması için. Bir Azure sanal ağı için sanal makineleri yük devretme sonra erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering).
+Evet, ExpressRoute Vm'lerini Azure'a çoğaltma için kullanılabilir. Site Recovery, genel bir uç nokta bir Azure depolama hesabına veri çoğaltır. Kurmanız gerekecektir [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) veya [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) Site Recovery çoğaltması için ExpressRoute kullanmak için. Microsoft eşlemesi, çoğaltma için önerilen Yönlendirme etki alanıdır. Emin [ağ gereksinimleri](vmware-azure-configuration-server-requirements.md#network-requirements) çoğaltma için de karşılandığından. Bir Azure sanal ağı için sanal makineleri yük devretme sonra erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN üzerinden neden çoğaltma yapamaz?

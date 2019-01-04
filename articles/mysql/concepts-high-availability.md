@@ -1,20 +1,17 @@
 ---
 title: MySQL için Azure veritabanı'nda yüksek kullanılabilirlik kavramları
 description: MySQL için Azure veritabanı ile bu konuda bilgi yüksek kullanılabilirlik sağlar
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 82d6106b7cebf47e6d68347857dd3d8a2d22dc3c
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 70577f32debc526aaccbd79b62dd35e82119e3f9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298696"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548401"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda yüksek kullanılabilirlik kavramları
 MySQL hizmeti için Azure veritabanı, garantili yüksek düzeyde kullanılabilirlik sağlar. Finansal destekli bir hizmet düzeyi sözleşmesi (SLA), genel kullanım sonrasında % 99,99 değerindedir. Neredeyse hiçbir uygulama kesinti işbu hizmeti kullanırken.

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.custom: seodec18
-ms.openlocfilehash: c3299b2ea777577281ede234cd1aa5137ce5a445
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2062862670f5b373d3153c473e45455e10d5e996
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138118"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548689"
 ---
 # <a name="regional-presence-of-azure-cosmos-db"></a>Azure Cosmos DB bölgesel varlığını
 
 Şu anda Azure kullanılabilir [54 bölgeleri](https://azure.microsoft.com/global-infrastructure/regions/) dünya çapında. Azure Cosmos DB, azure'da temel bir hizmettir ve Azure'un kullanılabilir olduğu tüm bölgelerde kullanılabilir.
 
-![Azure Cosmos DB bölgesel kullanılabilirlik](./media/regional-presence/regional-presence.png)
+[![Azure Cosmos DB kullanılabildiği bölgeler](./media/regional-presence/regional-presence.png)](./media/regional-presence/regional-presence.png#lightbox)
 
 Cosmos DB, tüm beş farklı Azure bulut ortamlarında müşterilerine kullanılabilir:
 

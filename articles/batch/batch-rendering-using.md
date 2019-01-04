@@ -1,17 +1,17 @@
 ---
-title: Azure Batch işleme
+title: Özellikler - Azure Batch işleme
 description: Azure Batch işleme özellikleri kullanma
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: ef2abc147049d264899d227235cffe72a1a1568c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2f423de63b7cec24d9d9c4541ddab0ac38b1076a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40034807"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542321"
 ---
 # <a name="using-azure-batch-rendering"></a>Azure Batch işleme kullanma
 

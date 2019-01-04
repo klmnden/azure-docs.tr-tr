@@ -1,20 +1,17 @@
 ---
 title: Verileri, MySQL için Azure veritabanı'na çoğaltın.
 description: Bu makalede, veri çoğaltma için Azure veritabanı için MySQL açıklanır.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2018
-ms.openlocfilehash: 6135e4a0182f3af7db54eab974e4c307402185ab
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: ca748dff67be2a37ca61f34602f207265cc77aaa
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666085"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544235"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>MySQL için Azure veritabanı'na veri çoğaltma
 
@@ -23,8 +20,8 @@ Veri çoğaltma, verileri bir MySQL sunucusu şirket içi sanal makineleri veya 
 ## <a name="when-to-use-data-in-replication"></a>Veri çoğaltma kullanma zamanı
 Veri çoğaltma kullanarak dikkate alınması gereken ana senaryolar şunlardır:
 
-- **Karma veri eşitleme:** verileri, daha fazla çoğaltma ile verileri MySQL için Azure veritabanı ve şirket içi sunucular arasında eşitlenmiş kalmasını sağlayabilirsiniz. Bu eşitleme, karma uygulamalar oluşturmak için kullanışlıdır. Varolan bir yerel veritabanı sunucusuna sahip, ancak bir bölgeye yakın bir konumda son kullanıcılara verileri taşımak istediğiniz zaman bu cazip bir yöntemdir.
-- **Birden çok bulut eşitlemesi:** karmaşık bulut çözümleri, kullanım verileri, MySQL için Azure veritabanı ile farklı bulut sağlayıcıları arasında verileri eşitleyebilmeniz için çoğaltma sanal makineleri ve bu bulutlarında barındırılan veritabanı Hizmetleri dahil.
+- **Karma veri eşitleme:** Veri çoğaltma ile MySQL için Azure veritabanı ve şirket içi sunucular arasında eşitlenen verileri tutabilirsiniz. Bu eşitleme, karma uygulamalar oluşturmak için kullanışlıdır. Varolan bir yerel veritabanı sunucusuna sahip, ancak bir bölgeye yakın bir konumda son kullanıcılara verileri taşımak istediğiniz zaman bu cazip bir yöntemdir.
+- **Birden çok bulut eşitlemesi:** Karmaşık yapılı bulut çözümleri, veri çoğaltma MySQL için Azure veritabanı ile sanal makineleri ve bu bulutlarında barındırılan veritabanı Hizmetleri dahil olmak üzere, farklı bulut sağlayıcıları arasında veri eşitlemek için kullanın.
 
 ## <a name="limitations-and-considerations"></a>Sınırlamalar ve önemli noktalar
 

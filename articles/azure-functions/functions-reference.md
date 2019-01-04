@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 38d73f38a5e04a42ee15c9206ce760936e3e10c9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 42635852bb5c6e7b388d4dc58b9d5bfaa6212438
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980313"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725869"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure işlevleri Geliştirici Kılavuzu
 Azure işlevleri'nde belirli işlevleri birkaç temel teknik kavramlar ve bileşenler, dil veya kullandığınız bağlama bağımsız olarak paylaşın. Belirtilen dil veya bağlama için belirli ayrıntıları öğrenme moduna kullanmaya başlamadan önce bunların tümüne uygulanan bu genel bakışta aracılığıyla okuduğunuzdan emin olun.
@@ -76,7 +76,7 @@ Bir işlev uygulaması ile Azure işlevleri dağıtmak için bir proje ayarlama,
 ## <a id="fileupdate"></a> İşlev uygulaması dosyalarını güncelleştirme
 Azure portalda yerleşik işlev Düzenleyicisi, güncelleştirmenizi sağlar *function.json* dosyası ve bir işlev için kod dosyası. Karşıya yükleme veya güncelleştirme gibi diğer dosyaları *package.json* veya *project.json* veya bağımlılıkları, diğer dağıtım yöntemlerini kullanmanız.
 
-İşlev uygulamaları App Service üzerinde bu nedenle tüm yerleşik [standart web Apps'e dağıtım seçeneklerini](../app-service/app-service-deploy-local-git.md) işlev uygulamaları için kullanılabilir. Karşıya yükleme veya güncelleştirme işlevini uygulama dosyaları için kullanabileceğiniz bazı yöntemleri aşağıda verilmiştir. 
+İşlev uygulamaları App Service üzerinde bu nedenle tüm yerleşik [standart web Apps'e dağıtım seçeneklerini](../app-service/deploy-local-git.md) işlev uygulamaları için kullanılabilir. Karşıya yükleme veya güncelleştirme işlevini uygulama dosyaları için kullanabileceğiniz bazı yöntemleri aşağıda verilmiştir. 
 
 #### <a name="use-local-tools-and-publishing"></a>Yerel araçlarını kullanın ve yayımlama
 İşlev uygulamaları yazılabilir ve dahil olmak üzere çeşitli araçları kullanarak yayımlanan [Visual Studio](./functions-develop-vs.md), [Visual Studio Code](functions-create-first-function-vs-code.md), [Intellij](./functions-create-maven-intellij.md), [Eclipse](./functions-create-maven-eclipse.md)ve [Azure işlevleri çekirdek Araçları](./functions-develop-local.md). Daha fazla bilgi için [kod ve test, Azure işlevleri yerel olarak](./functions-develop-local.md).
@@ -87,7 +87,7 @@ Azure portalda yerleşik işlev Düzenleyicisi, güncelleştirmenizi sağlar *fu
 Konu başlığı altındaki yönergeleri [Azure işlevleri için sürekli dağıtım](functions-continuous-deployment.md).
 
 ## <a name="parallel-execution"></a>Paralel yürütme
-Birden çok tetikleyici olayı işlevi tek iş parçacıklı çalışma zamanı bunları işleyebileceğinden daha hızlı ortaya çıktığında, çalışma zamanı içinde birden çok kez paralel işlevi çağırabilir.  Bir işlev uygulaması kullanıyorsanız [tüketim barındırma planı](functions-scale.md#how-the-consumption-plan-works), işlev uygulamasını otomatik olarak ölçeği.  Her işlev uygulaması örneğini uygulama tüketim planı veya normal barındırma çalıştığına [App Service barındırma planında](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md), birden çok iş parçacığı kullanarak paralel eş zamanlı işlev çağrılarını işleyebilir.  Eş zamanlı işlev çağrılarını her işlev uygulaması örnek sayısı kullanılan tetikleyici ve bunun yanı sıra diğer işlevleri içinde işlev uygulaması tarafından kullanılan kaynakları türüne göre değişir.
+Birden çok tetikleyici olayı işlevi tek iş parçacıklı çalışma zamanı bunları işleyebileceğinden daha hızlı ortaya çıktığında, çalışma zamanı içinde birden çok kez paralel işlevi çağırabilir.  Bir işlev uygulaması kullanıyorsanız [tüketim barındırma planı](functions-scale.md#how-the-consumption-plan-works), işlev uygulamasını otomatik olarak ölçeği.  Her işlev uygulaması örneğini uygulama tüketim planı veya normal barındırma çalıştığına [App Service barındırma planında](../app-service/overview-hosting-plans.md), birden çok iş parçacığı kullanarak paralel eş zamanlı işlev çağrılarını işleyebilir.  Eş zamanlı işlev çağrılarını her işlev uygulaması örnek sayısı kullanılan tetikleyici ve bunun yanı sıra diğer işlevleri içinde işlev uygulaması tarafından kullanılan kaynakları türüne göre değişir.
 
 ## <a name="functions-runtime-versioning"></a>İşlevler çalışma zamanı sürümü oluşturma
 
@@ -117,7 +117,7 @@ Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Azure İşlevleri için En İyi Uygulamalar](functions-best-practices.md)
 * [Azure işlevleri C# Geliştirici Başvurusu](functions-reference-csharp.md)
-* [Azure işlevleri F # Geliştirici Başvurusu](functions-reference-fsharp.md)
+* [Azure işlevleri F# Geliştirici Başvurusu](functions-reference-fsharp.md)
 * [Azure işlevleri NodeJS Geliştirici Başvurusu](functions-reference-node.md)
 * [Azure işlevleri Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md)
 * [Azure işlevleri: Yolculuğu](https://blogs.msdn.microsoft.com/appserviceteam/2016/04/27/azure-functions-the-journey/) üzerinde Azure App Service ekibi blogu. Azure işlevleri nasıl geliştirilmiştir geçmişi.

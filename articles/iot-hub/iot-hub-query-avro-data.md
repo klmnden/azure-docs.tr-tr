@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: asrastog
-ms.openlocfilehash: a5b8ce8cd753ee294a8d61ba8a3dfed872f0f31a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69c890cfc3db04fe625ed7ad008f545c01844834
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956343"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993493"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics'i kullanarak avro verileri Sorgulama
 
@@ -21,7 +21,7 @@ Bu makalede, Azure Hizmetleri için Azure IOT Hub'ından iletiler verimli bir ş
 
 Azure IOT Hub iletilerini Azure Blob depolama alanına yönlendirirken, sınama olmuştur, IOT Hub, hem bir ileti gövdesi özelliğinden hem de bir ileti özelliği Avro biçiminde içerik yazar. IOT hub'ı yalnızca Avro verileri biçiminde Blob Depolama veri yazmada destekler ve bu biçim için diğer tüm uç noktaları kullanılmaz. Bir makalede, Azure depolama kapsayıcıları kullanma hakkında daha fazla bilgi için bkz. Avro biçimi veri ve ileti korunması için mükemmel olmakla birlikte, bu verileri sorgulamak için kullanılacak kolay değildir. Buna karşılık, JSON veya CSV biçiminde veri sorgulama için çok daha kolaydır.
 
-<!-- https://review.docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
+<!-- https://review.docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
 
 İlişkisel olmayan büyük veri gereksinimleri ve biçimler adresi ve bu zorluğun üstesinden gelmek için çok büyük veri modellerini dönüştürme hem veri ölçekleme için kullanabilirsiniz. Bir desen, "sorgu ödeme", odak noktası, bu makalede Azure Data Lake Analytics. Hadoop veya diğer çözümleri kolayca sorgu yürütebilirsiniz olsa da, Data Lake Analytics "sorgu ödeme" Bu yaklaşım için genellikle daha uygundur. 
 
@@ -171,7 +171,7 @@ Bu bölümde, Avro verileri sorgulamak ve diğer depolara veya veri depolarında
 
 Bu öğreticide, Azure Hizmetleri için Azure IOT Hub'ından iletiler verimli bir şekilde yönlendirmek için Avro verileri Sorgulama öğrendiniz.
 
-IOT hub'ı kullanan tam uçtan uca çözümler örnekleri için bkz: [Azure IOT Çözüm Hızlandırıcısı belgeleri](../iot-accelerators/index.yml).
+IOT hub'ı kullanan tam uçtan uca çözümler örnekleri için bkz: [Azure IOT Çözüm Hızlandırıcısı belgeleri](/azure/iot-accelerators).
 
 IOT Hub ile çözümleri geliştirme hakkında daha fazla bilgi için bkz. [IOT Hub Geliştirici kılavuzunun](iot-hub-devguide.md).
 

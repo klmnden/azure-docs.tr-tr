@@ -1,20 +1,17 @@
 ---
 title: PostgreSQL için Azure veritabanı'nda iş sürekliliğine genel bakış
 description: PostgreSQL için Azure veritabanı'nda iş sürekliliğine genel bakış.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: a0ff57037d6639f5778e27d6cf697b90038ab3b3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c8c62f6a80cf06e3444c4c3efd9979e723dcf488
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717072"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559051"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>PostgreSQL için Azure veritabanı'nda iş sürekliliğine genel bakış
 
@@ -49,7 +46,7 @@ Sunucunuz, veri merkezi kesintisi sona erdiğinde tekrar çevrimiçi duruma gelm
 Diğer seçenek, coğrafi olarak yedekli yedeklemeler kullanarak sunucuya geri yükleyen PostgreSQL'ın coğrafi geri yükleme özelliği için Azure veritabanı'nı kullanmaktır. Sunucunuz barındırılan bölgeyi çevrimdışı olsa bile bu yedeklemeler erişilebilir olur. Bu yedeklemeleri geri yüklemek için başka bir bölgede ve sunucunuzun çevrimiçi duruma getirin.
 
 > [!IMPORTANT]
-> Sunucu yedekleme coğrafi olarak yedekli depolama ile sağladıysanız coğrafi geri yükleme yalnızca mümkündür. Mevcut bir sunucu için coğrafi olarak yedekli yedeklemeleri yerel olarak yedekli geçiş yapmak istiyorsanız, mevcut sunucunuzun mysqldump kullanarak bir döküm almak ve coğrafi olarak yedekli yedeklemelerde yapılandırılmış yeni oluşturulan geri gerekir.
+> Sunucu yedekleme coğrafi olarak yedekli depolama ile sağladıysanız coğrafi geri yükleme yalnızca mümkündür. Mevcut bir sunucu için coğrafi olarak yedekli yedeklemeleri yerel olarak yedekli geçiş yapmak istiyorsanız, mevcut sunucunuzun pg_dump kullanarak bir döküm almak ve coğrafi olarak yedekli yedeklemelerde yapılandırılmış yeni oluşturulan geri gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Otomatik yedeklemeler hakkında daha fazla bilgi için bkz: [PostgreSQL için Azure veritabanı yedekleme](concepts-backup.md). 

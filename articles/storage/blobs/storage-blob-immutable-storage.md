@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: d3d83e240fec692d5aa655923637910006c7a62f
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 53c719fbeb31d605bd9dff170a798b262d44698a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261482"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634278"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>İş açısından kritik verilerin Azure Blob Depolama alanında Store
 
@@ -25,23 +25,23 @@ Sabit depolama Finans kuruluşları ve dağıtılmasından--verileri güvenli bi
 
 Tipik kullanım alanları şunlardır:
 
-- **Yasal Uyumluluk**: Azure Blob Depolama için sabit depolama kuruluşların adresi sn 17a-4(f), CFTC 1.31(d), STANDARTLAR ve diğer düzenlemelere yardımcı olur.
+- **Yasal Uyumluluk**: Azure Blob Depolama için sabit depolama, kuruluşlara adresi sn 17a-4(f), CFTC 1.31(d), STANDARTLAR ve diğer düzenlemelere yardımcı olur.
 
-- **Belge bekletme güvenli**: Blob Depolama, veri değiştirilemez veya hesabı yönetici ayrıcalıklarına sahip kullanıcılar dahil olmak üzere herhangi bir kullanıcı tarafından silinmiş olduğunu sağlar.
+- **Belge bekletme güvenli**: BLOB Depolama, veri değiştirilemez veya hesabı yönetici ayrıcalıklarına sahip kullanıcılar dahil olmak üzere herhangi bir kullanıcı tarafından silinmiş olduğunu sağlar.
 
 - **Yasal tutma**: Azure Blob Depolama için sabit depolama veya bir suç artıklığının durumda istenen süre için kritik önem taşır hassas bilgileri depolamak kullanıcıların sağlar.
 
 Sabit depolama sağlar:
 
-- **Zamana bağlı Bekletme İlkesi desteği**: kullanıcılar için belirli bir aralıkta verileri depolamak için ilkeler ayarlama.
+- **Zamana bağlı Bekletme İlkesi desteği**: Kullanıcılar için belirli bir aralıkta verileri depolamak için ilkeler ayarlayın.
 
-- **Yasal tutma ilkesi desteği**: elde tutma aralığı bilinmiyor, kullanıcıların yasal tutma temizlenene kadar immutably verileri depolamak için yasal tutma kuralı ayarlayabilirsiniz.  Yasal tutma söz konusu olduğunda bloblar oluşturulabilir ve okunabilir ancak değiştirilemez veya silinemez. Her yasal tutma süreci, tanımlayıcı dize olarak kullanılan ve kullanıcı tarafından belirlenen bir alfasayısal etiketle (olay kimliği gibi) ilişkilendirilir.
+- **Yasal tutma ilkesi desteği**: Bekletme aralığı bilinmiyor, kullanıcıların yasal tutma temizlenene kadar immutably verileri depolamak için yasal tutma kuralı ayarlayabilirsiniz.  Yasal tutma söz konusu olduğunda bloblar oluşturulabilir ve okunabilir ancak değiştirilemez veya silinemez. Her yasal tutma süreci, tanımlayıcı dize olarak kullanılan ve kullanıcı tarafından belirlenen bir alfasayısal etiketle (olay kimliği gibi) ilişkilendirilir.
 
 - **Tüm katmanları blob desteği**: SOLUCAN ilkeleri, Azure Blob Depolama katmanını bağımsızdır ve katmanları için geçerlidir: sık erişimli, seyrek erişimli ve Arşiv. Kullanıcılar, veri değiştirilemezlik korurken veri iş yüklerini en maliyet açısından iyileştirilmiş katmanına geçiş yapabilirsiniz.
 
-- **Kapsayıcı düzeyi yapılandırma**: kullanıcılar, zamana bağlı bekletme ilkeleri yapılandırabilir ve kapsayıcı düzeyinde yasal tutma etiketler. Basit kapsayıcı düzeyi ayarlarını kullanarak, kullanıcılar oluşturabilir ve kilitleme zamana bağlı bekletme ilkeleri, bekletme aralıkları genişletme, ayarlayın ve yasal tutma kuralı ve daha fazlasını temizleyin. Bu ilkeleri, mevcut ve yeni kapsayıcıdaki tüm blobları için geçerlidir.
+- **Kapsayıcı düzeyi yapılandırma**: Kullanıcılar, zamana bağlı bekletme ilkeleri yapılandırabilir ve yasal kapsayıcı düzeyinde etiketler tutun. Basit kapsayıcı düzeyi ayarlarını kullanarak, kullanıcılar oluşturabilir ve kilitleme zamana bağlı bekletme ilkeleri, bekletme aralıkları genişletme, ayarlayın ve yasal tutma kuralı ve daha fazlasını temizleyin. Bu ilkeleri, mevcut ve yeni kapsayıcıdaki tüm blobları için geçerlidir.
 
-- **Oturum açma desteği denetim**: denetim günlüğü her kapsayıcı içerir. Bu üç günlük bekletme aralığı uzantıları için en fazla kilitli zamana bağlı bekletme ilkeleri için en fazla beş zamana bağlı bekletme komutları gösterir. Zamana bağlı bekletme için kullanıcı kimliği, komut türü, zaman damgaları ve bekletme aralığı günlük içerir. Yasal tutma kuralı günlüğü, kullanıcı kimliği, komut türü, zaman damgalarını içerir ve yasal tutma etiketler. Bu günlük, yaşam süresi, sn 17a-4(f) yasal yönergelerine uygun olarak kapsayıcı sağlamak için tutulur. [Azure etkinlik günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) daha kapsamlı bir günlük denetim düzlemi etkinlikleri gösterir. Bu günlük dosyaları sınıflandırmanıza, yasal veya diğer amaçlar için gerekli olduğu gibi depolamak kullanıcının sorumluluğundadır.
+- **Denetim günlük desteği**: Her kapsayıcı, bir denetim günlüğüne içerir. Bu üç günlük bekletme aralığı uzantıları için en fazla kilitli zamana bağlı bekletme ilkeleri için en fazla beş zamana bağlı bekletme komutları gösterir. Zamana bağlı bekletme için kullanıcı kimliği, komut türü, zaman damgaları ve bekletme aralığı günlük içerir. Yasal tutma kuralı günlüğü, kullanıcı kimliği, komut türü, zaman damgalarını içerir ve yasal tutma etiketler. Bu günlük, yaşam süresi, sn 17a-4(f) yasal yönergelerine uygun olarak kapsayıcı sağlamak için tutulur. [Azure etkinlik günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) daha kapsamlı bir günlük denetim düzlemi etkinlikleri gösterir. Bu günlük dosyaları sınıflandırmanıza, yasal veya diğer amaçlar için gerekli olduğu gibi depolamak kullanıcının sorumluluğundadır.
 
 Azure tüm ortak bölgelerde sabit depolama etkin.
 
@@ -95,7 +95,7 @@ Bu özelliği kullanmak için ek ücret yoktur. Sabit veri aynı şekilde normal
 
 ## <a name="getting-started"></a>Başlarken
 
-En son sürümleri [Azure portalında](http://portal.azure.com) ve [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) önizleme sürümünü yanı sıra [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) sabit depolama Azure Blob Depolama için destek.
+En son sürümleri [Azure portalında](http://portal.azure.com) ve [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) önizleme sürümünü yanı sıra [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) sabit depolama Azure Blob Depolama için destek.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -137,13 +137,12 @@ Bu özellik aşağıdaki komut gruplarını dahildir: `az storage container immu
 
 ### <a name="powershell"></a>PowerShell
 
-[PowerShell sürüm 4.4.0-preview](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May20180) değişmez depolamayı destekler.
-Özelliği etkinleştirmek için aşağıdaki adımları izleyin:
+Sabit depolama Az.Storage Önizleme modülü destekler.  Özelliği etkinleştirmek için aşağıdaki adımları izleyin:
 
 1. PowerShellGet yüklü en son sürümüne sahip olduğunuzdan emin olun: `Install-Module PowerShellGet –Repository PSGallery –Force`.
 2. Azure PowerShell'in önceki tüm yüklemesini kaldırın.
-3. Yükleme AzureRM: `Install-Module AzureRM –Repository PSGallery –AllowClobber`. Azure, bu depodan benzer şekilde yüklenebilir.
-4. Depolama yönetim düzlemi cmdlet'leri önizleme sürümünü yükleyin: `Install-Module -Name AzureRM.Storage -AllowPrerelease -Repository PSGallery -AllowClobber`.
+3. Azure PowerShell'i yükleme: `Install-Module Az –Repository PSGallery –AllowClobber`.
+4. Azure PowerShell depolama modülünün önizleme sürümünü yükleyin: `Install-Module Az.Storage -AllowPrerelease -Repository PSGallery -AllowClobber`
 
 [Örnek PowerShell kodu](#sample-powershell-code) bu makalenin devamındaki bölümüne özellik kullanımı gösterilmektedir.
 
@@ -202,6 +201,8 @@ Yalnızca Azure ortak bölgelerde sabit depolama şu anda kullanılabilir. Belir
 
 ## <a name="sample-powershell-code"></a>Örnek PowerShell kodu
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 Aşağıdaki örnek PowerShell Betiği için bir başvurudur. Bu betik, yeni depolama hesabı ve kapsayıcı oluşturur. Bunu ardından, ayarlayın ve yasal tutma kuralı temizleyin, oluşturma ve bir zamana bağlı bekletme ilkesi (değiştirilemezlik ilkesi olarak da bilinir) kilitleyin ve elde tutma aralığı genişletmek gösterilmektedir.
 
 Ayarlama ve Azure depolama hesabına test:
@@ -214,122 +215,122 @@ $container2 = "<Enter another container name>”
 $location = "<Enter the storage account location>"
 
 # Log in to the Azure Resource Manager account
-Login-AzureRMAccount
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Storage"
+Login-AzAccount
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
 
 # Create your Azure resource group
-New-AzureRmResourceGroup -Name $ResourceGroup -Location $location
+New-AzResourceGroup -Name $ResourceGroup -Location $location
 
 # Create your Azure storage account
-New-AzureRmStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
+New-AzStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
     $StorageAccount -SkuName Standard_LRS -Location $location -Kind StorageV2
 
 # Create a new container
-New-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+New-AzStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container
 
 # Create Container 2 with a storage account object
-$accountObject = Get-AzureRmStorageAccount -ResourceGroupName $ResourceGroup `
+$accountObject = Get-AzStorageAccount -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount
-New-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
+New-AzStorageContainer -StorageAccount $accountObject -Name $container2
 
 # Get a container
-Get-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+Get-AzStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container
 
 # Get a container with an account object
-$containerObject = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container
+$containerObject = Get-AzStorageContainer -StorageAccount $accountObject -Name $container
 
 # List containers
-Get-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+Get-AzStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount
 
 # Remove a container (add -Force to dismiss the prompt)
-Remove-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
+Remove-AzStorageContainer -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container2
 
 # Remove a container with an account object
-Remove-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
+Remove-AzStorageContainer -StorageAccount $accountObject -Name $container2
 
 # Remove a container with a container object
-$containerObject2 = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
-Remove-AzureRmStorageContainer -InputObject $containerObject2
+$containerObject2 = Get-AzStorageContainer -StorageAccount $accountObject -Name $container2
+Remove-AzStorageContainer -InputObject $containerObject2
 ```
 
 Ayarlayın ve yasal tutma kuralı temizleyin:
 
 ```powershell
 # Set a legal hold
-Add-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
+Add-AzStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container -Tag <tag1>,<tag2>,...
 
 # with an account object
-Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>
+Add-AzStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>
 
 # with a container object
-Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>,<tag5>,...
+Add-AzStorageContainerLegalHold -Container $containerObject -Tag <tag4>,<tag5>,...
 
 # Clear a legal hold
-Remove-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
+Remove-AzStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -Name $container -Tag <tag2>
 
 # with an account object
-Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>,<tag5>
+Remove-AzStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>,<tag5>
 
 # with a container object
-Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>
+Remove-AzStorageContainerLegalHold -Container $containerObject -Tag <tag4>
 ```
 
 Oluşturma veya güncelleştirme değiştirilemezlik İlkesi:
 ```powershell
 # with an account name or container name
-Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
+Set-AzStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container -ImmutabilityPeriod 10
 
 # with an account object
-Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+Set-AzStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -ImmutabilityPeriod 1 -Etag $policy.Etag
 
 # with a container object
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
+$policy = Set-AzStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 7
 
 # with an immutability policy object
-Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -ImmutabilityPeriod 5
+Set-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -ImmutabilityPeriod 5
 ```
 
 Değiştirilemezlik İlkesi alın:
 ```powershell
 # Get an immutability policy
-Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
+Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container
 
 # with an account object
-Get-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+Get-AzStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container
 
 # with a container object
-Get-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject
+Get-AzStorageContainerImmutabilityPolicy -Container $containerObject
 ```
 
 Kilitleme değiştirilemezlik İlkesi (add - isteği kapatmak için zorla):
 ```powershell
 # with an immutability policy object
-$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -force
+$policy = Lock-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -force
 
 # with an account name or container name
-$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Lock-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
 # with an account object
-$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
+$policy = Lock-AzStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -Etag $policy.Etag
 
 # with a container object
-$policy = Lock-AzureRmStorageContainerImmutabilityPolicy -Container `
+$policy = Lock-AzStorageContainerImmutabilityPolicy -Container `
     $containerObject -Etag $policy.Etag -force
 ```
 
@@ -337,45 +338,45 @@ Değiştirilemezlik İlkesi genişletin:
 ```powershell
 
 # with an immutability policy object
-$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
+$policy = Set-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
     $policy -ImmutabilityPeriod 11 -ExtendPolicy
 
 # with an account name or container name
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Set-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -ImmutabilityPeriod 11 -Etag $policy.Etag -ExtendPolicy
 
 # with an account object
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
+$policy = Set-AzStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -ImmutabilityPeriod 12 -Etag `
     $policy.Etag -ExtendPolicy
 
 # with a container object
-$policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
+$policy = Set-AzStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
 ```
 
 Değiştirilemezlik ilkesini kaldırmak (add - isteği kapatmak için zorla):
 ```powershell
 # with an immutability policy object
-$policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+$policy = Get-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
-Remove-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
+Remove-AzStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 # with an account name or container name
-Remove-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
+Remove-AzStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
 # with an account object
-Remove-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
+Remove-AzStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -Etag $policy.Etag
 
 # with a container object
-Remove-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject `
+Remove-AzStorageContainerImmutabilityPolicy -Container $containerObject `
     -Etag $policy.Etag
 
 ```

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b1fbf77bfb771bd94ed9acdecb3c54e4c6894687
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 183afaeb40b90de078a44f4677dd0218b8d86ba8
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182119"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969001"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C kullanarak bir Facebook hesabıyla kaydolma ve oturum açma ayarlama
 
@@ -38,11 +38,11 @@ Bir Facebook hesabıyla bir kimlik sağlayıcısı olarak Azure Active Directory
 13. Seçin **ürünleri**ve ardından **ayarlanan** altında **Facebook oturum açma**.
 14. Seçin **ayarları** altında **Facebook oturum açma**.
 15. İçinde **geçerli OAuth yeniden yönlendirme URI'leri**, girin `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Değiştirin `your-tenant-name` kiracınızın ada sahip. Tıklayın **Değişiklikleri Kaydet** sayfanın alt kısmındaki.
-16. Facebook uygulamanızı Azure AD B2C için kullanılabilir hale getirmek için seçin **uygulama incelemesi**ayarlayın **Uygulamam olun genel?** için **Evet**ve ardından **Onayla** .
+16. Facebook uygulamanızı Azure AD B2C için kullanılabilir hale getirmek için durumu üst seçiciyi sayfanın sağ gidip **üzerinde** uygulama genel yapın ve ardından **Onayla**.  Bu noktada gelen durumu değiştiğinde **geliştirme** için **canlı**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Bir Facebook hesabıyla bir kimlik sağlayıcısı olarak yapılandırma
 
-1. Oturum [Azure portalında](https://portal.azure.com/) Azure AD B2C kiracınızın genel Yöneticisi olarak.
+1. [Azure portalda](https://portal.azure.com/) Azure AD B2C kiracınızın genel yöneticisi olarak oturum açın.
 2. Azure AD B2C kiracınızı tıklayarak içeren dizine kullandığınızdan emin olun **dizin ve abonelik filtresi** üst menü ve kiracınız içeren dizine seçme. 
 3. Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin.
 4. Seçin **kimlik sağlayıcıları**ve ardından **Ekle**.

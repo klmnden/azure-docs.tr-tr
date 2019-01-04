@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: c2fd32ad15366c76c061ba42fa0a59d43a317b43
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7c2a1c586b4d6f5f9f6e34a091702a35f994544f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012768"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726638"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks korumalı alanı ile Visual Studio için Azure Data Lake Araçları'nı kullanın
 
@@ -60,13 +60,13 @@ Hortonworks korumalı alanı çalıştığından emin olun. Ardından adımları
 
     ![Güncelleştirme düğmesi vurgulanan iletişim kutusunun ekran görüntüsü](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > Güncelleştirme işlemi, Visual Studio için Data Lake araçları tarafından beklenen Hortonworks korumalı alanı yapılandırmasını değiştirmek için Ambari kullanır.
 
 6. Doğrulama tamamlandıktan sonra seçin **son** yapılandırmayı tamamlamak için.
     ![Son düğmesi vurgulanan iletişim kutusunun ekran görüntüsü](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
-     >[!NOTE]
+     >[!NOTE]  
      > Geliştirme ortamı ve sanal makineye ayrılan bellek miktarını hızına bağlı olarak, uygulamanın yapılandırma ve doğrulama hizmetleri için birkaç dakika sürebilir.
 
 Bu adımları uyguladıktan sonra artık sahip olduğunuz bir **HDInsight yerel küme** Sunucu Gezgini giriş altında **HDInsight** bölümü.
@@ -99,7 +99,7 @@ Hive, yapılandırılmış verilerle çalışmaya yönelik bir SQL benzeri bir s
 
     Sonra **iş durumu** değişikliklerini **tamamlandı**, yönlendirilmiş Çevrimsiz graf (DAG) görüntülenir. Bu şema tarafından Tez Hive sorgusu işlenirken belirlendi yürütme yolunu açıklar. Tez Hive için varsayılan yürütme altyapısı yerel kümedeki ' dir.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Linux tabanlı HDInsight kümeleri kullanılırken Apache Tez ayrıca varsayılandır. Varsayılan olarak Windows tabanlı HDInsight değil. Bunu kullanmak için satırın eklemelisiniz `set hive.execution.engine = tez;` Hive sorgunuzu başlangıcına.
 
     Kullanım **iş çıktısı** çıkışı görüntülemek için bağlantı. Bu durumda, 823, sample_08 tablodaki satır sayısını gösterir. İşle ilgili tanılama bilgilerini kullanarak görüntüleyebileceğiniz **iş günlüğü** ve **YARN günlüğünü indirmek** bağlantıları.
@@ -110,7 +110,7 @@ Hive, yapılandırılmış verilerle çalışmaya yönelik bir SQL benzeri bir s
 
     Etkileşimli bir sorgu işleme sırasında üretilen çıkış günlüğü akışları **HiveServer2 çıkış** penceresi.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Kullanılabilir aynı bilgilerdir **iş günlüğü** bir işi tamamlandıktan sonra bağlantı.
 
     ![Çıkış günlüğü görüntüsü](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)

@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3ea1048b1bd47a5cb4f8f4f7725f5ac4d3bbed8a
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 3bae6d93ffe7ea028d3329dcc69c2f33bdf7aa2a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582860"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635468"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight’ta Apache Storm nedir?
 
-[Apache Storm](http://storm.apache.org/); dağıtılmış, hataya dayanıklı, açık kaynaklı bir hesaplama sistemidir. Storm ile gerçek zamanlı veri akışlarını için kullanabileceğiniz [Apache Hadoop](https://hadoop.apache.org/). Storm çözümleri ayrıca ilk seferde başarılı bir şekilde işlenmemiş verileri yeniden yürütme özelliğiyle birlikte verilerin garantili işlenmesini sağlayabilir.
+[Apache Storm](https://storm.apache.org/); dağıtılmış, hataya dayanıklı, açık kaynaklı bir hesaplama sistemidir. Storm ile gerçek zamanlı veri akışlarını için kullanabileceğiniz [Apache Hadoop](https://hadoop.apache.org/). Storm çözümleri ayrıca ilk seferde başarılı bir şekilde işlenmemiş verileri yeniden yürütme özelliğiyle birlikte verilerin garantili işlenmesini sağlayabilir.
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
@@ -27,7 +27,7 @@ ms.locfileid: "52582860"
 
 HDInsight üzerinde Storm aşağıdaki özellikleri sunar:
 
-* __Storm çalışma süresiyle ilgili %99 Hizmet Düzeyi Sözleşmesi__ : Daha fazla bilgi için [HDInsight için SLA bilgileri](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) belgesine göz atın.
+* __% 99 'un üzerinde Storm çalışma süresi hizmet düzeyi sözleşmesi (SLA)__: Daha fazla bilgi için [HDInsight için SLA bilgileri](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) belgesine bakın.
 
 * Oluşturma sırasında veya sonrasında Storm kümesinde betik çalıştırarak kolay özelleştirmeyi destekler. Daha fazla bilgi için bkz. [HDInsight kümelerini betik eylemi kullanarak özelleştirme](../hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -39,10 +39,10 @@ HDInsight üzerinde Storm aşağıdaki özellikleri sunar:
 
 * **Dinamik ölçeklendirme**: Çalışan Storm topolojilerini etkilemeden çalışan düğümleri ekleyebilir veya kaldırabilirsiniz.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Ölçeklendirme işlemleriyle eklenen birkaç yeni düğümden yararlanmak için, çalışan topolojileri devre dışı bırakıp yeniden etkinleştirebilirsiniz.
 
-* **Birden fazla Azure hizmeti kullanarak akış işlem hatları oluşturma**: HDInsight’ta Storm, Event Hubs, SQL Veritabanı, Azure Depolama ve Azure Data Lake Store gibi diğer Azure hizmetleriyle tümleşir.
+* **Birden çok Azure hizmetlerini kullanarak akış işlem hatları oluşturma**: HDInsight üzerinde Storm, Event Hubs, SQL veritabanı, Azure depolama ve Azure Data Lake depolama gibi diğer Azure hizmetleriyle tümleşir.
 
     Azure hizmetleriyle tümleşen örnek bir çözüm için bkz: [HDInsight üzerinde Apache Storm ile Event hubs'tan olay işleme](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
 
@@ -76,31 +76,31 @@ HDInsight üzerinde dakikalar için yeni bir Storm kümesi oluşturabilirsiniz. 
 
 ## <a name="ease-of-use"></a>Kullanım kolaylığı
 
-* __Secure Shell (SSH) bağlantısı__: Storm kümenizin baş düğümlerine İnternet üzerinden SSH kullanarak erişebilirsiniz. SSH kullanarak komutları doğrudan kümeniz üzerinde çalıştırabilirsiniz.
+* __Secure Shell (SSH) bağlantısı__: SSH kullanarak Storm kümenizin baş düğümlerine Internet üzerinden erişebilirsiniz. SSH kullanarak komutları doğrudan kümeniz üzerinde çalıştırabilirsiniz.
 
   Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* __Web bağlantısı__: Tüm HDInsight kümeleri Ambari web kullanıcı arabirimini sunar. Ambari web kullanıcı arabirimini kullanarak kümenizdeki hizmetleri kolayca izleyebilir, yapılandırabilir ve yönetebilirsiniz. Storm kümeleri ayrıca Storm Kullanıcı Arabirimini sağlar. Storm kullanıcı arabirimini kullanarak, çalışan Storm topolojilerini tarayıcınızdan izleyip yönetebilirsiniz.
+* __Web Bağlantısı__: Tüm HDInsight kümeleri Ambari web kullanıcı Arabirimi sağlar. Ambari web kullanıcı arabirimini kullanarak kümenizdeki hizmetleri kolayca izleyebilir, yapılandırabilir ve yönetebilirsiniz. Storm kümeleri ayrıca Storm Kullanıcı Arabirimini sağlar. Storm kullanıcı arabirimini kullanarak, çalışan Storm topolojilerini tarayıcınızdan izleyip yönetebilirsiniz.
 
   Daha fazla bilgi için [Apache Ambari Web kullanıcı arabirimini kullanarak HDInsight yönetme](../hdinsight-hadoop-manage-ambari.md) ve [İzleyici ve Apache Storm kullanıcı arabirimini kullanarak yönetme](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui) belgeleri.
 
 * __Azure PowerShell ve Azure Klasik CLI__: PowerShell ve klasik CLI hem de HDInsight ve diğer Azure hizmetleriyle çalışmak için istemci sisteminizde kullanabileceğiniz komut satırı yardımcı programları sağlar.
 
-* __Visual Studio tümleştirmesi__: Visual Studio için Azure Data Lake Araçları, SCP.Net çerçevesi kullanarak C# Storm topolojileri oluşturmaya yönelik proje şablonları içerir. Data Lake Araçları ayrıca HDInsight üzerinde Storm ile çözümleri dağıtma, izleme ve yönetmeye yönelik araçlar sağlar.
+* __Visual Studio tümleştirmesi__: Visual Studio için Azure Data Lake araçları oluşturmaya yönelik proje şablonları içerir C# Storm topolojileri SCP.Net çerçevesi kullanarak. Data Lake Araçları ayrıca HDInsight üzerinde Storm ile çözümleri dağıtma, izleme ve yönetmeye yönelik araçlar sağlar.
 
   Daha fazla bilgi için bkz. [Visual Studio için HDInsight Araçlarıyla C# Storm topolojileri geliştirme](apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="integration-with-other-azure-services"></a>Diğer Azure hizmetleriyle tümleştirme
 
-* __Azure Data Lake Store__: Data Lake Store’u bir Storm kümesi ile kullanmaya ilişkin örnek için bkz. [HDInsight’ta Azure Data Lake Store ile Apache Storm kullanma](apache-storm-write-data-lake-store.md).
+* __Azure Data Lake depolama__: Data Lake Storage'ı bir Storm kümesi ile kullanma örneği için bkz: [kullanım Azure Data Lake Store ile HDInsight üzerinde Apache Storm](apache-storm-write-data-lake-store.md).
 
-* __Event Hubs__: Event Hubs’ı bir Storm kümesi ile kullanma örneği için aşağıdaki örneklere bakın:
+* __Olay hub'ları__: Event Hubs'ı bir Storm kümesi ile kullanma örneği için aşağıdaki örneklere bakın:
 
     * [(Java) HDInsight üzerinde Apache Storm ile Azure Event hubs'dan olayları işleme](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/)
 
     * [HDInsight üzerinde Apache Storm ile Azure Event hubs'tan olay işleme (C#)](apache-storm-develop-csharp-event-hub-topology.md)
 
-* __SQL Veritabanı__, __Cosmos DB__, __Event Hubs__ ve __HBase__: Visual Studio için Data Lake Araçlarına şablon örnekleri eklenmiştir. Daha fazla bilgi için [geliştirme bir C# HDInsight üzerinde Apache Storm topolojisini](apache-storm-develop-csharp-visual-studio-topology.md).
+* __SQL veritabanı__, __Cosmos DB__, __olay hub'ları__, ve __HBase__: Şablon örnekleri, Visual Studio için Data Lake araçlarına dahil edilir. Daha fazla bilgi için [geliştirme bir C# HDInsight üzerinde Apache Storm topolojisini](apache-storm-develop-csharp-visual-studio-topology.md).
 
 ## <a name="support"></a>Destek
 
@@ -136,17 +136,17 @@ Storm bileşenleri geliştirmek için Python da kullanılabilir. Daha fazla bilg
 
 ### <a name="guaranteed-message-processing"></a>Garantili ileti işleme
 
-Apache Storm farklı düzeylerde garantili ileti işleme sağlayabilir. Örneğin, temel bir Storm uygulaması en az bir kez işlemeyi garanti edebilir ve [Trident](http://storm.apache.org/releases/current/Trident-API-Overview.html) tam bir kez işlemeyi garanti edebilir.
+Apache Storm farklı düzeylerde garantili ileti işleme sağlayabilir. Örneğin, temel bir Storm uygulaması en az bir kez işlemeyi garanti edebilir ve [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html) tam bir kez işlemeyi garanti edebilir.
 
 Daha fazla bilgi için apache.org sayfasındaki [Veri işleme garantileri](https://storm.apache.org/about/guarantees-data-processing.html) bölümüne bakın.
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-Bir girdi tanımlama grubunu okuma, sıfır veya daha fazla tanımlama grubu yayma ve yürütme yönteminin hemen sonrasında girdi tanımlama grubunu onaylama deseni yaygındır. Storm bu deseni otomatik hale getirmek için [IBasicBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) arabirimini kullanır.
+Bir girdi tanımlama grubunu okuma, sıfır veya daha fazla tanımlama grubu yayma ve yürütme yönteminin hemen sonrasında girdi tanımlama grubunu onaylama deseni yaygındır. Storm bu deseni otomatik hale getirmek için [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) arabirimini kullanır.
 
 ### <a name="joins"></a>Birleştirme
 
-Uygulamalar arasına veri akışları nasıl katılır? Örneğin, yeni birden fazla akıştaki her bir tanımlama grubunu yeni bir akışta birleştirebilir veya yalnızca toplu tanımlama gruplarını belirli bir pencere için birleştirebilirsiniz. Her iki durumda da katılım, [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) kullanılarak gerçekleştirilebilir. Alan gruplandırma, tanımlama gruplarının boltlara nasıl yönlendirileceğini tanımlamanın bir yoludur.
+Uygulamalar arasına veri akışları nasıl katılır? Örneğin, yeni birden fazla akıştaki her bir tanımlama grubunu yeni bir akışta birleştirebilir veya yalnızca toplu tanımlama gruplarını belirli bir pencere için birleştirebilirsiniz. Her iki durumda da katılım, [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) kullanılarak gerçekleştirilebilir. Alan gruplandırma, tanımlama gruplarının boltlara nasıl yönlendirileceğini tanımlamanın bir yoludur.
 
 Aşağıdaki Java örneğinde fieldsGrouping, "1", "2" ve "3" bileşenlerinden kaynaklanan tanımlama gruplarını MyJoiner boltuna yönlendirmek için kullanılır:
 
@@ -160,11 +160,11 @@ Bir C# bileşeninden değer çizgisi tanımlama grubu kullanımı örneği için
 
 ### <a name="caches"></a>Caches
 
-Bellek içi önbelleğe alma, sık kullanılan varlıkları bellekte tuttuğu için çoğunlukla işlemeyi hızlandırmaya yönelik bir mekanizma olarak kullanılır. Bir topoloji birden fazla düğüme ve her bir düğüm içindeki birden fazla işleme dağıtıldığı için, [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) kullanmayı düşünmeniz gerekir. Önbellek araması için kullanılan alanları içeren tanımlama gruplarının her zaman aynı işleme yönlendirildiğinden emin olmak için `fieldsGrouping` kullanın. Bu gruplandırma işlevi, süreçler arasında önbellek girişlerinin yinelenmesini önler.
+Bellek içi önbelleğe alma, sık kullanılan varlıkları bellekte tuttuğu için çoğunlukla işlemeyi hızlandırmaya yönelik bir mekanizma olarak kullanılır. Bir topoloji birden fazla düğüme ve her bir düğüm içindeki birden fazla işleme dağıtıldığı için, [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) kullanmayı düşünmeniz gerekir. Önbellek araması için kullanılan alanları içeren tanımlama gruplarının her zaman aynı işleme yönlendirildiğinden emin olmak için `fieldsGrouping` kullanın. Bu gruplandırma işlevi, süreçler arasında önbellek girişlerinin yinelenmesini önler.
 
 ### <a name="stream-top-n"></a>"İlk N" akış
 
-Topolojiniz bir "ilk N" değeri hesaplamaya bağlıysa, ilk N değeri paralel olarak hesaplayın. Ardından bu hesaplamaların çıktısını genel bir değerde birleştirmeniz gerekir. Bu işlem, alanı paralel işleme için yönlendirmek üzere [fieldsGrouping](http://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) kullanılarak yapılabilir. Ardından, ilk n değerini genel olarak belirleyen bir bolta yönlendirebilirsiniz.
+Topolojiniz bir "ilk N" değeri hesaplamaya bağlıysa, ilk N değeri paralel olarak hesaplayın. Ardından bu hesaplamaların çıktısını genel bir değerde birleştirmeniz gerekir. Bu işlem, alanı paralel işleme için yönlendirmek üzere [fieldsGrouping](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/InputDeclarer.html#fieldsGrouping-java.lang.String-org.apache.storm.tuple.Fields-) kullanılarak yapılabilir. Ardından, ilk n değerini genel olarak belirleyen bir bolta yönlendirebilirsiniz.
 
 İlk N değeri hesaplama örneği için [RollingTopWords](https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/org/apache/storm/starter/RollingTopWords.java) örneğine bakın.
 
@@ -182,6 +182,6 @@ HDInsight üzerinde Apache Storm ile gerçek zamanlı analiz çözümleri hakkı
 * [HDInsight üzerinde Apache Storm için örnek topolojiler](apache-storm-example-topology.md)
 
 [stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
-[samoa]: http://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
+[samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
 [apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
 [gettingstarted]: apache-storm-tutorial-get-started-linux.md

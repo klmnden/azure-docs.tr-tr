@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: f96082aaa174886c085ba67ee0f3e870e53136e1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 917cf6ddf23fb9240aa6f2cef8add14c66d0cb06
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600769"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973188"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Azure Cosmos DB SQL API hesabı (SDK sürüm 3 Önizleme) verileri yönetmek için bir .NET Core konsol uygulaması oluşturma
 
@@ -188,7 +188,7 @@ Tebrikler! Bir Azure Cosmos DB hesabına başarıyla bağlandınız.
 
 ## <a name="step-4-create-a-database"></a>4. adım: Veritabanı oluşturma
 
-Bir veritabanını kullanarak oluşturulabilir [ **Createdatabaseasync** ](https://aka.ms/CosmosDotnetAPIDocs) veya [ **Documentclient** ](https://aka.ms/CosmosDotnetAPIDocs) işlevi `Databases` sınıfı. Veritabanı, kapsayıcılar genelinde bölümlenmiş öğelerin mantıksal bir kapsayıcısıdır.
+Bir veritabanını kullanarak oluşturulabilir [ **Createdatabaseasync** ](https://aka.ms/CosmosDotnetAPIDocs) veya [ **Documentclient** ](https://aka.ms/CosmosDotnetAPIDocs) işlevi **CosmosDatabases** sınıfı. Veritabanı, kapsayıcılar genelinde bölümlenmiş öğelerin mantıksal bir kapsayıcısıdır.
 
 1. Kopyalama ve yapıştırma **CreateDatabase** yöntemi aşağıdaki, **GetStartedDemoAsync** yöntemi. **CreateDatabase** kimliğine sahip yeni bir veritabanı oluşturur `FamilyDatabase` , zaten, öğesinden belirtilen kimliğe sahip yoksa `databaseId` alan.
 
@@ -304,7 +304,7 @@ Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB veritabanı oluşturdunu
 > [!WARNING]
 > Yöntemini çağırarak **CreateContainerIfNotExistsAsync** ödenmesini yeni bir kapsayıcı oluşturur. Daha ayrıntılı bilgi için lütfen [fiyatlandırma sayfamızı](https://azure.microsoft.com/pricing/details/cosmos-db/) ziyaret edin.
 
-Bir kapsayıcı kullanarak oluşturulabilir [ **CreateContainerIfNotExistsAsync** ](https://aka.ms/CosmosDotnetAPIDocs) veya [ **CreateContainerAsync** ](https://aka.ms/CosmosDotnetAPIDocs) işlevi **Kapsayıcıları** sınıfı. Bir kapsayıcı (Bu SQL API'si söz konusu olduğunda JSON belgelerini) öğelerden oluşur ve ilişkili JavaScript sunucu tarafı uygulama mantığı, örneğin saklı yordamlar, kullanıcı tanımlı işlevler ve tetikleyiciler.
+Bir kapsayıcı kullanarak oluşturulabilir [ **CreateContainerIfNotExistsAsync** ](https://aka.ms/CosmosDotnetAPIDocs) veya [ **CreateContainerAsync** ](https://aka.ms/CosmosDotnetAPIDocs) işlevi **CosmosContainers** sınıfı. Bir kapsayıcı (Bu SQL API'si söz konusu olduğunda JSON belgelerini) öğelerden oluşur ve ilişkili JavaScript sunucu tarafı uygulama mantığı, örneğin saklı yordamlar, kullanıcı tanımlı işlevler ve tetikleyiciler.
 
 1. Kopyalama ve yapıştırma **CreateContainer** yöntemi aşağıdaki, **CreateDatabase** yöntemi. **CreateContainer** kimliğine sahip yeni bir kapsayıcı oluşturacak `FamilyContainer` , zaten, öğesinden belirtilen kimliğe sahip yoksa `containerId` alan.
 
@@ -341,7 +341,7 @@ Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB kapsayıcısı oluşturd
 
 ## <a id="CreateDoc"></a>6. adım: Öğeleri kapsayıcıya Ekle
 
-Bir öğeyi kullanarak oluşturulabilir [ **Createıtemasync** ](https://aka.ms/CosmosDotnetAPIDocs) işlevi **öğeleri** sınıfı. SQL API'sini kullanarak öğeler, kullanıcı tanımlı (rastgele) JSON içeriği olan belgeler olarak görüntülenir. Bu gibi durumlarda, bir öğe artık Azure Cosmos DB kapsayıcınız ekleyebilirsiniz.
+Bir öğeyi kullanarak oluşturulabilir [ **Createıtemasync** ](https://aka.ms/CosmosDotnetAPIDocs) işlevi **CosmosItems** sınıfı. SQL API'sini kullanarak öğeler, kullanıcı tanımlı (rastgele) JSON içeriği olan belgeler olarak görüntülenir. Bu gibi durumlarda, bir öğe artık Azure Cosmos DB kapsayıcınız ekleyebilirsiniz.
 
 İlk olarak, bu örnekte Azure Cosmos DB içinde depolanan nesneleri temsil edecek bir **Family** sınıfı oluşturmamız gerekir. **Family**'nin içinde kullanılan **Parent**, **Child**, **Pet**, **Address** alt sınıflarını da oluşturacağız. Belgelerin, JSON'da **id** olarak seri hale getirilmiş bir **Id** özelliğine sahip olmaları gerektiğini unutmayın.
 

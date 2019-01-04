@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 43f3628878654a32be8aeafe1ba0d2e42e03d82f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d64c55857cda0aa64dc010566490e1696fffdea0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240418"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972389"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Farklı bölgelerdeki Azure sanal makinelerinde Always On kullanılabilirlik grubu yapılandırma
 
@@ -84,6 +84,7 @@ Bir uzak veri merkezinde bir çoğaltma oluşturmak için aşağıdaki adımlar�
    - Sanal makineler yalnızca yük dengeleyici ile aynı bölgede oluşan bir arka uç havuzu ekleyin.
    - IP adresi için belirli bir TCP bağlantı noktası araştırması kullanabilirsiniz.
    - Yük Dengeleme kuralı belirli SQL Server'a aynı bölgede olması.  
+   - Standart yük dengeleyici arka uç havuzundaki sanal makinelerin tek bir kullanılabilirlik kümesi ya da sanal makine ölçek kümesi parçası değilse olabilir. Ek bilgileri İnceleme için [Azure Load Balancer Standard genel bakış](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
 
 1. [Yeni SQL Server için Yük Devretme Kümelemesi özelliği eklemek](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms).
 

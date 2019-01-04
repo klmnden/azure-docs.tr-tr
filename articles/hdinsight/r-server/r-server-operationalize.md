@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ce701c029c63256714452aa13f646af77991cb67
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d0cae4210fa313c5d6e1f33987422e7b0d53e76a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496913"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579966"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>ML Hizmetleri Azure HDInsight kümesinde çalışır hale getirme
 
@@ -22,13 +22,13 @@ Verilerinizi modelleme tamamlamak için HDInsight küme ML Hizmetleri kullandık
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Bir HDInsight ML Hizmetleri kümesinde**: yönergeler için [ML Hizmetleri HDInsight kullanmaya başlama](r-server-get-started.md).
+* **Bir HDInsight ML Hizmetleri kümesinde**: Yönergeler için [ML Hizmetleri HDInsight kullanmaya başlama](r-server-get-started.md).
 
-* **Güvenli Kabuk (SSH) istemcisi**: HDInsight kümesine uzaktan bağlanmak ve komutları doğrudan küme üzerinde çalıştırmak için bir SSH istemcisi kullanılır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Güvenli Kabuk (SSH) istemcisi**: Bir SSH istemcisi uzaktan HDInsight kümesine bağlanmak ve komutları doğrudan küme üzerinde çalıştırmak için kullanılır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>ML Hizmetleri kümesi one-box yapılandırması ile kullanıma hazır hale getirme
 
-> [!NOTE]
+> [!NOTE]  
 > Aşağıdaki adımlar, R Server 9.0 ve ML Server 9.1 için geçerlidir. ML Server 9.3 için başvurmak [kullanıma hazır hale getirme yapılandırmasını yönetmek için yönetim aracını kullanın](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. Kenar düğümüne SSH uygulayın.
@@ -137,7 +137,7 @@ SSH oturumunuz etkin hale geldikten sonra yerel makinenizin 12800 numaralı bağ
 
 İşlem düğümlerini ölçeklendirmek için önce çalışan düğümlerinin yetkisini alma ve işlem düğümleri üzerinde yetkisi alınmış çalışan düğümlerinin yapılandırın.
 
-### <a name="step-1-decommission-the-worker-nodes"></a>1. adım: çalışan düğümlerinin yetkisini alma
+### <a name="step-1-decommission-the-worker-nodes"></a>1. Adım: Çalışan düğümlerinin yetkisini alma
 
 ML Hizmetleri kümesi aracılığıyla yönetilen değil [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html). Çalışan düğümlerinin yetkisi alınmazsa, YARN kaynak yöneticisi sunucu tarafından alınan kaynakları farkında olmadığından beklendiği gibi çalışmaz. Bu durumu önlemek için, işlem düğümlerini ölçeklendirmeden önce çalışan düğümlerinin yetkisinin alınması önerilir.
 
@@ -159,7 +159,7 @@ ML Hizmetleri kümesi aracılığıyla yönetilen değil [Apache Hadoop YARN](ht
 * Çalışan düğümlerinin seçimini kaldırın ve baş düğümleri seçin.
 * Seçin **eylemleri** > **seçili Konaklar** > "**konakları** > **tüm bileşenleri yeniden Başlat**.
 
-### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>2. adım: Yapılandırma işlem üzerinde her yetkisi alınmış çalışan düğümlerinin düğümleri
+### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>2. Adım: Her yetkisi alınmış çalışan düğümü üzerinde işlem düğümlerini yapılandırın
 
 1. Yetkisi alınan her çalışan düğümüne SSH uygulayın.
 
@@ -173,7 +173,7 @@ ML Hizmetleri kümesi aracılığıyla yönetilen değil [Apache Hadoop YARN](ht
 
 1. Yönetim Yardımcı Programından çıkın.
 
-### <a name="step-3-add-compute-nodes-details-on-web-node"></a>3. adım: Ekleme düğümleri ayrıntıları web düğümdeki işlem
+### <a name="step-3-add-compute-nodes-details-on-web-node"></a>3. Adım: Web düğümüne işlem düğümlerinin ayrıntılarını ekleme
 
 Tüm yetkisi alınmış çalışan düğümleri işlem düğümü çalışacak şekilde yapılandırıldıktan sonra kenar düğümüne geri dönün ve yetkisi alınmış çalışan düğümlerinin IP adreslerini ML Server web düğümünün yapılandırmasına ekleyin:
 

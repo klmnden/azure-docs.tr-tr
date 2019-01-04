@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: b019523227bcd45e502ec84055cfb09025918331
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 623e7276ccba85b6df74291ee857613019349b7a
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406133"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993442"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Yedekleme ve kurtarma hesabı kimlik bilgileriyle Microsoft Authenticator uygulaması
 
-**Uygulama hedefi:**
+**Şunlara uygulanır:**
 
 - iOS cihazları
 
@@ -76,7 +76,7 @@ Kişisel Microsoft hesapları için alternatif bir e-posta veya telefon numaras�
 ### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>İş veya Okul hesapları için ek doğrulama sağlamak için
 1.  İçinde **hesapları** yanındaki kurtarmak istediğiniz hesabı seçin açılır oka Microsoft Authenticator uygulamasının ekran.
 
-    ![Microsoft Authenticator uygulaması, kullanılabilir hesaplar, ilişkili açılan oklarla gösteriliyor](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
+    ![Microsoft Authenticator uygulaması, kullanılabilir hesaplar, ilişkili açılan oklarla gösteriliyor](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additional-accts.png)
 
 2.  Seçin **tarama QR kodunu, kurtarılır**ve ardından QR kodunu tarayın.
 

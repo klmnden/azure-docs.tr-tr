@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e3bfdcfaaf752321997636811b282ea920e6144a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 205eff6c79ba4699516a8898c5b1268eb3dfe644
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344209"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754025"
 ---
 # <a name="authenticate-to-the-speech-api"></a>Konuşma tanıma API'si için kimlik doğrulaması
 
@@ -23,7 +23,7 @@ ms.locfileid: "49344209"
 
 Bing konuşma kullanarak kimlik doğrulamasını destekler:
 
-- Bir abonelik anahtarı.
+- Abonelik anahtarı.
 - Bir yetkilendirme belirteci.
 
 ## <a name="use-a-subscription-key"></a>Bir abonelik anahtarı kullanma
@@ -72,7 +72,7 @@ https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 
 Aşağıdaki kod örneği, bir erişim belirteci almak gösterilmektedir. Değiştirin `YOUR_SUBSCRIPTION_KEY` kendi abonelik anahtarınızla:
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -96,7 +96,7 @@ Bu örnek, Linux üzerinde bash ile curl kullanır. Platformunuzda bulunan kulla
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
     /*
@@ -159,7 +159,7 @@ Aşağıdaki örnek konuşma REST API çağırdığınızda bir yetkilendirme be
 > [!NOTE]
 > Değiştirin `YOUR_AUDIO_FILE` ile önceden kaydedilmiş ses dosyanızın yolu. Değiştirin `YOUR_ACCESS_TOKEN` önceki adımda aldığınız yetkilendirme belirteciyle [yetkilendirme belirtecini alma](#get-an-authorization-token).
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```Powershell
 
@@ -189,7 +189,7 @@ $RecoResponse
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/CSharp)
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 HttpWebRequest request = null;

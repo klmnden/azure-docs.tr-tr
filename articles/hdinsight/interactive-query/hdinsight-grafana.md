@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: f47c9ee85348cc96915a0fa637b06b0a73059351
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7f33742fc5e765aa5ab0c66d13e844b3be2bab9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322303"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599885"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight, erişim Grafana
 
@@ -34,7 +34,7 @@ Bu bölümde, bir Azure Resource Manager şablonu kullanarak HDInsight içinde b
 
 2. Aşağıdaki ekran görüntüsünde önerilen değerleri girin veya seçin:
 
-    > [!NOTE]
+    > [!NOTE]  
     > Sağladığınız değerler benzersiz olmalı ve adlandırma yönergelerini izlemelidir. Şablon, doğrulama denetimleri gerçekleştirmez. Sağladığınız değerler zaten kullanılıyorsa veya yönergelere uygun değilse, şablonu gönderdikten sonra bir hata alırsınız.       
     > 
     >
@@ -66,10 +66,8 @@ Bu bölümde, bir Azure Resource Manager şablonu kullanarak HDInsight içinde b
 5. Kutucukta, kümeyle ilişkili varsayılan depolama da listelenir. Her kümenin bir [Azure Depolama hesabı](../hdinsight-hadoop-use-blob-storage.md) veya [Azure Data Lake hesabı](../hdinsight-hadoop-use-data-lake-store.md) bağımlılığı vardır. Bu genellikle varsayılan depolama hesabı olarak ifade edilir. HDInsight kümesi ve kümenin varsayılan depolama hesabının aynı Azure bölgesinde birlikte gerekir. Kümeleri silmek depolama hesabını silmez.
     
 
-> [!NOTE]
-> Diğer küme oluşturma yöntemleri ve bu öğreticide kullanılan özellikler hakkında bilgi edinmek için bkz. [HDInsight kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md).       
-> 
->
+> [!NOTE]  
+> Diğer küme oluşturma yöntemleri ve bu öğreticide kullanılan özellikler hakkında bilgi edinmek için bkz. [HDInsight kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md). 
 
 ## <a name="access-the-grafana-dashboard"></a>Grafana panosuna erişim
 
@@ -94,10 +92,8 @@ Bu bölümde, bir Azure Resource Manager şablonu kullanarak HDInsight içinde b
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 Makaleyi tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır. 
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight üzerinde Hadoop kullanarak ETL işlemlerinin nasıl çalıştırılacağını öğrenmek için sonraki öğreticiye *hemen* ilerliyorsanız, kümeyi çalışır durumda tutmak isteyebilirsiniz. Öğreticide tekrar Hadoop kümesi oluşturmanız gerektiğinden bu gereklidir. Ancak sonraki öğreticiye hemen geçmeyecekseniz şimdi kümeyi silmeniz gerekir.
-> 
-> 
 
 **Küme ve/veya varsayılan depolama hesabını silmek için**
 
@@ -124,7 +120,7 @@ HDInsight ile veri çözümleme hakkında daha fazla bilgi için aşağıdaki ma
 
 * Visual Studio'dan Hive sorguları gerçekleştirme dahil, HDInsight ile Hive kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma Apache](../hdinsight-use-hive.md).
 * Verileri dönüştürmek için kullanılan bir dil olan pig hakkında bilgi için bkz: [HDInsight ile Apache Pig kullanma](../hdinsight-use-pig.md).
-* Hadoop'ta verileri işleyen programları yazmanın bir yöntemi olan Apache Hadoop MapReduce hakkında bilgi edinmek için bkz. [HDInsight ile Apache Hadoop MapReduce kullanma](../hdinsight-use-mapreduce.md).
+* Hadoop’ta verileri işleyen programları yazmanın bir yöntemi olan MapReduce hakkında bilgi edinmek için bkz. [HDInsight ile MapReduce kullanma](../hdinsight-use-mapreduce.md).
 * HDInsight’taki verileri çözümlemek amacıyla Visual Studio için HDInsight Araçları kullanma hakkında bilgi edinmek için bkz. [HDInsight için Visual Studio Hadoop araçlarını kullanmaya başlama](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 

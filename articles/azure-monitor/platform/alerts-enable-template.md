@@ -7,20 +7,20 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
-ms.component: metric
-ms.openlocfilehash: 4fcde6773bcdfe7ac522c813151518785dc14e25
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.component: metrics
+ms.openlocfilehash: a5e38f1400b99c6030799121d37721c26e16649c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383570"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721147"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Kaynak Yöneticisi şablonu ile klasik ölçüm uyarısı oluşturma
 Bu makalede nasıl kullanabileceğinizi gösteren bir [Azure Resource Manager şablonu](../../azure-resource-manager/resource-group-authoring-templates.md) Azure ölçüm uyarılarını yapılandırmak için. Bu otomatik olarak tüm kaynaklarının doğru şekilde izlenir emin olmak için oluşturuldukları sırada kaynaklarınızın uyarılar ayarlamanıza olanak sağlar.
 
 > [!NOTE]
 > 
-> Bu makalede oluşturma işlemini açıklar **Klasik ölçüm uyarıları** Resource Manager şablonlarını kullanarak. Oluşturmak için arıyorsanız [yeni ölçüm uyarılarının](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md) şablonları kullanarak [bu makalede](alerts-metric-create-templates.md) ayrıntıları sağlar.
+> Bu makalede oluşturma işlemini açıklar **Klasik ölçüm uyarıları** Resource Manager şablonlarını kullanarak. Oluşturmak için arıyorsanız [yeni ölçüm uyarılarının](../../azure-monitor/platform/alerts-metric-near-real-time.md) şablonları kullanarak [bu makalede](alerts-metric-create-templates.md) ayrıntıları sağlar.
 >
 
 

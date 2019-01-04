@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: d9d34441f36ea60141ed2659b3e33efdaac94ad3
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 351734ea394b8820e87799a6d9a87979dd9c3807
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497116"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53604540"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio için R Araçları’ndan iş gönderme
 
@@ -35,7 +35,7 @@ Araçlar sunarak RTVS R akışınızı geliştirir [R etkileşimli penceresi](ht
 
 4. Yükleme [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) makinenizde. ML Server sağlar [ `RevoScaleR` ](https://msdn.microsoft.com/microsoft-r/scaler/scaler) ve `RxSpark` işlevleri.
 
-5. Yükleme [PuTTY](http://www.putty.org/) çalıştırmak için bir işlem bağlam sağlamak için `RevoScaleR` HDInsight kümenize yerel istemcinizden işlevleri.
+5. Yükleme [PuTTY](https://www.putty.org/) çalıştırmak için bir işlem bağlam sağlamak için `RevoScaleR` HDInsight kümenize yerel istemcinizden işlevleri.
 
 6. R araçları için çalışma alanınız için yeni bir düzen sağlayan Visual Studio ortamınıza veri bilimi ayarları uygulamak için bir seçenekleri var.
     1. Geçerli Visual Studio ayarlarınızı kaydetmek için kullanın **Araçlar > içeri ve dışarı aktarma ayarları** komutunu ve ardından **seçili ortam ayarlarını dışarı aktar** ve bir dosya adı belirtin. Bu ayarları geri yüklemek için aynı komutu kullanın ve seçin **seçili ortam ayarlarını içeri aktarma**.
@@ -44,7 +44,7 @@ Araçlar sunarak RTVS R akışınızı geliştirir [R etkileşimli penceresi](ht
 
         ![Veri bilimi ayarları...](./media/r-server-submit-jobs-r-tools-vs/data-science-settings.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > 1. adımda yaklaşımı kullanarak da kaydedebilir ve kişiselleştirilmiş bir veri Bilimcisi düzeninizi geri yinelenen yerine **veri bilimi ayarları** komutu.
 
 ## <a name="execute-local-r-methods"></a>Yerel R yöntemleri çalıştırma

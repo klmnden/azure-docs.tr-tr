@@ -4,21 +4,21 @@ description: Azure IOT Edge çalışma zamanı ve bir proxy sunucu üzerinden il
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 12/17/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: a7d32c98b77568e02fa14b70e969eeb254989062
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ad9ecd9c5b50657caba7522fe500a748a10cd02d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100490"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634312"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Bir proxy sunucu üzerinden iletişim kurmak için IOT Edge cihazı yapılandırma
 
-IOT Edge cihazları, IOT Hub ile iletişim kurmak için HTTPS isteği gönderir. Cihazınızı bir ara sunucu kullanıyorsa bir ağa bağlıysa, sunucu üzerinden iletişim kurmak için IOT Edge çalışma zamanı'nı yapılandırmanız gerekir. Edge hub'ı yönlendirilmesini değil HTTP veya HTTPS isteklerini yapmaları durumunda proxy sunucuları tek tek bir IOT Edge modüllerinin da etkileyebilir. 
+IOT Edge cihazları, IOT Hub ile iletişim kurmak için HTTPS isteği gönderir. Cihazınızı bir ara sunucu kullanıyorsa bir ağa bağlıysa, sunucu üzerinden iletişim kurmak için IOT Edge çalışma zamanı'nı yapılandırmanız gerekir. Bunlar IOT Edge hub'ı ile yönlendirilen olmayan HTTP veya HTTPS istekleri yapıyorsa proxy sunucuları tek tek bir IOT Edge modüllerinin da etkileyebilir. 
 
 IOT Edge cihazı bir proxy sunucusu ile çalışmak için yapılandırma temel adımları izler: 
 
@@ -33,7 +33,7 @@ Docker cinini ve IOT Edge Cihazınızda yapılandırmak için proxy URL'sini de 
 
 Ara sunucu URL'leri şu biçimde olması: **Protokolü**://**proxy_host**:**proxy_port**. 
 
-* **Protokolü** HTTP veya HTTPS. Docker Daemon programını, kapsayıcı kayıt defteri ayarlarınıza bağlı olarak her iki protokolü kullanılarak yapılandırılabilir. ancak IOT Edge arka plan programı ve çalışma zamanı kapsayıcılardaki her zaman HTTPS kullanmanız gerekir.
+* **Protokolü** HTTP veya HTTPS. Docker Daemon programını kapsayıcı kayıt defteri ayarlarınıza bağlı olarak her iki protokolü kullanabilirsiniz ancak arka plan programı ve çalışma zamanı IOT Edge kapsayıcıları her zaman HTTPS kullanmalıdır.
 
 * **Proxy_host** bir proxy sunucusunun adresidir. Ara sunucunuz kimlik doğrulaması gerektiriyorsa, proxy_host biçiminde bir parçası olarak kimlik bilgilerinizi sağlayabilir **kullanıcı**:**parola**@**proxy_host**. 
 
@@ -43,14 +43,22 @@ Ara sunucu URL'leri şu biçimde olması: **Protokolü**://**proxy_host**:**prox
 
 Bir Linux cihaza IOT Edge çalışma zamanı'nı yüklüyorsanız, yükleme paketi erişmek için Ara sunucu üzerinden gitmesi için Paket Yöneticisi'ni yapılandırın. Örneğin, [apt-get bir http Ara sunucusunu kullanacak şekilde](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Paket Yöneticisi'ni yapılandırıldıktan sonra yönergeleri izleyin [yükleme Azure IOT Edge çalışma zamanı (ARM32v7/armhf) Linux'ta](how-to-install-iot-edge-linux-arm.md) veya [(x64) Linux üzerinde Azure IOT Edge çalışma zamanı yükleme](how-to-install-iot-edge-linux.md) zamanki. 
 
-Bir Windows cihaza IOT Edge çalışma zamanı'nı yüklüyorsanız, yükleme paketi erişmek için Ara sunucu üzerinden gitmesi gerekir. Proxy bilgileri Windows ayarlarında yapılandırdığınız veya proxy bilgilerinizi doğrudan yükleme betiğini içerir. Aşağıdaki powershell betiğini kullanarak bir windows yükleme ilişkin bir örnektir `-proxy` bağımsız değişkeni:
+Bir Windows cihaza IOT Edge çalışma zamanı'nı yüklüyorsanız, yükleyici betik dosyası gerekli bileşenleri yüklemek için yükleme sırasında daha sonra tekrar yüklemek için Ara sunucu üzerinden bir kez gitmeniz gerekiyor. Proxy bilgileri Windows ayarlarında yapılandırdığınız veya proxy bilgilerinizi doğrudan yükleme betiğini içerir. Aşağıdaki powershell betiğini kullanarak bir windows yükleme ilişkin bir örnektir `-proxy` bağımsız değişkeni:
 
 ```powershell
 . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -Manual -ContainerOs Windows
+Install-SecurityDaemon -Manual -ContainerOs Windows -proxy <proxy URL>
 ```
 
-Daha fazla bilgi ve yükleme seçenekleri için bkz [Windows kapsayıcıları ile kullanmak için Windows yükleme Azure IOT Edge çalışma zamanına](how-to-install-iot-edge-windows-with-windows.md) veya [Linux kapsayıcıları ile kullanmak için Windows yükleme Azure IOT Edge çalışma zamanına](how-to-install-iot-edge-windows-with-linux.md).
+URL'de bulunan proxy sunucusu için kimlik bilgilerini karmaşık kullanırsanız `-ProxyCredential` parametre içinde `-InvokeWebRequestParameters`. Örneğin,
+
+```powershell
+$proxyCredential = (Get-Credential).GetNetworkCredential()
+. {Invoke-WebRequest -proxy <proxy URL> -ProxyCredential $proxyCredential -useb aka.ms/iotedge-win} | Invoke-Expression; `
+Install-SecurityDaemon -Manual -ContainerOs Windows -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
+```
+
+Ara sunucu parametreleri hakkında daha fazla bilgi için bkz. [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Yükleme seçenekleri hakkında daha fazla bilgi için bkz. [Windows yükleme Azure IOT Edge çalışma zamanına](how-to-install-iot-edge-windows.md).
 
 IOT Edge çalışma zamanı yüklendikten sonra Ara sunucu bilgileri ile yapılandırmak için aşağıdaki bölümü kullanın. 
 
@@ -65,7 +73,7 @@ Docker Daemon programını ortam değişkenleriyle yapılandırmak için Docker 
 Docker sürümünüzü makalenin seçin: 
 
 * [Docker](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
-* [Windows için docker](https://docs.docker.com/docker-for-windows/#proxies)
+* [Windows için docker](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon#proxy-configuration)
 
 ### <a name="iot-edge-daemon"></a>IOT Edge arka plan programı
 
@@ -86,7 +94,7 @@ Aşağıdaki metni girin değiştirerek  **\<proxy URL'si >** proxy sunucu adres
 Environment="https_proxy=<proxy URL>"
 ```
 
-Hizmet Yöneticisi'ni iotedge yeni yapılandırmasını almak için yenileyin.
+IOT Edge için yeni yapılandırma yerden devam edebiliyorduk service manager'ı yenileyin.
 
 ```bash
 sudo systemctl daemon-reload
@@ -118,13 +126,13 @@ IOT Edge değişikliklerin etkili olması için yeniden başlatın.
 Restart-Service iotedge
 ```
 
-## <a name="configure-the-edge-agent"></a>Edge Aracısı'nı yapılandırma
+## <a name="configure-the-iot-edge-agent"></a>IOT Edge Aracısı'nı yapılandırma
 
-Edge Aracısı'nı, üzerinde herhangi bir IOT Edge cihazı başlatmak için ilk bir modüldür. IOT Edge config.yaml dosyanın içindeki bilgileri temel alan ilk kez başlatılır. Edge Aracısı'nı, ardından, diğer modüllerin neler olması gerektiğini bildirin ve dağıtım bildirimlerini almak için IOT Hub'ına bağlanır cihazda dağıtılabilir.
+IOT Edge Aracısı'nı, üzerinde herhangi bir IOT Edge cihazı başlatmak için ilk bir modüldür. IOT Edge config.yaml dosyanın içindeki bilgileri temel alan ilk kez başlatılır. IOT Edge Aracısı'nı, ardından, diğer modüllerin neler olması gerektiğini bildirin ve dağıtım bildirimlerini almak için IOT Hub'ına bağlanır cihazda dağıtılabilir.
 
 IOT Edge Cihazınızda config.yaml dosyasını açın. Linux sistemlerinde, bu dosya şu konumdadır **/etc/iotedge/config.yaml**. Windows sistemlerde, bu dosya şu konumdadır **C:\ProgramData\iotedge\config.yaml**. Yapılandırma dosyası korunur ve ona erişmek için yönetici ayrıcalıkları gerekir. Linux sistemlerinde kullanarak olan anlamına `sudo` tercih edilen bir metin Düzenleyicisi'nde dosyasını açmadan önce komutu. Windows üzerinde yönetici olarak çalıştırmak için Not Defteri gibi bir metin düzenleyicisinde açmak ve ardından dosyayı açmayı anlamına gelir. 
 
-Config.yaml dosyasında **Edge Aracısı modülü spec** bölümü. Edge Aracısı tanımını içeren bir **env** ortam değişkenlerini ekleyebileceğiniz parametresi. 
+Config.yaml dosyasında **Edge Aracısı modülü spec** bölümü. IOT Edge Aracısı tanımını içeren bir **env** ortam değişkenlerini ekleyebileceğiniz parametresi. 
 
 <!--
 ![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
@@ -160,7 +168,7 @@ Config.yaml için değişiklikleri kaydedin ve düzenleyiciyi kapatın. IOT Edge
 
 ## <a name="configure-deployment-manifests"></a>Dağıtım bildirimleri yapılandırma  
 
-IOT Edge Cihazınızı proxy sunucunuz ile çalışmak üzere yapılandırıldı sonra ayrıca tüm gelecekteki dağıtım bildirimleri ortam değişkenleri bildirmek gerekir. İki çalışma zamanı modülü ve edgeAgent edgeHub, her zaman olmalıdır IOT Hub ile iletişim sağlamak için yapılandırılmış bir proxy sunucu. Bir proxy sunucu üzerinden iletişim kurmak için herhangi bir IOT Edge modülü yapılandırabilirsiniz, ancak diğer modüllerle cihazda, kendi iletileri edgeHub aracılığıyla yönlendirmek veya yalnızca iletişim modüller için gerekli değildir. 
+IOT Edge Cihazınızı proxy sunucunuz ile çalışmak üzere yapılandırıldı sonra ileride dağıtım bildirimleri ortam değişkenleri bildirmek devam etmeniz gerekir. Her zaman iki çalışma zamanı modülü ve edgeAgent edgeHub, IOT Hub ile bağlantı sağlamak için proxy sunucu üzerinden iletişim kurmak için yapılandırın. İnternet'e bağlanan diğer IOT Edge modülleri proxy sunucusu için yapılandırılmalıdır. Ancak, kendi iletileri edgeHub aracılığıyla yönlendirmek veya yalnızca iletişim modül cihazdaki diğer modüllerle proxy sunucusu ayrıntılarının gerekmez. 
 
 Azure portalını kullanarak ya da el ile bir JSON dosyası düzenleme dağıtım bildirimleri oluşturabilirsiniz. 
 
@@ -168,11 +176,11 @@ Azure portalını kullanarak ya da el ile bir JSON dosyası düzenleme dağıtı
 
 Kullanırken **modülleri ayarlama** cihazları IOT Edge dağıtımlarını oluşturmak için Sihirbazı her bir modüle sahip bir **ortam değişkenlerini** proxy sunucu bağlantılarını yapılandırmak için kullanabileceğiniz bir bölüm. 
 
-Edge aracısı ve Edge hub'ı modülleri yapılandırmak için seçin **Gelişmiş Edge çalışma zamanı ayarları Yapılandır** Sihirbazı'nın ilk adımında. 
+IOT Edge hub'ı modülleri ve IOT Edge Aracısı'nı yapılandırmak için seçin **Gelişmiş Edge çalışma zamanı ayarları Yapılandır** Sihirbazı'nın ilk adımında. 
 
 ![Gelişmiş Edge Çalışma Zamanı ayarlarını yapılandırma](./media/how-to-configure-proxy-support/configure-runtime.png)
 
-Ekleme **erişmek** ortam değişkeni Edge aracısı ve Edge hub'ı modül tanımları. Dahil ettiyseniz **UpstreamProtocol** IOT Edge Cihazınızda config.yaml dosyasında ortam değişkeni ekleyin, Edge Aracısı modülü tanımına çok. 
+Ekleme **erişmek** ortam değişkeni IOT Edge aracısı ve IOT Edge hub'ı modül tanımları. Dahil ettiyseniz **UpstreamProtocol** IOT Edge Cihazınızda config.yaml dosyasında ortam değişkeni ekleyin, IOT Edge Aracısı modülü tanımına çok. 
 
 ![Erişmek ortam değişken Ayarla](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
@@ -211,7 +219,7 @@ Ortam değişkenleri dahil, modül tanımınızı edgeHub aşağıdaki örnektek
 }
 ```
 
-Dahil ettiyseniz **UpstreamProtocol** IOT Edge Cihazınızda confige.yaml dosyasında ortam değişkeni ekleyin, Edge Aracısı modülü tanımına çok. 
+Dahil ettiyseniz **UpstreamProtocol** IOT Edge Cihazınızda confige.yaml dosyasında ortam değişkeni ekleyin, IOT Edge Aracısı modülü tanımına çok. 
 
 ```json
 "env": {

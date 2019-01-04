@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1cef5f8f77a11dad605d9758296c9632f5d30ab8
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0b3b3cd1c9c0410c4cc0ffda8887b40123c1ac7a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409029"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718538"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure güvenlik ve uyumluluk planı: UK resmi iş yükleri için barındırma PaaS Web uygulaması
 
@@ -102,17 +102,17 @@ Veriler aktarım sırasında dışında ve Azure bileşenleri arasında kullanı
 
 #### <a name="azure-app-service"></a>Azure App Service
 
-Azure Web Apps barındırma ortamı altyapıyı yönetmek zorunda kalmadan, Java, PHP, Node.js, Python, HTML ve C# içinde geliştirilen web uygulaması için tam olarak yönetilen bir web sunar. Otomatik ölçeklendirme sunar ve yüksek kullanılabilirlik, hem Windows hem de Linux destekler ve otomatik dağıtımlar sağlar [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) veya herhangi bir Git tabanlı deposundan.
+Azure App Service barındırma ortamı geliştirilen Java, PHP, Node.js, Python, HTML web uygulaması için tam olarak yönetilen bir web sağlar ve C# altyapıyı yönetmek zorunda kalmadan. Otomatik ölçeklendirme sunar ve yüksek kullanılabilirlik, hem Windows hem de Linux destekler ve otomatik dağıtımlar sağlar [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) veya herhangi bir Git tabanlı deposundan.
 
 App Service, [ISO, SOC ve PCI uyumlu](https://www.microsoft.com/TrustCenter/) ve ile kullanıcıların kimliklerini doğrulayabilirsiniz [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) veya sosyal oturum açma ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google), [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook), [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter), ve [Microsoft kimlik doğrulama](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft).
 
-Temel, standart ve Premium planlar, üretim iş yüklerine yöneliktir ve adanmış sanal makine örneklerinde çalıştırılır. Her örnek, birden çok uygulama ve etki alanlarını destekleyebilir. Uygulama Hizmetleri ayrıca Destek [IP adresi sınırlamaları](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) gerekirse güvenilen IP adreslerine trafiği güvenli hale getirmek için ve ayrıca [kimliklerini Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) güvenli bağlantı için diğer PaaS Hizmetleri gibi [anahtar kasası](https://azure.microsoft.com/services/key-vault/) ve [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/). Ek güvenlik gerekli olduğu yalıtılmış planımız, uygulamaları özel, adanmış bir Azure ortamında barındırır ve şirket içi ağa veya ek performans ve ölçek ile güvenli bağlantılar gerektiren uygulamalar için idealdir.
+Temel, standart ve Premium planlar, üretim iş yüklerine yöneliktir ve adanmış sanal makine örneklerinde çalıştırılır. Her örnek, birden çok uygulama ve etki alanlarını destekleyebilir. Uygulama Hizmetleri ayrıca Destek [IP adresi sınırlamaları](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) gerekirse güvenilen IP adreslerine trafiği güvenli hale getirmek için ve ayrıca [kimliklerini Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/app-service/overview-managed-identity) güvenli bağlantı için diğer PaaS Hizmetleri gibi [anahtar kasası](https://azure.microsoft.com/services/key-vault/) ve [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/). Ek güvenlik gerekli olduğu yalıtılmış planımız, uygulamaları özel, adanmış bir Azure ortamında barındırır ve şirket içi ağa veya ek performans ve ölçek ile güvenli bağlantılar gerektiren uygulamalar için idealdir.
 
 Bu şablon, aşağıdaki App Service özellikleri dağıtır:
 
-- [Standart](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) App Service planı katmanı
-- Birden çok Web uygulaması [dağıtım yuvalarını](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing): Geliştirme, Önizleme, QA, UAT ve Elbette üretim (varsayılan yuva).
-- [Kimlikler Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) bağlanmak için [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) (Bu erişimi sağlamak için de kullanılabilir [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) 
+- [Standart](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) App Service planı katmanı
+- Birden fazla App Service [dağıtım yuvalarını](https://docs.microsoft.com/azure/app-service/deploy-staging-slots): Geliştirme, Önizleme, QA, UAT ve Elbette üretim (varsayılan yuva).
+- [Kimlikler Azure kaynakları için yönetilen](https://docs.microsoft.com/azure/app-service/overview-managed-identity) bağlanmak için [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) (Bu erişimi sağlamak için de kullanılabilir [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) 
 - İle tümleştirme [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) performansını izlemek için
 - [Tanılama Günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
 - Ölçüm [uyarıları](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) 
@@ -163,7 +163,7 @@ Azure depolama güvenliğini sağlama hakkında ayrıntılı bilgi bulunabilir [
 
 #### <a name="azure-key-vault-in-this-blueprint"></a>Azure anahtar Kasası'nda bu şema
 
-- Verilen okuma erişimli depolama erişim anahtarı tutan [yönetilen kimliği](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) müşteriye dönük web uygulaması
+- Verilen okuma erişimli depolama erişim anahtarı tutan [yönetilen kimliği](https://docs.microsoft.com/azure/app-service/overview-managed-identity) müşteriye dönük web uygulaması
 - SQL Server DBA parolası (içinde ayrı bir kasa) tutar.
 - Tanılama günlükleri
 

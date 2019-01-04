@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311006"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974718"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure genel bulutta yalıtım
 ##  <a name="introduction"></a>Giriş
@@ -121,7 +121,7 @@ ISO/IEC 27001 gibi denetlenen sertifikaları ile Kurumsal hizmetlerini, Microsof
 
 Herhangi bir veri silerseniz, Microsoft Azure önbelleğe alınmış veya yedek kopyalar içeren verileri siler. Kapsamdaki hizmetler için saklama süresi dolduktan sonra 90 gün içinde silme işlemi gerçekleşir. (Kapsamındaki hizmetler veri işleme koşulları bölümünde tanımlanmış bizim [çevrimiçi hizmet koşulları](https://aka.ms/Online-Services-Terms).)
 
-Depolama için kullanılan bir disk sürücüsü bir donanım hatası nedeniyle düşerse, güvenli bir şekilde olduğu [silinmesi veya yok](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) önce Microsoft değiştirme veya onarım için üreticinin döndürür. Herhangi bir yolla veriler kurtarılamaz emin olmak için sürücüdeki verilerin üzerine yazılır.
+Depolama için kullanılan bir disk sürücüsü bir donanım hatası nedeniyle düşerse, güvenli bir şekilde olduğu [silinmesi veya yok](https://microsoft.com/trustcenter/privacy/you-own-your-data) önce Microsoft değiştirme veya onarım için üreticinin döndürür. Herhangi bir yolla veriler kurtarılamaz emin olmak için sürücüdeki verilerin üzerine yazılır.
 
 ## <a name="compute-isolation"></a>İşlem yalıtım
 Microsoft Azure, geniş bilgi işlem örnekleri içeren çeşitli bulut tabanlı bilgi işlem Hizmetleri ve yukarı ve aşağı otomatik olarak uygulama veya Kurumsal ihtiyaçlarını karşılamak üzere ölçeklenebilir hizmetler sağlar. Bu işlem örneği ve hizmet veri yapılandırmasında esneklik ödün vermeden, müşterilerinizin talep ettiği güvenli hale getirmek için birden fazla düzeyde yalıtım sağlar.
@@ -238,7 +238,7 @@ Aktarım sırasında şifreleme ağlar üzerinden iletilirken, veri koruma, bir 
 -   [İstemci tarafı şifreleme](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage), verileri şifrelemenizi depolama alanına aktarılır ve depolama alanınız aktarıldıktan sonra verilerin şifresini çözmek için.
 
 #### <a name="encryption-at-rest"></a>Bekleme sırasında şifreleme
-Birçok kuruluşta [bekleyen verileri şifreleme](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) veri gizlilik, uyumluluk ve veri egemenliği doğrultusunda zorunlu bir adımdır. "Beklemede" olan verilerin şifrelenmesini sağlayan üç Azure özellikleri vardır:
+Birçok kuruluşta [bekleyen verileri şifreleme](https://docs.microsoft.com/azure/security/azure-isolation) veri gizlilik, uyumluluk ve veri egemenliği doğrultusunda zorunlu bir adımdır. "Beklemede" olan verilerin şifrelenmesini sağlayan üç Azure özellikleri vardır:
 
 -   [Depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) depolama hizmeti otomatik olarak verileri Azure depolama alanına yazarken şifrelemeniz istemenizi sağlar.
 

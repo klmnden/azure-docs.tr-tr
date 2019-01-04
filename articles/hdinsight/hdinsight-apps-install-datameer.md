@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9e9ccb1ba3d19e0240df869dfea1e27ac4124c34
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 947abea50685b04c3500a13a950375c32547efaf
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498776"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652974"
 ---
 # <a name="install-published-application---datameer"></a>Yayımlanan uygulama - Datameer yükleme
 
@@ -22,13 +22,13 @@ Bu makalede, yüklemek ve çalıştırmak açıklanır [Datameer](https://www.da
 
 ## <a name="about-datameer"></a>Datameer hakkında
 
-Datameer, Hadoop platform, genişletme var olan Azure HDInsight özellikleri ve hızlı tümleştirme, hazırlama ve yapılandırılmış ve yapılandırılmamış veri analizini sağlayan bir yerel bir uygulamadır. Datameer erişim 70'ten fazla kaynakları ve biçimler: yapılandırılmış, yarı yapılandırılmış ve yapılandırılmamış. Doğrudan veri yükleme veya isteğe bağlı olarak veri çekmek için kendi benzersiz veri bağlantıları kullanın. Self Servis Datameer'ın işlevsellik ve bilinen elektronik tablo arabirimi büyük veri teknoloji karmaşıklığını azaltır ve zaman öngörülere ve hızlandırır. Elektronik Tablo arabirimi en iyi duruma getirilmiş için Hadoop işlerini çevrilir bildirim temelli formüllerini girmek için basit bir mekanizma sağlar. Datameer ve iş zekası (BI) ve Excel becerileri ile bulutta Hadoop hızlı bir şekilde kullanabilirsiniz. Daha fazla bilgi için [Datameer belgeleri](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
+Datameer, Hadoop platform, genişletme var olan Azure HDInsight özellikleri ve hızlı tümleştirme, hazırlama ve yapılandırılmış ve yapılandırılmamış veri analizini sağlayan bir yerel bir uygulamadır. Datameer erişim 70'ten fazla kaynakları ve biçimler: yapılandırılmış, yarı yapılandırılmış ve yapılandırılmamış. Doğrudan veri yükleme veya isteğe bağlı olarak veri çekmek için kendi benzersiz veri bağlantıları kullanın. Self Servis Datameer'ın işlevsellik ve bilinen elektronik tablo arabirimi büyük veri teknoloji karmaşıklığını azaltır ve zaman öngörülere ve hızlandırır. Elektronik Tablo arabirimi en iyi duruma getirilmiş için Hadoop işlerini çevrilir bildirim temelli formüllerini girmek için basit bir mekanizma sağlar. Datameer ve iş zekası (BI) ve Excel becerileri ile bulutta Hadoop hızlı bir şekilde kullanabilirsiniz. Daha fazla bilgi için [Datameer belgeleri](https://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu uygulamayı yeni bir HDInsight kümesi veya mevcut bir kümeye yüklemek için aşağıdaki yapılandırmaya sahip olmalıdır:
 
-* Küme katmanı: standart
+* Küme katmanı: Standart
 * Küme türü: Hadoop
 * Küme sürümü: 3.4
 
@@ -106,9 +106,9 @@ Tebrikler! Herhangi bir kod yazmaya gerek kalmadan verilerinizi görselleştirme
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Datameer belgeleri](http://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
+* [Datameer belgeleri](https://www.datameer.com/documentation/display/DAS50/Home?ls=Partners&lsd=Microsoft&c=Partners&cd=Microsoft).
 * [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md): HDInsight için yayımlanmamış bir HDInsight uygulamasının nasıl dağıtılacağını öğrenin.
-* [HDInsight uygulamalarını yayımlama](hdinsight-apps-publish-applications.md): Özel HDInsight uygulamalarınızı Azure Marketi’nde nasıl yayımlayacağınızı öğrenin.
-* [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını nasıl tanımlayacağınızı öğrenin.
-* [Betik eylemi kullanarak Linux tabanlı HDInsight kümelerini özelleştirin](hdinsight-hadoop-customize-cluster-linux.md): ek uygulamalar yüklemek için betik eylemi kullanmayı öğrenin.
+* [HDInsight uygulamaları yayımlama](hdinsight-apps-publish-applications.md): Özel HDInsight uygulamalarınızı Azure Marketi'nde yayımlama konusunda bilgi edinin.
+* [MSDN: Bir HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını nasıl tanımlayacağınızı öğrenin.
+* [Betik eylemi kullanarak Linux tabanlı HDInsight kümelerini özelleştirin](hdinsight-hadoop-customize-cluster-linux.md): Ek uygulamalar yüklemek için betik eylemi kullanmayı öğrenin.
 * [HDInsight içinde boş kenar düğümlerini kullanma](hdinsight-apps-use-edge-node.md): HDInsight kümeleri erişmek ve test etmek ve HDInsight uygulamalarını barındırmak için boş bir kenar düğümünü kullanmayı öğrenin.

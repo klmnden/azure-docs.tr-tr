@@ -12,16 +12,19 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 11/12/2018
-ms.openlocfilehash: bb80b512176e8fe260eb4572ea9fa801a6ffc80a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: b5916b781c636752ada6898cfa0c03bc02891501
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685150"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715027"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Verileri Azure SQL Data Sync için eşitleme Aracısı
 
 Yükleme ve Azure SQL Data Sync için veri eşitleme Aracısı yapılandırarak verileri şirket içi SQL Server veritabanları ile eşitleyin. SQL Data Sync hakkında daha fazla bilgi için bkz. [verileri Eşitle birden fazla Bulut ve şirket içi veritabanında SQL Data Sync ile](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync mu **değil** şu anda Azure SQL veritabanı yönetilen örneği destekler.
 
 ## <a name="download-and-install"></a>İndirme ve yükleme
 
@@ -136,7 +139,7 @@ Bu senaryolar, bu soruna neden olabilir:
 
 ### <a name="agent-start"></a> İstemci Aracısı (hata 1069) başlamıyor
 
-SQL Server'ı barındıran bir bilgisayara aracı çalışmadığından emin keşfedin. Aracıyı elle başlatmayı deneyin iletisini gösteren bir iletişim kutusu görürsünüz "hatası 1069: Hizmet, bir oturum açma hatası nedeniyle başlatılamadı."
+SQL Server'ı barındıran bir bilgisayara aracı çalışmadığından emin keşfedin. Aracıyı elle başlatmayı deneyin iletisini gösteren bir iletişim kutusu görürsünüz "hatası 1069: Hizmet bir oturum açma hatası nedeniyle başlatılamadı."
 
 ![Veri Eşitleme 1069 hata iletişim kutusu](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
 
@@ -318,7 +321,7 @@ SQL Data Sync hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 -   Genel Bakış - [verileri Eşitle birden fazla Bulut ve şirket içi veritabanı arasında Azure SQL Data Sync ile](sql-database-sync-data.md)
 -   Data Sync'i Ayarla
-    - Portalda - [öğretici: Azure SQL veritabanı ve SQL Server arasında verileri eşitlemek amacıyla şirket içi SQL Data Sync'i Ayarla](sql-database-get-started-sql-data-sync.md)
+    - Portalda - [Öğreticisi: Azure SQL veritabanı ve SQL Server arasında verileri eşitlemek amacıyla şirket içi SQL Data Sync'i Ayarla](sql-database-get-started-sql-data-sync.md)
     - PowerShell ile
         -  [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)

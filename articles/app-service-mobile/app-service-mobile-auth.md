@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: de501b79107aafa61c489db607c37d086a5f4ed4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 87bdfcc827155e5dd0a02ffb1640bf7e9cd4e479
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408026"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715800"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Kimlik doğrulama ve yetkilendirme Azure App service'taki mobile apps
 
@@ -26,7 +26,7 @@ Bu makalede nasıl kimlik doğrulaması ve yetkilendirme çalıştığı bir App
 
 Bu makale, mobil uygulama geliştirme üzerinde odaklanır. App Service kimlik doğrulama ve yetkilendirme mobil uygulamanız için hızla çalışmaya başlamak için aşağıdaki öğreticilerden birine bakın: [iOS uygulamanıza kimlik doğrulaması ekleme] [ iOS] (veya [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], veya [Cordova]). 
 
-App Service kimlik doğrulama ve yetkilendirmeyi nasıl çalıştığı hakkında daha fazla bilgi için bkz: [kimlik doğrulama ve yetkilendirme Azure App Service'te](../app-service/app-service-authentication-overview.md).
+App Service kimlik doğrulama ve yetkilendirmeyi nasıl çalıştığı hakkında daha fazla bilgi için bkz: [kimlik doğrulama ve yetkilendirme Azure App Service'te](../app-service/overview-authentication-authorization.md).
 
 ## <a name="authentication-with-provider-sdk"></a>Sağlayıcı SDK ile kimlik doğrulaması
 
@@ -44,7 +44,7 @@ SDK sağlayıcı kullandığınızda, kullanıcılar uygulamayı çalıştıran 
 
 Bir sağlayıcı belirteç alındıktan sonra doğrulama için App Service'e gönderilmesi gerekir. App Service, App Service belirteci doğruladıktan sonra istemciye döndürülen yeni bir App Service belirteci oluşturur. Mobile Apps istemci SDK'sı, bu exchange yönetmek ve otomatik olarak uygulama arka ucunun yapılan tüm isteklere belirteci eklemek için yardımcı yöntemler vardır. Geliştiriciler ayrıca sağlayıcısı belirtece başvuru tutabilirsiniz.
 
-Kimlik doğrulaması akışı hakkında daha fazla bilgi için bkz. [App Service kimlik doğrulama akışı](../app-service/app-service-authentication-overview.md#authentication-flow). 
+Kimlik doğrulaması akışı hakkında daha fazla bilgi için bkz. [App Service kimlik doğrulama akışı](../app-service/overview-authentication-authorization.md#authentication-flow). 
 
 ## <a name="authentication-without-provider-sdk"></a>Kimlik doğrulama sağlayıcısı SDK olmadan
 
@@ -52,10 +52,10 @@ Bir sağlayıcı SDK ' istemiyorsanız, oturum açmak için Azure App Service Mo
 
 Bu akışı başlatmak için kod her platform için kimlik doğrulama öğreticisini dahildir. Akışın sonunda bir App Service belirteci istemci SDK'sı vardır ve belirteç uygulama arka ucu için tüm istekleri için otomatik olarak eklenir.
 
-Kimlik doğrulaması akışı hakkında daha fazla bilgi için bkz. [App Service kimlik doğrulama akışı](../app-service/app-service-authentication-overview.md#authentication-flow). 
+Kimlik doğrulaması akışı hakkında daha fazla bilgi için bkz. [App Service kimlik doğrulama akışı](../app-service/overview-authentication-authorization.md#authentication-flow). 
 ## <a name="more-resources"></a>Diğer kaynaklar
 
-Aşağıdaki öğreticilerde kimlik doğrulaması kullanarak mobil istemcilerinize ekleme Göster [sunucu yönlendirilmiş akış](../app-service/app-service-authentication-overview.md#authentication-flow):
+Aşağıdaki öğreticilerde kimlik doğrulaması kullanarak mobil istemcilerinize ekleme Göster [sunucu yönlendirilmiş akış](../app-service/overview-authentication-authorization.md#authentication-flow):
 
 * [İOS uygulamanıza kimlik doğrulaması ekleme][iOS]
 * [Android uygulamanıza kimlik doğrulaması ekleme][Android]
@@ -65,21 +65,21 @@ Aşağıdaki öğreticilerde kimlik doğrulaması kullanarak mobil istemcilerini
 * [Xamarin.Forms uygulamanıza kimlik doğrulaması ekleme][Xamarin.Forms]
 * [Cordova uygulamanız için kimlik doğrulaması ekleme][Cordova]
 
-Kullanmak istiyorsanız, aşağıdaki kaynakları kullanın [istemci yönlendirilmiş akış](../app-service/app-service-authentication-overview.md#authentication-flow) Azure Active Directory için:
+Kullanmak istiyorsanız, aşağıdaki kaynakları kullanın [istemci yönlendirilmiş akış](../app-service/overview-authentication-authorization.md#authentication-flow) Azure Active Directory için:
 
 * [İOS için Active Directory Authentication Library kullanın][ADAL-iOS]
 * [Android için Active Directory kimlik doğrulama kitaplığını kullanma][ADAL-Android]
 * [Windows ve Xamarin için Active Directory kimlik doğrulama kitaplığını kullanma][ADAL-dotnet]
 
-Kullanmak istiyorsanız, aşağıdaki kaynakları kullanın [istemci yönlendirilmiş akış](../app-service/app-service-authentication-overview.md#authentication-flow) Facebook için:
+Kullanmak istiyorsanız, aşağıdaki kaynakları kullanın [istemci yönlendirilmiş akış](../app-service/overview-authentication-authorization.md#authentication-flow) Facebook için:
 
 * [İOS için Facebook SDK'sını kullanma](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
 
-Kullanmak istiyorsanız, aşağıdaki kaynakları kullanın [istemci yönlendirilmiş akış](../app-service/app-service-authentication-overview.md#authentication-flow) Twitter için:
+Kullanmak istiyorsanız, aşağıdaki kaynakları kullanın [istemci yönlendirilmiş akış](../app-service/overview-authentication-authorization.md#authentication-flow) Twitter için:
 
 * [İOS için twitter Fabric kullanma](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#twitter-fabric)
 
-Kullanmak istiyorsanız, aşağıdaki kaynakları kullanın [istemci yönlendirilmiş akış](../app-service/app-service-authentication-overview.md#authentication-flow) Google için:
+Kullanmak istiyorsanız, aşağıdaki kaynakları kullanın [istemci yönlendirilmiş akış](../app-service/overview-authentication-authorization.md#authentication-flow) Google için:
 
 * [İOS için oturum açma Google SDK'sını kullanma](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 

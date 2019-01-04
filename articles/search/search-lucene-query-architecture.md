@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315827"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633870"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Metin arama Azure Search'te tam nasıl çalışır
 
@@ -385,7 +385,7 @@ Bu makalede, Azure Search bağlamında tam metin araması incelediniz. Olası ne
 
 + Örnek dizini oluşturma, farklı sorguları deneyin ve sonuçları gözden geçirin. Yönergeler için [oluşturun ve Portalı'nda dizin sorgulama](search-get-started-portal.md#query-index).
 
-+ Ek sorgu söz dizimi gelen deneyin [arama belgeleri](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) örnek bölümünde veya [Basit Sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) portalında arama Gezgini.
++ Ek sorgu söz dizimi gelen deneyin [arama belgeleri](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) örnek bölümünde veya [Basit Sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) portalında arama Gezgini.
 
 + Gözden geçirme [Puanlama profilleri](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) derecelendirme arama uygulamanızdaki ayarlamak istiyorsanız.
 
@@ -393,7 +393,7 @@ Bu makalede, Azure Search bağlamında tam metin araması incelediniz. Olası ne
 
 + [Özel çözümleyiciler yapılandırma](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) için en az işleme ya da belirli alanlarda özel işleme.
 
-+ [Standart ve İngilizce Çözümleyicileri karşılaştırma](http://alice.unearth.ai/)) yan yana bu demo web sitesinde. 
++ [Standart ve İngilizce Çözümleyicileri karşılaştırma](https://alice.unearth.ai/)) yan yana bu demo web sitesinde. 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

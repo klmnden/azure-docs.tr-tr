@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: f86107c5fcd4c0175d59689718dca15736aa3b17
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fb4fed2aa6b80ceb37dde1205996a16f0c30bdd4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497351"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994731"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Doğrulayın ve SLES 12 SP3 üzerinde SAP HANA genişleme yüksek kullanılabilirlik Kurulumu sorunlarını giderme 
 
@@ -173,7 +173,7 @@ nc: connect to 10.0.2.40 port 40002 (tcp) failed: Connection refused
 
 İçeriği **corosync.conf** testten sistem örneğidir.
 
-İlk bölüm **totem**anlatılan şekilde [Küme yükleme](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), 11. adım. Değeri yoksayabilirsiniz **mcastaddr**. Yalnızca var olan girdiyi sakla. Girişleri **belirteci** ve **fikir birliğine varılmış** göre ayarlanmalıdır [Microsoft Azure SAP HANA belgeleri][sles-pacemaker-ha-guide].
+İlk bölüm **totem**anlatılan şekilde [Küme yükleme](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), 11. adım. Değeri yoksayabilirsiniz **mcastaddr**. Yalnızca var olan girdiyi sakla. Girişleri **belirteci** ve **fikir birliğine varılmış** göre ayarlanmalıdır [Microsoft Azure SAP HANA belgeleri][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -280,7 +280,7 @@ systemctl restart corosync
 
 ## <a name="sbd-device"></a>SBD cihaz
 
-Azure VM'de bir SBD cihazı ayarlama konusunda açıklanan [SBD çitlemek](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
+Azure VM'de bir SBD cihazı ayarlama konusunda açıklanan [SBD çitlemek](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing).
 
 İlk olarak, kümedeki her düğüm için ACL girişleri varsa SBD sunucusunda VM kontrol edin. VM SBD sunucuda aşağıdaki komutu çalıştırın:
 
@@ -423,7 +423,7 @@ Hedef VM yan **hso-hana-vm-s2-2** Bu örnekte, dosyasında şu girişi bulun **/
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Kontrol girişleri **/etc/sysconfig/sbd** açıklamasında karşılık [SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama](https://review.docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Ayarı başlangıç doğrulayın **/etc/iscsi/iscsid.conf** otomatik olarak ayarlanır.
+Kontrol girişleri **/etc/sysconfig/sbd** açıklamasında karşılık [SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#sbd-fencing). Ayarı başlangıç doğrulayın **/etc/iscsi/iscsid.conf** otomatik olarak ayarlanır.
 
 Aşağıdaki önemli girişler **/etc/sysconfig/sbd**. Uyum **kimliği** gerekirse değeri:
 
@@ -458,7 +458,7 @@ Sınama ve doğrulama, bir sanal makine yeniden başlatıldıktan sonra sırası
 5. Başlatıcı adı emin **hizmetini** değeri ayarı **olduğunda önyükleme**.
 6. Yüklü değilse, ayarlayabilirsiniz **olduğunda önyükleme** yerine **el ile**.
 7. Ardından, üst sekmeye geçin **bağlı hedefleri**.
-8. Üzerinde **bağlı hedefleri** ekranında, bu örnek gibi SBD cihaz için bir giriş görmeniz gerekir: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
+8. Üzerinde **bağlı hedefleri** ekran, bu örnek gibi SBD cihaz için bir giriş görmeniz gerekir: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
 9. Kontrol **başlatma** değeri ayarı **önyüklemede**.
 10. Aksi takdirde, seçin **Düzenle** ve değiştirin.
 11. Değişiklikleri kaydetmek ve YaST2 çıkın.

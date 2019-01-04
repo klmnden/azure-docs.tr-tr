@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights ile cihaz benzetimi telemetri Görselleştirme | Microsoft Docs
+title: Time Series Insights - Azure ile cihaz benzetimi telemetri Görselleştirme | Microsoft Docs
 description: Time Series Insights ortamınızı keşfedin ve cihaz benzetimi çözüm Hızlandırıcı tarafından oluşturulan telemetri analiz etmek için yapılandırmayı öğrenin.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 49cecca4e5ebef9f43fdda16cfa1fdc2ad7b6f94
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: aea02cbde32d9485bd49ec39a6f300021c6ef927
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43383203"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597707"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Cihaz benzetimi çözüm hızlandırıcıdan gönderilen telemetri görselleştirmek için Time Series Insights'ı kullanın
 

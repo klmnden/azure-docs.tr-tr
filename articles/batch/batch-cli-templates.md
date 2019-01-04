@@ -1,22 +1,23 @@
 ---
-title: Azure Batch işlerini çalıştırmak için uçtan uca şablonlarını kullanarak | Microsoft Docs
+title: İşleri çalıştırmak için uçtan uca şablonlar - Azure Batch kullanarak | Microsoft Docs
 description: Batch havuzları, işleri ve görevleri şablon dosyaları ve Azure CLI ile oluşturun.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 08/02/2018
-ms.author: danlep
-ms.openlocfilehash: 753a36eb6fb7a0c007c62bbab7fe7390e706b1f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/07/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5e592845f96cb0734daf3c9e07d60005de260386
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964301"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547686"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Azure Batch CLI şablonlarını ve dosya aktarımı kullanın
 
@@ -37,7 +38,7 @@ Batch şablonlarını oluşturmak [mevcut Batch desteği Azure clı'da](batch-cl
 
 İşler genellikle girdi veri dosyalarını kullanmak ve çıkış veri dosyaları oluşturur. Bir depolama hesabı, varsayılan olarak, her Batch hesabıyla ilişkilidir. Kodlama ve herhangi bir depolama kimlik bilgisi ile CLI'yı kullanarak bu depolama hesabına gelen ve giden dosyaları aktarma.
 
-Örneğin, [ffmpeg](http://ffmpeg.org/) , ses ve video dosyaları işler yaygın bir uygulamadır. Kaynak görüntü dosyalarını farklı çözümler için ffmpeg çağırmak için Azure Batch CLI ile adımlar aşağıda verilmiştir.
+Örneğin, [ffmpeg](https://ffmpeg.org/) , ses ve video dosyaları işler yaygın bir uygulamadır. Kaynak görüntü dosyalarını farklı çözümler için ffmpeg çağırmak için Azure Batch CLI ile adımlar aşağıda verilmiştir.
 
 -   Bir havuzu şablonu oluşturun. Ffmpeg uygulaması ve gereksinimleri çağırmak nasıl şablon oluşturma kullanıcının bildiği; uygun bir işletim sistemi, VM boyutu nasıl ffmpeg (Başlangıç, bir uygulama paketi veya örneğin bir paket Yöneticisi'ni kullanarak) yüklü ve diğer belirtin havuzu özellik değerleri. Şablon kullanıldığında, yalnızca Havuz kimliği ve sanal makine sayısı belirtilmesine gerek parametreleri oluşturulur.
 

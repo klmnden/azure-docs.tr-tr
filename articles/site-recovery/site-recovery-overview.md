@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: overview
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5942f27313cf8bb6a9ed8bf0a5cc4fb556693065
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2cd9e89c92b2bed75c52654d779f4f7d8c17596e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832233"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975330"
 ---
 # <a name="about-site-recovery"></a>Site Recovery Hakkında
 
@@ -23,8 +23,8 @@ Kuruluş olarak, planlı ve plansız kesintiler oluştuğunda verilerinizi güve
 
 Azure Kurtarma Hizmetleri, BCDR stratejinize katkıda bulunur:
 
-- **Site Recovery hizmeti**: Site Recovery, kesintiler sırasında iş uygulamalarını ve iş yüklerini çalışır durumda tutarak iş sürekliliği sağlamaya yardımcı olur. Site Recovery, fiziksel ve sanal makineler (VM) üzerinde çalışan iş yüklerini birincil siteden ikincil bir konuma çoğaltır. Birincil sitenizde bir kesinti oluştuğunda ikinci konuma yük devredersiniz ve uygulamalara oradan erişirsiniz. Birincil konum tekrar çalışmaya başladıktan sonra o konuma geri dönebilirsiniz.  
-- **Backup hizmeti**: [Azure Backup](https://docs.microsoft.com/azure/backup/) hizmeti verilerinizi Azure’a yedekleyerek verilerin güvenli ve kurtarılabilir halde kalmasını sağlar.
+- **Site Recovery hizmeti**: Site Recovery, iş kolu uygulamalarını ve kesintiler sırasında çalışan iş yüklerini tutarak, iş sürekliliğini sağlamak yardımcı olur. Site Recovery, fiziksel ve sanal makineler (VM) üzerinde çalışan iş yüklerini birincil siteden ikincil bir konuma çoğaltır. Birincil sitenizde bir kesinti oluştuğunda ikinci konuma yük devredersiniz ve uygulamalara oradan erişirsiniz. Birincil konum tekrar çalışmaya başladıktan sonra o konuma geri dönebilirsiniz.  
+- **Backup hizmeti**: [Azure Backup](https://docs.microsoft.com/azure/backup/) hizmeti verilerinizi güvenli ve kurtarılabilir kalmasını sağlar Azure'a yedekleyerek.
 
 Site Recovery, şunlar için çoğaltmayı yönetebilir:
 

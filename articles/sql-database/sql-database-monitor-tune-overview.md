@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 9e8b9b24707577aba5df754984953ef2f59b9ff9
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3c809638cef89d111a032e5876b1f2f1b2c1eb7b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272873"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602355"
 ---
 # <a name="monitoring-and-performance-tuning"></a>İzleme ve performans ayarlama
 
@@ -91,7 +91,7 @@ Parametre hassas planı (PSP) sorunu burada yalnızca bir özel parametre değer
 
 Her ilişkili ödünler ve dezavantajları sorunları gidermek için kullanılan birkaç geçici çözümler vardır:
 
-- Kullanım [DERLEMENİZ](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) her sorgu yürütme, sorgu ipucu. Bu çözüm, mal stoku derleme zamanı ve daha iyi planı kalitesi için daha yüksek CPU arasında denge kurar. Kullanarak `RECOMPILE` seçeneği genellikle yüksek performans gerektiren iş yükleri için mümkün değildir.
+- Kullanım [DERLEMENİZ](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) her sorgu yürütme, sorgu ipucu. Bu geçici çözüm derleme zamanı ve daha iyi planı kalitesi için daha yüksek CPU arasında denge kurar. Kullanarak `RECOMPILE` seçeneği genellikle yüksek performans gerektiren iş yükleri için mümkün değildir.
 - Kullanım [seçeneği (için İYİLEŞTİR...) ](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) parametre değeri olanaklar çoğu için yeterince iyi bir plan üreten tipik bir parametre değeri ile gerçek parametre değeri geçersiz kılmak üzere sorgu ipucu.   Bu seçenek en iyi parametre değerleri ve ilişkili planı özelliklerini iyi bir anlayış gerektirir.
 - Kullanım [(en iyi duruma getirme için bilinmeyen seçenek)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) yoğunluklu vektör ortalama kullanarak lisanslarınıza gerçek parametre değeri geçersiz kılmak üzere sorgu ipucu. Bunu yapmak için başka bir yerel değişkene gelen parametre değerlerini yakalamak ve ardından parametreleri kullanmak yerine koşullarına yerel değişkenler kullanarak yoludur. Ortalama sıklık olmalıdır *yeterince iyi* bu belirli düzeltme.
 - Parametresi yalnızca kullanarak algılaması devre dışı [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) sorgu ipucu.
@@ -104,7 +104,7 @@ Bu tür sorunları giderme hakkında ek bilgi için bkz:
 
 - Bu [parametre smell](https://blogs.msdn.microsoft.com/queryoptteam/2006/03/31/i-smell-a-parameter/) blog gönderisi
 - Bu [sorun ve geçici çözümler algılaması parametresi](https://blogs.msdn.microsoft.com/turgays/2013/09/10/parameter-sniffing-problem-and-possible-workarounds/) blog gönderisi
-- Bu [fil ve fare parametresi algılaması](ttps://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) blog gönderisi
+- Bu [fil ve fare parametresi algılaması](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) blog gönderisi
 - Bu [parametreli sorgular için plan kalite karşı dinamik sql](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) blog gönderisi
 
 ### <a name="troubleshooting-compile-activity-due-to-improper-parameterization"></a>Hatalı Parametreleştirme nedeniyle etkinlik derleme sorunlarını giderme

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 1df23a35e16d4ba3562ebbc9d89a7a8003afc784
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: ab80dd86e544127fc3f40f5459ef9a587c7cd511
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498947"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581513"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka için depolamayı ve ölçeklenebilirliği yapılandırma
 
@@ -26,13 +26,13 @@ Aşağıdaki diyagramda, yönetilen diskli HDInsight üzerinde Kafka ile yöneti
 
 ![HDInsight üzerinde Kafka'da VM başına tek bir VHD kullanımı ile VM başına birden fazla yönetilen disk kullanımının karşılaştırmasını gösteren diyagram](./media/apache-kafka-scalability/kafka-with-managed-disks-architecture.png)
 
-## <a name="configure-managed-disks-azure-portal"></a>Yönetilen diskleri yapılandırma: Azure portalı
+## <a name="configure-managed-disks-azure-portal"></a>Yönetilen diskleri yapılandırma: Azure portal
 
 1. Portalı kullanarak küme oluşturmaya yönelik genel adımları öğrenmek için [HDInsight kümesi oluşturma](../hdinsight-hadoop-create-linux-clusters-portal.md) bölümündeki adımları uygulayın. Portal oluşturma işlemini tamamlamayın.
 
 2. __Küme boyutu__ bölümünde, disk sayısını yapılandırmak için __çalışan düğümü başına disk sayısı__ alanını kullanın.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Yönetilen diskin türü __Standart__ (HDD) veya __Premium__ (SSD) olabilir. Premium diskler, DS ve GS serisi VM'lerle kullanılır. Diğer tüm VM türleri standart disk kullanır.
 
     ![Çalışan düğümü başına disk sayısı vurgulanmış şekilde küme boyutu bölümünün görüntüsü](./media/apache-kafka-scalability/set-managed-disks-portal.png)

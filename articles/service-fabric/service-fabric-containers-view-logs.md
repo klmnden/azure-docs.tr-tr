@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: 85623f5acfb33d73774e5898e3f8937b4e07a5a9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299087"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993813"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Bir Service Fabric kapsayıcı hizmeti için günlükleri görüntüleyin
 Azure Service Fabric kapsayıcı Düzenleyicisi ve her ikisi de destekler [Linux ve Windows kapsayıcıları](service-fabric-containers-overview.md).  Bu makalede, böylece tanılayın ve sorunlarını giderme ölü kapsayıcı ya da çalışan bir kapsayıcı hizmeti kapsayıcı günlüklerini görüntülemeyi açıklar.
@@ -64,10 +64,10 @@ GET http://localhost:19080/Nodes/_Node_0/$/GetApplications/SimpleHttpServerApp/$
 ```
 
 ### <a name="service-fabric-sfctl"></a>Service Fabric (SFCTL)
-Kullanım [sfctl hizmet get-container-logs](service-fabric-sfctl-service.md) çöken bir kapsayıcı için günlükleri alma komutu.  Kapsayıcıyı çalıştıran düğümün adı, uygulama adı, hizmet bildirim adını ve kod paket adı belirtin. Belirtin `-previous` bayrağı.  Kapsayıcı günlüklerini ölü kapsayıcısı kod paketi örneği için yanıt içerir.
+Kullanım [sfctl hizmet get-container-logs](service-fabric-sfctl-service.md) çöken bir kapsayıcı için günlükleri alma komutu.  Kapsayıcıyı çalıştıran düğümün adı, uygulama adı, hizmet bildirim adını ve kod paket adı belirtin. Belirtin `--previous` bayrağı.  Kapsayıcı günlüklerini ölü kapsayıcısı kod paketi örneği için yanıt içerir.
 
 ```
-sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –previous
+sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –-previous
 ```
 Yanıt:
 ```json

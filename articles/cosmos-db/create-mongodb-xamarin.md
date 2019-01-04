@@ -1,6 +1,6 @@
 ---
-title: MongoDB API'si için .NET ve Azure Cosmos DB ile bir Xamarin.Forms uygulaması derleme
-description: Bağlanmak ve Azure Cosmos DB MongoDB API'si için sorgulamak için kullanabileceğiniz bir Xamarin kod örneği sunar
+title: MongoDB için .NET ve Azure Cosmos DB'nin API'sini bir Xamarin.Forms uygulaması oluşturma
+description: Bağlanmak ve MongoDB için Azure Cosmos DB API'si ile sorgulamak için kullanabileceğiniz bir Xamarin kod örneği sunar
 services: cosmos-db
 author: codemillmatt
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: e63b731913e974254061ab7925b543201d6b81b1
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 456d35666e1475379b7ec90e8683ed47a1946f67
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717200"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808970"
 ---
-# <a name="quickstart-quickstart-build-a-xamarinforms-app-with-net-using-clients-for-mongodb-api"></a>Hızlı Başlangıç: Hızlı Başlangıç: .NET istemcileri için MongoDB API'sini kullanarak bir Xamarin.Forms uygulaması oluşturun
+# <a name="quickstart-quickstart-build-a-xamarinforms-app-with-net-and-azure-cosmos-dbs-api-for-mongodb"></a>Hızlı Başlangıç: Hızlı Başlangıç: MongoDB için .NET ve Azure Cosmos DB'nin API'sini bir Xamarin.Forms uygulaması oluşturma
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -30,7 +30,7 @@ ms.locfileid: "53717200"
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz.
 
-Bu hızlı başlangıçta nasıl oluşturulacağını gösterir. bir [MongoDB API'si için yapılandırılmış Cosmos hesabı](mongodb-introduction.md), belge veritabanını ve Azure portalını kullanarak bir koleksiyon. Ardından, kullanarak bir todo uygulaması Xamarin.Forms uygulaması oluşturacaksınız [MongoDB .NET sürücüsü](https://docs.mongodb.com/ecosystem/drivers/csharp/).
+Bu hızlı başlangıçta nasıl oluşturulacağını gösterir. bir [MongoDB için Azure Cosmos DB API'si ile yapılandırılan Cosmos hesabı](mongodb-introduction.md), belge veritabanını ve Azure portalını kullanarak bir koleksiyon. Ardından, kullanarak bir todo uygulaması Xamarin.Forms uygulaması oluşturacaksınız [MongoDB .NET sürücüsü](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>Örnek uygulamayı çalıştırmak için önkoşullar
 
@@ -194,4 +194,4 @@ Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken
 Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı ve MongoDB API’sini kullanarak bir Xamarin.Forms uygulamasını çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB MongoDB API'si için yapılandırılmış veri aktarma](mongodb-migrate.md)
+> [Azure Cosmos DB MongoDB için Azure Cosmos DB API'si ile yapılandırılan veri içeri aktarma](mongodb-migrate.md)

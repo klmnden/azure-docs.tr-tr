@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 02461f5002c048fcabcde21cd2e9881b94dd3be3
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 76f09af66e362fb6b03346b43a6be1a3ec7cf681
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602843"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976775"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Hızlı Başlangıç: HDInsight kümesi üzerinde Apache Kafka oluşturma
 
@@ -49,7 +49,13 @@ Bu hızlı başlangıçta, Azure portalını kullanarak [Apache Kafka](https://k
 
 HDInsight kümesinde Apache Kafka oluşturmak için aşağıdaki adımları kullanın:
 
-1. [Azure portalında](https://portal.azure.com) **+Kaynak oluştur**, **Veri ve Analiz**, **HDInsight** adımlarını izleyin.
+1. [Azure Portal](https://portal.azure.com)’da oturum açın.
+
+1. Sol menüden **+ kaynak Oluştur**.
+
+1. Altında **Azure Market**seçin **Analytics**.
+
+1. Altında **öne çıkan**seçin **HDInsight**.
    
     ![HDInsight kümesi oluşturma](./media/apache-kafka-get-started/create-hdinsight.png)
 

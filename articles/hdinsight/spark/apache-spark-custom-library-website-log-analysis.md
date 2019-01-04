@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 26ee51da0065b15191c6a02bcd10597c1190dd0a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f8b479f55ea5ee22ae2510fad6279cac0aaa9c0d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497290"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608809"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>HDInsight üzerinde Apache Spark kümesi ile özel bir Python kitaplığı kullanarak Web sitesi günlüklerini çözümleme
 
 Bu not defteri, HDInsight üzerinde Apache Spark ile özel bir kitaplık kullanarak günlük verilerini nasıl çözümleyeceğinizi gösterir. Adlı bir Python kitaplığı kullandığımız özel bir kitaplık olan **iislogparser.py**.
 
-> [!TIP]
+> [!TIP]  
 > Bu öğreticide, HDInsight içinde oluşturduğunuz bir Spark (Linux) kümesinde Jupyter not defteri olarak da kullanılabilir. Not Defteri deneyimi not defterinden Python kod çalıştırmanıza olanak tanır. Öğreticinin bir not defteri içinde gerçekleştirmek için Spark kümesi oluşturma, Jupyter not defteri başlatın (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), ve sonra not defteri çalıştırma **özel library.ipynb kullanarak Spark ile günlükleri çözümleme** altında **PySpark**  klasör.
 >
 >
@@ -176,7 +176,7 @@ Verilerinizi bir Apache Hive tablosu olarak kaydedildikten sonra sonraki bölüm
        %%sql -o averagetime
        SELECT * FROM AverageTime
 
-   `%%sql` Sihirli arkasından `-o averagetime` sorgunun çıkışı (genellikle bir kümenin baş) Jupyter sunucu üzerinde yerel olarak kalıcı olmasını sağlar. Çıktı olarak kalıcı bir [Pandas](http://pandas.pydata.org/) belirtilen ada sahip bir dataframe **averagetime**.
+   `%%sql` Sihirli arkasından `-o averagetime` sorgunun çıkışı (genellikle bir kümenin baş) Jupyter sunucu üzerinde yerel olarak kalıcı olmasını sağlar. Çıktı olarak kalıcı bir [Pandas](https://pandas.pydata.org/) belirtilen ada sahip bir dataframe **averagetime**.
 
    Aşağıdaki gibi bir çıktı görmeniz gerekir:
 
@@ -199,16 +199,16 @@ Verilerinizi bir Apache Hive tablosu olarak kaydedildikten sonra sonraki bölüm
 8. Uygulamayı çalıştırmayı tamamladıktan sonra kaynakları serbest bırakmak için not defterini kapatmanız gerekir. Bunu yapmak için not defterindeki **Dosya** menüsünde **Kapat ve Durdur**’a tıklayın. Bunun yapılması not defterini kapatır.
 
 ## <a name="seealso"></a>Ayrıca bkz.
-* [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
+* [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma
 * [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
+* [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
 * [Oluşturmak ve Apache Spark Scala uygulamaları göndermek amacıyla Intellij Idea için HDInsight araçları eklentisi kullanma](apache-spark-intellij-tool-plugin.md)

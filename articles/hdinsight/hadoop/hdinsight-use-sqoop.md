@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: e448b367e574b044762fb1ee7eaa30e1bb3e1f8b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a6c17ad8d4af568d910597da4b44f09676d1c36a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011751"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652499"
 ---
-# <a name="use-sqoop-with-hadoop-in-hdinsight"></a>HDInsight, Hadoop ile Sqoop kullanma
+# <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>HDInsight, Hadoop ile Apache Sqoop'u kullanma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
 Apache Sqoop alma ve HDInsight kümesi ve Azure SQL veritabanı veya SQL Server veritabanı arasında dışa aktarmak için HDInsight kullanmayı öğrenin.
 
 Apache Hadoop günlüklerini ve dosyaları gibi yapılandırılmamış ve yarı yapılandırılmış verileri işlemek için doğal bir seçim olsa da olabilir ilişkisel veritabanlarının depolanan yapılandırılmış verileri işlemek için bir gereksinim.
 
-[Apache Sqoop] [ sqoop-user-guide-1.4.4] Hadoop kümeleri ve ilişkisel veritabanları arasında veri aktarmak için tasarlanmış bir araçtır. SQL Server, MySQL veya Oracle Hadoop dağıtılmış dosya sistemi (HDFS) ile Hadoop MapReduce veya Hive ile verileri dönüştürün ve ardından bir RDBMS'de geri verileri dışarı aktarma gibi bir ilişkisel veritabanı yönetim sistemi (RDBMS) verileri içeri aktarmak için kullanabilirsiniz. Bu öğreticide, bir SQL Server veritabanı ilişkisel veritabanınız için kullanırsınız.
+[Apache Sqoop] [ sqoop-user-guide-1.4.4] Hadoop kümeleri ve ilişkisel veritabanları arasında veri aktarmak için tasarlanmış bir araçtır. SQL Server, MySQL veya Oracle Hadoop dağıtılmış dosya sistemi (HDFS) ile Hadoop MapReduce veya Apache Hive ile verileri dönüştürün ve ardından bir RDBMS'de geri verileri dışarı aktarma gibi bir ilişkisel veritabanı yönetim sistemi (RDBMS) verilerini almak için kullanın . Bu öğreticide, bir SQL Server veritabanı ilişkisel veritabanınız için kullanırsınız.
 
 HDInsight kümelerinde desteklenir Sqoop sürümleri için bkz: [HDInsight tarafından sağlanan küme sürümlerindeki yenilikler nelerdir?][hdinsight-versions]
 
@@ -31,7 +31,7 @@ HDInsight kümelerinde desteklenir Sqoop sürümleri için bkz: [HDInsight taraf
 
 HDInsight küme bazı örnek verilerle birlikte gelir. Aşağıdaki iki örnek kullanabilirsiniz:
 
-* Şu konumdadır bir log4j günlük dosyasını */example/data/sample.log*. Aşağıdaki günlüklere dosyasından ayıklanır:
+* Şu konumdadır bir Apache Log4j günlük dosyasını */example/data/sample.log*. Aşağıdaki günlüklere dosyasından ayıklanır:
   
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -65,7 +65,7 @@ Bu bölümde bir küme, SQL veritabanı ve Azure portalı ve Azure Resource Mana
 
 Küme ve SQL veritabanı oluşturacağınızı öğrenmek için Azure PowerShell kullanmayı tercih ederseniz [ek A](#appendix-a---a-powershell-sample).
 
-> [!NOTE]
+> [!NOTE]  
 > Şablon kullanarak içeri aktarın veya Azure portalı, yalnızca bir BACPAC dosyasını Azure blob depolama alanından içeri destekler.
 
 **Kaynak Yönetimi şablonu ile ortamı yapılandırmak için**
@@ -76,15 +76,15 @@ Küme ve SQL veritabanı oluşturacağınızı öğrenmek için Azure PowerShell
 2. Aşağıdaki özellikleri girin:
 
     - **Abonelik**: Azure aboneliğinizi girin.
-    - **Kaynak grubu**: yeni bir Azure kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin.  Bir kaynak grubu için yönetim amaçlı olan.  Nesneler için bir kapsayıcıdır.
-    - **Konum**: bir bölge seçin.
+    - **Kaynak grubu**: Yeni bir Azure kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin.  Bir kaynak grubu için yönetim amaçlı olan.  Nesneler için bir kapsayıcıdır.
+    - **Konum**: Bölge seçin.
     - **ClusterName**: Hadoop kümesi için bir ad girin.
-    - **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı admin şeklindedir.
+    - **Küme oturum açma adı ve parola**: Varsayılan oturum açma adı, admin’dir.
     - **SSH kullanıcı adı ve parola**.
     - **SQL veritabanı sunucusu oturum açma adı ve parola**.
-    - **Konum _artifacts**: farklı bir konumda kendi backpac dosyanızı kullanmak istediğiniz sürece varsayılan değeri kullanın.
-    - **Konum Sas belirteci _artifacts**: boş bırakın.
-    - **Bacpac dosyası adı**: kendi backpac dosyanızı kullanmak istediğiniz sürece varsayılan değeri kullanın.
+    - **_artifacts konumu**: Farklı bir konumda kendi backpac dosyanızı kullanmak istediğiniz sürece varsayılan değeri kullanın.
+    - **_artifacts konumu Sas belirteci**: Boş bırakın.
+    - **Bacpac dosyası adı**: Kendi backpac dosyanızı kullanmak istediğiniz sürece varsayılan değeri kullanın.
      
         Değişkenler bölümünde sabit kodlanmış değerler:
         
@@ -99,34 +99,31 @@ Küme ve SQL veritabanı oluşturacağınızı öğrenmek için Azure PowerShell
 
 Mevcut Azure SQL veritabanı ya da Microsoft SQL Server kullanmayı tercih ederseniz
 
-* **Azure SQL veritabanı**: istasyonunuzdan erişime izin vermek Azure SQL veritabanı sunucusu için bir güvenlik duvarı kuralı yapılandırmanız gerekir. Bir Azure SQL veritabanı oluşturma ve güvenlik duvarını yapılandırma hakkında yönergeler için bkz: [Azure SQL veritabanı ile çalışmaya başlamak][sqldatabase-get-started]. 
+* **Azure SQL veritabanı**: İstasyonunuzdan erişime izin vermek Azure SQL veritabanı sunucusu için bir güvenlik duvarı kuralı yapılandırmanız gerekir. Bir Azure SQL veritabanı oluşturma ve güvenlik duvarını yapılandırma hakkında yönergeler için bkz: [Azure SQL veritabanı ile çalışmaya başlamak][sqldatabase-get-started]. 
   
-  > [!NOTE]
+  > [!NOTE]  
   > Varsayılan olarak, bir Azure SQL veritabanı, Azure HDInsight gibi Azure hizmetlerinden gelen bağlantıları sağlar. Bu güvenlik duvarı ayarı devre dışıysa, Azure portalından etkinleştirmek gerekir. Bir Azure SQL veritabanı oluşturma ve güvenlik duvarı kurallarını yapılandırma hakkında daha fazla yönerge için bkz. [oluşturma ve SQL veritabanını Yapılandır][sqldatabase-create-configure].
-  > 
-  > 
-* **SQL Server**: HDInsight kümenizin aynı sanal ağda bulunan azure'da SQL Server ise, adımlar bu makalede almak ve verileri bir SQL Server veritabanına dışarı aktarmak için kullanabilirsiniz.
+
+* **SQL Server**: HDInsight kümenizi aynı sanal ağda bulunan azure'da SQL Server varsa, içeri aktarma ve verileri bir SQL Server veritabanına dışarı aktarmak için bu makaledeki adımları kullanabilirsiniz.
   
-  > [!NOTE]
+  > [!NOTE]  
   > HDInsight yalnızca konum tabanlı sanal ağlarını destekleyen ve bir benzeşim grubuna bağlı sanal ağlar ile şu anda çalışmıyor.
-  > 
-  > 
+
   
   * Oluşturma ve bir sanal ağ yapılandırma için bkz: [Azure portalını kullanarak bir sanal ağ oluşturma](../../virtual-network/quick-create-portal.md).
     
     * Veri merkezinizde, SQL Server kullanırken, sanal ağda şu şekilde yapılandırmalısınız *siteden siteye* veya *noktadan siteye*.
       
-      > [!NOTE]
+      > [!NOTE]  
       > İçin **noktadan siteye** sanal ağlar, SQL Server çalıştıran kullanılabilir yapılandırma uygulama, VPN istemcisi gerekir **Pano** Azure sanal ağı yapılandırma.
-      > 
-      > 
+
+
     * Azure sanal makinesinde SQL Server'ı kullanırken, herhangi bir sanal ağ yapılandırma barındıran SQL Server sanal makineyi aynı sanal ağda HDInsight'ın bir üyesi ise kullanılabilir.
-  * Bir sanal ağdaki bir HDInsight kümesi oluşturmak için bkz [Hadoop kümeleri oluşturma özel seçenekleri kullanarak HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
+  * Bir sanal ağdaki bir HDInsight kümesi oluşturmak için bkz [Apache Hadoop kümeleri oluşturma özel seçenekleri kullanarak HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
     
-    > [!NOTE]
+    > [!NOTE]  
     > SQL Server kimlik doğrulaması de izin vermeniz gerekir. Bu makaledeki adımları tamamlayabilmeniz için bir SQL Server oturumu kullanmanız gerekir.
-    > 
-    > 
+
 
 **Yapılandırmayı doğrulamak için**
 
@@ -158,8 +155,8 @@ HDInsight, çeşitli yöntemler kullanarak Sqoop işleri çalıştırabilirsiniz
 ## <a name="next-steps"></a>Sonraki adımlar
 Artık Sqoop kullanmayı öğrendiniz. Daha fazla bilgi için bkz:
 
-* [HDInsight ile Hive kullanma](../hdinsight-use-hive.md)
-* [HDInsight ile Pig kullanma](../hdinsight-use-pig.md)
+* [Apache Hive, HDInsight ile kullanma](../hdinsight-use-hive.md)
+* [Apache Pig, HDInsight ile kullanma](../hdinsight-use-pig.md)
 * [HDInsight için verileri karşıya][hdinsight-upload-data]: HDInsight/Azure Blob depolama alanına veri yüklemek için diğer yöntemler bulun.
 
 ## <a name="appendix-a---a-powershell-sample"></a>Ek A - PowerShell örneği
@@ -211,12 +208,12 @@ PowerShell örneği, aşağıdaki adımları gerçekleştirir:
    
     Kaynak dosyası tutorials/usesqoop/data/sample.log değil. Verileri için burada verilen Tablo log4jlogs çağrılır.
    
-   > [!NOTE]
+   > [!NOTE]  
    > Bağlantı dizesi bilgilerini dışındaki bir Azure SQL veritabanı veya SQL Server için bu bölümdeki adımları çalışması gerekir. Bu adımlar aşağıdaki yapılandırmayı kullanarak test edilmiştir:
    > 
-   > * **Azure sanal ağa noktadan siteye yapılandırma**: özel bir veri merkezinde bir SQL Server HDInsight kümesi bir sanal ağa bağlı. Bkz: [Yönetim Portalı'nda bir noktadan siteye VPN yapılandırma](../../vpn-gateway/vpn-gateway-point-to-site-create.md) daha fazla bilgi için.
-   > * **Azure HDInsight**: bkz [Hadoop kümeleri oluşturma özel seçenekleri kullanarak HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) bir sanal ağda küme oluşturma hakkında daha fazla bilgi için.
-   > * **SQL Server 2014**: kimlik doğrulaması ve VPN istemcisi yapılandırma paketini güvenli bir sanal ağa bağlanmak için çalışan izin verecek şekilde yapılandırılmış.
+   > * **Azure sanal ağa noktadan siteye yapılandırma**: Bir sanal ağ özel bir veri merkezinde bir SQL Server HDInsight kümesi bağlanır. Bkz: [Yönetim Portalı'nda bir noktadan siteye VPN yapılandırma](../../vpn-gateway/vpn-gateway-point-to-site-create.md) daha fazla bilgi için.
+   > * **Azure HDInsight**: Bkz: [Hadoop kümeleri oluşturma özel seçenekleri kullanarak HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) bir sanal ağda küme oluşturma hakkında daha fazla bilgi için.
+   > * **SQL Server 2014**: Kimlik doğrulaması VPN istemcisi yapılandırma paketini güvenli bir sanal ağa bağlanmak için çalışan izin verecek biçimde yapılandırılmış.
    > 
    > 
 7. Bir Hive tablosu, Azure SQL veritabanı için dışarı aktarın.
@@ -260,7 +257,7 @@ $sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServerName.database.wind
 $sqlDatabaseMaxSizeGB = 10
 
 # Used for retrieving external IP address and creating firewall rules
-$ipAddressRestService = "http://bot.whatismyipaddress.com"
+$ipAddressRestService = "https://bot.whatismyipaddress.com"
 $fireWallRuleName = "UseSqoop"
 
 # Used for creating tables and clustered indexes

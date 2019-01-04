@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2dd6ebb9e2f35eccae3b267402a4ef9b0e1b2dbe
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a00f3d2ea4e191bb7860b88d39ff0ccaa338e0ff
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567171"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714245"
 ---
 # <a name="introduction-to-azure-security"></a>Azure güvenliğine giriş
 ## <a name="overview"></a>Genel Bakış
@@ -53,7 +53,7 @@ Bu yazıda, Microsoft Azure bulut platformu içerisindeki güvenlik Microsoft'un
 ## <a name="summary-azure-security-capabilities"></a>Özet Azure güvenlik özellikleri
 Aşağıdaki tablo, Azure altyapısı, müşteri verilerini ve güvenli uygulamaları güvenli hale getirmek için Microsoft tarafından gerçekleştirilen güvenlik özelliklerinin kısa bir açıklama sağlayın.
 ### <a name="security-features-implemented-to-secure-the-azure-platform"></a>Azure platformu güvenliğini sağlamak için uygulanan güvenlik özellikleri:
-Aşağıdaki listelenen özellikleri olan özelliklerini Azure platformu güvenli bir şekilde yönetilir güvencesi sağlamak için gözden geçirebilirsiniz. Bağlantılar için daha fazla Microsoft dört alanlarda müşteri güveni sorularının nasıl ele detaya sağlandı: güvenli bir Platform, gizlilik ve denetimleri, uyumluluk ve saydamlık.
+Aşağıdaki listelenen özellikleri olan özelliklerini Azure platformu güvenli bir şekilde yönetilir güvencesi sağlamak için gözden geçirebilirsiniz. Bağlantılar için daha fazla Microsoft dört alanlarda müşteri güveni sorularının nasıl ele detaya verildi: Platform, gizlilik ve denetimleri, uyumluluk ve saydamlık güvenli hale getirin.
 
 
 | [Güvenli Platform](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Gizlilik ve denetimleri](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Uyumluluk](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Saydamlık](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
@@ -69,7 +69,7 @@ Aşağıdaki listelenen özellikleri olan özelliklerini Azure platformu güvenl
 ### <a name="security-features-offered-by-azure-to-secure-data-and-application"></a>Veri ve uygulama güvenliğini sağlamak için Azure tarafından sunulan güvenlik özellikleri
 Bulut hizmeti modeli bağlı olarak, kimin uygulamaya veya hizmete güvenliğini yönetmek için sorumlu olduğu için değişken sorumluluğu yoktur. Azure aboneliğinin dağıtılabilir iş ortağı çözümlerini ve yerleşik özellikleri aracılığıyla bu sorumlulukları Karşılama konusunda yardımcı olmak için Azure platformundaki kullanılabilen özellikleri vardır.
 
-Yerleşik özellikleri altı (6) işlevsel alanları düzenlenmiştir: işlemler, uygulamaları, depolama, ağ, hesaplama ve kimlik. Özellikler ve yetenekler Azure platformunda bu altı (6) alanlarda ek ayrıntı Özet bilgiler sağlanır.
+Yerleşik özellikleri altı (6) işlevsel alanları düzenlenmiştir: İşlemleri, uygulamaları, depolama, ağ, hesaplama ve kimlik. Özellikler ve yetenekler Azure platformunda bu altı (6) alanlarda ek ayrıntı Özet bilgiler sağlanır.
 
 ## <a name="operations"></a>İşlemler
 Bu bölüm, temel özellikler güvenlik işlemleri ile ilgili ek bilgiler ve bu özellikler hakkındaki özet bilgileri sağlar.
@@ -110,7 +110,7 @@ Ayrıca, Azure Güvenlik Merkezi ile güvenlik işlemlerini tek bir Pano sağlay
 Bölüm, bu özellikleri hakkında daha fazla uygulama güvenlik ve Özet bilgilerini temel özellikleri ile ilgili ek bilgiler sağlar.
 
 ### <a name="web-application-vulnerability-scanning"></a>Web uygulaması güvenlik açığı taraması
-Güvenlik açıklarına karşı testini kullanmaya başlamanın en kolay yollarından biri, [App Service uygulaması](https://docs.microsoft.com/azure/app-service/app-service-web-overview) kullanmaktır [Tinfoil Security ile tümleştirme](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) tek tıklamayla güvenlik açığı uygulamanız üzerinde tarama gerçekleştirmek için. Anlaşılması kolay bir raporda test sonuçlarını görüntülemek ve adım adım yönergeler içeren her bir güvenlik açığı düzeltmeyi öğrenin.
+Güvenlik açıklarına karşı testini kullanmaya başlamanın en kolay yollarından biri, [App Service uygulaması](https://docs.microsoft.com/azure/app-service/overview) kullanmaktır [Tinfoil Security ile tümleştirme](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) tek tıklamayla güvenlik açığı uygulamanız üzerinde tarama gerçekleştirmek için. Anlaşılması kolay bir raporda test sonuçlarını görüntülemek ve adım adım yönergeler içeren her bir güvenlik açığı düzeltmeyi öğrenin.
 
 ### <a name="penetration-testing"></a>Sızma Testi
 Kendi sızma testleri gerçekleştirmeniz veya başka bir tarayıcı suite veya sağlayıcısı kullanmak isterseniz, izlemeniz gereken [onay işlemi Azure sızma](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) ve istenen sızma testleri gerçekleştirmeniz için önceki onay alın.
@@ -119,13 +119,13 @@ Kendi sızma testleri gerçekleştirmeniz veya başka bir tarayıcı suite veya 
 Web uygulaması Güvenlik Duvarı (WAF) [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) SQL ekleme gibi yaygın web tabanlı saldırıları, siteler arası komut dosyası saldırıları ve oturum ele geçirme web uygulamaları korumaya yardımcı olur. Bunu tarafından belirlenen tehditlerden koruma ile önceden yapılandırılmış olarak gelir [açık Web uygulaması güvenlik Project (OWASP) ilk 10 yaygın güvenlik açıklarına olarak](https://msdn.microsoft.com/library/).
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde kimlik doğrulaması ve yetkilendirme
-[App Service kimlik doğrulaması / yetkilendirme](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) uygulamanız, böylece uygulama arka ucu kodunu değiştirmeniz gerekmez kullanıcılarının oturumunu açmak için bir yol sağlayan bir özelliktir. Uygulamanızı korumak ve kullanıcı başına verilerle çalışmak için kolay bir yol sunar.
+[App Service kimlik doğrulaması / yetkilendirme](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) uygulamanız, böylece uygulama arka ucu kodunu değiştirmeniz gerekmez kullanıcılarının oturumunu açmak için bir yol sağlayan bir özelliktir. Uygulamanızı korumak ve kullanıcı başına verilerle çalışmak için kolay bir yol sunar.
 
 ### <a name="layered-security-architecture"></a>Katmanlı güvenlik mimarisi
 Bu yana [App Service ortamları](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro) içinde dağıtılan bir yalıtılmış bir çalışma zamanı ortamı sağlayan bir [Azure sanal ağı](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview), geliştiriciler, farklı düzeylerde sağlama katmanlı güvenlik mimarisi oluşturabilirsiniz her uygulama katmanı için ağ erişimi. Ortak gizliliğinizi korumayı taahhüt eder API arka ucu genel Internet erişiminden gizleme ve yalnızca API'leri Yukarı Akış web uygulamalar tarafından çağrılmasına izin vermektir. [Ağ güvenlik grupları (Nsg'ler)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) App Service ortamları içeren Azure sanal ağ alt ağlarda, API uygulamaları için ortak erişimi kısıtlamak için kullanılabilir.
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>Web sunucusu tanılama ve uygulama tanılama
-App Service web apps için web sunucusunu hem web uygulamasının içinden bilgileri günlüğe kaydetme tanılama işlevi sağlar. Bu mantıksal olarak ayrılır [web sunucu tanılamalarını](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) ve [uygulama tanılama](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Tanılama ve sorun giderme siteleri ve uygulamaları, Web sunucusu iki önemli geliştirmeleri içerir.
+App Service web apps için web sunucusunu hem web uygulamasının içinden bilgileri günlüğe kaydetme tanılama işlevi sağlar. Bu mantıksal olarak ayrılır [web sunucu tanılamalarını](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) ve [uygulama tanılama](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx). Tanılama ve sorun giderme siteleri ve uygulamaları, Web sunucusu iki önemli geliştirmeleri içerir.
 
 İlk yeni uygulama havuzları, alt işlemlerin, siteler, uygulama etki alanları ve çalışan istekleri gerçek zamanlı durum bilgilerini özelliğidir. İkinci yeni avantajları tam istek ve yanıt işlemi boyunca bir isteğin izlenmesi ayrıntılı izleme olaylardır.
 
@@ -141,7 +141,7 @@ Etkinleştirmek veya günlükleri aşağıdaki türde devre dışı bırakabilir
 -   Web sunucusu günlüğü - HTTP işlemlerini W3C Genişletilmiş günlük dosyası biçimini kullanarak hakkında bilgi Bu, işlenen isteklerin veya özel bir IP adresinden kaç isteklerdir sayısı gibi genel site ölçümleri belirlerken kullanışlıdır.
 
 #### <a name="application-diagnostics"></a>Uygulama tanılamaları
-[Uygulama tanılama](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log) bir web uygulaması tarafından üretilen bilgileri yakalamanıza olanak sağlar. ASP.NET uygulamalarında kullanabileceğiniz [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) uygulama tanılama günlüğüne bilgileri günlüğe kaydetmek için sınıf. Uygulama Tanılama'da olayları, uygulama performansı ile ilgili ve uygulama arızaları ve hataları ile ilgili başlıca iki türde vardır. Arızalar ve hatalar ayrılabilir daha ayrıntılı bağlantı, güvenlik ve arıza sorunları. Arıza sorunları, genellikle uygulama kodundaki bir sorunla ilgilidir.
+[Uygulama tanılama](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs) bir web uygulaması tarafından üretilen bilgileri yakalamanıza olanak sağlar. ASP.NET uygulamalarında kullanabileceğiniz [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) uygulama tanılama günlüğüne bilgileri günlüğe kaydetmek için sınıf. Uygulama Tanılama'da olayları, uygulama performansı ile ilgili ve uygulama arızaları ve hataları ile ilgili başlıca iki türde vardır. Arızalar ve hatalar ayrılabilir daha ayrıntılı bağlantı, güvenlik ve arıza sorunları. Arıza sorunları, genellikle uygulama kodundaki bir sorunla ilgilidir.
 
 Uygulama Tanılama'da bu şekilde gruplandırılmış olayları görebilirsiniz:
 
@@ -155,7 +155,7 @@ Bu bölümde Azure depolama güvenlik ve Özet bilgilerini bu özellikleri hakk�
 ### <a name="role-based-access-control-rbac"></a>Rol Tabanlı Erişim Denetimi (RBAC)
 Rol tabanlı erişim denetimi (RBAC) ile depolama hesabınızın güvenliğini sağlayabilirsiniz. Erişimi kısıtlama temel alarak [bilmeniz gereken](https://en.wikipedia.org/wiki/Need_to_know) ve [en az ayrıcalık](https://en.wikipedia.org/wiki/Principle_of_least_privilege) güvenlik ilkeleri, veri erişimi için güvenlik ilkelerini zorlamak istediğinizde kuruluşlar için zorunlu. Bu erişim hakları, gruplara ve uygulamalara belirli bir kapsama uygun RBAC rolü atanarak verilir. Kullanabileceğiniz [yerleşik RBAC rolleri](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles), ayrıcalıkları kullanıcılara atamak için depolama hesabı katılımcısı gibi. Depolama erişim tuşlarını için bir depolama hesabıyla [Azure Resource Manager](https://docs.microsoft.com/azure/storage/storage-security-guide) modeli, rol tabanlı erişim denetimi (RBAC) denetlenebilir.
 
-### <a name="shared-access-signature"></a>Paylaşılan erişim imzası
+### <a name="shared-access-signature"></a>Paylaşılan Erişim İmzası
 [Paylaşılan erişim imzası (SAS)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1), depolama hesabınızdaki kaynaklara temsilci erişimi sağlar. SAS, belirli bir süre için ve belirli bir izin kümesi ile bir istemci, depolama hesabınızdaki nesnelere sınırlı verebilirsiniz anlamına gelir. Hesap erişim anahtarlarınızı paylaşmak zorunda kalmadan bu sınırlı izinler verebilirsiniz.
 
 ### <a name="encryption-in-transit"></a>Aktarım sırasında şifreleme
@@ -289,9 +289,9 @@ Yönetim Portalı'nda veya ağ yapılandırma dosyasında bir sanal ağda kullan
 [Etki alanı adı sistemi](https://technet.microsoft.com/library/bb629410.aspx), veya DNS çevirmek için sorumlu (veya çözümleme) IP adresini bir Web sitesi veya hizmet adı. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) DNS etki alanları, Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlamak için bir barındırma hizmetidir. Etki alanlarınızı Azure'da barındırarak DNS kayıtlarınızı diğer Azure hizmetlerinde kullandığınız kimlik bilgileri, API’ler, araçlar ve faturalarla yönetebilirsiniz. DNS "CIA" güvenlik Üçlü kullanılabilirlik yönüyle destekler.
 ### <a name="log-analytics-nsgs"></a>Log Analytics Nsg'ler
 Nsg'ler için aşağıdaki tanılama günlük kategorileri etkinleştirebilirsiniz:
--   Olay: Vm'lere ve örnek rollerinizin MAC adresini temel alarak için hangi NSG kuralları uygulanır girişler içeriyor. Bu kurallar durumu, 60 saniyede toplanır.
+-   olay: Vm'lere ve örnek rollerinizin MAC adresini temel alarak için hangi NSG kuralları uygulanır girişler içeriyor. Bu kurallar durumu, 60 saniyede toplanır.
 
--   Kuralları sayacı: girişleri için kaç kez trafiğine izin vermek veya reddetmek için uygulanan her bir NSG kuralı içerir.
+-   Kuralları sayacı: Girişleri için kaç kez trafiğine izin vermek veya reddetmek için uygulanan her bir NSG kuralı içerir.
 
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 Güvenlik Merkezi, tehditleri önleyin, algılayın ve yardımcı olur ve görünürlük artırdık sağlar ve Azure kaynaklarınızın güvenliğini, üzerinde denetim. Azure aboneliklerinizde tümleşik güvenlik izleme ve ilke yönetimi sağlar, aksi takdirde gözden kaçan geçebilir tehditleri ve güvenlik çözümlerinin geniş ekosistemiyle çalışır algılamaya yardımcı olur. Ağ önerileri Merkezi güvenlik duvarları, ağ güvenlik grupları, gelen trafik kuralları yapılandırma ve daha fazla.

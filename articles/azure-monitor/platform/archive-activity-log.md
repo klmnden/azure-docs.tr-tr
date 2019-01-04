@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.component: activitylog
-ms.openlocfilehash: 19f97d097c47229038595b202e82ccf41dfbfefc
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.component: logs
+ms.openlocfilehash: 9714cb8ce1c3380ac74150148c8d84bd410e3fc4
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434928"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715230"
 ---
 # <a name="archive-the-azure-activity-log"></a>Azure Etkinlik günlüğünü arşivleme
-Bu makalede, biz arşivlemek için Azure portalı, PowerShell cmdlet'leri veya platformlar arası CLI nasıl kullanabileceğinizi gösterir, [ **Azure etkinlik günlüğü** ](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) bir depolama hesabında. Etkinlik günlüğünüzü 90 günden uzun (ile bekletme ilkesini üzerinde tam denetim) denetim, statik analiz veya yedekleme korumak istiyorsanız, bu seçenek kullanışlıdır. Yalnızca olaylarınızı 90 gün boyunca Beklet gerekir ya da daha az, etkinlik günlüğü olaylarını arşivleme etkinleştirmeden Azure platformunda 90 gün boyunca bekletilir olduğundan bir depolama hesabına arşivleme ayarlamak ihtiyacınız yoktur.
+Bu makalede, biz arşivlemek için Azure portalı, PowerShell cmdlet'leri veya platformlar arası CLI nasıl kullanabileceğinizi gösterir, [ **Azure etkinlik günlüğü** ](../../azure-monitor/platform/activity-logs-overview.md) bir depolama hesabında. Etkinlik günlüğünüzü 90 günden uzun (ile bekletme ilkesini üzerinde tam denetim) denetim, statik analiz veya yedekleme korumak istiyorsanız, bu seçenek kullanışlıdır. Yalnızca olaylarınızı 90 gün boyunca Beklet gerekir ya da daha az, etkinlik günlüğü olaylarını arşivleme etkinleştirmeden Azure platformunda 90 gün boyunca bekletilir olduğundan bir depolama hesabına arşivleme ayarlamak ihtiyacınız yoktur.
 
 > [!WARNING]
 > Depolama hesabındaki günlük verilerinin biçimi, 1 Kasım 2018 tarihinde JSON Satırları olarak değişecektir. [Etkinin açıklaması ve yeni biçimi işlemek üzere araçlarınızı güncelleştirme için bu makaleye bakın.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -30,7 +30,7 @@ Başlamadan önce yapmanız [depolama hesabı oluşturma](../../storage/common/s
 >  Şu anda veri güvenli bir sanal ağda oluşturulan bir depolama hesabına arşivlenemiyor.
 
 ## <a name="log-profile"></a>Günlük profilini
-Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğünü arşivleme için ayarlamanız **günlük profilini** aboneliği. Günlük profilini depolanan veya akış olayları ve çıkışları türünü tanımlar — depolama hesabı ve/veya olay hub'ı. Ayrıca bir depolama hesabında depolanan olayları için bekletme ilkesi (saklanacağı gün sayısı) tanımlar. Bekletme İlkesi, sıfır olarak ayarlanırsa, olayları süresiz olarak depolanır. Aksi takdirde, bu 1 ile 2147483647 arasında herhangi bir değere ayarlanabilir. Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silinecektir. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar. [Daha fazla günlük hakkında burada profilleri](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
+Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğünü arşivleme için ayarlamanız **günlük profilini** aboneliği. Günlük profilini depolanan veya akış olayları ve çıkışları türünü tanımlar — depolama hesabı ve/veya olay hub'ı. Ayrıca bir depolama hesabında depolanan olayları için bekletme ilkesi (saklanacağı gün sayısı) tanımlar. Bekletme İlkesi, sıfır olarak ayarlanırsa, olayları süresiz olarak depolanır. Aksi takdirde, bu 1 ile 2147483647 arasında herhangi bir değere ayarlanabilir. Bekletme ilkeleri uygulanan günlük, olduğundan, bir günün (UTC), şu anda sonra saklama günü günlüklerinden sonunda İlkesi silinecektir. Örneğin, bir günlük bir bekletme ilkesi olsaydı, bugün günün başında dünden önceki gün kayıtları silinir. Gece yarısı UTC, ancak bu günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir not silme işlemi başlar. [Daha fazla günlük hakkında burada profilleri](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>Portalı kullanarak Etkinlik günlüğünü arşivleme
 1. Portalında **etkinlik günlüğü** sol taraftaki gezinti bağlantısı. Etkinlik günlüğü için bir bağlantı görmüyorsanız, tıklayın **tüm hizmetleri** ilk bağlantı.
@@ -62,7 +62,7 @@ Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğünü arşivleme 
    Add-AzureRmLogProfile -Name $logProfileName -Location $locations -StorageAccountId $storageAccountId
    ```
 
-| Özellik | Gerekli | Açıklama |
+| Özellik | Gereklidir | Açıklama |
 | --- | --- | --- |
 | StorageAccountId |Evet |Etkinlik günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
 | Konumlar |Evet |Etkinlik günlüğü olayları toplamak istiyorsanız bölgelerin virgülle ayrılmış listesi. Tüm bölgelerin listesi için aboneliği kullanarak görüntüleyebileceğiniz `(Get-AzureRmLocation).Location`. |
@@ -75,7 +75,7 @@ Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğünü arşivleme 
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --storage-account-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>"
    ```
 
-| Özellik | Gerekli | Açıklama |
+| Özellik | Gereklidir | Açıklama |
 | --- | --- | --- |
 | ad |Evet |Günlük profilinin adı. |
 | Depolama hesabı kimliği |Evet |Etkinlik günlükleri kaydedileceği depolama hesabı kaynak kimliği. |
@@ -182,6 +182,6 @@ PT1H.json dosyasına içinde her olay şu biçimi takip "kayıt" dizisinde depol
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Blobları analiz için indirin](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-* [Etkinlik günlüğünün Event Hubs'a Stream](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-* [Etkinlik günlüğü hakkında daha fazla bilgi](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+* [Etkinlik günlüğünün Event Hubs'a Stream](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [Etkinlik günlüğü hakkında daha fazla bilgi](../../azure-monitor/platform/activity-logs-overview.md)
 

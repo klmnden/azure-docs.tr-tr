@@ -1,6 +1,6 @@
 ---
 title: Azure Stack'te birim düğüm eylemleri ölçeklendirme | Microsoft Docs
-description: Düğüm durumunu görüntüleme ve üzerinde kapatma, boşaltma gücünden yararlanın ve bir Azure Stack tümleşik sisteminde düğüm eylemleri sürdürme hakkında bilgi edinin.
+description: Düğüm durumunu görüntüleyin ve gücüyle güç kapalı kullanın, devre dışı bırakın ve bir Azure Stack tümleşik sisteminde düğüm eylemleri sürdürme hakkında bilgi edinin.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -9,143 +9,144 @@ editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: a792bc083c3a2c78b24d5895c34420b86b0863bb
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ced6e2edb570e12b17d14e0552030902161b5d53
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959776"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725261"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure stack'teki ölçek birimi düğüm eylemleri
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri*
 
-Bu makalede, bir ölçek birimi ve onun ilişkili düğümlerin durumunun nasıl görüntüleneceği ve kullanılabilir düğüm eylemleri kullanmayı açıklar. Düğüm eylemleri gücüyle, güç kapalı dahil, boşaltma, sürdürme ve onarın. Genellikle, bölümleri veya düğüm kurtarma senaryoları için alan değiştirme sırasında bu düğüm eylemlerini kullanın.
+Bu makalede, bir ölçek birimi durumunun nasıl görüntüleneceği açıklanır. Biriminin düğümleri görüntüleyebilirsiniz. Power gibi düğüm eylemleri, power çalıştırın devre dışı, Kapat, boşaltma, sürdürme ve onarın. Genellikle, bu düğüm eylemler sırasında alan değiştirme bölümlerinin ya da bir düğüm kurtarmanıza yardımcı olması için kullanın.
 
 > [!Important]  
-> Bu makalede açıklanan tüm düğüm Eylemler aynı anda yalnızca hedef bir düğüm olmalıdır.
-
+> Bu makalede açıklanan tüm düğüm Eylemler aynı anda tek bir düğüm hedeflemelidir.
 
 ## <a name="view-the-node-status"></a>Düğüm durumunu görüntüleme
 
-Yönetici portalı'nda, bir ölçek birimi ve ilişkili düğümlerinin durumunu kolayca görüntüleyebilirsiniz.
+Yönetici portalı'nda, bir ölçek birimi ve ilişkili düğümlerinin durumunu görüntüleyebilirsiniz.
 
-Bir ölçek birimi durumunu görüntülemek için:
+Ölçek biriminin durumunu görüntülemek için:
 
 1. Üzerinde **bölge Yönetimi** kutucuğunda, bölgeyi seçin.
 2. Sol taraftaki altında **altyapı kaynaklarını**seçin **ölçek birimleri**.
 3. Sonuçlarda ölçek birimi seçin.
- 
-Burada, aşağıdaki bilgileri görüntüleyebilirsiniz:
+4. Sol taraftaki altında **genel**seçin **düğümleri**.
 
-- bölge adı. Bölge adı ile başvurulan **-konum** PowerShell modülünde.
-- tür sistemi
-- Toplam mantıksal çekirdek sayısı
-- toplam bellek
-- Tek tek düğümler ve durumlarını listesi; Her iki **çalıştıran** veya **durduruldu**
+  Aşağıdaki bilgileri görüntüle:
 
-![Her düğüm için çalıştırma durumunu gösteren ölçek birimi kutucuğu](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
+  - Tek tek düğümler listesi
+  - İşlemsel durum (aşağıdaki listeye bakın)
+  - Güç durumunu (çalışıyor veya durduruldu)
+  - sunucu modeli
+  - Temel Kart Yönetim denetleyicisine (BMC) IP adresi
+  - Toplam çekirdek sayısı
+  - toplam bellek miktarı
 
-## <a name="view-node-information"></a>Düğüm bilgilerini görüntüle
+![bir ölçek birimi durumu](media/azure-stack-node-actions/multinodeactions.png)
 
-Tek bir düğüm seçerseniz, aşağıdaki bilgileri görüntüleyebilirsiniz:
+### <a name="node-operational-states"></a>Düğüm işletimsel durumları
 
-- Bölge adı
-- sunucu modeli
-- Temel Kart Yönetim denetleyicisine (BMC) IP adresi
-- İşlemsel durumu
-- Toplam çekirdek sayısı
-- toplam bellek miktarı
- 
-![Her düğüm için çalıştırma durumunu gösteren ölçek birimi kutucuğu](media/azure-stack-node-actions/NodeActions.PNG)
-
-Ayrıca, buradan ölçek birimi düğüm eylemler gerçekleştirebilirsiniz.
+| Durum | Açıklama |
+|----------------------|-------------------------------------------------------------------|
+| Çalışıyor | Düğüm, etkin bir şekilde ölçek birimi katılıyor. |
+| Durduruldu | Düğümü, kullanılamıyor. |
+| Ekleniyor | Düğüm etkin bir şekilde Ölçek birimine ekleniyor. |
+| Onarılıyor | Düğüm etkin bir şekilde onarılıyor. |
+| Bakım | Düğüm duraklatılmadan ve hiçbir etkin kullanıcı iş yükü çalışıyor. |
+| Düzeltmesi gerektiriyor | Onarılması düğümü gerektiren bir hata algılandı. |
 
 ## <a name="scale-unit-node-actions"></a>Ölçek birimi düğüm eylemleri
 
 Bir ölçek birimi düğüm hakkında bilgi görüntülediğinizde gibi düğüm eylemleri de gerçekleştirebilirsiniz:
-
-- Boşaltma ve devam et
-- Onar
+ - Başlatma ve durdurma (bağlı olarak geçerli güç durumu)
+ - Devre dışı bırakın ve sürdürme (işlemlerin durumu bağlı olarak)
+ - Onar
+ - Kapat
 
 Hangi seçenekler kullanılabilir düğüm işletimsel durumunu belirler.
 
-### <a name="power-off"></a>Kapatma
+Azure Stack PowerShell modüllerini yüklemeniz gerekir. Bu cmdlet'ler bulunan **Azs.Fabric.Admin** modülü. Yükleme veya Azure Stack için PowerShell yüklemesini doğrulamak için bkz: [Azure Stack için PowerShell yükleme](azure-stack-powershell-install.md).
 
-**Gücünün kapatılmasını** eylem düğümü devre dışı bırakır. Güç düğmesine basın, sanki aynı şeydir. Mevcut **değil** işletim sistemine bir kapatma sinyali gönderir. İşlemleri planlanmış kapatma için öncelikle bir ölçek birimi düğüm boşaltma emin olun.
+## <a name="stop"></a>Durdur
+
+**Durdur** eylem düğümü devre dışı bırakır. Güç düğmesine basın, sanki aynı şeydir. İşletim sistemine bir kapatma sinyali göndermez. Planlanan durdurma işlemlerinde, her zaman önce kapatma işlemi deneyin. 
 
 Bu eylem, genellikle bir düğüm askıda ve artık isteklerine yanıt verip olduğunda kullanılır.
 
-> [!Important] 
-> Bu işlevsellik yalnızca PowerShell üzerinden kullanılabilir. Daha sonra yeniden Azure Stack Yönetici portalında kullanılabilir olacaktır.
+Durdurma eylemi çalıştırmak için yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'i çalıştırın:
 
-
-PowerShell aracılığıyla eylem kapatmayı çalıştırmak için:
-
-````PowerShell
+```PowerShell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-```` 
+```
 
-Eylem kapatma çalışmıyor olası durumda da, bunun yerine BMC web arabirimini kullanın.
+Olası durumda durdurma eylemi iş değil, işlemi yeniden deneyin ve ikinci kez başarısız olursa BMC web arabirimini kullanın.
 
-### <a name="power-on"></a>Güç açma
+Daha fazla bilgi için [Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
-**Açmayı** eylem düğümde kapatır. Güç düğmesine basın, sanki aynı şeydir. 
+## <a name="start"></a>Başlatma
 
-> [!Important] 
-> Bu işlevsellik yalnızca PowerShell üzerinden kullanılabilir. Daha sonra yeniden Azure Stack Yönetici portalında kullanılabilir olacaktır.
+**Başlat** eylem düğümde kapatır. Güç düğmesine basın, sanki aynı şeydir. 
+ 
+Başlangıç eylemi çalıştırmak için yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'i çalıştırın:
 
-PowerShell üzerinden eyleme power çalıştırmak için:
-
-````PowerShell
+```PowerShell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-````
+```
 
-Eylem gücüyle işe yaramazsa olası durumda da, bunun yerine BMC web arabirimini kullanın.
+Olası durumda başlangıç eylemi iş değil, işlemi yeniden deneyin ve ikinci kez başarısız olursa BMC web arabirimini kullanın.
 
-### <a name="drain"></a>Boşaltma
+Daha fazla bilgi için [başlangıç AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
 
-**Boşaltma** eylemi, belirli bir ölçek birimindeki kalan düğümler arasında dağıtarak tüm etkin iş yüklerini evacuates.
+## <a name="drain"></a>Boşaltma
+
+**Boşaltma** eylem kalan düğümleri, belirli bir ölçek birimindeki tüm etkin iş yüklerini taşır.
 
 Bu eylem, genellikle bir düğümün tamamını değiştirme gibi parçaların alan değiştirme sırasında kullanılır.
 
-> [!IMPORTANT]  
-> Burada kullanıcılara bildirim yalnızca bir planlı bakım penceresi sırasında bir düğümü boşaltabilir emin olun. Bazı koşullar altında etkin iş yüklerini kesintiye uğraması oluşabilir.
+> [!Important]
+> Bir düğüm boşaltma işlemi burada kullanıcılara bildirim planlı bakım penceresi sırasında kullandığınızdan emin olun. Bazı koşullar altında etkin iş yüklerini kesintiye uğraması oluşabilir.
 
-PowerShell üzerinden boşaltma eylemi çalıştırmak için:
+Boşaltma eylemi çalıştırmak için yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'i çalıştırın:
 
-  ````PowerShell
+```PowerShell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-  ````
+```
 
-### <a name="resume"></a>Sürdür
+Daha fazla bilgi için [devre dışı bırak AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
 
-**Sürdürme** eylem boşaltılmış düğümü sürdürür ve iş yükü yerleştirme için etkin olarak işaretler. Düğüm üzerinde çalışmakta olan bir önceki iş yüklerini geri başarısız. (Bir düğüm ve sonra güç kapalı, ne zaman yeniden düğüm güç tüketir, bu iş yükü yerleştirme için etkin olarak işaretlenmemiş. Hazır olduğunuzda, sürdürme eylemi düğümü etkin olarak işaretlemek için kullanmanız gerekir.)
+## <a name="resume"></a>Sürdür
 
-PowerShell üzerinden sürdürme eylemi çalıştırmak için:
+**Sürdürme** eylem devre dışı bırakılmış bir düğümü sürdürür ve iş yükü yerleştirme için etkin olarak işaretler. Düğüm üzerinde çalışmakta olan bir önceki iş yüklerini geri başarısız. (Bir düğüm boşaltma işlemi kullanırsanız kapatmasına emin olun. Düğümü yeniden açtığında, iş yükü yerleştirme için etkin olarak işaretlenmemiş. Hazır olduğunuzda, sürdürme eylemi düğümü etkin olarak işaretlemek için kullanmanız gerekir.)
 
-  ````PowerShell
+Sürdürme eylemi çalıştırmak için yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'i çalıştırın:
+
+```PowerShell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
-  ````
+```
 
-### <a name="repair"></a>Onar
+Daha fazla bilgi için [etkinleştir AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
+
+## <a name="repair"></a>Onar
 
 **Onarım** eylemi, bir düğüm onarır. Bunu yalnızca birini aşağıdaki senaryolar için kullanın:
+ - Tam düğüm değiştirme (ile veya olmadan yeni veri diskleri)
+ - Donanım bileşeni hatası ve değiştirme (alan bulunduğu yerde değiştirilebilen biriminin (FRU) belgelerinde tavsiye varsa) sonra.
 
-- Tam düğüm değiştirme (ile veya olmadan yeni veri diskleri)
-- Donanım bileşeni hatası ve değiştirme (alan bulunduğu yerde değiştirilebilen biriminin (FRU) belgelerinde tavsiye varsa) sonra.
-
-> [!IMPORTANT]  
-> Bir düğüm ya da tek tek donanım bileşenleri değiştirmek gerektiğinde tam adımlar için OEM donanım satıcınızın FRU belgelerine bakın. FRU belgeleri bir donanım bileşenini değiştirdikten sonra onarım işlemi çalıştırmayı gerekip gerekmediğini belirtin.  
+> [!Important]  
+> Bir düğüm ya da tek tek donanım bileşenleri değiştirmek gerektiğinde tam adımlar için OEM donanım satıcınızın FRU belgelerine bakın. FRU belgeleri bir donanım bileşenini değiştirdikten sonra onarım işlemi çalıştırmayı gerekip gerekmediğini belirtin. 
 
 Onarım işlemi çalıştırdığınızda, BMC IP adresini belirtmeniz gerekir. 
 
-PowerShell üzerinden Onarma eylemi çalıştırmak için:
+Onarım işlemi çalıştırmak için yükseltilmiş bir PowerShell istemi açın ve aşağıdaki cmdlet'i çalıştırın:
 
   ````PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>

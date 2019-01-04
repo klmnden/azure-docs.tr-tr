@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08d0221c785fdaeb18fe9a2999d08ded67d1fa91
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7e5f56251e00b59a6e6d3be40612f4c8e381dff1
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437206"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743009"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine learning üzerinde HDInsight
 
-HDInsight, machine learning ile büyük miktarda yapılandırılmış, yapılandırılmamış, (petabaytlarca veya hatta eksabayt) değerli Öngörüler elde etme yeteneği sağlayan büyük veri ve hızla değişen verileri sağlar. Öğrenme seçenekleri HDInsight içinde birden çok makine vardır:  SparkML ve MLlib, R, Apache Hive ve Microsoft Bilişsel Araç Seti.
+HDInsight, machine learning ile büyük miktarda yapılandırılmış, yapılandırılmamış, (petabaytlarca veya hatta eksabayt) değerli Öngörüler elde etme yeteneği sağlayan büyük veri ve hızla değişen verileri sağlar. Öğrenme seçenekleri HDInsight içinde birden çok makine vardır:  SparkML ve Apache Spark MLlib, R, Apache Hive ve Microsoft Bilişsel Araç Seti.
 
 ## <a name="sparkml-and-mllib"></a>SparkML ve MLlib
 
-[HDInsight Spark](spark/apache-spark-overview.md) , Azure'da barındırılan bir teklifi [Apache Spark](http://spark.apache.org/), birleşik, açık kaynaklı, büyük veri analizi artırmak üzere bellek içi işlemeyi destekleyen paralel veri işleme çerçevesi. Spark işleme altyapısı hız, kullanım kolaylığı ve Gelişmiş analiz için oluşturulmuştur. Spark'ın dağıtılmış bellek içi hesaplama özellikleri onu kullanılan makine öğrenimi ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçim haline getirir. Dağıtılmış bu ortamı algoritmik modelleme özellikleri getirin iki ölçeklenebilir makine öğrenimi kitaplığı vardır: MLlib ve SparkML. MLlib Rdd üzerinde oluşturulan özgün API içerir. SparkML ML işlem hatları oluşturmak için veri çerçevelerini üzerinde oluşturulan üst düzey bir API sağlayan yeni bir pakettir. SparkML MLlib özelliklerinin tümünü henüz olarak desteklemez, ancak MLlib Spark'ın standart machine learning kitaplığı değiştiriyor.
+[HDInsight Spark](spark/apache-spark-overview.md) , Azure'da barındırılan bir teklifi [Apache Spark](https://spark.apache.org/), birleşik, açık kaynaklı, büyük veri analizi artırmak üzere bellek içi işlemeyi destekleyen paralel veri işleme çerçevesi. Spark işleme altyapısı hız, kullanım kolaylığı ve Gelişmiş analiz için oluşturulmuştur. Spark'ın dağıtılmış bellek içi hesaplama özellikleri onu kullanılan makine öğrenimi ve grafik hesaplamalarında yinelemeli algoritmalar için iyi bir seçim haline getirir. Dağıtılmış bu ortamı algoritmik modelleme özellikleri getirin iki ölçeklenebilir makine öğrenimi kitaplığı vardır: MLlib ve SparkML. MLlib Rdd üzerinde oluşturulan özgün API içerir. SparkML ML işlem hatları oluşturmak için veri çerçevelerini üzerinde oluşturulan üst düzey bir API sağlayan yeni bir pakettir. SparkML MLlib özelliklerinin tümünü henüz olarak desteklemez, ancak MLlib Spark'ın standart machine learning kitaplığı değiştiriyor.
 
 Apache Spark için Microsoft Machine Learning Kitaplığı [MMLSpark](https://github.com/Azure/mmlspark). Bu kitaplık, veri bilimcileri üzerinde Spark daha verimli hale, deneme oranını artırmak ve son teknoloji ürünü makine öğrenimi teknikleri, çok büyük veri kümeleri üzerinde derin öğrenme dahil olmak üzere yararlanmak için tasarlanmıştır. MMLSpark dizin dizeleri gibi ölçeklenebilir ML modelleri oluşturma sırasında alt düzey API'ler SparkML'ın üzerinde bir katman zorlama öğrenme algoritmaları ve özellik vektör derleyerek makine tarafından beklenen bir düzen halinde veri sağlar. Bunlar ve diğer ortak görevler PySpark modeller oluşturmak için MMLSpark kitaplığı basitleştirir.
 

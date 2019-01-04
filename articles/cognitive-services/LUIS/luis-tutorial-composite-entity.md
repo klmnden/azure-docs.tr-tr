@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18a32f5e07470f71ba276fbe3a2633150b1bf188
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079220"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754673"
 ---
-# <a name="tutorial-6-group-and-extract-related-data"></a>Öğreticinin 6: Grup ve ilgili verileri ayıklayın
+# <a name="tutorial-group-and-extract-related-data"></a>Öğretici: İlişkili verileri gruplandırma ve ayıklama
 Bu öğreticide, bileşik bir varlık içeren tek bir varlığa çeşitli türlerde ayıklanan veri paketi ekleyin. İstemci uygulama, verileri paketleme tarafından farklı veri türlerinde ilgili verileri kolayca ayıklayabilirsiniz.
 
-Bileşik varlık amacı bir üst kategori varlığa ilgili varlıkları grup. Bir bileşik oluşturulmadan önce bilgi ayrı varlıklar olarak bulunmaktadır. Bu, hiyerarşik varlığa benzer ancak değişik tür varlıklar içerebilir. 
+Bileşik varlık amacı bir üst kategori varlığa ilgili varlıkları grup. Bir bileşik oluşturulmadan önce bilgi ayrı varlıklar olarak bulunmaktadır. Bu, hiyerarşik bir varlığa benzer ancak değişik tür varlıklar içerebilir. 
 
 Bileşik varlık olduğundan bu veri türü için uygun olan veri:
 
@@ -29,11 +29,12 @@ Bileşik varlık olduğundan bu veri türü için uygun olan veri:
 * Varlık türleri çeşitli kullanın.
 * İstemci uygulama tarafından bir bilgi birimi olarak gruplanmaları ve işlenmeleri gerekir.
 
-**Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:**
+**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Mevcut öğretici uygulamasını kullanma
+> * Örnek uygulamayı içeri aktarma
+> * Amaç oluşturma
 > * Bileşik varlık ekleme 
 > * Eğitim
 > * Yayımlama
@@ -41,286 +42,139 @@ Bileşik varlık olduğundan bu veri türü için uygun olan veri:
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
-Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
+## <a name="import-example-app"></a>Örnek uygulamayı içeri aktarma
 
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
-
-1.  [Uygulama JSON dosyasını](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json) indirip kaydedin.
+1.  İndirip kaydedin [uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) listesi varlık Öğreticisi.
 
 2. JSON'ı yeni bir uygulamaya içeri aktarın.
 
 3. **Yönet** bölümünde **Sürümler** sekmesinde sürümü kopyalayın ve `composite` olarak adlandırın. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. Sürüm adı, URL rotasının bir parçası olarak kullanıldığından ad bir URL'de geçerli olmayan herhangi bir karakter içeremez.
 
-
 ## <a name="composite-entity"></a>Bileşik varlık
-Mantıksal olarak ayrı varlıklar gruplandırılmasını ve bu mantıksal gruplandırma istemci uygulamasına yardımcı olduğunda bileşik bir varlık oluşturun. 
 
-Bu uygulamada çalışan adı tanımlanan **çalışan** varlık listesinde ve adı, e-posta adresi, şirketin dahili telefon, cep telefonu numarası ve ABD eş anlamlı sözcükler içerir Federal Vergi kimliği 
+Bu uygulamada bölüm adını tanımlanan **departmanı** varlık listesinde ve eş anlamlı sözcükler içerir. 
 
-**MoveEmployee** çalışan taşınabilir bir bina ve office diğerine istemek için örnek konuşma anlaşılabilmelidir. Yapı adları alfabetik: "A", "B" vb. ofisleri sayısal olmasına rağmen: "1234", "13245". 
+**TransferEmployeeToDepartment** çalışan yeni bir bölüme taşınması istemek için örnek konuşma anlaşılabilmelidir. 
 
-Örnek konuşma içinde **MoveEmployee** hedefini içerir:
+Örnek konuşma niyetini şunlar:
 
 |Örnek konuşmalar|
 |--|
-|John W taşıyın. Smith a-2345 için|
-|shift x12345 to h-1234 tomorrow (yarın x12345 ile h-1234'ü değiştirin)|
+|John W. Smith için muhasebe Taşı|
+|R & D Jill Jones alanından aktarma|
  
-Taşıma isteği, (herhangi bir eş anlamlı kullanarak) çalışan ve son bina ve ofis konumu içermelidir. İstek, bir tarih taşıma olacağını yanı sıra kaynak office de içerebilir. 
+Taşıma isteği, bölüm adını ve çalışan adını içermelidir. 
 
-Ayıklanan uç noktasına ait verilerin ve bu bilgileri içeren içinde döndürün `RequestEmployeeMove` Bileşik varlık:
+## <a name="add-the-personname-prebuilt-entity-to-help-with-common-data-type-extraction"></a>PersonName ekleme ile ortak veri türünün ayıklanması yardımcı olmak için önceden oluşturulmuş varlık
 
-```json
-"compositeEntities": [
-  {
-    "parentType": "RequestEmployeeMove",
-    "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-    "children": [
-      {
-        "type": "builtin.datetimeV2.datetime",
-        "value": "march 3 2 p.m"
-      },
-      {
-        "type": "Locations::Destination",
-        "value": "z - 2345"
-      },
-      {
-        "type": "Employee",
-        "value": "jill jones"
-      },
-      {
-        "type": "Locations::Origin",
-        "value": "a - 1234"
-      }
-    ]
-  }
-]
-```
+LUIS, ortak veri ayıklama işlemi için önceden oluşturulmuş birkaç varlık sunar. 
 
-1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. Seçin **derleme** üst gezinti bölmesinden seçip **varlıkları** sol gezinti menüsünde.
 
-2. Üzerinde **hedefleri** sayfasında **MoveEmployee** hedefi. 
+1. **Önceden oluşturulmuş varlıkları yönet** düğmesini seçin.
 
-3. Araç çubuğundaki konuşma listeyi filtrelemek için büyüteç simgesini seçin. 
+1. Seçin **[PersonName](luis-reference-prebuilt-person.md)** önceden oluşturulmuş varlıklarla listesinden seçip **Bitti**.
 
-    [![LUIS ekran Büyüteç düğmesi vurgulanan 'MoveEmployee' hedefi üzerinde](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "Büyüteç düğmesi vurgulanan 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    ![Önceden oluşturulmuş varlıklar iletişim kutusunda sayının seçildiğini gösteren ekran görüntüsü](./media/luis-tutorial-composite-entity/add-personname-prebuilt-entity.png)
 
-4. Girin `tomorrow` utterance bulmak için filtre metin kutusuna `shift x12345 to h-1234 tomorrow`.
+    Bu varlık adı tanıma istemci uygulamanıza eklemenize yardımcı olur.
 
-    [![LUIS ekran Filtresi 'yarının' ile 'MoveEmployee' hedefi üzerinde vurgulanmış](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "vurgulanmış 'yarının' filtresi 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+## <a name="create-composite-entity-from-example-utterances"></a>Örnek konuşma Bileşik varlık oluşturma
 
-    Varlık seçerek datetimeV2 göre filtre uygulamak için başka bir yöntemdir **varlık filtreleri** seçip **datetimeV2** listeden. 
+1. Sol gezinti bölmesinden **Intents** (Amaçlar) öğesini seçin.
 
-5. İlk varlığı seçin `Employee`, ardından **kaydırma bileşik varlıkta** açılır menüsü listesinde. 
+1. Seçin **TransferEmployeeToDepartment** hedefleri listesinde.
 
-    [![İlk varlık içinde bileşik vurgulanmış seçerek 'MoveEmployee' hedefi üzerinde LUIS ekran](media/luis-tutorial-composite-entity/hr-create-entity-1.png "vurgulanmış bileşik içinde ilk varlık seçildikten 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+1. İlk utterance içinde personName varlığı seçin `John Jackson`, ardından **Bileşik varlık sarmalama Başlat** açılır menüsü listesinde aşağıdaki utterance için:
 
+    `place John Jackson in engineering`
 
-6. Son varlık hemen ardından `datetimeV2` utterance içinde. Bileşik bir varlığı gösteren sözcüklerin altında yeşil bir çubuk çizilir. Açılır menüde, bileşik adını `RequestEmployeeMove` seçin ENTER. 
+1. Son varlık hemen ardından `engineering` utterance içinde. Bileşik bir varlığı gösteren sözcüklerin altında yeşil bir çubuk çizilir. Açılır menüde, bileşik adını `TransferEmployeeInfo` seçin ENTER. 
 
-    [![Son varlık içinde bileşik seçerek ve vurgulanmış bir varlık oluştururken 'MoveEmployee' hedefi üzerinde LUIS ekran](media/luis-tutorial-composite-entity/hr-create-entity-2.png "son varlık içinde bileşik seçerek ve vurgulanmış bir varlık oluştururken 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+1. İçinde **ne tür bir varlık oluşturmak istiyorsunuz?**, gerekli tüm alanlar listesinde bağlıdır: `personName` ve `Department`. **Done** (Bitti) öğesini seçin. 
 
-7. İçinde **ne tür bir varlık oluşturmak istiyorsunuz?**, gerekli neredeyse tüm alanlar listesinde bağlıdır. Yalnızca kaynak konumunda eksik. Seçin **alt varlık ekleme**seçin **Locations::Origin** var olan varlıkları listesinden seçip **Bitti**. 
-
-    Dikkat edin önceden oluşturulmuş bir varlık, sayı, bileşik varlığa eklendi. Başlangıç ve bitiş belirteçleri bileşik bir varlığın arasında görünür önceden oluşturulmuş bir varlık olabilir, önceden oluşturulmuş bu varlıkların bileşik varlığı içermelidir. Önceden oluşturulmuş varlıklar dahil edilmez, bileşik bir varlık değil doğru şekilde tahmin edildiğinde ancak her tek öğedir.
-
-    ![Açılır pencerede başka bir varlık ekleme 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
-
-8. Filtreyi kaldırmak için araç çubuğundaki Büyüteç'i seçin. 
-
-9. Word kaldırmak `tomorrow` filtresinden tüm örnek konuşma yeniden görürsünüz. 
+    Önceden oluşturulmuş varlığı personName, bileşik varlığa eklendiğini dikkat edin. Başlangıç ve bitiş belirteçleri bileşik bir varlığın arasında görünür önceden oluşturulmuş bir varlık olabilir, önceden oluşturulmuş bu varlıkların bileşik varlığı içermelidir. Önceden oluşturulmuş varlıklar dahil edilmez, bileşik bir varlık değil doğru şekilde tahmin edildiğinde ancak her tek öğedir.
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Bileşik varlıkla etiket örnek konuşma
 
 
 1. Her örnek utterance içinde bileşik içinde olması gereken en soldaki varlığı seçin. Ardından **kaydırma bileşik varlıkta**.
 
-    [![İlk varlık içinde bileşik vurgulanmış seçerek 'MoveEmployee' hedefi üzerinde LUIS ekran](media/luis-tutorial-composite-entity/hr-label-entity-1.png "vurgulanmış bileşik içinde ilk varlık seçildikten 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+1. Bileşik varlıkta son sözcüğü eşleyebilir ve ardından seçin **TransferEmployeeInfo** açılır menüden. 
 
-2. Bileşik varlıkta son sözcüğü eşleyebilir ve ardından seçin **RequestEmployeeMove** açılır menüden. 
+1. Tüm konuşma amacı, bileşik bir varlık ile etiketlenmiş doğrulayın. 
 
-    [![Son varlık seçme içinde bileşik vurgulanmış 'MoveEmployee' hedefi üzerinde LUIS ekran](media/luis-tutorial-composite-entity/hr-label-entity-2.png "son varlık seçme içinde bileşik vurgulanmış 'MoveEmployee' hedefi üzerinde LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
-
-3. Tüm konuşma amacı, bileşik bir varlık ile etiketlenmiş doğrulayın. 
-
-    [![LUIS ekran üzerinde 'MoveEmployee' olarak etiketlenen tüm konuşma ile](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "'MoveEmployee' olarak etiketlenen tüm konuşma ile şirket LUIS ekran görüntüsü")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
-
-## <a name="train"></a>Eğitim
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Uygulama hedefi değişiklikleri test edilebilir şekilde eğitme 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Yayımlama
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Eğitilen modelin uç noktasından sorgulanabilir, bu nedenle, uygulamayı yayımlama
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Uç noktadan amacı ve varlıkları alma 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Uç noktasından amacı ve varlık öngörü Al 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Adres çubuğundaki URL'nin sonuna gidip `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.` yazın. Son sorgu dizesi parametresi `q`, utterance sorgu. 
+2. Adres çubuğundaki URL'nin sonuna gidip `Move Jill Jones to DevOps` yazın. Son sorgu dizesi parametresi `q`, utterance sorgu. 
 
     Bileşik doğru bir şekilde ayıklandıktan doğrulamak için bu test olduğundan, bir test ya da mevcut bir örnek utterance veya yeni bir utterance içerebilir. Bileşik varlıktaki tüm alt varlıklar eklemek iyi bir testtir.
 
     ```json
     {
-      "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
+      "query": "Move Jill Jones to DevOps",
       "topScoringIntent": {
-        "intent": "MoveEmployee",
-        "score": 0.9959525
+        "intent": "TransferEmployeeToDepartment",
+        "score": 0.9882747
       },
       "intents": [
         {
-          "intent": "MoveEmployee",
-          "score": 0.9959525
-        },
-        {
-          "intent": "GetJobInformation",
-          "score": 0.009858314
-        },
-        {
-          "intent": "ApplyForJob",
-          "score": 0.00728598563
-        },
-        {
-          "intent": "FindForm",
-          "score": 0.0058053555
-        },
-        {
-          "intent": "Utilities.StartOver",
-          "score": 0.005371796
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.00266987388
+          "intent": "TransferEmployeeToDepartment",
+          "score": 0.9882747
         },
         {
           "intent": "None",
-          "score": 0.00123299169
-        },
-        {
-          "intent": "Utilities.Cancel",
-          "score": 0.00116407464
-        },
-        {
-          "intent": "Utilities.Confirm",
-          "score": 0.00102653319
-        },
-        {
-          "intent": "Utilities.Stop",
-          "score": 0.0006628214
+          "score": 0.00925369747
         }
       ],
       "entities": [
         {
-          "entity": "march 3 2 p.m",
-          "type": "builtin.datetimeV2.datetime",
-          "startIndex": 41,
-          "endIndex": 54,
-          "resolution": {
-            "values": [
-              {
-                "timex": "XXXX-03-03T14",
-                "type": "datetime",
-                "value": "2018-03-03 14:00:00"
-              },
-              {
-                "timex": "XXXX-03-03T14",
-                "type": "datetime",
-                "value": "2019-03-03 14:00:00"
-              }
-            ]
-          }
-        },
-        {
           "entity": "jill jones",
-          "type": "Employee",
+          "type": "builtin.personName",
           "startIndex": 5,
-          "endIndex": 14,
+          "endIndex": 14
+        },
+        {
+          "entity": "devops",
+          "type": "Department",
+          "startIndex": 19,
+          "endIndex": 24,
           "resolution": {
             "values": [
-              "Employee-45612"
+              "Development Operations"
             ]
           }
         },
         {
-          "entity": "z - 2345",
-          "type": "Locations::Destination",
-          "startIndex": 31,
-          "endIndex": 36,
-          "score": 0.9690751
-        },
-        {
-          "entity": "a - 1234",
-          "type": "Locations::Origin",
-          "startIndex": 21,
-          "endIndex": 26,
-          "score": 0.9713137
-        },
-        {
-          "entity": "-1234",
-          "type": "builtin.number",
-          "startIndex": 22,
-          "endIndex": 26,
-          "resolution": {
-            "value": "-1234"
-          }
-        },
-        {
-          "entity": "-2345",
-          "type": "builtin.number",
-          "startIndex": 32,
-          "endIndex": 36,
-          "resolution": {
-            "value": "-2345"
-          }
-        },
-        {
-          "entity": "3",
-          "type": "builtin.number",
-          "startIndex": 47,
-          "endIndex": 47,
-          "resolution": {
-            "value": "3"
-          }
-        },
-        {
-          "entity": "2",
-          "type": "builtin.number",
-          "startIndex": 50,
-          "endIndex": 50,
-          "resolution": {
-            "value": "2"
-          }
-        },
-        {
-          "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-          "type": "RequestEmployeeMove",
+          "entity": "jill jones to devops",
+          "type": "TransferEmployeeInfo",
           "startIndex": 5,
-          "endIndex": 54,
-          "score": 0.4027723
+          "endIndex": 24,
+          "score": 0.9607566
         }
       ],
       "compositeEntities": [
         {
-          "parentType": "RequestEmployeeMove",
-          "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+          "parentType": "TransferEmployeeInfo",
+          "value": "jill jones to devops",
           "children": [
             {
-              "type": "builtin.datetimeV2.datetime",
-              "value": "march 3 2 p.m"
-            },
-            {
-              "type": "Locations::Destination",
-              "value": "z - 2345"
-            },
-            {
-              "type": "Employee",
+              "type": "builtin.personName",
               "value": "jill jones"
             },
             {
-              "type": "Locations::Origin",
-              "value": "a - 1234"
+              "type": "Department",
+              "value": "devops"
             }
           ]
         }
@@ -334,9 +188,18 @@ Ayıklanan uç noktasına ait verilerin ve bu bilgileri içeren içinde döndür
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
+## <a name="related-information"></a>İlgili bilgiler
+
+* [Liste varlık Öğreticisi](luis-quickstart-intents-only.md)
+* [Bileşik varlık](luis-concept-entity-types.md) kavramsal bilgiler
+* [Eğitme](luis-how-to-train.md)
+* [Yayımlama nasıl yapılır?](luis-how-to-publish-app.md)
+* [LUIS portalında test etme](luis-interactive-test.md)
+
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğretici, var olan varlıkları kapsüllemek için bileşik bir varlık oluşturuldu. Bu konuşmaya devam etmek için farklı veri türleri ilgili bir veri grubu bulmak istemci uygulaması sağlar. Bu İnsan Kaynakları uygulamasında, bir istemci uygulamanın hangi gün ve saat taşıma başlamalı ve bitmelidir gerekiyor sorabilirsiniz. Fiziksel bir telefon olarak movesuch başka bir Lojistik hakkında da sorabilirsiniz. 
+Bu öğretici, var olan varlıkları kapsüllemek için bileşik bir varlık oluşturuldu. Bu konuşmaya devam etmek için farklı veri türleri ilgili bir veri grubu bulmak istemci uygulaması sağlar. Bu İnsan Kaynakları uygulamasında, bir istemci uygulamanın hangi gün ve saat taşıma başlamalı ve bitmelidir gerekiyor sorabilirsiniz. Taşımanın fiziksel telefon gibi diğer Lojistik hakkında da sorabilirsiniz. 
 
 > [!div class="nextstepaction"] 
 > [Bir ifade listesi tek bir varlığın eklemeyi öğrenin](luis-quickstart-primary-and-secondary-data.md)  

@@ -8,20 +8,20 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ce2391014eb5e15650c0a81ebb8e2fd4a08ca96b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139233"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599953"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Bir edge ağ geçidi için Windows veya Linux üzerinde bağlı Fabrika çözüm Hızlandırıcısını dağıtma
 
 Bir edge ağ geçidi dağıtmak için iki yazılım bileşenlerini ihtiyacınız *Connected Factory* Çözüm Hızlandırıcısı:
 
-- OPC  *Proxy* Connected Factory bir bağlantı kurar. OPC Proxy çalıştıran bağlı Fabrika çözüm portalında tümleşik OPC Browser komut ve Denetim iletileri ardından bekler.
+-  *OPC Proxy* Connected Factory bir bağlantı kurar. OPC Proxy çalıştıran bağlı Fabrika çözüm portalında tümleşik OPC Browser komut ve Denetim iletileri ardından bekler.
 
-- OPC  *yayımcı* iletir telemetri iletilerini bunları bağlı Fabrika için ve mevcut şirket içi OPC UA sunucularına bağlanır. Bir OPC Klasik cihaz kullanarak bağlantı kurabilir [OPC UA için OPC Klasik bağdaştırıcısı](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
+-  *OPC yayımcı* iletir telemetri iletilerini bunları bağlı Fabrika için ve mevcut şirket içi OPC UA sunucularına bağlanır. Bir OPC Klasik cihaz kullanarak bağlantı kurabilir [OPC UA için OPC Klasik bağdaştırıcısı](https://github.com/OPCFoundation/UA-.NETStandard/blob/master/ComIOP/README.md).
 
 Her iki bileşenler açık kaynaklı ve GitHub üzerinde kaynak ve DockerHub Docker kapsayıcıları olarak kullanılabilir:
 
@@ -70,7 +70,7 @@ Daha fazla bilgi için [birimler kullanmak](https://docs.docker.com/engine/admin
 
 OPC bileşenlerini yüklemeden önce ortamınızı hazırlamak için aşağıdaki adımları tamamlayın:
 
-1. Ağ geçidi dağıtımı tamamlamak için ihtiyacınız **iothubowner** Connected Factory dağıtımınızdaki IOT hub'ı bağlantı dizesi. İçinde [Azure portalında](http://portal.azure.com/), bağlı Fabrika çözümünü dağıttığınızda oluşturulan kaynak grubunda IOT hub'ınıza gidin. Tıklayın **paylaşılan erişim ilkeleri** erişimi **iothubowner** bağlantı dizesi:
+1. Ağ geçidi dağıtımı tamamlamak için ihtiyacınız **iothubowner** Connected Factory dağıtımınızdaki IOT hub'ı bağlantı dizesi. İçinde [Azure portalında](https://portal.azure.com/), bağlı Fabrika çözümünü dağıttığınızda oluşturulan kaynak grubunda IOT hub'ınıza gidin. Tıklayın **paylaşılan erişim ilkeleri** erişimi **iothubowner** bağlantı dizesi:
 
     ![IOT Hub bağlantı dizesini bulun](./media/iot-accelerators-connected-factory-gateway-deployment/image2.png)
 

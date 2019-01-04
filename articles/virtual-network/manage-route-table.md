@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 790d327be27dae0c963c37e6e55f1721bf571c80
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7c3c4eea80eb0ceddc48d30fd51cf23524df5640
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222123"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540767"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Oluşturma, değiştirme veya bir rota tablosunu sil
 
@@ -48,7 +48,7 @@ Kaç yönlendirme tablolarını Azure konumu ve abonelik oluşturmak için bir s
 **Komutları**
 
 - Azure CLI: [az ağ yönlendirme tablosu oluşturma](/cli/azure/network/route-table/route#az_network_route_table_create)
-- PowerShell: [AzureRmRouteTable yeni](/powershell/module/azurerm.network/new-azurermroutetable)
+- PowerShell: [New-AzureRmRouteTable](/powershell/module/azurerm.network/new-azurermroutetable)
 
 ## <a name="view-route-tables"></a>Görünüm rota tabloları
 
@@ -64,7 +64,7 @@ Portalın üst kısmındaki arama kutusuna girin *rota tabloları* arama kutusun
 1. Portalın üst kısmındaki arama kutusuna girin *rota tabloları* arama kutusuna. Zaman **rota tabloları** arama sonuçlarında görünmesini, onu seçin.
 2. Rota tablosunu ayrıntılarını görüntülemek istediğiniz listeyi seçin. Altında **ayarları**, görüntüleyebileceğiniz **yollar** yol tablosundaki ve **alt ağlar** için rota tablosunu ilişkilidir.
 3. Azure ortak ayarları hakkında daha fazla bilgi için aşağıdaki bilgileri bakın:
-    *   [Etkinlik Günlüğü](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+    *   [Etkinlik Günlüğü](../azure-monitor/platform/activity-logs-overview.md)
     *   [Erişim denetimi (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Etiketler](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Kilitler](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -83,7 +83,7 @@ Portalın üst kısmındaki arama kutusuna girin *rota tabloları* arama kutusun
 **Komutları**
 
 - Azure CLI: [az ağ route-table update](/cli/azure/network/route-table/route#az_network_route_table_update)
-- PowerShell: [AzureRmRouteTable Ayarla](/powershell/module/azurerm.network/set-azurermroutetable)
+- PowerShell: [Set-AzureRmRouteTable](/powershell/module/azurerm.network/set-azurermroutetable)
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Yönlendirme tablosunu bir alt ağ ile ilişkilendirme
 
@@ -128,7 +128,7 @@ Hiçbir alt ağ için bir yol tablosu ilişkiliyse, bu komut dosyası silinemiyo
 **Komutları**
 
 - Azure CLI: [az ağ route-table delete](/cli/azure/network/route-table/route#az_network_route_table_delete)
-- PowerShell: [AzureRmRouteTable Kaldır](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
+- PowerShell: [Remove-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
 
 ## <a name="create-a-route"></a>Yönlendirme oluşturma
 
@@ -147,7 +147,7 @@ Yol tablosu başına kaç rota Azure konumu ve abonelik oluşturabilmeniz için 
 **Komutları**
 
 - Azure CLI: [az ağ route-table route oluşturma](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
-- PowerShell: [AzureRmRouteConfig yeni](/powershell/module/azurerm.network/new-azurermrouteconfig)
+- PowerShell: [Yeni AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
 
 ## <a name="view-routes"></a>Görünüm yolları
 

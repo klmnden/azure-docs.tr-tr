@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 80f7d93037c0b900608301ebf6463f85be10f2de
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 84d8d3838740ec5d448b14b5c4539f7d78c96b5e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311329"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714364"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -56,7 +56,7 @@ Azure App Service, web tabanlı projelerinizi yayımlamak için en hızlı yolu 
 
 Web uygulamaları, mobil uygulama arka uçları ve API apps oluşturabilirsiniz.
 
-Tüm üç uygulama türü, App Service çalışma zamanı paylaştığından, Web sitesi barındırma, mobil istemciler desteklemek ve API'leri, azure'da tümü aynı proje veya çözümü kullanıma sunma. App Service hakkında daha fazla bilgi için bkz: [Azure Web Apps nedir](../../app-service/app-service-web-overview.md).
+Tüm üç uygulama türü, App Service çalışma zamanı paylaştığından, Web sitesi barındırma, mobil istemciler desteklemek ve API'leri, azure'da tümü aynı proje veya çözümü kullanıma sunma. App Service hakkında daha fazla bilgi için bkz: [Azure Web Apps nedir](../../app-service/overview.md).
 
 App Service ile DevOps aklınızda tasarlanmıştır. Bu, GitHub Web kancası, Jenkins, Azure DevOps, TeamCity ve diğerleri dahil olmak üzere yayımlama ve sürekli tümleştirme dağıtımları için çeşitli araçlar destekler.
 
@@ -168,7 +168,7 @@ Uygulamalarınızı kullanan yalnızca bilmek ancak kaynaklarınıza yetkisiz er
 
     >**Ne zaman kullanılacağı**: Azure AD kullanarak bir App Service uygulamasında kimlik doğrulamasını etkinleştirmek istediğinizde sosyal kimlik sağlayıcıları ya da her ikisini de.
 
-    >**Başlama**: App Service kimlik doğrulaması hakkında daha fazla bilgi için bkz: [kimlik doğrulama ve yetkilendirme Azure App Service'te](../../app-service/app-service-authentication-overview.md).
+    >**Başlama**: App Service kimlik doğrulaması hakkında daha fazla bilgi için bkz: [kimlik doğrulama ve yetkilendirme Azure App Service'te](../../app-service/overview-authentication-authorization.md).
 
 Azure en iyi güvenlik uygulamaları hakkında daha fazla bilgi için bkz: [Azure güvenlik en iyi uygulamaları ve desenleri](../../security/security-best-practices-and-patterns.md).
 
@@ -190,7 +190,7 @@ VM'ler sağlamayı veya sürekli tümleştirme ile web uygulamalarınızı yayı
 
 >**Şimdi deneyin:** [Birkaç DevOps tümleştirmeleri'ni deneyin](https://azure.microsoft.com/try/devops/).
 
->**Başlama**: Bir App Service uygulaması DevOps seçeneklerini görmek için bkz. [Azure uygulama Hizmeti'ne sürekli dağıtım](../../app-service/app-service-continuous-deployment.md).
+>**Başlama**: Bir App Service uygulaması DevOps seçeneklerini görmek için bkz. [Azure uygulama Hizmeti'ne sürekli dağıtım](../../app-service/deploy-continuous-deployment.md).
 
 
 ## <a name="azure-regions"></a>Azure bölgeleri

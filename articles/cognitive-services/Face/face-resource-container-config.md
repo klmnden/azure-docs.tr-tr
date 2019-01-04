@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 30546d31e96d7d7fa1009f16a50fe8fda12ead67
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18c9eace306522f9ac9f04e19b9571db67561ae0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105113"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725073"
 ---
 # <a name="configure-containers"></a>Kapsayıcıları yapılandırma
 
@@ -113,10 +113,10 @@ Yüz tanıma kapsayıcı, blob, önbellek, meta verileri ve sıra veri, ne sakla
   Tüm dört veri türlerini bellekte depolanır. Dağılımı ya da bunların kalıcıdır. Yüz tanıma kapsayıcı durdurulmuş veya kaldırılmış, tüm bu kapsayıcı için depolama birimindeki verileri bozulur.  
   Yüz tanıma kapsayıcısı için varsayılan depolama senaryosu budur.
 * Azure  
-  Yüz tanıma kapsayıcı, bu dört veri türleri arasında kalıcı depolama dağıtmak için Azure depolama ve Azure Cosmos DB kullanır. BLOB ve kuyruk verileri Azure Depolama tarafından işlenir. Meta verileri ve önbellek verilerini, MongoDB API'sini kullanarak Azure Cosmos DB tarafından işlenir. Yüz tanıma kapsayıcı durdurulmuş veya kaldırılmış, tüm veriler bu kapsayıcı için depolama alanında kalır Azure depolama ve Azure Cosmos DB içinde depolanan.  
+  Yüz tanıma kapsayıcı, bu dört veri türleri arasında kalıcı depolama dağıtmak için Azure depolama ve Azure Cosmos DB kullanır. BLOB ve kuyruk verileri Azure Depolama tarafından işlenir. Meta verileri ve önbellek verilerini Azure Cosmos DB tarafından işlenir. Yüz tanıma kapsayıcı durdurulmuş veya kaldırılmış, tüm veriler bu kapsayıcı için depolama alanında kalır Azure depolama ve Azure Cosmos DB içinde depolanan.  
   Azure depolama senaryo tarafından kullanılan kaynakları aşağıdaki ek gereksinimlere sahiptir.
   * Azure depolama kaynağı StorageV2 hesap türü kullanmalısınız.
-  * Azure Cosmos DB kaynak MongoDB API'sini kullanmanız gerekir
+  * Azure Cosmos DB MongoDB API'si için Azure Cosmos DB kaynak kullanmanız gerekir
 
 Tarafından yönetilen depolama senaryolar ve ilişkili yapılandırma ayarları `Storage` altında nesne `CloudAI` yapılandırma bölümü. Aşağıdaki yapılandırma ayarları kullanılabilir `Storage` nesnesi:
 
@@ -176,7 +176,7 @@ Aşağıdaki tabloda altında desteklenen yapılandırma ayarları açıklanmakt
 
   | Ad | Veri türü | Açıklama |
   |------|-----------|-------------|
-  | `Format` | Dize | Günlük dosyaları için çıkış biçimi.<br/> **Not:** bu değer ayarlanmalıdır `json` günlük sağlayıcısını etkinleştirmek için. Bu değer aynı zamanda bir kapsayıcı örneği oluşturulurken bir çıkış bağlama belirtmeden belirtilirse, bir hata oluşur. |
+  | `Format` | Dize | Günlük dosyaları için çıkış biçimi.<br/> **Not:** Bu değer ayarlanmalıdır `json` günlük sağlayıcısını etkinleştirmek için. Bu değer aynı zamanda bir kapsayıcı örneği oluşturulurken bir çıkış bağlama belirtmeden belirtilirse, bir hata oluşur. |
   | `MaxFileSize` | Tamsayı | Megabayt (MB) günlük dosyasının en büyük boyutu. Yeni bir günlük dosyası, geçerli günlük dosyası boyutunu karşıladığından veya bu değeri aşarsa, oturum açma sağlayıcısı tarafından başlatılır. -1 belirtilmezse, günlük dosyasının boyutu, çıkış bağlama yalnızca en büyük dosya boyutuyla sınırlıdır. Varsayılan değer 1'dir. |
 
 ASP.NET Core günlük desteği yapılandırma hakkında daha fazla bilgi için bkz. [ayarları dosya Yapılandırması](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).

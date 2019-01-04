@@ -1,5 +1,5 @@
 ---
-title: 'Eclipse için Azure Araç Seti: HDInsight Spark Scala oluşturma uygulamaları '
+title: 'Eclipse için Azure Araç Seti: HDInsight Spark Scala uygulamaları oluşturma '
 description: Spark Scala içinde yazılmış uygulamalar geliştirmek ve bunları doğrudan Eclipse IDE içinden bir HDInsight Spark kümesine göndermek için Eclipse için Azure Araç Seti HDInsight araçlarını kullanın.
 services: hdinsight
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: a875e7517870e4a782d3169fd5eb0796c9b0f16a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4370cc5e39b7d1b9a50e8fc8af9f7bfc58f6356a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496601"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602758"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak için Eclipse için Azure Araç Seti'ni kullanma
 
 HDInsight araçları için Azure Araç Seti'ni kullanma [Eclipse](https://www.eclipse.org/) geliştirmek için [Apache Spark](https://spark.apache.org/) yazılan uygulamalar [Scala](https://www.scala-lang.org/) ve bunları bir Azure HDInsight Spark kümesine gönderin doğrudan Eclipse'teki IDE. HDInsight araçları eklentisi birkaç farklı yolla kullanabilirsiniz:
 
-* Geliştirme ve bir HDInsight Spark kümesi üzerinde bir Scala Spark uygulaması göndermek için
-* Azure HDInsight Spark kümesi kaynaklarınıza erişmek için
-* Geliştirmek ve yerel olarak Scala Spark uygulamasını çalıştırmak için
+* Geliştirme ve bir HDInsight Spark kümesi üzerinde bir Scala Spark uygulaması göndermek için.
+* Azure HDInsight Spark kümesi kaynaklarınıza erişmek için.
+* Geliştirmek ve yerel olarak Scala Spark uygulamasını çalıştırmak için.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Oluşturma ve uygulamalar yalnızca Linux'ta bir HDInsight Spark kümesine göndermek için bu aracı kullanabilirsiniz.
 > 
 > 
@@ -78,7 +78,7 @@ Ambari yönetilen kullanıcı adı kullanarak, normal bir küme bağlayabilirsin
    
    ![bağlantı kümesi iletişim kutusu](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > Küme hem Azure aboneliğinizde oturum ve bir kümeye bağlı bağlantılı depolama anahtarı, kullanıcı adı ve parola kullanın.
    > ![Depolama Gezgini'nde Eclipse](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
@@ -207,7 +207,7 @@ Spark Scala uygulamaları yerel iş istasyonunuzda çalıştırmak için HDInsig
 ### <a name="prerequisite"></a>Önkoşul
 Bir Windows bilgisayarda yerel Scala Spark uygulaması çalışıyor olsa da açıklandığı gibi özel durum alabilir [SPARK 2356](https://issues.apache.org/jira/browse/SPARK-2356). Bu özel durum oluşur **WinUtils.exe** Windows içinde eksik. 
 
-Bu hatayı çözmek için gerekli [yürütülebilir dosyayı indir](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) gibi bir konuma **C:\WinUtils\bin**ve ardından ortam değişkenini ekledikten **HADOOP_HOME** ve değerini ayarlama değişkene **C\WinUtils**.
+Bu hatayı çözmek için gerekli [yürütülebilir dosyayı indir](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) gibi bir konuma **C:\WinUtils\bin**ve ardından ortam değişkenini ekledikten **HADOOP_HOME** ve değerini ayarlama değişkene **C\WinUtils**.
 
 ### <a name="run-a-local-spark-scala-application"></a>Yerel bir Scala Spark uygulamasını çalıştırma
 1. Eclipse'i başlatın ve bir proje oluşturun. İçinde **yeni proje** iletişim kutusunda, aşağıdaki seçimleri yapın ve ardından **sonraki**.
@@ -242,12 +242,12 @@ Ne zaman bir küme bağlantı, ben depolama kimlik bilgileri vermenizi Öner.
 Bir Geri bildiriminiz varsa veya bu aracı kullanırken diğer herhangi bir sorunla karşılaşırsanız, bize bir e-postası gönderin hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>Ayrıca bkz.
-* [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
+* [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>Oluşturma ve uygulamaları çalıştırma

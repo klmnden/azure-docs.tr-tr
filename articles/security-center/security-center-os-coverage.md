@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4108355415d1230f98db36a4f83497de2fa848f7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2dcc72e0e3b9caef9ab01d9f754671cb0365a358
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185588"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608843"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Platformlar ve Azure Güvenlik Merkezi tarafından desteklenen özellikler
 
@@ -30,7 +30,7 @@ Güvenlik durumunu izleme ve öneriler hem Klasik ve Resource Manager dağıtım
 >
 >
 
-## <a name="supported-platforms"></a>Desteklenen platformlar 
+## <a name="platforms-that-support-the-data-collection-agent"></a>Veri toplama Aracısı destekleyen platformlar 
 
 Bu bölümde, Azure Güvenlik Merkezi Aracısı çalıştırabilir ve bunu veri toplayabilirsiniz platformlar listelenir.
 
@@ -43,6 +43,10 @@ Aşağıdaki Windows işletim sistemleri desteklenir:
 * Windows Server 2012 R2
 * Windows Server 2016
 
+> [!NOTE]
+> Windows Defender ATP ile tümleştirme, yalnızca Windows Server 2012 R2 ve Windows Server 2016'yı destekler.
+>
+>
 
 ### <a name="supported-platforms-for-linux-computers-and-vms"></a>Linux bilgisayarları ve sanal makineleri için desteklenen platformlar
 Aşağıdaki Linux işletim sistemleri desteklenir:
@@ -55,11 +59,6 @@ Aşağıdaki Linux işletim sistemleri desteklenir:
 * Oracle Linux sürüm 5, 6 ve 7.
 * Amazon Linux 2012.09 2017.
 * OpenSSL 1.1.0 yalnızca 64 bit x86_64 platformları üzerinde desteklenir.
-
-> [!NOTE]
-> Sanal makine davranış analizi, Linux işletim sistemleri için henüz kullanılamamaktadır.
->
->
 
 ## <a name="vms-and-cloud-services"></a>VM'ler ve bulut Hizmetleri
 Bir bulut hizmetinde çalışan sanal makineleri de desteklenir. Üretim yuvalarını çalıştırılan yalnızca cloud services web ve çalışan rolleri izlenir. Bulut hizmetleri hakkında daha fazla bilgi için bkz. [Azure Cloud Services Genel Bakış](../cloud-services/cloud-services-choose-me.md).

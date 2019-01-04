@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 008e61841611f36c440bb4896ae5a85d0bf4d874
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: 17c1cce5c20570f36505ce67a472280b03ef8f0e
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991687"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744559"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core Web Uygulamanızı İzlemeye Başlama
 
@@ -23,7 +23,7 @@ Azure Application Insights ile web uygulamanızı kullanılabilirlik, performans
 
 Bu hızlı başlangıç, Application Insights SDK'sını var olan bir ASP.NET Core web uygulamasına eklerken size kılavuzluk eder. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu hızlı başlangıcı tamamlamak için:
 
@@ -33,7 +33,7 @@ Bu hızlı başlangıcı tamamlamak için:
 - [.NET Core 2.0 SDK yükleme](https://www.microsoft.com/net/core)
 - Bir Azure Aboneliği ve var olan bir .NET Core web uygulaması gerekir.
 
-ASP.NET Core web uygulamanız yoksa, adım adım kılavuzumuzu kullanarak [ASP.NET Core uygulaması oluşturabilir ve Application Insights ekleyebilirsiniz.](app-insights-asp-net-core.md)
+ASP.NET Core web uygulamanız yoksa, adım adım kılavuzumuzu kullanarak [ASP.NET Core uygulaması oluşturabilir ve Application Insights ekleyebilirsiniz.](../azure-monitor/app/asp-net-core.md)
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 

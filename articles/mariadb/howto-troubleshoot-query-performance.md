@@ -1,20 +1,17 @@
 ---
 title: MariaDB için Azure veritabanı'nda sorgu performansı sorunlarını giderme
 description: Bu makalede, MariaDB için Azure veritabanı'nda sorgu performans sorunlarını gidermek için açıklama kullanmayı açıklar.
-services: mariadb
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mariadb
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 6bbaffeccbca77f1cab3058152f8c001f721332e
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 672635c8d8c84fa16c106ae79e97332fd740928d
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51347704"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53541090"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'nda profili sorgu performansı için açıklama kullanma
 **AÇIKLAYAN** sorguları iyileştirmek için kullanışlı bir araçtır. Deyim SQL deyimlerinin nasıl yürütüldüğü hakkında bilgi almak için kullanılabilir AÇIKLANMAKTADIR. Aşağıdaki çıktı, örnek olarak bir açıklama deyiminin yürütülmesini gösterir.

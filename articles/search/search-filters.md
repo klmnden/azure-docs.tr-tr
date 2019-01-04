@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d99196e231d122fcb0e707d30aed4d3b3eb2b89d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310360"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629610"
 ---
 # <a name="filters-in-azure-search"></a>Azure Search'te filtreler 
 
@@ -96,7 +96,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 
 ## <a name="filter-design-patterns"></a>Filtre tasarım desenleri
 
-Aşağıdaki örnekler, filtre senaryoları için çeşitli tasarım desenleri gösterir. Daha fazla fikir için bkz: [OData ifadesi söz dizimi > örnekler](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
+Aşağıdaki örnekler, filtre senaryoları için çeşitli tasarım desenleri gösterir. Daha fazla fikir için bkz: [OData ifadesi söz dizimi > örnekler](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
 
 + Tek başına **$filter**, filtre ifadesi ilgi belgeleri tam olarak nitelemek için yararlı bir sorgu dizesi olmadan. Bir sorgu dizesi hiçbir sözlü ya da dil analizi, herhangi bir Puanlama ve hiçbir sıralama yoktur. Arama dizesi boş olduğuna dikkat edin.
 
@@ -192,7 +192,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=city gt 'Seattle'
 ```
 
-Daha fazla örnek ile çalışmak için bkz [OData filtre ifadesinin söz dizimi > örnekler](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#bkmk_examples).
+Daha fazla örnek ile çalışmak için bkz [OData filtre ifadesinin söz dizimi > örnekler](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

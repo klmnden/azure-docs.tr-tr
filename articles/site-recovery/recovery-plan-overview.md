@@ -3,16 +3,17 @@ title: Azure Site Recovery ile olağanüstü durum kurtarma, Kurtarma planların
 description: Azure Site Recovery hizmeti ile olağanüstü durum kurtarma için kurtarma planları kullanma hakkında bilgi edinin.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: cb68b71eece998fa72fccc00de45f81e6d2d778c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c7d66c389958aa3b5274a3d81f27f416308acdee
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848400"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975670"
 ---
 # <a name="about-recovery-plans"></a>Kurtarma planları hakkında
 
@@ -60,11 +61,11 @@ Bu özelleştirme yerinde kurtarma planı üzerinde bir yük devretme çalışt�
 
 Büyük uygulamalar kurtarma karmaşık bir görev olabilir. İşlemi el ile yapılacak adımlar hataya açık olun ve yük devretme çalıştıran kişinin tüm uygulama ayrıntılı olarak incelenmektedir haberdar olmayabilir. Sipariş koymak için bir kurtarma planı kullanın ve Azure ya da komut dosyaları için yük devretme için Azure Otomasyonu runbook'ları kullanarak her adımda gerekli eylemleri otomatik hale getirin. Otomatik olarak yapılamayan görevler için kurtarma planlarına yönelik el ile gerçekleştirilen eylemler ekleyebilirsiniz. Birkaç tür yapılandırabileceğiniz görevleri vardır:
 
-* **Yük devretme sonrasında Azure VM'deki görevleri**: Azure'a devretmek, genelde yük devretmeden sonra VM'ye bağlanabilmek eylemleri gerçekleştirmek gerekir. Örneğin: 
+* **Yük devretme sonrasında Azure VM'deki görevleri**: Azure'a devretmek, genellikle yük devretmeden sonra VM'ye bağlanabilmek eylemleri gerçekleştirmek için gerekir. Örneğin: 
     * Azure VM'de genel bir IP adresi oluşturun.
     * Bir ağ güvenlik grubu, Azure sanal ağ bağdaştırıcısına atayın.
     * Bir yük dengeleyici için bir kullanılabilirlik kümesi ekleyin.
-* **Yük devretme sonrasında VM'nin içindeki görevleri**: yeni ortamda düzgün çalışmaya devam eder, bu görevleri makine üzerinde çalışan uygulama genellikle yeniden yapılandırın. Örneğin:
+* **Yük devretme sonrasında VM'nin içindeki görevleri**: Yeni ortamda düzgün çalışmaya devam eder, bu görevleri genellikle makine üzerinde çalışan uygulama yeniden yapılandırın. Örneğin:
     * Makine içinde veritabanı bağlantı dizesini değiştirin.
     * Web sunucusu yapılandırma veya kurallarını değiştirin.
 

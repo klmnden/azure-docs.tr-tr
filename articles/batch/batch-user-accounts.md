@@ -1,8 +1,8 @@
 ---
-title: Kullanıcı hesapları görevleri Azure Batch'de çalıştırma | Microsoft Docs
-description: Azure toplu işlemde çalışan görevler için kullanıcı hesaplarını yapılandırma
+title: Kullanıcı hesaplarını - Azure Batch görevleri çalıştırma | Microsoft Docs
+description: Azure Batch hizmetinde görev çalıştırmaya yönelik kullanıcı hesapları yapılandırma
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -13,87 +13,88 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: danlep
-ms.openlocfilehash: d5ec76a62b56769ee3065cac3542f5a94df4a1c6
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: b59bb835c9858c6e47b8bb3a3518086e887d0d84
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133123"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542841"
 ---
-# <a name="run-tasks-under-user-accounts-in-batch"></a>Toplu işlemde kullanıcı hesapları görevleri Çalıştır
+# <a name="run-tasks-under-user-accounts-in-batch"></a>Kullanıcı hesaplarını görevleri Batch'de çalıştırma
 
-Azure Batch görevinde her zaman bir kullanıcı hesabı altında çalışır. Varsayılan olarak, standart kullanıcı hesapları, yönetici izinleri olmayan altında görevlerini çalıştırın. Bu varsayılan kullanıcı hesabı ayarları genellikle yeterlidir. Bazı senaryolarda, ancak altında çalıştırmak için bir görev istediğiniz kullanıcı hesabını yapılandırmak yararlı olacaktır. Bu makalede, kullanıcı hesapları ve nasıl bunları senaryonuz için yapılandırabilirsiniz türleri açıklanmaktadır.
+Azure Batch görevinde, her zaman bir kullanıcı hesabı altında çalışır. Varsayılan olarak, görevler, yönetici izinleri olmayan standart kullanıcı hesapları altında çalışır. Bu varsayılan kullanıcı hesabının ayarlarını genellikle yeterli. Belirli senaryolar için ancak kullanıcı hesabı altında çalıştırılacak bir görev istediğiniz yapılandırabilmesi kullanışlıdır. Bu makalede, kullanıcı hesaplarını ve nasıl senaryonuz için yapılandırabilirsiniz türleri açıklanmaktadır.
 
 ## <a name="types-of-user-accounts"></a>Kullanıcı hesabı türleri
 
-Azure toplu işlem, görevleri çalıştırmak için iki tür kullanıcı hesabı sağlar:
+Azure Batch, görevleri çalıştırmak için iki tür kullanıcı hesapları sağlar:
 
-- **Otomatik kullanıcı hesapları.** Otomatik kullanıcı hesapları Batch hizmeti tarafından otomatik olarak oluşturulan yerleşik kullanıcı hesaplarıdır. Varsayılan olarak, görevler bir otomatik kullanıcı hesabı altında çalışır. Bir görev hangi otomatik bir kullanıcı hesabı altında çalışması gerektiğini belirtmek bir görev için otomatik kullanıcı belirtimi yapılandırabilirsiniz. Otomatik kullanıcı belirtimi ayrıcalık düzeyinde ve kapsam görevin çalışacağını otomatik kullanıcı hesabının belirtmenize olanak tanır. 
+- **Otomatik kullanıcı hesapları.** Otomatik kullanıcı hesapları Batch hizmeti tarafından otomatik olarak oluşturulan yerleşik kullanıcı hesaplarıdır. Varsayılan olarak, görevler, bir otomatik kullanıcı hesabı altında çalışır. Bir görev hangi otomatik kullanıcı hesabı altında çalışması gerektiğini belirtmek bir görev için otomatik kullanıcı belirtimi yapılandırabilirsiniz. Otomatik kullanıcı belirtimi görevi çalıştıracak otomatik kullanıcı hesabına kapsamını ve ayrıcalık düzeyini belirtmenize olanak verir. 
 
-- **Adlı bir kullanıcı hesabı.** Havuz oluşturduğunuzda havuz için bir veya daha fazla adlandırılmış kullanıcı hesapları belirtebilirsiniz. Her kullanıcı hesabı havuzunun her bir düğümde oluşturulur. Hesap adı yanı sıra, kullanıcı hesabının parolasını ayrıcalık düzeyi ve, Linux havuzları, SSH özel anahtar için belirtin. Bir görev eklediğinizde, bu görev, altında çalışması gerektiğini adlı bir kullanıcı hesabı belirtebilirsiniz.
+- **Adlandırılmış kullanıcı hesabı.** Havuz oluşturduğunuzda, bir havuz için bir veya daha fazla adlandırılmış kullanıcı hesabı belirtebilirsiniz. Her kullanıcı hesabı, havuzdaki her düğümde oluşturulur. Ek olarak hesap adı kullanıcı hesabı parolası, ayrıcalık düzeyi ve Linux havuzlarında SSH özel anahtarı belirtin. Bir görev eklediğinizde, bu görev, altında çalışması gerektiğini adlı bir kullanıcı hesabı belirtebilirsiniz.
 
 > [!IMPORTANT] 
-> Batch hizmeti sürümü 2017 01 01.4.0 sürümünün çağırmak için kodunuzu güncelleştirin gerektiren önemli bir değişiklik tanıtır. Geçirme koddan toplu daha eski bir sürümü olup olmadığını unutmayın **runElevated** özelliği REST API veya toplu istemci kitaplıkları artık desteklenmiyor. Yeni **Userıdentity** ayrıcalık düzeyini belirtmek için bir görev özelliği. Başlıklı bölüme bakın [en son toplu istemci Kitaplığı'na kodunuzu güncelleştirin](#update-your-code-to-the-latest-batch-client-library) istemci kitaplıklarından birini kullanıyorsanız, toplu kodunuzu güncelleştirmek için hızlı yönergeler için.
+> Batch hizmeti sürüm 2017-01-01.4.0 bu sürümü çağırmak için kodunuzu güncelleştirmenizi gerektiren bir değişiklik sunuyor. Batch daha eski bir sürümünden geçirme kodu varsa, dikkat **runElevated** özelliği, REST API veya Batch istemci kitaplıkları artık desteklenmiyor. Yeni **Userıdentity** özelliği ayrıcalık düzeyini belirtmek için bir görev. Başlıklı bölüme bakın [son Batch istemci kitaplığını için kodunuzu güncelleştirin](#update-your-code-to-the-latest-batch-client-library) istemci kitaplıklarından birini kullanıyorsanız, Batch kodunuzu güncelleme için hızlı yönergeler için.
 >
 >
 
 > [!NOTE] 
-> Bu makalede ele alınan kullanıcı hesapları Uzak Masaüstü Protokolü (RDP) veya güvenli Kabuk (SSH), güvenlik nedenleriyle desteklemez. 
+> Bu makalede ele alınan kullanıcı hesaplarına Uzak Masaüstü Protokolü (RDP) veya güvenli Kabuk (SSH), güvenlikle ilgili nedenlerle desteklemez. 
 >
-> Linux sanal makine yapılandırması SSH yoluyla çalıştıran bir düğüme bağlanmak için bkz: [azure'da bir Linux VM için Uzak Masaüstü kullanım](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). RDP aracılığıyla Windows çalışan düğümlerine bağlanmak için bkz: [bir Windows Server VM Bağlan](../virtual-machines/windows/connect-logon.md).<br /><br />
-> RDP aracılığıyla bulut hizmeti yapılandırması çalıştıran bir düğüme bağlanmak için bkz: [bir rolde Azure bulut Hizmetleri için Uzak Masaüstü Bağlantısı etkinleştirmek](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+> Linux sanal makine yapılandırması SSH üzerinden çalışan bir düğüme bağlanmak için bkz: [azure'da bir Linux sanal makinesi için Uzak Masaüstü kullanım](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Windows RDP aracılığıyla çalışan düğümlerine bağlanmak için bkz: [Windows Server VM'sine bağlanma](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Bulut hizmeti yapılandırmasını çalıştıran RDP aracılığıyla bir düğüme bağlanmak için bkz: [Azure Cloud Services'ta bir rol için Uzak Masaüstü Bağlantısı etkinleştirme](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 >
 >
 
 ## <a name="user-account-access-to-files-and-directories"></a>Dosyalar ve dizinler için kullanıcı hesabı erişimi
 
-Bir otomatik kullanıcı hesabı ve adlı bir kullanıcı hesabı görevin çalışma dizini, paylaşılan dizine ve çok örnekli görevler dizin okuma/yazma erişimi. Her iki hesap türü başlangıç ve iş hazırlama dizinlerinin okuma erişimi.
+Otomatik kullanıcı hesabı hem de bir adlandırılmış kullanıcı hesabı ve görevin çalışma dizini, paylaşılan dizine ve çok örnekli görevler dizin okuma/yazma erişimi. Her iki hesap türü başlangıç ve iş hazırlama dizinlerinin okuma erişimi.
 
-Bir görev, bir başlangıç görevi çalıştırmak için kullanılan aynı hesap altında çalışıyorsa, görev Başlat görev dizininde okuma-yazma erişimi vardır. Benzer şekilde, bir görev iş hazırlama görevi çalıştırmak için kullanılan aynı hesap altında çalışıyorsa, görev iş hazırlama görevi dizini okuma-yazma erişimi vardır. Bir görev başlangıç görevi veya iş hazırlama görevi farklı bir hesap altında çalışıyorsa, görev yalnızca ilgili dizine okuma erişimi vardır.
+Bir görev, bir başlangıç görevi çalıştırmak için kullanılan hesabın altında çalışıyorsa, görevin başlangıç görev dizininde okuma-yazma erişimi vardır. Benzer şekilde, bir görev bir iş hazırlama görevi çalıştırmak için kullanılan hesabın altında çalışıyorsa, görev iş hazırlama görevi dizini okuma-yazma erişimi vardır. Bir görev, iş hazırlama görevi ve başlangıç görevinin farklı bir hesap altında çalışıyorsa, görev ilgili dizin yalnızca okuma erişimi vardır.
 
-Dosyalar ve dizinler görevden erişme hakkında daha fazla bilgi için bkz: [geliştirme büyük ölçekli paralel işlem çözümleri yığın](batch-api-basics.md#files-and-directories).
+Dosyalar ve dizinler bir görevden erişme hakkında daha fazla bilgi için bkz: [büyük ölçekli paralel işlem çözümleri geliştirme batch'le](batch-api-basics.md#files-and-directories).
 
 ## <a name="elevated-access-for-tasks"></a>Görevler için yükseltilmiş erişim 
 
-Kullanıcı hesabının ayrıcalık düzeyi, bir görevin yükseltilmiş erişim ile çalışıp çalışmayacağını gösterir. Bir otomatik kullanıcı hesabı ve adlı bir kullanıcı hesabı ile yükseltilmiş erişim çalıştırabilirsiniz. Ayrıcalık düzeyi için iki seçenek şunlardır:
+Kullanıcı hesabının ayrıcalık düzeyi, bir görev yükseltilmiş erişim ile çalışıp çalışmayacağını gösterir. Otomatik kullanıcı hesabı hem de bir adlandırılmış kullanıcı hesabı ile yükseltilmiş erişim çalıştırabilirsiniz. Ayrıcalık düzeyi için iki seçeneği şunlardır:
 
-- **NonAdmin:** yükseltilmiş erişimi olmayan standart bir kullanıcı olarak görev çalıştırır. Toplu kullanıcı hesabı için varsayılan ayrıcalık düzeyi her zaman olduğu **NonAdmin**.
-- **Yönetici:** görevi yükseltilmiş erişimi bir kullanıcı olarak çalışır ve tam yönetici izinlerine sahip çalışır. 
+- **NonAdmin:** Yükseltilmiş erişimi olmayan standart bir kullanıcı olarak görev çalışır. Toplu kullanıcı hesabı için varsayılan ayrıcalık düzeyi her zaman olduğu **NonAdmin**.
+- **Yönetici:** Görev, bir kullanıcı olarak yükseltilmiş erişim ile çalışır ve tam yönetici izinleri ile çalışır. 
 
 ## <a name="auto-user-accounts"></a>Otomatik kullanıcı hesapları
 
-Varsayılan olarak, görevler yükseltilmiş erişimi olmadan ve görev kapsamlı standart bir kullanıcı olarak bir otomatik kullanıcı hesabı altında toplu işlemde çalıştırın. Otomatik kullanıcı belirtimi görev kapsam için yapılandırıldığında, Batch hizmeti yalnızca bu görev için bir otomatik kullanıcı hesabı oluşturur.
+Varsayılan olarak, görevler yükseltilmiş erişim olmadan ve görev kapsamlı bir standart kullanıcı olarak otomatik kullanıcı hesabı altında Batch hizmetinde çalışır. Batch hizmeti, otomatik kullanıcı belirtimi için görev kapsam yapılandırıldığında, yalnızca bu görev için bir otomatik kullanıcı hesabı oluşturur.
 
-Görev kapsamına havuzu kapsam alternatiftir. Bir görev için otomatik kullanıcı belirtimi havuzu kapsam için yapılandırıldığında, görev havuzdaki herhangi bir görev için kullanılabilir olan bir otomatik kullanıcı hesabı altında çalışır. Havuz kapsamı hakkında daha fazla bilgi için başlıklı bölüme bakın [havuzu kapsamlı otomatik kullanıcı olarak bir görevi çalıştırmayı](#run-a-task-as-the-autouser-with-pool-scope).   
+Görev kapsama havuzu kapsam alternatiftir. Bir görev için otomatik kullanıcı belirtimi için havuz kapsam yapılandırıldığında, görev, havuzdaki herhangi bir görev için kullanılabilir olan bir otomatik kullanıcı hesabı altında çalışır. Başlıklı bölüme havuzu kapsamı hakkında daha fazla bilgi için bkz. [havuzu kapsamlı otomatik kullanıcı olarak bir görevi çalıştırmayı](#run-a-task-as-the-autouser-with-pool-scope).   
 
-Varsayılan kapsamı, Windows ve Linux düğümlerinde farklıdır:
+Varsayılan kapsam, Windows ve Linux düğümlerinde farklıdır:
 
-- Windows düğümlerinde görevler varsayılan olarak görev kapsam altında çalışır.
+- Windows düğümlerine, görevler, görev kapsamında varsayılan olarak çalışır.
 - Linux düğümleri havuzu kapsam altında her zaman çalışır.
 
-Her biri benzersiz otomatik kullanıcı hesabına karşılık gelen otomatik kullanıcı belirtimi için dört olası yapılandırmaları vardır:
+Her biri benzersiz otomatik kullanıcı hesabına karşılık gelen otomatik kullanıcı belirtimi için dört olası yapılandırmalar şunlardır:
 
-- Yönetici olmayan erişim görev kapsamlı (varsayılan otomatik kullanıcı belirtimi)
-- Görev kapsamlı yönetici (yükseltilmiş) erişimi
-- Havuz kapsamlı yönetici olmayan erişim
-- Havuz kapsamlı yönetici erişimi
+- (Varsayılan otomatik kullanıcı belirtimi) görev kapsamlı yönetici olmayan erişim
+- Görev kapsama sahip yönetici (yükseltilmiş) erişimi
+- Havuz kapsama sahip yönetici olmayan erişim
+- Havuz kapsama sahip yönetici erişimi
 
 > [!IMPORTANT] 
-> Görev kapsam altında çalışan görevler gerçek diğer görevler için bir düğümde erişimi. Ancak, kötü niyetli bir kullanıcı hesabı erişimi olan yönetici ayrıcalıklarıyla çalıştırır ve diğer görev dizinleri erişen bir görev göndererek bu kısıtlamaya işe yarayabilir. Kötü niyetli bir kullanıcı, bir düğüme bağlanmak için RDP veya SSH da kullanabilirsiniz. Böyle bir senaryo önlemek için Batch hesabı anahtarları erişimi korumak önemlidir. Hesabınızı tehlikeye şüpheleniyorsanız, anahtarlarınızı yeniden emin olun.
+> Görev kapsam altında çalışan görevler pratikte diğer görevler için bir düğümde erişiminiz yok. Ancak, kötü niyetli bir kullanıcı hesabı erişimi olan yönetici ayrıcalıklarıyla çalıştırır ve diğer görev dizinleri erişen bir görev göndererek bu kısıtlamayı çözmek işe yarayabilir. Kötü niyetli bir kullanıcı, bir düğüme bağlanmak için RDP veya SSH de kullanabilirsiniz. Bu tür bir senaryonun önlemek için Batch hesabı anahtarları erişimi korumak önemlidir. Hesabınızı tehlikeye girmiş olabilecek şüpheleniyorsanız anahtarlarınızı yeniden emin olun.
 >
 >
 
 ### <a name="run-a-task-as-an-auto-user-with-elevated-access"></a>Yükseltilmiş erişimi olan bir otomatik kullanıcı olarak bir görevi çalıştırma
 
-Yükseltilmiş erişimi bir görev çalıştırmanız gerektiğinde yönetici ayrıcalıkları otomatik kullanıcı belirtimi yapılandırabilirsiniz. Örneğin, bir başlangıç görevi yazılım düğümüne yüklemek için yükseltilmiş erişmeniz gerekebilir.
+Yükseltilmiş erişim ile bir görev çalıştırmanız gerektiğinde yönetici ayrıcalıkları için otomatik kullanıcı belirtimi yapılandırabilirsiniz. Örneğin, bir başlangıç görevi, yazılım düğümünde yüklemek için yükseltilmiş erişim gerekebilir.
 
 > [!NOTE] 
-> Genel olarak, yalnızca gerekli olduğunda yükseltilmiş erişimi kullanmak en iyisidir. En iyi yöntemler, istenen sonucu elde etmek gerekli en düşük ayrıcalık verilmesi önerilir. Örneğin, bir başlangıç görevi geçerli kullanıcıya yönelik yazılımları yerine tüm kullanıcılar için yüklerse görevlere yükseltilmiş erişimi vermekten kaçının mümkün olabilir. Başlangıç görevi de dahil olmak üzere aynı hesabı altında çalıştırmak için gereken tüm görevler için havuz kapsamı ve yönetici olmayan erişim için otomatik kullanıcı belirtimi yapılandırabilirsiniz. 
+> Genel olarak, yükseltilmiş erişim yalnızca gerekli olduğunda kullanmak en iyisidir. En iyi uygulamalar, arzu edilen sonucu elde etmek gerekli en düşük ayrıcalık verilmesi önerilir. Örneğin, bir başlangıç görevi geçerli kullanıcıya yönelik yazılımları yerine tüm kullanıcılar için yüklerse görevlere yükseltilmiş erişimi vermekten kaçının mümkün olabilir. Başlangıç görevi de dahil olmak üzere aynı hesabı altında çalıştırılması gereken tüm görevleri için havuz kapsamı ve yönetici olmayan erişim için otomatik kullanıcı belirtimi yapılandırabilirsiniz. 
 >
 >
 
-Aşağıdaki kod parçacıkları, otomatik kullanıcı belirtimine yapılandırılacağı gösterilmektedir. Örnekler ayrıcalık düzeyini set `Admin` ve kapsamını `Task`. Görev kapsamı varsayılan ayar, ancak örnek açısından buraya dahil edilir.
+Aşağıdaki kod parçacıkları otomatik kullanıcı belirtimi yapılandırma işlemini göstermektedir. Örnekler ayrıcalık düzeyini ayarlar `Admin` ve kapsamını `Task`. Görev kapsamı, varsayılan ayardır, ancak üzere buraya dahil edilir.
 
 #### <a name="batch-net"></a>Batch .NET
 
@@ -127,42 +128,42 @@ batch_client.task.add(job_id=jobid, task=task)
 
 ### <a name="run-a-task-as-an-auto-user-with-pool-scope"></a>Otomatik kullanıcı havuzu kapsamlı olarak bir görevi çalıştırma
 
-Bir düğüm sağlandığında, iki havuzu genelinde otomatik-kullanıcı hesapları havuzu, yükseltilmiş erişim biriyle ve yükseltilmiş erişimi olmadan bir içindeki her bir düğümde oluşturulur. Belirli bir görev için havuz kapsamına otomatik kullanıcının kapsamı ayarlama, bu iki havuzu genelinde otomatik-kullanıcı hesaplarından birini altında görev çalıştırır. 
+Bir düğüm sağlandığında her düğümünde yükseltilmiş erişimi olmayan bir havuz ve yükseltilmiş erişim ile bir iki havuzu genelinde otomatik kullanıcı hesapları oluşturulur. Belirli bir görev için havuz kapsam için otomatik kullanıcı kapsamı ayarlama, bu iki havuzu genelinde otomatik kullanıcı hesaplarından birine altında görev çalışır. 
 
-Ne zaman otomatik-kullanıcı, aynı havuz genelinde otomatik-kullanıcı hesabı altında çalışacak yönetici erişimi olan çalışan tüm görevler için havuz kapsam belirtin. Benzer şekilde, yönetici izinleri olmadan çalışan görevler de tek havuzu genelinde otomatik-kullanıcı hesabı altında çalışır. 
+Otomatik-kullanıcı, aynı havuz genelinde otomatik kullanıcı hesabı altında Çalıştır yönetici erişimi ile çalışan tüm görevler için havuz kapsam belirttiğinizde. Benzer şekilde, yönetici izinleri olmadan çalışan görevler de tek bir havuzu genelinde otomatik-kullanıcı hesabı altında çalıştırın. 
 
 > [!NOTE] 
-> İki havuzu genelinde otomatik-kullanıcı hesapları ayrı hesaplarıdır. Havuzu genelinde yönetici hesabı altında çalışan görevler standart hesap altında ve tersi yönde çalışan görevler ile verileri paylaşamaz. 
+> İki havuzu genelinde otomatik kullanıcı hesapları, ayrı hesaplarıdır. Havuzu genelinde yönetici hesabı altında çalışan görevler veri standart hesabı altında ve tersi çalışan görevler ile paylaşım yapamazsınız. 
 >
 >
 
-Aynı otomatik kullanıcı hesabı altında çalışan yararınıza görevleri aynı düğüm üzerinde çalışan diğer görevleri ile verileri paylaşamaz olmasıdır.
+Aynı otomatik kullanıcı hesabı altında çalışan avantajı, görevleri aynı düğümde çalışmasını diğer görevlerle veri paylaşamaz olmasıdır.
 
-Çalışan görevlerin iki havuzu genelinde otomatik-kullanıcı hesaplarından birini altında yararlı olduğu bir senaryo gizli görevler arasında paylaşımıdır. Örneğin, diğer görevleri kullanabilirsiniz düğüm üzerine bir gizlilik sağlamak bir başlangıç görevi gerektiğini varsayalım. Windows Data Protection API (DPAPI) kullanabilirsiniz, ancak yönetici ayrıcalıkları gerekiyor. Bunun yerine, gizli kullanıcı düzeyinde koruyabilir. Aynı kullanıcı hesabı altında çalışan görevler yükseltilmiş erişimi olmadan gizli erişebilir.
+Gizli dizileri görevler arasında paylaşımı iki havuzu genelinde otomatik kullanıcı hesaplarından birini görevleri çalıştıran kullanışlı olduğu bir senaryodur. Örneğin, diğer görevlerin kullanabileceğiniz düğümü üzerine bir gizli dizi sağlamak bir başlangıç görevi gerektiğini varsayalım. Windows veri koruma API'si (DPAPI) kullanabilirsiniz, ancak yönetici ayrıcalıkları gerektirir. Bunun yerine, gizli dizi kullanıcı düzeyinde koruyabilir. Aynı kullanıcı hesabı altında çalışan görevler gizli yükseltilmiş erişim olmadan erişebilir.
 
-Başka bir senaryo havuzu kapsamlı bir otomatik kullanıcı hesabı altında görevleri çalıştırmak istediğiniz bir ileti geçirme arabirimi (MPI) dosya paylaşımıdır. Bir MPI dosya paylaşımı, MPI görev düğümler aynı dosya verileri üzerinde çalışması gereken yararlıdır. Baş düğüm aynı otomatik kullanıcı hesabı altında çalışıyorsa, alt düğümleri erişebileceği bir dosya paylaşımı oluşturur. 
+Başka bir senaryo görevler otomatik kullanıcı hesabı altında havuzu kapsamıyla çalıştırmak istediğiniz, ileti geçirme arabirimi (MPI) dosya paylaşımıdır. MPI bir dosya paylaşımı, aynı dosya çalışmanızı MPI görev düğümlerin gerektiğinde faydalıdır. Baş düğüm aynı otomatik kullanıcı hesabı altında çalışıyorsa, alt düğümleri erişebileceği bir dosya paylaşımı oluşturur. 
 
-Aşağıdaki kod parçacığını otomatik kullanıcının kapsam Batch .NET içinde bir görev için havuz kapsamı için ayarlar. Görev standart havuzu genelinde otomatik-kullanıcı hesabı altında çalışan şekilde ayrıcalık düzeyi atlandı.
+Aşağıdaki kod parçacığı, Batch. NET'te bir görev için havuz kapsam için otomatik kullanıcı kapsamı ayarlar. Ayrıcalık düzeyi atlanırsa, bu nedenle görev standart havuz genelinde otomatik kullanıcı hesabı altında çalışıyor.
 
 ```csharp
 task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserScope.Pool));
 ```
 
-## <a name="named-user-accounts"></a>Adlı kullanıcı hesapları
+## <a name="named-user-accounts"></a>Adlandırılmış kullanıcı hesapları
 
-Bir havuz oluşturduğunuzda, adlandırılmış kullanıcı hesapları tanımlayabilirsiniz. Adlı bir kullanıcı hesabı adı ve sağladığınız parola sahiptir. Adlı bir kullanıcı hesabı için ayrıcalık düzeyi belirtebilirsiniz. Linux düğümleri için bir SSH özel anahtarı da sağlayabilir.
+Bir havuz oluşturduğunuzda, adlandırılmış kullanıcı hesaplarını tanımlayabilirsiniz. Adlı bir kullanıcı hesabı adı ve sağladığınız parola sahiptir. Adlı bir kullanıcı hesabı için ayrıcalık düzeyini belirtebilirsiniz. Linux düğümleri için SSH özel anahtarı da sağlayabilir.
 
-Adlı bir kullanıcı hesabı havuzdaki tüm düğümlerde var ve bu düğümler üzerinde çalışan tüm görevler için kullanılabilir. Adlandırılmış kullanıcılar bir havuz için herhangi bir sayıda tanımlayabilir. Bir görevi veya görev koleksiyonu eklediğinizde, görevin havuzunda tanımlanan adlı kullanıcı hesaplarından birini altında çalıştığı belirtebilirsiniz.
+Adlı bir kullanıcı hesabı, havuzdaki tüm düğümlerde var ve bu düğümler üzerinde çalışan tüm görevler tarafından kullanılabilir. Adlandırılmış kullanıcılar bir havuz için herhangi bir sayıda tanımlayabilir. Bir görevi veya görev koleksiyonu eklediğinizde, görevi havuzda tanımlı adlandırılmış kullanıcı hesaplarından biri altında çalıştığını belirtebilirsiniz.
 
-Adlı bir kullanıcı hesabı, aynı kullanıcı hesabı altında bir işteki tüm görevler çalıştırabilir, ancak diğer işleri aynı anda çalışan görevleri birbirlerinden ayrı tutmak istediğiniz yararlıdır. Örneğin, her iş için adlandırılmış bir kullanıcı oluşturun ve her iş görevlerinin bu adlı bir kullanıcı hesabı altında çalıştırın. Her bir iş, daha sonra kendi görevleri ile ancak diğer işlerin görevleri bir gizlilik paylaşabilirsiniz.
+Adlı bir kullanıcı hesabı, aynı kullanıcı hesabı altında bir işteki tüm görevler çalıştırın, ancak bunları aynı anda çalışan diğer iş görevlerinden yalıtmak istediğinizde yararlıdır. Örneğin, her proje için adlandırılmış bir kullanıcı oluşturun ve her işin görevleri bu adlı bir kullanıcı hesabı altında çalıştırın. Her bir iş, ardından kendi görevlere, ancak diğer işlerin görevleri bir gizli dizi paylaşabilirsiniz.
 
-Adlı bir kullanıcı hesabı, dosya paylaşımları gibi dış kaynaklar üzerinde izinlerini ayarlar bir görevi çalıştırmak için de kullanabilirsiniz. Adlı bir kullanıcı hesabı ile kullanıcı kimliğini denetlemek ve kullanıcı kimliği izinlerini ayarlamak için kullanabilirsiniz.  
+Adlı bir kullanıcı hesabı, dosya paylaşımları gibi dış kaynaklar üzerindeki izinleri ayarlar bir görevi çalıştırmak için de kullanabilirsiniz. Bir adlandırılmış kullanıcı hesabıyla kullanıcı kimlik denetimi ve kullanıcı kimliği izinleri ayarlamak için kullanabilirsiniz.  
 
-Adlı kullanıcı hesapları parola daha az SSH Linux düğümleri arasında sağlar. Çok örnekli görevleri çalıştırmak için gereken Linux düğümleri adlı bir kullanıcı hesabı kullanabilirsiniz. Havuzdaki her düğüme görevleri tüm havuzu üzerinde tanımlı bir kullanıcı hesabı altında çalışabilir. Çok örnekli görevler hakkında daha fazla bilgi için bkz: [çoklu kullanmak\-örneği MPI uygulamaları çalıştırmak için görevleri](batch-mpi.md).
+Adlandırılmış kullanıcı hesaplarının parola olmadan SSH Linux düğümleri arasında etkinleştirin. Çok örnekli görevleri çalıştırmak için gereken Linux düğümleri bir adlandırılmış kullanıcı hesabı kullanabilirsiniz. Havuzdaki her düğüme tam havuzunu üzerinde tanımlı bir kullanıcı hesabı altında görevler çalıştırabilirsiniz. Çok örnekli görevler hakkında daha fazla bilgi için bkz. [çoklu kullanın\-örneği MPI uygulamalarını çalıştırmak için görevleri](batch-mpi.md).
 
-### <a name="create-named-user-accounts"></a>Adlı kullanıcı hesapları oluşturma
+### <a name="create-named-user-accounts"></a>Adlandırılmış kullanıcı hesapları oluşturun
 
-Toplu işlemde adlı kullanıcı hesaplarını oluşturmak için kullanıcı hesapları topluluğu havuzuna ekleyin. Aşağıdaki kod parçacıkları .NET, Java ve Python adlandırılmış kullanıcı hesaplarını oluşturmayı gösterir. Bu kod parçacıkları yönetici ve bir havuz hesaplarında adlı yönetici olmayan nasıl oluşturulacağını gösterir. Bulut Hizmeti Yapılandırması'nı kullanarak havuzları örnekleri oluşturma, ancak sanal makine Yapılandırması'nı kullanarak bir Windows veya Linux havuzu oluştururken aynı yaklaşımı kullanın.
+Batch hizmetinde adlandırılmış kullanıcı hesaplarını oluşturmak için kullanıcı hesaplarını koleksiyonunu havuzuna ekleyin. Aşağıdaki kod parçacıkları, .NET, Java ve Python adlandırılmış kullanıcı hesapları oluşturma işlemini gösterir. Bu kod parçacıkları, hem yönetim hem de havuz hesaplarında adlı yönetici olmayan oluşturma işlemi gösterilmektedir. Örnekler kullanarak bulut hizmeti yapılandırması havuzları oluşturur, ancak sanal makine Yapılandırması'nı kullanarak Windows veya Linux havuzu oluştururken, aynı yaklaşımı kullanın.
 
 #### <a name="batch-net-example-windows"></a>Batch .NET örnek (Windows)
 
@@ -253,7 +254,7 @@ await pool.CommitAsync();
 ```
 
 
-#### <a name="batch-java-example"></a>Batch Java örneği
+#### <a name="batch-java-example"></a>Batch Java örnek
 
 ```java
 List<UserAccount> userList = new ArrayList<>();
@@ -268,7 +269,7 @@ PoolAddParameter addParameter = new PoolAddParameter()
 batchClient.poolOperations().createPool(addParameter);
 ```
 
-#### <a name="batch-python-example"></a>Batch Python örneği
+#### <a name="batch-python-example"></a>Batch Python örnek
 
 ```python
 users = [
@@ -292,46 +293,46 @@ pool = batchmodels.PoolAddParameter(
 batch_client.pool.add(pool)
 ```
 
-### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Yükseltilmiş erişimle görevi adlı bir kullanıcı hesabı altında çalıştırma
+### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Yükseltilmiş erişim ile bir görevin adlı bir kullanıcı hesabı altında Çalıştır
 
-Görevin yükseltilmiş bir kullanıcı olarak bir görevi çalıştırmayı ayarlayın **Userıdentity** ile oluşturulmuş bir adlı bir kullanıcı hesabı özelliğine kendi **ElevationLevel** özelliğini `Admin`.
+Yükseltilmiş bir kullanıcı olarak bir görevi çalıştırmak için görev ayarlamak **Userıdentity** özelliği ile oluşturulan adlandırılmış kullanıcı hesabına onun **ElevationLevel** özelliğini `Admin`.
 
-Bu kod parçacığını görev adlı bir kullanıcı hesabı altında çalışması gerektiğini belirtir. Havuz oluşturduğunuzda bu adlı bir kullanıcı hesabı havuzunda tanımlandı. Bu durumda, adlı bir kullanıcı hesabı yönetici izinlerine sahip oluşturuldu:
+Bu kod parçacığı, görev bir adlandırılmış kullanıcı hesabı altında çalışması gerektiğini belirtir. Havuz oluşturulduğunda bu adlı bir kullanıcı hesabı havuzda tanımlandı. Bu durumda, adlandırılmış kullanıcı hesabının yönetici izinlerine sahip oluşturulmuştur:
 
 ```csharp
 CloudTask task = new CloudTask("1", "cmd.exe /c echo 1");
 task.UserIdentity = new UserIdentity(AdminUserAccountName);
 ```
 
-## <a name="update-your-code-to-the-latest-batch-client-library"></a>En son toplu istemci Kitaplığı'na kodunuzu güncelleştirin
+## <a name="update-your-code-to-the-latest-batch-client-library"></a>En son Batch istemci kitaplığını için kodunuzu güncelleştirin
 
-Batch hizmeti sürümü 2017 01 01.4.0 önemli bir değişiklik tanıtır değiştirme **runElevated** ile önceki sürümlerde kullanılabilir özellik **Userıdentity** özelliği. Aşağıdaki tablolar, kodunuzu istemci kitaplıkları önceki sürümlerinden güncelleştirmek için kullanabileceğiniz basit bir eşleme sağlar.
+Bir değişiklik, Batch hizmeti sürüm 2017-01-01.4.0 tanıtır değiştirerek **runElevated** ile önceki sürümlerde kullanılabilir özellik **Userıdentity** özelliği. Aşağıdaki tablolarda, kodunuzu önceki sürümlerinden istemci kitaplıkları güncelleştirmek için kullanabileceğiniz basit bir eşleme sağlar.
 
 ### <a name="batch-net"></a>Batch .NET
 
-| Kodunuzu kullanıyorsa...                  | Buna güncelleştirme...                                                                                                 |
+| Kodunuzu kullanıyorsa...                  | Kendisine güncelleştir...                                                                                                 |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.RunElevated = true;`       | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin));`    |
 | `CloudTask.RunElevated = false;`      | `CloudTask.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.NonAdmin));` |
-| `CloudTask.RunElevated` belirtilmemiş. | Güncelleştirme gerekmiyor                                                                                               |
+| `CloudTask.RunElevated` Belirtilmemiş. | Güncelleştirme gerekli                                                                                               |
 
 ### <a name="batch-java"></a>Batch Java
 
-| Kodunuzu kullanıyorsa...                      | Buna güncelleştirme...                                                                                                                       |
+| Kodunuzu kullanıyorsa...                      | Kendisine güncelleştir...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `CloudTask.withRunElevated(true);`        | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.ADMIN));`    |
 | `CloudTask.withRunElevated(false);`       | `CloudTask.withUserIdentity(new UserIdentity().withAutoUser(new AutoUserSpecification().withElevationLevel(ElevationLevel.NONADMIN));` |
-| `CloudTask.withRunElevated` belirtilmemiş. | Güncelleştirme gerekmiyor                                                                                                                     |
+| `CloudTask.withRunElevated` Belirtilmemiş. | Güncelleştirme gerekli                                                                                                                     |
 
 ### <a name="batch-python"></a>Batch Python
 
-| Kodunuzu kullanıyorsa...                      | Buna güncelleştirme...                                                                                                                       |
+| Kodunuzu kullanıyorsa...                      | Kendisine güncelleştir...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user`, burada <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin)) `                |
 | `run_elevated=False`                      | `user_identity=user`, burada <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin)) `             |
-| `run_elevated` belirtilmemiş. | Güncelleştirme gerekmiyor                                                                                                                                  |
+| `run_elevated` Belirtilmemiş. | Güncelleştirme gerekli                                                                                                                                  |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Toplu ayrıntılı bir bakış için bkz: [geliştirme büyük ölçekli paralel işlem çözümleri yığın](batch-api-basics.md).
+* Batch ayrıntılı genel bakış için bkz: [büyük ölçekli paralel işlem çözümleri geliştirme batch'le](batch-api-basics.md).

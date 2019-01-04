@@ -16,12 +16,12 @@ ms.custom: mvc
 ms.date: 07/30/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: f6b85d2197a4db9cdfc526e5857e4b6ce707beb2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e84e72157726311281994b0e287eda7dfc4b144a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076800"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716763"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack eklenti planları
 
@@ -32,7 +32,7 @@ Her şey tek bir plandaki birleştirme ne zaman uygun olduğu durumlar vardır. 
 Eklenti planı'nı kullanmak için başka bir nedenle, kullanıcıların kendi kaynak kullanımını dikkatli olmanızı yardımcı olmaktır. Bunu yapmak için (bağlı olarak gereken hizmetleri) görece küçük kotalar içeren temel bir plan ile başlatabilir. Kullanıcılara kapasiteyi ulaşmanızı gibi daha sonra kullanıcılar, bunlar kendi atanan planına dayanarak kaynakların ayrılması tükettiniz uyarı. Burada, kullanıcıların daha sonra ek kaynaklar sağlayan bir eklenti planı seçebilirsiniz.
 
 > [!NOTE]
-> Kota genişletmek için bir eklenti planı'ı kullanmak istemiyorsanız, ayrıca seçebileceğiniz [kota yapılandırmasını Düzenle](azure-stack-quota-types.md#to-edit-a-quota). 
+> Kota genişletmek için bir eklenti planı'ı kullanmak istemiyorsanız, ayrıca seçebileceğiniz [kota yapılandırmasını Düzenle](azure-stack-quota-types.md#edit-a-quota). 
 
 Kullanıcı mevcut bir teklif aboneliğe bir eklenti planı eklediğinde, ek kaynaklar için bir saat görünmesini kadar sürebilir. 
 

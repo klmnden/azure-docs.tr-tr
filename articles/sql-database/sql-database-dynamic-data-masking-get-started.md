@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 872e700842ce69ca955035120d4e09ec9facf7ec
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 12/16/2018
+ms.openlocfilehash: 3e807033b109b8281057f6881a315f5c1c783a22
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165560"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536381"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL veritabanı dinamik veri maskeleme
 
@@ -31,7 +31,7 @@ Dinamik veri maskeleme müşterilerin uygulama katmanını çok az etkileyerek h
 Dinamik veri maskeleme işlemi SQL veritabanının yapılandırma dikey penceresinde ya da ayarlar dikey penceresi seçerek Azure portalında Bu ilkeyi maskeleme dinamik bir veri ayarlayın.
 
 ### <a name="dynamic-data-masking-permissions"></a>Dinamik veri maskeleme izinleri
-Dinamik veri maskeleme, Azure veritabanı yöneticisi, sunucu yöneticisi veya güvenlik yöneticisi rolü tarafından yapılandırılabilir.
+Dinamik veri maskeleme, Azure veritabanı yöneticisi, sunucu yöneticisi tarafından yapılandırılabilir veya [SQL Güvenlik Yöneticisi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) rolleri.
 
 ### <a name="dynamic-data-masking-policy"></a>Dinamik veri maskeleme İlkesi
 * **Maskeleme işlemi hariç tutulan SQL kullanıcıları** - kümesi SQL kullanıcıları veya SQL maskelenmemiş veri alma AAD kimlikleri sorgu sonuçları. Yönetici ayrıcalıklarına sahip kullanıcılar maskeleme işlemi her zaman hariç tutulur ve özgün veriler olmadan herhangi bir maskesi bakın.

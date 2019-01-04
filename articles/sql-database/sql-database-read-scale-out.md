@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 12/05/2018
-ms.openlocfilehash: 16737ed525147968c97ca20a9f4e674a0dee34fc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e0a5d6180c7dfa94abf8dd738c8017a3b332dfd8
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955063"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53598813"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Yük Dengeleme (Önizleme) salt okunur sorgu iş yükleri için salt okunur çoğaltmalar kullanın
 
@@ -78,7 +78,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 Okuma ölçeği genişletme, varsayılan olarak etkindir [yönetilen örneği](sql-database-managed-instance.md) iş açısından kritik katmanı. İçinde açıkça etkinleştirilmelidir [veritabanı mantıksal sunucusuna yerleştirilen](sql-database-logical-servers.md) Premium ve iş açısından kritik katmanları. Okuma ölçeği genişletme devre dışı bırakma ve etkinleştirme yöntemlerini burada açıklanmıştır.
 
-### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell: Etkinleştirme ve okuma ölçeği genişletme devre dışı bırak
+### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell: Enable ve disable okuma ölçeği genişletme
 
 Azure PowerShell'de okuma ölçeği genişletilmiş yönetmek, aralık 2016 gerektirir Azure PowerShell sürümü veya daha yeni. En yeni PowerShell sürümüyle bkz [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
 
@@ -102,7 +102,7 @@ Okuma ölçeği genişletme ile yeni bir veritabanı oluşturmak için (açılı
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST API: Etkinleştirme ve okuma ölçeği genişletme devre dışı bırak
+### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST API: Enable ve disable okuma ölçeği genişletme
 
 Okuma etkin ölçeklendirme ile veritabanı oluşturma veya etkinleştirmek veya mevcut bir veritabanı için okuma genişleme devre dışı bırakmak için oluşturma veya karşılık gelen veritabanı varlığı ile güncelleştirme `readScale` özelliğini `Enabled` veya `Disabled` olarak örnek aşağıda İstek.
 

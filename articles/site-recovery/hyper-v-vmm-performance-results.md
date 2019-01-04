@@ -1,18 +1,18 @@
 ---
 title: Test sonuçları Hyper-V VM çoğaltması için Azure Site Recovery ile ikincil bir siteye VMM bulutlarında | Microsoft Docs
 description: Bu makalede, Azure Site RECOVERY'yi kullanarak ikincil bir siteye VMM bulutlarındaki Hyper-V Vm'lerini çoğaltma için performans testleri hakkında bilgi sağlar.
-author: rayne-wiselman
-manager: carmonm
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: raynew
-ms.openlocfilehash: d4540a00ed08f4c5a54108192868b4555eba3fa9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/27/2018
+ms.author: sutalasi
+ms.openlocfilehash: 62137f64f0f138ea1c2dfbdf97bde791227617db
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850933"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793045"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>İkincil bir siteye Hyper-V çoğaltma için test sonuçları
 
@@ -109,7 +109,7 @@ Sonuçları, Site Recovery, Hyper-V çoğaltma ile birlikte en büyük bir küme
 | Sunucu | RAM | Model | İşlemci | İşlemci sayısı | NIC | Yazılım |
 | --- | --- | --- | --- | --- | --- | --- |
 | Hyper-V kümesindeki sunucular: <br />ESTLAB HOST11<br />ESTLAB HOST12<br />ESTLAB HOST13<br />ESTLAB HOST14<br />ESTLAB HOST25 |256 128ESTLAB HOST25 sahip |Dell™ PowerEdge™ R820 |Intel(r) Xeon(R) CPU E5-4620 0 \@ 2.20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
-| VMM sunucusu |2 | | |2 |1 Gbps |Windows Server 2012 veritabanı R2 (x 64) + VMM 2012 R2 |
+| VMM Sunucusu |2 | | |2 |1 Gbps |Windows Server 2012 veritabanı R2 (x 64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>İkincil site
 
@@ -123,7 +123,7 @@ Sonuçları, Site Recovery, Hyper-V çoğaltma ile birlikte en büyük bir küme
 | Hyper-V kümesindeki sunucular: <br />ESTLAB HOST07<br />ESTLAB HOST08<br />ESTLAB HOST09<br />ESTLAB HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(r) Xeon(R) CPU E5-2630 0 \@ 2.30 GHz |2 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | ESTLAB HOST17 |128 |Dell™ PowerEdge™ R820 |Intel(r) Xeon(R) CPU E5-4620 0 \@ 2.20 GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | ESTLAB HOST24 |256 |Dell™ PowerEdge™ R820 |Intel(r) Xeon(R) CPU E5-4620 0 \@ 2.20 GHz |2 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
-| VMM sunucusu |2 | | |2 |1 Gbps |Windows Server 2012 veritabanı R2 (x 64) + VMM 2012 R2 |
+| VMM Sunucusu |2 | | |2 |1 Gbps |Windows Server 2012 veritabanı R2 (x 64) + VMM 2012 R2 |
 
 ### <a name="server-workloads"></a>Sunucu iş yükleri
 
@@ -173,7 +173,7 @@ Tablo, performans ölçümlerini ve dağıtımında ölçülen sayaçları özet
 | Ölçüm | Sayaç |
 | --- | --- |
 | CPU |\Processor(_Total)\% Processor Time |
-| Kullanılabilir bellek |\Memory\Available MBayt |
+| Uygun bellek |\Memory\Available MBayt |
 | IOPS |\PhysicalDisk (_Total) \Disk aktarımı/sn |
 | VM okuma işlemi (IOPS) / sn |\Hyper-V sanal depolama cihazı (<VHD>) \Read işlemi/sn |
 | VM (IOPS) yazma işlemi/sn |\Hyper-V sanal depolama cihazı (<VHD>) \Write işlemleri/sn |

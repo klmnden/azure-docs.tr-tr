@@ -9,23 +9,23 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 8132e2ad986bbdc5056d16714eab6dd8394f0f08
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 05af52ab492fcfe509b547efdd182a366642b9ed
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718580"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754416"
 ---
-# <a name="tutorial-3-add-common-utterance-formats"></a>3. Öğretici: Ortak ifade biçimleri ekleme
+# <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Öğretici: Ortak desen şablon utterance biçimleri ekleme
 
 Bu öğreticide daha az örnek konuşma sağlayıp amaç ve varlık tahminini artırmak için desenleri kullanacaksınız. Desen, varlıkları ve yok sayılabilir metni tanımlama söz dizimini içeren şablon konuşma örneğiyle sağlanır. Desen, ifade eşleme ve makine öğrenimi işlemlerinin birleşimidir.  Şablon konuşma örneği amaç konuşmalarıyla birlikte LUIS hizmetinin amaca uygun konuşmaları anlamasını kolaylaştırır. 
 
 **Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
 
 > [!div class="checklist"]
-> * Mevcut öğretici uygulamasını kullanma 
+> * Örnek uygulamayı içeri aktarma 
 > * Amaç oluşturma
 > * Eğitim
 > * Yayımlama
@@ -37,11 +37,11 @@ Bu öğreticide daha az örnek konuşma sağlayıp amaç ve varlık tahminini ar
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
+## <a name="import-example-app"></a>Örnek uygulamayı içeri aktarma
 
 Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
+Aşağıdaki adımları kullanın:
 
 1.  [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json) indirip kaydedin.
 

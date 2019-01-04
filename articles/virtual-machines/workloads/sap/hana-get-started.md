@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 6355a7ce203f2bf75b5c93d225502f961deeee43
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c1d9047de814b7a80210fe2502d219921f5829a4
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032096"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976911"
 ---
-# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Hızlı Başlangıç: Azure sanal makinelerinde tek örnek SAP hana el ile yükleme
+# <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Hızlı Başlangıç: Tek örnek SAP hana Azure vm'lerde el ile yükleme
 ## <a name="introduction"></a>Giriş
 Bu kılavuz, tek örnek SAP HANA Azure sanal makinelerinde (VM'ler) SAP NetWeaver 7.5 ve SAP HANA 1.0 SP12 el ile yüklediğinizde ayarlamanıza yardımcı olur. Bu kılavuzun odak noktası, Azure üzerinde SAP HANA dağıtma hakkında ' dir. SAP belgelerindeki değiştirmez. 
 
@@ -62,20 +62,20 @@ Azure Vm'leri üzerinde SAP HANA veritabanlarını yedekleme hakkında daha fazl
 S/4HANA veya BW/4hana'yı dağıtmak için SAP Cloud Appliance Library kullanma hakkında daha fazla bilgi için bkz: [dağıtma SAP S/4HANA veya BW/4hana'yı Microsoft Azure üzerinde](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h).
 
 ### <a name="sap-hana-supported-operating-systems"></a>SAP HANA tarafından desteklenen işletim sistemleri
-SAP HANA desteklenen işletim sistemleri hakkında daha fazla bilgi için bkz: [SAP destek Not #2235581 - SAP HANA: desteklenen işletim sistemleri](https://launchpad.support.sap.com/#/notes/2235581/E). Azure sanal makineler yalnızca bir alt kümesini bu işletim sistemlerini destekler. Azure'da SAP HANA dağıtmak için aşağıdaki işletim sistemleri desteklenir: 
+SAP HANA desteklenen işletim sistemleri hakkında daha fazla bilgi için bkz: [SAP destek Not #2235581 - SAP HANA: Desteklenen işletim sistemleri](https://launchpad.support.sap.com/#/notes/2235581/E). Azure sanal makineler yalnızca bir alt kümesini bu işletim sistemlerini destekler. Azure'da SAP HANA dağıtmak için aşağıdaki işletim sistemleri desteklenir: 
 
 * SUSE Linux Enterprise Server 12.x
 * Red Hat Enterprise Linux 7.2
 
 SAP HANA ve farklı Linux işletim sistemleri hakkında ek SAP belgeleri için bkz:
 
-* [SAP destek Not #171356 - Linux'ta SAP yazılımı: genel bilgiler](https://launchpad.support.sap.com/#/notes/1984787)
+* [Destek Not #171356 - SAP yazılım Linux üzerinde SAP:  Genel bilgiler](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP destek Not #1944799 - SLES işletim sistemi yüklemesi için SAP HANA Kılavuzu](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
 * [SAP destek Not #2205917 - SAP HANA veritabanı işletim sistemi için SLES 12 SAP uygulamaları için önerilen ayarları](https://launchpad.support.sap.com/#/notes/2205917/E)
-* [SAP destek Not #1984787 - SUSE Linux Enterprise Server 12: Yükleme notları](https://launchpad.support.sap.com/#/notes/1984787)
+* [SAP destek Not #1984787 - SUSE Linux Enterprise Server 12:  Yükleme notları](https://launchpad.support.sap.com/#/notes/1984787)
 * [SAP destek Not #1391070 - Linux UUID çözümleri](https://launchpad.support.sap.com/#/notes/1391070)
 * [SAP destek Not #2009879 - Red Hat Enterprise Linux (RHEL) işletim sistemi için SAP HANA Kılavuzu](https://launchpad.support.sap.com/#/notes/2009879)
-* [2292690 - SAP HANA veritabanı: RHEL 7 için önerilen işletim sistemi ayarları](https://launchpad.support.sap.com/#/notes/2292690/E)
+* [2292690 - SAP HANA VERİTABANI: RHEL 7 için önerilen işletim sistemi ayarları](https://launchpad.support.sap.com/#/notes/2292690/E)
 
 ### <a name="sap-monitoring-in-azure"></a>SAP Azure'da izleme
 SAP Azure'da izleme hakkında daha fazla bilgi için bkz:
@@ -87,7 +87,7 @@ SAP Azure'da izleme hakkında daha fazla bilgi için bkz:
 ### <a name="azure-vm-types"></a>Azure VM türleri
 Azure VM türleri ve SAP HANA ile kullanılan SAP tarafından desteklenen iş yükü senaryoları bölümünde belgelenmiştir [SAP sertifikalı Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). 
 
-SAP NetWeaver veya S/4hana'yı uygulama katmanı tarafından SAP sertifikalı azure VM türleri belgelenir [SAP notu 1928533 - azure'da SAP uygulamaları: desteklenen ürünler ve Azure VM türleri](https://launchpad.support.sap.com/#/notes/1928533/E).
+SAP NetWeaver veya S/4hana'yı uygulama katmanı tarafından SAP sertifikalı azure VM türleri belgelenir [SAP notu 1928533 - azure'da SAP uygulamaları: Desteklenen Ürünler ve Azure VM türleri](https://launchpad.support.sap.com/#/notes/1928533/E).
 
 >[!Note]
 >SAP Linux Azure tümleştirmesi yalnızca Azure Resource Manager ve klasik dağıtım modeli için desteklenir. 
@@ -335,7 +335,7 @@ Ayrıca, eksik bir dosya ile ilgili bir hata iletisi alabilirsiniz javafx.proper
 
 Tartışma openSUSE üzerinde openjdk ile benzer bir sorun hakkında ek bilgi için bkz. [Sapguı 7.4 Java openSUSE 42.1 için Leap](https://scn.sap.com/thread/3908306).
 
-## <a name="manual-installation-of-sap-hana-swpm"></a>SAP hana el ile yükleme: SWPM
+## <a name="manual-installation-of-sap-hana-swpm"></a>SAP HANA el ile yükleme: SWPM
 Bu bölümdeki ekran görüntüleri bir dizi SWPM (SAPinst) kullandığınızda, SAP NetWeaver 7.5 ve SAP HANA SP12 yükleme için temel adımları gösterir. NetWeaver 7.5 yüklemesinin bir parçası olarak, SWPM HANA veritabanı tek bir örnek olarak da yükleyebilirsiniz.
 
 Örnek test ortamında, biz yalnızca bir Gelişmiş iş uygulaması programlama (ABAP) uygulama sunucusu yüklü. Aşağıdaki ekran görüntüsünde gösterildiği gibi kullandık **dağıtılmış sistemi** ASCS ve birincil uygulama sunucu örneğinin veritabanı sistem başka bir Azure VM olarak bir Azure VM ve SAP HANA yüklemek için seçeneği.
@@ -398,13 +398,13 @@ Son adım olarak, ilk yüklemede HANA Studio SAP app server VM istediğiniz ve D
 
 ![SAP HANA Studio SAP app server VM yükleme](./media/hana-get-started/image038b.jpg)
 
-## <a name="manual-installation-of-sap-hana-hdblcm"></a>SAP hana el ile yükleme: HDBLCM
+## <a name="manual-installation-of-sap-hana-hdblcm"></a>SAP HANA el ile yükleme: HDBLCM
 SAP HANA SWPM kullanarak dağıtılmış yüklemesinin bir parçası yüklemenin yanı sıra, HANA tek başına ilk olarak, HDBLCM kullanarak yükleyebilirsiniz. SAP NetWeaver 7.5, örneğin daha sonra yükleyebilirsiniz. Bu bölümdeki ekran görüntüleri, bu işlemin nasıl çalıştığını gösterir.
 
 HANA HDBLCM aracı hakkında daha fazla bilgi için bkz:
 
 * [Göreviniz için doğru SAP HANA HDBLCM seçme](https://help.sap.com/saphelp_hanaplatform/helpdata/en/68/5cff570bb745d48c0ab6d50123ca60/content.htm)
-* [SAP HANA yaşam döngüsü Yönetim Araçları](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
+* [SAP HANA yaşam döngüsü Yönetim Araçları](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm)
 * [SAP HANA sunucusu yükleme ve güncelleştirme Kılavuzu](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
 İçin varsayılan grup kimliği ayarı sorunlarını önlemek için `\<HANA SID\>adm user` (HDBLCM araç tarafından oluşturulan) adlı yeni bir grup tanımlayın `sapsys` grup kimliği kullanarak `1001` SAP HANA HDBLCM aracılığıyla yüklemeden önce:

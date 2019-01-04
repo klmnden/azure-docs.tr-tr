@@ -14,12 +14,12 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: wesmc
-ms.openlocfilehash: c3c1aa9abc6a7ba97bf7c95aa1c670c7239df3ab
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5a1febb80b5d3aaf0e5da2620f1b0a35d5d1144b
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020226"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556807"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Yönetilen önbellek Hizmeti'nden Azure önbelleği için Redis için geçirme
 Azure önbelleği için Redis için Azure yönetilen önbellek hizmeti kullanan, uygulamaları geçirme uygulamanızın, önbelleğe alma uygulamanız tarafından kullanılan yönetilen önbellek hizmeti özelliklere bağlı olarak küçük değişiklikler ile gerçekleştirilebilir. API'leri tam olarak aynı olsa da benzemez ve yönetilen önbellek hizmeti bir önbelleğe erişmek için kullandığı mevcut kodunuzu çoğunu minimum değişikliklerle yeniden kullanılabilir. Bu makalede, gerekli yapılandırma yapma gösterilmektedir ve uygulama, Azure önbelleği için Redis kullanmak üzere yönetilen önbellek hizmeti uygulamalarınızı geçirmeyi değiştirir ve nasıl bazı özellikleri Azure önbelleği için Redis işlevselliğini uygulamak için kullanılabileceğini gösterir bir yönetilen önbellek hizmeti önbelleği.
@@ -47,7 +47,7 @@ Azure yönetilen önbellek hizmeti ve Azure önbelleği için Redis ile benzerdi
 
 | Yönetilen önbellek hizmeti özelliği | Yönetilen önbellek hizmeti desteği | Azure önbelleği için Redis desteği |
 | --- | --- | --- |
-| Adlandırılmış önbellekler |Varsayılan önbellek yapılandırılır ve isterseniz teklifleri, adlandırılan önbellekler ek dokuz kadar standart ve Premium önbelleğinde yapılandırılabilir. |Azure önbellek Rediss için yapılandırılabilir sayıda adlandırılmış önbellekler için benzer bir işlevsellik uygulamak için kullanılan veritabanları (varsayılan değer 16) sahip. Daha fazla bilgi için bkz. [Redis veritabanı nedir?](cache-faq.md#what-are-redis-databases) ve [Varsayılan Redis sunucu yapılandırması](cache-configure.md#default-redis-server-configuration). |
+| Adlandırılmış önbellekler |Varsayılan önbellek yapılandırılır ve isterseniz teklifleri, adlandırılan önbellekler ek dokuz kadar standart ve Premium önbelleğinde yapılandırılabilir. |Azure önbelleği için Redis yapılandırılabilir sayıda adlandırılmış önbellekler için benzer bir işlevsellik uygulamak için kullanılan veritabanları (varsayılan değer 16) sahiptir. Daha fazla bilgi için bkz. [Redis veritabanı nedir?](cache-faq.md#what-are-redis-databases) ve [Varsayılan Redis sunucu yapılandırması](cache-configure.md#default-redis-server-configuration). |
 | Yüksek Kullanılabilirlik |Standart ve Premium önbellek teklifleri önbellekte öğeleri için yüksek kullanılabilirlik sağlar. Öğeleri bir hata nedeniyle kaybolursa, yedek kopyaları Önbelleği'ndeki öğelerin kullanımını yine kullanılabilir durumdadır. İkincil önbellek için yazma işlemleri zaman uyumlu olarak yapılır. |Yüksek kullanılabilirlik (her bir Premium önbellek parçada bir birincil/çoğaltma çifti sahiptir) bir iki düğümlü birincil/çoğaltma yapılandırması olan standart ve Premium önbellek teklifleri, kullanılabilir. Çoğaltma yazma işlemlerini zaman uyumsuz olarak yapılır. Daha fazla bilgi için [Azure Cache, Redis fiyatlandırma](https://azure.microsoft.com/pricing/details/cache/). |
 | Bildirimler |İstemcilerinin çeşitli önbellek işlemleri oluştuğunda bir adlandırılmış önbellek üzerinde zaman uyumsuz bildirimler almasına olanak tanır. |İstemci uygulamaları, Redis pub/sub kullanabilir veya [anahtar alanı bildirimleri](cache-configure.md#keyspace-notifications-advanced-settings) bildirimleri benzer bir işlevsellik elde etmek için. |
 | Yerel önbellek |Çok hızlı erişim için istemcide önbelleğe alınan nesnelerin bir kopyasını yerel olarak depolar. |İstemci uygulamaları, sözlük veya benzer veri yapısı'nı kullanarak bu işlevselliği uygulamak gerekir. |
@@ -130,7 +130,7 @@ Aşağıdaki using deyimi, herhangi bir dosyadan, önbelleğe erişmek istediği
 using StackExchange.Redis
 ```
 
-Bu ad alanı sorunu çözmezse, açıklandığı StackExchange.Redis NuGet paketi eklediğinizden emin olun [hızlı başlangıç: kullanımı Azure Cache, Redis ile bir .NET uygulaması için](cache-dotnet-how-to-use-azure-redis-cache.md).
+Bu ad alanı sorunu çözmezse, açıklandığı StackExchange.Redis NuGet paketi eklediğinizden emin olun [hızlı başlangıç: Azure önbelleği için Redis ile bir .NET uygulamasını kullanma](cache-dotnet-how-to-use-azure-redis-cache.md).
 
 > [!NOTE]
 > StackExchange.Redis istemcisi .NET Framework 4 veya daha yüksek gerektiğini unutmayın.

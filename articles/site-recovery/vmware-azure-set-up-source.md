@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 7d81b7f0d84eb8751e4e95a31be58ed49a96bb2d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b4ed878b19b2eebe01c9888388949600e85c56e3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835013"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792994"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Azure'a çoğaltma için VMware için kaynak ortamı ayarlama
 
@@ -69,7 +69,7 @@ Kesintisiz çoğaltma ve bağlantı sorunları önlemek için virüsten koruma y
  - C:\ProgramData\ASRSetupLogs
  - C:\ProgramData\LogUploadServiceLogs
  - C:\inetpub
- - ASR sunucusu yükleme dizininde. Örneğin: E:\Program dosyaları (x86) \Microsoft Azure Site Recovery
+ - ASR sunucusu yükleme dizininde. Örneğin: E:\Program dosyaları (x86) \Microsoft Azure Site kurtarma
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Virüsten koruma yazılımı üzerinde genişleme etkinse sunucusu/ana hedef işleme
 
@@ -81,10 +81,8 @@ Aşağıdaki klasörleri virüsten koruma yazılımından Dışla
 4. C:\ProgramData\ASRSetupLogs
 5. C:\ProgramData\LogUploadServiceLogs
 6. C:\ProgramData\Microsoft Azure Site kurtarma
-7. ASR yük dengeli işlem sunucusu yükleme dizininde, örnek: C:\Program Files (x86) \Microsoft Azure Site Recovery
+7. ASR yük dengeli işlem sunucusu yükleme dizininde, örneğin: C:\Program dosyaları (x86) \Microsoft Azure Site kurtarma
 
-## <a name="common-issues"></a>Genel sorunlar
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Hedef ortamı ayarlama](./vmware-azure-set-up-target.md) 

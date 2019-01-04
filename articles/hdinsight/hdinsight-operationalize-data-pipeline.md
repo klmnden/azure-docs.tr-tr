@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436169"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744454"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Veri analizi işlem hattını kullanıma hazır hale getirme
 
@@ -551,7 +551,7 @@ Gördüğünüz gibi Düzenleyici çoğunu yalnızca yapılandırma bilgileri i�
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    Bir düzenleyici içinde eylemleri zamanlama için sorumlu `start` ve `end` tarafından belirtilen aralığa göre tarih aralığı, `frequency` özniteliği. Zamanlanmış her eylem iş akışı yapılandırılmış gibi sırayla çalışır. Yukarıdaki Düzenleyicisi tanımında Düzenleyici Eylemler 1 Ocak 2017'den 5 Ocak 2017'ye çalıştıracak şekilde yapılandırılır. Sıklığı tarafından 1 güne ayarlanır [Oozie ifade dili](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) sıklığı ifade `${coord:days(1)}`. Bu eylem zamanlama Düzenleyicisi'nde sonuçlanır (ve bu nedenle iş akışı) günde bir kez. Bu örnekte olduğu gibi daha önce olan tarih aralıkları için eylem gecikme olmadan çalıştırmak için zamanlanır. İçinden bir eylem çalışmak üzere zamanlandığı tarih başlangıcı adlı *nominal zaman*. Örneğin, 1 Ocak 2017'ye genel bakış için verileri işlemek için düzenleyici 2017 nominal süresine sahip eylem zamanlayacak-01-01T00:00:00 GMT.
+    Bir düzenleyici içinde eylemleri zamanlama için sorumlu `start` ve `end` tarafından belirtilen aralığa göre tarih aralığı, `frequency` özniteliği. Zamanlanmış her eylem iş akışı yapılandırılmış gibi sırayla çalışır. Yukarıdaki Düzenleyicisi tanımında Düzenleyici Eylemler 1 Ocak 2017'den 5 Ocak 2017'ye çalıştıracak şekilde yapılandırılır. Sıklığı tarafından 1 güne ayarlanır [Oozie ifade dili](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) sıklığı ifade `${coord:days(1)}`. Bu eylem zamanlama Düzenleyicisi'nde sonuçlanır (ve bu nedenle iş akışı) günde bir kez. Bu örnekte olduğu gibi daha önce olan tarih aralıkları için eylem gecikme olmadan çalıştırmak için zamanlanır. İçinden bir eylem çalışmak üzere zamanlandığı tarih başlangıcı adlı *nominal zaman*. Örneğin, 1 Ocak 2017'ye genel bakış için verileri işlemek için düzenleyici 2017 nominal süresine sahip eylem zamanlayacak-01-01T00:00:00 GMT.
 
 * Noktası 2: İş akışı tarih aralığı içinde `dataset` öğesi HDFS'deki belirli bir tarih aralığı için veri aramak konumu belirtir ve nasıl Oozie verilerin kullanılabilir olup olmadığını belirler. yapılandırır henüz işleme için.
 
@@ -651,6 +651,6 @@ Bu yalnızca yeni özellikleri `job.properties` dosyası:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Apache Oozie belgeleri](http://oozie.apache.org/docs/4.2.0/index.html)
+* [Apache Oozie belgeleri](https://oozie.apache.org/docs/4.2.0/index.html)
 
 <!-- * Build the same pipeline [using Azure Data Factory](tbd.md).  -->

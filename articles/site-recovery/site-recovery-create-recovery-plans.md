@@ -3,16 +3,17 @@ title: Oluşturma ve Azure Site Recovery ile olağanüstü durum kurtarma için 
 description: Oluşturma ve Azure Site Recovery hizmetini kullanarak olağanüstü durum kurtarma için kurtarma planları özelleştirme hakkında bilgi edinin.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 85e649f3065d7f8d601541bbac6e93f4b2a0dc85
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d52aa3b39a17c42c0f0e0cb669c69d336b41ba48
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878686"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973222"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Oluşturma ve kurtarma planlarını özelleştirme
 

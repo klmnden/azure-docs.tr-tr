@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: luywang
 ms.custom: include file
-ms.openlocfilehash: 7f093a1878bc3cf7e91cc14ec7a68b1a84764a49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5c7c9938b6a0b3d2e6050940154a8dc3f114341e
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39485685"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53638826"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure Iaas diskler için yedekleme ve olağanüstü durum kurtarma
 
@@ -63,7 +63,7 @@ Iaas iş yüklerinizi kesintilere karşı korumaya yardımcı olmak için yedekl
 
 DR konularınızdan aşağıdaki özellikleri içerebilir:
 
-- Yüksek Kullanılabilirlik: uygulamanın önemli bir kapalı kalma süresi olmadan, sağlam bir durumda çalışmaya devam etmesini yeteneği. Tarafından *sağlıklı duruma*, bu durum uygulamanın yanıt veriyor olması, ve kullanıcıların uygulamaya bağlanmak ve etkileşime anlamına gelir. Belirli görev açısından kritik uygulama ve veritabanlarının bile platform hatası olduğunda her zaman kullanılabilir olacak şekilde gerekli olabilir. Bu iş yükleri için yedeklilik, verilerin yanı sıra, uygulama için planlama gerekebilir.
+- Yüksek Kullanılabilirlik: Uygulamanın önemli bir kapalı kalma süresi olmadan, sağlam bir durumda çalışmaya devam etmesini yeteneği. Tarafından *sağlıklı duruma*, bu durum uygulamanın yanıt veriyor olması, ve kullanıcıların uygulamaya bağlanmak ve etkileşime anlamına gelir. Belirli görev açısından kritik uygulama ve veritabanlarının bile platform hatası olduğunda her zaman kullanılabilir olacak şekilde gerekli olabilir. Bu iş yükleri için yedeklilik, verilerin yanı sıra, uygulama için planlama gerekebilir.
 
 - Veri dayanıklılığı: Bazı durumlarda, ana göz önünde bulundurarak bir olağanüstü durumda veri korunmasını sağlamaktır. Bu nedenle, verilerinizi farklı bir site yedeklemesini gerekebilir. Bu tür iş yükleri için tam yedeklilik için uygulama, ancak yalnızca normal yedekleme disklerin gerekmeyebilir.
 
@@ -152,7 +152,7 @@ Sanal makinelerinizin yedeklerini kullanarak etkinleştirmek için aşağıdaki 
 
 1.  Yedekleme ilkesini yapılandırın ve VM'yi aynı kullanıcı Arabiriminden seçin.
 
-1.  Backup Aracısı sanal makinede yüklü olduğundan emin olun. Bir Azure Galerisi görüntüsünü kullanarak VM'nizi oluşturulursa, Backup Aracısı zaten yüklüdür. (Diğer bir deyişle, özel bir görüntü kullanırsanız) Aksi durumda, yönergeleri kullanın [VM Aracısı, bir sanal makineye yükleme](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
+1.  Backup Aracısı sanal makinede yüklü olduğundan emin olun. Bir Azure Galerisi görüntüsünü kullanarak VM'nizi oluşturulursa, Backup Aracısı zaten yüklüdür. (Diğer bir deyişle, özel bir görüntü kullanırsanız) Aksi durumda, yönergeleri kullanın [VM Aracısı, bir sanal makineye yükleme](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 1.  VM yedekleme hizmeti işlev için ağ bağlantısı izin verdiğinden emin olun. Yönergelerini izleyin [ağ bağlantısı](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
@@ -172,7 +172,7 @@ Daha fazla bilgi için yönergelerine bakın [sanal makineleri geri yükleme iç
 
 PowerShell için de kullanabilirsiniz [bir VM geri](../articles/backup/backup-azure-arm-restore-vms.md#restore-a-vm-during-an-azure-datacenter-disaster) veya [yeni VM'den oluşturma diskleri geri](../articles/backup/backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
 
-## <a name="alternative-solution-consistent-snapshots"></a>Alternatif çözüm: tutarlı anlık görüntüler
+## <a name="alternative-solution-consistent-snapshots"></a>Alternatif çözüm için: Tutarlı anlık görüntüler
 
 Azure Yedekleme'yi bulamıyorsanız, anlık görüntüleri kullanılarak yedekleme kendi mekanizması uygulayabilirsiniz. Bir VM tarafından kullanılan tüm diskler için tutarlı anlık görüntüleri oluşturmak ve ardından bu anlık görüntülerin başka bir bölgeye çoğaltma karmaşık. Bu nedenle, özel bir çözüm oluşturmaya değerinden daha iyi bir seçenek olarak Yedekleme hizmetini kullanarak Azure dikkate alır. 
 
@@ -231,7 +231,7 @@ Anlık görüntü almak için yeni bir blob oluşturmak üzere kopyalayın. Anl�
 
 Birden çok disklere sahip VM'ler için aynı Eşgüdümlü geri yükleme noktası parçası olan tüm anlık görüntüleri kopyalamanız gerekir. Anlık görüntüleri için yazılabilir bir VHD bloblarını kopyaladıktan sonra VM için şablon kullanılarak sanal makinenizin yeniden oluşturmak için BLOB'ları kullanabilirsiniz.
 
-## <a name="other-options"></a>Diğer Seçenekler
+## <a name="other-options"></a>Diğer seçenekler
 
 ### <a name="sql-server"></a>SQL Server
 
@@ -248,7 +248,7 @@ Sonuç olarak, yedekleme işleminize iki şey bir birleşimi olabilir:
 
 Bağlı seçtiğiniz yedekleme seçeneği olarak hem verileri hem de Yapılandırma Yedekleme işlemini gerekebilir veya yedekleme hizmeti tüm bu sizin için işleyebilir.
 
-## <a name="appendix-understanding-the-impact-of-data-redundancy"></a>Ek: veri yedekliği etkisini anlama
+## <a name="appendix-understanding-the-impact-of-data-redundancy"></a>Ek: Veri yedekliği etkisini anlama
 
 Azure depolama hesapları için olağanüstü durum kurtarma ile ilgili göz önünde bulundurmanız gereken veri yedekliği üç tür vardır: yerel olarak yedekli, coğrafi olarak yedekli veya coğrafi olarak yedekli okuma erişimi. 
 

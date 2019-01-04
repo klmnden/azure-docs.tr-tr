@@ -1,5 +1,5 @@
 ---
-title: Yazdırılan ve el yazısı metin - görüntü işleme tanıma
+title: Yazdırılan, el yazısı metni - görüntü işleme tanıma
 titleSuffix: Azure Cognitive Services
 description: Görüntü işleme API'sini kullanarak görüntüleri metin yazdırılan ve el yazısı tanıma için ilgili kavramları.
 services: cognitive-services
@@ -10,18 +10,19 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 6827bf5f983834dc5222a3f3028386f8bbcb253a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: b23140eef4de904fb862253b6511b6fc2b1ce6dd
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338109"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582278"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>Yazdırılmış ve el yazısı ile yazılan metinleri tanıma
 
 Görüntü işleme, algılayın ve farklı yüzey ve arka planlar, giriş, posterler, kartvizit, harf ve beyaz tahtalar gibi çeşitli nesne görüntülerdeki yazdırılan veya el yazısı metinleri ayıklamak.
 
-Metin tanıma, zaman ve çaba harcamanızı sağlar. Metin görüntüsü almak yerine onu fotoğrafını daha verimli olabilir. Metin tanıma, notları dijitalleştirerek mümkün kılar. Bu digitization hızla ve kolayca arama olanak tanır. Tüm bunların yanı sıra kağıt karmaşasını da azaltır.
+Metin tanıma, zaman ve çaba harcamanızı sağlar. Metin görüntüsü almak yerine onu fotoğrafını daha verimli olabilir. Metin tanıma, notları dijitalleştirerek mümkün kılar. Bu dijitalleştirme hızlı ve kolay aramalar yapmanızı sağlar. Üstelik kağıt dağınıklığını da azaltır.
 
 ## <a name="text-recognition-requirements"></a>Metin tanıma gereksinimleri
 

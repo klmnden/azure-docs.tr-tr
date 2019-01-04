@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 1bcd9dfe2d7a846dd040944509be916c1964ba48
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4796dc50447b94b01d9bb4625ca9a69a73850fcd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420396"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994411"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure veri şifreleme bekleyen
 
@@ -243,8 +243,8 @@ Azure altyapı (Iaas) hizmet olarak tüm müşteriler, Iaas Vm'leri ve diskleri 
 
 Tüm Azure depolama hizmetleri (Blob Depolama, kuyruk depolama, tablo depolama ve Azure dosyaları), müşteri tarafından yönetilen anahtarlar ve istemci tarafı şifreleme destekleyen bazı hizmetler ile sunucu tarafı şifrelemesi, bekleyen destekler.  
 
-- Sunucu tarafı: Tüm Azure depolama hizmetleri, hizmet tarafından yönetilen anahtarlar, uygulamaya saydamdır kullanarak varsayılan olarak sunucu tarafı şifrelemesi etkinleştirin. Daha fazla bilgi için [bekleyen veriler için Azure depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/storage-service-encryption). Ayrıca Azure Blob Depolama ve Azure dosyaları Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar RSA 2048 bit destekler. Daha fazla bilgi için [Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanılarak depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
-- İstemci tarafı: Azure Blobları, tablolar ve Kuyruklar istemci tarafı Şifreleme destekler. İstemci tarafı şifreleme kullanırken, müşterilerin verileri şifrelemek ve verileri şifrelenmiş bir blob olarak karşıya yükleyin. Anahtar Yönetimi, müşteri tarafından gerçekleştirilir. Daha fazla bilgi için [istemci tarafı şifreleme ve Microsoft Azure depolama için Azure anahtar kasası](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
+- Sunucu tarafı: Tüm Azure Depolama Hizmetleri sunucu tarafı şifreleme varsayılan olarak hizmet tarafından yönetilen anahtarlar, uygulamaya saydamdır kullanarak etkinleştirin. Daha fazla bilgi için [bekleyen veriler için Azure depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/storage-service-encryption). Ayrıca Azure Blob Depolama ve Azure dosyaları Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar RSA 2048 bit destekler. Daha fazla bilgi için [Azure anahtar Kasası'nda müşteri tarafından yönetilen anahtarlar kullanılarak depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
+- İstemci tarafı: Azure Blobları, tablolar ve Kuyruklar, istemci tarafı Şifreleme destekler. İstemci tarafı şifreleme kullanırken, müşterilerin verileri şifrelemek ve verileri şifrelenmiş bir blob olarak karşıya yükleyin. Anahtar Yönetimi, müşteri tarafından gerçekleştirilir. Daha fazla bilgi için [istemci tarafı şifreleme ve Microsoft Azure depolama için Azure anahtar kasası](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
 
 
 #### <a name="azure-sql-database"></a>Azure SQL Database
@@ -262,6 +262,7 @@ Azure SQL veritabanı verilerinin istemci tarafı şifreleme aracılığıyla de
 | Disk (Iaas)                      | -                  | Evet, RSA 2048 bit  | -                  |
 | SQL Server (IaaS)                | Evet                | Evet, RSA 2048 bit  | Evet                |
 | Azure SQL (veritabanı/veri ambarı) | Evet                | Evet, RSA 2048 bit  | Evet                |
+| Azure SQL (veritabanı yönetilen örneği) | Evet                | Önizleme, RSA 2048 bit  | Evet                |
 | Azure depolama (blok/sayfa Blobları) | Evet                | Evet, RSA 2048 bit  | Evet                |
 | Azure depolama (dosyalar)            | Evet                | Evet, RSA 2048 bit  | -                  |
 | Azure depolama (tablolar, kuyruklar)   | Evet                | -                  | Evet                |

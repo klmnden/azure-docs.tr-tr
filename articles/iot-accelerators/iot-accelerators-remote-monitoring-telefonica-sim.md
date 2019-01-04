@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: c453998eea2a747b2cb608482f0ef9c1ee197ee0
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185440"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606801"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Uzaktan izleme çözümünde SIM verilerini tümleştirme
 
 IOT cihazları genellikle her yerden veri akışları göndererek izin veren bir SIM kart kullanarak buluta bağlayın. İşleçleri de IOT SIM tarafından sağlanan verileri aracılığıyla cihaz durumunu takip edebilmeniz, Azure IOT Uzaktan izleme çözüm IOT yönetilen bağlantı veri tümleştirmesini sağlar.
 
-Uzaktan izleme Telefónica IOT bağlantısı ile tümleştirmesi dışında IOT bağlantı platformu kullanan müşteriler kendi cihazı, çözümlerine SIMs bağlantı verileri eşitleme sunar. Diğer IOT bağlantı sağlayıcıları GitHub aracılığıyla desteklemek için bu çözüm Genişletilebilir [depo](http://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
+Uzaktan izleme Telefónica IOT bağlantısı ile tümleştirmesi dışında IOT bağlantı platformu kullanan müşteriler kendi cihazı, çözümlerine SIMs bağlantı verileri eşitleme sunar. Diğer IOT bağlantı sağlayıcıları GitHub aracılığıyla desteklemek için bu çözüm Genişletilebilir [depo](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 

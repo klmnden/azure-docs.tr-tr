@@ -15,18 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
-ms.openlocfilehash: e2f59771d7ae2c818fe2f4c93441bf27f8e312ae
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: d2021873b36a55bd36cf500eff168fe7311d944c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274113"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579439"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Kurumsal müşteriler için raporlama API'lerini genel bakış
 Raporlama API'lerini program aracılığıyla tercih edilen veri analizi Araçları Kullanım ve faturalandırma veri çekmek Kurumsal Azure müşterilerine etkinleştirin. Kurumsal müşteriler işaretli bir [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) anlaşma parasal taahhütler olun ve Azure kaynakları için özel fiyatlandırma için erişim kazanmak için Azure ile.
-
-> [!div class="nextstepaction"]
-> [Azure faturalama belgelerinin iyileştirilmesine yardımcı olun](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="enabling-data-access-to-the-api"></a>API veri erişimini etkinleştirme
 * **Oluşturma veya API anahtarını alma** -Enterprise Portal'da oturum açın ve raporlara gidin > kullanımı indir > API anahtarını almak veya oluşturmak için API erişim anahtarı.

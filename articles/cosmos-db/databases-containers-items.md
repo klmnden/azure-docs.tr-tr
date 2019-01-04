@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6757f887376e1b399d6af18f114e203991c16a67
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409550"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807695"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Azure Cosmos veritabanı, kapsayıcıları ve öğeleri ile çalışma
 
@@ -24,7 +24,7 @@ Oluşturduktan sonra bir [Azure Cosmos DB hesabı](account-overview.md) Azure ab
 
 Bir veya daha fazla Azure Cosmos veritabanı hesabınız kapsamında oluşturabilirsiniz. Bir veritabanı için bir ad alanı benzerdir, Azure Cosmos kapsayıcıları kümesi için yönetim birimidir. Aşağıdaki tablo, bir Azure Cosmos veritabanı çeşitli API özel varlıklara nasıl eşleştiğini gösterir:
 
-| **Azure Cosmos varlığı** | **SQL API'Sİ** | **Cassandra API'si** | **MongoDB API’si** | **Gremlin API** | **Tablo API’si** |
+| **Azure Cosmos varlığı** | **SQL API'Sİ** | **Cassandra API'si** | **Azure Cosmos DB'nin MongoDB API'si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos veritabanı | Database | Keyspace | Database | Database | NA |
 
@@ -35,7 +35,7 @@ Bir veya daha fazla Azure Cosmos veritabanı hesabınız kapsamında oluşturabi
 
 Aşağıdaki Azure Cosmos API'lerini kullanarak bir Azure Cosmos veritabanıyla etkileşim kurabilirsiniz:
 
-| **İşlem** | **Azure CLI**|**SQL API'Sİ** | **Cassandra API'si** | **MongoDB API’si** | **Gremlin API** | **Tablo API’si** |
+| **İşlem** | **Azure CLI**|**SQL API'Sİ** | **Cassandra API'si** | **Azure Cosmos DB'nin MongoDB API'si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- | --- |
 |Tüm veritabanları listeleme| Evet | Evet | Evet (veritabanı için bir anahtar alanı eşlendi) | Evet | NA | NA |
 |Okuma veritabanı| Evet | Evet | Evet (veritabanı için bir anahtar alanı eşlendi) | Evet | NA | NA |
@@ -67,7 +67,7 @@ Azure Cosmos kapsayıcınızın benzersiz bir anahtar belirtebilirsiniz. Benzers
 
 Bir Azure Cosmos kapsayıcı API özel varlıklara gibi özelleştirilmiş:
 
-| **Azure Cosmos varlığı** | **SQL API'Sİ** | **Cassandra API'si** | **MongoDB API’si** | **Gremlin API** | **Tablo API’si** |
+| **Azure Cosmos varlığı** | **SQL API'Sİ** | **Cassandra API'si** | **Azure Cosmos DB'nin MongoDB API'si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos kapsayıcı | Koleksiyon | Tablo | Koleksiyon | Graf | Tablo |
 
@@ -75,7 +75,7 @@ Bir Azure Cosmos kapsayıcı API özel varlıklara gibi özelleştirilmiş:
 
 Bir Azure Cosmos kapsayıcısı, sistem tarafından tanımlanan özellikler kümesi içerir. API seçime bağlı olarak, bunlardan bazıları doğrudan açık olabilir değil. Aşağıdaki tabloda, desteklenen sistem tarafından tanımlanan özellikler listesini açıklanmaktadır:
 
-| **Sistem tarafından tanımlanan özelliği** | **Sistem oluşturulan veya kullanıcı ayarlanabilir** | **Amacı** | **SQL API'Sİ** | **Cassandra API'si** | **MongoDB API’si** | **Gremlin API** | **Tablo API’si** |
+| **Sistem tarafından tanımlanan özelliği** | **Sistem oluşturulan veya kullanıcı ayarlanabilir** | **Amacı** | **SQL API'Sİ** | **Cassandra API'si** | **Azure Cosmos DB'nin MongoDB API'si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |__rid | Sistem tarafından oluşturulan | Kapsayıcı benzersiz tanıtıcısı | Evet | Hayır | Hayır | Hayır | Hayır |
 |__etag | Sistem tarafından oluşturulan | İyimser eşzamanlılık denetimi için kullanılan varlık etiketi | Evet | Hayır | Hayır | Hayır | Hayır |
@@ -91,7 +91,7 @@ Bir Azure Cosmos kapsayıcısı, sistem tarafından tanımlanan özellikler küm
 
 Bir Azure Cosmos kapsayıcı herhangi bir Azure Cosmos API'lerini kullanarak şu işlemleri destekler.
 
-| **İşlem** | **Azure CLI** | **SQL API'Sİ** | **Cassandra API'si** | **MongoDB API’si** | **Gremlin API** | **Tablo API’si** |
+| **İşlem** | **Azure CLI** | **SQL API'Sİ** | **Cassandra API'si** | **Azure Cosmos DB'nin MongoDB API'si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Bir veritabanı kapsayıcılarda listeleme | Evet* | Evet | Evet | Evet | NA | NA |
 | Bir kapsayıcı okuyun | Evet | Evet | Evet | Evet | NA | NA |
@@ -103,7 +103,7 @@ Bir Azure Cosmos kapsayıcı herhangi bir Azure Cosmos API'lerini kullanarak şu
 
 API seçime bağlı olarak, bir Azure Cosmos öğesi ya da bir belge bir koleksiyonda, bir tabloda bir satır veya grafikteki bir düğümü/edge temsil edebilir. Aşağıdaki tablo, Azure Cosmos öğeye API özel varlıklar arasındaki eşlemeyi gösterir:
 
-| **Cosmos varlık** | **SQL API'Sİ** | **Cassandra API'si** | **MongoDB API’si** | **Gremlin API** | **Tablo API’si** |
+| **Cosmos varlık** | **SQL API'Sİ** | **Cassandra API'si** | **Azure Cosmos DB'nin MongoDB API'si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- |
 |Azure Cosmos öğesi | Belge | Satır | Belge | Düğüm veya kenar | Öğe |
 
@@ -111,7 +111,7 @@ API seçime bağlı olarak, bir Azure Cosmos öğesi ya da bir belge bir koleksi
 
 Her Azure Cosmos öğesi aşağıdaki sistem tanımlı özelliklerine sahiptir. API seçime bağlı olarak, bunlardan bazıları doğrudan açık olabilir değil.
 
-|**Sistem tarafından tanımlanan özelliği** | **Sistem oluşturulan veya kullanıcı ayarlanabilir**| **Amacı** | **SQL API'Sİ** | **Cassandra API'si** | **MongoDB API’si** | **Gremlin API** | **Tablo API’si** |
+|**Sistem tarafından tanımlanan özelliği** | **Sistem oluşturulan veya kullanıcı ayarlanabilir**| **Amacı** | **SQL API'Sİ** | **Cassandra API'si** | **Azure Cosmos DB'nin MongoDB API'si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |__id | Sistem tarafından oluşturulan | Öğenin benzersiz tanıtıcısı | Evet | Hayır | Hayır | Hayır | Hayır |
 |__etag | Sistem tarafından oluşturulan | İyimser eşzamanlılık denetimi için kullanılan varlık etiketi | Evet | Hayır | Hayır | Hayır | Hayır |
@@ -124,7 +124,7 @@ Her Azure Cosmos öğesi aşağıdaki sistem tanımlı özelliklerine sahiptir. 
 
 Azure Cosmos öğesi herhangi bir Azure Cosmos API'leri kullanılarak gerçekleştirilebilir aşağıdaki işlemleri destekler.
 
-| **İşlem** | **Azure CLI** | **SQL API'Sİ** | **Cassandra API'si** | **MongoDB API’si** | **Gremlin API** | **Tablo API’si** |
+| **İşlem** | **Azure CLI** | **SQL API'Sİ** | **Cassandra API'si** | **Azure Cosmos DB'nin MongoDB API'si** | **Gremlin API** | **Tablo API’si** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Ekleme, değiştirme, silme, Upsert, okuma | Hayır | Evet | Evet | Evet | Evet | Evet |
 

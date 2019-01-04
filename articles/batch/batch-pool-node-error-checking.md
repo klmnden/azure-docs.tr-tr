@@ -1,104 +1,105 @@
 ---
-title: Batch havuzu ve düğüm hatalarını denetleme
-description: Hataları denetlemek için ve havuzları ve düğümler oluştururken önlemek yapma
+title: Havuz ve düğüm hataları - Azure Batch denetleyin
+description: Hataları denetlemek için ve havuzları ve düğümler oluştururken kaçınma yöntemleri
 services: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 9/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: bc09089fa9984e9042166938da19499afca21509
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 4e1e645c25d2f1e49e222e39ecd719a414e1404e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435224"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790478"
 ---
-# <a name="checking-for-pool-and-node-errors"></a>Havuz ve düğüm hatalarını denetleme
+# <a name="check-for-pool-and-node-errors"></a>Havuz ve düğüm hataları denetleyin
 
-Batch havuzlarını yönetme, hemen gerçekleşmeye işlemler vardır ve vardır zaman uyumsuz oluştururken ve anında, olmayan işlemler arka planda çalışmaya ve tamamlanması birkaç dakika sürebilir.
+Oluştururken ve Azure Batch havuzları yönetme, bazı işlemler hemen gerçekleştirilir. Ancak, bazı işlemler zaman uyumsuz ve arka planda çalıştırma. Bunlar, tamamlanması birkaç dakika sürebilir.
 
-Tüm hataları hemen API, CLI veya kullanıcı Arabirimi tarafından döndürülecek gibi hemen gerçekleşmesi işlemleri için hataların algılanması, basittir.
+Hataları hemen API, CLI veya kullanıcı Arabirimi tarafından döndürüldüğünden hemen gerçekleşmesi işlemleri için hataların algılanması oldukça basittir.
 
-Bu makalede havuzlar ve havuz düğümleri için gerçekleştirilebildiği arka plan işlemleri kapsar: hataları nasıl algılanabilir ve hataların nasıl önlenebilir belirtir.
+Bu makalede havuzlar ve havuz düğümleri için oluşabilecek arka plan işlemleri kapsar. Bu, algılamak ve hatalarını önlemek nasıl belirtir.
 
 ## <a name="pool-errors"></a>Havuzu hataları
 
 ### <a name="resize-timeout-or-failure"></a>Yeniden boyutlandırma zaman aşımı veya hatası
 
-Yeni bir havuz oluşturma veya var olan bir havuzu, düğümlerin hedef sayısı yeniden boyutlandırma zaman belirtilir.  İşlem hemen tamamlanır, ancak yeni düğümlerin gerçek ayırma veya var olan düğümleri kaldırma işlemi arka planda ne birkaç dakika olabilir üzerinden gerçekleşir.  Yeniden boyutlandırma zaman aşımı belirtilir [oluşturma](https://docs.microsoft.com/rest/api/batchservice/pool/add) veya [yeniden boyutlandırma](https://docs.microsoft.com/rest/api/batchservice/pool/resize) API'si - düğümlerin hedef sayısını yeniden boyutlandırma zaman aşımı süresi içinde aldıysanız sonra işlemi durdurur kararlı bir duruma geçmeden havuzu ve yeniden boyutlandırma hatası sahip.
+Yeni bir havuz oluşturma veya mevcut bir yeniden boyutlandırma havuz, düğümlerin hedef sayısını belirtin.  İşlemi hemen tamamlanır, ancak yeni düğümlerin gerçek ayırma veya var olan düğümleri kaldırılmasını birkaç dakika sürebilir.  Yeniden boyutlandırma zaman aşımı belirtin [oluşturma](https://docs.microsoft.com/rest/api/batchservice/pool/add) veya [yeniden boyutlandırma](https://docs.microsoft.com/rest/api/batchservice/pool/resize) API. Toplu hedef düğüm sayısı yeniden boyutlandırma zaman aşımı süresi boyunca alamazlarsa işlemi durdurur. Havuza bir kararlı durumuna girer ve raporları, hataları yeniden boyutlandırın.
 
-Yeniden boyutlandırma zaman aşımı tarafından bildirilen [ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) gerçekleşen bir veya daha fazla hataları listeler Son Değerlendirme özelliği.
+[ResizeError](https://docs.microsoft.com/rest/api/batchservice/pool/get#resizeerror) özelliği en son değerlendirme için boyutlandırma zaman aşımı raporları ve oluşan hataları listeler.
 
 Yeniden boyutlandırma zaman aşımı için yaygın nedenler şunlardır:
+
 - Yeniden boyutlandırma zaman aşımı çok kısa
-  - Varsayılan zaman aşımı 15, ayrılmış veya kaldırılacak havuz düğümleri için normalde bol zaman olduğu dakikadır.
-  - Çok sayıda (1000'den düğüm bir Market görüntüsünden) veya özel bir görüntüden 300'den düğümlerinin düğümleri havuzu oluşturma veya yeniden boyutlandırma sırasında ayırırken 30 dakikalık zaman aşımı tavsiye edilir.
+  - Çoğu durumda, 15 dakikalık varsayılan zaman aşımı ayrılan veya kaldırılacak havuz düğümleri için yeterince uzun.
+  - Çok sayıda düğümü tahsis etme, yeniden boyutlandırma zaman aşımı 30 dakikaya ayarlanıyor öneririz. Örneğin, ne zaman, 1. 000'den fazla düğümleri Azure Market görüntüsünden ya da özel bir VM görüntüsü 300'den fazla düğümünden yeniden boyutlandırma.
 - Yeterli çekirdek kotası
-  - Bir batch hesabı, çekirdek sayısı için bir kota sahip tüm havuzlardaki ayrılmış.  Bu kotasına ulaşıldı sonra batch düğüm ayrılamadı.  Çekirdek kotası [artırılabilir](https://docs.microsoft.com/azure/batch/batch-quota-limit) ayrılacak daha fazla düğüm etkinleştirmek için.
+  - Bir Batch hesabı arasında tüm havuzları ayırabilirsiniz çekirdek sayısı sınırlıdır. Batch, kotasına ulaşıldı sonra düğümleri ayırma durdurur. [Artırabilirsiniz](https://docs.microsoft.com/azure/batch/batch-quota-limit) çekirdek kotası için daha fazla düğüm toplu ayırabilirsiniz.
 - Yetersiz IP alt ağı, bir [havuzu, sanal ağ içinde değil](https://docs.microsoft.com/azure/batch/batch-virtual-network)
-  - Bir sanal ağ alt ağı yeterli olmalıdır. istenen tüm havuz düğümleri için ayrılacak IP adresleri atanmamış, aksi takdirde düğümleri oluşturulamıyor.
+  - Bir sanal ağ alt ağı yeterli olmalıdır. her istenen havuz düğümü için ayrılacak IP adresleri atanmamış. Aksi takdirde, düğümleri oluşturulamıyor.
 - Kaynaklar yetersiz olduğunda bir [havuzu, sanal ağ içinde değil](https://docs.microsoft.com/azure/batch/batch-virtual-network)
-  - Yük dengeleyicileri, genel IP'ler ve Nsg'ler gibi kaynakları, Batch hesabı oluşturmak için kullanılan abonelik oluşturulur.  Abonelik kotaları bu kaynaklar için yeterli olmalıdır.
-- Büyük havuzlar için özel bir VM görüntüsü kullanma
-  - Özel görüntüleri kullanarak büyük havuzları ayırmak ve zaman aşımları yeniden boyutlandırmak için daha uzun sürer ortaya çıkabilir.  Limitler ve yapılandırma önerileri sağlanan bir [belirli bir makaleye](https://docs.microsoft.com/azure/batch/batch-custom-images). 
+  - Batch hesabı ile aynı abonelikte yük dengeleyicileri genel IP'ler ve ağ güvenlik grupları gibi kaynaklar oluşturabilir. Abonelik kotaları bu kaynaklar için yeterli olduğundan emin olun.
+- Büyük havuzları ile özel VM görüntüleri
+  - Özel VM görüntülerini kullanmak büyük havuzlar uzun sürebilir ayırın ve yeniden boyutlandırma zaman aşımları oluşabilir.  Bkz: [sanal makine havuzu oluşturmak için özel görüntü kullanma](https://docs.microsoft.com/azure/batch/batch-custom-images) limitler ve yapılandırma konusunda öneriler için.
 
-### <a name="auto-scale-failures"></a>Otomatik ölçeklendirme hataları
+### <a name="automatic-scaling-failures"></a>Otomatik ölçeklendirme hataları
 
-Açıkça bir havuz için düğümlerin hedef sayısını havuzu oluşturma veya yeniden boyutlandırma ayarlamak yerine, bir havuzdaki düğümlerin sayısını otomatik olarak ölçeklendirilebilir.  Bir [otomatik ölçeklendirme formülü için bir havuz oluşturulabilir](https://docs.microsoft.com/azure/batch/batch-automatic-scaling), hangi değerlendirilir normal yapılandırılabilir bir aralıkta havuz için düğümlerin hedef sayısını ayarlamak için.  Aşağıdaki türde sorunları oluşabilir ve algılandı:
+Bir havuzdaki düğümlerin sayısını otomatik olarak ölçeklendirmek için Azure Batch de ayarlayabilirsiniz. Parametreler için tanımladığınız [otomatik ölçeklendirme formülü bir havuz için](https://docs.microsoft.com/azure/batch/batch-automatic-scaling). Batch hizmeti formülü düzenli olarak havuzdaki düğüm sayısını değerlendirmek ve yeni bir hedef numarası ayarlamak için kullanır. Aşağıdaki türde sorunları ortaya çıkabilir:
 
-- Otomatik ölçek değerlendirme başarısız olabilir.
-- Sonuçta elde edilen yeniden boyutlandırma işlemi başarısız olabilir ve zaman aşımı.
-- Yanlış düğümü hedef değerleri için önde gelen çalışma veya zaman aşımına uğruyor yeniden boyutlandırma ile otomatik ölçeklendirme formülü ile ilgili bir sorun olabilir.
+- Otomatik ölçeklendirme değerlendirme başarısız olur.
+- Sonuçta elde edilen yeniden boyutlandırma işlemi başarısız olur ve zaman aşımına uğrar.
+- Otomatik ölçeklendirme formülü ile ilgili bir sorun, hatalı düğüm hedef değerleri için yol açar. Yeniden boyutlandırma çalışır veya zaman aşımına uğrar.
 
-Son Otomatik ölçek değerlendirme hakkında bilgi kullanılarak elde edilir [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) değerlendirme, değerleri ve deneme ve değerlendirme gerçekleştiriliyor herhangi bir hata sonucu zamanında raporları özelliği.
+Kullanarak son otomatik ölçeklendirme değerlendirme hakkında bilgi alabilirsiniz [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) özelliği. Bu özellik, değerlendirme süresi, değerleri ve sonuç ve performans hataları bildirir.
 
-Tüm değerlendirmeleri hakkında bilgi tarafından yakalanan otomatik olarak bir [havuz yeniden boyutlandırma tamamlama olayı](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event).
+[Havuz yeniden boyutlandırma tamamlama olayı](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) tüm değerlendirmeleri hakkındaki bilgileri yakalar.
 
 ### <a name="delete"></a>Sil
 
-Bir havuzda düğümleri olan bir havuz ilk olarak, silinen düğüm işlemi sonuçlarında silip varsayılarak havuzu nesnesinin kendisi tarafından izlenen.  Bu, silinecek havuz düğümleri için birkaç dakika sürebilir.
+Düğümleri içeren bir havuzu sildiğinizde düğümler ilk Batch siler. Ardından havuzu nesneyi siler. Bu, silinecek havuz düğümleri için birkaç dakika sürebilir.
 
-[Havuzu durumu](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) 'silme işlemi sırasında siliniyor' ayarlayın.  Çağıran uygulama havuzunu silme 'state' ve 'stateTransitionTime' özelliklerini kullanarak çok uzun sürüyor durumunda algılayabilir.
+Toplu işlem kümeleri [havuzu durumu](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate) için **silme** silme işlemi sırasında. Çağıran uygulama havuzunu silme işlemini kullanarak çok uzun sürüyor durumunda algılayabilir **durumu** ve **stateTransitionTime** özellikleri.
 
 ## <a name="pool-compute-node-errors"></a>Havuz işlem düğüm hataları
 
-Düğüm başarıyla bir havuzda ayrılabilir, ancak çeşitli sorunlar sistem durumu kötü olan düğümler için sağlama ve kullanılabilir değil.  Bir havuzu düğümler atandıktan sonra bunlara ücret uygulanmaz ve kullanılamaz düğümleri için ödeme yapmaktan kaçınmak üzere sorunlarını algılamak bu nedenle önemlidir.
+Çeşitli sorunları bile toplu bir havuzdaki düğümlerin başarıyla ayırır, bazı düğümlerin sağlıksız ve kullanılamaz durumda olması neden olabilir. Bu düğümler ücretleri. Kullanılamayan düğümleri için ödeme olmayan şekilde sorunlarını algılamak önemlidir.
 
 ### <a name="start-task-failure"></a>Başlangıç görevi başarısızlığı
 
-İsteğe bağlı [başlangıç görevi](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) bir havuz için belirtilebilir.  Herhangi bir görev olduğu gibi ile komut satırını ve depolamadan indirilebilmesi için kaynak dosyaları belirtilebilir.  Başlangıç görevi havuz için belirtilmiş ancak her düğümü yeniden başlatıldıktan sonra her bir düğümde - başlangıç görevi çalıştırırsanız çalıştırın.  Daha fazla özelliği [başlangıç görevi](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask), 'waitForSuccess' Batch başlangıç görevi, herhangi bir düğüm görevler zamanlanmadan önce başarıyla tamamlanması için beklemesi gerekip gerekmediğini belirtir.
+İsteğe bağlı belirtmek isteyebilirsiniz [başlangıç görevi](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask) bir havuz için. Herhangi bir görev olduğu gibi ile depolamadan indirilebilmesi için bir komut satırı ve kaynak dosyalarını kullanabilirsiniz. Başlamış sonra her düğüm için başlangıç görevi çalıştırılır. **WaitForSuccess** özelliği, toplu bir düğüme herhangi bir görevi zamanlar önce başlangıç görevinin başarıyla tamamlanana kadar bekleyip beklemeyeceğini belirtir.
 
-Başlangıç görevi başarısız ve başarılı tamamlanması için beklenecek belirtilen başlangıç görevi yapılandırma, düğüm kullanılamaz ve yine de ücret uygulanabilir.
+Başarılı bir başlangıç görevi tamamlama, ancak başlangıç görevi başarısız için beklenecek düğümü ne yapılandırdığınız? Bu durumda, düğüm kullanılamaz ancak yine de ücreti alınmaz.
 
-Başlangıç görevi hataları kullanarak algılanamıyor [sonucu](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) ve [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) özelliklerini üst düzey [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) düğüm özelliği.
+Başlangıç görevi hataları kullanarak algılayabilir [sonucu](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) ve [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) özelliklerini üst düzey [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) düğüm özelliği.
 
-Hatalı başlangıç görevi, düğüme ayrıca müşteri adayları [durumu](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) 'waitForSuccess' ayarlarsanız 'starttaskfailed' ancak ayarlanan 'true'.
+Hatalı başlangıç görevi de Batch düğüm kümesi neden [durumu](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) için **starttaskfailed** ayarlarsınız, **waitForSuccess** için **true**.
 
-Herhangi bir görev olduğu gibi ile başlangıç görevi başarısız olan pek çok nedeni olabilir.  Sorunu gidermek için stdout, stderr ve herhangi ek görev özgü günlük dosyaları denetlenmelidir.
+Herhangi bir görev olduğu gibi ile başlangıç görevi başarısız olan pek çok nedeni olabilir.  Sorunu gidermek için stdout, stderr ve herhangi başka göreve özel günlük dosyalarını denetleyin.
 
 ### <a name="application-package-download-failure"></a>Uygulama paketi yükleme hatası
 
-Bir veya daha fazla uygulama paketi isteğe bağlı olarak her düğüme yüklenen belirtilen paket dosyaları için bir havuz, belirtilen ve düğümü yeniden başlatıldıktan sonra ancak zamanlanmış görevler önce sıkıştırılmamış.  Farklı bir konuma dosyaları kopyalayın veya Kurulum, örneğin çalıştırmak için uygulama paketleri ile birlikte bir başlangıç görevi komut satırı kullanımı yaygındır.
+Bir havuz için bir veya daha fazla uygulama paketi belirtebilirsiniz. Batch, her düğüm için belirtilen paket dosyaları indirir ve dosyaları düğümü yeniden başlatıldıktan sonra ancak zamanlanmış görevler önce genişletir. Uygulama paketleri ile birlikte bir başlangıç görevi komut satırında kullanmak için yaygındır. Örneğin, farklı bir konuma dosyaları kopyalayın veya Kurulumu çalıştırın.
 
-Düğümün indirmek ve bir uygulama paketi sıkıştırmasını açmak için bir hata bildirilir [hataları](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) özelliği.  Düğüm durumu 'kullanılamaz' ayarlanır.
+Düğüm [hataları](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) özelliği indirmek ve bir uygulama paketi sıkıştırmasını açmak için bir hata bildirir. Batch düğüm durumu ayarlar **kullanılamaz**.
 
 ### <a name="node-in-unusable-state"></a>Düğüm kullanılamaz durumda
 
-[Düğüm durumu](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) çeşitli nedenlerle 'kullanılamaz' olarak ayarlanabilir.  'Kullanılamaz,' görevleri düğüme zamanlanamaz ancak düğüm yine de ücret uygulanabilir.
+Azure Batch ayarlanabilir [düğüm durumu](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) için **kullanılamaz** birçok nedenden dolayı. Düğüm durumu ile kümesine **kullanılamaz**görevleri düğüme zamanlanmış olamaz, ancak yine de ücreti alınmaz.
 
-Batch her zaman kullanılamaz düğümleri kurtarmayı deneyecek, ancak kurtarma olabilir veya nedenine bağlı olarak mümkün olmayabilir.
+Batch kullanılamaz düğümleri kurtarmak her zaman çalışır ancak kurtarma olabilir veya nedenine bağlı olarak mümkün olmayabilir.
 
-Neden belirlenebilir olduğunda, bu düğüm tarafından raporlanır [hataları](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) özelliği.
+Batch düğüm nedeni belirleyebilirseniz [hataları](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) özelliği bildirir.
 
-Bazı diğer örnekleri 'kullanılamaz' düğümleri nedenleri:
+Ek örnekler nedenleri **kullanılamaz** düğümleri içerir:
 
-- Geçersiz özel görüntü; doğru örneğin hazır değil.
-- Altyapı hatası veya taşınan temel alınan VM önde gelen düşük düzeyli yükseltme; Batch düğüm kurtarır.
+- Özel bir VM görüntüsü geçersiz. Örneğin, görüntünün düzgün şekilde hazırlanır.
+- Bir VM, bir altyapı hatası veya bir alt düzey yükseltmesi nedeniyle taşınır. Batch düğüm kurtarır.
 
 ### <a name="node-agent-log-files"></a>Düğüm Aracısı günlük dosyaları
 
-Bir havuz düğümü sorunu ilgili desteğe başvurmanız gerekirse, her bir havuz düğümü üzerinde çalışan Batch aracı işleminin günlük dosyalarından alınabilir.  Azure portalı üzerinden Batch Gezgini, bir düğüm için günlük dosyalarını karşıya yüklenebilir veya bir [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs).  Karşıya yükleme ve günlük dosyalarını kaydetme düğümü olarak son derece kullanışlı olabilir veya havuz çalışan düğümlerinin maliyetinden tasarruf etmek silinebilir.
+Her havuz düğümü üzerinde çalışan Batch aracı işlemi, bir havuz düğümü sorun hakkında desteğe ihtiyacınız varsa yararlı olabilecek günlük dosyalarını sağlayabilir. Günlük dosyaları için bir düğüm, Batch Gezgini gibi Azure portal aracılığıyla karşıya yüklenebilir veya bir [API](https://docs.microsoft.com/rest/api/batchservice/computenode/uploadbatchservicelogs). Karşıya yükleme ve günlük dosyalarını kaydetmek kullanışlıdır. Daha sonra bir düğüm veya çalışan düğümlerinin maliyetinden tasarruf etmek havuzu silebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uygulamanızı sorunları hızla tespit ve tanı koydu kapsamlı hata, özellikle zaman uyumsuz işlemler için denetimi gerçekleştirdiğini emin olun.
+Uygulamanızı kapsamlı hata, özellikle zaman uyumsuz işlemleri için denetimi uygulamak için ayarladığınız denetleyin. En kısa sürede sorunlarını algılayıp tanılamanıza için önemli olabilir.

@@ -1,5 +1,5 @@
 ---
-title: Azure zaman serisi öngörüleri Önizleme güvenlik - erişmek ve yönetmek için Azure zaman serisi öngörüleri önizlemesi için güvenliği yapılandırma | Microsoft Docs
+title: Erişim ve Azure zaman serisi öngörüleri önizlemesi yönetmek için güvenlik yapılandırma | Microsoft Docs
 description: Bu makalede güvenlik ve izinler yönetim erişimi yapılandırma ilkeleri ve veri erişim ilkeleri Azure zaman serisi öngörüleri Preview korumak için.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7f8eb66feecd58b766b3414b1bbc6bd4e27bf4f7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 9aea7a9c9dd96bf30ebb3def9354df9e4bd30114
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275474"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558532"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Bir ortam için veri erişim izni verme
 

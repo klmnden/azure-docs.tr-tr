@@ -1,5 +1,5 @@
 ---
-title: 'PowerShell: Azure HDInsight kümesi ile ek depolama alanı olarak Azure Data Lake depolama Gen1 | Microsoft Docs'
+title: 'PowerShell: Azure Data Lake depolama Gen1 ek depolama alanı olarak Azure HDInsight kümesiyle | Microsoft Docs'
 services: data-lake-store,hdinsight
 documentationcenter: ''
 author: nitinme
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0fa4a4c1586957dabf1c849fdb897a479c4f8db3
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 3de675adf7364e8281a03a46c5eeeaa1b74249b5
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957430"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969293"
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-as-additional-storage"></a>Azure Data Lake depolama Gen1 (olarak, ek depolama alanı) ile bir HDInsight kümesi oluşturmak için Azure PowerShell'i kullanma
 
@@ -194,7 +194,7 @@ Bu bölümde, bir HDInsight Hadoop Linux kümesi ile Data Lake depolama Gen1 ek 
 
         # Create an Azure storage account
         $location = "East US 2"
-        $storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
+        $storageAccountName = "<StorageAccountName>"   # Provide a Storage account name
 
         New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
 
@@ -268,7 +268,7 @@ Ayrıca `hdfs dfs -put` bazı dosyalar için Data Lake depolama Gen1 karşıya y
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 * [Data Lake depolama Gen1 Azure HDInsight kümeleri ile kullanma](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [Portal: Data Lake depolama Gen1 kullanmak için HDInsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Portalı: Data Lake depolama Gen1 kullanılacak bir HDInsight kümesi oluşturma](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

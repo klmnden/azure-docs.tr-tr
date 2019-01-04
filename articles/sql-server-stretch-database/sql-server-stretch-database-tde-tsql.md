@@ -1,62 +1,60 @@
 ---
-title: Saydam veri şifreleme Esnetme veritabanı TSQL - Azure için etkinleştirme | Microsoft Docs
-description: Saydam veri şifreleme (TDE) Azure TSQL üzerinde SQL Server Esnetme veritabanı için etkinleştirin
+title: Stretch Database TSQL - Azure için saydam veri şifrelemesini etkinleştirme | Microsoft Docs
+description: SQL Server Stretch Database, Azure TSQL şirket için saydam veri şifrelemesi (TDE) etkinleştir
 services: sql-server-stretch-database
 documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: ''
+manager: craigg
 ms.assetid: 27753d91-9ca2-4d47-b34d-b5e2c2f029bb
 ms.service: sql-server-stretch-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: anvang
-ms.openlocfilehash: ed26c2b386e08b76f78b4a05e12c46d2b97c20f2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: douglasl
+ms.openlocfilehash: 634e1b097f2ca16a8c52da02445b3f5f2af7ff3d
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23872942"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744794"
 ---
-# <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Saydam veri şifreleme (TDE) Azure (Transact-SQL) üzerinde Esnetme veritabanı için etkinleştirin
+# <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>(Transact-SQL) azure'da Stretch Database için saydam veri şifrelemesi (TDE) etkinleştirme
 > [!div class="op_single_selector"]
-> * [Azure portalı](sql-server-stretch-database-encryption-tde.md)
+> * [Azure portal](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)
 >
 >
 
-Saydam veri şifreleme (TDE) gerçek zamanlı şifreleme ve şifre çözme veritabanının, ilişkili yedeklemelerinizi ve geri kalan işlem günlüğü dosyalarını uygulamasında yapılacak değişiklikler gerek kalmadan gerçekleştirerek kötü amaçlı etkinliği tehdide karşı korunmasına yardımcı olur.
+Saydam veri şifrelemesi (TDE), kötü amaçlı etkinlik tehditlerine karşı gerçek zamanlı şifreleme ve şifre çözme veritabanını, ilişkili yedeklemeler ve işlem günlük dosyaları bekleme sırasında uygulamada değişiklik gerektirmeden gerçekleştirerek koruma yardımcı olur.
 
-TDE, veritabanının tamamını Depolama veritabanı şifreleme anahtarını adlı bir simetrik anahtar kullanarak şifreler. Veritabanı şifreleme anahtarını bir yerleşik bir sunucu sertifikası tarafından korunur. Yerleşik bir sunucu sertifikası Azure her sunucu için benzersizdir. Microsoft, bu sertifikalar otomatik olarak en az 90 günde döndürür. TDE genel bir açıklaması için bkz [saydam veri şifreleme (TDE)].
+TDE, tüm veritabanı depolama veritabanı şifreleme anahtarı olarak adlandırılan bir simetrik anahtarı'nı kullanarak şifreler. Veritabanı şifreleme anahtarı, bir yerleşik bir sunucu sertifikası tarafından korunur. Azure her sunucu için benzersiz yerleşik sunucu sertifikasıdır. Microsoft, bu sertifikalar otomatik olarak en az 90 günde döndürür. TDE genel bir açıklaması için bkz. [saydam veri şifrelemesi (TDE)].
 
 ## <a name="enabling-encryption"></a>Şifrelemeyi etkinleştirme
-TDE Azure etkinleştirmek için bir SQL Server Esnetme etkinleştirilmiş veritabanından veri depolama veritabanı geçişi, şunları yapın:
+Azure için TDE'yi etkinleştirmek için Esnetme özellikli SQL Server veritabanından veri depolama veritabanı geçişi, şunları yapın:
 
-1. Bağlanmak *ana* veritabanından bir yönetici veya bir üyesi olan bir oturum açma kullanarak veritabanını barındıran Azure sunucusuna **dbmanager** ana veritabanı rolü
-2. Veritabanı şifrelemek için şu deyimi yürütün.
+1. Bağlanma *ana* Azure sunucusundaki yönetici veya bir üyesi olan bir oturum açma kimliğini kullanarak veritabanını barındıran veritabanı **dbmanager** asıl veritabanı rolü
+2. Veritabanı şifrelemek için aşağıdaki deyimi yürütün.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION ON;
 ```
 
 ## <a name="disabling-encryption"></a>Şifreleme devre dışı bırakma
-Azure TDE devre dışı bırakmak için bir SQL Server Esnetme etkinleştirilmiş veritabanından veri depolama veritabanı geçişi, şunları yapın:
+Azure için TDE devre dışı bırakmak için Esnetme özellikli SQL Server veritabanından veri depolama veritabanı geçişi, şunları yapın:
 
-1. Bağlanmak *ana* bir yönetici veya bir üyesi olan bir oturum açma kullanılarak veritabanı **dbmanager** ana veritabanı rolü
-2. Veritabanı şifrelemek için şu deyimi yürütün.
+1. Bağlanma *ana* bir yönetici ya da bir üyesi olan bir oturum açma kimliğini kullanarak veritabanı **dbmanager** asıl veritabanı rolü
+2. Veritabanı şifrelemek için aşağıdaki deyimi yürütün.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION OFF;
 ```
 
 ## <a name="verifying-encryption"></a>Şifreleme doğrulama
-Bir SQL Server Esnetme etkinleştirilmiş veritabanından verileri depolarken bir Azure veritabanı için şifreleme durum geçişi doğrulamak için şunları yapın:
+Esnetme özellikli SQL Server veritabanından Azure veritabanı, veri depolama için şifreleme durumu geçişi doğrulamak için şunları yapın:
 
-1. Bağlanmak *ana* ya da bir yönetici veya bir üyesi olan bir oturum açma kullanarak örnek veritabanı **dbmanager** ana veritabanı rolü
-2. Veritabanı şifrelemek için şu deyimi yürütün.
+1. Bağlanma *ana* veya bir yönetici ya da bir üyesi olan bir oturum açma kullanarak örnek veritabanına **dbmanager** asıl veritabanı rolü
+2. Veritabanı şifrelemek için aşağıdaki deyimi yürütün.
 
 ```sql
 SELECT
@@ -66,10 +64,10 @@ FROM
     sys.databases;
 ```
 
-Sonucunu ```1``` şifrelenmiş bir veritabanı gösterir ```0``` şifrelenmemiş bir veritabanını gösterir.
+Sonucu ```1``` şifrelenmiş bir veritabanı gösterir ```0``` şifrelenmemiş bir veritabanını gösterir.
 
 <!--Anchors-->
-[saydam veri şifreleme (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Saydam veri şifrelemesi (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->

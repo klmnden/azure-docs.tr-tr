@@ -1,19 +1,19 @@
 ---
-title: 'Azure Site Recovery: Sık sorulan sorular | Microsoft Docs'
+title: 'Azure Site Kurtarma: Sık sorulan sorular | Microsoft Docs'
 description: Bu makalede, Azure Site Recovery hakkında sık kullanılan sorular açıklanmaktadır.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: ef914318174ee3ce738769fcae910c82b35b21b4
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0c70d3b5166b0e3719aa621091920d2c91696bf1
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998544"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973545"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: sık sorulan sorular (SSS)
 Bu makale, Azure Site Recovery hakkında sık sorulan sorular içerir. Bu makaleyi okuduktan sonra sorularınız varsa gönderin [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -23,7 +23,7 @@ Bu makale, Azure Site Recovery hakkında sık sorulan sorular içerir. Bu makale
 Site Recovery bölgeler, şirket içi sanal makineleri ve fiziksel sunucuları azure'a arasında Azure VM çoğaltmayı düzenleyip otomatikleştirmek düzenleyerek iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkı sağlayan ve şirket içi makineler için bir İkincil veri merkezi. [Daha fazla bilgi edinin](site-recovery-overview.md).
 
 ### <a name="what-can-site-recovery-protect"></a>Hangi Site Recovery koruyabilir miyim?
-* **Azure sanal makineleri**: Site Recovery, desteklenen bir Azure sanal makinesinde çalışan tüm iş yüklerini çoğaltabilirsiniz
+* **Azure sanal makineleri**: Site Recovery desteklenen bir Azure sanal makinesinde çalışan tüm iş yüklerini çoğaltabilirsiniz.
 * **Hyper-V sanal makinelerini**: Site Recovery, Hyper-V sanal makinesinde çalışan tüm iş yüklerini koruyabilir.
 * **Fiziksel sunucuları**: Site Recovery, Windows veya Linux çalıştıran fiziksel sunucuları koruyabilir.
 * **VMware sanal makinelerini**: Site Recovery, VMware VM içinde çalışan tüm iş yüklerini koruyabilir.
@@ -91,7 +91,7 @@ Evet. Bir bölgede Site Recovery kasası oluşturduğunuzda, etkinleştirmek ve 
 Azure Site Recovery, Azure depolama hesabınız için genel bir uç nokta verileri çoğaltır. Çoğaltma, siteden siteye VPN üzerinden değildir. Bir Azure sanal ağı ile siteden siteye VPN, oluşturabilirsiniz. Bu, Site Recovery çoğaltma ile engellemez.
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>Sanal makinelerini Azure'a çoğaltma için ExpressRoute kullanabilir miyim?
-Evet, [ExpressRoute kullanılabilir](concepts-expressroute-with-site-recovery.md) şirket içi sanal makinelerini Azure'a çoğaltma için. Azure Site Recovery, genel bir uç nokta bir Azure depolama hesabına veri çoğaltır. Kurmanız gerekecektir [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) veya [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) Site Recovery çoğaltması için ExpressRoute kullanmak için. Microsoft eşlemesi, çoğaltma için önerilen Yönlendirme etki alanıdır. Sanal makineler üzerinde bir Azure sanal ağı için başarısız olduktan sonra bunları erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering) kurulum ile Azure sanal ağı. Çoğaltma özel eşdüzey hizmet sağlama üzerinden desteklenmiyor.
+Evet, [ExpressRoute kullanılabilir](concepts-expressroute-with-site-recovery.md) şirket içi sanal makinelerini Azure'a çoğaltma için. Azure Site Recovery, genel bir uç nokta bir Azure depolama hesabına veri çoğaltır. Kurmanız gerekecektir [genel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#publicpeering) veya [Microsoft eşlemesi](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) Site Recovery çoğaltması için ExpressRoute kullanmak için. Microsoft eşlemesi, çoğaltma için önerilen Yönlendirme etki alanıdır. Emin [ağ gereksinimleri](vmware-azure-configuration-server-requirements.md#network-requirements) çoğaltma için de karşılandığından. Sanal makineler üzerinde bir Azure sanal ağı için başarısız olduktan sonra bunları erişebilirsiniz kullanarak [özel eşdüzey hizmet sağlama](../expressroute/expressroute-circuit-peerings.md#privatepeering) kurulum ile Azure sanal ağı. Çoğaltma özel eşdüzey hizmet sağlama üzerinden desteklenmiyor.
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>Sanal makinelerin Azure'a çoğaltılması için herhangi bir önkoşul var mı?
 [VMware Vm'lerini](vmware-physical-azure-support-matrix.md#replicated-machines) ve [Hyper-V Vm'lerini](hyper-v-azure-support-matrix.md#replicated-vms) çoğaltmak istediğiniz Azure Azure gereksinimleriyle uyumlu olması gerekir.
@@ -115,8 +115,8 @@ Evet. Rest API'si, PowerShell veya Azure SDK kullanarak Site Recovery iş akış
 Bir LRS veya GRS depolama hesabı gerekir. Bölgesel bir kesintinin meydana gelmesi veya birincil bölgenin kurtarılamaması durumunda verilerin korunması için GRS'yi tavsiye ederiz. Hesabın, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir. Premium depolama, Azure portalında Site Recovery dağıttığınızda VMware VM, Hyper-V VM ve fiziksel sunucu çoğaltma için desteklenir.
 
 ### <a name="how-often-can-i-replicate-data"></a>Verileri ne sıklıkta çoğaltabilirim?
-* **Hyper-V:** Hyper-V Vm'lerini çoğaltabilirsiniz her 30 saniye (hariç, premium depolama), 5 dakika veya 15 dakika. SAN çoğaltması ayarladıysanız çoğaltma uyumludur.
-* **Azure Vm'leri, VMware ve fiziksel sunucuları:** burada çoğaltma sıklığı geçerli değildir. Çoğaltma sürekli olarak yapılır.
+* **Hyper-V:** Hyper-V Vm'lerini her 30 saniye (hariç, premium depolama), 5 dakika veya 15 dakika çoğaltılabilir. SAN çoğaltması ayarladıysanız çoğaltma uyumludur.
+* **Azure Vm'leri, VMware ve fiziksel sunucuları:** Bir çoğaltma sıklığı burada geçerli değildir. Çoğaltma sürekli olarak yapılır.
 
 ### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>Ben üçüncül başka bir siteye çoğaltma var olan kurtarma sitesinden uzatabilir miyim?
 Genişletilmiş veya zincir çoğaltma desteklenmez. Bu özelliği isteği [geri bildirim Forumu](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).

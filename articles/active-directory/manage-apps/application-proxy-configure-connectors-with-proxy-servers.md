@@ -2,25 +2,21 @@
 title: Mevcut iş şirket içi proxy sunucuları ve Azure AD | Microsoft Docs
 description: Mevcut şirket içi proxy sunucuları ile çalışma konusunu kapsar.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
-ms.openlocfilehash: 06df705aabce06c37f04de3fb5046d822f9f981e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6409b9313aa9b036e24ea50435659b3653ac01e0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404962"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720110"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Mevcut şirket içi proxy sunucuları ile çalışma
 
@@ -73,7 +69,7 @@ Yalnızca giden trafiğe sahip sonucu olarak, güvenlik duvarları üzerinden ge
 >[!NOTE]
 >Uygulama proxy'si kimlik doğrulama için diğer proxy'leri desteklemez. Bağlayıcı/güncelleştirici ağ hizmeti hesabı için kimlik doğrulaması yanıt olmadan bir proxy sunucusuna bağlanmak görebilmeniz gerekir.
 
-### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>1. adım: bağlayıcı ve ilgili hizmetler giden proxy üzerinden gitmek için yapılandırma
+### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>1. Adım: Giden proxy üzerinden gitmek için ilgili hizmetler ve bağlayıcı yapılandırma
 
 WPAD ortamda etkin olduğundan ve uygun şekilde yapılandırıldığından, bağlayıcıyı kullanmak için girişim ve giden proxy sunucusu otomatik olarak bulur. Ancak, bir giden proxy üzerinden gitmek için bağlayıcıyı açıkça yapılandırabilirsiniz.
 
@@ -98,7 +94,7 @@ Bunu yapmak için C:\Program Files\Microsoft AAD uygulaması Proxy Connector\App
 
 Ardından, Connector Updater hizmetini C:\Program Files\Microsoft AAD uygulama Proxy Bağlayıcısı Updater\ApplicationProxyConnectorUpdaterService.exe.config dosyasına benzer bir değişiklik yaparak proxy kullanacak şekilde yapılandırın.
 
-### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>2. adım: proxy Bağlayıcısı ve ilgili hizmetleri akışına izin verecek şekilde yapılandırma
+### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>2. Adım: Bağlayıcı ve ilgili hizmetleri akışına trafiğine izin vermek için proxy ayarlarını yapılandırma
 
 Giden proxy dikkate alınması gereken dört unsur vardır:
 * Proxy giden kuralları
@@ -107,15 +103,16 @@ Giden proxy dikkate alınması gereken dört unsur vardır:
 * SSL denetimi
 
 #### <a name="proxy-outbound-rules"></a>Proxy giden kuralları
-Bağlayıcı hizmeti erişim için aşağıdaki uç noktalarına erişime izin ver:
+Aşağıdaki URL'lere erişim izin ver:
 
-* *. msappproxy.net
-* *.servicebus.windows.net
+| URL'si | Nasıl kullanılır |
+| --- | --- |
+| \*. msappproxy.net<br>\*. servicebus.windows.net | Bağlayıcı ve uygulama proxy'si bulut hizmeti arasında iletişim |
+| mscrl.microsoft.com:80<br>CRL.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure sertifikaları doğrulamak için bu URL'leri kullanır. |
+| login.windows.net<br>login.microsoftonline.com | Bağlayıcı, bu URL'ler kayıt işlemi sırasında kullanır. |
 
-İlk kayıt için aşağıdaki uç noktalarına erişime izin ver:
+Güvenlik Duvarı veya proxy DNS beyaz listeye ekleme izin veriyorsa, beyaz liste bağlantıları için \*. msappproxy.net ve \*. servicebus.windows.net. Erişime izin vermek, gerekirse [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). IP aralıklarını haftalık olarak güncelleştirilir.
 
-* login.windows.net
-* login.microsoftonline.com
 
 FQDN DEĞERİNE göre bağlantısına izin vermek ve bunun yerine IP aralıklarını belirtmeniz gerekir, bu seçenekleri kullanın:
 

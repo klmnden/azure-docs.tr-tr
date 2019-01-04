@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: eeb548d6bd955aedf322a63c861fd23bb37c1167
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632671"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634635"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>HDInsight üzerinde Apache Hadoop MapReduce kullanma
 
@@ -28,13 +28,13 @@ HDInsight kümelerinde MapReduce işleri çalıştırmayı öğrenin. MapReduce 
 
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
->
+
 
 ## <a id="whatis"></a>MapReduce nedir
 
 Apache Hadoop MapReduce, çok büyük miktarda veri işleyen işlerini yazmak için bir yazılım çerçevedir. Girdi verilerini bağımsız parçalara bölünür. Her bir öbeği kümenizdeki düğümler arasında paralel olarak işlenir. Bir MapReduce işi iki işlevlerini oluşur:
 
-* **Eşleyici**: giriş verilerini kullanır (genellikle filtre ve sıralama işlemleri ile) analiz eder ve diziler (anahtar-değer çiftleri) yayar
+* **Eşleyici**: Giriş verilerini kullanır (genellikle filtre ve sıralama işlemleri ile) analiz eder ve diziler (anahtar-değer çiftleri) yayar
 
 * **Azaltıcı**: Eşleyicisi tarafından yayılan tanımlama grubu tüketir ve Eşleyici verilerden daha küçük, birleşik bir sonuç oluşturan bir Özet işlemi gerçekleştirir
 
@@ -57,7 +57,7 @@ Hadoop akış Eşleyici ve azaltıcı STDIN ve STDOUT üzerinden iletişim kurar
 
     [key]/t[value]
 
-Daha fazla bilgi için [Hadoop akış](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
+Daha fazla bilgi için [Hadoop akış](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
 Hadoop ile HDInsight akış kullanma örnekleri için aşağıdaki belgelere bakın:
 
@@ -163,7 +163,7 @@ HDInsight, çeşitli yöntemlerle HiveQL işleri çalıştırabilirsiniz. Hangi 
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |Kullanarak uzaktan işi göndermek **REST** |Linux veya Windows |Linux, UNIX, Mac OS X veya Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Kullanarak uzaktan işi göndermek **Windows PowerShell** |Linux veya Windows |Windows |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="nextsteps"></a>Sonraki adımlar
@@ -174,9 +174,9 @@ HDInsight verilerle çalışma hakkında daha fazla bilgi edinmek için aşağı
 
 * [Python için HDInsight akış MapReduce programları geliştirme](apache-hadoop-streaming-python.md)
 
-* [HDInsight ile Hive kullanma][hdinsight-use-hive]
+* [Apache Hive, HDInsight ile kullanma][hdinsight-use-hive]
 
-* [HDInsight ile Pig kullanma][hdinsight-use-pig]
+* [Apache Pig, HDInsight ile kullanma][hdinsight-use-pig]
 
 
 [hdinsight-upload-data]: hdinsight-upload-data.md

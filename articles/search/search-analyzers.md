@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 868658062a6407dce901b455cc92f95008df798c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310547"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631955"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Metin işleme Azure Search'te çözümleyiciler
 
@@ -76,7 +76,7 @@ Beklenen sonuçları döndürmek bir arama başarısız olursa, büyük olasıl�
 
 ### <a name="compare-english-analyzers"></a>İngilizce Çözümleyicileri karşılaştırın
 
-[Arama Çözümleyicisi Tanıtımı](http://alice.unearth.ai/) standart olarak Lucene Çözümleyici, Lucene'nın İngilizce dil Çözümleyicisi ve Microsoft'un doğal dil İngilizce işlemci yan yana karşılaştırmasını gösteren bir üçüncü taraf tanıtım uygulaması. Dizin sabittir; Bu yaygın bir hikaye metni içerir. İçin her bir arama giriş sağlarsanız, her çözümleyici sonuçları bitişik bölmelerinde görüntülenen her Çözümleyicisi aynı dize nasıl işlediği hakkında bir fikir verir. 
+[Arama Çözümleyicisi Tanıtımı](https://alice.unearth.ai/) standart olarak Lucene Çözümleyici, Lucene'nın İngilizce dil Çözümleyicisi ve Microsoft'un doğal dil İngilizce işlemci yan yana karşılaştırmasını gösteren bir üçüncü taraf tanıtım uygulaması. Dizin sabittir; Bu yaygın bir hikaye metni içerir. İçin her bir arama giriş sağlarsanız, her çözümleyici sonuçları bitişik bölmelerinde görüntülenen her Çözümleyicisi aynı dize nasıl işlediği hakkında bir fikir verir. 
 
 ## <a name="examples"></a>Örnekler
 
@@ -244,13 +244,13 @@ Diğer alanları varsayılan korumak (veya diğer bazı önceden tanımlanmış 
 
 + Sunduğumuz kapsamlı açıklaması gözden [nasıl tam metin araması Azure Search'te çalışır](search-lucene-query-architecture.md). Bu makalede örnekler yüzeyine counter-intuitive görünebilir davranışları açıklamak için kullanılır.
 
-+ Ek sorgu söz dizimi gelen deneyin [arama belgeleri](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) örnek bölümünde veya [Basit Sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) portalında arama Gezgini.
++ Ek sorgu söz dizimi gelen deneyin [arama belgeleri](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) örnek bölümünde veya [Basit Sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) portalında arama Gezgini.
 
 + Nasıl uygulayabileceğinizi öğrenin [dile özel sözcük temelli çözümleyiciler](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Özel çözümleyiciler yapılandırma](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) için en az işleme ya da tek tek alanlarda özel işleme.
 
-+ [Standart ve İngilizce Çözümleyicileri karşılaştırma](http://alice.unearth.ai/) bitişik bölmelerindeki bu demo web sitesinde. 
++ [Standart ve İngilizce Çözümleyicileri karşılaştırma](https://alice.unearth.ai/) bitişik bölmelerindeki bu demo web sitesinde. 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b42529df406febc617c778d18d5b420f9c38c59a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1940908cc0120ed5a69ae6603ec101d020b0ef3f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434673"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722087"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevlerini ölçeklendirme ve barındırma
 
@@ -66,7 +66,7 @@ Aşağıdaki durumlarda bir App Service planı göz önünde bulundurun:
 * App Service planı, App Service ortamı VNET/VPN bağlantısı ve büyük VM boyutları için destek gibi şirket yalnızca kullanılabilen özellikleri gerektirir.
 * Linux üzerinde işlev uygulamanızı çalıştırmak istediğiniz veya özel bir görüntüyü işlevlerinizi çalıştırılacağı istiyorsunuz.
 
-Bir VM sayısını yürütme, yürütme süresini ve kullanılan bellek maliyetinden ayırır. Sonuç olarak, kullandığınız en fazla tahsis VM örneği maliyetini ödeme olmaz. App Service planı nasıl çalıştığı hakkında daha fazla ayrıntı için bkz. [Azure App Service planlarına ayrıntılı genel bakış](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+Bir VM sayısını yürütme, yürütme süresini ve kullanılan bellek maliyetinden ayırır. Sonuç olarak, kullandığınız en fazla tahsis VM örneği maliyetini ödeme olmaz. App Service planı nasıl çalıştığı hakkında daha fazla ayrıntı için bkz. [Azure App Service planlarına ayrıntılı genel bakış](../app-service/overview-hosting-plans.md). 
 
 Bir App Service planı, el ile daha fazla VM örneği ekleyerek genişletebilir veya otomatik ölçeklendirmeyi etkinleştirebilirsiniz. Daha fazla bilgi için [örnek sayısını elle veya otomatik olarak ölçeklendirme](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Ayrıca farklı bir App Service planı seçerek ölçeğini artırabilirsiniz. Daha fazla bilgi için [azure'da uygulamanın ölçeğini](../app-service/web-sites-scale.md). 
 

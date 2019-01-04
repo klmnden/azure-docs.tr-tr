@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: aae3454fc8de8455146fa1189b66e6498c32e20c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ba163b797cfaaf73c660f1ef3d8da18758e8139a
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440579"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542008"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Azure İzleyici tanılama günlükleri bir depolama hesabına arşivlenmiş biçimi değişiklik için hazırlama
 
@@ -32,7 +32,7 @@ Azure İzleyici kaynak tanılama verilerini ve etkinlik günlüğü verileri bir
 * Bu değişiklik, tek seferde tüm genel bulut bölgeler arasında oluşur. Değişiklik henüz Azure Çin'de, Azure Almanya ve Azure kamu bulutlarında gerçekleşmez.
 * Bu değişiklik aşağıdaki veri türlerini etkiler:
   * [Azure kaynak tanılama günlükleri](./../../azure-monitor/platform/archive-diagnostic-logs.md) ([burada kaynakların listesini görmek](./../../azure-monitor/platform/tutorial-dashboards.md))
-  * [Tanılama ayarları tarafından dışarı aktarılan bir azure kaynak ölçümleri](./../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)
+  * [Tanılama ayarları tarafından dışarı aktarılan bir azure kaynak ölçümleri](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)
   * [Günlük profilleri tarafından dışarı aktarılan azure etkinlik günlüğü verileri](./../../azure-monitor/platform/archive-activity-log.md)
 * Bu değişiklik etkilemez:
   * Ağ akışı günlükleri

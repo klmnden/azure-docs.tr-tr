@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 5f85d01b20466fd72b802b4daaf001a7928717c4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b298836070a511421f9df25155ff1ee4422e61dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410287"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994377"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Yavaş ya da başarısız olan bir HDInsight kümesinde sorun giderme
 
@@ -88,7 +88,7 @@ Hizmet görünümlerini listesini açmak için seçmeniz **Ambari görünümleri
 
 #### <a name="check-for-azure-service-outages"></a>Bir Azure hizmet kesintisi denetle
 
-HDInsight üzerinde birden fazla Azure hizmetini kullanır. Sanal sunucular verilerini depolar ve komut dosyalarını Azure Blob Depolama veya Azure DataLake Store, Azure HDInsight üzerinde çalışır ve Azure tablo Depolama dizinleri günlük dosyaları. Bu hizmetler kesintileri ender olsa da, HDInsight sorunlara neden olabilir. Varsa beklenmeyen yavaşlamalara veya hatalar, kümenizdeki denetleyin [Azure durum Panosu](https://azure.microsoft.com/status/). Her hizmetin durumunu bölgeye göre listelenir. Kümenizin bölge ve ayrıca bölgeler ilgili tüm hizmetler için denetleyin.
+HDInsight üzerinde birden fazla Azure hizmetini kullanır. Sanal sunucular verilerini depolar ve komut dosyalarını Azure Blob Depolama veya Azure Data Lake Storage, Azure HDInsight üzerinde çalışır ve Azure tablo Depolama dizinleri günlük dosyaları. Bu hizmetler kesintileri ender olsa da, HDInsight sorunlara neden olabilir. Varsa beklenmeyen yavaşlamalara veya hatalar, kümenizdeki denetleyin [Azure durum Panosu](https://azure.microsoft.com/status/). Her hizmetin durumunu bölgeye göre listelenir. Kümenizin bölge ve ayrıca bölgeler ilgili tüm hizmetler için denetleyin.
 
 #### <a name="check-azure-service-usage-limits"></a>Azure hizmeti kullanım limitlerini denetleme
 

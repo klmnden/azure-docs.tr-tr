@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0b8d408482f1f6e2bcd25182208a46d28f7b4f7a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 3cd34bf67b0d796af71036e7d14834a061803973
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633047"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628093"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>HDInsight, Apache Hadoop için .NET SDK kullanarak Apache Sqoop işleri çalıştırma
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -24,12 +24,11 @@ ms.locfileid: "51633047"
 
 > [!NOTE]
 > Bu makalede yer alan yordamları bir Windows tabanlı veya Linux tabanlı HDInsight kümesi ile birlikte kullanabilirsiniz, ancak yalnızca bir Windows istemcisinden çalışırlar. Diğer yöntemleri seçmek için bu makalenin başında sekme seçicisini kullanın.
-> 
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdaki öğe olmalıdır:
 
-* Bir HDInsight Hadoop kümesinde. Daha fazla bilgi için [bir küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* HDInsight, Apache Hadoop kümesi. Daha fazla bilgi için [bir küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 ## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>.NET SDK ile HDInsight kümelerinde Sqoop'u kullanma
 Böylece .NET HDInsight kümeleriyle çalışmak daha kolay HDInsight .NET SDK'sı .NET istemci kitaplıkları sağlar. Bu bölümde hivesampletable, bu öğreticide daha önce oluşturduğunuz Azure SQL veritabanı tablosuna dışarı aktarmak için bir C# konsol uygulaması oluşturun.
@@ -111,14 +110,14 @@ Böylece .NET HDInsight kümeleriyle çalışmak daha kolay HDInsight .NET SDK's
 ## <a name="limitations"></a>Sınırlamalar
 Linux tabanlı HDInsight aşağıdaki sınırlamalar sunar:
 
-* Toplu dışarı aktarma: Microsoft SQL Server veya Azure SQL veritabanı için verileri dışarı aktarmak için kullanılan Sqoop Bağlayıcısı şu anda toplu eklemeler desteklemiyor.
+* Toplu dışarı aktarın: Microsoft SQL Server veya Azure SQL veritabanı için verileri dışarı aktarmak için kullanılan Sqoop bağlayıcı toplu ekleme şu anda desteklemiyor.
 
-* Toplu işleme: kullanarak `-batch` ne zaman geçiş ekler gerçekleştirir, Sqoop, birden çok eklemeleri toplu INSERT işlemler yerine gerçekleştirir.
+* Toplu işleme: Kullanarak `-batch` anahtarı, Sqoop, toplu INSERT işlemler yerine birden çok ekler gerçekleştirir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Artık Sqoop kullanmayı öğrendiniz. Daha fazla bilgi için bkz:
 
-* [HDInsight ile Oozie kullanma](../hdinsight-use-oozie.md): bir Oozie iş akışının kullanım Sqoop eylem.
-* [HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](../hdinsight-analyze-flight-delay-data.md): uçuş çözümlemek için Hive kullanma gecikme veri ve Sqoop kullanarak Azure SQL veritabanına veri dışarı aktarmak için kullanın.
+* [HDInsight ile Apache Oozie kullanma](../hdinsight-use-oozie.md): İçinde bir Oozie iş akışının Sqoop eylemini kullanın.
+* [HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](../hdinsight-analyze-flight-delay-data.md): Uçuş gecikme verilerini çözümleme için Apache Hive'ı kullanın ve ardından bir Azure SQL veritabanına veri dışarı aktarmak için Sqoop kullanma.
 * [HDInsight için verileri karşıya](../hdinsight-upload-data.md): HDInsight veya Azure Blob depolamaya veri yüklemek için diğer yöntemler bulun.
 

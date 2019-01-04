@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2018
+ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: a770c88b294de24eb9e0f482681038e4d36b1d6f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 05f198aa869bbff121d438688aaee89a292516c1
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874609"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807985"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack için VPN gateway yapılandırma ayarları
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Bir VPN ağ geçidi, sanal ağınızda Azure Stack ve uzak bir VPN ağ geçidi arasında şifrelenmiş trafik gönderen sanal ağ geçidi türüdür. Uzak VPN ağ geçidi, Azure, veri merkezinizde bir cihaz veya başka bir sitedeki bir cihaz olabilir.  İki uç nokta ağ bağlantısı varsa, iki ağ arasında güvenli bir siteden siteye (S2S) VPN bağlantısı kurabilirsiniz.
+Bir VPN ağ geçidi, sanal ağınızda Azure Stack ve uzak bir VPN ağ geçidi arasında şifrelenmiş trafik gönderen sanal ağ geçidi türüdür. Uzak VPN ağ geçidi, Azure, veri merkezinizde bir cihaz veya bir cihazda başka bir site olabilir. İki uç nokta ağ bağlantısı varsa, iki ağ arasında güvenli bir siteden siteye (S2S) VPN bağlantısı kurabilirsiniz.
 
 Bir VPN ağ geçidi bağlantısı, her biri yapılandırılabilir ayarlar içeren yapılandırmasına birden çok kaynak kullanır. Bu makalede Resource Manager dağıtım modelinde oluşturulan sanal ağ için bir VPN ağ geçidi ile ilgili ayarlar ve kaynaklar açıklanır. Her bağlantı çözüm için açıklamalar ve topoloji diyagramlarını bulabilirsiniz [Azure Stack için VPN Gateway hakkında](azure-stack-vpn-gateway-about-vpn-gateways.md).
 
@@ -35,7 +35,7 @@ Bir VPN ağ geçidi bağlantısı, her biri yapılandırılabilir ayarlar içere
 
 Her Azure Stack sanal ağ türü olması gereken tek bir sanal ağ geçidi, destekliyor **Vpn**.  Bu destek ek türlerini destekler Azure'dan farklıdır.  
 
-Bir sanal ağ geçidi oluştururken, ağ geçidi türünü yapılandırmanız için doğru olduğundan emin olmanız gerekir. Bir VPN ağ geçidi gerektirir `-GatewayType Vpn`, örneğin:
+Bir sanal ağ geçidi oluşturduğunuzda ağ geçidi türünü yapılandırmanız için doğru olduğundan emin olmanız gerekir. Bir VPN ağ geçidi gerektirir `-GatewayType Vpn`bayrak; örneğin:
 
 ```PowerShell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -45,11 +45,11 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 ### <a name="gateway-skus"></a>Ağ geçidi SKU'ları
 
-Bir sanal ağ geçidi oluşturduğunuzda, kullanmak istediğiniz ağ geçidi SKU’sunu belirtmeniz gerekir. İş yükü, aktarım hızı, özellik ve SLA türlerine bağlı olarak gereksinimlerinize uyan SKU'ları seçin.
+Bir sanal ağ geçidi oluşturduğunuzda, kullanmak istediğiniz SKU ağ geçidi belirtmeniz gerekir. İş yükü, aktarım hızı, özellik ve SLA türlerine bağlı olarak gereksinimlerinize uyan SKU'ları seçin.
 
 Azure Stack, VPN ağ geçidi SKU'ları aşağıdaki tabloda gösterilen sunar.
 
-|   | VPN Gateway performansı |VPN Gateway maks. IPSec tünelleri |
+|   | VPN gateway performansı |VPN ağ geçidi en fazla IPSec tüneli |
 |-------|-------|-------|
 |**Temel SKU**  | 100 Mbps  | 10    |
 |**Standart SKU**           | 100 Mbps  | 10    |
@@ -65,11 +65,11 @@ Benzer şekilde, Azure Stack (VpnGw1, VpnGw2 ve VpnGw3) Azure tarafından destek
 
 #### <a name="azure-stack-portal"></a>Azure Stack portalı
 
-Resource Manager sanal ağ geçidi oluşturmak için Azure Stack portalını kullanıyorsanız, açılan listeyi kullanarak ağ geçidi SKU'sunu seçebilirsiniz. İle sunulan seçenekler, seçtiğiniz VPN türü ve ağ geçidi türü için karşılık gelir.
+Resource Manager sanal ağ geçidi oluşturmak için Azure Stack portalını kullanıyorsanız, açılan listeyi kullanarak ağ geçidi SKU'sunu seçebilirsiniz. Seçenekler, seçtiğiniz VPN türü ve ağ geçidi türü için karşılık gelir.
 
 #### <a name="powershell"></a>PowerShell
 
-Aşağıdaki PowerShell örneği belirtir **- GatewaySku** VpnGw1 olarak.
+Aşağıdaki PowerShell örneği belirtir **- GatewaySku** olarak `VpnGw1`:
 
 ```PowerShell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -83,31 +83,31 @@ Resource Manager dağıtım modelinde, her yapılandırma bir özel sanal ağ ge
 
 * IPsec
 
-Aşağıdaki PowerShell örneği, IPSec bağlantı türü gerektiren bir S2S bağlantısı oluşturulur.
+   Aşağıdaki PowerShell örneği, IPSec bağlantı türü gerektiren bir S2S bağlantısı oluşturulur:
 
-```PowerShell
-New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
--Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
--ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-```
+   ```PowerShell
+   New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg
+   -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local
+   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   ```
 
 ### <a name="vpn-types"></a>VPN türleri
 
-VPN ağ geçidi yapılandırması için sanal ağ geçidi oluşturduğunuzda, bir VPN türünü belirtmeniz gerekir. Oluşturmak istediğiniz bağlantı topolojisine seçtiğiniz VPN türüne bağlıdır.  Bir VPN türü, ayrıca kullandığınız donanımda bağlı olabilir. S2S yapılandırmaları bir VPN cihazı gerektirir. Bazı VPN cihazlarının yalnızca belirli bir VPN türünü destekler.
+VPN ağ geçidi yapılandırması için sanal ağ geçidi oluşturduğunuzda, bir VPN türünü belirtmeniz gerekir. Oluşturmak istediğiniz bağlantı topolojisine seçtiğiniz VPN türüne bağlıdır. Bir VPN türü, ayrıca kullandığınız donanımda bağlı olabilir. S2S yapılandırmaları bir VPN cihazı gerektirir. Bazı VPN cihazlarının yalnızca belirli bir VPN türünü destekler.
 
 > [!IMPORTANT]  
 > Şu anda, Azure Stack, yalnızca rota tabanlı VPN türünü destekler. Cihazınız yalnızca ilke tabanlı VPN'ler destekliyorsa, Azure Stack bu cihazlara bağlantılarından sonra desteklenmez.  
 >
-> Ayrıca, özel IPSec/IKE İlkesi yapılandırmalarını desteklenmediğinden Azure Stack ilke tabanlı trafik seçicileri için rota tabanlı ağ geçitleri şu anda kullanarak desteklemiyor.
+> Özel IPSec/IKE İlkesi yapılandırmalarını desteklenmediği için Ayrıca, Azure Stack ilke tabanlı trafik seçicileri için rota tabanlı ağ geçitleri şu anda kullanma desteği olmamasıdır.
 
-* **PolicyBased**: İlke tabanlı VPN'ler şifreler ve doğrudan şirket içi ağınız ve Azure Stack Vnet'iniz arasında adres öneklerinin birleşimleriyle yapılandırılmış IPSec ilkeleri temelindeki IPSec tüneller üzerinden paketleri. İlke veya trafik Seçici, genellikle VPN cihazı yapılandırmasında bir erişim listesi olduğu.
+* **PolicyBased**: İlke tabanlı VPN'ler şifreler ve şirket içi ağınız ve Azure Stack Vnet'iniz arasında adres öneklerinin birleşimleriyle yapılandırılmış IPSec ilkeleri temelindeki IPSec tüneller üzerinden paketleri doğrudan. İlke veya trafik Seçici, genellikle VPN cihazı yapılandırmasında bir erişim listesi olduğu.
 
   >[!NOTE]
-  >Azure, ancak Azure stack'teki PolicyBased desteklenir.
+  >**PolicyBased** azure'da ve Azure stack'teki desteklenir.
 
-* **RouteBased**: paketleri kendi ilgili arabirimlerine yönlendirmek için iletme veya yönlendirme tablosu IP yapılandırılmış RouteBased Vpn'lere kullanma yolları. Bundan sonra tünel arabirimleri, paketleri tünellerin içinde veya dışında şifreler veya şifrelerini çözer. İlke veya trafik Seçici, RouteBased VPN için herhangi bir ağdan herhangi olarak yapılandırılır (veya joker karakterler kullanın.) Varsayılan olarak, bunlarda değişiklik yapılamaz. RouteBased VPN türü için değer RouteBased ' dir.
+* **RouteBased**: RouteBased VPN IP iletme veya yönlendirme tablosuna paketleri kendi ilgili arabirimlerine yapılandırılan yollar kullanın. Bundan sonra tünel arabirimleri, paketleri tünellerin içinde veya dışında şifreler veya şifrelerini çözer. İlke veya trafik Seçici için **RouteBased** VPN'ler herhangi bir ağdan herhangi olarak yapılandırılır (veya joker karakterler kullanın.) Varsayılan olarak, bunlarda değişiklik yapılamaz. Değeri bir **RouteBased** VPN türü **RouteBased**.
 
-Aşağıdaki PowerShell örneği belirtir **- VpnType** RouteBased olarak. Bir ağ geçidi oluştururken, emin olmanız gerekir **- VpnType** yapılandırmanız için doğru olduğundan.
+Aşağıdaki PowerShell örneği belirtir **- VpnType** olarak **RouteBased**. Bir ağ geçidi oluşturduğunuzda, emin olmanız gerekir **- VpnType** yapılandırmanız için doğru olduğundan.
 
 ```PowerShell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -128,7 +128,7 @@ Aşağıdaki tabloda, VPN ağ geçitleri için gereksinimler listelenmektedir.
 
 ### <a name="gateway-subnet"></a>Ağ geçidi alt ağı
 
-Bir VPN ağ geçidi oluşturmadan önce bir ağ geçidi alt ağı oluşturmanız gerekir. Ağ geçidi alt ağı sanal ağ geçidi Vm'lerini ve hizmetlerini kullanan IP adresleri bulunur. Sanal ağ geçidinizi oluştururken, ağ geçidi Vm'leri ağ geçidi alt ağına dağıtılır ve gerekli VPN ağ geçidi ayarlarla yapılandırılır. **Yoksa** başka bir şey (örneğin, ek VM'ler) ağ geçidi alt ağına dağıtın.
+Bir VPN ağ geçidi oluşturmadan önce bir ağ geçidi alt ağı oluşturmanız gerekir. Ağ geçidi alt ağı sanal ağ geçidi Vm'lerini ve hizmetlerini kullanan IP adresleri bulunur. Sanal ağ geçidinizi oluştururken, ağ geçidi Vm'leri ağ geçidi alt ağına dağıtılır ve gerekli VPN ağ geçidi ayarlarla yapılandırılır. Başka bir şey (örneğin, ek VM'ler) ağ geçidi alt ağına dağıtmayın.
 
 >[!IMPORTANT]
 >Ağ geçidi alt ağı düzgün çalışması için **GatewaySubnet** şeklinde adlandırılmalıdır. Azure Stack, sanal ağ geçidi Vm'leri ve Hizmetleri dağıtmak için alt ağı belirlerken bu adı kullanır.
@@ -137,18 +137,18 @@ Ağ geçidi alt ağı oluştururken, alt ağın içerdiği IP adresi sayısını
 
 Ayrıca, ağ geçidi alt ağınızı gelecekteki ek yapılandırmalar işlemek için yeterli IP adresi olduğundan emin olmanız gerekir. / 29 kadar küçük bir ağ geçidi alt ağı oluşturabilirsiniz, ancak bir ağ geçidi alt ağı/28'lik veya daha büyük (/ 28, / 27, / 26 vb..) oluşturduğunuz öneririz İşlevselliğini gelecekte eklerseniz bu şekilde, geçidinizi yıkılıp sonra silin ve daha fazla IP adresi için izin vermek için ağ geçidi alt ağı oluşturmanız gerekmez.
 
-Resource Manager PowerShell aşağıdaki örnek GatewaySubnet adlı bir ağ geçidi alt ağı gösterir. Şu anda mevcut çoğu yapılandırma için yeterli IP adresi izin veren bir/27 CIDR gösterimini belirtir görebilirsiniz.
+Aşağıdaki Resource Manager PowerShell örnek adlı bir ağ geçidi alt ağı gösterir **GatewaySubnet**. Şu anda mevcut çoğu yapılandırma için yeterli IP adresi izin veren bir/27 CIDR gösterimini belirtir görebilirsiniz.
 
 ```PowerShell
 Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
 > [!IMPORTANT]
-> Ağ geçidi alt ağlarıyla çalışırken, ağ güvenlik grubunu (NSG) ağ geçidi alt ağıyla ilişkilendirmekten kaçının. Ağ güvenlik grubunun bu alt ağ ile ilişkilendirilmesi, VPN Gateway’inizin beklendiği gibi çalışmayı durdurmasına neden olabilir. Ağ güvenlik grupları hakkında daha fazla bilgi için bkz. [bir ağ güvenlik grubu nedir?](/azure/virtual-network/virtual-networks-nsg).
+> Ağ geçidi alt ağlarıyla çalışırken, ağ güvenlik grubunu (NSG) ağ geçidi alt ağıyla ilişkilendirmekten kaçının. Bu alt ağ için ağ güvenlik grubu ilişkilendirilmesi, VPN gateway'inizin biklendiği gibi çalışmayı durdurmasına neden olabilir. Ağ güvenlik grupları hakkında daha fazla bilgi için bkz. [bir ağ güvenlik grubu nedir?](../virtual-network/virtual-networks-nsg.md).
 
 ### <a name="local-network-gateways"></a>Yerel ağ geçidi geçitleri
 
-Bir VPN ağ geçidi yapılandırması Azure'da oluştururken, yerel ağ geçidi genellikle şirket içi konumunuzu temsil eder. Azure Stack'te Azure Stack dışında yer alan uzak VPN cihazı temsil eder. Bu, veri merkezinizi (veya uzak bir veri merkezinde) bir VPN cihazı ya da Azure VPN ağ geçidi olabilir.
+Bir VPN ağ geçidi yapılandırması Azure'da oluştururken, yerel ağ geçidi genellikle şirket içi konumunuzu temsil eder. Azure Stack'te Azure Stack dışında yer alan herhangi bir uzak VPN cihazı temsil eder. Bu, veri merkezinizi (veya uzak bir veri merkezinde) bir VPN cihazı ya da Azure VPN ağ geçidi olabilir.
 
 Yerel ağ geçidi VPN cihazının genel IP adresini bir ad verip şirket içi konum olan adres öneklerini belirtirsiniz. Azure ağ trafiği için hedef adres öneklerine bakar, yerel ağ geçidiniz için belirttiğiniz yapılandırma bakar ve paketleri buna göre yönlendirir.
 
@@ -159,11 +159,11 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
-Bazen yerel ağ geçidi ayarlarını değiştirmeniz gerekir. Örneğin, eklediğinizde veya adres aralığını değiştirmek veya VPN cihazının IP adresi değişirse. Bkz: [PowerShell kullanarak yerel ağ geçidi ayarlarını değiştirme](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway).
+Bazen yerel ağ geçidi ayarlarını değiştirmeniz gerekir; Örneğin, eklediğinizde veya adres aralığını değiştirmek veya VPN cihazının IP adresi değişirse. Bkz: [PowerShell kullanarak yerel ağ geçidi ayarlarını değiştirme](../vpn-gateway/vpn-gateway-modify-local-network-gateway.md).
 
 ## <a name="ipsecike-parameters"></a>IPSec/IKE parametreleri
 
-Azure Stack'te bir VPN bağlantısı ayarladığınızda, her iki uçta da bağlantı yapılandırmanız gerekir.  Azure Stack ve bir anahtar veya bir VPN ağ geçidi olarak görev yapan yönlendirici gibi bir donanım aygıtı arasında bir VPN bağlantısı yapılandırıyorsanız, bu cihaz için ek ayarlar isteyebilir.
+Azure Stack'te bir VPN bağlantısı ayarladığınızda, her iki uçta da bağlantı yapılandırmanız gerekir. Azure Stack ve bir anahtar veya bir VPN ağ geçidi olarak görev yapan yönlendirici gibi bir donanım cihazı arasında bir VPN bağlantısı yapılandırıyorsanız, bu cihaz için ek ayarlar isteyebilir.
 
 Birden çok teklife destekleyen hem Başlatıcı hem de bir Yanıtlayıcı olarak Azure, Azure Stack, yalnızca bir teklif destekler.
 
@@ -189,8 +189,8 @@ Birden çok teklife destekleyen hem Başlatıcı hem de bir Yanıtlayıcı olara
 |Kusursuz İletme Gizliliği (PFS) |Hiçbiri<sup>bkz. Not 1</sup> |
 |Kullanılmayan Eş Algılama | Desteklenen|  
 
-* *1. Not:* 1807 sürüm öncesinde, Azure Stack değeri PFS2048, Perfect Forward Secrecy (PFS için) kullanır.
+* *Not 1:*  Sürüm 1807 önce Azure Stack değeri PFS2048, Perfect Forward Secrecy (PFS için) kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[ExpressRoute kullanarak bağlanma](azure-stack-connect-expressroute.md)
+- [ExpressRoute kullanarak bağlanma](azure-stack-connect-expressroute.md)

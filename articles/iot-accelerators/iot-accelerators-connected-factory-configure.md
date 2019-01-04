@@ -1,5 +1,5 @@
 ---
-title: Bağlı Fabrika topolojisini yapılandırma | Microsoft Docs
+title: Bağlı Fabrika topolojisi - Azure'ı yapılandırma | Microsoft Docs
 description: Bağlı Fabrika çözüm Hızlandırıcısını topolojisi yapılandırılır.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 8cb3cae396016545c5d78a2ff7ccde4a053c4cf1
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746988"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602282"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Bağlı Fabrika çözüm Hızlandırıcısını yapılandırın
 
@@ -85,7 +85,7 @@ Aşağıdaki kod parçacığı bir özetini gösterir `ContosoTopologyDescriptio
 }
 ```
 
-Ortak özelliklerini `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, ve `<station_configuration>` şunlardır:
+Ortak özelliklerini `<global_configuration>`, `<factory_configuration>`, `<production_line_configuration>`, ve `<station_configuration>` şunlardır:
 
 * **Ad** (dizeyi yazın)
 
@@ -282,7 +282,7 @@ Bağlı Fabrika simülasyonu için OEE/KPI rakamları tarafından parametre hali
 * Hesaplamaya dahil edilecek OPC UA düğüm değerleri.
 * Şekil, telemetri değerleri nasıl hesaplanır.
 
-Bağlı fabrika tarafından yayınlanan olarak OEE formülleri kullanır http://www.oeefoundation.org.
+Bağlı fabrika tarafından yayınlanan olarak OEE formülleri kullanır https://www.oeefoundation.org.
 
 OPC UA düğüm nesneleri istasyon OEE/KPI hesaplamada kullanım için etiketleme etkinleştirin. **İlgi** özelliği için hangi OEE/KPI şekil OPC UA düğüm değerinin kullanılması gerektiğini belirtir. **OpCode** özelliği tanımlayan değer hesaplamanın nasıl dahildir.
 
@@ -309,7 +309,7 @@ Son değer görselleştirme veya zaman serisi görüşleri sorgular oluşturma g
 
 Denetleme [bu](https://github.com/Azure/iot-edge-opc-publisher) telemetri veri Fabrikasına bağlı OPC yayımcısını kullanma nasıl alınır hakkında daha fazla bilgi için GitHub sayfası.
 
-## <a name="example-how-kpi1-is-calculated"></a>Örnek: KPI1 hesaplanan
+## <a name="example-how-kpi1-is-calculated"></a>Örnek: KPI1 nasıl hesaplanır
 
 Yapılandırmada `ContosoTopologyDescription.json` dosya denetimleri OEE/KPI rakamları nasıl hesaplanır. Aşağıdaki örnek, bu dosyanın özelliklerinde KPI1 hesaplama nasıl kontrol gösterir.
 

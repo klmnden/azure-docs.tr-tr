@@ -1,36 +1,36 @@
 ---
-title: Azure Cosmos DB MongoDB API'si için genel dağıtım Öğreticisi
-description: Azure Cosmos DB için MongoDB API'sini kullanarak Azure Cosmos DB genel dağıtımını ayarlama konusunda bilgi edinin.
+title: MongoDB kullanarak Azure Cosmos DB'nin genel dağıtım Öğreticisi
+description: MongoDB kullanarak Azure Cosmos DB'nin genel dağıtımını ayarlama konusunda bilgi edinin.
 services: cosmos-db
 keywords: genel dağıtım, MongoDB
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: tutorial
-ms.date: 05/10/2017
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: mvc
-ms.openlocfilehash: 2473d6f16c4464352c2b9def3e451f8dcf1cdf63
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a5bcfcac891a80807a15657a91eb44df1921f7ee
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53717007"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787198"
 ---
-# <a name="set-up-azure-cosmos-db-global-distribution-using-the-azure-cosmos-db-for-mongodb-api"></a>Azure Cosmos DB için MongoDB API'sini kullanarak Azure Cosmos DB genel dağıtımını ayarlama
+# <a name="set-up-global-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB'nin MongoDB kullanarak küresel dağıtılmış veritabanı ayarlama
 
-Bu makalede, Azure portalında Azure Cosmos DB genel dağıtımını ayarlama ve sonra Azure Cosmos DB için MongoDB API'sini kullanarak bağlanma nasıl kullanılacağını göstereceğiz.
+Bu makalede, global olarak dağıtılmış bir veritabanı kurulumu ve bunu Azure Cosmos DB'nin MongoDB kullanarak bağlanmak için Azure portalını kullanmayı göstereceğiz.
 
 Bu makale aşağıdaki görevleri kapsar: 
 
 > [!div class="checklist"]
 > * Azure portalını kullanarak genel dağıtımı yapılandırma
-> * Kullanarak genel dağıtımı yapılandırma [Azure Cosmos DB MongoDB API'si için](mongodb-introduction.md)
+> * Kullanarak genel dağıtımı yapılandırma [Azure Cosmos DB'nin MongoDB API'si](mongodb-introduction.md)
 
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 ## <a name="verifying-your-regional-setup"></a>Bölgesel kurulumunuzu doğrulama 
-MongoDB API’sindeki genel yapılandırmanızı iki kez denetlemenin en basit yolu, Mongo Kabuğundan *isMaster()* komutunu çalıştırmaktır.
+MongoDB çalıştırmak için genel yapılandırmayı Cosmos DB API'si ile denetlemek için basit bir yol *isMaster()* Mongo kabuğundan komutu.
 
 Mongo Kabuğunuzdan:
 
@@ -66,7 +66,7 @@ Mongo Kabuğunuzdan:
 
 ## <a name="connecting-to-a-preferred-region"></a>Tercih edilen bir bölgeye bağlanma 
 
-Azure Cosmos DB MongoDB API'si için global olarak dağıtılmış bir veritabanı için koleksiyonunuzun okuma tercihini belirtmenize olanak sağlar. Hem düşük gecikmeli okumalar hem de genel yüksek kullanılabilirlik için, koleksiyonunuzun okuma tercihini *en yakın* olarak ayarlamanızı öneririz. En yakın bölgeden okumak için *en yakın* okuma tercihi yapılandırılır.
+Azure Cosmos DB MongoDB API'si, Global olarak dağıtılmış bir veritabanı için koleksiyonunuzun okuma tercihini belirtmenize olanak sağlar. Hem düşük gecikmeli okumalar hem de genel yüksek kullanılabilirlik için, koleksiyonunuzun okuma tercihini *en yakın* olarak ayarlamanızı öneririz. En yakın bölgeden okumak için *en yakın* okuma tercihi yapılandırılır.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
@@ -96,9 +96,9 @@ Bu öğreticide aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
 > * Azure portalını kullanarak genel dağıtımı yapılandırma
-> * SQL API’lerini kullanarak genel dağıtımı yapılandırma
+> * Cosmos DB'nin MongoDB kullanarak genel dağıtımı yapılandırma
 
 Artık Azure Cosmos DB yerel öykünücüsünü kullanarak yerel olarak geliştirme konusunda bilgi almak için sonraki öğreticiye geçebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Öykünücü ile yerel olarak geliştirme](local-emulator.md)
+> [Azure Cosmos DB öykünücüsü ile yerel olarak geliştirme](local-emulator.md)

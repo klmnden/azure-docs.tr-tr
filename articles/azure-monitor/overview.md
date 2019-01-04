@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: bwren
-ms.openlocfilehash: 160078787d28f43ef800d25c8b50fb316b38944f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: f1125c9d0ce543984393c99d70d511a3a162041e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436186"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975194"
 ---
 # <a name="azure-monitor-overview"></a>Azure İzleyiciye Genel Bakış
 
@@ -39,9 +39,7 @@ Birçok Azure kaynağı için kendi genel bakış sayfasında Azure portalında 
 
 ![Ölçümler](media/overview/metrics.png)
 
-<<<<<<< Baş günlük verilerini Azure İzleyici tarafından toplanan analiz ile [sorguları](log-query/log-query-overview.md) , hızlı bir şekilde almak, birleştirmek ve toplanan verileri analiz edin.  Oluşturma ve test sorguları kullanarak [günlük analizi](../log-analytics/log-analytics-log-search-portals.md) Azure portalında ve ardından ya da doğrudan bu araçları kullanarak verileri analiz etmek veya ile kullanmak için sorguları Kaydet [görselleştirmeler](visualizations.md) veya [Uyarısı kuralları](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
-=== Azure İzleyici tarafından toplanan günlük verilerini içeren Log Analytics'e depolanan bir [zengin sorgu dili](../azure-monitor/log-query/log-query-overview.md) hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek için.  Oluşturma ve test sorguları kullanarak [Log Analytics sayfa](../azure-monitor/log-query/portals.md) ile kullanılmak üzere sorguları kaydedebilir ya da doğrudan Azure portalını sonra da bu araçları kullanarak verileri analiz ederek [görselleştirmeler](visualizations.md) veya [ Uyarı kuralları](../azure-monitor/platform/alerts-overview.md).
->>>>>>> 98b6f1655e9ada6d4b6a408ada0f1e4c9ed727d2
+Azure İzleyici tarafından toplanan günlük verilerini içeren Log Analytics'e depolanan bir [zengin sorgu dili](../azure-monitor/log-query/log-query-overview.md) hızlı bir şekilde almak, birleştirmek ve toplanan verileri çözümlemek için.  Oluşturma ve test sorguları kullanarak [Log Analytics sayfa](../azure-monitor/log-query/portals.md) ile kullanılmak üzere sorguları kaydedebilir ya da doğrudan Azure portalını sonra da bu araçları kullanarak verileri analiz ederek [görselleştirmeler](visualizations.md) veya [ Uyarı kuralları](../azure-monitor/platform/alerts-overview.md).
 
 Azure İzleyici, bir sürümünü kullanan [Veri Gezgini sorgu dili](/azure/kusto/query/) , uygun basit günlük sorgular ancak toplamalar, birleştirmeler ve akıllı analiz gibi gelişmiş işlevleri de içerir. Sorgu dilini kullanarak hızla edinebilirsiniz [birden çok dersleri](log-query/get-started-queries.md).  [SQL](log-query/sql-cheatsheet.md) ve [Splunk](log-query/splunk-cheatsheet.md)’u önceden bilen kullanıcılara belirli yönergeler sağlanır.
 
@@ -56,11 +54,11 @@ Azure İzleyici, çeşitli kaynaklardan veri toplayabilir. Uygulamanız, herhang
 - **İzleme verileri bir azure aboneliği**: Azure işlem ve sistem durumu hakkında veriler yanı sıra, işlem ve bir Azure aboneliğinin yönetim verileri kendisini. 
 - **İzleme verileri bir azure kiracısı**: Azure Active Directory gibi Azure hizmetlerinin Kiracı düzeyinde çalışması hakkında veriler.
 
-Bir Azure aboneliği ve sanal makineler ve web uygulamaları gibi kaynakları eklemeye başlayın oluşturduğunuz hemen sonra Azure İzleyici, veri toplamaya başlar.  [Etkinlik günlükleri](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) kaynakları, oluşturulacak veya değiştirilecek kayıt. [Ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md) kaynak nasıl performans gösterdiğini ve onu kullanan kaynakları söyleyin. 
+Bir Azure aboneliği ve sanal makineler ve web uygulamaları gibi kaynakları eklemeye başlayın oluşturduğunuz hemen sonra Azure İzleyici, veri toplamaya başlar.  [Etkinlik günlükleri](../azure-monitor/platform/activity-logs-overview.md) kaynakları, oluşturulacak veya değiştirilecek kayıt. [Ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md) kaynak nasıl performans gösterdiğini ve onu kullanan kaynakları söyleyin. 
 
-Gerçek işlem kaynakları tarafından içine toplama verileri genişletmek [tanılamayı etkinleştirme](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) ve [aracı ekleme](platform/agent-windows.md) işlem kaynakları için. Bu kaynağın iç işlem için telemetri toplar ve yapılandırmak farklı izin [veri kaynakları](platform/agent-data-sources.md) Windows ve Linux konuk işletim sisteminden günlükleri ve ölçümleri toplamak için. 
+Gerçek işlem kaynakları tarafından içine toplama verileri genişletmek [tanılamayı etkinleştirme](../azure-monitor/platform/diagnostic-logs-overview.md) ve [aracı ekleme](platform/agent-windows.md) işlem kaynakları için. Bu kaynağın iç işlem için telemetri toplar ve yapılandırmak farklı izin [veri kaynakları](platform/agent-data-sources.md) Windows ve Linux konuk işletim sisteminden günlükleri ve ölçümleri toplamak için. 
 
-[Bir izleme paketi uygulamanıza eklemek](../application-insights/app-insights-azure-web-apps.md), sayfa görüntülemeleri, uygulama isteklerini ve özel durumlar dahil olmak üzere, uygulamanız hakkında ayrıntılı bilgi toplamak Application ınsights'ı etkinleştirmek için. Daha fazla yapılandırarak uygulamanızın kullanılabilirliğini doğrulayın bir [kullanılabilirlik testi](../application-insights/app-insights-monitor-web-app-availability.md) kullanıcı trafiğinin benzetimini yapmak için.
+[Bir izleme paketi uygulamanıza eklemek](../azure-monitor/app/azure-web-apps.md), sayfa görüntülemeleri, uygulama isteklerini ve özel durumlar dahil olmak üzere, uygulamanız hakkında ayrıntılı bilgi toplamak Application ınsights'ı etkinleştirmek için. Daha fazla yapılandırarak uygulamanızın kullanılabilirliğini doğrulayın bir [kullanılabilirlik testi](../azure-monitor/app/monitor-web-app-availability.md) kullanıcı trafiğinin benzetimini yapmak için.
 
 ### <a name="custom-sources"></a>Özel kaynaklar
 Azure İzleyicisi'ni kullanarak herhangi bir REST istemcisinden günlük verilerini toplayabilir [veri toplayıcı API'sini](../azure-monitor/platform/data-collector-api.md). Bu, özel izleme senaryoları oluşturmanıza ve diğer kaynakları aracılığıyla telemetri sunmayın kaynaklara izleme genişletmek sağlar.
@@ -131,7 +129,7 @@ Otomatik ölçeklendirme, uygulamanızın üzerindeki yükü işlemek için çal
 Genellikle, Azure İzleyici diğer sistemlerle tümleştirmek için ve izleme verilerinizi kullanan özel çözümler oluşturmak için gereksinim sahip olacaksınız. Bu tümleştirme sağlamak için Azure İzleyici ile diğer Azure hizmetleriyle çalışır.
 
 ### <a name="event-hub"></a>Olay Hub'ı
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) , dönüştürme ve herhangi bir gerçek zamanlı analiz sağlayıcısı veya toplu işleme/depolama bağdaştırıcısı kullanarak verileri depolama bir akış platformu ve olay alma hizmetidir. Event Hubs kullanan [akış günlük verilerini Azure İzleyici](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) ortak SIEM ve izleme araçları için.
+[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) , dönüştürme ve herhangi bir gerçek zamanlı analiz sağlayıcısı veya toplu işleme/depolama bağdaştırıcısı kullanarak verileri depolama bir akış platformu ve olay alma hizmetidir. Event Hubs kullanan [akış günlük verilerini Azure İzleyici](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) ortak SIEM ve izleme araçları için.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 

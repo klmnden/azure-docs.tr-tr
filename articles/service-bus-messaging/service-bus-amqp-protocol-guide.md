@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 04588d0af0f85a9e69f44e82d01294c2a4440abc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 70f07b3925eb91d91dfbd623f8f1611ac31a1b6f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961153"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542518"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 protokol Kılavuzu Azure Service Bus ve Event Hubs
 
@@ -264,7 +264,7 @@ Bir işlem, iki veya daha fazla işlem yürütme kapsam birleştirerek grupland�
 
 #### <a name="starting-a-transaction"></a>Bir işlem başlatılıyor
 
-İşlem işe başlamak için. Denetleyici almalısınız bir `txn-id` Düzenleyicisi'nden. Bunu göndererek yapar bir `declare` iletiyi yazın. Bildirim Düzenleyicisi ile bir değerlendirme sonucu, yanıt başarılı olursa, izleme atanan `txn-id`.
+İşlem işe başlamak için. Denetleyici almalısınız bir `txn-id` Düzenleyicisi'nden. Bunu göndererek yapar bir `declare` iletiyi yazın. Bildirimi başarılı olursa Düzenleyici atanan taşıyan bir değerlendirme sonucu ile yanıt veren `txn-id`.
 
 | İstemci (denetleyicisi) | | Hizmet veri yolu (Düzenleyicisi) |
 | --- | --- | --- |
@@ -351,7 +351,7 @@ AMQP'ın SASL tümleştirme iki engelleri vardır:
 * Tüm kimlik bilgilerini ve belirteçleri bağlantı belirlenir. Varlık başına temelinde fark yaratan bir erişim denetimi sağlamak bir Mesajlaşma altyapısıdır isteyebilirsiniz; Örneğin, bir kuyruk, ancak b sıraya göndermek taşıyıcı belirteci verme Bağlantıda bağlantılı yetkilendirme bağlamı ile tek bir bağlantı ve henüz kuyruk A ve b kuyruk için farklı erişim belirteçleri kullanmak mümkün değildir
 * Erişim belirteçleri genellikle yalnızca sınırlı bir süre için geçerlidir. Bu geçerlilik belirteçleri düzenli aralıklarla yeniden almanız gerektirir ve kullanıcının erişim izinlerini değiştirilirse, yeni bir belirteç verme reddetmek için belirteci veren bir fırsat sağlar. AMQP bağlantıları, uzun süreler için son. SASL modeli yalnızca belirteç süresi dolana veya sözleşme istemcisi ile sürekli iletişim izin verme riskini kabul etmek gerekli olduğunda istemci bağlantısını kesmek için vardır ya da ileti altyapısını anlamına bağlantı zamanında bir belirteç ayarlamak için bir fırsat sağlar kimin ait erişim hakları arada iptal edilmiş.
 
-Service Bus tarafından uygulanan AMQP CBS belirtimi zarif bir geçici çözüm hem de bu sorunların sağlar: bir istemci erişim belirteçleri her düğümle ilişkilendirilecek ve, ileti akışı kesintiye uğratmadan süresi dolmadan önce bu belirteçleri güncelleştirmek için sağlar.
+Service Bus tarafından uygulanan AMQP CBS belirtimi zarif bir geçici çözüm hem de bu sorunların sağlar: Bir istemci erişim belirteçleri her düğümle ilişkilendirilecek ve, ileti akışı kesintiye uğratmadan süresi dolmadan önce bu belirteçleri güncelleştirmek için sağlar.
 
 CBS adlı bir sanal yönetim düğümü tanımlar *$cbs*, Mesajlaşma altyapısı tarafından sağlanacak. Yönetim düğümünde herhangi bir düğüm ileti altyapısındaki adına belirteçleri kabul eder.
 
@@ -374,7 +374,7 @@ Yönetim belirtimi tarafından tanımlanan istek/yanıt exchange Protokolü hare
 | amqp:swt |Basit Web belirteci (SWT) |AMQP değer (dize) |AAD/ACS tarafından verilen SWT belirteçlerini yalnızca desteklenen |
 | servicebus.Windows.NET:sastoken |Service Bus SAS belirteci |AMQP değer (dize) |- |
 
-Belirteçleri hakları confer. Service Bus hakkında üç temel hakları bilir: "Gönder" sağlayan göndermek, "Dinleme" alma sağlar ve "Yönet" çağırmanın varlıklar sağlar. AAD/ACS tarafından açıkça verilen SWT belirteçlerini talepler olarak söz konusu hakları içerir. Service Bus SAS belirteçlerini ad alanı veya varlık üzerinde yapılandırılan kuralları başvurun ve bu kurallar haklarıyla yapılandırılmış. Bu kuralla ilişkili anahtar ile belirteç imzalama böylece belirteci hızlı ilgili hakları sağlar. Bir varlık kullanmayla ilişkili belirteci *put belirteci* belirteci hakları her varlık için ile etkileşim kurmak için bağlı istemci izin verir. Burada istemci vereceğine bağlantı *gönderen* rolü gerektirir "Gönder" sağ; almayı *alıcı* rolünün "Dinleme" doğru olması gerekir.
+Belirteçleri hakları confer. Service Bus hakkında üç temel hakları bilir: Gönderme, alma, "Dinleme" etkinleştirir etkinleştirir "Gönder" ve "Yönet" çağırmanın varlıklar sağlar. AAD/ACS tarafından açıkça verilen SWT belirteçlerini talepler olarak söz konusu hakları içerir. Service Bus SAS belirteçlerini ad alanı veya varlık üzerinde yapılandırılan kuralları başvurun ve bu kurallar haklarıyla yapılandırılmış. Bu kuralla ilişkili anahtar ile belirteç imzalama böylece belirteci hızlı ilgili hakları sağlar. Bir varlık kullanmayla ilişkili belirteci *put belirteci* belirteci hakları her varlık için ile etkileşim kurmak için bağlı istemci izin verir. Burada istemci vereceğine bağlantı *gönderen* rolü gerektirir "Gönder" sağ; almayı *alıcı* rolünün "Dinleme" doğru olması gerekir.
 
 Yanıt iletisi aşağıdaki sahip *uygulama özellikleri* değerleri
 
@@ -399,7 +399,7 @@ Belirteç sona erme izlemek için daha sonra istemci sorumludur. Bir belirtecin 
 
 Bu işlevler sayesinde, bir gönderici oluşturun ve bağlantısını kurmak `via-entity`. Bağlantı kurulurken, doğru hedef iletileri/aktarımlarının bu bağlantıyı kurmak için ek bilgi geçirilir. İliştirme başarılı silindikten sonra bu bağlantıya gönderilen tüm iletiler için otomatik olarak iletilen *hedef varlık* aracılığıyla *varlık aracılığıyla*. 
 
-> Not: Her ikisi için gerçekleştirilmesi gereken kimlik doğrulaması sahip *varlık aracılığıyla* ve *hedef varlık* Bu bağlantı kurmadan önce.
+> Not: Kimlik doğrulaması sahip her ikisi için gerçekleştirilecek *varlık aracılığıyla* ve *hedef varlık* Bu bağlantı kurmadan önce.
 
 | İstemci | | Service Bus |
 | --- | --- | --- |

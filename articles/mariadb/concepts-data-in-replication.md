@@ -3,17 +3,15 @@ title: Verileri MariaDB için Azure veritabanı'na çoğaltın.
 description: Bu makalede, veri çoğaltma için Azure veritabanı MariaDB için açıklanır.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a6bb6ae45c4240f21b1e0baf4956b053d4b98720
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0a1ead1580f6764fec7d1d18daa38bf093f242f2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948188"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547618"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'na veri çoğaltma
 
@@ -22,8 +20,8 @@ Veri çoğaltma, sanal makineleri veya diğer bulut sağlayıcılarının MariaD
 ## <a name="when-to-use-data-in-replication"></a>Veri çoğaltma kullanma zamanı
 Veri çoğaltma kullanarak dikkate alınması gereken ana senaryolar şunlardır:
 
-- **Karma veri eşitleme:** verileri, daha fazla çoğaltma ile verileri MariaDB için Azure veritabanı ve şirket içi sunucular arasında eşitlenmiş kalmasını sağlayabilirsiniz. Bu eşitleme, karma uygulamalar oluşturmak için kullanışlıdır. Varolan bir yerel veritabanı sunucusuna sahip, ancak bir bölgeye yakın bir konumda son kullanıcılara verileri taşımak istediğiniz zaman bu cazip bir yöntemdir.
-- **Birden çok bulut eşitlemesi:** karmaşık bulut çözümleri, kullanım MariaDB için Azure veritabanı ile farklı bulut sağlayıcıları arasında verileri eşitleyebilmeniz için veri çoğaltma için sanal makineleri ve bu bulutlarında barındırılan veritabanı Hizmetleri dahil.
+- **Karma veri eşitleme:** Veri çoğaltma ile verileri MariaDB için Azure veritabanı ve şirket içi sunucular arasında eşitlenmiş kalmasını sağlayabilirsiniz. Bu eşitleme, karma uygulamalar oluşturmak için kullanışlıdır. Varolan bir yerel veritabanı sunucusuna sahip, ancak bir bölgeye yakın bir konumda son kullanıcılara verileri taşımak istediğiniz zaman bu cazip bir yöntemdir.
+- **Birden çok bulut eşitlemesi:** Karmaşık yapılı bulut çözümleri, veri çoğaltma MariaDB için Azure veritabanı ile sanal makineleri ve bu bulutlarında barındırılan veritabanı Hizmetleri dahil olmak üzere, farklı bulut sağlayıcıları arasında veri eşitlemek için kullanın.
 
 ## <a name="limitations-and-considerations"></a>Sınırlamalar ve önemli noktalar
 

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: aeb0dec07ef9c8fb124089c785929f4e5ce69ffe
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: ad59decab7233c74e13468b0cf0b11fdb5485d07
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871444"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722371"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>Windows tabanlı HDInsight kümelerini betik eylemi kullanarak özelleştirme
 **Betik eylemi** çağırmak için kullanılan [özel betikler](hdinsight-hadoop-script-actions.md) bir kümede ek yazılım yüklemek için küme oluşturma işlemi sırasında.
 
 Bu makaledeki bilgiler, Windows tabanlı HDInsight kümelerine özeldir. Linux tabanlı kümeler için bkz: [özelleştirme Linux tabanlı HDInsight kümelerini betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 HDInsight kümeleri özelleştirilebilir bir çeşitli diğer yöntemlerle de dahil olmak üzere ek Azure depolama hesapları, değiştirme gibi [Apache Hadoop](https://hadoop.apache.org/) yapılandırma dosyaları (core-site.xml, hive-site.xml vb.) veya paylaşılan ekleme kitaplıkları (örneğin, [Apache Hive](https://hive.apache.org/), [Apache Oozie](https://oozie.apache.org/)) kümedeki ortak konumlara. Bu özelleştirmeler, Azure PowerShell, Azure HDInsight .NET SDK veya Azure portalı yapılabilir. Daha fazla bilgi için [Apache Hadoop kümeleri oluşturma HDInsight][hdinsight-provision-cluster].
@@ -35,7 +35,7 @@ Betik eylemi, yalnızca bir küme oluşturulurken olmakla birlikte kullanılır.
 
 Komut dosyası çalıştırılırken, kümeye girdiğinde **ClusterCustomization** aşaması. Bu aşamada, betik tüm belirtilen kümedeki düğümler üzerinde paralel sistem yönetici hesabı altında çalışır ve düğümler üzerinde tam yönetici ayrıcalıkları sağlar.
 
-> [!NOTE]
+> [!NOTE]  
 > Sırasında küme düğümleri üzerinde yönetici ayrıcalıklarına sahip olduğundan **ClusterCustomization** aşama, durdurma ve başlatma Hadoop ile ilgili hizmetler gibi hizmetler gibi işlemler gerçekleştirmek için komut dosyasını kullanabilirsiniz. Bu nedenle, betiğinin bir parçası olarak çalışan betik tamamlanmadan önce Ambari Hizmetleri ve diğer Hadoop ile ilgili hizmetler ve çalışıyor olduğundan emin emin olmanız gerekir. Bu hizmetler, oluşturulurken kümesinin durumunu ve sistem durumu başarıyla onaylaması gerekir. Bu hizmetler etkiler kümedeki herhangi bir yapılandırma değiştirirseniz, sağlanan yardımcı işlevleri kullanmanız gerekir. Yardımcı işlevleri hakkında daha fazla bilgi için bkz: [HDInsight için betik eylemi geliştirme betikleri][hdinsight-write-script].
 >
 >
@@ -288,10 +288,10 @@ HDInsight hizmetinde kullanılabilir açık kaynak bileşenleri iki tür vardır
 
 Yerleşik bileşenleri tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight kümesi ile sağlanan bileşenler tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
 >
-> Özel bileşenler daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Bu sorunu çözümlemek ya da bu teknoloji için derin bir uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları etkileşim kurmak isteyen neden olabilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Özel bileşenler daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Bu sorunu çözümlemek ya da bu teknoloji için derin bir uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları etkileşim kurmak isteyen neden olabilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Apache projeleri proje siteleri de [ https://apache.org ](https://apache.org), örneğin: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 >
 >
 

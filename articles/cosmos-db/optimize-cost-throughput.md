@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 501fe1d2da89b6968f5a3619fc8e02b01b1abd7a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f0d0442a8640a75b21e95e3ae024fd7994602b51
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53263961"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53807950"
 ---
 # <a name="optimizing-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB'de aktarım hızı maliyeti en iyi duruma getirme
 
@@ -56,7 +56,7 @@ API, seçimi bağlı olarak aşağıdaki tabloda gösterildiği gibi aktarım h�
 |API|İçin **paylaşılan** aktarım hızı, yapılandırma |İçin **adanmış** aktarım hızı, yapılandırma |
 |----|----|----|
 |SQL API’si|Database|Kapsayıcı|
-|MongoDB API’si|Database|Koleksiyon|
+|Azure Cosmos DB'nin MongoDB API'si|Database|Koleksiyon|
 |Cassandra API’si|Keyspace|Tablo|
 |Gremlin API|Veritabanı hesabı|Graf|
 |Tablo API’si|Veritabanı hesabı|Tablo|

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 41c8315bab1b716f79b47afb77c6d371a757691d
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 89878b2774727d49d81ebec4c2a3c2cee355d8e8
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386452"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53743672"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Kullanılabilirliği ve güvenilirliği HDInsight Apache Hadoop kümelerini
 
@@ -47,7 +47,7 @@ Nimbus düğümleri ile Apache Storm kümelerini mevcuttur. Nimbus düğümleri 
 
 ### <a name="apache-zookeeper-nodes"></a>Apache Zookeeper düğümleri
 
-[ZooKeeper](http://zookeeper.apache.org/) düğümleri öncü seçimi baş düğümlere ana Hizmetleri için kullanılır. Hizmetler, veri (çalışan) düğümleri ve ağ geçitleri hangi baş düğüm ana hizmet etkin olduğunu bilmeniz sağlamak için de kullanılır. Varsayılan olarak, HDInsight üç ZooKeeper düğümü sağlar.
+[ZooKeeper](https://zookeeper.apache.org/) düğümleri öncü seçimi baş düğümlere ana Hizmetleri için kullanılır. Hizmetler, veri (çalışan) düğümleri ve ağ geçitleri hangi baş düğüm ana hizmet etkin olduğunu bilmeniz sağlamak için de kullanılır. Varsayılan olarak, HDInsight üç ZooKeeper düğümü sağlar.
 
 ### <a name="worker-nodes"></a>Çalışan düğümleri
 
@@ -192,7 +192,7 @@ Bağlantı kurulduktan sonra ile sunulan bir `sftp>` istemi. Bu İstemi'nden diz
 Kullanılabilir komutların listesini girin `help` adresindeki `sftp>` istemi.
 
 > [!NOTE]  
-> SFTP kullanarak bağlı dosya sistemi görselleştirmenize olanak tanıyan grafik arabirimleri vardır. Örneğin, [MobaXTerm](http://mobaxterm.mobatek.net/) Windows Gezgini için benzer bir arabirim kullanarak dosya sistemine göz atmanızı sağlar.
+> SFTP kullanarak bağlı dosya sistemi görselleştirmenize olanak tanıyan grafik arabirimleri vardır. Örneğin, [MobaXTerm](https://mobaxterm.mobatek.net/) Windows Gezgini için benzer bir arabirim kullanarak dosya sistemine göz atmanızı sağlar.
 
 ### <a name="ambari"></a>Ambari
 

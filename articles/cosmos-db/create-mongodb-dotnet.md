@@ -1,23 +1,23 @@
 ---
-title: MongoDB API'si için .NET SDK'sını ve Azure portalını kullanarak Azure Cosmos DB ile bir web uygulaması derleme
-description: Bağlanmak ve Azure Cosmos DB MongoDB API'si için sorgulamak için kullanabileceğiniz bir .NET kodu örneği sunar.
+title: MongoDB ve .NET SDK'sı için Azure Cosmos DB'nin API'sini kullanarak bir web uygulaması derleme
+description: Bağlanmak ve Azure Cosmos DB'nin MongoDB kullanarak sorgulamak için kullanabileceğiniz bir .NET kodu örneği sunar.
 services: cosmos-db
-author: slyons
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quickstart
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/22/2018
-ms.author: sclyon
-ms.openlocfilehash: ffc6296af2366723076f2b6242cbda3f85feef34
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: c6ae9fa46e9dd3abc1a526d5c7121c86d6e9a08c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714874"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791226"
 ---
-# <a name="build-a-web-app-with-azure-cosmos-db-for-mongodb-api-using-net-sdk-and-the-azure-portal"></a>MongoDB API'si için .NET SDK'sını ve Azure portalını kullanarak Azure Cosmos DB ile bir web uygulaması derleme
+# <a name="build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-net-sdk"></a>MongoDB ve .NET SDK'sı için Azure Cosmos DB'nin API'sini kullanarak bir web uygulaması derleme
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -28,13 +28,13 @@ ms.locfileid: "53714874"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Hızla oluşturun ve her biri genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz Cosmos DB belge, anahtar/değer ve grafik veritabanlarını sorgulama. 
 
-Bu hızlı başlangıçta Azure Cosmos DB MongoDB API'si, bir belge veritabanı ve Azure portalını kullanarak bir koleksiyon kullanarak bir hesabının nasıl oluşturulacağını gösterir. Bu adımların ardından [MongoDB .NET sürücüsü](https://docs.mongodb.com/ecosystem/drivers/csharp/) üzerinde oluşturulan görev listesi web uygulaması derleyip dağıtacaksınız.
+Bu Hızlı Başlangıç ile bir Cosmos hesabının nasıl oluşturulacağını gösterir [Azure Cosmos DB'nin MongoDB API'si](mongodb-introduction.md). Daha sonra yapı ve kullanılarak oluşturulan bir görev listesi web uygulaması dağıtma [MongoDB .NET sürücüsü](https://docs.mongodb.com/ecosystem/drivers/csharp/).
 
 ## <a name="prerequisites-to-run-the-sample-app"></a>Örnek uygulamayı çalıştırmak için önkoşullar
 
-Örneği çalıştırmak için [Visual Studio](https://www.visualstudio.com/downloads/) ve geçerli bir Azure CosmosDB hesabı olması gerekir.
+Örneği çalıştırmak için ihtiyacınız olacak [Visual Studio](https://www.visualstudio.com/downloads/) ve geçerli bir Azure Cosmos DB hesabı.
 
 Visual Studio yoksa [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirin ve **ASP.NET ve web geliştirme** iş yükünü kurulumla birlikte yükleyin.
 
@@ -49,7 +49,7 @@ Bu makalede açıklanan örnek, MongoDB.Driver 2.6.1 sürümü ile uyumludur.
 
 ## <a name="clone-the-sample-app"></a>Örnek uygulamayı kopyalama
 
-İlk olarak, örnek uygulamasını Github'dan indirin. Bu, MongoDB’nin belge depolama modeliyle bir görev listesini uygular.
+İlk olarak, örnek uygulamasını Github'dan indirin. 
 
 1. Bir komut istemini açın, git-samples adlı yeni bir klasör oluşturun ve komut istemini kapatın.
 
@@ -77,7 +77,7 @@ Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturu
 
 Aşağıdaki kod parçacıklarının tümü, DAL dizinindeki Dal.cs dosyasından alınmıştır.
 
-* Mongo İstemcisini başlatın.
+* İstemcisini başlatın.
 
     ```cs
         MongoClientSettings settings = new MongoClientSettings();
@@ -132,7 +132,7 @@ Bir görev oluşturun ve koleksiyona Ekle
 
 Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
 
-1. [Azure portalında](https://portal.azure.com/), Azure Cosmos DB hesabınızın sol taraftaki gezinti menüsünden **Bağlantı Dizesi**'ne ve ardından **Okuma-Yazma Anahtarları**'na tıklayın. Sonraki adımda ekranın sağ tarafındaki kopyalama düğmelerini kullanarak Kullanıcı Adı, Parola ve Ana Bilgisayar değerlerini Dal.cs dosyasına kopyalayacaksınız.
+1. İçinde [Azure portalında](https://portal.azure.com/), sol gezinti bölmesinde, Cosmos hesabınızdaki tıklayın **bağlantı dizesi**ve ardından **okuma-yazma anahtarları**. Sonraki adımda ekranın sağ tarafındaki kopyalama düğmelerini kullanarak Kullanıcı Adı, Parola ve Ana Bilgisayar değerlerini Dal.cs dosyasına kopyalayacaksınız.
 
 2. **DAL** dizinindeki **Dal.cs** dosyasını açın. 
 
@@ -142,7 +142,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 5. Son olarak, **password** değerini portaldan kopyalayın ve **Dal.cs** dosyanıza **password** değeri olarak yapıştırın. 
 
-Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
+Uygulamanızı şimdi Cosmos DB ile iletişim kurmak için gereken tüm bilgileri ile de güncelleştirdik. 
     
 ## <a name="run-the-web-app"></a>Web uygulamasını çalıştırma
 
@@ -166,8 +166,7 @@ Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta, bir Cosmos hesabı oluşturmayı ve MongoDB API'si için bir istemci sürücüsü kullanarak bir web uygulamasını çalıştırmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz. 
+Bu hızlı başlangıçta, Cosmos hesabı oluşturma, bir koleksiyon oluşturun ve bir konsol uygulamasını çalıştırmayı öğrendiniz. Şimdi, Cosmos veritabanınıza ek veri aktarabilirsiniz. 
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB MongoDB API'si için yapılandırılmış veri aktarma](mongodb-migrate.md)
-
+> [Azure Cosmos DB’ye MongoDB verileri aktarma](mongodb-migrate.md)

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4c2cebe2225e475ccd40460e7b10a6ba3ed428d5
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: beb0c1f9d6b54c029af48684fd81b38699dd2720
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724221"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630657"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Analysis Services kaynak ve nesne sınırları
 
@@ -23,7 +23,7 @@ Bu makalede resource ve model nesnesi sınırlar.
 
 ### <a name="developer-tier"></a>Geliştirici katmanı
 
-Bu katman değerlendirme, geliştirme ve test senaryoları için önerilir. Tek bir plan, standart katman ile sunulan aynı işlevleri içerir ancak işlemci gücü, QPU ve bellek boyutu bakımından sınırlıdır. Bu katmanda sorgu çoğaltma ölçeği *artırılamaz*. Bu katman bir SLA sunmaz.
+Bu katman değerlendirme, geliştirme ve test senaryoları için önerilir. Tek bir plan, standart katman ile sunulan aynı işlevleri içerir ancak işlemci gücü, QPU ve bellek boyutu bakımından sınırlıdır. Sorgu çoğaltma genişletmesini Bu katman için kullanılamaz. Bu katman bir SLA sunmaz.
 
 |Planlama  |QPU’lar  |Bellek (GB)  |
 |---------|---------|---------|
@@ -32,7 +32,7 @@ Bu katman değerlendirme, geliştirme ve test senaryoları için önerilir. Tek 
 
 ### <a name="basic-tier"></a>Temel katman
 
-Bu katman küçük tablolu modeller, sınırlı düzeyde kullanıcı eşzamanlılığı ve basit veri yenileme gereksinimlerine sahip olan üretim çözümleri için önerilir. Bu katmanda sorgu çoğaltma ölçeği *artırılamaz*. Perspektifler, çoklu bölümler ve DirectQuery tablolu model özellikleri bu katmanda *desteklenmez*.  
+Bu katman küçük tablolu modeller, sınırlı düzeyde kullanıcı eşzamanlılığı ve basit veri yenileme gereksinimlerine sahip olan üretim çözümleri için önerilir. Sorgu çoğaltma genişletmesini *kullanılamıyor* bu katmanı için. Bu katmanda Perspektifler, birden çok bölüme ve DirectQuery tablosal model özellikleri desteklenmez.  
 
 |Planlama  |QPU’lar  |Bellek (GB)  |
 |---------|---------|---------|
@@ -56,20 +56,20 @@ Bu katman, kullanıcı eşzamanlılığının elastik olmasını gerektiren ve h
 
 ## <a name="object-limits"></a>Nesne sınırı
 
-Bunlar teorik limitlerdir. Performans, düşük numaralarını yayınladıklarını.
+Bu sınırlar, teorik. Performans, düşük numaralarını yayınladıklarını.
 
 |Nesne|En büyük boyutları/numaraları|  
 |------------|----------------------------|  
 |Bir örneğindeki veritabanları|16,000|  
 |Tabloları ve sütunları veritabanında toplam istemci sayısı|16,000|  
-|Bir tablodaki satırlar|Sınırsız<br /><br /> **Uyarı:** kontrolünüzün tablodaki hiçbir sütunu birden fazla 1.999.999.997'dir farklı değerleri olabilir.|  
+|Bir tablodaki satırlar|Sınırsız<br /><br /> **Uyarı:** Kısıtlama tablodaki hiçbir sütunu birden fazla 1.999.999.997'dir farklı değerleri olabilir.|  
 |Bir tablodaki hiyerarşiler|15,999|  
 |Bir hiyerarşi düzeyleri|15,999|  
 |İlişkiler|8,000|  
 |Tüm tabloda anahtar sütunları|15,999|  
-|Bir tablodaki ölçüler|2 ^ 31-1 2.147.483.647 =|  
+|Tablo ölçüler|2 ^ 31-1 2.147.483.647 =|  
 |Bir sorgu tarafından döndürülen hücreleri|2 ^ 31-1 2.147.483.647 =|  
-|Kaynak sorguyu kayıt boyutu|64K|  
+|Kaynak sorguyu kayıt boyutu|64 K|  
 |Nesne adı uzunluğu|512 karakteri|  
 
 

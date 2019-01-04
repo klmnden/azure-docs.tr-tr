@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 11/14/2018
-ms.openlocfilehash: 86ed701f9dd572d23fec74d194e3cc469469e638
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 775c9990c85feb3e9e180af6470e7c9a1aa124f3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545969"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808987"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>PostgreSQL için Azure Veritabanı nedir?
 
@@ -46,7 +46,7 @@ Azure PostgreSQL için veritabanı hizmeti üç fiyatlandırma katmanı sunar: T
 Azure'ın Microsoft yönetimindeki veri merkezlerinin küresel bir ağı tarafından desteklenen ve endüstri lideri niteliğinde %99,99'luk bir kullanılabilirlik oranı sunan hizmet düzeyi sözleşmesi (SLA), uygulamanızın 7/24 kesintiye uğramamasına yardımcı olur. PostgreSQL için Azure Veritabanı sunucuları sayesinde satın almanız, tasarlamanız, oluşturmanız ve yönetmeniz gerekmeksizin; yerleşik güvenlik, hataya dayanıklılık ve veri koruması olanaklarından yararlanırsınız. PostgreSQL için Azure Veritabanı'ndaki her fiyatlandırma katmanı, uygulamanızı ve işinizi oluşturup çalışır halde kalmasını sağlama amacıyla kullanabileceğiniz kapsamlı bir iş sürekliliği özellikleri ve seçenekleri kümesi sunar. Bir veritabanını daha önceki bir durumuna (35 güne kadar) geri döndürmek üzere[ belirli bir noktaya geri yükleme](howto-restore-server-portal.md) işlemini gerçekleştirebilirsiniz. Ayrıca, veritabanlarınızı barındıran veri merkezinde bir kesinti oluşursa, son yedeklemelerin coğrafi olarak yedekli kopyalarından veritabanlarını geri yükleyebilirsiniz.
 
 ## <a name="secure-your-data"></a>Verilerinizin güvenliğini sağlama
-Azure veritabanı hizmetlerinin veri güvenliği geleneği, PostgreSQL için Azure Veritabanı'nda da erişimi sınırlayan, bekleyen ve hareket halindeki verileri koruyan ve etkinliği izlemenize yardımcı olan özelliklerle sürdürülür. Azure'ın platform güvenliği hakkında bilgi edinmek için [Azure Güven Merkezi](https://www.microsoft.com/en-us/trustcenter/security)'ni ziyaret edin.
+Azure veritabanı hizmetlerinin veri güvenliği geleneği, PostgreSQL için Azure Veritabanı'nda da erişimi sınırlayan, bekleyen ve hareket halindeki verileri koruyan ve etkinliği izlemenize yardımcı olan özelliklerle sürdürülür. Azure'ın platform güvenliği hakkında bilgi edinmek için [Azure Güven Merkezi](https://azure.microsoft.com/overview/trusted-cloud/)'ni ziyaret edin.
 
 PostgreSQL için Azure Veritabanı hizmeti bekleyen verilerde depolama şifrelemesini kullanır. Yedekler de dahil olmak üzere veriler diskte şifrelenir (altyapı tarafından sorgular çalıştırılırken oluşturulan geçici dosyalar hariç). Hizmet, Azure depolama şifrelemesi kapsamında yer alan AES 256-bit şifrelemesini kullanır ve anahtarlar sistem tarafından yönetilir. Depolama şifrelemesi her zaman açıktır ve devre dışı bırakılamaz.
 

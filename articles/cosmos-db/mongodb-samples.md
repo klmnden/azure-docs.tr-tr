@@ -1,23 +1,23 @@
 ---
-title: Azure Cosmos DB MongoDB API'si için bir Node.js uygulaması oluşturmak için kullanın
-description: MongoDB için Azure Cosmos API’lerini kullanarak bir çevrimiçi veritabanı oluşturan öğretici.
+title: Bir Node.js uygulaması oluşturmak için Azure Cosmos DB'nin MongoDB için API kullanın
+description: Azure Cosmos DB'nin MongoDB kullanarak çevrimiçi bir veritabanı oluşturan öğretici.
 keywords: mongodb örnekleri
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: sample
-ms.date: 03/23/2018
-ms.author: sngun
-ms.openlocfilehash: 3e9436301dca7c88a930d0dbd743bcefe62f4fe3
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: 98a11f6ba0608a9ab39bf258056f0fa17a41653e
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713089"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788353"
 ---
-# <a name="build-an-azure-cosmos-db-for-mongodb-api-app-using-nodejs"></a>Bir Azure Cosmos DB için Node.js kullanarak bir MongoDB API'si uygulaması derleme
+# <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB için node.js ve Azure Cosmos DB'nin API'sini kullanarak uygulama oluşturma 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -26,12 +26,12 @@ ms.locfileid: "53713089"
 > * [Node.js](sql-api-nodejs-get-started.md)
 >
 
-Bu örnek, bir Azure Cosmos DB için Node.js kullanarak bir MongoDB API'si konsol uygulaması derleme işlemini göstermektedir.
+Bu örnek, Node.js ve Azure Cosmos DB'nin MongoDB kullanarak bir konsol uygulaması oluşturma işlemini göstermektedir.
 
 Bu örneği kullanmak için yapmanız gerekenler:
 
-* [Oluşturma](create-mongodb-dotnet.md#create-account) MongoDB API'si için yapılandırılmış bir Cosmos hesabı.
-* MongoDB [bağlantı dizesi](connect-mongodb-account.md) bilgilerinizi alın.
+* [Oluşturma](create-mongodb-dotnet.md#create-account) MongoDB için Azure Cosmos DB'nin API'sini kullanmak üzere yapılandırılmış bir Cosmos hesabı.
+* Almak, [bağlantı dizesi](connect-mongodb-account.md) bilgileri.
 
 ## <a name="create-the-app"></a>Uygulama oluşturma
 
@@ -173,4 +173,6 @@ Bu örneği kullanmak için yapmanız gerekenler:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bilgi edinmek için nasıl [MongoChef kullanma](mongodb-mongochef.md) Cosmos hesabınızda MongoDB API'si için yapılandırılmış.
+- Bilgi edinmek için nasıl [Studio 3T kullanma](mongodb-mongochef.md) Azure Cosmos DB'nin MongoDB API'si ile.
+- Bilgi edinmek için nasıl [Robo 3T kullanma](mongodb-robomongo.md) Azure Cosmos DB'nin MongoDB API'si ile.
+- MongoDB keşfedin [örnekleri](mongodb-samples.md) Azure Cosmos DB'nin MongoDB API'si ile.

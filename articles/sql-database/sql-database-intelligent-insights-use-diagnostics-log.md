@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: a0eac4344f1294ad2eddd4e05520c1f030a0c4d7
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1464b2685e0ae084de3679e8a8fea36a3cf19c4b
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278228"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599153"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent ınsights'ı Azure SQL veritabanı performans tanılama günlüğünü kullanma
 
-Bu sayfa, Azure SQL veritabanı performans tanılama günlüğü oluşturan kullanma hakkında bilgi sağlar. [Intelligent Insights](sql-database-intelligent-insights.md), biçimi ve özel geliştirme gereksinimleriniz için veriler. Bu tanılama günlüğüne gönderdiğiniz [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure depolama](sql-database-metrics-diag-logging.md#stream-into-storage), veya bir üçüncü taraf çözümü için uyarı ve raporlama özel DevOps özellikleri.
+Bu sayfa, Azure SQL veritabanı performans tanılama günlüğü oluşturan kullanma hakkında bilgi sağlar. [Intelligent Insights](sql-database-intelligent-insights.md), biçimi ve özel geliştirme gereksinimleriniz için veriler. Bu tanılama günlüğüne gönderdiğiniz [Azure Log Analytics](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md), [Azure depolama](sql-database-metrics-diag-logging.md#stream-into-storage), veya bir üçüncü taraf çözümü için uyarı ve raporlama özel DevOps özellikleri.
 
 ## <a name="log-header"></a>Günlük üst bilgisi
 

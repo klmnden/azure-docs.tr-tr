@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 5d2f803414db3bd118f57d317cfc32c8f22fcd5a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499135"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653264"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Yayımlanan uygulama - Dataiku DDS yükleme
 
@@ -28,13 +28,13 @@ DSS, hazırlama, veri alımı ile başlayan ve işleme eksiksiz bir analiz çöz
 
 DSS HDInsight kullanarak yükleyebileceğiniz [Apache Hadoop](https://hadoop.apache.org/) veya [Apache Spark](https://spark.apache.org/) kümeleri. Yeni bir küme oluştururken, mevcut çalışan kümelerinde veya DSS yükleyebilirsiniz. DSS, veri okumak için bir bağlayıcı olarak Azure Blob depolamayı kullanarak da destekler.
 
-DSS sonra oluşturabilirsiniz projeleri oluşturmak için kullanabileceğiniz [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) veya Spark işleri. İsteğe bağlı küme ölçeklendirebilirsiniz. böylece bu işleri, HDInsight, normal MapReduce veya Spark işleri olarak yürütülür.
+DSS sonra oluşturabilirsiniz projeleri oluşturmak için kullanabileceğiniz [MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) veya Spark işleri. İsteğe bağlı küme ölçeklendirebilirsiniz. böylece bu işleri, HDInsight, normal MapReduce veya Spark işleri olarak yürütülür.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu uygulamayı yeni bir HDInsight kümesi veya mevcut bir kümeye yüklemek için aşağıdaki yapılandırmaya sahip olmalıdır:
 
-* Küme katmanları: standart ve Premium
+* Küme katmanları: Standart, Premium
 * Küme türleri: Hadoop, Spark
 * Küme sürümleri: 3.4, 3.5
 
@@ -114,7 +114,7 @@ Detaylı eğitimler için okuma [öğrenin Dataiku DSS](https://www.dataiku.com/
 
 * [Dataiku DSS belgeleri](https://doc.dataiku.com/dss/latest/).
 * [Özel HDInsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md): HDInsight için yayımlanmamış bir HDInsight uygulamasının nasıl dağıtılacağını öğrenin.
-* [HDInsight uygulamalarını yayımlama](hdinsight-apps-publish-applications.md): Özel HDInsight uygulamalarınızı Azure Marketi’nde nasıl yayımlayacağınızı öğrenin.
-* [MSDN: HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını nasıl tanımlayacağınızı öğrenin.
-* [Betik eylemi kullanarak Linux tabanlı HDInsight kümelerini özelleştirin](hdinsight-hadoop-customize-cluster-linux.md): ek uygulamalar yüklemek için betik eylemi kullanmayı öğrenin.
+* [HDInsight uygulamaları yayımlama](hdinsight-apps-publish-applications.md): Özel HDInsight uygulamalarınızı Azure Marketi'nde yayımlama konusunda bilgi edinin.
+* [MSDN: Bir HDInsight uygulaması yükleme](https://msdn.microsoft.com/library/mt706515.aspx): HDInsight uygulamalarını nasıl tanımlayacağınızı öğrenin.
+* [Betik eylemi kullanarak Linux tabanlı HDInsight kümelerini özelleştirin](hdinsight-hadoop-customize-cluster-linux.md): Ek uygulamalar yüklemek için betik eylemi kullanmayı öğrenin.
 * [HDInsight içinde boş kenar düğümlerini kullanma](hdinsight-apps-use-edge-node.md): HDInsight kümeleri erişmek ve test etmek ve HDInsight uygulamalarını barındırmak için boş bir kenar düğümünü kullanmayı öğrenin.

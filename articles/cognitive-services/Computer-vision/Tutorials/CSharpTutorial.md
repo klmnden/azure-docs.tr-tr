@@ -1,7 +1,7 @@
 ---
-title: 'Öğretici: bir görüntü işleme uygulaması - C# derleme'
+title: 'Öğretici: Görüntü işleme uygulama oluşturma-C#'
 titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Microsoft Bilişsel hizmetler görüntü işleme API'sini kullanan basit bir Windows uygulaması keşfedin. OCR gerçekleştirmek, küçük resim oluşturma ve görüntüdeki görsel özellikler ile çalışma.
+description: Microsoft Bilişsel hizmetler görüntü işleme API'sini kullanan basit bir Windows uygulaması keşfedin. OCR gerçekleştirin, küçük resimler oluşturun ve bir görüntüdeki görsel özelliklerle çalışın.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
@@ -10,16 +10,17 @@ ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.custom: seodec18
+ms.openlocfilehash: 8640d89c5fb9e38fc6c982e21147361ad690964a
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342662"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584454"
 ---
-# <a name="tutorial-build-an-image-processing-app---c35"></a>Öğretici: bir görüntü işleme uygulaması - C derleme&#35;
+# <a name="tutorial-build-an-image-processing-app---c35"></a>Öğretici: App - C işleme bir görüntü oluşturun&#35;
 
-Optik karakter tanıma (OCR) gerçekleştirin, akıllı kırpılmış küçük resimler oluşturma artı algılamak, kategorilere ayırma, etiket için görüntü işleme kullanır ve bir resimdeki yüz, dahil olmak üzere, görsel özellikleri açıklayan temel bir Windows uygulaması keşfedin. Görüntü URL'sini veya yerel olarak depolanan bir dosya göndermeniz bir örnek sağlar. Bu açık kaynak örneği ve görüntü işleme API'si, .NET Framework'ün bir parçası olan Windows Presentation Foundation (WPF) kullanarak Windows için kendi uygulamanızı oluşturmak için şablon olarak kullanabilirsiniz.
+Optik karakter tanıma (OCR) gerçekleştirin, akıllı kırpılmış küçük resimler oluşturma artı algılamak, kategorilere ayırma, etiket için görüntü işleme kullanır ve bir resimdeki yüz, dahil olmak üzere, görsel özellikleri açıklayan temel bir Windows uygulaması keşfedin. Aşağıdaki örnek bir görüntü URL'si veya yerel ortamda depolanan dosya göndermenizi sağlar. Bu açık kaynak örneği ve görüntü işleme API'si, .NET Framework'ün bir parçası olan Windows Presentation Foundation (WPF) kullanarak Windows için kendi uygulamanızı oluşturmak için şablon olarak kullanabilirsiniz.
 
 > [!div class="checklist"]
 > * Örnek uygulamasını Github'dan alma
@@ -31,7 +32,7 @@ Optik karakter tanıma (OCR) gerçekleştirin, akıllı kırpılmış küçük r
 
 Örnek uygulamayı keşfetmeyi önce aşağıdaki önkoşulların karşılamanızın emin olun:
 
-* Olmalıdır [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) veya üzeri.
+* [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) veya üzerine sahip olmanız gerekir.
 * Görüntü İşleme için bir abonelik anahtarınız olması gerekir. Bir abonelik anahtarı almak için bkz. [Abonelik Anahtarları Alma](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## <a name="get-the-sample-app"></a>Örnek uygulamayı alma
@@ -98,10 +99,10 @@ Nasıl, siz ve görüntü işleme istemci kitaplığı ile oluşturma küçük r
    |Küçük resmini Al | Kullanan [küçük resim alma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) için yerel veya uzak bir görüntüyü küçük resim oluşturma işlemi. |
 
    > [!IMPORTANT]
-   > Microsoft, görüntüleri karşıya yükleme ve bunları görüntü işleme API'si ve ilgili hizmetleri geliştirmek için kullanabiliriz alır. Görüntü göndererek sizi takip onaylamanız bizim [kullanım şartları Geliştirici](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
+   > Microsoft, görüntüleri karşıya yükleme ve bunları görüntü işleme API'si ve ilgili hizmetleri geliştirmek için kullanabiliriz alır. Görüntü göndererek [Geliştirici Kullanım Kurallarımıza](https://azure.microsoft.com/support/legal/developer-code-of-conduct/) uyduğunuzu onaylamış olursunuz.
 
    Aşağıdaki ekran görüntüsünde bir örnek görüntü çözümledikten sonra analiz görüntü senaryosu için sağlanan sayfası gösterilmektedir.
-   ![Görüntü senaryosu sayfasında analiz edin](../Images/Analyze_Image_Example.PNG)
+   ![Analiz görüntü sayfasının ekran görüntüsü](../Images/Analyze_Image_Example.PNG)
 
 ## <a name="explore-the-sample-app"></a>Örnek uygulamayı İnceleme
 

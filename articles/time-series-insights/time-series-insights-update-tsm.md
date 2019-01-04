@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights - zaman serisi modeli | Microsoft Docs
+title: Azure zaman serisi görüşleri'nde zaman serisi modeli Önizleme | Microsoft Docs
 description: Azure Time Series Insights anlama zaman serisi modeli.
 author: ashannon7
 ms.author: anshan
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2ead7a9a71c0afe72736bef8796107cae42009f1
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a6eb142cf607c286ccce1282bb5c67a30c040c62
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278194"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716591"
 ---
 # <a name="time-series-model"></a>Zaman Serisi Modeli
 
@@ -136,17 +136,17 @@ Hiyerarşi H1 sahip olduğu aşağıdaki örneği göz önünde bulundurun *olu�
  H1 = [“building”, “floor”, “room”]
 ```
 
-Yapılandırmanıza bağlı olarak *örnek alanları*, hiyerarşi öznitelikleri ve değerleri aşağıdaki tabloda gösterildiği gibi görünür: 
+Yapılandırmanıza bağlı olarak *örnek alanları*, hiyerarşi öznitelikleri ve değerleri aşağıdaki tabloda gösterildiği gibi görünür:
 
-| Zaman serisi kimliği | Örnek alanları |
+| Zaman Serisi Kimliği | Örnek alanları |
 | --- | --- |
 | ID1 | "oluşturma" = "1000"kat "", "10", "odası" = "55" =  |
 | ID2 | "oluşturma" = "1000", "odası" = "55" |
 | ID3 | "kat" = "10" |
 | ID4 | "oluşturma" = "1000"kat "", "10" =  |
-| ID5 | |
+| ID5 | "Oluşturma", "kat" veya "odası" hiçbiri ayarlayın |
 
-Önceki örnekte, UI/UX H1 hiyerarşisinde bir parçası olarak ıd1 gösterir ve rest altında sınıflandırılan *ana öğesiz örnekleri* belirtilen veri hiyerarşi için uygun değilsiniz için.
+Önceki örnekte ıd1 ve ıd4 gösterir Azure Time Series Insights gezgininin H1 hiyerarşisinde bir parçası olarak ve rest altında sınıflandırılan *ana öğesiz örnekleri* belirtilen veri hiyerarşi için uygun değilsiniz için.
 
 ## <a name="time-series-model-instances"></a>Zaman serisi modeli örnekleri
 

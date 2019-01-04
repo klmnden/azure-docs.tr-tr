@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1a053f92433b6091f0d77439399e8419a58df185
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 028d00f579e266c92b4a6d00d5ebb5b0ef7b1b60
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495152"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53787555"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager şablonlarını kullanarak HDInsight Apache Hadoop kümelerini oluşturun
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -31,8 +31,8 @@ Bu makalede bulunan yönergeleri takip etmek için ihtiyacınız vardır:
 
 ### <a name="resource-manager-templates"></a>Resource Manager şablonları
 Resource Manager şablonu tek ve eşgüdümlü bir işlemle uygulamanız için aşağıdaki resoruces oluşturmak daha kolay hale getirir:
-* HDInsight kümeleri ve bağımlı kaynaklarını (örneğin, varsayılan depolama hesabı)
-* Diğer kaynakları (kullanmak için Azure SQL veritabanı gibi [Apache Sqoop](http://sqoop.apache.org/))
+* HDInsight kümeleri ve bağımlı kaynaklarını (örneğin, varsayılan depolama hesabı).
+* Diğer kaynakları (kullanmak için Azure SQL veritabanı gibi [Apache Sqoop](https://sqoop.apache.org/)).
 
 Şablonda, uygulama için gereken kaynakları tanımlayın. Ayrıca farklı ortamlar için değer girmek için dağıtım parametreleri belirtirsiniz. Şablonda, JSON ve dağıtımınız için değerleri oluşturmak için kullandığınız ifadeler bulunur.
 
@@ -47,9 +47,9 @@ Resource Manager şablonları hakkında daha fazla bilgi için aşağıdaki maka
 
 Resource Manager, farklı araçlar kullanarak aboneliğinizdeki mevcut kaynaklardan bir Resource Manager şablonunu dışarı aktarmak sağlar. Bu oluşturulan şablonu şablon söz dizimi hakkında bilgi edinmek veya çözümünüzün yeniden dağıtımını gerektiği gibi otomatikleştirmek için kullanabilirsiniz.
 
-- Azure portalı: bkz [mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](../azure-resource-manager/resource-manager-export-template.md).
-- Azure PowerShell: Bkz [dışarı Azure Resource Manager şablonları PowerShell ile](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Azure CLI Klasik: Bkz [Klasik Azure CLI ile dışarı aktarma Azure Resource Manager şablonları](../azure-resource-manager/resource-manager-export-template-cli.md).
+- Azure portalı: Bkz: [mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](../azure-resource-manager/resource-manager-export-template.md).
+- Azure PowerShell: Bkz: [dışarı Azure Resource Manager şablonları PowerShell ile](../azure-resource-manager/resource-manager-export-template-powershell.md).
+- Azure CLI Klasik: Bkz: [Klasik Azure CLI ile dışarı aktarma Azure Resource Manager şablonları](../azure-resource-manager/resource-manager-export-template-cli.md).
 
 
 ## <a name="deploy-using-the-portal"></a>Portalı kullanarak dağıtma
@@ -74,14 +74,14 @@ Visual Studio ile kaynak gruplarını kullanarak bir giriş için bkz. [Visual S
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
-HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-administer-use-portal-linux.md#create-clusters).
+HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, bir HDInsight kümesi oluşturmanın birkaç yolu öğrendiniz. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * Daha fazla HDInsight için ilgili şablonları görmek [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/?term=hdinsight).
 * .NET istemci kitaplığı aracılığıyla kaynak dağıtmaya ilişkin bir örnek için bkz [.NET kitaplıkları ve şablon kullanarak kaynakları dağıtma](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Bir uygulama dağıtımının ayrıntılı örneği için bkz: [sağlayın ve tahmin edilebilir bir biçimde azure'da mikro hizmetlerin dağıtımı](../app-service/app-service-deploy-complex-application-predictably.md).
+* Bir uygulama dağıtımının ayrıntılı örneği için bkz: [sağlayın ve tahmin edilebilir bir biçimde azure'da mikro hizmetlerin dağıtımı](../app-service/deploy-complex-application-predictably.md).
 * Çözümünüzü farklı ortamlarda dağıtmaya yönelik kılavuz için bkz. [Microsoft Azure’da geliştirme ve test ortamları](../solution-dev-test-environments.md).
 * Azure Resource Manager şablonunun bölümleri hakkında bilgi edinmek için [şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md).
 * Bir Azure Resource Manager şablonunda kullanabileceğiniz işlevleri bir listesi için bkz. [şablon işlevleri](../azure-resource-manager/resource-group-template-functions.md).

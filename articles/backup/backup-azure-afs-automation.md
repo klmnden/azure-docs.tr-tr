@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 90623981f67bbed15ade743192525676e58a0a83
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 30fc36f29a7602e2bc3f192b445474bfc50e9434
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318713"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632644"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>Yedekleme ve geri yükleme Azure dosya paylaşımları için PowerShell kullanma
 
@@ -34,11 +34,11 @@ AzureRm.RecoveryServices.Backup PowerShell cmdlet başvurusu görüntülemek iç
 ## <a name="setup-and-registration"></a>Kurulumu ve kaydı
 
 > [!NOTE]
-> Belirtildiği gibi [burada](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), AzureRM modülü biter Kasım 2018'de yeni özellikler için destek. Yeni 'Az' PS modülü ile bu nedenle Azure dosya paylaşımlarını yedekleme desteği sağlıyoruz. Biz de Az modülünün genel kullanım sürümü için yapılacak planlıyorsunuz.
+> Belirtildiği gibi [burada](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), AzureRM modülü biter Kasım 2018'de yeni özellikler için destek. Bu nedenle Azure dosya paylaşımlarını yedekleme desteği ile yeni 'Az' PS modülüne artık genel kullanıma sunulana sağlıyoruz
 
 Başlamak için:
 
-1. ['Az' PowerShell'in en son sürümünü indirin](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (gerekli en düşük sürüm: 0.7.0)
+1. ['Az' PowerShell'in en son sürümünü indirin](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (gerekli en düşük sürüm: 1.0.0)
 
 2. Kullanılabilir Azure Backup PowerShell cmdlet'lerini, aşağıdaki komutu yazarak bulabilirsiniz:
 
@@ -158,6 +158,8 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 ----                 ------------       -------------------- ----------                ----------
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2017 1:30:00 AM
 ```
+
+'NewAFSPolicy' günlük yedekleme gerçekleştirir ve 30 gün boyunca saklar.
 
 ### <a name="enable-protection"></a>Korumayı etkinleştir
 

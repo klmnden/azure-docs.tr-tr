@@ -9,16 +9,22 @@ ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 491f60b55843957bf9ec904f7310ef67219ba3c5
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: dff24fb28a4129aa7f29d5f9ed1db10d533d005e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438651"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53578862"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>Güncelleştirme yönetimi Linux Aracısı onay sonuçlarında anlama
 
 Makinenizde görüntülenmiyorsa birçok nedeni olabilir **hazır** güncelleştirme yönetimi. Ortamında güncelleştirme yönetimi, arka plandaki sorunu belirlemek için bir karma çalışanı aracı durumunu kontrol edebilirsiniz. Bu makalede Azure portalı ve Azure olmayan makineler Azure makineler için sorun giderici çalıştırın anlatılmaktadır [çevrimdışı senaryosu](#troubleshoot-offline).
+
+Aşağıdaki listede, bir makine olabilir üç hazır olma durumlarından şunlardır:
+
+* **Hazır** -Güncelleştirme Aracısı dağıtılır ve son 1 saatten önce görüldü.
+* **Bağlantısı kesilmiş** -Güncelleştirme Aracısı dağıtıldıktan ve üzerinde 1 saat önce son kez görüldü.
+* **Yapılandırılmamış** -Windows update Aracısı, bulunamadığında veya ekleme işlemi tamamlanmadı.
 
 ## <a name="start-the-troubleshooter"></a>Sorun Gidericisi
 
@@ -45,7 +51,7 @@ Tamamlandığında, sonuçları penceresinde döndürülür. [Bölümleri işare
 
 |İşletim sistemi  |Notlar  |
 |---------|---------|
-|CentOS 6 (x86/x64) ve 7 (x64)      | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır. Sınıflandırma tabanlı düzeltme eki uygulama, CentOS, kullanıma hazır yok güvenlik verileri döndürmek için 'ı yum' gerektirir.         |
+|CentOS 6 (x86/x64) ve 7 (x64)      | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır. Sınıflandırma tabanlı düzeltme eki uygulama, CentOS, kullanıma hazır yoksa güvenlik verileri döndürmek için 'ı yum' gerektirir.         |
 |Red Hat Enterprise 6 (x86/x64) ve 7 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |Ubuntu 14.04 LTS, 16.04 LTS ve 18.04 LTS (x86/x64)      |Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.         |

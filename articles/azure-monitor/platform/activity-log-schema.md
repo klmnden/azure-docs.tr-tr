@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: activitylog
-ms.openlocfilehash: 9129ccdd66b07fc53fe46aa64317f7f064eb7e0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.component: logs
+ms.openlocfilehash: 64b92a758d3d5f713b58a5e310a897ac1f11024d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389226"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714840"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure etkinlik günlüğü olay şeması
-**Azure etkinlik günlüğü** Azure'da gerçekleşen herhangi bir abonelik düzeyindeki olayların sağlayan günlüktür. Bu makalede veri kategorisini başına olay şeması. Portal, PowerShell, CLI veya karşı REST API aracılığıyla doğrudan veri okunuyorsa veri şeması bağlı olarak farklı [veri depolama veya günlük profilini kullanarak Event Hubs akış](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Aşağıdaki örnekler, portal, PowerShell, CLI ve REST API kullanıma sunulan teklifinizle şema gösterir. Bu özellikler için bir eşleme [Azure tanılama günlükleri şema](./tutorial-dashboards.md) makalenin sonunda sağlanır.
+**Azure etkinlik günlüğü** Azure'da gerçekleşen herhangi bir abonelik düzeyindeki olayların sağlayan günlüktür. Bu makalede veri kategorisini başına olay şeması. Portal, PowerShell, CLI veya karşı REST API aracılığıyla doğrudan veri okunuyorsa veri şeması bağlı olarak farklı [veri depolama veya günlük profilini kullanarak Event Hubs akış](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Aşağıdaki örnekler, portal, PowerShell, CLI ve REST API kullanıma sunulan teklifinizle şema gösterir. Bu özellikler için bir eşleme [Azure tanılama günlükleri şema](./tutorial-dashboards.md) makalenin sonunda sağlanır.
 
 ## <a name="administrative"></a>Yönetim
 Bu kategoride tüm kaydı oluşturma, güncelleştirme, silme ve eylem işlemlerine Resource Manager aracılığıyla gerçekleştirilir. Görmek Bu kategoride olay türlerini örnekleri arasında "sanal makine oluşturma" ve "bir kullanıcı ya da Resource Manager kullanarak uygulama tarafından gerçekleştirilen her eylemi modellenmiş bir işlemi belirli bir kaynak türü olarak ağ güvenlik grubunu sil". İşlem türü, yazma, silme veya eylem ise, hem Başlangıç hem de başarılı kayıtlar veya bu işlemin başarısız yönetim kategorisi kaydedilir. Yönetim kategorisi, bir abonelikte rol tabanlı erişim denetimi değişiklikleri de içerir.
@@ -191,7 +191,7 @@ Bu kategori, Azure'da gerçekleşen tüm hizmet durumu olayları kaydını içer
   }
 }
 ```
-Başvurmak [hizmet durumu bildirimlerini](./../../monitoring-and-diagnostics/monitoring-service-notifications.md) makale özelliklerinde değerler hakkındaki belgeleri.
+Başvurmak [hizmet durumu bildirimlerini](./../../azure-monitor/platform/service-notifications.md) makale özelliklerinde değerler hakkındaki belgeleri.
 
 ## <a name="resource-health"></a>Kaynak durumu
 Bu kategori, Azure kaynaklarınıza ortaya çıkan herhangi bir kaynak sistem durumu olayları kaydını içerir. Bu kategoride göreceğiniz olay türünü, "sanal makine sistem durumu kullanılamaz değiştirildi." örneğidir Kaynak sistem durumu olayları dört durum durumlardan birini temsil edebilir: Kullanılabilir, yok, düşürülmüş ve bilinmeyen. Ayrıca, kaynak sistem durumu olayları, Platform tarafından başlatılan veya kullanıcı tarafından başlatılan olacak şekilde sınıflandırılabilir.
@@ -676,5 +676,5 @@ Azure etkinlik günlüğünün Event Hubs ad alanı veya bir depolama hesabını
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Etkinlik günlüğü'nü (eski adıyla denetim günlükleri) hakkında daha fazla bilgi edinin](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
-* [Azure etkinlik günlüğünün Event Hubs'a Stream](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+* [Etkinlik günlüğü'nü (eski adıyla denetim günlükleri) hakkında daha fazla bilgi edinin](../../azure-monitor/platform/activity-logs-overview.md)
+* [Azure etkinlik günlüğünün Event Hubs'a Stream](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

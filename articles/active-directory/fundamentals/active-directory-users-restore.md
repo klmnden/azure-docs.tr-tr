@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 5f747d90368b636cb2ab8cf0e20ef5e676f99af6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 066c9189e0c3cea409a99217e0ab4b46002df1f9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080512"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556790"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Geri yükleme ya da Azure Active Directory kullanarak son silinen bir kullanıcıyı kaldırma
 Bir kullanıcı sildikten sonra hesabı 30 gün için askıya alınmış durumda kalır. Bu 30 günlük penceresi sırasında kullanıcı hesabı, tüm özellikleriyle birlikte geri yüklenebilir. Bu 30 günlük penceresini geçtikten sonra kullanıcı, otomatik olarak ve kalıcı olarak silinir.
@@ -59,6 +59,9 @@ Bir kullanıcının hesabı askıya alındı, ancak tüm ilgili dizin bilgileri 
 2. Seçin **geri yükleme kullanıcı**.
 
     ![Kullanıcılar - geri yükleme kullanıcı seçeneğinin vurgulandığı ile silinen kullanıcılar sayfası](media/active-directory-users-restore/users-deleted-users-restore-user.png)
+
+>[!NOTE]
+>Daha önce bir kullanıcı şirket içi eşitleme kapsamından kaldırıldı ve bulutta silindi, hesap DirSyncEnabled durumunu deneyebileceğinizi "False" olarak ayarlandı. Daha sonra bu kullanıcının el ile Azure AD Geri Dönüşüm Kutusu'ndan geri yüklendi, "Yalnızca bulut" hesabının yanlış bir durum gösterilmiştir. Bu artık düzeltildi ve bir kullanıcı eşitleme kapsamından sonra kaldırıldığında DirSyncEnabled durum değeri her zaman "True" Azure AD Geri Dönüşüm Kutusu'ndan geçici olarak silinen ve el ile geri yüklenen tutulur.
 
 ## <a name="permanently-delete-a-user"></a>Bir kullanıcıyı kalıcı olarak sil
 Otomatik silme için 30 gün beklemeden dizininizdeki bir kullanıcı kalıcı olarak silebilirsiniz. Siz başka bir yönetici ya da Microsoft müşteri desteği tarafından kalıcı olarak silinmiş bir kullanıcıyı geri yüklenemez.

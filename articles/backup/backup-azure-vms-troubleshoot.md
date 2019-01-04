@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: b751fe4feab48e6ed706a2e28bba8406f4f4891c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9bbaf23999c04eba5157ebe7dff73ed47418c99a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185707"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634193"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
 Aşağıdaki tabloda listelenen bilgilerle Azure Backup kullanarak sırasında karşılaşılan hataları giderebilirsiniz:
@@ -69,11 +69,11 @@ Aşağıdaki tabloda listelenen bilgilerle Azure Backup kullanarak sırasında k
 | Çevrimiçi geri yükleme işlemi için belirtilen depolama hesabı türü değil: <br>Geri yükleme işleminde belirtilen depolama hesabı çevrimiçi olduğundan emin olun. |Bu hata, Azure Depolama'daki geçici bir hata nedeniyle veya kesinti nedeniyle gerçekleşebilir. Başka bir depolama hesabı seçin. |
 | Kaynak grubu kotasına ulaşıldı: <br>Bazı kaynak gruplarını, Azure portalından silin veya limitleri artırmak için Azure desteğine başvurun. |None |
 | Seçilen alt ağ yok: <br>Var olan bir alt ağ seçin. |None |
-| Backup hizmeti, aboneliğinizdeki kaynaklara erişmek için yetkiniz yok. |Bu hatayı gidermek için ilk diskleri adımları kullanarak geri [yedeklenen diskleri geri](backup-azure-arm-restore-vms.md#restore-backed-up-disks). PowerShell adımları kullanın [geri yüklenen diskten VM oluşturma](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) geri yüklenen disklerden tam bir VM oluşturmak için. |
+| Backup hizmeti, aboneliğinizdeki kaynaklara erişmek için yetkiniz yok. |Bu hatayı gidermek için ilk diskleri adımları kullanarak geri [yedeklenen diskleri geri](backup-azure-arm-restore-vms.md#create-new-restore-disks). PowerShell adımları kullanın [geri yüklenen diskten VM oluşturma](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Yedekleme veya geri yükleme sürüyor
 Yedekleme 12 saatten uzun sürer veya geri yükleme 6 saatten uzun sürer istiyorsanız:
-* Anlamak [yedekleme süresini etkileyen faktörleri](backup-azure-vms-introduction.md#total-vm-backup-time) ve [geri yükleme süresini katkıda bulunan faktörleri](backup-azure-vms-introduction.md#total-restore-time).
+* Anlamak [yedekleme süresini etkileyen faktörleri](backup-azure-vms-introduction.md#time-considerations) ve [geri yükleme süresini katkıda bulunan faktörleri](backup-azure-vms-introduction.md#restore-considerations).
 * Takip ettiğinizden emin olun [en iyi yedekleme](backup-azure-vms-introduction.md#best-practices).
 
 ## <a name="vm-agent"></a>VM Aracısı

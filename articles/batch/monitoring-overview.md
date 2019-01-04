@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 3053e136ab08c38d9460d60f64464a17f6f61574
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ee483c19aa59ca98226f77a5e56b1ee4eb4dede5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824092"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543419"
 ---
 # <a name="monitor-batch-solutions"></a>Batch çözümlerini izleme
 
@@ -26,7 +26,7 @@ Azure bileşenleri ve Hizmetleri Azure kaynakları izlemek için kullanılabilen
 
 ## <a name="subscription-level-monitoring"></a>Abonelik düzeyinde izleme
 
-Batch hesapları içerir, abonelik düzeyinde [Azure etkinlik günlüğü](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) operasyonel olay verileri toplayan [çeşitli kategorileri](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log).
+Batch hesapları içerir, abonelik düzeyinde [Azure etkinlik günlüğü](../azure-monitor/platform/activity-logs-overview.md) operasyonel olay verileri toplayan [çeşitli kategorileri](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log).
 
 Batch hesabı için özellikle, etkinlik günlüğü hesabı oluşturma ve silme ve anahtar yönetimi ile ilgili olayları toplar.
 
@@ -34,7 +34,7 @@ Etkinlik günlüğünüzü olaylarını almak için bir yolu, Azure portalı kul
 
 ## <a name="batch-account-level-monitoring"></a>Batch hesabı düzeyinde izleme
 
-Her Batch hesabı özelliklerini kullanarak izleme [Azure İzleyici](../azure-monitor/overview.md). Azure İzleyici toplar [ölçümleri](../azure-monitor/platform/data-collection.md#metrics) ve isteğe bağlı olarak [tanılama günlükleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) havuzlar, işler ve görevler gibi Batch hesabı düzeyinde kapsamlı kaynaklar. Toplama ve bu verileri el ile veya programlama yoluyla kullanmak Batch hesabınızdaki etkinlikleri izlemek ve sorunlarını tanılamak için. Ayrıntılar için bkz [toplu ölçümleri, uyarılar ve değerlendirme tanılama ve izleme günlüklerini](batch-diagnostics.md).
+Her Batch hesabı özelliklerini kullanarak izleme [Azure İzleyici](../azure-monitor/overview.md). Azure İzleyici toplar [ölçümleri](../azure-monitor/platform/data-collection.md#metrics) ve isteğe bağlı olarak [tanılama günlükleri](../azure-monitor/platform/diagnostic-logs-overview.md) havuzlar, işler ve görevler gibi Batch hesabı düzeyinde kapsamlı kaynaklar. Toplama ve bu verileri el ile veya programlama yoluyla kullanmak Batch hesabınızdaki etkinlikleri izlemek ve sorunlarını tanılamak için. Ayrıntılar için bkz [toplu ölçümleri, uyarılar ve değerlendirme tanılama ve izleme günlüklerini](batch-diagnostics.md).
  
 > [!NOTE]
 > Varsayılan olarak Batch hesabınıza ek yapılandırma olmadan ölçümler kullanılabilir ve 30 günlük çalışırken geçmişini sahiptirler. Bir Batch hesabı için tanılama günlük kaydını etkinleştirmeniz gerekir ve depolamak ya da tanılama günlük verilerini işlemek için ek ücrete neden. 

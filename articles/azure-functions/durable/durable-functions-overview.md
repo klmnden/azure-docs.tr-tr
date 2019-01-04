@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/7/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 14e959e4aa26b04ec70cbb03ea3feaf0e93f31c1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: cf643c8c2a0921cfbe1f5599a9e96a27770ef1ef
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344185"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718597"
 ---
 # <a name="durable-functions-overview"></a>Dayanıklı işlevler genel bakış
 
-*Dayanıklı işlevler* uzantısıdır [Azure işlevleri](../functions-overview.md) ve [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) durum bilgisi olan işlevleri, sunucusuz bir ortamda yazmanızı sağlayan. Uzantı durumu ve kontrol noktaları yeniden sizin yerinize yönetir.
+*Dayanıklı işlevler* uzantısıdır [Azure işlevleri](../functions-overview.md) ve [Azure WebJobs](../../app-service/webjobs-create.md) durum bilgisi olan işlevleri, sunucusuz bir ortamda yazmanızı sağlayan. Uzantı durumu ve kontrol noktaları yeniden sizin yerinize yönetir.
 
 Uzantı çağrılan işlev yeni bir tür durum bilgisi olan iş akışları tanımlamanızı sağlar bir [ *orchestrator işlevi*](durable-functions-types-features-overview.md#orchestrator-functions). Orchestrator işlevleri avantajlarından bazıları şunlardır:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 2f4bc578b567462c2591c28b270f863ba5756815
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 734b0cf9373ea98ab33c06b45ad53b46a3355dd6
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193918"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976027"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple güvenlik ve veri koruma
 
@@ -121,7 +121,7 @@ StorSimple Snapshot Manager hakkında daha fazla bilgi için Git [StorSimple Sna
 StorSimple parolalarını güçlü ve iyi korumalı olduğundan emin olmak için aşağıdaki yönergeleri kullanmanızı öneririz:
 
 * Her üç ayda bir parolalarınızı değiştirin. Parolaları değiştirme yıllık zorlanır.
-* Güçlü parolalar kullanın. Daha fazla bilgi için Git [güçlü parolalar oluşturma ve bunları koruma](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Güçlü parolalar kullanın. Daha fazla bilgi için Git [güçlü parolalar oluşturma ve bunları koruma](https://cloudblogs.microsoft.com/microsoftsecure/2014/08/25/create-stronger-passwords-and-protect-them/).
 * Her zaman farklı parolalar için farklı erişim mekanizmaları kullanın. Belirttiğiniz parola her benzersiz olmalıdır.
 * Parolalar StorSimple cihazına erişmek için yetkili değil kimseyle paylaşmayın.
 * Başkalarının önünde bir parola hakkında konuşmak değil veya parola biçime bakma ipucu.

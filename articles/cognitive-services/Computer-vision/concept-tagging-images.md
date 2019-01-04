@@ -1,7 +1,7 @@
 ---
-title: Görüntüleri - görüntü işleme etiketleme
+title: Uygulanan içerik etiketleri görüntülerine - görüntü işleme
 titleSuffix: Azure Cognitive Services
-description: Görüntü işleme API'sini kullanarak görüntüleri etiketleme için ilgili kavramları.
+description: Görüntüleri etiketleme özelliğini görüntü işleme API'si, ilgili kavramları öğrenin.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 7e9181b6e805a768ca5dd8ed558b8feea45f22d3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.custom: seodec18
+ms.openlocfilehash: caf4d8a4ee3ccee181d233716e0a645150a201c3
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960916"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582941"
 ---
-# <a name="tagging-images"></a>Resimleri etiketleme
+# <a name="applying-content-tags-to-images"></a>Görüntülere içerik etiket uygulama
 
 Görüntü işleme tanınabilir nesne, canlı, manzara ve Eylemler binlerce alan etiketler döndürür. Belirsiz veya herkesçe bilinmeyen etiketler söz konusu olduğunda, API yanıtı, etiketin anlamının bilinen bir ortama ilişkin bağlamda açıklığa kavuşturulması için "ipuçları" sağlar. Etiketler taksonomi olarak tanınmaz ve hiçbir devralma hiyerarşisi yoktur. Bir içerik etiketi koleksiyonu, tam tümceler halinde biçimlendirilmiş insan tarafından okunabilir dilde görüntülenen bir görüntü 'açıklamasının' temelini oluşturur. Şu noktada görüntü açıklaması için desteklenen tek dilin İngilizce olduğunu unutmayın.
 
@@ -27,7 +28,7 @@ Görüntü işleme algoritmaları, bir görüntü yüklemek veya bir resim URL's
 
 Görüntü işleme algılandı örnek görüntüde visual özellikleri etiketlenirken döndürür aşağıdaki JSON yanıtı gösterilir.
 
-![House_Yard](./Images/house_yard.png).
+![Mavi bir ev ve ön yard](./Images/house_yard.png).
 
 ```json
 {

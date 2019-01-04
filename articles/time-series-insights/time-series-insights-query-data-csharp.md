@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights C# sorgular - sorgu verileri kullanarak bir Azure zaman serisi görüşleri ortamı C# kod | Microsoft Docs
+title: C# kodu kullanarak bir Azure zaman serisi görüşleri ortamından veri sorgulama | Microsoft Docs
 description: Bu makalede C# (C-sharp) .NET dilinde yazılan özel bir uygulama kodlama yaparak bir Azure zaman serisi görüşleri ortamından veri sorgulama işlemini açıklamaktadır.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
 ms.custom: seodec18
-ms.openlocfilehash: 82a3d4527d241aba80eb471508c99c7781dd4a41
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 07d1b7f801639ca6b4e314f13fbf564c0d525345
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277958"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555362"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>C# kullanarak Azure zaman serisi görüşleri ortamından veri sorgulama
 

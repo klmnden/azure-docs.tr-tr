@@ -9,22 +9,22 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: e5480e5e071d541d12e96ddd549e496c7f974f81
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: f55d3eb67bb9c494a3d055e39d970c9a440dfc67
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271054"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53603450"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL veritabanı için performans önerileri
 
 Azure SQL veritabanı öğrenir ve uygulamanızla birlikte uyum sağlar. Bu, SQL veritabanlarınızın performansını en üst düzeye olanak tanıyan özelleştirilmiş önerileri sağlar. SQL veritabanı, sürekli olarak değerlendirir ve Kullanım Geçmişi SQL veritabanlarınızın analiz eder. Sağlanan öneriler, veritabanı benzersiz iş yükü düzenleri temelinde ve performansının artırılmasına yardımcı.
 
 > [!TIP]
-> [Otomatik ayarlama](sql-database-automatic-tuning.md) performans ayarlaması için önerilen yöntemdir. [Akıllı İçgörüler](sql-database-intelligent-insights.md) performans izlemesi için önerilen yöntemdir. 
+> [Otomatik ayarlama](sql-database-automatic-tuning.md) en yaygın veritabanı performans sorunlarından bazıları otomatik olarak ayarlamak için önerilen yöntemdir. [Sorgu performansı öngörüleri](sql-database-query-performance.md) temel Azure SQL veritabanı performans izleme ihtiyaçları için önerilen yöntemdir. [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md) Gelişmiş otomatik performans sorunlarını gidermek için yerleşik zeka sayesinde, uygun ölçekte, veritabanı performansını izleme için ve önerilen yöntem budur.
 >
 
 ## <a name="create-index-recommendations"></a>Dizin önerileri oluşturma

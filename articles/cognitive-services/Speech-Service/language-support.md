@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 27b952fb1a901ff716f25cc7d512f860f639fb02
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342108"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632627"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Konuşma hizmeti API'sini dil ve bölge desteği
 
@@ -176,22 +176,7 @@ Ses özelleştirme bizim için İngilizce (en-US), ana kara Çince (zh-CN), Fran
 
 ## <a name="speech-translation"></a>Konuşma çevirisi
 
-**Konuşma çevirisi** API, konuşma tanıma ve konuşma tanıma ve konuşma metin çevirisi için farklı dilleri destekler. Kaynak dili her zaman aşağıdaki konuşma dilini tablodan olmalıdır. Hedef diller Çeviri hedef konuşma veya metin olmasına göre değişir. Gelen konuşmaya Çevir birden fazla [60 diller](https://www.microsoft.com/translator/business/languages/). Bu dillerin bir alt kümesi için kullanılabilir [konuşma sentezi](language-support.md#text-languages).
-
-### <a name="speech-languages"></a>Konuşma dillerini
-
-| Konuşma dili   | Dil kodu |
-|:----------- |-|
-| Arapça (Modern standart)      | `ar` |
-| Çince (Mandarin)      | `zh` |
-| Türkçe      | `en` |
-| Fransızca       | `fr` |
-| Almanca       | `de` |
-| İtalyanca      | `it` |
-| Japonca      | `jp` |
-| Portekizce (Brezilya)     | `pt` |
-| Rusça      | `ru` |
-| İspanyolca       |  `es` |
+**Konuşma çevirisi** API, konuşma tanıma ve konuşma tanıma ve konuşma metin çevirisi için farklı dilleri destekler. Kaynak dili her zaman konuşma metin dili tablodan olmalıdır. Hedef diller Çeviri hedef konuşma veya metin olmasına göre değişir. Gelen konuşmaya Çevir birden fazla [60 diller](https://www.microsoft.com/translator/business/languages/). Bu dillerin bir alt kümesi için kullanılabilir [konuşma sentezi](language-support.md#text-languages).
 
 ### <a name="text-languages"></a>Metin dilleri
 

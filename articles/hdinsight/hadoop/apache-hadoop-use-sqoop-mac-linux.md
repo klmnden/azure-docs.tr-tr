@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.openlocfilehash: 1b6a77e78d3385c9dfd4e43e0e4242c870eb8c57
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: d7df1c65b8588b97a6beb0a4c2428b3c6430c3b2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012564"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635707"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>HDInsight üzerinde Apache Hadoop ile SQL veritabanı arasında verileri dışarı aktarma ve içeri aktarmak için Apache Sqoop'u kullanma
 
@@ -23,10 +23,10 @@ ms.locfileid: "53012564"
 
 Azure HDInsight, Apache Hadoop kümesi ve Azure SQL veritabanı ya da Microsoft SQL Server veritabanı arasında alma ve verme için Apache Sqoop'u kullanma konusunda bilgi edinin. Bu adımları belge kullanım `sqoop` doğrudan Hadoop küme baş düğümüne komutu. Baş düğüme bağlanmak ve bu belgede komutları çalıştırmak için SSH kullanın.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgede yer alan adımlar, yalnızca Linux kullanan HDInsight kümeleri ile çalışır. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-> [!WARNING]
+> [!WARNING]  
 > Bu belgede yer alan adımlar, adlı bir Azure SQL veritabanı zaten oluşturduğunuzu varsayalım `sqooptest`.
 >
 > Bu belge, oluşturmak ve SQL veritabanı'nda bir tabloyu sorgulamak için kullanılan bir T-SQL bildirimleri sağlar. SQL veritabanı ile bu deyimler kullanabileceğiniz birçok istemciler vardır. Aşağıdaki istemciler öneririz:
@@ -37,7 +37,7 @@ Azure HDInsight, Apache Hadoop kümesi ve Azure SQL veritabanı ya da Microsoft 
 
 ## <a name="create-the-table-in-sql-database"></a>SQL veritabanı'nda Tablo oluşturma
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight kümesi kullanırsınız ve oluşturduğunuz SQL veritabanı [küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md), bu bölümdeki adımları atlayın. Tablo ve veritabanı'ndaki adımları bir parçası olarak oluşturulan [küme ve SQL veritabanı oluşturma](hdinsight-use-sqoop.md) belge.
 
 Bir SQL istemcisi, bağlanmak için kullandığınız `sqooptest` , SQL veritabanı. Ardından adlı bir tablo oluşturmak için aşağıdaki T-SQL kullanma `mobiledata`:
@@ -104,8 +104,8 @@ GO
 
     Veri alanları bir sekme karakteriyle ayrılır ve satırların bir yeni satır karakteri tarafından sonlandırılır.
 
-    > [!IMPORTANT]
-    > `wasb:///` Yolu varsayılan küme depolama alanı olarak Azure depolama kullanan kümeler ile birlikte çalışır. Azure Data Lake Store kullanma kümeleri kullanan `adl:///` yerine.
+    > [!IMPORTANT]  
+    > `wasb:///` Yolu varsayılan küme depolama alanı olarak Azure depolama kullanan kümeler ile birlikte çalışır. Azure Data Lake depolama kullanan kümeler için kullanma `adl:///` yerine.
 
 2. İçeri aktarma tamamlandıktan sonra yeni dizine veri listesini aşağıdaki komutu kullanın:
 
@@ -160,8 +160,8 @@ Sqoop, verileri SQL Server'dan dışarı ve içeri aktarmak için de kullanabili
 
 Artık Sqoop kullanmayı öğrendiniz. Daha fazla bilgi için bkz:
 
-* [HDInsight ile Oozie kullanma](../hdinsight-use-oozie.md): bir Oozie iş akışının kullanım Sqoop eylem.
-* [HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](../hdinsight-analyze-flight-delay-data.md): uçuş çözümlemek için Hive kullanma gecikme veri ve Sqoop kullanarak Azure SQL veritabanına veri dışarı aktarmak için kullanın.
+* [HDInsight ile Apache Oozie kullanma](../hdinsight-use-oozie.md): İçinde bir Oozie iş akışının Sqoop eylemini kullanın.
+* [HDInsight'ı kullanarak uçuş gecikme verilerini çözümleme](../hdinsight-analyze-flight-delay-data.md): Uçuş gecikme verilerini çözümleme için Apache Hive'ı kullanın ve ardından bir Azure SQL veritabanına veri dışarı aktarmak için Sqoop kullanma.
 * [HDInsight için verileri karşıya](../hdinsight-upload-data.md): HDInsight/Azure Blob depolama alanına veri yüklemek için diğer yöntemler bulun.
 
 [hdinsight-versions]:  ../hdinsight-component-versioning.md

@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 12f08ad67025a3a791c021005fc82c8743b37c9d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1876a74ff1631ee8a383ebe954df9756f7ef89f1
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720397"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53811452"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve test için Azure Cosmos DB Öykünücüsünü kullanma
 
@@ -34,7 +34,7 @@ ms.locfileid: "53720397"
 
 Azure Cosmos DB Öykünücüsü, geliştirme amaçlı olarak Azure Cosmos DB hizmetine öykünen yerel bir ortam sağlar. Azure Cosmos DB Öykünücüsü’nü kullanarak Azure aboneliği oluşturmadan veya masraf yapmadan uygulamanızı yerel ortamda geliştirip test edebilirsiniz. Uygulamanızın Azure Cosmos DB Öykünücüsü’ndeki performansından memnun olduğunuzda bulut üzerinde Azure Cosmos DB hesabı kullanmaya başlayabilirsiniz.
 
-Şu anda öykünücü veri Gezgini'nde tam olarak yalnızca SQL API ve MongoDB API'si için istemcileri destekler. Tablo, grafik ve Cassandra için istemcilerin tam olarak desteklenmiyor.
+Şu anda öykünücü veri Gezgini'nde yalnızca tam olarak istemcileri için API SQL API'sini ve Azure Cosmos DB'nin MongoDB için destekler. İstemcileri tablo, grafik ve Cassandra API için tam olarak desteklenmiyor.
 
 Bu makale aşağıdaki görevleri kapsar:
 
@@ -57,7 +57,7 @@ Azure Cosmos DB hizmetinin öykünmesi aslına sadık olsa da, öykünücünün 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Öykünücü ile hizmet arasındaki farklar
 Azure Cosmos DB Öykünücüsü, yerel geliştirici iş istasyonunda çalıştırılan öykünmüş bir ortam sağladığından, öykünücü ile buluttaki bir Azure Cosmos DB hesabı arasında bazı işlev farkları vardır:
 
-* Şu anda veri Gezgini'nde öykünücü SQL API ve MongoDB API'si için istemcileri destekler. İstemcileri tablo, grafik ve Cassandra API için henüz desteklenmiyor.
+* Şu anda veri Gezgini'nde öykünücü MongoDB için SQL API'sini ve Azure Cosmos DB API için istemcileri destekler. İstemcileri tablo, grafik ve Cassandra API için henüz desteklenmiyor.
 * Azure Cosmos DB Öykünücüsü yalnızca tek bir sabit hesabı ve iyi bilinen bir ana anahtarı destekler. Azure Cosmos DB Öykünücüsü’nde anahtar yeniden oluşturma mümkün değildir.
 * Azure Cosmos DB Öykünücüsü, ölçeklenebilir bir hizmet değildir ve çok sayıda koleksiyonu desteklemez.
 * Azure Cosmos DB Öykünücüsü, farklı [Azure Cosmos DB tutarlılık düzeyinin](consistency-levels.md) benzetimini yapmaz.
@@ -132,7 +132,7 @@ Azure Cosmos DB Öykünücüsü masaüstünüzde çalışmaya başladıktan sonr
         new Uri("https://localhost:8081"),
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
-Kullanıyorsanız [MongoDB API'si için Azure Cosmos DB kablo protokolü desteği](mongodb-introduction.md), aşağıdaki bağlantı dizesi kullanın:
+Kullanıyorsanız [Azure Cosmos DB MongoDB için protokol desteği kablo](mongodb-introduction.md), aşağıdaki bağlantı dizesi kullanın:
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
 
@@ -151,7 +151,7 @@ Windows Sertifika Deposu ile tümleştirilmeyen çalışma zamanları ve dillerl
 
 ![Azure Cosmos DB yerel öykünücüsü SSL sertifikası](./media/local-emulator/database-local-emulator-ssl_certificate.png)
 
-X.509 sertifikası, [Java CA Sertifika Deposuna Sertifika Ekleme](https://docs.microsoft.com/azure/java-add-certificate-ca-store) bölümündeki yönergeler izlenerek Java sertifika deposuna içeri aktarılabilir. Sertifikayı sertifika deposuna içeri aktarıldıktan sonra SQL ve MongoDB API'si için istemcileri için Azure Cosmos DB öykünücüsü'nü bağlanmanız mümkün olacaktır.
+X.509 sertifikası, [Java CA Sertifika Deposuna Sertifika Ekleme](https://docs.microsoft.com/azure/java-add-certificate-ca-store) bölümündeki yönergeler izlenerek Java sertifika deposuna içeri aktarılabilir. Sertifikayı sertifika deposuna içeri aktarıldıktan sonra istemciler için SQL ve Azure Cosmos DB'nin MongoDB API'si için Azure Cosmos DB öykünücüsü'nü bağlanmak mümkün olacaktır.
 
 Python ve Node.js SDK’larından öykünücüye bağlanırken SSL doğrulaması devre dışı bırakılır.
 

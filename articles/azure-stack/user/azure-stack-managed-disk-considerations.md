@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: jiahan
-ms.openlocfilehash: 9eed4c4bd8cd6290bd2126c91bcf4e37c1b0fa0b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4bad339ca704f14f57c120db5e731d0dbfeb8d59
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341958"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793453"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack yönetilen diskler: Farklılıklar ve dikkat edilmesi gerekenler
 Bu makalede, Azure Stack yönetilen diskler için Azure yönetilen diskler arasındaki bilinen farklar özetlenmektedir. Azure Stack ve Azure arasında üst düzey farklılıklar hakkında bilgi edinmek için bkz. [anahtar konuları](azure-stack-considerations.md) makalesi.
@@ -61,6 +61,14 @@ Depolama ölçümleri farklılıklar vardır:
 ## <a name="api-versions"></a>API sürümleri
 Azure Stack yönetilen diskler aşağıdaki API sürümlerini destekler:
 - 2017-03-30
+
+## <a name="known-issues"></a>Bilinen Sorunlar
+Güncelleştirme 1809 uyguladıktan sonra yönetilen disklere sahip VM'ler dağıtırken aşağıdaki sorunlarla karşılaşabilirsiniz:
+
+   - Yönetilen disklerle bir VM dağıtma 1808 güncelleştirmeden önce Abonelik oluşturulurken bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için her abonelik için şu adımları izleyin:
+      1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
+      2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
+   - Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin. [bu makalede](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

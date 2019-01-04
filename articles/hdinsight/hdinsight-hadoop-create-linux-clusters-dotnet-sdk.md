@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 06135ff77cb9c2a5b8fa2ae674206406469ed293
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 52f67d21c3a130df4d85c220baca9c6af8eb06c1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870614"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793487"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Linux tabanlı kümeler .NET SDK kullanarak HDInsight oluşturma
 
@@ -23,7 +23,7 @@ ms.locfileid: "52870614"
 
 Oluşturmayı bir [Apache Hadoop](https://hadoop.apache.org/) .NET SDK kullanarak Azure HDInsight kümesinde Küme.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgede yer alan adımlar, bir çalışan düğümü ile bir küme oluşturun. 32'den fazla çalışan düğümleri, küme oluşturma sırasında veya Küme oluşturulduktan sonra ölçeklendirme planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB ram ile seçmeniz gerekir.
 >
 > Düğüm boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırması](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -367,7 +367,7 @@ static void Main(string[] args)
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
-HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-administer-use-portal-linux.md#create-clusters).
+HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir HDInsight kümesi başarıyla oluşturuldu, kümenizi ile çalışma hakkında bilgi almak için aşağıdakileri kullanın. 
@@ -375,7 +375,7 @@ Bir HDInsight kümesi başarıyla oluşturuldu, kümenizi ile çalışma hakkın
 ### <a name="apache-hadoop-clusters"></a>Apache Hadoop kümelerini
 * [Apache Hive, HDInsight ile kullanma](hadoop/hdinsight-use-hive.md)
 * [Apache Pig, HDInsight ile kullanma](hadoop/hdinsight-use-pig.md)
-* [HDInsight ile Apache Hadoop MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight ile MapReduce kullanma](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase kümeleri
 * [HDInsight üzerinde Apache HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md)
@@ -389,8 +389,8 @@ Bir HDInsight kümesi başarıyla oluşturuldu, kümenizi ile çalışma hakkın
 ### <a name="apache-spark-clusters"></a>Apache Spark kümeleri
 * [Scala kullanarak tek başına uygulama oluşturma](spark/apache-spark-create-standalone-application.md)
 * [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](spark/apache-spark-livy-rest-interface.md)
-* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
-* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](spark/apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="run-jobs"></a>İşleri çalıştırma
 * [.NET SDK kullanarak HDInsight Apache Hive işlerini çalıştırma](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)

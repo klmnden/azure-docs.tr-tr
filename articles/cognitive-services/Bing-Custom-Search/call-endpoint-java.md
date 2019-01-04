@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: aahi
-ms.openlocfilehash: 803c2de976255b252bea8e16b920f8f3aee37101
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 65dc4f837a7b5d5cb3f41eacf9833ebd5a601bab
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557623"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970959"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Hızlı Başlangıç: Java kullanarak Bing özel arama uç noktanızı arayın
 

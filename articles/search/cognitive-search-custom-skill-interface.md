@@ -1,5 +1,5 @@
 ---
-title: Özel becerileri bilişsel arama ardışık - Azure Search için arabirim tanımı
+title: Özel becerileri bilişsel arama - Azure Search için arabirim tanımı
 description: Azure Search'te bilişsel arama işlem hattında özel yetenek web API'si için özel veri ayıklama arabirimi.
 manager: pablocas
 author: luiscabrer
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 1df2a565b1c9e8bd2bea75ce78abc84608c89eea
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: deb72bcc41e20057b6e7b214c6a8c93655894a12
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314661"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628281"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Bilişsel arama işlem hattı için özel bir yetenek ekleme
 

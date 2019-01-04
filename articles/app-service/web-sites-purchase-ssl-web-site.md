@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268725"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714309"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Satın alma ve Azure App Service için SSL sertifikası yapılandırma
 
@@ -35,7 +35,7 @@ Bu öğreticide (satın) oluşturarak web uygulamanızı güvenli hale gösteril
 Bu nasıl yapılır kılavuzunda izlemek için:
 
 - [App Service uygulaması oluşturma](/azure/app-service/)
-- [Bir etki alanı adını web uygulamanıza eşleme](app-service-web-tutorial-custom-domain.md) veya [satın alma ve Azure'da yapılandırma](custom-dns-web-site-buydomains-web-app.md)
+- [Bir etki alanı adını web uygulamanıza eşleme](app-service-web-tutorial-custom-domain.md) veya [satın alma ve Azure'da yapılandırma](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -91,7 +91,7 @@ Seçin **App Service doğrulaması**. Web uygulamanız için etki alanı zaten e
 > Etki alanı doğrulama yöntemlerinin dört türleri desteklenir: 
 > 
 > - **App Service** -etki alanı aynı Abonelikteki bir App Service uygulamasına zaten eşlendiğinde en kullanışlı seçenektir. App Service uygulaması zaten etki alanı sahipliğini doğruladı olgu avantajlarından yararlanır.
-> - **Etki alanı** -doğrulayın bir [satın aldığınız Azure App Service etki alanı](custom-dns-web-site-buydomains-web-app.md). Azure, otomatik olarak sizin için doğrulama TXT kaydı ekler ve işlemini tamamlar.
+> - **Etki alanı** -doğrulayın bir [satın aldığınız Azure App Service etki alanı](manage-custom-dns-buy-domain.md). Azure, otomatik olarak sizin için doğrulama TXT kaydı ekler ve işlemini tamamlar.
 > - **Posta** -etki alanı için etki alanı yöneticisinin e-posta göndererek doğrulayın. Seçeneğini belirlediğinizde yönergeleri sağlanır.
 > - **El ile** -HTML sayfasını kullanarak etki alanını doğrulayın (**standart** yalnızca sertifika) veya bir DNS TXT kaydı. Seçeneğini belirlediğinizde yönergeleri sağlanır.
 

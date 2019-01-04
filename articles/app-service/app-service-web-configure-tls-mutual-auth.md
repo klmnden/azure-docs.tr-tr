@@ -1,6 +1,6 @@
 ---
 title: TLS karşılıklı kimlik doğrulama - Azure App Service'ı yapılandırma
-description: Web uygulamanızı, TLS üzerinde istemci sertifikası kimlik doğrulaması kullanacak şekilde yapılandırmayı öğrenin.
+description: TLS üzerinde istemci sertifikası kimlik doğrulaması kullanmak için uygulamanızı yapılandırmayı öğrenin.
 services: app-service
 documentationcenter: ''
 author: naziml
@@ -15,40 +15,38 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: f08e8f60f0e23cce9546e45dcf7b249d38224736
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d441329bc3f279e95b2ee302db53d78f786c3470
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252890"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650406"
 ---
-# <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>Web App için TLS Karşılıklı Kimlik Doğrulamayı Yapılandırma
+# <a name="how-to-configure-tls-mutual-authentication-for-azure-app-service"></a>Azure App Service için TLS karşılıklı kimlik doğrulamayı yapılandırma
 ## <a name="overview"></a>Genel Bakış
-Kimlik doğrulaması için farklı türlerde sağlayarak, Azure web uygulamanıza erişimi kısıtlayabilirsiniz. Bunu yapmak için bir TLS/SSL üzerinden istek olduğunda, bir istemci sertifikası kullanılarak kimlik doğrulaması yoludur. Bu mekanizma, TLS karşılıklı kimlik doğrulaması veya istemci sertifikası kimlik doğrulaması ve bu makalede web uygulamanızın istemci sertifikası kimlik doğrulaması kullanacak şekilde nasıl ayrıntılarıyla çağrılır.
+Kimlik doğrulaması için farklı türlerde etkinleştirerek Azure App Service uygulamanıza erişimi kısıtlayabilirsiniz. Bunu yapmak için bir TLS/SSL üzerinden istek olduğunda, bir istemci sertifikası kullanılarak kimlik doğrulaması yoludur. Bu mekanizma, TLS karşılıklı kimlik doğrulaması veya istemci sertifikası kimlik doğrulaması ve bu makalede istemci sertifikası kimlik doğrulaması kullanmak için uygulamanızı ayarlama konusunda ayrıntılarıyla çağrılır.
 
 > **Not:** Sitenizi HTTP ve HTTPS değil üzerinden erişirseniz, herhangi bir istemci sertifikası almazsınız. Uygulamanızın istemci sertifikası gerektiriyorsa, bu nedenle, istekleri, uygulamanız için HTTP üzerinden izin vermemelidir.
 > 
 > 
 
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-## <a name="configure-web-app-for-client-certificate-authentication"></a>Web uygulaması için istemci sertifikası kimlik doğrulamasını yapılandırma
-İstemci sertifikaları gerektirmek için web uygulamanızı ayarlamak için web uygulamanız için clientCertEnabled site ayarı ekleyin ve true olarak ayarlamanız gerekir. Bu ayar, ayrıca SSL sertifikaları dikey penceresinin altındaki Azure portalında yapılandırılmış olması mümkün olur.
+## <a name="configure-app-service-for-client-certificate-authentication"></a>App Service için istemci sertifikası kimlik doğrulamasını yapılandırma
+İstemci sertifikaları gerektirmek için uygulamanızı ayarlayın için uygulamanızı clientCertEnabled site ayarını ekleyin ve true olarak ayarlamanız gerekir. Bu ayar, ayrıca SSL sertifikaları dikey penceresinin altındaki Azure portalında yapılandırılmış olması mümkün olur.
 
 Kullanabileceğiniz [ARMClient aracı](https://github.com/projectkudu/ARMClient) REST API çağrısı çalışıyorlardı kolaylaştırır. Aracıyla işaretinden sonra aşağıdaki komutu yürütün gerekir:
 
     ARMClient PUT subscriptions/{Subscription Id}/resourcegroups/{Resource Group Name}/providers/Microsoft.Web/sites/{Website Name}?api-version=2015-04-01 @enableclientcert.json -verbose
 
-her şeyi değiştirerek {} bilgi için web uygulaması ve bir dosya oluşturarak adlı enableclientcert.json aşağıdaki JSON ile içerik:
+her şeyi değiştirerek {} bilgilerle uygulamanızı ve aşağıdaki JSON ile enableclientcert.json içerik adlı bir dosya oluşturmak için:
 
     {
-        "location": "My Web App Location",
+        "location": "My App Location",
         "properties": {
             "clientCertEnabled": true
         }
     }
 
-Her yerde web uygulamanızı Örneğin, Kuzey Orta ABD veya Batı ABD vb. bulunduğu "Konum" değerini değiştirdiğinizden emin olun.
+Her yerde uygulamanızı Örneğin, Kuzey Orta ABD veya Batı ABD vb. bulunduğu "Konum" değerini değiştirdiğinizden emin olun.
 
 Ayrıca https://resources.azure.com çevrilecek `clientCertEnabled` özelliğini `true`.
 
@@ -56,11 +54,11 @@ Ayrıca https://resources.azure.com çevrilecek `clientCertEnabled` özelliğini
 > 
 > 
 
-## <a name="accessing-the-client-certificate-from-your-web-app"></a>İstemci sertifikasını Web uygulamanızdan erişme
+## <a name="accessing-the-client-certificate-from-app-service"></a>App Service'ten istemci sertifikasına erişme
 ASP.NET kullanıyorsanız ve istemci sertifikası kimlik doğrulaması kullanmak için uygulamanızı yapılandırma, sertifika aracılığıyla **HttpRequest.ClientCertificate** özelliği. Diğer uygulama yığınları için istemci sertifikası "X-ARR-ClientCert" istek üstbilgisindeki bir base64 olarak kodlanmış değer uygulamanızda kullanıma sunulacaktır. Uygulamanız, bu değeri bir sertifika oluşturmak ve uygulamanızdaki herhangi bir kimlik doğrulama ve yetkilendirme amacıyla kullanın.
 
 ## <a name="special-considerations-for-certificate-validation"></a>Sertifika doğrulama için özel hususlar
-Uygulamaya gönderilen bir istemci sertifikası, Azure Web Apps platformunu herhangi bir doğrulama geçmez. Bu sertifika doğrulama web uygulamasının sorumluluğundadır. Kimlik doğrulama amacıyla sertifika özellikleri doğrular örnek ASP.NET kodunu aşağıda verilmiştir.
+Uygulamaya gönderilen bir istemci sertifikası Azure App Service platformu tarafından herhangi bir doğrulama geçmez. Bu sertifika doğrulama uygulamanın sorumluluğundadır. Kimlik doğrulama amacıyla sertifika özellikleri doğrular örnek ASP.NET kodunu aşağıda verilmiştir.
 
     using System;
     using System.Collections.Specialized;

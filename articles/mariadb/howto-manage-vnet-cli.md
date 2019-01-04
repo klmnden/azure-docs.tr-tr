@@ -1,20 +1,18 @@
 ---
 title: Oluşturma ve MariaDB sanal ağ hizmet uç noktaları ve Azure CLI kullanarak kuralları için Azure veritabanı'nı yönetme | Microsoft Docs
 description: Bu makalede, oluşturmak ve MariaDB sanal ağ hizmet uç noktaları ve Azure CLI komut satırını kullanarak kurallar için Azure veritabanı yönetmek açıklar.
-services: mariaDB
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mariadb
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 11/20/2018
-ms.openlocfilehash: 7f39eb2b3020016d1fb14e8c611ae00dfab07c11
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: bfa55c0a91473a4adc6b9fb02ac9697208ef39f9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52337018"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540070"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-using-azure-cli"></a>Oluşturma ve Azure CLI kullanarak MariaDB sanal ağ hizmet uç noktaları için Azure veritabanı'nı yönetme
 

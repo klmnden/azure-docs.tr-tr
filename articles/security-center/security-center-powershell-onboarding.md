@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: ecfab15860ffc690d341069b626e5d7579c00da4
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 69310e51495cbb91303c3e8837ad42f6a4ac3374
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340377"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972917"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell kullanarak Azure Güvenlik Merkezi'nin ekleme otomatikleştirin
 
@@ -49,37 +49,31 @@ Güvenlik Merkezi cmdlet'leri çalıştırmadan önce bu adımlar gerçekleştir
 1.  PowerShell'i yönetici olarak çalıştırın
 2.  PowerShell'de aşağıdaki komutları çalıştırın:
       
-        Install-Module -Name PowerShellGet -Force
         Set-ExecutionPolicy -ExecutionPolicy AllSigned
-        Import-Module PowerShellGet
-6.  PowerShell yeniden Başlat
-
-7. PowerShell'de aşağıdaki komutları çalıştırın:
-
-         Install-Module -Name AzureRM.Security -AllowPrerelease -Force
+        Install-Module -Name Az.Security -Force
 
 ## <a name="onboard-security-center-using-powershell"></a>PowerShell kullanarak Güvenlik Merkezi'ne ekleme
 
 1.  Abonelikleriniz için Güvenlik Merkezi kaynak sağlayıcısını kaydedin:
 
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.Security' 
+        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+        Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security' 
 
 2.  İsteğe bağlı: Abonelik kapsamı düzeyini (fiyatlandırma katmanı) ayarlayın (tanımlı değilse, fiyatlandırma katmanı ücretsiz olarak ayarlanır):
 
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
-        Set-AzureRmSecurityPricing -Name "default" -PricingTier "Standard"
+        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+        Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
 
 3.  Aracıların rapor eder Log Analytics çalışma alanı yapılandırın. Zaten oluşturduğunuz aboneliğin Vm'leri rapor vereceği bir Log Analytics çalışma alanı olması gerekir. Birden çok abonelik aynı çalışma alanına raporlama yapacak tanımlayabilirsiniz. Tanımlı değilse, varsayılan çalışma alanı kullanılır.
 
-        Set-AzureRmSecurityWorkspaceSetting -Name "default" -Scope
+        Set-AzSecurityWorkspaceSetting -Name "default" -Scope
         "/subscriptions/d07c0080-170c-4c24-861d-9c817742786c" -WorkspaceId"/subscriptions/d07c0080-170c-4c24-861d-9c817742786c/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace"
 
 4.  Microsoft Monitoring Agent'ı Azure sanal makinelerinize otomatik sağlama yüklemesini:
     
-        Set-AzureRmContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
+        Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"
     
-        Set-AzureRmSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
+        Set-AzSecurityAutoProvisioningSetting -Name "default" -EnableAutoProvision
 
     > [!NOTE]
     > Azure sanal makinelerinizi otomatik olarak Azure Güvenlik Merkezi tarafından korunduğundan emin olmak otomatik sağlamayı etkinleştirmek için önerilir.
@@ -87,13 +81,13 @@ Güvenlik Merkezi cmdlet'leri çalıştırmadan önce bu adımlar gerçekleştir
 
 5.  İsteğe bağlı: Güvenlik ilgili kişisinin bilgilerini ekleme, uyarılar ve bildirimler alıcılarını kullanılacak oluşturduğunuz abonelikler için tanımladığınız Güvenlik Merkezi tarafından önerilir:
 
-        Set-AzureRmSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertsAdmin -NotifyOnAlert 
+        Set-AzSecurityContact -Name "default1" -Email "CISO@my-org.com" -Phone "2142754038" -AlertsAdmin -NotifyOnAlert 
 
 6.  Varsayılan Güvenlik Merkezi ilke girişimi atama:
 
-        Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
-        $Policy = Get-AzureRmPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
-        New-AzureRmPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
+        Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
+        $Policy = Get-AzPolicySetDefinition | where {$_.Properties.displayName -EQ '[Preview]: Enable Monitoring in Azure Security Center'}
+        New-AzPolicyAssignment -Name 'ASC Default <d07c0080-170c-4c24-861d-9c817742786c>' -DisplayName 'Security Center Default <subscription ID>' -PolicySetDefinition $Policy -Scope '/subscriptions/d07c0080-170c-4c24-861d-9c817742786c'
 
 Başarıyla eklenen Azure Güvenlik Merkezi artık PowerShell ile!
 
@@ -107,7 +101,7 @@ Başarıyla eklenen Azure Güvenlik Merkezi artık PowerShell ile!
 ## <a name="see-also"></a>Ayrıca bkz.
 Güvenlik Merkezi'ne ekleme otomatikleştirmek için PowerShell nasıl kullanabileceğiniz hakkında daha fazla bilgi edinmek için şu makaleye bakın:
 
-* [AzureRM.Security](https://www.powershellgallery.com/packages/AzureRM.Security/0.2.0-preview).
+* [Az.Security](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Security/Commands.Security/help/Az.Security.md).
 
 Güvenlik Merkezi hakkında daha fazla bilgi için şu makaleye bakın:
 

@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 07274269e9902a336181c89ee5c02edd52b6ab01
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2e68ad6d999a5ff003abe35a0cce75bc5f2cebef
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849505"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723935"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>Birden çok kiracıyı destekleyen VMware fisaster kurtarma CSP ile azure'a genel bakış
+# <a name="overview-of-multi-tenant-support-for-vmware-disaster-recovery-to-azure-with-csp"></a>VMware olağanüstü durum kurtarma için Azure CSP ile çok kiracılı desteği'ne genel bakış
 
 [Azure Site Recovery](site-recovery-overview.md) Kiracı abonelikler için çok kiracılı ortamlarını destekler. Oluşturulan ve Microsoft bulut çözümü sağlayıcısı (CSP) programı aracılığıyla yönetilen Kiracı abonelikler için çok kiracılı modeli de destekler.
 
@@ -24,11 +24,11 @@ Bu makalede, uygulama ve çok kiracılı Vmware'den Azure'a çoğaltma yönetmey
 
 Üç ana çok kiracılı modeli vardır:
 
-* **Paylaşılan barındırma hizmet sağlayıcısı (HSP)**: fiziksel altyapı iş ortağı sahip ve aynı altyapıda kullandığı paylaşılan kaynakları (vCenter, veri merkezleri, fiziksel depolama alanı ve benzeri) birden çok Kiracı Vm'leri barındırmak için. İş ortağı, yönetilen bir hizmet olarak olağanüstü durum kurtarma Yönetimi sağlayabilir veya Kiracı Self Servis bir çözüm olarak olağanüstü durum kurtarma sahip olabilir.
+* **Paylaşılan barındırma hizmet sağlayıcısı (HSP)**: İş ortağı fiziksel altyapı sahip ve aynı altyapıda paylaşılan kaynaklar (vCenter, veri merkezleri, fiziksel depolama alanı ve benzeri) birden çok Kiracı Vm'leri barındırmak için kullanır. İş ortağı, yönetilen bir hizmet olarak olağanüstü durum kurtarma Yönetimi sağlayabilir veya Kiracı Self Servis bir çözüm olarak olağanüstü durum kurtarma sahip olabilir.
 
-* **Barındırma hizmet sağlayıcısı adanmış**: iş ortağı fiziksel altyapı sahip, ancak ayrı bir altyapı üzerinde her bir kiracının sanal makineleri barındırmak için adanmış kaynaklar (birden çok vCenters, fiziksel veri depoları vb.) kullanır. İş ortağı, yönetilen bir hizmet olarak olağanüstü durum kurtarma Yönetimi sağlayabilir veya Kiracı Self Servis bir çözüm olarak bulunabilir.
+* **Barındırma hizmet sağlayıcısı adanmış**: İş ortağı fiziksel altyapı sahip, ancak ayrı bir altyapı üzerinde her bir kiracının sanal makineleri barındırmak için adanmış kaynaklar (birden çok vCenters, fiziksel veri depoları vb.) kullanır. İş ortağı, yönetilen bir hizmet olarak olağanüstü durum kurtarma Yönetimi sağlayabilir veya Kiracı Self Servis bir çözüm olarak bulunabilir.
 
-* **Yönetilen Hizmetler Sağlayıcısı (MSP)**: Müşteri sanal makineleri barındıran fiziksel altyapı sahibi ve iş ortağı olağanüstü durum kurtarma etkinleştirme ve yönetimi sağlar.
+* **Yönetilen Hizmetler Sağlayıcısı (MSP)**: Müşteri sanal makineleri barındıran fiziksel altyapı sahip olan ve iş ortağı olağanüstü durum kurtarma etkinleştirme ve yönetimi sağlar.
 
 ## <a name="shared-hosting-services-provider-hsp"></a>Paylaşılan barındırma hizmet sağlayıcısı (HSP)
 
@@ -75,11 +75,11 @@ Yapılandırma sunucusu, özel bir rol atanmış olan bir hesap ile yapılandır
 1. Önceden tanımlanmış kopyalayarak yeni bir rol oluşturmak *salt okunur* rolünü ve ardından (örneğin, bu örnekte gösterildiği gibi Azure_Site_Recovery) uygun bir ad verin.
 2. Bu rol için aşağıdaki izinler atayın:
 
-    * **Veri deposu**: ayırma boşluk, göz atma veri deposu, düşük düzeyli dosya işlemleri, dosyayı Kaldır, sanal makine dosyalarını güncelleştirme
-    * **Ağ**: ağ atama
-    * **Kaynak**: VM atama kaynak havuzu, sanal makine, desteklenen geçiş için desteklenen geçiş VM
-    * **Görevleri**: görev, güncelleme görevi oluşturun
-    * **VM - yapılandırma**: tüm
+    * **Veri deposu**: Ayırma boşluk, göz atma veri deposu, düşük düzeyli dosya işlemleri, dosya, sanal makine dosyalarını güncelleştirme Kaldır
+    * **Ağ**: Ağ atama
+    * **Kaynak**: VM güç VM geçişi, VM üzerinde desteklenen geçiş kaynak havuzuna atayın
+    * **Görevleri**: Görev, güncelleme görevi oluşturun
+    * **VM - yapılandırma**: Tümü
     - **VM - etkileşim** > yanıt soru, cihaz bağlantısı, CD yapılandırma ortamı, disket ortamını yapılandırma, kapatma, açma, VMware araçlarını yükleme
     - **VM - Envanter** > oluşturma varolandan Yeni Oluştur, kaydetme, kaydı kaldırma
     - **VM - sağlama** > sanal makine indirmeye izin, izin sanal makine dosyalarını karşıya yükleme

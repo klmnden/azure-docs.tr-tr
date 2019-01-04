@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: be2c7aea356f6d7b73438499b7e4d680ed4bad7c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 4cac20cb44c2400e44ff2ca0939b1537f0b20734
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259248"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727191"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Varlık algılama artırmak için bir liste varlığı kullanın 
 Bu öğretici, kullanımını gösterir. bir [varlık listesinde](luis-concept-entity-types.md) varlık algılama artırmak için. Liste varlıkları, koşulları'nın tam bir eşleşme olarak Etiketlenecek gerekmez.  
@@ -37,7 +37,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!Tip]
 > Zaten bir aboneliğiniz yoksa, kaydolabilirsiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/).
 
-Bu öğreticideki kod tüm kullanılabilir [LUIS örnekleri GitHub deposunda](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity). 
+Bu öğreticideki kod tüm kullanılabilir [Azure örnekleri GitHub deposunda](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## <a name="use-homeautomation-app"></a>HomeAutomation uygulamasını kullanma
 Işıklar, eğlence sistemleri ve ortam gibi denetimin Isıtma ve soğutma gibi denetimleri HomeAutomation uygulama sağlar. Bu sistemler üretici adları, takma adlar, takma adlar ve argo kullanımlar ekleyebileceğiniz birçok farklı adlara sahip. 

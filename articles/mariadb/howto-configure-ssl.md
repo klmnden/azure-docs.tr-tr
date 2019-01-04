@@ -3,24 +3,22 @@ title: Güvenli bir şekilde MariaDB için Azure veritabanı'na bağlanmak için
 description: MariaDB ve SSL bağlantıları doğru bir şekilde kullanmak için ilişkili uygulamalar için Azure veritabanı düzgün bir şekilde nasıl yapılandıracağınızı öğrenmek için yönergeler
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 00e8479eab927acccc8f797311a0a2d440bb96da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4bf18a44255903df09aae3382c0eb35a2a55eea5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961680"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541821"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Güvenli bir şekilde MariaDB için Azure veritabanı'na bağlanmak üzere uygulamanızda SSL bağlantısı yapılandırma
 MariaDB için Azure veritabanı, Güvenli Yuva Katmanı (SSL) kullanarak istemci uygulamalar MariaDB için Azure veritabanı sunucunuza bağlanmayı destekler. Veritabanı sunucunuzla istemci uygulamalarınız arasında SSL bağlantılarının zorunlu tutulması, sunucuya uygulamanız arasındaki veri akışını şifreleyerek "bağlantıyı izinsiz izleme" saldırılarına karşı korumaya yardımcı olur.
 
 ## <a name="obtain-ssl-certificate"></a>SSL sertifikası alın
 MariaDB sunucudan için Azure veritabanı ile SSL üzerinden iletişim kurması için gereken sertifikayı indirin [ https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) ve sertifika dosyasını (Bu öğreticide c:\ssl örneğin) yerel sürücünüze kaydedin.
-**Microsoft Internet Explorer ve Microsoft Edge:** indirme tamamlandıktan sonra sertifika BaltimoreCyberTrustRoot.crt.pem için yeniden adlandırın.
+**Microsoft Internet Explorer ve Microsoft Edge için:** İndirme tamamlandıktan sonra sertifika BaltimoreCyberTrustRoot.crt.pem için yeniden adlandırın.
 
 ## <a name="bind-ssl"></a>SSL bağlama
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>SSL üzerinden MySQL Workbench kullanarak sunucuya bağlanma
@@ -49,7 +47,7 @@ Mysql yürütme **durumu** MariaDB sunucunuza SSL kullanarak bağlı olduğunuzu
 ```sql
 status
 ```
-Bağlantı şifrelenir göstermelidir çıkış gözden geçirerek doğrulayın: **SSL: şifredir kullanımda AES256 SHA** 
+Bağlantı göstermelidir çıkış inceleyerek şifrelenir onaylayın:  **SSL: AES256 SHA şifredir kullanılıyor** 
 
 ## <a name="sample-code"></a>Örnek kod
 Güvenli bir bağlantı için Azure veritabanı MariaDB için SSL üzerinden uygulamanızı oluşturmak için aşağıdaki kod örneklerine bakın:

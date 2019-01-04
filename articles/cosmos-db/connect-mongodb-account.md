@@ -1,23 +1,23 @@
 ---
-title: Azure Cosmos DB hesabı için MongoDB bağlantı dizesi
-description: MongoDB bağlantı dizesi kullanarak bir Azure Cosmos DB hesabına MongoDB uygulamanızı hesabınıza bağlanmayı öğreneceksiniz.
+title: Bir MongoDB uygulamasını Azure Cosmos DB'ye bağlanma
+description: Azure Cosmos DB için MongoDB uygulamanızı hesabınıza bağlanmayı öğreneceksiniz.
 keywords: mongodb bağlantı dizesi
 services: cosmos-db
-author: slyons
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 12/19/2017
-ms.author: sclyon
-ms.openlocfilehash: a78a77e16e9a810c0be03656aa48b02cc8e6e5e6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: 9a6cbc551704541f3e4ead40567f272205b71325
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849267"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53791396"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Bir MongoDB uygulamasını Azure Cosmos DB'ye bağlanma
-MongoDB bağlantı dizesi kullanarak bir Azure Cosmos DB hesabına MongoDB uygulamanızı hesabınıza bağlanmayı öğreneceksiniz. Verileri bir Azure Cosmos DB veritabanı kullanabilirsiniz, MongoDB uygulamanız için depolama. 
+MongoDB bağlantı dizesi kullanarak bir Azure Cosmos DB için MongoDB uygulamanızı bağlayın öğrenin. Verileri bir Azure Cosmos DB veritabanı kullanabilirsiniz, MongoDB uygulamanız için depolama. 
 
 Bu öğreticide, bağlantı dizesi bilgilerini almak için iki yol sunar:
 
@@ -27,11 +27,11 @@ Bu öğreticide, bağlantı dizesi bilgilerini almak için iki yol sunar:
 ## <a name="prerequisites"></a>Önkoşullar
 
 - Bir Azure hesabı. Azure hesabınız yoksa, oluşturun bir [ücretsiz Azure hesabı](https://azure.microsoft.com/free/) şimdi. 
-- Bir Azure Cosmos DB hesabı. Yönergeler için [.NET ve Azure portalıyla bir MongoDB API'si web uygulaması derleme](create-mongodb-dotnet.md).
+- Bir Cosmos hesabı. Yönergeler için [MongoDB ve .NET SDK'sı için Azure Cosmos DB'nin API'sini kullanarak bir web uygulaması derleme](create-mongodb-dotnet.md).
 
 ## <a id="QuickstartConnection"></a>Hızlı Başlangıç'ı kullanarak MongoDB bağlantı dizesini alma
 1. Bir Internet tarayıcısında oturum açın [Azure portalında](https://portal.azure.com).
-2. İçinde **Azure Cosmos DB** dikey penceresinde, MongoDB hesabı için API'yi seçin. 
+2. İçinde **Azure Cosmos DB** dikey penceresinde, API'yi seçin. 
 3. Hesap dikey penceresinin sol bölmesinde **Hızlı Başlangıç**. 
 4. Platformunuzu seçin (**.NET**, **Node.js**, **MongoDB Kabuğu**, **Java**, **Python**). Sürücünüz veya aracınızı listede, endişelenmeyin--görmüyorsanız, biz sürekli bağlantı kod parçacıklarını belge. Lütfen aşağıda ne görmek istediğiniz üzerinde yorum. Kendi bağlantısı oluşturabilir öğrenmek için okuyun [hesabının bağlantı dizesi bilgilerini alın](#GetCustomConnection).
 5. Kopyalayıp MongoDB uygulamanıza kod parçacığını yapıştırın.
@@ -40,7 +40,7 @@ Bu öğreticide, bağlantı dizesi bilgilerini almak için iki yol sunar:
 
 ## <a id="GetCustomConnection"></a> Özelleştirme için MongoDB bağlantı dizesini alma
 1. Bir Internet tarayıcısında oturum açın [Azure portalında](https://portal.azure.com).
-2. İçinde **Azure Cosmos DB** dikey penceresinde, MongoDB hesabı için API'yi seçin. 
+2. İçinde **Azure Cosmos DB** dikey penceresinde, API'yi seçin. 
 3. Hesap dikey penceresinin sol bölmesinde **bağlantı dizesi**. 
 4. **Bağlantı dizesi** dikey penceresi açılır. Preconstructed bağlantı dizesi dahil olmak üzere MongoDB için bir sürücü kullanarak hesabına bağlanmak gerekli tüm bilgileri var.
 
@@ -52,17 +52,17 @@ Bu öğreticide, bağlantı dizesi bilgilerini almak için iki yol sunar:
 >
 >
 
-Azure Cosmos DB destekleyen standart MongoDB bağlantı dizesi URI biçimi, birkaç belirli gereksinimleri: Azure Cosmos DB hesapları kimlik doğrulaması ve SSL ile güvenli iletişim gerektirir. Bu nedenle, bağlantı dizesi biçimi şöyledir:
+Azure Cosmos DB, standart MongoDB bağlantı dizesi URI biçimi, birkaç belirli gereksinimleri destekler: Azure Cosmos DB hesapları, kimlik doğrulaması ve SSL aracılığıyla güvenli bağlantı gerekir. Bu nedenle, bağlantı dizesi biçimi şöyledir:
 
     mongodb://username:password@host:port/[database]?ssl=true
 
 Bu dize değerlerini kullanılabilir **bağlantı dizesi** daha önce gösterilen dikey penceresinde:
 
-* Kullanıcı adı (gerekli): Azure Cosmos DB hesap adı.
-* Parola (gerekli): Azure Cosmos DB hesap parolası.
-* Ana bilgisayar (gerekli): Azure Cosmos DB hesabı'nın FQDN'si.
+* Kullanıcı adı (gerekli): Cosmos hesap adı.
+* Parola (gerekli): Cosmos hesap parolası.
+* Ana bilgisayar (gerekli): Cosmos hesabı FQDN'si.
 * Bağlantı noktası (gerekli): 10255 olarak.
-* Veritabanı (isteğe bağlı): bağlantı kullanan veritabanı. Hiçbir veritabanı sağlanmazsa, varsayılan "test" veritabanıdır
+* Veritabanı (isteğe bağlı): Veritabanı bağlantı kullanır. Hiçbir veritabanı sağlanmazsa, varsayılan "test" veritabanıdır
 * SSL = true (gerekli)
 
 Örneğin, gösterilen hesap düşünün **bağlantı dizesi** dikey penceresi. Geçerli bir bağlantı dizesi verilmiştir:
@@ -70,5 +70,7 @@ Bu dize değerlerini kullanılabilir **bağlantı dizesi** daha önce gösterile
     mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bilgi edinmek için nasıl [Studio 3t'yi kullanma (MongoChef)](mongodb-mongochef.md) MongoDB hesabı için bir Azure Cosmos DB API ile.
-* Azure Cosmos DB API görüntüleyerek MongoDB için keşfetmek [örnekleri](mongodb-samples.md).
+
+- Bilgi edinmek için nasıl [Studio 3T kullanma](mongodb-mongochef.md) Azure Cosmos DB'nin MongoDB API'si ile.
+- Bilgi edinmek için nasıl [Robo 3T kullanma](mongodb-robomongo.md) Azure Cosmos DB'nin MongoDB API'si ile.
+- MongoDB keşfedin [örnekleri](mongodb-samples.md) Azure Cosmos DB'nin MongoDB API'si ile.

@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/1/2018
 ms.author: victorh
-ms.openlocfilehash: c0084580a2e4860f24aecd37232f38da2e55ccc8
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e5f48e42a2a677622dae0b733f9d5af484d1c51
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578441"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605815"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Çok kiracılı arka uçlar için Application Gateway desteği
 
-Azure Application Gateway destekleyen sanal makine ölçek kümeleri, ağ arabirimleri, ortak/özel IP veya tam etki alanı adı (FQDN), kendi arka uç havuzlarının bir parçası olarak. Varsayılan olarak, application gateway istemciden gelen HTTP ana bilgisayar üst bilgisini değiştirmez ve üst bilgiyi değiştirilmemiş halde arka uca gönderir. Doğası gereği çok kiracılı olan ve doğru uç noktaya çözümlemek için belirli bir ana bilgisayar üst bilgisini veya SNI uzantısını kullanan, [Azure Web Apps](../app-service/app-service-web-overview.md) gibi çok sayıda hizmet vardır. Application Gateway, arka uç HTTP ayarlarına göre gelen HTTP ana bilgisayar üst bilgisini üzerine yazmak kullanıcılar için artık desteklemektedir. Bu özellik Azure Web Apps ve API Management uygulamalarında çok kiracılı arka uçlar için destek sağlar. Bu özellik hem standart hem de WAF SKU’sunda kullanılabilir. Çok kiracılı arka uç desteği, SSL sonlandırma ve uçtan uca SSL senaryoları ile de çalışır.
+Azure Application Gateway destekleyen sanal makine ölçek kümeleri, ağ arabirimleri, ortak/özel IP veya tam etki alanı adı (FQDN), kendi arka uç havuzlarının bir parçası olarak. Varsayılan olarak, application gateway istemciden gelen HTTP ana bilgisayar üst bilgisini değiştirmez ve üst bilgiyi değiştirilmemiş halde arka uca gönderir. Gibi çok sayıda hizmet vardır [Azure App Service](../app-service/overview.md) doğası gereği çok kiracılı ve özel ana bilgisayar üst bilgisini veya SNI uzantısını doğru uç noktaya çözümlemek için kullanır. Application Gateway, arka uç HTTP ayarlarına göre gelen HTTP ana bilgisayar üst bilgisini üzerine yazmak kullanıcılar için artık desteklemektedir. Bu özellik Azure Web Apps ve API Management uygulamalarında çok kiracılı arka uçlar için destek sağlar. Bu özellik hem standart hem de WAF SKU’sunda kullanılabilir. Çok kiracılı arka uç desteği, SSL sonlandırma ve uçtan uca SSL senaryoları ile de çalışır.
 
 > [!NOTE]
 > Kimlik doğrulama sertifikası Kurulumu güvenilir, Azure Web Apps gibi Azure Hizmetleri için gerekli değildir.
@@ -36,4 +36,4 @@ Bu özellik sayesinde müşteriler, HTTP ayarları ve özel araştırmalardaki s
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Application Gateway web uygulaması ile arka uç havuzu üyesi olarak ederek ayarlamayı öğrenin: [Application Gateway ile yapılandırma App Service web uygulamaları](application-gateway-web-app-powershell.md)
+Application gateway web uygulaması ile arka uç havuzu üyesi olarak ziyaret ayarlama işlemleri gerçekleştirmeyi öğreneceksiniz: [Application Gateway ile App Service web apps'ı yapılandırma](application-gateway-web-app-powershell.md)

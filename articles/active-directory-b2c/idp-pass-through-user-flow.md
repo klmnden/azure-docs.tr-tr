@@ -10,17 +10,20 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 79ac2ee327c53012097bf6130deba676edcf785a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b26605bd0b436d948fb1f62cbf32a17ea4f386d0
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52642343"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602265"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Uygulamanızı Azure Active Directory B2C için bir kullanıcı akışı aracılığıyla erişim belirteci geçirin
 
 > [!NOTE]
 > Bu özellik şu anda genel Önizleme aşamasındadır.
+
+> [!Important]
+> Bu genel önizleme özelliği geçici olarak kullanılamıyor.
 
 A [kullanıcı akışı](active-directory-b2c-reference-policies.md) Azure Active Directory (Azure AD) B2C'de, uygulamanızın kullanıcıları ıntune'a kaydolma veya bir kimlik sağlayıcısı ile oturum açmak için bir fırsat sağlar. Yolculuğunuzun başladığında, Azure AD B2C alır bir [erişim belirteci](active-directory-b2c-reference-tokens.md) kimlik sağlayıcısından gelen. Azure AD B2C kullanıcı hakkında bilgi almak için bu belirteci kullanır. Bir talep belirteci aracılığıyla Azure AD B2C'de kayıt uygulamaları geçirmek için kullanıcı akışınızı etkinleştirin.
 

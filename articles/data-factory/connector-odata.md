@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 349d3a6eacf22a0ce3f842dd30df19964cdf7f23
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d9e6678cb931b61b89a668a35cc7ce4fa79563e3
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337334"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809582"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Azure Data Factory kullanarak bir OData kaynaktan veri kopyalama
 
@@ -35,7 +35,7 @@ Bir OData kaynağından tüm desteklenen havuz veri deposuna veri kopyalayabilir
 Özellikle, bu OData bağlayıcısını destekler:
 
 - OData sürüm 3.0 ve 4.0.
-- Aşağıdaki kimlik doğrulama kullanarak veri kopyalama: **Anonim**, **temel**, **Windows**, **AAD hizmet sorumlusu**, ve **yönetilen hizmet kimliği**.
+- Aşağıdaki kimlik doğrulama kullanarak veri kopyalama: **Anonim**, **temel**, **Windows**, **AAD hizmet sorumlusu**, ve **kimliklerini Azure kaynakları için yönetilen**.
 
 ## <a name="get-started"></a>başlarken
 
@@ -114,7 +114,7 @@ Bir OData bağlı hizmeti için aşağıdaki özellikler desteklenir:
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "Windows",
             "userName": "<domain>\\<user>",
             "password": {
@@ -138,7 +138,7 @@ Bir OData bağlı hizmeti için aşağıdaki özellikler desteklenir:
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
             "aadServicePrincipalCredentialType": "ServicePrincipalKey",
@@ -147,7 +147,7 @@ Bir OData bağlı hizmeti için aşağıdaki özellikler desteklenir:
                 "value": "<service principal key>"
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
-            "aadResourceId": "<AAD resource>"
+            "aadResourceId": "<AAD resource URL>"
         }
     },
     "connectVia": {
@@ -165,7 +165,7 @@ Bir OData bağlı hizmeti için aşağıdaki özellikler desteklenir:
     "properties": {
         "type": "OData",
         "typeProperties": {
-            "url": "<endpoint of on-premises OData source>",
+            "url": "<endpoint of OData source>",
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
             "aadServicePrincipalCredentialType": "ServicePrincipalCert",

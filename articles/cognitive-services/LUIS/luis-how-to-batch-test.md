@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 9ad71c34bdf88023bcb0a4115fc02ddf3a8d7624
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 340805e668190fedc7df047b66bec710d7e726c7
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086407"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53992983"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Batch örnek konuşma bir dizi testi
 
- Toplu test LUIS, performansı ölçmek için geçerli eğitilen modelinizde kapsamlı bir testtir. 
+ Toplu test LUIS, performansı ölçmek için geçerli eğitilen modelinizde kapsamlı bir testtir. Toplu test etmek için kullanılan veri kümeleri değil dahil edilecek öğeleri konuşma amacı veya konuşma tahmini çalışma zamanı uç noktasından alınan örnek. 
 
 <a name="batch-testing"></a>
 
@@ -65,9 +65,6 @@ Testi çalıştırmak için veri kümesi adı seçin. Test tamamlandığında, b
 Toplu test sonuçlarını gözden geçirmek için seçin **bkz sonuçları**.
 
 ![Toplu test sonuçları](./media/luis-how-to-batch-test/run-test-results.png)
-
-<!-- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. Green points indicate correct prediction, and red ones indicate incorrect prediction. The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.-->
-
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
 

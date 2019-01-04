@@ -9,26 +9,25 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e529b2276d2e68c67696ba9d142760f5881a25e
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 65e0fed29909ad5714b35659a7dd453e095a3eeb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012819"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713742"
 ---
 # <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Windows tabanlı HDInsight üzerinde Tez işlerinin hatalarını ayıklamak için Apache Tez kullanıcı Arabirimi kullanın
 [Apache TEZ](https://tez.apache.org/) UI hata ayıklama için kullanılabilir [Apache Hive](https://hive.apache.org/) yürütme altyapısı Tez kullanan işler. Bir grafik bağlı öğelerin her öğenin ayrıntısına ve istatistikleri ve günlük kaydı bilgilerini alma Tez kullanıcı Arabirimi iş görselleştirir.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgedeki adımlarda Windows kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Bir Windows tabanlı HDInsight kümesi. Yeni küme oluşturma adımları için bkz [Windows tabanlı HDInsight kullanmaya başlama](hdinsight-hadoop-tutorial-get-started-windows.md).
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Apache Tez kullanıcı Arabirimi, yalnızca 8 Şubat 2016'dan sonra oluşturulan Windows tabanlı HDInsight kümelerinde kullanılabilir.
-  >
-  >
+
 * Bir Windows tabanlı uzak masaüstü istemcisi.
 
 ## <a name="understanding-apache-tez"></a>Apache Tez anlama
@@ -65,10 +64,8 @@ Tez kullanan Hive sorgusu çalıştırmak için aşağıdaki adımları kullanı
         en-GB   Nairobi Area    Kenya
 
 ## <a name="use-the-tez-ui"></a>Tez kullanıcı arabirimi
-> [!NOTE]
+> [!NOTE]  
 > Tez kullanıcı Arabirimi yalnızca baş düğümlerine bağlanmak için Uzak Masaüstü kullanmalısınız, ve kümenin baş düğümlerinden masaüstünden kullanılabilir.
->
->
 
 1. Gelen [Azure portalında](https://portal.azure.com), HDInsight kümenizi seçin. HDInsight dikey pencerenin üst **Uzak Masaüstü** simgesi. Bu bağlantı Uzak Masaüstü dikey penceresinde görüntüler.
 
@@ -77,10 +74,9 @@ Tez kullanan Hive sorgusu çalıştırmak için aşağıdaki adımları kullanı
 
     ![Uzak Masaüstü bağlanmak simge](./media/hdinsight-debug-tez-ui/remotedesktopconnect.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Uzak Masaüstü Bağlantısı etkinleştirmediyseniz, bir kullanıcı adı, parola ve sona erme tarihi sağlayın, sonra seçin **etkinleştirme** Uzak Masaüstü'nü etkinleştirmek için. Etkinleştirildikten sonra bağlanmak için önceki adımları kullanın.
-   >
-   >
+
 3. Bağlantı kurulduktan sonra uzak masaüstünde Internet Explorer'ı açın, tarayıcının sağ üst kısımdaki dişli simgesini seçin ve ardından **Uyumluluk Görünümü Ayarları**.
 4. Aşağıdan **Uyumluluk Görünümü Ayarları**, onay kutusunu temizleyin **Intranet sitelerini Uyumluluk Görünümü'nde görüntülemek** ve **kullanımı Microsoft uyumluluk listesi**, ve ardından **Kapat**.
 5. Internet Explorer'da Gözat http://headnodehost:8188/tezui/#/. Bu, Tez kullanıcı Arabirimi görüntüler
@@ -101,10 +97,8 @@ Tez kullanan Hive sorgusu çalıştırmak için aşağıdaki adımları kullanı
    * **Tüm Görevler** bu DAG tüm köşeler için görevleri listesini görüntüler.
    * **Tüm TaskAttempts** görevleri çalıştırmak için bu DAG girişimleri hakkındaki bilgileri görüntüler.
 
-     > [!NOTE]
+     > [!NOTE]  
      > Sütun görünen köşeler, görevleri ve TaskAttempts kaydırırsanız görüntülemek için bağlantıları olduğuna dikkat edin **sayaçları** ve **görüntüleme veya indirme günlükleri** her satır için.
-     >
-     >
 
      İş ile ilgili hata varsa, DAG ayrıntıları başarısız oldu, başarısız görev hakkındaki bilgiler için bağlantılarla birlikte durumunu görüntüler. Tanılama bilgilerini olması görüntülenir DAG ayrıntıları altında.
 8. Seçin **grafik görünümü**. Bu, DAG grafiksel bir temsilini görüntüler. Her köşe ilgili bilgileri görüntülemek için görünümde üzerine fare yerleştirebilirsiniz.
@@ -115,20 +109,17 @@ Tez kullanan Hive sorgusu çalıştırmak için aşağıdaki adımları kullanı
     ![Köşe ayrıntılarını](./media/hdinsight-debug-tez-ui/vertexdetails.png)
 10. Artık köşeler ve görevlerle ilgili bağlantılar sayfasının üstündeki gerektiğini unutmayın.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Bu sayfaya geri giderek de ulaşması **DAG ayrıntıları**u seçerek **köşe ayrıntılarını**seçip **harita 1** köşe.
-    >
-    >
 
     * **Köşe sayaçları** bu köşe sayacı bilgilerini görüntüler.
     * **Görevleri** bu köşe için görevleri görüntüler.
     * **Görev denemesi** bu köşe için görevleri çalıştırma girişimlerini hakkındaki bilgileri görüntüler.
     * **Kaynakları ve havuzlarını** bu köşe için iç havuzları ve veri kaynaklarını görüntüler.
 
-      > [!NOTE]
+      > [!NOTE]  
       > Olarak önceki menü, görevler, görev denemesi ve kaynakları ve Sinks__ her öğe için daha fazla bilgi için bağlantılar görüntülenecek sütun görünümünü kaydırabilir.
-      >
-      >
+
 11. Seçin **görevleri**ve ardından adlı bir öğe seçin **00_000000**. Bu bağlantı görüntüler **görev ayrıntıları** bu görev için. Bu ekrandan görüntüleyebilirsiniz **görev sayaçları** ve **görev denemesi**.
 
     ![Görev ayrıntıları](./media/hdinsight-debug-tez-ui/taskdetails.png)

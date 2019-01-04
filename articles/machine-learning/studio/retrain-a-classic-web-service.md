@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a012798f71b0e3c14ab9982fd41bce6f0fa098e5
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5aa52805afcd50ebf7a9ac0ddcae95f21dd329f1
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257616"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554767"
 ---
 # <a name="retrain-a-classic-azure-machine-learning-studio-web-service"></a>Klasik Azure Machine Learning Studio web hizmetini yeniden eğitme
-Dağıttığınız Tahmine dayalı Web Hizmeti uç noktası Puanlama varsayılandır. Varsayılan uç noktalar özgün eğitim ve puanlama denemeleri ile eşitlenmiş olarak tutulur ve bu nedenle varsayılan uç nokta için eğitilen model değiştirilemez. Web hizmetini yeniden eğitme için web hizmetine yeni bir uç noktası eklemeniz gerekir. 
+Dağıttığınız Tahmine dayalı Web Hizmeti uç noktası Puanlama varsayılandır. Varsayılan uç noktalar özgün eğitim ve puanlama denemeleri ile eşitlenmiş olarak tutulur ve bu nedenle varsayılan uç nokta için eğitilen model değiştirilemez. Web hizmetini yeniden eğitme için web hizmetine yeni bir uç noktası eklemeniz gerekir.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Size bir eğitim denemesini ve Tahmine dayalı denemeye gösterildiği ayarlamış olmanız gerekir [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](retrain-models-programmatically.md). 
+Size bir eğitim denemesini ve Tahmine dayalı denemeye gösterildiği ayarlamış olmanız gerekir [yeniden eğitme Machine Learning modellerini programlama aracılığıyla](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
-> Tahmine dayalı denemeye Klasik machine learning web hizmeti dağıtılması gerekir. 
-> 
-> 
+> Tahmine dayalı denemeye Klasik machine learning web hizmeti dağıtılması gerekir.
+>
+>
 
 Web hizmetlerini dağıtma hakkında ek bilgi için bkz. [bir Azure Machine Learning web hizmetini dağıtma](publish-a-machine-learning-web-service.md).
 
 ## <a name="add-a-new-endpoint"></a>Yeni bir uç nokta Ekle
-Özgün eğitim ile eşitlenmiş olarak tutulur, uç nokta Puanlama ve denemeleri eğitilen model Puanlama varsayılan dağıttığınız Tahmine dayalı Web hizmeti içerir. Web hizmetiniz için yeni bir eğitilen modeli güncelleştirmek için yeni bir Puanlama uç noktası oluşturmanız gerekir. 
+Özgün eğitim ile eşitlenmiş olarak tutulur, uç nokta Puanlama ve denemeleri eğitilen model Puanlama varsayılan dağıttığınız Tahmine dayalı Web hizmeti içerir. Web hizmetiniz için yeni bir eğitilen modeli güncelleştirmek için yeni bir Puanlama uç noktası oluşturmanız gerekir.
 
 Yeni bir Puanlama uç noktası, eğitilen modeli ile güncelleştirilebilir Tahmine dayalı Web hizmeti oluşturmak için:
 
 > [!NOTE]
 > Tahmine dayalı Web hizmeti için eğitim Web Hizmeti uç noktası ekleme emin olun. Hem eğitim hem de bir Tahmine dayalı Web hizmeti doğru olarak dağıttıysanız, listelenen iki ayrı web hizmetlerini görmelisiniz. Tahmine dayalı Web hizmeti "[Tahmine dayalı ifade ile.]" ile bitmelidir.
-> 
-> 
+>
+>
 
 Yeni bir uç noktası için bir web hizmeti olarak Ekle iki yolu vardır:
 
@@ -51,7 +51,7 @@ Yeni bir uç noktası için bir web hizmeti olarak Ekle iki yolu vardır:
 2. Microsoft Azure Web Hizmetleri portalını kullanma
 
 ### <a name="programmatically-add-an-endpoint"></a>Program aracılığıyla bir uç nokta ekleme
-Bu konuda sağlanan örnek kodu kullanarak Puanlama uç noktalar ekleyebilirsiniz [github deposu](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
+Bu konuda sağlanan örnek kodu kullanarak Puanlama uç noktalar ekleyebilirsiniz [GitHub deposu](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
 ### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Bir uç nokta eklemek için Microsoft Azure Web Hizmetleri portalını kullanma
 1. Machine Learning Studio'da, sol gezinti sütununda, Web Hizmetleri.

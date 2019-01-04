@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 8ba94cd94003ee51a621923d3b1dbf2a402c5cfb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 238d84c32a145c00648ce3923efaa86a8fa3d08e
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082346"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971725"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Bulma ve örnek not defterlerini kullanma
 
@@ -37,11 +37,11 @@ Keşfetmek istediğiniz bir not defteri belirledikten sonra öğrenmek isteyecek
 - [İlgi çekici not defterlerini Galerisi](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (GitHub üzerinde Jupyter Proje)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Fizik yönergesinden [fizik bölümü, İngiliz College London'dan,](https://notebooks.azure.com/cvanbreu/libraries)
-- [Azure Machine Learning kullanmaya başlama örnekleri](https://notebooks.azure.com/azureml/projects/0f41b597b1ea)
+- [Azure Machine Learning kullanmaya başlama örnekleri](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
 ## <a name="next-steps"></a>Sonraki adımlar  
 
-- [Nasıl yapılır: projeleri yönetme ve yapılandırma](configure-manage-azure-notebooks-projects.md)
-- [Nasıl yapılır: veri dosyalarıyla çalışma](work-with-project-data-files.md)
-- [Nasıl yapılır: veri kaynaklarına erişim](access-data-resources-jupyter-notebooks.md)
-- [Nasıl yapılır: Azure Machine Learning Hizmetleri kullanma](use-machine-learning-services-jupyter-notebooks.md)
+- [Nasıl Yapılır: Yapılandırma ve projeleri yönetme](configure-manage-azure-notebooks-projects.md)
+- [Nasıl Yapılır: Veri dosyaları ile çalışma](work-with-project-data-files.md)
+- [Nasıl Yapılır: Veri kaynaklarına erişim](access-data-resources-jupyter-notebooks.md)
+- [Nasıl Yapılır: Azure Machine Learning Hizmetleri kullanma](use-machine-learning-services-jupyter-notebooks.md)

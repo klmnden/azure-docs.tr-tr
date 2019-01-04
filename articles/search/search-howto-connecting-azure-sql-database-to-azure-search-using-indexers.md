@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 28b72f63360b4ce323c1cd82b11c2798b1fbc2ff
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 66712b97807135b1e9e8321e441ac21368f86fc5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313403"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633036"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Bağlanmak ve Azure SQL veritabanı kullanarak Azure Search dizin oluşturucularında içerik dizini
 
@@ -156,7 +156,7 @@ Düzenli bir zamanlamaya göre çalıştırmak için dizin oluşturucu da düzen
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-**Aralığı** parametresi gereklidir. İki ardışık dizin oluşturucusu yürütme başlangıcı arasındaki zaman aralığını gösterir. İzin verilen en küçük aralığı 5 dakikadır; uzun bir gündür. Bir XSD "dayTimeDuration" değeri biçimlendirilmelidir (sınırlı bir alt kümesini bir [ISO 8601 süre](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) değeri). Bu desen: `P(nD)(T(nH)(nM))`. Örnekler: `PT15M` her 15 dakika boyunca `PT2H` her 2 saatte için.
+**Aralığı** parametresi gereklidir. İki ardışık dizin oluşturucusu yürütme başlangıcı arasındaki zaman aralığını gösterir. İzin verilen en küçük aralığı 5 dakikadır; uzun bir gündür. Bir XSD "dayTimeDuration" değeri biçimlendirilmelidir (sınırlı bir alt kümesini bir [ISO 8601 süre](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) değeri). Bu desen: `P(nD)(T(nH)(nM))`. Örnekler: `PT15M` her 15 dakika boyunca `PT2H` her 2 saatte için.
 
 İsteğe bağlı **startTime** zamanlanan yürütme ne zaman başlamak gösterir. Atlanırsa, geçerli UTC zamanı kullanılır. Bu süre geçmişte – dizinleyici startTime sürekli olarak çalışıyorsa durum ilk yürütme zamanlandı olabilir.  
 

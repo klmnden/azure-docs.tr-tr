@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 8acd69480d6cd441c33ccc696794977bbfbfd975
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 412f27c572953b3f44ddca54a99f75895f438f21
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110211"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53559085"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Pod güvenlik Azure Kubernetes Service (AKS) için en iyi uygulamalar
 
-Geliştirmek ve Azure Kubernetes Service (AKS) uygulamaları çalıştırma gibi podlarınız güvenliğini önemli bir noktadır. Uygulamalarınız için gereken ayrıcalıklar en az sayıda sorumlusu tasarlanmalıdır. Özel verilerini güvende tutmanın üstünde müşteriler için göz önünde yer alır. Veritabanı bağlantı dizeleri, anahtarları gibi kimlik bilgilerini istemediğiniz veya parolalara ve sertifikalara bir Saldırıya uğrayan burada dışında tüm dünyada kullanıma sunulan bu gizli dizileri avantajlarından kötü amaçlar için ele geçirebilir. Bunları kodunuza ekleyin veya kapsayıcı görüntülerinizi katıştırmanız kullanmayın. Bu yaklaşım bir maruz kalma riskini oluşturun ve ancak kapsayıcı görüntülerini yeniden açmanız gerekeceğinden bu kimlik bilgilerini döndürmek için özelliğini sınırlayabilir.
+Geliştirmek ve Azure Kubernetes Service (AKS) uygulamaları çalıştırma gibi podlarınız güvenliğini önemli bir noktadır. Uygulamalarınız için gereken ayrıcalıklar en az sayıda ilkesini tasarlanmalıdır. Özel verilerini güvende tutmanın üstünde müşteriler için göz önünde yer alır. Veritabanı bağlantı dizelerini, anahtarları veya gizli diziler ve sertifikalar burada bir saldırgan bu gizli dizileri avantajlarından kötü amaçlar için ele geçirebilir dış dünyaya açık gibi kimlik bilgilerini istemezsiniz. Bunları kodunuza ekleyin veya kapsayıcı görüntülerinizi katıştırmanız kullanmayın. Bu yaklaşım bir maruz kalma riskini oluşturun ve ancak kapsayıcı görüntülerini yeniden açmanız gerekeceğinden bu kimlik bilgilerini döndürmek için özelliğini sınırlayabilir.
 
 Bu en iyi yöntemler makalesi, nasıl güvenli pod'ların aks'deki odaklanır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 

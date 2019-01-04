@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9d3b72e62c778d02b25b082643e0de4c6cc09a60
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 86823579286ac0b8fae39c265b387ea6b4ad99ee
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190773"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755249"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Yükleme ve Azure Machine Learning ile veri okuma
 
@@ -139,7 +139,7 @@ dataflow.head(5)
 Çıktı, ikinci sayfa verileri üç boş satır üstbilgileri önce olduğunu gösterir. `read_excel()` İşlevi satırları ve üst bilgileri kullanmak için isteğe bağlı parametreler içeriyor. İlk üç satırı atlamak için aşağıdaki kodu çalıştırın ve dördüncü satırı başlık olarak kullanma.
 
 ```python
-dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_header=True, skip_rows=3)
+dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
 ||boyut sayısı|Unvan|Studio|Dünya çapında|Yerel / %|Column1|Deniz aşırı / %|Column2|Yıl ^|

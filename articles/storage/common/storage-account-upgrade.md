@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 10dc25740eca43c7cbd39b8ec783084e048d2af2
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 7f97b72dc7b3456488d97009bde590b0e29918e6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637610"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631449"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Genel amaçlı v2 depolama hesabı için yükseltme
 
@@ -34,12 +34,14 @@ Genel amaçlı v2 depolama hesabı, genel amaçlı v1'den veya Blob Depolama hes
 
 ## <a name="upgrade-with-powershell"></a>Powershell ile yükseltme
 
-Genel amaçlı v1 hesabı PowerShell kullanarak bir genel amaçlı v2 hesabına yükseltmek için önce en son sürümünü kullanacak şekilde güncelleştirin **AzureRm.Storage** modülü. PowerShell’i yükleme hakkında bilgi edinmek için bkz. [Azure PowerShell’i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Genel amaçlı v1 hesabı PowerShell kullanarak bir genel amaçlı v2 hesabına yükseltmek için önce en son sürümünü kullanacak şekilde güncelleştirin **Az.Storage** modülü. PowerShell’i yükleme hakkında bilgi edinmek için bkz. [Azure PowerShell’i yükleme ve yapılandırma](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
 
 Ardından, depolama hesabı ve kaynak grubunuzun adını değiştirerek, hesabı yükseltmek için şu komuta çağrı yapın:
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
+Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
 ```
 
 ## <a name="upgrade-with-azure-cli"></a>Azure CLI ile yükseltme
@@ -56,7 +58,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 Genel amaçlı v2 hesapları, tüm Azure depolama hizmetleri ve veri nesneleri destekler, ancak yalnızca blok blobları olarak Blob Depolama için erişim katmanları mevcuttur. Genel amaçlı v2 depolama hesabı için yükselttiğinizde, erişim katmanı için blob verilerinizi belirtebilirsiniz. 
 
-Erişim katmanı, beklenen kullanım düzenlerini esas alarak en uygun maliyetli depolama seçmenize olanak sağlar. Blok blobları, sık erişimli, seyrek erişimli veya arşiv katmanında depolanabilir. Erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: seyrek erişimli, seyrek ve Arşiv depolama katmanları](../blobs/storage-blob-storage-tiers.md).
+Erişim katmanı, beklenen kullanım düzenlerini esas alarak en uygun maliyetli depolama seçmenize olanak sağlar. Blok blobları, sık erişimli, seyrek erişimli veya arşiv katmanında depolanabilir. Erişim katmanları hakkında daha fazla bilgi için bkz. [Azure Blob Depolama: Seyrek erişimli, seyrek ve Arşiv depolama katmanları](../blobs/storage-blob-storage-tiers.md).
 
 Varsayılan olarak, sık erişimli erişim katmanında yeni bir depolama hesabı oluşturulur ve bir genel amaçlı v1 depolama hesabı için sık erişim katmanı yükseltilir. Veri sonrası yükseltme için kullanılacak hangi erişim katmanı araştırıyorsanız senaryonuz göz önünde bulundurun. Genel amaçlı v2 hesabına geçirmek için iki normal kullanıcı senaryosu vardır:
 
@@ -71,15 +73,15 @@ Tüm depolama hesapları, blob depolama için her blobun katmanını temel alan 
 
 * **Depolama maliyetleri**: Depolanan veri miktarına ek olarak, veri depolamanın maliyeti depolama katmanına bağlı olarak değişir. Katmanın erişim sıklığı düştükçe gigabayt başına ücret de azalır.
 
-* **Veri erişimi maliyetleri**: Katmanın erişimi sıklığı düştükçe veri erişimi ücretleri artar. Seyrek erişimli depolama ve arşiv depolama katmanındaki verilerde, okuma işlemleri için erişilen gigabayt veri başına ücretlendirilirsiniz.
+* **Veri erişim maliyetleri**: Düştükçe veri erişimi artış ücretleri. Seyrek erişimli depolama ve arşiv depolama katmanındaki verilerde, okuma işlemleri için erişilen gigabayt veri başına ücretlendirilirsiniz.
 
-* **İşlem maliyetleri**: Tüm katmanlarda, erişim sıklığı düştükçe artan bir işlem başına ücret uygulanır.
+* **İşlem maliyetleri**: Tüm katmanlar için düştükçe artıran işlem başına ücret yoktur.
 
-* **Coğrafi Çoğaltma veri aktarımı maliyetleri**: Bu ücret, GRS ve RA-GRS dahil olmak üzere yalnızca coğrafi çoğaltma yapılandırılmış hesaplara uygulanır. Coğrafi çoğaltma veri aktarımı gigabayt başına ücret doğurur.
+* **Coğrafi çoğaltma veri aktarımı maliyetleri**: Bu ücret, yalnızca coğrafi yapılandırılmış, GRS ve RA-GRS dahil olmak üzere çoğaltma ile hesapları için geçerlidir. Coğrafi çoğaltma veri aktarımı gigabayt başına ücret doğurur.
 
-* **Giden veri aktarımı maliyetleri**: Giden veri aktarımları (bir Azure bölgesinin dışına aktarılan veriler), genel amaçlı depolama hesapları ile tutarlı şekilde gigabayt başına esaslı olarak bant genişliği kullanımı için fatura doğurur.
+* **Giden veri aktarımı maliyetleri**: Giden veri aktarımları (bir Azure bölgesinin dışına aktarılan veriler), genel amaçlı depolama hesapları ile tutarlı, gigabayt başına esaslı olarak bant genişliği kullanımı için fatura doğurur.
 
-* **Depolama katmanını değiştirme**: Hesap depolama katmanını seyrek erişimliden sık erişimliye değiştirmek, depolama hesabında mevcut tüm verilerin okunmasına eşit bir ücret doğurur. Ancak, hesap depolama katmanını sık erişilenden seyrek erişilene değiştirmek, tüm verileri seyrek erişilen katmana yazma (yalnızca GPv2 hesapları) maliyetine eşit bir ücret yansıtır.
+* **Depolama katmanının değiştirilmesi**: Hesap Depolama katmanını seyrek erişimliden sık erişimliye değiştirmek depolama hesabında varolan tüm verilerin okunmasına eşit bir ücret doğurur. Ancak, hesap depolama katmanını sık erişilenden seyrek erişilene değiştirmek, tüm verileri seyrek erişilen katmana yazma (yalnızca GPv2 hesapları) maliyetine eşit bir ücret yansıtır.
 
 > [!NOTE]
 > Depolama hesaplarına ilişkin fiyatlandırma modeli hakkında daha fazla bilgi için [Azure Depolama Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) sayfasına bakın. Giden veri aktarımı ücretlerine ilişkin daha fazla bilgi için [Veri Aktarımları Fiyatlandırma Bilgileri](https://azure.microsoft.com/pricing/details/data-transfers/) sayfasına bakın.

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 760110d0ac359f6b7f135bf869e2520b8028ba6e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 298d4a7a003963e3466b595243c294679f581346
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625445"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582201"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure İzleyici'deki Azure AD etkinlik günlükleri (önizleme)
 
@@ -38,8 +38,8 @@ Azure Active Directory (Azure AD) etkinlik günlükleri, uzun vadeli bekletme ve
 
 Azure yönlendirebilirsiniz AD denetim günlüklerini ve oturum açma günlüklerinin Azure depolama hesabı, olay hub'ı, Log Analytics veya özel bir çözüm için bu özelliği kullanarak. 
 
-* **Denetim günlükleri**: [Denetim günlükleri etkinlik raporu](concept-audit-logs.md), kiracınızda gerçekleştirilen her görevin geçmişine erişmenizi sağlar.
-* **Oturum açma günlükleri**: [Oturum açma işlemleri etkinlik raporuyla](concept-sign-ins.md), denetim günlüklerinde bildirilen görevleri kimlerin gerçekleştirdiğini saptayabilirsiniz.
+* **Denetim günlükleri**: [Denetim günlükleri Etkinlik Raporu](concept-audit-logs.md) kiracınızda gerçekleştirilen her görevin geçmişine erişmenizi sağlar.
+* **Oturum açma günlükleri**: İle [oturum açma etkinliği raporunu](concept-sign-ins.md), Denetim günlüklerinde bildirilen görevleri gerçekleştiren belirleyebilirsiniz.
 
 > [!NOTE]
 > B2C ile ilgili denetim ve oturum açma işlemleri etkinlik günlükleri şu an için desteklenmemektedir.
@@ -101,39 +101,39 @@ Log Analytics çalışma alanı yönetmeyle ilgili maliyetleri gözden geçirmek
 
 Bu bölümde, Azure İzleyici'deki Azure AD günlükleriyle ilgili sık sorulan soruların yanıtları ve bilinen sorunlar yer almaktadır.
 
-**S: Bu özelliğe hangi günlükler dahildir?**
+**S: Hangi günlüklerin dahildir?**
 
-**Y**: Hem oturum açma etkinliği hem de denetim günlükleri bu özellik üzerinden yönlendirilebilir ancak B2C ile ilgili denetim olayları şu an için dahil değildir. Desteklenen günlük türlerini ve özellik tabanlı günlükleri öğrenmek için [Denetim günlüğü şemasını](reference-azure-monitor-audit-log-schema.md) ve [Oturum açma günlüğü şemasını](reference-azure-monitor-sign-ins-log-schema.md) inceleyin. 
-
----
-
-**S: nasıl yakında bir eylem sonra karşılık gelen günlükler my olay hub'ında görünür?**
-
-**A**: Günlüklerin eylem gerçekleştirildikten sonra iki ila beş dakika içinde olay hub'ınızda gösterilmesi gerekir. Event Hubs hakkında daha fazla bilgi için bkz. [Azure Event Hubs nedir?](../../event-hubs/event-hubs-about.md)
+**A**: B2C ile ilgili denetim olaylarını şu anda dahil edilmez ancak her ikisi de bu özelliği aracılığıyla yönlendirmek için kullanılabilir olan denetim günlüklerini ve oturum açma etkinlik günlükleri. Desteklenen günlük türlerini ve özellik tabanlı günlükleri öğrenmek için [Denetim günlüğü şemasını](reference-azure-monitor-audit-log-schema.md) ve [Oturum açma günlüğü şemasını](reference-azure-monitor-sign-ins-log-schema.md) inceleyin. 
 
 ---
 
-**S: ne kadar süre sonra eylemi depolama Hesabımı karşılık gelen günlükler gösterilir?**
+**S: Ne kadar süre sonra eylemi sonra karşılık gelen günlükler my olay hub'ında görünür?**
 
-**Y**: Azure depolama hesapları için gecikme süresi eylemin gerçekleştirilmesinden itibaren 5 ile 15 dakika arasındadır.
-
----
-
-**S: Verilerimin depolama maliyeti ne kadar olacaktır?**
-
-**Y**: Depolama maliyeti, günlüklerinizin boyutuna ve seçtiğiniz saklama süresine göre değişir. Kiracılarınızda üretilen günlük hacmine dayalı maliyet tahmini için bkz. [Etkinlik günlükleri için depolama boyutu](#storage-size-for-activity-logs).
+**A**: Günlükleri Olay hub'ında eylem gerçekleştirildikten sonra iki ila beş dakika içinde gösterilmesi gerekir. Event Hubs hakkında daha fazla bilgi için bkz. [Azure Event Hubs nedir?](../../event-hubs/event-hubs-about.md)
 
 ---
 
-**S: Verilerimin akışını olay hub'ına yapmanın maliyeti nedir?**
+**S: Depolama Hesabımı nasıl yakında bir eylem sonra karşılık gelen günlükler gösterilir?**
 
-**Y**: Akış maliyeti, dakika başına aldığınız ileti sayısına göre değişir. Bu makalede maliyetlerin nasıl hesaplandığı gösterilmekte ve ileti sayısına dayalı maliyet tahminleri listelenmektedir. 
+**A**: Azure depolama hesapları için gecikme süresi, 5'ten herhangi bir eylem gerçekleştirildikten sonra 15 dakika ile olan.
 
 ---
 
-**S: Azure AD etkinlik günlüklerini SIEM sistemimle nasıl tümleştirebilirim?**
+**S: Ne kadar verilerimi depolama maliyeti?**
 
-**Y**: Bunu iki yoldan birini kullanarak yapabilirsiniz:
+**A**: Depolama maliyetleri günlüklerinizi ve seçtiğiniz bekletme süresi her iki boyutuna bağlıdır. Kiracılarınızda üretilen günlük hacmine dayalı maliyet tahmini için bkz. [Etkinlik günlükleri için depolama boyutu](#storage-size-for-activity-logs).
+
+---
+
+**S: Ne kadar verilerimi bir olay hub'ına akış maliyeti?**
+
+**A**: Akış maliyetlerini dakika başına aldığınız ileti sayısını bağlıdır. Bu makalede maliyetlerin nasıl hesaplandığı gösterilmekte ve ileti sayısına dayalı maliyet tahminleri listelenmektedir. 
+
+---
+
+**S: Nasıl Azure AD'ye tümleştirebilirim etkinlik günlüklerini SIEM sistemimle tümleştiremiyorum?**
+
+**A**: Bunu iki şekilde yapabilirsiniz:
 
 - Azure İzleyici ile Event Hubs'ı birlikte kullanarak günlüklerinizin akışını SIEM sisteminize yapabilirsiniz. İlk olarak [günlüklerin akışını olay hub'ına yapın](tutorial-azure-monitor-stream-logs-to-event-hub.md) ve ardından yapılandırılan olay hub'ını kullanarak [SIEM aracınızı ayarlayın](tutorial-azure-monitor-stream-logs-to-event-hub.md#access-data-from-your-event-hub). 
 
@@ -141,27 +141,27 @@ Bu bölümde, Azure İzleyici'deki Azure AD günlükleriyle ilgili sık sorulan 
 
 ---
 
-**S: Hangi SIEM araçları desteklenmektedir?** 
+**S: Hangi SIEM araçları şu anda destekleniyor mu?** 
 
-**Y**: Azure İzleyici şu anda [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar ve [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory) tarafından desteklenmektedir. Bağlayıcıların çalışma şekli hakkında daha fazla bilgi için bkz. [Azure izleme verilerini bir dış araç tarafından kullanılmak üzere bir olay hub'ına aktarma](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
-
----
-
-**S: Azure AD etkinlik günlüklerini Splunk örneğimle nasıl tümleştirebilirim?**
-
-**Y**: Öncelikle [Azure AD etkinlik günlüklerini bir olay hub'ına yönlendirip](quickstart-azure-monitor-stream-logs-to-event-hub.md) ardından [Etkinlik günlüklerini Splunk ile tümleştirme](tutorial-integrate-activity-logs-with-splunk.md) adımlarını izleyin.
+**A**: Azure İzleyici tarafından şu anda desteklenen [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar, ve [Sumo mantıksal](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory). Bağlayıcıların çalışma şekli hakkında daha fazla bilgi için bkz. [Azure izleme verilerini bir dış araç tarafından kullanılmak üzere bir olay hub'ına aktarma](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 
-**S: Azure AD etkinlik günlüklerini Sumo Logic ile nasıl tümleştirebilirim?** 
+**S: Nasıl Azure AD'ye tümleştirebilirim Splunk Örneğim ile etkinlik günlükleri?**
 
-**Y**: Öncelikle [Azure AD etkinlik günlüklerini bir olay hub'ına yönlendirip](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory) ardından [Azure AD uygulamasını yükleme ve panoları SumoLogic'te görüntüleme](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) adımlarını izleyin.
+**A**: İlk olarak, [rota Azure AD etkinlik günlüklerini Olay hub'ına](quickstart-azure-monitor-stream-logs-to-event-hub.md), ardından adımları [etkinlik günlükleri ile Splunk tümleştirme](tutorial-integrate-activity-logs-with-splunk.md).
 
 ---
 
-**S: Olay hub'ı verilerine harici bir SIEM aracı kullanmadan erişebilir miyim?** 
+**S: Nasıl Azure AD'ye tümleştirebilirim Sumo mantığı ile etkinlik günlükleri?** 
 
-**Y**: Evet. Günlüklere özel uygulamanızdan erişmek için [Event Hubs API](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)’sini kullanabilirsiniz. 
+**A**: İlk olarak, [rota Azure AD etkinlik günlüklerini Olay hub'ına](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory), ardından adımları [Azure AD uygulamasını yükleyin ve SumoLogic panoları görüntülemesine](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards).
+
+---
+
+**S: Veriler bir olay hub'ından harici bir SIEM aracı kullanmadan erişebilirim?** 
+
+**A**: Evet. Günlüklere özel uygulamanızdan erişmek için [Event Hubs API](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)’sini kullanabilirsiniz. 
 
 ---
 

@@ -1,20 +1,17 @@
 ---
 title: MySQL için Azure veritabanı sunucusu günlükleri
 description: Farklı günlüğe kaydetme düzeylerini etkinleştirmek için kullanılabilir parametrelerde ve MySQL için Azure veritabanı'nda kullanılabilir günlükleri açıklar.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/03/2018
-ms.openlocfilehash: 73be0e4ecff4bc0d9b69249430bba69a93cc54ae
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c9f8fc4bee370f287b40275b76fa98d2552d7600
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093791"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545082"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda sunucu günlüklerini
 MySQL için Azure veritabanı'nda yavaş sorgu günlüğü kullanıcılar tarafından kullanılabilir. İşlem günlüğü erişimi desteklenmiyor. Yavaş sorgu günlüğü, sorun giderme için performans sorunlarını tanımlamak için kullanılabilir. 
@@ -47,7 +44,7 @@ Ayarlayabileceğiniz diğer parametreler şunlardır:
 MySQL bkz [yavaş sorgu günlüğü belgeleri](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) yavaş sorgu günlüğü parametrelerini tam açıklamaları için.
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
-MySQL için Azure veritabanı Azure İzleyici tanılama günlükleri ile tümleştirilir. Yavaş sorgu günlüklerini MySQL sunucunuzda etkinleştirdikten sonra bunları Log Analytics, Event Hubs veya Azure depolama yayılan sahip olmayı seçebilirsiniz. Tanılama günlüklerini etkinleştirme hakkında daha fazla bilgi edinmek için nasıl bölümüne bakın. [tanılama günlükleri belgeleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+MySQL için Azure veritabanı Azure İzleyici tanılama günlükleri ile tümleştirilir. Yavaş sorgu günlüklerini MySQL sunucunuzda etkinleştirdikten sonra bunları Log Analytics, Event Hubs veya Azure depolama yayılan sahip olmayı seçebilirsiniz. Tanılama günlüklerini etkinleştirme hakkında daha fazla bilgi edinmek için nasıl bölümüne bakın. [tanılama günlükleri belgeleri](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 Aşağıdaki tabloda, her oturum açma yenilikler açıklanır. Yer alan alanlar ve göründükleri sırayla çıkış yöntemine bağlı olarak değişebilir.
 

@@ -1,20 +1,17 @@
 ---
 title: MySQL için Azure veritabanı'nda iş sürekliliğine genel bakış
 description: MySQL için Azure veritabanı'nda iş sürekliliğine genel bakış.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 8d0a8ac1aedcac26f6ac67e0e1f2a9d265a9b576
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9b9e2362553eb93cbb111b70cf29a1cc1524e77e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714354"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554546"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda iş sürekliliğine genel bakış
 
@@ -49,7 +46,7 @@ Sunucunuz, veri merkezi kesintisi sona erdiğinde tekrar çevrimiçi duruma gelm
 Diğer seçenek, coğrafi olarak yedekli yedeklemeler kullanarak sunucuya geri yükleyen MySQL'ın coğrafi geri yükleme özelliği için Azure veritabanı'nı kullanmaktır. Sunucunuz barındırılan bölgeyi çevrimdışı olsa bile bu yedeklemeler erişilebilir olur. Bu yedeklemeleri geri yüklemek için başka bir bölgede ve sunucunuzun çevrimiçi duruma getirin.
 
 > [!IMPORTANT]
-> Sunucu yedekleme coğrafi olarak yedekli depolama ile sağladıysanız coğrafi geri yükleme yalnızca mümkündür. Mevcut bir sunucu için coğrafi olarak yedekli yedeklemeleri yerel olarak yedekli geçiş yapmak istiyorsanız, mevcut sunucunuzun pg_dump kullanarak bir döküm almak ve coğrafi olarak yedekli yedeklemelerde yapılandırılmış yeni oluşturulan bir sunucuya geri yükleyin.
+> Sunucu yedekleme coğrafi olarak yedekli depolama ile sağladıysanız coğrafi geri yükleme yalnızca mümkündür. Mevcut bir sunucu için coğrafi olarak yedekli yedeklemeleri yerel olarak yedekli geçiş yapmak istiyorsanız, mevcut sunucunuzun mysqldump kullanarak bir döküm almak ve coğrafi olarak yedekli yedeklemelerde yapılandırılmış yeni oluşturulan bir sunucuya geri yükleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

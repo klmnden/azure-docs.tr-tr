@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: df9470813f3f9c3bff58882879c06e7b7b0fc15b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 9657fd448f6fb98eec87a5999af100d4d08594e5
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379613"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717730"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Bir Azure Stack ölçek birimi düğümde bir donanım bileşenini değiştirme
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri*
 
-Bu makalede olmayan kullanılan donanım bileşenleri değiştirmek için genel işlem açıklanır. Gerçek değiştirme adımları farklılık orijinal ekipman üreticisi (OEM) donanım satıcınıza temel. Azure Stack tümleşik sisteme özgü ayrıntılı adımlar için satıcınızın alan bulunduğu yerde değiştirilebilen biriminin (FRU) belgelerine bakın.
+Bu makalede olmayan kullanılan donanım bileşenleri değiştirmek için genel işlem açıklanır. Gerçek değiştirme adımları farklılık orijinal ekipman üreticisi (OEM) donanım satıcınıza temel. Azure Stack ile tümleşik sisteminize özgü ayrıntılı adımlar için satıcınızın alanı değiştirilebilir birim (FRU) belgelerine bakın.
 
 Olmayan sık kullanılan bileşenleri şunları içerir:
 
@@ -54,21 +54,23 @@ Azure Stack durumunu ve izleme sistemi, ağ bağdaştırıcıları ve depolama a
 
 Aşağıdaki adımlar, bileşeni değiştirme işlemi üst düzey bir genel bakış sağlar. OEM tarafından sağlanan FRU belgelerinize başvuruda bulunmadan bu adımları izlemeyin.
 
-1. Kullanım [boşaltma](azure-stack-node-actions.md#scale-unit-node-actions) ölçek birimi düğümü bakım moduna almak için eylem. Bu eylem fiziksel donanım koşula göre gerekli olmayabilir.
+1. Ölçek birimi düğümlerini düzgün bir şekilde kapatın için kapatma eylemi kullanın. Bu eylem fiziksel donanım koşula göre gerekli olmayabilir.
 
-   > [!NOTE]
-   > Herhangi bir durumda, yalnızca bir düğüm kullanılabilir boşaltılır ve aynı anda S2D bozmadan kapalı (depolama alanları doğrudan).
+2. Kapatma eylemi başarısız olası bir durumda kullanın [boşaltma](azure-stack-node-actions.md#drain) ölçek birimi düğümü bakım moduna almak için eylem. Bu eylem fiziksel donanım koşula göre gerekli olmayabilir.
 
-2. Ölçek birimi düğüm bakım modunda olduğunda, kullanmak [gücünün kapatılmasını](azure-stack-node-actions.md#scale-unit-node-actions) eylem. Bu eylem fiziksel donanım koşula göre gerekli olmayabilir.
+   > [!NOTE]  
+   > Herhangi bir durumda, yalnızca bir düğüm kullanılabilir devre dışı ve aynı anda S2D bozmadan kapalı (depolama alanları doğrudan).
 
-   > [!NOTE]
+3. Ölçek birimi düğüm bakım modunda olduğunda, kullanmak [gücünün kapatılmasını](azure-stack-node-actions.md#scale-unit-node-actions) eylem. Bu eylem fiziksel donanım koşula göre gerekli olmayabilir.
+
+   > [!NOTE]  
    > Eylem kapatma çalışmıyor olası durumda da, temel kart yönetim denetleyicisine (BMC) web arabirimini kullanın.
 
-3. Bozuk donanım bileşeni değiştirin. OEM donanım satıcınıza bileşenini değiştirme gerçekleştirip gerçekleştirmediğini, destek sözleşmenize göre farklılık.  
-4. Üretici yazılımı güncelleştirme. Donanım yaşam döngüsü konak düzeyinde uygulanan onaylı bellenim değiştirilen donanım bileşeni olduğundan emin olun kullanmayı, satıcıya özgü üretici yazılımı güncelleştirme işlemini izleyin. OEM donanım satıcınız bu adımı gerçekleştirip gerçekleştirmediğini, destek sözleşmenize göre farklılık.  
-5. Kullanım [onarım](azure-stack-node-actions.md#scale-unit-node-actions) ölçek birimi düğümü Ölçek birimine geri alma eylemi.
-6. Ayrıcalıklı uç noktasına kullanın [sanal disk onarma durumunu](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Yeni veri sürücüleri ile tam depolama Onar işi sistem yüküne bağlı olarak birkaç saat sürebilir ve kullanılan alanı.
-7. Onarım işlemi tamamlandıktan sonra tüm etkin uyarıları otomatik olarak kapatılan doğrulayın.
+4. Bozuk donanım bileşeni değiştirin. OEM donanım satıcınıza bileşenini değiştirme gerçekleştirip gerçekleştirmediğini, destek sözleşmenize göre farklılık.  
+5. Üretici yazılımı güncelleştirme. Donanım yaşam döngüsü konak düzeyinde uygulanan onaylı bellenim değiştirilen donanım bileşeni olduğundan emin olun kullanmayı, satıcıya özgü üretici yazılımı güncelleştirme işlemini izleyin. OEM donanım satıcınız bu adımı gerçekleştirip gerçekleştirmediğini, destek sözleşmenize göre farklılık.  
+6. Kullanım [onarım](azure-stack-node-actions.md#scale-unit-node-actions) ölçek birimi düğümü Ölçek birimine geri alma eylemi.
+7. Ayrıcalıklı uç noktasına kullanın [sanal disk onarma durumunu](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Yeni veri sürücüleri ile tam depolama Onar işi sistem yüküne bağlı olarak birkaç saat sürebilir ve kullanılan alanı.
+8. Onarım işlemi tamamlandıktan sonra tüm etkin uyarıları otomatik olarak kapatılan doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: a65dbbcfddf33692ee179755b4306019ffa8863e
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 3c2924380ef5175b330deb5052a962bfecf820ae
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53400020"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594222"
 ---
 Toplama, görüntüleme ve çözümleme tanılama Vm'lerinizi izleme için birçok fırsat avantajlarından yararlanın ve verilerini günlüğe kaydedebilirsiniz. Basit yapmak için [izleme](../articles/azure-monitor/overview.md) VM'NİZDE, Azure portalında sanal makine için genel bakış ekranını kullanabilirsiniz. Kullanabileceğiniz [uzantıları](../articles/virtual-machines/windows/extensions-features.md) Vm'lerinizde ek ölçüm verilerini toplamak için tanılamayı yapılandırmak için. Gibi daha gelişmiş izleme seçeneklerini kullanabilirsiniz [Application Insights](../articles/application-insights/app-insights-overview.md) ve [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -43,23 +43,23 @@ Oluşturabileceğiniz [uyarılar](../articles/azure-monitor/platform/alerts-over
 
 ## <a name="logs"></a>Günlükler
 
-[Azure etkinlik günlüğü](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md) oluşan Azure'da abonelik düzeyindeki olayların sağlayan bir abonelik günlüktür. Günlük verileri, hizmet durumu olayları güncelleştirmelerinin Azure Resource Manager işletimsel verileri içerir. Sanal Makineniz için günlüğü görüntülemek için Azure portalında etkinlik günlüğü tıklayabilirsiniz.
+[Azure etkinlik günlüğü](../articles/azure-monitor/platform/activity-logs-overview.md) oluşan Azure'da abonelik düzeyindeki olayların sağlayan bir abonelik günlüktür. Günlük verileri, hizmet durumu olayları güncelleştirmelerinin Azure Resource Manager işletimsel verileri içerir. Sanal Makineniz için günlüğü görüntülemek için Azure portalında etkinlik günlüğü tıklayabilirsiniz.
 
 Etkinlik günlüğü ile yapabileceğiniz çok şey bazıları şunlardır:
 
-- Oluşturma bir [bir etkinlik günlüğü olayında uyarı](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
-- [Olay Hub'ına Stream](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) alımı üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
+- Oluşturma bir [bir etkinlik günlüğü olayında uyarı](../articles/azure-monitor/platform/activity-logs-overview.md).
+- [Olay Hub'ına Stream](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) alımı üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
 - Power BI kullanarak Analiz [Power BI içerik paketi](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Bir depolama hesabına kaydedin](../articles/azure-monitor/platform/archive-activity-log.md) arşivleme veya el ile İnceleme. Günlük profilini kullanarak elde tutma süresi (gün cinsinden) belirtebilirsiniz.
 
 Etkinlik günlüğü verileri kullanarak da erişebilirsiniz [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), veya [İzleyici REST API'leri](https://docs.microsoft.com/rest/api/monitor/).
 
-[Azure tanılama günlükleri](../articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) olan kendi işlemiyle ilgili zengin, sık sık veri sağlayan tarafından sanal makinenizin günlüklerdir. Tanılama günlükleri, VM içinde gerçekleştirilen işlemler hakkında öngörü sağlayan etkinlik günlüğünde farklılık gösterir.
+[Azure tanılama günlükleri](../articles/azure-monitor/platform/diagnostic-logs-overview.md) olan kendi işlemiyle ilgili zengin, sık sık veri sağlayan tarafından sanal makinenizin günlüklerdir. Tanılama günlükleri, VM içinde gerçekleştirilen işlemler hakkında öngörü sağlayan etkinlik günlüğünde farklılık gösterir.
 
 Tanılama günlükleri ile yapabileceklerinizden bazıları şunlardır:
 
 - [Bir depolama hesabına kaydetmekte](../articles/azure-monitor/platform/archive-diagnostic-logs.md) denetim veya el ile İnceleme. Kaynak tanılama ayarlarını kullanarak elde tutma süresi (gün cinsinden) belirtebilirsiniz.
-- [Event Hubs için bunları Stream](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) alımı üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
+- [Event Hubs için bunları Stream](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) alımı üçüncü taraf hizmeti veya Power BI gibi özel bir analiz çözümü için.
 - Bunları analiz [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Gelişmiş izleme

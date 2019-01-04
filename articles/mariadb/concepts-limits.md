@@ -3,17 +3,15 @@ title: MariaDB için Azure veritabanı'nda sınırlamaları
 description: Bu makalede, Azure veritabanı'nda MariaDB, bağlantı ve depolama altyapısı seçenekleri sayısı gibi sınırlamalar açıklanır.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: 4fb774341b19034d3905341a99be2114a0d1e18b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e611c5e11d3c86474a7775971918ba95b8487da4
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835718"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53970296"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı'nda sınırlamaları
 Aşağıdaki bölümlerde, kapasitesi, depolama altyapısı desteği, destek ayrıcalığına, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır.
@@ -36,7 +34,7 @@ Fiyatlandırma katmanı ve sanal çekirdek başına bağlantıları sayısı aş
 |Bellek için İyileştirilmiş| 16| 5000|
 
 Bağlantı sınırı aştıklarında aşağıdaki hata iletisini alabilirsiniz:
-> 1040 (08004). hata: Çok fazla sayıda bağlantı
+> HATA 1040 (08004): Bağlantı sayısı çok fazla
 
 ## <a name="storage-engine-support"></a>Depolama altyapısı desteği
 
@@ -46,14 +44,14 @@ Bağlantı sınırı aştıklarında aşağıdaki hata iletisini alabilirsiniz:
 
 ### <a name="unsupported"></a>Desteklenmiyor
 - [MyISAM](https://mariadb.com/kb/en/library/myisam-storage-engine/)
-- [KARA DELİK](https://mariadb.com/kb/en/library/blackhole/l)
+- [KARA DELİK](https://mariadb.com/kb/en/library/blackhole/)
 - [ARŞİV](https://mariadb.com/kb/en/library/archive/)
 
 ## <a name="privilege-support"></a>Ayrıcalık desteği
 
 ### <a name="unsupported"></a>Desteklenmiyor
-- DBA rol: birçok sunucu parametreleri ve ayarları yanlışlıkla sunucu performansının düşmesine neden veya DBMS ACID özelliklerini negate. Bu nedenle, bir ürün düzeyinde SLA ve hizmet bütünlüğü korumak için bu hizmeti DBA rol kullanıma sunmuyor. Yeni bir veritabanı örneği oluşturulduğunda bu oluşturulur, varsayılan kullanıcı hesabı, veritabanı yönetilen örneğine DDL ve DML deyimleri çoğunu gerçekleştirmek bu kullanıcı sağlar.
-- Süper ayrıcalık: benzer şekilde [Süper ayrıcalık](https://mariadb.com/kb/en/library/grant/#global-privileges) de sınırlıdır.
+- DBA rolü: Birçok sunucu parametreleri ve ayarları yanlışlıkla sunucu performansının düşmesine neden veya DBMS ACID özelliklerini negate. Bu nedenle, bir ürün düzeyinde SLA ve hizmet bütünlüğü korumak için bu hizmeti DBA rol kullanıma sunmuyor. Yeni bir veritabanı örneği oluşturulduğunda bu oluşturulur, varsayılan kullanıcı hesabı, veritabanı yönetilen örneğine DDL ve DML deyimleri çoğunu gerçekleştirmek bu kullanıcı sağlar.
+- Süper ayrıcalık: Benzer şekilde [Süper ayrıcalık](https://mariadb.com/kb/en/library/grant/#global-privileges) de sınırlıdır.
 
 ## <a name="data-manipulation-statement-support"></a>Veri işleme ifadesi desteği
 

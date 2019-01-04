@@ -7,81 +7,85 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: c20f2cc03565ce861dfc6317be8459fdafeef0bf
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: fd3d1c464c6f2d4cbecd715db0689581ca141769
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384114"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654079"
 ---
 # <a name="aks-troubleshooting"></a>AKS sorunlarını giderme
-Oluşturduğunuz veya NLB Yöneticisi'ni AKS, bazen sorunlarla karşılaşabilirsiniz. Bu makalede bazı yaygın sorunlar ve sorun giderme adımları ayrıntılı olarak açıklanmaktadır.
 
-### <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-issues"></a>Genel olarak, Kubernetes sorunları hata ayıklama hakkında nereden bilgi?
+Oluştururken veya Azure Kubernetes Service (AKS) kümelerini yönetme bazen sorunlarla karşılaşabilirsiniz. Bu makalede bazı yaygın sorunlar ve sorun giderme adımları ayrıntılı olarak açıklanmaktadır.
 
-[Burada](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) kubernetes kümelerini sorun giderme için resmi bir bağlantıdır.
-[Burada](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md) pod'ları, düğümler, kümeleri, vb. sorun giderme geçici olarak bir Microsoft mühendisi tarafından yayımlanan bir sorun giderme kılavuzu bir bağlantıdır.
+## <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-problems"></a>Genel olarak, Kubernetes sorunlarda hata ayıklaması hakkında nereden bilgi?
 
-### <a name="i-am-getting-a-quota-exceeded-error-during-create-or-upgrade-what-should-i-do"></a>Oluşturma veya yükseltme sırasında bir kota aşıldı hatası alıyorum. Ne yapmalıyım? 
+Deneyin [Kubernetes kümelerini sorun giderme resmi Kılavuzu](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/).
+Ayrıca bir [sorun giderme kılavuzu](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md), pod'ları, düğümler, kümeler ve diğer özellikleri sorun giderme için bir Microsoft mühendisi tarafından yayımlanmış.
 
-Çekirdek istemek ihtiyacınız olacak [burada](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
+## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Oluşturma veya yükseltme sırasında bir "Kota aşıldı" hatası alıyorum. Ne yapmalıyım? 
 
-### <a name="what-is-the-max-pods-per-node-setting-for-aks"></a>AKS için düğüm ayarı başına maksimum pod'ları nedir?
+Şunları yapmanız [istek çekirdek](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-Azure portalında AKS kümesi dağıtıyorsanız, düğüm başına en fazla pod'ların varsayılan olarak 30 ayarlanır.
-Azure CLI'yı bir AKS kümesinde dağıtırsanız, düğüm başına en fazla pod'ların 110 olarak varsayılan olarak ayarlanır. (Azure CLI'ın en son sürümü kullandığınızdan emin olun). Bu varsayılan ayarı kullanılarak değiştirilebilir. max-düğüm-başına-pod bayrağı az aks create komutu.
+## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>AKS için en fazla düğüm başına pod'ların ayarı nedir?
 
-### <a name="i-am-getting-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Gelişmiş ağ ile bir AKS kümesi dağıtırken "insufficientSubnetSize" hatası alıyorum. Ne yapmalıyım?
+Azure portalında AKS kümesi dağıtıyorsanız en fazla düğüm başına pod'ların varsayılan olarak 30 ayardır.
+Azure clı'da AKS kümesi dağıtıyorsanız en fazla düğüm başına pod'ların 110 varsayılan ayardır. (Azure CLI'ın en son sürümü kullandığınızdan emin olun). Bu varsayılan ayarı kullanarak değiştirilebilir `–-max-pods` bayrağını `az aks create` komutu.
 
-AKS sırasında ağ oluşturur için seçilen özel VNET seçeneğinde Azure CNI IPAM için kullanılır. Bir AKS kümesindeki düğüm sayısını, 1 ile 100 arasında herhangi bir yerde olabilir. 2 sırasında bağlı olarak) boyutu alt düğüm sayısını ve düğüm alt ağ boyutu başına en fazla pod çarpımını büyük olmalıdır > kümedeki düğümlerin sayısı * düğüm başına pod'ların maks.
+## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Gelişmiş ağ ile bir AKS kümesi dağıtırken bir insufficientSubnetSize hata alıyorum. Ne yapmalıyım?
 
-### <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>My pod 'CrashLoopBackOff' modunda takıldı. Ne yapmalıyım?
+AKS oluşturma sırasında ağ iletişimi için özel Azure sanal ağı seçeneğinde Azure kapsayıcı ağ arabirimi (CNI) IP adresi Yönetimi (IPAM) için kullanılır. Bir AKS kümesindeki düğüm sayısını, 1 ile 100 arasında herhangi bir yerde olabilir. Önceki bölümde üzerinde bağlı olarak, alt ağ boyutunu düğüm ve düğüm başına en fazla pod'ların sayısını çarpımını büyük olmalıdır. İlişkinin bu şekilde ifade edilebilir: alt ağ boyutu > kümedeki düğümlerin sayısı * düğüm başına en fazla pod'ları.
 
-Bu modda takılması pod çeşitli nedenleri olabilir. İçine bak isteyebilirsiniz. 
-* Pod kullanma `kubectl describe pod <pod-name>`
-* Kullanarak günlükleri  `kubectl log <pod-name>`
+## <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>My pod CrashLoopBackOff modunda takıldı. Ne yapmalıyım?
 
-### <a name="i-am-trying-to-enable-rbac-on-an-existing-cluster-can-you-tell-me-how-i-can-do-that"></a>Var olan bir kümede RBAC etkinleştirme hale getirmeye çalışıyorum. Ver nasıl yapabilirim?
+Bu modda takılması pod çeşitli nedenleri olabilir. İçine benzeyebilir:
 
-Ne yazık ki RBAC mevcut kümelerinde etkinleştirme, şu anda desteklenmiyor. Açıkça yeni bir küme oluşturmanız gerekir. CLI'yı kullanıyorsanız, bunu etkinleştirmek için iki durumlu bir düğmenin AKS Portalı'nda kullanılabilir ancak RBAC varsayılan olarak etkindir iş akışı oluşturun.
+* Kullanarak pod kendisini `kubectl describe pod <pod-name>`.
+* Kullanarak günlükleri `kubectl log <pod-name>`.
 
-### <a name="i-created-a-cluster-using-the-azure-cli-with-defaults-or-the-azure-portal-with-rbac-enabled-and-numerous-warnings-in-the-kubernetes-dashboard-the-dashboard-used-to-work-before-without-any-warnings-what-should-i-do"></a>Ben, kubernetes Pano ile RBAC etkin varsayılanları ya da Azure portal ile Azure CLI kullanarak bir küme ve çok sayıda uyarı oluşturuldu. Tüm uyarılar olmadan önce çalışmak üzere kullanılan Pano. Ne yapmalıyım?
+Pod sorunların nasıl giderileceği hakkında daha fazla bilgi için bkz. [uygulamalarında hata ayıklama](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
-Panoda uyarılar alma nedeni ile RBAC'ed şimdi etkinleştirildi ve erişimi varsayılan olarak devre dışı bırakıldı ' dir. Genel olarak, Pano varsayılan açığa kümenin tüm kullanıcılara güvenlik tehditlerine neden olabileceği bu yaklaşım iyi uygulama olarak kabul edilir. Pano etkinleştirmek istiyorsanız, bunu izleyin [blog](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/) etkinleştirin.
+## <a name="im-trying-to-enable-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Var olan bir kümede RBAC etkinleştirme hale getirmeye çalışıyorum. Ne yapabilirim?
 
-### <a name="i-cant-seem-to-connect-to-the-dashboard-what-should-i-do"></a>Panoya bağlanmak için gerçekleştiremiyorum. Ne yapmalıyım?
+Ne yazık ki, rol tabanlı erişim denetimi (RBAC) mevcut kümelerinde etkinleştirme, şu anda desteklenmiyor. Yeni küme açıkça oluşturmalısınız. RBAC, CLI'yı kullanırsanız, varsayılan olarak etkindir. AKS portalı kullanıyorsanız, RBAC etkinleştirmek için iki durumlu bir düğmenin oluşturma iş akışı içinde kullanılabilir.
 
-Küme dışında hizmetinize erişmek için en kolay yolu, localhost 8001 numaralı bağlantı noktası Kubernetes API sunucusu için proxy isteklerini olacak kubectl proxy çalıştırmaktır. Buradan, apiserver hizmetinize proxy olabilir: http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#! / düğüm? ad alanı = default
+## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Varsayılanları ya da Azure portal ile Azure CLI kullanarak etkin RBAC ile bir küme oluşturduğum ve çok sayıda uyarı Kubernetes Panoda artık görüyorum. Tüm uyarılar çalışmak için kullanılan Pano. Ne yapmalıyım?
 
-Kubernetes panosunu görmüyorsanız, kube-proxy pod kube-system ad alanında çalışıp çalışmadığını denetleyin. Çalışır durumda değilse, pod silin ve yeniden başlatılır.
+Panoda uyarı nedeni küme ile RBAC şimdi etkinleştirildi ve erişimi varsayılan olarak devre dışı bırakıldı ' dir. Genel olarak, Pano varsayılan açığa kümenin tüm kullanıcılara güvenlik tehditlerine neden olabileceği için bu yaklaşım yararlı olur. Pano etkinleştirmek istiyorsanız, adımları [bu blog gönderisini](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
-### <a name="i-could-not-get-logs-using-kubectl-logs-or-cannot-connect-to-the-api-server-getting-the-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Kubectl günlüklerini kullanarak günlükleri alınamadı veya API alınırken sunucu bağlanılamıyor "sunucu hatası: hata arama arka uç: tcp... arama". Ne yapmalıyım?
+## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Panoya bağlanamıyorum. Ne yapmalıyım?
 
-Varsayılan NSG değiştirilmez ve bağlantı noktası 22 olduğundan bağlantı API sunucusu için açık emin olun. Tunnelfront pod kube-system ad alanında çalışıp çalışmadığını denetleyin. Yüklü değilse, onu zorla silin ve yeniden başlatılır.
+Küme dışında hizmetinize erişmek için en kolay yolu çalıştırmaktır `kubectl proxy`, hangi proxy'leri istekleri, localhost 8001 numaralı bağlantı noktası Kubernetes API sunucusuna gönderilen. Burada, API sunucusu için proxy hizmetinize: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
 
-### <a name="i-am-trying-to-upgrade-or-scale-and-am-getting-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-issue"></a>Ölçeğini veya yükseltme yapmaya çalışıyorum ve "ileti" alıyorum bildirimi: "'Imagereference' özelliğinin değiştirilmesine izin verilmiyor." Hata.  Bu sorunu nasıl düzeltebilirim?
+Kubernetes panosunu görmüyorsanız denetleyin olmadığını `kube-proxy` pod çalıştıran `kube-system` ad alanı. Çalışır durumda değilse, pod silin ve yeniden başlatılır.
 
-AKS kümesi içindeki aracı düğümleri etiketleri değiştiğinden bu hatayı alıyorsanız mümkündür. Değiştirme ve silme etiketleri ve diğer özellikleri MC_ * kaynak grubundaki kaynakların beklenmeyen sonuçlara neden olabilir. MC_ * AKS kümesinde kaynaklarınıza değiştirme SLO keser.
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Günlükleri kubectl günlükleri kullanarak alamıyorum veya API sunucusuna bağlanamıyorum. Alıyorum "sunucu hatası: hata arama arka uç: arama tcp..." Ne yapmalıyım?
 
-### <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>My AKS kümesinde hizmet sorumlusu gizli anahtarı nasıl yenileyebilirim?
+Varsayılan ağ güvenlik grubu (NSG) değiştirilmez ve bağlantı noktası 22 API sunucusu bağlantısı için açık olduğundan emin olun. Denetleme olmadığını `tunnelfront` pod çalıştıran `kube-system` ad alanı. Aksi takdirde, pod ve onu zorla silinmesini yeniden başlatılır.
 
-Varsayılan olarak, AKS Küme hizmeti ile bir yıl süre olan asıl oluşturulur. Ek bir süre için hizmet sorumlusu genişletmek için kimlik bilgilerini, yakın bir yıllık sona erme tarihi sıfırlayabilirsiniz.
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>Yükseltme veya ölçeklendirme hale getirmeye çalışıyorum ve alıyorum bir "ileti: "Imagereference' özelliğinin değiştirilmesine izin" bir hata oluştu.  Bu sorunu nasıl düzeltebilirim?
+
+AKS kümesi içindeki aracı düğümleri etiketleri değiştirdiğiniz çünkü bu hatayı alma. Değiştirme ve silme etiketleri ve diğer özellikleri MC_ * kaynak grubundaki kaynakların beklenmeyen sonuçlara neden olabilir. Aks'deki MC_ * grubundaki kaynakların değiştirilmesi, hizmet düzeyi hedefi (SLO) küme keser.
+
+## <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>My AKS kümesinde hizmet sorumlusu gizli anahtarı nasıl yenileyebilirim?
+
+Varsayılan olarak, bir yıllık sona erme zamanına sahip bir hizmet sorumlusu AKS kümeleri oluşturulur. Sona erme tarihine yakın,, ek bir süre için hizmet sorumlusu genişletmek için kimlik bilgilerini sıfırlayabilirsiniz.
 
 Aşağıdaki örnek, aşağıdaki adımları gerçekleştirir:
 
-1. Hizmet sorumlusu kimliği kümesi kullanma alır [az aks show](/cli/azure/aks#az-aks-show) komutu.
-1. Hizmet sorumlusu istemci gizli listeleri kullanma [az ad sp kimlik bilgileri listesi](/cli/azure/ad/sp/credential#az-ad-sp-credential-list)
-1. Başka bir yıl kullanmak için hizmet sorumlusu genişletir [az ad sp reset kimlik bilgisi](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) komutu. Hizmet sorumlusu istemci parolası düzgün şekilde çalışması AKS kümesi için aynı kalmalıdır.
+1. Hizmet sorumlusu kimliği kümenizin kullanarak alır [az aks show](/cli/azure/aks#az-aks-show) komutu.
+1. Hizmet sorumlusu istemci parolasını kullanarak listeleri [az ad sp kimlik bilgileri listesi](/cli/azure/ad/sp/credential#az-ad-sp-credential-list).
+1. Hizmet sorumlusunu kullanarak başka bir yıl boyunca genişletir [az ad sp reset kimlik bilgisi](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) komutu. Hizmet sorumlusu istemci parolası düzgün şekilde çalışması AKS kümesi için aynı kalmalıdır.
 
 ```azurecli
-# Get the service principal ID of your AKS cluster
+# Get the service principal ID of your AKS cluster.
 sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
 
-# Get the existing service principal client secret
+# Get the existing service principal client secret.
 key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
 
-# Reset the credentials for your AKS service principal and extend for 1 year
+# Reset the credentials for your AKS service principal and extend for one year.
 az ad sp credential reset \
     --name $sp_id \
     --password $key_secret \

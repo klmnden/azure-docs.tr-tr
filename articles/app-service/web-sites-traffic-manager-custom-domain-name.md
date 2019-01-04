@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 35493d9a7f47bda3344dbc8b0ea415d4492c5741
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5431372abb9a1157b322a8af4a07ba5fa15d8e8e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340071"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720471"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>Traffic Manager'ı kullanarak Azure App Service içinde bir web uygulaması için özel etki alanı adı yapılandırma
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-Bu makalede bir özel etki alanı adı ile kullanmak için genel yönergeler sağlayan bir [App Service](app-service-web-overview.md) ile tümleşik uygulama [Traffic Manager](../traffic-manager/traffic-manager-overview.md) Yük Dengeleme için.
+Bu makalede bir özel etki alanı adı ile kullanmak için genel yönergeler sağlayan bir [App Service](overview.md) ile tümleşik uygulama [Traffic Manager](../traffic-manager/traffic-manager-overview.md) Yük Dengeleme için.
 
 [!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -47,7 +47,7 @@ Bu makalede bir özel etki alanı adı ile kullanmak için genel yönergeler sa�
 
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>Özel etki alanınız için bir DNS kaydı ekleyin
 > [!NOTE]
-> Azure App Service Web Apps aracılığıyla etki alanı satın aldıysanız sonra aşağıdaki adımları atlayın ve son adımına başvurmak [etki alanı satın almak için Web Apps](custom-dns-web-site-buydomains-web-app.md) makalesi.
+> Azure App Service Web Apps aracılığıyla etki alanı satın aldıysanız sonra aşağıdaki adımları atlayın ve son adımına başvurmak [etki alanı satın almak için Web Apps](manage-custom-dns-buy-domain.md) makalesi.
 > 
 > 
 

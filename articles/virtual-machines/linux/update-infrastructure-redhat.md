@@ -14,17 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: borisb
-ms.openlocfilehash: 20fe724d32e31e1bacbad024cc934f89af12f112
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0755d472ef6b2566d7faa51019da7d49266fa199
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139937"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993221"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure'da isteğe bağlı Red Hat Enterprise Linux VM'ler için Red Hat güncelleştirme altyapısı
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gibi Red Hat barındırılan depo içeriğini yansıtmak için özel depolar ile Azure özgü içerik oluşturmak ve son kullanıcı VM'ler için kullanılabilir hale getirmek amacıyla bulut sağlayıcıları sağlar.
 
 Red Hat Enterprise Linux (RHEL) Kullandıkça Öde (PAYG) görüntüleri Azure RHUI erişmek için önceden yapılandırılmış olarak gelir. Ek bir yapılandırma gerekmez. En son güncelleştirmeleri almak için çalıştırın `sudo yum update` RHEL örneğinizin hazır olduktan sonra. Bu hizmet, RHEL PAYG yazılım ücretleri bir parçası olarak dahil edilir.
+
+Yayımlama ve bekletme ilkeleri de dahil olmak üzere azure'daki RHEL görüntüleri hakkında daha fazla bilgi edinilebilir [burada](./rhel-images.md).
 
 ## <a name="important-information-about-azure-rhui"></a>Azure RHUI hakkında önemli bilgiler
 * Azure RHUI, şu anda yalnızca en son alt sürüm her RHEL ailesi (RHEL6 veya RHEL7) destekler. RHUI küçük en son sürüme bağlı RHEL VM örneği yükseltmek için çalıştırmanız `sudo yum update`.
@@ -35,9 +37,37 @@ Red Hat Enterprise Linux (RHEL) Kullandıkça Öde (PAYG) görüntüleri Azure R
 
 * Azure'da barındırılan RHUI erişimi PAYG RHEL görüntüsü fiyatına dahildir. Azure'da barındırılan RHUI PAYG RHEL VM'den kaydını kaldırırsanız, sanal makinenin bir VM Getir-kendi lisansını (KLG) türü dönüştürmez. Başka bir güncelleştirme kaynağı ile aynı VM kaydolursanız, neden olabilecek _dolaylı_ çift ücretleri. İlk kez Azure RHEL yazılım ücreti karşılığında ücret ödersiniz. İkinci kez önceden satın alınan Red Hat abonelikler için ücret ödersiniz. Tutarlı bir şekilde Azure'da barındırılan RHUI dışındaki bir güncelleştirme altyapısı kullanmanız gerekirse, oluşturma ve dağıtma (KLG türü) kendi görüntülerinizi göz önünde bulundurun. Bu işlem açıklanan [oluşturup Azure için Red Hat tabanlı bir sanal makine yükleme](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-* (SAP HANA için RHEL) ve RHEL for SAP Business Applications Azure PAYG RHEL görüntülerinin iki sınıf SAP sertifika için gereken belirli RHEL alt sürüm kalır özel RHUI kanallar bağlıdır.
+* (SAP, SAP HANA için RHEL ve RHEL for SAP Business Applications RHEL) azure'da SAP PAYG RHEL görüntüleri SAP sertifika için gereken belirli RHEL alt sürüm kalır özel RHUI kanallar bağlıdır.
 
 * İçindeki VM'ler için Azure'da barındırılan RHUI erişim sınırlıdır [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Proxy kullanıyorsanız tüm VM trafiğe bir şirket içi ağ altyapısı aracılığıyla RHEL PAYG sanal makinelerin Azure RHUI erişmek kullanıcı tanımlı rotalar ayarlama gerekebilir.
+
+### <a name="rhel-eus-and-version-locking-rhel-vms"></a>RHEl EUS ve sürüm kilitleme RHEL VM'ler
+Bazı müşterilerin belirli RHEL alt yayın, RHEL Vm'lerine kilitleme isteyebilirsiniz. RHEL VM'nize belirli bir alt sürüm sürüm kilidi depoları için genişletilmiş güncelleştirme desteğini depoları işaret edecek şekilde güncelleştirerek kullanabilirsiniz. Belirli bir alt sürüme RHEL VM kilitlemek için aşağıdaki yönergeleri kullanın:
+
+>[!NOTE]
+> Bu, yalnızca RHEL 7.2 7.5 için geçerlidir
+
+1. EUS olmayan depoları devre dışı bırakın:
+    ```
+    sudo yum --disablerepo=* remove rhui-azure-rhel7
+    ```
+
+1. EUS depoları ekleyin:
+    ```
+    yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
+    ```
+
+1. Kilit releasever değişkeni:
+    ```
+    echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
+    ```
+
+    >[!NOTE]
+    > Yukarıdaki yönerge RHEL ikincil sürümü için geçerli alt sürüm kilitleyecek. Yükseltme ve en son olmayan daha sonra ikincil sürümü kilitlemek için arıyorsanız, belirli bir ikincil sürüm girin. Örneğin, `echo 7.5 > /etc/yum/vars/releasever` RHEL 7.5, RHEL sürümüne kilitler
+1. RHEL VM'nize güncelleştir
+    ```bash
+    sudo yum update
+    ```
 
 ### <a name="the-ips-for-the-rhui-content-delivery-servers"></a>RHUI içerik teslim sunucular için IP'ler
 
@@ -70,13 +100,19 @@ Yeni Azure RHUI sunuculara dağıtılan [Azure Traffic Manager](https://azure.mi
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Bir VM üzerinde süresi dolmuş RHUI istemci sertifikasını güncelleştir
 
-Örneğin, RHEL 7.4 bir eski RHEL VM görüntüsünü kullanıyorsanız (URN görüntü: `RedHat:RHEL:7.4:7.4.2018010506`), RHUI şimdi süresi (üzerinde 21 Kasım 2018) SSL istemci sertifikası nedeniyle bağlantı sorunları yaşar. Bu sorunu çözmek için aşağıdaki komutu kullanarak VM'yi RHUI istemci paketi güncelleştir
+Örneğin, RHEL 7.4 bir eski RHEL VM görüntüsünü kullanıyorsanız (URN görüntü: `RedHat:RHEL:7.4:7.4.2018010506`), RHUI şimdi süresi (üzerinde 21 Kasım 2018) SSL istemci sertifikası nedeniyle bağlantı sorunları yaşar. Bu sorunu çözmek için lütfen aşağıdaki komutu kullanarak VM'yi RHUI istemci paketi güncelleştirin:
 
 ```bash
 sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-azure-rhel7
 ```
 
-Alternatif olarak, çalışan `sudo yum update` başka depolar için görürsünüz "süresi dolmuş SSL sertifikası" hataları rağmen bu paketi de güncelleştirilir. Aşağıdaki güncelleştirme, diğer RHUI depolarda normal bağlantısı geri yüklenmelidir.
+RHEL VM'nize ABD kamu bulutunda, aşağıdaki komutu kullanın:
+```bash
+sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-usgov-rhel7
+```
+
+Alternatif olarak, çalışan `sudo yum update` ayrıca diğer depoları için görürsünüz "süresi dolmuş SSL sertifikası" hataları rağmen istemci sertifika paketini güncelleştirir. Güncelleştirmenin başka RHUI depolar normal bağlantısı geri yüklenmelidir, olanağına olacak `sudo yum update` başarıyla.
+
 
 ### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Azure RHUI için bağlantı sorunlarını giderme
 Azure RHEL PAYG VM'den Azure RHUI bağlanma konusunda sorunlar karşılaşırsanız, aşağıdaki adımları izleyin:
@@ -179,5 +215,6 @@ Bu yordam, yalnızca başvuru sağlanır. PAYG RHEL görüntüleri için Azure R
 1. Bitirdikten sonra sanal makineden Azure RHUI erişebildiğinizi doğrulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Market PAYG görüntüden bir Red Hat Enterprise Linux VM oluşturma ve Azure'da barındırılan RHUI kullanılacak Git [Azure Marketi](https://azure.microsoft.com/marketplace/partners/redhat/).
+* Azure Market PAYG görüntüden bir Red Hat Enterprise Linux VM oluşturma ve Azure'da barındırılan RHUI kullanılacak Git [Azure Marketi](https://azure.microsoft.com/marketplace/partners/redhat/).
+* Azure'da Red Hat görüntülerini hakkında daha fazla bilgi için şuraya gidin [belgeleri sayfasını](./rhel-images.md).
 

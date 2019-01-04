@@ -1,5 +1,5 @@
 ---
-title: 'Intellij için Azure Araç Seti: Spark HDInsight kümesi için uygulamalar oluşturma '
+title: 'Intellij için Azure Araç Seti: Spark uygulamaları için bir HDInsight kümesi oluşturma '
 description: Spark Scala içinde yazılmış uygulamalar geliştirmek için Intellij için Azure araç takımı kullanın ve bunları bir HDInsight Spark kümesine göndermek.
 services: hdinsight
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: maxluk
-ms.openlocfilehash: b2bf79d90c741e09c683e4520b05b31ba2fee1da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 621d41c5c9558b5cb17d2a1e5a03d68f8af0df19
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582777"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600650"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Bir HDInsight kümesi için Apache Spark uygulamaları oluşturmak için Intellij için Azure Araç Seti'ni kullanma
 
@@ -26,7 +26,7 @@ Geliştirmek için eklenti Intellij için Azure Araç Seti'ni kullanma [Apache S
 
 Projenizi oluşturmak için görüntüleme [Intellij için Azure araç seti ile Apache Spark uygulamaları oluşturmak](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ) video.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Oluşturma ve uygulamalar yalnızca Linux'ta bir HDInsight Spark kümesine göndermek için bu eklentiyi kullanabilirsiniz.
 > 
 
@@ -180,22 +180,22 @@ Scala uygulama oluşturduktan sonra küme gönderebilirsiniz.
 
     * Intellij projeden bir yapı seçin veya bir sabit sürücüden seçin.
 
-    * **Ana sınıf adı** alan: seçilen dosyanın ana sınıftan varsayılan değerdir. Sınıfı üç nokta seçerek değiştirebilirsiniz (**...** ) ve başka bir sınıfı seçme.   
+    * **Ana sınıf adı** alan: Seçili dosya ana sınıftan varsayılan değerdir. Sınıfı üç nokta seçerek değiştirebilirsiniz (**...** ) ve başka bir sınıfı seçme.   
 
-    * **İş yapılandırmalarını** alan: varsayılan değerler, yukarıda gösterilen resim olarak ayarlanır. Değerini değiştirin ya da kendi iş gönderme için yeni bir anahtar/değer ekleyin. Daha fazla bilgi için: [Apache Livy REST API'si](http://livy.incubator.apache.org./docs/latest/rest-api.html)
+    * **İş yapılandırmalarını** alan:  Varsayılan değerleri, yukarıda gösterilen resim olarak ayarlanır. Değerini değiştirin ya da kendi iş gönderme için yeni bir anahtar/değer ekleyin. Daha fazla bilgi için: [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html)
 
       ![Spark gönderim iletişim kutusu iş yapılandırma anlama](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
 
-    * **Komut satırı bağımsız değişkenleri** alan: gerekirse bölme ölçütü: ana sınıfı için alan bağımsız değişkenleri değerleri girebilirsiniz.
+    * **Komut satırı bağımsız değişkenleri** alan: Bölme ölçütü alanı gerekirse ana sınıfı için bağımsız değişken değerleri girebilirsiniz.
 
-    * **Jar dosyaları dışındaki başvurulan** ve **başvurulan dosyaları** alanlar:, yollar başvurulan jar dosyaları dışındaki ve dosyalar için varsa girebilirsiniz. Daha fazla bilgi için: [Apache Spark yapılandırması](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 
+    * **Jar dosyaları dışındaki başvurulan** ve **başvurulan dosyaları** alanlar: Varsa, başvurulan jar dosyaları dışındaki ve dosyaları için yol girebilirsiniz. Daha fazla bilgi için: [Apache Spark yapılandırması](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) 
 
       ![Anlamı Spark gönderim iletişim kutusu jar dosyaları](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
 
-       > [!NOTE]
-       > Başvurulan Jar'lar ve başvurulan dosyaları karşıya yükleme için bkz: [küme kaynaklarını karşıya yükleme](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
+       > [!NOTE]  
+       > Başvurulan Jar'lar ve başvurulan dosyaları karşıya yükleme için bkz: [Küme kaynaklarını karşıya yükleme](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)
                          
-    * **Karşıya yükleme yolu**: Jar veya Scala proje kaynakları gönderim için depolama konumu belirtebilirsiniz. Desteklenen üç depolama türü vardır: **Azure Blob**, **yapıtları karşıya yüklemek için Spark kullanma etkileşimli oturumu**, ve **kümenin varsayılan depolama hesabını kullanırsınız**ve **ADLS Gen1**. Aşağıdaki ekran görüntüsünde, Azure Blob için bir örnek verilmiştir.
+    * **Karşıya yükleme yolu**: Jar veya Scala proje kaynakları gönderim için depolama konumu belirtebilirsiniz. Desteklenen üç depolama türleri şunlardır: **Azure Blob**, **yapıtları karşıya yüklemek için Spark kullanma etkileşimli oturumu**, ve **kümenin varsayılan depolama hesabını kullanırsınız**, ve **ADLS Gen1**. Aşağıdaki ekran görüntüsünde, Azure Blob için bir örnek verilmiştir.
 
         ![Spark gönderim iletişim kutusu](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-upload-storage-types.png)
 
@@ -347,21 +347,21 @@ Küme meşgul ise, aşağıdaki hata alabilirsiniz.
 Tüm öneriler veya Geri bildiriminiz varsa veya bu eklenti kullandığınızda herhangi bir sorunla karşılaşırsanız adresinden bize e-posta hdivstool@microsoft.com.
 
 ## <a name="seealso"></a>Sonraki adımlar
-* [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
+* [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>Tanıtım
-* Scala proje oluştur (video): [Apache Spark Scala uygulamaları oluşturma](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
-* Uzaktan hata ayıklama (video): [uzaktan HDInsight kümesi üzerinde Apache Spark uygulamalarında hata ayıklamak amacıyla Intellij için Azure Araç Seti'ni kullanma](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
+* Scala proje (video) oluşturun: [Apache Spark Scala uygulamaları oluşturma](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Uzaktan hata ayıklama (video): [Apache Spark uygulamaları HDInsight kümesi üzerinde uzaktan hata ayıklama için Intellij için Azure araç takımı kullanın](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="creating-and-running-applications"></a>Oluşturma ve uygulamaları çalıştırma
 * [Scala kullanarak tek başına uygulama oluşturma](apache-spark-create-standalone-application.md)
-* [Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
+* [Apache Livy kullanarak bir Apache Spark kümesinde işleri uzaktan çalıştırma](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Araçlar ve uzantılar
 * [Apache Spark uygulamalar VPN üzerinden uzaktan hata ayıklama için Intellij için Azure araç takımı kullanın](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)

@@ -2,18 +2,18 @@
 title: include dosyası
 description: include dosyası
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 04/13/2018
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: 8b5b7126a264d6a15010fc18288f4a4ba1263344
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: b8ade5590ac2edb386d06f63995da8c25c678754
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53286216"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53796188"
 ---
 1. Yeni bir pencerede [Azure portalında](https://portal.azure.com/) oturum açın.
 2. Sol taraftaki menüde **Kaynak oluştur**'a, **Veritabanları**'na ve ardından **Azure Cosmos DB**' altında **Oluştur**’a tıklayın.
@@ -27,13 +27,13 @@ ms.locfileid: "53286216"
     Abonelik|Aboneliğiniz|Bu Azure Cosmos DB hesabı için kullanmak istediğiniz Azure aboneliğini seçin. 
     Kaynak Grubu|Yeni oluştur<br><br>Ardından Kimlikte sağlanan benzersiz adın aynısını girin|**Yeni oluştur**’u seçin. Ardından hesabınız için yeni bir kaynak grubu adı girin. Kolaylık olması için kimliğinizle aynı adı kullanın. 
     Hesap Adı|Benzersiz bir ad girin|Azure Cosmos DB hesabınızı tanımlayan benzersiz bir ad girin. Girdiğiniz kimliğe *documents.azure.com* eklenerek URI'niz oluşturulacağından benzersiz bir kimlik kullanın.<br><br>Kimlik yalnızca küçük harf, sayı ve kısa çizgi (-) karakterini kullanabilirsiniz. 3 ila 31 karakter uzunluğunda olmalıdır.
-    API|MongoDB|API, oluşturulacak hesap türünü belirler. Azure Cosmos DB, beş API sunar: Gremlin graf veritabanları, belge veritabanları, Azure tablosu ve Cassandra, MongoDB Core(SQL) belge veritabanları için. Şu anda, her bir API için ayrı bir hesap oluşturmanız gerekir. <br><br>Seçin **MongoDB** çünkü bu hızlı başlangıçta, MongoDB API'si ile birlikte çalışan bir tablo oluşturuluyor.|
+    API|Cosmos DB MongoDB API'si|API, oluşturulacak hesap türünü belirler. Azure Cosmos DB, beş API sunar: Gremlin graf veritabanları, Azure Cosmos DB belge veritabanı, Azure tablosu ve Cassandra API MongoDB belge veritabanları için çekirdek (SQL). Şu anda, her bir API için ayrı bir hesap oluşturmanız gerekir. <br><br>Seçin **MongoDB** çünkü bu hızlı başlangıçta, MongoDB API'si ile birlikte çalışan bir tablo oluşturuluyor.|
     Konum|Kullanıcılarınıza en yakın bölgeyi seçin|Azure Cosmos DB hesabınızın barındırılacağı coğrafi konumu seçin. Verilere en hızlı erişimi sağlamak için kullanıcılarınıza en yakın olan konumu kullanın.
 
     Seçin **gözden geçir + Oluştur**. Atlayabilirsiniz **ağ** ve **etiketleri** bölümü. 
 
     ![Azure Cosmos DB için yeni hesap sayfası](./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-create-new-account.png)
 
-4. Hesabın oluşturulması birkaç dakika sürer. Portalın **Tebrikler! Tebrikler! MongoDB API'si ile Azure Cosmos DB hesabınız hazır** sayfasını görüntülemesini bekleyin.
+4. Hesabın oluşturulması birkaç dakika sürer. Portalın **Tebrikler! MongoDB için protokol uyumluluğunu kablo ile Cosmos hesabınız hazır** sayfası.
 
     ![Azure portalındaki Bildirimler bölmesi](./media/cosmos-db-create-dbaccount-mongodb/azure-cosmos-db-account-created.png)

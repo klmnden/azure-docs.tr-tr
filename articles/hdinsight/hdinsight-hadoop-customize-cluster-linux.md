@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5ef7ddc068fea7703dad67b80b96c292bfd26943
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e655624a30332630c28cbd555dac26098adeb68b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870716"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976928"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Betik eylemlerini kullanarak Linux tabanlı HDInsight kümeleri özelleştirme
 
 HDInsight sağlar adlı bir yapılandırma yöntemi **betik eylemlerini** küme özelleştirmek için özel komut dosyaları çağırır. Bu betikler, ek bileşenler yükleme ve yapılandırma ayarlarını değiştirmek için kullanılır. Betik eylemleri, küme oluşturma sırasında veya sonrasında kullanılabilir.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Zaten çalışan bir kümede betik eylemleri kullanma olanağı, yalnızca Linux tabanlı HDInsight kümeleri için kullanılabilir.
 >
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -31,8 +31,8 @@ Betik eylemleri, bir HDInsight uygulaması olarak Azure Marketi'nde ayrıca yay�
 
 Bir etki alanına katılmış HDInsight kümesi kullanıyorsanız, betik eylemleri ile bir küme kullanılırken gerekli olan iki Ambari izni vardır:
 
-* **AMBARI. ÇALIŞTIRMA\_özel\_komut**: Ambari Yönetici rolü varsayılan olarak bu izne sahiptir.
-* **KÜME. ÇALIŞTIRMA\_özel\_komut**: her iki HDInsight küme yöneticisinin ve Ambari Yöneticisi varsayılan olarak bu izne sahip.
+* **AMBARI. ÇALIŞTIRMA\_ÖZEL\_KOMUT**: Ambari yöneticisi rolü varsayılan olarak bu izne sahiptir.
+* **KÜME. ÇALIŞTIRMA\_ÖZEL\_KOMUT**: HDInsight küme yöneticisinin ve Ambari Yöneticisi varsayılan olarak bu izne sahip.
 
 İzinleri olan etki alanına katılmış HDInsight ile çalışma hakkında daha fazla bilgi için bkz. [etki alanına katılmış HDInsight kümelerini yönetme](./domain-joined/apache-domain-joined-manage.md).
 
@@ -53,12 +53,12 @@ Betik eylemi çalıştıran bir HDInsight kümesindeki düğümler üzerinde Bas
 
 * HDInsight kümesinden erişilebilir bir URI üzerinde depolanmış olması gerekir. Olası depolama konumlarını şunlardır:
 
-    * Bir **Azure Data Lake Store** HDInsight küme tarafından erişilebilir olan hesap. Azure Data Lake Store ile HDInsight kullanma hakkında daha fazla bilgi için bkz: [hızlı başlangıç: HDInsight kümelerinde ayarlama](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+    * Bir **Azure Data Lake Storage** HDInsight küme tarafından erişilebilir olan hesap. Azure Data Lake Store ile HDInsight kullanma hakkında daha fazla bilgi için bkz: [hızlı başlangıç: HDInsight kümelerinde ayarlama](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
         Data Lake Store içinde depolanan bir betik kullanıldığında, URI biçimi `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
-        > [!NOTE]
-        > HDInsight, Data Lake Store erişmek için kullandığı hizmet sorumlusu, betik okuma erişiminiz olması gerekir.
+        > [!NOTE]  
+        > HDInsight, Data Lake depolamaya erişmek için kullandığı hizmet sorumlusu, betik okuma erişiminiz olması gerekir.
 
     * Bir blobu bir **Azure depolama hesabı** diğer bir deyişle ya da birincil ya da ek depolama hesabı için HDInsight kümesi. HDInsight, küme oluşturma sırasında hem de bu türlerde depolama hesapları için erişim izni verilir.
 
@@ -66,7 +66,7 @@ Betik eylemi çalıştıran bir HDInsight kümesindeki düğümler üzerinde Bas
 
         URI, örneğin bkz [örnek betik eylemi betikleri](#example-script-action-scripts) bölümü.
 
-        > [!WARNING]
+        > [!WARNING]  
         > HDInsight yalnızca Azure depolama hesapları ile standart performans katmanı Blob destekler. 
 
 * Kısıtlanmış olabilir **yalnızca belirli düğüm türleri üzerinde çalıştırma**örnek baş düğümleri veya çalışan düğümleri için.
@@ -75,12 +75,12 @@ Betik eylemi çalıştıran bir HDInsight kümesindeki düğümler üzerinde Bas
 
     **Kalıcı** komut dosyaları, küme işlemleri ölçeklendirme aracılığıyla eklenen yeni çalışan düğümlerindeki özelleştirmek için kullanılır. Ölçeklendirme işlemlerini gerçekleştiğinde kalıcı bir betik gibi bir baş düğüm, başka bir düğüm türü için değişiklikleri de uygulanabilir.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Kalıcı betik eylemleri, benzersiz bir adı olmalıdır.
 
     **Geçici** betikleri kalıcı değildir. Çalışan düğümlerine sahip betiği çalıştırdıktan sonra kümeye eklenen uygulanmaz. Daha sonra kalıcı bir betik için geçici bir betik yükseltebilir veya geçici bir betik için kalıcı bir betik indirgeyin.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Otomatik olarak kalıcı betik eylemleri, küme oluşturma sırasında kullanılır.
   >
   > Başarısız değildir komut özellikle olması belirtmek bile kalıcı.
@@ -93,7 +93,7 @@ Betik eylemi çalıştıran bir HDInsight kümesindeki düğümler üzerinde Bas
 
 Kümedeki çalışan sahip tüm betikler bir geçmişini tutar. Geçmiş, yükseltme veya indirgeme işlemleri için bir komut Kimliğini bulmak gerektiğinde faydalıdır.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Betik eylemi tarafından yapılan değişiklikleri geri almak için otomatik bir yolu yoktur. El ile değişikliklerinizi geri veya bunları tersine bir betik sağlayın.
 
 ### <a name="script-action-in-the-cluster-creation-process"></a>Küme oluşturma işlemi betik eylemi
@@ -110,13 +110,13 @@ Betik eylemi oluşturma işlemi sırasında yürütüldüğünde, aşağıdaki d
 
 HDInsight yapılandırılırken betiği çalıştırır. Betik, belirtilen kümedeki tüm düğümler üzerinde paralel olarak çalışır ve düğümler üzerinde kök ayrıcalıklarıyla çalıştırır.
 
-> [!NOTE]
+> [!NOTE]  
 > Durdurma ve Apache Hadoop ile ilgili hizmetler gibi hizmetler başlatma gibi işlemler gerçekleştirebilirsiniz. Hizmetleri durdurun, Ambari hizmet ve önce betik çalıştıran diğer Hadoop ile ilgili hizmetlerin tamamlandığından emin olmanız gerekir. Bu hizmetler, oluşturulurken kümesinin durumunu ve sistem durumu başarılı bir şekilde belirlemek için gereklidir.
 
 
 Küme oluşturma sırasında tek seferde birden çok betik eylemleri kullanabilirsiniz. Bu betikler, belirtilmiş olması sırayla çağrılır.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Betik eylemleri, 60 dakika veya zaman aşımı içinde tamamlamanız gerekir. Betik, küme hazırlama sırasında eşzamanlı diğer Kurulum ve yapılandırma işlemleri çalıştırır. CPU süresi veya ağ bant genişliği gibi kaynak rekabetini betiği geliştirme ortamınızda gösterilenden tamamlanması uzun sürmesine neden olabilir.
 >
 > Betiği çalıştırmak için gereken süreyi en aza indirmek için yükleme ve kaynak uygulamalardan derleme gibi görevleri kaçının. Uygulamalar önceden derlemek ve ikili Azure Depolama'da saklayın.
@@ -126,7 +126,7 @@ Küme oluşturma sırasında tek seferde birden çok betik eylemleri kullanabili
 
 Bir zaten çalışan bir betikte hata çalıştıran küme otomatik olarak neden başarısız duruma değiştirmek küme. Bir komut dosyası tamamlandıktan sonra küme bir "çalışır" duruma döndürmeniz gerekir.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Küme bir 'çalışıyor' durumunda olsa bile, başarısız olan kodu şeyler bozuk. Örneğin, bir komut dosyası küme için gerekli dosyaları silebilirsiniz.
 >
 > Betik eylemleri, kök ayrıcalıklarıyla çalıştırın. Kümenize uygulamadan önce bir betiği yaptığı anladığınızdan emin olun.
@@ -138,7 +138,7 @@ Bir betiği bir kümeye uygulama küme durumunun döndürdüğünüzde **çalı�
     EndTime           : 8/14/2017 7:41:05 PM
     Status            : Succeeded
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Küme oluşturulduktan sonra küme kullanıcı (Yönetici) parolası değiştirdiyseniz, betik eylemleri bu kümede çalıştırılan başarısız olabilir. Kalıcı betik eylemleri, hedef alt düğümleri varsa, bu betikleri kümeyi ölçeklediğinizde başarısız olabilir.
 
 ## <a name="example-script-action-scripts"></a>Örnek betik eylemi betikleri
@@ -242,16 +242,17 @@ Bu bölümde, betik eylemleri çalıştıran bir kümeye uygulama konusunda bilg
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-azure-portal"></a>Betik eylemi çalıştıran bir kümeye Azure portalından uygulayın.
 
-1. Gelen [Azure portalında](https://portal.azure.com), HDInsight kümenizi seçin.
+Gelen [Azure portalında](https://portal.azure.com):
 
-2. HDInsight kümesine genel bakış'tan, seçin **betik eylemleri** Döşe.
+1. Sol menüden **tüm hizmetleri**.
 
-    ![Betik eylemleri kutucuğu](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
+1. Altında **ANALYTICS**seçin **HDInsight kümeleri**.
 
-   > [!NOTE]
-   > Belirleyebilirsiniz **tüm ayarlar** seçip **betik eylemleri** ayarları bölümünden.
+1. Kümenizi varsayılan görünüm açılır listeden seçin.
 
-3. Betik eylemleri bölümünde başından seçin **gönderme yeni**.
+1. Varsayılan görünümünden altında **ayarları**seçin **betik eylemlerini**.
+
+1. Üst kısmından **betik eylemlerini** sayfasında **+ gönderme yeni**.
 
     ![Bir betik çalıştıran bir kümeye ekleme](./media/hdinsight-hadoop-customize-cluster-linux/add-script-running-cluster.png)
 
@@ -342,14 +343,15 @@ Bir kümeye betikleri uygulamak için .NET SDK'sını kullanarak bir örnek içi
 
 ### <a name="using-the-azure-portal"></a>Azure portalını kullanma
 
-1. Gelen [Azure portalında](https://portal.azure.com), HDInsight kümenizi seçin.
+1. Oturum [Azure portalında](https://portal.azure.com).
 
-2. HDInsight kümesine genel bakış'tan, seçin **betik eylemleri** Döşe.
+1. Sol menüden **tüm hizmetleri**.
 
-    ![Betik eylemleri kutucuğu](./media/hdinsight-hadoop-customize-cluster-linux/scriptactionstile.png)
+1. Altında **ANALYTICS**seçin **HDInsight kümeleri**.
 
-   > [!NOTE]
-   > Belirleyebilirsiniz **tüm ayarlar** seçip **betik eylemleri** ayarları bölümünden.
+1. Kümenizi varsayılan görünüm açılır listeden seçin.
+
+1. Varsayılan görünümünden altında **ayarları**seçin **betik eylemlerini**.
 
 4. Bu küme için komut geçmişini betik eylemleri bölümünde görüntülenir. Bu bilgiler, kalıcı duruma getirilmiş betiklerin listesini içerir. Aşağıdaki ekran görüntüsünde, komut dosyası kaldırıldı Solr'ın bu küme üzerinde çalışan görebilirsiniz. Ekran görüntüsünde herhangi bir kalıcı duruma getirilmiş betiklerin göstermez.
 
@@ -372,7 +374,7 @@ Bir kümeye betikleri uygulamak için .NET SDK'sını kullanarak bir örnek içi
 | Set-AzureRmHDInsightPersistedScriptAction |Kalıcı betik eylemi için bir geçici betik eylemi yükseltir |
 | Remove-AzureRmHDInsightPersistedScriptAction |Kalıcı betik eylemi geçici bir eyleme indirger. |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Kullanarak `Remove-AzureRmHDInsightPersistedScriptAction` bir betik tarafından gerçekleştirilen eylemler geri almaz. Bu cmdlet yalnızca, kalıcı bayrağını kaldırır.
 
 Aşağıdaki örnek betik, yükseltmek ve ardından bir komut dosyası düzeyini düşür cmdlet'leri kullanmayı gösterir.
@@ -390,14 +392,14 @@ Aşağıdaki örnek betik, yükseltmek ve ardından bir komut dosyası düzeyini
 | `azure hdinsight script action persisted set <clustername> <scriptexecutionid>` |Kalıcı betik eylemi için bir geçici betik eylemi yükseltir |
 | `azure hdinsight script-action persisted delete <clustername> <scriptname>` |Kalıcı betik eylemi geçici bir eyleme indirger. |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Kullanarak `azure hdinsight script-action persisted delete` bir betik tarafından gerçekleştirilen eylemler geri almaz. Bu cmdlet yalnızca, kalıcı bayrağını kaldırır.
 
 ### <a name="using-the-hdinsight-net-sdk"></a>HDInsight .NET SDK'sını kullanma
 
 Komut geçmişi bir kümeden almak için .NET SDK'sını kullanarak bir örnek için yükseltmek veya betikleri indirgemek için bkz [ https://github.com/Azure-Samples/hdinsight-dotnet-script-action ](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
-> [!NOTE]
+> [!NOTE]  
 > Bu örnek ayrıca .NET SDK'sını kullanarak bir HDInsight uygulamasının nasıl yükleneceğini gösterir.
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>HDInsight kümelerinde kullanılan açık kaynaklı yazılım desteği
@@ -409,10 +411,10 @@ HDInsight hizmetinde kullanılabilir açık kaynak bileşenleri iki tür vardır
 * **Yerleşik bileşenlerini** -bu bileşenler HDInsight kümelerinde önceden yüklü olan ve kümeyi temel işlevlerini sağlar. Örneğin, [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager, Hive sorgu dili ([HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)) ve [Apache Mahout](https://mahout.apache.org/) kitaplığı, bu kategoriye aittir. Tam küme bileşenleri listesini kullanılabilir [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler](hdinsight-component-versioning.md).
 * **Özel bileşenler** -, kümenin bir kullanıcı olarak yükleyebilir veya herhangi bir bileşeni Topluluğu'nda kullanılabilir veya sizin tarafınızdan oluşturulan iş yükünüzü kullanın.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight kümesi ile sağlanan bileşenler tam olarak desteklenir. Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
 >
-> Özel bileşenler daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Microsoft desteği sorunu çözmek mümkün olabilir veya bu teknoloji için derin bir uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları etkileşim kurmak için isteyebilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
+> Özel bileşenler daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Microsoft desteği sorunu çözmek mümkün olabilir veya bu teknoloji için derin bir uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları etkileşim kurmak için isteyebilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Apache projeleri proje siteleri de [ https://apache.org ](https://apache.org), örneğin: [Hadoop](https://hadoop.apache.org/).
 
 HDInsight hizmeti, özel bileşenler kullanmak için birkaç yol sağlar. Aynı düzeyde desteği nasıl bir bileşen kullanılan veya kümeye yüklü bağımsız olarak geçerlidir. Aşağıdaki listede açıklanmıştır en yaygın yolu özel bileşenler HDInsight kümelerinde kullanılabilir:
 
@@ -474,12 +476,12 @@ Küme oluşturma bir betik hatası nedeniyle başarısız olursa, günlükler k�
 
 ### <a name="ambari-watchdog"></a>Ambari izleme
 
-> [!WARNING]
+> [!WARNING]  
 > Linux tabanlı HDInsight kümenizdeki Ambari bekçi (hdinsightwatchdog) için parolayı değiştirmeyin. Bu hesabın parolasını değiştirme, yeni betik eylemleri HDInsight kümesinde çalıştırma olanağı keser.
 
 ### <a name="cant-import-name-blobservice"></a>BlobService adı alınamıyor
 
-__Belirtiler__: betik eylemi başarısız. Ambari, işlemi görüntülediğinizde şu hataya benzer bir metin görüntülenir:
+__Belirtiler__: Betik eylemi başarısız olur. Ambari, işlemi görüntülediğinizde şu hataya benzer bir metin görüntülenir:
 
 ```
 Traceback (most recent call list):

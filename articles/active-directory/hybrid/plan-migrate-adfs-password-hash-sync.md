@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c226eb19dbd2049c486acfb1ffb9423fdb1dad43
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: cad368cb968b94d1327cc99ed4dfa6df0aedd2cd
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410270"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555107"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-ad"></a>Federasyon seçeneğinden parola karması eşitleme için Azure AD'ye geçirme
 Aşağıdaki belge için parola karması eşitleme AD FS'den geçmeden rehberlik sağlar.
@@ -336,7 +336,7 @@ Bu işlemin bir parçası, sorunsuz çoklu oturum açmayı etkinleştirin ve ala
    > [!IMPORTANT]
    > Kullanıcılar bu noktada oturum şekilde hiçbir değişiklik yapılmaz.  
    
-   7. Azure AD portalında Federasyon etkinleştirilmesi devam eder ve sorunsuz çoklu oturum açma artık etkin olduğunu doğrulayın.
+   7. Azure AD portalı üzerinde Federasyon etkinleştirilmesi devam eder ve sorunsuz çoklu oturum açma etkinleştirildi doğrulayın.
    ![Resim 42](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image16.png)
 
 #### <a name="convert-domains-from-federated-to-managed"></a>Yönetilen Federasyon oluşturan etki alanlarından Dönüştür

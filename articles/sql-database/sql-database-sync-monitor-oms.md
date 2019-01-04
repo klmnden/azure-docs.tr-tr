@@ -12,18 +12,21 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d6a1f2829352e8589c8d132a195a425edcbe62c3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: b7d6b59ab03985c19ffa08a0a8266d449892046f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872958"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717832"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>SQL Data Sync'i Log Analytics ile izleme 
 
 SQL Data Sync Etkinlik günlüğünü denetleyin ve hataları ve Uyarıları algılamak için daha önce SQL Data Sync, Azure portalında el ile iade etmeniz veya PowerShell veya REST API'sini kullanmanız gerekiyordu. Data Sync izleme deneyimini geliştiren özel bir çözümü yapılandırmak için bu makaledeki adımları izleyin. Bu çözüm, senaryonuza uyacak şekilde özelleştirebilirsiniz.
 
 SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync mu **değil** şu anda Azure SQL veritabanı yönetilen örneği destekler.
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Tüm eşitleme grupları için izleme Panosu 
 
@@ -181,9 +184,9 @@ Log Analytics görünümü yapılandırmak için şunları yapın:
 
 Çoğu durumda, bu çözümü ücretsiz olarak kullanılabilir.
 
-**Azure Otomasyonu:** kullanımınıza bağlı olarak bir Azure Otomasyonu hesabı ile gerçekleştirilen bir maliyeti olabilir. İlk 500 dakikalık iş çalıştırma zamanı aylık ücretsizdir. Çoğu durumda, bu çözüm başına aylık 500 dakikadan kısa bir sürede kullanmak için bekleniyor. Ücretlerden kaçınmak için iki saat veya daha fazla aralıklarla çalıştırılmak üzere bir runbook'u zamanlayın. Daha fazla bilgi için bkz. [Otomasyon fiyatlandırması](https://azure.microsoft.com/pricing/details/automation/).
+**Azure Otomasyonu:** Kullanımınıza bağlı olarak bir Azure Otomasyonu hesabı ile gerçekleştirilen bir maliyeti olabilir. İlk 500 dakikalık iş çalıştırma zamanı aylık ücretsizdir. Çoğu durumda, bu çözüm başına aylık 500 dakikadan kısa bir sürede kullanmak için bekleniyor. Ücretlerden kaçınmak için iki saat veya daha fazla aralıklarla çalıştırılmak üzere bir runbook'u zamanlayın. Daha fazla bilgi için bkz. [Otomasyon fiyatlandırması](https://azure.microsoft.com/pricing/details/automation/).
 
-**Log Analytics:** kullanımınıza bağlı Log Analytics ile ilişkili bir maliyeti olabilir. Ücretsiz katmanda günlük içe alınan veri 500 MB içerir. Çoğu durumda, bu çözüm, günde 500 MB alma beklenir. Kullanımını azaltmak için yalnızca hata runbook'ta dahil filtrelemeyi kullanın. 500 MB günlük kullanıyorsanız, sınırlama ulaşıldığında durdurma analytics riskini önlemek için ücretli katmana yükseltin. Daha fazla bilgi için bkz. [Log Analytics fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Log Analytics:** Kullanımınıza bağlı Log Analytics ile ilişkili bir maliyeti olabilir. Ücretsiz katmanda günlük içe alınan veri 500 MB içerir. Çoğu durumda, bu çözüm, günde 500 MB alma beklenir. Kullanımını azaltmak için yalnızca hata runbook'ta dahil filtrelemeyi kullanın. 500 MB günlük kullanıyorsanız, sınırlama ulaşıldığında durdurma analytics riskini önlemek için ücretli katmana yükseltin. Daha fazla bilgi için bkz. [Log Analytics fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Kod örnekleri
 
@@ -198,7 +201,7 @@ SQL Data Sync hakkında daha fazla bilgi için bkz.:
 
 -   Genel Bakış - [verileri Eşitle birden fazla Bulut ve şirket içi veritabanı arasında Azure SQL Data Sync ile](sql-database-sync-data.md)
 -   Data Sync'i Ayarla
-    - Portalda - [öğretici: Azure SQL veritabanı ve SQL Server arasında verileri eşitlemek amacıyla şirket içi SQL Data Sync'i Ayarla](sql-database-get-started-sql-data-sync.md)
+    - Portalda - [Öğreticisi: Azure SQL veritabanı ve SQL Server arasında verileri eşitlemek amacıyla şirket içi SQL Data Sync'i Ayarla](sql-database-get-started-sql-data-sync.md)
     - PowerShell ile
         -  [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)

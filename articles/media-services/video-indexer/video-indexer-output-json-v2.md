@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 8acb1c70dc21efc87e13e0e5e94d9a61acfe01e9
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292519"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554665"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>V2 API'si tarafından üretilen Video dizinleyici çıktısını İnceleme
 
@@ -78,8 +78,8 @@ Bu bölümde, içgörüler özetini gösterir.
 |Öznitelik | Açıklama|
 |---|---|
 |ad|Videonun adı. Örneğin, Azure İzleyici.|
-|shortId|Video kimliği. Örneğin, 63c6d532ff.|
-|privacyMode|Döküm şu modlardan birine sahip olabilir: **özel**, **genel**. **Genel** -video herkes hesabınızı ve videoya bir bağlantı olan herkes tarafından görülebilir. **Özel** -video hesabınızdaki herkes tarafından da görülebilir.|
+|id|Video kimliği. Örneğin, 63c6d532ff.|
+|privacyMode|Döküm şu modlardan birine sahip olabilir: **Özel**, **genel**. **Genel** -video herkes hesabınızı ve videoya bir bağlantı olan herkes tarafından görülebilir. **Özel** -video hesabınızdaki herkes tarafından da görülebilir.|
 |süre|Bir öngörü gerçekleştiği zaman açıklayan bir süresini içerir. Saniyeler içinde süresidir.|
 |thumbnailVideoId|Küçük resim alınmış videonun kimliği.
 |thumbnailId|Video küçük resim kimliği. Get-küçük resim gerçek küçük resim alma çağrısı (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) thumbnailVideoId ve thumbnailId geçirin.|
@@ -149,7 +149,7 @@ Bu bölümde, içgörüler özetini gösterir.
 
 Öngörüler (örneğin, döküm satırları, yüzleri, markalar, vb.), burada her boyut (örneğin, face1 face2, Yüz3) benzersiz öğelerin listesini ve her öğe kendi meta verileri ve onun örneklerinin listesini sahip boyutları kümesidir (olduğu zaman aralığı ile ek isteğe bağlı meta veriler).
 
-Yüz kimliği, bir ad, bir küçük resim, diğer meta veriler ve zamana bağlı örneklerinin listesini olabilir (örneğin: 00:00:05: 00:00:10, 00:01:00 - 00:02:30-00:41:21: 00:41:49.) Zamana bağlı her örneği, ek meta veri olabilir. Örneğin, yüzünün dikdörtgen (20,230,60,60) düzenler.
+Yüz kimliği, bir ad, bir küçük resim, diğer meta veriler ve zamana bağlı örneklerinin listesini olabilir (örneğin: 00: 00:05 – 00:00:10, 00:01:00-00:02:30-00:41:21: 00:41:49.) Zamana bağlı her örneği, ek meta veri olabilir. Örneğin, yüzünün dikdörtgen (20,230,60,60) düzenler.
 
 |Sürüm|Kod sürümü|
 |---|---|
@@ -553,7 +553,7 @@ id|Blok kimliği.|
 |Ad|Açıklama|
 |---|---|
 |CorrespondenceCount|Videoda yazışmalar sayısı.|
-|WordCount|Konuşmacı sözcük sayısı.|
+|SpeakerWordCount|Konuşmacı sözcük sayısı.|
 |SpeakerNumberOfFragments|Parçaları miktarı bulunan bir videoyu Konuşmacı vardır.|
 |SpeakerLongestMonolog|Konuşmacı uzun monolog. Konuşmacı silences monolog içinde varsa dahil edilir. Başında ve sonunda monolog sessizlik kaldırılır.| 
 |SpeakerTalkToListenRatio|Hesaplama videonun toplam zaman bölünmüş konuşmacının monolog (olmadan arasındaki sessizlik) üzerinde harcanan zamanı temel alır. Saat üçüncü ondalık noktasına yuvarlanır.|
@@ -768,7 +768,7 @@ Video Indexer dökümleri ana konulardan biri çıkarımı yapar. Mümkün oldu�
 |---|---|
 |id|Konu kimliği.|
 |ad|Konu adı, örneğin: "Eczacılık".|
-|Başvuru Kimliği|Konuları hiyerarşi yansıtan bir içerik haritası. Örneğin: "sistem durumu ve wellbeing / TIP ve sağlık hizmetleri / Eczacılık".|
+|Başvuru Kimliği|Konuları hiyerarşi yansıtan bir içerik haritası. Örneğin: "Sistem durumu ve wellbeing / TIP ve sağlık hizmetleri / Eczacılık".|
 |güven|[0,1] aralığındaki güvenilirlik puanı. Daha fazla emindir.|
 |language|Bu konuda kullanılan dil.|
 |iptcName|IPTC ortam adı algılanırsa kod.|

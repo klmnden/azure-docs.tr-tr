@@ -1,9 +1,9 @@
 ---
-title: Visual Studio şablonları - Azure ile batch çözümleri oluşturun | Microsoft Docs
+title: Visual Studio şablonları - Azure Batch ile çözümler geliştirin | Microsoft Docs
 description: Visual Studio Proje şablonları uygulamak ve Azure Batch'te işlem yoğunluklu iş yüklerinizi çalıştırmak nasıl yardımcı olabileceğini öğrenin.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a44c249a957050afb500decd094183c71d6ca5e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114105"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53538132"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Batch çözümleri oluşturma sürecini hızlandıracak biçimde Visual Studio Proje şablonları kullanın.
 
@@ -65,7 +65,7 @@ Batch şablonlarını kullanmak için aşağıdakiler gerekir:
   * Şablonları Visual Studio için çevrimiçi galeriden indirin: [Microsoft Azure Batch proje şablonları][vs_gallery_templates]
 * Kullanmayı planlıyorsanız [uygulama paketleri](batch-application-packages.md) İş Yöneticisi'ni dağıtmak için özellik ve görev işlemci Batch işlem düğümleri, bir depolama hesabını Batch hesabınıza bağlamak gerekir.
 
-## <a name="preparation"></a>Hazırlama
+## <a name="preparation"></a>Hazırlık
 Bu, İş Yöneticisi ve görev işlemci programlar arasında kod paylaşma daha kolay zorlaştırabilir çünkü görev işlemciniz yanı sıra, İş Yöneticisi içerebilir bir çözüm oluşturmanızı öneririz. Bu çözümü oluşturmak için aşağıdaki adımları izleyin:
 
 1. Visual Studio açıp seçin **dosya** > **yeni** > **proje**.
@@ -112,7 +112,7 @@ Bu bölümün geri kalanında farklı dosyalar ve kendi kod yapısını ve her s
 **Framework dosyaları**
 
 * `Configuration.cs`: Batch hesabı ayrıntıları, bağlantılı depolama hesabı kimlik bilgileri, iş ve görev bilgileri ve iş parametresi gibi iş yapılandırma verilerini yüklenmesini kapsüller. Ayrıca, (bkz. Batch belgelerinde görevler için ortam ayarları) Batch tarafından tanımlanan ortam değişkenleri Configuration.EnvironmentVariable sınıfı aracılığıyla erişim sağlar.
-* `IConfiguration.cs`: Yapılandırma sınıfın uygulaması için birim test, proje ayırıcı sahte veya sahte yapılandırma nesnesi kullanarak yapabilirsiniz soyutlar.
+* `IConfiguration.cs`: Birim test, proje ayırıcı sahte veya sahte yapılandırma nesnesi kullanarak yapabilirsiniz yapılandırma sınıfın uygulaması soyutlar.
 * `JobManager.cs`: İş Yöneticisi programı bileşenlerinin düzenler. İş bölme çağırma ve görevler için görevi göndereni iş Bölümlendirici tarafından döndürülen gönderme iş Bölümlendirici başlatmak için sorumludur.
 * `JobManagerException.cs`: Sonlandırmak İş Yöneticisi gerektiren bir hatayı temsil eder. JobManagerException 'beklenen' hataları belirli tanılama bilgileri sonlandırma bir parçası olarak nerede sağlanabilir sarmalamak için kullanılır.
 * `TaskSubmitter.cs`: Bu sınıf için toplu iş Bölümlendirici tarafından döndürülen görevlerin eklenmesi sorumludur. JobManager sınıfı toplamlar etkin ancak zamanında ek olarak, iş için toplu görev dizisine ardından çağırır TaskSubmitter.SubmitTasks arka plan iş parçacığında için her toplu işin.
@@ -125,7 +125,7 @@ Bu bölümün geri kalanında farklı dosyalar ve kendi kod yapısını ve her s
 
 * `App.config`: Standart .NET uygulama yapılandırma dosyası.
 * `Packages.config`: Standart NuGet paket bağımlılık dosyası.
-* `Program.cs`: Üst düzey özel durum işleme ve programın giriş noktası içerir.
+* `Program.cs`: Programın giriş noktası ve en üst düzey özel durum işlemeyi içerir.
 
 ### <a name="implementing-the-job-splitter"></a>İş bölme uygulama
 İş Yöneticisi şablonu projesi açtığınızda, projenin JobSplitter.cs dosyanın varsayılan olarak açık olacaktır. Aşağıdaki Split() yöntemi Göster'i kullanarak iş yükünüzü görevleri bölünmüş mantığını uygulayabilirsiniz:
@@ -281,7 +281,7 @@ Bu bölümün geri kalanında farklı dosyalar ve kendi kod yapısını ve her s
 **Framework dosyaları**
 
 * `Configuration.cs`: Batch hesabı ayrıntıları, bağlantılı depolama hesabı kimlik bilgileri, iş ve görev bilgileri ve iş parametresi gibi iş yapılandırma verilerini yüklenmesini kapsüller. Ayrıca, (bkz. Batch belgelerinde görevler için ortam ayarları) Batch tarafından tanımlanan ortam değişkenleri Configuration.EnvironmentVariable sınıfı aracılığıyla erişim sağlar.
-* `IConfiguration.cs`: Yapılandırma sınıfın uygulaması için birim test, proje ayırıcı sahte veya sahte yapılandırma nesnesi kullanarak yapabilirsiniz soyutlar.
+* `IConfiguration.cs`: Birim test, proje ayırıcı sahte veya sahte yapılandırma nesnesi kullanarak yapabilirsiniz yapılandırma sınıfın uygulaması soyutlar.
 * `TaskProcessorException.cs`: Sonlandırmak İş Yöneticisi gerektiren bir hatayı temsil eder. TaskProcessorException 'beklenen' hataları belirli tanılama bilgileri sonlandırma bir parçası olarak nerede sağlanabilir sarmalamak için kullanılır.
 
 **Görev işlemci**
@@ -299,7 +299,7 @@ Bu bölümün geri kalanında farklı dosyalar ve kendi kod yapısını ve her s
 
 * `App.config`: Standart .NET uygulama yapılandırma dosyası.
 * `Packages.config`: Standart NuGet paket bağımlılık dosyası.
-* `Program.cs`: Üst düzey özel durum işleme ve programın giriş noktası içerir.
+* `Program.cs`: Programın giriş noktası ve en üst düzey özel durum işlemeyi içerir.
 
 ## <a name="implementing-the-task-processor"></a>Görev işlemci uygulama
 Görev işlemci şablonu projesi açtığınızda, projenin TaskProcessor.cs dosyanın varsayılan olarak açık olacaktır. Aşağıda gösterilen uygulamasındaki Run() yönteminde kullanarak iş yükünüzü görevleri çalıştırma mantığını uygulayabilirsiniz:

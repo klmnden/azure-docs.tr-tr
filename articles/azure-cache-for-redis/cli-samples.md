@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: wesmc
-ms.openlocfilehash: fabd21f9d7fe5ac1511f6b4cc07b8c17b055befe
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 15166ae5eaab72849564ce8f03daf65eefae11f1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019948"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584046"
 ---
 # <a name="azure-cli-samples-for-azure-cache-for-redis"></a>Azure CLI örnekleri için Azure önbelleği için Redis
 
@@ -33,7 +33,7 @@ Aşağıdaki tablo, Azure CLI’si kullanılarak oluşturulan bash komut dosyala
 | [Önbellek ayrıntılarını Al](./scripts/show-cache.md) | Sağlama durumu dahil olmak üzere, Redis örneği için bir Azure önbelleği ayrıntılarını alır. |
 | [Ana bilgisayar adı, bağlantı noktalarını ve anahtarları alma](./scripts/cache-keys-ports.md) | Bir Azure önbelleği için Redis örneği için ana bilgisayar adı, bağlantı noktalarını ve anahtarları alır. |
 |**Web uygulama ve önbellek**||
-| [Bir web uygulaması için bir Azure önbelleği için Redis bağlanın.](./../app-service/scripts/app-service-cli-app-service-redis.md) | Bir Azure web uygulaması ve bir Azure önbelleği için Redis oluşturur, sonra redis bağlantı ayrıntılarını uygulama ayarları ekler. |
+| [Bir web uygulaması için bir Azure önbelleği için Redis bağlanın.](./../app-service/scripts/cli-connect-to-redis.md) | Bir Azure web uygulaması ve bir Azure önbelleği için Redis oluşturur, sonra redis bağlantı ayrıntılarını uygulama ayarları ekler. |
 |**Önbelleği Sil**||
 | [Önbelleği Sil](./scripts/delete-cache.md) | Bir Azure önbelleği için Redis örneği siler  |
 | | |

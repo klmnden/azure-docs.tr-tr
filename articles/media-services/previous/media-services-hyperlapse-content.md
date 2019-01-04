@@ -14,14 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: adsolank
-ms.openlocfilehash: 268e679bb052bce4c972c940333147edc5c7d721
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3b361202d2d80f879ae6d23ec29782bc6f837f96
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242594"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632883"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Azure medya Hyperlapse ile medya dosyalarını
+
+> [!NOTE]
+> Azure Media Services'ın bu önizleme özelliği yakında kullanımdan kaldırılacaktır. 19 Aralık 2018 tarihinden itibaren Media Services artık değişiklikleri veya geliştirmeleri için medya Hyperlapse hale getirir. 29 Mart 2019, kullanımdan kaldırılmış ve artık kullanılabilir olacaktır.
+
 Azure medya Hyperlapse bir medya işlemci (ilk kişi veya eylem kamera içerikten kesintisiz zaman aralıklı videoları oluşturan MP) olur.  Bulut tabanlı eşdüzeye [Microsoft Research'ün telefon tabanlı Hyperlapse mobil ve Hyperlapse Pro Masaüstü](https://aka.ms/hyperlapse), Azure Media Services için Microsoft Hyperlapse yararlanan ölçekleri Azure Media Services medya işleme platform yatay ölçeklendirme ve paralel hale getirmek için Hyperlapse işleme toplu.
 
 > [!IMPORTANT]

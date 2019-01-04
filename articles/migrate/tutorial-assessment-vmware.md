@@ -4,15 +4,15 @@ description: Azure’a geçiş için şirket içi VMware VM’lerinin Azure Geç
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 12/05/2018
+ms.date: 01/02/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 04bc43093a6edc66cdbb661a94989f5980445027
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 8971bba1e25a8e87ed57463dcc9b013fea56a0ff
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257820"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976843"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -58,8 +58,9 @@ Azure Geçişi’nin, değerlendirme amacıyla VM’leri otomatik olarak bulmas�
 
 **Coğrafya** | **Depolama konumu**
 --- | ---
-Durumları sahip | Batı Orta ABD veya Doğu ABD
 Azure Kamu | ABD Devleti Virginia
+Avrupa | Kuzey Avrupa veya Batı Avrupa
+Durumları sahip | Doğu ABD ve Batı Orta ABD
 
 ![Azure Geçişi](./media/tutorial-assessment-vmware/project-1.png)
 
@@ -253,7 +254,7 @@ Bu görünümde, Azure’da çalışan VM’lerin toplam işlem ve depolama mali
 
 #### <a name="confidence-rating"></a>Güvenilirlik derecelendirmesi
 
-Azure Geçişi’ndeki her performans tabanlı değerlendirme 1 yıldız ile 5 yıldız (1 yıldız en düşük, 5 yıldız en yüksektir) arasında değişen bir güvenilirlik derecesiyle ilişkilendirilir. Güvenilirlik derecelendirmesi, değerlendirmeyi hesaplamak için gereken veri noktalarının kullanılabilirliği temelinde bir değerlendirmeye atanır. Bir değerlendirmenin güvenilirlik derecesi, Azure Geçişi tarafından sağlanan boyut önerilerinin güvenilirliğini tahmin etmenize yardımcı olur. Güvenilirlik derecelendirmesi, şirket içi değerlendirmeler için geçerli değildir.
+Azure Geçişi’ndeki her performans tabanlı değerlendirme 1 yıldız ile 5 yıldız (1 yıldız en düşük, 5 yıldız en yüksektir) arasında değişen bir güvenilirlik derecesiyle ilişkilendirilir. Güvenilirlik derecelendirmesi, değerlendirmeyi hesaplamak için gereken veri noktalarının kullanılabilirliği temelinde bir değerlendirmeye atanır. Bir değerlendirmenin güvenilirlik derecesi, Azure Geçişi tarafından sağlanan boyut önerilerinin güvenilirliğini tahmin etmenize yardımcı olur. Güvenilirlik derecelendirmesi için uygulanabilir değil "olarak-olan" Şirket değerlendirmeleri.
 
 Performansa dayalı boyutlandırma için Azure Geçişi, CPU ile VM'nin belleği için kullanım verilerine ihtiyaç duyar. Bunlara ek olarak, VM'ye eklenen her disk için disk IOPS ve aktarım hızı değerleri de gerekir. Sanal makineye eklenmiş her bir ağ bağdaştırıcısı için benzer şekilde Azure Geçişi’nin performansa dayalı boyutlandırma gerçekleştirmek amacıyla ağ giriş/çıkışına ihtiyacı vardır. Yukarıdaki kullanım rakamlarından herhangi biri vCenter Server’da mevcut değilse Azure Geçişi’nin yaptığı boyut önerisi güvenilir olmayabilir. Kullanılabilir veri noktalarının yüzdesine bağlı olarak değerlendirme için aşağıdaki gibi güvenilirlik derecelendirmesi sağlanır:
 

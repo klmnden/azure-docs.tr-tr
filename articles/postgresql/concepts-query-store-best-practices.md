@@ -1,22 +1,21 @@
 ---
 title: Query Store PostgreSQL için Azure veritabanı'ndaki en iyi yöntemler
 description: Bu makalede, PostgreSQL için Azure veritabanı'nda Query Store için en iyi yöntemler açıklanmaktadır.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 54a86a7ea1852efba0776451291820f4174a1f1f
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 0c962dc6d8aff63a3b7dd34133a40c7ff9feec4c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377597"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540750"
 ---
 # <a name="best-practices-for-query-store"></a>Query Store için en iyi uygulamalar
 
-**İçin geçerlidir:** 9.6 ve 10 PostgreSQL için Azure veritabanı
+**Şunlara uygulanır:** 9.6 ve 10 PostgreSQL için Azure veritabanı
 
 > [!IMPORTANT]
 > Query Store özelliği genel Önizleme aşamasındadır.
@@ -31,7 +30,7 @@ Let Query Store, önem verdiğiniz verileri yakalayın.
 |---|---|
 |_Tümü_  |İş yükünüz kapsamlı olarak tüm sorgular ve bunların yürütme sıklığı ve diğer istatistikleri açısından analiz edin. İş yükünüz yeni sorguları belirleyin. Geçici sorgular için kullanıcı veya otomatik Parametreleştirme fırsatlarını belirlemek için kullanılıp kullanılmadığını algılayın. _Tüm_ maliyet bir artan kaynak tüketimi ile birlikte gelir. |
 |_Sayfanın Üstü_  |İlgilenmeniz en sık kullanılan sorgular - bu istemciler tarafından gönderilen odaklanır.
-|_Yok_ |Bir sorgu kümesi zaten topladık ve araştırmak istediğiniz zaman penceresi ve diğer sorgular yükleyebilecek karışıklıkları ortadan kaldırmak istiyorsanız. _Hiçbiri_ test etmek için uygun ve Kıyaslama olduğu ortamlar. _Hiçbiri_ izlemek ve önemli yeni sorgular en iyi duruma getirme olanağı kaçırabilirsiniz dikkatli kullanılmalıdır. Bu geçmiş zaman pencereleri üzerinde verileri kurtaramazsınız. |
+|_Yok._ |Bir sorgu kümesi zaten topladık ve araştırmak istediğiniz zaman penceresi ve diğer sorgular yükleyebilecek karışıklıkları ortadan kaldırmak istiyorsanız. _Hiçbiri_ test etmek için uygun ve Kıyaslama olduğu ortamlar. _Hiçbiri_ izlemek ve önemli yeni sorgular en iyi duruma getirme olanağı kaçırabilirsiniz dikkatli kullanılmalıdır. Bu geçmiş zaman pencereleri üzerinde verileri kurtaramazsınız. |
 
 Query Store, bir deposu bekleme istatistikleri de içerir. Bekleme istatistikleri yöneten bir ek bir yakalama modu sorgu: **pgms_wait_sampling.query_capture_mode** ayarlanabilir _hiçbiri_ veya _tüm_. 
 

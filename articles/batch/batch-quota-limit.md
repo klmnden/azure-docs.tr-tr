@@ -1,9 +1,9 @@
 ---
-title: Azure Batch için kotalar ve sınırlar servis | Microsoft Docs
+title: Hizmet kotaları ve limitleri - Azure Batch | Microsoft Docs
 description: Varsayılan Azure Batch kotaları, sınırları ve kısıtlamaları hakkında bilgi edinin ve kota isteğinde nasıl artırır
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0493783cb1253aab78ff39aa42eeabbec8ddb726
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: 5194fa73d246cee039e113207bbde277b06d7130
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263613"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753208"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch hizmet kotaları ve limitleri
 
@@ -65,9 +65,9 @@ Havuz ayırma modu ayarlamak bir Batch hesabı oluşturduysanız **kullanıcı a
 | [Eş zamanlı görevleri](batch-parallel-node-tasks.md) işlem düğüm başına | düğümüne çekirdek 4 x sayısı |
 | [Uygulamaları](batch-application-packages.md) Batch hesabı başına | 20 |
 | Uygulama başına uygulama paketleri | 40 |
-| En fazla görev ömrü | 7 gün<sup>1</sup> |
+| En fazla görev ömrü | 180 gün<sup>1</sup> |
 
-<sup>1</sup> tamamlandığında, gelen ne zaman işe eklenir, görevin en fazla yaşam süresi 7 gündür. Tamamlanan görevler süresiz olarak kalır. En uzun yaşam süresi içinde tamamlanmamış görevlerin verileri erişilemez.
+<sup>1</sup> tamamlandığında, gelen ne zaman işe eklenir, bir görevin maksimum ömrü 180 gündür. Tamamlanan görevler 7 gün için kalıcı; en fazla bir yaşam süresi içinde tamamlanmamış görevlerin verileri erişilemez.
 
 ## <a name="view-batch-quotas"></a>Batch kotaları görüntüle
 

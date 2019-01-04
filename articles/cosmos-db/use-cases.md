@@ -7,12 +7,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/07/2017
-ms.openlocfilehash: f49f56d57de6cdcb7c5e9b557ed897d17a6bf7fb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c93b53a78891eaf46e5455bd13198f7b9bd90903
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079186"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53808025"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Yaygın Azure Cosmos DB kullanım örnekleri
 Bu makalede, Azure Cosmos DB için bazı ortak kullanım durumları için genel bir bakış sağlar.  Cosmos DB ile Uygulamanızı geliştirirken bu makaledeki önerileri bir başlangıç noktası olarak hizmet eder.   
@@ -27,7 +27,7 @@ Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlamak mümkün olacakt�
 ## <a name="introduction"></a>Giriş
 [Azure Cosmos DB](../cosmos-db/introduction.md) Microsoft'un Global olarak dağıtılmış veritabanı hizmetidir. Hizmet, esnek bir biçimde (ve birbirinden bağımsız olarak) herhangi sayıda coğrafi bölgesinde aktarım hızını ve depolamayı ölçeklendirme müşterilerin izin vermek için tasarlanmıştır. Azure Cosmos DB, ilk Global olarak dağıtılmış veritabanı hizmeti pazarında bugün kapsamlı sunmaya [hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/cosmos-db/) aktarım hızı, gecikme süresi, kullanılabilirlik ve tutarlılık. 
 
-Azure Cosmos DB çok çeşitli uygulamalar ve kullanım örnekleri kullanılan bir genel dağıtılmış, çok modelli veritabanıdır. Herhangi bir için iyi bir seçenek olup [sunucusuz](https://azure.com/serverless) gereken milisaniye sipariş düşük yanıt süreleri ve hızlı bir şekilde ve küresel olarak ölçeklemek gereken uygulama. Birçok veri modelini destekler (anahtar-değer, belgeler, grafikler ve sütunlu) ve veriler için birçok API'lere erişim de dahil olmak üzere [MongoDB API'si](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Gremlin API](graph-introduction.md)ve [ Tablo API](table-introduction.md) yerel olarak ve Genişletilebilir bir şekilde. 
+Azure Cosmos DB çok çeşitli uygulamalar ve kullanım örnekleri kullanılan bir genel dağıtılmış, çok modelli veritabanıdır. Herhangi bir için iyi bir seçenek olup [sunucusuz](https://azure.com/serverless) gereken milisaniye sipariş düşük yanıt süreleri ve hızlı bir şekilde ve küresel olarak ölçeklemek gereken uygulama. Birçok veri modelini destekler (anahtar-değer, belgeler, grafikler ve sütunlu) ve veriler için birçok API'lere erişim de dahil olmak üzere [Azure Cosmos DB'nin MongoDB API'si](mongodb-introduction.md), [SQL API](documentdb-introduction.md), [Gremlin API](graph-introduction.md), ve [tablolar API'SİNİN](table-introduction.md) yerel olarak ve Genişletilebilir bir şekilde. 
 
 Azure Cosmos DB'nin genel kullanımına açma hedefimizde sahip yüksek performanslı uygulamalar için uygun hale bazı öznitelikleri şunlardır:
 
@@ -69,7 +69,7 @@ Ayrıca, Apache Spark işleri aracılığıyla büyük veri analizi için HDInsi
 ## <a name="gaming"></a>Oyun
 Veritabanı katmanı, oyun uygulamaları, önemli bir bileşenidir. Modern oyunlar grafik işleme mobile/konsol istemcilerde gerçekleştirir, ancak bulutta oyun içi istatistikler, sosyal medya tümleştirmesine ve yüksek puan tabloları gibi özelleştirilmiş ve kişiselleştirilmiş içerik sağlamak için kullanır. Oyunlar genellikle okuma için tek milisaniyelik gecikme süreleri gerektiren ve oyun içi deneyimi bir ilgi çekici sağlamak için yazar. Oyun veritabanını hızlı ve istek hızları büyük artış işleme sırasında yeni oyun başlatır ve özellik güncelleştirmeleri olması gerekir.
 
-Azure Cosmos DB gibi oyunlar tarafından kullanılan [The Walking Dead: No Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) tarafından [Next Games](https://www.nextgames.com/), ve [Halo 5: veli](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Azure Cosmos DB, Oyun geliştiriciler için aşağıdaki avantajları sağlar:
+Azure Cosmos DB gibi oyunlar tarafından kullanılan [The Walking Dead: No Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/) tarafından [sonraki oyunları](https://www.nextgames.com/), ve [Halo 5: Veli](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Azure Cosmos DB, Oyun geliştiriciler için aşağıdaki avantajları sağlar:
 
 * Azure Cosmos DB performans ölçeklenmesine olanak sağlayan esnek bir şekilde aşağı veya yukarı. Bu, tek bir API çağrısı yaparak güncelleştirme profili ve düzinelerce gelen istatistikleri eşzamanlı oyuncular milyonlarca işlemek oyunlar sağlar.
 * Azure Cosmos DB milisaniyelik okuma destekler ve oyun sırasında tüm aksamalar önlemeye yardımcı olmak yazar.
@@ -115,7 +115,7 @@ Veya daha fazla bilgi istiyorsanız, Cosmos DB kullanan müşteriler hakkında a
 * [Sulekha.com](https://customers.microsoft.com/story/sulekha-uses-azure-documentdb-to-connect-customers-and-businesses-across-india). Sulekha, müşteriler ve işletmeler Hindistan bağlanmak için Azure Cosmos DB kullanır.
 * [NewOrbit](https://customers.microsoft.com/story/neworbit-takes-flight-with-azure-documentdb). Azure Cosmos DB ile uçuş NewOrbit alır.
 * [Affinio](https://customers.microsoft.com/doclink/affinio-switches-from-aws-to-azure-documentdb-to-harness-social-data-at-scale). Affinio, sosyal verilerden uygun ölçekte yararlanmasına için Azure Cosmos DB için AWS'den geçer.
-* [Sonraki oyunları](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). Walking Dead: No Man's Land oyunu için Azure Cosmos DB tarafından desteklenen #1 numaraya yükseliyor.
+* [Sonraki oyunları](https://azure.microsoft.com//blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/). Kullanılmayan yürüyen: No Man's Land oyunu, Azure Cosmos DB tarafından desteklenen #1 numaraya yükseliyor.
 * [Halo](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/). Nasıl Halo 5, Azure Cosmos DB kullanarak sosyal oyun deneyimini uygulanır.
 * [Cortana Analytics Galerisi](https://azure.microsoft.com/blog/cortana-analytics-gallery-a-scalable-community-site-built-on-azure-documentdb/). Cortana Analytics Galerisi - Azure Cosmos DB üzerinde oluşturulmuş ölçeklenebilir topluluk sitesi.
 * [Meltem](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18602). Entegratörü önde gelen esnek bulut teknolojileri birkaç dakika içinde çok uluslu firmaları genel bilgiler sağlar.

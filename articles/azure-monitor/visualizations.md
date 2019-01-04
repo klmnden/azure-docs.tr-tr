@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 76e3a219d440bab4c6e277887aabb1e01f5e1d9c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 862380a35dcc4d50dce8d709bd1dbea1aa38e37a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435455"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728355"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure İzleyici verilerini Görselleştirme
 Bu makalede, günlük ve ölçüm verilerini Azure İzleyici'de depolanan görselleştirmek için kullanılabilen yöntemler bir özetini sağlar.
@@ -32,7 +32,7 @@ Grafikler gibi görselleştirmelerin detaya gitme sorunları ve desenleri tanım
 ### <a name="advantages"></a>Yararları
 - Azure kapsamlı tümleştirme. Görselleştirmeler, ölçümleri analiz, log analytics ve Application Insights da dahil olmak üzere birden çok Azure sayfalarından panolara sabitlenebilir.
 - Ölçüm ve günlükleri hem destekler.
-- Çıkışı dahil olmak üzere birden çok kaynaktan alınan verileri birleştirin [ölçüm Gezgini](../azure-monitor/platform/metrics-charts.md), [Log Analytics sorguları](../azure-monitor/log-query/log-query-overview.md), ve [eşler](../application-insights/app-insights-app-map.md) ve [kullanılabilirlik]()Application ınsights.
+- Çıkışı dahil olmak üzere birden çok kaynaktan alınan verileri birleştirin [ölçüm Gezgini](../azure-monitor/platform/metrics-charts.md), [Log Analytics sorguları](../azure-monitor/log-query/log-query-overview.md), ve [eşler](../azure-monitor/app/app-map.md) ve [kullanılabilirlik]()Application ınsights.
 - Kişisel veya paylaşılan panolar için seçenek. Azure ile tümleşik [rol tabanlı kimlik doğrulaması (RBAC)](../role-based-access-control/overview.md).
 - Otomatik yenileme. Ölçümleri Yenile zaman aralığı en az beş dakika ile bağlıdır. Günlükleri bir dakikada yenileyin.
 - Zaman damgası ve özel parametrelerle parametreli ölçümleri panolar.

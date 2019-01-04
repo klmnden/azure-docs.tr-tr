@@ -11,18 +11,18 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 6bcea43fb21cae6f000f3522b498dfc6c0f6d9a7
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 4d14569219c8db503fc91f52a6867de85373aa05
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166226"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53724394"
 ---
-# <a name="find-endpoint-region-with-nodejs"></a>Node.js ile uç nokta bölgesi bulma
+# <a name="programmatically-find-endpoint-region-with-nodejs"></a>Uç nokta bölgesi Node.js ile programlı olarak Bul
 LUIS uygulama kimliği ve LUIS abonelik kimliği varsa, hangi bölge için uç nokta sorgular bulabilirsiniz.
 
 > [!NOTE] 
-> Eksiksiz Node.js çözümünü kullanılabilir [ **LUIS-Samples** GitHub deposu](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/nodejs/).
+> Eksiksiz Node.js çözümünü kullanılabilir [ **Azure-Samples** GitHub deposu](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/find-region/nodejs/).
 
 ## <a name="luis-endpoint-query-strategy"></a>LUIS uç nokta sorgu stratejisi
 Her LUIS uç nokta sorgu gerektirir:

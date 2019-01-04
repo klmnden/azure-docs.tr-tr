@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c332b20650bef2e341a935dacae835403dc56c9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274726"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630674"
 ---
 # <a name="use-an-app-service-environment"></a>Bir App Service ortamını kullanma #
 
@@ -39,22 +39,22 @@ Azure App Service ortamı, Azure App Service'in bir müşterinin Azure sanal ağ
 
 Uygulama erişimi için bir dış veya iç VIP ile ASE (ASEv1 ve ASEv2) dağıtabilirsiniz. Dış VIP dağıtım genellikle dış ASE olarak adlandırılır. İç yük dengeleyici (ILB) kullandığından, dahili sürüm ILB ASE çağrılır. ILB ASE hakkında daha fazla bilgi için bkz: [oluşturma ve kullanma ILB ASE][MakeILBASE].
 
-## <a name="create-a-web-app-in-an-ase"></a>Bir ASE bir web uygulaması oluşturma ##
+## <a name="create-an-app-in-an-ase"></a>Bir ASE'de uygulama oluşturma ##
 
-Bir ASE bir web uygulaması oluşturmak için aynı süreci normalde oluşturduğunuzda, ancak birkaç küçük farklılıkla kullanın. Yeni bir App Service planı oluşturduğunuzda:
+Bir ASE'de uygulama oluşturma için aynı süreci normalde oluşturduğunuzda, ancak birkaç küçük farklılıkla kullanın. Yeni bir App Service planı oluşturduğunuzda:
 
 - Uygulamanızı dağıtmak coğrafi bir konum seçmek yerine bir ASE konumunuzu seçin.
 - Bir ASE içinde oluşturulan tüm App Service planları bir yalıtılmış fiyatlandırma katmanında olmanız gerekir.
 
 Bir ASE yoksa, yönergeleri izleyerek bir tane oluşturabilirsiniz [bir App Service ortamı oluşturma][MakeExternalASE].
 
-Bir ASE bir web uygulaması oluşturmak için:
+Bir ASE'de uygulama oluşturma için:
 
 1. Seçin **kaynak Oluştur** > **Web + mobil** > **Web uygulaması**.
 
-2. Web uygulaması için bir ad girin. Bir ASE'de App Service planı zaten seçili değilse, uygulama etki alanı adını ASE'nin etki alanı adı yansıtır.
+2. Uygulama için bir ad girin. Bir ASE'de App Service planı zaten seçili değilse, uygulama etki alanı adını ASE'nin etki alanı adı yansıtır.
 
-    ![Web uygulaması adı seçimi][1]
+    ![Uygulama adı seçimi][1]
 
 1. Bir abonelik seçin.
 
@@ -80,10 +80,10 @@ Bir ASE bir web uygulaması oluşturmak için:
     ![Yalıtılmış fiyatlandırma katmanları][2]
 
     > [!NOTE]
-    > Linux web uygulamaları ve Windows web uygulamaları aynı App Service planında olamaz, ancak aynı App Service Ortamı'nda olabilir. 
+    > Linux uygulamaları ve Windows uygulamaları aynı App Service planında olamaz, ancak aynı App Service Ortamı'nda olabilir. 
     >
 
-1. **Oluştur**’u seçin.
+2. **Oluştur**’u seçin.
 
 ## <a name="how-scale-works"></a>Nasıl çalıştığını ölçeklendirme ##
 
@@ -97,7 +97,7 @@ Bir ASE'de, 100 örneğe kadar ölçeklendirebilirsiniz. Bu 100 örneğe veya bi
 
 ## <a name="ip-addresses"></a>IP adresleri ##
 
-App Service, uygulama için ayrılmış bir IP adresi ayırmayı özelliğine sahiptir. Bir IP tabanlı SSL yapılandırdıktan sonra bu özellik anlatıldığı gibi kullanılabilir [Azure web Apps'e mevcut özel bir SSL sertifikası bağlama][ConfigureSSL]. Ancak, bir ASE'de, önemli bir istisna vardır. Bir ILB ASE IP tabanlı SSL için kullanılacak ek IP adresleri eklenemiyor.
+App Service, uygulama için ayrılmış bir IP adresi ayırmayı özelliğine sahiptir. Bir IP tabanlı SSL yapılandırdıktan sonra bu özellik anlatıldığı gibi kullanılabilir [mevcut bir özel SSL sertifikasını Azure App Service'e bağlama][ConfigureSSL]. Ancak, bir ASE'de, önemli bir istisna vardır. Bir ILB ASE IP tabanlı SSL için kullanılacak ek IP adresleri eklenemiyor.
 
 ASEv1'de kullanabilmeniz için önce IP adresleri kaynakları ayırmanız gerekir. Çok kiracılı App Service gibi ASEv2 ', bunları uygulamanızdan kullanın. Her zaman bir yedek adres yok ASEv2 en fazla 30 IP adresi. Böylece her zaman bir adres kullanım için kullanıma hazır her birini kullanın, başka bir eklenir. Gecikme ekleme IP engelleyen başka bir IP adresi ayırmak için gerekli olduğu bir saate sayfayı hızlı bir şekilde ele alır.
 
@@ -187,6 +187,6 @@ Bir ASE silmek için:
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
-[AppDeploy]: ../app-service-deploy-local-git.md
+[AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

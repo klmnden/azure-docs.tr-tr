@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 7fdbbee27f83a4583390158e456270324967b28a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 17fbaa7efcdd9e0de675defb3958a61f29bbc3fe
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961612"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714330"
 ---
 # <a name="article-top"></a>Var olan Azure mobil hizmetinizi Azure App Service'e geçirme
 İle [Azure App Service'in genel kullanılabilirlik], Azure mobil Hizmetleri'ne sitelerine yerinde Azure App Service'in tüm özelliklerinden yararlanmak için kolayca da geçirilebilir.  Bu belgede, sitenizin Azure App Service için Azure Mobile Services geçirilirken beklenmesi gerekenler açıklanmaktadır.
@@ -310,7 +310,7 @@ Tanılama günlüğüne kaydetme normal bir Azure App Service'te devre dışı b
 2. Seçin **tüm kaynakları** veya **uygulama hizmetleri** ardından geçirilen mobil hizmetinizde adına tıklayın.
 3. Varsayılan ayarlar dikey penceresi açılır.
 4. Seçin **tanılama günlükleri** Özellikler menüsü altında.
-5. Tıklayın **ON** için aşağıdaki günlüklere: **uygulama günlüğü (dosya sistemi)**, **ayrıntılı hata iletileri**, ve **başarısız istek izleme**
+5. Tıklayın **ON** günlükleri için: **Uygulama günlüğü (dosya sistemi)**, **ayrıntılı hata iletileri**, ve **başarısız istek izleme**
 6. Tıklayın **dosya sistemi** için Web sunucusu günlüğü
 7. **Kaydet**’e tıklayın
 
@@ -327,7 +327,7 @@ Böylece, oluşturulan gibi günlükleri penceresinde görüntülenir.  Ayrıca,
 ### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>Bir site kesintisi neden geçirilmiş bir mobil uygulama kopya siliniyor
 Azure PowerShell kullanarak, geçirilen mobil hizmetinize kopyalayın ve ardından kopya silebilirsiniz, üretim hizmetiniz için DNS girişi kaldırıldı.  Sitenizi olup artık Internet'ten erişilebilir.  
 
-Çözüm: sitenizin kopyalamak istiyorsanız, portal üzerinden bunu yapar.
+Çözüm: Sitenizi kopyalamak istiyorsanız, portal üzerinden bunu.
 
 ### <a name="changing-webconfig-does-not-work"></a>Web.config değiştiriliyor çalışmıyor
 Bir ASP.NET sitesi varsa, değişikliklerini `Web.config` dosya uygulanmadı.  Azure App Service uygun bir yapılar `Web.config` Mobile Services çalışma zamanı desteği başlatılırken dosya.  Bir XML dönüşümü dosyası kullanarak (örneğin, özel üst bilgiler) belirli ayarları geçersiz kılabilirsiniz.  Bir dosya oluşturun olarak adlandırılan `applicationHost.xdt` -bu dosya düştüğünden gerekir `D:\home\site` Azure hizmeti üzerinde dizin.  Karşıya yükleme `applicationHost.xdt` Kudu kullanarak doğrudan veya bir özel dağıtım betiği aracılığıyla dosya.  Aşağıdaki örnek bir belgeyi gösterir:
@@ -376,25 +376,25 @@ Uygulamanızı App Service'e geçirilir, kullanabileceğiniz daha da fazla özel
 [App Service fiyatlandırması]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [Otomatik ölçeklendirme]: ../app-service/web-sites-scale.md
-[Azure App Service]: ../app-service/app-service-web-overview.md
+[Azure App Service]: ../app-service/overview.md
 [Klasik Azure Portalı]: https://manage.windowsazure.com
 [Azure portal]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/regions/
 [Azure Zamanlayıcı planları]: ../scheduler/scheduler-plans-billing.md
-[sürekli dağıtım]: ../app-service/app-service-continuous-deployment.md
+[sürekli dağıtım]: ../app-service/deploy-continuous-deployment.md
 [Karma ad alanlarınıza Dönüştür]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: https://curl.haxx.se/
 [Özel etki alanı adları]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: https://www.telerik.com/fiddler
 [Azure App Service'in genel kullanılabilirlik]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[Günlüğe kaydetme]: ../app-service/web-sites-enable-diagnostic-log.md
+[Günlüğe kaydetme]: ../app-service/troubleshoot-diagnostic-logs.md
 [Mobile Apps Node.js SDK'sı]: https://github.com/azure/azure-mobile-apps-node
 [Mobil hizmetler ile App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Notification Hubs]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Performans izleme]: ../app-service/web-sites-monitor.md
 [Postman]: https://www.getpostman.com/
-[Hazırlama yuvası]: ../app-service/web-sites-staged-publishing.md
+[Hazırlama yuvası]: ../app-service/deploy-staging-slots.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT dönüştürme örnekleri]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [İşlevler]: ../azure-functions/functions-overview.md

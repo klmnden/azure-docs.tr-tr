@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: cf01ddd53741a77df61e3dc1946eb836640034d0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b24b98760e276c207bb360687f32ae902b3306fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346541"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976962"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft azure'da uyarılara genel bakış 
 
@@ -56,7 +56,7 @@ Bir uyarı kuralının önemli öznitelikleri şunlardır:
 
 ## <a name="what-you-can-alert-on"></a>Üzerinde uyarabilir
 
-Bölümünde anlatıldığı gibi ölçüm ve günlükleri üzerinde uyarabilir [veri kaynaklarını izleme](../../monitoring-and-diagnostics/monitoring-data-sources.md). Bunlar dahil ancak bunlarla sınırlı değildir:
+Bölümünde anlatıldığı gibi ölçüm ve günlükleri üzerinde uyarabilir [veri kaynaklarını izleme](../../azure-monitor/platform/data-sources-reference.md). Bunlar dahil ancak bunlarla sınırlı değildir:
 - Ölçüm değerleri
 - Günlük arama sorguları
 - Etkinlik günlüğü olayları
@@ -131,7 +131,7 @@ Daha önce Azure İzleyici, Application Insights, Log Analytics ve hizmet durumu
 | **Kaynak İzleyicisi** | **Sinyal türü**  | **Açıklama** | 
 |-------------|----------------|-------------|
 | Hizmet durumu | Etkinlik günlüğü  | Desteklenmiyor. Bkz: [etkinlik günlüğü uyarıları hizmet bildirimlerinde oluşturma](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Web kullanılabilirlik testleri | Desteklenmiyor. Bkz: [Web test Uyarısı](../../application-insights/app-insights-monitor-web-app-availability.md). Application Insights'a veri göndermek için izleme eklenmiş olan tüm Web sitelerinin kullanılabilir. Kullanılabilirlik ve yanıt hızını bir Web sitesinin beklentileri altında olduğunda bir bildirim alırsınız. |
+| Application Insights | Web kullanılabilirlik testleri | Desteklenmiyor. Bkz: [Web test Uyarısı](../../azure-monitor/app/monitor-web-app-availability.md). Application Insights'a veri göndermek için izleme eklenmiş olan tüm Web sitelerinin kullanılabilir. Kullanılabilirlik ve yanıt hızını bir Web sitesinin beklentileri altında olduğunda bir bildirim alırsınız. |
 
 
 ## <a name="all-alerts-page"></a>Tüm uyarılar sayfasında 

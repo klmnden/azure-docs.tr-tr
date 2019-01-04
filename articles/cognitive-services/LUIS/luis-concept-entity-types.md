@@ -9,25 +9,31 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: f0e543263c7a9890abc485d0f0cd6bec88f16dd4
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 79c279e351ce467bea8affc313da09ce8087bd2a
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135211"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994904"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Varlık türleri ve bunların amacıyla LUIS
 
 Sözcükleri veya tümcecikleri anahtar verileri, uygulamanızın etki alanındaki konuşma varlıklardır.
 
 ## <a name="entity-compared-to-intent"></a>Intent'e karşılaştırıldığında varlık
-Varlık, bir sözcük veya tümcecik ayıklanan istediğiniz utterance içinde temsil eder. Bir utterance birçok varlığın veya hiçbiri hiç içerebilir. Bir varlık (yerlerde, öğeleri, kişiler, olayları veya kavramları) benzer nesnelerinin bir koleksiyonunu içeren bir sınıfı temsil eder. Bazen uygulamanızın görevini gerçekleştirmek gerekli olan ve bilgi ıntent'e ilgili varlıkları anlatmaktadır. Örneğin, bir haber arama uygulaması "konu", "kaynak", "anahtar" ve "yayımlama tarihi" Haberler için arama anahtar veri olan gibi varlıklar içerebilir. Seyahat kayıt uygulaması, "Konum", "tarih", "Havayolu" içinde "seyahat class" ve "biletleri" anahtar için uçuş kayıt ("Bookflight" hedefi için ilgili) bilgilerdir.
+
+Varlık, bir sözcük veya tümcecik ayıklanan istediğiniz utterance içinde temsil eder. Bir utterance birçok varlığın veya hiçbiri hiç içerebilir. Bir varlık (yerlerde, öğeleri, kişiler, olayları veya kavramları) benzer nesnelerinin bir koleksiyonunu içeren bir sınıfı temsil eder. Bazen uygulamanızın görevini gerçekleştirmek gerekli olan ve bilgi ıntent'e ilgili varlıkları anlatmaktadır. Örneğin, bir haber arama uygulaması "konu", "kaynak", "anahtar" ve "yayımlama tarihi" Haberler için arama anahtar veri olan gibi varlıklar içerebilir. Seyahat kayıt uygulaması, "Konum", "tarih", "Havayolu" içinde "seyahat class" ve "biletleri" anahtar için uçuş kayıt ("Book uçuş" hedefi için ilgili) bilgilerdir.
 
 Buna karşılık olarak amaç tüm utterance tahminini temsil eder. 
 
+## <a name="entities-help-with-data-extraction-only"></a>Yalnızca veri ayıklama ile varlıkları Yardım
+
+Etiket veya varlık ayıklama, yalnızca BT amacıyla işareti varlıklar, hedefi tahmin ile Yardım değil.
+
 ## <a name="entities-represent-data"></a>Varlık verilerini temsil eder.
+
 Utterance çekmek için istediğiniz verilerin varlıklardır. Bu, bir ad, tarih, ürün adı veya herhangi bir kelimelerin grubu olabilir. 
 
 |İfade|Varlık|Veriler|
@@ -36,13 +42,15 @@ Utterance çekmek için istediğiniz verilerin varlıklardır. Bu, bir ad, tarih
 |5 Mart Londra New York'tan bilet satın alma|Location.Origin<br>Location.Destination<br>Önceden oluşturulmuş datetimeV2|New York<br>Londra<br>5 Mart 2018|
 
 ## <a name="entities-are-optional-but-highly-recommended"></a>Varlıkları isteğe bağlıdır ancak uygulanması önemle önerilir.
-Varlıklar, amacı gerekli olsa da, isteğe bağlıdır. Uygulamanızdaki her bir kavram, ancak yalnızca uygulamanın eylem için gerekli varlıkları oluşturmak gerekmez. 
+
+Varlıklar, amacı gerekli olsa da, isteğe bağlıdır. Uygulamanızdaki her bir kavram, ancak yalnızca istemci uygulaması eylemi gerçekleştirmek gerekli olanlar için varlıklarınızı gerekmez. 
 
 Botunuzun devam etmesi için gerekli ayrıntıları, konuşma yoksa, bunları eklemeniz gerekmez. Uygulamanız geliştikçe daha sonra ekleyebilirsiniz. 
 
-Bilgileri nasıl kullanacağınız emin değilseniz, birkaç ortak önceden oluşturulmuş varlıklar datetimeV2 sıralı gibi e-posta ve telefon numarası ekleyin.
+Bilgileri nasıl kullanacağınız emin değilseniz, birkaç ortak önceden oluşturulmuş varlıklar gibi ekleme [datetimeV2](luis-reference-prebuilt-datetimev2.md), [sıralı](luis-reference-prebuilt-ordinal.md), [e-posta](luis-reference-prebuilt-email.md), ve [telefon numarası ](luis-reference-prebuilt-phonenumber.md).
 
 ## <a name="label-for-word-meaning"></a>Word anlamı etiketi
+
 Word choice veya word düzenleme aynıdır, ancak aynı şeyi anlamına gelmez, bu varlıkla etiket değil. 
 
 Aşağıdaki konuşma, word `fair` olan bir eş sesli sözcük. Aynı yazıldığından, ancak farklı bir anlama sahiptir:
@@ -55,53 +63,176 @@ Aşağıdaki konuşma, word `fair` olan bir eş sesli sözcük. Aynı yazıldı�
 Tüm olay verileri bulmak için bir olay varlık istediyseniz, word etiket `fair` ilk utterance, ancak ikinci içinde değil.
 
 ## <a name="entities-are-shared-across-intents"></a>Varlıkları amaçları arasında paylaşılır.
+
 Varlıkları amaçları arasında paylaşılır. Bunlar herhangi bir tek ıntent'e ait değil. Amaç ve varlıkları anlamsal olarak ilişkili olabilir ancak özel bir ilişki değil.
 
-Utterance içinde "bana Paris bilet kitap", "İstanbul" türü konumun bir varlıktır. Uygulamasında kullanıcı girdisi belirtilen varlık tanıma tarafından LUIS bir hedefini karşılamak için belirli eylemler seçmenize yardımcı olur.
+Utterance içinde "bana Paris bilet kitap", "İstanbul" konuma başvuran bir varlıktır. Kullanıcının utterance içinde belirtilen varlık tanıma tarafından LUIS istemci uygulamanızın, kullanıcının isteği gerçekleştirmek için belirli eylemleri seçin yardımcı olur.
 
-## <a name="assign-entities-in-none-intent"></a>Varlıkların hiçbiri hedefi atama
-Dahil olmak üzere tüm hedefleri **hiçbiri** amacı, varlıkları etiketlenmiş olması gerekir. Bu varlıkların içinde konuşma nerede ve ne varlıkları sözcüklerdir hakkında daha fazla LUIS yardımcı olur. 
+## <a name="mark-entities-in-none-intent"></a>Varlıkların hiçbiri hedefi işaretle
+
+Dahil olmak üzere tüm hedefleri **hiçbiri** hedefini, varlıklar, mümkün olduğunda işaretlenmiş. Bu varlıkların içinde konuşma nerede ve ne varlıkları sözcüklerdir hakkında daha fazla LUIS yardımcı olur. 
 
 ## <a name="entity-status-for-predictions"></a>Tahminler elde etmek için varlık durumu
 
-Bkz: [varlık durumu Öngörüler](luis-how-to-add-example-utterances.md#entity-status-predictions) daha fazla bilgi için. 
+LUIS portal, ne zaman ya da bir örnek utterance varlıkta olduğunu bildirir. işaretli varlıktan farklı veya başka bir varlıkla ve bu nedenle belirsiz çok yakın. Bu örnek utterance kırmızı alt çizgi ile gösterilir. 
+
+Daha fazla bilgi için [varlık durumu Öngörüler](luis-how-to-add-example-utterances.md#entity-status-predictions). 
 
 ## <a name="types-of-entities"></a>Varlık türleri
-LUIS, çok sayıda varlık türlerini sunar. önceden oluşturulmuş varlıklar, varlıkları ve varlıklar listesi özel makine öğrendiniz.
 
-| Ad | Etiketleyebilirsiniz | Açıklama |
-| -- |--|--|
-| **Önceden oluşturulmuş** <br/>[Özel](#prebuilt)| |  **Tanım**<br>Genel kavramlar temsil eden yerleşik türler. <br><br>**Liste**<br/>anahtar ifade sayı, sıra, sıcaklık, boyut, para, yaş, yüzde, e-posta, URL, telefon numarası ve anahtar ifade. <br><br>Önceden oluşturulmuş varlık adları ayrılmıştır. <br><br>Uygulamaya eklenen tüm önceden oluşturulmuş varlıklar döndürülür [uç nokta](luis-glossary.md#endpoint) sorgu. Daha fazla bilgi için [önceden oluşturulmuş varlıklarla](./luis-prebuilt-entities.md). <br/><br/>[Varlık için örnek yanıt](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **Normal ifade**<br/>[Normal ifade](#regex)||**Tanım**<br>Biçimlendirilmiş ham utterance metin için özel normal ifade. Küçük büyük harf duyarlı ve kültürel bir değişken yok sayar.  <br><br>Bu varlık sözcük ve tümcecikleri tutarlı olan herhangi bir değişim ile tutarlı bir şekilde biçimlendirilmiş için uygundur.<br><br>Normal ifadenin eşleştirilmesi, yazım denetimi değişiklikleri karakter düzeyinde belirteci düzeyinde değil sonra uygulanır. Bölümü ancak bazıları [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) kitaplığı.<br><br>Normal ifade birçok oluşur. parantez kullanılarak gibi çok karmaşık ise, ifade modele eklemek mümkün değildir. <br><br>**Örnek**<br>`kb[0-9]{6,}` KB123456 eşleşir.<br/><br/>[Hızlı Başlangıç](luis-quickstart-intents-regex-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md)|
-| **Basit** <br/>[Makine öğrendiniz](#machine-learned) | ✔ | **Tanım**<br>Bir varlığın tek bir kavram açıklayan ve makine öğrenilen bağlamından öğrenilen genel bir varlıktır. Bağlam, sözcük seçimi, word yerleştirme ve utterance uzunluğu içerir.<br/><br/>Bu, sözcük ve tümcecikleri tutarlı bir şekilde biçimlendirilmemiş, ancak aynı şeyi göstermek için iyi bir varlıktır. <br/><br/>[Hızlı Başlangıç](luis-quickstart-primary-and-secondary-data.md)<br/>[Varlık için örnek yanıt](luis-concept-data-extraction.md#simple-entity-data)|  
-| **Liste** <br/>[Tam eşleşme](#exact-match)|| **Tanım**<br>Liste varlıkları kendi synoymns yanı sıra ilgili sözcükleri sabit, kapalı bir dizi sisteminizde temsil eder. <br><br>Her liste varlığı, bir veya daha fazla form olabilir. Aynı kavram temsil etmek için yol çeşitli bilinen bir dizi için en iyi şekilde kullanılır.<br/><br/>LUIS, liste varlıkları için ek değerler bulmaz. Kullanım **önerilir** yeni sözcükleri sunabileceği önerileri görmek için özellik geçerli listede bağlı.<br/><br>Birden fazla liste varlığı ile aynı değeri varsa, her varlık uç nokta sorguda döndürülür. <br/><br/>[Hızlı Başlangıç](luis-quickstart-intent-and-list-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md#list-entity-data)| 
-| **Pattern.Any** <br/>[Karma](#mixed) | ✔|**Tanım**<br>Patterns.Any yalnızca bir desenin şablon utterance varlık burada başlar ve biter işaretlemek için kullanılan bir değişken uzunluklu yer tutucudur.  <br><br>**Örnek**<br>Başlığa göre kitap için bir utterance arama göz önünde bulundurulduğunda, tam başlık pattern.any ayıklar. Bir şablon utterance pattern.Any kullanarak olan `Who wrote {BookTitle}[?]`.<br/><br/>[Öğretici](luis-tutorial-pattern.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Bileşik** <br/>[Makine öğrendiniz](#machine-learned) | ✔|**Tanım**<br>Bileşik bir varlık oluşur diğer önceden oluşturulmuş varlıklar, basit gibi varlıkları, regex, hiyerarşik liste. Ayrı varlıklar, tam bir varlık oluşturur. <br><br>**Örnek**<br>Önceden oluşturulmuş alt varlıklar PlaneTicketOrder adlı bileşik bir varlık olabilir `number` ve `ToLocation`. <br/><br/>[Öğretici](luis-tutorial-composite-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Hiyerarşik** <br/>[Makine öğrendiniz](#machine-learned) |✔ | **Tanım**<br>Hiyerarşik bir varlık, basit bağlamsal öğrenilen varlıklar kategorisidir.<br><br>**Örnek**<br>Hiyerarşik bir varlığın verilen `Location` çocuklarla `ToLocation` ve `FromLocation`, her alt göre belirlenebilir **bağlam** utterance içinde. Utterance içinde `Book 2 tickets from Seattle to New York`, `ToLocation` ve `FromLocation` bağlamsal farklı sözcüklerin etrafına bağlı. <br/><br/>**Kullanmayın**<br>Bağlamı bağımsız olarak alt öğeleri için tam metin eşleşme olan bir varlık için kullanmak istiyorsanız, bir liste varlığı kullanmanız gerekir. Bir üst-alt ilişkisi için diğer varlık türleriyle arıyorsanız, bileşik varlığı kullanmanız gerekir.<br/><br/>[Hızlı Başlangıç](luis-quickstart-intent-and-hier-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md#hierarchical-entity-data)|
+LUIS, çok sayıda varlık türlerini sunar. Verilerin nasıl ayıklanması gereken ve bu ayıklandıktan sonra nasıl da temsil edilebilir göre varlık seçin.
 
-<a name="prebuilt"></a>
-**Önceden oluşturulmuş** LUIS tarafından sağlanan özel varlıklar varlıklardır. Bu varlıklardan bazıları açık kaynaklı tanımlanan [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text) proje. Kullanabileceğiniz birçok [örnekler](https://github.com/Microsoft/Recognizers-Text/tree/master/Specs) desteklenen kültürler /Specs dizininde. Belirli bir kültürün veya varlık şu anda desteklenmemektedir, projeye katkıda bulunur. 
+Varlıklar, varlık utterance içinde nasıl görüneceğini hakkında almaya devam etmek LUIS sağlayan machine-learning ile ayıklanabileceği. Makine tam metin ya da bir normal ifade eşleştirme öğrenme olmadan, varlıkları ayıklanabilir. Varlıkları desenleri, karma bir uygulama ile ayıklanabileceği. 
 
-<a name="machine-learned"></a>
-**Makine öğrenilen** varlıkları en iyi şekilde çalıştığı aracılığıyla test edildiğinde [uç nokta sorguları](luis-concept-test.md#endpoint-testing) ve [konuşma uç noktası gözden geçirme](luis-how-to-review-endoint-utt.md). 
+Varlık ayıklandıktan sonra varlık verilerini bilgilerin tek bir birim olarak temsil edilen veya istemci uygulaması kullanabilirsiniz bilgilerinin bir birim oluşturmak için diğer varlıklarla birleştirilmiş.
 
-<a name="regex"></a>
-**Normal ifade varlıkları** kullanıcı varlığı tanımının bir parçası sağlar, normal bir ifade tarafından tanımlanır. 
+|Makine öğrendiniz|İşaretleyebilirsiniz|Öğretici|Örnek<br>Yanıt|Varlık türü|Amaç|
+|--|--|--|--|--|--|
+|✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Bileşik**](#composite-entity)|Varlık Türü bağımsız olarak varlıklar gruplandırmasıdır.|
+|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hiyerarşik**](#hierarchical-entity)|Basit varlıkları gruplandırmasıdır.|
+|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Liste**](#list-entity)|Öğelerin listesini ve bunların eş anlamlılar ile tam metin ayıklandı eşleşir.|
+|Karma||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.Any**](#patternany-entity)|Varlığın son saptamak zor olduğu varlık.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Önceden oluşturulmuş**](#prebuilt-entity)|Çeşitli türlerde verileri ayıklamak zaten eğitildi.|
+|||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Normal ifade**](#regular-expression-entity)|Metin eşleştirilecek normal ifade kullanır.|
+|✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Basit**](#simple-entity)|Tek bir kavram sözcük veya tümcecik olarak içerir.|
 
-<a name="exact-match"></a>
-**Tam eşleşme** varlıkları varlık içinde sağlanan metin eşleşen bir tam metin yapmak için kullanın.
+Yalnızca makine öğrenilen varlıklar, her amaç için örnek konuşma işaretlenmesi gerekir. Varlıkları en iyi şekilde çalıştığı aracılığıyla test edildiğinde makine öğrenilen [uç nokta sorguları](luis-concept-test.md#endpoint-testing) ve [konuşma uç noktası gözden geçirme](luis-how-to-review-endoint-utt.md). 
 
-<a name="mixed"></a>
-**Karma** varlıkları bir varlık algılama yöntemleri birleşimini kullanın.
+Pattern.Any varlıklar olarak işaretlenmesi gerekir [deseni](luis-how-to-model-intent-pattern.md) şablon örnekleri, amaç kullanıcı örnekleri. 
+
+Karma varlıkları varlık algılama yöntemleri bir birleşimini kullanın.
+
+## <a name="composite-entity"></a>Bileşik varlık
+
+Bileşik bir varlık önceden oluşturulmuş varlıklar gibi diğer varlıklar, basit, normal ifade, liste ve hiyerarşik varlıkları oluşur. Ayrı varlıklar, tam bir varlık oluşturur. 
+
+Bu varlık yarar ne zaman uygun veri:
+
+* Birbiriyle ilgilidir. 
+* Konuşma bağlamında birbiriyle ilişkilidir.
+* Varlık türleri çeşitli kullanın.
+* Gruplandırılmış ve bilgi bir birim olarak istemci uygulaması tarafından işlenen gerekir.
+* Makine öğrenimi gerektiren kullanıcı konuşma çeşitli vardır.
+
+![Bileşik varlık](./media/luis-concept-entities/composite-entity.png)
+
+[Öğretici](luis-tutorial-composite-entity.md)<br>
+[Varlık için örnek JSON yanıtı](luis-concept-data-extraction.md#composite-entity-data)<br>
+
+## <a name="hierarchical-entity"></a>Hiyerarşik varlık
+
+Hiyerarşik bir varlık, alt öğeleri olarak adlandırılan bağlamsal öğrenilen basit varlıkları kategorisidir.
+
+Bu varlık yarar ne zaman uygun veri:
+
+* Basit varlıklardır.
+* Konuşma bağlamında birbiriyle ilişkilidir.
+* Belirli bir sözcük seçimi, her alt varlık belirtmek için kullanın. Bu sözcüklere örnekler şunlardır: from/to, leaving/headed to, away from/toward (çıkış/varış, ayrılıyor/gidiyor, kaynaktan/hedefe doğru)
+* Alt sık aynı utterance öğeleridir. 
+* İstemci uygulama tarafından bir bilgi birimi olarak gruplanmaları ve işlenmeleri gerekir.
+
+Kullanmayın:
+
+* Bağlamı bağımsız olarak alt öğeleri için tam metin eşleşme olan bir varlık ihtiyacınız vardır. Kullanım bir [varlık listesinde](#list-entity) bunun yerine. 
+* Bir varlık için bir üst-alt ilişkisi diğer varlık türleriyle gerekir. Kullanım [Bileşik varlık](#composite-entity).
+
+![hiyerarşik varlık](./media/luis-concept-entities/hierarchical-entity.png)
+
+[Öğretici](luis-quickstart-intent-and-hier-entity.md)<br>
+[Varlık için örnek JSON yanıtı](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
+
+### <a name="roles-versus-hierarchical-entities"></a>Hiyerarşik varlıkları ve rolleri
+
+[Rolleri](luis-concept-roles.md#roles-versus-hierarchical-entities) hiyerarşik varlıklar, ancak tüm varlık türlerine uygulanır, deseni aynı sorunu çözdü. Rolleri şu anda yalnızca desenleri kullanılabilir. Rolleri ıntents örnek konuşma içinde kullanılabilir değil.  
+
+## <a name="list-entity"></a>Liste varlığı
+
+Liste varlık ilgili sözcükleri kendi eş anlamlılar yanı sıra sabit, kapalı bir kümesini temsil eder. LUIS, liste varlıkları için ek değerler bulmaz. Kullanım **önerilir** yeni sözcükleri sunabileceği önerileri görmek için özellik geçerli listede bağlı. Birden fazla liste varlığı ile aynı değeri varsa, her varlık uç nokta sorguda döndürülür. 
+
+İyi bir varlıktır ne zaman uygun metin verileri:
+
+* Bilinen bir kümesidir.
+* Küme, bu varlık türü için maksimum LUIS [sınırlarını](luis-boundaries.md) aşmaz.
+* Konuşmadaki metin bir eşanlamlı sözcük veya kurallı ad ile tam olarak eşleşiyor. LUIS, tam metin eşleşme ötesinde listesi kullanmaz. Dallanma, gerçekleştirebilse ve diğer Çeşitlemeler bir liste varlığı ile çözümlenmiyor. Değişimleri yönetmek için kullanmayı bir [deseni](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance) isteğe bağlı metin sözdizimine sahip.
+
+![Liste varlığı](./media/luis-concept-entities/list-entity.png)
+
+[Öğretici](luis-quickstart-intent-and-list-entity.md)<br>
+[Varlık için örnek JSON yanıtı](luis-concept-data-extraction.md#list-entity-data)
+
+## <a name="patternany-entity"></a>Pattern.Any varlık
+
+Pattern.Any yalnızca bir desenin şablon utterance varlık burada başlar ve biter işaretlemek için kullanılan bir değişken uzunluklu yer tutucudur.  
+
+İyi bir varlıktır ne zaman uygun:
+
+* Varlığın son utterance kalan metinle çakışabilir. 
+
+[Öğretici](luis-tutorial-pattern.md)<br>
+[Varlık için örnek JSON yanıtı](luis-concept-data-extraction.md#patternany-entity-data)
+
+**Örnek**  
+Belirtilen başlığa göre books ilişkin arayan bir istemci uygulaması, tam başlık pattern.any ayıklar. Bu kitap arama için pattern.any kullanarak bir şablonu utterance `Was {BookTitle} written by an American this year[?]`. 
+
+Aşağıdaki tabloda, her satır utterance iki sürümü vardır. Üst utterance nasıl LUIS utterance başlangıçta görürsünüz olduğundan, kitap başlığıyla belirsiz olduğu başlar ve de sona erer. Ayıklama için yerinde bir desen olduğunda LUIS kitap başlığı nasıl bilir alt utterance olur. 
+
+|İfade|
+|--|
+|ADAM kimin Zannettiği HIS eşim Hat ve diğer Klinik örnekleri için bu yılın bir Amerikan tarafından yazılmış?<br>Olan **Man kimin Zannettiği HIS eşim Hat ve diğer Klinik örnekleri için** bir Amerikan göre bu yılın yazılmış?|
+|Yarı uyku Frog Pajamas bir Amerikan tarafından yazılan bu yıl içinde neydi?<br>Olan **Frog Pajamas içinde yarım uyku** bir Amerikan göre bu yılın yazılmış?|
+|Limonlu pasta, belirli üzüntü şöyleydi: Bu yıl bir Amerikan tarafından yazılmış bir Romanım?<br>Olan **Limonlu pasta, belirli üzüntü: Bir Romanım** bir Amerikan göre bu yılın yazılmış?|
+|My Pocket içinde bir Wocket yok edildi! Bu yıl bir Amerikan tarafından yazılmış?<br>Olan **My Pocket içinde bir Wocket yoktur!** Bu yıl bir Amerikan tarafından yazılmış?|
+
+## <a name="prebuilt-entity"></a>Önceden oluşturulmuş varlık
+
+Önceden oluşturulmuş varlıklarla e-posta, URL ve telefon numarası gibi ortak kavramlar temsil eden yerleşik türleridir. Önceden oluşturulmuş varlık adları ayrılmıştır. [Tüm önceden oluşturulmuş varlıklar](luis-prebuilt-entities.md) uygulamaya eklenen uç nokta tahmin sorguyu utterance içinde bulunursa döndürülür. 
+
+İyi bir varlıktır ne zaman uygun:
+
+* Verileri önceden oluşturulmuş varlıklar için dil, kültür tarafından desteklenen yaygın bir kullanım örneği ile eşleşir. 
+
+Önceden oluşturulmuş varlıklarla eklenir ve herhangi bir zamanda kaldırıldı. Önceden oluşturulmuş bir varlık içinde bir örnek utterance algılandığında bulursanız, özel varlığınızın işaretleme imkansızdır önceden oluşturulmuş varlık uygulamadan kaldırabilir, varlık işaretlemek, ardından önceden oluşturulmuş varlık geri ekleyin. 
+
+![Sayı önceden oluşturulmuş varlık](./media/luis-concept-entities/number-entity.png)
+
+[Öğretici](luis-tutorial-prebuilt-intents-entities.md)<br>
+[Varlık için örnek JSON yanıtı](luis-concept-data-extraction.md#prebuilt-entity-data)
+
+Bazı önceden oluşturulmuş bu varlıkların açık kaynaklı tanımlanan [tanıyıcıları metin](https://github.com/Microsoft/Recognizers-Text) proje. Belirli bir kültürün veya varlık şu anda desteklenmemektedir, projeye katkıda bulunur. 
+
+## <a name="regular-expression-entity"></a>Normal ifade varlığı 
+
+Normal bir ifade ham utterance metin için en iyisidir. Küçük büyük harf duyarlı ve kültürel bir değişken yok sayar.  Normal ifadenin eşleştirilmesi, yazım denetimi değişiklikleri karakter düzeyinde belirteci düzeyinde değil sonra uygulanır. Normal ifade birçok oluşur. parantez kullanılarak gibi çok karmaşık ise, ifade modele eklemek erişememenizin. Bölümü ancak bazıları [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) kitaplığı. 
+
+İyi bir varlıktır ne zaman uygun:
+
+* Verileri tutarlı olan herhangi bir değişim ile tutarlı bir şekilde biçimlendirilir.
+* Normal ifade 2'den fazla iç içe geçme düzeyi gerek yoktur. 
+
+![Normal ifade varlığı](./media/luis-concept-entities/regex-entity.png)
+
+[Öğretici](luis-quickstart-intents-regex-entity.md)<br>
+[Varlık için örnek JSON yanıtı](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+
+## <a name="simple-entity"></a>Basit varlık 
+
+Bir varlığın tek bir kavram açıklayan ve makine öğrenilen bağlamdan öğrenilen genel bir varlıktır. Basit varlıklar genellikle şirket adı, ürün adlarını veya diğer kategori adları gibi adlar olduğu için ekleme bir [tümcecik listesi](luis-concept-feature.md) kullanılan adları sinyal artırmak üzere basit bir varlık kullanırken. 
+
+İyi bir varlıktır ne zaman uygun:
+
+* Verilerin tutarlı bir şekilde biçimlendirilmeyen ancak aynı şeyi göstermek. 
+
+![varlığın](./media/luis-concept-entities/simple-entity.png)
+
+[Öğretici](luis-quickstart-primary-and-secondary-data.md)<br/>
+[Varlık için örnek yanıt](luis-concept-data-extraction.md#simple-entity-data)<br/>
 
 ## <a name="entity-limits"></a>Varlık sınırları
+
 Gözden geçirme [sınırları](luis-boundaries.md#model-boundaries) anlamak için bir model ekleyebilirsiniz kaç her varlık türü.
 
-## <a name="roles-versus-hierarchical-entities"></a>Hiyerarşik varlıkları ve rolleri
-
-Daha fazla bilgi için bkz. [Rollerle hiyerarşik varlıkların karşılaştırması](luis-concept-roles.md#roles-versus-hierarchical-entities).
-
 ## <a name="composite-vs-hierarchical-entities"></a>Bileşik vs hiyerarşik varlıklar
+
 Bileşik varlıkları ve hiyerarşik varlıkları hem üst-alt ilişkileri ve makine öğrendiniz. Makine öğrenimi, farklı bağlamlardaki (bir kelimelerin düzenleme) tabanlı varlıkları anlamak LUIS sağlar. Bileşik varlıklar, bunların alt öğeleri olarak farklı varlık türleri izin verdiğinden daha esnektir. Hiyerarşik bir varlığın alt yalnızca basit varlıklardır. 
 
 |Tür|Amaç|Örnek|
@@ -109,114 +240,15 @@ Bileşik varlıkları ve hiyerarşik varlıkları hem üst-alt ilişkileri ve ma
 |Hiyerarşik|Üst-alt Basit varlık|Location.Origin=New York<br>Location.Destination=London|
 |Bileşik|Üst-alt varlıklar: önceden oluşturulmuş, liste, basit, hiyerarşik| sayı = 3<br>Liste birinci sınıf =<br>prebuilt.datetimeV2=March 5|
 
-## <a name="data-matching-multiple-entities"></a>Birden çok varlık eşleşen veri
-Bir sözcük veya tümcecik birden fazla varlık eşleşirse, uç nokta sorgu her bir varlık döndürür. Önceden oluşturulmuş sayı varlık hem prebuild datetimeV2 ekleyin ve bir utterance sahip `create meeting on 2018/03/12 for lunch with wayne`, LUIS tüm varlıkları tanır ve JSON bitiş noktası yanıtın bir parçası varlıkları bir dizi döndürür: 
-
-```JSON
-{
-  "query": "create meeting on 2018/03/12 for lunch with wayne",
-  "topScoringIntent": {
-    "intent": "Calendar.Add",
-    "score": 0.9333419
-  },
-  "entities": [
-    {
-      "entity": "2018/03/12",
-      "type": "builtin.datetimeV2.date",
-      "startIndex": 18,
-      "endIndex": 27,
-      "resolution": {
-        "values": [
-          {
-            "timex": "2018-03-12",
-            "type": "date",
-            "value": "2018-03-12"
-          }
-        ]
-      }
-    },
-    {
-      "entity": "2018",
-      "type": "builtin.number",
-      "startIndex": 18,
-      "endIndex": 21,
-      "resolution": {
-        "value": "2018"
-      }
-    },
-    {
-      "entity": "03/12",
-      "type": "builtin.number",
-      "startIndex": 23,
-      "endIndex": 27,
-      "resolution": {
-        "value": "0.25"
-      }
-    }
-  ]
-}
-```
-
-## <a name="data-matching-multiple-list-entities"></a>Birden çok listesi varlık eşleşen veri
-Bir sözcük veya tümcecik birden fazla liste varlığı eşleşirse, uç nokta sorgu her liste varlığı döndürür.
-
-Sorgu için `when is the best time to go to red rock?`, ve uygulama word `red` LUIS birden fazla listesinde, tüm varlıkları tanıyan ve JSON bitiş noktası yanıtın bir parçası varlıkları bir dizi döndürür: 
-
-```JSON
-{
-  "query": "when is the best time to go to red rock?",
-  "topScoringIntent": {
-    "intent": "Calendar.Find",
-    "score": 0.06701678
-  },
-  "entities": [
-    {
-      "entity": "red",
-      "type": "Colors",
-      "startIndex": 31,
-      "endIndex": 33,
-      "resolution": {
-        "values": [
-          "Red"
-        ]
-      }
-    },
-    {
-      "entity": "red rock",
-      "type": "Cities",
-      "startIndex": 31,
-      "endIndex": 38,
-      "resolution": {
-        "values": [
-          "Destinations"
-        ]
-      }
-    }
-  ]
-}
-```
-
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Varlıklar, en fazla sayısından daha ihtiyacınız varsa 
 
 Hiyerarşik ve bileşik varlıkları kullanmanız gerekebilir. Hiyerarşik varlıkları özellikleri paylaşan ya da bir kategori üyesi olan varlıklar arasında ilişki yansıtır. Alt varlıklar, kendi üst kategori, tüm üyeleridir. Örneğin, PlaneTicketClass adlı hiyerarşik bir varlık alt varlıklar EconomyClass ve FirstClass olabilir. Hiyerarşi tek düzey derinliğini aşıyor.  
 
 Bileşik varlık, bir bütün parçalarını temsil eder. Örneğin, PlaneTicketOrder adlı bileşik bir varlık alt varlıklar Havayolu, hedef DepartureCity DepartureDate ve PlaneTicketClass olabilir. Daha önceden mevcut olan basit varlıklar, hiyerarşik varlıklar veya önceden oluşturulmuş varlıklarla alt bileşik bir varlıktan oluşturacaksınız.  
 
-LUIS LUIS uygulamanızı sabit değerler listesini belirtmenizi sağlar ancak değil makine-öğrenilen listesi varlık türünü de sağlar. Bkz: [LUIS sınırları](luis-boundaries.md) sınırları varlık türleri gözden geçirmek için başvuru. 
+LUIS, makine öğrenilen değildir, ancak bir sabit listesi değerleri belirtmek LUIS uygulamanızı sağlayan listesi varlık türünü de sağlar. Bkz: [LUIS sınırları](luis-boundaries.md) sınırları varlık türleri gözden geçirmek için başvuru. 
 
 Kabul hiyerarşik, bileşik ve listelemeye ve hala en fazla sınıra ihtiyacınız varsa, desteğe başvurun. Bunu yapmak için sisteminizin hakkında ayrıntılı bilgi toplamak, Git [LUIS](luis-reference-regions.md#luis-website) Web sitesine gidin ve ardından **Destek**. Destek Hizmetleri Azure aboneliğinize dahildir, başvurun [Azure teknik desteğine](https://azure.microsoft.com/support/options/). 
-
-## <a name="best-practices"></a>En iyi uygulamalar
-
-Oluşturma bir [varlık](luis-concept-entity-types.md) çağıran uygulama veya bot gerektiğinde bazı parametreler veya bir eylemi çalıştırmak için gerekli utterance verileri. Bir varlık bir sözcük ya da ihtiyacınız utterance ifadeye--belki de bir işlev için parametre olarak ayıklanır. 
-
-Uygulamanıza eklemek için varlık doğru türünü seçmek için kullanıcılar tarafından verilerin nasıl girildiğini bilmek gerekir. Her varlık türü kullanarak makine öğrenimi, kapalı listesi veya normal ifade gibi farklı bir mekanizma bulunur. Emin değilseniz, basit bir varlık ile başlamalı ve bir sözcük veya tümcecik tüm konuşma verilerin hiçbiri dahil olmak üzere tüm hedefleri arasında temsil eden hedefi etiket.  
-
-Burada bir varlık normal bir ifade olarak tanımlanan veya bir tam metin eşleşme ile genel kullanım bulmak için düzenli olarak konuşma uç noktası gözden geçirin.  
-
-Gözden geçirme işleminin bir parçası olarak, bir sinyal için LUIS sözcükleri veya tümcecikleri, etki alanınıza önemlidir, ancak tam eşleşme değildir ve LUIS yüksek güvenilirliğe sahip değil bir ifade listesine eklemeyi düşünün.  
-
-Bkz: [en iyi uygulamalar](luis-concept-best-practices.md) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

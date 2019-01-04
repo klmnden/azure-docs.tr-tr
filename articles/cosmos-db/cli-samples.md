@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 6ae6aa044ffa5de773f0036204aff3ce2a96d488
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3d8ba7c89f320344081ed8f3a722883c3234fa90
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715809"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810993"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db"></a>Azure Cosmos DB için Azure CLI örnekleri
 
@@ -21,7 +21,7 @@ Aşağıdaki tablo, Azure Cosmos DB’ye yönelik örnek Azure CLI betiklerinin 
 |---|---|
 |**Azure Cosmos DB hesabı, veritabanı ve kapsayıcıları oluşturma**||
 | [SQL API'sini kullanarak Azure Cosmos DB hesabı oluşturma](scripts/create-database-account-collections-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Bir tek Azure Cosmos DB hesabı, veritabanı ve kapsayıcı oluşturur. |
-| [Cosmos DB için MongoDB API'sini kullanarak bir Azure Cosmos DB hesabı oluşturma](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Tek bir Azure Cosmos DB hesabı, veritabanı ve koleksiyonu oluşturur. |
+| [Cosmos DB'nin MongoDB kullanarak bir Azure Cosmos DB hesabı oluşturma](scripts/create-mongodb-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Tek bir Azure Cosmos DB hesabı, veritabanı ve koleksiyonu oluşturur. |
 | [Gremlin API kullanarak Azure Cosmos DB hesabı oluşturma](scripts/create-gremlin-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Bir tek Azure Cosmos DB hesabını, veritabanını ve grafiği oluşturur. |
 | [Cassandra API kullanarak Azure Cosmos DB hesabı oluşturma](scripts/create-cassandra-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Tek bir Azure Cosmos DB hesabı ve veritabanı oluşturur. |
 | [Tablo API'sini kullanarak Azure Cosmos DB hesabı oluşturma](scripts/create-table-database-account-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Bir tek Azure Cosmos DB hesabı, veritabanı ve tablo oluşturur. |
@@ -30,7 +30,7 @@ Aşağıdaki tablo, Azure Cosmos DB’ye yönelik örnek Azure CLI betiklerinin 
 | [Azure Cosmos DB veritabanı hesabını birden çok bölgede çoğaltma ve yük devretme önceliklerini yapılandırma](scripts/scale-multiregion-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Hesap verilerini, belirtilmiş yük devretme önceliğine göre birden fazla bölgeye genel olarak çoğaltır.|
 |**Güvenli Azure Cosmos DB**||
 | [Hesap anahtarlarını alma](scripts/secure-get-account-key-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Hesap için birincil ve ikincil ana yazma anahtarlarıyla birincil ve ikincil salt okunur anahtarları alır.|
-| [Azure Cosmos DB için MongoDB API'si veritabanı için bağlantı dizesini alın](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | MongoDB uygulamasını Azure Cosmos DB hesabınıza bağlamak için bağlantı dizesini alır.|
+| [MongoDB için Azure Cosmos DB API'si ile yapılandırılan Cosmos hesabı için bağlantı dizesini alın](scripts/secure-mongo-connection-string-cli.md?toc=%2fcli%2fazure%2ftoc.json) | MongoDB uygulamasını Azure Cosmos DB hesabınıza bağlamak için bağlantı dizesini alır.|
 | [Hesap anahtarlarını yeniden oluşturma](scripts/secure-regenerate-key-cli.md?toc=%2fcli%2fazure%2ftoc.json)|Hesap anahtarlarını yeniden oluşturun.|
 | [Güvenlik duvarı oluşturma](scripts/create-firewall-cli.md?toc=%2fcli%2fazure%2ftoc.json)| Onaylanmış bir makine kümesinden ve/veya bulut hizmetlerinden hesaba erişimi kısıtlayan bir gelen IP erişim denetimi ilkesi oluşturun.|
 |**Yüksek kullanılabilirlik, olağanüstü durum kurtarma, yedekleme ve geri yükleme**||

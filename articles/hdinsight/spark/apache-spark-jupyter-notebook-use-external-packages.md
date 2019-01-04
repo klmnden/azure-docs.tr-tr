@@ -9,25 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: ddee05fed3112edc6cf1e1261ea06bc2fe864ed3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: c0394025fef15b987f0777d157c465e83d860601
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583559"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652141"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>HDInsight üzerinde Apache Spark kümeleri Jupyter not defterlerinde ile dış paketleri kullanma
 > [!div class="op_single_selector"]
 > * [Hücre Sihri kullanarak](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Betik eylemi kullanarak](apache-spark-python-package-installation.md)
->
->
 
 Yapılandırma konusunda bilgi bir [Jupyter not defteri](https://jupyter.org/) dış kullanmak için HDInsight üzerinde Apache Spark kümesinde topluluk Apache katkısıyla **maven** kümede olmayan paketleri dahil kullanıma hazır. 
 
-Arama yapabilirsiniz [Maven deposu](http://search.maven.org/) kullanılabilir paketler tam listesi için. Ayrıca, diğer kaynaklardan kullanılabilir paketler listesini alabilirsiniz. Örneğin, topluluk tarafından katkıda bulunulan paketlerin tam bir listesi kullanılabilir [Spark paketleri](http://spark-packages.org/).
+Arama yapabilirsiniz [Maven deposu](https://search.maven.org/) kullanılabilir paketler tam listesi için. Ayrıca, diğer kaynaklardan kullanılabilir paketler listesini alabilirsiniz. Örneğin, topluluk tarafından katkıda bulunulan paketlerin tam bir listesi kullanılabilir [Spark paketleri](https://spark-packages.org/).
 
-Bu makalede, nasıl kullanılacağını öğreneceksiniz [spark csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) Jupyter not defteri ile paket.
+Bu makalede, nasıl kullanılacağını öğreneceksiniz [spark csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) Jupyter not defteri ile paket.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Aşağıdakilere sahip olmanız gerekir:
@@ -39,11 +37,10 @@ Aşağıdakilere sahip olmanız gerekir:
 
 1. Spark kümesi dikey penceresinden **Hızlı Bağlantılar**’a ve sonra **Küme Panosu** dikey penceresinden **Jupyter Not Defteri**’ne tıklayın. İstenirse, küme için yönetici kimlik bilgilerini girin.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Aşağıdaki URL’yi tarayıcınızda açarak da Jupyter Notebook’a ulaşabilirsiniz. **CLUSTERNAME** değerini kümenizin adıyla değiştirin:
     > 
     > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-    > 
 
 1. Yeni bir not defteri oluşturun. Tıklayın **yeni**ve ardından **Spark**.
    
@@ -55,7 +52,7 @@ Aşağıdakilere sahip olmanız gerekir:
 
 1. Kullanacağınız `%%configure` Sihirli bir dış paketini kullanmak üzere not defterini yapılandırmak için. Dış paketleri kullanma defterlerinde çağırmanızı emin `%%configure` ilk kodu hücreyi Sihirli. Bu, çekirdek oturumu başlamadan önce paketini kullanacak şekilde yapılandırıldığını sağlar.
 
-    >[!IMPORTANT] 
+    >[!IMPORTANT]  
     >Çekirdek ilk hücreye yapılandırmak, parantezi unutsanız bile kullanabilirsiniz `%%configure` ile `-f` parametresi, ancak oturumu yeniden başlatılacak ve tüm ilerleme kaybedilecek.
 
     | HDInsight sürümü | Komut |
@@ -65,7 +62,7 @@ Aşağıdakilere sahip olmanız gerekir:
 
 1. Yukarıdaki kod parçacığında, Maven Central Repository dış paketi için maven koordinatları bekliyor. Bu kod parçacığı içinde `com.databricks:spark-csv_2.10:1.4.0` için maven koordinatı **spark csv** paket. Paket koordinatları oluşturmak nasıl aşağıda verilmiştir.
    
-    a. Paket Maven depoda bulun. Bu öğretici için kullandığımız [spark csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Paket Maven depoda bulun. Bu öğretici için kullandığımız [spark csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
     b. Depodan değerlerini toplamak **GroupID**, **Artifactıd**, ve **sürüm**. Değerlerin Topladığınızdan kümenizi eşleştiğinden emin olun. Bu durumda, 2.10 Scala ve Spark 1.4.0 paket kullanıyoruz, ancak farklı sürümleri için uygun Scala veya Spark sürümü kümenizde seçmeniz gerekebilir. Kümenizde Scala sürümü çalıştırarak bulabilirsiniz `scala.util.Properties.versionString` Spark Jupyter çekirdek veya Spark Gönder. Kümenizde Spark sürümü çalıştırarak bulabilirsiniz `sc.version` Jupyter Not.
    
@@ -96,12 +93,12 @@ Aşağıdakilere sahip olmanız gerekir:
         df.select("Time").count()
 
 ## <a name="seealso"></a>Ayrıca bkz.
-* [Genel Bakış: Azure HDInsight’ta Apache Spark](apache-spark-overview.md)
+* [Genel Bakış: Azure HDInsight üzerinde Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>Senaryolar
-* [BI ile Apache Spark: BI araçlarıyla HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
-* [Machine Learning ile Apache Spark: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
-* [Machine Learning ile Apache Spark: Yemek İnceleme sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark ile BI: BI araçları ile HDInsight Spark kullanarak etkileşimli veri çözümlemesi gerçekleştirme](apache-spark-use-bi-tools.md)
+* [Apache Spark Machine Learning ile: HVAC verilerini kullanarak bina sıcaklığını çözümlemek için HDInsight içindeki Spark kullanma](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark Machine Learning ile: Gıda denetimi sonuçlarını tahmin etmek için HDInsight içindeki Spark kullanma](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight Apache Spark'ı kullanarak Web sitesi günlüğü çözümlemesi](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>Uygulamaları oluşturma ve çalıştırma

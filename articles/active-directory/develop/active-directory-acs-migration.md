@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: e68099609e5a4a27dfae7956fa43634d38311a22
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 01781725e3224e2cab49a5e7cc7dcc33030ce9fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015781"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971561"
 ---
-# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Nasıl yapılır: Azure erişim denetimi Hizmeti'nden geçiş
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Nasıl yapılır: Azure Access Control Service'ten geçiş yapma
 
 Microsoft Azure Access Control Service (ACS), Azure Active Directory (Azure AD), bir hizmet 7 Kasım 2018'de kullanımdan kaldırılacaktır. Şu anda erişim denetimi kullanın, uygulamalar ve hizmetler için bir farklı kimlik doğrulama mekanizması tarafından daha sonra tam olarak geçirilmelidir. Bu makalede, erişim denetimi kullanımınız kullanımdan planladığınız geçerli müşteri önerileri açıklanmaktadır. Access Control şu anda kullanmazsanız, herhangi bir eylemde bulunmanız gerekmez.
 
@@ -113,9 +113,9 @@ Kasım 2017'den itibaren tamamen desteklenen ve işletimsel tüm erişim denetim
 
 Erişim denetimi bileşenleri kullanımdan zamanlamasını şu şekildedir:
 
-- **Kasım 2017**: Klasik Azure portalında Azure AD Yöneticisi deneyimi [kullanımdan kaldırıldığında](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Bu noktada, erişim denetimi ad alanı yönetimi yeni ve ayrılmış bir URL'de kullanılabilir: `https://manage.windowsazure.com?restoreClassic=true`. İsterseniz bu URl, var olan ad alanları görüntülemek, etkinleştirmek ve ad alanları devre dışı bırakma ve ad alanları, silmek için kullanın.
-- **2 Nisan 2018**: Klasik Azure portalı tamamen devre dışı bırakılan, erişim denetimi ad alanı yönetim herhangi bir URL kullanılabilir artık anlamına gelir. Bu noktada, devre dışı bırakmak veya etkinleştirmek, silemez veya erişim denetimi ad alanlarınıza listeleme. Erişim denetimi Yönetim Portalı ve tam olarak işlevsel konumunda bulunan ancak olacaktır `https://\<namespace\>.accesscontrol.windows.net`. Erişim denetimi tüm diğer bileşenleri normal şekilde çalışmaya devam eder.
-- **7 Kasım 2018'den**: tüm erişim denetimi bileşenleri kalıcı olarak kapat. Bu, erişim denetimi Yönetim Portalı, yönetim hizmeti, STS'ye ve belirteç dönüştürme kuralı altyapısı içerir. Bu noktada, erişim denetimi için gönderilen tüm istekler (konumundaki \<ad alanı\>. accesscontrol.windows.net) başarısız. Var olan tüm uygulamaları ve Hizmetleri için diğer teknolojiler de bu süreden önce geçirdiğiniz.
+- **Kasım 2017**:  Klasik Azure portalında Azure AD Yöneticisi deneyimi [kullanımdan kaldırıldığında](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Bu noktada, erişim denetimi ad alanı yönetimi yeni ve ayrılmış bir URL'de kullanılabilir: `https://manage.windowsazure.com?restoreClassic=true`. İsterseniz bu URl, var olan ad alanları görüntülemek, etkinleştirmek ve ad alanları devre dışı bırakma ve ad alanları, silmek için kullanın.
+- **2 Nisan 2018**: Klasik Azure portalında tamamen kullanımdan erişim denetimi ad alanı yönetimi artık herhangi bir URL kullanılabilir anlamına gelir. Bu noktada, devre dışı bırakmak veya etkinleştirmek, silemez veya erişim denetimi ad alanlarınıza listeleme. Erişim denetimi Yönetim Portalı ve tam olarak işlevsel konumunda bulunan ancak olacaktır `https://\<namespace\>.accesscontrol.windows.net`. Erişim denetimi tüm diğer bileşenleri normal şekilde çalışmaya devam eder.
+- **7 Kasım 2018'den**: Tüm erişim denetimi bileşenleri kalıcı olarak kapatıldı. Bu, erişim denetimi Yönetim Portalı, yönetim hizmeti, STS'ye ve belirteç dönüştürme kuralı altyapısı içerir. Bu noktada, erişim denetimi için gönderilen tüm istekler (konumundaki \<ad alanı\>. accesscontrol.windows.net) başarısız. Var olan tüm uygulamaları ve Hizmetleri için diğer teknolojiler de bu süreden önce geçirdiğiniz.
 
 > [!NOTE]
 > Bir ilke bir süre için bir belirteç istediniz olmayan ad alanlarını devre dışı bırakır. Erken Eylül 2018'den itibaren bu süre şu anda 14 günlük etkin olmama süresi, ancak bu, gelecek haftalarda yapılmadığında 7 gün için kısaltılacak. Şu anda devre dışı bırakılmış bir erişim denetimi ad alanları varsa [ACS PowerShell'i indirip yükleyin](#download-and-install-acs-powershell) namespace (s) yeniden etkinleştirebilirsiniz.
@@ -151,7 +151,7 @@ SharePoint 2013, 2016 ve SharePoint Online müşterilerine uzun ACS kimlik doğr
 
 | Özellik | Rehber |
 | ------- | -------- |
-| Azure ad kullanıcıların kimliklerinin doğrulanması | Daha önce Azure AD kimlik doğrulaması için SharePoint'e gereken SAML 1.1 belirteçleri desteklemez ve Azure AD ile SharePoint uyumlu belirteci yapılan bir ara biçim olarak ACS kullanıldı. Artık, [SharePoint şirket içi uygulama Azure AD uygulama galerisinde SharePoint kullanarak doğrudan Azure AD'ye bağlama](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
+| Azure ad kullanıcıların kimliklerinin doğrulanması | Daha önce Azure AD kimlik doğrulaması için SharePoint'e gereken SAML 1.1 belirteçleri desteklemiyor ve ACS SharePoint ile Azure AD belirteç biçimlerini uyumlu olarak yapılan bir aracı olarak kullanıldı. Artık, [SharePoint şirket içi uygulama Azure AD uygulama galerisinde SharePoint kullanarak doğrudan Azure AD'ye bağlama](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Uygulama kimlik doğrulaması ve SharePoint şirket içi sunucudan sunucuya kimlik doğrulaması](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | ACS emeklilik tarafından etkilenen değil; Gerekli değişiklik yok. | 
 | [SharePoint eklentileri için (sağlayıcı tarafından barındırılan ve barındırılan SharePoint) yetkilendirme düşük güven](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | ACS emeklilik tarafından etkilenen değil; Gerekli değişiklik yok. |
 | [SharePoint bulut hibrit arama](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | ACS emeklilik tarafından etkilenen değil; Gerekli değişiklik yok. |

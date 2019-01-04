@@ -9,15 +9,15 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 420a1c2ee09f84586f99864878e226df59606f2d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496858"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631830"
 ---
 # <a name="scp-programming-guide"></a>SCP Programlama Kılavuzu
-SCP, güvenilir ve tutarlı, gerçek zamanlı oluşturmak için platform ve yüksek performanslı bilgi işlem uygulama ' dir. Üst kısmındaki yerleşik [Apache Storm](http://storm.incubator.apache.org/) --bir akış işleme sistemi OSS topluluklar göre tasarlanmıştır. Storm Nathan Marz tarafından tasarlanmıştır ve açık Twitter tarafından kaynaklanan oluştu. Bunu yararlanır [Apache ZooKeeper](http://zookeeper.apache.org/), işbirliği ve durum yönetimini son derece güvenilir etkinleştirmek için başka bir Apache projesi dağıtılmış. 
+SCP, güvenilir ve tutarlı, gerçek zamanlı oluşturmak için platform ve yüksek performanslı bilgi işlem uygulama ' dir. Üst kısmındaki yerleşik [Apache Storm](https://storm.incubator.apache.org/) --bir akış işleme sistemi OSS topluluklar göre tasarlanmıştır. Storm Nathan Marz tarafından tasarlanmıştır ve açık Twitter tarafından kaynaklanan oluştu. Bunu yararlanır [Apache ZooKeeper](https://zookeeper.apache.org/), işbirliği ve durum yönetimini son derece güvenilir etkinleştirmek için başka bir Apache projesi dağıtılmış. 
 
 Yalnızca Windows üzerinde Storm SCP proje unity'nin ancak proje, uzantıları ve Windows ekosisteminde özelleştirmesi de ekledik. Uzantıları .NET geliştirici deneyimi ve kitaplıkları içerir, Windows tabanlı bir dağıtım özelleştirme içerir. 
 
@@ -124,7 +124,7 @@ ISCPBatchBolt işlem bolt arabirimidir.
 SCP.NET, aynı zamanda anahtar nesneleri ile programlamayı geliştiriciler için basit bir dizi sağlar. Bunlar **bağlam**, **StateStore**, ve **SCPRuntime**. Bunlar, bu bölümün kalan kısmında ele alınmıştır.
 
 ### <a name="context"></a>Bağlam
-Bağlamı uygulamaya çalışan bir ortamı sağlar. Her ISCPPlugin örneği (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) karşılık gelen bir bağlam örneği vardır. Bağlam tarafından sağlanan işlevselliği iki bölüme ayrılabilir: tüm C kullanılabilir (1) statik bölümü\# işlemi, yalnızca belirli bir bağlam örneği için kullanılabilir (2) dinamik bölümü.
+Bağlamı uygulamaya çalışan bir ortamı sağlar. Her ISCPPlugin örneği (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) karşılık gelen bir bağlam örneği vardır. Bağlam tarafından sağlanan işlevselliği, iki bölüme ayrılabilir: (1) tüm C kullanılabilir statik bölümü\# işlemi, yalnızca belirli bir bağlam örneği için kullanılabilir (2) dinamik bölümü.
 
 ### <a name="static-part"></a>Statik bölümü
     public static ILogger Logger = null;
@@ -317,7 +317,7 @@ Genel olarak bakıldığında, SCP eklentileri, burada iki modda çalışabilir:
             void WriteMsgQueueToFile(string filepath, bool append = false);  
             void ReadFromFileToMsgQueue(string filepath);                    
         }
-2. Normal mod: Bu modda SCP eklentileri storm java işlemi tarafından başlatılabilir.
+2. Normal mod: Bu modda SCP eklentileri storm java işlemi tarafından başlatılır.
    
     SCP eklentisi başlatılırken bir örnek aşağıda verilmiştir:
    
@@ -346,7 +346,7 @@ Genel olarak bakıldığında, SCP eklentileri, burada iki modda çalışabilir:
         }
 
 ## <a name="topology-specification-language"></a>Topoloji belirtim dili
-SCP topolojisi açıklayan ve SCP topolojisini yapılandırmak için bir etki alanına özgü dil özelliğidir. Storm'ın Clojure DSL üzerinde bağlıdır (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) ve SCP tarafından genişletilir.
+SCP topolojisi açıklayan ve SCP topolojisini yapılandırmak için bir etki alanına özgü dil özelliğidir. Storm'ın Clojure DSL üzerinde bağlıdır (<https://storm.incubator.apache.org/documentation/Clojure-DSL.html>) ve SCP tarafından genişletilir.
 
 Topoloji belirtimleri aracılığıyla yürütme için storm kümesine doğrudan gönderilebilir ***runspec*** komutu.
 
@@ -594,7 +594,7 @@ ACK etkinleştirilirse, spout onaylanan olan diziler önbelleğe almak için bir
     }
 
 ### <a name="helloworldtx"></a>HelloWorldTx
-**HelloWorldTx** örnek işlem topolojiyi uygulamak nasıl gösterir. Adlı bir spout sahip **Oluşturucu**, batch bolt adlı **kısmi-count**, ve işleme bolt adlı **sayısı toplam**. Ayrıca üç önceden oluşturulmuş bir txt dosyası vardır: **DataSource0.txt**, **DataSource1.txt**, ve **DataSource2.txt**.
+**HelloWorldTx** örnek işlem topolojiyi uygulamak nasıl gösterir. Adlı bir spout sahip **Oluşturucu**, batch bolt adlı **kısmi-count**, ve işleme bolt adlı **sayısı toplam**. Üç önceden oluşturulmuş txt dosyaları vardır: **DataSource0.txt**, **DataSource1.txt**, ve **DataSource2.txt**.
 
 Spout her işlemde **Oluşturucu** rastgele önceden oluşturulmuş üç dosyalarından iki dosya seçer ve iki dosya adlarını yayma **kısmi-count** bolt. Bolt **kısmi-count** dosya ad alınan tanımlama grubundan sonra dosyasını açın ve bu dosyadaki sözcük sayısını ve sözcük sayıya son yayma alır **sayısı toplam** bolt. **Sayısı toplam** bolt toplam sayısını özetler.
 

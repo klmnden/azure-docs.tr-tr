@@ -3,17 +3,15 @@ title: MariaDB için Azure veritabanı sunucusu kavramları
 description: Bu konu, MariaDB sunucuları için Azure veritabanı ile çalışmak için önemli noktalar ve yönergeler sağlar.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4fd2f28f52c45a0ec3128302b02ad5ba498c982b
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: c2497fef359d4a519c6d4927dfc0c38ee3d80d88
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247780"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544575"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>MariaDB için Azure veritabanı sunucusu kavramları
 Bu makalede, MariaDB sunucuları için Azure veritabanı ile çalışmaya yönelik kurallar ve dikkat edilecek noktalar sunulmaktadır.
@@ -33,7 +31,7 @@ MariaDB için Azure veritabanı:
 - Veritabanlarını için uygulama yönetimi ilkeleri için kapsam sağlar: oturum açma, güvenlik duvarı, kullanıcılar, roller, yapılandırmaları, vb.
 - MariaDB altyapı sürümü 10.2 kullanılabilir. Daha fazla bilgi için [MariaDB veritabanı sürümleri için desteklenen Azure veritabanı'na](./concepts-supported-versions.md).
 
-MariaDB sunucusu için Azure veritabanı içinde bir veya birden çok veritabanı oluşturabilirsiniz. Tüm kaynakları veya kaynakları paylaşmak için birden çok veritabanını oluşturmak için sunucu başına tek bir veritabanı oluşturmak için tercih edebilirsiniz. Fiyatlandırma yapılandırılmış başına-fiyatlandırma katmanı, sanal çekirdek ve depolama alanı (GB) yapılandırmasına bağlı olarak, sunucusudur. Daha fazla bilgi için [fiyatlandırma katmanları](./concepts-pricing-tiers.md).
+MariaDB için Azure Veritabanı sunucusunda bir veya birden fazla veritabanı oluşturabilirsiniz. Tüm kaynakları veya kaynakları paylaşmak için birden çok veritabanını oluşturmak için sunucu başına tek bir veritabanı oluşturmak için tercih edebilirsiniz. Fiyatlandırma yapılandırılmış başına-fiyatlandırma katmanı, sanal çekirdek ve depolama alanı (GB) yapılandırmasına bağlı olarak, sunucusudur. Daha fazla bilgi için [fiyatlandırma katmanları](./concepts-pricing-tiers.md).
 
 ## <a name="how-do-i-secure-an-azure-database-for-mariadb-server"></a>MariaDB server için Azure veritabanı güvenliğini nasıl sağlayabilirim?
 

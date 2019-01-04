@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 54ce1d9ab6216f1d757d7076cb95362d55ea9d9c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164658"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53537639"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Sık sorulan sorular Service Fabric
 
@@ -64,9 +64,16 @@ Büyük sanal makine ölçek kümeleri ile ilgili diğer sorunlar şu anda vard�
 
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Bir Service Fabric kümesinin minimum boyutu nedir? Neden daha küçük olamaz?
 
-Üretim iş yükleri çalıştıran bir Service Fabric kümesi için desteklenen minimum boyut beş düğüm ' dir. Geliştirme/test senaryoları için üç düğümlü küme destekliyoruz.
+Üretim iş yükleri çalıştıran bir Service Fabric kümesi için desteklenen minimum boyut beş düğüm ' dir. Geliştirme senaryoları için (Visual Studio'da hızlı geliştirme deneyimi için optimize) bir düğümü ve beş düğümlü küme destekliyoruz.
 
-Service Fabric kümesine adlandırma hizmeti ve Yük Devretme Yöneticisi gibi bir sistem durum bilgisi olan hizmetler kümesi çalıştığı için bu alt sınır yok. Bu hizmetler, hangi hizmetlerin kümeye ve bunlar şu anda barındırıldığı, dağıtılan hangi izleme üzerinde güçlü tutarlılık bağlıdır. Bu güçlü tutarlılık sırayla alma yeteneğini bağlıdır bir *çekirdek* herhangi belirli bir güncelleştirme durumu için Hizmetleri, bir çekirdek belirli bir hizmete yönelik çoğaltmalar (N/2 + 1) katı çoğunu temsil ettiği için.
+Biz, aşağıdaki üç nedenden dolayı en az 5 düğümünüz için bir üretim kümesi gerektirir:
+1. Bile hiçbir kullanıcı hizmet çalışırken, bir Service Fabric kümesi adlandırma hizmeti ve Yük Devretme Yöneticisi hizmeti gibi sistem durum bilgisi olan hizmetler kümesi çalıştırır. Bu sistem hizmetleri kalması küme için gereklidir.
+2. Biz her zaman bir hizmetin (aslında bir bölüm) olabilir çoğaltmaların sayısı üst sınırını küme boyutu, bu nedenle, düğüm başına bir hizmet tek bir çoğaltmasını yerleştirin.
+3. Bir küme yükseltmesi en az bir düğüm getirecek olduğundan, en az bir düğümün bir arabellek olmasını istiyoruz, bu nedenle, bir üretim kümesi en az iki düğüme sahip olmasını istiyoruz *ayrıca* için en az. En az çekirdek aşağıda açıklandığı gibi bir sistem hizmeti boyutudur.  
+
+Kümenin aynı anda iki düğüm başarısız karşılaşıldığında kullanılabilir olmasını istiyoruz. Bir Service Fabric kümesi kullanılabilir olması, sistem hizmetleri kullanılabilir olması gerekir. Adlandırma Hizmeti ve hangi hizmetlerin kümeye dağıtılan ve bunlar şu anda barındırıldığı izleme, üzerinde güçlü tutarlılık bağlıdır, Yük Devretme Yöneticisi hizmeti gibi durum bilgisi olan sistem hizmetleri. Bu güçlü tutarlılık sırayla alma yeteneğini bağlıdır bir *çekirdek* herhangi belirli bir güncelleştirme durumu için Hizmetleri, bir çekirdek belirli bir hizmete yönelik çoğaltmalar (N/2 + 1) katı çoğunu temsil ettiği için. Bu nedenle aynı anda iki düğüm (Bu nedenle aynı anda kayıp sistem hizmeti iki kopyasının) kaybına karşı dayanıklı olmasını istiyoruz, biz ClusterSize - QuorumSize olmalıdır > = 2, en küçük boyut beş olmasını zorlar. Küme N düğümleri sahip olduğundan ve sistem hizmeti – her düğümde bir N çoğaltmalarını göz önünde bulundurun, görmek için. Çekirdek sistem hizmeti büyüklüğünde (N/2 + 1). Yukarıdaki eşitsizlik N - (N/2 + 1) gibi görünüyor. > = 2. Dikkate alınması gereken iki durum vardır: N bile olduğunda ve N tek olduğunda. N bile, örneğin N ise, 2 =\*m nerede m > = 1, 2 eşitsizlik görünür\*milyon - (2\*m/2 + 1) > 2 ya da m = > = 3. N için en az 6'dır ve ne zaman elde m = 3. Öte yandan, N çift ise söyleyin N = 2\*m + 1 nerede m > = 1, 2 eşitsizlik görünür\*m + 1 - ((2\*m + 1) / 2 + 1) > 2 ya da 2 =\*m + 1 - (m + 1) > 2 ya da m = > = 2. N için en az 5'tir ve ne zaman elde m = 2. Eşitsizlik ClusterSize - QuorumSize karşılayan bu nedenle, tüm değerleri arasında n > = 2, 5 düşük düzeyde grup üyeliğidir.
+
+Biz kabul bir sistem hizmeti çoğaltmasını her düğümü vardır, bu nedenle çekirdek boyutu kümedeki düğüm sayısına göre hesaplanır yukarıdaki bağımsız değişkeninde dikkat edin. Değiştirerek ancak *TargetReplicaSetSize* biz çekirdek boyutu hale getirebilecek küçüktür (N / 2 + 1), biz bir küme 5 düğümler küçük olduğundan ve yine de ek 2 düğümlerin çekirdek boyutu üzerinde sahip izlenimini vermek. TargetReplicaSetSize 3'e ayarlarsanız, 4 düğümlü bir kümede TargetReplicaSetSize üzerinde temel çekirdek boyutudur (3/2 + 1) veya 2, dolayısıyla biz CluserSize - QuorumSize sahip 4-2 = > = 2. Ancak biz, sistem hizmeti olarak veya size herhangi bir düğüm çifti eşzamanlı olarak kaybederseniz çekirdek sistem hizmeti (yalnızca tek bir çoğaltma sol sahip) çekirdek kayıp gidecek şekilde ki kaybedilen iki düğüm yinelemeler, barındırma olabilir garanti edemez bir ND kullanılamayacak.
 
 Bu bilgileri, bazı olası küme yapılandırmalarını inceleyelim:
 
@@ -74,9 +81,13 @@ Bu bilgileri, bazı olası küme yapılandırmalarını inceleyelim:
 
 **İki düğüm**: iki düğümde dağıtılmış bir hizmet için bir çekirdek (N = 2) 2 (2/2 + 1 = 2). Tek bir çoğaltma kaybolursa, bir çekirdek oluşturmak mümkün değildir. Hizmet yükseltme gerçekleştirme geçici olarak bir çoğaltma sürüyor gerektirdiğinden, kullanışlı bir yapılandırma değil.
 
-**Üç düğüm**: (N = 3) üç düğüm ile bir çekirdek oluşturmak için gereksinim yine de iki düğüm olması (3/2 + 1 = 2). Bu, tek bir düğüm kaybeder ve yine de yeterli çoğunluğu sürdürmek anlamına gelir.
+**Üç düğüm**: (N = 3) üç düğüm ile bir çekirdek oluşturmak için gereksinim yine de iki düğüm olması (3/2 + 1 = 2). Bu tek tek bir düğüm kaybeder ve yine de yeterli çoğunluğu sürdürmek, ancak aynı anda iki düğüm başarısız Sistem Hizmetleri Çekirdek kayıp artıracak ve kümenin kullanılamaz duruma gelmesine neden olacak anlamına gelir.
 
-Güvenli bir şekilde yükseltme gerçekleştirmek ve tek tek düğüm hatalara çünkü aynı anda sürece üç düğümlü küme yapılandırması dev/test için desteklenir. Beş düğüm gerekli olacak şekilde üretim iş yükleri için bu tür bir eş zamanlı hatasına dayanıklı olması gerekir.
+**Dört düğüm**: (N = 4) dört düğüm ile bir çekirdek oluşturmak için üç düğüm gereksinimdir (4/2 + 1 = 3). Bu tek tek bir düğüm kaybeder ve yine de yeterli çoğunluğu sürdürmek, ancak aynı anda iki düğüm başarısız Sistem Hizmetleri Çekirdek kayıp artıracak ve kümenin kullanılamaz duruma gelmesine neden olacak anlamına gelir.
+
+**Beş düğüm**: beş düğüm (N = 5) ile bir çekirdek oluşturmak için hala üç düğüm gereksinimdir (5/2 + 1 = 3). Bu, aynı anda iki düğüm kaybeder ve hala sistem hizmetleri için çekirdek tutmak anlamına gelir.
+
+Beş düğüm gerekli olacak şekilde üretim iş yükleri için en az iki düğüm (örneğin, bir küme yükseltmesi, bir başka nedenlerle nedeniyle), aynı anda başarısız olmasına karşı dayanıklı olması gerekir.
 
 ### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>Kümem gece/maliyet tasarrufu için hafta sonları kapatabilir miyim?
 

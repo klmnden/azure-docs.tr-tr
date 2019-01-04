@@ -1,52 +1,49 @@
 ---
-title: Sunucu parametreleri Azure veritabanı'nda PostgreSQL için Azure portalı üzerinden yapılandırma
-description: Bu makalede sunucu parametreleri Azure veritabanı'nda PostgreSQL için Azure portalı üzerinden nasıl yapılandırılacağını açıklar.
-services: postgresql
+title: PostgreSQL için Azure portalı üzerinden gönderilmiş olan Azure veritabanı'nda sunucu parametrelerini yapılandırma
+description: Bu makalede, PostgreSQL için Azure portalı üzerinden gönderilmiş olan Azure veritabanı'nda sunucu parametrelerini yapılandırma açıklar.
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 6d43cac79c19e117385549b1678a464dc5731bd7
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0d0626c48ecebdead604aab93ab0602c698d0d77
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687875"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540546"
 ---
-# <a name="configure-server-parameters-in-azure-portal"></a>Azure portalında sunucu parametreleri yapılandırın
-Listesinde, Göster ve Azure portalı üzerinden PostgreSQL sunucu için bir Azure veritabanı için yapılandırma parametreleri güncelleştirin.
+# <a name="configure-server-parameters-in-azure-portal"></a>Azure portalında sunucu parametrelerini yapılandırma
+Liste, Göster ve Azure Portalı aracılığıyla PostgreSQL sunucusu için Azure veritabanı için yapılandırma parametreleri güncelleştirin.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Nasıl yapılır bu kılavuzu adım gerekir:
-- [Azure veritabanı PostgreSQL sunucu için](quickstart-create-server-database-portal.md)
+Bu nasıl yapılır Kılavuzu, adım gerekir:
+- [PostgreSQL sunucusu için Azure veritabanı](quickstart-create-server-database-portal.md)
 
-## <a name="viewing-and-editing-parameters"></a>Görüntüleme ve parametreleri düzenleme
+## <a name="viewing-and-editing-parameters"></a>Görüntüleme ve düzenleme parametreleri
 1. [Azure portalı](https://portal.azure.com) açın.
 
-2. Azure veritabanınızı PostgreSQL sunucusu seçin.
+2. PostgreSQL için Azure Veritabanı sunucunuzu seçin.
 
-3. Altında **ayarları** bölümünde, select **sunucu parametreleri**. Sayfa parametreleri, değerleri ve açıklamaları listesini gösterir.
+3. Altında **ayarları** bölümünden **sunucu parametreleri**. Sayfada parametreleri, değerleri ve açıklamaları listesi gösterilir.
 ![Parametreler için genel bakış sayfası](./media/howto-configure-server-parameters-in-portal/3-overview-of-parameters.png)
 
-4. Seçin **açılan** client_min_messages gibi numaralandırılan türü parametreleri için olası değerler görmek için düğmesi.
+4. Seçin **açılan** düğmeyi client_min_messages gibi numaralandırılmış tür parametreleri için olası değerler.
 ![Aşağı açılan listeleme](./media/howto-configure-server-parameters-in-portal/4-enum-drop-down.png)
 
-5. Seçin veya üzerine gelerek **ı** cpu_index_tuple_cost gibi sayısal parametreleri için olası değerler aralığını görmek için (bilgileri) düğmesini.
+5. Seçin veya üzerine **miyim** cpu_index_tuple_cost gibi sayısal parametre için olası değerler aralığı görmek için düğmeyi (bilgileri).
 ![bilgi düğmesi](./media/howto-configure-server-parameters-in-portal/4-information-button.png)
 
-6. Gerekirse, kullanın **arama kutusu** belirli bir parametrenin Dar Aşağı için. Arama ad ve açıklama parametreleri olur.
+6. Gerekirse, kullanın **arama kutusuna** için belirli bir parametrenin daraltmak için. Arama, ad ve açıklama parametrelerinin olur.
 ![Arama sonuçları](./media/howto-configure-server-parameters-in-portal/5-search.png)
 
-7. Ayarlamak istediğiniz parametre değerlerini değiştirin. Bir oturumda yaptığınız tüm değişiklikleri mor ile vurgulanır. Değerleri değişmiş sonra seçebileceğiniz **kaydetmek**. Veya **atmak** değişikliklerinizi.
+7. Ayarlamak istediğiniz parametre değerlerini değiştirin. Bir oturumda yaptığınız tüm değişiklikler mor renkle vurgulanır. Değerler değiştirildiğinde sonra seçebileceğiniz **Kaydet**. Veya **at** yaptığınız değişiklikleri.
 ![Kaydet veya değişiklikleri at](./media/howto-configure-server-parameters-in-portal/6-save-and-discard-buttons.png)
 
-8. Yeni parametre değerlerini kaydettiyseniz, her zaman varsayılan değerleri dön her şeyi seçerek geri dönebilirsiniz **tümünü Varsayılana Sıfırla**.
-![Tüm Varsayılana sıfırla](./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png)
+8. Parametreler için yeni değerler kaydettiyseniz, her zaman varsayılan değerleri dön her şeyi seçerek geri dönebilirsiniz **tümünü Varsayılana Sıfırla**.
+![Tümünü Varsayılana sıfırla](./media/howto-configure-server-parameters-in-portal/7-reset-to-default-button.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Hakkında bilgi edinin:
-- [Azure veritabanı PostgreSQL için sunucu parametrelerinde genel bakış](concepts-servers.md)
+- [PostgreSQL için Azure veritabanı'nda sunucu parametrelerini genel bakış](concepts-servers.md)
 - [Azure CLI kullanarak parametrelerini yapılandırma](howto-configure-server-parameters-using-cli.md)

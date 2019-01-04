@@ -1,31 +1,32 @@
 ---
-title: Azure Cosmos DB Robomongo'yu kullanma
-description: "Bir Azure Cosmos DB ile Robomongo'yu kullanma hakkında bilgi edinin: API MongoDB hesabı"
+title: Azure Cosmos DB'ye bağlanmak için robo 3t'yi kullanma
+description: Azure Cosmos DB MongoDB Robo 3T ve Azure Cosmos DB'nin API'sini kullanarak bağlanma hakkında bilgi edinin
 keywords: robomongo'yu
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 05/23/2017
-ms.author: sngun
-ms.openlocfilehash: 78f0158c9a80a60717b81b4788531c7efd979111
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 12/26/2018
+ms.author: rimman
+ms.openlocfilehash: af601075b8cc774654a9f2dbf83193bf9701166b
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863814"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789458"
 ---
-# <a name="use-robomongo-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Robomongo'yu kullanma ile bir Azure Cosmos DB: MongoDB hesabı için API
-Bir Azure Cosmos DB'ye bağlanmak için: API Robomongo'yu kullanarak MongoDB hesabı için şunları yapmalısınız:
+# <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Robo 3T API'si ile Azure Cosmos DB'nin MongoDB için kullanın.
 
-* İndirme ve yükleme [Robomongo'yu](https://robomongo.org/)
-* Sahip Azure Cosmos DB: MongoDB hesabı için API [bağlantı dizesi](connect-mongodb-account.md) bilgileri
+Robo 3T kullanma Cosmos hesabına bağlanmak için şunları yapmalısınız:
 
-## <a name="connect-using-robomongo"></a>Robomongo kullanarak bağlanma
-Azure Cosmos DB eklemek için: API Robomongo'yu MongoDB bağlantıları için MongoDB hesabı için aşağıdaki adımları gerçekleştirin.
+* İndirme ve yükleme [Robo 3T](https://robomongo.org/)
+* Cosmos DB sahip [bağlantı dizesi](connect-mongodb-account.md) bilgileri
 
-1. Almak, Azure Cosmos DB: MongoDB hesabı bağlantı bilgilerini yönergeleri kullanarak API [burada](connect-mongodb-account.md).
+## <a name="connect-using-robo-3t"></a>Robo 3T kullanarak bağlan
+Robo 3T Bağlantı Yöneticisi için Cosmos hesabınızı eklemek için aşağıdaki adımları gerçekleştirin:
+
+1. Yönergeleri kullanarak Azure Cosmos DB'nin API'sini MongoDB ile yapılandırılmış Cosmos hesabınız için bağlantı bilgilerini almak [burada](connect-mongodb-account.md).
 
     ![Bağlantı dizesi dikey penceresinin ekran görüntüsü](./media/mongodb-robomongo/connectionstringblade.png)
 2. Çalıştırma *Robomongo.exe*
@@ -45,4 +46,6 @@ Her ikisi de **kullanıcı adı** ve **parola** bağlantı bilgilerinizi adım 1
 7. Son olarak, tıklayın **Test** bağlanın, ardından mümkün olduğunu doğrulamak için **Kaydet**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Azure Cosmos DB'yi keşfedin: MongoDB için API [örnekleri](mongodb-samples.md).
+
+- Bilgi edinmek için nasıl [Studio 3T kullanma](mongodb-mongochef.md) Azure Cosmos DB'nin MongoDB API'si ile.
+- MongoDB keşfedin [örnekleri](mongodb-samples.md) Azure Cosmos DB'nin MongoDB API'si ile.

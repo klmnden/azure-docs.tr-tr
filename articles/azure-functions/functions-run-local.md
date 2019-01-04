@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 48b2d42348996f5f135d88cdf6345bca8daf8335
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 3239cbc957d2a79c7a5411604759f86f0268bd70
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409454"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976316"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -68,7 +68,7 @@ Aşağıdaki adımları macOS üzerinde temel araçları yüklemek için Homebre
 
     ```bash
     brew tap azure/functions
-    brew install azure-functions-core-tools 
+    brew install azure-functions-core-tools
     ```
 
 #### <a name="linux"></a> APT ile Linux (Debian/Ubuntu)
@@ -195,12 +195,12 @@ Uygulama ayarları, bağlantı dizeleri ve Azure işlevleri çekirdek araçları
 + [C# önceden derlenmiş](functions-dotnet-class-library.md#environment-variables)
 + [C# betiği (.csx)](functions-reference-csharp.md#environment-variables)
 + [F#betik (.fsx)](functions-reference-fsharp.md#environment-variables)
-+ [Java](functions-reference-java.md#environment-variables) 
++ [Java](functions-reference-java.md#environment-variables)
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-İçin geçerli bir depolama bağlantı dizesi ayarlandığında **AzureWebJobsStorage** ve öykünücü kullanılmıyor, aşağıdaki hata iletisi gösterilir:  
+İçin geçerli bir depolama bağlantı dizesi ayarlandığında **AzureWebJobsStorage** ve öykünücü kullanılmıyor, aşağıdaki hata iletisi gösterilir:
 
-> Local.settings.json içinde AzureWebJobsStorage için eksik değer. Bu HTTP dışındaki tüm tetikleyiciler için gereklidir. Çalıştırabileceğiniz ' func azure functionapp getirme-app-settings <functionAppName>' ya da local.settings.json içinde bir bağlantı dizesi belirtin.
+> Local.settings.json içinde AzureWebJobsStorage için eksik değer. Bu HTTP dışındaki tüm tetikleyiciler için gereklidir. Çalıştırabileceğiniz ' func azure functionapp getirme-app-settings \<functionAppName\>' ya da local.settings.json içinde bir bağlantı dizesi belirtin.
 
 ### <a name="get-your-storage-connection-strings"></a>Depolama bağlantı dizeleri alma
 
@@ -210,7 +210,7 @@ Depolama öykünücüsü için geliştirme kullanırken, bile, bir gerçek depol
 
   ![Bağlantı dizesini Azure portalından kopyalayın.](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ Kullanım [Azure Depolama Gezgini](https://storageexplorer.com/) Azure hesabınıza bağlanmak için. İçinde **Gezgini**, aboneliğinizi genişletin, depolama hesabınızı seçin ve birincil veya ikincil bağlantı dizesini kopyalayın. 
++ Kullanım [Azure Depolama Gezgini](https://storageexplorer.com/) Azure hesabınıza bağlanmak için. İçinde **Gezgini**, aboneliğinizi genişletin, depolama hesabınızı seçin ve birincil veya ikincil bağlantı dizesini kopyalayın.
 
   ![Depolama Gezgini'nde bağlantı dizesini kopyalayın](./media/functions-run-local/storage-explorer.png)
 
@@ -298,16 +298,15 @@ func host start
 
 | Seçenek     | Açıklama                            |
 | ------------ | -------------------------------------- |
-| **`--build`** | Çalıştırmadan önce geçerli projeyi derleyin. Sürüm 2.x ve C# projeleri yalnızca. |
+| **`--no-build`** | Hiçbir derleme geçerli proje çalıştırmadan önce yapın. Yalnızca dotnet projeler için. Varsayılan false olarak ayarlanır. Sürüm 2.x yalnızca. |
 | **`--cert`** | Özel anahtarı içeren bir .pfx dosyası yolu. Yalnızca kullanılan `--useHttps`. Sürüm 2.x yalnızca. |
+| **`--cors-credentials`** | Çıkış noktaları arası kimliği doğrulanmış istekler (yani, tanımlama bilgileri ve kimlik doğrulama üst bilgisi) izin sürüm 2.x yalnızca. |
 | **`--cors`** | CORS çıkış noktaları, boşluk virgülle ayrılmış listesi. |
-| **`--debug`** | Başlatır hata ayıklama bağlantı konakla açın, böylece ekleyebileceğiniz **func.exe** gelen işlem [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) veya [Visual Studio 2017](functions-dotnet-class-library.md). Geçerli değerler `VSCode` ve `VS`.  |
 | **`--language-worker`** | Dil çalışan yapılandırmak için bağımsız değişkenler. Sürüm 2.x yalnızca. |
 | **`--nodeDebugPort -n`** | Kullanmak düğüm hata ayıklayıcısı bağlantı noktası. Varsayılan: Launch.json veya 5858 arasında bir değer. Sürümü yalnızca 1.x. |
 | **`--password`** | Parola veya bir .pfx dosyası için parolayı içeren dosya. Yalnızca kullanılan `--cert`. Sürüm 2.x yalnızca. |
 | **`--port -p`** | Dinlemenin yapılacağı yerel bağlantı noktası. Varsayılan değer: 7071. |
 | **`--pause-on-error`** | Duraklatma işlemi çıkmadan önce ek giriş. Yalnızca temel araçları bir tümleşik geliştirme ortamından (IDE) başlatma sırasında kullanılır.|
-| **`--script-root --prefix`** | Çalıştırın veya dağıtılmış bir işlev uygulaması, kök yolunu belirtmek için kullanılır. Bu, bir alt klasöre proje dosyalarını oluşturmak derlenen projeler için kullanılır. Örneğin, bir C# sınıf kitaplığı projesi, host.json, local.settings.json ve function.json dosyaları oluşturduğunuzda oluşturulur bir *kök* bir yola sahip alt ister `MyProject/bin/Debug/netstandard2.0`. Bu durumda, ön eki olarak ayarlamak `--script-root MyProject/bin/Debug/netstandard2.0`. Azure'da çalışan işlev uygulamasını kök budur. |
 | **`--timeout -t`** | Saniyeler içinde başlatılacak işlevleri konak için zaman aşımı. Varsayılan: 20 saniye.|
 | **`--useHttps`** | Bağlama `https://localhost:{port}` yerine çok `http://localhost:{port}`. Varsayılan olarak, bu seçenek bilgisayarınızda güvenilen bir sertifika oluşturur.|
 
@@ -324,13 +323,13 @@ Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
 >[!IMPORTANT]
->Yerel olarak çalışırken, kimlik doğrulaması için HTTP uç noktaları zorlanmaz. Tüm yerel HTTP isteklerini olarak işlenir yani `authLevel = "anonymous"`. Daha fazla bilgi için [HTTP bağlama makale](functions-bindings-http-webhook.md#authorization-keys). 
+>Yerel olarak çalışırken, kimlik doğrulaması için HTTP uç noktaları zorlanmaz. Tüm yerel HTTP isteklerini olarak işlenir yani `authLevel = "anonymous"`. Daha fazla bilgi için [HTTP bağlama makale](functions-bindings-http-webhook.md#authorization-keys).
 
 ### <a name="passing-test-data-to-a-function"></a>Bir işlev test veri geçirme
 
 İşlevlerinizi yerel olarak test etmek için [işlevleri konağını Başlat](#start) ve HTTP isteklerini kullanarak yerel sunucuda uç noktalarını çağırın. Uç noktası çağrısı işlevi türüne bağlıdır.
 
->[!NOTE]  
+>[!NOTE]
 > Bu konudaki örnekler, terminal veya komut istemi HTTP istekleri göndermek için cURL aracını kullanın. Yerel sunucuya HTTP istekleri göndermek için seçtiğiniz bir aracı kullanabilirsiniz. CURL aracını, Linux tabanlı sistemler üzerinde varsayılan olarak kullanılabilir. Windows üzerinde indirmeniz ve yüklemeniz [cURL aracını](https://curl.haxx.se/).
 
 İşlevlerini test etme ile ilgili daha fazla genel bilgi için bkz: [kodunuzu Azure işlevleri'nde test stratejileri](functions-test-a-function.md).
@@ -341,9 +340,9 @@ Aşağıdaki çağrı uç noktası, HTTP ve Web kancası yerel olarak çalışt�
 
     http://localhost:{port}/api/{function_name}
 
-Aynı sunucu adını ve işlevleri konak dinlediği bağlantı noktasını kullandığınızdan emin olun. Bu işlev konak başlatma sırasında oluşturulan çıktıyı görürsünüz. Tetik tarafından desteklenen herhangi bir HTTP yöntemini kullanarak bu URL'yi çağırabilirsiniz. 
+Aynı sunucu adını ve işlevleri konak dinlediği bağlantı noktasını kullandığınızdan emin olun. Bu işlev konak başlatma sırasında oluşturulan çıktıyı görürsünüz. Tetik tarafından desteklenen herhangi bir HTTP yöntemini kullanarak bu URL'yi çağırabilirsiniz.
 
-Aşağıdaki cURL komutu Tetikleyicileri `MyHttpTrigger` bir GET isteği ile hızlı başlangıç işlevden _adı_ geçirilen sorgu dizesi parametresi. 
+Aşağıdaki cURL komutu Tetikleyicileri `MyHttpTrigger` bir GET isteği ile hızlı başlangıç işlevden _adı_ geçirilen sorgu dizesi parametresi.
 
 ```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
@@ -355,11 +354,11 @@ Aşağıdaki örnek, bir POST isteğinde geçirme adlı aynı işlevidir _adı_ 
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
-Sorgu dizesinde geçirilen bir tarayıcıdan GET istekleri yapabilir. Diğer tüm HTTP yöntemleri için cURL, Fiddler, Postman veya benzer bir HTTP test aracı kullanmanız gerekir.  
+Sorgu dizesinde geçirilen bir tarayıcıdan GET istekleri yapabilir. Diğer tüm HTTP yöntemleri için cURL, Fiddler, Postman veya benzer bir HTTP test aracı kullanmanız gerekir.
 
 #### <a name="non-http-triggered-functions"></a>HTTP olmayan tetiklenen İşlevler
 
-İşlevleri HTTP Tetikleyicileri ve Web kancaları dışındaki tüm türleri için yerel bir yönetim uç noktasını çağırarak işlevlerinizi test edebilirsiniz. Bu uç nokta bir HTTP POST isteği ile yerel sunucuda çağırma işlevi tetikler. İsteğe bağlı olarak bir POST isteğinin gövdesi yürütme için test verilerini geçirebilirsiniz. Bu işlevsellik aşağıdakine benzer **Test** Azure portalında sekmesi.  
+İşlevleri HTTP Tetikleyicileri ve Web kancaları dışındaki tüm türleri için yerel bir yönetim uç noktasını çağırarak işlevlerinizi test edebilirsiniz. Bu uç nokta bir HTTP POST isteği ile yerel sunucuda çağırma işlevi tetikler. İsteğe bağlı olarak bir POST isteğinin gövdesi yürütme için test verilerini geçirebilirsiniz. Bu işlevsellik aşağıdakine benzer **Test** Azure portalında sekmesi.
 
 HTTP olmayan işlevler tetiklemek için aşağıdaki yönetici uç noktası çağırırsınız:
 
@@ -381,10 +380,10 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 #### <a name="using-the-func-run-command-in-version-1x"></a>Kullanarak `func run` sürüm komutunu 1.x
 
->[!IMPORTANT]  
+>[!IMPORTANT]
 > `func run` Komut sürümünde desteklenmeyen 2.x araçlar. Daha fazla bilgi için Ek Yardım konusuna [Azure işlevleri çalışma zamanı sürümlerini hedeflemek nasıl](set-runtime-version.md).
 
-Doğrudan kullanarak bir işlev de çağırabilirsiniz `func run <FunctionName>` ve işlevi için giriş verilerini sağlayın. Bu komut, bir işlevi kullanarak çalışan benzer **Test** Azure portalında sekmesi. 
+Doğrudan kullanarak bir işlev de çağırabilirsiniz `func run <FunctionName>` ve işlevi için giriş verilerini sağlayın. Bu komut, bir işlevi kullanarak çalışan benzer **Test** Azure portalında sekmesi.
 
 `func run` Aşağıdaki seçeneklerini destekler:
 
@@ -410,9 +409,9 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Temel araçları, dağıtım, iki tür işlevi proje dosyalarını doğrudan işlev uygulamanızı dağıtma ve yalnızca desteklenen özel bir Linux kapsayıcısı dağıtmayı destekler 2.x. Önceden olmalıdır [Azure aboneliğinizde bir işlev uygulamanız oluşturulurken](functions-cli-samples.md#create).
 
-Sürüm 2.x olmalıdır [uzantılarınızı kayıtlı](#register-extensions) yayımlamadan önce projenizdeki. Derleme gerektiren projeler, böylece ikili dosyaları dağıtılabilir oluşturulmalıdır. 
+Sürüm 2.x olmalıdır [uzantılarınızı kayıtlı](#register-extensions) yayımlamadan önce projenizdeki. Derleme gerektiren projeler, böylece ikili dosyaları dağıtılabilir oluşturulmalıdır.
 
-### <a name="project-file-deployment"></a>Proje dosyası dağıtımı  
+### <a name="project-file-deployment"></a>Proje dosyası dağıtımı
 
 En yaygın dağıtım yöntemi, paketi, işlev uygulaması projesi, ikili dosyaları ve bağımlılıkları ve işlev uygulamanızı paketi dağıtmak için temel araçları ile içerir. İsteğe bağlı olarak yapabilecekleriniz [doğrudan dağıtım paketinden işlevlerinizin çalıştığı](run-functions-from-deployment-package.md).
 
@@ -424,10 +423,10 @@ func azure functionapp publish <FunctionAppName>
 
 Bu komut var olan işlev uygulamanızı Azure'a yayımlar. Bir hata oluşursa, `<FunctionAppName>` aboneliğinizde mevcut değil. Komut istemi veya terminal penceresinde Azure CLI kullanarak bir işlev uygulaması oluşturmak nasıl öğrenmek için bkz. [sunucusuz yürütme için bir işlev uygulaması oluşturma](./scripts/functions-cli-create-serverless.md).
 
-`publish` Komut işlevleri proje dizininin içeriğini yükler. Dosyaları yerel olarak silerseniz `publish` komut silinmez Azure'dan. Kullanarak Azure dosyaları silebilirsiniz [Kudu aracı](functions-how-to-use-azure-function-app-settings.md#kudu) içinde [Azure portal].  
+`publish` Komut işlevleri proje dizininin içeriğini yükler. Dosyaları yerel olarak silerseniz `publish` komut silinmez Azure'dan. Kullanarak Azure dosyaları silebilirsiniz [Kudu aracı](functions-how-to-use-azure-function-app-settings.md#kudu) içinde [Azure portal].
 
->[!IMPORTANT]  
-> Azure portalında bir işlev uygulaması oluşturduğunuzda, bu sürüm kullanır 2.x varsayılan olarak işlev çalışma zamanı. İşlev uygulaması kullanım sürümü yapmak için 1.x çalışma zamanı'ndaki yönergeleri izleyin [sürümünde çalışmasını 1.x](functions-versions.md#creating-1x-apps).  
+>[!IMPORTANT]
+> Azure portalında bir işlev uygulaması oluşturduğunuzda, bu sürüm kullanır 2.x varsayılan olarak işlev çalışma zamanı. İşlev uygulaması kullanım sürümü yapmak için 1.x çalışma zamanı'ndaki yönergeleri izleyin [sürümünde çalışmasını 1.x](functions-versions.md#creating-1x-apps).
 > Mevcut işlevleri sahip bir işlev uygulaması için çalışma zamanı sürümünü değiştiremezsiniz.
 
 Şu Proje Yayımlama seçenekleri sürümleri, 1.x ve 2.x'i için geçerlidir:
@@ -460,7 +459,7 @@ Bu komut var olan işlev uygulamanızı Azure'a yayımlar. Bir hata oluşursa, `
 func deploy
 ```
 
-Aşağıdaki özel kapsayıcı dağıtım seçenekleri kullanılabilir: 
+Aşağıdaki özel kapsayıcı dağıtım seçenekleri kullanılabilir:
 
 | Seçenek     | Açıklama                            |
 | ------------ | -------------------------------------- |

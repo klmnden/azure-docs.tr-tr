@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 6572a9b72554691441cb258a87a5db4ba7845087
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a02be1ba29ad43b90c99a5d1e275b96b3b4023d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077129"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718733"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Hub çalışma ve projeleri için özel Translator geçirme
 
@@ -85,9 +85,9 @@ Bir çalışma alanı geçirmek için:
 
 4.  Sonraki sayfada, bu iki seçeneklerinden birini seçin:
 
-    a.  Yalnızca eğitimleri dağıtılan: Bu seçeneğin belirlenmesi geçirme yalnızca dağıtılan sistemler ve ilgili belgeler.
+    a.  Yalnızca dağıtılan eğitimleri: Bu seçeneğin belirlenmesi, yalnızca dağıtılmış sistemler ve ilgili belgelerin geçirir.
 
-    b.  Tüm başarılı eğitimleri: Bu seçeneğin belirlenmesi, başarılı eğitimleri ve ilgili belgelerin geçirir.
+    b.  Tüm başarılı eğitimleri: Bu seçeneğin belirtilmesi, başarılı eğitimleri ve ilgili belgelerin geçirir.
 
     c.  İçinde özel Translator, hedef çalışma alanı kimliği girin.
 
@@ -113,13 +113,13 @@ Geçiş geçmişi sayfası aşağıdaki istediğiniz her geçiş için Özet bil
 
 1.  Tarafından geçirilen: Ad ve e-posta kullanıcının bu geçiş isteği gönderildi
 
-2.  Üzerinde geçişi: Tarih ve zaman damgası geçiş
+2.  Üzerinde geçişi: Tarih ve saat damgası geçiş
 
-3.  Projeler: İstenen proje v/sn sayısı geçiş başarıyla geçirildi projeleri sayısı.
+3.  Projeler: Proje geçiş v/sn sayısı başarıyla geçirildi istenen proje sayısı.
 
 4.  Eğitimleri: İstenen geçiş v/sn sayısı eğitimleri başarıyla geçirildi eğitimleri sayısı.
 
-5.  Belgeler: Belge v/sn sayısı geçiş başarıyla geçirildi istenen belge sayısı.
+5.  Belgeler: Geçiş belge v/sn sayısı başarıyla geçirildi istenen belge sayısı.
 
     ![Geçiş geçmişi ayrıntıları](media/how-to/how-to-migration-history-details.png)
 
@@ -130,7 +130,7 @@ Geçiş raporu projeleri, eğitimleri ve belgeleri hakkında daha ayrıntılı i
 * Yalnızca proje bir kez geçirmeye izin verilir.  Bir geçiş projesi üzerinde yinelemek ihtiyacınız varsa lütfen bizimle iletişime geçin.
 * Şu anda, özel Translator gelen ve İngilizce çevirme 36 dilleri destekler ve daha fazla dil eklemek için çalışıyoruz.  Hub temel modelleri gerektirmez ve bu nedenle birkaç bin dilleri destekler.  Ancak, yalnızca belgeleri geçirmek eder ve tanımları proje bir desteklenmeyen dili çifti geçirebilirsiniz.  Biz yeni modeli eğitmek mümkün olmayacaktır.  Ayrıca, bu belge ve projeleri etkin değil olarak şu anda kullanılamaz olduğunu belirtmek için görüntülenir. Bu projeler ve/veya belgeler için ek destek, etkin ve trainable olur.
 * Özel Translator tek dilli Kinsoku'ya eğitim verilerini şu anda desteklemiyor.  Desteklenmeyen dil çiftleri gibi tek dilli Kinsoku'ya belgeleri geçirebilirsiniz, ancak tek dilli Kinsoku'ya veri desteklenen kadar bunlar devre dışı olarak göster.  
-* Özel Translator eğitmek için 10 k paralel cümleler gerektirir.  Microsoft Hub daha küçük bir veri kümesini eğitme.  Eğitim, bu gereksinimi karşılamadığından kullanılamaz geçirilirse, eğitilmiş.
+* Özel Translator eğitmek için 10 k paralel cümleler gerektirir.  Microsoft Hub daha küçük bir veri kümesini eğitme. Eğitim, bu gereksinimi karşılamadığından kullanılamaz geçirilirse, bu eğitim değil.
 
 
 ## <a name="custom-translator-versus-hub"></a>Özel Translator Hub karşılaştırması

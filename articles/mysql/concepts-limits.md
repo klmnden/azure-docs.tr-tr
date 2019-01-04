@@ -1,20 +1,17 @@
 ---
 title: MySQL için Azure veritabanı'nda sınırlamaları
 description: Bu makalede, bağlantı ve depolama altyapısı seçenekleri sayısı gibi bir MySQL için Azure veritabanı'nda sınırlamalar açıklanır.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/6/2018
-ms.openlocfilehash: 89451122ff8cae33f1710fc1458fcd4277964e1f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19fc20f21a57c2325254581c642b75c92c221fd9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091001"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536099"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>MySQL için Azure veritabanı'nda sınırlamaları
 Aşağıdaki bölümlerde, kapasitesi, depolama altyapısı desteği, destek ayrıcalığına, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır. Ayrıca bkz: [genel kısıtlamalar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) MySQL veritabanı altyapısı için geçerlidir.
@@ -39,7 +36,7 @@ Fiyatlandırma katmanı ve sanal çekirdek başına bağlantıları sayısı aş
 |Bellek için İyileştirilmiş| 32| 10000|
 
 Bağlantı sınırı aştıklarında aşağıdaki hata iletisini alabilirsiniz:
-> 1040 (08004). hata: Çok fazla sayıda bağlantı
+> HATA 1040 (08004): Bağlantı sayısı çok fazla
 
 ## <a name="storage-engine-support"></a>Depolama altyapısı desteği
 
@@ -56,8 +53,8 @@ Bağlantı sınırı aştıklarında aşağıdaki hata iletisini alabilirsiniz:
 ## <a name="privilege-support"></a>Ayrıcalık desteği
 
 ### <a name="unsupported"></a>Desteklenmiyor
-- DBA rol: birçok sunucu parametreleri ve ayarları yanlışlıkla sunucu performansının düşmesine neden veya DBMS ACID özelliklerini negate. Bu nedenle, bir ürün düzeyinde SLA ve hizmet bütünlüğü korumak için bu hizmeti DBA rol kullanıma sunmuyor. Yeni bir veritabanı örneği oluşturulduğunda bu oluşturulur, varsayılan kullanıcı hesabı, veritabanı yönetilen örneğine DDL ve DML deyimleri çoğunu gerçekleştirmek bu kullanıcı sağlar. 
-- Süper ayrıcalık: benzer şekilde [Süper ayrıcalık](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) de sınırlıdır.
+- DBA rolü: Birçok sunucu parametreleri ve ayarları yanlışlıkla sunucu performansının düşmesine neden veya DBMS ACID özelliklerini negate. Bu nedenle, bir ürün düzeyinde SLA ve hizmet bütünlüğü korumak için bu hizmeti DBA rol kullanıma sunmuyor. Yeni bir veritabanı örneği oluşturulduğunda bu oluşturulur, varsayılan kullanıcı hesabı, veritabanı yönetilen örneğine DDL ve DML deyimleri çoğunu gerçekleştirmek bu kullanıcı sağlar. 
+- Süper ayrıcalık: Benzer şekilde [Süper ayrıcalık](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) de sınırlıdır.
 
 ## <a name="data-manipulation-statement-support"></a>Veri işleme ifadesi desteği
 

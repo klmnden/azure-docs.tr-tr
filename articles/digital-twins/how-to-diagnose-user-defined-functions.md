@@ -1,23 +1,27 @@
 ---
 title: Azure dijital İkizlerini, UDF'ler hata ayıklama | Microsoft Docs
-description: Azure dijital İkizlerini, UDF'ler hata ayıklama hakkında kılavuz
+description: Azure dijital İkizlerini, UDF'ler hata ayıklama hakkında kılavuz.
 author: stefanmsft
 manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/27/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 9476db888a4bfae2d43ae4eec340972d4c2eb714
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.custom: seodec18
+ms.openlocfilehash: e373e7c3ca83a0200cd1b6b945c5e4cb43b77a51
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413022"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974871"
 ---
-# <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>Azure dijital İkizlerini içinde kullanıcı tanımlı işlevlerle sorunlarında hata ayıklama
+# <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Azure dijital İkizlerini kullanıcı tanımlı işlevlerde hata ayıklama
 
-Bu makalede, kullanıcı tanımlı işlevleri tanılamak nasıl özetlenir. Ardından, bu bunlarla çalışırken karşılaşılan en yaygın senaryolardan bazıları tanımlar.
+Bu makalede, kullanıcı tanımlı işlevleri tanılamak nasıl özetlenir. Ardından, bu büyük olasılıkla bunlarla çalışırken karşılaşılan en yaygın senaryolardan bazıları tanımlar.
+
+>[!TIP]
+> Okuma [izleme ve günlüğe kaydetme yapılandırma](./how-to-configure-monitoring.md) etkinlik günlükleri, tanılama günlükleri ve Azure İzleyicisi'ni kullanarak Azure dijital İkizlerini araçlarındaki hata ayıklamayı kurma hakkında daha fazla bilgi edinmek için.
 
 ## <a name="debug-issues"></a>Sorunlarında hata ayıklama
 
@@ -28,9 +32,14 @@ Azure dijital İkizlerini örneğinizin içinde gerçekleşen tüm sorunlarını
 Günlükleri ve ölçümleri Azure dijital İkizlerini örneğinizin Azure İzleyici sunulur. Aşağıdaki belgeler, oluşturduğunuz varsayılır bir [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) çalışma alanını kullanarak [Azure portalı](../azure-monitor/learn/quick-create-workspace.md)temellidir [Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md), aracılığıyla veya [ PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
 > [!NOTE]
-> 5 dakikalık bir gecikmeyle olayları gönderirken karşılaşabilirsiniz **Log Analytics** ilk kez.
+> 5 dakikalık bir gecikmeyle olayları ilk kez Azure Log Analytics'e gönderirken karşılaşabilirsiniz.
 
-Makaleyi okuyun ["Toplamak ve Azure kaynaklarınızdan gelen günlük verilerini kullanabilirsiniz"](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) Portal, Azure CLI veya PowerShell aracılığıyla Azure dijital İkizlerini Örneğiniz için tanılama ayarlarını etkinleştirme. Tüm günlük kategorileri, Ölçümler ve Azure Log Analytics çalışma alanınızı seçtiğinizden emin olun.
+İzleme ve günlüğe kaydetme dijital İkizlerini Azure kaynakları için yapılandırmak için okuma [izleme ve günlüğe kaydetme yapılandırma](./how-to-configure-monitoring.md).
+
+Makaleyi okuyun [toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma](../azure-monitor/platform/diagnostic-logs-overview.md) tanılama günlüğü ayarları Azure dijital İkizlerini örneğinizin Azure portalı, Azure CLI veya PowerShell aracılığıyla kapsamlı bir genel bakış için.
+
+>[!IMPORTANT]
+> Tüm günlük kategorileri, Ölçümler ve Azure Log Analytics çalışma alanınızı seçtiğinizden emin olun.
 
 ### <a name="trace-sensor-telemetry"></a>Telemetri algılayıcı izleme
 
@@ -56,11 +65,11 @@ AzureDiagnostics
 | where Category == 'UserDefinedFunction'
 ```
 
-Güçlü sorgu işlemleri hakkında daha fazla bilgi için bkz: [sorguları ile çalışmaya başlama](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Güçlü sorgu işlemleri hakkında daha fazla bilgi için okuma [sorguları ile çalışmaya başlama](../azure-monitor/log-query/get-started-queries.md).
 
 ## <a name="identify-common-issues"></a>Sık karşılaşılan sorunları tanımlayın
 
-Tanılama hem ortak sorunları belirlemenize, çözüme giderirken önemlidir. Bazı yaygın sorunları karşılaşılan geliştirme kullanıcı tanımlı işlevleri aşağıda özetlenmiştir.
+Tanılama hem ortak sorunları belirlemenize, çözüme giderirken önemlidir. Kullanıcı tanımlı işlevleri geliştirirken yaygın olarak karşılaşılan birkaç sorun aşağıda özetlenmiştir.
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
@@ -74,11 +83,11 @@ Bir rol ataması, yönetim API'si aracılığıyla kullanıcı tanımlı işlevi
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Parametre | Şununla değiştir |
+| Parametre değeri | Şununla değiştir |
 | --- | --- |
-| *YOUR_USER_DEFINED_FUNCTION_ID* | Rol atamalarını almak için kullanıcı tanımlı işlev kimliği|
+| YOUR_USER_DEFINED_FUNCTION_ID | Rol atamalarını almak için kullanıcı tanımlı işlev kimliği|
 
-Hiçbir rol ataması alınır, bu makaleyi takip [kullanıcı tanımlı işleviniz için bir rol ataması oluşturma](./how-to-user-defined-functions.md).
+Bilgi [kullanıcı tanımlı işleviniz için bir rol ataması oluşturma](./how-to-user-defined-functions.md), hiçbir rol ataması yok.
 
 ### <a name="check-if-the-matcher-will-work-for-a-sensors-telemetry"></a>Eşleştiricisi için telemetri algılayıcı'nın çalışıp çalışmayacağını denetleyin
 
@@ -159,7 +168,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-Belirtilen topoloji nesne türü 'Alanı' iken bir algılayıcı için kullanılan tanımlayıcı başvurduğundan bu senaryo ortaya çıkar.
+Bu senaryo ortaya topolojisi nesne türü belirtilen sırada bir algılayıcı için kullanılan tanımlayıcı başvurduğundan `Space`.
 
 **Doğru** örneği:
 
@@ -200,4 +209,4 @@ Tanılama ayarlarını etkinleştirme, bu sık karşılaşılan özel durumlar k
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Nasıl etkinleştireceğinizi öğrenin [izleme ve günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) Azure dijital İkizlerini içinde.
+Nasıl etkinleştireceğinizi öğrenin [izleme ve günlükleri](../azure-monitor/platform/activity-logs-overview.md) Azure dijital İkizlerini içinde.

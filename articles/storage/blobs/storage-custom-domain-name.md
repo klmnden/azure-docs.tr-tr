@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 74d6acb03f9ba984d35caf1f5c7963f686cda5a7
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 47ce2b39f1733c99ef8c15926d42aa62e1fcd44c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219265"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634567"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Azure depolama hesabınız için bir özel etki alanı adı yapılandırma
 
@@ -176,12 +176,14 @@ Blob Depolama uç noktanız için özel bir etki alanı kaydını silmek için a
 
 ### <a name="powershell"></a>PowerShell
 
-Özel etki alanı kaydını kaldırmak için kullanın [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount) PowerShell cmdlet'ini ve ardından boş bir dize belirtin (`""`) için `-CustomDomainName` bağımsız değişken değeri.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Özel etki alanı kaydını kaldırmak için kullanın [kümesi AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) PowerShell cmdlet'ini ve ardından boş bir dize belirtin (`""`) için `-CustomDomainName` bağımsız değişken değeri.
 
 * Komut biçimi:
 
   ```powershell
-  Set-AzureRmStorageAccount `
+  Set-AzStorageAccount `
       -ResourceGroupName "<resource-group-name>" `
       -AccountName "<storage-account-name>" `
       -CustomDomainName ""
@@ -190,7 +192,7 @@ Blob Depolama uç noktanız için özel bir etki alanı kaydını silmek için a
 * Komut örneği:
 
   ```powershell
-  Set-AzureRmStorageAccount `
+  Set-AzStorageAccount `
       -ResourceGroupName "myresourcegroup" `
       -AccountName "mystorageaccount" `
       -CustomDomainName ""

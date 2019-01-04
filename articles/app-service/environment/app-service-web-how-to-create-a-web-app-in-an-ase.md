@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 84a8a0687a1da0eaf7842a9bf6115c1d0f5d3fd1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338150"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718105"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Bir App Service ortamı v1'de bir web uygulaması oluşturma
 
@@ -51,7 +51,7 @@ Bu öğreticide, bir App Service ortamı oluşturmuş olduğunuzu varsayar. Hen�
     *Kaynak grupları* bir birim olarak ilgili Azure kaynaklarını yönetmenizi sağlayan ve kurulurken faydalıdır *rol tabanlı erişim denetimi* uygulamalarınız için (RBAC) kuralları. Daha fazla bilgi için [Azure Resource Manager'a genel bakış][ResourceGroups]. 
 4. Bir App Service planı seçin ya da oluşturun.
    
-    *App Service planları* web Apps yönetilen kümeleri.  Normal fiyatlandırma seçtiğinizde fiyatın App Service planı yerine tek tek uygulamalar için uygulanır. ASE için ayrılan işlem örnekleri için ödeme bir ASE'de, ASP ile listelenen değil.  Bir web uygulamasının App service'inizin örneği ölçeklendirme örneklerinin artırabileceğinizi planı ve etkiler tüm web uygulamaları ve bu planı.  Site yuvaları veya VNET tümleştirmesi gibi bazı özellikleri, ayrıca plan içindeki miktar kısıtlamaları vardır.  Daha fazla bilgi için [Azure App Service planlarına genel bakış](../azure-web-sites-web-hosting-plans-in-depth-overview.md)
+    *App Service planları* web Apps yönetilen kümeleri.  Normal fiyatlandırma seçtiğinizde fiyatın App Service planı yerine tek tek uygulamalar için uygulanır. ASE için ayrılan işlem örnekleri için ödeme bir ASE'de, ASP ile listelenen değil.  Bir web uygulamasının App service'inizin örneği ölçeklendirme örneklerinin artırabileceğinizi planı ve etkiler tüm web uygulamaları ve bu planı.  Site yuvaları veya VNET tümleştirmesi gibi bazı özellikleri, ayrıca plan içindeki miktar kısıtlamaları vardır.  Daha fazla bilgi için [Azure App Service planlarına genel bakış](../overview-hosting-plans.md)
    
     Plan adı altında belirtilen konuma bakarak ASE'NİZDE App Service planları tanımlayabilirsiniz.  
    
@@ -108,7 +108,7 @@ Web uygulaması ve App Service planı oluşturduktan sonra ölçeği iyi bir fik
 
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
-[Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
+[Appserviceplans]: ../overview-hosting-plans.md
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md

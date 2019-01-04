@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 79ee129390c6b364ec65e8ae1e893e98f358751e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4eb4db9a4057d072f348de48bee2f746f77cbb84
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497106"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715350"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>HDInsight kümenizi oluştururken özel Apache Hive kitaplıkları ekleme
 
@@ -26,7 +26,7 @@ Bir küme oluştururken, küme düğümleri oluşturuldukları sırada değişti
 
 Küme oluşturma sırasında komut dosyaları listeler, kopyalar `/usr/lib/customhivelibs/` baş ve çalışan düğümleri üzerinde dizin ardından ekler kendisine `hive.aux.jars.path` özelliğinde `core-site.xml` dosya. Ayrıca Linux tabanlı kümelerde güncelleştirir `hive-env.sh` dosyasıyla dosyalarının konumu.
 
-> [!NOTE]
+> [!NOTE]  
 > Bu makalede betik eylemlerini kullanarak kitaplıkları aşağıdaki senaryolarda kullanılabilir hale getirir:
 >
 > * **Linux tabanlı HDInsight** - bir Hive istemcisi kullanılırken **WebHCat**, ve **HiveServer2**.
@@ -40,10 +40,10 @@ Küme oluşturma sırasında komut dosyaları listeler, kopyalar `/usr/lib/custo
 
 İçin **Windows tabanlı kümeler**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-**Gereksinimleri**
+**Gereksinimler**
 
 * Betikler her ikisi için de uygulanmalıdır **baş düğümlerine** ve **çalışan düğümleri**.
 
@@ -53,14 +53,14 @@ Küme oluşturma sırasında komut dosyaları listeler, kopyalar `/usr/lib/custo
 
 * Betik eylemi bir parametre olarak kapsayıcı WASB yolu belirtilmelidir. Örneğin jar dosyaları dışındaki adlı bir kapsayıcıda depolanır, **libs** adlı bir depolama hesabında **depolamam**, parametre olacaktır **wasb://libs@mystorage.blob.core.windows.net/**.
 
-  > [!NOTE]
+  > [!NOTE]  
   > Bu belge, zaten oluşturulan bir depolama hesabı, blob kapsayıcısını ve dosyaları karşıya olduğunu varsayar.
   >
-  > Bir depolama hesabı oluşturmadıysanız, bu nedenle ile yapabileceğiniz [Azure portalında](https://portal.azure.com). Ardından bir hizmet gibi kullanabilir [Azure Depolama Gezgini](http://storageexplorer.com/) hesabında bir kapsayıcı oluşturun ve dosyalarını yükleyin.
+  > Bir depolama hesabı oluşturmadıysanız, bu nedenle ile yapabileceğiniz [Azure portalında](https://portal.azure.com). Ardından bir hizmet gibi kullanabilir [Azure Depolama Gezgini](https://storageexplorer.com/) hesabında bir kapsayıcı oluşturun ve dosyalarını yükleyin.
 
 ## <a name="create-a-cluster-using-the-script"></a>Betik kullanarak küme oluşturma
 
-> [!NOTE]
+> [!NOTE]  
 > Aşağıdaki adımlar, Linux tabanlı HDInsight kümesi oluşturur. Windows tabanlı bir küme oluşturmak için Seç **Windows** kümesi (PowerShell) Windows komut dosyası yerine bash betiğini kullanın ve küme oluştururken işletim sistemi olarak.
 >
 > Bu komut dosyası kullanarak bir küme oluşturmak için Azure PowerShell veya HDInsight .NET SDK'sını kullanabilirsiniz. Bu yöntemleri kullanma hakkında daha fazla bilgi için bkz. [özelleştirme HDInsight kümeleri ile betik eylemleri](hdinsight-hadoop-customize-cluster-linux.md).
@@ -69,17 +69,17 @@ Küme oluşturma sırasında komut dosyaları listeler, kopyalar `/usr/lib/custo
 
 2. Üzerinde **isteğe bağlı yapılandırma** bölümünden **betik eylemleri**ve aşağıdaki bilgileri sağlayın:
 
-   * **AD**: betik eylemi için bir kolay ad girin.
+   * **AD**: Betik eylemi için bir kolay ad girin.
 
-   * **BETİK URI'Sİ**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **BETİK URI'Sİ**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh.
 
    * **HEAD**: Bu seçeneği işaretleyin.
 
    * **ÇALIŞAN**: Bu seçeneği işaretleyin.
 
-   * **ZOOKEEPER**: Bu alanı boş bırakın.
+   * **ZOOKEEPER**: Bunu boş bırakın.
 
-   * **PARAMETRELERİ**: jar dosyaları dışındaki içeren kapsayıcı ve depolama hesabına WASB adresini girin. Örneğin, **wasb://libs@mystorage.blob.core.windows.net/**.
+   * **PARAMETRELERİ**: WASB adresi için jar dosyaları dışındaki içeren kapsayıcı ve depolama hesabı girin. Örneğin, **wasb://libs@mystorage.blob.core.windows.net/**.
 
 3. Sayfanın alt kısmında **betik eylemleri**, kullanın **seçin** yapılandırmayı kaydetmek için düğme.
 

@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 1627e6bc5290277329633aa086d0fdbbbb12d971
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5175d768f4aa62365e4151b4c8fed372038f1d95
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821302"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548808"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure İzleyici (Önizleme) Azure Service Bus ölçümleri
 
@@ -29,7 +29,7 @@ Azure İzleyici, çeşitli Azure Hizmetleri genelinde izleme için birleştirilm
 
 Azure İzleyici ölçümlerine erişim birden çok yol sağlar. Ya da erişim ölçümleri ile yapabilecekleriniz [Azure portalında](https://portal.azure.com), veya Azure İzleyici API'leri (REST ve .NET) ve Log Analytics ve Event Hubs gibi analiz çözümleri kullanın. Daha fazla bilgi için [İzleme verilerine Azure İzleyicisi tarafından toplanan](../azure-monitor/platform/data-collection.md).
 
-Ölçümler, varsayılan olarak etkindir ve en son 30 Günün verilerini erişebilir. Uzun bir süre saklamak istiyorsanız ölçüm verileri bir Azure depolama hesabına arşivleyebilir. Bu değeri yapılandırılan [tanılama ayarları](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) Azure İzleyici'de.
+Ölçümler, varsayılan olarak etkindir ve en son 30 Günün verilerini erişebilir. Uzun bir süre saklamak istiyorsanız ölçüm verileri bir Azure depolama hesabına arşivleyebilir. Bu değeri yapılandırılan [tanılama ayarları](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) Azure İzleyici'de.
 
 ## <a name="access-metrics-in-the-portal"></a>Portalda erişim ölçümlerini
 
@@ -60,11 +60,11 @@ Veri ve yönetim işlemleri istek sayısını sayar.
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-| Gelen istekler (Önizleme) | Belirtilen bir süredeki Service Bus hizmetine yapılan isteklerin sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Başarılı istekler (Önizleme)|Belirtilen bir süredeki Service Bus hizmetine gönderilen başarılı isteklerin sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Sunucu hataları (Önizleme)|Service Bus hizmetinde bir hata nedeniyle belirtilen bir süredeki işlenmedi istek sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Kullanıcı hataları (Önizleme - aşağıdaki alt bölüme bakın)|Kullanıcı hataları nedeniyle, belirtilen bir süredeki işlenmedi istek sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Daraltılmış istekler (Önizleme)|Kullanım aşıldığından bulunduğu için kısıtlanan istek sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
+| Gelen istekler (Önizleme) | Belirtilen bir süredeki Service Bus hizmetine yapılan isteklerin sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Başarılı istekler (Önizleme)|Belirtilen bir süredeki Service Bus hizmetine gönderilen başarılı isteklerin sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Sunucu hataları (Önizleme)|Service Bus hizmetinde bir hata nedeniyle belirtilen bir süredeki işlenmedi istek sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Kullanıcı hataları (Önizleme - aşağıdaki alt bölüme bakın)|Kullanıcı hataları nedeniyle, belirtilen bir süredeki işlenmedi istek sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Daraltılmış istekler (Önizleme)|Kullanım aşıldığından bulunduğu için kısıtlanan istek sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
 
 ### <a name="user-errors"></a>Kullanıcı hataları
 
@@ -78,18 +78,18 @@ Aşağıdaki iki türde hatalar, kullanıcı hataları sınıflandırılan:
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-|Gelen iletiler (Önizleme)|Olayları veya belirtilen bir süredeki Service Bus'a gönderilen iletilerin sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Giden iletiler (Önizleme)|Olayları veya belirtilen bir süredeki Service Bus'tan alınan iletilerin sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-| İletiler (Önizleme) | Bir sıradaki/konudaki iletilerin sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: ortalama <br/> Boyut: EntityName |
-| ActiveMessages (Önizleme) | Bir sıradaki/konudaki etkin iletilerin sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: ortalama <br/> Boyut: EntityName |
+|Gelen iletiler (Önizleme)|Olayları veya belirtilen bir süredeki Service Bus'a gönderilen iletilerin sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Giden iletiler (Önizleme)|Olayları veya belirtilen bir süredeki Service Bus'tan alınan iletilerin sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+| İletiler (Önizleme) | Bir sıradaki/konudaki iletilerin sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Boyut: EntityName |
+| ActiveMessages (Önizleme) | Bir sıradaki/konudaki etkin iletilerin sayısı. <br/><br/> Birim: Sayı <br/> Toplama türü: Ortalama <br/> Boyut: EntityName |
 
 ## <a name="connection-metrics"></a>Bağlantı ölçümü
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-|ActiveConnections (Önizleme)|Bir varlığın yanı sıra bir ad alanı etkin bağlantı sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Bağlantılar açık (Önizleme)|Açık bağlantıları sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
-|Bağlantı kapalı (Önizleme)|Kapalı bağlantılarının sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName |
+|ActiveConnections (Önizleme)|Bir varlığın yanı sıra bir ad alanı etkin bağlantı sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Bağlantılar açık (Önizleme)|Açık bağlantıları sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName|
+|Bağlantı kapalı (Önizleme)|Kapalı bağlantılarının sayısı.<br/><br/> Birim: Sayı <br/> Toplama türü: Toplam <br/> Boyut: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Kaynak kullanım ölçümleri
 
@@ -98,8 +98,8 @@ Aşağıdaki iki türde hatalar, kullanıcı hataları sınıflandırılan:
 
 | Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
-|Ad alanı (Önizleme) başına CPU kullanımı|Yüzdesi CPU kullanımı ad alanı.<br/><br/> Birim: yüzde <br/> Toplama türü: en fazla <br/> Boyut: EntityName|
-|Ad alanı (Önizleme) başına bellek boyutu kullanımı|Ad alanı bellek kullanım yüzdesi.<br/><br/> Birim: yüzde <br/> Toplama türü: en fazla <br/> Boyut: EntityName|
+|Ad alanı (Önizleme) başına CPU kullanımı|Yüzdesi CPU kullanımı ad alanı.<br/><br/> Birim: Yüzde <br/> Toplama türü: Maksimum <br/> Boyut: EntityName|
+|Ad alanı (Önizleme) başına bellek boyutu kullanımı|Ad alanı bellek kullanım yüzdesi.<br/><br/> Birim: Yüzde <br/> Toplama türü: Maksimum <br/> Boyut: EntityName|
 
 ## <a name="metrics-dimensions"></a>Ölçümleri boyutları
 
@@ -123,7 +123,7 @@ Azure Service Bus, Azure İzleyicisi'nde ölçümler için aşağıdaki boyutlar
         ![Ad alanı seçin](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Seçin **Ölçüt Ekle**, ve aşağıdaki işlemleri yapmak **sinyal mantığını yapılandırma** sayfası:
     1. Seçin **ölçümleri** için **sinyal türü**. 
-    2. Bir sinyal seçin. Örneğin: **hataları (Önizleme) hizmet**. 
+    2. Bir sinyal seçin. Örneğin: **Hizmet hataları (Önizleme)**. 
 
         ![Sunucu hataları seçin](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Seçin **büyüktür** için **koşul**.

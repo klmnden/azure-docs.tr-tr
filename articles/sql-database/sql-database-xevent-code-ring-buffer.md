@@ -9,15 +9,15 @@ ms.devlang: PowerShell
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: ''
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 522561d8afcf6fe1bdd2887f7fd5180b79565a61
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2aaab17f3ba9352e2ee9448acbbc2d2ca2b9d077
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874626"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607651"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Halka arabelleği hedef kodu için SQL veritabanı'nda genişletilmiş olaylar
 
@@ -348,7 +348,7 @@ Azure SQL veritabanı'nda genişletilmiş olaylar için birincil anahtar konudur
 
 Diğer kod örnek konuları genişletilmiş olaylar için aşağıdaki bağlantılarda kullanılabilir. Ancak, Microsoft Azure SQL veritabanı ve SQL Server örneği mı hedeflediği görmek için herhangi bir örnek düzenli olarak işaretlemeniz gerekir. Ardından, küçük değişiklikler örneği çalıştırmak için gerekli olup olmadığını karar verebilirsiniz.
 
-* Azure SQL veritabanı için kod örneği: [SQL veritabanı'nda genişletilmiş olaylar için olay dosyası hedef kodu](sql-database-xevent-code-event-file.md)
+* Azure SQL veritabanı için örnek kod: [SQL veritabanı'nda genişletilmiş olaylar için olay dosyası hedef kodu](sql-database-xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)

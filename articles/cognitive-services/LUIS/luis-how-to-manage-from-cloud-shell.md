@@ -1,7 +1,7 @@
 ---
 title: Kullanım verilerini - Cloud Shell
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Kullanım bilgileri için LUIS Azure Cloud Shell'de almayı öğrenin.
+description: Uç nokta almayı öğrenme isabet sayısı kullanım bilgileri Azure Cloud shell'de LUIS için.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,21 +9,25 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: d4f1a76fe587a34448cf218dbfef10f6b0e2ea46
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 703332ece0208856bfbedb852b4b1e985d157dc9
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133492"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605969"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Azure Cloud shell'den LUIS hizmeti için kullanım verileri
+
+Uç nokta almayı öğrenme isabet sayısı kullanım bilgileri Azure Cloud shell'de LUIS için.
+
 Azure portalında LUIS kaynak ile çalışmak için PowerShell cmdlet'leri kullanmanıza olanak tanır. 
 
 Bu cmdlet'ler izin [oluşturma](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) LUIS abonelik, aboneliği hakkında bilgi alın dahil olmak üzere [kullanım](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), ve [Kaldır](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) abonelik. 
 
 ## <a name="cloud-shell-storage-account-and-authentication"></a>Cloud shell depolama hesabı ve kimlik doğrulaması
+
 Azure portalında PowerShell kullanmak için [cloud shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell), Azure depolama hesabınız olması gerekir. Yoksa bir [depolama hesabı](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage), oluşturmanız istenir. Depolama hesabı cloud shell'de PowerShell betikleri kaydetmenize olanak tanır.  
 
 Ayrıca, Azure'a tüm kaynaklara erişmek için cloud shell içinde kimlik doğrulaması gerekir. 
@@ -31,6 +35,7 @@ Ayrıca, Azure'a tüm kaynaklara erişmek için cloud shell içinde kimlik doğr
 Bir depolama hesabınız var ve doğrulandıktan sonra PowerShell cmdlet'lerini çalıştırabilirsiniz.
 
 ## <a name="open-cloud-shell"></a>Cloud Shell’i açma
+
 Azure portalında cloud shell kullandığınızda, her zaman en son PowerShell sürümüne olur. 
 
 Kullanım **Cloud Shell'i Başlat** Cloud Shell'i açın veya bir tarayıcı ile açmak için düğmeyi [ https://shell.azure.com ](https://shell.azure.com). Power Shell ortamı seçin. Bir Azure depolama hesabınız yoksa, oluşturmanız gerekir. 

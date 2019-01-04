@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Data Factory kullanarak Azure HDInsight isteğe bağlı Apache Hadoop kümeleri oluşturma '
+title: 'Öğretici: İsteğe bağlı Apache Hadoop kümeleri Azure Data Factory kullanarak HDInsight oluşturma '
 description: Azure Data Factory kullanarak HDInsight isteğe bağlı Apache Hadoop kümeleri oluşturmayı öğrenin.
 services: hdinsight
 author: hrasheed-msft
@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: c7ec0b29e200710070cb1243ff8bfadd5e31e8eb
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7b20ceb61f522bea11e7256c824a851e587cbd49
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879418"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975466"
 ---
-# <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Öğretici: Apache Hadoop kümelerini isteğe bağlı Azure Data Factory kullanarak HDInsight oluşturma
+# <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Öğretici: İsteğe bağlı Apache Hadoop kümeleri Azure Data Factory kullanarak HDInsight oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Bu makalede, şunların nasıl oluşturulacağı bir [Apache Hadoop](https://hadoop.apache.org/) isteğe bağlı, Azure Data Factory kullanarak Azure HDInsight kümesi. Ardından Hive işleri çalıştırmayı ve kümeyi silmek için veri işlem hatları Azure Data Factory'de kullanın. Bu öğreticinin sonunda, küme oluşturma işi çalıştırma ve küme silme zaman çizelgesinde nerede gerçekleştirilen çalıştırma bir büyük veri iş kullanıma hazır hale getirme hakkında bilgi edinin.
@@ -55,7 +55,7 @@ Bu bölümde Azure PowerShell Betiği, gerekli dosyaları depolama hesabında ko
 
 
 **Depolama hesabı oluşturma ve Azure PowerShell kullanarak dosyaları kopyalamak için:**
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Azure kaynak grubu ve komut dosyası tarafından oluşturulacak Azure depolama hesabı adları belirtin.
 > Not **kaynak grubu adı**, **depolama hesabı adı**, ve **depolama hesabı anahtarı** komut dosyası tarafından yüzdelik. Sonraki bölümde ihtiyaç.
 
@@ -166,7 +166,11 @@ Bu makalede, bir isteğe bağlı HDInsight Hadoop kümesi oluşturmak için Hive
 
 1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
 
-1. Azure portalında **kaynak Oluştur** > **veri ve analiz** > **Data Factory**.
+1. Sol menüden **+ kaynak Oluştur**.
+
+1. Altında **Azure Marketi**seçin **Analytics**.
+
+1.  Altında **öne çıkan**seçin **Data Factory**.
 
     ![Azure Data Factory portalında](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-azure-portal.png "Azure Portal'daki Data Factory")
 
@@ -181,19 +185,18 @@ Bu makalede, bir isteğe bağlı HDInsight Hadoop kümesi oluşturmak için Hive
     |**Ad** |  Veri Fabrikası için bir ad girin. Bu adın küresel olarak benzersiz olması gerekir.|
     |**Abonelik**     |  Azure aboneliğinizi seçin. |
     |**Kaynak grubu**     | Seçin **var olanı kullan** ve ardından PowerShell betiğini kullanarak oluşturduğunuz kaynak grubunu seçin. |
-    |**Sürüm**     | Seçin **V2 (Önizleme)** |
-    |**Konum**     | Konum, daha önce bir kaynak grubu oluşturulurken belirtilen konuma otomatik olarak ayarlanır. Bu öğreticide, konumu ayarlamak **Doğu ABD 2**. |
+    |**Sürüm**     | Seçin **V2** |
+    |**Konum**     | Konum, daha önce bir kaynak grubu oluşturulurken belirtilen konuma otomatik olarak ayarlanır. Bu öğreticide, konumu ayarlamak **Doğu ABD**. |
     
 
-1. Seçin **panoya Sabitle**ve ardından **Oluştur**. Portal panosunda **Dağıtım gönderiliyor** başlıklı yeni bir kutucuk görürsünüz. Herhangi bir veri fabrikası oluşturma 2 ila 4 dakika arasında sürebilir.
+1. **Oluştur**’u seçin. Herhangi bir veri fabrikası oluşturma 2 ila 4 dakika arasında sürebilir.
 
-    ![Şablon dağıtımı ilerleme](./media/hdinsight-hadoop-create-linux-clusters-adf/deployment-progress-tile.png "şablon dağıtım ilerleme durumu") 
- 
-1. Veri Fabrikası oluşturulduktan sonra portal için data factory'ye genel bakış gösterir.
 
-    ![Azure Data Factory'ye genel bakış](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory'ye genel bakış")
+1. Veri Fabrikası oluşturulduktan sonra alacak bir **dağıtım başarılı** bildirimi bir **kaynağa Git** düğmesi.  Seçin **kaynağa Git** Data Factory varsayılan görünümünü açın.
 
 1. Seçin **yazar ve İzleyici** Azure Data Factory yazma ve izleme Portalı'nı başlatmak için.
+
+    ![Azure Data Factory'ye genel bakış](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory'ye genel bakış")
 
 ## <a name="create-linked-services"></a>Bağlı hizmetler oluşturma
 

@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4285c633062386657cbea478f327c9a1b088f16a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 785223f7da1f59288f4fca6e7a3955a6b3af41c0
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383825"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975013"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Yükleme ve Presto HDInsight Hadoop kümelerini kullanma
 
@@ -31,9 +31,7 @@ HDInsight için Apache Hadoop kümelerini Presto Yıldız Yağmuru uygulama de s
 > [!WARNING]  
 > HDInsight kümesi ile sağlanan bileşenler tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenler için ilgili sorunları gidermek için yardımcı olur.
 > 
-> Özel bileşenler, Presto gibi daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Bu sorunu çözümlemek ya da bu teknoloji için derin bir uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları etkileşim kurmak isteyen neden olabilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
-> 
-> 
+> Özel bileşenler, Presto gibi daha fazla sorun giderme konusunda yardımcı olması için ticari açıdan makul destek alırsınız. Bu sorunu çözümlemek ya da bu teknoloji için derin bir uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları etkileşim kurmak isteyen neden olabilir. Örneğin, gibi kullanılan birçok topluluk siteleri vardır: [HDInsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ https://stackoverflow.com ](https://stackoverflow.com). Apache projeleri proje siteleri de [ https://apache.org ](https://apache.org), örneğin: [Hadoop](https://hadoop.apache.org/).
 
 
 ## <a name="install-presto-using-script-action"></a>Betik eylemi kullanarak Presto yükleme
@@ -44,7 +42,7 @@ Bu bölümde, örnek betik Azure portalını kullanarak yeni bir küme oluşturu
 
     * HDInsight sürümü 3.6 ile bir Hadoop kümesini olmalıdır.
 
-    * Azure depolama veri deposu olarak kullanmanız gerekir. Azure Data Lake Store depolama seçeneği olarak kullanan bir kümede presto kullanarak henüz bir seçenek değildir.
+    * Azure depolama veri deposu olarak kullanmanız gerekir. Presto depolama seçeneği olarak Azure Data Lake depolama kullanan bir kümesi kullanarak henüz bir seçenek değildir.
 
     ![Özel seçenekleri kullanarak HDInsight küme oluşturma](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
@@ -123,17 +121,23 @@ Kenar düğümüne Airpal yüklemek için aşağıdaki adımları kullanın:
 
 5. **Satın al**’a tıklayın.
 
-6. Küme yapılandırması için değişiklikler uygulandıktan sonra aşağıdaki adımları kullanarak Airpal web arabirimi erişebilirsiniz.
+6. Küme yapılandırması için değişiklikler uygulandıktan sonra web arabirimini kullanarak aşağıdaki adımları Airpal erişebilirsiniz [Azure portalında](https://portal.azure.com):
 
-    1. Küme iletişim kutusundan tıklayın **uygulamaları**.
+    1. Sol menüden **tüm hizmetleri**.
+
+    1. Altında **ANALYTICS**seçin **HDInsight kümeleri**.
+
+    1. Kümenizi varsayılan görünüm açılır listeden seçin.
+
+    1. Varsayılan görünümünden altında **ayarları**seçin **uygulamaları**.
 
         ![Presto kümede HDInsight başlatma Airpal](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
 
-    2. Gelen **yüklü uygulamaların** alanı tıklayın **portalı** airpal karşı.
+    1. Gelen **yüklü uygulamaların** sayfası, yerel tablosu girişi **airpal**seçip **portalı**.
 
         ![Presto kümede HDInsight başlatma Airpal](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
 
-    3. İstendiğinde, HDInsight Hadoop kümesi oluştururken belirttiğiniz yönetici kimlik bilgilerini girin.
+    1. İstendiğinde, HDInsight Hadoop kümesi oluştururken belirttiğiniz yönetici kimlik bilgilerini girin.
 
 ## <a name="customize-a-presto-installation-on-hdinsight-cluster"></a>HDInsight kümesi üzerinde bir Presto yükleme özelleştirme
 

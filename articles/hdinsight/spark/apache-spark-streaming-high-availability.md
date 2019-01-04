@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 9898a56991a44f3ac87fde4c34676943b1ab8341
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 1d9a7caa7ab70ef1f0da41e1ec3f30780f93536a
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581910"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53649730"
 ---
 # <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>YARN ile yüksek kullanılabilirlik Apache Spark akış işleri oluşturma
 
@@ -122,6 +122,6 @@ DStream denetim noktası sürücüleriyle kurtarmak için:
 
 * [Apache Spark akış genel bakış](apache-spark-streaming-overview.md)
 * [Apache Spark akış işleri ile tam olarak oluşturma-kere olay işleme](apache-spark-streaming-exactly-once.md)
-* [Uzun süre çalışan Apache akış işleri YARN üzerinde Spark](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
-* [Yapılandırılmış akış: Hataya dayanıklı semantiği](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
+* [Uzun süre çalışan Apache akış işleri YARN üzerinde Spark](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Yapılandırılmış akış: Hataya dayanıklı semantiği](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
 * [Ayrılmış akışları: Hataya dayanıklı bir Model için ölçeklenebilir Stream işleme](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

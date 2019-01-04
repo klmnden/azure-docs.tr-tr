@@ -55,166 +55,18 @@ items:
       href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
   - name: R hızlı başlangıç
     href: r-quickstart.md
-- name: Nasıl yapılır
+- name: Örnekler
   items:
-  - name: Araçları ve yardımcı programları ayarlama
-    items:
-    - name: Çalışma Alanını Yönetme
-      items:
-      - name: Oluştur
-        href: create-workspace.md
-      - name: Yönetme
-        href: manage-workspace.md
-      - name: Sorun giderme
-        href: troubleshooting-creating-ml-workspace.md
-      - name: ARM kullanarak dağıtma
-        href: deploy-with-resource-manager-template.md
-      - name: Studio hesabı verilerini görüntüleme ve silme
-        displayName: export
-        href: export-delete-personal-data-dsr.md
-  - name: Veri edinme ve bu verileri anlama
-    items:
-    - name: Eğitim verilerini içeri aktarma
-      items:
-      - name: Genel Bakış
-        href: import-data.md
-      - name: Yerel bir dosyadan
-        href: import-data-from-local-file.md
-      - name: Çevrimiçi kaynaklardan
-        href: import-data-from-online-sources.md
-      - name: Denemeden
-        href: import-data-from-an-experiment.md
-      - name: Şirket içi SQL kullanma
-        displayName: on-premises
-        href: use-data-from-an-on-premises-sql-server.md
-  - name: Model geliştirme
-    items:
-    - name: Oluşturma ve eğitme modelleri
-      items:
-      - name: Deneme yaşam döngüsü yönetimi
-        href: version-control.md
-      - name: Deneme yinelemelerini yönetme
-        href: manage-experiment-iterations.md
-      - name: PowerShell kullanarak model oluşturma
-        displayName: endpoint, endpoints
-        href: create-models-and-endpoints-with-powershell.md
-      - name: Algoritma seçme
-        items:
-        - name: Algoritma seçme
-          href: algorithm-choice.md
-        - name: Algoritma bilgi sayfası
-          href: algorithm-cheat-sheet.md
-        - name: Doğrusal regresyon kullanma
-          href: linear-regression-in-azure.md
-        - name: Metin analizi kullanma
-          href: text-analytics-module-tutorial.md
-      - name: Sonuçları değerlendirme ve yorumlama
-        items:
-        - name: Performansı değerlendirme
-          href: evaluate-model-performance.md
-        - name: Parametreleri en iyi duruma getirme
-          displayName: optimization
-          href: algorithm-parameters-optimize.md
-        - name: Sonuçları yorumlama
-          href: interpret-model-results.md
-        - name: Hata ayıklama
-          href: debug-models.md
-      - name: R ve Python’u kullanma
-        items:
-        - name: R betiklerini yürütme
-          href: extend-your-experiment-with-r.md
-        - name: Özel R modülleri yazma
-          href: custom-r-modules.md
-        - name: Python betiklerini yürütme
-          href: execute-python-scripts.md
-  - name: Modelleri kullanıma hazır hale getirin
-    displayName: deploy
-    items:
-    - name: Genel Bakış
-      displayName: deploy, consume, web service
-      href: deploy-consume-web-service-guide.md
-    - name: Modelleri dağıtma
-      items:
-      - name: Bir web hizmetini dağıtma
-        displayName: publish
-        href: publish-a-machine-learning-web-service.md
-      - name: Nasıl çalışır?
-        href: model-progression-experiment-to-web-service.md
-      - name: Dağıtım için hazırlanma
-        href: convert-training-experiment-to-scoring-experiment.md
-      - name: Dış veri kullanma
-        displayName: import, export
-        href: web-services-that-use-import-export-modules.md
-      - name: Birden çok bölgede dağıtma
-        displayName: multiple regions
-        href: how-to-deploy-to-multiple-regions.md
-      - name: Web hizmeti parametrelerini kullanma
-        href: web-service-parameters.md
-      - name: Günlü kaydını etkinleştir
-        href: web-services-logging.md
-    - name: Web hizmetlerini yönetme
-      items:
-      - name: Web Hizmetleri portalını kullanma
-        href: manage-new-webservice.md
-      - name: API’ler ile yönetme
-        displayName: endpoint, endpoints
-        href: manage-web-service-endpoints-using-api-management.md
-      - name: Uç noktalar oluşturma
-        href: create-endpoint.md
-      - name: Ölçeklendirme
-        href: scaling-webservice.md
-    - name: Modelleri yeniden eğitme
-      items:
-      - name: Genel Bakış
-        href: retrain-machine-learning-model.md
-      - name: Programlama yoluyla yeniden eğitme
-        href: retrain-models-programmatically.md
-      - name: Klasik web hizmetini yeniden eğitme
-        href: retrain-a-classic-web-service.md
-      - name: PowerShell ile yeniden eğitme
-        href: retrain-new-web-service-using-powershell.md
-      - name: Mevcut bir web hizmetini yeniden eğitme
-        href: retrain-existing-resource-manager-based-web-service.md
-      - name: Sorun giderme
-        href: troubleshooting-retraining-models.md
-    - name: Tüketim modelleri
-      items:
-      - name: Genel Bakış
-        href: consume-web-services.md
-      - name: Excel kullanma
-        href: consuming-from-excel.md
-      - name: Excel eklentisi kullanma
-        href: excel-add-in-for-web-services.md
-      - name: Web uygulaması şablonu kullanma
-        href: consume-web-service-with-web-app-template.md
-      - name: Batch Havuzu kullanma
-        href: dedicated-capacity-for-bes-jobs.md
-  - name: Örnekler
-    items:
-    - name: Örnek deneyler
-      href: sample-experiments.md
-    - name: Örnek veri kümeleri
-      href: use-sample-datasets.md
-    - name: Müşteri karmaşası örneği
-      href: azure-ml-customer-churn-scenario.md
-- name: Başvuru
-  items:
-  - name: PowerShell modülü (Yeni)
-    href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
-  - name: PowerShell modülü (Klasik)
-    href: powershell-module.md
-  - name: Algoritma ve Modül başvurusu
-    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
-  - name: REST yönetim API'leri
-    href: /rest/api/machinelearning
-  - name: Web hizmeti hata kodları
-    href: web-service-error-codes.md
-- name: İlgili
-  items:
+  - name: Örnek veri kümeleri
+    href: use-sample-datasets.md
+  - name: Müşteri karmaşası örneği
+    href: azure-ml-customer-churn-scenario.md
   - name: Azure Yapay Zeka Galerisi
     items:
     - name: Genel Bakış
       href: gallery-how-to-use-contribute-publish.md
+    - name: Örnek deneyler
+      href: sample-experiments.md
     - name: Sektörler
       href: gallery-industries.md
     - name: Çözümler
@@ -235,6 +87,145 @@ items:
       href: gallery-custom-modules.md
     - name: Hesap verilerini görüntüleme ve silme
       href: ai-gallery-control-personal-data-dsr.md
+- name: Kavramlar
+  items:
+  - name: Model yönetimi
+    displayName: deploy, consume, web service
+    href: deploy-consume-web-service-guide.md
+- name: Nasıl yapılır kılavuzları
+  items:
+  - name: Çalışma Alanını Yönetme
+    items:
+    - name: Oluştur
+      href: create-workspace.md
+    - name: Yönetme
+      href: manage-workspace.md
+    - name: Sorun giderme
+      href: troubleshooting-creating-ml-workspace.md
+    - name: ARM kullanarak dağıtma
+      href: deploy-with-resource-manager-template.md
+    - name: Studio hesabı verilerini görüntüleme ve silme
+      displayName: export
+      href: export-delete-personal-data-dsr.md
+  - name: Eğitim verilerini içeri aktarma
+    items:
+    - name: Genel Bakış
+      href: import-data.md
+    - name: Yerel bir dosyadan
+      href: import-data-from-local-file.md
+    - name: Çevrimiçi kaynaklardan
+      href: import-data-from-online-sources.md
+    - name: Denemeden
+      href: import-data-from-an-experiment.md
+    - name: Şirket içi SQL kullanma
+      displayName: on-premises
+      href: use-data-from-an-on-premises-sql-server.md
+  - name: Oluşturma ve eğitme modelleri
+    items:
+    - name: Deneme yaşam döngüsü yönetimi
+      href: version-control.md
+    - name: Deneme yinelemelerini yönetme
+      href: manage-experiment-iterations.md
+    - name: PowerShell kullanarak model oluşturma
+      displayName: endpoint, endpoints
+      href: create-models-and-endpoints-with-powershell.md
+    - name: Algoritma seçme
+      items:
+      - name: Algoritma seçme
+        href: algorithm-choice.md
+      - name: Algoritma bilgi sayfası
+        href: algorithm-cheat-sheet.md
+      - name: Doğrusal regresyon kullanma
+        href: linear-regression-in-azure.md
+      - name: Metin analizi kullanma
+        href: text-analytics-module-tutorial.md
+    - name: Sonuçları değerlendirme ve yorumlama
+      items:
+      - name: Performansı değerlendirme
+        href: evaluate-model-performance.md
+      - name: Parametreleri en iyi duruma getirme
+        displayName: optimization
+        href: algorithm-parameters-optimize.md
+      - name: Sonuçları yorumlama
+        href: interpret-model-results.md
+      - name: Hata ayıklama
+        href: debug-models.md
+    - name: R ve Python’u kullanma
+      items:
+      - name: R betiklerini yürütme
+        href: extend-your-experiment-with-r.md
+      - name: Özel R modülleri yazma
+        href: custom-r-modules.md
+      - name: Python betiklerini yürütme
+        href: execute-python-scripts.md
+  - name: Modelleri dağıtma
+    items:
+    - name: Bir web hizmetini dağıtma
+      displayName: publish
+      href: publish-a-machine-learning-web-service.md
+    - name: Nasıl çalışır?
+      href: model-progression-experiment-to-web-service.md
+    - name: Dağıtım için hazırlanma
+      href: convert-training-experiment-to-scoring-experiment.md
+    - name: Dış veri kullanma
+      displayName: import, export
+      href: web-services-that-use-import-export-modules.md
+    - name: Birden çok bölgede dağıtma
+      displayName: multiple regions
+      href: how-to-deploy-to-multiple-regions.md
+    - name: Web hizmeti parametrelerini kullanma
+      href: web-service-parameters.md
+    - name: Günlü kaydını etkinleştir
+      href: web-services-logging.md
+  - name: Web hizmetlerini yönetme
+    items:
+    - name: Web Hizmetleri portalını kullanma
+      href: manage-new-webservice.md
+    - name: API’ler ile yönetme
+      displayName: endpoint, endpoints
+      href: manage-web-service-endpoints-using-api-management.md
+    - name: Uç noktalar oluşturma
+      href: create-endpoint.md
+    - name: Ölçeklendirme
+      href: scaling-webservice.md
+  - name: Modelleri yeniden eğitme
+    items:
+    - name: Genel Bakış
+      href: retrain-machine-learning-model.md
+    - name: Programlama yoluyla yeniden eğitme
+      href: retrain-models-programmatically.md
+    - name: Klasik web hizmetini yeniden eğitme
+      href: retrain-a-classic-web-service.md
+    - name: PowerShell ile yeniden eğitme
+      href: retrain-new-web-service-using-powershell.md
+    - name: Mevcut bir web hizmetini yeniden eğitme
+      href: retrain-existing-resource-manager-based-web-service.md
+    - name: Sorun giderme
+      href: troubleshooting-retraining-models.md
+  - name: Tüketim modelleri
+    items:
+    - name: Genel Bakış
+      href: consume-web-services.md
+    - name: Excel kullanma
+      href: consuming-from-excel.md
+    - name: Excel eklentisi kullanma
+      href: excel-add-in-for-web-services.md
+    - name: Web uygulaması şablonu kullanma
+      href: consume-web-service-with-web-app-template.md
+    - name: Batch Havuzu kullanma
+      href: dedicated-capacity-for-bes-jobs.md
+- name: Başvuru
+  items:
+  - name: PowerShell modülü (Yeni)
+    href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
+  - name: PowerShell modülü (Klasik)
+    href: powershell-module.md
+  - name: Algoritma ve Modül başvurusu
+    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
+  - name: REST yönetim API'leri
+    href: /rest/api/machinelearning
+  - name: Web hizmeti hata kodları
+    href: web-service-error-codes.md
 - name: Kaynaklar
   items:
   - name: Fiyatlandırma
@@ -249,9 +240,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: R geliştirici kılavuzu
     href: ../r-developers-guide.md
-ms.openlocfilehash: 8aaf830dc13919a664a931b5d08a11c817e8dc51
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 16c610345c063be9149d841c71d27f73e22d143d
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628315"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974124"

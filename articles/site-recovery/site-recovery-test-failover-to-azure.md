@@ -3,16 +3,17 @@ title: Azure Site Recovery kullanarak Azure'a olağanüstü durum kurtarma tatbi
 description: Şirket içinden Azure Site Recovery hizmetini kullanarak Azure'a olağanüstü durum kurtarma tatbikatı çalıştırma hakkında bilgi edinin.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: cd8a7540b14c9d0896b9b0db2cae91ac54d92f2a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 19f41256866b42962be36bbb97f5f6d3c06d7fed
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844694"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976571"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma 
 
@@ -25,17 +26,17 @@ Bu makalede Site Recovery yük devretme testi kullanarak Azure'a olağanüstü d
 ## <a name="run-a-test-failover"></a>Yük devretme testi çalıştırma
 Bu yordamda, bir kurtarma planı için bir yük devretme testi çalıştırma açıklanmaktadır. Tek bir VM için yük devretme testi çalıştırmak isterseniz, açıklanan adımları izleyin [burada](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm)
 
-![Yük devretme testi](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+![Test Yük Devretmesi](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
 1. Azure portalında Site Recovery, tıklayın **kurtarma planları** > *recoveryplan_name* > **yük devretme testi**.
 2. Seçin bir **kurtarma noktası** hangi yük devretmek. Şu seçeneklerden birini kullanabilirsiniz:
-    - **En son işlenen**: Bu seçenek tüm VM'lerin yükünü plana Site Recovery tarafından işlenen en son kurtarma noktası başarısız olur. En son kurtarma için belirli bir VM'ye noktası olarak görmek için **en son kurtarma noktaları** VM ayarları. İşlenmemiş verileri işlemek için zaman harcanmadığından bu seçenekte düşük bir RTO (Kurtarma Süresi Hedefi) sağlanır.
-    - **Uygulamayla tutarlı olan sonuncu**: Bu seçenek tüm VM'lerin yükünü plana Site Recovery tarafından işlenen en son uygulamayla tutarlı kurtarma noktası başarısız olur. En son kurtarma için belirli bir VM'ye noktası olarak görmek için **en son kurtarma noktaları** VM ayarları.
-    - **En son**: Bu seçenek ilk önce yük devretme için her VM için bir kurtarma noktası oluşturmak için Site Recovery hizmetine gönderilen tüm veriler işlenir. Yük devretme yük devretme tetiklendiğinde Site Recovery'ye çoğaltılan tüm verilere sahip sonra VM oluşturulduğundan, bu seçenek en düşük RPO (kurtarma noktası hedefi) sağlar.
+    - **En son işlenen**: Bu seçenek, Site Recovery tarafından işlenen en son kurtarma noktasına plandaki tüm VM'lerin yükünü başarısız olur. En son kurtarma için belirli bir VM'ye noktası olarak görmek için **en son kurtarma noktaları** VM ayarları. İşlenmemiş verileri işlemek için zaman harcanmadığından bu seçenekte düşük bir RTO (Kurtarma Süresi Hedefi) sağlanır.
+    - **Uygulamayla tutarlı olan sonuncu**: Bu seçenek, tüm VM'lerin yükünü planında Site Recovery tarafından işlenen en son uygulamayla tutarlı kurtarma noktası için başarısız olur. En son kurtarma için belirli bir VM'ye noktası olarak görmek için **en son kurtarma noktaları** VM ayarları.
+    - **En son**: Bu seçenek ilk önce yük devretme için her VM için bir kurtarma noktası oluşturmak için Site Recovery hizmetine gönderilen tüm verileri işler. Yük devretme yük devretme tetiklendiğinde Site Recovery'ye çoğaltılan tüm verilere sahip sonra VM oluşturulduğundan, bu seçenek en düşük RPO (kurtarma noktası hedefi) sağlar.
     - **En son işlenen VM'li**: Bu seçenek, çoklu VM tutarlılığı etkin olan bir veya daha fazla VM içeren kurtarma planları için kullanılabilir. En son ortak çoklu VM tutarlı kurtarma noktası ayarı etkin Vm'lerle devredin. Diğer VM'ler en son işlenen kurtarma noktasına yük devredebilirsiniz.  
     - **En son çoklu VM uygulamayla tutarlı**: Bu seçenek, çoklu VM tutarlılığı etkin olan bir veya daha fazla VM içeren kurtarma planları için kullanılabilir. En son ortak çoklu VM uygulamayla tutarlı kurtarma noktası çoğaltma grubunun parçası olan Vm'leri devredin. Bunların en son uygulamayla tutarlı kurtarma noktası için diğer Vm'lere devredin.
-    - **Özel**: belirli bir VM'ye belirli bir kurtarma noktasına yük devretmek için bu seçeneği kullanın.
+    - **Özel**: Belirli bir VM'ye belirli bir kurtarma noktasına yük devretmek için bu seçeneği kullanın.
 3. Test sanal makineleri oluşturulacağı bir Azure sanal ağı seçin.
 
     - Site kurtarma denemeleri oluşturmak için bir alt ağ ile aynı ada ve aynı IP adresine sağlanan Vm'leri test **işlem ve ağ** VM ayarları.
@@ -48,14 +49,14 @@ Bu yordamda, bir kurtarma planı için bir yük devretme testi çalıştırma a�
 8. Yük devretme testiyle ilişkili gözlemlerinizi **Notlar**’da kaydedin veya saklayın.
 
 
-![Yük devretme testi](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+![Test Yük Devretmesi](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 Bir yük devretme tetiklendiğinde, aşağıdakiler gerçekleşir:
 
-1. **Önkoşullar**: çalıştırmaları yük devretme için gerekli tüm koşulların karşılandığından emin olmak için bir önkoşul denetimi.
-2. **Yük devretme**: yük devretme işlemleri ve böylece bir Azure VM ondan oluşturulabilir veri hazır.
-3. **En son**: en son kurtarma noktası seçtiyseniz, hizmete gönderilen verilerden bir kurtarma noktası oluşturulur.
-4. **Başlangıç**: Bu adım önceki adımda işlenen veriler kullanılarak bir Azure sanal makinesi oluşturur.
+1. **Önkoşullar**: Bir önkoşul denetimi yük devretme için gerekli tüm koşulların karşılandığından emin olmak için çalıştırılır.
+2. **Yük devretme**: Yük devretme, işler ve böylece bir Azure VM ondan oluşturulabilir veri hazır.
+3. **En son**: En son kurtarma noktası seçtiyseniz, hizmete gönderilen verilerden bir kurtarma noktası oluşturulur.
+4. **Başlangıç**: Bu adım, önceki adımda işlenen veriler kullanılarak bir Azure sanal makinesi oluşturur.
 
 ### <a name="failover-timing"></a>Yük devretme zamanlama
 

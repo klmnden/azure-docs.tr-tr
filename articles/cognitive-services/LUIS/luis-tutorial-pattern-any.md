@@ -9,18 +9,32 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: db0b0472fe4878bc7b6bc6cb0a65fbcdbd232301
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 58a62a5a882c6883c6fed31a7b95d949247e1bf1
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720757"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53752614"
 ---
-# <a name="tutorial-5-extract-free-form-data"></a>Öğretici 5: Serbest biçimli verileri ayıklama
+# <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Öğretici: Serbest biçimli Pattern.any varlık verileriyle ayıklayın
 
 Bu öğreticide konuşmaların iyi biçimlendirilmiş olduğu ve verilerin sonunun konuşmadaki diğer sözcüklerle karıştırılma ihtimalinin yüksek olduğu konuşmalardan veri ayıklamak için pattern.any varlığını kullanacaksınız. 
+
+**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
+
+> [!div class="checklist"]
+> * Örnek uygulamayı içeri aktarma
+> * Var olan varlığa örnek konuşma ekleme
+> * Pattern.any varlığını oluşturma
+> * Desen oluşturma
+> * Eğitim
+> * Yeni deseni test etme
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="using-patternany-entity"></a>Pattern.Any varlık kullanma
 
 pattern.any varlığı, ifade nedeniyle varlığın sonunun konuşmanın geri kalanından ayrılmasının zor olduğu durumlarda serbest biçimli verileri bulmanızı sağlar. 
 
@@ -50,22 +64,10 @@ Sözcüklerin uzunluklarının değişmesi, LUIS'in varlığın sonunu belirleme
 |Who authored {FormName}[?] ({FormName} kim yazdı[?])|
 |{FormName} is published in French[?] ({FormName} Fransızca mı yayımlandı[?])|
 
-**Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:**
-
-> [!div class="checklist"]
-> * Mevcut öğretici uygulamasını kullanma
-> * Var olan varlığa örnek konuşma ekleme
-> * Pattern.any varlığını oluşturma
-> * Desen oluşturma
-> * Eğitim
-> * Yeni deseni test etme
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="use-existing-app"></a>Mevcut uygulamayı kullanma
+## <a name="import-example-app"></a>Örnek uygulamayı içeri aktarma
 Son öğreticide oluşturulan **HumanResources** adlı uygulamayla devam edin. 
 
-Önceki öğreticinin HumanResources uygulaması elinizde yoksa aşağıdaki adımları izleyin:
+Aşağıdaki adımları kullanın:
 
 1.  [Uygulama JSON dosyasını](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json) indirip kaydedin.
 

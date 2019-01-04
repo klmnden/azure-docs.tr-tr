@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 08/03/2018
+ms.date: 12/14/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: a76f0205a34b106cf04b61938b1b576db9325c40
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 1a8a31b34981b0e2b68caf3f5c4952d0ee59ac8e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858052"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53784506"
 ---
 ## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
 
@@ -21,7 +21,7 @@ Kapsayıcı kayıt defterinizde erişimi olan bir hizmet sorumlusu oluşturmak i
 
 Betiği çalıştırmadan önce güncelleştirme `ACR_NAME` değişkenini kapsayıcı kayıt defterinizin adıyla. `SERVICE_PRINCIPAL_NAME` Değeri, Azure Active Directory kiracınızda benzersiz olmalıdır. Alırsanız, bir "`'http://acr-service-principal' already exists.`" hatası, hizmet sorumlusu için farklı bir ad belirtin.
 
-İsteğe bağlı olarak değiştirebileceğiniz `--role` değerini [az ad sp create-for-rbac] [ az-ad-sp-create-for-rbac] farklı izinleri vermek istiyor komutu.
+İsteğe bağlı olarak değiştirebileceğiniz `--role` değerini [az ad sp create-for-rbac] [ az-ad-sp-create-for-rbac] farklı izinleri vermek istiyor komutu. Rolleri tam bir listesi için bkz. [ACR rolleri ve izinleri](https://github.com/Azure/acr/blob/master/docs/roles-and-permissions.md).
 
 Betiği çalıştırdıktan sonra hizmet sorumlusunun Not **kimliği** ve **parola**. Kimlik bilgilerini aldıktan sonra uygulamalarınızı ve hizmetlerinizi kapsayıcı kayıt defterinizde hizmet sorumlusu olarak kimlik doğrulaması için yapılandırabilirsiniz.
 
@@ -29,9 +29,10 @@ Betiği çalıştırdıktan sonra hizmet sorumlusunun Not **kimliği** ve **paro
 
 ## <a name="use-an-existing-service-principal"></a>Mevcut bir hizmet sorumlusunu kullanın
 
-Mevcut bir hizmet sorumlusu için kayıt defteri erişim vermek için hizmet sorumlusu için yeni bir rol atamanız gerekir. Yeni hizmet sorumlusu oluşturma gibi ile çekme, gönderme ve çekme ve sahibi erişim izni verebilirsiniz.
+Mevcut bir hizmet sorumlusu için kayıt defteri erişim vermek için hizmet sorumlusu için yeni bir rol atamanız gerekir. Yeni hizmet sorumlusu oluşturma gibi ile çekme, gönderme ve çekme ve diğerlerinin yanı sıra sahip erişimi verebilirsiniz.
 
 Aşağıdaki betik [az rol ataması oluşturma] [ az-role-assignment-create] vermek için komut *çekme* bir hizmet sorumlusu izinleri belirttiğiniz `SERVICE_PRINCIPAL_ID` değişkeni. Ayarlama `--role` farklı düzeyde bir erişim vermek istiyorsanız, değer.
+
 
 <!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-assign-role/service-principal-assign-role.sh --> [!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
 

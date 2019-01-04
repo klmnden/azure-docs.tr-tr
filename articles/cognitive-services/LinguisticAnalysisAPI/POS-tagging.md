@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 9af4f5223dfe269ace459c8a7de07fe6dd0c2427
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238541"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973970"
 ---
 # <a name="part-of-speech-tagging"></a>Konuşma bölümü etiketleme
 
 > [!IMPORTANT]
-> Dil analizi önizlemesi, 9 Ağustos 2018 tarihinde kullanımdan. Kullanmanızı öneririz [Azure Machine Learning metin analiz modüllerini](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) metin işleme ve analiz için.
+> Dilbilimsel Analiz önizleme sürümü 9 Ağustos 2018 tarihinde kullanımdan kaldırılmıştır. Metin işleme ve analiz için [Azure Machine Learning metin analizi modüllerini](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) kullanmanızı öneririz.
 
 ## <a name="background-and-motivation"></a>Arka plan ve motivasyon
 
@@ -46,7 +46,7 @@ Kategorileri gibi bunlar *isim* (genellikle, kişiler, yerler, noktalar, fikirle
 | DT | determiner |bir bir tüm hem hiçbiri|
 | EX | varlıksal vardır | var. |
 | FW | Yabancı sözcük | enfant terrible hoi polloi je ne sais quoi |
-| GİRİŞ | preposition veya birlikte bağımlı alt oluşturma| bağlı olup olmadığını da iç |
+| IN | preposition veya birlikte bağımlı alt oluşturma| bağlı olup olmadığını da iç |
 | JJ | sıfat veya sayısal, sıralı | dokuzuncu oldukça execrable multimodal |
 | JJR | sıfat karşılaştırma | daha hızlı bir şekilde daha iyi |
 | JJS | sıfat superlative | en iyi hızlı, ucuz |
@@ -80,4 +80,4 @@ Kategorileri gibi bunlar *isim* (genellikle, kişiler, yerler, noktalar, fikirle
 
 ## <a name="specification"></a>Belirtimi
 
-Simgeleştirme için belirtiminden bağımlı olduğumuz [da Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Simgeleştirme için belirtiminden bağımlı olduğumuz [da Treebank](https://catalog.ldc.upenn.edu/LDC99T42).

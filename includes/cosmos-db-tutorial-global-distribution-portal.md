@@ -2,27 +2,21 @@
 title: Azure Cosmos DB genel dağıtımı
 description: Azure portalında Azure Cosmos DB ile genel olarak verilerin nasıl çoğaltılacağını öğrenin
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 03/26/2018
-ms.author: sngun
+ms.date: 12/26/2018
+ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: fb9418d47d2888467e1c1c40862833029111b75b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 751571820d52c003a7e740bd63af8c9d9e071c7a
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38747568"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53796122"
 ---
-Azure Cosmos DB Program Yöneticisi Manager Andrew Liu’nun genel dağıtım işlevini açıkladığı aşağıdaki videodan Azure Cosmos DB genel dağıtımı hakkında bilgi edinebilirsiniz.
-
->[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
-
-Genel veritabanı çoğaltmasının Azure Cosmos DB’de nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Cosmos DB ile verileri genel olarak dağıtma](../articles/cosmos-db/distribute-data-globally.md).
-
 ## <a id="addregion"></a>Azure portalını kullanarak genel veritabanı bölgeleri ekleme
-Azure Cosmos DB, dünya genelindeki tüm [Azure bölgelerinde][azureregions] kullanılabilir. Veritabanı hesabınız için varsayılan tutarlılık düzeyini seçtikten sonra bir veya daha fazla bölgeyi (tercih ettiğiniz varsayılan tutarlılık düzeyine ve genel dağıtım gereksinimlerine bağlı olarak) ilişkilendirebilirsiniz.
+Azure Cosmos DB, tüm kullanılabilir [Azure bölgeleri] [ azureregions] dünya çapında. Veritabanı hesabınız için varsayılan tutarlılık düzeyini seçtikten sonra bir veya daha fazla bölgeyi (tercih ettiğiniz varsayılan tutarlılık düzeyine ve genel dağıtım gereksinimlerine bağlı olarak) ilişkilendirebilirsiniz.
 
 1. [Azure portalında](https://portal.azure.com/), soldaki çubuktan **Azure Cosmos DB** seçeneğine tıklayın.
 2. **Azure Cosmos DB** sayfasında, değiştirilecek veritabanı hesabını seçin.
@@ -41,7 +35,7 @@ Azure Cosmos DB, dünya genelindeki tüm [Azure bölgelerinde][azureregions] kul
 
 Son kullanıcılara düşük gecikme sunmak için, uygulama kullanıcılarının bulunduğu yere karşılık gelen bölgelerde hem uygulamayı hem de Azure Cosmos DB’yi dağıtmanız önerilir.
 
-BCDR için, [İş sürekliliği ve olağanüstü durum kurtarma (BCDR): Azure Eşlenmiş Bölgeleri][bcdr] makalesinde açıklanan bölge çiftlerine göre bölgeler eklenmesi önerilir.
+BCDR için açıklanan bölge çiftlerine göre bölgeler eklenmesi önerilir [iş sürekliliği ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri] [ bcdr] makalesi.
 
 <!--
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: f19d584932be6b6706d6f7b03622303f68f08f91
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 23003859b9a75fb986fe65f5528004f3dd150f9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312196"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633053"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>En son Azure Search Hizmeti REST API sürümüne yükseltme
 Önceki bir sürümünü kullanıyorsanız, [Azure arama hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice/), bu makalede, uygulamanızın en son yükseltme yardımcı olacak genel kullanıma sunulan API Sürüm 2017-11-11.
@@ -59,7 +59,7 @@ Kodunuzu bu özellikleri kullanıyorsa, bunların kullanım kaldırmadan 2017-11
 ## <a name="conclusion"></a>Sonuç
 Azure arama hizmeti REST API'si kullanma hakkında daha fazla ayrıntı gerekiyorsa, yeni güncelleştirilen bkz [API Başvurusu](https://docs.microsoft.com/rest/api/searchservice/) MSDN'de.
 
-Bildirimleriniz Azure Search'te bizim için değerli. Sorunlarla karşılaşırsanız, bize yardım isteyin çekinmeyin [Azure Search MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) veya [StackOverflow](http://stackoverflow.com/). Azure Search hakkında bir soru StackOverflow isteyen, kendisiyle etiketlemek emin `azure-search`.
+Bildirimleriniz Azure Search'te bizim için değerli. Sorunlarla karşılaşırsanız, bize yardım isteyin çekinmeyin [Azure Search MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) veya [StackOverflow](https://stackoverflow.com/). Azure Search hakkında bir soru StackOverflow isteyen, kendisiyle etiketlemek emin `azure-search`.
 
 Azure Search kullandığınız için teşekkür ederiz!
 

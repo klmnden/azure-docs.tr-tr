@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: fa5c3d65daa86a678ec278bc49759e1de7da7f0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 82187a99fc8009096127cca624698e1329e5d13b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386545"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53975535"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Sürekli Azure İzleyici ile izleme
 
@@ -33,7 +33,7 @@ Ortamınız genelinde observability kazanmak için tüm web uygulamaları ve hiz
 
 - [Azure DevOps projeleri](../devops-project/overview.md) size mevcut kodunuzu ve Git deposu ile basitleştirilmiş bir deneyim sunmak ve azure'da bir sürekli tümleştirme (CI) ve sürekli teslim (CD) işlem hattı oluşturmak üzere örnek uygulamalardan birini seçin.
 - [Sürekli izleme, DevOps yayın işlem hattında](../application-insights/app-insights-vsts-continuous-monitoring.md) dağıtımınızı izleme verileri temel alan ağ geçidi ya da geri alma sağlar.
-- [Durum İzleyicisi](../application-insights/app-insights-monitor-performance-live-website-now.md) değiştirmeye veya kodunuzu yeniden dağıtmaya gerek kalmadan canlı bir .NET uygulamasını Azure Application Insights ile Windows üzerinde izleyin olanak tanır.
+- [Durum İzleyicisi](../azure-monitor/app/monitor-performance-live-website-now.md) değiştirmeye veya kodunuzu yeniden dağıtmaya gerek kalmadan canlı bir .NET uygulamasını Azure Application Insights ile Windows üzerinde izleyin olanak tanır.
 - Uygulamanız için kod erişimi varsa, ardından ile tam izlemeyi etkinleştir [Application Insights](../application-insights/app-insights-overview.md) için Azure İzleyici Application Insights SDK yükleyerek [.NET](../application-insights/quick-monitor-portal.md), [Java ](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), veya [herhangi bir programlama dili](../application-insights/app-insights-platforms.md). Bu özel olayları, ölçümleri veya uygulamanızın ve işinizin ilgili olan sayfa görünümleri belirtmenize olanak sağlar.
 
 
@@ -56,7 +56,7 @@ Uygulamalar yalnızca, temel alınan altyapı olarak güvenilirdir. İzleme alty
 ##  <a name="combine-resources-in-azure-resource-groups"></a>Azure kaynak gruplarındaki kaynaklarla birleştirin
 Azure'da bugün tipik bir uygulaması, Vm'leri ve uygulama hizmetleri veya Cloud Services, AKS kümeleri veya Service Fabric üzerinde barındırılan mikro hizmetler gibi birden fazla kaynak içerir. Bu uygulamalar, Event Hubs, depolama, SQL ve Service Bus gibi bağımlılıklar sık kullanın.
 
-- Uygulamalarınızı farklı kılan tüm kaynaklarınız genelinde tam görünürlük elde etmek için kaynakları inAzure kaynak grupları birleştirin. [Azure İzleyici kaynak grupları için](../monitoring-and-diagnostics/resource-group-insights.md) durumunu ve performansını tam yığın uygulamasının tamamını ve tüm araştırmalar için karşılık gelen bileşenleri araştırıp bulma veya hata ayıklama sağlayan izlemek için basit bir yol sağlar.
+- Uygulamalarınızı farklı kılan tüm kaynaklarınız genelinde tam görünürlük elde etmek için kaynakları inAzure kaynak grupları birleştirin. [Azure İzleyici kaynak grupları için](../azure-monitor/insights/resource-group-insights.md) durumunu ve performansını tam yığın uygulamasının tamamını ve tüm araştırmalar için karşılık gelen bileşenleri araştırıp bulma veya hata ayıklama sağlayan izlemek için basit bir yol sağlar.
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>Sürekli dağıtım elde edebileceğiniz kaliteden emin olun
 Sürekli Tümleştirme / sürekli dağıtım sayesinde otomatik olarak tümleştirin ve kod değişiklikleri otomatik test sonuçlarına göre uygulamanızın dağıtabilirsiniz. Bu, dağıtım sürecini kolaylaştırır ve bunlar üretime geçmeden önce herhangi bir değişiklik kalitesini sağlar.
@@ -74,7 +74,7 @@ Sürekli Tümleştirme / sürekli dağıtım sayesinde otomatik olarak tümleşt
 - Yöneticilerinize bildiren en etkili yolu kullanmak uyarılar için eylemleri tanımlayın. Kullanılabilir [bildirim eylemlerinde](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) SMS, e-postalar, anında iletme bildirimleri veya sesli çağrı.
 - Eylemler için daha gelişmiş [, ITSM aracına bağlanma](platform/itsmc-overview.md) veya diğer uyarı yönetim sistemleri ile [Web kancaları](platform/activity-log-alerts-webhook.md).
 - Uyarılarla de tanımlanan durumlar düzeltme [Azure Otomasyonu runbook'ları](../automation/automation-webhooks.md) veya [Logic Apps](/connectors/custom-connectors/create-webhook-trigger) Web kancalarını kullanan bir uyarıdan başlatılabilir. 
-- Kullanım [otomatik ölçeklendirme](../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md) dinamik olarak artırmak ve toplanan ölçümlere göre işlem kaynaklarınızı azaltın.
+- Kullanım [otomatik ölçeklendirme](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md) dinamik olarak artırmak ve toplanan ölçümlere göre işlem kaynaklarınızı azaltın.
 
 ## <a name="prepare-dashboards-and-workbooks"></a>Panolar ve çalışma kitapları hazırlama
 Geliştirme ve operasyon araçları ve aynı telemetriyi erişimi olmasını sağlayarak ortamınız genelinde desenlerini görüntülemek ve algılama saati (MTTD) ve geri yükleme ortalama süresi (MTTR) en aza indirmek sağlar.

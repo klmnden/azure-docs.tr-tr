@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 603aa8d85d42167accd2a5e71c4ab3e5245f5d07
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8e651f516254d408b15ab4aeae718861dfc2b3e6
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499268"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608298"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>HDInsight Spark kümesi okumak ve Azure SQL veritabanına veri yazmak için kullanın
 
@@ -26,9 +26,9 @@ Azure HDInsight, Apache Spark kümesi ile Azure SQL veritabanına bağlanmak ve 
 
 * **Azure SQL veritabanı**. Konumundaki yönergeleri [bir Azure SQL veritabanı oluşturma](../../sql-database/sql-database-get-started-portal.md). Örnek ile bir veritabanı oluşturduğunuzdan emin olun **AdventureWorksLT** şema ve veri. Ayrıca, SQL veritabanı sunucusuna erişmek istemcinizin IP adresine izin vermek için bir sunucu düzeyinde güvenlik duvarı kuralı oluşturduğunuzdan emin olun. Aynı makaledeki yönergeleri güvenlik duvarı kuralı eklemek için kullanılabilir. Azure SQL veritabanınız oluşturulduktan sonra, aşağıdaki değerleri kullanışlı tutmak emin olun. Bir Spark kümelerini veritabanına bağlanmak için ihtiyaç.
 
-    * Azure SQL veritabanını barındıran sunucu adı
-    * Azure SQL veritabanı adı
-    * Azure SQL veritabanı yönetici kullanıcı adı / parola
+    * Azure SQL veritabanını barındıran sunucu adı.
+    * Azure SQL veritabanı adı.
+    * Azure SQL veritabanı yönetici kullanıcı adı / parola.
 
 * **SQL Server Management Studio**. Konumundaki yönergeleri [bağlanmak ve veri sorgulamak için SSMS kullanma](../../sql-database/sql-database-connect-query-ssms.md).
 
@@ -41,12 +41,10 @@ Oluşturarak başlayın bir [Jupyter not defteri](https://jupyter.org/) Spark k�
 
     ![Spark üzerinde Jupyter notebook](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark üzerinde Jupyter notebook")
    
-   > [!NOTE]
+   > [!NOTE]  
    > Aşağıdaki URL'yi tarayıcınızda açarak da Spark kümesinde Jupyter not defterine erişebilirsiniz. **CLUSTERNAME** değerini kümenizin adıyla değiştirin:
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   > 
-   > 
 
 1. Sağ üst köşeden Jupyter not defteri tıklayın **yeni**ve ardından **Spark** Scala not defteri oluşturmak için. HDInsight Spark kümesinde Jupyter not defterleri de sağlaması **PySpark** Python2 uygulamalar için çekirdek ve **PySpark3** çekirdek Python3 uygulamalar için. Bu makale için bir Scala not defteri oluştururuz.
    
@@ -54,9 +52,8 @@ Oluşturarak başlayın bir [Jupyter not defteri](https://jupyter.org/) Spark k�
 
     Çekirdekler hakkında daha fazla bilgi için bkz. [HDInsight’ta Apache Spark kümeleri ile Jupyter not defterleri kullanma](apache-spark-jupyter-notebook-kernels.md).
 
-   > [!NOTE]
+   > [!NOTE]  
    > Bu makalede, Spark akış verileri SQL veritabanına yalnızca Scala ve Java şu anda desteklemediği için Spark (Scala) çekirdek kullanırız. Okuma ve yazma SQL'e yapılabilir olsa bile bu makaledeki tutarlılık kullanarak Python, Scala üç tüm işlemler için kullanırız.
-   >
 
 1. Bu, varsayılan bir adla yeni bir not defteri açar **adsız**. Not Defteri adına tıklayın ve tercih ettiğiniz bir ad girin.
 
@@ -235,6 +232,6 @@ Bu bölümde, biz halinde veri akışı **hvactable** zaten Azure SQL veritaban�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Data Lake Store verilerini çözümlemek için HDInsight Spark kümesi kullanın](apache-spark-use-with-data-lake-store.md)
+* [Data Lake Storage verilerini çözümlemek için HDInsight Spark kümesi kullanın](apache-spark-use-with-data-lake-store.md)
 * [EventHub kullanarak yapılandırılmış akış olayları işleyin](apache-spark-eventhub-structured-streaming.md)
 * [Apache Spark yapılandırılmış akışını HDInsight üzerinde Apache Kafka ile kullanma](../hdinsight-apache-kafka-spark-structured-streaming.md)

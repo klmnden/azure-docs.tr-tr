@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: e2e76e3cd058e5798b0159923118b050f38d077e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: aca5b1613a6500b3aeca1a7074cabdce50023510
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034646"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789509"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server Vm'lerinde Azure üzerinde SAP hana yüksek kullanılabilirlik
 
@@ -36,6 +36,7 @@ ms.locfileid: "47034646"
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2388694]:https://launchpad.support.sap.com/#/notes/2388694
+[401162]:https://launchpad.support.sap.com/#/notes/401162
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -67,6 +68,7 @@ Bu makalede, dağıtın ve sanal makineleri yapılandırma, küme Framework'ü y
 * SAP notu [2243692] Linux Azure üzerinde SAP lisanslama hakkında bilgi içeriyor.
 * SAP notu [1984787] SUSE Linux Enterprise Server 12 ilgili genel bilgiler bulunur.
 * SAP notu [1999351] Azure Gelişmiş izleme uzantısı için SAP için ek bilgiler.
+* SAP notu [401162] "adresi zaten kullanımda" HANA sistem çoğaltması ' ayarlarken kaçınılması hakkında bilgi içeriyor.
 * [SAP topluluk WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tüm gerekli SAP notları için Linux sahiptir.
 * [SAP HANA sertifikalı Iaas platformları](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 * [Azure sanal makineleri planlama ve uygulama için Linux üzerinde SAP] [ planning-guide] Kılavuzu.
@@ -85,7 +87,7 @@ SAP HANA yüksek kullanılabilirlik elde etmek için iki sanal makinelere yükle
 SAP HANA sistem çoğaltması Kurulumu kullanır ayrılmış sanal ana bilgisayar adı ve sanal IP adresleri. Azure üzerinde bir yük dengeleyici sanal IP adresi kullanmak için gereklidir. Aşağıdaki liste, yük dengeleyici yapılandırmasını gösterir:
 
 * Ön uç yapılandırması: IP adresi 10.0.0.13 hn1 db
-* Arka uç yapılandırmasını: HANA sistem çoğaltması parçası olması gereken tüm sanal makinelerin birincil ağ arabirimlerine bağlı
+* Arka uç yapılandırması: HANA sistem çoğaltması parçası olması gereken tüm sanal makinelerin birincil ağ arabirimlerine bağlı
 * Araştırma bağlantı noktası: Bağlantı noktası 62503
 * Yük Dengeleme kuralları: 30313 TCP, 30315 TCP 30317 TCP
 
@@ -103,15 +105,15 @@ Github üzerindeki tüm gerekli kaynakları dağıtmak için hızlı başlangı�
     Yük Dengeleme kuralları yalnızca bir veritabanı için veritabanı şablon oluşturur. Yakınsanmış şablonu ayrıca bir ASCS/SCS ve Ağıranlar (yalnızca Linux) örneği için Yük Dengeleme kuralları oluşturur. SAP NetWeaver tabanlı bir sistemin yüklemeyi planladığınız ve ASCS/SCS örneği aynı makinelerde yüklemek kullanmak istiyorsanız [şablon yakınsanmış][template-converged].
 
 1. Aşağıdaki parametreleri girin:
-    - **SAP sistem kimliği**: SAP sistemine yüklemek istediğiniz SAP sistemi Kimliğini girin. Kimlik ön eki olarak dağıtılan kaynaklar için kullanılır.
+    - **SAP sistem kimliği**: Yüklemek istediğiniz SAP sistemine SAP sistemi Kimliğini girin. Kimlik ön eki olarak dağıtılan kaynaklar için kullanılır.
     - **Yığın türü**: (Bu parametre yalnızca yakınsanmış şablonunu kullanıyorsanız geçerlidir.) SAP NetWeaver yığın türünü seçin.
     - **İşletim sistemi türü**: Linux dağıtımları birini seçin. Bu örnekte, seçin **SLES 12**.
-    - **Veritabanı türü**: seçin **HANA**.
-    - **SAP sistemi boyutu**: yeni sisteme sağlamak için gittiği SAP sayısını girin. SAP teknoloji iş ortağı veya sistem Entegratörü, emin kaç SAP sistemi gerektiriyor olmadığınız durumlarda isteyin.
-    - **Sistem kullanılabilirliği**: seçin **HA**.
-    - **Yönetici kullanıcı adı ve yönetici parolası**: yeni bir kullanıcı oluşturulur makinesinde oturum açma için kullanılabilir.
-    - **Yeni veya mevcut alt**: yeni bir sanal ağ ve alt ağ oluşturulmalıdır veya kullanılan var olan bir alt ağ belirler. Şirket içi ağınıza bağlı bir sanal ağınız zaten varsa, seçin **varolan**.
-    - **Alt ağ kimliği**: tanımlı bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle gibi görünüyor **/subscriptions/\<abonelik kimliği > /resourceGroups/\<kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/\<sanal ağ adı > /subnets/ \<alt ağ adı >**.
+    - **Veritabanı türü**: Seçin **HANA**.
+    - **SAP sistemi boyutu**: Yeni sisteme sağlamak için gittiği SAP sayısını girin. SAP teknoloji iş ortağı veya sistem Entegratörü, emin kaç SAP sistemi gerektiriyor olmadığınız durumlarda isteyin.
+    - **Sistem kullanılabilirliği**: Seçin **HA**.
+    - **Yönetici kullanıcı adı ve yönetici parolası**: Yeni bir kullanıcı oluşturulur makinesinde oturum açma için kullanılabilir.
+    - **Yeni veya var olan bir alt ağa**: Yeni sanal ağ ve alt ağ oluşturulmalıdır veya kullanılan var olan bir alt ağ belirler. Şirket içi ağınıza bağlı bir sanal ağınız zaten varsa, seçin **varolan**.
+    - **Alt ağ kimliği**: Tanımlanan bir alt ağa sahip olduğunuz mevcut bir Vnet'te VM dağıtmak istiyorsanız, VM atanmalıdır belirli bir alt ağ kimliği adı için. Kimliği genellikle gibi görünüyor **/subscriptions/\<abonelik kimliği > /resourceGroups/\<kaynak grubu adı > /providers/Microsoft.Network/virtualNetworks/\<sanal ağ adı > /subnets/ \<alt ağ adı >**.
 
 ### <a name="manual-deployment"></a>El ile dağıtım
 
@@ -200,10 +202,10 @@ Bağlantısındaki [SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacem
 
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 - **[A]** : Adım tüm düğümler için geçerlidir.
-- **[1]** : Adım yalnızca düğüm 1 için geçerlidir.
-- **[2]** : Adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+- **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
+- **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
-1. **[A]**  Disk düzenini ayarla: **mantıksal birim Yöneticisi (LVM)**.
+1. **[A]**  Disk düzenini ayarla: **Mantıksal birim Yöneticisi (LVM)**.
 
    LVM'yi veri depolayan ve günlük dosyaları birimleri için kullanmanızı öneririz. Aşağıdaki örnek, sanal makineler iki birim oluşturmak için kullanılan bağlı dört veri diskleri olduğunu varsayar.
 
@@ -269,7 +271,7 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
    <pre><code>sudo mount -a
    </code></pre>
 
-1. **[A]**  Disk düzenini ayarla: **düz diskleri**.
+1. **[A]**  Disk düzenini ayarla: **Düz diskleri**.
 
    Tanıtım sistemler için HANA verilerin ve günlük dosyalarının bir diskte yerleştirebilirsiniz. /Dev/disk/azure/scsi1/lun0 üzerinde bir bölüm oluşturun ve xfs ile biçimlendirin:
 
@@ -314,29 +316,29 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 SAP HANA sistem çoğaltması yüklemek için Bölüm 4 izleyin [SAP HANA SR performans için iyileştirilmiş senaryo Kılavuzu](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/).
 
 1. **[A]**  Çalıştırma **hdblcm** HANA DVD'den program. Komut isteminde aşağıdaki değerleri girin:
-   * Yükleme'yi seçin: girin **1**.
-   * Yükleme için ek bileşenleri: girin **1**.
-   * Yükleme yolu [hana paylaşılan /] girin: seçin girin.
+   * Yükleme seçin: Girin **1**.
+   * Ek bileşenler yüklemesi için seçin: Girin **1**.
+   * Yükleme yolu [hana paylaşılan /] girin: Select girin.
    * [.] Yerel ana bilgisayar adı girin: Select girin.
    * Sisteme ek konakları eklemek istiyor musunuz? (e/h) [n]: Select girin.
-   * SAP HANA sistem kimliği girin: SID, HANA örneğin girin: **HN1**.
+   * SAP HANA sistem kimliği girin: Örneğin, SID HANA girin: **HN1**.
    * [00] Örnek numarasını girin: HANA örneği sayısını girin. Girin **03** Azure şablonu kullanılan veya bu makalede el ile dağıtım bölümünü izleyen.
-   * Veritabanı modunu seçin / girin [1]. dizin: Select girin.
-   * Sistem kullanımını seçin / girin dizini [4]: Sistem kullanım değerini seçin.
-   * Veri birimleri [/ data/hana/HN1] konumu girin: seçin girin.
-   * Günlük birimleri [/ hana/log/HN1] konumu girin: seçin girin.
+   * Veritabanı modunu seçin / [1]. dizin girin: Select girin.
+   * Sistem kullanımını seçin / [4]. dizin girin: Sistem kullanım değerini seçin.
+   * Veri birimleri [/ data/hana/HN1] konumu girin: Select girin.
+   * Günlük birimleri [/ hana/log/HN1] konumu girin: Select girin.
    * Maksimum bellek ayırma kısıtlayın? [n]: Select girin.
    * '...' Konak için sertifika ana bilgisayar adı girin [...]: Select girin.
-   * SAP konak aracısı kullanıcısı (sapadm) parola girin: konak Aracısı kullanıcının parolasını girin.
-   * SAP konak aracısı kullanıcısı (sapadm) parolayı onaylayın: onaylamak için yeniden konak Aracısı kullanıcının parolasını girin.
+   * SAP konak aracısı kullanıcısı (sapadm) parola girin: Konak Aracısı kullanıcının parolasını girin.
+   * SAP konak aracısı kullanıcısı (sapadm) parolayı onaylayın: Onaylamak için yeniden konak Aracısı kullanıcının parolasını girin.
    * Sistem Yöneticisi (hdbadm) parola girin: Sistem Yöneticisi parolasını girin.
-   * Sistem Yöneticisi (hdbadm) parolayı onaylayın: onaylamak için yeniden sistem yöneticisi parolasını girin.
-   * ENTER Sistem Yöneticisi giriş dizinine [/ usr/sap/HN1/giriş]: seçin girin.
-   * Sistem Yöneticisi oturum açma Kabuğu'nu girin [/ bin/sh]: seçin girin.
+   * Sistem Yöneticisi (hdbadm) parolayı onaylayın: Onaylamak için yeniden sistem yöneticisi parolasını girin.
+   * Sistem Yöneticisi giriş dizini girin [/ usr/sap/HN1/giriş]: Select girin.
+   * Sistem Yöneticisi oturum açma Kabuğu'nu girin [/ bin/sh]: Select girin.
    * Sistem yöneticisinin kullanıcı kimliği [1001] girin: Select girin.
-   * Girin kimliği kullanıcı grubuna (sapsys) [79]: seçin girin.
-   * Veritabanı kullanıcı (Sistem) parolayı girin: veritabanı kullanıcı parolasını girin.
-   * Veritabanı kullanıcı (Sistem) parolayı onaylayın: onaylamak için yeniden veritabanı kullanıcı parolasını girin.
+   * Girin kimliği kullanıcı grubuna (sapsys) [79]: Select girin.
+   * Veritabanı (Sistem) kullanıcının parolasını girin: Veritabanı kullanıcı parolasını girin.
+   * Veritabanı (Sistem) kullanıcı parolayı onaylayın: Onaylamak için yeniden veritabanı kullanıcı parolasını girin.
    * Sistem yeniden başlatıldıktan sonra makinenin yeniden başlatılmasını? [n]: Select girin.
    * Devam etmek istiyor musunuz? (e/h): Özet doğrulayın. Girin **y** devam etmek için.
 
@@ -352,8 +354,8 @@ SAP HANA sistem çoğaltması yüklemek için Bölüm 4 izleyin [SAP HANA SR per
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]** : Adım yalnızca düğüm 1 için geçerlidir.
-* **[2]** : Adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
 1. **[1]**  Kiracı veritabanı oluşturmak.
 
@@ -397,8 +399,8 @@ Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 Aşağıdaki ön ekleri bu bölümdeki adımları kullanın:
 
 * **[A]** : Adım tüm düğümler için geçerlidir.
-* **[1]** : Adım yalnızca düğüm 1 için geçerlidir.
-* **[2]** : Adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
+* **[1]** : Bu adım yalnızca düğüm 1 için geçerlidir.
+* **[2]** : Bu adım yalnızca Pacemaker kümeye 2 düğüme geçerlidir.
 
 1. **[1]**  Gerekli kullanıcıları oluşturun.
 
@@ -688,9 +690,9 @@ Kullanım Örneğinize bağlı olarak SAP HANA SR performans için iyileştirilm
 SAP HANA SR performans için iyileştirilmiş senaryo SUSE Linux Enterprise Server SAP uygulamaları 12 SP1 kılavuzu için test açıklamalarını bir kopyasını testlerdir. Güncel bir sürüm için her zaman aynı zamanda Kılavuzu okuyun. Her zaman test başlamadan önce HANA eşitlenmiş olduğundan emin olun ve ayrıca Pacemaker yapılandırmasının doğru olduğundan emin olun.
 
 Aşağıdaki test açıklamalarda PREFER_SITE_TAKEOVER varsayıyoruz = "true" ve AUTOMATED_REGISTER = "false".
-Not: Aşağıdaki testleri, sırayla çalıştırılması ve önceki testleri çıkış durumuna bağlı şekilde tasarlanmıştır.
+NOT: Aşağıdaki testler sırayla çalıştırılması ve önceki testleri çıkış durumuna bağlı şekilde tasarlanmıştır.
 
-1. TEST 1: STOP BİRİNCİL VERİTABANI DÜĞÜMÜNE 1
+1. TEST 1: DURDURMA BİRİNCİL VERİTABANI DÜĞÜMÜNE 1
 
    Kaynak durumu, test başlamadan önce:
 
@@ -731,7 +733,7 @@ Not: Aşağıdaki testleri, sırayla çalıştırılması ve önceki testleri ç
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-1. TEST 2: STOP BİRİNCİL DÜĞÜM 2 ÜZERİNDE VERİTABANI
+1. TEST 2: DURDURMA BİRİNCİL DÜĞÜM 2 ÜZERİNDE VERİTABANI
 
    Kaynak durumu, test başlamadan önce:
 
@@ -772,7 +774,7 @@ Not: Aşağıdaki testleri, sırayla çalıştırılması ve önceki testleri ç
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TEST 3: KİLİTLENME BİRİNCİL VERİTABANI DÜĞÜMDE
+1. TEST 3: ÇÖKME BİRİNCİL VERİTABANI DÜĞÜMDE
 
    Kaynak durumu, test başlamadan önce:
 
@@ -813,7 +815,7 @@ Not: Aşağıdaki testleri, sırayla çalıştırılması ve önceki testleri ç
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-1. TEST 4: KİLİTLENME BİRİNCİL DÜĞÜM 2 ÜZERİNDE VERİTABANI
+1. TEST 4: ÇÖKME BİRİNCİL DÜĞÜM 2 ÜZERİNDE VERİTABANI
 
    Kaynak durumu, test başlamadan önce:
 
@@ -854,7 +856,7 @@ Not: Aşağıdaki testleri, sırayla çalıştırılması ve önceki testleri ç
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TEST 5: KİLİTLENME BİRİNCİL SITE DÜĞÜM (DÜĞÜM 1)
+1. TEST 5: ÇÖKME BİRİNCİL SITE DÜĞÜM (DÜĞÜM 1)
 
    Kaynak durumu, test başlamadan önce:
 
@@ -905,7 +907,7 @@ Not: Aşağıdaki testleri, sırayla çalıştırılması ve önceki testleri ç
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-1
    </code></pre>
 
-1. TEST 6: KİLİTLENME İKİNCİL SITE DÜĞÜMÜ (2 DÜĞÜM)
+1. TEST 6: ÇÖKME İKİNCİL SITE DÜĞÜMÜ (2 DÜĞÜM)
 
    Kaynak durumu, test başlamadan önce:
 
@@ -956,7 +958,7 @@ Not: Aşağıdaki testleri, sırayla çalıştırılması ve önceki testleri ç
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TEST 7: İKİNCİL VERİTABANI DÜĞÜM 2 ÜZERİNDE DURDUR
+1. TEST 7: İKİNCİL DÜĞÜM 2 ÜZERİNDE VERİTABANI DURDUR
 
    Kaynak durumu, test başlamadan önce:
 
@@ -993,7 +995,7 @@ Not: Aşağıdaki testleri, sırayla çalıştırılması ve önceki testleri ç
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TEST 8: İKİNCİL VERİTABANI 2 DÜĞÜMÜNDE KİLİTLENME
+1. TEST 8: İKİNCİL DÜĞÜM 2 ÜZERİNDE VERİTABANI KİLİTLENME
 
    Kaynak durumu, test başlamadan önce:
 
@@ -1030,7 +1032,7 @@ Not: Aşağıdaki testleri, sırayla çalıştırılması ve önceki testleri ç
       rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
    </code></pre>
 
-1. TEST 9: KİLİTLENME İKİNCİL SITE DÜĞÜMÜ (2 DÜĞÜM) ÇALIŞAN İKİNCİL HANA VERİTABANI
+1. 9 TEST EDİN: İKİNCİL SITE DÜĞÜMÜ (2 DÜĞÜM) ÇALIŞAN İKİNCİL HANA VERİTABANI KİLİTLENME
 
    Kaynak durumu, test başlamadan önce:
 

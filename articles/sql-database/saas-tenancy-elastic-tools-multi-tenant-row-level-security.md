@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5a9f168a0abc28b1decc6f327a62f5eaa4163e6f
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242917"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601534"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Esnek veritabanı araçlarını ve satır düzeyi güvenlik ile çok kiracılı uygulamalar
 
@@ -54,10 +54,10 @@ Derleme ve uygulamayı çalıştırın. Bu çalıştırmada esnek veritabanı ar
 
 RLS parça veritabanlarında henüz etkinleştirilmemiş olduğundan, bu testler, her bir sorun ortaya dikkat edin: kiracılar kendilerine ait olmayan blogları görebilirsiniz ve uygulama için yanlış kiracıya eklemesi blog engellenmez. Bu makalenin geri kalanında, Kiracı yalıtımı ile RLS zorunlu tutarak bu sorunları gidermek açıklar. İki adımı vardır: 
 
-1. **Uygulama katmanı**: her zaman geçerli Tenantıd OTURUMU ayarlamak için uygulama kodunu değiştirmeniz\_bir bağlantı açmak sonra BAĞLAMI. Örnek Proje, Tenantıd zaten bu şekilde ayarlar. 
-2. **Veri katmanı**: her parça veritabanında depolanan OTURUMUNDA Tenantıd göre filtre satırları bir RLS güvenlik ilkesi oluşturma\_BAĞLAMI. Her parça veritabanlarınızın bir ilke oluşturun, aksi takdirde çok kiracılı parça satırlarda olduğu tablolarda filtreleme yapılmaz. 
+1. **Uygulama katmanı**: Her zaman geçerli Tenantıd OTURUMU ayarlamak için uygulama kodunu değiştirmeniz\_bir bağlantı açmak sonra BAĞLAMI. Örnek Proje, Tenantıd zaten bu şekilde ayarlar. 
+2. **Veri katmanı**: Her parça veritabanında depolanan OTURUMUNDA Tenantıd göre filtre satırları bir RLS güvenlik ilkesi oluşturma\_BAĞLAMI. Her parça veritabanlarınızın bir ilke oluşturun, aksi takdirde çok kiracılı parça satırlarda olduğu tablolarda filtreleme yapılmaz. 
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Uygulama katmanı: oturumunda Set Tenantıd\_BAĞLAMI
+## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Uygulama katmanı: Tenantıd OTURUMU ayarlamak\_BAĞLAMI
 
 Önce bir parça veritabanı için elastik veritabanı istemci Kitaplığı'nın verilere bağımlı yönlendirme API'lerini kullanarak bağlanın. Uygulamanın hangi Tenantıd hala veritabanı söylemelisiniz bağlantı kullanıyor. Tenantıd, hangi satırların diğer kiracılara ait olarak filtrelendi gerekir, RLS güvenlik ilkesi söyler. Geçerli bir Tenantıd içinde Store [OTURUMU\_bağlam](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) bağlantı.
 
@@ -213,7 +213,7 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ```
 
-## <a name="2-data-tier-create-row-level-security-policy"></a>2. Veri katmanı: satır düzeyi güvenlik ilkesi oluşturma
+## <a name="2-data-tier-create-row-level-security-policy"></a>2. Veri katmanı: Satır düzeyi güvenlik ilkesi oluşturma
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Her Kiracı erişebileceği satırlar filtrelemek için bir güvenlik ilkesi oluşturma
 
@@ -341,8 +341,8 @@ GO
 
 ### <a name="maintenance"></a>Bakım
 
-- **Yeni parça ekleme**: RLS herhangi bir yeni parçalar üzerinde etkinleştirmek için T-SQL betiği yürütün, aksi takdirde bu parçalardaki sorgular olan tablolarda filtreleme yapılmaz.
-- **Yeni tablo ekleme**: yeni bir tablo oluşturulduğunda bir FİLTRE ve BLOK koşul tüm parçalar güvenlik ilkesine ekleyin. Aksi halde yeni bir tablo sorguları olan tablolarda filtreleme yapılmaz. Bu ekleme bir DDL tetikleyicisi kullanarak açıklandığı gibi otomatikleştirilebilir [yeni oluşturulan tablolar (blog) otomatik olarak satır düzeyi güvenlik uygulamak](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Yeni parça ekleme**: Tüm yeni parçalar üzerinde RLS etkinleştirmek için T-SQL betiği yürütün, aksi takdirde bu parçalardaki sorgular olan tablolarda filtreleme yapılmaz.
+- **Yeni tablo ekleme**: Yeni bir tablo oluşturulduğunda bir FİLTRE ve BLOK koşul tüm parçalar güvenlik ilkesine ekleyin. Aksi halde yeni bir tablo sorguları olan tablolarda filtreleme yapılmaz. Bu ekleme bir DDL tetikleyicisi kullanarak açıklandığı gibi otomatikleştirilebilir [yeni oluşturulan tablolar (blog) otomatik olarak satır düzeyi güvenlik uygulamak](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Özet
 

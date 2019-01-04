@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 34bf642cbdecce31be1a8119adc483d017686479
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 30ad0c5ee069df4cd58cb76b779f611d0272d571
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434054"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741598"
 ---
 # <a name="os-patching-for-hdinsight"></a>HDInsight için düzeltme eki uygulama işletim sistemi 
 Yönetilen bir Apache Hadoop hizmeti olan HDInsight HDInsight kümeleri tarafından kullanılan temel alınan sanal makinelerin işletim sistemi düzeltme eki uygulama üstlenir. 1 Ağustos 2016'dan itibaren (sürüm 3.4) Linux tabanlı HDInsight kümeleri için konuk işletim sistemi düzeltme eki uygulama ilkesi değiştirdik. Yeni ilke hedefi düzeltme eki uygulama nedeniyle yeniden başlatma sayısını önemli ölçüde azaltmaktır. Yeni ilke, her Pazartesi ya da herhangi bir küme içindeki düğümler arasında aşamalı bir şekilde 12: 00 UTC başlayarak Perşembe Linux kümelerinde düzeltme eki sanal makinelerine (VM'ler) devam eder. Ancak, belirli bir VM'nin yalnızca en fazla 30 konuk işletim sistemi düzeltme eki uygulama nedeniyle günde bir kez yeniden başlatılır. Ayrıca, ilk başlatma işlemi yeni oluşturulan bir küme için küme oluşturma tarihinden itibaren 30 gün daha erken olmaması. Düzeltme ekleri, Vm'leri yeniden sonra geçerli olacaktır.
@@ -33,7 +33,6 @@ Bu makalede açıklanan betik eylemi kullanarak işletim sistemi gibi düzeltme 
 
 > [!NOTE]  
 > Bu betik eylemi, yalnızca 1 Ağustos 2016'dan sonra oluşturulan Linux tabanlı HDInsight kümeleri ile çalışır. Yalnızca VM'ler yeniden başlatıldığı zaman düzeltme ekleri tarihinden itibaren geçerli olacaktır. 
->
 
 ## <a name="how-to-use-the-script"></a>Komut dosyası kullanma 
 

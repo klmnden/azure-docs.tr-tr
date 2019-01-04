@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 06/25/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6c648a9cb6b8d8dbfb60f1a5a6ebc386c57460b0
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: b4aec7ff560b0695175a18c9c7e429a8ab733345
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887255"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633717"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Azure Analysis Services PowerShell ile yönetme
 
 Bu makalede, Azure Analysis Services sunucusu ve veritabanı yönetim görevlerini gerçekleştirmek için kullanılan PowerShell cmdlet'lerini açıklanır. 
 
-Oluşturma veya sunucu silme, askıya alma veya sürdürme sunucu işlemleri veya hizmet düzeyi (katman) değiştirme gibi sunucu yönetimi görevleri, Azure Resource Manager (kaynak) cmdlet'leri ve Analysis Services (sunucu) cmdlet'lerini kullanın. Ekleme veya kaldırma Rol üyeleri gibi veritabanlarını yönetmeye yönelik diğer görevler işleme veya bölümleme, dahil edilen SQL Server Analysis Services ile aynı SqlServer modülündeki cmdlet'ler kullanın.
+Oluşturma veya sunucu silme, askıya alma veya sürdürme sunucu işlemleri veya hizmet düzeyi (katman) değiştirme gibi sunucu yönetimi görevleri, Azure Resource Manager (kaynak) cmdlet'leri ve Analysis Services (sunucu) cmdlet'lerini kullanın. Veritabanını yönetme ile ilgili diğer görevler, ekleme veya Rol üyeleri, işleme veya dahil edilen SQL Server Analysis Services ile aynı SqlServer modülündeki cmdlet'ler bölümleme gibi.
 
 ## <a name="permissions"></a>İzinler
 Çoğu PowerShell görevleri, yönettiğiniz Analysis Services sunucusunda yönetici ayrıcalıkları gerektirir. Zamanlanmış PowerShell görevleri katılımsız işlemlerdir. Zamanlayıcı'yı çalıştıran hesap veya hizmet asıl Analysis Services sunucusunda yönetici ayrıcalıkları olmalıdır. 
@@ -50,11 +50,11 @@ Modül - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azu
 |[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|Azure Analysis Services sunucu cmdlet'i istekleri için kullanılacak bir yetkili hesabı ekler.| 
 |[Dışarı aktarma AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Analysis Services sunucusu şu anda oturum açmış ortam Add-AzureAnalysisServicesAccount komutunda belirtilen örneğinden günlüğünü dışarı aktarır|  
 |[Yeniden başlatma AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Analysis Services sunucu örneği şu anda oturum açmış ortamında yeniden başlatılır; Add-AzureAnalysisServicesAccount komutunda belirtilen.|  
-|[Eşitleme AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Belirtilen bir Analysis Services sunucusu şu anda oturum açmış ortam Add-AzureAnalysisServicesAccount komut belirtildiği gibi tüm sorgu genişleme örnekleri için belirtilen örneği veritabanında eşitler|  
+|[Eşitleme AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Belirtilen bir Analysis Services sunucusu şu anda oturum açmış ortam Add-AzureAnalysisServicesAccount komut belirtildiği gibi tüm sorgu genişleme örnekleri belirtilen örneği veritabanında eşitler|  
 
 ## <a name="database-operations"></a>Veritabanı işlemleri
 
-Azure Analysis Services veritabanı işlemleri kullanmak aynı [SqlServer modülündeki](https://www.powershellgallery.com/packages/SqlServer) olarak SQL Server Analysis Services. Ancak, tüm cmdlet'leri, Azure Analysis Services için desteklenir. Bkz: daha fazla bilgi edinmek için [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
+Azure Analysis Services veritabanı işlemleri kullanmak aynı [SqlServer modülündeki](https://www.powershellgallery.com/packages/SqlServer) olarak SQL Server Analysis Services. Ancak, tüm cmdlet'leri, Azure Analysis Services için desteklenir. Daha fazla bilgi için bkz. [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
 
 SqlServer modülündeki bir Tablosal Model betik dili (TMSL) sorgu veya betik kabul eden genel amaçlı Invoke-ASCmd cmdlet yanı sıra görev özgü veritabanı yönetimi cmdlet'leri sağlar. Aşağıdaki SqlServer modülündeki cmdlet'ler, Azure Analysis Services için desteklenir.
 

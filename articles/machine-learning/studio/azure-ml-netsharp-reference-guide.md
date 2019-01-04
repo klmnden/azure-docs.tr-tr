@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ec33ac469d33a07d00f379beef2db9f4405e4679
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272244"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631134"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio için NET # sinir ağı belirtim dili Kılavuzu
 
@@ -388,7 +388,7 @@ output Out [10] sigmoid from H all;
 
 + İlk satırı giriş katman tanımlar (adlı `Data`). Kullanırken `auto` anahtar sözcüğü, sinir ağı giriş örnekleri otomatik olarak tüm özellik sütunları içerir. 
 + İkinci satır, gizli katmanın oluşturur. Adı `H` 200 düğümü olan bir gizli katmana atanmış. Bu katman, tam olarak giriş katmana bağlı.
-+ Üçüncü satır çıkış katman tanımlar (adlı `O`), 10 çıkış düğümü içerir. Sinir ağı sınıflandırma için kullanılırsa, bir çıkış düğüm başına sınıfı yoktur. Anahtar sözcüğü **sigmoid** çıkış işlevi çıkış katmana uygulandığını gösterir.
++ Üçüncü satır çıkış katman tanımlar (adlı `Out`), 10 çıkış düğümü içerir. Sinir ağı sınıflandırma için kullanılırsa, bir çıkış düğüm başına sınıfı yoktur. Anahtar sözcüğü **sigmoid** çıkış işlevi çıkış katmana uygulandığını gösterir.
 
 ### <a name="define-multiple-hidden-layers-computer-vision-example"></a>Birden çok gizli katmanları tanımlayın: bilgisayar işleme örneği
 

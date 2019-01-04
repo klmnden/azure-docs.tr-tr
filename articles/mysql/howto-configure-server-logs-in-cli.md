@@ -1,21 +1,18 @@
 ---
 title: Erişim sunucusu, Azure CLI kullanarak MySQL için Azure veritabanı'nda oturum
 description: Bu makalede, Azure CLI komut satırı yardımcı programını kullanarak MySQL için Azure veritabanı'nda sunucu günlüklerini erişmeye açıklar.
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: e3940f07ab97eb2ad03c347c39bf2412a8497f5e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 207e9965f6600477e1df93845bc41bd33b5c028c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978463"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547040"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Yapılandırma ve Azure CLI kullanarak sunucu günlüklerine erişme
 Sunucu günlükleri MySQL için Azure veritabanı Azure CLI, Azure komut satırı yardımcı programını kullanarak indirebilirsiniz.
@@ -28,7 +25,7 @@ Bu nasıl yapılır kılavuzunda adımlamak için ihtiyacınız vardır:
 ## <a name="configure-logging-for-azure-database-for-mysql"></a>MySQL için Azure veritabanı için günlük tutmayı yapılandırma
 MySQL yavaş sorgu günlüğü aşağıdaki adımları izleyerek erişmek için sunucu yapılandırabilirsiniz:
 1. Günlük özelliğini açar ayarlayarak **yavaş\_sorgu\_günlük** on parametresi.
-2. Diğer parametreler gibi ayarlayın **uzun\_sorgu\_zaman** ve **günlük\_yavaş\_yönetici\_deyimleri**.
+2. Diğer parametreler gibi ayarlayın **uzun\_sorgu\_zaman** ve **günlük\_yavaş\_yönetici\_deyimleri**.
 
 Azure CLI aracılığıyla bu parametre değeri hakkında bilgi edinmek için bkz: [sunucu parametrelerini yapılandırma](howto-configure-server-parameters-using-cli.md). 
 

@@ -9,15 +9,18 @@ ms.author: gwallace
 ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a518d00a50c0fc6ec83626852f30f739d64b18ea
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 5b87d04466a2c94ed233edf4069ec1a30b10d03a
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283306"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634329"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Otomasyonu Runbook ve modül galerileri
 Azure Automation'da kendi runbook'ları ve modüller oluşturmak yerine, çeşitli Microsoft ve topluluk tarafından zaten oluşturulduğundan senaryoları erişebilirsiniz.  Bu senaryolar yapmadan ya da kullanabilirsiniz veya bunları bir başlangıç noktası olarak kullanın ve bunları belirli gereksinimleriniz için düzenleyin.
+
+> [!NOTE]
+> Yeni [Az Azure PowerShell Modülü](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) Azure Automation'da desteklenmez. Bu cmdlet'leri ile PowerShell Galerisi'nden indirilir herhangi bir komut dosyası, Azure Automation'da çalışmaz.
 
 Runbook'ları alabilirsiniz [Runbook Galerisi](#runbooks-in-runbook-gallery) ve modüllerden [PowerShell Galerisi](#modules-in-powerShell-gallery).  Ayrıca katkıda bulunabilir bakın topluluğa geliştirme senaryoları paylaşabilir, [runbook Galerisine ekleme](automation-runbook-gallery.md#adding-a-runbook-to-the-runbook-gallery)
 

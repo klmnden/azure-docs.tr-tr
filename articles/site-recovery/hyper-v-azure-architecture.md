@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: eb177852be273f1c9af06b1f9d85fbba4cc98567
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ae71fb9f509c39e871f4d1dfb29626be47bea4b9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845505"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790988"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V'den Azure'a olağanüstü durum kurtarma mimarisi
 
@@ -133,7 +133,7 @@ Bir çoğaltma hatası meydana gelirse, yerleşik yeniden deneme işlevi vardır
 1. Azure planlı yük devretme şirket içi siteye hız kazandırın:
     - **Kapalı kalma süresini**: Bu seçeneği kullanırsanız, Site Recovery yük devretmeden önce verileri eşitler. Bu işlem için değiştirilen veri bloklarını denetler ve şirket içi sitesine, Azure VM tutar çalışıyor, kapalı kalma süresini en aza indirir. El ile yük devretmeyi tamamlamanız gerekir belirttiğinizde, Azure VM'yi kapatın, son delta değişiklikleri kopyalanır ve yük devretme başlatır.
     - **Tam yükleme**: Bu seçenekle yük devretme sırasında veri eşitlenir. Bu seçenek, tüm diskin yükler. Hiçbir sağlama toplamları hesaplanır, ancak daha fazla kapalı kalma süresi yoktur çünkü daha hızlıdır. Azure Vm'lerini çoğaltma için biraz zaman çalıştırıyorsunuz veya şirket içi VM silinmişse bu seçeneği kullanın.
-    - **VM oluşturma**: aynı sanal makine veya alternatif bir VM başarısız seçeneğini belirleyebilirsiniz. Zaten yoksa Site Recovery VM oluşturması gerektiğini belirtebilirsiniz.
+    - **VM oluşturma**: Aynı sanal makine veya alternatif bir VM başarısız seçeneğini belirleyebilirsiniz. Zaten yoksa Site Recovery VM oluşturması gerektiğini belirtebilirsiniz.
 
 2. İlk eşitleme tamamlandıktan sonra yük devretmeyi tamamlamak için seçin. Tamamlandıktan sonra her şeyin beklendiği gibi çalıştığını denetlemek için şirket içi VM oturum açabilir. Azure portalında Azure Vm'lerini durduruldu mu olduğunu görebilirsiniz.
 3.  Ardından, bitirme ve şirket içi sanal makineden yeniden iş yüküne erişmeye başlamak için yük devretmeyi yürütürsünüz.

@@ -9,16 +9,19 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f461bc1fd17ee957be5f223de731608011d021f5
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 5a60dd9af60328759e332514c8af061e50382798
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959368"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634873"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure automation'da Azure PowerShell modüllerini güncelleştirme
 
 En yaygın Azure PowerShell modüllerinin her Otomasyon hesabında varsayılan olarak sağlanır. Azure ekibi, Azure modüllerini düzenli olarak güncelleştirir. Otomasyon hesabınızı portaldan yeni sürümler kullanılabilir olduğunda hesabı modülleri güncelleştirmek için bir yol sunulur.
+
+> [!NOTE]
+> Yeni [Az Azure PowerShell Modülü](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) Azure Automation'da desteklenmez.
 
 Modüller düzenli olarak ürün grubu tarafından güncelleştirildiğinden, değişiklikleri dahil edilen cmdlet'ler ile ortaya çıkabilir. Bu eylem, bir parametre yeniden adlandırma ya da tamamen bir cmdlet kullanım dışı bırakılıyor gibi değişiklik türüne bağlı olarak runbook'larınızı olumsuz yönde etkileyebilir. Runbook'larınızı ve bunlar otomatikleştirmek işlemleri etkilemesini önlemek için test edin ve devam etmeden önce doğrulayın. Hedeflenen bu amaç için adanmış bir Otomasyon hesabınız yoksa, böylece birçok farklı senaryo runbook'larınızı geliştirilmesi sırasında test oluşturma göz önünde bulundurun. Bu testi PowerShell modüllerini güncelleştirme gibi yinelemeli değişiklikleri içermelidir. Betiklerinizi yerel olarak geliştirme yapıyorsanız, emin olmak için testi aynı sonuçları alırsınız, Otomasyon hesabınızda kullandığınız aynı modülü yerel olarak sürümlerde önerilir. Sonuçları doğrulanır ve gereken değişiklikleri uyguladığınız sonra değişiklikleri üretime taşıyabilirsiniz.
 

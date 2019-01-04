@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 5a0d7a0e96a788c3136adba70fb27a2c98674e7a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f3994c2be50939a837256224030e5284cc6f385b
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088060"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754059"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri*
 
 Bu makalede 1809 güncelleştirme paketinin içeriğini açıklar. Güncelleştirme paketinin bu sürümü, Azure Stack için bilinen sorunlar geliştirmeleri ve düzeltmeleri içerir. Bu makalede, güncelleştirmeyi indirebilmesi bağlantıyı da içerir. Bilinen sorunlar için güncelleştirme işlemini doğrudan ilgili sorunları ve derleme (yükleme sonrası) ile ilgili sorunlar ayrılır.
 
@@ -60,10 +60,10 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir:
 - Aşağıdaki yönetilen disk sorunları içinde 1809 sabittir ve ayrıca 1808 içinde sabit [Azure Stack düzeltme 1.1808.9.117](https://support.microsoft.com/help/4481066/): 
 
    <!--  2966665 – IS, ASDK --> 
-   - Hangi düğmelere SSD veri diskler yönetilen disk sanal makineler (DS, DSv2, Fs, Fs_V2) bir hata ile başarısız oldu premium boyuta sorun düzeltildi: *'vmname' hata sanal makinenin diskleri güncelleştirilemedi: İstenen işlem gerçekleştirilemiyor VM boyutu için desteklenmeyen 'Premium_LRS' depolama hesabı türü ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
+   - Hangi düğmelere SSD veri diskler yönetilen disk sanal makineler (DS, DSv2, Fs, Fs_V2) bir hatayla başarısız oldu. premium boyuta sorun düzeltildi:  *'Vmname' hata sanal makinenin diskleri güncelleştirilemedi: İstenen işlem gerçekleştirilemiyor, depolama hesabı türü 'Premium_LRS' VM boyutu için desteklenmediğinden ' Standard_DS/Ds_V2/FS/Fs_v2)*. 
    
-   - Kullanarak yönetilen disk VM'si oluşturma **createOption**: **iliştirme** şu hatayla başarısız oluyor: *işlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu. Ek bilgi: 'bir iç yürütme hatası oluştu.'*
-   Hata kodu: InternalExecutionError ErrorMessage: bir iç yürütme hatası oluştu.
+   - Kullanarak yönetilen disk VM'si oluşturma **createOption**: **Ekleme** şu hatayla başarısız oluyor: *İşlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu. Ek bilgi: 'bir iç yürütme hatası oluştu.'*
+   Hata kodu: InternalExecutionError ErrorMessage: Bir iç yürütme hatası oluştu.
    
    Bu sorunu artık düzeltildi.
 
@@ -221,16 +221,16 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 - Uyarıları görebilirsiniz **sistem durumu denetleyicisi** aşağıdaki ayrıntıları olan bir bileşeni:  
 
    Uyarı #1:
-   - ADI: Sağlıksız altyapı rolü
-   - Önem DERECESİ: uyarı
-   - BİLEŞENİ: Sistem durumu denetleyicisi
-   - Açıklama: Sistem durumu denetleyici sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.  
+   - ADI:  Sağlıksız altyapı rolü
+   - ÖNEM DERECESİ: Uyarı
+   - BİLEŞEN: Denetleyici sistem durumu
+   - AÇIKLAMA: Sistem durumu denetleyici sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.  
 
   Uyarı #2:
-   - ADI: Sağlıksız altyapı rolü
-   - Önem DERECESİ: uyarı
-   - BİLEŞENİ: Sistem durumu denetleyicisi
-   - Açıklama: Hata tarayıcı durumu denetleyicisi kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.
+   - ADI:  Sağlıksız altyapı rolü
+   - ÖNEM DERECESİ: Uyarı
+   - BİLEŞEN: Denetleyici sistem durumu
+   - AÇIKLAMA: Sistem durumu denetleyicisi hata tarayıcı kullanılamıyor. Bu sistem durumu raporlarının ve ölçümler etkileyebilir.
 
   Her iki uyarılar güvenle yoksayılabilir ve zaman içinde otomatik olarak kapatılması.  
 
@@ -238,10 +238,10 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 <!-- 2812138 | IS --> 
 - İçin bir uyarı görebileceğiniz **depolama** aşağıdaki ayrıntıları olan bir bileşeni:
 
-   - Ad: Depolama hizmeti iç iletişim hatası  
-   - Önem DERECESİ: kritik  
-   - Bileşen: depolama  
-   - Açıklama: Aşağıdaki düğümlere istekleri gönderirken, depolama hizmeti iç iletişim hatası oluştu.  
+   - ADI: Depolama hizmeti iç iletişim hatası  
+   - ÖNEM DERECESİ: Kritik  
+   - BİLEŞEN: Depolama  
+   - AÇIKLAMA: Aşağıdaki düğümlere istekleri gönderirken, depolama hizmeti iç iletişim hatası oluştu.  
 
     Uyarıyı güvenle yoksayılabilir, ancak uyarıyı el ile kapatmanız gerekir.
 
@@ -257,12 +257,12 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
 - Azure Stack portalını kullanarak bir yeni sanal makine (VM) oluşturun ve VM boyutu seçin, ABD Doları/ay sütun içeren görüntülenir bir **kullanılamıyor** ileti. Bu sütun görünmemelidir; VM görüntüleme fiyatlandırma sütunu Azure Stack'te desteklenmiyor.
 
 <!-- 2869209 – IS, ASDK --> 
-- Kullanırken [ **Ekle AzsPlatformImage** cmdlet'i](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), kullanmalısınız **- OsUri** parametre olarak depolama hesabı URI'si disk nereye yüklenir. Yerel yol diskin kullanırsanız, cmdlet şu hatayla başarısız olur: *işlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu*. 
+- Kullanırken [ **Ekle AzsPlatformImage** cmdlet'i](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), kullanmalısınız **- OsUri** parametre olarak depolama hesabı URI'si disk nereye yüklenir. Yerel yol diskin kullanırsanız, cmdlet şu hatayla başarısız olur: *İşlemi uzun süre çalışan 'Başarısız' durumuyla başarısız oldu*. 
 
 <!--  2795678 – IS, ASDK --> 
 - VM, portalı sanal makineler (VM) oluşturmak için bir premium VM boyutu (DS, Ds_v2, FS, FSv2) kullandığınızda, bir standart depolama hesabı oluşturulur. Bir standart depolama hesabı oluşturma IOPS, işlevsel olarak, etkilemez ya da fatura. 
 
-   Bildiren bir uyarıyı güvenle yok sayabilirsiniz: *premium diskleri destekleyen bir boyutta standart disk kullanmayı seçtiniz. Bu işletim sisteminin performansını etkileyebilir ve önerilmez. Premium depolamayı (SSD) kullanmayı düşünün.*
+   Bildiren bir uyarıyı güvenle yok sayabilirsiniz: *Premium diskleri destekleyen bir boyutta standart disk kullanmayı seçtiniz. Bu işletim sisteminin performansını etkileyebilir ve önerilmez. Premium depolamayı (SSD) kullanmayı düşünün.*
 
 <!-- 2967447 - IS, ASDK --> 
 - Dağıtım için bir seçenek olarak, 7.2 CentOS tabanlı sanal makine ölçek kümesi (VMSS) oluşturma deneyimi sağlar. Bu görüntüyü Azure Stack üzerinde kullanılabilir olmadığından, dağıtımınız için başka bir işletim sistemi seçin veya Market'ten dağıtımdan işleciyle indirildi başka bir CentOS görüntüsü belirten bir Azure Resource Manager şablonu kullanın.  
@@ -287,12 +287,15 @@ Bu derleme sürümü için yükleme sonrası bilinen sorunlar verilmiştir.
    - 2048 GiB ayrılır ancak 1808 güncelleştirmeden önce oluşturulan kotalarını 0 değerleri yönetilen diskler kotası yönetici Portalı'nda gösterir. Gerçek gereksinimlerinize ve yeni belirlenen göre değerini azaltın veya artırabilirsiniz kota değeri, 2048 GiB varsayılan'ı geçersiz kılar.
    - Kota değeri 0'a güncelleştirin, 2048 GiB varsayılan değerini eşdeğer olacaktır. Geçici çözüm olarak, kota değeri 1 olarak ayarlayın.
 
-<!-- TBD - IS ASDK --> Güncelleştirme 1809 uyguladıktan sonra yönetilen disklere sahip VM'ler dağıtırken aşağıdaki sorunlarla karşılaşabilirsiniz:
+<!-- TBD - IS ASDK --> 
+- Güncelleştirme 1809 uyguladıktan sonra yönetilen disklere sahip VM'ler dağıtırken aşağıdaki sorunlarla karşılaşabilirsiniz:
 
    - Yönetilen disklerle bir VM dağıtma 1808 güncelleştirmeden önce Abonelik oluşturulurken bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için her abonelik için şu adımları izleyin:
       1. Kiracı Portalı'nda Git **abonelikleri** ve aboneliği bulunamıyor. Tıklayın **kaynak sağlayıcıları**, ardından **Microsoft.Compute**ve ardından **yeniden kaydettirin**.
       2. Aynı abonelik altında Git **erişim denetimi (IAM)**, doğrulayın **Azure Stack – yönetilen Disk** listelenir.
    2. Bir konuk dizin ile ilişkili bir abonelik içindeki Vm'leri dağıtma, çok kiracılı bir ortam yapılandırdıysanız, bir iç hata iletisi ile başarısız olabilir. Hatayı gidermek için aşağıdaki adımları izleyin. [bu makalede](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) her Konuk dizinlerinizi yeniden yapılandırmak için.
+
+- Bir Ubuntu 18.04 etkinleştirilmiş SSH yetkilendirme ile oluşturulan VM, oturum açmak için SSH anahtarları kullanmak izin vermez. Geçici bir çözüm olarak Lütfen VM erişimi Linux uzantısı için SSH anahtarları sağladıktan sonra uygulamak için kullanmak veya parola tabanlı kimlik doğrulaması kullanın.
 
 ### <a name="networking"></a>Ağ  
 

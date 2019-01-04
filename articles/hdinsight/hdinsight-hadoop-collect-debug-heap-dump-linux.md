@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 58f4827910d863aef14171574d40e4b3acfc04d9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d4245ce35cfc1e3aa0ba9ee9307315c9a999b5ff
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498691"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722056"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Linux tabanlı HDInsight üzerinde Apache Hadoop Hizmetleri için yığın dökümlerini etkinleştirme
 
@@ -22,7 +22,7 @@ ms.locfileid: "52498691"
 
 Yığın dökümlerini değişkenlerin değerleri döküm oluşturulduğu zaman dahil olmak üzere, uygulamanın bellek anlık görüntüsünü içerir. Bu nedenle bunlar çalıştırma zamanında gerçekleşen sorunları tanılamak için kullanışlıdır.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgede yer alan adımlar, yalnızca Linux kullanan HDInsight kümeleri ile çalışır. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whichServices"></a>Hizmetleri
@@ -48,7 +48,7 @@ Eşleme ve azaltma işlemlerini MapReduce service'nın bir alt işlemi olarak i�
 * **mapreduce.admin.map.child.java.opts**
 * **mapreduce.admin.reduce.child.java.opts**
 
-> [!NOTE]
+> [!NOTE]  
 > Kullanmanızı öneririz [Apache Ambari](https://ambari.apache.org/) betikleri ve mapred-site.xml ayarlarını değiştirmek için değişiklikleri kümedeki düğümler arasında çoğaltmayı Ambari işleme. Bkz: [kullanarak Apache Ambari](#using-apache-ambari) bölümde belirli adımlar için.
 
 ### <a name="enable-heap-dumps"></a>Yığın dökümlerini etkinleştirme
@@ -59,7 +59,7 @@ Bir OutOfMemoryError oluştuğunda yığın dökümlerini aşağıdaki iki seçe
 
 **+** Bu seçeneği etkin olduğunu gösterir. Varsayılan olarak devre dışı seçeneği kullanılır.
 
-> [!WARNING]
+> [!WARNING]  
 > Döküm dosyaları büyük olması gibi yığın dökümlerini HDInsight Hadoop Hizmetleri için varsayılan olarak etkin değildir. Sorunu yeniden ve döküm dosyaları toplanan sonra bunları devre dışı bırakmak sorun giderme için etkinleştirdiğinizde ise unutmayın.
 
 ### <a name="dump-location"></a>Döküm konumu
@@ -76,7 +76,7 @@ Bir komut dosyası ayrıca tetikleyebilirsiniz olduğunda bir **OutOfMemoryError
 
     -XX:OnOutOfMemoryError=/path/to/script
 
-> [!NOTE]
+> [!NOTE]  
 > Apache Hadoop dağıtılmış bir sistemde olduğundan, hizmetin üzerinde çalıştığı kümedeki tüm düğümlerde kullanılan herhangi bir betik yerleştirilmelidir.
 > 
 > Betik gerekir ayrıca olması, hizmet olarak çalışır ve sağlamalısınız hesabı tarafından erişilebilen bir konumda Yürütme izinleri. Örneğin, komut dosyalarında depolamak isteyebilirsiniz `/usr/local/bin` ve `chmod go+rx /usr/local/bin/filename.sh` vermek okuma ve Yürütme izinleri.
@@ -89,7 +89,7 @@ Bir hizmetin yapılandırmasını değiştirmek için aşağıdaki adımları ku
 
     İstendiğinde, HTTP hesap adını kullanarak siteye kimlik doğrulaması (varsayılan: Yönetici) ve kümeniz için parola.
 
-   > [!NOTE]
+   > [!NOTE]  
    > İkinci kez Ambari tarafından kullanıcı adı ve parola istenebilir. Bu durumda, aynı hesabı adını ve parolasını girin.
 
 2. Sol taraftaki listesini kullanarak değiştirmek istediğiniz bir hizmet alanı seçin. Örneğin, **HDFS**. Merkezi alanında seçin **yapılandırmaları** sekmesi.
@@ -104,7 +104,7 @@ Bir hizmetin yapılandırmasını değiştirmek için aşağıdaki adımları ku
 
     ![-XX ile HADOOP_NAMENODE_OPTS: + HeapDumpOnOutOfMemoryError - XX: = HeapDumpPath/tmp /](./media/hdinsight-hadoop-heap-dump-linux/opts.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Ne zaman otomatik olarak yığın etkinleştirme veya dökümleri için harita alt işlem, arama için adlandırılmış alanları azaltmak **mapreduce.admin.map.child.java.opts** ve **mapreduce.admin.reduce.child.java.opts**.
 
     Kullanım **Kaydet** değişiklikleri kaydetmek için düğme. Değişiklikleri açıklayan kısa bir not girebilirsiniz.
@@ -121,7 +121,7 @@ Bir hizmetin yapılandırmasını değiştirmek için aşağıdaki adımları ku
 
     ![Etkilenen tüm giriş yeniden başlatın](./media/hdinsight-hadoop-heap-dump-linux/restartbutton.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > girişleri **yeniden** düğmesi için diğer hizmetleri farklı olabilir.
 
 8. Hizmetleri yeniden başlattıktan sonra kullanmak **hizmet eylemleri** düğmesi **bakım modunu Kapat Kapat**. Uyarılar için hizmet için izlemeyi sürdürmek için bu Ambari.

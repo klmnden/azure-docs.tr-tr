@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2018
+ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0b42a51f255080905cb0104d06ed18f1d18f8e5d
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5a2b38e5d627341b3684ee55d13ee06881fbae55
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015424"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53728372"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları, kaynaklar bölümü
 
@@ -90,7 +90,7 @@ Aşağıdaki yapıya sahip kaynakları tanımlarsınız:
 | location |Değişir |Sağlanan kaynak coğrafi konumda desteklenmiyor. Mevcut konumlardan birini seçebilirsiniz, ancak genellikle kullanıcılarınıza yakın olan bir çekme mantıklıdır. Genellikle, da aynı bölgede birbiriyle etkileşim kaynakları yerleştirin mantıklıdır. Çoğu kaynak türleri bir konum gerektirme, ancak bazı türleri (örneğin, bir rol ataması) bir konuma gerektirmez. |
 | etiketler |Hayır |Kaynakla ilişkili etiketler. Kaynakları aboneliğiniz arasında mantıksal olarak düzenlemek için etiketler. |
 | Açıklamaları |Hayır |Şablonunuzda kaynaklar belgelemek için Notlar |
-| kopyala |Hayır |Birden fazla örneği gerekiyorsa oluşturmak için kaynak sayısı. Paralel varsayılan moddur. Tüm istemediğinizde seri modu veya aynı anda dağıtmak amacıyla kaynaklarınızı belirtin. Daha fazla bilgi için [Azure Resource Manager'da kaynakları birden çok örneğini oluşturma](resource-group-create-multiple.md). |
+| kopyala |Hayır |Birden fazla örneği gerekiyorsa oluşturmak için kaynak sayısı. Paralel varsayılan moddur. Tüm istemediğinizde seri modu veya aynı anda dağıtmak amacıyla kaynaklarınızı belirtin. Daha fazla bilgi için [Azure Resource Manager'da kaynakları çeşitli örneklerini oluşturmak](resource-group-create-multiple.md). |
 | dependsOn |Hayır |Bu kaynak dağıtılmadan önce dağıtılmalıdır kaynaklar. Resource Manager, kaynaklar arasındaki bağımlılıkları değerlendirir ve bunları doğru sırayla dağıtır. Kaynakları birbirlerine bağımlı olmayan, paralel olarak dağıtılan. Değer bir kaynağa virgülle ayrılmış bir listesini olabilir adlarına veya kaynak benzersiz tanımlayıcıları. Yalnızca bu şablon dağıtılan kaynakları listeler. Bu şablonda tanımlı olmayan kaynakları önceden var olmalıdır. Dağıtımınızı yavaş ve döngüsel bağımlılıklar oluşturma gibi gereksiz bağımlılıkları eklemekten kaçının. Bağımlılıklarını ayarlama hakkında yönergeler için bkz [Azure Resource Manager şablonlarında bağımlılık tanımlama](resource-group-define-dependencies.md). |
 | properties |Hayır |Kaynağa özgü yapılandırma ayarları. Özellikleri için değer, istek gövdesinde bir kaynak oluşturmak REST API işlemi için (PUT yöntemini) sağladığınız değerler ile aynıdır. Ayrıca, bir özelliği birden çok örneği oluşturmak için bir kopya dizisi belirtebilirsiniz. |
 | sku | Hayır | Bazı kaynaklar dağıtmak için SKU tanımlama değerlerini sağlar. Örneğin, bir depolama hesabı için yedeklilik türünü belirtebilirsiniz. |
@@ -141,7 +141,7 @@ Veri erişim uç noktası olan herhangi bir kaynak türü için benzersiz bir ka
 * Azure Uygulama Hizmeti’nin Web Apps özelliği
 * SQL Server
 * Azure Key Vault
-* Redis için Azure Cache
+* Redis için Azure Önbelleği
 * Azure Batch
 * Azure Traffic Manager
 * Azure Search
@@ -289,7 +289,7 @@ Alt kaynak türünün biçimi şu şekildedir: `{resource-provider-namespace}/{p
 
 Alt kaynak adı biçimi şöyledir: `{parent-resource-name}/{child-resource-name}`
 
-Ancak veritabanı sunucusu içinde tanımlamanız gerekmez. Alt kaynak en üst düzeyde tanımlayabilirsiniz. Üst kaynak aynı şablonun dağıttıysanız değil veya bu yaklaşımı kullanabilirsiniz kullanmak istediğiniz `copy` birden çok alt kaynakları oluşturmak için. Bu yaklaşımda, tam kaynak türü sağlayın ve üst kaynak adı alt kaynak adında gerekir.
+Ancak veritabanı sunucusu içinde tanımlamanız gerekmez. Alt kaynak en üst düzeyde tanımlayabilirsiniz. Üst kaynak aynı şablonun dağıttıysanız değil veya bu yaklaşımı kullanabilirsiniz kullanmak istediğiniz `copy` birden fazla alt kaynak oluşturmak için. Bu yaklaşımda, tam kaynak türü sağlayın ve üst kaynak adı alt kaynak adında gerekir.
 
 ```json
 {
@@ -318,122 +318,11 @@ Tam başvuru için bir kaynak oluşturulurken, yalnızca bir birleştirme iki t�
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` doğru `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` doğru değil
 
-## <a name="recommendations"></a>Öneriler
-Kaynaklar ile çalışırken aşağıdaki bilgiler yararlı olabilir:
-
-* Diğer Katkı Sağlayanlar kaynak amacını anlamalarına yardımcı olmak için belirtin **açıklamaları** şablondaki her bir kaynak için:
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
-         "location": "[resourceGroup().location]",
-         "comments": "This storage account is used to store the VM disks.",
-         ...
-     }
-   ]
-   ```
-
-* Kullanıyorsanız bir *genel uç nokta* (örneğin, bir Azure Blob Depolama genel uç nokta), şablonunuzda *sabit* ad alanı. Kullanım **başvuru** ad alanını dinamik olarak almak için işlevi. Şablonu farklı bir genel ad alanı ortamlar için el ile uç nokta şablondaki değiştirmeden dağıtmak için bu yaklaşımı kullanabilirsiniz. API sürümü, şablonunuzda depolama hesabı için kullandığınız aynı sürüme ayarlayın:
-   
-   ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-   
-   Depolama hesabı aynı şablonda oluşturmakta olduğunuz dağıtılırsa, kaynağa başvuran sağlayıcı ad alanı belirtmeniz gerekmez. Aşağıdaki örnek, Basitleştirilmiş sözdizimi gösterilmektedir:
-   
-   ```json
-   "osDisk": {
-       "name": "osdisk",
-       "vhd": {
-           "uri": "[concat(reference(variables('storageAccountName'), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-   
-   Genel bir ad alanını kullanacak şekilde yapılandırılmış olan diğer değerleri şablonunuzdaki varsa, aynı yansıtacak şekilde bu değerleri değiştirmek **başvuru** işlevi. Örneğin, ayarlayabilirsiniz **storageUri** sanal makine tanılama profili özelliği:
-   
-   ```json
-   "diagnosticsProfile": {
-       "bootDiagnostics": {
-           "enabled": "true",
-           "storageUri": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
-       }
-   }
-   ```
-   
-   Ayrıca, farklı bir kaynak grubunda olan mevcut bir depolama hesabını başvurabilirsiniz:
-
-   ```json
-   "osDisk": {
-       "name": "osdisk", 
-       "vhd": {
-           "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2016-01-01').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
-       }
-   }
-   ```
-
-* Yalnızca bir uygulama gerektirdiğinde, sanal makinenin genel IP adresleri atayın. Bir sanal makine (VM) hata ayıklama veya yönetim veya yönetim amaçları için bağlanmak için gelen NAT kuralları, bir sanal ağ geçidi veya bir Sıçrama kutusu kullanın.
-   
-     Sanal makinelere bağlanma hakkında daha fazla bilgi için bkz:
-   
-   * [Azure'da N katmanlı mimari için Vm'leri çalıştırma](../guidance/guidance-compute-n-tier-vm.md)
-   * [Azure Resource Manager'daki VM'ler için WinRM erişimi ayarlama](../virtual-machines/windows/winrm.md)
-   * [Azure portalını kullanarak, bir VM'ye dış erişim izni ver](../virtual-machines/windows/nsg-quickstart-portal.md)
-   * [PowerShell kullanarak, bir VM'ye dış erişim izni ver](../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Azure CLI kullanarak Linux vm'nize dış erişim verme](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
-* **Etkialanıadetiketi** özelliği genel IP adresleri için benzersiz olmalıdır. **Etkialanıadetiketi** değeri gerekir 3 ile 63 karakter uzunluğunda olmalıdır ve bu normal bir ifadeyle belirtilen kurallara uyar: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Çünkü **uniqueString** işlevi 13 karakter uzunluğunda bir dize oluşturur **dnsPrefixString** parametresi 50 karakterle sınırlıdır:
-
-   ```json
-   "parameters": {
-       "dnsPrefixString": {
-           "type": "string",
-           "maxLength": 50,
-           "metadata": {
-               "description": "The DNS label for the public IP address. It must be lowercase. It should match the following regular expression, or it will raise an error: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$"
-           }
-       }
-   },
-   "variables": {
-       "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
-   }
-   ```
-
-* Bir özel betik uzantısı için bir parola eklediğinizde, kullanın **commandToExecute** özelliğinde **protectedSettings** özelliği:
-   
-   ```json
-   "properties": {
-       "publisher": "Microsoft.Azure.Extensions",
-       "type": "CustomScript",
-       "typeHandlerVersion": "2.0",
-       "autoUpgradeMinorVersion": true,
-       "settings": {
-           "fileUris": [
-               "[concat(variables('template').assets, '/lamp-app/install_lamp.sh')]"
-           ]
-       },
-       "protectedSettings": {
-           "commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
-       }
-   }
-   ```
-   
-   > [!NOTE]
-   > Vm'leri ve uzantıları için parametre olarak geçirilir, gizli dizileri şifrelendiğinden emin olmak için kullanın **protectedSettings** ilgili uzantı özelliği.
-   > 
-   > 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Farklı türlerde çözümler için tam şablonları görüntülemek üzere bkz. [Azure Hızlı Başlangıç Şablonları](https://azure.microsoft.com/documentation/templates/).
 * Kullanabileceğiniz gelen içinde şablon işlevleri hakkında daha fazla ayrıntı için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md).
-* Birden fazla şablon dağıtımı sırasında kullanmak için bkz: [Azure Resource Manager ile bağlı şablonları kullanma](resource-group-linked-templates.md).
+* Şablonları oluşturma hakkında daha fazla öneri için bkz. [Azure Resource Manager şablonu iyi](template-best-practices.md).
 * Farklı bir kaynak grubu içinde mevcut kaynakları kullanmanız gerekebilir. Bu depolama hesaplarını veya birçok kaynak grupları arasında paylaşılan sanal ağlar ile çalışırken yaygın senaryodur. Daha fazla bilgi için [ResourceId işlevi](resource-group-template-functions-resource.md#resourceid).
 * Kaynak adı kısıtlamaları hakkında daha fazla bilgi için bkz: [Azure kaynakları için önerilen adlandırma kuralları](../guidance/guidance-naming-conventions.md).

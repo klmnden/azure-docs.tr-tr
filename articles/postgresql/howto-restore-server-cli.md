@@ -1,21 +1,18 @@
 ---
-title: Yedekleme ve PostgreSQL için Azure veritabanı'nda bir sunucuya geri yükleme işlemini | Microsoft Docs
+title: Nasıl yedeklenir ve PostgreSQL için Azure veritabanı'nda bir sunucuya geri yükleme
 description: Yedekleme ve Azure CLI kullanarak PostgreSQL için Azure veritabanı'nda bir sunucuya geri yükleme hakkında bilgi edinin.
-services: postgresql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: e73fe4929d889da768328be22a3e23603dab5be6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 93bece582975f5149ea8ab5cb85d4d508613d066
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970762"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536364"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Azure CLI kullanarak PostgreSQL için Azure veritabanı'nda bir sunucu geri nasıl
 
@@ -71,9 +68,9 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 ```
 
 `az postgres server restore` Komut takip eden parametreleri gerektiriyor:
-| Ayar | Önerilen değer | Açıklama  |
+| Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |
+| resource-group |  myresourcegroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |
 | ad | mydemoserver-restored | Geri yükleme komutu tarafından oluşturulan yeni sunucunun adı. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Bir noktaya geri yüklemek için saat seçin. Bu tarih ve saat, kaynak sunucunun yedekleme saklama dönemi içinde olmalıdır. ISO8601 tarih ve saat biçimini kullanın. Örneğin, kendi yerel saat dilimi gibi kullanabileceğiniz `2018-03-13T05:59:00-08:00`. Örneğin, şeklindeki UTC Zulu biçimini kullanabilirsiniz `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Geri yükleme kaynağı olarak kullanılacak sunucunun adı veya kimliği. |
@@ -110,13 +107,13 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 ```
 
 `az postgres server georestore` Komutu requies aşağıdaki parametreleri:
-| Ayar | Önerilen değer | Açıklama  |
+| Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Kaynak grubunun adı için yeni sunucuya ait.|
 |ad | mydemoserver-georestored | Yeni sunucunun adı. |
 |source-server | mydemoserver | Coğrafi olarak yedekli yedekleri kullanılan mevcut sunucu adı. |
 |location | eastus | Yeni sunucu konumu. |
-|SKU adı| GP_Gen4_8 | Bu parametre, fiyatlandırma katmanı, işlem oluşturma ve yeni sunucunun sanal çekirdek sayısını ayarlar. Genel amaçlı, 8 sanal çekirdekli 4. nesil sunucu GP_Gen4_8 eşlenir.|
+|sku-name| GP_Gen4_8 | Bu parametre, fiyatlandırma katmanı, işlem oluşturma ve yeni sunucunun sanal çekirdek sayısını ayarlar. Genel amaçlı, 8 sanal çekirdekli 4. nesil sunucu GP_Gen4_8 eşlenir.|
 
 
 >[!Important]

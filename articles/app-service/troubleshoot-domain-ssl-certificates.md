@@ -1,6 +1,6 @@
 ---
 title: Etki alanı ve SSL sertifikaları - Azure App Service'e giderme | Microsoft Docs
-description: Etki alanı ve Azure web apps'te SSL sertifikası sorunları giderme
+description: Etki alanı ve Azure App Service SSL sertifikası sorunlarını giderme
 services: app-service\web
 documentationcenter: ''
 author: genlin
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 726bc78532cfe621eb3f3787aa05a7a54571a8c3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 6f88079c5baac8cef677fd3afc5696cec5c00d92
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53389218"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653671"
 ---
-# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Etki alanı ve Azure web apps'te SSL sertifikası sorunları giderme
+# <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Etki alanı ve Azure App Service SSL sertifikası sorunlarını giderme
 
-Bu makalede, Azure web uygulamalarınız için bir etki alanı veya SSL sertifikası yapılandırdığınızda karşılaşabileceğiniz genel sorunları listeler. Ayrıca, bu sorunlar için olası nedenler ve çözümler açıklanmaktadır.
+Bu makalede, Azure App Service'te web uygulamalarınız için bir etki alanı veya SSL sertifikası yapılandırdığınızda karşılaşabileceğiniz genel sorunları listeler. Ayrıca, bu sorunlar için olası nedenler ve çözümler açıklanmaktadır.
 
 Bu makalede herhangi bir noktada daha fazla yardıma ihtiyacınız olursa, üzerinde Azure uzmanlarıyla iletişime geçebilirsiniz [MSDN ve Stack Overflow forumları](https://azure.microsoft.com/support/forums/). Alternatif olarak, bir Azure destek olayına dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) seçip **destek al**.
 
 ## <a name="certificate-problems"></a>Sertifika sorunları
 
-### <a name="you-cant-add-an-ssl-certificate-binding-to-a-web-app"></a>Bir SSL sertifikası bağlaması bir web uygulamasına eklenemiyor 
+### <a name="you-cant-add-an-ssl-certificate-binding-to-an-app"></a>Bir uygulama için bir SSL sertifikası bağlaması eklenemiyor 
 
 #### <a name="symptom"></a>Belirti
 
@@ -40,13 +40,13 @@ SSL bağlaması eklediğinizde, aşağıdaki hata iletisini alıyorsunuz:
 
 #### <a name="cause"></a>Nedeni
 
-Birden fazla web uygulama arasında birden çok IP tabanlı SSL bağlamaları aynı IP adresi için varsa, bu sorun oluşabilir. Örneğin, bir IP tabanlı SSL eski bir sertifika ile bir web uygulaması vardır. Web uygulaması B aynı IP adresi için yeni bir sertifika ile bir IP tabanlı SSL sahiptir. Web uygulaması SSL bağlaması ile yeni sertifika güncelleştirdiğinizde, aynı IP adresi başka bir uygulama için kullanıldığından şu hatayla başarısız olur. 
+Birden fazla uygulama arasında birden çok IP tabanlı SSL bağlamaları aynı IP adresi için varsa, bu sorun oluşabilir. Örneğin, bir uygulama eski bir sertifika ile bir IP tabanlı SSL vardır. Uygulama B aynı IP adresi için yeni bir sertifika ile bir IP tabanlı SSL sahiptir. Uygulama SSL bağlaması ile yeni sertifika güncelleştirdiğinizde, aynı IP adresi başka bir uygulama için kullanıldığından şu hatayla başarısız olur. 
 
 #### <a name="solution"></a>Çözüm 
 
 Bu sorunu gidermek için aşağıdaki yöntemlerden birini kullanın:
 
-- Eski sertifikayı kullanan web uygulaması üzerinde IP tabanlı SSL bağlaması silin. 
+- IP tabanlı SSL bağlaması eski sertifikayı kullanan bir uygulamada silin. 
 - Yeni sertifikayı kullanan yeni bir IP tabanlı SSL bağlaması oluşturun.
 
 ### <a name="you-cant-delete-a-certificate"></a>Sertifika silinemiyor 
@@ -59,11 +59,11 @@ Bir sertifika silmeye çalıştığınızda, aşağıdaki hata iletisini alıyor
 
 #### <a name="cause"></a>Nedeni
 
-Başka bir web uygulaması sertifikası kullanması durumunda bu sorun oluşabilir.
+Sertifika başka bir uygulama kullanıyorsa, bu sorun oluşabilir.
 
 #### <a name="solution"></a>Çözüm
 
-SSL bağlaması için bu sertifika, web uygulamaları kaldırın. Sonra sertifikayı silmeyi deneyin. Sertifika hala silemiyorsanız, internet tarayıcınızın önbelleğini temizleyin ve Azure portalında yeni bir tarayıcı penceresi açın. Sonra sertifikayı silmeyi deneyin.
+Bu sertifika için SSL bağlaması uygulamalardan kaldırın. Sonra sertifikayı silmeyi deneyin. Sertifika hala silemiyorsanız, internet tarayıcınızın önbelleğini temizleyin ve Azure portalında yeni bir tarayıcı penceresi açın. Sonra sertifikayı silmeyi deneyin.
 
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>Bir App Service sertifikası satın alma 
 
@@ -75,7 +75,7 @@ Bu sorun, aşağıdaki nedenlerle oluşabilir:
 
 - App Service planı, ücretsiz veya paylaşılan ' dir. Bu fiyatlandırma katmanları SSL desteklemez. 
 
-    **Çözüm**: Web uygulaması için App Service planı standart sürümüne yükseltebilir.
+    **Çözüm**: Uygulama için App Service planı standart sürümüne yükseltebilir.
 
 - Abonelik geçerli bir kredi kartı yok.
 
@@ -110,14 +110,14 @@ Bu sertifikayı silin ve ardından yeni bir sertifika satın alın.
 
 Yanlış etki alanını kullanan geçerli sertifika "Verilen" durumda ise, bu sertifika için ayrıca faturalandırılırsınız. App Service sertifikaları edilemez değildir, ancak sizinle iletişime [Azure Destek](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) diğer seçenekleri olup olmadığını görmek için. 
 
-### <a name="an-app-service-certificate-was-renewed-but-the-web-app-shows-the-old-certificate"></a>Bir App Service sertifikası yenilendi, ancak eski sertifikayı web uygulamasını gösterir 
+### <a name="an-app-service-certificate-was-renewed-but-the-app-shows-the-old-certificate"></a>Bir App Service sertifikası yenilendi, ancak uygulamanın eski sertifika gösterir 
 
 #### <a name="symptom"></a>Belirti
 
-App Service sertifikası yenilendi ancak App Service sertifikasını kullanan web uygulaması hala eski sertifika kullanıyor. Ayrıca, HTTPS protokolünü gerekli olduğunu belirten bir uyarı alındı.
+App Service sertifikası yenilendi ancak App Service sertifikası kullanan bir uygulamayı hala eski sertifika kullanıyor. Ayrıca, HTTPS protokolünü gerekli olduğunu belirten bir uyarı alındı.
 
 #### <a name="cause"></a>Nedeni 
-Azure App Service'in Web Apps özelliği, bir arka plan işi her sekiz saatte bir çalışır ve herhangi bir değişiklik varsa, sertifika kaynak eşitler. Bazen döndürme veya bir sertifikayı güncelleştirmek, uygulama hala eski sertifika ve yeni güncelleştirilmiş sertifika alıyor. Sertifika kaynak eşitleme işi henüz çalışmamışsa nedenidir. 
+Azure App Service, her sekiz saatte bir arka plan işi çalışır ve herhangi bir değişiklik varsa, sertifika kaynak eşitler. Bazen döndürme veya bir sertifikayı güncelleştirmek, uygulama hala eski sertifika ve yeni güncelleştirilmiş sertifika alıyor. Sertifika kaynak eşitleme işi henüz çalışmamışsa nedenidir. 
  
 #### <a name="solution"></a>Çözüm
 
@@ -156,7 +156,7 @@ Etki alanı doğrulama belirteci 1234abcd ile azure.com için standart bir serti
 ### <a name="you-cant-purchase-a-domain"></a>Bir etki alanı satın alamazsınız
 
 #### <a name="symptom"></a>Belirti
-Azure portalında Web Apps ve App Service etki alanındaki bir etki alanı satın alamazsınız.
+Azure portalında bir App Service etki alanı satın alamazsınız.
 
 #### <a name="cause-and-solution"></a>Nedeni ve çözümü
 
@@ -176,7 +176,7 @@ Bu sorun, aşağıdaki nedenlerden biri için oluşur:
 
     **Çözüm**: Bir Kullandıkça Öde aboneliği gibi başka bir abonelik türü için Azure aboneliğinizi yükseltin.
 
-### <a name="you-cant-add-a-host-name-to-a-web-app"></a>Bir web uygulaması için bir ana bilgisayar adı eklenemiyor 
+### <a name="you-cant-add-a-host-name-to-an-app"></a>Bir konak adı bir uygulamaya ekleyemezsiniz 
 
 #### <a name="symptom"></a>Belirti
 
@@ -191,11 +191,11 @@ Bu sorun, aşağıdaki nedenlerden biri için oluşur:
     **Çözüm**: Bir konak adı ekleme izni vermek için abonelik yöneticisine başvurun.
 - Etki alanı sahipliğiniz doğrulanamadı.
 
-    **Çözüm**: CNAME veya bir kayıt doğru şekilde yapılandırıldığını doğrulayın. Web uygulamasına özel bir etki alanını eşlemek için bir CNAME kaydı ya da bir A kaydı oluşturun. Bir kök etki alanı kullanmak istiyorsanız, A ve TXT kayıtlarını kullanmanız gerekir:
+    **Çözüm**: CNAME veya bir kayıt doğru şekilde yapılandırıldığını doğrulayın. Bir uygulamaya özel bir etki alanını eşlemek için bir CNAME kaydı ya da bir A kaydı oluşturun. Bir kök etki alanı kullanmak istiyorsanız, A ve TXT kayıtlarını kullanmanız gerekir:
 
     |Kayıt türü|Host|Üzerine gelin|
     |------|------|-----|
-    |A|@|Bir web uygulaması için IP adresi|
+    |A|@|Bir uygulama için IP adresi|
     |TXT|@|< Uygulama adı >. azurewebsites.net|
     |CNAME|www|< Uygulama adı >. azurewebsites.net|
 
@@ -216,7 +216,7 @@ Bu sorun, aşağıdaki nedenlerden biri için oluşur:
 #### <a name="solution"></a>Çözüm
 - Bu sorun kendiliğinden 48 saat bekleyin.
 - DNS yapılandırmanızda TTL ayarını değiştirebilirsiniz, bu sorunu çözer olup olmadığını görmek için 5 dakika değerini değiştirin.
-- Kullanım [WhatsmyDNS.net](https://www.whatsmydns.net/) etki alanınızda web uygulamanızın IP adresine işaret doğrulayın. Bu gereksinimleri karşılamıyorsa A kaydını web uygulamasının doğru IP adresi için yapılandırın.
+- Kullanım [WhatsmyDNS.net](https://www.whatsmydns.net/) etki alanınız için uygulamanın IP adresini işaret ettiğini doğrulayın. Seçili değilse uygulamanın doğru IP adresi için A kaydını yapılandırın.
 
 ### <a name="you-need-to-restore-a-deleted-domain"></a>Silinen bir etki alanı geri yüklemeniz gereken 
 
@@ -247,7 +247,7 @@ Yapılandırdığınız özel bir etki alanı CNAME veya A kaydı eksik.
 **Çözüm nedeni 1 için**
 
 - Bir A kaydı eklediyseniz, bir TXT kaydı da eklendiğinden emin olun. Daha fazla bilgi için [A kaydını oluşturun](./app-service-web-tutorial-custom-domain.md#create-the-a-record).
-- Web uygulamanız için kök etki alanını kullanmak yoksa, bir A kaydı yerine CNAME kaydı kullanmanızı öneririz.
+- Uygulamanız için kök etki alanını kullanmak yoksa, bir A kaydı yerine CNAME kaydı kullanmanızı öneririz.
 - Hem bir CNAME kaydı hem de bir A kaydı için aynı etki alanında kullanmayın. Bu, çakışmaya neden ve çözülmüş etki alanı engelle. 
 
 **Neden 2** 
@@ -256,18 +256,18 @@ Internet tarayıcısı hala etki alanınızın eski IP adresini önbelleğe alma
 
 **Neden 2 çözümü**
 
-Tarayıcı temizleyin. Windows cihazlar için komutu çalıştırabilirsiniz `ipconfig /flushdns`. Kullanım [WhatsmyDNS.net](https://www.whatsmydns.net/) etki alanınızda web uygulamanızın IP adresine işaret doğrulayın. 
+Tarayıcı temizleyin. Windows cihazlar için komutu çalıştırabilirsiniz `ipconfig /flushdns`. Kullanım [WhatsmyDNS.net](https://www.whatsmydns.net/) etki alanınız için uygulamanın IP adresini işaret ettiğini doğrulayın. 
 
 ### <a name="you-cant-add-a-subdomain"></a>Bir alt etki alanı ekleyemezsiniz. 
 
 #### <a name="symptom"></a>Belirti
 
-Bir alt etki alanı atamak için bir web uygulaması için yeni bir ana bilgisayar adı eklenemiyor.
+Yeni bir ana bilgisayar adı bir alt etki alanı atamak için bir uygulamaya ekleyemezsiniz.
 
 #### <a name="solution"></a>Çözüm
 
-- Bir ana bilgisayar adı web uygulamasına eklemek için izinlere sahip olduğunuzdan emin olmak için abonelik yöneticisine başvurun.
-- Daha fazla alt etki alanlarını gerekiyorsa, etki alanı barındırma için Azure DNS'yi değiştirmenizi öneririz. Azure DNS kullanarak web uygulamanıza 500 konak adları ekleyebilirsiniz. Daha fazla bilgi için [bir alt etki alanı ekleme](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
+- Uygulamaya bir ana bilgisayar adı eklemek için izinlere sahip olduğunuzdan emin olmak için abonelik yöneticisine başvurun.
+- Daha fazla alt etki alanlarını gerekiyorsa, etki alanı barındırma için Azure DNS'yi değiştirmenizi öneririz. Azure DNS kullanarak uygulamanıza 500 konak adları ekleyebilirsiniz. Daha fazla bilgi için [bir alt etki alanı ekleme](https://blogs.msdn.microsoft.com/waws/2014/10/01/mapping-a-custom-subdomain-to-an-azure-website/).
 
 
 

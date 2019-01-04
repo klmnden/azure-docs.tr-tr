@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 0cf5cac341cb36029c09ee2da5477323fac79cf5
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c07a0c8f5440033455c69fe40806adf9b548c16f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311652"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631172"
 ---
 # <a name="api-versions-in-azure-search"></a>Azure Search API sürümleri
 Azure arama özelliği güncelleştirmeleri düzenli olarak yapar. Bazen, ancak her zaman, bu güncelleştirmeleri API geriye dönük uyumluluğu korumak için yeni bir sürümü gerektirir. Yeni bir sürüm yayımlama, ne zaman ve nasıl kodunuzda arama hizmet güncelleştirmelerini tümleştirme denetlemenizi sağlar.
 
 Kodunuzu yeni bir API sürümünü kullanacak şekilde yükseltmek için bazı çaba içerebileceği bir kural olarak, yalnızca gerekli olduğunda, yeni sürümleri Azure Search ekibine yayımlar. Yalnızca bazı yönlerini API, geriye dönük uyumluluk keser şekilde değiştiyse yeni bir sürüm gereklidir. Bu tür değişiklikleri nedeniyle var olan özellikleri düzeltmeleri veya var olan API yüzey alanı değiştirmek yeni özellikler nedeniyle oluşabilir.
 
-Aynı kural SDK güncelleştirmeleri için geçerlidir. Azure Search SDK'sı aşağıdaki [semantic versioning](http://semver.org/) sürümünün üç bölümden oluşur, yani kuralları: büyük, küçük ve derleme numarası (örneğin, 1.1.0). SDK'sının yeni bir ana sürüm geriye dönük uyumluluk kesme değişiklikleri için yayımlanır. Hataya neden olmayan özellik güncelleştirmeleri, alt sürüm artırır ve hata düzeltmeleri yalnızca derleme sürümü artacaktır.
+Aynı kural SDK güncelleştirmeleri için geçerlidir. Azure Search SDK'sı aşağıdaki [semantic versioning](https://semver.org/) sürümünün üç bölümden oluşur, yani kuralları: büyük, küçük ve derleme numarası (örneğin, 1.1.0). SDK'sının yeni bir ana sürüm geriye dönük uyumluluk kesme değişiklikleri için yayımlanır. Hataya neden olmayan özellik güncelleştirmeleri, alt sürüm artırır ve hata düzeltmeleri yalnızca derleme sürümü artacaktır.
 
 > [!NOTE]
 > Azure Search Hizmeti örneğinizi en son dahil olmak üzere çeşitli REST API sürümlerini destekler. Artık en son değildir, ancak en yeni sürümü kullanmak için kodunuzu geçirme öneririz bir sürümünü kullanmaya devam edebilirsiniz. REST API kullanırken, api-version parametresi aracılığıyla her istekte API sürümü belirtmeniz gerekir. .NET SDK kullanarak, kullanmakta olduğunuz SDK sürümü ilgili REST API sürümünü belirler. Eski bir SDK kullanıyorsanız, hizmet daha yeni bir API sürümü desteklemek üzere yükseltilir bile kod değişikliğine gerek kalmadan çalışmaya devam edebilirsiniz.

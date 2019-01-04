@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2018
+ms.date: 12/06/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dacc28c1cfe2ee896597aeaf92a22c7f6e13c306
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969966"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726621"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack'te Azure CLI ile API Sürüm profillerini kullanma
 
@@ -128,7 +128,6 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
         --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
-
    b. Kaydedilecek *kullanıcı* ortamı kullanın:
 
       ```azurecli
@@ -151,9 +150,22 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
         --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
         --profile 2018-03-01-hybrid
       ```
+    d. AD FS ortamında kullanıcı kaydetmek için kullanın:
 
+      ```azurecli
+      az cloud register \
+        -n AzureStack  \
+        --endpoint-resource-manager "https://management.local.azurestack.external" \
+        --suffix-storage-endpoint "local.azurestack.external" \
+        --suffix-keyvault-dns ".vault.local.azurestack.external"\
+        --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" \
+        --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/"\
+        --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/"\
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --profile "2018-03-01-hybrid"
+      ```
 1. Aşağıdaki komutları kullanarak etkin ortam ayarlayın.
-
+   
    a. İçin *bulut Yönetim* ortamı kullanın:
 
       ```azurecli
@@ -180,8 +192,8 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
 
 1. Azure Stack ortamınıza kullanarak oturum açın `az login` komutu. Azure Stack ortamına veya bir kullanıcı olarak oturum bir [hizmet sorumlusu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-    * AAD ortamları
-      * Olarak oturum bir *kullanıcı*: kullanıcı adı ve parola doğrudan içinde ya da belirtebilirsiniz `az login` komutu veya bir tarayıcı kullanarak kimlik doğrulaması. Çok faktörlü kimlik doğrulaması etkin hesabınız varsa, ikincisi yapmanız gerekir.
+    * Azure AD ortamları
+      * Olarak oturum bir *kullanıcı*: Kullanıcı adı ve parola doğrudan içinde ya da belirtebilirsiniz `az login` komutu veya bir tarayıcı kullanarak kimlik doğrulaması. Çok faktörlü kimlik doğrulaması etkin hesabınız varsa, ikincisi yapmanız gerekir.
 
       ```azurecli
       az login \
@@ -192,9 +204,9 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
       > [!NOTE]
       > Çok faktörlü kimlik doğrulaması etkin kullanıcı hesabınız varsa kullanabileceğiniz `az login command` sağlamadan `-u` parametresi. Komut çalıştıran bir URL ve kimlik doğrulaması yapmak için kullanmanız gereken kodu sağlar.
    
-      * Olarak oturum bir *hizmet sorumlusu*: oturum açarken, önce [Azure Portalı aracılığıyla hizmet sorumlusu oluşturma](azure-stack-create-service-principals.md) veya CLI ve bir rol atayın. Aşağıdaki komutu kullanarak şimdi oturum açın:
+      * Olarak oturum bir *hizmet sorumlusu*: Oturum açarken, önce [Azure Portalı aracılığıyla hizmet sorumlusu oluşturma](azure-stack-create-service-principals.md) veya CLI ve bir rol atayın. Aşağıdaki komutu kullanarak şimdi oturum açın:
 
-      ```azurecli
+      ```azurecli  
       az login \
         --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
         --service-principal \
@@ -203,20 +215,33 @@ Azure Stack'e bağlanmak için aşağıdaki adımları kullanın:
       ```
     * AD FS ortamları
 
-        * Olarak oturum bir *hizmet sorumlusu*: 
-          1.    Hizmet sorumlusu oturum açma için kullanılacak .pem dosyasını hazırlayın.
-                * Asıl oluşturulduğu istemci makinede hizmet sorumlusu sertifikasını bir pfx ile özel anahtarı dışarı aktar (cert: \CurrentUser\My; bulunan sertifika adı asıl aynı ada sahiptir).
+        * Bir web tarayıcısı kullanarak bir kullanıcı olarak oturum açın:  
+              ```azurecli  
+              az login
+              ```
+        * Bir cihaz kodu ile bir web tarayıcısı kullanarak bir kullanıcı olarak oturum açın:  
+              ```azurecli  
+              az login --use-device-code
+              ```
+        > [!Note]  
+        >Komut çalıştıran bir URL ve kimlik doğrulaması yapmak için kullanmanız gereken kodu sağlar.
 
-                *   Pfx pem (kullanım OpenSSL yardımcı programı) dönüştürün.
+        * Bir hizmet sorumlusu olarak oturum açın:
+        
+          1. Hizmet sorumlusu oturum açma için kullanılacak .pem dosyasını hazırlayın.
 
-          1.    CLI'yı oturum açın. :
-                ```azurecli
-                az login --service-principal \
-                 -u <Client ID from the Service Principal details> \
-                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
-                 --tenant <Tenant ID> \
-                 --debug 
-                ```
+            * Asıl oluşturulduğu istemci makinede hizmet sorumlusu sertifikasını bir pfx ile özel anahtarı dışarı aktar (konumundaki `cert:\CurrentUser\My;` sertifika adı asıl aynı ada sahip).
+        
+            * Pfx pem (kullanım OpenSSL yardımcı programı) dönüştürün.
+
+          2.  CLI için oturum açın:
+            ```azurecli  
+            az login --service-principal \
+              -u <Client ID from the Service Principal details> \
+              -p <Certificate's fully qualified name, such as, C:\certs\spn.pem>
+              --tenant <Tenant ID> \
+              --debug 
+            ```
 
 ## <a name="test-the-connectivity"></a>Bağlantısını test etme
 

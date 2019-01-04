@@ -8,14 +8,14 @@ ms.component: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/05/2018
 ms.author: lbosq
-ms.openlocfilehash: e9e0d2f452a21f2da29568b953238318cb4477df
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 833b9e7ce65a566757c739feebdfc8e0f1d268e9
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077460"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976350"
 ---
-# <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB: Gremlin API'sine giriş
+# <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB'ye giriş: Gremlin API
 
 [Azure Cosmos DB](introduction.md), Microsoft'un görev açısından kritik uygulamalar için sunduğu, genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Çok modelli bir veritabanı olan bu hizmet belge, anahtar-değer, grafik ve sütunlu veri modellerini destekler. Grafik verilerini depolamak ve üzerinde çalışmak için Azure Cosmos DB Gremlin API’si kullanılır. Gremlin API, Grafik verilerini modellemeyi destekler ve grafik verilerinde dolaşmak için API’ler sağlar.
 
@@ -24,7 +24,7 @@ Bu makale, Azure Cosmos DB Gremlin API'ye genel bir bakış sağlar ve milyarlar
 ## <a name="what-is-a-graph-database"></a>Grafik veritabanı nedir
 Gerçek dünyada görünen veriler doğal olarak bağlıdır. Geleneksel veri modelleme, varlıklara odaklanır. Birçok uygulamada aynı zamanda modelleme veya hem varlıkları hem de ilişkileri doğal olarak modelleme gereksinimi söz konusudur.
 
-[Grafikler](https://mathworld.wolfram.com/Graph.html), [köşelerden](http://mathworld.wolfram.com/GraphVertex.html) ve [kenarlardan](http://mathworld.wolfram.com/GraphEdge.html) oluşan yapılardır. Köşelerin ve kenarların rastgele bir sayıda özellikleri olabilir. 
+[Grafikler](http://mathworld.wolfram.com/Graph.html), [köşelerden](http://mathworld.wolfram.com/GraphVertex.html) ve [kenarlardan](http://mathworld.wolfram.com/GraphEdge.html) oluşan yapılardır. Köşelerin ve kenarların rastgele bir sayıda özellikleri olabilir. 
 
 * **Köşeler** - Köşeler bir kişi, yer veya etkinlik gibi kesin nesneleri gösterir. 
 

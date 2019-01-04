@@ -9,28 +9,28 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 61f5f0d0b9e88174f82e960eb5d92db99d0cae71
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: d194a5929e648c09eb204860c528e48bc55259ee
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582862"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635417"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight üzerinde Apache Storm topolojilerini dağıtma ve yönetme 
 
-Bu belgede, yönetmeye ve izlemeye ilişkin temel bilgileri alın [Apache Storm](http://storm.apache.org/) üzerinde Storm, HDInsight kümelerinde çalışan topolojileri.
+Bu belgede, yönetmeye ve izlemeye ilişkin temel bilgileri alın [Apache Storm](https://storm.apache.org/) üzerinde Storm, HDInsight kümelerinde çalışan topolojileri.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu makaledeki adımlarda, HDInsight kümesinde Linux tabanlı Storm gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement). 
 >
-> Dağıtma ve Topolojilerde Windows tabanlı HDInsight üzerinde izleme hakkında daha fazla bilgi için bkz: [dağıtma ve Windows tabanlı HDInsight üzerinde Apache Storm topolojilerini yönetme](apache-storm-deploy-monitor-topology.md)
+> Dağıtma ve Topolojilerde Windows tabanlı HDInsight üzerinde izleme hakkında daha fazla bilgi için bkz: [dağıtma ve yönetme Windows tabanlı HDInsight üzerinde Apache Storm topolojilerini](apache-storm-deploy-monitor-topology.md).
 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * **HDInsight kümesinde Linux tabanlı Storm**: bkz [HDInsight üzerinde Apache Storm ile çalışmaya başlama](apache-storm-tutorial-get-started-linux.md) kümesi oluşturma adımları
 
-* (İsteğe bağlı) **SSH ve SCP konusunda**: daha fazla bilgi için [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* (İsteğe bağlı) **SSH ve SCP konusunda**: Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * (İsteğe bağlı) **Visual Studio**: Azure SDK'sı 2.5.1 veya daha yeni ve Visual Studio için Data Lake araçları. Daha fazla bilgi için [Visual Studio için Data Lake araçları ile çalışmaya başlamak](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
@@ -51,7 +51,7 @@ HDInsight araçları C# veya karma topolojiler, Storm kümesine göndermek için
 
 1. Visual Studio için Data Lake Araçları'nın en son sürümü yüklemediyseniz, bkz. [Visual Studio için Data Lake araçları ile çalışmaya başlamak](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
-    > [!NOTE]
+    > [!NOTE]  
     > Visual Studio için Data Lake araçları, Visual Studio için HDInsight Araçları'nı önceden çağrılan.
     >
     > Visual Studio için Data Lake araçları dahil edilecek __Azure iş yükü__ Visual Studio 2017 için.
@@ -64,7 +64,7 @@ HDInsight araçları C# veya karma topolojiler, Storm kümesine göndermek için
 
 4. İçinde **Çözüm Gezgini**projeye sağ tıklayıp seçin **HDInsight üzerindeki storm'a Gönder**.
 
-   > [!NOTE]
+   > [!NOTE]  
    > İstenirse, Azure aboneliğiniz için oturum açma kimlik bilgilerini girin. Birden fazla aboneliğiniz varsa, HDInsight kümesi üzerinde Storm'a içeren oturum açın.
 
 5. HDInsight kümesi üzerinde Storm'a seçin **Storm kümesi** aşağı açılan liste ve ardından **Gönder**. Gönderim kullanarak başarılı olup olmadığını izleyebilirsiniz **çıkış** penceresi.
@@ -83,7 +83,7 @@ HDInsight araçları C# veya karma topolojiler, Storm kümesine göndermek için
 
     Bu komut, kümede örnek WordCount topolojisini başlatır. Bu topoloji, rastgele tümceler oluşturur ve ardından geçtiği her bir sözcüğün kaç kez geçtiğini sayar.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Kümeye topoloji gönderirken `storm` komutunu kullanmadan önce kümeyi içeren jar dosyasını kopyalamanız gerekir. Dosya kümeye kopyalamak için kullanabileceğiniz `scp` komutu. Örneğin, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
    >
    > WordCount örneği ve diğer storm starter örnekleri `/usr/hdp/current/storm-client/contrib/storm-starter/` konumunda kümenize zaten dahil edilmiştir.
@@ -98,7 +98,7 @@ Visual Studio kullanarak bir topoloji gönderildiğinde **Storm topolojilerini**
 
 ![Visual studio İzleyicisi](./media/apache-storm-deploy-monitor-topology-linux/vsmonitor.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Ayrıca görüntüleyebilirsiniz **Storm topolojilerini** gelen **Sunucu Gezgini** genişleterek **Azure** > **HDInsight**ve ardından HDInsight kümesinde Storm sağ tıklayıp seçerek **Storm topolojilerini görüntüle**.
 
 Spout veya bu bileşenler hakkındaki bilgileri görüntülemek için Cıvatalar şekli seçin. Her seçili öğe için yeni bir pencere açılır.
@@ -113,7 +113,7 @@ Yeniden Dengeleme bir topoloji, topolojinin paralelliğini gözden geçirmek sis
 
 Bir topolojiyi yeniden dengelemek için kullanın __yeniden dengelemek__ üst kısmındaki düğmeye __topoloji özeti__.
 
-> [!WARNING]
+> [!WARNING]  
 > Bir topoloji ilk yeniden Dengeleme topoloji, devre dışı bırakır çalışanları küme arasında eşit olarak yeniden dağıtır, sonra son topoloji yeniden Dengeleme oluşmadan önce edildi durumuna döndürür. Topoloji etkindi, bu nedenle onu tekrar etkin hale gelir. Devre dışı bırakıldı, devre dışı kalır.
 
 ### <a name="kill-a-topology"></a>Bir topolojiyi sonlandırmak
@@ -154,7 +154,7 @@ Storm topolojileri, başlatıldığında, devam durdurulana kadar çalışıyor.
 
 Yeniden Dengeleme bir topoloji, topolojinin paralelliğini gözden geçirmek sistem sağlar. Daha fazla Not eklemek için küme yeniden boyutlandırılmış, örneğin, yeniden Dengeleme yeni düğümleri görmek bir imkan tanır.
 
-> [!WARNING]
+> [!WARNING]  
 > Bir topoloji ilk yeniden Dengeleme topoloji, devre dışı bırakır çalışanları küme arasında eşit olarak yeniden dağıtır, sonra son topoloji yeniden Dengeleme oluşmadan önce edildi durumuna döndürür. Topoloji etkindi, bu nedenle onu tekrar etkin hale gelir. Devre dışı bırakıldı, devre dışı kalır.
 
     storm rebalance TOPOLOGYNAME
@@ -163,7 +163,7 @@ Yeniden Dengeleme bir topoloji, topolojinin paralelliğini gözden geçirmek sis
 
 Storm Kullanıcı Arabirimi çalışan topolojilerle çalışmaya yönelik bir web arabirimi sağlar ve HDInsight kümenize dahil edilir. Storm kullanıcı arabirimini görüntülemek için açmak için bir web tarayıcısı kullanın **https://CLUSTERNAME.azurehdinsight.net/stormui**burada **CLUSTERNAME** kümenizin adıdır.
 
-> [!NOTE]
+> [!NOTE]  
 > Bir kullanıcı adı ve parola girmeniz istenirse kümeyi oluştururken kullandığınız küme yöneticisi (yönetici) ve parolayı girin.
 
 ### <a name="main-page"></a>Ana sayfa
@@ -171,46 +171,46 @@ Storm Kullanıcı Arabirimi çalışan topolojilerle çalışmaya yönelik bir w
 Storm kullanıcı arabirimini'nın ana sayfasında aşağıdaki bilgileri sağlar:
 
 * **Küme özeti**: Storm kümesi ile ilgili temel bilgileri.
-* **Topoloji özeti**: çalışan topolojileri listesi. Bağlantıları bu bölümde belirli topolojiler hakkında daha fazla bilgi görüntülemek için kullanın.
-* **Summary İdarecisi**: Storm gözetmen hakkında bilgi.
-* **Nimbus yapılandırma**: küme için Nimbus yapılandırma.
+* **Topoloji özeti**: Topolojileri çalışan bir listesi. Bağlantıları bu bölümde belirli topolojiler hakkında daha fazla bilgi görüntülemek için kullanın.
+* **Summary İdarecisi**: Storm gözetmen hakkında bilgi sağlar.
+* **Nimbus yapılandırma**: Kümenin yapılandırmasını nimbus.
 
 ### <a name="topology-summary"></a>Topoloji özeti
 
 Bir bağlantıdan seçerek **topoloji özeti** bölüm topoloji hakkında aşağıdaki bilgileri görüntüler:
 
-* **Topoloji özeti**: topoloji hakkında temel bilgiler.
-* **Topoloji eylemleri**: topolojisini gerçekleştirebileceği yönetim işlemlerini.
+* **Topoloji özeti**: Topoloji hakkında temel bilgiler.
+* **Topoloji eylemleri**: Yönetim eylemleri için topoloji gerçekleştirebilirsiniz.
 
-  * **Etkinleştirme**: devre dışı bırakılan bir topolojiyi işlemeyi sürdürür.
-  * **Devre dışı bırakma**: çalışan topolojiyi duraklatır.
-  * **Yeniden Dengeleme**: topolojinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Bu işlem artan veya azalan kümedeki düğümlerin sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır.
+  * **Etkinleştirme**: Devre dışı bırakılan bir topolojiyi işlemeyi sürdürür.
+  * **Devre dışı bırakma**: Çalışan topolojiyi duraklatır.
+  * **Yeniden Dengeleme**: Topolojinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Bu işlem artan veya azalan kümedeki düğümlerin sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır.
 
-    Daha fazla bilgi için <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Apache Storm topolojisinin paralelliğini anlama</a>.
-  * **KILL**: belirtilen zaman aşımından sonra Storm topolojisini sonlandırır.
-* **Topoloji istatistikleri**: topoloji hakkındaki istatistiklerdir. Sayfada diğer girdiler için zaman çerçevesini belirlemek için bağlantıları kullanın. **penceresi** sütun.
-* **Spout'lar**: topoloji tarafından kullanılan spout. Bağlantıları bu bölümde belirli spout hakkında daha fazla bilgi görüntülemek için kullanın.
-* **Cıvatalar**: boltlar topolojiye göre kullanılır. Bağlantıları bu bölümde belirli Cıvatalar hakkında daha fazla bilgi görüntülemek için kullanın.
+    Daha fazla bilgi için <a href="https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Apache Storm topolojisinin paralelliğini anlama</a>.
+  * **KILL**: Belirtilen zaman aşımından sonra Storm topolojisini sonlandırır.
+* **Topoloji istatistikleri**: Topoloji hakkındaki istatistiklerdir. Sayfada diğer girdiler için zaman çerçevesini belirlemek için bağlantıları kullanın. **penceresi** sütun.
+* **Spout'lar**: Topoloji tarafından kullanılan spout. Bağlantıları bu bölümde belirli spout hakkında daha fazla bilgi görüntülemek için kullanın.
+* **Cıvatalar**: Boltlar topolojiye göre kullanılır. Bağlantıları bu bölümde belirli Cıvatalar hakkında daha fazla bilgi görüntülemek için kullanın.
 * **Topoloji Yapılandırması**: Seçili topoloji yapılandırması.
 
 ### <a name="spout-and-bolt-summary"></a>Spout ve Bolt özeti
 
 Gelen bir spout seçerek **Spout'lar** veya **Cıvatalar** bölümleri seçili öğe hakkında aşağıdaki bilgileri görüntüler:
 
-* **Bileşen özeti**: spout veya Cıvata hakkında temel bilgiler.
-* **Spout/Cıvata**: spout veya Cıvata hakkındaki istatistiklerdir. Sayfada diğer girdiler için zaman çerçevesini belirlemek için bağlantıları kullanın. **penceresi** sütun.
-* **Girdi istatistikleri** (yalnızca Cıvata): Cıvata tarafından kullanılan giriş akışları hakkında bilgi.
-* **Çıktı istatistikleri**: spout veya Cıvata tarafından yayılan akışları hakkında bilgi.
-* **Yürütücü**: spout veya Cıvata örnekleri hakkında bilgi. Seçin **bağlantı noktası** girişi tanılama bilgileri günlüğünü görüntülemek belirli bir yürütücü için bu örneği için üretilen.
-* **Hataları**: spout veya Cıvata için hata bilgileri.
+* **Bileşen özeti**: Spout veya Cıvata hakkındaki temel bilgileri.
+* **Spout/Cıvata**: Spout veya Cıvata hakkındaki istatistiklerdir. Sayfada diğer girdiler için zaman çerçevesini belirlemek için bağlantıları kullanın. **penceresi** sütun.
+* **Girdi istatistikleri** (yalnızca Cıvata): Cıvata tarafından kullanılan giriş akışları hakkında bilgi sağlar.
+* **Çıktı istatistikleri**: Spout veya Cıvata tarafından yayılan akışları hakkında bilgi sağlar.
+* **Yürütücü**: Spout veya Cıvata örnekleri hakkında bilgi. Seçin **bağlantı noktası** girişi tanılama bilgileri günlüğünü görüntülemek belirli bir yürütücü için bu örneği için üretilen.
+* **Hataları**: Spout veya Cıvata için hata bilgileri.
 
 ## <a name="monitor-and-manage-rest-api"></a>İzleme ve yönetme: REST API
 
 Storm kullanıcı arabirimini, benzer yönetim ve işlevsellik REST API kullanarak izleme gerçekleştirebilmesi için REST API temelinde oluşturulmuştur. REST API, yönetmeye ve izlemeye Storm Topolojileri için özel araçlar oluşturmak için kullanabilirsiniz.
 
-Daha fazla bilgi için [Apache Storm kullanıcı Arabirimi REST API](http://storm.apache.org/releases/current/STORM-UI-REST-API.html). Aşağıdaki bilgileri, HDInsight üzerinde Apache Storm ile REST API kullanarak özeldir.
+Daha fazla bilgi için [Apache Storm kullanıcı Arabirimi REST API](https://storm.apache.org/releases/current/STORM-UI-REST-API.html). Aşağıdaki bilgileri, HDInsight üzerinde Apache Storm ile REST API kullanarak özeldir.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Storm REST API'si, internet üzerinden genel kullanıma açık değil ve HDInsight küme baş düğümüne SSH tüneli kullanılarak erişilmelidir. Bir SSH tüneli oluşturma ve kullanma hakkında daha fazla bilgi için bkz: [kullanım Apache Ambari web kullanıcı Arabirimi, ResourceManager, JobHistory, NameNode, Apache Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel](../hdinsight-linux-ambari-ssh-tunnel.md).
 
 ### <a name="base-uri"></a>Taban URI
@@ -219,18 +219,18 @@ Baş düğümde üzerinde Linux tabanlı HDInsight kümelerinde REST API için a
 
 Küme baş düğümü için tam etki alanı adı (FQDN) birkaç farklı yolla bulabilirsiniz:
 
-* **Bir SSH oturumundan**: komutunu `headnode -f` küme için bir SSH oturumundan.
-* **Ambari Web**: seçin **Hizmetleri** sayfanın üst kısmından seçip **Storm**. Gelen **özeti** sekmesinde **Storm kullanıcı arabirimini sunucu**. REST API ve Storm kullanıcı arabirimini barındıran düğümü FQDN'si, sayfanın en üstünde görüntülenir.
-* **Ambari REST API'sinden**: komutunu `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` REST API ve Storm kullanıcı arabirimini çalıştığı düğüm hakkında bilgi almak için. Değiştirin **CLUSTERNAME** küme adı ile. İstendiğinde oturum açma (Yönetici) hesabı için parolayı girin. Yanıtta düğümü FQDN'si "host_name" giriş içerir.
+* **Bir SSH oturumundan**: Komutunu `headnode -f` küme için bir SSH oturumundan.
+* **Ambari Web**: Seçin **Hizmetleri** sayfanın üst kısmından seçip **Storm**. Gelen **özeti** sekmesinde **Storm kullanıcı arabirimini sunucu**. REST API ve Storm kullanıcı arabirimini barındıran düğümü FQDN'si, sayfanın en üstünde görüntülenir.
+* **Ambari REST API'sinden**: Komutunu `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` REST API ve Storm kullanıcı arabirimini çalıştığı düğüm hakkında bilgi almak için. Değiştirin **CLUSTERNAME** küme adı ile. İstendiğinde oturum açma (Yönetici) hesabı için parolayı girin. Yanıtta düğümü FQDN'si "host_name" giriş içerir.
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
 
 REST API istekleri kullanmalıdır **temel kimlik doğrulaması**, HDInsight küme yöneticisinin adı ve parola kullanın.
 
-> [!NOTE]
+> [!NOTE]  
 > Temel kimlik doğrulaması düz metin kullanarak gönderildiğinden, aşağıdakileri yapmalısınız **her zaman** küme ile güvenli iletişim için HTTPS kullanın.
 
-### <a name="return-values"></a>Dönüş değerleri
+### <a name="return-values"></a>Döndürülen değerler
 
 REST API öğesinden geri döndürülen bilgiler, yalnızca küme içinde kullanılabilir olabilir. İçin döndürülen gibi tam etki alanı adı (FQDN) [Apache ZooKeeper](https://zookeeper.apache.org/) sunucularının Internet'ten erişilebilir değil.
 

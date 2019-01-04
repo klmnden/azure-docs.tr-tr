@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e247cedb732bb1290631ada4c6d423f1b3ed0dbd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: da67213b708b3ff26fe1ddd926c5cb0bba33458d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53197490"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53788564"
 ---
 # <a name="saas-application-technical-info-tab"></a>SaaS uygulaması teknik bilgileri sekmesi
 
@@ -54,7 +54,7 @@ Aşağıdaki tabloda, Microsoft aracılığıyla satış için gerekli alanları
 |     Başlarken yönergeleri              |   SaaS uygulamanızı bağlama yardımcı olmak için müşterilerinizle paylaşmak için yönergeleri izleyin. Temel HTML etiketleri izin verilir, örneğin: &lt;p&gt;, &lt;h1&gt;, &lt;li&gt;vb.                |
 |    Giriş sayfası URL'si  |   Müşterilerinizin aldıktan sonra Azure Portalı'ndan gelen yönlendirerek, site URL'si. Bu URL, aynı zamanda Microsoft ticaret kolaylaştırmak için API bağlantı alma uç noktası olacaktır.                |
 |  Bağlantı Web kancası    |  Microsoft, müşteri adına göndermek için gereken tüm zaman uyumsuz olaylar için (örnek: Azure aboneliği geçmiş geçersiz), bağlantı Web kancası sağlayın isteriz. Yerinde bir Web kancası sistemine sahip değilseniz, en basit yapılandırmadır, kendisine gönderilmesini meydana gelen olayları dinler ve ardından uygun şekilde işlemesine bir HTTP uç noktası mantıksal uygulama sağlamaktır. Daha fazla bilgi için <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">çağrı, tetikleyici veya iç içe iş akışları ile HTTP uç noktalarını logic apps'teki</a>                |
-|  Azure AD Kiracı kimliği ve uygulama kimliği      |   Azure portalı içinde bizim ikisi arasında bağlantı doğrulayabilmemiz için bir Active Directory uygulaması oluşturma zorunlu kılarız bir kimliği doğrulanmış iletişim hizmetleridir. Bu alanlar için bir AD uygulaması oluşturma ve karşılık gelen Kiracı kimliğini yapıştırın ve uygulama kimliği gereklidir.               |
+|  Azure AD Kiracı kimliği ve uygulama kimliği      |   Azure portalı içinde bizim ikisi arasında bağlantı doğrulayabilmemiz için bir Active Directory uygulaması oluşturma zorunlu kılarız bir kimliği doğrulanmış iletişim hizmetleridir. Bu alanlar için bir AD uygulaması oluşturma ve karşılık gelen Kiracı kimliğini yapıştırın ve uygulama kimliği gereklidir. Uygulama kimliği için yoaur Publisherıd ilişkili olduğunu unutmayın. Bu nedenle, tüm teklifleri olduğu gibi emin aynı uygulama kimliği olun.             |
 
 
 Son olarak, seçerseniz **Microsoft satış**, adlı başka bir yeni teklif sekmesi **planları**. 
@@ -77,4 +77,4 @@ Yayımlama seçeneği çağrı eylem seçenekleri hakkında daha fazla bilgi iç
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Planlar sekmesine (isteğe bağlı)](./cpp-plans-tab.md)
-- [Kanal bilgileri sekmesi](./cpp-channel-info-tab.md)
+- [Kanal Bilgileri sekmesi](./cpp-channel-info-tab.md)

@@ -8,20 +8,18 @@ ms.author: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 2ebfc4b0d9bb71cf51e0927e6399d30488c2f939
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 266de596633201b5590a6433d078cc05f2a267b4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409437"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994530"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>HDInsight kümesini yeni sürüme yükseltme
 En son HDInsight özelliklerden yararlanmak için HDInsight kümeleri en son sürüme yükseltilmesi özellikle önerilir. İzleyin, HDInsight'ı yükseltmek için yönergeleri küme sürümleri.
 
 > [!NOTE]  
 > HDInsight'ın desteklenen sürümleri hakkında daha fazla bilgi için bkz: [HDInsight bileşen sürümü](hdinsight-component-versioning.md#supported-hdinsight-versions).
->
->
 
 ## <a name="upgrade-tasks"></a>Yükseltme görevleri
 HDInsight kümesini yükseltme iş akışı aşağıdaki gibidir.

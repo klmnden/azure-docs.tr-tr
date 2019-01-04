@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: b39c01e76ba3ec21f0cd2d16b86da5664e1d5002
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 4f6f6042eaacc809b9d413ef01883987bd558507
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014683"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651614"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Azure HDInsight'ı kullanarak Apache HBase sorunlarını giderme
 
@@ -288,7 +288,7 @@ Hiç sunucu adresi listelenir *hbase: meta* bölge xxx için.
 
 ### <a name="detailed-description"></a>Ayrıntılı bir açıklaması
 
-Linux kümenizde bildiren bir ileti görebilirsiniz *hbase: meta* tabloda çevrimiçi değil. Çalışan `hbck` rapor edebilir "hbase: meta tablo ReplicaID 0 üzerinde herhangi bir bölge bulunamadı." HBase yeniden sonra HMaster başlatılamadı sorun olabilir. HMaster günlükleri iletiyi görebilirsiniz: "hbase'de hiç sunucu adresi listelenen: bölge hbase için meta: Yedekleme \<bölge adı\>".  
+Linux kümenizde bildiren bir ileti görebilirsiniz *hbase: meta* tabloda çevrimiçi değil. Çalışan `hbck` rapor edebilir "hbase: meta tablo ReplicaID 0 üzerinde herhangi bir bölge bulunamadı." HBase yeniden sonra HMaster başlatılamadı sorun olabilir. HMaster günlükleri aşağıdaki iletiyi görebilirsiniz: "Hbase'de hiç sunucu adresi listelenen: bölge hbase için meta: Yedekleme \<bölge adı\>".  
 
 ### <a name="resolution-steps"></a>Çözüm adımları
 
@@ -314,12 +314,12 @@ Linux kümenizde bildiren bir ileti görebilirsiniz *hbase: meta* tabloda çevri
 
 ### <a name="additional-reading"></a>Ek okuma
 
-[HBase tablosuyla işlenemiyor](http://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
+[HBase tablosuyla işlenemiyor](https://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
 
 
 ### <a name="error"></a>Hata
 
-Benzer şekilde önemli özel durum ile HMaster zaman aşımına "java.io.IOException: zaman aşımına uğradı 300000ms atanacak ad alanı tablosu için bekliyor."
+Benzer şekilde önemli özel durum ile HMaster zaman aşımına "java.io.IOException: Zaman aşımına uğradı ad alanı tablosu için bekleyen atanacak 300000ms."
 
 ### <a name="detailed-description"></a>Ayrıntılı bir açıklaması
 

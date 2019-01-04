@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tylerfox
-ms.openlocfilehash: 8454a22b02f28ece45ce04464f8f2658f745b53e
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6701443807a2709edf08a2b979cd59bebacb7b5d
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163353"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790186"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Azure PowerShell kullanarak HDInsight Apache Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -73,10 +73,8 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 ## <a name="scale-clusters"></a>Kümeleri ölçeklendirme
 Özellik ölçeklendirme kümesi Azure HDInsight kümesini yeniden oluşturmak zorunda kalmadan çalışan bir küme tarafından kullanılan çalışan düğümlerinin sayısını değiştirmenize izin verir.
 
-> [!NOTE]
-> Yalnızca, HDInsight sürüm 3.1.3 ile kümeleri veya üzeri desteklenir. Kümenizin sürümü hakkında şüpheleriniz varsa, Özellikler sayfasını kontrol edebilirsiniz.  Bkz: [kümeleri Listele ve Göster](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
->
->
+> [!NOTE]  
+> Yalnızca, HDInsight sürüm 3.1.3 ile kümeleri veya üzeri desteklenir. Kümenizin sürümü hakkında şüpheleriniz varsa, Özellikler sayfasını kontrol edebilirsiniz.  Bkz: [kümeleri Listele ve Göster](hdinsight-administer-use-portal-linux.md#showClusters).
 
 HDInsight tarafından desteklenen küme her tür veri düğümü sayısı değiştirmenin etkisi:
 
@@ -104,7 +102,7 @@ HDInsight tarafından desteklenen küme her tür veri düğümü sayısı deği�
   * Storm web kullanıcı Arabirimi
   * Komut satırı arabirimi (CLI) aracı
 
-    Başvurmak [Apache Storm belgeleri](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) daha fazla ayrıntı için.
+    Başvurmak [Apache Storm belgeleri](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) daha fazla ayrıntı için.
 
     HDInsight kümesinde Storm web kullanıcı Arabirimi kullanılabilir:
 
@@ -158,10 +156,8 @@ $credential = New-Object System.Management.Automation.PSCredential($hadoopUserNa
 Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Verme/erişimini iptal ederek, küme kullanıcı adını ve parolasını sıfırlayın.
->
->
 
 Ayrıca verme ve erişimi iptal ediliyor portalı üzerinden yapılabilir. Bkz: [Azure portalını kullanarak HDInsight yönetmek][hdinsight-admin-portal].
 
@@ -207,9 +203,9 @@ $resourceGroupName = $cluster.ResourceGroup
 
 
 ## <a name="submit-jobs"></a>İş gönderme
-**Apache Hadoop MapReduce işlerini göndermek için**
+**MapReduce işleri göndermek için**
 
-Bkz: [dahil HDInsight Apache Hadoop MapReduce örneklerini çalıştırma](hadoop/apache-hadoop-run-samples-linux.md).
+Bkz: [dahil HDInsight MapReduce örneklerini çalıştırma](hadoop/apache-hadoop-run-samples-linux.md).
 
 **Apache Hive işleri göndermek için**
 

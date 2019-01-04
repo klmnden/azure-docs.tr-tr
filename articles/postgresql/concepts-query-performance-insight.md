@@ -1,22 +1,21 @@
 ---
 title: PostgreSQL için Azure veritabanı'nda sorgu performansı İçgörüleri
 description: Bu makalede, PostgreSQL için Azure veritabanı'nda sorgu performansı İçgörüleri özelliği açıklanır.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: 38cfac8932859db7daa76e831372c97d97f0b24c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 1a71fb81acc91036ce12ff15f6b2762b808c7473
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376320"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541633"
 ---
 # <a name="query-performance-insight"></a>Sorgu Performansı İçgörüleri 
 
-**İçin geçerlidir:** 9.6 ve 10 PostgreSQL için Azure veritabanı
+**Şunlara uygulanır:** 9.6 ve 10 PostgreSQL için Azure veritabanı
 
 > [!IMPORTANT]
 > Sorgu performansı İçgörüleri özelliği genel Önizleme aşamasındadır. 

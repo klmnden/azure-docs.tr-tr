@@ -9,30 +9,30 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.openlocfilehash: dbcb031b49c529bc2b2524cd0984bbef1945d485
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 1eab8b248fd8ad42adf8c0a747565fed9bbc14e8
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164067"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652566"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>Apache HBase için Java uygulamaları oluşturun
 
-Oluşturmayı bir [Apache HBase](http://hbase.apache.org/) Java uygulaması. Ardından, Azure HDInsight üzerinde HBase ile uygulamayı kullanın.
+Oluşturmayı bir [Apache HBase](https://hbase.apache.org/) Java uygulaması. Ardından, Azure HDInsight üzerinde HBase ile uygulamayı kullanın.
 
 Bu adımları belge kullanım [Apache Maven](https://maven.apache.org/) ve projeyi oluşturmak için. Maven, yazılım proje yönetimi ve yazılım, belgelere ve Java projeleri için raporlar oluşturmanıza olanak sağlayan kavramayı Aracı ' dir.
 
-> [!NOTE]
+> [!NOTE]  
 > Bu belgedeki adımlarda HDInsight 3.6 ile birlikte en son test edilmiştir.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="requirements"></a>Gereksinimler
 
 * [Java platformu JDK](https://aka.ms/azure-jdks) 8 veya üzeri.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Java 8 HDInsight 3.5 ve daha sonraki sürümleri gerektirir. HDInsight'ın önceki sürümlerinde, Java 7 gerektirir.
 
 * [Apache Maven](https://maven.apache.org/)
@@ -49,14 +49,14 @@ Bu adımları belge kullanım [Apache Maven](https://maven.apache.org/) ve proje
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > PowerShell kullanıyorsanız, almalısınız `-D` çift tırnak parametreleri.
     >
     > `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=hbaseapp" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
     Bu komut aynı ada sahip bir dizin oluşturur. **Artifactıd** parametre (**hbaseapp** Bu örnekte.) Bu dizin, aşağıdaki öğeleri içerir:
 
-   * **pom.xml**:  Proje nesne modeli ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) projeyi oluşturmak için kullanılan bilgiler ve yapılandırma ayrıntılarını içerir.
+   * **pom.xml**:  Proje nesne modeli ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) projeyi oluşturmak için kullanılan bilgiler ve yapılandırma ayrıntılarını içerir.
    * **src**: İçeren dizine **main/java/com/microsoft/örnekler** Yazar burada uygulama dizini.
 
 3. Silme `src/test/java/com/microsoft/examples/apptest.java` dosya. Bu, bu örnekte kullanılmaz.
@@ -78,9 +78,9 @@ Bu adımları belge kullanım [Apache Maven](https://maven.apache.org/) ve proje
     </dependency>
    ```
 
-    Bu bölümde, proje gerektiğini belirtir **hbase istemci** ve **phoenix çekirdek** bileşenleri. Bu bağımlılıklar, derleme zamanında varsayılan Maven deposundan yüklenir. Kullanabileceğiniz [Maven merkezi depo arama](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) bu bağımlılık hakkında daha fazla bilgi edinmek için.
+    Bu bölümde, proje gerektiğini belirtir **hbase istemci** ve **phoenix çekirdek** bileşenleri. Bu bağımlılıklar, derleme zamanında varsayılan Maven deposundan yüklenir. Kullanabileceğiniz [Maven merkezi depo arama](https://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) bu bağımlılık hakkında daha fazla bilgi edinmek için.
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Hbase istemcisinin sürüm numarası, Apache HBase, HDInsight kümenizle sağlanan sürümünü eşleşmesi gerekir. Doğru sürüm numarasını bulmak için aşağıdaki tabloyu kullanın.
 
    | HDInsight küme sürümü | Apache HBase sürümü kullanmak için |
@@ -88,7 +88,7 @@ Bu adımları belge kullanım [Apache Maven](https://maven.apache.org/) ve proje
    | 3.2 |0.98.4-hadoop2 |
    | 3.3, 3.4, 3.5 ve 3.6 |1.1.2 |
 
-    HDInsight sürümleri ve bileşenleri hakkında daha fazla bilgi için bkz. [HDInsight ile kullanılabilen farklı Hadoop bileşenlerinin nelerdir](../hdinsight-component-versioning.md).
+    HDInsight sürümleri ve bileşenleri hakkında daha fazla bilgi için bkz. [HDInsight ile kullanılabilen farklı Apache Hadoop bileşenlerinin nelerdir](../hdinsight-component-versioning.md).
 
 3. Aşağıdaki kodu ekleyin **pom.xml** dosya. Bu metin içinde olmalıdır `<project>...</project>` etiketleri dosyasında, örneğin, arasında `</dependencies>` ve `</project>`.
 
@@ -139,10 +139,10 @@ Bu adımları belge kullanım [Apache Maven](https://maven.apache.org/) ve proje
 
     Bu bölümde, bir kaynak yapılandırır (`conf/hbase-site.xml`), HBase için yapılandırma bilgilerini içerir.
 
-   > [!NOTE]
+   > [!NOTE]  
    > Ayrıca, kod aracılığıyla yapılandırma değerlerini ayarlayabilirsiniz. Bölümündeki yorumlara bakın `CreateTable` örnek.
 
-    Bu bölümde ayrıca yapılandırır [Maven derleme eklentisini](http://maven.apache.org/plugins/maven-compiler-plugin/) ve [Maven gölge eklentisi](http://maven.apache.org/plugins/maven-shade-plugin/). Eklenti derleyici topoloji derlemek için kullanılır. Eklenti gölge Maven tarafından oluşturulan JAR paketi lisans yinelenmesini önlemek için kullanılır. Bu eklenti, HDInsight kümesi üzerinde çalışma zamanında bir "yinelenen lisans files" hatayı önlemek için kullanılır. Gölge maven plugin ile kullanarak `ApacheLicenseResourceTransformer` uygulama hatasını önler.
+    Bu bölümde ayrıca yapılandırır [Apache Maven derleme eklentisini](https://maven.apache.org/plugins/maven-compiler-plugin/) ve [Apache Maven gölge eklentisi](https://maven.apache.org/plugins/maven-shade-plugin/). Eklenti derleyici topoloji derlemek için kullanılır. Eklenti gölge Maven tarafından oluşturulan JAR paketi lisans yinelenmesini önlemek için kullanılır. Bu eklenti, HDInsight kümesi üzerinde çalışma zamanında bir "yinelenen lisans files" hatayı önlemek için kullanılır. Gölge maven plugin ile kullanarak `ApacheLicenseResourceTransformer` uygulama hatasını önler.
 
     Maven gölge eklentisi ayrıca uygulamanın gerektirdiği tüm bağımlılıklarını içeren bir uber jar üretir.
 
@@ -357,7 +357,7 @@ Bu adımları belge kullanım [Apache Maven](https://maven.apache.org/) ve proje
 
 2. Komut tamamlandığında, `hbaseapp/target` dizin adlı dosyayı içeren `hbaseapp-1.0-SNAPSHOT.jar`.
 
-   > [!NOTE]
+   > [!NOTE]  
    > `hbaseapp-1.0-SNAPSHOT.jar` Uber jar dosyasıdır. Bu uygulamayı çalıştırmak için gereken tüm bağımlılıkları içerir.
 
 

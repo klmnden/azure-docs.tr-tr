@@ -1,5 +1,5 @@
 ---
-title: Node.Js, MongoB API (Part6) kullanarak Angular uygulaması
+title: MongoDB - uygulamaya ekleme CRUD işlevleri için Azure Cosmos DB API'si ile Angular uygulama oluşturma
 titleSuffix: Azure Cosmos DB
 description: Azure Cosmos DB üzerinde Angular ve Node ile MongoDB için kullandığınız aynı API'leri kullanarak bir MongoDB uygulaması oluşturma öğreticisi dizisinin 6. bölümü
 author: johnpapa
@@ -7,21 +7,19 @@ ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: db4624fb15c7ce5e96dc960de76b56fa19bd9d0e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: affa3fcc580ab69d7cba9db93890ed5f3c499bf4
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714721"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793368"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-crud-functions-to-the-app"></a>Angular ve Azure Cosmos DB - 6. bölüm ile bir MongoDB uygulaması oluşturun: CRUD işlevleri uygulamaya ekleme
+# <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---add-crud-functions-to-the-app"></a>MongoDB - uygulamaya ekleme CRUD işlevleri için Azure Cosmos DB API'si ile Angular uygulama oluşturma
 
-Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yazılmış yeni bir uygulama oluşturun ve buna bağlanmak gösterilmektedir, [MongoDB API'si için yapılandırılmış Cosmos hesabı](mongodb-introduction.md).
-
-Öğreticinin 6. bölümünde [5. bölümdeki](tutorial-develop-mongodb-nodejs-part5.md) konular genişletilir ve aşağıdaki görevler yer alır:
+Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yazılmış yeni bir uygulama oluşturun ve buna bağlanmak gösterilmektedir, [MongoDB için Cosmos DB API'si ile yapılandırılan Cosmos hesabı](mongodb-introduction.md). Öğreticinin 6. bölümünde [5. bölümdeki](tutorial-develop-mongodb-nodejs-part5.md) konular genişletilir ve aşağıdaki görevler yer alır:
 
 > [!div class="checklist"]
 > * Hero hizmeti için Post, Put ve Delete işlevleri oluşturma

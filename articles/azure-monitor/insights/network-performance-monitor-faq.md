@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 8e152bc96293d5e6e801fd23657d0de303093eb6
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: c792881b02eba7207b20c4b4807d8afbc1adb87f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166617"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543997"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Ağ Performansı İzleyicisi çözümü ile ilgili SSS
 
@@ -70,6 +70,9 @@ Betik yalnızca Windows Güvenlik Duvarı yerel olarak yapılandırır. Ağ güv
 
 ### <a name="how-many-agents-should-i-use"></a>Aracı sayısı kullanmalıyım?
 İzlemek istediğiniz her alt ağ için en az bir aracı kullanmanız gerekir.
+
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>Kullanabileceğim aracıların sayısı nedir veya hatası görüyorum "... yapılandırma sınırınıza ulaştınız."?
+NPM çalışma alanı başına 5000 IP'ler için IP'ler sayısını sınırlar. Hem IPv4 hem de IPv6 adreslerini bir düğüm varsa bu bu düğüm için 2 IP'ler sayılır. Bu nedenle, 5000 IP'lerin bu sınırı aracı sayısı üst sınırı karar vermeniz. Etkin aracılar, NPM düğümleri sekmesinden silebilirsiniz >> yapılandırın. NPM, ayrıca VM aracısı ve bu da ayrı IP'ler 5000 IP'ler için bu üst sınır katkıda olarak sayısı barındırma hiç olmadığı kadar atanmış olan tüm IP'lere geçmişini tutar. İçin ücretsiz çalışma alanınız için oluşturan Ip'lerini düğümleri sayfanın kullanımda olmayan IP'ler silmek için kullanabilirsiniz.
 
 ## <a name="monitoring"></a>İzleme
 

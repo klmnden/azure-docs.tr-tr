@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Sık sorulan sorular geçişli kimlik doğrulaması - | Microsoft Docs'
+title: 'Azure AD Connect: Geçişli kimlik doğrulaması - sık sorulan sorular | Microsoft Docs'
 description: Azure Active Directory geçişli kimlik doğrulaması hakkında sık sorulan soruların yanıtlarını
 services: active-directory
 keywords: Azure AD, SSO, Azure AD Connect geçişli kimlik doğrulaması, Active Directory Yükleme gerekli bileşenleri çoklu oturum açma
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: fdb316f5f5c1f67dbb92fe8847c0ffacce46ae07
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619835"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789101"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory geçişli kimlik doğrulaması: Sık sorulan sorular
 
@@ -62,7 +62,7 @@ Bu özelliğin çalışması için sürüm 1.1.750.0 gerekir ve daha sonra Azure
 
 Yapılandırdıysanız [parola geri yazma](../authentication/concept-sspr-writeback.md) belirli bir kullanıcı için ve geçişli kimlik doğrulaması kullanarak kullanıcı oturum açtığında, bunlar değiştirebilir veya parolalarını sıfırlayabilir. Parolalar şirket içi Active beklendiği gibi dizine geri yazılır.
 
-Belirli bir kullanıcı için parola geri yazma özelliğini yapılandırmadıysanız ya da kullanıcının geçerli bir Azure AD yoksa, lisans atanmış, kullanıcı parolalarını bulutta güncelleştirilemiyor. Parolasının süresi dolan olsa bile parolalarını update yapılamıyor. Kullanıcı, bunun yerine bu iletiyi görür: "kuruluşunuz bu sitede parolanızı güncelleştirmenize izin vermez. Kuruluşunuzun önerdiği yönteme göre güncelleştirin veya yardıma ihtiyacınız varsa yöneticinize sorun." Kullanıcı veya yönetici parolalarını şirket içi Active Directory'de sıfırlamanız gerekir.
+Belirli bir kullanıcı için parola geri yazma özelliğini yapılandırmadıysanız ya da kullanıcının geçerli bir Azure AD yoksa, lisans atanmış, kullanıcı parolalarını bulutta güncelleştirilemiyor. Parolasının süresi dolan olsa bile parolalarını update yapılamıyor. Kullanıcı, bunun yerine bu iletiyi görür: "Kuruluşunuz bu sitede parolanızı güncelleştirmenize izin vermez. Kuruluşunuzun önerdiği yönteme göre güncelleştirin veya yardıma ihtiyacınız varsa yöneticinize sorun." Kullanıcı veya yönetici parolalarını şirket içi Active Directory'de sıfırlamanız gerekir.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Nasıl geçişli kimlik doğrulaması parola deneme yanılma saldırılarına karşı koruma sağlar mı?
 
@@ -74,7 +74,7 @@ Belirli bir kullanıcı için parola geri yazma özelliğini yapılandırmadıys
 - Kimlik doğrulama aracılarının HTTP isteklerinin SSL sertifika iptal listelerini (CRL'ler) indirmek için 80 numaralı bağlantı noktası üzerinden olun.
 
      >[!NOTE]
-     >En son güncelleştirmeleri özelliği gereken bağlantı noktaları sayısı azaltıldı. Azure AD Connect kimlik doğrulaması aracısı veya eski sürümleri varsa, bu bağlantı noktalarını açık de tutun: 5671, 8080 9090, 9091, 9350, 9352 ve 10100 10120.
+     >En son güncelleştirmeleri özelliği gereken bağlantı noktaları sayısı azaltıldı. Azure AD Connect kimlik doğrulaması aracısı veya eski sürümleri varsa, bu bağlantı noktaları de açık tutun: 5671, 8080, 9090 9091, 9350, 9352 ve 10100 10120.
 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Doğrudan kimlik doğrulama aracılarının bir giden web proxy sunucusu iletişim kurabilir?
 
@@ -83,7 +83,7 @@ Evet. Web Proxy Otomatik Bulma (WPAD) şirket içi ortamınızda etkinleştirili
 Ortamınızda WPAD yoksa, Azure AD ile iletişim kurmak geçişli kimlik doğrulaması Aracısı izin vermek için proxy bilgilerini (aşağıda gösterildiği gibi) ekleyebilirsiniz:
 - Geçişli kimlik doğrulaması Aracısı sunucuda yüklemeden önce Internet Explorer'da proxy bilgilerini yapılandırın. Bu, kimlik doğrulama Aracısı yüklemesinin tamamlanması izin verir, ancak bunu hala olarak görünecek **Inactive** Yönetici portalı.
 - Sunucusunda, "C:\Program Files\Microsoft Azure AD Connect kimlik doğrulaması aracısı için" gidin.
-- "AzureADConnectAuthenticationAgentService" yapılandırma dosyasını düzenleyin ve aşağıdaki satırları ekleyin (Değiştir "http://contosoproxy.com:8080", gerçek proxy adresine sahip):
+- "AzureADConnectAuthenticationAgentService" yapılandırma dosyasını düzenleyin ve aşağıdaki satırları ekleyin (Değiştir "http\:/ / contosoproxy.com:8080", gerçek proxy adresine sahip):
 
 ```
    <system.net>
@@ -156,7 +156,7 @@ Geçişli kimlik doğrulaması Aracısı bir sunucudan kaldırırsanız, sunucun
 
 ## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Özgün AD FS kullanarak Kurulum, daha eski bir kiracınız var.  Size yakın zamanda PTA için geçirilen, ancak artık Azure AD ile eşitliyorsanız UPN değişikliklerimizi görmüyor.  Bizim UPN neden olan olmayan eşitlenmesini değiştirir?
 
-Y: altında aşağıdaki durumlarda, şirket içi UPN değişikliklerinizi eşitlenmeyebilir:
+Y: Aşağıdaki durumlarda, şirket içi UPN değişikliklerinizi eşitlenmeyebilir:
 
 - Azure AD kiracınız 15 Haziran 2015 tarihinden önce oluşturulduysa
 - Kimlik doğrulaması için AD FS kullanarak Azure AD kiracınız ile başlangıçta federe
@@ -171,13 +171,13 @@ Kiracılar, 15 Haziran 2015 tarihinden sonra oluşturulan UPN değişiklikleri e
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Geçerli sınırlamalar](how-to-connect-pta-current-limitations.md): hangi senaryolar desteklenir ve hangilerinin olmayan öğrenin.
+- [Geçerli sınırlamalar](how-to-connect-pta-current-limitations.md): Hangi senaryolar desteklenir ve hangilerinin olmayan öğrenin.
 - [Hızlı Başlangıç](how-to-connect-pta-quick-start.md): Azure AD geçişli kimlik doğrulaması ve çalışır duruma getirin.
 - [AD FS'den doğrudan kimlik doğrulamaya geçiş](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) -geçişli kimlik doğrulaması için AD FS (veya diğer Federasyon teknolojileri) geçirmek için ayrıntılı bir kılavuz.
-- [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md): kullanıcı hesapları korumak için kiracınızda akıllı kilitleme özelliğini yapılandırma hakkında bilgi edinin.
-- [Teknik yakından bakışın](how-to-connect-pta-how-it-works.md): geçişli kimlik doğrulaması özelliği nasıl çalıştığını anlayın.
-- [Sorun giderme](tshoot-connect-pass-through-authentication.md): geçişli kimlik doğrulaması özelliği ile ortak sorunları çözmeyi öğrenin.
-- [Güvenliğe derinlemesine bakış](how-to-connect-pta-security-deep-dive.md): geçişli kimlik doğrulaması özelliği hakkında ayrıntılı teknik bilgi alın.
-- [Azure AD sorunsuz çoklu oturum açma](how-to-connect-sso.md): tamamlayıcı bu özellik hakkında daha fazla bilgi edinin.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): dosya yeni özellik istekleri için Azure Active Directory Forumu kullanın.
+- [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md): Akıllı kilitleme özelliğini kiracınızda kullanıcı hesapları korumak için yapılandırmayı öğrenin.
+- [Teknik yakından bakışın](how-to-connect-pta-how-it-works.md): Geçişli kimlik doğrulaması özelliği nasıl çalıştığını anlayın.
+- [Sorun giderme](tshoot-connect-pass-through-authentication.md): Geçişli kimlik doğrulaması özelliği olan yaygın sorunların nasıl çözümleneceğini öğrenin.
+- [Güvenliğe derinlemesine bakış](how-to-connect-pta-security-deep-dive.md): Geçişli kimlik doğrulaması özelliği hakkında ayrıntılı teknik bilgilerini edinin.
+- [Azure AD sorunsuz çoklu oturum açma](how-to-connect-sso.md): Tamamlayıcı bu özellik hakkında daha fazla bilgi edinin.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Yeni özellik istekleriniz dosya için Azure Active Directory Forumu kullanın.
 

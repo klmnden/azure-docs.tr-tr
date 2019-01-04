@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9ffb67a2d3d07e75df29070ca198bac1661f95cc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c4cf59e6aa7e6edc73db2e22b9fa8ce40301b07c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212973"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53790342"
 ---
 <a name="saas-sell-through-azure---apis"></a>Azure - API'leri ile SaaS satış
 ==============================
@@ -62,13 +62,13 @@ Azure portalını kullanarak yeni bir uygulamayı kaydetmek için aşağıdaki a
     ![SaaS AD uygulama kayıtları](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration.png)
 
 4.  Uygulama Oluştur sayfasında girin\'s kayıt bilgileri:
-    -   **Ad**: anlamlı uygulama adı girin
+    -   **Ad**: Anlamlı uygulama adı girin
     -   **Uygulama türü**: 
         - Bir cihaza yerel olarak yüklenen [istemci uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) için **Yerel**'i seçin. Bu ayar OAuth ortak [yerel istemcileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) için kullanılır.
         - Seçin **Web uygulaması / API** için [istemci uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) ve [kaynak/API uygulamaları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) güvenli bir sunucuya yüklenir. Bu ayar, OAuth gizli kullanılır [web istemcileri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) ve genel [kullanıcı aracı tabanlı istemciler](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client).
         Aynı uygulama gerek bir istemciyi, gerekse kaynağı/API'yi sunabilir.
-    -   **Oturum açma URL'si**: Web uygulaması/API uygulamaları, uygulamanızın temel URL'si sağlayın. Örneğin, **http://localhost:31544** yerel makinenizde çalışan bir web uygulaması URL'si olabilir. Kullanıcılar, bir web istemci uygulamasına oturum açmak için bu URL'yi daha sonra kullanmanız gerekir.
-    -   **Yeniden yönlendirme URI'si**: Azure AD'nin belirteç yanıtlarını döndürmek için kullanılan URI için yerel uygulamalar sağlar. Uygulamanıza özgü bir değer girin, örneğin **http://MyFirstAADApp**.
+    -   **Oturum açma URL'si**: Web uygulaması/API uygulamaları için uygulamanızın temel URL'si sağlayın. Örneğin, **http://localhost:31544** yerel makinenizde çalışan bir web uygulaması URL'si olabilir. Kullanıcılar, bir web istemci uygulamasına oturum açmak için bu URL'yi daha sonra kullanmanız gerekir.
+    -   **Yeniden yönlendirme URI'si**: Yerel uygulamaları için Azure AD'nin belirteç yanıtlarını döndürmek için kullanılan URI girin. Uygulamanıza özgü bir değer girin, örneğin **http://MyFirstAADApp**.
 
         ![SaaS AD uygulama kayıtları](media/saas-offer-publish-with-subscription-apis/saas-offer-app-registration-2.png) web uygulamaları veya yerel uygulamalar için belirli örnekler için hızlı başlangıç kullanıma destekli bölmesinin Başlarken bölümünde kullanılabilir ayarlar [Azure AD Geliştirici Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
 
@@ -136,7 +136,7 @@ HTTP yöntemi
       "ext_expires_in": "0",
       "expires_on": "15251…",
       "not_before": "15251…",
-      "resource": "b3cca048-ed2e-406c-aff2-40cf19fe7bf5",
+      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
       "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
   }               
 ```
@@ -172,7 +172,7 @@ GÖNDERİSİNİ eyleme çözmek bir kalıcı kaynak kimliği için bir belirteç
 | x-ms-bağıntı kimliği | Hayır           | İstemci üzerinde işlem için benzersiz bir dize değeri. Bu istemci işlemi tüm olayları sunucu tarafında olaylarıyla ilişkilendirir. Bu değer sağlanmazsa, bir oluşturulur ve yanıt üst bilgilerinde sağlanan. |
 | içerik türü       | Evet          | `application/json`                                        |
 | Yetkilendirme      | Evet          | JSON web token (JWT) taşıyıcı belirteç.                    |
-| x-ms-Pazar-token| Evet| Kullanıcı, Azure SaaS ISV Web sitesine yönlendirilir, URL'deki belirteci sorgu parametresi. **Not:** URL kullanmadan önce belirteç değeri tarayıcısından kod çözme.|
+| x-ms-Pazar-token| Evet| Kullanıcı, Azure SaaS ISV Web sitesine yönlendirilir, URL'deki belirteci sorgu parametresi. **Not:** Bu belirteç, yalnızca 1 saat boyunca geçerlidir. Ayrıca, URL kod çözme tarayıcıdan belirteç değeri kullanmadan önce.|
 |  |  |  |
   
 
@@ -201,7 +201,7 @@ GÖNDERİSİNİ eyleme çözmek bir kalıcı kaynak kimliği için bir belirteç
 | **HTTP durum kodu** | **Hata kodu**     | **Açıklama**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Belirteç başarıyla çözümlendi.                                                            |
-| 400                  | `BadRequest`         | Ya da, üst bilgiler eksik veya geçersiz bir API sürümü belirtilen gereklidir. Hatalı biçimlendirilmiş ya da süresi dolmuş ya da belirteç olduğu için belirteç çözümlenemedi. |
+| 400                  | `BadRequest`         | Ya da, üst bilgiler eksik veya geçersiz bir API sürümü belirtilen gereklidir. Belirteci hatalı biçimlendirilmiş ya da süresi dolmuş ya da belirteç olduğu için çözümlenemedi (belirteç yalnızca bir kez oluşturulan 1 saat boyunca geçerlidir). |
 | 403                  | `Forbidden`          | Çağıranın bu işlemi gerçekleştirmek için yetkili değil.                                 |
 | 429                  | `RequestThrottleId`  | Hizmetidir istekleri işlemekle meşgul, daha sonra yeniden deneyin.                                |
 | 503                  | `ServiceUnavailable` | Hizmet olduğu aşağı geçici olarak, daha sonra yeniden deneyin.                                        |
@@ -513,7 +513,7 @@ Get eylemini abone uç noktası ile belirtilen kaynak tanımlayıcı bir aboneli
 | OfferId                | Dize        | Teklif kullanıcıya abone kimliği.         |
 | Planıd                 | Dize        | Bir kullanıcı abone kimliği planlayın.          |
 | saasSubscriptionName   | Dize        | SaaS abonelik adı.                |
-| saasSubscriptionStatus | Sabit listesi          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kaynak kullanıcı oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`: Azure aboneliği askıya alındı.  |
+| saasSubscriptionStatus | Sabit listesi          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kullanıcı kaynak oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`:  Azure abonelik askıya alındı.  |
 | oluşturuldu                | DateTime      | Abonelik oluşturma UTC zaman damgası değeri. |
 | Son değiştirme           | DateTime      | Abonelik UTC zaman damgası değeri değiştirildi. |
 |  |  |  |
@@ -587,7 +587,7 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 | OfferId                | Dize        | Teklif kullanıcıya abone kimliği.         |
 | Planıd                 | Dize        | Bir kullanıcı abone kimliği planlayın.          |
 | saasSubscriptionName   | Dize        | SaaS abonelik adı.                |
-| saasSubscriptionStatus | Sabit listesi          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kaynak kullanıcı oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`: Azure aboneliği askıya alındı.  |
+| saasSubscriptionStatus | Sabit listesi          | İşlem durumu.  Aşağıdakilerden biri:  <br/> - `Subscribed`: Abonelik etkin değil.  <br/> - `Pending`: Kullanıcı kaynak oluşturabilirsiniz, ancak ISV tarafından etkinleştirilmez.   <br/> - `Unsubscribed`: Kullanıcı iptal etti.   <br/> - `Suspended`: Kullanıcı aboneliği askıya aldı.   <br/> - `Deactivated`:  Azure abonelik askıya alındı.  |
 | oluşturuldu                | DateTime      | Abonelik oluşturma UTC zaman damgası değeri. |
 | Son değiştirme           | DateTime      | Abonelik UTC zaman damgası değeri değiştirildi. |
 |  |  |  |
@@ -612,4 +612,36 @@ Abonelik uç noktasında alma işlemi ISV tüm abonelikler için tüm teklifleri
 | x-ms-bağıntı kimliği | Evet          | Bağıntı kimliği istemci tarafından aksi takdirde bu aktarılırsa server bağıntı kimliğidir.                   |
 | x-ms-etkinlik kimliği    | Evet          | Hizmet isteği izlemek için benzersiz bir dize değeri. Bu, tüm Mutabakatları için kullanılır. |
 | Yeniden deneme sonrasında        | Hayır           | Zaman aralığı ile hangi istemci durumu kontrol edebilirsiniz.                                                       |
+|  |  |  |
+
+### <a name="saas-webhook"></a>SaaS Web kancası
+
+Bir SaaS Web kancası değişiklikleri SaaS hizmeti için proaktif olarak bildirmek için kullanılır. Bu GÖNDERİ API kimliği doğrulanmamış olması beklenir ve Microsoft hizmeti tarafından çağrılır. SaaS hizmeti doğrulamak ve Web kancası bildirim eylemi gerçekleştirmeden önce onları yetkilendirmek için API işlemleri çağırmak için bekleniyor. 
+
+
+*Gövde*
+
+``` json
+  { 
+    "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
+    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
+    "offerId": "sampleSaaSOffer", // Provided with "Update" action
+    "publisherId": "contoso", 
+    "planId": "silver",     // Provided with "Update" action
+    "action": "Activate", // Activate/Delete/Suspend/Reinstate/Update
+    "timeStamp": "2018-12-01T00:00:00"
+  }
+```
+
+| **Parametre adı**     | **Veri türü** | **Açıklama**                               |
+|------------------------|---------------|-----------------------------------------------|
+| id  | Dize       | Tetiklenen işlem benzersiz kimliği.                |
+| activityId   | Dize        | Hizmet isteği izlemek için benzersiz bir dize değeri. Bu, tüm Mutabakatları için kullanılır.               |
+| subscriptionId                     | Dize        | Azure abonelik kaynak kimliği, SaaS.    |
+| OfferId                | Dize        | Teklif kullanıcıya abone kimliği. Yalnızca "Güncelleştir" eylemi ile sağlanır.        |
+| publisherId                | Dize        | Yayımcı kimliği SaaS teklifi         |
+| Planıd                 | Dize        | Bir kullanıcı abone kimliği planlayın. Yalnızca "Güncelleştir" eylemi ile sağlanır.          |
+| action                 | Dize        | Bu bildirim tetikleme eylem. Olası değerler - etkinleştirme, silme, askıda kalma, eski duruma getirme, güncelleştirme          |
+| Zaman damgası                 | Dize        | Bu bildirim tetiklendiğinde UTC zaman damgası değeri.          |
 |  |  |  |

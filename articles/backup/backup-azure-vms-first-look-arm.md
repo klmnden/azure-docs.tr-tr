@@ -1,24 +1,21 @@
 ---
-title: 'İlk bakış: Azure sanal makinelerini bir kurtarma hizmetleri kasasıyla koruma'
-description: Sanal makineleri bir kurtarma hizmetleri kasasıyla koruyun. Verilerinizi korumak için, Resource Manager tarafından dağıtılan, Klasik modunda dağıtılan VM'lerin, Premium Depolama VM'lerinin, Şifrelenmiş VM’lerin ve Yönetilen Diskler üzerindeki VM’lerin yedeklemelerini kullanın. Bir kurtarma hizmetleri kasası oluşturun ve kaydedin. Azure'da VM'leri kaydedin, ilke oluşturun ve VM'leri koruyun.
+title: Azure Backup hizmeti ile Azure Vm'lerini yedekleme
+description: Azure Backup hizmeti ile Azure Vm'lerini yedekleme hakkında bilgi edinin
 services: backup
 author: rayne-wiselman
 manager: carmonm
-keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 12/17/2018
 ms.author: raynew
-ms.custom: H1Hack27Feb2017
-keywords: yedeklemeleri; VM yedeklemesi
-ms.openlocfilehash: 2c6b881e5717c0f4600b4e3c2f47c19b5d2dae51
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52869937"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631592"
 ---
-# <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Azure sanal makinelerini kurtarma Hizmetleri kasasına yedekleme
+# <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Azure Backup hizmeti ile Azure Vm'lerini yedekleme
 
 Bu makalede, sanal makineler işlem menüsünden bir sanal makine veya kurtarma Hizmetleri kasası için korumanın nasıl yapılandırılacağı açıklanmaktadır. Kurtarma Hizmetleri kasaları şunları korur:
 
@@ -32,12 +29,12 @@ Bu makalede, sanal makineler işlem menüsünden bir sanal makine veya kurtarma 
 
 Premium depolama VM'lerini koruma hakkında daha fazla bilgi için [Premium Storage VM'lerini Yedekleme ve Geri Yükleme](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup) makalesine bakın. Yönetilen disk sanal makinelerine yönelik destek hakkında daha fazla bilgi için bkz. [Yönetilen diskler üzerindeki sanal makineleri yedekleme ve geri yükleme](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). Linux VM yedekleme için ön ve son betik çerçevesi hakkında daha fazla bilgi için bkz. [Ön betik ve son betik kullanarak uygulamayla tutarlı Linux VM yedekleme](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
-Ve yapabileceklerinizi yedekleyemezsiniz hakkında daha fazla bilgi için bkz: [Azure Vm'lerini yedeklemek için ortamınızı hazırlama](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm).
+Ve yapabileceklerinizi yedekleyemezsiniz hakkında daha fazla bilgi için bkz: [Azure Vm'lerini yedeklemek için ortamınızı hazırlama](backup-azure-arm-vms-prepare.md#before-you-start).
 
 > [!NOTE]
 > Yedekleme hizmeti, geri yükleme noktası koleksiyonu depolamak için sanal makinenin kaynak grubundan ayrı bir kaynak grubu oluşturur. Müşterilerin, Backup hizmeti tarafından kullanım için oluşturduğunuz kaynak grubunda değil kilitlemek için önerilir.
-Backup hizmeti tarafından oluşturulan kaynak grubu adlandırma biçimi: AzureBackupRG_`<Geo>`_`<number>`
-<br>Örn: AzureBackupRG_northeurope_1
+Backup hizmeti tarafından oluşturulan kaynak grubunun adlandırma biçimi şu şekildedir: AzureBackupRG_`<Geo>`_`<number>`
+<br>Örn.: AzureBackupRG_northeurope_1
 >
 >
 
@@ -337,7 +334,9 @@ VM çalışmıyor olsa dahi, Backup hizmeti yedekleme uzantısını yükler. Ça
 Bu makaledeki bazı görevleri yerine getirirken sorun yaşıyorsanız lütfen [Sorun giderme rehberine](backup-azure-vms-troubleshoot.md) başvurun.
 
 ## <a name="pricing"></a>Fiyatlandırma
-Azure VM'lerin yedeklenmesi maliyeti, korumalı örneklerinin sayısını temel alır. Korumalı bir örneğin tanımı için, bkz: [Korumalı örnek nedir](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). Bir sanal makineyi yedeklemenin maliyetini hesaplamaya ilişkin bir örnek için, bkz: [Korumalı örnekler nasıl hesaplanır](backup-azure-vms-introduction.md#calculating-the-cost-of-protected-instances). [Yedekleme Fiyatlandırması](https://azure.microsoft.com/pricing/details/backup/) hakkında bilgi için Azure Backup Fiyatlandırma sayfasına bakın.
+Azure VM'lerin yedeklenmesi maliyeti, korumalı örneklerinin sayısını temel alır. Korumalı bir örneğin tanımı için, bkz: [Korumalı örnek nedir](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). [Yedekleme Fiyatlandırması](https://azure.microsoft.com/pricing/details/backup/) hakkında bilgi için Azure Backup Fiyatlandırma sayfasına bakın.
 
-## <a name="questions"></a>Sorularınız mı var?
-Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik varsa [bize geri bildirim gönderin](https://aka.ms/azurebackup_feedback).
+## <a name="next-steps"></a>Sonraki adımlar
+
+[Yönetme](backup-azure-manage-vms.md) yedeklemeleriniz.
+

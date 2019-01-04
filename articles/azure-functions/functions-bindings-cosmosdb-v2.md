@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 362a8f6108ad035c66fe76dae09cf7711dafd070
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 6748998e87de7f0d5ea41a10ba16600aa7b31505
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344355"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972048"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure işlevleri için Azure Cosmos DB bağlamaları 2.x
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Azure Functions çalışma zamanının sürümünü seçin: "]
 > * [Sürüm 1](functions-bindings-cosmosdb.md)
 > * [Sürüm 2](functions-bindings-cosmosdb-v2.md)
 
@@ -274,8 +274,9 @@ Aşağıdaki tabloda ayarladığınız bağlama yapılandırma özelliklerini a�
 |**leaseAcquireInterval**| **leaseAcquireInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden aralığı bölümler bilinen barındırma örnekleri arasında eşit olarak dağıtılmış, işlem için bir görev başlatabilir tanımlar. 13000 (13 saniye) varsayılandır.
 |**leaseExpirationInterval**| **leaseExpirationInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden kira bir bölüm temsil eden bir kira alınmış aralığı tanımlar. Kira bu aralıkta yenilenmezse, süresi dolacak şekilde neden olur ve bölüm sahipliğini başka bir örneğine taşınır. 60000 (60 saniye) varsayılandır.
 |**leaseRenewInterval**| **leaseRenewInterval**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden geçerli bir örnek tarafından tutulan bölümler için tüm kira yenileme aralığı tanımlar. 17000 (17 saniye) varsayılandır.
-|**checkpointFrequency**| **checkpointFrequency**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden kira kontrol noktaları arasındaki süreyi tanımlar. Başarılı işlev çağrısından sonra her zaman bir varsayılandır.
+|**checkpointFrequency**| **checkpointFrequency**| (İsteğe bağlı) Ayarlandığında, bu, milisaniye cinsinden kira kontrol noktaları arasındaki süreyi tanımlar. Her zaman her işlev çağrısından sonra varsayılandır.
 |**maxItemsPerInvocation**| **maxItemsPerInvocation**| (İsteğe bağlı) Ayarlandığında, işlev çağrısı alınan öğeleri en uzun süreyi özelleştirir.
+|**startFromBeginning**| **StartFromBeginning**| (İsteğe bağlı) Ayarlandığında, değişiklik geçmişini geçerli zamanı yerine koleksiyonunun başından itibaren okumaya başlamak için tetikleyici söyler. Bu, yalnızca tetikleyici başladığında, sonraki çalıştırmaları, kontrol noktaları gibi zaten depolanmış ilk kez çalışır. Bu ayar `true` olduğunda önceden oluşturulmuş kiraları etkisi yoktur.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -384,6 +385,10 @@ namespace CosmosDBSamplesV2
 #### <a name="http-trigger-look-up-id-from-query-string-c"></a>HTTP tetikleyicisi, kimliği arama Sorgu dizesinden (C#)
 
 Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , tek bir belge alır. İşlevi, aranacak kimliği belirtmek için bir sorgu dizesi kullanan bir HTTP isteği tarafından tetiklenir. Kimliği almak için kullanılan bir `ToDoItem` belge belirtilen veritabanı ve koleksiyonu.
+
+>[!NOTE]
+>HTTP sorgu dizesi parametresi büyük/küçük harf duyarlıdır.
+>
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -1446,29 +1451,253 @@ Eklemek için bir `project.json` bkz [ F# paket Yönetimi](functions-reference-f
 
 ### <a name="input---java-examples"></a>Giriş - Java örnekleri
 
-Aşağıdaki örnek, tek bir belge alır bir Java işlev gösterir. İşlevi, aranacak kimliği belirtmek için bir sorgu dizesi kullanan bir HTTP isteği tarafından tetiklenir. Bu kimlik, bir Todoıtem belge belirtilen veritabanı ve koleksiyonu almak için kullanılır.
+Bu bölüm aşağıdaki örnekleri içerir:
 
-Java kod aşağıdaki gibidir:
+* [HTTP tetikleyicisi, sorgu dize - dize parametresi değerinden Kimliği Ara](#http-trigger-look-up-id-from-query-string---string-parameter-java)
+* [HTTP tetikleyicisi, Sorgu dizesinden - POJO'ya parametre Kimliği Ara](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)
+* [HTTP tetikleyicisi, rota verilerinden Kimliği Ara](#http-trigger-look-up-id-from-route-data-java)
+* [HTTP tetikleyicisi, SqlQuery kullanarak rota verilerinden Kimliği Ara](#http-trigger-look-up-id-from-route-data-using-sqlquery-java)
+* [HTTP tetikleyicisi, SqlQuery kullanarak rota verileri, birden çok belgeleri edinin](#http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java)
+
+Örnekler için basit bir başvuru `ToDoItem` türü:
 
 ```java
-@FunctionName("getItem")
-public String cosmosDbQueryById(
-    @HttpTrigger(name = "req",
-                  methods = {HttpMethod.GET},
-                  authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> dummy,
-    @CosmosDBInput(name = "database",
-                      databaseName = "ToDoList",
-                      collectionName = "Items",
-                      leaseCollectionName = "",
-                      id = "{Query.id}"
-                      connectionStringSetting = "AzureCosmosDBConnection") Optional<String> item,
-    final ExecutionContext context
- ) {
-    return item.orElse("Not found");
- }
+public class ToDoItem {
+
+  private String id;
+  private String description;  
+
+  public String getId() {
+    return id;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+  
+  @Override
+  public String toString() {
+    return "ToDoItem={id=" + id + ",description=" + description + "}";
+  }
+}
+```
+
+#### <a name="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>HTTP tetikleyicisi, kimliği arama Sorgu dizesinden - dize parametresi (Java)
+
+Aşağıdaki örnek, tek bir belge alır bir Java işlev gösterir. İşlevi, aranacak kimliği belirtmek için bir sorgu dizesi kullanan bir HTTP isteği tarafından tetiklenir. Bu kimliği belirtilen veritabanı ve koleksiyonunu, dize biçiminde bir belge almak için kullanılır.
+
+```java
+public class DocByIdFromQueryString {
+
+    @FunctionName("DocByIdFromQueryString")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET, HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS) 
+            HttpRequestMessage<Optional<String>> request,        
+            @CosmosDBInput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              id = "{Query.id}",
+              partitionKey = "{Query.id}",
+              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            Optional<String> item,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+        context.getLogger().info("String from the database is " + (item.isPresent() ? item.get() : null));
+
+        // Convert and display
+        if (!item.isPresent()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from Cosmos. Alternatively, we can parse the JSON string 
+            // and return an enriched JSON object.
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(item.get())
+                          .build();
+        }
+    }
+}
  ```
 
 İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@CosmosDBInput` ek açıklamayı işlevi parametre değeri, Cosmos DB'den gelmesi.  Bu ek açıklama yerel Java türler, pojo'ları veya isteğe bağlı kullanarak boş değer atanabilir değer ile kullanılabilir<T>.
+
+#### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>HTTP tetikleyicisi, kimliği arama Sorgu dizesinden - POJO'ya parametre (Java)
+
+Aşağıdaki örnek, tek bir belge alır bir Java işlev gösterir. İşlevi, aranacak kimliği belirtmek için bir sorgu dizesi kullanan bir HTTP isteği tarafından tetiklenir. Bu kimlik, bir belge belirtilen veritabanı ve koleksiyonu almak için kullanılır. Belgeyi daha sonra örneğine dönüştürülür ```ToDoItem``` daha önce oluşturduğunuz ve bağımsız değişken olarak işleve geçirilen POJO'ya.
+
+```java
+public class DocByIdFromQueryStringPojo {
+
+    @FunctionName("DocByIdFromQueryStringPojo")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET, HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS) 
+            HttpRequestMessage<Optional<String>> request,        
+            @CosmosDBInput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              id = "{Query.id}",
+              partitionKey = "{Query.id}",
+              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            ToDoItem item,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+        context.getLogger().info("Item from the database is " + item);
+
+        // Convert and display
+        if (item == null) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(item)
+                          .build();
+        }
+    }
+}
+ ```
+
+#### <a name="http-trigger-look-up-id-from-route-data-java"></a>HTTP tetikleyicisi, kimliği bir ara rota verilerinden (Java)
+
+Aşağıdaki örnek, tek bir belge alır bir Java işlev gösterir. İşlevi, aranacak kimliği belirtmek için bir rota parametresini kullanan bir HTTP isteği tarafından tetiklenir. Olarak döndürmeden kimliği bir belge belirtilen veritabanı ve koleksiyonu almak için kullanılır bir ```Optional<String>```.
+
+```java
+public class DocByIdFromRoute {
+
+    @FunctionName("DocByIdFromRoute")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET, HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS,
+              route = "todoitems/{id}")
+            HttpRequestMessage<Optional<String>> request,        
+            @CosmosDBInput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              id = "{id}",
+              partitionKey = "{id}",
+              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            Optional<String> item,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+        context.getLogger().info("String from the database is " + (item.isPresent() ? item.get() : null));
+
+        // Convert and display
+        if (!item.isPresent()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from Cosmos. Alternatively, we can parse the JSON string 
+            // and return an enriched JSON object.
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(item.get())
+                          .build();
+        }
+    }
+}
+ ```
+
+#### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery-java"></a>HTTP tetikleyicisi, SqlQuery (Java) kullanarak rota verilerinden Kimliği Ara
+
+Aşağıdaki örnek, tek bir belge alır bir Java işlev gösterir. İşlevi, aranacak kimliği belirtmek için bir rota parametresini kullanan bir HTTP isteği tarafından tetiklenir. Dönüştürme sonucu kimliği bir belge belirtilen veritabanı ve koleksiyonu almak için kullanılan,'ı kümesine bir ```ToDoItem[]```, bu yana ölçütlerini bağlı olarak çok sayıda belge döndürülebilir.
+
+```java
+public class DocByIdFromRouteSqlQuery {
+
+    @FunctionName("DocByIdFromRouteSqlQuery")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET, HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS,
+              route = "todoitems2/{id}") 
+            HttpRequestMessage<Optional<String>> request,        
+            @CosmosDBInput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              sqlQuery = "select * from Items r where r.id = {id}",
+              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            ToDoItem[] item,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+        context.getLogger().info("Items from the database are " + item);
+
+        // Convert and display
+        if (item == null) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(item)
+                          .build();
+        }
+    }
+}
+ ```
+
+#### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>HTTP tetikleyicisi, SqlQuery (Java) kullanarak rota verileri, birden çok belgeleri edinin
+
+Aşağıdaki örnek bir Java işlev gösteren birden çok belge. İşlev bir rota parametresini kullanan bir HTTP isteği tarafından tetiklenip tetiklenmediğini ```desc``` dize için arama belirtmek için ```description``` alan. Arama terimi koleksiyonu, sonuç kümesi dönüştürme ve belirtilen veritabanı bir belge koleksiyonu almak için kullanılan bir ```ToDoItem[]``` ve işleve bağımsız değişken olarak geçirme.
+
+```java
+public class DocsFromRouteSqlQuery {
+
+    @FunctionName("DocsFromRouteSqlQuery")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET}, 
+              authLevel = AuthorizationLevel.ANONYMOUS,
+              route = "todoitems3/{desc}")
+            HttpRequestMessage<Optional<String>> request,        
+            @CosmosDBInput(name = "database",
+              databaseName = "ToDoList",
+              collectionName = "Items",
+              sqlQuery = "select * from Items r where contains(r.description, {desc})",
+              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            ToDoItem[] items,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+        context.getLogger().info("Number of items from the database is " + (items == null ? 0 : items.length));
+
+        // Convert and display
+        if (items == null) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("No documents found.")
+                          .build();
+        } 
+        else {
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(items)
+                          .build();
+        }
+    }
+}
+ ```
 
 ## <a name="input---attributes"></a>Giriş - öznitelikleri
 
@@ -1511,7 +1740,7 @@ Dile özgü örneklere bakın:
 * [C#](#output---c-examples)
 * [C# betiği (.csx)](#output---c-script-examples)
 * [F#](#output---f-examples)
-* [Java](#output---java-example)
+* [Java](#output---java-examples)
 * [JavaScript](#output---javascript-examples)
 
 Ayrıca bkz: [giriş örnek](#input---c-examples) kullanan `DocumentClient`.
@@ -1884,20 +2113,163 @@ Eklemek için bir `project.json` bkz [ F# paket Yönetimi](functions-reference-f
 
 ### <a name="output---java-examples"></a>Çıkış - Java örnekleri
 
+* [Kuyruk tetikleyicisi, dönüş değeri aracılığıyla veritabanı iletiyi kaydet](#queue-trigger-save-message-to-database-via-return-value-java)
+* [HTTP tetikleyicisi, dönüş değeri aracılığıyla veritabanına bir belge kaydetme](#http-trigger-save-one-document-to-database-via-return-value-java)
+* [HTTP tetikleyicisi, bir belge OutputBinding aracılığıyla veritabanına kaydetme](#http-trigger-save-one-document-to-database-via-outputbinding-java)
+* [HTTP tetikleyicisi, birden çok belge OutputBinding veritabanına kaydetme](#http-trigger-save-multiple-documents-to-database-via-outputbinding-java)
+
+
+#### <a name="queue-trigger-save-message-to-database-via-return-value-java"></a>Kuyruk tetikleyicisi, dönüş değeri (Java) aracılığıyla veritabanına ileti Kaydet
+
 Aşağıdaki örnek, bir belge verilerle bir veritabanı için kuyruk depolama alanında bir ileti ekler bir Java işlev gösterir.
 
 ```java
 @FunctionName("getItem")
-@CosmosDBOutput(name = "database", databaseName = "ToDoList", collectionName = "Items", connectionStringSetting = "AzureCosmosDBConnection")
+@CosmosDBOutput(name = "database", 
+  databaseName = "ToDoList", 
+  collectionName = "Items", 
+  connectionStringSetting = "AzureCosmosDBConnection")
 public String cosmosDbQueryById(
-     @QueueTrigger(name = "msg", queueName = "myqueue-items", connection = "AzureWebJobsStorage") String message,
-     final ExecutionContext context
-)  {
-     return "{ id: " + System.currentTimeMillis() + ", Description: " + message + " }";
+    @QueueTrigger(name = "msg", 
+      queueName = "myqueue-items", 
+      connection = "AzureWebJobsStorage") 
+    String message,
+    final ExecutionContext context)  {
+     return "{ id: \"" + System.currentTimeMillis() + "\", Description: " + message + " }";
    }
 ```
 
-İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@CosmosDBOutput` Cosmos DB'ye yazılacak parametre üzerindeki ek açıklama.  Ek açıklama parametre türü OutputBinding olmalıdır<T>, yerel bir Java türü veya bir POJO'ya T olduğu.
+#### <a name="http-trigger-save-one-document-to-database-via-return-value-java"></a>HTTP tetikleyicisi, dönüş değeri (Java) aracılığıyla veritabanına bir belge kaydetme
+
+Aşağıdaki örnek bir Java işlev imzası ile ek açıklamalı gösterir ```@CosmosDBOutput``` ve dönüş değeri ```String```. İşlevin döndürdüğü JSON belgesi, karşılık gelen CosmosDB koleksiyona otomatik olarak yazılır.
+
+```java
+    @FunctionName("WriteOneDoc")
+    @CosmosDBOutput(name = "database", 
+      databaseName = "ToDoList",
+      collectionName = "Items", 
+      connectionStringSetting = "Cosmos_DB_Connection_String")
+    public String run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET, HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS) 
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+
+        // Parse query parameter        
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Generate random ID
+        final int id = Math.abs(new Random().nextInt());
+
+        // Generate document
+        final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                    "\"description\": \"" + name + "\"}";
+
+        context.getLogger().info("Document to be saved: " + jsonDocument);
+
+        return jsonDocument;
+    }
+```
+
+#### <a name="http-trigger-save-one-document-to-database-via-outputbinding-java"></a>HTTP tetikleyicisi, bir belge OutputBinding (Java) aracılığıyla veritabanına kaydetme
+
+Aşağıdaki örnek, bir belge CosmosDB Yazar bir Java işlev gösterir. bir ```OutputBinding<T>``` çıkış parametresi. Bu kurulum, bu olduğuna dikkat edin ```outputItem``` ile Açıklama gereken parametre ```@CosmosDBOutput```, işlev imzası yok. Kullanarak ```OutputBinding<T>``` da işlevi çağıran bir JSON veya XML belgesi gibi farklı bir değer döndüren olanak tanıyan belge adı CosmosDB olarak yazmak için bağlama yararlanmak işlevinizi olanak tanır.
+
+```java
+    @FunctionName("WriteOneDocOutputBinding")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET, HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS) 
+            HttpRequestMessage<Optional<String>> request,
+            @CosmosDBOutput(name = "database", 
+              databaseName = "ToDoList", 
+              collectionName = "Items", 
+              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            OutputBinding<String> outputItem,
+            final ExecutionContext context) {
+  
+        // Parse query parameter
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+      
+        // Generate random ID
+        final int id = Math.abs(new Random().nextInt());
+
+        // Generate document
+        final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                    "\"description\": \"" + name + "\"}";
+
+        context.getLogger().info("Document to be saved: " + jsonDocument);
+
+        // Set outputItem's value to the JSON document to be saved
+        outputItem.setValue(jsonDocument);
+
+        // return a different document to the browser or calling client.
+        return request.createResponseBuilder(HttpStatus.OK)
+                      .body("Document created successfully.")
+                      .build();
+    }
+```
+
+#### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>HTTP tetikleyicisi, birden çok belge OutputBinding (Java) veritabanına kaydetme
+
+Aşağıdaki örnek, birden çok belge CosmosDB yazan bir Java işlev gösterir. bir ```OutputBinding<T>``` çıkış parametresi. Bu kurulum, bu olduğuna dikkat edin ```outputItem``` ile Açıklama gereken parametre ```@CosmosDBOutput```, işlev imzası yok. Çıkış parametresi ```outputItem``` listesine sahip ```ToDoItem``` nesneler, şablon parametre türü olarak. Kullanarak ```OutputBinding<T>``` da işlevi çağıran bir JSON veya XML belgesi gibi farklı bir değer döndüren olanak tanıyan belgeleri adı CosmosDB olarak yazmak için bağlama yararlanmak işlevinizi olanak tanır.
+
+```java
+    @FunctionName("WriteMultipleDocsOutputBinding")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET, HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS) 
+            HttpRequestMessage<Optional<String>> request,
+            @CosmosDBOutput(name = "database", 
+              databaseName = "ToDoList", 
+              collectionName = "Items", 
+              connectionStringSetting = "Cosmos_DB_Connection_String") 
+            OutputBinding<List<ToDoItem>> outputItem,
+            final ExecutionContext context) {
+  
+        // Parse query parameter
+        String query = request.getQueryParameters().get("desc");
+        String name = request.getBody().orElse(query);
+
+        // Item list
+        context.getLogger().info("Parameters are: " + request.getQueryParameters());
+      
+        // Generate documents
+        List<ToDoItem> items = new ArrayList<>();
+
+        for (int i = 0; i < 5; i ++) {
+          // Generate random ID
+          final int id = Math.abs(new Random().nextInt());
+
+          // Create ToDoItem
+          ToDoItem item = new ToDoItem(String.valueOf(id), name);
+          
+          items.add(item);
+        }
+
+        // Set outputItem's value to the list of POJOs to be saved
+        outputItem.setValue(items);
+        context.getLogger().info("Document to be saved: " + items);
+
+        // return a different document to the browser or calling client.
+        return request.createResponseBuilder(HttpStatus.OK)
+                      .body("Documents created successfully.")
+                      .build();
+    }
+```
+
+İçinde [Java Çalışma Zamanı Kitaplığı işlevleri](/java/api/overview/azure/functions/runtime), kullanın `@CosmosDBOutput` Cosmos DB'ye yazılacak parametre üzerindeki ek açıklama.  Ek açıklama parametre türü olmalıdır ```OutputBinding<T>```, yerel bir Java türü veya bir POJO'ya T olduğu.
 
 
 ## <a name="output---attributes"></a>Çıkış - öznitelikleri

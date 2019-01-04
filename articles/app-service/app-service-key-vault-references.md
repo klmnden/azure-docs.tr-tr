@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 8add470048d3ead3f75ff85dd6f489d798af5e29
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c47de9fbe1b9923ff8ce1c38a9a9695af4311858
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253451"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723153"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>App Service ve Azure işlevleri'ni (Önizleme) için Key Vault başvuruları kullanın
 
@@ -32,7 +32,7 @@ Anahtar Kasasından gizli anahtarları okumak için oluşturulan bir kasası var
 
 1. Bir anahtar kasası oluşturma [Key Vault Hızlı Başlangıç](../key-vault/quick-create-cli.md).
 
-1. Oluşturma bir [yönetilen sistem tarafından atanan kimliği](app-service-managed-service-identity.md) uygulamanız için.
+1. Oluşturma bir [yönetilen sistem tarafından atanan kimliği](overview-managed-identity.md) uygulamanız için.
 
    > [!NOTE] 
    > Key Vault şu anda yalnızca destek sistem tarafından atanan yönetilen kimlikleri başvuruyor. Kullanıcı tarafından atanan kimlikleri kullanılamaz.
