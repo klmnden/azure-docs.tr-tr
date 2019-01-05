@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: ab2ea762ac8cc289ff24136f3cafac2b80fa1a9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7ffceaf761d459667e4118e3e10b733898ea2710
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268453"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053985"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Öğretici: Oluşturma ve Azure bütçelerini yönetin
 
@@ -51,9 +51,7 @@ Maliyet Yönetimi verilerine izin atama hakkında daha fazla bilgi için bkz. [m
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Azure portalında bir bütçe oluşturun
 
-Aylık, üç aylık veya yıllık bir dönem için bir Azure aboneliği bütçe oluşturabilirsiniz. Azure portalında gezinme içerik için bir abonelik veya kaynak grubu için bütçe oluşturun belirler.
-
-Azure portalında gidin **maliyet Yönetimi + faturalandırma** &gt; **abonelikleri** &gt; bir abonelik seçin &gt; **bütçelerini**. Bu örnekte, seçili abonelik için oluşturduğunuz bütçe olacaktır.
+Aylık, üç aylık veya yıllık bir dönem için bir Azure aboneliği bütçe oluşturabilirsiniz. Azure portalında gezinme içerik için bir abonelik veya kaynak grubu için bütçe oluşturun belirler. Azure portalında, örneğin gidin **abonelikleri** &gt; bir abonelik seçin &gt; **bütçelerini**. Bu örnekte, seçili abonelik için oluşturduğunuz bütçe olacaktır. Bir kaynak grubu için bütçe oluşturmak istiyorsanız, gitmek **kaynak grupları** > bir kaynak grubu seçin > **bütçelerini**.
 
 Bütçe oluşturduktan sonra bunlar geçerli bunlara karşı harcamalarınızı basit bir görünümü gösterir.
 

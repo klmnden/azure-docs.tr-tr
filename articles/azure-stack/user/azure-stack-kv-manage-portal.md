@@ -12,18 +12,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/04/201
 ms.author: sethm
-ms.openlocfilehash: 51c04a567ff953c4e84930e3feae448f78627683
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 89a9a5418e0eab210c1132570beda20a39635677
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713944"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034671"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Anahtar Kasası'nda Azure Stack portalını kullanarak yönetme
 
-Anahtar Kasası'nda Azure Stack Azure Stack portalını kullanarak yönetebilirsiniz. Bu makalede oluşturmak ve Azure Stack'te bir anahtar Kasası'nı yönetmek için çalışmaya başlamanıza yardımcı olur.
+Anahtar Kasası'nda Azure Stack Azure Stack portalını kullanarak yönetebilirsiniz. Bu makalede oluşturma ve Azure Stack'te bir anahtar kasasını yönetebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -33,19 +33,17 @@ Azure Key Vault hizmetini içeren bir teklife abone olması gerekir.
 
 1. Oturum [kullanıcı portalı](https://portal.local.azurestack.external).
 
-2. Panoda **+ kaynak Oluştur** > **güvenlik + kimlik** > **Key Vault**.
+2. Panoda **+ kaynak Oluştur**, ardından **güvenlik + kimlik**, ardından **Key Vault**.
 
     ![Key Vault ekran](media/azure-stack-kv-manage-portal/image1.png)
 
-3. İçinde **Key Vault Oluştur** bölmesinde atamak bir **adı** kasanız için. Kasa adı yalnızca alfasayısal karakterler ve özel karakter tire (-) içerebilir. Bunlar, bir sayı ile başlayamaz olmamalıdır.
+3. İçinde **Key Vault Oluştur** bölmesinde atamak bir **adı** kasanız için. Kasa adı yalnızca alfasayısal karakterler ve kısa çizgi (-) karakterini içerebilir. Bir sayıyla başlamamalıdır.
 
 4. Seçin bir **abonelik** kullanılabilir abonelikler listesinden. Key Vault hizmetinin sunduğu tüm abonelikler, aşağı açılan listede görüntülenir.
 
-5. Yeni bir **Kaynak Grubu** seçin ya da yeni bir tane oluşturun.
+5. Mevcut bir seçin **kaynak grubu**, ya da yeni bir tane oluşturun.
 
-6. Seçin **fiyatlandırma katmanı**.
-    >[!NOTE]
-    > Anahtar kasaları Azure Stack geliştirme Seti'ni Destek **standart** yalnızca SKU'ları.
+6. Seçin **fiyatlandırma katmanı**. Azure Stack geliştirme Seti'ni (ASDK içinde), anahtar kasaları Destek **standart** yalnızca SKU'ları.
 
 7. Var olan birini seçin **erişim ilkeleri** veya yeni bir tane oluşturun. Bir erişim ilkesi, bir kullanıcı, uygulama veya bir güvenlik grubu bu kasayla işlemleri gerçekleştirmek izinler sağlar.
 
@@ -55,7 +53,7 @@ Azure Key Vault hizmetini içeren bir teklife abone olması gerekir.
 
 ## <a name="manage-keys-and-secrets"></a>Anahtarları ve gizli anahtarları yönetme
 
-Bir kasayı oluşturduktan sonra anahtarları ve gizli dizileri kasa içinde oluşturmak ve yönetmek için aşağıdaki adımları kullanın.
+Bir kasayı oluşturduktan sonra anahtarları ve gizli dizileri kasa içinde oluşturmak ve yönetmek için aşağıdaki yordamı kullanın.
 
 ### <a name="create-a-key"></a>Bir anahtar oluşturma
 
@@ -67,7 +65,7 @@ Bir kasayı oluşturduktan sonra anahtarları ve gizli dizileri kasa içinde olu
 
 4. İçinde **anahtar oluşturma** bölmesinden listesini **seçenekleri**, bir anahtar oluşturmak için kullanmak istediğiniz yöntemi seçin. Şunları yapabilirsiniz **Oluştur** yeni bir anahtar **karşıya** mevcut bir anahtar veya kullanın **geri yedekleme** anahtarının bir yedekleme seçin.
 
-5. Girin bir **adı** anahtarınız için. Anahtar adı yalnızca alfasayısal karakterler ve özel karakter tire (-) içerebilir.
+5. Girin bir **adı** anahtarınız için. Anahtar adı yalnızca alfasayısal karakterler ve kısa çizgi (-) karakterini içerebilir.
 
 6. İsteğe bağlı olarak, yapılandırma **etkinleştirme tarihi ayarlamak** ve **sona erme tarihi ayarlayın** anahtarınız için değerler.
 
@@ -80,13 +78,14 @@ Anahtar başarıyla oluşturulduktan sonra altında seçebilirsiniz **anahtarlar
 ### <a name="create-a-secret"></a>Gizli anahtar oluşturma
 
 1. Oturum [kullanıcı portalı](https://portal.local.azurestack.external).
+
 2. Panoda **tüm kaynakları**, daha önce oluşturduğunuz anahtar kasasını seçin ve ardından **gizli dizileri** kutucuk.
 
 3. Altında **gizli dizileri**seçin **Ekle**.
 
 4. Altında **gizli dizi oluşturma**, listesinden **karşıya yükleme seçenekleri**, istediğiniz bir gizli dizi oluşturmak bir seçenek belirleyin. Gizli dizi oluşturabilirsiniz **el ile** gizli ya da karşıya yükleme için bir değer girerseniz bir **sertifika** yerel makinenizden.
 
-5. Girin bir **adı** için gizli anahtarı. Gizli dizi adı yalnızca alfasayısal karakterler ve özel karakter tire (-) içerebilir.
+5. Girin bir **adı** için gizli anahtarı. Gizli dizi adı yalnızca alfasayısal karakterler ve kısa çizgi (-) karakterini içerebilir.
 
 6. İsteğe bağlı olarak, belirtin **içerik türü**ve değerlerini yapılandırmak **etkinleştirme tarihi ayarlamak** ve **sona erme tarihi ayarlayın** için gizli anahtarı.
 

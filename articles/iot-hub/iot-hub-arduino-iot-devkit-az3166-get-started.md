@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 12/19/2018
 ms.author: wesmc
-ms.openlocfilehash: f7eea6e9fdbe69003a93e34f9107d279f2105d7f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2f480fd4d5d7d6261776660f1a7eab587320c849
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720348"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052522"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>IOT DevKit AZ3166 Azure IOT hub'a bağlama
 
@@ -236,9 +236,7 @@ Seri İzleyicisi'ni açmak için durum çubuğunu power Tak simgesine tıklayın
 
 ### <a name="view-the-telemetry-received-by-azure-iot-hub"></a>Azure IOT Hub tarafından alınan telemetri görüntüleme
 
-Kullanabileceğiniz [Azure IOT hub'ı Araç Seti](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (IOT hub CİHAZDAN buluta (D2C) iletileri izlemeye yönelik eski adıyla Azure IOT Araç Seti).
-
-1. Visual Studio Code'da Ara **Azure IOT hub'ı Araç Seti** uzantı Market'te ve yükleyin.
+Kullanabileceğiniz [Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) (D2C) iletileri IOT Hub CİHAZDAN buluta izlemek için.
 
 1. Oturum [Azure portalında](https://portal.azure.com/), oluşturduğunuz IOT Hub'ı bulun.
     ![Azure portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)

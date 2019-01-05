@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.component: metrics
-ms.openlocfilehash: a5e38f1400b99c6030799121d37721c26e16649c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 17f82eb0940d0e1baca23a882ca301804fbd00dd
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721147"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054818"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Kaynak Yöneticisi şablonu ile klasik ölçüm uyarısı oluşturma
 Bu makalede nasıl kullanabileceğinizi gösteren bir [Azure Resource Manager şablonu](../../azure-resource-manager/resource-group-authoring-templates.md) Azure ölçüm uyarılarını yapılandırmak için. Bu otomatik olarak tüm kaynaklarının doğru şekilde izlenir emin olmak için oluşturuldukları sırada kaynaklarınızın uyarılar ayarlamanıza olanak sağlar.
@@ -404,4 +404,4 @@ Bir Resource Manager şablonu bir uyarı, çoğunlukla bir kaynak oluşturulurke
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Uyarılar hakkında daha fazla bilgi](alerts-overview.md)
 * [Tanılama ayarlarını Ekle](../../azure-monitor/platform/diagnostic-logs-stream-template.md) Resource Manager şablonunuzu için
-
+* JSON söz dizimi ve özellikler için bkz: [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules) şablon başvurusu.

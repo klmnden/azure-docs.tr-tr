@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c2a7b5a1f90ddc6ccfdbc568113a5c265dd9ac84
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f0f1464adde2c80706fbced7309877447644d19e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022963"
+ms.locfileid: "54040447"
 ---
 # <a name="using-search-in-application-insights"></a>Uygulama anlayışları'nda arama kullanma
 Arama özelliği, [Application Insights](../../application-insights/app-insights-overview.md) bulmak ve sayfa görüntülemeleri, özel durumlar gibi tek bir telemetri öğelerini keşfedin veya web istekleri için kullanın. Ve günlük izlemeleri ve kodlanmış olayları görüntüleyebilir.
@@ -166,4 +166,4 @@ Gönderme verisi otomatik olarak oturum yok, ancak kullanabileceğiniz [TrackTra
 * [Karmaşık sorgular Analytics'te yazma](../../azure-monitor/log-query/get-started-portal.md)
 * [Günlükleri ve özel telemetri, Application Insights'a gönderme](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Kullanılabilirlik ve yanıt hızını testleri ayarlama](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Sorun giderme](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Sorun giderme](../../azure-monitor/app/troubleshoot-faq.md)

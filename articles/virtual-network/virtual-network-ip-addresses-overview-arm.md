@@ -1,13 +1,10 @@
 ---
-title: Azure’da IP adresi türleri | Microsoft Docs
+title: Azure'da IP adresi türleri
+titlesuffix: Azure Virtual Network
 description: Azure’da genel ve özel IP adresleri hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 610b911c-f358-4cfe-ad82-8b61b87c3b7e
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,24 +12,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial
-ms.openlocfilehash: 6b8bf4a0bc6b5e5e9b9ad7f91ba409aaf922e8e9
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: f4af899be489dab2fc73bb33943882d4dc81576f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822246"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054767"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure’da IP adresi türleri ve ayırma yöntemleri
 
 Diğer Azure kaynaklarıyla, şirket içi ağınızla ve İnternet’le iletişim kurmak için Azure kaynaklarına IP adresleri atayabilirsiniz. Azure'da kullanabileceğiniz iki tür IP adresi vardır:
 
-* **Genel IP adresleri**: Genel kullanıma yönelik Azure hizmetleri dahil olmak üzere Internet ile iletişim için kullanılır.
-* **Özel IP adresleri**: Bir Azure sanal ağı (VNet) içinde ve şirket içi ağınızı Azure'a genişletmek için bir VPN ağ geçidi veya ExpressRoute bağlantı hattı kullanıyorsanız şirket içi ağınız içinde iletişim kurmak için kullanılır.
+* **Genel IP adresleri**: Genel kullanıma yönelik Azure Hizmetleri dahil olmak üzere Internet ile iletişim için kullanılır.
+* **Özel IP adresleri**: Ağınızı Azure'a genişletmek için bir VPN ağ geçidi veya ExpressRoute bağlantı hattı kullandığınızda bir Azure sanal ağı (VNet) yanı sıra, şirket içi ağınız içinde iletişim kurmak için kullanılır.
 
 Ayrıca bir genel IP ön eki aracılığıyla statik genel IP adreslerinden oluşan bitişik bir aralık oluşturabilirsiniz. [Genel IP ön eki hakkında bilgi edinin.](public-ip-address-prefix.md)
 
 > [!NOTE]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Bu makale, Microsoft’un çoğu yeni dağıtım için [klasik dağıtım modeli](virtual-network-ip-addresses-overview-classic.md) yerine önerdiği Resource Manager dağıtım modelini açıklamaktadır.
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Bu makale, Microsoft’un çoğu yeni dağıtım için [klasik dağıtım modeli](virtual-network-ip-addresses-overview-classic.md) yerine önerdiği Resource Manager dağıtım modelini açıklamaktadır.
 > 
 
 Klasik dağıtım modeliyle ilgili bilginiz varsa [klasik ve Resource Manager IP adreslemesi arasındaki farkları](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments) inceleyin.
@@ -154,8 +151,8 @@ Kaynağın dağıtıldığı sana alt ağın adres aralığından özel bir IP a
 
 Özel IP adresi ayırmak için kullanılan iki yöntem vardır:
 
-- **Dinamik**: Azure alt ağın adres aralığında sonraki kullanılabilir atanmamış veya ayrılmamış IP adresini atar. Örneğin Azure, 10.0.0.4-10.0.0.9 aralığındaki adresler diğer kaynaklara zaten atanmışsa 10.0.0.10 adresini yeni bir kaynağa atar. Dinamik, varsayılan ayırma yöntemidir. Dinamik IP adresleri bir kez atandıktan sonra, ancak ağ arabirimi silinirse, aynı sanal ağ içinde farklı bir alt ağa atanırsa veya ayırma yöntemi statik olarak değiştirilip farklı bir IP adresi belirtilirse serbest bırakılır. Varsayılan olarak, dinamik olan ayırma yöntemini statik olarak değiştirdiğinizde Azure dinamik olarak atanmış önceki adresi statik adres olarak atar.
-- **Statik**: Alt ağın adres aralığında sonraki kullanılabilir atanmamış veya ayrılmamış IP adresini seçip atarsınız. Örneğin, bir alt ağın adres aralığı 10.0.0.0/16 ise ve 10.0.0.4-10.0.0.9 adresleri diğer kaynaklara zaten atanmışsa, 10.0.0.10 - 10.0.255.254 aralığındaki herhangi bir adresi atayabilirsiniz. Statik adresler ancak ağ arabirimi silindiğinde serbest bırakılır. Ayırma yöntemini dinamik olarak değiştirirseniz, Azure daha önce statik IP adresi olarak atanmış olan adresi dinamik adres olarak atar. Bu adres, alt ağ adres aralığında bir sonraki kullanılabilir adres olmayabilir. Ağ arabirimi aynı sanal ağ içinde farklı bir alt ağa atandığında da adres değişir; ama ağ arabirimini farklı bir alt ağa atamak için, önce statik ayırma yöntemini dinamik olarak değiştirmeniz gerekir. Ağ arabirimini farklı bir alt ağa atadıktan sonra, ayırma yöntemini yine statik yapabilir ve yeni alt ağ adres aralığından bir IP adresi atayabilirsiniz.
+- **Dinamik**: Azure, sonraki kullanılabilir atanmamış veya ayrılmamış IP adresini alt ağ adres aralığında atar. Örneğin Azure, 10.0.0.4-10.0.0.9 aralığındaki adresler diğer kaynaklara zaten atanmışsa 10.0.0.10 adresini yeni bir kaynağa atar. Dinamik, varsayılan ayırma yöntemidir. Dinamik IP adresleri bir kez atandıktan sonra, ancak ağ arabirimi silinirse, aynı sanal ağ içinde farklı bir alt ağa atanırsa veya ayırma yöntemi statik olarak değiştirilip farklı bir IP adresi belirtilirse serbest bırakılır. Varsayılan olarak, dinamik olan ayırma yöntemini statik olarak değiştirdiğinizde Azure dinamik olarak atanmış önceki adresi statik adres olarak atar.
+- **Statik**: Seçin ve alt ağın adres aralığında tüm atanmamış veya ayrılmamış IP adresi atayın. Örneğin, bir alt ağın adres aralığı 10.0.0.0/16 ise ve 10.0.0.4-10.0.0.9 adresleri diğer kaynaklara zaten atanmışsa, 10.0.0.10 - 10.0.255.254 aralığındaki herhangi bir adresi atayabilirsiniz. Statik adresler ancak ağ arabirimi silindiğinde serbest bırakılır. Ayırma yöntemini dinamik olarak değiştirirseniz, Azure daha önce statik IP adresi olarak atanmış olan adresi dinamik adres olarak atar. Bu adres, alt ağ adres aralığında bir sonraki kullanılabilir adres olmayabilir. Ağ arabirimi aynı sanal ağ içinde farklı bir alt ağa atandığında da adres değişir; ama ağ arabirimini farklı bir alt ağa atamak için, önce statik ayırma yöntemini dinamik olarak değiştirmeniz gerekir. Ağ arabirimini farklı bir alt ağa atadıktan sonra, ayırma yöntemini yine statik yapabilir ve yeni alt ağ adres aralığından bir IP adresi atayabilirsiniz.
 
 ### <a name="virtual-machines"></a>Sanal makineler
 

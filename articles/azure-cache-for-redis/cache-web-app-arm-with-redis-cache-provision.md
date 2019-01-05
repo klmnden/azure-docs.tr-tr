@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: adca39fd86563ad4e494995feb843b76b76806d6
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f95db9b1c8119784d2b1d9cfb9dd005fc42ac3e4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53019889"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033800"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>Şablon kullanarak Redis için bir Web uygulaması yanı sıra Azure önbelleği oluşturma
 Bu konu başlığında, bir Azure Web uygulaması ile Azure önbelleği için Redis dağıtan bir Azure Resource Manager şablonunun nasıl oluşturulacağını öğreneceksiniz. Nasıl tanımlamak için hangi kaynaklara dağıtılır ve parametrelerin nasıl dağıtıldığının ve dağıtım yürütülürken belirtilen öğreneceksiniz. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
 
-Şablonları oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md).
+Şablonları oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md). Önbellek kaynak türleri için özellikleri ve JSON söz dizimi hakkında bilgi edinmek için bkz. [Microsoft.Cache kaynak türleri](/azure/templates/microsoft.cache/allversions).
 
 Tam şablon için bkz: [Azure önbelleği için Redis şablonu ile Web uygulaması](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
 
@@ -56,7 +56,7 @@ Bu şablon, kaynakların adlarını oluşturmak için değişkenleri kullanır. 
 ## <a name="resources-to-deploy"></a>Dağıtılacak kaynaklar
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### <a name="azure-cache-for-redis"></a>Redis için Azure Cache
+### <a name="azure-cache-for-redis"></a>Redis için Azure Önbelleği
 Azure önbelleği için Redis web uygulaması ile kullanılan oluşturur. Önbellek adı belirtilen **cacheName** değişkeni.
 
 Şablon Önbelleği kaynak grubu ile aynı konumda oluşturur.

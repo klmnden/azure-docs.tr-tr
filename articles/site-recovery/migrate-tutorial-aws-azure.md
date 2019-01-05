@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 24503a821445bbf1610588d7f69ec87948a812b9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793079"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042062"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Amazon Web Services (AWS) sanal makinelerini Azure’a geçirme
 
@@ -33,12 +33,14 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Önkoşullar
 - Geçirmek istediğiniz VM’lerin desteklenen bir işletim sistemi sürümünü çalıştırdığından emin olun. Desteklenen sürümlere şunlar dahildir: 
-  - Windows Server 2016 
-  - Windows Server 2012 R2
-  - Windows Server 2012 
-  - 64 bit Windows Server 2008 R2 SP1 veya sonrası
-  - Citrix PV veya AWS PV sürücüsü ile Red Hat Enterprise Linux 6.7 (yalnızca HVM sanallaştırılmış örnekleri). RedHat PV sürücülerini çalıştıran örnekler *desteklenmez*.
- - Çoğaltmak istediğiniz her sanal makinede Mobility hizmeti yüklü olmalıdır. 
+      - Windows Server 2016 
+      - Windows Server 2012 R2
+      - Windows Server 2012 
+      - 64 bit Windows Server 2008 R2 SP1 veya sonrası
+      - Red Hat Enterprise Linux 6.4 6.10, 7.1 için 7.6 (yalnızca HVM sanallaştırılmış örnekleri) için *(RedHat PV sürücülerini çalıştıran örnekler desteklenmez.)*
+      - CentOS 6.4 için 6.10 için 7.6 7.1 (yalnızca HVM sanallaştırılmış örnekleri)
+ 
+- Çoğaltmak istediğiniz her sanal makinede Mobility hizmeti yüklü olmalıdır. 
 
     > [!IMPORTANT]
     > Sanal makine için çoğaltmayı etkinleştirdiğinizde Site Recovery bu hizmeti otomatik olarak yükler. Otomatik yükleme için, Site Recovery’nin sanal makineye erişmek için kullanacağı EC2 örneklerinde bir hesap hazırlamanız gerekir. Bir etki alanı veya yerel hesap kullanabilirsiniz. 

@@ -3,17 +3,17 @@ title: Ansible kullanarak Azure’da sanal makine ölçek kümelerine uygulama d
 description: Azure'da bir sanal makine ölçek kümesi yapılandırmak ve sanal makine ölçek kümesine uygulama dağıtmak için Ansible'ı nasıl kullanacağınızı öğrenin
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, sanal makine, sanal makine ölçek kümesi, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: fc6b1484d43d0798f9ff70049017c8d360f027d4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408383"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050413"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Ansible kullanarak Azure’da sanal makine ölçek kümelerine uygulama dağıtma
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Uygulamalarınızı Azure'a dağıtmak için Ansible kullanabilirsiniz. Bu makalede bir Azure sanal makine ölçek kümesine (VMSS) bir Java uygulamasının nasıl dağıtılacağı gösterilmektedir.  

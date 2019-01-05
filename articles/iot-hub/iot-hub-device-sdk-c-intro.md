@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 73eda631d43da87b4472615c2b6a28244372c613
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d1d7c5df1b49a1f8c2fe4fbae4d8c8fdbd481e0e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339272"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053917"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C için Azure IOT cihaz SDK'sı
 
@@ -75,11 +75,11 @@ IOT hub'ınıza yönetmenize yardımcı olmak üzere çeşitli açık kaynak ara
 
 * Adlı bir Windows uygulaması [cihaz Gezgini](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
 
-* Platformlar arası Visual Studio Code uzantısı adlı [Azure IOT hub'ı Araç Seti](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (eski adıyla Azure IOT Araç Seti).
+* Platformlar arası Visual Studio Code uzantısı adlı [Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 * Platformlar arası Python CLI adlı [Azure CLI için IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension).
 
-Bu öğreticide grafik *cihaz Gezgini* aracı. Kullanabileceğiniz *VS Code için Azure IOT hub'ı Toolkit uzantısını* VS Code'da geliştirme yapıyorsanız. Ayrıca *Azure CLI 2.0 için IOT uzantısı* CLI aracını kullanmayı tercih ederseniz aracı.
+Bu öğreticide grafik *cihaz Gezgini* aracı. Kullanabileceğiniz *VS Code için Azure IOT Araçları* VS Code'da geliştirme yapıyorsanız. Ayrıca *Azure CLI 2.0 için IOT uzantısı* CLI aracını kullanmayı tercih ederseniz aracı.
 
 Device explorer aracı, IOT Hub cihaz ekleme dahil olmak üzere, çeşitli işlevleri gerçekleştirmek için Azure IOT hizmeti kitaplıklarını kullanır. Bir cihaz eklemek için device explorer aracı kullanırsanız, cihazınız için bir bağlantı dizesini alın. Örnek uygulamaları çalıştırmak için bu bağlantı dizesi gerekir.
 

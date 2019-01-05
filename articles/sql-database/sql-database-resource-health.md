@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/06/2018
-ms.openlocfilehash: 5b0543b28117d349ceaef173a1201574cf2b3682
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/03/2019
+ms.openlocfilehash: 36a448a861bdfdcd85e532578383b14e56f54b1a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604557"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039104"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Azure SQL veritabanı için bağlantı sorunlarını gidermek için kaynak durumu kullanın
 
@@ -77,6 +77,6 @@ Yeniden yapılandırmalar, geçici koşullar kabul edilir ve zaman zaman bekleni
 
 - Daha fazla bilgi edinin [geçici hatalar için yeniden deneme mantığı](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
 - [SQL bağlantı hatalarını giderme, tanılama ve önleme](./sql-database-connectivity-issues.md)
-- Daha fazla bilgi edinin [kaynak sistem durumu uyarılarını yapılandırma](/articles/service-health/resource-health-alert-arm-template-guide.md)
-- Genel Bakış [kaynak durumu](/articles/service-health/resource-health-overview.md)
-- [Kaynak durumu hakkında SSS](/articles/service-health/resource-health-faq.md)
+- Daha fazla bilgi edinin [kaynak sistem durumu uyarılarını yapılandırma](../service-health/resource-health-alert-arm-template-guide.md)
+- Genel Bakış [kaynak durumu](../service-health/resource-health-overview.md)
+- [Kaynak durumu hakkında SSS](../service-health/resource-health-faq.md)

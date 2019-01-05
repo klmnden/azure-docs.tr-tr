@@ -1,13 +1,10 @@
 ---
-title: Ekleme, değiştirme veya bir Azure sanal ağ alt ağını silmek | Microsoft Docs
+title: Ekleme, değiştirme veya bir Azure sanal ağ alt ağı Sil
+titlesuffix: Azure Virtual Network
 description: Ekleme, değiştirme veya azure'da bir sanal ağ alt ağını silmek öğrenin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 442aa7034c3fec57b3b9394e6b0f46d4dec47849
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f621bb562a963aa3c8b7296e4d75bbea5e9d47a2
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633121"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052794"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Ekleme, değiştirme veya bir sanal ağ alt ağı Sil
 
@@ -44,12 +41,12 @@ Oturum açın ya da Azure ile bağlandığınız hesabı atanmalıdır [ağ Kat�
 3. **AYARLAR** altında **Alt ağlar**’ı seçin.
 4. Seçin **+ alt ağ**.
 5. Aşağıdaki parametreler için değerleri girin:
-    - **Ad**: ad, sanal ağ içinde benzersiz olmalıdır. Diğer Azure hizmetleriyle en büyük uyumluluk için bir harf adın ilk karakteri kullanmanızı öneririz. Örneğin, Azure Application Gateway, bir sayı ile başlayan bir ada sahip bir alt ağa dağıtılamaz.
-    - **Adres aralığı**: sanal ağ adres alanı içinde benzersiz olmalıdır. Aralık ile diğer sanal ağ içindeki alt ağ adres aralıkları çakışamaz. Adres alanı, sınıfsız etki alanları arası yönlendirme (CIDR) gösterimi kullanılarak belirtilmelidir. Örneğin, adres alanı 10.0.0.0/16 ile bir sanal ağ içinde bir alt ağ adres alanı 10.0.0.0/24 tanımlayabilir. Belirtebileceğiniz en küçük /29, alt ağ için sekiz IP adreslerini sağlayan aralığındadır. Azure her alt ağda protokol uyumluluğu için ilk ve son adresi ayırır. Üç ek adresleri, Azure hizmet kullanımı için ayrılmıştır. Sonuç olarak, bir/29 alt ağı tanımlama adres alt ağda üç kullanılabilir IP adresi aralığı sonuçlanır. Bir sanal ağ VPN ağ geçidi bağlamayı planlıyorsanız, ağ geçidi alt ağı oluşturmanız gerekir. Daha fazla bilgi edinin [ağ geçidi alt ağları için belirli bir adres aralığı konuları](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Alt ağ, belirli koşullar altında ekledikten sonra adres aralığını değiştirebilirsiniz. Bir alt ağ adres aralığı değiştirme konusunda bilgi edinmek için [alt ağ ayarları değiştirme](#change-subnet-settings).
-    - **Ağ güvenlik grubu**: sıfır ya da alt ağı için gelen ve giden ağ trafiğini filtreleme için bir mevcut ağ güvenlik grubu bir alt ağa ilişkilendirebilirsiniz. Ağ güvenlik grubu, aynı abonelik ve konum sanal ağ mevcut olmalıdır. Daha fazla bilgi edinin [ağ güvenlik grupları](security-overview.md) ve [bir ağ güvenlik grubu oluşturma](tutorial-filter-network-traffic.md).
-    - **Yol tablosu**: ağ trafiği diğer ağlara yönlendirme denetlemek için bir alt ağ için sıfır veya bir var olan yol tablosu ilişkilendirebilirsiniz. Rota tablosunu aynı abonelik ve konum sanal ağ mevcut olmalıdır. Daha fazla bilgi edinin [Azure yönlendirme](virtual-networks-udr-overview.md) ve [bir yol tablosu oluşturma](tutorial-create-route-table-portal.md)
-    - **Hizmet uç noktalarını:** bir alt ağ için etkin sıfır veya daha fazla hizmet uç noktalarına sahip olabilir. Bir hizmet için hizmet uç noktası etkinleştirmek için hizmet veya hizmet uç noktalarından etkinleştirmek istediğiniz hizmetleri seçin **Hizmetleri** listesi. Konum, bir uç noktası için otomatik olarak yapılandırılır. Varsayılan olarak, hizmet uç noktaları sanal ağın bölgesi için yapılandırılır. Azure depolama için bölgesel yük devretme senaryolarını desteklemek amacıyla uç noktaları otomatik olarak için yapılandırılan [Azure eşleştirilmiş bölgeleri](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
-    - **Alt ağ temsilci:** bir alt ağ için etkin birden çok temsilcileri sıfıra sahip olabilir. Alt ağ temsilci service hizmetini dağıtırken, benzersiz bir tanımlayıcı kullanarak alt ağda hizmete özgü kaynakları oluşturmak için açık izinler verir. Bir hizmet için temsilci seçmek için gelen temsilci olarak istediğiniz hizmeti seçin **Hizmetleri** listesi. 
+    - **Ad**: Ad, sanal ağ içinde benzersiz olmalıdır. Diğer Azure hizmetleriyle en büyük uyumluluk için bir harf adın ilk karakteri kullanmanızı öneririz. Örneğin, Azure Application Gateway, bir sayı ile başlayan bir ada sahip bir alt ağa dağıtılamaz.
+    - **Adres aralığı**: Sanal ağın adres alanı içinde benzersiz olmalıdır. Aralık ile diğer sanal ağ içindeki alt ağ adres aralıkları çakışamaz. Adres alanı, sınıfsız etki alanları arası yönlendirme (CIDR) gösterimi kullanılarak belirtilmelidir. Örneğin, adres alanı 10.0.0.0/16 ile bir sanal ağ içinde bir alt ağ adres alanı 10.0.0.0/24 tanımlayabilir. Belirtebileceğiniz en küçük /29, alt ağ için sekiz IP adreslerini sağlayan aralığındadır. Azure her alt ağda protokol uyumluluğu için ilk ve son adresi ayırır. Üç ek adresleri, Azure hizmet kullanımı için ayrılmıştır. Sonuç olarak, bir/29 alt ağı tanımlama adres alt ağda üç kullanılabilir IP adresi aralığı sonuçlanır. Bir sanal ağ VPN ağ geçidi bağlamayı planlıyorsanız, ağ geçidi alt ağı oluşturmanız gerekir. Daha fazla bilgi edinin [ağ geçidi alt ağları için belirli bir adres aralığı konuları](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Alt ağ, belirli koşullar altında ekledikten sonra adres aralığını değiştirebilirsiniz. Bir alt ağ adres aralığı değiştirme konusunda bilgi edinmek için [alt ağ ayarları değiştirme](#change-subnet-settings).
+    - **Ağ güvenlik grubu**: Sıfır veya bir alt ağ için gelen ve giden ağ trafiğini filtreleme için bir mevcut ağ güvenlik grubu bir alt ağa ilişkilendirebilirsiniz. Ağ güvenlik grubu, aynı abonelik ve konum sanal ağ mevcut olmalıdır. Daha fazla bilgi edinin [ağ güvenlik grupları](security-overview.md) ve [bir ağ güvenlik grubu oluşturma](tutorial-filter-network-traffic.md).
+    - **Yol tablosu**: Ağ trafiği diğer ağlara yönlendirme denetlemek için bir alt ağ için sıfır veya bir var olan yol tablosu ilişkilendirebilirsiniz. Rota tablosunu aynı abonelik ve konum sanal ağ mevcut olmalıdır. Daha fazla bilgi edinin [Azure yönlendirme](virtual-networks-udr-overview.md) ve [bir yol tablosu oluşturma](tutorial-create-route-table-portal.md)
+    - **Hizmet uç noktaları:** Bir alt ağ için etkin sıfır veya daha fazla hizmet uç noktalarına sahip olabilir. Bir hizmet için hizmet uç noktası etkinleştirmek için hizmet veya hizmet uç noktalarından etkinleştirmek istediğiniz hizmetleri seçin **Hizmetleri** listesi. Konum, bir uç noktası için otomatik olarak yapılandırılır. Varsayılan olarak, hizmet uç noktaları sanal ağın bölgesi için yapılandırılır. Azure depolama için bölgesel yük devretme senaryolarını desteklemek amacıyla uç noktaları otomatik olarak için yapılandırılan [Azure eşleştirilmiş bölgeleri](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+    - **Alt ağ temsilci:** Bir alt ağ, birden çok temsilcileri için etkinleştirilmiş sıfıra sahip olabilir. Alt ağ temsilci service hizmetini dağıtırken, benzersiz bir tanımlayıcı kullanarak alt ağda hizmete özgü kaynakları oluşturmak için açık izinler verir. Bir hizmet için temsilci seçmek için gelen temsilci olarak istediğiniz hizmeti seçin **Hizmetleri** listesi. 
 
     Hizmet uç noktasını kaldırmak için hizmet uç noktası için kaldırmak istediğiniz hizmeti seçimini kaldırın. Hizmet uç noktaları ve bunlar etkinleştirilebilir için hizmetler hakkında daha fazla bilgi için bkz. [sanal ağ hizmet uç noktalarına genel bakış](virtual-network-service-endpoints-overview.md). Bir hizmet için hizmet uç noktası için etkinleştirdiğinizde, ayrıca hizmeti ile oluşturulan bir kaynak için alt ağ için ağ erişimini etkinleştirmeniz gerekir. Örneğin, hizmet uç noktası için etkinleştirirseniz *Microsoft.Storage*, ağ erişimi için ağ erişimi vermek istediğiniz tüm Azure depolama hesaplarına da etkinleştirmeniz gerekir. Hizmet uç noktası için etkin bir alt ağ erişimini etkinleştirme hakkında daha fazla ayrıntı için hizmet uç noktası için etkin hizmetin belgelerine bakın.
 
@@ -59,7 +56,7 @@ Oturum açın ya da Azure ile bağlandığınız hesabı atanmalıdır [ağ Kat�
 **Komutları**
 
 - Azure CLI: [az ağ sanal ağ alt ağı oluşturma](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)
-- PowerShell: [Ekle-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)
+- PowerShell: [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)
 
 ## <a name="change-subnet-settings"></a>Alt ağ ayarlarını değiştir
 
@@ -68,11 +65,11 @@ Oturum açın ya da Azure ile bağlandığınız hesabı atanmalıdır [ağ Kat�
 3. **AYARLAR** altında **Alt ağlar**’ı seçin.
 4. Alt ağlar listesinde ayarlarını değiştirmek için istediğiniz alt ağı seçin. Aşağıdaki ayarları değiştirebilirsiniz:
 
-    - **Adres aralığı:** kaynak alt ağ içinde dağıtılırsa, adres aralığını değiştirebilirsiniz. Tüm kaynakları alt ağdaki mevcutsa, kaynakları başka bir alt ağa taşıma gerekir veya bunları alt ağdan silin. Taşıma veya bir kaynağı silme için uygulayacağınız adımlar, kaynağa bağlı olarak farklılık gösterir. Taşıma veya alt ağlardaki kaynaklar silme öğrenmek için taşımak veya silmek istediğiniz her bir kaynak türü için belgeleri okuyun. Kısıtlamalar için bkz. **adres aralığı** 5. adımında [bir alt ağ Ekle](#add-a-subnet).
-    - **Kullanıcılar**: yerleşik roller veya kendi özel rollerinizi kullanarak alt ağ erişimi denetleyebilirsiniz. Rol ve alt ağa erişmek için kullanıcı atama hakkında daha fazla bilgi edinmek için [Azure kaynaklarınıza erişimi yönetmek için rol ataması kullanan](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment).
-    - **Ağ güvenlik grubu** ve **yol tablosu**: bkz. 5. adımı [bir alt ağ Ekle](#add-a-subnet).
-    - **Hizmet uç noktalarını**: hizmet uç noktaları 5. adımında bkz [bir alt ağ Ekle](#add-a-subnet). Var olan bir alt ağ için hizmet uç noktası etkinleştirirken, kritik görev olmadığından alt ağdaki herhangi bir kaynak üzerinde çalıştığından emin olun. Hizmet uç noktaları olan varsayılan yol kullanarak alt ağdaki her ağ arabirimi yollara geçiş *0.0.0.0/0* adres ön eki ve sonraki atlama türü *Internet*, yeni bir yol ile kullanarak Adres ön ekleri, hizmet ve bir sonraki atlama türü *VirtualNetworkServiceEndpoint*. Geçiş sırasında açık TCP bağlantılarını sonlandırılabilir. Tüm ağ arabirimleri için trafik akışı yeni yol ile güncelleştirilene kadar hizmet uç noktası etkinleştirilmemiş. Yönlendirme hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
-    - **Alt ağ temsilci:** bkz hizmet uç noktaları 5. adımında [bir alt ağ Ekle](#add-a-subnet). Alt ağ temsilci sıfır veya birden çok temsilcileri için etkin şekilde değiştirilebilir. Alt ağda bir hizmet için bir kaynak zaten dağıtılmışsa, tüm kaynaklar için hizmet kaldırılana kadar alt temsilci kaldırılamaz. Farklı bir hizmet için temsilci seçmek için gelen temsilci olarak istediğiniz hizmeti seçin **Hizmetleri** listesi. 
+    - **Adres aralığı:** Kaynak alt ağ içinde dağıtılırsa, adres aralığını değiştirebilirsiniz. Tüm kaynakları alt ağdaki mevcutsa, kaynakları başka bir alt ağa taşıma gerekir veya bunları alt ağdan silin. Taşıma veya bir kaynağı silme için uygulayacağınız adımlar, kaynağa bağlı olarak farklılık gösterir. Taşıma veya alt ağlardaki kaynaklar silme öğrenmek için taşımak veya silmek istediğiniz her bir kaynak türü için belgeleri okuyun. Kısıtlamalar için bkz. **adres aralığı** 5. adımında [bir alt ağ Ekle](#add-a-subnet).
+    - **Kullanıcılar**: Yerleşik roller veya kendi özel rollerinizi kullanarak alt ağa erişimi denetleyebilirsiniz. Rol ve alt ağa erişmek için kullanıcı atama hakkında daha fazla bilgi edinmek için [Azure kaynaklarınıza erişimi yönetmek için rol ataması kullanan](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment).
+    - **Ağ güvenlik grubu** ve **yol tablosu**: 5. adımı görmek [bir alt ağ Ekle](#add-a-subnet).
+    - **Hizmet uç noktalarını**: Hizmet uç noktaları 5. adımında bkz [bir alt ağ Ekle](#add-a-subnet). Var olan bir alt ağ için hizmet uç noktası etkinleştirirken, kritik görev olmadığından alt ağdaki herhangi bir kaynak üzerinde çalıştığından emin olun. Hizmet uç noktaları olan varsayılan yol kullanarak alt ağdaki her ağ arabirimi yollara geçiş *0.0.0.0/0* adres ön eki ve sonraki atlama türü *Internet*, yeni bir yol ile kullanarak Adres ön ekleri, hizmet ve bir sonraki atlama türü *VirtualNetworkServiceEndpoint*. Geçiş sırasında açık TCP bağlantılarını sonlandırılabilir. Tüm ağ arabirimleri için trafik akışı yeni yol ile güncelleştirilene kadar hizmet uç noktası etkinleştirilmemiş. Yönlendirme hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md).
+    - **Alt ağ temsilci:** Hizmet uç noktaları 5. adımında bkz [bir alt ağ Ekle](#add-a-subnet). Alt ağ temsilci sıfır veya birden çok temsilcileri için etkin şekilde değiştirilebilir. Alt ağda bir hizmet için bir kaynak zaten dağıtılmışsa, tüm kaynaklar için hizmet kaldırılana kadar alt temsilci kaldırılamaz. Farklı bir hizmet için temsilci seçmek için gelen temsilci olarak istediğiniz hizmeti seçin **Hizmetleri** listesi. 
 5. **Kaydet**’i seçin.
 
 **Komutları**

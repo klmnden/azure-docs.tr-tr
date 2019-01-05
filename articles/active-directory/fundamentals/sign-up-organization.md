@@ -12,15 +12,15 @@ ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 53536604ed2f371d1ae7e63b286b17501b260c8c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 286c46f760dda4991fd89651bc3a01424d8a5502
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100727"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054801"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Kuruluşunuz Azure Active Directory'yi kullanmak için oturum açın
-Azure Active Directory (Azure AD) kullanarak yeni bir Microsoft Azure aboneliğine kaydolun:
+Azure Active Directory (Azure AD) veya herhangi birini kullanarak yeni bir Microsoft Azure aboneliği için kaydolun:
 
 - **Microsoft hesabı.** Azure'a erişimi ve tüm tüketici yönelimli Microsoft ürünlerinde ve bulut Hizmetleri, Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE veya Office 365 gibi kişisel Microsoft hesabınızı kullanın. Bir Outlook.com posta kutusu için otomatik olarak kaydolmaya bir Microsoft hesabı oluşturur. Daha fazla bilgi için [Microsoft hesabı'na genel bakış](https://account.microsoft.com/account).
 

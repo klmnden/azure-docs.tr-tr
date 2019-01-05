@@ -1,23 +1,21 @@
 ---
-title: 'Azure Cosmos DB: SQL API’sini kullanmaya başlama öğreticisi'
+title: "Azure Cosmos DB: SQL API'yi kullanmaya başlama Öğreticisi"
 description: SQL API'sini kullanarak çevrimiçi bir veritabanı ve C# konsol uygulaması oluşturan öğretici.
-keywords: nosql öğreticisi, çevrimiçi veritabanı, c# konsol uygulaması
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/16/2017
 ms.author: sngun
-ms.openlocfilehash: 100524eacb30f77e06204fb3b31e6477dd1320a4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: d73638e0c02af5dc07e80084dd2ce5a7e090ecd2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867538"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043456"
 ---
-# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: SQL API’sini kullanmaya başlama öğreticisi
+# <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: SQL API'yi kullanmaya başlama Öğreticisi
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -60,7 +58,7 @@ Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zate
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="SetupVS"></a>2. Adım: Visual Studio çözümünüzü kurma
+## <a id="SetupVS"></a>2. adım: Visual Studio çözümünüzü kurma
 1. Bilgisayarınızda **Visual Studio 2017**'yi açın.
 2. **Dosya** menüsünde **Yeni**'yi seçin ve ardından **Proje**'yi seçin.
 3. **Yeni Proje** iletişim kutusunda, **Şablonlar** / **Visual C#** / **Konsol Uygulaması**'nı seçin, projenizi adlandırın ve ardından **Tamam**'a tıklayın.
@@ -77,7 +75,7 @@ Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zate
 
 Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu öğreticinin tamamlanmış kod projesini [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs)'da bulabilirsiniz.
 
-## <a id="Connect"></a>3. Adım: Azure Cosmos DB hesabına bağlanma
+## <a id="Connect"></a>3. adım: Bir Azure Cosmos DB hesabına bağlanma
 İlk olarak, Program.cs dosyasında C# uygulamanızın başlangıcına bu başvuruları ekleyin:
 
     using System;
@@ -184,7 +182,7 @@ Uygulamanızı çalıştırmak için **F5**'e basın.
 
 Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB veritabanı oluşturdunuz.  
 
-## <a id="CreateColl"></a>5. Adım: Koleksiyon oluşturma
+## <a id="CreateColl"></a>5. adım: Koleksiyon oluşturma
 > [!WARNING]
 > **CreateDocumentCollectionIfNotExistsAsync**, ayrılmış işleme ile yeni bir koleksiyon oluşturur, bu da ücret ödenmesini gerektirebilir. Daha ayrıntılı bilgi için lütfen [fiyatlandırma sayfamızı](https://azure.microsoft.com/pricing/details/cosmos-db/) ziyaret edin.
 > 
@@ -205,7 +203,7 @@ Uygulamanızı çalıştırmak için **F5**'e basın.
 
 Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB belge koleksiyonu oluşturdunuz.  
 
-## <a id="CreateDoc"></a>6. Adım: JSON belgeleri oluşturma
+## <a id="CreateDoc"></a>6. adım: JSON belgeleri oluşturma
 Bir belge kullanarak oluşturulabilir [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) yöntemi **DocumentClient** sınıfı. Belgeler, kullanıcı tanımlı (rastgele) JSON içeriğidir. Şimdi bir veya daha fazla belge ekleyebiliriz. Veritabanınızda depolamak istediğiniz veriler zaten varsa, verileri veritabanına aktarmak için Azure Cosmos DB [Veri Geçiş Aracı](import-data.md)'nı kullanabilirsiniz.
 
 İlk olarak, bu örnekte Azure Cosmos DB içinde depolanan nesneleri temsil edecek bir **Family** sınıfı oluşturmamız gerekir. **Family**'nin içinde kullanılan **Parent**, **Child**, **Pet**, **Address** alt sınıflarını da oluşturacağız. Belgelerin, JSON'da **id** olarak seri hale getirilmiş bir **Id** özelliğine sahip olmaları gerektiğini unutmayın. Bu sınıfları oluşturmak için **GetStartedDemo** yönteminden sonra aşağıdaki iç alt sınıfları ekleyin.
@@ -367,7 +365,7 @@ Tebrikler! Başarılı bir şekilde iki Azure Cosmos DB belgesi oluşturdunuz.
 
 ![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan belgeler, hesap, çevrimiçi veritabanı ve koleksiyon arasındaki hiyerarşik ilişkiyi gösteren diyagram](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>7. Adım: Azure Cosmos DB kaynaklarını sorgulama
+## <a id="Query"></a>7. adım: Azure Cosmos DB kaynaklarını sorgulama
 Azure Cosmos DB, her bir koleksiyonda depolanan JSON belgeleri için [zengin sorguların](how-to-sql-query.md) gerçekleştirilmesini destekler.  Aşağıdaki örnek kod, önceki adımda yerleştirdiğimiz belgelerde hem Azure Cosmos DB SQL söz dizimi hem de LINQ kullanarak çalıştırabileceğimiz çeşitli sorguları gösterir.
 
 **ExecuteSimpleQuery** yöntemini kopyalayın ve **CreateFamilyDocumentIfNotExists** yönteminizin sonrasına yapıştırın.
@@ -423,7 +421,7 @@ Aşağıdaki diyagram oluşturduğunuz koleksiyonda Azure Cosmos DB SQL sorgusu 
 
 Azure Cosmos DB sorguları zaten tek bir koleksiyon kapsamında olduğundan, sorgudaki [FROM](how-to-sql-query.md#FromClause) anahtar sözcüğü isteğe bağlıdır. Bu nedenle, "FROM Families f", "FROM root r" veya seçtiğiniz herhangi bir başka değişken adıyla değiştirilebilir. Azure Cosmos DB; Families, root veya seçtiğiniz değişken adının varsayılan olarak geçerli koleksiyona başvurduğu sonucuna varır.
 
-## <a id="ReplaceDocument"></a>8. Adım: JSON belgesini değiştirme
+## <a id="ReplaceDocument"></a>8. adım: JSON belgesini değiştirme
 Azure Cosmos DB, JSON belgelerini değiştirmeyi destekler.  
 
 **ReplaceFamilyDocument** yöntemini kopyalayın ve **ExecuteSimpleQuery** yönteminizin sonrasına yapıştırın.
@@ -453,7 +451,7 @@ Uygulamanızı çalıştırmak için **F5**'e basın.
 
 Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB belgesini değiştirdiniz.
 
-## <a id="DeleteDocument"></a>9. Adım: JSON belgesini silme
+## <a id="DeleteDocument"></a>9. adım: JSON belgesini silme
 Azure Cosmos DB, JSON belgelerini silmeyi destekler.  
 
 **DeleteFamilyDocument** yöntemini kopyalayın ve **ReplaceFamilyDocument** yönteminizin sonrasına yapıştırın.
@@ -478,7 +476,7 @@ Uygulamanızı çalıştırmak için **F5**'e basın.
 
 Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB belgesini sildiniz.
 
-## <a id="DeleteDatabase"></a>10. Adım: Veritabanını silme
+## <a id="DeleteDatabase"></a>10. adım: Veritabanını silme
 Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (koleksiyonlar, belgeler vb.) kaldırılır.
 
 Tüm veritabanını ve tüm alt kaynaklarını silmek için aşağıdaki kodu kopyalayın ve belge silmenin sonrasında **GetStartedDemo** yönteminize yapıştırın.
@@ -495,7 +493,7 @@ Uygulamanızı çalıştırmak için **F5**'e basın.
 
 Tebrikler! Başarılı bir şekilde bir Azure Cosmos DB veritabanını sildiniz.
 
-## <a id="Run"></a>11. Adım: C# konsol uygulamanızı hep birlikte çalıştırın!
+## <a id="Run"></a>11. adım: Çalıştırın, C# konsol uygulaması tümünü bir araya!
 Uygulamayı hata ayıklama modunda oluşturmak için Visual Studio'da F5'e basın.
 
 Konsol penceresinde başlarken uygulamanızın çıktısını görmeniz gerekir. Çıktı, eklediğimiz sorguların sonuçlarını gösterir ve aşağıdaki örnek metinle eşleşmelidir.
@@ -538,7 +536,7 @@ Hepsi bu kadar, derleyin ve devam edin!
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha karmaşık bir ASP.NET MVC öğreticisi mi istiyorsunuz? Bkz. [ASP.NET MVC Öğreticisi: Azure Cosmos DB ile Web uygulaması geliştirme](sql-api-dotnet-application.md).
+* Daha karmaşık bir ASP.NET MVC öğreticisi mi istiyorsunuz? Bkz: [ASP.NET MVC Öğreticisi: Azure Cosmos DB ile uygulama geliştirme Web](sql-api-dotnet-application.md).
 * Azure Cosmos DB ile ölçek ve performans testi mi yapmak istiyorsunuz? Bkz. [Azure Cosmos DB ile performans ve ölçek testi](performance-testing.md)
 * [Azure Cosmos DB isteklerini, kullanımını ve depolamasını izlemeyi](monitor-accounts.md) öğrenin.
 * [Query Playground](https://www.documentdb.com/sql/demo)'daki örnek veri kümelerimizde sorgular çalıştırın.

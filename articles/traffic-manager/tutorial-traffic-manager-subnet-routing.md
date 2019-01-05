@@ -1,10 +1,9 @@
 ---
-title: Azure Traffic Manager'ı kullanarak alt ağ trafik yönlendirme yöntemini yapılandırma | Microsoft Docs
+title: Azure Traffic Manager'ı kullanarak alt ağ trafiği yönlendirme yöntemini yapılandırma
 description: Bu makalede Traffic Manager'ı kullanıcı alt ağlarından gelen trafiği belirli uç noktalara yönlendirecek şekilde yapılandırma adımları anlatılmaktadır.
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 20c34b820eb326a18be1c4298b0850a58599be64
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 8243130fc9752a47661b4c80826000d573da35c8
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956243"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053083"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Traffic Manager'ı kullanarak trafiği kullanıcı alt ağına göre belirli uç noktalara yönlendirme
 
@@ -39,7 +38,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticide Traffic Manager'ın çalışmasını uygulamalı olarak görmek için şu sistemleri dağıtmanız gerekir:
 - farklı Azure bölgelerinde çalışan iki basit web sitesi: **Doğu ABD** (iç web sitesi olarak görev yapar) ve **Batı Avrupa** (üretim web sitesi olarak görev yapar).
 - Traffic Manager'ı test etmek için iki test amaçlı VM: bir VM **Doğu ABD** bölgesinde, ikinci VM ise **Batı Avrupa** bölgesinde olmalıdır. 
@@ -64,7 +63,7 @@ Bu bölümde **Doğu ABD** ve **Batı Avrupa** Azure bölgelerinde *InternalWebs
 
     |Ayar|Değer|
     |---|---|
-    |Adı|InternalWebsite|
+    |Ad|InternalWebsite|
     |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
     |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
     |Kaynak grubu| **Yeni**'yi seçin ve *myResourceGroupTM1* yazın.|
@@ -145,7 +144,7 @@ Bu bölümde her Azure bölgesinde (**Doğu ABD** ve **Batı Avrupa**) bir VM (*
 
     |Ayar|Değer|
     |---|---|
-    |Adı|*UserVMUS*|
+    |Ad|*UserVMUS*|
     |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
     |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
     |Kaynak grubu| **Var olan**’ı seçin ve sonra *myResourceGroupTM1* öğesini seçin.|
@@ -180,7 +179,7 @@ Bu bölümde her Azure bölgesinde (**Doğu ABD** ve **Batı Avrupa**) bir VM (*
 2. **Traffic Manager profili oluştur** ekranında aşağıdaki bilgileri girin veya seçin, kalan ayarlar için varsayılan değerleri kabul edin ve sonra **Oluştur**'u seçin:
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
-    | Adı                   | Bu adın trafficmanager.net bölgesinde benzersiz olması ve Traffic Manager profilinize erişmek için kullanılan trafficmanager.net DNS adı ile sonuçlanması gerekir.                                   |
+    | Ad                   | Bu adın trafficmanager.net bölgesinde benzersiz olması ve Traffic Manager profilinize erişmek için kullanılan trafficmanager.net DNS adı ile sonuçlanması gerekir.                                   |
     | Yönlendirme yöntemi          | **Alt ağ** yönlendirme yöntemini seçin.                                       |
     | Abonelik            | Aboneliğinizi seçin.                          |
     | Kaynak grubu          | **Var olan**’ı seçin ve sonra *myResourceGroupTM1* yazın. |
@@ -200,7 +199,7 @@ Trafiği kullanıcı sorgusunun alt ağına göre yönlendirmek için IIS sunucu
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
     | Tür                    | Azure uç noktası                                   |
-    | Adı           | myInternalWebSiteEndpoint                                        |
+    | Ad           | myInternalWebSiteEndpoint                                        |
     | Hedef kaynak türü           | Genel IP Adresi                          |
     | Hedef kaynak          | Genel IP adresine sahip kaynakların aynı abonelik altında listelenmesi için **Genel IP adresi seçin**. **Kaynak** bölümünde *InternalWebsite-ip* adlı genel IP adresini seçin. Bu, Doğu ABD bölgesindeki IIS sunucusu VM'sinin IP adresidir.|
     |  Alt ağ yönlendirme ayarları    |   *UserVMUS* adlı test amaçlı VM'nin IP adresini ekleyin. Bu VM'den gelen kullanıcı sorguları *InternalWebSiteEndpoint* hedefine yönlendirilir.    |

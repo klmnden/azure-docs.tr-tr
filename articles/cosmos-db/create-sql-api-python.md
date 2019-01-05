@@ -1,21 +1,19 @@
 ---
 title: "Azure Cosmos DB: Python ve SQL API'si ile bir uygulama derleme"
 description: Azure Cosmos DB SQL API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Python kodu örneği sunar
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc, devcenter
+ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: 6f3f1f6eb89127e6b0ac0e2983a27dfd731651cb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b9ea87b3a56c4759a0d96b7d01e33087c64ccd91
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094245"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037568"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB: Python ve Azure portalı ile bir SQL API'si uygulaması derleme
 
@@ -173,7 +171,7 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
 1. Visual Studio Code’da, **Görünüm**>**Komut Paleti**’ni seçin. 
 
-2. Komut isteminde, **Python: Yorumlayıcı Seçin** girip kullanılacak Python sürümün seçin.
+2. İstemde, girin **Python: Yorumlayıcıyı seçme** ve daha sonra kullanmak için Python sürümünü seçin.
 
     Visual Studio Code’daki alt bilgi, seçilen yorumlayıcıyı belirtmek için güncelleştirilir. 
 

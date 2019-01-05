@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 776956624dc1da12427d6e4f79ea5e59788f2459
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6d2863e39b5f28c56e2b9045513aa83326d8b8c7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135364"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043201"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Performans ve ölçek testi ile Azure Cosmos DB
 
@@ -37,7 +37,7 @@ Azure Cosmos DB performansını artırmak, istemci tarafı yapılandırma seçen
 ## <a name="run-the-performance-testing-application"></a>Performans uygulama testi Çalıştır
 Başlamak için hızlı derlemek ve bir .NET örneği çalıştırmak için aşağıdaki adımlarda anlatıldığı gibi yoludur. Ayrıca, kaynak kodu gözden geçirin ve kendi istemci uygulamalar üzerinde benzer yapılandırmaları uygular.
 
-**1. adım:** içinden projeyi karşıdan [Azure Cosmos DB performans örnek test](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), veya GitHub depo çatalı oluşturma.
+**1. adım:** İçinden projeyi karşıdan [Azure Cosmos DB performans örnek test](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark), veya GitHub depo çatalı oluşturma.
 
 **2. adım:** EndpointUrl ve AuthorizationKey, CollectionThroughput ve DocumentTemplate (App.config dosyasında isteğe bağlı) ayarlarını değiştirin.
 
@@ -46,7 +46,7 @@ Başlamak için hızlı derlemek ve bir .NET örneği çalıştırmak için aşa
 > 
 > 
 
-**3. adım:** derleyin ve konsol uygulamasını komut satırından çalıştırın. Şuna benzer bir çıktı görmeniz gerekir:
+**3. adım:** Derleyin ve konsol uygulamasını komut satırından çalıştırın. Şuna benzer bir çıktı görmeniz gerekir:
 
     C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
@@ -89,7 +89,7 @@ Başlamak için hızlı derlemek ve bir .NET örneği çalıştırmak için aşa
     Press any key to exit...
 
 
-**(Gerekirse) 4. adım:** rapor işleme (RU/s) aracından aynı olmalıdır veya koleksiyon için sağlanan aktarım hızı veya koleksiyonları kümesi daha yüksek. Yüklü değilse, DegreeOfParallelism küçük artışlarla artırma sınırı ulaşmanıza yardımcı olabilir. İstemci uygulamanızı akışından plateaus, ek istemci makinelerinde birden fazla uygulamayı başlatın. Bu adımla ilgili yardıma ihtiyacınız varsa, e-posta askcosmosdb@microsoft.com veya bir destek bileti dosya [Azure portalında](https://portal.azure.com).
+**(Gerekirse) 4. adım:** Rapor işleme (RU/s) aracından aynı olmalıdır veya koleksiyon için sağlanan aktarım hızı veya koleksiyonları kümesi daha yüksek. Yüklü değilse, DegreeOfParallelism küçük artışlarla artırma sınırı ulaşmanıza yardımcı olabilir. İstemci uygulamanızı akışından plateaus, ek istemci makinelerinde birden fazla uygulamayı başlatın. Bu adımla ilgili yardıma ihtiyacınız varsa, e-posta askcosmosdb@microsoft.com veya bir destek bileti dosya [Azure portalında](https://portal.azure.com).
 
 Uygulamayı oluşturduktan sonra farklı deneyebilirsiniz [dizinleme ilkeleri](index-policy.md) ve [tutarlılık düzeyleri](consistency-levels.md) aktarım hızı ve gecikme süresini üzerindeki etkilerini anlamak için. Ayrıca, kaynak kodu gözden geçirin ve kendi test paketleri veya üretim uygulamaları için benzer yapılandırmaları uygulayın.
 

@@ -14,17 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8ca04fef8a17c43c9d1f761e36d8da7f1e07d4d5
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 08d1589b8b215471983dc76a836dd89f83fd8204
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283589"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053407"
 ---
-# <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Sürüm Yayınlama Geçmişi
+# <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health'i: Sürüm Yayınlama Geçmişi
 Azure Active Directory ekibi, düzenli olarak yeni özellikler ve işlevler ile Azure AD Connect Health güncelleştirir. Bu makalede sürümleri ve yayımlanan özellikler listelenmektedir.
-Azure AD Connect Health eşitleme için Azure AD Connect yüklemesi ile tümleşiktir. Daha fazla bilgi edinin [Azure AD Connect sürüm geçmişi](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
+Azure AD Connect Health eşitleme için Azure AD Connect yüklemesi ile tümleşiktir. Daha fazla bilgi edinin [Azure AD Connect sürüm geçmişi](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) , özellikle ilgili düşüncelerinizi için oy [Connect Health User Voice kanal](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
+## <a name="november-2018"></a>Kasım 2018
+**Yeni GA özellikler:** 
+* Azure AD Connect Health eşitleme için - tanılama ve Portalı'ndan yinelenen öznitelik eşitleme hatalarını Düzelt
+
+**Aracı güncelleştirmesi:** 
+*  (Sürüm 3.1.24.0) AD DS için Azure AD Connect Health Aracısı 
+1. Aktarım Katmanı Güvenliği (TLS) Protokolü sürüm 1.2 uyumluluk ve zorlama
+2. Genel katalog uyarı gürültüsünü azaltmak
+3. Sistem Durumu Aracısı kayıt hata düzeltmeleri
+
+*   AD FS (sürüm 3.1.24.0) için Azure AD Connect Health Aracısı
+1. Aktarım Katmanı Güvenliği (TLS) Protokolü sürüm 1.2 uyumluluk ve zorlama
+2. Yerelleştirilmiş işletim sistemi ADFSRequestToken Test desteği
+3. Disgnostic Aracısı EventHandler kilitleme sorunu çözüldü
+4. Sistem Durumu Aracısı kayıt hata düzeltmeleri
 
 ## <a name="august-2018"></a>Ağustos 2018 
 *  Azure AD Connect sürümü 1.1.880.0 yayımlanan eşitleme (sürüm 3.1.7.0) için Azure AD Connect Health Aracısı    
@@ -133,7 +148,7 @@ Azure AD Connect Health eşitleme için Azure AD Connect yüklemesi ile tümleş
 
 * Azure AD için eşitleme hatası raporları bağlanma
 
-**Yeni Özellikler:**
+**Yeni özellikler:**
 
 * Azure AD Connect Health AD FS için-IP adres alanını hatalı kullanıcı adı/parola ile ilk 50 kullanıcıya ilişkin rapor kullanıma sunulmuştur.
 
@@ -147,12 +162,12 @@ Azure AD Connect Health eşitleme için Azure AD Connect yüklemesi ile tümleş
 
 * AD FS (sürüm 2.6.91.1512) için Azure AD Connect Health Aracısı
 
-**Yeni Özellikler:**
+**Yeni özellikler:**
 
 * [Test Bağlantısı aracı için Azure AD Connect Health aracıları](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service)
 
 ## <a name="november-2015"></a>2015 Kasım
-**Yeni Özellikler:**
+**Yeni özellikler:**
 
 * Destek [rol tabanlı erişim denetimi](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)
 
@@ -165,7 +180,7 @@ Azure AD Connect Health eşitleme için Azure AD Connect yüklemesi ile tümleş
 * Aracı kaydı sırasında görülen hataları için hata düzeltmeleri.
 
 ## <a name="september-2015"></a>Eylül 2015
-**Yeni Özellikler:**
+**Yeni özellikler:**
 
 * AD FS için kullanıcı adı parola rapor yanlış
 * Kimliği doğrulanmamış bir HTTP Ara sunucusunu yapılandırmak için destek
@@ -180,7 +195,7 @@ Azure AD Connect Health eşitleme için Azure AD Connect yüklemesi ile tümleş
 ## <a name="june-2015"></a>Haziran 2015
 **Azure AD Connect Health AD FS ve AD FS Ara sunucusu için ilk sürümü.**
 
-**Yeni Özellikler:**
+**Yeni özellikler:**
 
 * AD FS ve AD FS Ara sunucularının e-posta bildirimleri ile izleme için uyarıları.
 * AD FS topolojisi ve AD FS performans sayaçlarının desenleri kolay erişim.

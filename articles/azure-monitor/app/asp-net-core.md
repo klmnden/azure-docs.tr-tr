@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 19830ade92e5d2a046abc8a2ad00c086a5bf62ec
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 24132fdb23ff89045f2b497327997d95e4ceecac
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972796"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054852"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core için Application Insights
 
@@ -62,7 +62,7 @@ Bu işlevi test etmek için:
    ![Arama Visual Studio Application Insights'ın ekran görüntüsü](./media/asp-net-core/006-search.png)
 
 > [!NOTE]
-> Visual Studio özellikleri javascript'iniz nasıl gibi hakkında daha fazla bilgi edinmek için [Application Insights arama](../../application-insights/app-insights-visual-studio.md) ve [CodeLens](../../application-insights/app-insights-visual-studio-codelens.md) yerel ASP.NET Core projenize Application Insights eklemeden önce bkz [ Application Insights arama devam](#application-insights-search-continued).
+> Visual Studio özellikleri javascript'iniz nasıl gibi hakkında daha fazla bilgi edinmek için [Application Insights arama](../../azure-monitor/app/visual-studio.md) ve [CodeLens](../../azure-monitor/app/visual-studio-codelens.md) yerel ASP.NET Core projenize Application Insights eklemeden önce bkz [ Application Insights arama devam](#application-insights-search-continued).
 
 ## <a name="add-application-insights-telemetry"></a>Application Insights Telemetrisi ekleme
 
@@ -404,7 +404,7 @@ Bu yöntemlerden birini kullanarak sorunu bunlar yalnızca Application ınsights
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Kullanıcı akışları keşfedin](../../application-insights/app-insights-usage-flows.md) için kullanıcıların uygulamanızda nasıl gezindiğini anlayın.
+* [Kullanıcı akışları keşfedin](../../azure-monitor/app/usage-flows.md) için kullanıcıların uygulamanızda nasıl gezindiğini anlayın.
 * [Anlık görüntü koleksiyonunu yapılandırma](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) bir özel durum şu anda kaynak kodu ve değişkenleri durumunu görmek için.
 * [API'yi kullanmak](../../azure-monitor/app/api-custom-events-metrics.md) kendi olayları ve ölçümleri daha ayrıntılı bir görünüm, uygulamanızın performans ve kullanım için gönderilecek.
 * Kullanım [kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md) uygulamanızdan sürekli olarak dünyanın dört bir yanındaki denetlemek için.

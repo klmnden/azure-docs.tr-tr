@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: 17402911fee5363d707547e73df7da30be6dcd0e
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: ab196645cc14acb3ed2e56ee785d4790a8df3c23
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343811"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052556"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Anlama ve IOT Hub'ından doğrudan metotları çağırma
 
@@ -203,4 +203,4 @@ Doğrudan yöntemler kullanmayı öğrendiniz. artık aşağıdaki IOT Hub Geli�
 Bu makalede açıklanan kavramları bazıları denemek istiyorsanız, aşağıdaki IOT hub'ı öğreticide ilginizi çekebilir:
 
 * [Doğrudan yöntemler kullanma](quickstart-control-device-node.md)
-* [VS Code için Azure IOT hub'ı araç seti ile cihaz Yönetimi](iot-hub-device-management-iot-toolkit.md)
+* [VS Code için Azure IOT araçları ile cihaz Yönetimi](iot-hub-device-management-iot-toolkit.md)

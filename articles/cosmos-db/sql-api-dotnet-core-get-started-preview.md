@@ -3,17 +3,17 @@ title: Azure Cosmos DB SQL API hesabı (SDK sürüm 3 Önizleme) verileri yönet
 description: Azure Cosmos DB SQL API’si .NET Core SDK'sını kullanarak çevrimiçi bir veritabanı ve C# konsol uygulaması oluşturan öğretici.
 author: deborahc
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 917cf6ddf23fb9240aa6f2cef8add14c66d0cb06
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: fd5383ded8252375b651c47debea3ba72173eb16
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973188"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038828"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Azure Cosmos DB SQL API hesabı (SDK sürüm 3 Önizleme) verileri yönetmek için bir .NET Core konsol uygulaması oluşturma
 
@@ -186,7 +186,7 @@ Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu �
 
 Tebrikler! Bir Azure Cosmos DB hesabına başarıyla bağlandınız.
 
-## <a name="step-4-create-a-database"></a>4. adım: Veritabanı oluşturma
+## <a name="step-4-create-a-database"></a>4. Adım: Veritabanı oluşturma
 
 Bir veritabanını kullanarak oluşturulabilir [ **Createdatabaseasync** ](https://aka.ms/CosmosDotnetAPIDocs) veya [ **Documentclient** ](https://aka.ms/CosmosDotnetAPIDocs) işlevi **CosmosDatabases** sınıfı. Veritabanı, kapsayıcılar genelinde bölümlenmiş öğelerin mantıksal bir kapsayıcısıdır.
 

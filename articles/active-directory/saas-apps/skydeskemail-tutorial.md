@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Azure Active Directory SkyDesk e-posta ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: SkyDesk e-posta ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve SkyDesk e-posta arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 058aad72ea8e5741bc632b3c27c032613683ae78
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4dc34a390303ffe5e4bafc6b71d77a19e554374c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444091"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052198"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Öğretici: Azure Active Directory SkyDesk e-posta ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Öğretici: SkyDesk e-posta ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile SkyDesk e-posta tümleştirme konusunda bilgi edinin.
 
@@ -37,7 +37,7 @@ Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek ist
 
 Azure AD tümleştirmesi SkyDesk e-posta ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
+- Azure AD aboneliği
 - Abonelik SkyDesk e-posta çoklu oturum açma etkin
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Azure AD'de SkyDesk e-posta tümleştirmesini yapılandırmak için SkyDesk e-po
 
 **Galeriden SkyDesk e-posta eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -115,7 +115,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://mail.skydesk.jp/portal/<companyname>`
 
     > [!NOTE] 
-    > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [SkyDesk e-posta istemcisi Destek ekibine](https://www.skydesk.sg/support/) değeri alınamıyor. 
+    > Değer, gerçek değil. Değerini gerçek oturum açma URL'si ile güncelleştirin. İlgili kişi [SkyDesk e-posta istemcisi Destek ekibine](https://www.skydesk.jp/apps/support/) değeri alınamıyor. 
  
 1. Üzerinde **SAML imzalama sertifikası** bölümünde **sertifika (Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
 
@@ -177,7 +177,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     f. Tıklayın **Tamam** değişiklikleri kaydedin.
 
 > [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
+> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi embedded belgeleri özelliği burada hakkında: [Azure AD embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
@@ -220,7 +220,7 @@ Bu bölümde, Britta Simon SkyDesk e-posta adlı bir kullanıcı oluşturun.
     ![Çoklu oturum açmayı yapılandırın](./media/skydeskemail-tutorial/tutorial_skydeskemail_58.png)
 
 >[!NOTE] 
->Toplu kullanıcı oluşturmak ihtiyacınız varsa, iletişime geçmeniz [SkyDesk e-posta istemcisi Destek ekibine](https://www.skydesk.sg/support/).
+>Toplu kullanıcı oluşturmak ihtiyacınız varsa, iletişime geçmeniz [SkyDesk e-posta istemcisi Destek ekibine](https://www.skydesk.jp/apps/support/).
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcı atama

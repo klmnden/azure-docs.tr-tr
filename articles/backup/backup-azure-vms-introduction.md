@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 9a80671a72f059e24a8cebc5de803af9261ad829
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: ebb8d5d141dab39e73297342907d4439b30a9fbf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743961"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042487"
 ---
 # <a name="about-azure-vm-backup"></a>Azure VM yedeklemesi hakkında
 
@@ -68,7 +68,7 @@ Aşağıdaki tabloda, tutarlılık farklı türleri açıklanmaktadır.
 **Anlık görüntü** | **VSS tabanlı** | **Ayrıntılar** | **Kurtarma**
 --- | --- | --- | ---
 **Uygulamayla tutarlı** | Evet (yalnızca Windows) | Uygulamayla tutarlı yedeklemeler bellek içeriği ve bekleyen g/ç işlemlerini yakalayın. Uygulamayla tutarlı anlık görüntüleri VSS Yazıcı (veya Linux için ön/son betik) yedekleme gerçekleşmeden önce uygulama veri tutarlılığı kullanın. | Uygulamayla tutarlı bir anlık görüntü ile kurtarırken, VM yedekleme önyüklenir. Veri bozulmasına veya kaybına yoktur. Uygulamaları tutarlı bir durumda başlatın.
-**Dosya sistemiyle tutarlı** | Evet (yalnızca Windows) |  Dosya tutarlı yedekler, aynı anda tüm dosyaları anlık görüntüsünü alarak disk dosyalarının tutarlı yedeklemeler sağlar.<br/><br/> Azure Backup kurtarma noktaları için tutarlı dosya şunlardır:<br/><br/> -Linux Vm'leri başarısız betik öncesi/sonrası betikleri veya olmayan yedeklemelere sahip.<br/><br/> -Windows VM yedekleme VSS başarısız olduğu. | Bir dosya tutarlı anlık görüntü ile kurtarırken, VM yedekleme önyüklenir. Veri bozulmasına veya kaybına yoktur. Uygulamalar, geri yüklenen verilerin tutarlı olduğundan emin olmak için kendi "yukarı düzeltme" mekanizması uygulamak gerekiyor.
+**Dosya sistemiyle tutarlı** | Evet (yalnızca Windows) |  Dosya tutarlı yedekler, aynı anda tüm dosyaları anlık görüntüsünü alarak disk dosyalarının tutarlı yedeklemeler sağlar.<br/><br/> Azure Backup kurtarma noktaları için tutarlı dosya şunlardır:<br/><br/> -Linux Vm'leri başarısız betik öncesi/sonrası betikleri veya olmayan yedeklemelere sahip.<br/><br/> -Windows VM yedekleme VSS başarısız olduğu. | Bir dosya tutarlı anlık görüntü ile kurtarırken, VM yedekleme önyüklenir. Veri bozulmasına veya kaybına yoktur. Geri yüklenen verilerin tutarlı olduğundan emin olmak için kendi "yukarı düzeltme" mekanizması uygulamak uygulamaları gerekir.
 **Kilitlenmeyle tutarlı** | Hayır | Kilitlenme tutarlılığı, genellikle bir Azure VM yedekleme sırasında kapatıldığında oluşur.  Zaten diskte yedekleme sırasında var olan veriler yakalanır ve yedeklendi.<br/><br/> Kilitlenmeyle tutarlı kurtarma noktası işletim sistemi veya uygulama için veri tutarlılığı garanti etmez. | Hiçbir garanti eder, ancak genellikle VM önyüklemeleri vardır ve bozulma hatalarını düzeltmek için bir disk ile aşağıdaki gibi denetleyin. Herhangi bir bellek içi verileri veya transfer olmayan yazma disk kaybolur. Uygulama kendi veri doğrulaması uygular. Örneğin, işlem günlüğü veritabanında bulunmayan girişleri varsa veri tutarlı olana kadar için bir veritabanı uygulaması, veritabanı yazılımına yapar.
 
 
@@ -83,26 +83,14 @@ Azure Backup, bir dizi sınırları abonelikleri ve Kasaları sahiptir.
 
 ### <a name="disk-considerations"></a>Disk konuları
 
-Mümkün olan en kısa sürede tamamlanması mümkün olduğunca fazla kaynak tüketmeye yedekleme çalışır.
-
-- Girişimiyle hızını en üst düzeye çıkarmak için her sanal makinenin diskleri paralel yedeklemek yedekleme işlemi çalışır.
-- Örneğin, bir VM dört disk varsa, hizmeti tüm dört disklerini paralel yedekleme çalışır.
-- Yedeklenmekte olan disk sayısı, depolama hesabı yedekleme trafiği belirlemek için en önemli bir faktördür.
-- Tüm g/ç işlemleri sınırlıdır *hedef performans düzeyleri tek Blob*, saniyede 60 MB'lık bir sınır vardır.
-- Yedeklenmekte olan her bir disk için Azure Backup disk üzerindeki blokları okur ve yalnızca değiştirilen verileri (artımlı yedeklemeyi) depolar. Belirli bir boyutun bir diski yedeklemek için gereken süre miktarını tahmin etmek için aşağıdaki ortalama değerleri kullanabilirsiniz.
-
-    **İşlem** | **En iyi olasılık aktarım hızı**
-    --- | ---
-    İlk yedekleme | 160 MB/sn |
-    Artımlı yedekleme | 640 Mbps <br><br> Aktarım hızını ciddi ölçüde düştüğü, değişim verileri disk arasında paylaştırılır.|
-
+Her sanal makinenin disk paralel yedekleme tarafından yedekleme işlemi en iyi duruma getirir. Örneğin, bir VM dört disk varsa, hizmeti tüm dört disklerini paralel yedekleme çalışır. Yedeklenmekte olan her bir disk için Azure Backup disk üzerindeki blokları okur ve yalnızca değiştirilen verileri (artımlı yedeklemeyi) depolar.
 
 
 ### <a name="scheduling-considerations"></a>Planlama konuları
 
 Yedekleme Zamanlama performansını etkiler.
 
-- Tüm VM'lerin aynı anda yedeklenir şekilde ilkeler yapılandırırsanız olarak bir trafik Başınızı zamanladınız tüm disklerde paralel yedeklemek yedekleme işlemi çalışır.
+- Tüm VM'lerin aynı anda yedeklenir şekilde ilkeler yapılandırırsanız, tüm disklerde paralel yedeklemek yedekleme işlemi denediğinde bir trafik Başınızı zamanladınız.
 - Yedekleme trafiğini azaltmak için farklı zaman örtüşme ile günün farklı sanal makinelerini yedekleme.
 
 
@@ -128,39 +116,28 @@ Yedekleme anlık görüntüleri alma ve anlık görüntüleri kasasına aktarma 
 
 Yedekleme süresini etkileyen durumlar şunlardır:
 
-
-- **Yeni eklenen diski zaten korumalı bir VM için ilk yedekleme**: Bir VM ise yeni bir disk yedekleme ardından eklendiğinde aşamasında artımlı yedekleme, yeni disk boyutuna bağlı olarak bir gün SLA eksik.
-- **Bölünmüş uygulama**: Bir uygulama hatalı yapılandırıldıysa depolama için uygun olmayabilir:
-    - Anlık görüntü birçok küçük, parçalanmış yazma içeriyorsa, hizmet uygulamaları tarafından yazılan verilerin işlenmesi ek zaman harcadığı.
-    - Sanal makine içinde çalışan uygulamalar için önerilen uygulama yazma işlemlerini blok en az 8 KB'tır. Uygulamanız değerinden 8 KB'lik bir blok kullanıyorsa, yedekleme performansı parametreden etkilenir.
-- **Depolama hesabı aşırı**: Uygulamayı üretim ortamında çalışırken veya daha fazlası beş ila on diskleri aynı depolama hesabından barındırılan bir yedekleme zamanlanabilir.
-- **Tutarlılık (CC) onay modu**: 1 TB'tan büyük disklere büyük diskler için yedekleme CC modunda birkaç nedenden biri olabilir:
-    - Yönetilen diskin VM yeniden başlatma işleminin bir parçası olarak taşır.
-    - Temel blob anlık görüntüye yükseltir.
-
+- **Yeni eklenen diski zaten korumalı bir VM için ilk yedekleme**: Ardından mevcut disk değişim çoğaltması ile birlikte ilk çoğaltma yapmak yeni eklenen diski olduğundan VM artımlı yedekleme yapılıyor ve bu VM için yeni bir disk eklenmiş, yedekleme süresi 24 saat gidebilirsiniz.
+- **Parçalanma**: Yedekleme ürününde iki yedekleme işlemleri arasındaki artımlı değişiklikler tarar. Yedekleme işlemleri daha hızlı değişiklikler karşılaştırıldığında değişiklikleri disk üzerinde ne zaman birlikte olan üzerinden yayılan sonra disk. 
+- **Değişim**: 200 GB'tan büyük disk başına günlük değişim sıklığı (için artımlı çoğaltma), işlemi tamamlamak için ~ 8 saatten büyük alabilir. VM birden fazla disk içeriyorsa ve söz konusu disklerden yedekleme uzun sürüyorsa, ardından bunu genel yedekleme işlemi etkileyebilir (veya yüklenememesine neden olabilir). 
+- **Sağlama toplamı (CC) karşılaştırma modunu**: CC modu, anında RP tarafından kullanılan en iyi duruma getirilmiş modu daha yavaştır. Anlık RP zaten kullanıyorsunuz ve 1. Katman anlık görüntüleri sildikten, yedekleme 24 saat (veya başarısız) yedekleme işlemi neden CC moduna geçer.
 
 ## <a name="restore-considerations"></a>Geri yükleme konuları
 
 Geri yükleme işlemi iki ana görevden oluşur: seçilen depolama hesabına geri kasadan veri kopyalama ve sanal makine oluşturuluyor. Verileri kasadan kopyalama için gereken süre, yedekleri Azure ve depolama hesabı konumu depolandığı üzerinde bağlıdır. Verileri kopyalamak için harcanan süre bağlıdır:
 
 - **Sıra bekleme süresi**: Hizmet işlemleri birden çok depolama hesaplarından aynı anda geri yükleme işlerini olduğundan geri yükleme isteği sıraya yerleştirilir.
-- **Veri kopyalama zaman**: Verileri kasadan depolama hesabına kopyalanır. Geri yükleme süresi, IOPS ve aktarım hızı, Azure Backup hizmeti kullanan seçili depolama hesabına bağlıdır. Geri yükleme işlemi sırasında kopyalama süresini azaltmak için diğer uygulama yazar ve okur ile yüklenmemiş bir depolama hesabı seçin.
+- **Veri kopyalama zaman**: Verileri kasadan depolama hesabına kopyalanır. Geri yükleme süresi, IOPS ve aktarım hızı Azure Backup hizmetinin kullandığı seçilen depolama hesabına bağlıdır. Geri yükleme işlemi sırasında kopyalama süresini azaltmak için diğer uygulama yazar ve okur ile yüklenmemiş bir depolama hesabı seçin.
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 
 VM yedeklemeleri yapılandırılırken bu yöntemler aşağıdaki öneririz:
 
-- Bir kasadan 100'den fazla sanal makineler için aynı anda yedeklemelerin yok.
-- VM yedeklemeleri yoğun olmayan saatlerde zamanlayın. Bu şekilde yedekleme hizmeti kasası için depolama hesabından veri aktarmak için IOPS kullanır.
-- Yönetilen diskleri yedekleme yapıyorsanız, Azure Backup hizmeti Depolama Yönetimi işler. Yönetilmeyen diskleri yedekleme yapıyorsanız:
-    - Vm'leri birden çok depolama hesaplara yaymak için bir yedekleme İlkesi uyguladığınızdan emin olun.
-    - Tek bir depolama hesabında en fazla 20 disklerden aynı yedekleme zamanlaması tarafından korunmalıdır.
-    - 20 diskiniz daha büyük bir depolama hesabında varsa, bu sanal makineler için yedekleme işlemi aktarımı aşaması sırasında gerekli IOPS almak için birden çok ilke paylaştırın.
-    - Aynı depolama hesabı için Premium depolama alanında çalışan bir VM geri yükleme. Geri yükleme işlemi işlemi, yedekleme işlemi ile örtüşür, yedekleme için kullanılabilir IOPS azaltır.
-    - VM yedekleme yığını V1 üzerinde Premium VM yedeklemesi için Backup hizmeti anlık görüntü depolama hesabına kopyalayın ve kasa için depolama hesabından veri aktarımı için yalnızca %50 toplam depolama hesabı alan ayırmanız gerekir.
-- Vm'leri tek bir kasadan geri yükleme için aynı depolama hesaplarını kullanmak yerine farklı depolama hesaplarını kullanmak için önerilir. Bu azaltmayı önlemek ve iyi performans ile % 100 geri yükleme başarılı sonuçlanır.
-- Katman 1 depolama katmanından geri yükler, birkaç saat sürer Katman 2 depolama geri yüklemeler karşı birkaç dakika içinde tamamlanır. Kullanmanızı öneririz [anlık RP özellik](backup-upgrade-to-vm-backup-stack-v2.md) daha hızlı geri yüklemeler için. Yalnızca geçerli yönetilen Azure Vm'leri budur.
-
+- Kasaları için anında RP yükseltin. Bu gözden [avantajları](backup-upgrade-to-vm-backup-stack-v2.md), [konuları](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)ve ardından izleyerek yükseltmeye devam edin [yönergeleri](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+- Varsayılan ilke zaman değiştirmeyi düşünün (için örnek. Varsayılan ilke sürenizi 12: 00'da göz önünde bulundurun dakika artan ise), veri anlık görüntüleri kaynakları en iyi şekilde kullanılan emin olmak için.
+- Premium VM için yedekleme anlık RP olmayan özelliğini ~ % 50'hesap toplam depolama alanı ayırır. Yedekleme hizmeti Kasası'na aktarılması ve aynı depolama hesabını anlık görüntüyü kopyalamak için bu alanı gerektirir.
+- Vm'leri tek bir kasadan geri yüklemek için farklı kullanmak için önerilir [v2 depolama hesaplarının](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) hedef depolama hesabı olmayan kısıtlanan emin olmak için. Örneğin, her VM (ise 10 Vm'leri geri sonra 10 farklı depolama hesabı kullanmayı düşünün) farklı bir depolama hesabı olmalıdır.
+- (Aynı depolama hesabı olduğundan) 1. katman depolama katmanından (snapshot) geri yükleme işlemleri saat sürebilir, Katman-2 depolama katmanı karşı (kasa) birkaç dakika içinde tamamlanır. Kullanmanızı öneririz [anlık RP](backup-upgrade-to-vm-backup-stack-v2.md) veri kullanılabildiği Katman-1'de (veri saat sürer ardından kasadan geri yüklenmesi gerekiyorsa) çalışması için daha hızlı geri yüklemeler için özellik.
+- Depolama hesabı başına disk sayısı sınırına göre yükün diskleri Iaas VM üzerinde çalışan uygulamalar tarafından erişildiği ' dir. Tek bir depolama hesabında birden fazla disk barındırılıyorsa, doğrulayın. 5-10 diskleri veya daha fazla tek bir depolama hesabında mevcut olması durumunda, genel bir yöntem olarak, depolama hesabı ayırmak için bazı diskler taşıyarak Yük Dengelemesi yapın.
 
 ## <a name="backup-costs"></a>Yedekleme maliyetleri
 
@@ -193,6 +170,5 @@ Azure Vm'leri Azure Backup ile yedeklenmekte olan konusu [Azure Backup fiyatland
 
 Yedekleme işlemi ve performans konuları gözden geçirdikten sonra aşağıdakileri yapın:
 
-- İndirme [kapasite planlaması Excel elektronik tablosu](https://gallery.technet.microsoft.com/Azure-Backup-Storage-a46d7e33) disk ve sayıları zamanlama yedekleme denemek için.
 - [Hakkında bilgi edinin](../virtual-machines/windows/premium-storage-performance.md) uygulamaları için Azure depolama ile en iyi performans ayarlama. Premium depolama, makale odaklanmak ancak aynı zamanda standart depolama diskleri için uygulanabilir.
 - [Başlama](backup-azure-arm-vms-prepare.md) VM desteği ve sınırlamalar inceleyerek daha fazla yedekleme ile kasa oluşturma ve sanal makineleri yedekleme için hazırlanıyor.

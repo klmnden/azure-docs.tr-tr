@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 7513ce90437ebf3d06d4ceb0ea5a83610db5f7dd
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.date: 01/04/2019
+ms.openlocfilehash: a94f55449535faf0f4d061e3368f408843361063
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742703"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051977"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight kümeleri ile Azure Depolama'yı kullanma
 
-HDInsight kümesindeki verileri çözümlemek için verileri ya da Azure storage'da depolayabilirsiniz [Azure Data Lake depolama Gen 1 / Azure Data Lake depolama Gen2] veya her ikisini de. İki depolama seçeneği de işlem için kullanılan HDInsight kümelerini kullanıcı verilerini kaybetmeden güvenle silmenizi sağlar.
+HDInsight kümesindeki verileri çözümlemek için veri ya da depolayabilirsiniz içinde [Azure depolama](../storage/common/storage-introduction.md), [Azure Data Lake depolama Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake depolama Gen 2](../storage/blobs/data-lake-storage-introduction.md), veya her ikisini de. İki depolama seçeneği de işlem için kullanılan HDInsight kümelerini kullanıcı verilerini kaybetmeden güvenle silmenizi sağlar.
 
 Apache Hadoop varsayılan dosya sistemi kavramını destekler. Varsayılan dosya sistemi varsayılan şema ve yetkilisi anlamına gelir. Bu göreceli yolları çözümlemek için de kullanılabilir. HDInsight kümesi oluşturma işlemi sırasında varsayılan dosya sistemi olarak Azure storage'da bir blob kapsayıcısı belirtebilirsiniz veya HDInsight 3.6 ile Azure depolama veya Azure Data Lake depolama Gen 1 / Azure Data Lake seçebilirsiniz depolama Gen 2 varsayılan dosyaları Sistem birkaç özel durum. Hem varsayılan hem de bağlı depolama olarak Data Lake depolama Gen 1 kullanmanın desteklenebilirliği için bkz: [HDInsight kümesi için kullanılabilirlik](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters).
 
@@ -31,13 +31,16 @@ Azure depolama, HDInsight ile sorunsuz bir şekilde tümleşen, sağlam ve genel
 
 | Depolama hesabı türü | Desteklenen hizmetler | Desteklenen performans katmanları | Desteklenen erişim katmanları |
 |----------------------|--------------------|-----------------------------|------------------------|
-| Genel amaçlı V2   | Blob               | Standart                    | Sık, seyrek Archive3    |
+| Genel amaçlı V2   | Blob               | Standart                    | Sık, seyrek arşiv *    |
 | Genel amaçlı V1   | Blob               | Standart                    | Yok                    |
-| Blob depolama         | Blob               | Standart                    | Sık, seyrek Archive3    |
+| Blob depolama         | Blob               | Standart                    | Sık, seyrek arşiv *    |
 
 İş verilerini depolamak için, varsayılan blob kapsayıcısını kullanmanızı önermiyoruz. Depolama maliyetini azaltmak için blob kapsayıcısının her kullanımdan sonra silinmesi iyi bir uygulamadır. Varsayılan kapsayıcıda uygulama ve sistem günlüklerinin bulunduğunu unutmayın. Kapsayıcıyı silmeden önce günlükleri aldığınızdan emin olun.
 
 Bir blob kapsayıcısının birden fazla küme için varsayılan dosya sistemi olarak paylaşılması desteklenmez.
+ 
+ > [!NOTE]  
+ > Arşiv erişim katmanı bir birkaç saatlik alma gecikmesinin ve HDInsight ile kullanım için önerilmez çevrimdışı bir katmandır. Daha fazla bilgi için <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier">arşiv erişim katmanı</a>.
 
 ## <a name="hdinsight-storage-architecture"></a>HDInsight depolama mimarisi
 Aşağıdaki diyagram, Azure Depolama ile kullanılan HDInsight depolama mimarisine ilişkin bir özet görünüm sağlar:

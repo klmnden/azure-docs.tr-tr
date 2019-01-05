@@ -10,14 +10,14 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1ab2e35c916c6bd6f2d73a328f71710378fac890
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8dbf7b6f6741998972070234d90e87baca1154a4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343947"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042470"
 ---
-# <a name="manage-instances-in-durable-functions-azure-functions"></a>Dayanıklı işlevler (Azure işlevleri) örneklerini yönetme
+# <a name="manage-instances-in-durable-functions-in-azure"></a>Azure'da dayanıklı işlevler örneklerini yönetme
 
 [Dayanıklı işlevler](durable-functions-overview.md) düzenleme örnekleri başlatıldı, sona erdi, sorgulanabilen ve gönderilen bildirim olayları. Tüm örnek Yönetimi yapılır kullanarak [düzenleme istemcisi bağlama](durable-functions-bindings.md). Bu makalede, her örnek yönetim işleminin ayrıntılarına gider.
 
@@ -520,7 +520,7 @@ Başarısız düzenleme örnek olabilir *rewound* kullanarak daha önce sağlık
 > [!NOTE]
 > Bu API yerine uygun hata işleme ve yeniden deneme ilkelerine yönelik değildir. Bunun yerine, yalnızca, burada düzenleme örnekleri beklenmeyen nedenlerle başarısız durumda kullanılmak üzere tasarlanmıştır. Hata işleme ve yeniden deneme ilkeleri hakkında daha fazla ayrıntı için lütfen bkz [hata işleme](durable-functions-error-handling.md) konu.
 
-Örnek Kullanım örneği için *rewind* bir dizi içeren bir iş akışı [İnsan bir onayları](durable-functions-overview.md#pattern-5-human-interaction). Birisi onaylarını gereklidir bildirir etkinlik işlevler bir dizi vardır varsayalım ve gerçek zamanlı yanıt bekleyin. Tüm etkinlikleri yanıtları onayını aldığınız veya başarısız bir veritabanı bağlantı dizesi geçersiz gibi bir uygulama yanlış yapılandırılması nedeniyle başka bir etkinlik zaman aşımına uğradı. Sonucu bir düzenleme hatası olan iş akışı inin. İle `RewindAsync` (.NET) veya `rewindAsync` (JavaScript) API'si, uygulama Yöneticisi yapılandırma hatası düzeltebileceğinizi ve *rewind* başarısız düzenleme yedekleme durumunu hemen önce hata. İnsan etkileşimi adımlardan hiçbiri reapproved gerekir ve orchestration artık başarıyla tamamlayabilir.
+Örnek Kullanım örneği için *rewind* bir dizi içeren bir iş akışı [İnsan bir onayları](durable-functions-concepts.md#human). Birisi onaylarını gereklidir bildirir etkinlik işlevler bir dizi vardır varsayalım ve gerçek zamanlı yanıt bekleyin. Tüm etkinlikleri yanıtları onayını aldığınız veya başarısız bir veritabanı bağlantı dizesi geçersiz gibi bir uygulama yanlış yapılandırılması nedeniyle başka bir etkinlik zaman aşımına uğradı. Sonucu bir düzenleme hatası olan iş akışı inin. İle `RewindAsync` (.NET) veya `rewindAsync` (JavaScript) API'si, uygulama Yöneticisi yapılandırma hatası düzeltebileceğinizi ve *rewind* başarısız düzenleme yedekleme durumunu hemen önce hata. İnsan etkileşimi adımlardan hiçbiri reapproved gerekir ve orchestration artık başarıyla tamamlayabilir.
 
 > [!NOTE]
 > *Rewind* özellik dayanıklı zamanlayıcılar kullanan geri sarma düzenleme örnekleri desteklemez.

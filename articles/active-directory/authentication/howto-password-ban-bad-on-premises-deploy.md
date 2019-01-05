@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5774af4e0550ceb7a51e399fcab203a503a7f23f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011502"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033613"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>Önizleme: Azure AD parola koruması dağıtma
+# <a name="preview-deploy-azure-ad-password-protection"></a>Önizleme: Azure AD parola korumasını dağıtma
 
 |     |
 | --- |
@@ -86,6 +86,9 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
 2. Parola İlkesi Proxy Hizmeti yazılımı AzureADPasswordProtectionProxy.msi MSI paketini kullanarak yükleyin.
    * Yazılım yüklemesi yeniden başlatma gerektirmez. Yazılım yükleme, örneğin standart MSI yordamları kullanarak otomatik: `msiexec.exe /i AzureADPasswordProtectionProxy.msi /quiet /qn`
 
+      > [!NOTE]
+      > AzureADPasswordProtectionProxy.msi MSI paketini yüklemeden önce Windows Güvenlik Duvarı hizmeti çalışıyor olmalıdır; aksi takdirde yükleme hatası meydana gelir. Çalıştırma için Windows Güvenlik Duvarı yapılandırılmışsa, geçici olarak etkinleştirin ve Windows Güvenlik Duvarı hizmeti yükleme işlemi sırasında başlatmak için çözüm olabilir. Ara yazılım, yüklemeden sonra Windows Güvenlik duvarı yazılımı belirli hiçbir bağımlılığı vardır. Bir üçüncü taraf güvenlik duvarı kullanıyorsanız, yine de dağıtım gereksinimlerini karşılamak için yapılandırılması gerekir (bağlantı noktası 135 gelen erişimi ve RPC proxy sunucusu bağlantı noktası dinamik veya statik izin ver). [Bkz: dağıtım gereksinimleri](howto-password-ban-bad-on-premises-deploy.md#deployment-requirements)
+
 3. Yönetici olarak bir PowerShell penceresi açın.
    * Azure AD parola koruması ara yazılım AzureADPasswordProtection adlı yeni bir PowerShell modülü içerir. Aşağıdaki adımlar, bu PowerShell modülünden çeşitli cmdlet'ler çalıştıran temel alır ve yeni bir PowerShell penceresi açar ve yeni modül aşağıdaki gibi içe varsayalım:
       * `Import-Module AzureADPasswordProtection`
@@ -142,7 +145,7 @@ Adresinden indirilip Azure AD parola koruması için gerekli iki yükleyiciler v
    > [!NOTE]
    > Sırayla `Register-AzureADPasswordProtectionForest` en az bir Windows Server 2012 veya üzeri etki alanı başarılı olması için denetleyici proxy sunucunun etki alanında bulunmalıdır. Ancak bu adımı öncesinde herhangi bir etki alanı denetleyicilerinde DC Aracısı yazılımının yüklenmesi gereksinimi yoktur.
 
-6. İsteğe bağlı: belirli bir bağlantı noktasında dinleyecek şekilde Azure AD parola koruması proxy hizmeti yapılandırın.
+6. İsteğe bağlı: Belirli bir bağlantı noktasında dinleyecek şekilde Azure AD parola koruması proxy hizmeti yapılandırın.
    * TCP üzerinden RPC, Azure AD parola koruması proxy hizmeti ile iletişim kurmak için Azure AD parola koruması'nı etki alanı denetleyicilerinde DC Aracısı yazılım tarafından kullanılır. Varsayılan olarak, Azure AD parola koruması parola ilkesi Proxy Hizmeti tüm kullanılabilir dinamik RPC uç nokta üzerinde dinler. Gerekirse ağ topolojisi veya güvenlik duvarı gereksinimleri nedeniyle, hizmet yerine belirli bir TCP bağlantı noktasında dinleyecek şekilde yapılandırılabilir.
       * Hizmetini, statik bir bağlantı noktası altında çalışacak şekilde yapılandırmak için kullanın `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet'i.
          ```

@@ -5,15 +5,15 @@ services: iot-edge
 author: kgremban
 ms.service: iot-edge
 ms.topic: include
-ms.date: 12/31/2018
+ms.date: 01/04/2019
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: dd4873017105db190f9a468ec1f1f77f4e8c9c0e
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 019d6120f8f3769d2d974270d575278da0370ef0
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53977155"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54057433"
 ---
 Azure IoT Edge'in önemli özelliklerinden biri buluttan IoT Edge cihazlarınıza modüller dağıtabilmektir. IoT Edge modülü, kapsayıcı olarak uygulanan yürütülebilir bir pakettir. Bu bölümde, biz önceden derlenmiş bir modülden dağıtma [Azure Marketi bölümünde IOT Edge modülleri](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Bu modül, IOT Edge cihazınız için sanal telemetri oluşturur.
 
@@ -21,13 +21,13 @@ Azure IoT Edge'in önemli özelliklerinden biri buluttan IoT Edge cihazlarınız
 
    ![Azure portal Search'te benzetimli sıcaklık algılayıcısı](./media/iot-edge-deploy-module/search-for-temperature-sensor.png)
 
-2. Bu modül almak için bir IOT Edge cihazı seçin. İçinde **hedef cihazlar IOT Edge modülü için**, aşağıdaki bilgileri sağlayın:
+2. Bu modül almak için bir IOT Edge cihazı seçin. Üzerinde **hedef cihazlar IOT Edge modülü için** sayfasında, aşağıdaki bilgileri sağlayın:
 
    1. **Abonelik**: kullanmakta olduğunuz IOT hub'ı içeren aboneliği seçin.
 
    2. **IOT hub'ı**: kullanmakta olduğunuz IOT hub'ı adını seçin.
 
-   3. **IOT Edge cihaz adı**: Bu hızlı başlangıçta daha önce önerilen cihaz adını kullandıysanız, girin **myEdgeDevice**. Ya da seçin **cihaz bulma** cihazlar IOT hub'ınızda bir listesinden seçmek için. 
+   3. **IOT Edge cihaz adı**: Bu hızlı başlangıçta daha önce önerilen cihaz adını kullandıysanız, girin **myEdgeDevice**. Ya da seçin **cihaz bulma** IOT Edge cihazlarının IOT hub'ınızda bir listesinden seçmek için. 
    
    4. **Oluştur**’u seçin.
 

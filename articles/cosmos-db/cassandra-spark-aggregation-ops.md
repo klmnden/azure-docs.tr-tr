@@ -1,21 +1,19 @@
 ---
 title: Azure Cosmos DB Cassandra API'SİNİN tabloları Spark üzerinde toplama işlemleri
 description: Bu makalede Azure Cosmos DB Cassandra API'SİNİN tabloları Spark karşı temel toplama işlemleri kapsar.
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.custom: basics, DDL, DML
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: 385a365ac3b81bca70a71eeed7ca1876c9df49b8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 56cd2284fb4bf7dabb280170757c128b8f985433
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225010"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037319"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Azure Cosmos DB Cassandra API'SİNİN tabloları Spark üzerinde toplama işlemleri 
 
@@ -91,9 +89,9 @@ Seçin bir [depolama seçeneği]( https://spark.apache.org/docs/2.2.0/rdd-progra
 
 * MEMORY_ONLY: Varsayılan depolama seçenek budur. RDD JVM seri durumdan çıkarılmış Java nesneler olarak depolar. RDD bellekte uygun değilse, bazı bölümlerini önbelleğe alınmaz ve bunlar çalışma sırasında ihtiyaç duyulan her zaman yeniden.
 
-* MEMORY_AND_DISK: JVM seri durumdan çıkarılmış Java nesneler olarak depoları RDD. RDD bellekte uygun değilse, disk üzerinde uygun kullanmayın ve gerekli olduğunda, bunları okuyun konum depolanırlar bölümler depolayın.
+* MEMORY_AND_DISK: RDD JVM seri durumdan çıkarılmış Java nesneler olarak depolar. RDD bellekte uygun değilse, disk üzerinde uygun kullanmayın ve gerekli olduğunda, bunları okuyun konum depolanırlar bölümler depolayın.
 
-* MEMORY_ONLY_SER (Java/Scala): Java nesnelerini bir bayt dizisi bölüm başına depoları RDD olarak serileştirilmiş. Bu seçenek alanı verimli seri durumdan çıkarılmış nesne için özellikle hızlı bir seri hale getirici kullanılırken karşılaştırıldığında, ancak daha fazla CPU-yoğun okumak için kullanılabilir.
+* MEMORY_ONLY_SER (Java/Scala): Bölüm başına serileştirilmiş Java nesnelerini bir bayt dizisi olarak RDD depolar. Bu seçenek alanı verimli seri durumdan çıkarılmış nesne için özellikle hızlı bir seri hale getirici kullanılırken karşılaştırıldığında, ancak daha fazla CPU-yoğun okumak için kullanılabilir.
 
 * MEMORY_AND_DISK_SER (Java/Scala): Bu depolama seçeneği MEMORY_ONLY_SER gibi tek fark zaman yerine bunları yeniden hesaplanıyor disk belleği uygun olmayan bölümler sıvı sıçraması.
 
@@ -101,7 +99,7 @@ Seçin bir [depolama seçeneği]( https://spark.apache.org/docs/2.2.0/rdd-progra
 
 * MEMORY_ONLY_2, MEMORY_AND_DISK_2...: Yukarıdaki düzeyleri aynı ancak çoğaltır iki küme düğümlerinde her bölüm.
 
-* (Deneysel) OFF_HEAP: MEMORY_ONLY_SER, ancak benzer verileri öbek bellekte depolar ve devre dışı yığın bellek önceden etkinleştirilmesini gerektirir. 
+* OFF_HEAP (Deneysel): MEMORY_ONLY_SER, ancak benzer veri yığın bellekte depolar ve devre dışı yığın bellek önceden etkinleştirilmesini gerektirir. 
 
 ```scala
 //Workaround

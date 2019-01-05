@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: f85934b0c800ca354cc9cff02132a40c8eccea57
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: bbe843f3481c6cd15f2c14386088cbb8d2d355d6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014854"
+ms.locfileid: "54053134"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Azure Machine Learning hizmeti için CLI uzantısını kullanma
 
@@ -119,11 +119,15 @@ Aşağıdaki komutları denemeleri ile çalışmak için CLI kullanma işlemini 
     az ml project attach --experiment-name myhistory
     ```
 
-* Çalıştırma denemenizi başlatın. Bu komutu kullanırken bir işlem hedefini belirtin. Bu örnekte, `local` kullanarak modeli eğitmek için yerel bilgisayarı `train.py` betiği:
+* Çalıştırma denemenizi başlatın. Bu komutu kullanırken adını `.runconfig` çalıştırma yapılandırmasını içeren dosya. İşlem hedefi çalıştırma yapılandırma modeli için eğitim ortamı oluşturmak için kullanır. Bu örnekte, çalıştırma yapılandırma öğesinden yüklenen `./aml_config/myrunconfig.runconfig` dosya.
 
     ```azurecli-interactive
-    az ml run submit -c local train.py
+    az ml run submit -c myrunconfig train.py
     ```
+
+    Varsayılan `.runconfig` dosyalardaki `docker.runconfig` ve `local.runconfig` kullanarak bir proje eklediğinizde oluşturulan `az ml project attach` komutu. Bir modeli eğitmek için kullanmadan önce bunları değiştirmeniz gerekebilir. 
+
+    Program aracılığıyla kullanarak bir çalıştırma yapılandırması oluşturabilirsiniz [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) sınıfı. Oluşturulduktan sonra ardından kullanabilirsiniz `save()` yöntemini `.runconfig` dosya.
 
 * Gönderilen denemeleri listesini görüntüleyin:
 

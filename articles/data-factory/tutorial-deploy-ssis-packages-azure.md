@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ed14dc45af3f47032e54c946486c4de70aeae11a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: c0300d0f2b2f619477477eb1a83e28f94d432723
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214962"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054462"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory'de Azure-SSIS Tümleştirme Çalışma Zamanı Sağlama
 Bu öğretici, Azure portalını kullanarak Azure Data Factory’de bir Azure-SSIS tümleştirme çalışma zamanı (IR) sağlama adımlarını sunar. Daha sonra, SQL Server Veri Araçları (SSDT) veya SQL Server Management Studio'yu (SSMS) kullanarak Azure'da bu çalışma zamanında SQL Server Integration Services (SSIS) paketleri dağıtabilir ve çalıştırabilirsiniz. Azure-SSIS IR’ler hakkında kavramsal bilgiler için bkz. [Azure SSIS tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md#azure-ssis-integration-runtime).
@@ -29,11 +29,11 @@ Bu öğreticide, aşağıdaki adımları tamamlayacaksınız:
 > * Veri fabrikası oluşturma.
 > * Azure-SSIS tümleştirme çalışma zamanı sağlama.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 - **Azure aboneliği**. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun. 
 - **Azure SQL Veritabanı sunucusu**. Henüz bir veritabanı sunucunuz yoksa, başlamadan önce Azure portalında bir tane oluşturun. Azure Data Factory, bu veritabanı sunucusunda SSIS Kataloğu (SSISDB veritabanı) oluşturur. Veritabanı sunucusunu tümleştirme çalışma zamanı ile aynı Azure bölgesinde oluşturmanız önerilir. Bu yapılandırma, tümleştirme çalışma zamanının Azure bölgelerinden geçmeden SSISDB veritabanına yürütme günlüklerini yazmasına olanak tanır. 
 - Seçilen veritabanı sunucusuna göre SSISDB sizin adınıza tek veritabanı, elastik havuzun bir parçası veya Yönetilen Örnek biçiminde oluşturulabilir ve genel ağ üzerinden veya sanal ağa eklenerek erişilebilir. SSISDB barındırmak için Azure SQL Veritabanı'nı sanal ağ hizmet uç noktaları/Yönetilen Örnek ile kullanırsanız veya şirket içi verilere erişmeniz gerekiyorsa Azure-SSIS IR örneğinizi bir sanal ağa eklemeniz gerekir, bkz. [Sanal ağda Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
-- Veritabanı sunucusunda **Azure hizmetlerine erişime izin ver** ayarının etkin olduğundan emin olun. Bu durum SSISDB barındırmak için Azure SQL Veritabanı'nı sanal ağ hizmet uç noktaları/Yönetilen Örnek ile birlikte kullandığınızda geçerli değildir. Daha fazla bilgi için bkz. [Azure SQL veritabanınızın güvenliğini sağlama](../sql-database/sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal). Bu ayarı PowerShell kullanarak etkinleştirmek için bkz. [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1). 
+- Veritabanı sunucusunda **Azure hizmetlerine erişime izin ver** ayarının etkin olduğundan emin olun. Bu durum SSISDB barındırmak için Azure SQL Veritabanı'nı sanal ağ hizmet uç noktaları/Yönetilen Örnek ile birlikte kullandığınızda geçerli değildir. Daha fazla bilgi için bkz. [Azure SQL veritabanınızın güvenliğini sağlama](../sql-database/sql-database-security-tutorial.md#create-firewall-rules). Bu ayarı PowerShell kullanarak etkinleştirmek için bkz. [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule?view=azurermps-4.4.1). 
 - Veritabanı sunucusunun güvenlik duvarı ayarlarındaki istemci IP adresi listesine istemci makinenin IP adresini veya istemci makinenin IP adresini içeren IP adresi aralığını ekleyin. Daha fazla bilgi için bkz. [Azure SQL Veritabanı'nda sunucu düzeyinde ve veritabanı düzeyinde güvenlik duvarı kuralları yapılandırma](../sql-database/sql-database-firewall-configure.md). 
 - Veritabanı sunucusuna bağlanmak için sunucu yöneticisi kimlik bilgilerinizle SQL kimlik doğrulamasını veya Azure Data Factory (ADF) için yönetilen kimliğinizle Azure Active Directory (AAD) kimlik doğrulamasını kullanabilirsiniz.  İkinci seçenekte ADF için yönetilen kimliğinizi veritabanı sunucusuna erişim izni olan bir AAD grubuna eklemeniz gerekir, bkz. [AAD kimlik doğrulaması ile Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
 - Azure SQL Veritabanı sunucunuzun SSIS Kataloğuna (SSISDB veritabanı) sahip olmadığını doğrulayın. Azure-SSIS IR’nin sağlanması, mevcut bir SSIS Kataloğunun kullanılmasını desteklemez. 
@@ -98,9 +98,9 @@ Bu öğreticide, aşağıdaki adımları tamamlayacaksınız:
 
    e. **Node Number** (Düğüm Sayısı) alanında tümleştirme çalışma zamanınızdaki düğüm sayısını seçin. Yalnızca desteklenen düğüm sayıları görüntülenir. Aynı anda birden fazla paket çalıştırmak istiyorsanız çok sayıda düğüme sahip bir küme seçin (ölçeklendirme için). 
 
-   f. **Edition/License** (Sürüm/Lisans) alanında tümleştirme çalışma zamanınız için SQL Server sürümünü/lisansını seçin: Standard veya Enterprise. Tümleştirme çalışma zamanınızda gelişmiş/premium özellikleri kullanmak istiyorsanız Enterprise sürümünü seçin. 
+   f. İçin **sürümü/lisansı**, SQL Server sürümü/lisansı için Integration runtime'ı seçin: Standart veya Kurumsal. Tümleştirme çalışma zamanınızda gelişmiş/premium özellikleri kullanmak istiyorsanız Enterprise sürümünü seçin. 
 
-   g. **Save Money** (Tasarruf Edin) alanında tümleştirme çalışma zamanınız için Azure Hibrit Avantajı (AHB) seçeneğini ayarlayın: Evet veya Hayır. Karma kullanımla maliyet tasarrufu yapmak üzere Yazılım Güvencesi ile kendi SQL Server lisansınızı getirmek istiyorsanız Evet'i seçin. 
+   g. İçin **paradan tasarruf**, Integration runtime için Azure hibrit Avantajı'nı (AHB) seçeneğini belirleyin: Evet veya Hayır. Karma kullanımla maliyet tasarrufu yapmak üzere Yazılım Güvencesi ile kendi SQL Server lisansınızı getirmek istiyorsanız Evet'i seçin. 
 
    h. **İleri**’ye tıklayın. 
 
@@ -114,13 +114,13 @@ Bu öğreticide, aşağıdaki adımları tamamlayacaksınız:
 
    c. **Catalog Database Server Endpoint** (Katalog Veritabanı Sunucusu Uç Noktası) alanında SSISDB'yi barındıracak veritabanı sunucunuzun uç noktasını seçin. Seçilen veritabanı sunucusuna göre SSISDB sizin adınıza tek başına veritabanı, elastik havuzun bir parçası veya Yönetilen Örnek biçiminde oluşturulabilir ve genel ağ üzerinden veya sanal ağa eklenerek erişilebilir. SSISDB hizmetini barındıracak veritabanı sunucusu türünü seçme konusunda yardım almak için bkz. [SQL Veritabanı mantıksal sunucusu ile Yönetilen Örneği Karşılaştırma](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). SSISDB barındırmak için Azure SQL Veritabanı'nı sanal ağ hizmet uç noktaları/Yönetilen Örnek ile birlikte seçerseniz veya şirket içi verilere erişmeniz gerekiyorsa Azure-SSIS IR örneğinizi bir sanal ağa eklemeniz gerekir. Bkz. [Sanal ağda Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
 
-   d. **Use AAD authentication...** (AAD kimlik doğrulaması kullan...) onay kutusunda SSISDB'yi barındıracak veritabanı sunucunuz için kimlik doğrulama yöntemini belirleyin: SQL veya Azure Active Directory (AAD) ve Azure Data Factory (ADF) için yönetilen kimliğiniz. Bunu işaretlerseniz ADF için yönetilen kimliğinizi veritabanı sunucusuna erişim izni olan bir AAD grubuna eklemeniz gerekir, bkz. [AAD kimlik doğrulaması ile Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
+   d. Üzerinde **kullanım AAD kimlik doğrulaması...**  onay kutusunu SSISDB'yi barındırmak için veritabanı sunucusu için kimlik doğrulama yöntemini seçin: SQL veya Azure Active Directory (AAD), Azure Data Factory (ADF) için yönetilen kimliğe sahip. Bunu işaretlerseniz ADF için yönetilen kimliğinizi veritabanı sunucusuna erişim izni olan bir AAD grubuna eklemeniz gerekir, bkz. [AAD kimlik doğrulaması ile Azure-SSIS IR oluşturma](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). 
 
    e. **Admin Username** (Yönetici Kullanıcı Adı) alanına SSISDB'yi barındıracak veritabanı sunucunuzun SQL kimlik doğrulaması kullanıcı adını girin. 
 
    f. **Admin Password** (Yönetici Parolası) alanına SSISDB'yi barındıracak veritabanı sunucunuzun SQL kimlik doğrulaması parolasını girin. 
 
-   g. **Catalog Database Service Tier** (Katalog Veritabanı Hizmet Katmanı) alanında SSISDB'yi barındıracak veritabanı sunucunuzun hizmet katmanını seçin: Temel/Standart/Premium katman veya elastik havuz adı. 
+   g. İçin **Katalog veritabanı hizmet katmanı**, veritabanı sunucunuza SSISDB'yi barındırmak için Hizmet katmanını seçin: Temel/standart/Premium katmanı veya elastik havuz adı. 
 
    h. **Test Connection** (Bağlantıyı Sına) öğesine tıklayın ve başarılı olursa **Next** (İleri) öğesine tıklayın. 
 

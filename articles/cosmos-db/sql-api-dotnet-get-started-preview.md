@@ -1,20 +1,19 @@
 ---
 title: Azure Cosmos DB SQL API hesabı (SDK sürüm 3 Önizleme) verileri yönetmek için bir .NET konsol uygulaması oluşturma
 description: SQL API'sini kullanarak çevrimiçi bir veritabanı ve C# konsol uygulaması oluşturan öğretici.
-keywords: nosql öğreticisi, çevrimiçi veritabanı, c# konsol uygulaması
 author: deborahc
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 139d7a13b9f6ce6132bffb798aa41b207ebf7929
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 27686adb7ae20e50ce822f83002135844f9f93bb
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317422"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037030"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Azure Cosmos DB SQL API hesabı (SDK sürüm 3 Önizleme) verileri yönetmek için bir .NET konsol uygulaması oluşturma
 
@@ -172,7 +171,7 @@ Harika! Kurulumu tamamladığımıza göre, biraz kod yazmaya başlayalım. Bu �
 
 Tebrikler! Bir Azure Cosmos DB hesabına başarıyla bağlandınız. 
 
-## <a name="step-4-create-a-database"></a>4. adım: Veritabanı oluşturma
+## <a name="step-4-create-a-database"></a>4. Adım: Veritabanı oluşturma
 Bir veritabanını kullanarak oluşturulabilir [ **Createdatabaseasync** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) veya [ **Documentclient** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosdatabases) işlevi ``CosmosDatabases`` sınıfı. Veritabanı, kapsayıcılar genelinde bölümlenmiş öğelerin mantıksal bir kapsayıcısıdır.
     
 1. Kopyalama ve yapıştırma **CreateDatabase** yöntemi aşağıdaki, **GetStartedDemoAsync** yöntemi. **CreateDatabase** kimliğine sahip yeni bir veritabanı oluşturur ``FamilyDatabase`` , zaten, öğesinden belirtilen kimliğe sahip yoksa ``databaseId`` alan. 

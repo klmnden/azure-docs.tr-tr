@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: jroth
-ms.openlocfilehash: c663aec02d4d1808426a9f05a6674d5504563a63
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5ffee3bb5cbeff4e2222307e2a1afb4691ae93d5
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009409"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053049"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>SQL Server Aracısı uzantısı (Resource Manager) ile Azure sanal Makineler'de yönetim görevlerini otomatikleştirin
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
 > * [Klasik](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
 
-SQL Server Iaas Aracısı uzantısı (SQLIaaSExtension), Azure yönetim görevlerini otomatikleştirmek için sanal makinelerde çalıştırır. Bu makalede, yükleme, durum ve kaldırma yönergeleri yanı sıra uzantı tarafından desteklenen hizmetleri genel bir bakış sağlar.
+SQL Server Iaas Aracısı uzantısı (SqlIaasExtension), Azure yönetim görevlerini otomatikleştirmek için sanal makinelerde çalıştırır. Bu makalede, yükleme, durum ve kaldırma yönergeleri yanı sıra uzantı tarafından desteklenen hizmetleri genel bir bakış sağlar.
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -70,7 +70,7 @@ Sanal makinenizde SQL Server Iaas Aracısı uzantısı kullanmak için gereksini
 SQL Server sanal makine galeri görüntüleri sağlarken, SQL Server Iaas Aracısı uzantısı otomatik olarak yüklenir. Bu SQL Server Vm'leri birinde uzantıyı el ile yeniden gerekiyorsa, aşağıdaki PowerShell komutunu kullanın:
 
 ```powershell
-Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
+Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension" -Version "2.0" -Location "East US 2"
 ```
 
 > [!IMPORTANT]
@@ -80,7 +80,7 @@ Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "
 > SQL Server Iaas Aracısı uzantısı yalnızca desteklenir [SQL Server sanal makine galeri görüntüleri](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (Kullandıkça Öde veya Getir-kendi lisansını). SQL Server bir yalnızca işletim sistemi Windows Server sanal makinesi üzerinde el ile yüklerseniz veya özelleştirilmiş bir SQL Server VM VHD dağıtırsanız desteklenmiyor. Bu gibi durumlarda, yüklemek ve PowerShell kullanarak uzantıyı el ile yönetmek mümkün olabilir, ancak Azure portalında SQL Server yapılandırma ayarlarını almaz. Ancak, bunun yerine bir SQL Server VM galeri görüntüsü yükleyin ve ardından özelleştirmek için önerilir.
 
 ## <a name="status"></a>Durum
-Uzantı yüklendiğini doğrulamak için bir aracı durumunu Azure portalında görüntülemek için yoludur. Seçin **tüm ayarlar** sanal makine penceresinde ve ardından şirket **uzantıları**. Görmelisiniz **SQLIaaSExtension** listelenen uzantısı.
+Uzantı yüklendiğini doğrulamak için bir aracı durumunu Azure portalında görüntülemek için yoludur. Seçin **tüm ayarlar** sanal makine penceresinde ve ardından şirket **uzantıları**. Görmelisiniz **SqlIaasExtension** listelenen uzantısı.
 
 ![Azure portalında SQL Server Iaas Aracısı uzantısı](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
@@ -101,7 +101,7 @@ Azure Portalı'nda üç nokta simgesine tıklayarak uzantıyı kaldırabilirsini
 
 Ayrıca **Remove-AzureRmVMSqlServerExtension** PowerShell cmdlet'i.
 
-    Remove-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension"
+    Remove-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Uzantı tarafından desteklenen hizmetlerinden birini kullanmaya başlayın. Başvurulan makaleleri daha fazla ayrıntı için bkz. [desteklenen Hizmetleri](#supported-services) bu makalenin.

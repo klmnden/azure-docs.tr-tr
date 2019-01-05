@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 952a87d05cb4040aa4d9aa652f8aeb814396549f
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: db2972019e81ab413857d49ffa65eade3ff061ec
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028718"
+ms.locfileid: "54051195"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler ile ASP.NET Core Azure Linux web app'ler profil
 
@@ -31,7 +31,7 @@ Bu kılavuzu tamamladıktan sonra uygulamanızı Profiler izlemeleri izlemeler g
 ## <a name="prerequisites"></a>Önkoşullar
 Aşağıdaki yönergeler, tüm Windows, Linux ve Mac geliştirme ortamları için geçerlidir:
 
-* Yükleme [.NET Core SDK'sı 2.1.2'yi veya üzeri](https://www.microsoft.com/net/download/windows/build).
+* Yükleme [.NET Core SDK'sı 2.1.2'yi veya üzeri](https://dotnet.microsoft.com/download/archives).
 * Yönergeleri izleyerek Git yükleme [Git'i yükledikten Başlarken -](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ## <a name="set-up-the-project-locally"></a>Yerel olarak projesi kurun

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 29c0a1a15db7670d83ff384a1ba0f37499389ef7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a476af9ceb1b664a458f7f07a5a7b3945b1ad881
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741896"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036571"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Sanal makine ölçek kümesi şablonları hakkında bilgi edinin
 [Azure Resource Manager şablonları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment), ilgili kaynak gruplarını dağıtmanın harika bir yoludur. Bu öğretici serisinde, en düşük uygun ölçek kümesi şablonunun nasıl oluşturulacağını ve çeşitli senaryolara uygun olarak bu şablonu nasıl değiştireceğiniz gösterilmektedir. Tüm örnekler buradan gelen [GitHub deposu](https://github.com/gatneil/mvss). 
@@ -70,7 +70,7 @@ Sonraki şablon kaynakları bölümünde bulunur. Burada, hangi gerçekten dağ�
    "resources": [
 ```
 
-Tüm kaynakları gerektiren `type`, `name`, `apiVersion`, ve `location` özellikleri. Bu örneğin ilk kaynak türünde `Microsft.Network/virtualNetwork`, adı `myVnet`ve apiVersion `2016-03-30`. (Bir kaynak türü için en son API sürümü bulmak için bkz: [Azure REST API belgelerini](https://docs.microsoft.com/rest/api/).)
+Tüm kaynakları gerektiren `type`, `name`, `apiVersion`, ve `location` özellikleri. Bu örneğin ilk kaynak türünde [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), adı `myVnet`ve apiVersion `2016-03-30`. (Bir kaynak türü için en son API sürümü bulmak için bkz: [Azure Resource Manager şablon başvurusu](/azure/templates/).)
 
 ```json
      {
@@ -124,7 +124,7 @@ Bu durumda, var. yalnızca bir öğe listesinde, önceki örnekte sanal ağ Herh
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>Ölçek kümesi özelliklerini belirtin
-Ölçek kümeleri ölçek kümesindeki sanal makineler özelleştirmeye yönelik pek çok özellikleri vardır. Bu özelliklerin tam listesi için bkz. [ölçek kümesi REST API belgelerini](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set). Bu öğretici için yalnızca birkaç yaygın olarak kullanılan özellikler ayarlanır.
+Ölçek kümeleri ölçek kümesindeki sanal makineler özelleştirmeye yönelik pek çok özellikleri vardır. Bu özelliklerin tam listesi için bkz. [şablon başvurusu](/azure/templates/microsoft.compute/virtualmachinescalesets). Bu öğretici için yalnızca birkaç yaygın olarak kullanılan özellikler ayarlanır.
 ### <a name="supply-vm-size-and-capacity"></a>VM boyutu ve kapasite sağlayın
 Ölçek kümesi ("sku adı") oluşturmak için VM boyutu bilmeniz gerekir ve böyle kaç VM ("sku kapasitesi") oluşturun. Hangi VM boyutlarının kullanılabilir olduğunu görmek için bkz: [VM boyutları belgeleri](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 

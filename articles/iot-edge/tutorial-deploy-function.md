@@ -4,17 +4,17 @@ description: Bu öğreticide, geliştirdiğiniz bir Azure IOT Edge modülü işl
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/19/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d8912b67656cb9862f31b03eb9a899dfc650f377
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081889"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053374"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Öğretici: Azure'da dağıtma işlevleri IOT Edge modülleri
 
@@ -51,13 +51,13 @@ Geliştirme kaynakları:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Visual Studio Code için C# (OmniSharp tarafından desteklenen) uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
-* [Visual Studio Code için Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [Visual Studio Code için Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools). 
 * [.NET Core 2.1 SDK'sı](https://www.microsoft.com/net/download).
 * [Docker CE](https://docs.docker.com/install/). 
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
 
-Bu öğreticide, bir modül olarak derlemek ve oluşturmak için Visual Studio Code için Azure IOT Edge uzantısını kullanırsınız bir **kapsayıcı görüntüsü** dosyalarından. Ardından bu görüntüyü, görüntülerinizin depolandığı ve yönetildiği **kayıt defterine** gönderirsiniz. Son olarak, görüntünüzü IoT Edge cihazınızda çalıştırmak üzere kayıt defterinizden dağıtırsınız.  
+Bu öğreticide, bir modül olarak derlemek ve oluşturmak için Visual Studio Code için Azure IOT araçları kullanmak bir **kapsayıcı görüntüsü** dosyalarından. Ardından bu görüntüyü, görüntülerinizin depolandığı ve yönetildiği **kayıt defterine** gönderirsiniz. Son olarak, görüntünüzü IoT Edge cihazınızda çalıştırmak üzere kayıt defterinizden dağıtırsınız.  
 
 Herhangi bir Docker ile uyumlu kayıt defteri, kapsayıcı görüntülerinizi tutmak için kullanabilirsiniz. İki popüler Docker kayıt defteri Hizmetleri [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ve [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Bu öğreticide Azure Container Registry kullanılır. 
 
@@ -84,13 +84,13 @@ Herhangi bir Docker ile uyumlu kayıt defteri, kapsayıcı görüntülerinizi tu
 
 ## <a name="create-a-function-project"></a>İşlev projesi oluşturma
 
-Ön koşullar bölümünde yüklediğiniz Visual Studio Code için Azure IoT Edge uzantısı, yönetim özelliklerinin yanı sıra kod şablonları sunar. Bu bölümde Visual Studio Code'u kullanarak Azure işlevi içeren bir IoT Edge çözümü oluşturacaksınız. 
+Önkoşullar yüklü Visual Studio Code için Azure IOT araçları, bazı kod şablonları yanı sıra, yönetim özellikleri sağlar. Bu bölümde Visual Studio Code'u kullanarak Azure işlevi içeren bir IoT Edge çözümü oluşturacaksınız. 
 
 1. Geliştirme makinenizde Visual Studio Code'u açın.
 
 2. **View (Görünüm)** > **Command Palette (Komut Paleti)** öğesini seçerek VS Code komut paletini açın.
 
-3. Komut paletinde **Azure IoT Edge: New IoT Edge solution** komutunu girin ve çalıştırın. Çözümünüzü oluşturmak için komut paletindeki yönergeleri izleyin.
+3. Komut Paleti'nde girin ve şu komutu çalıştırın **Azure IOT Edge: Yeni bir IOT Edge çözüm**. Çözümünüzü oluşturmak için komut paletindeki yönergeleri izleyin.
 
    | Alan | Değer |
    | ----- | ----- |
@@ -221,13 +221,13 @@ Kapsayıcı görüntünüz, kapsayıcı kayıt defterinize gönderildiğinde Vis
 
 ## <a name="deploy-and-run-the-solution"></a>Çözümü dağıtma ve çalıştırma
 
-Hızlı başlangıçlarda yaptığınız gibi işlev modülünüzü IoT Edge cihazına dağıtmak için Azure portalını kullanabilirsiniz. Ayrıca modülleri Visual Studio Code'un içinden de dağıtabilir ve izleyebilirsiniz. Aşağıdaki bölümlerde önkoşullarda listelenen VS Code için Azure IoT Edge uzantısı kullanılmaktadır. Uzantıyı henüz yüklemediyseniz, şimdi yükleyin. 
+Hızlı başlangıçlarda yaptığınız gibi işlev modülünüzü IoT Edge cihazına dağıtmak için Azure portalını kullanabilirsiniz. Ayrıca modülleri Visual Studio Code'un içinden de dağıtabilir ve izleyebilirsiniz. Aşağıdaki bölümlerde, önkoşullarda listelenen VS Code için Azure IOT araçları kullanın. Uzantıyı henüz yüklemediyseniz, şimdi yükleyin. 
 
 1. **View (Görünüm)** > **Command Palette (Komut Paleti)** öğesini seçerek VS Code komut paletini açın.
 
-2. **Azure: Sign in** komutunu arayıp çalıştırın. Azure hesabınızda oturum açmak için yönergeleri izleyin. 
+2. İçin arama yapın ve şu komutu çalıştırın **Azure: Oturum**. Azure hesabınızda oturum açmak için yönergeleri izleyin. 
 
-3. Komut paletinde **Azure IoT Hub: Select IoT Hub** komutunu arayıp çalıştırın. 
+3. Komut Paleti'nde için arama yapın ve şu komutu çalıştırın **Azure IOT Hub: IOT hub'ını seçin**. 
 
 4. IoT hub'ınızı içeren aboneliği ve ardından erişmek istediğiniz IoT hub'ını seçin.
 
@@ -243,11 +243,11 @@ Hızlı başlangıçlarda yaptığınız gibi işlev modülünüzü IoT Edge cih
 
 ## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
-Komut paletinden **Azure IoT Hub: Start Monitoring D2C Message** komutunu çalıştırarak IoT hub'ınıza gelen tüm iletileri görebilirsiniz.
+Çalıştırarak IOT hub'ınıza gelen tüm iletileri görebilirsiniz **Azure IOT Hub: D2C iletisini İzlemeyi Başlat** komut Paleti'nde.
 
 IoT hub'ınıza belirli bir cihazdan gelen iletilerin gösterilmesi için görünüme filtre de uygulayabilirsiniz. **Azure IoT Hub Devices** (Azure IoT Hub Cihazları) bölümünde cihaza sağ tıklayıp **Start Monitoring D2C Messages** (D2C İletilerini İzlemeye Başla) öğesini seçin.
 
-İletileri izlemeyi durdurmak için komut paletinden **Azure IoT Hub: Stop monitoring D2C message** komutunu seçin. 
+İletileri izlemeyi durdurmak için komutu çalıştırmak **Azure IOT Hub: D2C iletisini İzlemeyi Durdur** komut Paleti'nde. 
 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

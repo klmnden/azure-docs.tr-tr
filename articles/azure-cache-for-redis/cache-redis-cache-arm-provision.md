@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: 34f69340e0e7cad583ba0b8797a076a4fd6e3097
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: c8aadcf7b37e28035e936a9f722ee832127e928d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020026"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038594"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Şablon kullanarak Redis için bir Azure önbelleği oluşturma
 Bu konu başlığında, bir Azure önbelleği için Redis dağıtan bir Azure Resource Manager şablonunun nasıl oluşturulacağını öğrenin. Önbellek ile mevcut bir depolama hesabı Tanılama verileri tutmak için kullanılabilir. Ayrıca tanımlamak için hangi kaynaklara dağıtılır ve parametrelerin nasıl dağıtıldığının ve dağıtım yürütülürken belirtilen nasıl öğrenin. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
 
 Şu anda, tanılama ayarları için bir abonelik için aynı bölgede tüm önbellekleri paylaşılır. Bir önbellek bölgede güncelleştirme bölgesindeki tüm önbellekleri etkiler.
 
-Şablonları oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md).
+Şablonları oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md). Önbellek kaynak türleri için özellikleri ve JSON söz dizimi hakkında bilgi edinmek için bkz. [Microsoft.Cache kaynak türleri](/azure/templates/microsoft.cache/allversions).
 
 Tam şablon için bkz: [Azure önbelleği için Redis şablon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json).
 
@@ -88,7 +88,7 @@ Tanılama etkinleştirilip etkinleştirilmeyeceğini gösteren bir değer. Kulla
     }
 
 ## <a name="resources-to-deploy"></a>Dağıtılacak kaynaklar
-### <a name="azure-cache-for-redis"></a>Redis için Azure Cache
+### <a name="azure-cache-for-redis"></a>Redis için Azure Önbelleği
 Azure önbelleği için Redis oluşturur.
 
     {

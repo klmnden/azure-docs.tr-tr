@@ -3,24 +3,20 @@ title: Azure sanal ağ hizmet uç noktası ilkeleri | Microsoft Docs
 description: Hizmet Uç Noktası İlkelerini kullanarak Azure hizmet kaynaklarına yönelik Sanal Ağ trafiğini filtrelemeyi öğrenin
 services: virtual-network
 documentationcenter: na
-author: anithaa
-manager: narayan
-editor: ''
-ms.assetid: ''
+author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: anithaa
-ms.custom: ''
-ms.openlocfilehash: 425bbc9eac112a4b999bd08940abb8b875aca61c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.author: sumeet.mittal
+ms.openlocfilehash: 7a3a94e9759dfb3c525ffcf1e840d5bec18f4808
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433302"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051320"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Sanal ağ hizmet uç noktası ilkeleri (Önizleme)
 
@@ -28,7 +24,7 @@ Sanal Ağ (VNet) hizmet uç noktası ilkeleri Azure hizmetlerine yönelik sanal 
 
 Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için __önizleme__ sürümündedir:
 
-__Azure Depolama__: WestCentralUS, WestUS2.
+__Azure depolama__: WestCentralUS, WestUS2.
 
 En güncel önizleme bildirimleri için [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasını gözden geçirin.
 
@@ -123,13 +119,13 @@ Sanal ağ hizmet uç noktası ilkeleri aşağıdaki avantajları sağlar:
      - Azure Application Gateway (Klasik)
      - Azure VPN Gateway (Klasik)
 
-- Azure Depolama: Uç nokta ilkelerinde klasik depolama hesapları desteklenmez. İlkeler varsayılan olarak tüm klasik depolama hesaplarına erişimi reddedecektir. Uygulamanızın Azure Resource Manager'a ve klasik depolama hesaplarına erişmesi gerekiyorsa, bu trafik için uç nokta ilkeleri kullanılmamalıdır. 
+- Azure Depolama: Uç nokta ilkelerinde Klasik depolama hesapları desteklenmez. İlkeler varsayılan olarak tüm klasik depolama hesaplarına erişimi reddedecektir. Uygulamanızın Azure Resource Manager'a ve klasik depolama hesaplarına erişmesi gerekiyorsa, bu trafik için uç nokta ilkeleri kullanılmamalıdır. 
 
 ## <a name="nsgs-with-service-endpoint-policies"></a>Hizmet Uç Nokta İlkeleri ile NSG'ler
 - Varsayılan olarak NSG'ler, Azure hizmetlerine sanal ağ trafiği de dahil olmak üzere giden İnternet trafiğine izin verir.
 - Giden İnternet trafiğinin tümünü reddetmek ve yalnızca belirli Azure hizmeti kaynaklarına giden trafiğe izin vermek istiyorsanız: 
 
-  1. Adım: *Azure hizmeti etiketlerini* kullanarak, NSG'leri yalnızca iç nokta bölgelerindeki Azure hizmetlerine giden trafiğe izin verilecek şekilde yapılandırın. Daha fazla bilgi için bkz. [NSG'ler için hizmet etiketleri](https://aka.ms/servicetags)
+  1. Adım: Nsg'ler yalnızca kullanan Azure hizmetlerine uç nokta bölgelerde, giden trafiğe izin verecek şekilde yapılandırma *Azure hizmet etiketlerini*. Daha fazla bilgi için bkz. [NSG'ler için hizmet etiketleri](https://aka.ms/servicetags)
       
   Örneğin, erişimi yalnızca uç nokta bölgeleriyle kısıtlayan ağ güvenlik grubu kuralları aşağıdaki örneğe benzer:
 
@@ -139,18 +135,18 @@ Sanal ağ hizmet uç noktası ilkeleri aşağıdaki avantajları sağlar:
   Deny all
   ```
 
-  2. Adım: Yalnızca belirli Azure hizmet kaynaklarına erişim veren hizmet uç nokta ilkesini uygulayın.
+  2. Adım: Hizmet uç noktası İlkesi erişim yalnızca belirli bir Azure hizmet kaynakları için geçerlidir.
 
   > [!WARNING]  
   > Ağ güvenlik grubu sanal ağın Azure hizmeti erişimini uç nokta bölgeleriyle sınırlayacak şekilde yapılandırılmadıysa, hizmet uç nokta ilkesi uygulanmış olsa bile diğer bölgelerdeki hizmet kaynaklarına erişebilirsiniz.
 
 ## <a name="scenarios"></a>Senaryolar
 
-- **Eşleştirilmiş, bağlı veya birden çok sanal ağ**: Eşleştirilmiş sanal ağlarda trafiği filtrelemek için, uç nokta ilkelerinin bu sanal ağlara tek tek uygulanması gerekir.
-- **İnternet trafiğini Ağ Gereçleri veya Azure Güvenlik Duvarı ile filtreleme**: Azure hizmet trafiğini uç noktalar üzerinden ilkelerle filtreleyin ve kalan İnternet veya Azure trafiğini gereçler veya Azure Güvenlik Duvarı aracılığıyla filtreleyin. 
-- **Sanal Ağlara dağıtılan Azure hizmetlerinde trafiği filtreleme**: Önizleme sırasında, sanal ağınıza dağıtılan hiçbir yönetilen Azure hizmeti için hizmet uç noktası ilkeleri desteklenmez. 
+- **Eşleştirilmiş, bağlanmış veya birden çok sanal ağ**: Eşlenen sanal ağlardaki trafiği filtrelemek için uç noktası ilkeleri bu sanal ağları için ayrı ayrı uygulanması gerekir.
+- **Ağ Gereçleri veya Azure güvenlik duvarı ile Internet trafiğini filtreleme**: Uç noktalar ilkeleri, Azure hizmet trafiğini filtrelemek ve cihazları veya Azure güvenlik duvarı üzerinden İnternet'te veya Azure trafiğinin geri kalanı filtreleyin. 
+- **Azure hizmetlerinde dağıtılan sanal ağlara trafiği filtreleme**: Önizleme sırasında sanal ağınıza dağıtılmış yönetilen Azure Hizmetleri için hizmet uç noktası İlkesi desteklenmez. 
  Belirli hizmetler için [kısıtlamalara](#Limitations) bakın.
-- **Şirket içinden Azure hizmetlerine yönelik trafiği filtreleme**: Hizmet uç noktası ilkeleri yalnızca ilkelerle ilişkilendirilmiş uç noktalardan gelen trafiğe uygulanır. Şirket içinden belirli Azure hizmet kaynaklarına yönelik trafiğe izin vermek için, trafiğin ağ sanal cihazları veya güvenlik duvarları kullanılarak filtrelenmesi gerekir.
+- **Şirket içi ortamdan Azure hizmetlerine trafiği filtreleme**: Hizmet uç noktası İlkesi, ilkeleri için ilişkili alt ağlar'dan yalnızca trafiğe uygulanır. Şirket içinden belirli Azure hizmet kaynaklarına yönelik trafiğe izin vermek için, trafiğin ağ sanal cihazları veya güvenlik duvarları kullanılarak filtrelenmesi gerekir.
 
 ## <a name="logging-and-troubleshooting"></a>Günlüğe kaydetme ve sorun giderme
 Hizmet uç noktası ilkelerinde hiçbir merkezi günlük sağlanmaz. Hizmet tanılama günlükleri için bkz. [Hizmet uç noktaları günlüğü](virtual-network-service-endpoints-overview.md#logging-and-troubleshooting).

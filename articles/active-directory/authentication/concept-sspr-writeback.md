@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3d9d6aef4fafd6013c86fd5d5883222c0f32b34d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4d311794c1c0f2dd6b9a0b2a44983b47bfeef362
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319385"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040549"
 ---
 # <a name="what-is-password-writeback"></a>Parola geri yazma nedir?
 
@@ -30,16 +30,16 @@ Parola geri yazma özelliğini kullanan ortamlarda desteklenir:
 > [!WARNING]
 > Parola geri yazma, Azure AD Connect sürüm 1.0.8641.0 ve eski olduğunda kullanan müşteriler için çalışma durdurur [Azure erişim denetimi hizmeti (ACS) 7 Kasım 2018'de kullanımdan](../develop/active-directory-acs-migration.md). Azure AD Connect sürüm 1.0.8641.0 eski ve bunlar üzerinde ACS işlevselliği için bağımlı olduğundan parola geri yazma o anda artık izin verir.
 >
-> Hizmette, yeni bir sürüme bir Azure AD Connect'in önceki sürümünden yükseltme kesinti yaşanmasını önlemek için bu makaleye bakın [Azure AD Connect: önceki bir sürümden son sürüme yükseltme](../hybrid/how-to-upgrade-previous-version.md)
+> Hizmette, yeni bir sürüme bir Azure AD Connect'in önceki sürümünden yükseltme kesinti yaşanmasını önlemek için bu makaleye bakın [Azure AD Connect: Önceki bir sürümden en son sürüme yükseltme](../hybrid/how-to-upgrade-previous-version.md)
 >
 
 Parola geri yazma sağlar:
 
-* **Şirket içi Active Directory parola ilkelerinin uygulanması**: kullanıcı parolasını sıfırlandıktan sonra onu karşılayan şirket içi Active Directory ilkeniz bu dizine yapmadan önce emin olmak için denetlenir. Bu gözden geçirme geçmişini, karmaşıklık, yaş, parola filtreleri ve yerel Active Directory içinde tanımladığınız herhangi bir parola kısıtlama denetimi içerir.
-* **Sıfır Gecikmeli geri bildirim**: parola geri yazma eşzamanlı bir işlem olduğu. Parola ilkesini karşılamadığı veya değil sıfırlama veya herhangi bir nedenle değiştirdiyseniz, kullanıcılarınızın hemen bildirilir.
-* **Destekler parola değişikliklerini erişim panelinde ve Office 365**: federe olduğunda veya parola karması eşitlenmiş kullanıcılar gelen süresi dolmuş ya da süresi doldu parolalarını değiştirmek için bu parolaları geri yerel Active Directory ortamınızı yazılır.
-* **Bunları Azure portalından bir yönetici sıfırlar parola geri yazmayı destekler**: her bir yönetici bir kullanıcının parolasını sıfırlar [Azure portalında](https://portal.azure.com), kullanıcının Federasyon veya parola karması eşitlenmiş, parola Şirket içine geri yazılır. Bu işlevsellik şu anda Office Yönetim Portalı'nda desteklenmiyor.
-* **Herhangi bir gelen güvenlik duvarı kuralları gerektirmeyen**: parola geri yazma, temel alınan bir iletişim kanalı bir Azure Service Bus geçişini kullanır. Tüm iletişim bağlantı noktası 443 üzerinden giden.
+* **Şirket içi Active Directory parola ilkelerinin uygulanması**: Bir kullanıcı parolasını sıfırlandıktan sonra bu dizine yapmadan önce şirket içi Active Directory ilkesini karşıladığından emin olmak için denetlenir. Bu gözden geçirme geçmişini, karmaşıklık, yaş, parola filtreleri ve yerel Active Directory içinde tanımladığınız herhangi bir parola kısıtlama denetimi içerir.
+* **Sıfır Gecikmeli geri bildirim**: Parola geri yazma eşzamanlı bir işlemdir. Parola ilkesini karşılamadığı veya değil sıfırlama veya herhangi bir nedenle değiştirdiyseniz, kullanıcılarınızın hemen bildirilir.
+* **Destekler parola değişikliklerini erişim panelinde ve Office 365**: Federe olduğunda veya parola karması eşitlenmiş kullanıcılar gelen süresi dolmuş ya da süresi doldu parolalarını değiştirmek için bu parolaları geri yerel Active Directory ortamınızı yazılır.
+* **Bunları Azure portalından bir yönetici sıfırlar parola geri yazmayı destekler**: Her bir yönetici bir kullanıcının parolasını sıfırlar [Azure portalında](https://portal.azure.com), kullanıcının Federasyon ya da parola karması eşitlenmiş, parolayı yeniden şirket içine yazılır. Bu işlevsellik şu anda Office Yönetim Portalı'nda desteklenmiyor.
+* **Herhangi bir gelen güvenlik duvarı kuralları gerektirmeyen**: Parola geri yazma, temel alınan bir iletişim kanalı bir Azure Service Bus geçişini kullanır. Tüm iletişim bağlantı noktası 443 üzerinden giden.
 
 > [!Note]
 > Parola geri yazma ile şirket içi Active Directory'de korumalı gruplardaki mevcut kullanıcı hesapları kullanılamaz. Korunan grupları hakkında daha fazla bilgi için bkz. [korumalı hesaplar ve gruplar Active Directory'de](https://technet.microsoft.com/library/dn535499.aspx).
@@ -60,7 +60,7 @@ Parola geri yazma özelliğini kullanmak için kiracınızda atanan aşağıdaki
 * Microsoft 365 F1
 
 > [!WARNING]
-> Tek başına Office 365 planları lisanslama *parola geri yazma özelliğini desteklemeyen* ve çalışmak bu işlev için önceki planlardan birine sahip olması gerekir.
+> Tek başına Office 365 planları lisanslama *"Self Servis parola sıfırlama/değiştirme/kilidini açma şirket içi geri yazma ile" desteklemeyen* ve çalışmak bu işlev için önceki planlardan birine sahip olması gerekir.
 >
 
 ## <a name="how-password-writeback-works"></a>Parola geri yazma nasıl çalışır?
@@ -121,10 +121,10 @@ Parola geri yazma özelliğini bir yüksek oranda güvenli bir hizmettir. Bilgil
 
 Kullanıcı parola sıfırlama gönderdikten sonra şirket içi ortamınızda gelmeden önce sıfırlama isteği şifreleme adımları boyunca gider. Şifreleme adımları en yüksek hizmet güvenilirliği ve güvenliği emin olun. Bunlar aşağıda açıklanmıştır:
 
-* **1. adım: Parola şifrelemesini 2048 bit RSA anahtarı ile**: bir kullanıcı şirket içine geri yazılması için bir parola gönderdikten sonra gönderilen parola 2048 bit RSA anahtarıyla şifrelenir.
-* **2. adım: Paket düzeyinde şifreleme, AES gcm'ye**: tüm paketi, parola ve gerekli meta veriler, AES-GCM kullanılarak şifrelenir. Bu şifreleme, doğrudan erişimi olan herkes görüntülemesini veya içeriğiyle oynama, temel alınan ServiceBus kanala engeller.
-* **3. adım: Tüm iletişimi TLS/SSL üzerinden gerçekleşir**: ServiceBus ile tüm iletişimin bir SSL/TLS kanalda olur. Bu şifreleme, içeriği yetkisiz Üçüncü taraflardan güvenliğini sağlar.
-* **Altı ayda üzerinde otomatik anahtar toplama**: her altı ay içinde tüm anahtarları alma veya her zaman parola geri yazmayı devre dışı ve ardından Azure AD Connect'in, en yüksek hizmet güvenlik ve güvenilirlik sağlamak için yeniden etkinleştirildi.
+* **1. adım: Parola şifrelemesini 2048 bit RSA anahtarı ile**: Bir kullanıcı şirket içine geri yazılması için bir parola gönderdikten sonra gönderilen parola 2048 bit RSA anahtarıyla şifrelenir.
+* **2. adım: Paket düzeyinde şifreleme, AES gcm'ye**: Paketin tamamını, parola ve gerekli meta veriler, AES-GCM kullanılarak şifrelenir. Bu şifreleme, doğrudan erişimi olan herkes görüntülemesini veya içeriğiyle oynama, temel alınan ServiceBus kanala engeller.
+* **3. adım: TLS/SSL üzerinden tüm iletişimi gerçekleşir**: Service BUS ile tüm iletişimin bir SSL/TLS kanalda'olmuyor. Bu şifreleme, içeriği yetkisiz Üçüncü taraflardan güvenliğini sağlar.
+* **Altı ayda üzerinde otomatik anahtar toplama**: Tüm anahtarları, altı ayda üzerinden veya parola geri yazmayı devre dışı ve ardından Azure AD Connect'in, en yüksek hizmet güvenlik ve güvenilirlik sağlamak için yeniden etkinleştirilen her zaman döndürün.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Parola geri yazma bant genişliği kullanımı
 
@@ -169,4 +169,4 @@ Parolalar *değil* aşağıdaki durumlarda hiçbirinde yazılır:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Öğreticiyi kullanarak parola geri yazmayı etkinleştirme: [etkinleştirme parola geri yazma](tutorial-enable-writeback.md)
+Parola geri yazma öğreticiyi kullanarak etkinleştirin: [Parola geri yazma özelliğini etkinleştirme](tutorial-enable-writeback.md)

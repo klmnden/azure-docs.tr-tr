@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 15548e801777a99dfb78de0067abb633a2587ee6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879397"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053202"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IOT SDK'ları Platform desteği
 
@@ -20,9 +20,9 @@ ms.locfileid: "52879397"
 
 Microsoft, çeşitli işletim sistemlerini/platformları/çerçevesini destekler ve Azure IOT C SDK'sını kullanarak genişletilebilir. Bazı kullanıcılar bekleyebileceğiniz destek düzeyini temsil eden katmanlarına gruplandırılmış ekibi tarafından resmi olarak desteklenir. *Tam olarak desteklenen platformlar* anlamına gelir, Microsoft:
 
-    * Sürekli derlemeler ve ana ve desteklenen LTS sürüm(ler) karşı uçtan uca testleri çalıştırır.  Test kapsamı, farklı sürümler arasında sağlamak için genellikle en son LTS sürümünü ve en popüler sürüm karşı test ederiz.  Platform sürümü uyumluluğu diğer sürümleri aynı platform desteklenmiyor olabilir.
-    * Yükleme yönergeleri veya paketleri varsa sağlar.
-    * Tam olarak Github'da platformları destekler.
+- Sürekli derlemeler ve ana ve desteklenen LTS sürüm(ler) karşı uçtan uca testleri çalıştırır.  Test kapsamı, farklı sürümler arasında sağlamak için genellikle en son LTS sürümünü ve en popüler sürüm karşı test ederiz.  Platform sürümü uyumluluğu diğer sürümleri aynı platform desteklenmiyor olabilir.
+- Yükleme yönergeleri veya paketleri varsa sağlar.
+- Tam olarak Github'da platformları destekler.
 
 Ayrıca, iş ortaklarının listesi bağlantı noktalı C SDK'mız daha fazla platformda açın ve platform Soyutlama Katmanı (PAL) bakımını yapma. [Azure IOT için sertifikalı cihaz Kataloğu](https://catalog.azureiotsolutions.com/) ayrıca özellikleri çeşitli SDK'lar OS platformların bir listesini sınanmıştır karşı. SDK'ları da düzenli olarak sınırlı test ile bu platformlardaki oluşturun ve destekler:
 
@@ -67,7 +67,7 @@ Desteklenen çeşitli platformlar vardır.
 | Ubuntu 16.04 LTS    | X64  | .NET core 2.1        | .NET standard 2.0 |
 | Windows Server 2016 | X64  | .NET core 2.1        | .NET standard 2.0 |
 | Windows Server 2016 | X64  | .NET framework 4.7   | .NET standard 2.0 |
-| Windows Server 2016 | X64  | .NET framework 4.5.1 | Yok               |
+| Windows Server 2016 | X64  | .NET Framework 4.5.1 | Yok               |
 
 ### <a name="nodejs-sdk"></a>Node.js SDK'sı
 
@@ -88,7 +88,7 @@ Desteklenen çeşitli platformlar vardır.
 
 Müşteriler, platform desteğimiz genişletebilir SDK'ın (PAL) platform Soyutlama Katmanı oluşturma Azure IOT C SDK'yı özellikle taşıma. Microsoft genişletilmiş destek sağlamak üzere iş ortakları ile çalışmaktadır. İş ortaklarının listesini açın diğer platformlar ve PAL koruma C SDK'sı unity'nin.
 
-| Partner             | Cihazlar                            | Bağlantı                     | Destek |
+| İş ortağı             | Cihazlar                            | Bağlantı                     | Destek |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [ESP-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IOT Modem     | [Qualcomm LTE IOT SDK'sı](https://developer.qualcomm.com/software/lte-iot-sdk) | [Forum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |

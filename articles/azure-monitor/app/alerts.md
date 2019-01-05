@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 63045ce1ac06bfb87595675395a411978a17f95a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d3d2aa78ef853903263b4b497f0e399241ac8ce9
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017064"
+ms.locfileid: "54050838"
 ---
 # <a name="set-alerts-in-application-insights"></a>Uygulama anlayışları'nda uyarılar ayarlayın
 [Azure Application Insights] [ start] web uygulamanızdaki performansı ya da kullanım ölçümleri değişikliklere uyarabilir. 
@@ -29,7 +29,7 @@ Uyarılar üç tür vardır:
 
 * **Ölçüm uyarıları** ne zaman bir ölçüm - yanıt süreleri, özel durum sayısı, CPU kullanımı veya sayfa görüntüleme gibi belirli bir süre boyunca eşik değerini aştığında size söyler. 
 * [**Web testleri** ] [ availability] sitenizi yavaş internet üzerindeki kullanılamıyor veya yanıt olduğunda söyleyin. [Daha fazla bilgi edinin][availability].
-* [**Proaktif tanılama** ](../../application-insights/app-insights-proactive-diagnostics.md) olağan dışı performans desenler hakkında bilgilendirmek için otomatik olarak yapılandırılır.
+* [**Proaktif tanılama** ](../../azure-monitor/app/proactive-diagnostics.md) olağan dışı performans desenler hakkında bilgilendirmek için otomatik olarak yapılandırılır.
 
 Bu makalede ölçüm uyarıları odaklanıyoruz.
 
@@ -102,7 +102,7 @@ Gerektiğini unutmayın [öngörülü hata oranı tanılama](../../azure-monitor
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Kullanılabilirlik web testleri](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Uyarıları Ayarlama otomatikleştirin](../../azure-monitor/app/powershell-alerts.md)
-* [Proaktif tanılama](../../application-insights/app-insights-proactive-diagnostics.md) 
+* [Proaktif tanılama](../../azure-monitor/app/proactive-diagnostics.md) 
 
 <!--Link references-->
 

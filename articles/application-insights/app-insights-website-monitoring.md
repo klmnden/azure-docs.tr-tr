@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 856ffe050fce204d52d6666025a7284788bb0893
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: bee48efd52a6ead6896691683c4605fcf833e2b6
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022249"
+ms.locfileid: "54033715"
 ---
 # <a name="start-monitoring-your-website"></a>Web sitenizi izlemeye başlama
 
@@ -121,11 +121,11 @@ Application Insights, şirket içinde veya bulutta çalışan İnternet’e bağ
 
    ![Sunucu ölçüm grafiği](./media/app-insights-website-monitoring/browser-performance.png)
 
-4. [Kullanıcı davranışı analiz araçlarını](app-insights-usage-overview.md) keşfetmeye başlamak için ana Application Insights menüsündeki **Kullanım** başlığından [**Kullanıcılar**](app-insights-usage-segmentation.md) girişini seçin. Tek bir makineden test gerçekleştirdiğimiz için yalnızca bir kullanıcıya ait veriler görünecektir. Canlı bir web sitesi için kullanıcı dağılımı şu şekilde görünebilir:
+4. [Kullanıcı davranışı analiz araçlarını](../azure-monitor/app/usage-overview.md) keşfetmeye başlamak için ana Application Insights menüsündeki **Kullanım** başlığından [**Kullanıcılar**](../azure-monitor/app/usage-segmentation.md) girişini seçin. Tek bir makineden test gerçekleştirdiğimiz için yalnızca bir kullanıcıya ait veriler görünecektir. Canlı bir web sitesi için kullanıcı dağılımı şu şekilde görünebilir:
 
      ![Kullanıcı grafiği](./media/app-insights-website-monitoring/usage-users.png)
 
-5. Birden fazla sayfaya sahip olan daha karmaşık bir web sitesini izliyor olsaydık [**Kullanıcı Akışları**](app-insights-usage-flows.md) aracından da faydalanabilirdik. **Kullanıcı Akışları** aracıyla ziyaretçilerin web sitenizin farklı bölümlerinde gerçekleştirdiği işlemleri görebilirsiniz.
+5. Birden fazla sayfaya sahip olan daha karmaşık bir web sitesini izliyor olsaydık [**Kullanıcı Akışları**](../azure-monitor/app/usage-flows.md) aracından da faydalanabilirdik. **Kullanıcı Akışları** aracıyla ziyaretçilerin web sitenizin farklı bölümlerinde gerçekleştirdiği işlemleri görebilirsiniz.
 
   ![Kullanıcı Akışları görselleştirmesi](./media/app-insights-website-monitoring/user-flows.png)
 

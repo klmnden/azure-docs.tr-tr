@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/06/2018
-ms.openlocfilehash: b0fd2466d72b1aae65a54b9e9813a5af51bf1672
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 41ba0816dde63bc611dcb5be544609b88dfe9158
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997524"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052652"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Azure sanal ağlarına Azure Logic Apps'ten tümleştirme hizmeti ortamı (ISE) bağlanın.
 
@@ -103,15 +103,15 @@ Sonuçlar listesinden **tümleştirme hizmeti ortamı (Önizleme)** ve ardından
 
    ![Ortam ayrıntılarını sağlayın](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Özellik | Gerekli | Değer | Açıklama |
+   | Özellik | Gereklidir | Değer | Açıklama |
    |----------|----------|-------|-------------|
    | **Abonelik** | Evet | <*Azure-subscription-name*> | Ortamınız için kullanılacak Azure aboneliği | 
    | **Kaynak grubu** | Evet | <*Azure kaynak grubu adı*> | Ortamınızı oluşturmak için istediğiniz Azure kaynak grubu |
    | **Tümleştirme hizmeti ortamı adı** | Evet | <*ortam adı*> | Ortamınızı verilecek ad | 
    | **Konum** | Evet | <*Azure veri merkezi bölgesi*> | Azure veri merkezi bölgesini ortamınızı dağıtılacağı yeri | 
    | **Kapasite** | Evet | 0, 1, 2, 3 | Bu işe kaynak için kullanılacak işleme birimi sayısı | 
-   | **Sanal ağ** | Evet | <*Azure sanal-ağ-adı*> | Mantıksal uygulamalar bu ortamda, sanal ağınızın erişebilmesi için ortamınızı eklemesine istediğiniz Azure sanal ağı. Bir ağ yoksa, bir oluşturabilirsiniz burada. <p>**Önemli**: yapabilecekleriniz *yalnızca* , işe oluşturduğunuzda bu ekleme gerçekleştirin. Bu ilişki oluşturabilmeniz için önce ancak, zaten emin [sanal ağınızdaki rol tabanlı erişim denetimi için Azure Logic Apps ayarlama](#vnet-access). | 
-   | **Alt ağlar** | Evet | <*IP adresi aralığı*> | Bir işe dört gerektirir *boş* alt ağlar. Bu alt ağlara undelegated herhangi bir hizmeti ve ortamınızda kaynakları oluşturmak için kullanılır. *Değiştiremezsiniz* ortamınızı oluşturduktan sonra bu IP aralıkları. <p><p>Her alt ağ oluşturmak için [bu tablonun altındaki adımları](#create-subnet). Her alt ağ, şu ölçütleri karşılamalıdır: <p>-Seçilen sanal ağlarınız ya da nereye sanal ağa bağlı tüm diğer özel IP adresleri aynı adres aralığı içinde mevcut olmamalıdır. <br>-Bir sayı veya kısa çizgi ile başlamıyor bir ad kullanır. <br>-Kullanır [sınıfsız etki alanları arası yönlendirme (CIDR) biçimi](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>-Sınıf B adres alanı gerektirir. <br>-İçeren bir `/27`. Örneğin, her alt ağ 32-bit adres aralığı belirtir: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, ve `10.0.0.96/27`. <br>Boş olması gerekir. |
+   | **Sanal ağ** | Evet | <*Azure sanal-ağ-adı*> | Mantıksal uygulamalar bu ortamda, sanal ağınızın erişebilmesi için ortamınızı eklemesine istediğiniz Azure sanal ağı. Bir ağ yoksa, bir oluşturabilirsiniz burada. <p>**Önemli**: Yapabilecekleriniz *yalnızca* , işe oluşturduğunuzda bu ekleme gerçekleştirin. Bu ilişki oluşturabilmeniz için önce ancak, zaten emin [sanal ağınızdaki rol tabanlı erişim denetimi için Azure Logic Apps ayarlama](#vnet-access). | 
+   | **Alt ağlar** | Evet | <*IP adresi aralığı*> | Bir işe dört gerektirir *boş* alt ağlar. Bu alt ağlara undelegated herhangi bir hizmeti ve ortamınızda kaynakları oluşturmak için kullanılır. *Değiştiremezsiniz* ortamınızı oluşturduktan sonra bu IP aralıkları. <p><p>Her alt ağ oluşturmak için [bu tablonun altındaki adımları](#create-subnet). Her alt ağ, şu ölçütleri karşılamalıdır: <p>-Bir sayı veya kısa çizgi ile başlamıyor bir ad kullanır. <br>-Kullanır [sınıfsız etki alanları arası yönlendirme (CIDR) biçimi](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>-Sınıf B adres alanı gerektirir. <br>-İçeren bir `/27`. Örneğin, her alt ağ 32-bit adres aralığı belirtir: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, ve `10.0.0.96/27`. <br>Boş olması gerekir. |
    |||||
 
    <a name="create-subnet"></a>
@@ -120,7 +120,7 @@ Sonuçlar listesinden **tümleştirme hizmeti ortamı (Önizleme)** ve ardından
 
    1. Altında **alt ağlar** listesinde **Yönet alt ağ yapılandırması**.
 
-      ![Alt ağ yapılandırmasını yönetme](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
+      ![Alt ağ yapılandırmasını yönet](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
 
    1. Üzerinde **alt ağlar** bölmesinde seçin **alt**.
 
@@ -128,8 +128,8 @@ Sonuçlar listesinden **tümleştirme hizmeti ortamı (Önizleme)** ve ardından
 
    1. Üzerinde **alt ağ Ekle** bölmesinde, bu bilgileri sağlayın.
 
-      * **Ad**: alt ağınız için bir ad
-      * **Adres aralığı (CIDR bloğu)**: alt ağın aralığına sanal ağınızda bulunan ve CIDR biçiminde
+      * **Ad**: Alt ağınız için bir ad
+      * **Adres aralığı (CIDR bloğu)**: Sanal ağınızda bulunan ve CIDR biçimindeki alt ağın aralığı
 
       ![Alt ağ ayrıntıları ekleyin](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
 

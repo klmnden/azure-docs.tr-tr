@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 3505d65b55807010904494079532fe5741e6df77
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8fd3725a5f3cd45da261aca17bf0f89a3e5a5aa0
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601177"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055192"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure güvenlik ve uyumluluk planı - PaaS Web uygulaması için Avustralya korumalı
 
@@ -201,7 +201,7 @@ Aşağıdaki Log Analytics [yönetim çözümleri](https://docs.microsoft.com/az
 
 **Azure İzleyici**: [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) kullanıcıların performans izleme, güvenliği koruma ve denetim, uyarılar oluşturabilir ve Azure kaynaklarını izleme API çağrıları dahil olmak üzere, verileri arşivlemek kuruluşların etkinleştirerek eğilimleri belirlemenize yardımcı olur.
 
-Azure Ağ İzleyicisi: [Azure Ağ İzleyicisi] 9 https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) izleyin, tanılayın, ölçümleri görüntüleyin ve etkinleştirme veya günlükleri için bir Azure sanal ağ içindeki kaynaklarla devre dışı araçları sağlar.  Uluslar varlıklar, Nsg ve sanal makineler için Ağ İzleyicisi akış günlükleri uygulamalıdır. Bu günlükler, yalnızca güvenlik günlükleri depolanır ve depolama hesabına erişim için rol tabanlı erişim denetimleri ile güvenli hale getirilmelidir ayrılmış bir depolama hesabında depolanmalıdır.
+Azure Ağ İzleyicisi: [Azure Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) izleyin, tanılayın, ölçümleri görüntüleyin ve etkinleştirme veya günlükleri için bir Azure sanal ağ içindeki kaynaklarla devre dışı araçları sağlar.  Uluslar varlıklar, Nsg ve sanal makineler için Ağ İzleyicisi akış günlükleri uygulamalıdır. Bu günlükler, yalnızca güvenlik günlükleri depolanır ve depolama hesabına erişim için rol tabanlı erişim denetimleri ile güvenli hale getirilmelidir ayrılmış bir depolama hesabında depolanmalıdır.
 
 ## <a name="threat-model"></a>Tehdit modeli
 

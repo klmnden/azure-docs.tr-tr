@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/25/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f099d280615607382bd424063d39bb26cdeea793
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 1b2692df51afb50822ec542fbda423f598bcb8e4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557876"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054750"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Öğretici: Bir Java IOT Edge modülü geliştirme ve sanal Cihazınızı dağıtma
 
@@ -47,7 +47,7 @@ Geliştirme kaynakları:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * Visual Studio Code için [Java Uzantı Paketi](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
-* Visual Studio Code için [Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) Visual Studio Code için. 
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks) ve [`JAVA_HOME` ortam değişkenini](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) JDK yüklemenize göre ayarlama.
 * [Maven](https://maven.apache.org/)
 * [Docker CE](https://docs.docker.com/install/)
@@ -56,7 +56,7 @@ Geliştirme kaynakları:
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
 
-Bu öğreticide, bir modül olarak derlemek ve oluşturmak için Visual Studio Code için Azure IOT Edge uzantısını kullanırsınız bir **kapsayıcı görüntüsü** dosyalarından. Ardından bu görüntüyü, görüntülerinizin depolandığı ve yönetildiği **kayıt defterine** gönderirsiniz. Son olarak, görüntünüzü IoT Edge cihazınızda çalıştırmak üzere kayıt defterinizden dağıtırsınız.  
+Bu öğreticide, bir modül olarak derlemek ve oluşturmak için Visual Studio Code için Azure IOT araçları kullanmak bir **kapsayıcı görüntüsü** dosyalarından. Ardından bu görüntüyü, görüntülerinizin depolandığı ve yönetildiği **kayıt defterine** gönderirsiniz. Son olarak, görüntünüzü IoT Edge cihazınızda çalıştırmak üzere kayıt defterinizden dağıtırsınız.  
 
 Herhangi bir Docker ile uyumlu kayıt defteri, kapsayıcı görüntülerinizi tutmak için kullanabilirsiniz. İki popüler Docker kayıt defteri Hizmetleri [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ve [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Bu öğreticide Azure Container Registry kullanılır. 
 
@@ -82,7 +82,7 @@ Kapsayıcı kayıt defteri zaten yoksa, azure'da yeni bir tane oluşturmak için
 7. **Oturum açma sunucusu**, **Kullanıcı adı** ve **Parola** değerlerini kopyalayın. Kapsayıcı kayıt defterine erişim sağlamak için öğreticinin ilerleyen bölümlerinde bu değerleri kullanırsınız. 
 
 ## <a name="create-an-iot-edge-module-project"></a>IoT Edge modülü projesi oluşturma
-Aşağıdaki adımlar Azure IOT Edge maven şablon paketi ve Azure IOT Java cihaz SDK'sını dayalı bir IOT Edge modülü projesi oluşturur. Proje, Visual Studio Code ve Azure IOT Edge uzantısını kullanarak oluşturun.
+Aşağıdaki adımlar Azure IOT Edge maven şablon paketi ve Azure IOT Java cihaz SDK'sını dayalı bir IOT Edge modülü projesi oluşturur. Proje, Visual Studio Code ve Azure IOT araçları kullanarak oluşturun.
 
 ### <a name="create-a-new-solution"></a>Yeni çözüm oluşturma
 
@@ -216,13 +216,19 @@ Ortam dosyası, kapsayıcı kayıt defterinizin kimlik bilgilerini depolar ve bu
     client.getTwin();
     ```
 
-11. Bu dosyayı kaydedin.
+11. App.java dosyasını kaydedin.
 
-12. VS Code gezgininde IoT Edge çözüm çalışma alanınızdaki deployment.template.json dosyasını açın. Bu dosya **$edgeAgent** aracısına iki modülü dağıtmasını söyler: **tempSensor** ve **JavaModule**. Varsayılan platform, IOT Edge kümesine **amd64** , VS Code durum çubuğunda anlamına gelir, **JavaModule** görüntünün amd64 sürüme Linux ayarlanır. Durum çubuğunda varsayılan platform değiştirme **amd64** için **arm32v7** veya **windows-amd64** , IOT Edge cihazınızın mimari ise. 
+12. VS Code gezgininde IoT Edge çözüm çalışma alanınızdaki **deployment.template.json** dosyasını açın. Bu dosya, bu durumda dağıtmak için hangi modülü IOT Edge Aracısı söyler **tempSensor** ve **JavaModule**ve bunlar arasında iletileri yönlendirme hakkında IOT Edge hub'ı söyler. Visual Studio Code uzantısı otomatik olarak dağıtım şablonu gerekir, ancak her şeyi çözümünüz için doğru olduğundan emin olun, ilgili bilgilerin çoğunu doldurur: 
 
-   Dağıtım bildirimleri hakkında daha fazla bilgi edinmek için bkz. [IoT Edge modüllerinin kullanılmasını, yapılandırılmasını ve yeniden kullanılmasını anlama](module-composition.md).
+   1. Varsayılan platform, IOT Edge kümesine **amd64** , VS Code durum çubuğunda anlamına gelir, **JavaModule** görüntünün amd64 sürüme Linux ayarlanır. Durum çubuğunda varsayılan platform değiştirme **amd64** için **arm32v7** veya **windows-amd64** , IOT Edge cihazınızın mimari ise. 
 
-   Deployment.template.json dosyasının **registryCredentials** bölümünde Docker kayıt defteri kimlik bilgileriniz depolanır. Gerçek kullanıcı adı ve parola çiftleri, git tarafından yoksayılan .env dosyasında depolanır.  
+      ![Modül görüntü platform güncelleştirmesi](./media/tutorial-java-module/image-platform.png)
+
+   2. Şablonda doğru modül adının bulunduğunu ve IoT Edge çözümünü oluştururken değiştirdiğiniz varsayılan **SampleModule** adının kullanılmadığından emin olun.
+
+   3. **RegistryCredentials** bölümü depolar, Docker kayıt defteri kimlik bilgilerini böylece modül görüntünüzü IOT Edge Aracısı çekebilirsiniz. Gerçek kullanıcı adı ve parola çiftleri, git tarafından yoksayılan .env dosyasında depolanır. Henüz yapmadıysanız, kimlik bilgilerinizi .env dosyaya ekleyin.  
+
+   4. Dağıtım bildirimleri hakkında daha fazla bilgi edinmek istiyorsanız bkz [modülleri dağıtma ve IOT Edge'de rotaları oluşturmak hakkında bilgi edinin](module-composition.md).
 
 13. Dağıtım bildirimine **JavaModule** modül ikizini ekleyin. Aşağıdaki JSON içeriğini **moduleContent** bölümünün en altına, **$edgeHub** modül ikizinin arkasına ekleyin: 
 
@@ -236,7 +242,7 @@ Ortam dosyası, kapsayıcı kayıt defterinizin kimlik bilgilerini depolar ve bu
 
    ![Modül ikizi için dağıtım şablonu Ekle](./media/tutorial-java-module/module-twin.png)
 
-14. Bu dosyayı kaydedin.
+14. Deployment.template.json dosyayı kaydedin.
 
 ## <a name="build-your-iot-edge-solution"></a>IoT Edge çözümünüzü derleyin
 

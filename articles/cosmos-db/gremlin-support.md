@@ -1,19 +1,18 @@
 ---
 title: Azure Cosmos DB Gremlin desteği
 description: Apache TinkerPop’un Gremlin dili hakkında bilgi edinin. Azure Cosmos DB’de kullanılabilen özellikleri ve adımları öğrenin
-services: cosmos-db
 author: LuisBosquez
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: 53ca762232db5e79acdacbb3d52ce05f88dc108b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e7230e9c4d97c1c3ba8f0cf20d32f5a59ea2219b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53080410"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034531"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin grafik desteği
 Azure Cosmos DB, [Apache Tinkerpop’un](https://tinkerpop.apache.org) grafik varlıkları oluşturmak ve grafik sorgu işlemlerini gerçekleştirmeye yönelik Gremlin API’si ve aynı zamanda bir grafik geçiş dili olan [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)’i destekler. Grafik varlıkları (köşeler ve kenarlar) oluşturmak, bu varlıkların içindeki özellikleri değiştirmek, sorgu ve geçiş işlemleri gerçekleştirmek ve varlıkları silmek için Gremlin dilini kullanabilirsiniz. 
@@ -29,17 +28,17 @@ Sorguların Gremlin’de nasıl ifade edildiğini anlamak için örnek bir grafi
 
 Bu grafikte aşağıdaki köşe türleri (Gremlin’de “etiket” olarak adlandırılır) vardır:
 
-- Kişiler: Grafikte Robin, Thomas ve Ben olmak üzere üç kişi var
-- İlgi Alanları: Bu örnekteki kişilerin ilgi alanı futbol
-- Cihazlar: Kişilerin kullandığı cihazlar
-- İşletim Sistemleri: Cihazların çalıştığı işletim sistemleri
+- Kişiler: Grafiği bir kez deneme Thomas ve Ben üç kişi vardır
+- İlgi alanları: Bu örnekte, oyunu futbol kendi ilgi alanlarına
+- Cihazlar: Kullanımı cihazlar
+- İşletim sistemleri: Cihaz üzerinde çalışan işletim sistemleri
 
 Aşağıdaki kenar türleri/etiketleri üzerinden bu varlıklar arasındaki ilişkiyi temsil ediyoruz:
 
-- Tanıma: Örneğin, “Thomas, Robin’i tanıyor”
-- İlgilenme: Grafiğimizdeki kişilerin ilgilerini temsil eder, örneğin “Ben, futbolla ilgilenmektedir”
-- İşletim Sistemi Çalıştırma: Dizüstü bilgisayar, Windows işletim sistemini çalıştırır
-- Kullanma: Kişinin kullandığı cihazı temsil eder. Örneğin Robin, seri numarası 77 olan bir Motorola telefon kullanır
+- Bilir: Örneğin, "Thomas Robin bilir"
+- İster misiniz: Bizim Graph'te kişiler, örneğin, "Ben futbol ilgilenmektedir" ilgi alanları göstermek için
+- RunsOS: Dizüstü bilgisayar Windows işletim sistemi çalıştırır.
+- Kullanır: Bir kişi hangi cihaz göstermek için kullanır. Örneğin Robin, seri numarası 77 olan bir Motorola telefon kullanır
 
 Şimdi [Gremlin Console](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console)’u kullanarak bu grafiğe yönelik birkaç işlem yapalım. Dilerseniz bu işlemleri, tercih ettiğiniz platformdaki (Java, Node.js, Python veya .NET) Gremlin sürücülerini kullanarak da gerçekleştirebilirsiniz.  Azure Cosmos DB’de nelerin desteklendiğine bakmadan önce söz dizimine hakkında bilgi edinmek için birkaç örneğe bakalım.
 
@@ -81,7 +80,7 @@ Aşağıdaki tabloda Azure Cosmos DB tarafından uygulanan TinkerPop özellikler
 | Kenar özellikleri | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Kenar oluşturma, değiştirme ve silmeyi destekler |
 | Kenar özellikleri | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Kenar özelliklerini oluşturma, değiştirme ve silmeyi destekler |
 
-## <a name="gremlin-wire-format-graphson"></a>Gremlin gönderme biçimi: GraphSON
+## <a name="gremlin-wire-format-graphson"></a>Gremlin kablo biçimi: GraphSON
 
 Azure Cosmos DB, Gremlin işlemlerinden sonuçları döndürürken [GraphSON biçimini](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) kullanır. GraphSON köşeleri, kenarları ve özellikleri (tek ve birden çok değerli özellikleri) JSON kullanarak temsil etmeye yönelik standart Gremlin biçimidir. 
 

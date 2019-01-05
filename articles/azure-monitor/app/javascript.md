@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 63ee308c50a2d5399dd395dc90c2666fae0bbf49
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: be7cb2e602f1c8c0c8471c866d68c28e0ec37498
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999467"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042351"
 ---
 # <a name="application-insights-for-web-pages"></a>Web sayfaları için Application Insights
 Web sayfanızın veya uygulamanızın performansı ve kullanımı hakkında bilgi edinin. Sayfa betiğinize [Application Insights](../../application-insights/app-insights-overview.md)’ı ekleyerek, sayfa yüklemelerinin ve AJAX çağrılarının zamanlamalarının yanı sıra, tarayıcı özel durumları ile AJAX hatalarının sayılarını ve ayrıntılarını, ayrıca kullanıcı ve oturum sayılarını elde edebilirsiniz. Bunların tümü sayfaya, istemci işletim sistemi ve tarayıcı sürümüne, coğrafi konuma ve başka boyutlara göre kesimlere ayrılmıştır. Hata sayısı veya yavaş sayfa yüklemesi hakkında uyarı ayarlayabilirsiniz. Ayrıca JavaScript kodunuza izleme çağrıları ekleyerek web sayfası uygulamanızın farklı özelliklerinin nasıl kullanıldığını izleyebilirsiniz.
@@ -70,7 +70,7 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 Betiği, izlemek istediğiniz her sayfanın `</head>` etiketinin hemen önüne ekleyin. Web sayfanızda bir ana sayfa varsa betiği buraya koyabilirsiniz. Örneğin:
 
 * ASP.NET MVC projesinde `View\Shared\_Layout.cshtml` içine koyabilirsiniz
-* SharePoint sitesinde, denetim masasında [Site Ayarları / Ana Sayfa](../../application-insights/app-insights-sharepoint.md)’yı açın.
+* SharePoint sitesinde, denetim masasında [Site Ayarları / Ana Sayfa](../../azure-monitor/app/sharepoint.md)’yı açın.
 
 Betikte, verileri Application Insights kaynağınıza yönlendiren izleme anahtarı bulunur. 
 
@@ -118,7 +118,7 @@ Kullanıcılarınızın tarayıcılarından toplanan performans verilerini göst
 
 ![portal.azure.com adresinde uygulamanızın kaynağını açıp Ayarlar, Tarayıcı’ya tıklama](./media/javascript/03.png)
 
-Henüz veri yok? Sayfanın üstündeki **Yenile**'ye tıklayın. Hala hiçbir şey yok mu? Bkz. [Sorun giderme](../../application-insights/app-insights-troubleshoot-faq.md).
+Henüz veri yok? Sayfanın üstündeki **Yenile**'ye tıklayın. Hala hiçbir şey yok mu? Bkz. [Sorun giderme](../../azure-monitor/app/troubleshoot-faq.md).
 
 Tarayıcı dikey penceresi, hazır filtrelerin ve grafik seçimlerinin bulunduğu [Ölçüm Gezgini dikey penceresidir](../../azure-monitor/app/metrics-explorer.md). İsterseniz zaman aralığını, filtreleri ve grafik yapılandırmasını düzenleyebilir ve sonucu sık kullanılan olarak kaydedebilirsiniz. Asıl dikey pencere yapılandırmasına dönmek için **Varsayılanları geri yükle**’ye tıklayın.
 
@@ -227,7 +227,7 @@ Sayfa adında,URL’deki karakterlerin aynısı bulunabilir, ancak "#" veya "?" 
 ## <a name="usage-tracking"></a>Kullanımı izleme
 Uygulamanızla kullanıcılarınızın neler yaptığını bilmek ister misiniz?
 
-* [Kullanıcı davranış analizi araçları hakkında bilgi edinin](../../application-insights/app-insights-usage-overview.md)
+* [Kullanıcı davranış analizi araçları hakkında bilgi edinin](../../azure-monitor/app/usage-overview.md)
 * [Özel etkinlikler ve ölçüm API’si hakkında bilgi edinin](../../azure-monitor/app/api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
@@ -238,7 +238,7 @@ Uygulamanızla kullanıcılarınızın neler yaptığını bilmek ister misiniz?
 
 
 ## <a name="next"></a> Sonraki adımlar
-* [Kullanımı izleme](../../application-insights/app-insights-usage-overview.md)
+* [Kullanımı izleme](../../azure-monitor/app/usage-overview.md)
 * [Özel etkinlikler ve ölçümler](../../azure-monitor/app/api-custom-events-metrics.md)
-* [Build-measure-learn](../../application-insights/app-insights-usage-overview.md)
+* [Build-measure-learn](../../azure-monitor/app/usage-overview.md)
 

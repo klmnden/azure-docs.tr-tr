@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: ea2e0513ef2674fdbe6d28f77c4f709848a0d2eb
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c7b9485d9a7da6479e65689fbcab67e10dec5cb2
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016384"
+ms.locfileid: "54052283"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps için Application Insights’a genel bakış
 
@@ -61,7 +61,7 @@ Web testi grafiğinde hatalar kırmızı nokta olarak görünür:
 Ancak daha da önemlisi, herhangi bir hata hakkındaki uyarı geliştirme ekibine e-posta ile gönderilir. Bu şekilde, neredeyse müşterilerin tümünden önce bunu öğrenirler.
 
 ## <a name="monitor-performance"></a>Performansı izleme
-Application Insights’ta genel bakış sayfasında çeşitli [ana ölçümleri](../../application-insights/app-insights-web-monitor-performance.md) gösteren bir grafik vardır.
+Application Insights’ta genel bakış sayfasında çeşitli [ana ölçümleri](../../azure-monitor/app/web-monitor-performance.md) gösteren bir grafik vardır.
 
 ![Performans KPI grafiklerine genel bakış ekran görüntüsü](./media/detect-triage-diagnose/overview-graphs.png)
 
@@ -151,7 +151,7 @@ Yığının bir kopyasını gönderdiğinden özel durumları bildirmek için Tr
 
 
 ## <a name="monitor-proactively"></a>Proaktif izleme
-Marcela, öyle oturup uyarıları beklemez. Her dağıtımdan hemen sonra [yanıt sürelerini](../../application-insights/app-insights-web-monitor-performance.md) inceler; özel durum sayılarının yanı sıra hem genel rakamlara hem de en yavaş istekler tablosuna bakar.  
+Marcela, öyle oturup uyarıları beklemez. Her dağıtımdan hemen sonra [yanıt sürelerini](../../azure-monitor/app/web-monitor-performance.md) inceler; özel durum sayılarının yanı sıra hem genel rakamlara hem de en yavaş istekler tablosuna bakar.  
 
 ![Yanıt süresi grafiği ve sunucu yanıt süreleri kılavuzu.](./media/detect-triage-diagnose/response-time.png)
 
@@ -215,7 +215,7 @@ Nedenler ne olursa olsun, veriler ekibin kullanıcıların neler yaptığını o
 
 Ekip kullanıcı etkinliği ile ilgili bilgilere ulaşmaya alışıyor. Günümüzde, yeni bir özelliği her tasarladıklarında, kullanımı hakkında geri bildirimi nasıl alacakları üzerine çalışıyorlar. İzleme çağrılarını daha en başından özelliğin içinde tasarlıyorlar. Her geliştirme döngüsünde özelliği geliştirmek için bu geri bildirimleri kullanıyorlar.
 
-[Kullanımı izleme hakkında daha fazla bilgi edinin](../../application-insights/app-insights-usage-overview.md).
+[Kullanımı izleme hakkında daha fazla bilgi edinin](../../azure-monitor/app/usage-overview.md).
 
 ## <a name="apply-the-devops-cycle"></a>DevOps döngüsünü uygulama
 Bir ekip Application Insights’ı sadece bağımsız sorunları düzeltmek için değil aynı zamanda geliştirme yaşam döngülerini de iyileştirmek için işte böyle kullanır. Umarım, bu Application Insights’ın kendi uygulamalarınızdaki uygulama performans yönetiminde size nasıl yardımcı olabileceği hakkında bazı fikirler vermiştir.

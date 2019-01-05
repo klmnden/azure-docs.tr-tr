@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 32b8337121c2552a29f9af35e50f540972a1add7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2497793ce5d24ed2516636e76b8b947417dd9f74
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847652"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039954"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008 çalıştıran sunucuları Azure'a geçirme
 
@@ -89,7 +89,7 @@ Azure aboneliğini ve şirket içi VMware/Fiziksel ortamı hazırlamak için aş
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
 1. [Azure Portal](https://portal.azure.com) > **Kurtarma Hizmetleri**’nde oturum açın.
-2. **Kaynak oluştur** > **İzleme ve Yönetim** > **Backup ve Site Recovery** öğesine tıklayın.
+2. Tıklayın **kaynak Oluştur** > **Yönetim Araçları** > **Backup ve Site Recovery**.
 3. **Ad** bölümünde **W2K8-migration** kolay adını belirtin. Birden fazla aboneliğiniz varsa uygun olanı seçin.
 4. **w2k8migrate** adlı bir kaynak grubu oluşturun.
 5. Bir Azure bölgesi belirtin. Desteklenen bölgeleri kontrol etmek için [Azure Site Recovery Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/site-recovery/) bölümündeki coğrafi kullanılabilirlik kısmına bakın.
@@ -163,4 +163,4 @@ Geçirmek istediğiniz makineler için yük devretmeyi çalıştırın.
 
 
 > [!WARNING]
-> **Devam eden yük devretme işlemini iptal etmeyin**: Yük devretme başlatılmadan önce VM çoğaltma durdurulur. Devam eden bir yük devretme işlemini iptal ederseniz yük devretme durdurulur, ancak VM yeniden çoğaltılmaz.
+> **Devam eden bir yük devretme işlemini iptal etmeyin**: Yük devretme başlatılmadan önce VM çoğaltma durdurulur. Devam eden bir yük devretme işlemini iptal ederseniz yük devretme durdurulur, ancak VM yeniden çoğaltılmaz.

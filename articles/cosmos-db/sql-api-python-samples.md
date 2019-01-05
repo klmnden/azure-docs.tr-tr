@@ -1,21 +1,19 @@
 ---
 title: Azure Cosmos DB SQL API Python örnekleri
 description: Python örnekler, CRUD işlemleri dahil olmak üzere Azure Cosmos DB'de ortak görevler için Github'da bulabilirsiniz.
-keywords: python örnekleri
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 87558da38b829413c8e0e5857d3b96ff49405c54
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: cccf2c4ddde60c331c04da7bdb77591aa940a89b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166464"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033835"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python örnekleri
 

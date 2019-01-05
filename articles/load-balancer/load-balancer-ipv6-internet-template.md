@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 2374df3a457e0f4730dcaa6d69ea3f2e0fa6e9cc
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 4a8c7309a07238ef3410e42c3d631ad525f023cc
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163217"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039801"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Şablon kullanarak bir Internet'e yönelik Yük Dengeleyici çözümü IPv6 ile dağıtma
 
@@ -133,3 +133,7 @@ Bu makalede kullanılan örnek şablonu, aşağıdaki değişkenleri ve parametr
 | lbname adlı |Yük Dengeleyici adını belirtin. Bu ad portalında görüntülenen veya CLI veya PowerShell komutuyla başvururken kullanılır. |
 
 Şablondaki kalan değişkenleri Azure kaynakları oluştururken, atanan türetilmiş değerleri içerir. Bu değişkenler değiştirmeyin.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+JSON söz dizimi ve bir şablon bir yük dengeleyici özelliklerini bkz [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).

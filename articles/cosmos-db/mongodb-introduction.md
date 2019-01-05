@@ -1,22 +1,20 @@
 ---
 title: MongoDB için Azure Cosmos DB'nin API'sine giriş
 description: Azure Cosmos DB'ye MongoDB için Azure Cosmos DB'nin API'sini kullanarak veri depolamak ve sorgulamak oldukça büyük miktardaki nasıl kullanabileceğinizi öğrenin.
-keywords: Azure Cosmos DB'nin MongoDB API'si
-services: cosmos-db
-author: rimman
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 12/26/2018
-ms.author: rimman
-ms.openlocfilehash: f17d8f46bc14297c70c21919abe236fc544facfa
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+author: sivethe
+ms.author: sivethe
+ms.openlocfilehash: d0f61afaba094a1e499a91f9937a31554438759e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787622"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042181"
 ---
-# <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB'nin MongoDB API'si
+# <a name="azure-cosmos-dbs-api-for-mongodb"></a>MongoDB için Azure Cosmos DB API'si
 
 [Azure Cosmos DB](introduction.md), Microsoft'un görev açısından kritik uygulamalar için genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB, [kullanıma hazır genel dağıtım](distribute-data-globally.md), dünya çapında [aktarım hızı ve depolama için esnek ölçeklendirme](partition-data.md), 99. yüzdebirlik dilimde tek haneli milisaniyelik gecikme süreleri ve garantili yüksek kullanılabilirlik olanakları sunar ve bunların tümü [sektör lideri SLA’lar](https://azure.microsoft.com/support/legal/sla/cosmos-db/) ile desteklenir. Azure Cosmos DB, şema ve dizin yönetimiyle ilgilenmenize gerek kalmadan [otomatik olarak verilerin dizinini oluşturur](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Çok modelli olan bu hizmet belge, anahtar-değer, grafik ve sütunlu veri modellerini destekler. Varsayılan olarak, Cosmos DB SQL API'sini kullanarak ile etkileşim kurabilir. Ayrıca, Cosmos DB hizmetinin, Cassandra, MongoDB, Gremlin ve Azure tablo depolama gibi sık kullanılan NoSQL API'leri için kablo protokollerini kullanır. Bu, Cosmos veritabanıyla etkileşim kurmanıza imkan tanıdık NoSQL istemci sürücüleri ve araçlarını kullanmanıza olanak sağlar.
 
@@ -26,7 +24,7 @@ Azure Cosmos DB Cassandra, MongoDB, Gremlin ve Azure tablo depolama da dahil olm
 
 Varsayılan olarak, Azure Cosmos DB'nin MongoDB API'si, Mongodb'nin kablo protokolünü 3.2 sürümü ile uyumludur. Bir önizleme özelliği olarak şu anda özellikleri veya kablo protokolünü 3.4 sürümünde eklenen sorgu işleçleri kullanılabilir. Bu protokol sürümleri anlayan herhangi bir MongoDB istemcisi sürücüsünü yerel olarak Cosmos DB'ye bağlanmak görebilmeniz gerekir.
 
-![Azure Cosmos DB'nin MongoDB API'si](./media/mongodb-introduction/cosmosdb-mongodb.png) 
+![MongoDB için Azure Cosmos DB API'si](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
 ## <a name="key-benefits"></a>Önemli avantajlar
 

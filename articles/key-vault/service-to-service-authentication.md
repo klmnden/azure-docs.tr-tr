@@ -6,18 +6,18 @@ author: bryanla
 manager: mbaldwin
 services: key-vault
 ms.author: bryanla
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: 54449e26279e6c6d83a57daa9c8f40819fab4993
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e3239d57b34af396ee4b23f3b9b01b367eb3daa6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715775"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050124"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET kullanarak Azure Key Vault hizmetten hizmete kimlik doğrulaması
 
@@ -29,14 +29,14 @@ Azure AD kimlik bilgileri oluşturun veya paylaşım geliştiricileri arasında 
 
 `Microsoft.Azure.Services.AppAuthentication` Kitaplığı yönetir kimlik doğrulama otomatik olarak hangi sırayla kimlik bilgilerinizi yerine çözümünüzün odaklanmanızı sağlar.
 
-`Microsoft.Azure.Services.AppAuthentication` Kitaplığı, Microsoft Visual Studio, Azure CLI veya Azure AD tümleşik kimlik doğrulaması ile yerel geliştirmeyi destekler. Azure App Services veya Azure sanal makinesi (VM) dağıtıldığında otomatik olarak kitaplığı kullanan [yönetilen Azure Hizmetleri için kimlikleri](/azure/active-directory/msi-overview). Kod veya yapılandırma değişiklik gerekmez. Kitaplık ayrıca doğrudan Azure AD'ye destekler [istemci kimlik bilgileri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) bir yönetilen kimlik mevcut olmadığında ya da yerel geliştirme sırasında Geliştirici güvenlik bağlamı belirlenemiyor.
+`Microsoft.Azure.Services.AppAuthentication` Kitaplığı, Microsoft Visual Studio, Azure CLI veya Azure AD tümleşik kimlik doğrulaması ile yerel geliştirmeyi destekler. Bir yönetilen kimliği destekleyen bir Azure kaynağına dağıtıldığında otomatik olarak kitaplığı kullanan [kimliklerini Azure kaynakları için yönetilen](/azure/active-directory/msi-overview). Kod veya yapılandırma değişiklik gerekmez. Kitaplık ayrıca doğrudan Azure AD'ye destekler [istemci kimlik bilgileri](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) bir yönetilen kimlik mevcut olmadığında ya da yerel geliştirme sırasında Geliştirici güvenlik bağlamı belirlenemiyor.
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>Kitaplığı kullanma
 
 .NET uygulamaları için yönetilen bir kimlik ile çalışmak için en basit yolu aracılığıyladır `Microsoft.Azure.Services.AppAuthentication` paket. Nasıl başlayacağınızı şöyledir:
 
-1. Bir başvuru ekleyin [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) uygulamanıza NuGet paketi.
+1. Başvuruları Ekle [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) ve [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) uygulamanıza NuGet paketleri. 
 
 2. Aşağıdaki kodu ekleyin:
 
@@ -44,16 +44,13 @@ Azure AD kimlik bilgileri oluşturun veya paylaşım geliştiricileri arasında 
     using Microsoft.Azure.Services.AppAuthentication;
     using Microsoft.Azure.KeyVault;
 
-    // ...
+    // Instantiate a new KeyVaultClient object, with an access token to Key Vault
+    var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
 
-    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(
-    azureServiceTokenProvider.KeyVaultTokenCallback));
-
-    // or
-
-    var azureServiceTokenProvider = new AzureServiceTokenProvider();
-    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync(
-       "https://management.azure.com/").ConfigureAwait(false);
+    // Optional: Request an access token to other Azure services
+    var azureServiceTokenProvider2 = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
 `AzureServiceTokenProvider` Sınıfı bellekteki belirteci önbelleğe alır ve süre sonu hemen önce Azure AD'den alır. Sonuç olarak, artık çağırmadan önce sona erme denetlemek sahip olduğunuz `GetAccessTokenAsync` yöntemi. Yalnızca belirteç kullanmak istediğinizde bu yöntemi çağırın. 
@@ -234,8 +231,5 @@ Aşağıdaki seçenekler desteklenir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinin [kimliklerini Azure kaynakları için yönetilen](/azure/app-service/overview-managed-identity).
-
-- Bilgi edinmek için farklı yollar [kimliğini doğrulama ve yetkilendirme uygulamaları](/azure/app-service/overview-authentication-authorization).
-
-- Azure AD hakkında daha fazla bilgi [kimlik doğrulama senaryoları](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application).
+- Daha fazla bilgi edinin [kimliklerini Azure kaynakları için yönetilen](/azure/active-directory/managed-identities-azure-resources/).
+- Daha fazla bilgi edinin [Azure AD kimlik doğrulama senaryoları](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application).

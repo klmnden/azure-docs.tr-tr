@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 99ea7e7db9d0cc80bfd37a256fc1be388feaa530
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317356"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043898"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Hızlı Başlangıç: kullanıcılarının oturumunu ve bir JavaScript uygulamasında erişim belirteci alma
+# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Hızlı Başlangıç: Kullanıcılar oturum ve bir JavaScript uygulamasında erişim belirteci alma
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -31,7 +31,18 @@ Bu hızlı başlangıçta, tek sayfalı uygulama (SPA) kişisel hesaplarında ot
 ![Bu Hızlı Başlangıcın oluşturduğu örnek uygulama nasıl çalışır?](media/quickstart-v2-javascript/javascriptspa-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>Uygulamanızı kaydetme ve hızlı başlangıç uygulamanızı indirme
+> ## <a name="register-and-download-your-quickstart-application"></a>Kaydolun ve hızlı başlangıç uygulamanızı indirin
+> Hızlı başlangıç uygulamanızı başlatmak için kullanabileceğiniz iki seçenek vardır:
+> * [Express] [Seçenek 1: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [El ile] [Seçeneği 2: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma](#option-2-register-and-manually-configure-your-application-and-code-sample)
+>
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>1. seçenek: Kaydet ve otomatik Uygulamanızı yapılandırmak ve ardından, kod örneğini indirin
+>
+> 1. [Azure portal - Uygulama Kaydı (Önizleme)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavascriptSpaQuickstartPage/sourceType/docs) sayfasına gidin.
+> 1. Uygulamanız için bir ad girin ve **Kaydet**'e tıklayın.
+> 1. Yönergeleri izleyerek yeni uygulamanızı tek tıkla indirin ve otomatik olarak yapılandırın.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>2. seçenek: Kaydetme ve uygulama ve kod örneğinizi el ile yapılandırma
 >
 > #### <a name="step-1-register-your-application"></a>1. Adım: Uygulamanızı kaydetme
 >
@@ -47,7 +58,7 @@ Bu hızlı başlangıçta, tek sayfalı uygulama (SPA) kişisel hesaplarında ot
 > 1. **Kaydet**’i seçin.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1. adım: uygulamanızı Azure portalında yapılandırma
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>1. Adım: Uygulamanızı Azure portalında yapılandırma
 > Çalışmak bu hızlı başlangıç için kod örneği için bir yeniden yönlendirme eklemeniz gereken URI olarak `http://localhost:30662/` ve etkinleştirme **örtük vermeyi**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Benim için şu değişiklikleri yapın]()
@@ -55,7 +66,7 @@ Bu hızlı başlangıçta, tek sayfalı uygulama (SPA) kişisel hesaplarında ot
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Zaten yapılandırılmış](media/quickstart-v2-javascript/green-check.png) Uygulamanız bu özniteliklerle yapılandırılmış.
 
-#### <a name="step-2-download-the-project"></a>2. Adım: Projeyi indirme
+#### <a name="step-2-download-the-project"></a>2. Adım: Projenizi indirin
 
 Geliştirme ortamınız için uygun olan bu seçeneklerden birini seçebilirsiniz.
 * [-Web sunucusu, Node.js gibi core proje dosyaları indirme](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip)
@@ -63,7 +74,7 @@ Geliştirme ortamınız için uygun olan bu seçeneklerden birini seçebilirsini
 
 Örneğin, bir yerel klasör zip dosyasını ayıklayın **C:\Azure-Samples**.
 
-#### <a name="step-3-configure-your-javascript-app"></a>3. adım: JavaScript uygulamanızı yapılandırın
+#### <a name="step-3-configure-your-javascript-app"></a>3. Adım: JavaScript uygulamanızı yapılandırın
 
 > [!div renderon="docs"]
 > Düzen `index.html` ayarlayıp `clientID` ve `authority` altındaki değerler `applicationConfig`.
@@ -95,7 +106,7 @@ var applicationConfig = {
 > Sunucu bağlantı noktası 30662 dinleyecek şekilde yapılandırılmış *server.js* dosyası [Node.js](https://nodejs.org/en/download/) proje ve *.csproj* dosyası [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)proje.
 >
 
-#### <a name="step-4-run-the-project"></a>4. adım: Proje çalıştırma
+#### <a name="step-4-run-the-project"></a>4. Adım: Projeyi çalıştırma
 
 * Node.js kullanıyorsanız:
 

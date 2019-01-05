@@ -1,13 +1,9 @@
 ---
-title: Gerçek kullanıcı ölçümleri Azure trafik Yöneticisi'nde | Microsoft Docs
-description: Gerçek kullanıcı ölçümleri trafik Yöneticisi'nde giriş
+title: İçinde Azure Traffic Manager gerçek kullanıcı ölçümleri
+description: Gerçek kullanıcı ölçümleri, Traffic Manager giriş
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -16,33 +12,33 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 4e8d808d65c9898d230455d128e3ffc50db303d6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fd37ef739522955ae8227db39a41aecf199d65c3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178122"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052828"
 ---
-# <a name="traffic-manager-real-user-measurements-overview"></a>Trafik Yöneticisi gerçek kullanıcı ölçümleri genel bakış
+# <a name="traffic-manager-real-user-measurements-overview"></a>Traffic Manager gerçek kullanıcı ölçümleri'ne genel bakış
 
-Performans yönlendirme yöntemini kullanmak için bir trafik Yöneticisi profili ayarladığınızda, hizmet burada DNS sorgu isteği'ten gelen ve bu istek sahipleri en düşük gecikme sağlar Azure bölgesine yönlendirmek için yönlendirme kararlarını verir bakar. Bu trafik Yöneticisi için farklı son kullanıcı ağları tutar ağ gecikmesi Intelligence yararlanarak gerçekleştirilir.
+Performans yönlendirme yöntemini kullanmak için bir Traffic Manager profili ayarladığınızda, hizmetin DNS sorgu isteği nereden geldiğini ve bu istek sahipleri en düşük gecikme süresi sağlayan bir Azure bölgesine doğrudan yönlendirme kararlarını verir arar. Bu, farklı son kullanıcı ağlar için Traffic Manager tutar ağ gecikme süresi bilgilerinin yararlanarak gerçekleştirilir.
 
-Ağ gecikmesi ölçümleri Azure bölgeleri için son kullanıcılarınızın kullanın, istemci uygulamalarından ölçmek gerçek kullanıcı ölçümleri sağlar ve sahip trafik Yöneticisi düşünün bu bilgileri de yönlendirme kararları verirken. Gerçek kullanıcı ölçümleri Kullan'ı seçerek son kullanıcılarınızın bulunduğu bu ağlardan gelen istekleri için yönlendirme doğruluğunu artırabilir. 
+Sahip Traffic Manager göz önünde bulundurun, bilgilerini de yönlendirme kararları verirken ve ağ gecikme ölçümlerini Azure bölgeleri için son kullanıcılarınızın kullanın, istemci uygulamalarından ölçmek gerçek kullanıcı ölçümleri sağlar. Gerçek kullanıcı ölçümleri kullanılacak seçerek, son kullanıcılarınızın bulunduğu bu ağlardan gelen istekler için yönlendirme doğruluğunu artırabilirsiniz. 
 
-## <a name="how-real-user-measurements-work"></a>Gerçek kullanıcı ölçümleri nasıl çalışır
+## <a name="how-real-user-measurements-work"></a>Gerçek kullanıcı ölçümleri nasıl çalışır?
 
-Gerçek kullanıcı ölçümleri kullanılan son kullanıcı ağlardan görülen Azure bölgeler ile istemci uygulamaları ölçü gecikme sağlayarak çalışır. Kullanıcılar tarafından farklı konumlarda (örneğin, Kuzey Amerika bölgelerde) üzerinden erişilen bir web sayfası varsa en iyi Azure bölgesinde almak için performans yönlendirme yöntemini kullandığınızda, örnek olarak, gerçek kullanıcı ölçümleri gücünü yararlanabileceğiniz hangi sunucu uygulamanızı barındırılır.
+Gerçek kullanıcı ölçümleri, bunlar kullanılır son kullanıcı ağlardan görülen Azure bölgeleri için istemci uygulamaları ölçü gecikmeniz sağlayarak çalışır. Kullanıcılar tarafından farklı konumlarda (örneğin, Kuzey Amerika bölgeleri için) üzerinden erişilen bir web sayfası varsa, örneğin, gerçek kullanıcı ölçümleri performans yönlendirme yöntemini, en iyi Azure bölgesi almak için kullanabileceğiniz sunucunuzun Uygulama barındırılır.
 
-Web sayfalarınızda (ile benzersiz bir anahtar da) Azure bir sağlanan JavaScript gömerek başlar. Bir kullanıcı, bir Web sitesini ziyaret olduğunda, yapıldıktan sonra JavaScript trafik Yöneticisi'ni ölçmek Azure bölgeleri hakkında bilgi almak için sorgular. Hizmet uç noktaları kümesini komut dosyasına, sonra bu bölgeler art arda yükleyerek bu Azure bölgelerinde barındırılan ve gecikme süresi arasında belirtmeye tek pikselli bir görüntü isteği gönderildi ölçü ve ilk bayt alındığında saati döndürür . Bu ölçümleri, trafik yöneticisi hizmete geri raporlanır.
+Web sayfaları'nda (benzersiz bir anahtar da ile) bir Azure sağlanan JavaScript ekleyerek başlar. Her bir kullanıcı, bir Web sitesini ziyaret eden, yaptıktan sonra JavaScript, Traffic Manager'ın Azure bölgelerini ölçme bilgilerini almak için sorgular. Hizmet, ardından bu bölgeler art arda yükleyerek bu Azure bölgelerinde barındırılan ve gecikme süresini saat arasındaki belirtmeye tek pikselli bir görüntü istek gönderildiği ölçü ve ne zaman ilk baytı alındığı zamanı komut dosyasına bir uç nokta kümesine yapılandırmayı döndürür. . Bu ölçümleri, Traffic Manager hizmeti için geri raporlanır.
 
-Zaman içerisinde, bu birçok kez gerçekleşir ve birçok ağlar, ağ gecikme süresi özellikleri hakkında daha doğru bilgi alma trafik Yöneticisi önde gelen son kullanıcılarınızın bulunur. Bu bilgiler, trafik Yöneticisi tarafından yapılan yönlendirme kararları dahil edilecek alma başlatır. Sonuç olarak, gerçek kullanıcı ölçü gönderilen göre bu kararların daha yüksek doğruluk neden olmaktadır.
+Zaman içinde birçok kez böyle ve birçok ağlar, ağ gecikme süresi özellikleri hakkında daha doğru bilgi başlama Traffic Manager önde gelen son kullanıcılarınızın bulunur. Bu bilgiler, Traffic Manager tarafından verilen yönlendirme kararlarını dahil edilecek alma başlatır. Sonuç olarak, bunu artırılmış doğruluk gönderilen gerçek kullanıcı ölçümleri temel alınarak bu kararları doğurur.
 
-Gerçek kullanıcı ölçümleri kullandığınızda, trafik Yöneticisi için gönderilen ölçümleri sayısına göre faturalandırılır. Fiyatlandırma hakkında daha fazla ayrıntı için ziyaret [trafik Yöneticisi fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/traffic-manager/).
+Gerçek kullanıcı ölçümleri kullandığınızda, Traffic Manager'a gönderilen ölçülerin sayısına göre faturalandırılır. Fiyatlandırma hakkında ayrıntılı bilgi için ziyaret [Traffic Manager fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Nasıl kullanacağınızı öğrenin [web sayfalarıyla gerçek kullanıcı ölçümleri](traffic-manager-create-rum-web-pages.md)
-- Bilgi [trafik Yöneticisi nasıl çalışır?](traffic-manager-overview.md)
-- Daha fazla bilgi edinmek [Mobile Merkezi](https://docs.microsoft.com/mobile-center/)
-- Daha fazla bilgi edinmek [trafik yönlendirme yöntemleri](traffic-manager-routing-methods.md) Traffic Manager tarafından desteklenen
-- Bilgi edinmek için nasıl [bir Traffic Manager profili oluşturma](traffic-manager-create-profile.md)
+- Nasıl kullanacağınızı öğrenin [web sayfaları ile gerçek kullanıcı ölçümleri](traffic-manager-create-rum-web-pages.md)
+- Bilgi [Traffic Manager nasıl çalışır?](traffic-manager-overview.md)
+- Daha fazla bilgi edinin [Mobile Center](https://docs.microsoft.com/mobile-center/)
+- Daha fazla bilgi edinin [trafik yönlendirme yöntemlerini](traffic-manager-routing-methods.md) Traffic Manager tarafından desteklenen
+- Bilgi edinmek için nasıl [Traffic Manager profili oluşturma](traffic-manager-create-profile.md)
 

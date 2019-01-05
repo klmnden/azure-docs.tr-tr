@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: c23ff8a22284416a9c87750e4ca0448e0690de0e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f828ebf9131be014d2ea572b3314b1aacd630d14
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017523"
+ms.locfileid: "54050368"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>.NET uygulamaları için Application Insights’ı el ile yapılandırma
 
@@ -99,7 +99,7 @@ ApplicationInsights.config dosyasında herhangi bir özelleştirme yaptıysanız
     `<InstrumentationKey>` *kopyaladığınız izleme anahtarı* `</InstrumentationKey>`
 * Çözüm Gezgini’nde ApplicationInsights.config dosyası özelliklerinin **Build Action = Content, Copy to Output Directory = Copy** olarak ayarlandığından emin olun.
 
-[Farklı derleme yapılandırmalarında anahtarı değiştirmek istiyorsanız](app-insights-separate-resources.md) kodda izleme anahtarı belirlemeniz faydalı olacaktır. Kodda anahtarı ayarladıysanız `.config` dosyasında ayarlamanız gerekmez.
+[Farklı derleme yapılandırmalarında anahtarı değiştirmek istiyorsanız](../azure-monitor/app/separate-resources.md) kodda izleme anahtarı belirlemeniz faydalı olacaktır. Kodda anahtarı ayarladıysanız `.config` dosyasında ayarlamanız gerekmez.
 
 ## <a name="run"></a> Projenizi çalıştırma
 **F5** ile uygulamanızı çalıştırın ve şunu deneyin: birkaç telemetri oluşturmak için farklı sayfalar açın.
@@ -115,13 +115,13 @@ Genel Bakış grafiklerinde veri arayın. İlk olarak yalnızca bir veya iki nok
 
 ![Daha fazla veri için tıklayın](./media/app-insights-windows-services/12-first-perf.png)
 
-Daha ayrıntılı ölçümler görmek için herhangi bir grafiğe tıklayın. [Ölçümler hakkında daha fazla bilgi edinin.](app-insights-web-monitor-performance.md)
+Daha ayrıntılı ölçümler görmek için herhangi bir grafiğe tıklayın. [Ölçümler hakkında daha fazla bilgi edinin.](../azure-monitor/app/web-monitor-performance.md)
 
 ### <a name="no-data"></a>Veri yok mu?
 * Birkaç telemetri oluşturması için farklı sayfaları açarak uygulamayı kullanın.
 * Olayları tek tek görmek için [Ara](../azure-monitor/app/diagnostic-search.md) kutucuğunu açın. Bazı durumlarda olayların ölçüm ardışık düzenine ulaşması biraz daha uzun sürer.
 * Birkaç saniye bekleyin ve **Yenile**’ye tıklayın. Grafikler kendilerini düzenli olarak yeniler, ancak bazı verilerin görüntülenmesini bekliyorsanız el ile yenileyebilirsiniz.
-* Bkz. [Sorun giderme](app-insights-troubleshoot-faq.md).
+* Bkz. [Sorun giderme](../azure-monitor/app/troubleshoot-faq.md).
 
 ## <a name="publish-your-app"></a>Uygulamanızı yayımlama
 Şimdi uygulamanızı sunucunuza veya Azure’a dağıtın ve verilerin birikmesini izleyin.

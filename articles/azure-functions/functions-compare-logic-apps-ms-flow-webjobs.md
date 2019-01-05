@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ec2c7a25c5108ee3c6f861defd8403ff40113075
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6960eaa21d38ecf06bd868adccf839235d2e8fcd
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722226"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041161"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, İşlevler ve Web İşleri karşılaştırması
 
@@ -53,7 +53,7 @@ Aşağıdaki tablo, belirli bir tümleştirme için Flow'un mu yoksa Logic Apps'
 
 İşlevler ve Logic Apps, sunucusuz iş yüklerine olanak tanıyan Azure hizmetleridir. Azure İşlevleri, sunucusuz bir işlem hizmetiyken Azure Logic Apps, sunucusuz iş akışları sağlar. Her ikisiyle de karmaşık *düzenlemeler* oluşturulabilir. Düzenleme, Logic Apps’te karmaşık bir görevin gerçekleştirilmesi için yürütülen, *eylemler* olarak adlandırılan işlevlerin veya adımların bir koleksiyonudur. Örneğin, toplu sipariş işlemek için bir işlevin birçok örneğini paralel olarak çalıştırabilir, tüm örneklerin tamamlanmasını bekleyebilir ve sonra toplama işleminde sonuç hesaplayan bir işlevi yürütebilirsiniz.
 
-Azure İşlevleri için düzenlemeleri kod yazarak ve [Dayanıklı İşlevler uzantısını](durable/durable-functions-overview.md) kullanarak geliştirirsiniz. Logic Apps için düzenlemeleri, GUI kullanarak veya yapılandırma dosyalarını düzenleyerek oluşturursunuz.
+Azure İşlevleri için düzenlemeleri kod yazarak ve [Dayanıklı İşlevler uzantısını](durable/durable-functions-concepts.md) kullanarak geliştirirsiniz. Logic Apps için düzenlemeleri, GUI kullanarak veya yapılandırma dosyalarını düzenleyerek oluşturursunuz.
 
 Düzenleme oluşturduğunuzda, mantıksal uygulamalardan işlev çağırdığınızda ve işlevlerden mantıksal uygulama çağırdığınızda hizmetleri karıştırıp eşleştirebilirsiniz. Hizmet özelliklerine veya kişisel tercihinize göre her düzenlemenin nasıl oluşturulacağını seçin. Aşağıdaki tabloda bu hizmetler arasındaki temel farklılıklardan bazıları listelenmektedir:
  

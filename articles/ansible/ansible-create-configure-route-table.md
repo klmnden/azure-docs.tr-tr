@@ -3,17 +3,17 @@ title: Oluşturma, değiştirme veya ansible'ı kullanarak bir Azure rota tablos
 description: Oluşturma, değiştirme veya silme ansible'ı kullanarak bir yönlendirme tablosu için Ansible'ı kullanmayı öğrenin
 ms.service: ansible
 keywords: ansible'ı, azure, devops, bash, playbook, ağ, yol, yol tablosu
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: yuwzho, kyliel
 ms.topic: tutorial
 ms.date: 12/17/2018
-ms.openlocfilehash: fa050733bbfcdb8ae0f2630c4f716aeed0ebd07e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: ab338183590a2ff301b167d17c3300c4aaacce01
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53797232"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051597"
 ---
 # <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Oluşturma, değiştirme veya ansible'ı kullanarak bir Azure rota tablosunu sil
 Azure otomatik olarak Azure alt ağlar, sanal ağlar arasındaki trafiği yönlendirir ve şirket içi ağlara. Azure'da varsayılan yönlendirmeyi değiştirmek istiyorsanız, oluşturarak bunu bir [yol tablosu](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).

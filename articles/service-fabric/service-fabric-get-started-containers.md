@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: 587ba52a1a30d187268119567b84d2dd8e471b8d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e6552984fd629810fd5e422c92ef9ee8ecd2b342
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300600"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053117"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -330,6 +330,62 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 </ServiceManifestImport>
 ```
 
+### <a name="configure-cluster-wide-credentials"></a>Küme çapında kimlik bilgilerini yapılandırma
+
+V6.3 başlayarak, Service Fabric uygulamaları tarafından varsayılan depo kimlik olarak kullanılabilir küme çapında kimlik bilgilerini yapılandırmak kullanıcı sağlar.
+
+Etkinleştirebilir/bu özellik "UseDefaultRepositoryCredentials" özniteliği Healthcheck ApplicationManifest.xml içinde bir "true/false ile" Boole değeri ekleyerek devre dışı bırakabilir.
+
+```xml
+<ServiceManifestImport>
+    ...
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code" UseDefaultRepositoryCredentials="true">
+            <PortBinding ContainerPort="80" EndpointRef="Guest1TypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+    ...
+</ServiceManifestImport>
+```
+
+Bu, barındırma bölümünde değeri ClusterManifest içinde belirtebilirsiniz varsayılan depo kimlik bilgilerini kullanmak için Service Fabric bildirir.  UseDefaultRepositoryCredentials aşağıdaki değerleri değeri clustermanifest içinde true, Service Fabric olacak şimdi Okunmuş olarak ayarlanmışsa:
+
+* DefaultContainerRepositoryAccountName (dize)
+* DefaultContainerRepositoryPassword (dize)
+* IsDefaultContainerRepositoryPasswordEncrypted (Boole)
+* DefaultContainerRepositoryPasswordType(string)---v6.4 desteklenir
+
+Aşağıda, bir örnek ClusterManifestTemplate.json barındırma bölümünde içine ekleyebilirsiniz. Hakkında daha fazla bilgi [küme ayarının nasıl yapılandırılacağını](service-fabric-cluster-fabric-settings.md) ve [ parola şifreleme](service-fabric-application-secret-management.md)
+
+```json
+      {
+        "name": "Hosting",
+        "parameters": [
+          {
+            "name": "EndpointProviderEnabled",
+            "value": "true"
+          },
+          {
+            "name": "DefaultContainerRepositoryAccountName",
+            "value": "someusername"
+          },
+          {
+            "name": "DefaultContainerRepositoryPassword",
+            "value": "somepassword"
+          },
+          {
+            "name": "IsDefaultContainerRepositoryPasswordEncrypted",
+            "value": "false"
+          },
+          {
+            "name": "DefaultContainerRepositoryPasswordType",
+            "value": "PlainText"
+          }
+        ]
+      },
+```
+
+
 ## <a name="configure-isolation-mode"></a>Yalıtım modunu yapılandırma
 Windows, kapsayıcılar için iki yalıtım modunu destekler: İşlem ve Hyper-V. İşlem yalıtım moduyla, aynı konak makinesinde çalışan tüm kapsayıcılar çekirdeği konakla paylaşır. Hyper-V yalıtım moduyla, çekirdekler her Hyper-V kapsayıcısı ile kapsayıcı konağı arasında yalıtılır. Yalıtım modu, uygulama bildirimi dosyasında bulunan `ContainerHostPolicies` öğesinde belirtilir. Belirtilebilen yalıtım modları `process`, `hyperv` ve `default` modlarıdır. İşlem yalıtım modu, Windows Server konaklarında varsayılandır. Bu nedenle kapsayıcı, yalıtım modu ayarından bağımsız olarak Hyper-V yalıtım modunda çalışıyor Windows 10 konaklarında yalnızca Hyper-V yalıtım modu, desteklenir. Aşağıdaki kod parçacığı uygulama bildirimi dosyasında yalıtım modunun nasıl belirtildiğini gösterir.
 
@@ -342,7 +398,7 @@ Windows, kapsayıcılar için iki yalıtım modunu destekler: İşlem ve Hyper-V
    >
 
 ## <a name="configure-resource-governance"></a>Kaynak idaresini yapılandırma
-[Kaynak idaresi](service-fabric-resource-governance.md) kapsayıcının konakta kullanabildiği kaynakları kısıtlar. Uygulama bildiriminde belirtilen `ResourceGovernancePolicy` öğesi, hizmet kod paketinin kaynak sınırlarını tanımlamak için kullanılır. Şu kaynaklar için kaynak sınırları ayarlanabilir: Memory, MemorySwap, CpuShares (CPU göreli ağırlığı), MemoryReservationInMB, BlkioWeight (BlockIO göreli ağırlığı). Bu örnekte, Guest1Pkg hizmet paketi bulunduğu küme düğümlerinde bir çekirdek alır. Bellek sınırları mutlaktır; dolayısıyla, kod paketi 1024 MB bellekle (aynı genel garantili ayırmayla) sınırlıdır. Kod paketleri (kapsayıcılar veya işlemler) bu sınırı aşan miktarda bellek ayıramazlar ve bunu denediklerinde yetersiz bellek özel durumu ortaya çıkar. Kaynak sınırı zorlamasının çalışması için, hizmet paketi içindeki tüm kod paketlerinin bellek sınırlarının belirtilmiş olması gerekir.
+[Kaynak idaresi](service-fabric-resource-governance.md) kapsayıcının konakta kullanabildiği kaynakları kısıtlar. Uygulama bildiriminde belirtilen `ResourceGovernancePolicy` öğesi, hizmet kod paketinin kaynak sınırlarını tanımlamak için kullanılır. Aşağıdaki kaynaklar için kaynak sınırları ayarlanabilir: Bellek, MemorySwap, CpuShares (CPU göreli ağırlığı), Memoryreservationınmb, BlkioWeight (Blockıo göreli ağırlığı). Bu örnekte, Guest1Pkg hizmet paketi bulunduğu küme düğümlerinde bir çekirdek alır. Bellek sınırları mutlaktır; dolayısıyla, kod paketi 1024 MB bellekle (aynı genel garantili ayırmayla) sınırlıdır. Kod paketleri (kapsayıcılar veya işlemler) bu sınırı aşan miktarda bellek ayıramazlar ve bunu denediklerinde yetersiz bellek özel durumu ortaya çıkar. Kaynak sınırı zorlamasının çalışması için, hizmet paketi içindeki tüm kod paketlerinin bellek sınırlarının belirtilmiş olması gerekir.
 
 ```xml
 <ServiceManifestImport>
@@ -386,9 +442,9 @@ Tüm değişikliklerinizi kaydedin ve uygulamayı derleyin. Uygulamanızı yayı
 
 **Yayımla**’ta tıklayın.
 
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), bir Service Fabric kümesindeki uygulama ve düğümleri inceleyip yönetmeye yönelik web tabanlı bir araçtır. Bir tarayıcı penceresi açıp http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ konumuna gidin ve uygulama dağıtımını izleyin. Uygulama dağıtılır, ancak görüntü küme düğümlerine yüklenene kadar hatalı durumdadır (bu işlem, görüntü boyutuna bağlı olarak biraz zaman alabilir): ![Hata][1]
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), bir Service Fabric kümesindeki uygulama ve düğümleri inceleyip yönetmeye yönelik web tabanlı bir araçtır. Bir tarayıcı penceresi açıp http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ konumuna gidin ve uygulama dağıtımını izleyin. Uygulama dağıtılır, ancak bir hata durumunda görüntünün (Bu görüntü boyutuna bağlı olarak biraz zaman alabilir) küme düğümlerine yüklenene kadar olan: ![Hata:][1]
 
-Uygulamanın ```Ready``` durumu ![Hazır][2] olduğunda uygulama hazırdır
+Uygulama hazır olduğunda ```Ready``` durumu: ![Hazır][2]
 
 Bir tarayıcıyı açın ve http://containercluster.westus2.cloudapp.azure.com:8081 dizinine gidin. "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
 

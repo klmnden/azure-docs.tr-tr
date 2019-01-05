@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: zarhoads
-ms.openlocfilehash: 702c041f838619c1396d5d4ae8e2fd0d3861653f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: b0d5e7e6af9cc0e55e13ef4b34ab2dfba18d8745
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467952"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037268"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Hızlı Başlangıç: Azure şablonuyla Windows sanal makine ölçek kümesi oluşturma
 Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesi içindeki sanal makine sayısını el ile ölçeklendirebilir veya CPU, bellek talebi ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Azure Load Balancer daha sonra ölçek kümesindeki sanal makine örneklerine trafiği dağıtır. Bu hızlı başlangıçta, Azure Resource Manager şablonu ile bir sanal makine ölçek kümesi oluşturur ve örnek uygulama dağıtırsınız.
@@ -36,7 +36,7 @@ PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz, bu öğretici 
 ## <a name="define-a-scale-set-in-a-template"></a>Şablonda ölçek kümesi tanımlama
 Azure Resource Manager şablonları, ilgili kaynak gruplarını dağıtmanızı sağlar. Şablonlar JavaScript Nesne Gösterimi (JSON) ile yazılmıştır ve uygulamanıza ait Azure altyapısı ortamının tamamını tanımlar. Tek bir şablonda sanal makine ölçek kümesi oluşturabilir, uygulamaları yükleyebilir ve otomatik ölçeklendirme kurallarını yapılandırabilirsiniz. Değişkenleri ve parametreleri kullanarak bu şablonu var olan ölçek kümelerini güncelleştirme veya yenilerini oluşturma amacıyla tekrar kullanabilirsiniz. Şablonları Azure portalı, Azure CLI veya Azure PowerShell aracılığıyla ya da sürekli tümleştirme/sürekli teslim (CI/CD) işlem hatlarından dağıtabilirsiniz.
 
-Şablonlar hakkında daha fazla bilgi için bkz. [Azure Resource Manager'a genel bakış](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment)
+Şablonlar hakkında daha fazla bilgi için bkz. [Azure Resource Manager'a genel bakış](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment). JSON söz dizimi ve özellikler için bkz: [Microsoft.Compute/virtualMachineScaleSets](/azure/templates/microsoft.compute/virtualmachinescalesets) şablon başvurusu.
 
 Şablon, her bir kaynak türü için yapılandırma tanımlar. Sanal makine ölçek kümesi kaynak türü, tek bir VM ile benzerlik gösterir. Sanal makine ölçek kümesi kaynak türünün ana bölümleri şunlardır:
 

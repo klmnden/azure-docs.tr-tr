@@ -1,20 +1,20 @@
 ---
 title: Azure PowerShell Betiği-bir Azure Cosmos DB yük devretme ilkesi oluşturma
 description: Azure PowerShell Betiği Örneği - Azure Cosmos DB yük devretme ilkesi oluşturma
-services: cosmos-db
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-ms.custom: mvc
 ms.devlang: PowerShell
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/10/2017
-ms.openlocfilehash: 831faf7122a2fff8297cdc390584add29ee13937
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: sngun
+ms.openlocfilehash: 9d78198f6561d2eba47e0cb6d0eb0f90fa059425
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962503"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044442"
 ---
 # <a name="create-an-azure-cosmos-db-failover-policy-for-high-availability-using-powershell"></a>PowerShell kullanarak yüksek kullanılabilirlik için Azure Cosmos DB yük devretme ilkesi oluşturma
 

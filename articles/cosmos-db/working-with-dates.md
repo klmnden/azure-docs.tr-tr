@@ -1,21 +1,20 @@
 ---
 title: Azure Cosmos DB'de tarihlerle çalışma
 description: Azure Cosmos DB'de tarihlerle çalışma hakkında bilgi edinin.
-services: cosmos-db
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.openlocfilehash: 48879eb3ae4fc3a54d50a4e896b4a1eb94acabf9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 77205c497b901a62bd6880512f4e780d5a6d25f2
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53073814"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044221"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Azure cosmos DB'de tarihlerle çalışma
-Azure Cosmos DB, şema esnekliği ve zengin dizin oluşturma yerel teslim [JSON](https://www.json.org) veri modeli. Veritabanları, kapsayıcılar, belgeler ve saklı yordamlar da dahil olmak üzere tüm Azure Cosmos DB kaynaklarını modellenir ve JSON belgeleri olarak depolanır. Şu taşınabilir için bir gereklilik olarak JSON (ve Azure Cosmos DB) temel türleri yalnızca küçük bir kümesini destekler: dize, sayı, Boole, dizi, nesne ve Null. Ancak, JSON esnektir ve geliştiriciler ve çerçeveleri kullanarak bu temelleri ve nesne veya dizi oluşturmayı daha karmaşık türleri temsil etmek izin verin. 
+Azure Cosmos DB, şema esnekliği ve zengin dizin oluşturma yerel teslim [JSON](https://www.json.org) veri modeli. Veritabanları, kapsayıcılar, belgeler ve saklı yordamlar da dahil olmak üzere tüm Azure Cosmos DB kaynaklarını modellenir ve JSON belgeleri olarak depolanır. Taşınabilir olması için bir gereklilik olarak JSON (ve Azure Cosmos DB) temel türleri yalnızca küçük bir kümesini destekler: Dize, sayı, Boole, dizi, nesne ve Null. Ancak, JSON esnektir ve geliştiriciler ve çerçeveleri kullanarak bu temelleri ve nesne veya dizi oluşturmayı daha karmaşık türleri temsil etmek izin verin. 
 
 Birçok uygulama temel türlerine ek olarak, gereken [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) tarih ve zaman damgaları temsil eden tür. Bu makalede nasıl geliştiriciler depolamak, alabilir ve .NET SDK kullanarak Azure Cosmos DB tarihleri sorgu açıklanır.
 

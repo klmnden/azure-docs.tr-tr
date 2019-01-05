@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a160cd6d81ab7cb760a85ee7cbdbedf55c17167
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 31ab9f37bcb4ea32caa48edf9460fa7ffcdf764d
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998242"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052079"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights ile ayrıntılı web uygulaması ve hizmet tanılama
 ## <a name="why-do-i-need-application-insights"></a>Application Insights neden gerekiyor?
@@ -94,7 +94,7 @@ Real Madrid, telemetri verilerini görüntülemek için Power BI modülü kullan
 ![Application Insights telemetri Power BI görüntüle](./media/app-insights-devops/080.png)
 
 ## <a name="smart-detection"></a>Akıllı algılama
-[Proaktif tanılama](app-insights-proactive-diagnostics.md) yeni bir özelliktir. Herhangi bir özel yapılandırma sizin tarafınızdan olmadan Application ınsights'ı otomatik olarak algılar ve hata oranları uygulamanızda olağan dışı artışlar hakkında uyarır. Bu hatalar yaşanacağı beklentisiyle ve ayrıca bir artış istekleri, yalnızca orantılı olan yükseldiğinde bir arka plan yok saymak akıllı bir işlemdir. Sonra e-postası Ara hemen sonra bunu anlarsınız Örneğin, bağımlı hizmetlerden biri başarısız olursa veya yeni dağıttığınız yeni derleme yaparsanız düzgün şekilde çalışmıyor. (Ve Web kancaları ve böylece diğer uygulamalar tetikleyebilirsiniz.)
+[Proaktif tanılama](../azure-monitor/app/proactive-diagnostics.md) yeni bir özelliktir. Herhangi bir özel yapılandırma sizin tarafınızdan olmadan Application ınsights'ı otomatik olarak algılar ve hata oranları uygulamanızda olağan dışı artışlar hakkında uyarır. Bu hatalar yaşanacağı beklentisiyle ve ayrıca bir artış istekleri, yalnızca orantılı olan yükseldiğinde bir arka plan yok saymak akıllı bir işlemdir. Sonra e-postası Ara hemen sonra bunu anlarsınız Örneğin, bağımlı hizmetlerden biri başarısız olursa veya yeni dağıttığınız yeni derleme yaparsanız düzgün şekilde çalışmıyor. (Ve Web kancaları ve böylece diğer uygulamalar tetikleyebilirsiniz.)
 
 Bu özellik, bir diğer unsuru günlük derinlemesine bir analize telemetrinizin bulmak zor olan olağan dışı performans için desenler arama gerçekleştirir. Örneğin, belirli bir coğrafi bölgeye veya belirli tarayıcı sürümü ile ilişkili yavaş performans bulabilirsiniz.
 

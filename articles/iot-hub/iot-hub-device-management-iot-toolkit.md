@@ -1,25 +1,24 @@
 ---
-title: Azure IOT cihaz yönetimi ile Azure IOT hub'ı Toolkit uzantısını Visual Studio Code için | Microsoft Docs
-description: Azure IOT hub'ı Toolkit uzantısını doğrudan yöntemler ve İkizinin istenen özellikleri yönetim seçenekleri Azure IOT Hub cihaz yönetimi için Visual Studio Code için kullanın.
+title: Azure IOT cihaz yönetimi ile Azure IOT araçları Visual Studio Code için | Microsoft Docs
+description: Azure IOT araçları, Visual Studio Code için doğrudan yöntemleri ve İkizinin istenen özellikleri yönetim seçenekleri Azure IOT Hub cihaz yönetimi için kullanın.
 author: formulahendry
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.tgt_pltfrm: arduino
-ms.date: 8/3/2018
+ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 4b7de0652172de5120e88e7c597fc31037ddbbb3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: ec19045892b975fed7611c7747fa7b2bb4b1515c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339578"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051145"
 ---
-# <a name="use-azure-iot-hub-toolkit-extension-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Azure IOT hub'ı Toolkit uzantısını Visual Studio Code için Azure IOT Hub cihaz yönetimi için kullanın.
+# <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Azure IOT araçları Visual Studio Code için Azure IOT Hub cihaz yönetimi için kullanın.
 
 ![Uçtan uca diyagramı](media/iot-hub-get-started-e2e-diagram/2.png)
 
-[Azure IOT hub'ı Araç Seti](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (eski adıyla Azure IOT Araç Seti) olan IOT hub'ı Yönetim kolaylaştırır yararlı bir Visual Studio Code uzantısı. Bu, çeşitli görevleri gerçekleştirmek için kullanabileceğiniz yönetim seçenekleri ile birlikte gelir.
+[Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) , IOT hub'ı Yönetim ve IOT uygulama geliştirmeyi kolaylaştırır kullanışlı bir Visual Studio Code uzantısı. Bu, çeşitli görevleri gerçekleştirmek için kullanabileceğiniz yönetim seçenekleri ile birlikte gelir.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -36,18 +35,18 @@ Cihaz çiftleri, cihaz durumu bilgilerini (meta veriler, yapılandırmalar ve ko
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
-Geliştirme makinenizde çeşitli yönetim seçenekleri ile Visual Studio Code için Azure IOT hub'ı Toolkit uzantısını kullanarak bilgi edinin.
+Geliştirme makinenizde çeşitli yönetim seçenekleri ile Visual Studio Code için Azure IOT araçları kullanarak bilgi edinin.
 
 ## <a name="what-you-do"></a>Neler
 
-Azure IOT hub'ı Toolkit uzantısını Visual Studio Code için çeşitli yönetim seçenekleri ile çalıştırın.
+Azure IOT araçları, Visual Studio Code için çeşitli yönetim seçenekler ile Çalıştır.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
 * Etkin bir Azure aboneliği.
 * Azure IOT hub, aboneliğiniz altında.
 * [Visual Studio Code](https://code.visualstudio.com/)
-* [Azure IOT hub'ı Araç Seti](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
+* [VS Code için Azure IOT araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>IOT hub'ınıza erişmek için oturum açın
 
@@ -98,6 +97,6 @@ Cihazınız için IOT hub'ınızdan ileti göndermek için bu adımları izleyin
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Çeşitli yönetim seçenekleri ile Visual Studio Code için Azure IOT hub'ı Toolkit uzantısını kullanmayı öğrendiniz.
+Çeşitli yönetim seçenekleri ile Visual Studio Code için Azure IOT araçları uzantısını kullanmayı öğrendiniz.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

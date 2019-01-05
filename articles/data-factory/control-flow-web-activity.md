@@ -12,44 +12,44 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: 1c657fd7b3059dcf46a371b133a5d078e02f0599
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d42b6b857f04c191ebdfb1687c8ee2adcad95d26
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014208"
+ms.locfileid: "54054301"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data factory'de Web etkinliği
-Web Etkinliği bir Data Factory işlem hattından özel bir REST uç noktasını çağırmak için kullanılabilir. Etkinlik tarafından kullanılacak ve erişilecek veri kümelerini ve bağlı hizmetleri geçirebilirsiniz. 
+Web Etkinliği bir Data Factory işlem hattından özel bir REST uç noktasını çağırmak için kullanılabilir. Etkinlik tarafından kullanılacak ve erişilecek veri kümelerini ve bağlı hizmetleri geçirebilirsiniz.
 
 ## <a name="syntax"></a>Sözdizimi
 
 ```json
-{  
+{
    "name":"MyWebActivity",
    "type":"WebActivity",
-   "typeProperties":{  
+   "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
-      "headers":{  
+      "headers":{
          "Content-Type":"application/json"
       },
-      "authentication":{  
-         "type":"ClientCertificate",  
+      "authentication":{
+         "type":"ClientCertificate",
          "pfx":"****",
          "password":"****"
       },
-      "datasets":[  
-         {  
+      "datasets":[
+         {
             "referenceName":"<ConsumedDatasetName>",
             "type":"DatasetReference",
-            "parameters":{  
+            "parameters":{
                ...
             }
          }
       ],
-      "linkedServices":[  
-         {  
+      "linkedServices":[
+         {
             "referenceName":"<ConsumedLinkedServiceName>",
             "type":"LinkedServiceReference"
          }
@@ -92,10 +92,10 @@ JSON içeriği gereksinimleri aşağıdaki tabloda gösterilmiştir:
 Kimlik doğrulama gerekli değilse, "kimlik doğrulaması" özelliğini içermez.
 
 ### <a name="basic"></a>Temel
-Kullanıcı adı ve temel kimlik doğrulaması ile kullanılacak parolayı belirtin. 
+Kullanıcı adı ve temel kimlik doğrulaması ile kullanılacak parolayı belirtin.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"Basic",
    "username":"****",
    "password":"****"
@@ -103,12 +103,12 @@ Kullanıcı adı ve temel kimlik doğrulaması ile kullanılacak parolayı belir
 ```
 
 ### <a name="client-certificate"></a>İstemci sertifikası
-Base64 ile kodlanmış içeriği bir PFX dosyası ve parolayı belirtin. 
+Base64 ile kodlanmış içeriği bir PFX dosyası ve parolayı belirtin.
 
 ```json
-"authentication":{  
+"authentication":{
    "type":"ClientCertificate",
-   "pfx":"****",   
+   "pfx":"****",
    "password":"****"
 }
 ```
@@ -125,7 +125,7 @@ Erişim belirteci için istenecektir yönetilen kimlik kullanarak veri fabrikas�
 ```
 
 ## <a name="request-payload-schema"></a>İstek yükü şeması
-POST/PUT yöntemini kullandığınızda, gövdesi özelliğinden uç noktaya gönderdi yükünü temsil eder. Bağlı hizmetleri ve veri kümeleri yükün bir parçası olarak geçirebilirsiniz. Yükü şeması şu şekildedir: 
+POST/PUT yöntemini kullandığınızda, gövdesi özelliğinden uç noktaya gönderdi yükünü temsil eder. Bağlı hizmetleri ve veri kümeleri yükün bir parçası olarak geçirebilirsiniz. Yükü şeması şu şekildedir:
 
 ```json
 {
@@ -144,11 +144,11 @@ POST/PUT yöntemini kullandığınızda, gövdesi özelliğinden uç noktaya gö
             }
         }]
     }
-} 
+}
 ```
 
 ## <a name="example"></a>Örnek
-Bu örnekte, bir REST uç noktası işlem hattının web etkinliği çağırır. Bu seçenek, bir Azure SQL bağlı hizmeti ve bir Azure SQL veri kümesi için uç nokta geçirir. REST uç noktası, Azure SQL sunucusuna bağlanmak için Azure SQL bağlantı dizesini kullanır ve SQL server örneğinin adını döndürür. 
+Bu örnekte, bir REST uç noktası işlem hattının web etkinliği çağırır. Bu seçenek, bir Azure SQL bağlı hizmeti ve bir Azure SQL veri kümesi için uç nokta geçirir. REST uç noktası, Azure SQL sunucusuna bağlanmak için Azure SQL bağlantı dizesini kullanır ve SQL server örneğinin adını döndürür.
 
 ### <a name="pipeline-definition"></a>İşlem hattı
 
@@ -242,7 +242,7 @@ public HttpResponseMessage Execute(JObject payload)
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Data Factory tarafından desteklenen diğer denetim akışı etkinlikleri bakın: 
+Data Factory tarafından desteklenen diğer denetim akışı etkinlikleri bakın:
 
 - [İşlem Hattı Yürütme Etkinliği](control-flow-execute-pipeline-activity.md)
 - [Her etkinlik için](control-flow-for-each-activity.md)

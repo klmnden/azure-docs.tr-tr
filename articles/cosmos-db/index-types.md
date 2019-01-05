@@ -6,22 +6,22 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: rimman
-ms.openlocfilehash: f3c5d7bc1907e94ff2e590fe77cc531ac4b01f4c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 44fe262dc28a016af9eb01f28278b2c3d81d9034
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51629228"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034099"
 ---
 # <a name="index-types-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizin türleri
 
 Yolu için dizin oluşturma ilkesini yapılandırdığınız birden çok seçenek vardır. Her yol için bir veya daha fazla dizin tanımları belirtebilirsiniz:
 
-- **Veri türü:** dize, sayı, nokta, çokgen veya LineString (yol başına veri türü başına yalnızca bir girdi içerebilir).
+- **Veri türü:** Dize, sayı, nokta, çokgen veya LineString (yol başına veri türü başına yalnızca bir girdi içerebilir).
 
-- **Dizin türü:** karma (eşitlik sorguları), aralığı (eşitlik, aralığı veya ORDER BY sorguları) veya uzamsal (uzamsal sorgular).
+- **Dizin türü:** Karma (eşitlik sorguları), aralığı (eşitlik, aralığı veya ORDER BY sorguları) veya uzamsal (uzamsal sorgular).
 
-- **Duyarlılık:** bir karma dizine için bu 1 ile 8 hem dize hem de sayılarla için farklılık gösterir ve varsayılan değer 3'tür. Bir aralık dizin için en yüksek duyarlık değeri -1'dir. 1 ile 100 (en yüksek duyarlık) dize veya sayı değerleri arasında değişebilir.
+- **Duyarlık:** Bir karma dizine bu 1 ile 8 hem dize hem de sayılarla için farklılık gösterir ve varsayılan değer 3'tür. Bir aralık dizin için en yüksek duyarlık değeri -1'dir. 1 ile 100 (en yüksek duyarlık) dize veya sayı değerleri arasında değişebilir.
 
 ## <a name="index-kind"></a>Dizin türü
 
@@ -31,7 +31,7 @@ Azure Cosmos DB, dize veya sayı veri türleri için yapılandırılmış her bi
 
 - **Aralık dizini** verimli eşitlik sorguları, aralık sorguları destekler (kullanarak >, <>, =, < =,! =) ve ORDER BY sorgular. ORDER By sorguları varsayılan olarak, ayrıca maksimum dizin duyarlık (-1) gerektirir. Veri türü dize veya sayı olabilir.
 
-- **Uzamsal dizin** destekler verimli uzamsal (içinde ve uzaklık) sorgular. Veri türü, nokta, çokgen veya LineString olabilir. Azure Cosmos DB, nokta, çokgen veya LineString veri türleri için belirtilebilir her yol için uzamsal dizin türü de destekler. Değer belirtilen yolda gibi geçerli bir GeoJSON parçası olmalıdır {"type": "Point", "coordinates": [0.0, 10.0]}. Azure Cosmos DB, otomatik dizin oluşturma noktası Çokgen ve LineString veri türlerini destekler.
+- **Uzamsal dizin** destekler verimli uzamsal (içinde ve uzaklık) sorgular. Veri türü, nokta, çokgen veya LineString olabilir. Azure Cosmos DB, nokta, çokgen veya LineString veri türleri için belirtilebilir her yol için uzamsal dizin türü de destekler. Değer belirtilen yolda gibi geçerli bir GeoJSON parçası olmalıdır {"type": "Nokta", "koordinatları": [0.0, 10.0]}. Azure Cosmos DB, otomatik dizin oluşturma noktası Çokgen ve LineString veri türlerini destekler.
 
 Uzaysal dizinler, hizmet için kullanılabilir ve karma, sorgu aralığı örnekleri aşağıda verilmiştir:
 
@@ -39,7 +39,7 @@ Uzaysal dizinler, hizmet için kullanılabilir ve karma, sorgu aralığı örnek
 | ---------- | ---------------- |
 | Karma  | / Prop / karma? (veya /) aşağıdaki sorguları verimli bir şekilde sunmak için kullanılabilir:<br><br>SELECT FROM koleksiyon c WHERE c.prop = "değer"<br><br>Karma üzerinden/özellikler / [] /? (veya / veya/Özellikler /) aşağıdaki sorguları verimli bir şekilde sunmak için kullanılabilir:<br><br>WHERE etiketi seçin etiketi koleksiyon c birleşim etiketi IN c.props = 5  |
 | Aralık  | / Prop / aralığı? (veya /) aşağıdaki sorguları verimli bir şekilde sunmak için kullanılabilir:<br><br>SELECT FROM koleksiyon c WHERE c.prop = "değer"<br><br>SELECT FROM koleksiyon c WHERE c.prop > 5<br><br>Koleksiyon c ORDER BY c.prop seçin   |
-| Uzamsal     | / Prop / aralığı? (veya /) aşağıdaki sorguları verimli bir şekilde sunmak için kullanılabilir:<br><br>SELECT FROM c koleksiyonu<br><br>WHERE ST_DISTANCE (c.prop, {"type": "Nokta", "koordinatları": [0.0, 10.0]}) < 40<br><br>Etkin noktalarında dizin ile SELECT FROM koleksiyon c burada ST_WITHIN(c.prop, {"type": "Polygon",...})--<br><br>Etkin çokgenler üzerinde dizin ile SELECT FROM koleksiyon c burada ST_WITHIN({"type": "Point",...}, c.prop)--.     |
+| Uzamsal     | / Prop / aralığı? (veya /) aşağıdaki sorguları verimli bir şekilde sunmak için kullanılabilir:<br><br>SELECT FROM c koleksiyonu<br><br>WHERE ST_DISTANCE (c.prop, {"type": "Nokta", "koordinatları": [0.0, 10.0]}) < 40<br><br>Burada ST_WITHIN(c.prop, {"type": Koleksiyon C'den seçin "Çokgen",...}) --Etkin noktalarında dizin ile<br><br>Burada ST_WITHIN({"type": Koleksiyon C'den seçin "Nokta",...}, c.prop)--üzerinde çokgenler etkin dizin ile.     |
 
 ## <a name="default-behavior-of-index-kinds"></a>Dizin türleri varsayılan davranışı
 

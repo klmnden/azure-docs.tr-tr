@@ -1,5 +1,5 @@
 ---
-title: 'Öğretici: Özel Görüntü İşleme Hizmeti REST API’sini kullanma'
+title: "Öğretici: Kullanım özel görüntü işleme hizmeti REST API'si"
 titlesuffix: Azure Cognitive Services
 description: Özel görüntü işleme modeli oluşturmak, eğitmek, test etmek ve dışarı aktarmak için REST API kullanın.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: afdc306a3d5a3130ecb44f88910e76f23f7c0c0e
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 5e5cf04bb631585c14d2ec7403bf0332f41dc626
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334729"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054218"
 ---
-# <a name="tutorial-use-the-custom-vision-rest-api"></a>Öğretici: Özel Görüntü İşleme REST API’sini kullanma
+# <a name="tutorial-use-the-custom-vision-rest-api"></a>Öğretici: Özel işleme REST API'si kullanma
 
 Model oluşturmak, eğitmek, test etmek ve dışarı aktarmak için Özel Görüntü İşleme REST API’sinin nasıl kullanılacağını öğrenin.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8138a7dcae427d5f5f622170a7825306a7bf8dae
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8ad5b167977059f0749da4221effd427427920e9
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140328"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040226"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB veritabanı bekleme sırasında şifreleme
 
@@ -36,26 +36,26 @@ Bir kullanıcı isteği temel akışı aşağıdaki gibidir:
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>S: ne kadar fazla depolama hizmeti şifrelemesi etkinleştirilirse Azure depolama maliyeti?
-Y: hiçbir ek maliyet yoktur.
+### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>S: Ne kadar depolama hizmeti şifrelemesi etkinleştirilirse Azure depolama maliyeti?
+Y: Hiçbir ek ücret yoktur.
 
-### <a name="q-who-manages-the-encryption-keys"></a>S: kimin şifreleme anahtarları yönetir?
-C: anahtarlar, Microsoft tarafından yönetilir.
+### <a name="q-who-manages-the-encryption-keys"></a>S: Şifreleme anahtarları yöneten?
+Y: Anahtarlar, Microsoft tarafından yönetilir.
 
-### <a name="q-how-often-are-encryption-keys-rotated"></a>S: ne sıklıkta şifreleme anahtarları döndürülür?
-Y: Microsoft Cosmos DB izleyen şifreleme anahtar döndürme için iç yönergeleri kümesi vardır. Özel yönergeleri yayımlanmaz. Microsoft, yayımlama [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), iç Kılavuzu kümesini görülür ve geliştiriciler için yararlı en iyi yöntemler vardır.
+### <a name="q-how-often-are-encryption-keys-rotated"></a>S: Şifreleme anahtarlarını ne sıklıkta döndürülür?
+Y: Microsoft, Cosmos DB izleyen şifreleme anahtar döndürme için iç yönergeleri kümesi vardır. Özel yönergeleri yayımlanmaz. Microsoft, yayımlama [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), iç Kılavuzu kümesini görülür ve geliştiriciler için yararlı en iyi yöntemler vardır.
 
-### <a name="q-can-i-use-my-own-encryption-keys"></a>Kendi şifreleme anahtarları kullanabilirim miyim?
-Y: cosmos DB bir PaaS hizmetidir ve sabit hizmet kullanımı kolay tutmaya çalıştık. Bir uyumluluk gereksinimini PCI-DSS gibi toplantı için proxy soru olarak bu sorunun sıklıkla sorulması etmiş olabilirsiniz. Bu özellik oluşturmanın bir parçası olarak, Cosmos DB kullanan müşteriler anahtarları yönetmek zorunda kalmadan kendi gereksinimlerini karşıladığından emin olmak için Uyumluluk denetçiler birlikte çalıştık.
+### <a name="q-can-i-use-my-own-encryption-keys"></a>S: Kendi şifreleme anahtarlarını kullanabilir miyim?
+Y: Sabit hizmet kullanımı kolay tutmaya çalıştık ve cosmos DB bir PaaS hizmetidir. Bir uyumluluk gereksinimini PCI-DSS gibi toplantı için proxy soru olarak bu sorunun sıklıkla sorulması etmiş olabilirsiniz. Bu özellik oluşturmanın bir parçası olarak, Cosmos DB kullanan müşteriler anahtarları yönetmek zorunda kalmadan kendi gereksinimlerini karşıladığından emin olmak için Uyumluluk denetçiler birlikte çalıştık.
 
-### <a name="q-what-regions-have-encryption-turned-on"></a>S: hangi bölgeleri açık şifreleme var mı?
-Y: tüm Azure Cosmos DB bölgeler için tüm kullanıcı verilerini açık şifreleme vardır.
+### <a name="q-what-regions-have-encryption-turned-on"></a>S: Hangi bölgeler şifreleme açık?
+Y: Tüm Azure Cosmos DB bölgeler için tüm kullanıcı verilerini açık şifreleme vardır.
 
-### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>S: şifreleme performans, gecikme süresi ve aktarım hızı SLA'lar etkileyen mu?
-Y: etkisi veya yoktur değişiklikleri SLA'ları tüm mevcut ve yeni hesaplar için bekleyen şifrelemenin etkin göre performans. Hakkında daha fazla edinebilirsiniz [Cosmos DB için SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) son garantileri görmek için sayfayı.
+### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>S: Şifreleme performans, gecikme süresi ve aktarım hızı SLA'lar etkiliyor mu?
+Y: Herhangi bir etkisi veya değişiklikleri SLA'ları tüm mevcut ve yeni hesaplar için bekleyen şifrelemenin etkin göre performans. Hakkında daha fazla edinebilirsiniz [Cosmos DB için SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) son garantileri görmek için sayfayı.
 
-### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>S: yerel öykünücü, bekleme sırasında şifreleme desteği mu?
-Y: öykünücü, bir tek başına geliştirme/test aracıdır ve yönetilen Cosmos DB hizmetini kullanan anahtar yönetimi Hizmetleri'ni kullanmaz. Bizim önerimiz burada hassas öykünücü test verilerini depolama sürücülerinde BitLocker etkinleştirmektir. [Öykünücü destekler varsayılan veri dizinine değiştirme](local-emulator.md) iyi bilinen bir konum kullanarak yanı sıra.
+### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>S: Yerel öykünücü bekleyen şifrelenmesini destekliyor mu?
+Y: Öykünücü, bir tek başına geliştirme/test aracıdır ve yönetilen Cosmos DB hizmetini kullanan anahtar yönetimi Hizmetleri'ni kullanmaz. Bizim önerimiz burada hassas öykünücü test verilerini depolama sürücülerinde BitLocker etkinleştirmektir. [Öykünücü destekler varsayılan veri dizinine değiştirme](local-emulator.md) iyi bilinen bir konum kullanarak yanı sıra.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

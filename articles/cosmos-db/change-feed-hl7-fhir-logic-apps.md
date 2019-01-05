@@ -1,19 +1,18 @@
 ---
 title: Değişiklik akışı HL7 FHIR kaynaklar - Azure Cosmos DB
 description: Azure Logic Apps, Azure Cosmos DB ve Service Bus'ı kullanarak HL7 FHIR hasta sağlık kaydı için değişiklik bildirimleri ayarlama konusunda bilgi edinin.
-keywords: HL7 fhır
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: 5cc6bdfa9c16a6dfbdd0f6c87873a90b2a203169
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0ff92ad58cc8b7206b7061c88f8aadbb701870f0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089233"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044527"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Logic Apps ve Azure Cosmos DB'yi kullanarak HL7 FHIR sağlık kaydı değişikliklerinin hastalara bildirme
 
@@ -40,7 +39,7 @@ Yüksek düzeyde, aşağıdaki iş akışı adımları proje gerekli:
 Bu çözüm, yukarıdaki gereksinimlerini ve çözüm iş akışını tamamlamak üç Logic Apps gerektirir. Üç mantıksal uygulamalar şunlardır:
 1. **HL7 FHIR eşleme uygulama**: HL7 C-CDA belge alır, FHIR kaynağa dönüştürür ve ardından Azure Cosmos DB'ye kaydeder.
 2. **EHR uygulama**: Azure Cosmos DB FHIR depo sorgular ve Service Bus kuyruğuna bir yanıt kaydeder. Bu mantıksal uygulama kullanan bir [API uygulaması](#api-app) yeni ve değiştirilen belgeler alınamadı.
-3. **İşlem bildirimi uygulama**: gövdesinde FHIR kaynak belgeleri içeren bir e-posta bildirimi gönderir.
+3. **İşlem bildirimi uygulama**: Gövdesinde FHIR kaynak belgeleri içeren bir e-posta bildirimi gönderir.
 
 ![Bu HL7 FHIR sağlık çözümde kullanılan üç Logic Apps](./media/change-feed-hl7-fhir-logic-apps/health-care-solution-hl7-fhir.png)
 
@@ -57,7 +56,7 @@ Azure Cosmos DB FHIR kaynaklar için aşağıdaki şekilde gösterildiği gibi d
 Logic Apps iş akışı işlemi işleyin. Aşağıdaki ekran görüntüleri, bu çözüm için oluşturulan mantıksal uygulamaları göster. 
 
 
-1. **HL7 FHIR eşleme uygulama**: HL7 C-CDA belge almak ve için Logic Apps Enterprise Integration Pack kullanarak bir FHIR kaynağa dönüştürün. Enterprise Integration Pack C CDA eşlemesinden FHIR kaynaklara işler.
+1. **HL7 FHIR eşleme uygulama**: HL7 C-CDA belge alır ve için Logic Apps Enterprise Integration Pack kullanarak bir FHIR kaynağa dönüştürün. Enterprise Integration Pack C CDA eşlemesinden FHIR kaynaklara işler.
 
     ![HL7 FHIR sağlık kayıtları almak için kullanılan mantıksal uygulama](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-json-transform.png)
 
@@ -66,7 +65,7 @@ Logic Apps iş akışı işlemi işleyin. Aşağıdaki ekran görüntüleri, bu 
 
     ![Mantıksal uygulamayı Azure Cosmos DB'yi sorgulama için kullanılır](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-api-app.png)
 
-3. **İşlem bildirimi uygulama**: gövdesinde FHIR kaynak belgeleri içeren bir e-posta bildirimi gönderin.
+3. **İşlem bildirimi uygulama**: Gövdesinde FHIR kaynak belgeleri içeren bir e-posta bildirimi gönderin.
 
     ![Gövdesinde HL7 FHIR kaynakla hasta e-posta gönderen bir mantıksal uygulama](./media/change-feed-hl7-fhir-logic-apps/hl7-fhir-logic-apps-send-email.png)
 
@@ -88,12 +87,12 @@ Kullanıyoruz [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/lib
 - Databaseıd
 - CollectionId
 - HL7 FHIR kaynak türü adı
-- Boole: Baştan başlatılır.
+- Boole: Baştan başlayın
 - Int: Sayı, döndürülen belgelerin
 
 **Çıkışlar**
-- Başarılı: Durum kodu: 200, yanıt: belgeler (JSON dizisi) listesi
-- Hata: Durum kodu: 404, yanıt: "hiçbir belge için bulunamadı '*kaynak adı '* kaynak türü"
+- Başarılı: Durum kodu: 200 yanıt: Belgeleri (JSON dizisi) listesi
+- Hata: Durum kodu: 404 yanıtı: "Hiçbir belge için bulunamadı '*kaynak adı '* kaynak türü"
 
 <a id="api-app-source"></a>
 

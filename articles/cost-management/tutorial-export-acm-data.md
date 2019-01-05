@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 4614a1417213ed8b4d57c3b7ab21ac7424d75949
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4ad93dad2044526f5825823540325b73f2d0d7ae
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087942"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053543"
 ---
-# <a name="tutorial-create-and-manage-exported-data"></a>Öğretici: Dışarı aktarılan verileri oluşturma ve yönetme
+# <a name="tutorial-create-and-manage-exported-data"></a>Öğretici: Oluşturma ve dışarı aktarılan verileri yönetme
 
 Maliyet Analizi öğreticisini okuduysanız, Maliyet Yönetimi verilerinizi el ile indirme konusunda bilgi sahibisiniz. Ancak, günlük, haftalık veya aylık olarak Azure depolama için maliyet Yönetimi verilerinizi otomatik olarak dışarı aktarır, yinelenen bir görev oluşturun. Dışarı aktarılan veriler CSV biçimindedir ve Maliyet Yönetimi tarafından toplanan tüm bilgileri içerir. Daha sonra Azure depolama alanındaki dışarı aktarılan verileri dış sistemlerle kullanabilir ve kendi özel verilerinizle birleştirebilirsiniz. Ayrıca dışarı aktarılan verilerinizi pano gibi bir dış sistemde veya diğer mali sistemde kullanabilirsiniz.
 
@@ -61,6 +61,22 @@ Dışarı aktarma ayrıntılarını gözden geçirin ve tıklayın **Oluştur**.
 Yeni dışarı aktarmanız, dışarı aktarma listesinde görünür. Varsayılan olarak, yeni dışarı aktarmaları etkinleştirilir. Zamanlanmış bir dışarı aktarmayı devre dışı bırakmak veya silmek istiyorsanız, listedeki herhangi bir öğeye ve ardından **Devre dışı bırak** veya **Sil** seçeneklerinden birine tıklayın.
 
 Başlangıçta, dışarı aktarmanın çalışmaya başlaması bir ila iki saat arası sürebilir. Ancak, verilerin dışarı aktarılan dosyalarda gösterilmesi en fazla dört saat sürebilir.
+
+### <a name="export-schedule"></a>Zamanlamasını dışarı aktarın
+
+Zamanlanmış dışarı aktarma, dışarı aktarma başlangıçta oluşturduğunuzda, haftanın günü ve saat tarafından etkilenir. Zamanlanmış bir dışarı aktarma oluşturduğunuzda, aynı zamanda her bir sonraki dışarı aktarma oluşumu için günün dışarı aktarma çalıştırır. Örneğin, 13: 00'te, günlük bir dışarı aktarma oluşturun. Sonraki dışarı aktarma 1: 00'da aşağıdaki gün çalışır. Geçerli zaman diğer tüm verme türleri aynı şekilde etkiler; gün olarak dışarı aktarma başlangıçta oluştururken aynı zamanda bunlar her zaman çalıştır. Farklı bir örnekte, 4:00 PM sırasında haftalık bir dışarı aktarma Pazartesi günü oluşturun. Bir sonraki rapor aşağıdaki 4: 00'da çalışan Pazartesi. *Dışarı aktarılan verileri çalışma zamanında dört saat içinde kullanılabilir.*
+
+Her dışarı aktarma, eski dışarı aktarmaları kaydedilmemesi için yeni bir dosya oluşturur.
+
+Dışarı aktarma seçenekleri üç tür vardır:
+
+**Ayın başından bu yana maliyetlerin günlük dışarı aktarma** – ilk dışarı aktarma hemen çalıştırılır. Sonraki dışarı aktarmaları sonraki günün ilk dışarı aktarma ile aynı zamanda çalıştırın. Önceki günlük dışarı en son verileri toplanır.
+
+**Son yedi gün boyunca haftalık maliyetleri** – ilk dışarı aktarma hemen çalıştırılır. Gün haftanın ve ilk dışarı aktarma ile aynı zamanda sonraki dışarı aktarmaları çalıştırın. Son yedi gün boyunca ücretlerdir.
+
+**Özel** – haftalık zamanlama sağlar ve aylık hafta başından bugüne ve ay başından bu yana seçenekleriyle dışarı aktarır. *İlk dışarı aktarma hemen çalışacaktır.*
+
+![Yeni dışarı aktarma - özel bir haftalık hafta başından bugüne seçim gösteren temel sekmesi](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
 ## <a name="verify-that-data-is-collected"></a>Verilerin toplandığını doğrulama
 

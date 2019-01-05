@@ -1,5 +1,5 @@
 ---
-title: Azure IOT Central uygulamanıza (C#) Raspberry Pi'yi Connnect | Microsoft Docs
+title: Azure IOT Central uygulamanızı Raspberry Pi'yi bağlayın (C#) | Microsoft Docs
 description: Bir cihaz geliştirici olarak C# kullanarak Azure IOT Central uygulamanızı Raspberry Pi'yi bağlanma.
 author: viv-liu
 ms.author: viviali
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 489a644bd2d17e2be3232ec522b9ed7e37d246ad
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f0232c8d2627cd600f4f05b5b501db85fa7d2ec4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50956732"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051399"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Raspberry Pi'yi bağlanmak için Azure IOT Central, uygulama (C#)
 
@@ -26,7 +26,7 @@ Bu makalede, Microsoft Azure IOT Central uygulamanıza C# programlama dilini kul
 Bu makaledeki adımları tamamlayabilmeniz için aşağıdaki bileşenleri gerekir:
 
 * [.NET core 2](https://www.microsoft.com/net) geliştirme makinenizde yüklü. Bir uygun Kod Düzenleyicisi gibi olmalıdır [Visual Studio Code](https://code.visualstudio.com/).
-* Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için [bir uygulaması hızlı başlangıç oluşturma](quick-deploy-iot-central.md).
+* Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
 * Raspbian işletim sistemi çalıştıran bir Raspberry Pi cihaz.
 
 

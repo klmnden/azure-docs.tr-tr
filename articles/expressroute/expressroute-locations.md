@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2018
 ms.author: pareshmu
-ms.openlocfilehash: 7c3a40f17583e9a7ef9ab02bcf6563ef4ccc5982
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: bc7f43c61cef8ef504d24c03c1cdc3e74f404610
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652957"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052862"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute ortakları ve eşleme konumları
 
@@ -105,7 +105,7 @@ Aşağıdaki tabloda hizmet sağlayıcısına göre konumlar gösterilmektedir. 
 | **[IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)**|Desteklenen |Desteklenen | Amsterdam, Silikon Vadisi, Toronto |
 | **Jisc** |Desteklenen |Desteklenen |Londra |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Desteklenen |Desteklenen |Seul |
-| **[KPN](http://www.kpn.com/cloudconnect)** | Desteklenen | Desteklenen | Amsterdam | 
+| **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Desteklenen | Desteklenen | Amsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Desteklenen |Desteklenen |Amsterdam, Chicago, Dallas, Londra, Newport, Sao Paulo, Seattle, Silikon Vadisi, Singapur, Washington |
 | **LG CNS** |Desteklenen |Desteklenen |Busan, Seul |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Desteklenen |Desteklenen |Cape Town, Johannesburg |
@@ -137,7 +137,7 @@ Aşağıdaki tabloda hizmet sağlayıcısına göre konumlar gösterilmektedir. 
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Desteklenen |Desteklenen |Cape Town, Johannesburg |
 | **TIME dotCom** | Desteklenen | Desteklenen | Kuala Lumpur |
 | **[UOLDIVEO](http://www.uoldiveo.com.br/solucoes/cloud.html#rmcl)** |Desteklenen |Desteklenen |Sao Paulo |
-| **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Desteklenen |Desteklenen |Amsterdam, Chicago, Dallas, Hong Kong, Londra, Silikon Vadisi, Singapur, Sidney, Tokyo, Washington DC |
+| **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Desteklenen |Desteklenen |Amsterdam, Chicago, Dallas, Hong Kong, Londra, Silikon Vadisi, Singapur, Sidney, Tokyo, Washington DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Desteklenen |Desteklenmiyor |London, Singapur |
 | **Vodafone Idea** | Desteklenen | Desteklenen | Bombay2 |
 | **[Zayo](http://www.zayo.com/solutions/industries/cloud-connectivity/microsoft-expressroute)** |Desteklenen |Desteklenen |Amsterdam, Chicago, Dallas, Londra, Los Angeles, Montreal, New York, Seattle, Silikon Vadisi, Toronto, Washington DC |
@@ -285,7 +285,6 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 | **[Ensyst](http://www.ensyst.com.au)** | Asya
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** | Kuzey Amerika |
 | **[FlexManage](http://www.flexmanage.com/cloud)** | Kuzey Amerika |
-| **[Inframon](http://www.inframon.com/partner/microsoft/)** | Avrupa |
 | **[Lightstream](https://www.ltstream.com/expressroute)** | Kuzey Amerika |
 | **[The IT Consultancy Group](http://itconsult.com.au/microsoft-expressroute)** | Avustralya |
 | **[MOQdigital](http://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | Avustralya |

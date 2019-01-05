@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 00ad005fff54940dbec468e0fde105e936579378
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 42850cc5f8280b29811f9607557f38507262694a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411080"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034412"
 ---
 # <a name="working-with-javascript-language-integrated-query-api-with-azure-cosmos-db"></a>JavaScript dil ile tümleşik sorgu API'si ile Azure Cosmos DB ile çalışma
 

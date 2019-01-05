@@ -11,18 +11,18 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: a5abc90f5a40911538b6516622203f595adfed5c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 140fc870500054d0652b48bc602706398371fa8e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091824"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039070"
 ---
 # <a name="create-your-first-python-function-in-azure-preview"></a>(Önizleme) Azure'da ilk Python uygulamanızı oluşturma
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
-Bu hızlı başlangıç makalesi ilk oluşturmak için Azure CLI kullanma hakkında bilgi vermektedir [sunucusuz](https://azure.microsoft.com/overview/serverless-computing/) Python işlev Linux üzerinde çalışan uygulama. İşlev kodu yerel ortamda oluşturulur ve ardından [Azure Functions Core Tools](functions-run-local.md) ile Azure'a dağıtılır. Linux üzerinde işlev uygulamalarınızı çalıştırmak için Önizleme konuları hakkında daha fazla bilgi için bkz: [bu makalede Linux işlevleri](https://aka.ms/funclinux).
+Bu hızlı başlangıç makalesi ilk oluşturmak için Azure CLI kullanma hakkında bilgi vermektedir [sunucusuz](https://azure.com/serverless) Python işlev Linux üzerinde çalışan uygulama. İşlev kodu yerel ortamda oluşturulur ve ardından [Azure Functions Core Tools](functions-run-local.md) ile Azure'a dağıtılır. Linux üzerinde işlev uygulamalarınızı çalıştırmak için Önizleme konuları hakkında daha fazla bilgi için bkz: [bu makalede Linux işlevleri](https://aka.ms/funclinux).
 
 Aşağıdaki adımlar Mac, Windows veya Linux bilgisayarlarda desteklenir.
 

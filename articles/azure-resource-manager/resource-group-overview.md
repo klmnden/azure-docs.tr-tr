@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 470d08c13d5874283794fa9a2ce06fcaad4f60c2
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 24646c9448a70af228085c99f03ab844e5af7e9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300549"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053151"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager genel bakış
 Uygulamanızın altyapısı genellikle bir sanal makine, depolama hesabı, sanal ağ veya web uygulaması, veritabanı, veritabanı sunucusu ya da üçüncü taraf hizmetler gibi birçok bileşenden meydana gelir. Bu bileşenleri ayrı varlıklar olarak göremeyebilirsiniz, bunun yerine bunları tek bir varlığın ilgili ve bağımlı bölümleri göreceksiniz. Bunları gruplar halinde dağıtmak, yönetmek ve izlemek isteyebilirsiniz. Azure Resource Manager, çözümünüzdeki kaynaklar ile gruplar halinde çalışmanıza olanak sağlar. Çözümünüzdeki tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Resource Manager kaynaklarınızı dağıttıktan sonra yönetmenize yardımcı olmak için güvenlik, denetleme ve etiketleme özellikleri sunar. 
 
 ## <a name="consistent-management-layer"></a>Tutarlı yönetim katmanı
-Resource Manager; Azure PowerShell, Azure CLI, Azure portalı, REST API’si ve istemci SDK'ları ile gerçekleştirdiğiniz görevler için tutarlı bir yönetim katmanı sunar. Azure portalındaki tüm özellikler Azure PowerShell, Azure CLI, Azure REST API'leri ve istemci SDK'ları üzerinden de kullanılabilir. İlk olarak API'lerle başlatılan işlevler 180 gün içinde portalda kullanıma sunulacaktır.
+Resource Manager'ı Azure portalından görevleri gerçekleştirmek için bir tutarlı yönetim katmanı sunar ve Azure Portalı'nda kullanılabilir olan tüm özellikleri, ayrıca Azure PowerShell, Azure CLI, Azure REST API'leri ve istemci SDK'ları kullanılabilir. İlk olarak API'lerle başlatılan işlevler 180 gün içinde portalda kullanıma sunulacaktır.
 
 Sizin için en uygun olan araçları ve API'leri kullanın. Tümü aynı özelliklere sahiptir ve aynı sonuçları sunar.
 
@@ -88,9 +88,9 @@ Kaynak türü adı şu biçimdedir: **{kaynak-sağlayıcısı}/{kaynak-türü}**
 Kaynaklarınızı dağıtmaya başlamadan önce kullanılabilir kaynak sağlayıcılarını anlamanız gerekir. Kaynak sağlayıcılarının ve kaynakların adlarını bilmeniz, Azure’a dağıtmak istediğiniz kaynakları tanımlamanıza yardımcı olur. Ayrıca her bir kaynak türü için geçerli konumları ve API sürümlerini bilmeniz gerekir. Daha fazla bilgi için bkz. [Kaynak sağlayıcıları ve türleri](resource-manager-supported-services.md).
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
-Resource Manager’ı kullanarak Azure çözümünüzün altyapısını ve yapılandırmasını tanımlayan bir şablon (JSON biçiminde) oluşturabilirsiniz. Bir şablon kullanarak çözümünü yaşam döngüsü boyunca defalarca dağıtabilir ve kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. Portaldan bir çözüm oluşturduğunuzda çözüm otomatik olarak bir dağıtım şablonu içerir. Bir şablonla başlayacağınız ve bu şablonu size özel ihtiyaçlara göre özelleştirebileceğiniz için yeni bir şablon oluşturmanız gerekmez. Bir örnek için, bkz. [Hızlı başlangıç: Azure portalı kullanarak Azure Resource Manager şablonu oluşturma ve dağıtma](./resource-manager-quickstart-create-templates-use-the-portal.md). Ayrıca kaynak grubunun mevcut durumunu dışarı aktararak veya belirli bir dağıtım için kullanılan şablonu görüntüleyerek mevcut kaynak grubu için bir şablon elde edebilirsiniz. [Dışarı aktarılan şablonu](resource-manager-export-template.md) görüntülemek şablon söz dizimi hakkında bilgi edinmek için yararlı bir yoldur.
+Resource Manager’ı kullanarak Azure çözümünüzün altyapısını ve yapılandırmasını tanımlayan bir şablon (JSON biçiminde) oluşturabilirsiniz. Bir şablon kullanarak çözümünü yaşam döngüsü boyunca defalarca dağıtabilir ve kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz. Portaldan bir çözüm oluşturduğunuzda çözüm otomatik olarak bir dağıtım şablonu içerir. Bir şablonla başlayacağınız ve bu şablonu size özel ihtiyaçlara göre özelleştirebileceğiniz için yeni bir şablon oluşturmanız gerekmez. Bir örnek için bkz. [hızlı başlangıç: Oluşturma ve Azure portalını kullanarak Azure Resource Manager şablonlarını dağıtma](./resource-manager-quickstart-create-templates-use-the-portal.md). Ayrıca kaynak grubunun mevcut durumunu dışarı aktararak veya belirli bir dağıtım için kullanılan şablonu görüntüleyerek mevcut kaynak grubu için bir şablon elde edebilirsiniz. [Dışarı aktarılan şablonu](resource-manager-export-template.md) görüntülemek şablon söz dizimi hakkında bilgi edinmek için yararlı bir yoldur.
 
-Şablon biçimi ve nasıl oluşturulduğu hakkında bilgi almak için bkz. [Hızlı Başlangıç: Azure portalını kullanarak Azure Resource Manager şablonları oluşturma ve dağıtma](./resource-manager-quickstart-create-templates-use-the-portal.md). Kaynak türleri için JSON söz dizimini görüntülemek üzere bkz. [Azure Resource Manager şablonlarında kaynak tanımlama](/azure/templates/).
+Biçimi şablon ve nasıl oluşturulacağı hakkında bilgi edinmek için [hızlı başlangıç: Oluşturma ve Azure portalını kullanarak Azure Resource Manager şablonlarını dağıtma](./resource-manager-quickstart-create-templates-use-the-portal.md). Kaynak türleri için JSON söz dizimini görüntülemek üzere bkz. [Azure Resource Manager şablonlarında kaynak tanımlama](/azure/templates/).
 
 Resource Manager, şablonu diğer istekler gibi işler ([Tutarlı yönetim katmanı](#consistent-management-layer) görüntüsüne bakın). Şablonu ayrıştırarak söz dizimini ilgili kaynak sağlayıcıları için REST API işlemlerine dönüştürür. Örneğin, Resource Manager aşağıdaki kaynak tanımına sahip bir şablonu aldığında:
 
@@ -212,7 +212,7 @@ Azure ayrıca kaynağa özgü birkaç rol sağlar. Yaygın olanlarından bazıla
 4. SQL Server Katılımcısı - SQL sunucularını ve veritabanlarını yönetebilir, ancak güvenlikle ilgili ilkelerini yönetemez
 5. Web Sitesi Katılımcısı - Web sitelerini yönetebilir, ancak bağlı oldukları web planlarını yönetemez
 
-Rollerin ve izin verilen eylemlerin tam listesi için bkz. [RBAC: Yerleşik Roller](../role-based-access-control/built-in-roles.md). Rol tabanlı erişim denetimi hakkında daha fazla bilgi için bkz. [Azure Rol Tabanlı Erişim Denetimi](../role-based-access-control/role-assignments-portal.md). 
+Rolleri ve izin verilen eylemlerin tam listesi için bkz: [RBAC: Yerleşik roller](../role-based-access-control/built-in-roles.md). Rol tabanlı erişim denetimi hakkında daha fazla bilgi için bkz. [Azure Rol Tabanlı Erişim Denetimi](../role-based-access-control/role-assignments-portal.md). 
 
 Bazı durumlarda, kaynaklara erişen bir kod ya da komut dosyası çalıştırmak istersiniz, ancak bunu bir kullanıcının kimlik bilgileri altında çalıştırmayı istemezsiniz. Bunun yerine, uygulama için hizmet sorumlusu adlı bir kimlik oluşturmak ve hizmet sorumlusu için uygun rolü atamak istersiniz. Resource Manager, uygulama için kimlik bilgileri oluşturmanızı ve uygulamanın kimliğini programlı olarak doğrulamanızı sağlar. Hizmet sorumluları oluşturma hakkında bilgi için aşağıdaki konulardan birine bakın:
 
@@ -255,4 +255,4 @@ Kaynaklarınızla bu dili kullanma hakkında daha fazla bilgi için bkz:
 Bu makalede, Azure’daki kaynakların dağıtımı, yönetimi ve erişim denetimi için Azure Resource Manager’ın nasıl kullanılacağını öğrendiniz. İlk Azure Resource Manager şablonunuzu nasıl oluşturacağınızı öğrenmek için sonraki makaleye geçin.
 
 > [!div class="nextstepaction"]
-> [Hızlı başlangıç: Azure portalı kullanarak Azure Resource Manager şablonu oluşturma ve dağıtma](./resource-manager-quickstart-create-templates-use-the-portal.md)
+> [Hızlı Başlangıç: Oluşturma ve Azure portalını kullanarak Azure Resource Manager şablonlarını dağıtma](./resource-manager-quickstart-create-templates-use-the-portal.md)

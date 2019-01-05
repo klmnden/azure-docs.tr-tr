@@ -1,106 +1,121 @@
 ---
-title: VMware Vm'lerini ve fiziksel sunucuları Azure Site Recovery ile azure'a olağanüstü durum kurtarma için çoğaltma sorunlarını giderme | Microsoft Docs
-description: Bu makalede VMware vm'lerinin olağanüstü durum kurtarma sırasında yaygın çoğaltma sorunlarına yönelik sorun giderme bilgileri ve fiziksel sunucuları Azure Site Recovery ile azure'a sağlar.
+title: Azure Site Recovery kullanarak VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma için çoğaltma sorunlarını giderme | Microsoft Docs
+description: Bu makalede VMware vm'lerinin olağanüstü durum kurtarma sırasında yaygın çoğaltma sorunlarına yönelik sorun giderme bilgileri ve fiziksel sunucuları Azure'a Azure Site Recovery kullanarak sağlar.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: 1c37b764b47856d3a369228d3f224f2a464029bb
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 30f128e75feb149453b642739f57c3a16ade524f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790665"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053100"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucular için çoğaltma sorunlarını giderme
 
-VMware sanal makineleri veya fiziksel sunucuları Azure Site Recovery kullanılarak korunurken, belirli bir hata iletisi alabilirsiniz. Bu makalede karşılaşabileceğiniz çoğaltma VMware Vm'lerini ve fiziksel sunucuları kullanılarak Azure'a şirket, bazı yaygın sorunlar [Azure Site Recovery](site-recovery-overview.md).
-
+Azure Site Recovery kullanarak VMware sanal makineleri veya fiziksel sunucuları koruduğunuzda, belirli bir hata iletisi görebilirsiniz. Bu makalede, şirket içi VMware Vm'leri ve fiziksel sunucuları Azure'a kullanarak çoğaltma yaptığınızda çalıştırdığınızca bazı yaygın sorunlar [Site Recovery](site-recovery-overview.md).
 
 ## <a name="initial-replication-issues"></a>İlk çoğaltma sorunları
 
-Çoğu durumda, kaynak sunucu işlem sunucusu veya işlem sunucusu Azure arasında bağlantı sorunları size destek karşılaştığınız ilk çoğaltma hatalarını kaynaklanır. Çoğu durumda, aşağıda listelenen adımları izleyerek bu sorunları giderebilirsiniz.
+İlk çoğaltma hatalarını genellikle işlem sunucusu ile Azure arasında veya kaynak sunucu ile işlem sunucusu arasında bağlantı sorunları nedeniyle oluşup. Çoğu durumda, aşağıdaki bölümlerde yer alan adımları tamamlayarak bu sorunları giderebilirsiniz.
 
-### <a name="verify-the-source-machine"></a>Kaynak makine doğrulayın
-* Kaynak sunucu makine komut satırından Telnet https bağlantı noktası (varsayılan 9443) ile işlem sunucusu herhangi bir ağ bağlantısı sorunları veya güvenlik duvarı bağlantı noktası engelleme sorunları olup olmadığını görmek için aşağıda gösterildiği gibi ping işlemi yapmak için kullanın.
+### <a name="check-the-source-machine"></a>Kaynak makine denetleyin
 
-    `telnet <PS IP address> <port>`
-> [!NOTE]
-    > Telnet kullanın, PING bağlantısını test etmek için kullanmayın.  Telnet yüklü değilse, adımları listesi izleyin [burada](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx)
+Kaynak makine denetleyebilirsiniz aşağıdaki listeyi gösterir yolları:
 
-Alınamazsa bağlanmak, işlem sunucusunun gelen bağlantı noktası 9443'e izin ver ve sorunu hala çıkar olmadığını denetleyin. Bazı durumlarda, işlem sunucusu bu soruna neden olan DMZ olduğu görülmüştür.
+*  Kaynak sunucuda komut satırında aşağıdaki komutu çalıştırarak HTTPS bağlantı noktası (varsayılan HTTPS bağlantı noktası 9443 olduğu) ile işlem sunucusu ping Telnet kullanın. Komut ve sorunları o blok güvenlik duvarı bağlantı noktası için ağ bağlantısı sorunları denetler.
 
-* Hizmet durumunu `InMage Scout VX Agent – Sentinel/OutpostStart` sorun devam ederse, çalışan ve onay değilse.   
+   `telnet <process server IP address> <port>`
 
-### <a name="verify-the-process-server"></a>İşlem sunucusu doğrulayın
+   > [!NOTE]
+   > Telnet bağlantısını test etmek için kullanın. Kullanmayın `ping`. Telnet yüklü değilse, listelenen adımları tamamlamak [Telnet istemcisi yükleme](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).
 
-* **İşlem sunucusu etkin bir şekilde veri Azure'a gönderme, denetleyin**
+   İşlem sunucusuna bağlanamıyorsa, işlem sunucusunun gelen bağlantı noktası 9443'e izin verin. Örneğin, bir çevre ağına ağınız varsa, işlem sunucusunun gelen bağlantı noktası 9443'e izin vermeniz gereken veya denetimli alt ağ. Ardından, sorunun nerede oluştuğunu görmek için kontrol edin.
 
-İşlem sunucusu makineden Görev Yöneticisi'ni (Ctrl-Shift-Esc tuşuna basın) açın. Performans sekmesine gidin ve 'Açık Kaynak İzleyicisi' bağlantısına tıklayın. Kaynak Yöneticisi'nden ağ sekmesine gidin. Büyük miktarda veri (MB) cinsinden cbengine.exe 'Ağ etkinliği ile işlem' de etkin bir şekilde gönderme, kontrol edin.
+*  Durumunu **Inmage Scout VX Aracısı-Sentinel/OutpostStart** hizmeti. Hizmet çalışmıyorsa, hizmeti başlatın ve sorunun nerede oluştuğunu görmek için kontrol edin.   
 
-![Çoğaltmayı etkinleştirme](./media/vmware-azure-troubleshoot-replication/cbengine.png)
+### <a name="check-the-process-server"></a>İşlem sunucusu denetleyin
 
-Aksi durumda, aşağıda listelenen adımları izleyin:
+İşlem sunucusu denetleyebilirsiniz aşağıdaki listeyi gösterir yolları:
 
-* **İşlem sunucusu, Azure Blob bağlanabiliyor olup olmadığını denetleyin**: Seçin ve 'TCP işlem sunucusundan Azure depolama blobu URL'si bağlantısı olup olmadığını görmek için bağlantıları' görüntülemek için cbengine.exe denetleyin.
+*  **İşlem sunucusu etkin bir şekilde veri Azure'a gönderme olup olmadığını denetleyin**.
 
-![Çoğaltmayı etkinleştirme](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
+   1. İşlem sunucusu, Görev Yöneticisi'ni (Ctrl + Shift + Esc tuşlarına basın) açın.
+   2. Seçin **performans** sekmesine tıklayın ve ardından **açık Kaynak İzleyicisi** bağlantı. 
+   3. Üzerinde **Kaynak İzleyicisi** sayfasında **ağ** sekmesi. Altında **ağ etkinliği işlemlerle**, kontrol olup olmadığını **cbengine.exe** etkin bir şekilde büyük miktarlarda veri gönderiyor.
 
-Denetim Masası'na, ardından gidin > hizmetler, aşağıdaki hizmetleri ayarlayıp çalıştırmaya olup olmadığını denetleyin:
+        ![Ağ etkinliği ile işlem birimlerini gösteren ekran görüntüsü](./media/vmware-azure-troubleshoot-replication/cbengine.png)
 
-     * cxprocessserver
-     * InMage Scout VX Agent – Sentinel/Outpost
-     * Microsoft Azure Recovery Services Agent
-     * Microsoft Azure Site Recovery Service
-     * tmansvc
-     *
-(Yeniden) Sorun devam ederse, herhangi bir hizmeti çalışmıyor ve onay başlatın.
+   Büyük bir veri hacmi cbengine.exe gönderme değil, aşağıdaki bölümlerde yer alan adımları tamamlayın.
 
-* **İşlem sunucusu bağlantı noktası 443'ü kullanarak Azure genel IP adresine bağlanmanız mümkün olup olmadığını denetleyin**
+*  **İşlem sunucusu Azure Blob depolama alanına bağlanıp bağlanamadığınızı denetleyin**.
 
-Gelen son CBEngineCurr.errlog açın `%programfiles%\Microsoft Azure Recovery Services Agent\Temp` için arama yapın: 443 ve bağlantı denemesi başarısız oldu.
+   Seçin **cbengine.exe**. Altında **TCP bağlantılarını**, Azure blogunda depolama URL'si işlem sunucusundan bağlantı olup olmadığını denetleyin.
 
-![Çoğaltmayı etkinleştirme](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+   ![Cbengine.exe ve Azure Blob Depolama URL'si arasındaki bağlantıları gösteren ekran görüntüsü](./media/vmware-azure-troubleshoot-replication/rmonitor.png)
 
-Sorun varsa, işlem sunucusu komut satırından, bağlantı noktası 443 aracılığıyla CBEngineCurr.currLog içinde bulundu (içinde görüntü maskelenmiş), Azure genel IP adresine ping atmayı telnet kullanın.
+   İşlem sunucusundan bağlantı Denetim Masası ' nda Azure blogunda depolama URL'sine yoksa seçin **Hizmetleri**. Aşağıdaki hizmetlerin çalışır durumda olup olmadığını denetleyin:
 
-      telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443
-Bağlanmak erişemiyorsanız, güvenlik duvarı veya Proxy sonraki adımda açıklandığı gibi nedeniyle erişim sorunu olup olmadığını denetleyin.
+   *  cxprocessserver
+   *  Inmage Scout VX Aracısı-Sentinel/Outpost
+   *  Microsoft Azure Kurtarma Hizmetleri Aracısı
+   *  Microsoft Azure Site Recovery Hizmeti
+   *  tmansvc
 
+   Veya çalışmadığından herhangi bir hizmeti yeniden başlatın. Sorunun nerede oluştuğunu görmek için kontrol edin.
 
-* **İşlem sunucusu üzerindeki IP adresi tabanlı güvenlik duvarı erişimi engellemediğini varsa denetleyin**: Sunucu üzerinde bir IP adresi tabanlı güvenlik duvarı kuralları kullanıyorsanız, ardından Microsoft Azure veri merkezi IP aralıkları tam listesini indirin [burada](https://www.microsoft.com/download/details.aspx?id=41653) ve iletişimi sağlarlar emin olmak için Güvenlik Duvarı'nı yapılandırmanıza ekleyin Azure (ve HTTPS (443) bağlantı noktası).  Aboneliğinizin Azure bölgesi ve Batı ABD (Access Control ve Identity Management için kullanılır) için IP adresi aralıklarına izin verin.
+*  **İşlem sunucusu bağlantı noktası 443'ü kullanarak Azure genel IP adresine bağlanıp bağlanamadığınızı denetleyin**.
 
-* **URL tabanlı güvenlik duvarı işlem sunucusu üzerindeki erişimi engellemediğini varsa denetleyin**:  Sunucuda bir URL tabanlı güvenlik duvarı kuralları kullanıyorsanız, aşağıdaki URL'ler için güvenlik duvarı yapılandırması eklenen emin olun.
+   %ProgramFiles%\Microsoft Azure kurtarma Hizmetleri Agent\Temp, en son CBEngineCurr.errlog dosyasını açın. Dosyada arayın **443** veya dizesi için **başarısız bağlantı denemesi**.
+
+   ![Hata gösteren ekran görüntüsü Temp klasörü günlüğe kaydeder.](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+
+   Sorunları gösteriliyorsa işlem sunucusu, komut satırında (IP adresi, önceki görüntüde maskelenir), Azure genel IP adresine ping atmayı Telnet kullanın. Azure genel IP adresi, bağlantı noktası 443'ü kullanarak, bir CBEngineCurr.currLog dosyasında bulabilirsiniz:
+
+   `telnet <your Azure Public IP address as seen in CBEngineCurr.errlog>  443`
+
+   Bağlanamıyorsanız, erişim sorununu sonraki adımda açıklandığı gibi güvenlik duvarı veya proxy ayarları nedeniyle olup olmadığını denetleyin.
+
+*  **IP adresi tabanlı güvenlik duvarı işlem sunucusu üzerindeki erişimi engeller olup olmadığını denetleyin**.
+
+   Sunucuda IP adresi tabanlı güvenlik duvarı kurallarını kullanırsanız, tam listesini indirin [Microsoft Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653). Güvenlik Duvarı yapılandırmanızda Güvenlik Duvarı'nın azure'a (ve varsayılan HTTPS bağlantı noktası, 443) iletişimine izin verdiğinden emin olmak için IP adresi aralıklarını ekleyin. (Erişim denetimi ve kimlik yönetimi için kullanılır) Azure Batı ABD bölgesinde ve aboneliğinizin Azure bölgesi için IP adresi aralıklarına izin verin.
+
+*  **İşlem sunucusu üzerindeki URL tabanlı bir güvenlik duvarı erişimi engelliyor olup olmadığını denetleyin**.
+
+   Sunucuda bir URL tabanlı güvenlik duvarı kuralı kullanırsanız, güvenlik duvarı yapılandırması için aşağıdaki tabloda listelenen URL'leri ekleyin:
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
-* **İşlem sunucusu üzerindeki ara sunucu ayarları erişim unsur olmadığını kontrol**.  Bir ara sunucu kullanıyorsanız, proxy sunucusu adı DNS sunucusu tarafından çözüyor emin olun.
-Yapılandırma sunucusu Kurulum zamanında sağlanan denetlemek için. Kayıt defteri anahtarına gidin
+*  **İşlem sunucusu üzerindeki ara sunucu ayarları erişimi engellemek olup olmadığını denetleyin**.
 
-    `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings`
+   Bir ara sunucu kullanıyorsanız, proxy sunucusu adı DNS sunucusu tarafından çözümlenir emin olun. Yapılandırma sunucusunu ayarladıktan sağladığınız değeri denetleyin, kayıt defteri anahtarına gidin **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Site Recovery\ProxySettings**.
 
-Artık aynı ayarları Azure Site Recovery aracısı tarafından veri göndermek için kullanıldığından emin olun.
-Arama Microsoft Azure yedekleme
+   Ardından, veri göndermek için aynı ayarları Azure Site Recovery aracısı tarafından kullanıldığından emin olun: 
+      
+   1. Arama **Microsoft Azure yedekleme**. 
+   2. Açık **Microsoft Azure Backup**ve ardından **eylem** > **özelliklerini değiştirme**. 
+   3. Üzerinde **Proxy Yapılandırması** sekmesinde proxy adresi görmeniz gerekir. Proxy adresi kayıt defteri ayarlarında gösterilen proxy adresi ile aynı olmalıdır. Aksi durumda, aynı adrese değiştirin.
 
-Açın ve eylemini tıklatın > özelliklerini değiştirme. Proxy yapılandırma sekmesi altında kayıt defteri ayarları tarafından gösterildiği gibi aynı olmalıdır proxy adresi görmeniz gerekir. Aksi halde, lütfen aynı adrese değiştirin.
+*  **İşlem sunucusu üzerindeki bant genişliğini kısıtlama kısıtlı olup olmadığını denetleyin**.
 
+   Bant genişliğini artırın ve ardından Sorun oluşmaya devam edip etmediğini denetleyin.
 
-* **Kısıtlama bant genişliği işlem sunucusu üzerindeki sınırlı değildir, kontrol**:  Bant genişliğini artırın ve sorunu hala mevcut olup olmadığını denetleyin.
+## <a name="source-machine-isnt-listed-in-the-azure-portal"></a>Kaynak makine Azure Portalı'nda listelenmez
 
-## <a name="source-machine-to-be-protected-through-site-recovery-is-not-listed-on-azure-portal"></a>Azure portalında Site Recovery ile korunacak kaynak makine listede değil
+Site RECOVERY'yi kullanarak çoğaltmayı etkinleştirmek için kaynak makine seçmeye çalıştığınızda, makine aşağıdaki nedenlerden biri için kullanılabilir olmayabilir:
 
-Makine Azure Site Recovery ile çoğaltmayı etkinleştirmek için kaynak makinenin seçmek çalışırken, aşağıdaki sebeplerden dolayı devam edebilmeniz kullanılamıyor olabilir
+*  VCenter altında iki sanal makine aynı örneğini UUID varsa, Azure portalında ilk sanal makine yapılandırma sunucusu tarafından bulunan gösterilir. Bu sorunu çözmek için iki sanal makine aynı örneğini UUID sahip olun.
+*  OVF şablonu veya birleşik Kurulumu kullanarak yapılandırma sunucusunu ayarladıktan ayarladığınızda, doğru vCenter kimlik bilgilerini emin olun. Kurulum sırasında eklenen kimlik bilgilerini doğrulamak için bkz: [otomatik bulma için kimlik bilgilerini değiştirme](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+*  VCenter erişmek için sağlanan izinler gerekli izinlere sahip değilseniz, sanal makineleri keşfetmek için hatası gerçekleşebilir. İçinde açıklanan izinleri olun [otomatik bulma için bir hesap hazırlama](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) vCenter kullanıcı hesabına eklenir.
+*  Site Recovery sanal makine zaten korunuyorsa, sanal makine koruma portalında seçmek kullanılamaz. Portalda aradığınız sanal makineyi başka bir kullanıcı tarafından veya farklı bir abonelikte zaten korunmuyor emin olun.
 
-* Portalda, varsa iki sanal makine ile aynı örnek UUİD'si, vCenter altında daha sonra yapılandırma sunucusu tarafından bulunan ilk sanal makine gösterilir. Çözmek için iki sanal makine yok'ın aynı örneğine UUID sahip olun.
-* Doğru vCenter kimlik bilgilerini sırasında belirlenen OVF şablonu veya birleştirilmiş aracılığıyla yapılandırmasının yukarı eklediğinizden emin olun. Eklenen kimlik bilgilerini doğrulamak için paylaşılan yönergelerine bakın [burada](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
-* Sağlanan vCenter erişmek için yeterli izniniz yok, sanal makineleri bulma hatası için neden olabilir. Sağlanan izinler olun [burada](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) vCenter kullanıcı hesabına eklenir.
-* Site Recovery sanal makine zaten korunuyorsa, ardından, koruma için kullanılamaz. Portalda aradığınız sanal makineyi başka bir kullanıcı tarafından veya diğer abonelikler altında korunmuyor emin olun.
+## <a name="protected-virtual-machines-arent-available-in-the-portal"></a>Korunan sanal makinelerin portalda kullanılamaz
 
-## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>Korumalı sanal makineleri dışarı portalda gri
-
-Altında Site Recovery çoğaltılan sanal makineler olmadığını anlamak gri sistemdeki yinelenen girişler vardır. Verilen yönergelerine başvurun [burada](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) eski girişleri silmek ve sorunu çözmek için.
+Sistemdeki yinelenen girişler varsa altında Site Recovery çoğaltılan sanal makineler, Azure portalında mevcut değildir. Eski girişleri silmek ve sorunu çözmek öğrenmek için bkz: [Azure Site Recovery VMware-Azure: Yinelenen veya eski girdilerin temizlenmesini nasıl](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla yardıma ihtiyacınız olursa, ardından sorgunuza sonrası [Azure Site Recovery Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Etkin bir topluluk sunuyoruz ve biri, Mühendislerimiz yardımcı olması mümkün olacaktır.
+
+Daha fazla yardıma ihtiyacınız varsa, sorunuzu gönderin [Azure Site Recovery Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Etkin bir topluluk sunuyoruz ve biri, Mühendislerimiz yardımcı olabilir.

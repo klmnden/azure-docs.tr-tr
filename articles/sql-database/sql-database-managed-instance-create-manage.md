@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/12/2018
-ms.openlocfilehash: 7fb6917e129c015536143a707fd2a89fc5423a99
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.date: 01/03/2019
+ms.openlocfilehash: 30efbcd5ba36ea912a7238eef9e300085cb1d3d1
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323089"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040209"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL veritabanı yönetilen örnekleri için yönetilen API Başvurusu
 
@@ -37,9 +37,13 @@ Azure SQL server, veritabanları ve Azure PowerShell ile güvenlik duvarları ol
 | Cmdlet | Açıklama |
 | --- | --- |
 |[Yeni AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstance)|Bir Azure SQL veritabanı yönetilen örneği oluşturur. |
-|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlInstance)|Azure SQL yönetilen örneği hakkında bilgi döndürür|
-|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Set-AzureRmSqlInstance)|Azure SQL veritabanı yönetilen örneği için özellikleri ayarlar|
-|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/Remove-AzureRmSqlInstance)|Bir Azure SQL veritabanı yönetilen örneği kaldırır|
+|[Get-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstance)|Azure SQL yönetilen örneği hakkında bilgi döndürür|
+|[Set-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlinstance)|Azure SQL veritabanı yönetilen örneği için özellikleri ayarlar|
+|[Remove-AzureRmSqlInstance](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstance)|Bir Azure SQL veritabanı yönetilen örneği kaldırır|
+|[Yeni AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlinstancedatabase)|Bir Azure SQL veritabanı yönetilen örneği veritabanı oluşturur|
+|[Get-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlinstancedatabase)|Azure SQL yönetilen örnek veritabanı hakkındaki bilgileri döndürür|
+|[Remove-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlinstancedatabase)|Bir Azure SQL veritabanı örneği yönetilen veritabanı kaldırır|
+|[Geri yükleme-AzureRmSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqlinstancedatabase)|Bir Azure SQL veritabanı örneği yönetilen veritabanı geri yükler|
 
 ## <a name="azure-cli-manage-logical-servers-and-databases"></a>Azure CLI: Mantıksal sunucuları ve veritabanlarını yönetme
 
@@ -47,15 +51,19 @@ Azure SQL server, veritabanlarını ve güvenlik duvarlarıyla oluşturmak ve y�
 
 > [!TIP]
 > Azure CLI Hızlı Başlangıç için bkz. [SQL yönetilen örneği kullanarak Azure CLI ile çalışma](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
->
 
 | Cmdlet | Açıklama |
 | --- | --- |
-|[az sql mı oluşturma](https://docs.microsoft.com/cli/azure/sql/db#az-sql-mi-create) |Yönetilen bir örneğini oluşturur|
-|[az sql mı listesi](https://docs.microsoft.com/cli/azure/sql/db#az-sql-mi-list)|Listeleri kullanılabilir yönetilen örnekler|
-|[az sql mı Göster](/cli/azure/sql/db#az-sql-mi-show)|Ayrıntılı bilgi almak için bir yönetilen örnek|
-|[az sql mı güncelleştirme](/cli/azure/sql/db#az-sql-mi-update)|Yönetilen örnek güncelleştirir|
-|[az sql mı Sil](/cli/azure/sql/db#az-sql-mi-delete)|Yönetilen örnek kaldırır|
+|[az sql mı oluşturma](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Yönetilen bir örneğini oluşturur|
+|[az sql mı listesi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|Listeleri kullanılabilir yönetilen örnekler|
+|[az sql mı Göster](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Ayrıntılı bilgi almak için bir yönetilen örnek|
+|[az sql mı güncelleştirme](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Yönetilen örnek güncelleştirir|
+|[az sql mı Sil](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Yönetilen örnek kaldırır|
+|[az sql ORTAB oluşturma](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Yönetilen bir veritabanı oluşturur.|
+|[az sql ORTAB listesi](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Listeleri kullanılabilir yönetilen veritabanları|
+|[az sql ORTAB geri yükleme](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Bir yönetilen veritabanı geri yükleme|
+|[az sql ORTAB güncelleştirme](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-update)|Yönetilen bir veritabanı güncelleştirmeleri|
+|[az sql ORTAB Sil](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Yönetilen bir veritabanı kaldırır|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Mantıksal sunucuları ve veritabanlarını yönetme
 

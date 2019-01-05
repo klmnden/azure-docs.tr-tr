@@ -1,20 +1,19 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET API, SDK ve kaynakları'
 description: Tüm SQL .NET API ve yayın tarihleri, sona erme tarihlerini ve her bir Azure Cosmos DB .NET SDK'sı sürümü arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 715d67a30bbf2c6d1f50ed7c10a013c0d421f48b
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.author: sngun
+ms.openlocfilehash: f135281ad8bfe8222fd799e3d18c4022c627d23c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337946"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051960"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB SQL API'si için .NET SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -54,6 +53,14 @@ ms.locfileid: "53337946"
 * Yeni nesne modeli, üst düzey CosmosClient ve yöntemleri ile ilgili CosmosDatabases ve CosmosContainers CosmosItems sınıflar arasında bölün. 
 * Akışları için destek. 
 * Durum kodu döndürür ve yanıt döndürüldüğünde yalnızca durum sunucudan CosmosResponseMessage güncelleştirildi. 
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+
+* Yeniden deneme mantığı için StoredProcedure gelişme yük devretme sırasında çağrıları yürütün.
+
+* Yapılan DocumentClientEventSource tekli. 
+
+* ConnectionPolicy RequestTimeout uygularken değil GatewayAddressCache zaman aşımı düzeltin.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -350,6 +357,7 @@ Devre dışı bırakılan bir SDK'sı kullanarak Azure Cosmos DB yapılan tüm i
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |Aralık 24 Mayıs 2018 |--- |
 | [2.2.0](#2.2.0) |07 aralık 2018'e |--- |
 | [2.1.3](#2.1.3) |15 Ekim 2018 |--- |
 | [2.1.2'yi](#2.1.2) |04 Ekim 2018 |--- |

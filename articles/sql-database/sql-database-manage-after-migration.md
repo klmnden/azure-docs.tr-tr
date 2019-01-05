@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 7b40496d22ffed8096ac40efcb96ec55a8ba63ca
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 30ee4f1f56a3c8df44e7a14a131371acfebc6c9e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652804"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052726"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – veritabanınızı Azure SQL veritabanı'nda yönetme
 
@@ -108,7 +108,7 @@ Elinizin altında uygulamanız için en iyi bağlantı kuruluş elde etmek için
 
 Bir güvenlik duvarı erişimi sunucunuza bir dış varlık mantıksal sunucunuza yalnızca belirli varlıklara erişimi vererek engeller. Varsayılan olarak, tüm bağlantılar ve mantıksal sunucu içindeki veritabanlarına, diğer Azure hizmetlerinden gelen bağlantılar dışında izin verilmez. Bir güvenlik duvarı kuralı, bu bilgisayarın IP adresini güvenlik duvarı üzerinden izin vererek onayladığınız yalnızca varlıklara (örneğin, bir geliştirici makine), sunucunuza erişim açabilirsiniz. Ayrıca, mantıksal sunucuya erişmesine izin vermek istediğiniz IP aralığı belirtmenize olanak sağlar. Örneğin, geliştirici Makine IP adresleri kuruluşunuzdaki tek seferde Güvenlik Duvarı ayarları sayfasındaki bir aralığı belirterek eklenebilir.
 
-Sunucu düzeyinde veya veritabanı düzeyinde güvenlik duvarı kuralları oluşturabilirsiniz. Sunucu düzeyinde güvenlik duvarı kuralları ya da Azure portal veya ile SSMS kullanarak oluşturulabilir. Bir sunucu ve veritabanı düzeyinde güvenlik duvarı kuralı ayarlama hakkında daha fazla bilgi için bkz: [SQL veritabanı'nda güvenlik duvarı kuralları oluşturma](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
+Sunucu düzeyinde veya veritabanı düzeyinde güvenlik duvarı kuralları oluşturabilirsiniz. Sunucu düzeyinde güvenlik duvarı kuralları ya da Azure portal veya ile SSMS kullanarak oluşturulabilir. Bir sunucu ve veritabanı düzeyinde güvenlik duvarı kuralı ayarlama hakkında daha fazla bilgi için bkz: [SQL veritabanı'nda güvenlik duvarı kuralları oluşturma](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Hizmet uç noktaları
 
@@ -130,11 +130,11 @@ Bağlantı noktası 1433'tür. SQL veritabanı, bu bağlantı noktası üzerinde
 
 #### <a name="sql-database-auditing"></a>SQL veritabanı denetimi
 
-SQL veritabanı ile veritabanı olaylarını izlemek için ON denetimini kapatabilirsiniz. [SQL veritabanı denetimi](sql-database-auditing.md) veritabanı olaylarını kaydeder ve Azure depolama hesabınızdaki bir denetim günlük dosyasına yazar. Denetim, olası güvenlik ve ilke ihlallerini bir anlayış kazanmak istiyorsanız mevzuatla uyumluluk vb. özellikle yararlı olur. Tanımlamak ve belirli denetim gerekir ve önceden yapılandırılmış raporları ve veritabanınızda gerçekleşen olaylar hakkında genel bakışını almak için bir Pano alabilirsiniz temel düşündüğünüz olayların kategorilerini yapılandırmanıza olanak sağlar. Bu denetim veritabanı düzeyinde veya sunucu düzeyinde ilkeler uygulayabilirsiniz. Sunucu/veritabanı için denetim üzerinde açma konusunda kılavuz bakın: [SQL veritabanı'nı etkinleştirme denetimi](sql-database-security-tutorial.md#enable-sql-database-auditing-if-necessary).
+SQL veritabanı ile veritabanı olaylarını izlemek için ON denetimini kapatabilirsiniz. [SQL veritabanı denetimi](sql-database-auditing.md) veritabanı olaylarını kaydeder ve Azure depolama hesabınızdaki bir denetim günlük dosyasına yazar. Denetim, olası güvenlik ve ilke ihlallerini bir anlayış kazanmak istiyorsanız mevzuatla uyumluluk vb. özellikle yararlı olur. Tanımlamak ve belirli denetim gerekir ve önceden yapılandırılmış raporları ve veritabanınızda gerçekleşen olaylar hakkında genel bakışını almak için bir Pano alabilirsiniz temel düşündüğünüz olayların kategorilerini yapılandırmanıza olanak sağlar. Bu denetim veritabanı düzeyinde veya sunucu düzeyinde ilkeler uygulayabilirsiniz. Sunucu/veritabanı için denetim üzerinde açma konusunda kılavuz bakın: [SQL veritabanı'nı etkinleştirme denetimi](sql-database-security-tutorial.md#enable-security-features).
 
 #### <a name="threat-detection"></a>Tehdit Algılama
 
-İle [tehdit algılama](sql-database-threat-detection.md), kolayca denetleyerek bulunan güvenlik veya ilke ihlallerini alacak sunma olanağı elde edin. Bir güvenlik sisteminizde olası tehditleri veya ihlallerine yönelik uzman olmanız gerekmez. Tehdit algılama, SQL ekleme algılama gibi bazı yerleşik özellikleri de vardır. SQL ekleme, değiştirme veya veri ve genel bir veritabanı uygulaması saldırmak oldukça yaygın bir yolu tehlikeye girişimi. SQL veritabanı tehdit algılama, birden fazla anormal veritabanı erişim modellerinin (örneğin, olağan dışı bir konumdan veya alışkın olmadığınız bir asıl erişimi) yanı sıra olası güvenlik açıklarına ve SQL ekleme saldırıları algılamak algoritmalar çalıştırılır. Veritabanında bir tehdit algılanırsa, güvenlik sorumlularını ya da diğer atanan Yöneticiler bir e-posta bildirimi alırsınız. Her uyarı hakkında daha fazla araştırmak ve tehdidi azaltmak öneriler ve şüpheli etkinlik ayrıntılarını sağlar. Tehdit algılamayı etkinleştirme konusunda bilgi için bkz: [SQL veritabanı tehdit algılamayı etkinleştirme](sql-database-security-tutorial.md#enable-sql-database-threat-detection).
+İle [tehdit algılama](sql-database-threat-detection.md), kolayca denetleyerek bulunan güvenlik veya ilke ihlallerini alacak sunma olanağı elde edin. Bir güvenlik sisteminizde olası tehditleri veya ihlallerine yönelik uzman olmanız gerekmez. Tehdit algılama, SQL ekleme algılama gibi bazı yerleşik özellikleri de vardır. SQL ekleme, değiştirme veya veri ve genel bir veritabanı uygulaması saldırmak oldukça yaygın bir yolu tehlikeye girişimi. SQL veritabanı tehdit algılama, birden fazla anormal veritabanı erişim modellerinin (örneğin, olağan dışı bir konumdan veya alışkın olmadığınız bir asıl erişimi) yanı sıra olası güvenlik açıklarına ve SQL ekleme saldırıları algılamak algoritmalar çalıştırılır. Veritabanında bir tehdit algılanırsa, güvenlik sorumlularını ya da diğer atanan Yöneticiler bir e-posta bildirimi alırsınız. Her uyarı hakkında daha fazla araştırmak ve tehdidi azaltmak öneriler ve şüpheli etkinlik ayrıntılarını sağlar. Tehdit algılamayı etkinleştirme konusunda bilgi için bkz: [SQL veritabanı tehdit algılamayı etkinleştirme](sql-database-security-tutorial.md#enable-security-features).
 
 ### <a name="how-do-i-protect-my-data-in-general-on-sql-database"></a>Nasıl verilerimi Genel SQL veritabanı'nda koruyabilirim
 

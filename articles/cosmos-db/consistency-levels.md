@@ -1,20 +1,17 @@
 ---
 title: Azure Cosmos DB'deki tutarlılık düzeyleri
 description: Azure Cosmos DB Bakiye nihai tutarlılık, kullanılabilirlik ve gecikme süresi dengelemeler yardımcı olmak üzere beş tutarlılık düzeyi vardır.
-keywords: Nihai tutarlılık, azure cosmos db, azure, Microsoft azure
-services: cosmos-db
-author: aliuy
-ms.author: andrl
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/27/2018
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b509c7eceb3c2e2fb2e53f20791976b0322ad744
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 914933e4e0489d68640edb58ceb91dc73a963eb3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089743"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034973"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB'deki tutarlılık düzeyleri
 
@@ -42,18 +39,18 @@ Yüzde 100 okuma isteklerinin seçtiğiniz herhangi bir tutarlılık düzeyi iç
 
 Beş tutarlılık düzeyi semantiği aşağıda açıklanmıştır:
 
-- **Güçlü**: güçlü tutarlılık sunan bir [doğrusallaştırılabilirlik](https://aphyr.com/posts/313-strong-consistency-models) garanti. Okuma işlemleri, bir öğe işlenen en son sürümünü döndürmek için garanti edilir. Bir istemci hiçbir zaman işlenmemiş ya da kısmi bir yazma görür. Kullanıcıların her zaman en son kabul edilen yazma okumak için garanti edilir.
+- **Güçlü**: Güçlü tutarlılık sunan bir [doğrusallaştırılabilirlik](https://aphyr.com/posts/313-strong-consistency-models) garanti. Okuma işlemleri, bir öğe işlenen en son sürümünü döndürmek için garanti edilir. Bir istemci hiçbir zaman işlenmemiş ya da kısmi bir yazma görür. Kullanıcıların her zaman en son kabul edilen yazma okumak için garanti edilir.
 
-- **Sınırlanmış eskime durumu**: Okuma, tutarlı ön ek garantisi uymanız garanti edilir. Okuma yazma (yani "güncelleştirmeler") "K" sürümlerle en fazla bir öğenin veya "t" zaman aralığına lag. Sınırlanmış eskime durumu seçtiğinizde, "eskime" iki şekilde yapılandırılabilir: 
+- **Sınırlanmış eskime durumu**: Okuma işlemleri, tutarlı ön ek garantisi uymanız garanti edilir. Okuma yazma (yani "güncelleştirmeler") "K" sürümlerle en fazla bir öğenin veya "t" zaman aralığına lag. Sınırlanmış eskime durumu seçtiğinizde, "eskime" iki şekilde yapılandırılabilir: 
 
   * Sürüm (K) öğe sayısı
   * Yazma lag okur ile zaman aralığını (t) 
 
   Sınırlanmış eskime durumu teklifler toplam genel sıra dışında "eskime durumu penceresi içinde." Monoton okuma garantisi, hem Azure içindeki hem eskime durumu penceresi dışında bir bölge içinde mevcut. Güçlü tutarlılık, sınırlanmış eskime durumu tarafından sunulan olanları ile aynı semantiğe sahip. Eskime durumu penceresi sıfıra eşittir. Sınırlanmış eskime durumu, doğrusallaştırılabilme zaman Gecikmeli da bilinir. Bir istemci, okuma işlemleri yazma kabul eden bir bölge içinde gerçekleştirdiğinde, sınırlanmış eskime durumu tutarlılık tarafından sağlanan garantisi için bu garanti güçlü tutarlılık ile aynıdır.
 
-- **Oturum**: Okuma monoton okuma, tutarlı (çoklu "yazan" oturumu varsayılarak) önek etmenin garanti edilir, monoton yazma, okuma your-yazma ve yazma yazdıklarınızı okuma garanti eder. Oturum tutarlılığı için bir istemci oturumundan kapsamlıdır.
+- **Oturum**: Okuma tutarlı (çoklu "yazan" oturumu varsayılarak) ön ek, monoton okuma, monoton yazma, okuma your-yazma ve yazma yazdıklarınızı okuma garanti etmenin garanti edilir. Oturum tutarlılığı için bir istemci oturumundan kapsamlıdır.
 
-- **Tutarlı ön ek**: döndürülen güncelleştirmeleri tüm güncelleştirmeleri herhangi bir boşluk ile bazı ön içerir. Tutarlı ön ek okumalar hiçbir sırası yazma gördüğünüzü garanti eder.
+- **Tutarlı ön ek**: Tüm güncelleştirmeleri herhangi bir boşluk ile bazı ön döndürülen güncelleştirmeleri içerir. Tutarlı ön ek okumalar hiçbir sırası yazma gördüğünüzü garanti eder.
 
 - **Nihai**: Okuma için sıralama garantisi yoktur. Başka yazma işlemlerinin olmaması durumunda, yineleme sonunda birbirine yaklaşır.
 
@@ -72,7 +69,7 @@ Bir Azure Cosmos DB kapsayıcısı ziyaretçilerinizin ve toplamları çalışt�
 | - | - |
 | **Tanımlayıcı** | 2-5 |
 | **Sınırlanmış eskime durumu** | En fazla bir inning güncel olan Puanları: 2-3, 2-4, 2-5 |
-| **Oturumu** | <ul><li>Yazıcı için: 2-5</li><li> Yazıcı dışındaki için: 0-0, 0-1, 0-2, 0-3, 4 0, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5</li><li>1-3 okuma sonra: 1-3, 1-4, 1-5, 2-3, 2-4, 2-5</li> |
+| **Oturumu** | <ul><li>Yazıcı için: 2-5</li><li> Herkes için yazıcı dışında: 0-0, 0-1, 0-2, 0-3, 4 0, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5</li><li>1-3 okuduktan sonra: 1-3, 1-4, 1-5, 2-3, 2-4, 2-5</li> |
 | **Tutarlı ön ek** | 0-0, 0-1, 1-1, 1-2, 1-3, 2-3, 2-4, 2-5 |
 | **Nihai** | 0-0, 0-1, 0-2, 0-3, 4 0, 0-5, 1-0, 1-1, 1-2, 1-3, 1-4, 1-5, 2-0, 2-1, 2-2, 2-3, 2-4, 2-5 |
 
@@ -84,7 +81,7 @@ Tutarlılık kavramları hakkında daha fazla bilgi edinmek için bu makaleleri 
 - [Çoğaltılan verilerin tutarlılık açıklandığı aracılığıyla Beyzbol (video) Doug Terry tarafından](https://www.youtube.com/watch?v=gluIh8zd26I)
 - [Çoğaltılan verilerin tutarlılık açıklandığı aracılığıyla Beyzbol (Teknik İnceleme) Doug Terry tarafından](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
 - [Oturum, tutarlı zayıf çoğaltılan veriler için garanti eder](https://dl.acm.org/citation.cfm?id=383631)
-- [Modern dağıtılmış veritabanı sistemleri tasarım tutarlılık seçenekleri: UÇ hikayeyi yalnızca bir parçası değildir](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
+- [Veritabanı sistemleri tasarımı tutarlılık Ödünler Modern, dağıtılmış: CAP hikayeyi yalnızca bir parçası olan](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 - [Olasılığa dayalı sınırlanmış eskime durumu (PBS) için pratik kısmi çekirdekleri](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Sonunda tutarlı - Revisited](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 

@@ -1,21 +1,19 @@
 ---
 title: Azure Cosmos DB kullanarak Java uygulaması geliştirme Öğreticisi
 description: Bu Java web uygulaması öğreticisi, Azure Web Siteleri'nde barındırılan bir Java uygulamasında verileri depolamak ve bunlara erişmek için Azure Cosmos DB ve SQL API’sinin nasıl kullanılacağını size gösterir.
-keywords: Uygulama geliştirme, veritabanı öğreticisi, java uygulaması, java web uygulaması öğreticisi, azure, Microsoft azure
-services: cosmos-db
 author: tknandu
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: bdfe390314f2d2174a26e9b321022a3589a06467
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3add2b6800463cf9320d2fcfdd87897d2e38d32d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086548"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039818"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB ve SQL API’sini kullanarak bir Java web uygulaması oluşturma
 
@@ -52,16 +50,16 @@ Bu uygulama geliştirme öğreticisine başlamadan önce aşağıdakilere sahip 
 * [Java EE Geliştiricileri için Eclipse IDE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Java çalışma zamanı ortamı (ör. Tomcat veya Jetty) etkin bir Azure Web Sitesi.](../app-service/app-service-web-get-started-java.md)
 
-Bu araçları ilk kez yüklüyorsanız coreservlets.com adresindeki [Öğretici: TomCat7'yi yükleme ve Eclipse ile kullanma](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) makalesinin Hızlı Başlangıç bölümünde yükleme işlem için bir adım adım kılavuz mevcuttur.
+Bu araçları ilk kez yüklüyorsanız coreservlets.com hızlı başlangıç bölümünde yükleme işleminin bir kılavuz sağlar. kendi [Öğreticisi: Tomcat7'yi yükleme ve Eclipse ile kullanma](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) makalesi.
 
-## <a id="CreateDB"></a>1. Adım: Azure Cosmos DB hesabı oluşturma
-İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya bu öğretici için Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız [2. Adım: Java JSP uygulaması oluşturma](#CreateJSP) adımına atlayabilirsiniz.
+## <a id="CreateDB"></a>1. adım: Azure Cosmos DB hesabı oluşturma
+İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya Bu öğretici için Azure Cosmos DB öykünücüsü'nü kullanıyorsanız, adımına atlayabilirsiniz [2. adım: Java JSP uygulaması oluşturma](#CreateJSP).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
-## <a id="CreateJSP"></a>2. Adım: Java JSP uygulaması oluşturma
+## <a id="CreateJSP"></a>2. adım: Java JSP uygulaması oluşturma
 JSP uygulaması oluşturmak için:
 
 1. İlk olarak, bir Java projesi oluşturarak başlayacağız. Eclipse'i başlatın, ardından **Dosya**'ya tıklayın, **Yeni**'ye tıklayın ve ardından **Dinamik Web Projesi**'ne tıklayın. Kullanılabilir bir proje olarak **Dinamik Web Projesi**'ni listelenmiş şekilde görmüyorsanız şunu yapın: **Dosya**'ya tıklayın, **Yeni**'ye tıklayın, **Proje**… seçeneğine tıklayın, **Web**'i genişletin, **Dinamik Web Projesi**'ne tıklayın ve **İleri**'ye tıklayın.
@@ -83,7 +81,7 @@ JSP uygulaması oluşturmak için:
    
     ![Hello World - Java Uygulaması Öğreticisi](./media/sql-api-java-application/image12.png)
 
-## <a id="InstallSDK"></a>3. Adım: SQL Java SDK’sını yükleme
+## <a id="InstallSDK"></a>3. adım: SQL Java'yı yükleme SDK'sı
 [Apache Maven](https://maven.apache.org/), SQL Java SDK'sını ve bağımlılıklarını çekmenin en kolay yolunu sağlar.
 
 Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven projesine dönüştürmeniz gerekir:
@@ -106,7 +104,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
 6. **Tamam**'a tıkladığınızda Maven SQL Java SDK'sını yükler.
 7. Pom.xml dosyasını kaydedin.
 
-## <a id="UseService"></a>4. Adım: Azure Cosmos DB hizmetini bir Java uygulamasında kullanma
+## <a id="UseService"></a>4. adım: Azure Cosmos DB hizmetini bir Java uygulamasında kullanma
 1. İlk olarak, TodoItem.java içinde TodoItem nesnesini tanımlayalım:
    
         @Data
@@ -340,7 +338,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
             return true;
         }
 
-## <a id="Wire"></a>5. Adım: Java uygulaması geliştirme projesinin geriye kalan kısmını bağlama
+## <a id="Wire"></a>5. adım: Kalan bağlama Java uygulaması geliştirme projesinin
 Artık eğlenceli kısımları tamamladığımıza göre, geriye sadece hızlı bir kullanıcı arabirimi oluşturmak ve bunu DAO'muza bağlamak kaldı.
 
 1. İlk olarak, DAO'muzu çağırmak için bir denetleyici oluşturmakla başlayalım:
@@ -712,7 +710,7 @@ Artık eğlenceli kısımları tamamladığımıza göre, geriye sadece hızlı 
 5. Harika! Şimdi geriye yalnızca uygulamayı test etmek kaldı. Uygulamayı yerel olarak çalıştırın, ardından öğe adı ve kategoriyi doldurarak ve **Görev Ekle**'ye tıklayarak birkaç Yapılacaklar öğesi ekleyin.
 6. Öğe göründükten sonra, onay kutusundaki işareti değiştirip **Görevleri Güncelleştir**'e tıklayarak öğeyi tamamlandı veya tamamlanmadı olarak güncelleştirebilirsiniz.
 
-## <a id="Deploy"></a>6. Adım: Java uygulamanızı Azure Web Siteleri'ne dağıtma
+## <a id="Deploy"></a>6. adım: Java uygulamanızı Azure Web sitelerine dağıtma
 Azure Web Siteleri Java uygulamalarını dağıtmayı, uygulamanızı bir WAR dosyası olarak dışarı aktarmak ve kaynak denetimi (ör. Git) veya FTP aracılığıyla karşıya yüklemek kadar basit hale getirir.
 
 1. Uygulamanızı bir WAR dosyası olarak dışarı aktarmak için **Proje Gezgini**'nde projenize sağ tıklayın, **Dışarı Aktar**'a tıklayın ve ardından **WAR Dosyası**'na tıklayın.

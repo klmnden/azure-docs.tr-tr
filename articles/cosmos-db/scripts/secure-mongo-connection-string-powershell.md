@@ -1,21 +1,20 @@
 ---
 title: MongoDB uygulamaları için Azure PowerShell Betiği-Get Azure Cosmos DB bağlantı dizesi
 description: Azure PowerShell Betiği Örneği - MongoDB uygulamaları için Azure Cosmos DB bağlantı dizesi alma
-services: cosmos-db
 ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
-ms.component: cosmosdb-mongo
-ms.custom: mvc
+ms.subservice: cosmosdb-sql
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 05/10/2017
-ms.openlocfilehash: 56dd939027d4cf3fd11b89891b0a35a623cd6f68
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: sngun
+ms.openlocfilehash: e90c0533f6caee697a9083aae6086ecceec430e0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959572"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038492"
 ---
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-powershell"></a>PowerShell kullanarak MongoDB uygulamaları için bir Azure Cosmos DB bağlantı dizesi alma
 

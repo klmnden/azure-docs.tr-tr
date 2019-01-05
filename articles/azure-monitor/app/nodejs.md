@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ced0ae62bcccadafd090964daae4e7828c05ce2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8414633ae90cccdf4496826bee673e82e3c80460
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54003788"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035551"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights ile Node.js hizmetlerinizi ve uygulamalarınızı izleme
 
@@ -216,5 +216,5 @@ server.on("listening", () => {
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../../application-insights/app-insights-troubleshoot-faq.md
+[FAQ]: ../../azure-monitor/app/troubleshoot-faq.md
 

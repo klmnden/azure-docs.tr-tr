@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB’de SQL ile sorgulama
 description: Azure Cosmos DB’de SQL ile sorgulamayı öğrenin
-services: cosmos-db
 author: rafats
 ms.author: rafats
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.openlocfilehash: 7f8c3f6d11ba7551cb0d0c9398b46bb001b9b75b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: 329f50341649c353fae21d92e8d5f25b1e45a632
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52832641"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043592"
 ---
-# <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Öğretici: SQL API’sini kullanarak Azure Cosmos DB’yi sorgulama
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Öğretici: SQL API'sini kullanarak Azure Cosmos DB'yi sorgulama
 
 Azure Cosmos DB [SQL API’si](documentdb-introduction.md), SQL kullanılarak belgelerin sorgulanmasını destekler. Bu makalede, örnek bir belge ve iki örnek SQL sorgusu ve sonuçları sağlanmaktadır.
 
@@ -121,7 +121,7 @@ Sonraki sorgu, ailede kimlikleri `WakefieldFamily` ile eşleşen çocukların t�
 
 **Sonuçlar**
 
-[ { "givenName": "Jesse" }, { "givenName": "Lisa" } ]
+[{"givenName": "Jesse"}, {"givenName": "Lisa"}]
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

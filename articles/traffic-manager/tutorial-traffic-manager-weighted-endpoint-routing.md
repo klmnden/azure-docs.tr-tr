@@ -1,5 +1,5 @@
 ---
-title: Öğretici - Azure Traffic Manager'ı kullanarak trafiği ağırlıklı uç noktalara yönlendirme | Microsoft Docs
+title: Öğretici - Ağırlıklı Uç noktaları için trafiği yönlendirme - Azure Traffic Manager
 description: Bu öğretici makalede, Traffic Manager'ı kullanarak trafiği ağırlıklı uç noktalara yönlendirme açıklanmaktadır.
 services: traffic-manager
 author: KumudD
@@ -8,14 +8,14 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: 0f5b1f3525ab75f8c14f7921e23b30a1c58e8c73
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: f70f3804bb1c6f385081b56fe6139b1b680a95cf
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158831"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055022"
 ---
-# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Öğretici: Traffic Manager'ı kullanarak ağırlıklı uç noktalar ile trafiği denetleme 
+# <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Öğretici: Denetim trafik Traffic Manager'ı kullanarak ağırlıklı uç noktalar ile yönlendirme 
 
 Bu öğreticide, ağırlıklı yönlendirme yöntemini kullanarak kullanıcı trafiğini uç noktalar arasında yönlendirmeyi denetlemek için Azure Traffic Manager'ı kullanma adımları açıklanmaktadır. Bu yönlendirme yönteminde Traffic Manager profil yapılandırmasında her uç noktasına bir ağırlık değeri atarsınız. Kullanıcı trafiği, her bir uç noktaya atanan ağırlık değerine göre yönlendirilir. Ağırlık 1 ile 1.000 arasında bir tamsayıdır. Bir uç noktaya ne kadar yüksek bir ağırlık değeri atanırsa uç nokta o kadar yüksek önceliğe sahip olur.
 
@@ -31,9 +31,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Traffic Manager'ın nasıl çalıştığını görmek için bu öğretici kapsamında aşağıdaki kaynakları dağıtın:
-- Farklı Azure bölgelerinde (Doğu ABD ve Batı Avrupa) çalışan iki temel web sitesi örneği.
+- Farklı Azure bölgelerinde çalıştırılan temel Web siteleri iki örneği: Doğu ABD ve Batı Avrupa.
 - Traffic Manager'ı test etmek için iki test amaçlı VM: bir VM Doğu ABD bölgesinde, diğeri ise Batı Avrupa bölgesinde olmalıdır. Traffic Manager’ın kullanıcı trafiğini uç noktasına daha yüksek bir ağırlık atanan bir web sitesine nasıl yönlendirdiğini göstermek için test VM’leri kullanılır.
 
 ### <a name="sign-in-to-azure"></a>Azure'da oturum açma 
@@ -54,7 +54,7 @@ Bu bölümde Doğu ABD ve Batı Avrupa Azure bölgelerinde *myIISVMEastUS* ve *m
 
     |Ayar|Değer|
     |---|---|
-    |Adı|**myIISVMEastUS** yazın.|
+    |Ad|**myIISVMEastUS** yazın.|
     |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
     |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
     |Kaynak grubu| **Yeni**'yi seçin ve **myResourceGroupTM1** girin.|
@@ -129,7 +129,7 @@ Bu bölümde, *mVMEastUS* adlı VM'yi oluşturacaksınız. Bu VM’yi Traffic Ma
 
     |Ayar|Değer|
     |---|---|
-    |Adı|**myVMEastUS** yazın.|
+    |Ad|**myVMEastUS** yazın.|
     |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
     |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
     |Kaynak grubu| **Var olanı kullan**’ı seçin ve sonra **myResourceGroupTM1** öğesini seçin.|
@@ -155,7 +155,7 @@ Bu bölümde, *mVMEastUS* adlı VM'yi oluşturacaksınız. Bu VM’yi Traffic Ma
 
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
-    | Adı                   | trafficmanager.net bölgesi içinde benzersiz bir ad girin. Traffic Manager profilinize erişmek için kullanılan trafficmanager.net DNS adında bulunur.                                   |
+    | Ad                   | trafficmanager.net bölgesi içinde benzersiz bir ad girin. Traffic Manager profilinize erişmek için kullanılan trafficmanager.net DNS adında bulunur.                                   |
     | Yönlendirme yöntemi          | **Ağırlıklı** yönlendirme yöntemini seçin.                                       |
     | Abonelik            | Aboneliğinizi seçin.                          |
     | Kaynak grubu          | **Var olanı kullan**’ı seçin ve sonra **myResourceGroupTM1** öğesini seçin. |
@@ -174,7 +174,7 @@ Kullanıcı trafiğini bunlara yönlendirmek için myIISVMEastUS ve myIISVMWEuro
     | Ayar                 | Değer                                              |
     | ---                     | ---                                                |
     | Tür                    | Azure uç noktasını girin.                                   |
-    | Adı           | **myEastUSEndpoint** yazın.                                        |
+    | Ad           | **myEastUSEndpoint** yazın.                                        |
     | Hedef kaynak türü           | **Genel IP adresi**'ni seçin.                          |
     | Hedef kaynak          | Genel IP adresine sahip kaynakların aynı abonelik altında listelenmesi için genel IP adresi seçin. **Kaynak** bölümünde **myIISVMEastUS-ip** adlı genel IP adresini seçin. Bu, Doğu ABD bölgesindeki IIS sunucusu VM'sinin IP adresidir.|
     |  Ağırlık      | **100** değerini girin.        |

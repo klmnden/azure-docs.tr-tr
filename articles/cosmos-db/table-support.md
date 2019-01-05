@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB, Azure tablo depolama desteği
 description: Azure Cosmos DB Tablo API'si ile Azure Depolama Tabloları'nın birlikte nasıl çalıştığını öğrenin.
-services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 11/15/2017
-ms.author: sngun
-ms.openlocfilehash: 6c6b0650ae8f4ed780b72e8fcd414e3f26e4f5f3
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+author: wmengmsft
+ms.author: wmeng
+ms.reviewer: sngun
+ms.openlocfilehash: b105cf6c220534927a16be83ca5db8801c88f6c0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878746"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035602"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Azure Cosmos DB Tablo API'si ve Azure Tablo depolaması ile geliştirme
 
@@ -29,7 +29,7 @@ Azure Cosmos DB Tablo API'si ve Azure Tablo depolaması aynı tablo veri modelin
 - [Java SDK'sı](table-sdk-java.md). Bu Azure Depolama SDK'sı, Tablo API'sini kullanarak Azure Cosmos DB hesaplarına bağlanabilir.
 - [Node.js SDK’sı](table-sdk-nodejs.md). Bu Azure Depolama SDK'sı, Tablo API'sini kullanarak Azure Cosmos DB hesaplarına bağlanabilir.
 
-Tablo API'siyle çalışma hakkındaki ek bilgileri [SSS: Tablo API'siyle geliştirme](faq.md#table) makalesinde bulabilirsiniz.
+Tablo API'si ile çalışma hakkında ek bilgi sağlanmıştır [SSS: Tablo API'si ile geliştirme](faq.md#table) makalesi.
 
 ## <a name="developing-with-azure-table-storage"></a>Azure Tablo depolamasıyla geliştirme
 

@@ -11,28 +11,28 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 138368c8e79d68a9a9c5a711b99d8926da7dc68d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/03/2019
+ms.openlocfilehash: 49c411487a29a7faa5a6cec5087a85d472309a4b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601568"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044578"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL veritabanı ölçümleri ve tanılama günlükleri
 
 Azure SQL veritabanı, elastik havuzlar, yönetilen örneği ve yönetilen örnek uygulamasındaki performans izlemeyi kolaylaştırmak için ölçümleri ve tanılama günlüklerini akışla veritabanları. Bir veritabanının kaynak kullanımını, çalışanları ve oturumları ve aşağıdaki Azure kaynakları birine bağlantı aktarmaya yapılandırabilirsiniz:
 
-* **Azure SQL Analytics**: performans raporları, uyarılar ve azaltıcı öneriler içeren, Azure veritabanları akıllı izleme alınamıyor.
-* **Azure Event Hubs**: SQL veritabanı telemetrisini özel izleme çözümleri veya yoğun işlem hatlarıyla tümleştirmek için.
-* **Azure depolama**: telemetri fiyatı çok daha düşük maliyetlerle arşivlemek için.
+- **Azure SQL Analytics**: performans raporları, uyarılar ve azaltıcı öneriler içeren, Azure veritabanları akıllı izleme alınamıyor.
+- **Azure Event Hubs**: SQL veritabanı telemetrisini özel izleme çözümleri veya yoğun işlem hatlarıyla tümleştirmek için.
+- **Azure depolama**: telemetri fiyatı çok daha düşük maliyetlerle arşivlemek için.
 
     ![Mimari](./media/sql-database-metrics-diag-logging/architecture.png)
 
 Çeşitli Azure Hizmetleri tarafından desteklenen Ölçümler ve günlük kategorileri hakkında daha fazla bilgi için bkz:
 
-* [Microsoft azure'da ölçümlere genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Azure tanılama günlüklerine genel bakış](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Microsoft azure'da ölçümlere genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Azure tanılama günlüklerine genel bakış](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Bu makalede, yönetilen örnek veritabanları ve elastik havuzlar için tanılama telemetrisi etkinleştirmenize yardımcı olan yönergeler sağlar. Veritabanı tanılama telemetrisi görüntüleme için bir izleme aracı olarak Azure SQL Analytics yapılandırma anlamanıza da yardımcı olabilir.
 
@@ -101,7 +101,6 @@ Azure SQL veritabanı için tanılama telemetrisi akışını etkinleştirmek i�
 
 > [!NOTE]
 > Güvenlik Denetim günlüklerini veritabanı tanılama ayarları etkinleştirilemez. Denetim günlüğü akışını etkinleştirmek için bkz: [veritabanınız için denetimi ayarlamanız](sql-database-auditing.md#subheading-2), ve [SQL denetim günlüklerini Azure Log Analytics ve Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
-
 > [!TIP]
 > İzlemek istediğiniz her Azure SQL veritabanı bu adımları yineleyin.
 
@@ -112,17 +111,17 @@ Azure SQL veritabanı için tanılama telemetrisi akışını etkinleştirmek i�
 Yönetilen örnek veritabanları için tanılama telemetrisi akışını etkinleştirmek için aşağıdaki adımları izleyin:
 
 1. Yönetilen örnek veritabanınızdaki gidin.
-1. Seçin **tanılama ayarları**.
-1. Seçin **tanılamayı Aç** önceki ayar yok ya da seçin **ayarını Düzenle** önceki bir ayarı düzenlemek için.
+2. Seçin **tanılama ayarları**.
+3. Seçin **tanılamayı Aç** önceki ayar yok ya da seçin **ayarını Düzenle** önceki bir ayarı düzenlemek için.
    - En çok üç (3) paralel bağlantı stream tanılama telemetrisi için oluşturabilirsiniz.
    - Seçin **+ tanılama ayarı ekleme** , birden fazla kaynak için Tanılama verileri paralel akış yapılandırmak için.
 
    ![Yönetilen örnek veritabanı için tanılamayı etkinleştirme](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-1. Kendi başvuru için bir ayar adı girin.
-1. Tanılama veri akışı için bir hedef kaynak seçin: **Depolama hesabında arşivle**, **Stream olay hub'ına**, veya **Log Analytics'e gönderme**.
-1. Veritabanı tanılama telemetrisi için onay kutularını seçin: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** ve **hataları**.
-1. **Kaydet**’i seçin.
+4. Kendi başvuru için bir ayar adı girin.
+5. Tanılama veri akışı için bir hedef kaynak seçin: **Depolama hesabında arşivle**, **Stream olay hub'ına**, veya **Log Analytics'e gönderme**.
+6. Veritabanı tanılama telemetrisi için onay kutularını seçin: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** ve **hataları**.
+7. **Kaydet**’i seçin.
 
    ![Yönetilen örnek veritabanı için tanılamayı yapılandırmak](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 
@@ -170,7 +169,7 @@ Aşağıdaki tanılama telemetrisi toplamak için bir yönetilen örnek kaynağ�
 
 | Kaynak | Telemetri izleme |
 | :------------------- | ------------------- |
-| **Yönetilen örnek** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) sanal çekirdek sayısı, ortalama CPU yüzdesi, g/ç istekleri, bayt okunan/yazılan, ayrılmış depolama alanı içerir ve kullanılan depolama alanı. |
+| **Yönetilen örnek** | [ResourceUsageStats](sql-database-metrics-diag-logging.md#logs-for-managed-instance) sanal çekirdek sayısı, ortalama CPU yüzdesi, g/ç istekleri, bayt okunan/yazılan, ayrılmış depolama alanı içerir ve kullanılan depolama alanı. |
 
 Yönetilen örnek kaynak için tanılama telemetrisi akışını etkinleştirmek için aşağıdaki adımları izleyin:
 
@@ -338,11 +337,11 @@ Seçili verileri, Event Hubs'a akış sonra Gelişmiş izleme senaryoları etkin
 
 Event Hubs, akış ölçümleri kullanabilirsiniz:
 
-* **Hot yol verilerini Power bı'a akış tarafından hizmet durumu görüntüleme**. Event Hubs, Stream Analytics ve Power BI'ı kullanarak Azure hizmetlerinizi ölçümleri ve tanılama verilerinizi neredeyse gerçek zamanlı Öngörüler kolayca dönüştürebilirsiniz. Verileri işlemek, çıktı olarak kullanmak üzere Power BI ve Stream Analytics ile nasıl bir olay hub'ı ayarladınız genel bakış için bkz. [Stream Analytics ve Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
+- **Hot yol verilerini Power bı'a akış tarafından hizmet durumu görüntüleme**. Event Hubs, Stream Analytics ve Power BI'ı kullanarak Azure hizmetlerinizi ölçümleri ve tanılama verilerinizi neredeyse gerçek zamanlı Öngörüler kolayca dönüştürebilirsiniz. Verileri işlemek, çıktı olarak kullanmak üzere Power BI ve Stream Analytics ile nasıl bir olay hub'ı ayarladınız genel bakış için bkz. [Stream Analytics ve Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md).
 
-* **Üçüncü taraf günlüğe kaydetme ve telemetri akışlarını günlüklerine Stream**. Event Hubs akış kullanarak çeşitli üçüncü taraf izleme ve günlük analizi çözümleriyle, ölçümleri ve tanılama günlüklerini alabilirsiniz.
+- **Üçüncü taraf günlüğe kaydetme ve telemetri akışlarını günlüklerine Stream**. Event Hubs akış kullanarak çeşitli üçüncü taraf izleme ve günlük analizi çözümleriyle, ölçümleri ve tanılama günlüklerini alabilirsiniz.
 
-* **Özel telemetri ve günlüğe kaydetme platform derleme**. Yapmak zaten ürettikleri telemetri platform veya bir oluşturma dikkate? Yüksek düzeyde ölçeklenebilir Yayımla-doğasını abone ol olay hub'ları esnek bir şekilde tanılama günlükleri alma olanak tanır. Bkz: [Dan Rosanova'nın küresel ölçekli bir telemetri platform Event Hubs kullanarak Kılavuzu](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
+- **Özel telemetri ve günlüğe kaydetme platform derleme**. Yapmak zaten ürettikleri telemetri platform veya bir oluşturma dikkate? Yüksek düzeyde ölçeklenebilir Yayımla-doğasını abone ol olay hub'ları esnek bir şekilde tanılama günlükleri alma olanak tanır. Bkz: [Dan Rosanova'nın küresel ölçekli bir telemetri platform Event Hubs kullanarak Kılavuzu](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/).
 
 ## <a name="stream-into-storage"></a>Stream depolamaya
 
@@ -386,7 +385,7 @@ Azure SQL Analytics kullanıyorsanız, veri alımı tüketiminiz çözümdeki se
 
 ## <a name="metrics-and-logs-available"></a>Ölçümleri ve günlük yok
 
-Toplanan izleme telemetri kullanılabilir kendi için _özel çözümleme_ ve _uygulama geliştirme_ kullanarak [SQL Analytics dil](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries). 
+Toplanan izleme telemetri kullanılabilir kendi için _özel çözümleme_ ve _uygulama geliştirme_ kullanarak [SQL Analytics dil](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
 
 ## <a name="all-metrics"></a>Tüm ölçümleri
 
@@ -690,12 +689,12 @@ Daha fazla bilgi edinin [Intelligent Insights günlük biçimi](sql-database-int
 
 Günlüğe kaydetmeyi etkinleştirmek için ölçümleri anlamak ve kategoriler çeşitli Azure Hizmetleri tarafından desteklenen günlük öğrenmek için bkz:
 
-* [Microsoft azure'da ölçümlere genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-* [Azure tanılama günlüklerine genel bakış](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Microsoft azure'da ölçümlere genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Azure tanılama günlüklerine genel bakış](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 Event Hubs hakkında bilgi edinmek için:
 
-* [Azure Event Hubs nedir?](../event-hubs/event-hubs-what-is-event-hubs.md)
-* [Event Hubs kullanmaya başlayın](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+- [Azure Event Hubs nedir?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Event Hubs kullanmaya başlayın](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Azure depolama hakkında daha fazla bilgi edinmek için [depolamadan ölçümleri ve tanılama günlükleri indirmek nasıl](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

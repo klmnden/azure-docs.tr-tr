@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 385a2890159d99b2aa91b7227895dfd830056a06
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 5a883d922944552b53b152546cc891a0a2f4a31f
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021960"
+ms.locfileid: "54042742"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Öğretici: Azure Resource Manager şablonu kullanarak bir Azure veri fabrikası oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,6 +38,8 @@ Bu hızlı başlangıçta, Azure Resource Manager şablonu kullanarak bir Azure 
 Azure Resource Manager şablonları hakkında genel bir bilgi almak için bkz. [Azure Resource Manager Şablonları Yazma](../azure-resource-manager/resource-group-authoring-templates.md). 
 
 Aşağıdaki bölümde, öğreticiyi hızlıca geçip şablonu test etmeniz için Data Factory varlıklarını tanımlamaya yönelik tam bir Resource Manager şablonu verilmektedir. Her bir Data Factory varlığının nasıl tanımlandığını anlamak için [Şablondaki Data Factory varlıkları](#data-factory-entities-in-the-template) bölümüne bakın.
+
+Data Factory kaynaklarını bir şablonda özelliklerini ve JSON söz dizimi hakkında bilgi edinmek için bkz. [Microsoft.DataFactory kaynak türleri](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json"></a>Data Factory JSON 
 **C:\ADFTutorial** klasöründe aşağıdaki içeriğe sahip **ADFTutorialARM.json** adlı bir JSON dosyası oluşturun:

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: c2695f4e2dcd2441b0a8845bd194d4e393e1d7ca
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 18416f4208a77c27290b7e524b207fc681f06fdb
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020481"
+ms.locfileid: "54050821"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
@@ -39,7 +39,7 @@ ms.locfileid: "54020481"
 ## <a name="q01"></a>Visual Studio 'Application Insights Ekle' seçeneği
 *Mevcut bir projeyi Çözüm Gezgini'nde sağ tıkladığımda, herhangi bir Application Insights seçeneği görmüyorum.*
 
-* Tüm türleri .NET projesinin araçları tarafından desteklenir. Web ve WCF proje desteklenir. Masaüstü veya hizmet uygulamalar gibi diğer proje türleri için yine de [bir Application Insights SDK'sını projenize el ile ekleme](../../application-insights/app-insights-windows-desktop.md).
+* Tüm türleri .NET projesinin araçları tarafından desteklenir. Web ve WCF proje desteklenir. Masaüstü veya hizmet uygulamalar gibi diğer proje türleri için yine de [bir Application Insights SDK'sını projenize el ile ekleme](../../azure-monitor/app/windows-desktop.md).
 * Olduğundan emin olun [Visual Studio 2013 Update 3 veya üzeri](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). Application Insights SDK'sı sağlayan Geliştirici analiz araçları ile önceden yüklenmiş olarak sunulur.
 * Seçin **Araçları**, **Uzantılar ve güncelleştirmeler** denetimi **Developer Analytics Tools** yüklü ve etkin. Öyleyse **güncelleştirmeleri** kullanılabilir bir güncelleştirme olup olmadığını görmek için.
 * Yeni Proje iletişim kutusunu açın ve ASP.NET Web uygulamasını seçin. Application Insights seçeneği yok görürseniz, daha sonra Araçlar yüklenir. Aksi durumda, Application Insights'ı yeniden yüklemeyi deneyin.
@@ -154,7 +154,7 @@ Web sayfalarındaki veriler gelir.
 Bkz: [bağımlılık telemetrisi](../../azure-monitor/app/asp-net-dependencies.md) ve [özel durum telemetrisi](asp-net-exceptions.md).
 
 ## <a name="no-performance-data"></a>Performans verisi
-Performans verileri (CPU, GÇ oranı vb.) için kullanılabilir [Java web Hizmetleri](../../azure-monitor/app/java-collectd.md), [Windows Masaüstü uygulamaları](../../application-insights/app-insights-windows-desktop.md), [Durum İzleyicisi'ni yükleyin, web uygulamaları ve Hizmetleri'IIS](../../azure-monitor/app/monitor-performance-live-website-now.md), ve [Azure bulut Hizmetleri](../../application-insights/app-insights-overview.md). Sunucu Ayarları altında bulabilirsiniz.
+Performans verileri (CPU, GÇ oranı vb.) için kullanılabilir [Java web Hizmetleri](../../azure-monitor/app/java-collectd.md), [Windows Masaüstü uygulamaları](../../azure-monitor/app/windows-desktop.md), [Durum İzleyicisi'ni yükleyin, web uygulamaları ve Hizmetleri'IIS](../../azure-monitor/app/monitor-performance-live-website-now.md), ve [Azure bulut Hizmetleri](../../application-insights/app-insights-overview.md). Sunucu Ayarları altında bulabilirsiniz.
 
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>(Sunucu) veri için my server uygulaması yayımladım beri
 * Aslında tüm Microsoft kopyaladığınız denetleyin. Sunucuya Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll birlikte Applicationınsights DLL'leri

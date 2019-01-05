@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: ab5f334b1c830ea5e9c0164b8e75ef0f4fab8e1b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 50f048dc36b0248cdbbd85d91c00b7947f9ddc1f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075650"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052147"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Maliyet Yönetimi verilerine erişim atama
 
@@ -39,6 +39,10 @@ Maliyet verilerini görüntülemek için bir kullanıcı en az bir veya daha faz
 <sup>1</sup> fatura hesabın da Kurumsal Anlaşma ya da kayıt adlandırılır.
 
 <sup>2</sup> kayıt hesabı da hesap sahibi olarak adlandırılır.
+
+Aşağıdaki diyagramda, rolleri ile maliyet Yönetimi kapsamları ve EA portal ayarları arasındaki ilişkiyi gösterir.
+
+![Rolleri ile maliyet Yönetimi kapsamları ve EA portal ayarları ilişkiyi gösteren diyagram](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>EA portal maliyetlerini erişimi etkinleştirme
 

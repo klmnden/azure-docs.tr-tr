@@ -1,22 +1,19 @@
 ---
 title: Azure Cosmos DB için Python Flask web uygulaması Öğreticisi
 description: Azure'da barındırılan bir Python Flask web uygulamasından veri depolamak ve verilere erişmek için Azure Cosmos DB kullanma konulu veritabanı öğreticisini inceleyin. Uygulama geliştirme çözümleri bulun.
-keywords: Uygulama geliştirme, python flask, python web uygulaması, python web geliştirme
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a2c7b7c5dc68bb96e0b54dc89f2c170cdb20c792
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a59de5fad7f457fffcc36ed55fd5862bc9329a1d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081923"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037166"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB kullanarak bir Python Flask web uygulaması derleme
 
@@ -61,8 +58,8 @@ Bu makaledeki yönergeleri izlemeden önce aşağıdakilerin yüklenmiş olduğu
 
 * [Python 2.7 için Microsoft Visual C++ Derleyicisi](https://www.microsoft.com/en-us/download/details.aspx?id=44266).
 
-## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>1. Adım: Azure Cosmos DB veritabanı hesabı oluşturma
-İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya bu öğretici için Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız [2. Adım: Yeni bir Python Flask web uygulaması oluşturma](#step-2-create-a-new-python-flask-web-application) adımına atlayabilirsiniz.
+## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>1. Adım: Bir Azure Cosmos DB veritabanı hesabı oluşturma
+İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya Bu öğretici için Azure Cosmos DB öykünücüsü'nü kullanıyorsanız, adımına atlayabilirsiniz [2. adım: Yeni bir Python Flask web uygulaması oluşturma](#step-2-create-a-new-python-flask-web-application).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -365,7 +362,7 @@ def vote():
     ![Oylamanın Sonuçları sayfasını gösteren ekran görüntüsü](./media/sql-api-python-application/cosmos-db-voting-results.png)
 6. Shift + F5'e basarak projenin hata ayıklamasını durdurun.
 
-## <a name="step-5-deploy-the-web-application-to-azure"></a>5. Adım: Web uygulamasını Azure'a dağıtma
+## <a name="step-5-deploy-the-web-application-to-azure"></a>5. Adım: Web uygulamasını azure'a dağıtma
 Artık uygulamanın tamamının Azure Cosmos DB ile yerel olarak düzgün çalıştığından emin olduğunuza göre, bir web.config dosyası oluşturacak, sunucudaki dosyaları yerel ortamla uyuşacak şekilde güncelleştirecek ve sonra tamamlanan uygulamayı Azure'da görüntüleyeceğiz. Bu yordam, Visual Studio 2017'ye özeldir. Visual Studio'nun farklı bir sürümünü kullanıyorsanız, bkz. [Azure App Service'te Yayımlama](/visualstudio/python/publishing-to-azure).
 
 1. Visual Studio **Çözüm Gezgini**'nde, projeye sağ tıklayın ve **Ekle > Yeni Öğe...**'yi seçin. Açılan iletişim kutusunda, **Azure web.config (Fast CGI)** şablonunu ve **Tamam**'ı seçin. Bu, proje kök dizininizde bir `web.config` dosyası oluşturur. 
@@ -436,4 +433,4 @@ Web uygulamanıza ek işlevsellik eklemek için [Azure Cosmos DB Python SDK'sın
 
 Azure, Visual Studio ve Python hakkında daha fazla bilgi için bkz. [Python Geliştirici Merkezi](https://azure.microsoft.com/develop/python/). 
 
-Ek Python Flask öğreticileri için bkz. [Büyük Flask Öğreticisi, 1. Bölüm: Merhaba Dünya!](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 
+Ek Python Flask öğreticileri için bkz. [Flask Mega-Eğitmeni, bölüm ı: Merhaba Dünya! ](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 

@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 77fafb3f3a4c834c5a7f185d129a1c651db58089
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 77fe6846a056bcdd5a62f1c7d0c7640bae892a75
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719856"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044170"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Mobil uygulamanızı App Center ve Application Insights ile analiz etmeye başlama
 
@@ -169,4 +169,4 @@ Application Insights kaynağını silmek için:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Müşterilerin uygulamanızı nasıl kullandığını anlama](app-insights-usage-overview.md)
+> [Müşterilerin uygulamanızı nasıl kullandığını anlama](../azure-monitor/app/usage-overview.md)

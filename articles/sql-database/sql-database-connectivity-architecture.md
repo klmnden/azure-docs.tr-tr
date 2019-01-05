@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 62e4171a6895f2f425d67b9d1143fe9d3999a9b9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/03/2019
+ms.openlocfilehash: 38b7c478e3b90347086c2dd005630d239db7fd89
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715911"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038220"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL bağlantı mimarisi
 
@@ -26,18 +26,17 @@ Bu makalede, Azure SQL Örneğiniz için trafiği farklı bileşenleri işlevi n
 > [!IMPORTANT]
 > **[Gelecek değişiklik] Azure SQL sunucuları için hizmet uç noktası bağlantıları için bir `Default` bağlantı davranış değişiklikleri `Redirect`.**
 >
-> Değişiklik Brezilya Güney ve Batı Avrupa bölgeleri için zaten 10 Kasım 2018 tarihinden sonra etkili olur. Diğer tüm bölgeler için değişiklik 2 Ocak 2019 ' geçerli olacaktır.
+> Değişiklik veya bu tarihten önce 2 Ocak 2019 tüm bölgeler için geçerlidir.
 >
 > Bu değişikliğin sonucu olarak mevcut ortamlarda bozucu bir hizmet uç noktası üzerinden bağlantı engellemek için aşağıdakileri yapın telemetri kullanırız:
 > - Değiştirilmeden önce hizmet uç noktaları aracılığıyla erişilen biz algılayan sunucular için şu bağlantı türüne çevirin `Proxy`.
 > - Diğer tüm sunucular için şu bağlantıyı değiştirmek türü moduna geçiş yapılamaz için `Redirect`.
 >
-> Hizmet uç noktası kullanıcılar yine de aşağıdaki senaryolarda etkilenebilir: 
-> - Bizim telemetri uygulamalarla ilgili bilgileri yakalamak yaramadı şekilde uygulama mevcut bir sunucuyu seyrek bağlanır 
-> - Otomatik dağıtım logic hizmet uç noktası bağlantıları için varsayılan davranışı olduğunu varsayarsak bir mantıksal sunucu oluşturur. `Proxy` 
+> Hizmet uç noktası kullanıcılar yine de aşağıdaki senaryolarda etkilenebilir:
+> - Bizim telemetri uygulamalarla ilgili bilgileri yakalamak yaramadı şekilde uygulama mevcut bir sunucuyu seyrek bağlanır
+> - Otomatik dağıtım logic hizmet uç noktası bağlantıları için varsayılan davranışı olduğunu varsayarsak bir mantıksal sunucu oluşturur. `Proxy`
 >
 > Azure SQL sunucusuna bağlantılara hizmet uç noktası kurulamadı ve bu değişiklikten etkilenen suspecting, bağlantı türü açıkça değerine ayarlandığını doğrulayın `Redirect`. Bu durumda, Sql ait tüm Azure IP adreslerine bölgedeki VM Güvenlik duvarı kuralları ve ağ güvenlik grupları (NSG) açmanız gerekir [hizmet etiketi](../virtual-network/security-overview.md#service-tags) 11000 12000 bağlantı noktaları. Bu, sizin için bir seçenek değilse, sunucu açıkça geçiş `Proxy`.
-
 > [!NOTE]
 > Bu konu başlığı, Azure SQL sunucusunun yanı sıra Azure SQL sunucusu üzerinde oluşturulmuş olan SQL Veritabanı ve SQL Veri Ambarı veritabanları için de geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
 
@@ -131,7 +130,6 @@ Azure SQL veritabanı sunucusu için Azure SQL veritabanı bağlantı İlkesi de
 
 > [!IMPORTANT]
 > Bu betik [Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
->
 
 Aşağıdaki PowerShell betiğini bağlantı ilkesini değiştirme işlemi gösterilmektedir.
 

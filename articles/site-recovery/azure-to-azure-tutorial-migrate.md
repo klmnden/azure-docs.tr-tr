@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: dc27e49cc67a902bb45b1d889bb61b1f4b3aab83
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2ce9c486dee3f26d23db5da67abfea4701f85796
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788778"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040483"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Azure VM’lerini başka bir bölgeye taşıma
 
@@ -83,7 +83,7 @@ En son kök sertifikalar Azure Vm'lerinde, taşımak istediğiniz mevcut olduğu
 Kasayı, kaynak bölgesi dışında herhangi bir bölgede oluşturun.
 
 1. [Azure Portal](https://portal.azure.com) > **Kurtarma Hizmetleri**’nde oturum açın.
-2. **Kaynak oluştur** > **İzleme ve Yönetim** > **Backup ve Site Recovery** öğesine tıklayın.
+2. Tıklayın **kaynak Oluştur** > **Yönetim Araçları** > **Backup ve Site Recovery**.
 3. **Ad** bölümünde **ContosoVMVault** kolay adını belirtin. Birden fazla aboneliğiniz varsa uygun olanı seçin.
 4. Bir **ContosoRG** kaynak grubu oluşturun.
 5. Bir Azure bölgesi belirtin. Desteklenen bölgeleri kontrol etmek için [Azure Site Recovery Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/site-recovery/) bölümündeki coğrafi kullanılabilirlik kısmına bakın.

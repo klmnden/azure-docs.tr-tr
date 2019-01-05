@@ -11,49 +11,49 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: a8a26a0a273c8e3cf1880ce277c2d4b4241e35ee
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/03/2019
+ms.openlocfilehash: f1047d5ad17afbac55b5ea9215ce592d36918174
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52874745"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042589"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Esnek veritabanı araçlarını sık sorulan sorular (SSS)
 
-#### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Tek kiracılı parça ve hiçbir parçalama anahtarı başına sorularım varsa ne parçalama anahtarı için şema bilgileri doldurmak?
+## <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Tek kiracılı parça ve hiçbir parçalama anahtarı başına sorularım varsa ne parçalama anahtarı için şema bilgileri doldurmak
 
 Şema bilgisi nesnesi, yalnızca birleştirme senaryolarını bölmek için kullanılır. Doğal olarak tek kiracılı bir uygulama ise bölme birleştirme Aracı'nı gerektirmez ve böylece şema bilgisi nesnesi doldurmak için gerek yoktur.
 
-#### <a name="ive-provisioned-a-database-and-i-already-have-a-shard-map-manager-how-do-i-register-this-new-database-as-a-shard"></a>Bir veritabanı sağlanan ve parça eşleme Yöneticisi zaten, nasıl bu yeni veritabanını bir parça kaydedebilirim?
+## <a name="ive-provisioned-a-database-and-i-already-have-a-shard-map-manager-how-do-i-register-this-new-database-as-a-shard"></a>Bir veritabanı sağlanan ve parça eşleme Yöneticisi zaten, nasıl bu yeni veritabanını bir parça kaydedebilirim
 
-Lütfen  **[elastik veritabanı istemci kitaplığını kullanarak bir uygulamaya bir parça ekleme](sql-database-elastic-scale-add-a-shard.md)**. 
+Lütfen [elastik veritabanı istemci kitaplığını kullanarak bir uygulamaya bir parça ekleme](sql-database-elastic-scale-add-a-shard.md).
 
-#### <a name="how-much-do-elastic-database-tools-cost"></a>Esnek veritabanı araçlarını maliyeti ne kadar?
+## <a name="how-much-do-elastic-database-tools-cost"></a>Esnek veritabanı araçlarını maliyeti ne kadar
 
 Elastik veritabanı istemci kitaplığını kullanarak maliyetlerin hiçbirini tabi değildir. Maliyetler, yalnızca web/çalışan rolleri için bölünmüş Birleştirme aracı sağlama yanı sıra, parça ve parça eşleme Yöneticisi için kullandığınız Azure SQL veritabanları için tahakkuk eder.
 
-#### <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Neden kimlik bilgilerimi bir parça sunucusundan farklı bir sunucuya eklediğinizde çalışmıyor?
+## <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Neden kimlik bilgilerimi bir parça sunucusundan farklı bir sunucuya eklediğinizde çalışmıyor
 
 Kimlik bilgileri biçiminde kullanma "kullanıcı kimliği =username@servername", bunun yerine yalnızca kullanın "kullanıcı kimliği kullanıcı adı =".  Ayrıca "username" oturum açma parça izinleri olduğundan emin olun.
 
-#### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Parça eşleme Yöneticisi oluşturma ve uygulamalarım'ı her başlattığınızda parçalar doldurmak gerekiyor mu?
+## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Parça eşleme Yöneticisi oluşturma ve uygulamalarım'ı her başlattığınızda parçalar doldurmak gerekiyor mu
 
-Hayır; parça eşleme Yöneticisi oluşturma (örneğin,  **[ShardMapManagerFactory.CreateSqlShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) tek seferlik bir işlemdir.  Uygulamanızın çağrı kullanması gerekir **[ShardMapManagerFactory.TryGetSqlShardMapManager()](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** uygulama başlatma zaman.  Uygulama etki alanı başına yalnızca bir tür çağrısı var olmalıdır.
+Hayır; parça eşleme Yöneticisi oluşturma (örneğin, [ShardMapManagerFactory.CreateSqlShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)) tek seferlik bir işlemdir.  Uygulamanızın çağrı kullanması gerekir [ShardMapManagerFactory.TryGetSqlShardMapManager()](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx) uygulama başlatma zaman.  Uygulama etki alanı başına yalnızca bir tür çağrısı var olmalıdır.
 
-#### <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Esnek veritabanı araçlarını kullanma hakkında sorularım, bunları yanıtlanmış nasıl alabilirim?
+## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Esnek veritabanı araçlarını kullanma hakkında sorularım, nasıl yanıtlanmış edinilir
 
 Lütfen bize ulaşın [Azure SQL veritabanının Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
-#### <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Bir parçalama anahtarı kullanarak bir veritabanı bağlantısı aldığımda hala aynı parça diğer parçalama anahtarları için sorgu veri gelebilecek.  Bu durum tasarım icabı mi?
+## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Bir parçalama anahtarı kullanarak bir veritabanı bağlantısı aldığımda hala aynı parça diğer parçalama anahtarları için sorgu veri gelebilecek.  Bu, bilinçli böyle
 
 Esnek ölçeklendirme API'leri, parçalama anahtarı için doğru veritabanına bir bağlantı sağlar, ancak parçalama anahtarı filtreleme sağlamaz.  Ekleme **burada** sağlanan parçalama anahtarı için gerekiyorsa kapsamını kısıtlamak için sorgu yan tümcelerini.
 
-#### <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set"></a>My parça kümedeki farklı bir Azure veritabanı sürümü her parça için kullanabilirim?
+## <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set"></a>My parça kümedeki farklı bir Azure veritabanı sürümü her parça için kullanabilirim
 
 Evet, bir parça bağımsız bir veritabanıdır ve bu nedenle bir parça Premium sürümü başka bir standart sürüm şöyle olabilir. Ayrıca, bir parça sürümü sırasında parça ömrünü birden çok kez yukarı veya aşağı ölçeklendirebilirsiniz.
 
-#### <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>Bir bölme ve birleştirme işlemi sırasında bir veritabanı bölme-Birleştirme aracı sağlama yapar (veya sildiğinizde)?
+## <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>Bir bölme ve birleştirme işlemi sırasında bir veritabanı bölme-Birleştirme aracı sağlama yapar (veya Sil)
 
 Hayır. İçin **bölme** işlemleri hedef veritabanı ile uygun şema bulunmalı ve parça eşleme Yöneticisi ile kayıtlı olması.  İçin **birleştirme** işlemleri, parça parça eşleme Yöneticisi'nden silin ve sonra veritabanını silin.
 

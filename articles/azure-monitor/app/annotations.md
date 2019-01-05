@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 126c0d63a7d59b76361a25844575ee6556a475b1
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 9aa77caa690bfb51dd0e5d43e15d246614f1cc71
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002085"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050192"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application ınsights ölçüm grafikleri ek açıklamalar
 
 Ek açıklamalar [ölçüm Gezgini](../../azure-monitor/app/metrics-explorer.md) grafikleri, yeni bir derleme veya diğer önemli olay dağıtıldığı gösterir. Bunlar, değişikliklerinizi uygulamanızın performansını herhangi bir etkisi sahip olup olmadığını görmek kolaylaştırır. Tarafından otomatik olarak oluşturulabilir [Azure DevOps Hizmetleri derleme sistemi](https://docs.microsoft.com/azure/devops/pipelines/tasks/). Bayrak olarak istediğiniz herhangi bir olay için ek açıklamaları da oluşturabilirsiniz [Powershell'den oluşturarak](#create-annotations-from-powershell).
 
 > [!NOTE]
-> Bu makalede kullanım dışı yansıtır **Klasik ölçüm deneyimi**. Ek açıklamalara sahip Klasik deneyim ve şu anda kullanılabilir yalnızca  **[çalışma kitapları](../../application-insights/app-insights-usage-workbooks.md)**. Currrent hakkında daha fazla bilgi için ölçümler deneyimi, size başvurabilirsiniz [bu makalede](../../azure-monitor/platform/metrics-charts.md).
+> Bu makalede kullanım dışı yansıtır **Klasik ölçüm deneyimi**. Ek açıklamalara sahip Klasik deneyim ve şu anda kullanılabilir yalnızca  **[çalışma kitapları](../../azure-monitor/app/usage-workbooks.md)**. Currrent hakkında daha fazla bilgi için ölçümler deneyimi, size başvurabilirsiniz [bu makalede](../../azure-monitor/platform/metrics-charts.md).
 
 ![Sunucu yanıt süresi ile görünür bağıntı açıklamalarla örneği](./media/annotations/00.png)
 

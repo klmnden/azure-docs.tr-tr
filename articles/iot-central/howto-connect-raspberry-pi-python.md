@@ -1,5 +1,5 @@
 ---
-title: Azure IOT Central uygulamanıza (Python) Raspberry Pi'yi Connnect | Microsoft Docs
+title: Raspberry Pi'yi Azure IOT Central uygulamanızı (Python) bağlayın | Microsoft Docs
 description: Bir cihaz geliştirici olarak Python kullanarak Azure IOT Central uygulamanızı Raspberry Pi'yi bağlanma.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 90837092390cd2550805658471ff7aa884773371
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f39832b50ed983e7d8a0bfc0a06366870717fa3
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239602"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051994"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Raspberry Pi'yi bağlanmak, Azure IOT Central uygulamasına (Python)
 
@@ -25,7 +25,7 @@ Bu makalede, Raspberry Pi'yi Python programlama dili kullanarak, Microsoft Azure
 
 Bu makaledeki adımları tamamlayabilmeniz için aşağıdaki bileşenleri gerekir:
 
-* Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için [bir uygulaması hızlı başlangıç oluşturma](quick-deploy-iot-central.md).
+* Oluşturulan bir Azure IOT Central uygulamasına **örnek Devkits** uygulama şablonu. Daha fazla bilgi için bkz. [Uygulama oluşturma hızlı başlangıcı](quick-deploy-iot-central.md).
 * Raspbian işletim sistemi çalıştıran bir Raspberry Pi cihaz. Monitör, klavye ve fare Raspberry Pi'yi bağlı GUI ortama erişmek için gereksinim duyduğunuz. Raspberry Pi şunları [İnternet'e](https://www.raspberrypi.org/learning/software-guide/wifi/).
 * İsteğe bağlı olarak, bir [algılama Hat](https://www.raspberrypi.org/products/sense-hat/) Raspberry Pi eklenti Panosu. Bu pano, Azure IOT Central uygulamasına göndermek için çeşitli sensörlerden alınan telemetri verileri toplar. Yoksa bir **algılama Hat** Panosu, bunun yerine bir öykünücü kullanabilirsiniz (kullanılabilir Raspberry Pi görüntünün parçası olarak).
 

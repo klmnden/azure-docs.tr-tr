@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 193e024b4691b76b08bcbe15ace35ccafd45c394
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 095ecdccde930db20ee858bfce7fc0811163cdd9
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023456"
+ms.locfileid: "54038271"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtreleme ve telemetri, Application Insights SDK'sı ön işleme
 
@@ -372,4 +372,4 @@ Telemetri işlemciler ve telemetri başlatıcılar arasındaki fark nedir?
 ## <a name="next"></a>Sonraki adımlar
 * [Arama olayları ve günlükleri](../../azure-monitor/app/diagnostic-search.md)
 * [Örnekleme](../../azure-monitor/app/sampling.md)
-* [Sorun giderme](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Sorun giderme](../../azure-monitor/app/troubleshoot-faq.md)

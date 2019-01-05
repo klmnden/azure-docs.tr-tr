@@ -6,40 +6,40 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: a0d75b13369cff4e99bef6f57a3b01f3d8eee6e4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 61b923b278d13bdcf97e05859c36b14bf9edba6e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227172"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051008"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack sanal makinelerine giriş
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
-Azure Stack sanal makineleri (VM'ler), bir isteğe bağlı, ölçeklenebilir bilgi işlem kaynak türü sunar. Diğer seçimlere göre bilgi işlem ortamınız üzerinde daha fazla denetime ihtiyacınız olduğunda bir sanal makine seçebilirsiniz. Bu makalede, VM oluşturmadan önce Ayrıntılar sağlanır.
+Azure Stack sanal makineleri (VM'ler), bir isteğe bağlı, ölçeklenebilir bilgi işlem kaynak türü sunar. Bilgi işlem ortamınız üzerinde daha fazla denetime ihtiyacınız olduğunda bir sanal makine seçebilirsiniz. Bu makalede, ilk VM'nizi oluşturmadan önce ayrıntıları sağlar.
 
 Azure Stack sanal kümeler ya da makineleri tek tek yönetmek zorunda kalmadan sanallaştırma esnekliği sunar. Ancak, yine de yapılandırma, düzeltme eki uygulama ve üzerinde çalıştığı yazılım yükleme gibi görevleri gerçekleştirerek VM'nin sürdürmeniz gerekir.
 
 Azure Stack sanal makineleri çeşitli yollarla kullanabilirsiniz. Örneğin:
 
 - **Geliştirme ve test**  
-    Azure Stack sanal makineleri kodu için gereken belirli bir yapılandırmaya sahip bir bilgisayar oluşturmak ve bir uygulamayı test etme için hızlı ve kolay bir yolunu sunar.
+    Azure Stack sanal makineleri kodu için gereken belirli bir yapılandırmaya sahip bir bilgisayar oluşturmak ve bir uygulamayı test etmek etkinleştirin.
 
 - **Bulut uygulamaları**  
-    Uygulamanız için isteğe bağlı dalgalanma çünkü bunu çalıştırmak için Azure Stack'te bir VM üzerinde ekonomik mantıklı olabilir. İhtiyaç duyduğunuzda oluşturulan ek VM’ler için ödeme yapar, ihtiyaç kalmadığında bunları kapatırsınız.
+    Uygulamanız için isteğe bağlı dalgalanma çünkü bunu çalıştırmak için Azure Stack'te bir VM üzerinde ekonomik mantıklı olabilir. İhtiyaç kalmadığında bunları kapatırsınız kullandığınızda, ek VM'ler için ödeme yaparsınız.
 
 - **Genişletilmiş veri merkezi**  
-    Azure Stack sanal ağdaki sanal makineleri kolayca kuruluşunuzun ağına veya azure'a bağlanabilir.
+    Azure Stack sanal ağdaki sanal makineler, kuruluşunuzun ağına veya azure'a bağlanabilir.
 
-Uygulamanızın kullandığı ölçeği büyütün veya ihtiyaçlarınızı karşılamak için gerekli her şeyi gelir ölçeği VM'ler.
+Uygulamanızın kullandığı ölçeği büyütün veya ne olursa olsun, ihtiyaçlarınızı karşılamak için gerekli için ölçek genişletme, VM'ler.
 
-## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>VM oluşturmadan önce dikkat etmem gereken noktalar nelerdir?
+## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>VM oluşturmadan önce dikkat etmeniz gerekenler nelerdir
 
-Aynı zamanda Azure Stack'te uygulama altyapısı oluştururken her zaman çok sayıda tasarım konuları mevcuttur. Altyapınızı oluşturma işlemine başlamadan önce dikkat etmeniz gereken VM bu özellikleri şunlardır:
+Aynı zamanda Azure Stack'te uygulama altyapısı oluştururken her zaman tasarım konuları mevcuttur. Altyapınızı oluşturma işlemine başlamadan önce dikkat etmeniz gereken VM bu özellikleri şunlardır:
 
 - Uygulama kaynaklarınızın adları.
 - VM boyutu.
@@ -52,30 +52,29 @@ Aynı zamanda Azure Stack'te uygulama altyapısı oluştururken her zaman çok s
 
 Bir sanal makineye atanmış bir ad ve işletim sisteminin bir parçası olarak yapılandırılan bir bilgisayar adı sahiptir. VM adı en fazla 15 karakter uzunluğunda olabilir.
 
-İşletim sistemi diski oluşturmak için Azure Stack kullanırsanız, bilgisayar adı ve sanal makine adı aynıdır. Karşıya yükleme ve önceden yapılandırılmış bir işletim sistemini içeren kendi görüntünüzü kullanma ve bir sanal makine oluşturmak için bunu kullanın, adları farklı olabilir. Kendi görüntü dosyanızı yüklediğinizde, işletim sisteminde bilgisayar adını yapın ve sanal makine adını en iyi uygulama olarak aynı.
+İşletim sistemi diski oluşturmak için Azure Stack kullanırsanız, bilgisayar adı ve sanal makine adı aynıdır. Karşıya yükleme ve önceden yapılandırılmış bir işletim sistemini içeren kendi görüntünüzü kullanma ve bir sanal makine oluşturmak için bunu kullanın, adları farklı olabilir. Kendi görüntü dosyanızı yüklediğinizde en iyi uygulama, bilgisayar adı işletim sistemini ve sanal makine adı aynı olduğundan emin olun.
 
 ### <a name="vm-size"></a>VM boyutu
 
-Kullandığınız VM'nin boyutunu, çalıştırmak istediğiniz iş yüküne göre belirlenir. Seçtiğiniz boyut işlemci gücü, bellek ve depolama kapasitesi gibi ölçütleri belirler. Azure Stack, çok çeşitli sayıda kullanım türünü desteklemek üzere boyutları sunar.
+Kullandığınız VM'nin boyutunu, çalıştırmak istediğiniz iş yüküne göre belirlenir. Seçtiğiniz boyut işlemci gücü, bellek ve depolama kapasitesi gibi ölçütleri belirler. Azure Stack, çeşitli sayıda kullanım türünü desteklemek üzere boyutlarını sunar.
 
 ### <a name="vm-limits"></a>VM sınırları
 
-Aboneliğinizi yerinde projeniz için çok sayıda VM dağıtımını etkileyebilecek varsayılan kota sınırları vardır. Geçerli sınırlar abonelik başına her bölge için 20 VM olarak belirlenmiştir.
+Aboneliğinizi yerinde projeniz için VM dağıtımını etkileyebilecek varsayılan kota sınırları vardır. Geçerli sınırlar abonelik başına her bölge için 20 VM olarak belirlenmiştir.
 
 ### <a name="operating-system-disks-and-images"></a>İşletim sistemi diskleri ve görüntüleri
 
-Sanal makineler, kendi işletim sistemlerini (OS) ve verilerini depolamak için sanal sabit diskleri (VHD) kullanır. VHD bir işletim sistemi yüklemek için seçebileceğiniz görüntüler için de kullanılır.
-Azure Stack çeşitli türlerde işletim sistemleri ve sürümleri ile kullanmak için bir pazar sağlar. Market görüntüleri görüntü yayımcısı, teklif, sku ve sürüm (genelde sürüm en son belirtilir.) tarafından tanımlanır
+Sanal makineler, kendi işletim sistemlerini (OS) ve verilerini depolamak için sanal sabit diskleri (VHD) kullanır. VHD bir işletim sistemi yüklemek için seçebileceğiniz görüntüler için de kullanılır. Azure Stack çeşitli türlerde işletim sistemleri ve sürümleri ile kullanmak için bir pazar sağlar. Market görüntüleri görüntü yayımcısı, teklif, SKU ve sürümü tarafından tanımlanır (genelde sürüm olarak belirtilen **son**.)
 
-Aşağıdaki tablo, görüntü bilgilerini bulabilirsiniz bazı yollarını gösterir:
+Aşağıdaki tabloda, görüntü bilgilerini bulmak gösterilmektedir:
 
 |Yöntem|Açıklama|
 |---------|---------|
 |Azure Stack portalı|Bir görüntüyü kullanmak istediğinizde değerler otomatik olarak belirtilir.|
 |Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
-|REST API'leri     |[Görüntü yayımcılarını listeleme](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<br>[Görüntü tekliflerini listeleme](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[Görüntü SKU'ları Listele](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
+|REST API'leri     |[Görüntü yayımcılarını listeleme](/rest/api/compute/platformimages/platformimages-list-publishers)<br>[Görüntü tekliflerini listeleme](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[Görüntü SKU'ları Listele](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
-Karşıya yükleme ve kendi görüntünüzü kullanma seçebilirsiniz. Bunu yaparsanız, yayımcı adı, teklif ve sku kullanılmaz.
+Karşıya yükleme ve kendi görüntünüzü kullanma seçebilirsiniz. Bunu yaparsanız, yayımcı adı, teklif ve SKU kullanılmaz.
 
 ### <a name="extensions"></a>Uzantılar
 
@@ -93,10 +92,9 @@ Uzantıları kullanarak şu genel görevleri gerçekleştirebilirsiniz:
 
 ### <a name="related-resources"></a>İlgili kaynaklar
 
-Aşağıdaki tablodaki kaynaklar VM tarafından kullanılır ve mevcut veya sanal makine oluşturulduğunda gerekir.
+Aşağıdaki tablodaki kaynaklar VM tarafından kullanılır ve mevcut veya sanal Makineyi oluştururken oluşturulması gerekir:
 
-
-|Kaynak|Gerekli|Açıklama|
+|Kaynak|Gereklidir|Açıklama|
 |---------|---------|---------|
 |Kaynak grubu|Evet|VM bir kaynak grubunda yer almalıdır.|
 |Depolama hesabı|Hayır|VM'yi yönetilen diskleri kullanıyorsanız, sanal sabit disklerini depolamak için depolama hesabı gerektirmez. <br>VM, yönetilmeyen diskler kullanıyorsanız, sanal sabit disklerini depolamak için depolama hesabınızın olması gerekir.|
@@ -107,9 +105,7 @@ Aşağıdaki tablodaki kaynaklar VM tarafından kullanılır ve mevcut veya sana
 
 ## <a name="create-your-first-vm"></a>İlk VM'nizi oluşturun
 
-Bir VM oluşturmak için birkaç seçeneğiniz vardır. Seçiminiz ortamınıza bağlıdır.
-Aşağıdaki tabloda VM'nizi oluşturmak için giriş bilgileri ihtiyaç duyacağınız sağlar.
-
+Bir VM oluşturmak için birkaç seçeneğiniz vardır. Seçiminiz ortamınıza bağlıdır. Aşağıdaki tabloda VM'nizi oluşturmak kullanmaya başlamanıza yardımcı olmak için bilgiler sağlar:
 
 |Yöntem|Makale|
 |---------|---------|
@@ -131,14 +127,13 @@ VM'ler tarayıcı tabanlı bir portal, betik oluşturma ya da doğrudan API'ler 
 
 Aşağıdaki tabloda VM hakkında bilgi edinme yöntemlerinden bazıları gösterilmektedir.
 
-
 |Yöntem|Açıklama|
 |---------|---------|
 |Azure Stack portalı|Hub menüsünde, sanal makineler tıklayın ve ardından listeden VM'yi seçin. VM sayfasında, Özet bilgilere, ayar değerlerine ve izleme ölçümlerine erişiminiz.|
-|Azure PowerShell|Vm'leri yönetme, Azure ve Azure Stack benzerdir. PowerShell kullanma hakkında daha fazla bilgi için aşağıdaki Azure konuya bakın:<br>[Oluşturma ve Azure PowerShell modülü ile Windows sanal makineleri yönetme](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|İstemci SDK'ları|Vm'leri yönetmek için C# kullanarak Azure ve Azure Stack benzerdir. Daha fazla bilgi için aşağıdaki Azure konuya bakın:<br>[C# kullanarak azure'da Windows Vm'leri oluşturma ve yönetme](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
+|Azure PowerShell|Vm'leri yönetme, Azure ve Azure Stack benzerdir. PowerShell kullanma hakkında daha fazla bilgi için aşağıdaki Azure konuya bakın:<br>[Oluşturma ve Azure PowerShell modülü ile Windows sanal makineleri yönetme](../../virtual-machines/windows/tutorial-manage-vm.md#understand-vm-sizes)|
+|İstemci SDK'ları|Vm'leri yönetmek için C# kullanarak Azure ve Azure Stack benzerdir. Daha fazla bilgi için aşağıdaki Azure konuya bakın:<br>[C# kullanarak azure'da Windows Vm'leri oluşturma ve yönetme](../../virtual-machines/windows/csharp.md)|
 
-### <a name="connect-to-your-vm"></a>Sanal Makinenize bağlanın
+### <a name="connect-to-your-vm"></a>Sanal makinenize bağlanma
 
 Kullanabileceğiniz **Connect** VM'nize bağlanmak için Azure Stack portalında düğmesi.
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: cf0ffa6069cf8882a541b2a0a82ad96bfb4043ee
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 73dc8c2217a0f4eecd5d5b0f934624d9491055a4
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025632"
+ms.locfileid: "54040243"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümleri Stream: İzleme ve tanılama 1 saniyelik gecikme süresi
 
@@ -202,7 +202,7 @@ Veri yok mu? Uygulamanız, korunan bir ağda ise: Canlı ölçümler Stream diğ
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Application Insights ile kullanımı izleme](../../application-insights/app-insights-usage-overview.md)
+* [Application Insights ile kullanımı izleme](../../azure-monitor/app/usage-overview.md)
 * [Tanılama aramayı kullanma](../../azure-monitor/app/diagnostic-search.md)
 * [Profil Oluşturucu](../../azure-monitor/app/profiler.md)
 * [Anlık görüntü hata ayıklayıcısı](../../azure-monitor/app/snapshot-debugger.md)

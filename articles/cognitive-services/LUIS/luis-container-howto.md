@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 2542364db3a895c060c752beeb0cfabf75834f7d
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1398db59199c62e90f8cf5654586bda1c24f2541
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970285"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055056"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Yükleme ve LUIS docker kapsayıcılarını çalıştırın
  
@@ -66,7 +66,7 @@ Kullanım [ `docker pull` ](https://docs.docker.com/engine/reference/commandline
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
-Kullanılabilir etiketler, tam bir açıklaması için gibi `latest` önceki komutta kullanılan bkz [LUIS](https://hub.docker.com/r/microsoft/azure-cognitive-services-luis/) Docker Hub üzerinde.
+Kullanılabilir etiketler, tam bir açıklaması için gibi `latest` önceki komutta kullanılan bkz [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) Docker Hub üzerinde.
 
 > [!TIP]
 > Kullanabileceğiniz [docker görüntüleri](https://docs.docker.com/engine/reference/commandline/images/) indirilen kapsayıcı görüntülerinizi listelemek için komutu. Örneğin, aşağıdaki komut kimliği, havuz ve tablo olarak biçimlendirilmiş her indirilen kapsayıcı görüntüsünün etiketi listeler:

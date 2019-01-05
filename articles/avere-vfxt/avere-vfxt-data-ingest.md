@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: bf16c0fbc7090bf9b548796765502cde1731aef9
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a3d6cb745c782d2a7166208f2a8dd1202a330b15
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634434"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050498"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Veri taşımayı vFXT kümeye - paralel veri alma 
 
@@ -19,7 +19,7 @@ Yeni bir vFXT küme oluşturduktan sonra verileri yeni depolama biriminin üzeri
 
 Avere vFXT küme ölçeklenebilir çok istemci önbelleğini veri kopyalamak için kullanılabilecek en hızlı ve en verimli şekilde birden fazla istemciyle olduğu. Bu teknik, dosya ve nesne alımı parallelizes.
 
-![Birden çok istemci, çok iş parçacıklı veri taşıma gösteren diyagram: sol üst köşede, şirket içi donanım depolama için bir simge kendisinden gelen birden çok oklar sahiptir. Oklar, dört istemci makinelerine gelin. Her istemci makinesinden üç oklar doğru Avere vFXT gelin. Avere vFXT birden çok oklar Blob depolama alanına gelin.](media/avere-vfxt-parallel-ingest.png) 
+![Birden çok istemci, çok iş parçacıklı veri taşıma gösteren diyagram: Sol üst kısmında, şirket içi donanım depolama için bir simge kendisinden gelen birden çok oklar içerir. Oklar, dört istemci makinelerine gelin. Her istemci makinesinden üç oklar doğru Avere vFXT gelin. Avere vFXT birden çok oklar Blob depolama alanına gelin.](media/avere-vfxt-parallel-ingest.png) 
 
 ``cp`` Veya ``copy`` bir depolama sistemden veri aktarmak için kullanılması için yaygın olarak kullanılan komutları olan tek iş parçacıklı işlemler, aynı anda yalnızca bir dosyasını kopyalayın. Bu, dosya sunucusu küme kaynaklarının boşa harcanmasına olan aynı anda - yalnızca bir dosya almak anlamına gelir.
 
@@ -167,7 +167,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ### <a name="create-file-manifests"></a>Dosya bildirimleri oluşturma
 
-Sonra anlama (birden çok kopya-iş parçacığı hedef, istemci başına birden çok hedefe, ağ üzerinden erişilebilen kaynak dosya sistemi başına birden çok istemci başına), yukarıdaki yaklaşımları bu öneriyi göz önünde bulundurun: dosya bildirimleri oluşturmak ve bunları kopyayı kullanın birden fazla istemciye komutları.
+Sonra anlama (birden çok kopya-iş parçacığı hedef, istemci başına birden çok hedefe, ağ üzerinden erişilebilen kaynak dosya sistemi başına birden çok istemci başına), yukarıdaki yaklaşımları bu öneriyi dikkate alın: Dosya bildirimleri oluşturmak ve bunları birden fazla istemci genelinde ile kopya komutları kullanın.
 
 Bu senaryo kullanan UNIX ``find`` komut dosyaları veya dizinleri bildirimleri oluşturmak için:
 
@@ -272,7 +272,7 @@ Bir Azure bulut birimi Avere kümesiyle doldurmak için msrsync kullanmak için 
 1. Msrsync ve (rsync ve Python 2.6 veya sonraki sürümleri) ön yükleme
 1. Dosyalar ve dizinler kopyalanacak toplam sayısını belirler.
 
-   Örneğin, Avere yardımcı programını kullanın ``prime.py`` bağımsız değişkenlerle ```prime.py --directory /path/to/some/directory``` (url indirerek kullanılabilir https://raw.githubusercontent.com/Azure/Avere/master/src/dataingestor/prime.py).
+   Örneğin, Avere yardımcı programını kullanın ``prime.py`` bağımsız değişkenlerle ```prime.py --directory /path/to/some/directory``` (url indirerek kullanılabilir https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py).
 
    Değil kullanıyorsanız ``prime.py``, Gnu öğeleriyle sayısını hesaplayabilir ``find`` aracını aşağıda gösterilen şekilde:
 

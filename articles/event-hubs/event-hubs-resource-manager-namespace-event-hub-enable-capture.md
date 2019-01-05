@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 36764b661d88f034b306251f76d47d72298308dc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 1ec0945996f0232553c9c1e0469289235f506611
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140005"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054835"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Olay hub’ı ile bir ad alanı oluşturma ve şablon kullanarak Yakalamayı etkinleştirm
 
@@ -27,7 +27,7 @@ Bu makalede, bir olay hub’ı örneği ile [Event Hubs](event-hubs-what-is-even
 
 Bu makalede ayrıca seçtiğiniz hedefe göre olayları Azure Storage Bloblarında veya bir Azure Data Lake Store’da yakalamayı belirteceğiniz gösterilmektedir.
 
-Şablon oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
+Şablon oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates]. JSON söz dizimi ve bir şablonunda kullanmak için özellikler için bkz: [Microsoft.EventHub kaynak türleri](/azure/templates/microsoft.eventhub/allversions).
 
 Azure Kaynakları adlandırma kurallarına ilişkin uygulama ve yapılar için bkz. [Azure Kaynakları Adlandırma Kuralları][Azure Resources naming conventions].
 

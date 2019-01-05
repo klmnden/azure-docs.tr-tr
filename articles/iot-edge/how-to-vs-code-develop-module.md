@@ -6,15 +6,15 @@ keywords: ''
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 12/14/2018
+ms.date: 01/04/2019
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb3d19d35a15d5476594948b035a39ae703f1c3a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 5eb896978e9b04a6ad87fe1f669d9155e9cc1433
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551589"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053220"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Geliştirme ve modülleri, Azure IOT Edge için hata ayıklama için Visual Studio Code'u kullanın
 
@@ -31,7 +31,7 @@ Yazılmış modüller için C#, Node.js ve Java, Visual Studio Code, modülün h
 
 Yükleme [Visual Studio Code](https://code.visualstudio.com/) ilk ve ardından aşağıdaki uzantılar ekleyin:
 
-- [Azure IOT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
+- [Azure IOT araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 - [Docker uzantısı](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 - Visual Studio uzantısı, geliştirmekte olduğunuz bir dile özgü:
   - C#, Azure işlevleri dahil olmak üzere: [C# uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
@@ -73,7 +73,7 @@ C modülünüzde geliştirmekte olduğunuz sürece Python tabanlı etmeniz [Azur
 
 ## <a name="create-a-new-solution-template"></a>Yeni bir çözüm şablonu oluşturma
 
-Aşağıdaki adımlar, tercih ettiğiniz geliştirme dilinde bir IOT Edge modülü oluşturma işlemi gösterilmektedir (Azure işlevleri, yazılan dahil olmak üzere C#) Visual Studio Code ve Azure IOT Edge uzantısını kullanarak. Bir çözüm oluşturup sonra bu çözümde ilk modülü oluşturma başlatın. Her çözüm, birden çok modül içerebilir.
+Aşağıdaki adımlar, tercih ettiğiniz geliştirme dilinde bir IOT Edge modülü oluşturma işlemi gösterilmektedir (Azure işlevleri, yazılan dahil olmak üzere C#) Visual Studio Code ve Azure IOT araçları kullanarak. Bir çözüm oluşturup sonra bu çözümde ilk modülü oluşturma başlatın. Her çözüm, birden çok modül içerebilir.
 
 1. Seçin **görünümü** > **komut paleti**.
 

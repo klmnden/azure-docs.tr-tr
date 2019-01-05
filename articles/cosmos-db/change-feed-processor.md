@@ -7,12 +7,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: rafats
-ms.openlocfilehash: eee80563a838e6d453278735abf96fa5a6996f19
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.reviewer: sngun
+ms.openlocfilehash: 35577f103979bf5f767e3b9d42548ed488e365c8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835521"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041909"
 ---
 # <a name="using-the-azure-cosmos-db-change-feed-processor-library"></a>Kullanarak Azure Cosmos DB değişiklik akışı işlemci kitaplığı
 
@@ -32,17 +33,17 @@ Aynı kapsayıcı izleme ve aynı kira kullanarak iki sunucusuz Azure işlevleri
 
 Değişiklik akışı işlemci kitaplığı uygulama dört ana bileşenleri şunlardır: 
 
-1. **İzlenen kapsayıcı:** değişiklik akışı oluşturulan veriler izlenen kapsayıcı vardır. Kapsayıcı içinde değişiklik akışı, tüm eklemeleri ve değişiklikleri izlenen kapsayıcıya yansıtılır.
+1. **İzlenen kapsayıcı:** İzlenen kapsayıcısı, değişiklik akışı oluşturulduğu veri içerir. Kapsayıcı içinde değişiklik akışı, tüm eklemeleri ve değişiklikleri izlenen kapsayıcıya yansıtılır.
 
-1. **Kira kapsayıcı:** değişiklik arasında birden fazla çalışana akışı işleme kira kapsayıcı koordinatlar. Ayrı bir kapsayıcı, bölüm başına bir kira ile kiraları depolamak için kullanılır. Değişiklik akışı işlemci çalıştığı için yazma bölgesi yakın farklı bir hesapla bu kira kapsayıcı depolamak için avantajlıdır. Bir kira nesnesi aşağıdaki öznitelikleri içerir:
+1. **Kira kapsayıcı:** Değişiklik arasında birden fazla çalışana akışı işleme kira kapsayıcı koordinatları. Ayrı bir kapsayıcı, bölüm başına bir kira ile kiraları depolamak için kullanılır. Değişiklik akışı işlemci çalıştığı için yazma bölgesi yakın farklı bir hesapla bu kira kapsayıcı depolamak için avantajlıdır. Bir kira nesnesi aşağıdaki öznitelikleri içerir:
 
-   * Sahibi: kira sahibi olan konak belirtir.
+   * Sahibi: Kira sahibi olan konak belirtir.
 
-   * Devamlılık: belirli bir bölüm için akış değiştirme (devamlılık belirteci) konumu belirtir.
+   * Devamlılık: Belirli bir bölüm için akış değiştirme (devamlılık belirteci) konumu belirtir.
 
-   * Zaman damgası: kira güncelleştirildi; son saat zaman damgası, kiralama süresi olarak kabul edilip edilmediğini kontrol etmek için kullanılabilir.
+   * Zaman damgası: Kira güncelleştirildi; son saat zaman damgası, kiralama süresi olarak kabul edilip edilmediğini kontrol etmek için kullanılabilir.
 
-1. **İşleyicisi ana bilgisayarı:** her ana bilgisayar işlemi konakların kaç tane Etkin kiralar olmadığına göre kaç bölümlerini belirler.
+1. **İşleyicisi ana bilgisayarı:** Her konak kaç bölümlerini işlemek için ana kaç tane Etkin kiralar olmadığına göre belirler.
 
    * Bir ana bilgisayar başlatıldığında tüm konaklar arasında iş yükünü dengelemek için kiraları alır. Kira etkin şekilde bir konak kiralama, düzenli aralıklarla yeniler.
 
@@ -52,7 +53,7 @@ Değişiklik akışı işlemci kitaplığı uygulama dört ana bileşenleri şun
 
    Şu anda, konak sayısını bölüm (kiraları) sayısından büyük olamaz.
 
-1. **Tüketiciler:** tüketiciler veya çalışanlar, olan değişiklik akışı, her konak tarafından başlatılan işlemleri gerçekleştiren iş parçacıkları. Her işleyicisi ana bilgisayarı, birden fazla tüketici olabilir. Her tüketici, değişiklik atandığı bölümünden akışı ve değişiklikleri ana bilgisayar bildirir ve kiralama süresi okur.
+1. **Tüketiciler:** Tüketicilere veya çalışanlar, her konak tarafından başlatılan değişiklik akışı işleme gerçekleştiren akışlardır. Her işleyicisi ana bilgisayarı, birden fazla tüketici olabilir. Her tüketici, değişiklik atandığı bölümünden akışı ve değişiklikleri ana bilgisayar bildirir ve kiralama süresi okur.
 
 Daha fazla değişiklik akışı nasıl bu dört öğeden anlamak için işlemci iş birlikte bakalım, aşağıdaki diyagramda bir örnek. İzlenen koleksiyonu, belgeleri depolayan ve "City" Bölüm anahtarı olarak kullanır. Mavi bölüm "A-E" "City" alanından belgelerle vb. içeren görüyoruz. Her iki tüketici paralel dört bölümden okuma içeren iki ana vardır. Oklar, değişiklik akışı belirli bir noktada okuma tüketiciler gösterir. Açık mavi değişiklik akışı zaten okuma değişiklikleri temsil ederken, ilk bölümü, koyu mavi okunmamış değişiklikleri temsil eder. Ana bilgisayarlar, her bir tüketicinin geçerli okuma konumunu izlemek için bir "Devam" değerini depolamak için kira koleksiyonu kullanın.
 

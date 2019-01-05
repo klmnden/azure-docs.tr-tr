@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 11/25/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a8edf8d67c55cad856eacf883a6449606e594887
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 89c19adc571d500fff54d493072bb9976ce51aa9
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343777"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052896"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Öğretici: Geliştirme ve Python IOT Edge modülü sanal Cihazınızı dağıtma
 
@@ -46,7 +46,7 @@ Bulut kaynakları:
 Geliştirme kaynakları:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* Visual Studio Code için [Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+* [Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) Visual Studio Code için.
 * Visual Studio Code için [Python uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-python.python). 
 * [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Python](https://www.python.org/downloads/).
@@ -57,7 +57,7 @@ Geliştirme kaynakları:
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
 
-Bu öğreticide, bir modül olarak derlemek ve oluşturmak için Visual Studio Code için Azure IOT Edge uzantısını kullanırsınız bir **kapsayıcı görüntüsü** dosyalarından. Ardından bu görüntüyü, görüntülerinizin depolandığı ve yönetildiği **kayıt defterine** gönderirsiniz. Son olarak, görüntünüzü IoT Edge cihazınızda çalıştırmak üzere kayıt defterinizden dağıtırsınız.  
+Bu öğreticide, bir modül olarak derlemek ve oluşturmak için Visual Studio Code için Azure IOT araçları kullanmak bir **kapsayıcı görüntüsü** dosyalarından. Ardından bu görüntüyü, görüntülerinizin depolandığı ve yönetildiği **kayıt defterine** gönderirsiniz. Son olarak, görüntünüzü IoT Edge cihazınızda çalıştırmak üzere kayıt defterinizden dağıtırsınız.  
 
 Herhangi bir Docker ile uyumlu kayıt defteri, kapsayıcı görüntülerinizi tutmak için kullanabilirsiniz. İki popüler Docker kayıt defteri Hizmetleri [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ve [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Bu öğreticide Azure Container Registry kullanılır. 
 
@@ -83,7 +83,7 @@ Kapsayıcı kayıt defteri zaten yoksa, azure'da yeni bir tane oluşturmak için
 7. **Oturum açma sunucusu**, **Kullanıcı adı** ve **Parola** değerlerini kopyalayın. Kapsayıcı kayıt defterine erişim sağlamak için öğreticinin ilerleyen bölümlerinde bu değerleri kullanırsınız. 
 
 ## <a name="create-an-iot-edge-module-project"></a>IoT Edge modülü projesi oluşturma
-Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Python modülünü kullanarak IoT Edge işlevi oluşturulur.
+Aşağıdaki adımlar Visual Studio Code ve Azure IOT Araçları'nı kullanarak bir IOT Edge Python modülü oluşturur.
 
 ### <a name="create-a-new-solution"></a>Yeni çözüm oluşturma
 
@@ -202,13 +202,19 @@ Her şablonda, **tempSensor** modülündeki sensör simülasyon verilerini alıp
     self.client.set_module_twin_callback(module_twin_callback, self)
     ```
 
-7. Bu dosyayı kaydedin.
+7. Main.py dosyayı kaydedin.
 
-8. VS Code Gezgininde açın **deployment.template.json** dosya. 
+8. VS Code gezgininde IoT Edge çözüm çalışma alanınızdaki **deployment.template.json** dosyasını açın. Bu dosya, bu durumda dağıtmak için hangi modülü IOT Edge Aracısı söyler **tempSensor** ve **PythonModule**ve bunlar arasında iletileri yönlendirme hakkında IOT Edge hub'ı söyler. Visual Studio Code uzantısı otomatik olarak dağıtım şablonu gerekir, ancak her şeyi çözümünüz için doğru olduğundan emin olun, ilgili bilgilerin çoğunu doldurur: 
 
-   Bu dosya **$edgeAgent** için iki modül dağıtma komutu verir: Cihaz verilerinin simülasyonunu yapan **tempSensor** ve **PythonModule**. Varsayılan platform, IOT Edge kümesine **amd64** , VS Code durum çubuğunda anlamına gelir, **PythonModule** görüntünün amd64 sürüme Linux ayarlanır. Durum çubuğunda varsayılan platform değiştirme **amd64** için **arm32v7** veya **windows-amd64** , IOT Edge cihazınızın mimari ise. Dağıtım bildirimleri hakkında daha fazla bilgi edinmek için bkz. [IoT Edge modüllerinin kullanılmasını, yapılandırılmasını ve yeniden kullanılmasını anlama](module-composition.md).
+   1. Varsayılan platform, IOT Edge kümesine **amd64** , VS Code durum çubuğunda anlamına gelir, **PythonModule** görüntünün amd64 sürüme Linux ayarlanır. Durum çubuğunda varsayılan platform değiştirme **amd64** için **arm32v7** veya **windows-amd64** , IOT Edge cihazınızın mimari ise. 
 
-   Bu dosyada kayıt defteri kimlik bilgileriniz de bulunur. Şablon dosyasında kullanıcı adı ve parola değerlerinin yerine yer tutucular kullanılmıştır. Dağıtım bildirimini oluşturduğunuzda alanlar .env dosyasına eklediğiniz değerlerle güncelleştirilir. 
+      ![Modül görüntü platform güncelleştirmesi](./media/tutorial-python-module/image-platform.png)
+
+   2. Şablonda doğru modül adının bulunduğunu ve IoT Edge çözümünü oluştururken değiştirdiğiniz varsayılan **SampleModule** adının kullanılmadığından emin olun.
+
+   3. **RegistryCredentials** bölümü depolar, Docker kayıt defteri kimlik bilgilerini böylece modül görüntünüzü IOT Edge Aracısı çekebilirsiniz. Gerçek kullanıcı adı ve parola çiftleri, git tarafından yoksayılan .env dosyasında depolanır. Henüz yapmadıysanız, kimlik bilgilerinizi .env dosyaya ekleyin.  
+
+   4. Dağıtım bildirimleri hakkında daha fazla bilgi edinmek istiyorsanız bkz [modülleri dağıtma ve IOT Edge'de rotaları oluşturmak hakkında bilgi edinin](module-composition.md).
 
 9. Dağıtım bildirimine **PythonModule** modül ikizini ekleyin. Aşağıdaki JSON içeriğini **moduleContent** bölümünün en altına, **$edgeHub** modül ikizinin arkasına ekleyin: 
 
@@ -222,7 +228,7 @@ Her şablonda, **tempSensor** modülündeki sensör simülasyon verilerini alıp
 
    ![Modül ikizi için dağıtım şablonu Ekle](./media/tutorial-python-module/module-twin.png)
 
-10. Bu dosyayı kaydedin.
+10. Deployment.template.json dosyayı kaydedin.
 
 ## <a name="build-and-push-your-solution"></a>Oluşturun ve çözümünüzü gönderin
 

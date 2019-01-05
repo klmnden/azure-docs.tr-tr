@@ -1,20 +1,19 @@
 ---
 title: Azure tablo depolama veya Azure Cosmos DB tablo API'si node.js kullanma
 description: Azure Tablo Depolama veya Azure Cosmos DB Tablo API’sini kullanarak yapılandırılmış verileri bulutta depolayın.
-services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
 ms.date: 04/05/2018
-ms.author: sngun
-ms.openlocfilehash: b00c7168891c848f4b153acb1bf09728b7a78908
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+author: wmengmsft
+ms.author: wmeng
+ms.openlocfilehash: b32fd36c5fd546f7d2138cb2b48ee2854667f948
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106490"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044272"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js uygulamasından Azure Tablo depolama veya Azure Cosmos DB Tablo API’sini kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]

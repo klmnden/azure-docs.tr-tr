@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: d1214df922e8e656ba2ff566571d878b0031fea9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: a50fca059331b28c46adb65903be4e7ba018a36c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000266"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052045"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Ve MQTT protokolünü kullanarak IOT hub ile iletişim
 
@@ -81,9 +81,9 @@ Bir cihaz, cihaz SDK'ları kullanamıyorsanız, bağlantı noktası 8883 ve MQTT
 
   Cihaz bölümünü SAS belirteçleri oluşturmak nasıl hakkında daha fazla bilgi için bkz. [kullanarak IOT Hub güvenlik belirteçleri][lnk-sas-tokens].
 
-  Test ederken, platformlar arası de kullanabilirsiniz [Visual Studio Code için Azure IOT hub'ı Toolkit uzantısını](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (eski adıyla Azure IOT Toolkit uzantısını) veya [Device Explorer] [ lnk-device-explorer]aracını hızla kendi kodu kopyalayıp bir SAS belirteci oluşturmak için:
+  Test ederken, platformlar arası de kullanabilirsiniz [Visual Studio Code için Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) veya [Device Explorer] [ lnk-device-explorer] aracını hızlı bir şekilde kopyalamak bir SAS belirteci oluşturmak için ve kendi koda yapıştırın:
 
-Azure IOT hub'ı Araç Seti için:
+Azure IOT araçları için:
 
   1. Genişletin **AZURE IOT HUB CİHAZLARI** Visual Studio Code, sol alt köşedeki sekmesi.
   2. Cihazınızı sağ tıklayıp **oluşturmak SAS belirteci için cihaz**.

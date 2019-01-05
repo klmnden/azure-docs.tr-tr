@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB tablo ölçekleme ve performans desteklemek için Tasarım
-description: "Azure depolama tablo Tasarım Kılavuzu: Tasarlama ölçeklenebilir ve performansa yönelik tablolar Azure Cosmos DB'de ve Azure depolama tablosu"
-author: SnehaGunda
-ms.author: sngun
+description: "Azure depolama Tablo Tasarımı Kılavuzu: Tasarlama ölçeklenebilir ve performansa yönelik tablolar Azure Cosmos DB'de ve Azure depolama tablosu"
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 12/07/2018
+author: wmengmsft
+ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 656a8acc06a0d02959dda42c980db65c011f0bb3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9784d08a8e3e471a8b516c3bc285430c537857a8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140957"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044187"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure depolama Tablo Tasarımı Kılavuzu: Tasarlama ölçeklenebilir ve performansa yönelik tablolar
 
@@ -132,7 +132,7 @@ Tablo adı, hesap adı ve **PartitionKey** birlikte depolama hizmetindeki tablo 
 
 Tablo hizmetinde Hizmetleri tek bir düğüm bir veya daha fazla tamamlamak bölümleri ve hizmet ölçekler dinamik olarak yük dengeleyici tarafından düğümleri arasında bölümler. Bir düğümü yük altında ise, tablo hizmeti için *bölme* bölümler çeşitli hizmet, farklı düğümlerde düğüme tarafından; trafiği kısalana hizmet yapabilirsiniz *birleştirme* sessiz düğümlerden bölüm aralığı geri tek bir düğüme.  
 
-Daha fazla bilgi için iç ayrıntıları tablo hizmeti ve belirli bölümler hizmet yönetir nasıl incelemeye bakın [Microsoft Azure Depolama: yüksek oranda kullanılabilir bulut depolama hizmet güçlü tutarlılıkla](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Daha fazla bilgi için iç ayrıntıları tablo hizmeti ve belirli bölümler hizmet yönetir nasıl incelemeye bakın [Microsoft Azure Depolama: Güçlü tutarlılık ile yüksek oranda kullanılabilir bulut depolama hizmeti](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ### <a name="entity-group-transactions"></a>Varlık grubu işlemleri
 Tablo hizmeti, varlık grubu işlemleri (EGTs) birden fazla varlıkta atomik güncelleştirmeleri gerçekleştirmek için yalnızca yerleşik mekanizmasıdır. EGTs de denir *toplu işlemler* bazı belgelerde. Bu varlıklar aynı bölümde olmasını sağlamak için ihtiyacınız olan birden çok varlık arasında atomik işlem davranışı gereken herhangi bir zamanda EGTs yalnızca aynı bölümde (paylaşım bir tablodaki aynı bölüm anahtarı), saklanan varlıklar üzerinde bunu çalışabilir. Genellikle birden çok varlık türleri aynı tablonun (ve bölüm) tutulması ve birden fazla tablo farklı varlık türleri için kullanmayan bir nedeni de budur. Tek bir EGT en fazla 100 varlık üzerinde çalışabilir.  İşleme için birden çok eş zamanlı EGTs gönderirseniz, aksi takdirde işleme Gecikmeli olarak EGTs arasında ortak olan varlıklar söz konusu EGTs çalıştırmayın sağlamak önemlidir.
@@ -586,7 +586,7 @@ Yukarıda gösterilen varlık yapısı ile soyadına göre aramasını etkinleş
 
 Birinci seçenek için bir listesini her benzersiz son adı ve her blob deposuna blob oluşturma **PartitionKey** (bölüm) ve **RowKey** son bu ada sahip çalışanların (çalışan kimliği) değerleri. Ekleme ya da bir çalışan silme ilgili blobun içeriğini çalışan varlıklarla sonunda tutarlı olduğundan emin olmanız gerekir.  
 
-<u>#2. seçenek:</u> dizin varlıklar aynı bölümde oluşturun  
+<u>#2. seçenek:</u> Dizin varlıklar aynı bölümde oluşturun  
 
 İkinci seçenek için aşağıdaki verilerini depolayan dizin varlıkları kullanın:  
 
@@ -608,7 +608,7 @@ Aşağıdaki adımlar, bir departmandaki belirli bir soyadı ile tüm çalışan
 2. Çalışan EmployeeIDs alanında kimlikleri listesini ayrıştırılamıyor.  
 3. Her biri (örneğin, e-posta adreslerini) bu çalışanların hakkında ek bilgi gerekiyorsa, her birini kullanarak çalışan varlıkları almak **PartitionKey** "Sales" değerini ve **RowKey** değerlerini 2. adımda elde ettiğiniz çalışanların listesi.  
 
-<u>#3. seçenek:</u> ayrı bölüm veya tablo içinde dizin varlıkları oluşturma  
+<u>#3. seçenek:</u> Dizin varlıkları ayrı bölüm veya tablo oluşturma  
 
 Aşağıdaki veri depolayan dizin varlıklar için üçüncü bir seçenek olarak kullanın:  
 
@@ -1300,7 +1300,7 @@ Bu bölümün geri kalanında bazı depolama istemci Kitaplığı'nda aynı tabl
 #### <a name="retrieving-heterogeneous-entity-types"></a>Heterojen varlık türleri alınıyor
 Depolama istemci kitaplığı kullanıyorsanız, birden çok varlık türleriyle çalışmak için üç seçeneğiniz vardır.  
 
-Belirli bir ile depolanan varlık türünü biliyorsanız **RowKey** ve **PartitionKey** değerleri önceki iki örnekte gösterildiği gibi varlık aldığınızda, varlık türünü belirtebilirsiniz ardından, türündeki varlıkları alma **EmployeeEntity**: [için depolama istemci kitaplığı kullanılarak noktası Sorguyu yürüten](#executing-a-point-query-using-the-storage-client-library) ve [LINQ kullanarak birden çok varlık alma](#retrieving-multiple-entities-using-linq).  
+Belirli bir ile depolanan varlık türünü biliyorsanız **RowKey** ve **PartitionKey** değerleri önceki iki örnekte gösterildiği gibi varlık aldığınızda, varlık türünü belirtebilirsiniz ardından, türündeki varlıkları alma **EmployeeEntity**: [Depolama istemci kitaplığı kullanılarak noktası Sorguyu yürüten](#executing-a-point-query-using-the-storage-client-library) ve [LINQ kullanarak birden çok varlık alma](#retrieving-multiple-entities-using-linq).  
 
 İkinci seçenek kullanmaktır **DynamicTableEntity** türü (bir özellik paketi) yerine (Bu seçenek ayrıca artırabilir performans .NET türlerine varlık seri hale getrime ve gerek olmadığından) somut bir POCO varlık türü. Aşağıdaki C# kodu potansiyel olarak farklı türlerde birden çok varlık tablosundan alır, ancak tüm varlıklar olarak döndürür **DynamicTableEntity** örnekleri. Ardından kullanır **EntityType** özelliği her varlık türünü belirlemek için:  
 

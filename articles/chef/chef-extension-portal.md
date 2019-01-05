@@ -3,17 +3,17 @@ title: Azure portalından Chef İstemcisi'ni yükleme
 description: Azure portalından Chef istemcinizi yapılandırma ve dağıtma hakkında bilgi edinin
 keywords: Azure, chef, devops, istemci, yükleme, portalı
 ms.service: virtual-machines-linux
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: e121cd038b8becee1e9c4c12659dbbee0696a9f1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: e5de21e8e493871150d302f1d2c0e31d067affde
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378661"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051337"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Azure portalından Chef İstemcisi'ni yükleme
 Azure portalında bir Linux veya Windows sanal makine oluşturmak veya Chef uzantısı sanal makineye ekleyebilirsiniz. Bu makalede yeni bir Linux sanal makinesi kullanarak bu sürecinde yardımcı olur.
@@ -27,9 +27,9 @@ Azure portalında bir Linux veya Windows sanal makine oluşturmak veya Chef uzan
     - run_list
 
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Yeni bir Linux sanal makinesinde Chef uzantısını yükle
-Bu bölümde, bir Linux makine oluşturmak için öncelikle Azure portalını kullanacaksınız. İşlem sırasında yeni bir sanal makine üzerinde Chef uzantıyı yüklemek nasıl görürsünüz.
+Bu bölümde, ilk Azure portalında bir Linux makine oluşturmak için kullanın. İşlemi sırasında Chef uzantısını yeni sanal makineye nasıl yükleyeceğiniz de görebilirsiniz.
 
-1. Gözat [Azure portalında](http://portal.azure.com).
+1. [Azure portala](http://portal.azure.com) gidin.
 
 1. Sol taraftaki menüden **sanal makineler** seçeneği. Varsa **sanal makineler** seçeneği mevcut seçeneğini değil **tüm hizmetleri** seçip **sanal makineler**.
 
@@ -65,7 +65,7 @@ Bu bölümde, bir Linux makine oluşturmak için öncelikle Azure portalını ku
 
 1. Üzerinde **bir boyut seçin** sekmesinde, sanal makine boyutu seçin ve ardından **seçin**.
 
-1. Üzerinde **ayarları** önceki sekmeleri seçtiğiniz değerlere göre için sekmesinde değerleri çoğunu doldurulur. Seçin **uzantıları**.
+1. Üzerinde **ayarları** önceki sekmeleri seçtiğiniz değerlere göre için sekmesinde değerleri çoğunu doldurulur. **Uzantılar**'ı seçin.
 
     ![Ayarlar sekmesi aracılığıyla sanal makine uzantıları eklenir](./media/chef-extension-portal/add-vm-select-extensions.png)
 
@@ -87,7 +87,7 @@ Bu bölümde, bir Linux makine oluşturmak için öncelikle Azure portalını ku
     - **İstemci adı doğrulama** -Chef doğrulama istemci adı girin. Örneğin, *tarcher Doğrulayıcı*.
     - **Doğrulama anahtarı** -makinelerinizin önyükleme yaparken kullanılan doğrulama anahtarı içeren bir dosya seçin. 
     - **İstemci yapılandırma dosyası** -chef istemci için bir yapılandırma dosyası seçin. Bu boş bırakılabilir.
-    - **Chef istemci sürümü** -yüklemek için chef istemci sürümü girin. Bu boş bırakılabilir. Boş bir değer, en son sürümünün yüklü neden olur. 
+    - **Chef istemci sürümü** -yüklemek için chef istemci sürümü girin. Bu boş bırakılabilir. Boş bir değer, en son sürümü yüklü sonuçlanır. 
     - **SSL doğrulama modu** -seçin **hiçbiri** veya **eş**. *Hiçbiri* Tanıtıma seçilmedi.
     - **Şef ortamının** -bu düğüm, bir üyesi olmalıdır Şef ortamının girin. Bu boş bırakılabilir.
     - **Databag gizlilik şifrelenmiş** -bu makine şifrelenmiş Databag erişimi olması gereken gizli dizi içeren bir dosya seçin. Bu boş bırakılabilir.

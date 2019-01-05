@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: c8ff6abe72a55be24b35b254a4bfc2a446b13c0b
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dacd2e0d43f2c7711539896b88838adb85542963
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999690"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051739"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights’ta nasıl ... yapabilirim?
 ## <a name="get-an-email-when-"></a>E-posta...
@@ -83,11 +83,11 @@ Dikkat edilmesi gereken bazı noktalar:
 ## <a name="separate-telemetry-from-different-versions"></a>Farklı sürümlerine ait ayrı telemetri
 
 * Bir uygulamada birden çok rol: Tek bir Application Insights kaynağı kullanın ve filtre [cloud_Rolename](../../azure-monitor/app/app-map.md).
-* Geliştirme, test ve yayın sürümleri ayırma: Farklı Application Insgihts kaynakları kullanın. İzleme anahtarları web.config yerden devam edebiliyorduk. [Daha fazla bilgi](../../application-insights/app-insights-separate-resources.md)
-* Raporlama derleme sürümleri: Bir telemetri Başlatıcısı aracılığıyla bir özellik ekleyin. [Daha fazla bilgi](../../application-insights/app-insights-separate-resources.md)
+* Geliştirme, test ve yayın sürümleri ayırma: Farklı Application Insgihts kaynakları kullanın. İzleme anahtarları web.config yerden devam edebiliyorduk. [Daha fazla bilgi](../../azure-monitor/app/separate-resources.md)
+* Raporlama derleme sürümleri: Bir telemetri Başlatıcısı aracılığıyla bir özellik ekleyin. [Daha fazla bilgi](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>Arka uç sunucularının ve Masaüstü uygulamaları izleme
-[Windows Server SDK modülü kullanmak](../../application-insights/app-insights-windows-desktop.md).
+[Windows Server SDK modülü kullanmak](../../azure-monitor/app/windows-desktop.md).
 
 ## <a name="visualize-data"></a>Verileri görselleştirme
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>Birden fazla uygulama ölçümleri içeren Pano

@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB bölümleme
 description: Azure Cosmos DB'de bölümleme genel bakış
-author: aliuy
+ms.author: mjbrown
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: andrl
-ms.openlocfilehash: b89830d566b36b0446836d8f32aee5756e2d0991
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 20e869d30f9e7b8102b723870f0102e041e064d7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498422"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042283"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB bölümleme
 

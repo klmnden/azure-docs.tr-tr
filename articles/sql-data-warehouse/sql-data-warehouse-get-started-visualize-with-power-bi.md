@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 514516dcc28e99d03611c7db6ec09c7b4a48ff0e
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0fbb389120857a167867a5804c670e181f5232b6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306672"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051450"
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI ile verileri görselleştirme
 Bu öğreticide SQL Data Warehouse'a bağlanmak ve birkaç temel görselleştirme oluşturmak üzere Power BI'ı nasıl kullanacağınız gösterilmiştir.
@@ -32,7 +32,7 @@ Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 ## <a name="1-connect-to-your-database"></a>1. Veritabanınıza bağlanın
 Power BI'ı açmak ve AdventureWorksDW veritabanınıza bağlanmak için şunları yapın:
 
-1. [Azure portal](https://portal.azure.com/) oturum açın.
+1. [Azure portalında](https://portal.azure.com/) oturum açın.
 2. **SQL veritabanları** seçeneğine tıklayın ve AdventureWorks SQL Data Warehouse veritabanınızı seçin.
    
     ![Veritabanınızı bulma](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png)
@@ -77,7 +77,7 @@ Artık AdventureWorksDW örnek verilerinizi Power BI kullanarak çözümlemeye h
 
 **Dosya**'ya tıklayıp **Kaydet**'i seçerek ilerleme durumunuzu istediğiniz zaman kaydedebilirsiniz.
 
-## <a name="using-direct-connnect"></a>Doğrudan Connnect kullanma
+## <a name="using-direct-connect"></a>Doğrudan kullanarak bağlan
 Olarak Azure SQL veritabanı ile SQL veri ambarı doğrudan bağlanma analitik özellikleri Power BI'ın yanı sıra mantıksal itme sağlar. Verileri araştırırken doğrudan bağlantı ile sorgular Azure SQL Data Warehouse'da dön gerçek zamanlı gönderilir.  SQL veri ambarı, Ölçek ile birlikte bu özellik, terabaytlarca veriden birkaç dakika içinde dinamik raporlar oluşturmanıza olanak sağlar. Ayrıca, Power BI düğmesi açık sunulmasıyla doğrudan Power BI, SQL veri ambarı'na Azure diğer bölümlerden bilgi toplanmasına gerek kalmadan bağlanmasına olanak sağlar.
 
 Doğrudan bağlantı kullanırken:

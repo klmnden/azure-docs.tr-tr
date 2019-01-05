@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: b4d87ab62503bee1ff54ba9713f7c49d09a2e547
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1a5f756c4fac92260e77b24ca2cde6abccf0797a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015075"
+ms.locfileid: "54042793"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights'tan Power BI akışı
 [Power BI](https://www.powerbi.com/) verileri analiz etmek ve öngörüleri paylaşmak yardımcı olan bir iş araçları paketidir. Her cihazda kullanılabilen zengin panolar. Analytics sorguları da dahil olmak üzere pek çok kaynaktan veri birleştirebilir [Azure Application Insights](app-insights-overview.md).
@@ -65,7 +65,7 @@ Yükleme [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 8. Rapor aralıklarla el ile yenileme veya zamanlanmış yenileme seçenekleri sayfasında ayarlayın.
 
 ### <a name="export-a-funnel"></a>Bir huni dışarı aktarma
-1. [Huni olun](usage-funnels.md).
+1. [Huni olun](../azure-monitor/app/usage-funnels.md).
 2. Seçin **Power BI**.
 
    ![Power BI ekran düğmesi](./media/app-insights-export-power-bi/button.png)

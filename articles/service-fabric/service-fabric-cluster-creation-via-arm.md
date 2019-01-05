@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 94ff3aca84eb27df5171df2a7a3b2b0f708a1d24
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ba870cf722f95fb6516e1969350d3d25ba280a8c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624237"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043796"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager kullanarak bir Service Fabric kümesi oluşturma 
 > [!div class="op_single_selector"]
@@ -288,6 +288,8 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu noktada, Azure'da çalışan güvenli bir kümeye sahip. İleri [kümenize bağlanın](service-fabric-connect-to-secure-cluster.md) ve bilgi edinmek için nasıl [uygulama parolalarını yönetme](service-fabric-application-secret-management.md).
+
+JSON söz dizimi ve bir şablonu kullanmak için özellikler için bkz: [Microsoft.ServiceFabric/clusters şablon başvurusu](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
 [azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps

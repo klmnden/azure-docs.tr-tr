@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 12/21/2018
+ms.date: 01/04/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 954fb0fd4c8b9773edad904fa82a0a90111a66fa
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 9a6c892a71c452a0c6c0dcd43509e345280a810e
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754603"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054940"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Geliştirmek ve Azure IOT Edge (Önizleme) için C# modülleri hata ayıklamak için Visual Studio 2017 kullanın
 
@@ -37,7 +37,7 @@ Bu makalede ana geliştirme aracı olarak Visual Studio 2017 kullandığından, 
 
 Visual Studio 2017 hazır olduktan sonra aşağıdaki araçları ve bileşenleri de gerekir:
 
-- İndirme ve yükleme [Azure IOT Edge uzantısını](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) Visual Studio 2017'de bir IOT Edge projesi oluşturmak için Visual Studio Market'ten.
+- İndirme ve yükleme [Azure IOT Edge uzantısını (Önizleme)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) Visual Studio 2017'de bir IOT Edge projesi oluşturmak için Visual Studio Market'ten.
 
 - İndirme ve yükleme [Docker Community Edition](https://docs.docker.com/install/) geliştirme makinenizde derlemek ve çalıştırmak, modül görüntüleri için. Linux kapsayıcı modu veya Windows kapsayıcı modu çalıştırmak için Docker CE kümesi gerekir.
 

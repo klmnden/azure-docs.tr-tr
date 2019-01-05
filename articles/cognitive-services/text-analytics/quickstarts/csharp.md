@@ -1,5 +1,5 @@
 ---
-title: "Hızlı başlangıç: Metin Analizi API'sini çağırmak için C# kullanma"
+title: "Hızlı Başlangıç: Kullanarak C# metin analizi API'sini çağırmak için"
 titleSuffix: Azure Cognitive Services
 description: Metin Analizi API'sini kısa sürede kullanmaya başlamanıza yardımcı olacak bilgi ve kod örnekleri alın.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 59469b6c27ceb0ed96659198edd6ddbca12685e2
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 4b772d4251ec2017a4ff0d4abfa3f54b58e9bebe
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283970"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050379"
 ---
-# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Hızlı başlangıç: Metin Analizi Bilişsel Hizmetini çağırmak için C# kullanma
+# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Hızlı Başlangıç: Kullanarak C# metin analizi Bilişsel hizmetini çağırmak için
 <a name="HOLTop"></a>
 
 Bu makalede, dili algılayın, duyguları çözümleyin ve kullanarak, anahtar tümcecikleri ayıklayın işlemini göstermektedir [metin analizi API'lerini](//go.microsoft.com/fwlink/?LinkID=759711) ile C#. Dış kitaplıklara minimum başvuru içeren bu kod bir .Net Core uygulamasında çalışacak şekilde yazılmış olduğundan Linux veya MacOS üzerinde de çalıştırabilirsiniz.
@@ -68,7 +68,7 @@ namespace ConsoleApp1
     {
         /// <summary>
         /// Container for subscription credentials. Make sure to enter your valid key.
-        string subscriptionKey = ""; //Insert your Text Anaytics subscription key
+        static string subscriptionKey = ""; //Insert your Text Anaytics subscription key
         /// </summary>
         class ApiKeyServiceClientCredentials : ServiceClientCredentials
         {
@@ -156,7 +156,7 @@ namespace ConsoleApp1
             // Identify entities
             Console.WriteLine("\n\n===== ENTITIES ======");
 
-            EntitiesBatchResult result4 = client.EntitiesAsync(
+            EntitiesBatchResultV2dot1 result4 = client.EntitiesAsync(
                     new MultiLanguageBatchInput(
                         new List<MultiLanguageInput>()
                         {
@@ -170,7 +170,7 @@ namespace ConsoleApp1
 
                 Console.WriteLine("\t Entities:");
 
-                foreach (EntityRecord entity in document.Entities)
+                foreach (EntityRecordV2dot1 entity in document.Entities)
                 {
                     Console.WriteLine("\t\t" + entity.Name);
                 }

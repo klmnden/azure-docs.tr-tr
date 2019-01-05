@@ -10,16 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: ce1bcb26b3a3510b22ced57471016999156bb0cf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086956"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040668"
 ---
-# <a name="how-to-configure-password-writeback"></a>Nasıl yapılır: parola geri yazmayı yapılandırın
-
-Otomatik güncelleştirme özelliğini kullanmanızı öneririz [Azure AD Connect](../hybrid/how-to-connect-install-express.md) parola geri yazma özelliğini kullanırken.
+# <a name="how-to-configure-password-writeback"></a>Nasıl yapılır: Parola geri yazmayı yapılandırın
 
 Zaten yapılandırdığınız Azure AD Connect, ortamınızda kullanarak aşağıdaki adımları varsayar [Express](../hybrid/how-to-connect-install-express.md) veya [özel](../hybrid/how-to-connect-install-custom.md) ayarları.
 
@@ -38,7 +36,25 @@ Parola geri yazma için ilgili genel sorun giderme görevleri görmek için böl
 > [!WARNING]
 > Parola geri yazma, Azure AD Connect sürüm 1.0.8641.0 ve eski olduğunda kullanan müşteriler için çalışma durdurur [Azure erişim denetimi hizmeti (ACS) 7 Kasım 2018'de kullanımdan](../develop/active-directory-acs-migration.md). Azure AD Connect sürüm 1.0.8641.0 eski ve bunlar üzerinde ACS işlevselliği için bağımlı olduğundan parola geri yazma o anda artık izin verir.
 >
-> Hizmette, yeni bir sürüme bir Azure AD Connect'in önceki sürümünden yükseltme kesinti yaşanmasını önlemek için bu makaleye bakın [Azure AD Connect: önceki bir sürümden son sürüme yükseltme](../hybrid/how-to-upgrade-previous-version.md)
+> Hizmette, yeni bir sürüme bir Azure AD Connect'in önceki sürümünden yükseltme kesinti yaşanmasını önlemek için bu makaleye bakın [Azure AD Connect: Önceki bir sürümden en son sürüme yükseltme](../hybrid/how-to-upgrade-previous-version.md)
+>
+
+## <a name="licensing-requirements-for-password-writeback"></a>Parola geri yazma için lisans gereksinimleri
+
+**Self Servis parola sıfırlama/değiştirme/kilidini açma şirket içi geri yazma ile Azure AD premium özelliğidir**. Lisanslama hakkında daha fazla bilgi için bkz. [Azure Active Directory site fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Parola geri yazma özelliğini kullanmak için kiracınızda atanan aşağıdaki lisanslardan birine sahip olmalıdır:
+
+* Azure AD Premium P1
+* Azure AD Premium P2
+* Enterprise Mobility + Security E3 veya A3
+* Enterprise Mobility + Security E5'e veya A5
+* Microsoft 365 E3 veya A3
+* Microsoft 365 E5 veya A5
+* Microsoft 365 F1
+
+> [!WARNING]
+> Tek başına Office 365 planları lisanslama *"Self Servis parola sıfırlama/değiştirme/kilidini açma şirket içi geri yazma ile" desteklemeyen* ve çalışmak bu işlev için önceki planlardan birine sahip olması gerekir.
 >
 
 ## <a name="active-directory-permissions"></a>Active Directory izinleri

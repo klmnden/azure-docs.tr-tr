@@ -12,15 +12,15 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 5499193ba96d5a32ac6d3b310eee531c68fd52fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/03/2019
+ms.openlocfilehash: e988a3c86302b875f8393264279e4a65c45ba1eb
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255939"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041246"
 ---
-# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Her zaman şifreli: hassas verilerin korunmasına ve şifreleme anahtarları Azure Key Vault'ta depolama
+# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Her zaman şifreli: Hassas verilerin korunmasına ve şifreleme anahtarları Azure Key Vault'ta depolama
 
 Bu makalede veri şifreleme kullanarak SQL veritabanındaki hassas verilerin güvenliğini sağlamak gösterilmektedir [her zaman şifreli sihirbazını](https://msdn.microsoft.com/library/mt459280.aspx) içinde [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Ayrıca, her bir şifreleme anahtarı Azure Key Vault'ta depolamak nasıl gösterilecektir yönergeleri içerir.
 
@@ -60,6 +60,7 @@ Aşağıdaki betiği çalıştırarak, bir anahtar kasası hızlıca oluşturabi
     $userPrincipalName = '<username@domain.com>'
     $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
+    # Use the same resource group name when creating your SQL Database below
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
 
@@ -132,7 +133,7 @@ SSMS kolayca ayarlayarak sütun ana anahtarı, sütun şifreleme anahtarı ve ş
    
     ![Sütun şifreleme](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
 
-Her zaman şifreli sihirbazını aşağıdaki bölümleri içerir: **sütun seçimi**, **ana anahtarı yapılandırma**, **doğrulama**, ve **özeti**.
+Her zaman şifreli sihirbazını aşağıdaki bölümleri içerir: **Sütun seçimini**, **ana anahtarı yapılandırma**, **doğrulama**, ve **özeti**.
 
 ### <a name="column-selection"></a>Sütun Seçimi
 Tıklayın **sonraki** üzerinde **giriş** sayfasını açmak için **sütun seçimi** sayfası. Bu sayfada, şifrelemek istediğiniz sütunları seçersiniz [şifreleme türünü ve hangi sütun şifreleme anahtarı (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) kullanılacak.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 653a636ca2d71c573ffde2e9e70a06cf3fcc95fb
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d3dca1d7247a822720d32e32fe959053fb80ddd1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021892"
+ms.locfileid: "54052488"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Gezinti ve panolar Application Insights portalında
 Sonra [projenize Application ınsights'ı ayarlama](../../application-insights/app-insights-overview.md), uygulamanızın performansı ve kullanımıyla ilgili telemetri verilerini projenizin Application Insights kaynağını görünür [Azure portalında](https://portal.azure.com).
@@ -129,12 +129,12 @@ Genel Bakış dikey penceresinde uygulamanız hakkında daha fazla bilgi için a
 ARAŞTIRMA
 
 * [**Uygulama Haritası** ](app-map.md) -uygulamanızı bileşenlerini gösteren etkin harita türetilmiş bağımlılık bilgileri.
-* [**Akıllı algılama** ](../../application-insights/app-insights-proactive-diagnostics.md) -son performans uyarıları gözden geçirin.
+* [**Akıllı algılama** ](../../azure-monitor/app/proactive-diagnostics.md) -son performans uyarıları gözden geçirin.
 * [**Stream canlı** ](../../azure-monitor/app/live-stream.md) - neredeyse anında ölçümler, yeni bir yapı dağıtma yararlı bir dizi sabit veya hata ayıklama A.
 * [**Kullanılabilirlik / Web testleri** ](../../azure-monitor/app/monitor-web-app-availability.md) -normal istekleri web uygulamanızdan world.* geçici olarak gönder
-* [**Hatalar, performans** ](../../application-insights/app-insights-web-monitor-performance.md) -özel durumlar ve hata oranları istekleri için uygulamanızı ve uygulamanıza gelen istekleri için yanıt sürelerini [bağımlılıkları](../../azure-monitor/app/asp-net-dependencies.md).
-* [**Performans** ](../../application-insights/app-insights-web-monitor-performance.md) -yanıt süresi, bağımlılık yanıt süreleri.
-* [Sunucuları](../../application-insights/app-insights-web-monitor-performance.md) -performans sayaçları. Kullanılabilir, [Durum İzleyicisi yükleme](../../azure-monitor/app/monitor-performance-live-website-now.md).
+* [**Hatalar, performans** ](../../azure-monitor/app/web-monitor-performance.md) -özel durumlar ve hata oranları istekleri için uygulamanızı ve uygulamanıza gelen istekleri için yanıt sürelerini [bağımlılıkları](../../azure-monitor/app/asp-net-dependencies.md).
+* [**Performans** ](../../azure-monitor/app/web-monitor-performance.md) -yanıt süresi, bağımlılık yanıt süreleri.
+* [Sunucuları](../../azure-monitor/app/web-monitor-performance.md) -performans sayaçları. Kullanılabilir, [Durum İzleyicisi yükleme](../../azure-monitor/app/monitor-performance-live-website-now.md).
 * **Tarayıcı** -sayfa görünümü ve AJAX performansı. Kullanılabilir, [web sayfalarınızı araçlama](../../azure-monitor/app/javascript.md).
 * **Kullanım** -sayfa görünümü, kullanıcı ve oturum sayıları. Kullanılabilir, [web sayfalarınızı araçlama](../../azure-monitor/app/javascript.md).
 

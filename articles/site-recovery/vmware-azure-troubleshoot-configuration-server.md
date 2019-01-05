@@ -1,95 +1,104 @@
 ---
-title: VMware Vm'lerini ve fiziksel sunucuları Azure Site Recovery ile azure'a olağanüstü durum kurtarma sırasında yapılandırma sunucusu sorunlarını giderme | Microsoft Docs
-description: Bu makalede VMware Vm'lerinin olağanüstü durum kurtarması için yapılandırma sunucusunu ve fiziksel sunucuları Azure Site Recovery ile azure'a dağıtmak için sorun giderme bilgileri sağlar.
+title: Azure Site Recovery kullanarak VMware Vm'lerini ve fiziksel sunucuları azure'a olağanüstü durum kurtarma sırasında yapılandırma sunucusu sorunlarını giderme | Microsoft Docs
+description: Bu makalede, Azure Site Recovery kullanarak VMware Vm'lerinin olağanüstü durum kurtarması için yapılandırma sunucusunu ve fiziksel sunucuları Azure'a dağıtmak için sorun giderme bilgileri sağlar.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: f5c8241907459a06f0a6206ae6865cdf3fe9ab89
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 597b8f59ef6991f7868d3de481e98ed9a459077b
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998974"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050804"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Yapılandırma sunucusu sorunlarını giderme
 
-Bu makale, dağıtma ve yönetme, sorunları gidermenize yardımcı olur. [Azure Site Recovery](site-recovery-overview.md) yapılandırma sunucusu. Yapılandırma sunucusu, yönetim sunucusu olarak görev yapar ve şirket içi VMware Vm'leri ve fiziksel sunucuları Azure Site Recovery ile olağanüstü durum kurtarma ayarlama ayarlanması için kullanılır. Aşağıdaki bölümlerde, yeni bir yapılandırma sunucusu ekleme ve yapılandırma sunucusunu yönetme görülen yaygın hataları açıklanır.
+Bu makalede, yardımcı dağıtmak ve yönetmek, sorunlarını [Azure Site Recovery](site-recovery-overview.md) yapılandırma sunucusu. Yapılandırma sunucusunu bir yönetim sunucusu olarak görev yapar. Yapılandırma sunucusunu Site Recovery kullanarak şirket içi VMware Vm'leri ve fiziksel sunucuları azure'a olağanüstü durum kurtarma ayarlamayı öğrenin. Aşağıdaki bölümlerde, yeni bir yapılandırma sunucusu eklediğinizde ve yapılandırma sunucusu yönetirken karşılaşabileceğiniz en yaygın hataları açıklanmaktadır.
 
 ## <a name="registration-failures"></a>Kayıt hataları
 
-Kaynak makine, mobility Aracısı yüklemesi sırasında yapılandırma sunucusu ile kaydeder. Aşağıda verilen yönergeleri izleyerek bu adımı sırasında hataları ayıklanabilir:
+Mobility Aracısı yüklediğinizde, kaynak makinenin yapılandırma sunucusuna kaydeder. Bu yönergeleri takip ederek, bu adım sırasında hataları ayıklayabilirsiniz:
 
-1. C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log dosyasına gidin. ProgramData gizli bir klasör olabilir. Bırakamıyorsanız bulunacak gösterin için klasör deneyin. Hataları nedeniyle birden çok sorunlar olabilir.
-2. "Geçerli bir IP adresi bulunamadı" dizesini arayın. Dize bulunursa,
-    - İstenen konak kimliği kaynak makine ile aynı olup olmadığını doğrulayın.
-    - Kaynak makine Aracısı kaydı için fiziksel NIC CS ile başarılı olması için atanmış en az bir IP adresi olmalıdır.
-    - Kaynak makinede komutu Çalıştır `> ipconfig /all` (için Windows işletim sistemi) ve `# ifconfig -a` (için Linux işletim sistemi) kaynak makinenin tüm IP adreslerini almak için.
-    - Aracı kaydı fiziksel NIC'ye atanmış geçerli bir IP v4 adresi gerektiğini lütfen unutmayın
-3. Yukarıdaki dize bulunamazsa, dize "Neden" için arama = > "NULL". Varsa bulunan
-    - Kaynak makinenin yapılandırma sunucusuna kaydedin için boş bir konak kullanırken, bu hata oluşur.
-    - Sorunları giderdikten sonra verilen yönergeleri izleyerek [burada](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) kaydını el ile yeniden denemek için.
-4. Yukarıdaki dize bulunamazsa, kaynak makineye gidin ve C:\ProgramData\ASRSetupLogs\UploadedLogs günlüğünü kontrol edin\* ASRUnifiedAgentInstaller.log ProgramData, gizli bir klasör olabilir. Bırakamıyorsanız bulunacak gösterin için klasör deneyin. Hataları nedeniyle birden çok sorunlar olabilir. Arama dizesi için "istek gönderin: (7) - uygulanamadı sunucuya bağlanın". Varsa bulunan
-    - Kaynak makine ve yapılandırma sunucusu arasında ağ sorunları çözün. Bu yapılandırma sunucusu ping traceroute, web tarayıcısı vb. gibi ağ araçlarını kullanarak kaynak makineden erişilebilir olduğundan emin olun, bu kaynak makinenin yapılandırma sunucusu bağlantı noktası 443 üzerinden ulaşabildiğinden emin olun.
-    - Kaynak makinede herhangi bir güvenlik duvarı kuralları varsa onay kaynak makine ile yapılandırma sunucusu arasındaki bağlantıyı engelliyor. Çalışmak ağ yöneticiniz bağlantı sorunlarına engelini kaldırmak için.
-    - Belirtilen klasörleri olun [burada](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) virüsten koruma yazılımından hariç tutulur.
-    - Ağ sorunları giderdikten sonra kayıt verilen aşağıdaki tarafından yeniden deneme yönergeleri [burada](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
-5. Aksi durumda, aynı günlük arama dizesi için bulunan "istek: (60) - eş sertifika kimlik doğrulaması ile CA sertifikalarını. ". Varsa bulunan 
-    - Yapılandırma sunucusu sertifikasının süresi doldu veya kaynak makine TLS 1.0 desteklemiyor ve SSL protokolleri, veya kaynak makine ve yapılandırma sunucusu arasında SSL iletişimi engelleyen bir güvenlik duvarı bu hata olabilir.
-    - Yapılandırma sunucusunun IP adresi https:// URI'ın yardımıyla kaynak makinedeki bir web tarayıcısı kullanarak bağlanmak çözmek için<CSIPADDRESS>: 443 /. Bu kaynak makinenin yapılandırma sunucusu bağlantı noktası 443 üzerinden ulaşabildiğinden emin olun.
-    - Kaynak makinede herhangi bir güvenlik duvarı kuralları varsa onay kaynak makine ile yapılandırma sunucusu arasındaki bağlantıyı engelliyor. Çalışmak ağ yöneticiniz bağlantı sorunlarına engelini kaldırmak için.
-    - Belirtilen klasörleri olun [burada](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) virüsten koruma yazılımından hariç tutulur.  
-    - Sorunları giderdikten sonra kayıt verilen aşağıdaki tarafından yeniden deneme yönergeleri [burada](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
-6. < INSTALLATION_DIR > /etc/drscout.conf platformdan değerini bozuksa, Linux ardından kayıt başarısız olur. Tanımlamak için günlük /var/log/ua_install.log gidin. "VM_PLATFORM değeri null ya da olduğu gibi yapılandırma durduruluyor VmWare/Azure değil." dizesi bulabilirsiniz. Platform, "VmWare" veya "Azure" olarak ayarlanmalıdır. Drscout.conf dosyası bozulmuş gibi tavsiye edilir [kaldırma](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) mobility Aracısı ile yeniden yükleyin. Yüklemeyi başarısız olursa izleyin aşağıdaki adımları:
-    - Açık dosya Installation_Directory/uninstall.sh ve işlev çağrısı yorum *StopServices*
-    - Dosya Installation_Directory/Vx/bin/uninstall açın ve işlev çağrısı açıklama satırı yapın `stop_services`
-    - Dosya Installation_Directory/Fx/kaldırma ve Fx hizmetini durdurmak için çalışıyor tam bölümü yorum açın.
-    - Şimdi deneyin [kaldırma](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) mobility Aracısı. Başarılı kaldırma yüklemeden sonra sistemi yeniden başlatın ve aracısını yeniden yüklemeyi deneyin.
+1. C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log dosyasını açın. (ProgramData klasörü gizli bir klasör olabilir. ProgramData klasörü dosya Gezgini'nde, üzerinde görmezseniz **görünümü** sekmesinde **Göster/Gizle** bölümünden **öğelerin gizli** onay kutusunu.) Hataları, birden çok sorunlarından kaynaklanıyor olabilir.
 
-## <a name="installation-failure---failed-to-load-accounts"></a>Yükleme başarısız - hesaplar yüklenemedi
+2. Arama dizesi için **Hayır geçerli IP adresi bulunamadı**. Dize bulunursa:
+    1. İstenen konak kimliği kaynak makinenin konak kimliği ile aynı olduğunu doğrulayın.
+    2. Kaynak makinenin fiziksel NIC'ye atanmış en az bir IP adresi olduğunu doğrulayın Başarılı olması için yapılandırma sunucusu ile aracı kaydı için kaynak makinenin fiziksel NIC'ye atanmış en az bir geçerli IP v4 adresi olmalıdır
+    3. Kaynak makinenin tüm IP adreslerini almak için kaynak makinede olarak aşağıdaki komutlardan birini çalıştırın:
+      - Windows için: `> ipconfig /all`
+      - Linux için: `# ifconfig -a`
 
-Hizmet mobility Aracısı yükleme ve yapılandırma sunucusu ile kayıt sırasında aktarım bağlantısından veriler okuyamıyor olduğunda bu hata oluşur. Çözümlemek için TLS 1.0 kaynak makineniz üzerinde etkin olduğundan emin olun.
+3. Dize **Hayır geçerli IP adresi bulunamadı** bulunamadığında, arama dizesi için **nedeni = > NULL**. Kaynak makine ile yapılandırma sunucusunu kaydetmek için boş bir konak kullanıyorsa, bu hata oluşur. Dize bulunursa:
+    - Sorunu çözdükten sonra faydalandığından [kaynak makinenin yapılandırma sunucusuna kaydedin](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server) kaydını el ile yeniden denemek için.
 
-## <a name="change-ip-address-of-configuration-server"></a>Yapılandırma sunucusunun IP adresini değiştirme
+4. Dize **nedeni = > NULL** değil bulundu, kaynak makinede, açık C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log dosya. (ProgramData klasörü gizli bir klasör olabilir. ProgramData klasörü dosya Gezgini'nde, üzerinde görmezseniz **görünümü** sekmesinde **Göster/Gizle** bölümünden **öğelerin gizli** onay kutusunu.) Hataları, birden çok sorunlarından kaynaklanıyor olabilir. 
 
-Yapılandırma sunucusunun IP adresini değiştirmek için değil kesinlikle önerilir. Yapılandırma sunucusuna atanan tüm IP'lere statik IP ve değil DHCP IP'ler olduğundan emin olun.
+5. Arama dizesi için **isteği gönderin: (7) - sunucuya bağlanılamadı**. Dize bulunursa:
+    1. Yapılandırma sunucusu ile kaynak makine arasında ağ sorunları çözün. Ping, traceroute veya bir web tarayıcısı gibi ağ araçları kullanarak yapılandırma sunucusunun kaynak makineden erişilebilir olduğundan emin olun. Kaynak makinenin yapılandırma sunucusuna bağlantı noktası 443 üzerinden erişebildiğinden emin olun.
+    2. Herhangi bir güvenlik duvarını yapılandırma sunucusu ile kaynak makine arasında bağlantı kaynak makine blok kuralları olup olmadığını denetleyin. Bağlantı sorunları engelini kaldırmak için ağ yöneticileri ile çalışır.
+    3. Listelenen klasörler emin [Site Recovery klasör dışlamaları virüsten koruma programlarından](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) virüsten koruma yazılımından hariç tutulur.
+    4. Ağ sorunları çözüldükten sonra yönergeleri izleyerek kayıt yeniden deneme [kaynak makinenin yapılandırma sunucusuna kaydedin](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
+
+6. Dize **isteği gönderin: (7) - sunucuya bağlanılamadı** , aynı günlük dosyasında, arama dizesi bulunamadığında **isteği: (60) - eş sertifika kimlik doğrulaması ile CA sertifikalarını**. Yapılandırma sunucusu sertifikasının süresi doldu veya kaynak makine, TLS 1.0 veya üzeri SSL protokolleri desteklemiyor. Bu hata oluşabilir. Bir güvenlik duvarı yapılandırma sunucusu ile kaynak makine arasında SSL iletişimi engellerse de oluşabilir. Dize bulunursa: 
+    1. Çözümlemek için IP adresi yapılandırma sunucusuna kaynak makinede bir web tarayıcısı kullanarak bağlanın. URI https kullanacak:\/\/< yapılandırma sunucusunun IP adresi\>: 443 /. Kaynak makinenin yapılandırma sunucusuna bağlantı noktası 443 üzerinden erişebildiğinden emin olun.
+    2. Kaynak makinede herhangi bir güvenlik duvarı kuralları veya kaynak makinenin yapılandırma sunucusuna konuşmaya kaldırılamaz gerekli olup olmadığını denetleyin. Kullanımda olabilecek bir güvenlik duvarı yazılımı çeşitli nedeniyle, size tüm gerekli güvenlik duvarı yapılandırmaları listelenemiyor. Bağlantı sorunları engelini kaldırmak için ağ yöneticileri ile çalışır.
+    3. Listelenen klasörler emin [Site Recovery klasör dışlamaları virüsten koruma programlarından](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) virüsten koruma yazılımından hariç tutulur.  
+    4. Sorunu çözdükten sonra aşağıdaki yönergeleri tarafından kayıt yeniden [kaynak makinenin yapılandırma sunucusuna kaydedin](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
+
+7. Linux üzerinde platform değerini < INSTALLATION_DIR\>/etc/drscout.conf bozuk, kayıt işlemi başarısız olur. Bu sorunu tanımlamak için /var/log/ua_install.log dosyasını açın. Arama dizesi için **VM_PLATFORM değeri null ya da olduğu gibi yapılandırma durduruluyor VmWare/Azure değil**. Platform ayarlanması **VmWare** veya **Azure**. Drscout.conf dosyası bozuk, öneririz, [mobility aracısını kaldırın](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) ve mobility Aracısı'nı yeniden yükleyin. Kaldırma başarısız olursa, aşağıdaki adımları tamamlayın:
+    1. Installation_Directory/uninstall.sh dosyasını açıp çağrı yorum **StopServices** işlevi.
+    2. Installation_Directory/Vx/bin/uninstall.sh dosyasını açıp çağrı yorum **stop_services** işlevi.
+    3. Fx hizmetini durdurmak için çalışan tüm bölüm yorum ve Installation_Directory/Fx/uninstall.sh dosyasını açın.
+    4. [Kaldırma](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) mobility Aracısı. Başarılı kaldırma sonra sistemi yeniden başlatın ve ardından mobility aracısını yeniden yüklemeyi deneyin.
+
+## <a name="installation-failure-failed-to-load-accounts"></a>Yükleme hatası: Hesaplar yüklenemedi
+
+Mobility Aracısı'nı yükleme ve yapılandırma sunucusu ile kayıt hizmet taşıma bağlantısından veriler okunamıyor olamaz bu hata oluşur. Sorunu çözmek için TLS 1.0, kaynak makinede etkinleştirildiğinden emin olun.
+
+## <a name="change-the-ip-address-of-the-configuration-server"></a>Yapılandırma sunucusunun IP adresini değiştirme
+
+Yapılandırma sunucusunun IP adresini değiştirmemenizi öneririz. Yapılandırma sunucusuna atadığınız tüm IP adreslerini statik IP adresleri olduğundan emin olun. DHCP IP adresini kullanmayın.
 
 ## <a name="acs50008-saml-token-is-invalid"></a>ACS50008: SAML belirteci geçersiz.
 
-Bu hatayı önlemek için sistem saati yerel saat 15 dakikadan uzun olmadığından emin olun. Kayıt işlemini tamamlamak için yükleyiciyi yeniden çalıştırın.
+Bu hatayı önlemek için bu, sistem saati 15 dakikadan fazla kaynağından yerel saat farklı değil emin olun. Kayıt işlemini tamamlamak için yükleyiciyi yeniden çalıştırın.
 
-## <a name="failed-to-create-certificate"></a>Sertifika oluşturulamadı
+## <a name="failed-to-create-a-certificate"></a>Bir sertifika oluşturulamadı
 
-Site Recovery kimlik doğrulaması için gereken sertifika oluşturulamıyor. Kurulum yerel bir yönetici olarak çalıştırdığınızdan emin olduktan sonra kurulumu yeniden çalıştırın.
+Site Recovery kimlik doğrulaması için gereken sertifika oluşturulamıyor. Kurulum yerel bir yönetici olarak çalıştırıyorsanız emin olduktan sonra kurulumu yeniden çalıştırın.
 
-## <a name="register-source-machine-with-configuration-server"></a>Kaynak makinenin yapılandırma sunucusuna kaydedin
+## <a name="register-the-source-machine-with-the-configuration-server"></a>Kaynak makinenin yapılandırma sunucusuna kaydedin
 
-### <a name="if-source-machine-has-windows-os"></a>Kaynak makine Windows işletim sistemi varsa
+### <a name="if-the-source-machine-runs-windows"></a>Kaynak makine Windows çalıştırıyorsa
 
-Kaynak makine üzerinde aşağıdaki komutu çalıştırın
+Kaynak makine üzerinde aşağıdaki komutu çalıştırın:
 
 ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
-  UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+  UnifiedAgentConfigurator.exe  /CSEndPoint <configuration server IP address> /PassphraseFilePath <passphrase file path>
   ```
-**Ayar** | **Ayrıntılar**
+
+Ayar | Ayrıntılar
 --- | ---
-Kullanım | UnifiedAgentConfigurator.exe/csendpoint  <CSIP> /passphrasefilepath <PassphraseFilePath>
-Aracı yapılandırma günlükleri | % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log altında.
+Kullanım | UnifiedAgentConfigurator.exe/csendpoint < yapılandırma sunucusunun IP adresi \> /passphrasefilepath < parola dosya yolu\>
+Aracı yapılandırma günlükleri | % ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log altında bulunur.
 /CSEndPoint | Zorunlu parametre. Yapılandırma sunucusunun IP adresini belirtir. Herhangi bir geçerli IP adresi kullanın.
 /PassphraseFilePath |  Zorunlu. Parola dosyasının konumu. Herhangi bir geçerli UNC veya yerel dosya yolu kullanın.
 
-### <a name="if-source-machine-has-linux-os"></a>Kaynak makine Linux işletim sistemi varsa
+### <a name="if-the-source-machine-runs-linux"></a>Kaynak makine Linux çalıştırıyorsa
 
-Kaynak makine üzerinde aşağıdaki komutu çalıştırın
+Kaynak makine üzerinde aşağıdaki komutu çalıştırın:
 
 ```
-  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <CSIP> -P /var/passphrase.txt
+  /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <configuration server IP address> -P /var/passphrase.txt
   ```
-**Ayar** | **Ayrıntılar**
+
+Ayar | Ayrıntılar
 --- | ---
-Kullanım | CD /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> - P <PassphraseFilePath>
+Kullanım | CD /usr/local/ASR/Vx/bin<br /><br /> UnifiedAgentConfigurator.sh -i < yapılandırma sunucusunun IP adresi\> - P < parola dosya yolu\>
 -i | Zorunlu parametre. Yapılandırma sunucusunun IP adresini belirtir. Herhangi bir geçerli IP adresi kullanın.
--P |  Zorunlu. Parola kaydedildiği dosyasının tam dosya yolu. Herhangi bir geçerli klasörü kullanın
+-P |  Zorunlu. Parola kaydedildiği dosyasının tam dosya yolu. Herhangi bir geçerli klasörü kullanın.
+

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 02e6d6407a515314d99ea747dac3646d665c47ae
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976588"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039478"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Azure Stack sanal makinelerini Azure'a çoğaltma
 
@@ -142,7 +142,7 @@ VM'ler tabloda özetlenen işletim sistemlerinden birini çalıştırdığından
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>2. Adım: Kasa oluşturma ve çoğaltma hedefi seçme
 
-1. Azure portalında **Kaynak oluştur** > **İzleme ve Yönetim** > **Backup and Site Recovery** seçeneklerini belirleyin.
+1. Azure portalında **kaynak Oluştur** > **Yönetim Araçları** > **Backup ve Site Recovery**.
 2. **Ad** alanına kasayı tanımlamak için kolay bir ad girin. 
 3. İçinde **kaynak grubu**bir kaynak grubu seçin veya oluşturun. Kullandığımız **contosoRG**.
 4. İçinde **konumu**, Azure bölgesini belirtin. **Batı Avrupa** kullanacağız.
@@ -193,7 +193,7 @@ Artık yapılandırma sunucusunu yükleyin:
 
 > Hesap adının portalda görünmesi 15 dakika veya daha fazla sürebilir. Hemen güncelleştirme yapmak için **Yapılandırma Sunucuları** > ***sunucu adı*** > **Sunucuyu Yenile** seçeneğini belirleyin.
 
-## <a name="step-4-set-up-the-target-environment"></a>4. adım: Hedef ortamı ayarlama
+## <a name="step-4-set-up-the-target-environment"></a>4. Adım: Hedef ortamı ayarlama
 
 Hedef kaynaklarını seçin ve doğrulayın.
 
@@ -202,7 +202,7 @@ Hedef kaynaklarını seçin ve doğrulayın.
 3. Site Recovery, bir veya birden çok uyumlu Azure depolama hesabınızın ve ağınızın olup olmadığını denetler. Bunları bulmuyorsa, Sihirbazı tamamlamak için en az bir depolama hesabı ve sanal ağ oluşturmak gerekir.
 
 
-## <a name="step-5-enable-replication"></a>5. adım: Çoğaltmayı etkinleştirme
+## <a name="step-5-enable-replication"></a>5. Adım: Çoğaltmayı etkinleştirme
 
 ### <a name="create-a-replication-policy"></a>Çoğaltma ilkesi oluşturma
 
@@ -255,7 +255,7 @@ Tüm görevleri tamamladığınızdan emin olun [1. adım: Makinesini hazırlama
 > Eklediğiniz VM’leri izlemek için **Configuration Servers** > **Last Contact At** bölümünde VM’lerin son bulunma zamanını kontrol edin. Zamanlanan bulma işlemini beklemeden VM’leri eklemek için yapılandırma sunucusunu vurgulayın (seçmeyin) ve **Yenile**’yi seçin.
 
 
-## <a name="step-6-run-a-disaster-recovery-drill"></a>6. adım: Olağanüstü durum kurtarma tatbikatı çalıştırma
+## <a name="step-6-run-a-disaster-recovery-drill"></a>6. Adım: Olağanüstü durum kurtarma tatbikatı çalıştırma
 
 Her şeyin beklendiği gibi çalıştığından emin olmak için Azure'a yük devretme testi çalıştırın. Bu yük devretme üretim ortamınızı etkilemez.
 

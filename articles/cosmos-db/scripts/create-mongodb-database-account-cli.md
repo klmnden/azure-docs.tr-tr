@@ -4,15 +4,16 @@ description: Azure CLI betik örneği - bir Cosmos hesabı, MongoDB için Azure 
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/26/2018
-ms.openlocfilehash: f37c47470553110c9003d54a1783d7db0dc94e6a
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.reviewer: sngun
+ms.openlocfilehash: 8aae88b24cee64136fb247744325424a446a7bbf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808766"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043167"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-azure-cli"></a>Azure Cosmos DB hesabı, Azure CLI kullanarak MongoDB için Azure Cosmos DB API'si ile oluşturma
 

@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: c9c9f07eab395df716a4575338f881f07d573b74
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9e5da96cb02e681c83bd707fc038117050712ccf
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019138"
+ms.locfileid: "54044255"
 ---
-# <a name="datasets-and-linked-services-in-azure-data-factory"></a>Veri kümeleri ve Azure veri fabrikasında bağlı hizmetler 
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+# <a name="datasets-and-linked-services-in-azure-data-factory"></a>Veri kümeleri ve Azure veri fabrikasında bağlı hizmetler
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-create-datasets.md)
 > * [Geçerli sürüm](concepts-datasets-linked-services.md)
 
-Bu makale, JSON biçiminde nasıl tanımlandığına hangi veri kümelerinin olduğunu açıklar ve nasıl kullanıldığına Azure Data Factory işlem hatları. 
+Bu makale, JSON biçiminde nasıl tanımlandığına hangi veri kümelerinin olduğunu açıklar ve nasıl kullanıldığına Azure Data Factory işlem hatları.
 
-Data Factory kullanmaya yeni başladıysanız bkz [Azure Data Factory'ye giriş](introduction.md) genel bakış. 
+Data Factory kullanmaya yeni başladıysanız bkz [Azure Data Factory'ye giriş](introduction.md) genel bakış.
 
 ## <a name="overview"></a>Genel Bakış
 Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. A **işlem hattı** mantıksal bir gruplandırmasıdır **etkinlikleri** birlikte gerçekleştiren bir görev. Bir işlem hattındaki etkinlikler, verilerinizde gerçekleştirilecek eylemleri tanımlar. Örneğin, verileri bir şirket içi SQL Server'dan Azure Blob depolama alanına kopyalamak için kopyalama etkinliğini kullanabilirsiniz. Ardından, verileri işlemek için çıkış verileri üretmek üzere Blob depolama alanından gönderilmiş olan bir Azure HDInsight kümesinde bir Hive betiği çalıştıran bir Hive etkinliği kullanabilirsiniz. Son olarak, çıktı verilerini Azure SQL veri ambarı'na çözümleri oluşturulur hangi iş zekası raporlama en üstünde (BI) kopyalamak için ikinci bir kopyalama etkinliği kullanabilirsiniz. İşlem hatları ve etkinlikler hakkında daha fazla bilgi için bkz: [işlem hatları ve etkinlikler](concepts-pipelines-activities.md) Azure Data factory'de.
@@ -70,7 +70,7 @@ typeProperties | Tür özellikleri için her veri deposunun farklı veya işlem.
 connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz özel bir ağda yer alıyorsa) Azure Integration Runtime veya şirket içinde barındırılan tümleştirme çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. | Hayır
 
 ## <a name="linked-service-example"></a>Bağlı hizmet örneği
-Aşağıdaki bağlı hizmet bir Azure depolama bağlı hizmetidir. Türü için bir AzureStorage ayarlandığına dikkat edin. Tür özellikleri Azure depolama bağlı hizmeti için bir bağlantı dizesi içerir. Data Factory hizmetinin çalışma zamanında veri deposuna bağlanmak için bu bağlantı dizesini kullanır. 
+Aşağıdaki bağlı hizmet bir Azure depolama bağlı hizmetidir. Türü için bir AzureStorage ayarlandığına dikkat edin. Tür özellikleri Azure depolama bağlı hizmeti için bir bağlantı dizesi içerir. Data Factory hizmetinin çalışma zamanında veri deposuna bağlanmak için bu bağlantı dizesini kullanır.
 
 ```json
 {
@@ -101,7 +101,7 @@ Bir veri kümesinde Data Factory JSON biçiminde şu şekilde tanımlanır:
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
         "linkedServiceName": {
                 "referenceName": "<name of linked service>",
-                 "type": "LinkedServiceReference",
+                "type": "LinkedServiceReference",
         },
         "structure": [
             {
@@ -136,7 +136,7 @@ Aşağıdaki örnekte, bir SQL veritabanı'nda MyTable adlı bir tablo veri küm
         "type": "AzureSqlTable",
         "linkedServiceName": {
                 "referenceName": "MyAzureSqlLinkedService",
-                 "type": "LinkedServiceReference",
+                "type": "LinkedServiceReference",
         },
         "typeProperties":
         {
@@ -166,9 +166,9 @@ Farklı türlerde veri kümeleri, kullandığınız veri deposuna bağlı olarak
         "type": "AzureBlob",
         "linkedServiceName": {
                 "referenceName": "MyAzureStorageLinkedService",
-                 "type": "LinkedServiceReference",
-        }, 
- 
+                "type": "LinkedServiceReference",
+        },
+
         "typeProperties": {
             "fileName": "input.log",
             "folderPath": "adfgetstarted/inputdata",
@@ -218,14 +218,14 @@ Bu araçlar ve SDK'lar birini kullanarak veri kümeleri oluşturabilirsiniz: [.N
 
 ## <a name="current-version-vs-version-1-datasets"></a>Sürüm 1 veri kümeleri ve geçerli sürüm
 
-Data Factory ile veri fabrikası sürüm 1 veri kümeleri arasındaki bazı farklar şunlardır: 
+Data Factory ile veri fabrikası sürüm 1 veri kümeleri arasındaki bazı farklar şunlardır:
 
 - Dış özellik geçerli sürümde desteklenmiyor. Tarafından değiştirilen bir [tetikleyici](concepts-pipeline-execution-triggers.md).
 - İlke ve kullanılabilirlik özellikleri geçerli sürümünde desteklenmez. Bağımlı bir işlem hattı için başlangıç saatini [Tetikleyicileri](concepts-pipeline-execution-triggers.md).
-- Kapsamı belirlenmiş veri kümeleri (ardışık düzeninde tanımlanan veri kümeleri), geçerli sürümde desteklenmez. 
+- Kapsamı belirlenmiş veri kümeleri (ardışık düzeninde tanımlanan veri kümeleri), geçerli sürümde desteklenmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu araçlar ve SDK'lar birini kullanarak işlem hatlarını ve veri kümeleri oluşturmak için adım adım yönergeler için aşağıdaki öğreticiye bakın. 
+Bu araçlar ve SDK'lar birini kullanarak işlem hatlarını ve veri kümeleri oluşturmak için adım adım yönergeler için aşağıdaki öğreticiye bakın.
 
 - [Hızlı başlangıç: .NET kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-dot-net.md)
 - [Hızlı Başlangıç: PowerShell kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-powershell.md)

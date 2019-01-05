@@ -1,19 +1,18 @@
 ---
 title: Azure Cosmos DB kaynak maliyeti ile ayrılmış kapasite en iyi duruma getirme
 description: Hesaplama maliyetlerinizden kaydetmek için Azure Cosmos DB ayrılmış kapasite satın alma konusunda bilgi edinin.
-services: cosmos-db
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: a1f5db6428a892e10a3591edb7542996ad1b3319
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: b4f36abb2136223be8d4eec67935317041a41b93
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386817"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044289"
 ---
 # <a name="optimize-cost-of-azure-cosmos-db-resources-with-reserved-capacity"></a>Azure Cosmos DB kaynak maliyeti ile ayrılmış kapasite en iyi duruma getirme
 
@@ -84,7 +83,7 @@ Ayırma indirimi, öznitelikleri ve ayırma kapsamı eşleşen Azure Cosmos DB k
    * [Kullandıkça Öde aboneliğinizi için ayırma kullanımını anlama](../billing/billing-understand-reserved-instance-usage.md)
    * [Azure iş ortağı merkezi CSP programı ayırmalarını](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Yardım mı gerekiyor? Bizimle iletişim kurun.
+## <a name="need-help-contact-us"></a>Yardıma mı ihtiyacınız var? Bizimle iletişim kurun.
 
 Sorularınız varsa veya yardıma ihtiyacınız [bir destek isteği oluşturma](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

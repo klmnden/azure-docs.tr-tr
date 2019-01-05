@@ -1,19 +1,17 @@
 ---
 title: BI analizi araçları kullanarak Azure Cosmos DB'ye bağlanma
 description: Azure Cosmos DB ODBC sürücüsü, böylece normalleştirilmiş veri BI ve veri analizi yazılımda görüntülenebilir tabloları ve görünümleri oluşturmak için kullanmayı öğrenin.
-keywords: ODBC, odbc sürücüsü
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: d1ea0a51d9637c1ca1dba214e969e6835dfb241c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f51ce90d9349d345bb1e77ca5e254315c20c1b1d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136367"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034481"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC sürücüsü ile BI analizi araçları kullanarak Azure Cosmos DB'ye bağlanma
 
@@ -50,7 +48,7 @@ ODBC sürücüsü ile başlayalım.
 
     ![Azure Cosmos DB ODBC Veri Kaynağı Yöneticisi](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>2. adım: Azure Cosmos DB veritabanınıza bağlanma
+## <a id="connect"></a>2. adım: Azure Cosmos DB veritabanınıza bağlanın
 
 1. Sonra [Azure Cosmos DB ODBC sürücüsünü yükleme](#install), **ODBC Veri Kaynağı Yöneticisi** penceresinde tıklayın **Ekle**. Bir kullanıcı veya sistem DSN'si oluşturabilirsiniz. Bu örnekte, bir kullanıcı DSN'si oluşturuyorsunuz.
 
@@ -59,19 +57,19 @@ ODBC sürücüsü ile başlayalım.
 1. İçinde **Azure Cosmos DB ODBC sürücü SDN Kurulumu** penceresinde aşağıdaki bilgileri doldurun: 
 
     ![Azure Cosmos DB ODBC sürücüsü DSN Kurulum penceresi](./media/odbc-driver/odbc-driver-dsn-setup.png)
-    - **Veri kaynağı adı**: ODBC DSN için kendi kolay ad. Bu Azure Cosmos DB hesabınız için benzersiz bir addır, birden çok hesabı varsa, bu nedenle uygun şekilde adlandırın.
-    - **Açıklama**: veri kaynağı kısa bir açıklaması.
+    - **Veri kaynağı adı**: ODBC DSN kendi kolay adı. Bu Azure Cosmos DB hesabınız için benzersiz bir addır, birden çok hesabı varsa, bu nedenle uygun şekilde adlandırın.
+    - **Açıklama**: Veri kaynağı kısa bir açıklaması.
     - **Konak**: Azure Cosmos DB hesabınız için URI. Bu Azure Cosmos DB anahtarlar sayfasından Azure portalında, aşağıdaki ekran görüntüsünde gösterildiği gibi alabilirsiniz. 
-    - **Erişim anahtarı**: Azure Cosmos DB anahtarları birincil veya ikincil, salt okunur veya salt okunur anahtarı sayfasında Azure Portalı'nda aşağıdaki ekran görüntüsünde gösterildiği gibi. DSN salt okunur veri işleme ve raporlama için kullanılıyorsa, salt okunur anahtarı kullanmanızı öneririz.
+    - **Erişim anahtarı**: Aşağıdaki ekran görüntüsünde gösterildiği gibi Azure portalında Azure Cosmos DB anahtarlar sayfasında birincil veya ikincil, salt okunur veya salt okunur anahtar. DSN salt okunur veri işleme ve raporlama için kullanılıyorsa, salt okunur anahtarı kullanmanızı öneririz.
     ![Azure Cosmos DB anahtarları sayfası](./media/odbc-driver/odbc-driver-keys.png)
     - **Erişim anahtarı için şifreleme**: Bu makinenin kullanıcı temelli en iyi seçenek seçin. 
     
 1. Tıklayın **Test** düğmesini Azure Cosmos DB hesabınıza bağlandığınızdan emin olun. 
 
 1. Tıklayın **Gelişmiş Seçenekler** ve aşağıdaki değerleri ayarlayın:
-    - **Sorgu tutarlılık**: seçin [tutarlılık düzeyi](consistency-levels.md) işlemleriniz için. Varsayılan oturumdur.
-    - **Yeniden deneme sayısı**: ilk istek, hizmet hız sınırlaması nedeniyle tamamlanmazsa, bir işlemin yeniden deneme sayısını girin.
-    - **Şema dosyası**: Burada birçok seçenek vardır.
+    - **Sorgu tutarlılık**: Seçin [tutarlılık düzeyi](consistency-levels.md) işlemleriniz için. Varsayılan oturumdur.
+    - **Yeniden deneme sayısı**: İlk istek, hizmet hız sınırlaması nedeniyle tamamlanmazsa, bir işlemin yeniden deneme sayısını girin.
+    - **Şema dosyası**: Burada bir dizi seçeneğiniz vardır.
         - Bu giriş (boş) olduğu gibi bırakarak varsayılan olarak, her koleksiyonun şema belirlemek tüm koleksiyonlar için veriler'ın ilk sayfasında sürücü tarar. Bu işlem, koleksiyon eşlemesi bilinir. Tanımlı bir şema dosyası olmadan sürücü her bir sürücü oturumu için tarama yapması ve uygulamanın DSN daha yüksek başlangıç saati, neden olabilir. Bir şema dosyası her zaman için DSN ilişkilendirmenizi öneririz.
         - Bir şema dosyası zaten varsa (kullanılarak oluşturulan bir olasılıkla [şema Düzenleyicisi](#schema-editor)), tıklayabilirsiniz **Gözat**, dosyaya gidin, tıklayın **Kaydet**ve ardından **Tamam**.
         - Yeni bir şema oluşturmak istiyorsanız, tıklayın **Tamam**ve ardından **şema Düzenleyicisi** ana penceresinde. Daha sonra devam [şema Düzenleyicisi](#schema-editor) bilgileri. Yeni şema dosyası oluşturduktan sonra geri dönüp unutmayın **Gelişmiş Seçenekler** penceresi, yeni oluşturulan şema dosyası eklenecek.
@@ -201,7 +199,7 @@ Ardından **tanımlarını** penceresinde aşağıdakileri yapın:
 
 İstediğiniz gibi birçok bir görünüm oluşturabilirsiniz. İşiniz bittiğinde görünümleri tanımlama, ardından veri örnekleme yapabilirsiniz. 
 
-## <a name="step-5-view-your-data-in-bi-tools-such-as-power-bi-desktop"></a>5. adım: Power BI Desktop gibi BI Araçları'ndaki verilerinizi görüntüleyin
+## <a name="step-5-view-your-data-in-bi-tools-such-as-power-bi-desktop"></a>5. Adım: Power BI Desktop gibi BI Araçları'ndaki verilerinizi görüntüleyin
 
 ODBC uyumlu herhangi bir aracı ile Azure Cosmos DB'ye bağlanmak için yeni DSN kullanabilirsiniz: Bu adım yalnızca, bağlanmak için Power BI Desktop ve Power BI görselleştirmeleri oluşturma işlemini göstermektedir.
 

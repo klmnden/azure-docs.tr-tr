@@ -1,20 +1,19 @@
 ---
 title: Azure Cosmos DB tablo API .NET SDK'sı & kaynakları
 description: Tüm yayın tarihleri, sona erme tarihlerini ve her bir sürümü arasında yapılan değişiklikler dahil olmak üzere Azure Cosmos DB tablo API'si hakkında bilgi edinin.
-services: cosmos-db
-author: rnagpal
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.author: rnagpal
-ms.openlocfilehash: 7092daa7cf3a1cfcbeac06db308fa53e18d27131
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: f2492e3d49f9b7e965c33ed4419f566e81dd62ed
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52878593"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043473"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tablosu .NET API'si: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -29,7 +28,7 @@ ms.locfileid: "52878593"
 |**SDK'sını indirme**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**API belgeleri**|[.NET API başvuru belgeleri](https://aka.ms/acdbtableapiref)|
 |**Hızlı Başlangıç**|[Azure Cosmos DB: .NET ve tablo API'si ile bir uygulama derleme](create-table-dotnet.md)|
-|**Öğretici**|[Azure Cosmos DB:. NET'te tablo API'si ile geliştirme](tutorial-develop-table-dotnet.md)|
+|**Öğretici**|[Azure Cosmos DB: . NET'te tablo API'si ile geliştirme](tutorial-develop-table-dotnet.md)|
 |**Geçerli desteklenen çerçevesi**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
@@ -53,7 +52,7 @@ ms.locfileid: "52878593"
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * TableQueryMaxItemCount, TableQueryEnableScan TableQueryMaxDegreeOfParallelism ve TableQueryContinuationTokenLimitInKb TableRequestOptions için ekleyin
-* Hata düzeltmeleri
+* Hata Düzeltmeleri
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 * Genel kullanılabilirlik sürümü

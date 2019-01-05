@@ -8,14 +8,14 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 586f3c81fad79f49b3506b0bd84a4f7b218d8605
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426494"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054973"
 ---
-# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect: ADSyncTools PowerShell başvurusu
+# <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  ADSyncTools PowerShell başvurusu
 Aşağıdaki belgeler Azure AD Connect ile birlikte sağlanan ADSyncTools.psm1 PowerShell modülü için başvuru bilgileri sağlar.
 
 ## <a name="clear-adsynctoolsconsistencyguid"></a>ADSyncToolsConsistencyGuid Temizle
@@ -470,7 +470,7 @@ Daha fazla bilgi için bkz. about_CommonParameters (https://go.microsoft.com/fwl
 ## <a name="get-adsynctoolsrunhistory"></a>Get-ADSyncToolsRunHistory
 
 ### <a name="synopsis"></a>ÖZET
-AAD çalıştırma Connnect geçmişini Al
+Get AAD Connect çalıştırma geçmişi
 
 ### <a name="syntax"></a>SÖZ DİZİMİ
 
@@ -479,7 +479,7 @@ Get-ADSyncToolsRunHistory [[-Days] <Int32>] [<CommonParameters>]
 ```
 
 ### <a name="description"></a>AÇIKLAMA
-AAD Connnect çalıştırma geçmişi XML biçiminde döndüren bir işlev
+AAD Connect çalıştırma geçmişi XML biçiminde döndüren bir işlev
 
 ### <a name="examples"></a>ÖRNEKLER
 
@@ -526,7 +526,7 @@ Get-ADSyncToolsSourceAnchorChanged [-sourcePath] <Object> [-outputPath] <Object>
 ```
 
 ### <a name="description"></a>AÇIKLAMA
-İşlev çalıştırma Connnect geçmişi AAD sorgular ve hata raporlama tüm kullanıcıları dışarı aktarır: "SourceAnchor özniteliği değişti."
+AAD Connect çalıştırma geçmişi sorguları işlev ve hata raporlama tüm kullanıcıları dışarı aktarır: "SourceAnchor özniteliği değişti."
 
 ### <a name="examples"></a>ÖRNEKLER
 
@@ -719,7 +719,7 @@ Remove-ADSyncToolsExpiredCertificates [-TargetOU] <String> [[-BackupOnly] <Boole
 Bu betik, nesne sınıfı (kullanıcı/bilgisayar) göre filtrelenmiş bir Active Directory etki alanınızdaki - kuruluş birimi hedef tüm nesneleri alır ve UserCertificate özniteliğinde mevcut tüm süresi dolan sertifikaları siler.
 Varsayılan olarak (BackupOnly modu), yalnızca yedekleyecektir süresi dolan sertifikaları bir dosyaya ve herhangi bir değişiklik AD'de yapın.
 -BackupOnly $false kullandığınız sonra bu nesneleri UserCertificate özniteliğinde mevcut tüm süresi sertifika kopyalanan sonra AD kaldırılacak. dosya için.
-Her sertifika için ayrı bir dosya adı Yedeklenecek: ObjectClass_ObjectGUID_CertThumprint.cer komut dosyası da oluşturur bir günlük dosyası CSV biçiminde sertifikalarıyla ya da geçersiz veya süresi dolmuş (geçen gerçek Eylemler dahil olmak üzere tüm kullanıcı gösteriliyor Atlanan/dışa aktarılan/silinen).
+Her sertifika için ayrı bir dosya adı yedeklenir: ObjectClass_ObjectGUID_CertThumprint.cer komut dosyası, ayrıca ya da geçersiz veya süresi dolmuş gerçekleştirilen gerçek eylem dahil olmak üzere olan sertifikalar ile tüm kullanıcıları gösteren CSV biçiminde (dışarı aktarılan/atlandı/silinen) bir günlük dosyası oluşturulur.
 
 ### <a name="examples"></a>ÖRNEKLER
 
@@ -1227,7 +1227,7 @@ Update-ADSyncToolsConsistencyGuidMigration [[-DistinguishedName] <String>] [-Imm
 ```
 
 ### <a name="description"></a>AÇIKLAMA
-Güncelleştirmeleri kullanıcılar consistencyguid içinde rapor bu işlevden alınan yeni consistencyguid içinde (Immutableıd) değeriyle WhatIf anahtarı Not destekler: consistencyguid içinde rapor ile sekmesindeki ayırıcı aktarılması gerekir
+Kullanıcılar WhatIf anahtarı Not consistencyguid içinde rapor bu işlevi destekleyen alınan yeni consistencyguid içinde (Immutableıd) değeriyle güncelleştirir: Consistencyguid içinde rapor ile sekmesindeki ayırıcı alınması gerekir
 
 ### <a name="examples"></a>ÖRNEKLER
 

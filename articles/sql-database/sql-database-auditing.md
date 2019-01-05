@@ -11,13 +11,13 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/25/2018
-ms.openlocfilehash: 892e4e776479d767326d4895dbf4bd4f30c418b0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 01/03/2019
+ms.openlocfilehash: 598d2b86e7aeeac9525f37b1ab9422d854e75392
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973219"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034038"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 
@@ -224,10 +224,10 @@ Birincil veritabanında Denetimi etkinleştirdiğinizde, coğrafi olarak çoğal
 
 **PowerShell cmdlet'leri (WHERE yan tümcesi desteği, ek bir filtreleme dahil)**:
 
-- [Denetim İlkesi (Set-AzSqlDatabaseAuditing) veritabanı Blob güncelle](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [Sunucu Blob denetimi İlkesi (Set-AzSqlServerAuditing) güncelle](https://docs.microsoft.com/en-us/powershell/module/az.sql/set-azsqlserverauditing)
-- [Veritabanı Denetim İlkesi alın (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Sunucu Blob denetimi İlkesi alın (Get-AzSqlServerAuditing)](https://docs.microsoft.com/en-us/powershell/module/az.sql/get-azsqlserverauditing)
+- [Denetim İlkesi (Set-AzSqlDatabaseAuditing) veritabanı Blob güncelle](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [Sunucu Blob denetimi İlkesi (Set-AzSqlServerAuditing) güncelle](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
+- [Veritabanı Denetim İlkesi alın (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [Sunucu Blob denetimi İlkesi alın (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 Bir komut dosyası örneği için bkz [PowerShell kullanarak denetim ve tehdit algılamayı yapılandırma](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -249,7 +249,7 @@ Burada yan tümcesi destek ek filtreleme ile genişletilmiş İlkesi:
 
 ## <a id="subheading-10"></a>ARM şablonları kullanarak SQL veritabanı denetimini yönetme
 
-Kullanarak Azure SQL veritabanı denetimi yönetebileceğiniz [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) Bu örneklerde gösterildiği gibi şablonları:
+Kullanarak Azure SQL veritabanı denetimi yönetebileceğiniz [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) Bu örneklerde gösterildiği gibi şablonları:
 
 - [Denetim günlükleri, Azure blob depolama hesabına yazma etkinleştirilmiş denetim ile bir Azure SQL sunucusu dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Denetim günlüklerini Log Analytics'e yazmak için etkin bir denetim ile bir Azure SQL sunucusu dağıtma](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)

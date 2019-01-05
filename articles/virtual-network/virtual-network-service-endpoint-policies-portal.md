@@ -1,13 +1,10 @@
 ---
-title: Oluştur ve ilişkilendir hizmet uç noktası İlkesi - Azure portalı | Microsoft Docs
+title: Oluştur ve ilişkilendir hizmet uç noktası İlkesi - Azure portalı
+titlesuffix: Azure Virtual Network
 description: Bu makalede, nasıl yapılır ve Azure portalını kullanarak ilişkili hizmet uç noktası İlkesi öğrenin.
 services: virtual-network
 documentationcenter: virtual-network
 author: anithaa
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 6bd318da5b3cd667d0a39b9c963e8d3ffd472f41
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633019"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054444"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Oluşturma, değiştirme veya Azure portalını kullanarak hizmet uç noktası İlkesi Sil
 
@@ -46,10 +43,10 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 2. Arama bölmesinde "hizmet uç noktası İlkesi" yazın ve **hizmet uç noktası İlkesi (Önizleme)** seçip **Oluştur**.
 3. Girin veya seçin, aşağıdaki bilgileri **temelleri** 
 
-   - Abonelik: aboneliğinizi İlkesi'ni seçin.    
-   - Kaynak grubu: seçin **Yeni Oluştur** girin *myResourceGroup*.     
+   - Abonelik: İlke için aboneliğinizi seçin.    
+   - Kaynak grubu: **Yeni oluştur**’u seçin ve *myResourceGroup* değerini girin.     
    - Ad: myEndpointPolicy
-   - Konum: Orta Batı ABD     
+   - Konum: Batı Orta ABD     
  
    ![Hizmet uç noktası İlkesi temellerini oluşturma](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-startpane.PNG)
    
@@ -57,8 +54,8 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 
    - Tıklayın **+ bir kaynak ekleyin**, girin veya seçin, aşağıdaki bilgileri, kalan ayarlar için varsayılan değerleri kabul edin ve tıklayın **Ekle**.  
    - Kapsam: Seçin **tek hesap** veya **Abonelikteki tüm hesapları** veya **kaynak grubundaki tüm hesapları**.    
-   - Abonelik: aboneliğinizi için depolama hesabı seçin. İlke ve depolama hesapları farklı Aboneliklerde olabilir.   
-   - Kaynak grubu: kaynak grubunuzu seçin. Kapsam "Tüm hesapları kaynak grubunda" veya "Tek hesap" olarak ayarlandıysa gereklidir.  
+   - Abonelik: Depolama hesabı için aboneliğinizi seçin. İlke ve depolama hesapları farklı Aboneliklerde olabilir.   
+   - Kaynak grubu: Kaynak grubunuzu seçin. Kapsam "Tüm hesapları kaynak grubunda" veya "Tek hesap" olarak ayarlandıysa gereklidir.  
    - Kaynak: mystorageaccountportal    
    - Tıklayın **+ bir kaynak ekleyin** diğer kaynakları eklemeye devam etmek için.
    
@@ -66,8 +63,8 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
    
 5. İsteğe bağlı: Girin veya seçin, aşağıdaki bilgileri **etiketleri**:
    
-   - Anahtar: anahtarınız için ilkeyi seçin. Örn: bölüm     
-   - Değer: değer çifti için anahtarı girin. Örn: Finans
+   - Anahtar: İlke için anahtarınızı seçin. Örn: Bölüm     
+   - Değer: Değer çifti için anahtarı girin. Örn: Finans
 
 6. Seçin **gözden geçir + Oluştur**. ' A tıklayın ve bilgi doğrulamak **Oluştur**. Daha ayrıntılı düzenlemeler yapmak için tıklatın **önceki**. 
 
@@ -101,9 +98,9 @@ Bir alt ağ için bir ilke ilişkilendirmeden önce bir sanal ağ ve alt ağ olu
 3. **Sanal ağ oluştur** altında aşağıdaki bilgileri girin veya seçin, kalan ayarlar için varsayılan değerleri kabul edin ve sonra **Oluştur**’u seçin:
    - Ad: myVirtualNetwork      
    - Adres alanı: 10.0.0.0/16      
-   - Abonelik: aboneliğinizi seçin. İlke, sanal ağ ile aynı abonelikte olmalıdır     
-   - Kaynak grubu: seçin **var olanı kullan** seçip *myResourceGroup*     
-   - Konum: Orta Batı ABD     
+   - Abonelik: Aboneliğinizi seçin. İlke, sanal ağ ile aynı abonelikte olmalıdır     
+   - Kaynak grubu: Seçin **var olanı kullan** seçip *myResourceGroup*     
+   - Konum: Batı Orta ABD     
    - Alt ağ adı: özel     
    - Adres aralığı: 10.0.0.0/24
      

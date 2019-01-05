@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 20af014e5a59cb526d5b96e543b10d5b2b6d6937
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 9140739e1c9610cb4cbefb611546fe9588512d06
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679605"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050600"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Uzaktan izleme mimari seçenekleri
 
@@ -51,7 +51,7 @@ Azure IOT hub'ı Uzaktan izleme çözümü bulut ağ geçidi olarak kullanılır
 
 IOT cihaz bağlantısı için kullanabilirsiniz:
 
-- [IOT Hub cihazı SDK'ları](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) cihazınız için bir yerel istemci uygulamasını gerçekleştirme. SDK'ları, IOT Hub REST API çevresinde sarmalayıcılar teklif ve deneme gibi senaryoları ele.
+- [IOT Hub cihazı SDK'ları](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) cihazınız için bir yerel istemci uygulamasını gerçekleştirme. SDK'ları, IOT Hub REST API çevresinde sarmalayıcılar teklif ve deneme gibi senaryoları ele.
 - Dağıtıp cihazlarınızda kapsayıcılarda çalıştırılan özel modüller yönetmek için Azure IOT Edge ile tümleştirme.
 - IOT hub'ı toplu bağlı cihazları yönetmek için otomatik cihaz yönetimi ile tümleştirme.
 

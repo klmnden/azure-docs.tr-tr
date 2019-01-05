@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 0f6f485bb251bfae942c258b9be879c0aff5f5b9
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5b98513625a6179585601320d45996396fca7207
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955702"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035912"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanarak Azure Data Lake depolama Gen1 bir HDInsight kümesi oluşturun
 > [!div class="op_single_selector"]
@@ -66,6 +66,12 @@ Get-AzureRmSubscription
 # Select a subscription
 Set-AzureRmContext -SubscriptionId <subscription ID>
 ```
+
+Şablon, bu kaynak türleri dağıtır:
+
+* [Microsoft.DataLakeStore/accounts](/azure/templates/microsoft.datalakestore/accounts)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters)
 
 ## <a name="upload-sample-data-to-data-lake-storage-gen1"></a>Data Lake depolama Gen1 için örnek verileri karşıya yükleme
 Resource Manager şablonu yeni bir Data Lake depolama Gen1 hesabı oluşturur ve HDInsight küme ile ilişkilendirir. Şimdi bazı örnek veriler için Data Lake depolama Gen1 yüklemeniz gerekir. Data Lake depolama Gen1 hesaptaki verilere erişim bir HDInsight kümesinden işlerini çalıştırmak için öğreticinin sonraki bölümlerinde, bu verileri gerekir. Karşıya veri yükleme konusunda yönergeler için bkz. [Data Lake depolama Gen1 hesabınıza bir dosya yükleme](data-lake-store-get-started-portal.md#uploaddata). Karşıya yüklenecek örnek veri arıyorsanız [Azure Data Lake Git Deposu](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData)'ndan **Ambulance Data** klasörünü alabilirsiniz.

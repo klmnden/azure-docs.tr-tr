@@ -4,16 +4,16 @@ description: IOT Edge modülleri oluşturma yardımcı olacak birinci taraf geli
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/17/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 46b007cfa7156c0c7718b7f4bd4f735a58c722fc
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: f3d1fb393138aeb590bc0645d6abe93652a52a5b
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53798196"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052590"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>IOT Edge için geliştirme ve test ortamı hazırlama
 
@@ -45,7 +45,7 @@ Diğer düzenleyiciler veya clı'dan geliştirmek isterseniz, Azure IOT Edge Gel
 
 Visual Studio Code için Azure IOT Edge uzantısını IOT Edge modülü şablonları programlama dillerinin C üzerinde oluşturulmuş sağlar C#, Java, Node.js ve Python yanı sıra Azure işlevlerinde C#. 
 
-Daha fazla bilgi ve indirmek için bkz: [Visual Studio Code için Azure IOT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
+Daha fazla bilgi ve indirmek için bkz: [Visual Studio Code için Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 IOT Edge uzantıları yanı sıra geliştirmek için ek uzantıları yüklemek yararlı. Örneğin, kullanabileceğiniz [Visual Studio Code için Docker desteğini](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) , görüntüler, kapsayıcılar ve kayıt defterleri yönetme. Ayrıca, tüm büyük desteklenen dilleri modülleri geliştirirken, yardımcı olabilecek Visual Studio Code için uzantılarına sahiptir. 
 

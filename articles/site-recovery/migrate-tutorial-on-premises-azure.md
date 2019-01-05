@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5023171c4f943b7e698a0b6bbcadef209965e2df
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4ba25da1f356f6164137dead467bd8bc948ce3d7
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789255"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037846"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Şirket içi makineleri Azure’a geçirme
 
@@ -45,7 +45,7 @@ Parasanallaştırılmış sürücüler tarafından dışarı aktarılan cihazlar
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
 1. [Azure Portal](https://portal.azure.com) > **Kurtarma Hizmetleri**’nde oturum açın.
-2. **Kaynak oluştur** > **İzleme ve Yönetim** > **Backup ve Site Recovery** öğesine tıklayın.
+2. Tıklayın **kaynak Oluştur** > **Yönetim Araçları** > **Backup ve Site Recovery**.
 3. **Ad** bölümünde **ContosoVMVault** kolay adını belirtin. Birden fazla aboneliğiniz varsa uygun olanı seçin.
 4. Bir **ContosoRG** kaynak grubu oluşturun.
 5. Bir Azure bölgesi belirtin. Desteklenen bölgeleri kontrol etmek için [Azure Site Recovery Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/site-recovery/) bölümündeki coğrafi kullanılabilirlik kısmına bakın.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: c9e31bdc2b526c442b4ac62d98725254a38e5967
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 7aa5ccb402bf8648668a5eb00d6a740caf7bf3d4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794558"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055158"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure Dosya Eşitleme ile ilgili sorunları giderme
 Kuruluşunuzun dosya paylaşımlarını Azure dosyaları'nda esneklik, performans ve bir şirket içi dosya sunucusunun uyumluluğu korurken merkezileştirmek için Azure dosya eşitleme'yi kullanın. Azure dosya eşitleme Windows Server, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürür. SMB, NFS ve FTPS gibi verilerinizi yerel olarak erişmek için Windows Server üzerinde kullanılabilir olan herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gereken sayıda önbellek olabilir.
@@ -145,11 +145,13 @@ Sunucu uç noktasını eşitleme etkinliği son iki saat içinde açtı değil "
 
 Sunucu uç noktası eşitleme etkinliği aşağıdaki nedenlerden dolayı kaydedebilir değil:
 
-- Sunucu, en fazla eşzamanlı bir eşitleme oturum sayısını ulaştı. Azure dosya eşitleme, şu anda en fazla 8 active eşitleme oturumu sunucu başına veya işlemci başına 2 active sync oturumları destekler.
+- Sunucu, etkin bir VSS eşitleme oturumu (SnapshotSync) sahiptir. Sunucu uç noktası için bir VSS eşitleme oturumu etkinken, diğer sunucu uç noktaları aynı birimde VSS eşitleme oturumu tamamlanana kadar bir Başlangıç eşitleme oturumu başlatılamıyor.
 
-- Sunucu, etkin bir VSS eşitleme oturumu (SnapshotSync) sahiptir. Sunucu uç noktası için bir VSS eşitleme oturumu etkinken, sunucudaki diğer sunucu uç noktaları VSS eşitleme oturumu tamamlanana kadar bir Başlangıç eşitleme oturumu başlatılamıyor.
+    Sunucudaki geçerli eşitleme etkinliği denetlemek için bkz [nasıl geçerli eşitleme oturumunun ilerleme izlerim?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-Sunucudaki geçerli eşitleme etkinliği denetlemek için bkz [nasıl geçerli eşitleme oturumunun ilerleme izlerim?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- Sunucu, en fazla eşzamanlı bir eşitleme oturum sayısını ulaştı. 
+    - Aracı sürümü 4.x ve daha sonra: Kullanılabilir sistem kaynaklarına göre değişiklik gösterir.
+    - Aracı sürümü 3.x: her işlemci veya en fazla 8 active eşitleme oturumu sunucu başına 2 active sync oturumları.
 
 > [!Note]  
 > Kayıtlı sunucular dikey penceresinde sunucu durumu "Çevrimdışı olarak görünür" ise, konusunda belgelenen adımları [sunucu uç noktası olan bir sistem durumu "No etkinliği" veya "Bekliyor" ve "çevrimdışı görünüyor" kayıtlı sunucuları dikey penceresinde sunucu durumu ](#server-endpoint-noactivity) bölümü.
@@ -244,13 +246,14 @@ Bu hataları görmek için şunu çalıştırın **FileSyncErrorsReport.ps1** Po
 **ItemResults günlüğü - öğe başına eşitleme hatası**  
 | HRESULT | HRESULT (ondalık) | Hata dizesi | Sorun | Düzeltme |
 |---------|-------------------|--------------|-------|-------------|
-| 0x80c80065 | -2134376347 | ECS_E_DATA_TRANSFER_BLOCKED | Dosya kalıcı hataları eşitleme sırasında üretilen ve bu nedenle yalnızca günde bir kez eşitlenecek denenecek. Temel hata önceki bir olay günlüğünde bulunabilir. | R2 aracıları (2.0) ve yukarıdaki ve bu orjinal hatayı yerine bu kullanıma sunulur. Temel alınan hata iletisi görür veya önceki özgün hatanın nedenini bulmak için olay günlüklerini aramak için en son aracıyı yükseltin. |
-| 0x7B | 123 | ERROR_INVALID_NAME | Dosya veya dizin adı geçersiz. | Dosya veya dizin söz konusu yeniden adlandırın. Bkz: [Azure adlandırma kuralları dosyaları](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) ve aşağıdaki desteklenmeyen karakterler listesi. |
-| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | Dosya veya dizin adı geçersiz. | Dosya veya dizin söz konusu yeniden adlandırın. Bkz: [Azure adlandırma kuralları dosyaları](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) ve aşağıdaki desteklenmeyen karakterler listesi. |
-| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Bir dosya değişti, ancak değişiklik henüz eşitlemeden algılanmadı. Bu değişiklik algılandıktan sonra eşitleme kurtarır. | Eylem gerekmiyor. |
-| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. Azure dosya eşitleme, günde bir kez açık tanıtıcıları içeren dosyaları eşitleyin sunucudaki geçici bir VSS anlık görüntüsü oluşturur. |
-| 0x20 | 32 | ERROR_SHARING_VIOLATION | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. |
 | 0x80c80207 | -2134375929 | ECS_E_SYNC_CONSTRAINT_CONFLICT | Bir dosya veya dizin değişiklik henüz bağımlı bir klasörü henüz eşitlenmedi olduğundan eşitlenemiyor. Bu öğe, bağımlı değişiklikleri eşitlendiğinde eşitler. | Eylem gerekmiyor. |
+| 0x7B | 123 | ERROR_INVALID_NAME | Dosya veya dizin adı geçersiz. | Dosya veya dizin söz konusu yeniden adlandırın. Bkz: [desteklenmeyen karakterler işleme](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) daha fazla bilgi için. |
+| 0x8007007b | -2147024773 | STIERR_INVALID_DEVICE_NAME | Dosya veya dizin adı geçersiz. | Dosya veya dizin söz konusu yeniden adlandırın. Bkz: [desteklenmeyen karakterler işleme](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#handling-unsupported-characters) daha fazla bilgi için. |
+| 0x80c80018 | -2134376424 | ECS_E_SYNC_FILE_IN_USE | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. Azure dosya eşitleme, günde bir kez açık tanıtıcıları içeren dosyaları eşitleyin sunucudaki geçici bir VSS anlık görüntüsü oluşturur. |
+| 0x80c8031d | -2134375651 | ECS_E_CONCURRENCY_CHECK_FAILED | Bir dosya değişti, ancak değişiklik henüz eşitlemeden algılanmadı. Bu değişiklik algılandıktan sonra eşitleme kurtarır. | Eylem gerekmiyor. |
+| 0x80c8603e | -2134351810 | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED | Azure dosya paylaşımı sınırına ulaştığından dosya eşitlenemez. | Bu sorunu çözmek için bkz: [Azure dosya paylaşımı depolama sınırına](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134351810) sorun giderme kılavuzu bölümüne. |
+| 0x80070005 | -2147024891 | E_ACCESSDENIED | Bu hata, dosya (NTFS EFS gibi) desteklenmeyen bir çözüm tarafından şifrelenmiş veya dosyanın durumu bir silme işlemi oluşabilir. | Tarafından desteklenmeyen bir çözüm dosya şifrelenmişse, dosyanın şifresini çözmek ve desteklenen şifreleme çözümü kullanın. Destek çözümleri listesi için bkz. [şifreleme çözümleri](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#encryption-solutions) Planlama Kılavuzu'nda bölümü. Dosya durumu bekleyen bir silme ise, tüm açık dosya tanıtıcıları kapatıldıktan sonra dosya silinir. |
+| 0x20 | 32 | ERROR_SHARING_VIOLATION | Bir dosya kullanımda olduğundan eşitlenemiyor. Dosya artık kullanımda olmadığında eşitlenecektir. | Eylem gerekmiyor. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Eşitleme sırasında bir dosya değiştirildiğinden yeniden eşitlenmesi gerekiyor. | Eylem gerekmiyor. |
 
 #### <a name="handling-unsupported-characters"></a>İşleme desteklenmeyen karakterler

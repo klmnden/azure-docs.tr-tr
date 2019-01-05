@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 4096cf3a44b7c32ed94fdd2ef5dcbad9db08a386
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3f7d44a2a34f6b52c2229cf6491e99c65d5bb525
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42059747"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052999"
 ---
 # <a name="pen-testing"></a>Sızma testi
 Uygulamayı test etme ve dağıtım için Azure kullanmanın avantajları oluşturulmuş ortamları hızlıca elde edebilirsiniz biridir.  Requisitioning, alma ve "raflama ve yığınlama" endişelenmek zorunda olmadığınız kendi şirket içi donanım.
@@ -40,7 +40,7 @@ Ne yapmanız gerekir?
 Standart testler gerçekleştirmek şunları içerir:
 
 * Testleri ortaya çıkarmak için uç noktalarınız üzerinde [açık Web uygulaması güvenlik Project (OWASP) ilk 10 güvenlik açıkları](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
-* [Rastgele test](https://blogs.microsoft.com/cybertrust/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) , uç noktalar
+* [Rastgele test](https://cloudblogs.microsoft.com/microsoftsecure/2007/09/20/fuzz-testing-at-microsoft-and-the-triage-process/) , uç noktalar
 * [Bağlantı noktası tarama](https://en.wikipedia.org/wiki/Port_scanner) , uç noktalar
 
 Bir yerine getiremez test türünde herhangi bir [hizmet reddi (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) saldırı. Bu, bir DoS saldırısı başlatmasını veya belirleme, göstermek veya DoS saldırısı herhangi bir türde benzetimini ilgili testleri gerçekleştirme içerir.

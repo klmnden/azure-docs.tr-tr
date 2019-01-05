@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: fbfee92343bfecfbe8395f95775ae1f107b99299
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336536"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037285"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>İşlev türleri ve dayanıklı işlevler (Azure işlevleri) için özelliklerine genel bakış
 
@@ -37,7 +37,7 @@ Daha fazla bilgi ve örnekler bulunabilir [dayanıklı işlevler bağlama makale
 
 ### <a name="orchestrator-functions"></a>Orchestrator işlevleri
 
-Orchestrator, kalıcı bir işlev kalbi işlevlerdir.  Siparişi eylemleri yürütülür ve yol orchestrator işlevleri açıklanmaktadır.  Orchestrator işlevleri açıklayan düzenleme (C# veya JavaScript) kodda gösterildiği gibi [dayanıklı işlevler genel bakış](durable-functions-overview.md).  Düzenleme gibi eylemler, birçok farklı türde olabilir [etkinlik işlevlerini](#activity-functions), [alt düzenlemeleri](#sub-orchestrations), [dış olayları beklemeyi](#external-events), ve [ zamanlayıcılar](#durable-timers).  
+Orchestrator, kalıcı bir işlev kalbi işlevlerdir.  Siparişi eylemleri yürütülür ve yol orchestrator işlevleri açıklanmaktadır.  Orchestrator işlevler kod düzenleme açıklayın (C# veya JavaScript) gösterildiği gibi [dayanıklı işlevler desenleri ve teknik kavramlar](durable-functions-concepts.md).  Düzenleme gibi eylemler, birçok farklı türde olabilir [etkinlik işlevlerini](#activity-functions), [alt düzenlemeleri](#sub-orchestrations), [dış olayları beklemeyi](#external-events), ve [ zamanlayıcılar](#durable-timers).  
 
 Bir düzenleyici işlevi tarafından tetiklenmesi gerekir bir [düzenleme tetikleyici](durable-functions-bindings.md#orchestration-triggers).
 

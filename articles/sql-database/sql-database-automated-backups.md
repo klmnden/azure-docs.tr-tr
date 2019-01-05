@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 21f6331276155ec926b47a5db8310486835cb3ae
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 0be1ddea4d5eaa253850ae640152b2538b39d0ca
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001286"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035432"
 ---
 # <a name="automated-backups"></a>Otomatik yedeklemeler
 
@@ -42,7 +42,7 @@ Bu yedeklemeler için kullanabilirsiniz:
 
 ## <a name="how-long-are-backups-kept"></a>Yedeklemeleri ne kadar saklanır
 
-Her bir SQL veritabanı bağlı olduğu 7 ila 35 gün arasında bir varsayılan yedekleme bekletme süresi olan [satın alma modeli ve Hizmet katmanını](#pitr-retention-period). Azure mantıksal sunucusu üzerinde bir veritabanı için yedekleme bekletme süresi güncelleştirebilirsiniz. Daha fazla bilgi için [değişiklik yedekleme Bekletme dönemi](#how-to-change-the-pitr-backup-retention-period).
+Her bir SQL veritabanı, satın alma modeli ve hizmet katmanına bağlıdır 7 ila 35 gün arasında bir varsayılan yedekleme bekletme süresi vardır. Yedekleme güncelleştirebilirsiniz) bir Azure mantıksal sunucusu veritabanı için saklama süresi. Daha fazla bilgi için [değişiklik yedekleme Bekletme dönemi](#how-to-change-the-pitr-backup-retention-period).
 
 Bir veritabanı silerseniz, SQL veritabanı yedeklemeleri için çevrimiçi bir veritabanı olduğu aynı şekilde tutar. Örneğin, bir yedi günlük tutma süresine sahip bir temel veritabanı silerseniz, dört gün eski bir yedek üç gün boyunca kaydedilir.
 
@@ -109,7 +109,7 @@ Azure portalı, PowerShell veya REST API'yi kullanarak varsayılan PITR yedek sa
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Azure portalını kullanarak PITR yedekleme bekletme süresi değiştirme
 
-Azure portalını kullanarak PITR yedekleme bekletme süresini değiştirmek, saklama dönemi, portalın içinde değiştirin ve ardından uygun seçeneği belirleyin istediğiniz sunucu nesnesi gitmek hangi sunucu nesnesi üzerinde değişiklik yaptığınız temel. 
+Azure portalını kullanarak PITR yedekleme bekletme süresini değiştirmek, saklama dönemi, portalın içinde değiştirin ve ardından uygun seçeneği belirleyin istediğiniz sunucu nesnesi gitmek hangi sunucu nesnesi üzerinde değişiklik yaptığınız temel.
 
 #### <a name="change-pitr-for-a-logical-server"></a>Bir mantıksal sunucu için PITR Değiştir
 

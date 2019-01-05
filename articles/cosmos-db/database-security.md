@@ -1,19 +1,17 @@
 ---
 title: Güvenlik - Azure Cosmos DB veritabanı
 description: Azure Cosmos DB, verileriniz için veritabanı koruma ve veri güvenliğini nasıl sağladığını öğrenin.
-keywords: nosql veritabanı güvenliği, bilgi güvenliği, veri güvenliği, veritabanı şifreleme, veritabanı koruma, güvenlik ilkeleri, güvenlik testi
-services: cosmos-db
 author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: 0ffd07269570b26b527286f1a0b5a57a6b5c6018
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5fcf04c57f957b670d813de8ffe2d945f70cb3c5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093429"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038781"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB veritabanı güvenliği
 
@@ -78,11 +76,11 @@ Ve bunu görünse de açık, son [büyük ölçekli veritabanı ihlallerini](htt
 |Bekleme sırasında şifreleme|Azure Cosmos DB'ye depolanan tüm veriler bekleme durumundayken şifrelenir. Daha fazla bilgi [Azure Cosmos DB bekleme sırasında şifreleme](./database-encryption-at-rest.md)|
 |Düzeltme eki uygulama sunucuları|Yönetilen bir veritabanı Azure Cosmos DB, sizin için otomatik olarak yapılır yönetin ve sunucuları, düzeltme eki ihtiyacını ortadan kaldırır.|
 |Yönetim hesapları ile güçlü parolalar|Biz bile bu gereksinim bahsetmeniz gerekir, ancak bazı rakiplerimizin, bir yönetici hesabı parolası ile Azure Cosmos DB'de olması mümkün değildir geldiğimize inanmak.<br><br> Güvenliği SSL ve HMAC gizli tabanlı kimlik doğrulaması aracılığıyla varsayılan olarak yerleşik.|
-|Güvenlik ve veri koruma sertifikaları|Sertifikaları veri listesi kadar en genel görmek için [Azure uyumluluk site](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) aktardığınızdan yanı sıra [Azure uyumluluk belge](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) tüm sertifikaları edinerek (Cosmos arayın). 25 Nisan 2018'de post kullanıma daha odaklı okumak için [Azure #CosmosDB: güvenli, özel, uyumlu](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) içeren SOC 1/2 Tür 2, HITRUST, PCI DSS düzey 1, ISO 27001, HIPAA, FedRAMP yüksek ve diğer birçok.
+|Güvenlik ve veri koruma sertifikaları|Sertifikaları veri listesi kadar en genel görmek için [Azure uyumluluk site](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) aktardığınızdan yanı sıra [Azure uyumluluk belge](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) tüm sertifikaları edinerek (Cosmos arayın). 25 Nisan 2018'de post kullanıma daha odaklı okumak için [Azure #CosmosDB: Güvenli, özel, uyumlu](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) içeren SOC 1/2 Tür 2, HITRUST, PCI DSS düzey 1, ISO 27001, HIPAA, FedRAMP yüksek ve diğer birçok.
 
-Azure portalında erişim denetimi (IAM) kullanarak Active directory tümleştirmesi (RBAC) aşağıdaki ekran görüntüsünde gösterilmektedir: ![veritabanı güvenliği gösteren Azure portalı - erişim denetimi (IAM)](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
+Azure portalında erişim denetimi (IAM) kullanarak Active directory tümleştirmesi (RBAC) aşağıdaki ekran görüntüsünde gösterilmektedir: ![Veritabanı güvenliği gösteren Azure portalı - erişim denetimi (IAM)](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
 
-Hesabınız izlemek için Denetim günlüğü ve etkinlik günlüklerini nasıl kullanabileceğiniz aşağıdaki ekran görüntüsünde gösterilmektedir: ![Azure Cosmos DB için etkinlik günlükleri](./media/database-security/nosql-database-security-application-logging.png)
+Aşağıdaki ekran görüntüsünde, hesabınız izlemek için Denetim günlüğü ve etkinlik günlüklerini nasıl kullanacağınızı gösterir: ![Azure Cosmos DB için etkinlik günlükleri](./media/database-security/nosql-database-security-application-logging.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,22 +1,19 @@
 ---
 title: 'Azure Cosmos DB için ASP.NET MVC Öğreticisi: Web uygulaması geliştirme'
 description: Azure Cosmos DB'yi kullanarak bir MVC web uygulaması oluşturmak için hazırlanan ASP.NET MVC öğreticisi. Azure Web Siteleri'nde barındırılan bir yapılacaklar uygulamasında JSON ve erişim verilerini depolayacaksınız - adım adım ASP.NET MVC öğreticisi.
-keywords: asp.net mvc öğreticisi, web uygulaması dağıtımı, mvc web uygulaması, asp net mvc adım adım öğreticisi
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
-ms.custom: devcenter, vs-azure
-ms.openlocfilehash: b0c8d46e74eec4bad7b7e664682c97eb0f0068b6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 138df4aa0a0e23bd97bca960573cc0971b66b869
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098735"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54041416"
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC Öğreticisi: Azure Cosmos DB ile Web uygulaması geliştirme
 
@@ -51,7 +48,7 @@ Bu makaledeki yönergeleri uygulamadan önce aşağıdakilere sahip olduğunuzda
 
 Bu makaledeki tüm ekran görüntüleri, Microsoft Visual Studio Community 2017 kullanılarak alınmıştır. Sisteminiz farklı bir sürümle yapılandırılmışsa ekranlarınızın ve seçeneklerinizin tamamen eşleşmeme olasılığı bulunur ancak yukarıdaki önkoşulları karşılarsanız bu çözümün çalışması gerekir.
 
-## <a name="_Toc395637761"></a>1. Adım: Azure Cosmos DB veritabanı hesabı oluşturma
+## <a name="_Toc395637761"></a>1. adım: Bir Azure Cosmos DB veritabanı hesabı oluşturma
 İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten Azure Cosmos DB için bir hesabınız varsa veya bu öğretici için Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız [Yeni bir ASP.NET MVC uygulaması oluşturma](#_Toc395637762) adımına atlayabilirsiniz.
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -61,7 +58,7 @@ Bu makaledeki tüm ekran görüntüleri, Microsoft Visual Studio Community 2017 
 <br/>
 Şimdi yeni bir ASP.NET MVC uygulamasının nasıl oluşturulacağını en başından başlayarak inceleyeceğiz. 
 
-## <a name="_Toc395637762"></a>2. Adım: Yeni bir ASP.NET MVC uygulaması oluşturma
+## <a name="_Toc395637762"></a>2. adım: Yeni bir ASP.NET MVC uygulaması oluşturma
 
 1. Visual Studio'da, **Dosya** menüsündeki **Yeni** seçeneğine gidin ve ardından **Proje**'ye tıklayın. **Yeni Proje** iletişim kutusu görünür.
 
@@ -84,7 +81,7 @@ Bu makaledeki tüm ekran görüntüleri, Microsoft Visual Studio Community 2017 
    
     Hepimizin ASP.NET "Hello World" uygulamasını gördüğünden emin olduğum için, projeyi yerel olarak çalıştırmayı atlayacağız. Şimdi doğrudan bu projeye Azure Cosmos DB eklemeye ve uygulamamızı oluşturmaya geçelim.
 
-## <a name="_Toc395637767"></a>3. Adım: MVC web uygulaması projenize Azure Cosmos DB ekleme
+## <a name="_Toc395637767"></a>3. adım: MVC web uygulaması projenize Azure Cosmos DB ekleme
 Bu çözüm için gereken ASP.NET MVC altyapısının çoğunu elde ettiğimize göre, bu öğreticinin asıl amacı olan MVC web uygulamamıza Azure Cosmos DB'yi eklemeye geçelim.
 
 1. Azure Cosmos DB .NET SDK’sı, bir NuGet paketi olarak paketlenir ve dağıtılır. NuGet paketini Visual Studio'da almak için, **Çözüm Gezgini**'nde projeye sağ tıklayarak ve ardından **NuGet Paketlerini Yönet**'e tıklayarak Visual Studio'daki NuGet paket yöneticisini kullanın.
@@ -106,7 +103,7 @@ Bu çözüm için gereken ASP.NET MVC altyapısının çoğunu elde ettiğimize 
    
     ![Çözüm Gezgini'nde JSON veri projesine eklenen iki başvurunun ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-added-references.png)
 
-## <a name="_Toc395637763"></a>4. Adım: ASP.NET MVC uygulamasını ayarlama
+## <a name="_Toc395637763"></a>4. adım: ASP.NET MVC uygulamasını ayarlama
 Şimdi bu MVC uygulamasına modeller, görünümler ve denetleyiciler ekleyelim:
 
 * [Model ekleme](#_Toc395637764).
@@ -216,7 +213,7 @@ Son olarak, bir **Öğe**'yi düzenlemek için daha önce kullandığımız yolu
 
 Bunu yaptıktan sonra, bu görünümlere daha sonra geri döneceğimiz için Visual Studio'daki tüm cshtml belgelerini kapatın.
 
-## <a name="_Toc395637769"></a>5. Adım: Azure Cosmos DB’yi bağlama
+## <a name="_Toc395637769"></a>5. adım: Azure Cosmos DB'yi bağlama
 Standart MVC işleri hallolduğuna göre, Azure Cosmos DB için kod eklemeye dönelim. 
 
 Bu bölümde, aşağıdakileri işlemek için kod ekleyeceğiz:
@@ -414,9 +411,9 @@ Azure Cosmos DB'deki kaydı kalıcı hale getirmek için Azure Cosmos DBReposito
    
     Bu kod DocumentDBRepository'ye çağrı yapar ve yeni todo öğesini veritabanında kalıcı hale getirmek için CreateItemAsync yöntemini kullanır. 
    
-    **Güvenlik Notu**: **ValidateAntiForgeryToken** özniteliği burada bu uygulamayı siteler arası istek sahteciliği saldırılarına karşı korunmaya yardımcı olmak için kullanılır. Bu özniteliği eklemek tek başına yeterli değildir, görünümlerinizin de bu sahteciliği karşı önleme belirteci ile çalışması gerekir. Bu konu hakkında daha fazla bilgi ve bunu doğru uygulamaya yönelik örnekler için lütfen bkz. [Siteler Arası İstek Sahteciliğini Önleme][Preventing Cross-Site Request Forgery]. [GitHub][GitHub]'da sağlanan kaynak kodu tam uygulamayı içerir.
+    **Güvenlik Notu**: **ValidateAntiForgeryToken** özniteliği burada bu uygulamayı siteler arası istek sahteciliği saldırılarına karşı korumaya yardımcı olmak için kullanılır. Bu özniteliği eklemek tek başına yeterli değildir, görünümlerinizin de bu sahteciliği karşı önleme belirteci ile çalışması gerekir. Bu konu hakkında daha fazla bilgi ve bunu doğru uygulamaya yönelik örnekler için lütfen bkz. [Siteler Arası İstek Sahteciliğini Önleme][Preventing Cross-Site Request Forgery]. [GitHub][GitHub]'da sağlanan kaynak kodu tam uygulamayı içerir.
    
-    **Güvenlik Notu**: Aşırı gönderim saldırılarına karşı korunmaya yardımcı olmak için yöntem parametresinde **Bind** özniteliğini de kullanırız. Daha ayrıntılı bilgi için lütfen bkz. [ASP.NET MVC'de Temel CRUD İşlemleri][Basic CRUD Operations in ASP.NET MVC].
+    **Güvenlik Notu**: Biz de **bağlama** korumaya gönderim saldırılarına karşı korunmaya yardımcı olmak için yöntem parametresinde özniteliği. Daha ayrıntılı bilgi için lütfen bkz. [ASP.NET MVC'de Temel CRUD İşlemleri][Basic CRUD Operations in ASP.NET MVC].
 
 Veritabanımıza yeni Öğeler eklemek için gereken kod burada son bulur.
 
@@ -494,7 +491,7 @@ Yapacağımız son bir şey kaldı, bu da veritabanında **Öğeler**'i düzenle
 
 Hepsi bu; uygulamamızı çalıştırmak, tamamlanmamış **Öğeleri** listelemek, yeni **Öğeler** eklemek ve **Öğeleri** düzenlemek için ihtiyacımız olan her şey bu kadar.
 
-## <a name="_Toc395637773"></a>6. Adım: Uygulamayı yerel olarak çalıştırma
+## <a name="_Toc395637773"></a>6. adım: Uygulamayı yerel olarak çalıştırma
 Yerel makinenizde uygulamayı test etmek için aşağıdakileri yapın:
 
 1. Uygulamayı hata ayıklama modunda oluşturmak için Visual Studio'da F5'e basın. Bu işlemin uygulamayı oluşturması ve bir tarayıcıyı daha önce gördüğümüz boş kılavuz sayfasıyla başlatması gerekir:
@@ -516,7 +513,7 @@ Yerel makinenizde uygulamayı test etmek için aşağıdakileri yapın:
     ![Tamamlandı kutusu işaretlenmiş şekilde Dizin görünümünün ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. Uygulamayı test ettikten sonra, uygulamanın hata ayıklamasını durdurmak için Ctrl+F5'e basın. Dağıtıma hazırsınız!
 
-## <a name="_Toc395637774"></a>7. Adım: Uygulamayı Azure App Service’e dağıtma 
+## <a name="_Toc395637774"></a>7. adım: Uygulamanızı Azure App Service'e dağıtma 
 Artık uygulamanın tamamı Azure Cosmos DB ile doğru şekilde çalıştığına göre, bu web uygulamasını Azure App Service’e dağıtacağız.  
 
 1. Bu uygulamayı yayımlamak için yapmanız gereken tek şey, **Çözüm Gezgini**'nde projeye sağ tıklamak ve **Yayımla**'ya tıklamaktır.

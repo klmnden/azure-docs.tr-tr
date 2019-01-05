@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 14dd5eef90ff4e6b3281f5a1337b9b59796277e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a68b312d4b2a35bdaf2f2973c403c750645352b9
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018764"
+ms.locfileid: "54054943"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET web siteniz için Application Insights'ı ayarlama
 
@@ -84,7 +84,7 @@ Visual Studio Application Insights Arama penceresinde, uygulamanızın sunucu ta
 > [!Tip]
 > Herhangi bir veri gösterilmiyorsa zaman aralığının doğru olduğundan emin olup Ara simgesine tıklayın.
 
-[Visual Studio’daki Application Insights araçları hakkında daha fazla bilgi edinin](../../application-insights/app-insights-visual-studio.md).
+[Visual Studio’daki Application Insights araçları hakkında daha fazla bilgi edinin](../../azure-monitor/app/visual-studio.md).
 
 <a name="monitor"></a>
 ### <a name="see-telemetry-in-web-portal"></a>Web portalında telemetriye bakma
@@ -101,12 +101,12 @@ Daha fazla ayrıntı görmek için portalda istediğiniz kutucuğa veya grafiğe
 
 [Azure portalında Application Insights kullanma hakkında daha fazla bilgi edinin](../../azure-monitor/app/app-insights-dashboards.md).
 
-## <a name="step-4-publish-your-app"></a>4. adım: Uygulamanızı yayımlama
+## <a name="step-4-publish-your-app"></a>4. Adım: Uygulamanızı yayımlama
 Uygulamanızı IIS sunucunuza veya Azure’a yayımlayın. Her şeyin sorunsuz çalıştığından emin olmak için [Canlı Ölçümler Akışı](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream)’nı izleyin.
 
 Telemetriniz Application Insights portalında biriktirilir ve burada ölçümlerinizi izleyebilir, telemetrinizde arama yapabilir ve [panolar](../../azure-monitor/app/app-insights-dashboards.md) ayarlayabilirsiniz. Ayrıca, güçlü [Log Analytics sorgu dili](https://aka.ms/LogAnalyticsLanguage)’ni kullanarak kullanımı ve performansı analiz edebilir ya da belirli olayları bulabilirsiniz.
 
-Telemetrinizi tanılama araması ve [eğilimler](../../application-insights/app-insights-visual-studio-trends.md) gibi araçlarla [Visual Studio](../../application-insights/app-insights-visual-studio.md)’da analiz etmeye de devam edebilirsiniz.
+Telemetrinizi tanılama araması ve [eğilimler](../../azure-monitor/app/visual-studio-trends.md) gibi araçlarla [Visual Studio](../../azure-monitor/app/visual-studio.md)’da analiz etmeye de devam edebilirsiniz.
 
 > [!NOTE]
 > Uygulamanız [azaltma sınırlarına](../../azure-monitor/app/pricing.md#limits-summary) yaklaşmak için yeterli telemetri gönderiyorsa, otomatik [örnekleme](../../azure-monitor/app/sampling.md) etkinleştirilir. Örnekleme, tanılama amaçlı bağlantı verilerini korurken uygulamanızdan gönderilen telemetri miktarını azaltır.
@@ -147,14 +147,14 @@ ApplicationInsights.config’de herhangi bir özelleştirme gerçekleştirdiysen
 
 ### <a name="analysis"></a>Analiz
 
-* **[Visual Studio’da Application Insights ile çalışma](../../application-insights/app-insights-visual-studio.md)**<br/>Telemetri, tanılama araması ve kodun detayına gitme ile hata ayıklama hakkında bilgi içerir.
+* **[Visual Studio’da Application Insights ile çalışma](../../azure-monitor/app/visual-studio.md)**<br/>Telemetri, tanılama araması ve kodun detayına gitme ile hata ayıklama hakkında bilgi içerir.
 * **[Application Insights portalıyla çalışma](../../azure-monitor/app/app-insights-dashboards.md)**<br/> Panolar, güçlü tanılama ve analiz araçları, uyarılar, uygulamanızın canlı bağımlılık haritası ve telemetriyi dışarı aktarma hakkında bilgi içerir.
 * **[Analytics](../../azure-monitor/log-query/get-started-portal.md)** - Güçlü sorgu dili.
 
 ### <a name="alerts"></a>Uyarılar
 
 * [Kullanılabilirlik testleri](../../azure-monitor/app/monitor-web-app-availability.md): Sitenizin Web'de görünür olduğundan emin olmak için testler oluşturun.
-* [Akıllı tanılama](../../application-insights/app-insights-proactive-diagnostics.md): Bunları ayarlamak için herhangi bir şey yapmak zorunda kalmamak için bu testler otomatik olarak çalıştırın. Uygulamanızda olağan dışı oranda başarısız istek olup olmadığını bildirirler.
+* [Akıllı tanılama](../../azure-monitor/app/proactive-diagnostics.md): Bunları ayarlamak için herhangi bir şey yapmak zorunda kalmamak için bu testler otomatik olarak çalıştırın. Uygulamanızda olağan dışı oranda başarısız istek olup olmadığını bildirirler.
 * [Ölçüm uyarıları](../../azure-monitor/app/alerts.md): Bu ölçüm bir eşiği aştığında sizi uyaracak ayarlayın. Bunları, uygulamanıza kodladığınız özel ölçümlerde ayarlayabilirsiniz.
 
 ### <a name="automation"></a>Otomasyon

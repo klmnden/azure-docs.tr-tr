@@ -1,20 +1,19 @@
 ---
 title: Azure tablo depolama ve Azure Cosmos DB tablo API'si ile C++ kullanma
 description: Azure Tablo Depolama veya Azure Cosmos DB Tablo API’sini kullanarak yapılandırılmış verileri bulutta depolayın.
-services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 ms.date: 04/05/2018
-ms.author: sngun
-ms.openlocfilehash: 9bfc6ed2c781ddc54815665c492e7f2413033ca0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+author: wmengmsft
+ms.author: wmeng
+ms.openlocfilehash: 40b84a56f93ad670a26eb876a18820e0d4037f63
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087125"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033987"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Azure Tablo Depolama ve Azure Cosmos DB Tablo API’sini C++ ile kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -41,8 +40,8 @@ Bu kılavuzda bir C++ uygulamasında çalıştırılabilen depolama özellikleri
 
 C++ için Azure Depolama İstemci Kitaplığı’nı aşağıdaki yöntemleri kullanarak yükleyebilirsiniz:
 
-* **Linux:** [C++ için Azure Depolama İstemci Kitaplığı BENİOKU](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfasında verilen yönergeleri izleyin.  
-* **Windows:** Visual Studio'da **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’na tıklayın. Aşağıdaki komutu [NuGet Paket Yöneticisi konsoluna](/nuget/tools/package-manager-console) yazıp Enter’a basın.  
+* **Linux:** Şirket yönergelerini izleyin [C++ Benioku için Azure depolama istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfası.  
+* **Windows:** Visual Studio'da, **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’na tıklayın. Aşağıdaki komutu [NuGet Paket Yöneticisi konsoluna](/nuget/tools/package-manager-console) yazıp Enter’a basın.  
   
      Install-Package wastorage
 

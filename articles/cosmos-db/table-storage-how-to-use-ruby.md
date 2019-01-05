@@ -1,20 +1,20 @@
 ---
 title: Azure Tablo Depolama ve Azure Cosmos DB Tablo API’sini Ruby ile kullanma
 description: Azure Tablo Depolama veya Azure Cosmos DB Tablo API’sini kullanarak yapılandırılmış verileri bulutta depolayın.
-services: cosmos-db
-author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: ruby
 ms.topic: sample
 ms.date: 04/05/2018
-ms.author: sngun
-ms.openlocfilehash: 7ddf9c3ef848537cb68dce043bb22680439e9cd5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+author: wmengmsft
+ms.author: wmeng
+ms.reviewer: sngun
+ms.openlocfilehash: 3603455674485a505a7dbc969554a881947940ae
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877947"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54036265"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Azure Tablo Depolama ve Azure Cosmos DB Tablo API’sini Ruby ile kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -94,10 +94,10 @@ azure_table_service.insert_entity("testtable", entity)
 ## <a name="update-an-entity"></a>Varlığı güncelleştirme
 Mevcut bir varlığı güncelleştirmenin birçok yolu vardır:
 
-* **update_entity():** Varlığı başkasıyla değiştirerek güncelleştirme.
-* **merge_entity():** Mevcut bir varlığı yeni özellik değerleriyle birleştirerek güncelleştirir.
-* **insert_or_merge_entity():** Mevcut bir varlığı başkasıyla değiştirerek güncelleştir. Bir varlık yoksa, yenisi eklenir:
-* **insert_or_replace_entity():** Mevcut bir varlığı, yeni özellik değerleriyle birleştirerek güncelleştirir. Bir varlık yoksa, yenisi eklenir.
+* **update_entity():** Bunu değiştirerek var olan bir varlığa güncelleştirin.
+* **merge_entity():** Mevcut varlığa yeni özellik değerlerini birleştirerek var olan bir varlığa güncelleştirir.
+* **insert_or_merge_entity():** Bunu değiştirerek var olan bir varlığa güncelleştirir. Bir varlık yoksa, yenisi eklenir:
+* **insert_or_replace_entity():** Mevcut varlığa yeni özellik değerlerini birleştirerek var olan bir varlığa güncelleştirir. Bir varlık yoksa, yenisi eklenir.
 
 Aşağıdaki örnekte **update_entity()** kullanılarak bir varlığın güncelleştirilmesi gösterilmektedir:
 

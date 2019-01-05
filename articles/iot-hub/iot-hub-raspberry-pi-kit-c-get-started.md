@@ -10,12 +10,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: edbdd12ed292ac2e2953219d6f50da8e6c5c995f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c8b254656dcd94fd846336e9c9de3ca823691904
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343097"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053509"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Raspberry Pi için Azure IoT Hub (C) bağlanma
 
@@ -209,6 +209,6 @@ Algılayıcı verilerini ve IOT hub'ınıza gönderdiği iletileri gösterir aş
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Algılayıcı verilerini toplamak ve IOT hub'ına göndermek için örnek bir uygulama çalıştırdınız. Raspberry Pi'yi Raspberry Pi'yi, IOT hub'ı veya gönderme iletilerini gönderilen iletileri görmek için bkz: [göndermek ve IOT Hub ve cihaz arasında iletileri almak Visual Studio Code için Azure IOT hub'ı Araç Seti'ni kullanma uzantısı](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Algılayıcı verilerini toplamak ve IOT hub'ına göndermek için örnek bir uygulama çalıştırdınız. Raspberry Pi'yi Raspberry Pi'yi, IOT hub'ı veya gönderme iletilerini gönderilen iletileri görmek için bkz: [göndermek ve IOT Hub ve cihaz arasında iletileri almak Visual Studio Code için Azure IOT Araçları](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

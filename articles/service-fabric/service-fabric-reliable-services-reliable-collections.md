@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 11/6/2017
+ms.date: 1/3/2019
 ms.author: twhitney
-ms.openlocfilehash: caca297afb9ed4e2d85f1068ad3c1122db60c1d7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 422b4bbcfc6811cdc6bbf1649e2c660d04d95776
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191997"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039682"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric durum bilgisi olan hizmetler güvenilir koleksiyonlar giriş
+
 Güvenilir koleksiyonlar, tek bir bilgisayar uygulamaları için yazar gibi sorgulamanıza yüksek oranda kullanılabilir, ölçeklenebilir ve düşük gecikme süreli bulut uygulamaları yazmak etkinleştirin. Sınıflarda **Microsoft.ServiceFabric.Data.Collections** ad alanı, durum otomatik olarak yüksek oranda kullanılabilir yap koleksiyonları kümesi sağlar. Güvenilir koleksiyonlar çoğaltılır ve yerel durumunu yönetme ve güvenilir koleksiyon API'leri yalnızca program geliştiriciler gerekir.
 
 Güvenilir koleksiyonlar ve diğer yüksek kullanılabilirlik teknolojilerinin (örneğin, Redis, Azure tablo hizmeti ve Azure kuyruk hizmeti) arasındaki temel fark, durumu yerel olarak hizmet örneğinde ayrıca yüksek oranda kullanılabilir yapılan sırasında tutulduğundan emin olan. Bunun anlamı:
@@ -35,6 +36,7 @@ Güvenilir koleksiyonlar düşünülebilir doğal gelişimi **System.Collections
 
 * Çoğaltılmış: Durum değişiklikleri, yüksek kullanılabilirlik için çoğaltılır.
 * Kalıcı: Kalıcı verileri diske büyük ölçekli kesintiler (örneğin, bir veri merkezinde güç kesintisi) karşı dayanıklılık için.
+* Yazma kalıcı ve çoğaltılan olduğundan geçici ReliableDictionary, ReliableQueue veya bellekteki verileri yalnızca devam eden diğer güvenilir koleksiyon oluşturulamıyor.
 * Zaman uyumsuz: API zaman uyumsuz iş parçacıkları, g/ç yansıtılmasını olduğunda engellenmediğinden emin olun.
 * İşlem: Bir hizmet birden çok güvenilir koleksiyon bir kolayca yönetebilirsiniz API'lerini hareketlerinin soyutlama kullanır.
 
@@ -45,7 +47,7 @@ Uygulamaları zayıf tutarlılık elde etmek için zaman uyumsuz tamamlama dönd
 Güvenilir koleksiyonlar API'leri bir eş zamanlı koleksiyonlar API'leri aşamasıdır (bulunan **System.Collections.Concurrent** ad alanı):
 
 * Zaman uyumsuz: Eş zamanlı koleksiyonlarından farklı işlemler çoğaltılan ve kalıcı olduğundan, bir görev döndürür.
-* Out parametreleri yok: Kullanan `ConditionalValue<T>` bool ve dış parametrelerin yerine bir değer döndürmek için. `ConditionalValue<T>` benzer `Nullable<T>` T bir yapısı olması gerekmez ancak.
+* Out parametreleri yok: Kullanan `ConditionalValue<T>` döndürülecek bir `bool` ve dış parametrelerin yerine bir değer. `ConditionalValue<T>` benzer `Nullable<T>` T bir yapısı olması gerekmez ancak.
 * İşlemler: Kullanıcı grubu eylemleri bir işlemde birden çok güvenilir koleksiyonlar için etkinleştirmek için bir işlem nesnesini kullanır.
 
 Bugün, **Microsoft.ServiceFabric.Data.Collections** üç koleksiyonu içerir:
@@ -55,6 +57,7 @@ Bugün, **Microsoft.ServiceFabric.Data.Collections** üç koleksiyonu içerir:
 * [Güvenilir eşzamanlı kuyruk](service-fabric-reliable-services-reliable-concurrent-queue.md): Yüksek aktarım hızı için kuyruk sıralama çoğaltılan, işlemsel ve zaman uyumsuz bir en iyi çaba temsil eder. Benzer şekilde **ConcurrentQueue**, değer herhangi bir türde olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [Güvenilir koleksiyon ile ilgili Kılavuzlar ve öneriler](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Güvenilir Koleksiyonlar ile çalışma](service-fabric-work-with-reliable-collections.md)
 * [İşlemler ve kilitler](service-fabric-reliable-services-reliable-collections-transactions-locks.md)

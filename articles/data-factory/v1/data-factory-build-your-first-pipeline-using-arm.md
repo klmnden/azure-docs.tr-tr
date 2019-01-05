@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: bf39f9d0ea96259aaec14562e302e31781b64231
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c0bb15dceed7bc4d0c335e129f810c88622ebadd
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023779"
+ms.locfileid: "54043711"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Öğretici: Azure Resource Manager şablonu kullanarak ilk Azure data factory'nizi derleme
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Bu öğreticideki işlem hattı bir etkinlik içerir: **HDInsight Hive etkinliğ
 
 Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hattında bir veya daha fazla etkinlik olabilir. İki tür etkinlik mevcuttur: [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) ve [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md). Bu öğreticide bir etkinlik (Hive etkinliği) ile işlem hattı oluşturursunuz.
 
-Aşağıdaki bölümde, öğreticiyi hızlıca geçip şablonu test etmeniz için Data Factory varlıklarını tanımlamaya yönelik tam bir Resource Manager şablonu verilmektedir. Her bir Data Factory varlığının nasıl tanımlandığını anlamak için [Şablondaki Data Factory varlıkları](#data-factory-entities-in-the-template) bölümüne bakın.
+Aşağıdaki bölümde, öğreticiyi hızlıca geçip şablonu test etmeniz için Data Factory varlıklarını tanımlamaya yönelik tam bir Resource Manager şablonu verilmektedir. Her bir Data Factory varlığının nasıl tanımlandığını anlamak için [Şablondaki Data Factory varlıkları](#data-factory-entities-in-the-template) bölümüne bakın. Data Factory kaynaklarını bir şablonda özelliklerini ve JSON söz dizimi hakkında bilgi edinmek için bkz. [Microsoft.DataFactory kaynak türleri](/azure/templates/microsoft.datafactory/allversions).
 
 ## <a name="data-factory-json-template"></a>Data Factory JSON şablonu
 Bir veri fabrikasını tanımlamaya yönelik en üst düzey Resource Manager şablonu şudur: 

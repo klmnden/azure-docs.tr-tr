@@ -1,101 +1,101 @@
 ---
-title: Dağıtmak ve yönetmek için PowerShell kullanarak Azure dosya paylaşımlarını yedekleme
+title: PowerShell kullanarak Azure dosya paylaşımları için yedeklemeler yönetme ve dağıtma
 description: Azure dosya paylaşımları için azure'da yedeklemelerini yönetme ve dağıtma için PowerShell kullanma
 services: backup
 author: pvrk
 manager: shivamg
-keywords: PowersShell; Azure dosyaları yedeklemesi; Azure dosyaları geri yükleme;
+keywords: PowerShell; Azure dosyaları yedeklemesi; Azure dosyaları geri yükleme;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 30fc36f29a7602e2bc3f192b445474bfc50e9434
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 4ead84ef415dcb85682b15414380055d8799b54c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632644"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051229"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>Yedekleme ve geri yükleme Azure dosya paylaşımları için PowerShell kullanma
 
-Bu makalede, Azure PowerShell cmdlet'leri yedekleme ve kurtarma Hizmetleri kasasından Azure dosya paylaşımının kurtarma için nasıl kullanılacağını gösterir. Kurtarma Hizmetleri kasası, verilere ve varlıklara Azure Backup ve Azure Site Recovery hizmetlerinde korumak için kullanılan bir Azure Resource Manager kaynağıdır.
+Bu makalede, Azure PowerShell cmdlet'leri yedekleme ve kurtarma Hizmetleri kasasından Azure dosya paylaşımının kurtarma için nasıl kullanılacağını gösterir. Kurtarma Hizmetleri kasası ve Azure Backup ve Azure Site Recovery varlıklarını korumak için kullanılan bir Azure Resource Manager kaynağıdır.
 
 ## <a name="concepts"></a>Kavramlar
 
-Hizmetine genel bakış için Azure Backup hizmeti ile aşina değilseniz bkz [Azure Backup nedir?](backup-introduction-to-azure-backup.md). Başlamadan önce belgelenen Azure dosya paylaşımlarını yedekleme Önizleme özellikleri not alın olun [burada](backup-azure-files.md).
+Azure Backup ile tanıdık hizmetine genel bakış için değilseniz bkz [Azure Backup nedir?](backup-introduction-to-azure-backup.md). Başlamadan önce dosya paylaşımları, Azure yedekleme için kullanılan Önizleme özellikleri görmek [Azure yedekleme, dosya paylaşımları](backup-azure-files.md).
 
-PowerShell etkili bir şekilde kullanmak için nesnelerin ve nereden başlayacağınızı hiyerarşi anlamak gereklidir.
+PowerShell etkili bir şekilde kullanmak için nesneleri ve başlangıç uygulanacağı hiyerarşisini anlamak gereklidir.
 
 ![Kurtarma Hizmetleri nesne hiyerarşisi](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-AzureRm.RecoveryServices.Backup PowerShell cmdlet başvurusu görüntülemek için bkz: [Azure Backup - kurtarma Hizmetleri cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup) Azure Kitaplığı'nda.
+Görüntülenecek **AzureRm.RecoveryServices.Backup** PowerShell cmdlet başvurusu bkz [Azure Backup - kurtarma Hizmetleri cmdlet'leri](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup) Azure Kitaplığı'nda.
 
 ## <a name="setup-and-registration"></a>Kurulumu ve kaydı
 
 > [!NOTE]
-> Belirtildiği gibi [burada](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), AzureRM modülü biter Kasım 2018'de yeni özellikler için destek. Bu nedenle Azure dosya paylaşımlarını yedekleme desteği ile yeni 'Az' PS modülüne artık genel kullanıma sunulana sağlıyoruz
+> Belirtilen [Azure PowerShell modülünü yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), AzureRM modülü biten Kasım 2018'de yeni özelliklerine yönelik destek. Genel kullanıma sunulmuştur yeni Az PowerShell modülü ile Azure dosya paylaşımlarının yedeklenmesi için destek sağlanır.
 
-Başlamak için:
+Başlamak için aşağıdaki adımları izleyin.
 
-1. ['Az' PowerShell'in en son sürümünü indirin](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0) (gerekli en düşük sürüm: 1.0.0)
+1. [Az PowerShell'in en son sürümünü indirin](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-6.13.0). Gerekli en düşük sürüm 1.0.0 ' dir.
 
-2. Kullanılabilir Azure Backup PowerShell cmdlet'lerini, aşağıdaki komutu yazarak bulabilirsiniz:
+2. Bulma **Azure Backup PowerShell** cmdlet'lerini aşağıdaki komutu girerek kullanılabilir.
 
     ```powershell
     Get-Command *azrecoveryservices*
     ```
-    Azure Backup, Azure Site Recovery ve kurtarma Hizmetleri kasası için cmdlet'leri ve diğer adları görüntülenir. Aşağıdaki görüntüde, görürsünüz, bir örnektir. Cmdlet öğelerinin tam listesi değil.
+    Azure Backup, Azure Site Recovery ve kurtarma Hizmetleri kasası için cmdlet'leri ve diğer adları görüntülenir. Aşağıdaki görüntüde gördüğünüz bir örnektir. Cmdlet öğelerinin tam listesi değil.
 
-    ![Kurtarma Hizmetleri listesi](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
+    ![Kurtarma Hizmetleri cmdlet'lerinin listesi](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
-3. Azure oturum açma hesabı kullanarak **Connect AzAccount**. Bu cmdlet getirir, bir web sayfası için hesap kimlik bilgilerinizi ister:
+3. Azure hesabınızı kullanarak oturum açın **Connect AzAccount**. Bu cmdlet için hesap kimlik bilgilerinizi isteyen bir web sayfası getirir:
 
     * Alternatif olarak, bir parametre olarak bir hesap kimlik bilgilerinizi içerebilir **Connect AzAccount** cmdlet'ini kullanarak **-Credential** parametresi.
-    * Müşteri, Kiracı adına çalışma CSP iş ortağıysanız, Kiracı kimliği veya Kiracı birincil etki alanı adlarını kullanarak Kiracı olarak belirtin. Örneğin: **Connect AzAccount-Kiracı "fabrikam.com"**
+    * Kiracı adına çalışan bir CSP iş ortağı olduğunuzdan, müşteri kendi Kiracı kimliği veya Kiracı birincil etki alanı adını kullanarak Kiracı olarak belirtin. Bir örnek **Connect AzAccount-Kiracı** fabrikam.com.
 
-4. Hesabınız birden fazla abonelik olabilir bu yana hesabı ile kullanmak istediğiniz aboneliği ilişkilendirin:
+4. Hesabınız birden fazla abonelik olabilir çünkü hesapla kullanmak istediğiniz aboneliği ilişkilendirin.
 
     ```powershell
     Select-AzureRmSubscription -SubscriptionName $SubscriptionName
     ```
 
-5. Azure Backup'ı ilk kez kullanıyorsanız, kullanmalısınız **Register-AzResourceProvider** Azure kurtarma Hizmetleri sağlayıcısını aboneliğinize kaydetmeniz için cmdlet'i.
+5. Azure Backup'ı ilk kez kullanıyorsanız, kullanın **Register-AzResourceProvider** Azure kurtarma Hizmetleri sağlayıcısını aboneliğinize kaydetmeniz için cmdlet'i.
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-6. Aşağıdaki komutları kullanarak sağlayıcılar başarıyla kayıtlı doğrulayabilirsiniz:
+6. Aşağıdaki komutu kullanarak sağlayıcılar başarıyla kaydedildiğini doğrulayın.
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-    Komut çıktısında **RegistrationState** değiştirilmelidir **kayıtlı**. Değil, yalnızca çalıştırırsanız **Register-AzResourceProvider** cmdlet'ini yeniden.
+    Komut çıktısında **RegistrationState** değişikliklerini **kayıtlı**. Bu değişikliği göremezsiniz çalıştırırsanız **Register-AzResourceProvider** cmdlet'ini yeniden.
 
 PowerShell ile aşağıdaki görevleri otomatik hale getirilebilir:
 
-* Kurtarma Hizmetleri kasası oluşturma
-* Azure dosya paylaşımları için yedeklemeyi yapılandırma
-* Bir yedekleme işi tetikleme
-* Bir yedekleme işini izleme
-* Bir Azure dosya paylaşımını geri yükleme
-* Tek bir Azure dosya bir Azure dosya paylaşımından geri yükleme
+* Kurtarma Hizmetleri kasası oluşturun.
+* Azure dosya paylaşımları için yedeklemeyi yapılandırın.
+* Bir yedekleme işi tetikler.
+* Bir yedekleme işi izleyin.
+* Azure dosya paylaşımını geri yükleyin.
+* Tek bir Azure dosya, bir Azure dosya paylaşımından geri yükleyin.
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
-Aşağıdaki adımlar bir kurtarma Hizmetleri kasası oluşturma işleminde yol.
+Bir kurtarma Hizmetleri kasası oluşturmak için aşağıdaki adımları izleyin.
 
-1. Kurtarma Hizmetleri kasası bir Resource Manager kaynağı olduğundan, bir kaynak grubu içinde yerleştirmeniz gerekir. Mevcut bir kaynak grubunu kullanın veya bir kaynak grubu oluşturun **yeni AzResourceGroup** cmdlet'i. Bir kaynak grubu oluştururken, kaynak grubunun konumunu ve adını belirtin.  
+1. Kurtarma Hizmetleri kasası bir Resource Manager kaynağı olduğundan, bir kaynak grubu içinde yerleştirmeniz gerekir. Mevcut bir kaynak grubunu kullanabilir veya bir kaynak grubu ile oluşturabileceğiniz **yeni AzResourceGroup** cmdlet'i. Bir kaynak grubu oluşturduğunuzda, kaynak grubunun konumunu ve adını belirtin.  
 
     ```powershell
     New-AzResourceGroup -Name "test-rg" -Location "West US"
     ```
-2. Kullanım **yeni AzRecoveryServicesVault** cmdlet'ini kurtarma Hizmetleri kasası oluşturun. Kasayla aynı konumda kaynak grubu için kullanılan belirttiğinizden emin olun.
+2. Kullanım **yeni AzRecoveryServicesVault** cmdlet'ini kurtarma Hizmetleri kasası oluşturun. Kasayla aynı konumda kaynak grubu için kullanılan belirtin.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
-3. Kullanılacak depolama yedekliliği türü; belirtin. kullanabileceğiniz [yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy-lrs.md) veya [coğrafi olarak yedekli depolama (GRS)](../storage/common/storage-redundancy-grs.md). Aşağıdaki örnek, testvault - BackupStorageRedundancy seçeneği GeoRedundant için ayarlanmış gösterir.
+3. Kullanılacak depolama yedekliliği türü belirtin. Kullanabileceğiniz [yerel olarak yedekli depolama](../storage/common/storage-redundancy-lrs.md) veya [coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md). Aşağıdaki örnekte gösterildiği **- BackupStorageRedundancy** seçeneğini **testvault** kümesine **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -104,13 +104,13 @@ Aşağıdaki adımlar bir kurtarma Hizmetleri kasası oluşturma işleminde yol.
 
 ## <a name="view-the-vaults-in-a-subscription"></a>Bir abonelikte kasalarını görüntüle
 
-Tüm kasaları abonelikte görüntülemek için kullanın **Get-AzRecoveryServicesVault**:
+Tüm kasaları abonelikte görüntülemek için kullanın **Get-AzRecoveryServicesVault**.
 
 ```powershell
 Get-AzRecoveryServicesVault
 ```
 
-Aşağıdaki örneğe benzer bir çıkış, ilişkili ResourceGroupName ve konum sağlanan dikkat edin.
+Çıktı aşağıdaki örneğe benzerdir. Dikkat ilişkili **ResourceGroupName** ve **konumu** sağlanır.
 
 ```powershell
 Name              : Contoso-vault
@@ -124,16 +124,16 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 Çoğu Azure Backup cmdlet’i, girdi olarak Kurtarma Hizmetleri kasasını gerektirir.
 
-Kullanım **kümesi AzRecoveryServicesVaultContext** kasa bağlamını ayarlamak için. Kasa bağlamı ayarlandıktan sonra, sonraki tüm cmdlet’ler için geçerli olur. Aşağıdaki örnek, kasa için kasa bağlamını ayarlar *testvault*.
+Kullanım **kümesi AzRecoveryServicesVaultContext** kasa bağlamını ayarlamak için. Kasa bağlamı ayarlandıktan sonra sonraki tüm cmdlet'ler için geçerlidir. Aşağıdaki örnek için kasa bağlamını ayarlar **testvault**.
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
 > [!NOTE]
-> Azure PowerShell yönergelerine göre kasa bağlamını ayarını kullanımdan kaldırmaya planlıyorsunuz. Bunun yerine kullanıcılar aşağıda belirtildiği gibi kasa kimliği geçirilecek öneririz
+> Azure PowerShell yönergelerine göre kasa bağlamını ayarı kullanımdan kaldırmayı planlıyoruz. Bunun yerine kullanıcılar aşağıdaki yönergelerde yer belirtildiği gibi kasa kimliği geçirmenizi öneriyoruz.
 
-Alternatif olarak, depolama/PowerShell işlemi gerçekleştirmek ve ilgili komutu iletmek istediğiniz kasaya kimliği getirme.
+Alternatif olarak, depolama veya PowerShell işlemi gerçekleştirmek ve ilgili komutu iletmek istediğiniz kasaya Kimliğini getirir.
 
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
@@ -141,9 +141,13 @@ $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Nam
 
 ## <a name="configure-backup-for-an-azure-file-share"></a>Bir Azure dosya paylaşımı için yedeklemeyi yapılandırma
 
-### <a name="create-protection-policy"></a>Koruma ilkesi oluşturma
+### <a name="create-a-protection-policy"></a>Bir koruma ilkesi oluşturma
 
-Bir yedekleme koruma İlkesi, en az bir bekletme ilkesi ile ilişkilidir. Bekletme İlkesi, silinmeden önce ne kadar bir kurtarma noktası tutulur tanımlar. Kullanım **Get-AzRecoveryServicesBackupRetentionPolicyObject** varsayılan saklama ilkesini görüntülemek için.  Benzer şekilde kullanabileceğiniz **Get-AzRecoveryServicesBackupSchedulePolicyObject** varsayılan zamanlama ilkesini elde edilir. **Yeni AzRecoveryServicesBackupProtectionPolicy** cmdlet'i, yedekleme ilkesi bilgilerini tutan bir PowerShell nesnesi oluşturur. Zamanlama ve Bekletme İlkesi nesneleri girdi olarak kullanılan **yeni AzRecoveryServicesBackupProtectionPolicy** cmdlet'i. Aşağıdaki örnek zamanlama ilkesini ve bekletme ilkesi değişkenlerinde depolar. Örnek, bir koruma ilkesi oluşturulurken parametreler tanımlamak için bu değişkenleri kullanır. *NewPolicy*.
+Bir yedekleme koruma İlkesi, en az bir bekletme ilkesi ile ilişkilidir. Bir bekletme ilkesi, silinmeden önce ne kadar bir kurtarma noktası tutulur tanımlar. Kullanım **Get-AzRecoveryServicesBackupRetentionPolicyObject** varsayılan saklama ilkesini görüntülemek için. 
+
+Benzer şekilde, kullanabileceğiniz **Get-AzRecoveryServicesBackupSchedulePolicyObject** varsayılan zamanlama ilkesini elde edilir. **Yeni AzRecoveryServicesBackupProtectionPolicy** cmdlet'i, yedekleme ilkesi bilgilerini tutan bir PowerShell nesnesi oluşturur. Zamanlama ve Bekletme İlkesi nesneleri girdi olarak kullanılan **yeni AzRecoveryServicesBackupProtectionPolicy** cmdlet'i. 
+
+Aşağıdaki örnek zamanlama ilkesini ve bekletme ilkesi değişkenlerinde depolar. Örnek parametreleri tanımlamak için bu değişkenleri kullanır, **NewPolicy** koruma ilkesi oluşturulur.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
@@ -151,7 +155,7 @@ $retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "Azure
 New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType "AzureFiles" -RetentionPolicy $retPol -SchedulePolicy $schPol
 ```
 
-Çıktı aşağıdaki örneğe benzer:
+Çıktı aşağıdaki örneğe benzerdir.
 
 ```powershell
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
@@ -159,21 +163,21 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 NewAFSPolicy           AzureFiles            AzureStorage              10/24/2017 1:30:00 AM
 ```
 
-'NewAFSPolicy' günlük yedekleme gerçekleştirir ve 30 gün boyunca saklar.
+**NewAFSPolicy** günlük bir yedekleme alır ve 30 gün boyunca tutar.
 
 ### <a name="enable-protection"></a>Korumayı etkinleştir
 
-Koruma İlkesi tanımladınız sonra bu ilke ile Azure dosya paylaşımı için korumayı etkinleştirebilirsiniz.
+Koruma İlkesi tanımladıktan sonra bu ilke ile Azure dosya paylaşımı için korumayı etkinleştirebilirsiniz.
 
-İlk ilgili ilke nesnesi ile fetch **Get-AzRecoveryServicesBackupProtectionPolicy** cmdlet'i. Belirli bir ilke alma ya da bir iş yükü türü ile ilişkili ilkeleri görüntülemek için bu cmdlet'i kullanabilirsiniz.
+İlk olarak, ilgili ilke nesnesi ile fetch **Get-AzRecoveryServicesBackupProtectionPolicy** cmdlet'i. Bu cmdlet, belirli bir ilke alma veya bir iş yükü türü ile ilişkili ilkeleri görüntülemek için kullanın.
 
-Aşağıdaki örnek, iş yükü türü için depolamasını Azure dosyalarına ilkeleri alır.
+Aşağıdaki örnek, iş yükü türü için ilkeleri alır **depolamasını Azure dosyalarına**.
 
 ```powershell
 Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureFiles"
 ```
 
-Çıktı aşağıdaki örneğe benzer:
+Çıktı aşağıdaki örneğe benzerdir.
 
 ```powershell
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
@@ -182,25 +186,25 @@ dailyafs             AzureFiles         AzureStorage         1/10/2018 12:30:00 
 ```
 
 > [!NOTE]
-> UTC saat dilimi PowerShell BackupTime alanın olur. Ancak, yedekleme zamanını Azure portalında göründüğü zaman, yerel saat dilimine ayarlanır.
+> Saat dilimini **BackupTime** alandır PowerShell'de Eşgüdümlü Evrensel Saat (UTC). Yedekleme zamanını Azure portalında göründüğü zaman için yerel saat diliminizde ayarlanır.
 >
 >
 
-Aşağıdaki ilke "dailyafs" adlı yedekleme ilkesini alır.
+Adlı bir yedekleme İlkesi şu ilkeyi alır **dailyafs**.
 
 ```powershell
 $afsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "dailyafs"
 ```
 
-Kullanım **etkinleştir AzRecoveryServicesBackupProtection** öğenin belirtilen İlkesi ile korumayı etkinleştirmek için. İlke kasa ile ilişkilendirildikten sonra yedekleme iş akışı içinde ilke zamanlaması tanımlı zaman tetiklenir.
+Kullanım **etkinleştir AzRecoveryServicesBackupProtection** öğenin belirtilen İlkesi ile korumayı etkinleştirmek için. İlke, kasayla ilişkili sonra yedekleme iş akışı içinde ilke zamanlaması tanımlı zaman tetiklenir.
 
-Aşağıdaki örnek, "testAzureFileShare", depolama hesabı "testStorageAcct", altında ilke dailyafs ile Azure dosya paylaşımının korumasını etkinleştirir.
+Aşağıdaki örnek, Azure dosya paylaşımının korumasını etkinleştirir **testAzureFileShare** depolama hesabı altında **testStorageAcct** ilkeyle **dailyafs**.
 
 ```powershell
 Enable-AzRecoveryServicesBackupProtection -StorageAccountName "testStorageAcct" -Name "testAzureFS" -Policy $afsPol
 ```
 
-Komutu, yapılandırma koruma işi tamamlandıktan ve aşağıda gösterildiği gibi benzer bir çıktı sağlar kadar bekler.
+Yapılandırma koruma işi tamamlandı ve benzer bir çıktı verir komutu gösterildiği gibi bekler.
 
 ```cmd
 WorkloadName       Operation            Status                 StartTime                                                                                                         EndTime                   JobID
@@ -210,7 +214,7 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 ### <a name="trigger-an-on-demand-backup"></a>İsteğe bağlı bir yedeklemeyi tetikleyin
 
-Kullanım **yedekleme AzRecoveryServicesBackupItem** korumalı Azure dosya paylaşımı için yedekleme işini tetiklemek için. Aşağıdaki komutları kullanarak içinde depolama hesabı ve dosya paylaşımı almak ve isteğe bağlı yedekleme tetikleyin.
+Kullanım **yedekleme AzRecoveryServicesBackupItem** korumalı Azure dosya paylaşımı için yedekleme işini tetiklemek için. Aşağıdaki komutları kullanarak depolama hesabı ve dosya paylaşımı içindeki almak ve isteğe bağlı yedekleme tetikleyin.
 
 ```powershell
 $afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
@@ -218,7 +222,7 @@ $afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -Workloa
 $job =  Backup-AzRecoveryServicesBackupItem -Item $afsBkpItem
 ```
 
-Komut aşağıdaki örnekteki gibi bir Kimliğe sahip izlenecek bir işin döndürür.
+Aşağıdaki örnekte gösterildiği gibi komut izlenmesi için bir kimlik ile bir iş döndürür.
 
 ```powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -226,13 +230,13 @@ WorkloadName     Operation            Status               StartTime            
 testAzureFS       Backup               Completed            11/12/2018 2:42:07 PM     11/12/2018 2:42:11 PM     8bdfe3ab-9bf7-4be6-83d6-37ff1ca13ab6
 ```
 
-Yedeklemeleri almaya çalışırken size Azure dosya paylaşımı anlık görüntüleri yararlanıyor ve bu nedenle genellikle iş komut şu çıktıyı döndürür zamanında tamamlar
+Azure dosya paylaşımı anlık görüntüleri kullanılan yedeklemeleri alınır, ancak komut şu çıktıyı döndürür zamanında bu nedenle genellikle işi tamamlar.
 
-### <a name="modify-protection-policy"></a>Koruma ilkesini değiştirme
+### <a name="modify-the-protection-policy"></a>Koruma ilkesini değiştirme
 
-İlke ile değiştirmek istiyorsanız, Azure dosya paylaşımının korunur, kullanın **etkinleştir AzRecoveryServicesBackupProtection** ilgili yedekleme öğesi ve yeni koruma ilkesine sahip.
+İle Azure dosya paylaşımının korumalı ilkeyi değiştirmek için **etkinleştir AzRecoveryServicesBackupProtection** ilgili yedekleme öğesi ve yeni koruma ilkesine sahip.
 
-Aşağıdaki örnekler "monthlyafs" için "dailyafs" öğesinden "testAzureFS" koruma İlkesi değişiklikleri
+Aşağıdaki örnek değişiklikleri **testAzureFS** protection ilkesinden **dailyafs** için **monthlyafs**.
 
 ```powershell
 $monthlyafsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "monthlyafs"
@@ -241,13 +245,13 @@ $afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -Workloa
 Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsPol
 ```
 
-## <a name="restore-azure-file-sharesazure-files"></a>Azure dosya paylaşımlar geri yükleme / Azure dosyaları
+## <a name="restore-azure-file-shares-and-azure-files"></a>Azure dosya paylaşımları ve Azure dosyaları geri yükleme
 
-Dosya paylaşımının tamamını özgün veya alternatif bir konuma geri yükleyebilirsiniz. Benzer şekilde dosya paylaşımı tek tek dosyaların de geri yüklenebilir.
+Dosya paylaşımının tamamını özgün konumuna veya alternatif bir konuma geri yükleyebilirsiniz. Benzer şekilde, tek tek dosyaların dosya paylaşımı, çok geri yüklenebilir.
 
-### <a name="fetching-recovery-points"></a>Kurtarma noktaları getiriliyor
+### <a name="fetch-recovery-points"></a>Getirme kurtarma noktaları
 
-Kullanım **Get-AzRecoveryServicesBackupRecoveryPoint** yedekleme öğesi için tüm kurtarma noktalarını listelemek için kullanın. Aşağıdaki komut, değişken **$rp**, son yedi güne ilişkin seçili yedekleme öğesi için kurtarma noktalarını dizisidir. Dizi dizin 0 konumunda en son kurtarma noktası ile zaman ters sırada sıralanır. Kurtarma noktasını seçmek için standart PowerShell dizi dizini'oluşturma ' yı kullanın. Örnekte, en son kurtarma noktası $rp [0] seçer.
+Kullanım **Get-AzRecoveryServicesBackupRecoveryPoint** yedekleme öğesi için tüm kurtarma noktalarını listelemek için kullanın. Aşağıdaki komut, değişken **$rp** son yedi güne ilişkin seçili yedekleme öğesi için kurtarma noktalarını dizisidir. Dizi en son kurtarma noktası dizinindeki ile zaman ters sırada sıralanır **0**. Kurtarma noktasını seçmek için standart PowerShell dizi dizini'oluşturma ' yı kullanın. Örnekte, **$rp [0]** en son kurtarma noktası seçer.
 
 ```powershell
 $startDate = (Get-Date).AddDays(-7)
@@ -257,7 +261,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $afsBkpItem -StartDate $st
 $rp[0] | fl
 ```
 
-Çıktı aşağıdaki örneğe benzer:
+Çıktı aşağıdaki örneğe benzerdir.
 
 ```powershell
 FileShareSnapshotUri : https://testStorageAcct.file.core.windows.net/testAzureFS?sharesnapshot=2018-11-20T00:31:04.00000
@@ -273,26 +277,26 @@ ContainerType        : AzureStorage
 BackupManagementType : AzureStorage
 ```
 
-İlgili kurtarma noktası seçtikten sonra dosya paylaşımı/dosya aşağıda açıklandığı gibi bir alternatif/özgün konuma geri yüklemek için devam edin.
+İlgili kurtarma noktası seçtikten sonra dosya paylaşımı veya dosya özgün konuma veya alternatif bir konuma burada açıklandığı gibi geri yükleyin.
 
 ### <a name="restore-azure-file-shares-to-an-alternate-location"></a>Azure dosya paylaşımlarını alternatif bir konuma geri yükleme
 
-#### <a name="restoring-an-azure-file-share"></a>Azure dosya paylaşımını geri yükleme
+#### <a name="restore-an-azure-file-share"></a>Bir Azure dosya paylaşımını geri yükleme
 
 Alternatif bir konuma aşağıdaki bilgileri sağlayarak tanımlayın:
 
-* ***TargetStorageAccountName***: Depolama hesabı yedeklenen içeriğin geri yüklenir. Hedef depolama hesabı, kasa ile aynı konumda olmalıdır.
-* ***TargetFileShareName***: Yedeklenen içeriğin geri yüklenir hedef depolama hesabında dosya paylaşımları
-* ***TargetFolder***: Klasörü altında dosya paylaşımı verileri geri yüklenir. Yedeklenen içeriğin kök klasörüne geri yüklenmesi gerekiyorsa, hedef klasör değerleri, boş dize olarak verin.
-* ***ResolveConflict***: Yönerge geri yüklenen verilerle bir çakışma olması durumunda. "Üzerine yaz" veya "atlanmaya" kabul eder.
+* **TargetStorageAccountName**: Depolama hesabı yedeklenen içeriğin geri yüklenir. Hedef depolama hesabı, kasa ile aynı konumda olmalıdır.
+* **TargetFileShareName**: Hedef depolama içindeki dosya paylaşımları, yedeklenen içeriğin geri için hesap.
+* **TargetFolder**: Klasörü altında dosya paylaşımı verileri geri yüklenir. Yedeklenen içeriğin kök klasörüne geri yüklenmesi, hedef klasör değerler boş bir dize verin.
+* **ResolveConflict**: Geri yüklenen verilerle bir çakışma varsa yönerge. Kabul **üzerine** veya **atla**.
 
-Yedeklenen bir alternatif bir konuma dosya paylaşımını yedekleme geri yüklemek için restore komutu bu parametreleri belirtin.
+Yedeklenen dosya paylaşımı için alternatif bir konuma geri yüklemek için restore komutu bu parametreleri belirtin.
 
 ````powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccountName "TargetStorageAcct" -TargetFileShareName "DestAFS" -TargetFolder "testAzureFS_restored" -ResolveConflict Overwrite
 ````
 
-Komut bir iş aşağıdaki örnekte gösterildiği gibi izlenmesi kimliği döndürür.
+Aşağıdaki örnekte gösterildiği gibi komut izlenmesi için bir kimlik ile bir iş döndürür.
 
 ````powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -300,28 +304,28 @@ WorkloadName     Operation            Status               StartTime            
 testAzureFS        Restore              InProgress           12/10/2018 9:56:38 AM                               9fd34525-6c46-496e-980a-3740ccb2ad75
 ````
 
-#### <a name="restoring-an-azure-file"></a>Bir Azure dosya geri yükleme
+#### <a name="restore-an-azure-file"></a>Bir Azure dosya geri yükleme
 
-Tüm bir dosya paylaşımı yerine tek bir dosyayı geri yüklemek istediğiniz durumlarda, tek tek dosya aşağıdaki parametreleri sağlayarak benzersiz olarak tanımlanmalıdır.
+Tek bir dosyayı yerine dosya paylaşımının tamamını geri yüklemek için benzersiz bir şekilde aşağıdaki parametreleri sağlayarak tek tek dosya tanımlayın:
 
-* ***TargetStorageAccountName***: Depolama hesabı yedeklenen içeriğin geri yüklenir. Hedef depolama hesabı, kasa ile aynı konumda olmalıdır.
-* ***TargetFileShareName***: Yedeklenen içeriğin geri yüklenir hedef depolama hesabında dosya paylaşımları
-* ***TargetFolder***: Klasörü altında dosya paylaşımı verileri geri yüklenir. Yedeklenen içeriğin kök klasörüne geri yüklenmesi gerekiyorsa, hedef klasör değerleri, boş dize olarak verin.
-* ***SourceFilePath***: Dize olarak dosya paylaşımı içinde geri yüklenecek dosyanın mutlak yolu. Kullanılan aynı yol budur ```Get-AzStorageFile``` PS cmdlet'i.
-* ***SourceFileType***: Bir dizin olup olmadığını veya dosya seçilmedi. "Dizin" veya "Dosya" kabul eder.
-* ***ResolveConflict***: Yönerge geri yüklenen verilerle bir çakışma olması durumunda. "Üzerine yaz" veya "atlanmaya" kabul eder.
+* **TargetStorageAccountName**: Depolama hesabı yedeklenen içeriğin geri yüklenir. Hedef depolama hesabı, kasa ile aynı konumda olmalıdır.
+* **TargetFileShareName**: Hedef depolama içindeki dosya paylaşımları, yedeklenen içeriğin geri için hesap.
+* **TargetFolder**: Klasörü altında dosya paylaşımı verileri geri yüklenir. Yedeklenen içeriğin kök klasörüne geri yüklenmesi, hedef klasör değerler boş bir dize verin.
+* **SourceFilePath**: Dize olarak dosya paylaşımı içinde geri yüklenecek dosyanın mutlak yolu. Bu yol, kullanılan aynı yoldur **Get-AzStorageFile** PowerShell cmdlet'i.
+* **SourceFileType**: Bir dizin olup olmadığını veya dosya seçilmedi. Kabul **dizin** veya **dosya**.
+* **ResolveConflict**: Geri yüklenen verilerle bir çakışma varsa yönerge. Kabul **üzerine** veya **atla**.
 
-Gördüğünüz gibi ek parametreler yalnızca bireysel dosyasına geri ilgilidir.
+Ek parametreleri, geri yüklenmesi için yalnızca tek bir dosyaya ilgilidir.
 
 ```powershell
 Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccountName "TargetStorageAcct" -TargetFileShareName "DestAFS" -TargetFolder "testAzureFS_restored" -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
 ```
 
-Ayrıca, yukarıda gösterildiği gibi bir kimlik ile izlenecek bir işin da döndürür.
+Bu komut, daha önce gösterildiği gibi izlenmesi için bir kimlik ile bir iş ayrıca döndürür.
 
-### <a name="restore-azure-file-shares-to-original-location"></a>Azure dosya paylaşımlarını özgün konuma geri yükleme
+### <a name="restore-azure-file-shares-to-the-original-location"></a>Azure dosya paylaşımlarını özgün konuma geri yükleme
 
-Özgün konuma geri yükleme durumunda, tüm hedef/hedef parametreleri belirtilmedi ilgili. Yalnızca ```ResolveConflict``` sağlanmalıdır
+Özgün bir konuma geri yüklediğinizde, tüm hedef ve hedef ilgili parametreleri belirtilmesi gerekmez. Yalnızca **ResolveConflict** sağlanmalıdır.
 
 #### <a name="overwrite-an-azure-file-share"></a>Bir Azure dosya paylaşımı üzerine yaz
 
@@ -337,7 +341,7 @@ Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File 
 
 ## <a name="track-backup-and-restore-jobs"></a>Yedekleme izleme ve geri yükleme işleri
 
-İsteğe bağlı yedekleme ve geri yükleme işlemlerini döndürüp Kimliğiniz ile birlikte bir iş gösterildiği [yukarıda](#trigger-an-on-demand-backup). Kullanım ```Get-AzRecoveryServicesBackupJobDetails``` işinin ilerleme durumunu izlemek ve daha fazla ayrıntı getirmek için komutu.
+İsteğe bağlı yedekleme ve geri yükleme işlemleri önceki bölümde gösterildiği gibi bir kimliği ile birlikte bir iş dönüş ["talep üzerine yedekleme tetikleyin."](#trigger-an-on-demand-backup) Kullanım **Get-AzRecoveryServicesBackupJobDetails** işinin ilerleme durumunu izlemek ve daha fazla ayrıntı getirmek için cmdlet'i.
 
 ```powershell
 $job = Get-AzRecoveryServicesBackupJob -JobId 00000000-6c46-496e-980a-3740ccb2ad75 -VaultId $vaultID
@@ -362,5 +366,5 @@ $job.ErrorDetails
 
  ErrorCode ErrorMessage                                          Recommendations
  --------- ------------                                          ---------------
-1073871825 Microsoft Azure Backup encountered an internal error. Wait for a few minutes and then try the operation again. If the issue persists, please contact Microsoft support
+1073871825 Microsoft Azure Backup encountered an internal error. Wait for a few minutes and then try the operation again. If the issue persists, please contact Microsoft support.
 ```

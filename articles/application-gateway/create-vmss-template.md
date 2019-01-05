@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: d6180156e1a8f3fa053c7fbb247e38831f86e76a
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: f7050514d5f0de0cade09c6be672d7dfd3568da3
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998393"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037421"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Azure Resource Manager şablonunu kullanarak uygulama ağ geçidi oluşturma
 
@@ -68,7 +68,7 @@ GitHub’dan sanal ağ ve iki adet alt ağ oluşturmak için, mevcut Azure Resou
 
    * **type**. Şablon tarafından oluşturulan kaynak türü. Bu durumda, türü, `Microsoft.Network/applicationGateways`, bir uygulama ağ geçidini temsil eder.
    * **name**. Kaynağın adı. Kullanımına dikkat edin `[parameters('applicationGatewayName')]`, adı giriş olarak bir parametre dosyası tarafınızdan girilerek veya dağıtım sırasında sağlanan anlamına gelir.
-   * **properties**. Kaynak özelliklerinin listesi. Bu şablon, uygulama ağ geçidi oluştururken sanal ağı ve genel IP adresini kullanır.
+   * **properties**. Kaynak özelliklerinin listesi. Bu şablon, uygulama ağ geçidi oluştururken sanal ağı ve genel IP adresini kullanır. JSON söz dizimi ve bir uygulama ağ geçidi şablondaki özellikleri için bkz [Microsoft.Network/applicationGateways](/azure/templates/microsoft.network/applicationgateways).
 
 1. Geri gidin [ https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/ ](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Tıklayın **azuredeploy-parameters.json**ve ardından **ham**.
@@ -226,9 +226,9 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-SSL yükü boşaltmayı yapılandırmak istiyorsanız [SSL yükü boşaltma için uygulama ağ geçidi yapılandırma](tutorial-ssl-cli.md) sayfasını ziyaret edin.
+SSL yük boşaltmayı yapılandırmak istiyorsanız, ziyaret edin: [SSL yük boşaltımı için bir uygulama ağ geçidi](tutorial-ssl-cli.md).
 
-İç yük dengeleyiciyle kullanacağınız uygulama ağ geçidi yapılandırmak istiyorsanız [İç yük dengeleyici (ILB) ile uygulama ağ geçidi oluşturma](redirect-internal-site-cli.md) sayfasını ziyaret edin.
+Bir iç yük dengeleyiciyle kullanacağınız uygulama ağ geçidi yapılandırmak istiyorsanız, ziyaret edin: [İç yük dengeleyici (ILB) ile bir uygulama ağ geçidi oluşturma](redirect-internal-site-cli.md).
 
 Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsanız, bkz.:
 

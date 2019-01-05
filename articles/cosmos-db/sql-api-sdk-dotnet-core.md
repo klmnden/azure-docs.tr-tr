@@ -1,21 +1,19 @@
 ---
 title: 'Azure Cosmos DB: SQL .NET Core API, SDK ve kaynakları'
 description: Tüm SQL .NET Core API ve yayın tarihleri, sona erme tarihlerini ve her bir Azure Cosmos DB .NET Core SDK'sı sürümü arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
-services: cosmos-db
-author: rnagpal
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d947974575cf996ed880f2c1b5f8f7700b81ffd3
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.author: sngun
+ms.openlocfilehash: 5eb04f30fd6766b8df65998b8a4d53797b8341ba
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413515"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053560"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK'sı SQL API'si için: Sürüm Notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -57,6 +55,14 @@ Azure Cosmos DB .NET Core SDK'sı özellik eşliği ile en son sürümüne sahip
 * Yeni nesne modeli, üst düzey CosmosClient ve yöntemleri ile ilgili CosmosDatabases ve CosmosContainers CosmosItems sınıflar arasında bölün.
 * Akışları için destek.
 * Durum kodu döndürür ve yanıt döndürüldüğünde yalnızca durum sunucudan CosmosResponseMessage güncelleştirildi.
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+
+* Yeniden deneme mantığı için StoredProcedure gelişme yük devretme sırasında çağrıları yürütün.
+
+* Yapılan DocumentClientEventSource tekli. 
+
+* ConnectionPolicy RequestTimeout uygularken değil GatewayAddressCache zaman aşımı düzeltin.
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 
@@ -227,6 +233,7 @@ Bu SDK ilgili sorularınız varsa postalayabilir [StackOverflow](https://stackov
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |Aralık 24 Mayıs 2018 |--- |
 | [2.2.0](#2.2.0) |07 aralık 2018'e |--- |
 | [2.1.3](#2.1.3) |15 Ekim 2018 |--- |
 | [2.1.2'yi](#2.1.2) |04 Ekim 2018 |--- |

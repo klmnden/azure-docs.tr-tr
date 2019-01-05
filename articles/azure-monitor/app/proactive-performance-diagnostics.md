@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 77b278d939b7d2676ade03af75e48c1e2df184f9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: de28bce852d00900bee19b2fa4d7e4e39d050b4d
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028958"
+ms.locfileid: "54054529"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Akıllı algılama - performans Anomalileri
 
@@ -108,7 +108,7 @@ Sorun nerede? Sunucu yavaş yanıt, sayfa çok uzun veya çok görüntülemek i�
 
 Tarayıcılar ölçüm dikey penceresini açın. Tarayıcı sayfa yükleme süresi gösterir zaman nerede bulunacağını segmentli görüntüsü. 
 
-* Varsa **isteği gönderdiğinizde** olduğundan yüksek ya da sunucu yavaş yanıt veya istek çok fazla veri içeren bir postadır. Bakmak [performans ölçümlerini](../../application-insights/app-insights-web-monitor-performance.md#metrics) yanıt süreleri araştırmak için.
+* Varsa **isteği gönderdiğinizde** olduğundan yüksek ya da sunucu yavaş yanıt veya istek çok fazla veri içeren bir postadır. Bakmak [performans ölçümlerini](../../azure-monitor/app/web-monitor-performance.md#metrics) yanıt süreleri araştırmak için.
 * Ayarlanan [bağımlılık izleme](../../azure-monitor/app/asp-net-dependencies.md) yavaşlık dış hizmetlere veya veritabanınızı nedeniyle olup olmadığına bakın.
 * Varsa **yanıt alma** yaygındır, sayfanız ve bağımlı bölümleri - JavaScript, CSS, görüntü ve benzeri (ancak zaman uyumsuz olarak yüklenen veriler) uzun. Ayarlanmış bir [kullanılabilirlik testi](../../azure-monitor/app/monitor-web-app-availability.md)ve bağımlı bölümleri Yükle seçeneği ayarladığınızdan emin olun. Bazı sonuçlar elde ettiğinizde, bir sonuç ayrıntılarını açın ve farklı dosyaların yükleme sürelerini görmek için genişletin.
 * Yüksek **istemci işleme süresi** betikleri yavaş çalışıyor önerir. Nedeni açık değilse, bazı zamanlama kod eklemeyi göz önünde bulundurun ve trackMetric çağrılarında gönderim zamanları.

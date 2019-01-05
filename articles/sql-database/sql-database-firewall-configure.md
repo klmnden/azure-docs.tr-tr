@@ -11,21 +11,20 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 6de91e28ebced1d41e128cec1180839e4b353020
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/03/2019
+ms.openlocfilehash: e4079a4dcaadab8e9cea0cc1b30a609a091e5937
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945476"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035279"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL veritabanı ve SQL veri ambarı güvenlik duvarı kuralları
 
 Microsoft Azure [SQL veritabanı](sql-database-technical-overview.md) ve [SQL veri ambarı](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) Azure ve diğer Internet tabanlı uygulamalar için bir ilişkisel veritabanı hizmeti sağlar. Güvenlik duvarları, verilerinizin korunmasına yardımcı olmak üzere, hangi bilgisayarların izinli olduğunu belirtmenize kadar veritabanı sunucunuza tüm erişimi engeller. Güvenlik duvarı, her bir isteğin kaynak IP adresine göre veritabanlarına erişim verir.
 
 > [!NOTE]
-> Bu makale, Azure SQL server ve Azure SQL sunucusu üzerinde oluşturulmuş olan hem SQL veritabanı ve SQL veri ambarı veritabanları için geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır. 
-
+> Bu makale, Azure SQL server ve Azure SQL sunucusu üzerinde oluşturulmuş olan hem SQL veritabanı ve SQL veri ambarı veritabanları için geçerlidir. Kolaylık açısından, hem SQL Veritabanı hem de SQL Veri Ambarı için SQL Veritabanı terimi kullanılmaktadır.
 > [!IMPORTANT]
 > Bu makale *değil* uygulamak **Azure SQL veritabanı yönetilen örneği**. Üzerinde lütfen şu makaleye bakın [yönetilen örneğe bağlanma](sql-database-managed-instance-connect-app.md) gereken ağ yapılandırması hakkında daha fazla bilgi.
 
@@ -58,9 +57,9 @@ Azure SQL sunucunuzdaki veritabanlarından yalnızca birine seçmeli olarak eri�
 
 Microsoft, mümkün olduğunda güvenliği artırmak ve veritabanınızı daha taşınabilir yapmak için veritabanı düzeyinde güvenlik duvarı kurallarının kullanılmasını önerir. Aynı erişim gereksinimlerine sahip birçok veritabanınız varsa ve her veritabanını ayrı ayrı yapılandırmaya zaman harcamak istemiyorsanız sunucu düzeyinde güvenlik duvarı kurallarını yöneticiler için kullanabilirsiniz.
 
-> [!Important]
+> [!IMPORTANT]
 > Windows Azure SQL veritabanı en fazla 128 güvenlik duvarı kuralını destekler.
-> [!Note]
+> [!NOTE]
 > İş sürekliliği bağlamında taşınabilir veritabanları hakkında bilgi edinmek için bkz. [Olağanüstü durum kurtarma için kimlik doğrulama gereksinimleri](sql-database-geo-replication-security-config.md).
 
 ### <a name="connecting-from-the-internet"></a>İnternet'ten bağlanma
@@ -102,7 +101,7 @@ Azure portalında sunucu düzeyinde güvenlik duvarı kuralını ayarlamak için
 
 ### <a name="from-database-overview-page"></a>Veritabanına genel bakış sayfasından
 
-1. Veritabanı genel bakış sayfasında sunucu düzeyinde güvenlik duvarı kuralını ayarlamak için **sunucu güvenlik duvarını Ayarla** aşağıdaki görüntüde gösterildiği gibi araç çubuğundaki: **Güvenlik Duvarı ayarları** SQL veritabanı sunucusu için sayfa açılır.
+1. Veritabanı genel bakış sayfasında sunucu düzeyinde güvenlik duvarı kuralını ayarlamak için **sunucu güvenlik duvarını Ayarla** aşağıdaki görüntüde gösterildiği gibi araç çubuğundaki: SQL Veritabanı sunucusu için **Güvenlik duvarı ayarları** sayfası açılır.
 
       ![sunucu güvenlik duvarı kuralı](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
@@ -223,7 +222,7 @@ Microsoft Azure SQL Veritabanı hizmetine erişim beklediğiniz gibi davranmadı
 
 - **Yerel güvenlik duvarı yapılandırması:**
 
-  Bilgisayarınızın Azure SQL veritabanı erişmeden önce bilgisayarınızdaki 1433 numaralı TCP bağlantı noktası için bir güvenlik duvarı özel durumu oluşturmak gerekebilir. Azure bulut limitleri içerisinde bağlantı oluşturuyorsanız başka bağlantı noktalarını da açmanız gerekebilir. Daha fazla bilgi için **SQL veritabanı: dış ve iç karşılaştırması** bölümünü [ADO.NET 4.5 ve SQL veritabanı için 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md).
+  Bilgisayarınızın Azure SQL veritabanı erişmeden önce bilgisayarınızdaki 1433 numaralı TCP bağlantı noktası için bir güvenlik duvarı özel durumu oluşturmak gerekebilir. Azure bulut limitleri içerisinde bağlantı oluşturuyorsanız başka bağlantı noktalarını da açmanız gerekebilir. Daha fazla bilgi için **SQL veritabanı: Dış ve iç karşılaştırması** bölümünü [ADO.NET 4.5 ve SQL veritabanı için 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 - **Ağ adresi çevirisi (NAT):**
 
@@ -248,7 +247,7 @@ Microsoft Azure SQL Veritabanı hizmetine erişim beklediğiniz gibi davranmadı
 
 - Bir veritabanı ve sunucu düzeyinde güvenlik duvarı kuralı oluşturma Hızlı Başlangıç için bkz. [bir Azure SQL veritabanı oluşturma](sql-database-get-started-portal.md).
 - Açık kaynak veya üçüncü taraf uygulamalardan bir Azure SQL veritabanına bağlanma konusunda yardım için bkz. [SQL Veritabanına yönelik istemci hızlı başlatma kod örnekleri](https://msdn.microsoft.com/library/azure/ee336282.aspx).
-- Açmak için ihtiyacınız olan ek bağlantı noktaları hakkında daha fazla bilgi için bkz: **SQL veritabanı: dış ve iç karşılaştırması** bölümünü [ADO.NET 4.5 ve SQL veritabanı için 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Açmak için ihtiyacınız olan ek bağlantı noktaları hakkında daha fazla bilgi için bkz: **SQL veritabanı: Dış ve iç karşılaştırması** bölümünü [ADO.NET 4.5 ve SQL veritabanı için 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md)
 - Azure SQL veritabanı güvenliğine genel bakış için bkz. [veritabanınızı güvenli hale getirme](sql-database-security-overview.md)
 
 <!--Image references-->

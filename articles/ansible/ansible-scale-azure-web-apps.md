@@ -3,17 +3,17 @@ title: Ansible'ı kullanarak Azure App Service web uygulamaları ölçeklendirme
 description: Ansible'ı kullanarak Linux'ta App Service hizmetinde Java 8 ve Tomcat kapsayıcı çalışma zamanı ile web uygulaması oluşturmayı öğrenin
 ms.service: ansible
 keywords: ansible'ı, azure, devops, bash, playbook, Azure App Service, Web uygulaması, Ölçek, Java
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: kyliel
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: 740ff6d6a636377f9d58a5231692c87f935ae6d2
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a63289c3dec41217725199614420935532a04aa4
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601874"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54051688"
 ---
 # <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Ansible'ı kullanarak Azure App Service web uygulamaları ölçeklendirme
 [Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (veya yalnızca Web Apps) ana web uygulamaları, REST API'leri ve mobil arka uç. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz.

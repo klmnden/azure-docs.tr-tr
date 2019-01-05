@@ -1,21 +1,19 @@
 ---
 title: "Hızlı Başlangıç: Python - Azure Cosmos DB ile Cassandra API'si"
 description: Bu hızlı başlangıçta Python ile profil uygulaması oluşturmak için Azure Cosmos DB Apache API’sinin nasıl kullanılacağı gösterilmektedir.
-services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-cassandra
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: c9a0d6ce868fd7fcf14f4b4c1690c99b7f964f8a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ea6b117b6b44df6345f985a639894435944c74b8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253519"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042776"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Hızlı Başlangıç: Python ve Azure Cosmos DB ile Cassandra uygulaması derleme
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: twhitney
-ms.openlocfilehash: 07c227c198166254eb130604685a4ba5884b783a
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 5432266bd042b527156852aaf30fef09f3bf8c72
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299886"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053305"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -193,6 +193,11 @@ Bağlantı noktası eşlemesi uygun biçimde belirtin. Bu makale için sağlaman
    </ServiceManifestImport>
 ``` 
 
+Depo parolasını şifrelemek, lütfen öneririz [ Service Fabric uygulamaları şifrelenmiş gizli dizileri Yönet](service-fabric-application-secret-management.md)
+
+### <a name="configure-cluster-wide-credentials"></a>Küme çapında kimlik bilgilerini yapılandırma
+Başvurmak [belgeleri](
+service-fabric-get-started-containers.md#configure-cluster-wide-credentials)
 
 ## <a name="configure-isolation-mode"></a>Yalıtım modunu yapılandırma
 Böylece kapsayıcılar için iki yalıtım modunu destekleyen, Linux kapsayıcıları için VM yalıtım 6,3 çalışma zamanı sürümünde desteklenir: işlem ve hyperv. Hyperv yalıtım moduyla, çekirdekler her kapsayıcısı ile kapsayıcı konağı arasında yalıtılır. Hyperv yalıtım kullanılarak uygulanan [Temizle kapsayıcıları](https://software.intel.com/en-us/articles/intel-clear-containers-2-using-clear-containers-with-docker). Yalıtım modu, Linux kümeleri için belirtilen `ServicePackageContainerPolicy` uygulama bildirimi dosyasındaki öğesi. Belirtilebilen yalıtım modları `process`, `hyperv` ve `default` modlarıdır. İşlem yalıtım modu varsayılandır. Aşağıdaki kod parçacığı uygulama bildirimi dosyasında yalıtım modunun nasıl belirtildiğini gösterir.
@@ -210,7 +215,7 @@ Böylece kapsayıcılar için iki yalıtım modunu destekleyen, Linux kapsayıc�
 
 
 ## <a name="configure-resource-governance"></a>Kaynak idaresini yapılandırma
-[Kaynak idaresi](service-fabric-resource-governance.md) kapsayıcının konakta kullanabildiği kaynakları kısıtlar. Uygulama bildiriminde belirtilen `ResourceGovernancePolicy` öğesi, hizmet kod paketinin kaynak sınırlarını tanımlamak için kullanılır. Şu kaynaklar için kaynak sınırları ayarlanabilir: Memory, MemorySwap, CpuShares (CPU göreli ağırlığı), MemoryReservationInMB, BlkioWeight (BlockIO göreli ağırlığı). Bu örnekte, Guest1Pkg hizmet paketi bulunduğu küme düğümlerinde bir çekirdek alır. Bellek sınırları mutlaktır; dolayısıyla, kod paketi 1024 MB bellekle (aynı genel garantili ayırmayla) sınırlıdır. Kod paketleri (kapsayıcılar veya işlemler) bu sınırı aşan miktarda bellek ayıramazlar ve bunu denediklerinde yetersiz bellek özel durumu ortaya çıkar. Kaynak sınırı zorlamasının çalışması için, hizmet paketi içindeki tüm kod paketlerinin bellek sınırlarının belirtilmiş olması gerekir.
+[Kaynak idaresi](service-fabric-resource-governance.md) kapsayıcının konakta kullanabildiği kaynakları kısıtlar. Uygulama bildiriminde belirtilen `ResourceGovernancePolicy` öğesi, hizmet kod paketinin kaynak sınırlarını tanımlamak için kullanılır. Aşağıdaki kaynaklar için kaynak sınırları ayarlanabilir: Bellek, MemorySwap, CpuShares (CPU göreli ağırlığı), Memoryreservationınmb, BlkioWeight (Blockıo göreli ağırlığı). Bu örnekte, Guest1Pkg hizmet paketi bulunduğu küme düğümlerinde bir çekirdek alır. Bellek sınırları mutlaktır; dolayısıyla, kod paketi 1024 MB bellekle (aynı genel garantili ayırmayla) sınırlıdır. Kod paketleri (kapsayıcılar veya işlemler) bu sınırı aşan miktarda bellek ayıramazlar ve bunu denediklerinde yetersiz bellek özel durumu ortaya çıkar. Kaynak sınırı zorlamasının çalışması için, hizmet paketi içindeki tüm kod paketlerinin bellek sınırlarının belirtilmiş olması gerekir.
 
 ```xml
 <ServiceManifestImport>

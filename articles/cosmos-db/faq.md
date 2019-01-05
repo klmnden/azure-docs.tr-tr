@@ -1,20 +1,18 @@
 ---
 title: Azure Cosmos DB'de farklı API'ler ile ilgili sık sorulan sorular
 description: Azure Cosmos DB, küresel olarak dağıtılmış çok modelli veritabanı hizmeti hakkında sık sorulan soruların yanıtlarını alın. Kapasite, performans düzeyleri ve ölçeklendirme hakkında bilgi edinin.
-keywords: Sık sorulan sorular, documentdb, azure, Microsoft azure, veritabanı soruları
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: ede900e135960141ed65b54dc876b1c0c2b90aaa
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e8467912ad2b9b5199e3c8d66c80d8e238db1f57
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809276"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043218"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB'de farklı API'ler ile ilgili sık sorulan sorular
 
@@ -213,7 +211,7 @@ Bu JavaScript sınırlamasıdır. JavaScript IEEE 754 belirtildiği gibi çift d
 
 İzinler ResourceTokens kullanarak oluşturma kapsayıcı düzeyinde ve alt öğelerini (örneğin, belgeler, ekleri) izin verilir. Bu veritabanını bir izin oluşturmak çalışan gelir veya bir hesap düzeyi şu anda izin verilmiyor.
 
-## <a name="azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB'nin MongoDB API'si
+## <a name="azure-cosmos-dbs-api-for-mongodb"></a>MongoDB için Azure Cosmos DB API'si
 
 ### <a name="what-is-the-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB MongoDB API'si nedir?
 

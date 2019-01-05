@@ -1,20 +1,18 @@
 ---
 title: Java için Azure Cosmos DB performans ipuçları
 description: Azure Cosmos DB veritabanı performansını artırmak üzere istemci yapılandırma seçenekleri öğrenin
-keywords: veritabanı performansını artırma
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: afbeb8211baea6da363a5e0162e92a0588581346
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 62b561d35d4cacd27555163ce666e98c12d792d8
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872994"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044136"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Azure Cosmos DB ve Java için performans ipuçları
 
@@ -31,7 +29,7 @@ Açmanızı isteyen, "nasıl veritabanı performansımı geliştirebilirim şeki
 ## <a name="networking"></a>Ağ
 <a id="direct-connection"></a>
 
-1. **Bağlantı modu: kullanım DirectHttps**
+1. **Bağlantı modu: DirectHttps kullanın**
 
     Bir istemci, Azure Cosmos DB'ye nasıl bağlanır? performansını gözlemler istemci tarafı gecikme süresi açısından özellikle önemli etkilere sahiptir. İstemciyi yapılandırmak için kullanılabilen bir anahtar yapılandırma [ConnectionPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy) – [ConnectionMode](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_mode).  İki kullanılabilir ConnectionModes şunlardır:
 

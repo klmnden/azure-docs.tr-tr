@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 11/25/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f69babb4520b4829a8cf59e2dac7763471a2db65
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 62ea3e3ee13ee52462e1c93ac34e98ae179d251c
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557113"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053934"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Öğretici: Geliştirme ve sanal cihazınız için bir Node.js IOT Edge modülü dağıtma
 
@@ -45,13 +45,13 @@ Bulut kaynakları:
 Geliştirme kaynakları:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* Visual Studio Code için [Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) Visual Studio Code için. 
 * [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Node.js ve npm](https://nodejs.org). npm paketi, Node.js ile birlikte dağıtılır. Başka bir deyişle Node.js'yi indirdiğinizde npm de bilgisayarınıza otomatik olarak yüklenir.
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
 
-Bu öğreticide, bir modül olarak derlemek ve oluşturmak için Visual Studio Code için Azure IOT Edge uzantısını kullanırsınız bir **kapsayıcı görüntüsü** dosyalarından. Ardından bu görüntüyü, görüntülerinizin depolandığı ve yönetildiği **kayıt defterine** gönderirsiniz. Son olarak, görüntünüzü IoT Edge cihazınızda çalıştırmak üzere kayıt defterinizden dağıtırsınız.  
+Bu öğreticide, bir modül olarak derlemek ve oluşturmak için Visual Studio Code için Azure IOT araçları kullanmak bir **kapsayıcı görüntüsü** dosyalarından. Ardından bu görüntüyü, görüntülerinizin depolandığı ve yönetildiği **kayıt defterine** gönderirsiniz. Son olarak, görüntünüzü IoT Edge cihazınızda çalıştırmak üzere kayıt defterinizden dağıtırsınız.  
 
 Herhangi bir Docker ile uyumlu kayıt defteri, kapsayıcı görüntülerinizi tutmak için kullanabilirsiniz. İki popüler Docker kayıt defteri Hizmetleri [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ve [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Bu öğreticide Azure Container Registry kullanılır. 
 
@@ -77,7 +77,7 @@ Kapsayıcı kayıt defteri zaten yoksa, azure'da yeni bir tane oluşturmak için
 7. **Oturum açma sunucusu**, **Kullanıcı adı** ve **Parola** değerlerini kopyalayın. Kapsayıcı kayıt defterine erişim sağlamak için öğreticinin ilerleyen bölümlerinde bu değerleri kullanırsınız. 
 
 ## <a name="create-an-iot-edge-module-project"></a>IoT Edge modülü projesi oluşturma
-Aşağıdaki adımlarda, Visual Studio Code ve Azure IoT Edge uzantısını kullanarak IoT Edge Node.js modülünün nasıl oluşturulduğu gösterilmektedir.
+Aşağıdaki adımlar Visual Studio Code ve Azure IOT araçları kullanarak bir IOT Edge Node.js modülünü nasıl oluşturulacağını gösterir.
 
 ### <a name="create-a-new-solution"></a>Yeni çözüm oluşturma
 
@@ -180,15 +180,21 @@ Her şablonda, **tempSensor** modülündeki sensör simülasyon verilerini alıp
     });
     ```
 
-9. Bu dosyayı kaydedin.
+9. App.js dosyayı kaydedin.
 
-10. VS Code gezgininde IoT Edge çözüm çalışma alanınızdaki **deployment.template.json** dosyasını açın. 
+10. VS Code gezgininde IoT Edge çözüm çalışma alanınızdaki **deployment.template.json** dosyasını açın. Bu dosya, bu durumda dağıtmak için hangi modülü IOT Edge Aracısı söyler **tempSensor** ve **NodeModule**ve bunlar arasında iletileri yönlendirme hakkında IOT Edge hub'ı söyler. Visual Studio Code uzantısı otomatik olarak dağıtım şablonu gerekir, ancak her şeyi çözümünüz için doğru olduğundan emin olun, ilgili bilgilerin çoğunu doldurur: 
 
-   Bu dosya `$edgeAgent` için iki modül dağıtma komutu verir: Cihaz verilerinin simülasyonunu yapan **tempSensor** ve **NodeModule**. Varsayılan platform, IOT Edge kümesine **amd64** , VS Code durum çubuğunda anlamına gelir, **NodeModule** görüntünün amd64 sürüme Linux ayarlanır. Durum çubuğunda varsayılan platform değiştirme **amd64** için **arm32v7** veya **windows-amd64** , IOT Edge cihazınızın mimari ise. Dağıtım bildirimleri hakkında daha fazla bilgi edinmek için bkz. [IoT Edge modüllerinin kullanılmasını, yapılandırılmasını ve yeniden kullanılmasını anlama](module-composition.md). 
+   1. Varsayılan platform, IOT Edge kümesine **amd64** , VS Code durum çubuğunda anlamına gelir, **NodeModule** görüntünün amd64 sürüme Linux ayarlanır. Durum çubuğunda varsayılan platform değiştirme **amd64** için **arm32v7** veya **windows-amd64** , IOT Edge cihazınızın mimari ise. 
 
-   Bu dosyada kayıt defteri kimlik bilgileriniz de bulunur. Şablon dosyasında kullanıcı adı ve parola değerlerinin yerine yer tutucular kullanılmıştır. Dağıtım bildirimini oluşturduğunuzda alanlar **.env** dosyasına eklediğiniz değerlerle güncelleştirilir. 
+      ![Modül görüntü platform güncelleştirmesi](./media/tutorial-node-module/image-platform.png)
 
-12. Dağıtım bildirimine NodeModule modül ikizini ekleyin. Aşağıdaki JSON içeriğini `moduleContent` bölümünün en altına, `$edgeHub` modül ikizinin arkasına ekleyin: 
+   2. Şablonda doğru modül adının bulunduğunu ve IoT Edge çözümünü oluştururken değiştirdiğiniz varsayılan **SampleModule** adının kullanılmadığından emin olun.
+
+   3. **RegistryCredentials** bölümü depolar, Docker kayıt defteri kimlik bilgilerini böylece modül görüntünüzü IOT Edge Aracısı çekebilirsiniz. Gerçek kullanıcı adı ve parola çiftleri, git tarafından yoksayılan .env dosyasında depolanır. Henüz yapmadıysanız, kimlik bilgilerinizi .env dosyaya ekleyin.  
+
+   4. Dağıtım bildirimleri hakkında daha fazla bilgi edinmek istiyorsanız bkz [modülleri dağıtma ve IOT Edge'de rotaları oluşturmak hakkında bilgi edinin](module-composition.md).
+
+11. Dağıtım bildirimine NodeModule modül ikizini ekleyin. Aşağıdaki JSON içeriğini `moduleContent` bölümünün en altına, `$edgeHub` modül ikizinin arkasına ekleyin: 
 
    ```json
        "NodeModule": {
@@ -200,7 +206,7 @@ Her şablonda, **tempSensor** modülündeki sensör simülasyon verilerini alıp
 
    ![Modül ikizi için dağıtım şablonu Ekle](./media/tutorial-node-module/module-twin.png)
 
-13. Bu dosyayı kaydedin.
+12. Deployment.template.json dosyayı kaydedin.
 
 
 ## <a name="build-your-iot-edge-solution"></a>IoT Edge çözümünüzü derleyin

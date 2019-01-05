@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0470c12f7965ec5d7e151bb6b03163d6946b83e6
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e3259cb2fce9b5ec1725b200bcd53d9a8b33e908
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743247"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54050260"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>PHP ve MySQL uygulaması Azure App Service'te Linux üzerinde oluşturma
 
@@ -194,7 +194,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > [Yalnızca uygulamanızın kullandığı giden IP adreslerini kullanarak](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips) güvenlik duvarı kurallarınızda daha da kısıtlayıcı olabilirsiniz.
 >
 
-Cloud Shell'de *\<your_ip_address>* yerine [yerel IPv4 IP adresinizi](https://www.whatsmyip.org/) yazdıktan sonra komutu tekrar çalıştırarak yerel bilgisayarınızdan erişim izni verin.
+Cloud Shell'de *\<your_ip_address>* yerine [yerel IPv4 IP adresinizi](http://www.whatsmyip.org/) yazdıktan sonra komutu tekrar çalıştırarak yerel bilgisayarınızdan erişim izni verin.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>

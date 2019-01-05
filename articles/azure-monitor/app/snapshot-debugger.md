@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: 50f5cf48838e5578dc94c61b4463f94e76f886e6
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 92a3caefaa0185aa4bd86fbf66d6279e49b0f5c1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028940"
+ms.locfileid: "54053252"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET uygulamalarında özel durumlarda anlık görüntü hata ayıklama
 
@@ -166,7 +166,7 @@ Anlık görüntü koleksiyonu için kullanılabilir:
 
 ### <a name="configure-snapshot-collection-for-other-net-applications"></a>Diğer .NET uygulamaları için anlık görüntü koleksiyonunu yapılandırma
 
-1. Uygulamanızı Application Insights ile izlenen olması değil, başlayın [Application Insights'ı etkinleştirme ve izleme anahtarı ayarını](../../application-insights/app-insights-windows-desktop.md).
+1. Uygulamanızı Application Insights ile izlenen olması değil, başlayın [Application Insights'ı etkinleştirme ve izleme anahtarı ayarını](../../azure-monitor/app/windows-desktop.md).
 
 2. Ekleme [Microsoft.applicationınsights.snapshotcollectya da](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) uygulamanıza NuGet paketi.
 
@@ -478,4 +478,4 @@ Uygulamanız İnternet'e bir ara sunucu veya bir güvenlik duvarı üzerinden ba
 
 * [Anlık görüntü noktaları kodunuzda ayarlayın](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications) için bir özel durum beklemeden anlık görüntüler alınacak.
 * [Web uygulamalarınızda özel durumları tanılama](../../azure-monitor/app/asp-net-exceptions.md) daha fazla özel durum Application Insights tarafından görülebilmesi açıklanmaktadır.
-* [Akıllı algılama](../../application-insights/app-insights-proactive-diagnostics.md) performans anormalliklerini otomatik olarak bulur.
+* [Akıllı algılama](../../azure-monitor/app/proactive-diagnostics.md) performans anormalliklerini otomatik olarak bulur.

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 5a991bf5da6d17aad6b1456e82f6c7795ab67356
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 5ca3af8e660b45fdb7e7ea8186139d86a66ae00e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745032"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54042198"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Müşterilerin uygulamanızı nasıl kullandığını anlamak için Azure Application Insights’ı kullanın
 
@@ -40,7 +40,7 @@ Bu öğreticiyi tamamlamak için:
     - Azure geliştirme
 - [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger)’ı indirin ve yükleyin.
 - Azure’a .NET uygulaması dağıtma ve [Application Insights SDK’sını etkinleştirme](../azure-monitor/app/asp-net.md). 
-- Özel olaylar/sayfa görüntülemeleri eklemek için [uygulamanızdan telemetri gönderme](app-insights-usage-overview.md#send-telemetry-from-your-app)
+- Özel olaylar/sayfa görüntülemeleri eklemek için [uygulamanızdan telemetri gönderme](../azure-monitor/app/usage-overview.md#send-telemetry-from-your-app)
 - Kullanıcının zaman içinde gerçekleştirdiği işlevleri izlemek ve kullanım özelliklerinden tam olarak faydalanmak için [kullanıcı bağlamı](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) gönderin.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma

@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 01/04/2019
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 7126a47bd90168c7d86fe9fcc05fab0a60955063
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: dc3a0974eed7b044e137b45ec367c56d7534cee6
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180925"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054087"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Kuruluşunuzun ağındaki kullanarak kişisel Cihazınızı kaydetme
-Kişisel Cihazınızı, genellikle bir telefonda veya tablette, kuruluşunuzun ağ kaydedin. Cihazınız kaydedildikten sonra kuruluşunuzun kısıtlanmış kaynaklara erişebilir olacaktır.
+Kişisel Cihazınızı (genellikle bir telefon veya tablet) kuruluşunuzun ağındaki kaydedin. Cihazınız kaydedildikten sonra kuruluşunuzun kısıtlanmış kaynaklara erişebilir olacaktır.
 
 >[!Note]
 >Bu makalede Windows cihaz gösterim amaçlı kullanılmıştır, ancak iOS, Android ve macOS çalıştıran cihazlar da kaydedebilirsiniz.
@@ -34,7 +34,7 @@ Cihazınızın, kuruluşunuzun ağ kaydettirmekte, ancak aşağıdaki eylemler g
 
 - İsteğe bağlı olarak, kuruluşunuzun seçimlerine bağlı olarak, otomatik olarak Microsoft Intune gibi mobil cihaz Yönetimi'nde kayıtlı olması. Intune kaydetme hakkında daha fazla bilgi için bkz. [Cihazınızı ıntune'a kaydetme](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
 
-- Kişisel Microsoft hesabınız için kullanıcı adı ve parola kullanarak oturum açma işlemi verilecektir.
+- Kullanıcı adı ve parola için iş veya Okul hesabınızı kullanarak oturum açma işlemi verilecektir.
 
 ## <a name="to-register-your-windows-device"></a>Windows Cihazınızı kaydetmek için
 
@@ -44,30 +44,26 @@ Ağınızdaki kişisel cihazını kaydetmek için aşağıdaki adımları izleyi
 
     ![Ayarları ekranında hesapları](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Seçin **e-posta & hesaplarına**ve ardından **bir Microsoft hesabına Katıl**.
+2. Seçin **işe veya okula erişim**ve ardından **Connect** gelen **işe veya okula erişim** ekran.
 
-    ![E-posta & hesaplarına ve bir Microsoft hesabı bağlantıları Ekle](./media/user-help-register-device-on-network/register-device-email-and-accounts.png)
+    ![Bağlan seçeneği vurgulanmış iş veya Okul ekranına erişim](./media/user-help-register-device-on-network/register-device-access-work-school-connect.png)
 
-3. Üzerinde **Microsoft hesabınızı ekleyin** ekran, kişisel Microsoft hesabınızın e-posta adresinizi yazın.
+3. Üzerinde **bir iş veya Okul hesabı Ekle** ekranında, iş veya Okul hesabınızın e-posta adresinizi yazın ve ardından **sonraki**. Örneğin, alain@contoso.com.
 
-    ![E-posta ile Microsoft hesabı ekran ekleme](./media/user-help-register-device-on-network/register-device-add-accounts.png)
-
-4. Üzerinde **parola gir** ekranında, kişisel Microsoft hesabınızın parolasını yazın ve ardından **oturum**.
-
-    ![Parola ekranı girin](./media/user-help-register-device-on-network/register-device-enter-password.png)
+4. İş veya Okul hesabınızda oturum açın ve ardından **oturum**.
 
 5. (İki aşamalı doğrulama kullanıyorsanız), kimlik doğrulama isteğini onaylama ve Windows Hello'yu (gerekirse) ayarlama dahil olmak üzere kayıt işlemini tamamlayın.
 
-## <a name="to-make-sure-youre-registered"></a>Emin olmak için kayıtlı
+## <a name="to-verify-that-youre-registered"></a>Kayıtlı doğrulamak için
 Ayarlarınızı bakarak kayıtlı emin olabilirsiniz.
 
 1. Açık **ayarları**ve ardından **hesapları**.
 
     ![Ayarları ekranında hesapları](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
-2. Seçin **e-posta & hesaplarına**ve kişisel Microsoft hesabınızı gördüğünüzden emin olun.
+2. Seçin **işe veya okula erişim**ve iş veya Okul hesabınızı gördüğünüzden emin olun.
 
-    ![Bağlı contoso hesabı ile iş veya Okul ekranına erişim](./media/user-help-register-device-on-network/register-device-verify-account.png)
+    ![Bağlı contoso hesabı ile iş veya Okul ekranına erişim](./media/user-help-register-device-on-network/register-device-setup-verify.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Kuruluşunuzun ağına kullanarak kişisel Cihazınızı kaydettikten sonra kaynakların çoğunu erişebilir olmalıdır.

@@ -1,23 +1,22 @@
 ---
 title: Azure PowerShell Betiği-Azure Cosmos DB tablo API'si hesap oluşturma
 description: Azure PowerShell Betiği Örneği - Azure Cosmos DB Tablo API'si hesabı oluşturma
-services: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: mvc
+ms.subservice: cosmosdb-table
 ms.devlang: PowerShell
 ms.topic: sample
 ms.date: 08/08/2018
-ms.openlocfilehash: dacad55370be742dcfc3aa69f9254154568b6a58
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.reviewer: sngun
+ms.openlocfilehash: bc8a9c5d19bcb94e476dca704351baa43d2800e0
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52954961"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040719"
 ---
-# <a name="azure-cosmos-db-create-a-table-api-account-using-powershell"></a>Azure Cosmos DB: PowerShell kullanarak bir Tablo API'si hesabı oluşturma
+# <a name="azure-cosmos-db-create-a-table-api-account-using-powershell"></a>Azure Cosmos DB: PowerShell kullanarak bir tablo API hesabı oluşturma
 
 Bu örnek PowerShell betiği bir Azure Cosmos DB Tablo API'si hesabı oluşturur. 
 

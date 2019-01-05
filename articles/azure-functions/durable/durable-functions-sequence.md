@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 14d50a17cf7816cb8e792128f8dd3965781657e5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4657bd136592c66b5dab9a712f5f1d6df898876c
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339595"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043966"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Dayanıklı işlevler - Hello dizisi örnek zincirleme işlevi
 
-İşlev zincirleme işlevler bir dizi belirli bir sırayla yürütülmesi deseni ifade eder. Genellikle, bir işlevin çıktısı başka bir işlev girişi uygulanması gerekir. Bu makalede dayanıklı işlevler hızlı başlangıcı tamamladığınızda oluşturduğunuz zincirleme dizisi ([ C# ](durable-functions-create-first-csharp.md) veya [JavaScript](quickstart-js-vscode.md)). Dayanıklı işlevler hakkında daha fazla bilgi için bkz: [dayanıklı işlevler genel bakış](durable-functions-overview.md).
+İşlev zincirleme işlevler bir dizi belirli bir sırayla yürütülmesi deseni ifade eder. Genellikle, bir işlevin çıktısı başka bir işlev girişi uygulanması gerekir. Bu makalede dayanıklı işlevler hızlı başlangıcı tamamladığınızda oluşturduğunuz zincirleme dizisi ([ C# ](durable-functions-create-first-csharp.md) veya [JavaScript](quickstart-js-vscode.md)). Dayanıklı işlevler hakkında daha fazla bilgi için bkz: [dayanıklı işlevler desenleri ve teknik kavramlar](durable-functions-concepts.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -142,7 +142,7 @@ Gördüğünüz gibi `runtimeStatus` örneğinin *tamamlandı* ve `output` orche
 > [!NOTE]
 > Orchestrator işlev çalışmaya HTTP POST uç nokta örnek uygulamaya bir HTTP olarak uygulanan "HttpStart" adlı bir işlev tetikler. Gibi diğer tetikleyici türleri için aynı başlangıç mantığı uygulayabilir `queueTrigger`, `eventHubTrigger`, veya `timerTrigger`.
 
-İşlev yürütme günlüklerine bakın. `E1_HelloSequence` İşlevi çalışmaya ve açıklanan yeniden yürütme davranışı nedeniyle birden çok kez tamamlandı [genel bakış](durable-functions-overview.md). Öte yandan, yalnızca üç yürütme vardı `E1_SayHello` olduğundan, bu işlev yürütmelerini değil yeniden.
+İşlev yürütme günlüklerine bakın. `E1_HelloSequence` İşlevi çalışmaya ve açıklanan yeniden yürütme davranışı nedeniyle birden çok kez tamamlandı [genel bakış](durable-functions-concepts.md). Öte yandan, yalnızca üç yürütme vardı `E1_SayHello` olduğundan, bu işlev yürütmelerini değil yeniden.
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio örnek kod
 

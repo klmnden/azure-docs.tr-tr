@@ -6,32 +6,32 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2153f0a16df9e79b3f5324ce19880e2708855196
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0fb2c3daf19ce07d9641cbc5504cb3b598ad5b0d
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848009"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54034464"
 ---
 # <a name="indexing-policy-in-azure-cosmos-db"></a>Azure Cosmos DB'de dizin oluşturma ilkesi
 
 Varsayılan dizinleme ilkesinin bir Azure Cosmos kapsayıcısı üzerinde aşağıdaki parametreleri yapılandırarak geçersiz kılabilirsiniz:
 
-* **Dahil edilecek veya dizinden öğeleri ve yolları hariç**: hariç tutma veya eklediğinizde veya bir kapsayıcı içindeki öğeleri değiştirin, dizinde belirli öğeler içerir. Ayrıca dahil edebilir veya kapsayıcıda dizine belirli yollar/özellikleri hariç. Yolları içerebilir joker karakter düzenleri, örneğin, *.
+* **Dahil edilecek veya dizinden öğeleri ve yolları hariç**: Hariç tutma veya eklediğinizde veya bir kapsayıcı içindeki öğeleri değiştirin, dizinde belirli öğeler içerir. Ayrıca dahil edebilir veya kapsayıcıda dizine belirli yollar/özellikleri hariç. Yolları içerebilir joker karakter düzenleri, örneğin, *.
 
-* **Dizin türleri yapılandırma**: Ayrıca dizinli yolları aralığı için dizinleri diğer türleri gibi ekleyebileceğiniz uzamsal.
+* **Dizin türleri yapılandırma**: Buna ek olarak dizinlenmiş yolları aralığı için dizinleri diğer türleri gibi ekleyebileceğiniz uzamsal.
 
-* **Dizin modu yapılandırma**: bir kapsayıcı dizin oluşturma ilkesini kullanarak, farklı bir dizin oluşturma modu gibi yapılandırabileceğiniz *Consistent* veya *hiçbiri*.
+* **Dizin modu yapılandırma**: Bir kapsayıcı dizin oluşturma ilkesini kullanarak, farklı bir dizin oluşturma modu gibi yapılandırabileceğiniz *Consistent* veya *hiçbiri*.
 
 ## <a name="indexing-modes"></a>Dizin oluşturma modları 
 
 Azure Cosmos DB, bir Azure Cosmos kapsayıcısını yapılandırabileceğiniz iki dizin oluşturma modunu destekler. Aşağıdaki iki dizin oluşturma modları üzerinden dizin oluşturma ilkesini yapılandırabilirsiniz: 
 
-* **Tutarlı**: Consistent için bir Azure Cosmos kapsayıcının İlkesi ayarlarsanız, belirli bir kapsayıcı sorgulamaları noktası okuma için belirtmiş aynı tutarlılık düzeyi izleyin (örneğin, güçlü, bağımlı eskime, oturum veya son). 
+* **Tutarlı**: Bir Azure Cosmos kapsayıcının ilkesi için Consistent ayarlarsanız, sorgular belirli bir kapsayıcıda noktası okuma için belirtmiş aynı tutarlılık düzeyi izleyin (örneğin, güçlü, bağımlı eskime, oturum veya son). 
 
   Dizinin öğeleri güncelleştirme zaman uyumlu olarak güncelleştirilir. Örneğin, INSERT, Değiştir, güncelleştirme ve silme işlemleri bir öğe üzerinde dizin güncelleştirme neden olur. Tutarlı dizin oluşturma, yazma üretimi etkilemeden tutarlı sorguları destekler. Yazma üretimi azalma "yolları dizin oluşturma işleminde dahil" ve "tutarlılık düzeyi." bağlıdır. Dizin oluşturma modu Consistent yazma için hızlı bir şekilde tasarlanmıştır ve hemen iş yüklerini sorgulama.
 
-* **Hiçbiri**: None dizini modu kendisiyle ilişkilendirilmiş hiçbir dizinine sahip olan bir kapsayıcı. Bu, Azure Cosmos veritabanı, bir anahtar-değer depolama alanı olarak kullanılır ve yalnızca kimliği özelliği tarafından erişilen öğeleri yaygın olarak kullanılır.
+* **Hiçbiri**: None kendisiyle ilişkilendirilmiş hiçbir dizin dizin moduna sahip olan bir kapsayıcı. Bu, Azure Cosmos veritabanı, bir anahtar-değer depolama alanı olarak kullanılır ve yalnızca kimliği özelliği tarafından erişilen öğeleri yaygın olarak kullanılır.
 
   > [!NOTE]
   > Dizin oluşturma modu None yapılandırma yan etkisi, mevcut tüm dizinleri bırakmayı vardır. Erişim desenleri ID gerektir ya da yalnızca kendi bağlantı varsa bu seçeneği kullanmanız gerekir.

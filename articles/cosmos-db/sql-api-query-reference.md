@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB'de SQL dili sözdizimi
 description: Bu makalede, Azure Cosmos DB, farklı işleçler ve anahtar sözcükleri bu dilde kullanılabilen kullanılan SQL sorgu dili söz dizimini açıklar.
-author: LalithaMV
+author: markjbrown
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.topic: reference
 ms.date: 12/07/2018
-ms.author: laviswa
+ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: eec3846319a93e94ca362d9ef6815a73d0ca958a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9e589c582e52aafb9bdd93f80a702b581b883a59
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53142565"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044391"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Azure Cosmos DB SQL dil başvurusu 
 
@@ -474,7 +474,7 @@ ORDER BY <sort_specification>
 |**Kategori**|**Ayrıntılar**|  
 |-|-|  
 |**Aritmetik**|İşleç girişlere numaralarını olmasını bekliyor. Çıkış ayrıca bir sayıdır. Herhangi biri ise **tanımlanmamış** veya sayı sonuç dışında türü **tanımlanmamış**.|  
-|**bit düzeyinde**|İşleci, girişlere 32 bitlik işaretli tamsayı numaraları olmasını bekliyor. Çıkışı, 32 bitlik işaretli tamsayı numarası da yapılır.<br /><br /> Herhangi bir tamsayı olmayan değer yuvarlanır. Pozitif değer aşağı yuvarlanır, negatif değerleri yuvarlanır.<br /><br /> Son 32 biti kendi ikiye tamamlayıcı gösterimini yararlanarak 32-bit tamsayı aralığın dışında herhangi bir değer dönüştürülür.<br /><br /> Herhangi biri ise **tanımlanmamış** veya sonuç ise sayı,'den başka **tanımlanmamış**.<br /><br /> **Not:** yukarıdaki davranışı JavaScript bit düzeyinde işleci davranışı ile uyumludur.|  
+|**bit düzeyinde**|İşleci, girişlere 32 bitlik işaretli tamsayı numaraları olmasını bekliyor. Çıkışı, 32 bitlik işaretli tamsayı numarası da yapılır.<br /><br /> Herhangi bir tamsayı olmayan değer yuvarlanır. Pozitif değer aşağı yuvarlanır, negatif değerleri yuvarlanır.<br /><br /> Son 32 biti kendi ikiye tamamlayıcı gösterimini yararlanarak 32-bit tamsayı aralığın dışında herhangi bir değer dönüştürülür.<br /><br /> Herhangi biri ise **tanımlanmamış** veya sonuç ise sayı,'den başka **tanımlanmamış**.<br /><br /> **Not:** Yukarıdaki davranışı JavaScript bit düzeyinde işleci davranışı ile uyumludur.|  
 |**Mantıksal**|İşleci, girişlere Boolean(s) olmasını bekliyor. Çıkış, ayrıca bir Boole değeri.<br />Herhangi biri ise **tanımlanmamış** veya sonucu sonra Boolean, dışındaki **tanımlanmamış**.|  
 |**Karşılaştırma**|İşleci, aynı türe sahip ve tanımlanmamış olmaması için girişlere bekliyor. Çıkış bir Boole değeri.<br /><br /> Herhangi biri ise **tanımlanmamış** veya girişleri farklı türlere sahip ve ardından sonuç **tanımlanmamış**.<br /><br /> Bkz: **değerleri karşılaştırma için sıralama** ayrıntıları sıralama değeri için tablo.|  
 |**dize**|İşleci, girişlere dizelerini olmasını bekliyor. Çıkış de bir dizedir.<br />Herhangi biri ise **tanımlanmamış** veya sonuç sonra dize dışındaki **tanımlanmamış**.|  
@@ -517,7 +517,7 @@ ORDER BY <sort_specification>
   
  Veritabanından alınana kadar Cosmos DB'de değer türleri bilinen değildir. Verimli sorgular yürütülmesini desteklemek için işleçlerin en katı tür gereksinimleri vardır. Ayrıca işleçleri kendileri tarafından örtülü dönüştürmeler yapmayın.  
   
- Bu sorgu gibi sağladığı anlamına gelir: seçin * ÖĞESİNDEN kök r nerede r.Age = 21 yalnızca döndürecektir özelliği yaş belgelerle sayı 21 eşittir. Belge özelliği yaş dize "21" veya "0021" dizesi ile eşleşmez, "21" ifadesiyle = 21 için tanımlanmamış değerlendirir. Belirli bir değer (örneğin, sayı 21) arama sonsuz sayıda arama kıyasla daha hızlı olduğundan için daha iyi kullanımını dizinler, böylece olası (21 sayı veya dize "21", "021", "21.0"...) eşleşir. Bu, farklı türlerde değerler işleçlerin nasıl JavaScript değerlendirir öğesinden farklıdır.  
+ Bunun gibi bir sorguda anlamı: SEÇİN * ÖĞESİNDEN kök r nerede r.Age = 21 yalnızca döndürecektir özelliği yaş belgelerle 21 sayısına eşittir. Belge özelliği yaş dize "21" veya "0021" dizesi ile eşleşmez, "21" ifadesiyle = 21 için tanımlanmamış değerlendirir. Belirli bir değer (örneğin, sayı 21) arama sonsuz sayıda arama kıyasla daha hızlı olduğundan için daha iyi kullanımını dizinler, böylece olası (21 sayı veya dize "21", "021", "21.0"...) eşleşir. Bu, farklı türlerde değerler işleçlerin nasıl JavaScript değerlendirir öğesinden farklıdır.  
   
  **Diziler ve nesneleri eşitlik ve karşılaştırma**  
   
@@ -1051,7 +1051,7 @@ EXP (<numeric_expression>)
   
  Bir sayının üssünü sabittir **e** sayının üssü. Örneğin, EXP(1.0) = e ^ 1.0 = 2.71828182845905 ve EXP(10) = e ^ 10 = 22026.4657948067.  
   
- Bir sayının doğal logaritmasını üssü sayıdır kendisini: EXP (günlüğü (n)) = n. Ve üstel bir sayının doğal logaritmasını sayı kendisini: günlük (EXP (n)) = n.  
+ Bir sayının doğal logaritmasını üssü sayıdır kendisini: EXP (günlüğü (n)) = n. Ve üstel bir sayının doğal logaritmasını sayı kendisini: Günlük (EXP (n)) = n.  
   
  **Örnekler**  
   
@@ -1108,7 +1108,7 @@ LOG (<numeric_expression> [, <base>])
   
  Logaritmanın tabanı için doğal logaritmasını olan **e**burada **e** bir Irrational 2.718281828 için yaklaşık olarak eşit sabittir.  
   
- Üstel bir sayının doğal logaritmasını sayıdır kendisini: günlük (EXP (n)) = n. Ve üstel bir sayının doğal logaritma sayı kendisini: EXP (günlüğü (n)) = n.  
+ Üstel bir sayının doğal logaritmasını sayıdır kendisini: Günlük (EXP (n)) = n. Ve üstel bir sayının doğal logaritma sayı kendisini: EXP (günlüğü (n)) = n.  
   
  **Örnekler**  
   

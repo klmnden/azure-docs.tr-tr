@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78882742549632e7f1f6362f9e3ad0ae0034ffda
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c8581510f16896df74f814e501648374d984945e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634685"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54039342"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure işlevleri'nin güvenilirliği ve performansı en iyi duruma getirme
 
@@ -37,7 +37,7 @@ Mümkün olduğunda, yeniden düzenleme büyük işlevleri daha küçük işlevi
 
 ### <a name="cross-function-communication"></a>İşlev iletişim arası
 
-[Dayanıklı işlevler](durable/durable-functions-overview.md) ve [Azure Logic Apps](../logic-apps/logic-apps-overview.md) durumu geçişleri ve birden çok işlevi arasındaki iletişim yönetmek için tasarlanmıştır.
+[Dayanıklı işlevler](durable/durable-functions-concepts.md) ve [Azure Logic Apps](../logic-apps/logic-apps-overview.md) durumu geçişleri ve birden çok işlevi arasındaki iletişim yönetmek için tasarlanmıştır.
 
 Dayanıklı işlevler veya Logic Apps ile birden çok işlevleri tümleştirmek için kullanılıyorsa, genellikle çapraz işlevi iletişimi için depolama kuyruklarını kullanma bir en iyi uygulamadır.  Ana nedeni, depolama kuyruklarına ucuz ve sağlamak için çok daha kolay olmasıdır. 
 

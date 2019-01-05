@@ -4,18 +4,19 @@ titleSuffix: Azure Cosmos DB
 description: MongoDB için kullandığınız API'lerle Azure Cosmos DB üzerinde Angular ve Node ile bir MongoDB uygulaması oluşturma öğreticisi dizisinin 3. bölümü.
 author: johnpapa
 ms.service: cosmos-db
-ms.component: cosmosdb-mongo
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
-ms.openlocfilehash: 462d0ea036ee50a3eea6812d87772bba9559125c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.reviewer: sngun
+ms.openlocfilehash: 2ab583a2cdef5df3816f6da7e0a57ee20f087a49
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788591"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043150"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Angular uygulama API'si ile Azure Cosmos DB'nin MongoDB için oluşturma - Angular ile kullanıcı arabirimini oluşturma
 
