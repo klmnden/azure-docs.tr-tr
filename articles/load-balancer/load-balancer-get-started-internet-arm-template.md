@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: c77cdf23e73a174ca68744ea543a41ce0a1de9f7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5f6a0ce0c9d863b5ab4922e7228a873ed5398600
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095712"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033290"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Şablon CLI kullanarak herkese açık bir yük dengeleyici oluşturma
 
@@ -80,3 +80,5 @@ Azure CLI’yi kullanarak şablonu dağıtmak için aşağıdaki adımları uygu
 [Yük dengeleyici dağıtım modu yapılandırma](load-balancer-distribution-mode.md)
 
 [Yük dengeleyiciniz için boşta TCP zaman aşımı ayarlarını yapılandırma](load-balancer-tcp-idle-timeout.md)
+
+JSON söz dizimi ve bir şablon bir yük dengeleyici özelliklerini bkz [Microsoft.Network/loadBalancers](/azure/templates/microsoft.network/loadbalancers).

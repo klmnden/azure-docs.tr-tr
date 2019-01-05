@@ -10,31 +10,29 @@ ms.service: application-gateway
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 12/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 62c4e51cd160ed7830eb42943225847857dc4963
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 59c7781efa8aaa6405ef3cb021ca2123d94ad61b
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963637"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54035500"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Hızlı Başlangıç: Azure Application Gateway ile web trafiğini yönlendirme - Azure CLI
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Hızlı Başlangıç: Azure Application Gateway - Azure CLI ile doğrudan web trafiği
 
-Azure Application Gateway ile bağlantı noktalarına dinleyiciler atayarak ve arka uç havuzuna kaynaklar ekleyerek uygulama web trafiğinizi belirli kaynaklara yönlendirebilirsiniz.
-
-Bu hızlı başlangıç, arka uç havuzunda iki sanal makine bulunan bir uygulama ağ geçidini hızla oluşturmak üzere Azure CLI’sini kullanmayı göstermektedir. Ardından doğru bir şekilde çalışıp çalışmadığından emin olmak için test edersiniz.
+Bu hızlı başlangıçta hızlı bir şekilde, arka uç havuzunda iki sanal makine ile bir uygulama ağ geçidi oluşturmak için Azure CLI'yı kullanmayı gösterir. Ardından doğru bir şekilde çalışıp çalışmadığından emin olmak için test edersiniz. Azure Application Gateway ile belirli kaynaklar tarafından uygulama web trafiği doğrudan: dinleyici bağlantı noktalarına atama, kuralları oluşturma ve kaynakları bir arka uç havuzuna ekleme.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz Azure CLI 2.0.4 sürüm çalıştırın veya üzeri. Sürümü bulmak için çalıştırın **az--version**. Yükleme veya yükseltme hakkında daha fazla bilgi için bkz: [Azure CLI yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Daima kaynak grubunda kaynaklar oluşturmanız gerekir. [az group create](/cli/azure/group#az-group-create) ile bir kaynak grubu oluşturun. 
+Azure'da, bir kaynak grubu için ilgili kaynakları ayırın. Kullanarak bir kaynak grubu oluşturma [az grubu oluşturma](/cli/azure/group#az-group-create). 
 
 Aşağıdaki örnek *eastus* konumunda *myResourceGroupAG* adlı bir kaynak grubu oluşturur.
 
@@ -44,9 +42,9 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Ağ kaynakları oluşturma 
 
-Diğer kaynaklarla iletişim kurmak için uygulama ağ geçidine yönelik bir sanal makine oluşturmanız gerekir. Uygulama ağ geçidini oluştururken aynı zamanda bir sanal makine oluşturabilirsiniz. Bu örnekte iki alt ağ oluşturulmuştur: biri uygulama ağ geçidi ve diğeri de sanal makineler içindir. 
+Uygulama ağ geçidi, bir sanal ağ oluşturduğunuzda, diğer kaynaklarla iletişim kurabilir. Uygulama ağ geçidini oluştururken aynı zamanda bir sanal makine oluşturabilirsiniz. Bu örnekte iki alt ağ oluşturacaksınız: biri uygulama ağ geçidi ve diğer sanal makineler için. 
 
-[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) komutunu kullanarak sanal ağı ve alt ağı oluşturun. [az network public-ip create](/cli/azure/network/public-ip#az-public-ip-create) komutunu kullanarak bir genel IP adresi oluşturun.
+Sanal ağ ve alt ağ oluşturmak için kullandığınız [az ağ sanal ağ oluşturma](/cli/azure/network/vnet#az-network-vnet-create). Çalıştırma [az network public-IP oluşturma](/cli/azure/network/public-ip#az-public-ip-create) genel IP adresi oluşturmak için.
 
 ```azurecli-interactive
 az network vnet create \
@@ -68,13 +66,13 @@ az network public-ip create \
 
 ## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 
-Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak iki sanal makine oluşturacaksınız. 
+Bu örnekte, Azure application gateway için arka uç sunucular olarak kullanan iki sanal makine oluşturun. 
 
 ### <a name="create-two-virtual-machines"></a>İki sanal makine oluşturma
 
-Uygulama ağ geçidinin başarıyla oluşturulduğunu doğrulamak için sanal makinelere NGINX de yükleyin. cloud-init yapılandırma dosyasını kullanarak NGINX’i yükleyin ve Linux sanal makinesinde 'Merhaba Dünya' Node.js uygulaması çalıştırın. 
+Yükleme [NGINX web sunucusunu](https://docs.nginx.com/nginx/) uygulamayı doğrulamak için sanal makinelerde ağ geçidi başarıyla oluşturuldu. Cloud-init yapılandırma dosyasını kullanarak NGINX'i yükleyebilir ve bir "Merhaba Dünya" Node.js uygulaması bir Linux sanal makinesinde çalıştırmak için kullanabilirsiniz. Cloud-init hakkında daha fazla bilgi için bkz: [azure'da sanal makineler için Cloud-init desteğine](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
 
-Geçerli kabuğunuzda cloud-init.txt adlı bir dosya oluşturup aşağıdaki yapılandırmayı kopyalayıp kabuğa yapıştırın. Başta birinci satır olmak üzere cloud-init dosyasının tamamını doğru bir şekilde kopyaladığınızdan emin olun:
+Azure Cloud Shell'de kopyalayın ve adlı bir dosya aşağıdaki yapılandırmayı yapıştırın *cloud-init.txt*. Girin *Düzenleyicisi cloud-init.txt* dosyası oluşturmak için.
 
 ```yaml
 #cloud-config
@@ -118,7 +116,7 @@ runcmd:
   - nodejs index.js
 ```
 
-[az network nic oluşturma](/cli/azure/network/nic#az-network-nic-create) ile ağ arabirimlerini oluşturun. [az vm create](/cli/azure/vm#az-vm-create) komutunu kullanarak sanal makineleri oluşturun.
+[az network nic oluşturma](/cli/azure/network/nic#az-network-nic-create) ile ağ arabirimlerini oluşturun. Sanal makineler oluşturmak için kullandığınız [az vm oluşturma](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -140,7 +138,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-[az network application-gateway create](/cli/azure/network/application-gateway#az-application-gateway-create) komutunu kullanarak bir uygulama ağ geçidi oluşturun. Azure CLI kullanarak bir uygulama ağ geçidi oluşturduğunuzda, kapasite, sku ve HTTP ayarları gibi yapılandırma bilgilerini belirtirsiniz. Ağ arabirimlerinin özel IP adresleri, uygulama ağ geçidinin arka uç havuzunda sunucu olarak eklenir.
+Kullanarak bir uygulama ağ geçidi oluşturma [az ağ application-gateway oluşturma](/cli/azure/network/application-gateway#az-application-gateway-create). Azure CLI ile bir uygulama ağ geçidi oluşturduğunuzda, belirttiğiniz kapasite SKU ve HTTP gibi yapılandırma bilgilerini ayarlar. Azure, özel IP adresleri ağ arabirimlerinin sonra uygulama ağ geçidinin arka uç havuzuna sunucuları olarak ekler.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -158,17 +156,17 @@ az network application-gateway create \
   --servers "$address1" "$address2"
 ```
 
-Uygulama ağ geçidinin oluşturulması 30 dakikaya kadar sürebilir. Uygulama ağ geçidi oluşturulduktan sonra şu özellikleri görürsünüz:
+Bu uygulama ağ geçidi oluşturmak için Azure'da 30 dakikaya kadar sürebilir. Oluşturulduktan sonra aşağıdaki ayarlarda görüntüleyebileceğiniz **ayarları** bölümünü **uygulama ağ geçidi** sayfası:
 
-- *appGatewayBackendPool*: Bir uygulama ağ geçidi en az bir arka uç adres havuzuna sahip olmalıdır.
-- *appGatewayBackendHttpSettings*: İletişim için 80 numaralı bağlantı noktasının ve HTTP protokolünün kullanıldığını belirtir.
-- *appGatewayHttpListener*: *appGatewayBackendPool* ile ilişkili varsayılan dinleyicidir.
-- *appGatewayFrontendIP*: *appGatewayHttpListener*’a *myAGPublicIPAddress*’i atar.
-- *kural 1*: *appGatewayHttpListener* ile ilişkili varsayılan yönlendirme kuralıdır.
+- **appGatewayBackendPool**: Bulunan **arka uç havuzları** sayfası. Bu, gerekli arka uç havuzu belirtir.
+- **appGatewayBackendHttpSettings**: Bulunan **HTTP ayarları** sayfası. Bu, uygulama ağ geçidi iletişim için 80 numaralı bağlantı noktasını ve HTTP protokolünü kullanan belirtir.
+- **appGatewayHttpListener**: Bulunan **dinleyicileri sayfa**. İle ilişkili varsayılan dinleyici belirtir **appGatewayBackendPool**.
+- **appGatewayFrontendIP**: Bulunan **ön uç IP yapılandırmaları** sayfası. Buna atar *myAGPublicIPAddress* için **appGatewayHttpListener**.
+- **rule1**: Bulunan **kuralları** sayfası. İle ilişkili varsayılan yönlendirme kuralı belirtir **appGatewayHttpListener**.
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
-Uygulama ağ geçidini oluşturmak için NGINX’in yüklenmesi gerekli değildir ancak NGINX’i bu hızlı başlangıçta uygulama ağ geçidinin başarılı bir şekilde oluşturulup oluşturulmadığını doğrulamak için yüklediniz. Uygulama ağ geçidinin genel IP adresini almak için [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) komutunu kullanın. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
+Azure uygulama ağ geçidi oluşturmak için bir NGINX web sunucusunu gerektirmez, ancak bu hızlı başlangıçta Azure uygulama ağ geçidi başarıyla oluşturulmuş olup olmadığını doğrulamak için yüklü. Yeni uygulama ağ geçidi genel IP adresini almak için kullanın [az ağ public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -178,13 +176,15 @@ az network public-ip show \
   --output tsv
 ``` 
 
+Kopyalama ve genel IP adresi, tarayıcınızın adres çubuğuna yapıştırın.
+    
 ![Uygulama ağ geçidini test etme](./media/quick-create-cli/application-gateway-nginxtest.png)
 
-Tarayıcıyı yenilediğinizde diğer VM’nin adının göründüğünü görürsünüz.
+Tarayıcıyı yenileyin, ikinci bir sanal makine adını görmeniz gerekir.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-İlk olarak uygulama ağ geçidiyle oluşturulan kaynakları keşfedin ve ardından artık gerekmediğinde kaynak grubu, uygulama ağ geçidi ve tüm ilgili kaynakları kaldırmak için [az group delete](/cli/azure/group#az-group-delete) komutunu kullanabilirsiniz.
+Application gateway ile oluşturduğunuz kaynaklara artık ihtiyacınız olduğunda kullanın [az grubu Sil](/cli/azure/group#az-group-delete) kaynak grubunu kaldırmak için komutu. Kaynak grubu kaldırarak, ayrıca uygulama ağ geçidi ve tüm ilgili kaynakları kaldırın.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG

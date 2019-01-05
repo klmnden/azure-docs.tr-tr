@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/02/2019
-ms.openlocfilehash: e9f322198cf94232dd2d87aa1f27dbbd6a282b72
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/03/2019
+ms.openlocfilehash: c1ef32256569d1718f6848a968585216f43f333a
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53995006"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033460"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure---paas-or-iaas"></a>Azure'da - PaaS veya Iaas sağındaki SQL Server seçeneği seçin
 
@@ -87,10 +87,11 @@ Aşağıdaki tabloda, SQL Database ve Azure VM'lerinde SQL Server'ın temel öze
 ## <a name="business-motivations-for-choosing-azure-sql-database-or-sql-server-on-azure-vms"></a>Azure VM'lerinde Azure SQL Database'in veya SQL Server'ın seçilmesine yönelik iş faydaları
 
 PaaS veya Iaas SQL veritabanlarınızın barındırılmasına yönelik seçme kararınızı etkileyebilir birkaç faktör vardır:
+
 - [Maliyet](#cost) -hem PaaS ve Iaas seçeneği içeren temel fiyatı kapsayan temel altyapıyı ve lisanslama. Ancak, Iaas seçeneğiyle ek zaman ve kaynak Paas'ta fiyatına dahil bu yönetim özelliklerini alıyorsanız sırada veritabanınızı yönetmek için almaları gerekir. Iaas seçeneği kaynaklarınızı, PaaS sürümü her zaman sürece devam ederken maliyeti düşürmek için kullanmadığınız sırada kapalı olanak tanır, bırak ve gerektiğinde, kaynaklarınızı yeniden oluşturun.
 - [Yönetim](#administration) -PaaS seçenekleri için veritabanını yönetmek için almaları için gereken süreyi azaltın. Ancak, aynı zamanda önlemek, İş yükünüzün performansını bazı özel yönetim görevlerine.
 - [Hizmet düzeyi sözleşmesi](#service-level-agreement-sla) -hem Iaas ve PaaS sağlayan yüksek, sektörde standart SLA. Veritabanlarınızı kullanılabilirliğini sağlamak için ek bir mekanizma uygulamak gereken anlamı Iaas altyapısı için % 99,95 oranında SLA'sı garanti etse PaaS seçeneği % 99,99 SLA'sı garanti eder. PaaS, eşleşen bir yüksek kullanılabilirlik çözümü uygulamak istiyorsanız, olağanüstü durumda, ek SQL Server VM oluşturun ve çift veritabanınızı maliyeti olabilir, AlwaysOn Kullanılabilirlik Grupları Yapılandırma gerekebilir.
-- [Buluta taşıma zamanı](#time-to-move-to-cloud) -Azure VM'de SQL Server ortamınızın, tam bir eşleşme olan Azure SQL sanal makinesi şirket içinden geçiş veritabanlarını diğerine taşıma başka bir sunucuya şirket içinde çok farklı değildir. Yönetilen örnek ayrıca, son derece kolay geçiş sağlar; Ancak, yönetilen örneğe geçiş yapmadan önce uygulamanız gereken bazı değişiklikler olabilir.
+- [Azure'a taşıma zamanı](#market) -Azure VM'de SQL Server ortamınızın, tam bir eşleşme olan Azure SQL sanal makinesi şirket içinden geçiş veritabanlarını diğerine taşıma başka bir sunucuya şirket içinde çok farklı değildir. Yönetilen örnek ayrıca, son derece kolay geçiş sağlar; Ancak, yönetilen örneğe geçiş yapmadan önce uygulamanız gereken bazı değişiklikler olabilir.
 
 Bu etkenler aşağıdaki bölümlerde daha ayrıntılı açıklanmıştır.
 
@@ -102,10 +103,8 @@ Bu etkenler aşağıdaki bölümlerde daha ayrıntılı açıklanmıştır.
 
 Şu anda **SQL veritabanı** hizmet olarak satılır ve kaynakların her biri faturalandırılır saatlik hizmet katmanı ve seçtiğiniz işlem boyutuna göre sabit bir ücrete, farklı fiyatlarla birkaç hizmet katmanlarında kullanılabilir.
 Tek SQL veritabanı ile çok çeşitli temel katman için 5$ / ay başlangıç fiyatları gelen ihtiyaçlarınıza uygun bir hizmet katmanı seçebilirsiniz.
-SQL veritabanı yönetilen örnek sayesinde, ayrıca kendi lisansınızı getirebilirsiniz. Getir kendi lisanslama ile ilgili daha fazla bilgi için bkz: [azure'de Yazılım Güvencesiyle lisans taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/) veya [Azure hibrit avantajı hesaplayıcı](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/#sql-database) görmek için nasıl **en fazla %40Kaydet**.
+SQL veritabanı yönetilen örnek sayesinde, ayrıca kendi lisansınızı getirebilirsiniz. Getir kendi lisanslama ile ilgili daha fazla bilgi için bkz: [azure'de Yazılım Güvencesiyle lisans taşınabilirliği](https://azure.microsoft.com/pricing/license-mobility/) veya [Azure hibrit avantajı hesaplayıcı](https://azure.microsoft.com/pricing/hybrid-benefit/#sql-database) görmek için nasıl **en fazla %40Kaydet**.
 Buna ek olarak, giden Internet trafiği için normal [veri aktarımı ücretleriyle](https://azure.microsoft.com/pricing/details/data-transfers/) faturalandırılırsınız. Dinamik olarak ayarlamak hizmet katmanları ve boyutları, uygulamanızın değişken verimlilik ihtiyaçlarını karşılamak için işlem kullanabilirsiniz. En yeni bilgileri desteklenen geçerli hizmet katmanları, bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [sanal çekirdek tabanlı satın alma modeli](sql-database-service-tiers-vcore.md). Ayrıca oluşturabilirsiniz [elastik havuzlar](sql-database-elastic-pool.md) kaynakları maliyetleri azaltmak ve kullanım uyum sağlamak için veritabanı örnekleri arasında paylaşmak için ani.
-
-
 
 **SQL Database** ile, veritabanı yazılımına Microsoft tarafından otomatik olarak yapılandırma, düzeltme eki ve yükseltme uygulanır; bu da yönetim maliyetlerinizi azaltır. Ayrıca, [yerleşik yedekleme](sql-database-automated-backups.md) özellikleri, özellikle çok sayıda veritabanınız olduğunda önemli maliyet tasarrufları sağlamanıza yardımcı olur.
 

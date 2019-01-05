@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 83054c505689768c14d168841764a4557c3e1f8b
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6da0bddc3f6c90d0ecd3a554988f510e1063caac
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159007"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54043048"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Lisans gereksinimleri için Azure AD Self Servis parola sıfırlama
 
-Azure Active Directory (Azure AD) dört sürüm halinde sunulur: ücretsiz, temel, Premium P1 ve Premium P2. Yaptığınız değişikliği de dahil olmak üzere, Self Servis parola sıfırlamayı sıfırlama, kilidini birçok farklı özelliği ve Azure AD'ye farklı sürümlerde kullanılabilir olan geri yazma vardır. Bu makalede farklar açıklanmaktadır dener. Her Azure AD sürümünde bulunan özellikler hakkında daha fazla ayrıntı bulunabilir [Azure Active Directory fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory (Azure AD) dört sürüm halinde sunulur: Ücretsiz, temel, Premium P1 ve Premium P2. Yaptığınız değişikliği de dahil olmak üzere, Self Servis parola sıfırlamayı sıfırlama, kilidini birçok farklı özelliği ve Azure AD'ye farklı sürümlerde kullanılabilir olan geri yazma vardır. Bu makalede farklar açıklanmaktadır dener. Her Azure AD sürümünde bulunan özellikler hakkında daha fazla ayrıntı bulunabilir [Azure Active Directory fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="compare-editions-and-features"></a>Sürümleri ve özellikleri karşılaştırın
 
@@ -41,7 +41,7 @@ Azure AD Self Servis parola sıfırlama, kullanıcı başına lisanslanır, uyum
    * Bu işlev, Azure AD Premium P1 veya Premium P2 sürümleri dahildir.
 
 > [!WARNING]
-> Tek başına Office 365 planları lisanslama **parola geri yazma özelliğini desteklemeyen** ve Azure AD Premium P1 veya Premium P2 sürümlerinde bu işlev için çalışmaya gerektirir.
+> Tek başına Office 365 planları lisanslama *"Self Servis parola sıfırlama/değiştirme/kilidini açma şirket içi geri yazma ile" desteklemeyen* ve Azure AD Premium P1 veya Premium P2 sürümleri için bu işlevleri içeren bir planı gerekir İş.
 >
 
 Maliyetleri de dahil olmak üzere ek lisans bilgileri şu sayfalarda yer bulunabilir:

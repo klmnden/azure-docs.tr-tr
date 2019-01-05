@@ -1,19 +1,18 @@
 ---
 title: Kullanım Azure Cosmos DB değişiklik akışı, gerçek zamanlı veri analizi görselleştirmek için
 description: Değişiklik akışı bir perakende şirketi tarafından nasıl kullanılabileceğini kullanıcı desenlerini öğrenir, gerçek zamanlı veri analizi ve görselleştirme gerçekleştirmek için bu makalede açıklanır.
-services: cosmos-db
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: e663a7b8f68c43ebf4c562dd67630db5d113e979
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: b04a31ec46194d68dbbc5e5a4eb2b600968d7be5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090763"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037115"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Kullanım Azure Cosmos DB değişiklik akışı, gerçek zamanlı veri analizi görselleştirmek için
 
@@ -31,7 +30,7 @@ Aşağıdaki diyagramda, veri akışı ve çözümde ilgili bileşenleri temsil 
 
 ![Proje visual](./media/changefeed-ecommerce-solution/project-visual.png)
  
-1. **Veri oluşturma:** veri simülatörü, bir kullanıcı bir öğeyi görüntüleme, kendi sepetine öğe ekleme ve bir öğe satın alma gibi olayları temsil eden perakende verilerini oluşturmak için kullanılır. Veri oluşturucuyu kullanarak büyük örnek veri kümesi oluşturabilirsiniz. Oluşturulan örnek veriler, aşağıdaki biçimde belgeleri içerir:
+1. **Veri oluşturma:** Veri simülatörü, bir kullanıcı bir öğeyi görüntüleme, kendi sepetine öğe ekleme ve bir öğe satın alma gibi olayları temsil eden perakende verileri oluşturmak için kullanılır. Veri oluşturucuyu kullanarak büyük örnek veri kümesi oluşturabilirsiniz. Oluşturulan örnek veriler, aşağıdaki biçimde belgeleri içerir:
    
    ```json
    {      
@@ -42,9 +41,9 @@ Aşağıdaki diyagramda, veri akışı ve çözümde ilgili bileşenleri temsil 
    }
    ```
 
-2. **Cosmos DB:** depolarını bir Azure Cosmos DB koleksiyonu oluşturulan verilerdir.  
+2. **Cosmos DB:** Oluşturulan veri depolarını bir Azure Cosmos DB koleksiyonunda değildir.  
 
-3. **Değişiklik akışı:** değişiklik akışı değişiklikler Azure Cosmos DB koleksiyonu için dinler. Her seferinde yeni bir belge (yani gibi bir öğe görüntüleyen bir kullanıcı bir olay meydana geldiğinde bunların sepetine öğe ekleme veya bir öğe satın alma) koleksiyona eklendiğinde, değişiklik akışı tetikleyen bir [Azure işlevi](../azure-functions/functions-overview.md).  
+3. **Değişiklik akışı:** Değişiklik akışı, değişiklikler Azure Cosmos DB koleksiyonu için dinler. Her seferinde yeni bir belge (yani gibi bir öğe görüntüleyen bir kullanıcı bir olay meydana geldiğinde bunların sepetine öğe ekleme veya bir öğe satın alma) koleksiyona eklendiğinde, değişiklik akışı tetikleyen bir [Azure işlevi](../azure-functions/functions-overview.md).  
 
 4. **Azure işlevi:** Azure işlevi yeni verileri işler ve bu kümeye gönderen bir [Azure olay hub'ı](../event-hubs/event-hubs-about.md).  
 
@@ -317,7 +316,7 @@ Power BI, verileri analiz edip öngörü paylaşmaya yönelik İş analizi araç
 
    ![görselleştirmeler](./media/changefeed-ecommerce-solution/visualizations.png)
 
-## <a name="optional-visualize-with-an-e-commerce-site"></a>İsteğe bağlı: bir E-ticaret sitesi ile görselleştirin
+## <a name="optional-visualize-with-an-e-commerce-site"></a>İsteğe bağlı: Bir E-ticaret sitesi ile görselleştirin
 
 Artık, bir gerçek e-ticaret sitesi ile bağlanmak için yeni veri analizi aracı nasıl kullanabileceğinizi gözlemleyeceksiniz. E-ticaret sitesi oluşturmak için ürün kategorileri (Kadınlar, erkek, her iki cins için) listesi, ürün kataloğunu ve en popüler öğelerin listesini depolamak için bir Azure Cosmos DB veritabanı kullanın.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: 0333bc5e95b74fc97cfff3d79adbe28aefff5d40
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: adddbc03b5ec61944e95a2e0fff8767c41d96b0e
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834647"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033766"
 ---
 # <a name="indexing-in-azure-cosmos-db"></a>Azure Cosmos DB'yi dizine ekleme
 
@@ -29,7 +29,7 @@ Sahte kök düğümü belge etiketleri için karşılık gelen gerçek düğüml
 
 Azure Cosmos DB, JSON belgeleri olarak öğeleri ve dizin olarak ağaçları projeleri. Ağaçtaki yolları için ilkeleri ayarlayabilirsiniz. Dahil etmek veya yolları dizine elmadan hariç tutmak seçebilirsiniz. Geliştirilmiş yazma performansı sunar ve dizin depolaması burada ahead sorgu desenleri bilinen senaryoları için daha düşük olabilir. Daha fazla bilgi için bkz. [dizin yolları](index-paths.md).
 
-## <a name="indexing-under-the-hood"></a>Dizin oluşturma: altyapı öğeleri
+## <a name="indexing-under-the-hood"></a>Dizin oluşturma: Başlık altında
 
 Azure Cosmos veritabanı, belirli yollarını dışlanacak yapılandırmadığınız sürece her bir ağaç yolu olduğu dizine veri için otomatik dizin oluşturma geçerlidir.
 
