@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: 0c394a92bff3ace210ee0db156f47bb8912bf45d
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1bd92b9c4611465b680f195e4881a447f4bb701
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631592"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044408"
 ---
 # <a name="back-up-azure-vms-with-the-azure-backup-service"></a>Azure Backup hizmeti ile Azure Vm'lerini yedekleme
 
@@ -290,7 +290,7 @@ Sanal makine üzerinde bir yedekleme ilkesinin dağıtılmış olması, verileri
   Dağıtım bildirimleri, yedekleme işinin tetiklendiğini ve Yedekleme işleri sayfasında işin ilerleme durumunu izleyebileceğinizi bilmenizi sağlar. VM’nizin boyutuna bağlı olarak, ilk yedeklemenin oluşturulması biraz zaman alabilir.
 
   > [!NOTE]
-  > Tüm Azure Backup tarafından yedeklenen veriler, kullanılmadıkları şifrelenir [depolama hizmeti şifrelemesi (SSE)](../storage/common/storage-service-encryption.md).
+  > - Tüm Azure Backup tarafından yedeklenen veriler, kullanılmadıkları şifrelenir [depolama hizmeti şifrelemesi (SSE)](../storage/common/storage-service-encryption.md).
   >
   >
 
@@ -339,4 +339,3 @@ Azure VM'lerin yedeklenmesi maliyeti, korumalı örneklerinin sayısını temel 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Yönetme](backup-azure-manage-vms.md) yedeklemeleriniz.
-

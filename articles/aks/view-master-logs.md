@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 5d8aa2c25bf79278b10b96f93733e3abf89e4783
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9cf0c378271841277e6dfd770bf8d186494b9d48
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971190"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54040753"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Kubernetes Azure Kubernetes Service (AKS) ana düğüm günlüklerini gözden geçirin ve etkinleştirin
 
@@ -31,18 +31,15 @@ Log Analytics etkin ve Azure portalında yönetilir. Kubernetes AKS kümenizde a
 1. AKS kümenizi için kaynak grubunu seçin *myResourceGroup*. Gibi tek tek AKS kümesi kaynakları içeren kaynak grubunu seçmeyin *MC_myResourceGroup_myAKSCluster_eastus*.
 1. Sol tarafındaki seçin **tanılama ayarları**.
 1. AKS kümenizi gibi seçin *myAKSCluster*, sonra tercih **tanılamayı Aç**.
-1. Gibi bir ad girin *myAKSLogs*, ardından seçeneğini **Log Analytics'e gönderme**.
+1. Gibi bir ad girin *myAKSClusterLogs*, ardından seçeneğini **Log Analytics'e gönderme**.
     * Tercih *yapılandırma* Log Analytics, mevcut bir çalışma alanını seçin veya **yeni çalışma alanı oluştur**.
     * Bir çalışma alanı oluşturmanız gerekiyorsa, bir ad, bir kaynak grubu ve bir konum sağlayın.
-1. Kullanılabilir günlükleri listesinde gibi etkinleştirmek istediğiniz günlükleri seçin *kube-apiserver*, *kube Denetleyici Yöneticisi*, ve *kube-Zamanlayıcı*. Dönün ve Log Analytics etkinleştirildikten sonra toplanan günlükleri değiştirin.
+1. Kullanılabilir günlükleri listesinde, etkinleştirmek istediğiniz günlükleri'ni seçin. Varsayılan olarak, *kube-apiserver*, *kube Denetleyici Yöneticisi*, ve *kube-Zamanlayıcı* Günlükleri etkinleştirildi. Gibi ek günlükleri etkinleştirebilirsiniz *kube denetim* ve *küme ölçeklendiriciyi*. Dönün ve Log Analytics etkinleştirildikten sonra toplanan günlükleri değiştirin.
 1. Hazır olduğunuzda seçin **Kaydet** seçili günlüklerin toplanmasını etkinleştirmek için.
 
 Aşağıdaki örnekte portalı ekran görüntüsü gösterildiği *tanılama ayarları* penceresi ve sonra bir Log Analytics çalışma alanı oluşturma seçeneği:
 
 ![Log Analytics çalışma alanı, Log Analytics AKS kümesi için etkinleştirme](media/view-master-logs/enable-oms-log-analytics.png)
-
->[!NOTE]
->OMS çalışma alanları artık Log Analytics çalışma alanları olarak adlandırılır.
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Bir AKS kümesi test pod zamanlama
 

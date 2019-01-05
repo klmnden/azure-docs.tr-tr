@@ -5,8 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 2f399b5084ab65736adfebb5cf0a77ccfbc972e8
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457298"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54052402"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Örnek 1 – derleme Nsg'leri kullanarak bir Azure Resource Manager şablonu ile basit DMZ
 [Güvenlik sınırı en iyi yöntemler sayfasına geri dönün][HOME]
@@ -51,8 +49,8 @@ Başvuru bölümünde, bu örnekte açıklanan ortamı oluşturan bir Azure Reso
 
 **Bu ortamı oluşturmak için** (ayrıntılı yönergeler bu belgenin başvurular bölümünde olduğunda);
 
-1. Azure Resource Manager şablonu dağıtma: [Azure hızlı başlangıç şablonları][Template]
-2. Örnek uygulamayı yüklemek: [örnek uygulama betiği][SampleApp]
+1. Azure Resource Manager şablonu dağıtın: [Azure hızlı başlangıç şablonları][Template]
+2. Örnek uygulamayı yükleyin: [Örnek uygulama betiği][SampleApp]
 
 >[!NOTE]
 >Bu örnekte herhangi bir arka uç sunucularına RDP için IIS sunucusunda bir "Sıçrama kutusu." kullanılır. IIS sunucusuna ve ardından IIS sunucusu RDP arka uç sunucusu için ilk RDP. Alternatif olarak bir genel IP, her sunucu için daha kolay RDP NIC ile ilişkili olabilir.
@@ -350,7 +348,7 @@ Bu örnekte, GitHub ve Azure portalından oluşturan şablonu dağıtmak için a
 Bu dağıtım kaldırmak için kaynak grubunu silin ve tüm alt kaynaklar da silinir.
 
 #### <a name="sample-application-scripts"></a>Örnek uygulama komut dosyaları
-Şablon başarıyla çalıştırıldıktan sonra web sunucusu ve uygulama sunucusu bu DMZ yapılandırma ile test izin vermek için basit bir web uygulaması ile ayarlayabilirsiniz. Bu ve diğer DMZ örnekleri için örnek uygulamayı yüklemek için bir aşağıdaki bağlantıda sağlandı: [örnek uygulama betiği][SampleApp]
+Şablon başarıyla çalıştırıldıktan sonra web sunucusu ve uygulama sunucusu bu DMZ yapılandırma ile test izin vermek için basit bir web uygulaması ile ayarlayabilirsiniz. Bu ve diğer DMZ örnekleri için örnek uygulamayı yüklemek için bir aşağıdaki bağlantıda sağlanmıştır: [Örnek uygulama betiği][SampleApp]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

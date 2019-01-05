@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 25b8b66e67450cb96cd988efd6dd5ffd03377fde
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016554"
+ms.locfileid: "54052164"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Azure App Service'te uygulama yavaş performans sorunlarını giderme
 Bu makale, uygulama yavaş performans sorunlarını gidermenize yardımcı olur. [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -92,7 +92,7 @@ Her App Service uygulaması site uzantısı dağıtılan araçları güçlü bir
 - Kaynak kod düzenleyicilerinden ister [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Yönetim Araçları gibi bir MySQL veritabanına bağlı kaynaklar için bir uygulama için bağlı.
 
-[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) olduğu bir performans izleme de kullanılabilir olan site uzantısı. Application Insights'ı kullanmak için bir SDK'sı ile kodunuzu yeniden oluşturun. Ayrıca, ek verilere erişim sağlayan bir uzantı yükleyebilirsiniz. SDK'sı, uygulamanızın daha ayrıntılı performans ve kullanımı izlemek için kod yazmanıza olanak sağlar. Daha fazla bilgi için [web uygulamalarının performansını izleme](../application-insights/app-insights-web-monitor-performance.md).
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) olduğu bir performans izleme de kullanılabilir olan site uzantısı. Application Insights'ı kullanmak için bir SDK'sı ile kodunuzu yeniden oluşturun. Ayrıca, ek verilere erişim sağlayan bir uzantı yükleyebilirsiniz. SDK'sı, uygulamanızın daha ayrıntılı performans ve kullanımı izlemek için kod yazmanıza olanak sağlar. Daha fazla bilgi için [web uygulamalarının performansını izleme](../azure-monitor/app/web-monitor-performance.md).
 
 <a name="collect" />
 

@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/12/2018
-ms.openlocfilehash: 793aa52c0eb49d122f520ead3ee80a869e7b62d9
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 88538aa9528059458f6e73485f4839693caa943b
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251343"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054513"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Hızlı Başlangıç: Azure Resource Manager şablonu kullanarak Azure Databricks'te Spark işini çalıştırma
 
@@ -178,7 +178,7 @@ El ile otomatik olarak durdurur küme sonlandırmazsanız, seçtiğiniz sağlana
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, Azure Databricks’te bir Spark kümesi oluşturdunuz ve Azure depolama alanındaki verileri kullanarak bir Spark işi çalıştırdınız. Diğer veri kaynaklarından Azure Databricks’e verileri aktarma hakkında bilgi almak için [Spark veri kaynakları](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) bölümüne de bakabilirsiniz. [Özel VNET adresi ile Azure Databricks çalışma alanı oluşturmak](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address) için Resource Manager şablonuna da bakabilirsiniz.
+Bu makalede, Azure Databricks’te bir Spark kümesi oluşturdunuz ve Azure depolama alanındaki verileri kullanarak bir Spark işi çalıştırdınız. Diğer veri kaynaklarından Azure Databricks’e verileri aktarma hakkında bilgi almak için [Spark veri kaynakları](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) bölümüne de bakabilirsiniz. [Özel VNET adresi ile Azure Databricks çalışma alanı oluşturmak](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address) için Resource Manager şablonuna da bakabilirsiniz. JSON söz dizimi ve bir şablonunda kullanmak için özellikler için bkz: [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces) şablon başvurusu.
 
 Azure Databricks kullanılarak bir ETL işleminin (verileri ayıklama, dönüştürme ve yükleme) nasıl gerçekleştirileceğini öğrenmek için sonraki makaleye ilerleyin.
 

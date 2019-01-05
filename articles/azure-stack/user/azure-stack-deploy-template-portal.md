@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 4013b7136fd365b1d37348cfc1f0b46cce787ce2
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 63f0c1846a6e32dc5a5fcc9b1162d343890387a1
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363132"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54053526"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Şablonları Azure Stack portalını kullanarak dağıtma
 
-*İçin geçerlidir: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
+*Uygulama hedefi: Azure Stack tümleşik sistemleri ve Azure Stack Geliştirme Seti*
 
 Portal, Azure Stack için Azure Resource Manager şablonlarını dağıtmak için kullanabilirsiniz.
 
 ## <a name="to-deploy-a-template"></a>Bir şablonu dağıtmak için
 
 1. Portal, select oturum **+ kaynak Oluştur**ve ardından **özel**.
-2. Seçin **şablon dağıtımı**.
+2. **Şablon dağıtımı**'nı seçin.
 3. Seçin **şablonu Düzen**ve ardından JSON şablon kodunuz kod penceresine yapıştırın. **Kaydet**’i seçin.
 4. Seçin **parametreleri Düzenle**, gösterilir ve ardından bu parametrelerin değerlerini sağlamasını **Tamam**.
 5. Seçin **abonelik**. Kullanın ve ardından istediğiniz aboneliği seçin **Tamam**.
@@ -40,6 +40,6 @@ Portal, Azure Stack için Azure Resource Manager şablonlarını dağıtmak içi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Şablon dağıtımı hakkında daha fazla bilgi için bkz:
+Şablon dağıtma hakkında daha fazla bilgi edinmek için şu makaleye bakın:
 
-[Şablonları PowerShell ile dağıtma](azure-stack-deploy-template-powershell.md)
+- [Şablonları PowerShell ile dağıtma](azure-stack-deploy-template-powershell.md)
