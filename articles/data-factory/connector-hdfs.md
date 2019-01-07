@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory kullanarak HDFS veri kopyalama | Microsoft Docs
-description: Desteklenen havuz veri depoları için bir bulut veya şirket içi HDFS kaynaktan kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak verileri kopyalamak öğrenin.
+title: HDFS Azure Data Factory kullanarak verileri kopyalama | Microsoft Docs
+description: Desteklenen bir havuz veri depolarına bir bulut veya şirket içi HDFS kaynaktan bir Azure Data Factory işlem hattında kopyalama etkinliği'ni kullanarak veri kopyalama hakkında bilgi edinin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -9,56 +9,55 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 034c9a321f402bada87290f6aa72fc7e416ef2c6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a5df9d4d323158ee52c872b0122fdd28d9f74979
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054553"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54019869"
 ---
-# <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Azure Data Factory kullanarak HDFS verilerini
+# <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Hdfs Azure Data Factory kullanarak veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-hdfs-connector.md)
 > * [Geçerli sürüm](connector-hdfs.md)
 
-Bu makalede kopya etkinliği Azure Data Factory'de HDFS verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede, kopyalama etkinliği Azure Data Factory'de HDFS veri kopyalamak için nasıl kullanılacağını özetlenmektedir. Yapılar [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) kopyalama etkinliği genel bir bakış sunan makalesi.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Verileri HDFS tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Verileri HDFS tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Kopyalama etkinliği tarafından kaynakları/havuz desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Özellikle, bu HDFS bağlayıcı destekler:
+Özellikle, bu HDFS bağlayıcı'yı destekler:
 
-- Dosya kopyalarken kullanarak **Windows** (Kerberos) veya **anonim** kimlik doğrulaması.
-- Dosya kopyalarken kullanarak **webhdfs** protokolü veya **yerleşik Distcp'yi** destekler.
-- Dosyaları olarak kopyalama- ya da ayrıştırma/oluşturma dosyalarıyla [desteklenen dosya biçimleri ve sıkıştırma codec](supported-file-formats-and-compression-codecs.md).
+- Dosyalar kopyalanıyor kullanarak **Windows** (Kerberos) veya **anonim** kimlik doğrulaması.
+- Dosyalar kopyalanıyor kullanarak **webhdfs** protokolü veya **yerleşik DistCp** destekler.
+- Dosyaları olarak kopyalama- ya da ayrıştırma/oluşturma dosyalarıyla [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Genel olarak erişilebilir değil bir HDFS verileri kopyalamak için bir Self-hosted tümleştirmesi çalışma zamanı ayarlamanız gerekir. Bkz: [Self-hosted tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) daha ayrıntılı bilgi için makalenin.
+Genel olarak erişilebilir değil bir HDFS veri kopyalamak için şirket içinde barındırılan tümleştirme çalışma zamanını oluşturan gerekir. Bkz: [şirket içinde barındırılan tümleştirme çalışma zamanı](concepts-integration-runtime.md) daha fazla bilgi edinmek için makaleyi.
 
 ## <a name="getting-started"></a>Başlarken
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Aşağıdaki bölümler için HDFS Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümler, Data Factory varlıklarını belirli HDFS'ye tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
-## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
+## <a name="linked-service-properties"></a>Bağlı hizmeti özellikleri
 
-Aşağıdaki özellikler HDFS bağlantılı hizmeti için desteklenir:
+HDFS bağlı hizmeti için aşağıdaki özellikleri destekler:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Hdfs**. | Evet |
 | url |HDFS URL'si |Evet |
-| authenticationType | İzin verilen değerler: **anonim**, veya **Windows**. <br><br> Kullanılacak **Kerberos kimlik doğrulaması** HDFS bağlayıcı için başvurmak [Bu bölümde](#use-kerberos-authentication-for-hdfs-connector) şirket içi ortamınıza uygun şekilde ayarlamak için. |Evet |
-| Kullanıcı adı |Kullanıcı adı için Windows kimlik doğrulaması. Kerberos kimlik doğrulaması için belirtmek `<username>@<domain>.com`. |Evet (Windows kimlik doğrulaması için) |
-| password |Windows kimlik doğrulaması için parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet (Windows kimlik doğrulaması için) |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+| authenticationType | İzin verilen değerler şunlardır: **Anonim**, veya **Windows**. <br><br> Kullanılacak **Kerberos kimlik doğrulaması** HDFS bağlayıcısının başvurmak [Bu bölümde](#use-kerberos-authentication-for-hdfs-connector) şirket içi ortamınızı uygun şekilde ayarlamak için. |Evet |
+| Kullanıcı adı |Kullanıcı adı için Windows kimlik doğrulaması. Kerberos kimlik doğrulaması için belirtin `<username>@<domain>.com`. |Evet (Windows kimlik doğrulaması için) |
+| password |Windows kimlik doğrulaması için parola. Data Factory'de güvenle depolamak için bir SecureString olarak bu alanı işaretleyin veya [Azure Key Vault'ta depolanan bir gizli dizi başvuru](store-credentials-in-key-vault.md). |Evet (Windows kimlik doğrulaması için) |
+| connectVia | [Integration Runtime](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deponuz genel olarak erişilebilir değilse), şirket içinde barındırılan tümleştirme çalışma zamanı veya Azure Integration Runtime kullanabilirsiniz. Belirtilmezse, varsayılan Azure Integration Runtime kullanır. |Hayır |
 
 **Örnek: Anonim kimlik doğrulamasını kullanma**
 
@@ -106,20 +105,20 @@ Aşağıdaki özellikler HDFS bağlantılı hizmeti için desteklenir:
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için veri kümeleri makalesine bakın. Bu bölümde HDFS veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümeleri tanımlamak için mevcut özelliklerin tam listesi için veri kümeleri makalesine bakın. Bu bölümde, HDFS veri kümesi tarafından desteklenen özelliklerin bir listesini sağlar.
 
-HDFS verileri kopyalamak için kümesine tür özelliği ayarlamak **FileShare**. Aşağıdaki özellikler desteklenir:
+Verileri HDFS kopyalamak için dataset öğesinin type özelliği ayarlamak **FileShare**. Aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Veri kümesi türü özelliği ayarlamak: **dosya paylaşımı** |Evet |
-| folderPath | Klasör yolu. Joker karakter filtresi desteklenmiyor. Örneğin: klasör/alt / |Evet |
-| fileName |  **Adı veya joker karakter filtresini** belirtilen "folderPath" altında dosyalar için. Bu özellik için bir değer belirtmezseniz, veri kümesi klasördeki tüm dosyaları işaret eder. <br/><br/>Filtre için joker karakter verilir: `*` (sıfır veya daha fazla karakterle eşleşir) ve `?` (eşleşen sıfır veya tek bir karakter).<br/>-Örnek 1: `"fileName": "*.csv"`<br/>-Örnek 2: `"fileName": "???20180427.txt"`<br/>Kullanım `^` , gerçek dosya adı joker karakter ya da bu kaçış karakteri içinde varsa kaçınmak için. |Hayır |
-| Biçimi | İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın.<br/><br/>Belirli bir biçime sahip dosyaları ayrıştırma istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Json biçimine](supported-file-formats-and-compression-codecs.md#json-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquet biçimi](supported-file-formats-and-compression-codecs.md#parquet-format) bölümler. |Hayır (yalnızca ikili kopyalama senaryosu) |
-| Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Daha fazla bilgi için bkz: [desteklenen dosya biçimleri ve sıkıştırma codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler: **Optimal** ve **en hızlı**. |Hayır |
+| type | Dataset öğesinin type özelliği ayarlanmalıdır: **Dosya Paylaşımı** |Evet |
+| folderPath | Klasör yolu. Joker karakter filtresi desteklenmez. Örneğin: klasör/alt / |Evet |
+| fileName |  **Adı veya joker karakter filtresi** belirtilen "folderPath" altında dosyaları için. Bu özellik için bir değer belirtmezseniz, klasördeki tüm dosyaları için veri kümesini işaret eder. <br/><br/>Filtre için joker karakterlere izin verilir: `*` (sıfır veya daha fazla karakter ile eşleşir) ve `?` (eşleşen sıfır ya da tek bir karakter).<br/>-Örnek 1: `"fileName": "*.csv"`<br/>-Örnek 2: `"fileName": "???20180427.txt"`<br/>Kullanım `^` joker karakter veya içinde bu kaçış karakteri, gerçek dosya adı varsa, kaçış için. |Hayır |
+| biçim | İsterseniz **olarak dosya kopyalama-olan** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımları biçimi bölümünde atlayın.<br/><br/>Belirli bir biçime sahip dosyalarını ayrıştırmak istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** özelliği şu değerlerden biri olarak biçimine altında. Daha fazla bilgi için [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Json biçimine](supported-file-formats-and-compression-codecs.md#json-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquetbiçimi](supported-file-formats-and-compression-codecs.md#parquet-format) bölümler. |Hayır (yalnızca ikili kopya senaryosu için) |
+| Sıkıştırma | Veri sıkıştırma düzeyi ve türünü belirtin. Daha fazla bilgi için [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Desteklenen türler şunlardır: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyleri şunlardır: **En iyi** ve **hızlı**. |Hayır |
 
 >[!TIP]
->Bir klasörü altındaki tüm dosyaları kopyalamak için belirtin **folderPath** yalnızca.<br>Belirli bir ada sahip tek bir dosya kopyalamak için belirtin **folderPath** klasörü bölümüyle ve **fileName** dosya adına sahip.<br>Bir klasör altındaki dosyalar kümesini kopyalamak için belirtin **folderPath** klasörü bölümüyle ve **fileName** joker karakter Filtresi ile.
+>Bir klasör altındaki tüm dosyaları kopyalamak için belirtin **folderPath** yalnızca.<br>Belirli bir ada sahip tek bir dosya kopyalamak için belirtin **folderPath** klasör bölümüyle ve **fileName** dosya adına sahip.<br>Bir alt klasörü altında bulunan dosyaları kopyalamak için belirtin **folderPath** klasör bölümüyle ve **fileName** joker karakter Filtresi ile.
 
 **Örnek:**
 
@@ -151,22 +150,22 @@ HDFS verileri kopyalamak için kümesine tür özelliği ayarlamak **FileShare**
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
-Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde HDFS kaynak tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve etkinlikleri tanımlamak için mevcut özelliklerin tam listesi için bkz: [işlem hatları](concepts-pipelines-activities.md) makalesi. Bu bölümde, HDFS kaynak tarafından desteklenen özelliklerin bir listesini sağlar.
 
 ### <a name="hdfs-as-source"></a>Kaynak olarak HDFS
 
-HDFS verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **HdfsSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
+Verileri HDFS kopyalamak için kopyalama etkinliği kaynak türü ayarlayın. **HdfsSource**. Kopyalama etkinliği aşağıdaki özellikler desteklenir **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **HdfsSource** |Evet |
-| özyinelemeli | Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. Özyinelemeli true ve havuz için ayarlandığında Not dosya tabanlı depolama, boş klasör/alt-folder havuz kopyalanır ve oluşturulan olmaz.<br/>İzin verilen değerler: **true** (varsayılan), **false** | Hayır |
-| distcpSettings | HDFS Distcp'yi kullanırken özellik grubu. | Hayır |
-| resourceManagerEndpoint | Yarn ResourceManager uç noktası | Evet Distcp'yi kullanıyorsanız |
-| tempScriptPath | Geçici Distcp'yi komut dosyasını depolamak için kullanılan bir klasör yolu. Komut dosyası veri fabrikası tarafından oluşturulur ve kopyalama işini tamamladıktan sonra kaldırılır. | Evet Distcp'yi kullanıyorsanız |
-| distcpOptions | Distcp'yi komutu için sağlanan ek seçenekler. | Hayır |
+| type | Kopyalama etkinliği kaynağı öğesinin type özelliği ayarlanmalıdır: **HdfsSource** |Evet |
+| özyinelemeli | Belirtilen klasörün alt klasörleri ya da yalnızca veri yinelemeli olarak okunur olup olmadığını belirtir. Özyinelemeli true ve havuz için ayarlandığında Not dosya tabanlı depolama, boş klasör/alt-folder havuz kopyalanan/oluşturulmuş olmaz.<br/>İzin verilen değerler: **true** (varsayılan), **false** | Hayır |
+| distcpSettings | HDFS DistCp kullanırken özellik grubu. | Hayır |
+| resourceManagerEndpoint | Yarn ResourceManager uç noktası | DistCp kullanıyorsanız Evet |
+| tempScriptPath | Geçici DistCp komut dosyasını depolamak için kullanılan bir klasör yolu. Komut dosyası, Data Factory tarafından oluşturulur ve kopyalama işi tamamlandıktan sonra kaldırılır. | DistCp kullanıyorsanız Evet |
+| distcpOptions | DistCp komutu için sağlanan ek seçenekler. | Hayır |
 
-**Örnek: HDFS kaynağında UNLOAD kullanarak kopyalama etkinliği**
+**Örnek: HDFS kaynakta Kaldır'ı kullanarak kopyalama etkinliği**
 
 ```json
 "source": {
@@ -179,31 +178,31 @@ HDFS verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarl
 }
 ```
 
-HDFS sonraki bölümünden verimli bir şekilde veri kopyalamak için Distcp'yi kullanma hakkında daha fazla bilgi edinin.
+Verileri HDFS sonraki bölümünden verimli bir şekilde kopyalamak için DistCp kullanma konusunda daha fazla bilgi edinin.
 
-## <a name="use-distcp-to-copy-data-from-hdfs"></a>HDFS verileri kopyalamak için Distcp'yi kullanın
+## <a name="use-distcp-to-copy-data-from-hdfs"></a>HDFS veri kopyalamak için DistCp kullanma
 
-[Distcp'yi](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) Hadoop kümesi dağıtılmış kopya yapmak için bir Hadoop yerel komut satırı aracıdır. Distcp'yi komutu çalıştırdığınızda, ilk kopyalanması, Hadoop kümesine birkaç harita işleri oluşturmak için tüm dosyaları listelenir ve her bir harita iş ikili kopyalama havuzu kaynağından ne yapacağını.
+[DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) bir Hadoop kümesinde dağıtılmış kopyalamayı yapmak için bir Hadoop yerel komut satırı aracıdır. Distcp komutu çalıştırdığınızda, ilk kopyalanması, Hadoop kümesine birkaç harita işleri oluşturmak için tüm dosyaları listelenir ve her bir harita iş ikili kopyalama havuz kaynağından ne yapacağını.
 
-Etkinlik destek dosyaları olarak kopyalamak için Distcp'yi kullanarak kopyalama-Azure blob'a olduğu (de dahil olmak üzere [kopyalama hazırlanan](copy-activity-performance.md) veya Azure Data Lake Store; bu durumda, tam olarak Self-hosted tümleştirme çalışma zamanında çalıştırmak yerine kümenizin güç yararlanabilirsiniz . Özellikle, kümeniz çok güçlü olduğunda daha iyi kopyalama verimlilik sağlar. Azure Data Factory yapılandırmanıza bağlı olarak, kopyalama etkinliği otomatik olarak distcp'yi komutu oluşturmak, Hadoop kümenize göndermek ve kopya durumunu izleyebilirsiniz.
+Kopyalama etkinliği destek dosyaları olarak kopyalamak için DistCp kullanma-Azure Blob içinde olduğu (dahil olmak üzere [kopyalama aşamalı](copy-activity-performance.md) veya Azure Data Lake Store, bu durumda, tam olarak şirket içinde barındırılan tümleştirme çalışma zamanını çalıştırmak yerine kümenizin power yararlanabilir . Özellikle, kümenizin çok güçlü ise daha iyi kopyalama aktarım hızı sağlar. Azure Data factory'de yapılandırmanıza bağlı olarak, kopyalama etkinliği otomatik olarak distcp komutu oluşturun, Hadoop kümenizi gönderin ve kopya durumunu izleyin.
 
 ### <a name="prerequsites"></a>Prerequsites
 
-Kopyalamak için Distcp'yi kullanmak için dosyaları olarak-olan Azure Blob (hazırlanmış kopyalama dahil) veya Azure Data Lake Store HDFS Hadoop kümenizi gereksinimleri karşıladığından emin olun:
+Kopyalamak için DistCp kullanma dosyaları olarak-olan HDFS (hazırlanmış kopya dahil) Azure Blob veya Azure Data Lake Store, Hadoop kümenizi gereksinimleri karşıladığından emin olun:
 
-1. MapReduce ve Yarn hizmetleri etkinleştirildi.
+1. MapReduce ve Yarn hizmetler etkinleştirilir.
 2. Yarn sürümüdür 2.5 veya üstü.
-3. HDFS sunucu, hedef veri deposuyla - Azure Blob veya Azure Data Lake Store tümleştirilir:
+3. HDFS sunucusuna, hedef veri deposu ile - Azure Blob veya Azure Data Lake Store tümleştirilir:
 
-    - Azure Blob dosya sistemi yerel olarak Hadoop 2.7 itibaren desteklenir. Yalnızca Hadoop env yapılandırmada jar yolu belirtmeniz gerekir.
-    - Azure Data Lake Store dosya sistemi, Hadoop 3.0.0-alpha1 ' başlayarak paketlenmiştir. Hadoop kümesi bu sürümden daha düşük ise, ilgili ADLS el ile içeri aktarmanız gerekir kümeden içine paketler (azure datalake store.jar) jar [burada](https://hadoop.apache.org/releases.html)ve Hadoop env yapılandırmada jar yolunu belirtin.
+    - Azure Blob dosya sistemi, Hadoop 2.7 beri yerel olarak desteklenir. Yalnızca Hadoop env yapılandırmada jar yolunu belirtmeniz gerekir.
+    - Hadoop 3.0.0-alpha1 ' itibaren Azure Data Lake Store dosya sistemi ile paketlenmiştir. Hadoop kümenizi Bu sürümden daha düşükse, ilgili ADLS el ile almanız gerekir kümeden halinde paketler (azure-datalake-store.jar) jar [burada](https://hadoop.apache.org/releases.html)ve Hadoop env yapılandırmada jar yolunu belirtin.
 
-4. HDFS geçici bir klasörde hazırlayın. Bu geçici klasörü KB düzeyi alanı kaplar için Distcp'yi Kabuk betiği depolamak için kullanılır.
-5. Emin olun, HDFS bağlantılı hizmetteki sağlanan kullanıcı hesabının iznine sahip bir) Yarn; uygulamada gönderme b) alt klasör oluşturun, geçici klasörün üstünde altında dosyaları okuma/yazma iznine sahip.
+4. HDFS geçici bir klasörde hazırlayın. Bu geçici klasörü DistCp Kabuk betiği KB düzeyinde alanı kaplar şekilde depolamak için kullanılır.
+5. Emin olun, HDFS bağlı hizmette sağlanan kullanıcı hesabı için izne sahip bir); Yarn uygulama gönderme (b) bir alt klasör oluşturun, yukarıda geçici klasörü altındaki dosyaları okuma/yazma iznine sahip.
 
 ### <a name="configurations"></a>Yapılandırmalar
 
-Verileri HDFS Distcp'yi kullanarak Azure Blob kopyalamak için kopyalama etkinliği yapılandırma örneği aşağıdadır:
+DistCp kullanarak Azure Blob için HDFS veri kopyalamak için kopyalama etkinliği yapılandırmasının bir örnek aşağıda verilmiştir:
 
 **Örnek:**
 
@@ -241,32 +240,32 @@ Verileri HDFS Distcp'yi kullanarak Azure Blob kopyalamak için kopyalama etkinli
 ]
 ```
 
-## <a name="use-kerberos-authentication-for-hdfs-connector"></a>HDFS Bağlayıcısı için Kerberos kimlik doğrulamasını kullan
+## <a name="use-kerberos-authentication-for-hdfs-connector"></a>HDFS Bağlayıcısı için Kerberos kimlik doğrulaması kullan
 
-HDFS Bağlayıcısı Kerberos kimlik doğrulamasını kullanmak amacıyla şirket içi ortamını ayarlamak için iki seçenek vardır. Bir durumunuz daha iyi uyduğunu seçebilirsiniz.
-* Seçenek 1: [Kerberos alanı katılma Self-hosted tümleştirmesi çalışma zamanı makinede](#kerberos-join-realm)
-* Seçenek 2: [Windows etki alanı Kerberos alanı arasında karşılıklı güven etkinleştir](#kerberos-mutual-trust)
+HDFS bağlayıcısında Kerberos kimlik doğrulamasını kullanmak için şirket içi ortamı ayarlamak için iki seçenek vardır. Bir Olayınıza daha iyi uyduğunu seçebilirsiniz.
+* 1. seçenek: [Şirket içinde barındırılan tümleştirme çalışma zamanı makine Kerberos bölgesinde katılın](#kerberos-join-realm)
+* 2. seçenek: [Windows etki alanı ve Kerberos alanı arasında karşılıklı güven etkinleştir](#kerberos-mutual-trust)
 
-### <a name="kerberos-join-realm"></a>Seçenek 1: Self-hosted tümleştirmesi çalışma zamanı makine Kerberos bölgesinde katılın.
+### <a name="kerberos-join-realm"></a>1. seçenek: Şirket içinde barındırılan tümleştirme çalışma zamanı makine Kerberos bölgesinde katılın
 
 #### <a name="requirements"></a>Gereksinimler
 
-* Self-hosted tümleştirme çalışma zamanı makine Kerberos alanı katılmak gereken ve herhangi bir Windows etki alanına katılamıyor.
+* Şirket içinde barındırılan tümleştirme çalışma zamanı makine Kerberos alanı katılmak gereken ve herhangi bir Windows etki alanına katılma işlemi gerçekleştirilemiyor.
 
-#### <a name="how-to-configure"></a>Nasıl yapılandırılır
+#### <a name="how-to-configure"></a>Yapılandırma
 
-**Self-Hosted tümleştirme çalışma zamanı makinede:**
+**Şirket içinde barındırılan tümleştirme çalışma zamanı makinesinde:**
 
-1.  Çalıştırma **Ksetup** Kerberos KDC sunucu ve bölge yapılandırma yardımcı programı.
+1.  Çalıştırma **Ksetup** Kerberos KDC sunucu ve bölgeyi yapılandırmak için yardımcı program.
 
-    Kerberos alanı bir Windows etki alanından farklı olduğundan makine bir çalışma grubunun bir üyesi yapılandırılmalıdır. Bu işlem, Kerberos alanı ayarlama ve şu şekilde bir KDC sunucusu eklemeyi de yararlanılabilir. Değiştir *REALM.COM* gerektiği gibi ilgili kendi bölge ile.
+    Kerberos alanı bir Windows etki alanından farklı olduğundan makine bir çalışma grubunun üyesi yapılandırılmalıdır. Bu, Kerberos alanı ayarlama ve şu şekilde bir KDC sunucu ekleyerek gerçekleştirilebilir. Değiştirin *REALM.COM* gerektiği gibi ilgili kendi bölge ile.
 
             C:> Ksetup /setdomain REALM.COM
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
 
-    **Yeniden** makineyi 2 Bu komutları yürütülürken sonra.
+    **Yeniden** 2 Bu komutları yürütmeden sonra makine.
 
-2.  Yapılandırmayla doğrulayın **Ksetup** komutu. Çıktısı gibi olmalıdır:
+2.  Yapılandırmayı doğrulamak **Ksetup** komutu. Çıkış, gibi olmalıdır:
 
             C:> Ksetup
             default realm = REALM.COM (external)
@@ -275,23 +274,23 @@ HDFS Bağlayıcısı Kerberos kimlik doğrulamasını kullanmak amacıyla şirke
 
 **Azure Data Factory'de:**
 
-* HDFS Bağlayıcısı'nı kullanarak yapılandırma **Windows kimlik doğrulaması** Kerberos asıl adı ve HDFS veri kaynağına bağlanmak için parola ile birlikte. Denetleme [HDFS bağlantılı hizmet özellikleri](#linked-service-properties) yapılandırma ayrıntıları bölümü.
+* HDFS bağlayıcısını kullanarak yapılandırma **Windows kimlik doğrulaması** Kerberos asıl adı ve HDFS veri kaynağına bağlanmak için parola. Denetleme [HDFS bağlı hizmeti özellikleri](#linked-service-properties) yapılandırma ayrıntıları bölümü.
 
-### <a name="kerberos-mutual-trust"></a>Seçenek 2: Windows etki alanı Kerberos alanı arasında karşılıklı güven etkinleştirme
+### <a name="kerberos-mutual-trust"></a>2. seçenek: Windows etki alanı ve Kerberos alanı arasında karşılıklı güven etkinleştir
 
 #### <a name="requirements"></a>Gereksinimler
 
-*   Self-hosted tümleştirme çalışma zamanı makine bir Windows etki alanına katılması gerekir.
-*   Etki alanı denetleyicisinin ayarlarını güncelleştirmek için izniniz olmalıdır.
+*   Şirket içinde barındırılan tümleştirme çalışma zamanı bilgisayarın Windows etki alanına Katıl gerekir.
+*   Etki alanı denetleyicisinin ayarlarını güncelleştirmek için izne ihtiyacınız var.
 
-#### <a name="how-to-configure"></a>Nasıl yapılandırılır
+#### <a name="how-to-configure"></a>Yapılandırma
 
 > [!NOTE]
-> REALM.COM ve AD.COM aşağıdaki öğreticide kendi ilgili bölge ve gerektiği gibi etki alanı denetleyicisi ile değiştirin.
+> REALM.COM ve AD.COM aşağıdaki öğreticide kendi ilgili bölge ve etki alanı denetleyicisi gerektiği gibi değiştirin.
 
 **KDC sunucusunda:**
 
-1.  KDC yapılandırmasında Düzenle **krb5.conf** dosya KDC izin vermek için aşağıdaki yapılandırma şablonuna başvuran Windows etki alanı güven. Varsayılan olarak, yapılandırmanın bulunur **/etc/krb5.conf**.
+1.  KDC yapılandırmayı Düzenle **krb5.conf** KDC izin vermek için dosyanın Windows aşağıdaki yapılandırma şablonuna başvuran etki alanı güven. Varsayılan olarak, şu yapılandırma konumdadır **/etc/krb5.conf**.
 
             [logging]
              default = FILE:/var/log/krb5libs.log
@@ -327,62 +326,62 @@ HDFS Bağlayıcısı Kerberos kimlik doğrulamasını kullanmak amacıyla şirke
               REALM.COM = .
              }
 
-  **Yeniden** yapılandırmadan sonra KDC Hizmeti.
+  **Yeniden** yapılandırma sonrasında KDC Hizmeti.
 
-2.  Adlı bir asıl hazırlama **krbtgt/REALM.COM@AD.COM** aşağıdaki komutla KDC Server'daki:
+2.  Adlı bir asıl hazırlama **krbtgt/REALM.COM@AD.COM** KDC sunucusunda aşağıdaki komutla:
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3.  İçinde **hadoop.security.auth_to_local** HDFS hizmet yapılandırma dosyası, ekleme `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3.  İçinde **hadoop.security.auth_to_local** HDFS hizmet yapılandırma dosyasında, ekleme `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
 
 **Etki alanı denetleyicisinde:**
 
-1.  Aşağıdaki komutu çalıştırarak **Ksetup** komutları bir bölge girdisi eklemek için:
+1.  Aşağıdaki komutu çalıştırın **Ksetup** komutları bölge giriş eklemek için:
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Kerberos alanı için Windows etki alanından güven oluşturun. [parola] olan asıl parola **krbtgt/REALM.COM@AD.COM**.
+2.  Kerberos alanı için Windows etki alanı güven oluşturun. [parola] olan asıl parola **krbtgt/REALM.COM@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
-3.  İçinde Kerberos kullanılan şifreleme algoritmasını seçin.
+3.  Kerberos kullanılan şifreleme algoritması seçin.
 
-    1. Sunucu Yöneticisi gidin > Grup İlkesi Yönetimi > etki alanı > Grup İlkesi nesneleri > Varsayılan veya etkin etki alanı ilkesi ve düzenleyin.
+    1. Sunucu Yöneticisi'ne gidin > Grup İlkesi Yönetimi > etki alanı > Grup İlkesi nesneleri > Varsayılan veya etkin bir etki alanı ilkesi ve düzenleyin.
 
-    2. İçinde **Grup İlkesi Yönetimi Düzenleyicisi** açılan pencerede, bilgisayar yapılandırması gidin > ilkeler > Windows Ayarları > Güvenlik Ayarları > yerel ilkeler > güvenlik seçenekleri ve yapılandırma **ağ Güvenlik: Kerberos için izin verilen şifreleme türleri yapılandırma**.
+    2. İçinde **Grup İlkesi Yönetimi Düzenleyicisi** açılan pencere, bilgisayar yapılandırması gidin > ilkeler > Windows Ayarları > Güvenlik Ayarları > yerel ilkeler > güvenlik seçeneklerini ve yapılandırma **ağ Güvenlik: Kerberos'ta izin verilen şifreleme türlerini yapılandır**.
 
-    3. Seçin, kullanmak istediğiniz şifreleme algoritması için KDC bağlayın. Genellikle, yalnızca tüm seçeneklerini belirleyebilirsiniz.
+    3. Seçin, kullanmak istediğiniz şifreleme algoritması için KDC bağlanın. Genellikle, yalnızca tüm seçenekleri seçebilirsiniz.
 
-        ![Kerberos için yapılandırma şifreleme türleri](media/connector-hdfs/config-encryption-types-for-kerberos.png)
+        ![Kerberos için şifreleme türlerini yapılandırma](media/connector-hdfs/config-encryption-types-for-kerberos.png)
 
-    4. Kullanım **Ksetup** üzerinde belirli bölge kullanılacak şifreleme algoritmasını belirtmek için komutu.
+    4. Kullanım **Ksetup** belirli bölge üzerinde kullanılacak şifreleme algoritmasını belirtmek için komutu.
 
                 C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
 
-4.  Windows etki alanında Kerberos asıl adı kullanmasını için etki alanı hesabını ve Kerberos asıl arasında eşleme oluşturun.
+4.  Windows etki alanında Kerberos asıl kullanmak için etki alanı hesabını ve Kerberos asıl arasındaki eşleme oluşturun.
 
     1. Yönetimsel Araçları başlatmak > **Active Directory Kullanıcıları ve Bilgisayarları**.
 
-    2. Tıklayarak Gelişmiş özellikleri yapılandırma **Görünüm** > **Gelişmiş Özellikler**.
+    2. Tıklayarak Gelişmiş özellikleri yapılandırma **görünümü** > **Gelişmiş Özellikler**.
 
-    3. Hangi eşlemeleri oluşturmak istediğiniz ve görüntülemek için sağ hesabını bulun **adı eşlemeleri** > tıklatın **Kerberos adları** sekmesi.
+    3. Hangi eşlemeleri oluşturmak istiyorsanız ve görüntülemek için sağ hesabını bulun **adı eşlemeleri** > tıklatın **Kerberos adları** sekmesi.
 
     4. Sorumlu bölge ekleyin.
 
         ![Güvenlik kimliğine eşleyin](media/connector-hdfs/map-security-identity.png)
 
-**Self-Hosted tümleştirme çalışma zamanı makinede:**
+**Şirket içinde barındırılan tümleştirme çalışma zamanı makinesinde:**
 
-* Aşağıdaki komutu çalıştırarak **Ksetup** bir bölge girdisi eklemek için komutları.
+* Aşağıdaki komutu çalıştırın **Ksetup** bölge giriş eklemek için komutları.
 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
 **Azure Data Factory'de:**
 
-* HDFS Bağlayıcısı'nı kullanarak yapılandırma **Windows kimlik doğrulaması** , etki alanı hesabı veya Kerberos asıl HDFS veri kaynağına bağlanmak için birlikte. Denetleme [HDFS bağlantılı hizmet özellikleri](#linked-service-properties) yapılandırma ayrıntıları bölümü.
+* HDFS bağlayıcısını kullanarak yapılandırma **Windows kimlik doğrulaması** etki alanı hesabı veya Kerberos asıl HDFS veri kaynağına bağlanmak için birlikte. Denetleme [HDFS bağlı hizmeti özellikleri](#linked-service-properties) yapılandırma ayrıntıları bölümü.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory kopyalama etkinliği tarafından kaynak ve havuz olarak desteklenen veri depolarının listesi için bkz. [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats).

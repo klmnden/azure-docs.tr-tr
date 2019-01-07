@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 1dc312598fa9bbacedc085480b0771adeb2d182a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5459786ccf69c51fec1630d612fd37b1b78c36c9
+ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731725"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54017013"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Application Insights Analiz Sorunlarını Giderme
 Sorun [Application Insights Analytics](analytics.md)? Buradan başlayın. Analytics, Azure Application Insights'ın güçlü bir arama aracıdır.
@@ -78,7 +78,7 @@ Uygulama kaynağı artık Application Insights ve kullanılabilir birincile t si
 
 Analytics'te bu uygulamayı açmak için izniniz yok.
 
-* Bağlantıyı birisinden mu? İçinde olduğundan emin olmak için isteyin [okuyucular veya bu kaynak grubu için katkıda bulunanlar](../../application-insights/app-insights-resources-roles-access-control.md).
+* Bağlantıyı birisinden mu? İçinde olduğundan emin olmak için isteyin [okuyucular veya bu kaynak grubu için katkıda bulunanlar](../../azure-monitor/app/resources-roles-access-control.md).
 * Farklı kimlik bilgileri kullanılarak bağlantı kaydettiniz? Açık [Azure portalında](https://portal.azure.com), oturumu kapatın ve ardından doğru kimlik bilgilerini girerek bu bağlantıyı yeniden deneyin.
 
 ## <a name="html-storage"></a>403 ... HTML5 depolama

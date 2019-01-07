@@ -8,16 +8,16 @@ ms.service: firewall
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: 86fdbbacf3e8064afe0aaaaebea1d6ef6c25f9d4
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a15ffa23b64f944d8b2c088113bcc29443ce6873
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865844"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038968"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Azure bir şablon kullanarak Güvenlik Duvarı'nı dağıtma
 
-[Oluşturma AzureFirewall korumalı alan kurulum şablon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox) ağ ortamı testi ile bir güvenlik duvarı oluşturur. Bir sanal ağ (VNet) ile üç alt ağıyla: *AzureFirewallSubnet*, *ServersSubnet*, ve *JumpboxSubnet*. *ServersSubnet* ve *JumpboxSubnet* her alt ağa sahip bir tek, iki çekirdekli Windows Server sanal makinesi.
+[Oluşturma AzureFirewall korumalı alan kurulum şablon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox) ağ ortamı testi ile bir güvenlik duvarı oluşturur. Bir sanal ağ (VNet) ile üç alt ağ vardır: *AzureFirewallSubnet*, *ServersSubnet*, ve *JumpboxSubnet*. *ServersSubnet* ve *JumpboxSubnet* her alt ağa sahip bir tek, iki çekirdekli Windows Server sanal makinesi.
 
 Güvenlik Duvarı yer *AzureFirewallSubnet* alt ağ ve bir uygulama kuralı koleksiyonu erişimine izin veren tek bir kural *www.microsoft.com*.
 
@@ -39,10 +39,10 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 1. Portalında, üzerinde **AzureFirewall bir korumalı alan ayarı oluşturma** sayfasında yazın veya aşağıdaki değerleri seçin:
    
-   - **Kaynak grubu**: seçin **Yeni Oluştur**, kaynak grubu için bir ad yazın ve seçin **Tamam**. 
-   - **Sanal ağ adı**: yeni bir VNet için bir ad yazın. 
-   - **Yönetici kullanıcı adı**: yönetici kullanıcı hesabı için bir kullanıcı adı yazın.
-   - **Yönetici parolası**: bir yönetici parolasını yazın. 
+   - **Kaynak grubu**: Seçin **Yeni Oluştur**, kaynak grubu için bir ad yazın ve seçin **Tamam**. 
+   - **Sanal ağ adı**: Yeni sanal ağ için bir ad yazın. 
+   - **Yönetici kullanıcı adı**: Yönetici kullanıcı hesabı için bir kullanıcı adı yazın.
+   - **Yönetici parolası**: Bir yönetici parolasını yazın. 
    
 1. Hüküm ve koşulları okuyun ve ardından **hüküm ve koşulları yukarıda belirtilen kabul ediyorum**.
    
@@ -51,6 +51,8 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
    Kaynakları oluşturmak için birkaç dakika sürer. 
    
 1. Güvenlik Duvarı ile oluşturulan kaynakları keşfedin. 
+
+Bir Güvenlik Duvarı'nda bir şablon özelliklerini ve JSON söz dizimi hakkında bilgi edinmek için bkz. [Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -66,4 +68,4 @@ Remove-AzureRmResourceGroup -Name MyResourceGroup
 Ardından, Azure güvenlik duvarı günlükleri izleyebilirsiniz:
 
 > [!div class="nextstepaction"]
-> [Öğretici: Azure Güvenlik Duvarı günlüklerini izleme](./tutorial-diagnostics.md)
+> [Öğretici: Azure güvenlik duvarı günlüklerini izleyin](./tutorial-diagnostics.md)
