@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 7599fbe05b99466ed1d1a3db17156888cf9ea353
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 26bccc07e402288db696bce8a2371cab9ef7aff9
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338303"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54055090"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan yaygın terimlerin bazıları listelenmektedir.
@@ -40,8 +40,8 @@ Vardır _cihaz SDK'ları_ oluşturmanıza olanak sağlayan birden çok dil için
 ## <a name="azure-iot-service-sdks"></a>Azure IOT hizmeti SDK'ları
 Vardır _hizmet SDK'ları_ oluşturmanıza olanak sağlayan birden çok dil için kullanılabilir [arka uç uygulamaları](#back-end-app) bir IOT hub'ı ile etkileşim. IOT hub'ı öğreticiler bu hizmet SDK'ları kullanmayı gösterir. Kaynak kodu ve hizmet SDK'ları hakkında daha fazla bilgi bu Github'da bulabilirsiniz [depo](https://github.com/Azure/azure-iot-sdks).
 
-## <a name="azure-iot-hub-toolkit"></a>Azure IOT hub'ı Araç Seti
-[Azure IOT hub'ı Araç Seti](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (eski adıyla Azure IOT Araç Seti) olan Azure IOT Hub ve VS code'da cihazları yönetmenize yardımcı olan bir platformlar arası, açık kaynak Visual Studio Code uzantısı. Azure IOT hub'ı araç setiyle IOT geliştiriciler kolaylıkla VS Code'da projeyi IOT geliştirebilir.
+## <a name="azure-iot-tools"></a>Azure IOT araçları
+[Azure IOT Araçları](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) yardımcı olan bir platformlar arası, açık kaynak Visual Studio Code uzantısı, Azure IOT Hub ve VS code'da cihazları yönetmek olan. Azure IOT araçları ile birlikte IOT geliştiriciler kolaylıkla VS Code'da projeyi IOT geliştirebilir.
 
 ## <a name="azure-portal"></a>Azure portal
 [Microsoft Azure Portal'da](https://portal.azure.com) , sağlamak ve Azure kaynaklarınızı yönetmek merkezi bir yerdir. İçerik kullanarak düzenler _dikey pencereleri_.

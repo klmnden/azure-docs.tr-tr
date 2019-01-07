@@ -1,20 +1,19 @@
 ---
 title: Azure Cosmos DB Cassandra API'sine spark'tan ile çalışma
 description: Bu makale, Cosmos DB Cassandra API'sine tümleştirme spark'tan ana sayfasıdır.
-services: cosmos-db
-author: anagha-microsoft
+author: kanshiG
+ms.author: govindk
+ms.reviewer: sngun
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
-ms.devlang: spark-scala
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: ankhanol
-ms.openlocfilehash: cb58ad60501be43ff4da2db29ab3ad3dfee9aad1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 75d2930363b6ad1aeace22d7529df04f31deefe5
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847142"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54037236"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Spark'tan Azure Cosmos DB Cassandra API'sine bağlanma
 
@@ -23,19 +22,19 @@ Bu makalede bir dizi makale Azure Cosmos DB Cassandra API'sine tümleştirme spa
 ## <a name="prerequisites"></a>Önkoşullar
 * [Bir Azure Cosmos DB Cassandra API hesabı sağlayın.](create-cassandra-dotnet.md#create-a-database-account)
 
-* Spark ortam tercih ettiğiniz sağlama [[Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | Diğer].
+* Spark ortam tercih ettiğiniz sağlama [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) | [Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql) | [Diğer].
 
 ## <a name="dependencies-for-connectivity"></a>Bağlantı için bağımlılıklar
-* **Cassandra için Spark Bağlayıcısı:** Spark Bağlayıcısı Azure Cosmos DB Cassandra API'sine bağlanmak için kullanılır.  Tanımlamak ve bulunan bağlayıcı sürümünü kullanmanız [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) Spark ortamınızı Spark ve Scala sürümleriyle uyumlu.
+* **Cassandra için Spark Bağlayıcısı:** Spark Bağlayıcısı, Azure Cosmos DB Cassandra API'sine bağlanmak için kullanılır.  Tanımlamak ve bulunan bağlayıcı sürümünü kullanmanız [Maven central]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) Spark ortamınızı Spark ve Scala sürümleriyle uyumlu.
 
-* **Cassandra API'si için Azure Cosmos DB yardımcı kitaplık:** yanı sıra Spark Bağlayıcısı, adlı başka bir kitaplığı ihtiyacınız [azure-cosmos-cassandra-spark-Yardımcısı]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) Azure Cosmos DB'den. Bu kitaplık, özel bağlantı üretecini ve yeniden deneme ilkesi sınıfları içerir.
+* **Cassandra API'si için Azure Cosmos DB yardımcı kitaplık:** Spark Bağlayıcısı ek olarak, adlı başka bir kitaplığı ihtiyacınız [azure-cosmos-cassandra-spark-Yardımcısı]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) Azure Cosmos DB'den. Bu kitaplık, özel bağlantı üretecini ve yeniden deneme ilkesi sınıfları içerir.
 
   Azure Cosmos DB'de yeniden deneme ilkesi, HTTP durum kodu 429 ("istek oranı büyük") özel durumları işlemek için yapılandırılır. Azure Cosmos DB Cassandra API'SİNİN bu özel durumları aşırı yüklenmiş hatalara Cassandra yerel protokolüne çeviren ve arka istenmesi ile yeniden deneyebilirsiniz. Azure Cosmos DB, sağlanan aktarım hızı modeli kullandığından, giriş/çıkış artış derecelendirir istek hızı sınırlama özel durumları ortaya çıkar. Yeniden deneme ilkesi, spark işleri kısa bir süre içinde koleksiyonunuz için ayrılan aktarım hızını aşmayı veri ani karşı korur.
 
   > [!NOTE] 
   > Yeniden deneme ilkesi, spark işlerinde yalnızca kısa süreli ani karşı koruyabilirsiniz. İş yükünüz çalıştırmak için gereken yeterli RU yapılandırmadıysanız, yeniden deneme ilkesi geçerli değil ve yeniden deneme ilkesi sınıfı özel durumu yeniden oluşturur.
 
-* **Azure Cosmos DB hesabı bağlantısı ayrıntıları:** bilgisayarınızı Azure Cassandra API hesabı adı, hesabınızın uç noktası ve anahtar.
+* **Azure Cosmos DB hesabı bağlantısı ayrıntıları:** Azure Cassandra API hesap adınızı, hesabınızın uç noktası ve anahtar.
     
 ## <a name="spark-connector-throughput-configuration-parameters"></a>Spark Bağlayıcısı aktarım hızı yapılandırma parametreleri
 
