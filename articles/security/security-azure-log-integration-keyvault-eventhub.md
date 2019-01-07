@@ -11,27 +11,27 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: b91d405b8ada1446a477dc10a116b5dfdf349131
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4653803623ed0c847fa63663204b5842f7a03d08
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440055"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584216"
 ---
-# <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure günlük tümleştirmesi öğretici: Event Hubs kullanarak Azure Key Vault işlem olayları
+# <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure günlük tümleştirme Öğreticisi: Event Hubs kullanarak Azure Key Vault olayları işleyin
 
 >[!IMPORTANT]
 > Azure günlük tümleştirme özelliği 06/01/2019 tarafından kullanımdan kaldırılacaktır. 27 Haziran 2018 tarihine kadar AzLog indirmeler devre dışı bırakılır. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında rehberlik için [SIEM araçlarla tümleştirmek için kullanım Azure İzleyici](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Günlüğe kaydedilen olayları alıp, güvenlik bilgileri ve Olay yönetimi (SIEM) sistemine ayıklanarak Azure günlük Tümleştirmesi'ni kullanabilirsiniz. Bu öğreticide, Azure günlük tümleştirmesi Azure Event Hubs'a alınan günlükleri işlemek için nasıl kullanılabileceğini örneği gösterilmektedir.
 
-SIEM satıcınızın Azure İzleyici Bağlayıcısı'nı kullanarak ve bunlar aşağıdaki Azure günlük tümleştirme için tercih edilen yöntem olan [yönergeleri](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). Azure İzleyici için bir bağlayıcı SIEM satıcınıza sağlamıyorsa (sıem sistemlerinizden alınabileceği gibi Azure günlük tümleştirmesi tarafından destekleniyorsa) bu tür bir bağlayıcı kullanılabilir hale gelene kadar Azure günlük tümleştirmesi geçici bir çözüm kullanmanız mümkün olabilir.
+Azure günlük tümleştirme için tercih edilen yöntem, SIEM satıcı Azure İzleyici Bağlayıcısı'nı kullanarak ve bunlar aşağıdaki olan [yönergeleri](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Azure İzleyici, SIEM satıcı eklenmemişse t bir bağlayıcı sağlarsanız (sıem sistemlerinizden alınabileceği gibi Azure günlük tümleştirmesi tarafından destekleniyorsa) bu tür bir bağlayıcı kullanılabilir hale gelene kadar Azure günlük tümleştirmesi geçici bir çözüm kullanmanız mümkün olabilir.
 
  
-Bu öğreticide, nasıl Azure günlük tümleştirmesi ve Event Hubs örnek adımları izleyerek ve her adım çözümü nasıl desteklediğini anlamak çalışılmasını ile tanışın için kullanırsınız. Daha sonra buraya oluşturmak şirketinizin benzersiz gereksinimlerini desteklemek için kendi adımları öğrendiklerinizi alabilir.
+Bu öğreticide, nasıl Azure günlük tümleştirmesi ve Event Hubs örnek adımları izleyerek ve her adım çözümü nasıl desteklediğini anlamak çalışılmasını ile tanışın için kullanırsınız. Daha sonra önceden burada oluşturmak şirket s benzersiz gereksinimlerinizi desteklemek için kendi adımları öğrendikleriniz alabilir.
 
 >[!WARNING]
-Bu öğreticideki komutları ve adımları kopyalanır ve yapıştırılan kullanılmaya yönelik değildir. Bunlar yalnızca örnek hedeflenmiştir. "Olduğu gibi" PowerShell komutlarını Canlı ortamınızda kullanmayın. Bunları benzersiz ortamınıza bağlı özelleştirmeniz gerekir.
+Bu öğreticideki komutları ve adımları kopyalanır ve yapıştırılan kullanılmaya yönelik değildir. Bunlar yalnızca örnek hedeflenmiştir. Canlı ortamınızda olduğu gibi PowerShell komutlarını kullanmayın. Bunları benzersiz ortamınıza bağlı özelleştirmeniz gerekir.
 
 
 Bu öğretici Azure Key Vault etkinlik bir olay hub'ına günlüğe alma ve kullanılabilir JSON dosyaları, SIEM sisteminize hale işlemi size kılavuzluk eder. SIEM sisteminizi JSON dosyalarını işlemek için daha sonra yapılandırabilirsiniz.
@@ -48,7 +48,7 @@ Bu öğreticide bahsetmeleri hizmetleri hakkında daha fazla bilgi için bkz:
 - [Azure günlük tümleştirmesi](security-azure-log-integration-overview.md)
 
 
-## <a name="initial-setup"></a>İlk kurulum
+## <a name="initial-setup"></a>Başlangıç kurulumu
 
 Bu makaledeki adımları tamamlayabilmeniz için aşağıdakiler gerekir:
 
@@ -80,7 +80,7 @@ Bu makaledeki adımları tamamlayabilmeniz için aşağıdakiler gerekir:
 ## <a name="create-supporting-infrastructure-elements"></a>Destekleyici altyapı öğelerini oluşturma
 
 1. Yükseltilmiş bir PowerShell penceresi açın ve gidin **C:\Program Files\Microsoft Azure günlük tümleştirmesi**.
-1. AzLog cmdlet'leri LoadAzLogModule.ps1 betiği çalıştırarak alın. Girin `.\LoadAzLogModule.ps1` komutu. (Bildirim ". \" Bu komutta.) Şuna benzer bir şey görmeniz gerekir:</br>
+1. AzLog cmdlet'leri LoadAzLogModule.ps1 betiği çalıştırarak alın. Girin `.\LoadAzLogModule.ps1` komutu. (Dikkat edin. \ Bu komutta.) Şuna benzer bir şey görmeniz gerekir:</br>
 
    ![Yüklü modülleri listesini](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
@@ -93,7 +93,7 @@ Bu makaledeki adımları tamamlayabilmeniz için aşağıdakiler gerekir:
 
    ![PowerShell penceresi](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. Daha sonra kullanılacak değerleri depolamak için değişkenler oluşturun. Aşağıdaki PowerShell satırların her biri girin. Değerlerin ortamınızla eşleşecek şekilde ayarlamanız gerekebilir.
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Abonelik adınız farklı olabilir. Önceki komutun çıktısındaki bir parçası olarak görebileceğiniz.)
+    - ```$subscriptionName = �Visual Studio Ultimate with MSDN�``` (Abonelik adınız farklı olabilir. Önceki komutun çıktısındaki bir parçası olarak görebileceğiniz.)
     - ```$location = 'West US'``` (Bu değişkeni kaynaklar nerede oluşturulması gereken konumun geçirmek için kullanılır. "Bu değişken, seçtiğiniz herhangi bir konuma olacak şekilde değiştirebilirsiniz.)
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random``` (Ad, herhangi bir şey olabilir, ancak yalnızca küçük harf ve rakam içermelidir.)
@@ -129,7 +129,7 @@ Bu makaledeki adımları tamamlayabilmeniz için aşağıdakiler gerekir:
     
     ```Add-AzureRmLogProfile -Name $name -ServiceBusRuleId $sbruleid -Locations $locations```
     
-    Azure günlük profili hakkında daha fazla bilgi için bkz. [Azure etkinlik günlüğü'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+    Azure günlük profili hakkında daha fazla bilgi için bkz. [Azure etkinlik günlüğü'ne genel bakış](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
 > Günlük profilini oluşturmaya çalıştığınızda bir hata iletisi alabilirsiniz. Daha sonra Get-AzureRmLogProfile ve Remove-AzureRmLogProfile belgelerini gözden geçirebilirsiniz. Get-AzureRmLogProfile çalıştırırsanız, günlük profili hakkındaki bilgileri görürsünüz. Var olan günlük profilini girerek silebilirsiniz ```Remove-AzureRmLogProfile -name 'Log Profile Name' ``` komutu.
