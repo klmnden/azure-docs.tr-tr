@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: e20b18afb579839343fc4c079c039d7b9e5438f7
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/03/2019
+ms.openlocfilehash: 958dcb8113f58409d413b5471c96d2e0ba83c361
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994649"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54033817"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Birden fazla veritabanının saydam ve Eşgüdümlü yük devretmeyi etkinleştirmek için otomatik yük devretme grupları kullanma
 
@@ -175,7 +175,7 @@ Uygulamanız, yönetilen örneği, veri katmanı olarak kullanıyorsa, iş süre
 
   Yeni bir örneği oluşturulduğunda, benzersiz bir kimliği otomatik olarak oluşturulan DNS bölgesi ve örnek DNS adını dahil. Bu örnek biçiminde SAN alanı sağlandığında için çoklu etki alanı (SAN) sertifika `zone_id.database.windows.net`. Bu sertifika, aynı DNS bölgesinde örneğine istemci bağlantılarının kimliğini doğrulamak için kullanılabilir. Birincil örneğe yönelik bağlantının kesintiye yük devretmenin ardından birincil ve ikincil emin olmak için örnekleri aynı DNS bölgesinde olmalıdır. Uygulamanızı Üretim dağıtımı için hazır olduğunda, ikincil bir örneği farklı bir bölgede oluşturun ve DNS bölgesini birincil örneğiyle paylaştığı emin olun. Bu belirtilerek yapılır bir `DNS Zone Partner` Azure portalı, PowerShell veya REST API'yi kullanarak isteğe bağlı parametre.
 
-  Birincil örnekle aynı adlı DNS bölgesinde ikincil örneği oluşturma hakkında daha fazla bilgi için bkz. [yönetilen örnek (Önizleme) ile yük devretme grupları yönetme](#managing-failover-groups-with-managed-instances-preview).
+  Birincil örnekle aynı adlı DNS bölgesinde ikincil örneği oluşturma hakkında daha fazla bilgi için bkz. [yönetilen örnek (Önizleme) ile yük devretme grupları yönetme](#powershell-managing-failover-groups-with-managed-instances-preview).
 
 - **İki örnek arasındaki çoğaltma trafiğinin etkinleştir**
 
@@ -349,7 +349,7 @@ Otomatik Yük devretme grupları ve etkin daha önce açıklandığı gibi coğr
 | API | Açıklama |
 | --- | --- |
 | [Oluşturma veya yük devretme grubu güncelleştirme](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/createorupdate) | Oluşturur veya bir yük devretme grubu güncelleştirir |
-| [Yük devretme grubunu sil](https://docs.microsoft.com/rest/api/instancefailovergroups/delete) | Yük devretme grubuna sunucudan kaldırır |
+| [Yük devretme grubunu sil](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Yük devretme grubuna sunucudan kaldırır |
 | [Yük devretme (Planlı)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Geçerli birincil sunucudan bu sunucuya devreder. |
 | [Zorla yük devretme, veri kaybı izin ver](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) |üzerinden bu sunucu için geçerli birincil sunucudan ails. Bu işlem veri kaybına neden. |
 | [Yük devretme grubunu Al](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Bir yük devretme grubunu alır. |

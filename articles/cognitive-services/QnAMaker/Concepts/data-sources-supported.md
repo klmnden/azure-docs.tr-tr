@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 01/04/2019
 ms.author: tulasim
-ms.openlocfilehash: f732391cc73f0a7cb417409cd6f6f2b3c54f93d6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a26c4b6d16ac16596f8b1b0606aca029be335d71
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994139"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54038509"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Veri kaynakları için soru-cevap Oluşturucu içeriği
 
@@ -149,6 +149,23 @@ Bilgi Bankası doldurmak için önceden var olan içerik yoksa, soru-cevap Oluş
 ## <a name="formatting-considerations"></a>Biçimlendirme konuları
 
 URL veya içeri aktardıktan sonra Markdown dönüştürülür ve bu biçimde depolanır. Dönüştürme işlemini doğru şekilde dosyalarınızı ve URL'leri bağlantılar dönüştürme değil, sorular ve cevaplar üzerindeki düzenleyebilir **Düzenle** sayfası. 
+
+|Biçimlendir|Amaç|
+|--|--|
+|`\n\n`| Yeni satır|
+|`\n*`|Madde işaretinde sıralı bir listesi için|
+
+## <a name="editing-your-knowledge-base-locally"></a>Bilgi Bankası yerel olarak düzenleme
+
+Bilgi Bankası oluşturulduktan sonra Bilgi Bankası metinde düzenlemeleri yapın önerilir [soru-cevap Oluşturucu portalı](https://qnamaker.ai), verme ve yerel dosyaları aracılığıyla yeniden içe aktarılması yerine. Ancak, bir Bilgi Bankası yerel olarak düzenlemeniz gerekir zamanlar olabilir. 
+
+Bilgi Bankası'ndaki dışarı **ayarları** sayfasında, ardından Microsoft Excel ile Bilgi Bankası'nı düzenleyin. Uygulama, tam olarak TSV uyumlu olduğundan, dışarı aktarılan TSV dosyasını düzenlemek için başka bir uygulama kullanmayı seçerseniz, sözdizimi hataları neden olabilir. Microsoft Excel'in TSV dosyalar genellikle tüm biçimlendirme hataları açmadığınızdan. 
+
+Düzenlemelerinizi tamamladıktan sonra TSV dosyasını yeniden içeri aktarın **ayarları** sayfası. Bu tamamen geçerli Bilgi Bankası içeri aktarılan Bankası ile değiştirir. 
+
+## <a name="testing-your-markdown"></a>Markdown'ınız test etme
+
+Kullanım **[CommonMark](https://commonmark.org/help/tutorial/index.html)** Markdown'ınız doğrulamak için öğretici. Öğreticiyi sahip bir **deneyin** hızlı kopyala/yapıştır doğrulama özelliği. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

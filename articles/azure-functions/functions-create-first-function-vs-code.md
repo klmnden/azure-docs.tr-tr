@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c5889d89ec8c913d9300fa85318a16b4eb452d3b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ce887c6d9e4e625d8fe08ee3acfc179cd903d187
+ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633767"
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54054070"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Visual Studio Code kullanarak ilk işlevinizi oluşturma
 
@@ -27,7 +27,7 @@ Bu makalede Microsoft Visual Studio Code’u kullanarak yerel bilgisayarınızda
 
 ![Visual Studio projesinde Azure İşlevleri kodu](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-Uzantı şu anda C#, JavaScript ve Java işlevlerini desteklemektedir. Bu makaledeki adımlar, Azure İşlevleri projenizde tercih ettiğiniz dile göre değişiklik gösterebilir. Uzantı şu an önizleme aşamasındadır. Daha fazla bilgi edinmek için [Visual Studio Code için Azure İşlevleri uzantısı] sayfasına bakın.
+Uzantı şu anda tam olarak destekler C#, JavaScript ve Java işlevleri, Python desteği şu anda önizlemede. Bu makaledeki adımlar, Azure İşlevleri projenizde tercih ettiğiniz dile göre değişiklik gösterebilir. Uzantı şu an önizleme aşamasındadır. Daha fazla bilgi edinmek için [Visual Studio Code için Azure İşlevleri uzantısı] sayfasına bakın.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -55,7 +55,7 @@ Bu hızlı başlangıcı tamamlamak için:
 
 ## <a name="create-an-http-triggered-function"></a>HTTP ile tetiklenen işlev oluşturma
 
-1. **Azure: İşlevler** seçeneğinden İşlev Oluştur simgesini seçin.
+1. Gelen **Azure: İşlevleri**, Create FUNCTION simgesini seçin.
 
     ![İşlev oluşturma](./media/functions-create-first-function-vs-code/create-function.png)
 
