@@ -21,7 +21,7 @@ ms.lasthandoff: 01/04/2019
 ms.locfileid: "54020855"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Üzerinde Azure Data Lake Analytics U-SQL betikleri çalıştırarak verileri dönüştürme 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
 > * [Sürüm 1](data-factory-usql-activity.md)
 > * [Sürüm 2 (geçerli sürüm)](../transform-data-using-data-lake-analytics.md)
 
