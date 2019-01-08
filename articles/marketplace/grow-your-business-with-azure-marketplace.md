@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: d193cfcd03eb4e686ba829e121fbf77e2e0c18a6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 054215a44b66d8fbf30c1a3e61f66425350392b1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233023"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074563"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>İşinizi markette büyütme 
 Teklifinizi AppSource ya da Azure Marketi'nde yayımladıktan sonra Microsoft ile birleşik pazara Git (GTM) etkinlikleri için bir başlatma çubuğu listenizi kullanabilirsiniz. Örneğin, Market teklifinizi trafiği yönlendiren ve Market müşteri adayları, ziyaretten, iş büyüme hızını harika yöntemle vardır. 
@@ -33,15 +33,15 @@ Sonraki bölümlerde bulunan tabloları, ilgi çekici Market teklifleri oluştur
 ### <a name="storefront-offer-details"></a>StoreFront teklifi ayrıntıları
 | StoreFront ayarı | En iyi uygulama |
 |:--- |:--- |  
-| Teklif Adı | Güçlü bir başlık girin:<br>Uygulama adınız, müşterilerinizin alma Çekirdek değer iletişim kurmanız gerekir. Arama anahtar sözcükleri, uygulama başlık dahil olmak üzere, arama motoru sonuçlarında yüksek derece verilecek uygulamanızı yardımcı olabilir.<br><br>Danışmanlık hizmeti listeleme için kümesi başlık biçimi izleyin:<br>[Teklif adı]: [süresi] [Teklif türü] \(örneğin, *Contoso: 2 haftalık uygulama*)<br><br>Marka yönergelerine uyun:<br>İzleyin [Microsoft Trademark ve marka yönergelerine](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) ve Microsoft ticari markaları ve Microsoft yazılım ürünleri ve Hizmetleri adlarını başvurduğunuzda ilgili, ürüne özgü diğer yönergeleri. |
+| Teklif Adı | Güçlü bir başlık girin:<br>Uygulama adınız, müşterilerinizin alma Çekirdek değer iletişim kurmanız gerekir. Arama anahtar sözcükleri, uygulama başlık dahil olmak üzere, arama motoru sonuçlarında yüksek derece verilecek uygulamanızı yardımcı olabilir.<br><br>Danışmanlık hizmeti listeleme için kümesi başlık biçimi izleyin:<br>[Teklif adı]: [süresi] [Teklif türü] (örneğin, *Contoso: 2 hafta uygulama*)<br><br>Marka yönergelerine uyun:<br>İzleyin [Microsoft Trademark ve marka yönergelerine](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) ve Microsoft ticari markaları ve Microsoft yazılım ürünleri ve Hizmetleri adlarını başvurduğunuzda ilgili, ürüne özgü diğer yönergeleri. |
 | Teklif açıklaması | NET teklif açıklaması sağlayın:<br>Açıklamanızı ilk birkaç cümle içinde ürününüzün değer önerisi NET bir şekilde açıklayın. İlk birkaç cümle arama motoru sonuçlarında görüntülenebilir aklınızda bulundurun. Özellikler ve İşlevler, ürün satış üzerinde güvenmeyin. Bunun yerine, teslim değere odaklanmak. Sektöre özel sözlük veya avantajı tabanlı ifadesi mümkün olduğunca kullanın.<br><br>Temel bileşenleri, değer önerisi, aşağıdaki bilgileri içermelidir:<ul><li>Ürün açıklaması</li><li>Ürün avantajlar kullanıcı türü</li><li>Müşteri gereksinimi veya ürün adresleri kolaylaştırın</li></ul> |
 
 ### <a name="storefront-listing-details"></a>StoreFront dökümü ayrıntıları
 | StoreFront ayarı | En iyi uygulama |
 |:--- |:--- |  
-| Sektör: AppSource uygulamaları ve danışmanlık hizmetleri yalnızca | Sektöre özgü gereksinimleri teklifinizi adresleri değişirse sektörler seçin:<br>Teklif açıklamanızı sektöre özgü özellikleri kullanıma çağırın.<br><br>**Not**: seçenekleri sayısı teklif türüne göre değişir ve bulut iş ortağı Portalı'nda belirtilir. |
-| Kategoriler | Teklifinizle en iyi hizalamak kategorileri seçin:<br>Müşteriler bunları ilgili uygulamalar için aranacak kullandığından kategorileri dikkatlice seçin. Nasıl teklifinizi kategoriye özgü ihtiyaçları teklif açıklamasında destekleyip çağırdığınızdan emin olun.<br><br> **Not**: seçenekleri sayısı teklif türüne göre değişir ve bulut iş ortağı Portalı'nda belirtilir. |
-| Uygulamanızı çalışır ürünleri (3&nbsp;max): yalnızca AppSource uygulamaları | Ek ürünler ve çözümünüzü genişletir veya kullanan teknolojileri listeleyin:<br>Örneğin, Azure IOT Hub veya Azure Machine Learning. |
+| Sektörler: AppSource uygulamaları ve danışmanlık hizmetleri yalnızca | Sektöre özgü gereksinimleri teklifinizi adresleri değişirse sektörler seçin:<br>Teklif açıklamanızı sektöre özgü özellikleri kullanıma çağırın.<br><br>**Not**: Seçenekleri sayısı teklif türüne göre değişir ve bulut iş ortağı Portalı'nda belirtilir. |
+| Kategoriler | Teklifinizle en iyi hizalamak kategorileri seçin:<br>Müşteriler bunları ilgili uygulamalar için aranacak kullandığından kategorileri dikkatlice seçin. Nasıl teklifinizi kategoriye özgü ihtiyaçları teklif açıklamasında destekleyip çağırdığınızdan emin olun.<br><br> **Not**: Seçenekleri sayısı teklif türüne göre değişir ve bulut iş ortağı Portalı'nda belirtilir. |
+| Uygulamanızı çalışır ürünleri (3&nbsp;max): AppSource uygulamaları | Ek ürünler ve çözümünüzü genişletir veya kullanan teknolojileri listeleyin:<br>Örneğin, Azure IOT Hub veya Azure Machine Learning. |
 | Arama anahtar sözcükleri (3&nbsp;en fazla) | Teklifinizin Azure Market'te ve appsource'ta veya arama motorları kullanarak ararken bulma iş kullanıcılarına yardımcı arama anahtar sözcükleri kullanın:<br>Teklifiniz için en çok üç arama anahtar sözcükleri belirleyin; Arama anahtar sözcükleri teklif Özet ve açıklama ekleyebilirsiniz; ve burada arama anahtar sözcükleri listeler. |
 
 ### <a name="storefront-marketing-details"></a>StoreFront pazarlama ayrıntıları
@@ -147,8 +147,8 @@ Azure Marketi rozeti, ücretsiz bir parçası olarak sunulan [Git pazara açılm
 
 ### <a name="link-to-your-app-listing-page-in-the-marketplace-from-your-website"></a>Uygulama listesi sayfanıza Market'te sitenizden bağlantı
 AppSource veya Azure Market'ten rozet sitenizde listenizi Market'te bağladığınızda, güçlü analiz ve raporlama aşağıdaki sorgu parametrelerini URL'nin sonundaki ekleyerek destekler:
-* **src**: kaynağı kendisinden trafik AppSource (Web sitesi, LinkedIn veya Facebook gibi) yönlendirilir.
-* **mktcmpid**: herhangi bir bileşimini harfler en fazla 16 karakter içerebilir, pazarlama kampanyası Kimliğiniz, alt çizgi, sayılar ve kısa çizgi (örneğin, *blogpost_12*).
+* **src**: Trafik AppSource (Web sitesi, LinkedIn veya Facebook gibi) yönlendirilir kaynak içerir.
+* **mktcmpid**: Herhangi bir bileşimini harfler en fazla 16 karakter içerebilir, pazarlama kampanyası Kimliğiniz, alt çizgi, sayılar ve kısa çizgi (örneğin, *blogpost_12*).
 
 Aşağıdaki örnek URL Yukarıdaki sorgu parametrelerinin her ikisini de içerir: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
