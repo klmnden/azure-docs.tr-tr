@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/11/2018
+ms.date: 01/07/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 9085bea06553bcb2b8cf871153ddd1fb767c04f4
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: cb07ce71162a766add5ca251c97a11d353ee8084
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53277752"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077666"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Hızlı Başlangıç: Maliyet Analizi ile maliyetleri analiz
 
@@ -49,7 +49,7 @@ Maliyet analizi tüm [Kurumsal Sözleşme (EA)](https://azure.microsoft.com/pric
 
 Maliyet analiziyle maliyetlerinizi gözden geçirmek için Azure portalda **Maliyet Yönetimi + Fatura** &gt; **Maliyet Yönetimi** &gt; **Kapsam değiştir**’e gidip bir kapsam seçin ve ardından **Seç**’e tıklayın.
 
-Veri birleştirmesi sağlamak ve maliyet bilgilerine erişimi denetlemek için seçtiğiniz kapsam Maliyet Yönetimi’nin tamamında kullanılır. Kapsamları kullandığınızda, birden çok kapsam seçemezsiniz. Bunun yerine, diğerlerinin toplandığı büyük bir kapsam seçer ve neleri istediğinize bağlı olarak filtre uygulayıp kapsamı daraltırsınız. Bazı kişilere alt kapsamların toplandığı üst kapsama erişim verilmemesi gerektiğinden, bunu anlamak önemlidir.
+Veri birleştirmesi sağlamak ve maliyet bilgilerine erişimi denetlemek için seçtiğiniz kapsam Maliyet Yönetimi’nin tamamında kullanılır. Kapsamları kullandığınızda, birden çok kapsam seçemezsiniz. Bunun yerine, başkalarının kadar geri alma ve daha sonra filtre istediğinize aşağı daha büyük bir kapsam seçin. Bu, bazı kişiler, alt kapsamlar aktarma hedefi bir üst kapsama erişimi olmaması nedeniyle anlamak önemlidir.
 
 **Maliyet analizini aç**’a tıklayın.
 
@@ -86,7 +86,11 @@ Genel olarak, veri ya da bildirimler tüketilen kaynaklar için sekiz saat için
 
 ![Örnek, geçerli ay için günlük maliyetlerin gösteren günlük görünümü](./media/quick-acm-cost-analysis/daily-view.png)
 
-Grup kategorisi seçip en üstteki toplam alan grafiğinde görüntülenen verileri değiştirmek için **Gruplandır** seçeneğini kullanabilirsiniz. Gruplandırma nasıl harcamalarınızı ortak kaynak ve kullanım özellikler, kaynak grubu veya kaynak etiketleri gibi tarafından kategorilere ayrılmıştır hızlı bir şekilde görmenize olanak tanır. Etiketlere göre gruplandırmak için gruplandırma ölçütü istediğiniz etiket anahtarı seçin ve her bir değer bu etiket için uygulanan bir etiketi olmayan kaynaklar için ek bir segment tarafından ayrılmış maliyetleri görürsünüz. Not maliyet yönetimi, etiketler kaynağa doğrudan uygulanan tarihten itibaren kaynak etiketleri yalnızca destekler. Kaynak grubu etiketleri henüz desteklenmemektedir. Burada, geçen ayın görünümü için Azure hizmet maliyetlerinin bir görünümü yer alır.
+Grup kategorisi seçip en üstteki toplam alan grafiğinde görüntülenen verileri değiştirmek için **Gruplandır** seçeneğini kullanabilirsiniz. Gruplandırma nasıl harcamalarınızı ortak kaynak ve kullanım özellikler, kaynak grubu veya kaynak etiketleri gibi tarafından kategorilere ayrılmıştır hızlı bir şekilde görmenize olanak tanır. Etiketlere göre gruplandırmak için gruplandırma ölçütü istediğiniz etiketi anahtarı seçin. Her bir değer bu etiket için uygulanan bir etiketi olmayan kaynaklar için ek bir segment tarafından ayrılmış maliyetleri görürsünüz.
+
+Çoğu [destek Azure kaynakları etiketleme](../azure-resource-manager/tag-support.md), ancak bazı etiketler, faturalandırma ve maliyet Yönetimi'nde kullanılabilir değildir. Ayrıca, kaynak grubu etiketleri desteklenmez. Maliyet yönetimi, etiketler kaynağa doğrudan uygulanan tarihten itibaren kaynak etiketleri yalnızca destekler.
+
+Burada, geçen ayın görünümü için Azure hizmet maliyetlerinin bir görünümü yer alır.
 
 ![Örnek Azure hizmet maliyetlerini geçen aya ait gösteren gruplandırılmış günlük birikmiş görünümü](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
@@ -96,9 +100,9 @@ Grup kategorisi seçip en üstteki toplam alan grafiğinde görüntülenen veril
 
 Önceki resimde kaynak grubunun adları gösterilir. Etiket başına toplam maliyetleri görüntülemek üzere etikete göre gruplandırabilirsiniz, ancak kaynak veya kaynak grubu başına tüm etiketleri görüntüleme görünümlerden herhangi birinde maliyet analizi içinde kullanılabilir değil.
 
-Maliyetler belirli bir özniteliğe göre gruplanırken maliyet açısından ilk on katkıda bulunan en yüksekten en düşüğe doğru gösterilir. Toplamda ondan fazla grup varsa maliyet açısından ilk dokuz katkıda bulunana ek olarak kalan tüm grupları içeren bir **Diğer** grubu gösterilir. Etiketlere göre gruplandırma olduğunda da görebilirsiniz bir **Untagged** , uygulanan etiket anahtarı olmayan maliyetleri için Grup. **Etiketlenmemiş** etiketlenmemiş maliyetleri etiketli maliyetlerinden daha fazla olduğunda bile her zaman en son olur. 10 veya daha fazla etiket değeri varsa, etiketlenmemiş maliyetleri parçası olacak **başkalarının**.
+Maliyetler belirli bir özniteliğe göre gruplanırken maliyet açısından ilk on katkıda bulunan en yüksekten en düşüğe doğru gösterilir. Ondan fazla grubu olması halinde en çok dokuz maliyet katkıda bulunanları gösterilmektedir. Ayrıca gösterildiği gibidir bir **başkalarının** tüm geri kalan grupların birlikte kapsayan bir grup. Etiketlere göre gruplandırma olduğunda da görebilirsiniz bir **Untagged** uygulanan etiket anahtarı yoksa maliyetleri için Grup. **Etiketlenmemiş** etiketlenmemiş maliyetleri etiketli maliyetlerinden daha fazla olduğunda bile her zaman en son olur. On veya daha fazla etiket değeri varsa, etiketlenmemiş maliyetleri parçası olacak **başkalarının**.
 
-*Klasik* (Azure Service Management veya ASM) sanal makineleri, ağ ve depolama kaynakları ayrıntılı fatura bilgisi paylaşmaz. Bunlar maliyet gruplarında **Klasik hizmetler** olarak gösterilir.
+*Klasik* (Azure Hizmet Yönetimi veya ASM) sanal makineler, ağ ve depolama kaynaklarını ayrıntılı fatura veri paylaşım yok. Olarak birleştirilmiş **Klasik Hizmetleri** maliyetleri gruplandırırken.
 
 
 ## <a name="download-cost-analysis-data"></a>Maliyet analizi verilerini indirme

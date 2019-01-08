@@ -10,31 +10,34 @@ ms.service: application-gateway
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.workload: infrastructure-services
-ms.date: 01/25/2018
+ms.date: 12/26/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 95b806eaabaf0ba93b1e8b6823340e82842b0f1c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: dc6e24df0480a43b1195a7b327b499ffebac978a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38591394"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079128"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Hızlı Başlangıç: Azure Application Gateway ile web trafiğini yönlendirme - Azure PowerShell
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>Hızlı Başlangıç: Azure Application Gateway - Azure PowerShell ile doğrudan web trafiği
 
-Azure Application Gateway ile bağlantı noktalarına dinleyiciler atayarak ve arka uç havuzuna kaynaklar ekleyerek uygulama web trafiğinizi belirli kaynaklara yönlendirebilirsiniz.
-
-Bu hızlı başlangıç, arka uç havuzunda iki sanal makine bulunan bir uygulama ağ geçidini hızla oluşturmak üzere Azure portalını kullanmayı göstermektedir. Ardından doğru bir şekilde çalışıp çalışmadığından emin olmak için test edersiniz.
+Bu hızlı başlangıçta hızlı bir şekilde, arka uç havuzunda iki sanal makine ile bir uygulama ağ geçidi oluşturmak için Azure portalını kullanmayı gösterir. Ardından doğru bir şekilde çalışıp çalışmadığından emin olmak için test edersiniz. Azure Application Gateway ile belirli kaynaklar tarafından uygulama web trafiği doğrudan: dinleyici bağlantı noktalarına atama, kuralları oluşturma ve kaynakları bir arka uç havuzuna ekleme.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+## <a name="run-azure-powershell-locally"></a>Azure PowerShell'i yerel olarak çalıştırın
+
+Azure PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz Bu öğretici Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. 
+
+1. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). 
+2. Azure ile bağlantı oluşturmak için çalıştırın `Login-AzureRmAccount`.
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Daima kaynak grubunda kaynaklar oluşturmanız gerekir. [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) komutunu kullanarak yeni bir Azure kaynak grubu oluşturun. 
+Azure'da, bir kaynak grubu için ilgili kaynakları ayırın. Kullanarak bir kaynak grubu oluşturma [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet'i aşağıdaki gibi: 
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
@@ -42,9 +45,11 @@ New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Ağ kaynakları oluşturma 
 
-Diğer kaynaklarla iletişim kurmak için uygulama ağ geçidine yönelik bir sanal makine oluşturmanız gerekir. Bu örnekte iki alt ağ oluşturulmuştur: biri uygulama ağ geçidi ve diğeri de arka uç sunucuları içindir. 
+Uygulama ağ geçidi diğer kaynaklarla iletişim kurabilmesi için bir sanal ağ oluşturun. Bu örnekte, iki alt ağ oluşturulur: bir uygulama ağ geçidi ve diğeri arka uç sunucuları için. 
 
-[New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) komutunu kullanarak alt ağ yapılandırmasını oluşturun. Alt ağ yapılandırmaları ile [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) komutunu kullanarak sanal ağı oluşturun. Son olarak da [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) komutunu kullanarak genel IP adresini oluşturun.
+1. Alt ağ yapılandırmalarını çağırarak denetlediği oluşturma [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig).
+2. Çağırarak alt ağ yapılandırmaları ile sanal ağ oluşturma [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork).
+3. Genel IP adresini çağırarak denetlediği oluşturma [New-Azurermpublicıpaddress](/powershell/module/azurerm.network/new-azurermpublicipaddress).
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
@@ -67,14 +72,16 @@ New-AzureRmPublicIpAddress `
 ```
 ## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 
-Bu örnekte, uygulama ağ geçidi için arka uç sunucular olarak kullanılacak iki sanal makine oluşturacaksınız. 
-
-Uygulama ağ geçidinin başarıyla oluşturulduğunu doğrulamak için sanal makinelere IIS de yükleyin.
+Bu örnekte, Azure application gateway için arka uç sunucular olarak kullanılacak iki sanal makine oluşturun. Ayrıca Azure uygulama ağ geçidi başarıyla oluşturuldu doğrulamak için sanal makinelere IIS yüklersiniz.
 
 ### <a name="create-two-virtual-machines"></a>İki sanal makine oluşturma
 
-[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) komutuyla bir ağ arabirimi oluşturun. [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) ile bir sanal makine yapılandırması oluşturun. Aşağıdaki komutları çalıştırdığınızda sizden kimlik bilgileri istenir. Kullanıcı adı için *azureuser* ve parola için *Azure123456!* girin. [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) ile sanal makineyi oluşturun.
+1. [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) komutuyla bir ağ arabirimi oluşturun. 
+2. [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) ile bir sanal makine yapılandırması oluşturun.
+3. [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) ile sanal makineyi oluşturun.
 
+Azure sanal makineler oluşturmak için aşağıdaki kod örneği çalıştırdığınızda, kimlik bilgilerini ister. Kullanıcı adı için *azureuser* ve parola için *Azure123456!* parolası:
+    
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
 $cred = Get-Credential
@@ -87,22 +94,22 @@ for ($i=1; $i -le 2; $i++)
     -SubnetId $vnet.Subnets[1].Id
   $vm = New-AzureRmVMConfig `
     -VMName myVM$i `
-    -VMSize Standard_DS2
-  $vm = Set-AzureRmVMOperatingSystem `
+    -VMSize Standard_DS2_v2
+  Set-AzureRmVMOperatingSystem `
     -VM $vm `
     -Windows `
     -ComputerName myVM$i `
     -Credential $cred
-  $vm = Set-AzureRmVMSourceImage `
+  Set-AzureRmVMSourceImage `
     -VM $vm `
     -PublisherName MicrosoftWindowsServer `
     -Offer WindowsServer `
     -Skus 2016-Datacenter `
     -Version latest
-  $vm = Add-AzureRmVMNetworkInterface `
+  Add-AzureRmVMNetworkInterface `
     -VM $vm `
     -Id $nic.Id
-  $vm = Set-AzureRmVMBootDiagnostics `
+  Set-AzureRmVMBootDiagnostics `
     -VM $vm `
     -Disable
   New-AzureRmVM -ResourceGroupName myResourceGroupAG -Location EastUS -VM $vm
@@ -122,7 +129,9 @@ for ($i=1; $i -le 2; $i++)
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP yapılandırmaları ve ön uç bağlantı noktası oluşturma
 
-Daha önce oluşturduğunuz alt ağı uygulama ağ geçidi ile ilişkilendiren yapılandırmayı oluşturmak için [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) komutunu kullanın. Yine daha önce oluşturduğunuz genel IP adresini uygulama ağ geçidine atayan yapılandırmayı oluşturmak için [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) komutunu kullanın. Uygulama ağ geçidine erişmek için kullanılacak 80 numaralı bağlantı noktasını atamak için [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport) komutunu kullanın.
+1. Kullanım [yeni AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) alt ilişkilendiren bir yapılandırma oluşturmak üzere application gateway ile oluşturulmuş. 
+2. Kullanım [yeni AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) uygulama ağ geçidine daha önce oluşturduğunuz genel IP adresini atar yapılandırmasını oluşturmak için. 
+3. Kullanım [yeni AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport) application gateway'e erişmek için 80 numaralı bağlantı noktasını atamak için.
 
 ```azurepowershell-interactive
 $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
@@ -141,7 +150,8 @@ $frontendport = New-AzureRmApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool"></a>Arka uç havuzunu oluşturma
 
-Uygulama ağ geçidinin arka uç havuzunu oluşturmak için [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) komutunu kullanın. [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings) komutunu kullanarak arka uç havuzunun ayarlarını yapılandırın.
+1. Uygulama ağ geçidinin arka uç havuzunu oluşturmak için [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) komutunu kullanın. 
+2. Arka uç havuzu için ayarları yapılandırın [yeni AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
 
 ```azurepowershell-interactive
 $address1 = Get-AzureRmNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
@@ -159,7 +169,10 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-listener-and-add-a-rule"></a>Dinleyiciyi oluşturma ve kural ekleme
 
-Uygulama ağ geçidinin trafiği arka uç havuzuna uygun şekilde yönlendirmesini sağlamak için bir dinleyici gereklidir. Daha önce oluşturduğunuz ön uç yapılandırması ve ön uç bağlantı noktası ile birlikte [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) komutunu kullanarak bir dinleyici oluşturun. Dinleyicinin gelen trafik için kullanacağı arka uç havuzunu bilmesi için bir kural gerekir. *rule1* adlı bir kural oluşturmak için [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) komutunu kullanın.
+Azure application gateway trafiği yönlendirme için arka uç havuzu için uygun şekilde etkinleştirmek bir dinleyici gerektirir. Azure ayrıca dinleyici için gelen trafiği kullanmak için hangi arka uç havuzu bilmesi için bir kuralı gerektirir. 
+
+1. Kullanarak bir dinleyici oluşturun [yeni AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) daha önce oluşturduğunuz ön uç bağlantı noktasını ve ön uç yapılandırması. 
+2. *rule1* adlı bir kural oluşturmak için [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) komutunu kullanın. 
 
 ```azurepowershell-interactive
 $defaultlistener = New-AzureRmApplicationGatewayHttpListener `
@@ -177,7 +190,10 @@ $frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Gerekli destekleyici kaynakları oluşturduktan sonra, uygulama ağ geçidinin parametrelerini belirtmek için [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) ve sonra uygulama ağ geçidini oluşturmak için [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) komutunu kullanın.
+Gerekli destekleyici kaynakları oluşturduğunuza göre uygulama ağ geçidi oluşturun:
+
+1. Kullanım [yeni AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) application gateway için parametreleri belirtmek için.
+2. Kullanım [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) uygulama ağ geçidi oluşturma.
 
 ```azurepowershell-interactive
 $sku = New-AzureRmApplicationGatewaySku `
@@ -200,7 +216,10 @@ New-AzureRmApplicationGateway `
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
-Uygulama ağ geçidini oluşturmak için NGINX’in yüklenmesi gerekli değildir ancak IIS’i bu hızlı başlangıçta uygulama ağ geçidinin başarılı bir şekilde oluşturulup oluşturulmadığını doğrulamak için yüklediniz. Uygulama ağ geçidinin genel IP adresini almak için [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) komutunu kullanın. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın.
+IIS uygulama ağ geçidi oluşturmak için gerekli değildir, ancak bu hızlı başlangıçta Azure uygulama ağ geçidi başarıyla oluşturulmuş olup olmadığını doğrulamak için yüklü. IIS, uygulama ağ geçidi test etmek için kullanın:
+
+1. Çalıştırma [Get-Azurermpublicıpaddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) uygulama ağ geçidinin genel IP adresini almak için. 
+2. Kopyalama ve genel IP adresi, tarayıcınızın adres çubuğuna yapıştırın. Tarayıcıyı yenileyin, sanal makinenin adını görmeniz gerekir.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -208,11 +227,12 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![Uygulama ağ geçidini test etme](./media/quick-create-powershell/application-gateway-iistest.png)
 
-Tarayıcıyı yenilediğinizde diğer VM’nin adının göründüğünü görürsünüz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-İlk olarak uygulama ağ geçidiyle oluşturulan kaynakları keşfedin ve ardından artık gerekmediğinde kaynak grubu, uygulama ağ geçidi ve tüm ilgili kaynakları kaldırmak için [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) komutunu kullanabilirsiniz.
+Application gateway ile oluşturduğunuz kaynaklara artık ihtiyacınız olduğunda, kaynak grubunu kaldırın. Kaynak grubu kaldırarak, ayrıca uygulama ağ geçidi ve tüm ilgili kaynakları kaldırın. 
+
+Kaynak grubunu kaldırmak için çağrı [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) cmdlet'i aşağıdaki gibi:
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroupAG

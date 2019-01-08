@@ -3,7 +3,7 @@ title: Azure Market sanal makine görüntüsü oluşturmak için teknik Önkoşu
 description: Oluşturma ve bir sanal makine görüntüsü dağıtma satın almak için Azure Market'ten için diğer gereksinimleri öğrenin.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 04/29/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 79fb9869b37e82df3f41a50e4425e7c0cd08c841
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1fdf945645b2d5c89d7f3750ec836595adb90b06
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255277"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077088"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Market sanal makine görüntüsü oluşturmak için teknik Önkoşullar
 İşlem başlamadan önce baştan sona okuyun ve nerede ve neden gerçekleştirilen her adımla anlayın. Mümkün olduğunca, şirketinizin bilgilerini ve diğer verileri hazırlama, gerekli Araçları'nı indirin ve/veya teklif oluşturma işlemi başlamadan önce teknik bileşenler oluşturun. Bu öğeler bu makalede gözden geçirmeden açık olmalıdır.  
@@ -50,6 +51,6 @@ Windows veya Linux üzerinde Azure tabanlı Vm'leri geliştirebilirsiniz. Bir Az
 Bulutta veya şirket içi Azure VHD'leri geliştirebilirsiniz.
 
 * Bulut tabanlı geliştirme, tüm geliştirme adımlarını uzaktan Azure'da yerleşik bir VHD üzerinde gerçekleştirilen anlamına gelir.
-* Şirket içi geliştirme VHD yükleme ve şirket içi altyapıyı kullanarak geliştirme gerektirir. Bu mümkün olsa da bunu önermiyoruz. Windows veya SQL geliştirmeyi şirket içi şirket ilgili lisans anahtarlarını sahip olmanız gerekir. İçeremez veya bir VM oluşturduktan sonra SQL Server'ı yükleyin. Ayrıca, Azure portalından onaylı bir SQL görüntüye teklifinizi temel almanız gerekir. Şirket içi geliştirme karar verirseniz, farklı bir şekilde bulutta geliştirme, bazı adımlar gerçekleştirmeniz gerekir. İlgili bilgiler bulabilirsiniz [bir şirket içi VM görüntüsü oluşturma](marketplace-publishing-vm-image-creation-on-premise.md).
+* Şirket içi geliştirme VHD yükleme ve şirket içi altyapıyı kullanarak geliştirme gerektirir. Bu yaklaşım mümkün olsa da, bunu önermiyoruz. Windows veya SQL için şirket içi geliştirme ilgili şirket içi Lisans anahtarlarını olmasını gerektirir. İçeremez veya bir VM oluşturduktan sonra SQL Server'ı yükleyin. Ayrıca, Azure portalından onaylı bir SQL görüntüye teklifinizi temel almanız gerekir. Şirket içi geliştirme karar verirseniz, farklı bir şekilde bulutta geliştirme, bazı adımlar gerçekleştirmeniz gerekir. İlgili bilgiler bulabilirsiniz [bir şirket içi VM görüntüsü oluşturma](marketplace-publishing-vm-image-creation-on-premise.md).
 
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md

@@ -14,12 +14,12 @@ ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 42568a6da6cb8994fa8804f294cf67b30fada4fb
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 7c458867b89a76a2f19bbd632c8a884c629f5765
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050158"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078771"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application ınsights'ta kullanım deneyimlerini etkinleştirmelerine olanak kimlikleri kullanıcı bağlamı gönderme
 
@@ -38,7 +38,7 @@ Zaman içinde bir kullanıcı ne yaptığını izlemek için her bir kullanıcı
 - Oturumlar: Oturum kimliği Ekle
 
 > [!NOTE]
-> Bu, kullanıcı etkinliği Application Insights ile izleme için manuel adımlar anahat oluşturma, Gelişmiş bir makaledir. Birçok web uygulamalarıyla **adımları gerekli olmayabilir**, varsayılan sunucu tarafı olarak SDK'ları ile birlikte [tarayıcı/istemci-tarafı JavaScript SDK'sı](../../application-insights/app-insights-website-monitoring.md), genellikle otomatik olarak izlemek yeterli olur kullanıcı etkinliği. Yapılandırmadıysanız, [istemci-tarafı izleme](../../application-insights/app-insights-website-monitoring.md) sunucu tarafı SDK'sı ek olarak, öncelikle bunu ve kullanıcı davranış analizi araçları beklendiği gibi işlemi yapıyorsanız görmek için test edin.
+> Bu, kullanıcı etkinliği Application Insights ile izleme için manuel adımlar anahat oluşturma, Gelişmiş bir makaledir. Birçok web uygulamalarıyla **adımları gerekli olmayabilir**, varsayılan sunucu tarafı olarak SDK'ları ile birlikte [tarayıcı/istemci-tarafı JavaScript SDK'sı](../../azure-monitor/app/website-monitoring.md ), genellikle otomatik olarak izlemek yeterli olur kullanıcı etkinliği. Yapılandırmadıysanız, [istemci-tarafı izleme](../../azure-monitor/app/website-monitoring.md ) sunucu tarafı SDK'sı ek olarak, öncelikle bunu ve kullanıcı davranış analizi araçları beklendiği gibi işlemi yapıyorsanız görmek için test edin.
 
 ## <a name="choosing-user-ids"></a>Kullanıcı kimliklerini seçme
 

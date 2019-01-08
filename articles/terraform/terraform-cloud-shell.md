@@ -4,17 +4,17 @@ description: Kimlik doğrulaması ve şablon yapılandırma adımlarını basitl
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, ölçek kümesi, sanal makine, ağ, depolama alanı, modüller
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: a5f44edf201ce9a2e2c0da6b5da9031958a11fdc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: af71cf07ea12e605f57d34b530fcbcd61838128b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959318"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074562"
 ---
 # <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell geliştirme 
 

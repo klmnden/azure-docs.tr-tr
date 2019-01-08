@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: c6323a4b8243791cc7a9f847c7d08e5bd5946e96
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c2374bd0d67115bdc9fef2b6937f7b087bc581de
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025275"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076782"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights'tan telemetriyi dışarı aktarma
 Telemetrinizi standart saklama süresinden daha uzun süre tutmak mı istiyorsunuz? Veya özel bir şekilde işlemek? Sürekli dışarı aktarma için idealdir. Application Insights portalında gördüğünüz olayları için Microsoft Azure Depolama'da JSON biçiminde dışarı aktarılabilir. Buradan verilerinizi indirin ve, kod yazma, işlemeniz gerekir.  
@@ -27,7 +27,7 @@ Sürekli dışarı aktarmayı ayarlamadan önce bazı alternatifleri düşünün
 * Dışarı Aktar düğmesini ölçümleri veya arama dikey penceresinin üst tablolar aktarmanıza olanak tanır ve bir Excel elektronik tablosuna grafikleri.
 
 * [Analytics](../../azure-monitor/app/analytics.md) telemetri için güçlü bir sorgu dili sağlar. Ayrıca sonuçlarını dışarı aktarabilirsiniz.
-* İçin arıyorsanız [verilerinizi Power bı'da araştırma](../../application-insights/app-insights-export-power-bi.md), sürekli dışarı aktarma dosyası olmadan bunu yapabilirsiniz.
+* İçin arıyorsanız [verilerinizi Power bı'da araştırma](../../azure-monitor/app/export-power-bi.md ), sürekli dışarı aktarma dosyası olmadan bunu yapabilirsiniz.
 * [Veri erişimi REST API](https://dev.applicationinsights.io/) , telemetrinizi programlı bir şekilde erişmenize olanak tanır.
 * Kurulum da erişebilirsiniz [Powershell aracılığıyla sürekli dışarı aktarma](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
 

@@ -3,22 +3,22 @@ title: Ansible kullanarak Azure’da Linux sanal makine oluşturma
 description: Ansible kullanarak Azure’da Linux sanal makine oluşturmayı öğrenin
 ms.service: ansible
 keywords: ansible, azure, devops, sanal makine
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/22/2018
-ms.openlocfilehash: 99822fc1d99d914327a64cfb9fe8e18189f30a4f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 1f7f4809e064de15bb0a18c404f0df81307b1b9a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251247"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073994"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>Ansible kullanarak Azure’da Linux sanal makine oluşturma
 Ansible, bildirim temelli bir dil kullanarak Ansible *playbook'ları* aracılığıyla Azure kaynağı oluşturma, yapılandırma ve dağıtım işlemlerini otomatikleştirmenizi sağlar. Bu makalenin bölümleri, bir Ansible playbook içindeki bölümlerin nasıl görünebileceği ve Linux sanal makinesinin farklı yönlerini yapılandırabileceği konusunda bilgi vermektedir. [Ansible playbook'un tamamı](#complete-sample-ansible-playbook), bu makalenin sonunda listelenmiştir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - **Azure aboneliği** - Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 

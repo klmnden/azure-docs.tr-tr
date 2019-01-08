@@ -1,7 +1,7 @@
 ---
 title: 'Regresyon modeli öğretici: Verileri hazırlama'
 titleSuffix: Azure Machine Learning service
-description: Bu öğreticinin ilk bölümünde Azure ML SDK'sını kullanarak regresyon modelleme python'da verileri hazırlama öğreneceksiniz.
+description: Bu öğreticinin ilk bölümünde Azure Machine Learning SDK'sını kullanarak modelleme regresyon için Python uygulamasında veri hazırlama konusunda bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -11,31 +11,33 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: d20ff1fabfb73c899153cf42bb6f2d7a8f233e21
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8f7e414d2aa4962534a90a295e104f8e8ebabbd9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314695"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079247"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Öğretici: Regresyon model için verileri hazırlama
 
-Bu öğreticide, Azure Machine Learning veri hazırlığı SDK'sını kullanarak regresyon modelleme için veri hazırlama konusunda bilgi edinin. Filtre ve iki farklı NYC taksi veri kümeleri birleştirmek için çeşitli dönüştürmeleri gerçekleştirebilirsiniz. Toplama saat dahil olmak üzere veri özellikleri bir model eğitip geleceği taksi seyahat maliyetini tahmin etmek için Bu öğretici kümesi son hedefi olduğu gün, hafta sayısı Yolcuların ve koordinatları. Bu öğreticide iki kısımlı öğretici serisinin bir parçasıdır.
+Bu öğreticide, Azure Machine Learning veri hazırlığı SDK'sını kullanarak modelleme regresyon için verileri hazırlama konusunda bilgi edinin. Filtreleme ve iki farklı NYC taksi veri kümeleri birleştirmek için çeşitli dönüştürmeler çalıştırın.  
+
+Bu öğreticide iki kısımlı öğretici serisinin bir parçasıdır. Öğretici serisinin tamamladıktan sonra taksi seyahat maliyetini veri özellikleri bir model eğitip geleceği tahmin edebilirsiniz. Bu özellikler, toplama gün ve saat, Yolcuların Sayısı ve toplama konumunu içerir.
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Paketleri içeri aktarmak ve Python ortamını ayarlama
-> * İki veri kümesi farklı alan adları ile yükleme
-> * Anomalileri kaldırılacağı verilerini temizlemek
-> * Yeni özellikler oluşturmak için akıllı dönüşümler kullanarak verileri dönüştürme
-> * Veri akışı nesnenizin bir regresyon modeli kullanmak için kaydetme
+> * Bir Python ortamını ayarlama ve paketleri içeri aktarın.
+> * İki veri kümesi farklı alan adları ile yükleyin.
+> * Anomalileri kaldırmak için verileri temizler.
+> * Yeni özellikler oluşturmak için akıllı dönüşümler'ı kullanarak verileri dönüştürme.
+> * Veri akışı nesnenizin nda bir regresyon modeli kaydedin.
 
-Python kullanarak veri hazırlayabilir [Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk).
+Python'da verilerinizi kullanarak hazırlayabilirsiniz [Azure Machine Learning veri hazırlığı SDK'sı](https://aka.ms/data-prep-sdk).
 
 ## <a name="get-the-notebook"></a>Not defterini alma
 
-Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb) olarak sağlanır. `regression-part1-data-prep.ipynb` notebook'unu Azure Notebooks üzerinde veya kendi Jupyter notebook sunucunuzda çalıştırın.
+Kolaylık olması için, bu öğretici bir [Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb) olarak sağlanır. Çalıştırma **regresyon-bölüm 1-verileri-prep.ipynb** not defteri Azure defterlerinde veya kendi Jupyter Notebook sunucusu.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -50,7 +52,7 @@ import azureml.dataprep as dprep
 
 ## <a name="load-data"></a>Veri yükleme
 
-İki farklı NYC taksi veri kümesi, veri akışı nesneleri indirin.  Bu veri kümelerini biraz farklı alanları içerir. Yöntem `auto_read_file()` giriş dosya türü otomatik olarak tanır.
+İki farklı NYC taksi veri kümesi, veri akışı nesneleri indirin. Veri kümeleri biraz farklı alanlara sahiptir. `auto_read_file()` Yöntemi giriş dosya türü otomatik olarak tanır.
 
 
 ```python
@@ -60,7 +62,7 @@ green_path = "/".join([dataset_root, "green-small/*"])
 yellow_path = "/".join([dataset_root, "yellow-small/*"])
 
 green_df = dprep.read_csv(path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
-# auto_read_file will automatically identify and parse the file type, and is useful if you don't know the file type
+# auto_read_file automatically identifies and parses the file type, which is useful when you don't know the file type.
 yellow_df = dprep.auto_read_file(path=yellow_path)
 
 display(green_df.head(5))
@@ -69,7 +71,7 @@ display(yellow_df.head(5))
 
 ## <a name="cleanse-data"></a>Verilerini temizlemek
 
-Artık tüm veri akışı için geçerli bir kısayol dönüşümler bazı değişkenlerle doldurun. Değişken `drop_if_all_null` kayıtları silmek için tüm alanların null olduğu kullanılacak. Değişken `useful_columns` her bir veri akışı korunur sütun açıklamaları dizisi içerir.
+Şimdi bazı değişkenler için tüm veri akışlarını uygulamak için kısayol dönüşümler ile doldurun. `drop_if_all_null` Değişkeni kayıtları silmek için kullanılan tüm alanların null olduğu. `useful_columns` Değişken her veri akışı tutulur sütun açıklamaları dizisi tutar.
 
 ```python
 all_columns = dprep.ColumnSelector(term=".*", use_regex=True)
@@ -80,7 +82,7 @@ useful_columns = [
 ]
 ```
 
-İlk yeşil taksi verileri ile çalışma ve geçerli bir içine şekil get sarı taksi verileri ile birleştirilebilir. Geçici bir veri akışı oluşturma `tmp_df`. Çağrı `replace_na()`, `drop_nulls()`, ve `keep_columns()` işlevleri kısayolunu kullanarak oluşturduğunuz değişkenleri dönüştürün. Ayrıca, veri çerçevesi adlarını eşleştirmek için tüm sütunları yeniden adlandırma `useful_columns`.
+İlk sarı taksi verileri birleştirilebilir geçerli bir şeklin içine almak için yeşil taksi verilerle çalışın. Adlı geçici bir veri akışı oluşturma `tmp_df`. Çağrı `replace_na()`, `drop_nulls()`, ve `keep_columns()` işlevleri kısayolunu kullanarak oluşturduğunuz değişkenleri dönüştürün. Ayrıca, veri çerçevesi adlarını eşleştirmek için tüm sütunları yeniden adlandırma `useful_columns` değişkeni.
 
 
 ```python
@@ -209,13 +211,13 @@ tmp_df.head(5)
 </table>
 </div>
 
-Üzerine `green_df` gerçekleştirilen dönüşümler ile değişken `tmp_df` önceki adımda.
+Üzerine `green_df` çalıştıracağınız dönüşümlerle değişken `tmp_df` önceki adımda veri akışı.
 
 ```python
 green_df = tmp_df
 ```
 
-Sarı taksi verileri dönüştürme adımları gerçekleştirin.
+Aynı dönüştürme adımı sarı taksi verileri üzerinde çalıştırın.
 
 
 ```python
@@ -247,7 +249,7 @@ tmp_df = (yellow_df
 tmp_df.head(5)
 ```
 
-Yeniden üzerine `yellow_df` ile `tmp_df`ve sonra çağrı `append_rows()` işleticini yeşil taksi verileri yeni bir sarı taksi verileri eklemek için birleştirilmiş veri çerçevesi.
+Yeniden üzerine `yellow_df` veri akışı ile `tmp_df` veri akışı. Ardından çağırın `append_rows()` sarı taksi verileri eklemek için yeşil taksi verileri işlevi. Yeni bir birleşik dataframe oluşturulur.
 
 
 ```python
@@ -257,7 +259,7 @@ combined_df = green_df.append_rows([yellow_df])
 
 ### <a name="convert-types-and-filter"></a>Türleri ve filtre Dönüştür 
 
-Verilerin nasıl dağıtılması görmek için alma ve teslim koordinatları Özet istatistikleri inceleyin. İlk tanımlamak bir `TypeConverter` lat/uzun alanlar için ondalık türünü değiştirmek için nesne. Ardından, arama `keep_columns()` lat/uzun alanlara yalnızca çıktı kısıtlamak için işlev ve çağırma `get_profile()`.
+Verilerin nasıl dağıtılması görmek için alma ve teslim koordinatları Özet istatistikleri inceleyin. İlk olarak tanımlayan bir `TypeConverter` decimal türü için enlem ve boylam alanları değiştirmek için nesne. Ardından, arama `keep_columns()` çıkış yalnızca enlem ve boylam alanları kısıtlamak için işlev ve çağırma `get_profile()` işlevi.
 
 
 ```python
@@ -401,7 +403,7 @@ combined_df.keep_columns(columns=[
 
 
 
-Özet istatistikleri çıktısını eksik koordinatlar vardır ve koordinatları New York City olmayan bakın. Sütun filtresi komutlar zincirleme olarak Şehir kenarlık değil koordinatlarında filtrelemek `filter()` işlev ve her bir alan için minimum ve maksimum sınırları tanımlama. Ardından çağırın `get_profile()` yeniden dönüştürme doğrulamak için.
+Özet istatistikleri çıktısı olup görmek koordinatları ve New York City içinde olmayan koordinatları eksik. Koordinatları Şehir kenarlık dışında olan konumlar için filtreleyin. Sütun filtresi zinciri komutları içinde `filter()` çalışır ve her bir alan için minimum ve maksimum sınırları tanımlayın. Ardından çağırın `get_profile()` yeniden dönüştürme doğrulamak için işlevi.
 
 
 ```python
@@ -553,7 +555,7 @@ tmp_df.keep_columns(columns=[
 
 
 
-Üzerine `combined_df` yaptığınız dönüşümler ile `tmp_df`.
+Üzerine `combined_df` veri akışı için yapılan dönüştürmeler ile `tmp_df` veri akışı.
 
 
 ```python
@@ -627,14 +629,14 @@ combined_df.keep_columns(columns='store_forward').get_profile()
 
 
 
-Veri profili çıktısından `store_forward`, verilerin tutarlı değil ve yok/null değerler görürsünüz. Bu değerleri kullanarak değiştirin `replace()` ve `fill_nulls()` çalışır ve her iki durumda da "N" dizesi olarak değiştirin.
+Veri profili çıkış bildirimi `store_forward` sütun veri tutarsız ve eksik veya null değerler olduğunu gösterir. Kullanım `replace()` ve `fill_nulls()` işlevleri bu değerleri "N" dizesi ile değiştirin:
 
 
 ```python
 combined_df = combined_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
-Başka bir yürütme `replace` , bu kez işlevini `distance` alan. Bu yanlış olarak etiketlenmiş uzaklık değerleri yeniden biçimlendirir `.00`, herhangi bir null değerlere sıfır ile doldurur. Dönüştürme `distance` sayısal biçimi alanı.
+Yürütme `replace` işlevini `distance` alan. İşlev olarak yanlış etiketli uzaklık değerleri yeniden biçimlendirir `.00`, herhangi bir null değerlere sıfır ile doldurur. Dönüştürme `distance` sayısal biçimi alanı.
 
 
 ```python
@@ -642,7 +644,7 @@ combined_df = combined_df.replace(columns="distance", find=".00", replace_with=0
 combined_df = combined_df.to_number(["distance"])
 ```
 
-Çekme bölmek ve tarih/saat ilgili tarih ve saat sütunları devre dışı bırakın. Kullanım `split_column_by_example()` bölme işlemini gerçekleştirmek için. Bu durumda, isteğe bağlı `example` parametresinin `split_column_by_example()` atlanır. Bu nedenle işlevi veriler temel alınarak bölmek nereye otomatik olarak belirler.
+Toplama ve dropoff datetime değerleri kendi tarih ve saat sütunlarına bölün. Kullanım `split_column_by_example()` bölme yapmak için işlevi. Bu durumda, isteğe bağlı `example` parametresinin `split_column_by_example()` işlevi atlanmış. Bu nedenle, işlev, veriler temel alınarak bölmek nereye otomatik olarak belirler.
 
 
 ```python
@@ -780,7 +782,7 @@ tmp_df.head(5)
 </div>
 
 
-Tarafından oluşturulan sütunları yeniden adlandırma `split_column_by_example()` içine anlamlı adlar.
+Tarafından oluşturulan sütunları yeniden adlandırma `split_column_by_example()` işlevini anlamlı adlar kullanın.
 
 
 ```python
@@ -794,7 +796,7 @@ tmp_df_renamed = (tmp_df
 tmp_df_renamed.head(5)
 ```
 
-Üzerine `combined_df` yürütülen dönüşümleri ve ardından bir çağrı ile `get_profile()` sonra tüm dönüştürmeler tam Özet istatistikleri görmek için.
+Üzerine `combined_df` yürütülen dönüşümler ile veri akışı. Ardından çağırın `get_profile()` sonra tüm dönüştürmeler tam Özet istatistikleri görmek için işlev.
 
 
 ```python
@@ -804,9 +806,9 @@ combined_df.get_profile()
 
 ## <a name="transform-data"></a>Verileri dönüştürme
 
-Daha fazla alma ve teslim tarihi haftanın günü, ayın ve ayın günü bölün. Haftanın günü almak için kullanın `derive_column_by_example()` işlevi. Bu işlev, girdi verilerini ve istenen çıkışı tanımlayan bir dizi örnek nesneleri bir parametre olarak alır. Ardından işlev, istedikleri dönüşümü otomatik olarak belirler. Saat içinde bölme, alma ve teslim saat sütunları için dakika ve kullanarak ikinci `split_column_by_example()` işlevi ile örnek parametre yok.
+Toplama ve dropoff tarihe daha fazla gün hafta, gün ay ve ayın değerleri bölün. Gün haftanın değeri almak için kullanın `derive_column_by_example()` işlevi. İşlevi, giriş verilerinin ve tercih edilen çıkış tanımlayan örnek nesnelerin bir dizi parametresi alır. İşlevi, tercih edilen dönüşümünüzü otomatik olarak belirler. Toplama ve dropoff saat sütunları için saat saat, dakika ve saniye kullanarak bölme `split_column_by_example()` işlevi ile örnek parametre yok.
 
-Bu yeni özellikler oluşturduktan sonra özgün alanlara kullanarak yeni oluşturulan özellik ile değiştiriliyor Sil `drop_columns()`. Kalan tüm alanlar için doğru açıklamaları yeniden adlandırın.
+Yeni özellikler oluşturduktan sonra kullanma `drop_columns()` işlevi yeni oluşturulan özellikleri tercih edilen olarak özgün alanları silinecek. Geri kalan alanları anlamlı açıklamalar kullanmak için yeniden adlandırın.
 
 
 ```python
@@ -824,7 +826,7 @@ tmp_df = (combined_df
           
     .split_column_by_example(source_column="pickup_time")
     .split_column_by_example(source_column="dropoff_time")
-    # the following two split_column_by_example calls reference the generated column names from the above two calls
+    # The following two calls to split_column_by_example reference the column names generated from the previous two calls.
     .split_column_by_example(source_column="pickup_time_1")
     .split_column_by_example(source_column="dropoff_time_1")
     .drop_columns(columns=[
@@ -999,7 +1001,7 @@ tmp_df.head(5)
 </table>
 </div>
 
-Yukarıdaki verilerden türetilen dönüştürmeleri üretilen alma ve teslim tarih ve saat bileşenlerini doğru olduğunu görürsünüz. DROP `pickup_datetime` ve `dropoff_datetime` sütunlar artık oldukları gibi gerekli.
+Türetilen dönüştürmeleri alma ve dropoff tarih ve saat bileşenlerini üretilen veri gösterir doğru olduğuna dikkat edin. DROP `pickup_datetime` ve `dropoff_datetime` sütunlar artık olduğundan gerekli.
 
 
 ```python
@@ -1034,7 +1036,7 @@ type_infer
     'dropoff_latitude': [FieldType.DECIMAL],
     'cost': [FieldType.DECIMAL]
 
-Çıkarım sonuçları doğru konum verilerine dayalı veri akışı için tür dönüştürmeleri şimdi başvurun.
+Çıkarım sonuçlar doğru verileri temel alan görünür. Tür dönüştürmeleri veri akışı için şimdi başvurun.
 
 
 ```python
@@ -1042,14 +1044,14 @@ tmp_df = type_infer.to_dataflow()
 tmp_df.get_profile()
 ```
 
-Veri akışı paketlemeden önce veri kümesinde son iki filtre uygulayın. Hatalı veri noktalarını ortadan kaldırmak için veri akışı kayıtlar filtre nerede hem `cost` ve `distance` sıfırdan büyükse.
+Veri akışı paketlemeden önce veri kümesinde son iki filtre çalıştırın. Hatalı veri noktalarını ortadan kaldırmak için veri akışı kayıtlar filtre nerede hem `cost` ve `distance` değişken değerleri sıfırdan büyük.
 
 ```python
 tmp_df = tmp_df.filter(dprep.col("distance") > 0)
 tmp_df = tmp_df.filter(dprep.col("cost") > 0)
 ```
 
-Bu noktada, machine learning modeli ile kullanmak için tamamen dönüştürülmüş ve hazırlanmış veri akışı nesnesi vardır. SDK'sı şu şekilde kullanılır nesne seri hale getirme işlevselliğini içerir.
+Artık bir machine learning modeli ile kullanılacak bir tamamen dönüştürülmüş ve hazırlanmış veri akışı nesne var. SDK'sı, aşağıdaki kod parçacığında gösterildiği gibi kullanılan nesne seri hale getirme işlevselliğini içerir.
 
 ```python
 import os
@@ -1062,19 +1064,21 @@ package.save(file_path)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Dosya Sil `dflows.dprep` (yerel olarak veya Azure not defterleri çalıştırdığınız olup olmadığını) ile devam etmek istemiyorsanız, geçerli dizinde öğreticinin iki bölüm. İki kısımdan devam ederseniz, ihtiyacınız olacak `dflows.dprep` geçerli dizin dosyası.
+Öğreticinin ikinci Kısım ile devam etmek için ihtiyacınız **dflows.dprep** geçerli dizin dosyası.
+
+Bölümüne iki devam etmeyi planlamıyorsanız, silme **dflows.dprep** geçerli dizininizde dosya. Yürütme yerel olarak veya Azure not defterleri çalışmasından bu dosyayı silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticinin bir parçası olarak:
 
 > [!div class="checklist"]
-> * Geliştirme ortamınızı kurma
-> * Yüklenen ve Temizlenen veri kümeleri
-> * Akıllı dönüşümler mantığınızı bir örneği temel alarak tahmin etmek için kullanılan
-> * Birleştirilmiş ve paketli veri kümeleri için machine learning eğitimi
+> * Geliştirme ortamınızı ayarlayın.
+> * Yüklenen ve Temizlenen veri kümeleri.
+> * Akıllı dönüşümler mantığınızı bir örneği temel alarak tahmin etmek için kullanılır.
+> * Birleştirilmiş ve paketli veri kümeleri için makine öğrenimi eğitim.
 
-Bu öğretici serisinin bir sonraki kısmına eğitim verileri kullanmaya hazırsınız:
+Öğreticinin iki eğitim verileri kullanmaya hazırsınız:
 
 > [!div class="nextstepaction"]
-> [Öğretici #2: Regresyon modeli eğitme](tutorial-auto-train-models.md)
+> [Öğretici (ikinci Kısım): Regresyon modeli eğitme](tutorial-auto-train-models.md)

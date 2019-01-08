@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
-ms.openlocfilehash: 850919f8ca8bb68af544ae528a779e16068424b1
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 0dbdf2261b851b303a0c606e5de70354578c6d2e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752546"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078788"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Container Registry'den Azure Kubernetes hizmeti ile kimlik doğrulaması
 
@@ -44,7 +44,7 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 
 ## <a name="access-with-kubernetes-secret"></a>Kubernetes gizli ile erişim
 
-Bazı durumlarda, ACR erişim verme otomatik olarak oluşturulan AKS hizmet sorumlusuna gerekli rol atamak mümkün olmayabilir. Örneğin, kuruluşunuzun güvenlik modeli nedeniyle, yeterli AKS tarafından oluşturulan hizmet sorumlusuna bir rol atamak için Azure AD dizininizde izniniz olmayabilir. Böyle bir durumda, yeni bir hizmet sorumlusu oluşturun, ardından Kubernetes görüntü çekme gizli kullanarak kapsayıcı kayıt defterine erişim izni.
+Bazı durumlarda, ACR erişim verme otomatik olarak oluşturulan AKS hizmet sorumlusuna gerekli rol atamak mümkün olmayabilir. Örneğin, kuruluşunuzun güvenlik modeli nedeniyle, yeterli izinlere AKS tarafından oluşturulan hizmet sorumlusuna bir rol atamak için Azure Active Directory kiracınızdaki olmayabilir. Bir hizmet sorumlusuna bir rol atayarak yazma izni Azure AD kiracınız için Azure AD hesabınızın gerektirir. İzni yoksa, yeni bir hizmet sorumlusu oluşturun, ardından Kubernetes görüntü çekme gizli kullanarak kapsayıcı kayıt defterine erişim izni.
 
 (Kubernetes görüntü çekme gizli için kimlik bilgilerini kullanacaksınız) yeni bir hizmet sorumlusu oluşturmak için aşağıdaki betiği kullanın. Değiştirme `ACR_NAME` betiği çalıştırmadan önce ortamınız için değişken.
 

@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: f1a6825cdfab2375f1a6f1858ef14684d374dae2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 19600ccbc2a424d210c686d7027b52bc6254de57
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123491"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074725"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS uygulamaları sunma yayımlama Kılavuzu
 
-SaaS uygulamaları, üç farklı eylem çağrı Market'te yayımlanabilir: "Benimle iletişim kurun," "şimdi deneyin" ve "şimdi edinin." Bu kılavuz, her biri için gereksinimleri dahil olmak üzere bu üç seçenek açıklar. 
+SaaS uygulamaları, üç farklı eylem çağrı Market'te yayımlanabilir: "Benimle iletişim kurun," "Şimdi deneyin" ve "şimdi edinin." Bu kılavuz, her biri için gereksinimleri dahil olmak üzere bu üç seçenek açıklar. 
 
 ## <a name="offer-overview"></a>Teklif genel bakış  
 
@@ -34,8 +34,8 @@ SaaS uygulamalarını hem Azure Vitrinler geçerli kullanılabilir seçenekler a
 | AppSource | Evet (benimle iletişime geçin) | Evet (Power BI/Dynamics) |
 | Azure Market | Hayır | Evet (SaaS uygulamaları) |   
 
-**Liste:** listeleme yayımlama seçeneği bir kişi bana Teklif türü oluşur ve bir deneme sürümü veya işlem düzeyi katılım uygun olmadığı durumlarda kullanılır. Bu yaklaşımın avantajı işletmenizi artırmak için anlaşmalar kapatılabilir müşteri adayları alma hemen başlamak bir çözüm içinde pazara açılma olan yayımcı sunmasıdır.  
-**Deneme/işlem:** müşteri çözümünüz için bir deneme sürümü isteyin veya doğrudan satın alma seçeneğine sahiptir. Bir deneme sürümü deneyimi sağlama çalışmaları müşterilerine sunulan katılım düzeyini artırır ve satın almadan önce çözümünüzü incelemek müşterilerin sağlar. Bir deneme sürümü deneyimi ile vitrinler yükseltme daha iyi olasılığı vardır ve müşterilerle yaşadığımız daha zengin ve daha fazla müşteri adaylarını beklemelisiniz. Deneme ücretsiz destek deneme süresi boyunca en az içermelidir.  
+**Listesi:**  Bir kişi bana Teklif türü ve deneme veya işlem düzeyi katılım uygun olmadığı durumlarda kullanılır liste yayımlama seçeneği oluşur. Bu yaklaşımın avantajı işletmenizi artırmak için anlaşmalar kapatılabilir müşteri adayları alma hemen başlamak bir çözüm içinde pazara açılma olan yayımcı sunmasıdır.  
+**Deneme/işlem:**  Müşteri, doğrudan satın almanız veya çözümünüz için bir deneme sürümü iste seçeneği vardır. Bir deneme sürümü deneyimi sağlama çalışmaları müşterilerine sunulan katılım düzeyini artırır ve satın almadan önce çözümünüzü incelemek müşterilerin sağlar. Bir deneme sürümü deneyimi ile vitrinler yükseltme daha iyi olasılığı vardır ve müşterilerle yaşadığımız daha zengin ve daha fazla müşteri adaylarını beklemelisiniz. Deneme ücretsiz destek deneme süresi boyunca en az içermelidir.  
 
 | SaaS uygulamaları teklifi | İş Gereksinimleri | Teknik Gereksinimler |  
 | --- | --- | --- |  
@@ -94,7 +94,7 @@ Video öğreticiler için aşağıdakileri gözden geçirin:
 * [Microsoft Azure Active Directory odaklanmış videoları](https://azure.microsoft.com/resources/videos/index/?services=active-directory)
 
 Ücretsiz Azure Active Directory eğitim kullanılabilir  
-* [BT uzmanları içerik serisi için Microsoft Azure: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
+* [Microsoft Azure için BT uzmanları içerik serisi: Azure Active Directory](https://mva.microsoft.com/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 Ayrıca, Azure Active Directory Hizmet güncelleştirmeleri denetlemek için site sağlar   
 * [Azure AD hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=active-directory)
@@ -144,11 +144,12 @@ Microsoft commerce işlemi'ni barındırır. Microsoft, müşterinizin sizin ad�
 |İşlem giriş sayfası | Kullanıcılar nerede oluşturabilir ve SaaS hizmet hesaplarını yönetmek bir Azure ortak markalı işlem giriş sayfası barındırabileceğiniz. |   
 | Abonelik API | Oluşturmak, güncelleştirmek ve bir kullanıcı hesabı ve hizmet planını silmek için SaaS abonelikle etkileşime hizmet kullanıma sunar. 24 saat içinde kritik API değişiklikleri desteklenmesi gerekir. Kritik olmayan API değişiklikleri düzenli olarak kullanıma sunulacaktır. |  
 
-## <a name="next-steps"></a>Sonraki Adımlar
-Zaten yapmadıysanız, 
+## <a name="next-steps"></a>Sonraki adımlar
+Zaten yapmadıysanız,
 
-- [Kayıt](https://azuremarketplace.microsoft.com/sell) Market'te
+- [Kayıt](https://azuremarketplace.microsoft.com/sell) Market'te.
 
 Kayıtlı ve yeni bir teklif oluşturur veya mevcut bir proje üzerinde çalışmaya,
 
-- [Bulut iş ortağı portalında oturum açın](https://cloudpartner.azure.com) oluşturmak veya teklifiniz tamamlamak için
+- [Bulut iş ortağı portalında oturum açın](https://cloudpartner.azure.com) oluşturmak veya teklifiniz tamamlayın.
+- Bkz: [Azure SaaS uygulaması teklif](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer) daha fazla bilgi için.

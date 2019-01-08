@@ -1,5 +1,5 @@
 ---
-title: Azure App Service ile ClearDB MySql veritabanları hakkında SSS | Microsoft Docs
+title: Azure Uygulama Hizmeti ile ClearDB MySQL veritabanları hakkında SSS
 description: Azure App Service ile ClearDB MySQL veritabanları kullanma hakkında sık sorulan sorulara yanıtlar.
 documentationcenter: php
 services: mysql
@@ -7,17 +7,16 @@ author: sunbuild
 manager: yochayk
 tags: mysql
 ms.service: multiple
-ms.workload: data-management
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 253f817099bd2705d8b9ea98741dc8fd28f09efe
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0887f58ca455dfec0474c8d6a1acba584224f0d7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52421666"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074419"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure Uygulama Hizmeti ile ClearDB MySQL veritabanları hakkında SSS
 Bu SSS ClearDB MySQL veritabanları, Azure Web Apps için satın alma ve kullanma hakkında sık sorulan soruları yanıtlar.
@@ -27,24 +26,22 @@ Bu SSS ClearDB MySQL veritabanları, Azure Web Apps için satın alma ve kullanm
 >
 > Daha fazla ayrıntı ve sonraki adımlar için bkz. [değişiklikleri ClearDB hizmet planları için](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
 
-
 ## <a name="what-options-do-i-have-for-mysql-on-azure"></a>Azure üzerinde MySQL için hangi seçenekler var mı?
-Birkaç seçeneğiniz vardır:
+Bkz: [ClearDB](https://w2.cleardb.net/) hizmetin en son bilgiler için. ClearDB, bir MySQL barındırma hizmeti olan ve MySQL altyapı sizin yerinize yönetir. 
 
-* [ClearDB MySQL paylaşılan veritabanı](/marketplace/partners/cleardb/databases/)
-* [ClearDB MySQL Premium kümeler](/marketplace/partners/cleardb-clusters/cluster/)
+Azure'da MySQL barındırma için birkaç seçeneğiniz vardır:
+* [MySQL için Azure Veritabanı](https://azure.microsoft.com/services/mysql/)
 * [Bir Azure sanal makinesinde çalışan MySQL kümesi](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 * [Tek bir Azure sanal makinesinde çalışan MySQL örneği](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-ClearDB, bir MySQL barındırma hizmeti olan ve MySQL altyapı sizin yerinize yönetir. Bir Azure sanal makinesinde kendi MySQL kümesi veya veritabanı çalıştırdığınızda, MySQL sunucusu ayarlamanız ve düzeltme ekleriyle güncel tutmanın gerekir.
 
 ## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>Kredi kartı kullanmam gerekiyor için Web uygulaması + MySQL şablonu Azure Marketi'nde?
 Bu, kullanmakta olduğunuz abonelik türüne bağlıdır. Bazı yaygın olarak kullanılan abonelik türleri şunlardır:
 
-* [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/): bir kredi kartı ve Ücretli bir MySQL veritabanı, kredi kartınıza ücret satın aldığınızda gerektirir.
-* [Ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/): Microsoft Azure ile kullanmak üzere Hizmetleri ancak üçüncü taraf kaynakların satın alma izin vermeyen krediler içerir. Üçüncü taraf Hizmetlerinde veya kredi kartı kullanmanız gerekir, ücretli bir MySQL veritabanı satın almak için abonelik etkin. Web Apps için ücretsiz ClearDB MySQL veritabanı oluşturabilirsiniz.
-* [MSDN aboneliği](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ve **MSDN Geliştirme ve Test Kullandıkça Öde**: benzer şekilde, ücretsiz deneme, MSDN aboneliği Cleardb'den MySQL çözüm Ücretli satın almak için bir kredi kartı olmasını gerektirir.
-* [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): her üç ay için tüm Azure Marketi (üçüncü taraf) aldıklarını birleştirilmiş, ayrı bir fatura EA müşterileri EA'ya göre faturalandırılır. Marketi satın alma işlemleri için parasal taahhüdü dışında faturalandırılır. Şu anda Azure Store müşterileri tarafından Azerbaycan, Hırvatistan, Norveç ve Porto Riko kayıtlı değil, lütfen unutmayın. 
+* [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/): Bir kredi kartı ve bir Ücretli MySQL veritabanı kredi kartınızdan ücret satın aldığınızda gerektirir.
+* [Ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/): Microsoft Azure Hizmetleri ile kullanmak için kredi içerir, ancak üçüncü taraf kaynakların satın alma izin vermez. Üçüncü taraf Hizmetlerinde veya kredi kartı kullanmanız gerekir, ücretli bir MySQL veritabanı satın almak için abonelik etkin. Web Apps için ücretsiz ClearDB MySQL veritabanı oluşturabilirsiniz.
+* [MSDN aboneliği](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) ve **MSDN Geliştirme ve Test Kullandıkça Öde**: Benzer şekilde, ücretsiz deneme, MSDN aboneliği Cleardb'den MySQL çözüm Ücretli satın almak için bir kredi kartı olmasını gerektirir.
+* [Kurumsal Anlaşma (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA müşterileri EA'ya göre tüm Azure Marketi (üçüncü taraf) aldıklarını birleştirilmiş, ayrı bir fatura için her bir üç aylık olarak faturalandırılır. Marketi satın alma işlemleri için parasal taahhüdü dışında faturalandırılır. Şu anda Azure Store müşterileri tarafından Azerbaycan, Hırvatistan, Norveç ve Porto Riko kayıtlı değil, lütfen unutmayın. 
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Bir Web uygulaması + MySQL Azure Market'ten 3.50 neden ücretlendirildim?
 Varsayılan veritabanı $3.50 olan Titan seçenektir. Maliyet veritabanı oluşturma sırasında gösterme ve bir veritabanı için istediğinize yaramadı yanlışlıkla satın alabilirsiniz. Deneyimini iyileştirmek üzere bir yolunu bulmak çalışıyoruz ancak bu tarihe kadar tıklatmadan önce tüm, seçili fiyatlandırma katmanları için web uygulaması ve veritabanı denetlemelisiniz **Oluştur** ve kaynakların dağıtımı başlatılıyor.
@@ -53,7 +50,7 @@ Varsayılan veritabanı $3.50 olan Titan seçenektir. Maliyet veritabanı oluşt
 Evet. Azure VM, web uygulamanız için uzaktan erişim verdiği sürece, web uygulamanızı veritabanına bağlanabilirsiniz. Daha fazla bilgi için [bir sanal makineye MySQL yükleme](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="in-which-countries-are-cleardb-premium-mysql-clusters-supported"></a>İçinde ClearDB Premium MySQL kümeleri desteklenen ülkeler misiniz?
-[ClearDB Premium MySQL kümeleri](/marketplace/partners/cleardb-clusters/cluster/) Hindistan, Avustralya, Brezilya Güney ve Çin hariç olmak üzere dünya çapındaki tüm Azure bölgelerinde kullanılabilir.
+ClearDB Premium MySQL kümeleri, Hindistan, Avustralya, Brezilya Güney ve Çin hariç olmak üzere dünya çapındaki tüm Azure bölgelerinde kullanılabilir.
 
 ## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>ClearDB premium küme çözümü ile bir veritabanı oluşturmadan önce yeni bir küme oluşturabilir miyim?
 Hayır, boş ClearDB kümeleri oluşturma desteklenmiyor. Azure portalındaki veritabanları aynı anda yeni bir küme oluşturabilir bir küme oluşturmanıza olanak sağlar.
@@ -65,7 +62,7 @@ Hayır, Azure, uygulamanızın bağlı olduğu bir Market satın alımı silerse
 Azure Market müşterileri tarafından Azerbaycan, Hırvatistan, Norveç veya Porto Riko kayıtlı değil. ClearDB, bu bölgede kullanılamıyor.
 
 ## <a name="what-pricing-tier-should-i-choose-for-a-production-web-app-and-database"></a>Bir üretim web uygulaması ve veritabanı için hangi fiyatlandırma katmanını seçmeliyim?
-Temel veya daha yüksek bir fiyatlandırma katmanı, Web Apps için kullanın. İçin ClearDB, Saturn veya Jupiter planı öneririz. Özellikler ve her ikisi için her fiyatlandırma katmanının sınırlamaları gözden [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) ve [ClearDB MySQL veritabanları](/marketplace/partners/cleardb/databases/) gereksinimlerinize en uygun olanı seçmeleri için.
+Temel veya daha yüksek bir fiyatlandırma katmanı, Web Apps için kullanın. İçin ClearDB, Saturn veya Jupiter planı öneririz. Özellikler ve her ikisi için her fiyatlandırma katmanının sınırlamaları gözden [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) ve [ClearDB MySQL veritabanları](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/) gereksinimlerinize en uygun olanı seçmeleri için.
 
 ## <a name="how-do-i-upgrade-my-cleardb-database-from-one-plan-to-another"></a>Nasıl ClearDB Veritabanım bir plandan diğerine yükseltebilirim?
 İçinde [Azure portalında](https://portal.azure.com), ClearDB bir paylaşılan barındırma veritabanını ölçeklendirebilirsiniz. Bu okuma [makale](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) daha fazla bilgi için. Şu anda Azure portalında ClearDB Premium kümeler için yükseltme desteklemiyoruz.

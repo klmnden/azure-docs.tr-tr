@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8afe994f2441e736d660a306746508e9c6d13691
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: ca9148093660f3ed223fd2117e85d309c919e040
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001847"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076935"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Application ınsights'tan dışarı aktarılan verileri işlemek için Stream Analytics'i kullanma
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) veri işleme için ideal araçtır [Application Insights'tan dışarı aktarılan](export-telemetry.md). Stream Analytics, çeşitli kaynaklardan veri çekebilirsiniz. Bu dönüştürme ve verileri filtreleyin ve ardından çeşitli havuzlarını yönlendirmek.
@@ -25,7 +25,7 @@ ms.locfileid: "54001847"
 Bu örnekte, yeniden adlandırma uygulama anlayışları'ndan verileri alır ve bazı alanlar işler ve Power BI'a kanallar bir bağdaştırıcı oluşturacağız.
 
 > [!WARNING]
-> Çok daha iyi ve daha kolay [Application Insights verilerini Power BI'da görüntülemek için önerilen yollar](../../application-insights/app-insights-export-power-bi.md). Burada gösterilen yolu dışarı aktarılan verileri işlemek nasıl göstermek için yalnızca bir örnektir.
+> Çok daha iyi ve daha kolay [Application Insights verilerini Power BI'da görüntülemek için önerilen yollar](../../azure-monitor/app/export-power-bi.md ). Burada gösterilen yolu dışarı aktarılan verileri işlemek nasıl göstermek için yalnızca bir örnektir.
 > 
 > 
 
@@ -198,7 +198,7 @@ Bu sorguyu yapıştırın:
 
 ## <a name="see-results-in-power-bi"></a>Sonuçları Power bı'da görün
 > [!WARNING]
-> Çok daha iyi ve daha kolay [Application Insights verilerini Power BI'da görüntülemek için önerilen yollar](../../application-insights/app-insights-export-power-bi.md). Burada gösterilen yolu dışarı aktarılan verileri işlemek nasıl göstermek için yalnızca bir örnektir.
+> Çok daha iyi ve daha kolay [Application Insights verilerini Power BI'da görüntülemek için önerilen yollar](../../azure-monitor/app/export-power-bi.md ). Burada gösterilen yolu dışarı aktarılan verileri işlemek nasıl göstermek için yalnızca bir örnektir.
 > 
 > 
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 4a77f73f4d87f7def7c8a841c7a59aed04b9bee2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 69ba67eb74333e8316b739fc2f264434643cab95
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020056"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075150"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>İzleme ve Application Insights ile bir Azure Batch .NET uygulama hatalarını ayıklama
 
@@ -35,11 +35,11 @@ Bu makalede eşlik eden kodunu içeren bir örnek C# çözüm edinilebilir [GitH
 
 * [Batch hesabı ve bağlı depolama hesabı](batch-account-create-portal.md)
 
-* [Application Insights kaynağı](../application-insights/app-insights-create-new-resource.md)
+* [Application Insights kaynağı](../azure-monitor/app/create-new-resource.md )
   
    * Bir Application Insights'ı oluşturmak için Azure portal'ı kullanmanızı *kaynak*. Seçin *genel* **uygulama türü**.
 
-   * Kopyalama [izleme anahtarını](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) portalından. Bu makalenin sonraki bölümlerinde gerekir.
+   * Kopyalama [izleme anahtarını](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) portalından. Bu makalenin sonraki bölümlerinde gerekir.
   
   > [!NOTE]
   > Olabilir [ücret](https://azure.microsoft.com/pricing/details/application-insights/) uygulama anlayışları'nda depolanan veriler için. Bu, tanılama ve izleme bu makalede ele alınan verileri içerir.

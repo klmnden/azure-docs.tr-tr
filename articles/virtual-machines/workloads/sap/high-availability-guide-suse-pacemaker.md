@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: c6dee6fc26f540ad93f5a4b4e6e2f9432f757a6c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 00e50d60ed7f13a2f28338891b39b1b55b7adbfa
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076364"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074385"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>SLES azure'daki SUSE Linux Enterprise Server üzerinde Pacemaker ayarlama
 
@@ -483,12 +483,12 @@ Aşağıdaki öğeler ile önek **[A]** - tüm düğümler için geçerli **[1]*
 
 STONITH cihaz, Microsoft Azure karşı korunmasına yetki vermek için bir hizmet sorumlusu kullanır. Bir hizmet sorumlusu oluşturmak için aşağıdaki adımları izleyin.
 
-1. Şuraya gidin: <https://portal.azure.com>
+1. Git < https\://portal.azure.com >
 1. Azure Active Directory dikey penceresini açın  
    Özellikler bölümüne gidin ve dizin kimliği yazma Bu **Kiracı kimliği**.
 1. Uygulama kayıtları tıklayın
 1. Ekle'ye tıklayın.
-1. Bir ad girin, "Web uygulaması/API'si" uygulama türünü seçin, bir oturum açma URL'sini girin (örneğin http://localhost) ve Oluştur'a tıklayın
+1. Bir ad girin, "Web uygulaması/API'si" uygulama türünü seçin, bir oturum açma URL'sini girin (örneğin http\://localhost) ve Oluştur'a tıklayın
 1. Oturum açma URL'si kullanılmaz ve geçerli bir URL olabilir
 1. Yeni uygulamayı seçin ve ayarları sekmesini anahtarları
 1. Yeni bir anahtar için bir açıklama girin, "Her zaman geçerli olsun"'i seçin ve Kaydet'e tıklayın
@@ -525,7 +525,7 @@ Giriş dosyası için aşağıdaki içeriği kullanın. İhtiyacınız olan içe
 
 Özel rol "Linux sınır aracısı hizmet sorumlusuna son bölümde oluşturduğunuz rolü" atayın. Sahip rolü artık kullanmayın!
 
-1. Şuraya gidin: https://portal.azure.com
+1. Https Git\://portal.azure.com
 1. Tüm kaynaklar dikey penceresini açın
 1. İlk küme düğümüne sanal makinesini seçin
 1. Erişim denetimi (IAM)'ye tıklayın.

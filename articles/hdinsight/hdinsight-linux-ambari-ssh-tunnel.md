@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 280d56951053870d5dc1bb8fba52cc089e842757
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 3cf13dc7b3a57435e4e93d6f01da482a2b992bb9
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743881"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065316"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Apache Ambari web kullanıcı Arabirimi, JobHistory, NameNode, Apache Oozie ve diğer web kullanıcı arabirimlerine erişim için SSH tünel oluşturmayı kullanma
 
@@ -126,10 +126,10 @@ Komut bittikten sonra yerel bilgisayarda 9876 numaralı bağlantı noktasına g�
 
 Küme oluşturulduktan sonra Ambari Web hizmeti web kullanıcı arabirimleri erişebildiğinizi doğrulamak için aşağıdaki adımları kullanın:
 
-1. Tarayıcınızda, Git http://headnodehost:8080. `headnodehost` Adresi çözümleme Ambari çalıştıran baş düğüme ve küme tüneli üzerinden gönderilir. İstendiğinde, kümeniz için yönetici kullanıcı adını (Yönetici) ve parolasını girin. Ambari web kullanıcı arabirimini ikinci kez istenebilir. Öyleyse, bilgileri yeniden girin.
+1. Tarayıcınızda, http için Git\:/ / headnodehost:8080. `headnodehost` Adresi çözümleme Ambari çalıştıran baş düğüme ve küme tüneli üzerinden gönderilir. İstendiğinde, kümeniz için yönetici kullanıcı adını (Yönetici) ve parolasını girin. Ambari web kullanıcı arabirimini ikinci kez istenebilir. Öyleyse, bilgileri yeniden girin.
 
    > [!NOTE]  
-   > Kullanırken http://headnodehost:8080 Tünel üzerinden bağlanıyorsanız, kümeye bağlanmak için adres. SSH tüneli yerine HTTPS kullanarak iletişim sağlanır. İnternet üzerinden HTTPS kullanarak bağlanmak için https://clustername.azurehdinsight.netburada **clustername** kümenin adıdır.
+   > Http kullanırken\://headnodehost:8080 adresi kümeye bağlanmak için Tünel üzerinden bağlanıyorsanız. SSH tüneli yerine HTTPS kullanarak iletişim sağlanır. İnternet üzerinden HTTPS kullanarak bağlanmak için https kullanmak\:/ / clustername.azurehdinsight.net, burada **clustername** kümenin adıdır.
 
 2. Ambari Web kullanıcı arabirimini HDFS sayfasının sol taraftaki listeden seçin.
 
@@ -149,7 +149,7 @@ Küme oluşturulduktan sonra Ambari Web hizmeti web kullanıcı arabirimleri eri
     ![Görüntü NameNode kullanıcı arabirimi](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]  
-   > Bu sayfa URL'si dikkat edin. aşağıdakine benzer olmalıdır **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Bu URI düğümünün dahili tam etki alanı adı (FQDN) kullanıyor ve bir SSH tüneli kullanırken yalnızca erişilebilir.
+   > Bu sayfa URL'si dikkat edin. aşağıdakine benzer olmalıdır **http\://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Bu URI düğümünün dahili tam etki alanı adı (FQDN) kullanıyor ve bir SSH tüneli kullanırken yalnızca erişilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 7373cc23654e2168963a364e4b4069331bf196c5
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 8a0808c0e82ee31a5fd684d449fa30cd331d3dba
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969939"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063886"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Amazon basit depolama hizmeti Azure Data Factory kullanarak veri kopyalama
-> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Sürüm 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Geçerli sürüm](connector-amazon-simple-storage-service.md)
 
@@ -31,7 +31,7 @@ Verileri Amazon S3, tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Ko
 Özellikle, bu Amazon S3 bağlayıcı kopyalama dosyaları gibi destekler- ya da dosyaları ayrıştırma [desteklenen dosya biçimleri ve codec sıkıştırma](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
->Bu Amazon S3 bağlayıcı veri kopyalamak için kullanabileceğiniz **herhangi S3 ile uyumlu depolama sağlayıcıları** örn [Google bulut depolama](#copy-from-google-cloud-storage). Bağlı hizmet yapılandırmasında karşılık gelen hizmet URL'si belirtin.
+>Bu Amazon S3 bağlayıcı veri kopyalamak için kullanabileceğiniz **herhangi S3 ile uyumlu depolama sağlayıcıları** örn [Google bulut depolama](connector-google-cloud-storage.md). Bağlı hizmet yapılandırmasında karşılık gelen hizmet URL'si belirtin.
 
 ## <a name="required-permissions"></a>Gerekli izinler
 
@@ -212,35 +212,6 @@ Verileri Amazon S3'ten kopyalamak için kopyalama etkinliği kaynak türünü ay
         }
     }
 ]
-```
-
-## <a name="copy-from-google-cloud-storage"></a>Google bulut depolamadan kopyalama
-
-Google bulut depolama S3 uyumlu birlikte çalışabilirliği sağladığından, Amazon S3 Bağlayıcısı Google bulut depolama alanından herhangi biri veri kopyalamak için kullanabileceğiniz [havuz veri depolarına desteklenen](copy-activity-overview.md#supported-data-stores-and-formats). 
-
-Belirli bir Google bulut depolama giriş hizmet URL'sine otomatik olarak dolduran ADF yazma UI bağlayıcı galeri bulabilirsiniz `https://storage.googleapis.com`. Erişim anahtarı ve gizli anahtarını bulmak için Git **Google bulut depolama** > **ayarları** > **birlikte çalışabilirlik**. Başlangıçtan itibaren veri kopyalamak için S3 Bağlayıcısı'nı kullanarak bir ayrıntılı genel bakış için bu makaleyi okuyun.
-
-**Bağlı örnek hizmeti:**
-
-```json
-{
-    "name": "GoogleCloudStorageLinkedService",
-    "properties": {
-        "type": "AmazonS3",
-        "typeProperties": {
-            "accessKeyId": "<access key id>",
-            "secretAccessKey": {
-                "type": "SecureString",
-                "value": "<secret access key>"
-            },
-            "serviceUrl": "https://storage.googleapis.com"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

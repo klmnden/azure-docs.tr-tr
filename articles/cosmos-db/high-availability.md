@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 93e6819f5b732ed318296aa338a427f1bf92ed74
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4fc17daf640e95ab028150cec029471a0c7bc565
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042903"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063004"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB ile yüksek kullanılabilirlik
 
 Azure Cosmos DB, verilerinizi Cosmos hesabınızla ilişkili tüm Azure bölgeleri arasında şeffaf biçimde çoğaltır. Cosmos DB, aşağıdaki görüntüde gösterildiği gibi birden çok yedekleme verileriniz için katmanı kullanır:
 
-![Fiziksel bölümleme](./media/high-availability/figure1.png)
+![Fiziksel bölümleme](./media/high-availability/cosmosdb-data-redundancy.png)
 
 - Verileri Cosmos kapsayıcıları içinde yatay olarak bölümlenir.
 

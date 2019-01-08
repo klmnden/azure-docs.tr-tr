@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 8bb964308e11d238def4eed3f194ffc9ef8ab086
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: abaad7eabf92b6f3f53d7807af132959533552b9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840172"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076969"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Bulut Marketi Yönetimi sağlama
 
@@ -60,7 +60,7 @@ Ayarlanan teknik yerleştirildikten sonra bu müşteri adayları geçerli satı�
 
 ## <a name="common-lead-configuration-errors-during-publishing-on-cloud-partner-portal"></a>Bulut iş ortağı portalı yayımlama sırasında sık karşılaşılan müşteri adayı yapılandırma hatalar 
 
-**Dynamics CRM'e müşteri adayı kaydedilemedi. Dynamics CRM hesap ayarlarını denetleyin. LastCRMError: Oturum açma Dynamics CRM, LastCRMException oluşturulamıyor:** 
+**Dynamics CRM'e müşteri adayı kaydedilemedi. Dynamics CRM hesap ayarlarını denetleyin. LastCRMError: Dynamics CRM, LastCRMException oturum açılamıyor:** 
 
 > O365 kimlik doğrulaması seçildiğinde, kullanıcı hesabı ve parolası olup olmadığını geçerli denetleyin. AAD seçildiyse, Kiracı kimliği, uygulama kimliği ve uygulama gizli anahtarı eşleşme ne AAD'de ayarlanmıştır olmadığını denetleyin. Yönergeleri izleyerek [burada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics). Hesap kullanıcı adı/parola geçerliyse, Dynamics 365 erişiminin ve bir lisans atanmış (adımları kullanarak Office kullanıcı Azure Active Directory veya güvenlik ayarları kullanılarak, 11-15) emin olun. 
 
@@ -73,25 +73,25 @@ Ayarlanan teknik yerleştirildikten sonra bu müşteri adayları geçerli satı�
 
 > Müşteri adayı Yönetim bölümünde sağlanan dizin kimliği geçerli bir dizin değil. Lütfen 2. adım yönergelerini temel dizin kimliği Al (Azure Active Directory altında gelen [burada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) 
 
-**Dynamics CRM'e müşteri adayı kaydedilemedi. LastCRMError: başarısız oldu - SecLib::RetrievePrivilegeForUser kullanıcıya rol atanır.**  
+**Dynamics CRM'e müşteri adayı kaydedilemedi. LastCRMError: Başarısız oldu - SecLib::RetrievePrivilegeForUser kullanıcıya rol atanır.**  
 
 > Çözüm: Microsoft Marketplace sağlama yazıcısına güvenlik rolü atayın. Yönergeleri izleyerek [burada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) güvenlik ayarları 
 
-**AAD kullanılarak Dynamics CRM'e müşteri adayı kaydedilemedi. Özel durum:: Tanımlayıcısına sahip uygulama dizinde bulunamadı.** 
+**AAD kullanılarak Dynamics CRM'e müşteri adayı kaydedilemedi. Özel durum:: Uygulama tanımlayıcısı ile dizinde bulunamadı.** 
 
 > Müşteri adayı Yönetim bölümünde sağlanan uygulama kimliği, geçerli bir dizin değil. Lütfen adım 8 yönergelerini temel dizin kimliği Al (Azure Active Directory altında gelen [burada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**AAD kullanılarak Dynamics CRM'e müşteri adayı kaydedilemedi. Özel durum:: İstenen Kiracı tanımlayıcısı geçerli ve geçersiz dış etki alanı biçimi değil** 
+**AAD kullanılarak Dynamics CRM'e müşteri adayı kaydedilemedi. Özel durum:: İstenen Kiracı tanımlayıcısı, geçerli ve geçersiz dış etki alanı biçimi değil** 
 
 > Müşteri adayı Yönetim bölümünde sağlanan dizin kimliği geçerli bir dizin değil. Lütfen 2. adım yönergelerini temel dizin kimliği Al (Azure Active Directory altında gelen [burada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**AAD kullanılarak Dynamics CRM'e müşteri adayı kaydedilemedi. Özel durum:: kimlik doğrulama hatası: Geçersiz istemci gizli anahtarı sağlanır.** 
+**AAD kullanılarak Dynamics CRM'e müşteri adayı kaydedilemedi. Özel durum:: Kimlik bilgilerini doğrulama hatası.: Geçersiz istemci gizli anahtarı sağlanır.** 
 
-> Çözümleme: Azure portalı, uygulama anahtarı nedir bulut iş ortağı Portalı'nda eşleşiyorsa onay oturum açın. Lütfen dan 10. adımı (altında Azure Active Directory), yönerge göre parola oluştur [burada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
+> Çözüm: Azure portalında oturum açın, uygulama anahtarı nedir bulut iş ortağı Portalı'nda eşleşip eşleşmediğini kontrol edin. Lütfen dan 10. adımı (altında Azure Active Directory), yönerge göre parola oluştur [burada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
-**Dynamics CRM'e müşteri adayı kaydedilemedi. LastCRMError: İstek kanalı 00:02:00 sonra bir yanıtı beklenirken zaman aşımına uğradı. Request çağrısına geçirilen zaman aşımı değerini artırın ya da Binding üstündeki SendTimeout değerini artırın. Bu işlem için ayrılan süre daha uzun bir zaman aşımı değerinin bir bölümü olabilir.**  
+**Dynamics CRM'e müşteri adayı kaydedilemedi. LastCRMError: İstek kanalı, 00:02:00 sonra bir yanıtı beklenirken zaman aşımına uğradı. Request çağrısına geçirilen zaman aşımı değerini artırın ya da Binding üstündeki SendTimeout değerini artırın. Bu işlem için ayrılan süre daha uzun bir zaman aşımı değerinin bir bölümü olabilir.**  
 
-> Çözüm: Oturum açma bulut iş ortağı portalı için mağaza ayrıntılarını kontrol edin >> sağlama hedef >> URL, geçerli bir dinamik CRM örneği olup olmadığını denetleyin
+> Çözüm: Bulut iş ortağı portalında oturum açın, mağaza ayrıntılarını kontrol edin >> sağlama hedef >> URL, geçerli bir dinamik CRM örneği olup olmadığını denetleyin
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
@@ -102,7 +102,7 @@ Müşteri adayları, ürünleri Market dağıtan müşterilerdir. Ürününüzü
 
 **Benim müşteri adayı hedef ayarlama konusunda Yardım nereden alabilirim?** 
 
-Burada sağlanan belgelerde bulabilirsiniz: [müşteri adayları alma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) aka.ms/marketplacepublishersupport select Teklif türü üzerinden bir destek bileti gönderin ve müşteri adayı yönetim. 
+Burada sağlanan belgelerde bulabilirsiniz: [Müşteri adayları alma](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) aka.ms/marketplacepublishersupport select Teklif türü üzerinden bir destek bileti gönderin ve müşteri adayı yönetim. 
 
 
 
@@ -150,7 +150,7 @@ Başlık MSFT_TEST_636573304831318844 =
 
 **Canlı bir teklif sahibim, ancak tüm müşteri adaylarını görmüyorum?**
 
-Her sağlama veri alanları, Seçilen müşteri adayı hedef iletilen gerekir, müşteri adaylarını şu biçimde gelir: **kaynak eylem | Teklif** 
+Her sağlama veri alanları, Seçilen müşteri adayı hedef iletilen gerekir, müşteri adaylarını şu biçimde gelir: **Kaynak eylem | Teklif** 
 
   *Kaynakları:*
 

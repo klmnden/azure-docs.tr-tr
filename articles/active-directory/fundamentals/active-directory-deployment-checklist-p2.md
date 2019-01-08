@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4fcb692d7189c84e32f55995538ffc692cb67dd6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078253"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064724"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Azure Active Directory Premium P2 lisans özelliği denetim listesi
 
@@ -84,7 +84,7 @@ Bu kılavuzda, Azure AD Premium P2 lisansı, Enterprise Mobility + Security E5, 
 - Kullanıcı yaşam döngüsü bütünlüklü olarak yönetme
    - Azure AD kimlik yaşam döngüsünü yönetmek için bir yaklaşım vardır.
    - El ile yapılacak adımlar, yetkisiz erişimi önlemek için çalışan hesabı döngüsü, kaldırın:
-      - Getirilir (ik sistemine) kaynağınızdan Azure AD kimlikleri eşitleyin. bağlantı ik sistemleri desteklenir)
+      - Getirilir (ik sistemine) kaynağınızdan Azure AD kimlikleri eşitleyin.
       - [İK (veya bir kaynak sağlar), departman, başlık, bölge, bunların özniteliklerini ve diğer özniteliklerini göre gruplara otomatik olarak kullanıcılara atamak için dinamik grupları kullanın.](../users-groups-roles/groups-dynamic-membership.md)
       - [Grup tabanlı erişim denetimi, otomatik olarak sağlama kullanıcılara SaaS uygulamaları için sağlama kullanın.](../manage-apps/what-is-access-management.md)
 

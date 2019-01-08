@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 07/11/2018
+ms.date: 01/02/2019
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: e483997140efc1d75466d887e42383d887f8a6f4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dc7932f197931a0fbf1dde924eb70ca18f6f9748
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963258"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065554"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Depolama’ya Giriş
 
@@ -22,17 +22,17 @@ Azure Depolama, Microsoft’un modern veri depolama senaryolarına yönelik bulu
 - **Dayanıklı ve yüksek oranda kullanılabilir.** Yedeklilik, verilerinizin geçici donanım hataları durumunda güvende kalmasını sağlar. Ayrıca, yerel felaketler ya da doğal afetlere karşı ek koruma için verileri meri merkezleri ya da coğrafi bölgeler arasında çoğaltmayı seçebilirsiniz. Bu şekilde çoğaltılan veriler beklenmeyen bir kesinti durumunda yüksek oranda kullanılabilir olmaya devam eder. 
 - **Güvenlik.** Azure Depolama’ya yazılan tüm veriler hizmet tarafından şifrelenir. Azure Depolama, verilerinize erişmesi gereken kişiler üzerinde ayrıntılı denetime sahip olmanızı sağlar.
 - **Ölçeklenebilir.** Azure Depolama, günümüzün uygulamalarına ait veri depolama ve performans gereksinimlerini karşılamak için yüksek düzeyde ölçeklenebilir şekilde tasarlanmıştır. 
-- **Yönetilen.** Microsoft Azure, bakım işlemlerini ve her türlü kritik sorunları sizin yerinize çözer.
+- **Yönetilen.** Microsoft Azure, donanım bakım, güncelleştirmeleri ve kritik sorunları sizin yerinize çözer.
 - **Erişilebilir.** Azure Depolama’daki verilere dünyanın herhangi bir yerinden HTTP ya da HTTPS aracılığıyla erişilebilir. Microsoft, Azure Depolama için .NET, Java, Node.js, Python, PHP, Ruby, Go ve diğerleri gibi çeşitli dillerde SDK’lar ve olgun bir REST API’si sağlar. Azure Depolama, Azure PowerShell veya Azure CLI’de betik oluşturmayı destekler. Azure portalı ve Azure Depolama Gezgini ise verilerinizle çalışmaya yönelik kolay görsel çözümler sunar.  
 
 ## <a name="azure-storage-services"></a>Azure Depolama hizmetleri
 
 Azure Depolama şu veri hizmetlerini içerir: 
 
-- [Azure Blobları](../blobs/storage-blobs-introduction.md): Metin ve ikili veriler için yüksek düzeyde ölçeklenebilir nesne deposu.
-- [Azure Dosyaları](../files/storage-files-introduction.md): Bulut veya şirket içi dağıtımlar için yönetilen dosya paylaşımları.
-- [Azure Kuyrukları](../queues/storage-queues-introduction.md): Uygulama bileşenleri arasında güvenilir mesajlaşmaya yönelik bir mesajlaşma deposu. 
-- [Azure Tabloları](../tables/table-storage-overview.md): Yapılandırılmış verilerin şemasız depolanmasına yönelik bir NoSQL deposu.
+- [Azure BLOB'ları](../blobs/storage-blobs-introduction.md): Metin ve ikili veriler için yüksek düzeyde ölçeklenebilir nesne deposu.
+- [Azure dosyaları](../files/storage-files-introduction.md): Yönetilen dosya paylaşımları için bulut veya şirket içi dağıtımlar.
+- [Azure kuyrukları](../queues/storage-queues-introduction.md): Uygulama bileşenleri arasında güvenilir Mesajlaşma için Mesajlaşma deposu. 
+- [Azure tabloları](../tables/table-storage-overview.md): Yapılandırılmış verilerin şemasız depolanmasına yönelik bir NoSQL deposu.
 
 Her hizmete bir depolama hesabı aracılığıyla erişilir. Başlamak için bkz. [Depolama hesabı oluşturma](storage-quickstart-create-account.md).
 
@@ -89,30 +89,9 @@ Azure Depolama ayrıca sanal makineler tarafından kullanılan, yönetilen ve y�
 
 ## <a name="types-of-storage-accounts"></a>Depolama hesabı türleri
 
-Bu tabloda, çeşitli depolama hesapları ve hangi nesnelerin bunlarda kullanılabildiği gösterilmektedir.
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
-|**Depolama hesabı türü**|**Genel amaçlı Standart**|**Genel amaçlı Premium**|**Blob depolama, sık erişimli ve seyrek erişimli erişim katmanları**|
-|-----|-----|-----|-----|
-|**Desteklenen hizmetler**| Blob, Dosya, Kuyruk ve Tablo Hizmetleri | Blob Hizmeti | Blob Hizmeti|
-|**Desteklenen blob türleri**|Blok blobları, sayfa blobları ve ek bloblar | Sayfa blobları | Blok blobları ve ek blobları|
-
-### <a name="general-purpose-storage-accounts"></a>Genel amaçlı depolama hesapları
-
-Genel amaçlı depolama hesaplarının iki türü vardır.
-
-#### <a name="standard-storage"></a>Standart depolama
-
-En yaygın olarak kullanılan depolama hesapları tüm veri türleri için kullanılabilen standart depolama hesaplarıdır. Standart depolama hesapları, manyetik ortam verilerini depolamak için kullanılır.
-
-#### <a name="premium-storage"></a>Premium depolama
-
-Premium depolama hesapları öncelikle VHD dosyaları için kullanılan sayfa blobları için yüksek performanslı depolama sağlar. Premium depolama hesapları verileri depolamak için SSD kullanır. Microsoft, tüm VM'leriniz için Premium depolama kullanmanızı önerir.
-
-### <a name="blob-storage-accounts"></a>Blob Depolama Hesapları
-
-Blob Depolama hesabı, blok blobları ve ek bloblar depolamak için kullanılan bir özel depolama hesabıdır. Sayfa bloblarını bu hesaplarda depolayacağınızdan, VHD dosyalarını da depolayamazsınız. Bu hesaplar, erişim katmanını sık veya seyrek erişimli olarak ayarlamanıza olanak verir; katman herhangi bir zamanda değiştirilebilir.
-
-Sık erişim katmanı sık erişilen dosyalar için kullanılır.-Depolama için daha yüksek bir maliyet ödersiniz, ancak bloblara erişme maliyeti çok daha düşüktür. Seyrek erişimli erişim katmanında depolanan bloblara erişmek için daha yüksek bir maliyet ödersiniz, ancak depolama maliyeti çok daha düşüktür.
+Depolama hesabı türleri hakkında daha fazla bilgi için bkz. [Azure depolama hesabına genel bakış](storage-account-overview.md). 
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Bloblara, kuyruklara ve dosyalara erişme
 
@@ -161,16 +140,7 @@ Olağanüstü durum kurtarma için bkz. [Azure Depolama kesinti oluşursa yapman
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>Azure Depolama’da veri alışverişi
 
-Depolama hesabınızda veya depolama hesaplarınız arasında blob ve dosya verilerinizi kopyalamak için AzCopy komut satırı yardımcı programını kullanabilirsiniz. Yardım için şu makalelerden birine bakın:
-
-* [Windows için AzCopy ile veri aktarma](storage-use-azcopy.md)
-* [Linux için AzCopy ile veri aktarma](storage-use-azcopy-linux.md)
-
-AzCopy şu anda önizlemede yer alan [Azure Veri Taşıma Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/) üzerine kurulmuştur.
-
-Azure İçeri/Dışarı Aktarma hizmeti, büyük miktarlarda blob verilerini depolama hesabınızda içeri veya dışarı aktarmak için kullanılabilir. Bir Azure veri merkezine birden çok sabit sürücü hazırlayıp gönderirsiniz, burada da veri aktarımı tamamlanır ve sabit sürücüler size geri gönderilir. İçeri/Dışarı Aktarma hizmeti hakkında daha fazla bilgi için bkz. [Blob Storage Veri Aktarma için Microsoft Azure İçeri/Dışarı Aktarma Hizmeti Kullanma](../storage-import-export-service.md).
-
-Büyük miktarlardaki blob verilerini hızlı, ucuz ve güvenilir bir yolla depolama hesabınızda içeri aktarmak için Azure Data Box Disk de kullanabilirsiniz. Microsoft, bölgesel bir taşıyıcı aracılığıyla veri merkezinize en çok 40 TB kapasiteli 5 şifrelenmiş katı hal sürücü (SSD) gönderir. Diskleri hızla yapılandırır, USB bağlantısı üzerinden verileri disklere kopyalar ve diskleri Azure'a geri gönderirsiniz. Azure veri merkezinde verileriniz sürücülerden otomatik olarak buluta yüklenir. Bu çözüm hakkında daha fazla bilgi için, [Azure Data Box Disk'e genel bakış](https://docs.microsoft.com/azure/databox/data-box-disk-overview) konusuna gidin.
+Verileri Azure depolama içine veya dışına taşımak için birkaç seçeneğiniz vardır. Hangi seçeneği, veri kümesi ve ağ bant genişliğiniz boyutuna bağlıdır. Daha fazla bilgi için [veri aktarımı için bir Azure çözümü seçin](storage-choose-data-transfer-solution.md).
 
 ## <a name="pricing"></a>Fiyatlandırma
 

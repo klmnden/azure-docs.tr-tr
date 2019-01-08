@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 08b4ef6ea59123524500188428eb0bc03d85138b
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 671c0ea11c832d635eb92eda64669c3aab12b1e9
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409992"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062647"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-and-subscription-using-an-azure-resource-manager-template"></a>Konusu ve aboneliği bir Azure Resource Manager şablonu kullanarak olan bir Service Bus ad alanı oluşturma
 
@@ -130,6 +130,8 @@ Standart bir Service Bus ad alanı türü oluşturur **Mesajlaşma**, konu ve ab
         }]
     }]
 ```
+
+JSON söz dizimi ve özellikler için bkz: [ad alanları](/azure/templates/microsoft.servicebus/namespaces), [konuları](/azure/templates/microsoft.servicebus/namespaces/topics), ve [abonelikleri](/azure/templates/microsoft.servicebus/namespaces/topics/subscriptions).
 
 ## <a name="commands-to-run-deployment"></a>Dağıtımı çalıştırma komutları
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]

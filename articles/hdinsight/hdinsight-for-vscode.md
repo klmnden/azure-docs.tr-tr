@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 23cbdb4d72a6b88563d9d2c2bd0e4e3c8223377f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c86fd2affa08999ae574f55315c6a0b32fa58fca
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723680"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076799"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Visual Studio Code için Azure HDInsight araçları kullanma
 
@@ -127,7 +127,7 @@ Normal bir küme kullanarak bağlayabilirsiniz bir [Apache Ambari](https://ambar
 
 1. Seçerek komut paletini açın **CTRL + SHIFT + P**yazıp enter **HDInsight: Küme bağlantı**.
 2. Seçin **genel Livy uç nokta**.
-3. Genel Livy uç noktası girin. Örneğin: http://10.172.41.42:18080.
+3. Genel Livy uç noktası girin. Örneğin: http\:/ / 10.172.41.42:18080.
 4. Seçin **temel** genel Livy uç noktası için Aksi takdirde yetkilendirme seçtiğinizde **hiçbiri**.
 5. Giriş kullanıcı adı seçin, **temel** step4 içinde.
 6. Giriş parola seçin, **temel** step4 içinde.

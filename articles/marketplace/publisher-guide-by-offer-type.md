@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: qianw211
-ms.openlocfilehash: 44526445629d2cbfe3aab3cf62316a1163f8f2d7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 29909e9fba209ee892bc5fd3b0c08026ee5250b0
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52267023"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075490"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Teklif türüne göre yayımlama kılavuzu
 
@@ -50,7 +50,7 @@ Azure Marketi'nde teklif türleri aşağıdaki tabloda listelenmiştir.
 
 Son olarak, bkz: [ **Azure AD gereksinimlerini** ](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) göre listeleme seçenekleri ve çoklu oturum açma gereksinimleri hakkında daha fazla bilgi için türleri sağlar.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 *   Seçme ve yapılandırma teklifinizin sonlandırmak için Teklif türü bölümünde yayımlama seçeneklerini uygunluk gereksinimlerini gözden geçirin.
 *   Yayımlama modelleri, çözümünüzü bir teklif türüne ve yapılandırmayı eşlemelerini nasıl ilişkin örnekler için mağaza tarafından gözden geçirin.

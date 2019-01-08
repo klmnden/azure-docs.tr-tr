@@ -10,16 +10,16 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 274fa3153f6a354b121b7fd8338d8e0d2d94f4f4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 52aea4e47473d4dd27519ae53322b0e72d93f20e
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230821"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062902"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile mantıksal uygulamaları oluşturun ve dağıtın
 
-Azure Logic Apps, yalnızca iş akışlarını otomatik hale getirmek için mantıksal uygulamalar oluşturmak için aynı zamanda dağıtım için kullanılan parametreleri ve kaynakları tanımlamak için kullanabileceğiniz Azure Resource Manager şablonları sağlar. Gereksinimlerinizi karşılamak için şablonu özelleştirmek ya da kendi iş senaryoları için bu şablonu kullanın. Daha fazla bilgi edinin [logic apps için Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) ve [Azure Resource Manager şablon yapısını ve söz dizimi](../azure-resource-manager/resource-group-authoring-templates.md).
+Azure Logic Apps, yalnızca iş akışlarını otomatik hale getirmek için mantıksal uygulamalar oluşturmak için aynı zamanda dağıtım için kullanılan parametreleri ve kaynakları tanımlamak için kullanabileceğiniz Azure Resource Manager şablonları sağlar. Gereksinimlerinizi karşılamak için şablonu özelleştirmek ya da kendi iş senaryoları için bu şablonu kullanın. Daha fazla bilgi edinin [logic apps için Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) ve [Azure Resource Manager şablon yapısını ve söz dizimi](../azure-resource-manager/resource-group-authoring-templates.md). JSON söz dizimi ve özellikler için bkz: [Microsoft.Logic kaynak türleri](/azure/templates/microsoft.logic/allversions).
 
 ## <a name="define-the-logic-app"></a>Mantıksal uygulama tanımlayın
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: d3dca1d7247a822720d32e32fe959053fb80ddd1
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 0135f3ab79852e55187874ce1d5a0695238de207
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052488"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074844"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Gezinti ve panolar Application Insights portalında
 Sonra [projenize Application ınsights'ı ayarlama](../../application-insights/app-insights-overview.md), uygulamanızın performansı ve kullanımıyla ilgili telemetri verilerini projenizin Application Insights kaynağını görünür [Azure portalında](https://portal.azure.com).
@@ -113,10 +113,10 @@ Genel Bakış dikey penceresinde uygulamanız hakkında daha fazla bilgi için a
 * [**Arama** ](../../azure-monitor/app/diagnostic-search.md) - olayları istekleri, özel durumlar gibi belirli örneklerini inceleyin veya günlük izlemelerini.
 * [**Analytics** ](../../azure-monitor/app/analytics.md) -telemetriniz üzerinde güçlü sorgular.
 * **Zaman aralığı** -dikey penceresinde tüm grafikler tarafından görüntülenen aralığını ayarlayın.
-* **Silme** -bu uygulama için Application Insights kaynağını silin. Ayrıca uygulama kodunuzdan Application Insights paketlerini kaldırın, veya düzenleme [izleme anahtarını](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) farklı bir Application Insights kaynağına telemetri yönlendirmek için uygulamanızda.
+* **Silme** -bu uygulama için Application Insights kaynağını silin. Ayrıca uygulama kodunuzdan Application Insights paketlerini kaldırın, veya düzenleme [izleme anahtarını](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) farklı bir Application Insights kaynağına telemetri yönlendirmek için uygulamanızda.
 
 ### <a name="essentials-tab"></a>Temel bilgiler sekmesinde
-* [İzleme anahtarı](../../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key) -bu uygulama kaynağı tanımlar.
+* [İzleme anahtarı](../../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) -bu uygulama kaynağı tanımlar.
 
 ### <a name="app-navigation-bar"></a>Uygulama gezinti çubuğu
 ![Sol gezinti çubuğu](./media/app-insights-dashboards/app-left-nav-bar.png)

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 73e1fac5ba9fbb981c92ff8d32064f7d34729ef7
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 06a9cf124708984444bc2bc19f2529a3c0f75283
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53812511"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074368"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Application ınsights'ta HockeyApp verileri araştırma
 
 > [!NOTE]
-> HockeyApp, artık yeni uygulamalar için kullanılabilir. HockeyApp var olan dağıtımlar çalışmaya devam eder. Visual Studio App Center artık önerilen Microsoft gelen yeni mobil uygulamaları izlemek için bir hizmettir. [App Center ve Application Insights ile uygulamalarınızı ayarlama hakkında bilgi edinin](../../application-insights/app-insights-mobile-center-quickstart.md).
+> HockeyApp, artık yeni uygulamalar için kullanılabilir. HockeyApp var olan dağıtımlar çalışmaya devam eder. Visual Studio App Center artık önerilen Microsoft gelen yeni mobil uygulamaları izlemek için bir hizmettir. [App Center ve Application Insights ile uygulamalarınızı ayarlama hakkında bilgi edinin](../../azure-monitor/learn/mobile-center-quickstart.md).
 
 [HockeyApp](https://azure.microsoft.com/services/hockeyapp/) Canlı Masaüstü ve mobil uygulamaları izlemeye yönelik bir hizmettir. HockeyApp od özel gönderebilir ve kullanımını izlemek ve (kilitlenme verilerini alma) ek tanılama konusunda yardımcı olmak için telemetri izleme. Bu akış telemetri güçlü kullanarak sorgulanabilir [Analytics](../../azure-monitor/app/analytics.md) özelliği [Azure Application Insights](../../application-insights/app-insights-overview.md). Ayrıca, aşağıdakileri yapabilirsiniz [özel dışarı aktarma ve izleme telemetri](export-telemetry.md). Bu özellikleri etkinleştirmek için Application Insights için HockeyApp özel veri aktaran bir köprü ayarlayın.
 
@@ -33,7 +33,7 @@ Hesap ayarları, HockeyApp içinde Aç [API belirteçleri](https://rink.hockeyap
 
 ![HockeyApp API belirteci alma](./media/hockeyapp-bridge-app/01.png)
 
-Microsoft Azure portal'ı açın ve [Application Insights kaynağı oluşturma](../../application-insights/app-insights-create-new-resource.md). Uygulama türü "İçin HockeyApp Köprüsü uygulaması" olarak ayarlayın:
+Microsoft Azure portal'ı açın ve [Application Insights kaynağı oluşturma](../../azure-monitor/app/create-new-resource.md ). Uygulama türü "İçin HockeyApp Köprüsü uygulaması" olarak ayarlayın:
 
 ![Yeni Application Insights kaynağı](./media/hockeyapp-bridge-app/02.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure yönetilen disklere AWS ve diğer platformlar geçirme | Microsoft Docs
-description: AWS veya diğer sanallaştırma platformları gibi diğer bulut gelen karşıya VHD'lerin azure'da VM'ler oluşturun ve Azure yönetilen diskleri yararlanabilir.
+title: AWS ve diğer platformlardan azure'da yönetilen disklere geçirme | Microsoft Docs
+description: AWS veya diğer sanallaştırma platformları gibi diğer bulut kaynaklardan yüklenen VHD kullanarak azure'da VM oluşturma ve Azure yönetilen diskler yararlanın.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -16,90 +16,90 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0440eccbdf76fc58fadf46de2508d362c0de6cc3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 83e69cd488ab7e8b69895a25716350c8025c6c48
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190794"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074912"
 ---
-# <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Azure yönetilen disklere Amazon Web Hizmetleri (AWS) ve diğer platformlar geçirme
+# <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Amazon Web Services (AWS) ve diğer platformlardan azure'da yönetilen disklere geçirme
 
-Yönetilen diskleri yararlanmak VM'ler oluşturmak için Azure AWS veya şirket içi Sanallaştırma Çözümleri VHD dosyalarının karşıya yükleyebilirsiniz. Azure yönetilen diskleri depolama hesaplarını Azure Iaas VM'ler için yönetme ihtiyacını ortadan kaldırır. Yalnızca boyutunu ve türünü (Premium veya standart) belirtmek zorunda duyduğunuz disk ve Azure oluşturur ve disk tarafından yönetilir. 
+Azure yönetilen diskler yararlanan sanal makineler oluşturmak için AWS veya şirket içi Sanallaştırma Çözümleri öncesinden VHD dosyalarının karşıya yükleyebilirsiniz. Azure yönetilen diskler, Azure Iaas Vm'leri için depolama hesapları yönetme ihtiyacını ortadan kaldırır. Yalnızca türü (Premium veya standart) ve boyutunu belirtmek zorunda duyduğunuz disk ve Azure oluşturur ve diski oluşturup yönetebilmesi. 
 
-Genelleştirilmiş ve özelleştirilmiş VHD'leri karşıya yükleyebilirsiniz. 
-- **VHD genelleştirilmiş** -, sahip tüm kişisel hesap bilgilerinizi Sysprep kullanarak kaldırıldı. 
-- **VHD özelleştirilmiş** -kullanıcı hesapları, uygulamaları ve diğer özgün VM Durum verilerini korur. 
+Genelleştirilmiş ve özelleştirilmiş VHD yükleyebilirsiniz. 
+- **Genelleştirilmiş VHD** -vardı tüm kişisel hesap bilgilerinizi Sysprep kullanarak kaldırıldı. 
+- **Özelleştirilmiş VHD** -kullanıcı hesaplarını, uygulamaları ve orijinal VM'yi diğer Durum verilerini tutar. 
 
 > [!IMPORTANT]
-> Herhangi bir VHD'yi Azure'a karşıya yüklemeden önce uygulamanız gereken [Windows VHD veya VHDX Azure'a karşıya yüklemek için hazırlama](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> Azure'a herhangi bir VHD'yi karşıya yüklemeden önce uygulamanız gereken [Windows VHD veya VHDX yüklemek için hazırlama](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 >
 >
 
 
 | Senaryo                                                                                                                         | Belgeler                                                                                                                       |
 |----------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Azure yönetilen diskleri kullanarak sanal makineleri geçirmek istediğiniz varolan AWS EC2 örneğe sahip                              | [Bir VM'yi Amazon Web Hizmetleri'ndeki (AWS) Azure'a taşıyın.](aws-to-azure.md)                           |
-| Bir sanal makineden bir görüntü olarak birden fazla Azure VM'yi oluşturmak için kullanmak istediğiniz başka bir sanallaştırma platformunda var. | [Genelleştirilmiş bir VHD yüklemek ve Azure'da yeni bir VM oluşturmak için kullanın](upload-generalized-managed.md) |
-| Azure'da yeniden oluşturmak istediğiniz benzersiz şekilde özelleştirilmiş bir VM var.                                                      | [Özel bir VHD Azure'a yükleyin ve yeni bir VM oluşturun](create-vm-specialized.md)         |
+| Yönetilen diskleri kullanarak Azure Vm'lerine geçirmek istediğiniz mevcut AWS EC2 örneklerini sahip                              | [Bir VM, Amazon Web Services'den (AWS) Azure'a taşıyın.](aws-to-azure.md)                           |
+| Birden fazla Azure sanal makineler oluşturmak için bir görüntü olarak kullanmak istediğiniz başka bir sanallaştırma platformundan VM var. | [Genelleştirilmiş VHD yükleme ve Azure'da yeni bir VM oluşturmak için bunu kullanın](upload-generalized-managed.md) |
+| Azure'da yeniden oluşturmak için istediğiniz benzersiz olarak özelleştirilmiş bir VM var.                                                      | [Azure'a özelleştirilmiş bir VHD'yi karşıya yükleme ve yeni VM oluşturma](create-vm-specialized.md)         |
 
 
-## <a name="overview-of-managed-disks"></a>Yönetilen diskleri genel bakış
+## <a name="overview-of-managed-disks"></a>Yönetilen disklere genel bakış
 
-Azure yönetilen diskleri depolama hesaplarını yönetmek için gereksinimini ortadan kaldırarak VM yönetimini basitleştirir. Diskleri bir kullanılabilirlik kümesindeki VM'lerin daha iyi güvenilirlik avantajı da yönetilen. Bu, farklı sanal makineleri bir kullanılabilirlik kümesindeki disklerinin yeterince yalıtılmış bir tek hata noktası önlemek için birbirinden olmasını sağlar. Bir kullanılabilirlik tek depolama ölçek birimi hataları nedeniyle donanım neden ve yazılım hataları etkisini sınırlayan kümesinde içinde farklı depolama ölçek birimlerinin (damgaları ') farklı VM'ler diskleri otomatik olarak yerleştirir. Gereksinimlerinize bağlı olarak, iki tür depolama seçenekleri arasında seçim yapabilirsiniz: 
+Azure yönetilen diskler, depolama hesaplarını yönetme ihtiyacını ortadan kaldırarak VM Yönetimi basitleştirir. Ayrıca avantajı öğesinden daha fazla güvenilirlik bir kullanılabilirlik kümesindeki sanal makinelerin yönetilen diskler. Bir kullanılabilirlik kümesindeki farklı VM disklerinin yeterince bir tek hata noktasını önlemek için birbirinden yalıtılmasını sağlar. Bir kullanılabilirlik sınırlayan tek depolama ölçek birimi hatalarına neden nedeniyle donanım ve yazılım hataları etkisini kümesi'nde, farklı depolama ölçek birimi (damgaları ') farklı bir VM disklerinin otomatik olarak geçirir. Gereksinimlerinize bağlı olarak, iki depolama seçeneği türlerinden birini seçebilirsiniz: 
  
-- [Premium yönetilen diskleri](premium-storage.md) olan düz durumu sürücüsü (SSD) dayalı depolama ortamı, yüksek performans, düşük gecikme süreli disk g/Ç kullanımı yoğun iş yükleri çalıştıran sanal makineler için destek sunar. Premium yönetilen disklere geçirerek hızını avantajlarından ve bu disklerin performansını alabilir.  
+- [Premium yönetilen diskler](premium-storage.md) olan katı hal sürücüsü (SSD) tabanlı depolama ortamı, yüksek performanslı, g/Ç açısından yoğun iş yüklerini çalıştıran sanal makineler için düşük gecikme süreli disk desteği sunar. Premium yönetilen disklere geçirerek hızını avantajlarından ve bu disklerin performans alabilir.  
 
-- [Standart yönetilen disk](standard-storage.md) geliştirme ve Test ve performans değişkenlik için daha az hassas diğer sık erişim iş yükleri için en uygun ve Sabit Disk sürücüsü (HDD) dayalı depolama medya kullanın.  
+- [Standart yönetilen diskler](standard-storage.md) Sabit Disk sürücüsü (HDD) tabanlı depolama medyası kullanır ve geliştirme/Test ve performans değişkenliğine karşı daha az duyarlı olan diğer sık erişilmeyen iş yükleri için uygundur.  
 
-## <a name="plan-for-the-migration-to-managed-disks"></a>Yönetilen disklere geçişi için planlama
+## <a name="plan-for-the-migration-to-managed-disks"></a>Yönetilen Diskler'e geçiş planlama
 
-Bu bölümde, VM ve disk türlerinde en iyi kararı yardımcı olur.
+Bu bölümde sanal makine disk türlerinde en iyi kararın yapmanıza yardımcı olur.
 
-Yönetilmeyen disklerden yönetilen disklere geçişi planlıyorsanız bilmeniz gereken bu kullanıcılarla [sanal makine Katılımcısı](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol (ön dönüştürme verebilir gibi) VM boyutunu değiştirmek mümkün olmayacak. Yönetilen disklerle VM'ler işletim sistemi disklerinde Microsoft.Compute/disks/write izninin kullanıcının gerektiren olmasıdır.
+Yönetilmeyen disklerden yönetilen disklere geçirmeyi planlıyorsanız bilmeniz gereken söz konusu kullanıcılarla [sanal makine Katılımcısı](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol (ön dönüştürme verebilir gibi) VM boyutunu değiştirmek mümkün olmayacaktır. Yönetilen disklere sahip VM'ler işletim sistemi disklerinde Microsoft.Compute/disks/write izninin gerektirmek olmasıdır.
 
 ### <a name="location"></a>Konum
 
-Azure yönetilen diskleri kullanılabildiği bir konum seçin. Premium yönetilen disklere geçiriyorsanız, ayrıca Premium depolama burada geçiş yapmayı planlıyorsanız bölgede kullanılabilir olduğundan emin olun. Bkz: [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services) kullanılabilir konumları hakkında güncel bilgi.
+Azure yönetilen diskler olduğu bir konum seçin. Premium yönetilen disklere geçiriyorsanız, ayrıca Premium depolama burada geçirmeyi planlıyorsanız bölgede kullanılabilir olduğundan emin olun. Bkz: [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services) kullanılabilir konumların hakkında güncel bilgi için.
 
 ### <a name="vm-sizes"></a>VM boyutları
 
-Premium yönetilen disklere geçiriyorsanız, Premium depolama yeteneğine sahip bir boyut kullanılabilir VM bulunduğu bölgede VM boyutu güncelleştirmeniz gerekir. Premium depolama özelliğine sahip VM boyutları gözden geçirin. Azure VM boyutu belirtimleri listelenen [sanal makineler için Boyutlar](sizes.md).
-Premium Storage ile birlikte çalışmak ve İş yükünüzün uygun en uygun VM boyutunu seçin sanal makineleri performans özelliklerini gözden geçirin. Yeterli bant genişliği kullanılabilir disk trafiği sürücü için de kendi VM'nizi bulunduğundan emin olun.
+Premium yönetilen disklere geçiriyorsanız, VM boyutu Premium depolama özellikli boyutu kullanılabilir VM bulunduğu bölgede güncelleştirmeniz gerekir. Premium depolama özelliğine sahip VM boyutları gözden geçirin. Azure VM boyutu belirtimleri listelenen [sanal makine boyutları](sizes.md).
+Premium depolama ile çalışır ve iş yükünüz gereksinimlerinize en uygun bir VM boyutu seçme sanal makineleri performans özelliklerini gözden geçirin. Kullanılabilir yeterli bant genişliği, VM diski trafiği yönlendirmek emin olun.
 
 ### <a name="disk-sizes"></a>Disk boyutları
 
-**Premium yönetilen diskleri**
+**Premium yönetilen diskler**
 
-VM ile kullanılan Premium yönetilen diskleri üç tür vardır ve her belirli IOPS ve üretilen iş sahip sınırlar. Kapasite, performans, ölçeklenebilirlik açısından, uygulamanızın gereksinimlerine göre VM için Premium disk türü seçerken bu sınırları göz önünde bulundurun ve en yüksek yükler.
+VM'nizi kullanılabilir premium yönetilen diskler yedi türü vardır ve her belirli IOPS ve aktarım hızı sahip sınırları. Bu limitler kapasite, performans, ölçeklenebilirlik açısından uygulamanızın ihtiyaçlarını temel VM'niz için Premium disk türünü seçme ve en yüksek yükler yaparken dikkate.
 
-| Premium diskler türü  | P10               | P20               | P30               |
-|---------------------|-------------------|-------------------|-------------------|
-| Disk boyutu           | 128 GB            | 512 GB            | 1024 GB (1 TB)    |
-| Disk başına IOPS       | 500               | 2300              | 5000              |
-| Disk başına aktarım hızı | Saniyede 100 MB | 150 MB / saniye | 200 MB / saniye |
+| Premium disk türü  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Disk boyutu           | 32 GB| 64 GB| 128 GB| 256 GB|512 GB | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Disk başına IOPS       | 120   | 240   | 500   | 1100  |2300              | 5000              | 7500              | 7500              | 
+| Disk başına aktarım hızı | Saniye başına 25 MB  | Saniye başına 50 MB  | Saniye başına 100 MB | Saniye başına 125 MB |150 MB / saniye | Saniye başına 200 MB | Saniye başına 250 MB | Saniye başına 250 MB |
 
-**Standart yönetilen disk**
+**Standart yönetilen diskler**
 
-VM ile kullanılabilecek standart yönetilen disk beş türü vardır. Bunların her biri farklı kapasiteye sahip ancak aynı IOPS ve üretilen iş sınırı vardır. Uygulamanızı kapasite gereksinimlerine göre standart yönetilen disk türünü seçin.
+VM'nizi ile kullanılabilecek standart yönetilen diskler yedi türü vardır. Bunların her biri farklı bir kapasiteye sahip ancak aynı IOPS ve aktarım hızı sınırlarına sahip. Standart yönetilen diskler, uygulamanızın kapasite ihtiyaçlarını temel alarak türünü seçin.
 
-| Standart Disk Türü  | S4               | S6               | S10              | S20              | S30              |
-|---------------------|------------------|------------------|------------------|------------------|------------------|
-| Disk boyutu           | 30 GB            | 64 GB            | 128 GB           | 512 GB           | 1024 GB (1 TB)   |
-| Disk başına IOPS       | 500              | 500              | 500              | 500              | 500              |
-| Disk başına aktarım hızı | Saniye başına 60 MB | Saniye başına 60 MB | Saniye başına 60 MB | Saniye başına 60 MB | Saniye başına 60 MB |
+| Standart Disk Türü  | S4               | S6               | S10              | S15              | S20              | S30              | S40              | S50              | 
+|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
+| Disk boyutu           | 30 GB            | 64 GB            | 128 GB           | 256 GB           |512 GB           | 1024 GB (1 TB)   | 2048 GB (2TB)    | 4095 GB (4 TB)   | 
+| Disk başına IOPS       | 500              | 500              | 500              | 500              |500              | 500              | 500             | 500              | 
+| Disk başına aktarım hızı | Saniyede 60 MB | Saniyede 60 MB | Saniyede 60 MB | Saniyede 60 MB |Saniyede 60 MB | Saniyede 60 MB | Saniyede 60 MB | Saniyede 60 MB | 
 
-### <a name="disk-caching-policy"></a>Önbellek İlkesi disk 
+### <a name="disk-caching-policy"></a>Diski önbelleğe alma İlkesi 
 
-**Premium yönetilen diskleri**
+**Premium yönetilen diskler**
 
-Varsayılan olarak, ilke önbelleğe alma disktir *salt okunur* tüm Premium veri diskleri için ve *okuma-yazma* için Premium işletim sistemi diski VM'ye eklenmiş. Bu yapılandırma ayarının uygulamanızın IOs için en iyi performans elde etmek için önerilir. (SQL Server günlük dosyaları gibi) ağır yazma ya da salt yazılır veri diskleri için daha iyi uygulama performansı elde etmek için disk önbelleğe almayı devre dışı bırakın.
+Varsayılan olarak, önbelleğe alma İlkesi disktir *salt okunur* tüm Premium veri disklerinde, ve *okuma-yazma* Premium işletim sistemi diski, VM'ye bağlı. Bu yapılandırma ayarının, uygulamanızın IOs için en iyi performans elde etmek için önerilir. (Örneğin, SQL Server günlük dosyası) yazma yoğunluklu veya salt yazılır veri diskleri için daha iyi uygulama performansı elde etmek için disk önbelleğe almayı devre dışı bırakın.
 
 ### <a name="pricing"></a>Fiyatlandırma
 
-Gözden geçirme [yönetilen diskler için fiyatlandırma](https://azure.microsoft.com/pricing/details/managed-disks/). Premium diskler yönetilen fiyatlandırma Premium yönetilmeyen diskleri olarak aynıdır. Ancak standart yönetilen disk için fiyatlandırma standart yönetilmeyen disklerden farklı.
+Gözden geçirme [yönetilen diskler için fiyatlandırma](https://azure.microsoft.com/pricing/details/managed-disks/). Premium yönetilen diskler fiyatlandırma, Premium yönetilmeyen diskler aynıdır. Ancak, standart yönetilen diskler için fiyatlandırmaya göz standart yönetilmeyen disklerden farklıdır.
 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- Herhangi bir VHD'yi Azure'a karşıya yüklemeden önce uygulamanız gereken [Windows VHD veya VHDX Azure'a karşıya yüklemek için hazırlama](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+- Azure'a herhangi bir VHD'yi karşıya yüklemeden önce uygulamanız gereken [Windows VHD veya VHDX yüklemek için hazırlama](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

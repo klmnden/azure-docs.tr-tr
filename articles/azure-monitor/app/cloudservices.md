@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 710b584777abc312388c3857ced06ce196416a31
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 170ba8e85318ab3774aef95b0a62e452bc2c5e24
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042946"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077870"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services için Application Insights
 [Microsoft Azure Cloud hizmeti uygulamaları](https://azure.microsoft.com/services/cloud-services/), Application Insights SDK'larındaki verilerle Bulut Hizmetlerinizdeki [Azure Tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) verileri birleştirilerek kullanılabilirlik, performans, hata ve kullanım açısından [Application Insights][start] tarafından izlenebilir. Uygulamanızın gerçek hayattaki performansı ve etkinliğine ilişkin aldığınız geri bildirimlerden yararlanarak her geliştirme yaşam döngüsünde tasarımın yönü konusunda bilinçli kararlar alabilirsiniz.
@@ -217,7 +217,7 @@ Sisteminizin genel bir görünümüne sahip olmak için temel izleme grafiklerin
 
 Sisteminiz tarafından Stream Analytics gibi diğer Azure hizmetleri kullanılıyorsa bunların izleme grafiklerini de dahil edin. 
 
-İstemci mobil uygulamanız varsa, [App Center](../../application-insights/app-insights-mobile-center-quickstart.md) kullanın. [Analiz](../../azure-monitor/app/analytics.md)’de olay sayılarını görüntüleyecek sorgular oluşturun ve bunları panoya sabitleyin.
+İstemci mobil uygulamanız varsa, [App Center](../../azure-monitor/learn/mobile-center-quickstart.md) kullanın. [Analiz](../../azure-monitor/app/analytics.md)’de olay sayılarını görüntüleyecek sorgular oluşturun ve bunları panoya sabitleyin.
 
 ## <a name="example"></a>Örnek
 [Örnek](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService), bir web rolü ve iki çalışan rolüne sahip bir hizmeti izler.

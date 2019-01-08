@@ -1,7 +1,7 @@
 ---
 title: Öğretici - Azure DevOps Services ile Jenkins’den Azure VM’lere CI/CD | Microsoft Docs
 description: Bu öğreticide, bir Node.js uygulaması için Jenkins kullanarak Visual Studio Team Services veya Microsoft Team Foundation Server’daki Release Management’tan Azure sanal makinelerine yönelik sürekli tümleştirme (CI) ve sürekli dağıtımın (CD) nasıl ayarlanacağını öğreneceksiniz
-author: tomarcher
+author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 4e91c0287bfe50b297b9a3ef118ececb67909f21
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388508"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074776"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Öğretici: Jenkins ve Azure DevOps Services kullanarak uygulamanızı Azure üzerinde Linux sanal makinelerine dağıtma
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Öğretici: Jenkins ve Azure DevOps hizmetlerini kullanarak uygulamanızı azure'da Linux sanal makineleri dağıtma
 
 Sürekli tümleştirme (CI) ve sürekli dağıtım (CD), kodunuzu derleyebileceğiniz, yayınlayabileceğiniz ve dağıtabileceğiniz bir işlem hattı oluşturur. Azure DevOps Services, Azure’a dağıtım için eksiksiz ve tam özellikli bir dizi CI/CD otomasyon aracı sağlar. Jenkins, CI/CD otomasyonu sağlayan, popüler bir üçüncü taraf CI/CD sunucu tabanlı aracıdır. Bulut uygulamanızı ve hizmetinizi nasıl sunacağınızı özelleştirmek için Azure DevOps Services ve Jenkins’i birlikte kullanabilirsiniz.
 
@@ -68,7 +68,7 @@ Bu uygulamanın çatalını oluşturun ve bu öğreticinin daha sonraki adımlar
 
 ## <a name="configure-jenkins-plug-ins"></a>Jenkins eklentilerini yapılandırma
 
-İlk olarak iki Jenkins eklentisini yapılandırmanız gerekir: **NodeJS** ve **VS Team Services Sürekli Dağıtımı**.
+İlk olarak, iki Jenkins eklentileri yapılandırmanız gerekir: **NodeJS** ve **VS Team Services ile sürekli dağıtım**.
 
 1. Jenkins hesabınızı açın ve **Manage Jenkins** (Jenkins’i yönet) seçeneğini belirleyin.
 2. **Manage Jenkins** (Jenkins’i yönet) sayfasında **Manage Plugins** (Eklentileri yönet) seçeneğini belirleyin.
@@ -164,7 +164,7 @@ Azure Pipelines’da yayın işlem hattı oluşturmak için:
 
 1. **+ Yayın**’ı seçin ve **Yayın Oluştur** seçeneğini belirleyin.
 2. Vurgulanan açılır listede tamamladığınız derlemeyi seçin ve **Kuyruk** seçeneğini belirleyin.
-3. Açılır iletide yayın bağlantısını seçin. Örneğin: "**Yayın-1** yayını oluşturulmuştur."
+3. Açılır iletide yayın bağlantısını seçin. Örneğin: "Yayın **-1 yayını** oluşturuldu."
 4. Yayın konsolu çıktısını izlemek için **Günlükler** sekmesini açın.
 5. Tarayıcınızda, dağıtım grubunuza eklediğiniz sunuculardan birinin URL’sini açın. Örneğin, **http://{your-server-ip-address}** girin.
 6. Kaynak Git deposuna gidin ve app/views/index.jade dosyasındaki **h1** başlığının içeriklerini, değiştirilen bazı metinlerle değiştirin.

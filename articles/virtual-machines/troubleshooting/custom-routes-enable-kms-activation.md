@@ -1,6 +1,6 @@
 ---
 title: Azure özel yollar, zorlamalı tünel ile KMS etkinleştirmesi kullanmayı | Microsoft Docs
-description: Azure özel yollar Azure'da zorlamalı tünel ile KMS etkinleştirmesi için nasıl kullanılacağını gösterir.
+description: Azure özel yollar kullanarak Azure'da zorlamalı, KMS etkinleştirmesi için nasıl kullanılacağını gösterir.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: f1e2ab6a954361a7807d78dc2baf5d24af52a679
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 71330e72ef27b62472622472b37e2ec8c78211d7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53798209"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075575"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>Zorlamalı tünel senaryoda Windows etkinleştirme başarısız
 
-Bu makalede çözümlemek siteden siteye VPN bağlantısı veya ExpressRoute senaryoları, etkinleştirildiğinde karşılaşabileceğiniz KMS etkinleştirme sorun zorlamalı açıklar.
+Bu makalede çözümlemek siteden siteye VPN bağlantısı veya ExpressRoute senaryoları, etkinleştirdiğinizde karşılaşabileceğiniz KMS etkinleştirme sorun zorlamalı açıklar.
 
 ## <a name="symptom"></a>Belirti
 
-Etkinleştirdiğiniz [zorlamalı tünel](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) Azure'da, şirket içi ağınıza tüm İnternet'e bağlı trafiği yönlendirmek için sanal ağ alt ağları yedekleyin. Bu senaryoda, Azure Windows Server 2012 R2 veya sonraki sürümleri çalıştıran sanal makineleri (VM) başarıyla Windows etkinleştirebilirsiniz. Ancak, önceki bir Windows sürümünü çalıştıran Vm'lere Windows etkinleştirme başarısız. 
+Etkinleştirdiğiniz [zorlamalı tünel](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) Azure'da, şirket içi ağınıza tüm İnternet'e bağlı trafiği yönlendirmek için sanal ağ alt ağları yedekleyin. Bu senaryoda, Azure Windows Server 2012 R2 (veya sonraki Windows sürümlerinde) çalışan sanal makineleri (VM'ler) başarıyla Windows etkinleştirebilirsiniz. Ancak, önceki bir Windows sürümünü çalıştıran sanal makineler Windows etkinleştirme başarısız.
 
 ## <a name="cause"></a>Nedeni
 
-Azure Windows sanal makinelerinin Windows etkinleştirme için Azure KMS sunucusuna bağlanmak. Etkinleştirme, etkinleştirme isteği bir Azure genel IP adresi gelmelidir gerektiriyor. Azure genel IP'LERİNDEN yerine, şirket içi ağ üzerinden etkinleştirme isteği olduğundan zorlamalı tünel oluşturma senaryosunda etkinleştirme başarısız olur. 
+Azure Windows sanal makinelerinin Windows etkinleştirme için Azure KMS sunucusuna bağlanmanız gerekmez. Etkinleştirme, etkinleştirme isteği bir Azure genel IP adresinden gelen gerektiriyor. Etkinleştirme isteği, şirket içi ağdan Azure genel bir IP adresinden gelen geldiğinden zorlamalı tünel oluşturma senaryosunda etkinleştirme başarısız olur.
 
 ## <a name="solution"></a>Çözüm
 
-Bu sorunu gidermek için Azure özel rota için rota etkinleştirme trafiği Azure KMS sunucusuna (23.102.135.246) kullanın. 
+Bu sorunu gidermek için Azure özel rota için rota etkinleştirme trafiği Azure KMS sunucusunu kullanın.
 
-IP adresi 23.102.135.246 Azure genel bulut için KMS sunucusunda IP adresidir. DNS kms.core.windows.net adıdır. Azure Almanya gibi diğer Azure platformları kullanırsanız correspond KMS sunucusunun IP adresini kullanmanız gerekir. Daha fazla bilgi için aşağıdaki tabloya bakın:
+23.102.135.246 Azure genel bulut için KMS sunucunun IP adresidir. DNS kms.core.windows.net adıdır. Azure Almanya gibi diğer Azure platformları kullanırsanız, karşılık gelen bir KMS sunucusu IP adresini kullanmanız gerekir. Daha fazla bilgi için aşağıdaki tabloya bakın:
 
 |Platform| KMS DNS|KMS IP|
 |------|-------|-------|
@@ -55,11 +55,11 @@ IP adresi 23.102.135.246 Azure genel bulut için KMS sunucusunda IP adresidir. D
 2. Aşağıdaki komutları çalıştırın:
 
     ```powershell
-    # First, we will get the virtual network hosts the VMs that has activation problems. In this case, I get virtual network ArmVNet-DM in Resource Group ArmVNet-DM
+    # First, get the virtual network that hosts the VMs that have activation problems. In this case, we get virtual network ArmVNet-DM in Resource Group ArmVNet-DM:
 
     $vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "ArmVNet-DM" -Name "ArmVNet-DM"
 
-    # Next, we create a route table and specify that traffic bound to the KMS IP (23.102.135.246) will go directly out
+    # Next, create a route table and specify that traffic bound to the KMS IP (23.102.135.246) will go directly out:
 
     $RouteTable = New-AzureRmRouteTable -Name "ArmVNet-DM-KmsDirectRoute" -ResourceGroupName "ArmVNet-DM" -Location "centralus"
 
@@ -67,7 +67,7 @@ IP adresi 23.102.135.246 Azure genel bulut için KMS sunucusunda IP adresidir. D
 
     Set-AzureRmRouteTable -RouteTable $RouteTable
     ```
-3. Git kullanmak etkinleştirme sorunlu VM [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) KMS sunucusunda erişebiliyorsa test etmek için:
+3. Etkinleştirme sorunlarını olan sanal Makineye gidin. Kullanım [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) KMS sunucusunda erişebiliyorsa test etmek için:
 
         psping kms.core.windows.net:1688
 
@@ -79,21 +79,21 @@ IP adresi 23.102.135.246 Azure genel bulut için KMS sunucusunda IP adresidir. D
 2. Aşağıdaki komutları çalıştırın:
 
     ```powershell
-    # First, we will create a new route table
+    # First, create a new route table:
     New-AzureRouteTable -Name "VNet-DM-KmsRouteGroup" -Label "Route table for KMS" -Location "Central US"
 
-    # Next, get the routetable that was created
+    # Next, get the route table that was created:
     $rt = Get-AzureRouteTable -Name "VNet-DM-KmsRouteTable"
 
-    # Next, create a route
+    # Next, create a route:
     Set-AzureRoute -RouteTable $rt -RouteName "AzureKMS" -AddressPrefix "23.102.135.246/32" -NextHopType Internet
 
-    # Apply KMS route table to the subnet that host the problem VMs (in this case, I will apply it to the subnet named Subnet-1)
+    # Apply the KMS route table to the subnet that hosts the problem VMs (in this case, we apply it to the subnet that's named Subnet-1):
     Set-AzureSubnetRouteTable -VirtualNetworkName "VNet-DM" -SubnetName "Subnet-1" 
     -RouteTableName "VNet-DM-KmsRouteTable"
     ```
 
-3. Git kullanmak etkinleştirme sorunlu VM [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) KMS sunucusunda erişebiliyorsa test etmek için:
+3. Etkinleştirme sorunlarını olan sanal Makineye gidin. Kullanım [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) KMS sunucusunda erişebiliyorsa test etmek için:
 
         psping kms.core.windows.net:1688
 

@@ -1,171 +1,171 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile Adobe Experience Manager | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi ile Adobe Experience Manager | Microsoft Docs'
 description: Azure Active Directory ve Adobe Experience Manager arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: 88a95bb5-c17c-474f-bb92-1f80f5344b5a
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/28/2017
+ms.topic: tutorial
+ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 56b392e57809cea0ae93800df39bb9dacd164ce2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 536db4e4927c03cafff35a3e811727a566c79dbd
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054191"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062817"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Öğretici: Azure Active Directory Tümleştirme ile Adobe Experience Manager
+# <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Öğretici: Azure Active Directory Tümleştirmesi ile Adobe Experience Manager
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Adobe Experience Manager tümleştirme konusunda bilgi edinin.
-
 Adobe Experience Manager'ı Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Adobe Experience Manager için erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak Adobe Experience Manager için kendi Azure AD hesapları ile oturum, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda--Azure portalında yönetebilir.
+* Adobe Experience Manager için erişimi, Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için Adobe Experience Manager oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla bilgi için bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Adobe Experience Manager ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
-- Bir Adobe Experience Manager çoklu oturum açma abonelik etkin.
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamında kullanımı önerilmemektedir.
-
-Bu öğreticideki adımları test etmek için aşağıdaki önerileri uygulayın:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Bir Azure AD deneme ortamı yoksa [ücretsiz bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Adobe Experience Manager çoklu oturum açma abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide açıklanan senaryo iki temel yapı taşları oluşur:
 
-1. Adobe Experience Manager galeri ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-## <a name="add-adobe-experience-manager-from-the-gallery"></a>Adobe Experience Manager Galeriden Ekle
+* Adobe Experience Manager destekleyen **SP ve IDP** tarafından başlatılan
+
+* Adobe Experience Manager destekleyen **zamanında** kullanıcı sağlama
+
+## <a name="adding-adobe-experience-manager-from-the-gallery"></a>Adobe Experience Manager galeri ekleme
+
 Azure AD'de, Adobe Experience Manager tümleştirme yapılandırmak için Adobe Experience Manager Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-**Adobe Experience Manager Galeriden eklemek için aşağıdaki adımları uygulayın:**
+**Adobe Experience Manager Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde [Azure portalında](https://portal.azure.com), sol bölmede seçin **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Git **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
-    
-3. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Yeni Uygulama düğmesi][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-4. Arama kutusuna **Adobe Experience Manager**. Seçin **Adobe Experience Manager** sonuçlar paneli ve ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Adobe Experience Manager sonuç listesinde](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_addfromgallery.png)
+4. Arama kutusuna **Adobe Experience Manager**seçin **Adobe Experience Manager** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+
+     ![Adobe Experience Manager sonuç listesinde](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma ile Adobe Experience "Britta Simon." adlı bir test kullanıcı tabanlı Manager test etme
+Bu bölümde, yapılandırma ve Azure AD'ye tek temelinde oturum açma adlı bir test kullanıcısı [uygulama adı] ile test etme **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve [uygulama adı] ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
-Tek iş için oturum açma için Azure AD, Adobe Experience Manager karşılık gelen kullanıcı Azure AD'de bir kullanıcı için olan bilmesi gerekir. Diğer bir deyişle, Adobe Experience Manager içinde bir Azure AD kullanıcısı ile ilgili kullanıcı arasında bir bağlantı kurmak gerekir.
+Yapılandırma ve Azure AD çoklu oturum açma [uygulama adı] ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-Adobe Experience Manager içindeki değeri vermek **kullanıcıadı** aynı değeri **kullanıcı adı** Azure AD'de. Şimdi iki kullanıcı arasındaki bağlantı kurduğunuz. 
-
-Yapılandırma ve Azure AD çoklu oturum açma ile Adobe Experience Manager sınamak için aşağıdaki yapı taşlarını tamamlayın:
-
-1. [Azure AD çoklu oturum açmayı yapılandırma](#configure-azure-ad-single-sign-on) kullanıcılarınız bu özelliği kullanmak etkinleştirmek için.
-2. [Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user) Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. [Bir Adobe Experience Manager test kullanıcısı oluşturma](#create-an-adobe-experience-manager-test-user) Adobe deneyimi kullanıcı Azure AD gösterimini bağlı Yöneticisi'nde bir karşılığı Britta simon'un sağlamak için.
-4. [Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user) Britta Simon, Azure AD çoklu oturum açma kullanmak üzere etkinleştirmek için.
-5. [Çoklu oturum açmayı test](#test-single-sign-on) yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Adobe Experience Manager çoklu oturum açma yapılandırma](#configure-adobe-experience-manager-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Adobe Experience Manager test kullanıcısı oluşturma](#create-adobe-experience-manager-test-user)**  - Adobe deneyimi kullanıcı Azure AD gösterimini bağlı Yöneticisi'nde Britta simon'un bir karşılığı vardır.
+5. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Adobe Experience Manager uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Adobe Experience Manager ile Azure AD çoklu oturum açmayı yapılandırmak için aşağıdaki adımları uygulayın:**
+Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **Adobe Experience Manager** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Adobe Experience Manager** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-2. Çoklu oturum açma, etkinleştirmek için **çoklu oturum açma** iletişim kutusundaki **modu** açılan menüsünde, select **SAML tabanlı oturum açma**.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-3. İçinde **Adobe Experience Manager etki alanı ve URL'ler** bölümünde, istediğinizde uygulamada yapılandırmak aşağıdaki adımları uygulayın **IDP** modu:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Adobe Experience Manager etki alanı ve URL'ler tek oturum açma bilgileri](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_url1.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **tanımlayıcı** AEM sunucunuzda de tanımlayan benzersiz bir değer yazın. 
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    b. İçinde **yanıt URL'si** kutusuna aşağıdaki desene sahip bir URL yazın: `https://<AEM Server Url>/saml_login`.
+4. Üzerinde **temel SAML yapılandırma** uygulamada yapılandırmak isterseniz, bölümü **IDP** başlatılan modu, aşağıdaki adımları gerçekleştirin:
 
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısıyla güncelleştirin ve yanıt URL'si. Bu değerleri almak için iletişime geçin [Adobe Experience Manager destek ekip](https://helpx.adobe.com/support/experience-manager.html).
- 
-4. Denetleme **Gelişmiş URL ayarlarını göster**. Ardından, uygulamayı yapılandırmak istiyorsanız aşağıdaki adımları uygulayın **SP** başlatılan modu:
+    ![Adobe Experience Manager etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
 
-    ![Adobe Experience Manager etki alanı ve URL'ler tek oturum açma bilgileri](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_spconfigure.png)
+    a. İçinde **tanımlayıcı** metin kutusuna, AEM sunucunuzda de tanımlayan benzersiz bir değer yazın.
 
-    İçinde **işareti bulunan URL'si** kutusuna, Adobe Experience Manager sunucusunun URL'sini yazın. 
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<AEM Server Url>/saml_login`
 
-5. İçinde **SAML imzalama sertifikası** bölümünden **sertifika (Base64)**. Ardından, bilgisayarınızdaki sertifika dosyasını kaydedin.
+    > [!NOTE]
+    > Yanıt URL'si değeri gerçek değil. Yanıt URL'si değeri ile gerçek yanıt URL'si güncelleştirin. Bu değer almak için iletişime geçin [Adobe Experience Manager istemci Destek ekibine](https://helpx.adobe.com/support/experience-manager.html) bu değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-    ![Sertifika indirme bağlantısı](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_certificate.png) 
+5. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
 
-6. Adobe Experience Manager yapılandırma bölümünde oturum açma yapılandırması penceresi açmak için seçmeniz **yapılandırma Adobe Experience Manager**. Kopyalama **SAML oturum açma hizmeti URL'si**, **SAML varlık kimliği**, ve **oturum kapatma kimliği** hızlı başvuru bölümünden.
+    ![Adobe Experience Manager etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
 
-    ![Yapılandırma bölümü bağlantısı](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_configure.png) 
+    İçinde **oturum açma URL'si** metin kutusuna, Adobe Experience Manager sunucusu URL'nizi yazın.
 
-7. **Kaydet**’i seçin.
+6. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![Kaydet düğmesi çoklu oturum açmayı yapılandırın](./media/adobeexperiencemanager-tutorial/tutorial_general_400.png)
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-8. Başka bir tarayıcı penceresinde açmak **Adobe Experience Manager** Yönetim Portalı.
+7. Üzerinde **Adobe Experience Manager yedekleme kümesi** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-9. Seçin **ayarları** > **güvenlik** > **kullanıcılar**.
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
+
+    a. Oturum Açma URL'si:
+
+    b. Azure Ad tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-adobe-experience-manager-single-sign-on"></a>Adobe Experience Manager tek oturum açmayı yapılandırın
+
+1. Başka bir tarayıcı penceresinde açmak **Adobe Experience Manager** Yönetim Portalı.
+
+2. Seçin **ayarları** > **güvenlik** > **kullanıcılar**.
 
     ![Çoklu oturum açma düğmesi kaydetme yapılandırın](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user.png)
 
-10. Seçin **yönetici** veya ilgili herhangi bir kullanıcı.
+3. Seçin **yönetici** veya ilgili herhangi bir kullanıcı.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin6.png)
 
-11. Seçin **hesap ayarları** > **yönetme TrustStore**.
+4. Seçin **hesap ayarları** > **yönetme TrustStore**.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_managetrust.png)
 
-12. Altında **CER dosyası ekleme sertifikadan**, tıklayın **sertifika dosyası seçin**. Göz atın ve zaten Azure portalından indirdiğiniz sertifika dosyasını seçin.
+5. Altında **CER dosyası ekleme sertifikadan**, tıklayın **sertifika dosyası seçin**. Göz atın ve zaten Azure portalından indirdiğiniz sertifika dosyasını seçin.
 
     ![Kaydet düğmesi çoklu oturum açmayı yapılandırın](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_user2.png)
 
-13. Sertifika için TrustStore eklenir. Diğer sertifika adını not edin.
+6. Sertifika için TrustStore eklenir. Diğer sertifika adını not edin.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin7.png)
 
-14. Üzerinde **kullanıcılar** sayfasında **kimlik doğrulama hizmeti**.
+7. Üzerinde **kullanıcılar** sayfasında **kimlik doğrulama hizmeti**.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin8.png)
 
-15. Seçin **hesap ayarları** > **oluşturma/yönetme KeyStore**. KeyStore için bir parola sağlanarak oluşturun.
+8. Seçin **hesap ayarları** > **oluşturma/yönetme KeyStore**. KeyStore için bir parola sağlanarak oluşturun.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin9.png)
 
-16. Yönetici ekranına dönün. Ardından **ayarları** > **işlemleri** > **Web Konsolu**.
+9. Yönetici ekranına dönün. Ardından **ayarları** > **işlemleri** > **Web Konsolu**.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin1.png)
 
@@ -173,21 +173,21 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve A
 
     ![Çoklu oturum açma düğmesi kaydetme yapılandırın](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin2.png)
 
-17. Bulma **Adobe Granit SAML 2.0 kimlik doğrulama işleyicisi**. Ardından **Ekle** simgesi.
+10. Bulma **Adobe Granit SAML 2.0 kimlik doğrulama işleyicisi**. Ardından **Ekle** simgesi.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin3.png)
 
-19. Bu sayfada aşağıdaki eylemleri gerçekleştirin.
+11. Bu sayfada aşağıdaki eylemleri gerçekleştirin.
 
     ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
 
     a. İçinde **yolu** kutusuna **/**.
 
-    b. İçinde **IDP URL** kutusuna **SAML oturum açma hizmeti URL'si** Azure portaldan kopyaladığınız değeri.
+    b. İçinde **IDP URL** kutusuna **oturum açma URL'si** Azure portaldan kopyaladığınız değeri.
 
     c. İçinde **IDP sertifika diğer adı** kutusuna **sertifika diğer adı** TrustStore içinde eklenen değer.
 
-    d. İçinde **güvenlik sağlanan varlık kimliği** kutusunda, benzersiz bir değer girin **SAML varlık kimliği** Azure portalında yapılandırılmış değer.
+    d. İçinde **güvenlik sağlanan varlık kimliği** kutusunda, benzersiz bir değer girin **Azure Ad tanımlayıcısı** Azure portalında yapılandırılmış değer.
 
     e. İçinde **onay belgesi tüketici hizmeti URL'si** kutusuna **yanıt URL'si** Azure portalında yapılandırılmış değer.
 
@@ -201,103 +201,74 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve A
 
     j. **Kaydet**’i seçin.
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com) uygulamasını ayarladığınız sırada. Bu uygulamadan ekledikten sonra **Active Directory** > **kurumsal uygulamalar** bölümünden **çoklu oturum açma** sekmesi. Ekli belgelerin sonra erişim **yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında [Azure AD belgeleri katıştırılmış]( https://go.microsoft.com/fwlink/?linkid=845985).
-
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları uygulayın:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede seçin **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/adobeexperiencemanager-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/adobeexperiencemanager-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, üst kısmındaki **tüm kullanıcılar** iletişim kutusunda **Ekle**.
-
-    ![Ekle düğmesi](./media/adobeexperiencemanager-tutorial/create_aaduser_03.png)
-
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları uygulayın:
-
-    ![Kullanıcı iletişim kutusu](./media/adobeexperiencemanager-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusu. Ardından görüntülenen değeri yazın **parola** kutusu.
-
-    d. **Oluştur**’u seçin.
+    a. İçinde **adı** alana **BrittaSimon**.
   
-### <a name="create-an-adobe-experience-manager-test-user"></a>Bir Adobe Experience Manager test kullanıcısı oluşturma
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-Bu bölümde, Britta Simon, Adobe Experience Manager adlı bir kullanıcı oluşturun. Seçtiyseniz **otomatik oluştur CRX kullanıcılar** seçeneği, kullanıcıların otomatik olarak oluşturulur başarılı kimlik doğrulamasından sonra. 
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-Kullanıcıları el ile oluşturmak istiyorsanız, çalışmak [Adobe Experience Manager destek ekip](https://helpx.adobe.com/support/experience-manager.html) Adobe Experience Manager platform kullanıcıları eklemek için. 
+    d. **Oluştur**’a tıklayın.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Azure çoklu oturum açma kullanmak için Adobe Experience Manager erişim vererek Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Adobe Experience Manager**.
 
-**Britta Simon için Adobe Experience Manager atamak için aşağıdaki adımları uygulayın:**
-
-1. Azure portalında uygulama görünümünü açın. Ardından, dizin görünümüne gitmek **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201] 
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
 2. Uygulamalar listesinde **Adobe Experience Manager**.
 
-    ![Uygulamalar listesinde Adobe Experience Manager bağlantısı](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_app.png)  
+    ![Uygulamalar listesinde Adobe Experience Manager bağlantısı](common/all-applications.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-4. Seçin **Ekle** düğmesi. Ardından **atama Ekle** iletişim kutusunda **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![Atama Ekle bölmesi][203]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-6. İçinde **kullanıcılar ve gruplar** iletişim kutusu, tıklayın **seçin** düğmesi.
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-7. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
-    
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
+### <a name="create-adobe-experience-manager-test-user"></a>Adobe Experience Manager test kullanıcısı oluşturma
 
-Erişim Paneli'nde Adobe Experience Manager kutucuğu seçtiğinizde, otomatik olarak Adobe Experience Manager uygulamanıza oturum açmış.
+Bu bölümde, Britta Simon, Adobe Experience Manager adlı bir kullanıcı oluşturun. Seçtiyseniz **otomatik oluştur CRX kullanıcılar** seçeneği, kullanıcıların otomatik olarak oluşturulur başarılı kimlik doğrulamasından sonra.
 
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Kullanıcıları el ile oluşturmak istiyorsanız, çalışmak [Adobe Experience Manager destek ekip](https://helpx.adobe.com/support/experience-manager.html) Adobe Experience Manager platform kullanıcıları eklemek için.
 
-## <a name="additional-resources"></a>Ek kaynaklar
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
+Erişim paneli Adobe Experience Manager kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Adobe Experience Manager oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-<!--Image references-->
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-[1]: ./media/adobeexperiencemanager-tutorial/tutorial_general_01.png
-[2]: ./media/adobeexperiencemanager-tutorial/tutorial_general_02.png
-[3]: ./media/adobeexperiencemanager-tutorial/tutorial_general_03.png
-[4]: ./media/adobeexperiencemanager-tutorial/tutorial_general_04.png
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[100]: ./media/adobeexperiencemanager-tutorial/tutorial_general_100.png
-
-[200]: ./media/adobeexperiencemanager-tutorial/tutorial_general_200.png
-[201]: ./media/adobeexperiencemanager-tutorial/tutorial_general_201.png
-[202]: ./media/adobeexperiencemanager-tutorial/tutorial_general_202.png
-[203]: ./media/adobeexperiencemanager-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

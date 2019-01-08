@@ -1,114 +1,108 @@
 ---
-title: 'Öğretici: Azure Active Directory Mimecast Yönetici Konsolu ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: Azure Active Directory Tümleştirmesi Mimecast Yönetici Konsolu ile | Microsoft Docs'
 description: Azure Active Directory ve Mimecast Yönetici Konsolu arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: 81c50614-f49b-4bbc-97d5-3cf77154305f
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2017
+ms.topic: tutorial
+ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: ce4142c5b4a20886a94c87699f262f7238fc2cb4
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7d1280525560c5333a5764ac9f962f79bd2284ad
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438578"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061632"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Öğretici: Azure Active Directory Mimecast Yönetici Konsolu ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Öğretici: Mimecast Yönetim Konsolu ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Mimecast Yönetici Konsolu tümleştirme konusunda bilgi edinin.
-
 Mimecast Yönetim Konsolu Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Mimecast yönetici Konsolu'na erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak imzalanan (çoklu oturum açma) Mimecast yönetim konsoluna açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Mimecast yönetici Konsolu'na erişimi, Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak (çoklu oturum açma) Mimecast yönetim konsoluna oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirmesi Mimecast Yönetici Konsolu ile yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
-- Bir Yönetici Konsolu Mimecast çoklu oturum açma abonelik etkin.
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik Mimecast Yönetici Konsolu çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden Mimecast Yönetici Konsolu'nu ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* Yönetici Konsolu Mimecast destekler **SP** tarafından başlatılan
 
 ## <a name="adding-mimecast-admin-console-from-the-gallery"></a>Galeriden Mimecast Yönetici Konsolu'nu ekleme
+
 Azure AD Yönetici Konsolu Mimecast tümleştirilmesi yapılandırmak için Mimecast Yönetici Konsolu Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden Mimecast Yönetici Konsolu eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Yeni Uygulama düğmesi][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **Mimecast Yönetici Konsolu**seçin **Mimecast Yönetici Konsolu** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Sonuç listesinde Mimecast Yönetici Konsolu](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_addfromgallery.png)
+4. Arama kutusuna **Mimecast Yönetici Konsolu**seçin **Mimecast Yönetici Konsolu** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+
+     ![Sonuç listesinde Mimecast Yönetici Konsolu](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Mimecast Yönetici Konsolu ile test edin.
-
-Tek iş için oturum açma için Azure AD ne karşılık gelen kullanıcı Mimecast Yönetici konsolunda bir kullanıcının Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının Mimecast Yönetici konsolunda ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
-
-Değerini Mimecast yönetim konsolunda, Ata **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Mimecast Yönetim Konsolu olarak adlandırılan bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısının Mimecast Yönetici konsolunda ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma Mimecast Yönetici Konsolu ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[Yönetici Konsolu Mimecast test kullanıcısı oluşturma](#create-a-mimecast-admin-console-test-user)**  - Mimecast Yönetici konsolunda, kullanıcının Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[Mimecast Yönetici Konsolu çoklu oturum açmayı yapılandırma](#configure-mimecast-admin-console-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[Yönetici Konsolu Mimecast test kullanıcısı oluşturma](#create-mimecast-admin-console-test-user)**  - Mimecast Yönetici konsolunda, kullanıcının Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Mimecast yönetici Konsol uygulamanızı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma Mimecast Yönetici Konsolu ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma Mimecast Yönetici Konsolu ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında üzerinde **Mimecast Yönetici Konsolu** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Mimecast Yönetici Konsolu** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **Mimecast Yönetici Konsolu etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Mimecast Yönetici Konsolu etki alanı ve URL'ler tek oturum açma bilgileri](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
+
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
+
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+
+    ![Mimecast Yönetici Konsolu etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-signonurl.png)
 
     İçinde **oturum açma URL'si** metin kutusuna URL'yi yazın:
     | |
@@ -119,33 +113,37 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     > [!NOTE] 
     > Oturum açma URL'si belirli bölgedir.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![Sertifika indirme bağlantısı](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_certificate.png) 
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-1. Tıklayın **Kaydet** düğmesi.
+6. Üzerinde **Mimecast Yönetici Konsolu ayarlama** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/mimecast-admin-console-tutorial/tutorial_general_400.png)
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
-1. Üzerinde **Mimecast Yönetici Konsolu Yapılandırması** bölümünde **Mimecast Yönetici konsolunda yapılandırma** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği ve SAML çoklu oturum açma hizmeti URL'si** gelen **hızlı başvuru bölümü.**
+    a. Oturum Açma URL'si:
 
-    ![Mimecast Yönetici Konsolu yapılandırması](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_configure.png) 
+    b. Azure Ad tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-mimecast-admin-console-single-sign-on"></a>Mimecast Yönetici Konsolu çoklu oturum açmayı yapılandırın
 
 1. Farklı bir web tarayıcı penceresinde Mimecast yönetici konsolunuza yönetici olarak oturum.
 
-1. Git **Hizmetleri \> uygulama**.
+2. Git **Hizmetleri \> uygulama**.
 
     ![Hizmetleri](./media/mimecast-admin-console-tutorial/ic794998.png "Hizmetleri")
 
-1. Tıklayın **kimlik doğrulaması profilleri**.
+3. Tıklayın **kimlik doğrulaması profilleri**.
 
     ![Kimlik doğrulaması profilleri](./media/mimecast-admin-console-tutorial/ic794999.png "kimlik doğrulaması profilleri")
     
-1. Tıklayın **yeni kimlik doğrulama profili**.
+4. Tıklayın **yeni kimlik doğrulama profili**.
 
     ![Yeni kimlik doğrulama profilleri](./media/mimecast-admin-console-tutorial/ic795000.png "yeni kimlik doğrulama profilleri")
 
-1. İçinde **kimlik doğrulama profili** bölümünde, aşağıdaki adımları gerçekleştirin:
+5. İçinde **kimlik doğrulama profili** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Kimlik doğrulama profili](./media/mimecast-admin-console-tutorial/ic795015.png "kimlik doğrulama profili")
     
@@ -155,11 +153,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     c. Olarak **sağlayıcısı**seçin **Azure Active Directory**.
     
-    d. Yapıştırma **SAML varlık kimliği**, hangi Azure portaldan kopyaladığınız **veren URL'si** metin.
+    d. Yapıştırma **Azure Ad tanımlayıcısı**, hangi Azure portaldan kopyaladığınız **veren URL'si** metin.
     
-    e. Yapıştırma **SAML çoklu oturum açma hizmeti URL'si**, hangi Azure portaldan kopyaladığınız **oturum açma URL'si** metin.
+    e. Yapıştırma **oturum açma URL'si**, hangi Azure portaldan kopyaladığınız **oturum açma URL'si** metin.
 
-    f. Yapıştırma **SAML çoklu oturum açma hizmeti URL'si**, hangi Azure portaldan kopyaladığınız **oturum kapatma URL'si** metin.
+    f. Yapıştırma **oturum açma URL'si**, hangi Azure portaldan kopyaladığınız **oturum kapatma URL'si** metin.
     
     >[!NOTE]
     >Oturum açma URL'si ve oturum kapatma URL'si değerleri Mimecast Yönetici Konsolu için aynıdır.
@@ -170,42 +168,58 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     i. **Kaydet**’e tıklayın.
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985) 
-
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/mimecast-admin-console-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/mimecast-admin-console-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/mimecast-admin-console-tutorial/create_aaduser_03.png)
-
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/mimecast-admin-console-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="create-a-mimecast-admin-console-test-user"></a>Yönetici Konsolu Mimecast test kullanıcısı oluşturma
+
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+
+Bu bölümde, Azure çoklu oturum açma Mimecast yönetim konsoluna erişim vererek kullanmak Britta Simon etkinleştirin.
+
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Mimecast Yönetici Konsolu**.
+
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde yazın ve **Mimecast Yönetici Konsolu**.
+
+    ![Uygulamalar listesinde Mimecast Yönetici konsolunda bağlantı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-mimecast-admin-console-test-user"></a>Yönetici Konsolu Mimecast test kullanıcısı oluşturma
 
 Azure AD kullanıcılarının Mimecast Yönetici Konsolu'nda sizin oturum etkinleştirmek için bunlar Mimecast yönetici konsoluna sağlanması gerekir. Mimecast yönetim söz konusu olduğunda, sağlama elle bir görevin konsoludur.
 
@@ -214,79 +228,41 @@ Azure AD kullanıcılarının Mimecast Yönetici Konsolu'nda sizin oturum etkinl
 **Kullanıcı sağlamayı yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
 1. Oturum açın, **Mimecast Yönetici Konsolu** yönetici olarak.
-1. Git **dizinleri \> iç**.
-   
-   ![Dizinleri](./media/mimecast-admin-console-tutorial/ic795003.png "dizinleri")
-1. Tıklayın **yeni etki alanı kayıt**.
-   
-   ![Yeni etki alanı kayıt](./media/mimecast-admin-console-tutorial/ic795004.png "kaydetme yeni etki alanı")
-1. Yeni etki alanınız oluşturulduktan sonra tıklayın **yeni adresi**.
-   
-   ![Yeni adresi](./media/mimecast-admin-console-tutorial/ic795005.png "yeni adresi")
-1. Yeni adresi iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-   
-   ![Kaydet](./media/mimecast-admin-console-tutorial/ic795006.png "Kaydet")
-   
-   a. Tür **e-posta adresi**, **genel adı**, **parola**, ve **parolayı onayla** öznitelikleri geçerli bir Azure ad hesabı istiyorsunuz ilgili metin kutularına sağlayın.
 
-   b. **Kaydet**’e tıklayın.
+2. Git **dizinleri \> iç**.
+   
+    ![Dizinleri](./media/mimecast-admin-console-tutorial/ic795003.png "dizinleri")
+
+3. Tıklayın **yeni etki alanı kayıt**.
+   
+    ![Yeni etki alanı kayıt](./media/mimecast-admin-console-tutorial/ic795004.png "kaydetme yeni etki alanı")
+
+4. Yeni etki alanınız oluşturulduktan sonra tıklayın **yeni adresi**.
+   
+    ![Yeni adresi](./media/mimecast-admin-console-tutorial/ic795005.png "yeni adresi")
+
+5. Yeni adresi iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
+   
+    ![Kaydet](./media/mimecast-admin-console-tutorial/ic795006.png "Kaydet")
+   
+    a. Tür **e-posta adresi**, **genel adı**, **parola**, ve **parolayı onayla** öznitelikleri geçerli bir Azure ad hesabı istiyorsunuz ilgili metin kutularına sağlayın.
+
+    b. **Kaydet**’e tıklayın.
 
 >[!NOTE]
 >Azure AD kullanıcı hesapları sağlamak için herhangi bir Mimecast Yönetim Konsolu kullanıcı hesabı oluşturma araçları veya Mimecast Yönetim Konsolu tarafından sağlanan API'leri kullanabilirsiniz. 
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
-
-Bu bölümde, Azure çoklu oturum açma Mimecast yönetim konsoluna erişim vererek kullanmak Britta Simon etkinleştirin.
-
-![Kullanıcı rolü atayın][200] 
-
-**Britta Simon Mimecast yönetim konsoluna atamak için aşağıdaki adımları gerçekleştirin:**
-
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
-
-    ![Kullanıcı Ata][201] 
-
-1. Uygulamalar listesinde **Mimecast Yönetici Konsolu**.
-
-    ![Uygulamalar listesinde Mimecast Yönetici konsolunda bağlantı](./media/mimecast-admin-console-tutorial/tutorial_mimecastadminconsole_app.png)  
-
-1. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
-
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
-
-    ![Atama Ekle bölmesi][203]
-
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
-
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
-
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde Mimecast Yönetici Konsolu kutucuğa tıkladığınızda, otomatik olarak Mimecast Yönetici Konsolu uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli Mimecast Yönetici Konsolu kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama Mimecast yönetici Konsolu'na oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/mimecast-admin-console-tutorial/tutorial_general_01.png
-[2]: ./media/mimecast-admin-console-tutorial/tutorial_general_02.png
-[3]: ./media/mimecast-admin-console-tutorial/tutorial_general_03.png
-[4]: ./media/mimecast-admin-console-tutorial/tutorial_general_04.png
-
-[100]: ./media/mimecast-admin-console-tutorial/tutorial_general_100.png
-
-[200]: ./media/mimecast-admin-console-tutorial/tutorial_general_200.png
-[201]: ./media/mimecast-admin-console-tutorial/tutorial_general_201.png
-[202]: ./media/mimecast-admin-console-tutorial/tutorial_general_202.png
-[203]: ./media/mimecast-admin-console-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

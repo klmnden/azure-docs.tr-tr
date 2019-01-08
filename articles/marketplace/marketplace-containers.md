@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5eb30c65032332825d05097f86d0275b015a8929
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6b02714c3a62e8d11512c1cc2dfc7a75a422441d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059427"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076391"
 ---
 # <a name="containers-offer-publishing-guide"></a>Yayımlama Kılavuzu'nu kapsayıcılar sunar.
 
@@ -40,16 +40,17 @@ Microsoft şu anda ücretsiz ve-kendi-lisansını getir (KLG) lisanslama modelle
 |:--- |:--- |  
 | Faturalama ve ölçüm | Destek ya da ücretsiz veya KLG faturalandırma modeli. |  
 | Dockerfile'dan görüntüsü | Kapsayıcı görüntüleri Docker görüntüsünü belirtimini temel alması gerekir ve bir hata dockerfile'dan gerekir.<ul> <li>Docker görüntüleri oluşturma hakkında daha fazla bilgi için adresinde yer alan kullanım bölümünü ziyaret edin ve [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
-| ACR içinde barındırma | Bir Azure Container Registry (ACR) deposunda kapsayıcı görüntülerinin barındırılması gerekir.<ul> <li>ACR ile çalışma hakkında daha fazla bilgi için hızlı başlangıç sayfasını ziyaret edin: konumunda bulunan Azure portal sayfasındaki kullanarak bir kapsayıcı kayıt defteri oluşturma [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
+| ACR içinde barındırma | Bir Azure Container Registry (ACR) deposunda kapsayıcı görüntülerinin barındırılması gerekir.<ul> <li>ACR ile çalışma hakkında daha fazla bilgi için hızlı başlangıç sayfasını ziyaret edin: Konumunda bulunan Azure portal sayfasındaki kullanarak bir kapsayıcı kayıt defteri oluşturma [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
 | Görüntü etiketleme | Kapsayıcı görüntüleri, en az 1 etiket içermelidir (en fazla etiket: 16).<ul> <li>Görüntü etiketleme hakkında daha fazla bilgi için adresinde yer alan docker tag sayfasını ziyaret edin [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
 
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 Zaten yapmadıysanız, 
 
-- [Kayıt](https://azuremarketplace.microsoft.com/sell) Market'te
+- [Kayıt](https://azuremarketplace.microsoft.com/sell) Market'te.
 
 Kayıtlı ve yeni bir teklif oluşturur veya mevcut bir proje üzerinde çalışmaya,
 
-- [Bulut iş ortağı portalında oturum açın](https://cloudpartner.azure.com) oluşturmak veya teklifiniz tamamlamak için
+- [Bulut iş ortağı portalında oturum açın](https://cloudpartner.azure.com) oluşturmak veya teklifiniz tamamlayın.
+- Bkz: [kapsayıcıları](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) daha fazla bilgi için.

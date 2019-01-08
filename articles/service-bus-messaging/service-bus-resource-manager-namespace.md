@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: c616ad86e6846800d214feeaf100f63e311f78b0
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 248ac7ed2a855dd1df71e6e44d1aa7065ddd8ba4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282739"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062076"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir Service Bus ad alanı oluşturma
 Bu hızlı başlangıçta, bir Service Bus ad alanı türü oluşturan bir Azure Resource Manager şablonu oluşturma **Mesajlaşma** ile bir **standart** SKU. Makale ayrıca dağıtım yürütülmesi için belirtilen parametreleri tanımlar. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz. Şablon oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates]. Tam şablon için bkz: [Service Bus ad alanı şablon] [ Service Bus namespace template] GitHub üzerinde.
@@ -96,7 +96,7 @@ Adlı bir JSON dosyası oluşturun **MyServiceBusNamespace.json** aşağıdaki i
 }
 ```
 
-Bu şablon, standart bir Service Bus ad alanı oluşturur.
+Bu şablon, standart bir Service Bus ad alanı oluşturur. JSON söz dizimi ve özellikler için bkz: [ad alanları](/azure/templates/microsoft.servicebus/namespaces) şablon başvurusu.
 
 ## <a name="create-the-parameters-json"></a>Parametreler JSON oluşturma
 Önceki adımda oluşturduğunuz şablonu adlı bir bölüm vardır `Parameters`. Projenin hedef ortama bağlı veya dağıtıyorsanız göre farklılık bu değerler için parametre tanımlarsınız. Bu şablon aşağıdaki parametreleri tanımlar: **serviceBusNamespaceName**, **serviceBusSku**, ve **konumu**. Service Bus SKU'ları hakkında daha fazla bilgi için bkz: [Service Bus SKU'ları](https://azure.microsoft.com/pricing/details/service-bus/) oluşturmak için.

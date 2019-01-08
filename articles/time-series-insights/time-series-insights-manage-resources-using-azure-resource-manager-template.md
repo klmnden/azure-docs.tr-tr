@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: 9200b3b8cd85bfd94bbc4c66cccb35b78a97aaff
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 282a20beb11172aa3a1d2c7326dc38ce8a7acfcf
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554699"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062664"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak Time Series Insights kaynakları oluşturma
 
@@ -34,6 +34,7 @@ Resource Manager şablonu bir kaynak grubunda altyapı ve kaynakların yapıland
 
 - [Azure Resource Manager'a genel bakış - şablon dağıtımı](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma](../azure-resource-manager/resource-group-template-deploy.md)
+- [Microsoft.TimeSeriesInsights kaynak türleri](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 [201-timeseriesinsights-ortam-ile-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) Hızlı Başlangıç şablonu, Github'da yayımlanır. Bu şablon, bir zaman serisi görüşleri ortamı, Event Hub'ındaki olayları kullanma ve erişim ortamın verilerine erişim izni ilkeleri için yapılandırılmış bir alt olay kaynağı oluşturur. Mevcut bir olay hub'ı belirtilmezse, bir dağıtım ile oluşturulur.
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 179d8fc0f17bf43792db6a9b0e15a6f63349f002
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 31c4268522ca373ca0b467c13dd83500e18ef8e6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890951"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065894"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps iş akışı tanımı dil işlevleri başvurusu
 
@@ -102,6 +102,7 @@ Koleksiyonlar, genellikle dizi, dizeleri ve sözlükleri ile bazen çalışmak i
 | [boş](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Bir koleksiyonun boş olup olmadığını denetleyin. | 
 | [ilk](../logic-apps/workflow-definition-language-functions-reference.md#first) | Bir koleksiyondaki ilk öğeyi döndürür. | 
 | [kesişimi](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Sahip bir koleksiyonun dönüş *yalnızca* belirtilen koleksiyonlarla arasında ortak öğeleri. | 
+| [Öğesi](../logic-apps/workflow-definition-language-functions-reference.md#item) | Bir dizi üzerindeki bir yinelenen eylemi olduğu zaman içinde eylemin geçerli yineleme sırasında dizideki geçerli öğeyi döndürür. | 
 | [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | İçeren bir dize döndürecek *tüm* bir dizi, öğeleri belirtilen karakteriyle ayrılmış. | 
 | [Son](../logic-apps/workflow-definition-language-functions-reference.md#last) | Bir koleksiyondaki son öğeyi döndürür. | 
 | [Uzunluğu](../logic-apps/workflow-definition-language-functions-reference.md#length) | Bir dize ya da dizideki öğe sayısını döndürür. | 
@@ -265,7 +266,7 @@ Tekdüzen Kaynak Tanımlayıcıları (URI'lar) çalışır ve bu bir URI'leri i�
 
 <a name="manipulation-functions"></a>
 
-## <a name="manipulation-functions-json--xml"></a>İşleme işlevleri: JSON ve XML
+## <a name="manipulation-functions-json--xml"></a>İşleme işlevleri: JSON VE XML
 
 JSON nesneleri ve XML düğümü ile çalışmak için bu işleme işlevleri kullanabilirsiniz. Her işlev hakkındaki tam başvuru için bkz: [alfabetik liste](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
 
@@ -752,9 +753,9 @@ and(false, false)
 
 Ve bu sonuçları döndürür:
 
-* İlk örnek: her iki ifade de doğruysa, bu nedenle döndürür `true`. 
-* İkinci örnek: bir ifade yanlış olduğunda, bu nedenle döndürür `false`.
-* Üçüncü örnek: her iki ifade yanlış ise, bu nedenle döndürür `false`.
+* İlk örnek: Her iki ifade de doğruysa, bu nedenle döndürür `true`. 
+* İkinci örnek: Bir ifade yanlış olduğunda, bu nedenle döndürür `false`.
+* Üçüncü örnek: Her iki ifade yanlış ise, bu nedenle döndürür `false`.
 
 *Örnek 2*
 
@@ -768,9 +769,9 @@ and(equals(1, 2), equals(1, 3))
 
 Ve bu sonuçları döndürür:
 
-* İlk örnek: her iki ifade de doğruysa, bu nedenle döndürür `true`. 
-* İkinci örnek: bir ifade yanlış olduğunda, bu nedenle döndürür `false`.
-* Üçüncü örnek: her iki ifade yanlış ise, bu nedenle döndürür `false`.
+* İlk örnek: Her iki ifade de doğruysa, bu nedenle döndürür `true`. 
+* İkinci örnek: Bir ifade yanlış olduğunda, bu nedenle döndürür `false`.
+* Üçüncü örnek: Her iki ifade yanlış ise, bu nedenle döndürür `false`.
 
 <a name="array"></a>
 
@@ -1646,8 +1647,8 @@ empty('abc')
 
 Ve bu sonuçları döndürür: 
 
-* İlk örnek: boş bir dize işlevi döndürecek şekilde geçirir `true`. 
-* İkinci örnek: işlev döndürecek şekilde "abc" dizesine geçirir `false`. 
+* İlk örnek: Boş bir dize işlevi döndürecek şekilde geçirir `true`. 
+* İkinci örnek: İşlev döndürecek şekilde "abc" dizesine geçirir `false`. 
 
 <a name="endswith"></a>
 
@@ -1721,8 +1722,8 @@ equals('abc', 'abcd')
 
 Ve bu sonuçları döndürür: 
 
-* İlk örnek: işlev döndürecek şekilde her iki değer eşdeğerdir `true`.
-* İkinci örnek: işlev döndürecek şekilde her iki değer eşdeğeri olmayan `false`.
+* İlk örnek: İşlev döndürecek şekilde her iki değer eşdeğerdir `true`.
+* İkinci örnek: Her iki değer işlev döndürecek şekilde eşdeğeri olmayan `false`.
 
 <a name="first"></a>
 
@@ -2077,7 +2078,7 @@ Ve bu sonucu verir: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
-### <a name="if"></a>Eğer
+### <a name="if"></a>if
 
 İfadenin true veya false olup olmadığını denetleyin. Sonuca bağlı, belirli bir değeri döndürme.
 
@@ -2725,8 +2726,8 @@ not(true)
 
 Ve bu sonuçlar döndürebilir:
 
-* İlk örnek: işlev döndürecek şekilde ifadeyi false ise `true`.
-* İkinci örnek: işlev döndürecek şekilde ifadeyi true ise `false`.
+* İlk örnek: İşlev döndürecek şekilde ifadeyi false ise `true`.
+* İkinci örnek: İşlev döndürecek şekilde ifadeyi true ise `false`.
 
 *Örnek 2*
 
@@ -2739,8 +2740,8 @@ not(equals(1, 1))
 
 Ve bu sonuçlar döndürebilir:
 
-* İlk örnek: işlev döndürecek şekilde ifadeyi false ise `true`.
-* İkinci örnek: işlev döndürecek şekilde ifadeyi true ise `false`.
+* İlk örnek: İşlev döndürecek şekilde ifadeyi false ise `true`.
+* İkinci örnek: İşlev döndürecek şekilde ifadeyi true ise `false`.
 
 <a name="or"></a>
 
@@ -2773,8 +2774,8 @@ or(false, false)
 
 Ve bu sonuçlar döndürebilir:
 
-* İlk örnek: işlev döndürecek şekilde en az bir ifade true ise `true`.
-* İkinci örnek: işlev döndürecek şekilde her iki ifade false `false`.
+* İlk örnek: İşlev döndürecek şekilde en az bir ifade true ise `true`.
+* İkinci örnek: İşlev döndürecek şekilde her iki ifade false `false`.
 
 *Örnek 2*
 
@@ -2787,8 +2788,8 @@ or(equals(1, 2), equals(1, 3))
 
 Ve bu sonuçlar döndürebilir:
 
-* İlk örnek: işlev döndürecek şekilde en az bir ifade true ise `true`.
-* İkinci örnek: işlev döndürecek şekilde her iki ifade false `false`.
+* İlk örnek: İşlev döndürecek şekilde en az bir ifade true ise `true`.
+* İkinci örnek: İşlev döndürecek şekilde her iki ifade false `false`.
 
 <a name="parameters"></a>
 

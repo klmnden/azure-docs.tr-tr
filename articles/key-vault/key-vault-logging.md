@@ -10,16 +10,15 @@ ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 8e3076f2176739f5b9df5776f27d7483c9fd2692
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: e4d5004deeff43e83406ecb5d06b2857817531c6
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000419"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074300"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Anahtar Kasası Günlüğü
 
@@ -113,7 +112,7 @@ Anahtar Kasası için günlüğü etkinleştirmek üzere, yeni depolama hesabım
 Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
 ```
 
-Bunun için çıkış şunları içerir:
+Çıkış şuna benzeyecektir:
 
     StorageAccountId   : /subscriptions/<subscription-GUID>/resourceGroups/ContosoResourceGroup/providers/Microsoft.Storage/storageAccounts/ContosoKeyVaultLogs
     ServiceBusRuleId   :
@@ -156,7 +155,7 @@ Bu kapsayıcıdaki tüm blobları listelemek için şunu yazın:
 Get-AzureStorageBlob -Container $container -Context $sa.Context
 ```
 
-Çıkış buna benzer şekilde görünür:
+Çıktı aşağıdakine benzer görünecektir:
 
 **Kapsayıcı Uri’si: https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
@@ -230,6 +229,7 @@ Get-AzureRmKeyVault -VaultName 'contosokeyvault'`
 
 bir günlük girişi için aşağıda gösterilene benzer döndürür:
 
+```json
     {
         "records":
         [
@@ -250,6 +250,7 @@ bir günlük girişi için aşağıda gösterilene benzer döndürür:
             }
         ]
     }
+```
 
 Aşağıdaki tabloda alan adları ve açıklamaları listelenmektedir.
 

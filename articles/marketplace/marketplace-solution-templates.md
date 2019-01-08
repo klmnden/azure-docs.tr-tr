@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
-ms.openlocfilehash: d955f5c11121e8d42bc4b02b75427ab07298e74b
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 660120a1314c0071aa5b1cf3eae668e1626813a1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264191"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073467"
 ---
-# <a name="azure-applications-solution-template-offer-publishing-guide"></a>Azure uygulamaları: Yayımlama Kılavuzu'nu çözüm şablonu teklifi
+# <a name="azure-applications-solution-template-offer-publishing-guide"></a>Azure uygulamaları için: Çözüm şablonu teklifi yayımlama Kılavuzu
 
 Çözüm şablonları Market'te çözüm yayımlama için temel yollarından biridir. Bu teklif gereksinimlerini anlamak için bu kılavuzu kullanın. 
 
@@ -32,7 +32,7 @@ Dağıtılır ve faturalandırılır Market aracılığıyla işlem teklifleri, 
 
 ## <a name="requirements-for-solution-templates"></a>Çözüm şablonları için gereksinimleri
 
-| **Gereksinimleri** | **Ayrıntılar**  |
+| **Gereksinimler** | **Ayrıntılar**  |
 | ---------------  | -----------  |
 |Faturalama ve ölçüm    |  Müşterinin Azure aboneliğinde kaynakları sağlanır. Microsoft, Müşteri'nin Azure aboneliği (DÖNÜŞTÜREBİLMEMİZ) faturalandırılır aracılığıyla müşteri ile Kullandıkça Öde (DÖNÜŞTÜREBİLMEMİZ) sanal makineler işlem temelli.  <br/> Microsoft Müşteri aboneliğinde altyapı maliyetleri faturalandırır sırada getirin-kendi lisansını söz konusu olduğunda (KLG), müşterinin masrafları doğrudan lisans transact.   |
 |Azure ile uyumlu sanal sabit disk (VHD)  |   Windows veya Linux Vm'leri oluşturulmalıdır.  Daha fazla bilgi için [bkz. Azure ile uyumlu bir VHD oluşturma](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md). |
@@ -40,7 +40,7 @@ Dağıtılır ve faturalandırılır Market aracılığıyla işlem teklifleri, 
 |  |  |
 
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Bunu zaten bunu yapmadıysanız [kaydetme](https://azuremarketplace.microsoft.com/sell) Market'te.
 
 Kayıtlı ve yeni bir teklif oluşturma veya oturum var olan bir proje üzerinde çalışmaya [bulut iş ortağı portalı](https://cloudpartner.azure.com) oluşturmak veya teklifiniz tamamlayın.

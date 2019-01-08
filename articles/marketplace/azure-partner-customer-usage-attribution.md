@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: fad023b7593b0e13b05d081a11333f5e92c8ecef
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602180"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077751"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure iş ortağı müşteri kullanım attribution
 
@@ -36,10 +36,8 @@ Müşteri kullanım attribution gerekli tüm [çözüm şablonları](./cloud-par
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager şablonlarını kullanma
 
-İş ortağı çözümlerinin çoğu, Resource Manager şablonlarını kullanarak bir müşterinin aboneliğini üzerinde dağıtılır. Azure marketi, GitHub üzerinde veya bir hızlı başlangıç olarak kullanılabilir bir Resource Manager şablonu varsa yeni izleme yöntemini etkinleştirmek için şablonunuzu değiştirme işlemi oldukça olmalıdır. Bir Azure Resource Manager şablonu kullanmıyorsanız, Resource Manager şablonları ve oluşturmak nasıl daha iyi anlamanıza yardımcı olacak bazı bağlantılar aşağıda verilmiştir: 
+İş ortağı çözümlerinin çoğu, Resource Manager şablonlarını kullanarak bir müşterinin aboneliğini üzerinde dağıtılır. Azure marketi, GitHub üzerinde veya bir hızlı başlangıç olarak kullanılabilir bir Resource Manager şablonu varsa yeni izleme yöntemini etkinleştirmek için şablonunuzu değiştirme işlemi oldukça olmalıdır. Daha fazla bilgi için [oluşturun ve ilk Resource Manager şablonunuzu dağıtmak](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
 
-*   [Oluşturma ve ilk Resource Manager şablonunuzu dağıtma](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-*   [Bir çözüm şablonu oluşturmak için Azure Marketi](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
 ## <a name="add-a-guid-to-your-template"></a>Bir GUID şablonunuza ekleyin
 
@@ -270,11 +268,15 @@ Microsoft iş ortakları kendi şablonlarını ve ınsights müşteri dağıtım
 
 **Kimin bir GUID bir şablona ekleyebilir miyim?**
 
-İzleme kaynak iş ortağı çözümünün müşterinin Azure kullanımına bağlanmak için tasarlanmıştır. Kullanım verileri, bir iş ortağının Microsoft iş ortağı ağı kimliğini (MPN kimliği) bağlıdır. 
+İzleme kaynak iş ortağı çözümünün müşterinin Azure kullanımına bağlanmak için tasarlanmıştır. Kullanım verileri, bir iş ortağının Microsoft iş ortağı ağı kimliğini (MPN kimliği) bağlıdır. Raporlama, CPP iş ortakları için kullanılabilir.
 
 **Bir GUID eklendikten sonra değiştirilebilir mi?**
  
 Evet, müşteri veya uygulama iş ortağı şablonu özelleştirmek ve değiştirebilir veya GUID kaldırabilirsiniz. İş ortaklarının müşterileri ve iş ortakları kaldırma veya düzenleme izleme GUID önlemek için kaynak GUID ve role proaktif olarak açıklamak öneririz. GUID değiştirilmesi, yalnızca yeni, var olmayan dağıtımlar ve kaynakları etkiler.
+
+**Ne zaman raporlama kullanıma sunulacak?**
+
+Raporlama bir beta sürümünü hemen kullanılabilir olması gerekir. Raporlama CPP tümleştirilecektir.
 
 **Ben bir GitHub gibi Microsoft dışı deposundan dağıtılan şablonları izleyebilir miyim?**
 

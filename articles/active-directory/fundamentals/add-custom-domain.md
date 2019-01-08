@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 14035fe9061af98b10b822c3b7b9213cdda3fbbd
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3fdbbd1d3cf27172ed9ba5c5087ffc331e01ccf9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098317"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076816"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Azure Active Directory portalı kullanarak özel etki alanı adınızı ekleme
 Her yeni Azure AD kiracısı bir ilk etki alanı adı ile gelir *domainname*. onmicrosoft.com. Değiştirme veya silme ilk etki alanı adı, ancak kuruluşunuzun adları listesine ekleyebilirsiniz. Özel etki alanı adları ekleme yardımcı olur, kullanıcılarınızın tanıdığı gibi kullanıcı adları oluşturmak için *alain@contoso.com*.
@@ -63,7 +63,7 @@ Dizininizi oluşturduktan sonra özel etki alanı adı ekleyebilirsiniz.
 ## <a name="add-your-dns-information-to-the-domain-registrar"></a>Etki alanı kayıt şirketi için DNS bilgilerinizi ekleyin
 Azure AD'ye özel etki alanı adınızı ekledikten sonra için etki alanı kayıt şirketinizde dönün ve Azure AD DNS bilgilerini, kopyalanan bir TXT dosyasından eklemeniz gerekir. Oluşturma bu TXT kaydı etki alanınız için "etki alanı adınızı sahipliğini doğrular".
 
--  Etki alanı kayıt için geri dönün, etki alanınız, kopyalanan DNS bilgilere göre ayarlamak için yeni bir TXT kaydı oluşturun. **TTL** (yaşam süresi) ila 60 dakika ve bilgileri kaydedin.
+-  Etki alanı kayıt için geri dönün, etki alanınız, kopyalanan DNS bilgilere göre ayarlamak için yeni bir TXT kaydı oluşturun. **TTL** (yaşam süresi) 3600 saniye (60 dakika) ve bilgileri kaydedin.
 
     >[!Important]
     >İstediğiniz sayıda etki alanı adları kaydedebilirsiniz. Ancak, her etki alanı kendi TXT kaydı, Azure AD'den alır. Etki alanı kayıt şirketinde TXT dosyası bilgilerinizi girerken dikkatli olun. Yanlış girin ya da bilgileri yanlışlıkla çoğaltmak, yeniden denemeden önce TTL (out 60 dakika) zaman beklemeniz gerekecektir.
@@ -98,10 +98,10 @@ Azure AD'ye özel etki alanı adınızı ekledikten sonra için etki alanı kay�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Başka bir genel yönetici, dizininize ekleyin. Daha fazla bilgi için [roller ve yöneticiler atama](active-directory-users-assign-role-azure-portal.md)
+- Başka bir genel yönetici, dizininize ekleyin. Daha fazla bilgi için [roller ve yöneticiler atama](active-directory-users-assign-role-azure-portal.md).
 
-- Kullanıcılar, etki alanına eklemek için bkz: [ekleme veya kullanıcıları Sil](add-users-azure-active-directory.md)
+- Kullanıcılar, etki alanına eklemek için bkz: [ekleme veya kullanıcıları silmek](add-users-azure-active-directory.md).
 
-- Azure AD etki alanı adı bilgilerinizi yönetin. Daha fazla bilgi için [özel etki alanı adlarını yönetme](../users-groups-roles/domains-manage.md)
+- Azure AD etki alanı adı bilgilerinizi yönetin. Daha fazla bilgi için [özel etki alanı adlarını yönetme](../users-groups-roles/domains-manage.md).
 
 - Şirket içi Azure Active Directory ile birlikte kullanmak üzere istediğiniz Windows Server sürümleri varsa [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](../connect/active-directory-aadconnect.md).

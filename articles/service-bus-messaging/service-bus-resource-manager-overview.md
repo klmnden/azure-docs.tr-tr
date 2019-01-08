@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 5693307f9d032ad544a44eabd19126700c5a4099
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e23173b006fcc83f0e4b30b59a65e772b68a612d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407170"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062018"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanarak Service Bus kaynakları oluşturma
 
@@ -258,6 +258,7 @@ Artık, bir Azure Resource Manager şablonu dağıtmak için komutları ve temel
 * [Azure Resource Manager'a genel bakış][Azure Resource Manager overview]
 * [Kaynakları Resource Manager şablonları ve Azure PowerShell ile dağıtma][Deploy resources with Azure Resource Manager templates]
 * [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Microsoft.ServiceBus kaynak türleri](/azure/templates/microsoft.servicebus/allversions)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/resource-group-overview.md
 [Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md

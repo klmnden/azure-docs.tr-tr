@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 10/24/2018
-ms.openlocfilehash: ed3203cde8bad8c506bacf3607faecfbcde2cd75
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 6be0603c8332a6d1bd6c965a167b14f5a22362e6
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606869"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064228"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL veritabanı uzun vadeli yedekleme bekletmeyi yönetme
 
@@ -33,7 +33,7 @@ Aşağıdaki bölümlerde, uzun süreli saklama yapılandırma, uzun vadeli bekl
 
 SQL veritabanı'na yapılandırabileceğiniz [otomatik yedekleri tutma](sql-database-long-term-retention.md) hizmet katmanınızın saklama süresinden daha uzun bir süre. 
 
-1. Azure portalında SQL server'ınızı seçin ve ardından **yedekleri Yönet**. Üzerinde **ilkelerini yapılandırma** sekmesinde, onay kutusunu veya uzun süreli yedek saklama ilkeleri değiştirmek istediğiniz veritabanını seçin.
+1. Azure portalında SQL server'ınızı seçin ve ardından **yedekleri Yönet**. Üzerinde **ilkelerini yapılandırma** sekmesinde *ayarlamak veya uzun süreli yedek saklama ilkeleri değiştirmek istediğiniz veritabanı için onay kutusunu işaretleyin*. Veritabanı yanındaki onay kutusunu seçili değilse, ilke için değişiklikler bu veritabanına uygulanmaz.  
 
    ![yedeklemeleri bağlantısını yönetme](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 

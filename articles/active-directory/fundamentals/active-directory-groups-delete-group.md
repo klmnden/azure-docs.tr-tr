@@ -12,21 +12,21 @@ ms.date: 08/29/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 6c08022b47fb1a118e95a54eedf9b5239496ebf7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 405e86506f13472886878eb18557121c752e9464
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53092239"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062307"
 ---
 # <a name="delete-a-group-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak bir grubu silme
 Bir Azure Active Directory (Azure AD) grubu için birkaç nedenden silebilirsiniz ancak genellikle çünkü olur:
 
-- Hatalı **grup türü** yanlış seçeneği
+- Hatalı **grup türü** yanlış seçeneği için.
 
-- Kimlik bilgileri yanlış veya yinelenen bir grup yanlışlıkla oluşturdum 
+- Kimlik bilgileri yanlış veya yinelenen bir grup yanlışlıkla oluşturdum. 
 
-- Artık gerek Grup
+- Artık grubu gerekir.
 
 ## <a name="to-delete-a-group"></a>Bir grubu silmek için
 1. Dizin için bir Genel yönetici hesabı kullanarak [Azure portalda](https://portal.azure.com) oturum açın.

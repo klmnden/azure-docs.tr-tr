@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 227ef61ee4809d376c6ac5e8e8c1a7f9c364b7fc
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2940e1d8328ffaea799ddff4afc9669aaa85a2f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255771"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065639"
 ---
 # <a name="azure-storage-account-overview"></a>Azure depolama hesabına genel bakış
 
@@ -23,33 +23,13 @@ Bir Azure depolama hesabı oluşturma hakkında bilgi edinmek için [depolama he
 
 ## <a name="types-of-storage-accounts"></a>Depolama hesabı türleri
 
-Azure depolama üç tür depolama hesabı sağlar. Her tür farklı özellikleri destekler ve kendi fiyatlandırma modeline sahiptir. Uygulamalarınız için en iyi olan hesap türünü belirlemek için bir depolama hesabı oluşturmadan önce bu farklılıkları göz önünde bulundurun. Depolama hesabı türleri şunlardır:
-
-* **[Genel amaçlı v2 hesapları](#general-purpose-v2-accounts)**  (çoğu senaryo için önerilir)
-* **[Genel amaçlı v1 hesapları](#general-purpose-v1-accounts)**
-* **[BLOB Depolama hesapları](#blob-storage-accounts)** 
-
-Aşağıdaki tabloda, depolama hesabı türleri ve yeteneklerini açıklar:
-
-| Depolama hesabı türü | Desteklenen hizmetler                       | Desteklenen performans katmanları | Desteklenen erişim katmanları               | Çoğaltma seçenekleri                                                | Dağıtım modeli<sup>1</sup>  | Şifreleme<sup>2</sup> |
-|----------------------|------------------------------------------|-----------------------------|--------------------------------------|--------------------------------------------------------------------|-------------------|------------|
-| Genel amaçlı V2   | BLOB, dosya, kuyruk, tablo ve diski       | Standart, Premium           | Sık, seyrek arşiv<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Resource Manager | Şifreli  |
-| Genel amaçlı V1   | BLOB, dosya, kuyruk, tablo ve diski       | Standart, Premium           | Yok                                  | LRS, GRS, RA-GRS                                                   | Resource Manager, Klasik  | Şifreli  |
-| Blob depolama         | BLOB (blok blobları ve ekleme blobları yalnızca) | Standart                    | Sık, seyrek arşiv<sup>3</sup>                            | LRS, GRS, RA-GRS                                                   | Resource Manager  | Şifreli  |
-
-<sup>1</sup>Azure Resource Manager dağıtım modelini kullanarak önerilir. Depolama hesapları Klasik dağıtım modeli kullanılarak yine de bazı yerlerde oluşturulabilir ve mevcut Klasik hesapları desteklemeye devam eder. Daha fazla bilgi için [Azure Resource Manager ve klasik dağıtım: dağıtım modellerini ve kaynaklarınızın durumunu anlama](../../azure-resource-manager/resource-manager-deployment-model.md).
-
-<sup>2</sup>tüm depolama hesapları, bekleyen veriler için depolama hizmeti şifrelemesi (SSE) kullanılarak şifrelenir. Daha fazla bilgi için [bekleyen veriler için Azure depolama hizmeti şifrelemesi](storage-service-encryption.md).
-
-<sup>3</sup>arşiv katmanı değil yalnızca tek bir blob düzeyinde kullanılabilir depolama hesap düzeyinde. Yalnızca blok blobları ve ekleme blobları arşivlenen. Daha fazla bilgi için [Azure Blob Depolama: seyrek erişimli, seyrek ve Arşiv depolama katmanları](../blobs/storage-blob-storage-tiers.md).
-
-<sup>4</sup>bölgesel olarak yedekli depolama (ZRS) yalnızca standart genel amaçlı v2 depolama hesapları için kullanılabilir. ZRS hakkında daha fazla bilgi için bkz: [bölgesel olarak yedekli depolama (ZRS): yüksek kullanılabilirliğe sahip bir Azure depolama uygulamalar](storage-redundancy-zrs.md). Diğer çoğaltma seçenekleri hakkında daha fazla bilgi için bkz. [Azure depolama çoğaltma](storage-redundancy.md).
+[!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ### <a name="general-purpose-v2-accounts"></a>Genel amaçlı v2 hesapları
 
 Genel amaçlı v2 depolama hesabı için en son Azure depolama özelliklerini desteklemek ve tüm işlevleri, genel amaçlı v1 ve Blob Depolama hesapları dahil edilip derecelendirilir. Genel amaçlı v2 hesapları Azure depolama, ek olarak sektörde rekabetçi işlem fiyatları düşük gigabayt başına kapasite fiyatlar sunar. Genel amaçlı v2 depolama hesaplarının, bu Azure depolama hizmetleri destekler:
 
-- BLOB'ları (tüm türleri: blok, ekleme, sayfa)
+- BLOB'ları (tüm türleri: Engelleme, Sayfa Ekle)
 - Dosyalar
 - Diskler
 - Kuyruklar
@@ -98,7 +78,7 @@ Depolama hesabınızı adlandırırken şu kuralları göz önünde bulundurun:
 Genel amaçlı depolama hesapları ya da aşağıdaki performans katmanları yapılandırılabilir:
 
 * Bloblar, dosyalar, tabloları, kuyrukları ve Azure sanal makine disklerini depolamak için standart performans katmanı.
-* Yalnızca Azure sanal makine disklerini depolamak için bir premium performans katmanı. Premium Storage’a yönelik ayrıntılı genel bakış için bkz. [Premium Storage: Azure Virtual Machine İş Yükleri için Yüksek Performanslı Depolama](../../virtual-machines/windows/premium-storage.md).
+* Yalnızca Azure sanal makine disklerini depolamak için bir premium performans katmanı. Bkz: [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../../virtual-machines/windows/premium-storage.md) için Premium depolama ayrıntılı genel bakış.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Blok blobu veri erişim katmanları
 
@@ -157,9 +137,9 @@ Depolama hesabınıza karşı yapılan her isteği yetkili olması gerekir. Hizm
 
 Aşağıdaki yaklaşımlardan birini kullanarak depolama hesabınızdaki verilere erişim izni verebilirsiniz:
 
-- **Azure Active Directory:** kullanımı Azure Active Directory (Azure AD) kimlik bilgilerini bir kullanıcı, Grup veya diğer kimlik blob ve kuyruk verilere (Önizleme) erişim için kimlik doğrulaması için. Bir kimlik, kimlik doğrulaması başarılı olursa, Azure AD Azure Blob Depolama veya kuyruk depolama isteğine yetki verme içinde kullanmak için bir belirteç döndürür. Daha fazla bilgi için [erişim Azure Active Directory (Önizleme) kullanarak Azure depolama için kimlik doğrulaması](storage-auth-aad.md).
-- **Paylaşılan anahtar yetkilendirme:** uygulamanızı çalışma zamanında Azure depolamaya erişmek için kullandığı bir bağlantı dizesi oluşturmak için depolama hesabı erişim anahtarı kullanın. Bağlantı dizesinde değerleri oluşturmak için kullanılan *yetkilendirme* Azure depolama alanına geçirilen başlığı. Daha fazla bilgi için [yapılandırma Azure Storage bağlantı dizelerini](storage-configure-connection-string.md).
-- **Paylaşılan erişim imzası:** Azure AD kimlik doğrulamasını kullanmıyorsanız, depolama hesabınızdaki kaynaklara temsilci erişimi için paylaşılan erişim imzası kullanın. Paylaşılan erişim imzası tüm URL noktasında Azure Depolama'ya yönelik bir isteği yetkilendirmek için gereken bilgileri yalıtan bir belirteçtir. Depolama kaynağı, verilen izinleri ve üzerinde izinleri geçerli aralık belirtebilirsiniz paylaşılan erişim imzasının bir parçası olarak. Daha fazla bilgi için [paylaşılan erişim imzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
+- **Azure Active Directory:** Bir kullanıcı, Grup veya diğer kimlik blob ve kuyruk verilere (Önizleme) erişim için kimlik doğrulaması için Azure Active Directory (Azure AD) kimlik bilgilerini kullanın. Bir kimlik, kimlik doğrulaması başarılı olursa, Azure AD Azure Blob Depolama veya kuyruk depolama isteğine yetki verme içinde kullanmak için bir belirteç döndürür. Daha fazla bilgi için [erişim Azure Active Directory (Önizleme) kullanarak Azure depolama için kimlik doğrulaması](storage-auth-aad.md).
+- **Paylaşılan anahtar yetkilendirme:** Depolama hesabı erişim anahtarınız, uygulamanızın kullandığı çalışma zamanında Azure depolamaya erişmek için bir bağlantı dizesi oluşturmak için kullanın. Bağlantı dizesinde değerleri oluşturmak için kullanılan *yetkilendirme* Azure depolama alanına geçirilen başlığı. Daha fazla bilgi için [yapılandırma Azure Storage bağlantı dizelerini](storage-configure-connection-string.md).
+- **Paylaşılan erişim imzası:** Azure AD kimlik doğrulamasını kullanmıyorsanız, depolama hesabınızdaki kaynaklara temsilci erişimi için paylaşılan erişim imzası'nı kullanın. Paylaşılan erişim imzası tüm URL noktasında Azure Depolama'ya yönelik bir isteği yetkilendirmek için gereken bilgileri yalıtan bir belirteçtir. Depolama kaynağı, verilen izinleri ve üzerinde izinleri geçerli aralık belirtebilirsiniz paylaşılan erişim imzasının bir parçası olarak. Daha fazla bilgi için [paylaşılan erişim imzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
 
 > [!NOTE]
 > Kullanıcılar veya uygulamalar Azure AD kimlik bilgilerini kullanarak kimlik doğrulaması yetkilendirme başka bir yolla üstün güvenlik ve kullanım kolaylığı sağlar. Paylaşılan anahtar yetkilendirme uygulamalarınızı kullanmaya devam ederken, Azure AD kullanarak kodunuzu ile hesap erişim anahtarını depolamak için gereken bozar. Depolama hesabınızdaki kaynaklara ayrıntılı erişim vermek için paylaşılan erişim imzaları (SAS) kullanmaya devam edebilirsiniz, ancak Azure AD'ye SAS belirteçlerini yönetin veya güvenliği aşılmış bir SAS iptal etme hakkında endişelenmenize gerek kalmadan benzer özellikleri sunar. 

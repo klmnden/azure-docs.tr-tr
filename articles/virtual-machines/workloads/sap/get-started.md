@@ -14,41 +14,35 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/14/2018
+ms.date: 01/07/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0508e6418a5095ed9ee27baf045f655d66ea9b58
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d3256fcf33a9ad1eb34ec5dbb0c701c8166a49e2
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435353"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075187"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Barındırma ve SAP iş yükü senaryoları çalıştırmak için Azure'ı kullanma
 
-Microsoft Azure, SAP kullanılmaya hazır bir bulut iş ortağı olarak seçerek, senaryoları ve görev açısından kritik SAP iş yüklerini ölçeklenebilir, uyumlu ve kurumsal düzeyde kendini kanıtlamış platformunda güvenilir bir şekilde çalıştırmak kullanabilirsiniz.  Azure’un sunduğu ölçeklenebilirlik, esneklik ve maliyet tasarrufu olanaklarından yararlanın. Microsoft ve SAP arasındaki Genişletilmiş iş ortaklığı ile SAP uygulama yelpazesini - azure'da geliştirme/test ve üretim senaryolarında çalıştırabilir ve tam olarak desteklenir. SAP Netweaver'dan SAP S4/HANA, SAP BI, Linux için Windows, SAP HANA'dan SQL'e, karşılıyoruz.
+Microsoft Azure'ı seçerek, senaryoları ve görev açısından kritik SAP iş yüklerini ölçeklenebilir, uyumlu ve kurumsal düzeyde kendini kanıtlamış platformunda güvenilir bir şekilde çalıştırmak kullanabilirsiniz.  Azure’un sunduğu ölçeklenebilirlik, esneklik ve maliyet tasarrufu olanaklarından yararlanın. Microsoft ve SAP arasındaki Genişletilmiş iş ortaklığı ile SAP uygulama yelpazesini - azure'da geliştirme/test ve üretim senaryolarında çalıştırabilir ve tam olarak desteklenir. SAP Netweaver'dan SAP S4/HANA, SAP BI, Linux için Windows, SAP HANA'dan SQL'e, karşılıyoruz.
 
-SAP NetWeaver farklı DBMS Azure senaryolarla barındırma yanı sıra, farklı barındırabilirsiniz Azure üzerinde SAP BI gibi diğer SAP iş yükü senaryoları. Azure yerel sanal makinelerinde SAP NetWeaver dağıtımları ile ilgili belgeler, "Azure sanal makinelerinde SAP NetWeaver." bölümünde bulunabilir
+SAP NetWeaver farklı DBMS Azure senaryolarla barındırma yanı sıra, farklı barındırabilirsiniz Azure üzerinde SAP BI gibi diğer SAP iş yükü senaryoları. 
 
-Benzersiz SAP HANA için Azure, Azure dışında yarışma ayarlar benzersiz bir tekliftir. Daha fazla bellek ve CPU kaynağı zorlu SAP HANA, Azure teklifleri içeren SAP senaryoları barındırma müşteri kullanımını etkinleştirmek için 20 TB'a kadar (60 TB ölçek genişletme) için bellek gerektiren SAP HANA dağıtımlarını yürüten amacıyla çıplak bilgisayar donanım ayrılmış. S/4HANA veya diğer SAP HANA iş yükü. Bu benzersiz Azure çözüm SAP hana (büyük örnekler) Azure üzerinde SAP HANA SAP uygulama katmanında veya yerel Azure sanal Makineler'de barındırılan iş yükü donanımlar orta katman ile özel bir çıplak bilgisayar donanım çalıştırmanıza olanak tanır. Bu çözüm, çeşitli belgelerde "SAP HANA (büyük örnekler) azure'da." bölümünde belgelenmiştir   
+Benzersiz SAP HANA için Azure, Azure dışında yarışma ayarlar bir tekliftir. Daha fazla bellek ve CPU kaynağı zorlu SAP HANA, Azure teklifleri içeren SAP senaryoları barındırma müşteri kullanımını etkinleştirmek için en fazla 24 TB (120 TB genişleme) bellek gerektiren SAP HANA dağıtımlarını yürüten amacıyla çıplak bilgisayar donanım ayrılmış S/4HANA veya diğer SAP HANA iş yükü için. Bu benzersiz Azure çözüm SAP hana (büyük örnekler) Azure üzerinde SAP HANA SAP uygulama katmanında veya yerel Azure sanal Makineler'de barındırılan iş yükü donanımlar orta katman ile özel bir çıplak bilgisayar donanım çalıştırmanıza olanak tanır. Bu çözüm, çeşitli belgelerde "SAP HANA (büyük örnekler) azure'da." bölümünde belgelenmiştir   
 
 Azure'da SAP iş yükü senaryoları barındırma kimlik tümleştirmesi ve çoklu oturum açma Azure Activity Directory farklı SAP bileşenleri ile SAP SaaS gereksinimlerini de oluşturabilir veya PaaS sunar. Söz konusu tümleştirmesi ve çoklu oturum açma senaryoları ile Azure Active Directory (AAD) ve SAP varlık listesini açıklanmış ve bölümünde belgelenen "AAD SAP kimlik tümleştirmesi ve çoklu oturum açma."
 
 ## <a name="latest-changes"></a>En son değişiklikleri
+
+Sürümü [SAP iş yükü planlama ve dağıtım denetim listesi](sap-deployment-checklist.md)
 
 Kullanım ve yapılandırmasını geçici olarak açıklama [Azure ağ sanal Gereçleri](https://azure.microsoft.com/solutions/network-appliances/) SAP sistemlerinde kritik iletişim yollarını gecikme süresi içinde:
 
 - [SAP iş yükü Azure sanal makineleri DBMS dağıtım konuları](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 - [Azure'da SAP HANA altyapısı yapılandırmaları ve işlemleri](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
-SAP HANA dinamik Azure Vm'leri için katmanlama etrafında belgeleri
-
-- [Azure'da SAP HANA altyapısı yapılandırmaları ve işlemleri](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations#sap-hana-dynamic-tiering-20-for-azure-virtual-machines)
-
-Azure sanal makine M128s üzerinde SAP HANA ölçeği genişletilmiş etrafında belgeleri eklenen:
-
-- [Azure'da SAP HANA altyapısı yapılandırmaları ve işlemleri](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations#configuring-azure-infrastructure-for-sap-hana-scale-out)
-- [Bir Azure bölgesi içinde SAP HANA kullanılabilirliği](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-one-region)
 
 
 ## <a name="sap-hana-on-sap-hana-on-azure-large-instances"></a>SAP HANA (büyük örnekler) Azure üzerinde SAP HANA

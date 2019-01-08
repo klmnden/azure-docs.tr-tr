@@ -1,35 +1,35 @@
 ---
-title: Azure sayfa blobları, benzersiz özellikleri | Microsoft Docs
-description: Azure sayfa blobları ve kullanım örnekleri ile örnek betikler de dahil olmak üzere faydaları genel bakış.
+title: Azure sayfa blobları genel bakış | Microsoft Docs
+description: Azure sayfa blobları ve kullanım örnekleri ile örnek betikler de dahil olmak üzere, kendi avantajları genel bakış.
 services: storage
 author: anasouma
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 01/03/2019
 ms.author: wielriac
 ms.component: blobs
-ms.openlocfilehash: dc15dcb9f7b342d2d5140199ecf34c1a4781fa25
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 6d1c443cfe3454d1b1e50a7270bd78598f69f6de
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022697"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063944"
 ---
-# <a name="unique-features-of-azure-page-blobs"></a>Azure sayfa blobları, benzersiz özellikleri
+# <a name="overview-of-azure-page-blobs"></a>Azure sayfa blobları genel bakış
 
-Azure depolama üç tür blob depolama alanı sunar: blok Blobları, ekleme Blobları ve sayfa blobları. Blok blobları bloklarını oluşan ve büyük dosyaları verimli bir şekilde karşıya yükleme ve metin veya ikili dosyaları depolamak için idealdir. Ekleme blobları da yapılan bloklarını, ancak için iyileştirilmiş ekleme işlemleri, bunları günlük kaydı senaryoları için idealdir. Sayfa blobları yapılan 512 baytlık sayfaların toplam boyutu ve 8 TB'ye kadar sık rastgele okuma/yazma işlemleri için tasarlanmıştır. Sayfa blobları, Azure Iaas diskleri temelidir. Bu makalede, sayfa blobları avantajları ve özellikleri açıklayan üzerinde odaklanır.
+Azure depolama üç tür blob depolama sunar: Blok Blobları, ekleme Blobları ve sayfa blobları. Blok blobları bloklarını oluşan ve büyük dosyaları verimli bir şekilde karşıya yükleme ve metin veya ikili dosyaları depolamak için idealdir. Ekleme blobları da yapılan bloklarını, ancak için iyileştirilmiş ekleme işlemleri, bunları günlük kaydı senaryoları için idealdir. Sayfa blobları yapılan 512 baytlık sayfaların toplam boyutu ve 8 TB'ye kadar sık rastgele okuma/yazma işlemleri için tasarlanmıştır. Sayfa blobları, Azure Iaas diskleri temelidir. Bu makalede, sayfa blobları avantajları ve özellikleri açıklayan üzerinde odaklanır.
 
 Sayfa blobları, rastgele bayt aralıkları okuma/yazma olanağı sağlayan 512 baytlık sayfalarının bir koleksiyondur. Bu nedenle, sayfa blobları, sanal makineler ve veritabanları için işletim sistemi ve veri diskleri gibi dizin tabanlı ve seyrek veri yapılarını depolamak için idealdir. Örneğin, sayfa blobları Azure SQL DB veritabanları için temel alınan kalıcı depolama alanı olarak kullanır. Ayrıca, sayfa blobları, genellikle de Range-Based güncelleştirmeleri ile dosyaları için kullanılır.  
 
-Azure sayfa blobları anahtar özellikleri, REST arabirimi, temel alınan depolama alanı ve azure'da sorunsuz geçiş yeteneklerine dayanıklılık şunlardır. Bu özellikler, sonraki bölümde daha ayrıntılı ele alınmıştır. Ayrıca, Azure sayfa blobları depolama iki türleri şu anda desteklenir: Premium depolama ve standart depolama. Premium depolama, özellikle tutarlı, yüksek performanslı ve düşük gecikme süreli veri depolama veritabanları için yüksek performanslı premium sayfa blobları idealdir gerektiren iş yükleri için tasarlanmıştır.  Standart depolama gecikmeye duyarlı olmayan iş yüklerini çalıştırmak için uygun maliyetlidir.
+Azure sayfa blobları anahtar özellikleri, REST arabirimi, temel alınan depolama alanı ve azure'da sorunsuz geçiş yeteneklerine dayanıklılık şunlardır. Bu özellikler, sonraki bölümde daha ayrıntılı ele alınmıştır. Ayrıca, Azure sayfa blobları, şu anda iki tür depolama desteklenir: Premium depolama ve standart depolama. Premium depolama, özellikle tutarlı, yüksek performanslı ve düşük gecikme süreli veri depolama veritabanları için yüksek performanslı premium sayfa blobları idealdir gerektiren iş yükleri için tasarlanmıştır.  Standart depolama gecikmeye duyarlı olmayan iş yüklerini çalıştırmak için uygun maliyetlidir.
 
 ## <a name="sample-use-cases"></a>Örnek kullanım durumları
 
 Şimdi birkaç sayfa BLOB'ları ile Azure Iaas diskleri başlatma için kullanım durumları ele alınmıştır. Azure sayfa blobları, Azure Iaas sanal diskler platformunu temel. Hem Azure işletim sistemi ve veri diskleri, verilerin depolanmasına da Azure depolama platformu kalıcı ve en yüksek performans için sanal makinelere teslim edilen sanal diskler olarak uygulanır. Azure diskleri Hyper-V kalıcı [VHD biçimi](https://technet.microsoft.com/library/dd979539.aspx) ve olarak depolanan bir [sayfa blobu](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) Azure depolamadaki. Azure Iaas Vm'leri için sanal diskleri kullanmaya ek olarak, sayfa BLOB'ları gibi hızlı rastgele okuma-yazma işlemleri için veritabanını etkinleştirme, SQL veri depolamak için sayfa BLOB'ları şu anda kullandığı Azure SQL veritabanı hizmeti, PaaS ve DBaaS senaryoları da etkinleştirin. Başka bir örnek, sayfa blobları, paylaşılan bir medya erişimi işbirliğine dayalı video düzenleme uygulamaları için bir PaaS hizmeti varsa, ortam içinde rastgele konumlara hızlı erişime olanak tanımak olacaktır. Ayrıca, hızlı ve etkili düzenleme ve birleştirme birden çok kullanıcı tarafından aynı ortam sağlar. 
 
 Azure Site Recovery, Azure Backup yanı sıra çok sayıda üçüncü taraf geliştiriciler gibi birinci taraf Microsoft hizmetlerine, sayfa blob'ın REST arabirimini kullanarak sektör lideri yeniliklerden uyguladınız. Azure üzerinde uygulanan benzersiz senaryolardan bazıları şunlardır: 
-* Uygulama yönelik artımlı anlık görüntü Yönetimi: uygulamaları yararlanabilir sayfa blob anlık görüntüleri ve REST API'lerinin veri maliyetli çoğaltma olmaksızın uygulama kontrol noktalarını kaydetmek için. Azure depolama, tüm blob kopyalama gerektirmeyen sayfa blobları için yerel anlık görüntüleri destekler. Bu genel bir anlık görüntü, API erişme ve anlık görüntü arasındaki farkları kopyalamayı etkinleştirin.
-* Dinamik uygulama ve verileri şirket içinden buluta geçiş: şirket içi verileri kopyalayın ve şirket içi sanal makine çalışmaya devam ederken, doğrudan bir Azure sayfa blobuna yazmak için REST API'lerini kullanın. Hedef zachytila výjimku sonra hızlı bir şekilde bu verileri kullanarak Azure VM yük devretme gerçekleştirebilirsiniz. Bu şekilde, Vm'lerinizin geçişini yapabilirsiniz ve VM ve yük devretme için gerekli kapalı kalma süresi kullanmaya devam ederken veri geçişi, arka planda gerçekleşir. bu yana en düşük kapalı kalma süresi ile buluta şirket içinden sanal diskleri (dakika) kısa olacaktır.
+* Uygulama yönelik artımlı anlık görüntü Yönetimi: Uygulamalar sayfası blob anlık görüntüleri ve REST API'lerinin veri maliyetli çoğaltma olmaksızın uygulama kontrol noktalarını kaydetmek için yararlanabilirsiniz. Azure depolama, tüm blob kopyalama gerektirmeyen sayfa blobları için yerel anlık görüntüleri destekler. Bu genel bir anlık görüntü, API erişme ve anlık görüntü arasındaki farkları kopyalamayı etkinleştirin.
+* Dinamik uygulama ve verileri şirket içinden buluta geçişi: Şirket içi verileri kopyalayın ve şirket içi sanal makine çalışmaya devam ederken, doğrudan bir Azure sayfa blobuna yazmak için REST API'lerini kullanın. Hedef zachytila výjimku sonra hızlı bir şekilde bu verileri kullanarak Azure VM yük devretme gerçekleştirebilirsiniz. Bu şekilde, Vm'lerinizin geçişini yapabilirsiniz ve VM ve yük devretme için gerekli kapalı kalma süresi kullanmaya devam ederken veri geçişi, arka planda gerçekleşir. bu yana en düşük kapalı kalma süresi ile buluta şirket içinden sanal diskleri (dakika) kısa olacaktır.
 * [SAS tabanlı](../common/storage-dotnet-shared-access-signature-part-1.md) paylaşılan erişim, birden çok okuyucu ve eşzamanlılık denetimi desteğiyle tek yazıcı gibi senaryolara olanak sağlar.
 
 ## <a name="page-blob-features"></a>Sayfa blobu özellikleri

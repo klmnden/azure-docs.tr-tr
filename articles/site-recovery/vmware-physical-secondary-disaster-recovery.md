@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: c37676a32dd1fb58c1ac03640ff0bbfbdc3f7d8f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 2467da8d5a87a3a9325b807aec48c584ab0197cb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972900"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079111"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Şirket içi VMware sanal makinelerini veya fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarmayı ayarlama
 
@@ -64,18 +64,6 @@ Bu öğreticiyi tamamlamak için:
 - Çoğaltmak istediğiniz makineleri ile uyumlu olduğundan emin [makine desteği çoğaltılan](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 
 
-## <a name="create-a-vault"></a>Kasa oluşturma
-
-[!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
-
-## <a name="choose-a-protection-goal"></a>Koruma hedefi seçme
-
-Çoğaltma ve nereye çoğaltmak için ne seçin.
-
-1. Tıklayın **Site Recovery** > **altyapıyı hazırlama** > **koruma hedefi**.
-2. Seçin **kurtarma sitesine** > **Evet, VMware vSphere Hypervisor ile**. Daha sonra, **Tamam**'a tıklayın.
-3. İçinde **Scout Kurulumu**, Inmage Scout 8.0.1 GA yazılımı ve kayıt anahtarını indirin. Tüm bileşenler için kurulum dosyalarını indirilen .zip dosyasına dahil edilir.
-
 ## <a name="download-and-install-component-updates"></a>Bileşen Güncelleştirmeleri indirmek ve yüklemek
 
  Gözden geçirin ve en son yükleme [güncelleştirmeleri](#updates). Güncelleştirmeleri sunucuları aşağıdaki sırayla yüklü olması gerekir:
@@ -86,6 +74,108 @@ Bu öğreticiyi tamamlamak için:
 4. Ana hedef sunucuları
 5. vContinuum sunucuları
 6. Kaynak sunucuyu (hem Windows hem de Linux sunucuları)
+
+Güncelleştirmeleri gibi yükleyin:
+
+> [!NOTE]
+>Tüm Scout bileşenleri dosya güncelleştirme sürümüne güncelleştirme .zip dosyasını aynı olmayabilir. Eski sürümü olduğunu hiçbir değişiklik bileşen bu güncelleştirmenin önceki bir güncelleştirme bu yana gösterir.
+
+İndirme [güncelleştirme](https://aka.ms/asr-scout-update7) .zip dosyası. Tüm taban dosyayı içeren ikili dosyaları ve aşağıdaki bileşenlerden toplu yükseltme ikili dosyaları: 
+  - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
+  - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.Tar.gz
+  - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - InMage_CX_TP_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe
+  - InMage_PI_8.0.1.0_Windows_GA_26Feb2015_release.exe
+  - InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe
+  - InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe
+  - InMage_UA_8.0.7.0_OL5-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL5-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL6-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_OL6-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL5-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL5-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL6-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_RHEL7-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP1-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP1-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP2-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP2-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP3-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP3-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP4-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES10-SP4-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-64_GA_04Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP1-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP1-64_GA_04Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP2-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP2-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP3-32_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP3-64_GA_03Dec2018_release.tar.gz
+  - InMage_UA_8.0.7.0_SLES11-SP4-64_GA_03Dec2018_release.tar.gz
+1. .Zip dosyalarını ayıklayın.
+2. **RX sunucu**: Kopyalama **RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz** RX sunucuya ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.
+3. **Yapılandırma sunucusu ve işlem sunucusu**: Kopyalama **CX_Windows_8.0.7.0_GA_Update_7_2965621_28Dec18.exe** yapılandırma sunucusu ve işlem sunucusu. Çalıştırmak için çift tıklayın.<br>
+4. **Windows ana hedef sunucusu**: Birleşik aracıyı güncelleştirin, kopyalayın **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** sunucu. Çalıştırmak için çift tıklayın. Aynı dosyaya, yeni yükleme için de kullanılabilir. Ayrıca, kaynak sunucu için aynı birleşik aracı güncelleştirme geçerlidir.
+  Güncelleştirme, ana uygulama gerekmez. hedef hazırlanmış ile **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** en son değişiklikleri yeni GA yükleyici olarak.
+5. **vContinuum sunucusu**:  Kopyalama **InMage_Scout_vContinuum_MT_8.0.7.0_Windows_GA_27Dec2018_release.exe** sunucu.  VContinuum sihirbazını kapattığınız emin olun. Çalıştırmak için dosyaya çift tıklayın.
+6. **Linux ana hedef sunucusu**: Birleşik aracıyı güncelleştirin, kopyalayın **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** Linux ana hedef sunucusuna ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.
+7. **Kaynak sunucu Windows**: Birleşik aracıyı güncelleştirin, kopyalayın **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** kaynak sunucuya. Çalıştırmak için dosyaya çift tıklayın. 
+8. **Linux kaynak sunucu**: Birleşik Aracı'nı güncelleştirmek için birleşik aracı dosyasını ilgili sürümünü Linux sunucusuna kopyalayın ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.  Örnek: RHEL 6.7 için 64 bit sunucu, kopyalama **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** sunucuya ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.
+9. Yukarıda belirtilen yükleyicileri ile yapılandırma sunucusu, işlem sunucusu ve RX sunucusu yükselttikten sonra PHP ve MySQL kitaplıkları gereken bölümünde anlatılan adımları el ile yükseltilmesi [bölümü](#manual-upgrade-for-php-and-mysql-on-cs-ps-and-rx).
+
+## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
+
+1. VMware siteleri hedef ve kaynak arasında çoğaltmayı ayarlayın.
+2. Yükleme, koruma ve kurtarma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
+
+   * [Sürüm notları](https://aka.ms/asr-scout-release-notes)
+   * [Uyumluluk matrisi](https://aka.ms/asr-scout-cm)
+   * [Kullanıcı Kılavuzu](https://aka.ms/asr-scout-user-guide)
+   * [RX Kullanıcı Kılavuzu](https://aka.ms/asr-scout-rx-user-guide)
+   * [Hızlı Yükleme Kılavuzu](https://aka.ms/asr-scout-quick-install-guide)
+   * [MYSQL ve PHP kitaplıkları yükseltme](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade)
+
+## <a name="updates"></a>Güncelleştirmeler
+
+### <a name="site-recovery-scout-801-update-7"></a>Site Recovery Scout 8.0.1 güncelleştirmesi 7 
+Güncelleştirme: 31 Aralık 2018'e indirmek [Scout güncelleştirme 7](https://aka.ms/asr-scout-update7).
+Scout güncelleştirme 7 de yeni yükleme için mevcut aracıları / (yapılan güncelleştirme 1'e güncelleştirme 6) önceki güncelleştirmeleri olan MT yükseltmek için kullanılabilen tam bir yükleyicidir. Bu güncelleştirme 6 plus yeni düzeltmeleri ve geliştirmeleri aşağıda açıklanan güncelleştirme 1'deki tüm düzeltmeleri içerir.
+ 
+#### <a name="new-features"></a>Yeni Özellikler
+* PCI uyumluluğu
+* TLS 1.2 desteği
+
+#### <a name="bug-and-security-fixes"></a>Hata ve güvenlik düzeltmeleri
+* Düzeltildi: Windows Küme/tek başına makineler kurtarma/DR Tatbikatı yanlış IP yapılandırmasına sahip.
+* Düzeltildi: V2V küme için bazen ekleme disk işlemi başarısız olur.
+* Düzeltildi: ana hedef Windows Server 2016 ise vContinuum sihirbazını kurtarma aşamasında takılı
+* Düzeltildi: MySQL güvenlik sorunları MySQL 5.7.23 sürümüne yükselterek azaltıldığından
+
+#### <a name="manual-upgrade-for-php-and-mysql-on-csps-and-rx"></a>PHP ve MySQL CS, PS ve RX için el ile yükseltme
+PHP betik platformu, yapılandırma sunucusu, işlem sunucusu ve RX sunucu 7.2.10 sürüme yükseltilmelidir.
+MySQL veritabanı yönetim sistemi, yapılandırma sunucusu, işlem sunucusu ve RX sunucu 5.7.23 sürüme yükseltilmelidir.
+Lütfen el ile verilen adımları izleyin [Hızlı Yükleme Kılavuzu](https://aka.ms/asr-scout-quick-install-guide) PHP ve MySQL sürümlerine yükseltmek için.
+
+### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 güncelleştirmesi 6 
+Güncelleştirme: 12 Ekim 2017
+
+İndirme [Scout güncelleştirme 6](https://aka.ms/asr-scout-update6).
+
+Scout güncelleştirme 6 toplu bir güncelleştirmesidir. Bu güncelleştirme 1 için güncelleştirme 5 yanı sıra yeni düzeltmeleri ve geliştirmeleri aşağıda açıklanan tüm düzeltmeleri içerir. 
+
+#### <a name="new-platform-support"></a>Yeni platform desteği
+* Kaynak Windows Server 2016 için destek eklendi.
+* Aşağıdaki Linux işletim sistemleri için destek eklenmiştir:
+    - Red Hat Enterprise Linux (RHEL) 6.9
+    - CentOS 6.9
+    - Oracle Linux 5.11
+    - Oracle Linux 6,8
+* VMware için merkezi 6.5 desteği eklendi
 
 Güncelleştirmeleri gibi yükleyin:
 
@@ -111,34 +201,6 @@ Güncelleştirmeleri gibi yükleyin:
     Kaynak sunucuda, güncelleştirme 4'e zaten güncelleştirildi veya kaynak aracısının en son temel Yükleyici ile yüklü güncelleştirme 5 Aracısı'nı yüklemeniz gerekmez **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
 8. **Linux kaynak sunucu**: Birleşik Aracı'nı güncelleştirmek için birleşik aracı dosyasını ilgili sürümünü Linux sunucusuna kopyalayın ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.  Örnek: RHEL 6.7 için 64 bit sunucu, kopyalama **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** sunucuya ve ayıklayın. Ayıklanan klasöründe Çalıştır **/Install**.
 
-## <a name="enable-replication"></a>Çoğaltmayı etkinleştirme
-
-1. VMware siteleri hedef ve kaynak arasında çoğaltmayı ayarlayın.
-2. Yükleme, koruma ve kurtarma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
-
-   * [Sürüm notları](https://aka.ms/asr-scout-release-notes)
-   * [Uyumluluk matrisi](https://aka.ms/asr-scout-cm)
-   * [Kullanıcı Kılavuzu](https://aka.ms/asr-scout-user-guide)
-   * [RX Kullanıcı Kılavuzu](https://aka.ms/asr-scout-rx-user-guide)
-   * [Hızlı Yükleme Kılavuzu](https://aka.ms/asr-scout-quick-install-guide)
-
-## <a name="updates"></a>Güncelleştirmeler
-
-### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 güncelleştirmesi 6 
-Güncelleştirme: 12 Ekim 2017
-
-İndirme [Scout güncelleştirme 6](https://aka.ms/asr-scout-update6).
-
-Scout güncelleştirme 6 toplu bir güncelleştirmesidir. Bu güncelleştirme 1 için güncelleştirme 5 yanı sıra yeni düzeltmeleri ve geliştirmeleri aşağıda açıklanan tüm düzeltmeleri içerir. 
-
-#### <a name="new-platform-support"></a>Yeni platform desteği
-* Kaynak Windows Server 2016 için destek eklendi.
-* Aşağıdaki Linux işletim sistemleri için destek eklenmiştir:
-    - Red Hat Enterprise Linux (RHEL) 6.9
-    - CentOS 6.9
-    - Oracle Linux 5.11
-    - Oracle Linux 6,8
-* VMware için merkezi 6.5 desteği eklendi
 
 > [!NOTE]
 > * Windows için temel Agent(UA) birleştirilmiş yükleyici, Windows Server 2016'yı desteklemek için yenilendi. Yeni yükleyici **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** temel Scout GA paket ile paketlenmiştir (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**). Aynı yükleyici, tüm desteklenen Windows sürümü için kullanılır. 

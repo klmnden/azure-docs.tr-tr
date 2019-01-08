@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: be7cb2e602f1c8c0c8471c866d68c28e0ec37498
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 79801ba7a7b50d751cd105a4c8bcd39bb6681c54
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042351"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075370"
 ---
 # <a name="application-insights-for-web-pages"></a>Web sayfaları için Application Insights
 Web sayfanızın veya uygulamanızın performansı ve kullanımı hakkında bilgi edinin. Sayfa betiğinize [Application Insights](../../application-insights/app-insights-overview.md)’ı ekleyerek, sayfa yüklemelerinin ve AJAX çağrılarının zamanlamalarının yanı sıra, tarayıcı özel durumları ile AJAX hatalarının sayılarını ve ayrıntılarını, ayrıca kullanıcı ve oturum sayılarını elde edebilirsiniz. Bunların tümü sayfaya, istemci işletim sistemi ve tarayıcı sürümüne, coğrafi konuma ve başka boyutlara göre kesimlere ayrılmıştır. Hata sayısı veya yavaş sayfa yüklemesi hakkında uyarı ayarlayabilirsiniz. Ayrıca JavaScript kodunuza izleme çağrıları ekleyerek web sayfası uygulamanızın farklı özelliklerinin nasıl kullanıldığını izleyebilirsiniz.
@@ -44,7 +44,7 @@ Yoksa, bir tane oluşturun:
 
 ![Yeni, Geliştirici Hizmetleri, Application Insights’ı seçin.](./media/javascript/01-create.png)
 
-*Hala sorularınız mı var?* [Kaynak oluşturma hakkında daha fazla bilgi](../../application-insights/app-insights-create-new-resource.md).
+*Hala sorularınız mı var?* [Kaynak oluşturma hakkında daha fazla bilgi](../../azure-monitor/app/create-new-resource.md ).
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Uygulamanıza veya web sayfalarınıza SDK betiği ekleme
 

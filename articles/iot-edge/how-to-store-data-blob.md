@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 287f67ff9eb0ecc214bd8e8fd3c27660cea185c7
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b5dcc4295467aee82547bc2a0894320bd110998f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055073"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065826"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>IOT Edge (Önizleme) Azure Blob Depolama ile uçta veri Store
 
@@ -86,7 +86,7 @@ Azure marketi, IOT Edge, IOT Edge üzerinde Azure Blob Depolama da dahil olmak �
       >[!IMPORTANT]
       >Azure IOT Edge modülleri çağrı yapmak ve depolama SDK'sı varsayılan olarak küçük harfe duyarlıdır. IOT Edge modülü Azure Blob Depolama bağlantılarınızı kesintiye emin olmak için küçük bir ad verin. 
 
-   2. Varsayılan **kapsayıcı oluşturma seçenekleri** kapsayıcınızı gereken bağlantı noktası bağlamaları, ancak aynı zamanda depolama hesap bilgilerinizi ve depolama dizini için bir bağlama Cihazınızda eklemeniz gerekir. Portal ile JSON üzerine aşağıdaki JSON:
+   2. Varsayılan **kapsayıcı oluşturma seçenekleri** kapsayıcınızı gereken bağlantı noktası bağlamaları, ancak aynı zamanda depolama hesap bilgilerinizi ve depolama dizini için bir bağlama Cihazınızda eklemeniz gerekir. Portalında JSON'u aşağıdaki JSON ile üzerine yaz:
     
       ```json
       {
@@ -121,7 +121,7 @@ Azure marketi, IOT Edge, IOT Edge üzerinde Azure Blob Depolama da dahil olmak �
    4. **Kaydet**’i seçin.
 
 4. Seçin **sonraki** sihirbazın sonraki adıma devam etmek için.
-5. İçinde **yolları belirtin** doldurduktan Sihirbazı **sonraki**.
+5. İçinde **yolları belirtin** seçin, adım **sonraki**.
 6. İçinde **gözden geçirme dağıtım** seçin, adım **Gönder**.
 7. Dağıtım gönderdikten sonra geri **IOT Edge** IOT hub'ınızın sayfası. Ayrıntılarını dağıtımı ile hedeflenen IOT Edge cihazı seçin. 
 8. Cihaz ayrıntılarında blob storage modülünde her ikisi de olarak listelendiğini doğrulayın **dağıtımda belirtilen** ve **cihaz tarafından bildirilen**. Bu cihazda çalışmaya ve IOT Hub'ına geri bildirilen modülü için birkaç dakika sürebilir. Güncelleştirilmiş bir durum görmek için sayfayı yenileyin. 

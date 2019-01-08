@@ -1,265 +1,243 @@
 ---
-title: 'Öğretici: Azure Active Directory RedBrick sistem durumu ile tümleştirme | Microsoft Docs'
+title: 'Öğretici: RedBrick Health ile Azure Active Directory Tümleştirmesi | Microsoft Docs'
 description: Azure Active Directory ve RedBrick sistem durumu arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 26290c65-9aa3-42ab-8ba5-901b14dc8e73
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/22/2018
+ms.topic: tutorial
+ms.date: 1/3/2019
 ms.author: jeedes
-ms.openlocfilehash: bccc7abed9a86bcba74a5d994664a20313f3282a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: b757da1f218d446c56c318d91d3c9015ed08c967
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833814"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065469"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Öğretici: Azure Active Directory tümleştirmesiyle RedBrick sistem durumu
+# <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Öğretici: RedBrick Health ile Azure Active Directory Tümleştirmesi
 
 Bu öğreticide, RedBrick durumu Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
-
 RedBrick sistem durumu, Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- RedBrick sistem erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak imzalanan RedBrick sağlık verilerinin (çoklu oturum açma) açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* RedBrick sistem erişimi, Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak (çoklu oturum açma) RedBrick sistem durumu için oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD Tümleştirmesi ile RedBrick sistem durumunu yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Abonelik RedBrick sistem durumu çoklu oturum açma etkin
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Abonelik redBrick sistem durumu çoklu oturum açma etkin
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. Galeriden RedBrick durum ekleme
-1. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+
+* RedBrick Health destekler **IDP** tarafından başlatılan
+
+
+
 
 ## <a name="adding-redbrick-health-from-the-gallery"></a>Galeriden RedBrick durum ekleme
+
 Azure AD'de RedBrick sistem durumu tümleştirmesini yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden RedBrick sistem durumu eklemeniz gerekir.
 
 **Galeriden RedBrick sistem durumu eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-1. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
-    
-1. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-    ![Yeni Uygulama düğmesi][3]
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-1. Arama kutusuna **RedBrick sistem durumu**seçin **RedBrick sistem durumu** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-    ![Sonuç listesinde redBrick sistem durumu](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_addfromgallery.png)
+4. Arama kutusuna **RedBrick sistem durumu**seçin **RedBrick sistem durumu** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
+
+     ![Sonuç listesinde redBrick sistem durumu](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma RedBrick "Britta Simon" adlı bir test kullanıcısı üzerinde temel sistem durumu test.
-
-Tek çalışmak için oturum açma için Azure AD ne RedBrick sistem durumu karşılık gelen kullanıcı için bir kullanıcı Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ve ilgili kullanıcı RedBrick sistem arasında bir bağlantı ilişki kurulması gerekir.
-
-RedBrick durumunu değerini atayın **kullanıcı adı** değerini Azure AD'de **kullanıcıadı** bağlantı kurmak için.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma RedBrick adlı bir test kullanıcı tabanlı sistem durumu test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve ilgili kullanıcı RedBrick sistem arasında bir bağlantı ilişki kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma RedBrick sistem durumu ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-1. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-1. **[RedBrick sistem durumu test kullanıcısı oluşturma](#create-a-redbrick-health-test-user)**  - bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı RedBrick sistem durumu sağlamak için.
-1. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-1. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+2. **[RedBrick sistem durumu çoklu oturum açmayı yapılandırma](#configure-redbrick-health-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[RedBrick sistem durumu test kullanıcısı oluşturma](#create-redbrick-health-test-user)**  - bir karşılığı Britta simon'un kullanıcı Azure AD gösterimini bağlı RedBrick sistem durumu sağlamak için.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma RedBrick sistem durumu uygulamanızı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile RedBrick sistem durumunu yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile RedBrick sistem durumunu yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **RedBrick sistem durumu** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **RedBrick sistem durumu** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
-    ![Çoklu oturum açma iletişim kutusu](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_samlbase.png)
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-1. Üzerinde **RedBrick sistem durumu etki alanı ve URL'ler** bölümünde, aşağıdaki adımları gerçekleştirin:
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-    ![Çoklu oturum açma bilgileri redBrick etki sağlık ve URL'leri](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    a. İçinde **tanımlayıcı** metin kutusuna bir URL: `https://www.redbrickhealth.com`
-    
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
-    
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
+
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+
+    ![Çoklu oturum açma bilgileri redBrick etki sağlık ve URL'leri](common/idp-relay.png)
+
+    a. İçinde **tanımlayıcı** metin kutusuna bir URL yazın: `https://www.redbrickhealth.com`
+
+    b. İçinde **yanıt URL'si** metin kutusuna bir URL yazın: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
+
     Üretim ortamı için: `https://sso.redbrickhealth.com/sp/ACS.saml2`
 
-    c. Tıklayın **Gelişmiş URL ayarlarını göster**.
-    
-    ![Çoklu oturum açma bilgileri redBrick etki sağlık ve URL'leri](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_url1.png)
+    c. Tıklayın **ek URL'lerini ayarlayın**.
 
-    d. İçinde **geçiş durumu** metin kutusuna bir URL şu biçimi kullanarak: `https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=<companyname>conn1`
-    
-    > [!NOTE] 
-    > Geçiş durumu değeri gerçek değil. Bu değer ile gerçek geçiş durumunu güncelleştirin. İlgili kişi [RedBrick sistem durumu Destek ekibine](https://home.redbrickhealth.com/contact/) bu değeri alınamıyor.
+    d. İçinde **geçiş durumu** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://api-sso2.redbricktest.com/identity/sso/nbound?target=https://vanity9-sso2.redbrickdev.com/portal&connection=<companyname>conn1`
 
-1. RedBrick sistem durumu uygulama, özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde SAML onaylamalarını bekler. Bu talep, müşteriye özgü olan ve ihtiyacınıza bağlıdır. Aşağıdaki isteğe bağlı taleplerdir örnek yalnızca, uygulamanız için yapılandırabilirsiniz. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü.
+    > [!NOTE]
+    > Geçiş durumu değeri gerçek değil. Bu değer ile gerçek geçiş durumunu güncelleştirin. İlgili kişi [RedBrick sistem istemci Destek ekibine](https://home.redbrickhealth.com/contact/) bu değeri alınamıyor. Gösterilen desenleri de başvurabilirsiniz **temel SAML yapılandırma** bölümünde Azure portalında.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/redbrickhealth-tutorial/attribute.png)
+5. RedBrick durum uygulamanın belirli bir biçimde SAML onaylamalarını bekliyor. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
 
-1. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
+    ![image](common/edit-attribute.png)
 
-    | Öznitelik Adı | Öznitelik Değeri |
-    | ---------------| ----------------|
+6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
+
+    | Ad | Kaynak özniteliği|
+    | ---------------| --------------- | --------- |
     | Asıl adı | ********** |
     | istemci kimliği | ********** |
     | katılımcı kimliği | ********** |
-    
+
     > [!NOTE]
     > Bu değerler yalnızca başvuru amaçlı. Kuruluşunuzun gereksinime uygun şekilde öznitelikleri tanımlamak gerekir. Lütfen başvurun [RedBrick sistem durumu Destek ekibine](https://home.redbrickhealth.com/contact/) gerekli talepler hakkında daha fazla bilgi almak için.
-    
-    a. Tıklayın **eklemek agentconfigutil** açmak için **öznitelik Ekle** iletişim.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/redbrickhealth-tutorial/tutorial_attribute_04.png)
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/redbrickhealth-tutorial/tutorial_attribute_05.png)
-    
+
+    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
+
+    ![image](common/new-save-attribute.png)
+
+    ![image](common/new-attribute-details.png)
+
     b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
-    
-    c. Gelen **değer** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
 
-    d. Bırakın **Namespace** boş.
-    
-    e. **Tamam**’a tıklayın.
+    c. Bırakın **Namespace** boş.
 
-1. Üzerinde **SAML imzalama sertifikası** bölümünde **Certificate(Base64)** ve bilgisayarınızdaki sertifika dosyasını kaydedin.
+    d. Kaynağı olarak **özniteliği**.
 
-    ![Sertifika indirme bağlantısı](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_certificate.png) 
+    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
 
-1. Tıklayın **Kaydet** düğmesi.
+    f. Tıklayın **Tamam**
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/redbrickhealth-tutorial/tutorial_general_400.png)
+    g. **Kaydet**’e tıklayın.
 
-1. Üzerinde **RedBrick durum yapılandırmasını** bölümünde **yapılandırma RedBrick durumu** açmak için **yapılandırma oturum açma** penceresi. Kopyalama **SAML varlık kimliği** gelen **hızlı başvuru bölümü.**
+7. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![RedBrick sistem durumu yapılandırması](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_configure.png) 
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
 
-1. Çoklu oturum açmayı yapılandırma **RedBrick sistem durumu** tarafı, indirilen göndermek için ihtiyacınız **Certificate(Base64)** ve **SAML varlık kimliği** için [RedBrick sistem durumu Destek](https://home.redbrickhealth.com/contact/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+8. Üzerinde **RedBrick durum dökümünü ayarlamak** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
 
-> [!TIP]
-> İçindeki bu yönergeleri kısa bir sürümünü artık okuyabilir [Azure portalında](https://portal.azure.com), uygulamayı hazırlama ayarladığınız sırada!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** aracılığıyla katıştırılmış belgelere erişebilir ve sekmesinde  **Yapılandırma** alttaki bölümü. Daha fazla bilgi edinebilirsiniz embedded belgeleri özelliği hakkında: [Azure AD'ye embedded belgeleri]( https://go.microsoft.com/fwlink/?linkid=845985)
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
+
+    a. Oturum Açma URL'si:
+
+    b. Azure Ad tanımlayıcısı
+
+    c. Oturum Kapatma URL'si
+
+### <a name="configure-redbrick-health-single-sign-on"></a>RedBrick sistem durumu çoklu oturum açmayı yapılandırın
+
+Çoklu oturum açmayı yapılandırma **RedBrick sistem durumu** tarafı, indirilen göndermek için ihtiyacınız **sertifika (Base64)** ve uygun Azure portalına kopyalanan URL'lerden [RedBrick sistem desteği Takım](https://home.redbrickhealth.com/contact/). Bunlar, her iki kenarı da düzgün ayarlandığından SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/redbrickhealth-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-1. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/redbrickhealth-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-1. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/redbrickhealth-tutorial/create_aaduser_03.png)
-
-1. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/redbrickhealth-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
-  
-### <a name="create-a-redbrick-health-test-user"></a>RedBrick sistem durumu test kullanıcısı oluşturma
-
-Bu bölümde, Britta Simon RedBrick durumunu adlı bir kullanıcı oluşturun. Çalışmak [RedBrick sistem durumu Destek ekibine](https://home.redbrickhealth.com/contact/) RedBrick sistem durumu platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, RedBrick sistem durumu için erişim izni verdiğinizde, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **RedBrick sistem durumu**.
 
-**Britta Simon RedBrick sağlık atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde **RedBrick sistem durumu**.
 
-    ![Kullanıcı Ata][201] 
+    ![Uygulamalar listesinde RedBrick durumu bağlantısı](common/all-applications.png)
 
-1. Uygulamalar listesinde **RedBrick sistem durumu**.
+3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    ![Uygulamalar listesinde RedBrick durumu bağlantısı](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_app.png)  
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-1. Soldaki menüde **kullanıcılar ve gruplar**.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-1. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-    ![Atama Ekle bölmesi][203]
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-1. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-1. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+### <a name="create-redbrick-health-test-user"></a>RedBrick sistem durumu test kullanıcısı oluşturma
 
-1. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
-    
+Bu bölümde, Britta Simon RedBrick durumunu adlı bir kullanıcı oluşturun. Çalışmak [RedBrick sistem durumu Destek ekibine](https://home.redbrickhealth.com/contact/) RedBrick sistem durumu platform kullanıcıları eklemek için. Kullanıcı oluşturulmalı ve çoklu oturum açma kullanmadan önce etkinleştirildi.
+
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli RedBrick durumu kutucuğuna tıkladığınızda, otomatik olarak RedBrick sistem durumu uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli RedBrick durumu kutucuğuna tıkladığınızda, otomatik olarak RedBrick SSO'yu ayarlama sistem durumu için oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/redbrickhealth-tutorial/tutorial_general_01.png
-[2]: ./media/redbrickhealth-tutorial/tutorial_general_02.png
-[3]: ./media/redbrickhealth-tutorial/tutorial_general_03.png
-[4]: ./media/redbrickhealth-tutorial/tutorial_general_04.png
-
-[100]: ./media/redbrickhealth-tutorial/tutorial_general_100.png
-
-[200]: ./media/redbrickhealth-tutorial/tutorial_general_200.png
-[201]: ./media/redbrickhealth-tutorial/tutorial_general_201.png
-[202]: ./media/redbrickhealth-tutorial/tutorial_general_202.png
-[203]: ./media/redbrickhealth-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

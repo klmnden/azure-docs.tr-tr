@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 0355b8cf19209509dca2f3cac93c7abb92a63990
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 10cc8007c4f54808b5d7eb41ad2caa008b5c7107
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323329"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079009"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Bir erişim belirteci almak için bir Azure sanal makinesinde Azure kaynakları için yönetilen kimliklerini kullanma 
 
@@ -124,7 +124,7 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>.NET için Microsoft.Azure.Services.AppAuthentication kitaplığını kullanarak bir belirteç Al
 
-.NET uygulamaları ve işlevleri için en kolay yolu Azure kaynakları için yönetilen kimliklerle çalışma Microsoft.Azure.Services.AppAuthentication paketidir. Bu kitaplık, Visual Studio, kullanıcı hesabını kullanarak yerel olarak geliştirme makinenizde, kodunuzu test etmek de sağlayacak [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), ya da Active Directory tümleşik kimlik doğrulaması. Bu kitaplığı ile yerel geliştirme seçenekleri hakkında daha fazla bilgi için bkz [Microsoft.Azure.Services.AppAuthentication başvurusu]. Bu bölümde, kitaplığı kodunuza kullanmaya başlama işlemini göstermektedir.
+.NET uygulamaları ve işlevleri için en kolay yolu Azure kaynakları için yönetilen kimliklerle çalışma Microsoft.Azure.Services.AppAuthentication paketidir. Bu kitaplık, Visual Studio, kullanıcı hesabını kullanarak yerel olarak geliştirme makinenizde, kodunuzu test etmek de sağlayacak [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), ya da Active Directory tümleşik kimlik doğrulaması. Bu kitaplığı ile yerel geliştirme seçenekleri hakkında daha fazla bilgi için bkz. [Microsoft.Azure.Services.AppAuthentication başvuru](/azure/key-vault/service-to-service-authentication). Bu bölümde, kitaplığı kodunuza kullanmaya başlama işlemini göstermektedir.
 
 1. Başvuruları Ekle [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) ve [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) uygulamanıza NuGet paketleri.
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 351bc26d6c5b3dcfa9479138f2bd523f64a2912a
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a4449153894069d431dcf417d9741796998e1d4c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53335821"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061015"
 ---
-# <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Azure haritalar hesabı ve anahtarları yönetme
+# <a name="manage-your-azure-maps-account-and-keys"></a>Azure haritalar hesabı ve anahtarları yönetme
 
-Azure haritalar hesabı ve anahtarları Azure Portalı aracılığıyla yönetebilirsiniz. Hesabınız ve anahtarı aldıktan sonra web siteniz veya mobil uygulama API'leri uygulayabilirsiniz.
+Azure haritalar hesabı ve anahtarları Azure Portalı aracılığıyla yönetebilirsiniz. Hesabınız ve anahtarı oluşturduktan sonra Web sitesi veya mobil uygulama API'leri uygulayabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -25,9 +25,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 1. [Azure Portal](http://portal.azure.com) oturum açın.
 
-2. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
+2. Seçin **kaynak Oluştur** Azure portal'ın sol üst köşedeki.
 
-3. Arayın ve seçin **haritalar**, ardından **Oluştur**.
+3. Arayın ve seçin **haritalar**. Ardından **Oluştur**’u seçin.
 
 4. Yeni hesabınızın bilgilerini girin.
 
@@ -35,9 +35,9 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="manage-keys-on-the-account-page"></a>Hesap sayfasındaki anahtarları Yönet
 
-Bir hesap oluşturduktan sonra iki rastgele oluşturulmuş bir anahtar alın. Harita verileri alma veya yeni bir JavaScript harita örneği oluşturmak istediğinizde haritaları API'si karşı kimlik doğrulaması için anahtarları kullanın.
+Bir hesap oluşturduktan sonra iki rastgele oluşturulmuş bir anahtar alın. Harita verileri alma veya yeni bir JavaScript harita örneği oluşturmak için Azure haritalar API karşı kimlik doğrulaması için anahtarları kullanın.
 
-Anahtarlarınızı Azure portalında bulabilirsiniz. Hesabınıza gidin, ardından seçin **anahtarları** menüsünde.
+Anahtarlarınızı Azure portalında bulabilirsiniz. Hesabınıza gidin. Ardından **anahtarları** menüsünde.
 
 ![Portalında hesap anahtarlarını yönetme](./media/how-to-manage-account-keys/account-keys-portal.png)
 
@@ -49,14 +49,14 @@ Azure portalından bir hesap silebilirsiniz. Hesap genel bakış sayfasına gidi
 
 ![Portalda hesabınızı silme](./media/how-to-manage-account-keys/account-delete-portal.png)
 
-Ardından, bir onay sayfası görürsünüz. Silme işlemi hesabınızın adını yazarak doğrulayabilirsiniz.
+Daha sonra bir onay sayfasına bakın. Silme işlemi hesabınızın adını yazarak doğrulayabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure haritalar hesabı fiyatlandırma Katmanı'nı yönetmeyi öğrenin:
-> [!div class="nextstepaction"]
-> [Fiyatlandırma Katmanı'nı yönetme](./how-to-manage-pricing-tier.md)
+* Bir Azure haritalar hesabı fiyatlandırma Katmanı'nı yönetmeyi öğrenin:
+    > [!div class="nextstepaction"] 
+    > [Bir fiyatlandırma Katmanı'nı yönetme](./how-to-manage-pricing-tier.md)
 
-Azure haritalar hesabınız için API kullanım ölçümleri hakkında bilgi edinin:
-> [!div class="nextstepaction"]
-> [Kullanım ölçümlerini görüntüle](./how-to-view-api-usage.md)
+* Azure haritalar hesabınız için API kullanım ölçümleri hakkında bilgi edinin:
+    > [!div class="nextstepaction"] 
+    > [Kullanım ölçümlerini görüntüle](./how-to-view-api-usage.md)

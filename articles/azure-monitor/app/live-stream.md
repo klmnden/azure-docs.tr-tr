@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/04/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 73dc8c2217a0f4eecd5d5b0f934624d9491055a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 99a8ac29167db4619d68cfa51de6a747d5ae9a51
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040243"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079179"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümleri Stream: İzleme ve tanılama 1 saniyelik gecikme süresi
 
@@ -38,7 +38,7 @@ Canlı ölçümler Stream ile şunları yapabilirsiniz:
 
 ## <a name="get-started"></a>başlarken
 
-1. Henüz yapmadıysanız [Application Insights yüklü](../../azure-monitor/app/asp-net.md) ASP.NET web uygulamanızda veya [Windows server uygulamasını](../../application-insights/app-insights-windows-services.md), bunu şimdi yapın. 
+1. Henüz yapmadıysanız [Application Insights yüklü](../../azure-monitor/app/asp-net.md) ASP.NET web uygulamanızda veya [Windows server uygulamasını](../../azure-monitor/app/windows-services.md), bunu şimdi yapın. 
 2. **En son sürüme güncelleştirme** Application Insights paketi. Visual Studio'da, projenize sağ tıklayıp seçin **Nuget paketlerini Yönet**. Açık **güncelleştirmeleri** sekmesinde, onay **ön sürümü dahil et**ve tüm Microsoft.ApplicationInsights.* paketleri seçin.
 
     Uygulamanızı yeniden dağıtın.

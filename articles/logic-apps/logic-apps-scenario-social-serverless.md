@@ -10,18 +10,18 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 1c8abc153084f0c6491cab3677b93f8c450ad908
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229426"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061066"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Azure Logic Apps ve Azure işlevleri ile akış müşteri öngörüleri panosu oluşturma
 
-Azure yardımcı olan sunucusuz Araçlar hızla oluşturun ve barındırın uygulamalarını bulutta, altyapı konusunda düşünmek zorunda kalmadan sunar. Bu öğreticide, müşteri geri bildirimi tetikler, machine learning ile geri bildirim analiz eder ve Power BI veya Azure Data Lake gibi bir kaynaktaki ınsights yayımlar bir Pano oluşturabilirsiniz.
+Azure tekliflerini [sunucusuz](https://azure.microsoft.com/solutions/serverless/) hızlı bir şekilde yardımcı olacak araçlar oluşturmanıza ve barındırmanıza uygulamalarını bulutta, altyapı konusunda düşünmek zorunda kalmadan. Bu öğreticide, müşteri geri bildirimi tetikler, machine learning ile geri bildirim analiz eder ve Power BI veya Azure Data Lake gibi bir kaynaktaki ınsights yayımlar bir Pano oluşturabilirsiniz.
 
-Bu çözüm için sunucusuz uygulamalar için bu anahtarı Azure bileşenleri kullan: [Azure işlevleri](https://azure.microsoft.com/services/functions/) ve [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
+Bu çözüm için sunucusuz uygulamalar için bu anahtarı Azure bileşenlerini kullanın: [Azure işlevleri](https://azure.microsoft.com/services/functions/) ve [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/).
 Azure Logic Apps sunucusuz bileşenlerinde düzenlemeleri oluşturun ve 200'den fazla Hizmetleri ve API'ler bağlanmak bulutta bir sunucusuz bir iş akışı altyapısı sağlar. Azure işlevleri, sunucusuz bulut bilgi işlem sağlar. Bu çözüm, önceden tanımlanmış bir anahtar sözcüklere göre müşteri tweetleri bayrak eklemek için Azure işlevleri kullanır.
 
 Bu senaryoda, müşterilerin geri bildirim bulmaya Tetikleyiciler bir mantıksal uygulama oluşturun. Bazı bağlayıcılar, müşteri geri bildirimlerini yanıt Yardım Outlook.com, Office 365, Twitter, anket Monkey, içerir ve bir [web formu HTTP isteğinden](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). Oluşturduğunuz iş akışı bir diyez etiketi Twitter'da izler.
@@ -34,7 +34,7 @@ Yapabilecekleriniz [tüm çözümünü Visual Studio'da derleme](../logic-apps/q
 
    Logic apps kullanmaya yeni başladıysanız gözden [Hızlı Başlangıç için Azure portalında](../logic-apps/quickstart-create-first-logic-app-workflow.md) veya [Hızlı Başlangıç için Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. Mantıksal Uygulama Tasarımcısı'nda, bulun ve bu eylemi olan bir Twitter tetikleyicisi ekleyin: **yeni bir tweet gönderildiğinde**
+2. Mantıksal Uygulama Tasarımcısı'nda bulun ve bu eylemi olan bir Twitter tetikleyicisi ekleyin: **Yeni bir tweet gönderildiğinde**
 
 3. Bir anahtar sözcüğü veya diyez etiketi dayalı tweetleri dinlemek için tetikleyici ayarlayın.
 
@@ -60,10 +60,10 @@ Metin arkasında duyarlılığını algılamak için kullanabileceğiniz [Azure 
 
 Tweet ile ilgili Öngörüler ve tweet verileri aldıktan sonra artık birden fazla uygun bağlayıcılar ve eylemlerinin kullanabilirsiniz:
 
-* **Power BI - akış veri kümesine satırlar eklemek**: gelen tweetleri bir Power BI Panoda görüntüleyin.
-* **Azure Data Lake - dosyasına**: müşteri verilerini analytics işlerinde dahil etmek için bir Azure Data Lake veri kümesi ekleyin.
-* **SQL - Satır Ekle**: sonraki almak için bir veritabanında veri Store.
-* **Slack - ileti gönderme**: negatif eylemi gerektiren geri bildirimler hakkında bir Slack kanalına bildirin.
+* **Power BI - akış veri kümesi için satır ekleme**: Gelen tweetleri bir Power BI Panoda görüntüleyin.
+* **Azure Data Lake - dosyasına**: Müşteri verilerinin analytics işlerinde dahil etmek için bir Azure Data Lake veri kümesi ekleyin.
+* **SQL - Satır Ekle**: Daha sonra almak için bir veritabanında veri Store.
+* **Slack - ileti gönderme**: Bir Slack kanalına negatif eylemi gerektiren geri bildirimler hakkında bilgilendirin.
 
 Oluşturabilirsiniz ve böylece özel işleme, verilerinizde gerçekleştirebileceğiniz bir Azure işlevi. 
 

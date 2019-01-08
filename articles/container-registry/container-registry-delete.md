@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 01/04/2019
 ms.author: danlep
-ms.openlocfilehash: a1644f68465cffa8cce27257bb91100c111af8a1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b18638057def03a02024200edb157e5caf08a669
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857780"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065180"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Kapsayıcı görüntülerini Azure Container Registry'de Sil
 
@@ -24,7 +24,7 @@ Görüntü verilerini birkaç farklı yolla silebilirsiniz çünkü her silme i�
 
 Bir kapsayıcı *kayıt defteri* depolar ve kapsayıcı görüntülerini dağıtan bir hizmettir. Azure Container Registry özel Docker kapsayıcısı kayıt defterleri Azure sağlarken docker hub'ı genel bir Docker kapsayıcısı kayıt ' dir.
 
-## <a name="repository"></a>Havuz
+## <a name="repository"></a>Depo
 
 Kapsayıcı kayıt defterleri yönetme *depoları*, kapsayıcı görüntüleri ile aynı adı taşıyan ancak farklı etiketler koleksiyonu. Örneğin, aşağıdaki üç görüntü "acr-helloworld" deposunda şunlardır:
 
@@ -60,7 +60,7 @@ Azure Container Registry gibi bir özel kayıt defterindeki görüntü adı kay�
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
 ```
 
-En iyi etiketleme, görüntüye bir tartışma için bkz [Docker etiketleme: docker görüntüleri etiketleme ve sürüm oluşturma için en iyi yöntemler] [ tagging-best-practices] blog gönderisi MSDN'de.
+En iyi etiketleme, görüntüye bir tartışma için bkz [Docker etiketleme: Docker görüntüleri etiketleme ve sürüm oluşturma için en iyi yöntemler] [ tagging-best-practices] blog gönderisi MSDN'de.
 
 ### <a name="layer"></a>Katman
 
@@ -129,9 +129,9 @@ $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea
 
 Görüntü verilerini çeşitli şekillerde kapsayıcı kayıt defterinizin silebilirsiniz:
 
-* Silme bir [depo](#delete-repository): tüm görüntüler ve havuz içindeki tüm benzersiz katmanları siler.
-* Silin [etiketi](#delete-by-tag): görüntü, etiket, görüntü tarafından başvurulan tüm benzersiz katmanları ve resimle ilişkili tüm etiketleri siler.
-* Silin [bildirim Özet](#delete-by-manifest-digest): görüntü, görüntü tarafından başvurulan tüm benzersiz katmanları ve resimle ilişkili tüm etiketleri siler.
+* Silme bir [depo](#delete-repository): Tüm görüntüleri ve havuz içindeki tüm benzersiz katmanları siler.
+* Silin [etiketi](#delete-by-tag): Görüntü, etiket, görüntü tarafından başvurulan tüm benzersiz katmanları ve resimle ilişkili tüm etiketleri siler.
+* Silin [bildirim Özet](#delete-by-manifest-digest): Görüntü, görüntü tarafından başvurulan tüm benzersiz katmanları ve resimle ilişkili tüm etiketleri siler.
 
 ## <a name="delete-repository"></a>Depoyu Sil
 
@@ -239,20 +239,20 @@ Belirtildiği gibi [bildirim Özet](#manifest-digest) bölümünde, varolan bir 
      },
      {
        "digest": "sha256:d2bdc0c22d78cde155f53b4092111d7e13fe28ebf87a945f94b19c248000ceec",
-       "tags": null,
+       "tags": [],
        "timestamp": "2018-07-11T21:32:21.1400513Z"
      }
    ]
    ```
 
-Dizisi son adımda Çıkışta gördüğünüz gibi yoktur yalnız bırakılmış bir bildirim şimdi ayarlanmış `"tags"` özelliği `null`. Bu bildirimi hala başvurduğu herhangi bir benzersiz katmanı verileriyle birlikte kayıt defteri içinde yok. **Örneğin silmek için görüntüler ve katman verilerine yalnız bırakılmış tarafından bildirim Özet silmelisiniz**.
+Dizisi son adımda Çıkışta gördüğünüz gibi yoktur yalnız bırakılmış bir bildirim şimdi ayarlanmış `"tags"` boş bir dizi bir özelliktir. Bu bildirimi hala başvurduğu herhangi bir benzersiz katmanı verileriyle birlikte kayıt defteri içinde yok. **Örneğin silmek için görüntüler ve katman verilerine yalnız bırakılmış tarafından bildirim Özet silmelisiniz**.
 
 ### <a name="list-untagged-images"></a>Etiketlenmemiş görüntüleri listeleyin
 
 Deponuzda aşağıdaki Azure CLI komutunu kullanarak tüm etiketlenmemiş görüntüleri listeleyebilirsiniz. Değiştirin `<acrName>` ve `<repositoryName>` ortamınız için uygun değerlerle.
 
 ```azurecli
-az acr repository show-manifests --name <acrName> --repository <repositoryName>  --query "[?tags==null].digest"
+az acr repository show-manifests --name <acrName> --repository <repositoryName> --query "[?!(tags[?'*'])].digest"
 ```
 
 ### <a name="delete-all-untagged-images"></a>Etiketlenmemiş tüm görüntüleri silin
@@ -283,7 +283,7 @@ REPOSITORY=myrepository
 # Delete all untagged (orphaned) images
 if [ "$ENABLE_DELETE" = true ]
 then
-    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?tags==null].digest" -o tsv \
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY  --query "[?!(tags[?'*'])].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
     echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
@@ -310,7 +310,7 @@ $registry = "myregistry"
 $repository = "myrepository"
 
 if ($enableDelete) {
-    az acr repository show-manifests --name $registry --repository $repository --query "[?tags==null].digest" -o tsv `
+    az acr repository show-manifests --name $registry --repository $repository --query "[?!(tags[?'*'])].digest" -o tsv `
     | %{ az acr repository delete --name $registry --image $repository@$_ --yes }
 } else {
     Write-Host "No data deleted. Set `$enableDelete = `$TRUE to enable image deletion."

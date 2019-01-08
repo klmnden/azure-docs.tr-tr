@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: ee7b403c2ebdc590bd428eff880769ae83632585
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 76ebdc85db2c65b1ad99c1e7abe5e697f1c1284c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228224"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064007"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Bir veya daha fazla Always On kullanılabilirlik grubu dinleyicisi - Resource Manager'ı yapılandırma
 Bu konu başlığı altında gösterilir nasıl yapılır:
@@ -45,7 +45,7 @@ Windows Güvenlik Duvarı'nı SQL Server erişimine izin verecek şekilde yapıl
 
 Eğer bir Azure ağ güvenlik grubu ile erişimi kısıtlama olun arka uç SQL Server VM IP adreslerine izin verme kuralları içerir ve yük dengeleyici kayan IP adresleri /AG dinleyicisi ve küme çekirdek IP adresi için varsa.
 
-## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Örnek betik: PowerShell ile iç yük dengeleyici oluşturma
+## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Örnek betiği: PowerShell ile iç yük dengeleyici oluşturma
 > [!NOTE]
 > Kullanılabilirlik grubunuzun oluşturduysanız [Microsoft şablon](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), iç load balancer'ın zaten oluşturuldu. 
 > 
@@ -101,7 +101,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a> Örnek betik: mevcut bir yük dengeleyiciye PowerShell ile bir IP adresi ekleyin
+## <a name="Add-IP"></a> Örnek betiği: PowerShell ile mevcut bir yük dengeleyici için bir IP adresi ekleyin
 Birden fazla kullanılabilirlik grubunu kullanmak üzere ek bir IP adresi yük dengeleyiciye ekleyin. Her IP adresi, kendi Yük Dengeleme kuralı, araştırma bağlantı noktasını ve ön bağlantı noktası gerektirir.
 
 Ön uç bağlantı noktası, uygulamaların SQL Server örneğine bağlanmak için kullandığı bağlantı noktasıdır. Farklı kullanılabilirlik grupları için IP adresleri aynı ön uç bağlantı noktasını kullanabilirsiniz.
@@ -176,7 +176,7 @@ Bağlantıyı test etmek için:
 1. Kullanım **sqlcmd** yardımcı programını kullanarak bağlantıyı test edin. Örneğin, aşağıdaki komut dosyası oluşturur bir **sqlcmd** Windows kimlik doğrulaması ile dinleyicisi aracılığıyla birincil kopyanın bağlantısı:
    
     ```
-    sqlmd -S <listenerName> -E
+    sqlcmd -S <listenerName> -E
     ```
    
     Dinleyici varsayılan dışında bir bağlantı noktası kullanıyorsa (1433) bağlantı noktası, bağlantı dizesinde bağlantı noktasını belirtin. Örneğin, aşağıdaki sqlcmd komutunu bir dinleyici bağlantı noktası 1435 bağlanır: 

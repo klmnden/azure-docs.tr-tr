@@ -8,35 +8,35 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 6b4b1b74ace534517157edc20c33236d516205c5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c2afd1c5a85ec393acfb0f754dd4ca9d77162061
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635025"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065503"
 ---
-# <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso geçiş: şirket içi iş yüklerini, Azure'a geçiş için değerlendirme
+# <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso geçişi: Şirket içi iş yüklerini, Azure’a geçişe yönelik olarak değerlendirme
 
 Bu makalede, Contoso, şirket içi SmartHotel360 uygulamayı Azure'a geçiş için değerlendirir.
 
-Bu makalede, Contoso adlı kurgusal şirketin şirket içi kaynaklarını Microsoft Azure bulutuna nasıl geçirdiğini belgeleri bir serinin bir parçasıdır. Seri arka plan informatio içerir ve bir geçiş altyapısını kurma nasıl çalışılacağını ayrıntılı dağıtım senaryoları geçiş için şirket içi kaynaklara uygunluğunu değerlendirmek ve farklı türde geçiş çalıştırın. Senaryoları, karmaşık hale gelmesi. Makaleler, zaman içinde serinin eklenir.
+Bu makalede, Contoso adlı kurgusal şirketin şirket içi kaynaklarını Microsoft Azure bulutuna nasıl geçirdiğini belgeleri bir serinin bir parçasıdır. Seri arka plan bilgileri içerir ve bir geçiş altyapısını kurma nasıl çalışılacağını ayrıntılı dağıtım senaryoları geçiş için şirket içi kaynaklara uygunluğunu değerlendirmek ve farklı türde geçiş çalıştırın. Senaryoları, karmaşık hale gelmesi. Makaleler, zaman içinde serinin eklenir.
 
 Makale | Ayrıntılar | Durum
 --- | --- | ---
-[Makale 1: genel bakış](contoso-migration-overview.md) | Makale serisi, Contoso'nun geçiş stratejisi ve dizisinde kullanılan örnek uygulamalar genel bakış. | Kullanılabilir
-[2. makale: bir Azure altyapısını dağıtma](contoso-migration-infrastructure.md) | Contoso şirket içi altyapısını ve Azure altyapısını geçiş için hazırlar. Aynı altyapı serisi içinde tüm makaleler için kullanılır. | Kullanılabilir
-3. makale: şirket içi kaynaklarınızı Azure'a geçiş için değerlendirme | Contoso, Vmware'de çalıştırılan şirket içi SmartHotel360 uygulamasının bir değerlendirme çalışır. Contoso Azure geçişi hizmeti ve veri geçiş Yardımcısı'nı kullanarak uygulama SQL Server veritabanı kullanarak uygulama Vm'leri değerlendirir. | Bu makalede
-[4. makale: bir uygulamayı bir Azure VM ve SQL veritabanı yönetilen örneği yeniden barındırma](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso, Azure'a lift-and-shift ile taşıma geçiş için kendi şirket içi SmartHotel360 uygulaması çalışır. Bu, Azure Site Recovery hizmetini kullanarak ön uç uygulama geçirir. Bu uygulama veritabanını Azure SQL veritabanı yönetilen Azure veritabanı geçiş hizmeti örneğine geçirir. | Kullanılabilir
-[Makale 5: bir uygulamayı Azure vm'lerinde yeniden barındırma](contoso-migration-rehost-vm.md) | Contoso, SmartHotel360 uygulama sanal makinelerini Azure Site Recovery hizmetini kullanarak sanal makineleri geçirir. | Kullanılabilir
+[1. makale: Genel bakış](contoso-migration-overview.md) | Makale serisi, Contoso'nun geçiş stratejisi ve dizisinde kullanılan örnek uygulamalar genel bakış. | Kullanılabilir
+[2. makale: Bir Azure altyapısı dağıtma](contoso-migration-infrastructure.md) | Contoso şirket içi altyapısını ve Azure altyapısını geçiş için hazırlar. Aynı altyapı serisi içinde tüm makaleler için kullanılır. | Kullanılabilir
+3. makale: Şirket içi kaynaklarınızı Azure'a geçiş için değerlendirme | Contoso, Vmware'de çalıştırılan şirket içi SmartHotel360 uygulamasının bir değerlendirme çalışır. Contoso Azure geçişi hizmeti ve veri geçiş Yardımcısı'nı kullanarak uygulama SQL Server veritabanı kullanarak uygulama Vm'leri değerlendirir. | Bu makalede
+[4. makale: Bir Azure VM ve SQL veritabanı yönetilen örneği bir uygulamada barındırma](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso, Azure'a lift-and-shift ile taşıma geçiş için kendi şirket içi SmartHotel360 uygulaması çalışır. Bu, Azure Site Recovery hizmetini kullanarak ön uç uygulama geçirir. Bu uygulama veritabanını Azure SQL veritabanı yönetilen Azure veritabanı geçiş hizmeti örneğine geçirir. | Kullanılabilir
+[Makale 5: Bir uygulamayı Azure vm'lerinde yeniden barındırma](contoso-migration-rehost-vm.md) | Contoso, SmartHotel360 uygulama sanal makinelerini Azure Site Recovery hizmetini kullanarak sanal makineleri geçirir. | Kullanılabilir
 [Makale 6: Azure sanal makinelerinde ve SQL Server AlwaysOn Kullanılabilirlik grubuna bir uygulamayı barındırma](contoso-migration-rehost-vm-sql-ag.md) | Contoso uygulaması Vm'leri ve veritabanı geçiş hizmeti uygulama veritabanı AlwaysOn Kullanılabilirlik grubu tarafından korunan bir SQL Server kümesine geçirmek için geçirmek için Site RECOVERY'yi kullanarak SmartHotel360 uygulama geçirir. | Kullanılabilir
-[Makale 7: Azure sanal makineler'de Linux uygulaması barındırma](contoso-migration-rehost-linux-vm.md) | Contoso Azure vm'lerine, Site Recovery hizmetini kullanarak kendi Linux osTicket uygulamasının lift-and-shift ile taşıma geçiş tamamlanır. | Kullanılabilir
+[Makale 7: Azure vm'lerinde Linux uygulaması barındırma](contoso-migration-rehost-linux-vm.md) | Contoso Azure vm'lerine, Site Recovery hizmetini kullanarak kendi Linux osTicket uygulamasının lift-and-shift ile taşıma geçiş tamamlanır. | Kullanılabilir
 [Makale 8: MySQL için Azure sanal makineler ve Azure veritabanı üzerinde bir Linux uygulaması barındırma](contoso-migration-rehost-linux-vm-mysql.md) | Contoso, Linux osTicket uygulaması için Azure Site RECOVERY'yi kullanarak VM'lerin geçirir. Bu uygulama veritabanı MySQL Workbench kullanarak MySQL için Azure veritabanı'na geçirir. | Kullanılabilir
-[Makale 9: bir uygulamayı bir Azure web uygulaması ve Azure SQL veritabanı yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Contoso, SmartHotel360 uygulama için bir Azure web uygulaması geçirir ve uygulama veritabanı için veritabanı geçiş Yardımcısı'nı kullanarak bir Azure SQL Server örneği geçirir. | Kullanılabilir
+[Makale 9: Bir Azure web uygulaması ve Azure SQL veritabanı içinde bir uygulamayı yeniden düzenleme](contoso-migration-refactor-web-app-sql.md) | Contoso, SmartHotel360 uygulama için bir Azure web uygulaması geçirir ve uygulama veritabanı için veritabanı geçiş Yardımcısı'nı kullanarak bir Azure SQL Server örneği geçirir. | Kullanılabilir
 [Makale 10: MySQL için bir Azure web uygulaması ve Azure veritabanı'nda bir Linux uygulama yeniden düzenleyin](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso, bir Azure web uygulamasına GitHub ile sürekli teslim için tümleşik Azure Traffic Manager'ı kullanarak birden fazla Azure bölgesini üzerinde kendi Linux osTicket uygulaması geçirir. Contoso uygulaması veritabanı örneği MySQL için Azure veritabanı geçirir. | Kullanılabilir
-[Makale 11: Team Foundation Server üzerinde Azure DevOps hizmetleri yeniden düzenleyin.](contoso-migration-tfs-vsts.md) | Contoso, Azure DevOps Hizmetleri azure'da, şirket içi Team Foundation Server dağıtımı geçirir. | Kullanılabilir
-[Makale 12: bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso, SmartHotel uygulamayı Azure'a geçirir. Ardından, Azure Service Fabric ve Azure SQL veritabanı ile veritabanı çalıştıran bir Windows kapsayıcısı olarak app web katmanından rearchitects. | Kullanılabilir
-[Makale 13: uygulamanızı Azure'a yeniden oluşturun.](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, Azure App Service, Azure Kubernetes Service (AKS), Azure işlevleri, Azure Bilişsel hizmetler ve Azure Cosmos DB dahil olmak üzere çeşitli kullanarak kendi SmartHotel uygulaması oluşturur. | Kullanılabilir
-[Makale 14: azure'da bir geçiş ölçeklendirin](contoso-migration-scale.md) | Geçiş birleşimleri denedikten sonra Contoso Azure tam geçişi ölçeklendirilebilecek şekilde hazırlar. | Kullanılabilir
+[11. makale: Azure DevOps Hizmetleri Team Foundation Server'da yeniden düzenleyin](contoso-migration-tfs-vsts.md) | Contoso, Azure DevOps Hizmetleri azure'da, şirket içi Team Foundation Server dağıtımı geçirir. | Kullanılabilir
+[Makale 12: Bir uygulamayı Azure kapsayıcıları ve Azure SQL veritabanı yeniden oluşturma](contoso-migration-rearchitect-container-sql.md) | Contoso, SmartHotel uygulamayı Azure'a geçirir. Ardından, Azure Service Fabric ve Azure SQL veritabanı ile veritabanı çalıştıran bir Windows kapsayıcısı olarak app web katmanından rearchitects. | Kullanılabilir
+[Makale 13: Uygulamanızı Azure'a yeniden oluşturun](contoso-migration-rebuild.md) | Contoso Azure özellikleri ve Hizmetleri, Azure App Service, Azure Kubernetes Service (AKS), Azure işlevleri, Azure Bilişsel hizmetler ve Azure Cosmos DB dahil olmak üzere çeşitli kullanarak kendi SmartHotel uygulaması oluşturur. | Kullanılabilir
+[Makale 14: Azure'a geçiş ölçeklendirin](contoso-migration-scale.md) | Geçiş birleşimleri denedikten sonra Contoso Azure tam geçişi ölçeklendirilebilecek şekilde hazırlar. | Kullanılabilir
 
 
 ## <a name="overview"></a>Genel Bakış
@@ -68,10 +68,10 @@ Geçerli Contoso şirket içi altyapısı bu diyagramda gösterilmektedir:
 
 Contoso'nun BT liderlik ekibindeki çalıştığınız yakından iş bu geçişle elde etmek istediği anlamak için şirketin iş ortakları:
 
-- **Adres büyütmeye**: Contoso giderek. Sonuç olarak, şirketin şirket içi sistemler ve altyapı baskısı arttı.
-- **Verimliliği artırmak**: Contoso gereken gereksiz yordamları kaldırıp, geliştiriciler ve kullanıcılar için süreçlerini kolaylaştırabilirsiniz. Hızlı ve değil atık zaman veya para şirket kadar olacak şekilde iş gereksinimlerini BT müşteri gereksinimlerine daha hızlı sunabilirsiniz.
-- **Çevikliği artırın**: Contoso BT işletme ihtiyaçlarını daha hızlı olması gerekir. Market'te genel ekonomisine başarılı olması şirket için gerçekleşen değişiklikleri, daha hızlı tepki vermek mümkün olması gerekir. Contoso BT gereken şekilde alınamadı veya bir iş engelleyici haline gelir.
-- **Ölçek**: şirketin başarıyla büyüdükçe, Contoso BT sistemlerinin aynı hızda büyüyebilir sağlamanız gerekir.
+- **Adres büyütmeye**: Contoso artmaktadır. Sonuç olarak, şirketin şirket içi sistemler ve altyapı baskısı arttı.
+- **Verimliliği artırmak**: Contoso gereksiz yordamları kaldırıp, geliştiriciler ve kullanıcılar için işlemleri daha verimli hale getirin gerekiyor. Hızlı ve değil atık zaman veya para şirket kadar olacak şekilde iş gereksinimlerini BT müşteri gereksinimlerine daha hızlı sunabilirsiniz.
+- **Çevikliği artırın**:  Contoso BT işletme ihtiyaçlarını daha duyarlı olmamız gerekir. Market'te genel ekonomisine başarılı olması şirket için gerçekleşen değişiklikleri, daha hızlı tepki vermek mümkün olması gerekir. Contoso BT gereken şekilde alınamadı veya bir iş engelleyici haline gelir.
+- **Ölçek**: Şirketin başarıyla büyüdükçe, Contoso BT sistemlerinin aynı hızda büyüyebilir sağlamanız gerekir.
 
 ## <a name="assessment-goals"></a>Değerlendirme amaçları
 
@@ -135,14 +135,14 @@ Contoso ve diğer kullanıcıların değerlendirmesi için aşağıdaki önkoşu
 Contoso, değerlendirme performansını şu şekildedir:
 
 > [!div class="checklist"]
-> * **1. adım: İndirme ve veri geçiş Yardımcısı'nı yüklemek**: Contoso hazırlar Data Migration Yardımcısı için şirket içi SQL Server veritabanının değerlendirmesi.
-> * **2. adım: veri geçiş Yardımcısı'nı kullanarak veritabanını değerlendirme**: Contoso çalışır ve veritabanı değerlendirmesini analiz eder.
+> * **1. adım: Veri geçiş Yardımcısı'nı yüklemek ve indirmek**: Contoso Data Migration Yardımcısı'nı şirket içi SQL Server veritabanının değerlendirmesi için hazırlar.
+> * **2. adım: Veri geçiş Yardımcısı'nı kullanarak veritabanını değerlendirme**: Contoso çalışır ve veritabanı değerlendirmesini analiz eder.
 > * **3. adım: Azure Geçişi'ni kullanarak VM değerlendirmesi için hazırlama**: Contoso şirket içi hesapları ayarlar ve VMware ayarlarını değiştirir.
-> * **4. adım: Azure Geçişi'ni kullanarak şirket içi Vm'leri bulmak**: Contoso bir Azure geçişi toplayıcısı VM oluşturur. Ardından, Contoso için değerlendirme Vm'leri bulmak için toplayıcıyı çalışır.
-> * **5. adım: Azure Geçişi'ni kullanarak bağımlılık Analizine hazırlanma**: Contoso şirketi VM'ler arasındaki bağımlılık eşlemesini görebilmeniz için bu Azure geçişi aracılarını Vm'lerde yükler.
-> * **6. adım: Azure Geçişi'ni kullanarak sanal makineleri değerlendirme**: Contoso bağımlılıkları denetler, Vm'leri gruplar ve değerlendirme çalışır. Değerlendirme hazır olduğunda, Contoso geçiş hazırlığında değerlendirmeyi analiz eder.
+> * **4. adım: Azure Geçişi'ni kullanarak şirket içi Vm'leri bulmak**: Contoso, bir Azure geçişi toplayıcısı VM oluşturur. Ardından, Contoso için değerlendirme Vm'leri bulmak için toplayıcıyı çalışır.
+> * **5. adım: Azure Geçişi'ni kullanarak bağımlılık Analizine hazırlanma**: Şirket VM'ler arasındaki bağımlılık eşlemesini görebilmeniz için Contoso sanal makinelere Azure geçişi aracılarını yükler.
+> * **6. adım: Azure Geçişi'ni kullanarak sanal makineleri değerlendirme**: Contoso, bağımlılıkları, grupları sanal makinelerin denetler ve değerlendirme çalıştırır. Değerlendirme hazır olduğunda, Contoso geçiş hazırlığında değerlendirmeyi analiz eder.
 
-## <a name="step-1-download-and-install-data-migration-assistant"></a>1. adım: İndirme ve veri geçiş Yardımcısı'nı yükleme
+## <a name="step-1-download-and-install-data-migration-assistant"></a>1. Adım: İndirme ve veri geçiş Yardımcısı'nı yükleme
 
 1. Contoso veri geçiş Yardımcısı'ndan indirir [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595).
     - Veri geçiş Yardımcısı SQL Server örneğine bağlanabilen herhangi bir makineye yüklenebilir. Contoso, SQL Server makinesinde çalıştırmak gerektirmez.
@@ -150,7 +150,7 @@ Contoso, değerlendirme performansını şu şekildedir:
 2. Contoso indirilen kurulum dosyasına (DownloadMigrationAssistant.msi) yüklemeye çalışır.
 3. Üzerinde **son** sayfası, Contoso seçer **başlatma Microsoft Data Migration Yardımcısı** Sihirbazı tamamlamadan önce.
 
-## <a name="step-2-run-and-analyze-the-database-assessment-for-smarthotel360"></a>2. adım: Çalıştırma ve SmartHotel360 için'veritabanı değerlendirmesini analiz etme
+## <a name="step-2-run-and-analyze-the-database-assessment-for-smarthotel360"></a>2. Adım: Çalıştırma ve SmartHotel360 için'veritabanı değerlendirmesini analiz etme
 
 Artık, Contoso SmartHotel360 uygulama için şirket içi SQL Server veritabanını çözümlemek için bir değerlendirme çalıştırabilirsiniz.
 
@@ -186,11 +186,11 @@ Bunlara erişilebilir hemen sonra sonuçlar görüntülenir. Contoso sorunları 
 
 1. İçinde **uyumluluk sorunlarını** raporunda, Contoso her uyumluluk düzeyinde herhangi bir sorun olup olmadığını denetler. Uyumluluk düzeyleri, SQL Server sürümleriyle aşağıdaki şekilde eşlenir:
 
-    - 100: SQL Server 2008/Azure SQL Veritabanı
-    - 110: SQL Server 2012/Azure SQL Veritabanı
-    - 120: SQL Server 2014/Azure SQL Veritabanı
-    - 130: SQL Server 2016/Azure SQL Veritabanı
-    - 140: SQL Server 2017/Azure SQL Veritabanı
+    - 100: SQL Server 2008/Azure SQL veritabanı
+    - 110: SQL Server 2012/Azure SQL veritabanı
+    - 120: SQL Server 2014/Azure SQL veritabanı
+    - 130: SQL Server 2016/Azure SQL veritabanı
+    - 140: SQL Server 2017/Azure SQL veritabanı
 
     ![Data Migration Yardımcısı - uyumluluk raporu verir.](./media/contoso-migration-assessment/dma-assessment-5.png)
 
@@ -209,7 +209,7 @@ Bunlara erişilebilir hemen sonra sonuçlar görüntülenir. Contoso sorunları 
 > - Değerlendirmeleri birleştirebilirsiniz bir [SQL Server veritabanı](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017#import-assessment-results-into-a-sql-server-database).
 > - Değerlendirmeleri birleştirebilirsiniz bir [Power BI raporu](https://docs.microsoft.com/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017).
 
-## <a name="step-3-prepare-for-vm-assessment-by-using-azure-migrate"></a>3. adım: Azure Geçişi'ni kullanarak VM değerlendirmesi için hazırlama
+## <a name="step-3-prepare-for-vm-assessment-by-using-azure-migrate"></a>3. Adım: Azure Geçişi'ni kullanarak VM değerlendirmesi için hazırlama
 
 Contoso sanal makineleri değerlendirme için otomatik olarak bulmak üzere Azure geçişi kullanabileceğiniz bir VMware hesabı oluşturmak gereken bir VM oluşturmak için açılması gereken bağlantı noktalarını not edin ve istatistik ayarları düzeyini ayarlayın hakları doğrulayın.
 
@@ -217,9 +217,9 @@ Contoso sanal makineleri değerlendirme için otomatik olarak bulmak üzere Azur
 
 VM bulma aşağıdaki özelliklere sahip sunucu vcenter'da salt okunur bir hesap gerektirir:
 
-- **Kullanıcı türü**: en az bir salt okunur kullanıcı.
-- **İzinleri**: seçin veri merkezi nesnesi için **alt nesneleri yay** onay kutusu. İçin **rol**seçin **salt okunur**.
-- **Ayrıntılar**: veri merkezi düzeyinde merkezindeki tüm nesnelere erişimi olan kullanıcı atanır.
+- **Kullanıcı türü**: En az bir salt okunur kullanıcı.
+- **İzinleri**: Veri Merkezi nesnesi için seçin **alt nesneleri yay** onay kutusu. İçin **rol**seçin **salt okunur**.
+- **Ayrıntılar**: Veri merkezi düzeyinde merkezindeki tüm nesnelere erişimi olan kullanıcı atanır.
 - Erişimi kısıtlamak için Ata **erişemez** rolüyle **alt yay** nesne alt nesnelere (vSphere konakları, veri depoları, VM'ler ve ağlar).
 
 ### <a name="verify-permissions-to-create-a-vm"></a>Sanal makine oluşturma izinlerini doğrulama
@@ -251,7 +251,7 @@ Düzeyini ayarlamak için:
 
     ![vCenter Server istatistik düzeyini](./media/contoso-migration-assessment/vcenter-statistics-level.png)
 
-## <a name="step-4-discover-vms"></a>4. adım: Vm'leri bulma
+## <a name="step-4-discover-vms"></a>4. Adım: VM'leri bulma
 
 Vm'leri bulmak için Azure geçişi projesini Contoso oluşturur. Contoso indirir ve Toplayıcı sanal Makinesini ayarlar. Ardından, Contoso, şirket içi Vm'leri bulmak için toplayıcıyı çalışır.
 
@@ -351,7 +351,7 @@ Koleksiyon bittiği zaman Contoso sanal makinelerin portalda görüntülenip gö
 
     ![Azure geçişi - aracı yüklemesi gerekli değildir](./media/contoso-migration-assessment/machines-no-agent.png)
 
-## <a name="step-5-prepare-for-dependency-analysis"></a>5. adım: bağımlılık Analizine hazırlanma
+## <a name="step-5-prepare-for-dependency-analysis"></a>5. Adım: Bağımlılık Analizine hazırlanma
 
 Değerlendirmek için istediği sanal makineler arasındaki bağımlılıkları görüntülemek için Contoso indirir ve uygulama sanal makinelerini aracıları yükler. Contoso, tüm sanal makineler, uygulamaları, Windows ve Linux için hem de aracıları yükler.
 
@@ -430,7 +430,7 @@ MMA'yı yükledikten sonra Contoso Linux Vm'lerinde bağımlılık aracısını 
     wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin && sudo sh InstallDependencyAgent-Linux64.bin -s
     ```
 
-## <a name="step-6-run-and-analyze-the-vm-assessment"></a>6. adım: Çalıştırma ve sanal makine değerlendirmesini analiz etme
+## <a name="step-6-run-and-analyze-the-vm-assessment"></a>6. Adım: Çalıştırma ve sanal makine değerlendirmesini analiz etme
 
 Contoso, artık makine bağımlılıklarını doğrulayın ve bir grup oluşturun. Ardından, grup için değerlendirme çalışır.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 8e8cabe48f7f1036986a896d0449798f4aea2522
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 43394be7acc4c561147ffc86744f2daf0d751788
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844575"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074997"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Sunucuları kaldırma ve korumayı devre dışı bırakma
 
@@ -138,7 +138,7 @@ VMM tarafından yönetilmeyen Hyper-V konaklarını bir Hyper-V sitesine toplan�
 
 1. İçinde **korunan öğeler** > **çoğaltılan öğeler**, makineye sağ tıklayın > **çoğaltma devre dışı bırakma**.
 2. İçinde **çoğaltma devre dışı bırakma** sayfasında, aşağıdaki seçeneklerden birini seçin:
-    - **Çoğaltma ve Kaldır (önerilir) devre dışı** - bu seçenek çoğaltılan öğeyi Azure Site Recovery'den kaldırın ve makine için çoğaltma durdurulur. Yapılandırma sunucusunu çoğaltma yapılandırması temizlenir ve bu korumalı sunucu için Site Recovery Faturalaması durdurulur.
+    - **Çoğaltma ve Kaldır (önerilir) devre dışı** - bu seçenek çoğaltılan öğeyi Azure Site Recovery'den kaldırın ve makine için çoğaltma durdurulur. Yapılandırma sunucusunu çoğaltma yapılandırması temizlenir ve bu korumalı sunucu için Site Recovery Faturalaması durdurulur. Yapılandırma sunucusu bağlı durumda olduğunda bu seçeneği yalnızca kullanılabileceğini unutmayın.
     - **Kaldırma** -bu seçeneği yalnızca kaynak ortamı (bağlı değil) silindi veya erişilebilir değil ise, kullanılması gereken. Bu işlem çoğaltılan öğeyi Azure Site Kurtarma (faturalandırma sona erdirilir) kaldırır. Yapılandırma sunucusunu çoğaltma yapılandırması **yapmamayı** temizlenir. 
 
 > [!NOTE]

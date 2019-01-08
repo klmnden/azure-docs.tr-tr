@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: dacd2e0d43f2c7711539896b88838adb85542963
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051739"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074215"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights’ta nasıl ... yapabilirim?
 ## <a name="get-an-email-when-"></a>E-posta...
@@ -94,7 +94,7 @@ Dikkat edilmesi gereken bazı noktalar:
 * İçinde [ölçüm Gezgini'nde](../../azure-monitor/app/metrics-explorer.md)grafiğinizi özelleştirin ve bir sık kullanılan olarak kaydedebilirsiniz. Azure panosuna sabitleyin.
 
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Diğer kaynakları ve Application Insights verilerini içeren Pano
-* [Telemetri Power BI'a aktarma](../../application-insights/app-insights-export-power-bi.md).
+* [Telemetri Power BI'a aktarma](../../azure-monitor/app/export-power-bi.md ).
 
 Veya
 

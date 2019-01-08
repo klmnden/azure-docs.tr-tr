@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420107"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065809"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps için şirket içi veri ağ geçidi yükleme
 
@@ -61,7 +61,7 @@ Diğer hizmetlerle ağ geçidi kullanma hakkında daha fazla bilgi için şu mak
 
   **En düşük gereksinimleri**
 
-  * .NET framework 4.5.2
+  * .NET Framework 4.5.2
   * Windows 7 veya Windows Server 2008 R2 64 bit sürümü (veya üzeri)
 
   **Önerilen gereksinimleri**
@@ -262,7 +262,7 @@ Ağ geçidinin Azure Service Bus ile doğrudan TCP yerine HTTPS iletişim kurmak
 
    Aksi takdirde, istemci konumu bulmak için aynı bilgisayardaki Hizmetler konsolunu açın, bulma **şirket içi veri ağ geçidi hizmeti**ve görüntüleme **yürütülebilir dosyanın yolu** özelliği.
 
-2. Açık *yapılandırma* dosya: **Microsoft.powerbı.datamovement.Pipeline.gatewaycore.dll.config**
+2. Açık *yapılandırma* dosyası: **Microsoft.powerbı.datamovement.Pipeline.gatewaycore.dll.config**
 
 3. Değişiklik **ServiceBusSystemConnectivityModeString** değerini **otomatik algıla** için **Https**:
 
@@ -276,10 +276,9 @@ Ağ geçidinin Azure Service Bus ile doğrudan TCP yerine HTTPS iletişim kurmak
 
 ## <a name="windows-service-account"></a>Windows hizmet hesabı
 
-Bir Windows hizmeti "Veri ağ geçidi hizmetini şirket içinde" adlı ancak "NT servıce\pbıegwservice", "Farklı Oturum Aç" hesap kimlik bilgilerini kullanan şirket içi veri ağ geçidi çalışır. Varsayılan olarak, şirket içi veri ağ geçidi ağ geçidini yüklediğiniz bilgisayar için "hizmet olarak oturum aç" izinleri vardır. Oluşturma ve Azure portalında bir ağ geçidi korumak için Windows hizmet hesabı en az olmalıdır **katkıda bulunan** izinleri. 
+Şirket içi veri ağ geçidini yüklediğiniz bilgisayarda, ağ geçidi "Veri ağ geçidi hizmetini şirket içinde" adlı bir Windows hizmet hesabı olarak çalıştırılır. Ancak, ağ geçidi "NT servıce\pbıegwservice" adı "Farklı Oturum Aç" hesap kimlik bilgilerini kullanır. Varsayılan olarak, ağ geçidi, ağ geçidini yüklediğiniz bilgisayarda "hizmet olarak oturum aç" izinlere sahip. Windows hizmet hesabını ağ geçidi için iş ve şirket içi veri kaynaklarına bağlanmak için kullandığınız hesap ya da Okul hesabı oturum açmak için bulut Hizmetleri için kullandığınız genellikle farklıdır.
 
-> [!NOTE]
-> Windows hizmet hesabı, şirket içi veri kaynaklarına bağlanmak için kullanılan hesap ve bulut hizmetlerinde oturum açmak için iş veya Okul hesabı farklıdır.
+Oluşturma ve Azure portalında bir ağ geçidi korumak için bu Windows hizmet hesabı en az olmalıdır **katkıda bulunan** izinleri. Bu izinleri denetlemek için bkz: [RBAC ve Azure portalını kullanarak erişimini yönetme](../role-based-access-control/role-assignments-portal.md). 
 
 <a name="restart-gateway"></a>
 
@@ -329,57 +328,57 @@ Bu adımlar, bulutta bir kullanıcı, şirket içi veri kaynağınıza bağlı b
 
 ### <a name="general"></a>Genel
 
-**Q**: Azure SQL veritabanı gibi buluttaki veri kaynakları için bir ağ geçidi yapmalıyım? <br/>
-**A**: Hayır, ağ geçidi yalnızca şirket içi veri kaynaklarına bağlanır.
+**Q**: Bir ağ geçidi, Azure SQL veritabanı gibi buluttaki veri kaynakları için ihtiyacım var? <br/>
+**A**: Hayır, ağ geçidi, yalnızca şirket içi veri kaynaklarına bağlanır.
 
-**Q**: ağ geçidi veri kaynağıyla aynı makineye yüklenmesi gerekmez? <br/>
-**A**: Hayır, ağ geçidi sağlanan bağlantı bilgilerini kullanarak veri kaynağına bağlanır. Ağ geçidini bu anlamda bir istemci uygulaması olarak düşünün. Ağ geçidi, yalnızca sağlanan sunucu adı için bağlama özelliği gerekiyor.
+**Q**: Ağ geçidi veri kaynağı ile aynı makinede yüklü olması gerekiyor mu? <br/>
+**A**: Hayır, ağ geçidi, sağlanan bağlantı bilgilerini kullanarak veri kaynağına bağlanır. Ağ geçidini bu anlamda bir istemci uygulaması olarak düşünün. Ağ geçidi, yalnızca sağlanan sunucu adı için bağlama özelliği gerekiyor.
 
 <a name="why-azure-work-school-account"></a>
 
-**Q**: neden gerekir ben bir iş veya Okul hesabınızla oturum açmak için? <br/>
-**A**: şirket içi veri ağ geçidi yüklediğinizde yalnızca bir iş veya Okul hesabı kullanabilirsiniz. Oturum açma hesabınız Azure Active Directory (Azure AD) tarafından yönetilen bir kiracı depolanır. Genellikle, Azure AD hesabınızın kullanıcı asıl adı (UPN) e-posta adresi ile eşleşir.
+**Q**: Bir iş veya Okul hesabıyla oturum açmak için neden kullanmalıyım? <br/>
+**A**: Şirket içi veri ağ geçidi yüklediğinizde, yalnızca bir iş veya Okul hesabı kullanabilirsiniz. Oturum açma hesabınız Azure Active Directory (Azure AD) tarafından yönetilen bir kiracı depolanır. Genellikle, Azure AD hesabınızın kullanıcı asıl adı (UPN) e-posta adresi ile eşleşir.
 
-**Q**: kimlik bilgilerimi nerede depolanır? <br/>
-**A**: bir veri kaynağı için girdiğiniz kimlik bilgileri şifrelenir ve ağ geçidi bulut hizmetinde depolanır. Kimlik bilgileri, şirket içi veri ağ geçidi şifresi çözülür.
+**Q**: Kimlik bilgilerim nerede depolanır? <br/>
+**A**: Bir veri kaynağı için girdiğiniz kimlik bilgileri şifrelenir ve ağ geçidi bulut hizmetinde depolanır. Kimlik bilgileri, şirket içi veri ağ geçidi şifresi çözülür.
 
-**Q**: ağ bant genişliği için herhangi bir gereksinimi vardır? <br/>
-**A**: iyi aktarım hızı ağ bağlantınız olduğundan emin olun. Her ortam farklıdır ve gönderilen veri miktarını sonuçlar etkileyebilir. Şirket içi veri kaynağınıza ve Azure veri merkezleri arasında bir üretilen iş düzeyi sağlamak için deneyin [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Aktarım hızınızı ölçmenize yardımcı olması için Azure Speed Test gibi bir dış araç deneyin.
+**Q**: Ağ bant genişliği için herhangi bir gereksinimi var mıdır? <br/>
+**A**: İyi bir aktarım hızı ağ bağlantınız olduğundan emin olun. Her ortam farklıdır ve gönderilen veri miktarını sonuçlar etkileyebilir. Şirket içi veri kaynağınıza ve Azure veri merkezleri arasında bir üretilen iş düzeyi sağlamak için deneyin [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Aktarım hızınızı ölçmenize yardımcı olması için Azure Speed Test gibi bir dış araç deneyin.
 
-**Q**: ağ geçidinden bir veri kaynağına sorguları çalıştırmak için gecikme süresi nedir? En iyi mimari nedir? <br/>
-**A**: ağ gecikme süresini azaltmak için veri kaynağına olabildiğince yakın ağ geçidi yükleyin. Ağ geçidini gerçek veri kaynağına yükleyebilirseniz bu yakınlık yükleyebilirseniz gecikme süresi en aza indirir. Ayrıca, Azure veri merkezlerine yakınlık göz önünde bulundurun. Örneğin, Batı ABD veri merkezinde hizmetinizi kullanır ve bir Azure VM'de SQL Server varsa, daha sonra Azure VM'niz Batı ABD bölgesinde çok isteyebilirsiniz. Bu yakınlık gecikme süresini en aza indirir ve Azure sanal makinesinde çıkış ücretlerini ortadan kaldırır.
+**Q**: Ağ geçidinden bir veri kaynağına sorguları çalıştırmak için gecikme süresi nedir? En iyi mimari nedir? <br/>
+**A**: Ağ gecikme süresini azaltmak için ağ geçidi olarak veri kaynağına yakın olabildiğince yükleyin. Ağ geçidini gerçek veri kaynağına yükleyebilirseniz bu yakınlık yükleyebilirseniz gecikme süresi en aza indirir. Ayrıca, Azure veri merkezlerine yakınlık göz önünde bulundurun. Örneğin, Batı ABD veri merkezinde hizmetinizi kullanır ve bir Azure VM'de SQL Server varsa, daha sonra Azure VM'niz Batı ABD bölgesinde çok isteyebilirsiniz. Bu yakınlık gecikme süresini en aza indirir ve Azure sanal makinesinde çıkış ücretlerini ortadan kaldırır.
 
-**Q**: sonuçlar nasıl gönderilir buluta? <br/>
-**A**: sonuçlar Azure Service Bus gönderilir.
+**Q**: Nasıl sonuçlar buluta nasıl gönderilir? <br/>
+**A**: Sonuçlar Azure Service Bus gönderilir.
 
-**Q**: herhangi bir gelen bağlantı buluttan ağ geçidine vardır? <br/>
+**Q**: Herhangi bir gelen bağlantı ağ geçidine buluttan var mı? <br/>
 **A**: Hayır, ağ geçidinin Azure Service Bus'a yönelik giden bağlantılar kullanır.
 
-**Q**: giden bağlantıları engellersem ne olur? Açmak ne gerekiyor? <br/>
-**A**: bağlantı noktaları ve ağ geçidinin kullandığı ana bakın.
+**Q**: Peki giden bağlantıları engellersem? Açmak ne gerekiyor? <br/>
+**A**: Ağ geçidini kullanan konak ve bağlantı noktalarını bakın.
 
-**Q**: ne gerçek Windows hizmetinin adı nedir? <br/>
+**Q**: Ne, gerçek Windows hizmetinin adı nedir? <br/>
 **A**: Hizmetler sekmesinde Görev Yöneticisi'nde hizmet "PBIEgwService" ya da Power BI Enterprise Gateway Service adıdır. Hizmetler konsolunda, "şirket içi veri Ağ Geçidi Hizmeti" hizmet adıdır. Windows hizmeti "NT servıce\pbıegwservice" hizmet SID'sini (SSID) olarak kullanır.
 
-**Q**: ağ geçidi Windows hizmetini bir Azure Active Directory hesabıyla çalıştırılabilir mi? <br/>
-**A**: Hayır, Windows hizmetinin geçerli bir Windows hesabı olmalıdır.
+**Q**: Ağ geçidi Windows hizmetini bir Azure Active Directory hesabıyla çalıştırılabilir mi? <br/>
+**A**: Hayır, Windows hizmet geçerli bir Windows hesabı olmalıdır.
 
 ### <a name="disaster-recovery"></a>Olağanüstü durum kurtarma
 
-**Q**: olağanüstü durum kurtarma için hangi seçenekler kullanılabilir? <br/>
-**A**: geri yüklemek veya bir ağ geçidi taşımak için kurtarma anahtarını kullanabilirsiniz. Ağ geçidini yüklerken kurtarma anahtarını belirtin.
+**Q**: Olağanüstü durum kurtarma için hangi seçenekler kullanılabilir? <br/>
+**A**: Geri yüklemek veya bir ağ geçidi taşımak için kurtarma anahtarını kullanabilirsiniz. Ağ geçidini yüklerken kurtarma anahtarını belirtin.
 
-**Q**: kurtarma anahtarının avantajı nedir? <br/>
-**A**: Kurtarma anahtarını olağanüstü bir durumla karşılaştığınızda ağ geçidinizi kurtarmak veya geçirmek için bir yol sağlar.
+**Q**: Kurtarma anahtarının avantajı nedir? <br/>
+**A**: Kurtarma anahtarı, olağanüstü bir durumla karşılaştığınızda ağ geçidinizi kurtarmak veya geçirmek için bir yol sağlar.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
 Bu bölümde ayarlama ve şirket içi veri ağ geçidini kullanarak sahip olabileceğiniz bazı yaygın sorunlar ele alır.
 
-**Q**: neden ağ geçidi yükleme başarısız? <br/>
-**A**: hedef bilgisayardaki virüsten koruma yazılımının güncel durumunda bu sorun oluşabilir. Ya da virüsten koruma yazılımını güncelleştirmek veya virüsten koruma yazılımı yalnızca ağ geçidi yüklemesi sırasında devre dışı bırakın ve yazılım'ı yeniden etkinleştirin.
+**Q**: Neden ağ geçidi yükleme başarısız oldu? <br/>
+**A**: Güncel virüsten koruma yazılımı hedef bilgisayara değil Bu sorun oluşabilir. Ya da virüsten koruma yazılımını güncelleştirmek veya virüsten koruma yazılımı yalnızca ağ geçidi yüklemesi sırasında devre dışı bırakın ve yazılım'ı yeniden etkinleştirin.
 
-**Q**: neden olmayan görüyorum ağ geçidi yükleme ağ geçidi kaynağı Azure'da oluşturduğunuzda? <br/>
+**Q**: Ağ geçidi kaynağı Azure'da oluşturduğunuzda ağ geçidi yükleme neden göremiyorum? <br/>
 **A**: Bu sorun şu nedenlerden kaynaklanabilir:
 
 * Ağ geçidi yüklemenizi zaten kaydedildi ve azure'da başka bir ağ geçidi kaynağı tarafından talep. Ağ geçidi kaynakları için bunları oluşturulduktan sonra ağ geçidi yüklemelerinizi örnekleri listede görünmez.
@@ -389,11 +388,11 @@ Ağ geçidi kayıtlarınızı Azure portalında kontrol etmek için tüm Azure k
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
-**Q**: ağ geçidi günlükleri nerededir? <br/>
-**A**: bkz [ **günlükleri** bölümü](#logs) bu makalenin ilerleyen bölümlerinde.
+**Q**: Ağ geçidi günlükleri nerededir? <br/>
+**A**: Bkz: [ **günlükleri** bölümü](#logs) bu makalenin ilerleyen bölümlerinde.
 
-**Q**: hangi sorguların gönderildiğini nasıl görebilirim şirket içi veri kaynağına gönderilen? <br/>
-**A**: gönderilen sorgular içeren sorgu izlemeyi etkinleştirebilirsiniz. Sorgu sorun giderme işlemi tamamlandıktan özgün değerine geri izleme değiştirmeyi unutmayın. Sorgu izleme açık bırakarak daha büyük günlükleri oluşturur.
+**Q**: Hangi sorguların gönderildiğini nasıl görebilirim şirket içi veri kaynağına gönderilen? <br/>
+**A**: Gönderilen sorgular içeren sorgu izlemeyi etkinleştirebilirsiniz. Sorgu sorun giderme işlemi tamamlandıktan özgün değerine geri izleme değiştirmeyi unutmayın. Sorgu izleme açık bırakarak daha büyük günlükleri oluşturur.
 
 Veri kaynağınızda bulunan, sorguları izlemeye yönelik araçlara da göz atabilirsiniz. Örneğin, SQL Server ve Analysis Services için SQL Profiler veya genişletilmiş olaylar kullanabilirsiniz.
 
@@ -401,7 +400,7 @@ Veri kaynağınızda bulunan, sorguları izlemeye yönelik araçlara da göz ata
 
 Ağ geçidi sürümü güncel olmayan hale geldiğinde birçok sorun ortaya çıkabilir. Genel iyi uygulama olarak en son sürümü kullandığınızdan emin olun. Ağ geçidini bir ay veya daha uzun güncelleştirmediyseniz ağ geçidinin en son sürümünü yüklemeyi deneyin ve sorun oluşturamadığınızı.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Hata: kullanıcı gruba eklenemedi. (-2147463168 PBIEgwService performans günlük kullanıcılar)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Hata: Kullanıcı grubuna eklenemedi. (-2147463168 PBIEgwService performans günlük kullanıcılar)
 
 Ağ geçidi desteklenmez ve etki alanı denetleyicisi üzerinde yüklemeye çalıştığınızda bu hatayı alabilirsiniz. Ağ geçidini bir etki alanı denetleyicisi olmayan bir makineye dağıttığınızdan emin olun.
 
@@ -444,7 +443,7 @@ Ek izleme ve sorun giderme için açın ve telemetri toplama.
 
    Aksi takdirde, istemci konumu bulmak için aynı bilgisayardaki Hizmetler konsolunu açın, bulma **şirket içi veri ağ geçidi hizmeti**ve görüntüleme **yürütülebilir dosyanın yolu** özelliği.
 
-2. Açık *yapılandırma* dosya: **Microsoft.powerbı.datamovement.Pipeline.gatewaycore.dll.config**
+2. Açık *yapılandırma* dosyası: **Microsoft.powerbı.datamovement.Pipeline.gatewaycore.dll.config**
 
 3. Değişiklik **SendTelemetry** değerini **true**:
 

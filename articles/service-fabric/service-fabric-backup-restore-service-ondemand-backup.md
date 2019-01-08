@@ -1,6 +1,6 @@
 ---
 title: Azure Service fabric'te isteğe bağlı yedekleme | Microsoft Docs
-description: Service Fabric'in yedekleme ve geri yükleme özelliği uygulama verilerinizi gereksinim olarak yedeklenmesi için.
+description: Yedekleme ve geri yükleme gereksinimi temelinde, uygulama verileri yedeklemek için Service fabric'te özellik.
 services: service-fabric
 documentationcenter: .net
 author: aagup
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: 35d97f1da6b5d1c75073264c70e1cd1607d5fe0d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8a276f26367e66f55b8fc10dbcba2429dc2e5450
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52730277"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062700"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Azure Service fabric'te isteğe bağlı yedekleme
 
-Verileri güvenilir durum bilgisi olan hizmetler ve Reliable Actors, olağanüstü durum veya veri kaybı senaryolara yedeklenebilir.
+Olağanüstü durum veya veri kaybı senaryolara güvenilir durum bilgisi olan hizmetler ve Reliable Actors verileri yedekleyebilirsiniz.
 
-Service Fabric için özelliklerle donatılmış [düzenli yedekleme verilerinin](service-fabric-backuprestoreservice-quickstart-azurecluster.md) ve gereksinim temelinde veri yedekleme. Karşı korur gibi isteğe bağlı yedekleme kullanışlıdır _veri kaybı_/_veri bozulması_ planlı değişiklikler temel alınan hizmete veya kendi ortamında nedeniyle.
+Azure Service Fabric için özelliklere sahiptir [düzenli yedekleme verilerinin](service-fabric-backuprestoreservice-quickstart-azurecluster.md) ve verilerinin gereksinim olarak. İsteğe bağlı yedekleme, karşı koruduğu için yararlıdır _veri kaybı_/_veri bozulması_ planlı değişiklikler temel alınan hizmete veya kendi ortamında nedeniyle.
 
-İsteğe bağlı yedekleme özellikleri Hizmetleri, hizmet veya hizmet ortamı ile ilgili herhangi bir el ile tetiklenen işleminden önce durumu yakalanırken yararlı olur. Hizmet ikili dosyaları, yani değiştirme, yükseltme veya hizmeti, eski sürüme düşürme gibi; olarak, uygulamanın koddaki hatalar tarafından veri bozulmasına karşı korumalı veri sahip olur.
+İsteğe bağlı yedekleme özellikleri el ile bir hizmeti veya hizmeti ortam işlem tetiklemeden önce hizmetlerinin durumunu yakalamak için yararlıdır. Örneğin, bir değişiklik yaparsanız yükseltirken hizmeti ikili dosyalarını veya hizmet eski sürüme düşürme. Böyle bir durumda, uygulama kod hataları tarafından veri bozulmasına karşı koruma sağlamak isteğe bağlı Yedekleme yardımcı olabilir.
 
 ## <a name="triggering-on-demand-backup"></a>İsteğe bağlı yedekleme tetikleniyor
 
-İsteğe bağlı yedekleme, yedekleme dosyaları karşıya yükleme için depolama ayrıntıları gerektirir. İsteğe bağlı yedekleme düzenli yedekleme İlkesi veya belirtilen depolama isteğe bağlı yedekleme isteği içinde belirtilen depolama alanında gerçekleşir.
+İsteğe bağlı yedekleme, yedekleme dosyaları karşıya yükleme için depolama ayrıntıları gerektirir. Düzenli yedekleme ilkesini veya isteğe bağlı yedekleme isteği isteğe bağlı yedekleme konumunu belirtin.
 
-### <a name="on-demand-backup-to-storage-specified-by-periodic-backup-policy"></a>İsteğe bağlı yedekleme düzenli yedekleme İlkesi tarafından belirtilen depolama
+### <a name="on-demand-backup-to-storage-specified-by-a-periodic-backup-policy"></a>İsteğe bağlı yedekleme düzenli bir yedekleme İlkesi tarafından belirtilen depolama
 
-Güvenilir durum bilgisi olan hizmet veya Reliable Actor bölümünü düzenli yedekleme ilkesinde belirtilen depolama gereksinimi temel yedekleme hakkında ek için istenebilir. 
+İsteğe bağlı ek yedekleme depolama alanı için bir güvenilir durum bilgisi olan hizmet veya Reliable Actor ilişkin bir bölüm kullanmak için düzenli yedekleme ilkesi yapılandırabilirsiniz.
 
-Aşağıdaki örnek, devamlılık belirtildiği gibi durumda [güvenilir durum bilgisi olan hizmet ve Reliable Actors için düzenli aralıklarla yedeklemeyi etkinleştirme](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors)burada bölümü etkin bir yedekleme ilkesi vardır ve istenen bir sıklıkta yedekleme sürüyor Azure depolama alanında.
+Aşağıdaki senaryoda, devamlılık olduğu [güvenilir durum bilgisi olan hizmet ve Reliable Actors için düzenli aralıklarla yedeklemeyi etkinleştirme](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). Bu durumda, bir bölüm kullanmak bir yedekleme İlkesi etkinleştirin ve Azure Depolama'da bir kümesi sıklıkta yedekleme gerçekleşir.
 
-Bölüm kimliği için talep üzerine yedekleme `974bd92a-b395-4631-8a7f-53bd4ae9cf22` [BackupPartition] tarafından tetiklenebilir (https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API. 
+Kullanım [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) bölüm kimliği için talep üzerine yedekleme için tetikleme yukarı ayarlamak için API `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/Backup?api-version=6.4"
@@ -47,13 +47,13 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-[İsteğe bağlı yedekleme ilerleme](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress) tarafından izlenen [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API.
+Kullanım [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) için izlemeyi etkinleştirmek için API [isteğe bağlı yedekleme ilerleme](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
 ### <a name="on-demand-backup-to-specified-storage"></a>İsteğe bağlı yedekleme için belirtilen depolama
 
-Depolama bilgileriyle birlikte bir güvenilir durum bilgisi olan hizmet veya Reliable Actor ilişkin bir bölüm için isteğe bağlı yedekleme istenebilir. İsteğe bağlı yedekleme isteğin bir parçası olarak depolama bilgileri sağlanmalıdır.
+Güvenilir durum bilgisi olan hizmet veya Reliable Actor ilişkin bir bölüm için isteğe bağlı yedekleme isteyebilir. İsteğe bağlı yedekleme isteği bir parçası olarak depolama bilgileri sağlayın.
 
-Bölüm kimliği için talep üzerine yedekleme `974bd92a-b395-4631-8a7f-53bd4ae9cf22` [BackupPartition] tarafından tetiklenebilir (https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) aşağıda gösterildiği gibi Azure depolama bilgilerini API'SİYLE.
+Kullanım [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) bölüm kimliği için talep üzerine yedekleme için tetikleme yukarı ayarlamak için API `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Aşağıdaki Azure Depolama bilgileri ekleyin:
 
 ```powershell
 $StorageInfo = @{
@@ -72,73 +72,67 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Partitions/9
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
-[İsteğe bağlı yedekleme ilerleme](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress) tarafından izlenen [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API.
-
+Kullanabileceğiniz [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) için izlemeyi ayarlamak için API [isteğe bağlı yedekleme ilerleme](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress).
 
 ## <a name="tracking-on-demand-backup-progress"></a>İsteğe bağlı yedekleme ilerlemesini izleme
 
-Güvenilir durum bilgisi olan hizmet veya Reliable Actor ilişkin bir bölüm aynı anda yalnızca bir talep üzerine yedekleme isteği kabul eder. Yalnızca geçerli isteğe bağlı yedekleme isteği tamamlandığında, başka bir istek kabul edilebilir. 
+Güvenilir durum bilgisi olan hizmet veya Reliable Actor ilişkin bir bölüm aynı anda yalnızca bir talep üzerine yedekleme isteği kabul eder. Yalnızca geçerli isteğe bağlı yedekleme istek tamamlandıktan sonra başka bir istek kabul edilebilir.
 
-Birden fazla talep üzerine yedekleme isteği aynı anda farklı bölümlerde tetiklenebilir.
+Farklı bölümleri aynı anda isteğe bağlı yedekleme istekleri tetikleyebilirsiniz.
 
 ```powershell
-$url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetBackupProgress?api-version=6.4" 
- 
+$url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetBackupProgress?api-version=6.4"
+
 $response = Invoke-WebRequest -Uri $url -Method Get -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3' 
 $backupResponse = (ConvertFrom-Json $response.Content) 
 $backupResponse
 ```
 
-İsteğe bağlı yedekleme isteğin ilerleme aşağıdaki durumlardan biri olabilir.
+İsteğe bağlı yedekleme isteği şu durumlarda olabilir:
 
-* **Kabul edilen** -yedekleme bölüme başlatıldı ve devam ediyor.
+- **Kabul edilen**: Yedekleme bölüme başlatıldı ve devam ediyor.
+  ```
+  BackupState             : Accepted
+  TimeStampUtc            : 0001-01-01T00:00:00Z
+  BackupId                : 00000000-0000-0000-0000-000000000000
+  BackupLocation          :
+  EpochOfLastBackupRecord :
+  LsnOfLastBackupRecord   : 0
+  FailureError            :
+  ```
+- **Başarı**, **hatası**, veya **zaman aşımı**: İstenen bir isteğe bağlı yedekleme aşağıdaki durumlardan birinde tamamlayabilirsiniz:
+  - **Başarı**: A _başarı_ yedekleme durum, bölüm durumu başarıyla yedeklendi olduğunu gösterir. İsteğin yanıtını verir _BackupEpoch_ ve _BackupLSN_ saat (UTC) ile birlikte bölümü için.
     ```
-    BackupState             : Accepted
+    BackupState             : Success
+    TimeStampUtc            : 2018-11-21T20:00:01Z
+    BackupId                : 5d64b697-6acd-45a4-adbd-3d75e0078081
+    BackupLocation          : SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-11-21 20.00.01.zip
+    EpochOfLastBackupRecord : @{DataLossNumber=131873018908156893; ConfigurationNumber=8589934592}
+    LsnOfLastBackupRecord   : 36
+    FailureError            :
+    ```
+  - **Hata**: A _hatası_ yedekleme durumunu belirten bir hata bölümün durumunun bir yedeğini sırasında oluştu. Hatanın nedeni, yanıt olarak belirtilir.
+    ```
+    BackupState             : Failure
     TimeStampUtc            : 0001-01-01T00:00:00Z
     BackupId                : 00000000-0000-0000-0000-000000000000
-    BackupLocation          : 
-    EpochOfLastBackupRecord : 
+    BackupLocation          :
+    EpochOfLastBackupRecord :
     LsnOfLastBackupRecord   : 0
-    FailureError            : 
+    FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
     ```
-    
-* **Başarı / hata / zaman aşımı** -isteğe bağlı yedekleme aşağıdaki durumlardan birinde tamamlanabileceğini istendi. Her durum, aşağıdaki önemi ve yanıt ayrıntıları sahiptir.
-
-    * **Başarı** -yedekleme durumu olarak _başarı_ bölüm durumu başarıyla yedeklenir gösterir. Yanıt sağlayacak __BackupEpoch__ ve __BackupLSN__ saat (UTC) ile birlikte bölümü için.
-        ```
-        BackupState             : Success
-        TimeStampUtc            : 2018-11-21T20:00:01Z
-        BackupId                : 5d64b697-6acd-45a4-adbd-3d75e0078081
-        BackupLocation          : SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-11-21 20.00.01.zip
-        EpochOfLastBackupRecord : @{DataLossNumber=131873018908156893; ConfigurationNumber=8589934592}
-        LsnOfLastBackupRecord   : 36
-        FailureError            : 
-        ```
-        
-    * **Hata** -yedekleme durumu olarak _hatası_ bölümün durumunun bir yedeğini sırasında hata oluştu gösterir. Hatanın nedenini yanıt olarak belirtilecektir.
-        ```
-        BackupState             : Failure
-        TimeStampUtc            : 0001-01-01T00:00:00Z
-        BackupId                : 00000000-0000-0000-0000-000000000000
-        BackupLocation          : 
-        EpochOfLastBackupRecord : 
-        LsnOfLastBackupRecord   : 0
-        FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
-        ```
-       
-    * **Zaman aşımı** -yedekleme durumu olarak _zaman aşımı_ gösteren bölüm Durumu yedeklemesini de belirli bir zaman çerçevesi oluşturulamadı; varsayılan zaman aşımı değeri 10 dakika olan. Yeni bir yedekleme isteği başlatma büyük [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) isteğe bağlı yedekleme istekte bu senaryoda önerilir.
-
-        ```
-        BackupState             : Timeout
-        TimeStampUtc            : 0001-01-01T00:00:00Z
-        BackupId                : 00000000-0000-0000-0000-000000000000
-        BackupLocation          : 
-        EpochOfLastBackupRecord : 
-        LsnOfLastBackupRecord   : 0
-        FailureError            : @{Code=FABRIC_E_TIMEOUT; Message=The request of backup has timed out.}
-        ```
+  - **Zaman aşımı**: A _zaman aşımı_ yedekleme durumunu belirten bölüm durumu yedekleme belirli bir süre içinde oluşturulamadı. Varsayılan zaman aşımı değeri 10 dakikadır. İsteğe bağlı yeni bir yedekleme isteği ile başlatın büyük [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) Bu senaryoda.
+    ```
+    BackupState             : Timeout
+    TimeStampUtc            : 0001-01-01T00:00:00Z
+    BackupId                : 00000000-0000-0000-0000-000000000000
+    BackupLocation          :
+    EpochOfLastBackupRecord :
+    LsnOfLastBackupRecord   : 0
+    FailureError            : @{Code=FABRIC_E_TIMEOUT; Message=The request of backup has timed out.}
+    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Düzenli yedekleme yapılandırması anlama](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Yedekleme geri yükleme REST API Başvurusu](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
+- [Düzenli yedekleme yapılandırması anlama](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
+- [BackupRestore REST API Başvurusu](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

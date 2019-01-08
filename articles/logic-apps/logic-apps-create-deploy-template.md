@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 8714c91079d087b16a62af4af8b381edf6871f8b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000572"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065741"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Mantıksal uygulamalar dağıtmak için Azure Resource Manager şablonları oluşturma
 
@@ -34,7 +34,7 @@ Mantıksal uygulama kaynağı içinde bu tanımında bulabilirsiniz `definition`
 * **Bağlantıları**: Ayrı bir bağlantı dizesi ve bir erişim belirteci gibi herhangi bir bağlayıcı bağlantısı hakkındaki meta verileri güvenli bir şekilde saklayın kaynaklarını ifade eder.
 Mantıksal uygulama kaynağı içinde mantıksal uygulamanız bu kaynaklara başvuran `parameters` bölümü.
 
-Var olan mantıksal uygulamalar'ın bu parçaların tamamı gibi bir araç kullanarak görüntüleyebileceğiniz [Azure kaynak Gezgini](http://resources.azure.com).
+Var olan mantıksal uygulamalar'ın bu parçaların tamamı gibi bir araç kullanarak görüntüleyebileceğiniz [Azure kaynak Gezgini](http://resources.azure.com). JSON söz dizimi ve özellikler için bkz: [Microsoft.Logic kaynak türleri](/azure/templates/microsoft.logic/allversions).
 
 Kaynak grubu dağıtımı ile kullanılacak bir mantıksal uygulama için bir şablon yapmak, kaynakları tanımlayan ve gerektikçe parametreleştirin.
 Geliştirme, test ve üretim ortamı dağıtıyorsanız, örneğin, büyük olasılıkla bir SQL veritabanı'na farklı bağlantı dizeleri her ortamda kullanmak istediğiniz.

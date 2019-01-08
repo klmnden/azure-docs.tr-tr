@@ -9,28 +9,29 @@ ms.devlang: ''
 ms.topic: conceptual
 f1_keywords:
 - mi.azure.sqlaudit.general.f1
-author: ronitr
-ms.author: ronitr
+author: vainolo
+ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: b295f7a2a454e3987e8639814f785b7457dd452b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 045314980d0051e8b5ef71bdf95023084eff1880
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973103"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063888"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL veritabanı yönetilen örneği denetimini kullanmaya başlama
 
 [Azure SQL veritabanı yönetilen örneği](sql-database-managed-instance.md) denetimi veritabanı olaylarını izler ve bir denetim günlüğüne Azure depolama hesabınızdaki yazar. Ayrıca denetleme:
+
 - Mevzuatla uyumluluk, veritabanı etkinliğini anlama ve tutarsızlıklar ve işletme sorunlarını veya şüpheli güvenlik ihlallerini anomalileri kavramanıza yardımcı olur.
 - Etkinleştirir ve uyumluluk garanti etmez ancak uyumluluk standardını da kıldığı kolaylaştırır. Azure hakkında daha fazla bilgi bu standartlara uyumluluk programları için bkz: [Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/compliance/).
 
-
-## <a name="set-up-auditing-for-your-server"></a>Sunucunuz için denetimi ayarlamanız
+## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Azure depolama sunucunuza için denetimi ayarlamanız 
 
 Aşağıdaki bölümde, yönetilen Örneğinize denetim yapılandırma açıklanmaktadır.
+
 1. [Azure Portal](https://portal.azure.com) gidin.
 2. Aşağıdaki adımlar bir Azure depolama oluşturur **kapsayıcı** denetim günlükleri nerede depolanır.
 
@@ -124,15 +125,69 @@ Aşağıdaki bölümde, yönetilen Örneğinize denetim yapılandırma açıklan
     GO
     ```
 
-## <a name="analyze-audit-logs"></a>Denetim günlüklerini çözümleme
+## <a name="set-up-auditing-for-your-server-to-event-hub-or-log-analytics"></a>Olay hub'ı veya Log Analytics sunucunuz için denetimi ayarlamanız
+
+Yönetilen örneğe denetim günlüklerinden bile hub veya Azure İzleyicisi'ni kullanarak Log Analytics'e gönderilir. Bu bölümde, bunun nasıl yapılandırıldığı açıklanmaktadır:
+
+1. Gezinme [Azure portalında](https://portal.azure.com/) SQL yönetilen örneği.
+
+2. Tıklayarak **tanılama ayarları**.
+
+3. Tıklayarak **tanılamayı Aç**. Tanılama zaten etkin değilse *+ tanılama ayarı ekleme* yerine gösterilir.
+
+4. Seçin **SQLSecurityAuditEvents** günlükleri listesinde.
+
+5. Denetim olaylar - olay hub'ı, Log Analytics veya her ikisi için bir hedef seçin. Her hedef için gerekli parametreler (örneğin Log Analytics çalışma alanı) yapılandırın.
+
+6. **Kaydet**’e tıklayın.
+
+  ![Gezinti bölmesi][9]
+
+7. Kullanarak yönetilen örneğe bağlanma **SQL Server Management Studio (SSMS)** veya desteklenen herhangi bir istemci.
+
+8. Sunucu denetimi oluşturmak için aşağıdaki T-SQL deyimi çalıştırın:
+
+    ```SQL
+    CREATE SERVER AUDIT [<your_audit_name>] TO EXTERNAL_MONITOR;
+    GO
+    ```
+
+9. SQL Server gibi sunucu denetimi belirtimi veya veritabanı denetim belirtimine oluşturun:
+
+   - [Sunucu denetimi belirtimi T-SQL kılavuzu oluşturma](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Veritabanı denetim belirtimine T-SQL kılavuzu oluşturma](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+
+10. 7. adımda oluşturduğunuz sunucu denetimi etkinleştir:
+ 
+    ```SQL
+    ALTER SERVER AUDIT [<your_audit_name>] WITH (STATE=ON);
+    GO
+    ```
+
+## <a name="consume-audit-logs"></a>Denetim günlüklerini kullanma
+
+### <a name="consume-logs-stored-in-azure-storage"></a>Azure Depolama'da depolanan günlüklerini kullanma
+
 Blob günlükleri denetleme görüntülemek için kullanabileceğiniz çeşitli yöntemler vardır.
 
 - Sistem işlevi kullanın `sys.fn_get_audit_file` (Denetim günlüğü verileri tablo biçiminde döndürmek için T-SQL). Bu işlev kullanma hakkında daha fazla bilgi için bkz. [sys.fn_get_audit_file belgeleri](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
+- Denetim günlükleri, Azure Depolama Gezgini gibi bir araç kullanarak keşfedebilirsiniz. Azure depolama alanında, Denetim günlükleri sqldbauditlogs adlı bir kapsayıcı içinde blob dosyaları koleksiyonu olarak kaydedilir. Depolama klasörü hiyerarşisi hakkında daha fazla ayrıntı için adlandırma kuralları ve günlük biçimi, Blob denetim günlük biçimi başvurusu bakın.
+
 - Denetim Günlüğü Tüketim yöntemi tam bir listesi için başvurmak [SQL veritabanı denetimini kullanmaya başlama](https://docs.microsoft.com/ azure/sql-database/sql-database-auditing).
 
 > [!IMPORTANT]
-> Denetim kayıtları (bölme 'denetim kayıtları') Azure portalından yöntemi yönetilen örneği için şu anda kullanılamıyor.
+> Denetim kayıtları Azure portalından ('denetim kayıtları' bölme), yönetilen örneği için şu anda kullanılamıyor.
+
+### <a name="consume-logs-stored-in-event-hub"></a>Olay Hub'ında depolanan günlüklerini kullanma
+
+Denetim günlükleri verileri olay hub'ı kullanmak için olayları kullanma ve bir hedef yazmak için bir akış ayarlamanız gerekir. Daha fazla bilgi için Azure Event Hubs belgeleri bakın.
+
+### <a name="consume-and-analyze-logs-stored-in-log-analytics"></a>Kullanma ve Log Analytics içinde depolanan günlüklerini çözümleme
+
+Denetim günlüklerini Log Analytics'e yazılır, bunlar burada denetim veriler üzerinde Gelişmiş aramaları çalıştırabilirsiniz. Log Analytics çalışma alanında kullanılabilir. Log Analytics ve altında bir başlangıç noktası olarak gidin *genel* bölümünde *günlükleri* ve basit bir sorgu girin: `search "SQLSecurityAuditEvents"` denetim görüntülemek üzere günlüğe kaydeder.  
+
+Log Analytics, tüm iş yüklerinizde ve sunucularınızda milyonlarca kaydı kolayca analiz etmek için tümleşik arama ve özel panoları kullanarak gerçek zamanlı operasyonel içgörüler sunar. Log Analytics arama dili ve komutlar hakkında başka yararlı bilgiler için bkz. [Log Analytics Arama başvurusu](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
 ## <a name="auditing-differences-between-managed-instance-azure-sql-database-and-sql-server"></a>Yönetilen örnek, Azure SQL veritabanı ve SQL Server arasındaki farklar denetleme
 
@@ -145,22 +200,17 @@ SQL yönetilen örneği, Azure SQL veritabanı ve SQL Server şirket içi denetl
 XEvent denetim yönetilen örneği'nde, Azure blob depolama hedeflerini destekler. Dosya ve windows günlükleri **desteklenmiyor**.
 
 Anahtarının farklar içinde `CREATE AUDIT` denetleme için Azure blob depolama söz dizimi olan:
+
 - Yeni bir söz dizimi `TO URL` sağlanır ve Azure blob depolama kapsayıcısının URL'sini belirtmenize olanak tanıyan burada `.xel` dosyalar yerleştirilir.
+- Yeni bir söz dizimi `TO EXTERNAL MONITOR` bile Hub ve Log Analytics hedefleri etkinleştirmek için sağlanır.
 - Söz dizimi `TO FILE` olduğu **desteklenmiyor** çünkü yönetilen örneği, Windows dosya paylaşımlarına erişemez.
 - Kapatma seçeneği **desteklenmiyor**.
 - `queue_delay` 0'ın **desteklenmiyor**.
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Denetim Günlüğü Tüketim yöntemi tam bir listesi için başvurmak [SQL veritabanı denetimini kullanmaya başlama](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 - Azure hakkında daha fazla bilgi bu standartlara uyumluluk programları için bkz: [Azure Güven Merkezi](https://azure.microsoft.com/support/trust-center/compliance/).
-
-
-<!--Anchors-->
-[Set up auditing for your server]: #subheading-1
-[Analyze audit logs]: #subheading-2
-[Auditing differences between Managed Instance, Azure SQL DB and SQL Server]: #subheading-3
 
 <!--Image references-->
 [1]: ./media/sql-managed-instance-auditing/1_blobs_widget.png
@@ -171,3 +221,4 @@ Anahtarının farklar içinde `CREATE AUDIT` denetleme için Azure blob depolama
 [6]: ./media/sql-managed-instance-auditing/6_storage_settings_menu.png
 [7]: ./media/sql-managed-instance-auditing/7_sas_configure.png
 [8]: ./media/sql-managed-instance-auditing/8_sas_copy.png
+[9]: ./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png

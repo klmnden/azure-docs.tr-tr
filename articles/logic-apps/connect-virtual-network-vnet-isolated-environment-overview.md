@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 12/03/2018
-ms.openlocfilehash: 5046b1012e0074e9548cad050c16eef25c00cee0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 2b11d74436907380811acda3b7427ebe8011afb4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845204"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54061032"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Tümleştirme service ortamları (ISEs) kullanarak Azure sanal ağ kaynakları için Azure Logic Apps gelen erişimi
 
@@ -33,7 +33,7 @@ Bu genel bakış, nasıl bir işe logic apps sağlar ve tümleştirme hesapları
 
 ## <a name="isolated-versus-global"></a>Genel karşı yalıtılmış
 
-Azure'da bir tümleşik service ortamı (ISE) oluşturduğunuzda, bir Azure sanal ağı seçin burada, *ekleme* ortam. Azure Logic Apps hizmetinin sanal ağınızda özel bir örneği dağıtır. Bu eylem, oluşturduğunuz ve ayrılmış kaynakları mantıksal uygulamalarınızı çalıştırmak için yalıtılmış bir ortam oluşturur. Mantıksal uygulama oluşturduğunuzda, mantıksal uygulama doğrudan erişim sağlayan, sanal ağınızda bulunan kaynaklar için uygulamanızın konumu olarak bu ortamı seçin. 
+Azure'da bir tümleşik service ortamı (ISE) oluşturduğunuzda, istediğiniz Azure sanal ağı seçin *ekleme* , işe. Azure Logic Apps hizmetinin sanal ağınızda özel bir örneği dağıtır. Bu eylem, oluşturduğunuz ve ayrılmış kaynakları mantıksal uygulamalarınızı çalıştırmak için yalıtılmış bir ortam oluşturur. Mantıksal uygulama oluşturduğunuzda, mantıksal uygulama doğrudan erişim sağlayan, sanal ağınızda bulunan kaynaklar için uygulamanızın konumu olarak bu ortamı seçin. 
 
 Logic apps'te bir işe genel Logic Apps hizmet olarak aynı kullanıcı deneyimleri ve benzer özellikleri sağlar. Yalnızca genel Logic Apps hizmetinde aynı yerleşik Eylemler ve bağlayıcılar kullanabilirsiniz, ancak işe özel bağlayıcılar da kullanabilirsiniz. Örneğin, bir ISE'de çalıştıran sürümler sunduğu bazı standart bağlayıcılar şu şekildedir:
  

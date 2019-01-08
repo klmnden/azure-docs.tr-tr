@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 11/30/2018
+ms.date: 01/05/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 00b096f59e70962b6883a8024744e8c91a5f9ae3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4bc963d09b9d01efdfad65b78ce9ce336798d375
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846904"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065350"
 ---
 # <a name="email-notifications-in-pim"></a>PIM e-posta bildirimleri
 
@@ -35,7 +35,7 @@ E-postalar için her iki Azure AD PIM gönderilen ve Azure kaynağı rolleri aş
 
 Bu e-postaları içeren bir **PIM** konu satırı önek. Bir örneği aşağıda verilmiştir:
 
-- PIM: Alain Charon kalıcı olarak yedekleme okuyucu rolü atandı
+- PIM: Alain Charon yedekleme okuyucu rolü kalıcı olarak atandı
 
 ## <a name="pim-emails-for-azure-ad-roles"></a>PIM e-postalar için Azure AD rolleri
 
@@ -43,16 +43,15 @@ Azure AD rolleri için aşağıdaki olaylar meydana geldiğinde PIM e-posta gön
 
 - Ayrıcalıklı rol Etkinleştirme Onayı Beklemede olduğunda
 - Ayrıcalıklı rol etkinleştirme isteği tamamlandığında
-- Ayrıcalıklı bir role uygun atandığında
 - Azure AD PIM etkinleştirildiğinde
 
 Rolünüz, olay ve bildirimleri olan Azure AD rolleri için bu e-postaları alır ayar bağlıdır:
 
-| Kullanıcı | Rol Etkinleştirme Onayı Beklemede değil. | Rol etkinleştirme isteği tamamlandı | Rol olarak uygun atanır. | PIM etkin |
-| --- | --- | --- | --- | --- |
-| Ayrıcalıklı Rol Yöneticisi</br>(Etkin/uygun) | Evet</br>(yalnızca hiçbir açık onaylayanlar belirtilirse) | Evet* | Evet | Evet |
-| Güvenlik Yöneticisi</br>(Etkin/uygun) | Hayır | Evet* | Evet | Evet |
-| Genel Yönetici</br>(Etkin/uygun) | Hayır | Evet* | Evet | Evet |
+| Kullanıcı | Rol Etkinleştirme Onayı Beklemede değil. | Rol etkinleştirme isteği tamamlandı | PIM etkin |
+| --- | --- | --- | --- |
+| Ayrıcalıklı Rol Yöneticisi</br>(Etkin/uygun) | Evet</br>(yalnızca hiçbir açık onaylayanlar belirtilirse) | Evet* | Evet |
+| Güvenlik Yöneticisi</br>(Etkin/uygun) | Hayır | Evet* | Evet |
+| Genel Yönetici</br>(Etkin/uygun) | Hayır | Evet* | Evet |
 
 \* Varsa [ **bildirimleri** ayarı](pim-how-to-change-default-settings.md#notifications) ayarlanır **etkinleştirme**.
 

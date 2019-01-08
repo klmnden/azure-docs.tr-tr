@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 371c7b2eb2f2e0e34dc80cf8fe6771620fa76765
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 51658fe686e2826618b2044cd969e6b4d463b93f
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099948"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063207"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Kimlik Azure Active Directory'de Avrupalı müşteriler için veri depolama
 Azure Active Directory (Azure AD), kullanıcı kimliklerini yönetmenize ve kuruluşunuzun kaynaklarına güvenli hale zeka tabanlı erişim ilkeleri oluşturmak için yardımcı olur. Kimlik verileri, hizmete abone olurken kuruluşunuzun sağladığı adrese göre belirlenen bir konumda depolanır. Örnek olarak Office 365 veya Azure abonelikleri verilebilir. Kimlik verilerinizin depolandığı yer hakkında belirli bilgiler için Microsoft Güven Merkezi'nin [Verileriniz nerede bulunur?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) bölümünü inceleyebilirsiniz.
@@ -55,7 +55,7 @@ Avrupa adresine sahip kuruluşların Azure AD ile ilgili Avrupa kaynaklı kimlik
 
 - **Microsoft Azure Active Directory B2C (Azure AD B2C)**
 
-    Azure AD B2C, bekleme durumundaki tüm kullanıcı verilerini Avrupa veri merkezlerinde depolar. Ancak işlem günlükleri (kişisel veriler kaldırılmış halde) hizmete erişen kişinin bulunduğu konumda kalır. Örneğin bir B2C kullanıcısı hizmete ABD'den erişirse işlem günlükleri ABD'de kalır. Ayrıca kişisel veri içermeyen tüm ilke yapılandırma verileri yalnızca ABD'de depolanır. İlke yapılandırması hakkında daha fazla bilgi için [Azure Active Directory B2C: Yerleşik ilkeler](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) makalesine bakın.
+    Azure AD B2C, bekleme durumundaki tüm kullanıcı verilerini Avrupa veri merkezlerinde depolar. Ancak işlem günlükleri (kişisel veriler kaldırılmış halde) hizmete erişen kişinin bulunduğu konumda kalır. Örneğin bir B2C kullanıcısı hizmete ABD'den erişirse işlem günlükleri ABD'de kalır. Ayrıca kişisel veri içermeyen tüm ilke yapılandırma verileri yalnızca ABD'de depolanır. İlke yapılandırmaları hakkında daha fazla bilgi için bkz. [Azure Active Directory B2C: Yerleşik ilkeler](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) makalesi.
 
 - **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
     
@@ -72,7 +72,7 @@ Avrupa adresine sahip kuruluşların Azure AD ile ilgili Avrupa kaynaklı kimlik
     Microsoft hizmetlerinin verileri depoladığı konumlar hakkında daha fazla bilgi için Microsoft Güven Merkezi'nin [Verileriniz nerede bulunur?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) bölümünü inceleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Yukarıda anlatılan özellikler ve işlevler hakkında daha fazla bilgi için aşağıdaki makalelere bakın.
+Özellikler ve İşlevler yukarıda açıklanan ilgili daha fazla bilgi için şu makalelere bakın:
 - [Multi-Factor Authentication nedir?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
 - [Azure AD self servis parola sıfırlama](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
 - [Azure Active Directory B2C nedir?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)

@@ -3,7 +3,7 @@ title: Teklifinizin Azure Market'te dağıtma | Microsoft Docs
 description: Azure Marketi'nde teklifinizi--dağıtmak için yönergeler sanal makine görüntüsü, geliştirici hizmeti, veri hizmeti, vb.--yol ve bilgi edinin.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 8f79b891-84e2-4f41-ba0d-66420e2c6b2e
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
-ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 058f50853795453617593a6a07e2951f15f28174
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714290"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076120"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Teklifinizin Azure Market'te dağıtma
 Olduğunuzda teklifinizle (diğer bir deyişle, müşteri senaryoları, pazarlama içeriği, vb. test ettiğiniz) ve başlatma, istek hazır **anında üretime** üzerinde **Yayımla** sekmesi.  
@@ -50,7 +51,7 @@ Olduğunuzda teklifinizle (diğer bir deyişle, müşteri senaryoları, pazarlam
 ## <a name="production-checklist-for-all-virtual-machine-offers"></a>Tüm sanal makine teklifleri için üretim denetim listesi
 * Bir Microsoft Azure sertifikalı iş ortağı olduğundan emin olun
 * Yalnızca SKU çözüm şablonunun bir parçası ise SKU'ları sekmesinde seçeneği "gizleme marketten bu SKU, her zaman bir çözüm şablonu satın alınması çünkü" Evet işaretlenmelidir. Diğer tüm durumlarda, bu seçenek her zaman Hayır işaretlenmelidir
-* Unutmayın:, SKU listelenen sonra SKU görünürlük ayarlama değiştirmemesi gerekir. Bu işlev desteklemiyoruz.
+* Unutmayın: SKU listelenen sonra SKU görünürlük ayarlama değiştirmemelisiniz. Bu işlev desteklemiyoruz.
 * Aşağıda logoların aşağıda verilen Azure Marketplace logosu yönergelere uyması emin olun.
 * Teklifinizi ve SKU'nuzu açıklaması aynı olmamalıdır.
 * SKU'ları başlık ve teklif uzun özeti aynı olmamalıdır.
@@ -62,15 +63,15 @@ Olduğunuzda teklifinizle (diğer bir deyişle, müşteri senaryoları, pazarlam
 * Azure tasarımının basit bir renk paleti vardır. Logonuzu düşük tutmak için ikincil renk ve birincil sayısı.
 * Azure portal'ın Tema renkleri beyaz ve siyah. Bu nedenle bu renkler, logolar arka plan rengi kullanmaktan kaçının. Logo, Azure portalında belirgin hale getirir bazı renk kullanın. Basit birincil renkleri öneririz. Saydam arka plan kullanıyorsanız, logo/metin beyaz veya siyah olmadığından emin olun.
 * Arka plan gradyan logosunu kullanmayın.
-* Metin, hatta şirket veya marka adı logosunu yerleştirmekten kaçının.
+* Metin, hatta şirket, yerleştirmekten kaçının veya adına logo marka.
 * Logonuzu Görünüm ve yapısını 'düz' olmalıdır ve gradyanları kaçınmalıdır.
 * Logo uzatılması gerektiğini değil.
 
 **Ek yönergeler Hero logo:**
 
 * Hero logosu isteğe bağlıdır. Yayımcı Hero logoyu karşıya yükleyin değil seçebilirsiniz. **Ancak bir kez karşıya yüklenen hero simgesi silinemez Yayımlama Portalı. Bu sırada, iş ortağı üretime Hero simgeler başka teklif henüz onaylanmamış için Azure Marketi yönergelere uyması gerekir.**
-* Yayımcı görünen adı, SKU başlık ve uzun Özet teklif beyaz renkte görüntülenir. Bu nedenle herhangi bir ışık rengi Hero simgesinin arka planda tutarak kaçınmanız gerekir. Siyah, beyaz ve saydam bir arka plan için Hero simgeler izin verilmez.
-* Yayımcı görünen adı, SKU başlık, uzun Özet teklif ve Oluştur düğmesine katıştırıldığı program aracılığıyla içinde Hero logosu teklif listelenen gider sonra. Bu nedenle Hero logosu tasarlarken herhangi bir metin girmemelisiniz. Yalnızca metin (yani yayımcı görünen adı, SKU başlık, uzun Özet teklif) programlı olarak bizim tarafımızdan orada dahil edilir çünkü sağ tarafta boşluk bırakın. 415 x 100 sağdaki metin için boş alan olmalıdır (ve soldan 370px tarafından uzaklık).
+* Yayımcı görünen adı, SKU başlık ve teklif uzun özeti beyaz renkte görüntülenir. Bu nedenle herhangi bir ışık rengi Hero simgesinin arka planda tutarak kaçınmanız gerekir. Siyah, beyaz ve saydam bir arka plan için Hero simgeler izin verilmez.
+* Yayımcı görünen adı, SKU başlık, uzun Özet teklif ve Oluştur düğmesine katıştırıldığı program aracılığıyla içinde Hero logosu teklif listelenen gider sonra. Bu nedenle Hero logosu tasarlarken herhangi bir metin girmemelisiniz. Yalnızca metin (diğer bir deyişle, yayımcı görünen adı, SKU başlık, uzun Özet teklif) programlı olarak bizim tarafımızdan orada dahil edilir çünkü sağ tarafta boşluk bırakın. 415 x 100 sağdaki metin için boş alan olmalıdır (ve 370 göre uzaklığını soldan piksel).
 
 ## <a name="additional-production-checklist-for-already-listed-virtual-machine-offers"></a>Önceden listelenen sanal makine için ek üretim denetim sunar.
 * Şirketinizdeki aynı Teklif ada sahip bir teklif zaten varsa bulunmadığını denetleyin. Evet ise, yeni bir yinelenen teklifi oluşturmak yerine var olan bir teklif, SKU yeni bir sürümünü eklemeniz gerekir.
@@ -81,7 +82,7 @@ Olduğunuzda teklifinizle (diğer bir deyişle, müşteri senaryoları, pazarlam
 Teklif etkin hale gelir, sonra tüm işlevselliği ve sözleşmeleri düzgün üretim ortamında çalışması test ve hazırlık ortamında doğrulanması doğrulamak için müşteri senaryoları test edin.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Başlarken: nasıl bir teklifi Azure Marketinde yayımlama](marketplace-publishing-getting-started.md)
+* [Başlarken: Nasıl bir teklifi Azure Marketinde yayımlama](marketplace-publishing-getting-started.md)
 
 [img-pubportal-walkthru-checked]:media/marketplace-publishing-push-to-production/pubportal-walkthru-checked.png
 [img-pubportal-menu-publish]:media/marketplace-publishing-push-to-production/pubportal-menu-publish.png

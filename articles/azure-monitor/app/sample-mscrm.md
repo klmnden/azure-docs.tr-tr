@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 9028d682d7807b8b153153840356e2e37b082b27
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 12b4a4639991628265a19a5d45f3abdef590efcd
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54028850"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077938"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>Çözüm: Microsoft Dynamics CRM Online Application Insights ile Telemetri etkinleştirme
 Bu makalede telemetri verilerinin alınacağı gösterilmektedir [Microsoft Dynamics CRM Online](https://www.dynamics.com/) kullanarak [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Veri ve veri görselleştirme yakalama uygulamanıza Application Insights betiğini ekleme tam işlemi gösterilecektir.
@@ -127,7 +127,7 @@ Daha fazla ayrıntı almak için grafiği tıklatın:
 [Örnek kod Gözat](https://dynamicsandappinsights.codeplex.com/).
 
 ## <a name="power-bi"></a>Power BI
-Bunu daha da derin analizi yapabilirsiniz, [Microsoft Power BI için verileri dışarı aktarma](../../application-insights/app-insights-export-power-bi.md).
+Bunu daha da derin analizi yapabilirsiniz, [Microsoft Power BI için verileri dışarı aktarma](../../azure-monitor/app/export-power-bi.md ).
 
 ## <a name="sample-microsoft-dynamics-crm-solution"></a>Örnek Microsoft Dynamics CRM çözüm
 [Microsoft Dynamics CRM'de uygulanan örnek çözüm işte](https://dynamicsandappinsights.codeplex.com/).

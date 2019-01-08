@@ -3,7 +3,7 @@ title: Oluşturma ve bir teklifi Market'te dağıtma hakkında genel bakış | M
 description: Onaylanan bir Microsoft geliştiricisi olun, oluşturmak ve bir sanal makine görüntüsünü, şablon, veri hizmeti veya Geliştirici hizmeti Azure Marketi'nde dağıtmak için gereken adımları anlayın
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 5343bd26-c6e4-4589-85b7-4a2c00bba8ab
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 2c8c97d8f5477e7640df87030ed6ef27c4c7b979
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7c2f33755628d6ee4880f1965545cde019b72c5e
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310088"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073842"
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Yayımlama ve Azure Marketi'nde Teklif yönetme
 

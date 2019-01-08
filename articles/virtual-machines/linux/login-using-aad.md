@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: bc556991cc304aa8c5edc04dba1d333dc77ad230
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850984"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073416"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulama (Önizleme) kullanarak Azure'da bir Linux sanal makinede oturum açın
 
@@ -37,7 +37,7 @@ Linux sanal makineleri, azure'da oturum açmak için Azure AD kimlik doğrulamas
   - Azure sanal makineleri daha güvenli oturum açma için çok faktörlü kimlik doğrulamasını yapılandırabilirsiniz.
   - Linux Vm'leri Azure Active Directory ile oturum açmak için özelliği kullanan müşteriler için de kullanılabilir [Federasyon Hizmetleri](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
-- **Sorunsuz bir işbirliği:** With Role-Based erişim denetimi (RBAC) belirtebilirsiniz kimin yönetici ayrıcalıklarıyla veya normal bir kullanıcı belirli bir VM'nin oturum açabilirsiniz. Kullanıcılar katılın veya takımınızın bırakın, uygun erişim vermek sanal makine için RBAC İlkesi güncelleştirebilirsiniz. Bu deneyim Vm'leri gereksiz SSH ortak anahtarlarını kaldırmak için temizleme gerek kalmadan daha çok daha kolaydır. Çalışanlar, kuruluşunuzun bırakın ve kullanıcı hesabı devre dışı ya da Azure AD'deki kaldırıldı, artık kaynaklarınıza erişimi yok.
+- **Sorunsuz bir işbirliği:** Rol tabanlı erişim denetimi (RBAC) sahip olan belirli bir sanal Makinenin yönetici ayrıcalıklarıyla veya normal bir kullanıcı olarak oturum belirtebilirsiniz. Kullanıcılar katılın veya takımınızın bırakın, uygun erişim vermek sanal makine için RBAC İlkesi güncelleştirebilirsiniz. Bu deneyim Vm'leri gereksiz SSH ortak anahtarlarını kaldırmak için temizleme gerek kalmadan daha çok daha kolaydır. Çalışanlar, kuruluşunuzun bırakın ve kullanıcı hesabı devre dışı ya da Azure AD'deki kaldırıldı, artık kaynaklarınıza erişimi yok.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>Desteklenen Azure bölgeleri ve Linux dağıtımları
 
@@ -96,8 +96,8 @@ az vm extension set \
 
 Azure rol tabanlı erişim denetimi (RBAC) İlkesi kullanan sanal Makineye oturum açabilirsiniz belirler. İki RBAC rollerini VM oturum açma yetkisi vermek için kullanılır:
 
-- **Sanal Makine Yöneticisi oturum açma**: atanan bu role sahip kullanıcılar oturum bir Azure sanal makinesinde Windows Yöneticisi veya Linux kök kullanıcı ayrıcalıklarıyla.
-- **Sanal makine kullanıcı oturum açma**: atanan bu role sahip kullanıcılar oturum açabildiğinden normal kullanıcı ayrıcalıkları olan bir Azure sanal makinesi için.
+- **Sanal Makine Yöneticisi oturum açma**: Atanan bu role sahip kullanıcılar bir Azure sanal makinesinde Windows Yöneticisi veya Linux kök kullanıcı ayrıcalıkları ile oturum açabilir.
+- **Sanal makine kullanıcı oturum açma**: Atanan bu role sahip kullanıcılar normal kullanıcı ayrıcalıkları olan bir Azure sanal makinesinde oturum açabilir.
 
 > [!NOTE]
 > VM'ye SSH üzerinden oturum açmasına izin vermek için ya da atamanız gerekir *Sanal Makine Yöneticisi oturum açma* veya *sanal makine kullanıcı oturum açma* rol. Bir Azure kullanıcısı ile *sahibi* veya *katkıda bulunan* bir VM için atanan rollerin otomatik olarak sanal Makineye SSH üzerinden oturum açmak için ayrıcalıkları yoktur.
@@ -150,7 +150,7 @@ Kapat tarayıcı penceresinin SSH istemine geri dönmek ve basın **Enter** anah
 
 ## <a name="sudo-and-aad-login"></a>Sudo ve AAD oturum açma
 
-Sudo, ilk kez ikinci kez kimlik doğrulaması istenir. Sudo çalıştırmak için yeniden kimlik doğrulaması olmasını istemiyorsanız sudoers dosyanızı düzenleyebileceğiniz `/aad/etc/sudoers.d/aad_admins` ve bu satırı değiştirin:
+Sudo, ilk kez ikinci kez kimlik doğrulaması istenir. Sudo çalıştırmak için yeniden kimlik doğrulaması olmasını istemiyorsanız sudoers dosyanızı düzenleyebileceğiniz `/etc/sudoers.d/aad_admins` ve bu satırı değiştirin:
 
 ```bash
 %aad_admins ALL=(ALL) ALL

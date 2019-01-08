@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 378516066e3b4a3436a2952616ea877d9a49d5d4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 3bf24a4ed17986ff948a7396e608a51ae38208a5
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255321"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076510"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Azure Application Insights Java SDK ile Micrometer kullanma
 Micrometer uygulama izleme ölçüler ölçümleri JVM tabanlı bir uygulama için kod ve izleme sistemlerinden sevdiğiniz veri dışa aktarmanızı sağlar. Bu makalede Spring Boot ve Spring Boot uygulamaları için Application Insights ile Micrometer kullanmayı öğretir.
@@ -27,7 +27,7 @@ Pom.xml veya build.gradle dosyanıza aşağıdaki bağımlılıkları ekleyin:
 * [Application Insights spring-boot-Başlatıcı](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-BETA veya üzeri
 * Micrometer Azure kayıt defteri 1.1.0 veya üzeri
 * [Micrometer Spring eski](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 veya üzeri (Bu backports Spring framework autoconfig kodda).
-* [Applicationınsights kaynak](app-insights-create-new-resource.md)
+* [Applicationınsights kaynak](../azure-monitor/app/create-new-resource.md )
 
 Adımlar
 
@@ -65,7 +65,7 @@ Pom.xml veya build.gradle dosyanıza aşağıdaki bağımlılıkları ekleyin:
 
 * Application Insights Spring boot Başlatıcı 2.1.2'yi veya üzeri
 * Azure-spring-önyükleme-ölçümlerini-başlangıç 2.0.7 veya üzeri  
-* [Application Insights kaynağı](app-insights-create-new-resource.md)
+* [Application Insights kaynağı](../azure-monitor/app/create-new-resource.md )
 
 Adımlar:
 
@@ -126,7 +126,7 @@ Pom.xml veya build.gradle dosyanıza aşağıdaki bağımlılıkları ekleyin:
 * [Application Insights Web 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) veya üzeri
 * [Kayıt Web filtresi](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * Micrometer Azure kayıt defteri 1.1.0 veya üzeri
-* [Application Insights kaynağı](app-insights-create-new-resource.md)
+* [Application Insights kaynağı](../azure-monitor/app/create-new-resource.md )
 
 Adımlar:
 

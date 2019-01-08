@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: b870383634412c5b095738e2a7f79b9cf4dcf78a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 72cfdd2188a0ba53757a1ac7106099eb7b85fb46
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018220"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073484"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights ile performans sorunlarını bulma ve tanılama
 
@@ -126,4 +126,4 @@ Sunucu performansı için toplanan verilerde olduğu gibi, Application Insights 
 Artık çalışma zamanı özel durumlarının nasıl belirleneceğini öğrendiğinize göre, hatalara yanıt olarak uyarı oluşturmayı öğrenmek için bir sonraki öğreticiye ilerleyebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Uygulama durumuyla ilgili uyarılar](app-insights-tutorial-alert.md)
+> [Uygulama durumuyla ilgili uyarılar](../azure-monitor/learn/tutorial-alert.md)

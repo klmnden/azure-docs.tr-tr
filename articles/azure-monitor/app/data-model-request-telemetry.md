@@ -9,15 +9,15 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 01/07/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 91f6254fe756f256a2c88429fb4d96156867ef4a
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 1f9a108a91a2fa917ec58e6cff487c6dca71130f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001915"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076408"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>İstek telemetrisi: Application Insights veri modeli
 
@@ -63,9 +63,9 @@ En fazla uzunluk: 1024 karakter
 
 ## <a name="success"></a>Başarılı
 
-Başarılı veya başarısız çağrı göstergesi. Bu alan zorunludur. Açıkça ayarlandığında değil `false` -isteği kabul başarılı olması için. Bu değer kümesine `false` işlemi özel durum tarafından kesildi veya hata sonuç kodunu döndürdü.
+Başarılı veya başarısız çağrı göstergesi. Bu alan zorunludur. Açıkça ayarlandığında değil `false` -bir istek başarılı olarak kabul edilir. Bu değer kümesine `false` işlemi özel durum tarafından kesildi veya hata sonuç kodunu döndürdü.
 
-Web uygulamaları için Application Insights istek yanıt kodu daha az olduğunda başarısız olarak tanımlamak `400` veya buna eşit `401`. Ancak bu varsayılan eşleme anlam uygulamanın eşleşmediğinde durumlar vardır. Yanıt kodu `404` "normal bir akışın parçası olabilecek hiç kayıt" gösterebilir. Bozuk bağlantı da işaret edebilir. Bozuk bağlantılar için bile daha gelişmiş mantığı uygulayabilir. Yalnızca bu bağlantıları aynı sitede url başvuran analiz ederek bulunduğunda bağlantıların hatalar olarak işaretleyebilirsiniz. Veya bunları şirketin mobil uygulamasından erişildiğinde hatası olarak işaretleyin. Benzer şekilde `301` ve `302` yeniden yönlendirme desteği olmayan istemciden erişildiğinde başarısız olduğunu gösterir.
+Yanıt kodu olduğunda web uygulamaları için Application Insights istek başarılı tanımlamak küçüktür `400` veya buna eşit `401`. Ancak bu varsayılan eşleme anlam uygulamanın eşleşmediğinde durumlar vardır. Yanıt kodu `404` "normal bir akışın parçası olabilecek hiç kayıt" gösterebilir. Bozuk bağlantı da işaret edebilir. Bozuk bağlantılar için bile daha gelişmiş mantığı uygulayabilir. Yalnızca bu bağlantıları aynı sitede url başvuran analiz ederek bulunduğunda bağlantıların hatalar olarak işaretleyebilirsiniz. Veya bunları şirketin mobil uygulamasından erişildiğinde hatası olarak işaretleyin. Benzer şekilde `301` ve `302` yeniden yönlendirme desteği olmayan istemciden erişildiğinde başarısız olduğunu gösterir.
 
 İçerik'kısmen kabul `206` genel bir istek bir hata gösterebilir. Örneğin, Application Insights uç nokta telemetri öğelerini toplu tek bir istek alır. Döndürür `206` olduğunda toplu işlem kümesindeki bazı öğeler değil başarıyla işlendi. Artan oranını `206` araştırılması gereken bir sorun olduğunu gösterir. Benzer bir mantık uygular `207` başarı ayrı yanıt kodları en kötü olabilir burada birden fazla durum.
 

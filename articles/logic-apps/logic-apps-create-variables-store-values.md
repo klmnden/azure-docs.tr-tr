@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: bb84c7d5e483b0a2abc3b7d1a37de8760513d203
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231636"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063225"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Kaydetme ve Azure Logic Apps değerleri yönetmek için değişkenleri oluşturma
 
@@ -28,7 +28,10 @@ Tamsayı, kayan noktalı sayı, Boole, dize, dizi ve nesne gibi veri türleri i�
 * Değişkenine farklı bir değer atayın.
 * Ekleme veya *ekleme* değişkenin değeri olarak bir dize veya dizideki son zaman.
 
-Değişkenleri, mevcut ve kendilerini oluşturan yalnızca mantıksal uygulama örneği içinde geneldir. Ayrıca, bir mantıksal uygulama örneği içindeki herhangi bir döngü yinelemesi arasında kalıcı. Bir değişken başvururken değişkenin adı belirteci, bir eylemin çıkışlarına başvuruyor için her zamanki şekilde değil eylemin adı olarak kullanın.
+Değişkenleri, mevcut ve kendilerini oluşturan yalnızca mantıksal uygulama örneği içinde geneldir. Ayrıca, bir mantıksal uygulama örneği içindeki herhangi bir döngü yinelemesi arasında kalıcı. Bir değişken başvururken değişkenin adı belirteci, bir eylemin çıkışlarına başvuruyor için her zamanki şekilde değil eylemin adı olarak kullanın. 
+
+> [!IMPORTANT]
+> Varsayılan olarak, Döngülerde "Foreach" döngüsünü paralel olarak çalıştırın. Döngülerde değişkenleri kullandığınızda döngünün [sırayla](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) değişkenleri tahmin edilebilir sonuçlar döndürülmesi için. 
 
 Henüz Azure aboneliğiniz yoksa, <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. 
 
@@ -38,7 +41,7 @@ Bu makalede takip etmek için gereksinim duyduğunuz öğeleri şunlardır:
 
 * Bir değişken oluşturmak için istediğiniz mantıksal uygulama 
 
-  Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+  Logic apps kullanmaya yeni başladıysanız gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * A [tetikleyici](../logic-apps/logic-apps-overview.md#logic-app-concepts) mantıksal uygulamanızı ilk adımı olarak 
 
@@ -58,7 +61,7 @@ Bir değişken oluşturun ve kendi veri türüne ve ilk değer - tüm mantıksal
 
    * Son adım altında bir eylem eklemek için **yeni adım** > **Eylem Ekle**.
 
-     ![Eylem Ekle](./media/logic-apps-create-variables-store-values/add-action.png)
+     ![Eylem ekle](./media/logic-apps-create-variables-store-values/add-action.png)
 
    * Adımlar arasındaki bir eylem eklemek için artı işaretini (+) görünecek şekilde farenizi bağlanan okun üzerine taşıyın. 
    Artı işaretini seçin ve ardından **Eylem Ekle**.
@@ -69,7 +72,7 @@ Bir değişken oluşturun ve kendi veri türüne ve ilk değer - tüm mantıksal
 
 4. Değişkeninizin bu bilgileri sağlayın:
 
-   | Özellik | Gerekli | Değer |  Açıklama |
+   | Özellik | Gereklidir | Değer |  Açıklama |
    |----------|----------|-------|--------------|
    | Ad | Evet | <*değişken adı*> | Artış değişkeni adı | 
    | Tür | Evet | <*değişken türü*> | Değişken için veri türü | 
@@ -195,7 +198,7 @@ Artırmak için veya *artışı* sabit bir değere göre değişken Ekle **deği
 
    Örneğin, bu mantıksal uygulama zaten bir tetikleyici ve bir değişken oluşturan eylem bulunur. Bu nedenle, bu adımları altında yeni bir eylem ekleyin:
 
-   ![Eylem Ekle](./media/logic-apps-create-variables-store-values/add-increment-variable-action.png)
+   ![Eylem ekle](./media/logic-apps-create-variables-store-values/add-increment-variable-action.png)
 
    Var olan adımlar arasında bir eylem eklemek için artı işaretini (+) gözükmesi farenizi bağlanan okun üzerine taşıyın. Artı işaretini seçin ve ardından **Eylem Ekle**.
 
@@ -205,10 +208,10 @@ Artırmak için veya *artışı* sabit bir değere göre değişken Ekle **deği
 
 3. Değişkeninizin artırma için bu bilgileri sağlayın:
 
-   | Özellik | Gerekli | Değer |  Açıklama |
+   | Özellik | Gereklidir | Değer |  Açıklama |
    |----------|----------|-------|--------------|
    | Ad | Evet | <*değişken adı*> | Artış değişkeni adı | 
-   | Değer | Hayır | <*değeri Artır*> | Değişken değerini artırmak için kullanılan değer. Varsayılan değer biridir. <p><p>**İpucu**: değişkeninizle artırma için söz konusu değeri her zaman haberdar olmak için isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
+   | Değer | Hayır | <*değeri Artır*> | Değişken değerini artırmak için kullanılan değer. Varsayılan değer biridir. <p><p>**İpucu**: Değişkeninizin artırma için söz konusu değeri her zaman haberdar olmak için isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
    |||| 
 
    Örneğin: 
@@ -232,7 +235,7 @@ Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, i�
 },
 ```
 
-## <a name="example-create-loop-counter"></a>Örnek: döngü sayacı oluşturun
+## <a name="example-create-loop-counter"></a>Örnek: Döngü sayacı oluşturun
 
 Değişkenleri, bir döngü çalışan sayısını sayma için yaygın olarak kullanılır. Bu örnekte, nasıl oluşturabileceğinizi ve e-posta eklerini sayan bir döngü oluşturarak bu görev için değişkenleri kullanma gösterilmektedir.
 
@@ -325,10 +328,10 @@ Azaltmak için veya *azaltma* sabit değerli bir değişken için adımları izl
 
 Özellikleri şunlardır **azaltma değişkeni** eylem:
 
-| Özellik | Gerekli | Değer |  Açıklama |
+| Özellik | Gereklidir | Değer |  Açıklama |
 |----------|----------|-------|--------------|
 | Ad | Evet | <*değişken adı*> | Azaltma değişkeni adı | 
-| Değer | Hayır | <*değeri Artır*> | Azaltma değişkeni için değer. Varsayılan değer biridir. <p><p>**İpucu**: azaltma özel değeri, değişken her zaman bilmesi isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
+| Değer | Hayır | <*değeri Artır*> | Azaltma değişkeni için değer. Varsayılan değer biridir. <p><p>**İpucu**: Azaltma özel değeri, değişken her zaman bilmesi isteğe bağlı olsa da, bu değeri en iyi uygulama ayarlayın. | 
 ||||| 
 
 Kod Görünümü düzenleyicisine Tasarımcısı'ndan geçiş yapıyorsanız, işte yol **azaltma değişkeni** JSON biçimindedir, mantıksal uygulama tanımınızı içinde eylem görünür.
@@ -360,7 +363,7 @@ Bu eylem bir varsayılan değer olmadığı için gerekli bir değerdir.
 
 Özellikleri şunlardır **değişken Ayarla** eylem:
 
-| Özellik | Gerekli | Değer |  Açıklama | 
+| Özellik | Gereklidir | Değer |  Açıklama | 
 |----------|----------|-------|--------------| 
 | Ad | Evet | <*değişken adı*> | Değiştirmek değişken adı | 
 | Değer | Evet | <*Yeni değer*> | Değişken atamak istediğiniz değer. Aynı veri türüne sahip olmalıdır. | 
@@ -418,7 +421,7 @@ Dizeler veya diziler depolamak için değişkenleri, eklediğiniz veya *ekleme* 
 
 Özellikleri şunlardır **ekleyin...**  eylemler:
 
-| Özellik | Gerekli | Değer |  Açıklama | 
+| Özellik | Gereklidir | Değer |  Açıklama | 
 |----------|----------|-------|--------------| 
 | Ad | Evet | <*değişken adı*> | Değiştirmek değişken adı | 
 | Değer | Evet | <*değer ekleme*> | Herhangi bir tür olabilen, eklemek istediğiniz değer | 

@@ -1,6 +1,6 @@
 ---
-title: Azure App Service performansını izleme | Microsoft Docs
-description: Azure web uygulamaları için uygulama performansını izleme. Yük, yanıt süresi ve bağımlılık bilgilerinin grafiğini çıkarın ve performansa bağlı uyarılar ayarlayın.
+title: Azure uygulama hizmetleri performansını izleme | Microsoft Docs
+description: Azure uygulama hizmetleri için uygulama performansı izleme. Yük, yanıt süresi ve bağımlılık bilgilerinin grafiğini çıkarın ve performansa bağlı uyarılar ayarlayın.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: d96a7b775ec051f3511a179ebd4e879f50b9af32
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3e027b92114bdf8cebf6e6bf239ebd9beb4943d6
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019650"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073348"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service performansını izleme
 İçinde [Azure portalı](https://portal.azure.com) web uygulamaları, mobil arka uçlar ve API apps için uygulama performans izleme özelliğini ayarlayabilirsiniz [Azure App Service](../../app-service/overview.md). [Azure Application Insights](../../application-insights/app-insights-overview.md), uygulamanızı izleyerek uygulama etkinlikleriyle ilgili telemetriyi Application Insights hizmetine gönderir ve telemetri burada depolanıp analiz edilir. Burada, sorunların tanılanmasına, performansın geliştirilmesine ve kullanımın değerlendirilmesine yardımcı olan ölçüm grafikleri ve arama araçları kullanılabilir.
@@ -25,20 +25,20 @@ ms.locfileid: "54019650"
 ## <a name="run-time-or-build-time"></a>Çalışma zamanı veya derleme zamanı
 Uygulamanız için şu iki yoldan biriyle izleme yapılandırabilirsiniz:
 
-* **Çalışma zamanı**: Web uygulamanız zaten yayındayken bir performans izleme uzantısını seçebilirsiniz. Uygulamanızı yeniden derlemeniz ya da yüklemeniz gerekmez. Yanıt süreleri, başarı oranları, özel durumlar ve bağımlılıklar gibi değişkenleri izleyen standart bir paket kümesine sahip olursunuz. 
+* **Çalışma zamanı** -izleme uzantısı app service'inizin zaten yayındayken bir performans seçebilirsiniz. Uygulamanızı yeniden derlemeniz ya da yüklemeniz gerekmez. Yanıt süreleri, başarı oranları, özel durumlar ve bağımlılıklar gibi değişkenleri izleyen standart bir paket kümesine sahip olursunuz. 
 * **Derleme zamanı**: Geliştirme sırasında uygulamanıza bir paket yükleyebilirsiniz. Bu seçenek daha kullanışlıdır. Aynı standart paketlere ek olarak telemetriyi özelleştirmek için kod yazabilir ya da kendi telemetrinizi gönderebilirsiniz. Uygulama etki alanınızın semantiğine göre belirli etkinlikleri günlüğe kaydedebilir veya olayların kaydını tutabilirsiniz. 
 
 ## <a name="run-time-instrumentation-with-application-insights"></a>Application Insights ile çalışma zamanında izleme
-Azure’da çalışmakta olan bir web uygulamanız varsa zaten bazı izleme verileri alırsınız: İstek ve hata oranları. Yanıt süreleri, bağımlılıklara yapılan çağrılar, akıllı algılama ve güçlü Log Analytics sorgu dili gibi ek özelliklere sahip olmak için Application Insights’ı ekleyin. 
+Azure'da zaten bir app service çalıştırıyorsanız, zaten bazı izleme alırsınız: istek ve hata oranları. Yanıt süreleri, bağımlılıklara yapılan çağrılar, akıllı algılama ve güçlü Log Analytics sorgu dili gibi ek özelliklere sahip olmak için Application Insights’ı ekleyin. 
 
-1. Web uygulamanızın Azure denetim masasında **Application Insights’ı seçin**.
+1. **Application Insights'ı seçin** uygulama hizmetiniz için Azure Denetim Masası'nda.
 
     ![Ayarlarda, Application ınsights'ı seçin.](./media/azure-web-apps/settings-app-insights.png)
 
    * Yeni bir kaynak oluşturmak bu uygulama için bir Application Insights kaynağı zaten ayarlamadıysanız'ı seçin. 
 
     > [!NOTE]
-    > Tıkladığınızda **Tamam** için istenir yeni kaynak oluşturmak için **izleme ayarlarını uygula**. Seçme **devam** yeni Application Insights kaynağınıza de bunu yapılması, web uygulamasına bağlayacaksınız **web uygulamanızı yeniden tetikleyin**. 
+    > Tıkladığınızda **Tamam** için istenir yeni kaynak oluşturmak için **izleme ayarlarını uygula**. Seçme **devam** app Service'e kadar olacak de yapmak, yeni Application Insights kaynağınıza bağlayacaksınız **app service'inizi yeniden tetikleyin**. 
 
     ![Web uygulamanızı izleme](./media/azure-web-apps/create-resource.png)
 
@@ -46,7 +46,7 @@ Azure’da çalışmakta olan bir web uygulamanız varsa zaten bazı izleme veri
 
     ![Platform başına seçenekleri belirleyin](./media/azure-web-apps/choose-options.png)
 
-3. Application Insights yüklendikten sonra **web uygulamanızı izleyin** .
+3. **App service'inizin izleme** Application Insights yüklendikten sonra.
 
    Sayfa görüntülemesi ve kullanıcı telemetrisi için **istemci tarafı izlemeyi etkinleştirin**.
 
@@ -95,6 +95,17 @@ Application Insights, uygulamanıza bir SDK yükleyerek daha ayrıntılı teleme
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+
+## <a name="troubleshooting"></a>Sorun giderme
+
+### <a name="appinsightsjavascriptenabled-causes-incomplete-html-response-in-net-core-web-applications"></a>APPINSIGHTS_JAVASCRIPT_ENABLED tamamlanmamış HTML yanıtını NET CORE web uygulamaları neden olur.
+
+JavaScript uygulama hizmetleri aracılığıyla etkinleştirme html yanıtları kesiliyor neden olabilir.
+
+- Geçici Çözüm 1: APPINSIGHTS_JAVASCRIPT_ENABLED uygulama ayarını false olarak ayarlayın ya da tamamen kaldırın ve yeniden başlatın
+- Geçici Çözüm 2: kod aracılığıyla SDK'sını ekleyin ve uzantısını kaldırın (Bu yapılandırma ile olmaz Profiler ve anlık görüntü hata ayıklayıcısı)
+
+Bu sorunu takip ettiğimiz [burada](https://github.com/Microsoft/ApplicationInsights-Home/issues/277)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Canlı uygulamanızda profil oluşturucuyu çalıştırın](../../azure-monitor/app/profiler.md).

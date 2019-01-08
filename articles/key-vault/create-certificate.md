@@ -10,24 +10,23 @@ ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
-ms.openlocfilehash: d2f9327841e0c6193a89df6459b4d8fffb14c05e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f2ba077b23a1fb12d1b547f8c9e3013135db1d87
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302852"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076039"
 ---
 # <a name="certificate-creation-methods"></a>Sertifika oluşturma yöntemleri
 
  Bir anahtar Kasası'nı (KV) sertifika oluşturulabilir veya veya bir anahtar kasasının içine aktarılır. KV sertifika oluşturulduğunda özel anahtarı içinde anahtar kasası oluşturulur ve hiç sertifika sahibinin kullanıma sunulan. Anahtar Kasası'nda bir sertifika oluşturmak için yollar şunlardır:  
 
--   **Otomatik olarak imzalanan bir sertifika oluşturun:** bu ortak-özel anahtar çifti oluşturma ve bir sertifika ile ilişkilendirin. Sertifika kendi anahtarla imzalanacak.  
+-   **Kendinden imzalı bir sertifika oluşturun:** Genel-özel anahtar çifti oluşturma ve bir sertifika ile ilişkilendirin. Sertifika kendi anahtarla imzalanacak.  
 
--    **El ile yeni bir sertifika oluşturun:** bu ortak-özel anahtar çifti oluşturma ve bir X.509 sertifika imzalama isteği oluşturun. İmzalama isteği, kayıt yetkilisi ya da sertifika yetkilisi tarafından imzalanması. Anahtar Kasası'nda KV sertifika tamamlamak için sertifika bekleyen anahtar ile birleştirilebilir imzalı x509 eşleştirin. Bu yöntem daha fazla adım gerektirse de, özel anahtarı içinde oluşturulur ve anahtar Kasası'na sınırlı olduğundan, daha fazla güvenlik sağlayan verin. Bu, aşağıdaki diyagramda açıklanmıştır.  
+-    **El ile yeni bir sertifika oluşturun:** Genel-özel anahtar çifti oluşturma ve bir X.509 sertifika imzalama isteği oluşturun. İmzalama isteği, kayıt yetkilisi ya da sertifika yetkilisi tarafından imzalanması. Anahtar Kasası'nda KV sertifika tamamlamak için sertifika bekleyen anahtar ile birleştirilebilir imzalı x509 eşleştirin. Bu yöntem daha fazla adım gerektirse de, özel anahtarı içinde oluşturulur ve anahtar Kasası'na sınırlı olduğundan, daha fazla güvenlik sağlayan verin. Bu, aşağıdaki diyagramda açıklanmıştır.  
 
 ![Kendi sertifika yetkilisi ile bir sertifika oluşturun](media/certificate-authority-1.png)  
 
@@ -39,7 +38,7 @@ Aşağıdaki açıklamalar önceki şemada yeşil yitirmiş adımları karşıl�
 4. Seçtiğiniz CA ile yanıt veren bir x X509 sertifika.
 5. Uygulamanızı yeni sertifika oluşturulmasını birleşmesi ile X509 tamamlandıktan Sertifika yetkilinizden sertifikası.
 
--   **Bir bilinen veren sağlayıcısı ile bir sertifika oluşturun:** bu yöntem, bir veren nesne oluşturma tek seferlik bir görev gerektirir. Veren nesne oluşturulduktan sonra size key vault, adını KV sertifika ilkesinde başvurulabilir. Böyle bir KV sertifikası oluşturma isteği kasaya bir anahtar çifti oluşturur ve x x509 almak için başvurulan veren nesnesinde bilgileri kullanarak veren sağlayıcısı hizmeti ile iletişim sertifika. Sertifika veren hizmetinden alınır ve KV tamamlamak için anahtar çifti ile birleştirilmiş x509 oluşturma sertifika.  
+-   **Bir bilinen veren sağlayıcısı ile bir sertifika oluşturun:** Bu yöntem, bir veren nesne oluşturma tek seferlik bir görev gerektirir. Veren nesne oluşturulduktan sonra size key vault, adını KV sertifika ilkesinde başvurulabilir. Böyle bir KV sertifikası oluşturma isteği kasaya bir anahtar çifti oluşturur ve x x509 almak için başvurulan veren nesnesinde bilgileri kullanarak veren sağlayıcısı hizmeti ile iletişim sertifika. Sertifika veren hizmetinden alınır ve KV tamamlamak için anahtar çifti ile birleştirilmiş x509 oluşturma sertifika.  
 
 ![Key Vault iş Birliği yaparak sertifika yetkilisi ile bir sertifika oluşturma](media/certificate-authority-2.png)  
 
@@ -58,7 +57,7 @@ KV sertifikası oluşturma isteği tamamlandığında, bekleyen bir nesnenin dur
 
 ## <a name="first-creation"></a>İlk oluşturma
  KV sertifikayı ilk kez oluşturulduğunda bir adreslenebilir anahtar ve gizli dizi da oluşturulduğunda, sertifikanın aynı ada sahip. Adı zaten kullanımda, işlem 409 (Çakışma) bir http durum kodu ile başarısız olur.
-Adreslenebilir anahtar ve gizli dizi öznitelikleri KV sertifika öznitelikleri alın. Adreslenebilir anahtar ve gizli anahtarı bu şekilde oluşturulan yönetilen anahtarları ve gizli anahtarları, ömürlerinin Key Vault tarafından yönetildiğinden olarak işaretlenir. Yönetilen anahtarları ve gizli anahtarları salt okunurdur. Not: KV sertifika süresi dolana veya sözleşme devre dışı bırakıldı, karşılık gelen anahtar ve gizli dizi çalışamaz olur.  
+Adreslenebilir anahtar ve gizli dizi öznitelikleri KV sertifika öznitelikleri alın. Adreslenebilir anahtar ve gizli anahtarı bu şekilde oluşturulan yönetilen anahtarları ve gizli anahtarları, ömürlerinin Key Vault tarafından yönetildiğinden olarak işaretlenir. Yönetilen anahtarları ve gizli anahtarları salt okunurdur. Not: KV sertifika süresi dolana veya sözleşme devre dışı bırakıldı, karşılık gelen anahtar ve gizli dizi çalışmaz hale gelir.  
 
  Bu bir KV sertifika oluşturmak için ilk işlemi ise bir ilke gereklidir.  Bir ilke ayrıca birbirini izleyen ile sağlanabilir oluşturma işlemleri ilke kaynağı değiştirmek için. Bir ilke sağlanmazsa, hizmet ilkesi kaynakta KV sertifika sonraki bir sürümünü oluşturmak için kullanılır. İlerlemeyi, geçerli KV sertifika ve ilgili adreslenebilir anahtar ve gizli dizi, sonraki bir sürümünü oluşturmak için bir istek olmakla birlikte kalan Not değişmedi.  
 
@@ -93,7 +92,7 @@ Sertifika oluşturma el ile tamamlanan veya kullanarak bir "Self" veren olabilir
 
 Bir sipariş veren sağlayıcıyla yerleştirildiğinde, dikkate veya geçersiz kılma x509 sertifika uzantılarını ve sertifika geçerlilik süresi, sertifika türüne göre dikkat edin.  
 
- Yetkilendirme: sertifikaları ve oluşturma izni gerektirir.
+ Yetkilendirme: Sertifikalar ve oluşturma izni gerektirir.
 
  ## <a name="see-also"></a>Ayrıca Bkz.
  - [Anahtarlara, parolalara ve sertifikalara hakkında](about-keys-secrets-and-certificates.md)

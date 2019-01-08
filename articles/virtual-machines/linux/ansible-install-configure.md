@@ -3,29 +3,29 @@ title: Ansible'ı Azure sanal makinelerine yükleme
 description: Ubuntu, CentOS ve SLES üzerinde Azure kaynaklarını yönetmek için Ansible'ı yüklemeyi ve yapılandırmayı öğrenin
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/21/2018
-ms.openlocfilehash: b714470cd12bb7a0cd2d2a00b4f09467726f505d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 227f3baf67bd65a8c6eeb170ce219a3ddf79606a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987059"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078057"
 ---
 # <a name="install-ansible-on-azure-virtual-machines"></a>Ansible'ı Azure sanal makinelerine yükleme
 
 Ansible, ortamınızdaki kaynakların dağıtımını ve yapılandırılmasını otomatikleştirmenizi sağlar. Ansible'ı kullanarak Azure'daki sanal makinelerinizi (VM) diğer kaynaklar gibi yönetebilirsiniz. Bu makalede en yaygın Linux dağıtımları için Ansible'ı ve gerekli Azure Python SDK'sı modüllerini yükleme adımları anlatılmaktadır. Ansible'ı diğer dağıtımlara yüklemek için yüklenen paketleri platformunuza uyacak şekilde ayarlamanız gerekir. Azure kaynaklarını güvenli bir şekilde oluşturmak için Ansible'da kimlik bilgisi oluşturma ve tanımlamayı da öğreneceksiniz. Cloud Shell'de bulunan ek araçların listesi için bkz. [Azure Cloud Shell'deki Bash özellikleri ve araçlar](../../cloud-shell/features.md#tools).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - **Azure aboneliği** - Azure aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 
 - **Linux veya Linux sanal makinesine erişim** - Linux makineniz yoksa [Linux sanal makinesi](https://docs.microsoft.com/azure/virtual-network/quick-create-cli) oluşturun.
 
-- **Azure hizmet sorumlusu**: [Azure CLI 2.0 ile Azure hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) makalesinin **Hizmet sorumlusunu oluşturma** bölümündeki yönergeleri izleyin. **appId**, **displayName**, **password** ve **tenant** değerlerini not edin.
+- **Azure hizmet sorumlusu**: Bölümündeki yönergeleri izleyerek **hizmet sorumlusu oluşturma** makale bölümünde [Azure, Azure CLI 2.0 ile hizmet sorumlusu oluşturma](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). **appId**, **displayName**, **password** ve **tenant** değerlerini not edin.
 
 ## <a name="install-ansible-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinesine Ansible yükleme
 

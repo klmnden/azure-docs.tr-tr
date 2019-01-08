@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: c22c97efed7c70b554acd449ed15c6641e377b6a
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2580d49fb7ab0779f81f1315b9765a0dc4745cb6
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788506"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078227"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Bulut hizmeti, sanal makine ya da Service Fabric tanılama verilerini Application Insights'a gönderme
 Bulut Hizmetleri, sanal makineler, sanal makine ölçek kümeleri ve Service Fabric tüm verileri toplamak için Azure tanılama uzantısını kullanın.  Azure Tanılama verileri Azure Storage tablolarının gönderir.  Ancak, ayrıca tüm kanal veya bir Azure tanılama uzantısı 1.5 veya üzeri kullanarak diğer konumlara veri alt kümesini kullanabilirsiniz.
@@ -61,7 +61,7 @@ Application Insights için bir havuz yapılandırması örneği:
 - **Havuz** *adı* havuzu benzersiz olarak tanımlayan bir dize değeri bir özniteliktir.
 
 - **Applicationınsights** öğesi burada Azure Tanılama verileri gönderilir. Application ınsights kaynağının izleme anahtarını belirtir.
-    - Mevcut bir Application Insights kaynağına sahip değilseniz, bkz. [yeni bir Application Insights kaynağı oluşturun](../../application-insights/app-insights-create-new-resource.md) kaynak oluşturma ve izleme anahtarını alma hakkında daha fazla bilgi.
+    - Mevcut bir Application Insights kaynağına sahip değilseniz, bkz. [yeni bir Application Insights kaynağı oluşturun](../../azure-monitor/app/create-new-resource.md ) kaynak oluşturma ve izleme anahtarını alma hakkında daha fazla bilgi.
     - Bir bulut hizmeti Azure SDK 2.8 ve daha sonra geliştiriyorsanız bu izleme anahtarını otomatik olarak doldurulur. Dayanarak değeri **appınsıghts_ınstrumentatıonkey** bulut hizmeti proje paketlenirken hizmet yapılandırma ayarı. Bkz: [Cloud Services ile Application Insights kullanın](../../azure-monitor/app/cloudservices.md).
 
 - **Kanalları** öğesi içeren bir veya daha fazla **kanal** öğeleri.

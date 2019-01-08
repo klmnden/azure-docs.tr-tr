@@ -14,12 +14,12 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: d67b53d80b74d0a6ad3c4264a55a5e277acffd20
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ddf4763b8f5abb81c7d884d9d978c85843410ccb
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083912"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064955"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Yardım bulma ve Azure Active Directory için bir destek bileti açın
 Microsoft, genel teknik, satış öncesi, faturalandırma ve abonelik desteği için Azure Active Directory (Azure AD) sağlar. Hem çevrimiçi hem de Microsoft Azure Ücretli ve ücretsiz deneme abonelikleri için telefonla destek kullanılabilir. Telefon ve çevrimiçi faturalandırma desteği, ek dillerde mevcuttur. 
@@ -51,7 +51,7 @@ Kendi kendine yardım kaynaklarını kullanarak yanıt bulmak bulamadığınız 
    
 4. İçin **hizmet**seçin **Azure Active Directory**ve ardından **sonraki**.
 
-5. Üzerinde **sorun** dikey penceresinde bir [önem derecesi](https://azure.microsoft.com/support/plans/response/)).
+5. Üzerinde **sorun** dikey penceresinde bir [önem derecesi](https://azure.microsoft.com/support/plans/response/).
   
 6. Seçin bir **sorun türü**ve ardından bir **kategori** türü için. Bu noktada, kendi kendine yardım bilgileri, sorun kategorisi için de sunulur.
   
@@ -70,7 +70,7 @@ Kendi kendine yardım kaynaklarını kullanarak yanıt bulmak bulamadığınız 
 
 2. Üzerinde **Destek** kutucuk seçin **yeni hizmet isteği**: ![Office 365 portalı ekran görüntüsü](./media/active-directory-troubleshooting-support-howto/office-portal.png)
 
-3. Üzerinde **desteğe genel bakış** sayfasında **Kimlik Yönetimi** veya **kullanıcısı ve etki alanı yönetim**: ![Azure AD desteğini kategorileri ekran görüntüsü](./media/active-directory-troubleshooting-support-howto/select-identity.png)
+3. Üzerinde **desteğine genel bakış** sayfasında **Kimlik Yönetimi** veya **kullanıcısı ve etki alanı yönetim**: ![Azure AD desteğini kategorileri ekran görüntüsü](./media/active-directory-troubleshooting-support-howto/select-identity.png)
 
 4. İçin **özellik**, destek istediğiniz Azure AD özelliğini seçin.
 

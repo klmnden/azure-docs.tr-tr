@@ -1,59 +1,54 @@
 ---
-title: 'Öğretici: Azure Active Directory tümleştirmesiyle Arcgıs Kurumsal | Microsoft Docs'
+title: 'Öğretici: Arcgıs Enterprise ile Azure Active Directory Tümleştirmesi | Microsoft Docs'
 description: Azure Active Directory ve Arcgıs kuruluş arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 24809e9d-a4aa-4504-95a9-e4fcf484f431
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/23/2018
+ms.topic: tutorial
+ms.date: 12/28/2018
 ms.author: jeedes
-ms.openlocfilehash: ea2b32b43fedacba7b8a60db29762c32fda65aa5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 1b8e69fbdabffc52efca9beea99297f3c1258ff7
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306351"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065537"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Öğretici: Azure Active Directory Arcgıs Enterprise ile tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Öğretici: Arcgıs Enterprise ile Azure Active Directory Tümleştirmesi
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Arcgıs Kurumsal tümleştirme konusunda bilgi edinin.
-
 Azure AD ile Arcgıs Kurumsal tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Arcgıs Kurumsal erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak imzalanan Arcgıs kuruluş (çoklu oturum açma) açma, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* Arcgıs Kurumsal erişimi, Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak Arcgıs kuruluş (çoklu oturum açma) oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md)
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Arcgıs kuruluş Azure AD'ye tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Bir Arcgıs Kurumsal çoklu oturum açma abonelik etkin.
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* Arcgıs Kurumsal çoklu oturum açma abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-1. Arcgıs Kurumsal galeri ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+
+
+* Arcgıs Kurumsal destekler **SP ve IDP** tarafından başlatılan
+* Arcgıs Kurumsal destekler **zamanında** kullanıcı sağlama
+
 
 ## <a name="adding-arcgis-enterprise-from-the-gallery"></a>Arcgıs Kurumsal galeri ekleme
 
@@ -61,90 +56,92 @@ Azure AD'de Arcgıs Enterprise'nın tümleştirmesini yapılandırmak için Arcg
 
 **Galeriden Arcgıs kuruluş eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi. 
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
 4. Arama kutusuna **Arcgıs Kurumsal**seçin **Arcgıs Kurumsal** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuç listesinde Arcgıs Enterprise](./media/arcgisenterprise-tutorial/tutorial_arcgisenterprise_addfromgallery.png)
+     ![Sonuç listesinde Arcgıs Enterprise](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırmanız ve Arcgıs Enterprise ile Azure AD çoklu oturum açmayı test "Britta Simon" adlı bir test kullanıcı tabanlı.
+Bu bölümde, yapılandırma ve Azure AD'ye tek temelinde oturum açma adlı bir test kullanıcısı [uygulama adı] ile test etme **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve [uygulama adı] ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
-Tek iş için oturum açma için Azure AD ne karşılık gelen kullanıcı Arcgıs kurumsal bir kullanıcının Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ile ilgili kullanıcı Arcgıs Kurumsal arasında bir bağlantı ilişki kurulması gerekir.
-
-Yapılandırma ve Azure AD çoklu oturum açma Arcgıs Enterprise ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma [uygulama adı] ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Bir Arcgıs Kurumsal test kullanıcısı oluşturma](#create-an-arcgis-enterprise-test-user)**  - Arcgıs kuruluştaki kullanıcı Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
+2. **[Arcgıs Kurumsal çoklu oturum açmayı yapılandırma](#configure-arcgis-enterprise-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+5. **[Arcgıs Kurumsal test kullanıcısı oluşturma](#create-arcgis-enterprise-test-user)**  - Arcgıs kuruluştaki kullanıcı Azure AD gösterimini bağlı Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve Arcgıs Kurumsal uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma Arcgıs Enterprise ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma [uygulama adı] ile yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. Azure portalında, üzerinde **Arcgıs Kurumsal** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. İçinde [Azure portalında](https://portal.azure.com/), **Arcgıs Kurumsal** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![Çoklu oturum açma bağlantısı yapılandırma][4]
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![Çoklu oturum açma iletişim kutusu](./media/arcgisenterprise-tutorial/tutorial_arcgisenterprise_samlbase.png)
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-3. Üzerinde **Arcgıs Kurumsal etki alanı ve URL'ler** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** başlatılan modu:
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    ![Arcgıs Kurumsal etki alanı ve URL'ler tek oturum açma bilgileri](./media/arcgisenterprise-tutorial/tutorial_arcgisenterprise_url1.png)
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    a. İçinde **tanımlayıcı** metin kutusuna bir URL şu biçimi kullanarak: `<EXTERNAL_DNS_NAME>.portal`
+4. Üzerinde **temel SAML yapılandırma** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirmek **IDP** başlatılan modu:
 
-    b. İçinde **yanıt URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin2`
+    ![Arcgıs Kurumsal etki alanı ve URL'ler tek oturum açma bilgileri](common/idp-intiated.png)
 
-4. Denetleme **Gelişmiş URL ayarlarını göster** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+    a. İçinde **tanımlayıcı** metin kutusuna şu biçimi kullanarak bir URL yazın: `<EXTERNAL_DNS_NAME>.portal`
 
-    ![Arcgıs Kurumsal etki alanı ve URL'ler tek oturum açma bilgileri](./media/arcgisenterprise-tutorial/tutorial_arcgisenterprise_url2.png)
+    b. İçinde **yanıt URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin2`
 
-    İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
+    c. Tıklayın **ek URL'lerini ayarlayın** ve uygulamada yapılandırmak istiyorsanız, aşağıdaki adımı uygulayın **SP** başlatılan modu:
+
+    ![Arcgıs Kurumsal etki alanı ve URL'ler tek oturum açma bilgileri](common/metadata-upload-additional-signon.png)
+
+    İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:  `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Arcgıs Kurumsal İstemci Destek ekibine](mailto:support@esri.com) bu değerleri almak için. Tanımlayıcı değeri erişmenizi sağlayacak **ayarlanmış bir kimlik sağlayıcı** bölümünde, bu öğreticinin ilerleyen bölümlerinde açıklanmıştır.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. İlgili kişi [Arcgıs Kurumsal İstemci Destek ekibine](mailto:support@esri.com) bu değerleri almak için. Tanımlayıcı değeri erişmenizi sağlayacak **ayarlanmış bir kimlik sağlayıcı bölümüne**, bu öğreticinin ilerleyen bölümlerinde açıklanmıştır.
 
-5. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** kopyalayıp Not Defteri'ne yapıştırın.
+5. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlayın** sayfasında **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesine **uygulama Federasyon meta verileri URL'sini** ve üzerinde kaydedin, bilgisayar.
 
-    ![Sertifika indirme bağlantısı](./media/arcgisenterprise-tutorial/tutorial_arcgisenterprise_certificate.png)
+    ![Sertifika indirme bağlantısı](common/copy-metadataurl.png)
 
-6. Tıklayın **Kaydet** düğmesi.
+### <a name="configure-arcgis-enterprise-single-sign-on"></a>Arcgıs Kurumsal çoklu oturum açmayı yapılandırın
 
-    ![Çoklu oturum açma Kaydet düğmesi yapılandırın](./media/arcgisenterprise-tutorial/tutorial_general_400.png)
+1. Farklı bir web tarayıcı penceresinde bir Arcgıs Kurumsal şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-7. Farklı bir web tarayıcı penceresinde bir Arcgıs Kurumsal şirketinizin sitesi için bir yönetici olarak oturum açın.
-
-8. Seçin **kuruluş > ayarları düzenleme**.
+2. Seçin **kuruluş > ayarları düzenleme**.
 
     ![Arcgıs Kurumsal yapılandırma](./media/arcgisenterprise-tutorial/configure1.png)
 
-9. Seçin **güvenlik** sekmesi.
+3. Seçin **güvenlik** sekmesi.
 
     ![Arcgıs Kurumsal yapılandırma](./media/arcgisenterprise-tutorial/configure2.png)
 
-10. Ekranı aşağı kaydırarak **Kurumsal oturum açma SAML aracılığıyla** bölümünde ve seçin **Kurumsal oturum açma ayarlama**.
+4. Ekranı aşağı kaydırarak **Kurumsal oturum açma SAML aracılığıyla** bölümünde ve seçin **Kurumsal oturum açma ayarlama**.
 
     ![Arcgıs Kurumsal yapılandırma](./media/arcgisenterprise-tutorial/configure3.png)
 
-11. Üzerinde **ayarlanmış bir kimlik sağlayıcı** bölümünde, aşağıdaki adımları gerçekleştirin:
+5. Üzerinde **ayarlanmış bir kimlik sağlayıcı** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Arcgıs Kurumsal yapılandırma](./media/arcgisenterprise-tutorial/configure4.png)
 
@@ -158,97 +155,75 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve A
 
     d. Tıklayın **güncelleştirme kimlik SAĞLAYICISI**.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-   ![Bir Azure AD test kullanıcısı oluşturma][100]
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-**Azure AD'de bir test kullanıcısı oluşturmak için aşağıdaki adımları gerçekleştirin:**
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-1. Azure portalında, sol bölmede, tıklayın **Azure Active Directory** düğmesi.
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![Azure Active Directory düğmesi](./media/arcgisenterprise-tutorial/create_aaduser_01.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](./media/arcgisenterprise-tutorial/create_aaduser_02.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-3. Açmak için **kullanıcı** iletişim kutusu, tıklayın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    ![Ekle düğmesi](./media/arcgisenterprise-tutorial/create_aaduser_03.png)
-
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
-
-    ![Kullanıcı iletişim kutusu](./media/arcgisenterprise-tutorial/create_aaduser_04.png)
-
-    a. İçinde **adı** kutusuna **BrittaSimon**.
-
-    b. İçinde **kullanıcı adı** Britta Simon kullanıcı e-posta adresini yazın.
-
-    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
     d. **Oluştur**’a tıklayın.
-
-### <a name="create-an-arcgis-enterprise-test-user"></a>Bir Arcgıs Kurumsal test kullanıcısı oluşturma
-
-Bu bölümün amacı, Arcgıs kuruluşta Britta Simon adlı bir kullanıcı oluşturmaktır. Arcgıs Kurumsal tam zamanında sağlama, varsayılan olarak etkin olan destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Yeni bir kullanıcı, Arcgıs Kurumsal henüz mevcut değilse erişme denemesi sırasında oluşturulur.
-
-> [!Note]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Arcgıs Kurumsal Destek ekibine](mailto:support@esri.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Arcgıs kuruluş erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200]
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **Arcgıs Kurumsal**.
 
-**Britta Simon Arcgıs kuruluş atamak için aşağıdaki adımları gerçekleştirin:**
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-1. Azure portalında uygulama görünümü açtığınız dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
+2. Uygulamalar listesinde yazın ve **Arcgıs Kurumsal**.
 
-    ![Kullanıcı Ata][201]
-
-2. Uygulamalar listesinde **Arcgıs Kurumsal**.
-
-    ![Uygulamalar listesinde Arcgıs Kurumsal bağlantı](./media/arcgisenterprise-tutorial/tutorial_arcgisenterprise_app.png)  
+    ![Uygulamalar listesinde Arcgıs Kurumsal bağlantı](common/all-applications.png)
 
 3. Soldaki menüde **kullanıcılar ve gruplar**.
 
-    !["Kullanıcılar ve Gruplar" bağlantısı][202]
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
 
-4. Tıklayın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **atama Ekle** iletişim.
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
 
-    ![Atama Ekle bölmesi][203]
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
 
-6. Tıklayın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
 
-7. Tıklayın **atama** düğmesini **atama Ekle** iletişim.
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
 
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="create-arcgis-enterprise-test-user"></a>Arcgıs Kurumsal test kullanıcısı oluşturma
+
+Bu bölümde, Britta Simon adlı bir kullanıcı, Arcgıs kuruluşta oluşturulur. Arcgıs Kurumsal just-ın-time kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, hiçbir eylem öğesini yoktur. Bir kullanıcı Arcgıs kuruluşta zaten mevcut değilse yeni bir kimlik doğrulamasından sonra oluşturulur.
+
+> [!Note]
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişi [Arcgıs Kurumsal Destek ekibine](mailto:support@esri.com).
+
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde Arcgıs Kurumsal kutucuğa tıkladığınızda, otomatik olarak Arcgıs Kurumsal uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md). 
+Erişim paneli Arcgıs Kurumsal kutucuğa tıkladığınızda, size otomatik olarak Arcgıs SSO'yu ayarlayın kuruluş oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/arcgisenterprise-tutorial/tutorial_general_01.png
-[2]: ./media/arcgisenterprise-tutorial/tutorial_general_02.png
-[3]: ./media/arcgisenterprise-tutorial/tutorial_general_03.png
-[4]: ./media/arcgisenterprise-tutorial/tutorial_general_04.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/arcgisenterprise-tutorial/tutorial_general_100.png
-
-[200]: ./media/arcgisenterprise-tutorial/tutorial_general_200.png
-[201]: ./media/arcgisenterprise-tutorial/tutorial_general_201.png
-[202]: ./media/arcgisenterprise-tutorial/tutorial_general_202.png
-[203]: ./media/arcgisenterprise-tutorial/tutorial_general_203.png

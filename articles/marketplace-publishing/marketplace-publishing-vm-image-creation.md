@@ -3,7 +3,7 @@ title: Azure Marketi için bir sanal makine görüntüsü oluşturma | Microsoft
 description: Satın almak Azure Marketi başkaları için bir sanal makine görüntüsünün nasıl oluşturulacağı hakkında ayrıntılı yönergeler.
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 0dc33c669a73dd92926eef6a9c4a476160ce60a4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6737e16efa93370b5b5d2b46026fce3bbc22d38f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686373"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075167"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Market sanal makine görüntüsü oluşturma Kılavuzu
 Bu makalede **2. adım**, sanal sabit Azure Marketi'nde dağıtacağınız diskleri (VHD) hazırlama konusunda size yol gösterir. Vhd'lerinizi sku'nuzun temelidir. İşlemi, bir Linux veya Windows tabanlı SKU kullanmanıza bağlı olarak farklılık gösterir. Bu makalede her iki senaryoyu da kapsamaktadır. Bu işlem ile paralel olarak gerçekleştirilebilir [hesap oluşturma ve kayıt][link-acct-creation].
@@ -30,14 +31,14 @@ Bu bölümde teklifler ile bunların ilişkili SKU'ları tanımlamayı öğrenin
 Teklif, tüm SKU'larının "üst öğesidir". Birden çok teklife sahip olabilirsiniz. Tekliflerinizi nasıl yapılandıracağınıza siz karar verirsiniz. Bir teklif, hazırlamaya gönderilirken tüm SKU'larıyla birlikte gönderilir. URL'de olacağından, SKU tanımlayıcıları dikkatlice düşünün:
 
 * Azure.com: http://azure.microsoft.com/marketplace/partners/{PartnerNamespace}/{OfferIdentifier}-{SKUidentifier}
-* Azure Önizleme portalı: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
+* Azure portalı: https://portal.azure.com/#gallery/{PublisherNamespace}.{OfferIdentifier}{SKUIDdentifier}  
 
 Bir SKU VM görüntüsünün ticari unvanıdır. Bir işletim sistemi diski ile sıfır, bir VM görüntüsü içerir veya daha fazla veri diski. Özünde, bir sanal makinenin tam depolama profilidir. Disk başına bir VHD gereklidir. Oluşturulacak bir VHD bile boş veri diskleri gerektirir.
 
 Kullandığınız işletim sisteminden bağımsız olarak yalnızca SKU için gereken en az sayıda veri diski ekleyin. Müşteriler dağıtım sırasında bir görüntünün parçası olan diskler kaldıramazsınız ancak gerekmesi durumunda her zaman diskleri süresince veya dağıtım sonrasında ekleyebilirsiniz.
 
 > [!IMPORTANT]
-> **Yeni bir görüntü sürümü sayısı disk değiştirmeyin.** Görüntüde veri diskleri yeniden yapılandırmanız gerekir, yeni bir SKU'ya tanımlayın. Farklı disk sayısı olan yeni bir görüntü sürüm yayımlama bozucu yeni dağıtımının olası çözümleri ARM şablonları ve diğer senaryolar ile otomatik ölçeklendirme, otomatik dağıtım durumlarda yeni görüntü sürümü temel.
+> *Yeni bir görüntü sürümü sayısı disk değiştirmeyin.* Görüntüde veri diskleri yeniden yapılandırmanız gerekir, yeni bir SKU'ya tanımlayın. Farklı disk sayısı olan yeni bir görüntü sürüm yayımlama bozucu yeni dağıtımının olası çözümleri ARM şablonları ve diğer senaryolar ile otomatik ölçeklendirme, otomatik dağıtım durumlarda yeni görüntü sürümü temel.
 >
 >
 
@@ -59,7 +60,7 @@ Bir teklif ekledikten sonra SKU'larınız tanımlayabilir ve gerekir. Birden ço
 3. Windows tabanlı SKU'lar kullanıyorsanız Windows Server'ın onaylanmış sürümlerini edinmek için önerilen bağlantıları izleyin.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Azure ile uyumlu VHD'nizi (Linux tabanlı) oluşturma
-Bu bölümde, Azure Market'te Linux tabanlı VM oluşturmaya yönelik en iyi uygulamalar ele alınmaktadır. Adım adım bir kılavuz için şu belgeye başvurun: [özel bir Linux VM görüntüsü oluşturma](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Bu bölümde, Azure Market'te Linux tabanlı VM oluşturmaya yönelik en iyi uygulamalar ele alınmaktadır. Adım adım bir kılavuz için şu belgeye başvurun: [Özel bir Linux VM görüntüsü oluşturma](../virtual-machines/linux/create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="3-create-an-azure-compatible-vhd-windows-based"></a>3. (Windows tabanlı), Azure ile uyumlu bir VHD oluşturun
 Bu bölümde Azure Market'te Windows Server tabanlı bir SKU oluşturma adımları ele alınmaktadır.
@@ -81,13 +82,13 @@ Bu bağlantılar SKU sayfasındaki Yayımlama Portalı'nda da bulunabilir.
 >
 
 ### <a name="32-create-your-windows-based-vm"></a>3.2 Windows tabanlı VM oluşturma
-Microsoft Azure Portalı'ndan, yalnızca birkaç basit adımda onaylı bir temel görüntüye dayalı VM'nizi oluşturabilirsiniz. İşlemine genel bakış aşağıda verilmiştir:
+Microsoft Azure Portalı'ndan, yalnızca birkaç basit adımda onaylı bir temel görüntüye dayalı VM'nizi oluşturabilirsiniz. Aşağıdaki listede işlemine genel bakış sağlar:
 
 1. Temel görüntü sayfasında seçin **sanal makine oluştur** yeni yönlendirilmesine [Microsoft Azure Portal'da][link-azure-portal].
 
     ![Çizim][img-acom-1]
 2. Portal kullanmak istediğiniz Azure aboneliği için parola ve Microsoft hesabı ile oturum açın.
-3. Seçtiğiniz temel görüntüyü kullanarak bir VM oluşturmak için istemleri izleyin. VM için bir konak adı (bilgisayarın adı), (yönetici olarak kaydedilen) kullanıcı adı ve parola sağlamanız gerekir.
+3. Seçtiğiniz temel görüntüyü kullanarak bir VM oluşturmak için istemleri izleyin. Bir konak, VM için adı (bilgisayarın adı), (yönetici olarak kaydedilen) kullanıcı adı ve parola belirtin.
 
     ![Çizim][img-portal-vm-create]
 4. Dağıtılacak VM'nin boyutunu seçin:
@@ -110,7 +111,7 @@ Microsoft Azure Portalı'ndan, yalnızca birkaç basit adımda onaylı bir temel
 
     a.    VHD'yi şirket içinde geliştirmeyi planlıyorsanız, görüntüyü daha sonra Azure'a yükler için konum önemli değildir.
 
-    b.    Görüntüyü Azure'da geliştirmeyi planlıyorsanız, başlangıçta ABD tabanlı Microsoft Azure bölgelerinden birini kullanın. Bu, görüntünüzü onaylanmak gönderdiğinizde, Microsoft sizin adınıza gerçekleştirdiği VHD kopyalama işlemini hızlandırır.
+    b.    Görüntüyü Azure'da geliştirmeyi planlıyorsanız, başlangıçta ABD tabanlı Microsoft Azure bölgelerinden birini kullanın. Bu seçim, görüntünüzü onaylanmak gönderdiğinizde, Microsoft sizin adınıza gerçekleştirdiği VHD kopyalama işlemini hızlandırır.
 
     ![Çizim][img-portal-vm-location]
 7. **Oluştur**’a tıklayın. VM dağıtmaya başlar. Dağıtımınız birkaç dakika içinde başarıyla tamamlanır ve SKU'nuz için görüntü oluşturmaya başlayabilirsiniz.
@@ -152,7 +153,7 @@ MSDN makalesinde RDP hakkında daha fazla bilgi bulunabilir [Azure VM'de RDP vey
 
 **Bir VM yapılandırma ve NIZU oluşturma**
 
-İşletim sistemi vhd'si oluşturulduktan sonra HyperV kullanın ve SKU'nuzu oluşturmaya başlamak için bir VM yapılandırın. Ayrıntılı adımlar şu TechNet bağlantısında bulunabilir bulunabilir: [HyperV yükleyin ve bir VM yapılandırma](https://technet.microsoft.com/library/hh846766.aspx).
+İşletim sistemi vhd'si oluşturulduktan sonra hyperv kullanın ve SKU'nuzu oluşturmaya başlamak için bir VM yapılandırın. Ayrıntılı adımlar şu TechNet bağlantısında bulunabilir bulunabilir: [Hyperv yükleyin ve bir VM yapılandırma](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### <a name="34-choose-the-correct-vhd-size"></a>3.4 doğru VHD boyutunu seçme
 VM görüntünüzdeki Windows işletim sistemi VHD'si 128 GB sabit biçimli VHD oluşturulmalıdır.  
@@ -168,7 +169,7 @@ Temel görüntüler, yayımlanma tarihlerine göre en son düzeltmeleri içerir.
 Ek yapılandırma gerekirse, oluşturulduktan sonra VM'ye son değişiklikleri yapmak için başlangıçta çalışan bir zamanlanmış görev kullanarak göz önünde bulundurun:
 
 * Görevin başarıyla yürütüldükten sonra kendini silmesi, kullanılabilecek en iyi yöntemdir.
-* Bunlar her zaman mevcut için yalnızca iki sürücüleri olduğundan yapılandırma C ya da D, sürücüler dışında sürücü yararlanmalıdır. C sürücüsünün işletim sistemi diskidir ve D sürücüsünü geçici yerel disktir.
+* Bu sürücüler her zaman mevcut garanti yalnızca iki olduğundan yapılandırma C ya da D, sürücüler dışında sürücü yararlanmalıdır. C sürücüsünün işletim sistemi diskidir ve D sürücüsünü geçici yerel disktir.
 
 ### <a name="37-generalize-the-image"></a>3.7 görüntüyü Genelleştirme
 Azure Marketi'ndaki tüm görüntüler genel bir şekilde yeniden kullanılabilir olmalıdır. Diğer bir deyişle, işletim sistemi VHD'si genelleştirilmiş olmalıdır:
@@ -178,10 +179,10 @@ Azure Marketi'ndaki tüm görüntüler genel bir şekilde yeniden kullanılabili
 
         sysprep.exe /generalize /oobe /shutdown
 
-  Sysprep için şu MSDN makalesine adımda işletim sistemini nasıl sağlandığını Kılavuzu: [oluşturup yükleme azure'a bir Windows Server VHD](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+  Sysprep hakkında yönergeler için şu MSDN makalesine adımda işletim sistemi sağlanır: [Oluşturma ve Azure'a bir Windows Server VHD yükleme](../virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## <a name="4-deploy-a-vm-from-your-vhds"></a>4. Vhd'lerinizden VM dağıtma
-Vhd'lerinizi (genelleştirilmiş işletim sistemi VHD'si ve sıfır veya daha fazla veri diski) bir Azure depolama hesabına yükledikten sonra bir kullanıcı VM görüntüsü olarak kaydedebilirsiniz. Ardından bu görüntüyü test edebilirsiniz. İşletim sistemi VHD'si genelleştirilmiş olduğundan, doğrudan VM VHD URL'sini sağlayarak dağıtamayacağınızı unutmayın.
+Vhd'lerinizi (genelleştirilmiş işletim sistemi VHD'si ve sıfır veya daha fazla veri diski) bir Azure depolama hesabına yükledikten sonra bir kullanıcı VM görüntüsü olarak kaydedebilirsiniz. Ardından bu görüntüyü test edebilirsiniz. İşletim sistemi VHD'si genelleştirilmiş olduğundan VHD URL'sini sağlayarak VM'yi doğrudan dağıtamazsınız.
 
 VM görüntüleri hakkında daha fazla bilgi edinmek için şu blog gönderilerini inceleyin:
 
@@ -189,20 +190,20 @@ VM görüntüleri hakkında daha fazla bilgi edinmek için şu blog gönderileri
 * [VM görüntüsü PowerShell nasıl yapılır](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 * [Azure'da VM görüntüleri hakkında](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
-### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>Gerekli araçlara, PowerShell ve Azure Klasik CLI ayarlayın
+### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>Gerekli araçlara, PowerShell ve Azure Klasik CLI ayarlama
 * [PowerShell ayarlama](/powershell/azure/overview)
 * [Azure CLI'yı ayarlama](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 bir kullanıcı VM görüntüsü oluşturma
 #### <a name="capture-vm"></a>VM yakalama
-Lütfen API/PowerShell/Azure CLI kullanarak VM yakalama hakkında rehberlik için aşağıda verilen bağlantıları okuyun.
+API/PowerShell/Azure CLI kullanarak VM yakalama hakkında rehberlik için aşağıda verilen bağlantıları okuyun.
 
 * [API](https://msdn.microsoft.com/library/mt163560.aspx)
 * [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Azure CLI](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="generalize-image"></a>Görüntüyü Genelleştirme
-Lütfen API/PowerShell/Azure CLI kullanarak VM yakalama hakkında rehberlik için aşağıda verilen bağlantıları okuyun.
+API/PowerShell/Azure CLI kullanarak VM yakalama hakkında rehberlik için aşağıda verilen bağlantıları okuyun.
 
 * [API](https://msdn.microsoft.com/library/mt269439.aspx)
 * [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -276,7 +277,7 @@ Test tamamlandığında her bir test öğesine yönelik sonuçları (Başarılı
 
 ![Windows VM görüntüsü için test çalışmaları][img-cert-vm-test-win]
 
-Testler başarısız olursa, görüntünüzü sertifikalı değil. Bu meydana gelirse, gereksinimleri gözden geçirin ve gerekli değişiklikleri yapın.
+Testler başarısız olursa, görüntünüzü sertifikalı değil. Bu sorun oluşursa gereksinimlerini gözden geçirin ve gerekli değişiklikleri yapın.
 
 Otomatik test sonra VM görüntünüzdeki anketi ekran aracılığıyla ek giriş sağlamaları istenir.  Soruları tamamlayın ve ardından **sonraki**.
 
@@ -289,18 +290,18 @@ Anketi tamamladıktan sonra görüntü ve başarısız tüm değerlendirmesi iç
 ![Sertifika, test sonuçları Kaydet][img-cert-vm-results]
 
 ### <a name="52-get-the-shared-access-signature-uri-for-your-vm-images"></a>5.2 VM görüntüleriniz için paylaşılan erişim imzası URI'si Al
-Yayımlama işlemi sırasında SKU'nuz için oluşturduğunuz VHD'leri her müşteri adayı Tekdüzen Kaynak Tanımlayıcıları (URI'lar) belirtin. Sertifika işlemi sırasında Microsoft'un bu VHD'lere erişmesi gerekir. Bu nedenle, her VHD için bir paylaşılan erişim imzası URI'si oluşturmanız gerekir. Bu, girilmesi URI'dir **görüntüleri** Yayımlama Portalı'nda sekmesi.
+Yayımlama işlemi sırasında SKU'nuz için oluşturduğunuz VHD'leri her müşteri adayı Tekdüzen Kaynak Tanımlayıcıları (URI'lar) belirtin. Sertifika işlemi sırasında Microsoft'un bu VHD'lere erişmesi gerekir. Bu nedenle, her VHD için bir paylaşılan erişim imzası URI'si oluşturmanız gerekir. Bu URI girilmesi **görüntüleri** Yayımlama Portalı'nda sekmesi.
 
 Paylaşılan erişim imzası URI'si oluşturulan aşağıdaki gereksinimlere uymalıdır:
 
-Not: Aşağıdaki yönergelerde desteklenen tek tür olan yönetilmeyen diskler için geçerlidir.
+Aşağıdaki yönergeler, desteklenen tek türü, yalnızca yönetilmeyen diskler için geçerlidir.
 
 * Paylaşılan erişim imzası, VHD için bir URI'leri oluştururken liste ve Okuma izinleri yeterli olur. Yazma veya Silme erişimi sağlamayın.
 * Paylaşılan erişim imzası URI'si oluşturulduğunda erişim süresi üç (3) hafta arasından en az olmalıdır.
 * UTC saati için korumak için geçerli tarihten bir gün seçin. Örneğin, geçerli tarihi 6 Ekim 2014 ise 10/5/2014'ı seçin.
 
 SAS URL'si, Azure Market'te VHD'nizi paylaşmak için birden çok yolla oluşturulabilir.
-3 önerilen araçlar şunlardır:
+Üç önerilen araçlar şunlardır:
 
 1.  Azure Depolama Gezgini
 2.  Microsoft Depolama Gezgini
@@ -323,7 +324,7 @@ Azure Depolama Gezgini'ni kullanarak SAS URL'si oluşturmak için adımları aş
 
     ![Çizim](media/marketplace-publishing-vm-image-creation/img5.2_03.png)
 
-5. Depolama hesabı adı, depolama hesabı anahtarı ve depolama uç noktaları etki alanı belirtin. Burada Azure Portal'da VHD'nizi tutmuş depolama hesabı, Azure aboneliğinizde budur.
+5. Depolama hesabı adı, depolama hesabı anahtarı ve depolama uç noktaları etki alanı belirtin. Bu depolama hesabı, Azure aboneliğinizdeki Azure Portal'da VHD'nizi burada tutmuş.
 
     ![Çizim](media/marketplace-publishing-vm-image-creation/img5.2_04.png)
 
@@ -347,11 +348,11 @@ Azure Depolama Gezgini'ni kullanarak SAS URL'si oluşturmak için adımları aş
 
     ![Çizim](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
-    a. **Erişime izin öğesinden:** UTC saati için korumak için geçerli tarihten bir gün seçin. Örneğin, geçerli tarihi 6 Ekim 2014 ise 10/5/2014'ı seçin.
+    a. **Gelen erişime izin verilir:** UTC saati için korumak için geçerli tarihten bir gün seçin. Örneğin, geçerli tarihi 6 Ekim 2014 ise 10/5/2014'ı seçin.
 
-    b. **Erişim izin verilir:** 3 hafta sonra en az bir tarihi seçin **erişimine izin gelen** tarih.
+    b. **İzin verilen erişim:** En az üç hafta sonra bir tarihi seçin **erişimine izin gelen** tarih.
 
-    c. **İzin verilen eylemleri:** seçin **listesi** ve **okuma** izinleri.
+    c. **İzin verilen eylemleri:** Seçin **listesi** ve **okuma** izinleri.
 
     d. .Vhd dosyanızı doğru seçtiğiniz sonra dosyanızı görünür **erişmek için Blob adı** .vhd uzantısı ile.
 
@@ -360,12 +361,12 @@ Azure Depolama Gezgini'ni kullanarak SAS URL'si oluşturmak için adımları aş
     f. İçinde **oluşturulan paylaşılan erişim imzası URI'si bu kapsayıcının**, yukarıdaki onay vurgulanmış olarak aşağıdakiler:
 
        - Görüntü dosya adı olduğundan emin olun ve **".vhd"** URI'de olan.
-       - İmza sonunda emin **"rl ="** görünür. Bu, okuma ve liste erişim başarıyla sağlandığını gösterir.
-       - İmza ortadaki emin **"sr = c"** görünür. Bu kapsayıcı düzeyinde erişimi olduğunu gösterir.
+       - İmza sonunda emin **"rl ="** görünür. Bu değer, okuma ve liste erişim başarıyla sağlandığını gösterir.
+       - İmza ortadaki emin **"sr = c"** görünür. Bu değer kapsayıcı düzeyinde erişimi olduğunu gösterir.
 
 11. Oluşturulan erişim imzası URI'si works paylaşılan emin olmak için tıklayın **tarayıcıda Test**. İndirme işlemini başlamalıdır.
 
-12. Paylaşılan erişim imzası URI'si kopyalayın. Bu, Yayımlama Portalı'na yapıştırılacak olan URI'dir.
+12. Paylaşılan erişim imzası URI'si kopyalayın. Bu URI yayımlama içine yapıştırın portalı.
 
 13. Sku'daki her VHD için 6-10 adımları yineleyin.
 
@@ -381,7 +382,7 @@ Microsoft Azure Depolama Gezgini'ni kullanarak SAS URL'si oluşturmak için adı
 
 3.  Tıklayın **Hesap Ekle**.
 
-4.  Microsoft Azure Depolama Gezgini'ni hesabınızda oturum açma aboneliğinize yapılandırın
+4.  Microsoft Azure Depolama Gezgini, oturum açma hesabınıza tarafından aboneliğinize yapılandırın.
 
     ![Çizim](media/marketplace-publishing-vm-image-creation/img5.2_11.png)
 
@@ -397,9 +398,9 @@ Microsoft Azure Depolama Gezgini'ni kullanarak SAS URL'si oluşturmak için adı
 
     a.  **Başlangıç zamanı:** UTC saati için korumak için geçerli tarihten bir gün seçin. Örneğin, geçerli tarihi 6 Ekim 2014 ise 10/5/2014'ı seçin.
 
-    b.  **Süre sonu:** 3 hafta sonra en az bir tarihi seçin **başlattığınızda** tarih.
+    b.  **Süre sonu:** En az üç hafta sonra bir tarihi seçin **başlattığınızda** tarih.
 
-    c.  **İzinler:** seçin **listesi** ve **okuma** izinleri
+    c.  **İzinler:** Seçin **listesi** ve **okuma** izinleri
 
 8.  Kapsayıcı paylaşılan erişim imzası URI'si kopyalayın
 
@@ -418,12 +419,12 @@ Microsoft Azure Depolama Gezgini'ni kullanarak SAS URL'si oluşturmak için adı
     VHD adı TestRGVM201631920152.vhd yapılır ve ardından VHD SAS URL'si olacaktır `https://testrg009.blob.core.windows.net/vhds/TestRGVM201631920152.vhd?st=2016-04-22T23%3A05%3A00Z&se=2016-04-30T23%3A05%3A00Z&sp=rl&sv=2015-04-05&sr=c&sig=J3twCQZv4L4EurvugRW2klE2l2EFB9XyM6K9FkuVB58%3D`
 
     - Görüntü dosya adı olduğundan emin olun ve **".vhd"** URI'de olan.
-    - İmza ortadaki emin **"sp rl ="** görünür. Bu, okuma ve liste erişim başarıyla sağlandığını gösterir.
-    - İmza ortadaki emin **"sr = c"** görünür. Bu kapsayıcı düzeyinde erişimi olduğunu gösterir.
+    - İmza ortadaki emin **"sp rl ="** görünür. Bu değer, okuma ve liste erişim başarıyla sağlandığını gösterir.
+    - İmza ortadaki emin **"sr = c"** görünür. Bu değer kapsayıcı düzeyinde erişimi olduğunu gösterir.
 
 9.  Oluşturulan erişim imzası URI'si works paylaşılan emin olmak için tarayıcıda test edin. Yükleme işlemini başlatmak
 
-10. Paylaşılan erişim imzası URI'si kopyalayın. Bu, Yayımlama Portalı'na yapıştırılacak olan URI'dir.
+10. Paylaşılan erişim imzası URI'si kopyalayın. Bu URI yayımlama içine yapıştırın portalı.
 
 11. SKU'daki her VHD için bu adımları tekrarlayın.
 
@@ -435,7 +436,7 @@ Klasik Azure CLI kullanarak bir SAS URL'si oluşturmak için adımları aşağı
 
 1.  Microsoft Azure CLI'dan indirme [burada](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). İçin farklı bağlantıları da bulabilirsiniz **[Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)** ve  **[MAC OS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos?view=azure-cli-latest)**.
 
-2.  Lütfen indirme işlemi tamamlandığınızda yükleyin
+2.  İndirme işlemi tamamlandığınızda bu aracını yükleyin.
 
 3.  Oluşturma bir Bash (veya diğer eşdeğer komut dosyası yürütülebilir dosya) aşağıdaki kod ile dosya ve yerel olarak kaydedin
 
@@ -447,20 +448,20 @@ Klasik Azure CLI kullanarak bir SAS URL'si oluşturmak için adımları aşağı
 
     Aşağıdaki parametrelerle güncelleştirme yukarıda
 
-    a. **`<Storage Account Name>`**: Depolama hesabınızın adını verin.
+    a. **`<Storage Account Name>`**: Depolama hesabı adınızı verin
 
     b. **`<VHD Blob Name>`**: VHD BLOB adını verin.
 
-    En az 3 hafta (varsayılan olarak sas belirteci oluşturma) başlangıç tarihinden sonraki bir tarihi seçin. Örnek değer: **2018-10-11T23:56Z**.
+    En az üç hafta (varsayılan olarak sas belirteci oluşturma) başlangıç tarihinden sonraki bir tarihi seçin. Örnek değer: `2018-10-11T23:56Z`.
 
-    Doğru parametreleri güncelleştirilirken AZURE_STORAGE_ACCOUNT dışarı aktardıktan sonra kod örneği aşağıda verilmiştir vhdstorage1ba78dfb6bc2d8 bitiş = = $(-d "3 haftada bir" tarih '+ %Y %m % dT % H: % MZ') CONTAINER_SAS = $(az depolama kapsayıcısı SAS-Oluştur - n VHD'ler--izinleri rl--bitiş $ Bitiş - otsv) BLOB_URL = $(az storage blob url - c VHD'ler - n osdisk_1ba78dfb6b.vhd - otsv) $BLOB_URL echo\?$CONTAINER_SAS
+    Doğru parametreleri güncelleştirilirken AZURE_STORAGE_ACCOUNT dışarı aktardıktan sonra kod örneği aşağıda verilmiştir vhdstorage1ba78dfb6bc2d8 bitiş = = $(-d "üç hafta" tarih '+ %Y %m % dT % H: % MZ') CONTAINER_SAS = $(az depolama kapsayıcısı SAS-Oluştur - n VHD--izinleri rl-- süre sonu $EXPIRY - otsv) BLOB_URL = $(az storage blob url - c VHD'ler - n osdisk_1ba78dfb6b.vhd - otsv) $BLOB_URL echo\?$CONTAINER_SAS
 
 4.  Betiği çalıştırın ve bu, SAS URL'sini için kapsayıcı düzeyinde erişim sağlar.
 
 5.  SAS URL'niz denetleyin.
 
     - Görüntü dosyası adı ve ".vhd" URI'de olduğundan emin olun.
-    -   İmza ortadaki emin olun "sp rl =" görünür. Bu, okuma ve liste erişim başarıyla sağlandığını gösterir.
+    -   İmza ortadaki emin olun "sp rl =" görünür. Bu değer, okuma ve liste erişim başarıyla sağlandığını gösterir.
     -   İmza ortadaki emin olun "sr = c" görünür. Bu kapsayıcı düzeyinde erişimi olduğunu gösterir.
 
     Örnek:
@@ -469,7 +470,7 @@ Klasik Azure CLI kullanarak bir SAS URL'si oluşturmak için adımları aşağı
 
 8.  Oluşturulan erişim imzası URI'si works paylaşılan emin olmak için tarayıcıda test edin. Yükleme işlemini başlatmak
 
-9.  Paylaşılan erişim imzası URI'si kopyalayın. Bu, Yayımlama Portalı'na yapıştırılacak olan URI'dir.
+9.  Paylaşılan erişim imzası URI'si kopyalayın. Bu URI yayımlama içine yapıştırın portalı.
 
 10. SKU'daki her VHD için bu adımları tekrarlayın.
 
@@ -483,7 +484,7 @@ Teklifinizi ve SKU'nuzu oluşturduktan sonra SKU ile ilişkili görüntü ayrın
 4. Altındaki özellikleri doldurun **SKU'ları** bölümü.
 5. Altında **işletim sistemi ailesi**, işletim sistemi VHD'si ile ilişkili işletim sistemi türüne tıklayın.
 6. İçinde **işletim sistemi** kutusunda, işletim sistemini açıklayın. İşletim sistemi ailesi, türü, sürümü ve güncelleştirmeleri gibi bir biçim kullanabilirsiniz. "Windows Server Datacenter 2014 R2." örneğidir
-7. En fazla altı adet önerilen sanal makine boyutu seçin. Bu satın alma ve görüntünüzü dağıtmak karar müşterinin Azure Portalı'nda fiyatlandırma katmanı dikey penceresinde gösterilen önerilerdir. **Bunlar yalnızca öneridir. Müşterinin belirtilen diskler karşılar herhangi bir VM boyutunu seçebilir.**
+7. En fazla altı adet önerilen sanal makine boyutu seçin. Bu boyutları satın almaya ve dağıtmaya görüntünüzü karar müşterinin Azure Portalı'nda fiyatlandırma katmanı dikey penceresinde gösterilen önerilerdir. **Bunlar yalnızca öneridir. Müşterinin belirtilen diskler karşılar herhangi bir VM boyutunu seçebilir.**
 8. Sürümü girin. Sürüm alanı ürün ve kendi güncelleştirmeleri belirlemek için bir semantik sürüm kapsar:
    * Sürümleri X.Y.Z, burada X, Y ve Z tamsayılardır biçiminde olmalıdır.
    * Farklı sku'lardaki görüntüler, farklı bir birincil ve ikincil sürüme sahip olabilir.
@@ -499,18 +500,18 @@ Teklifinizi ve SKU'nuzu oluşturduktan sonra SKU ile ilişkili görüntü ayrın
 
 |Sorun|Hata iletisi|Düzelt|Belgeleri bağlantısı|
 |---|---|---|---|
-|Kopyalama hatası görüntüleri - "?" SAS url bulunamadı|Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.|Önerilen araçlar kullanarak SAS URL'sini güncelleştirme|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri kopyalama hatası - SAS URL'si değil, "s" ve "se" parametreleri|Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.|Başlangıç ve bitiş tarihlerini üzerindeki ile SAS URL'sini güncelleştirme|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri "sp rl SAS URL'si değil =" - kopyalama hatası|Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor|"Okuma" ve "liste ayarlanan izinler ile SAS URL'sini güncelleştirme|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri - SAS URL'sini kopyalama hatası vhd adında boşluk olması|Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.|Beyaz boşluk olmadan SAS URL'sini güncelleştirme|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri: SAS Url Yetkilendirme hatası kopyalama hatası|Hata: Görüntüleri kopyalanıyor. Yetkilendirme hatası nedeniyle blobu indirmek karşılaştırılamıyor|SAS URL'sini yeniden oluştur|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Görüntüleri – SAS URL'si "st" ve "se" parametreleri kopyalama hatası tam tarih-saat belirtimine sahip değil|Hata: Görüntüleri kopyalanıyor. Yanlış SAS URL'si nedeniyle blobu indirmek karşılaştırılamıyor |SAS Url başlangıç ve bitiş tarihi parametreleri ("s", "se") 11 gibi tam tarih-saat belirtimine sahip için gerekli-02-2017T00:00:00Z ve yalnızca tarih ve saat için kısaltılmış sürümleri. Azure CLI 2.0 veya üzeri bir sürümünü kullanarak bu senaryoyu karşılaşmak mümkündür. Tam tarih-saat belirtimi sağlayın ve SAS URL'sini yeniden emin olun.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Kopyalama hatası görüntüleri - "?" SAS url bulunamadı|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.|Önerilen araçlar kullanarak SAS URL'sini güncelleştirme|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri kopyalama hatası - SAS URL'si değil, "s" ve "se" parametreleri|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.|Başlangıç ve bitiş tarihlerini üzerindeki ile SAS URL'sini güncelleştirme|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri "sp rl SAS URL'si değil =" - kopyalama hatası|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor|"Okuma" ve "liste ayarlanan izinler ile SAS URL'sini güncelleştirme|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri - SAS URL'sini kopyalama hatası vhd adında boşluk olması|Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.|Beyaz boşluk olmadan SAS URL'sini güncelleştirme|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri: SAS Url Yetkilendirme hatası kopyalama hatası|Hata: Görüntüleri kopyalama. Yetkilendirme hatası nedeniyle blobu indirmek karşılaştırılamıyor|SAS URL'sini yeniden oluştur|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Görüntüleri – SAS URL'si "st" ve "se" parametreleri kopyalama hatası tam tarih-saat belirtimine sahip değil|Hata: Görüntüleri kopyalama. Yanlış SAS URL'si nedeniyle blobu indirmek karşılaştırılamıyor |SAS Url başlangıç ve bitiş tarihi parametreleri ("s", "se") 11 gibi tam tarih-saat belirtimine sahip için gerekli-02-2017T00:00:00Z ve yalnızca tarih ve saat için kısaltılmış sürümleri. Azure CLI 2.0 veya üzeri bir sürümünü kullanarak bu senaryoyu karşılaşmak mümkündür. Tam tarih-saat belirtimi sağlayın ve SAS URL'sini yeniden emin olun.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Sonraki adım
-SKU ayrıntılarla bitirdikten sonra İleri taşıyabilirsiniz [Azure Market pazarlama içerik Kılavuzu][link-pushstaging]. Yayımlama işleminin bu adımında pazarlama içeriği, fiyatlandırma ve öncesinde gerekli diğer bilgileri sağlayan **3. adım: Teklif hazırlamada VM'nizi test**, burada dağıtmadan önce çeşitli kullanım örneği senaryolarını test Genel görünürlük ve satın alma için Azure Marketi sunar.  
+SKU ayrıntılarla bitirdikten sonra İleri taşıyabilirsiniz [Azure Market pazarlama içerik Kılavuzu][link-pushstaging]. Yayımlama işleminin bu adımında, pazarlama içeriği, fiyatlandırma ve diğer bilgileri öncesinde gerekli sağladığınız **3. adım: VM'nizi test teklif hazırlamada**, burada genel görünürlük ve satın alma için Azure Marketi teklif dağıtmadan önce çeşitli kullanım örneği senaryolarını test.  
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Başlarken: nasıl bir teklifi Azure Marketinde yayımlama](marketplace-publishing-getting-started.md)
+* [Başlarken: Nasıl bir teklifi Azure Marketinde yayımlama](marketplace-publishing-getting-started.md)
 
 [img-acom-1]:media/marketplace-publishing-vm-image-creation/vm-image-acom-datacenter.png
 [img-portal-vm-size]:media/marketplace-publishing-vm-image-creation/vm-image-portal-size.png

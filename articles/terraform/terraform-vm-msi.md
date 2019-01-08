@@ -4,17 +4,17 @@ description: Bir Market görüntüsü kullanarak yönetilen kimlik ve Uzak Durum
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, MSI, sanal makine, uzak durum, azure
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 6fef56d780fe664e79f66fa23be526aec71d7e7b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6c9bef108c2f272c678879124ae2cd4f9ae093ba
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971173"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076238"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Azure Market görüntüsü kullanarak Azure kaynakları için yönetilen kimliğe sahip bir Terraform Linux sanal makinesi oluşturma
 
@@ -48,15 +48,15 @@ Linux Terraform sanal makinesi örneği oluşturma adımları aşağıda verilmi
 1. **Temel Bilgiler**
     
    * **Ad**: Terraform sanal makinenizin adı.
-   * **Kullanıcı Adı**: İlk hesabın oturum açma kimliği.
-   * **Parola**: İlk hesabın parolası. (Parola yerine SSH ortak anahtarı kullanabilirsiniz.)
-   * **Abonelik**: Makinenin oluşturulacağı ve fatura için kullanacağı abonelik. Bu abonelikte kaynak oluşturma ayrıcalıklarına sahip olmanız gerekir.
-   * **Kaynak grubu**: Yeni veya var olan bir kaynak grubu.
-   * **Konum**: Size en uygun veri merkezi. Bu genellikle verilerinizin çoğunun bulunduğu veya en hızlı ağ erişimi için fiziksel konumunuza en yakın olan veri merkezidir.
+   * **Kullanıcı adı**: İlk hesap oturum açma kimliği
+   * **Parola**: İlk hesap parolası. (Parola yerine SSH ortak anahtarı kullanabilirsiniz.)
+   * **Abonelik**: Makine oluşturulması ve fatura olduğu abonelik. Bu abonelikte kaynak oluşturma ayrıcalıklarına sahip olmanız gerekir.
+   * **Kaynak grubu**: Yeni veya mevcut bir kaynak grubu.
+   * **Konum**: En uygun veri merkezi. Bu genellikle verilerinizin çoğunun bulunduğu veya en hızlı ağ erişimi için fiziksel konumunuza en yakın olan veri merkezidir.
 
 2. **Ek ayarlar**
 
-   * **Boyut**: Sanal makinenin boyutu. 
+   * **Boyutu**: Sanal makine boyutu. 
    * **VM disk türü**: SSD veya HDD.
 
 3. **Terraform Özeti**

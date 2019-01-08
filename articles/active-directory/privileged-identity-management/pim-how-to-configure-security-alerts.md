@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/21/2018
+ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4a715020e37d5885dac26ac0573efe985c3f2cfb
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 0231eaad26fbc3e7157999c0023c5001f37d70d5
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291224"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063294"
 ---
 # <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Azure AD Dizin rolleri için güvenlik uyarıları PIM'de yapılandırın
 
@@ -30,7 +30,7 @@ Azure AD Privileged Identity Management (PIM), ortamınızda şüpheli veya güv
 
 Bu bölüm, nasıl düzeltileceğini ve nasıl engelleyeceğinizi yanı sıra Dizin rolleri için tüm güvenlik uyarılarını listeler. Önem derecesi şu anlama sahiptir:
 
-* **Yüksek**: ilke ihlali nedeniyle Acil eylem gerektirir.
+* **Yüksek**: Acil eylem ilke ihlali nedeniyle gerektirir.
 * **Orta**: Acil eylem gerektirmeyen ancak olası bir ilke ihlali bildirir.
 * **Düşük**: Acil eylem gerektirmeyen ancak tercih ilke değişikliğini önerir.
 
@@ -69,7 +69,7 @@ Bu bölüm, nasıl düzeltileceğini ve nasıl engelleyeceğinizi yanı sıra Di
 | | |
 | --- | --- |
 | **Önem derecesi** | Orta |
-| **Bu uyarı neden alıyorum?** | Parolalarını değişmedi hesapları, en son hizmet olabilir veya işlenen olmayan hesapları paylaşılan. Ayrıcalıklı roller bu hesaplarda saldırganlara karşı savunmasızdır. |
+| **Bu uyarı neden alıyorum?** | Son 90 gün içinde parolalarını değişmedi hesapları bir ayrıcalıklı rol. Bu hesaplar service olabilir veya işlenen değildir ve saldırganlara karşı savunmasız olan hesapları paylaşılan. |
 | **Nasıl?** | Hesapları listesinde gözden geçirin. Bunlar artık erişime ihtiyacınız varsa bunları kendi ayrıcalıklı rollerini kaldırın. |
 | **Önleme** | Parolayı biliyor kullanıcılar bir değişiklik olduğunda paylaşılan hesapları güçlü parolalar döndürme emin olun. </br>Hesapları kullanarak ayrıcalıklı rolleri ile düzenli olarak gözden [erişim gözden geçirmeleriyle](pim-how-to-start-security-review.md) ve artık gerekmeyen rol atamalarını kaldırın. |
 | **Portal risk azaltma eylemi** | Hesabı, ayrıcalıklı rolünden kaldırır. |

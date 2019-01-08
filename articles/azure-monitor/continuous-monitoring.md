@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: 8cbd09beffb8d86ab35e5fc1cf15c37b1bef9eb2
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: a3a4039e8b9c372212655718a40a57fedcfa188d
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050617"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075796"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Sürekli Azure İzleyici ile izleme
 
@@ -34,7 +34,7 @@ Ortamınız genelinde observability kazanmak için tüm web uygulamaları ve hiz
 - [Azure DevOps projeleri](../devops-project/overview.md) size mevcut kodunuzu ve Git deposu ile basitleştirilmiş bir deneyim sunmak ve azure'da bir sürekli tümleştirme (CI) ve sürekli teslim (CD) işlem hattı oluşturmak üzere örnek uygulamalardan birini seçin.
 - [Sürekli izleme, DevOps yayın işlem hattında](../azure-monitor/app/continuous-monitoring.md) dağıtımınızı izleme verileri temel alan ağ geçidi ya da geri alma sağlar.
 - [Durum İzleyicisi](../azure-monitor/app/monitor-performance-live-website-now.md) değiştirmeye veya kodunuzu yeniden dağıtmaya gerek kalmadan canlı bir .NET uygulamasını Azure Application Insights ile Windows üzerinde izleyin olanak tanır.
-- Uygulamanız için kod erişimi varsa, ardından ile tam izlemeyi etkinleştir [Application Insights](../application-insights/app-insights-overview.md) için Azure İzleyici Application Insights SDK yükleyerek [.NET](../application-insights/quick-monitor-portal.md), [Java ](../application-insights/app-insights-java-quick-start.md), [Node.js](../application-insights/app-insights-nodejs-quick-start.md), veya [herhangi bir programlama dili](../azure-monitor/app/platforms.md). Bu özel olayları, ölçümleri veya uygulamanızın ve işinizin ilgili olan sayfa görünümleri belirtmenize olanak sağlar.
+- Uygulamanız için kod erişimi varsa, ardından ile tam izlemeyi etkinleştir [Application Insights](../application-insights/app-insights-overview.md) için Azure İzleyici Application Insights SDK yükleyerek [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java ](../azure-monitor/learn/java-quick-start.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md), veya [herhangi bir programlama dili](../azure-monitor/app/platforms.md). Bu özel olayları, ölçümleri veya uygulamanızın ve işinizin ilgili olan sayfa görünümleri belirtmenize olanak sağlar.
 
 
 
@@ -79,7 +79,7 @@ Sürekli Tümleştirme / sürekli dağıtım sayesinde otomatik olarak tümleşt
 ## <a name="prepare-dashboards-and-workbooks"></a>Panolar ve çalışma kitapları hazırlama
 Geliştirme ve operasyon araçları ve aynı telemetriyi erişimi olmasını sağlayarak ortamınız genelinde desenlerini görüntülemek ve algılama saati (MTTD) ve geri yükleme ortalama süresi (MTTR) en aza indirmek sağlar.
 
-- Hazırlama [özel panolar](../application-insights/app-insights-tutorial-dashboards.md) ortak ölçüm ve günlükleri için kuruluşunuzdaki farklı rollere göre. Panolar, tüm Azure kaynakları verilerinden birleştirebilirsiniz.
+- Hazırlama [özel panolar](../azure-monitor/learn/tutorial-app-dashboards.md) ortak ölçüm ve günlükleri için kuruluşunuzdaki farklı rollere göre. Panolar, tüm Azure kaynakları verilerinden birleştirebilirsiniz.
 - Hazırlama [çalışma kitapları](../azure-monitor/app/usage-workbooks.md) geliştirme ve operasyon arasında paylaşımı bilgi sağlamak için. Bu ölçüm grafikleri ve günlük sorguları veya müşteri desteği veya işlemleri yardımcı geliştiriciler tarafından temel sorunların işlemeye hazır bile olarak sorun giderme kılavuzları ile dinamik raporlar olarak hazırlanmış.
 
 ## <a name="continuously-optimize"></a>Sürekli olarak iyileştirin

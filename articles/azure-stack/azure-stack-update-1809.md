@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/22/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: f3994c2be50939a837256224030e5284cc6f385b
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 97b7defded39e572a1fecae3e93d389014b15a6b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754059"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077972"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 güncelleştirme
 
@@ -48,6 +48,8 @@ Bu güncelleştirme Azure Stack için aşağıdaki geliştirmeleri içerir:
    Daha fazla bilgi için [Azure Stack syslog iletmeyi](azure-stack-integrate-security.md).
 
 - Artık [kayıt kaynak taşıma](azure-stack-registration.md#move-a-registration-resource) yeniden kaydetmek zorunda kalmadan, kaynak grupları arasında Azure üzerinde. Eski ve yeni abonelikler için aynı CSP iş ortağı kimliğini eşlenen sürece bulut çözüm sağlayıcıları (CSP'ler) ayrıca kayıt kaynağı abonelikler arasında taşıyabilirsiniz Bu, var olan müşteri Kiracı eşlemeleri etkilemez. 
+
+- Ağ arabirimi başına birden çok IP adresi atamak için destek eklendi.  Daha fazla ayrıntı için bkz: [birden çok IP adresi için PowerShell kullanarak sanal makinelere Atayabilmenizi](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
 
 ### <a name="fixed-issues"></a>Düzeltilen sorunlar
 

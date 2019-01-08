@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: de28bce852d00900bee19b2fa4d7e4e39d050b4d
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1db4f4be7ab883e6be52b52bd93a43468829bed5
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054529"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076634"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Akıllı algılama - performans Anomalileri
 
@@ -80,7 +80,7 @@ Akıllı algılama performans anomalileri hakkında e-posta, Application Insight
 
   * Henüz, ancak şunları yapabilirsiniz:
     * [Uyarıları Ayarlama](../../azure-monitor/app/alerts.md) , bilgi, ne zaman bir ölçüm eşiği aştığında.
-    * [Telemetriyi dışarı aktarma](../../azure-monitor/app/export-telemetry.md) için bir [veritabanı](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) veya [Power BI için](../../application-insights/app-insights-export-power-bi.md), burada, bunu kendiniz analiz edebilirsiniz.
+    * [Telemetriyi dışarı aktarma](../../azure-monitor/app/export-telemetry.md) için bir [veritabanı](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) veya [Power BI için](../../azure-monitor/app/export-power-bi.md ), burada, bunu kendiniz analiz edebilirsiniz.
 * *Ne sıklıkta çözümleme yapılır?*
 
   * Analiz günlük önceki günün (UTC saat dilimine tam gün) telemetrisi üzerinde çalıştırıyoruz.

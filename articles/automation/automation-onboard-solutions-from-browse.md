@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f1607a7d795e3934881429feb18c711a75995e31
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039437"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062953"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri birden çok VM'de etkinleştir
 
@@ -59,6 +59,24 @@ Seçili çalışma alanı bir Otomasyon hesabına bağlı değilse, aşağıdaki
 
 ![Çalışma alanı](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
+Çözümleri etkinleştirirken, bir Log Analytics çalışma alanı ve Otomasyon hesabı bağlamak için yalnızca belirli bölgelerde desteklenir.
+
+Aşağıdaki tabloda, desteklenen eşlemeleri gösterir:
+
+|**Log Analytics çalışma alanı bölgesi**|**Azure Otomasyonu bölge**|
+|---|---|
+|AustraliaSoutheast|AustraliaSoutheast|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS|WestCentralUS|
+|WestEurope|WestEurope|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP|CentralUSEUAP|
+
 Etkinleştirmek için istemediğiniz herhangi bir sanal makineyi yanındaki onay işaretini kaldırın. Zaten seçili sanal makinelerin etkinleştirilemez.
 
 Tıklayın **etkinleştirme** çözümü etkinleştirmek için. Çözümün etkinleştirilmesi 15 dakika sürer.
@@ -80,13 +98,13 @@ Bu çözümleri kaldırdıktan sonra Otomasyon hesabının bağlantısını kald
 
 1. Azure portalından Otomasyon hesabınızı açın ve sayfa seçin üzerinde Otomasyon hesabı **bağlantılı çalışma** bölümünde **ilgili kaynakları** soldaki.
 
-1. Bağlantıyı kaldır çalışma sayfasında tıklayın **çalışma alanının bağlantısını Kaldır**.
+2. Bağlantıyı kaldır çalışma sayfasında tıklayın **çalışma alanının bağlantısını Kaldır**.
 
    ![Çalışma sayfası bağlantısını Kaldır](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
 
    Devam etmek istediğinizi doğrulayan bir ileti alacaksınız.
 
-1. Azure Otomasyonu hesabı Log Analytics çalışma alanınızın bağlantısını dener, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde.
+3. Azure Otomasyonu hesabı Log Analytics çalışma alanınızın bağlantısını dener, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde.
 
 İsteğe bağlı olarak, güncelleştirme yönetimi çözümünü kullandıysanız, çözümü kaldırdıktan sonra artık gerekli olmayan aşağıdaki öğeleri kaldırmak isteyebilirsiniz.
 
@@ -108,11 +126,11 @@ Zaman ekleme birden çok makine gösterme makineler olabilir **etkinleştirilemi
 
 **Neden**: Bu hata, başka bir çalışma alanı için yerleşik raporları çalıştığınız VM gösterir.
 
-**Çözüm**: tıklayın **yapılandırma olarak** hedeflenen Otomasyon hesabının ve Log Analytics çalışma alanını değiştirmek için.
+**Çözüm**: Tıklayın **yapılandırma olarak** hedeflenen Otomasyon hesabının ve Log Analytics çalışma alanını değiştirmek için.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Bu abonelikte kullanılabilir olmayan bir çalışma alanına VM raporları
 
-**Neden**: sanal makine için raporlar çalışma alanı:
+**Neden**: Sanal makine için raporlar çalışma alanı:
 
 * Farklı bir abonelikte veya
 * Artık yok, veya
@@ -122,21 +140,21 @@ Zaman ekleme birden çok makine gösterme makineler olabilir **etkinleştirilemi
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>VM işletim sistemi sürümü veya dağıtım desteklenmiyor
 
-**Neden:** çözümü tüm Linux dağıtımları veya tüm Windows sürümleri için desteklenmiyor.
+**Neden:** Çözüm, tüm Linux dağıtımları veya tüm Windows sürümleri için desteklenmez.
 
-**Çözüm:** başvurmak [desteklenen istemciler listesi](automation-update-management.md#clients) çözümü.
+**Çözüm:** Başvurmak [desteklenen istemciler listesi](automation-update-management.md#clients) çözümü.
 
 ### <a name="classic-vms-cannot-be-enabled"></a>Klasik Vm'leri etkinleştirilemez
 
 **Neden**: Klasik dağıtım modelini kullanan sanal makineler desteklenmez.
 
-**Çözüm**: resource manager dağıtım modeli için sanal makineyi geçirin. Bunu yapma hakkında bilgi için bkz: [Klasik dağıtım modeli kaynakları geçirme](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Çözüm**: Resource manager dağıtım modeli için sanal makineyi geçirin. Bunu yapma hakkında bilgi için bkz: [Klasik dağıtım modeli kaynakları geçirme](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>VM durduruldu. (serbest bırakıldı)
 
-**Neden**: sanal makinenin içinde bir **çalıştıran** durumu.
+**Neden**: Sanal makinede değil, bir **çalıştıran** durumu.
 
-**Çözüm**: bir çözüm bu VM için bir VM ekleme için çalıştırmalıdır. Tıklayın **VM Başlat** sayfadan ayrılmak gitmeden VM'yi başlatmak için satır içi bağlantı.
+**Çözüm**: İçin yerleşik bir çözüm bu VM için bir VM çalıştırılması gerekir. Tıklayın **VM Başlat** sayfadan ayrılmak gitmeden VM'yi başlatmak için satır içi bağlantı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: adgera
 ms.custom: seodec18
-ms.openlocfilehash: 6bb1709d10a406d88378189cd68b9a36abed2c8d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 9abf1eebe8174160bd671d83086ed641708b98eb
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017575"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54073960"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure dijital İkizlerini nesnelerine BLOB Ekle
 
 Resimler ve günlükleri gibi yaygın dosya türleri yapılandırılmamış temsillerini blobudur. Bir MIME türü kullanarak temsil ettikleri ne tür veriler BLOB'ları izlemek (örneğin: "image/jpeg") ve meta verileri (adı, açıklamayı, türü ve benzeri).
 
-Azure dijital İkizlerini cihazlara, boşluk ve kullanıcılara düğmelere bloblarını destekler. BLOB'ları, bir kullanıcı, cihaz fotoğraf, video, bir harita veya bir günlük için bir profil resmi temsil edebilir.
+Azure dijital İkizlerini cihazlara, boşluk ve kullanıcılara düğmelere bloblarını destekler. BLOB'ları, bir kullanıcı, cihaz fotoğraf, video, bir harita, üretici yazılımı zip, JSON verilerini, bir günlük, vb. bir profil resmi temsil edebilir.
 
 [!INCLUDE [Digital Twins Management API familiarity](../../includes/digital-twins-familiarity.md)]
 
@@ -32,7 +32,7 @@ Azure dijital İkizlerini cihazlara, boşluk ve kullanıcılara düğmelere blob
 
 ### <a name="blob-metadata"></a>Blob meta verileri
 
-Ek olarak **Content-Type** ve **Content-Disposition**, çok bölümlü isteklerini doğru JSON gövdesi belirtmeniz gerekir. Göndermek için hangi JSON gövdesi gerçekleştirilmekte olan HTTP isteği işlemi türüne bağlıdır.
+Ek olarak **Content-Type** ve **Content-Disposition**, dijital İkizlerini Azure blob çok parçalı istek, doğru JSON gövdesi belirtmeniz gerekir. Göndermek için hangi JSON gövdesi gerçekleştirilmekte olan HTTP isteği işlemi türüne bağlıdır.
 
 Dört ana JSON şemalarının şunlardır:
 
@@ -48,12 +48,15 @@ Başvuru belgeleri okuyarak kullanma hakkında bilgi edinin [Swagger'ı kullanma
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-Yapmak için bir **POST** bir metin dosyası olarak bir blob yükleyen ve boşluk ile ilişkilendirir isteği:
+Bir metin dosyası bir blob olarak karşıya yükleyin ve boşluk ile ilişkilendirmek için kimliği doğrulanmış bir HTTP POST isteği olun:
 
 ```plaintext
-POST YOUR_MANAGEMENT_API_URL/spaces/blobs HTTP/1.1
-Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
+YOUR_MANAGEMENT_API_URL/spaces/blobs
+```
 
+Aşağıdaki gövdesi:
+
+```plaintext
 --USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
@@ -96,6 +99,16 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
+Her iki örnekte:
+
+1. Üst bilgileri içerdiğini doğrulayın: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
+1. Çok bölümlü gövde olduğundan emin olun:
+
+   - İlk Kısım gerekli blob meta verilerini içerir.
+   - İkinci bölümü, metin dosyası içerir.
+
+1. Metin dosyası olarak sağlanır doğrulayın `Content-Type: text/plain`.
+
 ## <a name="api-endpoints"></a>API uç noktaları
 
 Aşağıdaki bölümlerde, çekirdek blob ile ilgili API uç noktaları ve kendi işlevler açıklanmaktadır.
@@ -106,7 +119,7 @@ Bloblar için cihazlar ekleyebilirsiniz. Aşağıdaki görüntüde Yönetimi API
 
 ![Cihaz BLOB'ları][2]
 
-Örneğin, güncelleştirmek veya blob oluşturma ve blob için bir cihaz eklemek için olun bir **düzeltme eki** isteği:
+Örneğin, güncelleştirmek veya blob oluşturma ve blob için bir cihaz eklemek için kimliği doğrulanmış bir HTTP PATCH isteği olun:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
@@ -132,7 +145,7 @@ Ayrıca, blobları için alanları ekleyebilirsiniz. Aşağıdaki görüntü, al
 
 ![Alanı BLOB'ları][3]
 
-Örneğin, bir blob için bir alanı eklenmiş döndürülecek olun bir **alma** isteği:
+Örneğin, bir blob için bir alanı eklenmiş döndürmek için kimliği doğrulanmış bir HTTP GET isteği olun:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
@@ -142,7 +155,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | İstenen blob kimliği |
 
-Yapmadan bir **düzeltme eki** isteği aynı uç noktasına bir meta veri açıklamasını güncelleştirin ve blob yeni bir sürümünü oluşturmak sağlar. HTTP isteği aracılığıyla yapılan **düzeltme eki** yöntemi, tüm gerekli meta ve çok bölümlü form verilerinin yanı sıra.
+Bir PATCH isteği aynı uç noktasına, meta veri açıklamalarını güncelleştirir ve yeni sürümlerini blob oluşturur. HTTP isteği, tüm gerekli meta ve çok bölümlü form verilerinin yanı sıra düzeltme eki yöntemi aracılığıyla yapılır.
 
 Başarılı işlemler dönüş bir **SpaceBlob** aşağıdaki şemaya uygun nesne. Döndürülen veri tüketmek için kullanabilirsiniz.
 
@@ -157,7 +170,7 @@ Blobları kullanıcı modelleri (örneğin, bir profil resmi ilişkilendirmek i�
 
 ![Kullanıcı BLOB'ları][4]
 
-Örneğin, bir kullanıcıya bağlı olarak bir blob getirilecek olun bir **alma** gerekli form veri isteği:
+Örneğin, bir kullanıcıya bağlı olarak bir blob getirmek için kimliği doğrulanmış bir HTTP GET isteği için gerekli form verilerle olun:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID

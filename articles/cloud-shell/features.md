@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: 63cd7935a649973ae72e074d546f48c7d316e388
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: d0fc922191dbcdf35e3f9d1dee4af32e50dd27a7
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706747"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076697"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Özellikler ve Azure Cloud Shell için Araçlar
 
@@ -61,7 +61,7 @@ Cloud Shell'de önceden yapılandırılmış kimlik doğrulama için Terraform, 
 |---|---|
 |Linux araçları            |Bash<br> zsh<br> Göster<br> tmux<br> dıg<br>               |
 |Azure Araçları            |[Azure CLI](https://github.com/Azure/azure-cli) ve [Klasik Azure CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
-|Metin düzenleyiciler           |vim<br> nano<br> emacs<br> Kod       |
+|Metin düzenleyiciler           |vim<br> nano<br> emacs<br> kod       |
 |Kaynak denetimi         |git                    |
 |Derleme araçları            |Olun<br> Maven<br> npm<br> pip         |
 |Kapsayıcılar             |[Docker Makinesi](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI'Sİ](https://github.com/dcos/dcos-cli)         |
@@ -74,9 +74,9 @@ Cloud Shell'de önceden yapılandırılmış kimlik doğrulama için Terraform, 
 |---|---|
 |.NET Core  |2.0.0       |
 |Başlayın         |1.9        |
-|Java       |1.8        |
+|Java       |1,8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.1.0](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.1.1](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 ve 3.5 (varsayılan)|
 
 ## <a name="next-steps"></a>Sonraki adımlar

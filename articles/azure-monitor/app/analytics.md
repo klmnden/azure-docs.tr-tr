@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 52b18f3f6f1166650fb13694f3eed54c28bbc0a9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c41444f94e4685d246de225500c8a5beefc74944
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731682"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065622"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights analiz
 Analytics, güçlü arama ve sorgulama aracı [Application Insights](../../application-insights/app-insights-overview.md). Analytics web aracı olduğundan kurulum gerekli değildir. Application Insights uygulamalarınızı biri için yapılandırmış sonra uygulamanızın Analytics açarak uygulamanızın verilerini çözümleyebilirsiniz [genel bakış dikey penceresinde](../../azure-monitor/app/app-insights-dashboards.md).
@@ -48,7 +48,7 @@ Biz sonra ülke başına kayıt sayısı (veri sütunu bulunduğunda *client_Cou
 Dil, çok cazip özelliklere sahiptir:
 
 * [Filtre](/azure/kusto/query/whereoperator) ham uygulama telemetrinizi özel özellikler ve ölçümler de dahil olmak üzere herhangi bir alana göre.
-* [Birleştirme](/azure/kusto/query/joinoperator) sayfa görüntülemeleri, bağımlılık çağrıları, özel durumlar ve günlük izlemelerini istekleri birden çok tablo ilişkilendirin.
+* [Birleştirme](/azure/kusto/query/joinoperator) birden çok tablolar - karşılıklı olarak ilişkilendirmek sayfa görüntülemeleri, bağımlılık çağrıları, özel durumlar ve günlük izlemelerini ister.
 * Güçlü istatistiksel [toplamalar](/azure/kusto/query/summarizeoperator).
 * Hemen ve güçlü görselleştirmeler.
 * [REST API](https://dev.applicationinsights.io/) sorguları programlı olarak örneğin Powershell'den çalıştırmak için kullanabilirsiniz.

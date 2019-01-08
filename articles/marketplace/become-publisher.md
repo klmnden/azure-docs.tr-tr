@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 33edfdc58d82530bc1a5d0245b5e18e94b0a6dc1
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846479"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077564"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Bulut Market yayımcısı olur
 
@@ -80,7 +80,7 @@ Market ekleme ekibimiz, 3. adımda verilen Market kayıt ayrıntıları doğrula
 Kullanacağınız [bulut iş ortağı portalı](https://cloudpartner.azure.com) oluşturmak için yayımlama ve Market teklifleri yönetin. Onay Hoş Geldiniz e-postası aldıktan sonra hemen üzerinde oturum açabileceğiniz [bulut iş ortağı portalı](https://cloudpartner.azure.com) Market'te yayımlama ve teklifinizi oluşturma hakkında ek teknik bilgiler erişmek için Microsoft hesabınızla. 
 *   Bulut iş ortağı portalı kullanma hakkında daha fazla bilgi için [edinin bölümünde Başlarken makaleyi ziyaret](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal). Bu ayrıntılar erişmek için bulut iş ortağı portalı oturum açmanız gerekir.
 *   Sizin sorularınız varsa veya bir ekleme genel bakış çağrı zamanlama gibi diğer makalelerden Bu yayımcı Kılavuzu gözden geçirin veya sorun türü altında bir destek isteği açın > bulut iş ortağı portalı içinden gelen Market ekleme.
-*   Hoş Geldiniz e-postayı almadıysanız, lütfen konu satırını içeren bir e-posta için istenmeyen posta klasörünüzü kontrol edin "için Microsoft Marketplace Hoş Geldiniz!." İstenmeyen posta klasörünüzü hiç e-posta varsa, lütfen [Microsoft desteğine başvurun](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Destek sayfasında Lütfen seçin: sorun türü > Market ekleme.  Market yayımcı ekleme ekibimiz, sorguları ile yardımcı olmaktan mutluluk duyarız. 
+*   Hoş Geldiniz e-postayı almadıysanız, lütfen konu satırını içeren bir e-posta için istenmeyen posta klasörünüzü kontrol edin "için Microsoft Marketplace Hoş Geldiniz!." İstenmeyen posta klasörünüzü hiç e-posta varsa, lütfen [Microsoft desteğine başvurun](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Destek sayfasında Lütfen seçin: Sorun türü > Market ekleme.  Market yayımcı ekleme ekibimiz, sorguları ile yardımcı olmaktan mutluluk duyarız. 
 
 
 ## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5. (Yalnızca seçeneğin yayımlama Transact için) geliştirme Merkezi'ne kaydolun 
@@ -97,15 +97,15 @@ A [Geliştirme Merkezi](https://developer.microsoft.com/store/register) hesabı 
 Tamamladıktan sonra [Geliştirme Merkezi](https://developer.microsoft.com/store/register) kayıt, bulut iş ortağı profilinizle birlikte bağlantı, [Geliştirme Merkezi](https://developer.microsoft.com/store/register) hesap (burada ayrıntılı adımlara bakın). Transact teklifinizi yayımlamadan önce bu adımın tamamlanması gerekir. 
 
 >[!Note]
->99 Geliştirici Merkezi kayıt ücret ayları için tamamlayın [Market kayıt formunda](https://azuremarketplace.microsoft.com/en-us/sell/signup) promosyon kodunuzu içeren bir e-posta alırsınız. 
+>99 Geliştirici Merkezi kayıt ücret ayları için tamamlayın [Market kayıt formunda](https://azuremarketplace.microsoft.com/sell/signup) promosyon kodunuzu içeren bir e-posta alırsınız. 
 
 >[!Important]
 >Microsoft Dev Center hesabı oluşturmadan önce kuruluşunuzun zaten yinelenen önlemek için bir Geliştirme Merkezi hesabı yok doğrulayın. Daha fazla bilgi için ziyaret [geliştirme Merkezi'ne kaydolun](https://docs.microsoft.com/azure/marketplace/register-dev-center) bölümü.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Market vitrininin birleşiminden hakkında bilgi edinin: [karşılaştırma AppSource ve Azure Market](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
-*   [Çözümünüz için liste türü belirlenemiyor](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+* Market vitrininin birleşiminden hakkında bilgi edinin: [AppSource ve Azure Market karşılaştırma](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+*   [Çözümünüz için liste türünü belirlemek](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
 ---  

@@ -8,12 +8,12 @@ ms.author: raynew
 ms.date: 10/23/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 4806ca77bda1d380d3c5f1d958a335bceddc7f16
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 56daf1bd8d0ab7752b74463759f25441924b52d2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787452"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064126"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Azure Dosya Paylaşımlarını yedekleme sorunlarını giderme
 Aşağıdaki tablolarda listelenen bilgilerle Azure Dosya Paylaşımları yedeklemesi kullanılırken karşılaşılan sorunları ve hataları giderebilirsiniz.
@@ -36,7 +36,7 @@ Azure Dosya paylaşımları için yedekleme, Önizleme aşamasındadır. Azure d
 ## <a name="configuring-backup"></a>Yedeklemeyi yapılandırma
 Aşağıdaki tablo, yedeklemenin yapılandırılmasına yöneliktir:
 
-| Yedeklemeyi yapılandırma | Geçici çözüm veya çözümleme ipuçları |
+| Hata iletileri | Geçici çözüm veya çözümleme ipuçları |
 | ------------------ | ----------------------------- |
 | Azure dosya paylaşımına yönelik yedeklemeyi yapılandırmak için Depolama Hesabımı bulamıyorum | <ul><li>Bulma işlemi tamamlanana kadar bekleyin. <li>Depolama hesabından herhangi bir Dosya paylaşımının zaten başka bir Kurtarma Hizmetleri kasası ile korunup korunmadığını denetleyin. **Not**: Bir depolama hesabındaki tüm dosya paylaşımları tek altında kurtarma Hizmetleri kasası korunabilir. <li>Desteklenmeyen herhangi bir Depolama Hesabında Dosya paylaşımının mevcut olmadığından emin olun.|
 | Portal durumlarında hata oluştu. Depolama hesaplarını bulma işlemi başarısız oldu. | Aboneliğiniz iş ortağı hesabıysa (CSP etkin) hatayı yoksayın. Aboneliğinizde CSP etkin değilse ve depolama hesaplarınız bulunamıyorsa desteğe başvurun.|
@@ -64,6 +64,14 @@ Aşağıdaki tablo, yedeklemenin yapılandırılmasına yöneliktir:
 | Hedef dosya paylaşımı dolu olduğundan geri yükleme işlemi başarısız olmuştur. | Hedef dosya paylaşımı için boyut kotasını geri yükleme verilerine uyacak şekilde artırın ve işlemi yeniden deneyin. |
 | Hedef dosya paylaşımı ile ilişkili Dosya Eşitleme Hizmeti kaynaklarında geri yükleme öncesi işlemler gerçekleştirilirken bir hata oluştuğundan geri yükleme işlemi başarısız oldu. | Lütfen daha sonra yeniden deneyin, sorun devam ederse lütfen Microsoft desteğine başvurun. |
 | Bir veya daha fazla dosyayı kurtarma başarısız oldu. Daha fazla bilgi için, yukarıda verilen yoldaki başarısız dosya listesini kontrol edin. | <ul> <li> Kurtarma hatasının nedenleri dosyada listelenmektedir (yol, İş ayrıntılarında belirtilir), nedenleri giderin ve yalnızca başarısız dosyalar için geri yükleme işlemini yeniden deneyin. <li> Dosya geri yükleme hatalarının sık karşılaşılan nedenleri şunlardır: <br/> - Başarısız dosyaların o sırada kullanımda olması. <br/> - Üst dizinde başarısız dosyalarla aynı ada sahip bir dizinin mevcut olması. |
+
+
+## <a name="modify-policy"></a>İlkeyi değiştirin
+| Hata iletileri | Geçici çözüm veya çözümleme ipuçları |
+| ------------------ | ----------------------------- |
+| Bu öğe için başka bir yapılandırma koruması devam ediyor. | Önceki süre sonra yeniden deneyin ve ilke işlemi değiştirmek için lütfen bekleyin.|
+| Seçilen öğede başka bir işlem sürüyor. | Daha sonra yeniden deneyin diğer devam eden işlemin lütfen bekleyin |
+
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 Azure dosya paylaşımlarının yedeklenmesi hakkında daha fazla bilgi için bkz.:

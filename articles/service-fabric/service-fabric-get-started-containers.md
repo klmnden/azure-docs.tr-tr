@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: e6552984fd629810fd5e422c92ef9ee8ecd2b342
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 13637e4de0d555bdd0e70c69097b204c286eb24c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053117"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063837"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -332,9 +332,9 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ### <a name="configure-cluster-wide-credentials"></a>Küme çapında kimlik bilgilerini yapılandırma
 
-V6.3 başlayarak, Service Fabric uygulamaları tarafından varsayılan depo kimlik olarak kullanılabilir küme çapında kimlik bilgilerini yapılandırmak kullanıcı sağlar.
+6,3 çalışma zamanı ile başlayarak, Service Fabric, küme çapında kimlik bilgileri deposu kimlik bilgileri varsayılan olarak, uygulamalar tarafından kullanılabilen yapılandırmanıza olanak sağlar.
 
-Etkinleştirebilir/bu özellik "UseDefaultRepositoryCredentials" özniteliği Healthcheck ApplicationManifest.xml içinde bir "true/false ile" Boole değeri ekleyerek devre dışı bırakabilir.
+Etkinleştirebilir veya özelliği ekleyerek devre dışı `UseDefaultRepositoryCredentials` özniteliğini `ContainerHostPolicies` ApplicationManifest.xml ile içinde bir `true` veya `false` değeri.
 
 ```xml
 <ServiceManifestImport>
@@ -348,14 +348,14 @@ Etkinleştirebilir/bu özellik "UseDefaultRepositoryCredentials" özniteliği He
 </ServiceManifestImport>
 ```
 
-Bu, barındırma bölümünde değeri ClusterManifest içinde belirtebilirsiniz varsayılan depo kimlik bilgilerini kullanmak için Service Fabric bildirir.  UseDefaultRepositoryCredentials aşağıdaki değerleri değeri clustermanifest içinde true, Service Fabric olacak şimdi Okunmuş olarak ayarlanmışsa:
+Service Fabric, ardından altında değeri ClusterManifest içinde belirtebileceğiniz varsayılan depo kimlik bilgilerini kullanır `Hosting` bölümü.  Varsa `UseDefaultRepositoryCredentials` olduğu `true`, Service Fabric değeri ClusterManifest ' aşağıdaki değerleri okur:
 
 * DefaultContainerRepositoryAccountName (dize)
 * DefaultContainerRepositoryPassword (dize)
 * IsDefaultContainerRepositoryPasswordEncrypted (Boole)
-* DefaultContainerRepositoryPasswordType(string)---v6.4 desteklenir
+* DefaultContainerRepositoryPasswordType (dize)---desteklenen 6.4 çalışma zamanı ile başlatılıyor
 
-Aşağıda, bir örnek ClusterManifestTemplate.json barındırma bölümünde içine ekleyebilirsiniz. Hakkında daha fazla bilgi [küme ayarının nasıl yapılandırılacağını](service-fabric-cluster-fabric-settings.md) ve [ parola şifreleme](service-fabric-application-secret-management.md)
+Aşağıda, bir örnek içinde ekleyebilirsiniz `Hosting` ClusterManifestTemplate.json dosyasındaki bölümü. Daha fazla bilgi için [değişiklik Azure Service Fabric küme ayarlarını](service-fabric-cluster-fabric-settings.md) ve [yönetme Azure Service Fabric uygulama gizli dizilerini](service-fabric-application-secret-management.md)
 
 ```json
       {
@@ -384,7 +384,6 @@ Aşağıda, bir örnek ClusterManifestTemplate.json barındırma bölümünde i�
         ]
       },
 ```
-
 
 ## <a name="configure-isolation-mode"></a>Yalıtım modunu yapılandırma
 Windows, kapsayıcılar için iki yalıtım modunu destekler: İşlem ve Hyper-V. İşlem yalıtım moduyla, aynı konak makinesinde çalışan tüm kapsayıcılar çekirdeği konakla paylaşır. Hyper-V yalıtım moduyla, çekirdekler her Hyper-V kapsayıcısı ile kapsayıcı konağı arasında yalıtılır. Yalıtım modu, uygulama bildirimi dosyasında bulunan `ContainerHostPolicies` öğesinde belirtilir. Belirtilebilen yalıtım modları `process`, `hyperv` ve `default` modlarıdır. İşlem yalıtım modu, Windows Server konaklarında varsayılandır. Bu nedenle kapsayıcı, yalıtım modu ayarından bağımsız olarak Hyper-V yalıtım modunda çalışıyor Windows 10 konaklarında yalnızca Hyper-V yalıtım modu, desteklenir. Aşağıdaki kod parçacığı uygulama bildirimi dosyasında yalıtım modunun nasıl belirtildiğini gösterir.

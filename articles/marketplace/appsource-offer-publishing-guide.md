@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 236859cca623643b9bc7a4484f6ce4e6aa11aad6
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 943f3a4739e5dffb2a7d218bf3a82a4e882538a6
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579794"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075677"
 ---
 # <a name="office-365-dynamics-365-power-apps-and-power-bi-offer-publishing-guide"></a>Office 365, Dynamics 365, Power Apps ve Power BI teklifi yayımlama Kılavuzu
 
@@ -35,7 +35,7 @@ Gözden geçirme [işlem ve Kılavuzlar yayımlama](https://docs.microsoft.com/o
 
 ### <a name="power-apps"></a>Power Apps
 
-Müşteriler için hakkında nasıl bilgi [test sürüşü uygulamanızı Appsource'ta.](https://powerapps.microsoft.com/en-us/blog/appsource-test-drive/)
+Müşteriler için hakkında nasıl bilgi [test sürüşü uygulamanızı Appsource'ta.](https://powerapps.microsoft.com/blog/appsource-test-drive/)
 
 ### <a name="power-bi"></a>Power BI
 
@@ -46,15 +46,19 @@ Gözden geçirme [işlemi ve yönergeleri yayımlama.](https://docs.microsoft.co
 #### <a name="dynamics-365-for-finance-and-operations"></a>Finans ve operasyon için Dynamics 365
 Enterprise Edition için oluşturma sırasında gözden [işlem ve Kılavuzlar yayımlama](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
-### <a name="dynamics-365-for-customer-engagement"></a>Dynamics 365 müşteri katılımı için
-Gözden geçirme [işlem ve Kılavuzlar yayımlama](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource)
+Bkz: [teklif Finans ve operasyon için Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer) teklif bulut iş ortağı Portalı'nda yayımlama için.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+### <a name="dynamics-365-for-customer-engagement"></a>Müşteri Etkileşimi için Dynamics 365
+Gözden geçirme [işlemi ve yönergeleri yayımlama](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource).
+
+Bkz: [Dynamics 365 müşteri katılımı teklif için](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-customer-engagement-offer) teklif bulut iş ortağı Portalı'nda yayımlama için.
+
+## <a name="next-steps"></a>Sonraki adımlar
 
 Zaten yapmadıysanız, 
 
-- [Kayıt](https://azuremarketplace.microsoft.com/sell) Market'te
+- [Kayıt](https://azuremarketplace.microsoft.com/sell) Market'te.
 
 Kayıtlı olan ve bulut iş ortağı portalında çalışma 
 
-- [Bulut iş ortağı portalında oturum açın](https://cloudpartner.azure.com) oluşturmak veya teklifiniz tamamlamak için
+- [Bulut iş ortağı portalında oturum açın](https://cloudpartner.azure.com) oluşturmak veya teklifiniz tamamlayın.

@@ -4,22 +4,22 @@ description: Azure Otomasyonu runbook'ları ile ilgili sorunları giderme hakkı
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/04/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: f5663842a4d861ed6eb76de859b870aa7114cb04
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015475"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063650"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook'ları ile hatalarını giderme
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Azure Otomasyonu runbook'ları ile çalışırken kimlik doğrulaması hataları
 
-### <a name="sign-in-failed"></a>Senaryo: Azure hesap için oturum açın
+### <a name="sign-in-failed"></a>Senaryo: Başarısız Azure hesabınızda oturum açın
 
 #### <a name="issue"></a>Sorun
 
@@ -94,20 +94,22 @@ Abonelik adı geçerli değil veya abonelik ayrıntıları get yapılmaya çalı
 Azure'a düzgün bir şekilde kimlik doğrulaması yaptınız ve seçmek için çalıştığınız abonelik erişimi belirlemek için aşağıdaki adımları uygulayın:  
 
 1. Betiğinizi Azure Automation'ın tek başına çalışacağından emin olmak için dışında test edin.
-2. Siz çalıştırdığınızdan emin olun **Add-AzureAccount** cmdlet'ini çalıştırmadan önce **Select-AzureSubscription** cmdlet'i.  
-3. Ekleyerek bu hatayı görmeye devam ediyorsanız, kodunuzu değiştirin **- AzureRmContext** parametre **Add-AzureAccount** cmdlet'ini ve ardından kod yürütün.
+2. Siz çalıştırdığınızdan emin olun `Add-AzureAccount` cmdlet'ini çalıştırmadan önce `Select-AzureSubscription` cmdlet'i. 
+3. Ekleme `Disable-AzureRmContextAutosave –Scope Process` runbook'unuzu başlangıcına. Bu, herhangi bir kimlik bilgisi yalnızca geçerli runbook yürütme uygulanmasını sağlar.
+4. Ekleyerek bu hatayı görmeye devam ediyorsanız, kodunuzu değiştirin **AzureRmContext** parametre `Add-AzureAccount` cmdlet'ini ve ardından kod yürütün.
 
    ```powershell
+   Disable-AzureRmContextAutosave –Scope Process
+
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
--ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
    $context = Get-AzureRmContext
 
    Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
     ```
 
-### <a name="auth-failed-mfa"></a>Senaryo: çok faktörlü kimlik doğrulaması etkin olmadığından Azure kimlik doğrulaması başarısız oldu
+### <a name="auth-failed-mfa"></a>Senaryo: Çok faktörlü kimlik doğrulaması etkin olmadığından Azure kimlik doğrulaması başarısız oldu.
 
 #### <a name="issue"></a>Sorun
 
@@ -127,7 +129,7 @@ Azure Klasik dağıtım modeli cmdlet'leriyle bir sertifikayı kullanmak için b
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Runbook'larla çalışırken sık karşılaşılan hatalar
 
-### <a name="task-was-cancelled"></a>Senaryo: Runbook hatasıyla başarısız oluyor: bir görev iptal edildi
+### <a name="task-was-cancelled"></a>Senaryo: Runbook hatasıyla başarısız oluyor: Bir görev iptal edildi
 
 #### <a name="issue"></a>Sorun
 
@@ -147,21 +149,24 @@ Bu hata, Azure modüllerini en son sürüme güncelleştirerek çözülebilir.
 
 Otomasyon hesabınızda tıklayın **modülleri**, tıklatıp **güncelleştirme Azure modüllerini**. Güncelleştirme yaklaşık 15 başarısız runbook yeniden çalıştırın dakika, tam bir kez sürer. Modüllerinizi güncelleştirme hakkında daha fazla bilgi edinmek için [Azure Otomasyonu'nda güncelleştirme Azure modüllerini](../automation-update-azure-modules.md).
 
-### <a name="child-runbook-auth-failure"></a>Senaryo: Birden çok aboneliği ile ilgilenirken alt runbook başarısız
+### <a name="runbook-auth-failure"></a>Senaryo: Runbook'ları birden çok aboneliği ile ilgilenirken başarısız
 
 #### <a name="issue"></a>Sorun
 
-Alt runbook'ları yürütürken `Start-AzureRmRunbook`, alt runbook'un Azure kaynaklarını yönetmek başarısız olur.
+Runbook'ları yürütürken `Start-AzureRmAutomationRunbook`, Azure kaynaklarını yönetmek runbook başarısız.
 
 #### <a name="cause"></a>Nedeni
 
-Alt runbook'un doğru bağlamı çalıştırırken kullanmıyor.
+Runbook'un doğru bağlamı çalıştırırken kullanmıyor.
 
 #### <a name="resolution"></a>Çözüm
 
-Birden çok aboneliği ile çalışırken, abonelik bağlamına alt runbook'ları çağrılırken kaybolmuş olabilir. Abonelik bağlamına alt runbook'larına geçirilir emin olmak için ekleme `AzureRmContext` cmdlet'i ve ona geçiş bağlam parametresi.
+Birden çok aboneliği ile çalışırken, abonelik bağlamına runbook'ları çağrılırken kaybolmuş olabilir. Abonelik bağlamına için runbook'ları geçirilir emin olmak için ekleme `AzureRmContext` cmdlet'i ve ona geçiş bağlam parametresi. Ayrıca kullanılması önerilir `Disable-AzureRmContextAutosave` cmdlet'iyle **işlem** kimlik bilgileri yalnızca geçerli bir runbook için kullanılmasını sağlamak için kapsamı.
 
 ```azurepowershell-interactive
+# Ensures that any credentials apply only to the execution of this runbook
+Disable-AzureRmContextAutosave –Scope Process
+
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
@@ -183,7 +188,7 @@ Start-AzureRmAutomationRunbook `
     –Parameters $params –wait
 ```
 
-### <a name="not-recognized-as-cmdlet"></a>Senaryo: Runbook nedeniyle eksik bir cmdlet başarısız olur.
+### <a name="not-recognized-as-cmdlet"></a>Senaryo: Eksik bir cmdlet nedeniyle runbook başarısız
 
 #### <a name="issue"></a>Sorun
 
@@ -222,11 +227,11 @@ The job was tried three times but it failed
 
 Bu hata, aşağıdaki nedenlerden kaynaklanabilir:
 
-1. Bellek sınırı. Bir korumalı alan için ne kadar bellek tahsis belgelenmiş sınırlamanın olan [Otomasyon hizmet sınırları](../../azure-subscription-service-limits.md#automation-limits) şekilde 400 MB'tan fazla bellek kullanıyorsa, bir işi başarısız olabilir.
+1. Bellek sınırı. Bir korumalı alan için ne kadar bellek ayrılan üzerinde belgelenmiş sınırlamanın konumunda bulundu [Otomasyon hizmet sınırları](../../azure-subscription-service-limits.md#automation-limits). Bir işi 400 MB'tan fazla bellek kullanması durumunda başarısız olabilir.
 
-1. Ağ yuvaları. Anlatıldığı gibi Azure sanal 1000 eşzamanlı ağ yuvaları ile sınırlı [Otomasyon hizmet sınırları](../../azure-subscription-service-limits.md#automation-limits).
+2. Ağ yuvaları. Anlatıldığı gibi Azure sanal 1000 eşzamanlı ağ yuvaları ile sınırlı [Otomasyon hizmet sınırları](../../azure-subscription-service-limits.md#automation-limits).
 
-1. Modül uyumsuz. Modül bağımlılıklarının doğru değilse ve bunlar değilseniz, bu hata oluşabilir, runbook'unuzu genellikle "komut bulunamadı" döndürür veya "parametresi bağlanılamıyor" iletisi.
+3. Modül uyumsuz. Modül bağımlılıklarının doğru değilse ve bunlar değilseniz, bu hata oluşabilir, runbook'unuzu genellikle "komut bulunamadı" döndürür veya "parametresi bağlanılamıyor" iletisi.
 
 #### <a name="resolution"></a>Çözüm
 
@@ -238,7 +243,7 @@ Aşağıdaki çözümlerden birini sorunu düzeltin:
 
 * Runbook'u çalıştırmak için başka bir çözüm olan bir [karma Runbook çalışanı](../automation-hrw-run-runbooks.md). Karma çalışanları tarafından Azure sanal bellek ve ağ sınırları sınırlı değildir.
 
-### <a name="fails-deserialized-object"></a>Senaryo: Runbook seri durumdan çıkarılmış nesne nedeniyle başarısız olur.
+### <a name="fails-deserialized-object"></a>Senaryo: Runbook nedeniyle seri durumdan çıkarılmış nesne başarısız
 
 #### <a name="issue"></a>Sorun
 
@@ -262,7 +267,7 @@ Aşağıdaki üç çözümlerden birini bu sorunu düzeltin:
 2. Tüm nesneyi geçirmek yerine karmaşık nesnesinden adını veya ihtiyaç duyduğunuz değerini geçirin.
 3. PowerShell runbook'u bir PowerShell iş akışı runbook'u yerine kullanın.
 
-### <a name="quota-exceeded"></a>Senaryo: Runbook işi başarısız oldu, ayrılmış kotasını aştığı için
+### <a name="quota-exceeded"></a>Senaryo: Ayrılmış kotasını aştığı için Runbook işi başarısız oldu.
 
 #### <a name="issue"></a>Sorun
 
@@ -285,7 +290,7 @@ The quota for the monthly total job run time has been reached for this subscript
 3. Tıklayarak **ayarları** > **fiyatlandırma**.
 4. Tıklayın **etkinleştirme** hesabınıza yükseltmek için alt sayfa üzerinde **temel** katmanı.
 
-### <a name="cmdlet-not-recognized"></a>Senaryo: bir runbook çalıştırılırken tanınmıyor cmdlet'i
+### <a name="cmdlet-not-recognized"></a>Senaryo: Cmdlet'i bir runbook çalıştırılırken tanınmıyor
 
 #### <a name="issue"></a>Sorun
 
@@ -308,7 +313,7 @@ Aşağıdaki çözümlerden birini sorunu düzeltin:
 * Bir ad çakışması varsa ve iki farklı modülde cmdlet kullanılabilir, bu cmdlet'i için tam olarak nitelenmiş adını kullanarak çözebilirsiniz. Örneğin, kullanabileceğiniz **ModuleName\CmdletName**.  
 * Ardından bir karma çalışanı grubu içinde şirket runbook yürütme, modül ve cmdlet yüklendiğini karma çalışanı barındıran makinede emin olun.
 
-### <a name="long-running-runbook"></a>Senaryo:, Tamamlanması uzun süre çalışan bir runbook başarısız.
+### <a name="long-running-runbook"></a>Senaryo: Tamamlanması uzun süre çalışan bir runbook başarısız
 
 #### <a name="issue"></a>Sorun
 
@@ -328,9 +333,9 @@ Runbook bir Azure sanal adil paylaşımı tarafından izin verilen 3 saatlik sı
 
 Bir önerilen çözümdür runbook'u çalıştırmak için bir [karma Runbook çalışanı](../automation-hrw-run-runbooks.md).
 
-Karma çalışanları tarafından sınırlı olmayan [adil paylaşımı](../automation-runbook-execution.md#fair-share) Azure sanal olan 3 saat runbook sınırı. Karma Runbook çalışanları 3 saat adil paylaşım sınırı sınırlı değildir, ancak runbook'ları çalıştıran karma Runbook çalışanları hala geliştirilen beklenmeyen yerel altyapı sorunları durumunda yeniden davranışları desteklemek için.
+Karma çalışanları tarafından sınırlı olmayan [adil paylaşımı](../automation-runbook-execution.md#fair-share) Azure sanal olan 3 saat runbook sınırı. Karma Runbook çalışanları 3 saat adil paylaşım sınırı sınırlı değildir, ancak runbook'ları çalıştıran karma Runbook çalışanları hala geliştirilen beklenmeyen yerel altyapı sorunları varsa, yeniden başlatma davranışları desteklemek için.
 
-Runbook oluşturarak iyileştirmek için başka bir seçenektir [alt runbook'ları](../automation-child-runbooks.md). Runbook'unuz bir dizi gibi birden fazla veritabanı bir veritabanı işlem kaynakları üzerinde aynı işlevi aracılığıyla döngü bir alt runbook için bu işlevi taşıyabilirsiniz. Bu alt runbook'ların her biri ayrı işlemler halinde yürütülerek üst runbook'un tamamlanması için gereken toplam süreyi kısaltır.
+Runbook oluşturarak iyileştirmek için başka bir seçenektir [alt runbook'ları](../automation-child-runbooks.md). Runbook'unuz bir dizi gibi birden fazla veritabanı bir veritabanı işlem kaynakları üzerinde aynı işlevi aracılığıyla döngü bir alt runbook için bu işlevi taşıyabilirsiniz. Her biri bu alt runbook'ları paralel ayrı işlemlerde yürütür. Bu davranış, üst runbook tamamlanması için toplam süreyi azaltır.
 
 Alt runbook senaryoyu PowerShell cmdlet'leri şunlardır:
 
@@ -338,11 +343,11 @@ Alt runbook senaryoyu PowerShell cmdlet'leri şunlardır:
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) -alt runbook'un tamamlandıktan sonra yapılması gereken işlemler varsa her alt için iş durumunu denetlemek Bu cmdlet'i sağlar.
 
-### <a name="expired webhook"></a>Senaryo: Durumu: 400 Hatalı istek bir Web kancası çağrılırken
+### <a name="expired webhook"></a>Senaryo: Durum: Bir Web kancası çağrılırken 400 Hatalı istek
 
 #### <a name="issue"></a>Sorun
 
-Bir Azure Otomasyonu runbook için bir Web kancası çağırma denediğinizde aşağıdaki hatayı alırsınız.
+Bir Azure Otomasyonu runbook için bir Web kancası çağırma çalıştığınızda şu hatayı alırsınız.
 
 ```error
 400 Bad Request : This webhook has expired or is disabled
@@ -354,13 +359,13 @@ Bir Azure Otomasyonu runbook için bir Web kancası çağırma denediğinizde a�
 
 #### <a name="resolution"></a>Çözüm
 
-Web kancası devre dışı bırakılırsa, Azure portalı üzerinden bir Web kancası yeniden etkinleştirebilirsiniz. Web kancasının süresi dolmuşsa, Web kancası silinmesi ve yeniden oluşturulması gerekir. Yalnızca [bir Web kancasını yenileme](../automation-webhooks.md#renew-webhook) zaten dolmadı durumunda.
+Web kancası devre dışı bırakılırsa, Azure portalı üzerinden bir Web kancası yeniden etkinleştirebilirsiniz. bir Web kancası süresi dolduğunda, Web kancası silinmesi ve yeniden oluşturulması gerekir. Yalnızca [bir Web kancasını yenileme](../automation-webhooks.md#renew-webhook) zaten dolmadı durumunda.
 
-### <a name="429"></a>Senaryo: 429: İstek hızı anda de çok büyük. Lütfen yeniden deneyin
+### <a name="429"></a>Senaryo: 429: İstek hızı anda çok büyük. Lütfen tekrar deneyin
 
 #### <a name="issue"></a>Sorun
 
-Uygulamanızı çalıştırdığınızda aşağıdaki hata iletisini alırsınız `Get-AzureRmAutomationJobOutput` cmdlet:
+Çalıştırdığınızda aşağıdaki hata iletisini alırsınız `Get-AzureRmAutomationJobOutput` cmdlet:
 
 ```
 429: The request rate is currently too large. Please try again
@@ -375,7 +380,7 @@ Bu hata, iş çıktısı birçok runbook'tan alınırken oluşabilir [ayrıntıl
 Bu hatayı çözmek için iki yolu vardır:
 
 * Runbook'u düzenleme ve iş akışları, kendisini çıkaran derlemeninkinden sayısını azaltın.
-* Cmdlet çalışırken alınacak akış sayısını azaltın. Belirtebileceğiniz bunu yapmanın `-Stream Output` parametresi `Get-AzureRmAutomationJobOutput` almak için cmdlet'i yalnızca çıkış akışlarına. 
+* Cmdlet çalışırken alınacak akış sayısını azaltın. Bu davranış takip etmek için belirleyebileceğiniz `-Stream Output` parametresi `Get-AzureRmAutomationJobOutput` almak için cmdlet'i yalnızca çıkış akışlarına. 
 
 ## <a name="common-errors-when-importing-modules"></a>Modüller içeri aktarılırken yaygın hataları
 

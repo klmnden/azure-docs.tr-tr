@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/07/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: f20da4ab60eeec3e9c353445f6bc20449b9c1cb6
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: e9b547b6b582e38a51196815522132dd807c971b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584488"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079043"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Azure günlük tümleştirmesine giriş
 
@@ -29,7 +29,7 @@ ms.locfileid: "53584488"
 
 Azure günlük tümleştirmesi, Azure tümleştirme görevlerini basitleştirmek kullanılabilir yapıldı ile şirket içi güvenlik bilgileri ve Olay yönetimi (SIEM) sistemine günlükleri.
 
- Azure tümleştirme günlükleri için önerilen yöntem, SIEM satıcı s bağlayıcılarınızı kullanmaktır. Azure İzleyici günlükler event hubs'a akış olanağı sağlar ve daha fazla olay hub'ından günlüklerini SIEM ile tümleştirme için bağlayıcılar SIEM satıcısını yazabilirsiniz.  Bunun nasıl çalıştığını bir açıklaması için yönergeleri izleyin [İzleyici akışı izleme verileri olay hub'ları](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Makale ayrıca doğrudan Azure bağlayıcıları zaten mevcut olduğu Sıem'lerden listelenir.  
+ Azure tümleştirme günlükleri için önerilen yöntem, SIEM satıcınızın bağlayıcılar kullanmaktır. Azure İzleyici günlükler event hubs'a akış olanağı sağlar ve daha fazla olay hub'ından günlüklerini SIEM ile tümleştirme için bağlayıcılar SIEM satıcısını yazabilirsiniz.  Bunun nasıl çalıştığını bir açıklaması için yönergeleri izleyin [İzleyici akışı izleme verileri olay hub'ları](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). Makale ayrıca doğrudan Azure bağlayıcıları zaten mevcut olduğu Sıem'lerden listelenir.  
 
 > [!IMPORTANT]
 > Birincil ilgi, sanal makine günlüklerinin toplanması, çoğu SIEM satıcısını bu seçenek, çözüme ekleyin. SIEM Bağlayıcısı satıcısının her zaman tercih edilen alternatif kullanmaktır.

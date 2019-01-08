@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 9f3d84b1f2e179d265c811faf2d35bd55bc1410f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d9f3685e0a3961631f1577827cc415cb91d38a15
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607010"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074249"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay temelli arka planda işleme için Azure WebJobs SDK ile çalışmaya başlama
 
@@ -304,9 +304,9 @@ Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama 
 
 1. Kullanabileceğiniz, App Service uygulaması zaten yoksa [oluşturmak](app-service-web-get-started-dotnet-framework.md).
 
-1. Kullanabileceğiniz, Application Insights kaynağı henüz yoksa [oluşturmak](../application-insights/app-insights-create-new-resource.md). Ayarlama **uygulama türü** için **genel**ve aşağıdaki bölümlerde atla **izleme anahtarını kopyalama**.
+1. Kullanabileceğiniz, Application Insights kaynağı henüz yoksa [oluşturmak](../azure-monitor/app/create-new-resource.md ). Ayarlama **uygulama türü** için **genel**ve aşağıdaki bölümlerde atla **izleme anahtarını kopyalama**.
 
-1. Kullanmak istediğiniz bir Application Insights kaynağı zaten varsa [izleme anahtarını kopyalama](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
+1. Kullanmak istediğiniz bir Application Insights kaynağı zaten varsa [izleme anahtarını kopyalama](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>Uygulama ayarlarını yapılandırma 
 

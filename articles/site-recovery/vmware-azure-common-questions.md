@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 920ae8ff09cb8e936a1ba70b2c862bd9bc076046
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e229fcc2c9eb6b8e1b49293dfd741a2f96f62871
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974701"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077394"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - Vmware'den Azure'a çoğaltma
 
@@ -108,6 +108,12 @@ Evet, bunlar için çoğaltmayı etkinleştirdiğinizde, mevcut bir çoğaltma g
 ### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Ekleme veya diskleri yeniden boyutlandırma çoğaltılan VM'ler değiştirebiliyorum?
 
 Azure'a VMware çoğaltma için disk boyutunu değiştirebilirsiniz. Yeni diskler eklemek istiyorsanız disk ekleyin ve VM için korumayı etkinleştirmeniz gerekir.
+
+### <a name="can-i-migrate-on-prem-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>Şirket içi makineler için yeni bir Vcenter sürmekte olan çoğaltmayı etkilemeden geçişini sağlayabilir miyim?
+Hayır, Vcenter veya geçiş değişiklik sürmekte olan çoğaltmayı etkiler. ASR ile yeni Vcenter ayarlama ve makineler için çoğaltma etkinleştirmeniz gerekir.
+
+### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>Yapılandırılmış bir Vnet'e (Azure depolama güvenlik duvarları) sahip bir önbellek/hedef depolama hesabına çoğaltabilir miyim?
+Hayır, Azure Site Recovery, Vnet üzerinde depolama çoğaltmayı desteklemez.
 
 ## <a name="configuration-server"></a>Yapılandırma sunucusu
 
@@ -225,9 +231,10 @@ Azure esneklik için tasarlanmıştır. Site kurtarma, ikincil bir Azure veri me
 Evet, Azure'a yük devretmesi, ilkinin kullanılamıyorsa farklı bir konuma başarısız olabilir. [Daha fazla bilgi edinin](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>Bir VPN veya ExpressRoute geri başarısız olmasına neden ihtiyacım var?
-
 Azure'dan yeniden çalışma, verileri azure'dan şirket içi Makinenize geri kopyalanır ve özel erişim gereklidir.
 
+### <a name="can-i-resize-the-azure-vm-after-failover"></a>Yük devretmeden sonra Azure VM'nin boyutunu değiştirebilirsiniz?
+Hayır, yük devretme sonrasında hedef sanal makine boyutunu değiştiremezsiniz.
 
 
 ## <a name="automation-and-scripting"></a>Otomasyon ve betik oluşturma

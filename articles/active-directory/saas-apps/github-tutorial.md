@@ -4,162 +4,171 @@ description: Azure Active Directory ve GitHub arasında çoklu oturum açmayı y
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 8761f5ca-c57c-4a7e-bf14-ac0421bd3b5e
-ms.service: active-directory
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/15/2018
+ms.topic: tutorial
+ms.date: 01/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 41e8fb40f07a88cb6fa2108a38db7f973fccd2f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 41a7a11debfccfcde3258e17a337b5c72732dbf4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607807"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065860"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Öğretici: GitHub ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, GitHub, Azure Active Directory (Azure AD) ile tümleştirme konusunda bilgi edinin.
-
 Github'da Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- GitHub erişimi, Azure AD'de kontrol edebilirsiniz.
-- Otomatik olarak GitHub'ın (çoklu oturum açma) ile Azure AD hesaplarına açan, kullanıcılarınızın etkinleştirebilirsiniz.
-- Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
+* GitHub erişimi, Azure AD'de kontrol edebilirsiniz.
+* Otomatik olarak GitHub'ın (çoklu oturum açma) ile Azure AD hesaplarına oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 GitHub Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliği
-- Bir GitHub çoklu oturum açma abonelik etkin.
-
-> [!NOTE]
-> Bu öğreticideki adımları test etmek için üretim ortamı kullanarak önermiyoruz.
-
-Bu öğreticideki adımları test etmek için bu önerileri izlemelidir:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* GitHub çoklu oturum açma abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
-Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
 
-1. GitHub galeri ekleme
-2. Yapılandırma ve test Azure AD çoklu oturum açma
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
+
+* GitHub'ı destekleyen **SP** tarafından başlatılan
+
+* GitHub'ı destekleyen [ **otomatik** kullanıcı sağlama](github-provisioning-tutorial.md)
 
 ## <a name="adding-github-from-the-gallery"></a>GitHub galeri ekleme
+
 Azure AD'de GitHub tümleştirmesini yapılandırmak için GitHub galerideki yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
 **Galeriden GitHub eklemek için aşağıdaki adımları gerçekleştirin:**
 
 1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-    ![image](./media/github-tutorial/selectazuread.png)
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![image](./media/github-tutorial/a_select_app.png)
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![image](./media/github-tutorial/a_new_app.png)
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
 4. Arama kutusuna **GitHub**seçin **GitHub** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![image](./media/github-tutorial/tutorial_github_addfromgallery.png)
+     ![Sonuç listesinde GitHub](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırın ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı GitHub ile test edin.
-
-Tek çalışmak için oturum açma için Azure AD ne karşılık gelen kullanıcı github'da bir kullanıcının Azure AD'de olduğunu bilmeniz gerekir. Diğer bir deyişle, bir Azure AD kullanıcısı ile ilgili GitHub kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma GitHub adlı bir test kullanıcı tabanlı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ile ilgili GitHub kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
 Yapılandırma ve Azure AD çoklu oturum açma GitHub ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
 1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[GitHub test kullanıcısı oluşturma](#create-a-github-test-user)**  - kullanıcı Azure AD gösterimini bağlı github'da Britta simon'un bir karşılığı vardır.
+2. **[GitHub çoklu oturum açmayı yapılandırma](#configure-github-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
 4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
+5. **[GitHub test kullanıcısı oluşturma](#create-github-test-user)**  - kullanıcı Azure AD gösterimini bağlı github'da Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve GitHub uygulamanızda çoklu oturum açmayı yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-**Azure AD çoklu oturum açma ile GitHub yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+Azure AD çoklu oturum açma ile GitHub yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
 1. İçinde [Azure portalında](https://portal.azure.com/), **GitHub** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-    ![image](./media/github-tutorial/b1_b2_select_sso.png)
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunu tıklatın **seçin** için **SAML** modu, çoklu oturum açmayı etkinleştirmek için.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![image](./media/github-tutorial/b1_b2_saml_sso.png)
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için düğmeyi **temel SAML yapılandırma** iletişim.
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-    ![image](./media/github-tutorial/b1-domains_and_urlsedit.png)
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
 4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![image](./media/github-tutorial/tutorial_github_url.png)
+    ![GitHub etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna bir URL şu biçimi kullanarak: `https://github.com/orgs/<entity-id>/sso`
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://github.com/orgs/<entity-id>/sso`
 
-    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna bir URL şu biçimi kullanarak: `https://github.com/orgs/<entity-id>`
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın: `https://github.com/orgs/<entity-id>`
 
     > [!NOTE]
     > Bunlar gerçek değerleri olmadığına dikkat edin. Bu değerler gerçek oturum açma URL ve tanımlayıcıdır ile güncelleştirmeniz gerekiyor. Burada benzersiz dize değeri tanımlayıcıda kullanmanızı öneririz. Bu değerleri almak için GitHub yönetici bölümüne gidin.
 
-5. GitHub uygulama belirli bir biçimde SAML onaylamalarını bekler. Bu uygulama için aşağıdaki talepleri yapılandırın. Bu öznitelikleri değerlerini yönetebilirsiniz **kullanıcı öznitelikleri** uygulama tümleştirme sayfasında bölümü. Tıklayın **Düzenle** açmak için düğmeyi **kullanıcı öznitelikleri** iletişim.
+5. GitHub uygulamanız SAML onaylamalarını özel öznitelik eşlemelerini SAML belirteci öznitelikleri yapılandırmanıza ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsü bunun bir örneği gösterilmektedir. Varsayılan değer olan **benzersiz kullanıcı tanımlayıcısı** olduğu **user.userprincipalname** ancak GitHub bu kullanıcının e-posta adresi ile eşlenmesini bekliyor. Bunun için kullanabileceğiniz **user.mail** listeden öznitelik veya kuruluş yapılandırmanıza göre uygun öznitelik değeri kullanın.
 
-    ![image](./media/github-tutorial/i3-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. İçinde **kullanıcı taleplerini** bölümünde **kullanıcı öznitelikleri** iletişim kutusunda, SAML belirteci özniteliği yukarıdaki görüntüde gösterilen şekilde yapılandırın ve aşağıdaki adımları gerçekleştirin:
+    
+    | Ad | Kaynak özniteliği|
+    | ---------------| --------------- |
+    | Benzersiz Kullanıcı Tanımlayıcısı | User.Mail |
+    | | |
 
-    a. Tıklayın **Düzenle** açmak için düğmeyi **yönetmek, kullanıcı talepleri** iletişim.
+    a. Tıklayın **Ekle yeni talep** açmak için **yönetmek, kullanıcı talepleri** iletişim.
 
-    ![image](./media/github-tutorial/i2-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![image](./media/github-tutorial/i4-attribute.png)
+    ![image](common/new-attribute-details.png)
 
-    b. Gelen **kaynak özniteliği** listesinde, öznitelik değeri seçin.
+    b. İçinde **adı** metin kutusuna, bu satır için gösterilen öznitelik adı yazın.
 
-    c. **Kaydet**’e tıklayın.
+    c. Bırakın **Namespace** boş.
 
-7. İçinde **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** ve bilgisayarınıza kaydedin.
+    d. Kaynağı olarak **özniteliği**.
 
-    ![image](./media/github-tutorial/tutorial_github_certficate.png)
+    e. Gelen **kaynak özniteliği** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
 
-8. Üzerinde **GitHub'ı ayarlama** bölümünde, ihtiyacınıza göre uygun URL'yi kopyalayın.
+    f. Tıklayın **Tamam**
+
+    g. **Kaydet**’e tıklayın.
+
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **sertifika (Base64)** bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
+
+    ![Sertifika indirme bağlantısı](common/certificatebase64.png)
+
+6. Üzerinde **GitHub'ı ayarlama** bölümünde, ihtiyacınıza göre uygun URL'lerini kopyalayın.
+
+    ![Yapılandırma URL'leri kopyalayın](common/copy-configuration-urls.png)
 
     a. Oturum Açma URL'si:
 
-    b. Azure AD Tanımlayıcısı
+    b. Azure Ad tanımlayıcısı
 
     c. Oturum Kapatma URL'si
 
-    ![image](./media/github-tutorial/d1_samlsonfigure.png)
+### <a name="configure-github-single-sign-on"></a>GitHub tek oturum açmayı yapılandırın
 
-9. Farklı bir web tarayıcı penceresinde GitHub kuruluş sitenize yönetici olarak oturum.
+1. Farklı bir web tarayıcı penceresinde GitHub kuruluş sitenize yönetici olarak oturum.
 
-10. Gidin **ayarları** tıklatıp **güvenlik**
+2. Gidin **ayarları** tıklatıp **güvenlik**
 
     ![Ayarlar](./media/github-tutorial/tutorial_github_config_github_03.png)
 
-11. Kontrol **etkinleştirme SAML kimlik doğrulaması** kutusu, çoklu oturum açmayı yapılandırma alanları açıklayacak. Ardından, çoklu oturum açma URL'si Azure AD yapılandırmasını güncelleştirmek için tek oturum açma URL değeri kullanın.
+3. Kontrol **etkinleştirme SAML kimlik doğrulaması** kutusu, çoklu oturum açmayı yapılandırma alanları açıklayacak. Ardından, çoklu oturum açma URL'si Azure AD yapılandırmasını güncelleştirmek için tek oturum açma URL değeri kullanın.
 
     ![Ayarlar](./media/github-tutorial/tutorial_github_config_github_13.png)
 
-12. Aşağıdaki alanları yapılandırın:
+4. Aşağıdaki alanları yapılandırın:
 
     ![Ayarlar](./media/github-tutorial/tutorial_github_config_github_051.png)
 
@@ -173,41 +182,67 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve G
 
     ![image](./media/github-tutorial/tutorial_github_sha.png)
 
-13. Tıklayarak **Test SAML yapılandırma** onaylamak için hiçbir doğrulama hataları veya SSO sırasında hata.
+5. Tıklayarak **Test SAML yapılandırma** onaylamak için hiçbir doğrulama hataları veya SSO sırasında hata.
 
     ![Ayarlar](./media/github-tutorial/tutorial_github_config_github_06.png)
 
-14. **Kaydet**’e tıklayın
+6. **Kaydet**’e tıklayın
 
 > [!NOTE]
 > Çoklu oturum açmayı github'da github'da belirli bir kuruluş için doğrular ve Github'daki kimliğini değiştirmez. Bu nedenle, kullanıcının github.com oturumunu dolmuşsa, GitHub'ın kimliği/parola ile çoklu oturum açma işlemi sırasında kimlik doğrulaması istenebilir.
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
 1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-    ![image](./media/github-tutorial/d_users_and_groups.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
 2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-    ![image](./media/github-tutorial/d_adduser.png)
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
 3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-    ![image](./media/github-tutorial/d_userproperties.png)
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
     a. İçinde **adı** alana **BrittaSimon**.
   
     b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
     Örneğin, BrittaSimon@contoso.com
 
-    c. Seçin **özellikleri**seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-    d. **Oluştur**’u seçin.
+    d. **Oluştur**’a tıklayın.
 
-### <a name="create-a-github-test-user"></a>GitHub test kullanıcısı oluşturma
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+
+Bu bölümde, GitHub için erişimi vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **GitHub**.
+
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **GitHub**.
+
+    ![Uygulamalar listesinde GitHub bağlantısı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-github-test-user"></a>GitHub test kullanıcısı oluşturma
 
 Bu bölümün amacı, Github'da Britta Simon adlı bir kullanıcı oluşturmaktır. GitHub otomatik kullanıcı hazırlama, varsayılan olarak etkin olan destekler. Daha fazla ayrıntı bulabilirsiniz [burada](github-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
 
@@ -236,40 +271,16 @@ Bu bölümün amacı, Github'da Britta Simon adlı bir kullanıcı oluşturmakt�
     > [!NOTE]
     > Azure Active Directory hesap sahibinin e-posta alır ve bunu etkinleştirilmeden önce hesabını onaylamak için bağlantıyı izleyin.
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
-
-Bu bölümde, GitHub için erişimi vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
-
-1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**.
-
-    ![image](./media/github-tutorial/d_all_applications.png)
-
-2. Uygulamalar listesinde **GitHub**.
-
-    ![image](./media/github-tutorial/tutorial_github_app.png)
-
-3. Soldaki menüde **kullanıcılar ve gruplar**.
-
-    ![image](./media/github-tutorial/d_leftpaneusers.png)
-
-4. Seçin **Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
-
-    ![image](./media/github-tutorial/d_assign_user.png)
-
-4. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
-
-5. İçinde **atama Ekle** iletişim kutusunda **atama** düğmesi.
-
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
 Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim panelinde GitHub kutucuğa tıkladığınızda, otomatik olarak GitHub uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
+Erişim paneli GitHub kutucuğa tıkladığınızda, size otomatik olarak SSO'yu ayarlama github'a oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Ek kaynaklar
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Azure Active Directory ile uygulama erişimi ve çoklu oturum açma özellikleri nelerdir?](../manage-apps/what-is-single-sign-on.md)
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

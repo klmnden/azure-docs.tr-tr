@@ -4,17 +4,17 @@ description: Yeoman kullanarak Azure'da Terraform temel şablon oluşturmayı ö
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, sanal makine, azure, yeoman
-author: v-mavick
+author: tomarchermsft
 manager: jeconnoc
-ms.author: v-mavick
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 15ef4795544044427805e21f7a8e98646c9cf9bd
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 36e4b424cdb961920fccdf7f050e28447ccbd6cf
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284344"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074558"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Yeoman kullanarak Azure'da Terraform temel şablon oluşturma
 
@@ -29,10 +29,10 @@ Bu makalede, Yeoman modül oluşturucusunu kullanarak temel Terraform şablonu o
 ## <a name="prerequisites"></a>Önkoşullar
 
 - **Azure aboneliği**: Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
-- **Visual Studio Code**: Yeoman oluşturucusu tarafından oluşturulan dosyaları incelemek için [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) kullanacağız. Ancak, tercih ettiğiniz herhangi bir kod düzenleyiciyi kullanabilirsiniz.
-- **Terraform**: Yeoman tarafından oluşturulan modülü çalıştırmak için [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) yüklü olmalıdır.
-- **Docker**: Yeoman oluşturucusu tarafından oluşturulan modülü çalıştırmak için [Docker](https://www.docker.com/get-started) kullanacağız. (Tercih ederseniz örnek modülü çalıştırmak için Docker yerine Ruby kullanabilirsiniz.)
-- **Go programlama dili**: Yeoman tarafından oluşturulan test çalışmaları Go dilinde yazıldığı için [Go](https://golang.org/) yüklü olmalıdır.
+- **Visual Studio Code'u**: Biz kullanarak [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) Oluşturucu Yeoman tarafından oluşturulan dosyaları incelemek için. Ancak, tercih ettiğiniz herhangi bir kod düzenleyiciyi kullanabilirsiniz.
+- **Terraform**: Yüklemesi gerekir [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) Yeoman tarafından oluşturulan modülü çalıştırılacak.
+- **Docker**: Biz kullanarak [Docker](https://www.docker.com/get-started) modülü çalıştırmak için Yeoman tarafından Oluşturucu oluşturulur. (Tercih ederseniz örnek modülü çalıştırmak için Docker yerine Ruby kullanabilirsiniz.)
+- **Go programlama dili**: Yüklemesi gerekir [Git](https://golang.org/) Yeoman tarafından oluşturulan test çalışmalarını bir seferde yazıldığından.
 
 >[!NOTE]
 >Bu öğreticideki yordamların birçoğu, komut satırı girişleri içerir. Burada açıklanan adımlar tüm işletim sistemleri ve komut satırı araçları için geçerlidir. Bu örneklerde, PowerShell cloud shell ortamı için yerel ortam ve Git Bash için kullanmak üzere seçtik.
@@ -140,16 +140,16 @@ Modülün çıktısını tanımlar. Burada, yerleşik bir Terraform modülü ola
 
 Derleme adımlarını tanımlar. Bu adımlar şunlardır:
 
-- **build**: main.tf dosyasının biçimlendirmesini doğrular.
-- **unit**: Oluşturulan modül iskeleti, bir birim testi için kod içermez. Bir birim testi senaryosu belirtmek isterseniz, o kodu burada eklersiniz.
-- **e2e**: Modülün uçtan uca testini çalıştırır.
+- **Derleme**: Main.tf dosyanın biçimlendirmesini doğrular.
+- **Birim**: Oluşturulan modülü çatıyı birim testi için kod içermez. Bir birim testi senaryosu belirtmek isterseniz, o kodu burada eklersiniz.
+- **e2e**: Modülün bir uçtan uca testi çalıştırır.
 
 ### <a name="test"></a>test
 
 - Test çalışmaları Go dilinde yazılır.
 - Testteki tüm kodlar uçtan uca testlerdir.
 - Uçtan uca testler **fixture** altında tanımlanan tüm öğeleri sağlamak üzere Terraform kullanır ve sonra **template_output.go** kodundaki çıktıyı önceden tanımlı beklenen değerler ile karşılaştırır.
-- **Gopkg.lock** ve **Gopkg.toml**: Bağımlılıklarınızı tanımlar. 
+- **Gopkg.LOCK** ve **Gopkg.toml**: Bağımlılıklarınızı tanımlayın. 
 
 ## <a name="test-your-new-terraform-module-using-a-docker-file"></a>Bir Docker dosyası kullanarak yeni Terraform modülünüzde test
 
@@ -248,16 +248,16 @@ Cloud Shell'de önceden yüklenmiş olan tüm bu öğeler.
 
 1. Bu noktada, Cloud Shell'i zaten GOPATH ortam değişkenlerinizdeki sizin için yapılandırmış olmanız. Yolun görmek için girin `go env`.
 
-1. Henüz mevcut $GOPATH klasörünü oluşturun: girin `mkdir ~/go`.
+1. Henüz mevcut değilse $GOPATH klasörü oluşturun: `mkdir ~/go` yazın.
 
-1. $GOPATH klasörde bir klasör oluşturun: girin `mkdir ~/go/src`. Bu klasör, basılı tutun ve farklı proje klasörleri sonraki adımda oluşturacağız < uygulamanızın modülü-adı > klasörü gibi oluşturabilir düzenlemek için kullanılır.
+1. $GOPATH klasörde bir klasör oluşturun: `mkdir ~/go/src` yazın. Bu klasör, basılı tutun ve farklı proje klasörleri sonraki adımda oluşturacağız < uygulamanızın modülü-adı > klasörü gibi oluşturabilir düzenlemek için kullanılır.
 
-1. Terraform modülünüzde tutmak için bir klasör oluşturun: girin `mkdir ~/go/src/<your-module-name>`.
+1. Terraform modülünüzde tutmak için bir klasör oluşturun: `mkdir ~/go/src/<your-module-name>` yazın.
 
     >[!NOTE]
     >Bu örnekte, seçtik `my-module-name` klasör adı.
 
-1. Modül klasörünüze gidin: girin `cd ~/go/src/<your-module-name>`
+1. Modül klasörünüze gidin: Girin `cd ~/go/src/<your-module-name>`
 
 ### <a name="create-and-test-your-terraform-module"></a>Oluşturma ve test etme, Terraform Modülü
 

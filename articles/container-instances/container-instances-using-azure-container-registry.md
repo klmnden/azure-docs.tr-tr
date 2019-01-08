@@ -5,29 +5,29 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bbdf9a88c19e8006ffa9669b0c6d95d85506b256
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 33cf6650de757f538dcefc858c94fa71b434ec80
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854465"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064653"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry'den Azure Container Instances'a dağıtma
 
-Azure Container Registry, Docker kapsayıcı görüntülerinizi için bir Azure tabanlı, özel kayıt defteridir. Bu makalede, kapsayıcı görüntülerini Azure Container Instances için bir Azure container Registry'de depolanan dağıtmayı açıklar.
+[Azure Container Registry](../container-registry/container-registry-intro.md) özel Docker kapsayıcı görüntülerini depolamak için kullanılan bir Azure tabanlı, yönetilen bir kapsayıcı kayıt defteri hizmeti. Bu makalede, kapsayıcı görüntülerini Azure Container Instances için bir Azure container Registry'de depolanan dağıtmayı açıklar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-**Azure Container Registry**: bir Azure kapsayıcı kayıt defteri--ve en az bir kapsayıcı görüntüsü bu makaledeki adımları tamamlayabilmeniz için kayıt defterinde--gerekir. Bir kayıt defteri gerekirse bkz [Azure CLI kullanarak bir kapsayıcı kayıt defteri oluşturma](../container-registry/container-registry-get-started-azure-cli.md).
+**Azure kapsayıcı kayıt defteri**: Bir Azure kapsayıcı kayıt defteri--ve en az bir kapsayıcı görüntüsü bu makaledeki adımları tamamlayabilmeniz için kayıt defterinde--gerekir. Bir kayıt defteri gerekirse bkz [Azure CLI kullanarak bir kapsayıcı kayıt defteri oluşturma](../container-registry/container-registry-get-started-azure-cli.md).
 
 **Azure CLI**: Bu komut satırı örnekleri makalesi kullanım [Azure CLI](/cli/azure/) ve Bash kabuğunda biçimlendirilir. Yapabilecekleriniz [Azure CLI'yı yükleme](/cli/azure/install-azure-cli) yerel olarak veya [Azure Cloud Shell][cloud-shell-bash].
 
 ## <a name="configure-registry-authentication"></a>Kayıt defteri kimlik doğrulamasını yapılandırma
 
-Herhangi bir üretim senaryosunda kullanarak bir Azure kapsayıcı kayıt defterine erişim sağlanmalıdır [hizmet sorumluları](../container-registry/container-registry-auth-service-principal.md). Hizmet sorumluları, kapsayıcı görüntüleriniz için rol tabanlı erişim denetimi sağlamanıza olanak tanır. Örneğin, bir hizmet sorumlusunu bir kayıt defterine yalnızca çekme erişimiyle yapılandırabilirsiniz.
+Herhangi bir üretim senaryosunda kullanarak bir Azure kapsayıcı kayıt defterine erişim sağlanmalıdır [hizmet sorumluları](../container-registry/container-registry-auth-service-principal.md). Hizmet sorumluları izin vermenizi [rol tabanlı erişim denetimi](../container-registry/container-registry-roles.md) kapsayıcı görüntülerinizi için. Örneğin, bir hizmet sorumlusunu bir kayıt defterine yalnızca çekme erişimiyle yapılandırabilirsiniz.
 
 Bu bölümde, bir Azure anahtar kasası ve hizmet sorumlusu oluşturma ve hizmet sorumlusunun kimlik bilgileri Kasası'nda depolayın.
 
@@ -35,7 +35,7 @@ Bu bölümde, bir Azure anahtar kasası ve hizmet sorumlusu oluşturma ve hizmet
 
 [Azure Key Vault](/azure/key-vault/) içinde henüz bir kasanız yoksa, aşağıdaki komutları kullanarak Azure CLI ile bir kasa oluşturun.
 
-Güncelleştirme `RES_GROUP` değişkenini key vault oluşturulacağı kaynak grubunun adıyla ve `ACR_NAME` kapsayıcı kayıt defterinizin adıyla. Yeni anahtar kasanıza için bir ad belirtin `AKV_NAME`. Kasa adı Azure'da benzersiz olmalı ve 3 ila 24 alfasayısal karakterden uzunluğu, bir başlamalı, harf veya rakam ile başlamalı ve art arda kısa çizgi içeremez.
+Güncelleştirme `RES_GROUP` değişkenini, anahtar kasası oluşturmak bir kaynak grubunun adıyla ve `ACR_NAME` kapsayıcı kayıt defterinizin adıyla. Yeni anahtar kasanıza için bir ad belirtin `AKV_NAME`. Kasa adı Azure'da benzersiz olmalı ve 3 ila 24 alfasayısal karakterden uzunluğu, bir başlamalı, harf veya rakam ile başlamalı ve art arda kısa çizgi içeremez.
 
 ```azurecli
 RES_GROUP=myresourcegroup # Resource Group name
@@ -57,14 +57,14 @@ az keyvault secret set \
   --vault-name $AKV_NAME \
   --name $ACR_NAME-pull-pwd \
   --value $(az ad sp create-for-rbac \
-                --name $ACR_NAME-pull \
+                --name http://$ACR_NAME-pull \
                 --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role reader \
+                --role acrpull \
                 --query password \
                 --output tsv)
 ```
 
-Önceki komutta yer alan `--role` bağımsız değişkeni, kayıt defterine yalnızca çekme erişimi veren *reader* rolü ile hizmet sorumlusunu yapılandırır. Hem gönderme hem de çekme erişimi vermek için `--role` bağımsız değişkenini *katkıda bulunan* olarak değiştirin.
+`--role` Önceki komutta bağımsız değişkeni ile hizmet sorumlusu yapılandırır *acrpull* rolü çoğaltılmadığı kayıt defterine erişim verir. Hem İtme hem de çekme erişim vermek için değiştirme `--role` bağımsız değişkeni *acrpush*.
 
 Ardından, hizmet sorumlusunun depolamak *AppID* Kasası'nda olduğu **kullanıcıadı** kimlik doğrulaması için Azure Container Registry'ye geçirin.
 
@@ -78,8 +78,8 @@ az keyvault secret set \
 
 Bir Azure Anahtar Kasası oluşturdunuz ve içinde iki gizli dizi depoladınız:
 
-* `$ACR_NAME-pull-usr`: Kapsayıcı kayıt defterinin **kullanıcı adı** olarak kullanılacak hizmet sorumlusu kimliği.
-* `$ACR_NAME-pull-pwd`: Kapsayıcı kayıt defterinin **parolası** olarak kullanılacak hizmet sorumlusu parolası.
+* `$ACR_NAME-pull-usr`: Kapsayıcı kayıt defteri olarak kullanılmak üzere hizmet sorumlusu kimliği **username**.
+* `$ACR_NAME-pull-pwd`: Kapsayıcı kayıt defteri olarak kullanılmak üzere hizmet sorumlusu parolası **parola**.
 
 Artık siz veya uygulamalarınız ve hizmetleriniz kayıt defterinden görüntüleri çektiğinde bu gizli dizilere ada göre başvurabilirsiniz.
 
@@ -87,14 +87,20 @@ Artık siz veya uygulamalarınız ve hizmetleriniz kayıt defterinden görüntü
 
 Hizmet sorumlusu kimlik bilgileri Azure Key Vault gizli dizileri depolanır, uygulamalarınızı ve hizmetlerinizi bunları özel kayıt erişmek için kullanabilirsiniz.
 
+İlk kullanarak kayıt defterinin oturum açma sunucusu adını alın [az acr show] [ az-acr-show] komutu. Tümü küçük harf ve benzer şekilde, oturum açma sunucusu adını `myregistry.azurecr.io`.
+
+```azurecli
+ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
+```
+
 Bir kapsayıcı örneği dağıtmak için aşağıdaki [az container create][az-container-create] komutunu yürütün. Komut, kapsayıcı kayıt defterinizde kimlik doğrulaması için Azure Key Vault'ta depolanan bir hizmet sorumlusunun kimlik bilgilerini kullanır ve daha önce gönderdiğiniz varsayılır [aci-helloworld](container-instances-quickstart.md) kayıt defterinize görüntü. Güncelleştirme `--image` kayıt defterinizden farklı bir görüntü kullanmak istiyorsanız, değer.
 
 ```azurecli
 az container create \
     --name aci-demo \
     --resource-group $RES_GROUP \
-    --image $ACR_NAME.azurecr.io/aci-helloworld:v1 \
-    --registry-login-server $ACR_NAME.azurecr.io \
+    --image $ACR_LOGIN_SERVER/aci-helloworld:v1 \
+    --registry-login-server $ACR_LOGIN_SERVER \
     --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) \
     --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) \
     --dns-name-label aci-demo-$RANDOM \
@@ -104,7 +110,7 @@ az container create \
 `--dns-name-label` Önceki komutta kapsayıcının DNS ad etiketi için rastgele bir sayı ekler. Bu nedenle değer Azure içinde benzersiz olmalıdır. Komutun çıktısı, kapsayıcının tam etki alanı adını (FQDN) gösterir, örneğin:
 
 ```console
-$ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_NAME.azurecr.io/aci-helloworld:v1 --registry-login-server $ACR_NAME.azurecr.io --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) --dns-name-label aci-demo-$RANDOM --query ipAddress.fqdn
+$ az container create --name aci-demo --resource-group $RES_GROUP --image $ACR_LOGIN_SERVER/aci-helloworld:v1 --registry-login-server $ACR_LOGIN_SERVER --registry-username $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-usr --query value -o tsv) --registry-password $(az keyvault secret show --vault-name $AKV_NAME -n $ACR_NAME-pull-pwd --query value -o tsv) --dns-name-label aci-demo-$RANDOM --query ipAddress.fqdn
 "aci-demo-25007.eastus.azurecontainer.io"
 ```
 
@@ -158,6 +164,7 @@ Azure Container Registry kimlik doğrulaması hakkında daha fazla bilgi için b
 [cloud-shell-powershell]: https://shell.azure.com/powershell
 
 <!-- LINKS - Internal -->
+[az-acr-show]: /cli/azure/acr#az-acr-show
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-container-create]: /cli/azure/container#az-container-create
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set

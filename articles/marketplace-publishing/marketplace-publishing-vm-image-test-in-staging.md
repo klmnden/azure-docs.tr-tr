@@ -3,7 +3,7 @@ title: Market'e VM teklifinizi sınamak | Microsoft Docs
 description: VM görüntünüzdeki test için Azure Market hakkında bilgi edinin.
 services: marketplace-publishing
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
@@ -14,22 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
-ms.openlocfilehash: bf41953300c3042853118c815dbf64e4474106fa
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ROBOTS: NOINDEX
+ms.openlocfilehash: b90353dbbc5d019897735cfc05caa3ee094dfedc
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194122"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078822"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>Hazırlık döneminde, VM teklifi Azure Marketi için test etme
-Hazırlama, SKU'nuzu özel ", test ve Market'te dağıtmadan önce işlevselliğini doğrulamak korumalı alan" içinde dağıtma anlamına gelir. SKU hazırlama dağıtmış olan bir müşteri için olduğu gibi görüntülenir. VM görüntünüzdeki hazırlamaya için sertifika gerekir.
+Hazırlama, SKU'nuzu özel ", test ve Market'te dağıtmadan önce işlevselliğini doğrulamak korumalı alan" içinde dağıtma anlamına gelir. SKU hazırlama dağıtmış olan bir müşteri için olduğu gibi görüntülenir. Hazırlama için gönderildiğinde önce VM görüntünüzü sertifika gerekir.
 
 ## <a name="step-1-push-your-offer-to-staging"></a>1. Adım: Teklifinizi hazırlamaya Gönder
 1. Üzerinde **Yayımla** sekmesinde **hazırlama için anında iletme**.
    
     ![Çizim](media/marketplace-publishing-vm-image-test-in-staging/vm-image-push-to-staging.png)
 2. Yayımlama Portalı, herhangi bir hata bildirirse, bunları düzeltin.
-3. İçinde **hazırlanmış teklifinizi kimler erişebilir?** iletişim kutusunda, teklife önizlemesi için kullanacağınız Azure abonelikleri listesinde girin [Azure Önizleme portalı](https://portal.azure.com).
+3. İçinde **hazırlanmış teklifinizi kimler erişebilir?** iletişim kutusunda, teklife önizlemesi için kullanacağınız Azure abonelikleri listesinde girin [Azure portalında](https://portal.azure.com).
    
    > [!NOTE]
    > Sanal makineler durumunda ve çözüm şablonları, lütfen **olmayan** beyaz liste abonelikleri CSP, DreamSpark veya Open ile Azure türü.
@@ -42,7 +43,7 @@ Hazırlama, SKU'nuzu özel ", test ve Market'te dağıtmadan önce işlevselliğ
    > - Sertifika işlemi tamamlandıktan sonra çoğaltma teklifi tüm Azure veri merkezleri arasında başlatır. Genellikle, 24-48hours çoğaltmanın tamamlanmasını alır ancak VHD'nin boyutuna bağlı olarak bir hafta sürebilir. İsteğiniz değişiklik yalnızca pazarlama alındı, ancak çoğaltma daha hızlı olur.
    > - Çoğaltma tamamlandığında, daha sonra teklifin kullanılabilir [Azure portalında](http:/portal.azure.com). Yayımlama durumu süresi en aşamalı hale portalı. Aşamalı bir teklif görülebilir [Azure portalında](http:/portal.azure.com) yalnızca ile teklif aşamalı aboneliğiyle ilişkili e-posta kimlikleri kullanarak.
 
-1. Oturum [Azure Önizleme portalı](https://portal.azure.com) önceki adımda listelenen Azure aboneliklerinin birini kullanarak.
+1. Oturum [Azure portalında](https://portal.azure.com) önceki adımda listelenen Azure aboneliklerinin birini kullanarak.
 2. Teklifinizi bulun ve VM görüntüsü noktalarınızı doğrulayın:
    
    * Pazarlama içeriği doğru Market'te göründüğünü doğrulayın.

@@ -3,17 +3,17 @@ title: Jenkins dağıtımlarını Azure VM aracılarıyla ölçeklendirme.
 description: Jenkins Azure VM Agents eklentisinin yüklü olduğu Azure sanal makineleriyle Jenkins işlem hatlarınızın kapasitesini artırın.
 ms.service: jenkins
 keywords: jenkins, azure, devops, sanal makine, aracılar
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 46710b3a669b6a00dc1826c55e8d35fe700f312f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 5cfece551f99a0925099b6ef936703e72f078985
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106232"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074675"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Talebi karşılamak için Jenkins dağıtımlarınızı Azure VM aracılarıyla ölçeklendirin
 
@@ -31,7 +31,7 @@ Bu öğreticide şunları yapacaksınız:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-Integration-with-Jenkins-Using-Azure-VM-Agents/player]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Bir Azure aboneliği
 * Bir Jenkins ana sunucusu. Yoksa [hızlı başlangıcı](install-jenkins-solution-template.md) görüntüleyerek Azure'da bir tane ayarlayabilirsiniz.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a4e4ca1ca4878a2a405b12413e4378a2cb79aef6
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 3ea7d6562965debda2c146fedab2ea9ab19f6cc8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999127"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077462"
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>Application ınsights'ta Docker uygulamalarını izleme
 
@@ -36,9 +36,9 @@ Docker ile uygulamalarınızı basit kapsayıcıların tüm bağımlılıklarla 
 
 ## <a name="set-up-your-application-insights-resource"></a>Kendi Application Insights kaynağını ayarlama
 
-1. Oturum [Microsoft Azure Portal'da](https://azure.com) ; uygulamanız için Application Insights kaynağını açın veya [yeni bir tane oluşturun](../../application-insights/app-insights-create-new-resource.md). 
+1. Oturum [Microsoft Azure Portal'da](https://azure.com) ; uygulamanız için Application Insights kaynağını açın veya [yeni bir tane oluşturun](../../azure-monitor/app/create-new-resource.md ). 
    
-    *Hangi kaynak kullanmalıyım?* Konağınız üzerinde çalışan uygulamalar başkası tarafından geliştirilen sonra yapmanız [yeni bir Application Insights kaynağı oluşturun](../../application-insights/app-insights-create-new-resource.md). Burada görüntüleyebilir ve telemetriyi analiz budur. (Uygulama türü için ' genel' seçin.)
+    *Hangi kaynak kullanmalıyım?* Konağınız üzerinde çalışan uygulamalar başkası tarafından geliştirilen sonra yapmanız [yeni bir Application Insights kaynağı oluşturun](../../azure-monitor/app/create-new-resource.md ). Burada görüntüleyebilir ve telemetriyi analiz budur. (Uygulama türü için ' genel' seçin.)
    
     Ancak uygulamalardan geliştiriciyseniz sonra umuyoruz [Application Insights SDK'sı eklenen](../../azure-monitor/app/java-live.md) bunların her biri için. Tüm gerçekten bileşenleri tek bir iş uygulamasının iseler, tüm bir kaynağa telemetri gönderecek şekilde yapılandırmanız ve Docker yaşam döngüsü ve performans verilerini görüntülemek için aynı kaynak kullanacaksınız. 
    

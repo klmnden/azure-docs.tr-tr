@@ -4,17 +4,17 @@ description: Terraform ve HashiCorp Yapılandırma Dili (HCL) ile Azure'da yük 
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, sanal makine, ağ, modüller
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2017
-ms.openlocfilehash: fffaf275a98791885b87ee8ffdc275e911b26341
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
-ms.translationtype: HT
+ms.openlocfilehash: 9870eac87204f24993ab71e373dcab3a8ead3e89
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667609"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075371"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Terraform ve HCL ile VM kümesi oluşturma
 
@@ -62,7 +62,7 @@ Bu bölümde bir Azure hizmet sorumlusu ve hizmet sorumlusu kimlik bilgilerini i
 
 6. Terraform değişkenlerinin değerlerini için yeni bir dosya oluşturun. Terraform değişken dosyaları genellikle `terraform.tfvars` olarak adlandırılır. Bunun nedeni Terraform'un geçerli dizinde bulunan `terraform.tfvars` adlı (veya `*.auto.tfvars` düzenine sahip) tüm dosyaları otomatik olarak yüklemesidir. 
 
-7. Aşağıdaki kodu değişken dosyanıza kopyalayın. Yer tutucuları şu şekilde değiştirdiğinizden emin olun: `subscription_id` için `az account set` komutunu çalıştırdığınızda belirttiğiniz Azure abonelik kimliğini kullanın. `tenant_id` için `az ad sp create-for-rbac` komutunun döndürdüğü `tenant` değerini kullanın. `client_id` için `az ad sp create-for-rbac` komutunun döndürdüğü `appId` değerini kullanın. `client_secret` için `az ad sp create-for-rbac` komutunun döndürdüğü `password` değerini kullanın.
+7. Aşağıdaki kodu değişken dosyanıza kopyalayın. Yer tutucuları gibi değiştirdiğinizden emin olun: İçin `subscription_id`, çalıştırıldığında, belirtilen Azure abonelik kimliği kullanan `az account set`. `tenant_id` için `az ad sp create-for-rbac` komutunun döndürdüğü `tenant` değerini kullanın. `client_id` için `az ad sp create-for-rbac` komutunun döndürdüğü `appId` değerini kullanın. `client_secret` için `az ad sp create-for-rbac` komutunun döndürdüğü `password` değerini kullanın.
 
   ```tf
   subscription_id = "<azure-subscription-id>"

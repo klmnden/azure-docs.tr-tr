@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4333a234efe96f32541254819c9c5f21bb031757
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
-ms.translationtype: HT
+ms.openlocfilehash: 2e631a0605385f8d55c652a26739b23a0945674f
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115085"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077259"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Öğretici: Kestrel kullanarak bir ASP.NET Core Web API’si ön uç hizmetine HTTPS uç noktası ekleme
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Öğretici: Kestrel'i kullanarak bir ASP.NET Core Web API'si ön uç hizmetine HTTPS uç noktası ekleme
 
 Bu öğretici, bir serinin üçüncü bölümüdür.  Service Fabric üzerinde çalışan bir ASP.NET Core hizmetinde HTTPS’yi etkinleştirme hakkında bilgi edineceksiniz. İşlemi tamamladığınızda, 443 numaralı bağlantı noktasını dinleyen HTTPS özellikli bir ASP.NET Core web ön ucu içeren bir oylama uygulamasına sahip olursunuz. Oylama uygulamasını [.NET Service Fabric uygulaması derleme](service-fabric-tutorial-deploy-app-to-party-cluster.md) bölümünde el ile oluşturmak istemiyorsanız, tamamlanmış uygulamanın [kaynak kodunu indirebilirsiniz](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/).
 
@@ -44,7 +44,7 @@ Bu öğretici dizisinde şunların nasıl yapıldığını öğrenirsiniz:
 > * [Azure Pipelines kullanarak CI/CD yapılandırma](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Uygulama için izleme ve tanılamayı ayarlama](service-fabric-tutorial-monitoring-aspnet.md)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiye başlamadan önce:
 
@@ -54,10 +54,10 @@ Bu öğreticiye başlamadan önce:
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Sertifika edinme veya otomatik olarak imzalanan geliştirme sertifikası oluşturma
 
-Üretim uygulamaları için [bir sertifika yetkilisinden (CA)](https://wikipedia.org/wiki/Certificate_authority) alınan bir sertifikayı kullanın. Geliştirme ve test için otomatik olarak imzalanan bir sertifika oluşturup bunu kullanabilirsiniz. Service Fabric SDK’sı, otomatik olarak imzalanan bir sertifika oluşturup `Cert:\LocalMachine\My` sertifika deposuna aktaran *CertSetup.ps1* betiğini sağlar. Yönetici olarak bir komut istemi açın ve aşağıdaki komutu çalıştırarak konusu "CN=localhost" olan bir sertifika oluşturun:
+Üretim uygulamaları için [bir sertifika yetkilisinden (CA)](https://wikipedia.org/wiki/Certificate_authority) alınan bir sertifikayı kullanın. Geliştirme ve test için otomatik olarak imzalanan bir sertifika oluşturup bunu kullanabilirsiniz. Service Fabric SDK’sı, otomatik olarak imzalanan bir sertifika oluşturup `Cert:\LocalMachine\My` sertifika deposuna aktaran *CertSetup.ps1* betiğini sağlar. Yönetici olarak bir komut istemi açın ve konu ile bir sertifika oluşturmak için aşağıdaki komutu çalıştırın "CN = mytestcert":
 
 ```powershell
-PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=localhost
+PS C:\program files\microsoft sdks\service fabric\clustersetup\secure> .\CertSetup.ps1 -Install -CertSubjectName CN=mytestcert
 ```
 
 Zaten bir sertifika PFX dosyanız varsa sertifikayı `Cert:\LocalMachine\My` sertifika deposuna aktarmak için aşağıdaki komutu çalıştırın:
@@ -158,7 +158,7 @@ serviceContext =>
         }))
 ```
 
-Ayrıca, Kestrel’in konuyu kullanarak sertifikayı `Cert:\LocalMachine\My` deposunda bulabilmesi için aşağıdaki yöntemi ekleyin.  Önceki PowerShell komutuyla otomatik olarak imzalanan bir sertifika oluşturduysanız "&lt;your_CN_value&gt;" değerini "localhost" ile değiştirin veya sertifikanızın CN değerini kullanın.
+Ayrıca, Kestrel’in konuyu kullanarak sertifikayı `Cert:\LocalMachine\My` deposunda bulabilmesi için aşağıdaki yöntemi ekleyin.  Değiştir "&lt;your_CN_value&gt;" ile "mytestcert" önceki PowerShell komutuyla otomatik olarak imzalanan bir sertifika oluşturduysanız, veya sertifikanızın CN değerini kullanın.
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -238,7 +238,7 @@ powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 Çözüm Gezgini’nde **VotingWeb**’e sağ tıklayıp **Ekle**->**Yeni Öğe**’yi seçin ve "SetCertAccess.ps1" adlı yeni bir dosya ekleyin.  *SetCertAccess.ps1* dosyasını düzenleyin ve aşağıdaki betiği ekleyin:
 
 ```powershell
-$subject="localhost"
+$subject="mytestcert"
 $userGroup="NETWORK SERVICE"
 
 Write-Host "Checking permissions to certificate $subject.." -ForegroundColor DarkCyan
@@ -349,7 +349,7 @@ Tüm dosyaları kaydedin ve F5’e basarak uygulamayı yerel olarak çalıştır
 
 Uygulamayı Azure'a dağıtmadan önce sertifikayı uzak küme düğümlerinin `Cert:\LocalMachine\My` deposuna yükleyin.  Ön uç web hizmeti bir küme düğümünde başladığında, başlangıç betiği sertifikayı arar ve erişim izinlerini yapılandırır.
 
-İlk olarak, sertifikayı bir PFX dosyasına aktarın. certlm.msc uygulamasını açın ve **Kişisel**>**Sertifikalar**’a gidin.  *localhost* sertifikasına sağ tıklayın ve **Tüm Görevler**>**Dışarı Aktar**’ı seçin.
+İlk olarak, sertifikayı bir PFX dosyasına aktarın. certlm.msc uygulamasını açın ve **Kişisel**>**Sertifikalar**’a gidin.  Sağ *mytestcert* seçin ve sertifika **tüm görevler**>**dışarı**.
 
 ![Sertifikayı dışarı aktarma][image4]
 

@@ -3,7 +3,7 @@ title: Azure marketi'ndeki sanal makine görüntünüzü yönetme | Microsoft Do
 description: İlk yayımlandıktan sonra sanal makine görüntüsünü Azure Marketi'nde yönetme hakkında ayrıntılı kılavuz
 services: Azure Marketplace
 documentationcenter: ''
-author: HannibalSII
+author: v-miclar
 manager: hascipio
 editor: ''
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
@@ -14,28 +14,29 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.openlocfilehash: d4c7dce1876e9838fe986aebb7e38a09e8a82baf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7aea357c22a928d8af96791bf9cb4bd3c94f37b4
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252981"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077071"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Azure Marketi'ndeki teklif sanal makine için üretim sonrası Kılavuzu
 Bu makalede, Azure Marketi'nde bir dinamik sanal makine teklifi güncelleştirme nasıl açıklanmaktadır. Bunu var olan bir teklif için bir veya daha fazla yeni SKU'lara ekleme işleminde size rehberlik. Bu da dinamik sanal makine teklifi veya SKU marketten kaldırma işleminde size rehberlik.
 
 Bir teklif/SKU içinde hazırlanmış sonra [Azure portalında](http://portal.azure.com), şu metin kutuları değiştiremezsiniz:
 
-* **Teklif tanımlayıcısı**: gidin, yayımlama portalı **sanal makineler** ve teklifinizi seçin. Ardından **VM GÖRÜNTÜLERİ** > **teklif tanımlayıcısı**.
-* **SKU tanımlayıcısı**: gidin, yayımlama portalı **sanal makineler** ve teklifinizi seçin. Ardından **SKU'ları** > **bir SKU ekleyin**.
-* **Yayımcı Namespace**: gidin, yayımlama portalı **sanal makineler** > **izlenecek** > **söyleyin bize hakkında şirketiniz**("Adım 2 kayıt şirketiniz altında" bulunur) > **yayımcı Namespace** > **Namespace**.
+* **Teklif tanımlayıcısı**: Yayımlama Portalı, Git **sanal makineler** ve teklifinizi seçin. Ardından **VM GÖRÜNTÜLERİ** > **teklif tanımlayıcısı**.
+* **SKU tanımlayıcısı**: Yayımlama Portalı, Git **sanal makineler** ve teklifinizi seçin. Ardından **SKU'ları** > **bir SKU ekleyin**.
+* **Yayımcı Namespace**: Yayımlama Portalı, Git **sanal makineler** > **izlenecek yol** > **söyleyin bize hakkında şirketiniz** (altında bulunan "2. adım kaydı, "Şirket") > **yayımcı Namespace** > **Namespace**.
 
 Teklif/SKU listelenen sonra [Market](https://azure.microsoft.com/marketplace), şu metin kutuları değiştiremezsiniz:
 
-* **Teklif tanımlayıcısı**: gidin, yayımlama portalı **sanal makineler** ve teklifinizi seçin. Ardından **VM GÖRÜNTÜLERİ** > **teklif tanımlayıcısı**.
-* **SKU tanımlayıcısı**: gidin, yayımlama portalı **sanal makineler** ve teklifinizi seçin. Ardından **SKU'ları** > **bir SKU ekleyin**.
-* **Yayımcı Namespace**: gidin, yayımlama portalı **sanal makineler** > **izlenecek** > **söyleyin bize hakkında şirketiniz**("Adım 2 kaydetme altında" bulunur) **yayımcı Namespace** > **Namespace**.
-* **Bağlantı noktaları**: gidin, yayımlama portalı **sanal makineler** ve teklifinizi seçin. Ardından **VM GÖRÜNTÜLERİ** > **açık bağlantı noktaları**.
+* **Teklif tanımlayıcısı**: Yayımlama Portalı, Git **sanal makineler** ve teklifinizi seçin. Ardından **VM GÖRÜNTÜLERİ** > **teklif tanımlayıcısı**.
+* **SKU tanımlayıcısı**: Yayımlama Portalı, Git **sanal makineler** ve teklifinizi seçin. Ardından **SKU'ları** > **bir SKU ekleyin**.
+* **Yayımcı Namespace**: Yayımlama Portalı, Git **sanal makineler** > **gözden geçirme** > **söyleyin bize hakkında şirketiniz** ("Adım 2 kaydetme altında" bulunur) **Yayımcı Namespace** > **Namespace**.
+* **Bağlantı noktalarını**: Yayımlama Portalı, Git **sanal makineler** ve teklifinizi seçin. Ardından **VM GÖRÜNTÜLERİ** > **açık bağlantı noktaları**.
 * **Fiyatlandırma değişikliği listelenen fiyatlarını**
 * **Listelenen fiyatlarını faturalandırma modeli Değiştir**
 * **Listelenen fiyatlarını bölgeleri faturalama kaldırılması**
@@ -310,7 +311,7 @@ Faturalandırma modeli üretim değerlere geri almak için şu adımları izleyi
 
 2. Git **sanal makineler** sekmesini ve teklifinizi seçin.
 3. Soldaki menüde **SKU'ları** sekmesi.
-4. Tıklayın **Düzenle** faturalandırma modeli geri düğmesi. Açılır pencerede seçin veya temizleyin **faturalama ve lisanslama yapılır harici olarak (diğer adıyla kendi lisansını Getir) Azure'dan** onay kutusu.
+4. Tıklayın **Düzenle** faturalandırma modeli geri düğmesi. Açılır seçin veya temizleyin pencerede **faturalama ve lisanslama yapılır harici olarak (diğer adıyla kendi lisansını Getir) Azure'dan** onay kutusu.
 
     ![Faturalandırma Düzenle](media/marketplace-publishing-vm-image-post-publishing/img09-04.png)
 5. "Revert üretim değerleri liste fiyatı" Bu makaledeki adımları izleyin.
@@ -330,10 +331,10 @@ Listelenen bir SKU üretim değerine görünürlük ayarlarını geri almak içi
 5. Değişiklikleri bitirdikten sonra tıklayın **istek onayı için gönderme için üretim** teklifiniz Market'te yeniden yayımlamak için.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Başlarken: bir teklifi Azure Marketinde yayımlama](marketplace-publishing-getting-started.md)
+* [Kullanmaya başlayın: Bir teklifi Azure Marketinde yayımlama](marketplace-publishing-getting-started.md)
 * [Ödeme raporlama anlama](marketplace-publishing-report-payout.md)
 * [Bulut çözümü sağlayıcısı satıcınızla ıncentive değiştirme](marketplace-publishing-csp-incentive.md)
 * [Market'te yayımlama yaygın sorunlarını giderme](marketplace-publishing-support-common-issues.md)
 * [Bir yayımcı olarak destek alın](marketplace-publishing-get-publisher-support.md)
 * [Şirket içi bir VM görüntüsü oluşturma](marketplace-publishing-vm-image-creation-on-premise.md)
-* [Azure preview Portal'da Windows çalıştıran bir sanal makine oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure Portal'da Windows çalıştıran bir sanal makine oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

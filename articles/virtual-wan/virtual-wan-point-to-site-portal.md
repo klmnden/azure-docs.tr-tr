@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 01/07/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9d5533932ef9ab521b623c18a0c3a27b663c56f8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261817"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077411"
 ---
-# <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Öğretici: Azure Sanal WAN (Önizleme) kullanarak Noktadan Siteye bağlantı oluşturma
+# <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Öğretici: Azure sanal WAN (Önizleme) kullanarak noktadan siteye bağlantı oluşturma
 
 Bu öğreticide Sanal WAN kullanarak Azure'daki kaynaklarınıza bir IPsec/IKE (IKEv2) veya OpenVPN VPN bağlantısı üzerinden bağlanmayı öğreneceksiniz. Bu tür bir bağlantı, istemci bilgisayarda bir istemcinin yapılandırılmış olmasını gerektirir. Sanal WAN hakkında daha fazla bilgi için bkz. [Sanal WAN'a Genel Bakış](virtual-wan-about.md).
 
@@ -42,7 +42,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="register"></a>Bu özelliği kaydedin
 
-Bu özelliği Azure Cloud Shell kullanarak kolayca kaydetmek için **TryIt** ifadesine tıklayın.
+Bu özelliği Azure Cloud Shell kullanarak kolayca kaydetmek için **TryIt** ifadesine tıklayın. Bunun yerine PowerShell yerel olarak çalışır, en son sürümüne sahip ve oturum emin olun **Connect-AzureRmAccount** ve **Select-AzureRmSubscription** komutları.
 
 >[!NOTE]
 >Kaydettirmezseniz, özelliği kullanamaz veya portalda göremezsiniz.
@@ -149,7 +149,7 @@ Uzak erişim istemcilerini yapılandırmak için indirilen profili kullanın. He
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Resmi web sitesinden OpenVPN istemcisini indirip yükleyin.
-2.  Ağ geçidinin VPN profilini indirin. Bu işlem Azure Portalındaki noktadan siteye yapılandırmalar sekmesinden veya PowerShell’deki New-AzureRmVpnClientConfiguration ile yapılabilir.
+2.  Ağ geçidinin VPN profilini indirin. Bu, Azure portalında noktadan siteye yapılandırmaları sekme veya yeni AzureRmVpnClientConfiguration PowerShell'de yapılabilir.
 3.  Profilin sıkıştırmasını açın. OpenVPN klasöründeki vpnconfig.ovpn yapılandırma dosyasını not defterinde açın.
 4.  P2S istemci sertifikası bölümünü base64’teki P2S istemci sertifikası genel anahtarı ile doldurun. PEM biçimli bir sertifikada .cer dosyasını açıp base64 anahtarını sertifika üst bilgileri arasına kopyalamanız yeterlidir. Kodlanmış ortak anahtarı almak üzere sertifikayı dışarı aktarma işlemi için buraya bakın.
 5.  Özel anahtar bölümünü, base64’teki P2S istemci sertifikası özel anahtarı ile doldurun. Özel anahtarın nasıl ayıklanacağını görmek için buraya bakın.
@@ -168,7 +168,7 @@ Uzak erişim istemcilerini yapılandırmak için indirilen profili kullanın. He
 #### <a name="openvpn"></a>OpenVPN
 
 1.  https://tunnelblick.net/downloads.html sayfasından TunnelBlik gibi bir OpenVPN istemcisi indirip yükleyin 
-2.  Ağ geçidinin VPN profilini indirin. Bu işlem Azure Portalındaki noktadan siteye yapılandırma sekmesinden veya PowerShell’deki New-AzureRmVpnClientConfiguration ile yapılabilir.
+2.  Ağ geçidinin VPN profilini indirin. Bu noktadan siteye yapılandırma sekmesinde Azure portalında veya PowerShell New-AzureRmVpnClientConfiguration yapılabilir.
 3.  Profilin sıkıştırmasını açın. OpenVPN klasöründeki vpnconfig.ovpn yapılandırma dosyasını not defterinde açın.
 4.  P2S istemci sertifikası bölümünü base64’teki P2S istemci sertifikası genel anahtarı ile doldurun. PEM biçimli bir sertifikada .cer dosyasını açıp base64 anahtarını sertifika üst bilgileri arasına kopyalamanız yeterlidir. Kodlanmış ortak anahtarı almak üzere sertifikayı dışarı aktarma işlemi için buraya bakın.
 5.  Özel anahtar bölümünü, base64’teki P2S istemci sertifikası özel anahtarı ile doldurun. Özel anahtarın nasıl ayıklanacağını görmek için buraya bakın.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 12/12/2018
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 6f644416a9e56009aadd0f8e1b217402d625af84
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: dc903fca206f5d40f631181b83252f505b9f57a2
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788744"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065225"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Kapasite ve ölçeklendirme Vmware'den azure'a olağanüstü durum kurtarma için planlama
 
@@ -30,7 +30,7 @@ Azure Site Recovery altyapısı gereksinimleri bilmeniz çalıştırarak çoğal
 **Yapılandırma sunucusu** | Yapılandırma sunucusu, korumalı makineler üzerinde çalışan tüm iş yükleri arasında günlük değişiklik hızı kapasitesi işleyebilmesi ve verileri Azure depolama alanına sürekli olarak çoğaltmak için yeterli bant genişliği gerekiyor.<br/><br/> En iyi uygulama, aynı ağ ve LAN kesimi yapılandırma sunucusunda, korumak istediğiniz makinelere bulun. Farklı bir ağda bulunan, ancak korumak istediğiniz makinelere Katman 3 ağ görünürlüğü ona sahip olmalıdır.<br/><br/> Yapılandırma sunucusu için boyut önerileri, aşağıdaki bölümde bulunan tablodaki özetlenmiştir.
 **İşlem sunucusu** | İlk işlem sunucusu yapılandırma sunucusunda varsayılan olarak yüklenir. Ortamınızı ölçeklendirme için ek işlem sunucuları dağıtabilirsiniz. <br/><br/> İşlem sunucusu, korumalı makinelerden çoğaltma verilerini alıp ve önbelleğe alma, sıkıştırma ve şifreleme ile iyileştirir. Daha sonra Azure'a veri gönderir. İşlem sunucusu makinesi, bu görevleri gerçekleştirmek için yeterli kaynak olması gerekir.<br/><br/> İşlem sunucusu, disk tabanlı bir önbelleği kullanır. Bir ağ sorunu ya da kesinti olması durumunda depolanan veri değişikliklerini işlemek için 600 GB veya üzeri bir ayrı önbellek diski kullanın.
 
-## <a name="size-recommendations-for-the-configuration-serverin-built-process-server"></a>Yapılandırma sunucusu/yerleşik işlem sunucusu için boyut önerileri
+## <a name="size-recommendations-for-the-configuration-server-along-with-in-built-process-server"></a>Yapılandırma sunucusu (yerleşik bir işlem sunucusu) birlikte için boyut önerileri
 
 Her yapılandırma sunucusu aracılığıyla dağıtılan [OVF şablonunu](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) bir yerleşik bir işlem sunucusuna sahiptir. Yerleşik bir işlem sunucusu sanal makineleri korumak için kullanılırken, yapılandırma sunucusunun CPU, bellek, boş alan gibi kaynakların farklı bir fiyat karşılığında kullanılır. Bu nedenle, yerleşik bir işlem sunucusu yararlanıldığında gereksinimleri farklılık gösterir.
 Yerleşik bir işlem sunucusu iş yükünü korumak için kullanıldığı bir yapılandırma sunucusu 200'e kadar sanal makineler aşağıdaki yapılandırmalarına göre işleyebilir.
@@ -47,18 +47,6 @@ Konumlar:
 
 * Her kaynak makine, 100 GB'lık 3 diskleri ile yapılandırıldı.
 * 10 k RPM, 8 SAS sürücüleri Kıyaslama depolama RAID 10 ile önbellek diski ölçümleri için kullandık.
-
-## <a name="size-recommendations-for-the-configuration-server"></a>Yapılandırma sunucusu için boyut önerileri
-
-İşlem sunucusu olarak yapılandırma sunucusu kullanmayı planladığınız değil izlenmesi yapılandırma en fazla 650 sanal makineler işlemek için aşağıda verilen.
-
-**CPU** | **RAM** | **İşletim sistemi disk boyutu** | **Veri değişiklik oranı** | **Korumalı makineler**
---- | --- | --- | --- | ---
-24 Vcpu (2 yuva * 12 çekirdek \@ 2,5 gigahertz [GHz])| 32GB | 80 GB | Uygulanamaz | En fazla 650 VM'ler
-
-Burada, her bir kaynak makine 100 GB'lık 3 diskle yapılandırılır.
-
-Bu yana, işlem sunucusu işlevselliği kullanılmadı, veri değişikliği hızını geçerli değildir. Kapasite sağlamak için başka bir genişleme işlem yerleşik işlem sunucusundan iş yükünüze yönergeleri izleyerek geçebilirsiniz [burada](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
 
 ## <a name="size-recommendations-for-the-process-server"></a>İşlem sunucusu için boyut önerileri
 
@@ -123,7 +111,7 @@ Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.c
 Azure Site Recovery altyapısı ayarlama önce aşağıdaki faktörleri ölçmek için ortamı erişmeniz gerekir: uyumlu sanal makineler, günlük veri RPO, Azure site kurtarma sayısı için gerekli ağ bant genişliği Hızı değiştirin gerekli bileşenler, vb. ilk çoğaltmayı tamamlamak için geçen süre.,
 
 1. Dağıtım Planlayıcısını çalıştırın, ortamınıza paylaşılan yönergeleri, Yardım için bu parametreleri ölçmek için olun [burada](site-recovery-deployment-planner.md).
-2. Belirtilen gereksinimleri ile bir yapılandırma sunucusunu dağıtma [burada](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server). Üretim iş yükünüz 650 sanal makineler aşarsa, başka bir yapılandırma sunucusu dağıtır.
+2. Yukarıda belirtilen gereksinimleri olan bir yapılandırma sunucusu dağıtır. Üretim iş yükünüz 650 sanal makineler aşarsa, başka bir yapılandırma sunucusu dağıtır.
 3. Ölçülen günlük veri değişikliği hızınıza göre dağıtma [genişleme işlem sunucusu](vmware-azure-set-up-process-server-scale.md#download-installation-file) belirtilen boyutu yönergeler yardımıyla [burada](site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-process-server).
 4. Bir disk sanal makineye 2 MB/sn aşacağı için veri değişim oranı bekliyorsanız, emin olmak için [bir premium depolama hesabı ayarlama](tutorial-prepare-azure.md#create-a-storage-account). Belirli bir süre için dağıtım Planlayıcısı çalıştırıldıktan sonra veri yükündeki hızını nokta raporda yakalanan değil başka bir zaman sırasında değiştirin.
 5. İstenen RPO'ya göre [ağ bant genişliğini](site-recovery-plan-capacity-vmware.md#control-network-bandwidth).

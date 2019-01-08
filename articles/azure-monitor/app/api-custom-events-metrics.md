@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7422e7145acfece9c9da3277c8d92c949220dbab
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: bbb849b19d523c315e192110ce71c4f382e04657
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039325"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077921"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olaylar ve ölçümler için Application Insights API
 
@@ -1076,7 +1076,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 ## <a name="dynamic-ikey"></a> Dinamik izleme anahtarı
 
-Telemetri geliştirme, test ve üretim ortamları ayarlama karıştırmaktan kaçının için [ayrı bir Application Insights kaynakları oluşturma](../../application-insights/app-insights-create-new-resource.md) ve ortamına bağlı olarak kendi anahtarlarını değiştirin.
+Telemetri geliştirme, test ve üretim ortamları ayarlama karıştırmaktan kaçının için [ayrı bir Application Insights kaynakları oluşturma](../../azure-monitor/app/create-new-resource.md ) ve ortamına bağlı olarak kendi anahtarlarını değiştirin.
 
 İzleme anahtarını yapılandırma dosyasından almak yerine, kodunuzda ayarlayabilirsiniz. Bir ASP.NET hizmetinde global.aspx.cs gibi bir başlatma yöntemi anahtarını ayarlayın:
 
@@ -1170,7 +1170,7 @@ Veriler tutulur ne kadar süreyle belirlemek için bkz: [veri saklama ve gizlili
     Yok. Try-catch yan tümcelerinde kaydırılmasına gerekmez. SDK'sı sorunla karşılaşırsa, hata ayıklama konsol çıkışında iletileri başlar.SSH ve--tanılama araması'nda iletileri üzerinden--alırsanız.
 * *Portaldan veri almak için bir REST API'si var mı?*
 
-    Evet, [veri erişimi API'si](https://dev.applicationinsights.io/). Verileri ayıklamak için diğer yolları [Power BI'a Analytics'ten dışarı](../../application-insights/app-insights-export-power-bi.md) ve [sürekli dışarı aktarma](../../azure-monitor/app/export-telemetry.md).
+    Evet, [veri erişimi API'si](https://dev.applicationinsights.io/). Verileri ayıklamak için diğer yolları [Power BI'a Analytics'ten dışarı](../../azure-monitor/app/export-power-bi.md ) ve [sürekli dışarı aktarma](../../azure-monitor/app/export-telemetry.md).
 
 ## <a name="next"></a>Sonraki adımlar
 

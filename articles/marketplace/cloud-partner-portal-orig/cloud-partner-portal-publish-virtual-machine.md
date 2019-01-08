@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519867b1e0607a769948c86af263c172e810d107
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247084"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078125"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Bir sanal makine, Azure Market'te yayımlama
 
@@ -31,35 +31,23 @@ Aşağıdaki teknik ve teknik olmayan önkoşulları bir sanal makine Azure Mark
 
 ### <a name="technical"></a>Teknik
 
--   [Azure Market sanal makine görüntüsü oluşturmak için teknik Önkoşullar](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
-
+-   [Azure Market sanal makine görüntüsü oluşturmak için teknik Önkoşullar](../cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
 -   [Linux VHD'si oluşturma ve yükleme](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 -   [Bir Linux VM görüntüsünden test & Oluştur](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
-
 -   [Bir Windows VHD'si oluşturma ve yükleme ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
-
 -   [Bir Windows VM görüntüsünden test & Oluştur](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
-
--   [VHD oluşturma sırasında karşılaşılan yaygın sorunları giderme](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
-
+-   [VHD oluşturma sırasında karşılaşılan yaygın sorunları giderme](../cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 -   [Azure Market görüntüleri için güvenlik önerileri](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images)
 
 
 ### <a name="non-technical-business-requirements"></a>Teknik olmayan (iş gereksinimlerini)
 
  -   Şirketinizin (veya yan kuruluşunun), Azure Marketi tarafından desteklenen bir satış ülkede bulunur
-
 -   Ürününüzün Azure Marketi tarafından desteklenen faturalandırma modelleri ile uyumlu bir şekilde lisanslanması gerekir
-
 -   Teknik Destek kullanılabilir müşterilere ticari açıdan makul bir şekilde yapmaktan sorumlu olursunuz. Bu destek, ücretsiz, ücretli veya topluluk desteği aracılığıyla.
-
 -   Yazılımınızı ve üçüncü taraf yazılım bağımlılıkları lisansı sağlamaktan sorumlu.
-
--   Teklifinizin Azure Market'te ve Azure Yönetim Portalı'nda listelenmesi ölçütleri karşılayan içeriği sağlar.
-
+-   Teklifinizin Azure Market'te ve Azure Portalı'nda listelenmesi ölçütleri karşılayan içeriği sağlar.
 -   Azure Marketi katılım ilkeleri ve yayımcı Sözleşmesi koşullarını kabul etmiş olursunuz.
-
 -   Uyacağınızı kabul edersiniz [kullanım](https://azure.microsoft.com/support/legal/website-terms-of-use/) , [Microsoft gizlilik bildirimi](https://www.microsoft.com/privacystatement/default.aspx), ve [Microsoft Azure sertifikası Program sözleşmesi](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
@@ -140,7 +128,7 @@ Bir SKU ekledikten sonra SKU'ları görünümünde SKU'lar listesinde görünür
 
 ### <a name="hide-this-sku"></a>Bu SKU Gizle
 
-SKU görünürlüğünü yönetmek için bu ayarı kullanın. "Bu SKU gizle" kapalıysa, SKU görünür [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portalı](https://portal.azure.com/) müşterilere. Yalnızca çözüm şablonları aracılığıyla ve satın alma için kullanılabilen tek tek istiyorsanız SKU gizlemek isteyebilirsiniz.
+SKU görünürlüğünü yönetmek için bu ayarı kullanın. "Bu SKU gizle" kapalıysa, SKU görünür [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portalında](https://portal.azure.com/) müşterilere. Yalnızca çözüm şablonları aracılığıyla ve satın alma için kullanılabilen tek tek istiyorsanız SKU gizlemek isteyebilirsiniz.
 
 ### <a name="cloud-availability"></a>Bulut kullanılabilirlik
 
@@ -177,7 +165,7 @@ VM'de çalışan Yazılım Lisanslama yönettiğiniz. Microsoft, yalnızca altya
 
 #### <a name="usage-based-monthly-billed-sku"></a>Aylık olarak faturalandırılan SKU kullanım tabanlı
 
-Müşteriler, VM boyutlarına yayımcılar tarafından belirlenen oranları üzerinden saatlik olarak ücretlendirilirsiniz. Durumunda, **saatlik faturalandırma** modeli SKU'ları, yayımcı tarafından ücret yazılım maliyeti ve Microsoft tarafından tahsil altyapı maliyetini Toplamı toplam fiyatı olacaktır. Satın alma değerlendirirken bu toplam maliyeti bir saatlik ve aylık ücreti müşteriye görüntülenir. Faturalandırma aylık olarak bu durumda olacaktır.
+Müşteriler, VM boyutlarına yayımcılar tarafından belirlenen oranları üzerinden saatlik olarak ücretlendirilirsiniz. Varsa **saatlik faturalandırma** modeli kullanılır, yayımcı tarafından ücret yazılım maliyeti ve Microsoft tarafından tahsil altyapı maliyetini Toplamı toplam fiyatı olacaktır. Satın alma değerlendirirken bu toplam maliyeti bir saatlik ve aylık ücreti müşteriye görüntülenir. Faturalandırma aylık olarak bu durumda olacaktır.
 
 Kullanım tabanlı model içinde ek ayar yapmanıza gerek vardır.
 
@@ -188,21 +176,21 @@ Burada müşteri yazılım maliyeti (seçime olarak) ilk 30/90 gün için sanal 
 
 **Çekirdek başına fiyatlandırma**
 
-SKU'nuz için çekirdek fiyatlandırma ayarlayabilirsiniz. Bu, bir çekirdek için taban fiyat girmeniz yeterlidir ve biz otomatik-işlem çekirdek geri kalanı için fiyatlar. Fiyatlar ABD Doları portalda girin ve biz otomatik-başka bir bölgeye yönelik fiyatları hesaplar. Diğer bölgelerde fiyatlar kullanarak doğrulayabilirsiniz **fiyatlandırma verilerini dışarı aktar**
+SKU'nuz için çekirdek fiyatlandırma ayarlayabilirsiniz. Bu seçenek, bir çekirdek için taban fiyat girmeniz yeterlidir ve biz otomatik-işlem çekirdek geri kalanı için fiyatlar. Fiyatlar ABD Doları portalda girin ve biz otomatik-başka bir bölgeye yönelik fiyatları hesaplar. Diğer bölgelerde fiyatlar kullanarak doğrulayabilirsiniz **fiyatlandırma verilerini dışarı aktar**
 
 ![Çekirdek başına fiyatlandırma](./media/cloud-partner-portal-publish-virtual-machine/publishvm6.png)
 
 
 **Ayrık fiyatlandırması**
 
-Her çekirdek ayrı olarak fiyat istiyorsanız, her çekirdek kümeleri için ayrı ayrı fiyatlandırma ayarlayabilirsiniz.
+Her çekirdek ayrı olarak fiyat istiyorsanız, her çekirdek kümesi için ayrı ayrı fiyatlandırma ayarlayabilirsiniz.
 
 ![Ayrık fiyatlandırması](./media/cloud-partner-portal-publish-virtual-machine/publishvm7.png)
 
 **İçeri dışarı aktarma fiyatlandırması**
 
-Excel arabirimi üzerinden değişiklik yapmak için portal aracılığıyla yapılandırılan fiyatlandırma dışarı aktarmak için esnekliğiniz vardır. Bu ayrıca, bölge başına fiyatlandırma ve yerel para biriminde fiyatlandırma doğrulamanızı sağlar.
-Tıklayarak **dışarı aktarma fiyatlandırması** fiyatlandırma ayrıntıları önceden doldurulmuş olan bir excel dosyası indirir. Bu excel içinde düzenleme ve ardından mümkün olacaktır **içeri aktarma fiyatlandırması** yapılan değişiklikleri aktarmak.
+Excel arabirimi üzerinden değişiklik yapmak için portal aracılığıyla yapılandırılan fiyatlandırma dışarı aktarmak için esnekliğiniz vardır. Bu seçenek bölge başına fiyatlandırma ve yerel para biriminde fiyatlandırma doğrulamanızı sağlar.
+Tıklayarak **dışarı aktarma fiyatlandırması** fiyatlandırma ayrıntıları önceden doldurulmuş olan bir Excel dosyası indirir. Elektronik Tablo içinde bu Ayrıntılar düzenlemek ve ardından mümkün olacaktır **içeri aktarma fiyatlandırması** yapılan değişiklikleri aktarmak.
 İçeri aktarılan fiyatlandırma portalında ücreti yansıtılır.
 
 Bu fiyatlandırma Excel'den fiyatlar bölgelere yerel para biriminde listelenir. Kullandığımız döviz kuru günlük olarak yenilenir.
@@ -219,24 +207,18 @@ Bu fiyatlandırma Excel'den fiyatlar bölgelere yerel para biriminde listelenir.
 
 Tamamlamak için sonraki bölümde VM görüntüleri bölümü olacaktır. Bu bölüme geçmeden önce hazır yayımlamak istediğiniz VHD'yi olması gerekir. VHD'nizi oluşturmanıza yardımcı olacak bazı bağlantılar aşağıda verilmiştir:
 
--   [Azure Market sanal makine görüntüsü oluşturmak için teknik Önkoşullar](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-prerequisites)
-
+-   [Azure Market sanal makine görüntüsü oluşturmak için teknik Önkoşullar](../cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
 -   [Oluşturma ve bir Linux VHD karşıya yükleme](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-create-upload-generic?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
 -   [Bir Linux VM görüntüsünden test & Oluştur](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
-
 -   [Oluşturma ve bir Windows VHD karşıya yükleme ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
-
 -   [Bir Windows VM görüntüsünden test & Oluştur](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
+-   [VHD oluşturma sırasında karşılaşılan yaygın sorunları giderme](../cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
 
--   [VHD oluşturma sırasında karşılaşılan yaygın sorunları giderme](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting)
-
-VHD hazır olduktan sonra bu formu doldurmak başlayabilirsiniz.
-Aşağıda, bazı alanlar için bazı ayrıntılar verilmiştir.
+VHD hazır olduktan sonra bu formu doldurmak başlayabilirsiniz.  Aşağıda, bazı alanlar için bazı ayrıntılar verilmiştir.
 
 ### <a name="recommended-vm-sizes"></a>Önerilen VM boyutları
 
-En fazla altı adet önerilen sanal makine boyutu seçin. Bu satın alma ve görüntünüzü dağıtmak karar müşterinin Azure Marketi'nde ve fiyatlandırma katmanı dikey penceresinden Azure portalında gösterilen önerilerdir. **Bunlar yalnızca öneridir. Müşterinin belirtilen diskler karşılar herhangi bir VM boyutunu seçebilir.**  Aşağıdaki ekran görüntüsü yakalamayı önerilen VM boyutları, bir müşteri Azure Portal'da görürsünüz gösterir.
+En fazla altı adet önerilen sanal makine boyutu seçin. Satın almaya ve dağıtmaya görüntünüzü kullandığınızda bu önerileri müşterilere Azure Market ve fiyatlandırma katmanı dikey penceresinde Azure portalında görüntülenir. *Bu boyutları yalnızca öneridir. Müşterinin belirtilen diskler karşılar herhangi bir VM boyutunu seçebilir.*  Aşağıdaki ekran görüntüsü yakalamayı bir müşteri göreceği önerilen VM boyutları Azure Portalı'nda gösterilmektedir.
 
 
 ![Önerilen VM boyutları](./media/cloud-partner-portal-publish-virtual-machine/publishvm9.png)
@@ -248,9 +230,9 @@ Açık ve kullanılabilir yaptığı istediğiniz bağlantı noktalarını belir
 
 ### <a name="adding-vm-images"></a>VM görüntüleri ekleme
 
-Sonraki adım, SKU'nuz için bir VM görüntüsü eklemektir. SKU başına 8 adede kadar disk sürümleri ekleyebilirsiniz. Yalnızca en yüksek disk sürüm numarasını belirli bir SKU için Azure Market'te görünür. Diğer API'ler görünür olur.
+Sonraki adım, SKU'nuz için bir VM görüntüsü eklemektir. SKU başına en fazla sekiz disk sürümleri ekleyebilirsiniz. Yalnızca en yüksek disk sürüm numarasını belirli bir SKU için Azure Market'te görünür. Diğer API'ler görünür olur.
 
-Altında **Disk sürümü**seçin **+ yeni sürüm**. Bu, doldurmanız gereken aşağıdaki alanları gösterir.
+Altında **Disk sürümü**seçin **+ yeni sürüm**. Bu seçenek, doldurmanız gereken aşağıdaki alanları gösterir.
 
 #### <a name="vm-image-version"></a>VM görüntü sürümü
 
@@ -258,13 +240,13 @@ VM görüntü sürümü izlemesi gereken [semantik sürüm](http://semver.org/) 
 
 #### <a name="os-vhd-url"></a>İŞLETİM SİSTEMİ VHD URL'Sİ
 
-Girin [paylaşılan erişim imzası URI'si](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#52-get-the-shared-access-signature-uri-for-your-vm-images) işletim sistemi VHD'si için oluşturulan.
+Girin [paylaşılan erişim imzası URI'si](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md) işletim sistemi VHD'si için oluşturulan.
 
 Bu SKU ile ilişkili veri diskleri varsa, bu diskleri seçerek eklenecek seçebilirsiniz **+ yeni veri diski** bağlantı. Bu eylem, doldurmak ek alanlar görüntülenir.
 
 #### <a name="lun-vhd-url"></a>LUN VHD URL'Sİ
 
-Girin [paylaşılan erişim imzası URI'si](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#52-get-the-shared-access-signature-uri-for-your-vm-images) veri diskiniz için.
+Girin [paylaşılan erişim imzası URI'si](../cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md) veri diskiniz için.
 
 #### <a name="lun-number"></a>LUN numarasını
 
@@ -277,16 +259,16 @@ Bu LUN birkaç atayın. Bu sayı, bu veri diskinin bu SKU için ayrılacaktır.
 
 | Sorun                                                                 | İleti                                                                           | Düzelt                                                           |  Belgeleri bağlantısı                                                                                |
 |---------------------------------------------------------------------  |-------------------------------------------------------------------------------    |-----------------------------------------------------------    |---------------------------------------------------------------------------------------------------    |
-| Kopyalama hatası görüntüleri - "?" SAS url bulunamadığında                | Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.       | Önerilen araçlar kullanarak SAS URL'sini güncelleştirme                    | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| Görüntüleri kopyalama hatası - SAS URL'si değil, "s" ve "se" parametreleri   | Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.        | Başlangıç ve bitiş tarihlerini üzerindeki ile SAS URL'sini güncelleştirme             | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| Görüntüleri "sp rl SAS URL'si değil =" - kopyalama hatası                    | Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor         | "Okuma" ve "liste ayarlanan izinler ile SAS URL'sini güncelleştirme     | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| Görüntüleri - SAS URL'sini kopyalama hatası vhd adında boşluk olması     | Hata: Görüntüleri kopyalanıyor. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.        | Beyaz boşluk olmadan SAS URL'sini güncelleştirme                       | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| Görüntüleri: SAS Url Yetkilendirme hatası kopyalama hatası               | Hata: Görüntüleri kopyalanıyor. Yetkilendirme hatası nedeniyle blobu indirmek karşılaştırılamıyor     | SAS URL'sini yeniden oluştur                                        | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Kopyalama hatası görüntüleri - "?" SAS url bulunamadığında                | Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.       | Önerilen araçlar kullanarak SAS URL'sini güncelleştirme                    | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Görüntüleri kopyalama hatası - SAS URL'si değil, "s" ve "se" parametreleri   | Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.        | Başlangıç ve bitiş tarihlerini üzerindeki ile SAS URL'sini güncelleştirme             | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Görüntüleri "sp rl SAS URL'si değil =" - kopyalama hatası                    | Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor         | "Okuma" ve "liste ayarlanan izinler ile SAS URL'sini güncelleştirme     | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Görüntüleri - SAS URL'sini kopyalama hatası vhd adında boşluk olması     | Hata: Görüntüleri kopyalama. Blob SAS URI'sini sağlanan kullanarak indirmek karşılaştırılamıyor.        | Beyaz boşluk olmadan SAS URL'sini güncelleştirme                       | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Görüntüleri: SAS Url Yetkilendirme hatası kopyalama hatası               | Hata: Görüntüleri kopyalama. Yetkilendirme hatası nedeniyle blobu indirmek karşılaştırılamıyor     | SAS URL'sini yeniden oluştur                                        | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
 
 
 ## <a name="to-configure-the-marketplace"></a>Market yapılandırmak için
 
-Teklif için görüntülenen alanları yapılandırmak için Market görünümünü kullanın [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portalı](https://portal.azure.com/).
+Teklif için görüntülenen alanları yapılandırmak için Market görünümünü kullanın [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portalında](https://portal.azure.com/).
 
 ### <a name="preview-subscription-ids"></a>Önizleme abonelik kimlikleri
 
@@ -294,7 +276,7 @@ Teklif yayımlandığında teklif erişmesini istediğiniz Azure abonelik kimlik
 
 ### <a name="suggested-categories"></a>Önerilen kategorileri
 
-En fazla 5 kategorileri, teklifinizi en iyi ile ilişkilendirilebilen sağlanan listeden seçin. Seçili kategorilerdeki teklifinizi, bulunan ürün kategorilerini eşlemek için kullanılan [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portalı](https://portal.azure.com/).
+En fazla beş kategoriye teklifinizi en iyi ile ilişkilendirilebilen sağlanan listeden seçin. Seçili kategorilerdeki teklifinizi, bulunan ürün kategorilerini eşlemek için kullanılan [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portalında](https://portal.azure.com/).
 
 Aşağıdaki örnekler, Azure Marketi'nde hem de Azure portalında Market bilgileri gösterir.
 
@@ -310,11 +292,10 @@ Aşağıdaki örnekler, Azure Marketi'nde hem de Azure portalında Market bilgil
 ![publishvm15](./media/cloud-partner-portal-publish-virtual-machine/publishvm15.png)
 
 
-**Azure Portal**
+**Azure portal**
 
 
 ![publishvm12](./media/cloud-partner-portal-publish-virtual-machine/publishvm12.png)
-
 
 
 ![publishvm13](./media/cloud-partner-portal-publish-virtual-machine/publishvm13.png)
@@ -329,11 +310,11 @@ Bulut iş ortağı portalına karşıya logo için aşağıdaki yönergeleri izl
 -   Azure portal'ın Tema renkleri beyaz ve siyah. Bu renkler, logolar arka plan rengi kullanmaktan kaçının. Logo, Azure portalında belirgin hale getirir bir renk kullanın. Basit birincil renkleri öneririz.
 
     >[!Note] 
-    >Saydam arka plan kullanıyorsanız, ardından logoları/metin beyaz, olmayan emin olun, beyaz veya mavi.
+    >Saydam arka plan kullanıyorsanız, ardından logoları/metin beyaz, olmayan emin olun, siyah veya mavi.
 
 -   Logoda gradyan arka plan kullanmayın.
 
--   Metin logosunu yerleştirmekten kaçının. Bu, şirketinizin veya marka adı içerir. Logonuzu Görünüm ve yapısını olmalıdır *düz* gradyanlar kaçınmalısınız.
+-   Şirketiniz veya marka adı, şirket logosu da dahil olmak üzere bir metin yerleştirmekten kaçının.  Logonuzu Görünüm ve yapısını olmalıdır *düz* gradyanlar kaçınmalısınız.
 
 -   Logo esnetilmiş olmamalıdır.
 
@@ -343,9 +324,9 @@ Hero logosu isteğe bağlıdır. Yayımcı Hero logoyu karşıya yükleyin deği
 
 #### <a name="guidelines-for-the-hero-logo-icon"></a>Hero logosu simgesi için yönergeler
 
--   Yayımcı görünen adı, planı başlık ve teklife ilişkin uzun özeti beyaz bir renkli yazı tipi kullanarak görüntülenir. Açık bir renk arka planda kullanmaktan kaçının. Siyah, beyaz ve saydam arka planlar için Hero simgeler izin verilmez.
+-   Beyaz renkte bir yazı tipi kullanarak yayımcı görünen adı, planı başlık ve teklife ilişkin uzun özeti görüntülenir. Açık bir renk arka planda kullanmaktan kaçının. Siyah, beyaz ve saydam arka planlar için Hero simgeler izin verilmez.
 
--   Yayımcı görünen adı, plan teklife ilişkin listede, başlık, uzun Özet teklif ve Oluştur düğmesine program aracılığıyla içinde Hero logosu katıştırılır. Hero logosu tasarlarken, herhangi bir metin girmeyin. Logo sağ tarafındaki bir boşluk bırakın. Bu alanı 415 x 100 piksel olmalı ve 370 tarafından uzaklık piksel soldan.
+-   Yayımcı görünen adı, teklif listelendiğinde başlık, uzun Özet teklif ve Oluştur düğmesine program aracılığıyla Hero logosu içinde gömülü planı. Hero logosu tasarlarken, herhangi bir metin girmeyin. Logo sağ tarafındaki bir boşluk bırakın. Bu alanı 415 x 100 piksel olmalı ve 370 tarafından uzaklık piksel soldan.
 
 ![Kahraman logosu örneği](./media/cloud-partner-portal-publish-virtual-machine/publishvm14.png)
 

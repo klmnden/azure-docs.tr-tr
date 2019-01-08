@@ -12,16 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: c8ead3dc34faefce0f113dee2074960fddfa11a1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: ae50562a9354b9c1e5b2711e5bbeec7b1e0fbbb8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144600"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54078805"
 ---
-# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure uygulamaları: Yönetilen uygulama yayımlama Kılavuzu'nu teklifi
+# <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure uygulamaları için: Yönetilen uygulama teklifi yayımlama Kılavuzu
 
 Yönetilen bir uygulamaya bir çözüm Market'te yayımlamak için temel yollarından biridir. Bu teklif gereksinimlerini anlamak için bu kılavuzu kullanın. 
 
@@ -41,17 +41,17 @@ Azure uygulama kullanma: yönetilen uygulama Teklif türü aşağıdaki koşulla
 |Bir müşterinin Azure aboneliğinize dağıtılır | Yönetilen uygulamaları müşteri aboneliğinde dağıtılmış olması gereken ve 3. taraf tarafından yönetilebilir. | 
 |Faturalama ve ölçüm    |  Müşterinin Azure aboneliğinde kaynakları sağlanır. Kullandıkça Öde (DÖNÜŞTÜREBİLMEMİZ) sanal makineler aracılığıyla müşterinin Azure aboneliği (DÖNÜŞTÜREBİLMEMİZ) faturalandırılır. Microsoft, müşteri ile tamamlanmasını 
 Getirin-kendi lisansını söz konusu olduğunda, Microsoft Müşteri aboneliğinde altyapı maliyetleri faturalandırır sırasında müşteriye ücretleri doğrudan lisans transact        |
-|Azure ile uyumlu sanal sabit disk (VHD)    |   Windows veya Linux Vm'leri oluşturulmalıdır.<ul> <li>Azure ile uyumlu bir VHD (Linux tabanlı) bölümünde bulunan oluşturma Linux VHD'si oluşturma hakkında daha fazla bilgi için ziyaret [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2- Create-an-Azure-Compatible-VHD-Linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>Bir Windows VHD oluşturma hakkında daha fazla bilgi için Azure ile uyumlu bir VHD (Windows tabanlı) bölümünde bulunan Oluştur ziyaret [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3- Create-an-Azure-Compatible-VHD-Windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul>      |
+|Azure ile uyumlu sanal sabit disk (VHD)    |   Windows veya Linux Vm'leri oluşturulmalıdır.<ul> <ul> <li>Linux VHD'si oluşturma hakkında daha fazla bilgi için bkz. [Azure'da desteklenen Linux dağıtımı](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Bir Windows VHD oluşturma hakkında daha fazla bilgi için bkz. [Azure ile uyumlu bir VHD oluşturma](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
 
 >[!NOTE]
 > Yönetilen uygulamalar Market aracılığıyla dağıtılabilir olmalıdır. Müşteri iletişimi önemliyse, müşteri paylaşımı etkinleştirdikten sonra sonra isteyen müşterilere ulaşmanızı.  
 
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 Zaten yapmadıysanız, 
 
-- [Kayıt](https://azuremarketplace.microsoft.com/sell) Market'te
+- [Kayıt](https://azuremarketplace.microsoft.com/sell) Market'te.
 
 Kayıtlı ve yeni bir teklif oluşturur veya mevcut bir proje üzerinde çalışmaya,
 
-- [Bulut iş ortağı portalında oturum açın](https://cloudpartner.azure.com) oluşturmak veya teklifiniz tamamlamak için
+- [Bulut iş ortağı portalında oturum açın](https://cloudpartner.azure.com) oluşturmak veya teklifiniz tamamlayın.

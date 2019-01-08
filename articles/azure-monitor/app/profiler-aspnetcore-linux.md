@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: db2972019e81ab413857d49ffa65eade3ff061ec
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bfd6f59ca61d14bc8187aa7c56c29ac44b40b8e9
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051195"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074299"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Application Insights Profiler ile ASP.NET Core Azure Linux web app'ler profil
 
@@ -136,7 +136,7 @@ Aşağıdaki örneğe benzer bir çıktı görmeniz gerekir:
 
 ## <a name="add-application-insights-to-monitor-your-web-apps"></a>Web uygulamalarınızı izlemek için Application Insights ekleme
 
-1. [Bir Application Insights kaynağı oluşturma](./../../application-insights/app-insights-create-new-resource.md).
+1. [Bir Application Insights kaynağı oluşturma](./../../azure-monitor/app/create-new-resource.md ).
 
 2. Kopyalama **iKey** Application Insights kaynağının değeri ve web uygulamalarınızda aşağıdaki ayarlar:
 

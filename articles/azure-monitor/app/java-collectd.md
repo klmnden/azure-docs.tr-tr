@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: a57422b4bbac4b929a67495bfffeec7bf0476e9c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 039ebe9d38b4ac4f63b078489a9c442e08aff0b0
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000232"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075116"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>toplanan: Application ınsights Linux performans ölçümleri
 
@@ -29,7 +29,7 @@ Genellikle zaten varsa, toplanan kullanacağınız [Application Insights ile Jav
 ![Örnek grafikler](./media/java-collectd/sample.png)
 
 ## <a name="get-your-instrumentation-key"></a>İzleme anahtarınızı alın
-İçinde [Microsoft Azure Portal'da](https://portal.azure.com)açın [Application Insights](../../application-insights/app-insights-overview.md) verilerin görünmesini istediğiniz kaynak. (Veya [yeni kaynak Oluştur](../../application-insights/app-insights-create-new-resource.md).)
+İçinde [Microsoft Azure Portal'da](https://portal.azure.com)açın [Application Insights](../../application-insights/app-insights-overview.md) verilerin görünmesini istediğiniz kaynak. (Veya [yeni kaynak Oluştur](../../azure-monitor/app/create-new-resource.md ).)
 
 Kaynağı tanımlayan izleme anahtarını bir kopyasını alın.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 18416f4208a77c27290b7e524b207fc681f06fdb
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2387af0ddd9f6f3ecbe91afaaca66d89f070c036
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050821"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076051"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Veri bulunmama sorunlarını giderme - .NET için Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>Telemetrimi bazıları eksik
@@ -58,7 +58,7 @@ Düzeltme:
 * Oturum açma kimlik bilgileri için doğru Azure hesabını sağlanan denetleyin. 
 * Tarayıcınızda erişiminiz olduğunu denetleyin [Azure portalında](https://portal.azure.com). Ayarları'nı açın ve herhangi bir kısıtlama olup olmadığına bakın.
 * [Mevcut projenize Application Insights ekleme](../../azure-monitor/app/asp-net.md): Çözüm Gezgini'nde projenize sağ tıklayın ve "Ekle Application Insights."
-* Hala çalışmıyorsa izleyin [el ile yordamı](../../application-insights/app-insights-windows-services.md) portalda bir kaynak ekleyin ve SDK'sını projenize ekleyin. 
+* Hala çalışmıyorsa izleyin [el ile yordamı](../../azure-monitor/app/windows-services.md) portalda bir kaynak ekleyin ve SDK'sını projenize ekleyin. 
 
 ## <a name="emptykey"></a>"İzleme anahtarını boş bırakılamaz" hatasını alıyorum
 Application Insights veya belki de bir günlük bağdaştırıcısı yüklemekte ederken bir sorun var gibi görünüyor.

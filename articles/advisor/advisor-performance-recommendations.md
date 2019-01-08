@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kasparks
-ms.openlocfilehash: 349632c751c3116244bc8ef7708708f3aa45754c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 93757c9f589ec1a6d5065d32740831dac922a015
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013245"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54079077"
 ---
 # <a name="advisor-performance-recommendations"></a>Danışmanı performans önerileri
 
@@ -39,11 +39,6 @@ Danışman, öneriler tüm Azure kaynaklarınız için tutarlı ve birleştirilm
 
 SQL veritabanı Danışmanı hakkında daha fazla bilgi için bkz: [SQL veritabanı Danışmanı](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
 
-## <a name="improve-azure-cache-for-redis-performance-and-reliability"></a>Azure Cache Redis performans ve güvenilirlik için geliştirin
-
-Danışman, burada performansı olumsuz yönde yüksek bellek kullanımı, sunucu iş yükü, ağ bant genişliği veya çok sayıda istemci bağlantıları tarafından etkilenebilir Redis örneği için Azure önbellek tanımlar. Advisor, ayrıca olası sorunları önlemek için öneriler en iyi yöntemler sağlar. Redis öneriler için Azure önbelleği hakkında daha fazla bilgi için bkz. [Azure önbelleği için Redis Advisor](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor).
-
-
 ## <a name="improve-app-service-performance-and-reliability"></a>App Service performans ve güvenilirliğini artırın
 
 Azure Danışmanı, uygulama hizmetleri deneyiminizi geliştirmek ve ilgili platform özelliklerini keşfetmek için en iyi yöntem önerilerini tümleştirir. Uygulama Hizmetleri önerileri örnekleri şunlardır:
@@ -52,6 +47,16 @@ Azure Danışmanı, uygulama hizmetleri deneyiminizi geliştirmek ve ilgili plat
 
 Uygulama Hizmetleri öneriler hakkında daha fazla bilgi için bkz. [Azure App Service için en iyi](https://azure.microsoft.com/documentation/articles/app-service-best-practices/).
 
+## <a name="use-managed-disks-to-prevent-disk-io-throttling"></a>Disk g/ç azalmasını engellemek için yönetilen diskleri kullanma
+
+Danışman, ölçeklenebilirlik hedefine ulaşmak bir depolama hesabına ait sanal makineleri tanımlar. Bu, g/ç azalmasını getirir. Danışman, bu sanal makinelerin performans düşüşünü önlemek için yönetilen diskleri kullanmanız önerir.
+
+## <a name="improve-the-performance-and-reliability-of-virtual-machine-disks-by-using-premium-storage"></a>Premium Depolama'yı kullanarak performans ve sanal makine disklerini güvenilirliğini artırın
+
+Danışman, depolama hesabınızda yüksek hacimli işlemleri sahip standart disklere sahip sanal makineleri tanımlar ve premium disklere yükseltme önerir. 
+
+Azure Premium depolama, g/Ç açısından yoğun iş yüklerini çalıştıran sanal makineleri için yüksek performanslı, düşük gecikme süreli disk desteği sunar. Premium depolama hesapları kullanan sanal makine disklerini verileri katı hal sürücülerine (SSD) depolar. Uygulamanız için en iyi performans için premium depolama yüksek IOPS gerektiren tüm sanal makine disklerinin geçişi öneririz.
+
 ## <a name="remove-data-skew-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Sorgu performansını artırmak için SQL veri ambarı tablosu üzerinde eğriltme verilerini kaldırma
 
 Veri dengesizliği gereksiz veri hareketi veya kaynak darboğazları yükünüz çalıştırırken neden olabilir. Advisor dağıtım veri dengesizliği % 15'den büyük ve verilerinizi dağıtan ve tablo dağıtım anahtar seçimlerinizi yeniden ziyaret öneririz algılar. Ve hakkında daha fazla tanımlama eğriltme kaldırma bilgi edinmek için [eğriltme sorun giderme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
@@ -59,6 +64,14 @@ Veri dengesizliği gereksiz veri hareketi veya kaynak darboğazları yükünüz 
 ## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Sorgu performansını artırmak için SQL veri ambarı tablosu güncel olmayan tablo istatistikleri güncelle
 
 Advisor tanımlayan güncel olmayan tablolar [tablo istatistikleri](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) ve tablo istatistikleri oluşturmak veya güncelleştirmek önerir. Sorgu iyileştiricisi, en hızlı performans için yüksek kaliteli bir sorgu planı oluşturmak sorgu iyileştiricisi sağlayan sorgu sonucu satır sayısı ve kardinalite tahmin etmek için güncel statikler kullanır. SQL veri ambarı.
+
+## <a name="scale-up-to-optimize-cache-utilization-on-your-sql-data-warehouse-tables-to-increase-query-performance"></a>Sorgu performansını artırmak için SQL veri ambarı tabloları önbellek kullanımını iyileştirmek için ölçeği büyütün
+
+Azure Danışmanı, SQL veri ambarınızın olması durumunda yüksek önbellek yüzdesini kullanılan ve düşük isabet yüzdesi algılar. Bu, SQL veri ambarınızın performansını etkileyebilir yüksek önbellek çıkarma gösterir. İş yükünüz için yeterli önbellek kapasite ayırma sağlamak için SQL veri ambarınızın ölçeğini Advisor önerir.
+
+## <a name="convert-sql-data-warehouse-tables-to-replicated-tables-to-increase-query-performance"></a>Sorgu performansını artırmak için çoğaltılmış tablolar için SQL veri ambarı tabloları Dönüştür
+
+Danışman, çoğaltılmış tablolar olmayan ancak dönüştürmenizi avantaj elde edecektir tabloları tanımlar ve bu tablolar dönüştürme önerir. Öneriler çoğaltılmış tablo boyutu, sütunları, tabloda dağıtım türü ve SQL veri ambarı tablosunun bölüm sayısını temel alır. Ek heurisitics bağlamı için Önerideki sağlanabilir. Bu öneri belirleme hakkında daha fazla bilgi için bkz: [SQL veri ambarı önerileri](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-concept-recommendations#replicate-tables). 
 
 ## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Depolama hesabınızı tüm en yeni Azure özellikleri almak için Azure Resource Manager'a geçiş
 

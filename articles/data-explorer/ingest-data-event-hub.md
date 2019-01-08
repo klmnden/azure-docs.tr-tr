@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 563b171177b491037e34dce891b565ea0943feda
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: ff512ac3bef1ce721860172dbaf9d9b68512a518
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654113"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54064704"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Hızlı Başlangıç: Azure veri Gezgini'ne olay Hub'ından veri alma
 
-Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Azure Veri Gezgini, büyük veri akış platformu ve olay ekleme hizmeti olan Event Hubs'dan veri eklemeyi (veri yüklemeyi) destekler. Event Hubs, saniyede milyonlarca etkinliği neredeyse gerçek zamanlı olarak işleyebilir. Bu hızlı başlangıçta bir olay hub'ı oluşturacak, Azure Veri Gezgini'nden bağlanacak ve sistemdeki veri akışını inceleyeceksiniz.
+Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oranda ölçeklenebilir veri keşfetme hizmetidir. Azure Veri Gezgini, büyük veri akış platformu ve olay ekleme hizmeti olan Event Hubs'dan veri eklemeyi (veri yüklemeyi) destekler. [Olay hub'ları](/azure/event-hubs/event-hubs-about) neredeyse gerçek zamanlı saniyede milyonlarca işleyebilir. Bu hızlı başlangıçta bir olay hub'ı oluşturacak, Azure Veri Gezgini'nden bağlanacak ve sistemdeki veri akışını inceleyeceksiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -25,7 +25,7 @@ Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oran
 
 * [Test kümesi ve veritabanı](create-cluster-database-portal.md)
 
-* Veri oluşturan ve bir olay hub'ına gönderen [örnek uygulama](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)
+* [Örnek bir uygulama](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) veri üretir ve olay hub'ına gönderir. Örnek uygulamayı sisteminize indirin.
 
 * Örnek uygulamayı çalıştırmak için [Visual Studio 2017 sürüm 15.3.2 veya üzeri](https://www.visualstudio.com/vs/)
 
@@ -37,7 +37,7 @@ Azure Veri Gezgini, günlük ve telemetri verileri için hızlı ve yüksek oran
 
 Bu hızlı başlangıçta örnek veri oluşturacak ve bir olay hub'ına göndereceksiniz. İlk adım bir olay hub'ı oluşturmaktır. Bunun için Azure portalda bir Azure Resource Manager şablonu kullanacaksınız.
 
-1. Dağıtımı başlatmak için aşağıdaki düğmeyi kullanın. Bu makaledeki adımları takip edebilmeniz için bağlantıyı ayrı bir sekmede veya pencerede açmanızı öneririz.
+1. Bir olay hub'ı oluşturmak için dağıtımı başlatmak için aşağıdaki düğmeyi kullanın. Sağ tıklayıp **yeni pencerede aç** başka bir sekmesinde veya penceresinde, bu makaledeki adımlarda geri kalanını izleyebilmeniz bağlantı.
 
     [![Azure’a dağıtma](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -79,7 +79,7 @@ Bu hızlı başlangıçta örnek veri oluşturacak ve bir olay hub'ına göndere
 
     ![Sorgu uygulama bağlantısı](media/ingest-data-event-hub/query-explorer-link.png)
 
-1. Aşağıdaki komutu pencereye kopyalayıp **Çalıştır**'ı seçin.
+1. Pencere ı seçin aşağıdaki komutu kopyalayın **çalıştırma** alınan verileri alır (TestTable) tablo oluşturun.
 
     ```Kusto
     .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
@@ -87,12 +87,11 @@ Bu hızlı başlangıçta örnek veri oluşturacak ve bir olay hub'ına göndere
 
     ![Oluşturma sorgusunu çalıştırma](media/ingest-data-event-hub/run-create-query.png)
 
-1. Aşağıdaki komutu pencereye kopyalayıp **Çalıştır**'ı seçin.
+1. Pencere ı seçin aşağıdaki komutu kopyalayın **çalıştırma** gelen JSON verileri sütun adları ve veri türleri tablosu (TestTable) için eşleme.
 
     ```Kusto
     .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
     ```
-    Bu komut gelen JSON verilerini tablonun (TestTable) sütun adları ve veri türleriyle eşler.
 
 ## <a name="connect-to-the-event-hub"></a>Olay hub'ına bağlanma
 
@@ -112,13 +111,23 @@ Bu hızlı başlangıçta örnek veri oluşturacak ve bir olay hub'ına göndere
 
     ![Olay hub'ı bağlantısı](media/ingest-data-event-hub/event-hub-connection.png)
 
+    Veri kaynağı:
+
     **Ayar** | **Önerilen değer** | **Alan açıklaması**
     |---|---|---|
     | Veri bağlantısı adı | *test-hub-connection* | Azure Veri Gezgini'nde oluşturmak istediğiniz bağlantının adı.|
     | Olay hub’ı ad alanı | Benzersiz bir ad alanı adı | Önceden seçtiğiniz ve ad alanınızı tanımlayan ad. |
     | Olay hub'ı | *test-hub* | Oluşturduğunuz olay hub'ı. |
     | Tüketici grubu | *test-group* | Oluşturduğunuz olay hub'ında tanımlanan tüketici grubu. |
-    | Hedef tablo | **Verilerimde yönlendirme bilgileri var** seçeneğini işaretlemeyin. | İki yönlendirme seçeneği vardır: *statik* ve *dinamik*. Bu hızlı başlangıçta tablo adını, dosya biçimini ve eşlemeyi belirterek statik yönlendirme (varsayılan) gerçekleştireceksiniz. Verilerinizde gerekli yönlendirme bilgilerinin bulunduğu dinamik yönlendirme seçeneğini de kullanabilirsiniz. |
+    | | |
+
+    Hedef Tablo:
+
+    İki yönlendirme seçeneği vardır: *statik* ve *dinamik*. Bu hızlı başlangıçta tablo adını, dosya biçimini ve eşlemeyi belirterek statik yönlendirme (varsayılan) gerçekleştireceksiniz. Bu nedenle, bırakın **verilerimi yönlendirme bilgilerini içeren** seçilmemiş.
+    Verilerinizde gerekli yönlendirme bilgilerinin bulunduğu dinamik yönlendirme seçeneğini de kullanabilirsiniz.
+
+     **Ayar** | **Önerilen değer** | **Alan açıklaması**
+    |---|---|---|
     | Tablo | *TestTable* | **TestDatabase** içinde oluşturduğunuz tablo. |
     | Veri biçimi | *JSON* | JSON ve CSV biçimleri desteklenir. |
     | Sütun eşleme | *TestMapping* | **TestDatabase** içinde oluşturduğunuz ve gelen JSON verilerini **TestTable** tablosunun sütun adları ve veri türleriyle eşleyen eşleme.|
@@ -138,7 +147,7 @@ Bu hızlı başlangıçta örnek veri oluşturacak ve bir olay hub'ına göndere
 
 ## <a name="generate-sample-data"></a>Örnek veri oluşturma
 
-Azure Veri Gezgini ve olay hub'ı arasında bağlantı kurulduğunda göre indirdiğiniz [örnek uygulamayı](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) kullanarak veri oluşturmaya başlayabilirsiniz.
+Kullanım [örnek uygulaması](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) verileri oluşturmak için indirilen.
 
 1. Örnek uygulama çözümünü Visual Studio'da açın.
 
@@ -162,8 +171,6 @@ Uygulama tarafından oluşturulan verilerin olay hub'ından kümenizdeki tabloya
 
     ![Olay hub'ı grafiği](media/ingest-data-event-hub/event-hub-graph.png)
 
-1. Örnek uygulamaya dönün ve 99 ileti gönderdikten sonra durdurun.
-
 1. Veritabanına ulaşan ileti sayısını denetlemek için test veritabanınızda aşağıdaki sorguyu çalıştırın.
 
     ```Kusto
@@ -171,15 +178,18 @@ Uygulama tarafından oluşturulan verilerin olay hub'ından kümenizdeki tabloya
     | count
     ```
 
-1. İletilerin içeriğini görmek için aşağıdaki sorguyu çalıştırın.
+1. İleti içeriği görmek için aşağıdaki sorguyu çalıştırın:
 
     ```Kusto
     TestTable
     ```
 
-    Sonuç kümesi aşağıdakine benzer olmalıdır.
+    Sonuç kümesi, aşağıdaki gibi görünmelidir:
 
     ![İleti sonuç kümesi](media/ingest-data-event-hub/message-result-set.png)
+
+    > [!NOTE]
+    > ADX alma işlemi optimize etmek için tasarlanan, veri alımı için bir toplama (toplu) ilkesi vardır. Bir gecikme karşılaşabileceğiniz şekilde ilkeyi 5 dakika ile yapılandırılır.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

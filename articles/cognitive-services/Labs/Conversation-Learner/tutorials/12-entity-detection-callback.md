@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 147887151abd5c1f7455b0efbf9aadbc2d884183
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a96cfcb07252dc4a9089eab2decaec9efb01a67b
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796843"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065008"
 ---
 # <a name="how-to-use-entity-detection-callback"></a>Varlık algılama geri çağırma kullanma
 
@@ -95,7 +95,7 @@ Geri çağırma kod aşağıdaki gibidir:
 6. "Puan Eylemler" düğmesine tıklayın.
     - Varlık algılama geri düğmesine tıklayarak tetikler
     - Geri çağırma kod CityResolved varlık değeri doğru "new york" olarak ayarlar.
-7. Yanıtı seçin "new york olan çok güzel."
+7. Yanıtı seçin, "new york, çok güzel."
 
 Bu düzen, birçok bot senaryoları normaldir. İş mantığınızı kullanıcı konuşma ve ayıklanan varlıkları sağlanır ve bu mantığı programlı varlıklarının içinde için iletişim kutusunun sonraki kapatır kaydedilmişse kurallı biçimi içine utterance dönüştürür.
 

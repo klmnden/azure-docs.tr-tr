@@ -13,12 +13,12 @@ ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 45db2d02a434f2d7e7f3187c0d87c0b68ecf5235
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 6d8570c78fcf28a236374579a9cb85c7c27f6ec8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052011"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54076986"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights ile kullanım analizi
 
@@ -30,7 +30,7 @@ Application Insights hem uygulama sunucu kodunuzda ve web sayfalarınızda yükl
 
 1. **Sunucu kodu:** İçin uygun modülünü yüklemek, [ASP.NET](../../azure-monitor/app/asp-net.md), [Azure](../../application-insights/app-insights-overview.md), [Java](../../azure-monitor/app/java-get-started.md), [Node.js](../../azure-monitor/app/nodejs.md), veya [diğer](../../azure-monitor/app/platforms.md) uygulama.
 
-    * *Sunucu kodu yüklemek istemiyor musunuz? Yalnızca [Azure Application Insights kaynağı oluşturma](../../application-insights/app-insights-create-new-resource.md).*
+    * *Sunucu kodu yüklemek istemiyor musunuz? Yalnızca [Azure Application Insights kaynağı oluşturma](../../azure-monitor/app/create-new-resource.md ).*
 
 2. **Web sayfası koduna:** Kapatmadan önce web sayfası için aşağıdaki betiği ekleyin ``</head>``. Uygun değere Application Insights kaynağınızın izleme anahtarını değiştirin:
 
@@ -47,7 +47,7 @@ Application Insights hem uygulama sunucu kodunuzda ve web sayfalarınızda yükl
     ```
     Web sitelerini izlemek için kullanabileceğiniz daha gelişmiş yapılandırmalar hakkında bilgi edinmek için [JavaScript SDK API başvurusunu](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md) inceleyin.
 
-3. **Mobil uygulama kodu:** Uygulamanızdan olayları toplayabilir ve bu olayların kopyalarını göre Analiz için Application Insights'a gönderme için App Center SDK'sını kullanın [bu kılavuzu izleyerek](../../application-insights/app-insights-mobile-center-quickstart.md).
+3. **Mobil uygulama kodu:** Uygulamanızdan olayları toplayabilir ve bu olayların kopyalarını göre Analiz için Application Insights'a gönderme için App Center SDK'sını kullanın [bu kılavuzu izleyerek](../../azure-monitor/learn/mobile-center-quickstart.md).
 
 4. **Telemetri alın:** Projeniz için bir kaç dakika hata ayıklama modunda çalıştırabilir ve sonuçları Application ınsights'ta genel bakış dikey penceresinde bulun.
 

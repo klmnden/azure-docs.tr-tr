@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e620deae1a73c110dd22133a12155166a55b999
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: cb2383ee8a921aa2c9c4e3b536edc203dd883200
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052028"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074453"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Sık Sorulan Sorular
 
@@ -141,7 +141,7 @@ IP adresini kullanarak web istemcisi (IPv4 veya IPv6) baktığımızda [GeoLite2
 
 Yapılandırabileceğiniz `ClientIpHeaderTelemetryInitializer` farklı bir üst bilgisinden IP adresini almak için. Bazı sistemlerde, örneğin, bir proxy tarafından taşınması, yük dengeleyici veya CDN `X-Originating-IP`. [Daha fazla bilgi edinin](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
-Yapabilecekleriniz [Power BI](../../application-insights/app-insights-export-power-bi.md) isteği telemetrinizi bir haritada görüntülemek için.
+Yapabilecekleriniz [Power BI](../../azure-monitor/app/export-power-bi.md ) isteği telemetrinizi bir haritada görüntülemek için.
 
 
 ## <a name="data"></a>Veri, portalda ne kadar süreyle tutulduğunu? Güvenli mi?

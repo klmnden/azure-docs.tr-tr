@@ -13,12 +13,12 @@ ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 6cf3e9a9b767dfaa6f04d151864f64123e3d6ae7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0d3f417b5a169b3d8d91d85b5f47496064c8f5f3
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077470"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063361"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Atayın veya Azure Active Directory portalı kullanarak lisansları kaldırın
 Birçok Azure Active Directory (Azure AD) Hizmetleri, Azure AD ürünü etkinleştirmek için ve her biri, kullanıcılar veya gruplar (ve ilişkili üyeler) lisans bu ürün için gerektirir. Etkin bir lisansa sahip kullanıcılar erişebilir ve lisanslı kullanma yalnızca Azure AD Hizmetleri.
@@ -57,7 +57,8 @@ Bağımsız lisans dahil olmak üzere ürünlerinizi kullanılabilir tüm bekley
 ## <a name="assign-licenses-to-users-or-groups"></a>Kullanıcılara veya gruplara lisans atama
 Emin olun, herhangi bir lisanslı kullanmaya gerek Azure AD hizmeti uygun lisansa sahip. Bu, lisans haklarını bireysel kullanıcılar veya tüm bir gruba eklemek istediğiniz aittir.
 
->! [Not] Azure ad genel önizleme özelliği olan Grup tabanlı Lisanslama ve tüm kullanılabilir Ücretli Azure AD lisans planınız. Önizlemeler hakkında daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>Kullanıcı ekleme hakkında ayrıntılı bilgi için bkz: [ekleyin veya Azure Active Directory'de kullanıcı silme](add-users-azure-active-directory.md). Grupları oluşturma ve üye ekleme hakkında ayrıntılı bilgi için bkz. [temel bir grup oluşturma ve üye ekleme](active-directory-groups-create-azure-portal.md).
+>[!Note]
+>Azure ad genel önizleme özelliği olan Grup tabanlı Lisanslama ve tüm kullanılabilir Ücretli Azure AD lisans planınız. Önizlemeler hakkında daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>Kullanıcı ekleme hakkında ayrıntılı bilgi için bkz: [ekleyin veya Azure Active Directory'de kullanıcı silme](add-users-azure-active-directory.md). Grupları oluşturma ve üye ekleme hakkında ayrıntılı bilgi için bkz. [temel bir grup oluşturma ve üye ekleme](active-directory-groups-create-azure-portal.md).
 
 ### <a name="to-assign-a-license-to-a-specific-user"></a>Belirli bir kullanıcıya lisans atamak için
 1. Üzerinde **ürünleri** sayfasında, kullanıcıya atamak istediğiniz sürüm adını belirleyin. Örneğin, _Azure Active Directory Premium Plan 2_.

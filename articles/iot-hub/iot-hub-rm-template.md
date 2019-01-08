@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 1a64749b7218fccfdad6b6eeebfac39a44aa0522
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2b1aca07fe60a328dac9d3724454a21835026a53
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687780"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063854"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Azure Resource Manager şablonu (.NET) kullanarak IOT hub oluşturma
 
@@ -23,7 +23,7 @@ ms.locfileid: "38687780"
 Azure Resource Manager'ı oluşturma ve Azure IOT hub'ları programlı olarak yönetmek için kullanabilirsiniz. Bu öğreticide bir Azure Resource Manager şablonu bir IOT hub'ı bir C# programı oluşturma için nasıl kullanılacağını gösterir.
 
 > [!NOTE]
-> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır: [Azure Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makalede Azure Resource Manager dağıtım modelini incelemektedir.
+> Azure'da oluşturmaya ve kaynaklarla çalışmaya yönelik iki farklı dağıtım modeli vardır:  [Azure Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makalede Azure Resource Manager dağıtım modelini incelemektedir.
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -203,6 +203,7 @@ Bir C# programı ile bir Azure Resource Manager şablonu kullanarak bir IOT hub'
 
 * Özellikleri hakkında okuyun [IOT hub'ı kaynak sağlayıcısı REST API'si][lnk-rest-api].
 * Okuma [Azure Resource Manager'a genel bakış] [ lnk-azure-rm-overview] Azure Resource Manager'ın özellikleri hakkında daha fazla bilgi edinmek için.
+* JSON söz dizimi ve özelliklerini şablonlarında kullanmak üzere bkz [Microsoft.Devices kaynak türleri](/azure/templates/microsoft.devices/iothub-allversions).
 
 İçin IOT Hub ile geliştirme hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 

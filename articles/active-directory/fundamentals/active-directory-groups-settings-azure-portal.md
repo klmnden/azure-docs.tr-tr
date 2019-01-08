@@ -12,12 +12,12 @@ ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: b857b0bd56b479d4301535a4e1f734d8002dcc8e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c63872ce19cc7076929785cc7bd150c1599c5705
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099061"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063061"
 ---
 # <a name="edit-your-group-information-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak, grup bilgilerini Düzenle
 
@@ -50,7 +50,7 @@ Azure Active Directory (Azure AD) kullanarak, ad, açıklama ve üyelik türün�
 
     - **Grup türü.** Oluşturulduktan sonra bir grup türünü değiştiremezsiniz. Değiştirilecek **grup türü**, grubunu silin ve yeni bir tane oluşturmanız gerekir.
     
-    - **Üyelik türü.** Üyelik türünü değiştirin. Çeşitli kullanılabilir üyeliği türleri hakkında daha fazla bilgi için bkz. [nasıl yapılır: temel bir grup oluşturma ve Azure Active Directory portalı kullanarak üye ekleme](active-directory-groups-create-azure-portal.md)
+    - **Üyelik türü.** Üyelik türünü değiştirin. Çeşitli kullanılabilir üyeliği türleri hakkında daha fazla bilgi için bkz. [nasıl yapılır: Temel bir grup oluşturma ve Azure Active Directory portalı kullanarak üye ekleme](active-directory-groups-create-azure-portal.md).
     
     - **Nesne Kimliği** Nesne Kimliğini değiştiremezsiniz, ancak bu grup için PowerShell komutlarında kullanılacak kopyalayabilirsiniz. PowerShell cmdlet'leri kullanma hakkında daha fazla bilgi için bkz. [Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri](../users-groups-roles/groups-settings-v2-cmdlets.md).
 

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 172ddd11cb956ab6d74e1ce870e2378205dd1613
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 73c61c62a84642b93ed96cdd80e258a1128fef6a
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993306"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54077480"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure sanal ağına Container Instances'ı dağıtma
 
@@ -33,26 +33,28 @@ Bir Azure sanal ağa dağıtılan kapsayıcı grupları gibi senaryolara olanak 
 
 Kapsayıcı grupları bir sanal ağa dağıttığınız zaman, bazı sınırlamalar uygulanır.
 
-* Windows kapsayıcıları desteklenmez
 * Kapsayıcı grubu bir alt ağa dağıtmak için alt ağdaki diğer kaynak türlerini içeremez. Kapsayıcı grubu için dağıtmadan önce var olan bir alt ağdan var olan tüm kaynakları kaldırın veya yeni bir alt ağ oluşturun.
 * Kapsayıcı grupları dağıtılan bir sanal ağa, genel IP adresleri veya DNS adı etiketleri şu anda desteklemez.
 * Ek ağ kaynakları nedeniyle dahil, bir kapsayıcı grubu için bir sanal ağ dağıtma genellikle bir standart kapsayıcı örneği dağıtmaya oranla biraz daha yavaştır.
 
 ## <a name="preview-limitations"></a>Önizleme sınırlamaları
 
-Bu özellik Önizleme aşamasında olduğu sürece, bir sanal ağa container Instances dağıtımı yüklenirken aşağıdaki sınırlamalar uygulanır.
+Bu özellik Önizleme aşamasında olduğu sürece, bir sanal ağa container Instances dağıtımı yüklenirken aşağıdaki sınırlamalar uygulanır. 
 
-**Desteklenen** bölgeler:
+**Desteklenen bölgeler ve kaynak sınırları**
 
-* Kuzey Avrupa (northeurope)
-* Batı Avrupa (westeurope)
-* Batı ABD (westus)
-* Doğu ABD (myresourcegroup)
+| Konum | İşletim Sistemi | CPU | Bellek (GB) |
+| -------- | :---: | :---: | :-----------: |
+| Batı Avrupa | Linux | 4 | 14 |
+| Doğu ABD, Batı ABD | Linux | 2 | 3,5 |
+| Avustralya Doğu, Kuzey Avrupa | Linux | 1 | 1,5 |
 
-**Desteklenmeyen** ağ kaynakları:
+Kapsayıcı kaynak sınırları ağa container Instances aşağıdaki bölgelerde sınırlarını farklılık gösterebilir. Şu anda yalnızca Linux kapsayıcıları için bu özelliği desteklenmektedir. Windows desteği planlanmaktadır.
 
-* Ağ Güvenliği Grubu
+**Desteklenmeyen ağ kaynaklarının ve özellikleri**
+
 * Azure Load Balancer
+* Sanal ağ eşleme
 
 **Ağ kaynak silme** gerektirir [ek adımlar](#delete-network-resources) kapsayıcı grupları sanal ağa dağıttıktan sonra.
 

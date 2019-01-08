@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: 3fc31306af1c85a67a1afca8a34be82a711f2527
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: bd85214efc3c8f67d41563e3ca46a1e2278c4868
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999533"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54062682"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure tablo depolama bağlamaları
 
@@ -779,7 +779,7 @@ Tablo depolama, bağlamayı desteklediği aşağıdaki senaryolarda çıktı:
 
   Bir yöntem parametresi gibi kullanarak çıkış Tablo varlığı, C# ve C# betiği erişim `out T paramName` veya işlevin dönüş değeri. C# komut dosyası `paramName` değeri belirtilen `name` özelliği *function.json*. `T` Bölüm anahtarını ve satır anahtarı tarafından sağlanan serializable bir tür olabilir *function.json* dosya veya `Table` özniteliği. Aksi takdirde, `T` içeren bir tür olmalıdır `PartitionKey` ve `RowKey` özellikleri. Bu senaryoda, `T` genellikle uygulayan `ITableEntity` veya ondan türetilmiş `TableEntity`, ancak bu gerekli değildir.
 
-* **C# veya C# içinde bir veya daha fazla satır yazma**
+* **Bir veya daha fazla satır yazmak C# veya C# betiği**
 
   Bir yöntem parametresi kullanarak çıkış Tablo varlığı, C# ve C# betiği erişim `ICollector<T> paramName` veya `IAsyncCollector<T> paramName`. C# komut dosyası `paramName` değeri belirtilen `name` özelliği *function.json*. `T` eklemek istediğiniz varlıkların şema belirtir. Genellikle, `T` türetildiği `TableEntity` veya uygulayan `ITableEntity`, ancak bu gerekli değildir. Bölüm anahtarını ve satır anahtarı değerleri *function.json* veya `Table` öznitelik oluşturucusunda Bu senaryoda kullanılmaz.
 

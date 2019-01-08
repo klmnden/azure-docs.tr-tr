@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/24/2018
 ms.author: cshoe
-ms.openlocfilehash: ba2441044d63e63b969054e84e163352d2b376e8
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: a44b348e0c41e96c575555f2b5c275e196284c5b
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993836"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074564"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 
@@ -674,6 +674,10 @@ C# ve diğer .NET dilleri, bildirim temelli bağlamaları aksine bir kesinlik te
 ## <a name="functionjson-file-schema"></a>Function.JSON dosya şeması
 
 *Function.json* dosya şemasının kullanılabilir [ http://json.schemastore.org/function ](http://json.schemastore.org/function).
+
+## <a name="testing-bindings"></a>Bağlamaları test ediliyor
+
+Visual Studio 2017 veya Visual Studio Code kullanarak bağlamalarınızı işlevleri yerel olarak geliştirme, test edebilirsiniz. Daha fazla bilgi için bkz. [kodunuzu Azure işlevleri'nde test stratejileri](functions-test-a-function.md). HTTP olmayan bağlamalar REST API'lerini kullanarak da çağırabilirsiniz. Daha fazla bilgi için bkz. [olmayan HTTP ile tetiklenen bir işlev el ile çalıştırmak](functions-manually-run-non-http.md).
 
 ## <a name="handling-binding-errors"></a>Bağlama hataları işleme
 

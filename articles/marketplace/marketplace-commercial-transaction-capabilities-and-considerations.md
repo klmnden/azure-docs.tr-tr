@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: b2f106edf69b57410fd1990d0888cf9d3a71be56
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 867af6de05d1d9ab54cf8a4bf02221acc43a2b28
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880191"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54075643"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Market ticari işlem özelliklerini ve dikkat edilmesi gerekenler
 
@@ -46,7 +46,7 @@ Liste ve deneme yayımlama seçeneklerini ek olarak, Azure Marketi yayımcılar�
 
 Transact yayımlama seçeneği kullanılırken, Microsoft'un Müşteri'nin Azure aboneliği için üçüncü taraf yazılım dağıtımı ve satışı sağlar. Yayımcı, Azure altyapı ücretleri Faturalaması dikkate almanız gerekir ve faturalama seçerken yayımcının kendi yazılım lisans ücretleri, modeli ve Azure Marketi'nde türü sunar. 
 
-Azure Marketi'nde yayımlama seçeneği aşağıdaki teklif türleri şu anda desteklenen Transact: sanal makineler, Azure uygulamaları ve SaaS uygulamaları.
+Azure Marketi'nde Transact yayımlama seçeneği şu anda aşağıdaki teklif türleri için desteklenir: Sanal makineler, Azure uygulamaları veya SaaS uygulamaları.
 
 ![[Azure Market'te ilgilenen kurumsal deneyimidir]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
 
@@ -64,15 +64,15 @@ SaaS uygulamaları için yayımcı kullanım ücretleri Azure altyapı ve yazıl
 
 Kullanılan işlem seçeneğine bağlı olarak, yayımcının lisans ücretini şu şekilde görüntülenebilir:  
 
-* Ücretsiz: Ücretsiz olarak yazılım lisansları. 
+* Ücretsiz: Yazılım lisansları için ücret alınmaz. 
 
-* Kendi lisansınızı getirin (BYOL): yazılım lisansları için herhangi bir geçerli ücreti yayımcı ve müşteri arasında yönetilir. Microsoft, yalnızca Azure altyapı kullanım ücretleri geçirir. (Sanal makineler ve Azure uygulamaları yalnızca.)
+* Kendi lisansınızı getirin (BYOL): Yazılım lisansları için herhangi bir geçerli ücreti yayımcı ve müşteri arasında doğrudan yönetilir. Microsoft, yalnızca Azure altyapı kullanım ücretleri geçirir. (Sanal makineler ve Azure uygulamaları yalnızca.)
 
-* Kullandıkça Öde: Yazılım lisans ücretleri, bir saatlik, kullanılan Azure altyapı harcamasına bağlı tarife çekirdek başına (vCPU) olarak sunulur. Bu, yalnızca Azure uygulamaları ve sanal makineler için geçerlidir.
+* Kullandıkça Öde: Yazılım Lisans ücretleri, bir saatlik, kullanılan Azure altyapı harcamasına bağlı tarife çekirdek başına (vCPU) olarak sunulur. Bu, yalnızca Azure uygulamaları ve sanal makineler için geçerlidir.
 
-* Abonelik (site tabanlı) fiyatlandırması: yazılım lisans ücretleri, bir aylık, yinelenen ücret sunulur.  Bu, yalnızca Azure uygulamaları – yönetilen uygulamalara ve SaaS uygulamaları için geçerlidir.
+* Abonelik fiyatlandırması (site tabanlı): Yazılım Lisans ücretleri aylık, yinelenen bir ücret sunulur.  Bu, yalnızca Azure uygulamaları – yönetilen uygulamalara ve SaaS uygulamaları için geçerlidir.
 
-* Ücretsiz yazılım deneme sürümü: yazılım lisanslarında 30 gün veya 90 gün boyunca ücretsiz olarak.
+* Ücretsiz yazılım denemesi: 30 gün veya 90 gün için yazılım lisansı için ücret alınmaz.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>Ücretsiz ve-kendi-lisansını getir (KLG) fiyatlandırma
 
@@ -214,7 +214,7 @@ Abonelik veya Kullandıkça Öde fiyatlandırma modelleri seçildiğinde, Micros
 
 Daha fazla bilgi ve yasal ilkeleri için bkz. [yayımcı anlaşması](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) (bulut iş ortağı Portalı'nda kullanılabilir).
 
-Faturalama soruları hakkında Yardım almak için [bir destek olayı oluşturmak](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636764613233453423) ve kullanılan teklif türüne bağlı olarak sanal makineler veya Web Apps (SaaS uygulamaları olarak da bilinir) seçin.
+Faturalama soruları hakkında Yardım almak için [bir destek olayı oluşturmak](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&pesid=16230&forceorigin=esmc&ccsid=636764613233453423) ve kullanılan teklif türüne bağlı olarak sanal makineler veya Web Apps (SaaS uygulamaları olarak da bilinir) seçin.
 
 ## <a name="transact-requirements"></a>Gereksinimleri transact
 
@@ -238,7 +238,7 @@ Transact yayımlama seçeneği yalnızca aşağıdaki Market teklifi türleriyle
 
 Ücretsiz, getirin-kendi lisansını veya kullandıkça-as-you-Öde fiyatlandırma-modellerinden seçin ve teklif düzeyinde tanımlanan SKU'ları olarak sunar. Müşterinin Azure faturalarınız Microsoft yayımcı yazılım lisansı ücretlerinden ayrı olarak temel alınan Azure altyapı ücretlerini gösterir. Azure altyapı ücretleri yazılımın kullanımı, yayımcı tarafından yönlendirilir.
 
-**Azure uygulamaları: Çözüm şablonu veya yönetilen uygulama** 
+**Azure uygulamaları için: Çözüm şablonu veya yönetilen uygulama** 
 
 Bir veya daha fazla sanal makine ve toplam sanal makine fiyatlandırması üzerinden çeken hazırlamanız gerekir. Fiyatlandırma modeli olarak bunun yerine sanal makine fiyatlandırma sabit fiyat aylık bir aboneliğe tek bir plan üzerinde yönetilen uygulamalar için seçilebilir. Her iki durumda da, Azure altyapı kullanım ücretleri müşteri için ayrı ayrı yazılım lisans ücretleri, ancak aynı fatura ekstresi geçirilir.
 

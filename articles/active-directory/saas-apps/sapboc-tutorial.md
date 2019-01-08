@@ -1,213 +1,216 @@
 ---
-title: 'Öğretici: SAP iş nesnesi bulut ile Azure Active Directory Tümleştirme | Microsoft Docs'
+title: 'Öğretici: SAP Business nesne bulut ile Azure Active Directory Tümleştirme | Microsoft Docs'
 description: Azure Active Directory ve SAP iş nesnesi bulut arasında çoklu oturum açmayı yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/14/2017
+ms.topic: tutorial
+ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: ffd4480a13549caba17becff27a43f51fcaa1988
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 18adc7728ffd0b4faf2e63e7c5d3be0da7dd651c
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041747"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065129"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Öğretici: SAP iş nesnesi bulut ile Azure Active Directory Tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Öğretici: SAP Business nesne bulut ile Azure Active Directory Tümleştirme
 
 Bu öğreticide, SAP iş nesnesi bulut Azure Active Directory (Azure AD) ile tümleştirmeyi öğrenin.
+Azure AD ile SAP iş nesnesi bulut tümleştirme ile aşağıdaki avantajları sağlar:
 
-SAP Business nesne bulut Azure AD ile tümleştirdiğinizde aşağıdaki avantajlardan yararlanabilirsiniz:
+* SAP Business nesnenin Bulutuna erişimi olan Azure AD'de kontrol edebilirsiniz.
+* Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için SAP iş nesnesi bulut oturum açmış, kullanıcıların etkinleştirebilirsiniz.
+* Hesaplarınız bir merkezi konumda - Azure portalında yönetebilir.
 
-- Azure AD'de, SAP iş nesnesi buluta kimlerin erişebileceğini kontrol edebilirsiniz.
-- Otomatik olarak SAP iş nesnesi bulut kullanıcılarınıza, çoklu oturum açma ve bir kullanıcının Azure AD hesabı kullanarak oturum açabilirsiniz.
-- Hesaplarınızı tek, merkezi bir konumda, Azure portalında yönetebilir.
-
-Azure AD ile bir hizmet (SaaS) uygulamasını tümleştirme olarak yazılım hakkında daha fazla bilgi edinmek için [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md).
+Azure AD SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz. [uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-SAP Business nesne bulut ile Azure AD tümleştirmeyi ayarlamak için aşağıdaki öğeler gerekir:
+SAP Business nesne bulut ile Azure AD tümleştirmesini yapılandırmak için aşağıdaki öğeler gerekir:
 
-- Azure AD aboneliğiniz
-- SAP iş nesnesi ile bir bulutta, çoklu açık oturum
-
-> [!NOTE]
-> Bu öğreticideki adımları test varsa, bunları bir üretim ortamında da test etmezseniz, öneririz.
-
-Bu öğreticideki adımları test etmek için öneriler:
-
-- Gerekli olmadıkça, üretim ortamında kullanmayın.
-- Azure AD deneme ortamı yoksa, şunları yapabilirsiniz [bir aylık ücretsiz deneme sürümü edinin](https://azure.microsoft.com/pricing/free-trial/).
+* Azure AD aboneliğiniz. Bir Azure AD ortamını yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/)
+* SAP Business nesne bulut çoklu oturum açmayı abonelik etkin.
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. 
 
-Bu öğreticide özetlenen senaryo iki temel yapı taşları oluşur:
+Bu öğreticide, yapılandırma ve Azure AD çoklu oturum açma bir test ortamında test edin.
 
-1. SAP Business nesne bulut Galeriden ekleyin.
-2. Ayarlama ve Azure AD çoklu oturum açmayı test edin.
+* SAP Business nesne bulutun desteklediği **SP** tarafından başlatılan
 
-## <a name="add-sap-business-object-cloud-from-the-gallery"></a>SAP Business nesne bulut Galeriden Ekle
-Galeride SAP iş nesnesi bulut Azure AD ile tümleştirmeyi ayarlamak için SAP iş nesnesi bulut yönetilen SaaS uygulamaları listenize ekleyin.
+## <a name="adding-sap-business-object-cloud-from-the-gallery"></a>SAP Business nesne bulut galeri ekleme
 
-SAP Business nesne bulut Galeriden eklemek için:
+Azure AD'de SAP iş nesnesi bulut tümleştirmesini yapılandırmak için SAP iş nesnesi bulut Galeriden yönetilen SaaS uygulamaları listesine eklemeniz gerekir.
 
-1. İçinde [Azure portalında](https://portal.azure.com), soldaki menüde **Azure Active Directory**. 
+**SAP Business nesne bulut Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-    ![Azure Active Directory düğmesi][1]
+1. İçinde **[Azure portalında](https://portal.azure.com)**, sol gezinti panelinde tıklayın **Azure Active Directory** simgesi.
 
-2. Seçin **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
+    ![Azure Active Directory düğmesi](common/select-azuread.png)
 
-    ![Kurumsal uygulamalar sayfası][2]
-    
-3. Yeni bir uygulama eklemek için seçin **yeni uygulama**.
+2. Gidin **kurumsal uygulamalar** seçip **tüm uygulamaları** seçeneği.
 
-    ![Yeni Uygulama düğmesi][3]
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
 
-4. Arama kutusuna **SAP iş nesnesi bulut**.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmındaki düğmesi.
 
-    ![Arama kutusu](./media/sapboc-tutorial/tutorial_sapboc_search.png)
+    ![Yeni Uygulama düğmesi](common/add-new-app.png)
 
-5. Sonuçlar panelinde seçin **SAP iş nesnesi bulut**ve ardından **Ekle**.
+4. Arama kutusuna **SAP iş nesnesi bulut**seçin **SAP iş nesnesi bulut** sonucu panelinden ardından **Ekle** uygulama eklemek için Ekle düğmesine.
 
-    ![Sonuç listesinde SAP iş nesnesi bulut](./media/sapboc-tutorial/tutorial_sapboc_addfromgallery.png)
+     ![Sonuç listesinde SAP iş nesnesi bulut](common/search-new-app.png)
 
-##  <a name="set-up-and-test-azure-ad-single-sign-on"></a>Ayarlama ve Azure AD çoklu oturum açma testi
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, ayarladığınız ve SAP iş nesnesi bulut ile Azure AD çoklu oturum açmayı test adlı bir test kullanıcı tabanlı *Britta Simon*.
+Bu bölümde, yapılandırma ve SAP iş nesnesi bulut adlı bir test kullanıcı tabanlı Azure AD çoklu oturum açmayı test **Britta Simon**.
+Tek iş için oturum açma için bir Azure AD kullanıcısı ve SAP iş nesnesi bulutta ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
 
-Tek iş için oturum açma için Azure AD SAP iş nesnesi bulut Azure AD karşılık gelen kullanıcı bilmesi gerekir. Bir Azure AD kullanıcısı ve SAP iş nesnesi bulutta ilgili kullanıcı arasında bir bağlantı ilişki kurulması gerekir.
+Yapılandırma ve Azure AD çoklu oturum açma SAP iş nesnesi Cloud ile test etmek için aşağıdaki yapı taşlarını tamamlanması gerekir:
 
-İçin SAP iş nesnesi bulutta bağlantı ilişki kurmak için **kullanıcıadı**, değerini atayın **kullanıcı adı** Azure AD'de.
+1. **[Azure AD çoklu oturum açmayı yapılandırmayı](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[SAP Business nesne bulut çoklu oturum açmayı yapılandırma](#configure-sap-business-object-cloud-single-sign-on)**  - uygulama tarafında çoklu oturum açma ayarlarını yapılandırmak için.
+3. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açmayı kullanmak Britta Simon etkinleştirmek için.
+5. **[SAP Business nesne bulut test kullanıcısı oluşturma](#create-sap-business-object-cloud-test-user)**  - kullanıcı Azure AD gösterimini bağlı SAP iş nesnesi bulutta Britta simon'un bir karşılığı vardır.
+6. **[Çoklu oturum açmayı test](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
-Yapılandırma ve Azure AD çoklu oturum açma SAP iş nesnesi Cloud ile test etmek için aşağıdaki görevleri tamamlayın:
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-1. [Azure AD çoklu oturum açmayı ayarlamak](#set-up-azure-ad-single-sign-on). Bir kullanıcı bu özelliği kullanmak için ayarlar.
-2. [Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user). Testleri Azure AD çoklu oturum açma kullanıcı Britta Simon.
-3. [Bir SAP iş nesnesi bulut test kullanıcısı oluşturma](#create-an-sap-business-object-cloud-test-user). Buluttaki SAP iş nesne kullanıcı Azure AD gösterimini bağlı bir karşılığı Britta simon'un oluşturur.
-4. [Azure AD test kullanıcı atama](#assign-the-azure-ad-test-user). Çoklu oturum açmayı Britta Simon, Azure AD'yi kullanacak şekilde ayarlar.
-5. [Çoklu oturum açmayı test](#test-single-sign-on). Yapılandırma çalıştığını doğrular.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin.
 
-### <a name="set-up-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı ayarlayın
+Azure AD çoklu oturum açma SAP iş nesnesi Bulutla yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-Bu bölümde, Azure AD'ye tek Azure portalında oturum açın. Ardından, çoklu oturum açmayı SAP iş nesnesi bulut uygulamanıza ayarlayın.
+1. İçinde [Azure portalında](https://portal.azure.com/), **SAP iş nesnesi bulut** uygulama tümleştirme sayfasında **çoklu oturum açma**.
 
-Azure AD çoklu oturum açma SAP iş nesnesi bulutla ayarlamak için:
+    ![Çoklu oturum açma bağlantısı yapılandırma](common/select-sso.png)
 
-1. Azure portalında, üzerinde **SAP iş nesnesi bulut** uygulama tümleştirme sayfasında **çoklu oturum açma**.
+2. Üzerinde **tek bir oturum açma yönteminizi seçmeniz** iletişim kutusunda, **SAML/WS-Federasyon** modu, çoklu oturum açmayı etkinleştirmek için.
 
-    ![Çoklu oturum açma seçin][4]
+    ![Çoklu oturum açma seçim modu](common/select-saml-option.png)
 
-2. Üzerinde **çoklu oturum açma** sayfası için **modu**seçin **SAML tabanlı oturum açma**.
- 
-    ![SAML tabanlı oturum açma'yı seçin](./media/sapboc-tutorial/tutorial_sapboc_samlbase.png)
+3. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **Düzenle** açmak için simgeyi **temel SAML yapılandırma** iletişim.
 
-3. Altında **SAP iş nesnesi bulut etki alanı ve URL'ler**, aşağıdaki adımları tamamlayın:
+    ![Temel SAML yapılandırmasını düzenle](common/edit-urls.png)
 
-    1. İçinde **oturum açma URL'si** kutusunda, aşağıdaki desenin bir URL girin: 
+4. Üzerinde **temel SAML yapılandırma** bölümünde, aşağıdaki adımları gerçekleştirin:
+
+    ![SAP Business nesne bulut etki alanı ve URL'ler tek oturum açma bilgileri](common/sp-identifier.png)
+
+    a. İçinde **oturum açma URL'si** metin kutusuna şu biçimi kullanarak bir URL yazın:
     | |
     |-|-|
     | `https://<sub-domain>.sapanalytics.cloud/` |
     | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
-    2. İçinde **tanımlayıcı** kutusunda, aşağıdaki desenin bir URL girin:
+    b. İçinde **tanımlayıcı (varlık kimliği)** metin kutusuna şu biçimi kullanarak bir URL yazın:
     | |
     |-|-|
     | `<sub-domain>.sapbusinessobjects.cloud` |
     | `<sub-domain>.sapanalytics.cloud` |
 
-    ![SAP Business nesne bulut etki alanı ve URL'ler sayfa URL'leri](./media/sapboc-tutorial/tutorial_sapboc_url.png)
- 
     > [!NOTE] 
-    > Bu URL'ler gösterimi için değerler. Tanımlayıcı URL'sini ve gerçek oturum açma URL'si ile güncelleştirin. Oturum açma URL'si almak için iletişime geçin [SAP iş nesnesi bulut istemci Destek ekibine](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/en-US). SAP Business nesne bulut meta verilerini yönetici konsolundan indirerek tanımlayıcı URL'sini alabilirsiniz. Bu öğreticinin ilerleyen bölümlerinde açıklanmıştır. 
+    > Bu URL'ler gösterimi için değerler. Tanımlayıcı URL'sini ve gerçek oturum açma URL'si ile güncelleştirin. Oturum açma URL'si almak için iletişime geçin [SAP iş nesnesi bulut istemci Destek ekibine](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/). SAP Business nesne bulut meta verilerini yönetici konsolundan indirerek tanımlayıcı URL'sini alabilirsiniz. Bu öğreticinin ilerleyen bölümlerinde açıklanmıştır.
 
-4. Altında **SAML imzalama sertifikası**seçin **meta veri XML**. Ardından, bilgisayarınızda meta veri dosyasını kaydedin.
+4. Üzerinde **yukarı çoklu oturum açma SAML ile ayarlanmış** sayfasında **SAML imzalama sertifikası** bölümünde **indirme** indirmek için **Federasyon meta veri XML**  bilgisayarınızdaki belirli seçenekler ihtiyacınıza göre ve kaydedin.
 
-    ![Meta veri XML seçin](./media/sapboc-tutorial/tutorial_sapboc_certificate.png) 
+    ![Sertifika indirme bağlantısı](common/metadataxml.png)
 
-5. **Kaydet**’i seçin.
+### <a name="configure-sap-business-object-cloud-single-sign-on"></a>SAP Business nesne bulut çoklu oturum açmayı yapılandırın
 
-    ![Kaydet'i seçin](./media/sapboc-tutorial/tutorial_general_400.png)
+1. Farklı bir web tarayıcı penceresinde bir SAP iş nesnesi bulut şirketinizin sitesi için bir yönetici olarak oturum açın.
 
-6. Farklı bir web tarayıcı penceresinde bir SAP iş nesnesi bulut şirketinizin sitesi için bir yönetici olarak oturum açın.
-
-7. Seçin **menü** > **sistem** > **Yönetim**.
+2. Seçin **menü** > **sistem** > **Yönetim**.
     
     ![Menü, sonra sistem ve yönetim seçin](./media/sapboc-tutorial/config1.png)
 
-8. Üzerinde **güvenlik** sekmesinde **Düzenle** (Kalem) simgesi.
+3. Üzerinde **güvenlik** sekmesinde **Düzenle** (Kalem) simgesi.
     
     ![Güvenlik sekmesinde düzenleme simgesini seçin.](./media/sapboc-tutorial/config2.png)  
 
-9. İçin **kimlik doğrulama yöntemi**seçin **SAML çoklu oturum açma (SSO)**.
+4. İçin **kimlik doğrulama yöntemi**seçin **SAML çoklu oturum açma (SSO)**.
 
     ![SAML çoklu oturum açma için kimlik doğrulama yöntemini seçin.](./media/sapboc-tutorial/config3.png)  
 
-10. Hizmet sağlayıcısı meta verileri (adım 1) indirmek için seçin **indirme**. Meta veri dosyasında bulup kopyalayabilirsiniz **Entityıd** değeri. Azure portalında altında **SAP iş nesnesi bulut etki alanı ve URL'ler**, değeri olarak yapıştırın **tanımlayıcı** kutusu.
+5. Hizmet sağlayıcısı meta verileri (adım 1) indirmek için seçin **indirme**. Meta veri dosyasında bulup kopyalayabilirsiniz **Entityıd** değeri. Azure portalında, üzerinde **temel SAML yapılandırma** iletişim kutusunda, değeri olarak yapıştırın **tanımlayıcı** kutusu.
 
     ![Kopyalama ve yapıştırma Entityıd değeri](./media/sapboc-tutorial/config4.png)  
 
-11. Hizmet sağlayıcısı meta verileri (Adım 2) altında Azure portalından indirilen dosyayı karşıya yüklemek için **karşıya kimlik sağlayıcısı meta verileri**seçin **karşıya**.  
+6. Hizmet sağlayıcısı meta verileri (Adım 2) altında Azure portalından indirilen dosyayı karşıya yüklemek için **karşıya kimlik sağlayıcısı meta verileri**seçin **karşıya**.  
 
     ![Karşıya yükleme kimlik sağlayıcısı meta verileri altında seçin](./media/sapboc-tutorial/config5.png)
 
-12. İçinde **kullanıcı özniteliği** listesinde, uygulamanız için kullanmak istediğiniz kullanıcı özniteliği (adım 3) seçin. Bu kullanıcı özniteliğini kimlik sağlayıcısına eşler. Özel bir öznitelik kullanıcının sayfasında girmek için kullanın. **özel SAML eşleme** seçeneği. Ya da her ikisini seçebilirsiniz **e-posta** veya **kullanıcı kimliği** kullanıcı özniteliği. Bizim örneğimizde, biz seçili **e-posta** biz kullanıcı tanımlayıcısı talebi ile eşlenmiş çünkü **userprincipalname** özniteliğini **kullanıcı öznitelikleri** Azure bölümünde Portalı. Bu, her başarılı SAML yanıtını SAP iş nesnesi bulut uygulamasına gönderdiği bir benzersiz kullanıcı e-posta, sağlar.
+7. İçinde **kullanıcı özniteliği** listesinde, uygulamanız için kullanmak istediğiniz kullanıcı özniteliği (adım 3) seçin. Bu kullanıcı özniteliğini kimlik sağlayıcısına eşler. Özel bir öznitelik kullanıcının sayfasında girmek için kullanın. **özel SAML eşleme** seçeneği. Ya da her ikisini seçebilirsiniz **e-posta** veya **kullanıcı kimliği** kullanıcı özniteliği. Bizim örneğimizde, biz seçili **e-posta** biz kullanıcı tanımlayıcısı talebi ile eşlenmiş çünkü **userprincipalname** özniteliğini **kullanıcı öznitelikleri ve talepler** konusundaki Azure portalı. Bu, her başarılı SAML yanıtını SAP iş nesnesi bulut uygulamasına gönderdiği bir benzersiz kullanıcı e-posta, sağlar.
 
     ![Kullanıcı özniteliğini seçin](./media/sapboc-tutorial/config6.png)
 
-13. Kimlik sağlayıcısı (adım 4) hesabı doğrulamak için **oturum açma kimlik bilgileri (e-posta)** kutusuna, kullanıcının e-posta adresi girin. Ardından, **hesabı doğrula**. Sistem kullanıcı hesabı ile oturum açma kimlik bilgilerini ekler.
+8. Kimlik sağlayıcısı (adım 4) hesabı doğrulamak için **oturum açma kimlik bilgileri (e-posta)** kutusuna, kullanıcının e-posta adresi girin. Ardından, **hesabı doğrula**. Sistem kullanıcı hesabı ile oturum açma kimlik bilgilerini ekler.
 
     ![E-posta girin ve doğrulayın hesabı seçin](./media/sapboc-tutorial/config7.png)
 
-14. Seçin **Kaydet** simgesi.
+9. Seçin **Kaydet** simgesi.
 
     ![Kaydet simgesine](./media/sapboc-tutorial/save.png)
 
-> [!TIP]
-> Bu yönergelerde kısa bir sürümünü edinebilirsiniz [Azure portalında](https://portal.azure.com), uygulamanızı ayarladığınız sırada! Seçerek uygulama ekledikten sonra **Active Directory** > **kurumsal uygulamalar**seçin **çoklu oturum açma** sekmesi. Katıştırılmış belgelerinde erişebileceğiniz **yapılandırma** sayfanın alt kısmındaki bölümde. Daha fazla bilgi için [Azure AD belgeleri katıştırılmış]( https://go.microsoft.com/fwlink/?linkid=845985).
+### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma 
 
-### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde, Azure portalında Britta Simon adlı bir test kullanıcısı oluşturun.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcısı oluşturmaktır.
 
-Azure AD'de bir test kullanıcısı oluşturmak için:
+1. Azure portalında, sol bölmede seçin **Azure Active Directory**seçin **kullanıcılar**ve ardından **tüm kullanıcılar**.
 
-1. Azure portalında soldaki menüde seçin **Azure Active Directory**.
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantıları](common/users.png)
 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/sapboc-tutorial/create_aaduser_01.png) 
+2. Seçin **yeni kullanıcı** ekranın üstünde.
 
-2. Kullanıcıların listesini görüntülemek için seçin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/sapboc-tutorial/create_aaduser_02.png) 
+    ![Yeni kullanıcı düğmesi](common/new-user.png)
 
-3. Açmak için **kullanıcı** iletişim kutusunda **Ekle**.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/sapboc-tutorial/create_aaduser_03.png) 
+3. Kullanıcı özellikleri, aşağıdaki adımları gerçekleştirin.
 
-4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları tamamlayın:
- 
-    1. İçinde **adı** kutusuna **BrittaSimon**.
+    ![Kullanıcı iletişim kutusu](common/user-properties.png)
 
-    2. İçinde **kullanıcı adı** kutusuna, Britta Simon kullanıcının e-posta adresi girin.
+    a. İçinde **adı** alana **BrittaSimon**.
+  
+    b. İçinde **kullanıcı adı** alan türü **brittasimon@yourcompanydomain.extension**  
+    Örneğin, BrittaSimon@contoso.com
 
-    3. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değeri yazın **parola** kutusu.
+    c. Seçin **Show parola** onay kutusunu işaretleyin ve ardından parola kutusunda görüntülenen değeri yazın.
 
-    4. **Oluştur**’u seçin.
+    d. **Oluştur**’a tıklayın.
 
-        ![Kullanıcı iletişim kutusu](./media/sapboc-tutorial/create_aaduser_04.png) 
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-    ![Azure AD kullanıcısı oluşturun][100]
+Bu bölümde, SAP iş nesnenin Bulutuna erişimi vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-### <a name="create-an-sap-business-object-cloud-test-user"></a>Bir SAP iş nesnesi bulut test kullanıcısı oluşturma
+1. Azure portalında **kurumsal uygulamalar**seçin **tüm uygulamaları**, ardından **SAP iş nesnesi bulut**.
+
+    ![Kurumsal uygulamalar dikey penceresi](common/enterprise-applications.png)
+
+2. Uygulamalar listesinde **SAP iş nesnesi bulut**.
+
+    ![Uygulamalar listesinde SAP iş nesnesi bulut bağlantısı](common/all-applications.png)
+
+3. Soldaki menüde **kullanıcılar ve gruplar**.
+
+    !["Kullanıcılar ve Gruplar" bağlantısı](common/users-groups-blade.png)
+
+4. Tıklayın **Kullanıcı Ekle** düğmesine ve ardından **kullanıcılar ve gruplar** içinde **atama Ekle** iletişim.
+
+    ![Atama Ekle bölmesi](common/add-assign-user.png)
+
+5. İçinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** 'a tıklayın kullanıcı listesinde **seçin** ekranın alt kısmındaki düğmesi.
+
+6. SAML onaylaması ardından içinde herhangi bir rolü değer bekleniyor durumunda **rolü Seç** 'a tıklayın listeden bir kullanıcı için uygun rolü Seç iletişim kutusu **seçin** ekranın alt kısmındaki düğmesi.
+
+7. İçinde **atama Ekle** iletişim tıklatın **atama** düğmesi.
+
+### <a name="create-sap-business-object-cloud-test-user"></a>SAP Business nesne bulut test kullanıcısı oluşturma
 
 SAP Business nesne buluta oturum önce azure AD kullanıcıları SAP iş nesnesi bulutta sağlanması gerekir. SAP iş nesnesi bulutta sağlama bir el ile gerçekleştirilen bir görevdir.
 
@@ -225,78 +228,33 @@ Bir kullanıcı hesabı sağlamak için:
 
     Ardından, aşağıdaki adımları tamamlayın:
 
-    1. İçinde **kullanıcı kimliği** kutusuna, kullanıcının kullanıcı kimliği gibi girin **Britta**.
+    a. İçinde **kullanıcı kimliği** kutusuna, kullanıcının kullanıcı kimliği gibi girin **Britta**.
 
-    2. İçinde **ad** kutusunda, kullanıcı adı gibi girin **Britta**.
+    b. İçinde **ad** kutusunda, kullanıcı adı gibi girin **Britta**.
 
-    3. İçinde **SOYADI** kutusunda, son kullanıcı adı gibi girin **Simon**.
+    c. İçinde **SOYADI** kutusunda, son kullanıcı adı gibi girin **Simon**.
 
-    4. İçinde **GÖRÜNEN ad** kutusuna, kullanıcının tam adı gibi girin **Britta Simon**.
+    d. İçinde **GÖRÜNEN ad** kutusuna, kullanıcının tam adı gibi girin **Britta Simon**.
 
-    5. İçinde **e-posta** kutusuna, kullanıcının e-posta adresi gibi girin **brittasimon@contoso.com**.
+    e. İçinde **e-posta** kutusuna, kullanıcının e-posta adresi gibi girin **brittasimon@contoso.com**.
 
-    6. Üzerinde **Rollerini Seç** sayfasında kullanıcı için uygun rolü seçin ve ardından **Tamam**.
+    f. Üzerinde **Rollerini Seç** sayfasında kullanıcı için uygun rolü seçin ve ardından **Tamam**.
 
       ![Rol seç](./media/sapboc-tutorial/user3.png)
 
-    7. Seçin **Kaydet** simgesi.    
+    g. Seçin **Kaydet** simgesi.    
 
+### <a name="test-single-sign-on"></a>Çoklu oturum açma testi 
 
-### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
+Bu bölümde, erişim panelini kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Bu bölümde, kullanıcının Britta Simon, SAP iş nesnesi buluta kullanıcı hesabı erişimi verilmesi tarafından Azure AD çoklu oturum açmayı kullanmak için izin verin.
+Erişim paneli SAP iş nesnesi bulut kutucuğa tıkladığınızda, size otomatik olarak buluta SAP iş nesnesi SSO'yu ayarlama oturum açmanız. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-Britta Simon SAP iş nesnesi buluta atamak için:
+## <a name="additional-resources"></a>Ek Kaynaklar
 
-1. Azure portalında uygulama görünümü açın ve ardından dizin görünümüne gidin. Seçin **kurumsal uygulamalar**ve ardından **tüm uygulamaları**.
+- [ SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-    ![Kullanıcı Ata][201] 
+- [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-2. Uygulamalar listesinde **SAP iş nesnesi bulut**.
-
-    ![Çoklu oturum açmayı yapılandırın](./media/sapboc-tutorial/tutorial_sapboc_app.png) 
-
-3. Sol menüde **kullanıcılar ve gruplar**.
-
-    ![Kullanıcıları ve grupları seçin][202] 
-
-4. **Add (Ekle)** seçeneğini belirleyin. Ardından **atama Ekle** sayfasında **kullanıcılar ve gruplar**.
-
-    ![Atama Ekle sayfası][203]
-
-5. Üzerinde **kullanıcılar ve gruplar** sayfasında, kullanıcıların, select listesinde **Britta Simon**.
-
-6. Üzerinde **kullanıcılar ve gruplar** sayfasında **seçin**.
-
-7. Üzerinde **atama Ekle** sayfasında **atama**.
-
-![Kullanıcı rolü atayın][200] 
-    
-### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
-
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
-
-Erişim Paneli'nde SAP iş nesnesi bulut kutucuğu seçtiğinizde, otomatik olarak SAP iş nesnesi bulut uygulamanız için oturum açmanız.
-
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../user-help/active-directory-saas-access-panel-introduction.md).
-
-## <a name="additional-resources"></a>Ek kaynaklar
-
-* [SaaS uygulamaları Azure Active Directory ile tümleştirme hakkında öğreticiler listesi](tutorial-list.md)
-* [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma nedir?](../manage-apps/what-is-single-sign-on.md)
-
-
-<!--Image references-->
-
-[1]: ./media/sapboc-tutorial/tutorial_general_01.png
-[2]: ./media/sapboc-tutorial/tutorial_general_02.png
-[3]: ./media/sapboc-tutorial/tutorial_general_03.png
-[4]: ./media/sapboc-tutorial/tutorial_general_04.png
-
-[100]: ./media/sapboc-tutorial/tutorial_general_100.png
-
-[200]: ./media/sapboc-tutorial/tutorial_general_200.png
-[201]: ./media/sapboc-tutorial/tutorial_general_201.png
-[202]: ./media/sapboc-tutorial/tutorial_general_202.png
-[203]: ./media/sapboc-tutorial/tutorial_general_203.png
+- [Azure Active Directory'de koşullu erişim nedir?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

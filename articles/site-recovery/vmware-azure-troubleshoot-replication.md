@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: ramamill
-ms.openlocfilehash: 30f128e75feb149453b642739f57c3a16ade524f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c53dc81da9469c0628adbd3751dc818997fa4d05
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053100"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063687"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware Vm'lerini ve fiziksel sunucular için çoğaltma sorunlarını giderme
 
@@ -28,7 +28,9 @@ Kaynak makine denetleyebilirsiniz aşağıdaki listeyi gösterir yolları:
 
 *  Kaynak sunucuda komut satırında aşağıdaki komutu çalıştırarak HTTPS bağlantı noktası (varsayılan HTTPS bağlantı noktası 9443 olduğu) ile işlem sunucusu ping Telnet kullanın. Komut ve sorunları o blok güvenlik duvarı bağlantı noktası için ağ bağlantısı sorunları denetler.
 
+
    `telnet <process server IP address> <port>`
+
 
    > [!NOTE]
    > Telnet bağlantısını test etmek için kullanın. Kullanmayın `ping`. Telnet yüklü değilse, listelenen adımları tamamlamak [Telnet istemcisi yükleme](https://technet.microsoft.com/library/cc771275(v=WS.10).aspx).

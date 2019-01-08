@@ -1,6 +1,6 @@
 ---
-title: İlk iş akışınızı oluşturma ve otomatikleştirme - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps ile görevleri, işlemleri ve iş akışlarını otomatikleştiren ilk mantıksal uygulamanızı oluşturmaya ilişkin hızlı başlangıç. Sistemlerinize ve bulut hizmetlerinize yönelik sistem tümleştirme ve kuruluş uygulaması tümleştirme (EAI) çözümleri için mantıksal uygulamalar oluşturma
+title: Hızlı Başlangıç - oluşturun ve ilk iş akışınızı - Azure Logic Apps otomatik hale getirin | Microsoft Docs
+description: Görevler, süreçleri ve Azure Logic Apps ile iş akışlarını otomatik hale getiren ilk mantıksal uygulamanızı oluşturun. Sistemlerinize ve bulut hizmetlerinize yönelik sistem tümleştirme ve kuruluş uygulaması tümleştirme (EAI) çözümleri için mantıksal uygulamalar oluşturma
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: fe2ca48c1cab3789f2bb501eaf00aeb9cd866b8c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233693"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54065197"
 ---
-# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Hızlı başlangıç: Azure Logic Apps ile ilk otomatik iş akışınızı oluşturma - Azure portal
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Hızlı Başlangıç: Azure Logic Apps - Azure portalı ile ilk otomatik iş akışınızı oluşturun
 
 Bu hızlı başlangıçta, [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ile ilk otomatik iş akışınızı nasıl oluşturabileceğiniz konusuna giriş yapılır. Bu makalede, bir web sitesinin RSS akışında yeni öğe olup olmadığını düzenli olarak denetleyen bir mantıksal uygulama oluşturursunuz. Yeni öğeler varsa, mantıksal uygulama her öğe için bir e-posta gönderir. İşlemi tamamladığınızda, mantıksal uygulamanız bu yüksek düzeyli iş akışı gibi görünür:
 
@@ -38,7 +38,7 @@ Azure hesabınızın kimlik bilgileriyle <a href="https://portal.azure.com" targ
 
    ![Mantıksal uygulama oluşturma](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. **Mantıksal uygulama oluştur** bölümünde, mantıksal uygulamanızın ayrıntılarını burada gösterildiği gibi sağlayın. İşiniz bittiğinde **Panoya sabitle** > **Oluştur**’u seçin.
+3. **Mantıksal uygulama oluştur** bölümünde, mantıksal uygulamanızın ayrıntılarını burada gösterildiği gibi sağlayın. Bitirdikten sonra seçin **Oluştur**.
 
    ![Mantıksal uygulama ayrıntılarını sağlayın](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -91,13 +91,13 @@ Mantıksal uygulamanız çalışıyor ancak RSS akışını kontrol etme dışı
 
 Şimdi, RSS akışında yeni bir öğe göründüğünde e-posta gönderen bir [eylem](../logic-apps/logic-apps-overview.md#logic-app-concepts) ekleyin. 
 
-1. **Akış öğesi yayımlandığında** tetikleyicinin altında **+ Yeni adım** > **Eylem ekle**’yi seçin.
+1. Altında **ne zaman bir akış öğesi yayımlandığında** tetikleme öğesini **yeni adım**.
 
    ![Eylem ekleme](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. **Eylem seçin**’in altında filtreniz olarak "e-posta gönder" girin. Eylemler listesinden istediğiniz e-posta sağlayıcısıyla "e-posta gönder" eylemini seçin. 
+2. Altında **eylem seçin**, arama kutusuna "e-posta Gönder" yazın. Arama kutusunun altındaki seçin **tüm**. Eylemler listesinden istediğiniz e-posta sağlayıcısıyla "e-posta gönder" eylemini seçin. 
 
-   ![Şu eylemi seçin: "Office 365 Outlook - E-posta gönder"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+   ![Şu eylemi seçin: "Office 365 Outlook - e-posta Gönder"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
    Eylem listesini belirli bir uygulama veya hizmeti içerek şekilde filtrelemek için önce uygulama ya da hizmeti seçebilirsiniz:
 
