@@ -52,12 +52,9 @@
 ## [SAP HANA dosya düzeyi yedekleme](sap-hana-backup-file-level.md)
 ## [SAP HANA depolama anlık görüntüsü yedekleri](sap-hana-backup-storage-snapshots.md)
 # Azure Sanal Makineler üzerinde SAP NetWeaver ve Business One
-## [Azure Sanal Makineler üzerinde SAP Business One](business-one-azure.md)
-## [Windows üzerinde SAP IDES/SQL Server SAP CAL dağıtım kılavuzu](cal-ides-erp6-erp7-sp3-sql.md)
-## [Azure Linux VM'lerde SAP NetWeaver](suse-quickstart.md)
+## [SAP iş yükü planlaması ve dağıtım denetim listesi](sap-deployment-checklist.md)
 ## [Azure’da SAP NetWeaver planlama ve uygulama](planning-guide.md)
 ## [SAP NetWeaver Dağıtım kılavuzu](deployment-guide.md)
-## [Azure için SAP LaMa bağlayıcısı](lama-installation.md)
 ## SAP iş yükü için DBMS dağıtım kılavuzları
 ### [SAP iş yükü için genel Azure Sanal Makineler DBMS dağıtımı](dbms_guide_general.md)
 ### [SAP iş yükü için SQL Server Azure Sanal Makineler DBMS dağıtımı](dbms_guide_sqlserver.md)
@@ -69,6 +66,10 @@
 ### [Azure üzerinde SAP HANA kullanılabilirliğine genel bakış](sap-hana-availability-overview.md)
 ### [Tek Azure bölgesi içinde Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-one-region.md)
 ### [Azure bölgeleri arasında Azure üzerinde SAP HANA Kullanılabilirliği](sap-hana-availability-across-regions.md)
+## [Azure Sanal Makineler üzerinde SAP Business One](business-one-azure.md)
+## [Windows üzerinde SAP IDES/SQL Server SAP CAL dağıtım kılavuzu](cal-ides-erp6-erp7-sp3-sql.md)
+## [Azure Linux VM'lerde SAP NetWeaver](suse-quickstart.md)
+## [Azure için SAP LaMa bağlayıcısı](lama-installation.md)
 ## Windows ve Linux üzerinde Yüksek Kullanılabilirlik (HA)
 ### [Genel Bakış](sap-high-availability-guide-start.md)
 ### Yüksek Kullanılabilirlik Mimarisi

@@ -9,12 +9,12 @@ ms.date: 12/12/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 39709377a83226c90626221f0f5a98f3d7d5c74a
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 8d6dcdd4de8fb56935d2f66bfff045b2115d4004
+ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051212"
+ms.lasthandoff: 01/07/2019
+ms.locfileid: "54063582"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Sık sorulan sorular Service Fabric Mesh
 
@@ -93,9 +93,9 @@ Aşağıdaki kapsayıcı işletim sistemi görüntüleri, hizmetleri dağıtmak 
 
 ## <a name="developer-experience-issues"></a>Geliştirici deneyimi sorunları
 
-### <a name="dns-resolution-and-outgoing-traffic-from-a-container-doesnt-work"></a>DNS çözümlemesi ve giden trafik bir kapsayıcısından çalışmıyor
+### <a name="dns-resolution-from-a-container-doesnt-work"></a>DNS çözümlemesi bir kapsayıcısından çalışmıyor
 
-Bir DNS hizmeti iletişim kurmaya çalışılırken dahil olmak üzere, giden trafik gönderen bir kapsayıcı varsa, belirli koşullar altında başarısız olabilir. Bu incelenmektedir. Azaltmak için:
+Service Fabric DNS hizmeti için bir kapsayıcı yapılan DNS sorgularının giden belirli koşullar altında başarısız olabilir. Bu incelenmektedir. Azaltmak için:
 
 - Windows Fall Creators update (1709 sürümü) kullanın veya temel kapsayıcı görüntünüzü olarak daha yüksek.
 - Tek başına bir hizmet adı işe yaramazsa, tam adı deneyin: ServiceName.ApplicationName.

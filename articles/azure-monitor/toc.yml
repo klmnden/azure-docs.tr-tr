@@ -12,17 +12,17 @@ items:
   - name: Uygulamalar
     items:
     - name: .NET uygulaması
-      href: ../application-insights/quick-monitor-portal.md?toc=/azure/azure-monitor/toc.json
+      href: learn/quick-monitor-portal.md
     - name: .NET Core uygulaması
-      href: ../application-insights/app-insights-dotnetcore-quick-start.md?toc=/azure/azure-monitor/toc.json
+      href: learn/dotnetcore-quick-start.md
     - name: Node.js uygulaması
-      href: ../application-insights/app-insights-nodejs-quick-start.md?toc=/azure/azure-monitor/toc.json
+      href: learn/nodejs-quick-start.md
     - name: Java uygulaması
-      href: ../application-insights/app-insights-java-quick-start.md?toc=/azure/azure-monitor/toc.json
+      href: learn/java-quick-start.md
     - name: Mobil uygulama
-      href: ../application-insights/app-insights-mobile-center-quickstart.md?toc=/azure/azure-monitor/toc.json
+      href: learn/mobile-center-quickstart.md
     - name: Web uygulaması
-      href: ../application-insights/app-insights-website-monitoring.md?toc=/azure/azure-monitor/toc.json
+      href: app/website-monitoring.md
   - name: Sanal makineler
     items:
     - name: Toplama - Azure VM’leri
@@ -45,15 +45,15 @@ items:
   - name: Performans ve zamanlamaya göre otomatik ölçeklendirme
     href: learn/tutorial-autoscale-performance-schedule.md
   - name: Uygulama çalışma zamanı özel durumlarını belirleme
-    href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-runtime-exceptions.md
   - name: Uygulama performansı sorunlarını belirleme
     href: ../application-insights/app-insights-tutorial-performance.md?toc=/azure/azure-monitor/toc.json
   - name: Uygulama durumuyla ilgili uyarılar gönderme
-    href: ../application-insights/app-insights-tutorial-alert.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-alert.md
   - name: Uygulama kullanıcılarını anlama
     href: ../application-insights/app-insights-tutorial-users.md?toc=/azure/azure-monitor/toc.json
   - name: Özel panolar oluşturma
-    href: ../application-insights/app-insights-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-app-dashboards.md
 - name: Örnekler
   items:
   - name: Azure PowerShell
@@ -262,8 +262,8 @@ items:
       items:
       - name: Azure uygulamaları
         items:
-        - name: Azure web uygulamaları
-          href: app/azure-web-apps.md
+        - name: Azure App Service
+          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
         - name: Azure Cloud Services
           href: app/cloudservices.md
         - name: Sürekli izleme ekleme
@@ -271,21 +271,21 @@ items:
         - name: Profil Oluşturucu
           items:
           - name: Genel Bakış
-            href: ../application-insights/app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-overview.md
           - name: App Service için Profiler’ı etkinleştirme
             href: app/profiler.md
           - name: Bulut Hizmeti için Profiler’ı etkinleştirme
-            href: ../application-insights/app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-cloudservice.md
           - name: Service Fabric Uygulaması için Profiler’ı etkinleştirme
-            href: ../application-insights/app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-servicefabric.md
           - name: Azure VM’si için Profiler’ı etkinleştirme
-            href: ../application-insights/app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-vm.md
           - name: Profiler Ayarları
-            href: ../application-insights/app-insights-profiler-settings.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-settings.md
           - name: Profil Oluşturma İsteklerini İzleme
-            href: ../application-insights/app-insights-profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-trackrequests.md
           - name: Profiler Sorunlarını Giderme
-            href: ../application-insights/app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-troubleshooting.md
         - name: Tanılama
           href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: Önizlemeler
@@ -297,7 +297,7 @@ items:
         - name: Durum İzleyicisi
           href: app/monitor-performance-live-website-now.md
         - name: Windows hizmetleri
-          href: ../application-insights/app-insights-windows-services.md?toc=/azure/azure-monitor/toc.json
+          href: app/windows-services.md
         - name: Windows masaüstü
           href: app/windows-desktop.md
         - name: ASP.NET Çekirdeği
@@ -389,7 +389,7 @@ items:
         - name: Akıllı algılama kurallarını yönetme
           href: app/proactive-arm-config.md
       - name: Kaynak oluşturma
-        href: ../application-insights/app-insights-create-new-resource.md?toc=/azure/azure-monitor/toc.json
+        href: app/create-new-resource.md
       - name: Sorun giderme
         items:
         - name: .NET için veri yok
@@ -645,7 +645,7 @@ items:
       - name: Günlük verilerini dışarı aktarma
         href: platform/powerbi.md
       - name: Uygulama verilerini dışarı aktarma
-        href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
+        href: app/export-power-bi.md
     - name: Grafana'ya veri gönderme
       href: platform/grafana-plugin.md
   - name: Verileri çözümleme
@@ -713,6 +713,7 @@ items:
         - name: Uygulama verileri
           href: app/analytics.md
         - name: Standart özellikler
+          href: platform/log-standard-properties.md
         - name: Metin verilerini ayrıştırma
           href: log-query/parse-text.md
       - name: Arama sonuçlarına göre işlem yapma
@@ -930,7 +931,7 @@ items:
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure İşlevleri
-    href: ../application-insights/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
+    href: app/azure-functions-supported-features.md
   - name: Azure PowerShell
     items:
     - name: İzleme
@@ -1004,9 +1005,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Kod örnekleri
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 8fc518262ba4b1d1c53c8fd2622f724550cddb2e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: daba9eb12d568e3eb49a7aa4d21f1d2eaa367ab8
+ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053662"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54074623"
