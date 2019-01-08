@@ -20,7 +20,7 @@ ms.lasthandoff: 01/04/2019
 ms.locfileid: "54017659"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Azure Data Factory kullanarak bir SFTP sunucusundan veri taşıma
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Kullanmakta olduğunuz Data Factory servisinin sürümünü seçin:"]
 > * [Sürüm 1](data-factory-sftp-connector.md)
 > * [Sürüm 2 (geçerli sürüm)](../connector-sftp.md)
 
