@@ -1,6 +1,6 @@
 ---
-title: Toplama ve Syslog iletileri Azure İzleyici'de çözümleme | Microsoft Docs
-description: Syslog Linux için ortak olan olay günlüğü protokolüdür. Bu makalede, Azure İzleyici ve oluşturdukları kayıtları ayrıntılarını Syslog iletileri koleksiyonu yapılandırma açıklanır.
+title: Toplama ve çözümleme Log analytics'te, Syslog iletileri | Microsoft Docs
+description: Syslog Linux için ortak olan olay günlüğü protokolüdür. Bu makalede, Syslog iletileri koleksiyonunu Log Analytics ve oluşturdukları kayıtları ayrıntılarını yapılandırma açıklanır.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 263f9dcd038bd9ec20036983e273f56191e9a300
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6af1dcd6ffac1722ed39f8fe69f3d78aa4ed8313
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436730"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104429"
 ---
-# <a name="syslog-data-sources-in-azure-monitor"></a>Azure İzleyici'de Syslog veri kaynakları
-Syslog Linux için ortak olan olay günlüğü protokolüdür.  Uygulamaları, yerel makinede depolanan veya bir Syslog Toplayıcıya teslim olabilir iletileri gönderir.  Linux için Log Analytics aracısını yüklendiğinde, aracıya ileti iletmek için yerel Syslog daemon'u yapılandırır.  Aracı, ardından ilgili kaydın oluşturulduğu Azure İzleyici için ileti gönderir.  
+# <a name="syslog-data-sources-in-log-analytics"></a>Syslog Log analytics'te veri kaynakları
+Syslog Linux için ortak olan olay günlüğü protokolüdür.  Uygulamaları, yerel makinede depolanan veya bir Syslog Toplayıcıya teslim olabilir iletileri gönderir.  Linux için Log Analytics aracısını yüklendiğinde, aracıya ileti iletmek için yerel Syslog daemon'u yapılandırır.  Aracısı'nı, ardından Log Analytics'e karşılık gelen bir kaydın oluşturulduğu iletiyi gönderir.  
 
 > [!NOTE]
-> Azure İzleyici, koleksiyon rsyslog varsayılan arka plan programı olduğu rsyslog veya syslog-ng tarafından gönderilen iletilerin destekler. Red Hat Enterprise Linux, CentOS ve Oracle Linux sürümü (sysklog) 5 sürümünde varsayılan syslog daemon'u syslog olay toplaması için desteklenmiyor. Bu dağıtımları sürümünden Syslog verilerini toplamak için [rsyslog daemon](http://rsyslog.com) yüklenmeli ve sysklog değiştirmek için yapılandırılmış.
+> Log Analytics'e toplama rsyslog varsayılan arka plan programı olduğu rsyslog veya syslog-ng tarafından gönderilen iletilerin destekler. Red Hat Enterprise Linux, CentOS ve Oracle Linux sürümü (sysklog) 5 sürümünde varsayılan syslog daemon'u syslog olay toplaması için desteklenmiyor. Bu dağıtımları sürümünden Syslog verilerini toplamak için [rsyslog daemon](http://rsyslog.com) yüklenmeli ve sysklog değiştirmek için yapılandırılmış.
 >
 >
 
