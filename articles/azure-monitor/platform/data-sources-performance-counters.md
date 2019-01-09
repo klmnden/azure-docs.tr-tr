@@ -1,6 +1,6 @@
 ---
-title: Toplama ve performans sayaçları Azure İzleyici'de çözümleme | Microsoft Docs
-description: Performans sayaçları, Windows ve Linux aracılarını performansını analiz etmek için Azure İzleyici tarafından toplanır.  Bu makalede her iki Windows performans sayaçlarını toplamayı yapılandırma ve Linux aracıları, bunlar ayrıntılarını çalışma ve bunları Azure portalında çözümlemek nasıl depolanır.
+title: Toplama ve performans sayaçları Log analytics'te çözümleme | Microsoft Docs
+description: Windows ve Linux aracılarını performansını analiz etmek için Log Analytics tarafından toplanan performans sayaçlarını.  Bu makalede her iki Windows performans sayaçlarını toplamayı yapılandırma ve Linux aracıları, bunlar ayrıntılarını çalışma ve bunları Azure portalında çözümlemek nasıl depolanır.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018l
 ms.author: magoedte
-ms.openlocfilehash: f6b6d04df3e3b705fd57e7dffe1570a5e10adb5d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 8359dda2521773145f9e3e870c3c21db1546004b
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438379"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103715"
 ---
-# <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure İzleyici'de Windows ve Linux performans veri kaynakları
-Windows ve Linux performans sayaçları, performans donanım bileşenleri, işletim sistemleri ve uygulamalar hakkında bilgi sağlar.  Azure İzleyici, neredeyse gerçek zamanlı (NRT) analiz uzun süreli analiz için performans verilerini toplama ve raporlama yanı sıra sık aralıklarla performans sayaçları toplayabilirsiniz.
+# <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log analytics'te Windows ve Linux performans veri kaynakları
+Windows ve Linux performans sayaçları, performans donanım bileşenleri, işletim sistemleri ve uygulamalar hakkında bilgi sağlar.  Log Analytics uzun süreli analiz için performans verilerini toplama ve raporlama ek olarak, neredeyse gerçek zamanlı (NRT) analiz için sık sık aralıklarla performans sayaçları toplayabilirsiniz.
 
 ![Performans sayaçları](media/data-sources-performance-counters/overview.png)
 
@@ -88,7 +88,7 @@ Bu öğe içindeki parametreler aşağıdaki tabloda açıklanmıştır.
 | interval | Toplanan ve nesnenin sayaçları sıklığı. |
 
 
-Aşağıdaki tabloda, nesneleri ve yapılandırma dosyasında belirttiğiniz sayaçları listeler.  Kullanılabilir ek sayaçları belirli uygulamalar için açıklandığı [Azure İzleyici'de Linux uygulamaları için performans sayaçları toplamak](data-sources-linux-applications.md).
+Aşağıdaki tabloda, nesneleri ve yapılandırma dosyasında belirttiğiniz sayaçları listeler.  Kullanılabilir ek sayaçları belirli uygulamalar için açıklandığı [Log analytics'te Linux uygulamaları için performans sayaçları toplamak](data-sources-linux-applications.md).
 
 | Nesne Adı | Sayaç Adı |
 |:--|:--|
@@ -182,7 +182,7 @@ Performans ölçümleri için varsayılan yapılandırma aşağıda verilmiştir
     </source>
 
 ## <a name="data-collection"></a>Veri toplama
-Azure İzleyici, sayaç yüklü olan tüm aracıları, belirtilen örnekleme aralığında tüm performans sayaçlarını toplar.  Veriler değil toplanır ve ham veriler, aboneliğinizi tarafından belirtilen süre için tüm günlük sorgu görünümlerde kullanılabilir.
+Log Analytics, sayaç yüklü olan tüm aracıları, belirtilen örnekleme aralığında tüm performans sayaçlarını toplar.  Veriler değil toplanır ve ham veriler, aboneliğinizi tarafından belirtilen süre için tüm günlük sorgu görünümlerde kullanılabilir.
 
 ## <a name="performance-record-properties"></a>Performans kayıt özellikleri
 Performans kayıtları sahip bir tür **Perf** ve aşağıdaki tabloda gösterilen özelliklere sahiptir.

@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e68e236c54083862bbe1524ec2f7fc3ee6c52ef2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7bc04748f2a5b8caa8f589140dd46f0650b7b390
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002221"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54102984"
 ---
 # <a name="what-is-distributed-tracing"></a>Dağıtılmış izleme nedir?
 
-Modern bulut gelişinden ve [mikro Hizmetler](http://azure.com/microservices) mimarileri verilen artış basit, bağımsız bir şekilde dağıtılabilen hizmetlerine kullanılabilirlik ve aktarım hızı artırırken maliyetleri azaltmaya yardımcı olabilir. Ancak bu hareketleri tek tek Hizmetleri bir bütün olarak anlamak daha da kolaylaştırdık, ancak bunlar genel sistemleri hakkında neden ve hatalarını ayıklamak daha zor yaptık.
+Modern bulut gelişinden ve [mikro Hizmetler](https://azure.com/microservices) mimarileri verilen artış basit, bağımsız bir şekilde dağıtılabilen hizmetlerine kullanılabilirlik ve aktarım hızı artırırken maliyetleri azaltmaya yardımcı olabilir. Ancak bu hareketleri tek tek Hizmetleri bir bütün olarak anlamak daha da kolaylaştırdık, ancak bunlar genel sistemleri hakkında neden ve hatalarını ayıklamak daha zor yaptık.
 
 Tek parça mimarilerde çağrı yığınları ile hata ayıklama için kullandığımız değil. Çağrı yığınlarını olan (çağrılan yöntem C yöntemi adlı bir yöntemi B) akışını göstermek için parlak araçları, ayrıntıları ve parametreleri her çağrılara hakkında yanı sıra. Bu hamleye olanak veya tek bir işlem üzerinde çalışan hizmetler için mükemmel olmakla birlikte nasıl hata ayıklama ne zaman bir başvuru değil yalnızca yerel yığın üzerinde bir işlem sınırı arasında çağrıdır? 
 
@@ -59,4 +59,4 @@ OpenCensus Web sitesi için API başvuru belgeleri tutar [Python](https://opence
 
 * [OpenCensus Python Kullanım Kılavuzu](https://opencensus.io/api/python/trace/usage.html)
 * [Uygulama Haritası](./../../azure-monitor/app/app-map.md)
-* [Uçtan uca performans izleme](./../../application-insights/app-insights-tutorial-performance.md)
+* [Uçtan uca performans izleme](./../../azure-monitor/learn/tutorial-performance.md)

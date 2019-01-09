@@ -5,17 +5,17 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
+ms.component: performance
 ms.topic: how-to
-ms.component: monitor and tune
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d366850bc886dc48afc59ffaf0958b39314ebb1
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2a0504ae0e5c3dbf70ad84526176beae52f55870
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385541"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103137"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Gen2 önbelleğini izleme
 Gen2 depolama mimarisi, en sık Sorgulanmış columnstore segmentleri NVMe SSD tabanlı Gen2 veri ambarları için tasarlanmış bulunan bir önbellekte otomatik olarak katmanlandırır. Sorgularınızın önbelleğinde bulunan segmentleri aldığınızda daha yüksek performans alırlar. Bu makalede, izleme ve iş yükünüz Gen2 önbellek en iyi şekilde yararlanma olup olmadığını belirleyerek yavaş sorgu performansı sorunlarını giderme açıklar.  
@@ -39,15 +39,15 @@ Aşağıdaki matris önbellek ölçümlerini değerlerine göre senaryosu açık
 | **Yüksek kullanılan önbellek yüzdesi** |          Senaryo 1           |          Senaryo 2          |
 | **Düşük kullanılan önbellek yüzdesi**  |          Senaryo 3           |          Senaryo 4          |
 
-**Senaryo 1:** önbelleğinizi en uygun şekilde kullanıyorsunuz. [Sorun giderme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) sorgularınızı yavaşlatmasını diğer alanları.
+**Senaryo 1:** Önbelleğinizi en verimli şekilde kullanıyor. [Sorun giderme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) sorgularınızı yavaşlatmasını diğer alanları.
 
-**Senaryo 2:** geçerli çalışma Veri kümenizi düşük neden önbelleğe sığamıyorsa önbellek isabet yüzdesi fiziksel okuma nedeniyle. Performans düzeyinizi ölçeklendirmeyi düşünün ve önbelleğini doldurmak için iş yükünüzü yeniden çalıştırın.
+**Senaryo 2:** Geçerli Çalışma Veri kümenizi düşük neden önbelleğe sığamıyorsa önbellek isabet yüzdesi fiziksel okuma nedeniyle. Performans düzeyinizi ölçeklendirmeyi düşünün ve önbelleğini doldurmak için iş yükünüzü yeniden çalıştırın.
 
-**Senaryo 3:** sorgunuzu önbelleğe ilgisi olmayan nedenlerden dolayı yavaş çalıştığından emin olma olasılığı yüksektir. [Sorun giderme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) sorgularınızı yavaşlatmasını diğer alanları. Ayrıca düşünebilirsiniz [örneğinizin ölçeklendirme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) maliyet tasarrufu için önbellek boyutunu azaltmak için. 
+**Senaryo 3:** Sorgunuzu önbelleğe ilgisi olmayan nedenlerden dolayı yavaş çalıştığından emin olma olasılığı yüksektir. [Sorun giderme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) sorgularınızı yavaşlatmasını diğer alanları. Ayrıca düşünebilirsiniz [örneğinizin ölçeklendirme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) maliyet tasarrufu için önbellek boyutunu azaltmak için. 
 
-**Senaryo 4:** neden sorgunuzu yavaş neden olabilecek bir soğuk önbellek vardı. Çalışma kümenizin artık, önbelleğe alınması gerektiği gibi sorgunuzu yeniden deneyin. 
+**Senaryo 4:** Sorgunuzu yavaş neden neden olabilecek bir soğuk önbellek var. Çalışma kümenizin artık, önbelleğe alınması gerektiği gibi sorgunuzu yeniden deneyin. 
 
-**Önemli: önbellek isabet yüzdesi veya kullanılan önbellek yüzdesini güncelleştirilmiyor iş yükünüzü yeniden çalıştırdıktan sonra çalışma kümenizin zaten bellekte bulunan bağlantısız. Yalnızca kümelenmiş columnstore tablolarını önbelleğe alındığını unutmayın.**
+**Önemli: Önbellek isabet yüzdesi veya kullanılan önbellek yüzdesini güncelleştirilmiyor iş yükünüzü yeniden çalıştırdıktan sonra çalışma kümenizin zaten bellekte bulunan bağlantısız. Yalnızca kümelenmiş columnstore tablolarını önbelleğe alındığını unutmayın.**
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Genel sorgu performansını ayarlama ile ilgili daha fazla bilgi için bkz: [izleme sorgu yürütme](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-query-execution).
