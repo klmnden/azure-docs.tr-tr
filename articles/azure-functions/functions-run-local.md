@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 3239cbc957d2a79c7a5411604759f86f0268bd70
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c99d5e9d64e9e9715589ecf2c0de57ce660917aa
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976316"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103698"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>İle Azure işlevleri çekirdek Araçları çalışma
 
@@ -307,6 +307,7 @@ func host start
 | **`--password`** | Parola veya bir .pfx dosyası için parolayı içeren dosya. Yalnızca kullanılan `--cert`. Sürüm 2.x yalnızca. |
 | **`--port -p`** | Dinlemenin yapılacağı yerel bağlantı noktası. Varsayılan değer: 7071. |
 | **`--pause-on-error`** | Duraklatma işlemi çıkmadan önce ek giriş. Yalnızca temel araçları bir tümleşik geliştirme ortamından (IDE) başlatma sırasında kullanılır.|
+| **`--script-root --prefix`** | Çalıştırın veya dağıtılmış bir işlev uygulaması, kök yolunu belirtmek için kullanılır. Bu, bir alt klasöre proje dosyalarını oluşturmak derlenen projeler için kullanılır. Örneğin, bir C# sınıf kitaplığı projesi, host.json, local.settings.json ve function.json dosyaları oluşturduğunuzda oluşturulur bir *kök* bir yola sahip alt ister `MyProject/bin/Debug/netstandard2.0`. Bu durumda, ön eki olarak ayarlamak `--script-root MyProject/bin/Debug/netstandard2.0`. Azure'da çalışan işlev uygulamasını kök budur. |
 | **`--timeout -t`** | Saniyeler içinde başlatılacak işlevleri konak için zaman aşımı. Varsayılan: 20 saniye.|
 | **`--useHttps`** | Bağlama `https://localhost:{port}` yerine çok `http://localhost:{port}`. Varsayılan olarak, bu seçenek bilgisayarınızda güvenilen bir sertifika oluşturur.|
 

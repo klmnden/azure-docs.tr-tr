@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: zarhoads
-ms.openlocfilehash: 5510c46a134ccec1fdc76a6bcea46de21750e969
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 024cf099dd65db036ae0b68d7094a60427ffa69c
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467200"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54119893"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Bir Linux sanal makine Azure'da birden çok ağ arabirimi kartları oluşturma
 
@@ -203,13 +203,13 @@ az network nsg rule create \
 Bir genel IP adresiyle oluşturma [az network public-IP oluşturma](/cli/azure/network/public-ip#az-network-public-ip-create) ve ilk NIC ile atayın [az ağ NIC IP-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update):
 
 ```azurecli
-az network public-ip-address create --resource-group myResourceGroup --name myPublicIP
+az network public-ip create --resource-group myResourceGroup --name myPublicIP
 
 az network nic ip-config update \
     --resource-group myResourceGroup \
     --nic-name myNic1 \
     --name ipconfig1 \
-    --public-ip-addres myPublicIP
+    --public-ip myPublicIP
 ```
 
 Sanal makinenin genel IP adresini görüntülemek için kullanın [az vm show](/cli/azure/vm#az-vm-show) gibi::

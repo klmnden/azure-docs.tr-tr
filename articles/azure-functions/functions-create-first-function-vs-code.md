@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ce887c6d9e4e625d8fe08ee3acfc179cd903d187
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: d265c391b12a46f509c8663c64892372c8d806ba
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054070"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54104531"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Visual Studio Code kullanarak ilk işlevinizi oluşturma
 
@@ -93,7 +93,7 @@ Azure İşlevleri Temel Araçları, Azure İşlevleri projenizi yerel geliştirm
 
     ![Tarayıcıdaki işlev localhost yanıtı](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
 
-1. Hata ayıklamayı durdurmak için Shift + F1 tuşuna basın.
+1. Hata ayıklamayı durdurmak için Shift + F5 tuşuna basın.
 
 İşlevin yerel bilgisayarınızda düzgün çalıştığını doğruladıktan sonra, projeyi Azure'da yayımlamanın zamanı gelmiştir.
 

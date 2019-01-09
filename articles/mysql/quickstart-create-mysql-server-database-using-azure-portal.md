@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/01/2018
-ms.openlocfilehash: aede3f432614023739d6967c6e76ff3aaf892cca
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 24dc1d043e96515f0af68e08b6c3a434e64e4df5
+ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537809"
+ms.lasthandoff: 01/09/2019
+ms.locfileid: "54121694"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma
 
@@ -71,7 +71,7 @@ MySQL için Azure Veritabanı hizmeti, sunucu düzeyinde bir güvenlik duvarı o
 
 2. Sunucu sayfasında **Bağlantı güvenliği**’ni seçin.
 
-3.  **Güvenlik Duvarı kuralları** başlığı altında, güvenlik duvarı kuralı oluşturmaya başlamak için **Kural Adı** sütunundaki boş metin kutusunu seçin. Bu sunucuya erişecek istemcilerin IP’lerinin tam aralığını girin.
+3.  **Güvenlik Duvarı kuralları** başlığı altında, güvenlik duvarı kuralı oluşturmaya başlamak için **Kural Adı** sütunundaki boş metin kutusunu seçin. Kesin IP aralığı bu sunucuya erişen istemcilerin girin.
    
    ![Bağlantı güvenliği - Güvenlik duvarı kuralları](./media/quickstart-create-mysql-server-database-using-azure-portal/5-firewall-2.png)
 

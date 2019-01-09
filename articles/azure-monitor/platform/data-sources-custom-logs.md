@@ -1,6 +1,6 @@
 ---
-title: Azure İzleyici'de özel günlüklerini toplama | Microsoft Docs
-description: Azure İzleyici, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olayları toplayabilir.  Bu makalede yeni bir özel günlük ve Azure İzleyici'de oluşturdukları kayıtları ayrıntılarını nasıl tanımlanacağını açıklar.
+title: Log analytics'te özel günlüklerini toplama | Microsoft Docs
+description: Log Analytics, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olayları toplayabilir.  Bu makalede yeni bir özel günlük ve Log Analytics'te oluşturdukları kayıtları ayrıntılarını nasıl tanımlanacağını açıklar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: bwren
-ms.openlocfilehash: 28c8ca5a81f76e10e7c8b84897f77702ee68cdc0
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: dc1de1bb43295d2ff9f260613ae568cdd2fbe6ae
+ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434401"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54103521"
 ---
-# <a name="custom-logs-in-azure-monitor"></a>Azure İzleyici'de özel günlükler
-Azure İzleyici'de özel günlükleri veri kaynağı, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olaylarını toplamanıza olanak sağlar. Birçok uygulama için Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerinin yerine metin dosyaları bilgileri günlüğe kaydetmek. Toplandığında, verileri ayrı ayrı alanlara sorgularınızdaki ayrıştırmak veya sırasında ayrı alanlar koleksiyonuna olan verileri ayıklayın.
+# <a name="custom-logs-in-log-analytics"></a>Log analytics'te özel günlükler
+Log analytics'te özel günlükleri veri kaynağı, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olaylarını toplamanıza olanak sağlar. Birçok uygulama için Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerinin yerine metin dosyaları bilgileri günlüğe kaydetmek. Toplandığında, verileri ayrı ayrı alanlara sorgularınızdaki ayrıştırmak veya sırasında ayrı alanlar koleksiyonuna olan verileri ayıklayın.
 
 ![Özel günlük toplama](media/data-sources-custom-logs/overview.png)
 
@@ -35,7 +35,7 @@ Günlük dosyaları toplanacak, aşağıdaki ölçütlere uymalıdır.
 - Günlük dosyası, ASCII veya UTF-8 kodlamasını kullanmanız gerekir.  UTF-16 gibi diğer biçimlerde desteklenmez.
 
 >[!NOTE]
->Günlük dosyasında yinelenen girişler varsa, bunları Azure İzleyici toplar.  Ancak, sorgu sonuçları nerede sonucu sayısından daha fazla olay filtre sonuçlarını göster tutarsız olur.  Günlük oluşturduğu uygulama bu davranış neden olup olmadığını belirlemek ve eğer mümkünse bunu özel günlük koleksiyonu tanımı oluşturmadan önce çözmek için doğrulama önemli olacaktır.  
+>Log Analytics günlük dosyasında yinelenen girişler varsa bunları toplar.  Ancak, sorgu sonuçları nerede sonucu sayısından daha fazla olay filtre sonuçlarını göster tutarsız olur.  Günlük oluşturduğu uygulama bu davranış neden olup olmadığını belirlemek ve eğer mümkünse bunu özel günlük koleksiyonu tanımı oluşturmadan önce çözmek için doğrulama önemli olacaktır.  
 >
   
 >[!NOTE]
@@ -54,18 +54,18 @@ Günlük dosyaları toplanacak, aşağıdaki ölçütlere uymalıdır.
 4. Tıklayın **Ekle +** özel günlük Sihirbazı'nı açın.
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>2. Adım Karşıya yükleme ve bir örnek günlük ayrıştırma
-Özel günlük örneği yükleyerek başlarsınız.  Sihirbaz, ayrıştırma ve doğrulamak bu dosyayı girişleri görüntülemek.  Azure İzleyici, her kaydı tanımlamak için belirttiğiniz sınırlayıcıyı kullanır.
+Özel günlük örneği yükleyerek başlarsınız.  Sihirbaz, ayrıştırma ve doğrulamak bu dosyayı girişleri görüntülemek.  Log Analytics, her kaydı tanımlamak için belirttiğiniz sınırlayıcıyı kullanır.
 
 **Yeni satır** varsayılan sınırlayıcı ve her satırda tek bir giriş olan günlük dosyaları için kullanılır.  Bir tarih ve saatte kullanılabilir biçimlerden birinde ile satırda başlatılan ardından belirtebileceğiniz bir **zaman damgası** birden fazla satırı span girişleri destekleyen sınırlayıcı.
 
-Zaman damgası sınırlayıcı kullandıysanız, Azure İzleyici'de depolanan her kaydın TimeGenerated özelliği bu günlük dosyası girişi için belirtilen tarih/saat ile doldurulur.  Yeni bir satır ayırıcı kullanılırsa, TimeGenerated tarih ve saat Azure İzleyici giriş toplanan ile doldurulur.
+Zaman damgası ayırıcı kullanılırsa, Log Analytics içinde depolanan her kaydın TimeGenerated özelliği bu günlük dosyası girişi için belirtilen tarih/saat ile doldurulur.  Yeni bir satır ayırıcı kullanılırsa, TimeGenerated tarih ve saat Log Analytics'e giriş toplanan ile doldurulur.
 
 
 1. Tıklayın **Gözat** ve bir örnek dosyasına göz atın.  Bu düğme Not etiketli **Dosya Seç** bazı tarayıcılarda.
-2. **İleri**'ye tıklayın.
+2. **İleri**’ye tıklayın.
 3. Özel günlük Sihirbazı'nı dosyayı yükleyin ve tanımladığı kayıtları listesi.
 4. Yeni bir kayıt tanımlamak ve günlük dosyanız kayıtlara en iyi şekilde tanımlayan bir sınırlayıcı seçmek için kullanılan sınırlayıcıyı değiştirin.
-5. **İleri**'ye tıklayın.
+5. **İleri**’ye tıklayın.
 
 ### <a name="step-3-add-log-collection-paths"></a>3. Adım Günlük koleksiyonu yolları ekle
 Özel günlük burada bulabilirsiniz aracı üzerinde bir veya daha fazla yol tanımlamanız gerekir.  Belirli bir yol ve günlük dosyasının adı ya da sağlayabilir veya adı için joker karakter içeren bir yol belirtebilirsiniz. Bu, her gün veya bir dosyada belirli bir boyuta ulaştığında yeni bir dosya oluşturun, uygulamaları destekler. Ayrıca, tek bir günlük dosyası için birden çok yol sağlayabilir.
@@ -92,21 +92,21 @@ Aşağıdaki tabloda farklı günlük dosyaları belirtmek için geçerli düzen
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>4. Adım. Bir ad ve açıklama günlüğü sağlayın
 Belirttiğiniz ad, yukarıda açıklandığı gibi günlük türü için kullanılacaktır.  Özel bir günlük ayırmak için _CL ile her zaman sona erecek.
 
-1. Günlük için'bir ad yazın.  **\_CL** soneki otomatik olarak sağlanır.
+1. Günlük için'bir ad yazın.   **\_CL** soneki otomatik olarak sağlanır.
 2. İsteğe bağlı bir ekleme **açıklama**.
 3. Tıklayın **sonraki** özel günlük tanımını kaydedin.
 
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>5. Adım. Özel günlükler toplanan doğrula
-Bu ilk veriler için bir saat yeni bir özel günlüğünden Azure İzleyici'de görüntülenecek kadar sürebilir.  Girdileri toplamaya başlar özel günlük tanımlandığı noktadan itibaren belirttiğiniz günlüklerinden yolunda bulunamadı.  Özel günlük oluşturma sırasında yüklenen girişler korumaz, ancak varolan girişleri bulmadığı günlük dosyalarında toplar.
+Bu ilk veriler için bir saat yeni bir özel günlük Log Analytics'te görünmesini kadar sürebilir.  Girdileri toplamaya başlar özel günlük tanımlandığı noktadan itibaren belirttiğiniz günlüklerinden yolunda bulunamadı.  Özel günlük oluşturma sırasında yüklenen girişler korumaz, ancak varolan girişleri bulmadığı günlük dosyalarında toplar.
 
-Azure İzleyici özel günlük toplama başladığında, bir günlük sorgusu ile kayıtlarını kullanılabilir.  Özel günlük olarak verdiğiniz ad **türü** sorgunuzda.
+Log Analytics, özel günlük toplama başladığında, bir günlük sorgusu ile kayıtlarını kullanılabilir.  Özel günlük olarak verdiğiniz ad **türü** sorgunuzda.
 
 > [!NOTE]
 > RawData özelliği sorguda eksik, tarayıcınızı kapatıp gerekebilir.
 
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>6. Adım. Özel günlük girişlerini ayrıştırılamıyor
-Tüm günlük girişi adlı tek bir özellik içinde saklanan **RawData**.  Her kayıt için ayrı ayrı Özellikler içinde her giriş bilgilerinin farklı parçaları ayırmak büyük olasılıkla isteyeceksiniz. Başvurmak [ayrıştırma metin verilerini Azure İzleyici'de](../log-query/parse-text.md) ayrıştırma seçenekleri için **RawData** birden çok özellikleri.
+Tüm günlük girişi adlı tek bir özellik içinde saklanan **RawData**.  Her kayıt için ayrı ayrı Özellikler içinde her giriş bilgilerinin farklı parçaları ayırmak büyük olasılıkla isteyeceksiniz. Başvurmak [ayrıştırma metin verilerini Log analytics'te](../log-query/parse-text.md) ayrıştırma seçenekleri için **RawData** birden çok özellikleri.
 
 ## <a name="removing-a-custom-log"></a>Özel günlük kaldırılıyor
 Aşağıdaki işlemi Azure portalında önceden tanımlanmış özel bir günlük kaldırmak için kullanın.
@@ -116,16 +116,16 @@ Aşağıdaki işlemi Azure portalında önceden tanımlanmış özel bir günlü
 
 
 ## <a name="data-collection"></a>Veri toplama
-Azure İzleyici yaklaşık her 5 dakikada her özel günlüğünden yeni girişler toplar.  Aracı, onun yerine toplar, her bir günlük dosyasına kaydeder.  Aracıyı bir süre için çevrimdışı olursa, girişler aracının çevrimdışı durumdayken oluşturulmuş olsalar bile sonra Azure İzleyici girişleri son devre dışı kaldığı toplar.
+Log Analytics'i yeni girişler her özel günlüğünden yaklaşık her 5 dakikada toplar.  Aracı, onun yerine toplar, her bir günlük dosyasına kaydeder.  Aracıyı bir süre için çevrimdışı olursa, girişler aracının çevrimdışı durumdayken oluşturulmuş olsalar bile sonra Log Analytics girişleri son devre dışı kaldığı toplar.
 
-Günlük giriş öğesinin tüm içeriğini adlı tek bir özellik için yazılan **RawData**.  Bkz [ayrıştırma metin verilerini Azure İzleyici'de](../log-query/parse-text.md) her ayrıştırmak yöntemler için birden çok özellik günlük girişine içeri aktarıldı.
+Günlük giriş öğesinin tüm içeriğini adlı tek bir özellik için yazılan **RawData**.  Bkz [ayrıştırma metin verilerini Log analytics'te](../log-query/parse-text.md) her ayrıştırmak yöntemler için birden çok özellik günlük girişine içeri aktarıldı.
 
 ## <a name="custom-log-record-properties"></a>Özel günlük kaydı özellikleri
 Özel günlük kayıtları, aşağıdaki tabloda günlük adını sağlayan ve özellikleri ile bir türü vardır.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| TimeGenerated |Tarih ve saat kaydı, Azure İzleyici tarafından toplanan.  Zamana bağlı bir sınırlayıcı günlük kullanıyorsa, ardından bu girişi toplanan zamandır. |
+| TimeGenerated |Tarih ve Log Analytics tarafından toplanan kaydı.  Zamana bağlı bir sınırlayıcı günlük kullanıyorsa, ardından bu girişi toplanan zamandır. |
 | SourceSystem |Aracı kaydı toplandığı türü. <br> OpsManager – Windows Aracısı, doğrudan bağlanın veya System Center Operations Manager <br> Linux – tüm Linux aracıları |
 | RawData |Toplanan girişinin tam metin. Büyük olasılıkla isteyeceksiniz [ayrı ayrı Özellikler içinde bu verileri ayrıştırmak](../log-query/parse-text.md). |
 | ManagementGroupName |Aracıları System Center Operations yönetmek için yönetim grubunun adı.  Diğer aracılar için AOI - budur\<çalışma alanı kimliği\> |
@@ -166,5 +166,5 @@ Bir sorgu kullandığımız *türü MyApp_CL =* toplanan günlük tüm kayıtlar
 ![Özel alanlarla günlük sorgusu](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bkz [ayrıştırma metin verilerini Azure İzleyici'de](../log-query/parse-text.md) her ayrıştırmak yöntemler için birden çok özellik günlük girişine içeri aktarıldı.
+* Bkz [ayrıştırma metin verilerini Log analytics'te](../log-query/parse-text.md) her ayrıştırmak yöntemler için birden çok özellik günlük girişine içeri aktarıldı.
 * Hakkında bilgi edinin [oturum sorguları](../log-query/log-query-overview.md) veri kaynakları ve çözümlerinden toplanan verileri analiz etmek için.
